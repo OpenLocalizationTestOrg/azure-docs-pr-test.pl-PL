@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać Arduino (C) Azure IoT — lekcji 4: chmury do urządzenia | Dokumentacja firmy Microsoft"
-description: "Przykładowa aplikacja działa na komunikaty przychodzące Adafruit piór M0 sieci Wi-Fi i monitorów z Centrum IoT. Nowe zadanie gulp wysyła komunikaty do Adafruit piór M0 sieci Wi-Fi z Centrum IoT miga LED."
+title: "Connect Arduino (C) tooAzure IoT - 4 lekcji: chmury do urządzenia | Dokumentacja firmy Microsoft"
+description: "Przykładowa aplikacja działa na komunikaty przychodzące Adafruit piór M0 sieci Wi-Fi i monitorów z Centrum IoT. Nowe zadanie gulp wysyła komunikaty tooAdafruit M0 piór sieci Wi-Fi z Twojej hello tooblink Centrum IoT LED."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,57 +17,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: b4f4c1d86b10b64c104ac812d1f650d723322be8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dcddd61ff684f49436103675938d719cb227c409
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Uruchom przykładową aplikację do odbierania wiadomości chmury do urządzenia
+# <a name="run-a-sample-application-tooreceive-cloud-to-device-messages"></a>Uruchom tooreceive aplikacji przykładowej wiadomości chmury do urządzenia
 W tym artykule na tablicy Adafruit piór M0 sieci Wi-Fi Arduino wdrażania przykładowej aplikacji.
 
-Przykładowa aplikacja monitoruje komunikaty przychodzące z Centrum IoT. Można również uruchomić zadanie gulp na komputerze do wysyłania komunikatów do tablicy Arduino z Centrum IoT. Gdy przykładowa aplikacja odbiera komunikaty, miga LED. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+aplikacja przykładowa Hello monitoruje komunikaty przychodzące z Centrum IoT. Można również uruchomić zadanie gulp na tooyour wiadomości tablicy Arduino Twojego komputera toosend z Centrum IoT. Gdy hello Przykładowa aplikacja odbiera wiadomości powitania, miga hello LED. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-* Połącz przykładowej aplikacji do Centrum IoT.
-* Wdrażanie i uruchamianie przykładowej aplikacji.
-* Wysyłanie wiadomości z Centrum IoT do tablicy Arduino miga LED.
+* Połącz Centrum IoT tooyour hello przykładowej aplikacji.
+* Wdrażanie i uruchamianie hello przykładowej aplikacji.
+* Wysyłanie wiadomości z Twojej IoT hub tooyour Arduino tablicy tooblink hello LED.
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
-* Jak monitorować komunikaty przychodzące z Centrum IoT.
-* Sposób wysyłania komunikatów chmury do urządzenia z Centrum IoT do tablicy Arduino.
+* Jak komunikaty przychodzące toomonitor z Centrum IoT.
+* Jak chmury urządzenia toosend komunikaty z sieci tooyour Centrum IoT Arduino tablicy.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-* Tablicy Arduino, skonfigurować do używania. Aby dowiedzieć się, jak skonfigurować tablicy Arduino, zobacz [Skonfiguruj urządzenie][configure-your-device].
-* Centrum IoT, która jest tworzona w Twojej subskrypcji platformy Azure. Aby dowiedzieć się, jak utworzyć Centrum IoT, zobacz [utworzenie Centrum IoT Azure][create-your-azure-iot-hub].
+* Tablicy Arduino, skonfigurować do używania. toolearn tooset się tablicy Arduino, zobacz temat [Skonfiguruj urządzenie][configure-your-device].
+* Centrum IoT, która jest tworzona w Twojej subskrypcji platformy Azure. toolearn jak toocreate Centrum IoT, zobacz [utworzenie Centrum IoT Azure][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Połącz przykładowej aplikacji do Centrum IoT
+## <a name="connect-hello-sample-application-tooyour-iot-hub"></a>Połącz z Centrum IoT tooyour hello przykładowej aplikacji
 
-1. Upewnij się, że jesteś w folderze repozytorium `iot-hub-c-feather-m0-getting-started`.
+1. Upewnij się, że jesteś w folderze repozytorium hello `iot-hub-c-feather-m0-getting-started`.
 
-   Otwórz przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia:
+   Otwórz hello przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia hello:
 
    ```bash
    cd Lesson4
    code .
    ```
 
-   Powiadomienie `app.ino` w pliku `app` podfolderu. `app.ino` Plik jest plikiem źródła klucza, który zawiera kod umożliwiający monitorowanie komunikatów przychodzących z Centrum IoT. `blinkLED` LED miga funkcji.
+   Powiadomienie hello `app.ino` pliku w hello `app` podfolderu. Witaj `app.ino` plik jest plikiem klucza źródła hello, zawierający hello kodu toomonitor komunikaty przychodzące hello Centrum IoT. Witaj `blinkLED` funkcja miganie hello LED.
 
-   ![Struktura repozytorium w przykładowej aplikacji][repo-structure]
+   ![Struktura repozytorium w hello przykładowej aplikacji][repo-structure]
 
-2. Uzyskaj portu szeregowego urządzenia z odnajdywania urządzenia interfejsu wiersza polecenia:
+2. Uzyskaj hello portu szeregowego hello urządzenia z hello urządzenia odnajdywania interfejsu wiersza polecenia:
 
    ```bash
    devdisco list --usb
    ```
 
-   Należy wyświetlić dane wyjściowe podobne do następujących i Znajdź usb COM port tablicy Arduino:
+   Należy wyświetlone informacje podobne następujących toohello i Znajdź hello usb COM port tablicy Arduino:
 
    ![Odnajdywanie urządzeń][device-discovery]
 
-3. Otwórz plik `config.json` w folderze lekcji i dane wejściowe wartość znaleziony numer portu COM:
+3. Witaj Otwórz plik `config.json` w folderze lekcji hello i wartości wejściowych hello hello znaleziono numer portu COM:
 
    ```json
    {
@@ -78,9 +78,9 @@ W tym artykule dowiesz się:
    ![Config.JSON][config-json]
 
    > [!NOTE]
-   > Dla portu COM na platformie systemu Windows ma format `COM1, COM2, ...`. System macOS lub Ubuntu zostanie rozpoczęty z `/dev/`.
+   > Dla portu hello COM, na platformie systemu Windows ma hello format `COM1, COM2, ...`. System macOS lub Ubuntu zostanie rozpoczęty z `/dev/`.
 
-4. Inicjowanie pliku konfiguracji, uruchamiając następujące polecenia:
+4. Inicjowanie pliku konfiguracji hello, uruchamiając następujące polecenia hello:
 
    ```bash
    # For Windows command prompt
@@ -89,42 +89,42 @@ W tym artykule dowiesz się:
    gulp install-tools
    ```
 
-5. Wprowadź następujące elementy zastępcze w `config-arduino.json` pliku:
+5. Wprowadź następujące elementy zastępcze w hello hello `config-arduino.json` pliku:
 
-   Jeśli ukończono kroki [Tworzenie funkcji platformy Azure aplikacji i konto magazynu] [ create-an-azure-function-app-and-storage-account] na tym komputerze, wszystkie konfiguracje są dziedziczone, można pominąć krok do zadania, wdrażanie i uruchamianie przykładowej aplikacji. Jeśli ukończono kroki [Tworzenie funkcji platformy Azure aplikacji i konto magazynu] [ create-an-azure-function-app-and-storage-account] na innym komputerze, należy zastąpić symbole zastępcze w `config-arduino.json` pliku. `config-arduino.json` Plik znajduje się w podfolderze folderu macierzystego.
+   Jeśli ukończono kroki hello [Tworzenie funkcji platformy Azure aplikacji i konto magazynu] [ create-an-azure-function-app-and-storage-account] na tym komputerze, wszystkie konfiguracje hello są dziedziczone, można pominąć hello krok toohello zadania wdrażania i uruchomiona hello przykładowej aplikacji. Jeśli ukończono kroki hello [Tworzenie funkcji platformy Azure aplikacji i konto magazynu] [ create-an-azure-function-app-and-storage-account] na innym komputerze, należy symbole zastępcze hello tooreplace w hello `config-arduino.json` pliku. Witaj `config-arduino.json` plik znajduje się w podfolderze hello folderu macierzystego.
 
-   ![Zawartość pliku konfiguracji arduino.json][config-arduino-json]
+   ![Zawartość pliku config arduino.json hello][config-arduino-json]
 
-   * Zastąp **[SSID sieci Wi-Fi]** o identyfikatorze SSID sieci Wi-Fi, który jest połączony z Internetem.
-   * Zastąp **[sieci Wi-Fi hasło]** hasła sieci Wi-Fi. Jeśli sieci Wi-Fi nie wymagają hasła, należy usunąć ciąg.
-   * Zastąp **[parametry połączenia urządzenia IoT]** z parametrami połączenia urządzenia, który można uzyskać, uruchamiając `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` polecenia.
-   * Zastąp **[parametry połączenia Centrum IoT]** z parametrami połączenia Centrum IoT, który można uzyskać, uruchamiając `az iot hub show-connection-string --name {my hub name}` polecenia.
+   * Zastąp **[SSID sieci Wi-Fi]** o identyfikatorze SSID sieci Wi-Fi, który połączony toohello Internet.
+   * Zastąp **[sieci Wi-Fi hasło]** hasła sieci Wi-Fi. Jeśli sieci Wi-Fi nie wymagają hasła, należy usunąć ciąg hello.
+   * Zastąp **[parametry połączenia urządzenia IoT]** z hello parametry połączenia urządzenia, które można uzyskać, uruchamiając hello `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` polecenia.
+   * Zastąp **[parametry połączenia Centrum IoT]** z hello parametry połączenia Centrum IoT, które można uzyskać, uruchamiając hello `az iot hub show-connection-string --name {my hub name}` polecenia.
 
-## <a name="deploy-and-run-the-sample-application"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-Wdrażanie i uruchamianie przykładowej aplikacji na tablicy Arduino, uruchamiając następujące polecenia:
+## <a name="deploy-and-run-hello-sample-application"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+Wdrażanie i uruchamianie aplikacji przykładowej hello na tablicy Arduino, uruchamiając następujące polecenia hello:
 
 ```bash
 gulp run
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-Polecenie gulp wdraża przykładowej aplikacji do tablicy Arduino. Następnie uruchomi aplikację na tablicy Arduino i oddzielnych zadań na komputerze hosta do wysyłania wiadomości migania 20 do tablicy Arduino z Centrum IoT.
+polecenie gulp Hello wdraża hello przykładowej aplikacji tooyour Arduino tablicy. Następnie uruchomieniu aplikacji hello na tablicy Arduino i oddzielnych zadań na hoście komputera toosend 20 migania wiadomości tooyour Arduino tablicy z Centrum IoT.
 
-Po uruchomieniu aplikacji przykładowej, rozpoczyna nasłuchiwanie wiadomości z Centrum IoT. W tym samym czasie zadań gulp wysyła komunikaty "blink" z Centrum IoT do tablicy Arduino. Dla każdego komunikatu migania odbierająca tablicy wywołuje przykładowej aplikacji `blinkLED` funkcja miga LED.
+Po uruchomieniu aplikacji przykładowej hello rozpoczyna nasłuchiwanie toomessages z Centrum IoT. W tym samym czasie hello gulp zadań wysyła komunikaty "blink" z Twojej tooyour Centrum IoT Arduino tablicy. Dla każdej wiadomości migania hello tablicy odbiera, hello przykładowej aplikacji wywołuje hello `blinkLED` funkcja tooblink hello LED.
 
-Zadanie gulp wyśle 20 komunikatów z Centrum IoT do tablicy Arduino powinna zostać wyświetlona migania LED co dwie sekundy. Komunikat "stop", która kończy działanie aplikacji jest ostatni z nich.
+Powinny pojawić się hello LED blink co dwie sekundy zadań gulp hello wyśle 20 komunikatów z Twojej tooyour Centrum IoT Arduino tablicy. Hello ostatnio jedna jest zatrzymuje aplikacji hello komunikat "stop".
 
 ![Przykładowa aplikacja z system gulp polecenia i blink wiadomości][sample-application]
 
 ## <a name="summary"></a>Podsumowanie
-Na tablicy Arduino miga LED zostało pomyślnie wysłane wiadomości z Centrum IoT. Następne zadanie jest opcjonalne: Zmień włączenia i wyłączenia zachowanie LED.
+Zostało pomyślnie wysłane wiadomości z Twojej IoT hub tooyour Arduino tablicy tooblink hello LED. następne zadanie Hello jest opcjonalny: Zmień hello włączać i wyłączać zachowanie hello LED.
 
 ## <a name="next-steps"></a>Następne kroki
-[Zmień włączenia i wyłączenia zachowanie LED][change-the-on-and-off-led-behavior]
+[Zmień hello włączać i wyłączać zachowanie hello LED][change-the-on-and-off-led-behavior]
 
 
 <!-- Images and links -->

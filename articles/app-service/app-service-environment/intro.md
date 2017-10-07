@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do środowiska usługi aplikacji Azure"
+title: "środowiska usługi aplikacji tooAzure aaaIntroduction"
 description: "Krótki przegląd środowiska usługi aplikacji Azure"
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e21c4c3e2c212d86a0dbe2211564c2e3a1acf819
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9261041333cf59374974a039edf89c4983c45cdd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-app-service-environments"></a>Wprowadzenie do środowiska usługi aplikacji #
+# <a name="introduction-tooapp-service-environments"></a>Środowiska usługi tooApp wprowadzenie #
  
 ## <a name="overview"></a>Omówienie ##
 
@@ -33,20 +33,20 @@ ms.lasthandoff: 08/03/2017
 
 Klienci mogą tworzyć wiele ASEs w pojedynczym regionie Azure lub w wielu regionach platformy Azure. Tego rodzaju elastyczności sprawia, że ASEs nadaje się doskonale dla warstwy aplikacji bezstanowych, w związku z wysoką obciążeniami RPS skalowanie w poziomie.
 
-ASEs izolowane do uruchamiania tylko jednego odbiorcy aplikacji i zawsze są wdrażane w sieci wirtualnej. Klienci mają precyzyjną kontrolę nad aplikacji dla ruchu przychodzącego i wychodzącego ruchu sieciowego. Aplikacje mogą nawiązywać bezpiecznych połączeń o dużej szybkości za pośrednictwem sieci VPN do zasobów firmy lokalnie.
+ASEs są izolowane toorunning tylko jednego odbiorcy aplikacje i zawsze są wdrażane w sieci wirtualnej. Klienci mają precyzyjną kontrolę nad aplikacji dla ruchu przychodzącego i wychodzącego ruchu sieciowego. Aplikacje mogą nawiązywać bezpiecznych połączeń o dużej szybkości za pośrednictwem zasobów firmowych tooon lokalnej sieci VPN.
 
-Wszystkie artykuły i dokładne instrukcje dotyczące ASEs są dostępne w [Plik README dla środowiska usługi aplikacji][ASEReadme]:
+Wszystkie artykuły i jak tooinstructions o ASEs są dostępne w hello [Plik README dla środowiska usługi aplikacji][ASEReadme]:
 
-* ASEs włączyć hosting aplikacji wysokiej skali z bezpiecznego dostępu do sieci. Aby uzyskać więcej informacji, zobacz [nowości AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) na ASEs.
-* Wiele ASEs umożliwia skalowanie w poziomie. Aby uzyskać więcej informacji, zobacz [sposobu konfigurowania wpływ aplikacja rozproszona geograficznie](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-* ASEs może służyć do konfigurowania Architektura zabezpieczeń, jak pokazano w AzureCon nowości. Aby dowiedzieć się, jak pokazano nowości AzureCon architektury zabezpieczeń został skonfigurowany, zobacz [artykuł na temat sposobu implementacja architektury zabezpieczeń warstwowych](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) ze środowiska usługi aplikacji.
+* ASEs włączyć hosting aplikacji wysokiej skali z bezpiecznego dostępu do sieci. Aby uzyskać więcej informacji, zobacz hello [nowości AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) na ASEs.
+* Wiele ASEs mogą być używane tooscale poziomo. Aby uzyskać więcej informacji, zobacz [jak tooset się wpływ aplikacja rozproszona geograficznie](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
+* ASEs może być używane tooconfigure Architektura zabezpieczeń, jak pokazano w hello AzureCon nowości. toosee, jak pokazano hello nowości AzureCon Architektura zabezpieczeń hello został skonfigurowany, zobacz hello [artykuł na temat tooimplement architektury zabezpieczeń warstwowych](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) ze środowiska usługi aplikacji.
 * Aplikacje działające na ASEs może mieć ich dostęp uzyskiwany za nadrzędnego urządzeń, takich jak zapory aplikacji sieci web (WAFs). Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapory aplikacji sieci Web dla środowiska usługi aplikacji](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## <a name="dedicated-environment"></a>Dedykowanym środowisku ##
 
-ASE jest przeznaczona wyłącznie do jednej subskrypcji i może zawierać 100 wystąpień. Zakres może obejmować 100 wystąpień w jeden plan usługi aplikacji do 100 planów usługi aplikacji w jednym wystąpieniu, a wszystko w pomiędzy.
+Jest ASE dedykowane wyłącznie tooa jedną subskrypcją i może zawierać 100 wystąpień. zakres Hello mogą znajdować się na 100 wystąpień w jednym planów usługi App Service planu too100 jednego wystąpienia usługi aplikacji, a wszystko w pomiędzy.
 
-ASE składa się z interfejsy i pracowników. Interfejsy są zobowiązani do zakończenia połączenia HTTP/HTTPS i automatyczne równoważenie obciążenia żądań aplikacji w elemencie ASE. Interfejsy są automatycznie dodawane jako planów usługi App Service w ASE jest skalowana w poziomie.
+ASE składa się z interfejsy i pracowników. Interfejsy są zobowiązani do zakończenia połączenia HTTP/HTTPS i automatyczne równoważenie obciążenia żądań aplikacji w elemencie ASE. Interfejsy są automatycznie dodawane jako hello planów usługi App Service w hello ASE jest skalowana w poziomie.
 
 Pracownicy są role, które hostowanie aplikacji klienta. Pracownicy są dostępne w trzech rozmiarach stałe:
 
@@ -54,29 +54,29 @@ Pracownicy są role, które hostowanie aplikacji klienta. Pracownicy są dostęp
 * Dwa podstawowe/7 GB pamięci RAM
 * Cztery podstawowe/14 GB pamięci RAM
 
-Klienci nie muszą zarządzać interfejsy i pracowników. Wszystkie infrastruktury jest automatycznie dodawane jako klienci skalowania planów usługi aplikacji. Zgodnie z planami usługi aplikacji są tworzone lub skalowany w elemencie ASE, że wymagana infrastruktura dodaniu lub usunięciu odpowiednio.
+Klienci nie muszą toomanage front kończy się i pracowników. Wszystkie infrastruktury jest automatycznie dodawane jako klienci skalowania planów usługi aplikacji. Usługi aplikacji planów są tworzone lub skalowany w elemencie ASE hello wymaga infrastruktury dodaniu lub usunięciu zależnie od potrzeb.
 
-Brak płaskim miesięczne szybkości dla ASE, który pokrywa infrastruktury i nie zmienia się rozmiar ASE. Ponadto jest koszt core planu usługi aplikacji. Wszystkie aplikacje obsługiwane w elemencie ASE znajdują się w izolowany cennik jednostki SKU. Aby uzyskać informacje o cenach dla ASE, zobacz [cennik usługi aplikacji] [ Pricing] strony i przejrzyj dostępne opcje ASEs.
+Brak płaskim miesięczne szybkości dla ASE, który pokrywa hello infrastruktury i nie zmienia się rozmiar hello hello ASE. Ponadto jest koszt core planu usługi aplikacji. Wszystkie aplikacje obsługiwane w elemencie ASE znajdują się w hello izolowane cennik jednostki SKU. Aby uzyskać informacje o cenach dla ASE, zobacz hello [cennik usługi aplikacji] [ Pricing] strony i przejrzyj dostępne opcje ASEs hello.
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej ##
 
-ASE można tworzyć tylko w sieci wirtualnej platformy Azure Resource Manager. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, zobacz [często zadawane pytania dotyczące sieci wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). ASE zawsze istnieje w sieci wirtualnej, a dokładnie w podsieci sieci wirtualnej. Funkcje zabezpieczeń sieci wirtualnych służy do kontroli ruchu przychodzącego i wychodzącego komunikacji dla aplikacji.
+ASE można tworzyć tylko w sieci wirtualnej platformy Azure Resource Manager. toolearn więcej informacji na temat sieci wirtualnych platformy Azure, zobacz hello [często zadawane pytania dotyczące sieci wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). ASE zawsze istnieje w sieci wirtualnej, a dokładnie w podsieci sieci wirtualnej. Można użyć funkcji zabezpieczeń hello toocontrol sieci wirtualne dla ruchu przychodzącego i wychodzącego sieci komunikacji dla aplikacji.
 
 ASE może być skierowane do Internetu za pomocą publicznego adresu IP lub wewnętrzny uwzględniającym tylko adres (ILB) usługi równoważenia obciążenia wewnętrznego platformy Azure.
 
-[Sieciowe grupy zabezpieczeń] [ NSGs] ograniczenia komunikacji sieciowej dla ruchu przychodzącego do podsieci, w której znajduje się ASE. Grupy NSG służy do uruchamiania aplikacji związany z nadrzędnego urządzeń i usług, takich jak WAFs i dostawców SaaS sieci.
+[Sieciowe grupy zabezpieczeń] [ NSGs] Ograniczanie ruchu przychodzącego komunikacji toohello podsieci, z którym znajduje się ASE. Można użyć grupy NSG toorun aplikacje za nadrzędnego urządzeń i usług, takich jak WAFs i dostawców SaaS sieci.
 
-Aplikacje muszą również często dostępu do zasobów firmy, takich jak wewnętrznej bazy danych i usług sieci web. Jeśli wdrożono ASE w sieci wirtualnej, który ma połączenie VPN do sieci lokalnej, aplikacje w ASE dostęp do zasobów lokalnych. Ta funkcja ma wartość true, niezależnie od tego, czy sieć VPN [lokacja lokacja](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) lub [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) sieci VPN.
+Aplikacje muszą również często tooaccess zasobów firmowych, takich jak wewnętrznej bazy danych i usług sieci web. Jeśli wdrożono ASE hello w sieci wirtualnej z sieci lokalnej toohello połączenia sieci VPN, aplikacji hello w hello ASE dostęp do zasobów lokalnych hello. Ta funkcja ma wartość true, niezależnie od tego, czy hello VPN [lokacja lokacja](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) lub [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) sieci VPN.
 
 Aby uzyskać więcej informacji na temat działania ASEs z sieciami wirtualnymi i sieciach lokalnych, zobacz [zagadnienia dotyczące sieci środowiska usługi aplikacji][ASENetwork].
 
 ## <a name="app-service-environment-v1"></a>Środowisko usługi App Service — wersja 1 ##
 
-Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Oparto na ASEv2 powyższych informacji. W tej sekcji przedstawiono różnice między ASEv1 i ASEv2. 
+Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Witaj poprzedzających informacji oparto na ASEv2. Ten przedstawia sekcji hello różnice między ASEv1 i ASEv2. 
 
-W ASEv1 trzeba zarządzać wszystkie zasoby ręcznie. Zawierającej interfejsy, pracowników i adresy IP używane dla opartych na protokole SSL. Przed można skalować w poziomie planu usługi aplikacji, konieczne jest pierwszy skalowania puli procesów roboczych, które chcesz udostępnić go.
+W ASEv1, potrzebujesz toomanage wszystkie zasoby hello ręcznie. Zawierającej front kończy się hello, pracowników i adresy IP używane dla opartych na protokole SSL. Aby można skalować w poziomie planu usługi aplikacji, musisz toofirst skalowania puli procesów roboczych hello miejscu toohost go.
 
-ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdego rdzenia przydzielone. Zawierającej rdzeni interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
+ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdego rdzenia przydzielone. Zawierającej rdzeni interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 hello domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jeden tooASEv1 korzyści jest, czy może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. toolearn więcej informacji na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

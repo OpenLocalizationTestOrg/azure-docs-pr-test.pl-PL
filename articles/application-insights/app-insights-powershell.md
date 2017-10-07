@@ -1,5 +1,5 @@
 ---
-title: "Automatyzacji Azure Application Insights przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
+title: "aaaAutomate Azure Application Insights przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
 description: "Zautomatyzować tworzenie testów dostępności zasobów i alertu w programie PowerShell przy użyciu szablonu usługi Azure Resource Manager."
 services: application-insights
 documentationcenter: 
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: bwren
-ms.openlocfilehash: 88dbb9515300f847789bc889911cdeff5f5bdb53
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ebd336eafba58a690a0e8ffbd1c74f7e93dbb682
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Tworzenie zasobów usługi Application Insights przy użyciu programu PowerShell
-W tym artykule przedstawiono sposób tworzenia i aktualizacji [usługi Application Insights](app-insights-overview.md) zasobów automatycznie przy użyciu usługi Azure Resource Management. Użytkownik może na przykład zrobić jako część procesu kompilacji. Wraz z podstawowy zasób usługi Application Insights, można utworzyć [testów sieci web dostępności](app-insights-monitor-web-app-availability.md), skonfiguruj [alerty](app-insights-alerts.md)ustaw [cennik schemat](app-insights-pricing.md)i Utwórz innych zasobów platformy Azure.
+W tym artykule opisano, jak tooautomate hello tworzenia i aktualizacji [usługi Application Insights](app-insights-overview.md) zasobów automatycznie przy użyciu usługi Azure Resource Management. Użytkownik może na przykład zrobić jako część procesu kompilacji. Wraz z hello podstawowy zasób usługi Application Insights, można utworzyć [testów sieci web dostępności](app-insights-monitor-web-app-availability.md), skonfiguruj [alerty](app-insights-alerts.md)Ustaw hello [cennik schemat](app-insights-pricing.md)i Utwórz innych Azure zasoby.
 
-Kluczem do tworzenia tych zasobów jest szablony JSON dla [usługi Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Mówiąc, jest procedurą: pobieranie definicji JSON istniejących zasobów. parametryzacja niektórych wartości, takich jak nazwy; a następnie uruchom szablon, aby utworzyć nowy zasób. Tworzyć pakiet kilku zasobów ze sobą, można je utworzyć w jednym przejdź — na przykład monitor aplikacji z testów dostępności, alerty i magazynu dla Eksport ciągły. Brak niektórych precyzyjnie niektórych parameterizations, które wyjaśniamy w tym miejscu.
+Witaj klucza toocreating tych zasobów jest szablony JSON dla [usługi Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md). Mówiąc, procedura hello jest: pobieranie definicji JSON hello istniejących zasobów. parametryzacja niektórych wartości, takich jak nazwy; a następnie uruchom szablon hello, gdy użytkownicy toocreate nowy zasób. Można spakować razem kilka zasobów, toocreate ich wszystko w jednym przejdź — na przykład, monitor aplikacji z testów dostępności, alerty i magazynu dla Eksport ciągły. Brak niektórych toosome precyzyjnie z parameterizations hello, które wyjaśniamy w tym miejscu.
 
 ## <a name="one-time-setup"></a>Jednorazowej konfiguracji
 Jeśli nie użyto programu PowerShell z subskrypcją platformy Azure przed:
 
-Zainstaluj moduł Azure Powershell na komputerze, na którym chcesz uruchomić skrypty:
+Zainstaluj modułu Azure Powershell hello na maszynie hello miejscu toorun hello skrypty:
 
 1. Zainstaluj [Instalatora platformy sieci Web firmy Microsoft (w wersji 5 lub nowszej)](http://www.microsoft.com/web/downloads/platform.aspx).
-2. Użyć go do zainstalowania programu Microsoft Azure Powershell.
+2. Użyj tooinstall Microsoft Azure Powershell.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Tworzenie szablonu usługi Azure Resource Manager
 Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładzie. Skopiuj zawartość do niego:
@@ -43,7 +43,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
             "appName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Enter the application name."
+                    "description": "Enter hello application name."
                 }
             },
             "appType": {
@@ -56,7 +56,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
                     "other"
                 ],
                 "metadata": {
-                    "description": "Enter the application type."
+                    "description": "Enter hello application type."
                 }
             },
             "appLocation": {
@@ -69,7 +69,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
                     "North Europe"
                 ],
                 "metadata": {
-                    "description": "Enter the application location."
+                    "description": "Enter hello application location."
                 }
             },
             "priceCode": {
@@ -95,7 +95,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
                 "type": "int",
                 "defaultValue": 24,
                 "metadata": {
-                    "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
+                    "description": "Enter daily quota reset hour in UTC (0 too23). Values outside hello range will get a random reset hour."
                 }
             },
             "warningThreshold": {
@@ -104,7 +104,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
                 "minValue": 1,
                 "maxValue": 100,
                 "metadata": {
-                    "description": "Enter the % value of daily quota after which warning mail to be sent. "
+                    "description": "Enter hello % value of daily quota after which warning mail toobe sent. "
                 }
             }
         },
@@ -153,7 +153,7 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
 
 
 ## <a name="create-application-insights-resources"></a>Tworzenie zasobów usługi Application Insights
-1. W programie PowerShell logowanie do platformy Azure:
+1. W programie PowerShell Zaloguj tooAzure:
    
     `Login-AzureRmAccount`
 2. Uruchom polecenie następująco:
@@ -166,14 +166,14 @@ Utwórz nowy plik JSON — teraz wywołać ją `template1.json` w tym przykładz
 
     ``` 
    
-   * `-ResourceGroupName`jest to grupa, której chcesz utworzyć nowe zasoby.
-   * `-TemplateFile`musi być wcześniejsza niż parametry niestandardowe.
-   * `-appName`Nazwa zasobu do utworzenia.
+   * `-ResourceGroupName`to hello grupy, w której ma toocreate hello nowych zasobów.
+   * `-TemplateFile`musi być wcześniejsza niż hello parametry niestandardowe.
+   * `-appName`Nazwa Hello hello toocreate zasobów.
 
-Można dodać inne parametry - opisami znajdują się w sekcji parametrów szablonu.
+Można dodać inne parametry - opisami znajdują się w sekcji parametrów hello hello szablonu.
 
-## <a name="to-get-the-instrumentation-key"></a>Aby uzyskać klucz Instrumentacji
-Po utworzeniu zasobu aplikacji, należy klucza Instrumentacji: 
+## <a name="tooget-hello-instrumentation-key"></a>klucz Instrumentacji hello tooget
+Po utworzeniu zasobu aplikacji, należy klucza Instrumentacji hello: 
 
 ```PS
     $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
@@ -183,11 +183,11 @@ Po utworzeniu zasobu aplikacji, należy klucza Instrumentacji:
 
 
 <a id="price"></a>
-## <a name="set-the-price-plan"></a>Ustawienie planu cen
+## <a name="set-hello-price-plan"></a>Zestaw hello cen planu
 
-Można ustawić [planu cen](app-insights-pricing.md).
+Można ustawić hello [planu cen](app-insights-pricing.md).
 
-Aby utworzyć zasobów aplikacji z planem cen przedsiębiorstwa przy użyciu szablonu powyżej:
+toocreate zasób aplikacji z planem cen Enterprise hello przy użyciu szablonu hello powyżej:
 
 ```PS
         New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
@@ -201,16 +201,16 @@ Aby utworzyć zasobów aplikacji z planem cen przedsiębiorstwa przy użyciu sza
 |1|Podstawowa|
 |2|Enterprise|
 
-* Jeśli chcesz użyć domyślnego planu ceny podstawowej, można pominąć zasobów CurrentBillingFeatures z szablonu.
-* Jeśli chcesz zmienić planu cen po utworzeniu zasobu składnik, można użyć szablonu, który umożliwia pominięcie zasobu "microsoft.insights/components". Ponadto Pomiń `dependsOn` węzła z zasobu rozliczeń. 
+* Jeśli chcesz tylko toouse hello domyślny ceny podstawowej plan, można pominąć hello CurrentBillingFeatures zasobów z hello szablonu.
+* Jeśli chcesz toochange hello cen planu po utworzeniu zasobu składnika hello, można użyć szablonu, który umożliwia pominięcie zasobu "microsoft.insights/components" hello. Ponadto Pomiń hello `dependsOn` węzła z hello rozliczeń zasobów. 
 
-Aby sprawdzić, zaktualizowana cena planu, obejrzyj "Funkcje + cennik" bloku w przeglądarce. **Odśwież widok w przeglądarce** się upewnić, że widoczny będzie najnowszy stan.
+tooverify hello zaktualizowana cena planu, sprawdź w bloku hello "Funkcje + cennik" w przeglądarce hello. **Odśwież widok w przeglądarce hello** toomake się, że widoczny hello najnowszy stan.
 
 
 
 ## <a name="add-a-metric-alert"></a>Dodawanie metryki alertu
 
-Aby skonfigurować alert metryki jednocześnie zasobu aplikacji, należy scalić kod podobny do tego pliku szablonu:
+tooset się metryki alert na powitania sam czas jako zasób aplikacji, kodu scalania takie do pliku szablonu hello:
 
 ```JSON
 {
@@ -236,7 +236,7 @@ Aby skonfigurować alert metryki jednocześnie zasobu aplikacji, należy scalić
       "type": "Microsoft.Insights/alertrules",
       "apiVersion": "2014-04-01",
       "location": "[parameters('appLocation')]",
-      // Ensure this resource is created after the app resource:
+      // Ensure this resource is created after hello app resource:
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
@@ -272,22 +272,22 @@ Aby skonfigurować alert metryki jednocześnie zasobu aplikacji, należy scalić
 }
 ```
 
-Po wywołaniu tego szablonu można opcjonalnie dodawać tego parametru:
+Po wywołaniu hello szablonu, możesz opcjonalnie dodać ten parametr:
 
     `-responseTime 2`
 
 Oczywiście można parametryzacja innych pól. 
 
-Aby znaleźć nazwy typu i szczegóły konfiguracji innych reguł alertów, ręcznie utworzyć regułę, a następnie sprawdzić, w [usługi Azure Resource Manager](https://resources.azure.com/). 
+toofind nazwy typów hello i szczegóły konfiguracji innych reguł alertów ręcznie utworzyć regułę, a następnie sprawdź jej w [usługi Azure Resource Manager](https://resources.azure.com/). 
 
 
 ## <a name="add-an-availability-test"></a>Dodaj test dostępności
 
-W tym przykładzie jest dla testów ping (do testowania z pojedynczą stroną).  
+W tym przykładzie jest dla testów ping (tootest jednej strony).  
 
-**Można wyróżnić dwie części** w test dostępności: badanie i alert, który informuje o awarii.
+**Można wyróżnić dwie części** w test dostępności: badanie hello i hello alertu, który informuje o awarii.
 
-Scal następujący kod w pliku szablonu, który tworzy aplikację.
+Scal powitania po kod do pliku szablonu hello, która tworzy aplikacji hello.
 
 ```JSON
 {
@@ -301,13 +301,13 @@ Scal następujący kod w pliku szablonu, który tworzy aplikację.
     },
     resources: { ... // existing resources here ...
     { //
-      // Availability test: part 1 configures the test
+      // Availability test: part 1 configures hello test
       //
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
       "location": "[parameters('appLocation')]",
-      // Ensure this is created after the app resource:
+      // Ensure this is created after hello app resource:
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
@@ -334,7 +334,7 @@ Scal następujący kod w pliku szablonu, który tworzy aplikację.
           }
         ],
         "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies hello existence of hello specified text in hello response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
         },
         "SyntheticMonitorId": "[variables('pingTestName')]"
       }
@@ -342,7 +342,7 @@ Scal następujący kod w pliku szablonu, który tworzy aplikację.
 
     {
       //
-      // Availability test: part 2, the alert rule
+      // Availability test: part 2, hello alert rule
       //
       "name": "[variables('pingAlertRuleName')]",
       "type": "Microsoft.Insights/alertrules",
@@ -384,39 +384,39 @@ Scal następujący kod w pliku szablonu, który tworzy aplikację.
 }
 ```
 
-Odnajdywanie kodów dla innych lokalizacji testu lub zautomatyzować tworzenie bardziej złożonych testów sieci web, Utwórz przykład ręcznie, a następnie parametryzacja kod z [usługi Azure Resource Manager](https://resources.azure.com/).
+toodiscover hello kodów dla innych lokalizacjach testu lub tooautomate hello tworzenia bardziej złożonych testów sieci web, Utwórz przykład ręcznie, a następnie parametryzacja hello kod z [usługi Azure Resource Manager](https://resources.azure.com/).
 
 ## <a name="add-more-resources"></a>Dodaj więcej zasobów
 
-Aby zautomatyzować tworzenie jakichkolwiek innych zasobów, Utwórz przykład ręcznie, a następnie skopiuj i parametryzacja jego kod z [usługi Azure Resource Manager](https://resources.azure.com/). 
+Tworzenie hello tooautomate innego zasobu dowolnego rodzaju utworzyć przykład ręcznie, a następnie skopiuj i parametryzacja jego kod z [usługi Azure Resource Manager](https://resources.azure.com/). 
 
-1. Otwórz [usługa Azure Resource Manager](https://resources.azure.com/). Przejdź w dół za pośrednictwem `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, zasobu aplikacji. 
+1. Otwórz [usługa Azure Resource Manager](https://resources.azure.com/). Przejdź w dół za pośrednictwem `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`, tooyour zasobów aplikacji. 
    
     ![Nawigacja w Eksploratorze zasobów platformy Azure](./media/app-insights-powershell/01.png)
    
-    *Składniki* podstawowych zasobów usługi Application Insights do wyświetlania aplikacji. Istnieją oddzielne zasoby skojarzonych reguł alertów i dostępności testów sieci web.
-2. Skopiuj kod JSON składnika w odpowiednim miejscu w `template1.json`.
+    *Składniki* są hello podstawowych zasobów usługi Application Insights do wyświetlania aplikacji. Brak zasobów oddzielne hello skojarzone reguły alertów i dostępności testy sieci web.
+2. Kopiuj hello JSON składnika hello w odpowiednim miejscu hello w `template1.json`.
 3. Usuń następujące właściwości:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Otwórz w sekcjach webtests i alertrules i skopiuj kod JSON dla poszczególnych elementów do szablonu. (Nie należy kopiować z węzłów webtests lub alertrules: Przejdź do elementów pod nimi.)
+4. Otwórz hello webtests i alertrules sekcje i skopiuj hello JSON dla poszczególnych elementów do szablonu. (Nie należy kopiować z węzłów webtests lub alertrules hello: Przejdź do elementów hello pod nimi.)
    
-    Każdy test sieci web ma skojarzone reguły alertu, dlatego należy skopiować obu z nich.
+    Każdy test sieci web ma skojarzone reguły alertu, dlatego należy toocopy obu z nich.
    
     Możesz również uwzględnić alerty dotyczące metryk. [Nazwy metryki](app-insights-powershell-alerts.md#metric-names).
 5. Wstaw ten wiersz w każdym z zasobów:
    
     `"apiVersion": "2015-05-01",`
 
-### <a name="parameterize-the-template"></a>Parametryzacja szablonu
-Teraz należy zastąpić konkretne nazwy parametrów. Aby [parametryzacja szablonu](../azure-resource-manager/resource-group-authoring-templates.md), zapisu przy użyciu wyrażenia [zestaw funkcji pomocnika](../azure-resource-manager/resource-group-template-functions.md). 
+### <a name="parameterize-hello-template"></a>Parametryzacja hello szablonu
+Teraz masz tooreplace hello konkretne nazwy z parametrami. zbyt[parametryzacja szablonu](../azure-resource-manager/resource-group-authoring-templates.md), zapisu przy użyciu wyrażenia [zestaw funkcji pomocnika](../azure-resource-manager/resource-group-template-functions.md). 
 
-Nie można sparametryzować tylko część ciągu, więc `concat()` do tworzenia ciągów.
+Nie można sparametryzować tylko część ciągu, więc `concat()` toobuild ciągów.
 
-Poniżej przedstawiono przykłady podstawień, które należy wprowadzić. Istnieje kilka wystąpień każdej podstawienia. W szablonie, mogą wymagać innych użytkowników. Poniższe przykłady użycia parametry i zmienne, zdefiniowanego w górnej części szablonu.
+Poniżej przedstawiono przykłady z podstawień hello należy toomake. Istnieje kilka wystąpień każdej podstawienia. W szablonie, mogą wymagać innych użytkowników. Te przykłady Użyj hello parametry i zmienne, zdefiniowanego na górze hello hello szablonu.
 
 | Znajdź | Zamień |
 | --- | --- |
@@ -429,13 +429,13 @@ Poniżej przedstawiono przykłady podstawień, które należy wprowadzić. Istni
 | `"myappname"`(małe litery) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Usuń identyfikator Guid i identyfikator. |
 
-### <a name="set-dependencies-between-the-resources"></a>Definiowanie zależności między zasobami
-Azure należy skonfigurować zasoby w kolejności strict. Aby upewnić się, że jeden Instalator ukończy przed rozpoczęciem następnego, Dodaj linii zależności:
+### <a name="set-dependencies-between-hello-resources"></a>Definiowanie zależności między zasobami hello
+Azure należy skonfigurować zasoby hello w kolejności strict. toomake się, że jeden Instalator ukończy przed rozpoczęciem powitalne obok, Dodaj linii zależności:
 
-* W zasobie testu dostępności:
+* Witaj dostępności testu zasobów:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* W zasobie alertów dla testu dostępności:
+* W zasobie alertu hello testu dostępności:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
@@ -447,7 +447,7 @@ Inne artykuły automatyzacji:
 * [Tworzenie zasobu usługi Application Insights](app-insights-powershell-script-create-resource.md) — szybkie metody bez przy użyciu szablonu.
 * [Konfigurowanie alertów](app-insights-powershell-alerts.md)
 * [Tworzenie testów sieci web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Wysyłanie Diagnostyki Azure do usługi Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Wdrażanie na platformie Azure z usługi GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Wyślij Insights tooApplication diagnostyki Azure](app-insights-powershell-azure-diagnostics.md)
+* [Wdrażanie tooAzure z usługi GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Tworzenie wersji adnotacji](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

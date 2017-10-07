@@ -1,6 +1,6 @@
 ---
-title: "Ciągłego dostarczania z Visual Studio Team Services na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania programu Visual Studio Team Services projektów zespołowych do automatycznego tworzenia i wdrażania dla funkcji aplikacji sieci Web w usługach Azure App Service lub w chmurze."
+title: dostarczanie aaaContinuous z Visual Studio Team Services na platformie Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooconfigure programu Visual Studio Team Services projekty zespołowe tooautomatically tworzenia i wdrażania toohello funkcji aplikacji sieci Web w usługach Azure App Service lub w chmurze."
 services: cloud-services
 documentationcenter: .net
 author: mlearned
@@ -14,171 +14,171 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-ms.openlocfilehash: d80ce63eb7ddfd7c45726be887a772f9a7594b28
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eae75729e1c1a55f9bc3375604a8192f329d0042
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services"></a>Ciągłe dostarczanie na platformę Azure za pomocą usługi Visual Studio Team Services
-Można skonfigurować programu Visual Studio Team Services projektów zespołowych do automatycznego tworzenia i wdrażania aplikacji sieci web platformy Azure lub usługi w chmurze.  (Informacje o tym, jak skonfigurować ciągłe kompilacji i wdrożyć przy użyciu systemu *lokalnymi* Team Foundation Server, zobacz [ciągłego dostarczania dla usług w chmurze na platformie Azure](cloud-services-dotnet-continuous-delivery.md).)
+# <a name="continuous-delivery-tooazure-using-visual-studio-team-services"></a>TooAzure ciągłego dostarczania przy użyciu programu Visual Studio Team Services
+Możesz skonfigurować kompilację tooautomatically projektów zespołowych Visual Studio Team Services i wdrażanie aplikacji sieci web tooAzure lub usług w chmurze.  (Informacji na temat sposobu tooset kompilacji ciągłego konfigurację i wdrażanie przy użyciu systemu *lokalnymi* Team Foundation Server, zobacz [ciągłego dostarczania dla usług w chmurze na platformie Azure](cloud-services-dotnet-continuous-delivery.md).)
 
-Ten samouczek zakłada, że używasz programu Visual Studio 2013 i zainstalować zestaw Azure SDK. Jeśli nie masz jeszcze programu Visual Studio 2013, pobierz ją, wybierając **zacznij pracę bezpłatnie** łączenie z [www.visualstudio.com](http://www.visualstudio.com). Zainstaluj zestaw Azure SDK z [tutaj](http://go.microsoft.com/fwlink/?LinkId=239540).
+W tym samouczku założono, że masz program Visual Studio 2013 i hello zainstalowany zestaw SDK platformy Azure. Jeśli nie masz jeszcze programu Visual Studio 2013, pobierz ją, wybierając hello **zacznij pracę bezpłatnie** łączenie z [www.visualstudio.com](http://www.visualstudio.com). Zainstaluj hello zestawu Azure SDK w [tutaj](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 > [!NOTE]
-> Musisz mieć konto usługi Visual Studio Team Services do ukończenia tego samouczka: możesz [otworzyć bezpłatne konto usługi Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> Należy toocomplete konta usługi Visual Studio Team Services w tym samouczku: możesz [otworzyć bezpłatne konto usługi Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 > 
 > 
 
-Aby skonfigurować usługi w chmurze spowoduje automatyczne utworzenie i wdrażanie na platformie Azure przy użyciu programu Visual Studio Team Services, wykonaj następujące kroki.
+tooset się tooautomatically usługi chmury tworzenie i wdrażanie tooAzure przy użyciu programu Visual Studio Team Services, wykonaj następujące kroki.
 
 ## <a name="1-create-a-team-project"></a>1: Tworzenie projektu zespołowego
-Postępuj zgodnie z instrukcjami [tutaj](http://go.microsoft.com/fwlink/?LinkId=512980) do tworzenia projektu zespołowego i połączyć je z programu Visual Studio. W tym przewodniku przyjęto założenie, że używasz kontroli wersji typu Team Foundation (TFVC) jako rozwiązania do kontroli źródła. Jeśli chcesz użyć do kontroli wersji Git, zobacz [wersji Git tego przewodnika](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+Postępuj zgodnie z instrukcjami hello [tutaj](http://go.microsoft.com/fwlink/?LinkId=512980) toocreate Twojego zespołu projektu i połączyć ją tooVisual Studio. W tym przewodniku przyjęto założenie, że używasz kontroli wersji typu Team Foundation (TFVC) jako rozwiązania do kontroli źródła. Jeśli chcesz toouse Git kontroli wersji, zobacz [wersji Git hello tego przewodnika](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-## <a name="2-check-in-a-project-to-source-control"></a>2: projektów z kontrolą źródła
-1. W programie Visual Studio Otwórz rozwiązanie, które mają zostać wdrożone lub Utwórz nową.
-   Wykonując kroki opisane w tym przewodniku można wdrożyć aplikację sieci web lub usługi w chmurze (Azure aplikacji).
-   Jeśli chcesz utworzyć nowe rozwiązanie, Utwórz nowy projekt usługi w chmurze Azure lub nowy projekt ASP.NET MVC. Upewnij się, że projekt jest przeznaczony dla platformy .NET Framework 4 lub 4.5, a w przypadku tworzenia projektu usługi w chmurze, Dodaj rolę sieci web platformy ASP.NET MVC i roli proces roboczy i wybierz polecenie aplikacji internetowej dla roli sieci web. Po wyświetleniu monitu wybierz **aplikacji internetowej**.
-   Jeśli chcesz utworzyć aplikację sieci web, wybierz szablon projektu aplikacji sieci Web ASP.NET, a następnie wybierz MVC. Zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md).
+## <a name="2-check-in-a-project-toosource-control"></a>2: Sprawdź w formancie toosource projektu
+1. W programie Visual Studio Otwórz rozwiązanie hello mają toodeploy lub Utwórz nową.
+   Możesz wdrożyć aplikację sieci web lub usługi w chmurze (Azure aplikacja) przez hello następujące kroki w tym przewodniku.
+   Jeśli toocreate nowe rozwiązanie, należy utworzyć nowy projekt usługi w chmurze Azure lub nowy projekt ASP.NET MVC. Upewnij się, że hello elementy docelowe projektu platformy .NET Framework 4 lub 4.5, a w przypadku tworzenia projektu usługi w chmurze, Dodaj rolę sieci web platformy ASP.NET MVC i roli proces roboczy i wybierz polecenie aplikacji internetowej dla roli sieci web hello. Po wyświetleniu monitu wybierz **aplikacji internetowej**.
+   Jeśli chcesz toocreate aplikacji sieci web, wybierz szablon projektu aplikacji sieci Web ASP.NET hello, a następnie wybierz MVC. Zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md).
    
    > [!NOTE]
    > Visual Studio Team Services obsługuje tylko CI wdrożenia aplikacji sieci Web w usłudze Visual Studio w tej chwili. Projekt witryny sieci Web jest poza zakresem.
    > 
    > 
-2. Otwórz menu kontekstowe dla rozwiązania i wybierz polecenie **Dodaj rozwiązanie do kontroli źródła**.
+2. Otwórz menu kontekstowe hello hello rozwiązania i wybierz polecenie **tooSource rozwiązania Dodaj formant**.
    
     ![][5]
-3. Zaakceptuj lub zmień ustawienia domyślne i wybierz **OK** przycisku. Po zakończeniu procesu ikony kontroli źródła są wyświetlane w **Eksploratora rozwiązań**.
+3. Zaakceptuj lub zmień ustawienia domyślne hello i wybierz hello **OK** przycisku. Po zakończeniu procesu hello ikony kontroli źródła są wyświetlane w **Eksploratora rozwiązań**.
    
     ![][6]
-4. Otwórz menu skrótów dla rozwiązania i wybierz polecenie **Zaewidencjonuj**.
+4. Otwórz menu skrótów hello hello rozwiązania i wybierz polecenie **Zaewidencjonuj**.
    
     ![][7]
-5. W **oczekujących zmian** obszar **Team Explorer**, wpisz komentarz do zaewidencjonowania i wybierz **Zaewidencjonuj** przycisku.
+5. W hello **oczekujących zmian** obszar **Team Explorer**, wpisz komentarz do zaewidencjonowania hello i wybierz hello **Zaewidencjonuj** przycisku.
    
     ![][8]
    
-    Należy pamiętać, opcje, aby dołączyć lub wykluczyć określone zmiany wprowadzone podczas ewidencjonowania. Jeśli to konieczne, zmian są wyłączone, wybierz **obejmują wszystkie** łącza.
+    Należy zwrócić uwagę tooinclude opcje hello lub wykluczyć określone zmiany wprowadzone podczas ewidencjonowania. Jeśli to konieczne, zmian są wyłączone, wybierz hello **obejmują wszystkie** łącza.
    
     ![][9]
 
-## <a name="3-connect-the-project-to-azure"></a>3: Połącz projekt na platformie Azure
-1. Teraz, gdy masz projektu zespołowego VS Team Services z kodu źródłowego w nim można przystąpić do projektu zespołowego połączenia z platformą Azure.  W [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), wybierz użytkownika chmury usługi lub aplikacji sieci web lub Utwórz nową, wybierając  **+**  ikony na dole po lewej i wybierając polecenie **usługi w chmurze**lub **sieci Web aplikacji** , a następnie **szybkie tworzenie**. Wybierz **skonfigurować publikowanie za pomocą usługi Visual Studio Team Services** łącza.
+## <a name="3-connect-hello-project-tooazure"></a>3: łączenie hello tooAzure projektu
+1. Teraz, gdy masz projektu zespołowego VS Team Services z kodu źródłowego w nim są gotowe tooconnect Twojego zespołu projektu tooAzure.  W hello [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), wybierz użytkownika chmury usługi lub aplikacji sieci web lub Utwórz nową, wybierając hello  **+**  ikonę w lewy dolny hello i wybierając polecenie **usługiwchmurze** lub **sieci Web aplikacji** , a następnie **szybkie tworzenie**. Wybierz hello **skonfigurować publikowanie za pomocą usługi Visual Studio Team Services** łącza.
    
     ![][10]
-2. W kreatorze, wpisz nazwę konta usługi Visual Studio Team Services w pliku tekstowym i kliknij przycisk **autoryzować teraz** łącza. Może być konieczne podanie do logowania.
+2. W Kreatorze hello hello nazwę konta usługi Visual Studio Team Services w polu tekstowym hello i kliknąć przycisk hello **autoryzować teraz** łącza. Użytkownik może zostać poproszony toosign w.
    
     ![][11]
-3. W **żądania połączenia** podręczne okno dialogowe, wybierz **Akceptuj** przycisk, aby autoryzować Azure, aby skonfigurować projekt zespołowy w programie VS Team Services.
+3. W hello **żądania połączenia** podręczne okno dialogowe, wybierz hello **Akceptuj** tooauthorize przycisk Azure tooconfigure Twojego zespołu projektu w programie VS Team Services.
    
     ![][12]
-4. Po autoryzacji zakończy się powodzeniem, użytkownik widzi listy rozwijanej zawierającego listę projektach zespołowych Visual Studio Team Services. Wybierz nazwę projektu zespołowego, który został utworzony w poprzednich krokach, a następnie wybierz przycisk wyboru w kreatorze.
+4. Po autoryzacji zakończy się powodzeniem, użytkownik widzi listy rozwijanej zawierającego listę projektach zespołowych Visual Studio Team Services. Wybierz nazwę projektu zespołowego, który został utworzony w poprzednich krokach hello hello, a następnie wybierz przycisk znacznika wyboru hello kreatora.
    
     ![][13]
-5. Po projektu, pojawi się instrukcje dotyczące ewidencjonowania zmiany do projektu zespołowego Visual Studio Team Services.  Na następnym zaewidencjonowania Visual Studio Team Services skompiluje oraz wdrażanie projektu na platformie Azure.  Spróbuj to teraz po kliknięciu **Zaewidencjonuj, z programu Visual Studio** łącza, a następnie **Uruchom Visual Studio** łącza (lub równoważne **Visual Studio** przycisk w dolnej części ekran portalu).
+5. Po projektu, pojawi się instrukcje dotyczące ewidencjonowania projektu zespołowego Visual Studio Team Services tooyour zmiany.  Na następnego zaewidencjonowania Visual Studio Team Services Skompiluj i wdróż tooAzure Twojego projektu.  Spróbuj teraz tego klikając hello **Zaewidencjonuj, z programu Visual Studio** połączyć, a następnie hello **Uruchom Visual Studio** link (lub równoważne hello **programu Visual Studio** u dołu hello Witaj ekranu portalu).
    
     ![][14]
 
 ## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4: wyzwolenia kompilowania i wdrożenie projektu
-1. W programie Visual Studio **Team Explorer**, wybierz **Eksploratora kontroli źródła** łącza.
+1. W programie Visual Studio **Team Explorer**, wybierz hello **Eksploratora kontroli źródła** łącza.
    
     ![][15]
-2. Przejdź do pliku rozwiązania, a następnie otwórz go.
+2. Przejdź do pliku rozwiązania tooyour i otwórz go.
    
     ![][16]
-3. W **Eksploratora rozwiązań**, otwarcie pliku i go zmienić. Na przykład zmienić plik `_Layout.cshtml` pod widokami\\udostępniony folder w roli sieci web MVC.
+3. W **Eksploratora rozwiązań**, otwarcie pliku i go zmienić. Na przykład zmienić plik hello `_Layout.cshtml` w obszarze widoki hello\\udostępniony folder w roli sieci web MVC.
    
     ![][17]
-4. Edytuj logo witryny i wybierz **Ctrl + S** można zapisać pliku.
+4. Edytuj logo hello hello witryny i wybierz **Ctrl + S** toosave hello pliku.
    
     ![][18]
-5. W **Team Explorer**, wybierz **oczekujących zmian** łącza.
+5. W **Team Explorer**, wybierz hello **oczekujących zmian** łącza.
    
     ![][19]
-6. Wprowadź komentarz, a następnie wybierz pozycję **Zaewidencjonuj** przycisku.
+6. Wprowadź komentarz, a następnie wybierz pozycję hello **Zaewidencjonuj** przycisku.
    
     ![][20]
-7. Wybierz **macierzystego** przycisk, aby powrócić do **Team Explorer** strony głównej.
+7. Wybierz hello **macierzystego** toohello tooreturn przycisk **Team Explorer** strony głównej.
    
     ![][21]
-8. Wybierz **kompilacje** łącze, aby wyświetlić kompilacji w toku.
+8. Wybierz hello **kompilacje** hello tooview łącze kompilacje w toku.
    
     ![][22]
    
     **Team Explorer** pokazuje, że zostało wyzwolone kompilacji do zaewidencjonowania.
    
     ![][23]
-9. Kliknij dwukrotnie nazwę kompilacji w toku, aby wyświetlić szczegółowy dziennik w trakcie kompilacji.
+9. Kliknij dwukrotnie nazwę hello hello kompilacji w toku tooview szczegółowy dziennik w miarę postępów kompilacji hello.
    
     ![][24]
-10. Gdy kompilacja jest w toku, Przyjrzyjmy się definicję kompilacji, który został utworzony, gdy są połączone TFS na platformie Azure za pomocą kreatora.  Otwórz menu skrótów dla definicji kompilacji i wybierz polecenie **edycji definicji kompilacji**.
+10. Podczas kompilacji hello jest w toku, Przyjrzyjmy się hello definicji kompilacji, który został utworzony, gdy są połączone TFS tooAzure przy użyciu Kreatora hello.  Otwórz menu skrótów powitania dla definicji kompilacji hello i wybierz polecenie **edycji definicji kompilacji**.
     
      ![][25]
     
-     W **wyzwalacza** kartę, zobaczysz, że definicji kompilacji jest ustawiony na każdym zaewidencjonowania domyślnie.
+     W hello **wyzwalacza** kartę, zobaczysz, że hello definicji kompilacji jest domyślnie toobuild na każdym zaewidencjonowania.
     
      ![][26]
     
-     W **procesu** karcie widać środowiska wdrażania jest ustawiona na nazwę Twojej chmury usługi lub aplikacji sieci web. Podczas pracy z aplikacjami sieci web, właściwości, które widać może się różnić od tych przedstawionych w tym miejscu.
+     W hello **procesu** karcie widać środowiska wdrażania hello jest ustawiona na nazwę toohello Twojego chmury usługi lub aplikacji sieci web. Podczas pracy z aplikacjami sieci web, właściwości hello, widocznej może się różnić z tymi, które przedstawiono w tym miejscu.
     
      ![][27]
-11. Określ wartości dla właściwości, jeśli chcesz, aby wartości innej niż wartości domyślne. Właściwości publikowania platformy Azure są w **wdrożenia** sekcji.
+11. Określ wartości dla właściwości hello, jeśli chcesz, aby wartości innej niż domyślne hello. Witaj właściwości publikowania platformy Azure znajdują się w hello **wdrożenia** sekcji.
     
-     W poniższej tabeli przedstawiono dostępne właściwości w **wdrożenia** sekcji:
+     Witaj poniższej tabeli przedstawiono dostępne właściwości hello hello **wdrożenia** sekcji:
     
     | Właściwość | Wartość domyślna |
     | --- | --- |
     | Zezwalaj na niezaufane certyfikaty |W przypadku wartości FAŁSZ certyfikaty SSL muszą być podpisane przez urząd główny. |
-    | Zezwalaj na uaktualnienie |Umożliwia wdrożenie, aby zaktualizować istniejące wdrożenie zamiast tworzenia nowej. Zachowuje adres IP. |
+    | Zezwalaj na uaktualnienie |Umożliwia tooupdate wdrożenia hello istniejącego wdrożenia zamiast tworzenia nowej. Zachowuje hello adresu IP. |
     | Nie usuwaj |Jeśli PRAWDA, nie zastępuj istniejącego wdrożenia niepowiązanych (uaktualnienia jest dozwolona). |
-    | Ścieżka do ustawienia wdrożenia |Ścieżka do pliku .pubxml dla aplikacji sieci web, względem głównego folderu repozytorium. Ignorowane dla usługi w chmurze. |
-    | Środowisko wdrażania SharePoint |Taka sama jak nazwa usługi. |
-    | Środowisko wdrażania platformy Azure |Nazwa sieci web aplikacji lub w chmurze usługi. |
-12. Jeśli używasz wielu konfiguracji usługi (.cscfg pliki), można będzie określić konfigurację żądanej usługi w **kompilacji, zaawansowane, argumenty programu MSBuild** ustawienie. Na przykład, aby używać ServiceConfiguration.Test.cscfg, ustaw argumenty programu MSBuild opcji wiersza `/p:TargetProfile=Test`.
+    | Ścieżka tooDeployment ustawienia |Witaj ścieżki tooyour .pubxml pliku dla aplikacji sieci web, toohello względną głównego folderu repozytorium hello. Ignorowane dla usługi w chmurze. |
+    | Środowisko wdrażania SharePoint |Witaj takie same jak nazwa usługi hello. |
+    | Środowisko wdrażania platformy Azure |Witaj aplikacji lub w chmurze nazwę usługi sieci web. |
+12. Jeśli używasz wielu konfiguracji usługi (.cscfg pliki), można będzie określić konfigurację żądanej usługi hello w hello **kompilacji, zaawansowane, argumenty programu MSBuild** ustawienie. Na przykład toouse ServiceConfiguration.Test.cscfg, ustawić argumenty programu MSBuild opcji wiersza `/p:TargetProfile=Test`.
     
      ![][38]
     
      Do tego czasu kompilacji powinien zakończyło się pomyślnie.
     
      ![][28]
-13. Dwukrotne kliknięcie nazwy kompilacji programu Visual Studio zawiera **podsumowanie kompilacji**, w tym wszystkie wyniki testu z skojarzone projektów testów jednostkowych.
+13. Dwukrotne kliknięcie nazwy kompilacji hello Visual Studio zawiera **podsumowanie kompilacji**, w tym wszystkie wyniki testu z skojarzone projektów testów jednostkowych.
     
      ![][29]
-14. W [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), skojarzone wdrożenia można obejrzeć w **wdrożeń** karcie, gdy środowisko tymczasowe jest zaznaczone.
+14. W hello [klasycznego portalu Azure](http://go.microsoft.com/fwlink/?LinkID=213885), można wyświetlić hello skojarzone wdrożenie na powitania **wdrożeń** karcie po wybraniu hello przemieszczania środowiska.
     
      ![][30]
-15. Przejdź do adresu URL witryny. Dla aplikacji sieci web, wystarczy kliknąć **Przeglądaj** przycisk paska poleceń. Usługi w chmurze, wybierz adres URL w **szybki przegląd** sekcji **pulpitu nawigacyjnego** strony zawierającej środowiska przemieszczania dla usługi w chmurze. Wdrożenia z ciągłej integracji usług w chmurze są publikowane w środowisku przemieszczania domyślnie. Możesz zmienić to ustawienie **alternatywny środowiska usługi w chmurze** właściwości **produkcji**. Zrzut ekranu przedstawia, gdy adres URL witryny jest na stronie pulpitu nawigacyjnego usługi w chmurze.
+15. Adres URL witryny tooyour przeglądania. Dla aplikacji sieci web, wystarczy kliknąć hello **Przeglądaj** przycisk na powitania paska poleceń. Usługi w chmurze, wybierz adres URL hello hello **szybki przegląd** sekcji hello **pulpitu nawigacyjnego** strony zawierającej hello środowiska przemieszczania dla usługi w chmurze. Wdrożenia z ciągłej integracji usług w chmurze są środowiska przemieszczania opublikowanych toohello domyślnie. Można zmienić to ustawienie hello **alternatywny środowiska usługi w chmurze** właściwości zbyt**produkcji**. Ten zrzut ekranu pokazuje gdzie hello na stronie pulpitu nawigacyjnego usługi chmury hello jest adres URL witryny.
     
     ![][31]
     
-    Na nowej karcie przeglądarki będą otwierane w celu wyświetlenia uruchomionej witryny.
+    Na nowej karcie przeglądarki zostanie otwarty tooreveal uruchomionej witryny.
     
     ![][32]
     
-    Dla usług w chmurze, jeśli inne zmiany do projektu, możesz wyzwalacza więcej kompilacje i będą gromadzone wielu wdrożeń. Najnowszego oznaczony jako aktywny.
+    Dla usług w chmurze wprowadzenie innych zmian tooyour projektu, możesz wyzwalacza więcej kompilacje i będą gromadzone wielu wdrożeń. Witaj najnowszego oznaczony jako aktywny.
     
     ![][33]
 
 ## <a name="5-redeploy-an-earlier-build"></a>5: należy ponownie wdrożyć wcześniejszą kompilację
-Ten krok ma zastosowanie do usługi w chmurze i jest opcjonalna. W klasycznym portalu Azure, wybierz wcześniejsze wdrożenie, a następnie wybierz **ponownie wdrożyć** przycisku do tyłu witryny wcześniej zaewidencjonowania.  Należy pamiętać, że spowoduje to wyzwalają nowej kompilacji w programie TFS i Utwórz nowy wpis w historii wdrożenia.
+Ten krok ma zastosowanie toocloud usług i jest opcjonalna. W hello klasycznego portalu Azure, wybierz wcześniejsze wdrożenie, a następnie wybierz hello **ponownie wdrożyć** przycisk toorewind tooan Twojego lokacji do wcześniej w zaewidencjonowania.  Należy pamiętać, że spowoduje to wyzwalają nowej kompilacji w programie TFS i Utwórz nowy wpis w historii wdrożenia.
 
 ![][34]
 
-## <a name="6-change-the-production-deployment"></a>6: Zmień wdrożenia produkcyjnego
-Ten krok ma zastosowanie tylko do usługi w chmurze, nie aplikacje sieci web. Gdy wszystko będzie gotowe, możesz podwyższyć poziom środowiska przemieszczania do środowiska produkcyjnego, wybierając **wymiany** przycisk w klasycznym portalu Azure. Nowo wdrożonym środowiska przemieszczania jest podwyższany do środowiska produkcyjnego i poprzedniego środowiska produkcyjnego, jeśli taki występuje, staje się środowiska przemieszczania. Aktywne wdrożenie może się różnić w produkcyjne i przejściowe środowisk, ale Historia wdrażania ostatnie kompilacji jest taka sama niezależnie od środowiska.
+## <a name="6-change-hello-production-deployment"></a>6: Zmień hello wdrożenia produkcyjnego
+Ten krok ma zastosowanie tylko toocloud usługi, nie aplikacje sieci web. Gdy wszystko będzie gotowe, możesz podwyższyć poziom środowiska produkcyjnego toohello dla hello przemieszczania, wybierając hello **wymiany** przycisku na powitania klasycznego portalu Azure. Hello nowo wdrożone środowiska przemieszczania jest awansowana tooProduction i hello poprzedniego środowiska produkcyjnego, jeśli taki występuje, staje się środowiska przemieszczania. Hello aktywnych wdrożeń mogą być różne dla środowisk przemieszczania i hello produkcji, ale Historia wdrażania hello ostatnie kompilacji jest hello sama niezależnie od tego środowiska.
 
 ![][35]
 
 ## <a name="7-run-unit-tests"></a>7: Uruchom testy jednostkowe
-Ten krok dotyczy tylko sieci web apps, nie usług w chmurze. Aby zawiesić bramki jakości wdrożenia, można uruchomić testów jednostkowych i w razie awarii, można zatrzymać wdrożenia.
+Ten krok ma zastosowanie tylko tooweb aplikacji, nie usługi w chmurze. tooput bramki jakości, wdrażania, można uruchomić testów jednostkowych i w razie awarii, można zatrzymać hello wdrożenia.
 
 1. W programie Visual Studio Dodaj jednostkowy projekt testowy.
    
    ![][39]
-2. Dodaj odwołania projektu do projektu, który ma zostać przetestowana.
+2. Dodaj odwołania toohello projekt ma tootest.
    
    ![][40]
-3. Dodanie niektórych testów jednostkowych. Aby rozpocząć, spróbuj fikcyjny test, który będzie zawsze przekazuj.
+3. Dodanie niektórych testów jednostkowych. tooget uruchomiona, spróbuj fikcyjny test, który będzie zawsze przekazuj.
    
        ```
        using System;
@@ -198,8 +198,8 @@ Ten krok dotyczy tylko sieci web apps, nie usług w chmurze. Aby zawiesić bramk
            }
        }
        ```
-4. Przeprowadź edycję definicji kompilacji, wybierz **procesu** , a następnie rozwiń węzeł **testu** węzła.
-5. Ustaw **niepowodzenie kompilacji w przypadku niepowodzenia testu** na wartość True. Oznacza to, że wdrożenie nie zostanie przeprowadzone, chyba, że testy zostały zaliczone pomyślnie.
+4. Przeprowadź edycję definicji kompilacji hello, wybierz hello **procesu** , a następnie rozwiń węzeł hello **testu** węzła.
+5. Zestaw hello **niepowodzenie kompilacji w przypadku niepowodzenia testu** tooTrue. Oznacza to, że hello wdrożenia nie występują, chyba że hello testów przebiegu.
    
    ![][41]
 6. Kolejka jest nowa kompilacja.
@@ -207,17 +207,17 @@ Ten krok dotyczy tylko sieci web apps, nie usług w chmurze. Aby zawiesić bramk
    ![][42]
    
    ![][43]
-7. Podczas kompilacji jest kontynuowanie, sprawdzić postęp.
+7. Podczas kompilacji hello jest kontynuowanie, sprawdzić postęp.
    
     ![][44]
    
     ![][45]
-8. Po zakończeniu kompilacji, sprawdź wyniki testu.
+8. Po zakończeniu kompilacji hello Sprawdź hello wyników testu.
    
     ![][46]
    
     ![][47]
-9. Spróbuj utworzyć test, który zakończy się niepowodzeniem. Dodaj nowego testu przez skopiowanie pierwsza z nich, zmień jego nazwę, a w komentarz wiersz kodu, stwierdzający, że notimplementedexception — jest oczekiwany wyjątek.
+9. Spróbuj utworzyć test, który zakończy się niepowodzeniem. Dodaj nowego testu przez skopiowanie hello pierwszego z nich, zmień jego nazwę, a w komentarz wiersz hello kodu, stwierdzający, że notimplementedexception — jest oczekiwany wyjątek.
    
        ```
        [TestMethod]
@@ -227,17 +227,17 @@ Ten krok dotyczy tylko sieci web apps, nie usług w chmurze. Aby zawiesić bramk
            throw new NotImplementedException();
        }
        ```
-10. Zaewidencjonuj zmiany do kolejki nowej kompilacji.
+10. Sprawdź w tooqueue zmiany hello nowej kompilacji.
     
      ![][48]
-11. Wyświetlić wyniki testów, aby zobaczyć szczegóły dotyczące błędu.
+11. Wyświetl szczegóły toosee wyników testu hello o niepowodzeniu hello.
     
      ![][49]
     
      ![][50]
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat testowania w programie Visual Studio Team Services jednostek, zobacz [Uruchom testy jednostkowe w kompilacji](http://go.microsoft.com/fwlink/p/?LinkId=510474). Jeśli używasz programu Git, zobacz [udostępnianie kodu w usłudze Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) i [ciągłe wdrażanie w usłudze Azure App Service](../app-service-web/app-service-continuous-deployment.md).  Aby uzyskać więcej informacji na temat programu Visual Studio Team Services, zobacz [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Aby uzyskać więcej informacji na temat testowania w programie Visual Studio Team Services jednostek, zobacz [Uruchom testy jednostkowe w kompilacji](http://go.microsoft.com/fwlink/p/?LinkId=510474). Jeśli używasz programu Git, zobacz [udostępnianie kodu w usłudze Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) i [tooAzure ciągłego wdrażania aplikacji usługi](../app-service-web/app-service-continuous-deployment.md).  Aby uzyskać więcej informacji na temat programu Visual Studio Team Services, zobacz [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png

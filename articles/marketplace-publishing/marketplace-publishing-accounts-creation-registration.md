@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i rejestrowanie konta wydawcy | Dokumentacja firmy Microsoft
-description: "Instrukcje dotyczące tworzenia konta Microsoft Developer, więc po zatwierdzeniu można sprzedać różnych oferują typy w witrynie Azure Marketplace."
+title: aaaCreating i rejestrowanie konta wydawcy hello | Dokumentacja firmy Microsoft
+description: "Instrukcje dotyczące tworzenia konta Microsoft Developer, więc po zatwierdzeniu można sprzedać różnych oferują typów na hello Azure Marketplace."
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27847d5a0e5c7579111cd6f7278f5d74dfea37a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>Utwórz konto Microsoft Developer
-Ten artykuł przeprowadzi Cię przez proces rejestracji zostać zatwierdzone Microsoft Developer do portalu Azure Marketplace i tworzenie konta niezbędne.
+W tym artykule przedstawiono tworzenie konta niezbędne hello i toobecome procesu rejestracji zatwierdzonych Microsoft Developer dla hello Azure Marketplace.
 
 ## <a name="1-create-a-microsoft-account"></a>1. Utwórz konto Microsoft
-Aby rozpocząć proces publikowania, musisz utworzyć konto Microsoft. To konto będzie używane do rejestrowania w celu zarówno **Microsoft Developer Center** i **publikowania Portal Azure**. Dla Twojej oferty Azure Marketplace, powinien mieć tylko jedno konto Microsoft. Nie powinny być specyficzne dla usługi lub oferty.
+proces publikowania hello toostart, konieczne będzie toocreate konta Microsoft. To konto będzie używane tooregister w tooboth hello **Microsoft Developer Center** i **publikowania Portal Azure**. Dla Twojej oferty Azure Marketplace, powinien mieć tylko jedno konto Microsoft. Nie ma określonych tooservices lub oferty.
 
-Adres, który wchodzi w skład nazwy użytkownika powinny być w domenie i kontrolowane przez Twój zespół IT. Publikowanie pokrewne działania ma się odbywać za pomocą tego konta.
+adres Hello, który wchodzi w skład nazwy użytkownika hello powinien znajdować się w domenie i kontrolowane przez Twój zespół IT. Wszystkie hello publikowania pokrewne działania ma się odbywać za pomocą tego konta.
 
 > [!WARNING]
-> Słów, takich jak **"Azure"** i **"Microsoft"** nie są obsługiwane dla rejestracji konta Microsoft. Unikaj używania te słowa, aby zakończyć proces rejestracji i tworzenia konta.
+> Słów, takich jak **"Azure"** i **"Microsoft"** nie są obsługiwane dla rejestracji konta Microsoft. Unikaj stosowania tych Tworzenie konta hello toocomplete słów i procesu rejestracji.
 >
 >
 
 ### <a name="guidelines-for-company-accounts"></a>Wskazówki dla firm
-Podczas tworzenia konta firmy, zgodna z tymi wytycznymi Jeśli więcej niż jedna osoba potrzebować dostępu do konta, logując się przy użyciu konta Microsoft, które otworzyć konto.
+Podczas tworzenia konta firmy, zgodna z tymi wytycznymi Jeśli więcej niż jedna osoba będzie wymagane jest konto hello tooaccess logując się przy użyciu hello konta Microsoft, która otwarta hello konta.
 
 > [!Important]
-> Ważne Aby Zezwalaj wielu użytkownikom na dostęp do tego konta Centrum deweloperów, zaleca się używanie usługi Azure Active Directory do przypisywania ról dla poszczególnych użytkowników, którzy mogą uzyskać dostępu do konta poprzez zalogowanie za pomocą ich indywidualne poświadczenia usługi Azure AD. Aby uzyskać więcej informacji, zobacz [użytkownikami konta](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Ważne tooallow wielu użytkowników tooaccess danych konta Centrum deweloperów, zaleca się używanie usługi Azure Active Directory tooassign ról tooindividual użytkowników, którzy mogą uzyskać dostęp do konta hello poprzez zalogowanie za pomocą ich indywidualne poświadczenia usługi Azure AD. Aby uzyskać więcej informacji, zobacz [użytkownikami konta](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
 
-* Utwórz konto Microsoft przy użyciu adresu e-mail, który należy do domeny firmy, ale nie do jedna osoba — na przykład windowsapps@fabrikam.com.
-* Ograniczanie dostępu do tego konta Microsoft na najmniejszą możliwą liczbę deweloperów.
-* Konfigurowanie listy dystrybucyjnej firmowej poczty e-mail, która zawiera wszystkich użytkowników potrzebuje uzyskiwać dostęp do konta dewelopera, a następnie dodać ten adres e-mail do informacji zabezpieczających. Dzięki temu wszyscy pracownicy na liście, aby otrzymać kod zabezpieczeń w razie potrzeby i zarządzać informacji zabezpieczających konta Microsoft. Konfigurowanie listy dystrybucyjnej nie jest realne, właściciela konta e-mail poszczególnych będzie muszą być dostępne do uzyskania dostępu i udostępniania kodu zabezpieczeń po wyświetleniu monitu (np. po dodaniu nowych informacji zabezpieczających do konta lub gdy muszą być dostępne z nowych urządzeń).
-* Dodaj numer telefonu firmy, który nie wymaga rozszerzenia i jest dostępna dla członków zespołu klucza.
-* Ogólnie rzecz biorąc mieć deweloperzy Użyj zaufanych urządzeń, aby zalogować się do konta dewelopera w firmie. Wszyscy członkowie zespołu kluczy powinien mieć dostęp do tych zaufanych urządzeń. Zmniejsza to potrzebę kody zabezpieczeń do wysłania podczas uzyskiwania dostępu do konta.
-* Jeśli chcesz zezwolić na dostęp do konta z komputera z systemem innym niż zaufane, ograniczyć tej dostęp do maksymalnie pięć deweloperów. Najlepiej, jeśli te deweloperzy powinien uzyskiwać dostęp do konta z maszyny, które identyczny geograficzne i lokalizacja w sieci.
-* Często przejrzeć informacje zabezpieczające firmy na stronie [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) się upewnić, że jest ona wszystkie bieżące.
+* Utwórz konto Microsoft przy użyciu adresu e-mail, który należy firmy tooyour domeny, ale nie tooa jedna osoba — na przykład windowsapps@fabrikam.com.
+* Ogranicz dostęp toothis Microsoft konta toohello najmniejszą możliwą liczbę deweloperów.
+* Konfigurowanie listy dystrybucyjnej firmowej poczty e-mail, która zawiera wszystkich użytkowników wymaga tooaccess hello konta dewelopera, a następnie dodaj tych informacji zabezpieczających tooyour adres e-mail. Dzięki temu wszystkie hello pracowników na powitania listy tooreceive kody zabezpieczeń w razie potrzeby i toomanage informacji zabezpieczających konta Microsoft. Konfigurowanie listy dystrybucyjnej nie jest realne, hello właściciela konta e-mail poszczególnych hello należy toobe dostępnych udziałów i tooaccess hello kod zabezpieczeń po wyświetleniu monitu (np. po dodaniu nowych informacji zabezpieczających konta toohello lub musi być dostępny z nowe urządzenie).
+* Dodaj firmy numer telefonu, który nie wymaga rozszerzenia i jest dostępny tookey członków zespołu.
+* Ogólnie rzecz biorąc mieć deweloperzy Użyj toolog zaufanych urządzeń w firmie tooyour konta dewelopera. Wszyscy członkowie zespołu kluczy powinien mieć dostęp toothese zaufanych urządzeń. Zmniejsza to potrzebę hello wysyłane podczas uzyskiwania dostępu do konta hello toobe kodów zabezpieczeń.
+* Konto toohello dostępu tooallow z komputera z systemem innym niż zaufany, należy ograniczyć tego dostępu tooa maksymalnie pięć deweloperów. Najlepiej, jeśli te deweloperzy powinien uzyskiwać dostęp konta hello z komputerów, które współużytkują hello sam geograficzne i lokalizacji sieciowej.
+* Często przejrzeć informacje zabezpieczające firmy na stronie [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) toomake się, że jest wszystkich bieżących.
 
-Konto dewelopera powinni mieć dostęp przede wszystkim z zaufanych komputerów. Jest to krytyczny, ponieważ istnieje limit liczby kody wygenerowane dla danego konta, na tydzień. Umożliwia także bezproblemową obsługę logowania.
+Konto dewelopera powinni mieć dostęp przede wszystkim z zaufanych komputerów. Jest to krytyczny, ponieważ istnieje Ogranicz liczbę toohello kody wygenerowane dla danego konta, na tydzień. Umożliwia również hello bezproblemową logowania.
 
 Aby uzyskać więcej informacji o wytycznych konta dewelopera dodatkowe i zabezpieczeniach, kliknij przycisk [tutaj](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instrukcje
-1. Otwórz nowy Incognito przeglądarki Chrome lub sesja przeglądania Internet Explorer InPrivate Aby upewnić się, że nie zalogowano Cię do istniejącego konta.
-2. Zarejestruj wiadomości e-mail (na wcześniej wskazówki dotyczące np. windowsapp@fabrikam.com) jako konto Microsoft za pośrednictwem łącza [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Postępuj zgodnie z poniższymi instrukcjami.
+1. Otwórz nowy Incognito przeglądarki Chrome lub Internet Explorer przeglądanie InPrivate przeglądania tooensure sesji, który nie jest podpisany w tooan istniejącego konta.
+2. Zarejestruj hello poczty e-mail (na powitania wcześniej wskazówki dotyczące np. windowsapp@fabrikam.com) jako konto Microsoft przy użyciu łącza hello [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Postępuj zgodnie z poniższymi instrukcjami hello.
 
-   1. Podczas rejestrowania konta jako konta Microsoft, musisz podać prawidłowy numer telefonu dla systemu wysłać kod weryfikacyjny konta jako wiadomości SMS lub telefonicznie.
-   2. Podczas rejestrowania konta jako konta Microsoft, należy podać identyfikator prawidłowy adres e-mail do odbierania automatyczne wiadomości e-mail do weryfikacji konta.
-3. Sprawdź poprawność adresu e-mail wysyłane do listy Dystrybucyjnej.
-4. Teraz możesz używać nowego konta Microsoft w programie Microsoft Developer Center.
+   1. Podczas rejestrowania konta jako konta Microsoft, należy tooprovide prawidłowy numer telefonu dla toosend systemu hello weryfikacji konta kodem jako wiadomości SMS lub telefonicznie.
+   2. Podczas rejestrowania konta jako konta Microsoft, należy tooprovide identyfikator prawidłowy adres e-mail do odbierania automatyczne wiadomości e-mail do weryfikacji konta.
+3. Sprawdź toohello adres wysyłane wiadomości e-mail hello DL.
+4. Możesz teraz gotowy toouse hello nowego konta Microsoft w hello Microsoft Developer Center.
 
 ## <a name="2-register-your-account-in-microsoft-developer-center"></a>2. Zarejestrować konta w programie Microsoft Developer Center
-Microsoft Developer Center służy do rejestrowania danych firmy raz. Rejestratorem musi być prawidłową przedstawicielem firmy i podaj swoje informacje osobiste, aby zweryfikować swoją tożsamość. Osoby, rejestrowanie, należy użyć konta Microsoft, które są udostępniane dla firmy, **i mogą być używane to samo konto w portalu Azure publikowania.** Należy sprawdzić, upewnij się, że firma nie ma jeszcze konta Microsoft Developer Center przed podjęciem próby go utworzyć. W trakcie będą zbierane informacje adres firmy, informacje o koncie bank i informacjami. Zwykle można je uzyskać od osób kontaktowych związanych z finansami lub biznesem.
+Witaj Microsoft Developer Center jest używane tooregister hello firmy informacje tylko jeden raz. rejestratorem Hello musi być prawidłową przedstawiciela firmy hello i podać ich dane osobowe jako toovalidate sposób ich tożsamości. osoby Hello rejestrowanie musi używać konta Microsoft, który jest współużytkowany firmy hello **i hello tego samego konta musi być używany w hello publikowania portalu Azure.** Należy sprawdzić toomake się, że firma nie ma jeszcze konta Microsoft Developer Center przed podjęciem próby toocreate jeden. W trakcie hello będą zbierane informacje adres firmy, informacje o koncie bank i informacjami. Zwykle można je uzyskać od osób kontaktowych związanych z finansami lub biznesem.
 
 > [!IMPORTANT]
-> Następujące składniki profilu Developer należy wykonać, aby przejść przez różne etapy oferta tworzenia i wdrażania.
+> Należy ukończyć hello następujące składniki profilu deweloperów w kolejności tooprogress za pośrednictwem hello fazy oferta tworzenia i wdrażania.
 >
 >
 
-| Profil Developer | Aby uruchomić projekt | Przemieszczania | Publikowanie bezpłatne i szablon rozwiązania | Publikowanie komercyjnych |
+| Profil Developer | Projekt toostart | Przemieszczania | Publikowanie bezpłatne i szablon rozwiązania | Publikowanie komercyjnych |
 | --- | --- | --- | --- | --- |
 | Rejestracja firmy |Musi mieć |Musi mieć |Musi mieć |Musi mieć |
 | NIP profilu |Optional (Opcjonalność) |Optional (Opcjonalność) |Optional (Opcjonalność) |Musi mieć |
@@ -80,157 +80,157 @@ Microsoft Developer Center służy do rejestrowania danych firmy raz. Rejestrato
 >
 
 ### <a name="register-your-company-account"></a>Zarejestruj konto firmowe
-1. Otwórz nowy Internet Explorer InPrivate lub Incognito przeglądarki Chrome Przeglądanie sesji aby upewnić się, że nie zalogowano Cię na koncie osobistym.
-2. Przejdź do [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) Aby zarejestrować się jako sprzedawcy w Centrum deweloperów. Przed kontynuowaniem przeczytaj następujące ważne uwagi.
+1. Otwórz nowy Internet Explorer InPrivate lub Incognito przeglądarki Chrome przeglądania tooensure sesji, który nie jest podpisany w tooa konta osobistego.
+2. Przejdź za[http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) tooregister siebie jako sprzedawcy w hello Centrum deweloperów. Przeczytaj powitania po ważna Uwaga Przed kontynuowaniem.
 
    > [!IMPORTANT]
-   > Sprawdź, czy wiadomości e-mail identyfikator lub listę dystrybucyjną (listę dystrybucyjną zaleca się usunięcie zależności od osób) będzie używany do rejestrowania w Centrum deweloperów jest na najpierw zarejestrowany jako konta Microsoft. Jeśli nie, następnie zarejestruj za pomocą tej [łącze](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Ponadto **identyfikatorze znajdujące się w domenie firmy Microsoft żadnego e-mail tj. @microsoft.com nie można użyć** o rejestrację w Centrum deweloperów.
+   > Upewnij się, że tego hello e-mail identyfikator lub listę dystrybucyjną (listę dystrybucyjną zaleca się tooremove zależność od osób) będzie używany do rejestrowania w Centrum deweloperów hello znajduje się na pierwszej rejestracji jako konta Microsoft. Jeśli nie, następnie zarejestruj za pomocą tej [łącze](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Ponadto **żadnych identyfikator poczty e-mail w obszarze hello domeny firmy Microsoft, tj. @microsoft.com nie można użyć** do Centrum deweloperów rejestracji.
    >
    >
 
     ![Rysowanie][img-signin]
-3. Ukończ pracę kreatora "Pomóż nam chronić Twoje konto", który będzie zweryfikować Twoją tożsamość za pomocą numeru telefonu lub poczty e-mail adresu.
+3. Ukończ hello "Pomóż nam chronić Twoje konto" kreatora, który będzie zweryfikować Twoją tożsamość za pomocą numeru telefonu lub poczty e-mail adresu.
 
     ![Rysowanie][img-verify]
-4. W sekcji "Informacje o rejestracji konta" Wybierz Twoje **konta kraj/region** z menu rozwijanego.
+4. W sekcji "Konto rejestracji informacje" hello, wybierz użytkownika **konta kraj/region** z menu rozwijanego hello.
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"Sprzedaje — od" krajach:** aby sprzedaży z usług w witrynie Azure Marketplace, zarejestrowanych jednostki musi pochodzić z jednej z zatwierdzonych "sprzedaje — od" krajów powyżej. To ograniczenie jest ze względu na wypłaty i podatków. Aktywnie czekamy w najbliższej przyszłości Rozwiń tę listę krajów, więc wkrótce. Aby uzyskać więcej informacji, zobacz [zasady udziału Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **"Sprzedaje — od" krajach:** w celu toosell usług na hello Azure Marketplace, zarejestrowanych jednostki musi toobe z jednego z hello zatwierdzone "sprzedaje — od" krajach powyżej. To ograniczenie jest ze względu na wypłaty i podatków. Aktywnie czekamy tooexpand ta lista krajów w hello Najbliższa przyszłość, więc wkrótce. Aby uzyskać więcej informacji, zobacz hello [zasady udziału Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
-5. Wybierz opcję "Typ konta" jako **firmy** , a następnie kliknij przycisk **dalej** przycisku.
+5. Wybierz opcję "Typ konta" jako **firmy** , a następnie kliknij przycisk hello **dalej** przycisku.
 
    > [!IMPORTANT]
-   > Aby lepiej zrozumieć typy kont i najlepiej można wybrać, Wyświetl stronę [konta typów, lokalizacji i opłat](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
+   > toobetter zrozumieć typy kont i co zapewnia najlepszą toochoose możesz, należy wyświetlić stronę [konta typów, lokalizacji i opłat](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
    >
    >
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_05.png)
-6. Wprowadź **wydawcy, nazwa wyświetlana**, zwykle nazwę swojej firmy.
+6. Wprowadź hello **wydawcy, nazwa wyświetlana**, zwykle hello nazwę swojej firmy.
 
    > [!TIP]
-   > Wprowadzona w Centrum deweloperów wyświetlana nazwa wydawcy nie jest wyświetlana w portalu Azure Marketplace, gdy ofertę przejdzie do listy. Jednak to należy wprowadzić, aby ukończyć proces rejestracji.
+   > Wydawca Hello wyświetlana nazwa wprowadzona w hello Centrum deweloperów nie będzie wyświetlana w portalu Azure Marketplace hello po ofertę przejdzie do listy. Ale musi to być wypełnione procesu rejestracji hello toocomplete.
    >
    >
-7. Wprowadź **informacje kontaktowe** na weryfikację konta.
+7. Wprowadź hello **informacje kontaktowe** hello weryfikacji konta.
 
    > [!IMPORTANT]
-   > Należy podać dokładnych informacji kontaktowych, ponieważ zostanie ono używane w naszych proces weryfikacji przez firmę może zostać zatwierdzona w Centrum deweloperów.
+   > Należy podać dokładne informacje kontaktowe, ponieważ będzie można użyć w naszym proces weryfikacji Twojej toobe firmy zatwierdzona w hello Centrum deweloperów.
    >
    >
-8. Wprowadź informacje kontaktowe **osoba zatwierdzająca w firmie**. Osoba zatwierdzająca w firmie będzie użytkownik, który można zweryfikować, że masz uprawnienia do tworzenia konta w Centrum deweloperów w imieniu swojej organizacji. Polecenie **dalej** można przenieść do **płatności, zobacz sekcję"** po zakończeniu.
+8. Wprowadź informacje kontaktowe hello hello **osoba zatwierdzająca w firmie**. Osoba zatwierdzająca firmy jest hello osobą, która może Sprawdź, czy autoryzowany toocreate konto w Centrum deweloperów hello imieniu swojej organizacji. Polecenie **dalej** toomove toohello **płatności, zobacz sekcję"** po zakończeniu.
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
-9. Wprowadź informacje o Twojej płatności zapłacenia dla Twojego konta. Jeśli masz kod promocyjny, który obejmuje koszt rejestracji, które można wprowadzić w tym miejscu. W przeciwnym razie Podaj informacje o karcie kredytowej (lub PayPal rynkach obsługiwane). Gdy skończysz, kliknij przycisk **dalej** można przenieść do **"Ekran Przegląd"**.
+9. Wprowadź toopay informacje o Twojej płatności dla Twojego konta. Jeśli masz kod promocyjny, który obejmuje hello koszt rejestracji, które można wprowadzić w tym miejscu. W przeciwnym razie Podaj informacje o karcie kredytowej (lub PayPal rynkach obsługiwane). Gdy skończysz, kliknij przycisk **dalej** toomove na toohello **"Ekran Przegląd"**.
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Przejrzyj informacje o swoim koncie i upewnij się, że wszystkie ustawienia są poprawne. Następnie przeczytać i zaakceptować warunki i postanowienia o [Microsoft Azure Marketplace wydawcy umowy](http://go.microsoft.com/fwlink/?LinkID=699560). Pole wyboru, aby wskazać ma przeczytanie i zaakceptowanie tych postanowień.
-11. Kliknij przycisk **Zakończ** aby potwierdzić swoją rejestrację. Komunikat potwierdzający wyślemy Ci na adres e-mail.
-12. Jeśli planujesz opublikować tylko wolnego oferty, kliknij przycisk **przejdź do portalu publikowania Azure Marketplace** i można przejść do sekcji 3 tego dokumentu, [zarejestrować konta w portalu publikowania](#3-register-your-account-in-the-publishing-portal).
+10. Przejrzyj informacje o swoim koncie i upewnij się, że wszystkie ustawienia są poprawne. Następnie, przeczytaj i zaakceptuj hello warunków i postanowień dotyczących hello [Microsoft Azure Marketplace wydawcy umowy](http://go.microsoft.com/fwlink/?LinkID=699560). Sprawdź hello pole tooindicate ma przeczytanie i zaakceptowanie tych postanowień.
+11. Kliknij przycisk **Zakończ** tooconfirm rejestracji. Wyślemy Ci adres e-mail tooyour komunikat potwierdzenia.
+12. Jeśli planujesz toopublish tylko wolnego oferty, kliknij przycisk **Przejdź tooAzure publikowania portalu Marketplace** i toosection 3 tego dokumentu, można pominąć [zarejestrować konta w portalu publikowania hello](#3-register-your-account-in-the-publishing-portal).
 
-Jeśli planujesz opublikować komercyjnej oferuje (np. oferuje maszyny wirtualnej o modelu rozliczenia godzinowe), kliknij przycisk **zaktualizować informacje o Twoim koncie** gdzie należy wypełnić kwota podatku i informacji bankowych w danych konta Centrum deweloperów.
+Jeśli planujesz toopublish komercyjnych oferuje (np. oferuje maszyny wirtualnej o modelu rozliczenia godzinowe), kliknij przycisk **zaktualizować informacje o Twoim koncie** gdzie należy wypełnić hello podatku i banków informacji w Centrum deweloperów konto.
 
-Jeśli wolisz zaktualizować podatku bank informacji i później, a następnie przejściem do następnej sekcji, tj. sekcji 3 tego dokumentu, [zarejestrować konta w portalu publikowania](#3-register-your-account-in-the-publishing-portal), a następnie tu później za pomocą łączy w Azure Publishing Portal.
+Jeśli wolisz tooupdate podatku bank informacji i później, a następnie przeniesiesz toohello następnej sekcji, tj. sekcji 3 tego dokumentu, [zarejestrować konta w portalu publikowania hello](#3-register-your-account-in-the-publishing-portal), a następnie ją później za pomocą łączy w hello Azure Portal publikowania.
 
 > [!IMPORTANT]
-> W przypadku ofert handlowych nie będzie mógł wypychania oferty do środowiska produkcyjnego bez uzupełnianie informacji kwota podatku i wartość konta bankowego.
+> W przypadku ofert handlowych, nie będzie możliwe toopush Twojego tooproduction oferty przerywając hello podatku i informacje o koncie.
 >
 >
 
-Jeśli chcesz zaktualizować podatku bank informacji i później, można przejść do sekcji 3, [zarejestrować konta w portalu publikowania](#3-register-your-account-in-the-publishing-portal), a następnie ją później za pomocą łączy w portalu Azure Publishing.
+Jeśli wolisz tooupdate podatku bank informacji i później, możesz przejść toosection 3, [zarejestrować konta w portalu publikowania hello](#3-register-your-account-in-the-publishing-portal), a następnie tu później za pomocą łączy w hello publikowania portalu Azure.
 
 ### <a name="add-tax-and-banking-information"></a>Dodaj podatku i informacje dotyczące bankowości
- Jeśli chcesz opublikować komercyjnych oferty zakupu, należy dodać wypłaty i informacjami i przesłać je do weryfikacji w Centrum deweloperów. Jeśli zostanie opublikowany tylko wolnego oferty (lub oferuje BYOL), nie konieczne dodanie tych informacji. Można dodać go później, ale dopiero po pewnym czasie można sprawdzić poprawności informacji podatku. Jeśli znasz zaoferuje komercyjnych oferty zakupu, firma Microsoft zaleca, dodaj go jak najszybciej.
+ Jeśli chcesz toopublish komercyjnych oferty zakupu także muszą wypłaty tooadd i informacjami i przesłać je do weryfikacji w Centrum deweloperów hello. Jeśli zostanie opublikowany tylko wolnego oferty (lub oferuje BYOL), następnie nie trzeba tooadd te informacje. Można dodać go później, ale trwa niektóre informacje podatku hello toovalidate czasu. Jeśli znasz zaoferuje komercyjnych oferty zakupu, firma Microsoft zaleca, dodaj go jak najszybciej.
 
 **Bank informacji**
 
-1. Zaloguj się do [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) z kontem Microsoft.
-2. Kliknij przycisk **konta wypłaty** w menu po lewej stronie w obszarze **Wybierz formę płatności** kliknij **konta bankowego** lub **PayPal**.
+1. Zaloguj się toohello [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) z kontem Microsoft.
+2. Kliknij przycisk **konta wypłaty** w hello pozostałych menu, w obszarze **Wybierz formę płatności** kliknij **konta bankowego** lub **PayPal**.
 
    > [!IMPORTANT]
-   > Jeśli masz ofert handlowych, których klienci kupić w witrynie Marketplace, to konto będzie otrzymywania wypłaty za te zakupy.
+   > Jeśli masz komercyjnych oferty, które klientów zakupu w hello Marketplace jest hello konto będzie otrzymywania wypłaty za te zakupy.
    >
    >
-3. Wprowadź informacje o płatności, a następnie kliknij przycisk **zapisać** po zakończeniu.
+3. Wprowadź informacje o płatności hello, a następnie kliknij przycisk **zapisać** po zakończeniu.
 
    > [!IMPORTANT]
-   > Jeśli trzeba zaktualizować lub zmienić ustawienia konta wypłaty, wykonaj te same czynności, powyżej, zastępując bieżących informacji o nowe informacje. Zmiana konta wypłaty można opóźnić płatności przez maksymalnie jeden cykl płatności. To opóźnienie występuje, ponieważ musimy zweryfikować zmiany konta, jak robiliśmy po skonfigurowaniu konta wypłaty. Będzie nadal uzyskać płatności za łączną ilość po Twoje konto zostało zweryfikowane; płatności powodu dla bieżącej płatności cykl zostanie dodany do następnej.
+   > Należy tooupdate lub zmiana Twoje konto wypłaty, wykonaj hello same kroki opisane powyżej, zastępując hello bieżących informacji hello nowych informacji. Zmiana konta wypłaty można opóźnić płatności w górę tooone cykl płatności. To opóźnienie występuje, ponieważ potrzebujemy tooverify hello zmiany konta, jak robiliśmy, gdy należy najpierw skonfigurować hello wypłaty konta. Będzie nadal uzyskać płatności za łączną ilość hello po Twoje konto zostało zweryfikowane; płatności powodu dla bieżącego cyklu płatności hello zostanie dodany toohello kolejnego.
    >
    >
 4. Kliknij przycisk **Dalej**.
 
 **Informacje o podatku**
 
-1. Zaloguj się do [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) przy użyciu konta Microsoft (w razie potrzeby).
-2. Kliknij przycisk **podatku profilu** w lewym menu.
-3. Na **skonfigurować formularz podatku** strony, wybierz kraj lub region, w której są trwałe siedziby, a następnie wybierz kraj lub region, gdzie są przechowywane podstawowe możliwości dostępnych. Kliknij przycisk **Dalej**.
+1. Zaloguj się toohello [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) przy użyciu konta Microsoft (w razie potrzeby).
+2. Kliknij przycisk **podatku profilu** w menu po lewej stronie powitania.
+3. Na powitania **skonfigurować formularz podatku** strony, wybierz hello kraj lub region, w której są trwałe siedziby, a następnie wybierz hello kraju lub regionu, w którym przechowywane podstawowe możliwości dostępnych. Kliknij przycisk **Dalej**.
 4. Wprowadź szczegóły podatku, a następnie kliknij przycisk **dalej**.
 
 > [!WARNING]
-> Nie można wypchnąć do produkcji programu komercyjnej oferuje przerywając kwota podatku i wartość konta bankowego informacji w ramach Twojego konta Microsoft Developer Center.
+> Nie będzie możliwe toopush tooproduction Twojego komercyjnej oferuje przerywając hello kwota podatku i wartość konta bankowego informacji w ramach Twojego konta Microsoft Developer Center.
 >
 >
 
 Jeśli masz problemy z rejestracji w Centrum deweloperów, zgodnie z poniższymi instrukcjami Zaloguj biletu pomocy technicznej
 
-1. Przejdź do łącza pomocy [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
-2. W obszarze **skontaktuj się z nami** sekcji, kliknij przycisk **przesłać zdarzenia** (jak pokazano na poniższym zrzucie ekranu)
+1. Łącze do pomocy technicznej Przejdź toohello [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+2. W obszarze **skontaktuj się z nami** sekcji, kliknij przycisk hello **przesłać zdarzenia** (jak pokazano na poniższym zrzucie ekranu hello)
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
-3. Wybierz opcję "Pomoc z Centrum deweloperów" jako **typ problemu** i "publikowania aplikacji i zarządzanie nimi" jako **kategorii**. Następnie kliknij przycisk "E-mail Start".
+3. Wybierz opcję "Pomoc z Centrum deweloperów" jako **typ problemu** i "publikowania aplikacji i zarządzanie nimi" jako **kategorii**. Po wykonaniu tej kliknij hello przycisk "E-mail Start".
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
 4. Zostaną wyświetlone za pomocą strony logowania. Użyj logowania konta Microsoft w. Jeśli nie masz konta Microsoft, następnie utwórz ją przy użyciu to [łącze](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-5. Wypełnij szczegóły problemu i subit bilet, klikając **przesyłania** przycisku.
+5. Uzupełnij informacje dotyczące hello hello problem i subit hello biletu, klikając hello **przesyłania** przycisku.
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
-## <a name="3-register-your-account-in-the-publishing-portal"></a>3. Zarejestrować konta w portalu publikowania
-[Publikowania portalu](http://publish.windowsazure.com) umożliwia publikowanie i zarządzanie nimi Twojej oferty.
+## <a name="3-register-your-account-in-hello-publishing-portal"></a>3. Zarejestrować konta w portalu publikowania hello
+Witaj [publikowania portalu](http://publish.windowsazure.com) jest używane toopublish i zarządzanie nimi Twojej oferty.
 
-1. Otwórz nowy Incognito przeglądarki Chrome lub sesja przeglądania Internet Explorer InPrivate Aby upewnić się, że nie zalogowano Cię na koncie osobistym.
-2. Przejdź do [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3. W przypadku nowego użytkownika i zalogowanie się do publikowania portalu po raz pierwszy, następnie użytkownik musi zalogować się przy użyciu ten sam identyfikator poczty e-mail przy użyciu której zarejestrowano danych konta Centrum deweloperów. W ten sposób danych konta Centrum deweloperów i publikowania portalu konto zostanie połączone ze sobą. Później można dodać innych członków firmy, którzy pracują w aplikacji, jako współadministrator w publikacji portalu, wykonując poniższe kroki.
+1. Otwórz nowy Incognito przeglądarki Chrome lub Internet Explorer przeglądanie InPrivate przeglądania tooensure sesji, który nie jest podpisany w tooa konta osobistego.
+2. Przejdź za[http://publish.windowsazure.com](http://publish.windowsazure.com).
+3. W przypadku nowego użytkownika i zaloguj się toohello publikowania portal hello po raz pierwszy, a następnie należy zalogować się przy użyciu hello takie same poczty e-mail przy użyciu której zarejestrowano danych konta Centrum deweloperów identyfikator. W ten sposób danych konta Centrum deweloperów i publikowania portalu konto zostanie połączone ze sobą. Później można dodać hello o innych elementach członkowskich hello firmy, który pracuje aplikacja hello, jako współadministrator w hello publikowania portal przez następujące hello kroków poniżej.
 
-Jeśli są dodawane jako współadministrator w publikacji portalu, następnie można zalogujesz się przy użyciu konta administratora co.
+Jeśli są dodawane jako współadministrator w hello publikowania portalu, a następnie można zalogować się przy użyciu konta administratora co.
 
 > [!TIP]
-> Zasady udziału są opisane na [witryny sieci Web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+> zasady udziału Hello są opisane na powitania [witryny sieci Web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 >
 >
 
-## <a name="4-steps-to-add-a-co-admin-in-the-publishing-portal"></a>4. Kroki, aby dodać współadministrator w publikacji portalu
-**Przy założeniu, że jesteś administratorem,** podane poniżej przedstawiono kroki, aby dodać co administratora.
+## <a name="4-steps-tooadd-a-co-admin-in-hello-publishing-portal"></a>4. Kroki tooadd współadministrator w hello publikowania portalu
+**Przy założeniu, że jesteś Witaj, Administratorze** podane poniżej są tooadd kroki hello co administratora.
 
 > [!NOTE]
-> **Dla nowych użytkowników** przed dodaniem współadministrator w publikacji portalu, upewnij się, że utworzono co najmniej jedną aplikację w publikacji portalu. Jest to wymagane jako **WYDAWCÓW** karcie są wyświetlane tylko w po utworzeniu co najmniej jedną aplikację w publikacji portalu.
+> **Dla nowych użytkowników hello** przed dodaniem współadministrator w hello publikowania portalu, upewnij się, że utworzono co najmniej jedną aplikację w hello publikowania portalu. Jest to wymagane jako hello **WYDAWCÓW** karcie są wyświetlane tylko w po utworzeniu co najmniej jedną aplikację w hello publikowania portalu.
 >
 >
 
-1. Upewnij się, że identyfikator wiadomości e-mail współadministrator jest account(MSA) firmy Microsoft. Jeśli nie, zarejestruj go jako MSA, za pomocą tej [łącze](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-2. Upewnij się, że istnieje co najmniej jedną aplikację przy użyciu konta administratora, przed podjęciem próby dodania co administratora.
-3. Po wykonaniu powyższych czynności są czynności logowania do publikowania portal współadministrator identyfikator wiadomości e-mail, a następnie zaloguj się.
-4. Zaloguj się teraz do publikowania portalu o identyfikatorze wiadomości e-mail administratora.
-5. Przejdź do wydawcy -> konta -> Wybierz Administratorzy -> Dodaj współadministrator (zrzut ekranu poniżej)
+1. Upewnij się, że ten identyfikator wiadomości e-mail współadministrator hello jest account(MSA) firmy Microsoft. Jeśli nie, zarejestruj go jako MSA, za pomocą tej [łącze](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+2. Upewnij się, że istnieje co najmniej jednej aplikacji w ramach konta administratora hello przed podjęciem próby tooadd co administratora.
+3. Po hello powyżej kroki są wykonywane, toohello logowania publikowania portalu identyfikatorem hello współadministrator poczty e-mail, a następnie zaloguj.
+4. Teraz toohello logowania portalu o identyfikatorze wiadomości e-mail administratora hello publikowania.
+5. Przejdź tooPublishers -> konta -> Wybierz Administratorzy -> Dodaj hello współadministrator (zrzut ekranu poniżej)
 
    ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
-## <a name="5-steps-to-delete-a-co-admin-in-the-publishing-portal"></a>5. Kroki, aby usunąć współadministrator w publikacji portalu
-**Przy założeniu, że jesteś administratorem,** podane poniżej przedstawiono kroki, aby usunąć co administratora.
+## <a name="5-steps-toodelete-a-co-admin-in-hello-publishing-portal"></a>5. Kroki toodelete współadministrator w hello publikowania portalu
+**Przy założeniu, że jesteś Witaj, Administratorze** podane poniżej są toodelete kroki hello co administratora.
 
-1. Zaloguj się do publikowania portalu o identyfikatorze wiadomości e-mail administratora.
-2. Przejdź do **wydawców** -> konta -> Wybierz **Administratorzy** -> **Współadministratorzy**.
-3. Polecenie **X** przycisk współadministrator ma tot usuwania (zrzut ekranu poniżej).
+1. Toohello logowania portalu o identyfikatorze wiadomości e-mail administratora hello publikowania.
+2. Przejdź za**wydawców** -> konta -> Wybierz **Administratorzy** -> **Współadministratorzy**.
+3. Polecenie hello **X** przycisku Dalej toohello współadministrator ma tot usuwania (zrzut ekranu poniżej).
 
     ![Rysowanie](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Twoje konto jest utworzona i zarejestrowana, upewnij się, spełnienia lub spełnisz nietechnicznych wymagań wstępnych, aby opublikować ofertę, przeglądając [nietechnicznej wstępne](marketplace-publishing-pre-requisites.md).
+Twoje konto jest utworzona i zarejestrowana, upewnij się, spełnienia lub spełnisz toopublish nietechnicznych wstępne hello ofertę, przeglądając [nietechnicznej wstępne](marketplace-publishing-pre-requisites.md).
 
 ## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Wprowadzenie: jak toopublish toohello oferta portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie) | Dokumentacja firmy Microsoft"
-description: "Wydajność skalowania możliwości w usłudze Azure SQL Data Warehouse. Skalowanie w poziomie przez dostosowanie wartości dwu lub wstrzymywać i wznawiać zasobów obliczeniowych w celu ograniczenia kosztów."
+title: "aaaManage obliczeniowe zasilania w usłudze Azure SQL Data Warehouse (omówienie) | Dokumentacja firmy Microsoft"
+description: "Wydajność skalowania możliwości w usłudze Azure SQL Data Warehouse. Skalowanie w poziomie przez dostosowanie wartości dwu lub wstrzymywać i wznawiać koszty toosave zasobów obliczeniowych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ffbe8d694ac181eaeb6f585a2cee87a570ed7d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie)
 > [!div class="op_single_selector"]
@@ -31,16 +31,16 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Architektura usługi SQL Data Warehouse oddziela magazynu i zasobów obliczeniowych, umożliwiając niezależne skalowanie. W związku z tym obliczeniowe mogą być skalowane do wymagań dotyczących wydajności niezależnie od ilości danych. Fizyczne konsekwencją tej architektury jest to, że [rozliczeń] [ billed] dla zasobów obliczeniowych i magazynu jest oddzielona. 
+Architektura Hello usługi SQL Data Warehouse oddziela magazynu i zasobów obliczeniowych, dzięki czemu każdy tooscale niezależnie. W związku z tym obliczeń może być skalowana toomeet wymagań dotyczących wydajności niezależne od hello ilości danych. Fizyczne konsekwencją tej architektury jest to, że [rozliczeń] [ billed] dla zasobów obliczeniowych i magazynu jest oddzielona. 
 
-Ten przegląd zawiera opis jak skalować w poziomie współpracuje z usługi SQL Data Warehouse i jak wykorzystywać wstrzymania, wznowienia i skalować możliwości usługi SQL Data Warehouse. Zapoznaj się [jednostki (jednostek dwu) magazynu danych] [ data warehouse units (DWUs)] stronę, aby dowiedzieć się jak powiązanych jednostek dwu i wydajność. 
+Ten przegląd zawiera opis sposobu skalowania współpracuje z magazynu danych SQL i jak tooutilize Witaj, wstrzymywanie, wznawianie i możliwości skalowania usługi SQL Data Warehouse. Zapoznaj się hello [jednostki (jednostek dwu) magazynu danych] [ data warehouse units (DWUs)] toolearn strony jak jednostek dwu i wydajności są powiązane. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Jak obliczeń operacje zarządzania działają w usłudze SQL Data Warehouse
-Architektura magazynu danych SQL składa się z węzeł kontrolny, węzłów obliczeniowych i warstwy magazynu rozmieszczenie dystrybucje 60. 
+Architektura Hello magazynu danych SQL składa się z węzłem sterowania, węzły obliczeniowe i hello rozmieszczenie 60 dystrybucje warstwy magazynu. 
 
-Podczas normalnej sesji aktywnych w usłudze SQL Data Warehouse węzła głównego systemu zarządza metadanych i zawiera Optymalizator zapytań rozproszonych. Poniżej tego węzła głównego są węzłów obliczeniowych i warstwą magazynu. 400 DWU system ma jednego węzła głównego, czterech węzłów obliczeniowych i magazynu, składającego się z 60 dystrybucji. 
+Podczas normalnej sesji aktywnych w usłudze SQL Data Warehouse węzła głównego systemu zarządza hello metadanych i zawiera Optymalizator zapytań rozproszonych hello. Poniżej tego węzła głównego są węzłów obliczeniowych i warstwą magazynu. 400 DWU system ma jednego węzła głównego, czterech węzłów obliczeniowych i hello magazynu, składającego się z 60 dystrybucji. 
 
-Przejście skali lub wstrzymać działanie, system najpierw Kasuje wszystkie zapytania przychodzące i wycofa następnie transakcji w celu zapewnienia spójnego stanu. Dla operacji skalowania skalowanie będzie miało miejsce tylko po zakończeniu tego transakcyjne wycofywania. Dla operacji skalowania w górę przepisy systemu nadmiarowe żądaną liczbę węzły obliczeniowe, a następnie rozpoczyna podłączenie węzłów obliczeniowych do warstwy magazynu. Dla operacji dół niepotrzebnych węzły są wydawane i pozostałe węzły obliczeniowe ponownie podłączyć się do odpowiedniej liczby dystrybucji. Dla operacji Wstrzymaj obliczeniowe wszystkie węzły są wydawane i systemu zostaną poddane różnych operacji na metadanych pozostawić końcowego systemu stabilna.
+Przejście skali lub wstrzymać działania systemu hello najpierw Kasuje wszystkie zapytania przychodzące i wycofa następnie tooensure transakcji spójne. Dla operacji skalowania skalowanie będzie miało miejsce tylko po zakończeniu tego transakcyjne wycofywania. Dla operacji skalowania w górę przepisy systemu hello hello bardzo odpowiednią liczbę węzłów obliczeniowych, a następnie rozpoczyna podłączenie warstwy magazynu toohello węzły obliczeniowe hello. Dla operacji dół hello niepotrzebnych węzły są wydawane, a pozostałe węzły obliczeniowe hello Przyłącz się ponownie toohello odpowiedniej liczby dystrybucji. Dla operacji Wstrzymaj obliczeniowe wszystkie węzły są wydawane i systemu zostaną poddane różnych tooleave operacji metadanych systemu końcowego stabilna.
 
 | DWU  | \#węzły obliczeniowe | \#dystrybucji na węzeł |
 | ---- | ------------------ | ---------------------------- |
@@ -57,15 +57,15 @@ Przejście skali lub wstrzymać działanie, system najpierw Kasuje wszystkie zap
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-Trzy podstawowe funkcje zarządzania obliczeniowe są:
+Witaj trzy podstawowe funkcje zarządzania obliczeniowe są:
 
 1. Wstrzymaj
 2. Resume
 3. Skalowanie
 
-Każda z tych operacji może potrwać kilka minut. Jeśli jesteś skalowanie/wstrzymywanie/wznawianie automatycznie, można wdrożyć logikę, aby upewnić się, czy niektóre operacje zostały zakończone przed kontynuowaniem inną akcję. 
+Każda z tych operacji może potrwać kilka minut toocomplete. Jeśli jesteś skalowanie/wstrzymywanie/wznawianie automatycznie, może być tooimplement tooensure logiki to pewność, że operacje zostały zakończone przed kontynuowaniem innej akcji. 
 
-Sprawdzanie stanu bazy danych za pośrednictwem różnych punktów końcowych pozwoli prawidłowo zaimplementować automatyzacji takich operacji. Portalu zapewni powiadomienie po zakończeniu operacji i bazy danych bieżący stan, ale nie jest możliwe programowe sprawdzania stanu. 
+Sprawdzanie stanu bazy danych hello za pośrednictwem różnych punktów końcowych pozwoli toocorrectly automatyzacji implementacji takich operacji. Hello portal zapewni powiadomienie po zakończeniu operacji i hello bazy danych bieżący stan, ale nie jest możliwe programowe sprawdzania stanu. 
 
 >  [!NOTE]
 >
@@ -86,12 +86,12 @@ Sprawdzanie stanu bazy danych za pośrednictwem różnych punktów końcowych po
 
 ## <a name="scale-compute"></a>Skalowanie możliwości obliczeniowych
 
-Wydajność w usłudze SQL Data Warehouse jest mierzony w [jednostki (jednostek dwu) magazynu danych] [ data warehouse units (DWUs)] czyli abstracted miary zasoby obliczeniowe, takie jak procesor CPU, pamięci i we/wy przepustowości. Użytkownik, który chce skalowania wydajności ich systemu to zrobić za pomocą różnych środków, takich jak za pośrednictwem portalu, T-SQL i interfejsów API REST. 
+Wydajność w usłudze SQL Data Warehouse jest mierzony w [jednostki (jednostek dwu) magazynu danych] [ data warehouse units (DWUs)] czyli abstracted miary zasoby obliczeniowe, takie jak procesor CPU, pamięci i we/wy przepustowości. Użytkownik, który chce tooscale wydajność ich systemu to zrobić za pośrednictwem różnych środków, takich jak za pośrednictwem portalu hello, T-SQL i interfejsów API REST. 
 
 ### <a name="how-do-i-scale-compute"></a>Jak skalować obliczeń?
-Obliczeń zasilania odbywa się SQL Data Warehouse, zmieniając ustawienie wartości DWU. Zwiększa wydajność [liniowo] [ linearly] jak dodać więcej DWU dla niektórych operacji.  Firma Microsoft oferuje ofert DWU, zapewniający, że gdy system skalować w górę lub w dół znacznie zmienić wydajność. 
+Moc obliczeniową odbywa się SQL Data Warehouse, zmieniając ustawienie wartości DWU hello. Zwiększa wydajność [liniowo] [ linearly] jak dodać więcej DWU dla niektórych operacji.  Firma Microsoft oferuje ofert DWU, zapewniający, że gdy system skalować w górę lub w dół znacznie zmienić wydajność. 
 
-Aby dostosować liczbę jednostek dwu, można użyć dowolnej z tych poszczególnych metod.
+tooadjust jednostek dwu służy jednej z tych poszczególnych metod.
 
 * [Skala obliczeniowe zasilania z portalu Azure][Scale compute power with Azure portal]
 * [Skala obliczeniowe zasilania przy użyciu programu PowerShell][Scale compute power with PowerShell]
@@ -100,41 +100,41 @@ Aby dostosować liczbę jednostek dwu, można użyć dowolnej z tych poszczegól
 
 ### <a name="how-many-dwus-should-i-use"></a>Liczbę jednostek dwu należy używać?
 
-Aby przekonać się, jaka jest idealna wartość DWU, skaluj w górę i w dół oraz uruchom kilka zapytań po załadowaniu danych. Ponieważ skalowanie odbywa się szybko, możesz wypróbować różne poziomy wydajności w ciągu godziny lub mniej. 
+toounderstand jest jakie idealna wartość DWU, spróbuj skalowanie w górę i w dół oraz Uruchom kilka zapytań po załadowaniu danych. Ponieważ skalowanie odbywa się szybko, możesz wypróbować różne poziomy wydajności w ciągu godziny lub mniej. 
 
 > [!Note] 
-> Usługa SQL Data Warehouse zaprojektowano w celu przetwarzania dużych ilości danych. Aby wyświetlić jego wartość true, możliwości skalowania, zwłaszcza na większą liczbę jednostek dwu, chcesz użyć dużych zestawów danych, które zbliża się lub przekracza 1 TB.
+> Magazyn danych SQL jest zaprojektowana tooprocess dużych ilości danych. toosee true możliwości skalowania, zwłaszcza na większą liczbę jednostek dwu, ma toouse dużych zestawów danych, które zbliża się lub przekracza 1 TB.
 
-Zalecenia dotyczące znajdowania wartość DWU najlepsze dla obciążenia:
+Zalecenia dotyczące znajdowania hello DWU najlepsze dla obciążenia:
 
 1. Dla magazynu danych na programowanie rozpocząć wybierając mniejszą wydajnością DWU.  Dobry punkt wyjścia jest DW400 lub DW200.
-2. Monitorowanie wydajności aplikacji, obserwowania liczby jednostek dwu wybrane w porównaniu do wydajności, które należy obserwować.
-3. Określ, ile szybciej lub wolniej wydajność powinna być można osiągnąć poziom optymalną wydajność do wymagań przejmując skali liniowej.
-4. Zwiększanie lub zmniejszanie liczby jednostek dwu proporcjonalnie do jak znacznie szybciej lub wolniej ma obciążenia do wykonania. 
+2. Monitorowanie wydajności aplikacji, obserwowania hello liczby jednostek dwu wybrany porównanych toohello wydajności, które należy obserwować.
+3. Określ, ile szybciej lub wolniej wydajności powinny mieć możesz tooreach hello optymalny poziom wydajności dla wymagań przejmując skali liniowej.
+4. Zwiększ lub Zmniejsz liczbę hello jednostek dwu w proporcji toohow znacznie szybciej lub wolniej ma tooperform Twojego obciążenia. 
 5. Kontynuuj, wprowadzić zmiany, aż do uzyskania optymalnej wydajności poziom dla potrzeb biznesowych.
 
 > [!NOTE]
 >
-> Wydajność zapytań tylko zwiększa się wraz z paralelizacja więcej jeśli pracy może zostać podzielony między węzły obliczeń. Jeśli okaże się, że skalowanie nie zmienia się na wydajność, można znaleźć na naszych dostrajanie artykuły, aby sprawdzić, czy dane jest nierównomiernie dystrybuowane lub jeśli udostępniono dużą ilość ruchu danych wydajności. 
+> Wydajność zapytań tylko zwiększa się wraz z paralelizacja więcej jeśli hello pracy może zostać podzielony między węzły obliczeń. Jeśli okaże się, że skalowanie nie zmienia się na wydajność, można znaleźć na naszych dostrajanie toocheck artykuły, czy dane jest nierównomiernie dystrybuowane lub jeśli udostępniono dużą ilość ruchu danych wydajności. 
 
 ### <a name="when-should-i-scale-dwus"></a>Kiedy skalować liczbę jednostek dwu?
-Skalowanie jednostek dwu powoduje zmianę następujących ważne scenariusze:
+Skalowanie jednostek dwu zmienia powitania po ważne scenariusze:
 
-1. Liniowo Zmiana wydajności systemu pod kątem skanowania, agregacji i CTAS — instrukcje
-2. Zwiększenie liczby czytelników i zapisywania podczas ładowania przy użyciu programu PolyBase
+1. Liniowo Zmiana wydajności systemu hello skanowania, agregacji i CTAS — instrukcje
+2. Zwiększenie liczby hello czytelników i zapisywania podczas ładowania przy użyciu programu PolyBase
 3. Maksymalna liczba równoczesnych zapytań i gniazda współbieżności
 
-Zalecenia dotyczące Kiedy skalować liczbę jednostek dwu:
+Zalecenia dotyczące kiedy tooscale jednostek dwu:
 
 1. Przed wykonaniem operacji ładowania i przekształcania dużej ilości danych, skalowanie w górę liczbę jednostek dwu tak, aby szybciej Twoje dane są dostępne.
-2. W godzinach szczytu skalowanie w celu uwzględnienia większej liczby równoczesnych zapytań. 
+2. W godzinach szczytu skalowanie tooaccommodate większej liczby równoczesnych zapytań. 
 
 <a name="pause-compute-bk"></a>
 
 ## <a name="pause-compute"></a>Wstrzymaj obliczeń
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Aby wstrzymać bazy danych, użyj jednej z tych poszczególnych metod.
+toopause bazy danych, użyj jednej z tych poszczególnych metod.
 
 * [Wstrzymaj obliczeń z portalu Azure][Pause compute with Azure portal]
 * [Wstrzymaj obliczeń przy użyciu programu PowerShell][Pause compute with PowerShell]
@@ -145,7 +145,7 @@ Aby wstrzymać bazy danych, użyj jednej z tych poszczególnych metod.
 ## <a name="resume-compute"></a>Wznów obliczeń
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
+tooresume bazy danych, użyj jednej z tych poszczególnych metod.
 
 * [Wznów obliczeń z portalu Azure][Resume compute with Azure portal]
 * [Wznów obliczeń przy użyciu programu PowerShell][Resume compute with PowerShell]
@@ -155,7 +155,7 @@ Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
 
 ## <a name="check-database-state"></a>Sprawdź stan bazy danych 
 
-Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
+tooresume bazy danych, użyj jednej z tych poszczególnych metod.
 
 - [Sprawdź stan bazy danych z T-SQL][Check database state with T-SQL]
 - [Sprawdź stan bazy danych przy użyciu programu PowerShell][Check database state with PowerShell]
@@ -163,12 +163,12 @@ Aby wznowić działanie bazy danych, użyj jednej z tych poszczególnych metod.
 
 ## <a name="permissions"></a>Uprawnienia
 
-Skalowanie bazy danych musi mieć uprawnienia opisanego w [ALTER DATABASE][ALTER DATABASE].  Wstrzymywanie i wznawianie wymagają [Współautor bazy danych SQL] [ SQL DB Contributor] uprawnienia, w szczególności Microsoft.Sql/servers/databases/action.
+Skalowania hello bazy danych wymaga uprawnień hello opisanego w [ALTER DATABASE][ALTER DATABASE].  Wstrzymywanie i wznawianie wymagają hello [Współautor bazy danych SQL] [ SQL DB Contributor] uprawnienia, w szczególności Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły, aby ułatwić zrozumienie pojęcia niektóre dodatkowe wydajności:
+Zapoznaj się następujące artykuły toohelp pojęciami niektóre dodatkowe wydajności toohello:
 
 * [Zarządzanie obciążenia i współbieżność][Workload and concurrency management]
 * [Omówienie projektowania tabeli][Table design overview]

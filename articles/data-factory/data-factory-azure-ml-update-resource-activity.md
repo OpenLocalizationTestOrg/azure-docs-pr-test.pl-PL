@@ -1,6 +1,6 @@
 ---
-title: "Aktualizowanie modeli uczenia maszynowego przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób tworzenia tworzenie potoków predykcyjnej przy użyciu fabryki danych Azure i usługi Azure Machine Learning"
+title: "modele uczenia maszynowego aaaUpdate przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toocreate utworzyć predykcyjnej potoki przy użyciu fabryki danych Azure i usługi Azure Machine Learning"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: e31a7a59d14de4382190b39bd70f3ddf6cf673ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6e5e4d2cfd245c7a9ed3bb9cdacca1f7f82b9620
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aktualizowanie modeli uczenia maszynowego Azure przy użyciu działanie aktualizacji zasobu
 
@@ -33,36 +33,36 @@ ms.lasthandoff: 07/11/2017
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Działania niestandardowe .NET](data-factory-use-custom-activities.md)
 
-Główne fabryki danych Azure - artykułu integracji usługi Azure Machine Learning uzupełnia w tym artykule: [tworzenie potoków predykcyjnej przy użyciu usługi Azure Machine Learning i fabryki danych Azure](data-factory-azure-ml-batch-execution-activity.md). Jeśli nie zostało to jeszcze zrobione, należy przeczytać artykuł głównego przed odczytaniem za pośrednictwem tego artykułu. 
+W tym artykule uzupełnia hello głównego fabryki danych Azure - artykułu integracji usługi Azure Machine Learning: [tworzenie potoków predykcyjnej przy użyciu usługi Azure Machine Learning i fabryki danych Azure](data-factory-azure-ml-batch-execution-activity.md). Jeśli jeszcze tego nie zrobiono, przejrzyj artykuł głównego hello przed odczytaniem za pośrednictwem tego artykułu. 
 
 ## <a name="overview"></a>Omówienie
-Wraz z upływem czasu modeli predykcyjnych w uczenie Maszynowe Azure oceniania eksperymenty konieczne retrained, przy użyciu nowych baz danych wejściowych. Po wykonaniu ponownego trenowania chcesz zaktualizować usługę sieci web oceniania retrained modelu uczenia Maszynowego. Typowe kroki, aby włączyć ponownego trenowania i aktualizowanie modeli uczenia Maszynowego Azure za pośrednictwem usług sieci web są:
+Wraz z upływem czasu hello modeli predykcyjnych w eksperymentach oceniania uczenia Maszynowego Azure hello muszą toobe retrained przy użyciu nowych baz danych wejściowych. Po wykonaniu ponownego trenowania chcesz hello tooupdate oceniania usługi sieci web z hello retrained model usługi uczenie Maszynowe. ponownego trenowania tooenable typowe etapy Hello i aktualizowanie modeli uczenia Maszynowego Azure za pośrednictwem usług sieci web są:
 
 1. Tworzenie eksperymentu w [Azure ML Studio](https://studio.azureml.net).
-2. Po zakończeniu modelu publikowanie przy użyciu usługi Azure ML Studio usług sieci web dla obu **eksperyment uczenia** i oceniania /**eksperyment predykcyjny**.
+2. Po zakończeniu hello modelu za pomocą usługi Azure ML Studio toopublish usług sieci web zarówno hello **eksperyment uczenia** i oceniania /**eksperyment predykcyjny**.
 
-W poniższej tabeli opisano usługi sieci web, w tym przykładzie.  Zobacz [Retrain Machine Learning programowo modele](../machine-learning/machine-learning-retrain-models-programmatically.md) szczegółowe informacje.
+Witaj poniższej tabeli opisano usługi sieci web hello używane w tym przykładzie.  Zobacz [Retrain Machine Learning programowo modele](../machine-learning/machine-learning-retrain-models-programmatically.md) szczegółowe informacje.
 
-- **Usługa sieci web szkolenia** — odbiera dane szkoleniowe i tworzy przeszkolone modeli. Dane wyjściowe ponownego trenowania jest plikiem .ilearner w magazynie obiektów Blob platformy Azure. **Domyślny punkt końcowy** jest tworzona automatycznie dla podczas publikowania szkolenia Eksperymentując jako usługę sieci web. Można utworzyć więcej punktów końcowych, ale w przykładzie użyto tylko domyślny punkt końcowy.
-- **Ocenianie usługi sieci web** — odbiera przykłady bez etykiety danych i sprawia, że prognoz. Dane wyjściowe prognozowania może mieć różne formy, takich jak plik CSV lub wierszy w bazie danych Azure SQL, w zależności od konfiguracji eksperymentu. Domyślny punkt końcowy jest utworzony automatycznie po opublikowaniu eksperyment predykcyjny jako usługę sieci web. 
+- **Usługa sieci web szkolenia** — odbiera dane szkoleniowe i tworzy przeszkolone modeli. dane wyjściowe Hello ponownego trenowania hello jest plikiem .ilearner w magazynie obiektów Blob platformy Azure. Witaj **domyślny punkt końcowy** jest tworzona automatycznie dla podczas publikowania szkolenia hello Eksperymentując jako usługę sieci web. Można utworzyć więcej punktów końcowych, ale przykład Witaj używa tylko hello domyślnego punktu końcowego.
+- **Ocenianie usługi sieci web** — odbiera przykłady bez etykiety danych i sprawia, że prognoz. dane wyjściowe Hello prognozowania może mieć różne formy, takich jak plik CSV lub wierszy w bazie danych Azure SQL, w zależności od konfiguracji hello hello eksperymentu. Hello domyślny punkt końcowy jest automatycznie utworzone po opublikowaniu hello eksperyment predykcyjny jako usługę sieci web. 
 
-Poniżej przedstawiono relacji między szkolenia i oceniania punktów końcowych w uczenie Maszynowe Azure.
+Hello poniższy rysunek przedstawia relację hello celów szkoleniowych i oceniania punktów końcowych w uczenie Maszynowe Azure.
 
 ![Usługi sieci Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Można wywołać **usługi sieci web szkolenia** za pomocą **działanie wykonywania wsadowego usługi Azure ML**. Wywoływanie usługi sieci web szkolenia jest taka sama jak wywoływania usługi sieci web uczenie Maszynowe Azure (oceniania usługi sieci web) dla punktów danych. Poprzednich sekcjach opisano, jak wywołanie usługi sieci web uczenie Maszynowe Azure z potoku fabryki danych Azure szczegółowo. 
+Można wywołać hello **usługi sieci web szkolenia** przy użyciu hello **działanie wykonywania wsadowego usługi Azure ML**. Wywoływanie usługi sieci web szkolenia jest taka sama jak wywoływania usługi sieci web uczenie Maszynowe Azure (oceniania usługi sieci web) dla punktów danych. Witaj poprzedniego okładce sekcjach szczegółowo w sposób potoku tooinvoke usługi sieci web uczenie Maszynowe Azure z fabryki danych Azure. 
 
-Można wywołać **oceniania usługi sieci web** za pomocą **działanie aktualizacji zasobu usługi Azure ML** aktualizowania usługi sieci web przy użyciu nowo trenowanego modelu. Poniższe przykłady zapewniają definicje połączonej usługi: 
+Można wywołać hello **oceniania usługi sieci web** przy użyciu hello **działanie usługi Azure ML aktualizacji zasobów** usługi sieci web hello tooupdate z hello nowo trenowanego modelu. Następujące przykłady Hello zawierają definicje połączonej usługi: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Ocenianie usługi sieci web to usługa sieci web klasycznego
-Jeśli usługa sieci web oceniania **usługi sieci web klasycznego**, Utwórz drugi **punktu końcowego innych niż domyślne i nadaje się do aktualizacji** przy użyciu [portalu Azure](https://manage.windowsazure.com). Zobacz [tworzenie punktów końcowych](../machine-learning/machine-learning-create-endpoint.md) artykułu dla czynności. Po utworzeniu punktu końcowego nadaje się do aktualizacji innych niż domyślne, wykonaj następujące czynności:
+Jeśli hello oceniania usługi sieci web jest **usługi sieci web klasycznego**, Utwórz drugi hello **punktu końcowego innych niż domyślne i nadaje się do aktualizacji** przy użyciu hello [portalu Azure](https://manage.windowsazure.com). Zobacz [tworzenie punktów końcowych](../machine-learning/machine-learning-create-endpoint.md) artykułu dla czynności. Po utworzeniu aktualizowalnych punktu końcowego innych niż domyślne hello hello następujące kroki:
 
-* Kliknij przycisk **BATCH EXECUTION** można pobrać wartości identyfikatora URI dla **mlEndpoint** właściwości JSON.
-* Kliknij przycisk **aktualizacji zasobów** łącze, aby pobrać wartości identyfikatora URI dla **updateResourceEndpoint** właściwości JSON. Klucz interfejsu API znajduje się na stronie punktu końcowego (w prawym dolnym rogu).
+* Kliknij przycisk **BATCH EXECUTION** tooget hello URI wartość hello **mlEndpoint** właściwości JSON.
+* Kliknij przycisk **aktualizacji zasobów** link wartość identyfikatora URI hello tooget hello **updateResourceEndpoint** właściwości JSON. klucz interfejsu API Hello jest włączona sama strona punktu końcowego hello (w hello prawego dolnego rogu).
 
 ![można aktualizować punktu końcowego](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-W poniższym przykładzie przedstawiono przykład definicji JSON usługi uczenie maszynowe Azure połączone. Połączona usługa używa apiKey do uwierzytelniania.  
+Hello poniższy przykład zawiera przykładowe definicji JSON hello usługi uczenie maszynowe Azure połączone. Witaj połączonej usługi używa hello apiKey do uwierzytelniania.  
 
 ```json
 {
@@ -79,20 +79,20 @@ W poniższym przykładzie przedstawiono przykład definicji JSON usługi uczenie
 ```
 
 ## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Ocenianie usługi sieci web to usługa sieci web usługi Azure Resource Manager 
-Jeśli usługa sieci web jest nowy typ usługi sieci web, która udostępnia punkt końcowy usługi Azure Resource Manager, nie trzeba dodać drugi **innych niż domyślne** punktu końcowego. **UpdateResourceEndpoint** w połączonej usługi jest w formacie: 
+Jeśli usługa sieci web hello jest nowy typ hello usługi sieci web, która udostępnia punkt końcowy usługi Azure Resource Manager, nie trzeba tooadd hello drugi **innych niż domyślne** punktu końcowego. Witaj **updateResourceEndpoint** w hello połączonej usługi jest w formacie hello: 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Można uzyskać wartości dla posiadaczy miejsce w adresie URL podczas badania usługi sieci web na [portalu usługi sieci Web Azure Machine Learning](https://services.azureml.net/). Nowy typ punktu końcowego zasobów aktualizacji wymaga tokenu usługi AAD (Azure Active Directory). Określ **servicePrincipalId** i **servicePrincipalKey**w uczenie maszynowe Azure połączonej usługi. Zobacz [jak tworzenie nazwy głównej usługi i przypisywanie uprawnień do zarządzania zasobów platformy Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Oto przykład definicji usługi uczenie maszynowe Azure połączone: 
+Podczas badania usługi sieci web hello na powitania można uzyskać wartości dla posiadaczy miejsce w adresie URL hello [portalu usługi sieci Web Azure Machine Learning](https://services.azureml.net/). Nowy typ Hello aktualizacja zasobu punktu końcowego, wymaga tokenu usługi AAD (Azure Active Directory). Określ **servicePrincipalId** i **servicePrincipalKey**w uczenie maszynowe Azure połączonej usługi. Zobacz [jak toocreate service principal i przypisz uprawnienia toomanage zasobów platformy Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Oto przykład definicji usługi uczenie maszynowe Azure połączone: 
 
 ```json
 {
     "name": "AzureMLLinkedService",
     "properties": {
         "type": "AzureML",
-        "description": "The linked service for AML web service.",
+        "description": "hello linked service for AML web service.",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": "xxxxxxxxxxxx",
@@ -105,22 +105,22 @@ Można uzyskać wartości dla posiadaczy miejsce w adresie URL podczas badania u
 }
 ```
 
-Poniższy scenariusz zawiera więcej szczegółowych informacji. Ma przykład ponownego trenowania i aktualizowanie modeli uczenia Maszynowego Azure z potoku fabryki danych Azure.
+Witaj następujący scenariusz zawiera więcej szczegółowych informacji. Ma przykład ponownego trenowania i aktualizowanie modeli uczenia Maszynowego Azure z potoku fabryki danych Azure.
 
 ## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenariusz: ponownego trenowania i aktualizowanie model usługi uczenie Maszynowe Azure
-Ta sekcja zawiera przykładowe potok, który używa **działanie wykonywania wsadowego usługi uczenie Maszynowe Azure** do retrain modelu. Używa również potoku **działania usługi Azure ML aktualizacji zasobów** można zaktualizować modelu oceniania usługi sieci web. Sekcja ta zawiera też fragmenty kodu JSON dla wszystkich połączonych usług, zestawy danych i potoku w przykładzie.
+Ta sekcja zawiera przykładowe potok, który używa hello **działanie wykonywania wsadowego usługi uczenie Maszynowe Azure** tooretrain modelu. potok Hello używa również hello **działania usługi Azure ML aktualizacji zasobów** tooupdate hello modelu w hello oceniania usługi sieci web. Witaj sekcji znajdują się również hello fragmenty kodu JSON dla wszystkich połączonych usług, zestawy danych i potoki w przykładzie hello.
 
-Oto widok diagramu potoku próbki. Jak widać, działanie wykonywania wsadowego uczenia Maszynowego Azure pobiera dane wejściowe szkolenia i szkolenia danych wyjściowych (plik iLearner). Działanie usługi Azure ML aktualizacji zasobów przyjmuje te dane wyjściowe szkolenia i aktualizuje modelu w oceniania punkt końcowy usługi sieci web. Działanie aktualizacji zasobu nie generuje żadnego wyniku. PlaceholderBlob jest tylko fikcyjny wyjściowego zestawu danych, który jest wymagany przez usługi fabryka danych Azure do uruchamiania potoku.
+Oto widok diagramu hello hello próbki potoku. Jak widać, hello działania wykonanie partii usługi uczenie Maszynowe Azure ma hello szkolenia w danych wejściowych i szkolenia danych wyjściowych (plik iLearner). Witaj działanie usługi Azure ML aktualizacji zasobów przyjmuje te dane wyjściowe szkolenia i aktualizacje hello modelu w hello oceniania punkt końcowy usługi sieci web. Witaj działanie aktualizacji zasobu nie generuje żadnego wyniku. Hello placeholderBlob jest tylko fikcyjny wyjściowego zestawu danych, który jest wymagany przez hello fabryki danych Azure usługa toorun hello potoku.
 
 ![diagram procesu](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Magazyn obiektów Blob Azure połączonej usługi:
-Magazyn Azure przechowuje następujące dane:
+Hello Azure Storage przechowuje hello następujące dane:
 
-* danych szkoleniowych. Danych wejściowych dla usługi sieci web uczenie Maszynowe Azure szkolenia.  
-* Plik iLearner. Dane wyjściowe z usługi sieci web szkolenia uczenie Maszynowe Azure. Ten plik jest również dane wejściowe działanie aktualizacji zasobu.  
+* danych szkoleniowych. Witaj danych wejściowych dla usługi sieci web szkolenia uczenie Maszynowe Azure hello.  
+* Plik iLearner. dane wyjściowe z usługą sieci web szkolenia uczenie Maszynowe Azure hello Hello. Ten plik jest również hello wejściowych toohello działanie aktualizacji zasobu.  
 
-Oto przykład definicji JSON połączonej usługi:
+Oto definicji JSON próbki hello hello połączone usługi:
 
 ```JSON
 {
@@ -135,7 +135,7 @@ Oto przykład definicji JSON połączonej usługi:
 ```
 
 ### <a name="training-input-dataset"></a>Szkolenie wejściowy zestaw danych:
-Następujący zestaw danych reprezentuje dane wejściowe szkolenia dla usługi sieci web uczenie Maszynowe Azure szkolenia. Działanie wykonywania wsadowego usługi uczenie Maszynowe Azure ma tego zestawu danych jako dane wejściowe.
+Witaj następujący zestaw danych reprezentuje hello danych wejściowych szkoleniowych dla usługi sieci web szkolenia uczenie Maszynowe Azure hello. Witaj działanie wykonywania wsadowego usługi uczenie Maszynowe Azure ma tego zestawu danych jako dane wejściowe.
 
 ```JSON
 {
@@ -166,7 +166,7 @@ Następujący zestaw danych reprezentuje dane wejściowe szkolenia dla usługi s
 ```
 
 ### <a name="training-output-dataset"></a>Szkolenie wyjściowy zestaw danych:
-Następujący zestaw danych reprezentuje plik iLearner dane wyjściowe z usługi sieci web szkolenia uczenie Maszynowe Azure. Działanie wykonywania wsadowego usługi Azure ML tworzy tego zestawu danych. Ten zestaw danych jest także dane wejściowe działania usługi Azure ML aktualizacji zasobów.
+Witaj następujący zestaw danych reprezentuje plik iLearner wyjściowy hello z usługi sieci web szkolenia uczenie Maszynowe Azure hello. Działanie wykonywania wsadowego usługi Azure ML Hello tworzy tego zestawu danych. Ten zestaw danych jest także hello wejściowych toohello działania usługi Azure ML aktualizacji zasobów.
 
 ```JSON
 {
@@ -190,7 +190,7 @@ Następujący zestaw danych reprezentuje plik iLearner dane wyjściowe z usługi
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Połączona usługa dla punktu końcowego uczenia uczenie Maszynowe Azure
-Poniższy fragment kodu JSON definiuje usługi Azure Machine Learning połączone, która wskazuje domyślny punkt końcowy usługi sieci web szkolenia.
+powitania po fragment kodu JSON definiuje usługę Azure Machine Learning połączone, wskazujące toohello domyślny punkt końcowy usługi sieci web szkolenia hello.
 
 ```JSON
 {    
@@ -205,16 +205,16 @@ Poniższy fragment kodu JSON definiuje usługi Azure Machine Learning połączon
 }
 ```
 
-W **Azure ML Studio**, wykonaj następujące czynności, aby uzyskać wartości dla **mlEndpoint** i **apiKey**:
+W **Azure ML Studio**, hello następujące wartości tooget **mlEndpoint** i **apiKey**:
 
-1. Kliknij przycisk **usług sieci WEB** w menu po lewej stronie.
-2. Kliknij przycisk **usługi sieci web szkolenia** na liście usług sieci web.
-3. Kliknij przycisk Kopiuj obok **klucz interfejsu API** pola tekstowego. Wklej klucz Schowka do edytora JSON fabryki danych.
-4. W **Azure ML studio**, kliknij przycisk **BATCH EXECUTION** łącza.
-5. Kopiuj **przez identyfikator URI żądania** z **żądania** sekcji i wklej go w edytorze JSON fabryki danych.   
+1. Kliknij przycisk **usług sieci WEB** w menu po lewej stronie powitania.
+2. Kliknij przycisk hello **usługi sieci web uczenie** liście hello usług sieci web.
+3. Kliknij przycisk Kopiuj obok zbyt**klucz interfejsu API** pola tekstowego. Wklej klucz hello hello Schowka do edytora JSON fabryki danych hello.
+4. W hello **Azure ML studio**, kliknij przycisk **BATCH EXECUTION** łącza.
+5. Kopiuj hello **przez identyfikator URI żądania** z hello **żądania** sekcji i wklej go do edytora JSON fabryki danych hello.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Połączonej usługi uczenie Maszynowe Azure punktu końcowego oceniania nadaje się do aktualizacji:
-Poniższy fragment kodu JSON definiuje usługi Azure Machine Learning połączone, która wskazuje punkt końcowy nadaje się do aktualizacji innych niż domyślne oceniania usługi sieci web.  
+powitania po fragment kodu JSON definiuje usługę Azure Machine Learning połączone, wskazujące toohello innych niż domyślne można aktualizować punkt końcowy hello oceniania usługi sieci web.  
 
 ```JSON
 {
@@ -234,7 +234,7 @@ Poniższy fragment kodu JSON definiuje usługi Azure Machine Learning połączon
 ```
 
 ### <a name="placeholder-output-dataset"></a>Symbol zastępczy wyjściowy zestaw danych:
-Działanie usługi Azure ML aktualizacji zasobów nie generuje żadnego wyniku. Fabryka danych Azure wymaga jednak wyjściowy zestaw danych do kierowania harmonogram potoku. W związku z tym używamy zestawu manekina/symbol zastępczy danych, w tym przykładzie.  
+Hello działania usługi Azure ML aktualizacji zasobów nie generuje żadnego wyniku. Fabryka danych Azure wymaga jednak wyjściowego zestawu danych toodrive hello harmonogram potoku. W związku z tym używamy zestawu manekina/symbol zastępczy danych, w tym przykładzie.  
 
 ```JSON
 {
@@ -257,7 +257,7 @@ Działanie usługi Azure ML aktualizacji zasobów nie generuje żadnego wyniku. 
 ```
 
 ### <a name="pipeline"></a>Potok
-Potok zawiera dwa działania: **AzureMLBatchExecution** i **AzureMLUpdateResource**. Działanie wykonywania wsadowego usługi uczenie Maszynowe Azure przyjmuje jako dane wejściowe dane szkoleniowe i tworzy plik iLearner jako dane wyjściowe. Działanie wywołuje usługę sieci web szkolenia (eksperyment uczenia udostępniony jako usługa sieci web) przy użyciu danych wejściowych szkolenia i odbiera plik ilearner z usługi sieci Web. PlaceholderBlob jest tylko fikcyjny wyjściowego zestawu danych, który jest wymagany przez usługi fabryka danych Azure do uruchamiania potoku.
+potok Hello ma dwa działania: **AzureMLBatchExecution** i **AzureMLUpdateResource**. Witaj działanie wykonywania wsadowego usługi uczenie Maszynowe Azure pobiera dane szkoleniowe hello jako dane wejściowe i tworzy plik iLearner jako dane wyjściowe. działanie Hello wywołuje usługę sieci web szkolenia hello (eksperyment uczenia udostępniony jako usługa sieci web) przy użyciu danych wejściowych hello szkolenia danych i odbiera plik ilearner hello z hello Usługa sieci Web. Hello placeholderBlob jest tylko fikcyjny wyjściowego zestawu danych, który jest wymagany przez hello fabryki danych Azure usługa toorun hello potoku.
 
 ![diagram procesu](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

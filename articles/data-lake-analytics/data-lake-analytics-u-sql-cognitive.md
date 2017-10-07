@@ -1,6 +1,6 @@
 ---
-title: "Za pomocą funkcji kognitywnych U-SQL w usłudze Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać analizy kognitywnych możliwości w języku U-SQL"
+title: "aaaUsing możliwości kognitywnych U-SQL w usłudze Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello analizy kognitywnych możliwości w języku U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9ac71f490e929070fa0e72b93c3ffdb1ab243b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Samouczek: Rozpoczynanie pracy z funkcjami kognitywnych U-SQL
+# <a name="tutorial-get-started-with-hello-cognitive-capabilities-of-u-sql"></a>Samouczek: Rozpoczynanie pracy z funkcjami kognitywnych hello U-SQL
 
-Kognitywnych możliwości U-SQL umożliwiają deweloperom używanie analizy put w swoich programach danych big data. Ogólny proces w prosty:
+Kognitywnych możliwości U-SQL umożliwiają toouse deweloperzy put analizy w swoich programach danych big data. Witaj całego procesu w prosty:
 
-* Użyj instrukcji zestaw odwołania, aby włączyć funkcje kognitywnych skryptu U-SQL
-* Wywołaj operację procesu, aby korzystać z funkcji kognitywnych 
+* Funkcji hello zestaw odwołania instrukcji tooenable hello kognitywnych dla hello skryptu U-SQL
+* Wywołania funkcji kognitywnych hello toouse hello przetwarzanie operacji 
 
 ## <a name="imaging-scenarios"></a>Scenariusze tworzenia obrazu
 
 ### <a name="example-image-tagging"></a>Przykład: Obraz znakowanie
 
-W poniższym przykładzie przedstawiono użycie end-to-end możliwości przetwarzania obrazów do wykrycia obiektów w obrazach.
+Poniższy przykład Hello pokazano sposób użycia hello imaging możliwości toodetect obiektów w obrazach end-to-end.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -44,7 +44,7 @@ W poniższym przykładzie przedstawiono użycie end-to-end możliwości przetwar
         FROM @"/images/{FileName:*}.jpg"
         USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
+    // Extract hello number of objects on each image and tag them 
     @objects =
         PROCESS @imgs 
         PRODUCE FileName,
@@ -120,7 +120,7 @@ Załóżmy, będziemy mieć składający się z "War i pokoju" dane wejściowe p
                 Text
         USING new Cognition.Text.KeyPhraseExtractor();
 
-    // Tokenize the key phrases.
+    // Tokenize hello key phrases.
     @kpsplits =
         SELECT No,
             Year,

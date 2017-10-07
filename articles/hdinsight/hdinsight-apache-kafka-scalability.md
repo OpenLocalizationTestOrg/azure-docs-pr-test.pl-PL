@@ -1,6 +1,6 @@
 ---
-title: "Zwiększenie skalowalności klastra Apache Kafka — Azure HDInsight | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować zarządzane dyski klastra Apache Kafka w usłudze Azure HDInsight w celu zwiększenia skalowalności."
+title: "aaaApache Kafka zwiększenia skali - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooconfigure zarządzane dyski klastra Apache Kafka w usłudze Azure HDInsight tooincrease skalowalności."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b51114b33359f2c385f057a7a7a5b134cad27e51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Konfigurowanie magazynu i skalowalności klastra Apache Kafka w usłudze HDInsight
 
-Dowiedz się, jak skonfigurować liczbę zarządzanych dysków używanych przez klaster Apache Kafka w usłudze HDInsight.
+Dowiedz się, jak używane tooconfigure hello liczba dysków zarządzanych przez Kafka Apache na HDInsight.
 
-Platforma Kafka w usłudze HDInsight używa dysku lokalnego maszyn wirtualnych w klastrze usługi HDInsight. Ze względu na duże obciążenie we/wy platformy Kafka usługa [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) jest używana do zapewnienia wysokiej przepływności i zwiększenia miejsca do magazynowania w każdym węźle. Jeśli platforma Kafka korzysta z tradycyjnych wirtualnych dysków twardych (VHD), rozmiar każdego węzła nie przekracza 1 TB. W przypadku dysków zarządzanych można użyć wielu dysków, aby osiągnąć 16 TB pamięci dla każdego węzła w klastrze.
+Kafka w usłudze HDInsight używa dysku lokalnym hello hello maszyn wirtualnych w klastrze usługi HDInsight hello. Ponieważ Kafka jest ciężka, bardzo We/Wy [dysków zarządzanych Azure](../virtual-machines/windows/managed-disks-overview.md) jest używane tooprovide wysokiej przepływności i zapewniają więcej pamięci masowej w każdym węźle. Jeśli tradycyjnych wirtualnych dysków twardych (VHD) są używane do Kafka, każdy węzeł jest ograniczona too1 TB. Z zarządzanego dysków, można użyć wielu dysków tooachieve 16 TB dla każdego węzła w klastrze hello.
 
-Poniższy diagram przedstawia porównanie platformy Kafka w usłudze HDInsight przed użyciem dysków zarządzanych i platformy Kafka w usłudze HDInsight z dyskami zarządzanymi:
+Witaj następujący diagram zawiera porównanie Kafka w usłudze HDInsight przed dysków zarządzanych i Kafka w usłudze HDInsight z dyskami zarządzanego:
 
 ![Diagram przedstawiający porównanie platformy Kafka w usłudze HDInsight z użyciem jednego wirtualnego dysku twardego na maszynę wirtualną oraz z użyciem wielu dysków zarządzanych na maszynę wirtualną](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
 ## <a name="configure-managed-disks-azure-portal"></a>Konfigurowanie dysków zarządzanych: witryna Azure Portal
 
-1. Aby zapoznać się z typowymi czynnościami tworzenia klastra przy użyciu witryny, wykonaj kroki opisane w temacie [Tworzenie klastra usługi HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md). Nie wykonuj procesu tworzenia w witrynie.
+1. Wykonaj kroki hello hello [tworzenia klastra usługi HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md) toounderstand hello wspólne kroki toocreate klastra przy użyciu portalu hello. Nie ukończyć powitalnych tworzenia portalu.
 
-2. W bloku __Rozmiar klastra__ określ liczbę dysków w polu __Liczba dysków na węzeł procesu roboczego__.
+2. Z hello __rozmiar klastra__ bloku, użyj hello __dyski dla każdego węzła procesu roboczego__ pola tooconfigure hello liczba dysków.
 
     > [!NOTE]
-    > Można wybrać typ dysku zarządzanego __Standardowy__ (HDD) lub __Premium__ (SSD). Dyski w warstwie Premium są używane przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
+    > Witaj dysku zarządzanego typu może być albo __standardowe__ (HDD) lub __Premium__ (SSD). Dyski w warstwie Premium są używane przez maszyny wirtualne serii DS i GS. Wszystkie pozostałe typy maszyn wirtualnych korzystają z dysków standardowych.
 
-    ![Obraz bloku rozmiaru klastra z wyróżnionymi dyskami dla każdego węzła procesu roboczego](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Obraz powitania bloku rozmiar klastra z dyskami hello na wyróżnione węzła procesu roboczego](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Konfigurowanie dysków zarządzanych: szablon usługi Resource Manager
 
-Aby kontrolować liczbę dysków używanych przez węzły procesu roboczego w klastrze Kafka, użyj następującej sekcji szablonu:
+toocontrol hello liczba dysków używanych przez hello węzłów procesu roboczego w klastrze Kafka hello Użyj następujących sekcji hello szablonu:
 
 ```json
 "dataDisksGroups": [
@@ -53,15 +53,15 @@ Aby kontrolować liczbę dysków używanych przez węzły procesu roboczego w kl
     ],
 ```
 
-Kompletny szablon przedstawiający sposób konfigurowania dysków zarządzanych można znaleźć pod adresem [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
+Możesz znaleźć pełną szablonu, który demonstruje sposób tooconfigure zarządzania dyskami [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji na temat pracy z klastrem Kafka w usłudze HDInsight można znaleźć w następujących dokumentach:
+Aby uzyskać więcej informacji na temat pracy z Kafka w usłudze HDInsight Zobacz hello w następujących dokumentach:
 
-* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](hdinsight-apache-kafka-mirroring.md)
+* [Użyj toocreate MirrorMaker repliki Kafka w usłudze HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
 * [Używanie platformy Apache Spark z platformą Kafka w usłudze HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Łączenie się tooKafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
 * [Blog usługi HDInsight zawierający informacje na temat dysków zarządzanych na platformie Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

@@ -1,13 +1,13 @@
 ---
-title: "Szczegółowy Pulpit zdalny, rozwiązywanie problemów z platformy Azure | Dokumentacja firmy Microsoft"
-description: "Przeglądanie szczegółowe kroki rozwiązywania problemów dla zdalnego pulpitu błędy, których nie do maszyn wirtualnych systemu Windows na platformie Azure"
+title: "Pulpit zdalny aaaDetailed rozwiązywania problemów na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Przeglądanie szczegółowe kroki rozwiązywania problemów dla zdalnego pulpitu błędy, którym nie tooa maszyn wirtualnych systemu Windows na platformie Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "Nie można połączyć z pulpitem zdalnym, rozwiązywanie problemów z pulpitu zdalnego, Pulpit zdalny nie może połączyć błędy usług pulpitu zdalnego, rozwiązywania problemów pulpitu zdalnego, problemy z pulpitu zdalnego"
+keywords: "Nie można połączyć z tooremote pulpitu, rozwiązywanie problemów z pulpitu zdalnego pulpitu zdalnego nie może połączyć błędy usług pulpitu zdalnego, rozwiązywania problemów pulpitu zdalnego, problemy z pulpitu zdalnego"
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,44 +16,44 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/25/2017
 ms.author: genli
-ms.openlocfilehash: 22080b9402b13fd8162024db10aef5475880e4a7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fcb0d06aa66b748f3ebbbbe3431471d3cbe7c60d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Szczegółowe kroki rozwiązywania problemów dotyczących problemów połączeń usług pulpitu zdalnego do maszyn wirtualnych systemu Windows na platformie Azure
-Ten artykuł zawiera szczegółowe kroki rozwiązywania problemów w celu zdiagnozowania i rozwiązania złożonych błędy pulpitu zdalnego dla komputerów z systemem Windows Azure maszyny wirtualne.
+# <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-toowindows-vms-in-azure"></a>Szczegółowe kroki rozwiązywania problemów dla usługi Podłączanie pulpitu zdalnego wystawia tooWindows maszyn wirtualnych na platformie Azure
+Ten artykuł zawiera szczegółowe kroki rozwiązywania problemów toodiagnose i popraw błędy złożonych pulpitu zdalnego dla systemu Windows Azure maszyny wirtualne.
 
 > [!IMPORTANT]
-> Aby wyeliminować błędy częściej pulpitu zdalnego, upewnij się, że odczytu [podstawowe artykuł dotyczący rozwiązywania problemów dla pulpitu zdalnego](troubleshoot-rdp-connection.md) przed kontynuowaniem.
+> tooeliminate hello rozwiązywać typowe błędy pulpitu zdalnego, upewnij się, że tooread [hello podstawowe artykuł dotyczący rozwiązywania problemów dla pulpitu zdalnego](troubleshoot-rdp-connection.md) przed kontynuowaniem.
 
-Możesz napotkać komunikat o błędzie, który wygląda inaczej, wszelkie komunikaty o błędach specyficznych objęte pulpitu zdalnego [podstawowy przewodnik rozwiązywania problemów z pulpitu zdalnego](troubleshoot-rdp-connection.md). Wykonaj następujące kroki, aby określić, dlaczego nie można nawiązać połączenia z usługą RDP na maszynie Wirtualnej platformy Azure jest klienta usług pulpitu zdalnego (RDP).
+Pulpit zdalny objęte komunikat o błędzie, który wygląda inaczej żadnego hello określone komunikaty o błędach mogą wystąpić [hello podstawowych pulpitem zdalnym przewodnik rozwiązywania problemów](troubleshoot-rdp-connection.md). Wykonaj te kroki toodetermine, dlaczego powitania klienta usług pulpitu zdalnego (RDP) jest tooconnect toohello RDP usługi na powitania maszyny Wirtualnej platformy Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się ekspertów platformy Azure na [MSDN Azure i fora przepełnienie stosu](https://azure.microsoft.com/support/forums/). Alternatywnie można również pliku zdarzenia pomocy technicznej platformy Azure. Przejdź do [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i kliknij przycisk **Get Support**. Aby uzyskać informacje o korzystaniu z pomocą techniczną platformy Azure, przeczytaj [często zadawane pytania dotyczące programu Microsoft Azure Obsługa](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się hello ekspertów platformy Azure na [hello MSDN Azure i hello przepełnienie stosu fora](https://azure.microsoft.com/support/forums/). Alternatywnie można również pliku zdarzenia pomocy technicznej platformy Azure. Przejdź toohello [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i kliknij przycisk **Get Support**. Aby uzyskać informacje o korzystaniu z pomocą techniczną platformy Azure, przeczytaj hello [często zadawane pytania dotyczące programu Microsoft Azure Obsługa](https://azure.microsoft.com/support/faq/).
 
 ## <a name="components-of-a-remote-desktop-connection"></a>Składniki połączenia pulpitu zdalnego
-Połączenie RDP obejmuje następujące składniki:
+połączenie RDP obejmuje Hello następujące składniki:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Przed kontynuowaniem, warto umysłowo Przejrzyj zmiany od momentu ostatniego pomyślnego połączenia pulpitu zdalnego do maszyny Wirtualnej. Na przykład:
+Przed kontynuowaniem ułatwieniem może być toomentally Przejrzyj co zmienił się od hello ostatniego pomyślnego pulpitu zdalnego połączenia toohello maszyny Wirtualnej. Na przykład:
 
-* Publiczny adres IP maszyny Wirtualnej lub usługi w chmurze zawierających maszyny Wirtualnej (nazywane również wirtualnego adresu IP [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) została zmieniona. Niepowodzenie RDP mogło być, ponieważ pamięć podręczna klienta DNS nadal zawiera *stary adres IP* zarejestrowane nazwy DNS. Opróżnienia pamięci podręcznej klienta DNS, a następnie spróbuj ponownie nawiązać połączenie z maszyną Wirtualną. Lub spróbuj połączyć się bezpośrednio przy użyciu nowego adresu VIP.
-* Używasz aplikacji innych firm do zarządzania połączeniami pulpitu zdalnego zamiast przy użyciu połączenia wygenerowane w portalu Azure. Upewnij się, że konfiguracja aplikacji zawiera poprawny port TCP dla ruchu pulpitu zdalnego. Możesz sprawdzić tego portu klasycznych maszyn wirtualnych w [portalu Azure](https://portal.azure.com), klikając ustawienia maszyny Wirtualnej > punktów końcowych.
+* Witaj publicznego adresu IP hello maszyny Wirtualnej lub hello usługi w chmurze zawierających hello maszyny Wirtualnej (nazywane również hello wirtualnego adresu IP [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) została zmieniona. Hello RDP awarii może być spowodowane pamięć podręczną klienta DNS nadal ma hello *stary adres IP* zarejestrowany dla hello nazwy DNS. Opróżnienia pamięci podręcznej klienta DNS, a następnie spróbuj ponownie połączyć hello maszyny Wirtualnej. Lub spróbuj połączyć się bezpośrednio z hello nowego adresu VIP.
+* Używasz toomanage aplikacji innych firm połączeń pulpitu zdalnego zamiast przy użyciu połączenia hello generowane przez hello portalu Azure. Sprawdź, czy w tej konfiguracji aplikacja hello obejmuje hello poprawne port TCP dla hello ruchu pulpitu zdalnego. Możesz sprawdzić tego portu klasyczne maszyny wirtualnej w hello [portalu Azure](https://portal.azure.com), klikając ustawienia hello maszyny Wirtualnej > punktów końcowych.
 
 ## <a name="preliminary-steps"></a>Czynności wstępne
-Przed kontynuowaniem szczegółowe Rozwiązywanie problemów
+Przed kontynuowaniem toohello szczegółowe Rozwiązywanie problemów
 
-* Sprawdź stan maszyny wirtualnej w portalu Azure w poszukiwaniu problemów oczywiste.
-* Postępuj zgodnie z [kroków szybkiej poprawki dla typowych błędów protokołu RDP w podręczniku rozwiązywania problemów podstawowe](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Sprawdź stan hello hello maszyny wirtualnej w hello portal Azure oczywiste problemy.
+* Wykonaj hello [przewodnik kroki szybkiej poprawki typowych błędów protokołu RDP podstawowe rozwiązywaniu hello](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
-Spróbuj ponownie połączyć się z maszyną Wirtualną za pośrednictwem pulpitu zdalnego po wykonaniu tych kroków.
+Spróbuj połączyć się ponownie po wykonaniu tych kroków toohello maszyny Wirtualnej za pośrednictwem pulpitu zdalnego.
 
 ## <a name="detailed-troubleshooting-steps"></a>Szczegółowe kroki rozwiązywania problemów
-Klient usług pulpitu zdalnego nie może być dostęp do usług pulpitu zdalnego na maszynie Wirtualnej Azure z powodu problemów w następujących źródeł:
+powitania klienta pulpitu zdalnego nie może być możliwe tooreach usługi pulpitu zdalnego hello na powitania maszyny Wirtualnej platformy Azure z powodu tooissues na powitania następujące źródła:
 
 * [Komputer klienta usług pulpitu zdalnego](#source-1-remote-desktop-client-computer)
 * [Urządzenie brzegowe intranetowych w organizacji](#source-2-organization-intranet-edge-device)
@@ -62,89 +62,89 @@ Klient usług pulpitu zdalnego nie może być dostęp do usług pulpitu zdalnego
 * [Oparte na systemie Windows Azure maszyny Wirtualnej](#source-5-windows-based-azure-vm)
 
 ## <a name="source-1-remote-desktop-client-computer"></a>Źródło 1: Komputer klienta usług pulpitu zdalnego
-Upewnij się, że komputer może nawiązywać połączenia pulpitu zdalnego do innego lokalnego, komputer z systemem Windows.
+Sprawdź, czy komputer można utworzyć pulpitu zdalnego połączenia tooanother lokalnie, komputer z systemem Windows.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
 
-Jeśli nie, sprawdź następujące ustawienia na komputerze:
+Jeśli nie możesz sprawdzić hello następujące ustawienia na komputerze:
 
 * Ustawienia zapory lokalnej, która blokuje ruch pulpitu zdalnego.
 * Lokalnie zainstalowane oprogramowanie serwera proxy klienta, który uniemożliwia połączeń pulpitu zdalnego.
 * Lokalnie zainstalować oprogramowania, który uniemożliwia połączeń pulpitu zdalnego do monitorowania sieci.
 * Inne rodzaje oprogramowania zabezpieczającego które monitorowania ruchu lub Zezwalaj/nie zezwalaj na określone typy ruchu, który uniemożliwia połączeń pulpitu zdalnego.
 
-W takich przypadkach tymczasowo wyłączone i spróbuj połączyć się z komputerem lokalnym za pośrednictwem pulpitu zdalnego. Jeśli przyczynę rzeczywiste można znaleźć w ten sposób, współpracować z administratorem sieci, aby rozwiązać oprogramowanie ustawienia połączeń usług pulpitu zdalnego.
+W takich przypadkach tymczasowo wyłączyć hello oprogramowania i spróbuj tooconnect tooan na komputerze lokalnym za pośrednictwem pulpitu zdalnego. Jeśli można znaleźć rzeczywista Przyczyna hello w ten sposób, współpracować z administratora toocorrect hello oprogramowania ustawienia tooallow pulpitu zdalnego połączenia sieciowe.
 
 ## <a name="source-2-organization-intranet-edge-device"></a>Źródło 2: Urządzenie brzegowe intranetu organizacji
-Upewnij się, że komputer bezpośrednio połączony z Internetem mogą nawiązywać połączenia pulpitu zdalnego do maszyny wirtualnej platformy Azure.
+Sprawdź, czy komputer bezpośrednio połączony toohello przez Internet tooyour połączeń usług pulpitu zdalnego maszyny wirtualnej platformy Azure.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Jeśli nie masz komputera, który jest bezpośrednio połączony z Internetem, tworzenie i testowanie z nowej maszyny wirtualnej platformy Azure w usłudze chmury lub grupy zasobów. Aby uzyskać więcej informacji, zobacz [Utwórz maszynę wirtualną z systemem Windows na platformie Azure](../virtual-machines-windows-hero-tutorial.md). Maszyna wirtualna i grupy zasobów lub usługi w chmurze, można usunąć po testu.
+Jeśli nie masz komputera podłączonego bezpośrednio toohello Internet, tworzenie i testowanie z nowej maszyny wirtualnej platformy Azure w usłudze chmury lub grupy zasobów. Aby uzyskać więcej informacji, zobacz [Utwórz maszynę wirtualną z systemem Windows na platformie Azure](../virtual-machines-windows-hero-tutorial.md). Można usunąć maszyny wirtualnej hello i hello grupy zasobów lub usługi w chmurze hello, po hello testu.
 
-Jeśli tworzysz Podłączanie pulpitu zdalnego z komputerem bezpośrednio połączone z Internetem, sprawdź do urządzenia brzegowe intranetu organizacji:
+Jeśli można utworzyć połączenia pulpitu zdalnego z komputerem podłączony bezpośrednio toohello internetowe, sprawdź urządzenie krawędzi intranetu organizacji dla:
 
-* Wewnętrzny Zapora blokuje połączenia HTTPS z Internetem.
+* Wewnętrzny Zapora blokuje HTTPS toohello połączeń internetowych.
 * Serwer proxy uniemożliwia połączeń pulpitu zdalnego.
 * Włamań lub oprogramowanie na urządzeniach w sieci krawędzi, która uniemożliwia połączeń pulpitu zdalnego do monitorowania sieci.
 
-Skontaktować się z administratorem sieci, aby poprawić ustawień urządzenia brzegowe intranet organizacji, aby zezwolić oparty na protokole HTTPS pulpitu zdalnego połączenia z Internetem.
+Współpraca z ustawień sieci administrator toocorrect hello z Twojej organizacji intranet krawędzi urządzenia tooallow oparty na protokole HTTPS pulpitu zdalnego połączenia toohello Internet.
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>Źródło 3: Punkt końcowy usługi w chmurze i listy ACL
-Dla maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrożenia Sprawdź, czy innej maszyny Wirtualnej platformy Azure, który znajduje się w tej samej usługi w chmurze lub sieci wirtualnej mogą wysyłać połączeń pulpitu zdalnego do maszyny Wirtualnej Azure.
+Maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrożenia hello, sprawdź innej maszyny Wirtualnej platformy Azure, która jest w hello sama usługa w chmurze lub sieci wirtualnej można wprowadzać tooyour połączeń usług pulpitu zdalnego maszyny Wirtualnej platformy Azure.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Dla maszyn wirtualnych utworzonych w Menedżerze zasobów, przejdź do [źródła 4: grup zabezpieczeń sieci](#source-4-network-security-groups).
+> Dla maszyn wirtualnych utworzonych w Menedżerze zasobów, Pomiń zbyt[źródła 4: grup zabezpieczeń sieci](#source-4-network-security-groups).
 
-Jeśli nie masz innej maszyny wirtualnej w tej samej usługi w chmurze lub sieci wirtualnej, utwórz je. Postępuj zgodnie z instrukcjami [Utwórz maszynę wirtualną z systemem Windows na platformie Azure](../virtual-machines-windows-hero-tutorial.md). Po zakończeniu testu, należy usunąć testowej maszyny wirtualnej.
+Jeśli nie masz inną maszynę wirtualną w hello tej samej usługi w chmurze lub sieci wirtualnej, utwórz je. Wykonaj kroki hello w [Utwórz maszynę wirtualną z systemem Windows na platformie Azure](../virtual-machines-windows-hero-tutorial.md). Po zakończeniu testu hello, należy usunąć hello testowej maszyny wirtualnej.
 
-Jeśli można połączyć za pośrednictwem pulpitu zdalnego do maszyny wirtualnej w tej samej usługi w chmurze lub sieci wirtualnej, sprawdź następujące ustawienia:
+Jeśli można połączyć za pośrednictwem pulpitu zdalnego maszyny wirtualnej tooa hello takie same w chmurze, usługi lub wirtualnych sieci, sprawdź, czy te ustawienia:
 
-* Konfiguracja punktu końcowego dla ruchu pulpitu zdalnego w systemie docelowym maszyny Wirtualnej: port TCP prywatny punktu końcowego musi być zgodny z portem TCP, na którym nasłuchuje usługa Pulpit zdalny maszyny Wirtualnej (wartość domyślna to 3389).
-* Listy ACL punktu końcowego ruchu pulpitu zdalnego w systemie docelowym maszyny Wirtualnej: listy kontroli dostępu zezwala na określanie dozwolony lub niedozwolony ruch przychodzący z Internetu, na podstawie jego adresu IP źródłowego. Nieprawidłowo skonfigurowane listy kontroli dostępu może uniemożliwić ruchu przychodzącego usług pulpitu zdalnego do punktu końcowego. Sprawdź z listy kontroli dostępu, aby upewnić się, że ruch przychodzący z publiczne adresy IP serwera proxy lub inny serwer krawędzi jest dozwolone. Aby uzyskać więcej informacji, zobacz [co to jest sieć listy kontroli dostępu (ACL)?](../../virtual-network/virtual-networks-acl.md)
+* Witaj konfiguracji punktu końcowego dla ruchu pulpitu zdalnego w celu hello maszyny Wirtualnej: port prywatny TCP hello hello punktu końcowego musi być zgodna hello port TCP, na które hello nasłuchuje usługa Pulpit zdalny maszyny Wirtualnej (wartość domyślna to 3389).
+* Witaj listy ACL punktu końcowego ruchu pulpitu zdalnego hello w celu hello maszyny Wirtualnej: listy ACL umożliwiają toospecify dozwolony lub niedozwolony ruch przychodzący z hello Internet na podstawie źródłowego adresu IP. Nieprawidłowo skonfigurowane listy kontroli dostępu można zapobiec toohello ruchu przychodzącego usług pulpitu zdalnego punktu końcowego. Sprawdź tooensure Twojego listy ACL, ruch przychodzący z publicznych adresów IP, serwer proxy lub inny serwer krawędzi jest dozwolony. Aby uzyskać więcej informacji, zobacz [co to jest sieć listy kontroli dostępu (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
-Aby sprawdzić, czy punkt końcowy jest źródłem problemu, Usuń bieżący punkt końcowy i utworzyć nową, wybierając losowego portu z zakresu od 49152 – 65535 numeru portu zewnętrznego. Aby uzyskać więcej informacji, zobacz [sposobu konfigurowania punktów końcowych do maszyny wirtualnej](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+toocheck Jeśli hello punkt końcowy jest źródłem hello hello problemu, Usuń hello bieżący punkt końcowy i utworzyć nową, wybierając losowego portu hello zakresu 49152 – 65535 hello numeru portu zewnętrznego. Aby uzyskać więcej informacji, zobacz [jak tooset maszyny wirtualnej tooa punkty końcowe](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Źródła 4: Grupy zabezpieczeń sieci
 Grupy zabezpieczeń sieci umożliwiają większą kontrolę nad dozwolonego ruchu przychodzącego i wychodzącego. Można utworzyć zasady obejmujące podsieci i usług w sieci wirtualnej platformy Azure w chmurze.
 
-Użyj funkcji [weryfikacji przepływu adresu IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) w celu potwierdzenia, że reguła w sieciowej grupie zabezpieczeń blokuje ruch do lub z maszyny wirtualnej. Można również przejrzeć efektywnym elementem systemu zabezpieczeń zasady grupy w celu zapewnienia ruchu przychodzącego "Zezwalaj" NSG reguły istnieje i jest priorytety dla portu protokołu RDP (ustawienie domyślne 3389). Aby uzyskać więcej informacji, zobacz [przepływu ruchu przy użyciu skuteczne reguły zabezpieczeń rozwiązywać problemy z maszyny Wirtualnej](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Użyj [Sprawdź przepływ IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) tooconfirm, jeśli zasada grupy zabezpieczeń sieci blokuje tooor ruch z maszyny wirtualnej. Można również przejrzeć grupy efektywnym elementem systemu zabezpieczeń, które reguły tooensure ruchu przychodzącego "Zezwalaj" NSG reguły istnieje i jest priorytety dla portu protokołu RDP (ustawienie domyślne 3389). Aby uzyskać więcej informacji, zobacz [przepływu ruchu przy użyciu reguł zabezpieczeń skuteczne tootroubleshoot maszyny Wirtualnej](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Źródło 5: Opartych na systemie Windows Azure maszyny Wirtualnej
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Postępuj zgodnie z instrukcjami [w tym artykule](reset-rdp.md). W tym artykule resetuje usługi pulpitu zdalnego na maszynie wirtualnej:
+Postępuj zgodnie z instrukcjami hello [w tym artykule](reset-rdp.md). W tym artykule resetuje hello usługi pulpitu zdalnego na maszynie wirtualnej hello:
 
-* Włącz regułę domyślną "Pulpit zdalny" Zapora systemu Windows (port 3389 protokołu TCP).
-* Włączenie połączeń pulpitu zdalnego za pomocą ustawienia wartości rejestru HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections na 0.
+* Włącz regułę domyślną "Pulpit zdalny" Zapora systemu Windows hello (port 3389 protokołu TCP).
+* Włączenie połączeń pulpitu zdalnego przez ustawienie too0 wartość rejestru HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections hello.
 
-Ponów próbę połączenia z komputera. Jeśli nadal nie można nawiązać za pośrednictwem pulpitu zdalnego, sprawdź następujące możliwe problemy:
+Spróbuj hello ponownie nawiązać połączenie z komputera. Jeśli nadal nie możesz tooconnect za pośrednictwem pulpitu zdalnego, sprawdź powitania po możliwych problemów:
 
-* Usługi pulpitu zdalnego nie działa w systemie docelowym maszyny Wirtualnej.
-* Usługa Pulpit zdalny nie nasłuchuje portu 3389 protokołu TCP.
+* Witaj usługi pulpitu zdalnego nie jest uruchomiona na powitania docelowej maszyny Wirtualnej.
+* Hello usługi Pulpit zdalny nie nasłuchuje portu 3389 protokołu TCP.
 * Zapora systemu Windows lub innej zapory lokalnej ma wychodzącą regułę, która uniemożliwia ruchu pulpitu zdalnego.
-* Włamań lub monitorowania oprogramowania uruchomionego na maszynie wirtualnej Azure sieci uniemożliwia połączeń pulpitu zdalnego.
+* Włamań lub oprogramowania uruchomionego na powitania maszyny wirtualnej platformy Azure do monitorowania sieci uniemożliwia połączeń pulpitu zdalnego.
 
-Dla maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania można użyć sesję zdalną programu Azure PowerShell do maszyny wirtualnej platformy Azure. Najpierw należy zainstalować certyfikat dla maszyny wirtualnej usługi hostingu w chmurze. Przejdź do [skonfigurować bezpiecznego środowiska PowerShell dostępu zdalnego do maszyny wirtualnej platformy Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) i Pobierz **InstallWinRMCertAzureVM.ps1** plik skryptu na komputerze lokalnym.
+Dla maszyn wirtualnych utworzonych przy użyciu hello klasycznego modelu wdrażania można użyć zdalnego toohello sesji programu Azure PowerShell maszyny wirtualnej platformy Azure. Najpierw należy tooinstall certyfikatu dla maszyny wirtualnej hello usługi hostingu w chmurze. Przejdź za[tooAzure skonfigurować bezpiecznego środowiska PowerShell dostępu zdalnego maszyn wirtualnych](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) i Pobierz hello **InstallWinRMCertAzureVM.ps1** komputera lokalnego tooyour pliku skryptu.
 
-Następnie zainstaluj programu Azure PowerShell, jeśli nie jest jeszcze. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Następnie zainstaluj programu Azure PowerShell, jeśli nie jest jeszcze. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-Następnie otwórz wiersz polecenia programu PowerShell systemu Azure i zmień bieżący folder na lokalizację **InstallWinRMCertAzureVM.ps1** pliku skryptu. Aby uruchomić skrypt programu Azure PowerShell, należy ustawić zasady wykonywania poprawne. Uruchom **Get-ExecutionPolicy** polecenie, aby określić bieżący poziom zasad. Informacje o ustawianiu odpowiedni poziom, zobacz [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Następnie otwórz wiersz polecenia programu PowerShell systemu Azure i zmienić hello bieżącego toohello lokalizację folderu hello **InstallWinRMCertAzureVM.ps1** pliku skryptu. toorun skryptu programu Azure PowerShell, należy ustawić zasady wykonywania poprawne hello. Uruchom hello **Get-ExecutionPolicy** polecenia toodetermine aktualny poziom zasad. Informacje o ustawianiu hello odpowiedni poziom, zobacz [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
-Następnie wypełnij nazwę subskrypcji platformy Azure, nazwa usługi w chmurze i nazwę maszyny wirtualnej (usuwanie < i > znaków), a następnie uruchom następujące polecenia.
+Następnie wypełnij nazwę subskrypcji platformy Azure, nazwa usługi w chmurze hello i nazwy maszyny wirtualnej (usuwanie hello < i > znaków), a następnie uruchom następujące polecenia.
 
 ```powershell
 $subscr="<Name of your Azure subscription>"
-$serviceName="<Name of the cloud service that contains the target virtual machine>"
-$vmName="<Name of the target virtual machine>"
+$serviceName="<Name of hello cloud service that contains hello target virtual machine>"
+$vmName="<Name of hello target virtual machine>"
 .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 ```
 
-Można uzyskać nazwy poprawną subskrypcję z *Nazwa subskrypcji* właściwości wyświetlania **Get-AzureSubscription** polecenia. Nazwa usługi w chmurze maszyny wirtualnej z uzyskaniem *ServiceName* kolumny na wyświetlaczu **Get-AzureVM** polecenia.
+Nazwa subskrypcji poprawne hello można pobrać z hello *Nazwa subskrypcji* właściwości wyświetlania hello hello **Get-AzureSubscription** polecenia. Nazwa usługi w chmurze hello hello maszyny wirtualnej można uzyskać z hello *ServiceName* kolumny w hello wyświetlanie hello **Get-AzureVM** polecenia.
 
-Sprawdź, czy istnieje nowy certyfikat. Otwórz przystawkę Certyfikaty dla bieżącego użytkownika i Znajdź **zaufany główny Certification Authorities\Certificates** folderu. Powinny pojawić się certyfikatu z nazwą DNS w kolumnie wystawiony dla usługi w chmurze (przykład: cloudservice4testing.cloudapp.net).
+Sprawdź, czy masz hello nowego certyfikatu. Otwórz przystawkę Certyfikaty dla bieżącego użytkownika hello i Znajdź hello **zaufany główny Certification Authorities\Certificates** folderu. Powinny pojawić się certyfikatu z nazwą DNS hello usługi w chmurze w hello toocolumn wydany (przykład: cloudservice4testing.cloudapp.net).
 
 Następnie zainicjować sesję zdalną programu Azure PowerShell przy użyciu tych poleceń.
 
@@ -154,47 +154,47 @@ $creds = Get-Credential
 Enter-PSSession -ConnectionUri $uri -Credential $creds
 ```
 
-Po wprowadzeniu poświadczeń administratora prawidłowe, powinny zostać wyświetlone informacje podobne do następującego wiersza polecenia programu Azure PowerShell:
+Po wprowadzeniu poświadczeń administratora prawidłowe, powinny być widoczne coś podobnego toohello po wierszu programu Azure PowerShell:
 
 ```powershell
 [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
 ```
 
-Pierwsza część ten monit jest nazwę usługi chmury, która zawiera docelową maszynę Wirtualną, która może być inny niż "cloudservice4testing.cloudapp.net". Obecnie można przeprowadzić programu Azure PowerShell polecenia dla tej usługi w chmurze do badania problemów wymienionych i popraw konfigurację.
+Pierwsza część tego monitu Hello jest nazwę usługi w chmurze zawierającego hello docelowej maszyny Wirtualnej, może być inny niż "cloudservice4testing.cloudapp.net". Teraz można wydać polecenia programu PowerShell systemu Azure dla tej chmury usługi tooinvestigate hello problemy wspomniane i popraw konfigurację hello.
 
-### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Aby ręcznie rozwiązać nasłuchiwanie na porcie TCP usług pulpitu zdalnego
-W wierszu zdalnej sesji programu Azure PowerShell Uruchom to polecenie.
+### <a name="toomanually-correct-hello-remote-desktop-services-listening-tcp-port"></a>toomanually Popraw hello usług pulpitu zdalnego nasłuchiwania na porcie TCP
+W wierszu hello zdalnego programu Azure PowerShell sesji Uruchom to polecenie.
 
 ```powershell
 Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
-Właściwość PortNumber pokazuje bieżący numer portu. W razie potrzeby zmień pulpitu zdalnego portu numer wstecz do wartości domyślnej (3389) za pomocą tego polecenia.
+Właściwość PortNumber Hello pokazuje hello bieżący numer portu. W razie potrzeby zmień hello pulpitu zdalnego portu numer wstecz tooits wartość domyślna (3389) za pomocą tego polecenia.
 
 ```powershell
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
 ```
 
-Sprawdź, czy port został zmieniony na 3389 za pomocą tego polecenia.
+Upewnij się, że hello port zostało zmienione too3389 za pomocą tego polecenia.
 
 ```powershell
 Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 ```
 
-Zakończenia sesji zdalnej programu Azure PowerShell za pomocą tego polecenia.
+Zamknąć sesji zdalnej programu Azure PowerShell hello za pomocą tego polecenia.
 
 ```powershell
 Exit-PSSession
 ```
 
-Sprawdź, czy punkt końcowy pulpitu zdalnego dla maszyny Wirtualnej Azure również używa portu TCP 3398 jako wewnętrznego portu. Ponowne uruchomienie maszyny Wirtualnej Azure, a następnie spróbuj ponownie za pomocą połączenia pulpitu zdalnego.
+Sprawdź, czy tego punktu końcowego pulpitu zdalnego dla maszyny Wirtualnej Azure hello hello również używa portu TCP 3398 jako wewnętrznego portu. Uruchom ponownie hello maszyny Wirtualnej platformy Azure, a następnie spróbuj ponownie Podłączanie pulpitu zdalnego hello.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-[Jak można zresetować hasła lub usługi pulpitu zdalnego dla maszyn wirtualnych systemu Windows](reset-rdp.md)
+[Jak usługa tooreset hasła lub hello pulpitu zdalnego dla maszyn wirtualnych systemu Windows](reset-rdp.md)
 
-[Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
+[Jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
 
-[Rozwiązywanie problemów z połączeniami Secure Shell (SSH) do maszyny wirtualnej opartych na systemie Linux platformy Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Rozwiązywanie problemów z Secure Shell (SSH) połączeń tooa opartych na systemie Linux maszyny wirtualnej platformy Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Rozwiązywanie problemów z dostępem do aplikacji działających na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Rozwiązywanie problemów z dostępu tooan aplikacji uruchomionych na maszynie wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

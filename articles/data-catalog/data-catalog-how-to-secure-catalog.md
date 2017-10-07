@@ -1,6 +1,6 @@
 ---
-title: "Jak zabezpieczyć dostęp do usługi Azure Data Catalog | Dokumentacja firmy Microsoft"
-description: "W tym artykule wyjaśniono, jak zabezpieczyć dane katalogu i jego zasobów danych."
+title: "aaaHow toosecure dostępu tooAzure Data Catalog | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób toosecure usługi data catalog i jej zasobów danych."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: maroche
-ms.openlocfilehash: 9664a7bc8493b08c8e0797ac6f1b212079829833
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d7c35fd57d8add1cdc152b75f111879288e1548f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Jak zabezpieczyć dostęp do katalogu danych i zasobów danych
+# <a name="how-toosecure-access-toodata-catalog-and-data-assets"></a>Jak toosecure uzyskują dostęp do zasobów katalogu i danych toodata
 > [!IMPORTANT]
-> Ta funkcja jest dostępna tylko w wersji standard usługi Azure Data Catalog.
+> Ta funkcja jest dostępna tylko w wersji standard hello usługi Azure Data Catalog.
 
-Wykaz danych Azure służy do określania, kto ma dostęp do katalogu danych i jakie operacje (rejestrowanie, dodawanie adnotacji, przejąć na własność) mogą dotyczyć metadanych w katalogu. 
+Wykaz danych Azure umożliwia toospecify, kto ma dostęp do wykazu danych hello i jakie operacje (rejestrowanie, dodawanie adnotacji, przejąć na własność) mogą dotyczyć metadanych w katalogu hello. 
 
 ## <a name="catalog-users-and-permissions"></a>Katalogu użytkowników i uprawnień
-Aby podać użytkownik lub Grupa dostępu do wykazu danych i ustawić uprawnienia:
+toogive przez użytkownika lub hello grupy dostępu usługi data catalog tooa i ustawić uprawnienia:
 
-1. Na [strony głównej wykazu danych](http://www.azuredatacatalog.com), kliknij przycisk **ustawienia** na pasku narzędzi.
+1. Na powitania [strony głównej wykazu danych](http://www.azuredatacatalog.com), kliknij przycisk **ustawienia** na powitania narzędzi.
 
     ![Data catalog — ustawienia](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
-2. Na stronie ustawień, rozwiń węzeł **użytkownicy wykazu** sekcji.
+2. Na stronie ustawień hello, rozwiń węzeł hello **użytkownicy wykazu** sekcji.
     ![W katalogu użytkowników — Dodaj](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 3. Kliknij pozycję **Dodaj**.
-4. Wprowadź w pełni kwalifikowaną **nazwy użytkownika** lub nazwa **grupy zabezpieczeń** w usłudze Azure Active Directory (AAD) skojarzone z katalogiem. Użyj przecinka (",") jako separatora, dodając więcej niż jednego użytkownika lub grupę.
+4. Wprowadź w pełni kwalifikowana hello **nazwy użytkownika** lub nazwa hello **grupy zabezpieczeń** w hello Azure Active Directory (AAD) skojarzone z hello katalogu. Użyj przecinka (",") jako separatora, dodając więcej niż jednego użytkownika lub grupę.
     ![Użytkownicy wykazu - użytkowników lub grup](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
-5. Naciśnij klawisz **ENTER** lub **kartę** poza pola tekstowego. 
-6.  Upewnij się, że wszystkie uprawnienia (**Adnotuj**, **zarejestrować**, i **Przejmij na własność**) są domyślnie przypisane do tych użytkowników lub grup. Oznacza to, że użytkownik lub grupa może [zarejestrować zasobów danych]( data-catalog-how-to-register.md), [adnotacji zasobów danych]( data-catalog-how-to-annotate.md), i [przejąć na własność zasobów danych]( data-catalog-how-to-manage.md). 
+5. Naciśnij klawisz **ENTER** lub **kartę** poza hello pola tekstowego. 
+6.  Upewnij się, że wszystkie uprawnienia (**Adnotuj**, **zarejestrować**, i **Przejmij na własność**) domyślnie przypisane toothese użytkowników lub grup. Oznacza to, że hello użytkownik lub grupa może [zarejestrować zasobów danych]( data-catalog-how-to-register.md), [adnotacji zasobów danych]( data-catalog-how-to-annotate.md), i [przejąć na własność zasobów danych]( data-catalog-how-to-manage.md). 
     ![Użytkownicy wykazu - domyślnych uprawnień](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
-7.  Aby dać użytkownikowi lub grupie dostęp tylko do odczytu do katalogu, wyczyść **adnotacji** opcji dla tego użytkownika lub grupy. Można to zrobić, użytkownik lub grupa nie adnotacji zasobów danych w katalogu, ale mogą je wyświetlać. 
-8.  Aby uniemożliwić użytkownikowi lub grupie zasobów danych rejestrowania, wyczyść **zarejestrować** opcji dla tego użytkownika lub grupy.
-9.  Aby zablokować użytkownika z przejmowania własności zasobów danych, wyczyść **przejąć na własność** opcji dla tego użytkownika lub grupy. 
-10. Aby usunąć użytkownika/grupy użytkowników z katalogu, kliknij przycisk **x**  /grupy użytkowników w dolnej części listy. 
+7.  toogive użytkownikowi lub grupie tylko hello katalogu toohello dostęp, wyczyść hello **adnotacji** opcji dla tego użytkownika lub grupy. Po wykonaniu tej hello użytkownika lub grupy nie można adnotować zasobów danych w katalogu hello, ale mogą je wyświetlać. 
+8.  toodeny użytkownika lub grupy z rejestrowania zasobów danych, wyczyść hello **zarejestrować** opcji dla tego użytkownika lub grupy.
+9.  toodeny użytkownika z przejmowania własności zasobów danych, wyczyść hello **przejąć na własność** opcji dla tego użytkownika lub grupy. 
+10. toodelete użytkownika/grupy użytkowników z katalogu, kliknij przycisk **x** hello użytkownika/grupy u dołu hello hello listy. 
     ![Użytkownicy w katalogu — Usuń użytkownika](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
     > [!IMPORTANT]
-    > Firma Microsoft zaleca, aby dodać grupy zabezpieczeń, aby bezpośrednio katalogu użytkowników, zamiast dodawania użytkowników i przypisać uprawnienia. Następnie należy dodać użytkowników do grup zabezpieczeń, które odpowiada ich ról oraz ich wymagany dostęp do katalogu.
+    > Zalecamy bezpośrednio dodać użytkowników toocatalog grup zabezpieczeń, zamiast dodawania użytkowników, a następnie przypisz uprawnienia. Następnie należy dodać grupy zabezpieczeń toohello użytkowników odpowiadających im role i ich katalogu toohello wymaganego dostępu.
 
 ## <a name="special-considerations"></a>Uwagi
 
-- Uprawnienia przypisane do grupy zabezpieczeń są dodatku. Użytkownik jest w dwóch grupach. Jedna grupa ma adnotacji uprawnienia i nie mają adnotacje do innej grupy uprawnień. Następnie użytkownik ma adnotacji uprawnienia. 
-- Uprawnienia jawnie przypisane do użytkownika musi zostać zastąpiona uprawnienia przypisane do grup, do których należy użytkownik. W poprzednim przykładzie powiedzieć jawnie dodawania użytkownika do katalogu użytkowników i czy nie przypisuj uprawnienia funkcji dodawania adnotacji. Użytkownik nie adnotacji zasobów danych, nawet jeśli użytkownik jest członkiem grupy, która ma adnotacji uprawnienia.
+- grupy toosecurity przypisane uprawnienia Hello są dodatku. Użytkownik jest w dwóch grupach. Jedna grupa ma adnotacji uprawnienia i nie mają adnotacje do innej grupy uprawnień. Następnie użytkownik ma adnotacji uprawnienia. 
+- jawnie hello zastąpienie użytkownika tooa przypisane uprawnienia toogroups toowhich hello użytkownika należy przypisać uprawnienia Hello. W poprzednim przykładzie hello powiedzieć jawnie dodać hello użytkownika toocatalog użytkowników i nie należy przypisywać uprawnienia adnotacji. Użytkownik Hello nie adnotacji zasobów danych, mimo że hello użytkownik jest członkiem grupy, która ma adnotacji uprawnienia.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md)

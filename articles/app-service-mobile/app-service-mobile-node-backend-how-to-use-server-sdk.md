@@ -1,6 +1,6 @@
 ---
-title: "Jak pracować z serwera wewnętrznej bazy danych Node.js SDK dla aplikacji mobilnych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak pracować z serwera wewnętrznej bazy danych Node.js SDK dla usługi Azure App Service Mobile Apps."
+title: "toowork aaaHow z serwera wewnętrznej bazy danych hello Node.js SDK for Mobile Apps | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toowork z hello serwera zaplecza Node.js SDK dla usługi Azure App Service Mobile Apps."
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,50 +14,50 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 1d3aa7a0089279a8eafeb0ded951a5238e189eaa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2b1ea5fda6f6ca422b92fe29ff8d16bf035018d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Jak używać zestawu SDK usługi Azure Mobile Apps Node.js
+# <a name="how-toouse-hello-azure-mobile-apps-nodejs-sdk"></a>Jak toouse hello Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-Ten artykuł zawiera szczegółowe informacje i przykłady przedstawiający sposób pracy z zaplecza Node.js w usłudze Azure App Service Mobile Apps.
+Ten artykuł zawiera szczegółowe informacje i przykłady przedstawiający sposób toowork z zaplecza Node.js w usłudze Azure App Service Mobile Apps.
 
 ## <a name="Introduction"></a>Wprowadzenie
-Usługa Azure App Service Mobile Apps oferuje możliwość dodawania danych zoptymalizowanych pod kątem mobile dostępu do interfejsu API sieci Web do aplikacji sieci web.  Zestaw SDK aplikacji mobilnych usługi aplikacji Azure jest dostępna dla aplikacji sieci web ASP.NET i Node.js.  Zestaw SDK udostępnia następujące operacje:
+Usługa Azure App Service Mobile Apps udostępnia hello możliwości tooadd mobile zoptymalizowane danych aplikacji sieci web tooa interfejsu API sieci Web.  Witaj zestaw SDK aplikacji mobilnych usługi aplikacji Azure jest dostępna dla aplikacji sieci web ASP.NET i Node.js.  Witaj SDK udostępnia hello następujące operacje:
 
 * Operacje tabeli (Odczyt, Insert, Update, Delete) dla dostępu do danych
 * Operacje niestandardowego interfejsu API
 
 Obie operacje zapewnienia uwierzytelniania przez wszystkich dostawców tożsamości dozwolone w usłudze Azure App Service, w tym dostawców tożsamości społecznościowych, takich jak Facebook, Twitter, Google i Microsoft, jak również usługi Azure Active Directory dla tożsamości organizacji.
 
-Przykłady można znaleźć do każdego przypadku użycia w [katalogu przykładów w witrynie GitHub].
+Można znaleźć przykłady dla każdego przypadku użycia w hello [katalogu przykładów w witrynie GitHub].
 
 ## <a name="supported-platforms"></a>Obsługiwane platformy
-Zestaw SDK usługi Azure Mobile Apps węzła obsługuje bieżącej wersji LTS węzła i nowszych.  Począwszy od zapisu, najnowsza wersja LTS jest v4.5.0 węzła.  Inne wersje węzeł może działać, ale nie są obsługiwane.
+Witaj zestaw SDK usługi Azure Mobile Apps węzła obsługuje powitalne wersji LTS bieżącego węzła i nowszych.  Począwszy od zapisu, najnowsza wersja LTS hello jest v4.5.0 węzła.  Inne wersje węzeł może działać, ale nie są obsługiwane.
 
-Zestaw SDK usługi Azure Mobile Apps węzła obsługuje dwa sterowniki bazy danych — sterownik mssql węzła obsługuje SQL Azure i lokalnego wystąpienia programu SQL Server.  Sterownik sqlite3 obsługuje tylko jedno wystąpienie bazy danych SQLite.
+zestaw SDK usługi Azure Mobile Apps węzła Hello obsługuje dwa sterowniki bazy danych — hello mssql węzła sterownik obsługuje SQL Azure i lokalnego wystąpienia programu SQL Server.  Sterownik sqlite3 Hello obsługuje bazy danych SQLite na tylko jedno wystąpienie.
 
-### <a name="howto-cmdline-basicapp"></a>Porady: tworzenie zaplecza Node.js podstawowe przy użyciu wiersza polecenia
-Jako aplikacja ExpressJS rozpoczyna się co wewnętrznej bazy danych usługi Azure App Service Mobile aplikacji Node.js.  ExpressJS jest dostępna dla środowiska Node.js struktury usługi najpopularniejszych sieci web.  Można utworzyć basic [Express] aplikacji w następujący sposób:
+### <a name="howto-cmdline-basicapp"></a>Porady: tworzenie przy użyciu wiersza polecenia hello zaplecza Node.js podstawowe
+Jako aplikacja ExpressJS rozpoczyna się co wewnętrznej bazy danych usługi Azure App Service Mobile aplikacji Node.js.  ExpressJS jest hello najpopularniejszych platforma sieci web usługi dostępne dla środowiska Node.js.  Można utworzyć basic [Express] aplikacji w następujący sposób:
 
 1. Polecenie lub oknie programu PowerShell należy utworzyć katalog w projekcie.
 
         mkdir basicapp
-2. Uruchom npm inicjowania zainicjować struktury pakietu.
+2. Uruchom npm init tooinitialize hello pakietu struktury.
 
         cd basicapp
         npm init
 
-    Polecenie init npm zapyta zestaw pytań można zainicjować projektu.  Zobacz przykład danych wyjściowych:
+    polecenie init npm Hello zapyta zestaw pytań tooinitialize hello projektu.  Zobacz hello przykładowe dane wyjściowe:
 
-    ![Dane wyjściowe init npm][0]
-3. Zainstaluj biblioteki express i aplikacje w przypadku mobilne platformy azure z repozytorium npm.
+    ![Witaj npm init w danych wyjściowych][0]
+3. Zainstaluj biblioteki hello express i aplikacje w przypadku mobilne platformy azure z repozytorium npm hello.
 
         npm install --save express azure-mobile-apps
-4. Tworzenie pliku app.js do zaimplementowania podstawowego serwera przenośnych.
+4. Tworzenie app.js tooimplement hello podstawowe przenośnych serwera plików.
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -68,13 +68,13 @@ Jako aplikacja ExpressJS rozpoczyna się co wewnętrznej bazy danych usługi Azu
         // Define a TodoItem table
         mobile.tables.add('TodoItem');
 
-        // Add the mobile API so it is accessible as a Web API
+        // Add hello mobile API so it is accessible as a Web API
         app.use(mobile);
 
         // Start listening on HTTP
         app.listen(process.env.PORT || 3000);
 
-Ta aplikacja tworzy zoptymalizowanych pod kątem mobile WebAPI z jednym punktem końcowym (`/tables/TodoItem`) który nieuwierzytelnionym udostępnia odpowiedni magazyn danych SQL przy użyciu dynamicznych schematu.  Jest ona odpowiednia dla następującego Szybki Start biblioteki klienta:
+Ta aplikacja tworzy zoptymalizowanych pod kątem mobile WebAPI z jednym punktem końcowym (`/tables/TodoItem`) zapewnia tooan nieuwierzytelnionym dostępem jest podstawowy magazyn danych SQL przy użyciu dynamicznych schematu.  Jest ona odpowiednia dla następującego Szybki Start biblioteki klienta:
 
 * [Szybki Start kliencką dla systemu android]
 * [Apache Cordova klienta — Szybki Start]
@@ -84,29 +84,29 @@ Ta aplikacja tworzy zoptymalizowanych pod kątem mobile WebAPI z jednym punktem 
 * [Szybki Start klienta platformy Xamarin.Android]
 * [Szybki Start klienta platformy Xamarin.Forms]
 
-Możesz znaleźć kod dla tej aplikacji w warstwie podstawowa w [basicapp przykładem w witrynie GitHub].
+Dla tej aplikacji w warstwie podstawowa w hello można znaleźć kod hello [basicapp przykładem w witrynie GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Porady: tworzenie zaplecza węzła z programem Visual Studio 2015
-Visual Studio 2015 wymaga rozszerzenia do tworzenia aplikacji Node.js w środowisku IDE.  Aby rozpocząć, zainstaluj [Node.js Tools 1.1 dla programu Visual Studio].  Po zainstalowaniu narzędzia Node.js dla programu Visual Studio tworzy aplikację 4.x Express:
+Visual Studio 2015 wymaga rozszerzenia toodevelop Node.js aplikacji w obrębie hello IDE.  toostart, zainstaluj hello [Node.js Tools 1.1 dla programu Visual Studio].  Po zainstalowaniu hello Node.js Tools for Visual Studio tworzy aplikację 4.x Express:
 
-1. Otwórz **nowy projekt** okna dialogowego (z **pliku** > **nowy** > **projektu...** ).
+1. Otwórz hello **nowy projekt** okna dialogowego (z **pliku** > **nowy** > **projektu...** ).
 2. Rozwiń węzeł **szablony** > **JavaScript** > **Node.js**.
-3. Wybierz **aplikacji podstawowe Azure Node.js Express 4**.
-4. Wprowadź nazwę projektu.  Kliknij przycisk *OK*.
+3. Wybierz hello **Azure Node.js Express 4 aplikacji w warstwie podstawowa**.
+4. Wprowadź nazwę projektu hello.  Kliknij przycisk *OK*.
 
     ![Nowy projekt programu Visual Studio 2015][1]
-5. Kliknij prawym przyciskiem myszy **npm** a następnie wybierz węzeł **zainstalować nowych pakietów npm...** .
-6. Należy odświeżyć katalog npm na tworzenie pierwszej aplikacji Node.js.  Kliknij przycisk **Odśwież** w razie potrzeby.
-7. Wprowadź *apps w usłudze azure-mobile* w polu wyszukiwania.  Kliknij przycisk **usługi azure mobile apps 2.0.0** pakietu, a następnie kliknij przycisk **zainstaluj pakiet**.
+5. Kliknij prawym przyciskiem myszy hello **npm** a następnie wybierz węzeł **zainstalować nowych pakietów npm...** .
+6. Może być konieczne toorefresh hello npm katalogu na tworzenie pierwszej aplikacji Node.js.  Kliknij przycisk **Odśwież** w razie potrzeby.
+7. Wprowadź *apps w usłudze azure-mobile* hello pola wyszukiwania.  Kliknij przycisk hello **usługi azure mobile apps 2.0.0** pakietu, a następnie kliknij przycisk **zainstaluj pakiet**.
 
     ![Zainstaluj nowych pakietów npm][2]
 8. Kliknij przycisk **Zamknij**.
-9. Otwórz *app.js* plik, aby dodać obsługę zestaw SDK usługi Azure Mobile Apps.  W wierszu 6 at dolnej części biblioteki wymagają instrukcje, Dodaj następujący kod:
+9. Otwórz hello *app.js* pliku tooadd obsługę hello Azure Mobile Apps SDK.  U dołu hello 6 at wiersza biblioteki hello wymagają instrukcje, Dodaj hello następującego kodu:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
 
-    W wierszu około 27 po innych instrukcji app.use Dodaj następujący kod:
+    W wierszu około 27 po hello inne instrukcje app.use Dodaj hello następującego kodu:
 
         app.use('/users', users);
 
@@ -115,68 +115,68 @@ Visual Studio 2015 wymaga rozszerzenia do tworzenia aplikacji Node.js w środowi
         mobile.tables.add('TodoItem');
         app.use(mobile);
 
-    Zapisz plik.
-10. Uruchom aplikację lokalnie (interfejs API jest obsługiwana na http://localhost: 3000) lub publikowanie na platformie Azure.
+    Zapisz plik hello.
+10. Uruchom lokalnie aplikacji hello (powitalne interfejsu API jest obsługiwana na http://localhost: 3000) lub opublikować tooAzure.
 
-### <a name="create-node-backend-portal"></a>Porady: tworzenie zaplecza Node.js przy użyciu portalu Azure
-Można tworzyć w prawej zaplecza aplikacji mobilnej [portalu Azure]. Można wykonać następujące czynności lub utworzyć klienta i serwera razem [tworzenie aplikacji mobilnej](app-service-mobile-ios-get-started.md) samouczka. Samouczek zawiera uproszczonej wersji tych instrukcji i najlepiej stosować do weryfikacji koncepcji projektów.
+### <a name="create-node-backend-portal"></a>Porady: tworzenie zaplecza Node.js przy użyciu hello portalu Azure
+Możesz utworzyć prawo zaplecza aplikacji mobilnej w hello [portalu Azure]. Można albo wykonaj hello następujące kroki albo utwórz klienta i serwera razem po hello [tworzenie aplikacji mobilnej](app-service-mobile-ios-get-started.md) samouczka. Samouczek Hello zawiera uproszczonej wersji tych instrukcji i najlepiej stosować do weryfikacji koncepcji projektów.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-W *wprowadzenie* bloku, w obszarze **Utwórz tabelę interfejsu API**, wybierz **Node.js** jako sieci **język wewnętrznej bazy danych**.
-Pole wyboru dla "**potwierdzam, że spowoduje to zastąpienie wszystkich lokacji zawartości.**", następnie kliknij przycisk **Utwórz tabelę TodoItem**.
+Po powrocie do hello *wprowadzenie* bloku, w obszarze **Utwórz tabelę interfejsu API**, wybierz **Node.js** jako z **język wewnętrznej bazy danych**.
+Sprawdź pola hello "**potwierdzam, że spowoduje to zastąpienie wszystkich lokacji zawartości.**", następnie kliknij przycisk **Utwórz tabelę TodoItem**.
 
-### <a name="download-quickstart"></a>Porady: pobieranie projekt kodu szybkiego startu zaplecza Node.js przy użyciu narzędzia Git
-Po utworzeniu zaplecza aplikacji mobilnej Node.js przy użyciu portalu **szybki start** bloku projektu Node.js jest utworzony i wdrożone do tej witryny. Można dodać tabele i interfejsów API i edytować pliki kodu dla zaplecza Node.js w portalu. Aby pobrać projektu wewnętrznej bazy danych, dzięki czemu można dodać lub zmodyfikować tabele i interfejsów API, a następnie ponownie opublikować projekt umożliwia także różne narzędzia wdrażania. Aby uzyskać więcej informacji, zobacz [Azure App Service Deployment Guide]. Poniższa procedura wykorzystuje repozytorium Git do pobierania kodu projektu Szybki Start.
+### <a name="download-quickstart"></a>Porady: pobieranie hello Node.js zaplecza projekt szybkiego startu kodu przy użyciu narzędzia Git
+Po utworzeniu zaplecza aplikacji mobilnej Node.js przy użyciu portalu hello **szybki start** bloku, tworzony jest projekt środowiska Node.js i wdrożone tooyour lokacji. Można dodać tabele i interfejsów API i edytować pliki kodu dla zaplecza Node.js hello w portalu hello. Umożliwia także różne wdrażania narzędzia toodownload hello wewnętrznej bazy danych projektu tak, aby można dodać lub zmodyfikować tabele i interfejsów API, a następnie ponownie opublikować hello projektu. Aby uzyskać więcej informacji, zobacz [Azure App Service Deployment Guide]. Witaj poniższej procedurze używana jest kod projektu szybkiego startu hello toodownload Git repozytorium.
 
-1. Zainstaluj usługę Git, jeśli jeszcze tego nie zrobiono. Kroki wymagane do zainstalowania Git się różnić między systemami operacyjnymi. Zobacz [instalowanie Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) dystrybucje systemu operacyjnego i instalacji.
-2. Postępuj zgodnie z instrukcjami [włączyć repozytorium aplikacji usługi App Service](../app-service-web/app-service-deploy-local-git.md#Step3) umożliwiające repozytorium Git dla witryny sieci wewnętrznej bazy danych, co Uwaga wdrożenia nazwy użytkownika i hasła.
-3. W bloku dla zaplecza aplikacji mobilnej, zanotuj **adres URL klonowania Git** ustawienie.
-4. Wykonanie `git clone` polecenia przy użyciu narzędzia Git clone adres URL, wprowadzania hasła, gdy jest to wymagane, jak w poniższym przykładzie:
+1. Zainstaluj usługę Git, jeśli jeszcze tego nie zrobiono. tooinstall wymagane kroki Hello Git różnią się między systemami operacyjnymi. Zobacz [instalowanie Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) dystrybucje systemu operacyjnego i instalacji.
+2. Wykonaj kroki hello w [hello Włącz repozytorium aplikacji usługi App Service](../app-service-web/app-service-deploy-local-git.md#Step3) repozytorium Git hello tooenable dla witryny sieci wewnętrznej bazy danych, co wiadomości powitania wdrożenia użytkownika i hasło.
+3. W bloku hello zaplecza aplikacji mobilnej, zanotuj hello **adres URL klonowania Git** ustawienie.
+4. Wykonanie hello `git clone` polecenia przy użyciu hello adres URL klonowania Git, wprowadzania hasła, gdy jest to wymagane, jak w poniższym przykładzie:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Przejdź do katalogu lokalnego, co w poprzednim przykładzie jest /todolist i zwróć uwagę, że pliki projektu zostały pobrane. Zlokalizuj `todoitem.json` w pliku `/tables` katalogu.  Ten plik definiuje uprawnienia w tabeli.  Jest także `todoitem.js` pliku w tym samym katalogu, który definiuje tej operacji CRUD skrypty dla tabeli.
-6. Po wprowadzeniu zmian w plikach projektu, wykonaj następujące polecenia, aby dodać, zatwierdzić, a następnie przekazać zmiany do witryny:
+5. Przeglądaj toolocal w hello poprzedzających przykładzie jest to katalog /todolist i zwróć uwagę, że pliki projektu zostały pobrane. Zlokalizuj hello `todoitem.json` pliku w hello `/tables` katalogu.  Ten plik definiuje uprawnienia w tabeli.  Również znaleźć hello `todoitem.js` w pliku hello sam katalog, który określa, że operacji CRUD skrypty hello tabeli.
+6. Po dokonaniu zmiany tooproject pliki, wykonaj hello następujące polecenia tooadd, zatwierdzić, a następnie przekaż lokacji toohello zmiany:
 
-        $ git commit -m "updated the table script"
+        $ git commit -m "updated hello table script"
         $ git push origin master
 
-    Po dodaniu nowych plików do projektu, należy najpierw wykonać `git add .` polecenia.
+    Po dodaniu nowego projektu toohello plików, należy najpierw tooexecute hello `git add .` polecenia.
 
-Opublikowaniu lokacji za każdym razem, gdy nowy zestaw zatwierdzeń zostanie przypisany do lokacji.
+opublikowaniu lokacji Hello za każdym razem, gdy nowy zestaw zatwierdzeń spoczywa toohello lokacji.
 
-### <a name="howto-publish-to-azure"></a>Porady: publikowanie zaplecza Node.js na platformie Azure
-Microsoft Azure udostępnia wiele mechanizmów publikowania z wewnętrzną bazą danych Azure App Service Mobile aplikacji Node.js w usłudze platformy Azure.  Obejmują one przy użyciu narzędzia wdrażania zintegrowane w programie Visual Studio, narzędzia wiersza polecenia i opcje ciągłego wdrażania w oparciu o kontroli źródła.  Aby uzyskać więcej informacji na ten temat, zobacz [Azure App Service Deployment Guide].
+### <a name="howto-publish-to-azure"></a>Porady: publikowanie programu tooAzure zaplecza Node.js
+Microsoft Azure udostępnia wiele mechanizmów publikowania zaplecza Azure App Service Mobile aplikacji Node.js do hello usługi Azure.  Obejmują one przy użyciu narzędzia wdrażania zintegrowane w programie Visual Studio, narzędzia wiersza polecenia i opcje ciągłego wdrażania w oparciu o kontroli źródła.  Aby uzyskać więcej informacji na ten temat, zobacz [Azure App Service Deployment Guide].
 
 Usługa aplikacji Azure ma poradę należy zapoznać się przed przystąpieniem do wdrażania aplikacji Node.js:
 
-* Jak [Określ wersję węzła]
-* Jak [Użyj modułów węzła]
+* Jak zbyt[Określ hello wersji węzła]
+* Jak zbyt[Użyj modułów węzła]
 
 ### <a name="howto-enable-homepage"></a>Porady: Włączanie strony głównej aplikacji
-Wiele aplikacji są kombinacją sieci web i aplikacji mobilnych i ExpressJS framework pozwala na połączenie dwóch zestawów reguł.  Czasami jednak warto tylko zaimplementować interfejs przenośnych.  Należy zapewnić strony docelowej, aby upewnić się, usługi app service jest uruchomiona.  Można podać strony głównej lub włączyć tymczasowe strony głównej.  Aby włączyć tymczasowe strony głównej, należy użyć następującego można utworzyć wystąpienia usługi Azure Mobile Apps:
+Wiele aplikacji są kombinacją sieci web i aplikacji mobilnych i hello ExpressJS framework umożliwia toocombine dwa aspekty.  Czasami jednak warto zapoznać się z tooonly implementacji interfejsu dla urządzeń przenośnych.  Jest przydatne tooprovide, którą usługą aplikacji docelowej strony tooensure hello jest uruchomiona.  Można podać strony głównej lub włączyć tymczasowe strony głównej.  tooenable tymczasowe strony głównej, użyj powitania po tooinstantiate Azure Mobile Apps:
 
     var mobile = azureMobileApps({ homePage: true });
 
-Jeśli mają tylko tej opcji, które są dostępne podczas tworzenia lokalnie, możesz dodać to ustawienie, aby Twoje `azureMobile.js` pliku.
+Jeśli mają tylko tej opcji, które są dostępne podczas tworzenia lokalnie, możesz dodać tooyour to ustawienie `azureMobile.js` pliku.
 
 ## <a name="TableOperations"></a>Operacje tabeli
-Aplikacje azure-mobile Node.js Server SDK zawiera mechanizmy do udostępnienia tabel danych przechowywanych w bazie danych SQL Azure jako WebAPI.  Podano pięć operacji.
+Hello azure-mobile aplikacji Node.js Server SDK udostępnia mechanizmy tooexpose dane przechowywane w bazie danych SQL Azure jako WebAPI tabel.  Podano pięć operacji.
 
 | Operacja | Opis |
 | --- | --- |
-| GET /tables/*tablename* |Pobierz wszystkie rekordy w tabeli |
-| GET /tables/*tablename*/:id |Pobierz określonego rekordu w tabeli |
-| POST /tables/*tablename* |Utwórz rekord w tabeli |
-| POPRAWKA /tables/*tablename*/:id |Aktualizacja rekordu w tabeli |
-| Usuń /tables/*tablename*/:id |Usuwanie rekordu w tabeli |
+| GET /tables/*tablename* |Pobierz wszystkie rekordy w tabeli hello |
+| GET /tables/*tablename*/:id |Pobierz określonego rekordu w tabeli hello |
+| POST /tables/*tablename* |Utwórz rekord tabeli hello |
+| POPRAWKA /tables/*tablename*/:id |Aktualizacja rekordu w tabeli hello |
+| Usuń /tables/*tablename*/:id |Usuwanie rekordu w tabeli hello |
 
-Obsługuje ten WebAPI [OData] i rozszerza schemat tabeli w celu obsługi [synchronizacji danych w trybie offline].
+Obsługuje ten WebAPI [OData] i rozszerza toosupport schematu tabeli hello [synchronizacji danych w trybie offline].
 
 ### <a name="howto-dynamicschema"></a>Porady: Definiowanie tabel za pomocą dynamicznej schematu
-Przed użyciem tabeli musi być zdefiniowany.  Tabele mogą być definiowane ze schematem statyczne (gdzie dewelopera definiuje kolumn w schemacie) lub dynamicznie (gdzie zestawu SDK Określa schemat oparte na przychodzące żądania). Ponadto deweloper może kontrolować określone aspekty WebAPI przez dodanie kodu Javascript do definicji.
+Przed użyciem tabeli musi być zdefiniowany.  Tabele mogą być definiowane ze schematem statyczne (gdzie hello developer definiuje hello kolumn w schemacie hello) lub dynamicznie (gdzie hello SDK Określa schemat hello oparty na przychodzące żądania). Ponadto hello deweloper może kontrolować określonych aspekty hello WebAPI przez dodanie definicji toohello kodu Javascript.
 
-Najlepszym rozwiązaniem można zdefiniować każdej tabeli w pliku Javascript w katalogu tabel, następnie użyj metody tables.import() Aby zaimportować tabele.  Rozszerzanie basic-app, będzie można dostosować pliku app.js:
+Najlepszym rozwiązaniem należy zdefiniować każdej tabeli w pliku Javascript w katalogu tabel hello następnie tabele hello tooimport tables.import() — metoda.  Rozszerzanie hello basic-app, będzie można dostosować pliku app.js hello:
 
     var express = require('express'),
         azureMobileApps = require('azure-mobile-apps');
@@ -184,41 +184,41 @@ Najlepszym rozwiązaniem można zdefiniować każdej tabeli w pliku Javascript w
     var app = express(),
         mobile = azureMobileApps();
 
-    // Define the database schema that is exposed
+    // Define hello database schema that is exposed
     mobile.tables.import('./tables');
 
     // Provide initialization of any tables that are statically defined
     mobile.tables.initialize().then(function () {
-        // Add the mobile API so it is accessible as a Web API
+        // Add hello mobile API so it is accessible as a Web API
         app.use(mobile);
 
         // Start listening on HTTP
         app.listen(process.env.PORT || 3000);
     });
 
-Zdefiniuj tabelę w. / tables/TodoItem.js:
+Definiowanie tabeli hello. / tables/TodoItem.js:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Additional configuration for the table goes here
+    // Additional configuration for hello table goes here
 
     module.exports = table;
 
-Tabele domyślnie używają schematu dynamicznych.  Aby wyłączyć funkcję dynamicznego schematu globalnie, określ dla ustawienia aplikacji **MS_DynamicSchema** o wartości false w portalu Azure.
+Tabele domyślnie używają schematu dynamicznych.  tooturn poza dynamiczne schematu globalnie, ustawić ustawienia aplikacji hello **MS_DynamicSchema** toofalse w hello portalu Azure.
 
-Znajduje się pełny przykład w [todo przykładem w witrynie GitHub].
+Pełny przykład można znaleźć w hello [todo przykładem w witrynie GitHub].
 
 ### <a name="howto-staticschema"></a>Porady: Definiowanie tabel za pomocą statycznego schematu
-Można jawnie definiować kolumn do ujawnienia za pomocą WebAPI.  Zestaw Node.js SDK apps w usłudze azure-mobile automatycznie dodaje wszystkie dodatkowe kolumny są wymagane dla synchronizacji danych w trybie offline do listy, który podasz.  Na przykład wymagać tabeli z kolumnami przez aplikacje klienckie Szybki Start: tekst (ciąg) i ukończyć (wartość logiczna).  
-Tabeli można zdefiniować w tabeli JavaScript pliku definicji (znajduje się w katalogu tabele) w następujący sposób:
+Można jawnie definiować hello tooexpose kolumn za pomocą hello WebAPI.  Hello azure-mobile aplikacji Node.js SDK automatycznie dodaje wszystkie dodatkowe kolumny są wymagane dla listy toohello synchronizacji danych w trybie offline, który podasz.  Na przykład wymagać tabeli z kolumnami przez aplikacje klienckie Szybki Start: tekst (ciąg) i ukończyć (wartość logiczna).  
+Hello tabeli można zdefiniować w hello tabeli JavaScript pliku definicji (znajdujący się w katalogu tabel hello) w następujący sposób:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define hello columns within hello table
     table.columns = {
         "text": "string",
         "complete": "boolean"
@@ -229,73 +229,73 @@ Tabeli można zdefiniować w tabeli JavaScript pliku definicji (znajduje się w 
 
     module.exports = table;
 
-Po zdefiniowaniu statycznie tabel, należy także wywołać metodę tables.initialize() utworzyć schemat bazy danych podczas uruchamiania.  Zwraca metodę tables.initialize() [Promise] tak, aby usługi sieci web nie obsługiwać żądań przed bazy danych został zainicjowany.
+Tabel w przypadku definiowania statycznie, następnie należy także wywołać schematu bazy danych hello toocreate hello tables.initialize() — metoda podczas uruchamiania.  Zwraca metodę tables.initialize() Hello [Promise] tak, aby usługi sieci web hello nie obsługiwać żądań przed hello bazy danych został zainicjowany.
 
 ### <a name="howto-sqlexpress-setup"></a>Porady: użycie programu SQL Express jako programowanie magazynu danych na komputerze lokalnym
-Azure Mobile Apps AzureMobile aplikacji węzła SDK udostępnia trzy opcje do obsługi danych bez: zestaw SDK zawiera trzy opcje do obsługi danych poza pola:
+Witaj hello Azure Mobile Apps SDK węzła aplikacje AzureMobile zawiera trzy opcje do obsługi danych fabrycznej hello: zestaw SDK zawiera trzy opcje do obsługi danych fabrycznej hello:
 
-* Użyj **pamięci** sterownika do zapewnienia magazynu przykład nietrwałe
-* Użyj **mssql** sterownik do zapewnienia magazynu danych programu SQL Express programowanie
-* Użyj **mssql** sterowników w celu zapewnienia magazynu danych bazy danych SQL Azure dla trybu produkcyjnego
+* Użyj hello **pamięci** magazynu przykład tooprovide nietrwałe sterowników
+* Użyj hello **mssql** tooprovide sterowników magazynu danych programu SQL Express dla rozwoju
+* Użyj hello **mssql** tooprovide sterowników magazynu danych bazy danych SQL Azure dla trybu produkcyjnego
 
-Zestaw SDK usługi Azure Mobile Apps Node.js używa [pakietu Node.js mssql] i użycia połączenia do bazy danych SQL i programu SQL Express.  Ten pakiet wymaga włączenia połączeń TCP w wystąpieniu programu SQL Express.
+zestaw SDK usługi Azure Mobile Apps Node.js Hello używa hello [mssql Node.js pakietu] tooestablish i użyj programu SQL Express tooboth połączenia i bazy danych SQL.  Ten pakiet wymaga włączenia połączeń TCP w wystąpieniu programu SQL Express.
 
 > [!TIP]
-> Sterownik pamięci nie ma kompletnego zestawu urządzenia do testowania.  Jeśli chcesz przetestować zaplecza lokalnie, firma Microsoft zaleca korzystanie z magazynu danych programu SQL Express i sterownik mssql.
+> Sterownik pamięci Hello nie ma kompletnego zestawu urządzenia do testowania.  W razie potrzeby tootest zaplecza lokalnie zaleca użycie hello magazyn danych SQL Express i hello mssql sterownika.
 >
 >
 
-1. Pobierz i zainstaluj [programu Microsoft SQL Server 2014 Express].  Upewnij się, że instalowanie programu SQL Server 2014 Express Edition narzędzia.  Chyba że jawnie wymagana jest Obsługa 64-bitowy, 32-bitowej wersji zużywa mniej pamięci podczas uruchamiania.
-2. Uruchom Menedżera konfiguracji programu SQL Server 2014.
+1. Pobierz i zainstaluj [programu Microsoft SQL Server 2014 Express].  Upewnij się, że hello programu SQL Server 2014 Express jest instalowany z wersji narzędzia.  Chyba że jawnie wymagana jest Obsługa 64-bitowych, hello 32-bitowej wersji zużywa mniej pamięci podczas uruchamiania.
+2. Uruchom Menedżera konfiguracji programu SQL Server 2014 hello.
 
-   1. Rozwiń węzeł **konfigurację sieci programu SQL Server** węzła w menu po lewej stronie drzewa.
+   1. Rozwiń węzeł hello **konfigurację sieci programu SQL Server** węzła w menu drzewa po lewej stronie powitania.
    2. Kliknij przycisk **protokoły dla programu SQLEXPRESS**.
-   3. Kliknij prawym przyciskiem myszy **TCP/IP** i wybierz **włączyć**.  Kliknij przycisk **OK** w wyskakującym oknie dialogowym.
+   3. Kliknij prawym przyciskiem myszy **TCP/IP** i wybierz **włączyć**.  Kliknij przycisk **OK** w wyskakującym oknie dialogowym hello.
    4. Kliknij prawym przyciskiem myszy **TCP/IP** i wybierz **właściwości**.
-   5. Kliknij przycisk **adresów IP** kartę.
-   6. Znajdź **IPWszystkie** węzła.  W **TCP Port** wprowadź **1433**.
+   5. Kliknij przycisk hello **adresów IP** kartę.
+   6. Znajdź hello **IPWszystkie** węzła.  W hello **TCP Port** wprowadź **1433**.
 
           ![Configure SQL Express for TCP/IP][3]
-   7. Kliknij przycisk **OK**.  Kliknij przycisk **OK** w wyskakującym oknie dialogowym.
-   8. Kliknij przycisk **usług SQL Server** w menu po lewej stronie drzewa.
+   7. Kliknij przycisk **OK**.  Kliknij przycisk **OK** w wyskakującym oknie dialogowym hello.
+   8. Kliknij przycisk **usług SQL Server** w menu drzewa po lewej stronie powitania.
    9. Kliknij prawym przyciskiem myszy **programu SQL Server (SQLEXPRESS)** i wybierz **ponownego uruchomienia**
-   10. Zamknij Menedżera konfiguracji programu SQL Server 2014.
-3. Uruchom program SQL Server 2014 Management Studio i nawiąż połączenie lokalne wystąpienie programu SQL Express
+   10. Zamknij hello Menedżera konfiguracji programu SQL Server 2014.
+3. Uruchom hello SQL Server 2014 Management Studio i połącz tooyour lokalne wystąpienie programu SQL Express
 
-   1. Kliknij prawym przyciskiem myszy wystąpienie w Eksploratorze obiektów i wybierz **właściwości**
-   2. Wybierz **zabezpieczeń** strony.
-   3. Upewnij się, **programu SQL Server i uwierzytelniania systemu Windows tryb** jest zaznaczone
+   1. Kliknij prawym przyciskiem myszy wystąpienie w hello Eksplorator obiektów i wybierz **właściwości**
+   2. Wybierz hello **zabezpieczeń** strony.
+   3. Upewnij się, hello **tryb programu SQL Server i uwierzytelniania systemu Windows** jest zaznaczone
    4. Kliknij przycisk **OK**.
 
           ![Configure SQL Express Authentication][4]
-   5. Rozwiń węzeł **zabezpieczeń** > **logowania** w Eksploratorze obiektów
+   5. Rozwiń węzeł **zabezpieczeń** > **logowania** w hello Eksplorator obiektów
    6. Kliknij prawym przyciskiem myszy **logowania** i wybierz **nowe dane logowania...**
-   7. Wprowadź nazwę logowania.  Wybierz pozycję **Uwierzytelnianie programu SQL Server**.  Wprowadź hasło, a następnie wprowadź to samo hasło w **Potwierdź hasło**.  Hasło musi spełniać wymagania co do złożoności systemu Windows.
+   7. Wprowadź nazwę logowania.  Wybierz pozycję **Uwierzytelnianie programu SQL Server**.  Wprowadź hasło, a następnie wprowadź hello tego samego hasła w **Potwierdź hasło**.  Witaj hasło musi spełniać wymagania co do złożoności systemu Windows.
    8. Kliknij przycisk **OK**.
 
-          ![Add a new user to SQL Express][5]
+          ![Add a new user tooSQL Express][5]
    9. Kliknij prawym przyciskiem myszy nazwę nowego użytkownika, a następnie wybierz **właściwości**
-   10. Wybierz **ról serwera** strony
-   11. Zaznacz pole wyboru obok pozycji **dbcreator** roli serwera
+   10. Wybierz hello **ról serwera** strony
+   11. Sprawdź hello pole dalej toohello **dbcreator** roli serwera
    12. Kliknij przycisk **OK**.
-   13. Zamknij program SQL Server 2015 Management Studio
+   13. Zamknij hello SQL Server 2015 Management Studio
 
-Upewnij się, że rekord nazwy użytkownika i hasła, które wybrano.  Może być konieczne do przypisywania dodatkowych ról serwera lub uprawnienia w zależności od wymagań określonej bazy danych.
+Zapewnić, że hello rekordu nazwy użytkownika i hasła, wybrane.  W zależności od wymagań określonej bazy danych może być konieczne tooassign dodatkowych ról serwera lub uprawnieniami.
 
-Odczyty aplikacji Node.js **SQLCONNSTR_MS_TableConnectionString** zmiennej środowiskowej ciągu połączenia dla tej bazy danych.  Można ustawić tę zmienną w danym środowisku.  Na przykład aby ustawić tej zmiennej środowiskowej można Użyj programu PowerShell:
+Witaj aplikacji Node.js odczytuje hello **SQLCONNSTR_MS_TableConnectionString** zmiennej środowiskowej hello ciągu połączenia dla tej bazy danych.  Można ustawić tę zmienną w danym środowisku.  Na przykład można użyć PowerShell tooset tej zmiennej środowiskowej:
 
     $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
-Dostęp do bazy danych przy użyciu połączenia TCP/IP i podaj nazwę użytkownika i hasło dla połączenia.
+Hello dostępu do bazy danych przy użyciu połączenia TCP/IP i podaj nazwę użytkownika i hasło dla połączenia hello.
 
 ### <a name="howto-config-localdev"></a>Porady: Konfigurowanie projektu dla rozwoju lokalnych
-Aplikacje mobilne platformy Azure odczytuje plik JavaScript o nazwie *azureMobile.js* z lokalnego systemu plików.  Nie należy używać tego pliku można skonfigurować zestaw SDK usługi Azure Mobile Apps w środowisku produkcyjnym — za pomocą ustawień aplikacji w ramach [portalu Azure] zamiast tego.  *AzureMobile.js* plików należy wyeksportować obiekt konfiguracji.  Najczęściej używane ustawienia to:
+Aplikacje mobilne platformy Azure odczytuje plik JavaScript o nazwie *azureMobile.js* z hello lokalnego systemu plików.  Nie używać tego pliku tooconfigure hello zestaw SDK usługi Azure Mobile Apps w środowisku produkcyjnym — Użyj ustawień aplikacji w ramach hello [portalu Azure] zamiast tego.  Witaj *azureMobile.js* plików należy wyeksportować obiekt konfiguracji.  Witaj najczęściej używane ustawienia to:
 
 * Ustawienia bazy danych
 * Ustawienia rejestrowania diagnostycznego
 * Alternatywne ustawienia mechanizmu CORS
 
-Przykład *azureMobile.js* plik implementacji poprzedniego ustawienia bazy danych:
+Przykład *azureMobile.js* pliku implementacji hello poprzedzających następujące ustawienia bazy danych:
 
     module.exports = {
         cors: {
@@ -313,30 +313,30 @@ Przykład *azureMobile.js* plik implementacji poprzedniego ustawienia bazy danyc
         }
     };
 
-Firma Microsoft zaleca dodanie *azureMobile.js* do Twojej *.gitignore* pliku (lub inne Ignoruj pliku kontroli kodu źródłowego) aby zapobiec hasła są przechowywane w chmurze.  Zawsze skonfigurować ustawienia produkcji w ustawieniach aplikacji w ramach [portalu Azure].
+Firma Microsoft zaleca dodanie *azureMobile.js* tooyour *.gitignore* pliku (lub inne Ignoruj pliku kontroli kodu źródłowego) hasła tooprevent znajdują się w chmurze hello.  Zawsze skonfigurować ustawienia produkcji w ustawieniach aplikacji w ramach hello [portalu Azure].
 
 ### <a name="howto-appsettings"></a>Instrukcje: Konfigurowanie ustawień aplikacji dla aplikacji mobilnej
-Większość ustawień w *azureMobile.js* plik ma odpowiednik ustawienia aplikacji [portalu Azure].  Aby skonfigurować aplikację w ustawieniach aplikacji, należy użyć następującej listy:
+Większość ustawień w hello *azureMobile.js* plik ma odpowiednik ustawienia aplikacji w hello [portalu Azure].  W ustawieniach aplikacji, należy użyć powitania po tooconfigure listy aplikacji:
 
 | Ustawienia aplikacji | *azureMobile.js* ustawienie | Opis | Prawidłowe wartości |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nazwa aplikacji |Ciąg |
-| **MS_MobileLoggingLevel** |Logging.level |Poziom minimalna dziennika komunikatów do zarejestrowania |błąd, ostrzeżenie, informacje o verbose, debug, niemądre |
+| **MS_MobileAppName** |name |Nazwa aplikacji hello Hello |Ciąg |
+| **MS_MobileLoggingLevel** |Logging.level |Poziom dziennika minimalna toolog wiadomości |błąd, ostrzeżenie, informacje o verbose, debug, niemądre |
 | **MS_DebugMode** |Debugowania |Włącz lub wyłącz tryb debugowania |wartość true, false |
 | **MS_TableSchema** |Data.Schema |Domyślna nazwa schematu dla tabel SQL |ciąg (domyślne: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Włącz lub wyłącz tryb debugowania |wartość true, false |
-| **MS_DisableVersionHeader** |Wersja (Ustaw do niezdefiniowanego) |Wyłącza nagłówka X-ZUMO-Server-Version |wartość true, false |
-| **MS_SkipVersionCheck** |skipversioncheck |Wyłącza sprawdzanie wersji klienta interfejsu API |wartość true, false |
+| **MS_DisableVersionHeader** |Wersja (tooundefined zestaw) |Wyłącza nagłówka X-ZUMO-Server-Version hello |wartość true, false |
+| **MS_SkipVersionCheck** |skipversioncheck |Wyłącza sprawdzanie wersji powitania klienta interfejsu API |wartość true, false |
 
-Można skonfigurować ustawienie aplikacji:
+tooset ustawienie aplikacji:
 
-1. Zaloguj się do witryny [portalu Azure].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę aplikacji mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień. Jeśli nie kliknij przycisk **ustawienia**.
-4. Kliknij przycisk **ustawienia aplikacji** w menu Ogólne.
-5. Przewiń do sekcji ustawień aplikacji.
-6. Jeśli aplikacja, ustawienia już istnieje, kliknij wartość ustawienia aplikacji, aby edytować wartość.
-7. Jeśli ustawienia aplikacji nie istnieje, wprowadź ustawienie aplikacji w polu klucza i wartość w polu wartość.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello aplikacji mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello. Jeśli nie kliknij przycisk **ustawienia**.
+4. Kliknij przycisk **ustawienia aplikacji** hello ogólne menu.
+5. Przewiń toohello w sekcji Ustawienia aplikacji.
+6. Jeśli aplikacja, ustawienia już istnieje, kliknij wartość hello hello aplikacji ustawienie tooedit hello wartości.
+7. Jeśli ustawienia aplikacji nie istnieje, wprowadź hello ustawienie aplikacji w polu klucza hello a hello wartość w polu wartość hello.
 8. Po zakończeniu, kliknij przycisk **zapisać**.
 
 Zmiana większość ustawień aplikacji wymaga ponownego uruchomienia usługi.
@@ -344,50 +344,50 @@ Zmiana większość ustawień aplikacji wymaga ponownego uruchomienia usługi.
 ### <a name="howto-use-sqlazure"></a>Porady: Użyj bazy danych SQL jako magazyn danych produkcyjnych
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-Przy użyciu bazy danych SQL Azure jako magazynu danych jest identyczne we wszystkich typów aplikacji w usłudze Azure App Service. Jeśli jeszcze tego nie zrobiono, wykonaj następujące kroki, aby utworzyć zaplecze aplikacji mobilnej.
+Przy użyciu bazy danych SQL Azure jako magazynu danych jest identyczne we wszystkich typów aplikacji w usłudze Azure App Service. Jeśli jeszcze tego nie zrobiono, wykonaj te kroki toocreate zaplecza aplikacji mobilnej.
 
-1. Zaloguj się do witryny [portalu Azure].
-2. W górnym lewym rogu okna, kliknij przycisk **+ nowy** przycisk > **sieci Web i mobilność** > **aplikacji mobilnej**, następnie podaj nazwę zaplecza aplikacji mobilnej.
-3. W **grupy zasobów** wprowadź takiej samej nazwie co aplikacja.
-4. Plan usługi aplikacji domyślnie jest zaznaczone.  Jeśli chcesz zmienić swój plan usługi aplikacji, możesz to zrobić, klikając Plan usługi aplikacji > **+ Utwórz nowe**.  Podaj nazwę nowego planu usługi aplikacji i wybierz odpowiednią lokalizację.  Kliknij warstwa cenowa i wybierz odpowiednią warstwę cenową dla usługi. Wybierz **Wyświetl wszystkie** do widoku więcej cennik opcje, takie jak **wolne** i **Shared**.  Po wybraniu warstwy cenowej kliknij **wybierz** przycisku.  W **planu usługi aplikacji** bloku, kliknij przycisk **OK**.
-5. Kliknij przycisk **Utwórz**. Inicjowanie obsługi administracyjnej zaplecza aplikacji mobilnej może potrwać kilka minut.  Po zainicjowaniu obsługi zaplecza aplikacji mobilnej otwartego portalu **ustawienia** bloku dla zaplecza aplikacji mobilnej.
+1. Zaloguj się za toohello [portalu Azure].
+2. W hello lewym górnym rogu okna hello, kliknij przycisk hello **+ nowy** przycisk > **sieci Web i mobilność** > **aplikacji mobilnej**, następnie podaj nazwę zaplecza aplikacji mobilnej.
+3. W hello **grupy zasobów** wprowadź hello takie same nazwy co aplikacja.
+4. plan usługi aplikacji — domyślna Hello jest zaznaczone.  Jeśli chcesz toochange planu usługi aplikacji, możesz to zrobić, klikając hello Plan usługi aplikacji > **+ Utwórz nowe**.  Podaj nazwę nowego planu usługi aplikacji hello i wybierz odpowiednią lokalizację.  Kliknij hello warstwa cenowa i wybierz odpowiednią warstwę cenową dla usługi hello. Wybierz **Wyświetl wszystkie** tooview więcej cennik opcje, takie jak **wolne** i **Shared**.  Po wybraniu warstwy cenowej kliknij hello **wybierz** przycisku.  Po powrocie do hello **planu usługi aplikacji** bloku, kliknij przycisk **OK**.
+5. Kliknij przycisk **Utwórz**. Inicjowanie obsługi administracyjnej zaplecza aplikacji mobilnej może potrwać kilka minut.  Po zainicjowaniu obsługi zaplecza aplikacji mobilnej hello portalu hello otwiera hello **ustawienia** bloku hello zaplecza aplikacji mobilnej.
 
-Po utworzeniu zaplecza aplikacji mobilnej można połączyć z istniejącej bazy danych SQL do zaplecza aplikacji mobilnej albo utwórz nową bazę danych SQL.  W tej sekcji utworzymy bazy danych SQL.
+Po utworzeniu hello zaplecza aplikacji mobilnej, można wybrać tooeither Połącz istniejące zaplecza aplikacji mobilnej tooyour bazy danych SQL lub Utwórz nową bazę danych SQL.  W tej sekcji utworzymy bazy danych SQL.
 
 > [!NOTE]
-> Jeśli masz już bazę danych w tej samej lokalizacji co zaplecza aplikacji mobilnej, zamiast tego można wybrać **Użyj istniejącej bazy danych** , a następnie wybrać tę bazę danych. Bazy danych w innej lokalizacji nie jest zalecane z powodu większych opóźnień.
+> Jeśli masz już bazę danych w hello tej samej lokalizacji co hello zaplecza aplikacji mobilnej, zamiast tego możesz **Użyj istniejącej bazy danych** , a następnie wybrać tę bazę danych. Użycie Hello bazy danych w innej lokalizacji nie jest zalecane z powodu większych opóźnień.
 >
 >
 
-1. W zaplecze nowej aplikacji mobilnej kliknij **ustawienia** > **aplikacji mobilnej** > **danych** > **+ Dodaj**.
-2. W **Dodaj połączenie danych** bloku, kliknij przycisk **baza danych SQL — Skonfiguruj wymagane ustawienia** > **Utwórz nową bazę danych**.  Wprowadź nazwę nowej bazy danych w **nazwa** pola.
-3. Kliknij przycisk **serwera**.  W **nowy serwer** bloku, wprowadź unikatową nazwą serwera w **nazwy serwera** pól i zapewnienia odpowiedniej **identyfikator logowania administratora serwera** i **hasło**.  Upewnij się, **Zezwalaj usługom platformy azure na dostęp do serwera** jest zaznaczony.  Kliknij przycisk **OK**.
+1. W zaplecze nowej aplikacji mobilnej powitania kliknij **ustawienia** > **aplikacji mobilnej** > **danych** > **+ Dodaj**.
+2. W hello **Dodaj połączenie danych** bloku, kliknij przycisk **baza danych SQL — Skonfiguruj wymagane ustawienia** > **Utwórz nową bazę danych**.  Wprowadź nazwę nowej bazy danych hello hello w hello **nazwa** pola.
+3. Kliknij przycisk **serwera**.  W hello **nowy serwer** bloku, wprowadź unikatową nazwą serwera w hello **nazwy serwera** pól i zapewnienia odpowiedniej **identyfikator logowania administratora serwera** i **hasło**.  Upewnij się, **Zezwalaj usługom platformy azure tooaccess serwera** jest zaznaczony.  Kliknij przycisk **OK**.
 
     ![Utwórz bazę danych Azure SQL][6]
-4. Na **nową bazę danych** bloku, kliknij przycisk **OK**.
-5. Ponownie **Dodaj połączenie danych** bloku, wybierz opcję **ciąg połączenia**, wprowadź identyfikator logowania i hasło, podane podczas tworzenia bazy danych.  Jeśli używasz istniejącej bazy danych, należy podać poświadczenia logowania dla tej bazy danych.  Po wpisaniu, kliknij przycisk **OK**.
-6. Ponownie **Dodaj połączenie danych** bloku ponownie, kliknij przycisk **OK** utworzyć bazę danych.
+4. Na powitania **nową bazę danych** bloku, kliknij przycisk **OK**.
+5. Powrót na powitania **Dodaj połączenie danych** bloku, wybierz opcję **ciąg połączenia**, wprowadź hello logowania i hasło podane podczas tworzenia hello bazy danych.  Jeśli używasz istniejącej bazy danych, należy podać poświadczenia logowania powitania dla tej bazy danych.  Po wpisaniu, kliknij przycisk **OK**.
+6. Wróć na powitania **Dodaj połączenie danych** bloku ponownie, kliknij przycisk **OK** toocreate hello w bazie danych.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-Utworzenie bazy danych może potrwać kilka minut.  Użyj **powiadomienia** obszaru do monitorowania postępu wdrożenia.  Nie postępu aż do bazy danych został wdrożony pomyślnie.  Po pomyślnym wdrożeniu, ciąg połączenia jest tworzony dla wystąpienia bazy danych SQL w zapleczu swojej przenośnych ustawień aplikacji.  Można wyświetlić to ustawienie aplikacji w **ustawienia** > **ustawienia aplikacji** > **parametry połączenia**.
+Tworzenie bazy danych hello może potrwać kilka minut.  Użyj hello **powiadomienia** obszaru toomonitor hello postęp wdrażania hello.  Nie postępu aż hello bazy danych został wdrożony pomyślnie.  Po pomyślnym wdrożeniu, ciąg połączenia jest tworzony dla wystąpienia bazy danych SQL hello w zapleczu swojej przenośnych ustawień aplikacji.  Można wyświetlić to ustawienie aplikacji hello **ustawienia** > **ustawienia aplikacji** > **parametry połączenia**.
 
-### <a name="howto-tables-auth"></a>Porady: Wymagaj uwierzytelniania dostępu do tabel
-Jeśli chcesz użyć uwierzytelniania usługi aplikacji z punktem końcowym tabel, należy skonfigurować uwierzytelnianie usługi aplikacji w [portalu Azure] pierwszy.  Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania w usłudze Azure App Service Sprawdź w przewodniku konfiguracji dla dostawcy tożsamości, które mają być używane:
+### <a name="howto-tables-auth"></a>Porady: Wymagaj uwierzytelniania tootables dostępu
+Jeśli chcesz toouse uwierzytelniania usługi aplikacji z punktem końcowym tabel hello, należy skonfigurować uwierzytelnianie usługi aplikacji w hello [portalu Azure] pierwszy.  Dla więcej szczegółów na temat konfigurowania uwierzytelniania w usłudze Azure App Service, przejrzyj hello przewodnik konfiguracji dla dostawcy tożsamości hello mają toouse:
 
-* [Jak skonfigurować uwierzytelnianie usługi Azure Active Directory]
-* [Jak skonfigurować uwierzytelnianie usługi Facebook]
-* [Jak skonfigurować uwierzytelnianie Google]
-* [Jak skonfigurować Authentication firmy Microsoft]
-* [Jak skonfigurować uwierzytelnianie w usłudze Twitter]
+* [Jak tooconfigure uwierzytelniania usługi Azure Active Directory]
+* [Jak tooconfigure uwierzytelniania serwisu Facebook]
+* [Jak tooconfigure uwierzytelniania serwisu Google]
+* [Jak tooconfigure Authentication firmy Microsoft]
+* [Jak tooconfigure uwierzytelniania w usłudze Twitter]
 
-Każda tabela ma właściwość dostępu, który może służyć do kontrolowania dostępu do tabeli.  Poniższy przykład przedstawia statycznie zdefiniowanych tabeli z wymagane uwierzytelnienie.
+Każda tabela ma właściwość dostępu, które mogą być używane toocontrol dostępu toohello tabeli.  następujące przykładowe Hello jest wyświetlana tabela statycznie zdefiniowanych wymagane uwierzytelnienie.
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define hello columns within hello table
     table.columns = {
         "text": "string",
         "complete": "boolean"
@@ -396,23 +396,23 @@ Każda tabela ma właściwość dostępu, który może służyć do kontrolowani
     // Turn off dynamic schema
     table.dynamicSchema = false;
 
-    // Require authentication to access the table
+    // Require authentication tooaccess hello table
     table.access = 'authenticated';
 
     module.exports = table;
 
-Właściwość dostępu można wykonać jedną z następujących wartości:
+Hello dostępu do właściwości można wykonać jedną z następujących wartości:
 
-* *anonimowe* wskazuje, czy aplikacja kliencka może odczytać danych bez uwierzytelniania
-* *uwierzytelniony* oznacza, że aplikacja kliencka musi wysłany token uwierzytelniania prawidłowe z żądaniem
+* *anonimowe* wskazuje, czy aplikacja kliencka hello może tooread danych bez uwierzytelniania
+* *uwierzytelniony* oznacza, że aplikacja kliencka hello musi wysłany token uwierzytelniania prawidłowe z żądaniem hello
 * *wyłączone* wskazuje, że ta tabela jest obecnie wyłączona
 
-Jeśli zdefiniowano właściwość dostęp jest dozwolony dostęp nieuwierzytelniony.
+Jeśli zdefiniowano właściwość dostępu hello nieuwierzytelnionym dostępem jest dozwolone.
 
 ### <a name="howto-tables-getidentity"></a>Porady: Użyj uwierzytelniania oświadczeń z tabel
-Można skonfigurować różne oświadczenia, które są wymagane podczas konfigurowania uwierzytelniania.  Te oświadczenia nie są zwykle dostępne za pośrednictwem `context.user` obiektu.  Jednak mogą zostać pobrane za pomocą `context.user.getIdentity()` metody.  `getIdentity()` Metoda zwraca Promise, który jest rozpoznawany jako obiekt.  Obiekt jest wyznaczaną przez metodę uwierzytelniania (facebook, google, twitter, microsoftaccount lub aad).
+Można skonfigurować różne oświadczenia, które są wymagane podczas konfigurowania uwierzytelniania.  Te oświadczenia nie są zwykle dostępne za pośrednictwem hello `context.user` obiektu.  Jednak mogą zostać pobrane za pomocą hello `context.user.getIdentity()` metody.  Witaj `getIdentity()` metoda zwraca Promise, który jest rozpoznawany jako obiekt tooan.  Obiekt Hello jest wyznaczaną przez metodę uwierzytelniania (facebook, google, twitter, microsoftaccount lub aad).
 
-Na przykład jeśli skonfigurowano uwierzytelnianie Microsoft Account i żądania oświadczeń adresów e-mail, można dodać adres e-mail do rekordu o następujący kontroler tabeli:
+Na przykład skonfigurować uwierzytelnianie Microsoft Account i oświadczeń adresów e-mail hello żądania, można dodać rekordu toohello adresu e-mail hello z powitania po kontrolera tabeli:
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -428,8 +428,8 @@ Na przykład jeśli skonfigurowano uwierzytelnianie Microsoft Account i żądani
     table.access = 'authenticated';
 
     /**
-    * Limit the context query to those records with the authenticated user email address
-    * @param {Context} context the operation context
+    * Limit hello context query toothose records with hello authenticated user email address
+    * @param {Context} context hello operation context
     * @returns {Promise} context execution Promise
     */
     function queryContextForEmail(context) {
@@ -440,9 +440,9 @@ Na przykład jeśli skonfigurowano uwierzytelnianie Microsoft Account i żądani
     }
 
     /**
-    * Adds the email address from the claims to the context item - used for
+    * Adds hello email address from hello claims toohello context item - used for
     * insert operations
-    * @param {Context} context the operation context
+    * @param {Context} context hello operation context
     * @returns {Promise} context execution Promise
     */
     function addEmailToContext(context) {
@@ -452,32 +452,32 @@ Na przykład jeśli skonfigurowano uwierzytelnianie Microsoft Account i żądani
         });
     }
 
-    // Configure specific code when the client does a request
-    // READ - only return records belonging to the authenticated user
+    // Configure specific code when hello client does a request
+    // READ - only return records belonging toohello authenticated user
     table.read(queryContextForEmail);
 
-    // CREATE - add or overwrite the userId based on the authenticated user
+    // CREATE - add or overwrite hello userId based on hello authenticated user
     table.insert(addEmailToContext);
 
-    // UPDATE - only allow updating of record belong to the authenticated user
+    // UPDATE - only allow updating of record belong toohello authenticated user
     table.update(queryContextForEmail);
 
-    // DELETE - only allow deletion of records belong to the authenticated uer
+    // DELETE - only allow deletion of records belong toohello authenticated uer
     table.delete(queryContextForEmail);
 
     module.exports = table;
 
-Aby zobaczyć, jakie oświadczenia są dostępne, użyj przeglądarki sieci web, aby wyświetlić `/.auth/me` punktu końcowego witryny.
+toosee jakie oświadczenia są dostępne, użyj hello tooview przeglądarki sieci web `/.auth/me` punktu końcowego witryny.
 
-### <a name="howto-tables-disabled"></a>Porady: wyłączanie dostępu do określonej tabeli operacji
-Oprócz wymienionych w tabeli, właściwości dostępu można można użyć do kontrolowania poszczególnych działań.  Istnieją cztery operacje:
+### <a name="howto-tables-disabled"></a>Porady: wyłączanie dostępu toospecific tabeli operacji
+W tooappearing dodawania tabeli hello hello dostępu do właściwości mogą być używane toocontrol poszczególnych działań.  Istnieją cztery operacje:
 
-* *Przeczytaj* jest operacji RESTful GET, w tabeli
-* *Wstaw* jest operacji RESTful POST w tabeli
-* *Zaktualizuj* jest poprawka RESTful operacji w tabeli
-* *Usuń* jest operacją RESTful usuwania w tabeli
+* *Przeczytaj* jest hello operacji RESTful GET, w tabeli hello
+* *Wstaw* jest operację RESTful POST hello na powitania tabeli
+* *Zaktualizuj* hello poprawka RESTful operacja jest w tabeli hello
+* *Usuń* hello RESTful usunąć operacja jest w tabeli hello
 
-Na przykład możesz podać nieuwierzytelnione tabeli tylko do odczytu:
+Na przykład możesz tooprovide nieuwierzytelnione tabeli tylko do odczytu:
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -491,14 +491,14 @@ Na przykład możesz podać nieuwierzytelnione tabeli tylko do odczytu:
 
     module.exports = table;
 
-### <a name="howto-tables-query"></a>Porady: dopasowywanie kwerendę, która jest używana z operacjami tabeli
-Typowe wymagania dotyczące operacji tabeli jest zapewnienie ograniczony widok danych.  Na przykład może udostępnić tabelę, która zostanie oznaczony przy użyciu Identyfikatora uwierzytelnionego użytkownika w taki sposób, że można tylko do odczytu lub aktualizacji własnych rekordów.  Oferuje następujące definicji tabeli:
+### <a name="howto-tables-query"></a>Porady: dopasowywanie hello kwerendę, która jest używana z operacjami tabeli
+Typowe wymagania dotyczące operacji tabeli jest tooprovide ograniczony widok hello danych.  Na przykład musisz podać tabelę, która jest oznaczane hello uwierzytelnianego identyfikator użytkownika w taki sposób, że można tylko do odczytu lub aktualizacji własnych.  oferuje powitania po definicji tabeli:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define a static schema for the table
+    // Define a static schema for hello table
     table.columns = {
         "userId": "string",
         "text": "string",
@@ -509,13 +509,13 @@ Typowe wymagania dotyczące operacji tabeli jest zapewnienie ograniczony widok d
     // Require authentication for this table
     table.access = 'authenticated';
 
-    // Ensure that only records for the authenticated user are retrieved
+    // Ensure that only records for hello authenticated user are retrieved
     table.read(function (context) {
         context.query.where({ userId: context.user.id });
         return context.execute();
     });
 
-    // When adding records, add or overwrite the userId with the authenticated user
+    // When adding records, add or overwrite hello userId with hello authenticated user
     table.insert(function (context) {
         context.item.userId = context.user.id;
         return context.execute();
@@ -523,18 +523,18 @@ Typowe wymagania dotyczące operacji tabeli jest zapewnienie ograniczony widok d
 
     module.exports = table;
 
-Operacje, które zwykle wykonać zapytania ma właściwość zapytania, który można dostosować, w której klauzuli. Właściwość kwerendy jest [QueryJS] obiekt, który służy do konwertowania zapytania OData do zasobu, który może przetwarzać danych wewnętrznej bazy danych.  W przypadku prostego równości (na przykład mieszanego) można użyć mapy. Możesz także dodać punkty SQL:
+Operacje, które zwykle wykonać zapytania ma właściwość zapytania, który można dostosować, w której klauzuli. Właściwość kwerendy Hello jest [QueryJS] obiekt może przetwarzać używane tooconvert toosomething zapytania OData, która hello danych zaplecza.  W przypadku prostego równości (na przykład hello poprzedzających jeden) można użyć mapy. Możesz także dodać punkty SQL:
 
     context.query.where('myfield eq ?', 'value');
 
 ### <a name="howto-tables-softdelete"></a>Porady: Konfigurowanie usuwania nietrwałego dla tabeli
-Faktycznie usuwania nietrwałego nie powoduje usunięcia rekordów.  Zamiast tego oznacza je jako usunięte w bazie danych, ustawiając usuniętą kolumnę na wartość true.  Zestaw SDK aplikacji usługi Azure Mobile automatycznie usuwa wszystkie usunięte nietrwale rekordy z wyników, chyba że IncludeDeleted() korzysta z zestawu SDK klienta Mobile.  Aby skonfigurować tabelę dla usuwania nietrwałego, ustaw `softDelete` właściwość w pliku definicji tabeli:
+Faktycznie usuwania nietrwałego nie powoduje usunięcia rekordów.  Zamiast tego oznacza je jako usunięte w bazie danych hello przez ustawienie tootrue kolumna usunąć hello.  Hello Azure Mobile Apps SDK automatycznie usuwa wszystkie usunięte nietrwale rekordy z wyników, chyba że IncludeDeleted() używa hello zestawu SDK klienta usługi Mobile.  tooconfigure Usuń tabelę dla elastyczne, ustaw hello `softDelete` właściwość w pliku definicji tabeli hello:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define hello columns within hello table
     table.columns = {
         "text": "string",
         "complete": "boolean"
@@ -546,7 +546,7 @@ Faktycznie usuwania nietrwałego nie powoduje usunięcia rekordów.  Zamiast teg
     // Turn on Soft Delete
     table.softDelete = true;
 
-    // Require authentication to access the table
+    // Require authentication tooaccess hello table
     table.access = 'authenticated';
 
     module.exports = table;
@@ -554,13 +554,13 @@ Faktycznie usuwania nietrwałego nie powoduje usunięcia rekordów.  Zamiast teg
 Należy określić mechanizm przeczyszczanie rekordów — od aplikacji klienta, za pomocą zadania WebJob, funkcji platformy Azure lub za pomocą niestandardowego interfejsu API.
 
 ### <a name="howto-tables-seeding"></a>Porady: inicjatora bazy danych z danymi
-Podczas tworzenia nowej aplikacji, możesz inicjatora tabelę z danymi.  Można to zrobić w pliku JavaScript definicji tabeli w następujący sposób:
+Podczas tworzenia nowej aplikacji, warto zapoznać się z tooseed tabelę z danymi.  Można to zrobić w pliku JavaScript w definicji tabeli hello w następujący sposób:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define hello columns within hello table
     table.columns = {
         "text": "string",
         "complete": "boolean"
@@ -573,76 +573,76 @@ Podczas tworzenia nowej aplikacji, możesz inicjatora tabelę z danymi.  Można 
     // Turn off dynamic schema
     table.dynamicSchema = false;
 
-    // Require authentication to access the table
+    // Require authentication tooaccess hello table
     table.access = 'authenticated';
 
     module.exports = table;
 
-Wstępne wypełnianie danych jest wykonywane tylko, gdy tabela została utworzona przez zestaw SDK usługi Azure Mobile Apps.  Jeśli tabela już istnieje w bazie danych, bez danych jest dodane do tabeli.  Jeśli włączono dynamiczne schematu schematu jest wywnioskować na podstawie wprowadzonych danych.
+Wstępne wypełnianie danych jest wykonywane tylko po utworzeniu tabeli hello przez hello Azure Mobile Apps SDK.  Jeśli hello tabela już istnieje w bazie danych hello, żadne dane nie jest dodane do tabeli hello.  Jeśli włączono dynamiczne schematu schematu jest wywnioskować na podstawie danych hello rozpoczęta.
 
-Zaleca się, że można jawnie wywołać `tables.initialize()` metodę w celu utworzenia tabeli, gdy usługa zacznie działać.
+Firma Microsoft zaleca jawnie wywołać hello `tables.initialize()` metody toocreate hello tabeli, gdy usługa hello zacznie działać.
 
 ### <a name="Swagger"></a>Porady: Włączanie obsługi programu Swagger
-Usługa Azure App Service Mobile Apps jest dostarczany z wbudowanych [Swagger] obsługuje.  Aby włączyć obsługę programu Swagger, należy najpierw zainstalować interfejsu użytkownika programu swagger jako zależność:
+Usługa Azure App Service Mobile Apps jest dostarczany z wbudowanych [Swagger] obsługuje.  tooenable pomocy technicznej programu Swagger, najpierw zainstalować hello interfejsu użytkownika programu swagger jako zależność:
 
     npm install --save swagger-ui
 
-Po zakończeniu instalacji można włączyć obsługę struktury Swagger w Konstruktorze Azure Mobile Apps:
+Po zakończeniu instalacji można włączyć obsługę struktury Swagger w Konstruktorze Azure Mobile Apps hello:
 
     var mobile = azureMobileApps({ swagger: true });
 
-Możesz tylko prawdopodobnie chcesz włączyć obsługi struktury Swagger w wersjach programowanie.  Można to zrobić przy użyciu `NODE_ENV` ustawienie aplikacji:
+Możesz tylko prawdopodobnie chcesz tooenable obsługi struktury Swagger w wersjach programowanie.  Można to zrobić przy użyciu `NODE_ENV` ustawienie aplikacji:
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Punktu końcowego struktury swagger znajduje się pod adresem http://*yoursite*.azurewebsites.net/swagger.  Można uzyskać dostępu do interfejsu użytkownika programu Swagger za pomocą `/swagger/ui` punktu końcowego.  Jeśli wybierzesz opcję Wymagaj uwierzytelniania na całej aplikacji, Swagger powoduje błąd.  Aby uzyskać najlepsze wyniki, wybierz, aby zezwalać nieuwierzytelnione żądania za pośrednictwem w uwierzytelnianiu usługi aplikacji Azure / następnie kontrolować ustawienia autoryzacji uwierzytelnianie przy użyciu `table.access` właściwości.
+Witaj punktu końcowego struktury swagger znajduje się pod adresem http://*yoursite*.azurewebsites.net/swagger.  Dostęp można uzyskać hello interfejs użytkownika programu Swagger za pośrednictwem hello `/swagger/ui` punktu końcowego.  Jeśli zostanie wybrana opcja uwierzytelniania toorequire w całej aplikacji, struktury Swagger powoduje błąd.  Aby uzyskać najlepsze wyniki, wybierz tooallow nieuwierzytelniony żądań za pośrednictwem hello uwierzytelniania usługi aplikacji Azure / ustawienia autoryzacji, następnie kontrolować uwierzytelnianie przy użyciu hello `table.access` właściwości.
 
-Możesz także dodać opcję Swagger z `azureMobile.js` plik, jeśli mają tylko obsługę struktury Swagger podczas opracowywania lokalnie.
+Możesz także dodać hello Swagger opcji tooyour `azureMobile.js` plik, jeśli mają tylko obsługę struktury Swagger podczas opracowywania lokalnie.
 
 ## <a name="a-namepushpush-notifications"></a><a name="push">Powiadomienia wypychane
-Aplikacje mobilne integruje się z usługi Azure Notification Hubs umożliwia wysyłanie powiadomień wypychanych docelowe do milionów urządzeń we wszystkich głównych platform. Przy użyciu usługi Notification Hubs, można wysyłać powiadomienia wypychane w systemach iOS, Android i Windows. Aby dowiedzieć się więcej na temat wszystkich, które można wykonać przy użyciu usługi Notification Hubs, zobacz [omówienie centra powiadomień](../notification-hubs/notification-hubs-push-notification-overview.md).
+Aplikacje mobilne integruje się z tooenable usługi Azure Notification Hubs można toomillions powiadomień wypychanych toosend docelowych urządzeń we wszystkich głównych platform. Przy użyciu usługi Notification Hubs, możesz wysłać wypychania tooiOS powiadomienia, Android i Windows. toolearn więcej informacji na temat wszystkie opcje, które można wykonać przy użyciu usługi Notification Hubs, zobacz [omówienie centra powiadomień](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Porady: wysyłanie powiadomień wypychanych
-Poniższy kod przedstawia sposób użycia obiektu wypychania do wysyłania powiadomień wypychanych emisji do urządzeń z systemem iOS zarejestrowanego:
+Witaj następującego kodu pokazano, jak toouse hello wypychania obiektu toosend emisji push urządzeń z systemem iOS tooregistered powiadomień:
 
     // Create an APNS payload.
     var payload = '{"aps": {"alert": "This is an APNS payload."}}';
 
-    // Only do the push if configured
+    // Only do hello push if configured
     if (context.push) {
         // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.
+                // Do something or log hello error.
             }
         });
     }
 
-Tworząc rejestracji wypychanych szablonu z klienta, można zamiast tego Wyślij wiadomość wypychania szablonu na urządzeniach, na wszystkich obsługiwanych platformach. Poniższy kod przedstawia sposób wysłania powiadomienia szablonu:
+Tworząc rejestracji wypychanych szablonu z powitania klienta, możesz zamiast tego wysłać toodevices wiadomości wypychanych szablonu, na wszystkich obsługiwanych platformach. Witaj następującego kodu pokazuje sposób toosend powiadomienie o szablonie:
 
-    // Define the template payload.
+    // Define hello template payload.
     var payload = '{"messageParam": "This is a template payload."}';
 
-    // Only do the push if configured
+    // Only do hello push if configured
     if (context.push) {
         // Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.
+                // Do something or log hello error.
             }
         });
     }
 
 
-### <a name="push-user"></a>Porady: wysyłanie powiadomień wypychanych do uwierzytelnionego użytkownika przy użyciu tagów
-Uwierzytelniony użytkownik rejestrujący dla powiadomień wypychanych, tag identyfikator użytkownika jest automatycznie dodawany do rejestracji. Za pomocą tego tagu, można wysyłać powiadomienia wypychane do wszystkich urządzeń zarejestrowanych przez określonego użytkownika. Poniższy kod pobiera identyfikator SID użytkownika zgłaszającego żądanie i wyśle powiadomienie wypychane szablonu do rejestracji urządzeń dla tego użytkownika:
+### <a name="push-user"></a>Porady: tooan powiadomień wypychanych wysyłania uwierzytelnić użytkownika przy użyciu tagów
+Uwierzytelniony użytkownik rejestruje dla powiadomień wypychanych, tag identyfikator użytkownika jest automatycznie dodawany toohello rejestracji. Za pomocą tego tagu, możesz wysłać wypychania powiadomień tooall urządzeń zarejestrowanych przez określonego użytkownika. Hello poniższy kod pobiera identyfikator SID użytkownika zgłaszającego żądanie hello hello i wysyła rejestracji urządzenia tooevery powiadomień wypychanych szablon dla tego użytkownika:
 
-    // Only do the push if configured
+    // Only do hello push if configured
     if (context.push) {
-        // Send a notification to the current user.
+        // Send a notification toohello current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.
+                // Do something or log hello error.
             }
         });
     }
@@ -651,23 +651,23 @@ Podczas rejestrowania dla powiadomień wypychanych z uwierzytelnionego klienta, 
 
 ## <a name="CustomAPI"></a>Niestandardowych interfejsów API
 ### <a name="howto-customapi-basic"></a>Porady: Definiowanie niestandardowego interfejsu API
-Oprócz dostępu do danych interfejsu API za pośrednictwem punktu końcowego /tables Azure Mobile Apps zapewniają niestandardowe pokrycia interfejsu API.  Niestandardowe interfejsy API są definiowane w sposób podobny do definicji tabeli i mogą uzyskiwać dostęp do tych samych urządzeń, włącznie z uwierzytelnianiem.
+Ponadto toohello dostępu do danych interfejsu API za pośrednictwem punktu końcowego /tables hello, Azure Mobile Apps zapewniają niestandardowe pokrycia interfejsu API.  Niestandardowych interfejsów API są zdefiniowane w podobne definicji tabeli toohello sposób i uzyskać dostęp do wszystkich hello tego samego urządzenia, włącznie z uwierzytelnianiem.
 
-Jeśli chcesz korzystać z API niestandardowych aplikacji usługi uwierzytelniania, należy skonfigurować uwierzytelnianie usługi aplikacji w [portalu Azure] pierwszy.  Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania w usłudze Azure App Service Sprawdź w przewodniku konfiguracji dla dostawcy tożsamości, które mają być używane:
+W razie potrzeby toouse aplikacji usługa uwierzytelniania za pomocą API niestandardowe, należy skonfigurować uwierzytelnianie usługi aplikacji w hello [portalu Azure] pierwszy.  Dla więcej szczegółów na temat konfigurowania uwierzytelniania w usłudze Azure App Service, przejrzyj hello przewodnik konfiguracji dla dostawcy tożsamości hello mają toouse:
 
-* [Jak skonfigurować uwierzytelnianie usługi Azure Active Directory]
-* [Jak skonfigurować uwierzytelnianie usługi Facebook]
-* [Jak skonfigurować uwierzytelnianie Google]
-* [Jak skonfigurować Authentication firmy Microsoft]
-* [Jak skonfigurować uwierzytelnianie w usłudze Twitter]
+* [Jak tooconfigure uwierzytelniania usługi Azure Active Directory]
+* [Jak tooconfigure uwierzytelniania serwisu Facebook]
+* [Jak tooconfigure uwierzytelniania serwisu Google]
+* [Jak tooconfigure Authentication firmy Microsoft]
+* [Jak tooconfigure uwierzytelniania w usłudze Twitter]
 
-Niestandardowych interfejsów API są definiowane w znacznie taki sam sposób jak tabele interfejsu API.
+Niestandardowych interfejsów API są zdefiniowane w taki sam sposób jak hello API tabel hello.
 
 1. Utwórz **interfejsu api** katalogu
-2. Utwórz plik JavaScript definicji interfejsu API w **interfejsu api** katalogu.
-3. Metoda importu do zaimportowania **interfejsu api** katalogu.
+2. Utwórz plik JavaScript definicji interfejsu API w hello **interfejsu api** katalogu.
+3. Użyj hello importu metody tooimport hello **interfejsu api** katalogu.
 
-W tym miejscu znajduje się definicja interfejsu api prototypu na podstawie próbki basic-app, do którego użyliśmy wcześniej.
+Oto definicji interfejsu api prototypu hello na podstawie próbki basic aplikacji hello, którego użyliśmy wcześniej.
 
     var express = require('express'),
         azureMobileApps = require('azure-mobile-apps');
@@ -675,16 +675,16 @@ W tym miejscu znajduje się definicja interfejsu api prototypu na podstawie pró
     var app = express(),
         mobile = azureMobileApps();
 
-    // Import the Custom API
+    // Import hello Custom API
     mobile.api.import('./api');
 
-    // Add the mobile API so it is accessible as a Web API
+    // Add hello mobile API so it is accessible as a Web API
     app.use(mobile);
 
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-Spójrzmy na przykład interfejsu API, która zwraca datę serwerze przy użyciu *Date.now()* metody.  Oto plik api/date.js:
+Spójrzmy na przykład interfejs API, który zwraca datę serwera hello przy użyciu hello *Date.now()* metody.  Oto hello api/date.js pliku:
 
     var api = {
         get: function (req, res, next) {
@@ -695,10 +695,10 @@ Spójrzmy na przykład interfejsu API, która zwraca datę serwerze przy użyciu
 
     module.exports = api;
 
-Każdy parametr jest jednym z zleceń standardowych RESTful - GET, POST, poprawki lub DELETE.  Metoda jest standardem [oprogramowanie pośredniczące ExpressJS] funkcja, która wysyła wymagane dane wyjściowe.
+Każdy parametr jest jednym z hello RESTful zleceń standardowych - GET, POST, poprawki lub DELETE.  Metoda Hello jest standardem [oprogramowanie pośredniczące ExpressJS] funkcji, który wysyła dane wyjściowe hello wymagane.
 
-### <a name="howto-customapi-auth"></a>Porady: wymagają uwierzytelniania w celu uzyskania dostępu do niestandardowego interfejsu API
-Azure Mobile Apps SDK implementuje uwierzytelniania w taki sam sposób niestandardowych interfejsów API i tabele punktu końcowego.  Aby dodać uwierzytelniania interfejsu API w poprzedniej sekcji, Dodaj **dostępu** właściwości:
+### <a name="howto-customapi-auth"></a>Porady: Wymagaj uwierzytelniania niestandardowego interfejsu API tooa dostępu
+Azure Mobile Apps SDK implementuje uwierzytelnianie w hello tak samo dla punktu końcowego tabel hello i niestandardowych interfejsów API.  Aby dodać utworzonych w poprzedniej sekcji hello API toohello uwierzytelnianie, Dodaj **dostępu** właściwości:
 
     var api = {
         get: function (req, res, next) {
@@ -719,15 +719,15 @@ Można również określić uwierzytelniania na określonych operacji:
             res.status(200).type('application/json').send(date);
         }
     };
-    // The GET methods must be authenticated.
+    // hello GET methods must be authenticated.
     api.get.access = 'authenticated';
 
     module.exports = api;
 
-Należy użyć tego samego tokenu, który jest używany dla punktu końcowego, tabelami dla niestandardowych interfejsów API wymaga uwierzytelniania.
+Witaj tego samego tokenu, który jest używany dla punktu końcowego tabel hello należy użyć dla niestandardowych interfejsów API wymaga uwierzytelniania.
 
 ### <a name="howto-customapi-auth"></a>Porady: Obsługa wysyłania dużych plików
-Azure Mobile Apps SDK używa [oprogramowanie pośredniczące treści analizator](https://github.com/expressjs/body-parser) do akceptowania i dekodowania zawartości w treści w Twoje zgłoszenie.  Można wstępnie skonfigurować analizator treści do przyjęcia przekazywania plików większych:
+Azure Mobile Apps SDK używa hello [oprogramowanie pośredniczące analizator treści](https://github.com/expressjs/body-parser) tooaccept i dekodowania zawartości w treści w Twoje zgłoszenie.  Można wstępnie skonfigurować przekazywania plików większych tooaccept analizator treści:
 
     var express = require('express'),
         bodyParser = require('body-parser'),
@@ -740,27 +740,27 @@ Azure Mobile Apps SDK używa [oprogramowanie pośredniczące treści analizator]
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-    // Import the Custom API
+    // Import hello Custom API
     mobile.api.import('./api');
 
-    // Add the mobile API so it is accessible as a Web API
+    // Add hello mobile API so it is accessible as a Web API
     app.use(mobile);
 
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-Plik jest algorytmem przed transmisją base-64.  To spowoduje zwiększenie rozmiaru rzeczywistego przekazywania (i dlatego rozmiar należy uwzględnić).
+Plik Hello jest algorytmem przed transmisją base-64.  Zwiększa to hello rozmiar rzeczywisty przekazywania hello (i dlatego hello rozmiar, które należy uwzględnić).
 
 ### <a name="howto-customapi-sql"></a>Porady: wykonanie niestandardowych instrukcje SQL
-Zestaw SDK usługi Azure Mobile Apps umożliwia dostęp do całego kontekstu za pośrednictwem obiektu żądania, umożliwiając łatwe wykonywanie sparametryzowanych instrukcji SQL dla dostawcy danych:
+Hello zestaw SDK usługi Azure Mobile Apps umożliwia toohello dostęp do całego kontekstu za pośrednictwem obiektu żądania hello, dzięki czemu tooexecute sparametryzowana łatwo dostawcy danych toohello instrukcji SQL:
 
     var api = {
         get: function (request, response, next) {
-            // Check for parameters - if not there, pass on to a later API call
+            // Check for parameters - if not there, pass on tooa later API call
             if (typeof request.params.completed === 'undefined')
                 return next();
 
-            // Define the query - anything that can be handled by the mssql
+            // Define hello query - anything that can be handled by hello mssql
             // driver is allowed.
             var query = {
                 sql: 'UPDATE TodoItem SET complete=@completed',
@@ -769,8 +769,8 @@ Zestaw SDK usługi Azure Mobile Apps umożliwia dostęp do całego kontekstu za 
                 }]
             };
 
-            // Execute the query.  The context for Azure Mobile Apps is available through
-            // request.azureMobile - the data object contains the configured data provider.
+            // Execute hello query.  hello context for Azure Mobile Apps is available through
+            // request.azureMobile - hello data object contains hello configured data provider.
             request.azureMobile.data.execute(query)
             .then(function (results) {
                 response.json(results);
@@ -783,48 +783,48 @@ Zestaw SDK usługi Azure Mobile Apps umożliwia dostęp do całego kontekstu za 
 
 ## <a name="Debugging"></a>Debugowanie, łatwe tabel i łatwe interfejsów API
 ### <a name="howto-diagnostic-logs"></a>Porady: debugowanie, diagnozowanie i rozwiązywanie problemów z usługi Azure Mobile apps
-Usługi Azure App Service zapewnia kilka debugowania i rozwiązywanie problemów z techniki aplikacji Node.js.
-Zobacz następujące artykuły, aby rozpocząć pracę z Rozwiązywanie problemów z poziomu zaplecza Node.js Mobile:
+Hello Azure App Service zapewnia kilka debugowania i rozwiązywanie problemów z techniki aplikacji Node.js.
+Można znaleźć toohello następujące artykuły tooget uruchomione przy rozwiązywaniu problemów z poziomu zaplecza Node.js Mobile:
 
 * [Monitorowanie usługi aplikacji Azure]
 * [Włączanie rejestrowania diagnostycznego w usłudze aplikacji Azure]
 * [Rozwiązywanie problemów z usługi aplikacji Azure w programie Visual Studio]
 
-Aplikacje środowiska node.js mają dostęp do szeroką gamę narzędzi diagnostycznych dziennika.  Wewnętrznie, zestaw SDK usługi Azure Mobile Apps Node.js używa [Winston] dla rejestrowania diagnostycznego.  Rejestrowanie jest automatycznie włączone, należy włączyć tryb debugowania lub przez ustawienie **MS_DebugMode** ustawienia aplikacji na wartość true w [portalu Azure]. Dzienniki generowane są wyświetlane w dziennikach diagnostycznych na [portalu Azure].
+Aplikacje środowiska node.js mają dostęp tooa szeroką gamę narzędzi diagnostycznych dziennika.  Wewnętrznie hello korzysta z zestawu SDK usługi Azure Mobile Apps Node.js [Winston] dla rejestrowania diagnostycznego.  Rejestrowanie jest automatycznie włączone, należy włączyć tryb debugowania lub przez ustawienie hello **MS_DebugMode** tootrue ustawienie aplikacji w hello [portalu Azure]. Dzienniki generowane są wyświetlane w hello dzienników diagnostycznych na powitania [portalu Azure].
 
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Porady: Praca z tabelami łatwy w portalu Azure
-Łatwe tabel w portalu umożliwiają tworzenie i Praca z tabelami bezpośrednio w portalu. Operacje tabeli za pomocą edytora usługi aplikacji nawet można edytować.
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Porady: Praca z tabelami łatwy w hello portalu Azure
+Łatwe tabel w portalu hello umożliwiają tworzenie i Praca z tabelami bezpośrednio w portalu hello. Operacje tabeli za pomocą edytora usługi aplikacji hello nawet można edytować.
 
-Po kliknięciu **łatwe tabel** w ustawieniach wewnętrznej bazy danych lokacji można Dodawanie, modyfikowanie lub usuwanie tabeli. Można również wyświetlić dane w tabeli.
+Po kliknięciu **łatwe tabel** w ustawieniach wewnętrznej bazy danych lokacji można Dodawanie, modyfikowanie lub usuwanie tabeli. Można również sprawdzić dane w tabeli hello.
 
 ![Praca z tabelami łatwe](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
-Poniższe polecenia są dostępne na pasku poleceń dla tabeli:
+Hello są dostępne na pasku poleceń hello tabeli następujące polecenia:
 
-* **Zmienianie uprawnień** — modyfikować uprawnienia do odczytu, wstawianie, aktualizowanie i usuwanie operacji względem tabeli.
-  Aby zezwolić na dostęp anonimowy, aby wymagać uwierzytelniania lub wyłącz dostęp do operacji są opcje.
-* **Edytowanie skryptu** — plik skryptu dla tabeli jest otwarty w edytorze usługi aplikacji.
-* **Zarządzanie schematem** — Dodawanie lub usuwanie kolumn lub zmiana indeksu tabeli.
-* **Wyczyść tabeli** -obcina istniejącej tabeli jest usunięcie wszystkich wierszy danych, ale pozostawienie schematu bez zmian.
+* **Zmienianie uprawnień** — zmodyfikować hello uprawnienie do odczytu, wstawianie, aktualizowanie i usuwanie operacji względem tabeli hello.
+  Dostępne są opcje tooallow dostępu anonimowego, uwierzytelniania toorequire lub toodisable wszystkie dostępu toohello operacji.
+* **Edytowanie skryptu** -hello pliku skryptu tabeli hello jest otwarty w hello Edytor usług aplikacji.
+* **Zarządzanie schematem** — Dodawanie lub usuwanie kolumn lub zmienianie hello indeksu tabeli.
+* **Wyczyść tabeli** -obcina istniejącej tabeli jest usunięcie wszystkich wierszy danych, ale pozostawienie schematu hello bez zmian.
 * **Usuwanie wierszy** -Usuń poszczególne wiersze danych.
-* **Wyświetl podgląd dzienników przesyłanych strumieniowo** -łączy do przesyłania strumieniowego usługi rejestrowania dla witryny.
+* **Wyświetl podgląd dzienników przesyłanych strumieniowo** -łączy toohello przesyłania strumieniowego usługi rejestrowania dla witryny.
 
-### <a name="work-easy-apis"></a>Porady: pracy z interfejsami API łatwy w portalu Azure
-Łatwe interfejsów API w portalu umożliwiają tworzenie i Praca z niestandardowych interfejsów API bezpośrednio w portalu. Można edytować skrypty interfejsu API za pomocą edytora usługi aplikacji.
+### <a name="work-easy-apis"></a>Porady: pracy z interfejsami API łatwy w hello portalu Azure
+Łatwe interfejsów API w portalu hello umożliwiają tworzenie i Praca z niestandardowych bezpośrednio interfejsy API w portalu hello. Można edytować skrypty interfejsu API przy użyciu hello Edytor usług aplikacji.
 
 Po kliknięciu **łatwe interfejsów API** w ustawieniach wewnętrznej bazy danych lokacji można Dodawanie, modyfikowanie lub usuwanie niestandardowych punkt końcowy interfejsu API.
 
 ![Praca z łatwe interfejsów API](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-W portalu można zmienić uprawnienia dostępu dla danej akcji HTTP, Edytuj plik skryptu interfejsu API w edytorze usługi aplikacji lub Wyświetl dzienniki przesyłania strumieniowego.
+W portalu hello można zmienić hello uprawnienia dostępu dla danej akcji HTTP, Edytuj plik skryptu interfejsu API hello w edytorze usługi aplikacji lub Wyświetl dzienniki przesyłania strumieniowego hello.
 
-### <a name="online-editor"></a>Porady: edytowanie kodu w edytorze usługi aplikacji
-Azure portal umożliwia edytowanie plików skryptów zaplecza Node.js w edytorze usługi aplikacji bez konieczności pobierania projektu na komputerze lokalnym. Aby edytować pliki skryptów w edytorze online:
+### <a name="online-editor"></a>Porady: edytowanie kodu hello Edytor usługi aplikacji
+Hello portalu Azure umożliwia edytowanie plików skryptów zaplecza Node.js w hello Edytor usług aplikacji bez konieczności pobierania hello komputera lokalnego tooyour projektu. pliki skryptów tooedit hello edytora online:
 
-1. W bloku zaplecza aplikacji mobilnej, kliknij **wszystkie ustawienia** > albo **łatwe tabel** lub **łatwe interfejsów API**, kliknij tabelę lub interfejsu API, a następnie kliknij przycisk **edytowanie skryptu**. Plik skryptu jest otwarty w edytorze usługi aplikacji.
+1. W bloku zaplecza aplikacji mobilnej, kliknij **wszystkie ustawienia** > albo **łatwe tabel** lub **łatwe interfejsów API**, kliknij tabelę lub interfejsu API, a następnie kliknij przycisk **edytowanie skryptu**. plik skryptu Hello jest otwarty w hello Edytor usług aplikacji.
 
     ![Edytor usługi aplikacji](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Wprowadź zmiany w pliku kodu w edytorze online. Zmiany zostaną zapisane automatycznie podczas pisania.
+2. Tworzenie pliku kodu toohello zmiany w hello edytora online. Zmiany zostaną zapisane automatycznie podczas pisania.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -845,16 +845,16 @@ Azure portal umożliwia edytowanie plików skryptów zaplecza Node.js w edytorze
 [Szybki Start klienta Sklepu Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [synchronizacji danych w trybie offline]: app-service-mobile-offline-data-sync.md
-[Jak skonfigurować uwierzytelnianie usługi Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Jak skonfigurować uwierzytelnianie usługi Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Jak skonfigurować uwierzytelnianie Google]: app-service-mobile-how-to-configure-google-authentication.md
-[Jak skonfigurować Authentication firmy Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Jak skonfigurować uwierzytelnianie w usłudze Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[Jak tooconfigure uwierzytelniania usługi Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Jak tooconfigure uwierzytelniania serwisu Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Jak tooconfigure uwierzytelniania serwisu Google]: app-service-mobile-how-to-configure-google-authentication.md
+[Jak tooconfigure Authentication firmy Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Jak tooconfigure uwierzytelniania w usłudze Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 [Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitorowanie usługi aplikacji Azure]: ../app-service-web/web-sites-monitor.md
 [Włączanie rejestrowania diagnostycznego w usłudze aplikacji Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Rozwiązywanie problemów z usługi aplikacji Azure w programie Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
-[Określ wersję węzła]: ../nodejs-specify-node-version-azure-apps.md
+[Określ hello wersji węzła]: ../nodejs-specify-node-version-azure-apps.md
 [Użyj modułów węzła]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
@@ -870,7 +870,7 @@ Azure portal umożliwia edytowanie plików skryptów zaplecza Node.js w edytorze
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 dla programu Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[pakietu Node.js mssql]: https://www.npmjs.com/package/mssql
+[mssql Node.js pakietu]: https://www.npmjs.com/package/mssql
 [programu Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [oprogramowanie pośredniczące ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

@@ -1,6 +1,6 @@
 ---
-title: "Umowa licencyjna AMO dla usług Azure Analysis Services | Dokumentacja firmy Microsoft"
-description: "Warunki umowy licencyjnej użytkownika oprogramowania dla pakiet redystrybucyjny programu MICROSOFT ANALYSIS MANAGEMENT OBJECTS (AMO)"
+title: aaaAzure Analysis Services AMO EULA | Dokumentacja firmy Microsoft
+description: "Pakiet redystrybucyjny programu MICROSOFT ANALYSIS MANAGEMENT OBJECTS (AMO) hello postanowienia Umowy licencyjnej użytkownika oprogramowania"
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: owend
-ms.openlocfilehash: 8f357a8091ce07104b81e1f9d87994d4de14e3e9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 8749ca1f52647190b1d5671552788fb8aed818fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analysis-services-amo-redistributable-package-end-user-license-agreement-eula"></a>Pakiet redystrybucyjny AMO usług analizy umowy licencyjnej użytkownika końcowego (EULA)
 
@@ -27,91 +27,91 @@ ms.lasthandoff: 07/29/2017
 
 **MICROSOFT ANALYSIS MANAGEMENT OBJECTS (AMO)**  
 
-**JEŚLI NA ŻYWO (LUB FIRMY Z GŁÓWNEGO MIEJSCA FIRM W) STANÓW ZJEDNOCZONYCH, NALEŻY PRZECZYTAĆ SEKCJĘ "ROZSTRZYGNIĘCIA POWIĄZANIA I ZRZECZENIA AKCJI KLASY" PONIŻEJ. MA WPŁYW NA SPOSÓB SPORÓW ZOSTANĄ ROZWIĄZANE.**
+**Jeśli LIVE w hello (lub są A biznesowych z A główna miejsce z biznesowych w) Stanów Zjednoczonych, przeczytaj hello sekcji "POWIĄZANIE ROZSTRZYGNIĘCIE i akcji klasy ZRZECZENIA" poniżej. MA WPŁYW NA SPOSÓB SPORÓW ZOSTANĄ ROZWIĄZANE.**
 
-Niniejsze postanowienia licencyjne stanowią umowę między użytkownikiem a firmą Microsoft (lub jej podmiotem stowarzyszonym). Dotyczą one wspomnianego wyżej oprogramowania oraz wszelkie aktualizacje usługi lub oprogramowania firmy Microsoft (z wyjątkiem w zakresie takie usługi lub aktualizacje towarzyszy nowej lub dodatkowej warunków, w tym przypadku różniących się warunki zastosować perspektyw rozwoju i nie należy zmieniać użytkownika lub praw firmy Microsoft w odniesieniu do wstępnie zaktualizowane oprogramowanie lub usługi). KLIENT PRZESTRZEGAJĄCY NINIEJSZYCH POSTANOWIEŃ LICENCYJNYCH, MASZ NASTĘPUJĄCE PRAWA. ZA POMOCĄ OPROGRAMOWANIA, MUSISZ JE ZAAKCEPTOWAĆ.
+Niniejsze postanowienia licencyjne stanowią umowę między użytkownikiem a firmą Microsoft (lub jej podmiotem stowarzyszonym). Mają one zastosowanie wspomnianego wyżej oprogramowania toohello oraz wszelkie aktualizacje usługi lub oprogramowania firmy Microsoft (z wyjątkiem zakresu toohello takie usługi lub aktualizacje towarzyszy nowej lub dodatkowej warunków, w takim przypadku tych różne warunki zastosować perspektyw rozwoju i nie należy zmieniać użytkownika lub Firmy Microsoft prawa dotyczące toopre aktualizacji oprogramowania lub usług). Klient PRZESTRZEGAJĄCY niniejszych postanowień LICENCYJNYCH, MASZ hello prawa poniżej. ZA pomocą hello oprogramowania, musisz ZAAKCEPTOWAĆ te postanowienia.
 
 1.  **PRAWA DO INSTALACJI I UŻYWANIA.**
 
-    **Ogólne).** Można zainstalować i używać dowolnej liczby kopii oprogramowania.
+    **Ogólne).** Można zainstalować i używać dowolnej liczby kopii oprogramowania hello.
 
-    **(b) oprogramowanie, innej firmy.** To oprogramowanie może zawierać aplikacji innej firmy Microsoft, nie innych firm, licencji na mocy postanowień tej Umowy. Uwzględnione powiadomienia do aplikacji innych firm są tylko charakter informacyjny.
+    **(b) oprogramowanie, innej firmy.** Witaj oprogramowania mogą obejmować aplikacje innych firm Microsoft, nie hello innych firm, tooyou licencji na mocy postanowień tej Umowy. Uwzględnione powiadomienia do aplikacji innych firm są tylko charakter informacyjny.
 
-    **c) konkurencyjnych przeprowadzenia testów porównawczych.** Jeśli jest konkurencyjnej bezpośrednich oraz dostęp lub korzystać z oprogramowania do celów konkurencyjnych przeprowadzenia testów porównawczych, analizy lub gromadzenia, odstąpienie od osób firmy Microsoft, jej przedstawicielstwa i jego powiązanych firmy (łącznie z perspektyw rozwoju) wszelkie konkurencyjnych użytkowania, dostępu i najlepszymi ograniczenia testu w warunki dotyczące oprogramowania w zakresie są Twoje warunki użytkowania, lub ogólna Wymowa dają się , bardziej restrykcyjny niż warunków firmy Microsoft. Jeśli nie odstąpienie od tych lukach ograniczeń w warunki dotyczące oprogramowania, nie mogą uzyskać dostępu ani używać tego oprogramowania, a nie zostanie to.
+    **c) konkurencyjnych przeprowadzenia testów porównawczych.** Jeśli jest konkurencyjnej bezpośrednich oraz dostęp lub użyć oprogramowania hello w celu przeprowadzenia testów porównawczych konkurencyjnych, analizy lub gromadzenia, odstąpienie od osób firmy Microsoft, jej przedstawicielstwa i jego powiązanych firmy (łącznie z perspektyw rozwoju) wszelkie Użyj konkurencyjnych dostęp i przeprowadzenia testów porównawczych ograniczenia testu w hello warunki dotyczące Twojego oprogramowania toohello jakim są Twoje warunki użytkowania, lub ogólna Wymowa dają toobe bardziej restrykcyjny niż warunków firmy Microsoft. Jeśli nie odstąpienie od tych lukach ograniczeń w hello warunki dotyczące oprogramowania, nie są dozwolone tooaccess lub używać tego oprogramowania i nie zostanie to.
 
-2.  **KOD DYSTRYBUCYJNY.** Oprogramowanie może zawierać kod, mogą dystrybuować (tj. umożliwiają dostęp do stron trzecich) w aplikacji należy opracować, zgodnie z opisem w tej sekcji.
+2.  **KOD DYSTRYBUCYJNY.** Hello oprogramowania może zawierać kod są dozwolone toodistribute (tj. umożliwiają dostęp do stron trzecich) w aplikacji należy opracować, zgodnie z opisem w tej sekcji.
 
-    **) prawa dystrybucji.** Pliki kodu oraz testów opisanych poniżej są dystrybucyjnego, jeśli dołączonych do oprogramowania.
+    **) prawa dystrybucji.** pliki kodu oraz testów Hello opisanych poniżej są dystrybucyjnego, jeśli dołączone hello oprogramowania.
 
-    **i.**  PAKIETU REDYSTRYBUCYJNEGO. Pliki TXT. Użytkownik może kopiować i rozpowszechniać w postaci kodu obiektu kodu wymienione na liście ponownej dystrybucji oprogramowania, jeśli istnieje, lub znajduje się na Redist.txt;
+    **i.**  PAKIETU REDYSTRYBUCYJNEGO. Pliki TXT. Użytkownik może kopiować i rozpowszechniać hello w postaci kodu obiektu kodu wymienione na liście REDYSTRYBUCYJNEJ hello w oprogramowaniu hello ewentualne lub znajduje się na Redist.txt;
 
-    **II.** Biblioteka obrazów. Użytkownik może kopiować i rozpowszechniać obrazów, grafiki i animacji w bibliotece obrazów, zgodnie z opisem w dokumentacji oprogramowania; i
+    **II.** Biblioteka obrazów. Użytkownik może kopiować i rozpowszechniać obrazów, grafiki i animacji w hello Biblioteka obrazów, zgodnie z opisem w dokumentacji oprogramowania hello; i
 
-    **III.**    Dystrybucja innych firm. Mogą zezwolić dystrybutorów aplikacji kopiować i rozpowszechniać dowolne ten kod dystrybucyjny, który wybiera do dystrybucji z aplikacjami.
+    **III.**    Dystrybucja innych firm. Możesz umożliwić dystrybutorów toocopy Twojej aplikacji i rozpowszechniać dowolne z tym Kod dystrybucyjny wybiera toodistribute z aplikacjami.
 
     **b) wymagania dotyczące dystrybucji.** Kod, który dystrybucji należy:
 
-    **i.**  Dodaj najważniejsze funkcje podstawowe do niej w aplikacji;
+    **i.**  Dodaj tooit najważniejsze funkcje podstawowego w aplikacji;
 
-    **II.** Wymagaj dystrybutorów i zewnętrznych użytkownikom końcowym wyrazić zgodę na warunki, które chronić go i Microsoft co najmniej tyle jako niniejszej Umowy; i
+    **II.** Wymagaj dystrybutorów i tooterms tooagree zewnętrznych użytkowników końcowych, które chronić go i Microsoft co najmniej tyle jako niniejszej Umowy; i
 
-    **III.**    wynagradzać obrony i przytrzymaj nieszkodliwe Microsoft z dowolnym roszczenia, w tym opłaty za usługi prawne, dotyczących dystrybucji lub korzystanie z aplikacji, z wyjątkiem w zakresie, w jakim roszczeniem opiera się wyłącznie na niezmodyfikowany Kod dystrybucyjny.
+    **III.**    wynagradzać obrony i przytrzymaj nieszkodliwe firmy Microsoft za wszelkie oświadczenia, włączając prawników opłaty, dystrybucji powiązanych toohello lub korzystanie z aplikacji, z wyjątkiem zakresu toohello że żadnych oświadczeń jest oparty wyłącznie na Kod dystrybucyjny hello nie mają być modyfikowane.
 
     **c) ograniczenia dystrybucji.** Nie mogą:
 
     **i.**  Użyj znakami towarowymi firmy Microsoft lub handlu graficznych w aplikacji w sposób sugerujący pochodzą z aplikacji, lub są podpisane przez firmę Microsoft; lub
 
-    **II.** modyfikowanie lub rozpowszechnić kod źródłowy dowolny kod dystrybucyjny, tak aby dowolną część staje się może ulec licencji, które wymaga, aby Kod dystrybucyjny dowolną część oprogramowania, lub firmy Microsoft innych praw własności intelektualnej być źródła ujawnione lub rozproszone w formie kodu, lub czy inne prawa do modyfikowania jej.
+    **II.** modyfikowanie lub rozpowszechnić kodu źródłowego hello dowolny kod dystrybucyjny, tak aby dowolną część staje się licencji tooany podmiotu, która wymaga Kod dystrybucyjny hello, dowolną część hello oprogramowanie lub firmy Microsoft innych praw własności intelektualnej ujawniane lub rozproszona w formie kodu źródłowego, lub czy inne prawa toomodify hello go.
 
-3.  **ZBIERANIE DANYCH.** Oprogramowanie może zbierać informacje o Tobie i korzystanie z oprogramowania i wysyłać do firmy Microsoft. Firma Microsoft może używać tych informacji do świadczenia usług i ulepszania produktów i usług firmy Microsoft. Twoje prawa zrezygnować, są opisane w dokumentacji produktu. Niektóre funkcje oprogramowania mogą umożliwić zbierania danych przez użytkowników aplikacji, które dostępu lub korzystać z oprogramowania. Korzystając z tych funkcji do włączenia zbierania danych w aplikacji, należy przestrzegać prawo właściwe, w tym uzyskiwanie żadnych zgody użytkownika wymagane i obsługa zasad ochrony prywatności poświęcone dokładnie informujący użytkowników o jak możesz użyć, zbieranie i udostępniać swoje dane. Możesz dowiedzieć się więcej o zbieraniu danych firmy Microsoft i użyć w dokumentacji produktu i poufności informacji firmy Microsoft w [https://go.microsoft.com/fwlink/?LinkId=521839](https://go.microsoft.com/fwlink/?LinkId=521839). Użytkownik zobowiązuje się przestrzegać wszystkich mających zastosowanie postanowień zasady zachowania poufności informacji firmy Microsoft.
+3.  **ZBIERANIE DANYCH.** Hello oprogramowanie może zbierać informacje o Tobie i korzystanie z oprogramowania hello i wysłać tego tooMicrosoft. Firma Microsoft może używać tej informacji usługi tooprovide i ulepszania produktów i usług firmy Microsoft. Twoje prawa zrezygnować, są opisane w dokumentacji produktu hello. Niektóre funkcje oprogramowania hello mogą umożliwić zbierania danych przez użytkowników aplikacji, które dostępu lub korzystania z oprogramowania hello. Użycie tych funkcji tooenable funkcji zbierania danych w aplikacji, należy przestrzegać prawo właściwe, w tym uzyskiwanie żadnych zgody użytkownika wymagane i obsługa zasad ochrony prywatności poświęcone dokładnie informujący użytkowników o jak możesz użyć, zbieranie i udostępniać swoje dane. Dowiedz się więcej o zbieraniu danych firmy Microsoft i w dokumentacji produktu hello za pomocą a hello poufności informacji firmy Microsoft w [https://go.microsoft.com/fwlink/?LinkId=521839](https://go.microsoft.com/fwlink/?LinkId=521839). Wyrażono zgodę toocomply mających zastosowanie postanowień hello zasady zachowania poufności informacji firmy Microsoft.
 
-4.  **ZAKRES LICENCJI.** Oprogramowanie jest licencjonowane, nie sprzedawane. Firma Microsoft zastrzega sobie wszystkie pozostałe prawa. O ile prawo właściwe daje większych uprawnień pomimo tego ograniczenia, możesz nie będzie (i nie mają prawa):
+4.  **ZAKRES LICENCJI.** oprogramowania Hello jest licencjonowana, a nie sprzedawana. Firma Microsoft zastrzega sobie wszystkie pozostałe prawa. O ile prawo właściwe daje większych uprawnień pomimo tego ograniczenia, możesz nie będzie (i nie mają prawa):
 
-    **)** obejście wszelkich ograniczeń technicznych oprogramowania, które umożliwiają tylko używany w określony sposób;
+    **)** obejść wszelkich ograniczeń technicznych oprogramowania hello umożliwiających tylko toouse go w określony sposób;
 
-    **b)** odtwarzać, dekompilować ani dezasemblować oprogramowania;
+    **b)** odtwarzać, dekompilować ani dezasemblować hello oprogramowania;
 
-    **c)** usunąć, zminimalizować, blokowania lub wszystkie powiadomienia firmy Microsoft lub jej dostawców w oprogramowaniu;
+    **c)** usunąć, zminimalizować, blokowania lub wszystkie powiadomienia firmy Microsoft lub jej dostawców oprogramowania hello;
 
-    **d)** korzystać z oprogramowania w sposób, który jest z prawem lub w celu utworzenia lub propagację złośliwego oprogramowania lub 
+    **d)** korzystania z oprogramowania hello w sposób, który jest prawo hello lub toocreate lub propagację złośliwego oprogramowania lub 
 
-    **e)** udziału, publikowania, rozpowszechniania, lub wypożyczanie oprogramowania (z wyjątkiem każdy Kod dystrybucyjny, warunkom powyżej), podaj oprogramowania jako rozwiązania autonomiczne hostowanej innym użytkownikom lub przekazywanie oprogramowania lub tej umowy osobom trzecim.
+    **e)** udziału, publikowania, rozpowszechniania lub wypożyczać oprogramowania hello (z wyjątkiem żadnych Kod dystrybucyjny tematów powyższe warunki toohello), podaj hello oprogramowania jako rozwiązania autonomiczne hostowanej innym toouse lub przeniesienia hello oprogramowania lub tej umowy tooany innych firm.
 
-5.  **OGRANICZENIA EKSPORTOWE.** Należy przestrzegać wszystkich krajowych i międzynarodowych przepisów eksportowych eksportowych mających zastosowanie do oprogramowania, które obejmują ograniczenia dotyczące kraju przeznaczenia, użytkowników końcowych oraz korzystania. Aby uzyskać więcej informacji na temat ograniczeń eksportu, odwiedź [http://aka.ms/exporting](http://aka.ms/exporting).
+5.  **OGRANICZENIA EKSPORTOWE.** Należy przestrzegać wszystkich krajowych i międzynarodowych przepisów eksportowych mających zastosowanie oprogramowania toohello obejmujących ograniczenia dotyczące kraju przeznaczenia, użytkowników końcowych oraz korzystania. Aby uzyskać więcej informacji na temat ograniczeń eksportu, odwiedź [http://aka.ms/exporting](http://aka.ms/exporting).
 
-6.  **USŁUGI POMOCY TECHNICZNEJ.** Microsoft nie jest zobowiązany wynikających z niniejszej Umowy, aby zapewnić żadnych usług pomocy technicznej dla oprogramowania. Wszelkie wsparcie jest "w jakim jest", "ze wszystkimi wadami" i bez jakichkolwiek gwarancji.
+6.  **USŁUGI POMOCY TECHNICZNEJ.** Firma Microsoft nie ma obowiązku pod tym tooprovide umowy dowolnej usługi pomocy technicznej dla oprogramowania hello. Wszelkie wsparcie jest "w jakim jest", "ze wszystkimi wadami" i bez jakichkolwiek gwarancji.
 
-7.  **AKTUALIZACJE.** Oprogramowanie może okresowo sprawdzania dostępności aktualizacji i pobierane i instalowane automatycznie. Aktualizacje mogą uzyskać tylko od firmy Microsoft lub autoryzowanych źródeł. Microsoft może być konieczne zaktualizowanie systemu, aby dostarczać aktualizacje. Użytkownik zobowiązuje się odbierania automatycznych aktualizacji bez żadnych dodatkowych powiadomienia. Aktualizacje mogą obejmują lub nie obsługuje wszystkich istniejących funkcji oprogramowania, usług lub urządzeń peryferyjnych.
+7.  **AKTUALIZACJE.** Hello oprogramowania mogą okresowo sprawdzania dostępności aktualizacji i Pobierz i zainstaluj je automatycznie. Aktualizacje mogą uzyskać tylko od firmy Microsoft lub autoryzowanych źródeł. Microsoft może wymagać tooupdate tooprovide Twojego systemu o aktualizacji. Wyrażono zgodę tooreceive te aktualizacje automatyczne bez dodatkowych powiadomienia. Aktualizacje mogą obejmują lub nie obsługuje wszystkich istniejących funkcji oprogramowania, usług lub urządzeń peryferyjnych.
 
-8.  **POWIĄZANIE ROZSTRZYGNIĘCIE I ZRZECZENIA AKCJI KLASY.** Ta sekcja dotyczy zamieszkania (lub, jeśli firma główna miejsca pracy jest w) Stany Zjednoczone.  Jeśli Microsoft mają sporów i Microsoft zgodę nieformalnego go rozwiązać, próbuje przez 60 dni. Nie można Tobą a firmą Microsoft, Tobą a firmą Microsoft zgodę powiązanie rozstrzygnięcia poszczególnych przed American skojarzenia rozstrzygnięcia w obszarze federalne Act rozstrzygnięcia ("FAA"), a nie dochodzić sąd oceni lub Komisji. Zamiast tego neutralne arbitra podejmie decyzję. Spraw sądowych akcji klasy, arbitrażu całej klasy prywatnej akcje prawnikiem ogólne i inne postępowania, gdy ktoś działa w charakterze reprezentatywny są niedozwolone; nie jest łączenie pojedynczych postępowania bez zgody wszystkich stron. Zakończenie umowy rozstrzygnięcia zawiera więcej terminy i jest w [http://aka.ms/arb-agreement-1](http://aka.ms/arb-agreement-1). Tobą a firmą Microsoft Akceptuję niniejsze postanowienia.
+8.  **POWIĄZANIE ROZSTRZYGNIĘCIE I ZRZECZENIA AKCJI KLASY.** Ta sekcja dotyczy zamieszkania (lub, jeśli firma główna miejsca pracy jest w) hello Stanów Zjednoczonych.  Jeśli Microsoft mają sporów i Microsoft zgodę tootry dla tooresolve 60 dni go nieformalnego. Jeśli nie Tobą a firmą Microsoft i Microsoft zgodę toobinding rozstrzygnięcia poszczególnych przed hello American skojarzenia rozstrzygnięcia w obszarze hello federalne rozstrzygnięcia Act ("FAA"), a nie toosue sąd oceni lub Komisji. Zamiast tego neutralne arbitra podejmie decyzję. Spraw sądowych akcji klasy, arbitrażu całej klasy prywatnej akcje prawnikiem ogólne i inne postępowania, gdy ktoś działa w charakterze reprezentatywny są niedozwolone; nie jest łączenie pojedynczych postępowania bez zgody hello wszystkich stron. Hello pełną umowy rozstrzygnięcia zawiera więcej definicje terminów i jest w [http://aka.ms/arb-agreement-1](http://aka.ms/arb-agreement-1). Tobą a firmą Microsoft toothese zaakceptować warunki.
 
-9.  **CAŁOŚĆ UMOWY.** Niniejsza Umowa i innych warunków firmy Microsoft może zapewnić uzupełnień, aktualizacji lub aplikacji innych firm, stanowi całość umowy dotyczącej oprogramowania.
+9.  **CAŁOŚĆ UMOWY.** Niniejsza Umowa i hello całość umowy dotyczącej oprogramowania hello jest inne postanowienia firmy Microsoft może zapewnić uzupełnień, aktualizacji lub aplikacji innych firm.
 
-10. **PRAWO WŁAŚCIWE I MIEJSCE, ROZWIĄZYWANIE SPORÓW.** Jeśli klient nabył oprogramowania Stanów Zjednoczonych lub Kanady, prawa województwa, w przypadku, gdy klient (lub, jeśli firma, w którym znajduje się główna miejsca pracy) regulują interpretacja niniejszej Umowy, roszczeń z tytułu naruszenia jego i wszystkie inne oświadczenia (w tym ochrony konsumentów, nieuczciwej konkurencji i czynów niedozwolonych oświadczenia), niezależnie od zasady , z wyjątkiem tego, że FAA reguluje wszystko, co jest powiązane z rozstrzygnięcia. Jeśli klient nabył oprogramowania w innym kraju, zastosowanie jego prawa z tą różnicą, że FAA reguluje wszystko, co jest powiązane z rozstrzygnięcia. Jeśli istnieje właściwość federalne Stanów Zjednoczonych, wyłączną właściwość i właściwość federalne sąd Województwo króla, Washington, dla wszystkich sporów heard sąd (z wyjątkiem rozstrzygnięcia) oznacza zgodę Tobą a firmą Microsoft. W przeciwnym razie Tobą a firmą Microsoft zgody wyłączną właściwość i właściwość w sąd Województwo króla, Waszyngton dla wszystkich sporów heard sąd (z wyjątkiem rozstrzygnięcia).
+10. **ODPOWIEDNIE prawa i sporów tooRESOLVE miejsce.** Jeśli klient nabył oprogramowania hello w hello Stanów Zjednoczonych lub Kanady hello ustawodawstwa hello województwa, w przypadku, gdy klient (lub, jeśli firma, w którym znajduje się główna miejsca pracy) nadzorować sposób interpretacji hello tej Umowy, oświadczenia dotyczące jego naruszenia, a wszystkie Pozostałe roszczenia (w tym ochrony konsumentów, nieuczciwej konkurencji i czynów niedozwolonych oświadczenia), niezależnie od zasady, z wyjątkiem tego hello FAA reguluje wszystko powiązanych tooarbitration. Jeśli klient nabył hello oprogramowania w innym kraju, jego prawa zastosować, z wyjątkiem tego, że hello FAA reguluje wszystkie informacje związane tooarbitration. Jeśli istnieje właściwość federalne Stanów Zjednoczonych, Tobą a firmą Microsoft zgoda właściwość tooexclusive i właściwość hello federalne sąd Województwo króla, Washington dla wszystkich sporów heard sąd (z wyjątkiem rozstrzygnięcia). W przeciwnym razie Tobą a firmą Microsoft zgody właściwość tooexclusive i właściwość hello nadrzędny Trybunału króla Województwo, komunikować dla wszystkich sporów heard sąd (z wyjątkiem rozstrzygnięcia).
 
-11. **PRAWA KONSUMENTA; REGIONALNYCH ZMIAN.** W niniejszej umowie zostały przedstawione niektóre z uprawnień przysługujących stronom. Może przysługiwać inne prawa, w tym prawa konsumenta, zgodnie z prawem stanu, Województwo lub kraju. Oddzielne a oprócz kontaktami z firmą Microsoft, możesz mieć uprawnienia względem strony, od której nabyto oprogramowanie. Niniejsza Umowa nie zmienia praw przysługujących, jeśli stan, Województwo lub kraju nie ustawodawstwo to zrobić. Na przykład, jeśli oprogramowanie w jednym z poniższych regionów lub obowiązkowy element w prawo kraju ma zastosowanie, a następnie następujące postanowienia odnoszą się do Ciebie:
+11. **PRAWA KONSUMENTA; REGIONALNYCH ZMIAN.** W niniejszej umowie zostały przedstawione niektóre z uprawnień przysługujących stronom. Może przysługiwać inne prawa, w tym prawa konsumenta, ustawodawstwa hello stan, Województwo lub kraju. Oddzielne a oprócz relacji z firmą Microsoft, mogą również istnieć prawa względem toohello strony, od której nabył hello oprogramowania. Niniejsza Umowa nie zmienia praw przysługujących, jeśli hello stan, Województwo lub kraju nie ustawodawstwo to toodo tak. Na przykład jeśli nabył hello oprogramowania w jednym z hello poniżej regionów lub kraju wymagane prawo ma zastosowanie, a następnie hello zastosowanie następujące postanowienia tooyou:
 
-    **) klientów w Australii.** Przysługują ustawowe gwarancje na mocy australijskiego prawa konsumenta i nic w niniejszej Umowie ma na celu ograniczenia praw przysługujących.
+    **) klientów w Australii.** Przysługują ustawowe gwarancje na mocy hello Australian Consumer Law i nic w niniejszej umowie jest zamierzone tooaffect tych praw.
 
-    **(b) Kanady.** Jeśli klient nabył tego produktu, użytkownik może zatrzymać odbieranie aktualizacji przez wyłączenie funkcji Aktualizacje automatyczne rozłączanie urządzenia z Internetu (Jeśli ponownie połączyć się z Internetem, jednak oprogramowania zostanie wznowiona wyszukiwanie i instalowanie aktualizacji), lub odinstalowanie oprogramowania. W dokumentacji produktu, jeśli taki występuje, mogą określać również wyłączyć aktualizacje dla określonego urządzenia lub oprogramowania.
+    **(b) Kanady.** Jeśli klient nabył tego produktu, użytkownik może zatrzymać odbieranie aktualizacji przez wyłączenie funkcji aktualizacji automatycznych hello odłączanie urządzenia hello Internet (jeśli można połączyć się ponownie toohello Internet, jednak oprogramowania hello wznowi sprawdzanie i Instalowanie aktualizacji) lub odinstalowanie oprogramowania hello. Witaj dokumentacji produktu, jeśli taki występuje, mogą określać również sposób tooturn Wyłącz aktualizacje dla określonego urządzenia lub oprogramowania.
     
     **c) Niemcy i Austrii.**
 
-    **i.    Gwarancji.** Poprawnie licencjonowanego oprogramowania wykona znacznie, zgodnie z opisem w dowolnych materiałów firmy Microsoft, które oprogramowania. Jednak firma Microsoft daje żadnej gwarancji umownych w odniesieniu do licencjonowanego oprogramowania.
+    **i.    Gwarancji.** Witaj licencjonowane oprogramowanie wykona znacznie, zgodnie z opisem w dowolnych materiałów firmy Microsoft, towarzyszą hello oprogramowania. Jednak firma Microsoft daje żadnej gwarancji umownymi w relacji toohello licencji oprogramowania.
         
-    **II.   Ograniczenie odpowiedzialności.** W przypadku czynów, zaniedbania brutto, oświadczeń na ustawy produktu, a także, w przypadku śmierci lub osobistych lub fizycznych szkody Microsoft jest odpowiedzialny prawa ustawowe.
+    **II.   Ograniczenie odpowiedzialności.** W przypadku czynów, zaniedbania brutto, oświadczeń na powitania ustawy produktu, a także, w przypadku śmierci lub osobistych lub fizycznych szkody, jest odpowiedzialny firmy Microsoft zgodnie z toohello prawa ustawowe.
 
-    Z zastrzeżeniem powyższych klauzuli ii. Microsoft tylko ponoszą odpowiedzialności za jakiekolwiek nieumyślnej Jeżeli Microsoft narusza takich istotnych zobowiązań umownych realizację których poprawić wydajność termin niniejszej Umowy, naruszenia może stanowić zagrożenie dla celu niniejszej Umowy oraz zgodność, z którym może stale zaufania (tak zwane "kardynalnej zobowiązań"). W pozostałych przypadkach nieumyślnej firmy Microsoft, nie będą ponosić odpowiedzialności za nieumyślnej.
+    Temat toohello powyższe klauzuli ii., firma Microsoft tylko ponoszą odpowiedzialności za jakiekolwiek nieumyślnej Jeżeli Microsoft narusza takich istotnych zobowiązań umownych realizacji hello którego ułatwienia hello wydajności z powodu niniejszej Umowy, naruszenia hello którego może stanowić zagrożenie dla hello celem tej Umowy oraz hello zgodności, z którym może stale zaufania (tak zwane "kardynalnej zobowiązań"). W pozostałych przypadkach nieumyślnej firmy Microsoft, nie będą ponosić odpowiedzialności za nieumyślnej.
 
-12. **WYKLUCZENIE GWARANCJI. OPROGRAMOWANIE JEST LICENCJONOWANE "JAK"JEST. UŻYTKOWNIK PONOSI RYZYKO ZWIĄZANE Z UŻYCIEM JEJ. FIRMA MICROSOFT DAJE NIE ŻADNYCH WYRAŹNYCH RĘKOJMI, GWARANCJI LUB POSTANOWIEŃ. W ZAKRESIE DOZWOLONYM STOSOWNE PRZEPISY PRAWA MICROSOFT WYŁĄCZA WSZELKIE DOROZUMIANE RĘKOJMIE, W TYM WARTOŚCI HANDLOWEJ, PRZYDATNOŚCI DO OKREŚLONEGO CELU ORAZ BRAKU NARUSZEŃ.**
+12. **WYŁĄCZENIE ODPOWIEDZIALNOŚCI Z TYTUŁU RĘKOJMI I GWARANCJI. Witaj oprogramowanie jest licencjonowane ", w jakim"jest. NALEŻY POSIADAĆ hello ryzykiem przy użyciu IT. FIRMA MICROSOFT DAJE NIE ŻADNYCH WYRAŹNYCH RĘKOJMI, GWARANCJI LUB POSTANOWIEŃ. toohello dozwolone pozycji obowiązujących przepisów MICROSOFT wyklucza wszystkie domniemanych gwarancji, w tym wartości handlowej, przydatności do określonego celu, NIENARUSZANIA i zakres.**
 
-13. **OGRANICZENIE I WYŁĄCZENIE ODPOWIEDZIALNOŚCI ZA SZKODY. JEŚLI MASZ ŻADNYCH PODSTAW DO PRZYWRÓCENIA SZKODY, NIEZALEŻNIE OD POPRZEDNIEGO WYŁĄCZENIE ODPOWIEDZIALNOŚCI Z TYTUŁU RĘKOJMI I GWARANCJI, MOŻNA ODZYSKAĆ OD FIRMY MICROSOFT I JEJ DOSTAWCÓW ZA JAKIEKOLWIEK SZKODY DO WYSOKOŚCI 5,00 USD. NIE MOŻNA ODZYSKAĆ INNYCH ODSZKODOWAŃ, W TYM ODSZKODOWAŃ ZA UTRATĘ ZYSKÓW, SZKODY WTÓRNE, SPECJALNE, POŚREDNIE LUB UBOCZNE ODPOWIEDZIALNOŚCI ZA SZKODY.**
+13. **OGRANICZENIE I WYŁĄCZENIE ODPOWIEDZIALNOŚCI ZA SZKODY. Jeśli MASZ wszelkie podstawę szkody ODZYSKIWANIE POMIMO hello POPRZEDZAJĄCY zastrzeżenie OF gwarancji, możesz można ODZYSKAĆ z firmy MICROSOFT i jej dostawców tylko bezpośrednie szkody się tooU.S. $5.00. NIE MOŻNA ODZYSKAĆ INNYCH ODSZKODOWAŃ, W TYM ODSZKODOWAŃ ZA UTRATĘ ZYSKÓW, SZKODY WTÓRNE, SPECJALNE, POŚREDNIE LUB UBOCZNE ODPOWIEDZIALNOŚCI ZA SZKODY.**
 
-**To ograniczenie dotyczy () niczego kwestii dotyczących oprogramowania, usług i zawartości (łącznie z kodem) witryn internetowych stron trzecich lub aplikacje innych firm; i (b) roszczeń z tytułu naruszenia Umowy, rękojmi, gwarancji lub warunku; odpowiedzialności za, niedbalstwo lub popełnienie innego czynu niedozwolonego; lub innych oświadczeń; w każdym przypadku w zakresie dozwolonym przez prawo właściwe.**
+**Powyższe ograniczenie ma zastosowanie too(a) wszelkich kwestii toohello oprogramowania, usług i zawartości (w tym kodu) witryn internetowych stron trzecich lub aplikacje innych firm; i (b) roszczeń z tytułu naruszenia Umowy, rękojmi, gwarancji lub warunku; odpowiedzialności za, niedbalstwo lub popełnienie innego czynu niedozwolonego; lub innych oświadczeń; w każdej zakres wielkość toohello dozwolonym przez prawo właściwe.**
 
-**Ma to również zastosowanie, nawet wtedy, gdy firma Microsoft wiedziała lub powinna wiedzieć o możliwości powstania takich szkód. Powyższe ograniczenie i wyłączenie mogą nie dotyczyć użytkownika, ponieważ Twoje stanu, Województwo lub kraju nie może zezwalać na wyłączenie lub ograniczenie odpowiedzialności za szkody przypadkowe, wtórne i inne.**
+**Ma również zastosowanie nawet wtedy, gdy firma Microsoft wiedziała lub powinny były wiedzieć o możliwości hello hello odpowiedzialności za szkody. Witaj powyżej ograniczenia lub wykluczenia nie może zastosować tooyou, ponieważ Twoje stanu, Województwo lub kraj może nie zezwalać hello wyłączenie lub ograniczenie odpowiedzialności przypadkowe, wtórne lub inne szkody.**
 
-**Uwaga: zgodnie z tego oprogramowania jest dystrybuowane w Kanada, niektóre z klauzul w niniejszej Umowie znajdują się poniżej w języku francuskim.**
+**Uwaga: zgodnie z tego oprogramowania jest dystrybuowane w Kanada, niektóre klauzule hello w niniejszej Umowie znajdują się poniżej w języku francuskim.**
 
 **Remarque: Ce logiciel étant distribué au niektórych des klauzule dans ce contrat sont fournies ci dessous en français Kanady. EXONÉRATION DE GARANTIE. Le logiciel visé par une licencji est offert "tel quel". Toute wykorzystania de ce logiciel est a votre seule risque et péril. Microsoft n'accorde aucune autre garantie expresse. Vous pouvez bénéficier de droits additionnels en vertu du droit lokalnego sur la ochrony des consommateurs, que ce contrat ne peut modyfikator. La ou elles sont permises ustawień regionalnych droit le par, les garanties implicites de qualité marchande, d "adéquation a un użycia particulier et d'absence de contrefaçon sont exclues.**
 

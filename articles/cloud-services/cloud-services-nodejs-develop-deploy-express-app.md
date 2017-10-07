@@ -1,6 +1,6 @@
 ---
-title: "Sieci Web aplikacji w usłudze Express (Node.js) | Dokumentacja firmy Microsoft"
-description: "Samouczek, opiera się na samouczek usługi chmury, która ilustruje sposób korzystania z modułu Express."
+title: "aaaWeb aplikacji za pomocą Express (Node.js) | Dokumentacja firmy Microsoft"
+description: "Samouczek, który jest oparty na samouczek usługi chmury hello i pokazuje, jak toouse hello modułu Express."
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,110 +14,110 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 91921bfbe137eeca9a110d4cb18eb57b46b0060e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Tworzenie aplikacji sieci web Node.js za pomocą ekspresowego na usługi w chmurze platformy Azure
-Node.js zawiera minimalny zestaw funkcji w podstawowego środowiska wykonawczego.
-Deweloperzy często używane 3 modułów strona oferowanie dodatkowych funkcji podczas opracowywania aplikacji Node.js. W tym samouczku spowoduje utworzenie nowej aplikacji przy użyciu [Express] [ Express] moduł, który zapewnia platformę MVC do tworzenia aplikacji sieci web Node.js.
+Node.js zawiera minimalny zestaw funkcji w hello podstawowego środowiska wykonawczego.
+Deweloperzy często używają 3 strona modułów tooprovide dodatkowe funkcje, podczas opracowywania aplikacji Node.js. W tym samouczku utworzysz nową aplikację przy użyciu hello [Express] [ Express] moduł, który zapewnia platformę MVC do tworzenia aplikacji sieci web Node.js.
 
-Zrzut ekranu przedstawiający ukończona aplikacja znajduje się poniżej:
+Zrzut ekranu aplikacji hello ukończone znajduje się poniżej:
 
-![Przeglądarka wyświetlająca Zapraszamy do Express na platformie Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![Przeglądarka wyświetlająca powitalnej tooExpress na platformie Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="create-a-cloud-service-project"></a>Tworzenie projektu usługi w chmurze
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-Wykonaj poniższe kroki, aby utworzyć nowy projekt usługi w chmurze o nazwie "expressapp":
+Wykonaj następujące hello toocreate czynności nowy projekt usługi w chmurze o nazwie "expressapp":
 
-1. Z **Start Menu** lub **ekranu startowego**, wyszukaj **programu Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy **programu Windows PowerShell** i wybierz **Uruchom jako Administrator**.
+1. Z hello **Start Menu** lub **ekranu startowego**, wyszukaj **programu Windows PowerShell**. Na koniec kliknij prawym przyciskiem myszy **programu Windows PowerShell** i wybierz **Uruchom jako Administrator**.
    
     ![Ikona Azure PowerShell](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Przejdź do **c:\\węzła** katalogu, a następnie wprowadź następujące polecenia, aby utworzyć nowe rozwiązanie o nazwie **expressapp** i rolę sieci web o nazwie **WebRole1**:
+2. Zmień katalogi toohello **c:\\węzła** katalogu, a następnie wprowadź hello następujące polecenia toocreate nowego rozwiązania o nazwie **expressapp** i rolę sieci web o nazwie **WebRole1** :
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Domyślnie **Add-AzureNodeWebRole** używa starszej wersji środowiska node.js. **AzureServiceProjectRole zestaw** powyższych instrukcji nakazuje Azure, aby użyć v0.10.21 węzła.  Należy zauważyć, że parametry jest rozróżniana wielkość liter.  Można sprawdzić poprawnej wersji środowiska Node.js została wybrana sprawdzając **aparaty** właściwości w **WebRole1\package.json**.
+    > Domyślnie **Add-AzureNodeWebRole** używa starszej wersji środowiska node.js. Witaj **AzureServiceProjectRole zestaw** v0.10.21 Azure toouse węzła nakazuje powyższych instrukcji.  Należy zauważyć, że parametry hello jest rozróżniana wielkość liter.  Możesz sprawdzić hello poprawną wersję środowiska Node.js została wybrana sprawdzając hello **aparaty** właściwości w **WebRole1\package.json**.
     > 
     > 
 
 ## <a name="install-express"></a>Zainstaluj Express
-1. Generator aplikacji Express należy zainstalować wydając polecenie:
+1. Zainstaluj generator aplikacji Express hello wysyłając hello następujące polecenie:
    
         PS C:\node\expressapp> npm install express-generator -g
    
-    Dane wyjściowe polecenia npm powinien wyglądać podobnie do poniższych wyników. 
+    dane wyjściowe Hello hello npm polecenia powinny wyglądać podobnie wynik toohello poniżej. 
    
-    ![Wyświetlanie npm środowiska Windows PowerShell instalacji ekspresowej polecenia.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. Przejdź do **WebRole1** katalogu i użyj polecenia express, aby wygenerować nową aplikację:
+    ![Programu Windows PowerShell wyświetlania hello dane wyjściowe programu hello npm instalacji ekspresowej polecenia.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
+2. Zmień katalogi toohello **WebRole1** hello katalogu i użyj polecenia express toogenerate nowej aplikacji:
    
         PS C:\node\expressapp\WebRole1> express
    
-    Pojawi się monit zastąpienie starszych aplikacji. Wprowadź **y** lub **tak** aby kontynuować. Express spowoduje wygenerowanie pliku app.js i struktury folderów, do tworzenia aplikacji.
+    Użytkownik będzie zostanie wyświetlony monit o toooverwrite starszych aplikacji. Wprowadź **y** lub **tak** toocontinue. Express spowoduje wygenerowanie pliku app.js hello i struktury folderów, do tworzenia aplikacji.
    
-    ![Dane wyjściowe polecenia express](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
-3. Aby zainstalować dodatkowe zależności zdefiniowane w pliku package.json, wprowadź następujące polecenie:
+    ![Witaj dane wyjściowe polecenia express hello](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
+3. dodatkowe zależności tooinstall zdefiniowane w pliku package.json hello, wprowadź następujące polecenie hello:
    
        PS C:\node\expressapp\WebRole1> npm install
    
-   ![Dane wyjściowe programu npm install, polecenie](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
-4. Użyj następującego polecenia, aby skopiować **bin/www** pliku **server.js**. Jest to tak usługi w chmurze można znaleźć punktu wejścia dla tej aplikacji.
+   ![dane wyjściowe Hello hello npm polecenie instalacji](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
+4. Użyj hello następujące polecenie toocopy hello **bin/www** pliku zbyt**server.js**. Jest to tak hello usługi w chmurze można znaleźć punktu wejścia powitania dla tej aplikacji.
    
        PS C:\node\expressapp\WebRole1> copy bin/www server.js
    
-   Po wykonaniu tego polecenia, powinien mieć **server.js** pliku w katalogu WebRole1.
-5. Modyfikowanie **server.js** Aby usunąć jedną z '.' znaków z następującego wiersza.
+   Po wykonaniu tego polecenia, powinien mieć **server.js** pliku w katalogu hello WebRole1.
+5. Modyfikowanie hello **server.js** tooremove jedną hello "." znaki z hello następującego wiersza.
    
        var app = require('../app');
    
-   Po wprowadzeniu tej zmiany należy wiersz powinna wyglądać następująco.
+   Po wprowadzeniu tej zmiany należy wiersz hello powinna wyglądać następująco.
    
        var app = require('./app');
    
-   Ta zmiana jest wymagana, ponieważ przenieśliśmy pliku (dawniej **bin/www**,) na tym samym katalogu co plik aplikacji jest wymagany. Po wprowadzeniu tej zmiany należy zapisać **server.js** pliku.
-6. Aby uruchomić aplikację w emulatorze platformy Azure, użyj następującego polecenia:
+   Ta zmiana jest wymagana, ponieważ przenieśliśmy hello pliku (dawniej **bin/www**,) toohello tym samym katalogu co plik aplikacji hello jest wymagane. Po wprowadzeniu tej zmiany należy zapisać hello **server.js** pliku.
+6. Użyj następującego polecenia toorun hello aplikacji hello Azure emulator hello:
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
    
-    ![Strony sieci web zawierającej express — Zapraszamy!.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
+    ![Strony sieci web zawierającej tooexpress powitalnej.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
-## <a name="modifying-the-view"></a>Zmodyfikowanie widoku
-Teraz zmodyfikuj widok, aby wyświetlić komunikat "Zapraszamy do Express w Azure".
+## <a name="modifying-hello-view"></a>Modyfikowanie hello widoku
+Teraz zmodyfikuj wiadomości powitania toodisplay widoku hello "Zapraszamy tooExpress na platformie Azure".
 
-1. Wprowadź następujące polecenie, aby otworzyć plik index.jade:
+1. Wprowadź poniższe polecenie tooopen hello index.jade plik hello:
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![Zawartość pliku index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![zawartość Hello hello index.jade pliku.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade jest domyślny aparat widoku używany przez aplikacje Express. Aby uzyskać więcej informacji na aparatu Jade widoku, zobacz [http://jade-lang.com][http://jade-lang.com].
-2. Modyfikowanie ostatniego wiersza tekstu przez dołączenie **na platformie Azure**.
+   Jade jest hello domyślny aparat widoku używany przez aplikacje Express. Aby uzyskać więcej informacji na powitania aparatu Jade widoku, zobacz [http://jade-lang.com][http://jade-lang.com].
+2. Modyfikowanie hello ostatni wiersz tekstu przez dołączenie **na platformie Azure**.
    
-   ![Odczytuje ostatni wiersz w pliku index.jade: p — Zapraszamy! \#{nazwa} na platformie Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
-3. Zapisz plik i zamknij Notatnik.
+   ![odczytuje hello ostatni wiersz pliku index.jade Hello: p Witamy zbyt\#{nazwa} na platformie Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+3. Zapisz plik hello i Zakończ działanie Notatnika.
 4. Odśwież przeglądarkę i zobaczą zmiany.
    
-   ![Okno przeglądarki, strona zawiera Express na platformie Azure — Zapraszamy!](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
+   ![Okno przeglądarki, strona hello zawiera powitalnej tooExpress na platformie Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-Po zakończeniu testowania aplikacji, użyj **Stop AzureEmulator** polecenia cmdlet, aby zatrzymać emulator.
+Po testowania aplikacji hello, użyj hello **Stop AzureEmulator** emulatora hello toostop polecenia cmdlet.
 
-## <a name="publishing-the-application-to-azure"></a>Publikowanie aplikacji Azure
-W oknie programu Azure PowerShell, użyj **Publish-AzureServiceProject** polecenia cmdlet, aby wdrożyć aplikację usługi w chmurze
+## <a name="publishing-hello-application-tooazure"></a>Publikowanie tooAzure aplikacji hello
+W oknie programu PowerShell Azure hello, użyj hello **Publish-AzureServiceProject** usługi chmury tooa aplikacji hello toodeploy polecenia cmdlet
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
-Po zakończeniu operacji wdrażania, przeglądarki otworzyć i wyświetli tej strony sieci web.
+Po zakończeniu operacji wdrażania hello przeglądarki otworzyć i wyświetlić stronę sieci web hello.
 
-![Przeglądarka wyświetlająca stronę Express. Adres URL wskazuje, że jest ona obecnie hostowana na platformie Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![Przeglądarka wyświetlająca stronę Express hello. adres URL Hello wskazuje, że jest ona obecnie hostowana na platformie Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/develop/nodejs/).
+Aby uzyskać więcej informacji, zobacz hello [Centrum deweloperów środowiska Node.js](/develop/nodejs/).
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/

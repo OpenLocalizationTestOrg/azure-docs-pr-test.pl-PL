@@ -1,6 +1,6 @@
 ---
-title: "Lepiej wykorzystać usługę Azure Application Insights | Dokumentacja firmy Microsoft"
-description: "Po pierwsze kroki z usługą Application Insights, poniżej przedstawiono podsumowanie funkcji, które można eksplorować."
+title: "aaaGet więcej poza Azure Application Insights | Dokumentacja firmy Microsoft"
+description: "Po pierwsze kroki z usługą Application Insights, poniżej przedstawiono podsumowanie funkcji hello, które można eksplorować."
 services: application-insights
 documentationcenter: .net
 author: CFreemanwa
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
-ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2023728afcf5aa5ecab8b957c8517d4872668765
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Więcej danych telemetrycznych z usługi Application Insights
-Po utworzeniu [dodać usługi Application Insights w kodzie ASP.NET](app-insights-asp-net.md), jest kilka rzeczy, które można wykonać, aby uzyskać większą telemetrii. 
+Po [dodać usługi Application Insights tooyour ASP.NET kodu](app-insights-asp-net.md), istnieje kilka sposobów tooget nawet więcej telemetrii. 
 
 | Akcja | Efekty|
 |---|---|
-|(Serwery IIS) [Zainstaluj Monitor stanu](http://go.microsoft.com/fwlink/?LinkId=506648) na każdym komputerze z serwerem.<br/>(Aplikacje sieci web platformy azure) W Panelu sterowania systemu Azure dla aplikacji sieci web Otwórz blok usługi Application Insights.| [**Liczniki wydajności**](app-insights-performance-counters.md)<br/>[**Wyjątki** ](app-insights-asp-net-exceptions.md) — szczegółowe dane śledzenia stosu<br/>[**Zależności**](app-insights-asp-net-dependencies.md)|
-|[Dodaj fragment kodu JavaScript do stron sieci web](app-insights-javascript.md)|[Strona wydajności](app-insights-web-track-usage.md), wyjątki przeglądarki, wydajność AJAX. Telemetria niestandardowa po stronie klienta.|
+|(Serwery IIS) [Zainstaluj Monitor stanu](http://go.microsoft.com/fwlink/?LinkId=506648) na każdym komputerze z serwerem.<br/>(Aplikacje sieci web platformy azure) W Panelu sterowania Azure hello hello aplikacji sieci web Otwórz blok usługi Application Insights hello.| [**Liczniki wydajności**](app-insights-performance-counters.md)<br/>[**Wyjątki** ](app-insights-asp-net-exceptions.md) — szczegółowe dane śledzenia stosu<br/>[**Zależności**](app-insights-asp-net-dependencies.md)|
+|[Dodawanie stron sieci web tooyour fragment kodu JavaScript hello](app-insights-javascript.md)|[Strona wydajności](app-insights-web-track-usage.md), wyjątki przeglądarki, wydajność AJAX. Telemetria niestandardowa po stronie klienta.|
 |[Tworzenie testów sieci web dostępności](app-insights-monitor-web-app-availability.md)|Alerty, jeśli witryna jest niedostępny|
 |[Upewnij się, buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) jest generowany przez program MSBuild|[Tworzenie wykresów metryki annotationsin](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Pisanie niestandardowych zdarzeń i metryk](app-insights-api-custom-events-metrics.md)|Liczba zdarzeń biznesowych i metryki, śledzić szczegółowe dane użycia i inne.|

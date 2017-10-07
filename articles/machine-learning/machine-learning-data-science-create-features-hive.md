@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie funkcji danych klastra platformy Hadoop za pomocą zapytań Hive | Dokumentacja firmy Microsoft"
+title: "Funkcje aaaCreate danych klastra platformy Hadoop za pomocą zapytań Hive | Dokumentacja firmy Microsoft"
 description: "Przykłady zapytań Hive, które generują funkcje w danych przechowywanych w klastrze usługi Azure HDInsight Hadoop."
 services: machine-learning
 documentationcenter: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: e027a6ffcb63868be13432870e484c5cbf2eef4b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 686282bf0fb84ea82758d3c5b7de2bd90f0cf159
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań Hive
-Ten dokument przedstawia sposób tworzenia funkcji danych przechowywanych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Te zapytania Hive Użyj osadzonych Hive funkcje zdefiniowane przez użytkownika (UDF), skryptów, dla której są dostarczane.
+Ten dokument przedstawia sposób przechowywania funkcje toocreate danych w klastrze usługi Azure HDInsight Hadoop za pomocą zapytań Hive. Tych zapytań programu Hive użyć osadzonego Hive funkcje zdefiniowane przez użytkownika (UDF), skrypty hello, dla której są udostępniane.
 
-Operacje potrzebne do utworzenia funkcje mogą być pamięci. Wydajność zapytań programu Hive staje się ważniejsze w takich przypadkach i można zwiększyć przez dostrajanie określonych parametrów. Dostrajanie parametrów została szczegółowo opisana w sekcji końcowego.
+Funkcje toocreate potrzebnych operacji Hello można pamięci. Witaj wydajność zapytań programu Hive staje się ważniejsze w takich przypadkach i można zwiększyć przez dostrajanie niektórych parametrów. Hello dostrajanie z tych parametrów została szczegółowo opisana w sekcji końcowego hello.
 
-Przykłady zapytań, które są przedstawiane są specyficzne dla [danych podróży taksówki NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) scenariuszy znajdują się również w [repozytorium GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Te zapytania już mieć określony schemat danych i jest gotowe do przesłania do uruchomienia. W końcowej sekcji omówiono również parametry, które użytkownicy można dostosować tak, aby ulepszyć wydajność zapytań programu Hive.
+Przykłady hello zapytań, które są przedstawiane są określone toohello [NYC taksówki podróży danych](http://chriswhong.com/open-data/foil_nyc_taxi/) scenariuszy znajdują się również w [repozytorium GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Te zapytania już mieć określony schemat danych i są gotowe toobe przesłane toorun. W końcowej sekcji hello parametry, które użytkownicy można dostosować tak, aby ulepszyć wydajność zapytań programu Hive hello omówiono także.
 
 [!INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-To **menu** linki do tematów opisujących sposób tworzenia funkcji dla danych w różnych środowiskach. To zadanie jest krokiem w [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+To **menu** łączy tootopics, które opisują sposób toocreate funkcji dla danych w różnych środowiskach. To zadanie jest etapem hello [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule przyjęto założenie, że masz:
 
 * Utworzone konto magazynu platformy Azure. Aby uzyskać instrukcje, zobacz [Tworzenie konta usługi Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Zainicjowano obsługę administracyjną dostosowane klastra usługi Hadoop w usłudze HDInsight.  Aby uzyskać instrukcje, zobacz [dostosować Azure klastrów usługi HDInsight Hadoop zaawansowane analizy](machine-learning-data-science-customize-hadoop-cluster.md).
-* Dane przekazane do tabele programu Hive w klastrach usługi Azure HDInsight Hadoop. Jeśli nie, wykonaj [tworzenie i ładowanie danych do tabel Hive](machine-learning-data-science-move-hive-tables.md) najpierw przekazywać dane do tabele programu Hive.
-* Włączyć dostęp zdalny do klastra. Aby uzyskać instrukcje, zobacz [dostęp węzła Head klastra usługi Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
+* Zainicjowano obsługę administracyjną dostosowane klastra usługi Hadoop z hello usługi HDInsight.  Aby uzyskać instrukcje, zobacz [dostosować Azure klastrów usługi HDInsight Hadoop zaawansowane analizy](machine-learning-data-science-customize-hadoop-cluster.md).
+* Witaj dane zostały przekazane tooHive tabel w klastrach usługi Azure HDInsight Hadoop. Jeśli nie, wykonaj [tworzenie i obciążenia tabel tooHive danych](machine-learning-data-science-move-hive-tables.md) tooHive danych tooupload najpierw tabel.
+* Włączono klaster toohello dostępu zdalnego. Aby uzyskać instrukcje, zobacz [hello dostępu Head węzeł z klastra usługi Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 ## <a name="hive-featureengineering"></a>Funkcja generowania
-W tej sekcji opisano kilka przykładów sposoby, w którym można generowania funkcji za pomocą zapytań Hive. Po wygenerowaniu dodatkowe funkcje, możesz dodać je jako kolumny do istniejącej tabeli lub Utwórz nową tabelę z dodatkowych funkcji i klucza podstawowego, który następnie może być połączony z oryginalnej tabeli. Poniżej przedstawiono w przykładach przedstawionych:
+W tej sekcji opisano kilka przykładów hello sposoby, w którym można generowania funkcji za pomocą zapytań Hive. Po wygenerowaniu dodatkowe funkcje, możesz dodać je jako kolumny toohello istniejącej tabeli lub Utwórz nową tabelę z dodatkowych funkcji hello i klucza podstawowego, który następnie może być połączony z hello oryginalnej tabeli. W tym miejscu są przedstawione przykłady hello:
 
 1. [Funkcja generowania na podstawie częstotliwości](#hive-frequencyfeature)
 2. [Ryzyko podzielone na kategorie zmiennych w klasyfikacji binarnej](#hive-riskfeature)
@@ -49,7 +49,7 @@ W tej sekcji opisano kilka przykładów sposoby, w którym można generowania fu
 5. [Oblicz odległość między współrzędne GPS](#hive-gpsdistance)
 
 ### <a name="hive-frequencyfeature"></a>Funkcja generowania na podstawie częstotliwości
-Często jest przydatne do obliczania częstotliwości poziomów podzielone na kategorie zmiennej lub częstotliwości niektórych kombinacji poziomy wiele zmiennych podzielone na kategorie. Użytkownicy mogą używać poniższy skrypt, aby obliczyć częstotliwości te:
+Często jest przydatne toocalculate hello częstotliwości poziomy hello podzielone na kategorie zmiennej lub częstotliwości hello niektórych kombinacji poziomy wiele zmiennych podzielone na kategorie. Użytkownicy mogą używać tych częstotliwości powitania po toocalculate skryptu:
 
         select
             a.<column_name1>, a.<column_name2>, a.sub_count/sum(a.sub_count) over () as frequency
@@ -63,7 +63,7 @@ Często jest przydatne do obliczania częstotliwości poziomów podzielone na ka
 
 
 ### <a name="hive-riskfeature"></a>Ryzyko podzielone na kategorie zmiennych w klasyfikacji binarnej
-W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na kategorie zmiennych w funkcje numeryczne modeli używany tylko zająć funkcje numeryczne. Jest to realizowane przez zamianę każdy poziom nieliczbowy zagrożenie liczbowych. W tej sekcji zostanie przedstawiony niektórych ogólnego zapytań Hive, które obliczania wartości ryzyka (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
+W klasyfikacji binarnej potrzebujemy tooconvert nieliczbowy podzielone na kategorie zmiennych w funkcje numeryczne po modeli hello jest używany tylko mieć funkcje numeryczne. Jest to realizowane przez zamianę każdy poziom nieliczbowy zagrożenie liczbowych. W tej sekcji zostanie przedstawiony niektórych ogólnego zapytań programu Hive obliczające wartości ryzyka hello (dziennika prawdopodobieństwo) podzielone na kategorie zmiennej.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,40 +83,40 @@ W klasyfikacji binarnej musimy przekształcania nieliczbowy podzielone na katego
             group by <column_name1>, <column_name2>
             )b
 
-W tym przykładzie zmienne `smooth_param1` i `smooth_param2` ustawioną smooth wartości ryzyka obliczana na podstawie danych. Ryzyko ma zakresie -Inf Inf. Zagrożenia > 0 wskazuje, że prawdopodobieństwo, że element docelowy jest równa 1, jest większa niż 0,5.
+W tym przykładzie zmienne `smooth_param1` i `smooth_param2` są ustawione toosmooth hello ryzyka wartości obliczana na podstawie danych hello. Ryzyko ma zakresie -Inf Inf. Ryzyko > 0 wskazuje, czy hello prawdopodobieństwo, że kierowanych hello jest równy too1 jest większa niż 0,5.
 
-Po ryzyko jest obliczana tabeli, użytkownicy mogą przypisywać wartości ryzyka do tabeli przez dołączenie go do tabeli ryzyka. Zapytanie łącząca Hive została dostarczona w poprzedniej sekcji.
+Po obliczeniu hello ryzyka tabeli, użytkownicy mogą przypisywać Tabela tooa wartości ryzyka przez dołączenie go z tabelą ryzyka hello. Zapytanie łącząca Hive Hello została dostarczona w poprzedniej sekcji.
 
 ### <a name="hive-datefeatures"></a>Wyodrębnij funkcji z pól daty i godziny
-Gałąź jest dostarczany z zestawem funkcji UDF przetwarzania pól daty i godziny. W gałęzi, domyślny format daty/godziny jest "RRRR MM-dd 00:00:00" ("1970-01-01-12:21:32" na przykład). W tej sekcji zostanie przedstawiony przykłady, które wyodrębnianie dnia miesiąca, miesiąc z polem datetime i inne przykłady, które konwertowanie ciągu daty i godziny w formacie innym niż domyślny format ciąg daty i godziny w domyślnym formacie.
+Gałąź jest dostarczany z zestawem funkcji UDF przetwarzania pól daty i godziny. W gałęzi, hello domyślny format daty/godziny jest "RRRR MM-dd 00:00:00" ("1970-01-01-12:21:32" na przykład). W tej sekcji zostanie przedstawiony przykłady, które wyodrębnić hello dnia miesiąca, miesiąc hello z polem datetime i inne przykłady, które konwertowanie ciągu daty/godziny w formacie inne niż w domyślnym formacie hello domyślny ciąg formatu w tooa daty/godziny.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-To zapytanie Hive przy założeniu, że *&#60; pole Data i godzina >* jest w formacie daty/godziny domyślne.
+To zapytanie Hive przyjęto założenie, że hello *&#60; pole Data i godzina >* jest w formacie daty/godziny hello domyślne.
 
-Pole daty i godziny nie ma domyślnego formatu, należy najpierw przekonwertuj pole daty/godziny na sygnatury czasowej systemu Unix, a następnie wykonać konwersję sygnaturę czasową Unix ciąg daty i godziny w formacie domyślne. W przypadku datę i godzinę w domyślnym formacie, użytkownicy mogą stosować osadzonych funkcji UDF, aby wyodrębnić funkcji daty/godziny.
+Jeśli pól datetime nie jest hello domyślny format, do sygnatury czasowej Unix należy najpierw tooconvert hello datetime pola, a następnie czas Unix hello konwersji ciągu tooa sygnaturę daty/godziny, która jest domyślnej hello formatu. Po hello daty/godziny w domyślnym formacie, użytkownicy mogą stosować funkcje tooextract funkcji UDF datetime hello osadzonych.
 
-        select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
+        select from_unixtime(unix_timestamp(<datetime field>,'<pattern of hello datetime field>'))
         from <databasename>.<tablename>;
 
-W tym zapytaniu Jeśli *&#60; pole daty/godziny >* ma wzorzec, takich jak *2015-03-26 12:04:39*, *"&#60; wzorzec pola datetime >"* powinien być `'MM/dd/yyyy HH:mm:ss'`. Aby ją przetestować, użytkownicy mogą uruchamiać
+W tym zapytaniu, jeśli hello *&#60; pole daty/godziny >* ma wzorzec hello, takich jak *2015-03-26 12:04:39*, hello *"&#60; wzorzec pola datetime hello >"* powinna być `'MM/dd/yyyy HH:mm:ss'`. tootest, użytkownicy mogą uruchamiać
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
 
-*Hivesampletable* w tym zapytaniu preinstalowane na wszystkich klastrach Azure HDInsight Hadoop domyślnie podczas przydzielania klastrów.
+Witaj *hivesampletable* w tym zapytaniu preinstalowane na wszystkich klastrach Azure HDInsight Hadoop domyślnie podczas przydzielania hello klastrów.
 
 ### <a name="hive-textfeatures"></a>Wyodrębnij funkcji z pola tekstowe
-Jeśli w tabeli Hive pola tekstowego, który zawiera ciąg słowa, które są rozdzielone spacjami, następujące zapytanie wyodrębnia długość ciągu i liczbę słów w ciągu.
+Jeśli tabelę programu Hive hello pola tekstowego, który zawiera ciąg słowa, które są rozdzielone spacjami, hello następujące zapytanie wyodrębnia hello długość ciągu hello i hello liczbę słów w ciągu hello.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
 ### <a name="hive-gpsdistance"></a>Obliczanie odległości między zestawami współrzędne GPS
-Zapytanie podane w tej sekcji można bezpośrednio odnosić się do danych podróży taksówki NYC. To zapytanie ma na celu pokazują, jak zastosować osadzonych funkcji matematycznych w gałęzi do generowania funkcji.
+Zapytanie Hello podane w tej sekcji można bezpośrednio zastosowane toohello NYC taksówki podróży danych. Celem Hello to zapytanie jest tooshow jak tooapply osadzonych funkcji matematycznych w gałęzi toogenerate funkcji.
 
-Pola, które są używane w tym zapytaniu są współrzędne GPS odbiór i dropoff lokalizacji o nazwie *podnoszenia\_geograficzne*, *podnoszenia\_szerokości geograficznej*,  *dropoff\_geograficzne*, i *dropoff\_szerokości geograficznej*. Zapytania obliczające bezpośrednie odległość między współrzędne odbiór i dropoff są:
+Witaj pola, które są używane w tym zapytaniu są współrzędne GPS hello odbiór i dropoff lokalizacji o nazwie *podnoszenia\_geograficzne*, *podnoszenia\_szerokości geograficznej*,  *dropoff\_geograficzne*, i *dropoff\_szerokości geograficznej*. zapytania Hello, obliczające hello bezpośredniego odległość między współrzędne odbiór i dropoff hello są:
 
         set R=3959;
         set pi=radians(180);
@@ -134,34 +134,34 @@ Pola, które są używane w tym zapytaniu są współrzędne GPS odbiór i dropo
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Równania matematyczne, które obliczyć odległość między dwoma współrzędne GPS można znaleźć w <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">skryptów typu ruchome</a> lokacji utworzone przez Lapisu Peterowi. W języku Javascript, jego funkcji `toRad()` jest po prostu *lat_or_lon*pi/180 *, który Konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest zakres lub długość geograficzną. Ponieważ gałąź nie zawiera funkcji `atan2`, ale udostępnia funkcję `atan`, `atan2` funkcji jest implementowany przez `atan` funkcji w powyższym zapytaniu gałęzi przy użyciu definicji w <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+równania matematyczne Hello obliczające hello odległość między dwoma współrzędne GPS znajduje się na powitania <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">skryptów typu ruchome</a> lokacji utworzone przez Lapisu Peterowi. W jego Javascript hello funkcja `toRad()` jest po prostu *lat_or_lon*pi/180 *, który konwertuje tooradians stopni. W tym miejscu *lat_or_lon* jest szerokości geograficznej hello lub długość geograficzną. Ponieważ gałąź nie zawiera funkcji hello `atan2`, ale zawierają hello funkcja `atan`, hello `atan2` funkcji jest implementowany przez `atan` w hello powyżej zapytań Hive przy użyciu definicji hello w funkcji <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank"> Wikipedia</a>.
 
 ![Tworzenie obszaru roboczego](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
-Pełną listę gałęzi funkcji UDF embedded znajdują się w **wbudowanych funkcji** sekcji na <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
+Pełną listę funkcji UDF embedded znajdują się w hello gałęzi **wbudowanych funkcji** sekcji na powitania <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Tematy zaawansowane: parametry Hive strojenia poprawy szybkości zapytania
-Domyślne ustawienia parametru gałęzi klastra może nie być odpowiednie dla zapytań Hive i dane, które są przetwarzania zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy mogą dostosować które poprawić wydajność zapytań programu Hive. Użytkownicy muszą dodać parametr strojenia kwerendy przed zapytania przetwarzania danych.
+## <a name="tuning"></a>Tematy zaawansowane: parametry Hive strojenia tooImprove szybkości zapytania
+Witaj domyślnego parametru, ustawienia klastra gałęzi nie może być odpowiednie dla zapytań programu Hive hello i danych hello przetwarzania kwerend hello. W tej sekcji omówiono niektóre parametry, które użytkownicy można dostosować zwiększających hello wydajność zapytań programu Hive. Użytkownicy muszą parametru hello tooadd strojenia kwerendy przed hello zapytania przetwarzania danych.
 
-1. **Miejsce na stercie Java**: dla zapytań obejmujących dołączenie dużych zestawów danych lub przetwarzania rekordów długi **kończy się wolne miejsce na stercie** jest jednym z typowych błędów. Można to dostroić przez ustawienie parametrów *mapreduce.map.java.opts* i *mapreduce.task.io.sort.mb* do żądanej wartości. Oto przykład:
+1. **Miejsce na stercie Java**: dla zapytań obejmujących dołączenie dużych zestawów danych lub przetwarzania rekordów długi **kończy się wolne miejsce na stercie** jest jednym z typowych błędów hello. Można to dostroić przez ustawienie parametrów *mapreduce.map.java.opts* i *mapreduce.task.io.sort.mb* toodesired wartości. Oto przykład:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Ten parametr przydziela 4GB pamięci, aby miejsce na stercie Java i powoduje sortowanie efektywniejsze przez przydzielanie większej ilości pamięci. Należy dobrze gry z tych przydziałów, jeśli istnieją wszystkie zadania błędy związane z miejsca na stercie.
+    Ten parametr przydziela miejsce na stercie tooJava 4GB pamięci i powoduje sortowanie efektywniejsze przez przydzielanie większej ilości pamięci. Jest dobrym rozwiązaniem tooplay z tych przydziałów, jeśli każde miejsce tooheap powiązane błędy niepowodzenia zadania.
 
-1. **Rozmiaru bloku systemu plików DFS** : ten parametr określa najmniejsza jednostka danych przechowywanych w systemie plików. Na przykład jeśli rozmiar bloku systemu plików DFS jest 128MB, a następnie żadnych danych o rozmiarze mniejsza i maksymalnie 128MB są przechowywane w jeden blok danych, który jest większy niż 128MB przydzielony dodatkowe bloki. Wybieranie rozmiaru bloku bardzo małych powoduje duże koszty Hadoop, ponieważ nazwa węzła ma przetwarzać wiele żądań więcej można znaleźć odpowiedniego bloku odnoszące się do pliku. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
+1. **Rozmiaru bloku systemu plików DFS** : ten parametr określa hello najmniejsza jednostka danych hello magazynów systemu plików. Na przykład jeśli rozmiar bloku hello systemu plików DFS to 128MB, następnie żadnych danych o rozmiarze poniżej oraz too128MB są przechowywane w jeden blok danych, który jest większy niż 128MB przydzielony dodatkowe bloki. Wybieranie rozmiaru bloku bardzo małych powoduje duże koszty Hadoop, ponieważ hello nazwa węzła ma tooprocess wiele więcej żądań toofind hello odpowiednich bloku dotyczących pliku toohello. Zalecane ustawienia po dotyczących gigabajty (lub więcej) danych jest:
    
         set dfs.block.size=128m;
-2. **Optymalizacja operacji tworzenia sprzężenia w gałęzi** : podczas operacji łączenia w ramach mapy/Zmniejsz zazwyczaj miejsce w fazie Zmniejsz czasami znaczne zyski można osiągnąć poprzez zaplanowanie sprzężenia w fazie mapy (zwane również "mapjoins"). Aby skierować gałąź, aby to zrobić, jeśli to możliwe, możemy ustawić:
+2. **Optymalizacja operacji tworzenia sprzężenia w gałęzi** : podczas operacji łączenia w ramach mapy/zmniejszyć hello zazwyczaj miejsce w hello zmniejszyć fazy, czasami, znaczne zyski uzyskuje się poprzez zaplanowanie sprzężenia w fazie mapy hello (zwane również "mapjoins"). toodirect gałęzi toodo to o ile to możliwe, firma Microsoft może ustawić:
    
         set hive.auto.convert.join=true;
-3. **Określanie liczby mapowań do gałęzi** : podczas Hadoop zezwala użytkownikowi na określenie liczby reduktory, liczba mapowań jest zwykle nie jest ustawiony przez użytkownika. Lewy, umożliwiający pewien stopień kontroli tego numeru jest wybranie zmienne Hadoop *mapred.min.split.size* i *mapred.max.split.size* jako rozmiar map zadań zależy od:
+3. **Określanie liczby hello tooHive mapowań** : podczas Hadoop pozwala hello użytkownika tooset hello liczba reduktory, hello liczby mapowań jest zwykle nie można ustawić hello użytkownika. Lewy, umożliwiający pewien stopień kontroli tego numeru jest toochoose hello Hadoop zmiennych, *mapred.min.split.size* i *mapred.max.split.size* jako rozmiar hello map zadań zależy od:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Zazwyczaj wartość domyślną *mapred.min.split.size* ma wartość 0, z *mapred.max.split.size* jest **Long.MAX** i *dfs.block.size* to 64MB. Jak możemy stwierdzić, podany rozmiar danych dostrajanie parametrów "ustawienia" ich pozwala nam dostosować liczbę mapowań używane.
-4. Kilka innych kolejnych **zaawansowane opcje** Hive optymalizacji wydajności są wymienione poniżej. Te umożliwiają skonfigurowanie pamięć przydzielona do mapowania i zmniejszyć zadań i mogą być przydatne w Dostosowywanie wydajności. Sprawdź należy pamiętać, że *mapreduce.reduce.memory.mb* nie może być większa niż rozmiar pamięci fizycznej w każdym węźle procesu roboczego klastra usługi Hadoop.
+    Zazwyczaj hello wartość domyślną *mapred.min.split.size* ma wartość 0, z *mapred.max.split.size* jest **Long.MAX** i *dfs.block.size* to 64MB. Jak widać, rozmiar danych danego hello, dostrajanie parametrów "ustawienia" ich pozwala nam tootune hello liczby mapowań używane.
+4. Kilka innych kolejnych **zaawansowane opcje** Hive optymalizacji wydajności są wymienione poniżej. Te pozwalają tooset hello przydzielonej pamięci toomap i zmniejszyć zadań i mogą być przydatne w Dostosowywanie wydajności. Należy pamiętać o tym hello *mapreduce.reduce.memory.mb* nie może być większy niż rozmiar pamięci fizycznej hello każdego węzła procesu roboczego w hello klastra usługi Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

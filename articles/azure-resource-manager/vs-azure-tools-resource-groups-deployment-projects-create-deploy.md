@@ -1,6 +1,6 @@
 ---
-title: "Projekty grup zasobów platformy Azure programu Visual Studio | Microsoft Docs"
-description: "Tworzenie projektu grupy zasobów platformy Azure przy użyciu programu Visual Studio i wdrażanie zasobów na platformie Azure."
+title: "projekty grupy zasobów Studio Azure aaaVisual | Dokumentacja firmy Microsoft"
+description: "Użyj programu Visual Studio toocreate projektu grupy zasobów platformy Azure i wdrażanie hello tooAzure zasobów."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 672c1e71fb809b3b547f0fad30240d45de1ba923
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio
-Program Visual Studio i zestaw [Azure SDK](https://azure.microsoft.com/downloads/) umożliwiają utworzenie projektu służącego do wdrażania infrastruktury i kodu na platformie Azure. Można na przykład zdefiniować host sieci Web, witrynę sieci Web i bazę danych dla aplikacji, a następnie wdrożyć tę infrastrukturę wraz z kodem. Można również zdefiniować maszynę wirtualną, usługę Virtual Network i konto usługi Storage, a następnie wdrożyć tę infrastrukturę wraz ze skryptem wykonywanym na maszynie wirtualnej. Projekt wdrożenia **grupy zasobów platformy Azure** umożliwia wdrożenie wszystkich niezbędnych zasobów w ramach pojedynczej i powtarzalnej operacji. Aby uzyskać więcej informacji dotyczących wdrażania zasobów i zarządzania nimi, zobacz [Omówienie usługi Azure Resource Manager](resource-group-overview.md).
+Z programu Visual Studio i hello [zestawu Azure SDK](https://azure.microsoft.com/downloads/), można utworzyć projekt, który wdraża tooAzure Twojego infrastruktury i kodu. Na przykład można zdefiniować hello hosta sieci web, witryny sieci web i bazy danych dla aplikacji i wdrożyć tę infrastrukturę wraz z hello kodu. Można również zdefiniować maszynę wirtualną, usługę Virtual Network i konto usługi Storage, a następnie wdrożyć tę infrastrukturę wraz ze skryptem wykonywanym na maszynie wirtualnej. Witaj **grupy zasobów platformy Azure** projektu wdrażania umożliwia możesz toodeploy wszystkie zasoby potrzebne hello w pojedynczej i powtarzalnej operacji. Aby uzyskać więcej informacji dotyczących wdrażania zasobów i zarządzania nimi, zobacz [Omówienie usługi Azure Resource Manager](resource-group-overview.md).
 
-Projekty grupy zasobów platformy Azure zawierają szablony JSON usługi Azure Resource Manager, które określają zasoby wdrażane na platformie Azure. Aby uzyskać informacje na temat elementów szablonu usługi Resource Manager, zobacz [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager). Program Visual Studio umożliwia edytowanie tych szablonów i oferuje narzędzia ułatwiające pracę z szablonami.
+Projekty grupy zasobów platformy Azure zawierają szablony JSON Menedżera zasobów Azure, definiujące hello zasobów wdrażanych tooAzure. toolearn o elementach hello hello szablonu usługi Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md). Visual Studio umożliwia możesz tooedit tych szablonów i oferuje narzędzia ułatwiające pracę z szablonami.
 
-Ten artykuł dotyczy wdrażania aplikacji sieci Web i bazy danych SQL Database. Jednak kroki są prawie identyczne dla dowolnego typu zasobu. Równie łatwo możesz wdrożyć maszynę wirtualną i powiązane zasoby. Program Visual Studio zapewnia wiele różnych szablonów początkowych do wdrażania typowych scenariuszy.
+Ten artykuł dotyczy wdrażania aplikacji sieci Web i bazy danych SQL Database. Jednak hello kroki są prawie hello w tej samej dla każdego typu zasobu. Równie łatwo możesz wdrożyć maszynę wirtualną i powiązane zasoby. Program Visual Studio zapewnia wiele różnych szablonów początkowych do wdrażania typowych scenariuszy.
 
-W tym artykule przedstawiono program Visual Studio 2017. Jeśli używasz programu Visual Studio 2015 Update 2 i zestawu Microsoft Azure SDK dla środowiska .NET 2.9 lub programu Visual Studio 2013 z zestawem Azure SDK 2.9, czynności są w większości takie same. Możesz korzystać z zestawu Azure SDK w wersji 2.6 lub nowszej, jednak interfejs użytkownika może różnić się od przedstawionego w tym artykule. Zdecydowanie zalecamy zainstalowanie najnowszej wersji zestawu [Azure SDK](https://azure.microsoft.com/downloads/) przed rozpoczęciem wykonywania tych kroków. 
+W tym artykule przedstawiono program Visual Studio 2017. Jeśli używasz programu Visual Studio 2015 Update 2 i zestawu Microsoft Azure SDK dla programu .NET 2.9 lub Visual Studio 2013 z Azure SDK 2.9 środowiska jest w przeważającej mierze hello takie same. Za pomocą wersji hello Azure SDK w wersji 2.6 lub nowszej; Jednak środowiska hello interfejsu użytkownika mogą być inne niż hello interfejsu użytkownika pokazano, w tym artykule. Zdecydowanie zaleca się zainstalowanie najnowszej wersji hello hello [zestawu Azure SDK](https://azure.microsoft.com/downloads/) przed rozpoczęciem powitalne kroki. 
 
 ## <a name="create-azure-resource-group-project"></a>Tworzenie projektu grupy zasobów platformy Azure
 W tej procedurze omówiono tworzenie projektu grupy zasobów platformy Azure przy użyciu szablonu **Aplikacja sieci Web i baza danych SQL**.
@@ -35,46 +35,46 @@ W tej procedurze omówiono tworzenie projektu grupy zasobów platformy Azure prz
 1. W programie Visual Studio wybierz pozycję **Plik**, **Nowy projekt** i wybierz opcję **C#** lub **Visual Basic**. Wybierz pozycję **Chmura**, a następnie wybierz projekt **Grupa zasobów platformy Azure**.
    
     ![Projekt wdrażania w chmurze](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Wybierz szablon, który ma zostać wdrożony w usłudze Azure Resource Manager. Należy zauważyć, że dostępnych jest wiele różnych opcji zależnie od typu projektu, który chcesz wdrożyć. Na potrzeby tego artykułu wybierz szablon **Aplikacja sieci Web i baza danych SQL**.
+2. Wybierz szablon hello, które mają tooAzure toodeploy Menedżera zasobów. Powiadomienia, istnieje wiele różnych opcji oparte na powitania typ projektu chcesz toodeploy. W tym artykule, wybierz hello **aplikacja sieci Web i SQL** szablonu.
    
     ![Wybieranie szablonu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
    
-    Wybrany szablon jest tylko punktem wyjściowym. Możesz dodać lub usunąć zasoby, aby wykonać dany scenariusz.
+    Szablon Hello jest tylko punktem wyjściowym; Możesz dodawać i usuwać zasoby toofulfill Twojego scenariusza.
    
    > [!NOTE]
-   > Program Visual Studio pobiera listę dostępnych szablonów w trybie online. Może ona ulec zmianie.
+   > Program Visual Studio pobiera listę dostępnych szablonów w trybie online. Lista Hello mogą ulec zmianie.
    > 
    > 
    
-    Program Visual Studio tworzy projekt wdrożenia grupy zasobów dla aplikacji sieci Web i Bazy danych SQL.
-3. Aby wyświetlić utworzone elementy, sprawdź węzeł w projekcie wdrożenia.
+    Program Visual Studio tworzy projekt wdrożenia grupy zasobów dla aplikacji sieci web hello i bazy danych SQL.
+3. toosee utworzoną, poszukać w węźle hello hello projektu wdrożenia.
    
     ![Wyświetlanie węzłów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
    
-    Ponieważ w tym przykładzie wybrano szablon Aplikacja sieci Web i baza danych SQL, zostaną wyświetlone następujące pliki: 
+    Ponieważ Wybraliśmy hello aplikacja sieci Web i szablon SQL, w tym przykładzie widać hello następujące pliki: 
    
    | Nazwa pliku | Opis |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Skrypt programu PowerShell, który wywołuje polecenia w celu wdrożenia do usługi Azure Resource Manager.<br />**Uwaga:** program Visual Studio używa tego skryptu programu PowerShell do wdrażania szablonu. Należy zachować ostrożność, ponieważ wszystkie zmiany wprowadzone w tym skrypcie mają wpływ na wdrożenie w programie Visual Studio. |
-   | WebSiteSQLDatabase.json |Szablon usługi Resource Manager określający infrastrukturę, którą chcesz wdrożyć na platformie Azure, oraz parametry, które można podać podczas wdrażania. Umożliwia on również definiowanie zależności między zasobami, tak aby usługa Resource Manager wdrożyła je w odpowiedniej kolejności. |
-   | WebSiteSQLDatabase.parameters.json |Plik parametrów zawierający wartości wymagane przez szablon. Poszczególne wdrożenia są dostosowywane za pomocą przekazywanych wartości parametrów. |
+   | Deploy-AzureResourceGroup.ps1 |Skrypt programu PowerShell, który wywołuje tooAzure toodeploy poleceń programu PowerShell Menedżera zasobów.<br />**Uwaga** Visual Studio korzysta z tego toodeploy skrypt programu PowerShell szablonu. Wszystkie wprowadzone zmiany skryptu toothis wpływ na wdrożenie w Visual Studio, więc należy uważać. |
+   | WebSiteSQLDatabase.json |Witaj szablonu usługi Resource Manager określający infrastrukturę hello, którą chcesz wdrożyć tooAzure i hello parametrów, które można podać podczas wdrażania. Definiuje również hello zależności między zasobami hello w celu Resource Manager wdraża hello zasobów w odpowiedniej kolejności hello. |
+   | WebSiteSQLDatabase.parameters.json |Plik parametrów zawierający wartości wymagane przez szablon hello. Należy przekazać parametr wartości toocustomize każdego wdrożenia. |
    
-    Wszystkie projekty wdrażania grup zasobów zawierają te podstawowe pliki. Inne projekty mogą zawierać dodatkowe pliki do obsługi innych funkcji.
+    Wszystkie projekty wdrażania grup zasobów zawierają te podstawowe pliki. Inne projekty mogą zawierać dodatkowe pliki toosupport innych funkcji.
 
-## <a name="customize-the-resource-manager-template"></a>Dostosowywanie szablonu usługi Resource Manager
-Można dostosować projekt wdrożenia, modyfikując szablony JSON określające zasoby, które chcesz wdrożyć. JSON (JavaScript Object Notation) jest łatwym w użyciu formatem serializowanych danych. Pliki JSON używają schematu, do którego odwołujesz się w górnej części każdego pliku. Aby zrozumieć schemat, możesz go pobrać i przeanalizować. Schemat określa prawidłowe elementy, typy i formaty pól, dopuszczalne wartości wyliczane itd. Aby uzyskać informacje na temat elementów szablonu usługi Resource Manager, zobacz [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager).
+## <a name="customize-hello-resource-manager-template"></a>Dostosowywanie szablonu usługi Resource Manager hello
+Aby dostosować projekt wdrożenia, modyfikując szablony JSON hello opisujące hello zasoby, które chcesz toodeploy. JSON to JavaScript Object Notation i jest formatem serializowanych danych, który jest łatwo toowork z. Witaj pliki JSON używają schematu, której odwołuje się u góry hello każdego pliku. Jeśli chcesz toounderstand hello schematu, można pobrać i przeanalizuj go. Witaj schemat określa, jakie elementy są prawidłowe, hello typy i formaty pól, hello możliwe wartości wartości wyliczane itd. toolearn o elementach hello hello szablonu usługi Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 
-Aby rozpocząć pracę nad szablonem, otwórz plik **WebSiteSQLDatabase.json**.
+Otwórz toowork w szablonie, **WebSiteSQLDatabase.json**.
 
-Edytor programu Visual Studio udostępnia narzędzia pomocne podczas edytowania szablonu usługi Resource Manager. Okno **Konspekt pliku JSON** ułatwia wyświetlanie elementów zdefiniowanych w szablonie.
+Witaj Visual Studio zawiera Edytor narzędzi tooassist hello o edycji szablonu usługi Resource Manager. Witaj **konspekt pliku JSON** okna umożliwia łatwe toosee hello elementów zdefiniowanych w szablonie.
 
 ![wyświetlanie konspektu pliku JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-Wybranie dowolnego elementu w konspekcie powoduje przejście do odpowiedniej części szablonu i wyróżnienie powiązanego kodu JSON.
+Zaznaczanie elementów hello w konspekcie hello przejście toothat częścią szablonu hello i zaznacza hello odpowiadającego JSON.
 
 ![przechodzenie do elementów JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-Nowy zasób można dodać, wybierając przycisk **Dodaj zasób** u góry okna Konspekt pliku JSON lub klikając prawym przyciskiem myszy węzeł **zasoby** i wybierając polecenie **Dodaj nowy zasób**.
+Można dodać zasobu albo wybór hello **dodawania zasobów** przycisk u góry hello hello okna konspekt pliku JSON lub klikając prawym przyciskiem myszy **zasobów** i wybierając **Dodaj nowy zasób**.
 
 ![dodawanie zasobu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
@@ -82,11 +82,11 @@ W ramach tego samouczka wybierz pozycję **Konto usługi Storage** i nadaj mu na
 
 ![dodawanie magazynu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
-Należy zauważyć, że dodany został nie tylko zasób, ale również parametr typu konta magazynu oraz zmienna nazwy konta magazynu.
+Zwróć uwagę, że nie tylko został dodany hello zasobów, ale również parametr hello typu konta magazynu oraz zmienna nazwy hello hello konta magazynu.
 
 ![wyświetlanie konspektu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Parametr **storageType** jest wstępnie zdefiniowany wraz z dozwolonymi typami i typem domyślnym. Możesz pozostawić te wartości bez zmian lub edytować je dla danego scenariusza. Jeśli nie chcesz, aby inne osoby wdrażały konta magazynu **Premium_LRS** przy użyciu tego szablonu, usuń go z dozwolonych typów. 
+Witaj **storageType** parametr jest wstępnie zdefiniowany wraz z dozwolonymi typami i typem domyślnym. Możesz pozostawić te wartości bez zmian lub edytować je dla danego scenariusza. Jeśli nie chcesz, aby każdy toodeploy **Premium_LRS** konto magazynu przy użyciu tego szablonu, usuń go z hello dozwolone typy. 
 
 ```json
 "storageType": {
@@ -101,11 +101,11 @@ Parametr **storageType** jest wstępnie zdefiniowany wraz z dozwolonymi typami i
 }
 ```
 
-Program Visual Studio oferuje również funkcję IntelliSense ułatwiającą zrozumienie dostępnych właściwości podczas edytowania szablonu. Aby na przykład edytować właściwości planu usługi App Service, przejdź do zasobu **HostingPlan** i dodaj wartość dla obiektu **properties**. Należy zauważyć, że funkcja IntelliSense wyświetla dostępne wartości oraz ich opisy.
+Program Visual Studio oferuje również toohelp intellisense zrozumieć właściwości, które są dostępne podczas edytowania szablonu hello. Na przykład tooedit hello właściwości dla planu usługi aplikacji przejdź toohello **HostingPlan** zasobu i Dodaj wartości hello **właściwości**. Należy zauważyć, że narzędzie intellisense zawiera hello dostępne wartości oraz opis tej wartości.
 
 ![wyświetlanie funkcji intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
-Dla wartości **numberOfWorkers** można ustawić wartość 1.
+Można ustawić **numberOfWorkers** too1.
 
 ```json
 "properties": {
@@ -114,61 +114,61 @@ Dla wartości **numberOfWorkers** można ustawić wartość 1.
 }
 ```
 
-## <a name="deploy-the-resource-group-project-to-azure"></a>Wdrażanie projektu grupy zasobów na platformie Azure
-Teraz można przystąpić do wdrażania projektu. Projekt grupy zasobów platformy Azure jest wdrażany do grupy zasobów platformy Azure. To logiczna grupa zasobów mających wspólny cykl życia.
+## <a name="deploy-hello-resource-group-project-tooazure"></a>Wdrażanie tooAzure projektu grupy zasobów hello
+Użytkownik jest teraz gotowy toodeploy projektu. Podczas wdrażania projektu grupy zasobów platformy Azure, możesz go wdrożyć tooan grupy zasobów platformy Azure. Grupa zasobów Hello to logiczne grupowanie zasobów, które współużytkują wspólne cyklu życia.
 
-1. W menu skrótów węzła projektu wdrażania wybierz pozycję **Wdróż** > **Nowe**.
+1. W menu skrótów węzła projektu wdrażania hello hello, wybierz **Wdróż** > **nowy**.
    
     ![Element menu Wdróż, Nowe wdrażanie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
    
-    Zostanie wyświetlone okno dialogowe **Wdrażanie w grupie zasobów**.
+    Witaj **wdrażanie tooResource grupy** zostanie wyświetlone okno dialogowe.
    
-    ![Okno dialogowe Wdrażanie w grupie zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. W polu listy rozwijanej **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową. Aby utworzyć grupę, otwórz pole listy rozwijanej **Grupa zasobów** i wybierz pozycję **Utwórz nowy**.
+    ![Wdrażanie tooResource okno dialogowe grupy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
+2. W hello **grupy zasobów** pole listy rozwijanej wybierz istniejącą grupę zasobów lub Utwórz nową. toocreate grupę zasobów, otwórz hello **grupy zasobów** listy rozwijanej pola i wybierz polecenie **Utwórz nowy**.
    
-    ![Okno dialogowe Wdrażanie w grupie zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
+    ![Wdrażanie tooResource okno dialogowe grupy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
    
-    Zostanie wyświetlone okno dialogowe **Tworzenie grupy zasobów**. Podaj nazwę i lokalizację grupy i wybierz przycisk **Utwórz**.
+    Witaj **Tworzenie grupy zasobów** zostanie wyświetlone okno dialogowe. Nadaj grupie nazwy i lokalizacji, a następnie wybierz hello **Utwórz** przycisku.
    
     ![Okno dialogowe Tworzenie grupy zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. Edytuj parametry wdrożenia, wybierając przycisk **Edytuj parametry**.
+3. Edytuj parametry hello hello wdrożenia, wybierając hello **Edytuj parametry** przycisku.
    
     ![Przycisk Edytuj parametry](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Podaj wartości dla pustych parametrów i wybierz przycisk **Zapisz**. Puste parametry to **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** i **databaseName**.
+4. Podaj wartości parametrów pusty hello i wybierz hello **zapisać** przycisku. puste parametry Hello są **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, i **databaseName**.
    
-    Parametr **hostingPlanName** określa nazwę [planu usługi App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) do utworzenia. 
+    **hostingPlanName** Określa nazwę hello [planu usługi aplikacji](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) toocreate. 
    
-    Parametr **administratorLogin** określa nazwę użytkownika dla administratora programu SQL Server. Nie należy używać wspólnych nazw administratorów, takich jak **sa** lub **admin**. 
+    **administratorLogin** Określa nazwę użytkownika, powitalne hello administratora serwera SQL. Nie należy używać wspólnych nazw administratorów, takich jak **sa** lub **admin**. 
    
-    Parametr **administratorLoginPassword** określa hasło administratora programu SQL Server. Opcja **Zapisz hasła jako czysty tekst w pliku parametrów** nie jest bezpieczna, dlatego nie należy jej wybierać. Ponieważ hasło nie jest zapisywane w postaci zwykłego tekstu, należy podać to hasło ponownie podczas wdrażania. 
+    Witaj **administratorLoginPassword** Określa hasło administratora serwera SQL. Witaj **zapisywanie haseł w postaci zwykłego tekstu w pliku parametrów hello** opcja nie jest bezpieczne; w związku z tym nie należy zaznaczać tej opcji. Ponieważ hello hasła nie jest zapisywany w postaci zwykłego tekstu, należy tooprovide to hasło ponownie podczas wdrażania. 
    
-    Parametr **databaseName** określa nazwę bazy danych do utworzenia. 
+    **databaseName** Określa nazwę hello toocreate bazy danych. 
    
     ![Okno dialogowe Edytowanie parametrów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Wybierz przycisk **Wdróż**, aby wdrożyć projekt na platformie Azure. Konsola programu PowerShell zostanie otwarta poza wystąpieniem programu Visual Studio. Po wyświetleniu monitu wprowadź hasło administratora programu SQL Server w konsoli programu PowerShell. **Konsola programu PowerShell może być ukryta za innymi elementami lub zminimalizowana na pasku zadań.** Odszukaj tę konsolę i wybierz ją, aby podać hasło.
+5. Wybierz hello **Wdróż** tooAzure projektu hello toodeploy przycisku. Otwiera konsolę programu PowerShell poza hello wystąpienie programu Visual Studio. Wprowadź hasło administratora programu SQL Server hello w konsoli programu PowerShell powitania po wyświetleniu monitu. **Konsola programu PowerShell może być ukryty za innych elementów lub zminimalizowana na pasku zadań hello.** Wyszukaj tę konsolę, a następnie zaznacz tooprovide hello hasła.
    
    > [!NOTE]
-   > W programie Visual Studio może pojawić się monit o zainstalowanie poleceń cmdlet programu Azure PowerShell. Polecenia te są niezbędne do pomyślnego wdrożenia grup zasobów. Jeśli zostanie wyświetlony monit, zainstaluj je.
+   > Visual Studio może poprosić hello tooinstall poleceń cmdlet programu Azure PowerShell. Należy hello Azure PowerShell polecenia cmdlet toosuccessfully wdrażanie grup zasobów. Jeśli zostanie wyświetlony monit, zainstaluj je.
    > 
    > 
-6. Wdrożenie może potrwać kilka minut. W oknach **Dane wyjściowe** jest wyświetlany stan wdrożenia. Po zakończeniu wdrażania ostatni komunikat wskazuje pomyślne wdrożenie i jest podobny do następującego:
+6. Wdrażanie Hello może potrwać kilka minut. W hello **dane wyjściowe** systemu windows, zostanie wyświetlony stan hello hello wdrożenia. Po zakończeniu wdrażania hello ostatnią wiadomość hello wskazuje pomyślne wdrożenie z polecenie podobne do następującego:
    
         ... 
-        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
-7. W przeglądarce otwórz witrynę [Azure Portal](https://portal.azure.com/) i zaloguj się do swojego konta. Aby wyświetlić grupę zasobów wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę, do której wykonano wdrożenie.
+        18:00:58 - Successfully deployed template 'websitesqldatabase.json' tooresource group 'DemoSiteGroup'.
+7. W przeglądarce otwórz hello [portalu Azure](https://portal.azure.com/) i zaloguj się na koncie tooyour. toosee hello grupy zasobów, wybierz opcję **grup zasobów** i wdrożone do grupy zasobów hello.
    
     ![wybieranie grupy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Zostaną wyświetlone wszystkie wdrożone zasoby. Należy zauważyć, że nazwa konta magazynu nie jest identyczna z określoną podczas dodawania tego zasobu. Konto magazynu musi być unikatowe. Szablon automatycznie dodaje ciąg znaków do podanej nazwy w celu zapewnienia unikatowej nazwy. 
+8. Zostanie wyświetlony wszystkie zasoby hello wdrożone. Zwróć uwagę, że hello nazwę hello konta magazynu nie jest dokładnie należy określić podczas dodawania tego zasobu. Konto magazynu Hello musi być unikatowa. Witaj szablonu automatycznie dodaje ciąg znaków nazwy toohello podane tooprovide unikatową nazwę. 
    
     ![wyświetlanie zasobów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
-9. Jeśli wprowadzono zmiany i chcesz ponownie wdrożyć projekt, wybierz istniejącą grupę zasobów przy użyciu menu skrótów projektu grupy zasobów platformy Azure. W menu skrótów wybierz pozycję **Wdróż**, a następnie wybierz wdrożoną grupę zasobów.
+9. Zmiany i konieczne tooredeploy projektu, jeśli hello istniejącej grupy zasobów z menu skrótów hello projektu grupy zasobów platformy Azure. Menu skrótów hello, wybierz **Wdróż**, a następnie wybierz grupę zasobów hello wdrożone.
    
     ![wdrożona grupa zasobów platformy Azure](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Wdrażanie kodu przy użyciu infrastruktury
-Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdrożony rzeczywisty kod. W tym artykule przedstawiono sposób wdrażania aplikacji sieci Web i tabel bazy danych SQL Database podczas wdrażania. Jeśli wdrażasz maszynę wirtualną zamiast aplikacji sieci Web, w ramach wdrożenia konieczne będzie uruchomienie kodu na maszynie. Proces wdrażania kodu dla aplikacji sieci Web lub konfigurowania maszyny wirtualnej jest niemal taki sam.
+W tym momencie wdrożono infrastrukturę hello aplikacji, ale nie nie wdrożony z projektem hello rzeczywisty kod. W tym artykule opisano, jak toodeploy aplikacji sieci web i bazy danych SQL tabel podczas wdrażania. Jeśli wdrażasz maszynę wirtualną zamiast aplikacji sieci web ma toorun kodu na komputerze hello jako część wdrożenia. Witaj proces wdrażania kodu dla aplikacji sieci web lub konfigurowania maszyny wirtualnej jest niemal hello takie same.
 
-1. Dodaj projekt do rozwiązania programu Visual Studio. Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycje **Dodaj** > **Nowy projekt**.
+1. Dodaj tooyour projektu rozwiązania Visual Studio. Kliknij prawym przyciskiem myszy rozwiązanie hello, a następnie wybierz **Dodaj** > **nowy projekt**.
    
     ![dodawanie projektu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
 2. Dodaj **aplikację sieci Web ASP.NET**. 
@@ -177,46 +177,46 @@ Do tej pory wdrożono infrastrukturę aplikacji, ale z projektem nie został wdr
 3. Wybierz pozycję **MVC**.
    
     ![wybieranie pozycji MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. Po utworzeniu aplikacji sieci Web przez program Visual Studio oba projekty są wyświetlane w rozwiązaniu.
+4. Gdy program Visual Studio utworzy aplikację sieci web, zobaczysz oba projekty w rozwiązaniu hello.
    
     ![wyświetlanie projektów](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. Musisz teraz upewnić się, że projekt grupy zasobów wie o nowym projekcie. Wróć do projektu grupy zasobów (AzureResourceGroup1). Kliknij prawym przyciskiem myszy pozycję **Odwołania** i wybierz polecenie **Dodaj odwołanie**.
+5. Teraz należy toomake się, że projekt grupy zasobów jest świadome hello nowy projekt. Przejdź wstecz projekt grupy zasobów tooyour (AzureResourceGroup1). Kliknij prawym przyciskiem myszy pozycję **Odwołania** i wybierz polecenie **Dodaj odwołanie**.
    
     ![dodawanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Wybierz projekt aplikacji sieci Web, który został utworzony.
+6. Wybierz hello projektu aplikacji sieci web, który został utworzony.
    
     ![dodawanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
    
-    Dodanie odwołania powoduje połączenie projektu aplikacji sieci Web z projektem grupy zasobów i automatyczne ustawienie trzech głównych właściwości. Te właściwości będą wyświetlane w oknie **Właściwości** odwołania.
+    Dodanie odwołania, połączyć hello projektu aplikacji sieci web projektu toohello zasobów grupy, a automatyczne ustawienie trzech głównych właściwości. Zobacz te właściwości w hello **właściwości** okna hello odwołania.
    
       ![wyświetlanie odwołania](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
    
-    Właściwości są następujące:
+    właściwości Hello są:
    
-   * Właściwość **Additional Properties** zawiera tymczasową lokalizację pakietu wdrażania w sieci Web, który zostanie przekazany do usługi Azure Storage. Zanotuj folder (ExampleApp) i plik (package.zip). Musisz znać te wartości, ponieważ są one podawane jako parametry podczas wdrażania aplikacji. 
-   * Właściwość **Include File Path** zawiera ścieżkę, w której zostanie utworzony pakiet. Właściwość **Include Targets** zawiera polecenie, które zostanie wykonane podczas wdrażania. 
-   * Wartość domyślna właściwości **Build;Package** umożliwia skompilowanie i utworzenie pakietu wdrażania w sieci Web (pakiet.zip) podczas wdrażania.  
+   * Witaj **dodatkowe właściwości** zawiera pakiet wdrożeniowy sieci web hello tymczasowej lokalizacji, do której zostanie przypisany toohello usługi Azure Storage. Uwaga hello folder (ExampleApp) i pliku (pakiet.zip). Należy tooknow te wartości ponieważ podać je jako aplikacji hello parametrów podczas wdrażania. 
+   * Witaj **Include File Path** zawiera ścieżkę hello, w której zostaje utworzony pakiet hello. Witaj **Include Targets** zawiera polecenie hello, która wykonuje wdrożenia. 
+   * Domyślna wartość Hello **kompilacji; Pakiet** umożliwia hello toobuild wdrożenia i utworzyć pakiet wdrożeniowy sieci web (pakiet.zip).  
      
-     Profil publikowania nie jest wymagany, ponieważ wdrożenie pobiera niezbędne informacje z właściwości w celu utworzenia pakietu.
-7. Wróć do pliku WebSiteSQLDatabase.json i dodaj zasób do szablonu.
+     Nie trzeba profil publikowania jako hello wdrożenie pobiera niezbędne informacje hello z hello właściwości toocreate hello pakietu.
+7. Przejdź wstecz tooWebSiteSQLDatabase.json i dodać szablon toohello zasobów.
    
     ![dodawanie zasobu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 8. Tym razem wybierz pozycję **Web Deploy dla usługi Web Apps**. 
    
     ![dodawanie narzędzia web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Ponownie wdróż projekt grupy zasobów w grupie zasobów. Tym razem występuje kilka nowych parametrów. Nie musisz podawać wartości parametrów **_artifactsLocation** ani **_artifactsLocationSasToken**, ponieważ program Visual Studio generuje je automatycznie. Musisz jednak ustawić folder i nazwę pliku na ścieżkę zawierającą pakiet wdrożeniowy (oznaczoną jako **ExampleAppPackageFolder** i **ExampleAppPackageFileName** na poniższej ilustracji). Podaj wartości zanotowane wcześniej z właściwości odwołania (**ExampleApp** i **package.zip**).
+9. Należy ponownie wdrożyć grupie zasobów toohello projektu grupy zasobów. Tym razem występuje kilka nowych parametrów. Nie trzeba wartości tooprovide **_artifactsLocation** lub **_artifactsLocationSasToken** ponieważ Visual Studio automatycznie generuje tych wartości. Jednak masz tooset hello folderu i ścieżki toohello nazwę pliku, który zawiera pakiet wdrożeniowy hello (wyświetlane jako **ExampleAppPackageFolder** i **ExampleAppPackageFileName** w powitania po obrazu ). Podaj wartości hello widać wcześniej w hello właściwości odwołania (**ExampleApp** i **pakiet.zip**).
    
     ![dodawanie narzędzia web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
    
-    Jako **Konto magazynu artefaktów** wybierz konto wdrożone z tą grupą zasobów.
-10. Po zakończeniu wdrażania wybierz aplikację sieci Web w witrynie portalu. Wybierz adres URL, aby przejść do lokacji.
+    Dla hello **konta magazynu artefaktu**, wybierz hello jedną wdrożonych w tej grupie zasobów.
+10. Po zakończeniu wdrażania hello wybierz aplikację sieci web w portalu hello. Wybierz hello adresu URL toobrowse toohello lokacji.
     
      ![przeglądanie lokacji](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Zobacz, że domyślna aplikacja ASP.NET została pomyślnie wdrożona.
+11. Zwróć uwagę, że zostały pomyślnie wdrożone hello domyślna aplikacja ASP.NET.
     
      ![wyświetlanie wdrożonej aplikacji](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać informacje dotyczące zarządzania zasobami przy użyciu portalu, zobacz [Korzystanie z witryny Azure Portal do zarządzania zasobami Azure](resource-group-portal.md).
-* Aby uzyskać więcej informacji o szablonach, zobacz [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager).
+* Zobacz toolearn dotyczące zarządzania zasobami za pośrednictwem portalu hello [Using hello Azure toomanage portalu zasobów platformy Azure](resource-group-portal.md).
+* toolearn więcej informacji na temat szablonów, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 

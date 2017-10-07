@@ -1,6 +1,6 @@
 ---
-title: "Połączenie z lokalnym programem SQL Server z aplikacji sieci web w usłudze Azure App Service przy użyciu połączeń hybrydowych"
-description: "Tworzenie aplikacji sieci web w systemie Microsoft Azure i połącz go z lokalną bazą danych programu SQL Server"
+title: "aaaConnect tooon lokalnego programu SQL Server z aplikacji sieci web w usłudze Azure App Service przy użyciu połączeń hybrydowych"
+description: "Tworzenie aplikacji sieci web w systemie Microsoft Azure i podłącz go tooan lokalną bazą danych programu SQL Server"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,255 +14,255 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-ms.openlocfilehash: 12456ef3e2aecfa7a03cca97de2ff6ffd9602357
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2e8f8f7e0b9733cfb0433697615faba4358c6023
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>Połączenie z lokalnym programem SQL Server z aplikacji sieci web w usłudze Azure App Service przy użyciu połączeń hybrydowych
-Nawiązanie połączenia hybrydowe [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) aplikacji sieci Web z lokalnymi zasobami, które użycia portu statycznego TCP. Obsługiwane zasoby obejmują programu Microsoft SQL Server, MySQL, interfejsy API protokołu HTTP sieci Web, usługi aplikacji i większość niestandardowych usług sieci Web.
+# <a name="connect-tooon-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>Nawiązywanie połączenia lokalnego tooon programu SQL Server z aplikacji sieci web w usłudze Azure App Service przy użyciu połączeń hybrydowych
+Nawiązanie połączenia hybrydowe [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) zasobów tooon lokalnych aplikacji sieci Web, które użycia portu statycznego TCP. Obsługiwane zasoby obejmują programu Microsoft SQL Server, MySQL, interfejsy API protokołu HTTP sieci Web, usługi aplikacji i większość niestandardowych usług sieci Web.
 
-Z tego samouczka, dowiesz sposób tworzenia aplikacji sieci web usługi aplikacji w [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), połączenia z bazą danych programu SQL Server lokalne lokalnymi, przy użyciu nowych funkcji hybrydowych połączenia aplikacji sieci web, utworzyć prostą aplikację ASP.NET do użycia przez połączenie hybrydowe, a wdrożenie aplikacji w aplikacji sieci web usługi aplikacji. Aplikacja sieci web ukończone na platformie Azure przechowuje poświadczenia użytkownika w bazie danych członkostwa, które jest używane lokalne. W samouczku założono nie wcześniejszego doświadczenia w używaniu platformy Azure lub programu ASP.NET.
+Z tego samouczka, dowiesz się, jak toocreate usługę aplikacji sieci web aplikacji w hello [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)Połącz z hello sieci web aplikacji tooyour lokalnego lokalnej bazy danych SQL Server przy użyciu nowej funkcji połączenia hybrydowego hello, Utwórz prosty program ASP.NET Aplikacja, która będzie używać połączenia hybrydowego hello i wdróż toohello aplikacji hello aplikacji sieci web usługi aplikacji. ukończyć powitalnych aplikacji sieci web na platformie Azure są przechowywane poświadczenia użytkownika w bazie danych członkostwa, które jest używane lokalne. Witaj samouczek zakłada nie wcześniejszego doświadczenia w używaniu platformy Azure lub programu ASP.NET.
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
-> Aplikacje sieci Web część funkcji połączeń hybrydowych było możliwe jest dostępna tylko w [Azure Portal](https://portal.azure.com). Aby utworzyć połączenie w usługi BizTalk Services, zobacz [połączeń hybrydowych](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> Witaj aplikacje sieci Web część funkcji połączeń hybrydowych hello jest dostępna tylko w hello [Azure Portal](https://portal.azure.com). Zobacz toocreate połączenie usługi BizTalk Services [połączeń hybrydowych](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do ukończenia tego samouczka należy następujące produkty. Dostępne są wszystkie w bezpłatnej wersji, aby rozpocząć tworzenie aplikacji dla platformy Azure i całkowicie bezpłatne.
+toocomplete tego samouczka będziesz potrzebować hello następujące produkty. Dostępne są wszystkie w bezpłatnej wersji, aby rozpocząć tworzenie aplikacji dla platformy Azure i całkowicie bezpłatne.
 
 * **Subskrypcja platformy Azure** — w przypadku bezpłatnej subskrypcji, zobacz [bezpłatnej wersji próbnej Azure](/pricing/free-trial/).
-* **Visual Studio 2013** — Aby pobrać bezpłatną wersję próbną programu Visual Studio 2013, zobacz [programu Visual Studio pobiera](http://www.visualstudio.com/downloads/download-visual-studio-vs). Zainstaluj to przed kontynuowaniem.
-* **Program Microsoft .NET Framework 3.5 z dodatkiem Service Pack 1** — w przypadku systemu operacyjnego Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 lub Windows Server 2008 R2, możesz je włączyć, w Panelu sterowania > programy i funkcje > Włącz lub wyłącz funkcje systemu Windows. W przeciwnym razie możesz pobrać go z [Microsoft Download Center](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
-* **SQL Server 2014 Express with Tools** — Microsoft SQL Server Express bezpłatnie pobrać na [strona bazy danych platformy sieci Web Microsoft](http://www.microsoft.com/web/platform/database.aspx). Wybierz **Express** (nie LocalDB) wersji. **Express with Tools** wersja obejmuje program SQL Server Management Studio, który będzie używany w tym samouczku.
-* **SQL Server Management Studio Express** — jest on dołączony do programu SQL Server 2014 Express pobierania narzędzia wymienionych powyżej, ale jeśli musisz zainstalować oddzielnie, można pobrać i zainstalować go z [strony pobierania programu SQL Server Express](http://www.microsoft.com/web/platform/database.aspx).
+* **Visual Studio 2013** -toodownload bezpłatną wersję próbną programu Visual Studio 2013, zobacz [programu Visual Studio pobiera](http://www.visualstudio.com/downloads/download-visual-studio-vs). Zainstaluj to przed kontynuowaniem.
+* **Program Microsoft .NET Framework 3.5 z dodatkiem Service Pack 1** — w przypadku systemu operacyjnego Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 lub Windows Server 2008 R2, możesz je włączyć, w Panelu sterowania > programy i funkcje > Włącz lub wyłącz funkcje systemu Windows. W przeciwnym razie można go pobrać z hello [Microsoft Download Center](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
+* **SQL Server 2014 Express with Tools** — Microsoft SQL Server Express bezpłatnie pobrać na powitania [strona bazy danych platformy sieci Web Microsoft](http://www.microsoft.com/web/platform/database.aspx). Wybierz hello **Express** (nie LocalDB) wersji. Witaj **Express with Tools** wersja obejmuje program SQL Server Management Studio, który będzie używany w tym samouczku.
+* **SQL Server Management Studio Express** — jest on dołączony do programu SQL Server 2014 Express hello pobierania narzędzia wymienionych powyżej, ale jeśli potrzebujesz tooinstall go oddzielnie, można pobrać i zainstalować go z hello [programu SQL Server Express strona pobierania](http://www.microsoft.com/web/platform/database.aspx).
 
-Samouczka przyjęto założenie, że masz subskrypcję platformy Azure, zainstalowanego programu Visual Studio 2013 i czy masz zainstalowany lub włączony program .NET Framework 3.5. Samouczek przedstawia sposób instalowania programu SQL Server 2014 Express w konfiguracji, które działa dobrze z funkcją Azure połączeń hybrydowych (domyślnego wystąpienia z portu statycznego TCP). Przed rozpoczęciem tego samouczka, Pobierz program SQL Server 2014 Express with Tools z lokalizacji wymienionych powyżej, jeśli nie masz zainstalowanego programu SQL Server.
+Hello samouczku założono, że masz subskrypcję platformy Azure, zainstalowanego programu Visual Studio 2013 i czy masz zainstalowany lub włączony program .NET Framework 3.5. Witaj samouczek pokazuje, jak tooinstall programu SQL Server 2014 Express w konfiguracji, które działa dobrze w przypadku połączeń hybrydowych hello Azure funkcji (domyślnego wystąpienia z portu statycznego TCP). Przed rozpoczęciem samouczka hello, Pobierz program SQL Server 2014 Express with Tools z lokalizacji hello wymienione powyżej, jeśli nie masz zainstalowanego programu SQL Server.
 
 ### <a name="notes"></a>Uwagi
-Aby użyć lokalnego programu SQL Server lub SQL Server Express bazy danych z połączenia hybrydowego, TCP/IP musi być włączona na portu statycznego. Domyślne wystąpienia w programie SQL Server używać portu statycznego 1433, nazwanych wystąpień nie.
+toouse lokalnego programu SQL Server lub SQL Server Express bazy danych z połączenia hybrydowego TCP/IP musi toobe włączone portu statycznego. Domyślne wystąpienia w programie SQL Server używać portu statycznego 1433, nazwanych wystąpień nie.
 
-Komputer, na którym należy zainstalować agenta menedżera połączeń hybrydowych lokalnie:
+Hello komputera, na którym należy zainstalować agenta menedżera połączeń hybrydowych lokalne powitania:
 
-* Musi mieć łączność wychodząca Azure za pośrednictwem:
+* Musi mieć łączność wychodząca tooAzure przez:
 
 | Port | Dlaczego |
 | --- | --- |
 | 80 |**Wymagane** dla portu HTTP dla certyfikatu weryfikacji i opcjonalnie łączności danych. |
-| 443 |**Opcjonalne** połączeń danych. Jeśli łączność wychodząca 443 jest niedostępna, jest używany TCP port 80. |
-| 5671 i 9352 |**Zalecane** , ale opcjonalne dla połączenia danych. Należy pamiętać, że w tym trybie zwykle zapewnia wyższą przepływność. Jeśli łączność wychodząca tych portów jest niedostępna, jest używany TCP port 443. |
+| 443 |**Opcjonalne** połączeń danych. Jeśli too443 łączność wychodząca jest niedostępna, jest używany TCP port 80. |
+| 5671 i 9352 |**Zalecane** , ale opcjonalne dla połączenia danych. Należy pamiętać, że w tym trybie zwykle zapewnia wyższą przepływność. Jeśli porty toothese łączność wychodząca jest niedostępna, jest używany TCP port 443. |
 
-* Musi być możliwe nawiązanie łączności *hostname*:*numer_portu* zasobu lokalnego.
+* Musi być w stanie tooreach hello *hostname*:*numer_portu* zasobu lokalnego.
 
-Kroki opisane w tym artykule założono, że używasz przeglądarki z komputera, który będzie hostem agenta połączenia hybrydowego lokalnymi.
+Hello opisanych w tym artykule założono, że używasz przeglądarki hello z hello komputer, który będzie hostem agenta połączenia hybrydowego lokalne powitania.
 
-Jeśli masz już programu SQL Server zainstalowanego w konfiguracji i w środowisku, które spełnia warunki opisane powyżej, możesz przejść od razu i rozpoczynać [Utwórz bazę danych programu SQL Server lokalne](#CreateSQLDB).
+Jeśli masz już programu SQL Server zainstalowanego w konfiguracji i w środowisku, które spełnia warunki hello opisane powyżej, możesz przejść od razu i rozpoczynać [Utwórz bazę danych programu SQL Server lokalne](#CreateSQLDB).
 
 <a name="InstallSQL"></a>
 
 ## <a name="a-install-sql-server-express-enable-tcpip-and-create-a-sql-server-database-on-premises"></a>A. Instalowanie programu SQL Server Express, Włącz protokół TCP/IP i utworzyć lokalnej bazy danych programu SQL Server
-W tej sekcji przedstawiono sposób instalowania programu SQL Server Express, Włącz protokół TCP/IP i utworzyć bazę danych, aby działały aplikacji sieci web przy użyciu portalu Azure.
+W tej sekcji przedstawiono sposób tooinstall programu SQL Server Express, Włącz protokół TCP/IP i utworzyć bazę danych tak, aby aplikacja sieci web będzie działać z hello portalu Azure.
 
 ### <a name="install-sql-server-express"></a>Zainstaluj program SQL Server Express
-1. Aby zainstalować program SQL Server Express, uruchom **SQLEXPRWT_x64_ENU.exe** lub **SQLEXPR_x86_ENU.exe** pobranego pliku. Zostanie wyświetlony Kreator Centrum instalacji programu SQL Server.
+1. tooinstall programu SQL Server Express, uruchom hello **SQLEXPRWT_x64_ENU.exe** lub **SQLEXPR_x86_ENU.exe** pobranego pliku. zostanie wyświetlony Kreator Centrum instalacji programu SQL Server Hello.
    
     ![Instalacja serwera SQL][SQLServerInstall]
-2. Wybierz **nowy serwer SQL instalacji autonomicznej lub Dodaj funkcje do istniejącej instalacji**. Postępuj zgodnie z instrukcjami, przyjmuje opcje domyślne i ustawienia, aż do **Konfiguracja wystąpienia** strony.
-3. Na **Konfiguracja wystąpienia** wybierz pozycję **domyślnego wystąpienia**.
+2. Wybierz **nowy serwer SQL instalacji autonomicznej lub Dodaj funkcje tooan istniejącej instalacji**. Wykonaj instrukcje hello, akceptując hello opcje domyślne i ustawienia, do momentu uzyskania toohello **Konfiguracja wystąpienia** strony.
+3. Na powitania **Konfiguracja wystąpienia** wybierz pozycję **domyślnego wystąpienia**.
    
     ![Wybierz wystąpienie domyślne][ChooseDefaultInstance]
    
-    Domyślnie domyślnego wystąpienia programu SQL Server nasłuchuje żądań od klientów programu SQL Server na statycznych porcie 1433, czyli wymaga funkcji połączeń hybrydowych było możliwe. Nazwane wystąpienia używać portów dynamicznych i UDP, które nie są obsługiwane przez połączeń hybrydowych było możliwe.
-4. Zaakceptuj wartości domyślne na **konfiguracji serwera** strony.
-5. Na **Konfiguracja aparatu bazy danych** w obszarze **tryb uwierzytelniania**, wybierz **trybu mieszanego (uwierzytelnianie programu SQL Server i uwierzytelniania systemu Windows)**i podaj hasło.
+    Domyślnie hello domyślnego wystąpienia programu SQL Server nasłuchuje żądań od klientów programu SQL Server na statycznych porcie 1433, czyli jakie hello funkcja wymaga połączeń hybrydowych. Nazwane wystąpienia używać portów dynamicznych i UDP, które nie są obsługiwane przez połączeń hybrydowych było możliwe.
+4. Zaakceptuj ustawienia domyślne hello na powitania **konfiguracji serwera** strony.
+5. Na powitania **Konfiguracja aparatu bazy danych** w obszarze **tryb uwierzytelniania**, wybierz **trybu mieszanego (uwierzytelnianie programu SQL Server i uwierzytelniania systemu Windows)**i podaj hasło.
    
     ![Wybierz tryb mieszany][ChooseMixedMode]
    
-    W tym samouczku będziesz używać uwierzytelniania programu SQL Server. Należy zapamiętać hasło, które zostaną podane, ponieważ będzie potrzebny później.
-6. Kroków opisanych w pozostałej części kreatora w celu ukończenia instalacji.
+    W tym samouczku będziesz używać uwierzytelniania programu SQL Server. Należy się tooremember hello hasła, ponieważ będzie potrzebny później.
+6. Przejrzyj kroki hello reszty hello kreatora toocomplete hello instalacji.
 
 ### <a name="enable-tcpip"></a>Włącz protokół TCP/IP
-Aby włączyć protokół TCP/IP, używasz programu SQL Server Configuration Manager, który został zainstalowany przed zainstalowaniem programu SQL Server Express. Postępuj zgodnie z instrukcjami [Włącz protokół dla programu SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) przed kontynuowaniem.
+tooenable TCP/IP użyjesz programu SQL Server Configuration Manager, który został zainstalowany przed zainstalowaniem programu SQL Server Express. Wykonaj kroki hello w [Włącz protokół dla programu SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) przed kontynuowaniem.
 
 <a name="CreateSQLDB"></a>
 
 ### <a name="create-a-sql-server-database-on-premises"></a>Utwórz bazę danych programu SQL Server lokalne
-Aplikacja sieci web programu Visual Studio wymaga Azure można uzyskać dostępu do bazy danych członkostwa. Wymaga to bazy danych programu SQL Server lub SQL Server Express (nie LocalDB bazy danych, która domyślnie używa szablonu MVC), więc następnie utworzysz bazie danych członkostwa.
+Aplikacja sieci web programu Visual Studio wymaga Azure można uzyskać dostępu do bazy danych członkostwa. Wymaga to bazy danych programu SQL Server lub SQL Server Express (nie hello bazie danych LocalDB który hello używa szablonu MVC domyślnie), więc następnie utworzysz hello członkostwa w bazie danych.
 
-1. W programu SQL Server Management Studio nawiąż połączenie z programem SQL Server został właśnie zainstalowany. (Jeśli **Połącz z serwerem** okna dialogowego nie zostanie wyświetlone automatycznie, przejdź do **Eksplorator obiektów** w okienku po lewej stronie kliknij **Connect**, a następnie kliknij przycisk **aparatu bazy danych**.) ![Połączyć się z serwerem][SSMSConnectToServer]
+1. W programu SQL Server Management Studio połącz toohello programu SQL Server został właśnie zainstalowany. (Jeśli hello **połączyć tooServer** okna dialogowego nie zostanie wyświetlone automatycznie, przejdź do zbyt**Eksplorator obiektów** w okienku po lewej stronie powitania kliknij **Connect**, a następnie kliknij przycisk **Bazy danych aparatu**.) ![Połącz tooServer][SSMSConnectToServer]
    
-    Aby uzyskać **typ serwera**, wybierz **aparatu bazy danych**. Aby uzyskać **nazwy serwera**, można użyć **localhost** lub nazwę komputera, którego używasz. Wybierz **uwierzytelniania programu SQL Server**, a następnie zaloguj się za pomocą nazwy użytkownika i hasła, który został utworzony wcześniej.
-2. Aby utworzyć nową bazę danych przy użyciu programu SQL Server Management Studio, kliknij prawym przyciskiem myszy **baz danych** w Eksploratorze obiektów, a następnie kliknij przycisk **nową bazę danych**.
+    Aby uzyskać **typ serwera**, wybierz **aparatu bazy danych**. Dla **nazwy serwera**, można użyć **localhost** lub nazwa hello hello komputera, którego używasz. Wybierz **uwierzytelniania programu SQL Server**, a następnie zaloguj się za pomocą hello nazwy użytkownika i hasła hello, utworzony wcześniej.
+2. Kliknij prawym przyciskiem myszy nową bazę danych przy użyciu programu SQL Server Management Studio, toocreate **baz danych** w Eksploratorze obiektów, a następnie kliknij przycisk **nową bazę danych**.
    
     ![Utwórz nową bazę danych][SSMScreateNewDB]
-3. W **nową bazę danych** okna dialogowego, wprowadź MembershipDB dla nazwy bazy danych, a następnie kliknij przycisk **OK**.
+3. W hello **nową bazę danych** okna dialogowego, wprowadź MembershipDB hello nazwy bazy danych, a następnie kliknij przycisk **OK**.
    
     ![Podaj nazwę bazy danych][SSMSprovideDBname]
    
-    Należy pamiętać, że użytkownik nie wprowadzaj żadnych zmian w bazie danych w tym momencie. Informacje o członkostwie zostaną automatycznie później dodane przez aplikację sieci web po jej uruchomieniu.
-4. W Eksploratorze obiektów po rozwinięciu **baz danych**, zobaczysz, że utworzono bazy danych członkostwa.
+    Należy pamiętać, że nie wprowadzisz wszystkie bazy danych toohello zmiany w tym momencie. informacje o członkostwie w Hello zostaną automatycznie później dodane przez aplikację sieci web po uruchomieniu.
+4. W Eksploratorze obiektów po rozwinięciu **baz danych**, zobaczysz tej bazy danych członkostwa hello został utworzony.
    
     ![MembershipDB utworzone][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
 
-## <a name="b-create-a-web-app-in-the-azure-portal"></a>B. Tworzenie aplikacji sieci web w portalu Azure
+## <a name="b-create-a-web-app-in-hello-azure-portal"></a>B. Tworzenie aplikacji sieci web w hello portalu Azure
 > [!NOTE]
-> Jeśli utworzono już aplikacji sieci web w portalu Azure, który ma być używany na potrzeby tego samouczka, możesz przejść od razu do [Tworzenie połączenia hybrydowego i usługi BizTalk](#CreateHC) i kontynuować stamtąd.
+> Jeśli utworzono już aplikacji sieci web w hello mają toouse w tym samouczku portalu Azure, możesz przejść od razu zbyt[Tworzenie połączenia hybrydowego i usługi BizTalk](#CreateHC) i kontynuować stamtąd.
 > 
 > 
 
-1. W [Azure Portal](https://portal.azure.com), kliknij przycisk **nowy** > **sieci Web i mobilność** > **aplikacji sieci Web**.
+1. W hello [Azure Portal](https://portal.azure.com), kliknij przycisk **nowy** > **sieci Web i mobilność** > **aplikacji sieci Web**.
    
     ![Przycisk Nowy][New]
 2. Konfigurowanie aplikacji sieci web, a następnie kliknij przycisk **Utwórz**.
    
     ![Nazwa witryny sieci Web][WebsiteCreationBlade]
-3. Po kilku chwilach aplikacji sieci web jest tworzona i pojawia się jego bloku aplikacja sieci web. Blok jest pionowo przewijanego pulpit nawigacyjny, który umożliwia zarządzanie aplikacji sieci web.
+3. Po kilku chwilach hello aplikacji sieci web jest tworzona i pojawia się jego bloku aplikacja sieci web. Blok Hello jest pionowo przewijanego pulpit nawigacyjny, który umożliwia zarządzanie aplikacji sieci web.
    
     ![Witryny sieci Web uruchomionej][WebSiteRunningBlade]
    
-    Aby potwierdzić, aplikacji sieci web na żywo, można kliknąć **Przeglądaj** ikonę, aby wyświetlić stronę domyślną.
+    Aplikacja sieci web hello tooverify jest na żywo, można kliknąć hello **Przeglądaj** ikona toodisplay hello domyślnej strony.
 
-Następnie utworzysz połączenie hybrydowe i usługa BizTalk aplikacji sieci web.
+Następnie utworzysz, połączenie hybrydowe i usługi BizTalk hello aplikacji sieci web.
 
 <a name="CreateHC"></a>
 
 ## <a name="c-create-a-hybrid-connection-and-a-biztalk-service"></a>C. Tworzenie połączenia hybrydowego i usługi BizTalk
-1. Wstecz w portalu, przejdź do ustawień i kliknij przycisk **sieci** > **skonfiguruj punkty końcowe połączenia hybrydowego**.
+1. Wstecz w hello portalu, przejdź do pozycji toosettings i kliknij przycisk **sieci** > **skonfiguruj punkty końcowe połączenia hybrydowego**.
    
     ![Połączenia hybrydowe][CreateHCHCIcon]
-2. W bloku połączeń hybrydowych, kliknij **Dodaj** > **nowe połączenie hybrydowe**.
-3. Na **Tworzenie połączenia hybrydowego** bloku:
+2. W bloku połączeń hybrydowych hello, kliknij **Dodaj** > **nowe połączenie hybrydowe**.
+3. Na powitania **Tworzenie połączenia hybrydowego** bloku:
    
-   * Aby uzyskać **nazwa**, podaj nazwę dla połączenia.
-   * Aby uzyskać **Hostname**, wpisz nazwę komputera komputera-hosta programu SQL Server.
-   * Aby uzyskać **portu**, wprowadź 1433 (port domyślny dla programu SQL Server).
-   * Kliknij przycisk **usługi BizTalk** > **nową usługę BizTalk** , a następnie wprowadź nazwę usługi BizTalk.
+   * Aby uzyskać **nazwa**, podaj nazwę hello połączenia.
+   * Aby uzyskać **Hostname**, wpisz nazwę komputera hello komputera-hosta programu SQL Server.
+   * Aby uzyskać **portu**, wprowadź 1433 (hello domyślny port dla programu SQL Server).
+   * Kliknij przycisk **usługi BizTalk** > **nową usługę BizTalk** , a następnie wprowadź nazwę hello usługi BizTalk.
      
      ![Tworzenie połączenia hybrydowego][TwinCreateHCBlades]
 4. Kliknij przycisk **OK** dwa razy.
    
-    Po zakończeniu tego procesu, **powiadomienia** obszaru będzie flash zielona **Powodzenie** i **połączenia hybrydowego** bloku zostaną wyświetlone nowe połączenie hybrydowe o stanie jako **niepołączone**.
+    Gdy hello zakończeniu procesu hello **powiadomienia** obszaru będzie flash zielona **Powodzenie** i hello **połączenia hybrydowego** bloku wyświetli hello nowe połączenie hybrydowe z Witaj statusu **niepołączone**.
    
     ![Połączenia hybrydowe jeden utworzone][CreateHCOneConnectionCreated]
 
-W tym momencie została ukończona ważnym elementem infrastruktury połączenia hybrydowe w chmurze. Następnie utworzy odpowiedni element lokalnymi.
+W tym momencie została ukończona ważnym elementem hello chmury hybrydowej połączenia infrastruktury. Następnie utworzy odpowiedni element lokalnymi.
 
 <a name="InstallHCM"></a>
 
-## <a name="d-install-the-on-premises-hybrid-connection-manager-to-complete-the-connection"></a>D. Zainstaluj Menedżera połączeń hybrydowych lokalnego, aby nawiązać połączenie
+## <a name="d-install-hello-on-premises-hybrid-connection-manager-toocomplete-hello-connection"></a>D. Zainstaluj hello lokalnego Menedżera połączeń hybrydowych toocomplete hello połączenia
 [!INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
-Teraz, infrastruktura hybrydowa połączenie zostanie zakończone, spowoduje utworzenie aplikacji sieci web, która korzysta z niego.
+Po zakończeniu tego połączenia infrastruktura hybrydowa hello spowoduje utworzenie aplikacji sieci web, która korzysta z niego.
 
 <a name="CreateASPNET"></a>
 
-## <a name="e-create-a-basic-aspnet-web-project-edit-the-database-connection-string-and-run-the-project-locally"></a>E. Tworzenie podstawowego projektu sieci web programu ASP.NET, Edytuj parametry połączenia bazy danych i uruchamianie projektu lokalnie
+## <a name="e-create-a-basic-aspnet-web-project-edit-hello-database-connection-string-and-run-hello-project-locally"></a>E. Utworzyć podstawowy projekt sieci web ASP.NET, Edytuj parametry połączenia bazy danych hello i uruchomić projekt hello lokalnie
 ### <a name="create-a-basic-aspnet-project"></a>Tworzenie podstawowego projektu programu ASP.NET
-1. W programie Visual Studio na **pliku** menu, Utwórz nowy projekt:
+1. W programie Visual Studio na powitania **pliku** menu, Utwórz nowy projekt:
    
     ![Nowy projekt programu Visual Studio][HCVSNewProject]
-2. W **szablony** sekcji **nowy projekt** okno dialogowe, wybierz opcję **sieci Web** i wybierz polecenie **aplikacji sieci Web ASP.NET**, a następnie kliknij przycisk **OK**.
+2. W hello **szablony** sekcji hello **nowy projekt** okno dialogowe, wybierz opcję **sieci Web** i wybierz polecenie **aplikacji sieci Web ASP.NET**, a następnie kliknij przycisk  **OK**.
    
     ![Wybierz aplikację sieci Web ASP.NET][HCVSChooseASPNET]
-3. W **nowy projekt ASP.NET** okno dialogowe, wybierz **MVC**, a następnie kliknij przycisk **OK**.
+3. W hello **nowy projekt ASP.NET** okno dialogowe, wybierz **MVC**, a następnie kliknij przycisk **OK**.
    
     ![Wybierz MVC][HCVSChooseMVC]
-4. Po utworzeniu projektu, zostanie wyświetlona strona readme aplikacji. Nie należy jeszcze uruchamiać projektu sieci web.
+4. Po utworzeniu projektu hello, zostanie wyświetlona strona readme aplikacji hello. Nie należy jeszcze uruchamiać hello projektu sieci web.
    
     ![Stronę Readme][HCVSReadmePage]
 
-### <a name="edit-the-database-connection-string-for-the-application"></a>Edytuj parametry połączenia bazy danych dla aplikacji
-W tym kroku możesz edytować parametry połączenia, które informuje aplikacji, gdzie można znaleźć lokalnej bazy danych programu SQL Server Express. Parametry połączenia są w pliku Web.config aplikacji, który zawiera informacje o konfiguracji dla aplikacji.
+### <a name="edit-hello-database-connection-string-for-hello-application"></a>Edytuj parametry połączenia bazy danych hello aplikacji hello
+W tym kroku, Edytuj parametry połączenia hello informujący o posiadanych aplikacji gdzie toofind Twojego lokalny program SQL Server Express bazy danych. Parametry połączenia Hello są w pliku Web.config aplikacji hello, który zawiera informacje dotyczące konfiguracji aplikacji hello.
 
 > [!NOTE]
-> Aby upewnić się, że aplikacja korzysta z bazy danych utworzonej w programu SQL Server Express, a nie do domyślnej programu Visual Studio LocalDB, ważne jest ukończenia tego kroku przed uruchomieniem projektu.
+> tooensure używanych przez aplikację hello bazy danych, utworzony w programu SQL Server Express, a nie hello jedną domyślnej programu Visual Studio LocalDB, ważne jest ukończenia tego kroku przed uruchomieniem projektu.
 > 
 > 
 
-1. W Eksploratorze rozwiązań kliknij dwukrotnie plik Web.config.
+1. W Eksploratorze rozwiązań kliknij dwukrotnie plik Web.config hello.
    
     ![Web.config][HCVSChooseWebConfig]
-2. Edytuj **connectionStrings** sekcji, aby wskazywał bazy danych programu SQL Server na komputerze lokalnym, składni w następującym przykładzie:
+2. Edytuj hello **connectionStrings** bazy danych programu SQL Server toohello toopoint sekcji na komputerze lokalnym, składni hello w hello poniższy przykład:
    
     ![Parametry połączenia][HCVSConnectionString]
    
-    Podczas tworzenia ciągu połączenia, należy pamiętać następujące czynności:
+    Tworząc hello parametry połączenia, należy uwzględnić następujące hello:
    
-   * Jeśli łączysz się z wystąpieniem nazwanym, a wystąpienia domyślnego (na przykład YourServer\SQLEXPRESS), należy skonfigurować program SQL Server do korzystania z portów statycznych. Informacje dotyczące konfigurowania portów statycznych, zobacz [sposób konfigurowania programu SQL Server do nasłuchiwania na konkretnym porcie](http://support.microsoft.com/kb/823938). Domyślnie nazwane wystąpienia używają protokołów UDP i porty dynamiczne, które nie są obsługiwane przez połączeń hybrydowych było możliwe.
-   * Zalecane jest, aby określić port (1433 domyślnie, jak pokazano w przykładzie) w parametrach połączenia, dzięki czemu użytkownik może upewnij się, że lokalny serwer SQL został włączony protokół TCP i używa poprawnego portu.
-   * Pamiętaj, aby używać uwierzytelniania programu SQL Server do połączenia, określenie Identyfikatora użytkownika i hasła w ciągu połączenia.
-3. Kliknij przycisk **zapisać** w programie Visual Studio można zapisać pliku Web.config.
+   * Jeśli łączysz tooa nazwanego wystąpienia, a nie wystąpienia domyślnego (na przykład YourServer\SQLEXPRESS), należy skonfigurować porty statycznych toouse programu SQL Server. Informacje dotyczące konfigurowania portów statycznych, zobacz [jak tooconfigure toolisten programu SQL Server na określonym porcie](http://support.microsoft.com/kb/823938). Domyślnie nazwane wystąpienia używają protokołów UDP i porty dynamiczne, które nie są obsługiwane przez połączeń hybrydowych było możliwe.
+   * Zaleca się, że podajesz hello portu (1433 domyślnie, jak pokazano w przykładzie hello) na powitania parametry połączenia, dzięki czemu można mieć pewność, że lokalny serwer SQL został włączony protokół TCP i korzysta z poprawnego portu hello.
+   * Należy pamiętać, tooconnect uwierzytelniania programu SQL Server toouse, określając hello identyfikator użytkownika i hasło w ciągu połączenia.
+3. Kliknij przycisk **zapisać** w pliku Web.config hello toosave programu Visual Studio.
 
-### <a name="run-the-project-locally-and-register-a-new-user"></a>Uruchamianie projektu lokalnie i zarejestrować nowego użytkownika
-1. Teraz Uruchom nowego projektu sieci web lokalnie, klikając przycisk przeglądania w obszarze debugowania. W tym przykładzie użyto programu Internet Explorer.
+### <a name="run-hello-project-locally-and-register-a-new-user"></a>Uruchom projekt hello lokalnie i zarejestrować nowego użytkownika
+1. Teraz Uruchom nowego projektu sieci web lokalnie przez kliknięcie przycisku Przeglądaj hello w obszarze debugowania. W tym przykładzie użyto programu Internet Explorer.
    
     ![Uruchom projekt][HCVSRunProject]
-2. W prawym górnym rogu domyślnej strony sieci web, wybierz polecenie **zarejestrować** zarejestrować nowe konto:
+2. Na powitania prawym górnym rogu hello domyślnej strony sieci web, wybierz **zarejestrować** tooregister nowe konto:
    
     ![Zarejestruj nowe konto][HCVSRegisterLocally]
 3. Wprowadź nazwę użytkownika i hasło:
    
     ![Wprowadź nazwę użytkownika i hasło][HCVSCreateNewAccount]
    
-    Powoduje to automatyczne utworzenie bazy danych na serwerze SQL lokalnej, która przechowuje informacje o członkostwie dla aplikacji. Jedną z tabel (**dbo. AspNetUsers**) blokad sieci web poświadczenia użytkownika aplikacji, takich jak te, które zostały wprowadzone. Zobaczysz tej tabeli później w samouczku.
-4. Zamknij okno przeglądarki domyślnej strony sieci web. Powoduje to zatrzymanie aplikacji w programie Visual Studio.
+    Powoduje to automatyczne utworzenie bazy danych na serwerze SQL lokalne powitania informacje członkostwa aplikacji. Jedną z tabel hello (**dbo. AspNetUsers**) poświadczenia użytkownika aplikacji, takich jak te, które zostały wprowadzone hello sieci web blokad. Później w samouczku hello, pojawi się w tej tabeli.
+4. Zamknij okno przeglądarki hello hello domyślnej strony sieci web. Powoduje to zatrzymanie aplikacji hello w programie Visual Studio.
 
-Teraz można przystąpić do następnego kroku, która umożliwia publikowanie aplikacji na platformie Azure i przetestować go.
+Są teraz gotowe do następnego kroku hello, czyli tooAzure aplikacji hello toopublish i przetestować go.
 
 <a name="PubNTest"></a>
 
-## <a name="f-publish-the-web-application-to-azure-and-test-it"></a>F. Publikowanie aplikacji sieci web na platformie Azure i przetestować go
-Teraz będziesz opublikować aplikację do aplikacji sieci web usługi aplikacji, a następnie sprawdź go, aby sprawdzić, jak jest używane przez skonfigurowane wcześniej połączenie hybrydowe także łączenie aplikacji sieci web do bazy danych na komputerze lokalnym.
+## <a name="f-publish-hello-web-application-tooazure-and-test-it"></a>F. Publikowanie tooAzure aplikacji sieci web hello i przetestować go
+Teraz, należy opublikować Twojej aplikacji tooyour aplikacji sieci web usługi aplikacji i przetestowanie toosee jak jest połączenie hybrydowe hello skonfigurowane wcześniej są używane tooconnect bazy danych toohello aplikacji sieci web na komputerze lokalnym.
 
-### <a name="publish-the-web-application"></a>Publikowanie aplikacji sieci web
-1. Można pobrać profilu publikowania dla aplikacji sieci web usługi aplikacji w portalu Azure. W bloku aplikacja sieci web, kliknij przycisk **profilu publikowania Get**, a następnie zapisz plik na komputerze.
+### <a name="publish-hello-web-application"></a>Publikowanie aplikacji sieci web hello
+1. Można pobrać profilu publikowania dla aplikacji sieci web usługi aplikacji w portalu Azure hello hello. Na powitania bloku aplikacji sieci web, kliknij przycisk **Get profilu publikowania**, a następnie zapisz hello pliku tooyour komputera.
    
     ![Pobieranie profilu publikowania][PortalDownloadPublishProfile]
    
     Zostanie następnie zaimportować ten plik do aplikacji sieci web programu Visual Studio.
-2. W programie Visual Studio, kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań i wybierz **publikowania**.
+2. W programie Visual Studio, kliknij prawym przyciskiem myszy nazwę projektu hello w Eksploratorze rozwiązań i wybierz **publikowania**.
    
     ![Wybierz publikowania][HCVSRightClickProjectSelectPublish]
-3. W **publikowanie w sieci Web** okna dialogowego na **profilu** , wybierz pozycję **importu**.
+3. W hello **publikowanie w sieci Web** okna dialogowego na powitania **profilu** , wybierz pozycję **importu**.
    
     ![Import][HCVSPublishWebDialogImport]
-4. Przejdź do pobrany profil publikowania, zaznacz go, a następnie kliknij **OK**.
+4. Przeglądaj tooyour pobrany profil publikowania, zaznacz go, a następnie kliknij **OK**.
    
-    ![Przejdź do profilu][HCVSBrowseToImportPubProfile]
-5. Publikowanie informacji jest importowany i wyświetla na **połączenia** karcie okna dialogowego.
+    ![Przeglądaj tooprofile][HCVSBrowseToImportPubProfile]
+5. Publikowanie informacji jest importowany i wyświetla na powitania **połączenia** kartę hello okna dialogowego.
    
     ![Kliknij przycisk Publikuj][HCVSClickPublish]
    
     Kliknij przycisk **Opublikuj**.
    
-    Po ukończeniu publikowania przeglądarki będzie uruchomić i pokazać teraz znanych aplikacji ASP.NET--z tą różnicą, że jest teraz na żywo w chmurze Azure!
+    Po ukończeniu publikowania przeglądarki będzie uruchomić i pokazać teraz znanych aplikacji ASP.NET--z tą różnicą, że jest teraz na żywo w hello chmury Azure!
 
-Następnie użyje aplikacji sieci web na żywo aby zobaczyć jego połączenia hybrydowego, w akcji.
+Następnie użyjesz toosee aplikacji sieci web na żywo połączenie hybrydowe w akcji.
 
-### <a name="test-the-completed-web-application-on-azure"></a>Testowanie ukończonej aplikacji sieci web na platformie Azure
-1. U góry po prawej stronie sieci web na platformie Azure, wybierz **Zaloguj**.
+### <a name="test-hello-completed-web-application-on-azure"></a>Test hello ukończone aplikacji sieci web na platformie Azure
+1. U góry powitania po prawej stronie sieci web na platformie Azure, wybierz **Zaloguj**.
    
     ![Dziennik testu w][HCTestLogIn]
-2. Aplikacja sieci web usługi aplikacji jest teraz połączenie bazy danych członkostwa aplikacji sieci web na komputerze lokalnym. Aby to sprawdzić, zaloguj się za pomocą tych samych poświadczeń, które wcześniej wprowadzony w lokalnej bazie danych.
+2. Usługi aplikacji, których aplikacja sieci web jest teraz połączona bazy danych członkostwa aplikacji sieci web tooyour na komputerze lokalnym. tooverify, zaloguj się przy użyciu tych samych poświadczeń, które należy wprowadzić w lokalne powitania bazy danych wcześniej hello.
    
     ![Witaj pozdrowienia][HCTestHelloContoso]
-3. Dodatkowo sprawdź nowe połączenie hybrydowe, wylogować się z aplikacji sieci web platformy Azure i Zarejestruj się jako inny użytkownik. Podaj nową nazwę użytkownika i hasło, a następnie kliknij przycisk **zarejestrować**.
+3. toofurther przetestuj nowe połączenie hybrydowe, wylogować się z aplikacji sieci web platformy Azure i Zarejestruj się jako inny użytkownik. Podaj nową nazwę użytkownika i hasło, a następnie kliknij przycisk **zarejestrować**.
    
     ![Test zarejestrować innego użytkownika][HCTestRegisterRelecloud]
-4. Aby zweryfikować, że poświadczenia nowego użytkownika były przechowywane w lokalnej bazie danych za pośrednictwem połączenia hybrydowe, Otwórz program SQL Management Studio na komputerze lokalnym. W Eksploratorze obiektów rozwiń **MembershipDB** bazy danych, a następnie rozwiń **tabel**. Kliknij prawym przyciskiem myszy **dbo. AspNetUsers** członkostwa tabeli i wybierz polecenie **zaznacz 1000 pierwszych wierszy** , aby wyświetlić wyniki.
+4. tooverify hello nowe poświadczenia użytkownika były przechowywane w lokalnej bazie danych za pośrednictwem połączenia hybrydowe, Otwórz program SQL Management Studio na komputerze lokalnym. W Eksploratorze obiektów rozwiń hello **MembershipDB** bazy danych, a następnie rozwiń **tabel**. Kliknij prawym przyciskiem myszy hello **dbo. AspNetUsers** członkostwa tabeli i wybierz polecenie **zaznacz 1000 pierwszych wierszy** tooview hello wyników.
    
-    ![Wyświetlenie wyników][HCTestSSMSTree]
-5. Członkostwo w lokalnej tabeli teraz zawiera oba konta — ten, który został utworzony lokalnie, a ten, który został utworzony w chmurze Azure. Ten, który został utworzony w chmurze zostały zapisane w lokalnej bazie danych za pomocą funkcji połączenie hybrydowe platformy Azure.
+    ![Wyświetl wyniki hello][HCTestSSMSTree]
+5. Członkostwo w lokalnej tabeli teraz zawiera oba konta — Witaj, został utworzony lokalnie i hello został utworzony w hello chmury Azure. Witaj, został utworzony w chmurze hello został zapisany tooyour lokalną bazą danych za pomocą funkcji połączenie hybrydowe platformy Azure.
    
     ![Zarejestrowani użytkownicy w lokalnej bazie danych][HCTestShowMemberDb]
 
-Możesz teraz utworzeniu i wdrożeniu aplikacji sieci web ASP.NET, która używa połączenie hybrydowe między aplikacji sieci web w chmurze platformy Azure i lokalną bazą danych programu SQL Server. Gratulacje!
+Możesz teraz utworzeniu i wdrożeniu aplikacji sieci web ASP.NET, która używa połączenie hybrydowe między aplikacji sieci web w hello chmury Azure i lokalną bazą danych programu SQL Server. Gratulacje!
 
 ## <a name="see-also"></a>Zobacz też
 [Omówienie połączeń hybrydowych](http://go.microsoft.com/fwlink/p/?LinkID=397274)

@@ -1,6 +1,6 @@
 ---
-title: "Utwórz tożsamość aplikacji usługi Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób tworzenia aplikacji usługi Azure Active Directory i nazwy głównej usługi i przyznać jej dostęp do zasobów za pomocą kontroli dostępu opartej na rolach przy użyciu programu Azure PowerShell. Widoczny jest sposób uwierzytelniania aplikacji za pomocą hasła lub certyfikatu."
+title: "tożsamość aaaCreate dla aplikacji platformy Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób toouse programu Azure PowerShell toocreate aplikację usługi Azure Active Directory i nazwy głównej usługi i przyznać dostęp do tooresources za pomocą dostępu opartej na rolach kontroli. Widoczny jest sposób tooauthenticate aplikacji za pomocą hasła lub certyfikatu."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 55e83b0742652abbb42100a11a468bc13a7a8aed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c534360799b590054a051e4426e5e27dccb559b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)
+# <a name="use-azure-powershell-toocreate-a-service-principal-tooaccess-resources"></a>Użyj programu Azure PowerShell toocreate zasobów tooaccess głównej usługi
 
-Jeśli aplikacji lub skryptu, który ma dostęp do zasobów, można skonfigurować tożsamości aplikacji i uwierzytelniania w aplikacji przy użyciu własne poświadczenia. Ta tożsamość jest określany jako nazwy głównej usługi. Takie podejście umożliwia:
+Gdy aplikacja lub skrypt, który wymaga tooaccess zasobów, można skonfigurować tożsamości dla aplikacji hello i uwierzytelniania aplikacji hello z własne poświadczenia. Ta tożsamość jest określany jako nazwy głównej usługi. Takie podejście umożliwia:
 
-* Przypisanie uprawnień do tożsamości aplikacji, które są inne niż własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone do dokładnie co aplikacja powinna wykonać.
+* Przypisz uprawnienia toohello tożsamości aplikacji, które są inne niż własnych uprawnień. Zazwyczaj te uprawnienia są ograniczone tooexactly jakie aplikacji hello musi toodo.
 * Użyj certyfikatu do uwierzytelnienia, podczas wykonywania skryptu instalacji nienadzorowanej.
 
-W tym temacie przedstawiono sposób użycia [programu Azure PowerShell](/powershell/azure/overview) skonfigurować wszystkie elementy potrzebne do uruchamiana własne poświadczenia i tożsamości aplikacji.
+W tym temacie opisano sposób toouse [programu Azure PowerShell](/powershell/azure/overview) tooset się wszystkie elementy potrzebne do toorun aplikacji w ramach własnej poświadczeń i tożsamości.
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
-Do ukończenia tego tematu, należy posiadać odpowiednie uprawnienia w usłudze Azure Active Directory i Twojej subskrypcji platformy Azure. W szczególności należy utworzyć aplikację w usłudze Azure Active Directory i przypisać nazwę główną usługi do roli. 
+toocomplete tego tematu, należy posiadać odpowiednie uprawnienia w usłudze Azure Active Directory i Twojej subskrypcji platformy Azure. W szczególności muszą być stanie toocreate aplikację w hello Azure Active Directory i przypisz rolę tooa główna usługi hello. 
 
-Najłatwiejszym sposobem sprawdzenia, czy Twoje konto ma odpowiednie uprawnienia, jest skorzystanie z portalu. Zobacz [, czy wymagane uprawnienia](resource-group-create-service-principal-portal.md#required-permissions).
+Hello jest czy Twoje konto ma odpowiednie uprawnienia za pośrednictwem portalu hello najprostszym toocheck sposób. Zobacz [, czy wymagane uprawnienia](resource-group-create-service-principal-portal.md#required-permissions).
 
-Teraz przejdź do sekcji w celu uwierzytelniania z:
+Rozpoczęta tooa sekcji w celu uwierzytelniania z:
 
 * [hasło](#create-service-principal-with-password)
 * [certyfikat z podpisem własnym](#create-service-principal-with-self-signed-certificate)
@@ -42,17 +42,17 @@ Teraz przejdź do sekcji w celu uwierzytelniania z:
 
 ## <a name="powershell-commands"></a>Polecenia programu PowerShell
 
-Aby skonfigurować nazwy głównej usługi, należy użyć:
+tooset się nazwy głównej usługi, należy użyć:
 
 | Polecenie | Opis |
 | ------- | ----------- | 
 | [Nowe AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Tworzy nazwę główną usługi Azure Active Directory |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Przypisuje określonej roli RBAC określony podmiot zabezpieczeń w podanym zakresie. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Przypisuje hello określony RBAC roli toohello określony podmiot zabezpieczeń, na powitania określony zakres. |
 
 
 ## <a name="create-service-principal-with-password"></a>Tworzenie nazwy głównej usługi z hasłem
 
-Aby utworzyć nazwy głównej usługi roli współautora dla Twojej subskrypcji, należy użyć: 
+toocreate Użyj nazwy głównej usługi z hello roli współautora dla Twojej subskrypcji: 
 
 ```powershell
 Login-AzureRmAccount
@@ -61,18 +61,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu."
+przykład Witaj zostanie uśpiony na 20 sekund tooallow trochę czasu, zanim hello nowej usługi głównej toopropagate w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu hello."
 
-Poniższy skrypt można określić zakres innych niż domyślne subskrypcji i ponowi próbę przypisania roli, jeśli wystąpi błąd:
+Hello poniższy skrypt pozwala toospecify zakresu innego niż hello domyślne subskrypcji, oraz liczbę ponownych prób hello przypisania roli, jeśli wystąpi błąd:
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -105,7 +105,7 @@ Param (
  }
 
  
- # Create Service Principal for the AD app
+ # Create Service Principal for hello AD app
  $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
@@ -113,7 +113,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -121,24 +121,24 @@ Param (
  }
 ```
 
-Kilka elementów należy pamiętać o skrypt:
+Kilka elementów toonote dotyczące skryptu hello:
 
-* Aby udzielić dostępu tożsamości do subskrypcji domyślne, nie należy podać parametry grupa zasobów lub subskrypcji o identyfikatorze.
-* Określ parametr ResourceGroup tylko wtedy, gdy chcesz ograniczyć zakres przypisania roli do grupy zasobów.
-*  W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu."
-* Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
+* toogrant hello tożsamości dostępu toohello Domyślna subskrypcja nie ma potrzeby tooprovide ResourceGroup lub SubscriptionId parametrów.
+* Parametr hello ResourceGroup tylko wtedy, gdy chcesz toolimit hello zakres grupy zasobów tooa przypisania roli hello.
+*  W tym przykładzie możesz dodać roli współautora toohello główna usługi hello. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
+* skrypt Hello zostanie uśpiony na 15 sekund tooallow trochę czasu, zanim hello nowej usługi głównej toopropagate w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu hello."
+* Jeśli potrzebujesz toogrant hello usługi głównej dostępu toomore subskrypcji lub grupy zasobów, uruchom hello `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
 
 ### <a name="provide-credentials-through-powershell"></a>Podaj poświadczenia, za pomocą programu PowerShell
-Teraz musisz zalogować się jako aplikacji w celu wykonania operacji. Dla nazwy użytkownika użyj `ApplicationId` utworzonej dla aplikacji. Hasła należy użyć jednej określone podczas tworzenia konta. 
+Teraz należy toolog w jako operacji tooperform aplikacji hello. Dla nazwy użytkownika hello, użyj hello `ApplicationId` utworzonej dla aplikacji hello. Hello hasła należy użyć hello jedną określone podczas tworzenia konta hello. 
 
 ```powershell   
 $creds = Get-Credential
 Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
 ```
 
-Identyfikator dzierżawcy nie jest liter, dlatego można ją osadzić bezpośrednio w skrypcie. Można pobrać Identyfikatora dzierżawy, należy użyć:
+Hello identyfikator dzierżawcy nie jest liter, dlatego można ją osadzić bezpośrednio w skrypcie. Identyfikator dzierżawy hello tooretrieve, należy użyć:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -146,7 +146,7 @@ Identyfikator dzierżawcy nie jest liter, dlatego można ją osadzić bezpośred
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Tworzenie nazwy głównej usługi o certyfikat z podpisem własnym
 
-Aby utworzyć nazwy głównej usługi o certyfikat z podpisem własnym i roli współautora dla Twojej subskrypcji, należy użyć: 
+toocreate Użyj nazwy głównej usługi o certyfikat z podpisem własnym i hello roli współautora dla Twojej subskrypcji: 
 
 ```powershell
 Login-AzureRmAccount
@@ -158,18 +158,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Przykład zostanie uśpiony na 20 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu."
+przykład Witaj zostanie uśpiony na 20 sekund tooallow trochę czasu, zanim hello nowej usługi głównej toopropagate w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu hello."
 
-Poniższy skrypt można określić zakres innych niż domyślne subskrypcji i ponowi próbę przypisania roli, jeśli wystąpi błąd. Musi mieć Azure PowerShell 2.0 w systemie Windows 10 lub Windows Server 2016.
+Hello poniższy skrypt pozwala toospecify zakresu innego niż hello domyślne subskrypcji, oraz liczbę ponownych prób hello przypisania roli, jeśli wystąpi błąd. Musi mieć Azure PowerShell 2.0 w systemie Windows 10 lub Windows Server 2016.
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -208,7 +208,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -216,22 +216,22 @@ Param (
  }
 ```
 
-Kilka elementów należy pamiętać o skrypt:
+Kilka elementów toonote dotyczące skryptu hello:
 
-* Aby udzielić dostępu tożsamości do subskrypcji domyślne, nie należy podać parametry grupa zasobów lub subskrypcji o identyfikatorze.
-* Określ parametr ResourceGroup tylko wtedy, gdy chcesz ograniczyć zakres przypisania roli do grupy zasobów.
-* W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu."
-* Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
+* toogrant hello tożsamości dostępu toohello Domyślna subskrypcja nie ma potrzeby tooprovide ResourceGroup lub SubscriptionId parametrów.
+* Parametr hello ResourceGroup tylko wtedy, gdy chcesz toolimit hello zakres grupy zasobów tooa przypisania roli hello.
+* W tym przykładzie możesz dodać roli współautora toohello główna usługi hello. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
+* skrypt Hello zostanie uśpiony na 15 sekund tooallow trochę czasu, zanim hello nowej usługi głównej toopropagate w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu hello."
+* Jeśli potrzebujesz toogrant hello usługi głównej dostępu toomore subskrypcji lub grupy zasobów, uruchom hello `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
-Jeśli użytkownik **bez zainstalowanego systemu Windows 10 lub Windows Server 2016 Technical Preview**, należy pobrać [generator certyfikatu z podpisem własnym](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) z Microsoft Script Center. Wyodrębnij jego zawartość i zaimportuj polecenia cmdlet, które są potrzebne.
+Jeśli użytkownik **bez zainstalowanego systemu Windows 10 lub Windows Server 2016 Technical Preview**, należy toodownload hello [generator certyfikatu z podpisem własnym](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) z Microsoft Script Center. Wyodrębnij jego zawartość i zaimportuj hello polecenia cmdlet, które są potrzebne.
 
 ```powershell  
 # Only run if you could not use New-SelfSignedCertificate
 Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 ```
   
-W skrypcie Zastąp następujące dwa wiersze w celu wygenerowania certyfikatu.
+W skrypcie hello Zastąp następujące dwa wiersze toogenerate hello certyfikatu hello.
   
 ```powershell
 New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
@@ -239,7 +239,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Podaj certyfikat przy użyciu zautomatyzowanego skryptu PowerShell
-Gdy zalogujesz się jako nazwy głównej usługi, należy podać identyfikator dzierżawcy katalogu dla aplikacji usługi AD. Dzierżawa jest wystąpieniem usługi Azure Active Directory. Jeśli masz tylko jedną subskrypcję, należy użyć:
+Gdy zalogujesz się jako nazwy głównej usługi, potrzebny jest identyfikator dzierżawcy hello tooprovide hello katalogu dla aplikacji usługi AD. Dzierżawa jest wystąpieniem usługi Azure Active Directory. Jeśli masz tylko jedną subskrypcję, należy użyć:
 
 ```powershell
 Param (
@@ -258,20 +258,20 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-Identyfikator aplikacji i Identyfikatora dzierżawcy nie są poufne, więc można go osadzić bezpośrednio w skrypcie. Można pobrać Identyfikatora dzierżawy, należy użyć:
+aplikacji Hello identyfikator i identyfikator dzierżawy nie są liter, więc można go osadzić bezpośrednio w skrypcie. Identyfikator dzierżawy hello tooretrieve, należy użyć:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Aby uzyskać identyfikator aplikacji, należy użyć:
+Identyfikator aplikacji hello tooretrieve, należy użyć:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Tworzenie nazwy głównej usługi o certyfikat od urzędu certyfikacji
-Aby używać certyfikatu wystawionego przez urząd certyfikacji, tworzenie nazwy głównej usługi, użyj następującego skryptu:
+toouse certyfikat wystawiony przez urząd certyfikacji toocreate nazwy głównej usługi, hello Użyj następującego skryptu:
 
 ```powershell
 Param (
@@ -311,7 +311,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -321,15 +321,15 @@ Param (
  $NewRole
 ```
 
-Kilka elementów należy pamiętać o skrypt:
+Kilka elementów toonote dotyczące skryptu hello:
 
-* Obejmuje dostęp do subskrypcji.
-* W tym przykładzie należy dodać nazwy głównej usługi do roli współautora. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
-* Skrypt zostanie uśpiony na 15 sekund, pewien czas dla nowej usługi głównej propagację w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu."
-* Aby udzielić dostępu główną usługi do więcej subskrypcji lub grupy zasobów, należy uruchomić `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
+* Dostęp jest toohello zakresie subskrypcji.
+* W tym przykładzie możesz dodać roli współautora toohello główna usługi hello. Dla innych ról, zobacz [RBAC: role wbudowane](../active-directory/role-based-access-built-in-roles.md).
+* skrypt Hello zostanie uśpiony na 15 sekund tooallow trochę czasu, zanim hello nowej usługi głównej toopropagate w usłudze Azure Active Directory. Jeśli skrypt nie oczekuje się wystarczająco długi, zobacz błąd z informacją: "PrincipalNotFound: podmiot zabezpieczeń {id} nie istnieje w katalogu hello."
+* Jeśli potrzebujesz toogrant hello usługi głównej dostępu toomore subskrypcji lub grupy zasobów, uruchom hello `New-AzureRMRoleAssignment` polecenie cmdlet ponownie z różnymi zakresami.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Podaj certyfikat przy użyciu zautomatyzowanego skryptu PowerShell
-Gdy zalogujesz się jako nazwy głównej usługi, należy podać identyfikator dzierżawcy katalogu dla aplikacji usługi AD. Dzierżawa jest wystąpieniem usługi Azure Active Directory.
+Gdy zalogujesz się jako nazwy głównej usługi, potrzebny jest identyfikator dzierżawcy hello tooprovide hello katalogu dla aplikacji usługi AD. Dzierżawa jest wystąpieniem usługi Azure Active Directory.
 
 ```powershell
 Param (
@@ -354,13 +354,13 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-Identyfikator aplikacji i Identyfikatora dzierżawcy nie są poufne, więc można go osadzić bezpośrednio w skrypcie. Można pobrać Identyfikatora dzierżawy, należy użyć:
+aplikacji Hello identyfikator i identyfikator dzierżawy nie są liter, więc można go osadzić bezpośrednio w skrypcie. Identyfikator dzierżawy hello tooretrieve, należy użyć:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Aby uzyskać identyfikator aplikacji, należy użyć:
+Identyfikator aplikacji hello tooretrieve, należy użyć:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -368,57 +368,57 @@ Aby uzyskać identyfikator aplikacji, należy użyć:
 
 ## <a name="change-credentials"></a>Zmiana poświadczeń
 
-Aby zmienić poświadczenia dla aplikacji usługi AD, albo z powodu naruszenia zabezpieczeń lub wygaśnięcia poświadczeń, należy użyć [AzureRmADAppCredential Usuń](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) i [AzureRmADAppCredential nowy](/powershell/module/azurerm.resources/new-azurermadappcredential) polecenia cmdlet.
+toochange hello poświadczenia dla aplikacji usługi AD, albo z powodu naruszenia zabezpieczeń lub wygaśnięcia poświadczeń, użyj hello [AzureRmADAppCredential Usuń](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) i [AzureRmADAppCredential nowy](/powershell/module/azurerm.resources/new-azurermadappcredential) polecenia cmdlet.
 
-Aby usunąć wszystkie poświadczenia dla aplikacji, należy użyć:
+tooremove wszystkie hello poświadczenia dla aplikacji, należy użyć:
 
 ```powershell
 Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
 ```
 
-Aby dodać hasło, należy użyć:
+tooadd hasła, należy użyć:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Aby dodać wartość certyfikatu, Utwórz certyfikat z podpisem własnym, jak pokazano w tym temacie. Następnie należy użyć:
+tooadd wartość certyfikatu, utworzyć certyfikatu z podpisem własnym, jak pokazano w tym temacie. Następnie należy użyć:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
 ```
 
-## <a name="save-access-token-to-simplify-log-in"></a>Zapisz token dostępu w celu uproszczenia dziennika w
-Aby uniknąć, podając poświadczenia główne usługi za każdym razem, należy zalogować się, można zapisać tokenu dostępu.
+## <a name="save-access-token-toosimplify-log-in"></a>Zapisz dostępu token toosimplify logowania
+tooavoid udostępnienie hello usługi głównej poświadczeń za każdym razem, gdy musi toolog w, można zapisać hello tokenu dostępu.
 
-Aby użyć bieżącego tokenu dostępu w późniejszym sesji, zapisywanie profilu.
+toouse hello bieżącego tokenu dostępu w sesji nowsze zapisać hello profilu.
    
 ```powershell
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-Otwórz profilu i przejrzyj jego zawartość. Zwróć uwagę, że zawiera on tokenu dostępu. Zamiast ręcznego zalogować się ponownie później, po prostu załadować profilu.
+Otwieranie profilu hello i przejrzyj jego zawartość. Zwróć uwagę, że zawiera on tokenu dostępu. Zamiast ręcznego zalogować się ponownie później, po prostu załadować hello profilu.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
 
 > [!NOTE]
-> Wygaśnięcia tokenu dostępu, dzięki użyciu zapisywanego profilu działa tylko dla, tak długo, jak token jest prawidłowy.
+> token dostępu Hello wygasa, więc za pomocą profilu zapisanych działa tylko dla, tak długo, jak hello token jest prawidłowy.
 >  
 
-Alternatywnie można wywołać operacji REST z programu PowerShell, aby się zalogować. Z odpowiedzi uwierzytelniania można pobrać tokenu dostępu do użycia z innych operacji. Na przykład pobierania tokenu dostępu za pomocą operacji REST, zobacz [generowania tokenu dostępu](resource-manager-rest-api.md#generating-an-access-token).
+Alternatywnie można wywołać operacji REST z toolog programu PowerShell w. Z odpowiedzi uwierzytelniania hello można pobrać tokenu dostępu hello do użytku z innymi operacjami. Na przykład pobierania tokenu dostępu hello przez wywołanie operacji REST, zobacz [generowania tokenu dostępu](resource-manager-rest-api.md#generating-an-access-token).
 
 ## <a name="debug"></a>Debugowanie
 
-Podczas tworzenia nazwy głównej usługi, mogą wystąpić następujące błędy:
+Mogą wystąpić następujące błędy podczas tworzenia nazwy głównej usługi hello:
 
-* **"Authentication_Unauthorized"** lub **"subskrypcji nie znaleziono w kontekście".** — Został wyświetlony ten błąd, gdy Twoje konto nie ma [wymagane uprawnienia](#required-permissions) w usłudze Azure Active Directory w celu rejestracji aplikacji. Zwykle zostanie wyświetlony ten błąd, gdy tylko Administrator użytkowników w usłudze Azure Active Directory można zarejestrować aplikacji, a konto użytkownika nie jest administratorem. Skontaktuj się z administratorem, albo przypisanie do roli administratora lub aby użytkownicy mogli zarejestrować aplikacji.
+* **"Authentication_Unauthorized"** lub **"subskrypcji nie znaleziono w kontekście hello".** — Został wyświetlony ten błąd, gdy Twoje konto nie ma hello [wymagane uprawnienia](#required-permissions) na hello Azure Active Directory tooregister aplikacji. Zwykle zostanie wyświetlony ten błąd, gdy tylko Administrator użytkowników w usłudze Azure Active Directory można zarejestrować aplikacji, a konto użytkownika nie jest administratorem. Poproś tooeither Twojego administratora przypisać możesz tooan rolę administratora lub tooenable użytkowników tooregister aplikacji.
 
-* Twoje konto **"nie ma autoryzacji do wykonania akcji"Microsoft.Authorization/roleAssignments/write"w zakresie"/subscriptions/ {guid}"."**  — Zostanie wyświetlony ten błąd, gdy Twoje konto nie ma wystarczających uprawnień, aby przypisać rolę do tożsamości. Poproś administratora subskrypcji możesz dodać do roli Administrator dostępu użytkowników.
+* Twoje konto **"nie ma autoryzacji tooperform akcji"Microsoft.Authorization/roleAssignments/write"w zakresie"/subscriptions/ {guid}"."**  — Zostanie wyświetlony ten błąd, gdy Twoje konto nie ma wystarczających uprawnień tooassign tożsamości tooan roli. Skontaktuj się z tooadd administratora subskrypcji możesz tooUser dostępu do roli administratora.
 
 ## <a name="sample-applications"></a>Przykładowe aplikacje
-Aby uzyskać informacje o zalogowanie się jako aplikacji za pomocą różnych platform zobacz:
+Aby uzyskać informacje o zalogowanie się jako aplikacji hello za pomocą różnych platform zobacz:
 
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
@@ -427,8 +427,8 @@ Aby uzyskać informacje o zalogowanie się jako aplikacji za pomocą różnych p
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać szczegółowe instrukcje dotyczące integrowania aplikacji na platformie Azure do zarządzania zasobami, zobacz [przewodnik dewelopera do autoryzacji przy użyciu interfejsu API Menedżera zasobów Azure](resource-manager-api-authentication.md).
+* Aby uzyskać szczegółowe instrukcje dotyczące integrowania aplikacji na platformie Azure do zarządzania zasobami, zobacz [tooauthorization przewodnik dewelopera programu z interfejsu API usługi Azure Resource Manager hello](resource-manager-api-authentication.md).
 * Aby uzyskać bardziej szczegółowy opis aplikacji i nazwy główne usług, zobacz [obiekty aplikacji i nazwy głównej usługi](../active-directory/active-directory-application-objects.md). 
 * Aby uzyskać więcej informacji na temat uwierzytelniania usługi Azure Active Directory, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-* Aby uzyskać listę dostępnych akcji, które można udzielić lub odmówić dla użytkowników, zobacz [operacji dostawcy zasobów usługi Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Aby uzyskać listę dostępnych akcji, które można udzielić lub odmówić toousers, zobacz [operacji dostawcy zasobów usługi Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
 

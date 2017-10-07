@@ -1,6 +1,6 @@
 ---
-title: "Zdarzenia w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do zdarzeń dla elementów Reliable Actors sieci szkieletowej usług."
+title: "aaaEvents w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie tooevents dla elementów Reliable Actors sieci szkieletowej usług."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a51e41c35441a5fea508138968b36a35f0ba6699
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="actor-events"></a>Zdarzenia aktora
-Zdarzenia aktora umożliwiają wysyłanie powiadomień optymalnych z aktora do klientów. Aktora zdarzeń są przeznaczone dla komunikacji aktora do klienta i nie powinna być używana do komunikacji aktora aktora.
+Zdarzenia aktora udostępniają sposób toosend optymalnych powiadomienia z hello aktora toohello klientów. Aktora zdarzeń są przeznaczone dla komunikacji aktora do klienta i nie powinna być używana do komunikacji aktora aktora.
 
-Poniższe fragmenty kodu przedstawiają sposób korzystanie ze zdarzeń aktora w aplikacji.
+Hello poniższy kod Pokaż wstawki jak toouse aktora zdarzenia w aplikacji.
 
-Zdefiniuj interfejs, który opisuje zdarzenia opublikowanych przez aktora. Ten interfejs musi pochodzić od `IActorEvents` interfejsu. Argumenty metod muszą być [serializacji kontraktu danych](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metody musi zwracać typ void, jako zdarzenie powiadomienia są jednym ze sposobów i optymalnego.
+Zdefiniuj interfejs, który opisuje zdarzenia hello opublikowanych przez hello aktora. Ten interfejs musi pochodzić z hello `IActorEvents` interfejsu. Witaj argumenty metod hello muszą być [serializacji kontraktu danych](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). metody Hello musi zwracać typ void, jako zdarzenie powiadomienia są jednym ze sposobów i optymalnego.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -39,7 +39,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Deklarowanie zdarzeń, opublikowanych przez aktora w interfejsie aktora.
+Deklarowanie zdarzeń hello opublikowanych przez aktora hello hello aktora interfejsu.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -57,7 +57,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-Po stronie klienta implementacji programu obsługi zdarzeń.
+Na powitania po stronie klienta należy zaimplementować hello obsługi zdarzeń.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -78,7 +78,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-Na komputerze klienckim utworzyć proxy aktora, która publikuje zdarzenia i subskrybowanie jego zdarzeń.
+Na powitania klienta tworzenie aktora toohello serwera proxy, który publikuje hello zdarzeń i subskrypcję tooits zdarzenia.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -93,9 +93,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-W przypadku przełączenia do trybu failover aktora może przełączyć się inny proces lub węzeł. Serwer proxy aktora zarządza aktywne subskrypcje i automatycznie ponownie subskrybuje je. Można kontrolować interwał ponownej subskrypcji za pośrednictwem `ActorProxyEventExtensions.SubscribeAsync<TEvent>` interfejsu API. Aby anulować subskrypcję, należy użyć `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` interfejsu API.
+W przypadku hello przechodzenia w tryb failover aktora hello może zakończyć się niepowodzeniem przez inny proces tooa lub węzeł. Serwer proxy aktora Hello zarządza hello aktywne subskrypcje i automatycznie ponownie je subskrybuje. Można kontrolować interwał ponownej subskrypcji powitania za pośrednictwem hello `ActorProxyEventExtensions.SubscribeAsync<TEvent>` interfejsu API. toounsubscribe, użyj hello `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` interfejsu API.
 
-Na aktora po prostu opublikować zdarzenia wystąpią. W przypadku subskrybentów w zdarzeniu środowiska wykonawczego podmiotów wyśle je powiadomienia.
+Na powitania aktora po prostu publikowanie zdarzeń powitania po ich wprowadzeniu. W przypadku subskrybentów toohello zdarzenia środowiska uruchomieniowego podmiotów hello wyśle je hello powiadomień.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();

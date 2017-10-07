@@ -1,6 +1,6 @@
 ---
-title: "Utwórz pakiet obsługi serii StorSimple 8000 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć, odszyfrowywania i edytować pakiet obsługi dla danego urządzenia z serii StorSimple 8000."
+title: "pakiet obsługi serii StorSimple 8000 aaaCreate | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate, odszyfrowywania i Edytuj pakiet obsługi dla danego urządzenia z serii StorSimple 8000."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,115 +14,115 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857555b6ba31b1527f8f00d19818ebbec6005d0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Tworzenie i zarządzanie nimi pakiet obsługi serii StorSimple 8000
 
 ## <a name="overview"></a>Omówienie
 
-Pakiet obsługi StorSimple jest mechanizm łatwy w użyciu, która gromadzi wszystkie dzienniki odpowiednich pomagające Microsoft Support żadnych problemów urządzenia StorSimple. Dzienniki zbierane są zaszyfrowane i skompresowane.
+Pakiet obsługi StorSimple jest mechanizm łatwy w użyciu, która gromadzi wszystkie dzienniki odpowiednich tooassist Microsoft Support dotyczącą rozwiązywania problemów urządzenia StorSimple. Witaj dzienniki zbierane są zaszyfrowane i skompresowane.
 
-Ten samouczek zawiera instrukcje krok po kroku, aby utworzyć i zarządzać pakietu obsługi dla danego urządzenia z serii StorSimple 8000. Jeśli pracujesz z tablicą wirtualnego StorSimple, przejdź do [generowanie pakietu dziennika](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+Ten samouczek zawiera instrukcje krok po kroku toocreate i zarządzaj nimi hello pakietu obsługi dla danego urządzenia z serii StorSimple 8000. Jeśli pracujesz z tablicą wirtualnego StorSimple, przejdź zbyt[generowanie pakietu dziennika](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="create-a-support-package"></a>Utwórz pakiet pomocy technicznej
 
-W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pośrednictwem programu Windows PowerShell dla urządzenia StorSimple. Na przykład:
+W niektórych przypadkach należy toomanually tworzenia pakietu obsługi hello za pomocą programu Windows PowerShell dla urządzenia StorSimple. Na przykład:
 
-* Jeśli musisz usunąć poufne informacje z plików dziennika przed udostępnianie Support firmy Microsoft.
-* Jeśli masz problemy przekazywanie pakietu z powodu problemów z łącznością.
+* Jeśli potrzebujesz tooremove poufnych informacji z dziennika plików poprzedniego toosharing z Microsoft Support.
+* Jeśli masz problemy przekazywanie pakietu hello powodu tooconnectivity problemów.
 
-Możesz udostępniać pakietu ręcznie wygenerowane pomocy technicznej firmy Microsoft Support za pośrednictwem poczty e-mail. Wykonaj poniższe kroki, aby utworzyć pakiet obsługi w programie Windows PowerShell dla StorSimple.
+Możesz udostępniać pakietu ręcznie wygenerowane pomocy technicznej firmy Microsoft Support za pośrednictwem poczty e-mail. Wykonaj następujące kroki toocreate pakiet obsługi w programie Windows PowerShell dla urządzenia StorSimple hello.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Aby utworzyć pakiet pomocy technicznej w programie Windows PowerShell dla urządzenia StorSimple
+#### <a name="toocreate-a-support-package-in-windows-powershell-for-storsimple"></a>toocreate pakiet obsługi w programie Windows PowerShell dla urządzenia StorSimple
 
-1. Aby rozpocząć sesję programu Windows PowerShell jako administrator na komputerze zdalnym, który jest używany do nawiązania połączenia urządzenia StorSimple, wprowadź następujące polecenie:
+1. toostart sesję programu Windows PowerShell jako administrator na komputerze zdalnym hello, który został użyty tooconnect tooyour urządzenia StorSimple, wprowadź hello następujące polecenie:
    
     `Start PowerShell`
-2. W sesji środowiska Windows PowerShell połączenie z konsolą SSAdmin urządzenia:
+2. W sesji środowiska Windows PowerShell hello Podłącz toohello konsoli SSAdmin urządzenia:
    
-   1. W wierszu polecenia wpisz:
+   1. Witaj wiersza polecenia wpisz:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. W otwartym oknie dialogowym Wprowadź hasło administratora urządzenia. Domyślne hasło jest _Password1_.
+   2. Okno dialogowe hello otwiera wprowadź hasło administratora urządzenia. Witaj domyślne hasło jest _Password1_.
      
       ![Okno dialogowe poświadczenie programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Kliknij przycisk **OK**.
-   4. W wierszu polecenia wpisz:
+   4. Witaj wiersza polecenia wpisz:
      
       `Enter-PSSession $MS`
-3. W sesji, który zostanie otwarty wprowadź odpowiednie polecenie.
+3. W sesji hello, który zostanie otwarty wprowadź odpowiednie polecenie hello.
    
    * Udziały sieciowe, które są chronione hasłem wpisz:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
      
-       Zostanie wyświetlony monit o podanie hasła, ścieżka do udostępnionego folderu sieciowego i hasło szyfrowania (ponieważ pakietu obsługi jest zaszyfrowany). Pakiet obsługi jest tworzona w określonym folderze.
-   * W przypadku udziałów, które nie są chronione hasłem, nie trzeba `-Credential` parametru. Wprowadź następujące informacje:
+       Zostanie wyświetlony monit o hasło, ścieżka folderu udostępnionego toohello sieci oraz hasło szyfrowania (ponieważ pakietu obsługi hello jest zaszyfrowany). W określonym folderze hello zostanie utworzona pakiet obsługi.
+   * W przypadku udziałów, które nie są chronione hasłem, nie trzeba hello `-Credential` parametru. Wprowadź poniżej hello:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
      
-       Dla obu kontrolerów w udostępnionym folderze sieciowym określonym zostaje utworzony pakiet pomocy technicznej. Jest to plik zaszyfrowanych, skompresowanych, który można wysłać do firmy Microsoft Support do rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
+       Pakiet pomocy technicznej Hello został utworzony dla obu kontrolerów w folderze udostępnionym hello określonej sieci. Jest to plik zaszyfrowanych, skompresowanych, który można wysłać tooMicrosoft pomocy technicznej do rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [skontaktuj się z pomocą techniczną firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Parametry polecenia cmdlet Export-HcsSupportPackage
+### <a name="hello-export-hcssupportpackage-cmdlet-parameters"></a>Parametry polecenia cmdlet Hello HcsSupportPackage eksportu
 
-Można używać następujących parametrów, za pomocą polecenia cmdlet Export-HcsSupportPackage.
+Można użyć następujących parametrów polecenia cmdlet hello HcsSupportPackage eksportu hello.
 
 | Parametr | Wymagane opcjonalne | Opis |
 | --- | --- | --- |
-| `-Path` |Wymagane |Użyj, aby podać lokalizację folderu udostępnionego sieci, w której znajduje się pakiet pomocy technicznej. |
-| `-EncryptionPassphrase` |Wymagane |Użyj, aby podać hasło, aby zaszyfrować pakiet pomocy technicznej. |
-| `-Credential` |Optional (Opcjonalność) |Użyj, aby podać poświadczenia dostępu do udostępnionego folderu sieciowego. |
-| `-Force` |Optional (Opcjonalność) |Użyj, aby pominąć krok potwierdzenie hasła szyfrowania. |
-| `-PackageTag` |Optional (Opcjonalność) |Użyj, aby określić katalog w *ścieżki* w znajduje się pakiet pomocy technicznej. Wartość domyślna to [nazwa]-[bieżącą datę i time:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |Optional (Opcjonalność) |Określ jako **klastra** (ustawienie domyślne), aby utworzyć pakiet pomocy technicznej dla obu kontrolerów. Jeśli chcesz utworzyć pakiet tylko dla bieżącego kontrolera, określ **kontrolera**. |
+| `-Path` |Wymagane |Użyj lokalizacji hello tooprovide sieciowy folder udostępniony hello, w których hello znajduje się pakiet pomocy technicznej. |
+| `-EncryptionPassphrase` |Wymagane |Użyj tooprovide toohelp hasło szyfrowania hello pakietu obsługi. |
+| `-Credential` |Optional (Opcjonalność) |Użyj poświadczeń dostępu toosupply dla hello udostępnionego folderu sieciowego. |
+| `-Force` |Optional (Opcjonalność) |Użyj tooskip hello szyfrowania hasła potwierdzenie kroku. |
+| `-PackageTag` |Optional (Opcjonalność) |Użyj toospecify w katalogu *ścieżki* w obsłudze hello, który znajduje się pakiet. Domyślna Hello to [nazwa]-[bieżącą datę i time:yyyy-MM-dd-HH-mm-ss]. |
+| `-Scope` |Optional (Opcjonalność) |Określ jako **klastra** toocreate (ustawienie domyślne) pakiet obsługi dla obu kontrolerów. Jeśli tylko dla bieżącego kontrolera hello toocreate pakietu, określić **kontrolera**. |
 
 ## <a name="edit-a-support-package"></a>Edytuj pakiet pomocy technicznej
 
-Po wygenerowaniu pakietu obsługi może być konieczne Edytuj pakiet, aby usunąć informacje poufne. Mogą to być nazwy woluminów, urządzenia adresów IP i nazwy kopii zapasowej z plików dziennika.
+Po wygenerowaniu pakietu obsługi może być konieczne tooedit hello pakietu tooremove poufne informacje. Mogą to być nazwy woluminów, urządzenia adresów IP i nazwy kopii zapasowej z plików dziennika hello.
 
 > [!IMPORTANT]
-> Można edytować tylko pakietu obsługi, który został wygenerowany za pomocą programu Windows PowerShell dla StorSimple. Nie można edytować pakiet utworzony w portalu Azure w usłudze Menedżer StorSimple urządzenia.
+> Można edytować tylko pakietu obsługi, który został wygenerowany za pomocą programu Windows PowerShell dla StorSimple. Nie można edytować pakiet utworzony w hello portalu Azure w usłudze Menedżer StorSimple urządzenia.
 
-Aby edytować pakiet obsługi przed przekazaniem go w witrynie Microsoft Support, najpierw odszyfrować pakiet pomocy technicznej, Edytuj pliki i następnie ponownie go zaszyfrować. Wykonaj poniższe kroki.
+tooedit pakiet obsługi przed przekazaniem go w witrynie Microsoft Support hello najpierw odszyfrować pakietu obsługi hello, Edytuj pliki hello i następnie ponownie go zaszyfrować. Wykonaj następujące kroki hello.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Aby edytować pakiet obsługi w programie Windows PowerShell dla urządzenia StorSimple
+#### <a name="tooedit-a-support-package-in-windows-powershell-for-storsimple"></a>tooedit pakiet obsługi w programie Windows PowerShell dla urządzenia StorSimple
 
-1. Generowanie pakietu obsługi, jak opisano wcześniej, w [do utworzenia pakietu obsługi w programie Windows PowerShell dla urządzenia StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Pobierz skrypt](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalnie na komputerze klienckim.
-3. Zaimportuj moduł programu Windows PowerShell. Określ ścieżkę do folderu lokalnego, w której skrypt został pobrany. Aby zaimportować moduł, wpisz:
+1. Generowanie pakietu obsługi, jak opisano wcześniej, w [toocreate pakiet obsługi w programie Windows PowerShell dla urządzenia StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Pobierz skrypt hello](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalnie na komputerze klienckim.
+3. Zaimportuj moduł programu Windows PowerShell hello. Określ hello ścieżki toohello folder lokalny którego zostały pobrane hello skryptu. Moduł hello tooimport, wprowadź:
    
-    `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Wszystkie pliki są *.aes* pliki skompresowane i szyfrowane. Aby zdekompresować i odszyfrowuje pliki, wpisz:
+    `Import-module <Path toohello folder that contains hello Windows PowerShell script>`
+4. Wszystkie pliki hello są *.aes* pliki skompresowane i szyfrowane. toodecompress i odszyfrowywania plików, wpisz:
    
-    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path toohello folder that contains support package files>`
    
-    Należy pamiętać, że rzeczywisty plik rozszerzenia są teraz wyświetlane dla wszystkich plików.
+    Należy pamiętać, że rozszerzenia rzeczywisty plik hello są teraz wyświetlane dla wszystkich plików hello.
    
     ![Edytuj pakiet, pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. Gdy zostanie wyświetlony monit o hasło szyfrowania, wprowadź hasło, które są używane podczas tworzenia pakietu obsługi.
+5. Gdy zostanie wyświetlony monit o hasło szyfrowania hello, wprowadź hasło hello, który został użyty podczas tworzenia pakietu obsługi hello.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
-        Supply values for the following parameters:EncryptionPassphrase: ****
-6. Przejdź do folderu, który zawiera pliki dziennika. Ponieważ pliki dziennika są teraz zdekompresować i odszyfrować, te będą mieć oryginalnego rozszerzenia pliku. Zmodyfikuj te pliki, aby usunąć wszelkie informacje specyficzne dla klienta, takich jak nazwy woluminu i adresy IP urządzeń i zapisać pliki.
-7. Zamknij pliki, aby kompresować gzip i szyfrowanie AES 256. Jest to szybkości i zabezpieczeń w przesyłania pakietu pomocy technicznej za pośrednictwem sieci. Podczas kompresji i szyfrowania plików, wprowadź następujące informacje:
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+6. Przeglądaj toohello folderu, który zawiera pliki dziennika hello. Ponieważ teraz zdekompresować i odszyfrować hello plików dziennika, te będą mieć oryginalnego rozszerzenia pliku. Zmodyfikuj te pliki tooremove wszelkie informacje specyficzne dla klienta, takich jak nazwy woluminu i adresy IP urządzeń i Zapisz hello plików.
+7. Zamknij hello pliki toocompress z gzip i szyfrowanie AES 256. Jest to szybkości i zabezpieczeń w przesyłania pakietu obsługi hello za pośrednictwem sieci. toocompress i szyfrowania plików, wprowadź następujące hello:
    
-    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path toohello folder that contains support package files>`
    
     ![Edytuj pakiet, pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750707.png)
-8. Po wyświetleniu monitu podaj hasło szyfrowania dla pakietu obsługi zmodyfikowane.
+8. Po wyświetleniu monitu podaj hasło szyfrowania dla pakietu obsługi zmodyfikowane hello.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
-9. Zapisz nowe hasło, dzięki czemu można udostępniać Microsoft Support na żądanie.
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+9. Zapisz hello nowe hasło, dzięki czemu można udostępniać Microsoft Support na żądanie.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Przykład: Edytowanie plików w pakiecie pomocy technicznej w udziale chronione hasłem
 
-Poniższy przykład pokazuje, jak można odszyfrować, edytować i ponownie zaszyfrować pakiet obsługi.
+Witaj poniższy przykład pokazuje, jak toodecrypt, edytować i ponownie zaszyfrować pakiet obsługi.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -130,7 +130,7 @@ Poniższy przykład pokazuje, jak można odszyfrować, edytować i ponownie zasz
 
         cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -138,7 +138,7 @@ Poniższy przykład pokazuje, jak można odszyfrować, edytować i ponownie zasz
 
         cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -146,7 +146,7 @@ Poniższy przykład pokazuje, jak można odszyfrować, edytować i ponownie zasz
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [informacje zebrane w pakietu obsługi](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Dowiedz się, jak [użycie pakietów pomocy technicznej i dzienniki urządzenia do rozwiązywania problemów z wdrożeniem urządzenia](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Dowiedz się, jak [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple urządzenia](storsimple-8000-manager-service-administration.md).
+* Dowiedz się więcej o hello [informacje zebrane w hello pakietu obsługi](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
+* Dowiedz się, jak za[używana obsługa pakietów oraz urządzenia w dziennikach tootroubleshoot wdrożenia urządzenia](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Dowiedz się, jak za[Użyj hello tooadminister usługi Menedżera urządzeń StorSimple, urządzenia StorSimple](storsimple-8000-manager-service-administration.md).
 

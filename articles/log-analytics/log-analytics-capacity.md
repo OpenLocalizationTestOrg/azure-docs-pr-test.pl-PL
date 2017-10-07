@@ -1,6 +1,6 @@
 ---
-title: "Pojemność i wydajność rozwiązania Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Użyj rozwiązania pojemność i wydajność w analizy dzienników ułatwią zrozumienie wydajności serwerów funkcji Hyper-V."
+title: "aaaCapacity i wydajne rozwiązanie w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Użyj hello pojemność i wydajność rozwiązania rozumiesz toohelp analizy dzienników hello wydajności serwerów funkcji Hyper-V."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c47bb1e8bb9d4460b0241e89a616f3b356844b08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planowanie pojemności maszyn wirtualnych funkcji Hyper-V z rozwiązaniem pojemność i wydajność (wersja zapoznawcza)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-hello-capacity-and-performance-solution-preview"></a>Planowanie pojemności maszyn wirtualnych funkcji Hyper-V z hello pojemność i wydajność rozwiązania (wersja zapoznawcza)
 
 ![Symbol pojemność i wydajność](./media/log-analytics-capacity/capacity-solution.png)
 
-Rozwiązanie pojemność i wydajność w analizy dzienników umożliwia pomaga w zrozumieniu wydajności serwerów funkcji Hyper-V. Rozwiązanie zapewnia wgląd w środowisku funkcji Hyper-V, pokazując całkowitego wykorzystania (Procesora, pamięci i dysku) z hostów i maszyn wirtualnych uruchomionych na tych hostach funkcji Hyper-V. Metryki są zbierane dla Procesora, pamięci i dysków we wszystkich hostów i maszyn wirtualnych uruchomionych na tych.
+Można użyć hello pojemność i wydajność rozwiązania toohelp analizy dzienników, które należy zrozumieć hello wydajności serwerów funkcji Hyper-V. Witaj rozwiązanie zapewnia wgląd w środowisku funkcji Hyper-V poprzez wyświetlenie hello całkowitego wykorzystania (Procesora, pamięci i dysku) hello hostów i hello maszyny wirtualne na tych hostach funkcji Hyper-V. Metryki są zbierane dla Procesora, pamięci i dysków między hostami i hello maszyny wirtualne uruchomione na nich.
 
-Rozwiązanie:
+rozwiązanie Hello:
 
 -   Pokazuje hostów o najwyższej i najniższej wykorzystanie Procesora i pamięci
 -   Pokazuje maszyn wirtualnych o najwyższej i najniższej wykorzystanie Procesora i pamięci
 -   Pokazuje maszyn wirtualnych o najwyższej i najniższej wykorzystanie IOPS i przepływności
 -   Które maszyny wirtualne są uruchomione na hostach, które zawiera
--   Pokazuje top dysków o wysokiej przepływności, IOPS i opóźnienia w udostępnionych woluminów klastra
-- Umożliwia dostosowywanie i filtrowanie na podstawie grup
+-   Pokazuje hello top dysków o wysokiej przepływności, IOPS, i opóźnienia w klastrze z udostępnionymi woluminami
+- Pozwala toocustomize, filtr na podstawie grup
 
 > [!NOTE]
-> Poprzednia wersja pojemność i wydajność rozwiązania o nazwie Zarządzanie wydajnością wymagane zarówno System Center Operations Manager i System Center Virtual Machine Manager. To rozwiązanie zaktualizowany nie ma tych zależności.
+> Poprzednia wersja hello pojemność i wydajność rozwiązania o nazwie Zarządzanie wydajnością Hello wymagane zarówno System Center Operations Manager i System Center Virtual Machine Manager. To rozwiązanie zaktualizowany nie ma tych zależności.
 
 
 ## <a name="connected-sources"></a>Połączone źródła
 
-W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiązanie.
+Witaj w poniższej tabeli opisano hello połączone źródeł, które są obsługiwane przez to rozwiązanie.
 
 | Połączone źródło | Pomoc techniczna | Opis |
 |---|---|---|
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Tak | Rozwiązania zbiera informacje o danych pojemność i wydajność z agentów systemu Windows. |
-| [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie    | Rozwiązanie nie zbiera pojemność i wydajność, informacje o danych z bezpośredniej agentów systemu Linux.|
-| [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Tak |Rozwiązania zbiera dane pojemność i wydajność z agentów w podłączonej grupy zarządzania SCOM. Bezpośrednie połączenie z agenta programu SCOM OMS nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS.|
+| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Tak | rozwiązanie Hello zbiera pojemność i wydajność, informacje o danych z agentów systemu Windows. |
+| [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie    | rozwiązanie Hello nie zbiera pojemność i wydajność, informacje o danych z bezpośredniej agentów systemu Linux.|
+| [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Tak |rozwiązanie Hello zbiera dane pojemność i wydajność z agentów w podłączonej grupy zarządzania SCOM. Połączenie bezpośrednie z tooOMS agenta programu SCOM hello nie jest wymagane. Dane są przesyłane z hello zarządzania grupy toohello OMS repozytorium.|
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Usługa Azure storage nie zawiera danych pojemność i wydajność.|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -57,51 +57,51 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 ## <a name="configuration"></a>Konfiguracja
 
-Wykonaj następujący krok, aby dodać pojemność i wydajność rozwiązania do swojego obszaru roboczego.
+Wykonaj powitania po kroku tooadd hello pojemność i wydajność rozwiązania tooyour obszaru roboczego.
 
-- Dodaj rozwiązanie pojemność i wydajność na obszar roboczy OMS zastosowanie procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
+- Dodaj hello pojemność i wydajność rozwiązania tooyour obszarem roboczym pakietu OMS za pomocą hello procesu opisanego w [rozwiązań analizy dzienników dodać hello galerii rozwiązań](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
-Jeśli grupę zarządzania programu SCOM jest podłączony do swojego obszaru roboczego OMS, następnie następujące pakiety administracyjne będą instalowani w SCOM po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych.
+Jeśli obszar roboczy OMS tooyour połączonych grupę zarządzania programu SCOM, następnie hello następujące pakiety administracyjne będą instalowani w SCOM po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
-Podobne zdarzenia 1201:
+podobne zdarzenia 1201 Hello:
 
 
 ```
 New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", version:"1.10.3190.0" received.
 ```
 
-Po zaktualizowaniu pojemność i wydajność rozwiązania zmieni się numer wersji.
+Po zaktualizowaniu hello pojemność i wydajność rozwiązania, numer wersji hello ulegnie zmianie.
 
-Aby uzyskać więcej informacji na temat aktualizowania pakietów administracyjnych rozwiązania, zobacz artykuł [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) (Połączenie programu Operations Manager z usługą Log Analytics).
+Aby uzyskać więcej informacji dotyczących sposobu aktualizowania rozwiązania pakietów administracyjnych, zobacz [tooLog połączenie programu Operations Manager Analytics](log-analytics-om-agents.md).
 
-## <a name="using-the-solution"></a>Użycie rozwiązania
+## <a name="using-hello-solution"></a>Za pomocą rozwiązania hello
 
-Po dodaniu pojemność i wydajność rozwiązania do swojego obszaru roboczego pojemność i wydajność, jest dodawana do pulpitu nawigacyjnego przeglądu. Ten Kafelek jest wyświetlana liczba Liczba aktywnych hostów funkcji Hyper-V i wybrana liczba aktywnych maszyn wirtualnych, monitorowane w danym okresie.
+Po dodaniu hello pojemność i wydajność tooyour obszar roboczy rozwiązania hello pojemności i wydajności jest dodawana toohello pulpitu nawigacyjnego przeglądu. Ten Kafelek jest wyświetlana liczba hello liczba aktywnych hostów funkcji Hyper-V i hello liczby aktywnych maszyn wirtualnych, monitorowane wybrany okres czasu hello.
 
 ![Kafelek pojemność i wydajność](./media/log-analytics-capacity/capacity-tile.png)
 
 
 ### <a name="review-utilization"></a>Przegląd wykorzystania
 
-Kliknij Kafelek pojemność i wydajność, aby otworzyć pulpit nawigacyjny pojemność i wydajność. Na pulpicie nawigacyjnym znajdują się kolumny wymienione w poniższej tabeli. Każda kolumna zawiera do dziesięciu elementów spełniających jej kryteria dla podanego zakresu i przedziału czasu. Można uruchomić wyszukiwanie w dzienniku, które zwróci wszystkie rekordy. W tym celu kliknij przycisk **Zobacz wszystko** na dole kolumny lub kliknij nagłówek kolumny.
+Kliknij na powitania pojemności i wydajności kafelka tooopen hello pojemność i wydajność pulpit nawigacyjny. pulpit nawigacyjny Hello zawiera kolumny hello w hello w poniższej tabeli. Każda kolumna zawiera listę się tooten elementów pasujących do kryteriów kolumny hello określenia zakresu zakresu i czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy, klikając **zobaczyć wszystkie** u dołu hello hello kolumny lub przez kliknięcie nagłówka kolumny hello.
 
 - **Hosty**
-    - **Użycie procesora CPU hosta** zawiera graficzny trend wykorzystania procesora CPU hostów oraz listę hostów, w oparciu o wybrany okres czasu. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę hosta Otwórz dziennik wyszukiwania i Wyświetl szczegóły licznika procesora CPU dla obsługiwanych maszyn wirtualnych.
-    - **Użycie pamięci hosta** zawiera graficzny trend wykorzystania pamięci hostów oraz listę hostów, w oparciu o wybrany okres czasu. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę hosta, można otworzyć dziennika wyszukiwania oraz szczegóły licznika pamięci dla maszyn wirtualnych w hostowanej.
+    - **Użycie procesora CPU hosta** zawiera graficzny trend wykorzystania hello Procesora hosta komputerów oraz listę hostów, oparte na powitania w wybranym okresie. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk wyszukiwania dziennika tooopen nazwy hosta i Wyświetl szczegóły licznika procesora CPU dla maszyn wirtualnych w hostowanej.
+    - **Użycie pamięci hosta** zawiera graficzny trend wykorzystania pamięci hello hostów i listę hostów, oparte na powitania w wybranym okresie. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk dowolnego hosta nazwa tooopen dziennika wyszukiwania i widoku pamięci licznik szczegóły dla maszyn wirtualnych w hostowanej.
 - **Virtual Machines**
-    - **Użycie procesora CPU VM** zawiera graficzny trend wykorzystania procesora CPU maszyn wirtualnych oraz listę maszyn wirtualnych w wybranym okresie. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie top 3 maszyn wirtualnych. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę maszyny Wirtualnej do otwierania dziennik wyszukiwania i przeglądania zagregowane szczegóły licznika Procesora dla maszyny Wirtualnej.
-    - **Użycie pamięci maszyny Wirtualnej** zawiera graficzny trend wykorzystania pamięci maszyn wirtualnych oraz listę maszyn wirtualnych w wybranym okresie. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie top 3 maszyn wirtualnych. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę maszyny Wirtualnej, aby otworzyć dziennika wyszukiwania i wyświetlić szczegóły licznika zagregowane pamięci dla maszyny Wirtualnej.
-    - **Całkowita liczba IOPS dysku maszyny Wirtualnej** zawiera graficzny trend dysku łączna wartość IOPS dla maszyn wirtualnych oraz listę maszyn wirtualnych z IOPS dla poszczególnych usług, oparte na wybrany okres czasu. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie top 3 maszyn wirtualnych. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę maszyny Wirtualnej, można otworzyć dziennika wyszukiwania i widoku zagregowane dysku IOPS licznika szczegółów dla maszyny Wirtualnej.
-    - **Całkowita liczba przepływność dysku maszyny Wirtualnej** zawiera graficzny trend przepływność dysku dla maszyn wirtualnych oraz listę maszyn wirtualnych o przepływności dysku dla każdego z nich, oparte na wybrany okres czasu. Umieść wskaźnik myszy wykres liniowy, aby wyświetlić szczegóły dla określonego punktu w czasie top 3 maszyn wirtualnych. Kliknij na wykresie, aby wyświetlić więcej szczegółów w dzienniku wyszukiwania. Kliknij dowolną nazwę maszyny Wirtualnej, aby otworzyć dziennika wyszukiwania i wyświetlić szczegóły licznika przepływności zagregowanych całkowita dysku dla maszyny Wirtualnej.
+    - **Użycie procesora CPU VM** zawiera graficzny trend wykorzystania procesora CPU hello maszyn wirtualnych oraz listę maszyn wirtualnych w wybranym okresie hello. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie dla hello top 3 maszyn wirtualnych. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk wyszukiwania dziennika tooopen nazwę maszyny Wirtualnej oraz zagregowane szczegóły licznika procesora CPU dla hello maszyny Wirtualnej.
+    - **Użycie pamięci maszyny Wirtualnej** zawiera graficzny trend wykorzystania pamięci hello maszyn wirtualnych oraz listę maszyn wirtualnych w wybranym okresie hello. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie dla hello top 3 maszyn wirtualnych. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk wyszukiwania dziennika tooopen nazwę maszyny Wirtualnej i Wyświetl szczegóły licznika zagregowane pamięci dla hello maszyny Wirtualnej.
+    - **Całkowita liczba IOPS dysku maszyny Wirtualnej** zawiera graficzny trend hello całkowita dysku IOPS dla maszyn wirtualnych i listę maszyn wirtualnych z hello IOPS dla poszczególnych usług, oparte na powitania w wybranym okresie. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie dla hello top 3 maszyn wirtualnych. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk wyszukiwania dziennika tooopen nazwę maszyny Wirtualnej, a widok zagregowane dysku IOPS licznika szczegóły hello maszyny Wirtualnej.
+    - **Całkowita liczba przepływność dysku maszyny Wirtualnej** pokazuje graficzny trend hello przepływność dysku dla maszyn wirtualnych i listę maszyn wirtualnych o hello dysku całkowitej przepływności dla każdej, na podstawie hello wybrany okres czasu. Umieść kursor nad szczegóły tooview hello wiersza wykresu dla określonego punktu w czasie dla hello top 3 maszyn wirtualnych. Kliknij przycisk tooview wykresu hello więcej szczegółów w dzienniku wyszukiwania. Kliknij przycisk wyszukiwania dziennika tooopen nazwę maszyny Wirtualnej i wyświetlić szczegóły licznika przepływności zagregowanych całkowita dysku hello maszyny Wirtualnej.
 - **Udostępnione woluminy klastra**
-    - **Łączna liczba przepływności** zawiera sumę zarówno odczytuje i zapisuje na udostępnione woluminy klastra.
-    - **Łączna liczba IOPS** zawiera sumę liczby operacji wejścia/wyjścia na sekundę na udostępnione woluminy klastra.
-    - **Całkowity czas oczekiwania** przedstawia całkowity czas oczekiwania na udostępnione woluminy klastra.
-- **Host gęstość** górny Kafelek zawiera całkowitą liczbę hostów i maszyn wirtualnych dostępne do rozwiązania. Kliknij przycisk najwyższego kafelka w celu wyświetlenia dodatkowych szczegółów w wyszukiwania dziennika. Zawiera także listę wszystkich hostów oraz liczbę maszyn wirtualnych, które są obsługiwane. Kliknij hosta, aby przejść do szczegółów w wyniki wyszukiwania dziennika do maszyny Wirtualnej.
+    - **Łączna liczba przepływności** pokazuje hello sumę zarówno odczytuje i zapisuje na udostępnione woluminy klastra.
+    - **Łączna liczba IOPS** hello przedstawia sumę operacji wejścia/wyjścia na sekundę na udostępnione woluminy klastra.
+    - **Całkowity czas oczekiwania** przedstawia hello łączny czas oczekiwania na udostępnione woluminy klastra.
+- **Host gęstość** hello górny Kafelek zawiera hello łączna liczba rozwiązania toohello dostępnych hostów i maszyn wirtualnych. Kliknij przycisk hello najwyższym kafelków tooview dodatkowe szczegóły w dzienniku wyszukiwania. Wyświetla również wszystkie hosty i hello liczbę maszyn wirtualnych, które są obsługiwane. Kliknij przycisk toodrill hosta do maszyny Wirtualnej powoduje hello wyszukiwania dziennika.
 
 
 ![pulpit nawigacyjny hostów bloku](./media/log-analytics-capacity/dashboard-hosts.png)
@@ -111,14 +111,14 @@ Kliknij Kafelek pojemność i wydajność, aby otworzyć pulpit nawigacyjny poje
 
 ### <a name="evaluate-performance"></a>Ocena wydajności
 
-Środowiska obliczeniowe o produkcyjnym znacznie z jednej organizacji różnią się od innego. Ponadto pojemność i wydajność obciążeń może być zależna od jak maszyny wirtualne są uruchomione, i co należy wziąć pod uwagę normalne. Szczegółowe procedury ułatwiające miar wydajności prawdopodobnie nie będą miały zastosowania w danym środowisku. Dlatego więcej uogólniony przetestowanego wskazówki lepiej nadaje się do pomocy. Firma Microsoft publikuje wiele artykułów wskazówki ułatwiające pomiaru wydajności.
+Środowiska obliczeniowe o produkcyjnym się znacznie różnić tooanother jednej z organizacji. Ponadto pojemność i wydajność obciążeń może być zależna od jak maszyny wirtualne są uruchomione, i co należy wziąć pod uwagę normalne. Szczegółowe procedury toohelp pomiaru wydajności prawdopodobnie nie będą miały zastosowania tooyour środowiska. Dlatego więcej uogólniony wskazówki działa lepiej dostosowane toohelp. Firma Microsoft publikuje różnych z toohelp artykuły wskazówki pomiaru wydajności.
 
-Podsumowując, rozwiązania zbiera dane pojemności i wydajności z różnych źródeł, łącznie z liczników wydajności. Użyć tych danych pojemność i wydajność w różnych powierzchni w rozwiązaniu i porównaj wyniki do tych na [pomiaru wydajności w ramach funkcji Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) artykułu. Mimo że artykuł opublikowano pewien czas temu, metryki zagadnienia oraz wskazówki są nadal ważne. Ten artykuł zawiera łącza do inne przydatne zasoby.
+toosummarize, rozwiązanie hello zbiera dane pojemności i wydajności z różnych źródeł, łącznie z liczników wydajności. Tych danych pojemność i wydajność w różnych powierzchni w rozwiązaniu hello i porównać toothose Twojego wyników na powitania [pomiaru wydajności w ramach funkcji Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) artykułu. Mimo że artykuł hello został opublikowany pewien czas temu, metryki hello, uwagi i wskazówki są nadal ważne. Artykuł Hello zawiera przydatne zasoby tooother łącza.
 
 
 ## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
 
-W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje pojemność i wydajność danych zebranych i obliczana na podstawie tego rozwiązania.
+Witaj w poniższej tabeli zawiera przykładowy dziennik wyszukuje pojemność i wydajność danych zebranych i obliczana na podstawie tego rozwiązania.
 
 | Zapytanie | Opis |
 |---|---|
@@ -131,7 +131,7 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje pojemność i 
 | Podział łączny czas oczekiwania przez wszystkie woluminy CSV | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
 >[!NOTE]
-> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](log-analytics-log-search-upgrade.md), powyższe zapytania zmienią się w następujący sposób.
+> Jeśli obszaru roboczego został uaktualniony toohello [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie hello powyżej zapytania spowoduje zmianę następujących toohello.
 
 > | Zapytanie | Opis |
 |:--- |:--- |
@@ -145,4 +145,4 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje pojemność i 
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) Aby wyświetlić szczegółowe dane pojemność i wydajność.
+* Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) tooview szczegółowe dane pojemność i wydajność.

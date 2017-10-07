@@ -1,6 +1,6 @@
 ---
-title: "Analizowanie danych czujnika przy użyciu Hive i Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak i analizowanie danych czujnika przy użyciu konsoli zapytania programu Hive z usługą HDInsight (Hadoop), a następnie wizualizacji danych w programie Microsoft Excel z PowerView."
+title: "dane czujników aaaAnalyze przy użyciu Hive i Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dane czujników tooanalyze przy użyciu hello Hive konsoli zapytania z usługą HDInsight (Hadoop), a następnie wizualizacji danych hello w programie Microsoft Excel z PowerView."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3abb71c12b4769bebd808276f8bdd832aad22d7a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 70e595705c33d9835dc9809161f79c3ac5ece870
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analizowanie danych czujnika przy użyciu konsoli zapytania Hive na platformie Hadoop w usłudze HDInsight
+# <a name="analyze-sensor-data-using-hello-hive-query-console-on-hadoop-in-hdinsight"></a>Analizowanie danych czujnika przy użyciu konsoli zapytania Hive hello na platformie Hadoop w usłudze HDInsight
 
-Dowiedz się, jak i analizowanie danych czujnika przy użyciu konsoli zapytania programu Hive z usługą HDInsight (Hadoop), a następnie wizualizacji danych w programie Microsoft Excel za pomocą Power View.
+Dowiedz się, jak dane czujników tooanalyze przy użyciu hello Hive konsoli zapytania z usługą HDInsight (Hadoop), a następnie wizualizacji danych hello w programie Microsoft Excel za pomocą Power View.
 
 > [!IMPORTANT]
-> Kroki opisane w tym dokumencie pracować tylko z klastrami HDInsight opartych na systemie Windows. HDInsight jest dostępna tylko w systemie Windows dla wersji starszej niż HDInsight 3.4. Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Witaj czynnościach w ramach tego dokumentu działać tylko w przypadku klastrów usługi HDInsight opartych na systemie Windows. HDInsight jest dostępna tylko w systemie Windows dla wersji starszej niż HDInsight 3.4. Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 
-W tym przykładzie służy do przetwarzania danych historycznych i zidentyfikować problemy z systemami grzejników i klimatyzacja Hive. W szczególności zidentyfikować systemy nie będą mogli w sposób niezawodny utrzymać stałej temperatury przy wykonywaniu następujących zadań:
+W tym przykładzie używamy danych historycznych tooprocess Hive i zidentyfikować problemy z systemami grzejników i klimatyzacja. W szczególności zidentyfikować systemy są tooreliably nie jest w stanie utrzymać stałej temperatury, wykonując następujące zadania hello:
 
-* Tworzenie tabel programu HIVE wykonać zapytania o dane przechowywane w plikach plik wartości rozdzielanych przecinkami (CSV).
-* Tworzenie zapytań HIVE do analizowania danych.
-* Aby pobrać analizowanych danych, należy użyć programu Microsoft Excel do nawiązania połączenia usługi HDInsight.
-* W celu wizualizacji danych, użyj Power View.
+* Utwórz gałąź Tabele tooquery dane przechowywane w plikach plik wartości rozdzielanych przecinkami (CSV).
+* Tworzenie zapytań programu HIVE tooanalyze hello danych.
+* tooretrieve hello analizy danych, użyj tooHDInsight tooconnect programu Microsoft Excel.
+* toovisualize hello danych, użyj Power View.
 
-![Diagram architektury rozwiązania](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
+![Diagram architektury rozwiązania hello](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,18 +49,18 @@ W tym przykładzie służy do przetwarzania danych historycznych i zidentyfikowa
 
 * [Sterownik ODBC firmy Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886)
 
-## <a name="to-run-the-sample"></a>Aby uruchomić przykładowy
+## <a name="toorun-hello-sample"></a>przykład Witaj toorun
 
-1. W przeglądarce sieci web przejdź do następującego adresu URL: 
+1. W przeglądarce sieci web przejdź toohello następującego adresu URL: 
 
          https://<clustername>.azurehdinsight.net
 
-    Element `<clustername>` należy zastąpić nazwą klastra usługi HDInsight.
+    Zastąp `<clustername>` o nazwie hello klastra usługi HDInsight.
 
-    Po wyświetleniu monitu uwierzytelniania przy użyciu nazwy użytkownika administratora i hasło użyte podczas inicjowania obsługi administracyjnej tego klastra.
+    Po wyświetleniu monitu uwierzytelniania przy użyciu nazwy użytkownika administratora hello i hasło użyte podczas inicjowania obsługi administracyjnej tego klastra.
 
-2. Na stronie sieci web, który zostanie otwarty, kliknij **Getting Started galerii** kartę, a następnie w obszarze **rozwiązań z przykładowymi danymi** kategorii, kliknij przycisk **analizy danych czujnika** próbki.
+2. Z hello strony sieci web, który zostanie otwarty, kliknij przycisk hello **Getting Started galerii** kartę, a następnie w obszarze hello **rozwiązań z przykładowymi danymi** kategorii, kliknij hello **analizy danych czujnika** przykład.
 
     ![Pobieranie rozpoczęte galerii](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
-3. Postępuj zgodnie z instrukcjami na stronie sieci web zakończenie próbki.
+3. Postępuj zgodnie z instrukcjami hello hello strony sieci web toofinish hello próbki.

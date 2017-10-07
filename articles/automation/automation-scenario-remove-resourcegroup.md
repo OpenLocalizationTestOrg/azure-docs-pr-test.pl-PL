@@ -1,6 +1,6 @@
 ---
-title: "Automatyczne usuwanie grup zasobów | Microsoft Docs"
-description: "Wersja scenariusza użycia usługi Azure Automation obejmująca wykorzystanie przepływu pracy programu PowerShell i elementów Runbook umożliwiających usunięcie wszystkich grupy zasobów w subskrypcji."
+title: "Usunięcie grupy zasobów aaaAutomate | Dokumentacja firmy Microsoft"
+description: "Wersja przepływu pracy programu PowerShell scenariusz automatyzacji Azure tooremove elementów runbook w tym grupy wszystkich zasobów w ramach subskrypcji."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7ff8064842385d57b0eebdf7b263150c958255f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scenariusz użycia usługi Azure Automation — automatyczne usuwanie grup zasobów
-Wielu klientów tworzy więcej niż jedną grupę zasobów. Niektóre grupy mogą służyć do zarządzania aplikacjami produkcyjnymi, a inne mogą być używane jako środowiska rozwojowe, testowe lub przejściowe. Automatyzacja wdrażania tych zasobów to jedno, ale wymagane jest również zapewnienie możliwości łatwej likwidacji grupy zasobów. To typowe zadanie zarządzania można uprościć przy użyciu usługi Azure Automation. Przydaje się to w przypadku korzystania z subskrypcji platformy Azure z limitem wydatków w ramach takich ofert jak MSDN lub program Microsoft Partner Network Cloud Essentials.
+Wielu klientów tworzy więcej niż jedną grupę zasobów. Niektóre grupy mogą służyć do zarządzania aplikacjami produkcyjnymi, a inne mogą być używane jako środowiska rozwojowe, testowe lub przejściowe. Automatyzowanie hello wdrażania tych zasobów jest jeden element, ale trwa toodecommission stanie grupy zasobów za pomocą kliknięcia przycisku hello jest inny. To typowe zadanie zarządzania można uprościć przy użyciu usługi Azure Automation. Jest to przydatne podczas pracy z subskrypcją platformy Azure o limicie wydatków za pośrednictwem oferta dla członków MSDN lub hello programu Essentials chmury sieci partnera firmy Microsoft.
 
-Ten scenariusz jest oparty na elemencie Runbook programu PowerShell i jest przeznaczony do usuwania określonych grup zasobów z subskrypcji. Domyślne ustawienie elementu Runbook powoduje testowanie przed wykonaniem. Daje to gwarancję, że nie można przypadkowo usunąć grupy zasobów przed przygotowaniem wszystkiego do wykonania tej procedury.   
+W tym scenariuszu jest oparta na elemencie runbook programu PowerShell i jest zaprojektowana tooremove grup zasobów, które określają z subskrypcji. ustawienie domyślne Hello elementu hello runbook jest tootest przed kontynuowaniem. Daje to pewność, że nie przypadkowego usunięcia grupy zasobów hello przed wszystko jest gotowe toocomplete tej procedury.   
 
-## <a name="getting-the-scenario"></a>Uzyskiwanie scenariusza
-Ten scenariusz składa się z elementu Runbook programu PowerShell, który można pobrać z [Galerii programu PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Można również zaimportować go bezpośrednio z [Galerii elementów Runbook](automation-runbook-gallery.md) w witrynie Azure Portal.<br><br>
+## <a name="getting-hello-scenario"></a>Pobieranie hello scenariusza
+W tym scenariuszu składa się z elementu runbook programu PowerShell, który można pobrać z hello [galerii programu PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Można również importować go bezpośrednio z hello [galerię elementów Runbook](automation-runbook-gallery.md) w hello portalu Azure.<br><br>
 
 | Element Runbook | Opis |
 | --- | --- |
-| Remove-ResourceGroup |Umożliwia usunięcie z subskrypcji grup zasobów (jednej lub wielu) platformy Azure wraz z powiązanymi zasobami. |
+| Remove-ResourceGroup |Usuwa jeden lub więcej grup zasobów platformy Azure i skojarzonych zasobów hello subskrypcji. |
 
 <br>
-Dla tego elementu Runbook zdefiniowano następujące parametry wejściowe:
+Witaj następujące parametry wejściowe są zdefiniowane dla tego elementu runbook:
 
 | Parametr | Opis |
 | --- | --- |
-| NameFilter (Filtr nazw) (wymagany) |Określa filtr nazw w celu ograniczenia grup zasobów, które mają zostać usunięte. Można przekazać wiele wartości za pomocą listy rozdzielanej przecinkami.<br>Filtr nie uwzględnia wielkości liter i pokaże wszystkie grupy zasobów zawierające dany ciąg. |
-| PreviewMode (Tryb podglądu) (opcjonalny) |Umożliwia uruchomienie elementu Runbook w celu sprawdzenia, które grupy zasobów zostaną usunięte, ale bez podejmowania żadnych działań.<br>Wartość domyślna równa **true** (prawda) pozwala zapobiec przypadkowemu usunięciu jednej lub większej liczby grup zasobów przekazanych do elementu Runbook. |
+| NameFilter (Filtr nazw) (wymagany) |Określa nazwę filtra toolimit hello grupy zasobów, które mają na usuwanie. Można przekazać wiele wartości za pomocą listy rozdzielanej przecinkami.<br>Filtr Hello nie jest rozróżniana wielkość liter i jest zgodny z dowolnym grupę zasobów, która zawiera ciąg hello. |
+| PreviewMode (Tryb podglądu) (opcjonalny) |Wykonuje hello runbook toosee grupy zasobów, które zostaną usunięte, ale brak działania.<br>Domyślnie Hello **true** toohelp uniknąć przypadkowego usunięcia jednego lub więcej grup zasobów przekazany toohello elementu runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Instalowanie i konfigurowanie tego scenariusza
 ### <a name="prerequisites"></a>Wymagania wstępne
-Uwierzytelnianie elementu Runbook odbywa się przy użyciu [konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).    
+Ten element runbook jest uwierzytelniany przy użyciu hello [konta Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).    
 
-### <a name="install-and-publish-the-runbooks"></a>Instalowanie i publikowanie elementów Runbook
-Po pobraniu elementu Runbook można go zaimportować za pomocą [procedury importowania elementów Runbook](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Po pomyślnym zaimportowaniu elementu Runbook do konta usługi Automation należy go opublikować.
+### <a name="install-and-publish-hello-runbooks"></a>Instalowanie i publikować elementy runbook hello
+Po pobraniu hello runbook można go zaimportować przy użyciu procedury hello w [importowanie elementu runbook procedur](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Opublikuj hello runbook po jego został pomyślnie zaimportowany na koncie automatyzacji.
 
-## <a name="using-the-runbook"></a>Używanie elementu Runbook
-Poniższe instrukcje umożliwiają uruchomienie tego elementu Runbook i zapoznanie się z jego działaniem. Ten przykład obejmuje tylko testowanie elementu Runbook bez faktycznego usuwania grupy zasobów.  
+## <a name="using-hello-runbook"></a>Przy użyciu hello elementu runbook
+Witaj poniższe kroki objaśniają hello wykonywania tego elementu runbook i pomocy należy zapoznać się z jej działania. Tylko testowania hello elementu runbook w tym przykładzie nie faktycznie ich nie usuwać hello grupy zasobów.  
 
-1. W witrynie Azure Portal otwórz konto usługi Automation i kliknij kafelek **Elementy Runbook**.
-2. Wybierz element Runbook **Remove-ResourceGroup** i kliknij pozycję **Uruchom**.
-3. Uruchomienie elementu Runbook powoduje otwarcie bloku **Uruchom element Runbook**, w którym można skonfigurować parametry. Wprowadź nazwy grup zasobów w subskrypcji, której możesz użyć do testów bez powodowania żadnych szkód w razie przypadkowego usunięcia.<br> ![Parametry elementu Runbook Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+1. Z hello portalu Azure, Twoje konto usługi Automatyzacja i kliknij przycisk **elementów Runbook**.
+2. Wybierz hello **ResourceGroup Usuń** runbook i kliknij przycisk **Start**.
+3. Po uruchomieniu elementu runbook hello hello **Uruchom element Runbook** zostanie otwarty blok i parametry hello można skonfigurować. Wprowadź nazwy hello grup zasobów w ramach subskrypcji, można użyć do testowania, spowoduje żadnych problemów, jeśli przypadkowo usunięte.<br> ![Parametry elementu Runbook Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
    > [!NOTE]
-   > Aby uniknąć usunięcia wybranych grup zasobów, upewnij się, że parametr **Previewmode** (Tryb podglądu) ma wartość **true** (prawda).  **Pamiętaj**, że element Runbook nie usunie grupy zasobów zawierającej konto usługi Automation, na którym jest uruchomiony ten element Runbook.  
+   > Upewnij się, że **Previewmode** ustawiono zbyt**true** tooavoid usuwanie hello wybrane grupy zasobów.  **Uwaga** ten element runbook nie spowoduje usunięcia hello grupę zasobów, która zawiera konto automatyzacji hello działa ten element runbook.  
    >
    >
-4. Po skonfigurowaniu wszystkich wartości parametrów kliknij przycisk **OK**. Element Runbook zostanie umieszczony w kolejce do wykonania.  
+4. Po skonfigurowaniu wszystkich wartości parametru powitania kliknij **OK**, i hello runbook zostaną umieszczone w kolejce do wykonania.  
 
-Aby wyświetlić szczegóły zadania elementu Runbook **Remove-ResourceGroup** w witrynie Azure Portal, kliknij kafelek **Zadania** w elemencie Runbook. W podsumowaniu zadania są wyświetlane parametry wejściowe i dane ze strumienia wyjściowego oraz ogólne informacje o zadaniu wraz z wygenerowanymi wyjątkami.<br> ![Stan zadania elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+Szczegóły hello tooview hello **ResourceGroup Usuń** zadanie elementu runbook w hello portalu Azure, wybierz opcję **zadania** w elemencie runbook hello. Parametry wejściowe Wyświetla podsumowanie hello Hello zadania i dane wyjściowe hello dodatkowo strumienia toogeneral informacje o zadaniu hello i wszelkie wyjątki, które wystąpiły.<br> ![Stan zadania elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-W obszarze **Podsumowanie zadania** są widoczne ostrzeżenia i komunikaty o błędach oraz dane ze strumienia wyjściowego. Kliknij kafelek **Dane wyjściowe**, aby wyświetlić szczegółowe wyniki wykonania elementu Runbook.<br> ![Dane wyjściowe elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+Witaj **Podsumowanie zadania** obejmuje wiadomości powitania strumienie danych wyjściowych, ostrzeżeń i błędów. Wybierz **dane wyjściowe** tooview szczegółowe wyniki z hello wykonanie elementu runbook.<br> ![Dane wyjściowe elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby rozpocząć tworzenie własnego elementu Runbook, zobacz artykuł [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md) (Tworzenie lub importowanie elementu Runbook w usłudze Azure Automation).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [Mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).
+* Zobacz tooget tworzenie własnych runbook [Tworzenie lub importowanie elementu runbook automatyzacji Azure](automation-creating-importing-runbook.md).
+* tooget pracy z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).

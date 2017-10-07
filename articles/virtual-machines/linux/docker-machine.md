@@ -1,6 +1,6 @@
 ---
-title: "Umożliwia tworzenie hosty systemu Linux na platformie Azure maszyny Docker | Dokumentacja firmy Microsoft"
-description: "Informacje dotyczące używania maszyny Docker można utworzyć hostów Docker na platformie Azure."
+title: "obsługuje aaaUse maszyny Docker toocreate systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak obsługuje toouse maszyny Docker toocreate Docker na platformie Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 905c645add51c78305aac85a7013441b3a73972f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Tworzenie hostów na platformie Azure przy użyciu rozwiązania Docker maszyny
-W tym artykule szczegółowo sposób użycia [maszyny Docker](https://docs.docker.com/machine/) utworzyć hostów na platformie Azure. `docker-machine` Polecenie tworzy maszynę wirtualną systemu Linux (VM) na platformie Azure, a następnie instaluje Docker. Następnie można zarządzać hostach Docker na platformie Azure przy użyciu tych samych narzędzi lokalnych i przepływów pracy.
+# <a name="how-toouse-docker-machine-toocreate-hosts-in-azure"></a>Jak obsługuje toouse toocreate maszyny Docker na platformie Azure
+Ten sposób artykuł szczegóły toouse [Docker maszyny](https://docs.docker.com/machine/) toocreate hostów na platformie Azure. Witaj `docker-machine` polecenie tworzy maszynę wirtualną systemu Linux (VM) na platformie Azure, a następnie instaluje Docker. Następnie można zarządzać hostach Docker w Azure przy użyciu hello tych samych narzędzi lokalnych i przepływów pracy.
 
 ## <a name="create-vms-with-docker-machine"></a>Tworzenie maszyn wirtualnych z maszyną Docker
 Najpierw uzyskać identyfikator subskrypcji platformy Azure z [Pokaż konto az](/cli/azure/account#show) w następujący sposób:
@@ -30,9 +30,9 @@ Najpierw uzyskać identyfikator subskrypcji platformy Azure z [Pokaż konto az](
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Tworzenie maszyn wirtualnych z hostów Docker na platformie Azure z `docker-machine create` , określając *azure* jako sterownika. Aby uzyskać więcej informacji, zobacz [dokumentacji Docker Azure sterownika](https://docs.docker.com/machine/drivers/azure/)
+Tworzenie maszyn wirtualnych z hostów Docker na platformie Azure z `docker-machine create` , określając *azure* jako hello sterownika. Aby uzyskać więcej informacji, zobacz hello [dokumentacji Docker Azure sterownika](https://docs.docker.com/machine/drivers/azure/)
 
-Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*, tworzy konto użytkownika o nazwie *azureuser*i powoduje otwarcie portu *80* na hoście maszyny Wirtualnej. Wykonaj żadnych monitów, aby zalogować się do konta platformy Azure i udzielić maszyny Docker uprawnienia do tworzenia i zarządzania zasobami.
+Witaj poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*, tworzy konto użytkownika o nazwie *azureuser*i powoduje otwarcie portu *80* hello hosta maszyny Wirtualnej. Wykonaj wszystkie monity toolog w tooyour konto platformy Azure i udzielić toocreate uprawnienia maszyny Docker zasobów i zarządzanie nimi.
 
 ```bash
 docker-machine create -d azure \
@@ -42,7 +42,7 @@ docker-machine create -d azure \
     myvm
 ```
 
-Dane wyjściowe wygląda podobnie do poniższego przykładu:
+Witaj dane wyjściowe wyglądają toohello podobnie poniższy przykład:
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
@@ -61,51 +61,51 @@ Creating machine...
 (myvmdocker) Creating network interface.  name="myvmdocker-nic"
 (myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
 (myvmdocker) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
-Waiting for machine to be running, this may take a few minutes...
+Waiting for machine toobe running, this may take a few minutes...
 Detecting operating system of created instance...
-Waiting for SSH to be available...
-Detecting the provisioner...
+Waiting for SSH toobe available...
+Detecting hello provisioner...
 Provisioning with ubuntu(systemd)...
 Installing Docker...
-Copying certs to the local machine directory...
-Copying certs to the remote machine...
-Setting Docker configuration on the remote daemon...
-Checking connection to Docker...
+Copying certs toohello local machine directory...
+Copying certs toohello remote machine...
+Setting Docker configuration on hello remote daemon...
+Checking connection tooDocker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
+toosee how tooconnect your Docker Client toohello Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
 ```
 
 ## <a name="configure-your-docker-shell"></a>Skonfiguruj powłoki Docker
-Aby połączyć się z hostów Docker na platformie Azure, należy zdefiniować odpowiednie ustawienia połączeń. Jak wspomniano na końcu danych wyjściowych, wyświetlić informacje o połączeniu dla hosta Docker w następujący sposób: 
+tooconnect tooyour Docker hosta na platformie Azure, zdefiniować hello odpowiednie ustawienia połączeń. Jak wspomniano w końcu hello hello dane wyjściowe, wyświetlić hello informacje o połączeniu dla hosta Docker w następujący sposób: 
 
 ```bash
 docker-machine env myvmdocker
 ```
 
-Dane wyjściowe są podobne do poniższego przykładu:
+Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
 
 ```bash
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://40.68.254.142:2376"
 export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
-# Run this command to configure your shell:
+# Run this command tooconfigure your shell:
 # eval $(docker-machine env myvmdocker)
 ```
 
-Zdefiniować połączenie ustawienia, można uruchomić polecenie sugerowanych konfiguracji (`eval $(docker-machine env myvmdocker)`), lub ręcznie ustawić zmienne środowiskowe. 
+Ustawienia połączenia hello toodefine można albo wykonywania hello sugerowana Konfiguracja polecenia (`eval $(docker-machine env myvmdocker)`), lub ręcznie ustawić zmienne środowiskowe hello. 
 
 ## <a name="run-a-container"></a>Uruchom kontenera
-Aby wyświetlić kontenera akcji, umożliwia uruchamianie podstawowy serwer sieci Web NGINX. Tworzenie kontenera z `docker run` i ujawnia port 80 dla ruchu w sieci web w następujący sposób:
+toosee kontenera akcji, umożliwia uruchamianie podstawowy serwer sieci Web NGINX. Tworzenie kontenera z `docker run` i ujawnia port 80 dla ruchu w sieci web w następujący sposób:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
 ```
 
-Dane wyjściowe są podobne do poniższego przykładu:
+Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
 
 ```bash
-Unable to find image 'nginx:latest' locally
+Unable toofind image 'nginx:latest' locally
 latest: Pulling from library/nginx
 ff3d52d8f55f: Pull complete
 226f4ec56ba3: Pull complete
@@ -115,24 +115,24 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Widok uruchomionych kontenerów z `docker ps`. Następujące przykładowe dane wyjściowe wyglądają kontener NGINX z portu 80 udostępniane:
+Widok uruchomionych kontenerów z `docker ps`. Witaj następujące przykładowe dane wyjściowe wyglądają kontener NGINX hello uruchomiony z portu 80 udostępniane:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
 d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
-## <a name="test-the-container"></a>Kontener testu
-Uzyskaj publiczny adres IP hosta Docker w następujący sposób:
+## <a name="test-hello-container"></a>Kontener testu hello
+Uzyskaj hello publiczny adres IP hosta Docker w następujący sposób:
 
 
 ```bash
 docker-machine ip myvmdocker
 ```
 
-Aby wyświetlić kontenera w akcji, otwórz przeglądarkę sieci web i wprowadź publicznego adresu IP w danych wyjściowych poprzednie polecenie:
+kontener hello toosee akcji, otwórz przeglądarkę sieci web i wprowadź hello publicznego adresu IP w danych wyjściowych hello hello poprzedzających polecenia:
 
 ![Kontener ngnix uruchomione](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Można również utworzyć hostów z [rozszerzenia maszyny Wirtualnej platformy Docker](dockerextension.md). Przykłady przy użyciu rozwiązania Docker Compose można znaleźć [wprowadzenie Docker i redagowanie na platformie Azure](docker-compose-quickstart.md).
+Można również utworzyć hostów z hello [rozszerzenia maszyny Wirtualnej platformy Docker](dockerextension.md). Przykłady przy użyciu rozwiązania Docker Compose można znaleźć [wprowadzenie Docker i redagowanie na platformie Azure](docker-compose-quickstart.md).

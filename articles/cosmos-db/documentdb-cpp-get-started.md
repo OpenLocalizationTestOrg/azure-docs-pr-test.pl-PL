@@ -1,5 +1,5 @@
 ---
-title: "Samouczek języka C++ dla usługi Azure Cosmos DB | Microsoft Docs"
+title: "Samouczek aaaC ++ dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
 description: "Samouczek języka C++, który pokazuje tworzenie bazy danych w języku C++ i aplikacji konsolowej przy użyciu zatwierdzonego dla usługi Azure Cosmos DB zestawu SDK języka C++. Azure Cosmos DB to skalowana w skali globalnej usługa bazy danych."
 services: cosmos-db
 documentationcenter: cpp
@@ -14,13 +14,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: 7d8de973765830ccd7983182bc1bb19b1e01e505
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d5eeff349b7753e39936b7eb77557ad30c5830a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: samouczek aplikacji w języku C++ dla interfejsu API usługi DocumentDB
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-hello-documentdb-api"></a>Azure DB rozwiązania Cosmos: Samouczek aplikacji konsoli C++ dla hello interfejsu API usługi DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,61 +32,61 @@ ms.lasthandoff: 07/11/2017
 > 
  
 
-Witamy w samouczku języka C++ dla zatwierdzonego dla interfejsu API DocumentDB usługi Azure Cosmos DB zestawu SDK języka C++! W ramach tego samouczka utworzysz aplikację konsolową, która tworzy zasoby usługi Azure Cosmos DB, w tym bazę danych w języku C++, oraz wykonuje względem nich zapytania.
+Zapraszamy toohello C++ samouczek dotyczący hello interfejsu API Azure rozwiązania Cosmos bazy danych DocumentDB zatwierdzone zestawu SDK dla języka C++! W ramach tego samouczka utworzysz aplikację konsolową, która tworzy zasoby usługi Azure Cosmos DB, w tym bazę danych w języku C++, oraz wykonuje względem nich zapytania.
 
 Omówione zostaną następujące czynności:
 
-* Tworzenie konta usługi Azure Cosmos DB i łączenie się z nim
+* Tworzenie i łączenie tooan konta bazy danych Azure rozwiązania Cosmos
 * Instalowanie aplikacji
 * Tworzenie bazy danych usługi Azure Cosmos DB dla języka C++
 * Tworzenie kolekcji
 * Tworzenie dokumentów JSON
-* Wykonywanie zapytań względem kolekcji
+* Wykonywanie zapytania hello kolekcji
 * Zastępowanie dokumentu
 * Usuwanie dokumentu
-* Usuwanie bazy danych usługi Azure Cosmos DB dla języka C++
+* Usuwanie bazy danych DB rozwiązania Cosmos Azure C++ hello
 
-Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/stalker314314/DocumentDBCpp). Przejdź do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
+Nie masz czasu? Nie martw się! Witaj kompletne rozwiązanie jest dostępne na [GitHub](https://github.com/stalker314314/DocumentDBCpp). Zobacz [uzyskać kompletne rozwiązanie hello](#GetSolution) Aby uzyskać krótkie instrukcje.
 
-Po ukończeniu samouczka języka C++ użyj przycisków głosowania u dołu tej strony, aby przesłać nam swoją opinię. 
+Po ukończeniu samouczka C++ hello, proszę Użyj hello przyciski do głosowania u dołu tej strony toogive hello nam opinii. 
 
-Jeśli chcesz, abyśmy skontaktowali się z Tobą bezpośrednio, możesz w komentarzach podać swój adres e-mail lub [skontaktować się z nami tutaj](https://www.research.net/r/8BKRJ3Z). 
+Jeśli chcesz nam toocontact bezpośrednio, uważasz, że tooinclude wolnego adresu e-mail w komentarzach lub [dotrzeć tutaj toous](https://www.research.net/r/8BKRJ3Z). 
 
 Teraz do dzieła!
 
-## <a name="prerequisites-for-the-c-tutorial"></a>Wymagania wstępne dla samouczka języka C++
-Upewnij się, że masz:
+## <a name="prerequisites-for-hello-c-tutorial"></a>Wymagania wstępne dotyczące samouczka hello C++
+Upewnij się, że masz następujące hello:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu uzyskania [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Program [Visual Studio](https://www.visualstudio.com/downloads/) z zainstalowanymi składnikami języka C++.
+* [Visual Studio](https://www.visualstudio.com/downloads/), z zainstalowanymi składnikami języka hello C++.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1. Tworzenie konta usługi Azure Cosmos DB
-Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Konfigurowanie aplikacji języka C++](#SetupNode).
+Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto ma toouse, możesz przejść od razu zbyt[instalowanie aplikacji C++](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupC++"></a>Krok 2. Konfigurowanie aplikacji języka C++
-1. Otwórz program Visual Studio, w menu **Plik** kliknij pozycję **Nowy**, a następnie kliknij pozycję **Projekt**. 
-2. W oknie **Nowy projekt** w okienku **Zainstalowane** rozwiń węzeł **Visual C++**, kliknij pozycję **Win32**, a następnie kliknij pozycję **Aplikacja konsolowa Win32**. Nadaj projektowi nazwę hellodocumentdb, a następnie kliknij przycisk **OK**. 
+1. Otwórz program Visual Studio, a następnie na powitania **pliku** menu, kliknij przycisk **nowy**, a następnie kliknij przycisk **projektu**. 
+2. W hello **nowy projekt** okna na powitania **zainstalowana** okienku rozwiń **Visual C++**, kliknij przycisk **Win32**, a następnie kliknij przycisk  **Aplikacji konsoli Win32**. Nazwa hello hellodocumentdb projektu, a następnie kliknij przycisk **OK**. 
    
-    ![Zrzut ekranu przedstawiający kreatora nowego projektu](media/documentdb-cpp-get-started/hello.png)
-3. Po uruchomieniu Kreatora aplikacji Win32 kliknij przycisk **Zakończ**.
-4. Po utworzeniu projektu otwórz Menedżera pakietów NuGet, klikając prawym przyciskiem myszy projekt **hellodocumentdb** w **Eksploratorze rozwiązań**, a następnie klikając pozycję **Zarządzaj pakietami NuGet**. 
+    ![Zrzut ekranu przedstawiający Kreator nowego projektu hello](media/documentdb-cpp-get-started/hello.png)
+3. Po uruchomieniu hello Kreator aplikacji Win32, kliknij przycisk **Zakończ**.
+4. Po utworzeniu projektu hello, otwórz Menedżera pakietów NuGet hello, klikając prawym przyciskiem myszy hello **hellodocumentdb** projektu w **Eksploratora rozwiązań** i klikając **Zarządzaj pakietami NuGet**. 
    
-    ![Zrzut ekranu przedstawiający pozycję Zarządzaj pakietami NuGet w menu projektu](media/documentdb-cpp-get-started/nuget.png)
-5. Na karcie **NuGet: hellodocumentdb** kliknij pozycję **Przeglądaj**, a następnie wyszukaj ciąg *documentdbcpp*. W wynikach wybierz pozycję DocumentDbCPP, jak pokazano na poniższym zrzucie ekranu. Ten pakiet instaluje odwołania do zestawu SDK REST języka C++, który jest zależnością dla pakietu DocumentDbCPP.  
+    ![Zrzut ekranu przedstawiający menu Projekt hello Zarządzanie pakietem NuGet](media/documentdb-cpp-get-started/nuget.png)
+5. W hello **NuGet: hellodocumentdb** , kliknij pozycję **Przeglądaj**, a następnie wyszukaj *documentdbcpp*. W wynikach hello wybierz DocumentDbCPP, jak pokazano w hello następującego zrzutu ekranu. Ten pakiet instaluje odwołania tooC c++ REST SDK, który jest zależność hello DocumentDbCPP.  
    
-    ![Zrzut ekranu przedstawiający wyróżniony pakiet DocumentDbCpp](media/documentdb-cpp-get-started/cpp.png)
+    ![Zrzut ekranu przedstawiający hello DocumentDbCpp pakietu, wyróżniony](media/documentdb-cpp-get-started/cpp.png)
    
-    Gdy pakiety zostaną dodane do projektu, będziemy gotowi do rozpoczęcia pisania kodu.   
+    Po dodaniu pakietów hello tooyour projektu, możemy wszystkie toostart zestaw pisanie kodu.   
 
 ## <a id="Config"></a>Krok 3. Kopiowanie szczegółów połączenia z witryny Azure Portal dla bazy danych Azure Cosmos DB
-Wywołaj witrynę [Azure Portal](https://portal.azure.com) i przejdź do utworzonego konta bazy danych Azure Cosmos DB. W następnym kroku identyfikator URI i klucz podstawowy z witryny Azure Portal będą nam potrzebne do nawiązania połączenia z naszych fragmentów kodu w języku C++. 
+Wywołaj [portalu Azure](https://portal.azure.com) i przechodzić między nimi utworzonego konta bazy danych dla bazy danych Azure rozwiązania Cosmos toohello. Wkrótce skontaktujemy hello URI oraz primary key hello z portalu Azure w hello następny krok tooestablish połączenie z naszych fragment kodu w języku C++. 
 
-![Identyfikator URI usługi Azure Cosmos DB i klucze w witrynie Azure Portal](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
+![Azure rozwiązania Cosmos DB URI i klucze w hello portalu Azure](media/documentdb-cpp-get-started/nosql-tutorial-keys.png)
 
-## <a id="Connect"></a>Krok 4. Łączenie się z kontem usługi Azure Cosmos DB
-1. Po wierszu `#include "stdafx.h"` dodaj następujące nagłówki i przestrzenie nazw do kodu źródłowego.
+## <a id="Connect"></a>Krok 4: Łączenie tooan konta bazy danych Azure rozwiązania Cosmos
+1. Dodaj hello następującego kodu źródłowego tooyour nagłówki i przestrzenie nazw, po `#include "stdafx.h"`.
    
         #include <cpprest/json.h>
         #include <documentdbcpp\DocumentClient.h>
@@ -96,17 +96,17 @@ Wywołaj witrynę [Azure Portal](https://portal.azure.com) i przejdź do utworzo
         using namespace documentdb;
         using namespace std;
         using namespace web::json;
-2. Następnie dodaj następujący kod do funkcji main oraz zastąp konfigurację konta i klucz podstawowy, aby dopasować ustawienia usługi Azure Cosmos DB z kroku 3. 
+2. Następnie dodać hello następujący kod tooyour main — funkcja i zastąpienie hello konfiguracji konta i toomatch klucza podstawowego ustawień bazy danych Azure rozwiązania Cosmos w kroku 3. 
    
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Teraz, gdy masz kod do zainicjowania klienta documentdb, przyjrzyjmy się pracy z zasobami usługi Azure Cosmos DB.
+    Teraz, gdy masz klienta usługi documentdb hello tooinitialize kodu hello Spójrzmy w pracy z zasobami Azure DB rozwiązania Cosmos.
 
 ## <a id="CreateDBColl"></a>Krok 5. Tworzenie bazy danych i kolekcji w języku C++
-Zanim wykonamy ten krok, zajmijmy się sposobem interakcji bazy danych, kolekcji i dokumentów dla osób, które zaczynają korzystanie z usługi Azure Cosmos DB. [Baza danych](documentdb-resources.md#databases) jest kontenerem logicznym magazynu dokumentów podzielonym na kolekcje. [Kolekcja](documentdb-resources.md#collections) jest kontenerem dokumentów JSON i skojarzonej logiki aplikacji JavaScript. Więcej informacji o modelu zasobów hierarchicznych i pojęciach usługi Azure Cosmos DB znajduje się w temacie [Pojęcia i hierarchiczny model zasobów bazy danych Azure Cosmos DB](documentdb-resources.md).
+Zanim możemy wykonać ten krok, przejdź na interakcje bazy danych, kolekcji i dokumentów dla osób, które kim są nowe tooAzure DB rozwiązania Cosmos. [Baza danych](documentdb-resources.md#databases) jest kontenerem logicznym magazynu dokumentów podzielonym na kolekcje. A [kolekcji](documentdb-resources.md#collections) jest kontenerem dokumentów JSON i hello skojarzone logiki aplikacji JavaScript. Aby dowiedzieć się więcej o hello Azure DB rozwiązania Cosmos hierarchiczna pojęcia i model zasobów w [pojęcia i model zasobów hierarchiczna bazy danych Azure rozwiązania Cosmos](documentdb-resources.md).
 
-Aby utworzyć bazę danych i odpowiednią kolekcję, dodaj następujący kod na końcu Twojej funkcji main. Spowoduje to utworzenie bazy danych o nazwie „FamilyRegistry” i kolekcji o nazwie „FamilyCollection” przy użyciu konfiguracji klienta zadeklarowanej w poprzednim kroku.
+toocreate a bazy danych i odpowiedniej kolekcji dodać hello kod zakończenia toohello funkcji main. Spowoduje to utworzenie bazy danych o nazwie "FamilyRegistry" i kolekcję o nazwie "FamilyCollection" przy użyciu konfiguracji klienta hello zadeklarowany w poprzednim kroku hello.
 
     try {
       shared_ptr<Database> db = client.CreateDatabase(L"FamilyRegistry");
@@ -117,7 +117,7 @@ Aby utworzyć bazę danych i odpowiednią kolekcję, dodaj następujący kod na 
 
 
 ## <a id="CreateDoc"></a>Krok 6. Tworzenie dokumentu
-[Dokumenty](documentdb-resources.md#documents) są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Teraz można wstawić dokument do usługi Azure Cosmos DB. Dokument można utworzyć, kopiując następujący kod i wklejając go na końcu funkcji main. 
+[Dokumenty](documentdb-resources.md#documents) są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Teraz można wstawić dokument do usługi Azure Cosmos DB. Można utworzyć dokumentu, kopiując powitania po kod na końcu hello hello main — funkcja. 
 
     try {
       value document_family;
@@ -134,14 +134,14 @@ Aby utworzyć bazę danych i odpowiednią kolekcję, dodaj następujący kod na 
       wcout << ex.message();
     }
 
-Podsumowując, ten kod tworzy bazę danych, kolekcję i dokumenty usługi Azure Cosmos DB, do których można tworzyć zapytania w Eksploratorze dokumentów w witrynie Azure Portal. 
+toosummarize, ten kod tworzy bazy danych Azure rozwiązania Cosmos bazy danych, kolekcji i dokumentów, które można zbadać w Eksploratora dokumentów w portalu Azure. 
 
-![Samouczek języka C++ — diagram pokazujący hierarchiczną relację między kontem, bazą danych, kolekcją i dokumentami](media/documentdb-cpp-get-started/docs.png)
+![Samouczek C++ — Diagram pokazujący hello hierarchiczną relację między hello konta, hello bazy danych, kolekcji hello i hello dokumentów](media/documentdb-cpp-get-started/docs.png)
 
 ## <a id="QueryDB"></a>Krok 7. Wykonanie zapytania względem zasobów usługi Azure Cosmos DB
-Usługa Azure Cosmos DB obsługuje [zaawansowane zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji. Następujący przykładowy kod przedstawia zapytanie wykonywane przy użyciu składni SQL, które możesz uruchomić względem dokumentów utworzonych w poprzednim kroku.
+Usługa Azure Cosmos DB obsługuje [zaawansowane zapytania](documentdb-sql-query.md) względem dokumentów JSON przechowywanych w każdej kolekcji. Witaj następujący przykładowy kod przedstawia zapytanie zostało nawiązane przy użyciu składni SQL, który można uruchomić względem dokumentów hello utworzony w poprzednim kroku hello.
 
-Funkcja przyjmuje jako argumenty unikatowy identyfikator lub identyfikator zasobu dla bazy danych i kolekcji wraz z klientem dokumentu. Dodaj następujący kod przed funkcją main.
+Funkcja Hello przyjmuje jako argumenty hello unikatowego identyfikatora lub identyfikator zasobu hello bazy danych i kolekcji hello wraz z powitania klienta dokumentu. Dodaj następujący kod przed funkcją main.
 
     void executesimplequery(const DocumentClient &client,
                             const wstring dbresourceid,
@@ -170,7 +170,7 @@ Funkcja przyjmuje jako argumenty unikatowy identyfikator lub identyfikator zasob
     }
 
 ## <a id="Replace"></a>Krok 8. Zastępowanie dokumentu
-Usługa Azure Cosmos DB obsługuje zastępowanie dokumentów JSON, jak pokazano w poniższym kodzie. Dodaj ten kod po funkcji executesimplequery.
+Azure DB rozwiązania Cosmos obsługuje zastępowanie dokumentów JSON, jak pokazano w hello następującego kodu. Dodaj ten kod po hello executesimplequery funkcji.
 
     void replacedocument(const DocumentClient &client, const wstring dbresourceid,
                          const wstring collresourceid,
@@ -190,7 +190,7 @@ Usługa Azure Cosmos DB obsługuje zastępowanie dokumentów JSON, jak pokazano 
     }
 
 ## <a id="Delete"></a>Krok 9. Usuwanie dokumentu
-Usługa Azure Cosmos DB obsługuje usuwanie dokumentów JSON. W tym celu możesz skopiować następujący kod i wkleić go po funkcji replacedocument. 
+Azure DB rozwiązania Cosmos obsługuje usuwanie dokumentów JSON, możesz to zrobić przez kopiowanie i wklejanie hello następującego kodu po hello replacedocument funkcji. 
 
     void deletedocument(const DocumentClient &client, const wstring dbresourceid,
                         const wstring collresourceid, const wstring docresourceid) {
@@ -205,9 +205,9 @@ Usługa Azure Cosmos DB obsługuje usuwanie dokumentów JSON. W tym celu możesz
     }
 
 ## <a id="DeleteDB"></a>Krok 10. Usuwanie bazy danych
-Usunięcie utworzonej bazy danych usunie bazę danych i wszystkie zasoby podrzędne (kolekcje, dokumenty itd.).
+Trwa usuwanie hello utworzone bazy danych usuwa hello bazy danych i wszystkich zasobów podrzędnych (kolekcji, dokumentów itd.).
 
-Skopiuj poniższy fragment kodu (funkcja cleanup) i wklej go po funkcji deletedocument, aby usunąć bazę danych i wszystkie zasoby podrzędne.
+Skopiuj i Wklej hello następującego fragmentu kodu (Funkcja oczyszczania) po bazy danych hello deletedocument funkcja tooremove hello i wszystkie zasoby podrzędne hello.
 
     void deletedb(const DocumentClient &client, const wstring dbresourceid) {
       try {
@@ -218,9 +218,9 @@ Skopiuj poniższy fragment kodu (funkcja cleanup) i wklej go po funkcji deletedo
     }
 
 ## <a id="Run"></a>Krok 11. Uruchamianie całej aplikacji w języku C++!
-Dodaliśmy kod do tworzenia, modyfikowania i usuwania różnych zasobów usługi Azure Cosmos DB oraz do wykonywania względem nich zapytań.  Połączmy to teraz ze sobą, dodając wywołania tych różnych funkcji w naszej funkcji main w pliku hellodocumentdb.cpp wraz z pewnymi komunikatami diagnostycznymi.
+Firma Microsoft zostało dodane toocreate kodu, zapytania, modyfikowanie i usuwanie różnymi zasobami Azure DB rozwiązania Cosmos.  Poinformuj nas teraz okablować to się przez dodanie wywołania toothese różne funkcje z naszym głównym funkcji w hellodocumentdb.cpp oraz niektóre komunikaty diagnostyczne.
 
-Możesz to zrobić, zastępując funkcję main Twojej aplikacji poniższym kodem. Nadpisuje to parametry account_configuration_uri i primary_key, które zostały skopiowane do kodu w kroku 3, więc zapisz ten wiersz lub ponownie skopiuj wartości z portalu. 
+Można to zrobić, zastępując hello główną funkcją aplikacji hello następującego kodu. Ten zapisy za pośrednictwem hello account_configuration_uri i primary_key skopiowane do kodu hello w kroku 3, więc tej wartości hello wiersza lub kopiowanie w ponownie zapisać hello portalu. 
 
     int main() {
         try {
@@ -269,24 +269,24 @@ Możesz to zrobić, zastępując funkcję main Twojej aplikacji poniższym kodem
         cin.get();
     }
 
-Teraz powinna być możliwość skompilowania i uruchomienia kodu w programie Visual Studio po naciśnięciu klawisza F5 lub alternatywnie w oknie terminala, lokalizując aplikację, a następnie uruchamiając plik wykonywalny. 
+Powinny teraz toobuild może być i uruchamianie kodu w programie Visual Studio, naciskając klawisz F5 lub też w hello okno terminalu lokalizowania aplikacji hello i uruchamiając hello pliku wykonywalnego. 
 
-Powinny zostać wyświetlone dane wyjściowe aplikacji rozpoczynania pracy. Dane wyjściowe powinny odpowiadać poniższemu zrzutowi ekranu.
+Powinny pojawić się dane wyjściowe aplikacji rozpoczynania pracy hello. Witaj dane wyjściowe powinny odpowiadać hello następującego zrzutu ekranu.
 
 ![Dane wyjściowe aplikacji usługi Azure Cosmos DB w języku C++](media/documentdb-cpp-get-started/console.png)
 
-Gratulacje! Udało Ci się ukończyć samouczek języka C++ i utworzyć swoją pierwszą aplikację konsolową usługi Azure Cosmos DB!
+Gratulacje! Po ukończeniu samouczka C++ hello i ma swoją pierwszą aplikację konsoli bazy danych rozwiązania Cosmos Azure!
 
-## <a id="GetSolution"></a>Pobieranie kompletnego rozwiązania samouczka języka C++
-Aby skompilować rozwiązanie GetStarted, które zawiera wszystkie przykłady z tego artykułu, będą potrzebne następujące elementy:
+## <a id="GetSolution"></a>Pobierz kompletnego rozwiązania samouczka hello C++
+rozwiązania GetStarted hello toobuild, który zawiera wszystkie przykłady hello w tym artykule, potrzebne są następujące hello:
 
 * [Konto usługi Azure Cosmos DB][create-account].
-* Rozwiązanie [GetStarted](https://github.com/stalker314314/DocumentDBCpp) dostępne w witrynie GitHub.
+* Witaj [GetStarted](https://github.com/stalker314314/DocumentDBCpp) rozwiązanie jest dostępne w witrynie GitHub.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
-* Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
-* Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Dowiedz się, jak za[monitorować konto bazy danych Azure rozwiązania Cosmos](monitor-accounts.md).
+* Uruchom zapytania względem naszego przykładowego zestawu danych w hello [Plac zabaw dla zapytań](https://www.documentdb.com/sql/demo).
+* Dowiedz się więcej o modelu programowania hello w hello opracowanie części hello [stronę dokumentacji bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
 

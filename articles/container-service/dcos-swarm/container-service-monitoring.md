@@ -1,6 +1,6 @@
 ---
-title: Monitor klastra Azure DC/OS - Datadog | Dokumentacja firmy Microsoft
-description: "Monitorowanie klastra usługi kontenera platformy Azure z Datadog. Użyj interfejsu użytkownika sieci web platformy DC/OS, aby wdrożyć agentów Datadog do klastra."
+title: klaster Azure DC/OS aaaMonitor - Datadog | Dokumentacja firmy Microsoft
+description: "Monitorowanie klastra usługi kontenera platformy Azure z Datadog. Używać hello DC/OS web UI toodeploy hello Datadog agentów tooyour klastra."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -16,37 +16,37 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 10268c04b5c2ef393429e706ed4a467fff80f718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Monitor klastra usługi kontenera platformy Azure DC/OS z Datadog
-W tym artykule wdrożymy Datadog agentów dla wszystkich węzłów w klastrze usługi kontenera platformy Azure agenta. Musisz mieć konto z Datadog dla tej konfiguracji. 
+W tym artykule wdrożymy Datadog agentów tooall hello agenta węzłów w klastrze usługi kontenera platformy Azure. Musisz mieć konto z Datadog dla tej konfiguracji. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-[Wdróż](container-service-deployment.md) i [połącz](../container-service-connect.md) klaster skonfigurowany przez usługę Azure Container Service. Przegląd [interfejsu użytkownika platformy Marathon](container-service-mesos-marathon-ui.md). Przejdź do [http://datadoghq.com](http://datadoghq.com) skonfigurować konto Datadog. 
+[Wdróż](container-service-deployment.md) i [połącz](../container-service-connect.md) klaster skonfigurowany przez usługę Azure Container Service. Eksploruj hello [interfejs użytkownika platformy Marathon](container-service-mesos-marathon-ui.md). Przejdź za[http://datadoghq.com](http://datadoghq.com) tooset konto Datadog. 
 
 ## <a name="datadog"></a>Datadog
-Datadog jest usługą monitorowania, która gromadzi dane monitorowania z kontenerów w ramach klastra usługi kontenera platformy Azure. Datadog ma pulpitu nawigacyjnego Docker integracji umożliwia wyświetlenie określonych metryk w kontenerów. Metryki zebrane z kontenerów są zorganizowane według Procesora, pamięci, sieci i we/wy. Datadog dzieli metryki na kontenery i obrazów. Przykładem jak wygląda interfejs użytkownika użycia procesora CPU jest poniżej.
+Datadog jest usługą monitorowania, która gromadzi dane monitorowania z kontenerów w ramach klastra usługi kontenera platformy Azure. Datadog ma pulpitu nawigacyjnego Docker integracji umożliwia wyświetlenie określonych metryk w kontenerów. Metryki zebrane z kontenerów są zorganizowane według Procesora, pamięci, sieci i we/wy. Datadog dzieli metryki na kontenery i obrazów. Przykład Witaj, jakie interfejsu użytkownika wygląda dla Procesora użycia jest poniżej.
 
 ![Datadog interfejsu użytkownika](./media/container-service-monitoring/datadog4.png)
 
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Konfigurowanie wdrożenia Datadog przy użyciu platformy Marathon
-Te kroki opisano sposób konfigurowania i wdrażania aplikacji Datadog do klastra przy użyciu platformy Marathon. 
+Te kroki opisano, jak tooconfigure i wdrożenie klastra tooyour aplikacji Datadog przy użyciu platformy Marathon. 
 
-Dostęp za pośrednictwem interfejsu użytkownika platformy DC/OS [http://localhost:80 /](http://localhost:80/). Raz w Interfejsie użytkownika DC/OS przejdź do "Universe", który znajduje się w lewym dolnym rogu okna, następnie odszukaj "Datadog" i kliknij przycisk Zainstaluj.
+Dostęp za pośrednictwem interfejsu użytkownika platformy DC/OS [http://localhost:80 /](http://localhost:80/). Raz w hello Przejdź interfejsu użytkownika DC/OS toohello "Universe", który znajduje się na powitania dołu w lewo i następnie wyszukaj "Datadog" i kliknij przycisk Zainstaluj.
 
-![Pakiet Datadog w Uniwersum DC/OS](./media/container-service-monitoring/datadog1.png)
+![Datadog pakietu w hello Universe DC/OS](./media/container-service-monitoring/datadog1.png)
 
-Teraz w celu ukończenia konfiguracji konieczne będzie konto Datadog lub bezpłatne konto próbne. Gdy jest zalogowany Datadog wyglądu witryny sieci Web w lewo i przejdź do integracji -> następnie [interfejsów API](https://app.datadoghq.com/account/settings#api). 
+Teraz toocomplete hello konfiguracji konieczne będzie konto Datadog lub bezpłatne konto próbne. Po zalogowaniu w witrynie sieci Web toohello Datadog Szukaj toohello po lewej i przejść, następnie -> tooIntegrations [interfejsów API](https://app.datadoghq.com/account/settings#api). 
 
 ![Klucz interfejsu API Datadog](./media/container-service-monitoring/datadog2.png)
 
-Następnie wprowadź klucz interfejsu API w konfiguracji Datadog w Uniwersum DC/OS. 
+Obok wprowadź klucz interfejsu API w konfiguracji Datadog hello w hello Universe DC/OS. 
 
-![Konfiguracja Datadog na całym świecie DC/OS](./media/container-service-monitoring/datadog3.png) 
+![Konfiguracja Datadog w hello Universe DC/OS](./media/container-service-monitoring/datadog3.png) 
 
-W powyższej konfiguracji wystąpienia są ustawione na 10000000 to zawsze, gdy nowy węzeł zostanie dodany do klastra Datadog automatycznie wdraża agenta do tego węzła. To rozwiązanie tymczasowe. Po zainstalowaniu pakietu, należy przejść z powrotem do witryny sieci Web Datadog i Znajdź "[pulpity nawigacyjne](https://app.datadoghq.com/dash/list)." Z tego miejsca pojawi się niestandardowy i integracja z pulpitów nawigacyjnych. [Pulpitu nawigacyjnego Docker](https://app.datadoghq.com/screen/integration/docker) będą miały metryki kontenera potrzebne do monitorowania sieci klastra. 
+W hello powyżej konfiguracji wystąpienia są ustawiane too10000000, przy każdym dodaniu nowego węzła klastra toohello Datadog zostaną automatycznie wdrożone węzła toothat agenta. To rozwiązanie tymczasowe. Po zainstalowaniu pakietu hello Przejdź wstecz toohello Datadog witryny sieci Web i Znajdź "[pulpity nawigacyjne](https://app.datadoghq.com/dash/list)." Z tego miejsca pojawi się niestandardowy i integracja z pulpitów nawigacyjnych. Witaj [pulpitu nawigacyjnego Docker](https://app.datadoghq.com/screen/integration/docker) będzie miał wszystkie metryki kontenera hello potrzebne do monitorowania sieci klastra. 
 

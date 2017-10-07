@@ -1,6 +1,6 @@
 ---
-title: "Zapisywania wiadomości Centrum IoT do magazynu danych Azure | Dokumentacja firmy Microsoft"
-description: "Przy użyciu aplikacji Azure funkcji zapisywania wiadomości Centrum IoT z magazynu tabel Azure. Komunikaty Centrum IoT zawierają informacje, takie jak dane czujników, które są wysyłane z urządzenia IoT."
+title: "aaaSave Centrum IoT wiadomości magazynu danych tooAzure | Dokumentacja firmy Microsoft"
+description: "Użyj toosave aplikacji Azure — funkcja Twoje tooyour wiadomości Centrum IoT magazynu tabel platformy Azure. wiadomości powitania od centrum IoT zawierają informacje, takie jak dane czujników, które są wysyłane z urządzenia IoT."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: be72d9ba9a781822926364351b50f58f5d96e94a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Zapisz komunikaty Centrum IoT, które zawierają dane czujników w celu Twojego magazynu tabel platformy Azure
+# <a name="save-iot-hub-messages-that-contain-sensor-data-tooyour-azure-table-storage"></a>Zapisz komunikaty Centrum IoT, które zawierają magazynu tabel Azure tooyour danych czujnika
 
 ![Diagram end-to-end](media/iot-hub-get-started-e2e-diagram/3.png)
 
@@ -29,104 +29,104 @@ ms.lasthandoff: 08/18/2017
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
-Jak utworzyć konto magazynu platformy Azure i aplikacji funkcji platformy Azure do przechowywania komunikatów Centrum IoT w Twoim magazynie w tabeli.
+Dowiedz się, jak komunikaty Centrum IoT toostore aplikacji w Twoim magazynie w tabeli funkcji toocreate konta magazynu platformy Azure i platformy Azure.
 
 ## <a name="what-you-do"></a>Co zrobić
 
 - Utworzenie konta magazynu platformy Azure.
-- Przygotuj połączenie Centrum IoT odczytywać wiadomości.
+- Przygotuj Centrum IoT połączenia tooread wiadomości.
 - Tworzenie i wdrażanie aplikacji funkcji platformy Azure.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-- [Urządzenie jest skonfigurowane](iot-hub-raspberry-pi-kit-node-get-started.md) , aby pokrywał się następujące wymagania:
+- [Urządzenie jest skonfigurowane](iot-hub-raspberry-pi-kit-node-get-started.md) hello toocover następujące wymagania:
   - Aktywną subskrypcją platformy Azure
   - Centrum IoT w ramach Twojej subskrypcji 
-  - Działającej aplikacji, która wysyła komunikaty do Centrum IoT
+  - Uruchomionych aplikacji, która wysyła Centrum IoT tooyour wiadomości
 
 ## <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **magazynu** > **konta magazynu**  >   **Utwórz**.
+1. W hello [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **magazynu** > **konta magazynu**  >   **Utwórz**.
 
-2. Wprowadź informacje niezbędne do konta magazynu:
+2. Wprowadź niezbędne informacje powitania dla konta magazynu hello:
 
-   ![Utwórz konto magazynu w portalu Azure](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![Utwórz konto magazynu w hello portalu Azure](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
 
-   * **Nazwa**: Nazwa konta magazynu. Nazwa musi być unikatowa w skali globalnej.
+   * **Nazwa**: Nazwa hello hello konta magazynu. Nazwa Hello musi być globalnie unikatowa.
 
-   * **Grupa zasobów**: Użyj tej samej grupie zasobów, która używa Centrum IoT.
+   * **Grupa zasobów**: Użyj hello sam grupę zasobów, która korzysta z Centrum IoT.
 
-   * **Przypnij do pulpitu nawigacyjnego**: wybierz tę opcję, aby mieć łatwy dostęp do centrum IoT Hub z pulpitu nawigacyjnego.
+   * **Numer PIN toodashboard**: Wybierz tę opcję, Centrum IoT tooyour łatwy dostęp z hello pulpitu nawigacyjnego.
 
 3. Kliknij przycisk **Utwórz**.
 
-## <a name="prepare-your-iot-hub-connection-to-read-messages"></a>Przygotowanie połączenia Centrum IoT odczytywać wiadomości
+## <a name="prepare-your-iot-hub-connection-tooread-messages"></a>Przygotowanie Centrum IoT komunikaty tooread połączenia.
 
-Centrum IoT przedstawia punktu końcowego zgodnych z Centrum zdarzeń wbudowanych umożliwia aplikacjom odczytywanie wiadomości Centrum IoT. W tym samym czasie aplikacji umożliwia odczytywanie danych z Centrum IoT grup odbiorców. Przed utworzeniem aplikacji funkcji platformy Azure można odczytać danych z Centrum IoT, wykonaj następujące czynności:
+Centrum IoT udostępnia wbudowane punktu końcowego Centrum zgodnego tooenable aplikacji tooread IoT Centrum komunikaty o zdarzeniach. W tym samym czasie aplikacje używają danych tooread grupy konsumentów z Centrum IoT. Przed utworzeniem tooread dane aplikacji Azure funkcji z Centrum IoT hello następujące:
 
-- Pobierz ciąg połączenia punktu końcowego Centrum IoT.
+- Pobierz ciąg połączenia hello punktu końcowego Centrum IoT.
 - Utwórz grupy odbiorców Centrum IoT.
 
-### <a name="get-the-connection-string-of-your-iot-hub-endpoint"></a>Pobierz ciąg połączenia punktu końcowego Centrum IoT
+### <a name="get-hello-connection-string-of-your-iot-hub-endpoint"></a>Pobierz ciąg połączenia hello punktu końcowego Centrum IoT
 
 1. Otwórz Centrum IoT.
 
-2. Na **Centrum IoT** okienku w obszarze **wiadomości**, kliknij przycisk **punkty końcowe**.
+2. Na powitania **Centrum IoT** okienku w obszarze **wiadomości**, kliknij przycisk **punkty końcowe**.
 
-3. W prawym okienku w obszarze **wbudowane punkty końcowe**, kliknij przycisk **zdarzenia**.
+3. W hello prawym okienku w obszarze **wbudowane punkty końcowe**, kliknij przycisk **zdarzenia**.
 
-4. W **właściwości** okienka, należy zwrócić uwagę na następujące wartości:
+4. W hello **właściwości** okienka, hello Uwaga następujące wartości:
    - Punkt końcowy zgodnych z Centrum zdarzeń
    - Nazwa zgodnych z Centrum zdarzeń
 
-   ![Pobierz ciąg połączenia punktu końcowego Centrum IoT w portalu Azure](media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
+   ![Pobierz ciąg połączenia hello punktu końcowego Centrum IoT w hello portalu Azure](media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
 
-5. W **Centrum IoT** okienku w obszarze **ustawienia**, kliknij przycisk **zasady dostępu współużytkowanego**.
+5. W hello **Centrum IoT** okienku w obszarze **ustawienia**, kliknij przycisk **zasady dostępu współużytkowanego**.
 
 6. Kliknij przycisk **iothubowner**.
 
-7. Uwaga **klucz podstawowy** wartość.
+7. Uwaga hello **klucz podstawowy** wartość.
 
-8. Utworzenie punktu końcowego Centrum IoT parametry połączenia w następujący sposób:
+8. Utwórz hello parametry połączenia punktu końcowego Centrum IoT w następujący sposób:
 
    `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
 
    > [!NOTE]
-   > Zastąp `<Event Hub-compatible endpoint>` i `<Primary key>` wartościami, których wcześniej zapisany.
+   > Zastąp `<Event Hub-compatible endpoint>` i `<Primary key>` wartościami hello zanotowany wcześniej.
 
 ### <a name="create-a-consumer-group-for-your-iot-hub"></a>Tworzenie grupy odbiorców Centrum IoT
 
 1. Otwórz Centrum IoT.
 
-2. W **Centrum IoT** okienku w obszarze **wiadomości**, kliknij przycisk **punkty końcowe**.
+2. W hello **Centrum IoT** okienku w obszarze **wiadomości**, kliknij przycisk **punkty końcowe**.
 
-3. W prawym okienku w obszarze **wbudowane punkty końcowe**, kliknij przycisk **zdarzenia**.
+3. W hello prawym okienku w obszarze **wbudowane punkty końcowe**, kliknij przycisk **zdarzenia**.
 
-4. W **właściwości** okienku w obszarze **grupy konsumentów**, wprowadź nazwę, a następnie zanotuj jego.
+4. W hello **właściwości** okienku w obszarze **grupy konsumentów**, wprowadź nazwę, a następnie zanotuj jego.
 
 5. Kliknij pozycję **Zapisz**.
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>Tworzenie i wdrażanie aplikacji Azure — funkcja
 
-1. W [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **obliczeniowe** > **aplikacji funkcji**  >   **Utwórz**.
+1. W hello [portalu Azure](https://portal.azure.com/), kliknij przycisk **nowy** > **obliczeniowe** > **aplikacji funkcji**  >   **Utwórz**.
 
-2. Wprowadź informacje niezbędne do funkcji aplikacji.
+2. Wprowadź niezbędne informacje hello hello funkcji aplikacji.
 
-   ![Tworzenie aplikacji funkcji w portalu Azure](media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
+   ![Tworzenie aplikacji funkcji w hello portalu Azure](media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
 
-   * **Nazwa aplikacji**: Nazwa aplikacji funkcji. Nazwa musi być unikatowa w skali globalnej.
+   * **Nazwa aplikacji**: Nazwa hello hello funkcji aplikacji. Nazwa Hello musi być globalnie unikatowa.
 
-   * **Grupa zasobów**: Użyj tej samej grupie zasobów, która używa Centrum IoT.
+   * **Grupa zasobów**: Użyj hello sam grupę zasobów, która korzysta z Centrum IoT.
 
-   * **Konto magazynu**: utworzone konto magazynu.
+   * **Konto magazynu**: hello utworzone konto magazynu.
 
-   * **Przypnij do pulpitu nawigacyjnego**: Zaznacz tę opcję, by mieć łatwy dostęp do aplikacji funkcji z poziomu pulpitu nawigacyjnego.
+   * **Numer PIN toodashboard**: Zaznacz tę opcję dla aplikacji funkcja toohello łatwy dostęp z poziomu pulpitu nawigacyjnego hello.
 
 3. Kliknij przycisk **Utwórz**.
 
-4. Po utworzeniu aplikacji funkcji, można go otworzyć.
+4. Po utworzeniu hello funkcji aplikacji, można go otworzyć.
 
-5. W funkcji aplikacji Utwórz nową funkcję, wykonując następujące czynności:
+5. W aplikacji funkcji hello Utwórz nową funkcję, wykonując następujące hello:
 
    a. Kliknij przycisk **nową funkcję**.
 
@@ -134,49 +134,49 @@ Centrum IoT przedstawia punktu końcowego zgodnych z Centrum zdarzeń wbudowanyc
 
    c. Kliknij przycisk **tworzenia tej funkcji**, a następnie kliknij przycisk **nową funkcję**.
 
-   d. Wybierz **JavaScript** dla języka, i **przetwarzania danych** dla tego scenariusza.
+   d. Wybierz **JavaScript** dla języka hello i **przetwarzania danych** hello scenariusza.
 
-   e. Kliknij przycisk **EventHubTrigger JavaScript** szablonu.
+   e. Kliknij przycisk hello **EventHubTrigger JavaScript** szablonu.
 
-   f. Wprowadź informacje niezbędne do szablonu.
+   f. Wprowadź niezbędne informacje hello hello szablonu.
 
-      * **Nazwa funkcji**: Nazwa funkcji.
+      * **Nazwa funkcji**: Nazwa hello hello funkcji.
 
-      * **Nazwa Centrum zdarzeń**: Nazwa zgodnych z Centrum zdarzeń zanotowany wcześniej.
+      * **Nazwa Centrum zdarzeń**: Nazwa zgodnych z Centrum zdarzeń hello zanotowany wcześniej.
 
-      * **Połączenia Centrum zdarzeń**: Aby dodać parametry połączenia utworzonego punktu końcowego Centrum IoT kliknij **nowy**.
+      * **Połączenia Centrum zdarzeń**: parametry połączenia hello tooadd hello punktu końcowego Centrum IoT utworzony, kliknij przycisk **nowy**.
 
    g. Kliknij przycisk **Utwórz**.
 
-6. Dane wyjściowe funkcji należy skonfigurować w następujący sposób:
+6. Skonfiguruj wyjścia funkcji hello, wykonując następujące hello:
 
    a. Kliknij przycisk **integracji** > **nowych danych wyjściowych** > **magazynu tabel Azure** > **wybierz**.
 
-      ![Dodawanie magazynu tabel do funkcji aplikacji w portalu Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
+      ![Dodatek tabeli magazynu tooyour funkcji aplikacji hello portalu Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
 
-   b. Wprowadź niezbędne informacje.
+   b. Wprowadź niezbędne informacje hello.
 
-      * **Nazwa parametru tabeli**: Użyj `outputTable`, który będzie używany w funkcji platformy Azure kod.
+      * **Nazwa parametru tabeli**: Użyj `outputTable`, który będzie używany w hello Azure kodu funkcji.
       
       * **Nazwa tabeli**: Użyj `deviceData`.
 
-      * **Konta połączenia z magazynem**: kliknij **nowy**, a następnie wybierz lub wprowadź konta magazynu. Jeśli konto magazynu nie jest wyświetlany, zobacz [wymagania dotyczące konta magazynu](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
+      * **Konta połączenia z magazynem**: kliknij **nowy**, a następnie wybierz lub wprowadź konta magazynu. Jeśli konto magazynu hello nie jest wyświetlany, zobacz [wymagania dotyczące konta magazynu](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
       
    c. Kliknij pozycję **Zapisz**.
 
 7. W obszarze **wyzwalaczy**, kliknij przycisk **Azure Event Hub (eventHubMessages)**.
 
-8. W obszarze **grupy odbiorców Centrum zdarzeń**, wprowadź nazwę grupy odbiorców, który zostanie utworzony, a następnie kliknij przycisk **zapisać**.
+8. W obszarze **grupy odbiorców Centrum zdarzeń**, wprowadź nazwę grupy odbiorców hello utworzone, a następnie kliknij przycisk hello **zapisać**.
 
-9. Kliknij funkcję utworzony po lewej stronie, a następnie kliknij przycisk **Wyświetl pliki** po prawej stronie.
+9. Kliknij przycisk Funkcja powitania po utworzeniu na powitania po lewej, a następnie kliknij przycisk **Wyświetl pliki** na powitania prawo.
 
-10. Zastąp kod w `index.js` następującym kodem:
+10. Zastąp kod hello w `index.js` hello następujący:
 
    ```javascript
    'use strict';
 
-   // This function is triggered each time a message is received in the IoT hub.
-   // The message payload is persisted in an Azure storage table
+   // This function is triggered each time a message is received in hello IoT hub.
+   // hello message payload is persisted in an Azure storage table
  
    module.exports = function (context, iotHubMessage) {
     context.log('Message received: ' + JSON.stringify(iotHubMessage));
@@ -194,22 +194,22 @@ Centrum IoT przedstawia punktu końcowego zgodnych z Centrum zdarzeń wbudowanyc
 
 11. Kliknij pozycję **Zapisz**.
 
-Utworzona aplikacja funkcji. Przechowuje wiadomości, które otrzymuje Centrum IoT w Twoim magazynie w tabeli.
+Utworzona hello funkcji aplikacji. Przechowuje wiadomości, które otrzymuje Centrum IoT w Twoim magazynie w tabeli.
 
 > [!NOTE]
-> Można użyć **Uruchom** przycisk, aby przetestować aplikację funkcji. Po kliknięciu **Uruchom**, wiadomości testowej są wysyłane do Centrum IoT. Otrzymanie komunikatu powinno spowodować aplikacji funkcja start, a następnie Zapisz komunikat do magazynu tabel. **Dzienniki** okienko rejestruje szczegółowe informacje o procesie.
+> Można użyć hello **Uruchom** przycisk tootest hello funkcji aplikacji. Po kliknięciu **Uruchom**, tooyour Centrum IoT jest wysłać wiadomości testowej hello. Hello nadejście wiadomości powitania powinien wyzwolenia hello funkcji aplikacji toostart, a następnie zapisz magazynu tabel tooyour wiadomość hello. Witaj **dzienniki** okienko rejestruje szczegóły hello hello procesu.
 
 ## <a name="verify-your-message-in-your-table-storage"></a>Sprawdź wiadomość w Twoim magazynie w tabeli
 
-1. Uruchom przykładową aplikację na urządzeniu do wysyłania komunikatów do Centrum IoT.
+1. Uruchom hello przykładowej aplikacji w Centrum IoT tooyour wiadomości toosend urządzenia.
 
 2. [Pobieranie i instalowanie Eksploratora usługi Storage Azure](http://storageexplorer.com/).
 
-3. Otwórz Eksploratora usługi Storage, kliknij pozycję **Dodaj konto Azure** > **Zaloguj**, a następnie zaloguj się do konta platformy Azure.
+3. Otwórz Eksploratora usługi Storage, kliknij pozycję **Dodaj konto usługi Azure** > **Zaloguj**, a następnie zaloguj tooyour konto platformy Azure.
 
 4. Kliknij subskrypcję platformy Azure > **kont magazynu** > Twoje konto magazynu > **tabel** > **deviceData**.
 
-   Powinny pojawić się komunikaty wysyłane z urządzenia do Centrum IoT zalogowany `deviceData` tabeli.
+   Powinny pojawić się komunikaty wysyłane z Centrum IoT tooyour urządzenia zarejestrowane w hello `deviceData` tabeli.
 
 ## <a name="next-steps"></a>Następne kroki
 

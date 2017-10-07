@@ -1,5 +1,5 @@
 ---
-title: "Niestandardowe moduły Cortana Intelligence Gallery | Dokumentacja firmy Microsoft"
+title: "niestandardowe moduły Intelligence Gallery aaaCortana | Dokumentacja firmy Microsoft"
 description: "Odkryj maszyny niestandardowych modułów uczenia w Cortana Intelligence Gallery."
 services: machine-learning
 documentationcenter: 
@@ -14,84 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 56c308643ad6d20170174725f76f6ddbc76b3e22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2a2d39935e6d367eb192de723fb82318d04e2be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Odkryj maszyny niestandardowych modułów uczenia w Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Niestandardowych modułów usługi Machine Learning Studio
-Cortana Intelligence Gallery oferuje kilka [niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules) który rozszerzyć możliwości usługi Azure Machine Learning Studio. Możesz zaimportować moduły, aby używać w eksperymentów, dlatego można tworzyć bardziej zaawansowane rozwiązania analizy predykcyjnej.
+Cortana Intelligence Gallery oferuje kilka [niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules) który rozszerzyć możliwości hello usługi Azure Machine Learning Studio. Toouse moduły hello można importować do programu eksperymentów, więc możesz utworzyć jeszcze bardziej zaawansowane rozwiązania analizy predykcyjnej.
 
-Obecnie galerii oferuje modułów na *czasu analytics serii*, *reguł kojarzenia*, *klastrowanie algorytmów* (poza k średnich) i * wizualizacje*oraz inne moduły narzędzie najważniejszą metodą roboczą.
+Obecnie galerii hello oferuje modułów na *czasu analytics serii*, *reguł kojarzenia*, *klastrowanie algorytmów* (poza k średnich) i  *wizualizacje*oraz inne moduły narzędzie najważniejszą metodą roboczą.
 
 
 ## <a name="discover"></a>Wykrywanie
-Aby przeglądać niestandardowe moduły [w galerii](http://gallery.cortanaintelligence.com)w obszarze **więcej**, wybierz pozycję **niestandardowe moduły**.
+niestandardowe moduły toobrowse [w galerii hello](http://gallery.cortanaintelligence.com)w obszarze **więcej**, wybierz pozycję **niestandardowe moduły**.
 
-![Wybierz niestandardowe moduły na stronie głównej galerii](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
+![Wybierz niestandardowe moduły na stronie głównej hello galerii](media/machine-learning-gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-** [Niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules) ** zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Zaznacz, aby wyświetlić wszystkie niestandardowe moduły **zobaczyć wszystkie** przycisku. Aby wyszukać określony moduł niestandardowe, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+Witaj  **[niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules)**  zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Wybierz niestandardowe moduły tooview hello **zobaczyć wszystkie** przycisku. toosearch dla określonego niestandardowego modułu, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w hello **wyszukiwania** pole u góry hello hello galerii strony.
 
-![Wybierz opcję "Zobacz wszystkie" Aby przeglądać wszystkie niestandardowe moduły](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
+![Wybierz wszystkie niestandardowe moduły toobrowse "Zobacz wszystkie"](media/machine-learning-gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
 ### <a name="understand"></a>Zrozumienie
 
-Aby zrozumieć, jak działa opublikowanych niestandardowego modułu, wybierz niestandardowego modułu, aby otworzyć stronę Szczegóły modułu. Na stronie Szczegóły zapewnia spójne i informacyjny szkoleniowej. Na przykład na stronie Szczegóły wyróżnia cel modułu i wyświetlane są oczekiwanego wejść, wyjść i parametry. Na stronie Szczegóły zawiera również link do podstawowej kod źródłowy, który można sprawdzić i dostosować.
+toounderstand działania opublikowanych niestandardowego modułu, wybierz strony szczegółów hello niestandardowego modułu tooopen hello modułu. Strona szczegółów Hello zapewnia środowisko learning spójne i informacji. Na przykład strony szczegółów hello wyróżnia celu hello hello modułu i wyświetlane są oczekiwanego wejść, wyjść i parametry. Strona szczegółów Hello ma również link toohello podstawowego źródła kodem, który możesz sprawdzić i dostosować.
 
 ### <a name="comment-and-share"></a>Komentarz i udziału
-W module niestandardowe strony szczegółów, **komentarze** sekcji, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące modułu. Możesz nawet udostępniać modułu znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów modułu, z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
+Na stronie szczegółów niestandardowego modułu w hello **komentarze** sekcji, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące modułu hello. Możesz nawet udostępniać modułu hello znajomych lub współpracowników w serwisie Twitter i LinkedIn. Możesz również można wysyłać pocztą e-mail strony szczegółów modułu toohello łącza o tooinvite strony hello tooview innych użytkowników.
 
 ![Udostępnij ten element znajomych](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Dodaj komentarz własnych](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="import"></a>Import
-Każdy moduł niestandardowych z galerii można importować do własnych eksperymentów.
+Każdy moduł niestandardowe można importować z hello galerii tooyour własnych eksperymentów.
 
-Cortana Intelligence Gallery udostępnia dwa sposoby importowania kopii modułu:
+Cortana Intelligence Gallery udostępnia dwa sposoby tooimport kopii modułu hello:
 
-* **Z poziomu galerii**. Po zaimportowaniu niestandardowego modułu z poziomu galerii, możesz również uzyskać eksperymentu przykładowego, który zapewnia przykładem użyć modułu programu.
-* **Za pomocą uczenia maszynowego Studio**. Podczas pracy w usłudze Machine Learning Studio, można zaimportować każdy moduł niestandardowych (w tym przypadku nie otrzymasz eksperymentu przykładowego).
+* **Z galerii hello**. Po zaimportowaniu niestandardowego modułu z hello galerii, umożliwia również wyświetlenie eksperymentu przykładowego, zapewniająca przykładowy sposób toouse hello modułu.
+* **Za pomocą uczenia maszynowego Studio**. Podczas pracy w usłudze Machine Learning Studio, można zaimportować każdy moduł niestandardowych (w tym przypadku nie otrzymasz eksperymentu przykładowego hello).
 
-### <a name="from-the-gallery"></a>Z galerii
+### <a name="from-hello-gallery"></a>Z hello galerii
 
-1. W galerii Otwórz stronę Szczegóły modułu. 
+1. Otwórz stronę Szczegóły modułu hello w hello galerii. 
 2. Wybierz **Otwórz w Studio**.
    
-    ![Otwórz niestandardowego modułu z galerii](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
+    ![Otwórz niestandardowego modułu na podstawie hello galerii](media/machine-learning-gallery-custom-modules/open-custom-module-from-gallery.png)
    
-Każdy niestandardowy moduł zawiera eksperymentu przykładowego, który demonstruje sposób korzystania z modułu. Po wybraniu **Otwórz w Studio**, eksperymentu przykładowego otwiera się w obszarze roboczym Machine Learning Studio. (Jeśli jeszcze nie zalogowano Cię Studio, zostanie wyświetlony monit pierwsze logowanie przy użyciu konta Microsoft.)
+Każdy niestandardowy moduł zawiera eksperymentu przykładowego, który demonstruje sposób toouse hello modułu. Po wybraniu **Otwórz w Studio**, eksperymentu przykładowego hello otwiera się w obszarze roboczym Machine Learning Studio. (Jeśli użytkownik nie jest jeszcze zarejestrowany w tooStudio, zostanie wyświetlony monit toofirst logowania za pomocą konta Microsoft.)
 
-Oprócz eksperymentu przykładowego niestandardowego modułu jest kopiowany do swojego obszaru roboczego. Znajduje się również w palecie modułu z wszystkich wbudowanych lub niestandardowych Machine Learning Studio moduły. Można teraz używać do własnych doświadczeń, takich jak inny moduł, w obszarze roboczym.
+Ponadto toohello przykładowe eksperymentu, niestandardowego modułu hello jest skopiowany tooyour obszarem roboczym. Znajduje się również w palecie modułu z wszystkich wbudowanych lub niestandardowych Machine Learning Studio moduły. Można teraz używać do własnych doświadczeń, takich jak inny moduł, w obszarze roboczym.
 
 ### <a name="from-within-machine-learning-studio"></a>Za pomocą uczenia maszynowego Studio
 
 1. W usłudze Machine Learning Studio, wybierz **nowy**.
-2. Wybierz **modułu**. Wybierz z listy modułów galerii lub znaleźć określony moduł za pomocą **wyszukiwania** pole.
-3. Punkt myszy w module, a następnie wybierz **Import Module**. (Aby uzyskać informacje o module, wybierz **Wyświetl w galerii**. Powoduje to przejście do strony szczegółów modułu w galerii.)
+2. Wybierz **modułu**. Wybierz z listy modułów galerii lub znaleźć określony moduł za pomocą hello **wyszukiwania** pole.
+3. Punkt myszy w module, a następnie wybierz **Import Module**. (Wybierz tooget informacji o hello module **Wyświetl w galerii**. Zostanie wyświetlone strony szczegółów modułu toohello w galerii hello.)
    
     ![Zaimportuj niestandardowy moduł do usługi Machine Learning Studio](media/machine-learning-gallery-custom-modules/add-custom-module-in-studio.png)
 
-Niestandardowego modułu jest kopiowany do swojego obszaru roboczego i umieszczana w palecie modułu z własnych wbudowanych lub niestandardowych modułów usługi Machine Learning Studio. Można teraz używać do własnych doświadczeń, takich jak inny moduł, w obszarze roboczym.
+Hello niestandardowego modułu jest skopiowany tooyour obszaru roboczego i umieszczana w palecie modułu z własnych wbudowanych lub niestandardowych modułów usługi Machine Learning Studio. Można teraz używać do własnych doświadczeń, takich jak inny moduł, w obszarze roboczym.
 
 ## <a name="use"></a>Użycie
 
-Niezależnie od tego, które metody chcesz zaimportować niestandardowego modułu, gdy należy zaimportować moduł, moduł znajduje się w palecie modułu w usłudze Machine Learning Studio. Z paletę moduł możesz użyć niestandardowego modułu w dowolnym eksperymentu w obszarze roboczym, podobnie jak inne modułu.
+Niezależnie od tego, która metoda wybierzesz tooimport niestandardowego modułu podczas importowania modułu hello, moduł hello jest umieszczony w palecie modułu w usłudze Machine Learning Studio. Z paletę modułu możesz użyć niestandardowego modułu hello w dowolnym eksperymentu w obszarze roboczym, podobnie jak inne modułu.
 
-Aby użyć modułu zaimportowane:
+toouse zaimportowanego modułu:
 
 1. Tworzenie eksperymentu lub Otwórz istniejący eksperymentu.
-2. Aby rozwinąć listę niestandardowych modułów w obszarze roboczym, na palecie modułów, wybierz **niestandardowych**. Palety modułów jest z lewej strony obszaru roboczego eksperymentu.
+2. Wybierz listę hello tooexpand niestandardowych modułów w obszarze roboczym, w palecie modułów hello, **niestandardowych**. palety modułów Hello jest pozostawić toohello hello kanwy eksperymentu.
    
     ![Lista niestandardowego modułu w Studio palety](media/machine-learning-gallery-custom-modules/custom-module-in-studio-palette.png)
-3. Wybierz moduł, który można zaimportować, a następnie przeciągnij go do eksperymentu.
+3. Wybierz hello moduł, który można zaimportować, a następnie przeciągnij go tooyour eksperymentu.
 
 
-**[Przejdź do galerii](http://gallery.cortanaintelligence.com)**
+**[Przejdź do galerii toohello](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

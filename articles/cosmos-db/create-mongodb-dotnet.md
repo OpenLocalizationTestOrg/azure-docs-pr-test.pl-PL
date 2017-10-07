@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Tworzenie aplikacji sieci Web za pomocą programu .NET i interfejsu API usługi MongoDB | Microsoft Docs"
-description: "Przykładowy kod programu .NET, którego można używać do nawiązywania połączeń z interfejsem API MongoDB usługi Azure Cosmos DB i wykonywania względem niego zapytań"
+title: "Azure rozwiązania Cosmos bazy danych: Tworzenie aplikacji sieci web z platformą .NET i hello bazy danych MongoDB interfejsu API | Dokumentacja firmy Microsoft"
+description: "Przedstawia przykładowy kod .NET, można użyć zapytania tooand tooconnect hello interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 2d30bec75d701b1fd55355d1e139350b6d828c9a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c85cc47f772a19aaa7181611b75a8acaedbc4c42
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Tworzenie aplikacji sieci Web interfejsu API usługi MongoDB za pomocą programu .NET i witryny Azure Portal
+# <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-hello-azure-portal"></a>Azure DB rozwiązania Cosmos: Tworzenie aplikacji sieci web interfejsu API bazy danych MongoDB z platformą .NET i hello portalu Azure
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie utworzysz i wdrożysz aplikację sieci Web listy zadań w oparciu o [sterownik .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
+To szybki start pokazano, jak toocreate konta bazy danych Azure rozwiązania Cosmos, bazą danych dokumentów i przy użyciu kolekcji hello portalu Azure. Będzie tworzenie i wdrażanie aplikacji sieci web listy zadań oparty na powitania [sterownik bazy danych MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze programu Visual Studio 2017 r zainstalowany, możesz pobrać i użyć hello **wolnego** [programu Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Upewnij się, że możesz włączyć **Azure programowanie** podczas instalacji programu Visual Studio hello.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
@@ -37,25 +37,25 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pob
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
+## <a name="clone-hello-sample-application"></a>Klonowanie hello przykładowej aplikacji
 
-Teraz sklonujemy aplikację interfejsu API usługi MongoDB z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz załóżmy aplikacji w klonowania API bazy danych MongoDB z witryny github, Ustaw ciąg połączenia hello i uruchom go. Zobaczysz, jak łatwo jest toowork z danymi programowo. 
 
-1. Otwórz okno terminalu usługi Git, na przykład git bash, i za pomocą polecenia `cd` przejdź do katalogu roboczego.  
+1. Otwórz okno terminala git, np. git bash, i `cd` tooa katalog roboczy.  
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+2. Hello uruchom następujące polecenie tooclone hello próbki repozytorium. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
     ```
 
-3. Następnie otwórz plik rozwiązania w programie Visual Studio. 
+3. Następnie otwórz plik rozwiązania hello w programie Visual Studio. 
 
-## <a name="review-the-code"></a>Przeglądanie kodu
+## <a name="review-hello-code"></a>Przejrzyj hello kodu
 
-Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik **Dal.cs** w katalogu **DAL** i zobacz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
+Upewnijmy szybki przegląd działania wykonywane w aplikacji hello. Otwórz hello **Dal.cs** plik pod hello **DAL** katalogu i można znaleźć, te wiersze kodu utworzyć hello zasobów bazy danych Azure rozwiązania Cosmos. 
 
-* Inicjowanie klienta Mongo.
+* Inicjowanie powitania klienta Mongo.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -75,7 +75,7 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
         MongoClient client = new MongoClient(settings);
     ```
 
-* Pobieranie bazy danych i kolekcji.
+* Pobrać hello bazy danych i kolekcji hello.
 
     ```cs
     private string dbName = "Tasks";
@@ -93,47 +93,47 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
+Teraz przejdź wstecz toohello Azure tooget portalu użytkownika informacje o parametrach połączenia i skopiuj go do aplikacji hello.
 
-1. W witrynie [Azure Portal](http://portal.azure.com/), korzystając ze swojego konta usługi Azure Cosmos DB, kliknij na lewym panelu nawigacyjnym pozycję **Parametry połączenia**, a następnie pozycję **Klucze odczytu i zapisu**. W następnym kroku, korzystając z przycisków kopiowania dostępnych po prawej stronie ekranu, skopiujesz nazwę użytkownika, hasło i hosta do pliku Dal.cs.
+1. W hello [portalu Azure](http://portal.azure.com/), w Azure rozwiązania Cosmos DB konta, na powitania lewy pasek nawigacyjny kliknij **ciąg połączenia**, a następnie kliknij przycisk **odczytu i zapisu kluczy**. Użyjesz przyciski Kopia powitania po prawej stronie powitania hello toocopy ekranie powitania nazwę użytkownika, hasło i hosta do pliku Dal.cs hello w hello następnego kroku.
 
-2. Otwórz plik **Dal.cs** w katalogu **DAL**. 
+2. Otwórz hello **Dal.cs** pliku w hello **DAL** katalogu. 
 
-3. Skopiuj wartość **username** z portalu (przy użyciu przycisku kopiowania) i przypisz ją do klucza **username** w Twoim pliku **Dal.cs**. 
+3. Kopiowania z **nazwy użytkownika** wartości z portalu hello (przy użyciu przycisku Kopiuj hello) i przekształcenie go w hello wartość hello **username** w Twojej **Dal.cs** pliku. 
 
-4. Następnie skopiuj wartość **host** z portalu i przypisz ją do klucza **host** w Twoim pliku **Dal.cs**. 
+4. Następnie skopiuj z **hosta** wartości z portalu hello i zapewnić ich hello wartość hello **hosta** w Twojej **Dal.cs** pliku. 
 
-5. Na końcu skopiuj wartość **password** z portalu i przypisz ją do klucza **password** w Twoim pliku **Dal.cs**. 
+5. Koniec skopiować z **hasło** wartości z portalu hello i przekształcenie go w hello wartość hello **hasło** w Twojej **Dal.cs** pliku. 
 
-Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
+Użytkownik zaktualizował teraz aplikacji z wszystkie informacje hello musi toocommunicate z bazy danych Azure rozwiązania Cosmos. 
     
-## <a name="run-the-web-app"></a>Uruchamianie aplikacji sieci Web
+## <a name="run-hello-web-app"></a>Uruchamianie aplikacji sieci web hello
 
-1. W programie Visual Studio kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
+1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt hello w **Eksploratora rozwiązań** , a następnie kliknij przycisk **Zarządzaj pakietami NuGet**. 
 
-2. W polu **Przeglądaj** obszaru pakietów NuGet wpisz ciąg *MongoDB.Driver*.
+2. W hello NuGet **Przeglądaj** wpisz *MongoDB.Driver*.
 
-3. Korzystając z wyników, zainstaluj bibliotekę **MongoDB.Driver**. Spowoduje to zainstalowanie pakietu MongoDB.Driver, a także wszystkich zależności.
+3. Wyniki hello zainstalować hello **MongoDB.Driver** biblioteki. Spowoduje to zainstalowanie pakietu MongoDB.Driver hello, a także wszystkie zależności.
 
-4. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację. Aplikacja zostanie wyświetlona w przeglądarce. 
+4. Kliknij polecenie CTRL + F5 toorun hello aplikacji. Aplikacja zostanie wyświetlona w przeglądarce. 
 
-5. Kliknij pozycję **Utwórz** w przeglądarce i utwórz kilka nowych zadań w swojej aplikacji listy zadań.
+5. Kliknij przycisk **Utwórz** w hello przeglądarki i Utwórz kilka nowych zadań w aplikacji listy zadań.
 
-## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Przejrzyj umowy SLA w hello portalu Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:
+Jeśli nie będzie toocontinue toouse tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego przewodnika Szybki Start w hello portalu Azure z hello następujące kroki:
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. Z menu po lewej stronie powitania w hello portalu Azure, kliknij przycisk **grup zasobów** a następnie kliknij nazwę hello zasobu hello został utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toodelete zasobów hello w polu tekstowym hello, a następnie kliknij **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB i uruchamiania aplikacji sieci Web za pomocą interfejsu API dla usługi MongoDB. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
+W tym szybkiego startu kiedy znasz już jak toocreate konta bazy danych Azure rozwiązania Cosmos i uruchomić aplikacji sieci web przy użyciu hello interfejsu API dla bazy danych MongoDB. Teraz można importować konto bazy danych rozwiązania Cosmos tooyour dodatkowe dane. 
 
 > [!div class="nextstepaction"]
-> [Importuj dane do usługi Azure Cosmos DB na potrzeby interfejsu API usługi MongoDB](mongodb-migrate.md)
+> [Importowanie danych do bazy danych Azure rozwiązania Cosmos dla hello API bazy danych MongoDB](mongodb-migrate.md)
 

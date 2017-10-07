@@ -1,6 +1,6 @@
 ---
-title: Tworzenie funkcji uruchamianej zgodnie z harmonogramem na platformie Azure | Microsoft Docs
-description: "Dowiedz się, jak utworzyć na platformie Azure funkcję uruchamianą zgodnie z określonym harmonogramem."
+title: "aaaCreate funkcję, która działa zgodnie z harmonogramem na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate funkcji na platformie Azure, który jest uruchamiany zgodnie z harmonogramem przez Ciebie."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03cc5e71e8eb20002cf58e713fc0fc92a9129874
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 793b06a65a154466dfd4c121bcc88082227cd597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Tworzenie funkcji wyzwalanej czasomierzem na platformie Azure
 
-Dowiedz się, jak za pomocą usługi Azure Functions utworzyć funkcję uruchamianą zgodnie z określonym harmonogramem.
+Dowiedz się, jak toocreate usługi Azure Functions toouse funkcję, która działa na podstawie zdefiniowanego harmonogramu.
 
-![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
+![Tworzenie aplikacji funkcji w hello portalu Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
+toocomplete tego samouczka:
 
 + Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -42,40 +42,40 @@ W celu ukończenia tego samouczka:
 
 ![Pomyślnie utworzona aplikacja funkcji.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
+Następnie należy utworzyć funkcji w hello nowej funkcji aplikacji.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-timer-triggered-function"></a>Tworzenie funkcji wyzwalanej czasomierzem
 
-1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
+1. Rozwiń węzeł funkcji aplikacji, a następnie kliknij przycisk hello  **+**  obok przycisku zbyt**funkcji**. Jeśli hello pierwszej funkcji w funkcji aplikacji, wybierz **Niestandardowa funkcja**. Spowoduje to wyświetlenie hello pełny zestaw szablonów funkcji.
 
-    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
+    ![Funkcje strony szybkiego startu w hello portalu Azure](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Wybierz szablon **TimerTrigger** dla odpowiedniego języka. Następnie użyj ustawień określonych w tabeli:
+2. Wybierz hello **TimerTrigger** szablon odpowiedni język. Następnie należy użyć ustawień hello określoną w tabeli hello:
 
-    ![Utwórz funkcję wyzwalaną czasomierzem w witrynie Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Utwórz funkcję czasomierza wyzwalane w hello portalu Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Nazwa funkcji** | TimerTriggerCSharp1 | Określa nazwę funkcji wyzwalanej czasomierzem. |
-    | **[Harmonogram](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Składające się z 6 pól [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) planujące uruchamianie funkcji co minutę. |
+    | **Nazwa funkcji** | TimerTriggerCSharp1 | Definiuje nazwę hello funkcji czasomierza wyzwolone. |
+    | **[Harmonogram](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Pole sześć [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) która planuje toorun Twojego funkcja co minutę. |
 
 2. Kliknij przycisk **Utwórz**. Zostanie utworzona funkcja w wybranym języku uruchamiana co minutę.
 
-3. Zweryfikuj uruchomienie, wyświetlając informacje o śledzeniu zapisane w dziennikach.
+3. Wyświetlanie informacji o śledzeniu zapisane dzienniki toohello Sprawdź wykonywania.
 
-    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    ![Funkcje logowania podglądu hello portalu Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Teraz możesz zmienić harmonogram funkcji tak, aby była uruchamiana rzadziej, na przykład co godzinę. 
+Teraz można zmienić harmonogramu hello funkcji wykonywania rzadziej, takich jak co godzinę. 
 
-## <a name="update-the-timer-schedule"></a>Aktualizowanie harmonogramu czasomierza
+## <a name="update-hello-timer-schedule"></a>Harmonogram czasomierza hello aktualizacji
 
-1. Rozwiń swoją funkcję i kliknij pozycję **Integracja**. W tym miejscu określa się powiązania danych wejściowych i wyjściowych dla funkcji oraz ustawia harmonogram. 
+1. Rozwiń swoją funkcję i kliknij pozycję **Integracja**. Jest to, którym zdefiniować dane wejściowe i wyjściowe powiązań dla funkcji i również ustawić harmonogram hello. 
 
 2. W polu **Harmonogram** wprowadź nową wartość `0 0 */1 * * *`, a następnie kliknij przycisk **Zapisz**.  
 
-![Harmonogram aktualizowania czasomierza usługi Functions w witrynie Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
+![Funkcje zaktualizować harmonogramu czasomierza w hello portalu Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
 Funkcja będzie teraz uruchamiana raz na godzinę. 
 

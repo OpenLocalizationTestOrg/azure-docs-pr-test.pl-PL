@@ -1,6 +1,6 @@
 ---
-title: Wybierz obrazy maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak używać programu Azure PowerSHell w celu określenia wydawcy, oferty, jednostki SKU i wersji dla obrazów maszyn wirtualnych w witrynie Marketplace."
+title: obrazy aaaSelect maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toodetermine programu Azure PowerSHell toouse hello wydawcy, oferty, jednostki SKU i wersji dla obrazów maszyn wirtualnych w witrynie Marketplace."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/12/2017
 ms.author: danlep
-ms.openlocfilehash: 814ae260123c045d4b6766bf4b312f874cd77068
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 752edcd0935f5141832e49503ae800ea0145e219
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Jak znaleźć obrazów maszyn wirtualnych systemu Windows w portalu Azure Marketplace przy użyciu programu Azure PowerShell
+# <a name="how-toofind-windows-vm-images-in-hello-azure-marketplace-with-azure-powershell"></a>Jak obrazy toofind maszyny Wirtualnej systemu Windows w programie hello Azure Marketplace przy użyciu programu Azure PowerShell
 
-W tym temacie opisano sposób użycia programu Azure PowerShell można znaleźć obrazów maszyn wirtualnych w portalu Azure Marketplace. Dzięki tym informacjom można określić obrazu z witryny Marketplace, podczas tworzenia maszyny Wirtualnej systemu Windows.
+W tym temacie opisano, jak obrazy toouse programu Azure PowerShell toofind maszyny Wirtualnej w programie hello Azure Marketplace. Podczas tworzenia maszyny Wirtualnej systemu Windows za pomocą tej informacji toospecify obrazu z witryny Marketplace.
 
-Upewnij się, że zainstalowane i skonfigurowane najnowszej [modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Upewnij się, że zainstalowane i skonfigurowane hello najnowszych [modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 
@@ -48,44 +48,44 @@ Upewnij się, że zainstalowane i skonfigurowane najnowszej [modułu Azure Power
 ## <a name="find-specific-images"></a>Znajdowanie określonych obrazów
 
 
-Podczas tworzenia nowej maszyny wirtualnej przy użyciu usługi Azure Resource Manager w niektórych przypadkach należy określić obraz za pomocą kombinacji następujących właściwości obrazu:
+Podczas tworzenia nowej maszyny wirtualnej za pomocą Menedżera zasobów Azure, w niektórych przypadkach należy toospecify obrazu z kombinacją hello hello następujące właściwości obrazu:
 
 * Wydawca
 * Oferta
 * SKU
 
-Na przykład użyć tych wartości za pomocą [AzureRMVMSourceImage zestaw](/powershell/module/azurerm.compute/set-azurermvmsourceimage) polecenia cmdlet programu PowerShell, lub za pomocą szablonu grupy zasobów, w którym należy określić typ maszyna wirtualna ma zostać utworzony.
+Na przykład użyć tych wartości z hello [AzureRMVMSourceImage zestaw](/powershell/module/azurerm.compute/set-azurermvmsourceimage) polecenia cmdlet programu PowerShell lub przy użyciu szablonu grupy zasobów, w którym należy określić typ hello toobe maszyny Wirtualnej utworzone.
 
-Jeśli trzeba określić te wartości, możesz uruchomić [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), i [Get AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) poleceń cmdlet, aby przejść obrazów. Należy określić te wartości:
+Toodetermine tych wartości, należy wykonać hello [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), i [Get AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) poleceń cmdlet toonavigate hello obrazów. Należy określić te wartości:
 
-1. Wyświetl listę wydawców obrazów.
+1. Lista wydawców obraz powitania.
 2. Dla danego wydawcy wyświetl listę ofert.
 3. Dla danej oferty wyświetl listę wersji SKU.
 
-Najpierw wyświetl listę wydawców za pomocą następujących poleceń:
+Po pierwsze lista wydawców hello z hello następującego polecenia:
 
 ```powershell
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
-Wprowadź nazwę wybranego wydawcy i uruchom następujące polecenia:
+Wypełnij nazwę wybranego wydawcy, a następnie uruchom następujące polecenia hello:
 
 ```powershell
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-Wprowadź nazwę wybranej oferty i uruchom następujące polecenia:
+Wypełnij nazwę wybranego oferty, a następnie uruchom następujące polecenia hello:
 
 ```powershell
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Z danych wyjściowych `Get-AzureRMVMImageSku` polecenie ma wszystkie informacje, należy określić obraz dla nowej maszyny wirtualnej.
+Z danych wyjściowych hello hello `Get-AzureRMVMImageSku` polecenie ma wszystkie informacje hello potrzebne toospecify hello obrazu dla nowej maszyny wirtualnej.
 
-Poniżej przedstawiono pełny przykład:
+Oto Hello pełny przykład:
 
 ```powershell
 $locName="West US"
@@ -111,7 +111,7 @@ Canonical
 ...
 ```
 
-Dla wydawcy „MicrosoftWindowsServer”:
+Dla wydawcy "MicrosoftWindowsServer" hello:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -128,7 +128,7 @@ WindowsServer
 WindowsServer-HUB
 ```
 
-Dla oferty „WindowsServer”:
+Oferta "Windows Server" hello:
 
 ```powershell
 $offerName="WindowsServer"
@@ -154,7 +154,7 @@ Skus
 2016-Nano-Server
 ```
 
-Skopiuj z tej listy nazwę wybranej wersji SKU — w ten sposób uzyskasz wszystkie informacje, jakie należy podać w poleceniu cmdlet programu PowerShell `Set-AzureRMVMSourceImage` lub szablonie grupy zasobów.
+Z tej listy, skopiuj hello wybrana nazwa jednostki SKU i mieć wszystkie informacje hello hello `Set-AzureRMVMSourceImage` polecenia cmdlet programu PowerShell lub szablonu grupy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz można dokładnie wybrać obraz, który ma być używany. Aby szybko utworzyć maszynę wirtualną, korzystając z informacji obrazu, który właśnie odnaleziony, zobacz [Utwórz maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](quick-create-powershell.md).
+Teraz można wybrać dokładnie hello obraz ma toouse. Zobacz maszynę wirtualną, używając szybko hello obrazu informacje, które właśnie znaleziony, toocreate [Utwórz maszynę wirtualną z systemem Windows przy użyciu programu PowerShell](quick-create-powershell.md).

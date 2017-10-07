@@ -1,6 +1,6 @@
 ---
-title: "Ustaw obsługi dodawania maszyn wirtualnych platformy Azure do istniejących dostępności | Dokumentacja firmy Microsoft"
-description: "Możliwość obsługi dodawania maszyn wirtualnych platformy Azure do istniejącego zestawu dostępności."
+title: "aaaSupportability dodawania istniejącego zestawu dostępności maszyny wirtualne Azure tooan | Dokumentacja firmy Microsoft"
+description: "Możliwość obsługi dodawania istniejącego zestawu dostępności tooan maszynach wirtualnych platformy Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: Deland-Han
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/15/2017
 ms.author: delhan
-ms.openlocfilehash: 3ce9b8a79108cb9e57df14bcb3354cc637193233
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: dc2bd86b916f1d1a0a0d4c9e870df829434c96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Możliwość obsługi dodawania maszyn wirtualnych platformy Azure do istniejącego zestawu dostępności
+# <a name="supportability-of-adding-azure-vms-tooan-existing-availability-set"></a>Możliwość obsługi dodawania maszyn wirtualnych platformy Azure tooan istniejącego zestawu dostępności
 
-Można czasami napotkać ograniczenia podczas dodawania nowych maszyn wirtualnych (VM) do istniejącego zestawu dostępności. Poniższy schemat zawiera szczegóły serii maszyn wirtualnych, które można łączyć w tym samym zestawie dostępności.
+Czasami mogą wystąpić ograniczenia, po dodaniu nowych maszynach wirtualnych (VM) tooan istniejącego zestawu dostępności. Witaj, poniższe informacje wykresu serii maszyn wirtualnych, które można łączyć w hello tego samego zestawu dostępności.
 
-Oto macierz obsługi mieszać różnego rodzaju maszyn wirtualnych:
+Oto hello obsługi macierzy toomix różne typy maszyn wirtualnych:
 
 & Serii zestawu dostępności|Drugi maszyny Wirtualnej|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
@@ -35,4 +35,4 @@ Oto macierz obsługi mieszać różnego rodzaju maszyn wirtualnych:
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
 
-Wszystkie inne serii nie można w tym samym zestawie, ponieważ wymagają one konkretnego sprzętu dostępności.
+Wszystkie inne serii nie może być w hello tego samego zestawu danych o dostępności, ponieważ wymagają one konkretnego sprzętu.

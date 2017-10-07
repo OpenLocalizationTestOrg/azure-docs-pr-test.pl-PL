@@ -1,5 +1,5 @@
 ---
-title: "Obliczyć wyniki testów porównawczych dla maszyn wirtualnych systemu Windows | Dokumentacja firmy Microsoft"
+title: "wyników testu porównawczego aaaCompute dla maszyn wirtualnych systemu Windows | Dokumentacja firmy Microsoft"
 description: "Porównaj wyniki testu porównawczego obliczeń SPECint dla maszyn wirtualnych platformy Azure, system operacyjny Windows Server"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3037d69790cb193161122b902e85fb838285cf81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Obliczenia bazy danych wyników testów porównawczych dla maszyn wirtualnych systemu Windows
-Następujące wyniki testu porównawczego SPECInt Pokaż wydajności obliczeniowej dla zestawienia maszyny Wirtualnej platformy Azure wysokiej wydajności z systemem Windows Server. Wyniki testu porównawczego obliczeniowe są także dostępne dla [maszyn wirtualnych systemu Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+powitania po Pokaż wyniki testu porównawczego SPECInt obliczeniowe wydajności dla zestawienia maszyny Wirtualnej platformy Azure wysokiej wydajności z systemem Windows Server. Wyniki testu porównawczego obliczeniowe są także dostępne dla [maszyn wirtualnych systemu Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>A-series obliczeniowych
 | Rozmiar | Vcpu | Węzły NUMA | Procesor CPU | Uruchamia | Średnia szybkość podstawowej | StdDev |
@@ -65,7 +65,7 @@ Następujące wyniki testu porównawczego SPECInt Pokaż wydajności obliczeniow
 | Warstwie standardowa_h16mr |16 |2 |Procesor Intel Xeon E5-2667 v3 @ 3,2 GHz |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>O SPECint
-Numery systemu Windows zostały obliczone, uruchamiając [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint był uruchamiany przy użyciu opcji szybkości podstawowej (SPECint_rate2006) z jednej kopii na podstawowe. SPECint składa się z 12 testy w oddzielnych, każdy trzykrotne uruchomienie, biorąc wartość mediany każdego testu i wagi je do utworzenia złożonego wynik. Te testy zostały uruchomione następnie między wieloma maszynami wirtualnymi, aby zapewnić średnie wyniki wyświetlane.
+Numery systemu Windows zostały obliczone, uruchamiając [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) w systemie Windows Server. SPECint był uruchamiany przy użyciu opcji podstawowej szybkość hello (SPECint_rate2006) z jednej kopii na podstawowe. SPECint składa się z 12 testy oddzielnych każdego trzykrotne uruchomienie, biorąc hello mediany każdego testu i wagi ich tooform wynikiem złożonego. Następnie uruchomienia tych testów przez wiele maszyn wirtualnych tooprovide hello średnie wyniki wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 * Pojemność, dysku szczegóły i dodatkowe uwagi dotyczące wybierania rozmiarów maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

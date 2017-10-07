@@ -1,6 +1,6 @@
 ---
-title: "Samouczek — korzystanie z biblioteki klienta usługi Azure Batch dla programu .NET | Microsoft Docs"
-description: "Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu platformy .NET."
+title: "aaaTutorial — Biblioteka klienta użyj hello partii zadań Azure dla platformy .NET | Dokumentacja firmy Microsoft"
+description: "Dowiedz się hello podstawowych pojęciach dotyczących partii zadań Azure i utworzenie rozwiązania do prostych przy użyciu platformy .NET."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,13 +15,13 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 06062b3886a8081bd9a831824a981503ef55f9b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Rozpoczynanie tworzenia rozwiązań za pomocą biblioteki klienta usługi Batch dla platformy .NET
+# <a name="get-started-building-solutions-with-hello-batch-client-library-for-net"></a>Rozpoczynanie pracy kompilowanie rozwiązań za pomocą biblioteki klienta hello partii dla platformy .NET
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-W tym artykule omawiamy podstawy usługi [Azure Batch][azure_batch] i biblioteki [Batch .NET][net_api] na podstawie przykładowej aplikacji w języku C#. Wyjaśniamy, jak przykładowa aplikacja korzysta z usługi Batch do przetwarzania równoległego obciążenia w chmurze oraz współpracuje z usługą [Azure Storage](../storage/common/storage-introduction.md) w celu przygotowania i pobrania plików. Przedstawiono tu typowy przepływ pracy w aplikacji usługi Batch oraz wyjaśniono podstawowe zagadnienia dotyczące najważniejszych składników usługi Batch, np. zadań, podzadań, pul i węzłów obliczeniowych.
+Dowiedz się podstawy hello [partii zadań Azure] [ azure_batch] i hello [partiami platformy .NET] [ net_api] biblioteki w tym artykule jako omówimy C# przykładowej aplikacji krok przez krok. Przyjrzymy się jak hello Przykładowa aplikacja korzysta z tooprocess usługi partii hello równoległych obciążenia w chmurze hello i sposób interakcji z [usługi Azure Storage](../storage/common/storage-introduction.md) potrzeby przemieszczania plików i odzyskiwania. Będzie informacje wspólnego przepływu pracy aplikacji partii i Uzyskaj podstawową wiedzę na temat hello głównych składników usługi partia zadań takich jak zadania, zadania, pul i węzły obliczeniowe.
 
 ![Przepływ pracy rozwiązania w usłudze Batch (podstawowy)][11]<br/>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i programu Visual Studio. Przyjęto również założenie, że jesteś w stanie spełnić wymagania dotyczące tworzenia konta, które zostały wyszczególnione poniżej dla platformy Azure oraz usług Batch i Storage.
+W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i programu Visual Studio. Przyjęto założenie, że jesteś toosatisfy stanie hello tworzenie wymagania dotyczące konta określonych poniżej platformy Azure i hello partii i usługi magazynu.
 
 ### <a name="accounts"></a>Konta
 * **Konto platformy Azure**: jeśli nie masz jeszcze subskrypcji platformy Azure, [utwórz bezpłatne konto platformy Azure][azure_free_account].
@@ -43,54 +43,54 @@ W tym artykule założono, że masz praktyczną wiedzę na temat języka C# i pr
 * **Konto magazynu**: zobacz sekcję [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Usługa Batch obsługuje obecnie *tylko* typ konta magazynu **ogólnego przeznaczenia**, zgodnie z opisem w kroku 5 [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w temacie [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md).
+> Obecnie partii obsługuje *tylko* hello **ogólnego przeznaczenia** typu konta magazynu, zgodnie z opisem w kroku #5 [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) w [o Azure konta magazynu](../storage/common/storage-create-storage-account.md).
 >
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Do utworzenia przykładowego projektu potrzebny jest program **Visual Studio 2015 lub nowszy**. Bezpłatne i próbne wersje programu Visual Studio można znaleźć w [omówieniu produktów Visual Studio][visual_studio].
+Musi mieć **programu Visual Studio 2015 lub nowsza** toobuild hello przykładowy projekt. Bezpłatne i wersji próbnej wersji programu Visual Studio można znaleźć w hello [omówienie produktów Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>Przykład kodu *DotNetTutorial*
-[DotNetTutorial][github_dotnettutorial] to jeden z wielu przykładów kodu usługi Batch w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Możesz pobrać wszystkie przykłady, klikając przycisk **Clone or download > Download ZIP** (Sklonuj lub pobierz > Pobierz plik ZIP) na stronie głównej repozytorium lub klikając bezpośredni link pobierania pliku [azure-batch-samples-master.zip][github_samples_zip]. Po wyodrębnieniu zawartości pliku ZIP rozwiązanie można znaleźć w następującym folderze:
+Witaj [DotNetTutorial] [ github_dotnettutorial] próbki jest jednym z hello wiele przykładów kodu partii znaleziony w hello [azure partii próbek] [ github_samples] repozytorium na GitHub. Wszystkie próbki hello można pobrać po kliknięciu **klonowania lub pobierania > Pobierz ZIP** na stronie głównej repozytorium hello lub przez kliknięcie przycisku hello [azure partii — przykłady master.zip] [ github_samples_zip]łącze bezpośrednie. Po zostały wyodrębnione hello zawartość pliku ZIP hello, można znaleźć rozwiązania hello w hello następującego folderu:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### <a name="azure-batch-explorer-optional"></a>Azure Batch Explorer (opcjonalnie)
-[Azure Batch Explorer][github_batchexplorer] to bezpłatne narzędzie, które znajduje się w repozytorium [azure-batch-samples][github_samples] w witrynie GitHub. Chociaż nie jest wymagane do ukończenia tego samouczka, może przydać się podczas tworzenia i debugowania rozwiązań w usłudze Batch.
+Witaj [Eksploratora usługi partia zadań Azure] [ github_batchexplorer] to bezpłatne narzędzie, które znajduje się w hello [azure partii próbek] [ github_samples] repozytorium w witrynie GitHub. Podczas toocomplete nie wymaga tego samouczka, może być przydatne podczas opracowywania i debugowania rozwiązań partii.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Omówienie przykładowego projektu DotNetTutorial
-Przykładowy kod *DotNetTutorial* jest rozwiązaniem programu Visual Studio, które obejmuje dwa projekty: **DotNetTutorial** i **TaskApplication**.
+Witaj *DotNetTutorial* przykładowy kod jest rozwiązaniem Visual Studio, która zawiera dwa projekty: **DotNetTutorial** i **TaskApplication**.
 
-* **DotNetTutorial** jest aplikacją kliencką, która współdziała z usługami Batch i Storage w celu wykonania równoległego obciążenia w węzłach obliczeniowych (maszyny wirtualne). Aplikacja DotNetTutorial jest uruchamiana na lokalnej stacji roboczej.
-* **TaskApplication** to program uruchamiany w węzłach obliczeniowych na platformie Azure, który wykonuje faktyczną pracę. W naszym przykładzie `TaskApplication.exe` analizuje tekst w pliku pobranym z usługi Azure Storage (plik wejściowy). Następnie tworzy plik tekstowy (plik wyjściowy) zawierający listę trzech słów najczęściej występujących w pliku wejściowym. Po utworzeniu pliku wyjściowego program TaskApplication przekazuje plik do usługi Azure Storage. Dzięki temu jest on dostępny do pobrania przez aplikację kliencką. Program TaskApplication jest uruchamiany równolegle w wielu węzłach obliczeniowych w usłudze Batch.
+* **DotNetTutorial** jest aplikacją kliencką hello, która współdziała z tooexecute hello partii i magazynu usług równoległych obciążenie obliczeniowe węzłach (maszynach wirtualnych). Aplikacja DotNetTutorial jest uruchamiana na lokalnej stacji roboczej.
+* **TaskApplication** to program hello, który jest uruchamiany na węzłach obliczeniowych Azure tooperform hello rzeczywistą pracę. W przykładowym hello `TaskApplication.exe` analizuje hello tekst w pliku, który został pobrany z usługi Azure Storage (plik wejściowy hello). Następnie tworzy plik tekstowy (plik wyjściowy hello) zawierający listę hello trzy najważniejsze wyrazy, które pojawiają się w pliku wejściowym hello. Po utworzeniu pliku wyjściowego hello, TaskApplication przekazuje hello tooAzure pliku magazynu. Dzięki temu aplikacja kliencka toohello dostępne do pobrania. TaskApplication uruchamia się równolegle na wielu węzłach obliczeniowych w hello usługa partia zadań.
 
-Na poniższym diagramie przedstawiono podstawowe operacje wykonywane przez aplikację kliencką,*DotNetTutorial*, oraz aplikację, która jest wykonywana przez podzadania, *TaskApplication*. Ten podstawowy przepływ pracy jest typowy dla wielu rozwiązań obliczeniowych utworzonych za pomocą usługi Batch. Chociaż nie przedstawiono tu wszystkich funkcji dostępnych w usłudze Batch, prawie każdy scenariusz usługi Batch obejmuje elementy tego przepływu pracy.
+Witaj poniższym diagramie przedstawiono hello głównej operacje, które są wykonywane przez aplikację kliencką hello, *DotNetTutorial*i aplikacji hello, która jest wykonywana przez zadania hello *TaskApplication*. Ten podstawowy przepływ pracy jest typowy dla wielu rozwiązań obliczeniowych utworzonych za pomocą usługi Batch. Gdy nie wykazują wszystkich funkcji dostępnych w hello usługa partia zadań, niemal każdego scenariusza partii zawiera części ten przepływ pracy.
 
 ![Przykładowy przepływ pracy w usłudze Batch][8]<br/>
 
 [**Krok 1.**](#step-1-create-storage-containers) Utwórz **kontenery** w usłudze Azure Blob Storage.<br/>
-[**Krok 2.**](#step-2-upload-task-application-and-data-files) Przekaż pliki aplikacji podzadań i pliki wejściowe do kontenerów.<br/>
+[**Krok 2.**](#step-2-upload-task-application-and-data-files) Pliki aplikacji zadania przekazywania i toocontainers plików wejściowych.<br/>
 [**Krok 3.**](#step-3-create-batch-pool) Utwórz **pulę** w usłudze Batch.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Pula funkcji **StartTask** pobiera pliki binarne podzadań (TaskApplication), gdy zostają dołączone do puli.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Witaj puli **StartTask** pliki do pobrania hello toonodes pliki binarne (TaskApplication) zadań zgodnie z ich przyłączyć hello puli.<br/>
 [**Krok 4.**](#step-4-create-batch-job) Utwórz **zadanie** w usłudze Batch.<br/>
-[**Krok 5.**](#step-5-add-tasks-to-job) Dodaj **podzadania** do zadania.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Zadania są zaplanowane do wykonania w węzłach.<br/>
+[**Krok 5.**](#step-5-add-tasks-to-job) Dodaj **zadania** toohello zadania.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** zadania Hello są zaplanowane tooexecute na węzłach.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Każde zadanie pobiera dane wejściowe z usługi Azure Storage, a następnie rozpoczyna się wykonywanie.<br/>
 [**Krok 6.**](#step-6-monitor-tasks) Monitoruj podzadania.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Gdy zadania zostaną ukończone, przekazują dane wyjściowe do usługi Azure Storage.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Jak czynności zostały wykonane, ich przekazywanie ich tooAzure danych wyjściowych magazynu.<br/>
 [**Krok 7.**](#step-7-download-task-output) Pobierz dane wyjściowe podzadań z usługi Storage.
 
-Jak wspomniano wcześniej, nie wszystkie rozwiązania usługi Batch obejmują dokładnie te kroki i mogą obejmować wiele innych. Aplikacja przykładowa *DotNetTutorial* pokazuje jednak typowe procesy występujące w rozwiązaniu usługi Batch.
+Jak wspomniano, nie każde rozwiązanie z partii wykonuje te kroki szczegółowe może obejmować wiele innych, ale hello *DotNetTutorial* aplikacja przykładowa prezentuje często używanych procesów, które można odnaleźć w rozwiązaniu partii.
 
-## <a name="build-the-dotnettutorial-sample-project"></a>Kompilowanie przykładowego projektu *DotNetTutorial*
-Aby pomyślnie uruchomić próbkę, należy najpierw określić poświadczenia konta Storage i usługi Batch w pliku `Program.cs` projektu *DotNetTutorial*. Jeśli jeszcze tego nie zrobiono, otwórz rozwiązanie w programie Visual Studio, klikając dwukrotnie plik rozwiązania `DotNetTutorial.sln`. Lub otwórz je w programie Visual Studio przy użyciu opcji menu **Plik > Otwórz > Projekt/Rozwiązanie**.
+## <a name="build-hello-dotnettutorial-sample-project"></a>Tworzenie hello *DotNetTutorial* przykładowy projekt
+Można było pomyślnie uruchomić hello próbki, należy określić poświadczenia konta zarówno wsadowego i magazynowania w hello *DotNetTutorial* projektu `Program.cs` pliku. Jeśli jeszcze tego nie zrobiono, otwórz rozwiązanie hello w programie Visual Studio, klikając hello `DotNetTutorial.sln` pliku rozwiązania. Lub otworzyć z poziomu programu Visual Studio za pomocą hello **Plik > Otwórz > Projekt/rozwiązanie** menu.
 
-Otwórz `Program.cs` w projekcie *DotNetTutorial*. Następnie dodaj poświadczenia określone w górnej części pliku:
+Otwórz `Program.cs` w hello *DotNetTutorial* projektu. Następnie dodaj poświadczeń określonych hello górze pliku hello:
 
 ```csharp
-// Update the Batch and Storage account credential strings below with the values
-// unique to your accounts. These are used when constructing connection strings
-// for the Batch and Storage client objects.
+// Update hello Batch and Storage account credential strings below with hello values
+// unique tooyour accounts. These are used when constructing connection strings
+// for hello Batch and Storage client objects.
 
 // Batch account credentials
 private const string BatchAccountName = "";
@@ -103,58 +103,58 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Jak wspomniano powyżej, musisz określić poświadczenia dla konta magazynu **ogólnego przeznaczenia** w usłudze Azure Storage. Aplikacje usługi Batch korzystają z magazynu obiektów blob w ramach konta magazynu **ogólnego przeznaczenia**. Nie określaj poświadczeń dla konta usługi Storage, które zostało utworzone przez wybranie typu konta *Magazyn obiektów Blob*.
+> Jak wspomniano powyżej, obecnie należy określić poświadczenia hello **ogólnego przeznaczenia** konta magazynu w usłudze Azure Storage. Aplikacje partii używać magazynu obiektów blob w ramach hello **ogólnego przeznaczenia** konta magazynu. Nie określaj hello poświadczenia dla konta magazynu, który został utworzony przez wybranie hello *magazynu obiektów Blob* typ konta.
 >
 >
 
-Poświadczenia konta usług Batch i Storage znajdziesz w blokach konta poszczególnych usług w witrynie [Azure Portal][azure_portal]:
+Poświadczenia konta wsadowego i magazynowania w bloku konta hello każdej usługi można znaleźć w hello [portalu Azure][azure_portal]:
 
-![Poświadczenia usługi Batch w portalu][9]
-![Poświadczenia usługi Storage w portalu][10]<br/>
+![Partii poświadczeń w portalu hello][9]
+![magazynu poświadczeń w portalu hello][10]<br/>
 
-Po zaktualizowaniu projektu przy użyciu poświadczeń kliknij prawym przyciskiem myszy rozwiązanie w Eksploratorze rozwiązań i kliknij przycisk **Kompiluj rozwiązanie**. Jeśli zostanie wyświetlony monit, potwierdź przywrócenie pakietów NuGet.
+Po zaktualizowaniu hello projektu przy użyciu poświadczeń, kliknij prawym przyciskiem myszy rozwiązanie hello w Eksploratorze rozwiązań i kliknij przycisk **Kompiluj rozwiązanie**. Witaj przywracania pakietów NuGet, upewnij się, jeśli zostanie wyświetlony monit.
 
 > [!TIP]
-> Jeśli pakiety nie zostaną automatycznie przywrócone lub zostaną wyświetlone błędy z informacją o nieudanej próbie przywrócenia pakietów, sprawdź, czy jest zainstalowany [Menedżer pakietów NuGet][nuget_packagemgr]. Następnie włącz pobieranie brakujących pakietów. Zobacz sekcję [Enabling Package Restore During Build][nuget_restore] (Włączanie przywracania pakietów podczas kompilacji), która zawiera instrukcje dotyczące włączania pobierania pakietów.
+> Jeśli nie przywrócono automatycznie pakietów NuGet hello lub zobacz błędy dotyczące pakietów hello toorestore błąd, upewnij się, że masz hello [Menedżera pakietów NuGet] [ nuget_packagemgr] zainstalowane. Włącz pobieranie brakujących pakietów hello. Zobacz [włączenie pakietu przywrócić podczas kompilacji] [ nuget_restore] tooenable Pobieranie pakietu.
 >
 >
 
-W poniższych sekcjach przykładowa aplikacja została podzielona na kroki wykonywane w celu przetworzenia obciążenia w usłudze Batch. Kroki te zostały szczegółowo opisane. Podczas wykonywania instrukcji w dalszej części tego artykułu warto korzystać z informacji z otwartego rozwiązania w programie Visual Studio, ponieważ nie omówiono tu wszystkich wierszy kodu z próbki.
+W hello następujące sekcje możemy podzielić hello przykładowej aplikacji na powitania kroki wykonuje tooprocess obciążenia w hello usługa partia zadań i te kroki szczegółowo omówiono w nim. Firma Microsoft zachęca toorefer toohello Otwórz rozwiązanie w programie Visual Studio podczas pracy swojemu za pośrednictwem hello dalszej części tego artykułu, ponieważ nie każdy wiersz kodu w przykładowym hello jest omówiona.
 
-Przejdź do góry metody `MainAsync` w pliku `Program.cs` projektu *DotNetTutorial*, aby rozpocząć od kroku 1. Wszystkie kroki poniżej odpowiadają mniej więcej postępowi wywołań metody w elemencie `MainAsync`.
+Przejdź do góry toohello hello `MainAsync` metoda hello *DotNetTutorial* projektu `Program.cs` pliku toostart z kroku 1. Każdy krok poniżej, a następnie około odwołuje się postępu hello następujące metody `MainAsync`.
 
 ## <a name="step-1-create-storage-containers"></a>Krok 1: tworzenie kontenerów w usłudze Storage
 ![Tworzenie kontenerów w usłudze Azure Storage][1]
 <br/>
 
-Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie usługi Storage będą udostępniać pliki potrzebne zadaniom, które będą uruchamiane na koncie usługi Batch. Kontenery zapewniają również miejsce do przechowywania danych wyjściowych wytworzonych przez zadania. Najpierw aplikacja kliencka *DotNetTutorial* tworzy trzy kontenery w usłudze [Azure Blob Storage](../storage/common/storage-introduction.md):
+Usługa Batch ma wbudowaną funkcję obsługi interakcji z usługą Azure Storage. Kontenery na koncie magazynu będzie udostępniać hello pliki wymagane przez hello zadania, które są uruchamiane na koncie usługi partia zadań. kontenery Hello udostępniają danych wyjściowych hello toostore miejsce, który tworzy hello zadania. Po pierwsze Hello hello *DotNetTutorial* jest aplikacja kliencka jest utworzyć trzy kontenery w [magazyn obiektów Blob Azure](../storage/common/storage-introduction.md):
 
-* **aplikacja**: ten kontener będzie przechowywać aplikację uruchomioną przez podzadania oraz wszelkie ich zależności, np. biblioteki dll.
-* **dane wejściowe**: podzadania będą pobierać pliki danych do przetwarzania z kontenera *wejściowego*.
-* **dane wyjściowe**: gdy podzadania ukończą przetwarzanie plików wejściowych, przekażą wyniki do kontenera *wyjściowego*.
+* **Aplikacja**: ten kontener zapisze aplikacji hello uruchamiając hello zadania, jak również żadnego z jego zależności, takich jak biblioteki dll.
+* **wejściowy**: zadań pobierze tooprocess pliki danych hello z hello *wejściowych* kontenera.
+* **dane wyjściowe**: gdy zadania ukończyć przetwarzania pliku wejściowego, przekaże one hello wyniki toohello *dane wyjściowe* kontenera.
 
-Do interakcji z kontem usługi Storage i tworzenia kontenerów należy użyć [biblioteki Azure Storage Client Library dla platformy .NET][net_api_storage]. Należy utworzyć odwołanie do konta za pomocą elementu [CloudStorageAccount][net_cloudstorageaccount] i przy jego użyciu utworzyć element [CloudBlobClient][net_cloudblobclient]:
+W kolejności toointeract z magazynu kont i Utwórz kontenerów, używamy hello [biblioteki klienta magazynu Azure dla platformy .NET][net_api_storage]. Możemy utworzyć konto toohello odwołanie z [CloudStorageAccount][net_cloudstorageaccount]i na którym utworzyć [CloudBlobClient][net_cloudblobclient]:
 
 ```csharp
-// Construct the Storage account connection string
+// Construct hello Storage account connection string
 string storageConnectionString = String.Format(
     "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
     StorageAccountName,
     StorageAccountKey);
 
-// Retrieve the storage account
+// Retrieve hello storage account
 CloudStorageAccount storageAccount =
     CloudStorageAccount.Parse(storageConnectionString);
 
-// Create the blob client, for use in obtaining references to
+// Create hello blob client, for use in obtaining references to
 // blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Należy używać odwołania `blobClient` w całej aplikacji i przekazać go jako parametr do kilku metod. Przykładem może być blok kodu, który następuje od razu po powyższym, w ramach którego wywołuje się element `CreateContainerIfNotExistAsync` na potrzeby tworzenia kontenerów.
+Używamy hello `blobClient` odwołania w całej aplikacji hello i przekaż go jako parametru metody tooseveral. Na przykład znajduje się w bloku kodu hello poniższą hello powyżej, w którym nazywa się `CreateContainerIfNotExistAsync` tooactually utworzyć hello kontenerów.
 
 ```csharp
-// Use the blob client to create the containers in Azure Storage if they don't
+// Use hello blob client toocreate hello containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
@@ -184,30 +184,30 @@ private static async Task CreateContainerIfNotExistAsync(
 }
 ```
 
-Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą używane przez podzadania.
+Po utworzeniu hello kontenery aplikacji hello teraz przekazać hello pliki, które będą używane przez zadania hello.
 
 > [!TIP]
-> W temacie [How to use Blob Storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) (Jak korzystać z usługi Blob Storage w ramach platformy .NET) znajduje się szczegółowe omówienie korzystania z kontenerów i obiektów blob w usłudze Azure Storage. Powinna to być jedna z najważniejszych pozycji do przeczytania po rozpoczęciu pracy z usługą Batch.
+> [Jak toouse magazynu obiektów Blob z .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) zawiera omówienie pracy z usługą Azure Storage kontenerów i obiektów blob. Po rozpoczęciu pracy z instancją powinno być hello górze listy odczytu.
 >
 >
 
 ## <a name="step-2-upload-task-application-and-data-files"></a>Krok 2: przekazanie aplikacji podzadań i plików danych
-![Przekazywanie aplikacji zadania podrzędnego i plików danych wejściowych do kontenerów][2]
+![Zadanie przekazywania aplikacji i wejściowych (dane) pliki toocontainers][2]
 <br/>
 
-Podczas przekazywania plików aplikacja *DotNetTutorial* najpierw definiuje kolekcje **aplikacji** i ścieżki plików **wejściowych** na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.
+W pliku hello Przekaż operacji *DotNetTutorial* najpierw definiuje kolekcji **aplikacji** i **wejściowych** pliku ścieżki istniejących na komputerze lokalnym hello. Następnie przekazanie tych kontenerach toohello pliki, które zostały utworzone w poprzednim kroku hello.
 
 ```csharp
-// Paths to the executable and its dependencies that will be executed by the tasks
+// Paths toohello executable and its dependencies that will be executed by hello tasks
 List<string> applicationFilePaths = new List<string>
 {
-    // The DotNetTutorial project includes a project reference to TaskApplication,
-    // allowing us to determine the path of the task application binary dynamically
+    // hello DotNetTutorial project includes a project reference tooTaskApplication,
+    // allowing us toodetermine hello path of hello task application binary dynamically
     typeof(TaskApplication.Program).Assembly.Location,
     "Microsoft.WindowsAzure.Storage.dll"
 };
 
-// The collection of data files that are to be processed by the tasks
+// hello collection of data files that are toobe processed by hello tasks
 List<string> inputFilePaths = new List<string>
 {
     @"..\..\taskdata1.txt",
@@ -215,26 +215,26 @@ List<string> inputFilePaths = new List<string>
     @"..\..\taskdata3.txt"
 };
 
-// Upload the application and its dependencies to Azure Storage. This is the
-// application that will process the data files, and will be executed by each
-// of the tasks on the compute nodes.
+// Upload hello application and its dependencies tooAzure Storage. This is the
+// application that will process hello data files, and will be executed by each
+// of hello tasks on hello compute nodes.
 List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
     blobClient,
     appContainerName,
     applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of
-// the tasks that are executed on the compute nodes within the pool.
+// Upload hello data files. This is hello data that will be processed by each of
+// hello tasks that are executed on hello compute nodes within hello pool.
 List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
     blobClient,
     inputContainerName,
     inputFilePaths);
 ```
 
-W pliku `Program.cs` istnieją dwie metody używane w procesie przekazywania:
+Istnieją dwie metody w `Program.cs` który są zaangażowane w procesu przekazywania hello:
 
-* `UploadFilesToContainerAsync`: ta metoda zwraca kolekcję obiektów [ResourceFile][net_resourcefile] (omówionych poniżej) i wywołuje wewnętrznie element `UploadFileToContainerAsync` w celu przekazania wszystkich plików przekazywanych w parametrze *filePaths*.
-* `UploadFileToContainerAsync`: ta metoda faktycznie wykonuje przekazanie pliku i tworzy obiekty [ResourceFile][net_resourcefile]. Po przekazaniu pliku uzyskuje sygnaturę dostępu współdzielonego (SAS) i zwraca obiekt ResourceFile, który go reprezentuje. Sygnatury dostępu współdzielonego zostały również omówione poniżej.
+* `UploadFilesToContainerAsync`: Ta metoda zwraca kolekcję [ResourceFile] [ net_resourcefile] obiektów (opisanych poniżej) i wewnętrznie wywołania `UploadFileToContainerAsync` tooupload każdego pliku przekazano hello *filePaths* parametru.
+* `UploadFileToContainerAsync`: Ta metoda hello faktycznie wykonuje hello przekazywania pliku i tworzy hello jest [ResourceFile] [ net_resourcefile] obiektów. Po przekazaniu pliku hello, uzyskuje sygnatury dostępu współdzielonego (SAS) dla pliku hello i zwraca obiekt ResourceFile, który reprezentuje go. Sygnatury dostępu współdzielonego zostały również omówione poniżej.
 
 ```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -243,7 +243,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
     string filePath)
 {
         Console.WriteLine(
-            "Uploading file {0} to container [{1}]...", filePath, containerName);
+            "Uploading file {0} toocontainer [{1}]...", filePath, containerName);
 
         string blobName = Path.GetFileName(filePath);
 
@@ -251,8 +251,8 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
         CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
         await blobData.UploadFromFileAsync(filePath);
 
-        // Set the expiry time and permissions for the blob shared access signature.
-        // In this case, no start time is specified, so the shared access signature
+        // Set hello expiry time and permissions for hello blob shared access signature.
+        // In this case, no start time is specified, so hello shared access signature
         // becomes valid immediately
         SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
         {
@@ -260,7 +260,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
                 Permissions = SharedAccessBlobPermissions.Read
         };
 
-        // Construct the SAS URL for blob
+        // Construct hello SAS URL for blob
         string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
         string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
 
@@ -269,23 +269,23 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-Klasa [ResourceFile][net_resourcefile] zawiera podzadania w usłudze Batch z adresem URL do pliku w usłudze Azure Storage, które są pobierane do węzła obliczeniowego przed uruchomieniem tego podzadania. Właściwość [ResourceFile.BlobSource][net_resourcefile_blobsource] określa pełny adres URL pliku przechowywanego w usłudze Azure Storage. Adres URL może także zawierać sygnaturę dostępu współdzielonego (SAS), która zapewnia bezpieczny dostęp do pliku. Większość typów podzadań w usłudze Batch dla platformy .NET obejmuje właściwość *ResourceFiles*, w tym następujące elementy:
+A [ResourceFile] [ net_resourcefile] zawiera zadania w partii hello adresu URL tooa plik z magazynu Azure, który jest pobrany tooa węźle obliczeń przed uruchomieniem tego zadania. Witaj [ResourceFile.BlobSource] [ net_resourcefile_blobsource] właściwość określa hello pełny adres URL pliku hello, ponieważ znajduje się ona w magazynie Azure. adres URL Hello mogą również obejmować sygnatury dostępu współdzielonego (SAS) zawiera plik toohello bezpiecznego dostępu. Większość typów podzadań w usłudze Batch dla platformy .NET obejmuje właściwość *ResourceFiles*, w tym następujące elementy:
 
 * [CloudTask][net_task]
 * [StartTask][net_pool_starttask]
 * [JobPreparationTask][net_jobpreptask]
 * [JobReleaseTask][net_jobreltask]
 
-Przykładowa aplikacja DotNetTutorial nie używa typów zadań JobPreparationTask ani JobReleaseTask, ale więcej informacji o nich można znaleźć w temacie [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md) (Uruchamianie podzadań przygotowania i ukończenia zadania w węzłach obliczeniowych w usłudze Azure Batch).
+DotNetTutorial Przykładowa aplikacja Hello używają hello JobPreparationTask lub JobReleaseTask typy zadań, lecz więcej o nich w [węzły obliczeniowe uruchamianie działań przygotowania i kończenia zadania w partii zadań Azure](batch-job-prep-release.md).
 
 ### <a name="shared-access-signature-sas"></a>Sygnatura dostępu współdzielonego (SAS)
-Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołączenia ich do adresu URL — zapewniają bezpieczny dostęp do kontenerów i obiektów blob w usłudze Azure Storage. Aplikacja DotNetTutorial używa adresów URL sygnatury dostępu współdzielonego kontenera i obiektów blob i służy do pokazania, jak uzyskać te ciągi sygnatur dostępu współdzielonego za pomocą usługi Storage.
+Ciągi są sygnatury dostępu współdzielonego, który — gdy dołączone jako część adresu URL — Podaj toocontainers bezpiecznego dostępu i obiekty BLOB w usłudze Azure Storage. Hello DotNetTutorial aplikacja korzysta z obu obiektów blob i kontener udostępnionych adresów URL sygnatury dostępu i pokazano, jak tooobtain te udostępniane dostęp ciągi podpisu z hello usługi magazynu.
 
-* **Sygnatury dostępu współdzielonego obiektów Blob**: funkcja StartTask puli w aplikacji DotNetTutorial używa sygnatur dostępu współdzielonego obiektów blob podczas pobierania danych binarnych aplikacji i plików danych wejściowych za pomocą usługi Storage (zobacz krok 3 poniżej). Metoda `UploadFileToContainerAsync` w elemencie `Program.cs` aplikacji DotNetTutorial obejmuje kod, który uzyskuje dostęp do sygnatur dostępu współdzielonego poszczególnych obiektów blob. Odbywa się to przez wywołanie metody [CloudBlob.GetSharedAccessSignature][net_sas_blob].
-* **Sygnatury dostępu współdzielonego kontenera**: gdy poszczególne podzadania zakończą pracę w węźle obliczeniowym, przekażą pliki wyjściowe do kontenera *wyjściowego* w usłudze Azure Storage. W tym celu funkcja TaskApplication używa sygnatury dostępu współdzielonego kontenera, która zapewnia prawo do zapisu w kontenerze w ramach ścieżki, gdy przekazuje plik. Uzyskiwanie sygnatury dostępu współdzielonego kontenera odbywa się w podobny sposób, jak w przypadku uzyskiwania sygnatury dostępu współdzielonego obiektów blob. W aplikacji DotNetTutorial będzie widać, że metoda pomocnika `GetContainerSasUrl` wywołuje w tym celu metodę [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Więcej informacji na temat sposobu, w jaki aplikacja TaskApplication korzysta z sygnatury dostępu współdzielonego kontenera znajduje się w sekcji „Krok 6: monitorowanie podzadań.”
+* **Obiekt blob sygnatur dostępu współdzielonego**: hello puli StartTask w DotNetTutorial korzysta z sygnatur dostępu do udostępnionego obiektu blob podczas pobierania plików binarnych aplikacji hello i pliki danych wejściowych z magazynu (zobacz krok nr 3 poniżej). Witaj `UploadFileToContainerAsync` metody w jego DotNetTutorial `Program.cs` zawiera hello kod, który uzyskuje sygnatury dostępu współdzielonego każdy obiekt blob. Odbywa się to przez wywołanie metody [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+* **Kontener sygnatury dostępu współdzielonego**: zgodnie z każdego zadania zakończy pracę w węźle obliczeń hello, zostanie przesłany jego dane wyjściowe pliku toohello *dane wyjściowe* kontenera w magazynie Azure. toodo, TaskApplication używa kontenera sygnatury dostępu współdzielonego, która zapewnia kontener toohello dostęp do zapisu jako część ścieżki hello, gdy jego przekazuje plik hello. Uzyskiwanie sygnatury dostępu współdzielonego kontenera hello odbywa się w podobny sposób jak podczas uzyskiwania blob hello udostępnionych sygnatury dostępu. W DotNetTutorial, możesz znaleźć tego hello `GetContainerSasUrl` wywołania metody pomocnika [CloudBlobContainer.GetSharedAccessSignature] [ net_sas_container] toodo tak. Będzie przeczytać więcej informacji o używaniu kontenera hello TaskApplication udostępnionych sygnatury dostępu w "krok 6: zadań monitorowania."
 
 > [!TIP]
-> Aby dowiedzieć się więcej o zapewnieniu bezpiecznego dostępu do danych na koncie usługi Storage, zapoznaj się z dwuczęściową serią dotyczącą sygnatur dostępu współdzielonego: [Part 1: Understanding the shared access signature (SAS) model](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (Część 1: opis modelu sygnatury dostępu współdzielonego [SAS]) i [Part 2: Create and use a shared access signature (SAS) with the Blob storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) (Część 2: tworzenie i korzystanie z sygnatury dostępu współdzielonego [SAS] w magazynie Blob Storage).
+> Wyewidencjonowanie hello dwuczęściową serii na sygnatur dostępu współdzielonego [część 1: hello Opis udostępnionych model sygnatury dostępu Współdzielonego dostępu](../storage/common/storage-dotnet-shared-access-signature-part-1.md) i [część 2: tworzenie i używanie sygnatury dostępu współdzielonego (SAS) z magazynu obiektów Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), toolearn więcej informacji na temat zapewnianie bezpiecznego dostępu toodata na koncie magazynu.
 >
 >
 
@@ -295,7 +295,7 @@ Sygnatury dostępu współdzielonego to ciągi, które — w przypadku dołącze
 
 **Pula** usługi Batch jest kolekcją węzłów obliczeniowych (maszyn wirtualnych), w których usługa Batch wykonuje podzadania danego zadania.
 
-Po przekazaniu plików aplikacji i danych do konta usługi Storage przy użyciu interfejsów API usługi Azure Storage element *DotNetTutorial* rozpoczyna wykonywanie wywołań do usługi Batch przy użyciu interfejsów API udostępnionych przez bibliotekę technologii .NET usługi Batch. Kod najpierw tworzy element [BatchClient][net_batchclient]:
+Po przekazaniu aplikacji hello i toohello pliki danych konta magazynu z interfejsami API magazynu Azure, *DotNetTutorial* rozpoczyna wprowadzanie usługa partia zadań toohello wywołania z interfejsów API dostarczonych przez hello biblioteki partiami platformy .NET. Witaj kod najpierw tworzy [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -308,7 +308,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Następnie w przykładzie tworzona jest pula węzłów obliczeniowych na koncie usługi Batch z wywołaniem funkcji `CreatePoolIfNotExistsAsync`. Funkcja `CreatePoolIfNotExistsAsync` używa metody [BatchClient.PoolOperations.CreatePool][net_pool_create], aby utworzyć nową pulę w usłudze Batch:
+Następnie próbki hello tworzona jest pula węzłów obliczeniowych w hello konta usługi partia zadań przy użyciu wywołania zbyt`CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync`używa hello [BatchClient.PoolOperations.CreatePool] [ net_pool_create] toocreate metody nowej puli w hello usługa partia zadań:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -318,7 +318,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
     {
         Console.WriteLine("Creating pool [{0}]...", poolId);
 
-        // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
+        // Create hello unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
@@ -326,18 +326,18 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
-        // Create and assign the StartTask that will be executed when compute nodes join the pool.
-        // In this case, we copy the StartTask's resource files (that will be automatically downloaded
-        // to the node by the StartTask) into the shared directory that all tasks will have access to.
+        // Create and assign hello StartTask that will be executed when compute nodes join hello pool.
+        // In this case, we copy hello StartTask's resource files (that will be automatically downloaded
+        // toohello node by hello StartTask) into hello shared directory that all tasks will have access to.
         pool.StartTask = new StartTask
         {
-            // Specify a command line for the StartTask that copies the task application files to the
+            // Specify a command line for hello StartTask that copies hello task application files toothe
             // node's shared directory. Every compute node in a Batch pool is configured with a number
             // of pre-defined environment variables that can be referenced by commands or applications
             // run by tasks.
 
             // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
-            // more files were successfully copied) we need to manually exit with a 0 for Batch to recognize
+            // more files were successfully copied) we need toomanually exit with a 0 for Batch toorecognize
             // StartTask execution success.
             CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
             ResourceFiles = resourceFiles,
@@ -348,10 +348,10 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
     }
     catch (BatchException be)
     {
-        // Swallow the specific error code PoolExists since that is expected if the pool already exists
+        // Swallow hello specific error code PoolExists since that is expected if hello pool already exists
         if (be.RequestInformation?.BatchError != null && be.RequestInformation.BatchError.Code == BatchErrorCodeStrings.PoolExists)
         {
-            Console.WriteLine("The pool {0} already existed when we tried to create it", poolId);
+            Console.WriteLine("hello pool {0} already existed when we tried toocreate it", poolId);
         }
         else
         {
@@ -361,42 +361,42 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Podczas tworzenia puli za pomocą funkcji [CreatePool][net_pool_create] należy określić liczbę parametrów, np. liczbę węzłów obliczeniowych, [rozmiar węzłów](../cloud-services/cloud-services-sizes-specs.md) oraz system operacyjny węzłów. W aplikacji *DotNetTutorial* używamy funkcji [CloudServiceConfiguration][net_cloudserviceconfiguration] do określenia systemu Windows Server 2012 R2 z [usług Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+Po utworzeniu puli z [CreatePool][net_pool_create], można określić kilka parametrów, takich jak hello liczba węzłów obliczeniowych hello [rozmiar węzłów hello](../cloud-services/cloud-services-sizes-specs.md), i hello operacyjnego węzłów System. W *DotNetTutorial*, używamy [CloudServiceConfiguration] [ net_cloudserviceconfiguration] toospecify systemu Windows Server 2012 R2 z [usługi w chmurze](../cloud-services/cloud-services-guestos-update-matrix.md). 
 
-Można również tworzyć pule węzłów obliczeniowych, które są maszynami wirtualnymi platformy Azure, wybierając element [VirtualMachineConfiguration][net_virtualmachineconfiguration] dla puli. Pulę węzłów obliczeniowych maszyn wirtualnych można utworzyć na podstawie [obrazów systemu Linux](batch-linux-nodes.md) lub Windows. Źródłem obrazów maszyny wirtualnej może być:
+Można również tworzyć pule węzły obliczeniowe, które są maszynach wirtualnych Azure (VM), określając hello [VirtualMachineConfiguration] [ net_virtualmachineconfiguration] dla użytkownika. Pulę węzłów obliczeniowych maszyn wirtualnych można utworzyć na podstawie [obrazów systemu Linux](batch-linux-nodes.md) lub Windows. Źródło Hello obrazów maszyny Wirtualnej można:
 
-- Witryna [Marketplace usługi Azure Virtual Machines][vm_marketplace], która udostępnia gotowe do użycia obrazy systemów Windows i Linux. 
+- Hello [Marketplace maszyny wirtualne Azure][vm_marketplace], co umożliwia obrazów systemów Windows i Linux, które są gotowe do użycia. 
 - Obraz niestandardowy przygotowywany i udostępniany przez użytkownika. Aby uzyskać szczegółowe informacje o obrazach niestandardowych, zobacz [Tworzenie rozbudowanych rozwiązań przetwarzania równoległego przy użyciu usługi Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
-> W usłudze Batch opłaty są naliczane za zasoby obliczeniowe. Aby zminimalizować koszty przed uruchomieniem próbki, można zmniejszyć parametr `targetDedicatedComputeNodes` do 1.
+> W usłudze Batch opłaty są naliczane za zasoby obliczeniowe. koszty toominimize można obniżyć `targetDedicatedComputeNodes` too1 przed uruchomieniem hello próbki.
 >
 >
 
-Wraz z fizycznymi właściwościami węzłów można też określić funkcję [StartTask][net_pool_starttask] dla puli. Funkcja StartTask jest wykonywana w każdym węźle, gdy tylko ten węzeł zostanie dołączony do puli, oraz za każdym razem, gdy węzeł będzie uruchamiany ponownie. Funkcja StartTask jest szczególnie przydatna podczas instalowania aplikacji w węzłach obliczeniowych przed wykonaniem podzadań. Na przykład jeśli podzadania przetwarzają dane za pomocą skryptów języka Python, można użyć funkcji StartTask do zainstalowania języka Python w węzłach obliczeniowych.
+Wraz z tych właściwości węzła fizycznego, można również określić [StartTask] [ net_pool_starttask] hello puli. Hello StartTask wykonywane na każdym węźle, ponieważ ten węzeł dołącza hello puli i każdym uruchomieniu węzła. Witaj StartTask jest szczególnie przydatna w przypadku instalowania aplikacji na węzły obliczeniowe wcześniejsze toohello wykonywanie zadań. Na przykład zadań przetwarzania danych przy użyciu skryptów języka Python, można użyć tooinstall StartTask Python na powitania węzłów obliczeniowych.
 
-W tej przykładowej aplikacji podzadanie StartTask kopiuje pliki, które pobiera z usługi Storage (określone za pomocą właściwości [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles]) z katalogu roboczego podzadania StartTask do współdzielonego katalogu, do którego mają dostęp *wszystkie* podzadania uruchomione w węźle. Powoduje to skopiowanie pliku `TaskApplication.exe` i jego zależności do udostępnionego katalogu w każdym węźle, gdy węzeł dołącza do puli, aby dostęp do niego miały wszystkie podzadania uruchomione w węźle.
+W tej przykładowej aplikacji hello StartTask kopiuje hello pliki, które pobiera z magazynu (które są określane przy użyciu hello [StartTask][net_starttask].[ ResourceFiles] [ net_starttask_resourcefiles] właściwości) z hello StartTask pracy katalogu toohello udostępnionego katalogu który *wszystkie* zadań uruchomionych w węźle hello może uzyskać dostęp. Zasadniczo spowoduje to skopiowanie `TaskApplication.exe` i jego zależności toohello udostępniony katalog w każdym węźle jako węzeł hello dołącza pulę hello tak, aby wszystkie zadania, które będą uruchamiane w węźle hello do niego dostęp.
 
 > [!TIP]
-> Funkcja **pakietów aplikacji** w usłudze Azure Batch udostępnia inny sposób pobrania aplikacji do węzła obliczeniowego w puli. Szczegółowe informacje można znaleźć w artykule [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
+> Witaj **pakietów aplikacji** funkcji partii zadań Azure zapewnia inny sposób tooget na powitania węzłów obliczeniowych w puli aplikacji. Zobacz [wdrożyć aplikacje toocompute węzły z pakietami aplikacji partii](batch-application-packages.md) szczegółowe informacje.
 >
 >
 
-W powyższym fragmencie kodu warto również zwrócić uwagę na użycie dwóch zmiennych środowiskowych we właściwości *CommandLine* funkcji StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` i `%AZ_BATCH_NODE_SHARED_DIR%`. Każdy węzeł obliczeniowy w puli usługi Batch jest automatycznie konfigurowany za pomocą kilku zmiennych środowiskowych właściwych dla usługi Batch. Wszystkie procesy wykonywane przez zadanie mają dostęp do tych zmiennych środowiskowych.
+Godny uwagi we fragmencie kodu hello powyżej jest również użycie Witaj dwie zmienne środowiskowe w hello *CommandLine* właściwości hello StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` i `%AZ_BATCH_NODE_SHARED_DIR%`. Każdy węzeł obliczeniowy w puli partii jest automatycznie konfigurowany z kilku zmiennych środowiskowych, które są określone tooBatch. Żaden proces, która jest wykonywana przez zadanie ma zmienne środowiskowe toothese dostępu.
 
 > [!TIP]
-> Informacje na temat zmiennych środowiskowych dostępnych w węzłach obliczeniowych w puli usługi Batch oraz katalogów roboczych podzadań znajdują się w sekcjach [Ustawienia środowiska dla podzadań](batch-api-basics.md#environment-settings-for-tasks) oraz [Pliki i katalogi](batch-api-basics.md#files-and-directories) w artykule [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów).
+> toofind więcej informacji na temat hello zmiennych środowiskowych, które są dostępne w węzłach obliczeń w puli partii i informacji na temat zadań katalogów roboczych, zobacz hello [ustawienia środowiska dla zadań](batch-api-basics.md#environment-settings-for-tasks) i [plików i katalogów ](batch-api-basics.md#files-and-directories) części hello [Przegląd funkcji partii dla deweloperów](batch-api-basics.md).
 >
 >
 
 ## <a name="step-4-create-batch-job"></a>Krok 4: tworzenie zadania w usłudze Batch
 ![Tworzenie zadania w usłudze Batch][4]<br/>
 
-**Zadanie** usługi Batch jest kolekcją podzadań i jest skojarzone z pulą węzłów obliczeniowych. Podzadania tego zadania są wykonywane w węzłach obliczeniowych skojarzonej puli.
+**Zadanie** usługi Batch jest kolekcją podzadań i jest skojarzone z pulą węzłów obliczeniowych. wykonanie Hello zadań w ramach zadania w węzłach obliczeń puli hello skojarzone.
 
-Zadań można użyć nie tylko do organizowania i śledzenia podzadań w powiązanych obciążeniach, ale także do nakładania pewnych ograniczeń — takich jak maksymalny czas wykonywania zadania (a co za tym idzie podzadań, które ono obejmuje), a także priorytet zadania w odniesieniu do innych zadań w ramach konta usługi Batch. Jednak w tym przykładzie zadanie jest skojarzone tylko z pulą, która została utworzona w kroku 3. Żadne dodatkowe właściwości nie są konfigurowane.
+Można użyć zadania nie tylko do organizowaniu i śledzenia zadań w powiązanych obciążeń pracą, ale nakładaniu pewne ograniczenia — takie jak hello maksymalną czasu wykonywania zadania hello (i przez rozszerzenie, jego zadań podrzędnych), a także priorytet zadania w zadaniach tooother relacji hello partii konto. W tym przykładzie jednak hello zadanie jest skojarzone tylko z pulą hello, który został utworzony w kroku #3. Żadne dodatkowe właściwości nie są konfigurowane.
 
-Wszystkie zadania usługi Batch są skojarzone z określoną pulą. To skojarzenie wskazuje, w których węzłach będą wykonywane podzadania wchodzące w skład zadania. Należy to określić za pomocą właściwości [CloudJob.PoolInformation][net_job_poolinfo], jak pokazano we fragmencie kodu poniżej.
+Wszystkie zadania usługi Batch są skojarzone z określoną pulą. To skojarzenie wskazuje węzły, które hello zadania będą wykonywane na. Określ to przy użyciu hello [CloudJob.PoolInformation] [ net_job_poolinfo] właściwości, jak pokazano w hello poniższy fragment kodu.
 
 ```csharp
 private static async Task CreateJobAsync(
@@ -414,15 +414,15 @@ private static async Task CreateJobAsync(
 }
 ```
 
-Teraz, kiedy zadanie zostało utworzone, są dodawane podzadania, aby wykonać pracę.
+Teraz, kiedy zadania został utworzony, zadania są dodawane tooperform hello pracy.
 
-## <a name="step-5-add-tasks-to-job"></a>Krok 5: dodawanie podzadań do zadania
-![Dodawanie podzadań do zadania][5]<br/>
-*(1) Podzadania są dodawane do zadania, (2) podzadania są planowane do uruchomienia w węzłach i (3) podzadania pobierają pliki danych do przetwarzania*
+## <a name="step-5-add-tasks-toojob"></a>Krok 5: Dodawanie toojob zadań
+![Dodaj toojob zadań][5]<br/>
+*(1) zadania są dodawane toohello zadania, zadania (2) hello są zaplanowane toorun w węzłach i (3) hello zadania Pobierz tooprocess pliki danych hello*
 
-**Podzadania** usługi Batch to pojedyncze jednostki robocze, które są wykonywane w węzłach obliczeniowych. Podzadanie ma wiersz polecenia i uruchamia skrypty lub pliki wykonywalne określone w tym wierszu polecenia.
+Wsadowe **zadania** są hello poszczególnych jednostek pracy wykonywanych na powitania węzły obliczeniowe. Zadanie ma wiersza polecenia i uruchamia hello skrypty lub pliki wykonywalne, w tym wierszu polecenia.
 
-Aby praca została rzeczywiście wykonana, należy dodać podzadania do zadania. Każde podzadanie typu [CloudTask][net_task] jest konfigurowane za pomocą właściwości wiersza polecenia i właściwości [ResourceFiles][net_task_resourcefiles] (tak jak w przypadku podzadania StartTask w puli), które podzadanie pobiera do węzła, zanim zostanie automatycznie wykonany jego wiersz polecenia. W przykładowym projekcie aplikacji *DotNetTutorial* każde podzadanie przetwarza tylko jeden plik. W związku z tym jego kolekcja ResourceFiles zawiera jeden element.
+tooactually wykonywania pracy, zadań, należy dodać tooa zadania. Każdy [CloudTask] [ net_task] jest konfigurowana przy użyciu właściwości wiersza polecenia i [ResourceFiles] [ net_task_resourcefiles] (tak jak StartTask hello puli) który zadanie Hello pobiera węzła toohello przed jego wiersza polecenia jest wykonywane automatycznie. W hello *DotNetTutorial* przykładowy projekt, każde zadanie przetwarza tylko jeden plik. W związku z tym jego kolekcja ResourceFiles zawiera jeden element.
 
 ```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
@@ -431,14 +431,14 @@ private static async Task<List<CloudTask>> AddTasksAsync(
     List<ResourceFile> inputFiles,
     string outputContainerSasUrl)
 {
-    Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
+    Console.WriteLine("Adding {0} tasks toojob [{1}]...", inputFiles.Count, jobId);
 
-    // Create a collection to hold the tasks that we'll be adding to the job
+    // Create a collection toohold hello tasks that we'll be adding toohello job
     List<CloudTask> tasks = new List<CloudTask>();
 
-    // Create each of the tasks. Because we copied the task application to the
-    // node's shared directory with the pool's StartTask, we can access it via
-    // the shared directory on the node that the task runs on.
+    // Create each of hello tasks. Because we copied hello task application toothe
+    // node's shared directory with hello pool's StartTask, we can access it via
+    // hello shared directory on hello node that hello task runs on.
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
@@ -452,9 +452,9 @@ private static async Task<List<CloudTask>> AddTasksAsync(
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
-    // for each. Bulk task submission helps to ensure efficient underlying API calls
-    // to the Batch service.
+    // Add hello tasks as a collection, as opposed tooissuing a separate AddTask call
+    // for each. Bulk task submission helps tooensure efficient underlying API calls
+    // toohello Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
     return tasks;
@@ -462,15 +462,15 @@ private static async Task<List<CloudTask>> AddTasksAsync(
 ```
 
 > [!IMPORTANT]
-> Podczas uzyskiwania dostępu do zmiennych środowiskowych (takich jak `%AZ_BATCH_NODE_SHARED_DIR%`) lub wykonywania aplikacji nieznajdującej się w parametrze `PATH` węzła wiersze poleceń podzadań muszą rozpoczynać się od `cmd /c`. Spowoduje to jawne wykonanie interpretera poleceń i przesłanie do niego instrukcji zakończenia po wypełnieniu polecenia. Nie jest to konieczne, jeśli podzadania wykonują aplikację w parametrze `PATH` węzła (np. *robocopy.exe* lub *powershell.exe*) i żadne zmienne środowiskowe nie są używane.
+> Podczas uzyskiwania dostępu do zmiennych środowiskowych takich jak `%AZ_BATCH_NODE_SHARED_DIR%` lub wykonywanie aplikacji nie można odnaleźć w węźle hello `PATH`, wiersze poleceń zadań musi być poprzedzona znakiem `cmd /c`. Zostanie jawnie wykonania hello interpreter poleceń i poinstruować go tooterminate po przeprowadzeniu polecenia. To wymaganie nie jest konieczne, jeśli zadania wykonywania aplikacji w węźle hello `PATH` (takich jak *robocopy.exe* lub *powershell.exe*) i są używane nie zmiennych środowiskowych.
 >
 >
 
-W pętli `foreach` w powyższym fragmencie kodu widać, że wiersz polecenia dla podzadania jest zbudowany w taki sposób, że trzy argumenty wiersza polecenia są przekazywane do pliku *TaskApplication.exe*:
+W ramach hello `foreach` pętli we fragmencie kodu hello powyżej, zobaczysz, że hello wiersz polecenia dla zadania hello jest tworzony w taki sposób, że trzech argumentów wiersza polecenia są przekazywane za*TaskApplication.exe*:
 
-1. **Pierwszy argument** jest ścieżką pliku do przetworzenia. Jest to ścieżka lokalna do pliku zgodnie z jego lokalizacją w węźle. Gdy obiekt ResourceFile w `UploadFileToContainerAsync` został utworzony po raz pierwszy, jak powyżej, nazwa pliku została użyta dla tej właściwości (jako parametr do konstruktora ResourceFile). Oznacza to, że plik znajduje się w tym samym katalogu co plik *TaskApplication.exe*.
-2. **Drugi argument** określa, że *N* wyrazów na samej górze będzie zapisywanych do pliku wyjściowego. W przykładzie zostało to zakodowane na stałe, aby pierwsze trzy słowa zostały zapisane do pliku wyjściowego.
-3. **Trzeci argument** jest sygnaturą dostępu współdzielonego (SAS), która zapewnia prawo do zapisu kontenera **wyjściowego** w usłudze Azure Storage. Plik *TaskApplication.exe* korzysta z tego adresu URL sygnatury dostępu współdzielonego, gdy przekazuje plik wyjściowy do usługi Azure Storage. Kod do tej czynności można znaleźć w metodzie `UploadFileToContainer` w pliku `Program.cs` projektu funkcji TaskApplication:
+1. Witaj **pierwszy argument** to ścieżka hello hello tooprocess pliku. To jest plik toohello ścieżka lokalna hello, ponieważ znajduje się w węźle hello. Gdy hello obiektu ResourceFile w `UploadFileToContainerAsync` została pierwotnie utworzona powyżej, nazwa pliku hello została użyta dla tej właściwości (jako parametru konstruktora ResourceFile toohello). Wskazuje, czy plik hello znajdują się w hello takie same katalogu jako *TaskApplication.exe*.
+2. Witaj **drugi argument** Określa, że top hello *N* wyrazy mają być zapisywane toohello pliku wyjściowego. W przykładowym hello to jest ustalony, aby top trzy słowa hello są zapisywane toohello pliku wyjściowego.
+3. Witaj **trzeci argument** jest sygnatury dostępu współdzielonego hello (SAS), która zapewnia dostęp do zapisu toohello **dane wyjściowe** kontenera w magazynie Azure. *TaskApplication.exe* używa tego wspólnego dostępu podpisu adresu URL, gdy przekazuje on tooAzure pliku wyjściowego hello magazynu. Witaj kodu dla tego można znaleźć w hello `UploadFileToContainer` metody w projekcie TaskApplication hello `Program.cs` pliku:
 
 ```csharp
 // NOTE: From project TaskApplication Program.cs
@@ -479,10 +479,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 {
         string blobName = Path.GetFileName(filePath);
 
-        // Obtain a reference to the container using the SAS URI.
+        // Obtain a reference toohello container using hello SAS URI.
         CloudBlobContainer container = new CloudBlobContainer(new Uri(containerSas));
 
-        // Upload the file (as a new blob) to the container
+        // Upload hello file (as a new blob) toohello container
         try
         {
                 CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
@@ -498,10 +498,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
                 Console.WriteLine("Additional error information: " + e.Message);
                 Console.WriteLine();
 
-                // Indicate that a failure has occurred so that when the Batch service
-                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
+                // Indicate that a failure has occurred so that when hello Batch service
+                // sets hello CloudTask.ExecutionInformation.ExitCode for hello task that
                 // executed this application, it properly indicates that there was a
-                // problem with the task.
+                // problem with hello task.
                 Environment.ExitCode = -1;
         }
 }
@@ -509,17 +509,17 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## <a name="step-6-monitor-tasks"></a>Krok 6: monitorowanie podzadań
 ![Monitorowanie podzadań][6]<br/>
-*Aplikacja kliencka (1) monitoruje podzadania pod kątem stanu ukończenia i powodzenia, a (2) podzadania przekazują dane wynikowe do usługi Azure Storage*
+*powitania klienta aplikacji (1) monitory hello zadań związanych uzupełniania i stan sukcesu i (2) hello zadania przekazywania wynik danych tooAzure magazynu*
 
-Gdy podzadania są dodawane do zadania, zostają automatycznie dodane do kolejki i zaplanowane do wykonania w węzłach obliczeniowych w puli skojarzonej z zadaniem. Na podstawie określonych przez użytkownika ustawień usługa Batch samodzielnie obsługuje dodawanie podzadań do kolejki, ich planowanie, ponawianie prób ich wykonania oraz inne czynności administracyjne.
+Jeśli zadania zostaną dodane zadania tooa, są automatycznie w kolejce i zaplanowane do uruchomienia w węzłach obliczeń w puli hello skojarzone z zadaniem hello. Na podstawie hello ustawień przez użytkownika, partii obsługuje wszystkich zadań usługi kolejkowania, planowania, ponawianie próby i obowiązków administracyjnych innych zadań za Ciebie.
 
-Istnieje wiele sposobów, w jakie można monitorować wykonanie podzadań. Aplikacja DotNetTutorial stanowi prosty przykład zgłaszania tylko w przypadku ukończenia oraz stanów powodzenia lub niepowodzenia. W metodzie `MonitorTasks` w parametrze `Program.cs` programu DotNetTutorial istnieją trzy pojęcia w usłudze Batch dla platformy .NET, które wymagają omówienia. Są one wymienione poniżej w kolejności ich występowania:
+Istnieje wiele metod toomonitoring wykonywania zadania. Aplikacja DotNetTutorial stanowi prosty przykład zgłaszania tylko w przypadku ukończenia oraz stanów powodzenia lub niepowodzenia. W ramach hello `MonitorTasks` metody w jego DotNetTutorial `Program.cs`, istnieją trzy pojęcia partiami platformy .NET, które gwarantuje dyskusji. Są one wymienione poniżej w kolejności ich występowania:
 
-1. **ODATADetailLevel**: określenie funkcji [ODATADetailLevel][net_odatadetaillevel] na liście operacji (takich jak uzyskanie listy podzadań zadania) jest niezbędne do zapewnienia wydajności aplikacji usługi Batch. Zaplanuj przeczytanie tematu [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) (Wydajne wysyłanie zapytań do usługi Azure Batch), jeśli planujesz wykonać dowolny rodzaj monitorowania stanu w aplikacjach usługi Batch.
-2. **TaskStateMonitor**: funkcja [TaskStateMonitor][net_taskstatemonitor] zapewnia aplikacjom usługi Batch dla platformy .NET narzędzia pomocy do monitorowania stanów podzadań. W przypadku parametru `MonitorTasks` *DotNetTutorial* oczekuje, aż wszystkie podzadania zostaną w określonym czasie objęte zasięgiem funkcji [TaskState.Completed][net_taskstate]. Następnie kończy zadanie.
-3. **TerminateJobAsync**: zakończenie zadania za pomocą funkcji [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (lub blokującej funkcji JobOperations.TerminateJob) spowoduje, że zadanie zostanie oznaczone jako zakończone. Należy tak koniecznie zrobić, jeśli rozwiązanie usługi Batch korzysta z funkcji [JobReleaseTask][net_jobreltask]. Jest to szczególny typ podzadania, który opisano w temacie [Job preparation and completion tasks](batch-job-prep-release.md) (Przygotowanie zadania i podzadania związane z ukończeniem).
+1. **ODATADetailLevel**: określenie funkcji [ODATADetailLevel][net_odatadetaillevel] na liście operacji (takich jak uzyskanie listy podzadań zadania) jest niezbędne do zapewnienia wydajności aplikacji usługi Batch. Dodaj [wydajnie zapytania usługi partia zadań Azure hello](batch-efficient-list-queries.md) tooyour odczytywania listy, jeśli planujesz wykonanie dowolny rodzaj monitorowanie stanu w aplikacjach partii.
+2. **TaskStateMonitor**: funkcja [TaskStateMonitor][net_taskstatemonitor] zapewnia aplikacjom usługi Batch dla platformy .NET narzędzia pomocy do monitorowania stanów podzadań. W `MonitorTasks`, *DotNetTutorial* czeka na wszystkich zadań tooreach [TaskState.Completed] [ net_taskstate] przed upływem limitu czasu. Następnie kończy zadanie hello.
+3. **TerminateJobAsync**: przerywanie zadania o [JobOperations.TerminateJobAsync] [ net_joboperations_terminatejob] (lub hello blokuje JobOperations.TerminateJob) oznacza to zadanie jako zakończone. Jest ważne toodo tak więc jeśli rozwiązanie partii używa [JobReleaseTask][net_jobreltask]. Jest to szczególny typ podzadania, który opisano w temacie [Job preparation and completion tasks](batch-job-prep-release.md) (Przygotowanie zadania i podzadania związane z ukończeniem).
 
-Metoda `MonitorTasks` z pliku aplikacji *DotNetTutorial* `Program.cs` jest wyświetlana poniżej:
+Witaj `MonitorTasks` metody z *DotNetTutorial*w `Program.cs` pojawia się poniżej:
 
 ```csharp
 private static async Task<bool> MonitorTasks(
@@ -529,12 +529,12 @@ private static async Task<bool> MonitorTasks(
 {
     bool allTasksSuccessful = true;
     const string successMessage = "All tasks reached state Completed.";
-    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
+    const string failureMessage = "One or more tasks failed tooreach hello Completed state within hello timeout period.";
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to  specify that only the "id" property of each task should be
-    // populated. Using a detail level for all list operations helps to lower
-    // response time from the Batch service.
+    // Obtain hello collection of tasks currently managed by hello job. Note that we use
+    // a detail level too specify that only hello "id" property of each task should be
+    // populated. Using a detail level for all list operations helps toolower
+    // response time from hello Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
     List<CloudTask> tasks =
         await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
@@ -542,8 +542,8 @@ private static async Task<bool> MonitorTasks(
     Console.WriteLine("Awaiting task completion, timeout in {0}...",
         timeout.ToString());
 
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
-    // will wait for all tasks to reach the Completed state.
+    // We use a TaskStateMonitor toomonitor hello state of our tasks. In this case, we
+    // will wait for all tasks tooreach hello Completed state.
     TaskStateMonitor taskStateMonitor
         = batchClient.Utilities.CreateTaskStateMonitor();
 
@@ -560,32 +560,32 @@ private static async Task<bool> MonitorTasks(
 
     await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-    // All tasks have reached the "Completed" state, however, this does not
+    // All tasks have reached hello "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a failure
+    // ExecutionInfo property tooensure that it did not encounter a failure
     // or return a non-zero exit code.
 
-    // Update the detail level to populate only the task id and executionInfo
-    // properties. We refresh the tasks below, and need only this information for
+    // Update hello detail level toopopulate only hello task id and executionInfo
+    // properties. We refresh hello tasks below, and need only this information for
     // each task.
     detail.SelectClause = "id, executionInfo";
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the Batch service
+        // Populate hello task's properties with hello latest info from hello Batch service
         await task.RefreshAsync(detail);
 
         if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A task with failure information set indicates there was a problem with the task. It is important to note that
-            // the task's state can be "Completed," yet still have encountered a failure.
+            // A task with failure information set indicates there was a problem with hello task. It is important toonote that
+            // hello task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
             Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
             if (task.ExecutionInformation.ExitCode != 0)
             {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // A non-zero exit code may indicate that hello application executed by hello task encountered an error
                 // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
                 // your implementation of error checking may differ from this example.
 
@@ -596,7 +596,7 @@ private static async Task<bool> MonitorTasks(
 
     if (allTasksSuccessful)
     {
-        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
+        Console.WriteLine("Success! All tasks completed successfully within hello specified timeout period.");
     }
 
     return allTasksSuccessful;
@@ -606,7 +606,7 @@ private static async Task<bool> MonitorTasks(
 ## <a name="step-7-download-task-output"></a>Krok 7: pobranie danych wyjściowych podzadań
 ![Pobieranie danych wyjściowych zadań podrzędnych z usługi Storage][7]<br/>
 
-Po ukończeniu zadania można pobrać dane wyjściowe podzadań przy użyciu usługi Azure Storage. Odbywa się to przy użyciu wywołania do funkcji `DownloadBlobsFromContainerAsync` w pliku `Program.cs` *DotNetTutorial*:
+Teraz, hello ukończenia zadania, dane wyjściowe zadania hello hello można pobrać z magazynu Azure. Odbywa się przy użyciu wywołania zbyt`DownloadBlobsFromContainerAsync` w *DotNetTutorial*w `Program.cs`:
 
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
@@ -616,33 +616,33 @@ private static async Task DownloadBlobsFromContainerAsync(
 {
         Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
-        // Retrieve a reference to a previously created container
+        // Retrieve a reference tooa previously created container
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-        // Get a flat listing of all the block blobs in the specified container
+        // Get a flat listing of all hello block blobs in hello specified container
         foreach (IListBlobItem item in container.ListBlobs(
                     prefix: null,
                     useFlatBlobListing: true))
         {
-                // Retrieve reference to the current blob
+                // Retrieve reference toohello current blob
                 CloudBlob blob = (CloudBlob)item;
 
-                // Save blob contents to a file in the specified folder
+                // Save blob contents tooa file in hello specified folder
                 string localOutputFile = Path.Combine(directoryPath, blob.Name);
                 await blob.DownloadToFileAsync(localOutputFile, FileMode.Create);
         }
 
-        Console.WriteLine("All files downloaded to {0}", directoryPath);
+        Console.WriteLine("All files downloaded too{0}", directoryPath);
 }
 ```
 
 > [!NOTE]
-> Wywołanie do funkcji `DownloadBlobsFromContainerAsync` w aplikacji *DotNetTutorial* określa, że pliki powinny zostać pobrane do folderu `%TEMP%`. Można także swobodnie modyfikować tę lokalizację danych wyjściowych.
+> Witaj wywołanie za`DownloadBlobsFromContainerAsync` w hello *DotNetTutorial* aplikacji określa, że pliki hello powinny być pobrany tooyour `%TEMP%` folderu. Możesz wolnego toomodify to lokalizacji wyjściowej.
 >
 >
 
 ## <a name="step-8-delete-containers"></a>Krok 8: usuwanie kontenerów
-Ponieważ użytkownik jest rozliczany za dane przechowywane w usłudze Azure Storage, zawsze dobrym rozwiązaniem jest usunięcie obiektów blob, które nie są już potrzebne do zadań w ramach usługi Batch. W pliku `Program.cs` programu DotNetTutorial odbywa się to przy użyciu trzech wywołań do metody pomocy `DeleteContainerAsync`:
+Naliczane są opłaty za dane przechowywane w usłudze Azure Storage, dlatego jest zawsze blob tooremove dobrym rozwiązaniem, które nie są już potrzebne dla zadań wsadowych. W jego DotNetTutorial `Program.cs`, jest to zrobić za pomocą metody pomocniczej toohello trzy wywołania `DeleteContainerAsync`:
 
 ```csharp
 // Clean up Storage resources
@@ -651,7 +651,7 @@ await DeleteContainerAsync(blobClient, inputContainerName);
 await DeleteContainerAsync(blobClient, outputContainerName);
 ```
 
-Sama metoda jedynie uzyskuje odwołanie do kontenera, a następnie wywołuje funkcję [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
+metody Hello jedynie uzyskuje kontenera toohello odwołania, a następnie wywołuje [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
 
 ```csharp
 private static async Task DeleteContainerAsync(
@@ -672,13 +672,13 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Krok 9: usuwanie zadania i puli
-W ostatnim kroku zostaje wyświetlony monit o usunięcie zadania i puli, które zostały utworzone przez aplikację DotNetTutorial. Mimo że nie są naliczane opłaty za same zadania i podzadania, *są* naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie węzłów tylko zależnie do potrzeb. Usuwanie nieużywanych pul może odbywać się podczas konserwacji.
+## <a name="step-9-delete-hello-job-and-hello-pool"></a>Krok 9: Usuwanie hello zadania i hello puli
+W ostatnim kroku hello jest monitem toodelete hello zadania i hello puli utworzone przez aplikację DotNetTutorial hello. Mimo że nie są naliczane opłaty za same zadania i podzadania, *są* naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie węzłów tylko zależnie do potrzeb. Usuwanie nieużywanych pul może odbywać się podczas konserwacji.
 
-Dla obu obiektów [JobOperations][net_joboperations] i [PoolOperations][net_pooloperations] klienta BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli użytkownik potwierdzi usunięcie:
+Witaj BatchClient [JobOperations] [ net_joboperations] i [PoolOperations] [ net_pooloperations] mają odpowiednie metody usunięcia, które są nazywane, jeśli Hello użytkownika stanowi potwierdzenie usunięcia:
 
 ```csharp
-// Clean up the resources we've created in the Batch account if the user so chooses
+// Clean up hello resources we've created in hello Batch account if hello user so chooses
 Console.WriteLine();
 Console.WriteLine("Delete job? [yes] no");
 string response = Console.ReadLine().ToLower();
@@ -696,14 +696,14 @@ if (response != "n" && response != "no")
 ```
 
 > [!IMPORTANT]
-> Należy pamiętać, że opłaty są naliczane za zasoby obliczeniowe — usunięcie nieużywanych pul zminimalizuje koszty. Ponadto należy pamiętać, że usunięcie puli spowoduje usunięcie wszystkich węzłów obliczeniowych w tej puli i że po usunięciu puli danych z węzłów nie da się odzyskać.
+> Należy pamiętać, że opłaty są naliczane za zasoby obliczeniowe — usunięcie nieużywanych pul zminimalizuje koszty. Ponadto należy pamiętać, że usunięcie puli spowoduje usunięcie wszystkich węzłów obliczeniowych w tej puli, a wszystkie dane na powitania węzły będą nieodwracalny po usunięciu hello puli.
 >
 >
 
-## <a name="run-the-dotnettutorial-sample"></a>Uruchamianie aplikacji przykładowej *DotNetTutorial*
-Po uruchomieniu aplikacji przykładowej dane wyjściowe w konsoli będą wyglądać mniej więcej w taki sposób. W czasie wykonywania nastąpi wstrzymanie operacji w momencie wyświetlenia paska zadań `Awaiting task completion, timeout in 00:30:00...` podczas uruchamiania węzłów obliczeniowych puli. Użyj witryny [Azure Portal][azure_portal] do monitorowania puli, węzłów obliczeniowych, zadania i podzadań w trakcie wykonywania i po nim. Użyj witryny [Azure Portal][azure_portal] lub programu [Azure Storage Explorer][storage_explorers] do wyświetlania zasobów usługi Storage (kontenerów i obiektów blob) tworzonych przez aplikację.
+## <a name="run-hello-dotnettutorial-sample"></a>Uruchom hello *DotNetTutorial* próbki
+Po uruchomieniu hello przykładowej aplikacji, dane wyjściowe konsoli hello będzie podobne następujące toohello. W czasie wykonywania wystąpią wstrzymany w `Awaiting task completion, timeout in 00:30:00...` podczas puli hello węzły obliczeniowe są uruchamiane. Użyj hello [portalu Azure] [ azure_portal] toomonitor puli, węzły obliczeniowe, zadań i zadań podczas i po zakończeniu wykonywania. Użyj hello [portalu Azure] [ azure_portal] lub hello [Eksploratora usługi Storage Azure] [ storage_explorers] zasobów magazynu hello tooview (kontenerów i obiektów blob) znajdujących się utworzone przez aplikację hello.
 
-Typowy czas wykonywania wynosi **mniej więcej 5 minut** w przypadku uruchomienia aplikacji w konfiguracji domyślnej.
+Typowy czas wykonywania jest **około 5 minut** po uruchomieniu aplikacji hello w konfiguracji domyślnej.
 
 ```
 Sample start: 1/8/2016 09:42:58 AM
@@ -711,18 +711,18 @@ Sample start: 1/8/2016 09:42:58 AM
 Container [application] created.
 Container [input] created.
 Container [output] created.
-Uploading file C:\repos\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial\bin\Debug\TaskApplication.exe to container [application]...
-Uploading file Microsoft.WindowsAzure.Storage.dll to container [application]...
-Uploading file ..\..\taskdata1.txt to container [input]...
-Uploading file ..\..\taskdata2.txt to container [input]...
-Uploading file ..\..\taskdata3.txt to container [input]...
+Uploading file C:\repos\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial\bin\Debug\TaskApplication.exe toocontainer [application]...
+Uploading file Microsoft.WindowsAzure.Storage.dll toocontainer [application]...
+Uploading file ..\..\taskdata1.txt toocontainer [input]...
+Uploading file ..\..\taskdata2.txt toocontainer [input]...
+Uploading file ..\..\taskdata3.txt toocontainer [input]...
 Creating pool [DotNetTutorialPool]...
 Creating job [DotNetTutorialJob]...
-Adding 3 tasks to job [DotNetTutorialJob]...
+Adding 3 tasks toojob [DotNetTutorialJob]...
 Awaiting task completion, timeout in 00:30:00...
-Success! All tasks completed successfully within the specified timeout period.
+Success! All tasks completed successfully within hello specified timeout period.
 Downloading all files from container [output]...
-All files downloaded to C:\Users\USERNAME\AppData\Local\Temp
+All files downloaded tooC:\Users\USERNAME\AppData\Local\Temp
 Container [application] deleted.
 Container [input] deleted.
 Container [output] deleted.
@@ -733,18 +733,18 @@ Elapsed time: 00:04:48.5358142
 Delete job? [yes] no: yes
 Delete pool? [yes] no: yes
 
-Sample complete, hit ENTER to exit...
+Sample complete, hit ENTER tooexit...
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Możesz swobodnie wprowadzać zmiany w funkcjach *DotNetTutorial* i *TaskApplication*, aby eksperymentować z różnymi scenariuszami obliczeniowymi. Spróbuj na przykład dodać opóźnienie wykonywania do funkcji *TaskApplication*, tak jak w przypadku funkcji [Thread.Sleep][net_thread_sleep], w celu symulowania podzadań długotrwałych i monitorowania ich w portalu. Spróbuj dodać więcej podzadań lub dostosować liczbę węzłów obliczeniowych. Dodaj logikę, pod kątem której będzie odbywać się sprawdzanie, i zezwól na użycie istniejącej puli, aby przyspieszyć czas wykonywania (*wskazówka*: zobacz plik `ArticleHelpers.cs` w projekcie [Microsoft.Azure.Batch.Samples.Common][github_samples_common] w repozytorium [azure-batch-samples][github_samples]).
+Uznać za zmiany wolnego toomake*DotNetTutorial* i *TaskApplication* tooexperiment innej obliczania scenariuszy. Na przykład, spróbuj opóźnienie wykonywania zbyt*TaskApplication*, takich jak [Thread.Sleep][net_thread_sleep], toosimulate długotrwałych zadań i monitorować je w portalu hello. Spróbuj dodać więcej zadań lub dostosowanie hello liczba węzłów obliczeniowych. Dodaj logikę toocheck dla i Zezwalaj na użycie hello istniejących czas wykonywania toospeed puli (*wskazówka*: Zapoznaj się z `ArticleHelpers.cs` w hello [Microsoft.Azure.Batch.Samples.Common] [ github_samples_common] projektu w [azure partii próbek][github_samples]).
 
-Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch nadszedł czas, aby poszerzyć wiedzę na temat dodatkowych funkcji tej usługi.
+Teraz, kiedy znasz hello podstawowy przepływ pracy rozwiązania partii, jest toodig czasu w toohello dodatkowe funkcje hello usługa partia zadań.
 
-* Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
-* Przeczytaj inne artykuły dotyczące programowania w usłudze Batch w części **Development in-depth** (Szczegółowy opis programowania) w [ścieżce szkoleniowej dotyczącej usługi Batch][batch_learning_path].
-* Zapoznaj się z inną implementacją przetwarzania obciążenia „N najczęściej występujących słów” za pomocą usługi Batch w przykładzie [TopNWords][github_topnwords].
-* Przejrzyj [informacje o wersji](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) platformy .NET dla usługi Batch, aby poznać najnowsze zmiany w bibliotece.
+* Przejrzyj hello [funkcji partii omówienie Azure](batch-api-basics.md) artykułu, w którym firma Microsoft zaleca, jeśli masz nową usługę toohello.
+* Uruchomienie hello inne artykuły programowanie partii w obszarze **programowanie szczegółowe** w hello [ścieżka szkoleniowa dotycząca partii][batch_learning_path].
+* Zapoznaj się z inną implementację przetwarzania obciążenia hello "pierwszych N słów" za pomocą partii w hello [TopNWords] [ github_topnwords] próbki.
+* Przejrzyj hello partiami platformy .NET [informacje o wersji](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) hello najnowszych zmian w bibliotece hello.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -795,10 +795,10 @@ Po zapoznaniu się z podstawowym przepływem pracy rozwiązania w usłudze Batch
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Tworzenie kontenerów w usłudze Azure Storage"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów"
+[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Zadanie przekazywania aplikacji i wejściowych (dane) pliki toocontainers"
 [3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Tworzenie puli usługi Batch"
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Tworzenie zadania w usłudze Batch"
-[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Dodawanie podzadań do zadania"
+[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Dodaj toojob zadań"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Monitorowanie podzadań"
 [7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Pobieranie danych wyjściowych podzadań z usługi Storage"
 [8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Przepływ pracy w rozwiązaniu usługi Batch (pełny diagram)"

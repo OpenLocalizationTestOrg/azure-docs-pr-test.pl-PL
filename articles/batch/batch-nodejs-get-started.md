@@ -1,6 +1,6 @@
 ---
-title: "Samouczek — korzystanie z biblioteki klienta usługi Azure Batch dla środowiska Node.js | Microsoft Docs"
-description: "Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js."
+title: "aaaTutorial — Biblioteka klienta użyj hello partii zadań Azure dla środowiska Node.js | Dokumentacja firmy Microsoft"
+description: "Dowiedz się hello podstawowych pojęciach dotyczących partii zadań Azure i utworzenie rozwiązania do prostych przy użyciu środowiska Node.js."
 services: batch
 author: shwetams
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2b0ecbe764e7100affd7b02839aef3077b073cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -26,58 +26,58 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Poznaj podstawy tworzenia klienta usługi Batch w języku Node.js przy użyciu [zestawu SDK usługi Azure Batch dla środowiska Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
+Dowiedz się hello podstawy tworzenia klienta przy użyciu środowiska Node.js [Azure partii Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). W tym artykule poznamy scenariusz dotyczący aplikacji usługi Batch i sposób jej konfigurowania przy użyciu klienta Node.js.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Node.js oraz znasz system Linux. Przyjęto również założenie, że masz skonfigurowane konto platformy Azure z prawami dostępu do tworzenia usług Batch i Storage.
+W tym artykule założono, że masz praktyczną wiedzę dotyczącą języka Node.js oraz znasz system Linux. Przyjęto założenie, że masz konto platformy Azure Instalatorowi dostępu prawa toocreate partii i usługi magazynu.
 
-Zalecane jest przeczytanie artykułu [Azure Batch Technical Overview](batch-technical-overview.md) (Omówienie techniczne usługi Azure Batch) przed wykonaniem instrukcji opisanych w tym artykule.
+Firma Microsoft zaleca odczytu [omówienie techniczne usługi partia zadań Azure](batch-technical-overview.md) przed przejściem przez hello kroki opisane w tym artykule.
 
-## <a name="the-tutorial-scenario"></a>Scenariusz samouczka
-Przyjrzyjmy się scenariuszowi przepływu pracy w usłudze Batch. Prosty skrypt napisany w języku Python pobiera wszystkie pliki csv z kontenera usługi Azure Blob Storage i konwertuje je na format JSON. Aby przetwarzać wiele kontenerów kont magazynów równolegle, można wdrożyć skrypt jako zadanie w ramach usługi Azure Batch.
+## <a name="hello-tutorial-scenario"></a>Scenariusz samouczek Hello
+Daj nam poznać hello partii przepływ pracy scenariusza. Mamy prostego skryptu napisane w języku Python, który pobiera csv wszystkie pliki z kontenera magazynu obiektów Blob platformy Azure i konwertuje je tooJSON. tooprocess konta magazynu wielu kontenerów równolegle, możemy wdrożyć skryptu hello Azure wsadowym.
 
 ## <a name="azure-batch-architecture"></a>Architektura usługi Azure Batch
-Poniższy diagram przedstawia, w jaki sposób można skalować skrypt języka Python za pomocą klienta usługi Azure Batch i środowiska Node.js.
+Witaj Poniższy diagram przedstawia sposób mogą być skalowane skrypt w języku Python hello przy użyciu partii zadań Azure i klienta środowiska Node.js.
 
 ![Scenariusze dotyczące usługi Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Klient Node.js wdraża zadanie wsadowe wraz z zadaniem podrzędnym przygotowania (szczegółowo omówionym w dalszej części artykułu) i zestawem zadań podrzędnych w zależności od liczby kontenerów na koncie magazynu. Skrypty można pobrać z repozytorium GitHub.
+powitania klienta node.js wdraża zadania wsadowego z przygotowanie zadania (szczegółowo omówiono później) i zestaw zadań, w zależności od hello liczba kontenerów w hello konta magazynu. Skrypty hello można pobrać z repozytorium github hello.
 
 * [Klient Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Przygotowanie skryptów powłoki zadań](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Konwerter plików csv języka Python na format JSON](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+* [Procesor tooJSON csv Python](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
-> Klient Node.js w podanym linku nie zawiera konkretnego kodu, który można wdrożyć jako aplikację funkcji platformy Azure. Użyj następujących linków, aby zapoznać się z instrukcjami tworzenia kodu.
+> powitania klienta Node.js łącza hello określony nie zawiera toobe kod wdrożony jako aplikacja funkcji platformy Azure. Toohello następujące linki do instrukcji toocreate, co może się odwoływać.
 > - [Create function app](../azure-functions/functions-create-first-azure-function.md) (Tworzenie aplikacji funkcji)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md) (Tworzenie funkcji wyzwalanej czasomierzem)
 >
 >
 
-## <a name="build-the-application"></a>Kompilowanie aplikacji
+## <a name="build-hello-application"></a>Tworzenie aplikacji hello
 
-Postępuj zgodnie z instrukcjami, aby utworzyć klienta Node.js:
+Teraz Poinformuj nas wykonaj proces hello krok po kroku do tworzenia powitania klienta Node.js:
 
 ### <a name="step-1-install-azure-batch-sdk"></a>Krok 1. Instalowanie zestawu SDK usługi Azure Batch
 
-Zestaw SDK usługi Azure Batch dla środowiska Node.js można zainstalować przy użyciu polecenia npm install.
+Należy zainstalować zestaw SDK usługi partia zadań Azure dla środowiska Node.js przy użyciu polecenia install npm hello.
 
 `npm install azure-batch`
 
-To polecenie instaluje najnowszą wersję zestawu Node SDK usługi Azure Batch.
+To polecenie instaluje najnowszą wersję hello węzła partii zadań azure SDK.
 
 >[!Tip]
-> W aplikacji funkcji platformy Azure należy przejść do karty Ustawienia, a następnie do obszaru „Konsola Kudu”, aby uruchomić polecenia npm install. W tym przypadku celem jest zainstalowanie zestawu SDK usługi Azure Batch dla środowiska Node.js.
+> W aplikacji funkcji platformy Azure, można przejść za poleceń instalacji npm hello toorun kartę Ustawienia "Konsoli Kudu" hello Azure funkcji. W tym wielkość tooinstall zestawu SDK usługi partia zadań Azure dla środowiska Node.js.
 >
 >
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Krok 2. Tworzenie konta usługi Azure Batch
 
-Konto można utworzyć zarówno za pomocą witryny [Azure Portal](batch-account-create-portal.md), jak i wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/overview)).
+Można go utworzyć, korzystając z hello [portalu Azure](batch-account-create-portal.md) lub z wiersza polecenia ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
 
-Poniżej przedstawiono polecenia, które umożliwiają utworzenie konta za pomocą interfejsu wiersza polecenia platformy Azure.
+Poniżej przedstawiono toocreate polecenia hello, jeden za pomocą wiersza polecenia platformy Azure.
 
-Utwórz grupę zasobów. Pomiń ten krok, jeśli masz już grupę, w której chcesz utworzyć konto usługi Azure Batch:
+Utwórz grupę zasobów, Pomiń ten krok, jeśli masz już konto, w którym ma hello toocreate konta usługi partia zadań:
 
 `az group create -n "<resource-group-name>" -l "<location>"`
 
@@ -85,14 +85,14 @@ Następnie utwórz konto usługi Azure Batch.
 
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Każde konto usługi Batch ma odpowiadające mu klucze dostępu. Te klucze są wymagane do tworzenia dodatkowych zasobów na koncie usługi Azure Batch. Dobrym rozwiązaniem dla środowiska produkcyjnego jest użycie usługi Azure Key Vault do przechowywania tych kluczy. Następnie można utworzyć jednostkę usługi dla aplikacji. Przy użyciu tej jednostki usługi aplikacja może utworzyć token OAuth w celu uzyskania dostępu do kluczy z magazynu kluczy.
+Każde konto usługi Batch ma odpowiadające mu klucze dostępu. Klucze te są toocreate wymagane dalsze zasobów konta usługi partia zadań Azure. Dobrym rozwiązaniem w środowisku produkcyjnym jest toostore usługi Azure Key Vault toouse tych kluczy. Następnie można utworzyć usługi głównej aplikacji hello. Za pomocą tej aplikacji hello główna usługi można utworzyć kluczy token tooaccess OAuth z hello magazynu kluczy.
 
 `az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Skopiuj i zachowaj klucz, ponieważ będzie potrzebny w kolejnych krokach samouczka.
+Skopiuj i Zapisz hello toobe klucza używane w kolejnych krokach hello.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>Krok 3. Tworzenie klienta usługi Azure Batch
-Poniższy fragment kodu najpierw importuje moduł Node.js usługi Azure Batch, a następnie tworzy klienta usługi Batch. Najpierw należy utworzyć obiekt SharedKeyCredentials za pomocą klucza konta usługi Batch skopiowanego w poprzednim kroku.
+Poniższy fragment kodu najpierw importuje moduł Node.js partii zadań azure hello, a następnie tworzy klienta usługi partia zadań. Należy toofirst utworzyć obiekt SharedKeyCredentials kluczem hello partii konta kopiowane z hello w poprzednim kroku.
 
 ```nodejs
 // Initializing Azure Batch variables
@@ -115,64 +115,64 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 ```
 
-Identyfikator URI usługi Azure Batch można znaleźć na karcie Przegląd witryny Azure Portal. Jego format to:
+Hello identyfikator URI usługi partia zadań Azure można znaleźć na karcie Przegląd hello hello portalu Azure. Jest w formacie hello:
 
 `https://accountname.location.batch.azure.com`
 
-Przyjrzyj się zrzutowi ekranu:
+Można znaleźć toohello zrzut ekranu:
 
 ![Identyfikator URI usługi Azure Batch](./media/batch-nodejs-get-started/azurebatchuri.png)
 
 
 
 ### <a name="step-4-create-an-azure-batch-pool"></a>Krok 4. Tworzenie puli usługi Azure Batch
-Pula usługi Azure Batch składa się z wielu maszyn wirtualnych (znanych także jako węzły usługi Batch). Usługa Azure Batch wdraża zadania podrzędne na tych węzłach i zarządza nimi. Dla puli można zdefiniować następujące parametry konfiguracji.
+Pula usługi Azure Batch składa się z wielu maszyn wirtualnych (znanych także jako węzły usługi Batch). Usługa partia zadań Azure wdraża hello zadania na tych węzłach i zarządza nimi. Można określić następujące parametry konfiguracji pulę hello.
 
 * Typ obrazu maszyny wirtualnej
 * Rozmiar węzłów maszyny wirtualnej
 * Liczba węzłów maszyny wirtualnej
 
 > [!Tip]
-> Rozmiar i liczba węzłów maszyny wirtualnej w dużej mierze zależy od liczby zadań podrzędnych wykonywanych równolegle, a także od ich rodzaju. Zaleca się przeprowadzenie testów w celu określenia odpowiedniej liczby i rozmiaru węzłów.
+> Hello rozmiaru i liczby węzłów maszyny wirtualnej dużej mierze zależą hello liczba zadań, które mają toorun w równoległej, a także samo zadanie hello. Zaleca się testowanie toodetermine hello idealne liczby i rozmiaru.
 >
 >
 
-Poniższy fragment kodu tworzy obiekty parametru konfiguracji.
+Witaj poniższy fragment kodu tworzy hello obiektów parametru konfiguracji.
 
 ```nodejs
 // Creating Image reference configuration for Ubuntu Linux VM
 var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
-// Creating the VM configuration object with the SKUID
+// Creating hello VM configuration object with hello SKUID
 var vmconfig = {imageReference:imgRef,nodeAgentSKUId:"batch.node.ubuntu 14.04"}
 
-// Setting the VM size to Standard F4
+// Setting hello VM size tooStandard F4
 var vmSize = "STANDARD_F4"
 
-//Setting number of VMs in the pool to 4
+//Setting number of VMs in hello pool too4
 var numVMs = 4
 ```
 
 > [!Tip]
-> Lista obrazów maszyn wirtualnych systemu Linux dostępnych dla usługi Azure Batch oraz ich identyfikatorów jednostek SKU znajduje się w sekcji [Lista obrazów maszyn wirtualnych](batch-linux-nodes.md#list-of-virtual-machine-images).
+> Aby hello listę dostępnych dla partii zadań Azure i ich identyfikatorów jednostki SKU obrazów maszyny Wirtualnej systemu Linux, zobacz [listy obrazów maszyny wirtualnej](batch-linux-nodes.md#list-of-virtual-machine-images).
 >
 >
 
-Po zdefiniowaniu konfiguracji puli można przystąpić do tworzenia puli usługi Azure Batch. Polecenie dotyczące puli w ramach usługi Batch tworzy węzły maszyny wirtualnej platformy Azure i przygotowuje je do odbierania zadań podrzędnych do wykonania. Każda pula powinna mieć unikatowy identyfikator, który będzie potrzebny w kolejnych krokach samouczka.
+Konfiguracja puli hello jest zdefiniowany, można tworzyć hello puli partii zadań Azure. Hello polecenia puli partii tworzy węzły maszyny wirtualnej platformy Azure i przygotować je toobe tooreceive gotowe zadania tooexecute. Każda pula powinna mieć unikatowy identyfikator, który będzie potrzebny w kolejnych krokach samouczka.
 
-Poniższy fragment kodu przedstawia tworzenie puli usługi Azure Batch.
+Witaj następującego fragmentu kodu tworzy puli partii zadań Azure.
 
 ```nodejs
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
 var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
-// Creating the Pool for the specific customer
+// Creating hello Pool for hello specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};
 });
 ```
 
-Przed przesłaniem zadania do tej puli należy sprawdzić stan utworzonej puli, aby upewnić się, że jest „aktywny”.
+Możesz sprawdzić stan powitania po utworzeniu puli hello i sprawdź, czy stan hello jest "active" przed przejściem dalej z przesyłaniem puli toothat zadania.
 
 ```nodejs
 var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
@@ -199,7 +199,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         });
 ```
 
-Poniżej przedstawiono przykładowy obiekt wyniku zwrócony przez funkcję pool.get.
+Poniżej znajduje się obiekt wyniku próbki zwracane przez funkcję pool.get hello.
 
 ```
 { id: 'processcsv_201721152',
@@ -261,46 +261,46 @@ Poniżej przedstawiono przykładowy obiekt wyniku zwrócony przez funkcję pool.
 
 
 ### <a name="step-4-submit-an-azure-batch-job"></a>Krok 4. Przesyłanie zadania usługi Azure Batch
-Zadanie usługi Azure Batch jest logiczną grupą podobnych zadań podrzędnych. W naszym scenariuszu jest to „Konwertowanie plików csv na format JSON”. Każde przedstawione tutaj zadanie podrzędne może przetwarzać pliki csv zawarte we wszystkich kontenerach usługi Azure Storage.
+Zadanie usługi Azure Batch jest logiczną grupą podobnych zadań podrzędnych. W naszym scenariuszu jest "Proces tooJSON csv". Każde przedstawione tutaj zadanie podrzędne może przetwarzać pliki csv zawarte we wszystkich kontenerach usługi Azure Storage.
 
-Dzięki usłudze Azure Batch zadania podrzędne będą wykonywane równolegle i wdrażane w wielu węzłach.
+Te zadania będą uruchamiane równolegle i wdrażane na wielu węzłach zorkiestrowana przez usługi partia zadań Azure hello.
 
 > [!Tip]
-> Aby określić maksymalną liczbę zadań podrzędnych uruchamianych jednocześnie w jednym węźle, można użyć właściwości [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add).
+> Można użyć hello [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) właściwości toospecify maksymalna liczba zadań, które można uruchomić jednocześnie w jednym węźle.
 >
 >
 
 #### <a name="preparation-task"></a>Zadanie podrzędne przygotowania
 
-Utworzone węzły maszyny wirtualnej są pustymi węzłami systemu Ubuntu. Często konieczne jest zainstalowanie zestawu programów.
-Zazwyczaj w przypadku węzłów systemu Linux można korzystać ze skryptu powłoki, który instaluje wstępnie wymagane oprogramowanie przed uruchomieniem jakichkolwiek zadań podrzędnych. Jednak może to być dowolny inny programowalny i wykonywalny skrypt.
-[Skrypt powłoki](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) przedstawiony w tym przykładzie instaluje narzędzie pip języka Python oraz zestaw SDK usługi Azure Storage dla języka Python.
+węzły maszyny Wirtualnej Hello tworzone są puste Ubuntu węzłów. Często konieczne tooinstall zestaw programów jako warunki wstępne.
+Zazwyczaj dla systemu Linux węzłów może mieć skrypt powłoki, który instaluje hello wymagania wstępne, przed hello zadania rzeczywistego uruchamiania. Jednak może to być dowolny inny programowalny i wykonywalny skrypt.
+Witaj [skryptu powłoki](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) w tym przykładzie instaluje narzędzie pip Python i hello zestawu SDK usługi Magazyn Azure dla języka Python.
 
-W celu uzyskania dostępu do skryptu można go przekazać na konto usługi Azure Storage i wygenerować identyfikator URI sygnatury dostępu współdzielonego. Proces ten można też zautomatyzować przy użyciu zestawu SDK usługi Azure Storage dla środowiska Node.js.
+Możesz przekazać skrypt hello na konto magazynu Azure i generowania skryptu hello tooaccess identyfikatora URI połączenia SAS. Ten proces można również zautomatyzować, używając hello zestawu Node.js SDK usługi Magazyn Azure.
 
 > [!Tip]
-> Zadanie podrzędne przygotowania w ramach zadania działa tylko na węzłach tej maszyny wirtualnej, na której konkretne zadanie podrzędne musi zostać uruchomione. Jeśli chcesz zainstalować wstępnie wymagane oprogramowanie we wszystkich węzłach (niezależnie od rodzaju zadania podrzędnego, które będzie w nich uruchamiane), podczas dodawania puli użyj właściwości [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add). Poniżej przedstawiono definicję zadania podrzędnego przygotowania.
+> Zadanie przygotowanie zadania działa tylko na powitania węzłach maszyny Wirtualnej, których hello konkretne zadanie wymaga toorun. Jeśli chcesz toobe wymagania wstępne zainstalowane we wszystkich węzłach, niezależnie od zadania hello, które będą uruchamiane w nim, można użyć hello [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) właściwości podczas dodawania puli. Możesz użyć powitania po definicji zadania przygotowanie odwołania.
 >
 >
 
-Zadanie podrzędne przygotowania jest określane podczas przesyłania zadania usługi Azure Batch. Poniżej przedstawiono parametry konfiguracji zadania podrzędnego przygotowania:
+Przygotowanie zadania jest określana podczas przesyłania hello zadania partii zadań Azure. Poniżej są hello parametry konfiguracji zadania przygotowania:
 
-* **D**: unikatowy identyfikator zadania podrzędnego przygotowania
-* **commandLine**: wiersz polecenia służący do wykonania wykonywalnego zadania podrzędnego
-* **resourceFiles**: tablica obiektów zawierająca szczegółowe informacje o plikach, które należy pobrać w celu uruchomienia zadania podrzędnego.  Poniżej przedstawiono dostępne opcje
-    - blobSource: identyfikator URI sygnatury dostępu współdzielonego danego pliku
-    - filePath: ścieżka lokalna do pobrania i zapisania pliku
+* **Identyfikator**: Unikatowy identyfikator hello przygotowanie zadania
+* **commandLine**: plik wykonywalny zadania hello tooexecute wiersza polecenia
+* **resourceFiles**: Tablica obiektów zawierających szczegóły dotyczące plików potrzebne toobe pobierane dla toorun tego zadania.  Poniżej przedstawiono dostępne opcje
+    - blobSource: hello identyfikatora URI połączenia SAS hello pliku
+    - Ścieżka pliku: toodownload ścieżka lokalna i Zapisz plik hello
     - fileMode: dotyczy wyłącznie węzłów systemu Linux, opcja fileMode jest w formacie ósemkowym i domyślnie ma wartość 0770
-* **waitForSuccess**: jeśli ma wartość „true”, zadanie podrzędne nie zostanie uruchomione w razie niepowodzenia zadania podrzędnego przygotowania
-* **runElevated**: jeśli do uruchomienia zadania podrzędnego konieczne są podwyższone uprawnienia, należy ustawić wartość „true”.
+* **waitForSuccess**: zestaw tootrue, hello zadanie nie zostanie uruchomione na przygotowanie niepowodzeń zadań
+* **runElevated**: ustaw ją tootrue, jeśli zadanie hello toorun wymagane są podniesione uprawnienia.
 
-Poniższy fragment kodu pokazuje przykładową konfigurację skryptu zadania podrzędnego przygotowania:
+Poniższy fragment kodu przedstawia hello przygotowanie zadania skryptu konfiguracji próbki:
 
 ```nodejs
 var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
 ```
 
-Jeśli nie ma konieczności instalowania żadnego wstępnie wymaganego oprogramowania w celu uruchomienia zadań podrzędnych, można pominąć zadania podrzędne przygotowania. Następujący kod tworzy zadanie o nazwie wyświetlanej „process csv files” (konwertowanie plików csv).
+Jeśli nie ma żadnych toobe wymagania wstępne zainstalowane dla Twojego toorun zadań, możesz pominąć hello przygotowanie zadania. Następujący kod tworzy zadanie o nazwie wyświetlanej „process csv files” (konwertowanie plików csv).
 
  ```nodejs
  // Setting up Batch pool configuration
@@ -308,7 +308,7 @@ Jeśli nie ma konieczności instalowania żadnego wstępnie wymaganego oprogramo
  // Setting up Job configuration along with preparation task
  var jobId = "processcsvjob"
  var job_config = {id:jobId,displayName:"process csv files",jobPreparationTask:job_prep_task_config,poolInfo:pool_config}
- // Adding Azure batch job to the pool
+ // Adding Azure batch job toohello pool
  var job = batch_client.job.add(job_config,function(error,result){
      if(error != null)
      {
@@ -319,14 +319,14 @@ Jeśli nie ma konieczności instalowania żadnego wstępnie wymaganego oprogramo
 
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Krok 5. Przesyłanie zadań podrzędnych usługi Azure Batch do zadania
 
-Po utworzeniu zadania konwertującego pliki csv można utworzyć dla niego zadania podrzędne. Przy założeniu, że mamy cztery kontenery, należy utworzyć cztery zadania podrzędne, po jednym dla każdego kontenera.
+Po utworzeniu zadania konwertującego pliki csv można utworzyć dla niego zadania podrzędne. Zakładając, że mamy cztery kontenery, będziemy mieć cztery zadania toocreate, po jednej dla każdego kontenera.
 
-[Skrypt języka Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) przyjmuje dwa parametry:
+Jeśli przyjrzymy się hello [skrypt w języku Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), przyjmuje dwa parametry:
 
-* nazwa kontenera: kontener magazynu, z którego pobierane są pliki
+* Nazwa kontenera: hello pliki toodownload kontenera magazynu z
 * wzorzec: opcjonalny parametr wzorca nazwy plików
 
-Zakładamy, że mamy cztery kontenery: „con1”, „con2”, „con3” i „con4”. Następujący kod przedstawia przesyłanie zadań podrzędnych do utworzonego wcześniej zadania konwertującego pliki csv usługi Azure Batch.
+Zakładając, że mamy cztery kontenery "con1", "con2", "con3", "con4" poniższy kod przedstawia przesyłanie dla zadań toohello partii zadań Azure zadania "proces csv" utworzony wcześniej.
 
 ```nodejs
 // storing container names in an array
@@ -353,12 +353,12 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-Kod dodaje wiele zadań podrzędnych do puli. Poszczególne zadania podrzędne są wykonywane w węźle utworzonej puli maszyn wirtualnych. Jeśli liczba zadań podrzędnych przekracza liczbę maszyn wirtualnych w puli lub wartość właściwości maxTasksPerNode, zadania podrzędne nie będą wykonywane do momentu udostępnienia węzła. Takie ograniczenia są zapewniane przez usługę Azure Batch automatycznie.
+Kod Hello dodaje wielu zadań toohello puli. I poszczególnych zadań hello jest wykonywana w węźle hello puli maszyny wirtualne utworzone. Jeśli hello liczba zadań przekracza hello liczbę maszyn wirtualnych w puli lub hello właściwości maxTasksPerNode, zadania hello poczekaj, aż węzeł ma zostać udostępnione. Takie ograniczenia są zapewniane przez usługę Azure Batch automatycznie.
 
-W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zadań podrzędnych. Można również skorzystać z listy, aby poznać funkcje w ramach zestawu Azure Node SDK. Szczegółowe informacje znajdują się w dokumentacji, do której prowadzi ten [link](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+Hello portal przedstawiono szczegółowe widoki na powitania zadania i stany zadania. Można również użyć listy hello i uzyskać funkcje w hello węzła zestawu SDK platformy Azure. Szczegółowe informacje znajdują się w dokumentacji hello [łącze](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
-- Zobacz [Batch Node.js reference](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.
+- Przejrzyj hello [funkcji partii omówienie Azure](batch-api-basics.md) artykułu, w którym firma Microsoft zaleca, jeśli masz nową usługę toohello.
+- Zobacz hello [odwołania Node.js partii](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) hello tooexplore interfejsu API partii.
 

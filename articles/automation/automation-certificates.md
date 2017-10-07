@@ -1,6 +1,6 @@
 ---
-title: Zasoby w automatyzacji Azure certyfikatu | Dokumentacja firmy Microsoft
-description: "Certyfikaty można bezpiecznie przechowywane w usłudze Automatyzacja Azure, są one dostępne przez elementy runbook lub konfiguracji DSC do uwierzytelniania Azure i innych firm zasobów.  W tym artykule szczegółowo opisano certyfikaty i sposobu pracy z nimi w tworzeniu zarówno tekstową i graficznego."
+title: zasoby aaaCertificate automatyzacji Azure | Dokumentacja firmy Microsoft
+description: "Certyfikaty można bezpiecznie przechowywane w usłudze Automatyzacja Azure, są one dostępne przez elementy runbook lub tooauthenticate konfiguracji DSC dla platformy Azure i zasobów firm zewnętrznych.  W tym artykule opisano szczegóły hello certyfikatów i w jaki sposób toowork z nimi w tworzeniu zarówno tekstową i graficznego."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c25bee937890438ea9022669be2c24c77a110b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Zasoby certyfikatu usługi Automatyzacja Azure
 
-Certyfikaty mogą być bezpiecznie przechowywane w automatyzacji Azure, są one dostępne przez elementy runbook lub przy użyciu konfiguracji DSC **Get AzureRmAutomationRmCertificate** działania dla zasobów usługi Azure Resource Manager. Służy do tworzenia elementów runbook i konfiguracji DSC, które korzystają z certyfikatów do uwierzytelniania, lub dodaje je do platformy Azure lub innej zasobów.
+Certyfikaty mogą być bezpiecznie przechowywane w automatyzacji Azure, są one dostępne przez elementy runbook lub przy użyciu hello konfiguracji DSC **Get AzureRmAutomationRmCertificate** działania dla zasobów usługi Azure Resource Manager. To pozwala toocreate elementów runbook i konfiguracji DSC, które korzystają z certyfikatów do uwierzytelniania lub dodaje je tooAzure lub innych firm.
 
 > [!NOTE] 
-> Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest zaszyfrowany za pomocą certyfikatu głównego i przechowywane w automatyzacji Azure. Przed zapisaniem zabezpieczonym zasobem, klucza dla konta automatyzacji zostaną odszyfrowane przy użyciu certyfikatu głównego, a następnie używany do szyfrowania elementu zawartości.
+> Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w hello automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest zaszyfrowany za pomocą certyfikatu głównego i przechowywane w automatyzacji Azure. Przed zapisaniem zabezpieczonym zasobem, hello klucza dla konta automatyzacji hello jest odszyfrowywany za pomocą certyfikatu głównego hello i służyły tooencrypt hello zasobów.
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Polecenia cmdlet programu Windows PowerShell
 
-Polecenia cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasobami certyfikatu usługi Automatyzacja przy użyciu programu Windows PowerShell. One dostarczane jako część [modułu Azure PowerShell](../powershell-install-configure.md) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
+polecenia cmdlet Hello w hello w poniższej tabeli są używane toocreate i zarządzać zasobami certyfikatu usługi Automatyzacja przy użyciu programu Windows PowerShell. One dostarczane jako część hello [modułu Azure PowerShell](../powershell-install-configure.md) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
 
 |Polecenia cmdlet|Opis|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Pobiera informacje o certyfikat do użycia w element runbook lub konfiguracji DSC. Sam certyfikat można pobierać tylko z działania Get AutomationCertificate.|
+|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Pobiera informacje o toouse certyfikatu, element runbook lub konfiguracji DSC. Sam certyfikat hello można pobrać tylko z działania Get AutomationCertificate.|
 |[Nowe AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Tworzy nowy certyfikat w automatyzacji Azure.|
 [Usuń AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Usuwa certyfikat usługi Automatyzacja Azure.|Tworzy nowy certyfikat w automatyzacji Azure.
-|[Zestaw AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Ustawia właściwości istniejącego certyfikatu, włącznie z przekazywaniem pliku certyfikatu i ustawianiem hasła dla pliku pfx.|
-|[Dodaj AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Przekazywanie certyfikatu usługi dla usługi określonej chmury.|
+|[Zestaw AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Ustawia właściwości hello istniejącego certyfikatu, takich jak przekazywanie pliku certyfikatu hello i ustawienie hello hasło dla pliku pfx.|
+|[Dodaj AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Przekazywanie certyfikatu usługi dla hello określona usługa w chmurze.|
 
 
 ## <a name="creating-a-new-certificate"></a>Tworzenie nowego certyfikatu
 
-Podczas tworzenia nowego certyfikatu, możesz przekazać plik cer lub PFX do automatyzacji Azure. Jeśli zostanie oznaczony jako możliwy do wyeksportowania certyfikatu, następnie można przenieść go z magazynu certyfikatów usługi Automatyzacja Azure. Jeśli nie jest możliwy do wyeksportowania, następnie można można używać tylko do podpisywania w ramach elementu runbook lub konfiguracji DSC.
+Podczas tworzenia nowego certyfikatu, możesz przekazać cer lub PFX pliku tooAzure automatyzacji. Jeśli certyfikat hello jako możliwy do wyeksportowania, następnie można przenieść go z magazynu certyfikatów usługi Automatyzacja Azure hello. Jeśli nie jest możliwy do wyeksportowania, następnie można można używać tylko do podpisywania w ramach elementu runbook hello lub konfiguracji DSC.
 
 
-### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Aby utworzyć nowy certyfikat za pomocą portalu Azure
+### <a name="toocreate-a-new-certificate-with-hello-azure-portal"></a>toocreate nowy certyfikat z hello portalu Azure
 
-1. Twoje konto usługi Automatyzacja kliknij **zasoby** Kafelek, aby otworzyć **zasoby** bloku.
-1. Kliknij przycisk **certyfikaty** Kafelek, aby otworzyć **certyfikaty** bloku.
-1. Kliknij przycisk **Dodawanie certyfikatu** w górnej części bloku.
-2. Wpisz nazwę certyfikatu w **nazwa** pole.
-2. Kliknij przycisk **wybierz plik** w obszarze **przekazać plik certyfikatu** do Przeglądaj w poszukiwaniu pliku cer lub pfx.  W przypadku wybrania pliku PFX, określ hasło oraz czy powinno być dozwolone do wyeksportowania.
-1. Kliknij przycisk **Utwórz** do zapisywania nowego elementu zawartości certyfikatu.
+1. Twoje konto usługi Automatyzacja kliknij hello **zasoby** hello tooopen kafelka **zasoby** bloku.
+1. Kliknij przycisk hello **certyfikaty** hello tooopen kafelka **certyfikaty** bloku.
+1. Kliknij przycisk **Dodawanie certyfikatu** u góry bloku hello hello.
+2. Wpisz nazwę certyfikatu hello hello **nazwa** pole.
+2. Kliknij przycisk **wybierz plik** w obszarze **przekazać plik certyfikatu** toobrowse dla pliku cer lub pfx.  W przypadku wybrania pliku PFX, określ hasło oraz czy jej powinno być dozwolone toobe wyeksportowane.
+1. Kliknij przycisk **Utwórz** toosave hello nowy zasób certyfikatu.
 
 
-### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Aby utworzyć nowy certyfikat za pomocą środowiska Windows PowerShell
+### <a name="toocreate-a-new-certificate-with-windows-powershell"></a>toocreate nowy certyfikat przy użyciu programu Windows PowerShell
 
-W poniższym przykładzie pokazano sposób tworzenia nowego certyfikatu usługi Automatyzacja i oznacz ją jako eksportowalny. To importuje istniejący plik pfx.
+Hello poniższym przykładzie pokazano, jak toocreate automatyzacji nowego certyfikatu i oznacz ją jako eksportowalny. To importuje istniejący plik pfx.
 
     $certName = 'MyCertificate'
     $certPath = '.\MyCert.pfx'
@@ -69,11 +69,11 @@ W poniższym przykładzie pokazano sposób tworzenia nowego certyfikatu usługi 
 
 ## <a name="using-a-certificate"></a>Przy użyciu certyfikatu
 
-Należy użyć **Get AutomationCertificate** działanie do używania certyfikatu. Nie można użyć [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) polecenia cmdlet, ponieważ zwraca informacje o zasób certyfikatu, ale nie sam certyfikat.
+Należy użyć hello **Get-AutomationCertificate** toouse działania certyfikatu. Nie można użyć hello [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) polecenia cmdlet, ponieważ zwraca informacje o hello zasób certyfikatu, ale nie hello sam certyfikat.
 
 ### <a name="textual-runbook-sample"></a>Przykład tekstowy
 
-Następujący przykładowy kod przedstawia sposób dodawania certyfikatu do usługi w chmurze w elemencie runbook. W tym przykładzie hasło jest pobierana z zmiennej automatyzacji zaszyfrowane.
+powitania po przykładowy kod pokazuje, jak tooadd tooa certyfikatu w chmurze usługi w elemencie runbook. W tym przykładzie hasło hello jest pobierana z zmiennej automatyzacji zaszyfrowane.
 
     $serviceName = 'MyCloudService'
     $cert = Get-AutomationCertificate -Name 'MyCertificate'
@@ -83,15 +83,15 @@ Następujący przykładowy kod przedstawia sposób dodawania certyfikatu do usł
 
 ### <a name="graphical-runbook-sample"></a>Przykładowe graficznym elementem runbook
 
-Możesz dodać **Get-AutomationCertificate** na graficzny element runbook prawym przyciskiem myszy certyfikat w okienku Biblioteka edytora graficznego i wybierając **Dodaj do kanwy**.
+Możesz dodać **Get-AutomationCertificate** tooa graficznym elementem runbook, klikając prawym przyciskiem myszy na powitania certyfikatu w okienku Biblioteka hello hello edytora graficznego i wybierając **dodać toocanvas**.
 
-![Dodawanie certyfikatu do obszaru roboczego](media/automation-certificates/automation-certificate-add-to-canvas.png)
+![Dodaj certyfikat toohello kanwy](media/automation-certificates/automation-certificate-add-to-canvas.png)
 
-Na poniższej ilustracji przedstawiono przykład za pomocą certyfikatu w graficznym elementem runbook.  To jest tym samym przykładzie pokazano powyżej dla Dodawanie certyfikatu usługi w chmurze z tekstowy.
+Witaj poniższej ilustracji przedstawiono przykład za pomocą certyfikatu w graficznym elementem runbook.  Jest to hello tym samym przykładzie pokazano powyżej dodawania usługi w chmurze tooa certyfikatu z poziomu tekstowy.
 
 ![Przykład tworzenia graficznego ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o pracy z łącza w celu kontroli przepływu logicznego wynikającego z elementem runbook służy do wykonywania działań, zobacz [łącza w tworzeniu graficznego](automation-graphical-authoring-intro.md#links-and-workflow). 
+- więcej informacji na temat pracy z łącza toocontrol hello logicznego przepływu działania elementu runbook jest toolearn zaprojektowane tooperform, zobacz [łącza w tworzeniu graficznego](automation-graphical-authoring-intro.md#links-and-workflow). 

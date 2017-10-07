@@ -1,6 +1,6 @@
 ---
-title: "Użyj właściwości dwie urządzenia Azure IoT Hub (węzeł) | Dokumentacja firmy Microsoft"
-description: "Jak używać do konfigurowania urządzeń twins urządzenia Azure IoT Hub. Przy użyciu zestawów SDK IoT Azure dla środowiska Node.js aplikacji symulowane urządzenie i aplikacji usługi, który modyfikuje konfigurację urządzenia przy użyciu podwójnego urządzenia."
+title: "właściwości dwie urządzenia Azure IoT Hub aaaUse (węzeł) | Dokumentacja firmy Microsoft"
+description: "Jak urządzenia Azure IoT Hub toouse twins tooconfigure urządzeń. Używasz hello Azure IoT SDK dla środowiska Node.js tooimplement aplikacji symulowane urządzenie i aplikacji usługi, który modyfikuje konfigurację urządzenia przy użyciu podwójnego urządzenia."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
-ms.openlocfilehash: 771106ce7b00a5231d9929e4b5ea34aefe693597
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ebfe2dfa0876bf04fdbaceae55db76456523e8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-desired-properties-to-configure-devices-node"></a>Żądane właściwości umożliwiają konfigurowanie urządzeń (węzeł)
+# <a name="use-desired-properties-tooconfigure-devices-node"></a>Żądany właściwości tooconfigure urządzeń (węzeł)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-Na końcu tego samouczka masz dwie aplikacje konsoli Node.js:
+Na końcu hello tego samouczka masz dwie aplikacje konsoli Node.js:
 
-* **SimulateDeviceConfiguration.js**, aplikację symulowane urządzenie, która oczekuje na aktualizację wymaganą konfiguracją i raportowanie stanu procesu aktualizacji konfiguracji symulowane.
-* **SetDesiredConfigurationAndQuery.js**, aplikacji zaplecza Node.js, który konfiguruje wymaganą konfiguracją na urządzeniu i zapytanie proces aktualizacji konfiguracji.
+* **SimulateDeviceConfiguration.js**, aplikację symulowane urządzenie, która oczekuje na aktualizację wymaganą konfiguracją i hello stanu procesu aktualizacji konfiguracji symulowane.
+* **SetDesiredConfigurationAndQuery.js**, konfiguracja na urządzeniu żądanego aplikacji zaplecza Node.js, która ustawia hello i zapytań hello konfiguracji procesu aktualizacji.
 
 > [!NOTE]
-> Artykuł [Azure IoT SDK] [ lnk-hub-sdks] informacje na temat zestawów SDK IoT Azure można tworzyć aplikacje zarówno urządzenia, jak i zaplecza.
+> Artykuł Hello [Azure IoT SDK] [ lnk-hub-sdks] informacje na temat hello Azure IoT SDK służy toobuild zarówno urządzenia, jak i zaplecza aplikacji.
 > 
 > 
 
-Do ukończenia tego samouczka należy spełnić następujące warunki:
+toocomplete tego samouczka należy hello poniżej:
 
 * Środowisko Node.js w wersji 0.10.x lub nowszej.
 * Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto próbne][lnk-free-trial] w zaledwie kilka minut).
 
-Po wykonaniu [Rozpoczynanie pracy z urządzenia twins] [ lnk-twin-tutorial] samouczek, masz już Centrum IoT i tożsamość urządzenia o nazwie **myDeviceId**; i można przejść do [tworzenie aplikacji symulowane urządzenie] [ lnk-how-to-configure-createapp] sekcji.
+Po wykonaniu hello [Rozpoczynanie pracy z urządzenia twins] [ lnk-twin-tutorial] samouczek, masz już Centrum IoT i tożsamość urządzenia o nazwie **myDeviceId**; i można pominąć toohello [ Tworzenie aplikacji symulowane urządzenie hello] [ lnk-how-to-configure-createapp] sekcji.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>Tworzenie aplikacji symulowane urządzenie
-W tej sekcji zostanie utworzona aplikacja konsoli Node.js łączący się do Centrum jako **myDeviceId**, czeka na aktualizację wymaganą konfiguracją, a następnie przedstawia aktualizacje na proces aktualizacji konfiguracji symulowane.
+## <a name="create-hello-simulated-device-app"></a>Tworzenie aplikacji symulowane urządzenie hello
+W tej sekcji zostanie utworzona aplikacja konsoli Node.js łączącego koncentratora tooyour **myDeviceId**, czeka na aktualizację wymaganą konfiguracją, a następnie przedstawia aktualizacje na proces aktualizacji konfiguracji hello symulowane.
 
-1. Utwórz nowy, pusty folder o nazwie **simulatedeviceconfiguration**. W **simulatedeviceconfiguration** folderu, Utwórz nowy plik package.json za pomocą następującego polecenia z wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy, pusty folder o nazwie **simulatedeviceconfiguration**. W hello **simulatedeviceconfiguration** folderu, Utwórz nowy plik package.json przy użyciu hello następujące polecenie z wiersza polecenia. Zaakceptuj wszystkie domyślne hello:
    
     ```
     npm init
     ```
-2. Z wiersza polecenia w **simulatedeviceconfiguration** folderu, uruchom następujące polecenie, aby zainstalować **azure iot urządzenia**, i **azure-iot urządzenie mqtt** pakietu:
+2. Z wiersza polecenia w hello **simulatedeviceconfiguration** folderu, uruchom następujące polecenie tooinstall hello hello **azure iot urządzenia**, i **azure-iot urządzenie mqtt**pakietu:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Za pomocą edytora tekstu, Utwórz nową **SimulateDeviceConfiguration.js** w pliku **simulatedeviceconfiguration** folderu.
-4. Dodaj następujący kod do **SimulateDeviceConfiguration.js** plików i Zastąp **{ciąg połączenia urządzenia}** symbol zastępczy parametrów połączenia urządzenia został skopiowany podczas tworzenia **myDeviceId** tożsamości urządzenia:
+3. Za pomocą edytora tekstu, Utwórz nową **SimulateDeviceConfiguration.js** pliku w hello **simulatedeviceconfiguration** folderu.
+4. Dodaj hello następującego kodu toohello **SimulateDeviceConfiguration.js** plików i Zastąp hello **{ciąg połączenia urządzenia}** symbol zastępczy parametrów połączenia urządzenia hello skopiowane podczas możesz utworzony hello **myDeviceId** tożsamości urządzenia:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -92,15 +92,15 @@ W tej sekcji zostanie utworzona aplikacja konsoli Node.js łączący się do Cen
             }
         });
    
-    **Klienta** obiekt udostępnia wszystkie metody, które są wymagane do interakcji z twins urządzenia z urządzenia. Poprzedni kod po jego inicjuje **klienta** obiektów, pobiera dwie urządzenia dla **myDeviceId**i dołącza program obsługi aktualizacji na odpowiednich właściwościach. Program obsługi sprawdza, który jest żądanie zmiany konfiguracji rzeczywiste porównując configIds, a następnie wywołuje metodę, która rozpoczyna się zmian w konfiguracji.
+    Witaj **klienta** obiekt udostępnia wszystkie hello metody wymagane toointeract z twins urządzenia z hello urządzenia. Witaj poprzedni kod po jego inicjuje hello **klienta** obiektu, pobiera Witaj dwie urządzenia dla **myDeviceId**i dołącza program obsługi aktualizacji hello żądanej właściwości. Program Hello obsługi sprawdza, który jest żądanie zmiany konfiguracji rzeczywiste porównując hello configIds, a następnie wywołuje metodę, która rozpoczyna się zmianę konfiguracji hello.
    
-    Należy pamiętać, że dla uproszczenia, poprzedni kod używa domyślnego ustalony ukończenie początkowej konfiguracji. Rzeczywiste aplikacji będzie prawdopodobnie załadować tej konfiguracji z magazynu lokalnego.
+    Należy zwrócić uwagę, że dla zapewnienia hello prostotę, hello poprzedni kod używa domyślnego ustalony hello początkową konfigurację. Rzeczywiste aplikacji będzie prawdopodobnie załadować tej konfiguracji z magazynu lokalnego.
    
    > [!IMPORTANT]
-   > Zdarzenia zmiany żądanej właściwości zawsze są emitowane raz na połączenie z urządzeniem, upewnij się sprawdzić, czy jest rzeczywistą zmianę w odpowiednich właściwościach przed wykonaniem jakiegokolwiek działania.
+   > Zdarzenia zmiany żądanej właściwości zawsze są emitowane raz na połączenie z urządzeniem, upewnij się, że istnieje rzeczywiste zmiany w hello toocheck żądanego właściwości przed wykonaniem jakiegokolwiek działania.
    > 
    > 
-5. Dodaj następujące metody przed `client.open()` wywołania:
+5. Dodaj następujące metody przed hello hello `client.open()` wywołania:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -141,35 +141,35 @@ W tej sekcji zostanie utworzona aplikacja konsoli Node.js łączący się do Cen
             });
         };
    
-    **InitConfigChange** metody aktualizuje zgłoszone właściwości obiektu dwie urządzenia lokalnego żądanie aktualizacji konfiguracji i ustawia stan **oczekujące**, następnie aktualizuje dwie urządzenia w usłudze. Po pomyślnym zaktualizowaniu dwie urządzenia, jego symuluje długotrwała proces, który kończy się podczas wykonywania **completeConfigChange**. Ta metoda aktualizuje właściwości zgłoszone dwie urządzenia lokalnego ustawienie stanu **Powodzenie** i usuwanie **pendingConfig** obiektu. Aktualizuje dwie urządzenia w usłudze.
+    Hello **initConfigChange** metody aktualizacji zgłaszane właściwości dla obiektu dwie urządzenie lokalne powitania o żądanie aktualizacji konfiguracji hello i ustawia stan hello zbyt**oczekujące**, następnie aktualizacje hello urządzenia dwie na powitania usługi. Po pomyślnym zaktualizowaniu Witaj dwie urządzenia, jego symuluje długotrwała proces, który kończy w realizacji hello **completeConfigChange**. Tej metody aktualizacji hello urządzenia lokalnego dwie obiektu zgłosił właściwości ustawiania stanu hello zbyt**Powodzenie** i usuwanie hello **pendingConfig** obiektu. Aktualizuje Witaj dwie urządzenia w usłudze hello.
    
-    Pamiętaj, że, aby oszczędzić przepustowość, zgłaszany właściwości są aktualizowane, określając właściwości tylko do zmodyfikowania (o nazwie **poprawki** w powyższym kodzie), a nie zastępuje całego dokumentu.
+    Pamiętaj, że toosave przepustowości, zgłaszany właściwości są aktualizowane, określając modyfikować tylko toobe właściwości hello (o nazwie **poprawki** w hello powyżej kodu), zamiast zastępowanie hello całego dokumentu.
    
    > [!NOTE]
-   > W tym samouczku nie zasymulować wszystkie zachowania aktualizacji konfiguracji współbieżnych. Niektóre procesy aktualizacji konfiguracji może mieć możliwość uwzględnienia zmian konfiguracji docelowej aktualizacji jest uruchomiony, gdy inne osoby mogły je z kolejki i innych użytkowników można odrzucić warunek błędu. Upewnij się, że należy wziąć pod uwagę zachowanie procesu określonej konfiguracji, a następnie dodaj odpowiednie logikę przed zainicjowaniem zmian w konfiguracji.
+   > W tym samouczku nie zasymulować wszystkie zachowania aktualizacji konfiguracji współbieżnych. Niektóre procesy aktualizacji konfiguracji może być tooaccommodate stanie zmiany konfiguracji docelowej, podczas gdy aktualizacja hello jest uruchomiona, inne osoby mogą mieć tooqueue je, a inne można odrzucić warunek błędu. Upewnij się, że tooconsider hello zachowanie procesu określonej konfiguracji, a następnie dodaj odpowiednie logiki hello przed zainicjowaniem hello zmiana konfiguracji.
    > 
    > 
-6. Uruchamianie aplikacji urządzenia:
+6. Uruchamianie aplikacji urządzenia hello:
    
         node SimulateDeviceConfiguration.js
    
-    Powinien zostać wyświetlony komunikat `retrieved device twin`. Nie zatrzymuj aplikacji.
+    Powinna zostać wyświetlona wiadomość hello `retrieved device twin`. Zachowaj aplikacji hello uruchomiona.
 
-## <a name="create-the-service-app"></a>Tworzenie aplikacji usługi
-W tej sekcji utworzysz aplikację konsoli Node.js, która aktualizuje *żądanego właściwości* na dwie urządzeń skojarzonych z **myDeviceId** z obiektem konfiguracji telemetrii. Następnie odpytuje twins urządzenia przechowywane w Centrum IoT i pokazano różnicę między konfiguracji żądanego i zgłoszonego urządzenia.
+## <a name="create-hello-service-app"></a>Tworzenie aplikacji usługi hello
+W tej sekcji utworzysz aplikację konsoli Node.js hello tej aktualizacji *żądanego właściwości* na powitania dwie urządzeń skojarzonych z **myDeviceId** z obiektem konfiguracji telemetrii. Następnie zapytań przechowywane w Centrum IoT hello twins urządzenia hello i przedstawia hello różnica między hello potrzeby i zgłosił konfiguracje hello urządzenia.
 
-1. Utwórz nowy, pusty folder o nazwie **setdesiredandqueryapp**. W **setdesiredandqueryapp** folderu, Utwórz nowy plik package.json za pomocą następującego polecenia z wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+1. Utwórz nowy, pusty folder o nazwie **setdesiredandqueryapp**. W hello **setdesiredandqueryapp** folderu, Utwórz nowy plik package.json przy użyciu hello następujące polecenie z wiersza polecenia. Zaakceptuj wszystkie domyślne hello:
    
     ```
     npm init
     ```
-2. Z wiersza polecenia w **setdesiredandqueryapp** folderu, uruchom następujące polecenie, aby zainstalować **Centrum iothub azure** pakietu:
+2. Z wiersza polecenia w hello **setdesiredandqueryapp** folderu, uruchom następujące polecenie tooinstall hello hello **Centrum iothub azure** pakietu:
    
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Za pomocą edytora tekstu, Utwórz nową **SetDesiredAndQuery.js** w pliku **addtagsandqueryapp** folderu.
-4. Dodaj następujący kod do **SetDesiredAndQuery.js** plików i Zastąp **{parametry połączenia Centrum iot}** symbol zastępczy parametrów połączenia Centrum IoT skopiowane podczas tworzenia Centrum:
+3. Za pomocą edytora tekstu, Utwórz nową **SetDesiredAndQuery.js** pliku w hello **addtagsandqueryapp** folderu.
+4. Dodaj hello następującego kodu toohello **SetDesiredAndQuery.js** plików i Zastąp hello **{parametry połączenia Centrum iot}** symbol zastępczy hello Centrum IoT parametry połączenia skopiowane podczas tworzenia Centrum :
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -204,20 +204,20 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która aktualizuje *żądaneg
             }
         });
 
-    **Rejestru** obiekt udostępnia wszystkie metody, które są wymagane do interakcji z twins urządzenia z usługi. Poprzedni kod po jego inicjuje **rejestru** obiektów, pobiera dwie urządzenia dla **myDeviceId**i aktualizuje jego właściwości żądany nowy obiekt konfiguracji telemetrii. Po wykonaniu tej wywołuje **queryTwins** funkcji zdarzeń 10 sekund.
+    Witaj **rejestru** obiekt udostępnia wszystkie hello metody wymagane toointeract z twins urządzenia z usługi hello. Witaj poprzedni kod po jego inicjuje hello **rejestru** obiektu, pobiera Witaj dwie urządzenia dla **myDeviceId**i aktualizuje jego właściwości żądany nowy obiekt konfiguracji telemetrii. Po wykonaniu tej wywołuje hello **queryTwins** funkcji zdarzeń 10 sekund.
 
     > [!IMPORTANT]
-    > Ta aplikacja kwerendę Centrum IoT co 10 sekund w celach ilustracyjnych. Użyj zapytań do generowania raportów dla użytkownika na wielu urządzeniach, a nie wykrywa zmian. Jeśli rozwiązanie wymaga powiadomień w czasie rzeczywistym zdarzeń urządzenia, należy użyć [dwie powiadomienia][lnk-twin-notifications].
+    > Ta aplikacja kwerendę Centrum IoT co 10 sekund w celach ilustracyjnych. Użyj zapytań toogenerate raporty dla użytkownika na wielu urządzeniach, a nie toodetect zmiany. Jeśli rozwiązanie wymaga powiadomień w czasie rzeczywistym zdarzeń urządzenia, należy użyć [dwie powiadomienia][lnk-twin-notifications].
     > 
     >.
 
-1. Dodaj następujący kod uprawnienia przed `registry.getDeviceTwin()` wywołania do zaimplementowania **queryTwins** funkcji:
+1. Dodaj powitania po prawej kodu przed hello `registry.getDeviceTwin()` hello tooimplement wywołania **queryTwins** funkcji:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log();
                     results.forEach(function(twin) {
@@ -233,26 +233,26 @@ W tej sekcji utworzysz aplikację konsoli Node.js, która aktualizuje *żądaneg
             });
         };
    
-    Poprzednich zapytań kod twins urządzenia przechowywane w Centrum IoT i wyświetla konfiguracje żądaną i zaraportowanych danych telemetrycznych. Zapoznaj się [język zapytań Centrum IoT] [ lnk-query] informacje na temat generowania raportów zaawansowanych na Twoich urządzeniach.
-2. Z **SimulateDeviceConfiguration.js** uruchomiona, uruchom aplikację klawiszem:
+    Hello poprzednich zapytań kodu hello przechowywane w Centrum IoT hello twins urządzenia i hello odbitek potrzeby i konfiguracje dane telemetryczne zgłoszone. Zobacz toohello [język zapytań Centrum IoT] [ lnk-query] toolearn jak sformatowanego toogenerate raporty na Twoich urządzeniach.
+2. Z **SimulateDeviceConfiguration.js** uruchomiona, uruchom aplikacji hello:
    
         node SetDesiredAndQuery.js 5m
    
-    Powinny pojawić się zgłoszone zmiany w konfiguracji **Powodzenie** do **oczekujące** do **Powodzenie** ponownie za pomocą nowego aktywny wysyłać częstotliwość pięć minut zamiast 24 godziny.
+    Powinny pojawić się zmiany w konfiguracji zgłoszone hello **Powodzenie** za**oczekujące** za**Powodzenie** ponownie za pomocą nowego aktywny hello wysyłać częstotliwość pięć minut zamiast 24 godziny.
    
    > [!IMPORTANT]
-   > Istnieje opóźnienie maksymalnie minuty między operacja raportu urządzenia i wyniku zapytania. To jest umożliwienie infrastruktury zapytania do pracy w bardzo dużej skali. Można pobrać spójne widoków użytkowania dwie jednego urządzenia **getDeviceTwin** metody w **rejestru** klasy.
+   > Istnieje opóźnienie zapasowej protokołu tooa między hello urządzenia raport operacji i hello wyniku zapytania. Jest to tooenable hello zapytania infrastruktury toowork na bardzo dużą skalę. Widoki spójne tooretrieve dwie pojedyncze urządzenie, użyj hello **getDeviceTwin** metoda hello **rejestru** klasy.
    > 
    > 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku, ustaw żądaną konfiguracją jako *żądanego właściwości* z poziomu aplikacji zaplecza i zapisano aplikacji symulowane urządzenie, aby wykryć zmiana i symulowanie procesu aktualizacji wieloetapowych raportowania stanu jako *zgłosił właściwości* na dwie urządzenia.
+W tym samouczku, ustaw żądaną konfiguracją jako *żądanego właściwości* z poziomu aplikacji zaplecza i zapisano toodetect aplikacji symulowane urządzenie, zmienianie i symulować proces aktualizacji wieloetapowych raportowania stanu jako  *zgłoszone właściwości* toohello dwie urządzenia.
 
-Użyj następujących zasobów, aby dowiedzieć się, jak:
+Hello Użyj następujących zasobów toolearn jak do:
 
-* wysyłanie danych telemetrycznych z urządzenia z [Rozpoczynanie pracy z Centrum IoT] [ lnk-iothub-getstarted] samouczka
-* Zaplanuj lub wykonywania operacji na dużych zestawów urządzeń, zobacz [emisji zadania i harmonogramu] [ lnk-schedule-jobs] samouczka.
-* urządzenia interakcyjne (takich jak włączanie wentylator z aplikacji kontrolowane przez użytkownika) i sterować za pomocą [metody bezpośredniego] [ lnk-methods-tutorial] samouczka.
+* wysłać dane telemetryczne z urządzenia z hello [Rozpoczynanie pracy z Centrum IoT] [ lnk-iothub-getstarted] samouczka
+* harmonogramu lub wykonania operacji na dużych zestawów urządzeń Zobacz hello [emisji zadania i harmonogramu] [ lnk-schedule-jobs] samouczka.
+* sterować urządzenia interakcyjne (takich jak włączanie wentylator z aplikacji kontrolowane przez użytkownika), za pomocą hello [metody bezpośredniego] [ lnk-methods-tutorial] samouczka.
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

@@ -1,6 +1,6 @@
 ---
-title: "Zwiększ rozmiar dysku danych, dołączony do maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Zwiększyć rozmiar dysku danych, który jest dołączony do maszyny wirtualnej systemu Windows przy użyciu programu PowerShell."
+title: "aaaExpand dysku danych dołączona tooa maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Rozwiń hello rozmiar dysku danych maszyny wirtualnej systemu Windows tooa dołączone przy użyciu programu PowerShell."
 services: virtual-machines-windows
 documentationcenter: na
 author: cynthn
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
-ms.openlocfilehash: 5529856c2ffcd2942fe3fc2b438f7e3fd16a67b2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b16ad0da9cff9dfffc9dc9ec7dd72891e7ddd745
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="increase-the-size-of-a-data-disk-attached-to-a-windows-vm"></a>Zwiększ rozmiar dysku danych maszyny Wirtualnej systemu Windows
+# <a name="increase-hello-size-of-a-data-disk-attached-tooa-windows-vm"></a>Zwiększ rozmiar dysku danych hello dołączony tooa maszyny Wirtualnej systemu Windows
 
-Jeśli musisz zwiększyć rozmiar dysku danych dołączona do maszyny wirtualnej, można zwiększyć rozmiar przy użyciu programu PowerShell. Po zwiększyć rozmiar dysku danych w ustawieniach maszyny Wirtualnej platformy Azure, należy przydzielić nowe miejsce na dysku w ramach maszyny Wirtualnej.
+Jeśli potrzebujesz tooincrease hello rozmiar maszyny wirtualnej tooyour dysku danych hello, można zwiększyć rozmiar hello przy użyciu programu PowerShell. Po zwiększony rozmiar dysku danych hello w ustawieniach maszyny Wirtualnej Azure hello hello, należy również tooallocate hello nowego miejsca na dysku w ramach hello maszyny Wirtualnej.
 
 
-## <a name="use-powershell-to-increase-the-size-of-a-managed-data-disk"></a>Zwiększ rozmiar dysku danych zarządzanych przy użyciu programu Powershell
+## <a name="use-powershell-tooincrease-hello-size-of-a-managed-data-disk"></a>Użyj programu Powershell tooincrease hello rozmiar dysku danych zarządzanych
 
-Aby zwiększyć rozmiar dysku danych zarządzanych, użyj następujących poleceń cmdlet programu PowerShell:
+tooincrease hello rozmiar dysku danych zarządzanych hello Użyj następującego polecenia cmdlet programu PowerShell:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -37,18 +37,18 @@ Aby zwiększyć rozmiar dysku danych zarządzanych, użyj następujących polece
  | [Start AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
-Poniższy skrypt przeprowadzi użytkownika przez proces pobierania informacji o maszyny Wirtualnej, wybierając dysku danych i określenie nowego rozmiaru.
+Hello poniższy skrypt przeprowadzi użytkownika przez proces pobierania informacji o hello maszyny Wirtualnej, wybierając hello dysku danych i określenie hello nowy rozmiar.
 
 ```powershell
 # Select resource group
 
     $rg = Get-AzureRMResourceGroup | Out-GridView `
-        -Title "Select the resource group" `
+        -Title "Select hello resource group" `
         -PassThru
 
     $rgName = $rg.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM -ResourceGroupName $rgName `
         | Out-GridView `
@@ -61,32 +61,32 @@ Poniższy skrypt przeprowadzi użytkownika przez proces pobierania informacji o 
         -Title "Select a data disk" `
         -PassThru
 
-# Specify a larger size for the data disk
+# Specify a larger size for hello data disk
 
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     $diskUpdateConfig = New-AzureRmDiskUpdateConfig -DiskSizeGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     $managedDisk = Get-AzureRmResource -ResourceId $disk.ManagedDisk.Id
     Update-AzureRmDisk -DiskName $managedDisk.ResourceName -ResourceGroupName $managedDisk.ResourceGroupName -DiskUpdate $diskUpdateConfig
 
-# Start the VM
+# Start hello VM
 
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
 ```
 
-## <a name="use-powershell-to-increase-the-size-of-an-unmanaged-data-disk"></a>Zwiększ rozmiar dysku danych niezarządzanych za pomocą programu PowerShell
+## <a name="use-powershell-tooincrease-hello-size-of-an-unmanaged-data-disk"></a>Użyj programu PowerShell tooincrease hello rozmiar dysku danych niezarządzane
 
-Aby zwiększyć rozmiar dysków niezarządzanych danych na koncie magazynu, należy użyć następujących poleceń cmdlet programu PowerShell:
+rozmiar hello tooincrease dysków niezarządzanych danych na koncie magazynu, hello Użyj następującego polecenia cmdlet programu PowerShell:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -96,7 +96,7 @@ Aby zwiększyć rozmiar dysków niezarządzanych danych na koncie magazynu, nale
 
 <br>
 
-Poniższy skrypt umożliwia przeprowadzenie pobieranie maszyny Wirtualnej i magazynu informacje o koncie, wybierając dysku danych i określenie nowego rozmiaru.
+Witaj poniższy skrypt prowadzi użytkownika przez proces uzyskiwania hello maszyny Wirtualnej i magazynu informacji o koncie, wybierając hello dysku danych i określenie hello nowy rozmiar.
 
 ```powershell
 
@@ -109,18 +109,18 @@ Poniższy skrypt umożliwia przeprowadzenie pobieranie maszyny Wirtualnej i maga
 
     $rgName = $storageAccount.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM `
     -ResourceGroupName $rgName | Out-GridView `
             -Title "Select a VM …" `
             -PassThru
 
-# Select Data Disk to resize
+# Select Data Disk tooresize
 
     $disk =
         $vm.DataDiskNames | Out-GridView `
-            -Title "Select a data disk to resize" `
+            -Title "Select a data disk tooresize" `
             -PassThru
 
 
@@ -129,28 +129,28 @@ Poniższy skrypt umożliwia przeprowadzenie pobieranie maszyny Wirtualnej i maga
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
         -DiskSizeInGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-# Start the VM
+# Start hello VM
     Start-AzureRmVM -ResourceGroupName $rgName `
     -VMName $vm.name
 
 ```
 
-## <a name="allocate-the-unallocated-disk-space"></a>Przydziel nieprzydzielonego miejsca na dysku
+## <a name="allocate-hello-unallocated-disk-space"></a>Przydziel hello nieprzydzielonego miejsca na dysku
 
-Po utworzeniu dysku większy, należy przydzielić nowe nieprzydzielone miejsce z poziomu maszyny Wirtualnej. Aby przydzielić miejsce, można połączyć maszyny Wirtualnej użyj przystawki Zarządzanie dyskami (diskmgmt.msc). Lub, jeśli usługi WinRM i certyfikatu na maszynie Wirtualnej jest włączona podczas jego tworzenia, można użyć zdalnego programu PowerShell, aby zainicjalizować dysk. Można także użyć niestandardowego rozszerzenia skryptu:
+Po utworzeniu dysku hello większy, należy tooallocate hello nowe nieprzydzielone miejsce z wewnątrz hello maszyny Wirtualnej. tooallocate hello miejsca, możesz połączyć toohello maszyny Wirtualnej użyj przystawki Zarządzanie dyskami (diskmgmt.msc). Lub, jeśli usługi WinRM i certyfikatu na powitania maszyny Wirtualnej jest włączona podczas jego tworzenia, możesz użyć zdalnego programu PowerShell tooinitialize hello dysku. Można także użyć niestandardowego rozszerzenia skryptu:
 
 ```powershell
     $location = "location-name"
@@ -159,7 +159,7 @@ Po utworzeniu dysku większy, należy przydzielić nowe nieprzydzielone miejsce 
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-Plik skryptu może zawierać przypominać ten kod w celu zwiększenia przydziału dysków do maksymalnego rozmiaru dysków:
+plik skryptu Hello może zawierać przypominać ten kod tooincrease hello dysku alokacji toohello maksymalny rozmiar hello dysków:
 
 ```powershell
 $driveLetter= "F"

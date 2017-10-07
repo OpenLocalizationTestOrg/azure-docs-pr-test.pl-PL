@@ -1,6 +1,6 @@
 ---
-title: "Funkcje szablonu usługi Resource Manager | Dokumentacja firmy Microsoft"
-description: "Opisuje funkcje do użycia w szablonie usługi Azure Resource Manager pobierania wartości, Praca z ciągów i numeryczne i pobierania informacji o wdrożeniu."
+title: "aaaResource Menedżera szablonu funkcji | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano toouse funkcje hello tooretrieve wartości szablonu usługi Azure Resource Manager w pracy z ciągów i numeryczne i pobierania informacji wdrożenia."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d1b2e68a33d75058f83d6972dadb33a6390d49b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funkcje szablonów usługi Azure Resource Manager
-W tym temacie opisano wszystkie funkcje, których można użyć w szablonie usługi Azure Resource Manager.
+W tym temacie opisano wszystkie funkcje hello, których można użyć w szablonie usługi Azure Resource Manager.
 
-Dodawanie funkcji w szablonach ujęte w nawiasy kwadratowe: `[` i `]`odpowiednio. Wyrażenie jest obliczane podczas wdrażania. Podczas zapisywania jako literału ciągu, wynik obliczania wyrażenia może być innego typu JSON, takich jak tablicy, obiektu lub liczbą całkowitą. Po prostu, tak jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)`. Możesz odwoływać się do właściwości przy użyciu operatorów kropka i [Indeks].
+Dodawanie funkcji w szablonach ujęte w nawiasy kwadratowe: `[` i `]`odpowiednio. Witaj wyrażenie jest obliczane podczas wdrażania. Gdy zapisywane jako literału ciągu, hello wynikiem obliczenia wyrażenia hello może mieć innego typu JSON, takich jak tablicy, obiektu lub liczbą całkowitą. Po prostu, tak jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)`. Możesz odwoływać się do właściwości przy użyciu operatorów hello kropka i [Indeks].
 
 Wyrażenia szablonu nie może przekraczać 24 576 znaków.
 
-Funkcje szablonów i ich parametry jest rozróżniana wielkość liter. Na przykład usługi Resource Manager rozpoznaje **variables('var1')** i **VARIABLES('VAR1')** jako takie same. Podczas szacowania, chyba że funkcja modyfikuje wyraźnie liter (na przykład toUpper lub toLower), funkcja zachowuje wielkość liter. Niektóre typy zasobów mogą mieć wielkość wymagania niezależnie od tego, jak są analizowane funkcje.
+Funkcje szablonów i ich parametry jest rozróżniana wielkość liter. Na przykład usługi Resource Manager rozpoznaje **variables('var1')** i **VARIABLES('VAR1')** jako hello takie same. Podczas szacowania, chyba że funkcja hello modyfikuje wyraźnie liter (na przykład toUpper lub toLower), funkcja hello zachowuje hello wielkość liter. Niektóre typy zasobów mogą mieć wielkość wymagania niezależnie od tego, jak są analizowane funkcje.
 
 <a id="array" />
 <a id="coalesce" />
@@ -87,7 +87,7 @@ Resource Manager zapewnia kilka funkcji dla porównywanie w szablonach.
 <a id="variables" />
 
 ## <a name="deployment-value-functions"></a>Funkcje wartość wdrożenia
-Pobieranie wartości z części szablonu i wartości dotyczące wdrażania Menedżera zasobów zawiera następujące funkcje:
+Usługa Resource Manager zapewnia hello następujące funkcje do pobierania wartości z części szablonu hello i wartości wdrożenia toohello pokrewne:
 
 * [wdrożenia](resource-group-template-functions-deployment.md#deployment)
 * [Parametry](resource-group-template-functions-deployment.md#parameters)
@@ -105,7 +105,7 @@ Pobieranie wartości z części szablonu i wartości dotyczące wdrażania Mened
 <a id="sub" />
 
 ## <a name="logical-functions"></a>Funkcje logiczne
-Usługa Resource Manager zapewnia następujące funkcje do pracy z warunków logicznych:
+Usługa Resource Manager zapewnia następujące funkcje do pracy z warunków logicznych hello:
 
 * [i](resource-group-template-functions-logical.md#and)
 * [wartość logiczna](resource-group-template-functions-logical.md#bool)
@@ -114,7 +114,7 @@ Usługa Resource Manager zapewnia następujące funkcje do pracy z warunków log
 * [lub](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funkcje numeryczne
-Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami całkowitymi:
+Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami całkowitymi hello:
 
 * [Dodaj](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
@@ -136,7 +136,7 @@ Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami cał
 <a id="subscription" />
 
 ## <a name="resource-functions"></a>Funkcje zasobów
-Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości zasobu:
+Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości zasobów hello:
 
 * [listKeys i listy {Value}](resource-group-template-functions-resource.md#listkeys)
 * [dostawców](resource-group-template-functions-resource.md#providers)
@@ -176,7 +176,7 @@ Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości 
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>Funkcje ciągów
-Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami:
+Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami hello:
 
 * [Base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -210,8 +210,8 @@ Usługa Resource Manager zapewnia następujące funkcje do pracy z ciągami:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md)
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md)
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md)
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md)
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md)
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md)
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md)
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md)
 

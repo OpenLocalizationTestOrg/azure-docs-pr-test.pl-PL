@@ -1,6 +1,6 @@
 ---
-title: "Funkcje szablonów Menedżera zasobów Azure - porównania | Dokumentacja firmy Microsoft"
-description: "Zawiera opis funkcji można użyć w szablonie usługi Azure Resource Manager porównuje wartości."
+title: "funkcje szablonu usługi Resource Manager aaaAzure - porównania | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano hello funkcje toouse wartości toocompare szablonu usługi Azure Resource Manager."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ebcfc9ed6c93f8b540ec4c066e9457c621800b7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Porównanie funkcji dla szablonów usługi Azure Resource Manager
 
@@ -39,16 +39,16 @@ Sprawdza, czy dwie wartości równa siebie nawzajem.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |int, string, tablicy lub obiektu |Pierwsza wartość do sprawdzenia pod kątem równości. |
-| Arg2 |Tak |int, string, tablicy lub obiektu |Druga wartość do sprawdzenia pod kątem równości. |
+| arg1 |Tak |int, string, tablicy lub obiektu |Witaj pierwszy toocheck wartość pod kątem równości. |
+| Arg2 |Tak |int, string, tablicy lub obiektu |Witaj drugi toocheck wartość pod kątem równości. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** Jeśli wartości są równe; w przeciwnym razie **False**.
+Zwraca **True** Jeśli hello wartości są równe; w przeciwnym razie **False**.
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja jest równe jest często używane z `condition` element, aby sprawdzić, czy zasób jest wdrożona.
+Hello equals funkcja jest często używana z hello `condition` element tootest Określa, czy zasób jest wdrożona.
 
 ```json
 {
@@ -67,7 +67,7 @@ Funkcja jest równe jest często używane z `condition` element, aby sprawdzić,
 
 ### <a name="example"></a>Przykład
 
-Przykład sprawdzane różnego rodzaju wartości pod kątem równości. Zwraca wartość True, wszystkie wartości domyślne.
+Szablon przykład Hello sprawdza różnego rodzaju wartości pod kątem równości. Wszystkie wartości domyślne hello zwraca wartość True.
 
 ```json
 {
@@ -130,7 +130,7 @@ Przykład sprawdzane różnego rodzaju wartości pod kątem równości. Zwraca w
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -140,7 +140,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 | checkObjects | wartość logiczna | True |
 
 
-W poniższym przykładzie użyto [nie](resource-group-template-functions-logical.md#not) z **jest równe**.
+Witaj poniższym przykładzie użyto [nie](resource-group-template-functions-logical.md#not) z **jest równe**.
 
 ```json
 {
@@ -156,7 +156,7 @@ W poniższym przykładzie użyto [nie](resource-group-template-functions-logical
     }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -166,22 +166,22 @@ Dane wyjściowe z poprzedniego przykładu to:
 ## <a name="greater"></a>większa
 `greater(arg1, arg2)`
 
-Sprawdza, czy pierwsza wartość jest większa od drugiej wartości.
+Sprawdza, czy pierwsza wartość hello jest większa niż wartość drugiej hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość do porównania większa. |
-| Arg2 |Tak |wewnętrznym lub ciągiem |Druga wartość do porównania większa. |
+| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość Hello hello większa porównania. |
+| Arg2 |Tak |wewnętrznym lub ciągiem |druga wartość Hello hello większa porównania. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** Jeśli pierwsza wartość jest większa niż wartość drugiej; w przeciwnym razie **False**.
+Zwraca **True** Jeśli hello pierwsza wartość jest większa niż wartość drugiej hello; w przeciwnym razie **False**.
 
 ### <a name="example"></a>Przykład
 
-Szablon przykład sprawdza, czy jednej wartości jest większy niż drugi.
+Szablon przykład Hello sprawdza, czy hello jedną wartość jest większa niż hello innych.
 
 ```json
 {
@@ -220,7 +220,7 @@ Szablon przykład sprawdza, czy jednej wartości jest większy niż drugi.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -231,22 +231,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
 
-Sprawdza, czy pierwsza wartość jest większa niż lub równa drugiej wartości.
+Sprawdza, czy pierwsza wartość hello jest większy lub równy toohello drugiej wartości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość do porównania większy lub równy. |
-| Arg2 |Tak |wewnętrznym lub ciągiem |Druga wartość do porównania większy lub równy. |
+| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość Hello hello większy lub równy porównania. |
+| Arg2 |Tak |wewnętrznym lub ciągiem |druga wartość Hello hello większy lub równy porównania. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** Jeśli pierwsza wartość jest większa niż lub równa wartości drugiego; w przeciwnym razie **False**.
+Zwraca **True** Jeśli hello pierwsza wartość jest większy lub równy toohello drugiej wartości; w przeciwnym razie **False**.
 
 ### <a name="example"></a>Przykład
 
-Szablon przykład sprawdza, czy jedną wartość jest większa niż lub równa innych.
+Szablon przykład Hello sprawdza, czy hello jedną wartość jest większa niż lub równe toohello innych.
 
 ```json
 {
@@ -285,7 +285,7 @@ Szablon przykład sprawdza, czy jedną wartość jest większa niż lub równa i
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -297,22 +297,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="less"></a>mniej
 `less(arg1, arg2)`
 
-Sprawdza, czy pierwsza wartość jest mniejsza niż wartość drugiej.
+Sprawdza, czy pierwsza wartość hello jest mniejsza niż hello drugiej wartości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość do porównania mniej. |
-| Arg2 |Tak |wewnętrznym lub ciągiem |Druga wartość mniej porównania. |
+| arg1 |Tak |wewnętrznym lub ciągiem |Witaj pierwsza wartość dla hello mniej porównania. |
+| Arg2 |Tak |wewnętrznym lub ciągiem |druga wartość Hello na powitania mniej porównania. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** Jeśli pierwsza wartość jest mniejsza niż wartość drugiej; w przeciwnym razie **False**.
+Zwraca **True** Jeśli hello pierwsza wartość jest mniejsza niż hello drugi wartości; w przeciwnym razie **False**.
 
 ### <a name="example"></a>Przykład
 
-Szablon przykład sprawdza, czy jedną wartość jest mniejsza niż innych.
+Szablon przykład Hello sprawdza, czy hello jedną wartość jest mniejsza niż hello innych.
 
 ```json
 {
@@ -351,7 +351,7 @@ Szablon przykład sprawdza, czy jedną wartość jest mniejsza niż innych.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -362,22 +362,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
 
-Sprawdza, czy pierwsza wartość jest mniejsza niż lub równa drugiej wartości.
+Sprawdza, czy pierwsza wartość hello jest mniejsza lub równa toohello drugiej wartości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |wewnętrznym lub ciągiem |Pierwsza wartość dla mniej lub porównania równości. |
-| Arg2 |Tak |wewnętrznym lub ciągiem |Druga wartość dla mniej lub porównania równości. |
+| arg1 |Tak |wewnętrznym lub ciągiem |wartość pierwszego Hello hello mniej lub porównania równości. |
+| Arg2 |Tak |wewnętrznym lub ciągiem |druga wartość hello mniej Hello lub porównania równości. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwraca **True** Jeśli pierwsza wartość jest mniejsza niż lub równa wartości drugiego w przeciwnym razie **False**.
+Zwraca **True** Jeśli hello pierwsza wartość jest mniejsza lub równa toohello drugiej wartości; w przeciwnym razie **False**.
 
 ### <a name="example"></a>Przykład
 
-Szablon przykład sprawdza, czy jedną wartość jest mniejsza lub równa do drugiego.
+Witaj przykładowy szablon sprawdza, czy hello jedną wartość jest mniejsza lub równa toohello innych.
 
 ```json
 {
@@ -416,7 +416,7 @@ Szablon przykład sprawdza, czy jedną wartość jest mniejsza lub równa do dru
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -426,8 +426,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

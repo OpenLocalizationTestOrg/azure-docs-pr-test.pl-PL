@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie kontenera platformy ASP.NET Core Linux Docker z hostem zdalnym Docker | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak użyć programu Visual Studio Tools for Docker do wdrażania aplikacji sieci web platformy ASP.NET Core w kontenerze Docker działającym na maszynie Wirtualnej platformy Azure Docker hosta systemu Linux"
+title: aaaDeploy platformy ASP.NET Core Linux Docker kontenera tooa Docker hosta zdalnego | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse Visual Studio Tools for Docker toodeploy platformy ASP.NET Core sieci web kontenera Docker tooa aplikacji uruchomionych na maszynie Wirtualnej platformy Azure Docker hosta systemu Linux"
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27b0c6420628c73220200bc071b47a4cd89fff58
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Wdrażanie kontenera ASP.NET z hostem zdalnym Docker
+# <a name="deploy-an-aspnet-container-tooa-remote-docker-host"></a>Wdrażanie programu ASP.NET kontenera tooa Docker hosta zdalnego
 ## <a name="overview"></a>Omówienie
-Docker jest aparatem lekkie kontenera, podobne w pewnym sensie do maszyny wirtualnej, która służy do obsługi aplikacji i usług.
-Ten samouczek przedstawia przy użyciu [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) rozszerzenia do wdrażania aplikacji platformy ASP.NET Core z hostem platformy Docker na platformie Azure przy użyciu programu PowerShell.
+Docker jest aparatem lekkie kontenera, podobne niektóre sposoby tooa maszyny wirtualnej, które można użyć toohost aplikacji i usług.
+Ten samouczek przedstawia przy użyciu hello [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) toodeploy rozszerzenia hosta platformy ASP.NET Core aplikacji tooa Docker na platformie Azure przy użyciu programu PowerShell.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do ukończenia tego samouczka niezbędne jest, następujące elementy:
+następujące Hello jest wymagana toocomplete tego samouczka:
 
-* Tworzenie maszyny Wirtualnej platformy Azure Docker hosta, zgodnie z opisem w [sposób używania maszyny docker z platformy Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Zainstaluj najnowszą wersję pakietu [programu Visual Studio](https://www.visualstudio.com/downloads/)
-* Pobierz [zestawu SDK programu Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
+* Tworzenie maszyny Wirtualnej platformy Azure Docker hosta, zgodnie z opisem w [jak toouse docker maszyny z platformy Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Zainstaluj najnowszą wersję hello z [programu Visual Studio](https://www.visualstudio.com/downloads/)
+* Pobierz hello [zestawu SDK programu Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 * Zainstaluj [Docker dla systemu Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Tworzenie aplikacji sieci web platformy ASP.NET Core
-Poniższe kroki pomocne przy tworzeniu Podstawowa aplikacja platformy ASP.NET Core, który będzie używany w tym samouczku.
+Hello następujące kroki pomocne przy tworzeniu Podstawowa aplikacja platformy ASP.NET Core, który będzie używany w tym samouczku.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## <a name="2-add-docker-support"></a>2. Dodawanie obsługi Docker
 [!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. Użyj skryptu programu PowerShell DockerTask.ps1
-1. Otwórz wiersz programu PowerShell do katalogu głównego projektu. 
+## <a name="3-use-hello-dockertaskps1-powershell-script"></a>3. Użyj hello DockerTask.ps1 skrypt programu PowerShell
+1. Otwórz katalog główny toohello monitu środowiska PowerShell projektu. 
    
    ```
    PS C:\Src\WebApplication1>
    ```
-2. Sprawdź poprawność zdalnego hosta jest uruchomiony. Powinien zostać wyświetlony stan = uruchomiona 
+2. Sprawdź poprawność hello zdalnym hoście jest uruchomiony. Powinien zostać wyświetlony stan = uruchomiona 
    
    ```
    docker-machine ls
@@ -55,7 +55,7 @@ Poniższe kroki pomocne przy tworzeniu Podstawowa aplikacja platformy ASP.NET Co
    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
    ```
    
-3. Tworzenie aplikacji w programie parametru - kompilacji
+3. Przy użyciu aplikacji hello kompilacji hello - parametru kompilacji
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
@@ -66,7 +66,7 @@ Poniższe kroki pomocne przy tworzeniu Podstawowa aplikacja platformy ASP.NET Co
    > ```  
    > 
    > 
-4. Uruchamianie aplikacji, za pomocą parametru - uruchomienia
+4. Uruchamianie aplikacji hello przy użyciu hello — Uruchom parametr
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
@@ -78,7 +78,7 @@ Poniższe kroki pomocne przy tworzeniu Podstawowa aplikacja platformy ASP.NET Co
    > 
    > 
    
-   Po zakończeniu docker powinny być widoczne wyniki podobne do następujących:
+   Po zakończeniu docker powinny być widoczne wyniki podobne toohello poniżej:
    
    ![Wyświetlanie aplikacji][3]
 

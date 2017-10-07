@@ -1,6 +1,6 @@
 ---
 title: "Azure DB rozwiązania Cosmos: Java usługi DocumentDB interfejsu API zestawu SDK i zasoby | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wszystkiego o interfejsu API języka Java i zestawu SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji zestawu SDK Java usługi DocumentDB DB rozwiązania Cosmos Azure."
+description: "Dowiedz się wszystkiego o hello interfejsu API języka Java i zestawu SDK, w tym daty wydania, daty wycofania i zmiany między poszczególnymi wersjami hello zestawu SDK Java usługi DocumentDB Azure rozwiązania Cosmos bazy danych."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8ef43ebeb7ae1bfc55512c4a7489c1b7930122d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure DB rozwiązania Cosmos: Zestawu SDK Java usługi DocumentDB informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ ms.lasthandoff: 08/18/2017
 
 <tr><td>**Dokumentacja interfejsu API**</td><td>[Dokumentacji interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
-<tr><td>**Przyczyniają się do zestawu SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Współtworzenia tooSDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Wprowadzenie**</td><td>[Rozpoczynanie pracy z zestawu Java SDK](documentdb-java-get-started.md)</td></tr>
+<tr><td>**Wprowadzenie**</td><td>[Rozpoczynanie pracy z hello zestawu Java SDK](documentdb-java-get-started.md)</td></tr>
 
 <tr><td>**Samouczek aplikacji sieci Web**</td><td>[Tworzenie aplikacji sieci Web z bazy danych Azure rozwiązania Cosmos](documentdb-java-application.md)</td></tr>
 
@@ -53,8 +53,8 @@ ms.lasthandoff: 08/18/2017
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Poprawki błędów krytycznych do żądania przetwarzania podczas podziałów partycji.
-* Rozwiązano problem z poziomy spójności silne i BoundedStaleness.
+* Dzieli toorequest krytycznych poprawek przetwarzania podczas partycji.
+* Rozwiązano problem z hello silne i BoundedStaleness poziomy spójności.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * Dodano obsługę nowego poziomu spójności o nazwie ConsistentPrefix.
@@ -62,11 +62,11 @@ ms.lasthandoff: 08/18/2017
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Włączona obsługa kolekcji partycjonowanych jako niskie jako 2500 RU/s i skalować z przyrostem 100 RU/s.
-* Rozwiązane usterki w natywny zestaw, co może spowodować wyjątek NullRef niektórych kwerend.
+* Rozwiązane usterki w hello natywny zestaw, co może spowodować wyjątek NullRef niektórych kwerend.
 
 ### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
-* Rozwiązane usterki w Konfiguracja aparatu zapytania, który może powodować wyjątki dla zapytań w trybie bramy.
-* Stałe kilka błędów w kontenerze sesji, która może spowodować wyjątek "Nie można odnaleźć zasobu właściciela" żądań natychmiast po utworzeniu kolekcji.
+* Stała usterki w hello zapytań aparatu konfiguracji, które mogą powodować wyjątki dla zapytań w trybie bramy.
+* Stałe kilka błędów w kontenerze hello sesji, która może spowodować wyjątek "Nie można odnaleźć zasobu właściciela" żądań natychmiast po utworzeniu kolekcji.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
 * Dodano obsługę zapytań agregacji (COUNT, MIN, MAX, SUM i Śr.). Zobacz [Obsługa agregacji](documentdb-sql-query.md#Aggregates).
@@ -80,72 +80,72 @@ ms.lasthandoff: 08/18/2017
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
 * Dodano proste klienta oparte na wystąpienie obsługi serwera proxy z interfejsem API ConnectionPolicy.setProxy().
-* Dodano DocumentClient.close() interfejsu API do prawidłowego zamknięcia DocumentClient wystąpienia.
-* Poprawia wydajność zapytań w trybie bezpośrednie połączenie między wyprowadzanie planu zapytania z natywny zestaw zamiast bramy.
-* Ustaw FAIL_ON_UNKNOWN_PROPERTIES = false, dlatego użytkownicy nie muszą definiować JsonIgnoreProperties w ich typu POJO.
-* Rejestrowanie refaktoryzowane, aby użyć SLF4J.
+* Dodano DocumentClient.close() API tooproperly zamknięcia DocumentClient wystąpienie.
+* Wydajność ulepszone zapytań w trybie bezpośrednie połączenie między przez pochodny planu zapytania hello hello natywny zestaw zamiast hello bramy.
+* Ustaw FAIL_ON_UNKNOWN_PROPERTIES = false, dzięki czemu użytkownicy nie muszą toodefine JsonIgnoreProperties w ich typu POJO.
+* Rejestrowanie refaktoryzowane toouse SLF4J.
 * Stała kilka innych błędów spójności czytnika.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Stała zarządzania połączenia, aby zapobiec przeciekom połączenia w trybie bezpośrednie połączenie między usterki.
-* Stała usterki zapytania TOP, w którym może zgłosić wyjątek NullReferenece.
-* Lepszą wydajność dzięki zmniejszeniu liczby wywołań sieci dla wewnętrznej pamięci podręcznej.
+* Rozwiązane usterki w hello przecieki połączenia tooprevent zarządzania połączenia w trybie bezpośredniego połączenia.
+* Stała usterki hello zapytania TOP, w którym może zgłosić wyjątek NullReferenece.
+* Lepszą wydajność dzięki zmniejszeniu liczby hello wywołania sieci dla hello wewnętrznych pamięci podręcznych.
 * Kod stanu dodany, ActivityID i identyfikator URI żądania w DocumentClientException w celu ułatwienia rozwiązywania problemów.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
-* Rozwiązano problem z zarządzaniem połączeniami dla stabilności.
+* Rozwiązano problem z zarządzaniem połączeniami hello stabilności.
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 * Dodano obsługę BoundedStaleness poziomu spójności.
 * Dodano obsługę bezpośrednie połączenie między dla operacji CRUD dla kolekcji partycjonowanych.
 * Stałe błędów badania bazy danych z programu SQL.
-* Rozwiązane usterki w pamięci podręcznej sesji, gdzie może być niepoprawna tokenu sesji.
+* Rozwiązane usterki w pamięci podręcznej sesji hello gdzie może być niepoprawna tokenu sesji.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Dodano obsługę dla wielu partycji zapytania równoległe.
 * Dodano obsługę TOP/ORDER BY zapytania dla kolekcji partycjonowanych.
 * Dodano obsługę wysoki poziom spójności.
 * Dodano obsługę żądań na podstawie nazwy przy użyciu bezpośrednie połączenie między.
-* Stała ActivityId pozostaną niezmienione we wszystkich ponownych prób wykonania żądania.
-* Stałe błędów związane z pamięci podręcznej sesji podczas odtwarzania kolekcji o tej samej nazwie.
+* Stałe toomake ActivityId pozostaną niezmienione we wszystkich ponownych prób wykonania żądania.
+* Stałe błędów związane z pamięci podręcznej toohello sesji podczas odtwarzania Kolekcja o hello tej samej nazwy.
 * Dodano wielokąta i typy danych LineString podczas określania kolekcji indeksowania zasad dla zapytań przestrzennych grodzenia.
 * Rozwiązane problemy z dokumentem Java dla języka Java 1.8.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
-* Rozwiązane usterki w PartitionKeyDefinitionMap do buforowania kolekcje z jedną partycją i nie wprowadzać dodatkowe pobierania żądania klucza partycji.
-* Stałe błędów nie próbę, gdy została podana wartość klucza partycji niepoprawne.
+* Rozwiązane usterki w PartitionKeyDefinitionMap toocache kolekcje z jedną partycją i nie dokonywać dodatkowe pobrać partycji żądania klucza.
+* Stała ponowna próba toonot usterki, gdy została podana wartość klucza partycji niepoprawne.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
-* Dodano obsługę konta w przypadku bazy danych.
-* Dodano obsługę automatycznego ponowienie dotyczące żądań ograniczeniem przepustowości z opcjami, aby dostosować max ponownych prób i ponawiania maksymalny czas oczekiwania.  Zobacz RetryOptions i ConnectionPolicy.getRetryOptions().
+* Hello dodano obsługę konta w przypadku bazy danych.
+* Dodano obsługę automatycznego próbowania na ograniczeniem przepustowości żądania za pomocą opcji toocustomize hello max ponowienia i maksymalna czas oczekiwania.  Zobacz RetryOptions i ConnectionPolicy.getRetryOptions().
 * Przestarzałe IPartitionResolver na podstawie niestandardowych kodów partycjonowania. Użyj kolekcji partycjonowanych wyżej magazynu i przepustowości.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * Obsługa zasad ponawiania dodano ograniczania.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* Czas do live (TTL) — Pomoc techniczna dla dokumentów.
+* Czas toolive (TTL) Obsługa dokumentów.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Zaimplementowane [kolekcje partycjonowane](partition-data.md) i [poziomy wydajności zdefiniowanych przez użytkownika](performance-levels.md).
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
-* Rozwiązane usterki w HashPartitionResolver do generowania wartości skrótu w little endian było spójne z innych zestawów SDK.
+* Rozwiązane usterki w wartości skrótu toogenerate HashPartitionResolver w toobe little endian zgodne z innych zestawów SDK.
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
-* Dodaj skrót & zakres partycji rozwiązujący pomagające dzielenia na fragmenty aplikacji między wieloma partycjami.
+* Dodaj skrót & zakres tooassist rozpoznawania nazw partycji z aplikacjami dzielenia na fragmenty między wieloma partycjami.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
-* Implementuje Upsert. Dodane w celu obsługi funkcji Upsert nowych metod upsertXXX.
+* Implementuje Upsert. Nowych metod upsertXXX dodać toosupport Upsert funkcji.
 * Na podstawie Identyfikatora wdrożenie routingu. Brak zmian publicznego interfejsu API, wszystkie zmiany wewnętrznego.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* Pominięto wersji można wyświetlić numer wersji wyrównania z innych zestawów SDK
+* Numer wersji toobring wyrównania z innych zestawów SDK pominięte zlecenia
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Obsługuje dane geograficzne indeksu
 * Weryfikuje właściwość identyfikatora dla wszystkich zasobów. Identyfikatory zasobów nie może zawierać?, /, #, \, znaków ani kończyć spacją.
-* Dodaje nowego nagłówka "indeksu przekształcania toku" do ResourceResponse.
+* Dodaje nowy tooResourceResponse "postępu przekształcania indeksu" nagłówka.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Implementuje zasady indeksowania V2
@@ -154,14 +154,14 @@ ms.lasthandoff: 08/18/2017
 * GA SDK
 
 ## <a name="release--retirement-dates"></a>Wersja & daty wycofania
-Firma Microsoft udostępni powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
+Firma Microsoft udostępni powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w kolejności toosmooth hello przejścia tooa nowszej/nieobsługiwaną wersję.
 
-Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do bieżącego zestawu SDK, w związku jest zalecane, zawsze uaktualnienie SDK najnowszą tak szybko jak to możliwe.
+Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko bieżącego toohello SDK, jak jest możliwie jak najszybciej zaleca tego należy zawsze uaktualnienia toohello najnowsze wersja zestawu SDK.
 
-Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestawu SDK będą odrzucane przez usługę.
+Wszystkie żądania tooCosmos bazy danych przy użyciu wycofane zestawu SDK będą odrzucane przez usługę hello.
 
 > [!WARNING]
-> Wszystkie wersje zestawu SDK usługi DocumentDB dla języka Java poprzedzające wersję **1.0.0** zostaną wycofane w **29 lutego 2016**.
+> Wszystkie wersje hello zestawu SDK usługi DocumentDB dla poprzedniego tooversion Java **1.0.0** zostaną wycofane w **29 lutego 2016**.
 > 
 > 
 
@@ -203,5 +203,5 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi.
+toolearn więcej informacji na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi.
 

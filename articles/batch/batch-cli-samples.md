@@ -1,5 +1,5 @@
 ---
-title: "Partia zadań Azure CLI przykłady | Dokumentacja firmy Microsoft"
+title: "aaaAzure partii przykłady interfejsu wiersza polecenia | Dokumentacja firmy Microsoft"
 description: "Partia zadań Azure CLI próbek"
 services: batch
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: antisch
-ms.openlocfilehash: 51fd27536994ca36bf9559a780660c3a16bf30cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d700a6edebd35a3b2bb86926d1e57d4a33584b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-batch-cli-samples"></a>Partia zadań Azure CLI próbek
 
 ## <a name="tutorials-with-sample-shell-scripts"></a>Samouczki z przykładowe skrypty powłoki
 
-Poniższa tabela zawiera linki do bash skrypty utworzone przy użyciu wiersza polecenia platformy Azure, które pokazanie sposobu używania usługi partia zadań.
+Witaj Poniższa tabela zawiera linki toobash skrypty utworzone przy użyciu interfejsu wiersza polecenia Azure hello pokazanie sposobu używania usługi partia zadań hello.
 
 | Skrypt | Uwagi |
 |---|---|
@@ -35,4 +35,4 @@ Poniższa tabela zawiera linki do bash skrypty utworzone przy użyciu wiersza po
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).

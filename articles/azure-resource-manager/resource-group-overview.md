@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi Azure Resource Manager | Microsoft Docs"
-description: "Opis wdrażania zasobów na platformie Azure, kontrolowania dostępu do tych zasobów oraz zarządzania nimi za pomocą usługi Azure Resource Manager."
+title: "aaaAzure omówienie Resource Manager | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób toouse usługi Azure Resource Manager do wdrażania, zarządzania i kontroli dostępu do zasobów na platformie Azure."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a44fccd96d722c006224145d71cc44292255debf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-overview"></a>Omówienie usługi Azure Resource Manager
-Infrastruktura aplikacji zwykle obejmuje wiele składników — może to być maszyna wirtualna, konto magazynu i sieć wirtualna albo aplikacja sieci Web, baza danych, serwer bazy danych i usługi zewnętrzne. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Dlatego najlepiej wdrażać i monitorować je oraz zarządzać nimi grupowo. Usługa Azure Resource Manager umożliwia pracę z zasobami tworzącymi rozwiązanie w formie grupy. Wszystkie zasoby danego rozwiązania można wdrożyć, zaktualizować lub usunąć w ramach jednej skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia funkcje zabezpieczeń, inspekcji i tagowania ułatwiające zarządzanie zasobami po wdrożeniu. 
+Hello infrastruktura aplikacji zwykle obejmuje wiele składników — może być maszynę wirtualną, konta magazynu i sieci wirtualnej lub aplikacji sieci web, bazy danych, serwer bazy danych i 3 usług firm. Te składniki nie są widoczne jako osobne jednostki, tylko jako powiązane i zależne od siebie nawzajem części jednej całości. Mają toodeploy, zarządzanie i monitorowanie ich jako grupa. Usługa Azure Resource Manager umożliwia toowork z zasobami hello w rozwiązaniu jako grupa. Można wdrożyć, zaktualizować lub usunąć wszystkie zasoby powitania dla danego rozwiązania w jednej, skoordynowanej operacji. Wdrażanie wykonuje się przy użyciu szablonu, którego można następnie używać w różnych środowiskach (testowanie, etap przejściowy i produkcja). Usługa Resource Manager zapewnia zabezpieczeń, inspekcji i znakowanie toohelp funkcje zarządzania zasobami po wdrożeniu. 
 
 ## <a name="terminology"></a>Terminologia
-Jeśli dopiero zaczynasz korzystać z usługi Azure Resource Manager, oto kilka terminów, których możesz nie znać.
+W przypadku nowych tooAzure Resource Manager istnieją terminy, nie może być zapoznać się z.
 
 * **Zasób** — dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Niektóre typowe zasoby to: maszyna wirtualna, konto magazynu, aplikacja sieci Web czy sieć wirtualna. Istnieje ich jednak wiele więcej.
-* **Grupa zasobów** — kontener, który zawiera powiązane zasoby rozwiązania dla platformy Azure. Grupa zasobów może zawierać wszystkie zasoby dla rozwiązania lub tylko te zasoby, które mają być zarządzane jako grupa. Użytkownik decyduje o sposobie przydziału zasobów do grup zasobów pod kątem tego, co jest najbardziej odpowiednie dla danej organizacji. Zobacz [Grupy zasobów](#resource-groups).
-* **Dostawca zasobów** — usługa dostarczająca zasoby, które można wdrażać i którymi można zarządzać za pomocą usługi Resource Manager. Każdy dostawca zasobów udostępnia operacje do pracy z wdrażanymi zasobami. Typowi dostawcy zasobów to: Microsoft.Compute dostarczający zasób maszyny wirtualnej, Microsoft.Storage dostarczający zasób konta magazynu i Microsoft.Web dostarczający zasoby dotyczące aplikacji sieci Web. Zobacz [Dostawcy zasobów](#resource-providers).
-* **Szablon usługi Resource Manager** — plik w formacie JavaScript Object Notation (JSON) definiujący jeden lub większą liczbę zasobów, które mają zostać wdrożone w grupie zasobów. Definiuje również zależności między wdrożonymi zasobami. Szablon może służyć do spójnego i wielokrotnego wdrażania zasobów. Zobacz [Wdrażanie na podstawie szablonu](#template-deployment).
-* **Składnia deklaratywna** — składnia pozwalająca określić, co zamierzasz utworzyć, bez konieczności pisania w tym celu sekwencji poleceń programistycznych. Przykładem składni deklaratywnej jest szablon usługi Resource Manager. W tym pliku definiuje się właściwości infrastruktury do wdrożenia na platformie Azure. 
+* **Grupa zasobów** — kontener, który zawiera powiązane zasoby rozwiązania dla platformy Azure. Grupa zasobów Hello mogą obejmować wszystkie zasoby hello hello rozwiązania lub tylko tych zasobów, które mają toomanage jako grupa. Możesz zdecydować, jak zasoby tooallocate tooresource grupy oparte na to, co sprawia, że hello najbardziej odpowiednie dla Twojej organizacji. Zobacz [Grupy zasobów](#resource-groups).
+* **Dostawca zasobów** — usługa dostarczająca zasoby hello można wdrażać i zarządzać za pomocą Menedżera zasobów. Każdy dostawca zasobów udostępnia operacje do pracy z zasobami hello, które zostały wdrożone. Niektóre typowe dostawców zasobów są Microsoft.Compute, która dostarcza hello zasobu maszyny wirtualnej, Microsoft.Storage, która dostarcza zasobów konta magazynu hello, i Microsoft.Web, która dostarcza aplikacji tooweb powiązane zasoby. Zobacz [Dostawcy zasobów](#resource-providers).
+* **Szablon usługi Resource Manager** -pliku A JavaScript Object Notation (JSON), który definiuje co najmniej jeden zasobów toodeploy tooa grupy zasobów. Definiuje również zależności hello między zasobami hello wdrożone. Szablon Hello może być używane toodeploy hello zasobów, spójne i wielokrotnie. Zobacz [Wdrażanie na podstawie szablonu](#template-deployment).
+* **składni deklaratywnej** — stan składnię, która umożliwia "Oto I mają toocreate" bez konieczności programowania toocreate polecenia sekwencji hello toowrite go. Szablon usługi Resource Manager Hello jest przykład składni deklaratywnej. W pliku hello można zdefiniować właściwości hello hello infrastruktury toodeploy tooAzure. 
 
-## <a name="the-benefits-of-using-resource-manager"></a>Zalety korzystania z usługi Resource Manager
+## <a name="hello-benefits-of-using-resource-manager"></a>Zalety Hello za pomocą Menedżera zasobów
 Usługa Resource Manager zapewnia kilka korzyści:
 
-* Możliwość grupowego wdrożenia i monitorowania wszystkich zasobów w ramach rozwiązania oraz zarządzania nimi (zamiast obsługiwania zasobów pojedynczo).
-* Możliwość wielokrotnego wdrażania rozwiązania w całym cyklu programistycznym z gwarancją spójnego stanu zasobów po każdym wdrożeniu.
+* Można wdrożyć, zarządzanie i monitorowanie wszystkich zasobów hello do rozwiązania jako grupy zamiast obsługiwania zasobów pojedynczo.
+* Można wielokrotnie wdrażania rozwiązania w całym cyklu programistycznym hello i mieć pewność, zasoby są wdrażane w spójnym stanie.
 * Możliwość zarządzania infrastrukturą przy użyciu szablonów deklaratywnych zamiast skryptów.
-* Możliwość definiowania zależności między zasobami, aby wdrażać je w odpowiedniej kolejności.
-* Możliwość stosowania kontroli dostępu do wszystkich usług w grupie zasobów dzięki natywnej integracji funkcji kontroli dostępu na podstawie ról z platformą zarządzania.
-* Możliwość dodawania tagów do zasobów w celu logicznego uporządkowania wszystkich zasobów w ramach subskrypcji.
-* Możliwość wyjaśniania rozliczeń w organizacji przez wyświetlanie kosztów dla grupy zasobów korzystających z tego samego tagu.  
+* Można zdefiniować hello zależności między zasobami w celu wdrażania ich w odpowiedniej kolejności hello.
+* Można zastosować usług tooall kontroli dostępu w grupie zasobów, ponieważ na platformie zarządzania hello natywnej integracji funkcji kontroli dostępu opartej na rolach (RBAC).
+* Możliwość dodawania tagów tooresources toologically organizowanie wszystkie zasoby hello w ramach subskrypcji.
+* Można również uprościć rozliczenia w organizacji, wyświetlając kosztów dla grupy zasobów udostępnianie hello na tym samym tagiem.  
 
-Usługa Resource Manager udostępnia nową metodę wdrażania rozwiązań i zarządzania nimi. Jeśli znasz wcześniejszy model wdrażania i chcesz dowiedzieć się więcej o zmianach, zobacz artykuł [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md) (Opis wdrażania za pomocą usługi Resource Manager oraz wdrażania klasycznego).
+Menedżer zasobów udostępnia nowe toodeploy sposób rozwiązań i zarządzania nimi. Jeśli używasz hello wcześniejszego modelu wdrożenia i mają toolearn o zmianach hello, zobacz [wdrożenia Understanding Resource Manager oraz wdrażania klasycznego](resource-manager-deployment-model.md).
 
 ## <a name="consistent-management-layer"></a>Spójna warstwa zarządzania
-Usługa Resource Manager zapewnia spójną warstwę zarządzania dla zadań wykonywanych za pomocą programu Azure PowerShell, interfejsu wiersza polecenia Azure, witryny Azure Portal, interfejsu API REST oraz narzędzi programistycznych. Wszystkie narzędzia korzystają ze wspólnego zestawu operacji. Możesz używać najwygodniejszych dla siebie narzędzi i stosować je zamiennie, bez jakichkolwiek problemów. 
+Menedżer zasobów zapewnia warstwę spójnego sposobu zarządzania dla hello zadań, które można wykonywać za pomocą programu Azure PowerShell, interfejsu wiersza polecenia Azure, portalu Azure, interfejsu API REST i narzędzia deweloperskie. Wszystkie narzędzia hello korzystanie ze wspólnego zestawu działań. Możesz narzędzia hello najlepsza, które można używać ich zamiennie bez obaw o zgodność. 
 
-Na poniższej ilustracji przedstawiono, jak poszczególne narzędzia wchodzą w interakcję z tym samym interfejsem API usługi Azure Resource Manager. Interfejs API przekazuje żądania do usługi Resource Manager, która je uwierzytelnia i autoryzuje. Usługa Resource Manager przekierowuje następnie żądania do odpowiednich dostawców zasobów.
+Witaj poniższy obraz przedstawia sposób interakcyjnie wszystkie narzędzia hello hello tego samego interfejsu API Menedżera zasobów Azure. Witaj interfejsu API przekazuje żądania usługi Resource Manager toohello, która uwierzytelnia i autoryzuje hello żądania. Menedżer zasobów, a następnie trasy hello żądań toohello odpowiedni zasób dostawców.
 
 ![Model żądań usługi Resource Manager](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="guidance"></a>Wskazówki
-Poniższe sugestie pomogą Ci w pełni wykorzystać możliwości usługi Resource Manager w pracy z rozwiązaniami.
+Witaj poniższe sugestie pomóc w pełni wykorzystać możliwości usługi Resource Manager podczas pracy z rozwiązaniami.
 
-1. Definiuj i wdrażaj infrastrukturę za pomocą składni deklaratywnej w szablonach usługi Resource Manager, a nie za pomocą poleceń imperatywnych.
-2. Zdefiniuj w szablonie wszystkie etapy wdrażania i konfiguracji. W konfiguracji rozwiązania nie powinno być żadnych etapów ręcznych.
-3. Korzystaj z poleceń imperatywnych do zarządzania zasobami, np. do uruchamiania i zatrzymywania aplikacji lub maszyny.
-4. Rozmieść zasoby z tym samym cyklem życia w grupie zasobów. We wszystkich pozostałych operacjach związanych z organizacją zasobów używaj tagów.
+1. Definiowanie i wdrażaj infrastrukturę za pomocą składni deklaratywnej hello w szablonach usługi Resource Manager, a nie za pomocą poleceń imperatywnych.
+2. Wszystkie kroki wdrażania i konfiguracji należy zdefiniować w szablonie hello. W konfiguracji rozwiązania nie powinno być żadnych etapów ręcznych.
+3. Uruchamianie poleceń imperatywnych toomanage zasobów, takich jak toostart lub zatrzymywania aplikacji lub komputera.
+4. Rozmieść zasoby z hello tego samego cyklu życia w grupie zasobów. We wszystkich pozostałych operacjach związanych z organizacją zasobów używaj tagów.
 
 Aby uzyskać zalecenia dotyczące szablonów, zobacz [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Najlepsze rozwiązania dotyczące tworzenia szablonów usługi Azure Resource Manager).
 
-Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
+Aby uzyskać wskazówki dotyczące użycia tooeffectively Menedżera zasobów przedsiębiorstwa Zarządzaj subskrypcjami, zobacz [szkieletu Azure enterprise — ładu przetestowanego subskrypcji](resource-manager-subscription-governance.md).
 
 ## <a name="resource-groups"></a>Grupy zasobów
-Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
+Istnieją pewne ważne czynniki tooconsider podczas definiowania grupie zasobów:
 
-1. Wszystkie zasoby w grupie powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jakiś zasób, na przykład serwer bazy danych, ma mieć inny cykl wdrażania, powinien zostać umieszczony w innej grupie zasobów.
+1. Wszystkie zasoby hello w grupie powinny współużytkować hello sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jakiś zasób, takich jak serwer bazy danych musi tooexist na inny cykl wdrażania należy się w innej grupie zasobów.
 2. Każdy zasób może znajdować się tylko w jednej grupie zasobów.
-3. Zasoby w grupie można dodawać i usuwać w dowolnym momencie.
-4. Zasoby można przenosić między poszczególnymi grupami. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
+3. Można dodać lub usunąć grupę zasobów tooa zasobów w dowolnej chwili.
+4. Zasoby można przenosić między grupami tooanother grupy zasobów. Aby uzyskać więcej informacji, zobacz [przenieść grupy zasobów toonew zasobów lub subskrypcji](resource-group-move-resources.md).
 5. Grupa zasobów może zawierać zasoby, które znajdują się w różnych regionach.
-6. Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych.
-7. Zasób może wchodzić w interakcję z zasobami znajdującymi się w innych grupach zasobów. Ta interakcja jest typowa, gdy dwa zasoby są ze sobą powiązane, ale nie mają tego samego cyklu życia (na przykład aplikacje sieci Web łączące się z bazą danych).
+6. Grupa zasobów może być używana dla działania administracyjne tooscope kontroli dostępu.
+7. Zasób może wchodzić w interakcję z zasobami znajdującymi się w innych grupach zasobów. Interakcji jest typowe w przypadku, gdy hello dwa zasoby dotyczące, ale nie mają hello tego samego cyklu życia (na przykład aplikacje sieci web łączenie tooa bazy danych).
 
-Podczas tworzenia grupy zasobów, należy podać lokalizację dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? Ponadto dlaczego lokalizacja grupy zasobów jest w ogóle istotna, skoro zasoby mogą znajdować się w innej lokalizacji niż grupa zasobów?” Grupa zasobów przechowuje metadane dotyczące zasobów. Z tego powodu określając lokalizację dla grupy zasobów, określasz miejsce, w którym przechowywane są metadane. Dla zachowania zgodności może być konieczne upewnienie się, że dane są przechowywane w odpowiednim regionie.
+Podczas tworzenia grupy zasobów, należy tooprovide lokalizacji dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? I, jeśli hello zasobów może mieć różne lokalizacje niż hello grupy zasobów, dlaczego ma lokalizacja grupy zasobów hello znaczenia w ogóle?" Grupa zasobów Hello są przechowywane metadane dotyczące hello zasobów. W związku z tym po określeniu lokalizacji dla grupy zasobów hello określisz przechowywania tych metadanych. Ze względu na zgodność może być konieczne tooensure danych przechowywanych w określonym regionie.
 
 ## <a name="resource-providers"></a>Dostawcy zasobów
-Każdy dostawca zasobów udostępnia zestaw zasobów i operacji do pracy z usługą platformy Azure. Na przykład w celu przechowywania kluczy i kluczy tajnych należy użyć dostawcy zasobów **Microsoft.KeyVault**. Ten dostawca zasobów udostępnia typ zasobu o nazwie **magazyny** umożliwiający utworzenie magazynu kluczy. 
+Każdy dostawca zasobów udostępnia zestaw zasobów i operacji do pracy z usługą platformy Azure. Na przykład, jeśli chcesz toostore kluczy i kluczy tajnych, pracy z hello **Microsoft.KeyVault** dostawcy zasobów. Ten dostawca zasobów udostępnia typ zasobu o nazwie **magazynów** tworzenia hello magazynu kluczy. 
 
-Nazwa typu zasobu ma następujący format: **{dostawca_zasobów}/{typ_zasobu}**. Typ magazynu kluczy to na przykład **Microsoft.KeyVault/vaults**.
+Nazwa Hello typu zasobu jest w formacie hello: **{dostawcy zasobów} / {typ zasobu}**. Na przykład typ magazynu kluczy hello jest **Microsoft.KeyVault/vaults**.
 
-Przed rozpoczęciem wdrażania zasobów należy uzyskać wiedzę na temat dostępnych dostawców zasobów. Znajomość nazw zasobów i ich dostawców pomaga określić zasoby, które mają zostać wdrożone na platformie Azure. Dodatkowo trzeba znać prawidłowe lokalizacje i wersje interfejsów API dla każdego typu zasobu. Aby uzyskać więcej informacji, zobacz [Dostawcy zasobów i ich typy](resource-manager-supported-services.md).
+Przed rozpoczęciem pracy z zasobami wdrażania, należy uzyskać zrozumienia hello dostępnych dostawców zasobów. Znajomość hello nazwy zasobu dostawców i zasobów pozwala zdefiniować zasoby, które mają toodeploy tooAzure. Ponadto należy tooknow hello prawidłowych lokalizacji i wersje interfejsu API dla każdego typu zasobu. Aby uzyskać więcej informacji, zobacz [Dostawcy zasobów i ich typy](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
-Usługa Resource Manager umożliwia utworzenie szablonu (w formacie JSON) do definiowania infrastruktury i konfiguracji rozwiązania platformy Azure. Dzięki szablonowi można wielokrotnie wdrażać rozwiązanie w całym jego cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. W przypadku tworzenia rozwiązania z portalu rozwiązanie automatycznie zawiera szablon wdrożenia. Nie trzeba tworzyć szablonu od początku — można zacząć od szablonu istniejącego rozwiązania i dostosować go do konkretnych potrzeb. Aby uzyskać szablon dla istniejącej grupy zasobów, można wyeksportować bieżący stan grupy lub skorzystać z szablonu użytego do określonego wdrożenia. Przeglądając [wyeksportowany szablon](resource-manager-export-template.md), można poznać jego składnię.
+Usługa Resource Manager można utworzyć szablon (w formacie JSON), który definiuje hello infrastrukturze i konfiguracji rozwiązania Azure. Dzięki szablonowi można wielokrotnie wdrażać rozwiązanie w całym jego cyklu życia z gwarancją spójnego stanu zasobów po każdym wdrożeniu. Po utworzeniu rozwiązania z portalu hello hello rozwiązanie automatycznie zawiera szablon wdrożenia. Nie masz toocreate szablonu od początku, ponieważ można uruchomić z szablonem hello rozwiązania i dostosować go toomeet określonych potrzeb. Szablon dla istniejącej grupy zasobów można pobrać przez eksportowanie hello bieżący stan grupy zasobów hello lub wyświetlanie hello szablon używany do konkretnego wdrożenia. Wyświetlanie hello [wyeksportowanego szablonu](resource-manager-export-template.md) jest pomocny sposób toolearn o składni szablonu hello.
 
-Aby dowiedzieć się więcej o formacie szablonu i sposobie jego konstruowania, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md). Aby wyświetlić składnię JSON dla typów zasobów, zobacz [Define resources in Azure Resource Manager templates](/azure/templates/) (Definiowanie zasobów w szablonach usługi Azure Resource Manager).
+toolearn o formacie hello hello szablonu i konstrukcji, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md). Witaj tooview składni JSON dla typów zasobów, zobacz [zdefiniować zasoby w szablonach usługi Azure Resource Manager](/azure/templates/).
 
-W usłudze Resource Manager szablon jest przetwarzany jak wszystkie pozostałe żądania (zobacz ilustrację przedstawiającą [Spójną warstwę zarządzania](#consistent-management-layer)). Szablon jest analizowany, a jego składnia zostaje poddana konwersji do operacji interfejsu API REST dla odpowiednich dostawców zasobów. Na przykład, gdy usługa Resource Manager odbiera szablon o następującej definicji zasobu:
+Menedżer zasobów przetwarza hello szablonu, podobnie jak inne żądanie (zobacz obraz powitania [spójna warstwa zarządzania](#consistent-management-layer)). Analizuje szablon hello, a konwertuje jego składni na operacje interfejsu API REST dla dostawców zasobów odpowiednie hello. Na przykład gdy Menedżer zasobów otrzymuje szablonu z powitania po definicji zasobu:
 
 ```json
 "resources": [
@@ -108,7 +108,7 @@ W usłudze Resource Manager szablon jest przetwarzany jak wszystkie pozostałe �
 ]
 ```
 
-Konwertuje definicję do następującej operacji interfejsu API REST, która zostaje wysłana do dostawcy zasobów Microsoft.Storage:
+Konwertuje następującej operacji interfejsu API REST, który jest wysyłany dostawcy zasobów Microsoft.Storage toohello toohello definicji hello:
 
 ```HTTP
 PUT
@@ -125,29 +125,29 @@ REQUEST BODY
 }
 ```
 
-Sposób definiowania szablonów i grup zasobów zależy wyłącznie od użytkownika, podobnie jak sposób zarządzania rozwiązaniem. Można na przykład wdrożyć aplikację trójwarstwową za pomocą jednego szablonu do pojedynczej grupy zasobów.
+Jak zdefiniować szablony i grupy zasobów to całkowicie maksymalnie tooyou oraz sposób toomanage rozwiązania. Na przykład w przypadku wdrażania aplikacji trzy warstwy za pomocą jednego szablonu tooa pojedyncza grupa zasobów.
 
 ![szablon trójwarstwowy](./media/resource-group-overview/3-tier-template.png)
 
-Nie trzeba jednak definiować całej infrastruktury w jednym szablonie. Często dobrym rozwiązaniem jest podział wymagań dotyczących wdrożenia na szablony przeznaczone do określonego celu. Te szablony mogą bez problemu być używane wielokrotnie w różnych rozwiązaniach. Aby wdrożyć dane rozwiązanie, należy utworzyć szablon wzorcowy połączony ze wszystkimi wymaganymi szablonami. Na poniższej ilustracji przedstawiono sposób wdrażania rozwiązania trójwarstwowego za pomocą szablonu nadrzędnego, który zawiera trzy szablony zagnieżdżone.
+Jednak nie ma toodefine całej infrastruktury w jednym szablonie. Często dobrym toodivide znaczeniu wymagań dotyczących wdrożenia do zestawu docelowego, specyficzne dla celu szablonów. Te szablony mogą bez problemu być używane wielokrotnie w różnych rozwiązaniach. toodeploy danego rozwiązania, utworzyć szablon wzorcowy połączony wszystkie szablony hello wymagane. Witaj Poniższa ilustracja przedstawia przykładowy sposób toodeploy rozwiązania trzy warstwy za pomocą szablonu nadrzędnego, który obejmuje trzy zagnieżdżone szablony.
 
 ![zagnieżdżony szablon warstwowy](./media/resource-group-overview/nested-tiers-template.png)
 
-Jeśli przewidujesz, że warstwy będą miały osobne cykle, możesz wdrożyć trzy warstwy do osobnych grup zasobów. Należy pamiętać, że zasoby mogą nadal być powiązane z zasobami w innych grupach zasobów.
+Jeśli zgodnie z warstw mających oddzielne cykle, można wdrożyć trzy warstwy tooseparate grupy zasobów. Powiadomienie hello zasobami nadal mogą być połączone tooresources w innych grup zasobów.
 
 ![szablon warstwowy](./media/resource-group-overview/tier-templates.png)
 
 Więcej rozwiązań dotyczących projektowania szablonów można znaleźć w temacie [Patterns for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) (Wzorce projektowania szablonów usługi Azure Resource Manager). Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md) (Używanie szablonów połączonych w usłudze Azure Resource Manager).
 
-Usługa Azure Resource Manager analizuje zależności i sprawdza, czy zasoby są tworzone we właściwej kolejności. Jeśli jeden zasób opiera się na wartości z innego zasobu (na przykład maszyna wirtualna wymagająca konta magazynu na potrzeby dysków), ustawiana jest zależność. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
+Usługa Azure Resource Manager analizuje zależności tooensure zasoby są tworzone we właściwej kolejności hello. Jeśli jeden zasób opiera się na wartości z innego zasobu (na przykład maszyna wirtualna wymagająca konta magazynu na potrzeby dysków), ustawiana jest zależność. Aby uzyskać więcej informacji, zobacz [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md) (Definiowanie zależności w szablonach usługi Azure Resource Manager).
 
-Szablonu można także używać w celu aktualizacji infrastruktury. Można na przykład dodać zasób do rozwiązania lub dodać reguły konfiguracji dla już wdrożonych zasobów. Jeśli szablon służy do utworzenia zasobu, ale ten zasób już istnieje, usługa Azure Resource Manager przeprowadzi aktualizację, zamiast tworzyć nowy element zawartości. Usługa Azure Resource Manager zaktualizuje istniejący zasób do stanu określonego dla nowego zasobu.  
+Umożliwia także szablonu hello infrastruktury toohello aktualizacji. Można na przykład dodać rozwiązanie tooyour zasobów i dodać reguły konfiguracji hello zasobów, które są już wdrożone. Jeśli szablon hello określa tworzenie zasobu, ale ten zasób już istnieje, usługi Azure Resource Manager przeprowadzi aktualizację, zamiast tworzyć nowy zasób. Azure Resource Manager aktualizacje hello istniejących zasobów toohello sam stan, ponieważ byłaby nowego.  
 
-Usługa Resource Manager zapewnia rozszerzenia na potrzeby sytuacji, gdy potrzebne są dodatkowe operacje, które nie są uwzględnione w konfiguracji (np. zainstalowanie konkretnego oprogramowania). Jeśli używasz już usługi do zarządzania konfiguracją, takiej jak DSC, Chef lub Puppet, dzięki rozszerzeniom możesz z nią dalej bez przeszkód pracować. Aby uzyskać informacje o rozszerzeniach i funkcjach maszyn wirtualnych, zobacz [Informacje o rozszerzeniach i funkcjach maszyn wirtualnych](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Resource Manager zapewnia rozszerzenia dla scenariuszy, gdy potrzebne są dodatkowe operacje, takie jak zainstalowanie konkretnego oprogramowania, które nie są uwzględnione w Instalatorze hello. Jeśli używasz już usługi do zarządzania konfiguracją, takiej jak DSC, Chef lub Puppet, dzięki rozszerzeniom możesz z nią dalej bez przeszkód pracować. Aby uzyskać informacje o rozszerzeniach i funkcjach maszyn wirtualnych, zobacz [Informacje o rozszerzeniach i funkcjach maszyn wirtualnych](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Ponadto szablon staje się częścią kodu źródłowego aplikacji. Można go zaewidencjonować w repozytorium kodu źródłowego i aktualizować w miarę rozwijania aplikacji. Do edycji szablonu można używać programu Visual Studio.
+Na koniec szablon hello staje się częścią hello kodu źródłowego aplikacji. Można go zaewidencjonować repozytorium kodu źródłowego tooyour i aktualizować w miarę rozwijania aplikacji. Można edytować hello szablonu za pomocą programu Visual Studio.
 
-Po zdefiniowaniu szablonu można przystąpić do wdrażania zasobów na platformie Azure. Aby poznać polecenia służące do wdrażania zasobów, zobacz:
+Po zdefiniowaniu szablonu, wszystko jest gotowe toodeploy hello zasobów tooAzure. Hello polecenia toodeploy hello zasobów Zobacz:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i programu Azure PowerShell)](resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)](resource-group-template-deploy-cli.md)
@@ -155,11 +155,11 @@ Po zdefiniowaniu szablonu można przystąpić do wdrażania zasobów na platform
 * [Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)](resource-group-template-deploy-rest.md)
 
 ## <a name="tags"></a>Tagi
-Usługa Resource Manager udostępnia funkcję tagowania umożliwiającą dzielenie zasobów na kategorie zgodnie z wymaganiami zarządzania lub rozliczeń. Tagi są przydatne w przypadku złożonych kolekcji grup zasobów i zasobów, które trzeba uporządkować wizualnie w możliwie logicznej formie. Można na przykład oznaczyć tagami zasoby, które pełnią podobną rolę w organizacji lub należą do tego samego działu. Bez użycia tagów użytkownicy w organizacji mogą tworzyć wiele zasobów, które będą później bardzo trudne do znalezienia i zarządzania. Na przykład możesz chcieć usunąć wszystkie zasoby dla określonego projektu. Jeśli te zasoby nie są opatrzone tagiem dla projektu, trzeba je znaleźć ręcznie. Tagowanie może być istotnym sposobem na zredukowanie niepotrzebnych kosztów w ramach subskrypcji. 
+Resource Manager udostępnia funkcję tagowania umożliwiającą toocategorize zasobów zgodnie z wymaganiami tooyour zarządzania lub rozliczeń. Używaj tagów po złożonych kolekcji grup zasobów i zasobów oraz muszą toovisualize tych zasobów w hello sposób hello większości tooyou znaczeniu. Na przykład znakować zasoby, które pełnią podobną rolę w organizacji lub należą toohello samego działu. Bez tagów, użytkownicy w organizacji można utworzyć wiele zasobów, które mogą być trudne toolater identyfikowania i zarządzania nim. Na przykład możesz toodelete wszystkie zasoby hello z określonego projektu. Jeśli te zasoby nie są oznaczone dla projektu hello, należy je znaleźć toomanually. Tagowanie może być istotnym sposobem tooreduce niepotrzebnych kosztów w ramach subskrypcji. 
 
-Zasoby mogą być oznaczone tym samym tagiem, nawet jeśli nie znajdują się w tej samej grupie zasobów. Można utworzyć własną taksonomię tagów, aby mieć pewność, że wszyscy użytkownicy w organizacji używają tych samych tagów. Dzięki temu uniknie się pomyłek wynikających z użycia podobnych tagów (na przykład „wydział” zamiast „dział”).
+Zasoby nie są tooreside w hello tego samego zasobu grupy tooshare tag. Możesz utworzyć własne tooensure taksonomii tag, że wszyscy użytkownicy w organizacji używać typowych tagów zamiast użytkowników przypadkowo stosowania nieco inne tagów (na przykład "Wydział" zamiast "dział").
 
-W poniższym przykładzie przedstawiono tag zastosowany względem maszyny wirtualnej.
+Witaj poniższy przykład przedstawia maszynę wirtualną tooa Znacznik zastosowany.
 
 ```json
 "resources": [    
@@ -176,66 +176,66 @@ W poniższym przykładzie przedstawiono tag zastosowany względem maszyny wirtua
 ]
 ```
 
-Aby pobrać wszystkie zasoby z wartością tagu, użyj następującego polecenia cmdlet programu PowerShell:
+Użyj wszystkich zasobów hello z wartością tagu tooretrieve hello następującego polecenia cmdlet programu PowerShell:
 
 ```powershell
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Innym rozwiązaniem jest użycie następującego polecenia interfejsu wiersza polecenia platformy Azure w wersji 2.0:
+Lub hello następujące polecenia 2.0 interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli
 az resource list --tag costCenter=Finance
 ```
 
-Oznakowane zasoby można również wyświetlić za pośrednictwem witryny Azure Portal.
+Można również wyświetlić oznakowanych zasobów za pomocą hello portalu Azure.
 
-[Raport użycia](../billing/billing-understand-your-bill.md) dla subskrypcji obejmuje nazwy i wartości tagów, co pozwala na rozbicie kosztów według tagów. Aby uzyskać więcej informacji na temat tagów, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](resource-group-using-tags.md).
+Witaj [raport użycia](../billing/billing-understand-your-bill.md) dla Twoja subskrypcja obejmuje tag nazwy i wartości, co pozwala toobreak limit koszty według znaczników. Aby uzyskać więcej informacji na temat tagów, zobacz [używanie tagów tooorganize zasobów platformy Azure](resource-group-using-tags.md).
 
 ## <a name="access-control"></a>Kontrola dostępu
-Usługa Resource Manager pozwala kontrolować, kto może wykonywać określone czynności w organizacji. Zapewnia ona natywną integrację kontroli dostępu opartej na rolach (RBAC, role-based access control) z platformą zarządzania, umożliwiając stosowanie kontroli dostępu do wszystkich usług w grupie zasobów. 
+Menedżer zasobów pozwala toocontrol mającego dostęp toospecific akcje dla Twojej organizacji. Natywnie integruje kontroli dostępu opartej na rolach (RBAC) hello platformy zarządzania i stosuje tej usługi tooall kontroli dostępu w grupie zasobów. 
 
-W przypadku pracy przy użyciu kontroli dostępu opartej na rolach warto zapoznać się z dwoma najważniejszymi pojęciami:
+Istnieją dwa główne pojęcia toounderstand podczas pracy z kontroli dostępu opartej na rolach:
 
 * Definicje ról — opisują zestaw uprawnień i można ich używać w wielu przypisaniach.
-* Przypisania ról — kojarzą definicję z tożsamością (użytkownikiem lub grupą) dla określonego zakresu (subskrypcji, grupy zasobów lub zasobu). Przypisanie jest dziedziczone przez niższe zakresy.
+* Przypisania ról — kojarzą definicję z tożsamością (użytkownikiem lub grupą) dla określonego zakresu (subskrypcji, grupy zasobów lub zasobu). Przypisanie Hello jest dziedziczona przez niższe zakresów.
 
-Można dodać użytkowników do wstępnie zdefiniowanej platformy i ról określonych zasobów. Na przykład można skorzystać ze wstępnie zdefiniowanej roli o nazwie Czytelnik, która pozwala użytkownikom na wyświetlanie zasobów, ale nie na ich zmianę. Wystarczy dodać użytkowników w organizacji, którzy potrzebują tego typu dostępu, do roli Czytelnik i zastosować rolę do subskrypcji, grupy zasobów lub zasobu.
+Możesz dodać platformy zdefiniowane toopre użytkowników i ról określonych zasobów. Na przykład można wykorzystać hello wstępnie zdefiniowanej roli o nazwie Reader, który pozwala użytkownikom tooview zasobów, ale nie można ich zmienić. Dodawanie użytkowników w organizacji, którzy potrzebują tego typu rolę czytelnika toohello dostępu i Zastosuj hello roli toohello subskrypcji, grupy zasobów lub zasobów.
 
-Platforma Azure udostępnia cztery następujące role platformy:
+Platforma Azure udostępnia następujące cztery role platformy hello:
 
 1. Właściciel — może zarządzać wszystkim, łącznie z dostępem
 2. Współautor — może zarządzać wszystkim oprócz dostępu
 3. Czytelnik — może przeglądać wszystko, ale nie może wprowadzać zmian
-4. Administrator dostępu użytkownika — może zarządzać dostępem użytkowników do zasobów platformy Azure
+4. Administrator dostępu użytkowników — zarządzanie zasobami tooAzure dostępu użytkownika
 
 Platforma Azure udostępnia kilka ról specyficznych dla zasobów. Niektóre typowe z nich to:
 
-1. Współautor maszyny wirtualnej — może zarządzać maszynami wirtualnymi, ale nie może udzielać dostępu do nich ani nie może zarządzać siecią wirtualną lub kontem magazynu, do którego te maszyny wirtualne są podłączone
-2. Współautor sieci — może zarządzać wszystkimi zasobami sieci, ale nie może udzielać dostępu do nich
-3. Współautor konta magazynu — może zarządzać kontami magazynu, ale nie może udzielać dostępu do nich
+1. Współautor maszyny wirtualnej — można zarządzać maszynami wirtualnymi, ale nie przyznania dostępu toothem i nie może zarządzać hello wirtualnych sieci lub magazynu konta toowhich gdy są połączeni
+2. Współautor sieci — zarządzanie wszystkich zasobów sieciowych, ale nie przyznania dostępu toothem
+3. Współautor konta magazynu — Zarządzanie kontami magazynu, ale nie przyznania dostępu toothem
 4. Współautor serwera SQL — może zarządzać bazami danych i serwerami SQL, ale nie ich zasadami związanymi z zabezpieczeniami
-5. Współautor witryny sieci Web — może zarządzać witrynami sieci Web, ale nie planami sieci Web, do których są podłączone
+5. Współautor witryny sieci Web — Zarządzanie witryn sieci Web, ale nie hello toowhich planów sieci web, które są połączone
 
-Aby uzyskać pełną listę ról i dozwolonych akcji, zobacz [Kontrola dostępu oparta na rolach (RBAC): wbudowane role](../active-directory/role-based-access-built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu na podstawie ról, zobacz temat [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) (Kontrola dostępu na podstawie ról na platformie Azure). 
+Witaj pełną listę ról i dozwolonych akcji, zobacz [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md). Aby uzyskać więcej informacji na temat kontroli dostępu na podstawie ról, zobacz temat [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) (Kontrola dostępu na podstawie ról na platformie Azure). 
 
-W niektórych przypadkach istnieje potrzeba uruchomienia kodu lub skryptu, który uzyskuje dostęp do zasobów, ale nie ma zostać uruchomiony w ramach poświadczeń użytkownika. Zamiast tego ma zostać utworzona jednostka usługi dla aplikacji. Do tej jednostki usługi ma następnie zostać przypisana odpowiednia rola. Usługa Resource Manager umożliwia tworzenie poświadczeń dla aplikacji i programowe uwierzytelnianie aplikacji. Aby dowiedzieć się więcej o tworzeniu jednostek usług, zobacz jeden z następujących tematów:
+W niektórych przypadkach ma toorun kod lub skrypt, który uzyskuje dostęp do zasobów, ale nie chcesz toorun go w ramach poświadczeń użytkownika. Zamiast tego chcesz toocreate tożsamości o nazwie Usługa główna aplikacji hello i przypisz hello odpowiednią rolę dla nazwy głównej usługi hello. Menedżer zasobów pozwala toocreate poświadczenia dla aplikacji hello i programowo uwierzytelniania aplikacji hello. toolearn o tworzeniu nazwy główne usług, zobacz jedną z następujących tematach:
 
-* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](resource-group-authenticate-service-principal.md)
-* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](resource-group-authenticate-service-principal-cli.md)
-* [Use portal to create Azure Active Directory application and service principal that can access resources (Używanie portalu do tworzenia aplikacji usługi Azure Active Directory i jednostki usługi używanej do uzyskiwania dostępu do zasobów)](resource-group-create-service-principal-portal.md)
+* [Użyj programu Azure PowerShell toocreate zasobów tooaccess głównej usługi](resource-group-authenticate-service-principal.md)
+* [Użyj interfejsu wiersza polecenia Azure toocreate zasobów tooaccess głównej usługi](resource-group-authenticate-service-principal-cli.md)
+* [Użyj portalu toocreate aplikacji usługi Azure Active Directory i nazwy głównej usługi, który ma dostęp do zasobów](resource-group-create-service-principal-portal.md)
 
-Można również jawnie zablokować dostęp do kluczowych zasobów, aby uniemożliwić użytkownikom ich usuwanie i modyfikowanie. Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](resource-group-lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
+Można również jawnie zablokować kluczowych zasobów tooprevent użytkownikom ich usuwanie i modyfikowanie. Aby uzyskać więcej informacji, zobacz [Lock resources with Azure Resource Manager](resource-group-lock-resources.md) (Blokowanie zasobów w usłudze Azure Resource Manager).
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
-Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Dzienników aktywności można użyć do znalezienia błędu podczas rozwiązywania problemów lub do monitorowania sposobu, w jaki zasób został zmodyfikowany przez użytkownika w organizacji. Aby wyświetlić dzienniki, wybierz pozycję **Dzienniki aktywności** w bloku **Ustawienia** dla grupy zasobów. Dzienniki można filtrować według wielu różnych wartości, w tym według użytkownika, który zainicjował operację. Aby uzyskać informacje dotyczące pracy z dziennikami aktywności, zobacz [View activity logs to manage Azure resources](resource-group-audit.md) (Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure).
+Usługa Resource Manager rejestruje wszystkie operacje służące do tworzenia, modyfikowania lub usuwania zasobu. Możesz użyć toofind Dzienniki aktywności hello wystąpił błąd podczas rozwiązywania problemu lub toomonitor jak użytkownik w organizacji zmienić zasobu. toosee hello dzienników, wybierz **Dzienniki aktywności** w hello **ustawienia** bloku grupy zasobów. Dzienniki hello można filtrować według wielu różnych wartości w tym która operacja hello zainicjowanej przez użytkownika. Uzyskać informacji na temat pracy z dziennikami działania hello, zobacz [toomanage Azure Dzienniki aktywności widok zasobów](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Zasady niestandardowe
-Usługa Resource Manager umożliwia tworzenie zasad niestandardowych na potrzeby zarządzania zasobami. Typy tworzonych zasad mogą obejmować różne scenariusze. Można wymusić konwencję nazewnictwa zasobów, ograniczyć typy i wystąpienia zasobów, które można wdrożyć, lub wprowadzić ograniczenia dotyczące regionów, które mogą hostować dany typ zasobu. Można wymagać wartości tagu dla zasobów w celu organizowania rozliczania według działów. Tworzenie zasad umożliwia obniżenie kosztów i zachowanie spójności w ramach subskrypcji. 
+Menedżer zasobów pozwala toocreate dostosowane zasady zarządzania zasobami. Witaj typów można tworzyć zasady mogą obejmować różnych scenariuszy. Można wymusić konwencję nazewnictwa zasobów, ograniczyć typy i wystąpienia zasobów, które można wdrożyć, lub wprowadzić ograniczenia dotyczące regionów, które mogą hostować dany typ zasobu. Możesz wymagać wartości tagów na zasoby tooorganize rozliczeń według działów. Tworzenie zasad toohelp obniżenie kosztów i zachowanie spójności w ramach subskrypcji. 
 
-Zasady są definiowane za pomocą pliku JSON, a następnie stosowane w ramach subskrypcji lub grupy zasobów. Zasady są inne niż kontrola dostępu oparta na rolach, ponieważ są stosowane względem typów zasobów.
+Zasady są definiowane za pomocą pliku JSON, a następnie stosowane w ramach subskrypcji lub grupy zasobów. Zasady są inne niż kontroli dostępu opartej na rolach, ponieważ są one stosowane tooresource typów.
 
-W poniższym przykładzie przedstawiono zasady, które zapewniają spójność tagów dzięki określeniu, że wszystkie zasoby zawierają tag costCenter.
+Witaj poniższy przykład przedstawia zasady, które powodują tag spójności, określając, że wszystkie zasoby obejmują costCenter tag.
 
 ```json
 {
@@ -251,7 +251,7 @@ W poniższym przykładzie przedstawiono zasady, które zapewniają spójność t
 }
 ```
 
-Można utworzyć o wiele więcej typów zasad. Aby uzyskać więcej informacji, zobacz [Use Policy to manage resources and control access](resource-manager-policy.md) (Zarządzanie zasobami i kontrola dostępu przy użyciu zasad).
+Można utworzyć o wiele więcej typów zasad. Aby uzyskać więcej informacji, zobacz [zasady toomanage zasobów i kontroli dostępu](resource-manager-policy.md).
 
 ## <a name="sdks"></a>Zestawy SDK
 Zestawy Azure SDK są dostępne dla wielu języków i platform. Implementacje dla poszczególnych języków są dostępne za pośrednictwem menedżera pakietów danego ekosystemu oraz w usłudze GitHub.
@@ -273,14 +273,14 @@ Aby uzyskać informacje na temat korzystania z tych języków do obsługi zasob�
 * [Azure dla deweloperów języka Python](/python/azure/)
 
 > [!NOTE]
-> Jeśli dany zestaw SDK nie udostępnia wymaganych funkcji, możesz również bezpośrednio wywołać [interfejs API REST platformy Azure](https://docs.microsoft.com/rest/api/resources/).
+> Jeśli hello zestawu SDK nie hello wymagane funkcje, należy także wywołać toohello [interfejsu API REST Azure](https://docs.microsoft.com/rest/api/resources/) bezpośrednio.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-* Artykuł [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md) zawiera proste instrukcje dotyczące pracy z szablonami.
+* Aby tooworking krótkie wprowadzenie z szablonami, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 * Bardziej szczegółowe instrukcje dotyczące tworzenia szablonu zawiera artykuł [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md).
-* Aby poznać funkcje, których można użyć w szablonie, zobacz [Template functions](resource-group-template-functions.md) (Funkcje szablonu).
+* Funkcje hello toounderstand można użyć w szablonie, zobacz [funkcje szablonów](resource-group-template-functions.md)
 * Aby uzyskać informacje dotyczące korzystania z programu Visual Studio w połączeniu z usługą Resource Manager, zobacz [Tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 Oto film z omówieniem tego zagadnienia:

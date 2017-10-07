@@ -1,6 +1,6 @@
 ---
-title: "Parametry wejściowe elementu Runbook | Dokumentacja firmy Microsoft"
-description: "Parametry wejściowe elementu Runbook zwiększyć elastyczność elementów runbook, umożliwiając przekazywania danych do elementu runbook, gdy jest ona uruchamiana. W tym artykule opisano różne scenariusze, w których są używane parametry wejściowe w elementach runbook."
+title: "Parametry wejściowe aaaRunbook | Dokumentacja firmy Microsoft"
+description: "Parametry wejściowe elementu Runbook zwiększyć elastyczność hello elementów runbook, zezwalając toopass danych tooa runbook po jego uruchomieniu. W tym artykule opisano różne scenariusze, w których są używane parametry wejściowe w elementach runbook."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 1ebf32338f5242e72eb2e2daa2da50d231f4b683
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f3abaf92382e7d41019616bafb14af23cf98dd9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="runbook-input-parameters"></a>Parametry wejściowe elementu Runbook
-Parametry wejściowe elementu Runbook zwiększyć elastyczność elementów runbook, umożliwiając przekazywania danych do niej po uruchomieniu. Parametry Zezwalaj na działania elementu runbook, które można zastosować dla określonych scenariuszach i środowiskach. W tym artykule firma Microsoft pomoże różnych scenariuszy gdzie parametry wejściowe są używane w elementach runbook.
+Parametry wejściowe elementu Runbook zwiększyć elastyczność hello elementów runbook, zezwalając toopass tooit danych podczas jej uruchamiania. Parametry Hello mogą zostać toobe działania elementu runbook hello przeznaczone dla określonych scenariuszach i środowiskach. W tym artykule firma Microsoft pomoże różnych scenariuszy gdzie parametry wejściowe są używane w elementach runbook.
 
 ## <a name="configure-input-parameters"></a>Skonfiguruj parametry wejściowe
-Parametry wejściowe można skonfigurować w programie PowerShell, przepływu pracy programu PowerShell i graficznych elementów runbook. Element runbook może mieć wiele parametrów o różnych typach danych lub Brak parametrów w ogóle. Parametry wejściowe mogą być wymagane lub opcjonalne i można przypisać wartości domyślnej dla parametrów opcjonalnych. Po ponownym uruchomieniu za pomocą jednego z dostępnych metod, można przypisać wartości do parametrów wejściowych dla elementu runbook. Te metody obejmują uruchamianie elementu runbook z portalu lub usługi sieci web. Można również uruchomić jako podrzędnego elementu runbook, wywoływaną wbudowanego innego elementu runbook.
+Parametry wejściowe można skonfigurować w programie PowerShell, przepływu pracy programu PowerShell i graficznych elementów runbook. Element runbook może mieć wiele parametrów o różnych typach danych lub Brak parametrów w ogóle. Parametry wejściowe mogą być wymagane lub opcjonalne i można przypisać wartości domyślnej dla parametrów opcjonalnych. Można przypisać wartości na toohello parametry wejściowe elementu runbook podczas uruchamiania za pomocą jednego z dostępnych metod hello. Te metody obejmują uruchamianie elementu runbook z portalu hello lub usługi sieci web. Można również uruchomić jako podrzędnego elementu runbook, wywoływaną wbudowanego innego elementu runbook.
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Skonfiguruj parametry wejściowe w elementach runbook programu PowerShell i przepływ pracy programu PowerShell
-Środowiska PowerShell i [elementach runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md) automatyzacji Azure obsługuje parametry wejściowe zdefiniowane za pomocą następujących atrybutów.  
+Środowiska PowerShell i [elementach runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md) automatyzacji Azure obsługuje parametry wejściowe zdefiniowane za pomocą hello następujące atrybuty.  
 
 | **Właściwość** | **Opis** |
 |:--- |:--- |
-| Typ |Wymagane. Typ danych dla wartości parametru. Dowolny typ .NET jest prawidłowy. |
-| Nazwa |Wymagane. Nazwa parametru. To musi być unikatowe w obrębie elementu runbook i mogą zawierać tylko litery, cyfry lub znaki podkreślenia. Musi ona rozpoczynać się od litery. |
-| Obowiązkowy |Opcjonalny. Określa, czy należy podać wartość parametru. Jeśli ustawisz to **$true**, a następnie po uruchomieniu elementu runbook, należy podać wartość. Jeśli ustawisz to **$false**, a następnie wartość jest opcjonalna. |
-| Wartość domyślna |Opcjonalny.  Określa wartość, która będzie używana dla parametru, jeśli wartość nie zostanie przekazany, po uruchomieniu elementu runbook. Wartość domyślna można ustawić dla każdego parametru i automatycznie wprowadzi parametr opcjonalny niezależnie od ustawienia obowiązkowe. |
+| Typ |Wymagany. Oczekiwano wartości parametru hello typu danych Hello. Dowolny typ .NET jest prawidłowy. |
+| Nazwa |Wymagany. Nazwa Hello hello parametru. To musi być unikatowe w obrębie hello elementu runbook i może zawierać tylko litery, cyfry lub znaki podkreślenia. Musi ona rozpoczynać się od litery. |
+| Obowiązkowy |Opcjonalny. Określa, czy należy podać wartość parametru hello. Jeśli ustawisz to zbyt**$true**, a następnie po uruchomieniu elementu runbook hello, należy podać wartość. Jeśli ustawisz to zbyt**$false**, a następnie wartość jest opcjonalna. |
+| Wartość domyślna |Opcjonalny.  Określa wartość, która będzie służyć hello parametru, jeśli wartość nie zostanie przekazany, po uruchomieniu elementu runbook hello. Wartość domyślna można ustawić dla każdego parametru i automatycznie wprowadzi hello parametr opcjonalny niezależnie od hello obowiązkowego ustawienia. |
 
-Program Windows PowerShell obsługuje więcej atrybutów parametrów wejściowych niż wymienione w tym miejscu, takich jak sprawdzanie poprawności, aliasy i zestawy parametrów. Automatyzacja Azure obsługuje obecnie tylko parametry wejściowe wymienionych powyżej.
+Program Windows PowerShell obsługuje więcej atrybutów parametrów wejściowych niż wymienione w tym miejscu, takich jak sprawdzanie poprawności, aliasy i zestawy parametrów. Automatyzacja Azure obsługuje obecnie tylko hello parametrów wejściowych wymienionych powyżej.
 
-Definicję parametrów w elementach runbook przepływu pracy programu PowerShell ma następujący format Ogólne, gdzie wiele parametrów są oddzielone przecinkami.
+Definicję parametrów w elementach runbook przepływu pracy programu PowerShell ma hello następujące ogólne formularza, gdzie wiele parametrów są oddzielone przecinkami.
 
    ```
      Param
@@ -52,51 +52,51 @@ Definicję parametrów w elementach runbook przepływu pracy programu PowerShell
    ```
 
 > [!NOTE]
-> Podczas definiowania parametrów, jeśli nie określisz **obowiązkowe** atrybutu, a następnie domyślnie parametr są traktowane jako opcjonalne. Ponadto jeśli ustawisz wartość domyślną dla parametru w elementach runbook przepływu pracy programu PowerShell, będzie traktowane przez programu PowerShell jako opcjonalny parametr niezależnie od tego **obowiązkowe** wartość atrybutu.
+> Podczas definiowania parametrów, jeśli nie określisz hello **obowiązkowe** atrybutu, a następnie domyślnie parametr hello są traktowane jako opcjonalne. Ponadto jeśli ustawisz wartość domyślną dla parametru w elementach runbook przepływu pracy programu PowerShell, będzie traktowane przez programu PowerShell jako opcjonalny parametr, niezależnie od hello **obowiązkowe** wartość atrybutu.
 > 
 > 
 
-Na przykład Skonfigurujmy parametry wejściowe elementu runbook przepływu pracy programu PowerShell, która wyświetla szczegółowe informacje o maszynach wirtualnych, jednej maszyny Wirtualnej lub wszystkich maszyn wirtualnych w grupie zasobów. Ten element runbook zawiera dwa parametry, jak pokazano na poniższym zrzucie ekranu: Nazwa maszyny wirtualnej i nazwę grupy zasobów.
+Na przykład Skonfigurujmy hello parametry wejściowe elementu runbook przepływu pracy programu PowerShell, która wyświetla szczegółowe informacje o maszynach wirtualnych, jednej maszyny Wirtualnej lub wszystkich maszyn wirtualnych w grupie zasobów. Ten element runbook zawiera dwa parametry, jak pokazano w powitania po zrzut ekranu: hello nazwy maszyny wirtualnej oraz nazwy hello hello grupy zasobów.
 
 ![Automatyzacja przepływu pracy programu PowerShell](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
 
-W definicji tego parametru, parametry **$VMName** i **$resourceGroupName** proste parametrów typu ciąg. Jednak elementów runbook programu PowerShell i przepływ pracy programu PowerShell obsługuje wszystkie typy proste i typów złożonych, takie jak **obiektu** lub **PSCredential** dla parametrów wejściowych.
+W tej definicji parametru hello parametry **$VMName** i **$resourceGroupName** proste parametrów typu ciąg. Jednak elementów runbook programu PowerShell i przepływ pracy programu PowerShell obsługuje wszystkie typy proste i typów złożonych, takie jak **obiektu** lub **PSCredential** dla parametrów wejściowych.
 
-Jeśli element runbook ma parametru wejściowego typu obiektu, użyj tablicy skrótów programu PowerShell z (nazwa, wartość) pary do przekazania wartości. Na przykład, jeśli masz następującego parametru w elemencie runbook:
+Jeśli element runbook ma parametru wejściowego typu obiektu, skorzystaj z tablicy skrótów programu PowerShell z (nazwa, wartość) pary toopass wartości. Na przykład, jeśli masz hello następującego parametru w elemencie runbook:
 
      [Parameter (Mandatory = $true)]
      [object] $FullName
 
-Następnie można przekazać następującą wartość parametru:
+Następnie można przekazać następującego parametru toohello wartości hello:
 
     @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Skonfiguruj parametry wejściowe w graficznych elementów runbook
-Aby [skonfigurować graficznym elementem runbook](automation-first-runbook-graphical.md) z parametrami wejściowymi, Utwórzmy graficzny element runbook, która wyświetla szczegółowe informacje o maszynach wirtualnych, albo jednej maszyny Wirtualnej lub wszystkich maszyn wirtualnych w grupie zasobów. Konfigurowanie elementu runbook składa się z dwóch głównych działań, zgodnie z poniższym opisem.
+zbyt[skonfigurować graficznym elementem runbook](automation-first-runbook-graphical.md) z parametrami wejściowymi, Utwórzmy graficzny element runbook, która wyświetla szczegółowe informacje o maszynach wirtualnych, albo jednej maszyny Wirtualnej lub wszystkich maszyn wirtualnych w grupie zasobów. Konfigurowanie elementu runbook składa się z dwóch głównych działań, zgodnie z poniższym opisem.
 
-[**Uwierzytelniania elementów Runbook za pomocą konta Uruchom jako platformy Azure** ](automation-sec-configure-azure-runas-account.md) do uwierzytelniania w usłudze Azure.
+[**Uwierzytelniania elementów Runbook za pomocą konta Uruchom jako platformy Azure** ](automation-sec-configure-azure-runas-account.md) tooauthenticate z platformy Azure.
 
-[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) można pobrać właściwości maszyn wirtualnych.
+[**Get-AzureRmVm** ](https://msdn.microsoft.com/library/mt603718.aspx) tooget hello właściwości maszyn wirtualnych.
 
-Można użyć [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.aspx) działania do wyjściowego nazwy maszyn wirtualnych. Działanie **Get-AzureRmVm** akceptuje dwa parametry **nazwę maszyny wirtualnej** i **Nazwa grupy zasobów**. Ponieważ te parametry można wymaga różne wartości w każdym uruchomieniu elementu runbook, można dodać parametry wejściowe do elementu runbook. Poniżej przedstawiono kroki, aby dodać parametry wejściowe:
+Można użyć hello [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.aspx) nazwy hello toooutput działań maszyn wirtualnych. Witaj działania **Get-AzureRmVm** akceptuje dwa parametry hello **nazwę maszyny wirtualnej** i hello **Nazwa grupy zasobów**. Ponieważ te parametry może wymagać różnych wartości w każdym uruchomieniu elementu runbook hello, można dodać elementu runbook tooyour parametrów wejściowych. Poniżej przedstawiono parametry wejściowe tooadd hello kroki:
 
-1. Wybierz graficzny element runbook z **Runbook** bloku, a następnie kliknij przycisk [ **Edytuj** ](automation-graphical-authoring-intro.md) go.
-2. W edytorze elementów runbook, kliknij polecenie **dane wejściowe i wyjściowe** otworzyć **dane wejściowe i wyjściowe** bloku.
+1. Wybierz hello graficzny element runbook z hello **Runbook** bloku, a następnie kliknij przycisk [ **Edytuj** ](automation-graphical-authoring-intro.md) go.
+2. W edytorze elementów runbook hello, kliknij polecenie **dane wejściowe i wyjściowe** tooopen hello **dane wejściowe i wyjściowe** bloku.
    
     ![Graficzny element runbook automatyzacji](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
-3. **Dane wejściowe i wyjściowe** bloku zostanie wyświetlona lista parametrów wejściowych, które są zdefiniowane dla elementu runbook. W tym bloku należy dodać nowy parametr wejściowy lub Edytuj konfigurację istniejącego parametru wejściowego. Aby dodać nowego parametru dla elementu runbook, kliknij przycisk **dodać dane wejściowe** otworzyć **parametr wejściowy elementu Runbook** bloku. Istnieje można skonfigurować następujące parametry:
+3. Witaj **dane wejściowe i wyjściowe** bloku zostanie wyświetlona lista parametry wejściowe zdefiniowane dla hello elementu runbook. W tym bloku możesz dodać nowego parametru wejściowego lub Edytuj konfigurację hello istniejących parametru wejściowego. tooadd nowy parametr hello elementu runbook, kliknij przycisk **dodać dane wejściowe** tooopen hello **parametr wejściowy elementu Runbook** bloku. Istnieje można skonfigurować hello następujące parametry:
    
    | **Właściwość** | **Opis** |
    |:--- |:--- |
-   | Nazwa |Wymagane.  Nazwa parametru. To musi być unikatowe w obrębie elementu runbook i mogą zawierać tylko litery, cyfry lub znaki podkreślenia. Musi ona rozpoczynać się od litery. |
-   | Opis |Opcjonalny. Opis przeznaczenia parametru wejściowego. |
-   | Typ |Opcjonalny. Typ danych, który jest oczekiwany dla wartości parametru. Typy parametrów obsługiwanych są **ciąg**, **Int32**, **Int64**, **dziesiętną**, **logiczna**, **DateTime**, i **obiektu**. Jeśli typem danych nie jest zaznaczone, domyślnie **ciąg**. |
-   | Obowiązkowy |Opcjonalny. Określa, czy należy podać wartość parametru. Jeśli wybierzesz **tak**, a następnie po uruchomieniu elementu runbook, należy podać wartość. Jeśli wybierzesz **nie**, a następnie wartość nie jest wymagana podczas uruchamiania elementu runbook i może zostać ustawiona wartość domyślna. |
-   | Wartość domyślna |Opcjonalny. Określa wartość, która będzie używana dla parametru, jeśli wartość nie zostanie przekazany, po uruchomieniu elementu runbook. Można ustawić wartości domyślnej dla parametru, który nie jest obowiązkowe. Aby ustawić wartość domyślną, wybierz **niestandardowy**. Ta wartość jest używana, chyba że inna wartość zostanie podana podczas uruchamiania elementu runbook. Wybierz **Brak** , jeśli nie chcesz podać wartości domyślnej. |
+   | Nazwa |Wymagany.  Nazwa Hello hello parametru. To musi być unikatowe w obrębie hello elementu runbook i może zawierać tylko litery, cyfry lub znaki podkreślenia. Musi ona rozpoczynać się od litery. |
+   | Opis |Opcjonalny. Opis przeznaczenia hello parametru wejściowego. |
+   | Typ |Opcjonalny. Typ danych Hello są oczekiwane w przypadku hello wartość parametru. Typy parametrów obsługiwanych są **ciąg**, **Int32**, **Int64**, **dziesiętną**, **logiczna**, **DateTime**, i **obiektu**. Jeśli typem danych nie jest zaznaczone, domyślnie zbyt**ciąg**. |
+   | Obowiązkowy |Opcjonalny. Określa, czy należy podać wartość parametru hello. Jeśli wybierzesz **tak**, a następnie po uruchomieniu elementu runbook hello, należy podać wartość. Jeśli wybierzesz **nie**, a następnie wartość nie jest wymagana, gdy element runbook hello jest uruchomiony i może zostać ustawiona wartość domyślna. |
+   | Wartość domyślna |Opcjonalny. Określa wartość, która będzie służyć hello parametru, jeśli wartość nie zostanie przekazany, po uruchomieniu elementu runbook hello. Można ustawić wartości domyślnej dla parametru, który nie jest obowiązkowe. Wybierz wartość domyślną tooset **niestandardowy**. Ta wartość jest używana, chyba że inna wartość zostanie podana przy uruchamianiu elementu runbook hello. Wybierz **Brak** Jeśli nie chcesz tooprovide dowolną wartość domyślna. |
    
     ![Dodaj nowe dane wejściowe](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. Utwórz dwa parametry o następujących właściwościach, które będą używane przez **Get AzureRmVm** działania:
+4. Utwórz dwa parametry o następujących właściwościach, które będą używane przez hello hello **Get AzureRmVm** działania:
    
    * **Parametr1:**
      
@@ -109,26 +109,26 @@ Można użyć [ **Write-Output** ](https://technet.microsoft.com/library/hh84992
      * Typ — ciąg
      * Obowiązkowy - nr
      * Wartość domyślna — niestandardowy
-     * Wartość domyślna niestandardowe — \<nazwę grupy zasobów, która zawiera maszyny wirtualnej >
-5. Jeśli dodasz parametry, kliknij przycisk **OK**.  Możesz teraz przeglądać w **danych wejściowych i wyjściowych bloku**. Kliknij przycisk **OK** ponownie, a następnie kliknij przycisk **zapisać** i **publikowania** elementu runbook.
+     * Wartość domyślna niestandardowe — \<nazwę grupy zasobów hello, która zawiera maszyny wirtualne hello >
+5. Po dodaniu parametry powitania kliknij **OK**.  Możesz teraz przeglądać w hello **danych wejściowych i wyjściowych bloku**. Kliknij przycisk **OK** ponownie, a następnie kliknij przycisk **zapisać** i **publikowania** elementu runbook.
 
-## <a name="assign-values-to-input-parameters-in-runbooks"></a>Przypisywanie wartości do parametrów w elementach runbook wejściowych
-Można przekazać wartości parametrów w elementach runbook w następujących scenariuszach wejściowych.
+## <a name="assign-values-tooinput-parameters-in-runbooks"></a>Przypisz wartości tooinput parametrów w elementach runbook
+Można jednak przekazać wartości tooinput parametrów w elementach runbook w hello następujące scenariusze.
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Uruchom element runbook i przypisz parametrów
-Element runbook może zostać uruchomiona na wiele sposobów: za pośrednictwem portalu Azure, z elementu webhook, polecenia cmdlet programu PowerShell, przy użyciu interfejsu API REST lub przy użyciu zestawu SDK. Poniżej omówiono różne metody uruchamiania elementu runbook i przypisywanie parametrów.
+Element runbook może zostać uruchomiona na wiele sposobów: przez hello portalu Azure, z elementu webhook, polecenia cmdlet programu PowerShell, interfejsu API REST hello lub hello zestawu SDK. Poniżej omówiono różne metody uruchamiania elementu runbook i przypisywanie parametrów.
 
-#### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Uruchom opublikowanego elementu runbook za pomocą portalu Azure i parametry
-Gdy użytkownik [uruchamiania elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), **Uruchom element Runbook** zostanie otwarty blok i można skonfigurować wartości parametrów, które zostały utworzone.
+#### <a name="start-a-published-runbook-by-using-hello-azure-portal-and-assign-parameters"></a>Uruchom opublikowanego elementu runbook za pomocą portalu Azure hello i parametry
+Gdy zostanie [uruchomić elementu runbook hello](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), hello **Uruchom element Runbook** zostanie otwarty blok i można skonfigurować wartości parametrów hello, które zostały utworzone.
 
-![Rozpoczynanie korzystania z portalu](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
+![Rozpoczynanie korzystania z portalu hello](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
-Etykieta poniżej pola wejściowego zawiera atrybuty, które zostały ustawione dla parametru. Atrybuty obejmują obowiązkowe i opcjonalne, typ i wartość domyślną. W dymku pomocy obok nazwy parametru wyświetlane są wszystkie kluczowe dane potrzebne do podejmowania decyzji o wartości wejściowe parametru. Informacje te obejmują, czy parametr jest obowiązkowy lub opcjonalne. Zawiera również typ i wartość domyślną (jeśli istnieje), a inne przydatne informacje.
+Etykieta hello poniżej pola wejściowego hello zawiera atrybuty hello, które zostały ustawione dla parametru hello. Atrybuty obejmują obowiązkowe i opcjonalne, typ i wartość domyślną. Witaj pomocy dymek dalej toohello nazwę parametru zawiera wszystkie informacje klucza hello potrzebne toomake decyzji o wartości wejściowe parametru. Informacje te obejmują, czy parametr jest obowiązkowy lub opcjonalne. Zawiera także hello typ i wartość domyślną (jeśli istnieje) i inne przydatne informacje.
 
 ![Dymek pomocy](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
 
 > [!NOTE]
-> Obsługa parametrów typu String **pusty** wartości ciągu.  Wprowadzanie **[ciąg EmptyString]** w parametrze wejściowym pole będzie przekazać pusty ciąg do parametru. Ponadto nie obsługują parametrów typu ciąg **Null** wartości były przekazywane. Jeśli wartości nie są przekazywane do parametru ciągu, następnie programu PowerShell zostanie zinterpretuje ją jako wartości null.
+> Obsługa parametrów typu String **pusty** wartości ciągu.  Wprowadzanie **[ciąg EmptyString]** w parametru wejściowego hello pole zostanie przekazany parametr toohello pusty ciąg. Ponadto nie obsługują parametrów typu ciąg **Null** wartości były przekazywane. Jeśli nie zostanie przekazany żadnego parametru ciągu toohello wartość, następnie programu PowerShell zostanie zinterpretować go jako wartości null.
 > 
 > 
 
@@ -153,12 +153,12 @@ Etykieta poniżej pola wejściowego zawiera atrybuty, które zostały ustawione 
   ```
 
 > [!NOTE]
-> Po uruchomieniu elementu runbook za pomocą poleceń cmdlet programu PowerShell, domyślnego parametru, **MicrosoftApplicationManagementStartedBy** jest tworzony z wartością **PowerShell**. Można wyświetlić tego parametru w **szczegóły zadania** bloku.  
+> Po uruchomieniu elementu runbook za pomocą poleceń cmdlet programu PowerShell, domyślnego parametru, **MicrosoftApplicationManagementStartedBy** jest tworzony z wartością hello **PowerShell**. Ten parametr można wyświetlić w hello **szczegóły zadania** bloku.  
 > 
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Uruchom element runbook przy użyciu zestawu SDK i przypisz parametrów
-* **Metoda Menedżera zasobów Azure:** można uruchomić elementu runbook przy użyciu zestawu SDK języka programowania. Poniżej przedstawiono fragment kodu C# dla uruchamianie elementu runbook na Twoim koncie automatyzacji. Można wyświetlić wszystkie kodu w naszym [repozytorium GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+* **Metoda Menedżera zasobów Azure:** można uruchomić elementu runbook za pomocą hello zestawu SDK języka programowania. Poniżej przedstawiono fragment kodu C# dla uruchamianie elementu runbook na Twoim koncie automatyzacji. Możesz wyświetlić cały kod hello w naszym [repozytorium GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -177,7 +177,7 @@ Etykieta poniżej pola wejściowego zawiera atrybuty, które zostały ustawione 
       return response.Job;
       }
   ```
-* **Metoda zarządzania usługami platformy Azure:** można uruchomić elementu runbook przy użyciu zestawu SDK języka programowania. Poniżej przedstawiono fragment kodu C# dla uruchamianie elementu runbook na Twoim koncie automatyzacji. Można wyświetlić wszystkie kodu w naszym [repozytorium GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Metoda zarządzania usługami platformy Azure:** można uruchomić elementu runbook za pomocą hello zestawu SDK języka programowania. Poniżej przedstawiono fragment kodu C# dla uruchamianie elementu runbook na Twoim koncie automatyzacji. Możesz wyświetlić cały kod hello w naszym [repozytorium GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -197,37 +197,37 @@ Etykieta poniżej pola wejściowego zawiera atrybuty, które zostały ustawione 
     }
   ```
   
-  Aby uruchomić tę metodę, utworzyć słownika do przechowywania parametrów elementu runbook **VMName** i **resourceGroupName**i ich wartości. Następnie można uruchomić elementu runbook. Poniżej znajduje się fragment kodu C# dla wywołania metody, który jest zdefiniowany powyżej.
+  toostart tej metody Utwórz hello toostore słownik parametrów elementu runbook **VMName** i **resourceGroupName**i ich wartości. Następnie uruchom hello elementu runbook. Poniżej znajduje się fragment hello C# kodu dla wywołania metody hello, który jest zdefiniowany powyżej.
   
   ```
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+  // Add parameters toohello dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
+  //Call hello StartRunbook method with parameters
   StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
   ```
 
-#### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Uruchom element runbook za pomocą interfejsu API REST i przypisz parametrów
-Zadanie elementu runbook można tworzyć i wprowadzenie do interfejsu API REST usługi Automatyzacja Azure za pomocą **PUT** metody za pomocą następującego identyfikatora URI żądania.
+#### <a name="start-a-runbook-by-using-hello-rest-api-and-assign-parameters"></a>Uruchom element runbook za pomocą hello interfejsu API REST i przypisz parametrów
+Zadanie elementu runbook można tworzyć i pracy z hello interfejsu API REST usługi Automatyzacja Azure przy użyciu hello **PUT** metody za pomocą następującego hello żądanie identyfikatora URI.
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-W identyfikatorze URI żądania Zamień następujące parametry:
+W identyfikatorze URI żądania hello Zastąp hello następujące parametry:
 
 * **Identyfikator subskrypcji:** Twojego identyfikatora subskrypcji platformy Azure.  
-* **Nazwa usługi chmury:** nazwę chmury usługi, do którego mają być wysyłane żądania.  
-* **Automatyzacja account-name:** nazwa konta automatyzacji hostowanej w usłudze określonej chmury.  
-* **Identyfikator zadania:** identyfikatora GUID dla zadania. Identyfikatory GUID w programie PowerShell można utworzyć przy użyciu **[GUID]::NewGuid(). ToString()** polecenia.
+* **Nazwa usługi chmury:** nazwa hello hello chmury usługi toowhich hello żądania, które mają być wysyłane.  
+* **Automatyzacja account-name:** hello nazwa konta automatyzacji, który znajduje się w obrębie hello określona usługa w chmurze.  
+* **Identyfikator zadania:** hello identyfikatora GUID dla hello zadania. Identyfikatory GUID w programie PowerShell można utworzyć przy użyciu hello **[GUID]::NewGuid(). ToString()** polecenia.
 
-W celu przekazania parametrów do zadania elementu runbook, użyj treści żądania. Trwa następujące dwie właściwości podany w formacie JSON:
+W kolejności toopass parametry toohello runbook zadania należy użyć hello treści żądania. Trwa hello następujące dwie właściwości podany w formacie JSON:
 
-* **Nazwa elementu Runbook:** wymagane. Nazwa elementu runbook można uruchomić zadania.  
-* **Parametry elementu Runbook:** opcjonalne. Słownik z listą parametrów w (nazwa, wartość) formatu, gdzie nazwa powinna być typu String, a wartość może być dowolną prawidłową wartość JSON.
+* **Nazwa elementu Runbook:** wymagane. Hello nazwa elementu hello runbook hello toostart zadania.  
+* **Parametry elementu Runbook:** opcjonalne. Słownik hello listy parametrów w (nazwa, wartość) formatu, gdzie nazwa powinna być typu String, a wartość może być dowolną prawidłową wartość JSON.
 
-Jeśli chcesz uruchomić **Get-AzureVMTextual** elementu runbook, który został utworzony wcześniej **VMName** i **resourceGroupName** jako parametry, użyj następującego formatu JSON w treści żądania.
+Jeśli chcesz, aby toostart hello **Get-AzureVMTextual** elementu runbook, który został utworzony wcześniej **VMName** i **resourceGroupName** jako parametry, użyj następującego formatu JSON hello Witaj treści żądania.
 
    ```
     {
@@ -241,30 +241,30 @@ Jeśli chcesz uruchomić **Get-AzureVMTextual** elementu runbook, który został
     }
    ```
 
-Kod stanu HTTP 201 jest zwracany, jeśli pomyślnie utworzono zadanie. Więcej informacji o nagłówki odpowiedzi i treść odpowiedzi, można znaleźć w artykule o sposobie [utworzyć zadanie elementu runbook za pomocą interfejsu API REST.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
+Jeśli pomyślnie utworzono zadanie hello, zwracany jest kod stanu HTTP 201. Więcej informacji o nagłówki odpowiedzi i treść odpowiedzi hello, można znaleźć w artykule toohello temat zbyt[utworzyć zadanie elementu runbook za pomocą hello interfejsu API REST.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Testowanie elementu runbook i przypisz parametrów
-Gdy zostanie [przetestować wersję roboczą elementu runbook](automation-testing-runbook.md) przy użyciu opcji testu **testu** zostanie otwarty blok i można skonfigurować wartości parametrów, które zostały utworzone.
+Gdy możesz [testu hello wersję roboczą elementu runbook](automation-testing-runbook.md) przy użyciu opcji testu hello, hello **Test** zostanie otwarty blok i można skonfigurować wartości parametrów hello, które zostały utworzone.
 
 ![Testowanie i parametry](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
-### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Połącz harmonogram z elementem runbook i przypisz parametrów
-Możesz [Połącz harmonogram](automation-schedules.md) do elementu runbook, aby element runbook zostanie uruchomiony w określonym czasie. Podczas tworzenia harmonogramu, a element runbook będzie używać tych wartości, po uruchomieniu przez harmonogram można przypisać parametrów wejściowych. Nie można zapisać harmonogram, zanim nie zostaną dostarczone wszystkie wartości parametrów obowiązkowych.
+### <a name="link-a-schedule-tooa-runbook-and-assign-parameters"></a>Łączenie elementu runbook tooa harmonogram i parametry
+Możesz [Połącz harmonogram](automation-schedules.md) runbook tooyour tak hello elementu runbook rozpoczyna się w określonym czasie. Po utworzeniu harmonogramu hello i hello runbook użyje tych wartości, gdy jest ona uruchamiana zgodnie z harmonogramem hello przypisaniu parametrów wejściowych. Nie można zapisać harmonogramu hello, zanim nie zostaną dostarczone wszystkie wartości parametrów obowiązkowych.
 
 ![Planowanie i przydzielanie parametrów](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
 ### <a name="create-a-webhook-for-a-runbook-and-assign-parameters"></a>Tworzenie elementu webhook dla elementu runbook i parametry
-Można utworzyć [webhook](automation-webhooks.md) dla elementu runbook i skonfiguruj parametry wejściowe elementu runbook. Nie można zapisać elementu webhook, zanim nie zostaną dostarczone wszystkie wartości parametrów obowiązkowych.
+Można utworzyć [webhook](automation-webhooks.md) dla elementu runbook i skonfiguruj parametry wejściowe elementu runbook. Nie można zapisać elementu webhook hello, zanim nie zostaną dostarczone wszystkie wartości parametrów obowiązkowych.
 
 ![Utwórz element webhook i przypisz parametrów](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Podczas wykonywania elementu runbook przy użyciu elementu webhook wstępnie zdefiniowanych parametrów wejściowych  **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**  jest wysyłany razem z zdefiniowanych parametrów wejściowych. Można kliknąć, aby rozwinąć **WebhookData** parametr, aby uzyskać więcej informacji.
+Podczas wykonywania elementu runbook przy użyciu elementu webhook, hello wstępnie zdefiniowanych parametrów wejściowych  **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**  jest wysyłany razem z hello parametry wejściowe zdefiniowane. Możesz kliknąć tooexpand hello **WebhookData** parametr, aby uzyskać więcej informacji.
 
 ![Parametr WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać więcej informacji na runbook przychodzących i wychodzących, zobacz [usługi Automatyzacja Azure: element runbook danych wejściowych, wyjściowych i zagnieżdżonych elementów rrunbook](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/).
-* Aby uzyskać szczegółowe informacje o różnych sposobach uruchamiania elementu runbook, zobacz [uruchamianie elementu runbook](automation-starting-a-runbook.md).
-* Aby edytować element runbook tekstową, zajrzyj do [edytowania elementów runbook tekstową](automation-edit-textual-runbook.md).
-* Aby edytować graficznego elementu runbook, należy zapoznać się [tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md).
+* Aby uzyskać więcej informacji o różnych sposobów toostart elementu runbook, zobacz [uruchamianie elementu runbook](automation-starting-a-runbook.md).
+* tooedit tekstowa elementu runbook, można znaleźć zbyt[edytowania elementów runbook tekstową](automation-edit-textual-runbook.md).
+* tooedit graficznym elementem runbook można znaleźć zbyt[tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md).
 

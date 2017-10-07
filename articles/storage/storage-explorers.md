@@ -1,6 +1,6 @@
 ---
-title: "Narzędzia do pracy z usługą Azure Storage | Dokumentacja firmy Microsoft"
-description: "Lista narzędzi, które umożliwiają wyświetlanie/interakcję z danymi usługi Azure Storage."
+title: "aaaTools do pracy z usługą Azure Storage | Dokumentacja firmy Microsoft"
+description: "Lista narzędzi umożliwiających tooview/interakcję z danymi usługi Azure Storage."
 services: storage
 documentationcenter: 
 author: dineshmurthy
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3308de2153099a05a676ab1d76426bd932e8a96c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
-Użytkownicy usługi Azure Storage często ma być możliwe do widoku/interakcji z danymi za pomocą narzędzia klienta usługi Azure Storage. W poniższych tabelach na listę wiele narzędzi, dzięki którym można to zrobić. Testujemy symbol "X" w każdym bloku, jeśli zapewnia możliwość albo wyliczyć i/lub uzyskać dostępu do pozyskiwania danych. W tabeli przedstawiono również, czy narzędzia jest bezpłatna. "W wersji próbnej" wskazuje, czy istnieje bezpłatna wersja próbna, ale nie ma wolnego produkt w pełnym. "T/N" wskazuje, że wersja jest dostępna bezpłatnie, gdy inna wersja jest dostępne do zakupu.
+Użytkownicy usługi Azure Storage często mają toobe stanie tooview/interakcję z danymi za pomocą narzędzia klienta usługi Azure Storage. W poniższych tabelach hello listę wiele narzędzi umożliwiających toodo to. Testujemy symbol "X" w każdym bloku Jeśli zapewnia możliwość hello tooeither wyliczyć i/lub dostępu hello pozyskiwania danych. Witaj tabeli przedstawiono również, czy narzędzia hello jest bezpłatna. "Wersja próbna" wskazuje istnieje bezpłatna wersja próbna, że produkt w pełnym hello nie ma wolnego. "T/N" wskazuje, że wersja jest dostępna bezpłatnie, gdy inna wersja jest dostępne do zakupu.
 
-Przygotowaliśmy migawki dostępnych narzędzi klienta usługi Azure Storage. Te narzędzia mogą nadal ewoluują i zwiększa się funkcje. Jeśli istnieją poprawki lub aktualizacje, zostaw komentarz, aby poinformować nas. Jest taka sama wartość true, jeśli znasz narzędzia, które powinny być tutaj — firma Microsoft będzie chętnie je dodać.
+Przygotowaliśmy migawki hello dostępnych narzędzi klienta usługi Azure Storage. Te narzędzia mogą kontynuować tooevolve i zwiększa się funkcje. Jeśli istnieją poprawki lub aktualizacje, pozostaw toolet komentarz, który nam znać. Hello sam ma wartość true Jeśli wiadomo, narzędzi, które powinno toobe tutaj — będzie mamy przyjemność tooadd je.
 
 **Narzędzia klienta magazynu Microsoft Azure**
 
@@ -91,7 +91,7 @@ Przygotowaliśmy migawki dostępnych narzędzi klienta usługi Azure Storage. Te
 
 **Narzędzia klienta magazynu Azure innych firm**
 
-Firma Microsoft nie została zweryfikowana funkcji lub jakości przejęte przez następujących narzędzi innych firm, a ich lista nie oznacza potwierdzenia przez firmę Microsoft.
+Firma Microsoft nie została zweryfikowana, że funkcje hello lub jakości przejęte przez hello narzędzi innych firm i ich lista nie oznacza oznacza, że firma Microsoft.
 
 <table>
   <tr>

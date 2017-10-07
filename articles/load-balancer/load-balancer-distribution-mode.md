@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie trybu dystrybucji modułu równoważenia obciążenia | Dokumentacja firmy Microsoft"
-description: "Jak skonfigurować tryb dystrybucji modułu równoważenia obciążenia Azure do obsługi koligacji IP źródła"
+title: "Tryb dystrybucji modułu równoważenia obciążenia aaaConfigure | Dokumentacja firmy Microsoft"
+description: "Jak tooconfigure Azure załadować równoważenia dystrybucji tryb toosupport źródła IP koligacji"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 4cb000c8ee1bb2e267dc0813dab23a77a46080ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e745240b733ffc07928d8ed0ae097785ad4f412e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>Konfigurowanie trybu dystrybucji dla usługi równoważenia obciążenia
+# <a name="configure-hello-distribution-mode-for-load-balancer"></a>Konfigurowanie trybu dystrybucji powitania dla usługi równoważenia obciążenia
 
 ## <a name="hash-based-distribution-mode"></a>Tryb dystrybucji wyznaczania wartości skrótu
 
-Domyślnym algorytmem dystrybucji jest krotka 5 (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy protokół typu) skrót do mapowania ruchu na dostępne serwery. Zapewnia on lepkości tylko w ramach sesji transportu. Pakiety w tej samej sesji zostanie przekierowany do tego samego wystąpienia adres IP (DIP) datacenter za punkt końcowy ze zrównoważonym obciążeniem. Przy uruchamianiu klienta w nowej sesji z tym samym źródłowy adres IP, port źródłowy zmiany i powoduje, że ruch komunikować się z innym punktem końcowym DIP.
+algorytmem dystrybucji domyślne Hello jest krotka 5 (źródłowy adres IP, port źródłowy, docelowy adres IP, port docelowy protokół typu) skrótów toomap ruchu tooavailable serwerów. Zapewnia on lepkości tylko w ramach sesji transportu. Pakietów hello tej samej sesji zostanie przekierowany toohello wystąpienie tego samego centrum danych adresu IP (DIP) za hello równoważenia obciążenia z punktem końcowym. Po uruchomieniu powitania klienta nowej sesji z hello tego samego źródłowego adresu IP, port źródłowy hello zmiany i powoduje, że hello ruchu toogo tooa różnych DIP punktu końcowego.
 
 ![skrót na podstawie usługi równoważenia obciążenia](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
@@ -31,37 +31,37 @@ Rysunek 1-5-elementowej dystrybucji
 
 ## <a name="source-ip-affinity-mode"></a>Tryb koligacji IP źródła
 
-Mamy innego trybu dystrybucji o nazwie koligacji IP źródła (znanej także jako koligacji sesji lub koligacji IP klienta). Moduł równoważenia obciążenia Azure można skonfigurować na potrzeby mapowania ruchu na dostępne serwery 2 parametrów (źródłowy adres IP, docelowy adres IP) lub 3 parametrów (źródłowy adres IP, docelowy adres IP, protokół). Za pomocą koligacji źródłowy adres IP, połączenia inicjowane z tego samego komputera klienckiego prowadzi do tego samego punktu końcowego DIP.
+Mamy innego trybu dystrybucji o nazwie koligacji IP źródła (znanej także jako koligacji sesji lub koligacji IP klienta). Usługi równoważenia obciążenia Azure może być skonfigurowany toouse krotka 2 (źródłowy adres IP, docelowy adres IP) lub 3 parametrów (źródłowy adres IP, docelowy adres IP, protokół) toomap ruchu toohello dostępne serwery. Za pomocą koligacji źródłowy adres IP, połączenia inicjowane z hello sam komputer kliencki przechodzi toohello samego DIP punktu końcowego.
 
-Na poniższym diagramie przedstawiono konfiguracji 2-spójnej kolekcji. Zwróć uwagę, jak krotki 2 jest uruchamiany za pośrednictwem usługi równoważenia obciążenia do maszyny wirtualnej 1 (VM1), który jest następnie kopię zapasową maszyny VM2 i VM3.
+powitania po diagram ilustruje konfiguracji 2-spójnej kolekcji. Zwróć uwagę, jak hello 2-krotki działa za pośrednictwem hello obciążenia równoważenia toovirtual komputera 1 (VM1), który jest następnie kopię zapasową maszyny VM2 i VM3.
 
 ![Koligacja sesji](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 Rysunek 2 — dystrybucji krotki 2
 
-Koligacja IP źródła rozwiązuje występuje niezgodność między modułu równoważenia obciążenia Azure i Brama usług pulpitu zdalnego (RD). Teraz można utworzyć farmę serwerów bramy usług pulpitu zdalnego w usłudze jednej chmury.
+Koligacja IP źródła rozwiązuje występuje niezgodność między hello modułu równoważenia obciążenia Azure i Brama usług pulpitu zdalnego (RD). Teraz można utworzyć farmę serwerów bramy usług pulpitu zdalnego w usłudze jednej chmury.
 
-Inny scenariusz użycia jest przekazywanie nośnika przekazywania danych odbywa się w ramach protokołu UDP, ale dla których płaszczyzny sterowania odbywa się za pośrednictwem protokołu TCP:
+Inny scenariusz użycia jest przekazywanie nośnika hello przekazywania danych odbywa się w ramach protokołu UDP, ale dla których płaszczyzny kontroli hello odbywa się za pośrednictwem protokołu TCP:
 
-* Klient najpierw inicjuje sesję TCP jako publiczny adres równoważenia obciążenia, pobiera kierowane do określonego adresu DIP, ten kanał pozostaje aktywna do monitorowania kondycji połączenia
-* Nowa sesja UDP z tego samego komputera klienckiego jest inicjowany do tego samego ze zrównoważonym obciążeniem publicznego punktu końcowego, w tym miejscu oczekuje się, że to połączenie również jest kierowane do tego samego punktu końcowego DIP jak poprzednie połączenie TCP, aby przekazać nośnika mogą być wykonywane na wysoką przepustowość, zachowując jednocześnie kanału kontroli, za pośrednictwem protokołu TCP.
+* Klient najpierw inicjuje sesję TCP o zrównoważonym obciążeniu toohello publiczny adres, pobiera bezpośrednie tooa, określonych DIP, ten kanał jest kondycja połączenia powitania po lewej stronie toomonitor active
+* Nowej sesji UDP z hello, w tym samym komputerze klienckim jest inicjowane toohello publiczny punkt końcowy o zrównoważonym obciążeniu tej samej, tutaj oczekiwania hello jest to połączenie jest również ukierunkowanej toohello tego samego końcowy DIP jako hello poprzednie połączenie TCP, aby przekazać nośnika może być wykonany o wysokiej przepływności, zachowując jednocześnie kanału kontroli, za pośrednictwem protokołu TCP.
 
 > [!NOTE]
-> Gdy zostanie zmieniona zestawu z równoważeniem obciążenia (usuwanie lub dodawanie maszyny wirtualnej), dystrybucji żądań klientów jest przeliczane. Nie są zależne od nowych połączeń z istniejących klientów kończące na tym samym serwerze. Ponadto użycie źródłowy adres IP trybie dystrybucji koligacji może spowodować nierówne rozkładu ruchu. Klienci z systemem za serwery proxy mogą być widoczne jako jedną aplikację unikatowych klientów.
+> W przypadku zmiany zestawu z równoważeniem obciążenia (usuwanie lub dodawanie maszyny wirtualnej), jest przeliczane hello dystrybucji żądań klientów. Nie może zależeć od nowych połączeń z istniejących klientów kończy na powitania sam serwer. Ponadto użycie źródłowy adres IP trybie dystrybucji koligacji może spowodować nierówne rozkładu ruchu. Klienci z systemem za serwery proxy mogą być widoczne jako jedną aplikację unikatowych klientów.
 
 ## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>Konfigurowanie ustawień koligacji źródłowy adres IP dla modułu równoważenia obciążenia
 
-Dla maszyn wirtualnych programu PowerShell służy do zmiany ustawienia limitu czasu:
+W przypadku maszyn wirtualnych można użyć ustawienia limitu czasu toochange środowiska PowerShell:
 
-Dodawanie punktu końcowego platformy Azure do maszyny wirtualnej i ustaw tryb dystrybucji modułu równoważenia obciążenia
+Dodaj tooa Azure punktu końcowego maszyny wirtualnej i ustaw tryb dystrybucji modułu równoważenia obciążenia
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Dystrybucji modułu równoważenia obciążenia może być równa sourceIP równoważenia, sourceIPProtocol równoważenia obciążenia 3 parametrów (źródłowy adres IP, docelowy adres IP, protokół) lub Brak Jeśli domyślne zachowanie usługi równoważenia obciążenia 5-elementowej obciążenia 2 parametrów (źródłowy adres IP, docelowy adres IP).
+Dystrybucji modułu równoważenia obciążenia można ustawić toosourceIP równoważenia, sourceIPProtocol równoważenia obciążenia 3 parametrów (źródłowy adres IP, docelowy adres IP, protokół) lub brak Chcąc hello domyślne zachowanie usługi równoważenia obciążenia 5-elementowej obciążenia 2 parametrów (źródłowy adres IP, docelowy adres IP).
 
-Aby pobrać konfiguracji trybu dystrybucji modułu równoważenia obciążenia punktu końcowego, skorzystaj z następujących:
+Użyj powitania po tooretrieve konfiguracji trybu dystrybucji modułu równoważenia obciążenia punktu końcowego:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -83,19 +83,19 @@ Aby pobrać konfiguracji trybu dystrybucji modułu równoważenia obciążenia p
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Jeśli nie ma elementu dystrybucji modułu równoważenia obciążenia modułu równoważenia obciążenia Azure używa domyślnego algorytmu 5-elementowej.
+Jeśli nie ma hello element dystrybucji modułu równoważenia obciążenia modułu równoważenia obciążenia Azure hello używa hello domyślny algorytm 5-elementowej.
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>Ustaw tryb dystrybucji na zestawu punktów końcowych ze zrównoważonym obciążeniem
+### <a name="set-hello-distribution-mode-on-a-load-balanced-endpoint-set"></a>Ustaw tryb dystrybucji hello na zestawu punktów końcowych ze zrównoważonym obciążeniem
 
-Jeśli punkty końcowe są częścią zestawu punktów końcowych ze zrównoważonym obciążeniem, tryb dystrybucji musi być ustawiona na zestawu punktów końcowych ze zrównoważonym obciążeniem:
+Jeśli punkty końcowe są częścią zestawu punktów końcowych ze zrównoważonym obciążeniem, należy ustawić tryb rozkładu hello zestawu punktów końcowych ze zrównoważonym obciążeniem hello:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Konfiguracji usługi, aby zmienić tryb dystrybucji w chmurze
+### <a name="cloud-service-configuration-toochange-distribution-mode"></a>Tryb dystrybucji toochange konfiguracji usługi w chmurze
 
-Zestaw Azure SDK for .NET 2.5 (mają zostać udostępnione w listopadzie) można wykorzystać do aktualizacji usługi w chmurze. Ustawienia punktu końcowego usługi w chmurze są nawiązywane w csdef. Aby można było zaktualizować tryb dystrybucji modułu równoważenia obciążenia dla wdrożenia usługi w chmurze, wymagane jest uaktualnienie wdrożenia.
+Można wykorzystać hello Azure SDK dla platformy .NET 2.5 (toobe wydanej w listopadzie) tooupdate usługi w chmurze. Ustawienia punktu końcowego usługi w chmurze są nawiązywane w hello csdef. W kolejności tooupdate hello równoważenia trybu rozkładu obciążenia na wdrożenie usługi w chmurze wymagane jest uaktualnienie wdrożenia.
 Oto przykład csdef zmiany ustawień punktu końcowego:
 
 ```xml
@@ -118,9 +118,9 @@ Oto przykład csdef zmiany ustawień punktu końcowego:
 
 ## <a name="api-example"></a>Przykładowy interfejs API
 
-Można skonfigurować przy użyciu interfejsu API zarządzania usługami dystrybucji modułu równoważenia obciążenia. Upewnij się dodać `x-ms-version` ustawiono nagłówka do wersji `2014-09-01` lub nowszej.
+Można skonfigurować dystrybucji modułu równoważenia obciążenia hello przy użyciu interfejsu API zarządzania usługami hello. Upewnij się, że hello tooadd `x-ms-version` ustawiono nagłówka tooversion `2014-09-01` lub nowszej.
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>Zaktualizuj konfigurację określonego zestawu z równoważeniem obciążenia we wdrożeniu
+### <a name="update-hello-configuration-of-hello-specified-load-balanced-set-in-a-deployment"></a>Aktualizacja konfiguracji hello hello określony zestaw o zrównoważonym obciążeniu we wdrożeniu
 
 #### <a name="request-example"></a>Przykładowe żądanie
 
@@ -145,7 +145,7 @@ Można skonfigurować przy użyciu interfejsu API zarządzania usługami dystryb
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Wartość dystrybucji modułu równoważenia obciążenia mogą być sourceIP koligacji krotki 2, sourceIPProtocol koligacji krotki 3 lub none (Brak koligacji w przypadku. czyli 5-elementowej)
+wartość Hello dystrybucji modułu równoważenia obciążenia może być sourceIP koligacji krotki 2, sourceIPProtocol koligacji krotki 3 lub none (Brak koligacji w przypadku. czyli 5-elementowej)
 
 #### <a name="response"></a>Odpowiedź
 

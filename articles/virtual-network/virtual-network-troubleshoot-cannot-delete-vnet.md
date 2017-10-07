@@ -1,6 +1,6 @@
 ---
-title: "Nie można usunąć sieci wirtualnej na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak rozwiązać ten problem, w której nie można usunąć sieci wirtualnej na platformie Azure."
+title: "aaaCannot usunąć sieci wirtualnej na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tootroubleshoot hello problem, w której nie można usunąć sieci wirtualnej na platformie Azure."
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: genli
-ms.openlocfilehash: 55c42a91bb1c5fad289b975ffae8ce4d6e7343dd
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: a9050ab238ccb0380fd46130430222efb8f42388
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: Nie można usunąć sieci wirtualnej na platformie Azure
+# <a name="troubleshooting-failed-toodelete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: Nie powiodło się toodelete sieci wirtualnej na platformie Azure
 
-Błędy może pojawić się podczas próby usunięcia sieci wirtualnej na platformie Microsoft Azure. Ten artykuł zawiera kroki rozwiązywania problemów, aby rozwiązać ten problem. 
+Błędy może pojawić się podczas próby toodelete sieci wirtualnej na platformie Microsoft Azure. Ten artykuł zawiera toohelp kroki rozwiązywania problemów możesz rozwiązać ten problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>Wskazówki dotyczące rozwiązywania problemów 
 
-1. [Sprawdź, czy brama sieci wirtualnej jest uruchomiony w sieci wirtualnej](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Sprawdź, czy bramę aplikacji jest uruchomiony w sieci wirtualnej](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Sprawdź, czy usługi Azure Active Directory domeny jest włączone w sieci wirtualnej](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Sprawdź, czy sieci wirtualnej jest podłączona do innego zasobu](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Sprawdź, czy maszyna wirtualna nadal działa w sieci wirtualnej](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Sprawdź, czy sieć wirtualna utkwiła w automatycznej migracji](#check-whether-the-virtual-network-is-stuck-in-migration).
+1. [Sprawdź, czy brama sieci wirtualnej jest uruchomiony w sieci wirtualnej hello](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Sprawdź, czy bramę aplikacji jest uruchomiony w sieci wirtualnej hello](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+3. [Sprawdź, czy usługi Azure Active Directory domeny jest włączone w sieci wirtualnej hello](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+4. [Sprawdź, czy sieć wirtualna hello zasobów połączonych tooother](#check-whether-the-virtual-network-is-connected-to-other-resource).
+5. [Sprawdź, czy maszyna wirtualna nadal działa w sieci wirtualnej hello](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+6. [Sprawdź, czy sieć wirtualna hello utkwiła w automatycznej migracji](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Sprawdź, czy brama sieci wirtualnej jest uruchomiony w sieci wirtualnej
+### <a name="check-whether-a-virtual-network-gateway-is-running-in-hello-virtual-network"></a>Sprawdź, czy brama sieci wirtualnej jest uruchomiony w sieci wirtualnej hello
 
-Aby usunąć sieci wirtualnej, należy najpierw usunąć bramę sieci wirtualnej.
+tooremove hello sieci wirtualnej, należy najpierw usunąć hello bramy sieci wirtualnej.
 
-Aby klasycznych sieci wirtualnych, przejdź do tematu **omówienie** strony klasycznej sieci wirtualnej w portalu Azure. W **połączeń sieci VPN** sekcji, jeśli brama jest uruchomiona w sieci wirtualnej, zostanie wyświetlony adres IP bramy. 
+Dla klasycznych sieci wirtualnych, przejdź toohello **omówienie** strony hello klasycznej sieci wirtualnej w hello portalu Azure. W hello **połączeń sieci VPN** sekcji, jeśli hello brama jest uruchomiona w sieci wirtualnej hello, zobaczysz hello IP adres bramy hello. 
 
 ![Sprawdź, czy brama jest uruchomiona](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-Dla sieci wirtualnych, przejdź do **omówienie** strony sieci wirtualnej. Sprawdź **urządzeń podłączonych** dla bramy sieci wirtualnej.
+Dla sieci wirtualnych, przejdź toohello **omówienie** strony hello sieci wirtualnej. Sprawdź **urządzeń podłączonych** hello bramy sieci wirtualnej.
 
-![Sprawdź podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Sprawdź hello podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Zanim będzie można usunąć bramy, najpierw usuń wszystkie **połączenia** obiektów w bramie. 
+Zanim będzie można usunąć bramy hello, najpierw usuń wszystkie **połączenia** obiektów w hello bramy. 
 
-### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Sprawdź, czy w sieci wirtualnej jest uruchomiona bramy aplikacji
+### <a name="check-whether-an-application-gateway-is-running-in-hello-virtual-network"></a>Sprawdź, czy w sieci wirtualnej hello działa bramy aplikacji
 
-Przejdź do **omówienie** strony sieci wirtualnej. Sprawdź **urządzeń podłączonych** bramy aplikacji.
+Przejdź toohello **omówienie** strony hello sieci wirtualnej. Sprawdź hello **urządzeń podłączonych** hello bramy aplikacji.
 
-![Sprawdź podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Sprawdź hello podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-W przypadku bramy aplikacji, należy go usunąć przed usunięciem sieci wirtualnej.
+W przypadku bramy aplikacji, należy usunąć przed usunięciem hello sieci wirtualnej.
 
-### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Sprawdź, czy usługi Azure Active Directory domeny jest włączone w sieci wirtualnej
+### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-hello-virtual-network"></a>Sprawdź, czy w sieci wirtualnej hello jest włączone usług domenowych Azure Active Directory
 
-Jeśli usług domenowych w usłudze Active Directory jest włączony i podłączony do sieci wirtualnej, nie można usunąć tej sieci wirtualnej. 
+Jeśli hello usług domenowych w usłudze Active Directory jest włączone i połączone toohello sieci wirtualnej, nie można usunąć tej sieci wirtualnej. 
 
-![Sprawdź podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Sprawdź hello podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Aby wyłączyć usługę, wykonaj następujące kroki:
+toodisable hello usługi, wykonaj następujące kroki:
 
-1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W okienku po lewej stronie wybierz **usługi Active Directory**.
-3. Wybierz katalog usługi Azure Active Directory (Azure AD), który ma usług domenowych Active Directory włączone.
-4. Wybierz kartę **Konfigurowanie**.
-5. W obszarze **usług domenowych w usłudze**, zmień **włączyć usługi domenowe dla tego katalogu** opcji w celu **nr**.  
+1. Przejdź toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Wybierz w okienku po lewej stronie powitania **usługi Active Directory**.
+3. Wybierz katalog usługi Azure Active Directory (Azure AD) hello, który ma usług domenowych Active Directory włączone.
+4. Wybierz hello **Konfiguruj** kartę.
+5. W obszarze **usług domenowych w usłudze**, zmień hello **włączyć usługi domenowe dla tego katalogu** opcję zbyt**nr**.  
 
-### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sprawdź, czy sieci wirtualnej jest podłączona do innego zasobu
+### <a name="check-whether-hello-virtual-network-is-connected-tooother-resource"></a>Sprawdź, czy sieć wirtualna hello tooother połączonych zasobów
 
-Sprawdź, czy łącza obwód, połączeń i komunikacji równorzędnych sieci wirtualnych. Żadnego z tych adresów może spowodować niepowodzenie usunięcie sieci wirtualnej. 
+Sprawdź, czy łącza obwód, połączeń i komunikacji równorzędnych sieci wirtualnych. Żadnego z nich może spowodować toofail usunięcia sieci wirtualnej. 
 
-Kolejność usuwania zalecana jest następująca:
+Witaj kolejność usuwania zalecana jest następująca:
 
 1. Połączenia bramy
 2. Bramy
@@ -85,13 +85,13 @@ Kolejność usuwania zalecana jest następująca:
 4. Komunikacji równorzędnych sieci wirtualnych
 5. Środowisko usługi aplikacji (ASE)
 
-### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Sprawdź, czy maszyna wirtualna nadal działa w sieci wirtualnej
+### <a name="check-whether-a-virtual-machine-is-still-running-in-hello-virtual-network"></a>Sprawdź, czy maszyna wirtualna nadal działa w sieci wirtualnej hello
 
-Upewnij się, że żadna maszyna wirtualna będzie w sieci wirtualnej.
+Upewnij się, nieprawidłowość w sieci wirtualnej hello żadnej maszyny wirtualnej.
 
-### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Sprawdź, czy utkwiła w automatycznej migracji sieci wirtualnej
+### <a name="check-whether-hello-virtual-network-is-stuck-in-migration"></a>Sprawdź, czy sieć wirtualna hello utkwiła w automatycznej migracji
 
-Jeśli sieć wirtualna jest zablokowana w stanie migracji, nie można usunąć. Uruchom następujące polecenie, aby przerwać migracji, a następnie usunąć sieci wirtualnej.
+Jeśli w sieci wirtualnej hello jest zablokowana w stanie migracji, nie można usunąć. Uruchom następujące polecenia tooabort hello migracji hello, a następnie usuń hello sieci wirtualnej.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 

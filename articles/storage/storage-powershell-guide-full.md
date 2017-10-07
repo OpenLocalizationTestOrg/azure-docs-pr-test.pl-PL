@@ -1,6 +1,6 @@
 ---
-title: "Używanie programu Azure PowerShell z usługą Azure Storage | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć i zarządzać kontami magazynu; przy użyciu poleceń cmdlet programu Azure PowerShell dla usługi Azure Storage Praca z obiektów blob, tabel, kolejek i plików. Konfigurowanie i zapytania analityka magazynu, a następnie utwórz sygnatur dostępu współdzielonego."
+title: "aaaUsing programu Azure PowerShell z usługą Azure Storage | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello poleceń cmdlet programu Azure PowerShell dla usługi Azure Storage toocreate i zarządzanie kontami magazynu; Praca z obiektów blob, tabel, kolejek i plików. Konfigurowanie i zapytania analityka magazynu, a następnie utwórz sygnatur dostępu współdzielonego."
 services: storage
 documentationcenter: na
 author: robinsh
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-ms.openlocfilehash: 51e3e93ebedd31370857e61a00139294bcee9237
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: befe7adda2384f8bcdb8b9f1a063e4eafc158271
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Używanie programu Azure PowerShell z usługą Azure Storage
 ## <a name="overview"></a>Omówienie
-Program Azure PowerShell jest moduł, który udostępnia polecenia cmdlet do zarządzania za pomocą środowiska Windows PowerShell. Jest to język skryptów i powłoka wiersza polecenia oparta na zadaniach zaprojektowana pod kątem administrowania systemem. Przy użyciu programu PowerShell można łatwo kontrolować i automatyzować administrowanie Azure usługi i aplikacje. Na przykład służy poleceń cmdlet do wykonania tych samych czynności, które można wykonywać za pomocą [portalu Azure](https://portal.azure.com).
+Program Azure PowerShell jest moduł, który udostępnia polecenia cmdlet toomanage Azure za pomocą programu Windows PowerShell. Jest to język skryptów i powłoka wiersza polecenia oparta na zadaniach zaprojektowana pod kątem administrowania systemem. Przy użyciu programu PowerShell można łatwo kontrolować i automatyzować administrację hello Azure usługi i aplikacje. Na przykład można użyć hello tooperform poleceń cmdlet hello same zadania, można wykonać za pomocą hello [portalu Azure](https://portal.azure.com).
 
-W tym przewodniku, możemy Eksploruj sposób użycia [polecenia cmdlet usługi Azure Storage](/powershell/module/azurerm.storage/#storage) do wykonywania różnych zadań programowania i administracji z usługą Azure Storage.
+W tym przewodniku, firma Microsoft będzie Eksploruj jak toouse hello [polecenia cmdlet usługi Azure Storage](/powershell/module/azurerm.storage/#storage) tooperform różnych zadań programowania i administracji z usługą Azure Storage.
 
-W tym przewodniku założono, że przy użyciu doświadczenie [usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/) i [programu Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Przewodnik udostępnia wiele skryptów do zaprezentowania użycia programu PowerShell z usługą Azure Storage. Należy zaktualizować zmienne skryptu na podstawie konfiguracji przed uruchomieniem każdego skryptu.
+W tym przewodniku założono, że przy użyciu doświadczenie [usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/) i [programu Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). Przewodnik Hello zawiera liczby skryptów toodemonstrate hello użycia programu PowerShell z usługą Azure Storage. Należy zaktualizować hello zmienne skryptu na podstawie konfiguracji przed uruchomieniem każdego skryptu.
 
-Pierwsza sekcja, w tym przewodniku zapewnia szybkiego dostępu w usłudze Azure Storage i programu PowerShell. Aby uzyskać szczegółowe informacje i instrukcje, Rozpocznij od [wymagań wstępnych dotyczących używania programu Azure PowerShell z usługą Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
+Pierwsza sekcja Hello w tym przewodniku zapewnia szybkiego dostępu w usłudze Azure Storage i programu PowerShell. Aby uzyskać szczegółowe informacje i instrukcje, Rozpocznij od hello [wymagań wstępnych dotyczących używania programu Azure PowerShell z usługą Azure Storage](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
 ## <a name="getting-started-with-azure-storage-and-powershell-in-5-minutes"></a>Wprowadzenie do korzystania z usługi Azure Storage i programu PowerShell w ciągu 5 minut
-W tej sekcji przedstawiono sposób uzyskać dostępu do usługi Azure Storage za pomocą programu PowerShell w ciągu 5 minut.
+W tej sekcji opisano sposób tooaccess usługi Azure Storage za pomocą programu PowerShell w ciągu 5 minut.
 
-**Jesteś nowym użytkownikiem usługi Azure:** subskrypcji Microsoft Azure i konta Microsoft skojarzonego z jego subskrypcją. Aby uzyskać informacje na temat opcji zakupu platformy Azure, zobacz [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/), [opcjami zakupu](https://azure.microsoft.com/pricing/purchase-options/), i [oferty Członkowskie](https://azure.microsoft.com/pricing/member-offers/) (dla członków MSDN, Microsoft Partner Network, BizSpark i innych programów firmy Microsoft).
+**Nowe tooAzure:** subskrypcji Microsoft Azure i konta Microsoft skojarzonego z jego subskrypcją. Aby uzyskać informacje na temat opcji zakupu platformy Azure, zobacz [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/), [opcjami zakupu](https://azure.microsoft.com/pricing/purchase-options/), i [oferty Członkowskie](https://azure.microsoft.com/pricing/member-offers/) (dla członków MSDN, Microsoft Partner Network, BizSpark i innych programów firmy Microsoft).
 
 Zobacz [przypisywanie ról administratorów w usłudze Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) uzyskać więcej informacji o subskrypcji platformy Azure.
 
 **Po utworzeniu subskrypcji Microsoft Azure i konto:**
 
-1. Pobierz i zainstaluj najnowszą [programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
-2. Start środowisko systemu Windows PowerShell zintegrowane skryptów (ISE): W komputerze lokalnym, przejdź do **Start** menu. Typ **narzędzia administracyjne** i kliknij go uruchomić. W **narzędzia administracyjne** okna, kliknij prawym przyciskiem myszy **programu Windows PowerShell ISE**, kliknij przycisk **Uruchom jako Administrator**.
-3. W **programu Windows PowerShell ISE**, kliknij przycisk **pliku** > **nowy** Aby utworzyć nowy plik skryptu.
-4. Teraz przedstawimy prostego skryptu, który pokazuje podstawowych poleceń programu PowerShell dostęp do magazynu Azure. Skrypt najpierw poprosi Azure poświadczenia konta, aby dodać Azure konta lokalnego środowiska PowerShell. Następnie skrypt ustawiania domyślnych subskrypcji platformy Azure i Utwórz nowe konto magazynu na platformie Azure. Następnie skrypt utworzyć nowy kontener w tym nowe konto magazynu i przekazać istniejący plik obrazu (blob) do tego kontenera. Po skrypt znajduje się lista wszystkich obiektów blob w tym kontenerze, utworzy nowy katalog docelowy w komputerze lokalnym i pobranie pliku obrazu.
-5. W poniższej sekcji kodu, wybierz skrypt między uwagi **#begin** i **#end**. Naciśnij klawisze CTRL + C, aby skopiować go do Schowka.
+1. Pobierz i zainstaluj najnowsze hello [programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
+2. Start środowisko systemu Windows PowerShell zintegrowane skryptów (ISE): W komputerze lokalnym, przejdź toohello **Start** menu. Typ **narzędzia administracyjne** i kliknij przycisk toorun go. W hello **narzędzia administracyjne** okna, kliknij prawym przyciskiem myszy **programu Windows PowerShell ISE**, kliknij przycisk **Uruchom jako Administrator**.
+3. W **programu Windows PowerShell ISE**, kliknij przycisk **pliku** > **nowy** toocreate nowy plik skryptu.
+4. Teraz przedstawimy prosty skrypt, który zawiera podstawowe tooaccess poleceń programu PowerShell usługi Azure Storage. skryptu Hello najpierw poprosi użytkownika tooadd poświadczenia konta Azure konta Azure toohello PowerShell środowisku lokalnym. Następnie skryptu hello ustawiania domyślnych hello subskrypcji platformy Azure i Utwórz nowe konto magazynu na platformie Azure. Następnie skryptu hello utworzyć nowy kontener w tym nowe konto magazynu i przekaż istniejącego kontenera toothat obrazu pliku (blob). Po skryptu hello znajduje się lista wszystkich obiektów blob w tym kontenerze, utworzy nowy katalog docelowy w komputerze lokalnym i Pobierz hello pliku obrazu.
+5. W następujących sekcji kodu hello, wybierz skrypt hello między uwagi hello **#begin** i **#end**. Naciśnij klawisze CTRL + C toocopy on toohello Schowka.
 
     ```powershell
     # begin
-    # Update with the name of your subscription.
+    # Update with hello name of your subscription.
     $SubscriptionName = "YourSubscriptionName"
        
-    # Give a name to your new storage account. It must be lowercase!
+    # Give a name tooyour new storage account. It must be lowercase!
     $StorageAccountName = "yourstorageaccountname"
        
     # Choose "West US" as an example.
     $Location = "West US"
        
-    # Give a name to your new container.
+    # Give a name tooyour new container.
     $ContainerName = "imagecontainer"
        
     # Have an image file and a source directory in your local computer.
@@ -64,7 +64,7 @@ Zobacz [przypisywanie ról administratorów w usłudze Azure Active Directory (A
     # A destination directory in your local computer.
     $DestinationFolder = "C:\DownloadImages"
        
-    # Add your Azure account to the local PowerShell environment.
+    # Add your Azure account toohello local PowerShell environment.
     Add-AzureAccount
        
     # Set a default Azure subscription.
@@ -85,115 +85,115 @@ Zobacz [przypisywanie ról administratorów w usłudze Azure Active Directory (A
     # List all blobs in a container.
     Get-AzureStorageBlob -Container $ContainerName
        
-    # Download blobs from the container:
-    # Get a reference to a list of all blobs in a container.
+    # Download blobs from hello container:
+    # Get a reference tooa list of all blobs in a container.
     $blobs = Get-AzureStorageBlob -Container $ContainerName
        
-    # Create the destination directory.
+    # Create hello destination directory.
     New-Item -Path $DestinationFolder -ItemType Directory -Force  
        
-    # Download blobs into the local destination directory.
+    # Download blobs into hello local destination directory.
     $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
        
     # end
     ```
 
-6. W **programu Windows PowerShell ISE**, naciśnij klawisze CTRL + V, aby skopiować skrypt. Kliknij przycisk **pliku** > **zapisać**. W **Zapisz jako** oknie dialogowym wpisz nazwę pliku skryptu, takie jak "mystoragescript." Kliknij pozycję **Zapisz**.
-7. Teraz musisz zaktualizować zmienne skryptu na podstawie własnych ustawień konfiguracji. Należy zaktualizować **$SubscriptionName** zmiennej przy użyciu posiadanej subskrypcji. Można zachować zmienne określone w skrypcie lub zaktualizuj je zgodnie z wymaganiami.
+6. W **programu Windows PowerShell ISE**, naciśnij klawisze CTRL + V toocopy hello skryptu. Kliknij przycisk **pliku** > **zapisać**. W hello **Zapisz jako** okno dialogowe, nazwa typu hello hello pliku skryptu, takie jak "mystoragescript." Kliknij pozycję **Zapisz**.
+7. Teraz należy zmienne skryptu hello tooupdate na podstawie własnych ustawień konfiguracji. Należy zaktualizować hello **$SubscriptionName** zmiennej przy użyciu posiadanej subskrypcji. Możesz zachować hello inne zmienne określone w skrypcie hello lub zaktualizuj je zgodnie z wymaganiami.
    
-   * **$SubscriptionName:** należy zaktualizować tę zmienną z własną nazwę subskrypcji. Wykonaj jedną z następujących trzech sposobów, aby zlokalizować nazwę Twojej subskrypcji:
+   * **$SubscriptionName:** należy zaktualizować tę zmienną z własną nazwę subskrypcji. Wykonaj jedną z hello następujące trzy sposoby toolocate hello nazwa Twojej subskrypcji:
      
-    a. W **programu Windows PowerShell ISE**, kliknij przycisk **pliku** > **nowy** Aby utworzyć nowy plik skryptu. Skopiuj poniższy skrypt do nowego pliku skryptu, a następnie kliknij przycisk **debugowania** > **Uruchom**. Poniższy skrypt najpierw poprosi Azure poświadczenia konta, aby dodać Azure konta lokalnego środowiska PowerShell, a następnie wyświetlić wszystkie subskrypcje, które są podłączone do lokalnej sesji programu PowerShell. Zanotuj nazwę subskrypcji, która ma być używany podczas korzystania z tego samouczka:
+    a. W **programu Windows PowerShell ISE**, kliknij przycisk **pliku** > **nowy** toocreate nowy plik skryptu. Kopia hello następujący skrypt toohello nowy plik skryptu i kliknij przycisk **debugowania** > **Uruchom**. Hello poniższy skrypt zostanie najpierw poproś użytkownika tooadd poświadczenia konta Azure konta Azure toohello PowerShell środowisku lokalnym a następnie wyświetlać wszystkie subskrypcje hello, które są połączone toohello lokalnej sesji programu PowerShell. Zanotuj nazwę hello subskrypcji hello mają toouse podczas korzystania z tego samouczka:
      
     ```powershell
     Add-AzureAccount 
       Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
     ```
 
-    b. Aby znaleźć i skopiować nazwę subskrypcji w [portalu Azure](https://portal.azure.com), w menu centralnym po lewej stronie kliknij **subskrypcje**. Skopiuj nazwę subskrypcji, która ma być używany podczas uruchamiania skryptów w tym przewodniku.
+    b. toolocate i skopiuj subskrypcji nazwisko hello [portalu Azure](https://portal.azure.com), w hello menu centralnym na powitania po lewej, kliknij przycisk **subskrypcje**. Skopiuj hello Nazwa subskrypcji mają toouse podczas uruchamiania skryptów hello w tym przewodniku.
      
      ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 
-    c. Aby znaleźć i skopiować nazwę subskrypcji w [klasycznego portalu Azure](https://manage.windowsazure.com/), przewiń w dół i kliknij przycisk **ustawienia** po lewej stronie portalu. Kliknij przycisk **subskrypcje** umożliwia wyświetlenie listy subskrypcji. Skopiuj nazwę subskrypcji, która ma być używany podczas uruchamiania skryptów podane w tym przewodniku.
+    c. toolocate i skopiuj subskrypcji nazwisko hello [klasycznego portalu Azure](https://manage.windowsazure.com/), przewiń w dół i kliknij przycisk **ustawienia** na powitania po lewej stronie portalu hello. Kliknij przycisk **subskrypcje** toosee listę subskrypcji. Nazwa hello kopii subskrypcji, która ma toouse podczas uruchamiania skryptów hello podane w tym przewodniku.
      
      ![klasyczny portal Azure](./media/storage-powershell-guide-full/Subscription_currentportal.png)
 
-   * **$StorageAccountName:** użyć nazwy podanej w skrypcie lub wprowadź nową nazwę dla konta magazynu. **Ważne:** nazwę konta magazynu musi być unikatowa na platformie Azure. Musi być pisane małymi literami, zbyt!
-   * **$Location:** Użyj danego "zachodnie stany USA" w skrypcie lub wybierz inne lokalizacje Azure, takich jak wschodnie stany USA, Europa Północna, Europa i tak dalej.
-   * **$ContainerName:** użyć nazwy podanej w skrypcie lub wprowadź nową nazwę dla Twojego kontenera.
-   * **$ImageToUpload:** wprowadź ścieżkę do obrazu na komputerze lokalnym, takich jak: "C:\Images\HelloWorld.png".
-   * **$DestinationFolder:** wprowadź ścieżkę do katalogu lokalnego do przechowywania pliki pobierane z usługi Azure Storage, takich jak: "C:\DownloadImages".
-8. Po zaktualizowaniu zmienne skryptu w pliku "mystoragescript.ps1", kliknij przycisk **pliku** > **zapisać**. Następnie kliknij przycisk **debugowania** > **Uruchom** lub naciśnij klawisz **F5** do uruchomienia skryptu.  
+   * **$StorageAccountName:** Użyj hello otrzymuje nazwę w skrypcie hello, lub wprowadź nową nazwę dla konta magazynu. **Ważne:** hello nazwa konta magazynu hello musi być unikatowa na platformie Azure. Musi być pisane małymi literami, zbyt!
+   * **$Location:** użyć hello "Zachodnie stany USA" podany w skrypcie hello lub wybrać innych lokalizacji platformy Azure, takich jak wschodnie stany USA, Europa Północna, Europa i tak dalej.
+   * **$ContainerName:** Użyj hello otrzymuje nazwę w skrypcie hello lub wprowadź nową nazwę dla Twojego kontenera.
+   * **$ImageToUpload:** wprowadź obraz tooa ścieżkę na komputerze lokalnym, na przykład: "C:\Images\HelloWorld.png".
+   * **$DestinationFolder:** wprowadź ścieżkę tooa katalogu lokalnego toostore pliki pobierane z usługi Magazyn Azure, takich jak: "C:\DownloadImages".
+8. Po zaktualizowaniu hello zmienne skryptu w pliku "mystoragescript.ps1" hello, kliknij przycisk **pliku** > **zapisać**. Następnie kliknij przycisk **debugowania** > **Uruchom** lub naciśnij klawisz **F5** toorun hello skryptu.  
 
-Po uruchomieniu skryptu, ma lokalne miejsce docelowe folder, który zawiera plik pobrany obraz. Poniższy zrzut ekranu przedstawia przykład danych wyjściowych:
+Po uruchomieniu skryptu hello powinien mieć folderu lokalne miejsce docelowe, który zawiera hello pobrany plik obrazu. powitania po zrzut ekranu przedstawia przykład danych wyjściowych:
 
 ![Pobieranie obiektów blob](./media/storage-powershell-guide-full/Blobdownload.png)
 
 > [!NOTE]
-> W sekcji "Wprowadzenie do magazynu Azure i programu PowerShell w ciągu 5 minut" zapewnić szybkie wprowadzenie dotyczące sposobu używania programu Azure PowerShell z usługą Azure Storage. Aby uzyskać szczegółowe informacje i instrukcje, firma Microsoft zachęca do odczytu w poniższych sekcjach.
+> Witaj "Wprowadzenie do magazynu Azure i programu PowerShell w ciągu 5 minut" sekcji podano szybkie wprowadzenie na temat toouse programu Azure PowerShell z usługą Azure Storage. Aby uzyskać szczegółowe informacje i instrukcje, firma Microsoft zachęca hello tooread następujące sekcje.
 > 
 
 ## <a name="prerequisites-for-using-azure-powershell-with-azure-storage"></a>Wymagania wstępne dotyczące korzystania z programu Azure PowerShell z usługą Azure Storage
-Potrzebujesz subskrypcji platformy Azure i konta, aby uruchomić polecenia cmdlet programu PowerShell podane w tym przewodniku, jak opisano powyżej.
+Należy korzystać z platformy Azure i przystąpienie do subskrypcji toorun hello poleceń cmdlet programu PowerShell podane w tym przewodniku, zgodnie z powyższym opisem.
 
-Program Azure PowerShell jest moduł, który udostępnia polecenia cmdlet do zarządzania za pomocą środowiska Windows PowerShell. Aby uzyskać informacje na temat instalowania i konfigurowania programu Azure PowerShell, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). Zaleca się pobrać i zainstalować lub uaktualnić moduł Azure PowerShell najnowsze przed rozpoczęciem korzystania z tego przewodnika.
+Program Azure PowerShell jest moduł, który udostępnia polecenia cmdlet toomanage Azure za pomocą programu Windows PowerShell. Aby uzyskać informacje na temat instalowania i konfigurowania programu Azure PowerShell, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). Zaleca się pobrać i zainstalować lub uaktualnić najnowsze modułu Azure PowerShell toohello przed rozpoczęciem korzystania z tego przewodnika.
 
-Można uruchomić polecenia cmdlet w konsoli środowiska Windows PowerShell standard lub Windows PowerShell Integrated Scripting Environment (ISE). Na przykład, aby otworzyć **programu Windows PowerShell ISE**, przejdź do Start menu, wpisz narzędzia administracyjne i kliknij, aby go uruchomić. W oknie Narzędzia administracyjne kliknij prawym przyciskiem myszy program Windows PowerShell ISE, kliknij polecenie Uruchom jako Administrator.
+Możesz uruchamiać polecenia cmdlet hello w konsoli środowiska Windows PowerShell standardowe hello lub hello Windows PowerShell Integrated Scripting Environment (ISE). Na przykład tooopen **programu Windows PowerShell ISE**, przejdź do toohello Start menu, wpisz narzędzia administracyjne i kliknij przycisk toorun go. W oknie Narzędzia administracyjne hello kliknij prawym przyciskiem myszy program Windows PowerShell ISE, kliknij polecenie Uruchom jako Administrator.
 
-## <a name="how-to-manage-storage-accounts-in-azure"></a>Jak zarządzać kontami magazynu na platformie Azure
+## <a name="how-toomanage-storage-accounts-in-azure"></a>Jak kont magazynu toomanage na platformie Azure
 
 Spójrzmy na zarządzanie kontami magazynu na platformie Azure przy użyciu programu PowerShell
 
-### <a name="how-to-set-a-default-azure-subscription"></a>Jak ustawić domyślnego subskrypcji platformy Azure
-Aby zarządzać magazynem Azure przy użyciu programu Azure PowerShell, należy uwierzytelnić środowiskiem klienta na platformie Azure przy użyciu uwierzytelniania usługi Azure Active Directory lub uwierzytelniania opartego na certyfikatach. Aby uzyskać szczegółowe informacje, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) samouczka. W tym przewodniku korzysta z uwierzytelniania usługi Azure Active Directory.
+### <a name="how-tooset-a-default-azure-subscription"></a>Jak tooset domyślne subskrypcji platformy Azure
+toomanage usługi Azure Storage za pomocą programu Azure PowerShell, należy tooauthenticate środowiskiem klienta na platformie Azure przy użyciu uwierzytelniania usługi Azure Active Directory lub uwierzytelniania opartego na certyfikatach. Aby uzyskać szczegółowe informacje, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) samouczka. W tym przewodniku korzysta z uwierzytelniania usługi Azure Active Directory hello.
 
-1. W środowisku Windows PowerShell ISE, wpisz następujące polecenie, aby dodać Azure konta lokalnego środowiska PowerShell:
+1. W środowisku Windows PowerShell ISE wpisz następujące polecenie tooadd hello konta Azure toohello PowerShell środowisku lokalnym:
 
     ```powershell
     Add-AzureAccount
     ```
 
-2. W oknie "Logowania w celu Microsoft Azure" wpisz adres e-mail i hasło skojarzone z Twoim kontem. Nastąpi uwierzytelnienie i zapisanie informacji o poświadczeniach na platformie Azure, a następnie zamknięcie okna.
+2. W oknie "Zaloguj się za tooMicrosoft Azure" hello, wpisz adresy e-mail hello i hasło skojarzone z Twoim kontem. Azure służy do uwierzytelniania i zapisuje informacji o poświadczeniach hello, a następnie zamyka okno hello.
 
-3. Następnie uruchom następujące polecenie, aby wyświetlić konta platformy Azure w lokalnym środowisku PowerShell i sprawdź, czy Twoje konto jest wyświetlane:
+3. Następnie uruchom następujące polecenie tooview hello Azure kont w lokalnym środowisku PowerShell i sprawdź, czy Twoje konto jest wyświetlane hello:
    
     ```powershell
     Get-AzureAccount
     ```
-4. Następnie uruchom następujące polecenie cmdlet, aby wyświetlić wszystkie subskrypcje, które są podłączone do lokalnej sesji programu PowerShell i sprawdź, czy subskrypcja jest wyświetlane:
+4. Następnie uruchom następujące polecenie cmdlet tooview hello wszystkie subskrypcje hello, które są połączone toohello lokalnej sesji programu PowerShell i sprawdź, czy subskrypcja jest wyświetlane:
 
     ```powershell
     Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
     ```
-5. Aby ustawić domyślnego subskrypcji platformy Azure, uruchom polecenie cmdlet AzureSubscription wybierz:
+5. tooset domyślne subskrypcji platformy Azure, uruchom polecenie cmdlet hello AzureSubscription wybierz:
 
     ```powershell
     $SubscriptionName = 'Your subscription Name'
     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
     ```
 
-6. Sprawdź nazwę subskrypcji domyślne przy użyciu polecenia cmdlet Get-AzureSubscription:
+6. Sprawdź nazwę hello hello domyślne subskrypcji przy użyciu polecenia cmdlet Get-AzureSubscription hello:
 
     ```powershell
     Get-AzureSubscription -Default
     ```
 
-7. Aby wyświetlić wszystkie dostępne polecenia cmdlet programu PowerShell dla usługi Azure Storage, uruchom polecenie:
+7. toosee Uruchom wszystkie hello dostępne polecenia cmdlet programu PowerShell dla usługi Azure Storage:
     
     ```powershell
     Get-Command -Module Azure -Noun *Storage*`
     ```
 
-### <a name="how-to-create-a-new-azure-storage-account"></a>Jak utworzyć nowe konto magazynu Azure
-Aby korzystać z magazynu Azure, konieczne będzie konto magazynu. Po skonfigurowaniu komputera do nawiązania połączenia subskrypcji, można utworzyć nowe konto magazynu Azure.
+### <a name="how-toocreate-a-new-azure-storage-account"></a>Jak toocreate nowe konto magazynu Azure
+toouse magazynu Azure, konieczne będzie konto magazynu. Po skonfigurowaniu subskrypcji tooyour tooconnect komputera, można utworzyć nowe konto magazynu platformy Azure.
 
-1. Uruchom polecenie cmdlet Get-AzureLocation do znajdowania lokalizacji datacenter dostępne:
+1. Uruchom wszystkie lokalizacje dostępne datacenter hello toofind polecenia cmdlet Get-AzureLocation hello:
 
     ```powershell
     Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes
     ```
 
-2. Następnie uruchom polecenie cmdlet New-AzureStorageAccount Aby utworzyć nowe konto magazynu. Poniższy przykład tworzy nowe konto magazynu w centrum danych "Zachodnie stany USA".
+2. Następnie przeprowadź toocreate polecenia cmdlet New-AzureStorageAccount hello nowe konto magazynu. Witaj poniższy przykład tworzy nowe konto magazynu w centrum danych "Zachodnie stany USA" hello.
    
     ```powershell
     $location = "West US"
@@ -202,14 +202,14 @@ Aby korzystać z magazynu Azure, konieczne będzie konto magazynu. Po skonfiguro
     ```
 
 > [!IMPORTANT]
-> Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure i muszą być małymi literami. Ograniczenia i konwencje nazewnictwa, zobacz [o kontach magazynu Azure](storage-create-storage-account.md) i [nazewnictwa i odwołuje się do kontenerów, obiektów blob i metadanych](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> Hello nazwa konta magazynu musi być unikatowa w obrębie platformy Azure i muszą być małymi literami. Ograniczenia i konwencje nazewnictwa, zobacz [o kontach magazynu Azure](storage-create-storage-account.md) i [nazewnictwa i odwołuje się do kontenerów, obiektów blob i metadanych](http://msdn.microsoft.com/library/azure/dd135715.aspx).
 > 
 > 
 
-### <a name="how-to-set-a-default-azure-storage-account"></a>Jak ustawić domyślnego konta magazynu platformy Azure
-Może mieć wielu kont magazynu w ramach subskrypcji. Można wybrać jedną z nich i ustawić go jako domyślne konto magazynu dla wszystkich poleceń magazynu w tej samej sesji programu PowerShell. Umożliwia to uruchamianie poleceń programu Azure PowerShell magazynu bez jawne określenie kontekst magazynu.
+### <a name="how-tooset-a-default-azure-storage-account"></a>Jak tooset domyślne konto magazynu Azure
+Może mieć wielu kont magazynu w ramach subskrypcji. Można wybrać jedną z nich i ustaw go jako hello domyślne konto magazynu dla wszystkich hello magazynu polecenia w hello sama sesja programu PowerShell. Dzięki temu możesz toorun hello Azure PowerShell magazynu polecenia bez jawne określenie hello kontekst magazynu.
 
-1. Aby skonfigurować domyślne konto magazynu dla Twojej subskrypcji, można uruchomić polecenie cmdlet Set-AzureSubscription.
+1. tooset domyślne konto magazynu dla Twojej subskrypcji, możesz uruchomić polecenie cmdlet Set-AzureSubscription hello.
 
     ```powershell
     $SubscriptionName = "Your subscription name"
@@ -217,27 +217,27 @@ Może mieć wielu kont magazynu w ramach subskrypcji. Można wybrać jedną z ni
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
-2. Następnie uruchom polecenie cmdlet Get-AzureSubscription, aby sprawdzić, czy konto magazynu jest skojarzony z domyślnego konta subskrypcji. To polecenie zwraca właściwości subskrypcji w bieżącej subskrypcji, w tym konta magazynu.
+2. Następnie przeprowadź tooverify polecenia cmdlet Get-AzureSubscription hello czy konto magazynu hello jest skojarzony z domyślnego konta subskrypcji. To polecenie zwraca hello właściwości subskrypcji na powitania bieżącej subskrypcji w tym konta magazynu.
 
     ```powershell
     Get-AzureSubscription –Current
     ```
 
-### <a name="how-to-list-all-azure-storage-accounts-in-a-subscription"></a>Jak wyświetlić wszystkie konta magazynu Azure w ramach subskrypcji
-Każda subskrypcja platformy Azure może mieć maksymalnie 100 kont magazynu. Aby uzyskać najbardziej aktualne informacje dotyczące limity, zobacz [subskrypcji platformy Azure i ograniczenia usługi, przydziały i ograniczenia](../azure-subscription-service-limits.md).
+### <a name="how-toolist-all-azure-storage-accounts-in-a-subscription"></a>Jak toolist magazynu Azure wszystkich kont w ramach subskrypcji
+Każda subskrypcja platformy Azure może zawierać maksymalnie too100 kont magazynu. Hello najbardziej aktualne informacje dotyczące limitów znajdują się w temacie [subskrypcji platformy Azure i ograniczenia usługi, przydziały i ograniczenia](../azure-subscription-service-limits.md).
 
-Uruchom następujące polecenie cmdlet, aby znaleźć nazwę i stanu kont magazynu w bieżącej subskrypcji:
+Uruchom następujące polecenia cmdlet toofind nazwę hello i stanu kont magazynu hello w bieżącej subskrypcji hello hello:
 
 ```powershell
 Get-AzureStorageAccount | Format-Table -Property StorageAccountName, Location, AccountType, StorageAccountStatus
 ```
 
-### <a name="how-to-create-an-azure-storage-context"></a>Jak utworzyć kontekst magazynu Azure
-Kontekst magazynu platformy Azure jest obiektu w programie PowerShell, aby hermetyzować poświadczeń magazynu. Przy użyciu kontekst magazynu podczas uruchamiania wszystkie kolejne polecenia cmdlet umożliwia uwierzytelnić żądania bez jawne określenie konta magazynu i klucza dostępu. Kontekst magazynu można utworzyć na wiele sposobów, na przykład za pomocą magazynu konta nazwy i klucza dostępu, token sygnatury dostępu Współdzielonego dostępu współdzielonego, parametry połączenia lub anonimowych. Aby uzyskać więcej informacji, zobacz [AzureStorageContext nowy](/powershell/module/azure.storage/new-azurestoragecontext).  
+### <a name="how-toocreate-an-azure-storage-context"></a>Jak toocreate kontekst magazynu Azure
+Kontekst magazynu Azure jest obiektem w poświadczenia magazynu hello tooencapsulate programu PowerShell. Używanie kontekst magazynu podczas uruchamiania każdego kolejne polecenia cmdlet umożliwia tooauthenticate możesz żądania bez jawne określenie hello konta magazynu i klucza dostępu. Kontekst magazynu można utworzyć na wiele sposobów, na przykład za pomocą magazynu konta nazwy i klucza dostępu, token sygnatury dostępu Współdzielonego dostępu współdzielonego, parametry połączenia lub anonimowych. Aby uzyskać więcej informacji, zobacz [AzureStorageContext nowy](/powershell/module/azure.storage/new-azurestoragecontext).  
 
-Użyj jednej z następujących trzech sposobów, aby utworzyć kontekst magazynu:
+Użyj jednej z następujących trzech sposobów toocreate hello kontekst magazynu:
 
-* Uruchom [Get-AzureStorageKey](/powershell/module/azure.storage/get-azurestoragekey) polecenia cmdlet, aby dowiedzieć się, podstawowy klucz dostępu dla konta magazynu Azure. Następnie wywołaj [AzureStorageContext nowy](/powershell/module/azure.storage/new-azurestoragecontext) polecenia cmdlet można utworzyć kontekstu magazynu:
+* Uruchom hello [Get-AzureStorageKey](/powershell/module/azure.storage/get-azurestoragekey) toofind polecenia cmdlet limit klucz dostępu do magazynu podstawowego hello konta magazynu Azure. Następnie wywołaj hello [AzureStorageContext nowy](/powershell/module/azure.storage/new-azurestoragecontext) toocreate polecenia cmdlet kontekst magazynu:
 
     ```powershell
     $StorageAccountName = "yourstorageaccount"
@@ -245,7 +245,7 @@ Użyj jednej z następujących trzech sposobów, aby utworzyć kontekst magazynu
     $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     ```
 
-* Generowanie tokenu sygnatury dostępu współdzielonego dla kontenera magazynu systemu Azure i przy jego użyciu można utworzyć kontekstu magazynu:
+* Generuj token sygnatury dostępu współdzielonego dla kontenera magazynu systemu Azure i korzystać z niego toocreate kontekst magazynu:
 
     ```powershell
     $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
@@ -254,25 +254,25 @@ Użyj jednej z następujących trzech sposobów, aby utworzyć kontekst magazynu
 
     Aby uzyskać więcej informacji, zobacz [AzureStorageContainerSASToken nowy](/powershell/module/azure.storage/new-azurestoragecontainersastoken) i [przy użyciu dostępu sygnatur dostępu Współdzielonego](storage-dotnet-shared-access-signature-part-1.md).
 
-* W niektórych przypadkach możesz określić punktów końcowych usługi podczas tworzenia nowego kontekst magazynu. Może to być konieczne, gdy niestandardowej nazwy domeny dla konta magazynu zostały zarejestrowane w usłudze obiektów Blob lub chcesz używać do uzyskiwania dostępu do zasobów magazynu sygnatury dostępu współdzielonego. W parametrach połączenia ustawiono punktów końcowych usługi i go użyć do utworzenia nowego kontekst magazynu, jak pokazano poniżej:
+* W niektórych przypadkach może być punktów końcowych usługi hello toospecify podczas tworzenia nowego kontekst magazynu. Może to być konieczne, gdy zarejestrowano niestandardowej nazwy domeny dla konta magazynu z usługą Blob hello lub toouse sygnatury dostępu współdzielonego mają dostęp do zasobów magazynu. W parametrach połączenia ustawiono hello punktów końcowych usługi i użyj go toocreate nowy kontekst magazynu, jak pokazano poniżej:
 
     ```powershell
     $ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
     $Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
     ```
 
-Aby uzyskać więcej informacji na temat konfigurowania parametrów połączenia magazynu, zobacz [Konfigurowanie parametrów połączenia](storage-configure-connection-string.md).
+Aby uzyskać więcej informacji na temat tooconfigure parametry połączenia magazynu, zobacz [Konfigurowanie parametrów połączenia](storage-configure-connection-string.md).
 
-Teraz, skonfiguruj komputer i przedstawiono sposób zarządzać subskrypcjami i konta magazynu przy użyciu programu Azure PowerShell, przejdź do następnej sekcji, aby dowiedzieć się, jak zarządzać obiekty BLOB platformy Azure i migawki obiektu blob.
+Teraz, możesz skonfigurować komputer i przedstawiono sposób toomanage subskrypcji i kont magazynu przy użyciu programu Azure PowerShell Przejdź dalej toolearn sekcji toohello, jak obiekty BLOB toomanage Azure i migawki obiektu blob.
 
-### <a name="how-to-retrieve-and-regenerate-azure-storage-keys"></a>Jak pobrać i ponowne generowanie kluczy magazynu Azure
-Konto magazynu Azure ma dwa klucze konta. Następujące polecenie cmdlet służy do pobierania kluczy.
+### <a name="how-tooretrieve-and-regenerate-azure-storage-keys"></a>Jak tooretrieve i regenerate klucze magazynu Azure
+Konto magazynu Azure ma dwa klucze konta. Możesz użyć następującego polecenia cmdlet tooretrieve hello klucze.
 
 ```powershell
 Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
 ```
 
-Użyj następującego polecenia cmdlet można pobrać określonego klucza. Prawidłowe wartości to podstawowe i pomocnicze.  
+Użyj następującego polecenia cmdlet tooretrieve określonego klucza hello. Prawidłowe wartości to podstawowe i pomocnicze.  
 
 ```powershell
 (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
@@ -280,7 +280,7 @@ Użyj następującego polecenia cmdlet można pobrać określonego klucza. Prawi
 (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
 ```
 
-Jeśli chcesz ponownie wygenerować klucze, użyj następującego polecenia cmdlet. Prawidłowe wartości właściwości KeyType - to "Primary" i "Secondary"
+Jeśli chcesz tooregenerate klucze, użyj następującego polecenia cmdlet hello. Prawidłowe wartości właściwości KeyType - to "Primary" i "Secondary"
 
 ```powershell
 New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Primary"
@@ -288,11 +288,11 @@ New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Primary"
 New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Secondary"
 ```
 
-## <a name="how-to-manage-azure-blobs"></a>Jak zarządzać obiekty BLOB platformy Azure
-Magazyn obiektów Blob Azure to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne, którego mogą uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. W tej sekcji założono, że znasz już pojęcia dotyczące usługi magazynu obiektów Blob Azure. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md) i [pojęcia dotyczące usługi Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+## <a name="how-toomanage-azure-blobs"></a>Jak obiekty BLOB toomanage Azure
+Magazyn obiektów Blob Azure to usługa do przechowywania dużych ilości danych bez struktury, takich jak dane tekstowe lub binarne, który można uzyskać z dowolnego miejsca w Witaj świecie za pośrednictwem protokołu HTTP lub HTTPS. W tej sekcji założono, że znasz już pojęcia dotyczące usługi magazynu obiektów Blob Azure hello. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md) i [pojęcia dotyczące usługi Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-### <a name="how-to-create-a-container"></a>Jak utworzyć kontener
-Każdy obiekt blob w magazynie Azure musi być w kontenerze. Można utworzyć kontener prywatnego za pomocą polecenia cmdlet New-AzureStorageContainer:
+### <a name="how-toocreate-a-container"></a>Jak toocreate kontenera
+Każdy obiekt blob w magazynie Azure musi być w kontenerze. Można utworzyć za pomocą polecenia cmdlet hello AzureStorageContainer nowy kontener prywatnych:
 
 ```powershell
 $StorageContainerName = "yourcontainername"
@@ -300,30 +300,30 @@ New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 ```
 
 > [!NOTE]
-> Istnieją trzy poziomy anonimowy dostęp do odczytu: **poza**, **obiektu Blob**, i **kontenera**. Aby uniemożliwić dostęp anonimowy do obiektów blob, ustaw dla parametru uprawnienia **poza**. Domyślnie nowy kontener jest prywatny i jest możliwy tylko przez właściciela konta. Umożliwia anonimowego publiczny dostęp do odczytu do zasobów obiektów blob, ale nie do metadanych kontenera lub listę obiektów blob w kontenerze, ustaw uprawnienia dla parametru **obiektu Blob**. Umożliwia pełną publiczny dostęp do odczytu do zasobów, metadanych kontenera i listę obiektów blob w kontenerze obiektu blob, ustaw dla parametru uprawnienia **kontenera**. Aby uzyskać więcej informacji, zobacz [Zarządzanie anonimowy dostęp do odczytu do kontenerów i obiektów blob](storage-manage-access-to-resources.md).
+> Istnieją trzy poziomy anonimowy dostęp do odczytu: **poza**, **obiektu Blob**, i **kontenera**. tooprevent anonimowego dostępu zbyt tooblobs, parametr uprawnienia hello zestawu**poza**. Domyślnie nowy kontener hello jest prywatny i jest możliwy tylko przez właściciela konta hello. odczytu tooallow publicznego anonimowy dostęp do zasobów tooblob, ale nie toocontainer metadanych lub toohello listę obiektów blob w kontenerze hello, ustaw parametr uprawnienia hello zbyt**obiektu Blob**. tooallow publicznego Pełny odczyt dostęp do zasobów tooblob metadanych kontenera i hello listę obiektów blob w kontenerze hello, ustaw parametr uprawnienia hello zbyt**kontenera**. Aby uzyskać więcej informacji, zobacz [Zarządzanie toocontainers anonimowy dostęp do odczytu i obiekty BLOB](storage-manage-access-to-resources.md).
 > 
 > 
 
-### <a name="how-to-upload-a-blob-into-a-container"></a>Jak przekazać obiekt blob do kontenera
+### <a name="how-tooupload-a-blob-into-a-container"></a>Jak tooupload obiektu blob do kontenera
 Azure Blob Storage obsługuje blokowe i stronicowe obiekty blob. Aby uzyskać więcej informacji, zobacz [opis blokowych obiektów blob, Dołącz obiektów blob i stronicowe obiekty BLOB](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
-Aby przekazać obiektów blob w kontenerze, można użyć [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) polecenia cmdlet. Domyślnie to polecenie operacji przekazywania plików lokalnych do blokowego obiektu blob. Aby określić typ obiektu blob, można użyć parametru - BlobType.
+tooupload obiekty BLOB w kontenerze tooa, można użyć hello [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) polecenia cmdlet. Domyślnie to polecenie wysyła hello lokalne pliki tooa — obiekt blob blokowy. Typ hello toospecify hello obiektu blob, można użyć parametru - BlobType hello.
 
-W poniższym przykładzie uruchamiane [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) polecenia cmdlet, aby pobrać wszystkie pliki w określonym folderze, a następnie przekazuje je do następnego polecenia cmdlet, za pomocą operatora potoku. [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) polecenia cmdlet przekazuje lokalnych plików z kontenera:
+Witaj poniższym przykładzie uruchamiane są hello [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) tooget polecenia cmdlet hello wszystkie pliki w określonym folderze hello, a następnie przesyła je dalej polecenia cmdlet toohello za pomocą operatora potoku hello. Witaj [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) kontenera tooyour pliki lokalne powitania przekazuje polecenia cmdlet:
 
 ```powershell
 Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
 ```
 
-### <a name="how-to-download-blobs-from-a-container"></a>Jak pobrać obiekty BLOB z kontenera
-W poniższym przykładzie pokazano, jak pobrać obiekty BLOB z kontenera. Przykład najpierw nawiąże połączenie z magazynem Azure przy użyciu kontekstu konta magazynu, w tym nazwę konta magazynu i jego podstawowy klucz dostępu. Następnie pobiera odwołanie obiektu blob przy użyciu przykładzie [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet. Następnie w przykładzie użyto [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) polecenia cmdlet, aby pobierać obiekty BLOB do folderu docelowego lokalnego.
+### <a name="how-toodownload-blobs-from-a-container"></a>Jak toodownload obiektów blob z kontenera
+Witaj poniższy przykład pokazuje, jak toodownload obiektów blob z kontenera. przykład Witaj najpierw ustanawia tooAzure połączenia magazynu przy użyciu kontekstu konta magazynu hello, w tym nazwy konta magazynu hello i jego podstawowy klucz dostępu. Następnie przykład Witaj pobiera odwołanie do obiektu blob przy użyciu hello [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet. Następnie przykład Witaj używa hello [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) obiekty BLOB toodownload polecenia cmdlet do folderu docelowego lokalne powitania.
 
 ```powershell
-#Define the variables.
+#Define hello variables.
 $ContainerName = "yourcontainername"
 $DestinationFolder = "C:\DownloadImages"
 
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
 $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -336,33 +336,33 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder -Context $Ctx
 ```
 
-### <a name="how-to-copy-blobs-from-one-storage-container-to-another"></a>Kopiowanie obiektów blob z jeden kontener magazynu do innego
-Asynchronicznie należy skopiować obiekty BLOB na kontach magazynu i regionów. W poniższym przykładzie pokazano sposób kopiowania obiektów blob z jeden kontener magazynu do innego w dwóch różnych kont magazynu. Przykład najpierw ustawia zmienne dla konta magazynu źródłowego i docelowego, a następnie tworzy kontekst magazynu dla poszczególnych kont. Następnie przykładowy kod kopiuje obiekty BLOB w kontenerze źródła do kontenera docelowego przy użyciu [Start AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) polecenia cmdlet. W przykładzie założono, że konta magazynu źródłowego i docelowego i kontenerów już istnieje.
+### <a name="how-toocopy-blobs-from-one-storage-container-tooanother"></a>Jak toocopy obiektów blob z jednego tooanother kontenera magazynu
+Asynchronicznie należy skopiować obiekty BLOB na kontach magazynu i regionów. Witaj poniższym przykładzie pokazano, jak toocopy obiektów blob z jednego magazynu tooanother kontenera w dwóch różnych kont magazynu. przykład Witaj najpierw ustawia zmienne dla konta magazynu źródłowego i docelowego, a następnie tworzy kontekst magazynu dla poszczególnych kont. Następnie przykład Witaj kopiuje obiekty BLOB z hello źródła kontenera toohello docelowy kontener przy użyciu hello [Start AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) polecenia cmdlet. przykład Witaj przyjęto założenie, że konta magazynu źródłowego i docelowego hello i kontenery już istnieje.
 
 ```powershell
-#Define the source storage account and context.
+#Define hello source storage account and context.
 $SourceStorageAccountName = "yoursourcestorageaccount"
 $SourceStorageAccountKey = "Storage key for yoursourcestorageaccount"
 $SrcContainerName = "yoursrccontainername"
 $SourceContext = New-AzureStorageContext -StorageAccountName $SourceStorageAccountName -StorageAccountKey $SourceStorageAccountKey
 
-#Define the destination storage account and context.
+#Define hello destination storage account and context.
 $DestStorageAccountName = "yourdeststorageaccount"
 $DestStorageAccountKey = "Storage key for yourdeststorageaccount"
 $DestContainerName = "destcontainername"
 $DestContext = New-AzureStorageContext -StorageAccountName $DestStorageAccountName -StorageAccountKey $DestStorageAccountKey
 
-#Get a reference to blobs in the source container.
+#Get a reference tooblobs in hello source container.
 $blobs = Get-AzureStorageBlob -Container $SrcContainerName -Context $SourceContext
 
-#Copy blobs from one container to another.
+#Copy blobs from one container tooanother.
 $blobs| Start-AzureStorageBlobCopy -DestContainer $DestContainerName -DestContext $DestContext
 ```
 
-Należy pamiętać, że w tym przykładzie wykonuje asynchroniczne kopiowania. Można monitorować stan poszczególnych kopii uruchamiając [Get-AzureStorageBlobCopyState](/powershell/module/azure.storage/start-azurestorageblobcopystate) polecenia cmdlet.
+Należy pamiętać, że w tym przykładzie wykonuje asynchroniczne kopiowania. Możesz monitorować stan hello każdej kopii uruchamiając hello [Get-AzureStorageBlobCopyState](/powershell/module/azure.storage/start-azurestorageblobcopystate) polecenia cmdlet.
 
-### <a name="how-to-copy-blobs-from-a-secondary-location"></a>Kopiowanie obiektów blob z lokalizacji dodatkowej
-Obiekty BLOB można skopiować z lokalizacji dodatkowej RA-GRS włączone konta.
+### <a name="how-toocopy-blobs-from-a-secondary-location"></a>Jak toocopy obiektów blob z lokalizacji dodatkowej
+Obiekty BLOB można skopiować z lokalizacji dodatkowej hello RA-GRS włączone konta.
 
 ```powershell
 #define secondary storage context using a connection string constructed from secondary endpoints.
@@ -370,92 +370,92 @@ $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtoco
 Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 ```
 
-### <a name="how-to-delete-a-blob"></a>Jak usunąć obiektu blob
-Aby usunąć obiekt blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać polecenie cmdlet Remove-AzureStorageBlob na nim. Poniższy przykład powoduje usunięcie wszystkich obiektów blob w danym kontenerze. Przykład najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Następnie pobiera odwołanie obiektu blob przy użyciu przykładzie [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet i uruchamia [AzureStorageBlob Usuń](/powershell/module/azure.storage/remove-azurestorageblob) polecenia cmdlet, aby usunąć obiekty BLOB z kontenera w magazynie Azure.
+### <a name="how-toodelete-a-blob"></a>Jak toodelete obiektu blob
+toodelete obiektu blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołaj polecenie cmdlet Remove-AzureStorageBlob hello na nim. Poniższy przykład Hello usuwa wszystkie hello obiekty BLOB w danym kontenerze. przykład Witaj najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Następnie przykład Witaj pobiera odwołanie do obiektu blob przy użyciu hello [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) hello polecenia cmdlet i działa [AzureStorageBlob Usuń](/powershell/module/azure.storage/remove-azurestorageblob) obiekty BLOB tooremove polecenia cmdlet z kontenera w magazynie Azure.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
 $ContainerName = "containername"
 $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-#Get a reference to all the blobs in the container.
+#Get a reference tooall hello blobs in hello container.
 $blobs = Get-AzureStorageBlob -Container $ContainerName -Context $Ctx
 
 #Delete blobs in a specified container.
 $blobs| Remove-AzureStorageBlob
 ```
 
-## <a name="how-to-manage-azure-blob-snapshots"></a>Jak zarządzać migawki obiektu blob systemu Azure
-Azure umożliwia tworzenie migawki obiektu blob. Migawka jest tylko do odczytu wersji obiektu blob, która jest wykonywana w punkcie w czasie. Po utworzeniu migawki, to można można odczytać, kopiowane, lub usunięte, ale nie został zmodyfikowany. Migawki umożliwiają tworzenie kopii zapasowej obiektu blob, pojawiającą się w chwili. Aby uzyskać więcej informacji, zobacz [tworzenia migawki obiektu Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
+## <a name="how-toomanage-azure-blob-snapshots"></a>Jak toomanage Azure blob migawki
+Azure umożliwia tworzenie migawki obiektu blob. Migawka jest tylko do odczytu wersji obiektu blob, która jest wykonywana w punkcie w czasie. Po utworzeniu migawki, to można można odczytać, kopiowane, lub usunięte, ale nie został zmodyfikowany. Migawki zapewniają tooback sposób się obiektu blob znajduje się na chwilę w czasie. Aby uzyskać więcej informacji, zobacz [tworzenia migawki obiektu Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-### <a name="how-to-create-a-blob-snapshot"></a>Tworzenie migawki obiektu blob
-Aby utworzyć snaphot obiektu blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać `ICloudBlob.CreateSnapshot` dla niego metodę. Poniższy przykład najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Następnie pobiera odwołanie obiektu blob przy użyciu przykładzie [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet i uruchamia [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) metodę w celu utworzenia migawki.
+### <a name="how-toocreate-a-blob-snapshot"></a>Jak toocreate migawki obiektu blob
+toocreate snaphot obiektu blob, najpierw pobrać odwołanie do obiektu blob, a następnie wywołać hello `ICloudBlob.CreateSnapshot` dla niego metodę. Witaj poniższym przykładzie najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Następnie przykład Witaj pobiera odwołanie do obiektu blob przy użyciu hello [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) hello polecenia cmdlet i działa [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) toocreate metody migawki.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
 $ContainerName = "yourcontainername"
 $BlobName = "yourblobname"
 $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-#Get a reference to a blob.
+#Get a reference tooa blob.
 $blob = Get-AzureStorageBlob -Context $Ctx -Container $ContainerName -Blob $BlobName
 
-#Create a snapshot of the blob.
+#Create a snapshot of hello blob.
 $snap = $blob.ICloudBlob.CreateSnapshot()
 ```
 
-### <a name="how-to-list-a-blobs-snapshots"></a>Sposób wyświetlania migawki obiektu blob
-Można utworzyć dowolną liczbę migawek do obiektu blob. Można wyświetlić listę migawki skojarzone z z obiektu blob do śledzenia sieci bieżącej migawki. W poniższym przykładzie użyto wstępnie zdefiniowanych obiektów blob i wywołania [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet, aby wyświetlić listę migawki tego obiektu blob.  
+### <a name="how-toolist-a-blobs-snapshots"></a>Jak migawki toolist obiektu blob
+Można utworzyć dowolną liczbę migawek do obiektu blob. Możesz wyświetlić listę hello migawki skojarzone z tootrack Twojego obiektu blob z bieżącej migawki. Witaj poniższym przykładzie użyto wstępnie zdefiniowanych obiektów blob i wywołania hello [Get AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) migawek hello toolist polecenia cmdlet tego obiektu blob.  
 
 ```powershell
-#Define the blob name.
+#Define hello blob name.
 $BlobName = "yourblobname"
 
-#List the snapshots of a blob.
+#List hello snapshots of a blob.
 Get-AzureStorageBlob –Context $Ctx -Prefix $BlobName -Container $ContainerName  | Where-Object  { $_.ICloudBlob.IsSnapshot -and $_.Name -eq $BlobName }
 ```
 
-### <a name="how-to-copy-a-snapshot-of-a-blob"></a>Jak skopiować migawki obiektu blob
-Możesz skopiować migawki obiektu blob do przywrócenia migawki. Aby uzyskać szczegółowe informacje i ograniczenia, zobacz [tworzenia migawki obiektu Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx). Poniższy przykład najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Następnie w przykładzie zdefiniowano zmienne nazwa kontenera i obiektów blob. Przykład pobiera odwołanie obiektu blob przy użyciu [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) polecenia cmdlet i uruchamia [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) metodę w celu utworzenia migawki. Następnie, w przykładzie uruchamiane są [Start AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) polecenia cmdlet można skopiować migawki obiektu blob przy użyciu obiektu ICloudBlob dla źródłowego obiektu blob. Należy zaktualizować zmienne na podstawie konfiguracji przed uruchomieniem w przykładzie. Należy pamiętać, że w poniższym przykładzie założono, że źródłowy i docelowy kontenery i źródłowego obiektu blob już istnieje.
+### <a name="how-toocopy-a-snapshot-of-a-blob"></a>Jak toocopy migawki obiektu blob
+Możesz skopiować migawki obiektu blob toorestore hello migawki. Aby uzyskać szczegółowe informacje i ograniczenia, zobacz [tworzenia migawki obiektu Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx). Witaj poniższym przykładzie najpierw ustawia zmienne dla konta magazynu, a następnie tworzy kontekst magazynu. Przykład Witaj definiuje następnie hello zmienne nazwa kontenera i obiektów blob. przykład Witaj pobiera odwołanie do obiektu blob przy użyciu hello [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) hello polecenia cmdlet i działa [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) toocreate metody migawki. Następnie przykład Witaj uruchamia hello [Start AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) polecenia cmdlet toocopy hello migawki obiektu blob przy użyciu obiektu ICloudBlob hello na powitania źródłowego obiektu blob. Należy się, że zmienne hello tooupdate zgodnie z konfiguracją przed uruchomionych przykład Witaj. Należy zauważyć, że ten hello poniższy przykład przyjęto założenie, że hello źródłowego i docelowego kontenery i hello źródłowego obiektu blob już istnieje.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
 $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-#Define the variables.
+#Define hello variables.
 $SrcContainerName = "yoursourcecontainername"
 $DestContainerName = "yourdestcontainername"
 $SrcBlobName = "yourblobname"
 $DestBlobName = "CopyBlobName"
 
-#Get a reference to a blob.
+#Get a reference tooa blob.
 $blob = Get-AzureStorageBlob -Context $Ctx -Container $SrcContainerName -Blob $SrcBlobName
 
 #Create a snapshot of a blob.
 $snap = $blob.ICloudBlob.CreateSnapshot()
 
-#Copy the snapshot to another container.
+#Copy hello snapshot tooanother container.
 Start-AzureStorageBlobCopy –Context $Ctx -ICloudBlob $snap -DestBlob $DestBlobName -DestContainer $DestContainerName
 ```
 
-Teraz, kiedy znasz sposobu zarządzania obiekty BLOB platformy Azure i obiektów blob migawki przy użyciu programu Azure PowerShell, przejdź do następnej sekcji, aby dowiedzieć się, jak zarządzać tabel, kolejek i plików.
+Teraz, gdy uzyskanych jak obiekty BLOB toomanage Azure i obiektów blob migawki przy użyciu programu Azure PowerShell Przejdź toohello dalej toolearn sekcji jak toomanage tabel, kolejek i plików.
 
-## <a name="how-to-manage-azure-tables-and-table-entities"></a>Jak zarządzać tabelach platformy Azure i jednostek tabeli
-Azure usługi Magazyn tabel jest magazynem danych NoSQL, która służy do przechowywania i zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Główne składniki usługi są tabele, jednostki i właściwości. Tabela jest kolekcji jednostek. Jednostka jest zbiór właściwości. Każdy obiekt może mieć maksymalnie 252 właściwości, które są wszystkie pary nazwa wartość. W tej sekcji założono, że znasz już pojęcia dotyczące usługi Magazyn tabel Azure. Aby uzyskać szczegółowe informacje, zobacz [opis modelu danych usługi tabel](http://msdn.microsoft.com/library/azure/dd179338.aspx) i [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md).
+## <a name="how-toomanage-azure-tables-and-table-entities"></a>Jak toomanage Azure tabele i tabela jednostek
+Azure usługi Magazyn tabel jest magazynem danych NoSQL, którego można użyć toostore i zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. głównymi składnikami usługi hello Hello są tabele, jednostki i właściwości. Tabela jest kolekcji jednostek. Jednostka jest zbiór właściwości. Każdy obiekt może zawierać maksymalnie too252 właściwości, które są wszystkie pary nazwa wartość. W tej sekcji założono, że znasz już pojęcia dotyczące usługi Magazyn tabel Azure hello. Aby uzyskać szczegółowe informacje, zobacz [hello opis modelu danych usługi tabel](http://msdn.microsoft.com/library/azure/dd179338.aspx) i [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md).
 
-W poniższych podsekcjach dowiesz się, jak zarządzać usługą magazynu tabel Azure przy użyciu programu Azure PowerShell. Omówione scenariusze obejmują **tworzenie**, **usuwanie**, i **pobierania** **tabel**, jak również **Dodawanie**, **badania**, i **usuwania jednostek tabeli**.
+Następujące podpunkty hello dowiesz się, jak usługa toomanage magazynu tabel Azure przy użyciu programu Azure PowerShell. Witaj omówione scenariusze obejmują **tworzenie**, **usuwanie**, i **pobierania** **tabel**, jak również **Dodawanie**, **badania**, i **usuwania jednostek tabeli**.
 
-### <a name="how-to-create-a-table"></a>Tworzenie tabeli
-Każda tabela musi znajdować się na koncie magazynu platformy Azure. Poniższy przykład przedstawia sposób tworzenia tabeli w usłudze Azure Storage. Przykład najpierw nawiąże połączenie z usługi Azure Storage przy użyciu kontekstu konta magazynu, która zawiera nazwę konta magazynu i klucza dostępu. Następnie używa [AzureStorageTable nowy](/powershell/module/azure.storage/new-azurestoragetable) polecenia cmdlet, aby utworzyć tabelę w usłudze Azure Storage.
+### <a name="how-toocreate-a-table"></a>Jak toocreate tabeli
+Każda tabela musi znajdować się na koncie magazynu platformy Azure. Witaj poniższym przykładzie pokazano, jak toocreate tabeli w usłudze Azure Storage. przykład Witaj najpierw ustanawia tooAzure połączenia magazynu przy użyciu kontekstu konta magazynu hello, w tym nazwy konta magazynu hello i jego klucz dostępu. Następnie używa hello [AzureStorageTable nowy](/powershell/module/azure.storage/new-azurestoragetable) toocreate polecenia cmdlet tabeli w usłudze Azure Storage.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
 $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -465,8 +465,8 @@ $tabName = "yourtablename"
 New-AzureStorageTable –Name $tabName –Context $Ctx
 ```
 
-### <a name="how-to-retrieve-a-table"></a>Jak pobrać tabeli
-Można zbadać i pobrać jednego lub wszystkich tabel na koncie magazynu. W poniższym przykładzie pokazano, jak pobrać danej tabeli za pomocą [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet.
+### <a name="how-tooretrieve-a-table"></a>Jak tooretrieve tabeli
+Można zbadać i pobrać jednego lub wszystkich tabel na koncie magazynu. Witaj poniższym przykładzie pokazano, jak przy użyciu danej tabeli tooretrieve hello [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet.
 
 ```powershell
 #Retrieve a table.
@@ -474,10 +474,10 @@ $tabName = "yourtablename"
 Get-AzureStorageTable –Name $tabName –Context $Ctx
 ```
 
-Wywołanie polecenia cmdlet Get-AzureStorageTable bez żadnych parametrów, pobiera wszystkie tabele magazynu dla konta magazynu.
+Wywołanie polecenia cmdlet Get-AzureStorageTable hello bez żadnych parametrów, pobiera wszystkie tabele magazynu dla konta magazynu.
 
-### <a name="how-to-delete-a-table"></a>Sposób usuwania tabeli
-Z konta magazynu można usunąć tabeli, za pomocą [AzureStorageTable Usuń](/powershell/module/azure.storage/remove-azurestoragetable) polecenia cmdlet.  
+### <a name="how-toodelete-a-table"></a>Jak toodelete tabeli
+Z konta magazynu można usunąć tabeli, za pomocą hello [AzureStorageTable Usuń](/powershell/module/azure.storage/remove-azurestoragetable) polecenia cmdlet.  
 
 ```powershell
 #Delete a table.
@@ -485,21 +485,21 @@ $tabName = "yourtablename"
 Remove-AzureStorageTable –Name $tabName –Context $Ctx
 ```
 
-### <a name="how-to-manage-table-entities"></a>Jak zarządzać jednostek tabeli
-Obecnie programu Azure PowerShell nie udostępnia polecenia cmdlet do zarządzania jednostek tabeli bezpośrednio. Aby wykonywać operacje na jednostkach tabeli, można użyć klasy podane w [biblioteki klienta magazynu Azure dla platformy .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
+### <a name="how-toomanage-table-entities"></a>Jak toomanage Tabela jednostek
+Obecnie programu Azure PowerShell nie zapewnia bezpośrednio jednostek tabeli toomanage polecenia cmdlet. tooperform operacje na jednostkach tabeli, można użyć klasy hello podany w hello [biblioteki klienta magazynu Azure dla platformy .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
 
-#### <a name="how-to-add-table-entities"></a>Jak dodać jednostek tabeli
-Aby dodać jednostkę do tabeli, należy najpierw utworzyć obiekt, który definiuje właściwości jednostki. Jednostka może mieć maksymalnie 255 właściwości, w tym 3 Właściwości systemowe: **PartitionKey**, **RowKey**, i **sygnatury czasowej**. Jest odpowiedzialny za wstawiania i aktualizowania wartości **PartitionKey** i **RowKey**. Serwer zarządza wartością **sygnatury czasowej**, która nie może być modyfikowany. Razem **PartitionKey** i **RowKey** jednoznacznie zidentyfikować każdej jednostki w tabeli.
+#### <a name="how-tooadd-table-entities"></a>Jak tooadd Tabela jednostek
+Tabela tooa jednostek tooadd najpierw utworzyć obiekt, który definiuje właściwości jednostki. Jednostka może mieć właściwości too255, łącznie z 3 Właściwości systemowe: **PartitionKey**, **RowKey**, i **sygnatury czasowej**. Jest odpowiedzialny za wstawiania i aktualizowania wartości hello **PartitionKey** i **RowKey**. Hello podlegało zarządzaniu przez serwer wartość hello **sygnatury czasowej**, która nie może być modyfikowany. Razem hello **PartitionKey** i **RowKey** jednoznacznie zidentyfikować każdej jednostki w tabeli.
 
-* **PartitionKey**: Określa jednostki przechowywanego w partycji.
-* **RowKey**: unikatowo identyfikuje jednostek w partycji.
+* **PartitionKey**: Określa jednostki hello są przechowywane w partycji hello.
+* **RowKey**: unikatowo identyfikuje hello jednostek w partycji hello.
 
-Można zdefiniować maksymalnie 252 właściwości niestandardowych dla jednostki. Aby uzyskać więcej informacji, zobacz [opis modelu danych usługi tabel](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Można zdefiniować niestandardowe właściwości too252 dla jednostki. Aby uzyskać więcej informacji, zobacz [hello opis modelu danych usługi tabel](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-W poniższym przykładzie pokazano, jak dodać jednostek do tabeli. W przykładzie przedstawiono sposób pobierania tabeli pracowników i Dodaj do niej kilku jednostek. Najpierw nawiązaniem połączenia z magazynem Azure przy użyciu kontekstu konta magazynu, która zawiera nazwę konta magazynu i klucza dostępu. Następnie pobiera przy użyciu danej tabeli [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Jeśli tabela nie istnieje, [AzureStorageTable nowy](/powershell/module/azure.storage/new-azurestoragetable) polecenia cmdlet służy do tworzenia tabeli w usłudze Azure Storage. Następnie w przykładzie zdefiniowano niestandardowe funkcji Dodaj jednostki do Dodaj jednostki do tabeli, określając każdej jednostki partycji i klucz wiersza. Wywołania funkcji jednostki Dodaj [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet na [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) klasy w celu utworzenia obiektu jednostki. Później, przykład wywołuje [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) metody dla tego obiektu jednostki, aby dodać go do tabeli.
+Witaj poniższym przykładzie pokazano, jak tooadd jednostek tooa tabeli. przykład Witaj pokazuje, jak tooretrieve hello tabeli pracowników i dodać kilka podmiotów do niego. Po pierwsze, nawiązaniem połączenia tooAzure magazynu przy użyciu kontekstu konta magazynu hello, w tym nazwy konta magazynu hello i jego klucz dostępu. Następnie pobiera ona hello podanej tabeli za pomocą hello [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Jeśli hello tabela nie istnieje, hello [AzureStorageTable nowy](/powershell/module/azure.storage/new-azurestoragetable) polecenia cmdlet jest używane toocreate tabeli w usłudze Azure Storage. Następnie przykład Witaj definiuje funkcję niestandardowych Dodaj jednostki tooadd jednostek toohello tabeli przez określenie poszczególnych partycji i klucz wiersza. Witaj Dodaj jednostki Witaj wywołania funkcji [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet na powitania [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) toocreate klasy do obiektu jednostki. Później, przykład Witaj wywołuje hello [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) metody w tym tooadd obiekt jednostki go tooa tabeli.
 
 ```powershell
-#Function Add-Entity: Adds an employee entity to a table.
+#Function Add-Entity: Adds an employee entity tooa table.
 function Add-Entity() {
     [CmdletBinding()]
     param(
@@ -517,13 +517,13 @@ function Add-Entity() {
   $result = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($entity))
 }
 
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 $TableName = "Employees"
 
-#Retrieve the table if it already exists.
+#Retrieve hello table if it already exists.
 $table = Get-AzureStorageTable –Name $TableName -Context $Ctx -ErrorAction Ignore
 
 #Create a new table if it does not exist.
@@ -532,30 +532,30 @@ if ($table -eq $null)
    $table = New-AzureStorageTable –Name $TableName -Context $Ctx
 }
 
-#Add multiple entities to a table.
+#Add multiple entities tooa table.
 Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
 Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
 Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
 Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
 ```
 
-#### <a name="how-to-query-table-entities"></a>Jak wykonać zapytanie dotyczące jednostek tabeli
-Aby sprawdzić tabelę, użyj [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) klasy. W poniższym przykładzie założono, zostały już uruchomiono skrypt podanych w sposobu, w jaki można dodać jednostki części tego przewodnika. Przykład najpierw nawiąże połączenie z magazynem Azure przy użyciu kontekst magazynu, który zawiera nazwę konta magazynu i klucza dostępu. Następnie próbuje pobrać za pomocą tabeli utworzonej wcześniej "pracownicy" [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Wywoływanie [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet w klasie Microsoft.WindowsAzure.Storage.Table.TableQuery tworzy nowy obiekt zapytania. Przykład szuka obiektów, które mają kolumnę 'ID', którego wartość wynosi 1, ponieważ określony w filtrze ciągu. Aby uzyskać szczegółowe informacje, zobacz [badania tabel i jednostek](http://msdn.microsoft.com/library/azure/dd894031.aspx). Po uruchomieniu to zapytanie zwraca wszystkich jednostek spełniających kryteria filtrowania.
+#### <a name="how-tooquery-table-entities"></a>Jak tooquery Tabela jednostek
+tooquery tabelę, użyj hello [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) klasy. Witaj poniższym przykładzie przyjęto założenie, zostały już uruchomione hello skrypt podanych w hello jak tooadd jednostek części tego przewodnika. przykład Witaj najpierw ustanawia tooAzure połączenia magazynu przy użyciu hello kontekst magazynu, który zawiera nazwy konta magazynu hello i klucza dostępu. Następnie próbuje tabeli hello wcześniej utworzony "pracownicy" tooretrieve przy użyciu hello [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Wywoływanie hello [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet na powitania klasy Microsoft.WindowsAzure.Storage.Table.TableQuery tworzy nowy obiekt zapytania. przykład Witaj szuka hello obiektów, które mają kolumnę 'ID', którego wartość wynosi 1, ponieważ określony w filtrze ciągu. Aby uzyskać szczegółowe informacje, zobacz [badania tabel i jednostek](http://msdn.microsoft.com/library/azure/dd894031.aspx). Po uruchomieniu to zapytanie zwraca wszystkich jednostek spełniających kryteria filtru hello.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 $TableName = "Employees"
 
-#Get a reference to a table.
+#Get a reference tooa table.
 $table = Get-AzureStorageTable –Name $TableName -Context $Ctx
 
 #Create a table query.
 $query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
 
-#Define columns to select.
+#Define columns tooselect.
 $list = New-Object System.Collections.Generic.List[string]
 $list.Add("RowKey")
 $list.Add("ID")
@@ -566,51 +566,51 @@ $query.FilterString = "ID gt 0"
 $query.SelectColumns = $list
 $query.TakeCount = 20
 
-#Execute the query.
+#Execute hello query.
 $entities = $table.CloudTable.ExecuteQuery($query)
 
-#Display entity properties with the table format.
+#Display entity properties with hello table format.
 $entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties["ID"].Int32Value}} -AutoSize
 ```
 
-#### <a name="how-to-delete-table-entities"></a>Sposób usuwania jednostek tabeli
-Można usunąć jednostki przy użyciu jego kluczy partycji i wiersza. W poniższym przykładzie założono, zostały już uruchomiono skrypt podanych w sposobu, w jaki można dodać jednostki części tego przewodnika. Przykład najpierw nawiąże połączenie z magazynem Azure przy użyciu kontekst magazynu, który zawiera nazwę konta magazynu i klucza dostępu. Następnie próbuje pobrać za pomocą tabeli utworzonej wcześniej "pracownicy" [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Jeśli tabela istnieje, [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) metody do pobierania jednostki na podstawie jego wartości klucza partycji i wiersza. Przekazuj jednostki do [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) do usunięcia.
+#### <a name="how-toodelete-table-entities"></a>Jak toodelete Tabela jednostek
+Można usunąć jednostki przy użyciu jego kluczy partycji i wiersza. Witaj poniższym przykładzie przyjęto założenie, zostały już uruchomione hello skrypt podanych w hello jak tooadd jednostek części tego przewodnika. przykład Witaj najpierw ustanawia tooAzure połączenia magazynu przy użyciu hello kontekst magazynu, który zawiera nazwy konta magazynu hello i klucza dostępu. Następnie próbuje tabeli hello wcześniej utworzony "pracownicy" tooretrieve przy użyciu hello [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) polecenia cmdlet. Jeśli istnieje tabela hello, przykład Witaj wywołuje hello [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) tooretrieve metody jednostki na podstawie jego wartości klucza partycji i wiersza. Przekazuj hello jednostki toohello [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) toodelete metody.
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
-#Retrieve the table.
+#Retrieve hello table.
 $TableName = "Employees"
 $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
-#If the table exists, start deleting its entities.
+#If hello table exists, start deleting its entities.
 if ($table -ne $null) 
 {
-    #Together the PartitionKey and RowKey uniquely identify every  
+    #Together hello PartitionKey and RowKey uniquely identify every  
     #entity within a table.
     $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
     $entity = $tableResult.Result
     if ($entity -ne $null)
     {
-        #Delete the entity.
+        #Delete hello entity.
         $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
     }
 }
 ```
 
-## <a name="how-to-manage-azure-queues-and-queue-messages"></a>Jak zarządzać kolejek platformy Azure i wiadomości w kolejce
-Azure Queue Storage to usługa do przechowywania dużej liczby komunikatów, do której można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS. W tej sekcji założono, że znasz już pojęcia dotyczące usługi magazynu kolejek Azure. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z magazynem kolejek Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md).
+## <a name="how-toomanage-azure-queues-and-queue-messages"></a>Jak toomanage Azure kolejki i wiadomości w kolejce
+Magazyn kolejek Azure to usługa do przechowywania dużej liczby komunikatów, które można uzyskać z dowolnego miejsca w Witaj świecie za pośrednictwem uwierzytelnionego połączenia za pomocą protokołu HTTP lub HTTPS. W tej sekcji założono, że znasz już pojęcia dotyczące usługi magazynu kolejek Azure hello. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z magazynem kolejek Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md).
 
-W tej sekcji opisano sposób zarządzania usługą magazynu kolejek Azure przy użyciu programu Azure PowerShell. Omówione scenariusze obejmują **wstawianie** i **usuwanie** kolejki komunikatów, a także **tworzenie**, **usuwanie**, i **pobierania kolejek**.
+W tej sekcji opisano sposób toomanage magazynu kolejek Azure usługi przy użyciu programu Azure PowerShell. Hello omówione scenariusze obejmują **wstawianie** i **usuwanie** kolejki komunikatów, a także **tworzenie**, **usuwanie**i **pobierania kolejek**.
 
-### <a name="how-to-create-a-queue"></a>Tworzenie kolejki
-Poniższy przykład najpierw nawiąże połączenie z usługi Azure Storage przy użyciu kontekstu konta magazynu, która zawiera nazwę konta magazynu i klucza dostępu. Następnie wywołuje [AzureStorageQueue nowy](/powershell/module/azure.storage/new-azurestoragequeue) polecenia cmdlet, aby utworzyć kolejkę o nazwie "queuename".
+### <a name="how-toocreate-a-queue"></a>Jak toocreate kolejki
+Witaj poniższym przykładzie najpierw ustanawia tooAzure połączenia magazynu przy użyciu kontekstu konta magazynu hello, w tym nazwy konta magazynu hello i jego klucz dostępu. Następnie wywołuje [AzureStorageQueue nowy](/powershell/module/azure.storage/new-azurestoragequeue) toocreate polecenia cmdlet kolejki o nazwie "queuename".
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
@@ -620,8 +620,8 @@ $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
 Aby uzyskać informacji na temat konwencji nazewnictwa dla usługi kolejek platformy Azure, zobacz [nazewnictwo kolejek i metadanych](http://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-### <a name="how-to-retrieve-a-queue"></a>Jak pobrać kolejki
-Można zbadać i pobrać określonej kolejki, a także listę wszystkich kolejek na koncie magazynu. W poniższym przykładzie pokazano, jak pobrać przy użyciu określonej kolejki [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) polecenia cmdlet.
+### <a name="how-tooretrieve-a-queue"></a>Jak tooretrieve kolejki
+Można zbadać i pobrać określonej kolejki, a także listę wszystkich kolejek hello na koncie magazynu. Witaj poniższym przykładzie pokazano, jak przy użyciu określonej kolejki tooretrieve hello [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) polecenia cmdlet.
 
 ```powershell
 #Retrieve a queue.
@@ -629,10 +629,10 @@ $QueueName = "queuename"
 $Queue = Get-AzureStorageQueue –Name $QueueName –Context $Ctx
 ```
 
-Jeśli należy wywołać [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) polecenia cmdlet bez parametrów, pobiera listę wszystkich kolejek.
+Jeśli wywołujesz hello [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) polecenia cmdlet bez parametrów, pobiera listę wszystkich kolejek hello.
 
-### <a name="how-to-delete-a-queue"></a>Sposób usuwania kolejki
-Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj polecenie cmdlet Remove-AzureStorageQueue. Poniższy przykład pokazuje, jak można usunąć za pomocą polecenia cmdlet Remove-AzureStorageQueue określonej kolejki.
+### <a name="how-toodelete-a-queue"></a>Jak toodelete kolejki
+toodelete kolejkę i wszystkie wiadomości powitania zawartych w nim polecenia cmdlet Remove-AzureStorageQueue hello wywołania. Witaj poniższy przykład pokazuje, jak przy użyciu określonej kolejki toodelete hello polecenia cmdlet Remove-AzureStorageQueue.
 
 ```powershell
 #Delete a queue.
@@ -640,83 +640,83 @@ $QueueName = "yourqueuename"
 Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 ```
 
-#### <a name="how-to-insert-a-message-into-a-queue"></a>Jak można wstawić komunikatu do kolejki
-Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nowe wystąpienie klasy [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasy. Następnie wywołaj metodę [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). CloudQueueMessage można utworzyć z ciągu (w formacie UTF-8) lub tablicy bajtów.
+#### <a name="how-tooinsert-a-message-into-a-queue"></a>Jak tooinsert wiadomości w kolejce
+tooinsert komunikat do istniejącej kolejki, najpierw utwórz nowe wystąpienie klasy hello [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasy. Następnie wywołaj hello [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) metody. CloudQueueMessage można utworzyć z ciągu (w formacie UTF-8) lub tablicy bajtów.
 
-W poniższym przykładzie pokazano, jak dodać wiadomości do kolejki. Przykład najpierw nawiąże połączenie z usługi Azure Storage przy użyciu kontekstu konta magazynu, która zawiera nazwę konta magazynu i klucza dostępu. Następnie pobiera przy użyciu określonej kolejki [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) polecenia cmdlet. Jeśli kolejka istnieje, [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet służy do tworzenia wystąpienia [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasy. Później, przykład wywołuje [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) metody w tym obiekcie komunikat, aby dodać je do kolejki. Oto kod, który pobiera kolejki i wstawia komunikat "MessageInfo":
+Hello poniższy przykład pokazuje, jak tooadd komunikatu tooa kolejki. przykład Witaj najpierw ustanawia tooAzure połączenia magazynu przy użyciu kontekstu konta magazynu hello, w tym nazwy konta magazynu hello i jego klucz dostępu. Następnie pobiera ona hello określonej kolejki przy użyciu hello [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) polecenia cmdlet. Jeśli hello kolejka istnieje, hello [New-Object](http://technet.microsoft.com/library/hh849885.aspx) polecenia cmdlet jest używane toocreate wystąpienia hello [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasy. Później, przykład Witaj wywołuje hello [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) metody w tej wiadomości obiektu tooadd go tooa kolejki. Oto kod, który pobiera kolejki i wstawia wiadomości powitania "MessageInfo":
 
 ```powershell
-#Define the storage account and context.
+#Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
-#Retrieve the queue.
+#Retrieve hello queue.
 $QueueName = "queuename"
 $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
-#If the queue exists, add a new message.
+#If hello queue exists, add a new message.
 if ($Queue -ne $null) {
-   # Create a new message using a constructor of the CloudQueueMessage class.
+   # Create a new message using a constructor of hello CloudQueueMessage class.
    $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
-   # Add a new message to the queue.
+   # Add a new message toohello queue.
    $Queue.CloudQueue.AddMessage($QueueMessage)
 }
 ```
 
-#### <a name="how-to-de-queue-at-the-next-message"></a>Jak cofnąć kolejka kolejnego komunikatu
-Twój kod usuwa komunikat z kolejki w dwóch etapach. Podczas wywoływania [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metody, otrzymasz następnej wiadomości w kolejce. Komunikat zwrócony z funkcji **GetMessage** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metody. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie będzie w stanie przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu będzie w stanie uzyskać ten sam komunikat i ponowić próbę. Twój kod wywołuje funkcję **DeleteMessage** natychmiast po przetworzeniu komunikatu.
+#### <a name="how-toode-queue-at-hello-next-message"></a>Jak kolejki toode na powitania obok komunikatu
+Twój kod usuwa komunikat z kolejki w dwóch etapach. Podczas wywoływania hello [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metody, otrzymasz hello następnej wiadomości w kolejce. Komunikat zwrócony z **GetMessage** staje się niewidoczny tooany innego kodu odczytującego komunikaty z tej kolejki. toofinish usuwania wiadomość hello z kolejki hello, musisz również wywołać hello [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metody. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie powiedzie się tooprocess, który można uzyskać komunikatu powodu awarii toohardware lub oprogramowania, inne wystąpienie kodu tę samą wiadomość hello i spróbuj ponownie. Twój kod wywołuje **DeleteMessage** natychmiast po przetworzeniu wiadomość hello.
 
 ```powershell
-# Define the storage account and context.
+# Define hello storage account and context.
 $StorageAccountName = "yourstorageaccount"
 $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
 $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
-# Retrieve the queue.
+# Retrieve hello queue.
 $QueueName = "queuename"
 $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
 $InvisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
-# Get the message object from the queue.
+# Get hello message object from hello queue.
 $QueueMessage = $Queue.CloudQueue.GetMessage($InvisibleTimeout)
-# Delete the message.
+# Delete hello message.
 $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
-## <a name="how-to-manage-azure-file-shares-and-files"></a>Jak zarządzać udziały plików platformy Azure i plików
-Magazyn plików Azure oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB. Maszyny wirtualne Microsoft Azure i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i aplikacji lokalnych mają dostęp do danych plików w udziale za pośrednictwem programu Azure PowerShell lub interfejsu API magazynu plików.
+## <a name="how-toomanage-azure-file-shares-and-files"></a>Jak toomanage plików na platformę Azure udostępnia i pliki
+Magazyn plików Azure oferuje współużytkowany magazyn dla aplikacji używających standardowego protokołu SMB hello. Maszyny wirtualne Microsoft Azure i usługi w chmurze mogą udostępniać dane między składnikami aplikacji za pośrednictwem zainstalowanych udziałów i lokalnych aplikacji można uzyskać dostępu do danych plików w udziale za pomocą interfejsu API magazynu plików hello lub Azure PowerShell.
 
 Aby uzyskać więcej informacji dotyczących usługi Magazyn plików Azure, zobacz [Rozpoczynanie pracy z magazynem plików Azure w systemie Windows](storage-dotnet-how-to-use-files.md) i [interfejsu API REST usługi plików](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
-## <a name="how-to-set-and-query-storage-analytics"></a>Jak ustawić i analiza magazynu zapytań
-Można użyć [analityka magazynu Azure](storage-analytics.md) zbieranie metryk dla kont magazynu Azure i rejestrowanie danych dotyczących żądania wysyłane na koncie magazynu. Metryki magazynu służy do monitorowania prawidłowości konta magazynu i magazynu rejestrowania do diagnozowania i rozwiązywania problemów z kontem magazynu. Istnieje możliwość skonfigurowania monitorowania przy użyciu portalu Azure lub programu Windows PowerShell, albo programowo z użyciem biblioteki klienta usługi storage. Rejestrowanie magazynu wykonywany po stronie serwera i umożliwia utworzenie rekordów szczegółów dla żądań pomyślnie i niepomyślnie na koncie magazynu. Dzienniki te umożliwiają szczegóły odczytu, zapisu i usuwania działań przed tabel, kolejek i obiektów blob, a także przyczyny żądań zakończonych niepowodzeniem.
+## <a name="how-tooset-and-query-storage-analytics"></a>Jak tooset i zapytań analiz magazynu
+Można użyć [analityka magazynu Azure](storage-analytics.md) toocollect metryki dla konta magazynu platformy Azure i dane dziennika o żądaniach wysyłane tooyour konta magazynu. Można użyć magazynu metryki toomonitor hello kondycji konta magazynu oraz magazynu toodiagnose rejestrowania i rozwiązywać problemy z kontem magazynu. Można skonfigurować monitorowanie za pomocą hello portalu Azure lub programu Windows PowerShell, albo programowo z użyciem biblioteki klienta usługi storage hello. Rejestrowanie magazynu wykonywany po stronie serwera i umożliwia toorecord szczegóły zarówno udane, jak i nieudane żądania na koncie magazynu. Te dzienniki Włącz szczegóły toosee odczytu, zapisu i usuwania operacje z tabel, kolejek i obiektów blob także hello powody żądań zakończonych niepowodzeniem.
 
-Aby dowiedzieć się, jak włączyć i wyświetlania metryk magazynu danych przy użyciu programu PowerShell, zobacz [jak włączyć metryki magazynu przy użyciu programu PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
+toolearn tooenable i wyświetlanie danych metryk magazynu przy użyciu programu PowerShell, zobacz temat [jak tooenable metryki magazynu przy użyciu programu PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
-Aby dowiedzieć się, jak włączyć i pobrać rejestrowania magazynu danych przy użyciu programu PowerShell, zobacz [jak włączyć rejestrowanie magazynu przy użyciu programu PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) i [znajdowanie rejestrowania magazynu danych dziennika](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata).
-Aby uzyskać szczegółowe informacje dotyczące rozwiązywania problemów z magazynowaniem za pomocą metryki magazynu i rejestrowanie magazynu, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z programem Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+toolearn tooenable i pobrać rejestrowania magazynu danych przy użyciu programu PowerShell, zobacz temat [jak tooenable magazynu rejestrowanie przy użyciu programu PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) i [znajdowanie rejestrowania magazynu danych dziennika](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata).
+Aby uzyskać szczegółowe informacje na temat używania metryki magazynu i rejestrowania problemów z magazynowaniem tootroubleshoot magazynu, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z programem Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="how-to-manage-shared-access-signature-sas-and-stored-access-policy"></a>Jak zarządzać dostępu sygnatury dostępu Współdzielonego i przechowywane zasad dostępu
-Sygnatury dostępu współdzielonego są ważnym elementem modelu zabezpieczeń dla dowolnej aplikacji przy użyciu usługi Azure Storage. Są one przydatne zapewniające dostęp jest ograniczony do konta magazynu do klientów, które nie powinny mieć klucz konta. Domyślnie obiekty BLOB, tabel i kolejek w ramach tego konta może uzyskiwać dostęp tylko właściciel konta magazynu. Jeśli daną usługą lub aplikacją musi udostępniać tych zasobów innym klientom bez udostępniania klucz dostępu, dostępne są trzy opcje:
+## <a name="how-toomanage-shared-access-signature-sas-and-stored-access-policy"></a>Jak udostępnione toomanage podpis dostępu (SAS) i przechowywane zasady dostępu
+Sygnatury dostępu współdzielonego są ważnym elementem modelu zabezpieczeń powitania dla dowolnej aplikacji przy użyciu usługi Azure Storage. Są one przydatne zapewniające tooclients konta magazynu tooyour ograniczone uprawnienia, które nie powinny mieć hello klucz konta. Domyślnie obiekty BLOB, tabel i kolejek w ramach tego konta może uzyskiwać dostęp tylko jego właściciel hello hello konta magazynu. Jeśli daną usługą lub aplikacją musi toomake Ci klienci tooother dostępne zasoby bez udostępniania klucz dostępu, dostępne są trzy opcje:
 
-* Ustaw uprawnienia kontenera, aby zezwolić na anonimowy dostęp do odczytu do kontenera i jego obiektów blob. Jest to niedozwolone dla tabel lub kolejek.
-* Użyj sygnatury dostępu współdzielonego, że przyznaje ograniczone prawa dostępu do kontenerów, obiektów blob, kolejek i tabel dla określonego interwału.
-* Zasady dostępu do przechowywanych umożliwia uzyskanie dodatkowy poziom kontroli nad sygnatur dostępu współdzielonego dla kontenera lub jego obiektów blob, kolejki lub tabeli. Zasady dostępu przechowywanych umożliwia zmianę godziny rozpoczęcia, czas wygaśnięcia lub uprawnienia dla podpisu lub odwołać go po nim został wystawiony.
+* Ustaw kontenera uprawnienia toopermit anonimowy dostęp do odczytu toohello kontenera i jego obiektów blob. Jest to niedozwolone dla tabel lub kolejek.
+* Użyj sygnatury dostępu współdzielonego przyznająca toocontainers praw dostępu ograniczonego, obiekty BLOB, kolejek i tabel dla określonego interwału.
+* Użyj tooobtain zasad dostępu do przechowywanych dodatkowy poziom kontroli nad sygnatur dostępu współdzielonego dla kontenera lub jego obiektów blob, kolejki lub tabeli. Witaj przechowywanych zasada dostępu zezwala na możesz czas rozpoczęcia hello toochange, czas wygaśnięcia lub uprawnień do podpisu, lub toorevoke po nim został wydany.
 
 Sygnatury dostępu współdzielonego, można w jednym z dwóch formach:
 
-* **Ad hoc SAS**: podczas tworzenia ad hoc SAS, godzina rozpoczęcia, czas wygaśnięcia i uprawnienia dla sygnatury dostępu Współdzielonego są określone w identyfikatorze URI sygnatury dostępu Współdzielonego. Ten typ sygnatury dostępu Współdzielonego może zostać utworzony w kontenerze, obiektów blob, tabeli lub kolejki i jest z systemem innym niż odwoływalny.
-* **Sygnatury dostępu Współdzielonego z zasadami dostępu do przechowywanych**: zasady dostępu do przechowywanych jest zdefiniowany w kontenerze zasobu kontenera obiektów blob, tabel lub kolejek — i służy do zarządzania ograniczeniami dla jednego lub więcej sygnatur dostępu współdzielonego. Po skojarzeniu sygnatury dostępu Współdzielonego za pomocą zasad dostępu przechowywane, sygnatury dostępu Współdzielonego dziedziczy ograniczenia — czas rozpoczęcia, czas wygaśnięcia i uprawnienia - zdefiniowane zasady dostępu przechowywane. Ten typ sygnatury dostępu Współdzielonego jest odwoływalny.
+* **Ad hoc SAS**: podczas tworzenia sygnatury dostępu Współdzielonego ad hoc, godzina rozpoczęcia hello, czas wygaśnięcia i uprawnienia dla hello SAS są określone na powitania identyfikatora URI połączenia SAS. Ten typ sygnatury dostępu Współdzielonego może zostać utworzony w kontenerze, obiektów blob, tabeli lub kolejki i jest z systemem innym niż odwoływalny.
+* **Sygnatury dostępu Współdzielonego z zasadami dostępu do przechowywanych**: zasady dostępu do przechowywanych jest zdefiniowany w kontenerze zasobu kontenera obiektów blob, tabel lub kolejek — i umożliwia toomanage ograniczenia dla co najmniej jeden sygnatur dostępu współdzielonego. Po skojarzeniu sygnatury dostępu Współdzielonego za pomocą zasad dostępu przechowywane, hello SAS dziedziczy ograniczenia hello — uprawnienia - zdefiniowane zasady dostępu hello przechowywane, czas wygaśnięcia i godzina rozpoczęcia hello. Ten typ sygnatury dostępu Współdzielonego jest odwoływalny.
 
-Aby uzyskać więcej informacji, zobacz [przy użyciu dostępu sygnatur dostępu Współdzielonego](storage-dotnet-shared-access-signature-part-1.md) i [Zarządzanie anonimowy dostęp do odczytu do kontenerów i obiektów blob](storage-manage-access-to-resources.md).
+Aby uzyskać więcej informacji, zobacz [przy użyciu dostępu sygnatur dostępu Współdzielonego](storage-dotnet-shared-access-signature-part-1.md) i [Zarządzanie toocontainers anonimowy dostęp do odczytu i obiekty BLOB](storage-manage-access-to-resources.md).
 
-W kolejnych sekcjach dowiesz się, jak utworzyć zasady dostępu współdzielonego podpisu tokenu i przechowywane dostęp do tabel Azure. Program Azure PowerShell udostępnia podobne polecenia cmdlet dla kontenerów, obiektów blob i kolejek oraz. Aby uruchomić skrypty w tej sekcji, Pobierz [Azure PowerShell w wersji 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) lub nowszym.
+W kolejnych sekcjach hello przedstawiono sposób toocreate zasady dostępu współdzielonego podpisu tokenu i przechowywane dostęp do tabel Azure. Program Azure PowerShell udostępnia podobne polecenia cmdlet dla kontenerów, obiektów blob i kolejek oraz. skrypty hello toorun w tej sekcji, Pobierz hello [Azure PowerShell w wersji 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) lub nowszym.
 
-### <a name="how-to-create-a-policy-based-shared-access-signature-token"></a>Jak utworzyć token sygnatura dostępu współdzielonego opartych na zasadach
-Aby utworzyć nowe zasady dostępu do przechowywanych, należy użyć polecenia cmdlet New-AzureStorageTableStoredAccessPolicy. Następnie wywołaj metodę [AzureStorageTableSASToken nowy](/powershell/module/azure.storage/new-azurestoragetablesastoken) , aby utworzyć nowy token podpisu na podstawie zasad dostępu współdzielonego dla tabeli magazynu Azure.
+### <a name="how-toocreate-a-policy-based-shared-access-signature-token"></a>Jak token sygnatura dostępu współdzielonego toocreate oparta na zasadach
+Użyj toocreate polecenia cmdlet New-AzureStorageTableStoredAccessPolicy hello Nowa zasada dostępu przechowywane. Następnie wywołaj metodę hello [AzureStorageTableSASToken nowy](/powershell/module/azure.storage/new-azurestoragetablesastoken) toocreate polecenia cmdlet nowy token podpisu na podstawie zasad dostępu współdzielonego dla tabeli magazynu Azure.
 
 ```powershell
 $policy = "policy1"
@@ -724,47 +724,47 @@ New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permis
 New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 ```
 
-### <a name="how-to-create-an-ad-hoc-non-revocable-shared-access-signature-token"></a>Jak utworzyć token ad hoc sygnatura dostępu współdzielonego (z systemem innym niż — odwoływalny)
-Użyj [AzureStorageTableSASToken nowy](/powershell/module/azure.storage/new-azurestoragetablesastoken) , aby utworzyć nowy ad hoc (z systemem innym niż — odwoływalny) Sygnatura dostępu współdzielonego token dla tabeli magazynu Azure:
+### <a name="how-toocreate-an-ad-hoc-non-revocable-shared-access-signature-token"></a>Jak toocreate token ad hoc sygnatura dostępu współdzielonego (z systemem innym niż — odwoływalny)
+Użyj hello [AzureStorageTableSASToken nowy](/powershell/module/azure.storage/new-azurestoragetablesastoken) toocreate polecenia cmdlet nowy ad hoc (z systemem innym niż — odwoływalny) Sygnatura dostępu współdzielonego token dla tabeli magazynu Azure:
 
 ```powershell
 New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
 ```
     
-### <a name="how-to-create-a-stored-access-policy"></a>Tworzenie zasad dostępu przechowywane
-Utwórz nowe zasady dostępu do przechowywanych dla tabeli usługi Azure Storage za pomocą polecenia cmdlet New-AzureStorageTableStoredAccessPolicy:
+### <a name="how-toocreate-a-stored-access-policy"></a>Jak toocreate zasad dostępu przechowywane
+Użyj hello AzureStorageTableStoredAccessPolicy nowe polecenia cmdlet toocreate Nowa zasada dostępu przechowywanych dla tabeli magazynu Azure:
 
 ```powershell
 $policy = "policy1"
 New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
 ```
     
-### <a name="how-to-update-a-stored-access-policy"></a>Jak zaktualizować zasad dostępu przechowywane
-Za pomocą polecenia cmdlet Set-AzureStorageTableStoredAccessPolicy zaktualizować istniejące zasady dostępu do przechowywanych dla tabeli magazynu Azure:
+### <a name="how-tooupdate-a-stored-access-policy"></a>Jak tooupdate zasad dostępu przechowywane
+Użyj tooupdate polecenia cmdlet Set-AzureStorageTableStoredAccessPolicy hello istniejących zasad dostępu do przechowywanych dla tabeli magazynu Azure:
 
 ```powershell
 Set-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Permission "rd" -NoExpiryTime -NoStartTime -Context $Ctx
 ```
 
-### <a name="how-to-delete-a-stored-access-policy"></a>Jak usunąć zasadę przechowywanych dostępu
-Aby usunąć zasady dostępu przechowywane w tabeli magazynu Azure, użyj polecenia cmdlet Remove-AzureStorageTableStoredAccessPolicy:
+### <a name="how-toodelete-a-stored-access-policy"></a>Jak toodelete zasad dostępu przechowywane
+Użyj toodelete polecenia cmdlet Remove-AzureStorageTableStoredAccessPolicy hello zasad dostępu do przechowywanych w tabeli magazynu Azure:
 
 ```powershell
 Remove-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Context $Ctx
 ```
 
-## <a name="how-to-use-azure-storage-for-us-government-and-azure-china"></a>Jak używać magazynu Azure dla instytucji rządowych USA i Chińskiej wersji platformy Azure
+## <a name="how-toouse-azure-storage-for-us-government-and-azure-china"></a>Jak toouse magazynu Azure dla instytucji rządowych USA i Chińskiej wersji platformy Azure
 Środowiska platformy Azure jest niezależnie od wdrożenia programu Microsoft Azure, takich jak [Azure dla instytucji rządowych USA administracji](https://azure.microsoft.com/features/gov/), [AzureCloud globalne Azure](https://portal.azure.com), i [AzureChinaCloud dla platformy Azure obsługiwane przez 21Vianet w Chinach](http://www.windowsazure.cn/). Można wdrażać nowe środowisk Azure dla instytucji rządowych USA i Chińskiej wersji platformy Azure.
 
-Aby używać usługi Azure Storage z AzureChinaCloud, musisz utworzyć kontekst magazynu, który jest skojarzony z AzureChinaCloud. Wykonaj następujące kroki, które ułatwią rozpoczęcie pracy:
+toouse magazynu Azure z AzureChinaCloud należy toocreate kontekst magazynu, który jest skojarzony z AzureChinaCloud. Wykonaj te kroki tooget, możesz uruchomić:
 
-1. Uruchom [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) polecenia cmdlet, aby wyświetlić dostępne środowisk Azure:
+1. Uruchom hello [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) toosee polecenia cmdlet hello dostępnego środowiska platformy Azure:
    
     ```powershell
     Get-AzureEnvironment
     ```
 
-2. Dodaj konto chińskiej wersji platformy Azure do środowiska Windows PowerShell:
+2. Dodaj tooWindows konta chińskiej wersji platformy Azure PowerShell:
    
     ```powershell
     Add-AzureAccount –Environment AzureChinaCloud
@@ -776,15 +776,15 @@ Aby używać usługi Azure Storage z AzureChinaCloud, musisz utworzyć kontekst 
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-Aby używać magazynu Azure z [stany USA Azure dla instytucji rządowych](https://azure.microsoft.com/features/gov/), należy zdefiniować nowe środowisko i następnie tworzy nowy kontekst magazynu z tym środowiskiem:
+toouse usługi Azure Storage z [stany USA Azure dla instytucji rządowych](https://azure.microsoft.com/features/gov/), należy zdefiniować nowe środowisko i następnie tworzy nowy kontekst magazynu z tym środowiskiem:
 
-1. Uruchom [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) polecenia cmdlet, aby wyświetlić dostępne środowisk Azure:
+1. Uruchom hello [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) toosee polecenia cmdlet hello dostępnego środowiska platformy Azure:
 
     ```powershell
     Get-AzureEnvironment
     ```
 
-2. Dodaj konto Azure instytucji rządowych Stanów Zjednoczonych do środowiska Windows PowerShell:
+2. Dodaj tooWindows konta Azure instytucji rządowych Stanów Zjednoczonych środowiska PowerShell:
    
     ```powershell
     Add-AzureAccount –Environment AzureUSGovernment
@@ -802,7 +802,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Omówienie różnic podczas tworzenia aplikacji w usłudze Chin](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku kiedy znasz już sposobu zarządzania usługi Azure Storage przy użyciu programu Azure PowerShell. Poniżej przedstawiono niektóre pokrewne artykuły i zasoby dowiedzieć się więcej o nich.
+W tym przewodniku, kiedy znasz już jak toomanage usługi Azure Storage przy użyciu programu Azure PowerShell. Poniżej przedstawiono niektóre pokrewne artykuły i zasoby dowiedzieć się więcej o nich.
 
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Polecenia cmdlet programu PowerShell usługi Azure Storage](/powershell/module/azurerm.storage/#storage)
@@ -810,39 +810,39 @@ W tym przewodniku kiedy znasz już sposobu zarządzania usługi Azure Storage pr
 
 [Getting started with Azure Storage and PowerShell in 5 minutes]: #getstart
 [Prerequisites for using Azure PowerShell with Azure Storage]: #pre
-[How to manage storage accounts in Azure]: #manageaccount
-[How to set a default Azure subscription]: #setdefsub
-[How to create a new Azure storage account]: #createaccount
-[How to set a default Azure storage account]: #defaultaccount
-[How to list all Azure storage accounts in a subscription]: #listaccounts
-[How to create an Azure storage context]: #createctx
-[How to manage Azure blobs and blob snapshots]: #manageblobs
-[How to create a container]: #container
-[How to upload a blob into a container]: #uploadblob
-[How to download blobs from a container]: #downblob
-[How to copy blobs from one storage container to another]: #copyblob
-[How to delete a blob]: #deleteblob
-[How to manage Azure blob snapshots]: #manageshots
-[How to create a blob snapshot]: #createshot
-[How to list snapshots of a blob]: #listshot
-[How to copy a snapshot of a blob]: #copyshot
-[How to manage Azure tables and table entities]: #managetables
-[How to create a table]: #createtable
-[How to retrieve a table]: #gettable
-[How to delete a table]: #remtable
-[How to manage table entities]: #mngentity
-[How to add table entities]: #addentity
-[How to query table entities]: #queryentity
-[How to delete table entities]: #deleteentity
-[How to manage Azure queues and queue messages]: #managequeues
-[How to create a queue]: #createqueue
-[How to retrieve a queue]: #getqueue
-[How to delete a queue]: #remqueue
-[How to manage queue messages]: #mngqueuemsg
-[How to insert a message into a queue]: #addqueuemsg
-[How to de-queue at the next message]: #dequeuemsg
-[How to manage Azure file shares and files]: #files
-[How to set and query storage analytics]: #stganalytics
-[How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
-[How to use Azure Storage for U.S. government and Azure China]: #gov
+[How toomanage storage accounts in Azure]: #manageaccount
+[How tooset a default Azure subscription]: #setdefsub
+[How toocreate a new Azure storage account]: #createaccount
+[How tooset a default Azure storage account]: #defaultaccount
+[How toolist all Azure storage accounts in a subscription]: #listaccounts
+[How toocreate an Azure storage context]: #createctx
+[How toomanage Azure blobs and blob snapshots]: #manageblobs
+[How toocreate a container]: #container
+[How tooupload a blob into a container]: #uploadblob
+[How toodownload blobs from a container]: #downblob
+[How toocopy blobs from one storage container tooanother]: #copyblob
+[How toodelete a blob]: #deleteblob
+[How toomanage Azure blob snapshots]: #manageshots
+[How toocreate a blob snapshot]: #createshot
+[How toolist snapshots of a blob]: #listshot
+[How toocopy a snapshot of a blob]: #copyshot
+[How toomanage Azure tables and table entities]: #managetables
+[How toocreate a table]: #createtable
+[How tooretrieve a table]: #gettable
+[How toodelete a table]: #remtable
+[How toomanage table entities]: #mngentity
+[How tooadd table entities]: #addentity
+[How tooquery table entities]: #queryentity
+[How toodelete table entities]: #deleteentity
+[How toomanage Azure queues and queue messages]: #managequeues
+[How toocreate a queue]: #createqueue
+[How tooretrieve a queue]: #getqueue
+[How toodelete a queue]: #remqueue
+[How toomanage queue messages]: #mngqueuemsg
+[How tooinsert a message into a queue]: #addqueuemsg
+[How toode-queue at hello next message]: #dequeuemsg
+[How toomanage Azure file shares and files]: #files
+[How tooset and query storage analytics]: #stganalytics
+[How toomanage Shared Access Signature (SAS) and Stored Access Policy]: #sas
+[How toouse Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next

@@ -1,6 +1,6 @@
 ---
-title: "Nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server | Microsoft Docs"
-description: "Dowiedz się, jak nawiązać połączenie z maszyną wirtualną z systemem Windows oraz zalogować się do niej za pomocą witryny Azure Portal i modelu wdrażania przy użyciu usługi Azure Resource Manager."
+title: tooa aaaConnect maszyny Wirtualnej systemu Windows Server | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooconnect i logowanie przy użyciu maszyny Wirtualnej systemu Windows tooa hello Azure portal hello Resource Manager wdrażania modelu."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: cynthn
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc397f435ef165ae5af09f1d037ad3d520bb7ac3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Sposób nawiązywania połączenia z maszyną wirtualną platformy Azure z systemem Windows oraz logowania się do niej
-Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego z poziomu pulpitu systemu Windows. Najpierw nawiążesz połączenie z maszyną wirtualną, a następnie zalogujesz się.
+# <a name="how-tooconnect-and-log-on-tooan-azure-virtual-machine-running-windows"></a>Jak dziennika na tooan wirtualnej platformy Azure i tooconnect komputera systemu Windows
+Użyjesz hello **Connect** przycisk hello Azure toostart portalu sesji pulpitu zdalnego (RDP) na pulpicie systemu Windows. Najpierw połącz toohello maszyny wirtualnej, a następnie zaloguj się na.
 
-W przypadku próby nawiązania połączenia z maszyną wirtualną z systemem Windows z poziomu komputera Mac konieczne jest zainstalowanie klienta RDP dla komputerów Mac, takiego jak [Pulpit zdalny Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Jeśli próbujesz tooa tooconnect maszyny Wirtualnej systemu Windows z Mac, należy tooinstall klientem RDP dla komputerów Mac, takich jak [pulpitu zdalnego firmy Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
 
-## <a name="connect-to-the-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
-1. Jeśli jeszcze tego nie zrobiono, zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu Centrum kliknij pozycję **Virtual Machines**.
-3. Wybierz maszynę wirtualną z listy.
-4. W bloku maszyny wirtualnej kliknij pozycję **Połącz**.
+## <a name="connect-toohello-virtual-machine"></a>Połącz toohello maszyny wirtualnej
+1. Jeśli jeszcze tego nie zrobiono, zaloguj się w toohello [portalu Azure](https://portal.azure.com/).
+2. W menu Centrum powitania kliknij **maszyn wirtualnych**.
+3. Wybierz maszynę wirtualną hello z listy hello.
+4. W bloku hello hello maszyny wirtualnej, kliknij **Connect**.
    
-    ![Zrzut ekranu witryny Azure Portal pokazujący sposób nawiązywania połączenia z maszyną wirtualną.](./media/connect-logon/connect.png)
+    ![Zrzut ekranu przedstawiający portal Azure hello jak tooyour tooconnect maszyny Wirtualnej.](./media/connect-logon/connect.png)
    
    > [!TIP]
-   > Jeśli przycisk **Połącz** w portalu jest nieaktywny i nie masz połączenia typu [ExpressRoute](../../expressroute/expressroute-introduction.md) lub Sieć VPN typu [lokacja do lokacji](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) z platformą Azure, musisz utworzyć i przypisać maszynie wirtualnej publiczny adres IP przed użyciem pulpitu zdalnego. Więcej informacji o [publicznych adresach IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+   > Jeśli hello **Connect** przycisk w portalu hello jest nieaktywny i nie jesteś tooAzure połączonych za pośrednictwem [Express Route](../../expressroute/expressroute-introduction.md) lub [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) połączenia, należy toocreate i przypisać maszynie Wirtualnej publiczny adres IP, zanim będzie możliwe użycie protokołu RDP. Więcej informacji o [publicznych adresach IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
    > 
    > 
 
-## <a name="log-on-to-the-virtual-machine"></a>Logowanie do maszyny wirtualnej
+## <a name="log-on-toohello-virtual-machine"></a>Zaloguj się na maszynie wirtualnej toohello
 [!INCLUDE [virtual-machines-log-on-win-server](../../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli podczas próby połączenia wystąpiły problemy, zobacz [Troubleshoot Remote Desktop connections](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Rozwiązywanie problemów z połączeniami pulpitu zdalnego). W tym artykule przedstawiono sposób diagnozowania i rozwiązywania typowych problemów.
+Jeśli wystąpiły problemy podczas próby tooconnect, zobacz [połączeń pulpitu zdalnego Rozwiązywanie problemów z](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). W tym artykule przedstawiono sposób diagnozowania i rozwiązywania typowych problemów.
 

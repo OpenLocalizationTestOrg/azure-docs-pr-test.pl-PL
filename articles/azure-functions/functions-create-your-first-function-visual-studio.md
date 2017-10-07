@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio | Microsoft Docs"
-description: "Tworzenie prostej funkcji wyzwalanej przez protokół HTTP i publikowanie jej na platformie Azure przy użyciu narzędzi usługi Azure Functions dla programu Visual Studio."
+title: "aaaCreate pierwszej funkcji platformy Azure przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft"
+description: "Tworzenie i publikowanie proste tooAzure funkcja wyzwalana HTTP przy użyciu narzędzi funkcji Azure dla programu Visual Studio."
 services: functions
 documentationcenter: na
 author: rachelappel
@@ -17,94 +17,94 @@ ms.workload: na
 ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 04370558725d76ffe83d8aaf5d16c88fd2803ba9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 851e5b98dcc2da00334620896a0ea31f566589f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Tworzenie pierwszej funkcji przy użyciu programu Visual Studio
 
-Usługa Azure Functions umożliwia wykonywanie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web.
+Środowisko Azure Functions umożliwia wykonywanie kodu w środowisku bez serwera bez konieczności toofirst tworzenie maszyny Wirtualnej lub opublikować aplikację sieci web.
 
-W tym temacie możesz dowiedzieć się, jak za pomocą narzędzi Visual Studio 2017 dla usługi Azure Functions tworzenie i testowanie lokalnie funkcję "hello world". Kod funkcji zostanie następnie opublikowany na platformie Azure. Te narzędzia są dostępne jako część obciążenia projektowania na platformie Azure w programie Visual Studio 2017 w wersji 15.3 lub nowszej.
+W tym temacie dowiesz się, jak toouse hello 2017 usługi Visual Studio tools dla usługi Azure Functions toocreate i przetestować funkcję "hello world", który jest lokalnie. Następnie będzie publikować tooAzure kodu funkcji hello. Te narzędzia są dostępne jako część hello obciążenia Azure Programowanie w Visual Studio 2017 wersji 15 ustęp 3 lub nowszym.
 
 ![Kod usługi Azure Functions w projekcie programu Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka niezbędne jest zainstalowanie następujących składników:
+toocomplete tego samouczka, instalacji:
 
-* [Program Visual Studio 2017 w wersji 15.3](https://www.visualstudio.com/vs/preview/) zawierający obciążenie **Programowanie na platformie Azure**.
+* [Visual Studio 2017 wersji 15 ustęp 3](https://www.visualstudio.com/vs/preview/), łącznie z hello **Azure programowanie** obciążenia.
 
-    ![Instalowanie programu Visual Studio 2017 z obciążeniem Programowanie na platformie Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    ![Instalowanie programu Visual Studio 2017 przy użyciu hello Azure programowanie obciążenia](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
     >[!NOTE]  
-    Po instalacji lub uaktualnienia do programu Visual Studio 2017 wersji 15 ustęp 3, może być również konieczne ręcznie zaktualizować narzędzi Visual Studio 2017 dla usługi Azure Functions. Można aktualizować narzędzi z **narzędzia** menu w obszarze **rozszerzenia i aktualizacje...**   >  **Aktualizacje** > **programu Visual Studio Marketplace** > **sieci Web i usługę Azure Functions zadania narzędzia** > **aktualizacji**. 
+    Po instalacji lub uaktualnienia tooVisual Studio 2017 wersji 15 ustęp 3, może być również konieczne toomanually aktualizacji hello 2017 usługi Visual Studio tools dla usługi Azure Functions. Można aktualizować hello narzędzi z hello **narzędzia** menu w obszarze **rozszerzenia i aktualizacje...**   >  **Aktualizacje** > **programu Visual Studio Marketplace** > **sieci Web i usługę Azure Functions zadania narzędzia**  >  **Aktualizacji**. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Tworzenie projektu usługi Azure Functions w programie Visual Studio
 
-[!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using hello Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Po utworzeniu projektu można utworzyć pierwszą funkcję.
+Teraz, po utworzeniu projektu hello, można utworzyć swoją pierwszą funkcję.
 
-## <a name="create-the-function"></a>Tworzenie funkcji
+## <a name="create-hello-function"></a>Utwórz hello — funkcja
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Dodaj** > **Nowy element**. Wybierz pozycję **Funkcja platformy Azure** i kliknij pozycję **Dodaj**.
 
-2. Wybierz pozycję **HttpTrigger**, wpisz **nazwę funkcji**, wybierz opcję **Anonimowe** w polu **Prawa dostępu** i kliknij pozycję **Utwórz**. Do utworzonej funkcji można uzyskać dostęp przez żądanie HTTP z dowolnego klienta. 
+2. Wybierz pozycję **HttpTrigger**, wpisz **nazwę funkcji**, wybierz opcję **Anonimowe** w polu **Prawa dostępu** i kliknij pozycję **Utwórz**. Funkcja Hello tworzone jest dostępny przez żądania HTTP za pomocą dowolnego klienta. 
 
     ![Tworzenie nowej funkcji platformy Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-    Plik kodu zostanie dodany do projektu, który zawiera klasę implementującą kodu funkcji. Ten kod opiera się na szablonie, który odbiera wartość nazwy i tłumiące echo go. **FunctionName** atrybut ustawia nazwę funkcji. **HttpTrigger** atrybut wskazuje komunikat, który wyzwala funkcji. 
+    Projekt tooyour, który zawiera klasę implementującą kodu funkcji zostanie dodany plik kodu. Ten kod opiera się na szablonie, który odbiera wartość nazwy i tłumiące echo go. Witaj **FunctionName** atrybut ustawia hello nazwę funkcji. Witaj **HttpTrigger** atrybut wskazuje wiadomość hello wyzwala hello funkcji. 
 
     ![Plik kodu — funkcja](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Po utworzeniu funkcji wyzwalanej przez protokół HTTP można ją przetestować na komputerze lokalnym.
 
-## <a name="test-the-function-locally"></a>Lokalne testowanie funkcji
+## <a name="test-hello-function-locally"></a>Testowanie funkcji hello lokalnie
 
-Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projektu usługi Azure Functions na lokalnym komputerze deweloperskim. Monit o zainstalowanie tych narzędzi pojawia się przy pierwszym uruchomieniu funkcji w programie Visual Studio.  
+Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projektu usługi Azure Functions na lokalnym komputerze deweloperskim. Jesteś zostanie wyświetlony monit o tooinstall, które te narzędzia hello podczas pierwszego uruchomienia funkcji w programie Visual Studio.  
 
-1. Aby przetestować funkcję, naciśnij klawisz F5. Po wyświetleniu monitu zaakceptuj żądanie programu Visual Studio dotyczące pobrania i zainstalowania podstawowych narzędzi usługi Azure Functions (CLI).  Może także być konieczne włączenie wyjątku zapory, aby umożliwić narzędziom obsługę żądań HTTP.
+1. tootest funkcji, naciśnij klawisz F5. Po wyświetleniu monitu Zaakceptuj Żądanie hello z toodownload programu Visual Studio i zainstalować narzędzia do podstawowych funkcji platformy Azure (CLI).  Możesz także tooenable wyjątek zapory, aby narzędzia hello mogły obsługiwać żądania HTTP.
 
-2. Skopiuj adres URL funkcji z danych wyjściowych środowiska uruchomieniowego usługi Azure Functions.  
+2. Adres URL hello kopiowania funkcji ze środowiska uruchomieniowego usługi Azure Functions hello wyjściowej.  
 
     ![Lokalne środowisko uruchomieniowe platformy Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Wklej adres URL żądania HTTP w pasku adresu przeglądarki. Dołącz ciąg zapytania `&name=<yourname>` do tego adresu URL i wykonaj żądanie. Na poniższym obrazie przedstawiono wyświetloną w przeglądarce odpowiedź na lokalne żądanie GET zwróconą przez funkcję: 
+3. Wklej adres URL żądania HTTP hello hello do paska adresu przeglądarki. Dołącz ciągu zapytania hello `&name=<yourname>` toothis adresu URL i wykonać hello żądania. Hello poniżej przedstawiono odpowiedzi hello w hello przeglądarki toohello lokalne żądania GET zwracane przez funkcję hello: 
 
-    ![Odpowiedź hosta localhost funkcji wyświetlona w przeglądarce](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![Funkcja localhost odpowiedzi w przeglądarce hello](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
-4. Aby zatrzymać debugowanie, kliknij przycisk **Zatrzymaj** na pasku narzędzi programu Visual Studio.
+4. toostop debugowanie, kliknij przycisk hello **zatrzymać** przycisk na powitania narzędzi Visual Studio.
 
-Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokalnym, możesz opublikować projekt na platformie Azure.
+Po sprawdzeniu, czy funkcja hello działa poprawnie na komputerze lokalnym, jest tooAzure projektu hello toopublish czasu.
 
-## <a name="publish-the-project-to-azure"></a>Publikowanie projektu na platformie Azure
+## <a name="publish-hello-project-tooazure"></a>Publikowanie hello tooAzure projektu
 
 Aby opublikować projekt, musisz mieć aplikację funkcji w swojej subskrypcji platformy Azure. Aplikację funkcji możesz utworzyć bezpośrednio w programie Visual Studio.
 
-[!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
+[!INCLUDE [Publish hello project tooAzure](../../includes/functions-vstools-publish.md)]
 
 ## <a name="test-your-function-in-azure"></a>Testowanie funkcji na platformie Azure
 
-1. Skopiuj podstawowy adres URL aplikacji funkcji ze strony profilu publikowania. Część `localhost:port` adresu URL używaną podczas lokalnego testowania funkcji zastąp nowym podstawowym adresem URL. Tak jak poprzednio dołącz ciąg zapytania `&name=<yourname>` do tego adresu URL i wykonaj żądanie.
+1. Skopiuj hello podstawowy adres URL aplikacji funkcji hello ze strony profilu publikowania hello. Zastąp hello `localhost:port` część adresu URL hello używane podczas testowania funkcji hello lokalnie z hello nowego podstawowego adresu URL. Jak wcześniej, upewnij się, że ciąg zapytania hello tooappend `&name=<yourname>` toothis adresu URL i wykonać hello żądania.
 
-    Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, wygląda następująco:
+    adres URL Hello, która wywołuje HTTP wyzwalane funkcja wygląda następująco:
 
         http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-2. Wklej nowy adres URL żądania HTTP na pasku adresu przeglądarki. Na poniższym obrazie przedstawiono wyświetloną w przeglądarce odpowiedź na zdalne żądanie GET zwróconą przez funkcję: 
+2. Wklej nowy adres URL dla żądania hello HTTP w pasku adresu przeglądarki. Hello poniżej przedstawiono odpowiedzi hello w hello przeglądarki toohello zdalnego żądania GET zwracane przez funkcję hello: 
 
-    ![Odpowiedź funkcji wyświetlona w przeglądarce](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Funkcja odpowiedzi w przeglądarce hello](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
  
 ## <a name="next-steps"></a>Następne kroki
 
-W programie Visual Studio utworzono aplikację funkcji C# z prostą funkcją wyzwalaną przez protokół HTTP. 
+Użyto aplikacji funkcji toocreate C# dla programu Visual Studio przy użyciu prostych funkcji HTTP wyzwolone. 
 
-+ Aby dowiedzieć się, jak skonfigurować projekt w celu obsługi innych typów wyzwalaczy i powiązań, zobacz sekcję [Configure the project for local development (Konfigurowanie projektu na potrzeby lokalnego projektowania)](functions-develop-vs.md#configure-the-project-for-local-development) w temacie [Azure Functions Tools for Visual Studio (Narzędzia usługi Azure Functions dla programu Visual Studio)](functions-develop-vs.md).
-+ Aby dowiedzieć się więcej na temat lokalnego testowania i debugowania przy użyciu podstawowych narzędzi usługi Azure Functions, zobacz [Code and test Azure Functions locally (Kodowanie i lokalne testowanie usługi Azure Functions)](functions-run-local.md). 
-+ Aby dowiedzieć się więcej o projektowaniu funkcji jako bibliotek klasy .NET, zobacz [Korzystanie z bibliotek klasy .NET w usłudze Azure Functions](functions-dotnet-class-library.md). 
++ toolearn jak tooconfigure toosupport Twojego projektu inne rodzaje wyzwalaczy i powiązań, zobacz hello [Konfiguruj hello projektu dla rozwoju lokalnych](functions-develop-vs.md#configure-the-project-for-local-development) sekcji [narzędzi funkcji Azure dla programu Visual Studio](functions-develop-vs.md).
++ toolearn więcej informacji na temat lokalnych testowanie i debugowanie przy użyciu hello Azure funkcje podstawowe narzędzia, zobacz [kodu oraz testów usługi Azure Functions lokalnie](functions-run-local.md). 
++ toolearn więcej informacji na temat tworzenia funkcji jako biblioteki klas .NET, zobacz [.NET przy użyciu biblioteki klas z usługi Azure Functions](functions-dotnet-class-library.md). 
 

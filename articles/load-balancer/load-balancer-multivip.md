@@ -1,6 +1,6 @@
 ---
-title: "Wiele adresów VIP dla usługi w chmurze"
-description: "Omówienie wieloma wirtualnymi adresami IP oraz jak ustawić wiele adresów VIP na usługi w chmurze"
+title: "aaaMutiple adresy VIP dla usługi w chmurze"
+description: "Omówienie z wieloma wirtualnymi adresami IP i w jaki sposób tooset wielu adresów VIP na usługi w chmurze"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,74 +13,74 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: f40e0501eed8d5f296e7c79d8a35705a695ae6fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b3e0f2b24968cb75a7064484a09ffe94505bb70b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Konfigurowanie wielu adresów VIP dla usługi w chmurze
 
-Usługi w chmurze Azure mogą korzystać za pośrednictwem publicznej sieci Internet, za pomocą adresu IP podał Azure. Ten publiczny adres IP jest określany jako VIP (wirtualny adres IP), ponieważ jest połączony z usługą równoważenia obciążenia Azure, a nie maszyna wirtualna (VM) wystąpień w ramach usługi w chmurze. Można uzyskać dostępu do dowolnego wystąpienia maszyny Wirtualnej w ramach usługi w chmurze przy użyciu pojedynczego wirtualnego adresu IP.
+Usługi w chmurze Azure dostępne za pośrednictwem hello podane publicznego Internetu przy użyciu adresu IP na platformie Azure. Ten publiczny adres IP jest określony tooas VIP (wirtualny adres IP), ponieważ jest on połączony toohello Azure Usługa równoważenia obciążenia, a nie hello wystąpień maszyn wirtualnych (VM) w ramach usługi w chmurze hello. Można uzyskać dostępu do dowolnego wystąpienia maszyny Wirtualnej w ramach usługi w chmurze przy użyciu pojedynczego wirtualnego adresu IP.
 
-Istnieją jednak scenariuszy, w których może wymagać więcej niż jeden punkt VIP jako wpis do tej samej usługi w chmurze. Na przykład usługi w chmurze może hostować wiele witryn sieci Web, które wymagają łączności SSL przy użyciu domyślnego portu 443, ponieważ każda lokacja jest hostowana dla różnych klientów lub dzierżawców. W tym scenariuszu musisz mieć inny publiczny połączonej adres IP dla każdej witryny sieci Web. Na poniższym diagramie przedstawiono typowe wielodostępne hostingu potrzebuje wiele certyfikatów SSL na ten sam port publiczny.
+Istnieją jednak scenariuszy, w których może wymagać więcej niż jeden VIP jako toohello punktu wejścia sama usługa w chmurze. Na przykład usługi w chmurze może hostować wiele witryn sieci Web, które wymagają łączności SSL przy użyciu hello domyślnego portu 443, ponieważ każda lokacja jest hostowana dla różnych klientów lub dzierżawców. W tym scenariuszu należy toohave inny publiczny połączonej adres IP dla każdej witryny sieci Web. Witaj Poniższy diagram przedstawia typowy wielodostępne hostingu sieci web potrzebujących SSL wielu certyfikatów na powitania sam port publiczny.
 
 ![Scenariusz Multi VIP SSL](./media/load-balancer-multivip/Figure1.png)
 
-W powyższym przykładzie wszystkie wirtualne adresy IP Użyj tego samego portu publicznego (port 443), a ruch jest przekierowywany do jednej lub maszyn wirtualnych na unikatowy port prywatny dla wewnętrznego adresu IP usługi w chmurze hosting wszystkich witryn sieci Web o zrównoważonym obciążeniu więcej.
+W przykładzie hello powyżej, wszystkie wirtualne adresy IP Użyj hello ruchu i tym samym port publiczny (port 443) jest przekierowane tooone, lub więcej obciążenia zrównoważonym maszyn wirtualnych na unikatowy port prywatny hello wewnętrznego adresu IP usługi w chmurze hello hosting wszystkich hello witryn sieci Web.
 
 > [!NOTE]
-> Innej sytuacji wymagających wielu adresy VIP obsługuje wiele odbiorniki grupy dostępności funkcji SQL AlwaysOn na ten sam zestaw maszyn wirtualnych.
+> Inny hello Użyj hello wymagające sytuacji wieloma wirtualnymi adresami IP obsługuje wiele odbiorniki grupy dostępności funkcji SQL AlwaysOn na powitania sam zestaw maszyn wirtualnych.
 
-Wirtualne adresy IP są dynamiczne domyślnie, co oznacza, że rzeczywista adresu IP przypisanego do usługi w chmurze mogą się zmieniać wraz z upływem czasu. Aby zapobiec który, może zarezerwować adresu VIP dla usługi. Aby dowiedzieć się więcej na temat zarezerwowane wirtualne adresy IP, zobacz [zastrzeżone publicznego adresu IP](../virtual-network/virtual-networks-reserved-public-ip.md).
+Wirtualne adresy IP są dynamiczne domyślnie, co oznacza, że hello rzeczywistego adresu IP przypisanego toohello usługi w chmurze mogą się zmieniać wraz z upływem czasu. tooprevent czy zapobiec, istnieje możliwość rezerwowania adresu VIP dla usługi. toolearn więcej informacji na temat zarezerwowane wirtualne adresy IP, zobacz [zastrzeżone publicznego adresu IP](../virtual-network/virtual-networks-reserved-public-ip.md).
 
 > [!NOTE]
 > Zobacz [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses/) Aby uzyskać informacje o cenach na adresy VIP i zarezerwowane adresy IP.
 
-Można Sprawdź wirtualne adresy IP używane przez usługi chmury, za pomocą programu PowerShell, a także dodać i usunąć adresy VIP, skojarzyć VIP do punktu końcowego i konfigurowanie równoważenia na określonego adresu VIP obciążenia.
+Można używać środowiska PowerShell tooverify hello wirtualne adresy IP używane przez usług w chmurze, oraz dodawania i Usuń VIP, skojarzyć punkt końcowy tooan VIP oraz konfigurowanie równoważenia na określonego adresu VIP obciążenia.
 
 ## <a name="limitations"></a>Ograniczenia
 
-W tej chwili funkcje wielu adresów VIP są ograniczone do następujących scenariuszy:
+W tej chwili funkcja wielu adresów VIP jest ograniczony toohello następujące scenariusze:
 
 * **Tylko IaaS**. Można włączyć tylko Multi VIP dla usług w chmurze, które zawierają maszyny wirtualne. Nie można użyć adresu VIP wielu wystąpień roli PaaS scenariuszy.
 * **PowerShell tylko**. Wiele adresów VIP może zarządzać tylko przy użyciu programu PowerShell.
 
-Ograniczenia te są tymczasowe i mogą ulec zmianie w dowolnym momencie. Upewnij się, że ponownie tę stronę, aby sprawdzić przyszłe zmiany.
+Ograniczenia te są tymczasowe i mogą ulec zmianie w dowolnym momencie. Upewnij się, że toorevisit tej strony tooverify przyszłe zmiany.
 
-## <a name="how-to-add-a-vip-to-a-cloud-service"></a>Jak dodać adresu VIP usługi w chmurze
-Aby dodać adresu VIP do usługi, uruchom następujące polecenie programu PowerShell:
+## <a name="how-tooadd-a-vip-tooa-cloud-service"></a>Jak usługa w chmurze tooa tooadd adresu VIP
+Usługa tooyour tooadd adresu VIP, uruchom następujące polecenia programu PowerShell hello:
 
 ```powershell
 Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
-To polecenie wyświetla wynik jest podobny do poniższego przykładu:
+To polecenie wyświetla wynik toohello podobne, następujące przykładowe:
 
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
     Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
-## <a name="how-to-remove-a-vip-from-a-cloud-service"></a>Jak usunąć wirtualnego adresu IP z usługi w chmurze
-Aby usunąć adres VIP dodane do usługi w powyższym przykładzie, uruchom następujące polecenie programu PowerShell:
+## <a name="how-tooremove-a-vip-from-a-cloud-service"></a>Jak tooremove adresu VIP z usługi w chmurze
+tooremove hello VIP dodawane tooyour usługi na przykład Witaj powyżej hello uruchom następujące polecenia programu PowerShell:
 
 ```powershell
 Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
 > [!IMPORTANT]
-> Można usunąć adresu VIP, jeśli go nie ma punktów końcowych skojarzonych z nim.
+> Można usunąć adresu VIP, jeśli ma ona nie tooit punkty końcowe skojarzone.
 
 
-## <a name="how-to-retrieve-vip-information-from-a-cloud-service"></a>Jak pobrać VIP informacji z usługi w chmurze
-Aby pobrać wirtualne adresy IP skojarzone z usługą w chmurze, uruchom następujący skrypt programu PowerShell:
+## <a name="how-tooretrieve-vip-information-from-a-cloud-service"></a>Jak tooretrieve VIP informacji z usługi w chmurze
+tooretrieve hello wirtualne adresy IP skojarzone z usługą w chmurze, uruchom hello następującego skryptu programu PowerShell:
 
 ```powershell
 $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-Skrypt zawiera wynik jest podobny do poniższego przykładu:
+skrypt Hello wyświetla wynik toohello podobne, następujące przykładowe:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -100,17 +100,17 @@ Skrypt zawiera wynik jest podobny do poniższego przykładu:
     ReservedIPName  :
     ExtensionData   :
 
-W tym przykładzie usługa w chmurze ma 3 wirtualne adresy IP:
+W tym przykładzie usługa w chmurze hello ma 3 wirtualne adresy IP:
 
-* **Adres Vip1** jest domyślny adres VIP, wiesz, że ponieważ IsDnsProgrammedName jest ustawiany na wartość true.
-* **Vip2** i **Vip3** nie są używane jako nie mają adresy IP. One będzie można używać tylko jeśli skojarzyć punkt końcowy do adresu VIP.
+* **Adres Vip1** jest hello domyślny adres VIP, wiesz, że ponieważ hello IsDnsProgrammedName jest ustawiany tootrue.
+* **Vip2** i **Vip3** nie są używane jako nie mają adresy IP. One tylko będzie używany, jeśli skojarzone toohello punktu końcowego adresu VIP.
 
 > [!NOTE]
 > Subskrypcją będzie obciążana dla dodatkowe wirtualne adresy IP, gdy są one powiązane z punktem końcowym. Aby uzyskać więcej informacji o cenach, zobacz [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## <a name="how-to-associate-a-vip-to-an-endpoint"></a>Jak skojarzyć VIP do punktu końcowego
+## <a name="how-tooassociate-a-vip-tooan-endpoint"></a>Jak punktu końcowego tooan tooassociate adresu VIP
 
-Aby skojarzyć adresów VIP na punkt końcowy usługi w chmurze, uruchom następujące polecenie programu PowerShell:
+tooassociate adresu VIP w chmurze tooan punkt końcowy usługi, uruchom następujące polecenia programu PowerShell hello:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -118,16 +118,16 @@ Get-AzureVM -ServiceName myService -Name myVM1 |
     Update-AzureVM
 ```
 
-Polecenie tworzy punkt końcowy powiązany adres VIP o nazwie *Vip2* na porcie *80*i łączy go z maszyny Wirtualnej o nazwie *myVM1* w usłudze w chmurze o nazwie *Moja_usługa* przy użyciu *TCP* na porcie *8080*.
+Witaj polecenie tworzy punkt końcowy o nazwie adresów VIP połączonych toohello *Vip2* na porcie *80*i łączy go toohello maszyny Wirtualnej o nazwie *myVM1* w usłudze w chmurze o nazwie  *Moja_usługa* przy użyciu *TCP* na porcie *8080*.
 
-Aby sprawdzić konfigurację, uruchom następujące polecenie programu PowerShell:
+tooverify hello konfiguracji, uruchom następujące polecenia programu PowerShell hello:
 
 ```powershell
 $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-Dane wyjściowe wygląda podobnie do poniższego przykładu:
+Witaj dane wyjściowe wyglądają toohello podobnie poniższy przykład:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -147,9 +147,9 @@ Dane wyjściowe wygląda podobnie do poniższego przykładu:
     ReservedIPName  :
     ExtensionData   :
 
-## <a name="how-to-enable-load-balancing-on-a-specific-vip"></a>Jak włączyć równoważenia na określonego adresu VIP obciążenia
+## <a name="how-tooenable-load-balancing-on-a-specific-vip"></a>Jak tooenable Równoważenie obciążenia na określonych adresów VIP
 
-Pojedynczego wirtualnego adresu IP można skojarzyć z wieloma maszynami wirtualnymi na potrzeby równoważenia obciążenia. Przykładowo, jeśli masz usługi w chmurze o nazwie *Moja_usługa*i dwie maszyny wirtualne o nazwie *myVM1* i *myVM2*. I usługi w chmurze ma wiele adresów VIP, jeden z nich o nazwie *Vip2*. Jeśli chcesz upewnić się, że cały ruch do portu *81* na *Vip2* jest rozmieszczana między *myVM1* i *myVM2* na porcie *8181* , uruchom następujący skrypt programu PowerShell:
+Pojedynczego wirtualnego adresu IP można skojarzyć z wieloma maszynami wirtualnymi na potrzeby równoważenia obciążenia. Przykładowo, jeśli masz usługi w chmurze o nazwie *Moja_usługa*i dwie maszyny wirtualne o nazwie *myVM1* i *myVM2*. I usługi w chmurze ma wiele adresów VIP, jeden z nich o nazwie *Vip2*. Jeśli chcesz, aby cały ruch tooport tooensure *81* na *Vip2* jest rozmieszczana między *myVM1* i *myVM2* na porcie *8181* Uruchom hello następujący skrypt programu PowerShell:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -161,7 +161,7 @@ Get-AzureVM -ServiceName myService -Name myVM2 |
     Update-AzureVM
 ```
 
-Należy również zaktualizować przez moduł równoważenia obciążenia, aby użyć innego adresu VIP. Na przykład po uruchomieniu poniższego polecenia programu PowerShell ulegnie zmianie zestawu do używania adresu VIP o nazwie adresu Vip1 równoważenia obciążenia:
+Można także zaktualizować Twojego toouse usługi równoważenia obciążenia różnych adresów VIP. Na przykład po uruchomieniu poniższego polecenia programu PowerShell hello ulegnie zmianie toouse zestaw o nazwie adresu Vip1 adresu VIP do równoważenia obciążenia hello:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -VirtualIPName Vip1

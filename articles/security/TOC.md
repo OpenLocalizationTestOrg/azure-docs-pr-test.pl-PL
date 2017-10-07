@@ -13,7 +13,7 @@
 ### [Enabling operational security (Włączanie bezpieczeństwa działania)](azure-operational-security.md)
 ### [Zaawansowane wykrywanie zagrożeń](azure-threat-detection.md)
 ### [Rejestrowanie i przeprowadzanie inspekcji](azure-log-audit.md)
-### [Izolacja w chmurze publicznej](azure-isolation.md)
+### [Izolacja w chmurze publicznej hello](azure-isolation.md)
 ### [Możliwości techniczne zabezpieczeń](azure-security-technical-capabilities.md)
 ### [Nadzór na platformie Azure](governance-in-azure.md)
 ### [Szyfrowanie danych w spoczynku](azure-security-encryption-atrest.md)
@@ -48,7 +48,7 @@
 ## Zarządzanie zabezpieczeniami i monitorowanie ich
 ### [Zarządzanie zabezpieczeniami](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Wprowadzenie do integracji dzienników platformy Azure](security-azure-log-integration-overview.md)
+### [Wprowadzenie tooAzure dziennika integracji](security-azure-log-integration-overview.md)
 #### [Pierwsze kroki z integracją dzienników platformy Azure](security-azure-log-integration-get-started.md)
 #### [Integrowanie usługi Azure Active Directory z dziennikami inspekcji](security-azure-log-integration-ad.md)
 #### [Integrowanie alertów usługi Security Center](security-azure-log-integration-security-center.md)

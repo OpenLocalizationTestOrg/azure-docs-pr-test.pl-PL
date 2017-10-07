@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie danych do/z tabel Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak przenieść dane z magazynem tabel Azure przy użyciu fabryki danych Azure."
+title: aaaMove danych do/z tabel Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toomove danych do/z magazynem tabel Azure przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 792a551ae3dae46c503e5f0dda74cd0ac3a69c3a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3dc3da6d88854674a9108b600534bc5d07575f15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Przenoszenie danych do i z tabel Azure przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przeniesienia danych z magazynu tabel platformy Azure. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania. 
+# <a name="move-data-tooand-from-azure-table-using-azure-data-factory"></a>Przenieś tooand danych z tabel Azure przy użyciu fabryki danych Azure
+W tym artykule opisano, jak toouse hello działanie kopiowania w fabryce danych Azure toomove danych z magazynu tabel platformy Azure. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania. 
 
-Można skopiować danych z dowolnej obsługiwanej źródłowej magazynu danych do magazynu tabel platformy Azure lub z magazynu tabel Azure żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. 
+Możesz skopiować dane z dowolnych obsługiwanych źródeł danych magazynu tooAzure magazynu tabel lub z magazynu tabel Azure tooany obsługiwane ujścia danych. Lista magazynów danych obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania hello, zobacz hello [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. 
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potoku o działanie kopiowania, który przenosi dane z magazynu tabel Azure przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych.
+Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello.
 
-Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
+Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania. 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych: 
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello: 
 
-1. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych.
-2. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych.
+2. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. 
 3. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Aby uzyskać przykłady z definicji JSON dla jednostek fabryki danych, które są używane do kopiowania danych do/z magazynu tabel Azure, zobacz [przykłady JSON](#json-examples) sekcji tego artykułu. 
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Aby uzyskać przykłady z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych do/z magazynu tabel Azure, zobacz [przykłady JSON](#json-examples) sekcji tego artykułu. 
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej do magazynu tabel platformy Azure: 
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane toodefine fabryki danych jednostek określonych tooAzure magazynu tabel: 
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Istnieją dwa typy połączonych usług używanego do łączenia z magazynu obiektów blob platformy Azure do fabryki danych Azure. Są one: **AzureStorage** połączonej usługi i **element AzureStorageSas** połączonej usługi. Połączoną usługą magazynu Azure zapewnia usłudze fabryka danych z globalnego dostępu do magazynu Azure. Związana SAS magazynu Azure (Shared Access Signature) usługa udostępnia fabryka danych z ograniczonej/czas-powiązane z dostępem do magazynu Azure. Nie istnieją inne różnice między tych dwóch połączonych usług. Wybierz połączonej usługi, która odpowiada Twoim potrzebom. Poniższe sekcje zawierają więcej szczegółowych informacji na temat tych dwóch usług połączonych.
+Istnieją dwa typy połączonych usług można użyć toolink fabryki danych Azure tooan magazynu obiektów blob platformy Azure. Są one: **AzureStorage** połączonej usługi i **element AzureStorageSas** połączonej usługi. Witaj połączoną usługą magazynu Azure zapewnia usłudze fabryka danych hello z toohello dostępu globalny usługi Azure Storage. Związana hello Azure magazyn SAS (Shared Access Signature) usługa zapewnia usłudze fabryka danych hello z toohello dostęp ograniczony/czas-powiązane z usługi Azure Storage. Nie istnieją inne różnice między tych dwóch połączonych usług. Wybierz usługę hello połączony, który odpowiada Twoim potrzebom. Hello poniższe sekcje zawierają więcej szczegółowych informacji na temat tych dwóch usług połączonych.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
 
-Sekcja typeProperties jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. **TypeProperties** sekcja dla zestawu danych typu **AzureTable** ma następujące właściwości.
+sekcja typeProperties Hello jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji hello hello danych w magazynie danych hello. Witaj **typeProperties** sekcja dla zestawu danych hello typu **AzureTable** ma hello następujące właściwości.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli w wystąpieniu bazy danych w tabeli platformy Azure, odnoszący się do połączonej usługi. |Tak. W przypadku tableName bez azureTableSourceQuery wszystkie rekordy z tabeli są kopiowane do lokalizacji docelowej. Jeśli określono również azureTableSourceQuery, rekordy z tabeli, która spełnia zapytania są kopiowane do lokalizacji docelowej. |
+| tableName |Nazwa tabeli hello w wystąpieniu bazy danych tabeli Azure hello, która jest połączona usługa odnosi się do. |Tak. TableName jest określona bez azureTableSourceQuery, wszystkie rekordy z tabeli hello są skopiowanych toohello docelowego. Jeśli określono również azureTableSourceQuery, rekordy z tabeli hello, która spełnia hello zapytania są skopiowanych toohello docelowego. |
 
 ### <a name="schema-by-data-factory"></a>Schemat fabryka danych
-Dla magazynów danych bez schematu, takie jak tabel Azure usługi fabryka danych z wnioskuje schemat w jednym z następujących sposobów:
+Dla magazynów danych bez schematu, takie jak tabel Azure hello usługi fabryka danych wnioskuje schemat hello w jednym z hello następujące sposoby:
 
-1. Jeśli określisz struktury danych za pomocą **struktury** tej struktury Schema honoruje właściwości w definicji zestawu danych, usługi fabryka danych. W tym przypadku jeśli wiersza nie zawiera wartości dla kolumny, wartość null podano dla niego.
-2. Jeśli nie określisz struktury danych za pomocą **struktury** właściwości w definicji zestawu danych, fabryki danych wnioskuje schemat za pomocą pierwszego wiersza w danych. W takim przypadku jeśli pierwszy wiersz zawiera pełną schematu, niektóre kolumny zostaną pominięte w wyniku operacji kopiowania.
+1. Jeśli określisz hello struktury danych za pomocą hello **struktury** tej struktury Schema hello honoruje właściwości w definicji zestawu danych hello, hello usługi fabryka danych. W tym przypadku jeśli wiersza nie zawiera wartości dla kolumny, wartość null podano dla niego.
+2. Jeśli nie określisz hello struktury danych za pomocą hello **struktury** właściwości w definicji zestawu danych hello, fabryki danych wnioskuje schemat hello przy użyciu danych hello hello pierwszego wiersza. W takim przypadku jeśli pierwszy wiersz hello nie zawiera pełnej schematu hello, niektóre kolumny zostaną pominięte w hello wynik operacji kopiowania.
 
-W związku z tym dla źródeł danych bez schematu, najlepszym rozwiązaniem jest zdefiniowanie struktury danych przy użyciu **struktury** właściwości.
+W związku z tym dla źródeł danych bez schematu hello najlepszym rozwiązaniem jest toospecify hello struktury danych za pomocą hello **struktury** właściwości.
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe zestawy danych i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe zestawy danych i zasady są dostępne dla wszystkich typów działań.
 
-Właściwości, które są dostępne w sekcji typeProperties działania z drugiej strony zależą od każdego typu działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości dostępne w sekcji typeProperties hello aktywności hello na powitania drugiej zależą od każdego typu działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
-**AzureTableSource** obsługuje następujące właściwości w sekcji typeProperties:
+**AzureTableSource** obsługuje następujące właściwości w sekcji typeProperties hello:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania tabeli platformy Azure. Przykłady w następnej sekcji. |Nie. W przypadku tableName bez azureTableSourceQuery wszystkie rekordy z tabeli są kopiowane do lokalizacji docelowej. Jeśli określono również azureTableSourceQuery, rekordy z tabeli, która spełnia zapytania są kopiowane do lokalizacji docelowej. |
-| azureTableSourceIgnoreTableNotFound |Wskazuje, czy swallow wyjątek tabela nie istnieje. |WARTOŚĆ TRUE<br/>WARTOŚĆ FALSE |Nie |
+| azureTableSourceQuery |Użyj hello zapytanie niestandardowe tooread danych. |Ciąg zapytania tabeli platformy Azure. Przykłady w następnej sekcji hello. |Nie. TableName jest określona bez azureTableSourceQuery, wszystkie rekordy z tabeli hello są skopiowanych toohello docelowego. Jeśli określono również azureTableSourceQuery, rekordy z tabeli hello, która spełnia hello zapytania są skopiowanych toohello docelowego. |
+| azureTableSourceIgnoreTableNotFound |Wskazuje, czy wyjątek hello swallow tabeli nie istnieją. |WARTOŚĆ TRUE<br/>WARTOŚĆ FALSE |Nie |
 
 ### <a name="azuretablesourcequery-examples"></a>Przykłady azureTableSourceQuery
 W przypadku tabel Azure kolumny typu string:
@@ -89,21 +89,21 @@ W przypadku tabel Azure kolumny typu Data/Godzina:
 "azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
 ```
 
-**AzureTableSink** obsługuje następujące właściwości w sekcji typeProperties:
+**AzureTableSink** obsługuje następujące właściwości w sekcji typeProperties hello:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, które mogą być używane przez obiekt sink. |Wartość ciągu. |Nie |
-| azureTablePartitionKeyName |Określ nazwę kolumny, których wartości są używane jako klucze partycji. Jeśli nie zostanie określony, AzureTableDefaultPartitionKeyValue jest używana jako klucza partycji. |Nazwa kolumny. |Nie |
-| azureTableRowKeyName |Określ nazwę kolumny, których wartości kolumn używanych jako klucz wiersza. Jeśli nie zostanie określony, użyj identyfikatora GUID dla każdego wiersza. |Nazwa kolumny. |Nie |
-| azureTableInsertType |Tryb do wstawiania danych do tabeli platformy Azure.<br/><br/>Ta właściwość określa, czy wartości zastąpienia lub scalić zostać istniejących wierszy w tabeli wyników ze zgodnymi kluczami partycji i wiersza. <br/><br/>Aby dowiedzieć się więcej na temat działania tych ustawień (scalania i Zastąp), zobacz [wstawienia lub scalania jednostki](https://msdn.microsoft.com/library/azure/hh452241.aspx) i [wstawienia lub Zastąp jednostki](https://msdn.microsoft.com/library/azure/hh452242.aspx) tematów. <br/><br> To ustawienie jest stosowane na poziomie wiersza, a nie na poziomie tabeli, a żadna z tych opcji usuwa wiersze w tabeli danych wyjściowych, które nie istnieją w danych wejściowych. |Merge (ustawienie domyślne)<br/>Zamień |Nie |
-| writeBatchSize |Wstawia dane do tabeli platformy Azure, gdy zostaje trafiony writeBatchSize lub writeBatchTimeout. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 10000) |
-| writeBatchTimeout |Wstawia dane do tabeli platformy Azure, gdy zostaje trafiony writeBatchSize lub writeBatchTimeout |Zakres czasu<br/><br/>Przykład: "00:20:00" (20 minut) |Nie (domyślnie magazynu klienta domyślny limit czasu wartość 90 s) |
+| azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, które mogą być używane przez obiekt sink hello. |Wartość ciągu. |Nie |
+| azureTablePartitionKeyName |Określ nazwę kolumny hello, których wartości są używane jako klucze partycji. Jeśli nie zostanie określony, AzureTableDefaultPartitionKeyValue jest używana jako klucza partycji hello. |Nazwa kolumny. |Nie |
+| azureTableRowKeyName |Określ nazwę kolumny hello, w których wartości kolumn używanych jako klucz wiersza. Jeśli nie zostanie określony, użyj identyfikatora GUID dla każdego wiersza. |Nazwa kolumny. |Nie |
+| azureTableInsertType |Tryb Hello tooinsert dane w tabeli platformy Azure.<br/><br/>Ta właściwość określa, czy wartości zastąpienia lub scalić zostać istniejących wierszy w tabeli wyników hello ze zgodnymi kluczami partycji i wiersza. <br/><br/>toolearn informacji na temat tych ustawień (scalania i Zastąp) działania, zobacz [wstawienia lub scalania jednostki](https://msdn.microsoft.com/library/azure/hh452241.aspx) i [wstawienia lub Zastąp jednostki](https://msdn.microsoft.com/library/azure/hh452242.aspx) tematów. <br/><br> To ustawienie jest stosowane na poziomie wiersza hello, nie poziomu tabeli hello i żadna z tych opcji usuwa wiersze w tabeli wyników hello, które nie istnieją w danych wejściowych hello. |Merge (ustawienie domyślne)<br/>Zamień |Nie |
+| writeBatchSize |Wstawia dane do hello tabeli platformy Azure, gdy zostaje trafiony hello writeBatchSize lub writeBatchTimeout. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 10000) |
+| writeBatchTimeout |Wstawia dane do hello tabeli platformy Azure, gdy zostaje trafiony hello writeBatchSize lub writeBatchTimeout |Zakres czasu<br/><br/>Przykład: "00:20:00" (20 minut) |Nie (domyślna toostorage klienta domyślny limit czasu operacji wartość 90 s) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
-Mapowanie kolumny źródłowej do przy użyciu translatora właściwości JSON, zanim użyjesz kolumna docelowa jako azureTablePartitionKeyName kolumna docelowa.
+Mapowanie kolumny docelowej tooa kolumny źródła przy użyciu właściwości JSON translator hello, zanim będzie możliwe użycie kolumna docelowa hello jako hello azureTablePartitionKeyName.
 
-W poniższym przykładzie kolumna źródłowa DivisionID jest zamapowany na kolumny docelowej: DivisionID.  
+W hello poniższy przykład, kolumna źródłowa DivisionID jest kolumna docelowa zamapowanych toohello: DivisionID.  
 
 ```JSON
 "translator": {
@@ -111,7 +111,7 @@ W poniższym przykładzie kolumna źródłowa DivisionID jest zamapowany na kolu
     "columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 }
 ```
-DivisionID jest określony jako klucza partycji.
+Witaj DivisionID jest określony jako klucza partycji hello.
 
 ```JSON
 "sink": {
@@ -122,17 +122,17 @@ DivisionID jest określony jako klucza partycji.
 }
 ```
 ## <a name="json-examples"></a>Przykłady JSON
-Poniższe przykłady zapewniają definicje JSON, których można utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób kopiowania danych do i z magazynu tabel platformy Azure i bazy danych obiektów Blob Azure. Jednak dane mogą być kopiowane **bezpośrednio** z dowolnego źródła do żadnego z obsługiwanych sink. Aby uzyskać więcej informacji, zobacz sekcję "obsługiwane magazyny danych i formaty" w [przenoszenia danych za pomocą działania kopiowania](data-factory-data-movement-activities.md).
+Witaj poniższe przykłady zapewniają definicje JSON przy użyciu można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób toocopy tooand danych z magazynu tabel platformy Azure i bazy danych obiektów Blob Azure. Jednak dane mogą być kopiowane **bezpośrednio** za pomocą dowolnego hello tooany źródeł z wychwytywanie hello obsługiwane. Aby uzyskać więcej informacji, zobacz sekcję hello, "obsługiwane magazyny danych i formaty" w [przenoszenia danych za pomocą działania kopiowania](data-factory-data-movement-activities.md).
 
-## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Przykład: Kopiowanie danych z tabel Azure do obiektów Blob platformy Azure
-Poniższy przykład przedstawia:
+## <a name="example-copy-data-from-azure-table-tooazure-blob"></a>Przykład: Kopiowanie danych z tabel Azure tooAzure obiektów Blob
+następujące przykładowe pokazuje Hello:
 
 1. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (używane dla obiekt blob & tabeli).
 2. Dane wejściowe [dataset](data-factory-create-datasets.md) typu [AzureTable](#dataset-properties).
 3. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. [Potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [AzureTableSource](#activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. Witaj [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [AzureTableSource](#activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Przykład kopiuje dane należące do domyślnej partycji w tabeli obiektu blob Azure co godzinę. Właściwości JSON używane w te przykłady są opisane w sekcjach poniżej próbek.
+przykład Witaj kopiuje dane należące toohello domyślnej partycji w obiekcie blob tooa tabel Azure co godzinę. właściwości JSON Hello używane w te przykłady są opisane w sekcjach poniżej hello próbek.
 
 **Połączonej usługi magazynu Azure:**
 
@@ -147,13 +147,13 @@ Przykład kopiuje dane należące do domyślnej partycji w tabeli obiektu blob A
   }
 }
 ```
-Fabryka danych Azure obsługuje dwa typy usług magazynu Azure połączony: **AzureStorage** i **element AzureStorageSas**. Dla pierwszego z nich Określ ciąg połączenia, który zawiera klucz konta i dla późniejszą, określ identyfikator Uri dostępu sygnatury dostępu Współdzielonego. Zobacz [połączonych usług](#linked-service-properties) sekcji, aby uzyskać szczegółowe informacje.  
+Fabryka danych Azure obsługuje dwa typy usług magazynu Azure połączony: **AzureStorage** i **element AzureStorageSas**. Dla hello pierwszego z nich, określ ciąg połączenia hello, który zawiera klucz konta hello i dla hello późniejszą, należy określić hello Uri dostępu sygnatury dostępu Współdzielonego. Zobacz [połączonych usług](#linked-service-properties) sekcji, aby uzyskać szczegółowe informacje.  
 
 **Azure tabeli wejściowy zestaw danych:**
 
-Przykładzie przyjęto założenie, że utworzono tabelę "MyTable" w tabeli platformy Azure.
+przykład Witaj przyjęto założenie, że utworzono tabelę "MyTable" w tabeli platformy Azure.
 
-Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie "external": "prawda" informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```JSON
 {
@@ -182,7 +182,7 @@ Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw dany
 
 **Azure Blob wyjściowy zestaw danych:**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu Hello hello obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa rok, miesiąc, dzień i godziny części hello czas rozpoczęcia.
 
 ```JSON
 {
@@ -242,7 +242,7 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **Działanie kopiowania w potoku z AzureTableSource i BlobSink:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **AzureTableSource** i **zbiornika** ustawiono typ **BlobSink**. Zapytanie SQL określony za pomocą **AzureTableSourceQuery** właściwości wybiera danych z partycji domyślnej co godzinę do skopiowania.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**AzureTableSource** i **zbiornika** typu ustawiono zbyt**BlobSink**. Zapytanie SQL Hello określony za pomocą **AzureTableSourceQuery** właściwości wybiera hello danych z partycji domyślnej hello toocopy co godzinę.
 
 ```JSON
 {  
@@ -291,15 +291,15 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 }
 ```
 
-## <a name="example-copy-data-from-azure-blob-to-azure-table"></a>Przykład: Kopiowanie danych z obiektu Blob Azure do tabeli platformy Azure
-Poniższy przykład przedstawia:
+## <a name="example-copy-data-from-azure-blob-tooazure-table"></a>Przykład: Kopiowanie danych z obiektu Blob Azure tooAzure tabeli
+następujące przykładowe pokazuje Hello:
 
 1. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (używane dla obiekt blob & tabeli)
 2. Dane wejściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 3. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureTable](#dataset-properties).
-4. [Potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) i [AzureTableSink](#copy-activity-properties).
+4. Witaj [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) i [AzureTableSink](#copy-activity-properties).
 
-Kopie próbki szeregów czasowych dane z usługi Azure blob Azure tabeli co godzinę. Właściwości JSON używane w te przykłady są opisane w sekcjach poniżej próbek.
+Przykładowe Hello kopiuje dane szeregów czasowych co godzinę z tooan obiektów blob platformy Azure tabeli platformy Azure. właściwości JSON Hello używane w te przykłady są opisane w sekcjach poniżej hello próbek.
 
 **Usługa Azure storage (dla tabeli platformy Azure i obiektów Blob) połączonej usługi:**
 
@@ -315,11 +315,11 @@ Kopie próbki szeregów czasowych dane z usługi Azure blob Azure tabeli co godz
 }
 ```
 
-Fabryka danych Azure obsługuje dwa typy usług magazynu Azure połączony: **AzureStorage** i **element AzureStorageSas**. Dla pierwszego z nich Określ ciąg połączenia, który zawiera klucz konta i dla późniejszą, określ identyfikator Uri dostępu sygnatury dostępu Współdzielonego. Zobacz [połączonych usług](#linked-service-properties) sekcji, aby uzyskać szczegółowe informacje.
+Fabryka danych Azure obsługuje dwa typy usług magazynu Azure połączony: **AzureStorage** i **element AzureStorageSas**. Dla hello pierwszego z nich, określ ciąg połączenia hello, który zawiera klucz konta hello i dla hello późniejszą, należy określić hello Uri dostępu sygnatury dostępu Współdzielonego. Zobacz [połączonych usług](#linked-service-properties) sekcji, aby uzyskać szczegółowe informacje.
 
 **Azure wejściowego zestawu danych obiektów Blob:**
 
-Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Nazwa i ścieżka pliku folder dla obiektu blob dynamicznie są oceniane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu korzysta rok, miesiąc i dzień część czas rozpoczęcia, a nazwa pliku godzina część czas rozpoczęcia. "external": ustawienie "prawda" usługi fabryka danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Witaj folderu ścieżkę i nazwę pliku dla obiekt blob hello dynamicznie są oceniane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello korzysta rok, miesiąc i dzień część czas rozpoczęcia hello, a nazwa pliku hello część hello czas rozpoczęcia. "external": "prawda" ustawienie informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```JSON
 {
@@ -388,7 +388,7 @@ Dane są pobierane z nowego obiektu blob co godzinę (częstotliwość: godziny,
 
 **Tabeli platformy Azure wyjściowy zestaw danych:**
 
-Przykład kopiuje dane do tabeli o nazwie "MyTable" w tabeli platformy Azure. Tworzenie tabeli platformy Azure z taką samą liczbę kolumn, zgodnie z oczekiwaniami pliku Blob CSV zawiera. Nowe wiersze są dodawane do tabeli co godzinę.
+przykład Witaj kopiuje tabeli tooa danych o nazwie "MyTable" w tabeli platformy Azure. Tworzenie tabeli platformy Azure z hello taką samą liczbę kolumn, zgodnie z oczekiwaniami toocontain pliku Blob CSV hello. Dodawaniu nowych wierszy tabeli toohello co godzinę.
 
 ```JSON
 {
@@ -409,7 +409,7 @@ Przykład kopiuje dane do tabeli o nazwie "MyTable" w tabeli platformy Azure. Tw
 
 **Działanie kopiowania w potoku z BlobSource i AzureTableSink:**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **BlobSource** i **zbiornika** ustawiono typ **AzureTableSink**.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**BlobSource** i **zbiornika** typu ustawiono zbyt**AzureTableSink**.
 
 ```JSON
 {  
@@ -459,30 +459,30 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 }
 ```
 ## <a name="type-mapping-for-azure-table"></a>Mapowanie typu dla tabeli platformy Azure
-Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, automatyczne konwersje z typów źródła do zbiornika typy z następujących rozwinięcie wykonuje działanie kopiowania.
+Jak wspomniano w hello [działań przepływu danych](data-factory-data-movement-activities.md) wykonuje działanie kopiowania artykułu, automatyczne konwersje z typów toosink typy źródła z powitania po rozwinięcie.
 
-1. Konwertowanie typów natywnych źródła na typ architektury .NET
-2. Konwertowanie na typ macierzysty ujścia typ architektury .NET
+1. Konwertować z typu too.NET typów natywnych źródła
+2. Konwertować z typu sink toonative typu .NET
 
-Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefiniowane przez usługę Azure tabeli](https://msdn.microsoft.com/library/azure/dd179338.aspx) są używane z typów OData tabeli platformy Azure na typ architektury .NET i na odwrót.
+Podczas przenoszenia danych za & z tabel Azure, hello po [mapowania zdefiniowane przez usługę Azure tabeli](https://msdn.microsoft.com/library/azure/dd179338.aspx) są używane z typu too.NET typy OData tabeli platformy Azure i na odwrót.
 
 | Typ danych OData | Typ architektury .NET | Szczegóły |
 | --- | --- | --- |
-| Edm.Binary |Byte] |Tablica bajtów do 64 KB. |
+| Edm.Binary |Byte] |Tablica bajtów się too64 KB. |
 | Edm.Boolean |wartość logiczna |Wartość logiczna. |
-| Edm.DateTime |Data i godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Obsługiwanym zakresem DateTime zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. (R), CZAS UTC. Zakres kończy się po 31 grudnia 9999 r. |
+| Edm.DateTime |Data i godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Witaj obsługiwany zakres zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. daty/godziny (R), CZAS UTC. zakres Hello kończy się na 31 grudnia 9999 r. |
 | Edm.Double |O podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
 | Edm.Guid |Identyfikator GUID |Globalnie unikatowy identyfikator 128-bitowego. |
 | Edm.Int32 |Int32 |32-bitową liczbę całkowitą. |
 | Edm.Int64 |Int64 |64-bitową liczbę całkowitą. |
-| Edm.String |Ciąg |Wartość algorytmem UTF-16. Ciągi może być maksymalnie 64 KB. |
+| Edm.String |Ciąg |Wartość algorytmem UTF-16. Wartości parametrów może być aktywne too64 KB. |
 
 ### <a name="type-conversion-sample"></a>Przykładowe konwersji typu
-Poniższy przykład jest kopiowania danych z obiektu Blob Azure do tabeli platformy Azure z konwersji typu.
+następujące przykładowe Hello jest kopiowania danych z tabeli tooAzure obiektów Blob platformy Azure z konwersji typu.
 
-Załóżmy, że zestawu danych obiektów Blob jest w formacie CSV zawiera trzy kolumny. Jeden z nich jest kolumną daty/godziny w formacie datetime niestandardowych za pomocą nazwy skróconej francuskim dzień tygodnia.
+Załóżmy, że hello zestawu danych obiektów Blob jest w formacie CSV zawiera trzy kolumny. Jeden z nich jest kolumną daty/godziny w formacie datetime niestandardowych za pomocą nazwy skróconej francuskim dzień tygodnia hello.
 
-Definiowanie zestawu danych obiektów Blob, źródłowy następujący wraz z definicji typu dla kolumny.
+Definiowanie zestawu danych obiektów Blob źródła hello następujący wraz z definicji typu dla kolumny hello.
 
 ```JSON
 {
@@ -522,7 +522,7 @@ Definiowanie zestawu danych obiektów Blob, źródłowy następujący wraz z def
     }
 }
 ```
-Podana mapowania typu z typu Azure tabeli OData do typów .NET, czy zdefiniować tabeli w tabeli platformy Azure z następującego schematu.
+Biorąc pod uwagę mapowanie typu hello z too.NET typu OData tabeli platformy Azure, czy definiuje hello tabeli w tabeli platformy Azure z hello następującego schematu.
 
 **Schemat tabeli platformy Azure:**
 
@@ -532,7 +532,7 @@ Podana mapowania typu z typu Azure tabeli OData do typów .NET, czy zdefiniować
 | name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
-Następnie określ następujący zestaw danych tabel Azure. Nie trzeba określić "structure" sekcji informacji o typach, ponieważ informacje o typie został już określony w odpowiedni magazyn danych.
+Następnie określ następujący hello Azure tabeli dataset. Nie trzeba toospecify "structure" sekcji informacji o typach powitania od informacji o typie hello został już określony w hello bazowy magazynu danych.
 
 ```JSON
 {
@@ -551,10 +551,10 @@ Następnie określ następujący zestaw danych tabel Azure. Nie trzeba określi�
 }
 ```
 
-W takim przypadku fabryka danych automatycznie konwersje typów w tym polu daty/godziny w formacie datetime niestandardowych przy użyciu kultury "fr-fr" podczas przenoszenia danych z obiektu Blob do tabel Azure.
+W takim przypadku fabryka danych automatycznie konwersje typów tym hello pola daty/godziny w formacie datetime niestandardowych hello przy użyciu kultury "fr-fr" hello, podczas przenoszenia danych z obiektu Blob tooAzure tabeli.
 
 > [!NOTE]
-> Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+> toomap kolumny źródłowej toocolumns zestawu danych z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Informacje na temat kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby, zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md).
+toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize, zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md).

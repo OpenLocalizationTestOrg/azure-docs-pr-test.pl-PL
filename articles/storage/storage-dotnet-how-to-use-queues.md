@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu programu .NET | Microsoft Docs"
-description: "Usługa Azure Queues zapewnia niezawodne, asynchroniczne przesyłanie komunikatów między składnikami aplikacji. Przesyłanie komunikatów za pomocą chmury umożliwia składnikom aplikacji niezależne skalowanie."
+title: "aaaGet pracy z magazynem kolejek Azure przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
+description: "Usługa Azure Queues zapewnia niezawodne, asynchroniczne przesyłanie komunikatów między składnikami aplikacji. Chmury tooscale składniki Twojej aplikacji obsługi komunikatów włącza niezależnie."
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 7f88aa9c50e669d1be7248346c7b1176bce61249
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 36bbb40189a301cddbc2ded92d0623fa5e093eb1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
@@ -26,12 +26,12 @@ ms.lasthandoff: 08/03/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Omówienie
-Usługa Azure Queue Storage umożliwia przesyłanie komunikatów za pomocą chmury między składnikami aplikacji. W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Usługa Queue Storage zapewnia asynchroniczne przesyłanie komunikatów na potrzeby komunikacji między składnikami aplikacji niezależnie od tego, czy działają w chmurze, na komputerze, serwerze lokalnym czy urządzeniu przenośnym. Usługa Queue Storage obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
+Usługa Azure Queue Storage umożliwia przesyłanie komunikatów za pomocą chmury między składnikami aplikacji. W przypadku projektowania aplikacji pod kątem skalowania składniki aplikacji są często rozłączane, dzięki czemu mogą być skalowane niezależnie. Magazyn kolejek zapewnia asynchroniczną obsługę wiadomości do komunikacji między składnikami aplikacji, czy działają w chmurze hello, hello pulpitu, na serwerze lokalnym lub na urządzeniu przenośnym. Usługa Queue Storage obsługuje również zarządzanie asynchronicznymi zadaniami oraz przepływy pracy procesu kompilacji.
 
 ### <a name="about-this-tutorial"></a>Informacje o tym samouczku
-W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenariuszy przy użyciu usługi Azure Queue Storage. Omówione scenariusze obejmują tworzenie i usuwanie kolejek oraz dodawanie, odczytywanie i usuwanie komunikatów kolejek.
+Ten samouczek pokazuje, jak kod toowrite .NET dla niektórych typowych scenariuszy przy użyciu magazynu kolejek Azure. Omówione scenariusze obejmują tworzenie i usuwanie kolejek oraz dodawanie, odczytywanie i usuwanie komunikatów kolejek.
 
-**Szacowany czas trwania:** 45 minut
+**Szacowany czas toocomplete:** 45 minut
 
 **Wymagania wstępne:**
 
@@ -49,7 +49,7 @@ W tym samouczku pokazano, jak napisać kod .NET dla niektórych typowych scenari
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-using-directives"></a>Dodawanie dyrektyw using
-Dodaj następujące dyrektywy `using` na początku pliku `Program.cs`:
+Dodaj następujące hello `using` dyrektywy toohello początku hello `Program.cs` pliku:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -57,94 +57,94 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```
 
-### <a name="parse-the-connection-string"></a>Analizowanie parametrów połączenia
+### <a name="parse-hello-connection-string"></a>Przeanalizować parametrów połączenia hello
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-the-queue-service-client"></a>Tworzenie klienta usługi kolejki
-Klasa **CloudQueueClient** umożliwia pobieranie kolejek przechowywanych w usłudze Queue Storage. Oto jeden ze sposobów tworzenia klienta usługi:
+### <a name="create-hello-queue-service-client"></a>Tworzenie klienta usługi kolejki hello
+Witaj **CloudQueueClient** klasa umożliwia możesz tooretrieve kolejek przechowywanych w magazynie kolejek. Klient usługi jednokierunkowej toocreate hello jest następujący:
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
     
-Teraz możesz przystąpić do pisania kodu, który będzie odczytywać dane z usługi Queue Storage i zapisywać je w nim.
+Teraz wszystko jest gotowe toowrite kod odczytuje i zapisuje tooQueue pamięci masowej.
 
 ## <a name="create-a-queue"></a>Tworzenie kolejki
-W tym przykładzie pokazano, jak utworzyć kolejkę, jeśli jeszcze nie istnieje:
+W tym przykładzie pokazano sposób toocreate kolejki, jeśli jeszcze nie istnieje:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a container.
+// Retrieve a reference tooa container.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Create the queue if it doesn't already exist
+// Create hello queue if it doesn't already exist
 queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>Wstawianie komunikatu do kolejki
-Aby wstawić komunikat do istniejącej kolejki, najpierw utwórz nową klasę **CloudQueueMessage**. Następnie wywołaj metodę **AddMessage**. Klasę **CloudQueueMessage** można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy **bajtów**. Oto kod, który tworzy kolejkę (jeśli kolejka nie istnieje) i wstawia komunikat „Hello, World”:
+tooinsert komunikat do istniejącej kolejki, najpierw utwórz nową **CloudQueueMessage**. Następnie wywołaj hello **AddMessage** metody. Klasę **CloudQueueMessage** można utworzyć przy użyciu ciągu (w formacie UTF-8) lub tablicy **bajtów**. Oto kod, który tworzy kolejkę (Jeśli nie istnieje) i wstawia wiadomości powitania "Hello, World":
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Create the queue if it doesn't already exist.
+// Create hello queue if it doesn't already exist.
 queue.CreateIfNotExists();
 
-// Create a message and add it to the queue.
+// Create a message and add it toohello queue.
 CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 queue.AddMessage(message);
 ```
 
-## <a name="peek-at-the-next-message"></a>Podgląd kolejnego komunikatu
-Możesz uzyskać wgląd w komunikat z przodu kolejki bez jego usuwania z kolejki, wywołując metodę **PeekMessage**.
+## <a name="peek-at-hello-next-message"></a>Wglądu dalej wiadomości powitania
+Można wglądu wiadomość hello hello przodu kolejki bez jego usuwania z kolejki hello przez wywołanie hello **PeekMessage** metody.
 
 ```csharp
 // Retrieve storage account from connection string
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client
+// Create hello queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue
+// Retrieve a reference tooa queue
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Peek at the next message
+// Peek at hello next message
 CloudQueueMessage peekedMessage = queue.PeekMessage();
 
 // Display message.
 Console.WriteLine(peekedMessage.AsString);
 ```
 
-## <a name="change-the-contents-of-a-queued-message"></a>Zmiana zawartości komunikatu w kolejce
-Możesz zmienić zawartość komunikatu w kolejce. Jeśli komunikat reprezentuje zadanie robocze, możesz użyć tej funkcji, aby zaktualizować stan zadania. Poniższy kod aktualizuje komunikat kolejki o nową zawartość i ustawia rozszerzenie limitu czasu widoczności o kolejne 60 sekund. Operacja ta zapisuje stan pracy powiązanej z komunikatem i daje klientowi kolejną minutę na kontynuowanie pracy nad komunikatem. Możesz użyć tej metody do śledzenia wieloetapowych przepływów pracy związanych z komunikatami kolejek, bez konieczności rozpoczynania od nowa, gdy dany etap nie powiedzie się ze względu na awarię sprzętu lub oprogramowania. Zazwyczaj stosuje się również liczbę ponownych prób. Jeśli komunikat zostanie ponowiony więcej niż *n* razy, zostanie usunięty. Jest to zabezpieczenie przed komunikatami, które wyzwalają błąd aplikacji zawsze, gdy są przetwarzane.
+## <a name="change-hello-contents-of-a-queued-message"></a>Zmień hello zawartość komunikatu w kolejce
+Można zmienić zawartość komunikatu w miejscu w kolejce hello hello. Jeśli komunikat reprezentuje zadanie robocze, możesz użyć tej funkcji tooupdate stan hello zadania. powitania po kod aktualizuje komunikat kolejki hello o nową zawartość i zestawy hello tooextend limitu czasu widoczności o kolejne 60 sekund. Zapisuje stan pracy związanej z wiadomość hello hello i zapewnia inny toocontinue minuty pracy na wiadomość powitania powitania klienta. Ta technika tootrack wieloetapowych przepływów pracy można użyć w wiadomości w kolejce, bez konieczności toostart za pośrednictwem od początku hello, jeśli dany etap nie powiedzie się powodu awarii toohardware lub oprogramowania. Zazwyczaj zachowa również liczbę ponownych prób, a jeśli hello komunikat zostanie ponowiony więcej niż  *n*  razy, zostanie usunięty. Jest to zabezpieczenie przed komunikatami, które wyzwalają błąd aplikacji zawsze, gdy są przetwarzane.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Get the message from the queue and update the message contents.
+// Get hello message from hello queue and update hello message contents.
 CloudQueueMessage message = queue.GetMessage();
 message.SetMessageContent("Updated contents.");
 queue.UpdateMessage(message,
@@ -152,32 +152,32 @@ queue.UpdateMessage(message,
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
-## <a name="de-queue-the-next-message"></a>Usunięcie następnego komunikatu z kolejki
-Twój kod usuwa komunikat z kolejki w dwóch etapach. Jeśli wywołasz funkcję **GetMessage**, uzyskasz następny komunikat w kolejce. Komunikat zwrócony z funkcji **GetMessage** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, musisz również wywołać funkcję **DeleteMessage**. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie będzie w stanie przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu będzie w stanie uzyskać ten sam komunikat i ponowić próbę. Twój kod wywołuje funkcję **DeleteMessage** natychmiast po przetworzeniu komunikatu.
+## <a name="de-queue-hello-next-message"></a>Kolejka do następnej wiadomości powitania
+Twój kod usuwa komunikat z kolejki w dwóch etapach. Podczas wywoływania **GetMessage**, Pobierz hello następnej wiadomości w kolejce. Komunikat zwrócony z **GetMessage** staje się niewidoczny tooany innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. toofinish usuwania wiadomość hello z kolejki hello, musisz również wywołać **DeleteMessage**. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że jeśli kod nie powiedzie się tooprocess, który można uzyskać komunikatu powodu awarii toohardware lub oprogramowania, inne wystąpienie kodu tę samą wiadomość hello i spróbuj ponownie. Twój kod wywołuje **DeleteMessage** natychmiast po przetworzeniu wiadomość hello.
 
 ```csharp
 // Retrieve storage account from connection string
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client
+// Create hello queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue
+// Retrieve a reference tooa queue
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Get the next message
+// Get hello next message
 CloudQueueMessage retrievedMessage = queue.GetMessage();
 
-//Process the message in less than 30 seconds, and then delete the message
+//Process hello message in less than 30 seconds, and then delete hello message
 queue.DeleteMessage(retrievedMessage);
 ```
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Używanie wzorca Async-Await z wspólnymi interfejsami API usługi Queue Storage
-Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API usługi Queue Storage. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
+Ten przykład przedstawia, jak wzorca Async-Await hello toouse ze wspólnych interfejsów API magazynu kolejek. przykład Witaj wywołuje hello asynchroniczną wersję każdej z hello podanej metody, wskazywany przez hello *Async* sufiks każdej metody. W przypadku metody asynchronicznej hello async-await wzorzec zawiesi lokalne wykonanie do momentu ukończenia wywołania hello. Takie zachowanie umożliwia hello bieżącego wątku toodo inne zadania, co pomaga uniknąć wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji hello. Aby uzyskać więcej informacji na temat używania hello wzorca Async-Await w programie .NET zobacz [Async i Await (C# i Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
-// Create the queue if it doesn't already exist
+// Create hello queue if it doesn't already exist
 if(await queue.CreateIfNotExistsAsync())
 {
     Console.WriteLine("Queue '{0}' Created", queue.Name);
@@ -187,35 +187,35 @@ else
     Console.WriteLine("Queue '{0}' Exists", queue.Name);
 }
 
-// Create a message to put in the queue
+// Create a message tooput in hello queue
 CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
-// Async enqueue the message
+// Async enqueue hello message
 await queue.AddMessageAsync(cloudQueueMessage);
 Console.WriteLine("Message added");
 
-// Async dequeue the message
+// Async dequeue hello message
 CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
 Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
 
-// Async delete the message
+// Async delete hello message
 await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
     
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Wykorzystanie dodatkowych opcji do usuwania komunikatów z kolejek
 Istnieją dwa sposoby dostosowania pobierania komunikatów z kolejki.
-Po pierwsze można uzyskać komunikaty zbiorczo (do 32). Po drugie można ustawić dłuższy lub krótszy limit czasu niewidoczności, dzięki czemu kod będzie mieć więcej lub mniej czasu na pełne przetworzenie każdego komunikatu. Poniższy przykład kodu wykorzystuje metodę **GetMessages**, aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **foreach**. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu. Należy zauważyć, że okres 5 minut rozpoczyna się dla wszystkich komunikatów w tym samym czasie, więc po upływie 5 minut od wywołania metody **GetMessages** wszystkie komunikaty, które nie zostały usunięte, będą widoczne ponownie.
+Po pierwsze można uzyskać partię komunikatów (w górę too32). Po drugie można ustawić limit czasu niewidoczności dłuższy lub krótszy, dzięki czemu kod będzie więcej lub mniej czasu toofully przetworzenie każdego komunikatu. następujące Hello przykład kodu wykorzystuje **GetMessages** metody tooget 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **foreach**. Ustawia również minut toofive limitu czasu niewidoczności powitania dla każdego komunikatu. Należy pamiętać, że hello 5 minut rozpoczyna się dla wszystkich wiadomości na powitania sam czasu, po 5 minut od wywołania hello zbyt**GetMessages**, wszystkie komunikaty, które nie zostały usunięte, będą widoczne ponownie.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
@@ -225,24 +225,24 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 }
 ```
 
-## <a name="get-the-queue-length"></a>Pobieranie długości kolejki
-Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda **FetchAttributes** prosi usługę kolejki o pobranie atrybutów kolejki, w tym liczby komunikatów. Właściwość **ApproximateMessageCount** zwraca ostatnią wartość pobraną przez metodę **FetchAttributes** bez wywoływania usługi kolejki.
+## <a name="get-hello-queue-length"></a>Pobieranie długości kolejki hello
+Możesz uzyskać szacunkową hello liczbę wiadomości w kolejce. **FetchAttributes** metody zapyta hello usługę kolejki o pobranie atrybutów kolejki hello, w tym liczbę wiadomości powitania. Witaj **ApproximateMessageCount** właściwość zwraca hello ostatnią wartość pobraną przez **FetchAttributes** bez wywoływania usługi kolejki hello.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Fetch the queue attributes.
+// Fetch hello queue attributes.
 queue.FetchAttributes();
 
-// Retrieve the cached approximate message count.
+// Retrieve hello cached approximate message count.
 int? cachedMessageCount = queue.ApproximateMessageCount;
 
 // Display number of messages.
@@ -250,37 +250,37 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Usuwanie kolejki
-Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę **Delete** na obiekcie kolejki.
+toodelete kolejkę i wszystkie wiadomości powitania zawartych w nim, należy wywołać **usunąć** metody dla obiekt kolejki hello.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the queue client.
+// Create hello queue client.
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-// Delete the queue.
+// Delete hello queue.
 queue.Delete();
 ```
     
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
+Teraz, kiedy znasz już podstawy magazynu kolejek hello, wykonaj te toolearn łącza o bardziej skomplikowanych zadaniach magazynu.
 
-* Przejrzyj dokumentację referencyjną usługi kolejki, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
+* Przejrzyj dokumentację referencyjną usługi kolejki hello szczegółowe informacje o dostępnych interfejsach API:
   * [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [Dokumentacja interfejsu API REST](http://msdn.microsoft.com/library/azure/dd179355)
-* Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
-* Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
-  * Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md), aby przechowywać dane strukturalne.
-  * Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
-  * [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md), aby zapisać dane relacyjne.
+* Dowiedz się, jak kod hello toosimplify pisania toowork z usługą Azure Storage za pomocą hello [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md).
+* Wyświetl więcej funkcji toolearn przewodników o dodatkowych opcjach przechowywania danych na platformie Azure.
+  * [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-tables.md) toostore strukturę danych.
+  * [Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md) toostore danych bez struktury.
+  * [Połącz tooSQL bazy danych przy użyciu programu .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) toostore relacyjnej bazie danych.
 
-[Download and install the Azure SDK for .NET]: /develop/net/
+[Download and install hello Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Azure Active Directory integracji z logowaniem Jednokrotnym Kantega dla zlewiska | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i logowania jednokrotnego Kantega dla zlewiska."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i logowania jednokrotnego Kantega dla zlewiska."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,117 +13,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ec11decbff4cf2f6c39b40228e349312fd86da00
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b35eb8757e41e86228a3a9ee10869086cc801c9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Samouczek: Azure Active Directory integracji z logowaniem Jednokrotnym Kantega dla zlewiska
 
-Z tego samouczka dowiesz integrowanie logowania jednokrotnego Kantega dla zlewiska z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Kantega Usługa rejestracji Jednokrotnej dla zlewiska z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Kantega Usługa rejestracji Jednokrotnej dla zlewiska zapewnia następujące korzyści:
+Integracja z usługą Azure AD Kantega Usługa rejestracji Jednokrotnej dla zlewiska zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do logowania jednokrotnego Kantega zlewiska
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do logowania jednokrotnego Kantega dla zlewiska (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp tooKantega logowania jednokrotnego dla zlewiska
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooKantega logowania jednokrotnego dla zlewiska (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z logowania jednokrotnego Kantega dla zlewiska, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z logowania jednokrotnego Kantega dla zlewiska należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Kantega Usługa rejestracji Jednokrotnej dla zlewiska logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie logowania jednokrotnego Kantega dla zlewiska z galerii
+1. Dodawanie logowania jednokrotnego Kantega dla zlewiska z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-kantega-sso-for-confluence-from-the-gallery"></a>Dodawanie logowania jednokrotnego Kantega dla zlewiska z galerii
-Aby skonfigurować integrację Kantega sesji rejestracji jednokrotnej dla zlewiska do usługi Azure AD, należy dodać logowania jednokrotnego Kantega dla zlewiska z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-kantega-sso-for-confluence-from-hello-gallery"></a>Dodawanie logowania jednokrotnego Kantega dla zlewiska z galerii hello
+Integracja hello tooconfigure Kantega sesji rejestracji jednokrotnej dla zlewiska do usługi Azure AD, należy tooadd Kantega logowania jednokrotnego dla zlewiska z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać logowania jednokrotnego Kantega dla zlewiska z galerii, wykonaj następujące czynności:**
+**tooadd Kantega Usługa rejestracji Jednokrotnej dla zlewiska z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**.
+4. W polu wyszukiwania hello wpisz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_search.png)
 
-5. W panelu wyników wybierz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego Kantega dla zlewiska w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w rejestracji Jednokrotnej Kantega dla zlewiska jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w rejestracji Jednokrotnej Kantega dla zlewiska musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w rejestracji Jednokrotnej Kantega dla zlewiska jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w rejestracji Jednokrotnej Kantega dla zlewiska musi toobe ustanowione.
 
-W Kantega logowania jednokrotnego dla zlewiska, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W Kantega logowania jednokrotnego dla zlewiska, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego Kantega dla zlewiska, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowanie usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego Kantega zlewiska, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie Kantega Usługa rejestracji Jednokrotnej dla użytkownika testowego zlewiska](#creating-a-kantega-sso-for-confluence-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Kantega Usługa rejestracji Jednokrotnej dla zlewiska połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie Kantega Usługa rejestracji Jednokrotnej dla użytkownika testowego zlewiska](#creating-a-kantega-sso-for-confluence-test-user)**  -toohave odpowiednikiem Simona Britta w rejestracji Jednokrotnej Kantega dla zlewiska, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w Twojej rejestracji Jednokrotnej Kantega zlewiska aplikacji.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w Twojej rejestracji Jednokrotnej Kantega zlewiska aplikacji.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego Kantega dla zlewiska, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego Kantega dla zlewiska, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **Kantega Usługa rejestracji Jednokrotnej dla zlewiska** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **Kantega Usługa rejestracji Jednokrotnej dla zlewiska** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_samlbase.png)
 
-3. W **IDP** inicjowane w trybie **logowania jednokrotnego Kantega zlewiska domeny i adresów URL** sekcji wykonaj następujące kroki:
+3. W **IDP** inicjowane tryb na powitania **logowania jednokrotnego Kantega zlewiska domeny i adresów URL** sekcji wykonać powitania po kroku:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url1.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. W **SP** inicjowane trybie wyboru **Pokaż zaawansowane ustawienia adresu URL** i wykonaj następujące kroki:
+4. W **SP** inicjowane trybie wyboru **Pokaż zaawansowane ustawienia adresu URL** i wykonywać powitania po kroku:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url2.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Te wartości są odbierane podczas konfigurowania zlewiska dodatek, który znajduje się w dalszej części tego samouczka.
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania. Te wartości są odbierane podczas konfigurowania hello zlewiska wtyczki, który znajduje się w dalszej części samouczka hello.
 
-5. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_certificate.png) 
 
@@ -131,9 +131,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_400.png)
     
-7. W oknie przeglądarki innej witryny sieci web, zaloguj się do Twojego **portalu administracyjnego zlewiska** jako administrator.
+7. W oknie przeglądarki innej witryny sieci web, zaloguj się za tooyour **portalu administracyjnego zlewiska** jako administrator.
 
-8. Umieść kursor na koło zębate, a następnie kliknij przycisk **dodatki**.
+8. Umieść kursor na koło zębate, a następnie kliknij przycisk hello **dodatki**.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon1.png)
 
@@ -141,15 +141,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon.png)
 
-10. Wyszukiwanie **Kantega Usługa rejestracji Jednokrotnej dla protokołu Kerberos SAML zlewiska** i kliknij przycisk **zainstalować** przycisk, aby zainstalować nowy wtyczki SAML.
+10. Wyszukiwanie **Kantega Usługa rejestracji Jednokrotnej dla protokołu Kerberos SAML zlewiska** i kliknij przycisk **zainstalować** tooinstall przycisk hello nowej wtyczki SAML.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon2.png)
 
-11. Uruchamia instalację dodatku.
+11. rozpoczyna się instalacja dodatku Hello.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon3.png)
 
-12. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
+12. Po zakończeniu instalacji hello. Kliknij przycisk **Zamknij**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon33.png)
 
@@ -157,7 +157,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon34.png)
     
-14. Kliknij przycisk **Konfiguruj** do skonfigurowania nowej wtyczki.
+14. Kliknij przycisk **Konfiguruj** tooconfigure hello nowej wtyczki.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon35.png)
 
@@ -165,7 +165,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon36.png)
     
-16. W **SAML** sekcji. Wybierz **usługi Azure Active Directory (Azure AD)** z **dostawcy tożsamości Dodaj** listy rozwijanej.
+16. W hello **SAML** sekcji. Wybierz **usługi Azure Active Directory (Azure AD)** z hello **dostawcy tożsamości Dodaj** listy rozwijanej.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon4.png)
 
@@ -173,15 +173,15 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon5.png)       
 
-18. Na **właściwości aplikacji** sekcji, wykonaj następujące kroki: 
+18. Na powitania **właściwości aplikacji** sekcji, wykonaj następujące kroki: 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon6.png)
 
-    a. Kopiuj **identyfikator URI aplikacji** wartości i używać go jako **identyfikator, adres URL odpowiedzi i adres URL logowania** na **logowania jednokrotnego Kantega zlewiska domeny i adresów URL** sekcji w portalu Azure.
+    a. Kopiuj hello **identyfikator URI aplikacji** wartości i używać go jako **identyfikator, adres URL odpowiedzi i adres URL logowania** na powitania **logowania jednokrotnego Kantega zlewiska domeny i adresów URL** sekcji w portalu Azure.
 
     b. Kliknij przycisk **Dalej**.
 
-19. Na **importu metadanych** sekcji, wykonaj następujące kroki: 
+19. Na powitania **importu metadanych** sekcji, wykonaj następujące kroki: 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon7.png)
 
@@ -189,23 +189,23 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Kliknij przycisk **Dalej**.
 
-20. Na **nazwę i logowania jednokrotnego lokalizację** sekcji, wykonaj następujące kroki:
+20. Na powitania **nazwę i logowania jednokrotnego lokalizację** sekcji, wykonaj następujące kroki:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon8.png)
     
-    a. Dodaj nazwę dostawcy tożsamości w **Nazwa dostawcy tożsamości** pola tekstowego (np. usługi Azure AD).
+    a. Dodaj nazwę hello dostawcy tożsamości w **Nazwa dostawcy tożsamości** pola tekstowego (np. usługi Azure AD).
 
     b. Kliknij przycisk **Dalej**.
 
-21. Sprawdź certyfikatu podpisywania, a następnie kliknij przycisk **dalej**.
+21. Sprawdź hello certyfikatu podpisywania, a następnie kliknij przycisk **dalej**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon9.png)
 
-22. Na **kont użytkowników zlewiska** sekcji, wykonaj następujące kroki:
+22. Na powitania **kont użytkowników zlewiska** sekcji, wykonaj następujące kroki:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon10.png)
 
-    a. Wybierz **tworzenie użytkowników w katalogu wewnętrzny zlewiska firmy, w razie potrzeby** , a następnie wprowadź odpowiednią nazwę grupy użytkowników (może być wiele nie. grup rozdzielone przecinkami).
+    a. Wybierz **tworzenie użytkowników w katalogu wewnętrzny zlewiska firmy, w razie potrzeby** , a następnie wprowadź odpowiednią nazwę hello hello grupy użytkowników (może być wiele nie. grup rozdzielone przecinkami).
 
     b. Kliknij przycisk **Dalej**.
 
@@ -213,96 +213,96 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon11.png)
 
-24. Na **znanych domeny dla usługi Azure AD** sekcji, wykonaj następujące kroki: 
+24. Na powitania **znanych domeny dla usługi Azure AD** sekcji, wykonaj następujące kroki: 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon12.png)
 
-    a. Wybierz **znane domen** z lewego panelu strony.
+    a. Wybierz **znane domen** z lewego panelu hello hello strony.
 
-    b. Wprowadź nazwę domeny w **znane domen** pola tekstowego.
+    b. Wprowadź nazwę domeny w hello **znane domen** pola tekstowego.
 
     c. Kliknij pozycję **Zapisz**. 
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-kantega-sso-for-confluence-test-user"></a>Tworzenie Kantega Usługa rejestracji Jednokrotnej dla użytkownika testowego zlewiska
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do zlewiska, musi być przygotowana do zlewiska. W przypadku Kantega logowania jednokrotnego dla zlewiska Inicjowanie obsługi to zadanie ręczne.
+toolog użytkowników tooenable usługi Azure AD w tooConfluence, muszą mieć przydzielone do zlewiska. W przypadku hello Kantega sesji rejestracji jednokrotnej dla zlewiska Inicjowanie obsługi to zadanie ręczne.
 
-**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
+**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
 
-1. Zaloguj się do Twojego SSO Kantega zlewiska witryny firmy jako administrator.
+1. Zaloguj się za tooyour logowania jednokrotnego Kantega zlewiska witryny firmy jako administrator.
 
-2. Umieść kursor na koło zębate, a następnie kliknij przycisk **Zarządzanie użytkownikami**.
+2. Umieść kursor na koło zębate, a następnie kliknij przycisk hello **Zarządzanie użytkownikami**.
 
     ![Dodawanie pracownika](./media/active-directory-saas-kantegassoforconfluence-tutorial/user1.png) 
 
-3. W sekcji Użytkownicy kliknij **Dodaj użytkowników** kartę. Na **"Dodaj użytkownika"** okna dialogowego strony, należy wykonać następujące czynności:
+3. W sekcji Użytkownicy kliknij **Dodaj użytkowników** kartę. Na powitania **"Dodaj użytkownika"** okna dialogowego wykonaj hello następujące kroki:
 
     ![Dodawanie pracownika](./media/active-directory-saas-kantegassoforconfluence-tutorial/user2.png) 
 
-    a. W **Username** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
+    a. W hello **Username** pole tekstowe, powitalne wiadomości e-mail użytkownika, takich jak Brittasimon@contoso.com.
 
-    b. W **imię i nazwisko** tekstowym, wpisz pełną nazwę użytkownika, takich jak Simona Britta.
+    b. W hello **imię i nazwisko** pole tekstowe, typ hello pełną nazwę użytkownika, takich jak Simona Britta.
 
-    c. W **E-mail** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
+    c. W hello **E-mail** pole tekstowe, typ hello adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
 
-    d. W **hasło** tekstowym, wpisz hasło dla użytkownika.
+    d. W hello **hasło** tekstowym, wpisz hello hasło dla użytkownika.
 
-    e. Kliknij przycisk **Potwierdź hasło** wprowadź ponownie hasło.
+    e. Kliknij przycisk **Potwierdź hasło** ponownie hello hasła.
     
     f. Kliknij przycisk **Dodaj** przycisku.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do logowania jednokrotnego Kantega dla zlewiska.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooKantega logowania jednokrotnego dla zlewiska.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta do logowania jednokrotnego Kantega dla zlewiska, wykonaj następujące czynności:**
+**tooassign tooKantega Simona Britta logowania jednokrotnego dla zlewiska, wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**.
+2. Z listy aplikacji hello wybierz **Kantega Usługa rejestracji Jednokrotnej dla zlewiska**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -310,7 +310,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -318,14 +318,14 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu logowania jednokrotnego Kantega zlewiska kafelka w panelu dostępu należy należy pobrać automatycznie zalogowane do rejestracji Jednokrotnej z Kantega zlewiska aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu hello Kantega logowania jednokrotnego dla zlewiska kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Kantega logowania jednokrotnego dla aplikacji zlewiska.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

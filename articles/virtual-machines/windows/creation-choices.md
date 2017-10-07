@@ -1,6 +1,6 @@
 ---
-title: "Różne sposoby tworzenia maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Wyświetla listę różnych sposobów tworzenia maszyny wirtualnej systemu Windows za pomocą Menedżera zasobów."
+title: "aaaDifferent sposobów toocreate maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Wyświetla listę toocreate różne sposoby hello maszynę wirtualną za pomocą Menedżera zasobów systemu Windows."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -16,23 +16,23 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e51c49aac01a22d86c7c1a12b2f2ca7ddc056bc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2928d4daa9b44c4d3a5083092a82c9a7f7c69fae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="different-ways-to-create-a-windows-virtual-machine"></a>Różne sposoby tworzenia maszyny wirtualnej systemu Windows
+# <a name="different-ways-toocreate-a-windows-virtual-machine"></a>Różne sposoby toocreate maszyny wirtualnej systemu Windows
 
-System Azure oferuje różne sposoby tworzenia maszyny wirtualnej, ponieważ maszyny wirtualne są odpowiednie dla różnych użytkowników i celów. Oznacza to, należy wybrać niektóre opcje dotyczące maszyny wirtualnej i utwórz go. Ten artykuł zawiera podsumowanie tych opcji i linki do instrukcji.
+System Azure oferuje różne sposoby toocreate maszyny wirtualnej, ponieważ maszyny wirtualne są odpowiednie dla różnych użytkowników i celów. To oznacza, że konieczne toomake niektóre opcje dotyczące maszyny wirtualnej hello i w jaki sposób toocreate go. Ten artykuł zawiera podsumowanie tych opcji oraz łączy tooinstructions.
 
 ## <a name="azure-portal"></a>Azure Portal
-Przy użyciu portalu Azure jest prosty sposób na wypróbowanie maszynę wirtualną, zwłaszcza jeśli zaczynasz przy użyciu platformy Azure. 
+Przy użyciu portalu Azure hello jest tootry prosty sposób limit maszynę wirtualną, zwłaszcza, jeśli zaczynasz przy użyciu platformy Azure. 
 
-[Tworzenie maszyny wirtualnej z systemem Windows przy użyciu portalu](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Utwórz maszynę wirtualną z systemem Windows przy użyciu portalu hello](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="template"></a>Szablon
-Maszyny wirtualne wymagają różnych zasobów (np. o dostępności zestawów i kont magazynu). Zamiast wdrażanie i zarządzanie każdego zasobu oddzielnie, można utworzyć szablonu usługi Azure Resource Manager, który wdraża i udostępnia wszystkie zasoby w jednej, skoordynowanej operacji.
+Maszyny wirtualne wymagają różnych zasobów (np. o dostępności zestawów i kont magazynu). Zamiast wdrażanie i zarządzanie każdego zasobu oddzielnie, można utworzyć szablonu usługi Azure Resource Manager, który wdraża i udostępnia wszystkie zasoby hello w jednej, skoordynowanej operacji.
 
 * [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu usługi Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -42,7 +42,7 @@ Jeśli wolisz Praca w powłoce poleceń, można użyć programu Azure PowerShell
 * [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="visual-studio"></a>Visual Studio
-Do tworzenia, zarządzania i wdrażania maszyn wirtualnych przy użyciu narzędzi platformy Azure dla programu Visual Studio i zestawu Azure SDK, należy użyć programu Visual Studio.
+Użyj toobuild programu Visual Studio, zarządzać i wdrażanie maszyn wirtualnych o hello Azure Tools dla programu Visual Studio oraz hello Azure SDK.
 
 [Azure Tools dla programu Visual Studio](https://www.visualstudio.com/features/azure-tools-vs)
 

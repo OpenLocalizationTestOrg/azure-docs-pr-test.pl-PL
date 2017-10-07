@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI przykładowym skrypcie - mapy niestandardową domenę do aplikacji funkcji | Dokumentacja firmy Microsoft"
-description: "Przykład skryptu usługi Azure CLI — mapy niestandardową domenę do aplikacji funkcji na platformie Azure."
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia - mapowania aplikacji funkcji tooa domeny niestandardowej | Dokumentacja firmy Microsoft"
+description: "Przykładowym skrypcie usługi Azure CLI - mapy aplikacji funkcji tooa niestandardową domenę na platformie Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -16,43 +16,43 @@ ms.topic: sample
 ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6fcea6d32f9dd25b0fafb4f895f60d8320ac9df8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7cb0a3e132b491250623b945aecf6aea4f57c4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-a-custom-domain-to-a-function-app"></a>Zamapować niestandardową domenę do aplikacji funkcji
+# <a name="map-a-custom-domain-tooa-function-app"></a>Mapa aplikacji funkcji tooa domeny niestandardowej
 
-Ten przykładowy skrypt tworzy aplikacji funkcji z powiązanych zasobów, a następnie mapuje `www.<yourdomain>` do niego. Do mapowania na domenę niestandardową, należy utworzyć aplikacji funkcji w planie usługi aplikacji, a nie w planie zużycia. Środowisko Azure Functions obsługuje tylko mapowania domeny niestandardowej przy użyciu rekordu A.
+Ten przykładowy skrypt tworzy aplikacji funkcji z powiązanych zasobów, a następnie mapuje `www.<yourdomain>` tooit. toomap tooa domeny niestandardowej, w planie usługi aplikacji, a nie w planie zużycia, należy utworzyć aplikację funkcji. Środowisko Azure Functions obsługuje tylko mapowania domeny niestandardowej przy użyciu rekordu A.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli-interactive[główne](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "zamapować niestandardową domenę do aplikacji funkcji")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain tooa function app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account#create) | Tworzy wymagane przez aplikację funkcja konto magazynu. |
-| [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Tworzy plan usługi aplikacji potrzebne do mapowania domeny niestandardowej. |
+| [Tworzenie konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account#create) | Tworzy wymagane przez aplikację funkcji hello konto magazynu. |
+| [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Tworzy niestandardową domenę toomap wymagane planu usługi aplikacji. |
 | [Utwórz az functionapp]() | Tworzy aplikację funkcji. |
-| [Dodaj nazwę az usługi aplikacji sieci web konfiguracji hosta](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Mapuje domeny niestandardowej aplikacji funkcji. |
+| [Dodaj nazwę az usługi aplikacji sieci web konfiguracji hosta](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Mapuje aplikacji funkcji tooa domeny niestandardowej. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów funkcji interfejsu wiersza polecenia można znaleźć w [dokumentacji usługi Azure Functions]().
+Dodatkowe przykłady skryptów funkcji interfejsu wiersza polecenia można znaleźć w hello [dokumentacji usługi Azure Functions]().

@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie SSL odciążania — brama aplikacji w usłudze Azure - Azure Portal | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje, aby utworzyć bramę aplikacji przy użyciu protokołu SSL Odciążanie przy użyciu portalu"
+title: "aaaConfigure SSL odciążania — brama aplikacji w usłudze Azure - Portal Azure | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje toocreate bramę aplikacji przy użyciu protokołu SSL Odciążanie przy użyciu portalu hello"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e87ac0bbe10ac45e307c18802741c7bc31764a20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu portalu
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-hello-portal"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu portalu hello
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](application-gateway-ssl-portal.md)
@@ -28,67 +28,67 @@ ms.lasthandoff: 08/18/2017
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-ssl.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl-cli.md)
 
-Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web. Odciążanie protokołu SSL upraszcza również konfigurowanie serwerów frontonu i zarządzanie aplikacją sieci Web.
+Brama aplikacji w Azure może być sesji protokołu Secure Sockets Layer (SSL) hello tooterminate skonfigurowanych na powitania bramy tooavoid kosztowne SSL odszyfrowywania zadania toohappen na powitania kolektywu serwerów sieci web. Odciążanie protokołu SSL także upraszcza powitania serwera frontonu Konfiguracja i zarządzanie hello aplikacji sieci web.
 
 ## <a name="scenario"></a>Scenariusz
 
-Poniższy scenariusz przechodzi przez konfigurowanie SSL odciążenia na istniejącą bramę aplikacji. Scenariusz przyjęto założenie, że już zostały wykonane kroki, aby [Utwórz bramę aplikacji](application-gateway-create-gateway-portal.md).
+powitania po scenariusz przechodzi przez konfigurowanie SSL odciążenia na istniejącą bramę aplikacji. Witaj scenariuszu przyjęto założenie, że już zostały wykonane kroki hello zbyt[Utwórz bramę aplikacji](application-gateway-create-gateway-portal.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby skonfigurować odciążanie protokołu SSL z bramy aplikacji, wymagany jest certyfikat. Ten certyfikat jest załadowany na bramie aplikacji i używany do szyfrowania i odszyfrowywania ruchu wysyłane za pośrednictwem protokołu SSL. Ten certyfikat musi mieć format wymiana informacji osobistych (pfx). Ten format pliku umożliwia klucz prywatny można wyeksportować co jest wymagane przez bramę aplikacji do szyfrowania i deszyfrowania ruchu.
+tooconfigure odciążanie protokołu SSL z bramy aplikacji, wymagany jest certyfikat. Ten certyfikat jest ładowany w bramie aplikacji hello i używany tooencrypt i odszyfrowywania ruchu hello wysyłane za pośrednictwem protokołu SSL. certyfikat Hello musi toobe Format Wymiana informacji osobistych (pfx). Tego formatu pliku umożliwia dla hello prywatnego klucza toobe wyeksportowane wymaganych przez hello aplikacji bramy tooperform hello szyfrowania i odszyfrowywania ruchu.
 
 ## <a name="add-an-https-listener"></a>Dodaj odbiornika protokołu HTTPS
 
-Odbiornik HTTPS jest szuka ruchu na podstawie konfiguracji i pomaga kierowania ruchu do pul zaplecza.
+odbiornik HTTPS Hello szuka ruchu na podstawie konfiguracji i pomaga pul zaplecza toohello ruchu hello trasy.
 
 ### <a name="step-1"></a>Krok 1
 
-Przejdź do portalu Azure i wybierz istniejącą bramę aplikacji
+Przejdź toohello portalu Azure i wybierz istniejącą bramę aplikacji
 
 ### <a name="step-2"></a>Krok 2
 
-Kliknij odbiorników i kliknij przycisk Dodaj, aby dodać odbiornik.
+Obiekty nasłuchujące i kliknij tooadd przycisku Dodaj hello odbiornik.
 
 ![Blok omówienie bramy aplikacji][1]
 
 ### <a name="step-3"></a>Krok 3
 
-Wprowadź wymagane informacje dla odbiornika i przekazywanie certyfikatu PFX, po zakończeniu kliknij przycisk OK.
+Wprowadź wymagane informacje dla odbiornika hello hello i przekazywania hello PFX certyfikatu, po zakończeniu kliknij przycisk OK.
 
-**Nazwa** — ta wartość jest przyjazną nazwę odbiornika.
+**Nazwa** — ta wartość jest przyjazna nazwa odbiorników hello.
 
-**Konfiguracja adresu IP frontonu** — ta wartość jest konfiguracja adresu IP frontonu, która jest używana dla odbiornika.
+**Konfiguracja adresu IP frontonu** — ta wartość jest hello konfiguracji adresu IP frontonu, służący do hello odbiornika.
 
-**Portu frontonu (nazwa/Port)** — użyć przyjazną nazwę dla portu na frontonie bramy aplikacji i rzeczywistym portem.
+**Portu frontonu (nazwa/Port)** -przyjazną nazwę dla hello port używany na powitania frontonu bramy aplikacji hello i port rzeczywiste hello używany.
 
-**Protokół** — przełącznika do określania, jeśli http lub https jest używane dla frontonu.
+**Protokół** — toodetermine przełącznika, jeśli frontonu hello jest używany http lub https.
 
 **Certyfikat (nazwa/hasło)** — odciążania Jeśli protokół SSL jest używany, certyfikatu PFX jest wymagane dla tego ustawienia i przyjazną nazwę i hasło są wymagane.
 
 ![Dodawanie bloku odbiornika][2]
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Utwórz regułę i powiązać ją do odbiornika
+## <a name="create-a-rule-and-associate-it-toohello-listener"></a>Utwórz regułę i powiązać ją odbiornika toohello
 
-Odbiornik został utworzony. Nadszedł czas, aby utworzyć zasadę, aby obsługiwać ruch z odbiornika. Zasady definiują sposób ruch jest kierowany do pul zaplecza, na podstawie wielu ustawień konfiguracji, w tym, czy koligacji na podstawie plików cookie sesji jest używana, protokół, port i sondy kondycji.
+odbiornik Hello został utworzony. Jest toocreate czasu reguły toohandle hello ruch z hello odbiornika. Zasady definiują sposób ruch jest kierowany toohello pul zaplecza na podstawie wielu ustawień konfiguracji, w tym, czy koligacji na podstawie plików cookie sesji jest używana, protokół, port i sondy kondycji.
 
 ### <a name="step-1"></a>Krok 1
 
-Kliknij przycisk **reguły** bramy aplikacji, a następnie kliknij przycisk Dodaj.
+Kliknij przycisk hello **reguły** bramy aplikacji hello, a następnie kliknij przycisk Dodaj.
 
 ![Blok zasady bramy aplikacji][3]
 
 ### <a name="step-2"></a>Krok 2
 
-Na **Dodaj podstawowe reguły** bloku, wpisz przyjazną nazwę reguły i wybierz polecenie odbiornika utworzony w poprzednim kroku. Wybierz pulę zaplecza odpowiednie i ustawienia protokołu http, a następnie kliknij przycisk **OK**
+Na powitania **Dodaj podstawowe reguły** bloku, wpisz przyjazną nazwę reguły hello hello i wybierz utworzony w poprzednim kroku hello odbiornika hello. Wybierz pulę zaplecza odpowiednie hello i ustawienia protokołu http, a następnie kliknij przycisk **OK**
 
 ![Okno ustawień protokołu HTTPS][4]
 
-Ustawienia są teraz zapisywane na bramie aplikacji. Proces zapisywania dla tych ustawień może potrwać pewien czas, zanim staną się dostępne do wyświetlenia za pośrednictwem portalu lub przy użyciu programu PowerShell. Po zapisaniu bramy aplikacji obsługuje szyfrowania i odszyfrowywania ruchu. Cały ruch między bramą aplikacji i serwerów sieci web zaplecza będą obsługiwane za pośrednictwem protokołu http. Każdy komunikat do klienta, jeśli inicjowane przy użyciu protokołu https zostaną zwrócone do klienta szyfrowane.
+Ustawienia Hello są teraz zapisywane toohello bramy aplikacji. Hello Zapisz proces dla tych ustawień może trochę potrwać, zanim staną się dostępne tooview za pośrednictwem portalu hello lub za pomocą programu PowerShell. Brama aplikacji hello raz zapisane obsługuje hello szyfrowania i odszyfrowywania ruchu. Cały ruch między bramą aplikacji hello i serwerów sieci web zaplecza hello będą obsługiwane za pośrednictwem protokołu http. Dowolnego klienta do tyłu toohello komunikacji Jeśli inicjowane przy użyciu protokołu https, zostanie zwrócony klienta toohello szyfrowane.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak skonfigurować sondy kondycji niestandardowych z bramy aplikacji Azure, zobacz [utworzyć sondy kondycji niestandardowych](application-gateway-create-gateway-portal.md).
+toolearn tooconfigure niestandardowych kondycji sondowania z bramy aplikacji Azure, zobacz [utworzyć sondy kondycji niestandardowych](application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png

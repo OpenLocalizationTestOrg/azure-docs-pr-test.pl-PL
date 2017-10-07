@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu kolejek w języku PHP | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie korzystania z usługi magazyn kolejek platformy Azure do tworzenia i usuwania kolejki, wstawianie, Pobierz i usunąć wiadomości. Przykłady są zapisywane w kodzie PHP."
+title: "toouse aaaHow magazynu kolejek w języku PHP | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello Azure kolejki magazynu usługi toocreate i usuwania kolejki oraz insert, Pobierz i usunąć wiadomości. Przykłady są zapisywane w kodzie PHP."
 documentationcenter: php
 services: storage
 author: robinsh
@@ -14,42 +14,42 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 3c8f799a917cfc9d74412d90f27f2ea8c21265d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5034faf3b5f28f72d5b56ac1ce7a5723be697ce6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-php"></a>Jak używać Magazynu kolejek w języku PHP
+# <a name="how-toouse-queue-storage-from-php"></a>Jak toouse magazynu kolejek w języku PHP
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu usługi magazynu kolejek Azure. Przykłady są zapisywane za pomocą klasy z zestawu Windows SDK dla programu PHP. Objęte usługą scenariusze obejmują, wstawianie, wgląd, pobieranie i usuwanie komunikatów kolejek, a także tworzenie i usuwanie kolejek.
+W tym przewodniku opisano sposób tooperform typowych scenariuszy przy użyciu hello usługi magazynu kolejek Azure. Przykłady Hello są zapisywane za pomocą klasy z hello zestaw Windows SDK dla programu PHP. Witaj objęte usługą scenariusze obejmują Wstawianie, wgląd, pobieranie i usuwanie komunikatów kolejek, a także tworzenie i usuwanie kolejek.
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Tworzenie aplikacji PHP
-Jedynym wymaganiem służący do tworzenia aplikacji PHP, który uzyskuje dostęp do magazynu kolejek Azure jest odwoływanie się do klasy z zestawu Azure SDK dla programu PHP z w kodzie. Narzędzia do programowania służy do tworzenia aplikacji, łącznie z Notatnika.
+Witaj tylko do tworzenia aplikacji PHP, który uzyskuje dostęp do magazynu kolejek Azure to hello odwołuje się do klas z hello Azure SDK for PHP z w kodzie. Można użyć dowolnego toocreate narzędzi rozwoju aplikacji, łącznie z Notatnika.
 
 W tym przewodniku użyje funkcji magazynu kolejek, które można wywołać w ramach aplikacji PHP lokalnie lub w kodzie działających w roli sieci web platformy Azure, roli procesu roboczego lub witryny sieci Web.
 
-## <a name="get-the-azure-client-libraries"></a>Pobierz bibliotek klienta platformy Azure
+## <a name="get-hello-azure-client-libraries"></a>Pobierz bibliotek klienckich hello Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurowanie aplikacji dostęp do kolejki magazynu
-Aby korzystanie z interfejsów API magazynu kolejek Azure, musisz:
+## <a name="configure-your-application-tooaccess-queue-storage"></a>Konfigurowanie sieci tooaccess aplikacji magazynu kolejek
+Witaj toouse interfejsów API magazynu kolejek Azure, musisz:
 
-1. Odwołanie do pliku automatycznej ładowarki przy użyciu [require_once] instrukcji.
+1. Odwołanie hello automatycznej ładowarki pliku przy użyciu hello [require_once] instrukcji.
 2. Odwoływać się do wszystkich klas, których można użyć.
 
-Poniższy przykład pokazuje, jak dołączyć plik automatycznej ładowarki i odwołanie **ServicesBuilder** klasy.
+Witaj poniższy przykład przedstawia sposób tooinclude hello hello plików i odwołanie automatycznej ładowarki **ServicesBuilder** klasy.
 
 > [!NOTE]
-> W tym przykładzie (i inne przykłady w tym artykule) zakłada zainstalowano bibliotek klienckich PHP na platformie Azure za pośrednictwem Composer. Jeśli zainstalowano bibliotek ręcznie, konieczne będzie odwoływać się `WindowsAzure.php` automatycznej ładowarki pliku.
+> W tym przykładzie (i inne przykłady w tym artykule) zakłada zainstalowano hello bibliotek klienckich PHP na platformie Azure za pośrednictwem Composer. Jeśli zainstalowano bibliotek hello ręcznie, trzeba będzie tooreference hello `WindowsAzure.php` automatycznej ładowarki pliku.
 > 
 > 
 
@@ -59,10 +59,10 @@ use WindowsAzure\Common\ServicesBuilder;
 
 ```
 
-W poniższych przykładach `require_once` instrukcji będą wyświetlane zawsze, ale będzie można odwoływać się tylko klasy, które są niezbędne, na przykład do wykonania.
+W poniższych przykładach hello, hello `require_once` instrukcji będą wyświetlane zawsze, ale będzie można odwoływać się tylko klasy hello, które są niezbędne dla tooexecute przykład hello.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Konfigurowanie połączenia z magazynem Azure
-Można utworzyć wystąpienia klienta magazynu kolejek Azure, najpierw musi mieć prawidłowe parametry połączenia. Format dla parametrów połączenia usługi kolejki ma następującą składnię.
+tooinstantiate klienta magazynu kolejek Azure, musisz najpierw mieć prawidłowe parametry połączenia. Witaj format dla parametrów połączenia usługi kolejki hello ma następującą składnię.
 
 Aby uzyskać dostęp do usługi na żywo:
 
@@ -70,20 +70,20 @@ Aby uzyskać dostęp do usługi na żywo:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Aby uzyskać dostęp do emulatora magazynu:
+Aby uzyskać dostęp do magazynu emulatora hello:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Aby utworzyć dowolnego klienta usługi Azure, musisz użyć **ServicesBuilder** klasy. Można użyć jednej z następujących metod:
+toocreate dowolnego klienta usługi Azure należy toouse hello **ServicesBuilder** klasy. Możesz użyć dowolnej z hello następujące techniki:
 
-* Parametry połączenia należy przekazać bezpośrednio do niego.
-* Użyj **CloudConfigurationManager (CCM)** do sprawdzenia wiele źródeł zewnętrznych ciągu połączenia:
+* Przekaż połączenia hello ciągu bezpośrednio tooit.
+* Użyj **CloudConfigurationManager (CCM)** toocheck zewnętrzne wiele źródeł dla parametrów połączenia hello:
   * Domyślnie, pochodzi z obsługą jednego źródła zewnętrznego — zmiennych środowiskowych.
-  * Można dodać nowego źródła rozszerzając **ConnectionStringSource** klasy.
+  * Można dodać nowych źródeł, rozszerzając hello **ConnectionStringSource** klasy.
 
-Przykłady przedstawione w tym miejscu parametry połączenia zostaną przekazane bezpośrednio.
+Przykłady hello opisana w tym temacie hello parametry połączenia zostaną przekazane bezpośrednio.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -94,7 +94,7 @@ $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connection
 ```
 
 ## <a name="create-a-queue"></a>Tworzenie kolejki
-A **QueueRestProxy** obiekt umożliwia tworzenie kolejki przy użyciu **createQueue** metody. Podczas tworzenia kolejki, można ustawić opcje w kolejce, ale spowoduje to nie jest wymagane. (W poniższym przykładzie pokazano, jak ustawić metadanych w kolejce).
+A **QueueRestProxy** obiekt umożliwia tworzenie kolejki przy użyciu hello **createQueue** metody. Podczas tworzenia kolejki, można ustawić opcje w kolejce hello, ale spowoduje to nie jest wymagane. (hello przykład poniżej przedstawiono, jak metadanych tooset dla kolejki.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -126,12 +126,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Nie należy polegać na uwzględnianie wielkości liter w metadanych kluczy. Wszystkie klucze są odczytywane z usługi pisane małymi literami.
+> Nie należy polegać na uwzględnianie wielkości liter w metadanych kluczy. Wszystkie klucze są odczytywane z usługi hello pisane małymi literami.
 > 
 > 
 
-## <a name="add-a-message-to-a-queue"></a>Dodaj komunikat do kolejki
-Aby dodać wiadomości do kolejki, użyj **QueueRestProxy -> polecenie createMessage**. Metoda ma nazwę kolejki, tekst komunikatu i opcje wiadomości, (które są opcjonalne).
+## <a name="add-a-message-tooa-queue"></a>Dodaj tooa kolejki komunikatów
+Użyj tooadd kolejkę komunikatów tooa **QueueRestProxy -> polecenie createMessage**. Metoda Hello przyjmuje nazwę kolejki hello, tekst wiadomości powitania i opcje wiadomości, (które są opcjonalne).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -158,8 +158,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="peek-at-the-next-message"></a>Podgląd kolejnego komunikatu
-Możesz uzyskać wgląd w komunikat (lub wiadomości) z przodu kolejki bez jego usuwania z kolejki, wywołując **QueueRestProxy -> peekMessages**. Domyślnie **peekMessage** metoda zwraca pojedynczą wiadomość, ale można zmienić tę wartość przy użyciu **PeekMessagesOptions -> setNumberOfMessages** metody.
+## <a name="peek-at-hello-next-message"></a>Wglądu dalej wiadomości powitania
+Można uzyskać wgląd w komunikat (lub wiadomości) hello przodu kolejki bez jego usuwania z kolejki hello przez wywołanie metody **QueueRestProxy -> peekMessages**. Domyślnie program hello **peekMessage** metoda zwraca pojedynczą wiadomość, ale można zmienić tę wartość przy użyciu hello **PeekMessagesOptions -> setNumberOfMessages** metody.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -204,8 +204,8 @@ else{
 }
 ```
 
-## <a name="de-queue-the-next-message"></a>Usunięcie następnego komunikatu z kolejki
-Twój kod usuwa komunikat z kolejki w dwóch etapach. Najpierw należy wywołać **QueueRestProxy -> listMessages**, która sprawia, że komunikat niewidoczne dla innego kodu, który jest czytania z kolejki. Domyślnie ten komunikat pozostanie niewidoczny przez 30 sekund. (Jeśli wiadomość nie jest usuwany w tym okresie, stanie się widoczna w kolejce ponownie.) Aby zakończyć usuwanie komunikatu z kolejki, należy wywołać **QueueRestProxy -> deleteMessage**. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że gdy kodu nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu można uzyskać ten sam komunikat i spróbuj ponownie. Twój kod wywołuje **deleteMessage** natychmiast po przetworzeniu komunikatu.
+## <a name="de-queue-hello-next-message"></a>Kolejka do następnej wiadomości powitania
+Twój kod usuwa komunikat z kolejki w dwóch etapach. Najpierw należy wywołać **QueueRestProxy -> listMessages**, co czyni hello komunikat niewidoczne tooany innego kodu, który jest czytania z kolejki hello. Domyślnie ten komunikat pozostanie niewidoczny przez 30 sekund. (Jeśli wiadomość hello nie jest usuwany w tym okresie, stanie się widoczne w kolejce hello ponownie.) z kolejki hello wiadomość hello usuwania toofinish należy wywołać **QueueRestProxy -> deleteMessage**. Ten dwuetapowy proces usuwania komunikatów gwarantuje, że gdy tooprocess kończy się niepowodzeniem z kodu, przypisywany komunikat powodu awarii toohardware lub oprogramowania, inne wystąpienie kodu hello sam komunikat i spróbuj ponownie. Twój kod wywołuje **deleteMessage** natychmiast po przetworzeniu wiadomość hello.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -243,8 +243,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="change-the-contents-of-a-queued-message"></a>Zmiana zawartości komunikatu w kolejce
-Można zmienić zawartość komunikatu w miejscu w kolejce przez wywołanie metody **QueueRestProxy -> updateMessage**. Jeśli komunikat reprezentuje zadanie robocze, możesz użyć tej funkcji, aby zaktualizować stan zadania. Poniższy kod aktualizuje komunikat kolejki o nową zawartość i Ustawia rozszerzenie limitu czasu widoczności kolejne 60 sekund. Zapisuje stan pracy, który został skojarzony z komunikatem i daje klientowi kolejną minutę na kontynuowanie pracy nad wiadomości. Możesz użyć tej metody do śledzenia wieloetapowych przepływów pracy związanych z komunikatami kolejek, bez konieczności rozpoczynania od nowa, gdy dany etap nie powiedzie się ze względu na awarię sprzętu lub oprogramowania. Zazwyczaj stosuje się również liczbę ponownych prób. Jeśli komunikat zostanie ponowiony więcej niż *n* razy, zostanie usunięty. Jest to zabezpieczenie przed komunikatami, które wyzwalają błąd aplikacji zawsze, gdy są przetwarzane.
+## <a name="change-hello-contents-of-a-queued-message"></a>Zmień hello zawartość komunikatu w kolejce
+Można zmienić zawartość komunikatu w miejscu w kolejce hello hello przez wywołanie metody **QueueRestProxy -> updateMessage**. Jeśli wiadomość hello reprezentuje zadanie robocze, można użyć zadania hello tego stanu hello tooupdate funkcji. powitania po kod aktualizuje komunikat kolejki hello o nową zawartość i ustawia tooextend limitu czasu widoczności hello kolejne 60 sekund. Zapisuje stan pracy, który został skojarzony z wiadomość hello hello i udostępnia innym toocontinue minuty pracy na wiadomość powitania powitania klienta. Ta technika tootrack wieloetapowych przepływów pracy można użyć w wiadomości w kolejce, bez konieczności toostart za pośrednictwem od początku hello, jeśli dany etap nie powiedzie się powodu awarii toohardware lub oprogramowania. Zazwyczaj zachowa również liczbę ponownych prób, a jeśli hello komunikat zostanie ponowiony więcej niż  *n*  razy, zostanie usunięty. Jest to zabezpieczenie przed komunikatami, które wyzwalają błąd aplikacji zawsze, gdy są przetwarzane.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -287,7 +287,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>Dodatkowe opcje usuwania komunikatów z kolejek
-Istnieją dwa sposoby, który można dostosować pobieranie wiadomości z kolejki. Po pierwsze można uzyskać komunikaty zbiorczo (do 32). Po drugie można ustawić widoczności dłuższy lub krótszy limit czasu, dzięki czemu kod będzie bardziej lub mniej czasu na pełne przetworzenie każdego komunikatu. Poniższy przykład kodu wykorzystuje **getMessages** metodę, aby pobrać 16 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu **dla** pętli. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu.
+Istnieją dwa sposoby, który można dostosować pobieranie wiadomości z kolejki. Po pierwsze można uzyskać partię komunikatów (w górę too32). Po drugie można ustawić widoczności dłuższy lub krótszy limit czasu, dzięki czemu kod będzie więcej lub mniej czasu toofully przetworzenie każdego komunikatu. Witaj poniższy przykład kodu wykorzystuje hello **getMessages** metody tooget 16 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu **dla** pętli. Ustawia również minut toofive limitu czasu niewidoczności powitania dla każdego komunikatu.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -335,7 +335,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Pobieranie długości kolejki
-Możesz uzyskać szacunkową liczbę komunikatów w kolejce. **QueueRestProxy -> getQueueMetadata** metody prosi usługę kolejki do zwracania metadanych dotyczących kolejki. Wywoływanie **getApproximateMessageCount** metody na zwracanym obiekcie zawiera liczbę liczbę wiadomości w kolejce. Wartość licznika jest tylko przybliżoną, ponieważ komunikaty mogą dodane lub usunięte po usługa kolejki odpowiada na żądania.
+Możesz uzyskać szacunkową hello liczbę wiadomości w kolejce. Witaj **QueueRestProxy -> getQueueMetadata** — metoda zadaje hello kolejki usługi tooreturn metadane dotyczące hello kolejki. Wywoływanie hello **getApproximateMessageCount** metody na powitania zwrócony obiekt zawiera liczbę liczbę wiadomości w kolejce. Liczba Hello jest tylko przybliżonej, ponieważ komunikaty mogą dodane lub usunięte po hello kolejki usługa odpowiada tooyour żądania.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -364,7 +364,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Usuwanie kolejki
-Aby usunąć kolejkę i wszystkie znajdujące się w niej wiadomości, wywołaj **QueueRestProxy -> deleteQueue** metody.
+toodelete kolejkę i wszystkie wiadomości powitania w ramach tego wywołania hello **QueueRestProxy -> deleteQueue** metody.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -390,11 +390,11 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy magazynu kolejek Azure, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
+Teraz, kiedy znasz już podstawy magazynu kolejek Azure hello, wykonaj te toolearn łącza o bardziej skomplikowanych zadaniach magazynu:
 
-* Odwiedź stronę [Azure Storage Team blog](http://blogs.msdn.com/b/windowsazurestorage/).
+* Odwiedź hello [Azure Storage Team blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
-Aby uzyskać więcej informacji, zobacz też [Centrum deweloperów języka PHP](/develop/php/).
+Aby uzyskać więcej informacji, zobacz też hello [Centrum deweloperów języka PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php

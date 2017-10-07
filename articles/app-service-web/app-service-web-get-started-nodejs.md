@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji internetowej Node.js na platformie Azure | Microsoft Docs
+title: aaaCreate aplikacji sieci web Node.js na platformie Azure | Dokumentacja firmy Microsoft
 description: "Wdróż swoją pierwszą aplikację Hello World w środowisku Node.js w usłudze Azure App Service Web Apps w ciągu kilku minut."
 services: app-service\web
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ce845da09a7c088b8a2ba29b818a46a3b41aa4e7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 163edf83b2353755fc9fa2d75aed489038cf7c81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure
 
-Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji Node.js w usłudze Azure Web Apps. Aplikację internetową możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie przykładowego kodu w języku Node.js w aplikacji internetowej.
+Usługa [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ta opcja szybkiego startu przedstawia sposób toodeploy tooAzure aplikacji Node.js aplikacji sieci Web. Tworzenie aplikacji sieci web hello przy użyciu hello [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), i korzystania z aplikacji sieci web toohello kodu Node.js Git toodeploy próbki.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. Po zainstalowaniu wymagań wstępnych wykonanie czynności trwa około pięciu minut.   
+Możesz wykonać kroki hello za pomocą komputera Mac, systemu Windows lub Linux. Po zainstalowaniu wymagań wstępnych hello trwa około pięciu minut toocomplete hello kroki.   
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start:
+toocomplete tego przewodnika Szybki Start:
 
 * [Zainstaluj oprogramowanie Git](https://git-scm.com/)
 * [Zainstaluj środowisko Node.js i menedżer NPM](https://nodejs.org/)
@@ -43,41 +43,41 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-hello-sample"></a>Pobierz przykładowe hello
 
-W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
+W oknie terminalu Uruchom hello następujące polecenia tooclone hello przykładowej aplikacji repozytorium tooyour komputera lokalnego.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-To okno terminala umożliwia uruchamianie wszystkich poleceń z tego przewodnika Szybki start.
+Możesz to toorun okno terminalu wszystkie polecenia hello w tego przewodnika Szybki Start.
 
-Przejdź do katalogu, który zawiera przykładowy kod.
+Zmień katalog toohello, który zawiera hello przykładowy kod.
 
 ```bash
 cd nodejs-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
+## <a name="run-hello-app-locally"></a>Uruchamianie aplikacji hello lokalnie
 
-Uruchom aplikację lokalnie, otwierając okno terminala i korzystając ze skryptu `npm start` w celu uruchomienia wbudowanego serwera HTTP środowiska Node.js.
+Uruchamianie aplikacji hello lokalnie, Otwórz okno terminala i użyj hello `npm start` hello toolaunch skrypt wbudowany serwer Node.js HTTP.
 
 ```bash
 npm start
 ```
 
-Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem http://localhost:1337.
+Otwórz przeglądarkę sieci web i przejdź toohello przykładową aplikację w http://localhost: 1337.
 
-Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplikacji.
+Zobacz hello **Hello World** wiadomość hello przykładowej aplikacji wyświetlane na stronie powitania.
 
 ![Przykładowa aplikacja działająca w środowisku lokalnym](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
-W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć serwer sieci Web.
+W oknie terminalu, naciśnij klawisz **klawisze Ctrl + C** serwera sieci web hello tooexit.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -93,11 +93,11 @@ Na platformie Azure została utworzona nowa pusta aplikacja internetowa.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 23, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (21/21), done.
 Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
 Total 23 (delta 8), reused 7 (delta 1)
@@ -119,62 +119,62 @@ remote: Copying file: 'process.json'
 remote: Deleting file: 'hostingstart.html'
 remote: Ignoring: .git
 remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
+remote: Node.js versions available on hello platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
+remote: Selected node.js version 6.9.1. Use package.json file toochoose a different version.
 remote: Selected npm version 3.10.8
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
+## <a name="browse-toohello-app"></a>Przeglądaj toohello aplikacji
 
-Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
+Przeglądaj toohello wdrożonych aplikacji za pomocą przeglądarki sieci web.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Przykładowy kod w języku Node.js jest uruchamiany w aplikacji internetowej usługi Azure App Service.
+Witaj Node.js przykładowy kod jest uruchomiony w aplikacji sieci web platformy Azure App Service.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku Node.js w usłudze App Service.
+**Gratulacje!** Twoje pierwsze tooApp aplikacji Node.js usługi została wdrożona.
 
-## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
+## <a name="update-and-redeploy-hello-code"></a>Aktualizowanie i wdrożenie hello kodu
 
-Za pomocą edytora tekstów otwórz plik `index.js` w aplikacji Node.js i wprowadź niewielką zmianę w tekście w wywołaniu `response.end`:
+Za pomocą edytora tekstu, otwórz hello `index.js` plików w aplikacji Node.js hello i Ustaw tekst toohello niewielkie zmiany w wywołaniu hello zbyt`response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Zatwierdź zmiany w narzędziu Git, a następnie wypchnij zmiany kodu na platformę Azure.
+Zatwierdź zmiany w usłudze Git, a następnie Wypchnij tooAzure zmiany kodu hello.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w kroku **przechodzenia do aplikacji**, a następnie kliknij przycisk Odśwież.
+Po zakończeniu wdrożenia przełącznika wstecz toohello okna przeglądarki, które otwarty w hello **aplikacji toohello przeglądania** kroku i kliknij przycisk Odśwież.
 
 ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Zarządzanie nową aplikacją sieci Web platformy Azure
 
-Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją internetową.
+Przejdź toohello <a href="https://portal.azure.com" target="_blank">portalu Azure</a> aplikacji sieci web hello toomanage został utworzony.
 
-W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji internetowej platformy Azure.
+W menu po lewej stronie powitania kliknij **usługi aplikacji**, a następnie kliknij nazwę hello aplikacji sieci web platformy Azure.
 
-![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Aplikacja sieci web tooAzure nawigacji w portalu](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 Zostanie wyświetlona strona Omówienie aplikacji internetowej. Tutaj możesz wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. 
 
 ![Blok usługi App Service w witrynie Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Menu po lewej stronie zawiera różne strony służące do konfigurowania aplikacji. 
+menu po lewej stronie powitania zawiera różne strony konfigurowania aplikacji. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

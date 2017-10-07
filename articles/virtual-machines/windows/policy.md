@@ -1,6 +1,6 @@
 ---
-title: "Wymuszanie zabezpieczeń przy użyciu zasad na maszynach wirtualnych systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Sposób stosowania zasad do Menedżera zasobów systemu Windows maszyny wirtualnej platformy Azure"
+title: "aaaEnforce zabezpieczeń przy użyciu zasad na maszynach wirtualnych systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Jak tooapply tooan zasad maszyny wirtualnej systemu Azure Menedżera zasobów systemu Windows"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b31c8a03ecf8eed6a929f97fe4146ea14364404f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Stosowania zasad do maszyn wirtualnych systemu Windows z usługą Azure Resource Manager
-Korzystając z zasad, organizacja może wymusić różnych konwencje i zasady w całym przedsiębiorstwie. Wymuszanie zachowanie można zmniejszenia ryzyka podczas pracy nad dla sukcesu organizacji. W tym artykule opisano sposób można użyć zasad usługi Azure Resource Manager do definiowania zachowanie w przypadku maszyn wirtualnych w organizacji.
+# <a name="apply-policies-toowindows-vms-with-azure-resource-manager"></a>Zastosuj zasady tooWindows maszyn wirtualnych z usługą Azure Resource Manager
+Przy użyciu zasad, organizacja może wymusić różnych konwencje i reguł w całej organizacji hello. Wymuszanie hello żądanego zachowania można zmniejszenia ryzyka podczas pracy nad powodzeniu toohello organizacji hello. W tym artykule opisano sposób korzystania zachowanie hello potrzeby toodefine zasady usługi Azure Resource Manager dla maszyn wirtualnych w organizacji.
 
-Aby obejrzeć wprowadzenie do zasad, zobacz [używanie zasad do zarządzania zasobami i kontrola dostępu](../../azure-resource-manager/resource-manager-policy.md).
+Dla toopolicies wprowadzenie [zasady toomanage zasobów i kontroli dostępu](../../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="permitted-virtual-machines"></a>Dozwolone maszyny wirtualne
-Aby upewnić się, że maszyny wirtualne w Twojej organizacji są zgodne z aplikacji, można ograniczyć dozwolonych systemów operacyjnych. W poniższym przykładzie zasad musisz zezwolić na tylko systemu Windows Server 2012 R2 Datacenter maszyn wirtualnych należy utworzyć:
+tooensure, że maszyny wirtualne w Twojej organizacji są zgodne z aplikacji, można ograniczyć hello dozwolone systemów operacyjnych. Poniższy przykład zasad hello pozwala tylko maszyn wirtualnych systemu Windows Server 2012 R2 Datacenter toobe utworzone:
 
 ```json
 {
@@ -79,7 +79,7 @@ Aby upewnić się, że maszyny wirtualne w Twojej organizacji są zgodne z aplik
 }
 ```
 
-Użyj symbolu wieloznacznego, aby zmodyfikować poprzedniego zasadę, aby dopuścić żadnego obrazu systemu Windows Server Datacenter:
+Użyj hello toomodify przy użyciu symboli wieloznacznych, poprzedzających żadnego obrazu systemu Windows Server Datacenter tooallow zasad:
 
 ```json
 {
@@ -88,7 +88,7 @@ Użyj symbolu wieloznacznego, aby zmodyfikować poprzedniego zasadę, aby dopuś
 }
 ```
 
-Użyj anyOf zmodyfikować zasady poprzedniego zezwalająca na wszystkie Windows Server 2012 R2 Datacenter lub wyższej obrazu:
+Użyj hello toomodify anyOf poprzedzających tooallow zasad systemu Windows Server 2012 R2 Datacenter ani wyższa obrazu:
 
 ```json
 {
@@ -109,7 +109,7 @@ Aby uzyskać informacji o polach zasad, zobacz [aliasy zasad](../../azure-resour
 
 ## <a name="managed-disks"></a>Dyski zarządzane
 
-Aby wymagać używania dysków zarządzanych, należy użyć następujące zasady:
+toorequire hello użycie zarządzanego dysku, użyj hello następujące zasady:
 
 ```json
 {
@@ -157,9 +157,9 @@ Aby wymagać używania dysków zarządzanych, należy użyć następujące zasad
 
 ## <a name="images-for-virtual-machines"></a>Obrazy maszyn wirtualnych
 
-Ze względów bezpieczeństwa może wymagać, aby zatwierdzone niestandardowych obrazów są wdrażane w środowisku. Można określić albo grupę zasobów, która zawiera obrazy zatwierdzone lub konkretnym zatwierdzone obrazów.
+Ze względów bezpieczeństwa może wymagać, aby zatwierdzone niestandardowych obrazów są wdrażane w środowisku. Można określić hello grupę zasobów, która zawiera obrazy zatwierdzone hello lub hello określonych obrazy zatwierdzone.
 
-Poniższy przykład wymaga obrazów z grupy zasobów zatwierdzonych:
+Poniższy przykład Hello wymaga obrazów z grupy zasobów zatwierdzonych:
 
 ```json
 {
@@ -186,7 +186,7 @@ Poniższy przykład wymaga obrazów z grupy zasobów zatwierdzonych:
 } 
 ```
 
-W poniższym przykładzie identyfikatorów zatwierdzonych obrazu:
+Witaj poniższy przykład określa hello zatwierdzony obraz identyfikatory:
 
 ```json
 {
@@ -197,7 +197,7 @@ W poniższym przykładzie identyfikatorów zatwierdzonych obrazu:
 
 ## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyn wirtualnych
 
-Może zajść potrzeba zabraniać użycia pewnych typów rozszerzeń. Na przykład rozszerzenie nie może być zgodna z niektórych obrazy niestandardowe maszyny wirtualnej. Poniższy przykład pokazuje, jak mają być blokowane z określonym rozszerzeniem. Aby określić, które rozszerzenia, aby zablokować używa wydawcy i typu.
+Może być użycie tooforbid niektórych typów rozszerzeń. Na przykład rozszerzenie nie może być zgodna z niektórych obrazy niestandardowe maszyny wirtualnej. powitania po przykładzie pokazano, jak tooblock określonym rozszerzeniem. Używa toodetermine wydawcy i typ które tooblock rozszerzenia.
 
 ```json
 {
@@ -227,7 +227,7 @@ Może zajść potrzeba zabraniać użycia pewnych typów rozszerzeń. Na przykł
 
 ## <a name="azure-hybrid-use-benefit"></a>Korzyści Użyj hybrydowe platformy Azure
 
-Gdy użytkownik ma licencję lokalnie, można zapisać opłata licencji na maszynach wirtualnych. Jeśli nie masz licencji, należy zabraniać opcji. Następujące zasady zabrania użycia korzyści Użyj Azure hybrydowych (AHUB):
+Gdy użytkownik ma licencję lokalnie, można zapisać hello opłata licencji na maszynach wirtualnych. Jeśli nie masz licencji hello powinny zabraniać hello opcji. następujące zasady Hello zabrania użycia korzyści Użyj Azure hybrydowych (AHUB):
 
 ```json
 {
@@ -250,6 +250,6 @@ Gdy użytkownik ma licencję lokalnie, można zapisać opłata licencji na maszy
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Po zdefiniowaniu reguły zasad (jak pokazano w powyższych przykładach), należy utworzyć definicji zasad i przypisać je do zakresu. Zakres może być subskrypcji, grupy zasobów lub zasobów. Aby przypisać zasady za pośrednictwem portalu, zobacz [portal Azure używany do przypisywania i zarządzanie zasadami zasobów](../../azure-resource-manager/resource-manager-policy-portal.md). Aby przypisać zasady za pomocą interfejsu API REST, programu PowerShell lub interfejsu wiersza polecenia Azure, zobacz [przypisania zasad i zarządzania nimi za pośrednictwem skryptu](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* Aby obejrzeć wprowadzenie do zasad zasobów, zobacz [Przegląd zasad zasobów](../../azure-resource-manager/resource-manager-policy.md).
-* Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
+* Po zdefiniowaniu reguły zasad (jak pokazano w hello poprzedzających przykłady), wymagają definicji zasad hello toocreate i przypisz do niego tooa zakresu. zakres Hello można subskrypcji, grupy zasobów lub zasobów. Zobacz zasady tooassign za pośrednictwem portalu hello [tooassign portalu Azure użycia zasad zasobów i zarządzanie nimi](../../azure-resource-manager/resource-manager-policy-portal.md). zasady tooassign za pośrednictwem interfejsu API REST, programu PowerShell lub interfejsu wiersza polecenia Azure, zobacz [przypisania zasad i zarządzania nimi za pośrednictwem skryptu](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Wprowadzenie tooresource zasad, zobacz [Przegląd zasad zasobów](../../azure-resource-manager/resource-manager-policy.md).
+* Aby uzyskać wskazówki dotyczące użycia tooeffectively Menedżera zasobów przedsiębiorstwa Zarządzaj subskrypcjami, zobacz [szkieletu Azure enterprise — ładu przetestowanego subskrypcji](../../azure-resource-manager/resource-manager-subscription-governance.md).

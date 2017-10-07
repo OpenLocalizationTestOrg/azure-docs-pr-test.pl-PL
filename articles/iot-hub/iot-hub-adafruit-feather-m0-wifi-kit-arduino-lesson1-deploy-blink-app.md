@@ -1,6 +1,6 @@
 ---
-title: "Nawiązać Arduino Azure IoT — Lekcja 1: Wdrażanie aplikacji | Dokumentacja firmy Microsoft"
-description: "Klonowanie przykładowej aplikacji Arduino z serwisu GitHub, a następnie uruchom gulp, aby wdrożyć tę aplikację z Adafruit piór M0 sieci Wi-Fi. Ta przykładowa aplikacja miganie interfejs GPIO"
+title: "Połącz Arduino tooAzure IoT — Lekcja 1: Wdrażanie aplikacji | Dokumentacja firmy Microsoft"
+description: "Klonowanie hello przykładowej Arduino aplikacji z usługi GitHub i uruchomić gulp toodeploy tooyour tej aplikacji Adafruit piór M0 sieci Wi-Fi. Miga, to przykładowa aplikacja hello interfejs GPIO"
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4431808ac6182d194e841c087c8f89f1a12b1911
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5bf8e4ae88e070aeacf34bfc43b8d2daeeb1a2fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Tworzenie i wdrażanie aplikacji blink
+# <a name="create-and-deploy-hello-blink-application"></a>Tworzenie i wdrażanie aplikacji migania hello
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Klonowanie Arduino przykładowej aplikacji z usługi GitHub i wdrażania przykładowej aplikacji do tablicy Adafruit piór M0 sieci Wi-Fi Arduino za pomocą narzędzia gulp. Migania aplikacji przykładowy interfejs GPIO #13 na barod PRZEPROWADZONY co dwie sekundy.
+Klonowanie hello przykładowej Arduino aplikacji z usługi GitHub i użyj hello gulp narzędzie toodeploy hello przykładowej aplikacji tooyour Adafruit piór M0 sieci Wi-Fi Arduino tablicy. Witaj przykładowej aplikacji migania Witaj interfejs GPIO #13 na barod PRZEPROWADZONY co dwie sekundy.
 
-Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting-page].
+Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting-page].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
-* Jak wdrożyć i uruchomić aplikację przykładową na tablicy Arduino.
+* Jak toodeploy i wykonywania hello przykładowej aplikacji na tablicy Arduino.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Pomyślnie zakończono następujące operacje:
+Użytkownik pomyślnie ukończona hello następujące operacje:
 
 * [Skonfiguruj urządzenie][configure-your-device]
-* [Pobierz narzędzia][get-the-tools]
+* [Pobierz narzędzia hello][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Otwórz aplikację przykładową
-Aby otworzyć aplikację przykładową, wykonaj następujące kroki:
+## <a name="open-hello-sample-application"></a>Otwórz hello przykładowej aplikacji
+Witaj tooopen przykładowej aplikacji, wykonaj następujące kroki:
 
-1. Klonowanie repozytorium przykładowej z serwisu GitHub, uruchamiając następujące polecenie:
+1. Klonuj repozytorium przykładowej hello z serwisu GitHub, uruchamiając następujące polecenie hello:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-feather-m0-getting-started.git
    ```
-2. Otwórz przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia:
+2. Otwórz hello przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia hello:
 
    ```bash
    cd iot-hub-c-feather-m0-getting-started
@@ -56,27 +56,27 @@ Aby otworzyć aplikację przykładową, wykonaj następujące kroki:
 
    ![Struktura repozytorium][repo-structure]
 
-`app.ino` w pliku `app` podfolder jest plik źródłowy klucza, który zawiera kod służący do kontroli LED.
+Witaj `app.ino` pliku w hello `app` podfolder to plik klucza źródła hello, który zawiera hello kodu toocontrol hello LED.
 
 ### <a name="install-application-dependencies"></a>Zainstaluj zależności aplikacji
-Zainstaluj biblioteki oraz inne moduły potrzebnych dla aplikacji przykładowej, uruchamiając następujące polecenie:
+Zainstaluj hello bibliotek i inne moduły potrzebnych dla aplikacji przykładowej hello, uruchamiając następujące polecenie hello:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Skonfiguruj połączenie z urządzeniem
-Aby skonfigurować połączenie z urządzeniem, wykonaj następujące kroki:
+## <a name="configure-hello-device-connection"></a>Skonfiguruj połączenie z urządzeniem hello
+tooconfigure hello połączenie z urządzeniem, wykonaj następujące kroki:
 
-1. Uzyskaj portu szeregowego urządzenia z odnajdywania urządzenia interfejsu wiersza polecenia:
+1. Uzyskaj hello portu szeregowego hello urządzenia z hello urządzenia odnajdywania interfejsu wiersza polecenia:
 
    ```bash
    devdisco list --usb
    ```
 
-   Należy wyświetlić dane wyjściowe podobne do następujących i Znajdź usb COM port tablicy Arduino: ![odnajdywania urządzeń][device-discovery]
+   Należy wyświetlone informacje podobne następujących toohello i Znajdź hello usb COM port tablicy Arduino: ![odnajdywania urządzeń][device-discovery]
 
-2. Otwórz plik `config.json` w folderze lekcji i Dodaj wartość znaleziony numer portu COM:
+2. Witaj Otwórz plik `config.json` w hello lekcji folderu i Dodaj wartości hello hello znaleziono numer portu COM:
 
    ```json
    {
@@ -85,45 +85,45 @@ Aby skonfigurować połączenie z urządzeniem, wykonaj następujące kroki:
    ```
    ![Config.JSON][config-json]
    > [!NOTE]
-   > Dla portu COM na platformie systemu Windows ma format `COM1, COM2, ...`. System macOS lub Ubuntu rozpoczyna się od `/dev/`.
+   > Dla portu hello COM, na platformie systemu Windows ma hello format `COM1, COM2, ...`. System macOS lub Ubuntu rozpoczyna się od `/dev/`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-### <a name="install-the-required-tools-for-your-arduino-board"></a>Zainstaluj narzędzia wymagane dla tablicy Arduino
+## <a name="deploy-and-run-hello-sample-application"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+### <a name="install-hello-required-tools-for-your-arduino-board"></a>Zainstaluj narzędzia hello wymagane dla tablicy Arduino
 
-Zainstaluj zestaw SDK Centrum IoT Azure dla tablicy Arduino, uruchamiając następujące polecenie:
+Zainstaluj hello Azure IoT Hub SDK dla tablicy Arduino, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp install-tools
 ```
 
-To zadanie może zająć dużo czasu, w zależności od połączenia sieciowego.
+To zadanie może potrwać długo toocomplete, w zależności od połączenia sieciowego.
 
 > [!NOTE]
-> Zakończ uruchomione wystąpienie Arduino IDE podczas uruchamiania zadania gulp: `install-tools`, `run`.
+> Zakończ hello uruchomione wystąpienie Arduino IDE, podczas uruchamiania zadania gulp: `install-tools`, `run`.
 
-### <a name="deploy-and-run-the-sample-app"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-Wdrażanie i uruchamianie aplikacji przykładowej, uruchamiając następujące polecenie:
+### <a name="deploy-and-run-hello-sample-app"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+Wdrażanie i uruchamianie aplikacji przykładowej hello, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp run
 
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
 gulp run --listen
 ```
 
-### <a name="verify-the-app-works"></a>Weryfikowanie działania aplikacji
-Jeśli nie widzisz migający LED, zobacz [przewodnik rozwiązywania problemów] [ troubleshooting-page] dla rozwiązania typowych problemów.
+### <a name="verify-hello-app-works"></a>Weryfikowanie działania aplikacji hello
+Jeśli nie widzisz migający hello LED, zobacz hello [przewodnik rozwiązywania problemów] [ troubleshooting-page] dla rozwiązania toocommon problemów.
 
 ![Migający LED][led-blinking]
 
 ## <a name="summary"></a>Podsumowanie
-Zainstalowaniu wymagane narzędzia do pracy z tablicy Arduino i przykładowej aplikacji do tablicy Arduino miga LED wdrożone. Teraz można tworzyć, wdrażać i uruchom inną aplikację przykładową, która łączy tablicy Arduino Centrum IoT Azure do wysyłania i odbierania wiadomości.
+Zainstalowaniu hello wymagane narzędzia toowork z tablicy Arduino i przykładowej aplikacji tooyour Arduino tablicy tooblink hello LED wdrożone. Można teraz tworzenie, wdrażanie i uruchom inną aplikację przykładową, która łączy się z tooAzure tablicy Arduino toosend Centrum IoT i odbierania wiadomości.
 
 ## <a name="next-steps"></a>Następne kroki
-[Pobierz narzędzia Azure][get-the-azure-tools]
+[Pobierz hello Azure narzędzia][get-the-azure-tools]
 
 <!-- Images and links -->
 

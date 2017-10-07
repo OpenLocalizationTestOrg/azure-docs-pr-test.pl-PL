@@ -1,5 +1,5 @@
 ---
-title: Tworzenie pierwszej fabryki danych (PowerShell) | Microsoft Docs
+title: aaaBuild pierwszy fabryki danych (PowerShell) | Dokumentacja firmy Microsoft
 description: "W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu programu Azure PowerShell."
 services: data-factory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 40a63339be90d0c5d972605c7f6fa029ca1e2ba4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 626260798b56d590577b3c4b24f7cf52873c9f80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Samouczek: tworzenie pierwszej fabryki danych platformy Azure przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -31,75 +31,75 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Ten artykuł opisuje korzystanie z programu Azure PowerShell w celu utworzenia pierwszej fabryki danych platformy Azure. Aby wykonać instrukcje z tego samouczka przy użyciu innych narzędzi/zestawów SDK, wybierz jedną z opcji z listy rozwijanej.
+W tym artykule Użyj programu Azure PowerShell toocreate Twojego pierwszego fabryki danych Azure. Samouczek hello toodo przy użyciu innych narzędzi/SDK, wybierz jedną z opcji hello z listy rozwijanej hello.
 
-Potok w tym samouczku zawiera jedno działanie: **działanie Hive usługi HDInsight**. To działanie uruchamia skrypt Hive w klastrze Azure HDInsight, który przekształca dane wejściowe, aby wygenerować dane wyjściowe. Uruchamianie potoku zaplanowano raz w miesiącu między określonym czasem rozpoczęcia i zakończenia. 
+Witaj potoku, w tym samouczku ma jedno działanie: **działania HDInsight Hive**. To działanie uruchamia skrypt hive w klastrze Azure HDInsight czy transformacji wejściowych danych wyjściowych tooproduce danych. potok Hello jest zaplanowane toorun po miesiącu między hello określono godziny rozpoczęcia i zakończenia. 
 
 > [!NOTE]
-> Potok danych przedstawiony w tym samouczku przekształca dane wejściowe w celu wygenerowania danych wyjściowych. Nie kopiuje on danych ze źródłowego do docelowego magazynu danych. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
+> Witaj potoku danych w tym samouczku przekształca dane wyjściowe tooproduce danych wejściowych. Nie kopiuje danych z magazynu danych źródła danych magazynu tooa docelowego. Samouczek na temat danych toocopy przy użyciu fabryki danych Azure, zobacz [samouczek: kopiowanie danych z magazynu obiektów Blob tooSQL bazy danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> Potok może obejmować więcej niż jedno działanie. I tworzenia łańcucha dwa działania (Uruchom jedno działanie po drugim), ustawiając hello wyjściowy zestaw danych z jednego działania jako hello wejściowy zestaw danych z hello innych działań. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**.
-* Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
-* (opcjonalnie) Ten artykuł nie obejmuje wszystkich poleceń cmdlet dla usługi Fabryka danych. Pełna dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych znajduje się w artykule [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych).
+* Zapoznaj się z artykułem [— samouczek Przegląd](data-factory-build-your-first-pipeline.md) artykułu i pełne hello **wymagań wstępnych** czynności.
+* Postępuj zgodnie z instrukcjami wyświetlanymi w [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu tooinstall najnowszą wersję programu Azure PowerShell na komputerze.
+* (opcjonalnie) W tym artykule nie opisano wszystkich poleceń cmdlet fabryki danych hello. Pełna dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych znajduje się w artykule [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Dokumentacja dotycząca poleceń cmdlet dla usługi Fabryka danych).
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
-W tym kroku opisano użycie programu Azure PowerShell do utworzenia fabryki danych Azure o nazwie **FirstDataFactoryPSH**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład działanie kopiowania może służyć do skopiowania danych ze źródła do docelowego magazynu danych, a działanie programu Hive w usłudze HDInsight do uruchomienia skryptu programu Hive, który przekształci dane wejściowe. Zacznijmy tworzenie fabryki danych w tym kroku.
+W tym kroku użyjesz programu Azure PowerShell toocreate fabryki danych Azure o nazwie **FirstDataFactoryPSH**. Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Na przykład dane wejściowe toocopy działanie kopiowania danych z magazynu danych docelowy tooa źródłowego i HDInsight Hive działania toorun tootransform skryptu Hive. Zacznijmy od utworzenia hello fabryki danych w tym kroku.
 
-1. Uruchom program Azure PowerShell i uruchom następujące polecenie. Nie zamykaj programu Azure PowerShell, zanim nie wykonasz wszystkich instrukcji z tego samouczka. Jeśli go zamkniesz i otworzysz ponownie, musisz uruchomić te polecenia jeszcze raz.
-   * Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.
+1. Uruchom program Azure PowerShell i uruchom następujące polecenie hello. Nie zamykaj programu Azure PowerShell do momentu zakończenia hello tego samouczka. Zamknij i otwórz ponownie, należy najpierw toorun tych poleceń ponownie.
+   * Uruchom następujące polecenie hello, a następnie wprowadź hello nazwy użytkownika i hasła, użyj toosign w toohello portalu Azure.
     ```PowerShell
     Login-AzureRmAccount
     ```    
-   * Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta.
+   * Uruchom następujące polecenie tooview hello wszystkie subskrypcje powitania dla tego konta.
     ```PowerShell
     Get-AzureRmSubscription 
     ```
-   * Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Ta subskrypcja powinna być taka sama jak używana w witrynie Azure Portal.
+   * Uruchom następujące polecenie tooselect hello subskrypcję, która ma toowork z hello. Ta subskrypcja powinien Witaj, taka sama, jak hello jedną używaną w hello portalu Azure.
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
     ```     
-2. Utwórz grupę zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** przez uruchomienie następującego polecenia:
+2. Tworzenie grupy zasobów platformy Azure o nazwie **ADFTutorialResourceGroup** , uruchamiając następujące polecenie hello:
     
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
-    W niektórych krokach w tym samouczku zakłada się, że używana jest grupa zasobów o nazwie ADFTutorialResourceGroup. Jeśli używasz innej grupy zasobów, podczas wykonywania instrukcji w tym samouczku trzeba będzie wstawić jej nazwę zamiast nazwy ADFTutorialResourceGroup.
-3. Uruchom polecenie cmdlet **New-AzureRmDataFactory**, aby utworzyć fabrykę danych o nazwie **FirstDataFactoryPSH**.
+    Niektóre kroki hello w tym samouczku Załóżmy, że hello grupy zasobów o nazwie ADFTutorialResourceGroup. Jeśli używasz innej grupie zasobów, należy toouse go zamiast ADFTutorialResourceGroup w tym samouczku.
+3. Uruchom hello **AzureRmDataFactory nowy** polecenie cmdlet tworzy fabrykę danych o nazwie **FirstDataFactoryPSH**.
 
     ```PowerShell
     New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
     ```
-Pamiętaj o następujących kwestiach:
+Należy zwrócić uwagę hello następujące punkty:
 
-* Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd **Nazwa fabryki danych „FirstDataFactoryPSH” jest niedostępna**, zmień nazwę (np. TwojaNazwaFirstDataFactoryPSH). Użyj tej nazwy zamiast ADFTutorialFactoryPSH podczas wykonywania kroków w tym samouczku. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
-* Aby tworzyć wystąpienia usługi Fabryka danych, musisz być współautorem/administratorem subskrypcji Azure
-* W przyszłości nazwa fabryki danych może zostać zarejestrowana jako nazwa DNS, a wówczas stanie się widoczna publicznie.
-* Jeśli zostanie wyświetlony komunikat o błędzie: „**Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw Microsoft.DataFactory**”, wykonaj jedną z następujących czynności i spróbuj opublikować ponownie:
+* Nazwa Hello hello fabryki danych Azure musi być globalnie unikatowe. Jeśli wystąpi błąd hello **nazwa fabryki danych "FirstDataFactoryPSH" nie jest dostępna**, Zmień nazwę hello (na przykład yournameFirstDataFactoryPSH). Użyj tej nazwy zamiast ADFTutorialFactoryPSH podczas wykonywania kroków w tym samouczku. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
+* toocreate wystąpienia fabryki danych, należy toobe współautora/administrator hello subskrypcji platformy Azure
+* Nazwa fabryki danych hello Hello mogą być zarejestrowana jako nazwa DNS w przyszłości hello i dlatego stać się publicznie widoczna.
+* Jeśli wystąpi błąd hello: "**Ta subskrypcja nie jest zarejestrowany toouse przestrzeni nazw Microsoft.DataFactory**", wykonaj jedną z następujących hello i spróbuj ponownie opublikować:
 
-  * W programie Azure PowerShell uruchom następujące polecenie, aby zarejestrować dostawcę usługi Data Factory:
+  * W programie Azure PowerShell Uruchom hello następujące polecenia tooregister hello fabryki danych dostawcy:
 
     ```PowerShell
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
-      Możesz uruchomić następujące polecenie, aby potwierdzić, że dostawca usługi Fabryka danych jest zarejestrowany:
+      Powitania po tooconfirm polecenie można uruchomić tej fabryki danych w zarejestrowany dostawca hello:
 
     ```PowerShell
     Get-AzureRmResourceProvider
     ```
-  * Zaloguj się przy użyciu subskrypcji Azure do [portalu Azure](https://portal.azure.com) i przejdź do bloku Fabryka danych lub utwórz fabrykę danych w portalu Azure. Ta akcja powoduje automatyczne zarejestrowanie dostawcy.
+  * Logowanie przy użyciu hello subskrypcji platformy Azure do hello [portalu Azure](https://portal.azure.com) i przejdź do bloku usługi fabryka danych tooa tworzenie fabryki danych w hello portalu Azure (lub). Ta akcja rejestruje automatycznie hello dostawcy dla Ciebie.
 
-Przed utworzeniem potoku musisz utworzyć kilka jednostek usługi Fabryka danych. Najpierw utwórz połączone usługi, aby połączyć usługi magazynu danych/usługi obliczeniowe ze swoim magazynem danych, zdefiniuj wejściowe i wyjściowe zestawy danych do reprezentowania danych wejściowych/wyjściowych w połączonych magazynach danych, a następnie utwórz potok zawierający działanie, które korzysta z tych zestawów danych.
+Przed utworzeniem potoku, należy toocreate kilku jednostek fabryki danych najpierw. Najpierw utwórz danych toolink połączonych usług danych tooyour magazyny/oblicza przechowywania, zdefiniuj dane wejściowe i zestawów danych toorepresent wejścia/wyjścia dane w magazynach połączone dane wyjściowe, a następnie utwórz hello potoku do działania, która używa tych zestawów danych.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-W tym kroku opisano połączenie konta usługi Azure Storage oraz klastra Azure HDInsight na żądanie z fabryką danych. Konto usługi Azure Storage będzie przechowywać dane wejściowe i wyjściowe dla potoku w tym przykładzie. Połączona usługa HDInsight służy do uruchamiania skryptu programu Hive określonego w działaniu potoku w tym przykładzie. Zidentyfikuj usługi magazynu danych/usługi obliczeniowe, które są używane w tym scenariuszu, oraz połącz te usługi z fabryką danych przez utworzenie połączonych usług.
+W tym kroku możesz połączyć konta magazynu Azure i fabrykę danych tooyour klastra Azure HDInsight na żądanie. blokady konta usługi Azure Storage Hello hello danych wejściowych i wyjściowych do potoku hello w tym przykładzie. Hello usługi HDInsight połączony jest używane toorun określony w działaniu hello hello potoku, w tym przykładzie skrypt Hive. Określenie, jakie dane magazynu/obliczeń usług są używane w danym scenariuszu i łączenie fabryki danych toohello tych usług za tworzenie połączonych usług.
 
 ### <a name="create-azure-storage-linked-service"></a>Tworzenie połączonej usługi Azure Storage
-W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. Do przechowywania danych wejściowych/wyjściowych oraz pliku skryptu HQL używa się tego samego konta usługi Azure Storage.
+W tym kroku możesz połączyć fabrykę danych tooyour konta magazynu Azure. Użyj hello tego samego konta magazynu Azure toostore wejścia/wyjścia danych i hello HQL plik skryptu.
 
-1. W folderze C:\ADFGetStarted utwórz plik JSON o nazwie StorageLinkedService.json o następującej zawartości. Utwórz folder ADFGetStarted, jeśli jeszcze nie istnieje.
+1. Utwórz plik JSON o nazwie StorageLinkedService.json w folderze C:\ADFGetStarted hello z powitania po zawartości. Utwórz hello folder ADFGetStarted, jeśli jeszcze nie istnieje.
 
     ```json
     {
@@ -113,29 +113,29 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. Do
         }
     }
     ```
-    Zastąp wartość **account name** nazwą konta usługi Azure Storage oraz wartość **account key** kluczem dostępu konta usługi Azure Storage. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zapoznaj się z informacjami na temat sposobów wyświetlania, kopiowania i ponownego generowania kluczy dostępu do magazynu w sekcji [Zarządzanie kontem magazynu](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
-2. W programie PowerShell Azure przejdź do folderu ADFGetStarted.
-3. Możesz użyć polecenia cmdlet **New-AzureRmDataFactoryLinkedService**, aby utworzyć połączoną usługę. To polecenie cmdlet i inne polecenia cmdlet usługi Data Factory używane w tym samouczku wymagają przekazania wartości dla parametrów *ResourceGroupName* i *DataFactoryName*. Możesz też użyć polecenia **Get-AzureRmDataFactory**, aby pobrać obiekt **DataFactory** i przekazać obiekt bez wpisywania parametrów *ResourceGroupName* i *DataFactoryName* za każdym razem, gdy uruchamiasz polecenie cmdlet. Uruchom następujące polecenie, aby przypisać dane wyjściowe polecenia cmdlet **Get-AzureRmDataFactory** do zmiennej **$df**.
+    Zastąp **nazwa konta** hello nazwą konta magazynu Azure i **klucz konta** z klucz dostępu hello hello kontem magazynu platformy Azure. toolearn sposób dostępu do magazynu tooget klucza, zobacz hello informacji na temat sposobu tooview, kopiowania i regenerate magazynu dostępu do kluczy w [Zarządzanie kontem magazynu](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+2. W programie Azure PowerShell przełącznika toohello ADFGetStarted folderu.
+3. Można użyć hello **AzureRmDataFactoryLinkedService nowy** polecenie cmdlet tworzy połączonej usługi. To polecenie cmdlet i innych poleceń cmdlet z fabryki danych użycia w ramach tego samouczka wymaga wartości toopass dla hello *ResourceGroupName* i *DataFactoryName* parametrów. Alternatywnie można użyć **Get-AzureRmDataFactory** tooget **DataFactory** obiektu i przekazać obiekt hello bez wprowadzania *ResourceGroupName* i  *DataFactoryName* zawsze należy uruchomić polecenie cmdlet. Witaj uruchom następujące polecenie dane wyjściowe hello tooassign hello **Get-AzureRmDataFactory** tooa polecenia cmdlet **$df** zmiennej.
 
     ```PowerShell
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
-4. Teraz uruchom polecenie cmdlet **New-AzureRmDataFactoryLinkedService**, aby utworzyć połączoną usługę **StorageLinkedService**.
+4. Teraz uruchom hello **AzureRmDataFactoryLinkedService nowy** połączone polecenie cmdlet tworzy hello **StorageLinkedService** usługi.
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
-    Jeśli polecenie cmdlet **Get-AzureRmDataFactory** nie zostało uruchomione i nie przypisano danych wyjściowych do zmiennej **$df**, trzeba określić wartości dla parametrów *ResourceGroupName* i *DataFactoryName* w następujący sposób.
+    Jeżeli nie uruchomisz hello **Get-AzureRmDataFactory** toohello wyjściowe polecenia cmdlet i przypisane hello **$df** zmiennej, konieczne będzie toospecify wartości hello *ResourceGroupName*i *DataFactoryName* parametrów w następujący sposób.
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
     ```
-    Jeśli zamkniesz program Azure PowerShell w trakcie wykonywania samouczka, w celu dokończenia go trzeba będzie uruchomić polecenie cmdlet **Get-AzureRmDataFactory** po następnym uruchomieniu programu Azure PowerShell.
+    Jeśli zamkniesz programu Azure PowerShell w środku hello samouczka hello masz toorun hello **Get-AzureRmDataFactory** polecenia cmdlet następnym uruchomieniu programu Azure PowerShell toocomplete hello samouczka.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Tworzenie połączonej usługi Azure HDInsight
-W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fabryką danych. Klaster usługi HDInsight jest automatycznie tworzony w czasie wykonywania oraz usuwany po zakończeniu przetwarzania i określonym czasie bezczynności. Możesz użyć własnego klastra usługi HDInsight zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [Compute Linked Services](data-factory-compute-linked-services.md) (Połączone usługi obliczeniowe).
+W tym kroku możesz połączyć fabrykę danych tooyour klastra usługi HDInsight na żądanie. klaster usługi HDInsight Hello jest automatycznie tworzone w czasie wykonywania i usuwane po zakończeniu przetwarzania i bezczynności hello określoną ilość czasu. Możesz użyć własnego klastra usługi HDInsight zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [Compute Linked Services](data-factory-compute-linked-services.md) (Połączone usługi obliczeniowe).
 
-1. W folderze **C:\ADFGetStarted** utwórz plik JSON o nazwie **HDInsightOnDemandLinkedService**.json o następującej zawartości.
+1. Utwórz plik JSON o nazwie **HDInsightOnDemandLinkedService**JSON w hello **C:\ADFGetStarted** folder o powitania po zawartości.
 
     ```json
     {
@@ -152,34 +152,34 @@ W tym kroku przedstawiono łączenie klastra usługi HDInsight na żądanie z fa
         }
     }
     ```
-    Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+    Witaj Poniższa tabela zawiera opisy właściwości JSON hello używane we fragmencie hello:
 
    | Właściwość | Opis |
    |:--- |:--- |
-   | ClusterSize |Określa rozmiar klastra usługi HDInsight. |
-   | TimeToLive |Określa czas bezczynności, po którym klaster usługi HDInsight zostanie usunięty. |
-   | linkedServiceName |Określa konto magazynu używane do przechowywania dzienników generowanych w usłudze HDInsight. |
+   | ClusterSize |Określa rozmiar hello hello klastra usługi HDInsight. |
+   | TimeToLive |Określa czas bezczynności tej hello hello klastra usługi HDInsight, przed usunięciem. |
+   | linkedServiceName |Określa konto magazynu hello jest używany toostore hello dzienniki, generowanych przez usługi HDInsight |
 
-    Pamiętaj o następujących kwestiach:
+    Należy zwrócić uwagę hello następujące punkty:
 
-   * Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
+   * Witaj fabryki danych tworzy **opartych na systemie Linux** klastra usługi HDInsight za pomocą hello JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
    * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
-   * Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**). Klaster jest automatycznie usuwany po zakończeniu przetwarzania.
+   * Tworzy klaster usługi HDInsight Hello **domyślny kontener** w magazynie obiektów blob hello określone w hello JSON (**linkedServiceName**). Po usunięciu klastra hello HDInsight nie usunie tego kontenera. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony przy każdym przetwarzaniu wycinka — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**). klaster Hello są automatycznie usuwane po zakończeniu przetwarzania hello.
 
-       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z usługi Azure Blob Storage, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
+       Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie ma potrzeby do rozwiązywania problemów hello zadań, możesz toodelete ich magazynu hello tooreduce kosztów. nazwy Hello kontenery wykonaj wzorca: "adf**yourdatafactoryname**-**linkedservicename**- datetimestamp". Użyj narzędzia takiego jak [Eksploratora magazynu](http://storageexplorer.com/) magazynu obiektów blob toodelete kontenerów w platformy Azure.
 
      Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
-2. Uruchom polecenie cmdlet **New-AzureRmDataFactoryLinkedService**, aby utworzyć połączoną usługę o nazwie HDInsightOnDemandLinkedService.
+2. Uruchom hello **AzureRmDataFactoryLinkedService nowy** polecenie cmdlet tworzy hello połączona usługa o nazwie HDInsightOnDemandLinkedService.
     
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
     ```
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
-W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejściowych i wyjściowych na potrzeby przetwarzania przy użyciu programu Hive. Te zestawy danych dotyczą elementu **StorageLinkedService** utworzonego wcześniej w ramach tego samouczka. Połączona usługa wskazuje konto usługi Azure Storage, a zestawy danych określają kontener, folder i nazwę pliku w magazynie, w którym przechowywane są dane wejściowe i wyjściowe.
+W tym kroku utwórz wprowadzania hello toorepresent zestawów danych i wysyłania danych do przetwarzania Hive. Te zestawy danych można znaleźć toohello **StorageLinkedService** został utworzony we wcześniejszej części tego samouczka. Witaj tooan punktów połączonej usługi konta usługi Azure Storage i zestawów danych, określ kontener, folder, nazwa pliku w magazynie hello, która przechowuje dane wejściowe i wyjściowe danych.
 
 ### <a name="create-input-dataset"></a>Tworzenie wejściowego zestawu danych
-1. W folderze **C:\ADFGetStarted**twórz plik JSON o nazwie **InputTable.json** o następującej zawartości:
+1. Utwórz plik JSON o nazwie **InputTable.json** w hello **C:\ADFGetStarted** folder o hello następującej zawartości:
 
     ```json
     {
@@ -204,29 +204,29 @@ W tym kroku opisano tworzenie zestawów danych do reprezentowania danych wejści
         }
     }
     ```
-    Ten kod JSON definiuje zestaw danych o nazwie **AzureBlobInput**, który reprezentuje dane wejściowe dla działania w potoku. Ponadto określa, że dane wejściowe znajdują się w kontenerze obiektów blob o nazwie **adfgetstarted** oraz w folderze o nazwie **inputdata**.
+    Witaj JSON definiuje zestaw danych o nazwie **AzureBlobInput**, który reprezentuje dane wejściowe dla działania w potoku hello. Ponadto określa ona, że danych wejściowych hello znajduje się w kontenerze obiektów blob hello o nazwie **adfgetstarted** i hello folder o nazwie **inputdata**.
 
-    Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie kodu:
+    Witaj Poniższa tabela zawiera opisy właściwości JSON hello używane we fragmencie hello:
 
    | Właściwość | Opis |
    |:--- |:--- |
-   | type |Właściwość type jest ustawiona na wartość AzureBlob, ponieważ dane znajdują się w magazynie obiektów blob Azure. |
-   | linkedServiceName |Odnosi się do elementu StorageLinkedService utworzonego wcześniej. |
-   | fileName |Ta właściwość jest opcjonalna. Jeśli tę właściwość pominiesz, zostaną wybrane wszystkie pliki z folderu folderPath. W tym przypadku zostanie przetworzony tylko plik input.log. |
-   | type |Pliki dziennika są w formacie tekstowym, więc używana jest wartość TextFormat. |
-   | columnDelimiter |Kolumny w plikach dziennika są rozdzielane przecinkami (,). |
-   | frequency/interval |Właściwość frequency (częstotliwość) jest ustawiona na wartość Month (Miesiąc), a wartość interwału wynosi 1, co oznacza, że wycinki wejściowe są dostępne co miesiąc. |
-   | external |Ta właściwość ma wartość true (prawda), jeśli dane wejściowe nie są generowane przez usługę Fabryka danych. |
-2. Uruchom następujące polecenie w programie Azure PowerShell, aby utworzyć zestaw danych usługi Data Factory:
+   | type |Witaj właściwość type ma wartość tooAzureBlob, ponieważ dane znajdują się w magazynie obiektów blob platformy Azure. |
+   | linkedServiceName |odwołuje się toohello StorageLinkedService utworzony wcześniej. |
+   | fileName |Ta właściwość jest opcjonalna. W przypadku pominięcia tej właściwości, pobierane są wszystkie pliki hello z hello folderPath. W takim przypadku tylko input.log hello jest przetwarzany. |
+   | type |pliki dziennika Hello są w formacie tekstowym, więc używamy TextFormat. |
+   | columnDelimiter |kolumn w plikach dziennika hello są rozdzielone znakiem hello przecinkami (,). |
+   | frequency/interval |tooMonth Ustaw częstotliwość i interwał wynosi 1, co oznacza, że wejściowy wycinków hello są dostępne co miesiąc. |
+   | external |Ta właściwość ma wartość tootrue, jeśli dane wejściowe hello nie jest generowany przez hello usługi fabryka danych. |
+2. Uruchom następujące polecenie w środowiska Azure PowerShell toocreate hello fabryki danych w zestawie danych hello:
 
     ```PowerShell
     New-AzureRmDataFactoryDataset $df -File .\InputTable.json
     ```
 
 ### <a name="create-output-dataset"></a>Tworzenie wyjściowego zestawu danych
-Teraz utworzysz wyjściowy zestaw danych do reprezentowania danych wyjściowych przechowywanych w usłudze Azure Blob Storage.
+Można teraz utworzyć hello wyjściowego zestawu danych toorepresent hello danych wyjściowych danych przechowywanych w hello magazynu obiektów Blob platformy Azure.
 
-1. W folderze **C:\ADFGetStarted**twórz plik JSON o nazwie **OutputTable.json** o następującej zawartości:
+1. Utwórz plik JSON o nazwie **OutputTable.json** w hello **C:\ADFGetStarted** folder o hello następującej zawartości:
 
     ```json
     {
@@ -248,20 +248,20 @@ Teraz utworzysz wyjściowy zestaw danych do reprezentowania danych wyjściowych 
       }
     }
     ```
-    Ten kod JSON definiuje zestaw danych o nazwie **AzureBlobOutput**, który reprezentuje dane wyjściowe dla działania w potoku. Ponadto określa, że wyniki są przechowywane w kontenerze obiektów blob o nazwie **adfgetstarted** oraz folderze o nazwie **partitioneddata**. W sekcji **availability** (dostępność) określono, że wyjściowy zestaw danych jest generowany co miesiąc.
-2. Uruchom następujące polecenie w programie Azure PowerShell, aby utworzyć zestaw danych usługi Data Factory:
+    Witaj JSON definiuje zestaw danych o nazwie **AzureBlobOutput**, który reprezentuje danych wyjściowych dla działania w potoku hello. Ponadto określa ona, że wyniki hello są przechowywane w kontenerze obiektów blob hello o nazwie **adfgetstarted** i hello folder o nazwie **partitioneddata**. Witaj **dostępności** sekcja określa, że wyjściowy zestaw danych hello jest tworzony co miesiąc.
+2. Uruchom następujące polecenie w środowiska Azure PowerShell toocreate hello fabryki danych w zestawie danych hello:
 
     ```PowerShell
     New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
     ```
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
-W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsightHive**. Wycinek danych wejściowych jest dostępny co miesiąc (frequency: Month, interval: 1), wycinek danych wyjściowych jest generowany co miesiąc, a właściwość scheduler dla działania jest również ustawiona na wartość miesięczną. Ustawienia dla wyjściowego zestawu danych i harmonogramu działania muszą być zgodne. W tym przypadku wyjściowy zestaw danych jest elementem wpływającym na ustawienia harmonogramu, więc musisz utworzyć wyjściowy zestaw danych nawet wtedy, gdy działanie nie generuje żadnych danych wyjściowych. Jeśli w działaniu nie są używane żadne dane wejściowe, możesz pominąć tworzenie zestawu danych wejściowych. Właściwości użyte w poniższym fragmencie kodu JSON zostały wyjaśnione na końcu tej sekcji.
+W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsightHive**. Wejściowy jest dostępny co miesiąc (częstotliwość: miesiąc, interwał: 1), wycinek danych wyjściowych jest tworzony co miesiąc, a właściwość harmonogramu hello działania hello jest ustawić toomonthly. Ustawienia Hello hello wyjściowego zestawu danych i harmonogram działania hello muszą być zgodne. Wyjściowy zestaw danych jest obecnie, jakie dysków hello harmonogramu, dlatego należy utworzyć wyjściowy zestaw danych, nawet wtedy, gdy działanie hello nie generuje żadnego wyniku. Jeśli działanie hello nie przyjmuje żadnych danych, możesz pominąć tworzenie zestawu danych wejściowych hello. na końcu hello w tej sekcji opisano Hello właściwości używane w hello następującego formatu JSON.
 
-1. W folderze C:\ADFGetStarted utwórz plik JSON o nazwie MyFirstPipelinePSH.json o następującej zawartości:
+1. Utwórz plik JSON o nazwie MyFirstPipelinePSH.json w folderze C:\ADFGetStarted hello z powitania po zawartości:
 
    > [!IMPORTANT]
-   > Zastąp wartość **storageaccountname** w kodzie JSON nazwą swojego konta magazynu.
+   > Zastąp **storageaccountname** hello nazwą konta magazynu w hello JSON.
    >
    >
 
@@ -309,20 +309,20 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
         }
     }
     ```
-    Ten fragment kodu JSON służy do utworzenia potoku obejmującego jedno działanie, które korzysta z programu Hive do przetwarzania danych w klastrze usługi HDInsight.
+    We fragmencie JSON hello tworzysz potok, który składa się z jednego działania używającej tooprocess Hive danych w klastrze usługi HDInsight.
 
-    Plik skryptu programu Hive **partitionweblogs.hql** jest przechowywany na koncie usługi Azure Storage (określonym za pomocą elementu scriptLinkedService o nazwie **StorageLinkedService**) oraz w folderze **script** w kontenerze **adfgetstarted**.
+    plik skryptu Hive Hello, **partitionweblogs.hql**, są przechowywane w hello kontem magazynu platformy Azure (określonego przez element scriptLinkedService hello, nazywany **StorageLinkedService**) i w **skryptu**  folderu w kontenerze hello **adfgetstarted**.
 
-    Sekcja **defines** służy do określenia ustawień środowiska uruchomieniowego, które zostaną przekazane do skryptu programu Hive w formie wartości konfiguracyjnych programu Hive (np. ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+    Hello **definiuje** sekcja jest używane toospecify hello środowiska uruchomieniowego ustawień, które można przekazać skryptu hive toohello jako wartości konfiguracji gałąź (np. ${hiveconf: inputtable}, ${hiveconf:partitionedtable}).
 
-    Właściwości **start** i **end** potoku określają aktywny okres potoku.
+    Witaj **start** i **zakończenia** hello aktywny okres potoku hello określa właściwości hello potoku.
 
-    W kodzie JSON dotyczącym działania określasz, że skrypt programu Hive jest uruchamiany w usłudze obliczeniowej określonej przez właściwość **linkedServiceName** — **HDInsightOnDemandLinkedService**.
+    W działaniu hello JSON, możesz określić, tego skryptu Hive hello zostanie uruchomiona na określony przez hello obliczeń hello **linkedServiceName** — **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
-   > Aby uzyskać szczegółowe informacje na temat właściwości kodu JSON używanych w przykładzie, zobacz sekcję „Pipeline JSON” (Kod JSON potoku) w temacie [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md) (Potoki i działania w usłudze Azure Data Factory).
+   > Zobacz sekcję "JSON potoku" w [potoki i działań w fabryce danych Azure](data-factory-create-pipelines.md) szczegółowe informacje na temat właściwości JSON, które są używane w przykładzie hello.
 
-2. Upewnij się, że plik **input.log** jest wyświetlany w folderze **adfgetstarted/inputdata** w magazynie obiektów blob Azure, i uruchom następujące polecenie, aby wdrożyć potok. Ponieważ właściwości **start** i **end** są ustawione na wartość w przeszłości i właściwość **isPaused** została ustawiona na wartość „false”, potok (działanie w potoku) jest uruchamiany natychmiast po wdrożeniu.
+2. Upewnij się, że widoczny hello **input.log** pliku w hello **adfgetstarted/inputdata** folderu w hello magazynu obiektów blob platformy Azure i hello uruchom następujące polecenie toodeploy hello potoku. Ponieważ hello **start** i **zakończenia** czasy są ustawiane w przeszłości hello i **isPaused** jest zestaw toofalse, potoku hello (działania w potoku hello) uruchamia natychmiast po wdrożeniu.
 
     ```PowerShell
     New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -330,19 +330,19 @@ W tym kroku opisano tworzenie pierwszego potoku za pomocą działania **HDInsigh
 3. Gratulacje! Udało Ci się utworzyć pierwszy potok przy użyciu programu Azure PowerShell!
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
-W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co dzieje się w fabryce danych platformy Azure.
+W tym kroku użyjesz programu Azure PowerShell toomonitor co się dzieje w fabryce danych Azure.
 
-1. Uruchom polecenie **Get-AzureRmDataFactory** i przypisz dane wyjściowe do zmiennej **$df**.
+1. Uruchom **Get-AzureRmDataFactory** i przypisz hello dane wyjściowe tooa **$df** zmiennej.
 
     ```PowerShell
     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
-2. Uruchom polecenie **Get-AzureRmDataFactorySlice**, aby uzyskać szczegółowe informacje na temat wszystkich wycinków elementu **EmpSQLTable**, który stanowi tabelę wyjściową potoku.
+2. Uruchom **Get-AzureRmDataFactorySlice** tooget szczegóły wszystkie fragmenty hello **EmpSQLTable**, która jest tabela wyjściowa hello hello potoku.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
-    Zauważ, że określana tutaj właściwość StartDateTime oznacza taki sam czas rozpoczęcia jak określony w potoku JSON. Oto przykładowe dane wyjściowe:
+    Należy zauważyć, że hello StartDateTime określone w tym miejscu jest hello sam określono godzinę rozpoczęcia w potoku hello JSON. Oto hello przykładowe dane wyjściowe:
 
     ```PowerShell
     ResourceGroupName : ADFTutorialResourceGroup
@@ -356,13 +356,13 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-3. Uruchom polecenie **Get-AzureRmDataFactoryRun**, aby uzyskać szczegółowe informacje o uruchomieniach działania dla określonego wycinka.
+3. Uruchom **Get-AzureRmDataFactoryRun** tooget hello szczegółów działania jest uruchamiana dla określonych wycinka.
 
     ```PowerShell
     Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
-    Oto przykładowe dane wyjściowe: 
+    Oto hello przykładowe dane wyjściowe: 
 
     ```PowerShell
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
@@ -383,35 +383,35 @@ W tym kroku opisano użycie programu Azure PowerShell do monitorowania tego, co 
     PipelineName        : MyFirstPipeline
     Type                : Script
     ```
-    Możesz kontynuować uruchamianie tego polecenia cmdlet do momentu, gdy wycinek będzie widoczny w stanie **Gotowe** lub **Niepowodzenie**. Gdy wycinek będzie w stanie Gotowe, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  Tworzenie klastra usługi HDInsight na żądanie zwykle zajmuje trochę czasu.
+    Możesz można zachować uruchomienie tego polecenia cmdlet do momentu wyświetlenia wycinek hello **gotowe** stanu lub **** stanu. Gdy wycinek hello jest w stanie gotowe, sprawdź hello **partitioneddata** folderu w hello **adfgetstarted** kontenera w magazynie obiektów blob na powitania dane wyjściowe.  Tworzenie klastra usługi HDInsight na żądanie zwykle zajmuje trochę czasu.
 
     ![Dane wyjściowe](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 > [!IMPORTANT]
-> Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). Dlatego należy oczekiwać, że przetworzenie wycinka przez potok zajmie **około 30 minut**.
+> Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). W związku z tym spodziewać się hello potoku tootake **około 30 minut** tooprocess hello wycinka.
 >
-> Po pomyślnym przetworzeniu wycinka plik wejściowy zostanie usunięty. Tak więc, jeśli chcesz ponownie uruchomić wycinek lub ponownie wykonać instrukcje z tego samouczka, przekaż plik wejściowy (input.log) do folderu inputdata kontenera adfgetstarted.
+> Plik wejściowy Hello zostaje usunięta, gdy hello wycinek jest przetwarzany pomyślnie. W związku z tym hello plik wejściowy (input.log) toohello inputdata folder kontenera adfgetstarted hello przekazywania wycinek hello toorerun lub Witaj ponownie samouczek.
 >
 >
 
 ## <a name="summary"></a>Podsumowanie
-W tym samouczku opisano tworzenie fabryki danych Azure do przetwarzania danych przez uruchomienie skryptu programu Hive w klastrze platformy Hadoop w usłudze HDInsight. Użyto Edytora fabryki danych w witrynie Azure Portal, aby:
+W tym samouczku danych tooprocess fabryki danych Azure została utworzona przez uruchomienie skryptu Hive w klastrze HDInsight hadoop. Użyto hello Edytor fabryki danych w hello Azure toodo portalu hello następujące kroki:
 
 1. Tworzenie **fabryki danych** Azure.
 2. Utworzyć dwie **połączone usługi**:
-   1. Połączoną usługę **Azure Storage** w celu połączenia magazynu obiektów blob Azure, w którym przechowywane są pliki wejściowe/wyjściowe, z fabryką danych.
-   2. Połączoną usługę **Azure HDInsight** na żądanie w celu połączenia klastra platformy Hadoop w usłudze HDInsight na żądanie z fabryką danych. Usługa Fabryka danych Azure tworzy klaster just in time platformy Hadoop w usłudze HDInsight, aby przetwarzać dane wejściowe i generować dane wyjściowe.
-3. Utworzyć dwa **zestawy danych** zawierające dane wejściowe i wyjściowe dla działania programu Hive w usłudze HDInsight w potoku.
+   1. **Usługa Azure Storage** połączone usługi toolink Twojego magazynu Azure blob storage przechowuje pliki danych wejściowych/wyjściowych toohello usługi fabryka danych.
+   2. **Usługa Azure HDInsight** na żądanie połączone usługi toolink fabrykę danych toohello klastra usługi HDInsight Hadoop na żądanie. Fabryka danych Azure tworzy HDInsight Hadoop dane wejściowe w czasie tooprocess klastra i danych wyjściowych produktu.
+3. Utworzone dwie **zestawów danych**, które opisują danych wejściowych i wyjściowych dla działania HDInsight Hive w potoku hello.
 4. Utworzyć **potok** za pomocą działania **programu Hive w usłudze HDInsight**.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (działanie usługi HDInsight), które uruchamia skrypt programu Hive w klastrze usługi HDInsight platformy Azure na żądanie. Instrukcje dotyczące korzystania z działania kopiowania w celu kopiowania danych z magazynu obiektów blob Azure do usług SQL Azure znajdują się w artykule [Tutorial: Copy data from an Azure Blob to Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: kopiowanie danych z magazynu obiektów blob Azure do usług SQL Azure).
+W tym artykule opisano tworzenie potoku za pomocą działania przekształcania (działanie usługi HDInsight), które uruchamia skrypt programu Hive w klastrze usługi HDInsight platformy Azure na żądanie. toosee toouse toocopy działanie kopiowania danych z tooAzure obiektów Blob platformy Azure SQL, zobacz temat [samouczek: kopiowanie danych z obiektu Blob Azure tooAzure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
 | [Dokumentacja dotycząca poleceń cmdlet usługi Data Factory](/powershell/module/azurerm.datafactories) |Zobacz pełną dokumentację dotyczącą poleceń cmdlet w usłudze Fabryka danych. |
-| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
+| [Potoki](data-factory-create-pipelines.md) |Ten artykuł pomaga w zrozumieniu potoki i działań w fabryce danych Azure i w jaki sposób toouse ich tooconstruct end-to-end danymi przepływy pracy dla Twojego scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-| [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule opisano aspekty planowania i wykonywania hello modelu aplikacji fabryki danych Azure. |
+| [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |W tym artykule opisano sposób toomonitor, zarządzania i debugowania potoki przy użyciu hello monitorowanie & aplikacji do zarządzania. |

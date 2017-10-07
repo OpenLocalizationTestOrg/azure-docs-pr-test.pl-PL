@@ -1,6 +1,6 @@
 ---
-title: "Dekodowanie EDIFACT wiadomości - Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Sprawdź poprawność EDI i generowanie potwierdzeń z dekodera komunikat EDIFACT w pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
+title: "komunikaty EDIFACT aaaDecode — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Sprawdź poprawność EDI i generowanie potwierdzeń z dekodera komunikat EDIFACT hello w hello pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 94faebdec4e4ffc8ad76ad1609495ddf9f002250
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekodowanie EDIFACT wiadomości dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw
+# <a name="decode-edifact-messages-for-azure-logic-apps-with-hello-enterprise-integration-pack"></a>Dekodowanie EDIFACT wiadomości dla usługi Azure Logic Apps z hello pakiet integracyjny dla przedsiębiorstw
 
-Łącznik EDIFACT dekodowanie komunikatu można zweryfikować właściwości specyficzne dla partnerów i EDI, podzielić wymianę w zestawy transakcji lub zachować całą wymianę i generowanie potwierdzeń przetworzonych transakcji. Aby użyć tego łącznika, należy dodać łącznika do istniejącego wyzwalacza w aplikacji logiki.
+Łącznik wiadomość hello dekodowania EDIFACT można zweryfikować właściwości specyficzne dla partnerów i EDI, podzielić wymianę w zestawy transakcji lub zachować całą wymianę i generowanie potwierdzeń przetworzonych transakcji. toouse tego łącznika, należy dodać tooan łącznika hello istniejących wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Oto elementy, które są potrzebne:
+Oto hello elementy, które należy:
 
 * Konto platformy Azure; można utworzyć [bezpłatne konto](https://azure.microsoft.com/free)
-* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć konto integracji do używania łącznika EDIFACT dekodowanie komunikatu. 
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć łącznika integracji konta toouse hello EDIFACT dekodowanie komunikatu. 
 * Co najmniej dwa [partnerów](logic-apps-enterprise-integration-partners.md) które już zostały zdefiniowane w ramach konta integracji
 * [Umowy EDIFACT](logic-apps-enterprise-integration-edifact.md) jest już zdefiniowany w ramach konta integracji
 
@@ -37,13 +37,13 @@ Oto elementy, które są potrzebne:
 
 1. [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md).
 
-2. Dekodowanie EDIFACT łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
+2. Hello EDIFACT zdekodować komunikatu łącznika nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W hello projektanta aplikacji logiki dodać wyzwalacz, a następnie dodaj aplikację logiki tooyour akcji.
 
-3. W polu wyszukiwania wprowadź "EDIFACT" jako filtr. Wybierz **zdekodować komunikatu EDIFACT**.
+3. W polu wyszukiwania hello wprowadź "EDIFACT" jako filtr. Wybierz **zdekodować komunikatu EDIFACT**.
    
     ![Wyszukiwanie EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
-3. Jeśli wcześniej nie utworzono wszystkie połączenia z kontem integracji, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nazwa połączenia, a następnie wybierz konta integracji, na którym chcesz się połączyć.
+3. Jeśli wszystkie połączenia nie został wcześniej utworzyć konta integracji tooyour, zostanie wyświetlony monit toocreate teraz tego połączenia. Nazwa połączenia, a następnie wybierz hello integracji konta, które ma tooconnect.
    
     ![Tworzenie konta integracji](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)
 
@@ -52,13 +52,13 @@ Oto elementy, które są potrzebne:
     | Właściwość | Szczegóły |
     | --- | --- |
     | Nazwa połączenia * |Wprowadź dowolną nazwę połączenia. |
-    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w tej samej lokalizacji platformy Azure. |
+    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w hello tej samej lokalizacji platformy Azure. |
 
-4. Gdy wszystko będzie gotowe, aby zakończyć tworzenie połączenia, wybierz **Utwórz**. Szczegóły połączenia powinien wyglądać podobnie jak w tym przykładzie:
+4. Po zakończeniu tworzenia połączenia toofinish wybierz **Utwórz**. Szczegóły połączenia powinien wyglądać podobnie przykład toothis:
 
     ![Szczegóły konta integracji](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
-5. Po utworzeniu połączenia, jak pokazano w poniższym przykładzie, wybierz komunikat pliku prostego EDIFACT zdekodować.
+5. Po utworzeniu połączenia, jak pokazano w poniższym przykładzie, wybierz hello EDIFACT pliku prostego komunikatu toodecode.
 
     ![utworzone połączenie konta integracji](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
@@ -68,37 +68,37 @@ Oto elementy, które są potrzebne:
 
 ## <a name="edifact-decoder-details"></a>Szczegóły dekodera EDIFACT
 
-Łącznik dekodowania EDIFACT wykonuje te zadania: 
+Łącznik dekodowania EDIFACT Hello wykonuje te zadania: 
 
-* Weryfikuje koperty przed handlowymi umowy z partnerem.
-* Rozpoznaje umowy przez dopasowanie kwalifikator nadawcy i identyfikator oraz kwalifikator odbiornik i identyfikator.
-* Dzieli wymiany na wiele transakcji, gdy wymiany ma więcej niż jednej transakcji na podstawie umowy odbierać konfigurację ustawień.
-* Rozkłada wymiany.
+* Weryfikuje koperty hello przed handlowymi umowy z partnerem.
+* Rozpoznaje umowy hello przez dopasowanie hello kwalifikator nadawcy i identyfikator oraz kwalifikator odbiornik i identyfikator.
+* Dzieli wymiany na wiele transakcji, gdy wymiany hello ma więcej niż jednej transakcji na podstawie umowy hello odbierać konfigurację ustawień.
+* Rozkłada hello wymiany.
 * Weryfikuje EDI i właściwości specyficzne dla partnera, w tym:
-  * Sprawdzanie poprawności struktury koperty wymiany
-  * Sprawdzanie poprawności schematu envelope względem schematu kontroli
-  * Sprawdzanie poprawności schematu elementów danych transakcji zestawu względem schematu komunikatów
+  * Sprawdzanie poprawności hello wymiany koperty struktury
+  * Sprawdzanie poprawności schematu koperty hello schematem kontroli hello
+  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji hello schematem wiadomość hello
   * EDI weryfikacji w przypadku elementów dane zestawu transakcji
-* Sprawdza, czy numery kontroli zestawu wymiany, grupy i transakcji nie są duplikatami (jeśli jest skonfigurowane) 
-  * Sprawdza numer kontroli wymiany przed wymianę wcześniej odebrane. 
-  * Sprawdza, czy numer grupy kontroli względem innych numery kontroli grupy w wymiany. 
-  * Sprawdza, czy transakcja Ustaw numer kontroli względem innych numery kontroli zestawu transakcji w tej grupie.
-* Dzieli wymiany w zestawy transakcji lub zachowuje całego wymiany:
+* Sprawdza, czy hello wymiany, grupy i transakcji zestaw numerów kontroli nie są duplikatami (jeśli jest skonfigurowane) 
+  * Sprawdza hello wymiany kontroli numer przed wymianę wcześniej odebrane. 
+  * Sprawdza hello grupy kontroli numer względem innych numery kontroli grupy w hello wymiany. 
+  * Sprawdza, czy transakcja hello Ustaw numer kontroli względem innych numery kontroli zestawu transakcji w tej grupie.
+* Dzieli wymiany hello w zestawy transakcji lub zachowuje hello całego wymiany:
   * Wymiany podziału jako zestawy transakcji - zawiesić zestawy transakcji o błędzie: wymiany podziałów do transakcji ustawia i analizuje każdego zestawu transakcji. 
-  X12 akcji dekodowania danych wyjściowych zestawów tylko tych transakcji niepowodzenie sprawdzania poprawności do `badMessages`i ustawia transakcji pozostałe dane wyjściowe `goodMessages`.
+  Akcja dekodowania Hello X12 wyświetla tylko te zestawy transakcji, Niepowodzenie weryfikacji za`badMessages`i wyświetla hello pozostałych transakcji ustawia zbyt`goodMessages`.
   * Podziel wymiany jako zestawy transakcji - zawiesić wymiany na błąd: wymiany podziałów do transakcji ustawia i analizuje każdego zestawu transakcji. 
-  Jeśli jeden lub więcej transakcji ustawia w wymiany wystąpi niepowodzenie weryfikacji, X12 akcji dekodowania danych wyjściowych ustawia wszystkich transakcji w tym wymiany do `badMessages`.
-  * Zachowaj wymiany — zawiesza zestawy transakcji na błąd: Zachowaj wymiany i przetwarzanie całego wsadowej operacji wymiany. 
-  X12 akcji dekodowania danych wyjściowych zestawów tylko tych transakcji niepowodzenie sprawdzania poprawności do `badMessages`i ustawia transakcji pozostałe dane wyjściowe `goodMessages`.
-  * Zachowaj wymiany — zawiesza wymiany na błąd: Zachowaj wymiany i przetwarzanie całego wsadowej operacji wymiany. 
-  Jeśli jeden lub więcej transakcji ustawia w wymiany wystąpi niepowodzenie weryfikacji, X12 akcji dekodowania danych wyjściowych ustawia wszystkich transakcji w tym wymiany do `badMessages`.
+  Jeśli jeden lub więcej transakcji ustawia w hello wymiany Niepowodzenie weryfikacji, hello X12 dekodowania akcji generuje wszystkich transakcji hello ustawia w tym wymiany zbyt`badMessages`.
+  * Zachowaj wymiany — zawiesza zestawy transakcji na błąd: proces i Zachowaj hello wymiany hello całego wsadowej operacji wymiany. 
+  Akcja dekodowania Hello X12 wyświetla tylko te zestawy transakcji, Niepowodzenie weryfikacji za`badMessages`i wyświetla hello pozostałych transakcji ustawia zbyt`goodMessages`.
+  * Zachowaj wymiany — zawiesza wymiany na błąd: proces i Zachowaj hello wymiany hello całego wsadowej operacji wymiany. 
+  Jeśli jeden lub więcej transakcji ustawia w hello wymiany Niepowodzenie weryfikacji, hello X12 dekodowania akcji generuje wszystkich transakcji hello ustawia w tym wymiany zbyt`badMessages`.
 * Generuje Technical (kontrola) i/lub funkcjonalności potwierdzenia (jeśli jest skonfigurowane).
-  * Potwierdzenia techniczne lub potwierdzenia CONTRL zgłasza wyniki syntaktycznych wyboru zakończenie Odebrano wymiany.
+  * Techniczne potwierdzeń lub hello potwierdzenia CONTRL wyświetla wyniki hello syntaktycznych sprawdzenia hello zakończenie Odebrano wymiany.
   * Potwierdzenie funkcjonalności potwierdza zaakceptować lub odrzucić odebrane wymiany lub grupy
 
 ## <a name="view-swagger-file"></a>Plik struktury Swagger widoku
-Aby wyświetlić szczegóły Swagger EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).
+Szczegóły programu Swagger hello tooview hello EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
+[Dowiedz się więcej o hello pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
 

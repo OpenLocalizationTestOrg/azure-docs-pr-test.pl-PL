@@ -1,6 +1,6 @@
 ---
-title: "Jak ponownej ochrony od przejścia w tryb failover maszyn wirtualnych platformy Azure do regionu Azure podstawowego | Dokumentacja firmy Microsoft"
-description: "Po pracy awaryjnej maszyn wirtualnych z jednego regionu Azure do innego można użyć usługi Azure Site Recovery do ochrony maszyn w odwrotnym kierunku. Jak kroki przeprowadzenie ponownej ochrony przed ponownie trybu failover."
+title: "tooReprotect aaaHow od przejścia w tryb failover maszyn wirtualnych platformy Azure wstecz tooprimary region platformy Azure | Dokumentacja firmy Microsoft"
+description: "Po pracy w trybie failover maszyny wirtualne z jednego tooanother region platformy Azure można użyć usługi Azure Site Recovery tooprotect hello maszyny w kierunku odwrotnym. Dowiedz się więcej czynności hello jak toodo ponownej ochrony przed ponownie trybu failover."
 services: site-recovery
 documentationcenter: 
 author: ruturaj
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 991c7ee8f489e84c250230bf73f3e99015c5f051
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Ponownej ochrony od przejścia w tryb failover region platformy Azure do regionu podstawowego
+# <a name="reprotect-from-failed-over-azure-region-back-tooprimary-region"></a>Ponownej ochrony od przejścia w tryb failover Azure regionu tooprimary Wstecz
 
 
 
@@ -30,81 +30,81 @@ ms.lasthandoff: 08/18/2017
 
 
 ## <a name="overview"></a>Omówienie
-Gdy użytkownik [pracy awaryjnej](site-recovery-failover.md) maszyn wirtualnych z jednego regionu Azure do innego, maszyny wirtualne są w stanie niechronionym. Aby przywrócić je do regionu podstawowego, należy najpierw ponownie ochronę maszyny wirtualnej, a następnie trybu failover. Nie ma żadnej różnicy między jak failover w jednym kierunku lub innych. Podobnie po Włączanie ochrony maszyn wirtualnych, nie ma żadnej różnicy między trybu failover po ponownej ochrony lub post powrotu po awarii.
-Aby wyjaśnić w przepływach pracy ponownej ochrony i uniknąć pomyłek, użyjemy lokacji głównej chronionych maszyn jako regionu Azja Wschodnia i lokacji odzyskiwania maszyny jako region południowo Azja Wschodnia. Podczas pracy w trybie failover będzie pracy awaryjnej maszyn wirtualnych do regionu Azja południowo wschodnia. Przed możesz powrotu po awarii należy włączyć ją ponownie maszyn wirtualnych z Azja południowo-wschodnia, Azja Wschodnia do. W tym artykule opisano kroki dotyczące włączyć ją ponownie.
+Gdy użytkownik [pracy awaryjnej](site-recovery-failover.md) hello maszyn wirtualnych z jednego regionu Azure tooanother hello maszyny wirtualne są w stanie niechronionym. Jeśli chcesz toobring ich toohello regionu podstawowego, należy toofirst zabezpieczeniu hello maszyn wirtualnych, a następnie trybu failover. Nie ma żadnej różnicy między jak failover w jednym kierunku lub innych. Podobnie po Włączanie ochrony maszyn wirtualnych hello, nie ma żadnej różnicy między trybu failover po ponownej ochrony hello lub post powrotu po awarii.
+przepływy pracy hello tooexplain ponownej ochrony i tooavoid pomyłek, użyjemy lokacji głównej hello hello chronionych maszyn jako regionu Azja Wschodnia, a lokacja odzyskiwania hello hello maszyn jako regionu Azja Wschodnia południowo. Podczas pracy w trybie failover będzie trybu failover hello maszyn wirtualnych toohello południowo Azja Wschodnia regionu. Przed możesz powrotu po awarii należy maszyn wirtualnych hello tooreprotect z tyłu tooEast południowo Azja Wschodnia Azja. W tym artykule opisano kroki hello na temat tooreprotect.
 
 > [!WARNING]
-> Jeśli masz [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), przenieść maszynę wirtualną do innej grupy zasobów lub usunąć maszyny wirtualnej Azure, powrotu po awarii nie można później.
+> Jeśli masz [ukończone migracji](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)przeniesionego hello maszyny wirtualnej tooanother zasobów grupy lub został usunięty hello maszyny wirtualnej platformy Azure, nie powrotu po awarii po.
 
-Po zakończeniu ponownej ochrony i replikowania chronionych maszyn wirtualnych, można zainicjować trybu failover w przypadku maszyn wirtualnych, aby przywrócić je do regionu Azja Wschodnia.
+Po zakończeniu ponownej ochrony i replikowania hello chronionych maszyn wirtualnych, można zainicjować trybu failover na powitania toobring maszyn wirtualnych ich kopii tooEast regionu Azja.
 
-Opublikuj komentarze lub pytania na końcu tego artykułu lub na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opublikuj komentarze lub pytania na końcu hello tym artykułem lub na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-1. Maszyny wirtualne powinny zostać zatwierdzone.
-2. W docelowej lokacji — w takim przypadku regionu Azja Wschodnia Azure powinny być dostępne i powinien mieć możliwość dostępu/tworzenia nowych zasobów w tym regionie.
+1. maszyny wirtualne Hello powinien zostały przekazane.
+2. lokacji docelowej Hello — w takim przypadku regionu Azja Wschodnia Azure hello powinny być dostępne i powinno być możliwe tooaccess/utworzyć nowe zasoby, w tym regionie.
 
-## <a name="steps-to-reprotect"></a>Kroki, aby Wznów
+## <a name="steps-tooreprotect"></a>Kroki tooreprotect
 
-Poniżej przedstawiono kroki, aby Włącz ponownie ochronę maszyny wirtualnej przy użyciu ustawień domyślnych.
+Poniżej są hello maszynę wirtualną przy użyciu wartości domyślnych hello tooreprotect czynności.
 
-1. W **magazynu** > **elementy replikowane**, kliknij prawym przyciskiem myszy maszynę wirtualną, która jest Failover, a następnie wybierz **ponownego włączenia ochrony**. Możesz również kliknij maszynę i wybierz **ponownego włączenia ochrony** z przyciski poleceń.
+1. W **magazynu** > **elementy replikowane**, kliknij prawym przyciskiem myszy hello maszyny wirtualnej, która jest Failover, a następnie wybierz **ponownego włączenia ochrony**. Możesz również kliknąć hello komputera i wybierz pozycję **ponownego włączenia ochrony** z hello przyciski poleceń.
 
-![Kliknij prawym przyciskiem myszy włączyć ją ponownie](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+![Kliknij prawym przyciskiem myszy tooreprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-2. W bloku, zwróć uwagę, że kierunek ochrony, **Azja południowo-wschodnia, Azja Wschodnia**, jest już wybrana.
+2. W bloku hello zauważyć kierunku hello ochrony, **Azja południowo-wschodnia, Azja tooEast**, jest już wybrana.
 
 ![Włącz ponownie ochronę bloku](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Przegląd **zasobów grupy, sieci, magazynu i dostępności zestawy** informacje i kliknij przycisk OK. Jeśli istnieją wszystkie zasoby oznaczone (nowy), będzie można utworzyć jako część ponownej ochrony.
+3. Przejrzyj hello **zasobów grupy, sieci, magazynu i dostępności zestawy** informacje i kliknij przycisk OK. Jeśli istnieją wszystkie zasoby oznaczone (nowy), będzie można utworzyć jako część hello Włącz ponownie ochronę.
 
-To wyzwalacz zadania Wznów zadanie, które najpierw będzie obsługiwał lokacji docelowej (SEA w tym przypadku) przy użyciu najnowszych danych, a po który zakończeniu zreplikuje wystąpiły przed trybu failover można z powrotem do Azja południowo-wschodnia.
+To będzie wyzwalacz zadania Wznów zadanie, które najpierw będzie obsługiwał lokacji docelowej hello (SEA w tym przypadku) z hello najnowsze dane, a po który zakończeniu zreplikuje delty hello przed trybu failover można z powrotem tooSoutheast Azja.
 
 ### <a name="reprotect-customization"></a>Włącz ponownie ochronę dostosowania
-Jeśli chcesz wybrać wyodrębniania konta magazynu lub sieci podczas ponownej ochrony, możesz to zrobić przy użyciu podanego w bloku ponownej ochrony opcję Dostosuj.
+Jeśli chcesz, aby toochoose hello wyodrębniania sieci konta lub hello magazynu podczas Włącz ponownie ochronę, możesz zrobić, za pomocą hello Dostosowywanie opcji podanego w bloku ponownej ochrony hello.
 
 ![Dostosowywanie opcji](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
-Następujące właściwości he docelowej maszyny wirtualnej można dostosować podczas ponownej ochrony.
+Można dostosować hello następujące właściwości he docelowej maszyny wirtualnej podczas ponownej ochrony.
 
 ![Dostosowywanie bloku](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Właściwość |Uwagi  |
 |---------|---------|
-|Docelowa grupa zasobów     | Można zmienić docelowa grupa zasobów, w którym zostanie utworzona th maszyny wirtualnej. W ramach ponownej ochrony docelowa maszyna wirtualna zostanie usunięta, dlatego można wybrać nową grupę zasobów, w którym można utworzyć pracy awaryjnej post maszyny Wirtualnej         |
-|Docelowy sieci wirtualnej     | Nie można zmienić sieci podczas ponownej ochrony. Aby zmienić sieci, ponów mapowania sieci.         |
-|Magazyn docelowy     | Można zmienić konta magazynu, do której maszyna wirtualna zostanie utworzona post trybu failover.         |
-|Pamięć podręczna     | Można określić konto magazynu pamięci podręcznej, która będzie używana podczas replikacji. Przejście z ustawieniami domyślnymi nowego konta magazynu pamięci podręcznej zostanie utworzony, jeśli jeszcze nie istnieje.         |
-|Zestaw dostępności     |Jeśli maszyna wirtualna w Azja Wschodnia jest częścią zestawu dostępności, możesz wybrać zbiór dostępności dla docelowej maszyny wirtualnej w Azji Południowo-Wschodnia. Ustawienia domyślne znajdzie istniejącego zestawu dostępności SEA i ponownie. W trakcie dostosowywania realizowanego można określić zupełnie nowy zestaw AV.         |
+|Docelowa grupa zasobów     | Można wybrać toochange hello docelowa grupa zasobów w którym zostanie utworzona th maszyny wirtualnej. W ramach hello ponownej ochrony hello docelowa maszyna wirtualna zostanie usunięta, dlatego można wybrać nową grupę zasobów, w którym można utworzyć hello wirtualna post w tryb failover         |
+|Docelowy sieci wirtualnej     | Nie można zmienić sieci podczas ponownej ochrony hello. Witaj toochange sieci, ponów hello mapowania sieci.         |
+|Magazyn docelowy     | Można zmienić konta magazynu hello maszyny wirtualnej hello toowhich zostanie utworzony po pracy awaryjnej.         |
+|Pamięć podręczna     | Można określić konto magazynu pamięci podręcznej, która będzie używana podczas replikacji. Przejście z ustawieniami domyślnymi hello nowe konto magazynu pamięci podręcznej zostanie utworzony, jeśli jeszcze nie istnieje.         |
+|Zestaw dostępności     |Jeśli maszyna wirtualna hello w Azja Wschodnia jest częścią zestawu dostępności, można wybrać zbiór dostępności dla docelowej maszyny wirtualnej hello w Azji Południowo-Wschodnia. Ustawienia domyślne znajdzie hello istniejącego zestawu dostępności SEA i spróbuj toouse go. W trakcie dostosowywania realizowanego można określić zupełnie nowy zestaw AV.         |
 
 
 ### <a name="what-happens-during-reprotect"></a>Co się dzieje podczas ponownej ochrony?
 
-Tak jak po pierwszym włączyć ochronę, poniżej przedstawiono artefaktów, tworzonych, korzystając z ustawień domyślnych.
-1. Konto magazynu pamięci podręcznej pobiera utworzona w regionie, Azja Wschodnia.
-2. Jeśli docelowe konto magazynu (oryginalnego konta magazynu maszyny Wirtualnej Azja południowo-wschodnia) nie istnieje, zostanie utworzony nowy. Nazwa jest konto magazynu maszyny wirtualnej Azja Wschodnia sufiks z "asr".
-3. Jeśli nie istnieje zestaw docelowy AV i wykryć wartości domyślne, które należy utworzyć nowy zestaw AV, a następnie zostanie utworzony jako część zadania ponownej ochrony. Jeśli dostosowano ponownej ochrony wybranego zestawu AV będzie używany.
+Podobnie jak po hello najpierw włączyć ochronę, są następujące artefaktów hello, tworzonych użycie wartości domyślnych hello.
+1. Konto magazynu pamięci podręcznej pobiera utworzony w hello regionu Azja Wschodnia.
+2. Jeśli hello docelowe konto magazynu (hello oryginalnego konta magazynu hello Azja południowo-wschodnia maszyny Wirtualnej) nie istnieje, zostanie utworzony nowy. Nazwa Hello jest hello Azja Wschodnia maszyny wirtualnej na konto magazynu z "asr" sufiksem.
+3. Jeśli zestaw docelowy AV hello nie istnieje, a domyślne hello wykrywa, że potrzebuje toocreate nowe AV ustawiona, zostanie utworzony jako część hello Wznów zadanie. Jeśli dostosowano hello Włącz ponownie ochronę, a następnie zestaw AV wybrane hello jest używany.
 4.
 
-Oto lista czynności, które się zdarzyć, gdy użytkownik zainicjuje zadanie ponownej ochrony. Jest to w przypadku, gdy istnieje po stronie docelowej maszyny wirtualnej.
+Oto Hello hello listę kroków, które się zdarzyć, gdy użytkownik zainicjuje zadanie ponownej ochrony. Jest to w stronie docelowej wielkość hello hello istnieje maszyny wirtualnej.
 
-1. Artefaktów wymagane są tworzone w ramach ponownej ochrony. Jeśli już istnieją, a następnie są używane ponownie.
-2. (Azja południowo-wschodnia) po stronie docelowej maszyny wirtualnej jest najpierw wyłączony, jeśli została uruchomiona.
-3. Dysk maszyny wirtualnej po stronie docelowej jest kopiowane za pomocą usługi Azure Site Recovery do kontenera obiektu blob inicjatora.
-4. Następnie jest usuwany po stronie docelowej maszyny wirtualnej.
-5. Inicjatora obiektu blob jest używany przez bieżącej maszyny wirtualnej (Azja Wschodnia) po stronie źródła replikacji. Dzięki temu, że są replikowane tylko różnice.
-6. Istotne zmiany między dysku źródłowego i inicjatora obiektu blob są synchronizowane. Może to zająć trochę czasu.
-7. Po zakończeniu zadania ponownej ochrony rozpoczyna się replikacja różnicowa tworzy punkt odzyskiwania zgodnie z zasadami.
+1. Witaj wymagane artefaktów są tworzone w ramach ponownej ochrony. Jeśli już istnieją, a następnie są używane ponownie.
+2. maszyny wirtualnej (Azja południowo-wschodnia) po stronie docelowej Hello jest najpierw wyłączony, jeśli została uruchomiona.
+3. Hello docelowej po stronie dysku maszyny wirtualnej jest kopiowana za pomocą usługi Azure Site Recovery do kontenera jako inicjatora obiektu blob.
+4. Maszyna wirtualna po stronie docelowej Hello jest usuwany.
+5. Obiekt blob inicjatora Hello jest używany przez tooreplicate maszyny wirtualnej (Azja Wschodnia) po stronie źródła hello bieżącej. Dzięki temu, że są replikowane tylko różnice.
+6. istotne zmiany Hello między dysku źródłowego hello i obiektów blob inicjatora hello są synchronizowane. Może to zająć kilka toocomplete czas.
+7. Po hello Wznów zadanie zostało ukończone, replikacja różnicowa hello rozpoczyna się, który tworzy punkt odzyskiwania zgodnie z zasadami hello.
 
 > [!NOTE]
 > Nie można włączyć ochrony na poziomie planu odzyskiwania. Może być tylko Wznów w na poziomie maszyny Wirtualnej.
 
-Po ponownej ochrony, maszyny wirtualnej przechodzą w stan chronionych.
+Po Wznów hello powiedzie się, maszyny wirtualnej hello przejdzie w stan chronionych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wprowadzeniu chronionych stan maszyny wirtualnej można zainicjować trybu failover. Tryb failover Zamknij maszynę wirtualną w regionie Azure Azja Wschodnia i następnie utworzy i rozruchu maszyny wirtualnej regionu Azja południowo-wschodnia. Dlatego jest mała przestoju dla aplikacji. Tak wybierz czas pracy w trybie Failover, gdy aplikacja może tolerować przestoju. Zaleca się przetestowanie trybu failover maszyny wirtualnej, aby upewnić się, że jej jest powtarzający się prawidłowo, przed rozpoczęciem pracy awaryjnej.
+Po wprowadzeniu chronionych stan maszyny wirtualnej hello można zainicjować trybu failover. trybu failover Hello Zamknij maszynę wirtualną hello w regionie Azure Azja Wschodnia i następnie utworzy i rozruchu maszyny wirtualnej regionu Azja południowo-wschodnia hello. Dlatego jest mała przestojów w przypadku aplikacji hello. Tak wybierz hello czasu dla trybu failover, gdy aplikacja może tolerować przestoju. Zaleca się przetestowanie trybu failover hello maszyny wirtualnej toomake się, że jej jest powtarzający się prawidłowo, przed rozpoczęciem pracy awaryjnej.
 
--   [Czynności, aby zainicjować testowanie trybu failover maszyny wirtualnej](site-recovery-test-failover-to-azure.md)
+-   [Kroki tooinitiate testowanie trybu failover maszyny wirtualnej hello](site-recovery-test-failover-to-azure.md)
 
--   [Czynności, aby zainicjować trybu failover maszyny wirtualnej](site-recovery-failover.md)
+-   [Kroki tooinitiate pracy w trybie failover maszyny wirtualnej hello](site-recovery-failover.md)

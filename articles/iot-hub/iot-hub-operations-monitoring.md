@@ -1,6 +1,6 @@
 ---
-title: Operacje platformy Azure IoT Hub monitorowania | Dokumentacja firmy Microsoft
-description: "Jak używać operacji centrum IoT Azure monitorowania do monitorowania stanu operacji w Centrum IoT w czasie rzeczywistym."
+title: monitorowanie operacji centrum IoT aaaAzure | Dokumentacja firmy Microsoft
+description: "Sposób działania Centrum IoT Azure toouse monitorowania toomonitor hello stanu operacji w Centrum IoT w czasie rzeczywistym."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a0b233ef2d9bd0827e19fa30fdbdd49b2b61b813
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitorowanie operacji centrum IoT
 
-Monitorowanie operacji centrum IoT umożliwia monitorowanie stanu operacji w Centrum IoT w czasie rzeczywistym. Centrum IoT śledzi zdarzenia przez różne kategorie działań. Można włączyć do wysyłania zdarzeń z co najmniej jednej kategorii do punktu końcowego Centrum IoT do przetwarzania. Możesz monitorować dane błędy lub konfigurowanie bardziej złożonych przetwarzania na podstawie wzorców danych.
+Monitorowanie operacji centrum IoT umożliwia toomonitor hello stanu operacji w Centrum IoT w czasie rzeczywistym. Centrum IoT śledzi zdarzenia przez różne kategorie działań. Można włączyć do wysyłania zdarzeń z jednego lub więcej kategorii tooan punktu końcowego Centrum IoT do przetwarzania. Możesz monitorować dane hello błędów lub konfigurowanie bardziej złożonych przetwarzania na podstawie wzorców danych.
 
 Centrum IoT monitoruje sześć kategorii zdarzeń:
 
@@ -33,28 +33,28 @@ Centrum IoT monitoruje sześć kategorii zdarzeń:
 * Przekazywania plików
 * Rozsyłanie wiadomości
 
-## <a name="how-to-enable-operations-monitoring"></a>Jak włączyć operacje monitorowania
+## <a name="how-tooenable-operations-monitoring"></a>Jak operacje tooenable monitorowania
 
-1. Tworzenie Centrum IoT. Instrukcje można znaleźć na temat sposobu tworzenia Centrum IoT w [wprowadzenie] [ lnk-get-started] przewodnik.
+1. Tworzenie Centrum IoT. Instrukcje można znaleźć na temat toocreate Centrum IoT w hello [wprowadzenie] [ lnk-get-started] przewodnik.
 
-1. Otwarcie bloku Centrum IoT. Z tego miejsca, kliknij przycisk **operacje monitorowania**.
+1. Otwiera blok hello Centrum IoT. Z tego miejsca, kliknij przycisk **operacje monitorowania**.
 
-    ![Operacje związane z dostępem monitorowania konfiguracji w portalu][1]
+    ![Monitorowanie konfiguracji w portalu hello operacje związane z dostępem][1]
 
-1. Wybierz kategorie monitorowania, chcesz monitorować, a następnie kliknij przycisk **zapisać**. Zdarzenia są dostępne do odczytu z punktu końcowego Centrum zdarzeń zgodnych na liście **ustawienia monitorowania**. Nosi nazwę punktu końcowego Centrum IoT `messages/operationsmonitoringevents`.
+1. Wybierz hello monitorowania kategorii ma toomonitor, a następnie kliknij przycisk **zapisać**. Witaj zdarzenia są dostępne do odczytu z punktu końcowego hello zgodnego Centrum zdarzeń na liście **ustawienia monitorowania**. Witaj punktu końcowego Centrum IoT jest nazywany `messages/operationsmonitoringevents`.
 
     ![Skonfiguruj operacje monitorowania na Centrum IoT][2]
 
 > [!NOTE]
-> Wybieranie **pełne** monitorowania **połączeń** category powoduje, że Centrum IoT można wygenerować komunikaty dodatkowych diagnostyczne. Dla wszystkich innych kategoriach **pełne** zawiera zmiany ustawień ilość informacji Centrum IoT w każdy komunikat o błędzie.
+> Wybieranie **pełne** monitorowania hello **połączeń** category powoduje, że Centrum IoT toogenerate komunikaty dodatkowych diagnostyczne. Dla wszystkich innych kategoriach hello **pełne** zawiera zmiany ustawień hello ilość informacji Centrum IoT w każdy komunikat o błędzie.
 
-## <a name="event-categories-and-how-to-use-them"></a>Kategorie zdarzeń i sposobu ich użycia
+## <a name="event-categories-and-how-toouse-them"></a>Kategorie zdarzeń i w jaki sposób toouse ich
 
 Każdy operacje monitorowania śledzi kategorii ma inny typ interakcji z Centrum IoT i każda kategoria monitorowania schematu definiującego struktury zdarzenia w tej kategorii.
 
 ### <a name="device-identity-operations"></a>Operacje tożsamości urządzenia
 
-Kategoria operacje tożsamości urządzenia śledzi błędów występujących podczas próby utworzenia, zaktualizować lub usunąć wpis w rejestrze tożsamości Centrum IoT. Ta kategoria śledzenia jest przydatne w przypadku inicjowania obsługi scenariuszy.
+Kategoria operacje tożsamości urządzenia Hello śledzi błędów występujących podczas próby toocreate, zaktualizować lub usunąć wpis w rejestrze tożsamości Centrum IoT. Ta kategoria śledzenia jest przydatne w przypadku inicjowania obsługi scenariuszy.
 
 ```json
 {
@@ -73,7 +73,7 @@ Kategoria operacje tożsamości urządzenia śledzi błędów występujących po
 
 ### <a name="device-telemetry"></a>Telemetrii urządzenia
 
-Kategoria telemetrii urządzenia śledzi błędy występują w Centrum IoT, które są powiązane z potokiem telemetrii. Ta kategoria zawiera błędy występujące podczas wysyłania zdarzenia telemetrii (takie jak dławienie) i odbieranie zdarzeń telemetrii (np. czytnik nieautoryzowanych). Ta kategoria nie może przechwycić błędów spowodowanych przez kod działający na urządzeniu.
+Kategoria telemetrii urządzenia Hello śledzi błędów, które występują w Centrum IoT hello a są powiązane toohello telemetrii potoku. Ta kategoria zawiera błędy występujące podczas wysyłania zdarzenia telemetrii (takie jak dławienie) i odbieranie zdarzeń telemetrii (np. czytnik nieautoryzowanych). Ta kategoria nie może przechwycić błędów spowodowanych przez kod działający na powitania urządzeniu.
 
 ```json
 {
@@ -97,7 +97,7 @@ Kategoria telemetrii urządzenia śledzi błędy występują w Centrum IoT, któ
 
 ### <a name="cloud-to-device-commands"></a>Polecenia chmury do urządzenia
 
-Kategoria polecenia chmury do urządzenia śledzi błędy występują w Centrum IoT, które są powiązane z potokiem wiadomości chmury do urządzenia. Ta kategoria zawiera błędy występujące podczas wysyłania wiadomości chmury do urządzenia (takich jak nieautoryzowanego nadawcę), odbierania wiadomości chmury do urządzenia (takich jak przekroczona liczba dostarczania) i odbieranie komunikatu chmura urządzenie opinii (takie jak opinii wygasł). Ta kategoria nie przechwytuje błędy z urządzenia, które nieprawidłowo obsługuje komunikat chmury do urządzenia, jeśli komunikatu chmura urządzenie zostało pomyślnie dostarczone.
+Kategoria polecenia chmury do urządzenia Hello śledzi błędów, które występują w Centrum IoT hello a są powiązane toohello komunikatu chmura urządzenie potoku. Ta kategoria zawiera błędy występujące podczas wysyłania wiadomości chmury do urządzenia (takich jak nieautoryzowanego nadawcę), odbierania wiadomości chmury do urządzenia (takich jak przekroczona liczba dostarczania) i odbieranie komunikatu chmura urządzenie opinii (takie jak opinii wygasł). Ta kategoria nie przechwytuje błędy z urządzenia, które nieprawidłowo obsługuje komunikatu chmura urządzenie, jeśli został pomyślnie dostarczony wiadomości powitania chmury do urządzenia.
 
 ```json
 {
@@ -121,7 +121,7 @@ Kategoria polecenia chmury do urządzenia śledzi błędy występują w Centrum 
 
 ### <a name="connections"></a>Połączenia
 
-Kategoria połączenia śledzi błędów występujących podczas urządzeń Połącz lub Rozłącz z Centrum IoT. Śledzenie tej kategorii jest przydatne do identyfikowania próby nieautoryzowanego połączenia i śledzenia, gdy połączenie zostanie przerwane dla urządzeń w zakresie łączności niska.
+Kategoria połączenia Hello śledzi błędów występujących podczas urządzeń Połącz lub Rozłącz z Centrum IoT. Śledzenie tej kategorii jest przydatne do identyfikowania próby nieautoryzowanego połączenia i śledzenia, gdy połączenie zostanie przerwane dla urządzeń w zakresie łączności niska.
 
 ```json
 {
@@ -141,13 +141,13 @@ Kategoria połączenia śledzi błędów występujących podczas urządzeń Poł
 
 ### <a name="file-uploads"></a>Przekazywania plików
 
-Kategoria przekazywania pliku śledzenia błędów, które występują w Centrum IoT i są związane z funkcji przekazywania plików. Ta kategoria zawiera:
+Kategoria przekazywania pliku Hello śledzi błędów, które występują w Centrum IoT hello a są powiązane toofile funkcji przekazywania. Ta kategoria zawiera:
 
-* Błędy, które występują w przypadku identyfikatora URI połączenia SAS, takie jak kiedy wygasa przed urządzenia powiadamia koncentratora przekazywanie zostało ukończone.
-* Przekazywanie zgłoszonych przez urządzenia nie powiodła się.
+* Błędy, które występują w przypadku hello identyfikatora URI połączenia SAS, takie jak kiedy wygasa przed urządzenia powiadamia Centrum hello ukończone przekazywania.
+* Zgłoszone przez urządzenie hello przekazywania nie powiodło się.
 * Błędy występujące po plik nie zostanie znaleziony w magazynie podczas tworzenia komunikatu powiadomienia Centrum IoT.
 
-Ta kategoria nie może przechwycić błędów, które są wykonywane bezpośrednio, gdy urządzenie jest przekazywany do magazynu.
+Ta kategoria nie może przechwycić błędów, które są wykonywane bezpośrednio, gdy urządzenie hello jest przekazywanie toostorage pliku.
 
 ```json
 {
@@ -168,7 +168,7 @@ Ta kategoria nie może przechwycić błędów, które są wykonywane bezpośredn
 
 ### <a name="message-routing"></a>Rozsyłanie wiadomości
 
-Kategoria routingu wiadomości śledzi błędów występujących podczas oceny trasy wiadomości i punktu końcowego kondycję postrzegane przez Centrum IoT. Ta kategoria zawiera zdarzenia, np. gdy reguła zwraca "undefined", gdy Centrum IoT oznacza punkt końcowy jako wiadomości i innych błędów, odbierane z punktu końcowego. Ta kategoria nie ma określonych błędów o komunikatach się (na przykład urządzenie ograniczania błędy), które zostały zgłoszone w kategorii "telemetrii urządzenia".
+Kategoria routingu wiadomość Hello śledzi błędów występujących podczas oceny trasy wiadomości i punktu końcowego kondycję postrzegane przez Centrum IoT. Ta kategoria zawiera zdarzenia, np. gdy reguła zwraca zbyt "undefined", gdy Centrum IoT oznacza punkt końcowy jako wiadomości i innych błędów, odbierane z punktu końcowego. Ta kategoria nie ma określonego błędy dotyczące wiadomości powitania się (na przykład urządzenie ograniczania błędy), które zostały zgłoszone w kategorii "telemetrii urządzenia" hello.
 
 ```json
 {
@@ -187,49 +187,49 @@ Kategoria routingu wiadomości śledzi błędów występujących podczas oceny t
 
 ## <a name="view-events"></a>Wyświetl wydarzenia
 
-Można użyć *explorer Centrum iothub* narzędzia do testowania szybkie, że Centrum IoT generuje monitorowania zdarzeń. Aby zainstalować narzędzie, zobacz instrukcje w [explorer Centrum iothub] [ lnk-iothub-explorer] repozytorium GitHub.
+Można użyć hello *explorer Centrum iothub* tooquickly narzędzie test, że Centrum IoT generuje monitorowania zdarzeń. Witaj tooinstall narzędzie, zobacz instrukcje hello hello [explorer Centrum iothub] [ lnk-iothub-explorer] repozytorium GitHub.
 
-1. Upewnij się, że **połączeń** monitorowania kategorii ustawiono **pełne** w portalu.
+1. Upewnij się, że hello **połączeń** monitorowania kategorii ustawiono zbyt**pełne** w portalu hello.
 
-1. W wierszu polecenia Uruchom następujące polecenie, aby odczytać z punktu końcowego monitorowania:
+1. W wierszu polecenia Uruchom hello poniższych poleceń tooread z hello punkt końcowy monitorowania:
 
     ```
     iothub-explorer monitor-ops --login {your iothubowner connection string}
     ```
 
-1. W innego wiersza polecenia Uruchom następujące polecenie, aby symulować urządzenia wysyłania wiadomości urządzenia do chmury:
+1. W innego wiersza polecenia Uruchom następujące polecenie toosimulate hello urządzenia wysyłania wiadomości urządzenia do chmury:
 
     ```
     iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
     ```
 
-1. Pierwszy wiersz polecenia zawiera zdarzenia monitorowania, jak symulowane urządzenie łączy się z Centrum IoT.
+1. pierwszy wiersz polecenia Hello przedstawiono zdarzenia monitorowania hello hello symulowane urządzenie łączy tooyour Centrum IoT.
 
-## <a name="connect-to-the-monitoring-endpoint"></a>Połącz z punktem końcowym monitorowania
+## <a name="connect-toohello-monitoring-endpoint"></a>Połącz toohello punkt końcowy monitorowania
 
-Punkt końcowy monitorowania w Centrum IoT jest punktem końcowym zgodnego Centrum zdarzeń. Można użyć dowolnego mechanizm, który współpracuje z usługą Event Hubs można odczytać monitorowania wiadomości z tego punktu końcowego. W poniższym przykładzie tworzone podstawowe reader, który nie jest odpowiedni dla wdrożenia wysokiej przepływności. Więcej informacji na temat przetwarzania komunikatów z usługi Event Hubs znajduje się w samouczku [Rozpoczynanie pracy z usługą Event Hubs][lnk-eventhubs-tutorial].
+Witaj, monitorowanie punktu końcowego w Centrum IoT jest punktem końcowym zgodnego Centrum zdarzeń. Można użyć dowolnego mechanizm, który współpracuje z usługi Event Hubs tooread monitorowania wiadomości z tego punktu końcowego. Witaj poniższy przykład tworzy podstawowe reader, który nie jest odpowiedni dla wdrożenia wysokiej przepływności. Aby uzyskać więcej informacji dotyczących sposobu tooprocess komunikaty z usługi Event Hubs, zobacz hello [Rozpoczynanie pracy z usługą Event Hubs] [ lnk-eventhubs-tutorial] samouczka.
 
-Aby połączyć się punkt końcowy monitorowania, należy ciąg połączenia i nazwę punktu końcowego. Poniższe kroki pokazują, jak znaleźć niezbędnych wartości w portalu:
+tooconnect toohello punkt końcowy monitorowania, należy nazwa punktu końcowego i hello ciąg połączenia. Hello następujące kroki przedstawiają sposób toofind hello niezbędnych wartości w portalu hello:
 
-1. W portalu przejdź do bloku zasobów z Centrum IoT.
+1. W portalu hello Przejdź tooyour bloku zasobów Centrum IoT.
 
-1. Wybierz **operacje monitorowania**i zanotuj **nazwę Centrum zdarzeń zgodnych** i **punktu końcowego Centrum zdarzeń zgodnych** wartości:
+1. Wybierz **operacje monitorowania**i zanotuj hello **nazwę Centrum zdarzeń zgodnych** i **punktu końcowego Centrum zdarzeń zgodnych** wartości:
 
     ![Wartości punktu końcowego zgodnych z Centrum zdarzeń][img-endpoints]
 
-1. Wybierz **zasady dostępu współużytkowanego**, a następnie wybierz **usługi**. Zanotuj **klucz podstawowy** wartość:
+1. Wybierz **zasady dostępu współużytkowanego**, a następnie wybierz **usługi**. Zanotuj hello **klucz podstawowy** wartość:
 
     ![Klucz podstawowy zasady dostępu współdzielonego usługi][img-service-key]
 
-Poniższy przykład kodu C# jest pobierana z programu Visual Studio **Windows Desktop klasycznego** aplikacji konsolowej C#. Projekt posiada **WindowsAzure.ServiceBus** zainstalowany pakiet NuGet.
+Witaj Poniższy przykładowy kod C# jest pobierana z programu Visual Studio **Windows Desktop klasycznego** aplikacji konsolowej C#. Projekt Hello ma hello **WindowsAzure.ServiceBus** zainstalowany pakiet NuGet.
 
-* Zastąp symbol zastępczy parametrów połączenia przy użyciu parametrów połączenia, który używa **punktu końcowego Centrum zdarzeń zgodnych** i usługa **klucz podstawowy** wartości zanotowany wcześniej, jak pokazano w poniższym przykładzie:
+* Zastąp symbol zastępczy parametrów połączenia hello ciąg połączenia, który używa hello **punktu końcowego Centrum zdarzeń zgodnych** i usługa **klucz podstawowy** wartości zanotowany wcześniej, jak pokazano poniżej hello przykład:
 
     ```cs
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
-* Zastąp monitorowania symbol zastępczy Nazwa punktu końcowego z **nazwę Centrum zdarzeń zgodnych** wartość zanotowany wcześniej.
+* Zastąp hello monitorowania symbol zastępczy Nazwa punktu końcowego hello **nazwę Centrum zdarzeń zgodnych** wartość zanotowany wcześniej.
 
 ```cs
 class Program
@@ -240,7 +240,7 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        Console.WriteLine("Monitoring. Press Enter key tooexit.\n");
 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
         var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
@@ -282,7 +282,7 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dokładniej analizować możliwości Centrum IoT, zobacz:
+toofurther Poznaj możliwości hello Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
 * [Symuluje urządzenia Azure IoT krawędzi][lnk-iotedge]

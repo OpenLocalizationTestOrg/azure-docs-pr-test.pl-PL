@@ -1,6 +1,6 @@
 ---
-title: Konkursami Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
-description: Wykryj konkursami w Cortana Intelligence Gallery.
+title: konkursami Intelligence Gallery aaaCortana | Dokumentacja firmy Microsoft
+description: Wykryj konkursami w hello Cortana Intelligence Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4631ac21b672b77141023d14e57a1d6523220624
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Odnajdywanie konkursami w Cortana Intelligence Gallery
+# <a name="discover-competitions-in-hello-cortana-intelligence-gallery"></a>Odnajdywanie konkursami w hello Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence konkursami
-**[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  umożliwiają atrakcyjnych konkurują ze społecznością analityków danych, umożliwiający rozwiązywanie złożonych problemów za pomocą pakietu Cortana Intelligence Suite.
+**[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  zapewnić atrakcyjnych toocompete możliwości hello Wspólnoty toosolve służące danych złożonych problemów za pomocą pakietu Cortana Intelligence Suite.
 
-Aby uzyskać odpowiedzi na często zadawane pytania dotyczące konkursami, zobacz [często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami](machine-learning-competition-faq.md).
+Dla odpowiedzi toofrequently zadawane pytania dotyczące konkursami, zobacz [często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Wykrywanie
-  Aby wyszukać konkursami w galerii, otwórz [galerii](http://gallery.cortanaintelligence.com), myszy, aby punkt **więcej** w górnej części galerii strony głównej, a następnie wybierz **konkursami**.
+  toobrowse dla konkursami w galerii, otwórz hello hello [galerii](http://gallery.cortanaintelligence.com), wskaż przy użyciu myszy zbyt**więcej** u góry hello hello galerii strony głównej, a następnie wybierz **konkursami**.
 
-![Wybierz konkursami z galerii strony głównej](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+![Wybierz konkursami ze strony głównej galerii hello](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
-  **[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  zostanie wyświetlona lista najpopularniejszych konkursami.
-Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie konkursami.
-Na tej stronie można przeglądać wszystkie konkursami w galerii. Można również przeszukać wybierając kryteria filtrowania po lewej stronie i wprowadzanie terminy wyszukiwania w górnej.
+  **[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  zostanie wyświetlona lista konkursami najpopularniejszych hello.
+Kliknij przycisk **zobaczyć wszystkie** tooview konkursami wszystkie.
+Na tej stronie można przeglądać wszystkie konkursami w hello galerii. Można także przeszukać wybierając kryteria filtrowania na powitania po lewej stronie powitania i wprowadzanie terminy wyszukiwania w hello top.
 
- Kliknij pozycję Wszystkie konkurencji, aby otworzyć stronę szczegółów konkurencji i uzyskania bardziej szczegółowych informacji. Na tej stronie można komentarz, wyrazić swoją opinię lub zadać pytania za pośrednictwem sekcji komentarzy. Można nawet udostępniać znajomym lub współpracowników za pomocą funkcji udziału LinkedIn i Twitter. Można również wysłać pocztą e-mail łącze do konkurencji z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
+ Kliknij żadnych tooopen konkurencji strony szczegółów konkurencji i uzyskania bardziej szczegółowych informacji. Na tej stronie można komentarz, wyrazić swoją opinię lub zadać pytania za pośrednictwem sekcji komentarzy hello. Możesz nawet udostępniać go znajomych lub współpracowników przy użyciu hello udział możliwości LinkedIn i Twitter. Można również e-mail tooinvite konkurencji toothe łącza strony hello tooview innych użytkowników.
 
 ![Udostępnij ten element znajomych](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Dodaj komentarz własnych](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>Wprowadź konkurencji
-Jeśli konkurencji jest otwarty, na stronie Szczegóły stanu jest **Active**. Aby wprowadzić konkurencji, kliknij przycisk **wprowadź konkurencji** i będziesz mieć możliwość instrukcje zasoby niezbędne kroki należy wykonać.
+Jeśli konkurencji hello jest otwarty, stan hello na stronie szczegółów hello jest **Active**. konkurencji hello tooenter, kliknij przycisk **wprowadź konkurencji** i będziesz mieć możliwość instrukcje hello zasobów, należy go i hello czynności, które należy tootake.
 
 ![Konkurencji jest aktywny](media/machine-learning-gallery-competitions/open-competition.png)
 
-Jeżeli konkurencji została zakończona, wyświetlana jest lista zwycięzców.
+Jeśli zakończył konkurencji hello listę zwycięzców jest wyświetlany.
 
-**[PRZEJDŹ DO GALERII >>](http://gallery.cortanaintelligence.com)**
+**[PODEJMIJ mnie toohello GALERII >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

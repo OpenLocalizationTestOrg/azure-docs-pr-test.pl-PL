@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do rozwiązywania problemów w obserwatora sieciowego Azure zasobów | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie funkcji rozwiązywania problemów z zasobów obserwatora sieciowego"
+title: "Rozwiązywanie problemów w obserwatora sieciowego Azure tooresource aaaIntroduction | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera omówienie funkcji hello obserwatora sieciowego zasobów rozwiązywania problemów"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccbe4c1c2364473aba06e709460d67c773cf25ae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów w obserwatora sieciowego Azure zasobów
+# <a name="introduction-tooresource-troubleshooting-in-azure-network-watcher"></a>Rozwiązywanie problemów w obserwatora sieciowego Azure tooresource wprowadzenie
 
-Bramy sieci wirtualnej zapewniają łączność między zasobami lokalnymi i innych sieci wirtualnych w obrębie platformy Azure. Monitorowanie tych bram i ich połączeń jest bardzo istotne dla zapewnienia komunikacji nie jest uszkodzona. Obserwatora sieciowego umożliwia rozwiązywanie problemów z bramy sieci wirtualnej i połączenia. Można go wywołać za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Po wywołaniu obserwatora sieciowego diagnozuje kondycji bramy sieci wirtualnej lub połączenia i zwracają odpowiednie wartości. To żądanie jest długo działającą transakcję, wyniki są zwracane po zakończeniu diagnostyki.
+Bramy sieci wirtualnej zapewniają łączność między zasobami lokalnymi i innych sieci wirtualnych w obrębie platformy Azure. Bardzo ważne jest monitorowanie ich połączeń i te bram tooensuring komunikacja nie jest uszkodzona. Obserwatora sieciowego zapewnia hello tootroubleshoot możliwości połączenia i bramy sieci wirtualnej. Można go wywołać za pomocą portalu hello, programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST. Po wywołaniu obserwatora sieciowego diagnozuje hello kondycji bramy sieci wirtualnej hello lub połączenia i zwracany hello odpowiednie wyniki. To żądanie jest długo działającą transakcję, hello są zwracane po zakończeniu hello diagnostyki.
 
 ![portal][2]
 
 ## <a name="results"></a>Wyniki
 
-Wstępne wyników zwróconych nadaj ogólny obraz kondycji zasobu. Lepszy informacje mogą być dostępne dla zasobów, jak pokazano w poniższej sekcji:
+Witaj wstępne wyniki zwracane nadaj ogólny obraz kondycji hello hello zasobu. Więcej informacji można podać dla zasobów pokazane na powitania następujących sekcji:
 
-Poniżej znajduje się wartości zwracane z Rozwiązywanie problemów z interfejsu API:
+Witaj poniżej znajduje się hello wartości zwracane z hello Rozwiązywanie problemów z interfejsu API:
 
-* **wartość startTime** — ta wartość jest uruchomieniu wywołania interfejsu API Rozwiązywanie problemów.
-* **wartość endTime** — ta wartość jest czas zakończenia rozwiązywania problemów.
+* **wartość startTime** — ta wartość jest czas hello hello Rozwiązywanie problemów z wywołania interfejsu API uruchomiona.
+* **wartość endTime** — ta wartość jest hello czas zakończenia hello rozwiązywania problemów.
 * **Kod** — ta wartość jest zła, w przypadku awarii jednego diagnostyki.
-* **wyniki** -wyników jest zbiór wyników zwróconych na połączenie lub brama sieci wirtualnej.
-    * **Identyfikator** — ta wartość jest typu błędu.
-    * **Podsumowanie** — ta wartość jest podsumowanie usterki.
-    * **szczegółowe** -wartość zawiera szczegółowy opis błędu.
-    * **recommendedActions** — ta właściwość jest kolekcją zalecane akcje.
-      * **actionText** — ta wartość zawiera opis czynności do wykonania.
-      * **actionUri** — ta wartość Określa identyfikator URI do dokumentacji na temat sposobu działania.
-      * **actionUriText** — ta wartość jest krótki opis tekst akcji.
+* **wyniki** -wyników jest zbiór wyników zwróconych na powitania połączenie lub hello bramy sieci wirtualnej.
+    * **Identyfikator** — ta wartość jest typem błędu hello.
+    * **Podsumowanie** — ta wartość jest podsumowanie hello błędów.
+    * **szczegółowe** -wartość zawiera szczegółowy opis błędu hello.
+    * **recommendedActions** — ta właściwość jest kolekcją tootake zalecane działania.
+      * **actionText** — ta wartość zawiera hello tekst opisujący jakie tootake akcji.
+      * **actionUri** — ta wartość zawiera hello URI toodocumentation tooact.
+      * **actionUriText** — ta wartość jest krótki opis hello akcji tekstu.
 
-W poniższej tabeli przedstawiono typy inny błąd (identyfikator w obszarze wyniki z powyższej listy), które są dostępne, a jeśli błąd tworzy dzienniki.
+Hello następujące tabele Pokaż hello błędów różne typy (identyfikator w obszarze wyniki z powyższej listy hello) dostępnych i jeśli błędów hello tworzy dzienniki.
 
 ### <a name="gateway"></a>Brama
 
@@ -54,12 +54,12 @@ W poniższej tabeli przedstawiono typy inny błąd (identyfikator w obszarze wyn
 | GatewayNotFound | Nie można odnaleźć bramy lub bramy nie jest obsługiwana administracyjnie. |Nie|
 | PlannedMaintenance |  Wystąpienie bramy jest w trakcie konserwacji.  |Nie|
 | UserDrivenUpdate | Gdy aktualizacja użytkownika jest w toku. Może to być operacji zmiany rozmiaru. | Nie |
-| VipUnResponsive | Nie można osiągnąć podstawowego wystąpienia bramy. Dzieje się tak, gdy badania kondycji nie powiodło się. | Nie |
-| PlatformInActive | Istnieje problem z platformą. | Nie|
-| ServiceNotRunning | Usługa podstawowy nie jest uruchomiona. | Nie|
-| NoConnectionsFoundForGateway | Połączenia nie istnieje w bramie. Jest to tylko ostrzeżenie.| Nie|
+| VipUnResponsive | Nie można osiągnąć hello głównej wystąpienie hello bramy. Dzieje się tak, gdy hello badania kondycji nie powiodło się. | Nie |
+| PlatformInActive | Istnieje problem z platformą hello. | Nie|
+| ServiceNotRunning | Usługa podstawowej Hello nie jest uruchomiona. | Nie|
+| NoConnectionsFoundForGateway | Połączenia nie istnieje w bramie hello. Jest to tylko ostrzeżenie.| Nie|
 | ConnectionsNotConnected | Połączenia nie są połączone. Jest to tylko ostrzeżenie.| Tak|
-| GatewayCPUUsageExceeded | Bieżące użycie procesora CPU bramy jest > 95%. | Tak |
+| GatewayCPUUsageExceeded | Bieżące użycie procesora CPU bramy Hello jest > 95%. | Tak |
 
 ### <a name="connection"></a>Połączenie
 
@@ -69,19 +69,19 @@ W poniższej tabeli przedstawiono typy inny błąd (identyfikator w obszarze wyn
 | GatewayNotFound | Nie można odnaleźć bramy lub bramy nie jest obsługiwana administracyjnie. |Nie|
 | PlannedMaintenance | Wystąpienie bramy jest w trakcie konserwacji.  |Nie|
 | UserDrivenUpdate | Gdy aktualizacja użytkownika jest w toku. Może to być operacji zmiany rozmiaru.  | Nie |
-| VipUnResponsive | Nie można osiągnąć podstawowego wystąpienia bramy. Zdarza się, gdy badania kondycji nie powiodło się. | Nie |
+| VipUnResponsive | Nie można osiągnąć hello głównej wystąpienie hello bramy. Zdarza się, gdy hello badania kondycji nie powiodło się. | Nie |
 | ConnectionEntityNotFound | Brak konfiguracji połączenia. | Nie |
-| ConnectionIsMarkedDisconnected | Połączenie jest oznaczony jako "odłączony". |Nie|
-| ConnectionNotConfiguredOnGateway | Podległej usłudze nie ma skonfigurowanego połączenia. | Tak |
-| ConnectionMarkedStandy | Podstawowe usługi jest oznaczony jako stan wstrzymania.| Tak|
+| ConnectionIsMarkedDisconnected | Witaj połączenia jest oznaczony jako "odłączony". |Nie|
+| ConnectionNotConfiguredOnGateway | Witaj podległej usłudze nie ma powitalne skonfigurowane połączenie. | Tak |
+| ConnectionMarkedStandy | źródłowa usługa Hello jest oznaczona jako stan wstrzymania.| Tak|
 | Authentication | Niezgodność klucz wstępny. | Tak|
-| PeerReachability | Brama elementu równorzędnego nie jest dostępny. | Tak|
-| IkePolicyMismatch | Brama równorzędnej ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
-| Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika platformy filtrowania systemu Windows. |Tak|
+| PeerReachability | Brama równorzędnej Hello jest nieosiągalny. | Tak|
+| IkePolicyMismatch | Brama równorzędnej Hello ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
+| Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika platformy filtrowania systemu Windows hello. |Tak|
 
 ## <a name="supported-gateway-types"></a>Obsługiwane typy bramy
 
-Na poniższej liście przedstawiono obsługę Pokazuje połączenia i bram, które są obsługiwane w rozwiązywaniu problemów obserwatora sieciowego.
+Witaj Poniższa lista zawiera obsługę hello Pokazuje połączenia i bram, które są obsługiwane w rozwiązywaniu problemów obserwatora sieciowego.
 |  |  |
 |---------|---------|
 |**Typy bramy**   |         |
@@ -100,23 +100,23 @@ Na poniższej liście przedstawiono obsługę Pokazuje połączenia i bram, któ
 
 ## <a name="log-files"></a>Pliki dziennika
 
-Pliki zasobów do rozwiązywania problemów z dziennika są przechowywane na koncie magazynu po zakończeniu rozwiązywania problemów z zasobów. Na poniższej ilustracji przedstawiono przykład zawartość wywołanie, które spowodowało wystąpienie błędu.
+pliki dziennika Hello zasobów rozwiązywania problemów są przechowywane na koncie magazynu po zakończeniu rozwiązywania problemów z zasobów. Witaj poniższy obraz przedstawia zawartość przykład hello wywołanie, które spowodowało wystąpienie błędu.
 
 ![plik zip][1]
 
 > [!NOTE]
-> W niektórych przypadkach tylko podzestaw pliki dzienników są zapisywane w pamięci masowej.
+> W niektórych przypadkach tylko podzbiór plików dzienników hello są zapisywane toostorage.
 
-Aby uzyskać instrukcje dotyczące pobierania plików z kontami magazynu azure, zapoznaj się [Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kolejnym narzędziem, który może służyć jest Eksploratora usługi Storage. Więcej informacji na temat Eksploratora usługi Storage można znaleźć tutaj przy użyciu następującego łącza: [Eksploratora usługi Storage](http://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kontami magazynu azure, zobacz zbyt[Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kolejnym narzędziem, który może służyć jest Eksploratora usługi Storage. Więcej informacji na temat Eksploratora usługi Storage można znaleźć tutaj na powitania następującego łącza: [Eksploratora usługi Storage](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-**ConnectionStats.txt** plik zawiera ogólna Statystyka połączenia, w tym Bajty przychodzące i wychodzące, stan połączenia i czasu, połączenie zostało nawiązane.
+Witaj **ConnectionStats.txt** plik zawiera ogólna Statystyka o hello połączenia, w tym Bajty przychodzące i wychodzące, stan połączenia i hello czasu hello jest nawiązane połączenie.
 
 > [!NOTE]
-> Jeśli wywołanie do rozwiązywania problemów z interfejsu API zwraca dobrej kondycji, jest jedynym elementem zwrócił w pliku zip **ConnectionStats.txt** pliku.
+> Jeśli Rozwiązywanie problemów z interfejsu API toohello wywołania hello zwraca dobrej kondycji, jest jedynym elementem hello zwrócił w pliku zip hello **ConnectionStats.txt** pliku.
 
-Zawartość tego pliku są podobne do poniższego przykładu:
+Witaj zawartość tego pliku są podobne toohello poniższy przykład:
 
 ```
 Connectivity State : Connected
@@ -128,7 +128,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-**CPUStats.txt** plik zawiera użycie procesora CPU i pamięci w czasie testów.  Zawartość tego pliku jest podobny do poniższego przykładu:
+Witaj **CPUStats.txt** plik zawiera użycie procesora CPU i pamięci w czasie hello testów.  Witaj zawartość tego pliku jest toohello podobnie poniższy przykład:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -136,9 +136,9 @@ Current CPU Usage : 0 % Current Memory Available : 641 MBs
 
 ### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-**IKEErrors.txt** plik zawiera błędy IKE, które zostały odnalezione podczas monitorowania.
+Witaj **IKEErrors.txt** plik zawiera błędy IKE, które zostały odnalezione podczas monitorowania.
 
-W poniższym przykładzie przedstawiono zawartość pliku IKEErrors.txt. Błędy mogą się różnić w zależności od tego problemu.
+Witaj poniższy przykład przedstawia hello zawartość pliku IKEErrors.txt. Błędy mogą się różnić w zależności od hello problem.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -149,13 +149,13 @@ Error: On-prem device sent invalid payload.
 
 ### <a name="scrubbed-wfpdiagtxt"></a>Wyczyszczona wfpdiag.txt
 
-**Scrubbed wfpdiag.txt** plik dziennika zawiera dziennik platformy filtrowania systemu Windows. Ten dziennik zawiera rejestrowanie IKE/AuthIP błędy i listy pakietów.
+Witaj **Scrubbed wfpdiag.txt** plik dziennika zawiera hello wfp dziennika. Ten dziennik zawiera rejestrowanie IKE/AuthIP błędy i listy pakietów.
 
-W poniższym przykładzie przedstawiono zawartość pliku Scrubbed wfpdiag.txt. W tym przykładzie klucza współużytkowanego połączenia jest niepoprawny, co wynika z 3 wiersza od dołu. Poniższy przykład się tylko fragment dziennika cały dziennik może być długi w zależności od tego problemu.
+Witaj poniższy przykład przedstawia hello zawartość pliku Scrubbed wfpdiag.txt hello. W tym przykładzie hello klucza współużytkowanego połączenia jest niepoprawny, co wynika z wiersza 3 powitania od dołu hello. Hello poniższy przykład jest po prostu fragment hello cały dziennik dziennika hello mogą być obszerne w zależności od hello problem.
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from hello high priority thread pool list
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
@@ -182,9 +182,9 @@ W poniższym przykładzie przedstawiono zawartość pliku Scrubbed wfpdiag.txt. 
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
-**Wfpdiag.txt.sum** plik jest dziennika pokazującego buforów i przetworzonych zdarzeń.
+Witaj **wfpdiag.txt.sum** plik jest dziennika pokazującego buforów hello i przetworzonych zdarzeń.
 
-Poniższy przykład jest zawartość pliku wfpdiag.txt.sum.
+Witaj poniższym przykładzie jest hello zawartości pliku wfpdiag.txt.sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -212,7 +212,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak diagnozować bramy sieci VPN i połączeń za pośrednictwem portalu, odwiedzając [bramy Rozwiązywanie problemów — Azure portal](network-watcher-troubleshoot-manage-portal.md).
+Dowiedz się, jak toodiagnose bramy sieci VPN i połączeń za pośrednictwem hello portalu odwiedzając [bramy Rozwiązywanie problemów — Azure portal](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

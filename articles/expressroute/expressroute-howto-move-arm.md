@@ -1,6 +1,6 @@
 ---
-title: "Przenieś obwody usługi ExpressRoute ze środowiska klasycznego do Menedżera zasobów: środowiska PowerShell: Azure | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera opis sposobu przenieść obwodu klasycznego modelu wdrażania usługi Resource Manager przy użyciu programu PowerShell."
+title: "Przenieś obwody usługi ExpressRoute z klasycznym tooResource Menedżera: środowiska PowerShell: Azure | Dokumentacja firmy Microsoft"
+description: "Na tej stronie opisano, jak toomove toohello klasyczny obwód usługi Resource Manager deployment model przy użyciu programu PowerShell."
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: c407e01e6d881cb8adcfe55faa246468669be883
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8dcadafca5e4f40773902cec5786eba1dbe133eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Przenieść obwody usługi ExpressRoute z klasycznego modelu wdrażania usługi Resource Manager przy użyciu programu PowerShell
+# <a name="move-expressroute-circuits-from-hello-classic-toohello-resource-manager-deployment-model-using-powershell"></a>Przenieś obwody usługi ExpressRoute z hello toohello klasycznego modelu wdrażania Resource Manager przy użyciu programu PowerShell
 
-Aby używać obwodu usługi ExpressRoute dla klasycznego i modeli wdrażania usługi Resource Manager, należy przenieść obwodu do modelu wdrażania usługi Resource Manager. Poniższe sekcje pomóc Przenieś obwodu przy użyciu programu PowerShell.
+toouse obwodu usługi ExpressRoute hello klasycznego i modeli wdrażania usługi Resource Manager, należy przenieść modelu wdrażania usługi Resource Manager hello obwodu toohello. Hello następujące sekcje pomocne podczas przenoszenia obwodu przy użyciu programu PowerShell.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Sprawdź, czy masz najnowszą wersję modułów programu Azure PowerShell (co najmniej w wersji 1.0). Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
-* Upewnij się, że użytkownik przejrzał [wymagania wstępne](expressroute-prerequisites.md), [wymagania dotyczące routingu](expressroute-routing.md), i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
-* Przejrzyj informacje, które są przekazywane pod [przenoszenie obwodu usługi ExpressRoute z klasycznego do Menedżera zasobów](expressroute-move.md). Upewnij się, że pełni rozumiesz limity i ograniczenia.
-* Sprawdź, że obwód jest w pełni funkcjonalna w klasycznym modelu wdrażania.
-* Upewnij się, że masz grupę zasobów, który został utworzony w modelu wdrażania usługi Resource Manager.
+* Sprawdź, czy masz najnowszą wersję hello hello modułów programu Azure PowerShell (co najmniej w wersji 1.0). Aby uzyskać więcej informacji, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+* Upewnij się, że użytkownik przejrzał hello [wymagania wstępne](expressroute-prerequisites.md), [wymagania dotyczące routingu](expressroute-routing.md), i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
+* Przejrzyj informacje hello są przekazywane pod [przenoszenie obwodu usługi ExpressRoute z klasycznym tooResource Menedżera](expressroute-move.md). Upewnij się, należy zapoznać się hello limity i ograniczenia.
+* Sprawdź, czy obwodu hello pełnej funkcjonalności w hello klasycznego modelu wdrażania.
+* Upewnij się, że masz grupę zasobów, który został utworzony w modelu wdrażania usługi Resource Manager hello.
 
 ## <a name="move-an-expressroute-circuit"></a>Przenieś obwodu usługi ExpressRoute
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Krok 1: Zbieranie szczegółów obwód w klasycznym modelu wdrażania
+### <a name="step-1-gather-circuit-details-from-hello-classic-deployment-model"></a>Krok 1: Zbieranie szczegółów obwodu z hello klasycznego modelu wdrażania
 
-Zaloguj się do klasycznego środowiska platformy Azure i zebrać klucza usługi.
+Zaloguj się toohello klasycznego środowiska platformy Azure i zebrać hello klucza usługi.
 
-1. Zaloguj się do konta platformy Azure.
+1. Zaloguj się tooyour konto platformy Azure.
 
   ```powershell
   Add-AzureAccount
   ```
 
-2. Wybierz odpowiednią subskrypcję platformy Azure.
+2. Wybierz odpowiednią subskrypcję platformy Azure hello.
 
   ```powershell
   Select-AzureSubscription "<Enter Subscription Name here>"
   ```
 
-3. Zaimportuj moduły programu PowerShell platformy Azure i usługi ExpressRoute.
+3. Zaimportuj moduły programu PowerShell hello platformy Azure i usługi ExpressRoute.
 
   ```powershell
   Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
   Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
   ```
 
-4. Poniższe polecenie cmdlet umożliwia uzyskanie kluczy usługi dla wszystkich sieci obwody usługi ExpressRoute. Po pobraniu klucze, skopiuj **klucza usługi** obwodu, który chcesz przenieść do modelu wdrażania usługi Resource Manager.
+4. Użyj polecenia cmdlet hello tooget hello usługi kluczy dla wszystkich sieci obwody usługi ExpressRoute. Po pobraniu hello klucze, skopiuj hello **klucza usługi** obwodu hello, które mają modelu wdrażania usługi Resource Manager toohello toomove.
 
   ```powershell
   Get-AzureDedicatedCircuit
@@ -66,92 +66,92 @@ Zaloguj się do klasycznego środowiska platformy Azure i zebrać klucza usługi
 
 ### <a name="step-2-sign-in-and-create-a-resource-group"></a>Krok 2: Zaloguj się i utworzyć grupę zasobów
 
-Zaloguj się do środowiska usługi Resource Manager i utworzyć nową grupę zasobów.
+Zaloguj się w środowisku usługi Resource Manager toohello i utworzyć nową grupę zasobów.
 
-1. Zaloguj się do środowiska usługi Azure Resource Manager.
+1. Zaloguj się w środowisku usługi Azure Resource Manager tooyour.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-2. Wybierz odpowiednią subskrypcję platformy Azure.
+2. Wybierz odpowiednią subskrypcję platformy Azure hello.
 
   ```powershell
   Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
   ```
 
-3. Zmodyfikuj fragment poniżej, aby utworzyć nową grupę zasobów, jeśli nie masz już grupę zasobów.
+3. Jeśli nie masz już grupę zasobów, należy zmodyfikować fragment hello poniżej toocreate nową grupę zasobów.
 
   ```powershell
   New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
-### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Krok 3: Przenieś obwodu ExpressRoute do modelu wdrażania usługi Resource Manager
+### <a name="step-3-move-hello-expressroute-circuit-toohello-resource-manager-deployment-model"></a>Krok 3: Przenieś modelu wdrażania usługi Resource Manager toohello obwodu ExpressRoute hello
 
-Teraz można przystąpić do przenieść obwodu usługi ExpressRoute z klasycznym modelu wdrażania modelu wdrażania usługi Resource Manager. Przed kontynuowaniem zapoznaj się z informacjami podanymi w [przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania usługi Resource Manager](expressroute-move.md).
+Użytkownik jest teraz gotowy toomove obwodu usługi ExpressRoute z modelu wdrażania usługi Resource Manager toohello hello wdrażania klasycznego modelu. Przed kontynuowaniem należy przejrzeć hello informacji dostępnych w [przenoszenie obwodu usługi ExpressRoute z modelu wdrażania Menedżera zasobów klasycznych toohello hello](expressroute-move.md).
 
-Aby przenieść obwodu, zmodyfikuj i uruchom następujący fragment kodu:
+toomove obwodu, zmodyfikuj i uruchom następujące fragment hello:
 
 ```powershell
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
 > [!NOTE]
-> Po zakończeniu przenoszenia nową nazwę, która znajduje się w poprzednim poleceniu cmdlet będzie wykorzystywana do adresowania zasobów. Zasadniczo można zmienić nazwy obwodu.
+> Po zakończeniu przenoszenia hello hello nową nazwę, która znajduje się w poprzednim poleceniu cmdlet hello będzie używana tooaddress hello zasobów. obwód Hello zasadniczo zostanie zmieniona.
 > 
 
 ## <a name="modify-circuit-access"></a>Modyfikowania dostępu do obwodu
 
-### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Aby włączyć dostęp obwodu ExpressRoute oba modele wdrażania
+### <a name="tooenable-expressroute-circuit-access-for-both-deployment-models"></a>tooenable dostępu obwodu ExpressRoute oba modele wdrażania
 
-Po przeniesieniu obwodu ExpressRoute klasycznego modelu wdrażania usługi Resource Manager, możesz włączyć dostęp do obu modeli wdrażania. Uruchom następujące polecenia cmdlet, aby umożliwić dostęp do obu modeli wdrażania:
+Po przeniesieniu programu ExpressRoute obwodu toohello Resource Manager wdrażania modelu klasycznego, można włączyć modele wdrażania tooboth dostępu. Uruchom hello następujące modele wdrażania tooboth dostępu tooenable poleceń cmdlet:
 
-1. Uzyskiwanie szczegółowych informacji obwodu.
+1. Uzyskiwanie szczegółowych informacji obwodu hello.
 
   ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
-2. Ustaw "Zezwalaj na operacje klasycznego" na wartość TRUE.
+2. Ustaw tooTRUE "Zezwalaj na operacje klasycznym".
 
   ```powershell
   $ckt.AllowClassicOperations = $true
   ```
 
-3. Zaktualizuj obwodu. Po tej operacji zakończyło się pomyślnie, można wyświetlić w klasycznym modelu wdrażania obwodu.
+3. Zaktualizuj hello obwodu. Po tej operacji zakończyło się pomyślnie, będzie możliwe tooview obwodu hello w hello klasycznego modelu wdrażania.
 
   ```powershell
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-4. Uruchom następujące polecenie cmdlet, aby uzyskać szczegóły obwodu usługi expressroute. Musi być widoczna na liście klucza usługi.
+4. Uruchom następujące polecenia cmdlet tooget hello szczegóły hello obwodu ExpressRoute hello. Musi być klucza usługi hello stanie toosee na liście.
 
   ```powershell
   get-azurededicatedcircuit
   ```
 
-5. Możesz teraz zarządzać łącza do obwodu ExpressRoute, za pomocą poleceń modelu klasycznym wdrożenia klasyczne sieci wirtualne i polecenia Menedżera zasobów dla sieci wirtualnych Menedżera zasobów. Następujące artykuły ułatwiają zarządzanie łącza do obwodu ExpressRoute:
+5. Możesz teraz zarządzać obwodu ExpressRoute toohello łącza za pomocą polecenia modelu wdrażania klasycznego hello klasyczne sieci wirtualne i hello poleceń Menedżera zasobów dla sieci wirtualnych Menedżera zasobów. Witaj następujące artykuły ułatwiają zarządzanie toohello łącza obwodu ExpressRoute:
 
-    * [Link sieci wirtualnej do obwodu usługi ExpressRoute w modelu wdrażania usługi Resource Manager](expressroute-howto-linkvnet-arm.md)
-    * [Link do obwodu usługi ExpressRoute w klasycznym modelu wdrożenia sieci wirtualnej](expressroute-howto-linkvnet-classic.md)
+    * [Łączenie z sieci wirtualnej tooyour obwodu usługi expressroute w modelu wdrażania usługi Resource Manager hello](expressroute-howto-linkvnet-arm.md)
+    * [Łączenie z sieci wirtualnej tooyour obwodu usługi expressroute w hello klasycznego modelu wdrażania](expressroute-howto-linkvnet-classic.md)
 
-### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>Aby wyłączyć dostęp obwodu ExpressRoute do klasycznym modelu wdrażania
+### <a name="toodisable-expressroute-circuit-access-toohello-classic-deployment-model"></a>toodisable ExpressRoute obwodu dostępu toohello klasycznego modelu wdrażania
 
-Uruchom następujące polecenia cmdlet, aby wyłączyć dostęp do klasycznego modelu wdrażania.
+Uruchom następujące polecenia cmdlet toodisable dostępu toohello klasycznego modelu wdrażania hello.
 
-1. Uzyskiwanie szczegółowych informacji z obwodem usługi ExpressRoute.
+1. Uzyskiwanie szczegółowych informacji o hello obwodu usługi expressroute.
 
   ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
-2. Ustaw "Zezwalaj na operacje klasycznego" na wartość FALSE.
+2. Ustaw tooFALSE "Zezwalaj na operacje klasycznym".
 
   ```powershell
   $ckt.AllowClassicOperations = $false
   ```
 
-3. Zaktualizuj obwodu. Po tej operacji zakończyło się pomyślnie, nie będzie mogła wyświetlać obwodu w klasycznym modelu wdrażania.
+3. Zaktualizuj hello obwodu. Po tej operacji zakończyło się pomyślnie, nie będzie możliwe tooview obwodu hello w hello klasycznego modelu wdrażania.
 
   ```powershell
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -160,4 +160,4 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute](expressroute-howto-routing-arm.md)
-* [Link sieci wirtualnej do obwodu usługi ExpressRoute](expressroute-howto-linkvnet-arm.md)
+* [Łączenie z sieci wirtualnej tooyour obwodu usługi expressroute](expressroute-howto-linkvnet-arm.md)

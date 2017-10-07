@@ -1,7 +1,7 @@
 ---
 featureFlags: usabilla
-title: "Nawiązać Pi malina (węzeł) Azure IoT — Lekcja 2: rejestrowanie urządzenia | Dokumentacja firmy Microsoft"
-description: "Utwórz grupę zasobów, tworzenia Centrum Azure IoT i zarejestrować Pi w rejestrze tożsamości Centrum IoT przy użyciu wiersza polecenia platformy Azure."
+title: "Połącz Pi malina (węzeł) tooAzure IoT — Lekcja 2: rejestrowanie urządzenia | Dokumentacja firmy Microsoft"
+description: "Utwórz grupę zasobów, tworzenia Centrum Azure IoT i zarejestrować Pi w hello Centrum IoT rejestru tożsamości za pomocą wiersza polecenia platformy Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -18,33 +18,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 774f9356d7a11b2c61905ada75bed92d44e5fc0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 97533298d52d1187c49a4c35ddda922d6e45c87d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-iot-hub-and-register-raspberry-pi-3"></a>Utworzenie Centrum IoT i zarejestruj malina Pi 3
 ## <a name="what-you-will-do"></a>Będzie wykonywać
 * Utwórz grupę zasobów.
-* Utworzenie Centrum Azure IoT w grupie zasobów.
-* Dodaj malina Pi 3 do Centrum Azure IoT przy użyciu interfejsu wiersza polecenia platformy Azure (Azure CLI).
+* Utworzenie Centrum Azure IoT w grupie zasobów hello.
+* Dodaj Centrum Azure IoT toohello malina Pi 3 za pomocą hello interfejsu wiersza polecenia platformy Azure (Azure CLI).
 
-Korzystając z wiersza polecenia platformy Azure można dodać Pi do Centrum IoT, Usługa generuje klucz pi do uwierzytelniania w usłudze. Jeśli masz problemy z poszukiwanie rozwiązania na [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Korzystając z Centrum IoT tooyour Pi tooadd wiersza polecenia platformy Azure, usługa hello generuje klucz dla tooauthenticate Pi z usługą hello. Jeśli masz problemy z poszukiwanie rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 W tym artykule dowiesz się:
-* Sposób użycia interfejsu wiersza polecenia Azure do tworzenia Centrum IoT
-* Jak utworzyć tożsamość urządzenia pi w Centrum IoT
+* Jak toouse toocreate interfejsu wiersza polecenia Azure IoT hub
+* Jak toocreate tożsamość urządzenia pi w Centrum IoT
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 * Konto platformy Azure
-* Mac lub komputerze z systemem Windows z wiersza polecenia platformy Azure zainstalowany
+* Mac lub komputerze z systemem Windows z hello Azure CLI jest zainstalowany
 
 ## <a name="create-your-iot-hub"></a>Utworzenie Centrum IoT
-Centrum IoT Azure pomaga połączyć, monitorować i zarządzać nimi miliony zasoby IoT. Aby utworzyć Centrum IoT, wykonaj następujące kroki:
+Centrum IoT Azure pomaga połączyć, monitorować i zarządzać nimi miliony zasoby IoT. toocreate Centrum IoT, wykonaj następujące kroki:
 
-1. Zaloguj się do konta platformy Azure, uruchamiając następujące polecenie:
+1. Zaloguj się tooyour konto platformy Azure, uruchamiając następujące polecenie hello:
 
    ```bash
    az login
@@ -52,42 +52,42 @@ Centrum IoT Azure pomaga połączyć, monitorować i zarządzać nimi miliony za
 
    Wszystkie dostępne subskrypcje są wyświetlane po pomyślnym zalogowaniu.
 
-2. Wartość domyślna subskrypcja, którego chcesz używać, uruchamiając następujące polecenie:
+2. Ustaw hello Domyślna subskrypcja ma toouse, uruchamiając następujące polecenie hello:
 
    ```bash
    az account set --subscription {subscription id or name}
    ```
 
-   `subscription ID or name`można znaleźć w danych wyjściowych `az login` lub `az account list` polecenia.
+   `subscription ID or name`można znaleźć w danych wyjściowych hello hello `az login` lub hello `az account list` polecenia.
 
-3. Zarejestruj dostawcę, uruchamiając następujące polecenie. Dostawcy zasobów są usługi, które zapewniają zasobów dla aplikacji. Przed wdrożeniem zasobów platformy Azure, dostawcy oferujący należy zarejestrować dostawcę.
+3. Zarejestruj dostawcę hello, uruchamiając następujące polecenie hello. Dostawcy zasobów są usługi, które zapewniają zasobów dla aplikacji. Należy zarejestrować dostawcę hello przed wdrożeniem hello zasobów platformy Azure, która hello oferty dostawcy.
 
    ```bash
    az provider register -n "Microsoft.Devices"
    ```
-4. Utwórz grupę zasobów o nazwie iot próbkami regionu zachodnie stany USA, uruchamiając następujące polecenie:
+4. Utwórz grupę zasobów o nazwie na próbki iot, hello regionu zachodnie stany USA, uruchamiając następujące polecenie hello:
 
    ```bash
    az group create --name iot-sample --location westus
    ```
 
-   `westus`jest to lokalizacja, tworzenie grupy zasobów. Jeśli chcesz użyć innej lokalizacji, możesz uruchomić `az account list-locations -o table` do wyświetlenia wszystkich lokalizacji platformy Azure obsługuje.
+   `westus`to miejsce hello Tworzenie grupy zasobów. Jeśli chcesz toouse w innej lokalizacji, możesz uruchomić `az account list-locations -o table` toosee wszystkie hello Azure obsługuje lokalizacji.
  
-5. Utwórz Centrum IoT w grupie zasobów przykładowej iot, uruchamiając następujące polecenie:
+5. Utwórz Centrum IoT w grupie zasobów przykładowej iot hello, uruchamiając następujące polecenie hello:
 
    ```bash
    az iot hub create --name {my hub name} --resource-group iot-sample
    ```
 
-   Domyślnie narzędzie tworzy Centrum IoT w warstwy cenowej bezpłatna. Aby uzyskać więcej informacji, zobacz [cennik Centrum IoT Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
+   Domyślnie narzędzie hello tworzy Centrum IoT w hello warstwa cenowa bezpłatna. Aby uzyskać więcej informacji, zobacz [cennik Centrum IoT Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 > [!NOTE] 
-> Nazwa centrum IoT musi być globalnie unikatowa. Można utworzyć tylko jedną F1 wersji Centrum IoT Azure w ramach Twojej subskrypcji platformy Azure.
+> Hello nazwę Centrum IoT musi być globalnie unikatowa. Można utworzyć tylko jedną F1 wersji Centrum IoT Azure w ramach Twojej subskrypcji platformy Azure.
 
 ## <a name="register-pi-in-your-iot-hub"></a>Zarejestruj Pi w Centrum IoT
-Poszczególne urządzenia, która wysyła komunikaty do Centrum IoT i odbiera komunikaty z Centrum IoT musi być zarejestrowany unikatowego identyfikatora. Azure CLI użyje do rejestracji programu Pi i utwórz samopodpisany certyfikat X.509 do uwierzytelniania urządzeń.
+Poszczególne urządzenia, która Centrum IoT tooyour komunikatów wysyła i odbiera komunikaty z Centrum IoT musi być zarejestrowany unikatowego identyfikatora. Zostanie Użyj interfejsu wiersza polecenia Azure tooregister Twojego Pi i utwórz samopodpisany certyfikat X.509 do uwierzytelniania urządzeń.
 
-Uruchom następujące polecenie:
+Uruchom następujące polecenie hello:
 
 ```bash
 # For Windows command prompt
@@ -98,8 +98,8 @@ az iot device create --device-id myraspberrypi --hub-name {my hub name} --x509 -
 ```
 
 ## <a name="summary"></a>Podsumowanie
-Utworzeniu Centrum IoT i zarejestrowane Pi za pomocą tożsamości urządzenia w Centrum IoT. Możesz dowiedzieć się, jak wysyłać wiadomości z Pi do Centrum IoT.
+Utworzeniu Centrum IoT i zarejestrowane Pi za pomocą tożsamości urządzenia w Centrum IoT. Wszystko jest gotowe toolearn jak toosend komunikaty z Centrum IoT tooyour Pi.
 
 ## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji funkcji platformy Azure i konto magazynu Azure do przetwarzania i przechowywania wiadomości Centrum IoT](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+[Tworzenie aplikacji funkcji platformy Azure i tooprocess konta magazynu platformy Azure i przechowywania komunikatów Centrum IoT](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 

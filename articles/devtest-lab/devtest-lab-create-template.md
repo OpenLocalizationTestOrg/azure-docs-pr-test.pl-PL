@@ -1,6 +1,6 @@
 ---
-title: Tworzenie obrazu niestandardowego Azure DevTest Labs na podstawie pliku VHD | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć obraz niestandardowy w usłudze Azure DevTest Labs z pliku VHD za pomocą portalu Azure"
+title: aaaCreate niestandardowego obrazu z pliku VHD Azure DevTest Labs | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate obraz niestandardowy w usłudze Azure DevTest Labs od pliku wirtualnego dysku twardego za pomocą hello portalu Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80af8ea1cb72380f868df0a76c4a0dcd92e63cf5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Tworzenie niestandardowego obrazu z pliku VHD
 
@@ -30,41 +30,41 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Instrukcje krok po kroku
 
-W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu z pliku VHD za pomocą portalu Azure:
+Witaj następujących krokach objaśniono sposób tworzenia niestandardowego obrazu z pliku VHD za pomocą hello portalu Azure:
 
-1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Zaloguj się toohello [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+1. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy hello.
 
-1. Z listy labs wybierz żądany laboratorium.  
+1. Z listy hello labs wybierz żądany laboratorium hello.  
 
-1. W bloku laboratorium, wybierz **konfiguracji**. 
+1. W bloku hello laboratorium, wybierz **konfiguracji**. 
 
-1. W środowisku laboratoryjnym **konfiguracji** bloku, wybierz opcję **niestandardowych obrazów (VHD)**.
+1. W laboratorium hello **konfiguracji** bloku, wybierz opcję **niestandardowych obrazów (VHD)**.
 
-1. Na **niestandardowych obrazów** bloku, wybierz opcję **+ Dodaj**.
+1. Na powitania **niestandardowych obrazów** bloku, wybierz opcję **+ Dodaj**.
 
     ![Dodaj niestandardowy obraz](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Wprowadź nazwę niestandardowego obrazu. Ta nazwa będzie wyświetlana na liście podstawowej obrazów, podczas tworzenia maszyny Wirtualnej.
+1. Wprowadź nazwę hello hello niestandardowego obrazu. Ta nazwa będzie wyświetlana na liście hello podstawowej obrazów, podczas tworzenia maszyny Wirtualnej.
 
-1. Wprowadź opis niestandardowego obrazu. Ten opis jest wyświetlany na liście obrazów podstawowej podczas tworzenia maszyny Wirtualnej.
+1. Wprowadź opis hello hello niestandardowego obrazu. Ten opis jest wyświetlany w hello listy obrazów podstawowej podczas tworzenia maszyny Wirtualnej.
 
 1. Wybierz **wirtualnego dysku twardego**.
 
-1. Z **wirtualnego dysku twardego** bloku, wybierz żądany plik wirtualnego dysku twardego.
+1. Z hello **wirtualnego dysku twardego** bloku, hello wybierz żądany plik wirtualnego dysku twardego.
 
-1. Wybierz **OK** zamknąć **wirtualnego dysku twardego** bloku.
+1. Wybierz **OK** tooclose hello **wirtualnego dysku twardego** bloku.
 
 1. Wybierz **Konfiguracja systemu operacyjnego**.
 
-1. Na **Konfiguracja systemu operacyjnego** , a następnie wybierz opcję **Windows** lub **Linux**.
+1. Na powitania **Konfiguracja systemu operacyjnego** , a następnie wybierz opcję **Windows** lub **Linux**.
 
-1. Jeśli **Windows** jest zaznaczone, określ za pomocą pola wyboru czy *Sysprep* zostało uruchomione na tym komputerze. 
+1. Jeśli **Windows** jest zaznaczone, określ za pomocą pola wyboru hello czy *Sysprep* zostało uruchomione na maszynie hello. 
 
-1. Wybierz **OK** zamknąć **Konfiguracja systemu operacyjnego** bloku.
+1. Wybierz **OK** tooclose hello **Konfiguracja systemu operacyjnego** bloku.
 
-1. Wybierz **OK** można utworzyć niestandardowego obrazu.
+1. Wybierz **OK** toocreate hello niestandardowego obrazu.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -75,4 +75,4 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 
 ##<a name="next-steps"></a>Następne kroki
 
-- [Dodaj Maszynę wirtualną do laboratorium](./devtest-lab-add-vm-with-artifacts.md)
+- [Dodawanie laboratorium tooyour maszyny Wirtualnej](./devtest-lab-add-vm-with-artifacts.md)

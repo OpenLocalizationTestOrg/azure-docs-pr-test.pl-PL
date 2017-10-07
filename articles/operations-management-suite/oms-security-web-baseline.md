@@ -1,6 +1,6 @@
 ---
-title: "Ocena linii bazowej sieci Web w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite | Microsoft Docs"
-description: "W tym dokumencie wyjaśniono, jak korzystać z rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS w celu oceny linii bazowej sieci Web wszystkich monitorowanych serwerów sieci Web pod kątem zgodności i zabezpieczeń."
+title: "aaaOperations zabezpieczeń pakietu administracyjnego i inspekcji rozwiązanie sieci Web bazową | Dokumentacja firmy Microsoft"
+description: "W tym dokumencie opisano sposób toouse OMS zabezpieczeń i inspekcji rozwiązania tooperform oceny linii bazowej sieci web, wszystkich serwerów sieci web monitorowane w celu zgodności i zabezpieczeń."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -17,58 +17,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-ms.openlocfilehash: 0d4707dc0c0ffbf40d0d10a6d12b9709a9655258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8aa87fa404ff97ab549dda3f9bebb75766055963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Ocena linii bazowej sieci Web w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
-Ten dokument ułatwia korzystanie z funkcji oceny linii bazowej sieci Web w [rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS)](operations-management-suite-overview.md) w celu zapewnienia bezpieczeństwa monitorowanych zasobów.
+Ten dokument ułatwia toouse [zabezpieczeń Operations Management Suite (OMS) i rozwiązania inspekcji](operations-management-suite-overview.md) oceny linii bazowej tooaccess możliwości hello bezpieczny stan monitorowanych zasobów w sieci web.
 
 ## <a name="what-is-web-baseline-assessment"></a>Co to jest ocena linii bazowej sieci Web?
-Obecnie rozwiązanie Zabezpieczenia w pakiecie OMS umożliwia ocenę podstawy linii bazowej zabezpieczeń systemów operacyjnych. Skanuje ono ustawienia systemu operacyjnego serwerów co 24 godziny i zapewnia wgląd w ich potencjalnie zagrożone ustawienia. Przeczytaj artykuł [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-baseline.md), aby uzyskać więcej informacji na ten temat.
+Obecnie rozwiązanie Zabezpieczenia w pakiecie OMS umożliwia ocenę podstawy linii bazowej zabezpieczeń systemów operacyjnych. Skanuje hello ustawień systemu operacyjnego serwerów co 24 godziny i zapewnia wgląd do ustawienia potencjalnie narażone. Przeczytaj artykuł [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-baseline.md), aby uzyskać więcej informacji na ten temat.
 
-Ocena linii bazowej sieci Web ma na celu znalezienie potencjalnie zagrożonych ustawień serwera sieci Web. Trzy podstawowe źródła konfiguracji linii bazowej sieci Web to konfiguracja platformy .NET, platformy ASP.NET i usług IIS.  Podobnie jak w przypadku oceny linii bazowej systemu operacyjnego rozwiązanie Zabezpieczenia w pakiecie OMS skanuje serwery sieci Web co 24 godziny i zapewnia wgląd w ich stan zabezpieczeń.  W przypadku usługi Internet Information Service (IIS) konfiguracje mogą być w znaczącym stopniu dostosowywane, co pozwala na zastępowanie różnych poziomów witryny i aplikacji. Skaner sprawdza ustawienia na każdym poziomie witryny/aplikacji oraz na domyślnym poziomie głównym. Ułatwia to znajdowanie lokalizacji potencjalnie zagrożonych ustawień i szybkie rozwiązywanie problemów.
+Celem Hello oceny linii bazowej sieci web hello jest ustawień serwera sieci web potencjalnie narażone toofind. Witaj trzech źródeł podstawowy to hello web linii bazowej konfiguracji: konfiguracji platformy .NET, ASP.NET oraz usług IIS.  Podobnie jak hello ocenę linii bazowej systemu operacyjnego, OMS zabezpieczeń będzie tooscan Twojego serwery sieci web co 24hrs i podaj zapewnia wgląd w ich stanie zabezpieczeń.  W konsoli Internet Information Service (IIS) konfiguracje są dużym stopniu dostosowywane umożliwiającą różnych witryny i aplikacji toobe poziomy zastąpiona. Skaner Hello sprawdza ustawienia hello na każdym poziomie witryny/aplikacji dodanie toohello domyślnego katalogu głównego poziomu. To ułatwia tooidentify potencjalnych luk w zabezpieczeniach ustawienia lokalizacji i szybko skorygować.
 
 
 ## <a name="web-security-baseline-assessment"></a>Ocena linii bazowej zabezpieczeń sieci Web
-Dostęp do tej wersji zapoznawczej funkcji będzie można uzyskać za pomocą opcji wyszukiwania w pakiecie OMS. Aby uruchomić odpowiednie zapytanie, wykonaj następujące czynności:
+Dla tej wersji zapoznawczej tej funkcji będzie toobe dostęp za pomocą opcji wyszukiwania OMS hello. Wykonaj kroki hello poniżej tooperform hello przeznaczona zapytania:
 
-1. Na głównym pulpicie nawigacyjnym pakietu **Microsoft Operations Management Suite** kliknij kafelek **Zabezpieczenia i inspekcja**.
-2. Na pulpicie nawigacyjnym **Zabezpieczenia i inspekcja** kliknij przycisk **Przeszukiwanie dzienników**.
-3. Pierwszym zapytaniem, którego możesz użyć, jest zapytanie **podsumowania oceny linii bazowej sieci Web**. W polu **Rozpocznij wyszukiwanie tutaj** wpisz to zapytanie: Type*=SecurityBaselineSummary BaselineType=web*. Następujący ekran zawiera przykładowe dane wyjściowe:
+1. W hello **programu Microsoft Operations Management Suite** głównym pulpicie nawigacyjnym kliknij **zabezpieczeń i inspekcji** kafelka.
+2. W hello **zabezpieczeń i inspekcji** pulpitu nawigacyjnego, kliknij przycisk **wyszukiwania dziennika** przycisku.
+3. Hello pierwszego zapytania, którego można używać jest hello **podsumowanie oceny linii bazowej sieci Web**. W hello **tutaj wyszukiwania Begin** wpisz tego zapytania: typ*= SecurityBaselineSummary BaselineType = sieci web*. po ekranie powitania zawiera przykładowe dane wyjściowe:
 
 ![Podsumowanie oceny linii bazowej sieci Web](./media/oms-security-web-baseline/oms-security-web-baseline-fig1-new.png)
 
 > [!NOTE]
 > W tym zapytaniu każdy rekord wskazuje podsumowanie oceny na jednym serwerze.
 
-Po otwarciu **przeszukiwania dzienników** możesz wpisywać różne zapytania, aby uzyskać więcej informacji o ocenie linii bazowej sieci Web. Oprócz poprzedniego zapytania w tej wersji zapoznawczej można użyć poniższych zapytań.
+Po przejściu do hello **wyszukiwania dziennika**, można wpisać tooobtain różne zapytania więcej informacji na temat oceny linii bazowej sieci web hello. Ponadto toohello poprzednie zapytanie, umożliwia także powitania od tych w tej wersji zapoznawczej.
 
-**Ocena reguły linii bazowej sieci Web**: każdy rekord reprezentuje jedną ocenę reguły linii bazowej sieci Web na jednym serwerze. Zawiera wszystkie dane dotyczące reguły, lokalizacji, oczekiwanego wyniku i rzeczywistego wyniku.
+**Ocena reguły linii bazowej sieci Web**: każdy rekord reprezentuje jedną ocenę reguły linii bazowej sieci Web na jednym serwerze. Zawiera wszystkie dane dla reguły hello, lokalizacji hello oczekiwano wyników i hello rzeczywisty wynik.
 
 **Zapytanie**: Type*=SecurityBaseline BaselineType=web*
 
 ![Ocena reguły linii bazowej sieci Web](./media/oms-security-web-baseline/oms-security-web-baseline-fig2.png)
 
-**Pokaż wszystkie wyniki dla określonego serwera**: to zapytanie pozwala wyświetlić wyniki z określonego serwera.
+**Pokaż wszystkie wyniki dla określonego serwera**: to zapytanie pokazuje, jak toosee wyniki z określonego serwera.
 
 **Zapytanie**: *Type=SecurityBaseline BaselineType=web Computer=BaselineTestVM1*
 
 ![Wszystkie wyniki](./media/oms-security-web-baseline/oms-security-web-baseline-fig3.png)
 
-Te rekordy/zapytania umożliwiają również tworzenie własnych pulpitów nawigacyjnych, raportów i alertów. Na poniższym ekranie pokazano przykładową kontrolkę interfejsu użytkownika, którą można dodać do pulpitu nawigacyjnego. Aby dowiedzieć się, jak wizualizować dane przy użyciu projektanta widoku w pakiecie OMS, kliknij [tutaj](https://blogs.technet.microsoft.com/msoms/2016/06/30/oms-view-designer-visualize-your-data-your-way/). Na poniższym ekranie pokazano przykładowy wygląd kafelka po wprowadzeniu tego dostosowania.
+Umożliwia także te rekordy/kwerendy toocreate własne pulpity nawigacyjne, raporty lub alerty. Witaj ekranu poniżej zawiera formant interfejsu użytkownika próbki dodać tooyour pulpitu nawigacyjnego. Aby dowiedzieć się jak toovisualize dane przy użyciu projektanta widoków OMS [tutaj](https://blogs.technet.microsoft.com/msoms/2016/06/30/oms-view-designer-visualize-your-data-your-way/). poniższym zrzucie ekranu Hello jest przykładem sposobu hello kafelka będzie wyglądać po wprowadzeniu takie dostosowanie.
 
 ![Przykładowy interfejs użytkownika](./media/oms-security-web-baseline/oms-security-web-baseline-fig4.png)
 
 > [!NOTE]
-> Aby dowiedzieć się, które ustawienia są sprawdzane pod kątem oceny linii bazowej, pobierz [ten arkusz kalkulacyjny programu Excel](https://gallery.technet.microsoft.com/OMS-Web-Baseline-1e811690) z informacjami o tych ustawieniach.
+> Jeśli chcesz tooknow hello ustawień, które są sprawdzane pod kątem oceny linii bazowej hello, możesz pobrać [ten arkusz kalkulacyjny programu Excel](https://gallery.technet.microsoft.com/OMS-Web-Baseline-1e811690) zawiera tych ustawień.
 
 ## <a name="see-also"></a>Zobacz też
-Ten dokument przedstawia informacje na temat oceny linii bazowej sieci Web w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
+Ten dokument przedstawia informacje na temat oceny linii bazowej sieci Web w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie OMS. toolearn więcej informacji na temat zabezpieczeń OMS, zobacz następujące artykuły hello:
 
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorowanie i alerty tooSecurity odpowiada Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](oms-security-responding-alerts.md)
 * [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
 

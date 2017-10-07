@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z obiektu blob magazynu i Visual Studio połączone usługi (projekty zadania WebJob) | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć korzystanie z magazynu obiektów Blob projektu zadania WebJob, po nawiązaniu połączenia z magazynem platformy Azure przy użyciu programu Visual Studio połączone usługi."
+title: "aaaGet wprowadzenie do magazynu obiektów blob i Visual Studio podłączonych usług (projekty zadania WebJob) | Dokumentacja firmy Microsoft"
+description: "Sposób uruchamiania przy użyciu magazynu obiektów Blob w projektu zadania WebJob po połączeniu tooan magazynu platformy Azure przy użyciu programu Visual Studio tooget połączone usługi."
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 29f2d5e19426d37d815cdf9a1e00abfb1e07ccf6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Wprowadzenie do obiektów Blob platformy Azure magazynu i Visual Studio połączone usługi (zadania WebJob projekty)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten artykuł zawiera C# przykłady kodu, których pokazano, jak do wyzwalania procesu podczas tworzenia lub aktualizowania obiektów blob platformy Azure. Kod przykłady użycia [zestaw SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk.md) wersja 1.x. Podczas dodawania konta magazynu do projektu zadania WebJob za pomocą programu Visual Studio **dodać usług połączonych** okna dialogowego, odpowiedniego pakietu NuGet usługi Magazyn Azure jest zainstalowany, odpowiednie odwołania .NET są dodawane do projektu i parametry połączenia dla konta magazynu są aktualizowane w pliku App.config.
+Ten artykuł zawiera C# jak przykłady kodu przedstawiające tootrigger procesu podczas tworzenia lub aktualizowania obiektów blob platformy Azure. Przykłady kodu Hello Użyj hello [zestaw SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk.md) wersja 1.x. Po dodaniu projektu zadania WebJob tooa konto magazynu przy użyciu programu Visual Studio hello **dodać usług połączonych** okna dialogowego, hello odpowiedniego pakietu NuGet usługi Magazyn Azure jest zainstalowany, hello odpowiednie .NET odwołania są dodane toohello Projekt i parametry połączenia dla konta magazynu hello są aktualizowane w pliku App.config hello.
 
-## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Sposób włączania funkcji podczas tworzenia lub aktualizowania obiektu blob
-W tej sekcji przedstawiono sposób użycia **BlobTrigger** atrybutu.
+## <a name="how-tootrigger-a-function-when-a-blob-is-created-or-updated"></a>Jak tootrigger funkcja, gdy obiekt blob jest tworzony lub aktualizowany
+W tej sekcji przedstawiono sposób toouse hello **BlobTrigger** atrybutu.
 
- **Uwaga:** zestaw SDK zadań Webjob skanuje pliki dzienników, które należy obserwować nowych lub zmienionych obiektów blob. Ten proces jest z założenia powolne; funkcja może nie pobrać są uruchamiane kilka minut lub dłużej po utworzeniu obiektu blob.  Jeśli aplikacja wymaga natychmiast przetwarza obiekty BLOB, zalecaną metodą jest utworzenie komunikatu w kolejce podczas tworzenia obiektu blob i użyj [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) atrybutu zamiast **BlobTrigger** atrybutu w funkcji, która przetwarza obiektu blob.
+ **Uwaga:** hello zestaw SDK zadań Webjob skanowania dziennika pliki toowatch dla nowych lub zmienionych obiektów blob. Ten proces jest z założenia powolne; funkcja może nie pobrać są uruchamiane kilka minut lub dłużej po utworzeniu obiektu blob hello.  Jeśli aplikacja wymaga obiekty BLOB tooprocess natychmiast, hello zalecana metoda to toocreate komunikatu w kolejce, podczas tworzenia obiektu blob hello i użyj hello [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) zamiast hello atrybutu **BlobTrigger** atrybutu w funkcji hello, który przetwarza hello obiektu blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Jeden symbol zastępczy dla obiektu blob nazwy z rozszerzeniem
-Poniższy przykładowy kod kopiuje tekst obiektów blob, które są widoczne w *wejściowych* kontener, aby *dane wyjściowe* kontenera:
+Witaj Poniższy przykładowy kod kopiuje tekst obiektów blob, które pojawiają się w hello *wejściowych* toohello kontenera *dane wyjściowe* kontenera:
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("output/{name}")] out string output)
@@ -40,9 +40,9 @@ Poniższy przykładowy kod kopiuje tekst obiektów blob, które są widoczne w *
             output = input.ReadToEnd();
         }
 
-Konstruktor atrybutu ma parametr typu string, który określa nazwę kontenera i nazwę obiektu blob. W tym przykładzie o nazwie obiektu blob *Blob1.txt* jest tworzony w *wejściowych* kontenera, funkcja ta umożliwia tworzenie obiektu blob o nazwie *Blob1.txt* w *dane wyjściowe* kontenera.
+Hello Konstruktor atrybutu ma parametr ciąg, który określa nazwę kontenera hello i hello nazwę obiektu blob. W tym przykładzie o nazwie obiektu blob *Blob1.txt* jest tworzony w hello *wejściowych* kontenera, funkcja hello tworzy obiektu blob o nazwie *Blob1.txt* w hello *danych wyjściowych*  kontenera.
 
-Wzorzec nazwy można określić za pomocą nazwy obiektu blob — symbol zastępczy, jak pokazano w poniższym przykładzie kodu:
+Wzorzec nazwy można określić za pomocą hello blob nazwa symbolu zastępczego, jak pokazano w powitania po przykładowy kod:
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -50,9 +50,9 @@ Wzorzec nazwy można określić za pomocą nazwy obiektu blob — symbol zastęp
             output = input.ReadToEnd();
         }
 
-Ten kod kopiuje tylko obiekty BLOB o nazwach rozpoczynających się od "oryginalnego-". Na przykład *Blob1.txt oryginalne* w *wejściowych* kontenera jest kopiowany do *Blob1.txt kopiowania* w *dane wyjściowe* kontenera.
+Ten kod kopiuje tylko obiekty BLOB o nazwach rozpoczynających się od "oryginalnego-". Na przykład *Blob1.txt oryginalne* w hello *wejściowych* kontenera jest kopiowana za*Blob1.txt kopiowania* w hello *dane wyjściowe* kontenera.
 
-Jeśli musisz określić wzorzec nazw dla nazwy obiektów blob, które mają nawiasy klamrowe w nazwie dwukrotnie nawiasów klamrowych. Na przykład, jeśli chcesz znaleźć obiekty BLOB w *obrazów* kontenera, w którym mają nazwy w następujący sposób:
+Jeśli potrzebujesz toospecify wzorzec nazw dla nazwy obiektów blob, które mają nawiasy klamrowe w nazwie hello dwukrotnie hello nawiasów klamrowych. Na przykład, jeśli chcesz, aby obiekty BLOB toofind na powitania *obrazów* kontenera, w którym mają nazwy w następujący sposób:
 
         {20140101}-soundfile.mp3
 
@@ -60,10 +60,10 @@ Użyj tego deseniu:
 
         images/{{20140101}}-{name}
 
-W tym przykładzie *nazwa* wartość symbolu zastępczego będzie *soundfile.mp3*.
+Przykład Witaj Witaj *nazwa* wartość symbolu zastępczego będzie *soundfile.mp3*.
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Symbole zastępcze nazwę i rozszerzenie oddzielnych obiektów blob
-Poniższy przykładowy kod powoduje zmianę rozszerzenia pliku jako kopiowania obiektów blob, które są widoczne w *wejściowych* kontener, aby *dane wyjściowe* kontenera. Kod rejestruje rozszerzenie *wejściowych* obiektu blob i Ustawia rozszerzenie *dane wyjściowe* obiektu blob do *.txt*.
+Witaj następujące zmiany przykładowy kod hello rozszerzenie pliku jako kopiuje obiektów blob, które są wyświetlane w hello *wejściowych* toohello kontenera *dane wyjściowe* kontenera. Kod Hello rejestruje rozszerzenie hello hello *wejściowych* obiektu blob i Ustawia rozszerzenie hello hello *dane wyjściowe* obiektów blob za*.txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -76,8 +76,8 @@ Poniższy przykładowy kod powoduje zmianę rozszerzenia pliku jako kopiowania o
             output = input.ReadToEnd();
         }
 
-## <a name="types-that-you-can-bind-to-blobs"></a>Typy, które można powiązać obiekty BLOB
-Można użyć **BlobTrigger** atrybutu w następujących typów:
+## <a name="types-that-you-can-bind-tooblobs"></a>Czy można powiązać tooblobs typów
+Można użyć hello **BlobTrigger** atrybutu na powitania następujące typy:
 
 * **ciąg**
 * **TextReader**
@@ -87,10 +87,10 @@ Można użyć **BlobTrigger** atrybutu w następujących typów:
 * **CloudPageBlob**
 * Inne typy deserializacji przez [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
-Jeśli chcesz pracować bezpośrednio z kontem magazynu platformy Azure, możesz także dodać **CloudStorageAccount** parametru w podpisie metody.
+Jeśli chcesz toowork bezpośrednio z hello kontem magazynu platformy Azure, możesz także dodać **CloudStorageAccount** podpis metody toohello parametru.
 
-## <a name="getting-text-blob-content-by-binding-to-string"></a>Pobieranie zawartości obiektu blob tekstu przez powiązanie do ciągu
-Jeśli oczekiwano tekstu w obiektach blob, **BlobTrigger** można zastosować do **ciąg** parametru. Poniższy przykładowy kod wiąże obiektu blob tekstu do **ciąg** parametru o nazwie **logMessage**. Funkcja używa parametru do zapisania zawartości obiektu blob do pulpitu nawigacyjnego, zestaw SDK zadań Webjob.
+## <a name="getting-text-blob-content-by-binding-toostring"></a>Pobieranie zawartości obiektu blob tekstu przez powiązanie toostring
+Jeśli oczekiwano tekstu w obiektach blob, **BlobTrigger** może być zastosowane tooa **ciąg** parametru. Witaj Poniższy przykładowy kod wiąże tooa obiektu blob tekst **ciąg** parametru o nazwie **logMessage**. Funkcja Hello korzysta zawartości hello toowrite parametru tego toohello obiektu blob hello zestaw SDK zadań Webjob pulpitu nawigacyjnego.
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name,
@@ -102,7 +102,7 @@ Jeśli oczekiwano tekstu w obiektach blob, **BlobTrigger** można zastosować do
         }
 
 ## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Pobieranie serializacji zawartość obiektu blob przy użyciu ICloudBlobStreamBinder
-Poniższy przykład kodu wykorzystuje klasy, która implementuje **ICloudBlobStreamBinder** umożliwiające **BlobTrigger** atrybutu będzie tworzone powiązanie obiektu blob do **WebImage** typu.
+Witaj Poniższy przykładowy kod używa klasy, która implementuje **ICloudBlobStreamBinder** tooenable hello **BlobTrigger** toobind toohello obiektu blob atrybutu **WebImage** typu.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -121,7 +121,7 @@ Poniższy przykład kodu wykorzystuje klasy, która implementuje **ICloudBlobStr
             output = input.Resize(width, height);
         }
 
-**WebImage** powiązanie kod znajduje się w **WebImageBinder** klasą pochodzącą z **ICloudBlobStreamBinder**.
+Witaj **WebImage** powiązanie kod znajduje się w **WebImageBinder** klasą pochodzącą z **ICloudBlobStreamBinder**.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -138,20 +138,20 @@ Poniższy przykład kodu wykorzystuje klasy, która implementuje **ICloudBlobStr
             }
         }
 
-## <a name="how-to-handle-poison-blobs"></a>Sposób obsługi skażone obiektów blob
-Gdy **BlobTrigger** funkcja kończy się niepowodzeniem, zestaw SDK wymaga go ponownie, w przypadku, gdy błąd został spowodowany przez błąd przejściowy. Jeśli niepowodzenie jest spowodowane zawartość obiektu blob, funkcja zakończy się niepowodzeniem, za każdym razem, gdy próbuje przetworzyć obiektu blob. Domyślnie zestaw SDK wywołuje funkcję maksymalnie 5 razy dla danego obiektu blob. Jeśli piątym spróbuj kończy się niepowodzeniem, zestaw SDK dodaje komunikat do kolejki o nazwie *webjob blobtrigger-poison*.
+## <a name="how-toohandle-poison-blobs"></a>Jak obiekty BLOB toohandle poison
+Gdy **BlobTrigger** funkcja kończy się niepowodzeniem, hello zestawu SDK wywołania go ponownie, w przypadku hello błąd został spowodowany przez błąd przejściowy. Jeśli hello jest przyczyną niepowodzenia hello zawartości obiektu hello blob, funkcja hello zakończy się niepowodzeniem, zawsze próbuje tooprocess hello blob. Domyślnie program hello SDK wywołuje funkcję się too5 razy dla danego obiektu blob. W przypadku niepowodzenia spróbuj piątym powitania hello SDK dodaje tooa kolejki komunikatów o nazwie *webjob blobtrigger-poison*.
 
-Konfiguruje się maksymalnej liczby ponownych prób. Taki sam [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) ustawienie służy do obsługi skażone obiektów blob i kolejki skażone komunikat — Obsługa.
+konfiguruje się Hello maksymalnej liczby ponownych prób. Witaj sam [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) ustawienie służy do obsługi skażone obiektów blob i kolejki skażone komunikat — Obsługa.
 
-Komunikat z kolejki skażone obiektów blob jest obiekt JSON, który zawiera następujące właściwości:
+komunikat z kolejki Hello skażone obiektów blob jest obiekt JSON, który zawiera hello następujące właściwości:
 
-* FunctionId (w formacie *{Nazwa zadania WebJob}*. Funkcje. *{Nazwa funkcji}*, na przykład: WebJob1.Functions.CopyBlob)
+* FunctionId (w formacie hello *{Nazwa zadania WebJob}*. Funkcje. *{Nazwa funkcji}*, na przykład: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" lub "PageBlob")
 * Właściwość ContainerName
 * Element BlobName
 * Element ETag (identyfikator wersji obiektów blob, na przykład: "0x8D1DC6E70A277EF")
 
-W poniższym przykładzie kodu **CopyBlob** funkcja ma kod powodujący niepowodzenie za każdym razem, gdy jest ona wywoływana. Po zestaw SDK wymaga on maksymalnej liczby ponownych prób, wiadomość jest tworzony w kolejce skażone obiektów blob, a ten komunikat jest przetwarzany przez **LogPoisonBlob** funkcji.
+W następujących hello kodu próbki hello **CopyBlob** funkcja ma kod powodujący toofail za każdym razem, gdy jest ona wywoływana. Po hello zestaw SDK wymaga on hello maksymalnej liczby ponownych prób, wiadomość jest tworzona na powitania skażone blob kolejki, a ten komunikat jest przetwarzany przez hello **LogPoisonBlob** funkcji.
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("textblobs/output-{name}")] out string output)
@@ -171,7 +171,7 @@ W poniższym przykładzie kodu **CopyBlob** funkcja ma kod powodujący niepowodz
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-Zestaw SDK automatycznie deserializuje komunikat JSON. Oto **PoisonBlobMessage** klasy:
+Witaj SDK automatycznie deserializuje wiadomości powitania JSON. Oto hello **PoisonBlobMessage** klasy:
 
         public class PoisonBlobMessage
         {
@@ -183,40 +183,40 @@ Zestaw SDK automatycznie deserializuje komunikat JSON. Oto **PoisonBlobMessage**
         }
 
 ### <a name="blob-polling-algorithm"></a>Algorytm sondowania obiektów blob
-Zestaw SDK zadań Webjob skanuje wszystkie kontenery określony przez **BlobTrigger** atrybuty podczas uruchamiania aplikacji. Na koncie magazynu dużych ten tryb skanowania może zająć trochę czasu, dlatego może być trochę czasu, zanim znajdują się nowe obiekty BLOB i **BlobTrigger** funkcje są wykonywane.
+Witaj zestaw SDK zadań Webjob skanuje wszystkie kontenery określony przez **BlobTrigger** atrybuty podczas uruchamiania aplikacji. Na koncie magazynu dużych ten tryb skanowania może zająć trochę czasu, dlatego może być trochę czasu, zanim znajdują się nowe obiekty BLOB i **BlobTrigger** funkcje są wykonywane.
 
-Aby wykryć nowe lub zmienione obiekty BLOB po uruchomieniu aplikacji, zestaw SDK okresowo odczytuje z dzienników magazynu obiektów blob. Dzienniki obiektów blob są buforowane oraz tylko fizycznie zapisane co 10 minut lub tak, więc mogą występować znaczne opóźnienie po obiektu blob jest tworzony lub aktualizowany przed odpowiadającego **BlobTrigger** wykonuje funkcji.
+rejestruje powitalne SDK okresowo odczytuje z magazynu obiektów blob hello toodetect nowych lub zmienionych obiektów blob w po uruchomieniu aplikacji. Witaj dzienniki obiektów blob są buforowane i tylko fizycznie zapisane co 10 minut lub tak, więc mogą występować znaczne opóźnienia po obiektu blob jest tworzony lub aktualizowany przed hello odpowiadającego **BlobTrigger** wykonuje funkcji.
 
-Występuje wyjątek dla obiektów blob, które utworzono za pomocą **obiektu Blob** atrybutu. Gdy zestaw SDK zadań Webjob tworzy nowy obiekt blob, przekazaniem nowego obiektu blob natychmiast żadnych zgodnych **BlobTrigger** funkcji. W związku z tym jeśli łańcuch blob wejściach i wyjściach, zestaw SDK może je przetwarzać wydajnie. Ale jeśli chcesz małych opóźnieniach uruchomiona z obiektu blob funkcji przetwarzania dla obiektów blob, które są tworzone lub zaktualizowany w inny sposób, firma Microsoft zaleca używanie **QueueTrigger** zamiast **BlobTrigger**.
+Brak wyjątek dla obiektów blob, które są tworzone przy użyciu hello **obiektu Blob** atrybutu. Gdy hello zestaw SDK zadań Webjob tworzy nowy obiekt blob, natychmiast przekazaniem nowego obiektu blob hello dopasowania tooany **BlobTrigger** funkcji. W związku z tym jeśli łańcuch blob wejściach i wyjściach, hello SDK może je przetwarzać wydajnie. Ale jeśli chcesz małych opóźnieniach uruchomiona z obiektu blob funkcji przetwarzania dla obiektów blob, które są tworzone lub zaktualizowany w inny sposób, firma Microsoft zaleca używanie **QueueTrigger** zamiast **BlobTrigger**.
 
 ### <a name="blob-receipts"></a>Potwierdzenia obiektów blob
-Zestaw SDK zadań Webjob, sprawdza nie **BlobTrigger** funkcja jest wywoływana więcej niż raz dla tego samego obiektu blob nowe lub zaktualizowane. Dzieje się tak dzięki utrzymywaniu *obiektu blob potwierdzenia* w celu ustalenia, czy wersja danego obiektu blob został przetworzony.
+zestaw SDK zadań Webjob Hello, sprawdza nie **BlobTrigger** funkcja jest wywoływana więcej niż raz dla hello sam nowe lub zaktualizowane obiektu blob. Dzieje się tak dzięki utrzymywaniu *obiektu blob potwierdzenia* w kolejności toodetermine wersji danego obiektu blob został przetworzony.
 
-Potwierdzenia obiektów blob są przechowywane w kontenerze o nazwie *azure webjobs hostów* w określona przez ciąg połączenia AzureWebJobsStorage konto magazynu Azure. Potwierdzenie obiektu blob zawiera następujące informacje:
+Potwierdzenia obiektów blob są przechowywane w kontenerze o nazwie *azure webjobs hostów* na koncie magazynu Azure hello określona przez ciąg połączenia AzureWebJobsStorage hello. Potwierdzenie obiektu blob ma hello następujących informacji:
 
-* Funkcja, która została wywołana dla obiektu blob ("*{Nazwa zadania WebJob}*. Funkcje. *{Nazwa funkcji}*", na przykład:"WebJob1.Functions.CopyBlob")
-* Nazwa kontenera
-* Typ obiektów blob ("BlockBlob" lub "PageBlob")
-* Nazwa obiektu blob
-* Element ETag (identyfikator wersji obiektów blob, na przykład: "0x8D1DC6E70A277EF")
+* Funkcja, która została wywołana dla obiektu blob hello Hello ("*{Nazwa zadania WebJob}*. Funkcje. *{Nazwa funkcji}*", na przykład:"WebJob1.Functions.CopyBlob")
+* Nazwa kontenera Hello
+* Typ obiektu blob Hello ("BlockBlob" lub "PageBlob")
+* Nazwa obiektu blob Hello
+* Witaj ETag (identyfikator wersji obiektów blob, na przykład: "0x8D1DC6E70A277EF")
 
-Jeśli chcesz wymusić ponowne przetworzenie obiektu blob, należy ręcznie usunąć potwierdzenia obiektu blob dla tego obiektu blob z *azure webjobs hostów* kontenera.
+Jeśli chcesz tooforce ponowne przetworzenie obiektu blob, można ręcznie usunąć hello potwierdzenia obiektu blob dla tego obiektu blob z hello *azure webjobs hostów* kontenera.
 
-## <a name="related-topics-covered-by-the-queues-article"></a>Tematy pokrewne objętych artykułem kolejek
-Informacje dotyczące obsługi przetwarzania obiektu blob wyzwalane przez komunikatu w kolejce, lub zestaw SDK zadań Webjob do obiektu blob nie są typowe scenariusze przetwarzania, zobacz [jak używać magazynu kolejek Azure przy użyciu zestawu SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+## <a name="related-topics-covered-by-hello-queues-article"></a>Tematy pokrewne objętych hello kolejek artykułu
+Informacje dotyczące sposobu przetwarzania obiektu blob toohandle wyzwalane komunikatu w kolejce, lub dla zadań Webjob scenariusze zestawu SDK nie określonych tooblob przetwarzania, zobacz [jak toouse Azure kolejki magazynu z hello zestaw SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
-Tematy pokrewne omówione w tym artykule są następujące:
+Tematy pokrewne omówione w tym artykule Uwzględnij hello następujące elementy:
 
 * Funkcje asynchroniczne
 * Wiele wystąpień
 * Łagodne zamykanie
-* Użyj zestawu SDK zadań Webjob atrybutów w treści funkcji
-* Ustaw parametry połączenia SDK w kodzie.
+* Użyj zestawu SDK zadań Webjob atrybutów w hello treści funkcji
+* Ustawianie parametrów połączenia SDK hello w kodzie.
 * Ustawianie wartości dla zestawu SDK zadań Webjob parametrami konstruktora w kodzie
 * Skonfiguruj **MaxDequeueCount** obsługi skażone obiektu blob.
 * Wyzwalanie funkcji ręcznie
 * Zapisywanie dzienników
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule udostępnił przykłady kodu, które przedstawiają sposób obsługi typowe scenariusze dotyczące pracy z obiektami blob Azure. Aby uzyskać więcej informacji o sposobie używania zadań Webjob Azure i zestaw SDK zadań Webjob, zobacz [zasoby dokumentacji zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+W tym artykule udostępnił przykłady kodu przedstawiające jak obiekty BLOB toohandle typowe scenariusze dotyczące pracy z platformą Azure. Aby uzyskać więcej informacji na temat sposobu toouse zadań Webjob Azure i hello zestaw SDK zadań Webjob, zobacz [zasoby dokumentacji zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

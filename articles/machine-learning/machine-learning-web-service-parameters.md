@@ -1,6 +1,6 @@
 ---
-title: "Użyj Azure Machine Learning parametry usługi sieci Web | Dokumentacja firmy Microsoft"
-description: "Jak używać parametry usługi sieci Web Azure Machine Learning, aby zmodyfikować zachowanie modelu podczas uzyskiwania dostępu do usługi sieci web."
+title: "aaaUse parametry usługi sieci Web Azure Machine Learning | Dokumentacja firmy Microsoft"
+description: "Jak toomodify parametry usługi sieci Web Azure Machine Learning toouse hello zachowanie modelu podczas uzyskiwania dostępu do usługi sieci web hello."
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 214711eb819a6cea34db905abdf015da11e846d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Używanie parametrów usługi sieci Web Azure Machine Learning
-Usługi sieci web Azure Machine Learning jest tworzony przez publikowanie eksperymentu, która zawiera moduły można skonfigurować parametrów. W niektórych przypadkach możesz zmienić to zachowanie modułu jest uruchomiona usługa sieci web. *Parametry usługi sieci Web* umożliwiają wykonywanie tego zadania. 
+Usługi sieci web Azure Machine Learning jest tworzony przez publikowanie eksperymentu, która zawiera moduły można skonfigurować parametrów. W niektórych przypadkach może być zachowanie modułu hello toochange hello usługi sieci web jest uruchomiona. *Parametry usługi sieci Web* pozwalają toodo to zadanie. 
 
-Typowym przykładem jest konfigurowanie [i zaimportuj dane] [ reader] modułu, aby użytkownik usługi opublikowana w sieci web można określić innego źródła danych podczas uzyskiwania dostępu do usługi sieci web. Lub konfigurowania [eksportowanie danych] [ writer] modułu, dzięki czemu można określić inną lokalizację docelową. Inne przykłady zmiana liczby bitów dla [Tworzenie skrótu funkcji] [ feature-hashing] modułu lub liczbę potrzebne funkcje [na podstawie filtru wybór funkcji] [ filter-based-feature-selection] modułu. 
+Typowym przykładem jest konfigurowanie hello [i zaimportuj dane] [ reader] moduł, tak że użytkownik hello hello opublikowane usługi sieci web można określić innego źródła danych podczas uzyskiwania dostępu do usługi sieci web hello. Lub konfigurowania hello [eksportowanie danych] [ writer] modułu, dzięki czemu można określić inną lokalizację docelową. Inne przykłady zmiana hello liczby bitów na powitania [Tworzenie skrótu funkcji] [ feature-hashing] modułu lub hello liczba żądanych funkcji dla hello [na podstawie filtru wybór funkcji] [ filter-based-feature-selection] modułu. 
 
-Można ustawić parametry usługi sieci Web i skojarz je z jednego lub więcej parametrów modułu w eksperymencie i czy są one wymagane lub opcjonalne. Użytkownik usługi sieci web mogą udzielić im wartości dla tych parametrów, gdy wywołują usługi sieci web. 
+Można ustawić parametry usługi sieci Web i skojarz je z jednego lub więcej parametrów modułu w eksperymencie i czy są one wymagane lub opcjonalne. Hello użytkownika usługi sieci web hello można następnie podanie wartości tych parametrów przy wywoływaniu hello usługi sieci web. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="how-to-set-and-use-web-service-parameters"></a>Jak ustawić i skorzystać parametry usługi sieci Web
-Należy zdefiniować parametr usługi sieci Web, klikając ikonę obok parametru modułu i wybierając "Ustaw jako parametr usługi sieci web". Tworzy nowy parametr usługi sieci Web i łączy go do tego parametru modułu. Następnie podczas uzyskiwania dostępu do usługi sieci web użytkownika można określić wartość dla parametru usługi sieci Web i jest stosowane do parametru modułu.
+## <a name="how-tooset-and-use-web-service-parameters"></a>Jak tooset i użyj parametry usługi sieci Web
+Parametr usługi sieci Web należy zdefiniować przez kliknięcie przycisku hello ikona dalej toohello parametru modułu i wybierając polecenie "Ustaw jako parametr usługi sieci web". Tworzy nowy parametr usługi sieci Web i łączy go toothat parametru modułu. Następnie podczas uzyskiwania dostępu do usługi sieci web hello hello użytkownika można określić wartość dla hello parametr usługi sieci Web i jest stosowane toohello parametr modułu.
 
-Po zdefiniowaniu parametr usługi sieci Web jest dostępne dla innych parametrów modułu w eksperymencie. Po zdefiniowaniu parametr usługi sieci Web skojarzony z parametrem dla jednego modułu można użyć tego samego parametru usługi sieci Web dla inny moduł, tak długo, jak parametr oczekuje wartości tego samego typu. Na przykład jeśli parametr usługi sieci Web jest wartość liczbowa, następnie tylko umożliwia dla modułu parametrów, które oczekują wartość liczbową. Gdy użytkownik ustawia wartość dla parametru usługi sieci Web, będą dotyczyć wszystkich parametrów skojarzonych modułu.
+Po zdefiniowaniu parametr usługi sieci Web jest dostępna tooany innych parametrów modułu w eksperymencie hello. Po zdefiniowaniu parametr usługi sieci Web skojarzony z parametrem dla jednego modułu można użyć tego samego parametru usługi sieci Web dla inny moduł, tak długo, jak parametr hello oczekuje hello tego samego typu wartości. Na przykład jeśli hello parametr usługi sieci Web jest wartość liczbowa, następnie tylko umożliwia dla modułu parametrów, które oczekują wartość liczbową. Gdy użytkownik hello ustawia wartość hello parametr usługi sieci Web, będzie zastosowane tooall skojarzone parametry modułu.
 
-Można zdecydować, czy można podać wartości domyślnej dla parametru usługi sieci Web. Jeśli to zrobisz, parametr jest opcjonalny dla użytkownika usługi sieci web. Jeśli nie podasz wartość domyślną, użytkownika jest wymagane wprowadzenie wartości podczas uzyskiwania dostępu do usługi sieci web.
+Można zdecydować, czy tooprovide domyślną wartość hello parametr usługi sieci Web. Jeśli następnie hello parametr jest opcjonalny dla użytkownika hello hello usługi sieci web. Jeśli nie podasz wartość domyślną, następnie hello użytkownika jest wymagane tooenter wartość podczas uzyskiwania dostępu do usługi sieci web hello.
 
-Dokumentacja interfejsu API usługi sieci web zawiera informacje o użytkowniku usługi sieci web na temat sposobu programowo określić parametr usługi sieci Web podczas uzyskiwania dostępu do usługi sieci web.
+Witaj dokumentacji interfejsu API usługi sieci web hello zawiera informacje o użytkowniku usługi sieci web hello na jak toospecify hello parametr usługi sieci Web programowo podczas uzyskiwania dostępu do usługi sieci web hello.
 
 > [!NOTE]
-> Dokumentacja interfejsu API dla usługi sieci web klasycznego jest zapewniana za pomocą **strona pomocy interfejsu API** łącze usługi sieci web **pulpitu NAWIGACYJNEGO** w usłudze Machine Learning Studio. Dokumentacja interfejsu API dla nowej usługi sieci web jest zapewniana za pomocą [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net/Quickstart) portal **Consume** i **interfejsu API programu Swagger** stron dla usługi sieci web.
+> Witaj dokumentacji interfejsu API dla usługi sieci web klasycznego jest zapewniana za pomocą hello **strona pomocy interfejsu API** łącze usługi sieci web hello **pulpitu NAWIGACYJNEGO** w usłudze Machine Learning Studio. Witaj dokumentacji interfejsu API dla nowej usługi sieci web jest zapewniana za pomocą hello [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net/Quickstart) portalu na powitania **Consume** i **interfejsu API programu Swagger** stron dla użytkownika Usługa sieci Web.
 > 
 > 
 
 ## <a name="example"></a>Przykład
-Na przykład załóżmy, że mamy doświadczenia z [eksportowanie danych] [ writer] moduł, który wysyła informacje do magazynu obiektów blob platformy Azure. Zdefiniujemy parametr usługi sieci Web o nazwie "Ścieżka obiektu Blob" umożliwiająca użytkownika usługi sieci web zmienić ścieżkę do magazynu obiektów blob podczas uzyskiwania dostępu do usługi.
+Na przykład załóżmy, że mamy doświadczenia z [eksportowanie danych] [ writer] moduł, który wysyła magazynu obiektów blob tooAzure informacji. Zdefiniujemy parametr usługi sieci Web o nazwie "Ścieżka obiektu Blob" umożliwiająca hello sieci web usługi użytkownik toochange hello ścieżki toohello magazynu obiektów blob podczas uzyskiwania dostępu do usługi hello.
 
-1. W usłudze Machine Learning Studio, kliknij przycisk [eksportowanie danych] [ writer] modułu, aby go wybrać. Jego właściwości są wyświetlane w okienku właściwości z prawej strony obszaru roboczego eksperymentu.
-2. Określ typ magazynu:
+1. W usłudze Machine Learning Studio, kliknij przycisk hello [eksportowanie danych] [ writer] tooselect modułu go. Jego właściwości są wyświetlane w toohello okienko właściwości hello rogu hello kanwy eksperymentu.
+2. Określ typ magazynu hello:
    
    * W obszarze **określ miejsce docelowe danych**, wybierz pozycję "Magazyn obiektów Blob Azure".
    * W obszarze **Określ typ uwierzytelniania**, wybierz "Konto".
-   * Wprowadź informacje o koncie magazynu obiektów blob platformy Azure. 
+   * Wprowadź informacje o koncie hello na powitania magazynu obiektów blob platformy Azure. 
      <p />
-3.Kliknij ikonę z prawej strony **ścieżki do obiektu blob, począwszy od parametru kontenera**. Wygląda następująco:
+3.Kliknij toohello ikona hello rogu hello **ścieżki tooblob, począwszy od parametru kontenera**. Wygląda następująco:
    
    ![Ikona parametr usługi sieci Web][icon]
    
    Wybierz "Ustaw jako parametr usługi sieci web".
    
-   Wpis zostanie dodany w obszarze **parametry usługi sieci Web** w dolnej części okienka właściwości o nazwie "Ścieżki do obiektu blob kontenera, począwszy od". Jest to parametr usługi sieci Web, która jest teraz skojarzony z tym [eksportowanie danych] [ writer] parametru modułu.
-4. Zmień nazwę parametru usługi sieci Web, kliknij nazwę, wprowadź "Ścieżka obiektu Blob" i naciśnij klawisz **Enter** klucza. 
-5. Aby podać wartości domyślnej dla parametru usługi sieci Web, kliknij ikonę z prawej strony nazwy wybierz "Podać wartości domyślnej", wprowadź wartość (na przykład "container1/output1.csv") i naciśnij klawisz **Enter** klucza.
+   Wpis zostanie dodany w obszarze **parametry usługi sieci Web** u dołu okienka właściwości hello hello nazwy "Ścieżka tooblob rozpoczynający się od kontenera" hello. Jest to parametr usługi sieci Web, która jest teraz hello skojarzony z tym [eksportowanie danych] [ writer] parametru modułu.
+4. toorename hello parametr usługi sieci Web, kliknij nazwę hello wprowadź "Ścieżka obiektu Blob" i naciśnij klawisz hello **Enter** klucza. 
+5. tooprovide wartość domyślną dla hello parametr usługi sieci Web, kliknij toohello ikona hello prawej strony nazwy hello, wybierz "Podać wartości domyślnej", wprowadź wartość (na przykład "container1/output1.csv") i naciśnij klawisz hello **Enter** klucza.
    
    ![Parametr usługi sieci Web][parameter]
 6. Kliknij pozycję **Run** (Uruchom). 
-7. Kliknij przycisk **wdrażanie usługi sieci Web** i wybierz **wdrażanie usługi sieci Web [klasyczny]** lub **wdrażanie usługi sieci Web [New]** wdrożenie usługi sieci web.
+7. Kliknij przycisk **wdrażanie usługi sieci Web** i wybierz **wdrażanie usługi sieci Web [klasyczny]** lub **wdrażanie usługi sieci Web [New]** usługi sieci web hello toodeploy.
 
 > [!NOTE] 
-> Aby wdrożyć nową usługę sieci web musi masz wystarczające uprawnienia do subskrypcji, do którego należy wdrożyć usługę sieci web. Aby uzyskać więcej informacji, zobacz [zarządzania usługi sieci Web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+> toodeploy nową usługę sieci web, należy posiadać odpowiednie uprawnienia w hello toowhich subskrypcji możesz wdrażanie usługi sieci web hello. Aby uzyskać więcej informacji, zobacz [zarządzania usługi sieci Web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning hello](machine-learning-manage-new-webservice.md). 
 
-Użytkownik usługi sieci web można teraz określić nową lokalizację docelową dla [eksportowanie danych] [ writer] modułu podczas uzyskiwania dostępu do usługi sieci web.
+Hello użytkownika usługi sieci web hello można teraz określić nową lokalizację docelową dla hello [eksportowanie danych] [ writer] modułu podczas uzyskiwania dostępu do usługi sieci web hello.
 
 ## <a name="more-information"></a>Więcej informacji
-Aby uzyskać bardziej szczegółowy przykład zobacz [parametry usługi sieci Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) wpis w [Machine Learning blogu](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Aby uzyskać bardziej szczegółowy przykład zobacz hello [parametry usługi sieci Web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) wpisu w hello [Machine Learning blogu](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Aby uzyskać więcej informacji dotyczących uzyskiwania dostępu do usługi sieci web uczenie maszynowe, zobacz [jak korzystać z usługi sieci Web Azure Machine Learning](machine-learning-consume-web-services.md).
+Aby uzyskać więcej informacji dotyczących uzyskiwania dostępu do usługi sieci web uczenie maszynowe, zobacz [jak tooconsume usługi sieci Web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

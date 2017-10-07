@@ -1,6 +1,6 @@
 ---
-title: Rozszerzenie maszyny wirtualnej OMS Azure dla systemu Windows | Dokumentacja firmy Microsoft
-description: "Wdróż agenta pakietu OMS na maszynie wirtualnej z systemem Windows przy użyciu rozszerzenia maszyny wirtualnej."
+title: aaaOMS rozszerzenia maszyny wirtualnej platformy Azure dla systemu Windows | Dokumentacja firmy Microsoft
+description: "Wdróż agenta pakietu OMS hello na maszynie wirtualnej z systemem Windows przy użyciu rozszerzenia maszyny wirtualnej."
 services: virtual-machines-windows
 documentationcenter: 
 author: neilpeterson
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
-ms.openlocfilehash: d933f488fdda0c1d37892be65f2712cf0eb5694e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3000f66c0acdec1d1fad2125b8c6b72a92b1ec92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej OMS dla systemu Windows
 
-Operations Management Suite (OMS) zapewnia możliwości korygowania monitorowania, alertów i alertów w chmurze i lokalnych zasobów. Agent pakietu OMS rozszerzenie maszyny wirtualnej dla systemu Windows publikowana i obsługiwane przez firmę Microsoft. Rozszerzenie instaluje agenta pakietu OMS na maszynach wirtualnych platformy Azure i rejestrowania maszyn wirtualnych w istniejącym obszarem roboczym pakietu OMS. Ten dokument zawiera szczegóły dotyczące obsługiwanych platform, konfiguracji i opcje wdrażania dla rozszerzenia maszyny wirtualnej OMS dla systemu Windows.
+Operations Management Suite (OMS) zapewnia możliwości korygowania monitorowania, alertów i alertów w chmurze i lokalnych zasobów. Witaj Agent pakietu OMS rozszerzenie maszyny wirtualnej dla systemu Windows publikowana i obsługiwane przez firmę Microsoft. rozszerzenie Hello instaluje agenta pakietu OMS hello na maszynach wirtualnych platformy Azure i rejestrowania maszyn wirtualnych w istniejącym obszarem roboczym pakietu OMS. Hello szczegóły tego dokumentu obsługiwanych platform, konfiguracji i opcji wdrażania dla hello OMS rozszerzenie maszyny wirtualnej dla systemu Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="operating-system"></a>System operacyjny
-Rozszerzenie Agent pakietu OMS dla systemu Windows mogą być uruchamiane na systemie Windows Server 2008 R2, 2012 i 2012 R2, 2016 wersje.
+Witaj Agent pakietu OMS rozszerzenia dla systemu Windows mogą być uruchamiane na systemie Windows Server 2008 R2, 2012 i 2012 R2, 2016 wersje.
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
-Rozszerzenia Agent pakietu OMS dla systemu Windows wymaga, aby docelowa maszyna wirtualna jest połączony z Internetem. 
+Hello Agent pakietu OMS rozszerzenia dla systemu Windows wymaga tego hello docelowej maszyny wirtualnej jest połączonych toohello internet. 
 
 ## <a name="extension-schema"></a>Rozszerzenie schematu
 
-Następujące JSON zawiera schemat rozszerzenia Agent pakietu OMS. Rozszerzenie wymaga obszaru roboczego identyfikator i klucz obszaru roboczego z docelowy obszar roboczy OMS, te można znaleźć w portalu OMS. Ponieważ klucz obszaru roboczego powinien być traktowany jako dane poufne, powinny być przechowywane w chronionej konfiguracji. Dane Azure ustawienia rozszerzenia chronione maszyny Wirtualnej jest szyfrowany i odszyfrowane tylko na docelowej maszynie wirtualnej. Należy pamiętać, że **workspaceId** i **workspaceKey** jest rozróżniana wielkość liter.
+Hello następujące JSON zawiera schemat hello hello rozszerzenia Agent pakietu OMS. rozszerzenie Hello wymaga hello klucz identyfikator i obszaru roboczego obszaru roboczego z obszarem roboczym pakietu OMS docelowej hello, te można znaleźć w portalu OMS hello. Ponieważ klucz obszaru roboczego hello powinny być traktowane jako poufne dane, powinny być przechowywane w chronionej konfiguracji. Danych ustawieniem rozszerzenia chronione maszyny Wirtualnej Azure jest szyfrowany i odszyfrowane tylko na powitania docelowej maszyny wirtualnej. Należy pamiętać, że **workspaceId** i **workspaceKey** jest rozróżniana wielkość liter.
 
 ```json
 {
@@ -73,11 +73,11 @@ Następujące JSON zawiera schemat rozszerzenia Agent pakietu OMS. Rozszerzenie 
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu szablonów usługi Azure Resource Manager. Schematu JSON szczegółowo opisane w poprzedniej sekcji można w szablonie usługi Azure Resource Manager rozszerzenia Agent pakietu OMS są uruchamiane podczas wdrażania szablonu usługi Azure Resource Manager. Przykładowy szablon, który uwzględnia również rozszerzenie maszyny Wirtualnej agenta pakietu OMS można znaleźć w [Azure Szybki Start galerii](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu szablonów usługi Azure Resource Manager. Podczas wdrażania szablonu usługi Azure Resource Manager hello toorun szablonu usługi Azure Resource Manager Agent pakietu OMS rozszerzenia schematu JSON Hello szczegółowo opisane w poprzedniej sekcji hello w można. Przykładowy szablon, która zawiera rozszerzenia maszyny Wirtualnej agenta pakietu OMS hello znajduje się na powitania [Azure Szybki Start galerii](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-JSON dla rozszerzenia maszyny wirtualnej mogą być zagnieżdżone wewnątrz zasobu maszyny wirtualnej lub umieszczony w katalogu głównego lub najwyższego poziomu szablonu usługi Resource Manager JSON. Umieszczanie JSON ma wpływ na wartość nazwy zasobów i typu. Aby uzyskać więcej informacji, zobacz [Ustaw nazwę i typ zasoby podrzędne](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+Hello JSON dla rozszerzenia maszyny wirtualnej mogą być zagnieżdżone wewnątrz hello zasobu maszyny wirtualnej lub umieszczane na główny hello lub najwyższego poziomu szablonu usługi Resource Manager JSON. rozmieszczenie Hello hello JSON dotyczy wartości hello hello nazwy zasobów i typu. Aby uzyskać więcej informacji, zobacz [Ustaw nazwę i typ zasoby podrzędne](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-Poniższy przykład przyjęto założenie, że rozszerzenie OMS jest zagnieżdżona zasobu maszyny wirtualnej. Podczas zagnieżdżania rozszerzenia zasobu, JSON jest umieszczany w `"resources": []` obiektu maszyny wirtualnej.
+Witaj poniższym przykładzie przyjęto założenie, że rozszerzenie OMS hello jest zagnieżdżona hello zasobu maszyny wirtualnej. Podczas zagnieżdżania hello rozszerzenia zasobu, hello JSON jest umieszczany w hello `"resources": []` obiektu hello maszyny wirtualnej.
 
 
 ```json
@@ -104,7 +104,7 @@ Poniższy przykład przyjęto założenie, że rozszerzenie OMS jest zagnieżdż
 }
 ```
 
-Podczas umieszczania rozszerzenia JSON w elemencie głównym szablonu, nazwy zasobu zawiera odwołanie do nadrzędnego maszyny wirtualnej, a typ odzwierciedla zagnieżdżonych. 
+Podczas umieszczania hello rozszerzenia JSON w głównym hello hello szablonu, hello Nazwa zasobu zawiera maszynę wirtualną nadrzędnej toohello odwołania, a typ hello odzwierciedla hello zagnieżdżonych konfiguracji. 
 
 ```json
 {
@@ -132,7 +132,7 @@ Podczas umieszczania rozszerzenia JSON w elemencie głównym szablonu, nazwy zas
 
 ## <a name="powershell-deployment"></a>Wdrożenie programu PowerShell
 
-`Set-AzureRmVMExtension` Polecenia można wdrożyć agenta pakietu OMS rozszerzenie maszyny wirtualnej na istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia, konfiguracje publicznymi i prywatnymi muszą być przechowywane w tablicy skrótów programu PowerShell. 
+Witaj `Set-AzureRmVMExtension` polecenie może być używane toodeploy hello Agent pakietu OMS maszyny wirtualnej rozszerzenia tooan istniejącej maszyny wirtualnej. Przed uruchomieniem polecenia hello, konfiguracje hello publicznymi i prywatnymi muszą toobe przechowywane w tablicy skrótów programu PowerShell. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
@@ -153,13 +153,13 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Dane dotyczące stanu wdrożenia rozszerzenia może zostać pobrany z portalu Azure i przy użyciu modułu Azure PowerShell. Aby wyświetlić stan wdrożenia rozszerzeń dla danej maszyny Wirtualnej, uruchom następujące polecenie przy użyciu modułu Azure PowerShell.
+Z hello portalu Azure i przy użyciu modułu Azure PowerShell hello można pobrać danych o stanie hello wdrożeń rozszerzenia. Stan wdrożenia hello toosee rozszerzeń dla danej maszyny Wirtualnej hello uruchom następujące polecenia przy użyciu hello modułu Azure PowerShell.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Dane wyjściowe wykonania rozszerzenia jest rejestrowany pliki znajdujące się w następującym katalogu:
+Wykonanie rozszerzenia danych wyjściowych jest rejestrowane toofiles w hello następującego katalogu:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
@@ -167,4 +167,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się ekspertów platformy Azure na [fora MSDN Azure i przepełnienie stosu](https://azure.microsoft.com/en-us/support/forums/). Alternatywnie można pliku zdarzenia pomocy technicznej platformy Azure. Przejdź do [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/en-us/support/options/) i wybierz Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z platformy Azure obsługuje, przeczytaj [pomocy technicznej Microsoft Azure — często zadawane pytania](https://azure.microsoft.com/en-us/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się hello Azure ekspertów hello [fora MSDN Azure i przepełnienie stosu](https://azure.microsoft.com/en-us/support/forums/). Alternatywnie można pliku zdarzenia pomocy technicznej platformy Azure. Przejdź toohello [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/en-us/support/options/) i wybierz Uzyskaj pomoc techniczną. Informacje o korzystaniu z platformy Azure obsługuje, przeczytaj hello [pomocy technicznej Microsoft Azure — często zadawane pytania](https://azure.microsoft.com/en-us/support/faq/).

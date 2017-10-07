@@ -1,6 +1,6 @@
 ---
-title: Naprawianie zadania importu Import/Eksport Azure - v1 | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak naprawić zadania importu, który został utworzony i uruchamiany za pomocą usługi Import/Eksport Azure."
+title: Import/Eksport Azure zadania importu - v1 aaaRepairing | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toorepair został utworzony i uruchamiany za pomocą zadania importu hello Import/Eksport Azure usługi."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: b374eabcbafa6ffe64c639fb6c89be857ecfc221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a9ed81f50cffd8ae6e0cb21b25a04815c2b51ee5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu
-Usługa Import/Eksport Microsoft Azure może nie można skopiować niektórych plików lub części pliku do usługi Windows Azure Blob. Niektóre błędy przyczyny:  
+Witaj usługi Import/Eksport Microsoft Azure może się nie powieść toocopy niektórych plików lub części pliku toohello usługi Windows Azure Blob. Niektóre błędy przyczyny:  
   
 -   Uszkodzone pliki  
   
 -   Uszkodzone dyski  
   
--   Klucz konta magazynu, zmieniona podczas przesyłania pliku.  
+-   Witaj zmienione podczas transferowania plików hello klucz konta magazynu.  
   
-Można uruchomić narzędzie Import/Eksport Microsoft Azure z importowanie plików dziennika zadanie kopiowania, a narzędzie przekaże brakujących plików (lub części pliku) do konta magazynu systemu Windows Azure, aby ukończyć zadanie importu.  
+Można uruchamiać hello narzędzia importu/eksportu pakietu Microsoft Azure hello importowania plików dziennika zadanie kopiowania, i narzędzie hello przekaże hello brakujących plików (lub części pliku) zadania importu toocomplete konta magazynu tooyour systemu Windows Azure.  
   
 ## <a name="repairimport-parameters"></a>Parametry RepairImport
 
-Można określić następujące parametry z **RepairImport**: 
+Witaj następujące parametry można określić z **RepairImport**: 
   
 |||  
 |-|-|  
-|**/ r:**< RepairFile\>|**Wymagane.** Ścieżka do pliku naprawy, który śledzi postęp naprawy i umożliwia wznowienie naprawę przerwania. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po uruchomieniu naprawy dla danego dysku zostaną spełnione w ścieżce do pliku naprawy, które jeszcze nie istnieje. Aby wznowić naprawę przerwania, należy przekazać nazwę istniejącego pliku naprawy. Zawsze należy określać plik naprawy odpowiadający dysk docelowy.|  
-|**/ logdir:**< LogDirectory\>|**Opcjonalne.** Katalog dziennika. Plików pełnego dziennika zostanie zapisany do tego katalogu. Jeśli katalog dziennika nie jest określony, bieżący katalog będzie używany jako katalog dziennika.|  
-|**/ d:**< TargetDirectories\>|**Wymagane.** Jeden lub więcej oddzielonych średnikami katalogów zawierające oryginalnych plików, które zostały zaimportowane. Importowanie dysku mogą być również używane, ale nie jest wymagane, jeśli alternatywnych lokalizacji oryginalnych plików są dostępne.|  
-|**/BK:**< BitLockerKey\>|**Opcjonalne.** Należy określić klucza funkcji BitLocker, jeśli chcesz użyć narzędzia do odblokowywania zaszyfrowanego dysku, której oryginalnych plików są dostępne.|  
-|**/SN:**< StorageAccountName\>|**Wymagane.** Nazwa konta magazynu dla zadania importu.|  
-|**/SK:**< StorageAccountKey\>|**Wymagane** tylko wtedy, gdy nie określono kontenera sygnatury dostępu Współdzielonego. Klucz konta dla konta magazynu dla zadania importu.|  
-|**/csas:**< ContainerSas\>|**Wymagane** tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS do uzyskiwania dostępu do obiektów blob skojarzony z zadaniem importu.|  
-|**/ CopyLogFile:**< DriveCopyLogFile\>|**Wymagane.** Ścieżka do pliku dziennika kopii dysku (albo pełnego dziennika lub błędu dziennika). Plik jest generowany przez usługę Windows Azure importu/eksportu i można pobrać z magazynu obiektów blob, skojarzone z zadaniem. Kopiuj plik dziennika zawiera informacje dotyczące obiektów blob nie powiodło się lub pliki, które mają zostać naprawione.|  
-|**/ PathMapFile:**< DrivePathMapFile\>|**Opcjonalne.** Ścieżka do pliku tekstowego, który może służyć do rozpoznawania niejednoznaczności, jeśli masz wiele plików o takiej samej nazwie, które zostały importowania w tym samym zadaniu. Uruchomienie narzędzia po raz pierwszy go wypełnić ten plik ze wszystkimi niejednoznacznych nazw. Kolejnych uruchomieniach narzędzia użyje tego pliku w celu rozwiązania niejednoznaczności.|  
+|**/ r:**< RepairFile\>|**Wymagane.** Plik naprawy toohello ścieżki, który śledzi postęp hello naprawy hello i pozwala tooresume naprawę przerwania. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po uruchomieniu naprawy dla danego dysku przechodzą w hello ścieżki tooa naprawy pliku, które jeszcze nie istnieje. tooresume naprawę przerwania, należy przekazać w nazwie hello istniejącego pliku naprawy. zawsze należy określać Hello naprawy pliku odpowiedniego toohello dysk docelowy.|  
+|**/ logdir:**< LogDirectory\>|**Opcjonalne.** Katalog dziennika Hello. Pełne pliki dziennika zostaną zapisane toothis katalogu. Jeśli katalog dziennika nie jest określony, bieżący katalog hello będzie używany jako katalog dziennika hello.|  
+|**/ d:**< TargetDirectories\>|**Wymagane.** Co najmniej jeden oddzielonych średnikami katalogi, które zawierają hello oryginalnych plików, które zostały zaimportowane. Hello importowania dysku może być używany, ale nie jest wymagane, jeśli alternatywnych lokalizacji oryginalnych plików są dostępne.|  
+|**/BK:**< BitLockerKey\>|**Opcjonalne.** Należy określić hello klucza funkcji BitLocker, jeśli chcesz toounlock narzędzie hello zaszyfrowanego dysku, której hello oryginalnych plików są dostępne.|  
+|**/SN:**< StorageAccountName\>|**Wymagane.** Witaj nazwę konta magazynu hello hello Importuj zadanie.|  
+|**/SK:**< StorageAccountKey\>|**Wymagane** tylko wtedy, gdy nie określono kontenera sygnatury dostępu Współdzielonego. Witaj klucz konta usługi dla konta magazynu hello hello Importuj zadanie.|  
+|**/csas:**< ContainerSas\>|**Wymagane** tylko wtedy, gdy nie określono klucza konta magazynu hello. kontener Hello SAS do uzyskiwania dostępu do obiektów blob hello skojarzone z zadaniem importu hello.|  
+|**/ CopyLogFile:**< DriveCopyLogFile\>|**Wymagane.** Ścieżka toohello dysku kopii pliku dziennika (pełnego dziennika lub dziennik błędów). Plik Hello jest generowany przez hello usługi Import/Eksport systemu Windows Azure i można pobrać z magazynu obiektów blob hello skojarzone z zadaniem hello. Witaj Kopiuj plik dziennika zawiera informacje dotyczące obiektów blob nie powiodło się lub pliki, które są toobe naprawić.|  
+|**/ PathMapFile:**< DrivePathMapFile\>|**Opcjonalne.** Ścieżka pliku tekstowego tooa, który może służyć niejednoznaczności tooresolve, jeśli masz wiele plików z hello takie same nazwy, czy zostały importowania w hello samo zadanie. Witaj pierwszego czasu hello narzędzie jest uruchamiane, można wypełnić ten plik ze wszystkimi hello niejednoznaczne nazwy. Kolejnych uruchomieniach hello narzędzie będzie używać tego pliku tooresolve hello niejednoznaczności.|  
   
-## <a name="using-the-repairimport-command"></a>Za pomocą polecenia RepairImport  
-Napraw importowanie danych przez strumienia danych za pośrednictwem sieci, należy określić katalogi, które zawierają oryginalnych plików zostały importowanie przy użyciu `/d` parametru. Należy również określić kopii pliku dziennika, który został pobrany z konta magazynu. Typowe wiersza polecenia, aby naprawić zadania importu z częściowa błędami wygląda następująco:  
+## <a name="using-hello-repairimport-command"></a>Za pomocą polecenia RepairImport hello  
+toorepair importu danych przez przesyłania strumieniowego hello danych za pośrednictwem sieci hello, musisz określić hello hello katalogi, które zawierają hello oryginalnych plików zostały importowanie przy użyciu `/d` parametru. Należy również określić hello kopii dziennika pobranego pliku z konta magazynu. Toorepair wiersza polecenia typowe zadania importu z częściowa błędami wygląda następująco:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
-Oto przykład kopii pliku dziennika. W tym przypadku jeden fragment 64 K plik został uszkodzony na dysku, która została dostarczona dla zadania importu. Ponieważ jest to tylko niepowodzenia wskazane, pozostałe obiekty BLOB w ramach zadania zostały pomyślnie zaimportowane.  
+Witaj poniżej znajduje się przykład kopii pliku dziennika. W tym przypadku jeden 64 K część plik został uszkodzony na dysku hello, który został wysłany dla zadania importu hello. Ponieważ jest to błąd tylko hello wskazane, hello pozostałe obiekty BLOB hello hello zadania zostały pomyślnie zaimportowane.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -73,39 +73,39 @@ Oto przykład kopii pliku dziennika. W tym przypadku jeden fragment 64 K plik zo
 </DriveLog>  
 ```
   
-Jeśli ten dziennik kopiowania jest przekazywany do narzędzia importu/eksportu Azure, narzędzie zostanie podjęta próba zakończenia importowania tego pliku przez skopiowanie Brak zawartości w sieci. Po powyższym przykładzie narzędzie będzie szukać oryginalnego pliku `\animals\koala.jpg` w dwóch katalogów `C:\Users\bob\Pictures` i `X:\BobBackup\photos`. Jeśli plik `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, narzędzie importu/eksportu Azure skopiuje Brak zakres danych do odpowiedniego obiektu blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+Po upływie tego dziennika kopii toohello narzędzie importu/eksportu Azure narzędzia hello spróbuje toofinish hello importu dla tego pliku przez skopiowanie zawartości brakuje hello hello sieci. Następujący przykład hello powyżej, narzędzie hello będzie szukać hello oryginalnego pliku `\animals\koala.jpg` w katalogach hello dwa `C:\Users\bob\Pictures` i `X:\BobBackup\photos`. Jeśli hello plików `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, hello Azure narzędzie importu/eksportu skopiuje hello zakresu brakuje odpowiedniego obiektu blob danych toohello `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## <a name="resolving-conflicts-when-using-repairimport"></a>Rozwiązywanie konfliktów, korzystając z RepairImport  
-W niektórych sytuacjach narzędzia nie można znaleźć lub otworzyć pliku niezbędne dla jednego z następujących powodów: nie można odnaleźć pliku, plik nie jest dostępny, nazwa pliku jest niejednoznaczna lub zawartość pliku nie jest już prawidłowe.  
+W niektórych sytuacjach narzędzia hello nie może być możliwe toofind lub Otwórz hello niezbędnego pliku dla jednego z hello następujące przyczyny: nie można odnaleźć pliku hello, plik hello jest niedostępny, nazwa pliku hello jest niejednoznaczny lub hello zawartość pliku hello nie jest już prawidłowe.  
   
-Niejednoznaczny błąd mógł wystąpić, jeśli narzędzie próbuje zlokalizować `\animals\koala.jpg` i istnieje plik o tej samej nazwie w obu `C:\Users\bob\pictures` i `X:\BobBackup\photos`. Oznacza to, że oba `C:\Users\bob\pictures\animals\koala.jpg` i `X:\BobBackup\photos\animals\koala.jpg` istnieje na dyskach zadania importu.  
+Niejednoznaczny błąd mógł wystąpić, jeśli narzędzie hello próbuje toolocate `\animals\koala.jpg` i istnieje plik o tej samej nazwie w obu `C:\Users\bob\pictures` i `X:\BobBackup\photos`. Oznacza to, że oba `C:\Users\bob\pictures\animals\koala.jpg` i `X:\BobBackup\photos\animals\koala.jpg` istnieje na dyskach zadania importu hello.  
   
-`/PathMapFile` Opcji umożliwi Rozwiąż te problemy. Można określić nazwę pliku, który zawiera listę plików, które narzędzie nie może poprawnie zidentyfikować. Oto przykładowy wiersz polecenia, który będzie wypełnić `9WM35C2V_pathmap.txt`:  
+Witaj `/PathMapFile` opcja umożliwi tooresolve te błędy. Można określić hello nazwę pliku hello, zawierającą hello lista plików, które hello narzędzie nie może zidentyfikować toocorrectly. Witaj poniżej przedstawiono przykład wiersz polecenia, który będzie wypełnić `9WM35C2V_pathmap.txt`:  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```
   
-Narzędzie zapisuje ścieżki pliku problemy `9WM35C2V_pathmap.txt`, jeden w każdym wierszu. Na przykład plik może zawierać następujące wpisy po uruchomieniu polecenia:  
+Narzędzie Hello następnie zapisuje ścieżki plików problematycznych hello zbyt`9WM35C2V_pathmap.txt`, jeden w każdym wierszu. Na przykład plik hello może zawierać następujące wpisy po uruchomieniu polecenia hello hello:  
  
 ```
 \animals\koala.jpg  
 \animals\kangaroo.jpg  
 ```
   
- Dla każdego pliku na liście należy podjąć próbę zlokalizuj i Otwórz plik, aby upewnić się, że jest ona dostępna do narzędzia. Jeśli chcesz sprawdzić narzędzie jawnie, gdzie można znaleźć pliku, możesz zmodyfikować ścieżki pliku mapy i Dodaj ścieżkę do każdego pliku, w tym samym wierszu rozdzielone znak tabulacji:  
+ Dla każdego pliku na liście hello możesz spróbować toolocate i otworzyć tooensure pliku hello jest toohello dostępne narzędzia. Jeśli chcesz, aby narzędzie hello tootell jawnie w przypadku, gdy toofind plik, można zmodyfikować hello Ścieżka mapowania pliku i Dodaj hello ścieżki tooeach pliku na powitania tej samej linii, oddzielone znakiem karty:  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
 \animals\kangaroo.jpg        X:\BobBackup\photos\animals\kangaroo.jpg  
 ```
   
-Po udostępniając pliki niezbędne do narzędzia lub ścieżki pliku mapy aktualizacji, należy ponownie uruchomić narzędzie, aby ukończyć proces importowania.  
+Po wprowadzania hello niezbędne pliki toohello dostępne narzędzia lub aktualizowania hello ścieżki mapy pliku należy ponownie uruchomić proces importowania hello hello narzędzia toocomplete.  
   
 ## <a name="next-steps"></a>Następne kroki
  
-* [Trwa konfigurowanie narzędzia Azure Import/Eksport](storage-import-export-tool-setup-v1.md)   
+* [Definiowanie hello Azure narzędzie importu/eksportu](storage-import-export-tool-setup-v1.md)   
 * [Przygotowywanie dysków twardych do zadania importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Naprawianie zadania eksportu](storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Rozwiązywanie problemów z narzędziem Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+* [Rozwiązywanie problemów z hello Azure narzędzie importu/eksportu](storage-import-export-tool-troubleshooting-v1.md)

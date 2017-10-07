@@ -1,6 +1,6 @@
 ---
-title: Serii StorSimple 8000 jako miejsce docelowe kopii zapasowej z kopii zapasowej Exec | Dokumentacja firmy Microsoft
-description: W tym artykule opisano StorSimple miejsce docelowe kopii zapasowej konfiguracji z kopii zapasowej Exec Veritas.
+title: Seria aaaStorSimple 8000 jako miejsce docelowe kopii zapasowej z kopii zapasowej Exec | Dokumentacja firmy Microsoft
+description: W tym artykule opisano hello StorSimple miejsce docelowe kopii zapasowej konfiguracji z kopii zapasowej Exec Veritas.
 services: storsimple
 documentationcenter: 
 author: harshakirank
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 80e29aa9c63d98a32f1bb92750ebd904c918cc92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 270ad95e1f6b367e80048cad42beb936f205f69c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple jako miejsce docelowe kopii zapasowej z kopii zapasowej Exec
 
 ## <a name="overview"></a>Omówienie
 
-Azure StorSimple jest rozwiązania magazynu hybrydowego chmury firmy Microsoft. StorSimple adresy złożoności przyrostu wykładniczej danych za pomocą konta magazynu platformy Azure jako rozszerzenia rozwiązania lokalnego i automatycznie warstwy danych przez Magazyn lokalny i magazynu w chmurze.
+Azure StorSimple jest rozwiązania magazynu hybrydowego chmury firmy Microsoft. StorSimple adresy skomplikowane hello przyrostu wykładniczej danych przy użyciu konta magazynu platformy Azure jako rozszerzenia rozwiązania lokalnego hello i automatycznie warstw danych między lokalnymi magazynu i magazynu w chmurze.
 
-W tym artykule omówiono StorSimple integracji z Veritas Backup Exec i najlepsze rozwiązania dotyczące integrowania oba rozwiązania. Możemy również zaleceń w sposobie ustawiania Backup Exec najlepiej jest integrowana z StorSimple. Firma Microsoft odroczenie Veritas najlepsze rozwiązania w zakresie tworzenia kopii zapasowej dla architektów i administratorów najlepszy sposób, aby skonfigurować Exec kopii zapasowej w celu spełnienia poszczególnych wymagań kopii zapasowej i umów dotyczących poziomu usług (SLA).
+W tym artykule omówiono StorSimple integracji z Veritas Backup Exec i najlepsze rozwiązania dotyczące integrowania oba rozwiązania. Możemy również zaleceń w sposób integrowania tooset zapasowych Backup Exec toobest z StorSimple. Firma Microsoft odroczenie tooVeritas najlepszych rozwiązań, tworzenia kopii zapasowej architektów i administratorów dla hello najlepsze sposób tooset Backup Exec toomeet indywidualnymi wymaganiami kopii zapasowej i umów dotyczących poziomu usług (SLA).
 
-Mimo że firma Microsoft zilustrować czynności konfiguracyjne i podstawowe pojęcia, przewodnik krok po kroku konfiguracji lub instalacja jest w żadnym wypadku w tym artykule. Przyjęto założenie, czy podstawowe składniki i infrastruktury są w stanie i gotowe do obsługi opisano założenia.
+Mimo że firma Microsoft zilustrować czynności konfiguracyjne i podstawowe pojęcia, przewodnik krok po kroku konfiguracji lub instalacja jest w żadnym wypadku w tym artykule. Przyjęto założenie, że hello podstawowe składniki i infrastruktury znajdują się w stanie i gotowe toosupport hello pojęcia, które opisano.
 
 ### <a name="who-should-read-this"></a>Kto powinien przeczytać to?
 
-Informacje przedstawione w tym artykule będzie najbardziej przydatne do administratorów kopii zapasowych, magazynowania administratorów i architektów magazynu, którzy korzystają z magazynu systemu Windows Server 2012 R2, Ethernet, usługi w chmurze i Exec kopii zapasowej.
+Witaj informacje w tym artykule będzie najbardziej przydatne toobackup Administratorzy, administratorzy pamięci masowej i architektów magazynu, którzy korzystają z magazynu systemu Windows Server 2012 R2, Ethernet, usługi w chmurze i Exec kopii zapasowej.
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
 
@@ -44,48 +44,48 @@ Informacje przedstawione w tym artykule będzie najbardziej przydatne do adminis
 
 StorSimple jest dobrym rozwiązaniem w przypadku miejsce docelowe kopii zapasowej, ponieważ:
 
--   Zawiera standardowe i lokalnego magazynu dla kopii zapasowej aplikacji do użycia jako protokół fast miejsce docelowe kopii zapasowej, bez wprowadzania żadnych zmian. Można też użyć StorSimple do szybkiego przywrócenia ostatnie kopii zapasowych.
--   Chmura jego obsługa poziomów jest w pełni zintegrowana z konta magazynu w chmurze Azure korzystania z ekonomicznych magazynu Azure.
+-   Zapewnia on standardowe, lokalnego magazynu toouse aplikacjom kopii zapasowych jako protokół fast miejsce docelowe kopii zapasowej, bez wprowadzania żadnych zmian. Można też użyć StorSimple do szybkiego przywrócenia ostatnie kopii zapasowych.
+-   Jego chmury warstwy jest w pełni zintegrowana z toouse konta magazynu Azure cloud ekonomicznego magazynowania Azure.
 -   Udostępnia automatycznie przechowywania poza siedzibą odzyskiwania po awarii.
 
 ## <a name="key-concepts"></a>Kluczowe pojęcia
 
-Podobnie jak w przypadku dowolnego pamięci masowej, zachować ostrożność podczas oceny wydajności magazynu rozwiązania, umów SLA, szybkość zmian i wymagań wzrost wydajności jest krytyczne znaczenie dla sukcesu. Główny pomysł jest dzięki zastosowaniu warstwy chmury, godziny dostępu, a przepustowość do chmury play podstawowych roli w StorSimple możliwość jego pracy.
+Podobnie jak w przypadku dowolnego pamięci masowej, zachować ostrożność podczas oceny wydajności magazynu hello rozwiązania, umów SLA, szybkość zmian i wymagań wzrost wydajności jest toosuccess krytyczne. główny pomysł Hello jest, że dzięki zastosowaniu warstwy chmury, chmury toohello godziny dostępu i produktywność odgrywają podstawowych rolę hello zdolności StorSimple toodo swojego zadania.
 
-StorSimple zaprojektowano w celu zapewnienia magazynu dla aplikacji działających na dobrze zdefiniowany zestaw roboczy danych (gorących danych). W tym modelu zestaw roboczy danych są przechowywane w warstwach lokalnych, a pozostałe zestaw wolny/chłodni/archiwizowane danych jest warstwy do chmury. Ten model jest reprezentowany na poniższej ilustracji. Niemal płaskiej zielony wiersz reprezentuje dane przechowywane w warstwach lokalnego urządzenia StorSimple. Czerwona linia reprezentuje łączną ilość danych przechowywanych w rozwiązaniu StorSimple przez wszystkie warstwy. Odstęp między płaskim zielony wiersza i krzywej wykładniczej red przedstawia łączną ilość danych przechowywanych w chmurze.
+StorSimple jest zaprojektowana tooprovide tooapplications magazynu, które działają na dobrze zdefiniowany zestaw roboczy danych (gorących danych). W tym modelu zestaw roboczy hello danych są przechowywane w warstwach lokalne powitania i hello pozostałe wolne/chłodni/zarchiwizowane zestaw danych jest toohello warstwowych chmury. Ten model jest reprezentowany w powitania po rysunku. wiersz Hello niemal płaskiej zielony reprezentuje hello danych przechowywanych w warstwach lokalnych hello hello urządzenia StorSimple. Witaj czerwona linia reprezentuje hello łączną ilość danych przechowywanych na powitania rozwiązania StorSimple przez wszystkie warstwy. Witaj odstęp między hello płaskim zielony wiersza i hello krzywej red reprezentuje hello łączną ilość danych przechowywanych w chmurze hello.
 
 **Obsługa poziomów StorSimple**
 ![StorSimple diagramów warstw](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
-Taka architektura na uwadze znajdziesz czy StorSimple idealnie nadaje się do działania jako miejsce docelowe kopii zapasowej. Możesz użyć StorSimple do:
--   Wykonaj z najczęściej wykonywanych operacji przywracania z zestawu roboczego lokalnych danych.
--   Stosować usługi w chmurze odzyskiwania po awarii poza siedzibą firmy i starszych danych, gdzie są dłuższe interwały przywracania.
+Taka architektura na uwadze znajdziesz czy StorSimple, jest idealnym rozwiązaniem toooperate jako miejsce docelowe kopii zapasowej. Możesz użyć StorSimple do:
+-   Wykonaj z najczęściej wykonywanych operacji przywracania z hello lokalnego zestaw roboczy danych.
+-   Użyj hello chmury odzyskiwania po awarii poza siedzibą firmy i starszych danych, gdzie są dłuższe interwały przywracania.
 
 ## <a name="storsimple-benefits"></a>Korzyści StorSimple
 
-StorSimple zapewnia rozwiązanie lokalne, które jest w pełni zintegrowana z Microsoft Azure, dzięki wykorzystaniu bezproblemowy dostęp do lokalnych i magazynu w chmurze.
+StorSimple zapewnia rozwiązanie lokalne, które jest w pełni zintegrowana z Microsoft Azure, dzięki wykorzystaniu bezproblemowy dostęp do lokalnych tooon i magazynu w chmurze.
 
-StorSimple używa automatycznego tworzenia warstw między lokalnego urządzenia, którego urządzenia półprzewodnikowych (SSD) i magistrali serial attached SCSI (SAS) magazynu, a Magazyn Azure. Automatyczne stosowanie warstw utrzymuje często używanych danych lokalnych, na warstwy dysków SSD i dysków SAS. Rzadko używane dane przesyłane do magazynu Azure.
+StorSimple używa automatycznego tworzenia warstw między hello lokalnego urządzenia, którego urządzenia półprzewodnikowych (SSD) i magistrali serial attached SCSI (SAS) magazynu, a Magazyn Azure. Automatyczne warstw utrzymuje często używane dane lokalne na hello warstwy dysków SSD i dysków SAS. Powoduje przeniesienie tooAzure rzadko używane dane magazynu.
 
 StorSimple oferuje następujące korzyści:
 
--   Unikatowy algorytmy deduplikacji i kompresji, korzystających z chmury do osiągnięcia poziomów Niespotykana deduplikacji
+-   Unikatowy kompresji i deduplikacji algorytmów hello chmury tooachieve Niespotykana deduplikacji poziomy
 -   Wysoka dostępność
 -   Replikacja geograficzna przy użyciu platformy Azure — replikacja geograficzna
 -   Integracja Azure
--   Szyfrowanie danych w chmurze
+-   Szyfrowanie danych w chmurze hello
 -   Ulepszonych funkcji odzyskiwania i zgodność
 
-Chociaż StorSimple zasadniczo przedstawia dwa scenariusze wdrażania głównego (miejsce docelowe kopii zapasowej głównej i dodatkowej miejsce docelowe kopii zapasowej), jest zwykły, urządzeniem magazynu blokowego. Wszystkie kompresji jest StorSimple i deduplikacji. Bezproblemowo wysyła i pobiera dane między chmury oraz aplikacji i systemu plików.
+Chociaż StorSimple zasadniczo przedstawia dwa scenariusze wdrażania głównego (miejsce docelowe kopii zapasowej głównej i dodatkowej miejsce docelowe kopii zapasowej), jest zwykły, urządzeniem magazynu blokowego. StorSimple wszystkie hello kompresji i deduplikacji. Bezproblemowo wysyła i pobiera dane między chmurą hello i aplikacji hello i systemie plików.
 
-Aby uzyskać więcej informacji o StorSimple, zobacz [z serii StorSimple 8000: rozwiązanie magazynu w chmurze hybrydowej](storsimple-overview.md). Ponadto możesz przejrzeć [techniczne serii StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Aby uzyskać więcej informacji o StorSimple, zobacz [z serii StorSimple 8000: rozwiązanie magazynu w chmurze hybrydowej](storsimple-overview.md). Ponadto można przejrzeć hello [techniczne serii StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Używanie StorSimple urządzenia jako miejsce docelowe kopii zapasowej jest obsługiwane tylko w przypadku StorSimple 8000 z aktualizacją Update 3 i nowszych wersjach.
 
 ## <a name="architecture-overview"></a>Omówienie architektury
 
-W poniższej tabeli przedstawiono wskazówki dotyczące początkowej modelu do architektury urządzeń.
+Witaj poniższych tabelach przedstawiono wskazówki dotyczące hello urządzeń modelu do architektury początkowej.
 
 **Możliwości StorSimple dla lokalnych i magazynu w chmurze**
 
@@ -99,71 +99,71 @@ W poniższej tabeli przedstawiono wskazówki dotyczące początkowej modelu do a
 
 | Scenariusz tworzenia kopii zapasowej  | Pojemność magazynu lokalnego  | Pojemność magazynu w chmurze  |
 |---|---|---|
-| Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na szybkie odzyskiwanie aby spełnić cel punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO), który pasuje do pojemności chmury |
+| Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na szybkie odzyskiwanie toomeet cel punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO), który pasuje do pojemności chmury |
 | Dodatkowej kopii zapasowej | Dodatkowej kopii kopii zapasowej danych mogą być przechowywane w chmurze pojemności  | Nie dotyczy  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple jako miejsce docelowe kopii zapasowej głównej
 
-W tym scenariuszu przedstawiono woluminów StorSimple do tworzenia kopii zapasowej aplikacji jako jedynego repozytorium dla kopii zapasowych. Na poniższej ilustracji przedstawiono architektury rozwiązania, w którym wszystkie kopie zapasowe Użyj StorSimple warstwowej woluminów na potrzeby tworzenia kopii zapasowych i przywracania.
+W tym scenariuszu woluminów StorSimple są prezentowane toohello aplikacji kopii zapasowej jako jedynego repozytorium hello kopii zapasowych. powitania po rysunek przedstawia architektury rozwiązania, w którym wszystkie kopie zapasowe Użyj StorSimple warstwowej woluminów na potrzeby tworzenia kopii zapasowych i przywracania.
 
 ![StorSimple jako miejsce docelowe kopii zapasowej głównej diagram logiczny](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetlogicaldiagram.png)
 
 ### <a name="primary-target-backup-logical-steps"></a>Etapy logiczne kopii zapasowej głównej docelowej
 
-1.  Utwórz kopię zapasową serwera kontaktuje się docelowego agenta kopii zapasowej, a agenta kopii zapasowej przesyła dane do serwera zapasowego.
-2.  Utwórz kopię zapasową serwera zapisuje dane do StorSimple woluminami warstwowymi.
-3.  Utwórz kopię zapasową serwera aktualizuje bazę danych katalogu, a następnie kończy zadanie tworzenia kopii zapasowej.
-4.  Skrypt migawki wyzwala Menedżer StorSimple snapshot chmury (start lub usunięcie).
-5.  Utwórz kopię zapasową serwera Usuwa wygasłe kopii zapasowych na podstawie zasad przechowywania.
+1.  Kontakty Utwórz kopię zapasową serwera Hello hello docelowego agenta kopii zapasowej, a agent usługi Kopia zapasowa hello przesyła dane toohello Utwórz kopię zapasową serwera.
+2.  Utwórz kopię zapasową serwera Hello zapisuje dane woluminami warstwowymi toohello StorSimple.
+3.  Witaj, Utwórz kopię zapasową serwera aktualizuje bazę danych katalogu hello, a następnie kończy zadanie tworzenia kopii zapasowej hello.
+4.  Skrypt migawki wyzwala hello chmury migawki Menedżer StorSimple (start lub usunięcie).
+5.  Utwórz kopię zapasową serwera Hello Usuwa wygasłe kopii zapasowych na podstawie zasad przechowywania.
 
 
 ### <a name="primary-target-restore-logical-steps"></a>Etapy logiczne przywracania głównej docelowej
 
-1.  Utwórz kopię zapasową serwera rozpoczyna przywracanie odpowiednie dane z repozytorium magazynu.
-2.  Agenta kopii zapasowej odbiera dane z kopii zapasowej serwera.
-3.  Serwer kopii zapasowej kończy zadanie przywracania.
+1.  Witaj, Utwórz kopię zapasową serwera uruchamia przywracania hello odpowiednie dane z repozytorium magazynu hello.
+2.  agent usługi Kopia zapasowa Hello odbiera dane hello z hello kopii zapasowej serwera.
+3.  Serwer kopii zapasowej Hello zakończy hello zadanie przywracania.
 
 ## <a name="storsimple-as-a-secondary-backup-target"></a>StorSimple jako dodatkowej miejsce docelowe kopii zapasowej
 
 W tym scenariuszu woluminów StorSimple głównie służą do przechowywania długoterminowego i archiwizacji.
 
-Na poniższej ilustracji przedstawiono architekturę, w których początkowej kopii zapasowych i przywraca wolumin docelowy wysokiej wydajności. Te kopie zapasowe są kopiowane i archiwizowane w StorSimple do warstwy woluminu zgodnie z ustalonym harmonogramem.
+Witaj poniższej ilustracji przedstawiono architekturę, w których początkowej kopii zapasowych i przywraca wolumin docelowy wysokiej wydajności. Te kopie zapasowe są kopiowane i archiwizowane tooa StorSimple do warstwy woluminu zgodnie z ustalonym harmonogramem.
 
-Jest ważne rozmiar woluminu wysokiej wydajności, dzięki czemu może obsłużyć zasad przechowywania wymagań pojemność i wydajność.
+Jego jest ważne toosize woluminu wysokiej wydajności, dzięki czemu może obsłużyć zasad przechowywania wymagań pojemność i wydajność.
 
 ![StorSimple jako miejsce docelowe kopii zapasowej dodatkowej diagram logiczny](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Dodatkowej docelowy kopii zapasowej etapy logiczne
 
-1.  Utwórz kopię zapasową serwera kontaktuje się docelowego agenta kopii zapasowej, a agenta kopii zapasowej przesyła dane do serwera zapasowego.
-2.  Utwórz kopię zapasową serwera zapisuje dane do magazynu o wysokiej wydajności.
-3.  Utwórz kopię zapasową serwera aktualizuje bazę danych katalogu, a następnie kończy zadanie tworzenia kopii zapasowej.
-4.  Utwórz kopię zapasową serwera kopiuje StorSimple na podstawie zasad przechowywania kopii zapasowych.
-5.  Skrypt migawki wyzwala Menedżer StorSimple snapshot chmury (start lub usunięcie).
-6.  Utwórz kopię zapasową serwera Usuwa wygasłe kopii zapasowych na podstawie zasad przechowywania.
+1.  Kontakty Utwórz kopię zapasową serwera Hello hello docelowego agenta kopii zapasowej, a agent usługi Kopia zapasowa hello przesyła dane toohello Utwórz kopię zapasową serwera.
+2.  Utwórz kopię zapasową serwera Hello zapisuje toohigh wydajności pamięci masowej.
+3.  Witaj, Utwórz kopię zapasową serwera aktualizuje bazę danych katalogu hello, a następnie kończy zadanie tworzenia kopii zapasowej hello.
+4.  Utwórz kopię zapasową serwera Hello kopiuje tooStorSimple kopii zapasowych na podstawie zasad przechowywania.
+5.  Skrypt migawki wyzwala hello chmury migawki Menedżer StorSimple (start lub usunięcie).
+6.  Utwórz kopię zapasową serwera Hello Usuwa wygasłe kopii zapasowych na podstawie zasad przechowywania.
 
 ### <a name="secondary-target-restore-logical-steps"></a>Etapy logiczne przywracania dodatkowej docelowego
 
-1.  Utwórz kopię zapasową serwera rozpoczyna przywracanie odpowiednie dane z repozytorium magazynu.
-2.  Agenta kopii zapasowej odbiera dane z kopii zapasowej serwera.
-3.  Serwer kopii zapasowej kończy zadanie przywracania.
+1.  Witaj, Utwórz kopię zapasową serwera uruchamia przywracania hello odpowiednie dane z repozytorium magazynu hello.
+2.  agent usługi Kopia zapasowa Hello odbiera dane hello z hello kopii zapasowej serwera.
+3.  Serwer kopii zapasowej Hello zakończy hello zadanie przywracania.
 
-## <a name="deploy-the-solution"></a>Wdrażanie rozwiązania
+## <a name="deploy-hello-solution"></a>Wdrażanie rozwiązania hello
 
-Wdrażanie rozwiązania wymaga trzy kroki:
-1. Przygotowanie infrastruktury sieci.
+Wdrażanie rozwiązania hello wymaga trzy kroki:
+1. Przygotowanie infrastruktury sieci hello.
 2. Wdrażanie urządzenia StorSimple jako miejsce docelowe kopii zapasowej.
 3. Wdróż Exec kopii zapasowej.
 
-Każdy krok została omówiona szczegółowo w poniższych sekcjach.
+Każdy krok została omówiona szczegółowo w hello następujące sekcje.
 
-### <a name="set-up-the-network"></a>Konfigurowanie sieci
+### <a name="set-up-hello-network"></a>Konfigurowanie sieci hello
 
-Ponieważ StorSimple to rozwiązanie, które jest zintegrowany z chmury Azure, StorSimple wymaga aktywnych i działające połączenie w chmurze platformy Azure. To połączenie jest używane dla operacje, takie jak migawki w chmurze, zarządzania i transfer metadanych, a do warstwy starsze, mniejsza używane dane do magazynu w chmurze Azure.
+Ponieważ StorSimple to rozwiązanie, które jest zintegrowany z hello chmury Azure, StorSimple wymaga toohello active i pracy połączenia chmury Azure. To połączenie jest używana do operacje, takie jak migawki w chmurze, zarządzania, transfer metadanych i magazynu w chmurze tooAzure tootier starszej, mniej używanych danych.
 
-Rozwiązania w celu zapewnienia optymalnego działania zaleca się, należy wykonać następujące najlepsze rozwiązania sieci:
+Tooperform rozwiązania hello optymalnie, zaleca się przestrzeganie tych sieci najlepsze rozwiązania:
 
--   Łącza, które łączy z StorSimple, dodając funkcje warstw Azure musi spełniać wymagań dotyczących przepustowości. Aby to osiągnąć, należy zastosować wymaganego poziomu jakości usług (QoS) w infrastrukturze przełączników do dopasowania cel punktu odzyskiwania, a odzyskiwanie czasu SLA cel (RTO).
+-   Hello łącza, które łączy z warstw tooAzure StorSimple musi spełniać wymagania przepustowości. tooachieve, zastosuj hello niezbędne jakości usług (QoS) poziomu tooyour infrastruktury przełączników toomatch Twojego RPO i odzyskiwania czasu SLA cel (RTO).
 -   Maksymalna opóźnienia dostępu do magazynu obiektów Blob platformy Azure powinna być około 80 ms.
 
 ### <a name="deploy-storsimple"></a>Wdrażanie StorSimple
@@ -174,43 +174,43 @@ Aby uzyskać szczegółowe instrukcje wdrożenia StorSimple, zobacz [wdrażanie 
 
 Dla kopii zapasowej Exec najlepsze rozwiązania dotyczące instalacji, zobacz [najlepszych rozwiązań dotyczących instalacji Backup Exec](https://www.veritas.com/support/en_US/article.000068207).
 
-## <a name="set-up-the-solution"></a>Konfigurowanie rozwiązania
+## <a name="set-up-hello-solution"></a>Konfigurowanie rozwiązania hello
 
-W tej sekcji przedstawiony przykłady konfiguracji. Następujące przykłady i zalecenia ilustrują implementacji najbardziej podstawowa i podstawowe. Ta implementacja nie mogą być stosowane bezpośrednio do określonych wymagań kopii zapasowej.
+W tej sekcji przedstawiony przykłady konfiguracji. Witaj następujące przykłady i zalecenia ilustrują hello najbardziej podstawowa i podstawowych implementacji. Ta implementacja może nie mieć zastosowania bezpośrednio tooyour specyficznych wymagań kopii zapasowej.
 
 ### <a name="set-up-storsimple"></a>Konfigurowanie StorSimple
 
 | Zadania wdrażania StorSimple  | Dodatkowe uwagi |
 |---|---|
 | Wdrażanie lokalnego urządzenia StorSimple. | Obsługiwane wersje: Aktualizacja 3 i jego nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Należy używać tych poleceń, aby włączyć lub wyłączyć tryb miejsce docelowe kopii zapasowej i można uzyskać stanu. Aby uzyskać więcej informacji, zobacz [połączenia zdalne z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable`. </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable`. </br> Aby uzyskać bieżący stan ustawienia trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode`. |
-| Utwórz kontener woluminów typowe dla woluminu, która przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze wolumin jest deduplikowany. | Kontenery woluminów StorSimple Definiowanie domen deduplikacji.  |
-| Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarze jak blisko oczekiwanego użycia jak to możliwe, ponieważ chmura migawki czas trwania wpływa na rozmiar woluminu. Aby uzyskać informacje dotyczące rozmiaru woluminu, przeczytaj o [zasady przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminami warstwowymi, a następnie wybierz **Użyj tego woluminu w przypadku rzadziej używanych danych archiwalnych** pole wyboru. </br> Używanie tylko przypięty lokalnie woluminów nie jest obsługiwane. |
-| Utwórz unikatowy StorSimple zasady tworzenia kopii zapasowych wszystkich woluminów, miejsce docelowe kopii zapasowej. | Zasady tworzenia kopii zapasowej StorSimple definiuje grupę spójności woluminu. |
-| Wyłączyć harmonogram, zgodnie z migawki wygaśnie. | Migawki są wyzwalane jako operację przetwarzania końcowego. |
+| Włącz hello miejsce docelowe kopii zapasowej. | Użyj tych tooturn poleceń na lub wyłącz tryb miejsce docelowe kopii zapasowej i stan tooget. Aby uzyskać więcej informacji, zobacz [połączyć się zdalnie urządzenia StorSimple tooa](storsimple-remote-connect.md).</br> tooturn na tryb tworzenia kopii zapasowych: `Set-HCSBackupApplianceMode -enable`. </br> tooturn off trybu tworzenia kopii zapasowych: `Set-HCSBackupApplianceMode -disable`. </br> bieżący stan hello tooget ustawień trybu tworzenia kopii zapasowych: `Get-HCSBackupApplianceMode`. |
+| Utwórz kontener woluminów typowe dla woluminu, który przechowuje dane kopii zapasowej hello. Wszystkie dane w kontenerze wolumin jest deduplikowany. | Kontenery woluminów StorSimple Definiowanie domen deduplikacji.  |
+| Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarze jako Zamknij toohello zakładano użycia, jak to możliwe, ponieważ chmura migawki czas trwania wpływa na rozmiar woluminu. Aby uzyskać informacje na temat toosize woluminu, przeczytaj o [zasady przechowywania](#retention-policies).</br> </br> Użyj StorSimple do warstwy woluminy i wybierz hello **Użyj tego woluminu w przypadku rzadziej używanych danych archiwalnych** pole wyboru. </br> Używanie tylko przypięty lokalnie woluminów nie jest obsługiwane. |
+| Utwórz unikatowy StorSimple zasady tworzenia kopii zapasowych wszystkich woluminów miejsce docelowe kopii zapasowej hello. | Zasady tworzenia kopii zapasowej StorSimple definiuje hello woluminu spójności grupy. |
+| Wyłącz harmonogram hello jako migawki hello wygaśnie. | Migawki są wyzwalane jako operację przetwarzania końcowego. |
 
-### <a name="set-up-the-host-backup-server-storage"></a>Konfigurowanie magazynu kopii zapasowej serwera hosta
+### <a name="set-up-hello-host-backup-server-storage"></a>Konfigurowanie magazynu kopii zapasowej serwera hosta hello
 
-Konfigurowanie magazynu kopii zapasowej serwera hosta zgodnie z tymi wytycznymi:  
+Konfigurowanie magazynu kopii zapasowej serwera hosta hello zgodnie z wytycznymi toothese:  
 
 - Nie używaj woluminy łączone (utworzonego przez Zarządzanie dyskami systemu Windows). Dyski łączone nie są obsługiwane.
 - Formatowanie woluminów o rozmiarze 64 KB alokacji w systemie plików NTFS.
-- Mapuje woluminy StorSimple bezpośrednio na serwerze Backup Exec.
+- Mapuje woluminy StorSimple hello bezpośrednio toohello Exec kopii zapasowej serwera.
     - Użyj iSCSI dla serwerów fizycznych.
     - Dyski przekazujące na użytek serwerów wirtualnych.
 
 ## <a name="best-practices-for-storsimple-and-backup-exec"></a>Najlepsze rozwiązania dotyczące StorSimple i Exec kopii zapasowej
 
-Konfigurowanie rozwiązania zgodnie z wytycznymi w poniższych sekcjach.
+Konfigurowanie rozwiązania zgodnie z wytycznymi toohello w hello następujące sekcje.
 
 ### <a name="operating-system-best-practices"></a>Najlepsze rozwiązania w zakresie systemu operacyjnego
 
--   Wyłącz szyfrowanie systemu Windows Server i deduplikacji systemu plików NTFS.
--   Wyłącz defragmentacji systemu Windows Server w przypadku woluminów StorSimple.
--   Wyłącz indeksowanie systemu Windows Server w przypadku woluminów StorSimple.
--   Uruchom skanowanie za pomocą oprogramowania antywirusowego na hoście źródłowym (nie dla woluminów StorSimple).
--   Wyłącz domyślne [konserwacji systemu Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) w Menedżerze zadań. Wykonaj następujące czynności w jednym z następujących sposobów:
-   - Wyłącz konfiguratora konserwacji w harmonogramu zadań systemu Windows.
+-   Wyłącz szyfrowanie systemu Windows Server i deduplikacji systemu plików NTFS hello.
+-   Wyłącz defragmentacji systemu Windows Server na powitania woluminów StorSimple.
+-   Wyłącz indeksowanie na powitania woluminów StorSimple w systemie Windows Server.
+-   Uruchom skanowanie za pomocą oprogramowania antywirusowego na hoście źródłowym hello (nie dla woluminów StorSimple hello).
+-   Wyłącz domyślne hello [konserwacji systemu Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) w Menedżerze zadań. Wykonaj następujące czynności w jednym z hello następujące sposoby:
+   - Wyłącz hello konfiguratora konserwacji w harmonogramu zadań systemu Windows.
    - Pobierz [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows Sysinternals. Po pobraniu narzędzia PsExec, uruchom program Azure PowerShell jako administrator i wpisz:
       ```powershell
       psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
@@ -218,28 +218,28 @@ Konfigurowanie rozwiązania zgodnie z wytycznymi w poniższych sekcjach.
 
 ### <a name="storsimple-best-practices"></a>Najlepsze rozwiązania StorSimple
 
-  -   Pamiętaj, że urządzenie StorSimple zostało zaktualizowane do [aktualizacji 3 lub nowszym](storsimple-install-update-3.md).
-  -   Odizolowanego ruchu iSCSI i chmury. Użyj iSCSI dedykowanych połączeń dla ruchu między StorSimple i Utwórz kopię zapasową serwera.
+  -   Pamiętaj, że urządzenia StorSimple hello jest aktualizowany za[aktualizacji 3 lub nowszym](storsimple-install-update-3.md).
+  -   Odizolowanego ruchu iSCSI i chmury. Użyj iSCSI dedykowanych połączeń dla ruchu między StorSimple i hello Utwórz kopię zapasową serwera.
   -   Pamiętaj, że urządzenie StorSimple jest dedykowany miejsce docelowe kopii zapasowej. Mieszane obciążeń nie są obsługiwane, ponieważ wpływają na Twoje RTO i cel punktu odzyskiwania.
 
 ### <a name="backup-exec-best-practices"></a>Kopia zapasowa Exec najlepszych rozwiązań.
 
--   Exec kopii zapasowej musi być zainstalowany na dysku lokalnym serwera, a nie na woluminu StorSimple.
--   Ustaw magazynu kopii zapasowej Exec **równoczesnych operacji zapisu** maksymalny dozwolony.
-    -   Ustaw magazynu kopii zapasowej Exec **rozmiar bloku i buforu** 512 KB.
+-   Exec kopii zapasowej musi być zainstalowany na lokalnym dysku powitania serwera, a nie na woluminu StorSimple.
+-   Ustaw magazynu kopii zapasowej Exec hello **równoczesnych operacji zapisu** toohello maksymalny dozwolony.
+    -   Ustaw magazynu kopii zapasowej Exec hello **rozmiar bloku i buforu** too512 KB.
     -   Włączanie magazynu kopii zapasowej Exec **buforowane Odczyt i zapis**.
 -   StorSimple obsługuje Backup Exec pełne i przyrostowe kopie zapasowe. Zaleca się nie używać syntetyczne i różnicowych kopii zapasowych.
 -   Plik kopii zapasowej danych powinien zawierać tylko dane dotyczące określonego zadania. Na przykład dołącza bez nośnika przez różne zadania są dozwolone.
--   Wyłącz zadanie weryfikacji. W razie potrzeby weryfikacji powinny zostać zaplanowane po najnowszego zadania tworzenia kopii zapasowej. Należy zrozumieć, że to zadanie dotyczy kopii zapasowych.
+-   Wyłącz zadanie weryfikacji. W razie potrzeby weryfikacji powinny zostać zaplanowane po hello najnowszego zadania tworzenia kopii zapasowej. Jest ważne toounderstand, że to zadanie dotyczy kopii zapasowych.
 -   Wybierz **magazynu** > **dysku** > **szczegóły** > **właściwości**. Wyłącz **wstępnie przydzielić miejsca na dysku**.
 
-Aby uzyskać najnowsze ustawienia Exec kopii zapasowej i najlepsze rozwiązania dotyczące wdrażania tych wymagań, zobacz [Veritas witryny sieci Web](https://www.veritas.com).
+Aby uzyskać najnowsze ustawienia kopii zapasowej Exec hello i najlepsze rozwiązania dotyczące wdrażania tych wymagań, zobacz [hello Veritas witryny sieci Web](https://www.veritas.com).
 
 ## <a name="retention-policies"></a>Zasady przechowywania
 
-Jednym z najbardziej popularne typy zasad przechowywania kopii zapasowych jest zasad dziadek, ojciec i syn (GFS). W zasadzie GFS przyrostowej kopii zapasowej jest wykonywane codziennie i pełne kopie zapasowe są wykonywane co tydzień i co miesiąc. Powoduje to zasady sześć StorSimple woluminami warstwowymi. Jeden wolumin zawiera co tydzień, miesięcznych i rocznych pełnych kopii zapasowych. Inne woluminy pięć przechowywania codziennych przyrostowych kopii zapasowych.
+Jeden z typów zasad przechowywania kopii zapasowych najczęściej hello są to zasady dziadek, ojciec i syn (GFS). W zasadzie GFS przyrostowej kopii zapasowej jest wykonywane codziennie i pełne kopie zapasowe są wykonywane co tydzień i co miesiąc. Powoduje to zasady sześć StorSimple woluminami warstwowymi. Jeden wolumin zawiera pełne kopie zapasowe hello co tydzień, miesięcznych i rocznych. Witaj inne woluminy pięć przechowywania codziennych przyrostowych kopii zapasowych.
 
-W poniższym przykładzie używamy obrotu GFS. W przykładzie założono, że:
+Poniższy przykład hello używamy obrotu GFS. przykład Witaj założono hello następujące czynności:
 
 -   Deduplikacją nie lub skompresowane dane są używane.
 -   Pełne kopie zapasowe są 1 TiB.
@@ -248,7 +248,7 @@ W poniższym przykładzie używamy obrotu GFS. W przykładzie założono, że:
 -   Dwanaście comiesięczne kopie zapasowe są przechowywane przez rok.
 -   Jeden corocznej kopii zapasowej jest przechowywana na 10 lat.
 
-W oparciu o poprzednim założeń, Utwórz 26-TiB StorSimple do warstwy wolumin miesięcznych i rocznych pełnych kopii zapasowych. Tworzenie 5-TiB StorSimple do warstwy woluminu dla każdego przyrostowych codziennych kopii zapasowych.
+Oparte na powitania poprzedzających założeń, Utwórz 26-TiB pełne kopie zapasowe hello miesięcznych i rocznych wolumin warstwowy StorSimple. Tworzenie 5-TiB StorSimple do warstwy woluminu dla każdego hello przyrostowych codziennych kopii zapasowych.
 
 | Typ kopii zapasowej przechowywania | Rozmiar (TiB) | Mnożnik GFS\* | Łączna pojemność (TiB)  |
 |---|---|---|---|
@@ -258,13 +258,13 @@ W oparciu o poprzednim założeń, Utwórz 26-TiB StorSimple do warstwy wolumin 
 | Pełne roczne | 1  | 10 | 10 |
 | Wymaganie GFS |   | 38 |   |
 | Dodatkowego limitu przydziału  | 4  |   | 42 całkowita wymaganie GFS  |
-\*Mnożnik GFS jest liczba kopii, które należy chronić i zachować zgodnie z wymaganiami zasad tworzenia kopii zapasowej.
+\*Witaj GFS mnożnik jest hello liczba kopii musi tooprotect i zachować toomeet wymagań zasad tworzenia kopii zapasowej.
 
 ## <a name="set-up-backup-exec-storage"></a>Konfigurowanie magazynu kopii zapasowej Exec
 
-### <a name="to-set-up-backup-exec-storage"></a>Aby skonfigurować Magazyn Exec kopii zapasowej
+### <a name="tooset-up-backup-exec-storage"></a>tooset magazynie Exec kopii zapasowej
 
-1.  W konsoli zarządzania Backup Exec wybierz **magazynu** > **konfigurowania magazynu** > **Magazyn dyskowy**  >   **Następny**.
+1.  W konsoli zarządzania Backup Exec hello, wybierz **magazynu** > **konfigurowania magazynu** > **Magazyn dyskowy**  >   **Następny**.
 
     ![Kopia zapasowa Exec konsoli zarządzania, skonfiguruj strony składowania](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -276,30 +276,30 @@ W oparciu o poprzednim założeń, Utwórz 26-TiB StorSimple do warstwy wolumin 
 
     ![Kopii zapasowej Exec management console, nazwę i opis strony](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
-4.  Wybierz dysk, na którym chcesz utworzyć urządzenie magazynujące dysku, a następnie wybierz **dalej**.
+4.  Wybierz hello dysku, gdzie chcesz toocreate hello dysku magazynu urządzenie, a następnie wybierz **dalej**.
 
     ![Konsola zarządzania Exec kopii zapasowej, strona wyboru dysku magazynu](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
-5.  Zwiększenie liczby operacji zapisu do **16**, a następnie wybierz **dalej**.
+5.  Zwiększenie zbyt hello liczbę operacji zapisu**16**, a następnie wybierz **dalej**.
 
     ![Kopia zapasowa Exec konsoli zarządzania równoczesnych zapisu operacji ustawienia strony](./media/storsimple-configure-backup-target-using-backup-exec/image10.png)
 
-6.  Przejrzyj ustawienia, a następnie wybierz **Zakończ**.
+6.  Przejrzyj ustawienia hello, a następnie wybierz **Zakończ**.
 
     ![Konsola zarządzania Exec kopii zapasowej, strona podsumowania konfiguracji magazynu](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
-7.  Na koniec każdego przydziału woluminu, zmienić ustawienia urządzenia pamięci masowej do dopasowania tych zalecane w [najlepsze rozwiązania dotyczące StorSimple i Backup Exec](#best-practices-for-storsimple-and-backup-exec).
+7.  Na końcu hello przypisanie poszczególnych woluminów, zmień hello magazynu urządzenia ustawienia toomatch tych zalecane w [najlepsze rozwiązania dotyczące StorSimple i Backup Exec](#best-practices-for-storsimple-and-backup-exec).
 
     ![Konsola zarządzania Exec kopii zapasowej, strony ustawień urządzenia pamięci masowej](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
-8.  Powtórz kroki od 1 do 7, do momentu zakończenia przypisywanie woluminy StorSimple do tworzenia kopii zapasowej Exec.
+8.  Powtórz kroki od 1 do 7, aż zakończysz przypisywanie sieci tooBackup woluminów StorSimple Exec.
 
 ## <a name="set-up-storsimple-as-a-primary-backup-target"></a>Konfigurowanie StorSimple jako miejsce docelowe kopii zapasowej głównej
 
 > [!NOTE]
-> Przywróć dane z kopii zapasowej, który ma zostać warstwy do chmury występuje szybkością chmury.
+> Przywróć dane z kopii zapasowej, która została chmury warstwowych toohello występuje szybkością chmury.
 
-Na poniższej ilustracji przedstawiono mapowanie woluminie typowe zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe mapowania sobota zapełniony dysk, a przyrostowe kopie zapasowe mapowania dysków przyrostowe od poniedziałku do piątku. Tworzenie kopii zapasowych i przywracania są z StorSimple wszystkie warstwy woluminu.
+Witaj poniższej ilustracji przedstawiono mapowanie hello typowe woluminu tooa zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe hello mapy toohello sobota zapełniony dysk, a przyrostowe kopie zapasowe hello mapowania dysków przyrostowe tooMonday piątek. Witaj wszystkich kopii zapasowych i przywracania są z StorSimple do warstwy woluminu.
 
 ![Diagram logiczny konfiguracji podstawowej miejsce docelowe kopii zapasowej](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
 
@@ -314,54 +314,54 @@ Oto przykład harmonogramu obrotu GFS cztery tygodnie miesięcznych i rocznych:
 | Co rok | Sobota  |   |   |
 
 
-### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Przypisać woluminy StorSimple do tworzenia kopii zapasowej Exec zadanie tworzenia kopii zapasowej
+### <a name="assign-storsimple-volumes-tooa-backup-exec-backup-job"></a>Przypisz zadanie tworzenia kopii zapasowej Backup Exec tooa woluminów StorSimple
 
-Następująca sekwencja przyjęto założenie, że Exec kopii zapasowej i host docelowy są skonfigurowane zgodnie z wytycznymi agenta kopii zapasowej Exec.
+Witaj następująca sekwencja przyjęto założenie, że ten host docelowy Exec kopii zapasowej i hello są skonfigurowane zgodnie z wytycznymi agenta kopii zapasowej Exec hello.
 
-#### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Aby przypisać woluminy StorSimple do tworzenia kopii zapasowej Exec zadanie tworzenia kopii zapasowej
+#### <a name="tooassign-storsimple-volumes-tooa-backup-exec-backup-job"></a>tooassign StorSimple woluminów tooa Backup Exec kopii zapasowej zadania
 
-1.  W konsoli zarządzania Backup Exec wybierz **hosta** > **kopii zapasowej** > **kopii zapasowej na dysku**.
+1.  W konsoli zarządzania Backup Exec hello, wybierz **hosta** > **kopii zapasowej** > **tooDisk kopii zapasowej**.
 
-    ![Konsola zarządzania Exec kopii zapasowej, wybierz hosta kopii zapasowej i kopii zapasowej na dysku](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
+    ![Kopia zapasowa Exec konsoli zarządzania, wybierz hosta, toodisk i kopii zapasowej](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
-2.  W **kopii zapasowych: właściwości definicji** okna dialogowego, w obszarze **kopii zapasowej**, wybierz pozycję **Edytuj**.
+2.  W hello **kopii zapasowych: właściwości definicji** okna dialogowego, w obszarze **kopii zapasowej**, wybierz pozycję **Edytuj**.
 
     ![Konsola zarządzania Exec kopii zapasowej, okno dialogowe Właściwości definicji kopii zapasowej](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
-3.  Skonfiguruj kopie zapasowe pełne i przyrostowe, aby mogli zgodnie z wymaganiami RPO i RTO i są zgodne z Veritas najlepszych rozwiązań.
+3.  Skonfiguruj kopie zapasowe pełne i przyrostowe, aby mogli zgodnie z wymaganiami RPO i RTO i jest zgodna z tooVeritas najlepszych rozwiązań.
 
-4.  W **opcje kopii zapasowej** okno dialogowe, wybierz opcję **magazynu**.
+4.  W hello **opcje kopii zapasowej** okno dialogowe, wybierz opcję **magazynu**.
 
     ![Konsola zarządzania Exec kopii zapasowej, okno dialogowe Opcje usługi Magazyn kopii zapasowych](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
-5.  Przypisz odpowiednich woluminów StorSimple do harmonogramu tworzenia kopii zapasowych.
+5.  Przypisz odpowiedni StorSimple woluminów tooyour harmonogram tworzenia kopii zapasowych.
 
     > [!NOTE]
-    > **Kompresja** i **typ szyfrowania** ustawiono **Brak**.
+    > **Kompresja** i **typ szyfrowania** są ustawiane za**Brak**.
 
-6.  W obszarze **Sprawdź**, wybierz pozycję **nie sprawdzaj poprawności danych dla tego zadania** pole wyboru. Użycie tej opcji może wpłynąć na obsługę poziomów StorSimple.
+6.  W obszarze **Sprawdź**, wybierz pozycję hello **nie sprawdzaj poprawności danych dla tego zadania** pole wyboru. Użycie tej opcji może wpłynąć na obsługę poziomów StorSimple.
 
     > [!NOTE]
-    > Defragmentacja indeksowanie i weryfikacji tła negatywnie wpłynąć na warstwy StorSimple.
+    > Defragmentacji, indeksowanie i weryfikacji tła negatywnie wpłynąć na powitania StorSimple warstwy.
 
     ![Konsola zarządzania Exec kopii zapasowej, opcje kopii zapasowej, sprawdź ustawienia](./media/storsimple-configure-backup-target-using-backup-exec/image17.png)
 
-7.  Po skonfigurowaniu pozostałe opcje kopii zapasowej zgodnie z wymaganiami, wybierz **OK** aby zakończyć.
+7.  Po skonfigurowaniu hello reszty toomeet Twojego opcje tworzenia kopii zapasowej z wymaganiami, wybierz **OK** toofinish.
 
 ## <a name="set-up-storsimple-as-a-secondary-backup-target"></a>Konfigurowanie StorSimple jako dodatkowej miejsce docelowe kopii zapasowej
 
 > [!NOTE]
->Przywraca dane z kopii zapasowej, który ma zostać warstwy do chmury wystąpić szybkością chmury.
+>Przywraca dane z kopii zapasowej, która została chmury warstwowych toohello wystąpić szybkością chmury.
 
-W tym modelu musi mieć na nośniku magazynowania (inne niż StorSimple) jako tymczasowy pamięci podręcznej. Na przykład umożliwia dublowanej macierzy niezależnych dysków (RAID) wolumin miejsca, wejścia/wyjścia (We/Wy) i przepustowości. Firma Microsoft zaleca używanie RAID 5, 50 i 10.
+W tym modelu musi mieć tooserve nośnika (inne niż StorSimple) magazynu jako tymczasowy pamięci podręcznej. Na przykład można użyć dublowanej macierzy niezależnych dysków (RAID) wolumin tooaccommodate miejsca, wejścia/wyjścia (We/Wy) i przepustowości. Firma Microsoft zaleca używanie RAID 5, 50 i 10.
 
-Na poniższej ilustracji przedstawiono typowe przechowywania krótkoterminowego woluminów lokalnych (aby serwera) i długoterminowego przechowywania archiwa woluminów. W tym scenariuszu wszystkie kopie zapasowe, uruchom na lokalnym (serwer) woluminu RAID. Te kopie zapasowe są okresowo zduplikowany i archiwizowane do woluminu archiwa. Należy koniecznie rozmiaru lokalne (serwer) woluminu RAID, dzięki czemu może obsłużyć krótkoterminowego przechowywania pojemność i wydajność wymagań.
+Witaj rysunku poniżej przedstawiono typowe krótkoterminowego przechowywania lokalnego (toohello serwera) woluminy i długoterminowego przechowywania archiwa woluminów. W tym scenariuszu wszystkie kopie zapasowe uruchamiane na lokalne powitania (serwer toohello) woluminu RAID. Te kopie zapasowe są okresowo zduplikowane i archiwizowane tooan archiwa woluminu. Jego jest ważne toosize lokalne (serwer toohello) woluminu RAID, dzięki czemu może obsłużyć krótkoterminowego przechowywania pojemność i wydajność wymagań.
 
 ### <a name="storsimple-as-a-secondary-backup-target-gfs-example"></a>StorSimple jako przykład GFS dodatkowej miejsce docelowe kopii zapasowej
 
 ![StorSimple jako miejsce docelowe kopii zapasowej dodatkowej diagram logiczny](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetdiagram.png)
 
-W poniższej tabeli przedstawiono, jak skonfigurować tworzenie kopii zapasowych na dyskach StorSimple i lokalne. Zawiera wymagania dotyczące poszczególnych i całkowitej pojemności.
+Witaj poniższej tabeli przedstawiono sposób tooset się toorun kopii zapasowych na lokalne powitania i dyski StorSimple. Zawiera wymagania dotyczące poszczególnych i całkowitej pojemności.
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Wymagania dotyczące pojemności i konfiguracji kopii zapasowej
 
@@ -387,27 +387,27 @@ W poniższej tabeli przedstawiono, jak skonfigurować tworzenie kopii zapasowych
 | Co rok | Co rok StorSimple  |   |   |   |   |   |   |
 
 
-### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Przypisać woluminy StorSimple do archiwum Exec kopii zapasowej i deduplikacji zadania
+### <a name="assign-storsimple-volumes-tooa-backup-exec-archive-and-deduplication-job"></a>Przypisz StorSimple woluminów tooa Backup Exec archiwum i deduplikacji zadania
 
-#### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Aby przypisać woluminy StorSimple do zadania archiwum i powielania Exec kopii zapasowej
+#### <a name="tooassign-storsimple-volumes-tooa-backup-exec-archive-and-duplication-job"></a>tooassign StorSimple woluminów tooa Backup Exec archiwum i powielania zadania
 
-1.  W konsoli zarządzania Exec kopii zapasowej, kliknij prawym przyciskiem myszy zadanie, które chcesz zarchiwizować do woluminu StorSimple, a następnie wybierz **kopii zapasowych: właściwości definicji** > **Edytuj**.
+1.  W konsoli zarządzania Backup Exec hello, kliknij prawym przyciskiem myszy zadanie hello mają woluminu StorSimple tooa tooarchive, a następnie wybierz **kopii zapasowych: właściwości definicji** > **Edytuj**.
 
     ![Konsola zarządzania Exec kopii zapasowej, karta Właściwości definicji kopii zapasowej](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Wybierz **Dodaj etap** > **zduplikowane dysku** > **Edytuj**.
+2.  Wybierz **Dodaj etap** > **zduplikowane tooDisk** > **Edytuj**.
 
     ![Kopia zapasowa konsoli zarządzania Exec, Dodaj etap](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
-3.  W **zduplikowane opcje** oknie dialogowym Wybierz wartości, które ma być używany dla **źródła** i **harmonogram**.
+3.  W hello **zduplikowane opcje** okno dialogowe, wybierz hello wartości, które mają toouse dla **źródła** i **harmonogram**.
 
     ![Tworzenie kopii zapasowych Exec konsoli zarządzania, tworzenia kopii zapasowej definicji właściwości i opcje zduplikowane](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
-4.  W **magazynu** listy rozwijanej wybierz woluminu StorSimple, w którym zadania archiwum do przechowywania danych.
+4.  W hello **magazynu** listy rozwijanej, wybierz hello woluminu StorSimple, w którym ma hello archiwum zadania toostore hello danych.
 
     ![Tworzenie kopii zapasowych Exec konsoli zarządzania, tworzenia kopii zapasowej definicji właściwości i opcje zduplikowane](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
-5.  Wybierz **Sprawdź**, a następnie wybierz **nie sprawdzaj poprawności danych dla tego zadania** pole wyboru.
+5.  Wybierz **Sprawdź**, a następnie wybierz hello **nie sprawdzaj poprawności danych dla tego zadania** pole wyboru.
 
     ![Tworzenie kopii zapasowych Exec konsoli zarządzania, tworzenia kopii zapasowej definicji właściwości i opcje zduplikowane](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
@@ -415,21 +415,21 @@ W poniższej tabeli przedstawiono, jak skonfigurować tworzenie kopii zapasowych
 
     ![Tworzenie kopii zapasowych Exec konsoli zarządzania, tworzenia kopii zapasowej definicji właściwości i opcje zduplikowane](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  W **kopii zapasowej** kolumny, Dodaj nowy etap. Dla źródła, należy użyć **przyrostowe**. Dla elementu docelowego należy wybrać woluminu StorSimple, gdy zadanie tworzenia przyrostowej kopii zapasowej zostaną zarchiwizowane. Powtórz kroki od 1 do 6.
+7.  W hello **kopii zapasowej** kolumny, Dodaj nowy etap. Dla źródła hello, użyj **przyrostowe**. Dla celu hello wybierz hello woluminu StorSimple, gdzie hello zadanie tworzenia przyrostowej kopii zapasowej zostaną zarchiwizowane. Powtórz kroki od 1 do 6.
 
 ## <a name="storsimple-cloud-snapshots"></a>Migawki StorSimple w chmurze
 
-Migawki StorSimple w chmurze ochrony danych, która znajduje się w urządzeniu StorSimple. Tworzenie migawek chmury jest odpowiednikiem wysyłania lokalnej kopii zapasowej taśmy, aby mechanizm poza siedzibą firmy. Użycie magazynu geograficznie nadmiarowego Azure, tworzenia migawki chmury jest odpowiednikiem wysyłania kopii zapasowych taśm z wieloma lokacjami. Jeśli potrzebujesz przywrócić urządzenia po awarii, mogą doprowadzić online innego urządzenia StorSimple i tryb failover. Po pracy awaryjnej będzie można uzyskiwać dostęp do danych (szybkością chmury) z najnowszych migawka w chmurze.
+Migawki StorSimple w chmurze w ochronie danych hello, która znajduje się w urządzeniu StorSimple. Tworzenie migawka w chmurze jest równoważne tooshipping lokalnej kopii zapasowej taśmy tooan poza siedzibą firmy zakładzie. Użycie magazynu geograficznie nadmiarowego Azure, jest utworzenie migawkę chmury odpowiednik tooshipping taśm kopii zapasowych toomultiple witryn. Jeśli potrzebujesz toorestore urządzenia po awarii może doprowadzić online innego urządzenia StorSimple i tryb failover. Po hello w tryb failover będzie możliwe tooaccess hello danych (szybkością chmury) z hello najnowszych migawka w chmurze.
 
-W poniższej sekcji opisano sposób tworzenia krótkich skryptu do uruchomienia i usunięcia migawki StorSimple w chmurze podczas tworzenia kopii zapasowej przetwarzania końcowego.
+powitania po sekcji opisano, jak toocreate toostart krótkich skryptu i delete StorSimple w chmurze migawki podczas tworzenia kopii zapasowej przetwarzania końcowego.
 
 > [!NOTE]
-> Migawki tworzone ręcznie lub programowo nie wykonuj zasady wygasania StorSimple snapshot. Te migawki, należy ręcznie lub programowo usunąć.
+> Migawki tworzone ręcznie lub programowo nie wykonuj hello StorSimple snapshot wygaśnięcia zasad. Te migawki, należy ręcznie lub programowo usunąć.
 
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>Uruchom i Usuń migawki w chmurze za pomocą skryptu
 
 > [!NOTE]
-> Dokładnie oceń zgodności i następstwa przechowywania danych przed usunięciem migawki StorSimple. Aby uzyskać więcej informacji o sposobie uruchamiania skryptu po wykonaniu kopii zapasowej, zobacz [dokumentacji Backup Exec](https://www.veritas.com/support/en_US/15047.html).
+> Dokładnie oceń hello zgodności i następstwa przechowywania danych przed usunięciem migawki StorSimple. Aby uzyskać więcej informacji o tym, jak toorun skryptu po wykonaniu kopii zapasowej, zobacz hello [dokumentacji Backup Exec](https://www.veritas.com/support/en_US/15047.html).
 
 ### <a name="backup-lifecycle"></a>Cykl życia tworzenia kopii zapasowej
 
@@ -437,22 +437,22 @@ W poniższej sekcji opisano sposób tworzenia krótkich skryptu do uruchomienia 
 
 ### <a name="requirements"></a>Wymagania
 
--   Serwer, który uruchamia skrypt musi mieć dostęp do zasobów w chmurze Azure.
--   Konto użytkownika musi mieć odpowiednie uprawnienia.
--   Zasady tworzenia kopii zapasowej StorSimple przy użyciu skojarzonych woluminów StorSimple musi skonfigurować, ale nie jest włączona.
--   Będziesz potrzebować nazwy zasobu StorSimple, klucz rejestracji, identyfikator urządzenia zasad nazwę i tworzenia kopii zapasowej.
+-   powitania serwera, który uruchamia skrypt hello musi mieć dostęp do zasobów w chmurze tooAzure.
+-   Witaj, konto użytkownika musi mieć hello niezbędne uprawnienia.
+-   Zasady tworzenia kopii zapasowej StorSimple z hello skojarzone StorSimple woluminów musi być zdefiniowane, ale nie jest włączona.
+-   Będziesz potrzebować hello Nazwa zasobu StorSimple, klucz rejestracji, nazwa urządzenia i identyfikator zasad tworzenia kopii zapasowej.
 
-### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby uruchomić lub usunąć migawka w chmurze
+### <a name="toostart-or-delete-a-cloud-snapshot"></a>toostart lub usuń migawka w chmurze
 
 1.  [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
 2.  [Pobieranie i importowanie publikowania ustawienia i informacje o subskrypcji](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  W klasycznym portalu Azure, uzyskać nazwę zasobu i [klucz rejestracji usługi Menedżer StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  Na serwerze, który uruchamia skrypt Uruchom program PowerShell jako administrator. Wpisz następujące polecenie:
+3.  W hello klasycznego portalu Azure, uzyskać nazwę zasobu hello i [klucz rejestracji usługi Menedżer StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+4.  Na powitania serwera, który uruchamia skrypt hello Uruchom program PowerShell jako administrator. Wpisz następujące polecenie:
 
     `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
-    Należy pamiętać, identyfikator zasady tworzenia kopii zapasowej.
-5.  W programie Notatnik Utwórz nowy skrypt programu PowerShell przy użyciu następującego kodu.
+    Identyfikator Uwaga hello zasad tworzenia kopii zapasowej.
+5.  W programie Notatnik Utwórz nowy skrypt programu PowerShell przy użyciu następującego kodu hello.
 
     Skopiuj i wklej następujący fragment kodu:
     ```powershell
@@ -467,7 +467,7 @@ W poniższej sekcji opisano sposób tworzenia krótkich skryptu do uruchomienia 
     Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
     $CompletedSnapshots =@()
     $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
+    Write-Host "hello Expiration date is " $ExpirationDate
     Write-Host
 
     ForEach ($SnapShot in $CompletedSnapshots)
@@ -479,40 +479,40 @@ W poniższej sekcji opisano sposób tworzenia krótkich skryptu do uruchomienia 
             $SnapShotInstanceID = $SnapShot.InstanceId
             Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
             Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
+            Write-Host "This snpashotdate is older and needs toobe deleted"
             Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
             Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
         }
     }
     ```
-      Zapisz skrypt programu PowerShell w tej samej lokalizacji, w której zapisano Azure ustawień publikowania. Na przykład Zapisz jako C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Dodaj skrypt do zadania kopii zapasowej w kopii zapasowej Exec edytując przetwarzanie wstępne Opcje zadania tworzenia kopii zapasowej Exec i przetwarzania końcowego poleceń.
+      Zapisz toohello skrypt programu PowerShell hello ustawień publikowania tej samej lokalizacji, w której zapisano platformy Azure. Na przykład Zapisz jako C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
+6.  Dodaj zadanie tworzenia kopii zapasowej tooyour skryptu hello w kopii zapasowej Exec edytując przetwarzanie wstępne Opcje zadania tworzenia kopii zapasowej Exec i przetwarzania końcowego poleceń.
 
     ![Wykonaj kopię zapasową Exec konsoli, opcje tworzenia kopii zapasowej, karta poleceń pre-i przetwarzanie końcowe](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
-> Zaleca się uruchomić StorSimple chmury migawki zasad tworzenia kopii zapasowej jako przetwarzanie końcowe skrypt po zakończeniu zadania kopii zapasowej codziennie. Aby uzyskać więcej informacji na temat kopii zapasowej i przywracania środowiska aplikacji kopii zapasowej, aby pomóc spełnić cel punktu odzyskiwania oraz w celu skontaktuj się z Twojego architektów kopii zapasowej.
+> Zaleca się uruchomić StorSimple chmury migawki zasad tworzenia kopii zapasowej jako przetwarzanie końcowe skrypt na końcu hello codzienne zadania kopii zapasowej. Aby uzyskać więcej informacji na temat sposobu tooback zapasowej i przywracania toohelp środowiska aplikacji kopii zapasowej, użytkownika spełnia Twoje RPO i RTO, skontaktuj się z Twojego architektów kopii zapasowej.
 
 ## <a name="storsimple-as-a-restore-source"></a>StorSimple jako źródło przywracania
 
-Przywraca z pracy urządzenia StorSimple, takich jak przywracanie z dowolnym urządzeniem magazynu blokowego. Przywraca dane, które jest do warstwy do chmury występuje szybkością chmury. Dla danych lokalnych przywraca wystąpić od szybkości dysku lokalnego urządzenia. Informacje o tym, jak przeprowadzić przywracanie znajduje się w dokumentacji Exec kopii zapasowej. Firma Microsoft zaleca odpowiadają Backup Exec przywracania najlepszych rozwiązań.
+Przywraca z pracy urządzenia StorSimple, takich jak przywracanie z dowolnym urządzeniem magazynu blokowego. Przywraca dane warstwowych toohello chmurze występuje szybkością chmury. Dla danych lokalnych przywraca wystąpić na szybkość dysku lokalnym hello hello urządzenia. Aby uzyskać informacje na temat tooperform przywracania, zobacz dokumentację Backup Exec hello. Zalecane jest zgodna z tooBackup Exec przywracania najlepszych rozwiązań.
 
 ## <a name="storsimple-failover-and-disaster-recovery"></a>StorSimple trybu failover i odzyskiwanie po awarii
 
 > [!NOTE]
 > Dla scenariuszy miejsce docelowe kopii zapasowej urządzenia chmury StorSimple nie jest obsługiwany jako miejsce docelowe przywracania.
 
-Awarii może wpływać wiele czynników. Poniższa tabela zawiera listę typowych scenariuszy odzyskiwania po awarii.
+Awarii może wpływać wiele czynników. Witaj w poniższej tabeli wymieniono typowe scenariusze odzyskiwania po awarii.
 
-| Scenariusz | Wpływ | Jak odzyskać | Uwagi |
+| Scenariusz | Wpływ | Jak toorecover | Uwagi |
 |---|---|---|---|
-| Niepowodzenie urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp urządzenia nie powiodło się i wykonywać [StorSimple trybu failover i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md). | Jeśli musisz wykonać przywracanie po odzyskaniu urządzenia zestawów roboczych pełne dane są pobierane z chmury do nowego urządzenia. Wszystkie operacje są szybkością chmury. Proces rescanning indeksowania i przyspieszy może spowodować wszystkie zestawy kopii zapasowych do skanowania i pobierane z warstwy chmury do urządzenia lokalnego warstwy, która może być czasochłonne. |
-| Exec — błąd serwera kopii zapasowej | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Odbuduj serwer kopii zapasowych i przywracania bazy danych zgodnie z opisem w [jak to zrobić ręcznie bazy danych kopii zapasowej i przywracanie z kopii zapasowej Exec (BEDB)](http://www.veritas.com/docs/000041083). | Należy odbudować ani przywrócić serwer Exec kopii zapasowej w lokacji odzyskiwania po awarii. Najnowszy punkt przywracania bazy danych. Jeśli przywróconej bazy danych kopii zapasowej Exec nie jest zsynchronizowana z zadaniami najnowszej kopii zapasowej, indeksowanie i katalogowanie jest wymagane. Ten indeks i ponowne skanowanie procesu katalogu może spowodować wszystkie zestawy kopii zapasowych do skanowania i pobierane z poziomów w chmurze w warstwie lokalnej urządzenia. Dzięki temu dalsze intensywnie czasu. |
-| Awaria lokacji, która powoduje utratę kopii zapasowych serwera i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw przywrócić StorSimple, a następnie przywróć kopię zapasową Exec. | Najpierw przywrócić StorSimple, a następnie przywróć kopię zapasową Exec. Jeśli musisz wykonać przywracanie po odzyskaniu urządzenia zestawów roboczych pełne dane są pobierane z chmury do nowego urządzenia. Wszystkie operacje są szybkością chmury. |
+| Niepowodzenie urządzenia StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Zastąp hello urządzenia nie powiodło się i wykonywać [StorSimple trybu failover i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md). | Tooperform przywracania po odzyskaniu urządzenia, należy zestawów roboczych pełne dane są pobierane z hello chmury toohello nowego urządzenia. Wszystkie operacje są szybkością chmury. Witaj indeksowanie i skatalogowania ponowne skanowanie proces może spowodować wszystkie zestawy kopii zapasowych toobe skanowania i pobierane z hello warstwy toohello urządzenia lokalnego poziomów w chmurze, która może być czasochłonne. |
+| Exec — błąd serwera kopii zapasowej | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Odbudowanie powitania serwera kopii zapasowej i przywracania bazy danych zgodnie z opisem w [sposób ręcznego tworzenia kopii zapasowej i przywracanie z kopii zapasowej Exec (BEDB) bazy danych toodo](http://www.veritas.com/docs/000041083). | Należy odbudować ani przywrócić hello Exec kopii zapasowej serwera w lokacji odzyskiwania po awarii hello. Witaj bazy danych toohello ostatniego punktu przywracania. Jeśli hello przywrócić Exec kopii zapasowej bazy danych nie jest zsynchronizowana z najnowszego zadania tworzenia kopii zapasowej, indeksowanie i katalogowanie jest wymagane. Ten indeks i ponowne skanowanie procesu katalogu może spowodować wszystkie zestawy kopii zapasowych toobe skanowania i pobierane z hello chmury warstwy toohello urządzenia lokalnego warstwy. Dzięki temu dalsze intensywnie czasu. |
+| Awaria lokacji, która powoduje utratę hello hello kopii zapasowych serwera i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw przywrócić StorSimple, a następnie przywróć kopię zapasową Exec. | Najpierw przywrócić StorSimple, a następnie przywróć kopię zapasową Exec. Tooperform przywracania po odzyskaniu urządzenia, należy zestawów roboczych hello pełne dane są pobierane z hello chmury toohello nowego urządzenia. Wszystkie operacje są szybkością chmury. |
 
 ## <a name="references"></a>Dokumentacja
 
-Poniższe dokumenty zostały odwołanie do tego artykułu:
+Witaj następujące dokumenty zostały odwołanie do tego artykułu:
 
 - [StorSimple Wielościeżkowe We/Wy Instalatora](storsimple-configure-mpio-windows-server.md)
 - [Scenariusze magazynu: alokowanie elastyczne](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
@@ -521,5 +521,5 @@ Poniższe dokumenty zostały odwołanie do tego artykułu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o sposobie [przywrócenie z zestawu kopii zapasowych](storsimple-restore-from-backup-set-u2.md).
-- Dowiedz się więcej na temat sposobu wykonywania [urządzenia trybu failover i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md).
+- Dowiedz się więcej o tym, jak za[przywrócenie z zestawu kopii zapasowych](storsimple-restore-from-backup-set-u2.md).
+- Dowiedz się więcej na temat tooperform [urządzenia trybu failover i odzyskiwania po awarii](storsimple-device-failover-disaster-recovery.md).

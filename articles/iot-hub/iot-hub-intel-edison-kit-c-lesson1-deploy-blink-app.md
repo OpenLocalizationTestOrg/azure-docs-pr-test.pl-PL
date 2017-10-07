@@ -1,6 +1,6 @@
 ---
-title: "Connect Intel Edison (C) do Azure IoT — Lekcja 1: Wdrażanie aplikacji | Dokumentacja firmy Microsoft"
-description: "Klonowanie aplikacji przykładowej C z serwisu GitHub, a następnie uruchom gulp do wdrożenia tej aplikacji do tablicy Intel Edison. Ta przykładowa aplikacja miga LED podłączone do tablicy co dwie sekundy."
+title: "Connect Intel Edison (C) tooAzure IoT — Lekcja 1: Wdrażanie aplikacji | Dokumentacja firmy Microsoft"
+description: "Klonowanie hello przykładowej C aplikacji z usługi GitHub i uruchomić gulp toodeploy tej aplikacji tooyour Intel Edison tablicy. Ta przykładowa aplikacja miga tablicy toohello LED połączone hello co dwie sekundy."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,34 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: c45ff5f41bdbc78da8532ffdcaaeec15c695f531
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa84fae812dd742a2ad4997a5e213c8e40e6fcf9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Tworzenie i wdrażanie aplikacji blink
+# <a name="create-and-deploy-hello-blink-application"></a>Tworzenie i wdrażanie aplikacji migania hello
 ## <a name="what-you-will-do"></a>Będzie wykonywać
-Klonowanie aplikacji przykładowej C z usługi GitHub i wdrażanie przykładowej aplikacji do firmy Intel Edison za pomocą narzędzia gulp. Przykładowa aplikacja miga LED podłączone do tablicy co dwie sekundy. Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony][troubleshooting].
+Klonowanie hello przykładowej C aplikacji z usługi GitHub i użyj hello gulp narzędzie toodeploy hello przykładowej aplikacji tooIntel Edison. Witaj przykładowej aplikacji miga tablicy toohello LED połączone hello co dwie sekundy. Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
-* Jak wdrożyć i uruchomić aplikację przykładową na Edison.
+* Jak toodeploy i wykonywania hello przykładowej aplikacji na Edison.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
-Pomyślnie zakończono następujące operacje:
+Użytkownik pomyślnie ukończona hello następujące operacje:
 
 * [Skonfiguruj urządzenie][configure-your-device]
-* [Pobierz narzędzia][get-the-tools]
+* [Pobierz narzędzia hello][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Otwórz aplikację przykładową
-Aby otworzyć aplikację przykładową, wykonaj następujące kroki:
+## <a name="open-hello-sample-application"></a>Otwórz hello przykładowej aplikacji
+Witaj tooopen przykładowej aplikacji, wykonaj następujące kroki:
 
-1. Klonowanie repozytorium przykładowej z serwisu GitHub, uruchamiając następujące polecenie:
+1. Klonuj repozytorium przykładowej hello z serwisu GitHub, uruchamiając następujące polecenie hello:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-c-edison-getting-started.git
    ```
-2. Otwórz przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia:
+2. Otwórz hello przykładowej aplikacji w programie Visual Studio Code, uruchamiając następujące polecenia hello:
 
    ```bash
    cd iot-hub-c-edison-getting-started
@@ -54,27 +54,27 @@ Aby otworzyć aplikację przykładową, wykonaj następujące kroki:
 
    ![Struktura repozytorium][repo-structure]
 
-Plik `app` podfolder jest plik źródłowy klucza, który zawiera kod służący do kontroli LED.
+Plik Hello w hello `app` podfolder to plik klucza źródła hello, który zawiera hello kodu toocontrol hello LED.
 
 ### <a name="install-application-dependencies"></a>Zainstaluj zależności aplikacji
-Zainstaluj biblioteki oraz inne moduły potrzebnych dla aplikacji przykładowej, uruchamiając następujące polecenie:
+Zainstaluj hello bibliotek i inne moduły potrzebnych dla aplikacji przykładowej hello, uruchamiając następujące polecenie hello:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Skonfiguruj połączenie z urządzeniem
-Aby skonfigurować połączenie z urządzeniem, wykonaj następujące kroki:
+## <a name="configure-hello-device-connection"></a>Skonfiguruj połączenie z urządzeniem hello
+tooconfigure hello połączenie z urządzeniem, wykonaj następujące kroki:
 
-1. Generowanie pliku konfiguracji urządzenia, uruchamiając następujące polecenie:
+1. Generowanie pliku konfiguracji urządzenia hello, uruchamiając następujące polecenie hello:
 
    ```bash
    gulp init
    ```
 
-   Plik konfiguracji `config-edison.json` zawiera poświadczenia użytkownika używane do logowania się do Edison. W celu uniknięcia wycieku poświadczeń użytkownika, plik konfiguracji jest generowany w podfolderze `.iot-hub-getting-started` folderu macierzystego na tym komputerze.
+   plik konfiguracji Hello `config-edison.json` zawiera poświadczenia użytkownika hello używasz toolog tooEdison. przeciek hello tooavoid poświadczeń użytkownika hello plik konfiguracji jest generowany w podfolderze hello `.iot-hub-getting-started` hello folderu macierzystego na tym komputerze.
 
-2. Otwórz plik konfiguracji urządzeń w programie Visual Studio Code, uruchamiając następujące polecenie:
+2. Otwórz plik konfiguracji urządzenia hello w programie Visual Studio Code, uruchamiając następujące polecenie hello:
 
    ```bash
    # For Windows command prompt
@@ -84,39 +84,39 @@ Aby skonfigurować połączenie z urządzeniem, wykonaj następujące kroki:
    code ~/.iot-hub-getting-started/config-edison.json
    ```
 
-3. Zastąp symbol zastępczy `[device hostname or IP address]` i `[device password]` przy użyciu adresu IP i hasła, który oznaczony w dół w poprzedniej lekcji.
+3. Zastąp symbol zastępczy hello `[device hostname or IP address]` i `[device password]` z adresem IP hello i hasło, które są oznaczone w dół w poprzedniej lekcji.
 
    ![Config.JSON](media/iot-hub-intel-edison-lessons/lesson1/vscode-config-mac.png)
 
-Gratulacje! Pierwszy Przykładowa aplikacja dla Edison została pomyślnie utworzona.
+Gratulacje! Witaj pierwszy przykładowej aplikacji Edison została pomyślnie utworzona.
 
-## <a name="deploy-and-run-the-sample-application"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-### <a name="install-the-azure-iot-hub-sdk-on-edison"></a>Zainstaluj Centrum IoT Azure SDK na Edison
-Zainstaluj zestaw SDK usługi Azure IoT Hub na Edison, uruchamiając następujące polecenie:
+## <a name="deploy-and-run-hello-sample-application"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+### <a name="install-hello-azure-iot-hub-sdk-on-edison"></a>Zainstaluj zestaw SDK usługi Azure IoT Hub hello na Edison
+Zainstaluj zestaw SDK usługi Azure IoT Hub hello na Edison, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp install-tools
 ```
 
-To zadanie może zająć dużo czasu, w zależności od połączenia sieciowego. Należy uruchomić tylko raz dla jednego Edison.
+To zadanie może potrwać długo toocomplete, w zależności od połączenia sieciowego. Go wymaga toobe uruchomić tylko raz dla jednego Edison.
 
-### <a name="deploy-and-run-the-sample-app"></a>Wdrażanie i uruchamianie przykładowej aplikacji
-Wdrażanie i uruchamianie aplikacji przykładowej, uruchamiając następujące polecenie:
+### <a name="deploy-and-run-hello-sample-app"></a>Wdrażanie i uruchamianie hello przykładowej aplikacji
+Wdrażanie i uruchamianie aplikacji przykładowej hello, uruchamiając następujące polecenie hello:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Weryfikowanie działania aplikacji
-Przykładowa aplikacja kończy się automatycznie po LED miga do 20 razy. Jeśli nie widzisz migający LED, zobacz [przewodnik rozwiązywania problemów] [ troubleshooting] dla rozwiązania typowych problemów.
+### <a name="verify-hello-app-works"></a>Weryfikowanie działania aplikacji hello
+Witaj przykładowej aplikacji kończy się automatycznie po hello LED miga do 20 razy. Jeśli nie widzisz migający hello LED, zobacz hello [przewodnik rozwiązywania problemów] [ troubleshooting] dla rozwiązania toocommon problemów.
 
 ![Migający LED][led-blinking]
 
 ## <a name="summary"></a>Podsumowanie
-Zainstalowaniu wymagane narzędzia do pracy z Edison i przykładowej aplikacji do Edison miga LED wdrożone. Teraz można tworzyć, wdrażać i uruchom inną aplikację przykładową, która łączy Edison Centrum IoT Azure do wysyłania i odbierania wiadomości.
+Zainstalowaniu hello wymagane narzędzia toowork z Edison i przykładowej aplikacji tooEdison tooblink hello LED wdrożone. Można teraz tworzenie, wdrażanie i uruchom inną aplikację przykładową, która łączy tooAzure Edison toosend Centrum IoT i odbierania wiadomości.
 
 ## <a name="next-steps"></a>Następne kroki
-[Pobierz narzędzia Azure][get-the-azure-tools]
+[Pobierz hello Azure narzędzia][get-the-azure-tools]
 
 <!-- Images and links -->
 

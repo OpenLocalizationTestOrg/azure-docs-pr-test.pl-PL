@@ -1,6 +1,6 @@
 # Rozpoczynanie pracy
 ## [Zapobieganie powstawaniu nieoczekiwanych kosztów](billing-getting-started.md)
-## [Udzielanie dostępu do rozliczeń](billing-manage-access.md)
+## [Udziel dostępu toobilling](billing-manage-access.md)
 ## [Rejestracja przy użyciu konta usługi Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Rejestracja w usłudze Office 365 przy użyciu konta platformy Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limity przydziału i ograniczenia](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)

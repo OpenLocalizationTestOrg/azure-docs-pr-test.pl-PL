@@ -1,6 +1,6 @@
 ---
-title: 'Krok 4: Nauczanie i Ewaluacja modeli predykcyjnych analityczne | Dokumentacja firmy Microsoft'
-description: "Krok 4 opracowanie wskazówki rozwiązanie predykcyjne: pociągu, wynik i ocena wielu modeli w usłudze Azure Machine Learning Studio."
+title: 'Krok 4: Nauczanie i Ewaluacja modeli predykcyjnych analityczne hello | Dokumentacja firmy Microsoft'
+description: "Krok 4 hello opracowanie wskazówki rozwiązanie predykcyjne: pociągu, wynik i ocena wielu modeli w usłudze Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,180 +14,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 58d46dd1464ec0a3fc9639f78d4429e0e778c2bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d86d7c5ae7524f71fe44d985db67c4618b7965a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Przewodnik, krok 4. Uczenie i ocenianie modeli do analizy predykcyjnej
-Ten temat zawiera wskazówki, czwarty krok [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-4-train-and-evaluate-hello-predictive-analytic-models"></a>Wskazówki krok 4: Nauczanie i Ewaluacja modeli predykcyjnych analityczne hello
+Ten temat zawiera hello czwarty krok wskazówki hello [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Tworzenie obszaru roboczego usługi Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Przekazywanie istniejących danych](machine-learning-walkthrough-2-upload-data.md)
 3. [Tworzenie nowego eksperymentu](machine-learning-walkthrough-3-create-new-experiment.md)
-4. **Nauczanie i ocena modeli**
-5. [Wdrażanie usługi sieci Web](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Dostęp do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
+4. **Nauczanie i Ewaluacja modeli hello**
+5. [Wdrażanie usługi sieci Web hello](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Witaj dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-Jedną z zalet przy użyciu usługi Azure Machine Learning Studio do tworzenia modeli uczenia maszyny jest możliwość spróbuj więcej niż jeden typ modelu jednocześnie w jednym eksperymentu, a następnie porównaj wyniki. Ten typ eksperymenty ułatwia znalezienie najlepszego rozwiązania dla danego problemu.
+Jedną z zalet hello przy użyciu usługi Azure Machine Learning Studio do tworzenia modeli uczenia maszyny jest więcej niż jeden typ modelu tootry możliwości hello jednocześnie w jednym eksperymentu i porównywania wyników hello. Ten typ eksperymenty ułatwia hello najlepszego rozwiązania dla danego problemu.
 
-W eksperymencie, które firma Microsoft tworzony jest w tym przewodniku możemy utworzyć dwa rodzaje modeli i porównać ich wyników oceniania zdecydować, który algorytm możemy mają być używane w naszych końcowy eksperyment.  
+W eksperymencie hello możemy tworzony jest w tym przewodniku, firma Microsoft będzie utworzyć dwa rodzaje modeli a następnie porównaj ich oceniania toodecide wyniki który algorytm chcemy toouse w naszym końcowy eksperyment.  
 
-Istnieją różne modele, firma Microsoft może wyboru. Aby wyświetlić dostępne modele, rozwiń węzeł **uczenia maszynowego** węzła na palecie modułów, a następnie rozwiń węzeł **zainicjować modelu** i węzły znajdujące się poniżej. Na potrzeby tego eksperymentu wybierzemy [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] (SVM) i [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułów.    
+Istnieją różne modele, firma Microsoft może wyboru. toosee hello modeli dostępnych, rozwiń węzeł hello **Machine Learning** węzła w palecie modułów hello, a następnie rozwiń węzeł **zainicjować modelu** i węzły hello znajdujące się poniżej. Dla celów hello tego eksperymentu, wybierzemy hello [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] (SVM) i hello [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułów.    
 
 > [!TIP]
-> Aby uzyskać dodatkową pomoc przy wyborze, który algorytm uczenia maszynowego najlepiej pasujące do określonej problem próbuje rozwiązać, zobacz [Wybieranie algorytmów w Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+> tooget dodatkową pomoc przy wyborze Algorytm uczenia maszynowego, które najlepiej pasujące do konkretnych problemów hello próbujesz toosolve, zobacz [jak toochoose algorytmów uczenia maszynowego Azure Microsoft](machine-learning-algorithm-choice.md).
 > 
 > 
 
-## <a name="train-the-models"></a>Modele uczenia
+## <a name="train-hello-models"></a>Modele hello pociągu
 
-Dodamy zarówno [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu i [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu, w tym eksperymencie.
+Dodamy zarówno hello [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu i [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu, w tym eksperymentu.
 
 ### <a name="two-class-boosted-decision-tree"></a>Two-Class Boosted algorytm
 
-Najpierw skonfiguruj boosted decyzji drzewa modelu.
+Najpierw skonfiguruj hello boosted decyzji drzewa modelu.
 
-1. Znajdź [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu na palecie modułów i przeciągnij go do obszaru roboczego.
+1. Znajdź hello [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu w palecie modułów hello i przeciągnij go na powitania kanwy.
 
-2. Znajdź [Train Model] [ train-model] modułu, przeciągnij go do obszaru roboczego, a następnie połącz dane wyjściowe [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] port wejściowy modułu po lewej stronie [Train Model] [ train-model] modułu.
+2. Znajdź hello [Train Model] [ train-model] modułu, przeciągnij je na kanwie hello, a następnie połącz dane wyjściowe hello hello [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree]toohello modułu pozostałych port wejściowy z hello [Train Model] [ train-model] modułu.
    
-   [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu inicjuje rodzajowy modelu i [Train Model] [ train-model] używa danych szkoleniowych do uczenia model. 
+   Witaj [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] modułu inicjuje hello rodzajowy modelu i [Train Model] [ train-model] używa danych szkoleniowych tootrain hello modelu. 
 
-3. Połącz dane wyjściowe po lewej stronie po lewej stronie [wykonanie skryptu języka R] [ execute-r-script] modułu po prawej stronie wprowadź port [Train Model] [ train-model] (zdecydowaliśmy w module [Kroku 3](machine-learning-walkthrough-3-create-new-experiment.md) tego przewodnika to użycie danych pochodzących z lewej strony modułu podziału danych szkoleń).
+3. Połącz powitania po lewej stronie dane wyjściowe lewej hello [wykonanie skryptu języka R] [ execute-r-script] portu hello danych wejściowych modułu toohello prawo [Train Model] [ train-model] modułu (Firma Microsoft decyzje podejmowane w [kroku 3](machine-learning-walkthrough-3-create-new-experiment.md) tych danych hello toouse wskazówki pochodzące z powitania po lewej stronie powitania podziału danych modułu szkoleń).
    
    > [!TIP]
-   > Firma Microsoft nie ma potrzeby dwóch danych wejściowych, a drugi dane wyjściowe [wykonanie skryptu języka R] [ execute-r-script] modułu do tego eksperymentu, dlatego firma Microsoft może narazić je odłączyć. 
+   > Firma Microsoft nie ma potrzeby dwóch danych wejściowych hello i jeden hello elementy wyjściowe hello [wykonanie skryptu języka R] [ execute-r-script] modułu do tego eksperymentu, dlatego firma Microsoft może narazić je odłączyć. 
    > 
    > 
 
-Ta część eksperyment teraz wygląda następująco:  
+Ta część eksperymentu hello teraz wygląda następująco:  
 
 ![Uczenie modelu][1]
 
-Teraz musimy sprawdzić [Train Model] [ train-model] modułu czy chcemy model do przewidywania wartości ryzyka kredytowego.
+Teraz potrzebujemy tootell hello [Train Model] [ train-model] modułu czy chcemy hello modelu toopredict hello ryzyka kredytowego wartość.
 
-1. Wybierz [Train Model] [ train-model] modułu. W **właściwości** okienku, kliknij przycisk **Uruchom selektor kolumn**.
+1. Wybierz hello [Train Model] [ train-model] modułu. W hello **właściwości** okienku, kliknij przycisk **Uruchom selektor kolumn**.
 
-2. W **wybrać pojedynczą kolumnę** okna dialogowego, wpisz "ryzyko kredytowe" w polu wyszukiwania w obszarze **dostępne kolumny**, wybierz "Ryzyko kredytowe" poniżej i kliknij przycisk strzałki w prawo ( **>** ) aby przenieść "Ryzyka kredytowego" **wybrane kolumny**. 
+2. W hello **wybrać pojedynczą kolumnę** okna dialogowego, wpisz "ryzyko kredytowe" w polu wyszukiwania hello w obszarze **dostępne kolumny**, wybierz "Ryzyko kredytowe" poniżej i kliknij przycisk strzałki w prawo hello ( **>** ) toomove "Karty kredytowej ryzyka" zbyt**wybrane kolumny**. 
 
-    ![Wybierz kolumnę ryzyka kredytowego modułu Train Model][0]
+    ![Wybierz kolumnę ryzyka kredytowego hello modułu Train Model hello][0]
 
-3. Kliknij przycisk **OK** znacznik wyboru.
+3. Kliknij przycisk hello **OK** znacznik wyboru.
 
 ### <a name="two-class-support-vector-machine"></a>Algorytm SVM dla problemu dwuklasowego
 
-Następnie skonfigurowanie SVM modelu.  
+Następnie skonfiguruj firma Microsoft hello SVM modelu.  
 
-Pierwszy, nieco wyjaśnienie SVM. Drzewa decyzyjne boosted działają prawidłowo w przypadku funkcji dowolnego typu. Jednak ponieważ moduł SVM generuje klasyfikatora liniowego, modelu, który generuje ma najlepsze błąd testu, gdy wszystkie funkcje numeryczne mieć takiej samej skali. Aby przekonwertować wszystkie funkcje numeryczne takiej samej skali, używamy transformację "Tanh" (z [normalizacji danych] [ normalize-data] modułu). To przekształca naszych numery w zakresie [0,1]. Moduł SVM konwertuje ciąg funkcji funkcje podzielone na kategorie, a następnie binarne funkcji 0/1, nie należy ręcznie Przekształcanie funkcji ciągu. Ponadto nie chcemy przekształcenie ryzyka kredytowego kolumna (kolumna 21) — liczbowych jest, ale jest wartość możemy uczony model do przewidywania, więc musimy pozostawiony.  
+Pierwszy, nieco wyjaśnienie SVM. Drzewa decyzyjne boosted działają prawidłowo w przypadku funkcji dowolnego typu. Jednak ponieważ moduł SVM hello generuje klasyfikatora liniowego, hello modelu, który generuje ma najlepsze błąd testu hello gdy wszystkie funkcje numeryczne hello samej skali. tooconvert cyfr toohello funkcje skalowania takie same, używamy transformację "Tanh" (z hello [normalizacji danych] [ normalize-data] modułu). To przekształca naszych numery w zakresie hello [0,1]. Moduł SVM Hello konwertuje ciąg funkcji toocategorical funkcje i następnie toobinary 0/1, dlatego firma Microsoft nie muszą toomanually transformacja funkcje ciągu. Ponadto nie chcemy tootransform hello ryzyka kredytowego kolumna (kolumna 21) — jest liczbowego, ale jest wartość hello możemy uczony hello toopredict modelu, potrzebujemy tooleave ją samodzielnie.  
 
-Aby skonfigurować SVM model, wykonaj następujące czynności:
+tooset model SVM hello, hello następujące:
 
-1. Znajdź [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu na palecie modułów i przeciągnij go do obszaru roboczego.
+1. Znajdź hello [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu w palecie modułów hello i przeciągnij go na powitania kanwy.
 
-2. Kliknij prawym przyciskiem myszy [Train Model] [ train-model] modułu, wybierz opcję **kopiowania**i kliknij prawym przyciskiem myszy kanwę i wybierz **Wklej**. Kopię [Train Model] [ train-model] moduł ma tego samego kolumnę zaznaczenia co oryginalny.
+2. Powitania kliknij prawym przyciskiem myszy [Train Model] [ train-model] modułu, wybierz opcję **kopiowania**, a następnie kliknij prawym przyciskiem myszy hello kanwy i wybierz **Wklej**. Witaj kopię hello [Train Model] [ train-model] moduł ma hello tego samego wyboru kolumny jako hello oryginalnego.
 
-3. Połącz dane wyjściowe [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu po lewej stronie wprowadź port drugiego [Train Model] [ train-model] modułu.
+3. Połącz dane wyjściowe hello hello [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] toohello modułu w lewo drugi port wejściowy z hello [Train Model] [ train-model] Moduł.
 
-4. Znajdź [normalizacji danych] [ normalize-data] modułu i przeciągnij go do obszaru roboczego.
+4. Znajdź hello [normalizacji danych] [ normalize-data] modułu i przeciągnij go na powitania kanwy.
 
-5. Połącz dane wyjściowe po lewej stronie po lewej stronie [wykonanie skryptu języka R] [ execute-r-script] modułu w danych wejściowych w tym module (powiadomienia, czy port wyjściowy modułu może być podłączony do więcej niż jeden moduł innych).
+5. Połącz powitania po lewej stronie dane wyjściowe lewej hello [wykonanie skryptu języka R] [ execute-r-script] wejścia modułu toohello tego modułu (powiadomienie, że hello port wyjściowy modułu mogą być połączone toomore niż inny moduł).
 
-6. Połącz lewy port wyjściowy [normalizacji danych] [ normalize-data] modułu po prawej stronie wprowadź port drugiego [Train Model] [ train-model] modułu.
+6. Połącz hello pozostałych portem wyjściowym hello [normalizacji danych] [ normalize-data] prawo toohello modułu drugie dane wejściowe portu hello [Train Model] [ train-model] modułu.
 
 Ta część naszego eksperyment powinien teraz wyglądać mniej więcej tak:  
 
-![Uczenie modelu drugi][2]  
+![Szkolenie hello drugim modelu][2]  
 
-Teraz skonfigurować [normalizacji danych] [ normalize-data] modułu:
+Teraz skonfigurować hello [normalizacji danych] [ normalize-data] modułu:
 
-1. Kliknij, aby wybrać [normalizacji danych] [ normalize-data] modułu. W **właściwości** okienku wybierz **Tanh** dla **metody przekształcania** parametru.
+1. Kliknij przycisk tooselect hello [normalizacji danych] [ normalize-data] modułu. W hello **właściwości** okienku wybierz **Tanh** dla hello **metody przekształcania** parametru.
 
-2. Kliknij przycisk **Uruchom selektor kolumn**, wybierz opcję "Brak kolumn" dla **od**, wybierz pozycję **Include** z pierwszej listy rozwijanej wybierz **typ kolumny** w drugim listy rozwijanej, a następnie wybierz **liczbowych** na liście rozwijanej trzecich. To ustawienie określa przekształcone wszystkie kolumny liczbowe (i tylko numeryczne).
+2. Kliknij przycisk **Uruchom selektor kolumn**, wybierz opcję "Brak kolumn" dla **od**, wybierz pozycję **Include** hello pierwszej listy rozwijanej, wybierz **typ kolumny**w hello drugi listy rozwijanej i wybierz **liczbowych** w hello trzeci listy rozwijanej. To ustawienie określa przekształcone wszystkich hello liczbowych kolumn (i tylko numeryczne).
 
-3. Kliknij znak plus (+) z prawej strony tego wiersza — spowoduje to utworzenie wiersza listę rozwijaną. Wybierz **wykluczyć** z pierwszej listy rozwijanej wybierz **nazwy kolumn** w drugim listy rozwijanej, a następnie wprowadź "Ryzyko kredytowe" w polu tekstowym. Określa kolumnę ryzyka kredytowego należy ją ignorować (należy to zrobić, ponieważ ta kolumna jest liczbowe w związku z czym może zostać przekształcone Jeśli firma Microsoft nie go wykluczyć).
+3. Kliknij przycisk hello toohello znak plus (+) bezpośrednio z tego wiersza — spowoduje to utworzenie wiersza listę rozwijaną. Wybierz **wykluczyć** hello pierwszej listy rozwijanej, wybierz **nazwy kolumn** w hello drugi listy rozwijanej, a następnie wprowadź "Ryzyko kredytowe" w polu tekstowym hello. Określa, należy ją ignorować tej kolumny ryzyka kredytowego hello (potrzebujemy toodo to ponieważ ta kolumna jest liczbowych i tak może zostać przekształcone, jeśli firma Microsoft nie go wykluczyć).
 
-4. Kliknij przycisk **OK** znacznik wyboru.  
+4. Kliknij przycisk hello **OK** znacznik wyboru.  
 
-    ![Wybierz kolumnę do modułu normalizacji danych][5]
+    ![Wybierz kolumny hello normalizacji danych modułu][5]
 
-[Normalizacji danych] [ normalize-data] modułu ma teraz wartość przekształcenie Tanh dla wszystkich kolumn liczbowych, z wyjątkiem kolumny ryzyka kredytowego.  
+Witaj [normalizacji danych] [ normalize-data] modułu jest teraz tooperform zestaw transformację Tanh na wszystkich kolumn liczbowych, z wyjątkiem hello ryzyka kredytowego.  
 
-## <a name="score-and-evaluate-the-models"></a>Uczenie i Ewaluacja modeli
+## <a name="score-and-evaluate-hello-models"></a>Wynik i ocena hello modeli
 
-Używamy testowania danych, który został oddzielony się przez [podziału danych] [ split] modułu do wyniku naszych przeszkolone modeli. Firma Microsoft może następnie porównaj wyniki działania dwa modele, aby zobaczyć, która jest generowana w poszukiwaniu lepszych wyników.  
+Używamy hello testowanie danych, który został oddzielony przez hello [podziału danych] [ split] tooscore modułu naszych przeszkolone modeli. Firma Microsoft następnie porównaj wyniki hello hello dwa modele toosee który wygenerować lepsze wyniki.  
 
-### <a name="add-the-score-model-modules"></a>Dodaj moduł Score Model
+### <a name="add-hello-score-model-modules"></a>Dodaj moduły Score Model hello
 
-1. Znajdź [Score Model] [ score-model] modułu i przeciągnij go do obszaru roboczego.
+1. Znajdź hello [Score Model] [ score-model] modułu i przeciągnij go na powitania kanwy.
 
-2. Połącz [Train Model] [ train-model] moduł, który jest połączony z [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] port wejściowy modułu w lewo [Score Model] [ score-model] modułu.
+2. Połącz hello [Train Model] [ train-model] moduł, który został podłączony toohello [Two-Class Boosted drzewa decyzyjnego] [ two-class-boosted-decision-tree] wejścia po lewej stronie toohello modułu Port hello [Score Model] [ score-model] modułu.
 
-3. Połącz prawo [wykonanie skryptu języka R] [ execute-r-script] modułu (danych testowych) po prawej stronie wprowadź port [Score Model] [ score-model] modułu.
+3. Połącz prawo hello [wykonanie skryptu języka R] [ execute-r-script] prawo toohello modułu (danych testowych) danych wejściowych portu hello [Score Model] [ score-model] modułu.
 
     ![Moduł score Model połączenia][6]
    
-   [Score Model] [ score-model] modułu można teraz odpowiednie informacje środki z danych testowych, uruchom go za pośrednictwem modelu i porównywania prognoz modelu generuje z kolumną ryzyka rzeczywiste środki w Testowanie danych.
+   Witaj [Score Model] [ score-model] modułu teraz może zająć hello środki informacji z hello testowanie danych, uruchom go za pomocą modelu hello i porównaj hello prognoz modelu hello generuje z rzeczywistego hello karty kredytowej ryzyka Kolumna w hello testowanie danych.
 
-4. Skopiuj i Wklej [Score Model] [ score-model] modułu do utworzenia drugiej kopii.
+4. Skopiuj i Wklej hello [Score Model] [ score-model] toocreate modułu drugiej kopii.
 
-5. Połącz dane wyjściowe modelu SVM (to znaczy portem wyjściowym [Train Model] [ train-model] moduł, który jest połączony z [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu) do portu wejściowego drugiego [Score Model] [ score-model] modułu.
+5. Połącz dane wyjściowe hello hello SVM modelu (to znaczy hello output portu hello [Train Model] [ train-model] moduł, który został podłączony toohello [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu) toohello drugie dane wejściowe portu hello [Score Model] [ score-model] modułu.
 
-6. SVM model zostały celu przekształcenia do danych testowych, jak robiliśmy danych szkoleniowych. Aby skopiować i wkleić [normalizacji danych] [ normalize-data] modułu Tworzenie drugiej kopii i połącz go z prawej strony [wykonanie skryptu języka R] [ execute-r-script] modułu.
+6. Model SVM hello zostały toodo hello tych samych danych test toohello przekształcania, jak robiliśmy toohello danych szkoleniowych. Dlatego skopiuj i Wklej hello [normalizacji danych] [ normalize-data] toocreate modułu drugiej kopii i podłącz go prawo toohello [wykonanie skryptu języka R] [ execute-r-script] modułu.
 
-7. Połącz dane wyjściowe po lewej stronie drugiego [normalizacji danych] [ normalize-data] modułu po prawej stronie wprowadź port drugiego [Score Model] [ score-model] modułu.
+7. Drugie połączenie powitania po lewej stronie dane wyjściowe hello [normalizacji danych] [ normalize-data] prawo toohello modułu drugie dane wejściowe portu hello [Score Model] [ score-model] Moduł.
 
     ![Zarówno modułów Score Model połączenia][7]
 
-### <a name="add-the-evaluate-model-module"></a>Dodanie modułu Evaluate Model
+### <a name="add-hello-evaluate-model-module"></a>Dodawanie modułu Evaluate Model hello
 
-Aby ocenić dwóch wyników oceniania i porównaj je, używamy [Evaluate Model] [ evaluate-model] modułu.  
+tooevaluate Witaj dwie wyników oceniania i porównaj je, używamy [Evaluate Model] [ evaluate-model] modułu.  
 
-1. Znajdź [Evaluate Model] [ evaluate-model] modułu i przeciągnij go do obszaru roboczego.
+1. Znajdź hello [Evaluate Model] [ evaluate-model] modułu i przeciągnij go na powitania kanwy.
 
-2. Połącz port wyjściowy [Score Model] [ score-model] modułu skojarzonego z tym modelem drzewa decyzyjnego boosted do lewy port wejściowy z [Evaluate Model] [ evaluate-model] modułu.
+2. Połącz port wyjściowy hello hello [Score Model] [ score-model] moduł skojarzony z hello boosted decyzji drzewa po lewej toohello modelu danych wejściowych portu hello [Evaluate Model] [ evaluate-model] modułu.
 
-3. Połącz innych [Score Model] [ score-model] port wejściowy modułu z prawej strony.  
+3. Połącz hello innych [Score Model] [ score-model] toohello modułu prawo wejściowych portu.  
 
     ![Ocena modelu modułu połączone][8]
 
-### <a name="run-the-experiment-and-check-the-results"></a>Uruchom eksperyment i sprawdzić wyniki
+### <a name="run-hello-experiment-and-check-hello-results"></a>Uruchom eksperyment hello i hello wyniki sprawdzenia
 
-Aby uruchomić eksperyment, kliknij przycisk **Uruchom** znajdujący się poniżej obszaru roboczego. Może upłynąć kilka minut. Wskaźnik Obracająca dla każdego modułu pokazuje, że jest uruchomiona, i czym wyświetlany zielony znacznik wyboru, po zakończeniu modułu. Jeśli zaznaczono wszystkie moduły eksperyment zakończył działanie.
+toorun hello eksperyment, kliknij przycisk hello **Uruchom** znajdujący się poniżej hello kanwy. Może upłynąć kilka minut. Wskaźnik Obracająca dla każdego modułu pokazuje, że jest uruchomiona, i czym wyświetlany po zakończeniu modułu hello zielony znacznik wyboru. Jeśli zaznaczono wszystkie moduły hello eksperymentu hello zakończył działanie.
 
-Eksperyment powinien teraz wyglądać mniej więcej tak:  
+Hello eksperyment powinien teraz wyglądać mniej więcej tak:  
 
 ![Ocena obu modeli][3]
 
-Aby sprawdzić wyniki, kliknij port wyjściowy [Evaluate Model] [ evaluate-model] moduł i zaznacz **Visualize**.  
+toocheck hello wyników, kliknij port wyjściowy hello hello [Evaluate Model] [ evaluate-model] moduł i zaznacz **Visualize**.  
 
-[Evaluate Model] [ evaluate-model] modułu tworzy parę krzywych i metryk, które pozwalają porównać wyniki dwa modele scored. Można wyświetlić wyniki w postaci krzywych cech Operator odbiornika (ROC), krzywych dokładności/wycofania lub krzywych przyrostu. Dodatkowe dane wyświetlane obejmuje macierz pomyłek, łączne wartości dla obszarze krzywej (AUC) i innych metryk. Można zmienić wartość progowa za pomocą suwaka, lewo lub w prawo i zobacz, jak wpływa na zbiór metryki.  
+Witaj [Evaluate Model] [ evaluate-model] modułu tworzy parę krzywych i metryki, które pozwalają wyniki hello toocompare dwa modele scored hello. Można wyświetlić wyniki hello jako krzywych cech Operator odbiornika (ROC), krzywych dokładności/wycofania lub krzywych przyrostu. Dodatkowe dane wyświetlane obejmuje macierz pomyłek, łączne wartości dla hello obszarze hello krzywej (AUC) i innych metryk. Można zmienić wartości progowej hello przez przenoszenie hello suwak w lewo lub w prawo i zobacz, jak wpływa na powitania zbiór metryki.  
 
-Po prawej stronie wykresu **oceniane zestawu danych** lub **oceniane zestawu danych, aby porównać** Wyróżnij skojarzone krzywej i wyświetlania metryk skojarzone poniżej. W legendzie dla krzywych "Oceniane zestawu danych" odpowiada lewy port wejściowy z [Evaluate Model] [ evaluate-model] moduł — w tym przypadku jest to model drzewa boosted decyzji. "Zestawu danych, aby porównać wynik" odpowiada prawy port wejściowy - SVM modelu w tym przypadku. Po kliknięciu jednego z tych etykiet zostanie wyróżniona krzywej modelu i wyświetlane są odpowiednie metryki, jak pokazano na poniższym rysunku.  
+Kliknij toohello rogu wykresu hello **oceniane zestawu danych** lub **oceniane toocompare zestawu danych** toohighlight hello skojarzone krzywej i toodisplay hello skojarzone metryki poniżej. Legenda hello krzywych na powitania, "Oceniane zestawu danych" odpowiada toohello pozostałych port wejściowy z hello [Evaluate Model] [ evaluate-model] moduł — w tym przypadku jest to hello boosted decyzji drzewa modelu. "Oceniane toocompare zestawu danych" odpowiada prawy port wejściowy toohello - hello SVM modelu w tym przypadku. Po kliknięciu jednego z tych etykiet zostanie wyróżniona krzywej hello modelu i metryki odpowiedniego hello są wyświetlane, pokazane na powitania po grafiki.  
 
 ![Krzywe ROC dla modeli][4]
 
-Badanie tych wartości, można zdecydować, model, który jest najbardziej zbliżony do daje rezultatów, którego szukasz. Możesz wrócić do poprzedniej strony i iterację eksperymentu, zmieniając wartości parametrów w różne modele. 
+Badanie tych wartości, można zdecydować, model, który jest najbliższy toogiving hello wyników, którego szukasz. Możesz wrócić do poprzedniej strony i iterację eksperymentu, zmieniając wartości parametrów w różne modele hello. 
 
-Nauki i grafik interpretowanie te wyniki i dostrajania wydajności modelu wykracza poza zakres tego przewodnika. Aby uzyskać dodatkową pomoc może przeczytać następujące artykuły:
-- [Jak do oceny wydajności modelu w usłudze Azure Machine Learning](machine-learning-evaluate-model-performance.md)
-- [Wybierz parametry w celu zoptymalizowania algorytmy w usłudze Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md)
+Witaj nauki i grafik interpretowanie te wyniki i dostrajania wydajności modelu hello jest hello poza zakres tego przewodnika. Aby uzyskać dodatkową pomoc mogą odczytać hello następujące artykuły:
+- [Jak tooevaluate modelu wydajności w usłudze Azure Machine Learning](machine-learning-evaluate-model-performance.md)
+- [Wybierz parametry toooptimize algorytmy w usłudze Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md)
 - [Interpretowanie wyników modelu w usłudze Azure Machine Learning](machine-learning-interpret-model-results.md)
 
 > [!TIP]
-> Zawsze uruchomić eksperyment rekord tego iteracji jest przechowywanych w historii uruchamiania. Można wyświetlić te iteracji i wróć do każdej z nich, klikając **WYŚWIETL HISTORIĘ URUCHAMIANIA** poniżej obszaru roboczego. Możesz również kliknąć **uprzedniego uruchomienia** w **właściwości** okienko, aby powrócić do iteracji, bezpośrednio przed otwartych.
+> Każdym uruchomieniu eksperymentu hello rekord tego iteracji jest przechowywany w hello Uruchom historii. Można wyświetlić te iteracji i zwracać tooany z nich, klikając **WYŚWIETL HISTORIĘ URUCHAMIANIA** poniżej hello kanwy. Możesz również kliknąć **uprzedniego uruchomienia** w hello **właściwości** iteracji toohello tooreturn okienko poprzedzającego hello mają otwarte.
 > 
-> Można utworzyć kopię dowolną iterację eksperymentu, klikając **SAVE AS** poniżej obszaru roboczego. 
-> Użyj eksperymentu **Podsumowanie** i **opis** właściwości, aby rejestrować co podjęto w Twojej iteracje eksperymentu.
+> Można utworzyć kopię dowolną iterację eksperymentu, klikając **SAVE AS** poniżej hello kanwy. 
+> Użyj eksperymentu hello **Podsumowanie** i **opis** tookeep właściwości rekordu zawierającego co podjęto w Twojej iteracje eksperymentu.
 > 
 > Aby uzyskać więcej informacji, zobacz [Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).  
 > 
 > 
 
 - - -
-**Następnie: [wdrażanie usługi sieci web](machine-learning-walkthrough-5-publish-web-service.md)**
+**Następnie: [wdrażanie usługi sieci web hello](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

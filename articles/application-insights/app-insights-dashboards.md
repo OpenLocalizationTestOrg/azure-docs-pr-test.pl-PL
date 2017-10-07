@@ -1,5 +1,5 @@
 ---
-title: "Pulpity nawigacyjne i nawigacja w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
+title: aaaDashboards i nawigacja w hello Azure Application Insights | Dokumentacja firmy Microsoft
 description: "Utwórz widoki kwerend i wykresy APM klucza."
 services: application-insights
 documentationcenter: 
@@ -13,95 +13,95 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 58811388205643bb672e0405b3226f12d0f447a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Nawigacji i pulpitów nawigacyjnych w portalu usługi Application Insights
-Po utworzeniu [skonfiguruj usługę Application Insights w projekcie](app-insights-overview.md), dane telemetryczne dotyczące wydajności i użycia aplikacji będą wyświetlane w projektu zasobu usługi Application Insights w [portalu Azure](https://portal.azure.com).
+# <a name="navigation-and-dashboards-in-hello-application-insights-portal"></a>Nawigacji i pulpitów nawigacyjnych w portalu usługi Application Insights hello
+Po utworzeniu [skonfiguruj usługę Application Insights w projekcie](app-insights-overview.md), dane telemetryczne dotyczące wydajności i użycia aplikacji będą wyświetlane w projektu zasobu usługi Application Insights w hello [portalu Azure](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Znajdź telemetrii
-Zaloguj się do [portalu Azure](https://portal.azure.com) i przejdź do zasobu usługi Application Insights, który został utworzony dla aplikacji.
+Zaloguj się toohello [portalu Azure](https://portal.azure.com) i przejdź do zasobu usługi Application Insights toohello, który został utworzony dla aplikacji.
 
 ![Kliknij przycisk Przeglądaj, wybierz usługę Application Insights, a następnie aplikacji.](./media/app-insights-dashboards/00-start.png)
 
-Omówienie bloku (strona) aplikacji przedstawiono podsumowanie kluczowych metryk diagnostyki aplikacji i jest bramy do innych funkcji w portalu.
+Hello omówienie bloku (strona) dla aplikacji przedstawiono podsumowanie kluczowych metryk diagnostycznych hello aplikacji i jest toohello bramy innych funkcji hello portalu.
 
-![Głównych tras, aby wyświetlić telemetrii](./media/app-insights-dashboards/010-oview.png)
+![Główne marszruty tooview telemetrii](./media/app-insights-dashboards/010-oview.png)
 
-Można dostosować żadnego z wykresami i siatki i przypiąć je na pulpicie nawigacyjnym. W ten sposób można zebrać razem klucza dane telemetryczne z różnych aplikacji na pulpicie nawigacyjnym centralnej.
+Można dostosować żadnego z wykresami hello i siatki i przypiąć je tooa pulpitu nawigacyjnego. W ten sposób można zebrać razem hello klucza dane telemetryczne z różnych aplikacji na pulpicie nawigacyjnym centralnej.
 
 ## <a name="dashboards"></a>Pulpity nawigacyjne
-Najpierw Zobacz po zalogowaniu się do [portalu Microsoft Azure](https://portal.azure.com) jest pulpit nawigacyjny. W tym miejscu można zebrać razem wykresy, które są najważniejsze dla Ciebie we wszystkich zasobów platformy Azure, w tym dane telemetryczne z [Azure Application Insights](app-insights-overview.md).
+Witaj po pierwsze zostanie wyświetlony po zalogowaniu w toohello [portalu Microsoft Azure](https://portal.azure.com) jest pulpit nawigacyjny. W tym miejscu można zebrać razem hello wykresy, które będą tooyou najważniejszych dla wszystkich zasobów platformy Azure, w tym dane telemetryczne z [Azure Application Insights](app-insights-overview.md).
 
 ![Dostosowany pulpit nawigacyjny.](./media/app-insights-dashboards/31.png)
 
-1. **Przejdź do określonych zasobów** takich jak aplikacji w usłudze Application Insights: Użyj pasku po lewej stronie.
-2. **Wróć do bieżącego pulpitu nawigacyjnego**, lub przełącz się do innych widoków ostatnie: Użyj menu rozwijane u góry po lewej.
-3. **Przełącz pulpity nawigacyjne**: Użyj menu rozwijanego tytuł pulpitu nawigacyjnego
-4. **Tworzenie, edytowanie i udostępnianie pulpitów nawigacyjnych** na pasku nawigacyjnym.
-5. **Edytuj pulpitu nawigacyjnego**: Umieść kursor nad kafelka, a następnie użyć jego górnym pasku do przenoszenia, dostosować lub usuń go.
+1. **Przejdź zasobów toospecific** takich jak aplikacji w usłudze Application Insights: Użyj hello lewy pasek.
+2. **Zwracany toohello bieżącego pulpitu nawigacyjnego**, lub przełączania widoków ostatnie tooother: Użyj menu rozwijanego hello u góry po lewej.
+3. **Przełącz pulpity nawigacyjne**: Użyj menu rozwijanego hello na powitania Tytuł pulpitu nawigacyjnego
+4. **Tworzenie, edytowanie i udostępnianie pulpitów nawigacyjnych** hello pulpitu nawigacyjnego w pasku narzędzi.
+5. **Edytuj pulpitu nawigacyjnego hello**: Umieść kursor nad kafelka, a następnie użyć jego górnej paska toomove, dostosowywanie, lub usuń go.
 
-## <a name="add-to-a-dashboard"></a>Dodaj do pulpitu nawigacyjnego
-Podczas wyszukiwania w bloku lub zbiór wykresy, która ma zastosowanie szczególnie, można przypiąć kopii do pulpitu nawigacyjnego. Zobaczysz go następnym razem, gdy istnieje powrocie.
+## <a name="add-tooa-dashboard"></a>Dodaj tooa pulpitu nawigacyjnego
+Podczas wyszukiwania w bloku lub zbiór wykresy, która ma zastosowanie szczególnie, można przypiąć kopii toohello pulpitu nawigacyjnego. Zobaczysz go następnym razem, gdy istnieje powrocie.
 
-![Aby przypiąć wykres, umieść kursor nad jego, a następnie kliknij przycisk "..." w nagłówku.](./media/app-insights-dashboards/33.png)
+![toopin wykresu, umieść kursor nad jego, a następnie kliknij przycisk "..." w nagłówku hello.](./media/app-insights-dashboards/33.png)
 
-1. Numer PIN wykres do pulpitu nawigacyjnego. Kopię wykres zostanie wyświetlony na pulpicie nawigacyjnym.
-2. Przypnij cały blok do pulpitu nawigacyjnego — pojawia się na pulpicie nawigacyjnym jako kafelków, które można kliknąć, za pośrednictwem.
-3. Kliknij lewym górnym rogu, aby powrócić do bieżącego pulpitu nawigacyjnego. Następnie można użyć listy rozwijanej, aby powrócić do bieżącego widoku.
+1. Przypnij toodashboard wykresu. Kopię hello wykres zostanie wyświetlony na pulpicie nawigacyjnym hello.
+2. Numer PIN hello cały blok toohello pulpitu nawigacyjnego — jest widoczny na pulpicie nawigacyjnym hello jako kafelków, które można kliknąć, za pomocą.
+3. Kliknij przycisk hello lewym górnym rogu tooreturn toohello bieżącego pulpitu nawigacyjnego. Następnie można użyć hello menu rozwijanego tooreturn toohello bieżący widok.
 
-Zwróć uwagę, że wykresów są podzielone na kafelkach: kafelka może zawierać więcej niż jeden wykres. Można przypiąć całego kafelka pulpitu nawigacyjnego.
+Zwróć uwagę, że wykresów są podzielone na kafelkach: kafelka może zawierać więcej niż jeden wykres. Pulpit nawigacyjny toohello całego kafelka hello można przypiąć.
 
-Wykres są automatycznie odświeżane z częstotliwością, która zależy od zakresu czasu wykresu:
+Wykres Hello są automatycznie odświeżane z częstotliwością, która zależy od zakresu czasu wykresu hello:
 
-* Maksymalnie 1 godzina przedziałów czasu: Odśwież co 5 minut
+* Zakres zapasowej godzinę too1 czasu: Odśwież co 5 minut
 * Zakres czasu 1-24 godzin: Odśwież co 15 minut
 * Zakres powyżej 24 godzin czasu: (zakres czasu) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Przypnij dowolnej kwerendy w module analiz
-Możesz również [przypiąć Analytics](app-insights-analytics-using.md#pin-to-dashboard) wykresy do [udostępnionego](#share-dashboards-with-your-team) pulpitu nawigacyjnego. Dzięki temu można Dodaj wykresy każde zapytanie dowolnego obok standardowe metryki. 
+Możesz również [przypiąć Analytics](app-insights-analytics-using.md#pin-to-dashboard) tooa wykresów [udostępnionego](#share-dashboards-with-your-team) pulpitu nawigacyjnego. Dzięki temu wykresy tooadd wszelkie zapytania dowolnego obok hello standardowe metryki. 
 
-Wyniki są automatycznie obliczane ponownie co godzinę. Kliknij ikonę odświeżania na wykresie, aby ponownie obliczyć natychmiast. (Odśwież w przeglądarce nie oblicza ponownie.)
+Wyniki są automatycznie obliczane ponownie co godzinę. Kliknij ikonę odświeżania hello na powitania wykresu toorecalculate natychmiast. (Odśwież w przeglądarce nie oblicza ponownie.)
 
-## <a name="adjust-a-tile-on-the-dashboard"></a>Dostosuj kafelka na pulpicie nawigacyjnym
-Po kafelka na pulpicie nawigacyjnym można dostosować.
+## <a name="adjust-a-tile-on-hello-dashboard"></a>Dostosuj kafelka na pulpicie nawigacyjnym hello
+Po kafelka na pulpicie nawigacyjnym hello można dostosować.
 
-![Umieść kursor nad wykresu, aby go edytować.](./media/app-insights-dashboards/36.png)
+![Umieść kursor nad wykresu w kolejności tooedit go.](./media/app-insights-dashboards/36.png)
 
-1. Dodaj wykres do fragmentu.
-2. Ustaw metryki, Grupuj według wymiaru i styl (tabeli, wykres) wykresu.
-3. Przeciągnij w diagramie, aby powiększyć; Kliknij przycisk Cofnij, aby zresetować timespan; Ustawianie właściwości filtru dla wykresów na kafelku.
+1. Dodaj kafelka toohello wykresu.
+2. Metryka hello zestaw Grupuj według wymiaru i styl (tabeli, wykres) wykresu.
+3. Przeciąganie hello diagram toozoom Kliknij przycisk hello cofania przycisk tooreset hello timespan; Ustaw właściwości filtru w przypadku wykresów hello na kafelku hello.
 4. Ustaw tytułem kafelka.
 
 Kafelki przypięte z Eksploratora metryk bloków ma więcej opcji edycji niż Kafelki przypięte z bloku omówienie.
 
-Kafelek oryginalnego przypięte nie ma wpływu zmiany.
+Hello Kafelek oryginalnego przypięte nie ma wpływu zmiany.
 
 ## <a name="switch-between-dashboards"></a>Przełączanie między pulpity nawigacyjne
-Można zapisać więcej niż jednym pulpicie nawigacyjnym i przełączać się między nimi. Po przypięciu wykres lub bloku, są one dodawane do bieżącego pulpitu nawigacyjnego.
+Można zapisać więcej niż jednym pulpicie nawigacyjnym i przełączać się między nimi. Po przypięciu wykres lub bloku, są one dodawane toohello bieżącego pulpitu nawigacyjnego.
 
-![Aby przełączyć między pulpitami nawigacyjnymi, kliknij pozycję pulpit nawigacyjny i wybierz zapisany pulpitu nawigacyjnego. Aby utworzyć i zapisać nowego pulpitu nawigacyjnego, kliknij przycisk Nowy. Aby zmienić kolejność, kliknij przycisk Edytuj.](./media/app-insights-dashboards/32.png)
+![tooswitch między pulpitami nawigacyjnymi, kliknij pozycję pulpit nawigacyjny i wybierz zapisany pulpitu nawigacyjnego. toocreate i zapisać nowego pulpitu nawigacyjnego, kliknij przycisk Nowy. toorearrange, kliknij przycisk Edytuj.](./media/app-insights-dashboards/32.png)
 
-Na przykład może być jednym pulpicie nawigacyjnym do wyświetlania pełnego ekranu w pokoju zespołu i drugi dla rozwoju ogólne.
+Na przykład może być jednym pulpicie nawigacyjnym do wyświetlania pełnego ekranu w pokoju zespołu hello i drugi dla rozwoju ogólne.
 
-Na pulpicie nawigacyjnym zostanie wyświetlony blok jako Kafelek: kliknij go, aby przejść do bloku. Wykres replikuje wykresu w jej oryginalnej lokalizacji.
+Na pulpicie nawigacyjnym hello, blok jest wyświetlana jako Kafelek: kliknij go toogo toohello bloku. Wykres replikuje hello wykresu w jej oryginalnej lokalizacji.
 
-![Kliknij Kafelek, aby otworzyć blok, który reprezentuje](./media/app-insights-dashboards/35.png)
+![Kliknij przycisk bloku hello tooopen kafelka, który reprezentuje](./media/app-insights-dashboards/35.png)
 
 ## <a name="share-dashboards"></a>Udostępnianie pulpitów nawigacyjnych
 Po utworzeniu pulpitu nawigacyjnego, można go udostępniać innym użytkownikom.
 
-![W nagłówku pulpitu nawigacyjnego kliknij przycisk Udostępnij](./media/app-insights-dashboards/41.png)
+![W nagłówku pulpitu nawigacyjnego hello kliknij przycisk Udostępnij](./media/app-insights-dashboards/41.png)
 
 Dowiedz się więcej o [ról i kontroli dostępu](app-insights-resources-roles-access-control.md).
 
 ## <a name="app-navigation"></a>Aplikacja nawigacji
-Omówienie bloku jest bramy, aby uzyskać więcej informacji o aplikacji.
+Blok omówienie Hello jest hello bramy toomore informacje o aplikacji.
 
-* **Kafelek lub wykres** — kliknij Kafelek lub wykresu, aby zobaczyć więcej szczegółów na temat jego wartość.
+* **Kafelek lub wykres** — kliknij Kafelek lub wykresu toosee szczegółowe informacje o jego wartość.
 
 ### <a name="overview-blade-buttons"></a>Przyciski bloku — omówienie
 ![Omówienie bloku górnym pasku nawigacyjnym](./media/app-insights-dashboards/app-overview-top-nav.png)
@@ -109,8 +109,8 @@ Omówienie bloku jest bramy, aby uzyskać więcej informacji o aplikacji.
 * [**Eksploratora metryk** ](app-insights-metrics-explorer.md) — tworzenie własnych wykresów wydajności i użycia.
 * [**Wyszukiwanie** ](app-insights-diagnostic-search.md) — Zbadaj określone wystąpienia zdarzenia, takie jak żądań, wyjątków, lub dziennika śledzenia.
 * [**Analiza** ](app-insights-analytics.md) -wydajnych zapytań za pośrednictwem telemetrii.
-* **Zakres czasu** — Dostosuj zakres wyświetlanych przez wszystkich schematów w bloku.
-* **Usuń** — Usuwanie zasobu usługi Application Insights dla tej aplikacji. Należy również albo usunąć pakietów usługi Application Insights w kodzie aplikacji, lub edytować [klucza Instrumentacji](app-insights-create-new-resource.md#copy-the-instrumentation-key) w aplikacji, aby przekierować dane telemetryczne do innego zasobu usługi Application Insights.
+* **Zakres czasu** — Dostosuj zakres hello wyświetlane przez wszystkich schematów hello na powitania bloku.
+* **Usuń** -Usuń hello zasobu usługi Application Insights dla tej aplikacji. Należy również albo usunąć hello pakietów usługi Application Insights w kodzie aplikacji, lub edytować hello [klucza Instrumentacji](app-insights-create-new-resource.md#copy-the-instrumentation-key) w zasobu usługi Application Insights różnych tooa Twojej aplikacji toodirect telemetrii.
 
 ### <a name="essentials-tab"></a>Karta Essentials
 * [Klucz Instrumentacji](app-insights-create-new-resource.md#copy-the-instrumentation-key) -identyfikuje tego zasobu aplikacji.
@@ -119,18 +119,18 @@ Omówienie bloku jest bramy, aby uzyskać więcej informacji o aplikacji.
 ### <a name="app-navigation-bar"></a>Pasek nawigacyjny aplikacji
 ![Lewy pasek nawigacyjny](./media/app-insights-dashboards/app-left-nav-bar.png)
 
-* **Omówienie** -powrócić do bloku Omówienie aplikacji.
+* **Omówienie** -bloku Omówienie aplikacji toohello zwracany.
 * **Dziennik aktywności** — alerty i zdarzenia administracyjne platformy Azure.
-* [**Kontrola dostępu** ](app-insights-resources-roles-access-control.md) — zapewnianie dostępu do członków zespołu i inne.
-* [**Tagi** ](../azure-resource-manager/resource-group-using-tags.md) -używaj tagów do grupy aplikacji z innymi osobami.
+* [**Kontrola dostępu** ](app-insights-resources-roles-access-control.md) — Podaj członków tooteam dostępu i innych użytkowników.
+* [**Tagi** ](../azure-resource-manager/resource-group-using-tags.md) -Użyj tagów toogroup aplikacji z innymi osobami.
 
 ZBADAJ
 
-* [**Mapowanie aplikacji** ](app-insights-app-map.md) -aktywna mapa przedstawiająca składniki aplikacji, pochodzących z informacji o zależnościach.
+* [**Mapowanie aplikacji** ](app-insights-app-map.md) -aktywna mapa przedstawiająca hello składniki aplikacji, pochodną hello informacji o zależnościach.
 * [**Inteligentne wykrywania** ](app-insights-proactive-diagnostics.md) — Przejrzyj ostatnie alerty dotyczące wydajności.
 * [**Strumień na żywo** ](app-insights-live-stream.md) — A ustalony zbiór metryki niemal natychmiastowe przydatne podczas wdrażania nowej kompilacji lub debugowania.
-* [**Dostępność / testów sieci Web** ](app-insights-monitor-web-app-availability.md) -wysyłać żądania regularne do aplikacji sieci web z wokół world.*
-* [**Błędów, wydajności** ](app-insights-web-monitor-performance.md) -wyjątki, awariami i czas odpowiedzi dla żądań kierowanych do aplikacji i żądania od aplikacji [zależności](app-insights-asp-net-dependencies.md).
+* [**Dostępność / testów sieci Web** ](app-insights-monitor-web-app-availability.md) -wysyłania żądań regularne tooyour aplikacji sieci web z wokół hello world.*
+* [**Błędów, wydajności** ](app-insights-web-monitor-performance.md) -wyjątki, awariami i odpowiedzi czasu dla aplikacji tooyour żądań i żądań z aplikacji w zbyt[zależności](app-insights-asp-net-dependencies.md).
 * [**Wydajność** ](app-insights-web-monitor-performance.md) — czas odpowiedzi, czas odpowiedzi zależności.
 * [Serwery](app-insights-web-monitor-performance.md) -liczników wydajności. Jeśli dostępne możesz [Zainstaluj Monitor stanu](app-insights-monitor-performance-live-website-now.md).
 * **Przeglądarka** — strona widoku i wydajności AJAX. Jeśli dostępne możesz [Instrumentacja stron sieci web](app-insights-javascript.md).
@@ -141,16 +141,16 @@ KONFIGUROWANIE
 * **Wprowadzenie** — samouczek wbudowanego.
 * **Właściwości** -klucza instrumentacji, subskrypcji i identyfikator zasobu.
 * [Alerty](app-insights-alerts.md) -metryki konfiguracji alertu.
-* [Eksport ciągły](app-insights-export-telemetry.md) — Konfigurowanie eksportowania danych telemetrycznych do magazynu Azure.
+* [Eksport ciągły](app-insights-export-telemetry.md) — Konfigurowanie eksportowania telemetrii tooAzure magazynu.
 * [Testowanie wydajności](app-insights-monitor-web-app-availability.md#performance-tests) -konfigurowania syntetycznego obciążenia w witrynie sieci Web.
 * [Limit przydziału i cenach](app-insights-pricing.md) i [próbkowania wprowadzanie](app-insights-sampling.md).
-* **Dostępu do interfejsu API** — tworzenie [wersji adnotacje](app-insights-annotations.md) i interfejsu API dostępu do danych.
-* [**Elementy robocze** ](app-insights-diagnostic-search.md#create-work-item) -nawiązać połączenia z pracy, w systemie śledzenia, dzięki czemu można tworzyć błędy podczas sprawdzania telemetrii.
+* **Dostępu do interfejsu API** — tworzenie [wersji adnotacje](app-insights-annotations.md) i hello interfejsu API usługi Data Access.
+* [**Elementy robocze** ](app-insights-diagnostic-search.md#create-work-item) -Połącz pracy tooa systemie śledzenia, dzięki czemu można tworzyć błędy podczas sprawdzania telemetrii.
 
 USTAWIENIA
 
 * [**Blokuje** ](../azure-resource-manager/resource-group-lock-resources.md) — blokowanie zasobów platformy Azure
-* [**Skrypt automatyzacji** ](app-insights-powershell.md) — Eksportowanie definicji zasobów platformy Azure, aby jako szablon służy do tworzenia nowych zasobów.
+* [**Skrypt automatyzacji** ](app-insights-powershell.md) — Eksportowanie definicji hello zasobów platformy Azure, dzięki czemu można użyć jej jako szablonu toocreate nowych zasobów.
 
 
 ## <a name="video"></a>Połączenia wideo

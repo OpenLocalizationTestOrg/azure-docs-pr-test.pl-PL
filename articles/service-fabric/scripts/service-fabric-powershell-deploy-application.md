@@ -1,6 +1,6 @@
 ---
-title: "Skrypt programu PowerShell Azure Przykładowe — wdrożenie aplikacji do klastra | Dokumentacja firmy Microsoft"
-description: "Skrypt programu PowerShell Azure przykładowe — wdrażanie aplikacji do klastra usługi sieć szkieletowa usług."
+title: "aaaAzure przykładowy skrypt programu PowerShell — wdrożenie aplikacji tooa klastra | Dokumentacja firmy Microsoft"
+description: "Skrypt programu PowerShell Azure przykładowe — wdrażanie klastra usługi sieć szkieletowa tooa aplikacji."
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2863823205dbd70f63948ecd4af8898220fe1ff8
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b417c9908c72f016e930c43ff2d13e0cc5451f46
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Wdrażanie aplikacji do klastra sieci szkieletowej usług
+# <a name="deploy-an-application-tooa-service-fabric-cluster"></a>Wdrażanie klastra usługi sieć szkieletowa tooa aplikacji
 
-Ten przykładowy skrypt umożliwia skopiowanie pakietu aplikacji do magazynu obrazu klastra, rejestruje typ aplikacji w klastrze i tworzy wystąpienie aplikacji na podstawie typu aplikacji.  Jeśli wszystkie domyślne usługi zostały zdefiniowane w manifeście aplikacji typu aplikacji docelowej, te usługi są tworzone w tym momencie. Dostosuj parametry zgodnie z potrzebami. 
+Ten przykładowy skrypt kopiuje pakiet tooa klastra obrazu sklepu z aplikacjami, rejestruje typ aplikacji hello w klastrze hello i tworzy wystąpienie aplikacji na podstawie typu aplikacji hello.  Jeśli wszystkie domyślne usługi zostały zdefiniowane w manifeście aplikacji hello typu aplikacji docelowej hello, te usługi są tworzone w tym momencie. Dostosuj parametry hello zgodnie z potrzebami. 
 
-Jeśli to konieczne, Zainstaluj moduł programu PowerShell usługi Service Fabric [zestawu SDK usług sieci szkieletowej](../service-fabric-get-started.md). 
+W razie potrzeby Zainstaluj moduł programu PowerShell usługi Service Fabric hello z hello [zestawu SDK usług sieci szkieletowej](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "wdrażania aplikacji do klastra")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "Deploy an application tooa cluster")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Po przykładowym skrypcie zostało uruchomione, skrypt w [usuwania aplikacji](service-fabric-powershell-remove-application.md) można usunąć wystąpienia aplikacji, wyrejestrowywanie typu aplikacji i usuwanie pakietu aplikacji w magazynie obrazów.
+Po uruchomieniu przykładowym skrypcie hello hello skryptu w [usuwania aplikacji](service-fabric-powershell-remove-application.md) można instancji aplikacji hello tooremove używane, wyrejestrowywanie typu aplikacji hello i usunąć pakiet aplikacji hello z hello magazynu obrazów.
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Kopiowanie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Skopiuj pakiet aplikacji do magazynu obrazu klastra.  |
-|[Rejestr ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Rejestruje typ i wersja aplikacji w klastrze. |
+| [Kopiowanie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Skopiuj pakiet toohello klastra obrazu sklepu z aplikacjami.  |
+|[Rejestr ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Rejestruje typ i wersja aplikacji w klastrze hello. |
 |[Nowe ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Tworzy aplikację z typ zarejestrowanych aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na modułu programu PowerShell usługi Service Fabric, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Aby uzyskać więcej informacji na powitania modułu programu PowerShell usługi Service Fabric, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
-Dodatkowe przykłady środowiska Powershell dla usługi sieć szkieletowa usług Azure można znaleźć w [przykłady programu Azure PowerShell](../service-fabric-powershell-samples.md).
+Dodatkowe przykłady środowiska Powershell dla usługi sieć szkieletowa usług Azure można znaleźć w hello [przykłady programu Azure PowerShell](../service-fabric-powershell-samples.md).

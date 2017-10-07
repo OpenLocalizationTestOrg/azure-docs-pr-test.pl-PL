@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie przekazywania pliku z Centrum IoT przy użyciu wiersza polecenia platformy Azure (az.py) | Dokumentacja firmy Microsoft"
-description: "Jak skonfigurować fileuploads z Centrum IoT Azure przy użyciu interfejsu wiersza polecenia Azure i platform w 2.0 (az.py)."
+title: "tooIoT przekazywania pliku aaaConfigure Centrum przy użyciu wiersza polecenia platformy Azure (az.py) | Dokumentacja firmy Microsoft"
+description: "Jak tooconfigure fileuploads tooAzure Centrum IoT przy użyciu hello 2.0 interfejsu wiersza polecenia platformy Azure i platform (az.py)."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a9af26d7ebacf5513952786621aaa92f64be263b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 390113df2d96df9833b6aa383ed66805528614a0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurowanie Centrum IoT przekazywania plików przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Aby użyć [plików funkcji przekazywania w Centrum IoT][lnk-upload], należy najpierw powiązać konta usługi Azure Storage z Centrum IoT. Możesz użyć istniejącego konta magazynu lub Utwórz nową.
+Witaj toouse [plików funkcji przekazywania w Centrum IoT][lnk-upload], należy najpierw powiązać konta usługi Azure Storage z Centrum IoT. Możesz użyć istniejącego konta magazynu lub Utwórz nową.
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka należy hello następujące:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.
 * [Azure CLI 2.0][lnk-CLI-install].
-* Centrum Azure IoT. Jeśli nie masz Centrum IoT, możesz użyć `az iot hub create` [polecenia] [ lnk-cli-create-iothub] można utworzyć jeden lub za pomocą portalu [tworzenia Centrum IoT] [lnk-portal Centrum].
-* Konto magazynu Azure. Jeśli nie masz konta usługi Azure Storage, możesz użyć [2.0 interfejsu wiersza polecenia platformy Azure — Zarządzanie kontami magazynu] [ lnk-manage-storage] można utworzyć jeden lub Portal umożliwia [Utwórz konto magazynu][lnk-portal-storage].
+* Centrum Azure IoT. Jeśli nie masz Centrum IoT, możesz użyć hello `az iot hub create` [polecenia] [ lnk-cli-create-iothub] toocreate jeden lub użyj hello portalu zbyt [tworzenia Centrum IoT] [lnk-portal Centrum].
+* Konto magazynu Azure. Jeśli nie masz konta usługi Azure Storage, można użyć hello [2.0 interfejsu wiersza polecenia platformy Azure — Zarządzanie kontami magazynu] [ lnk-manage-storage] toocreate jedną lub użyj hello portalu zbyt[Utwórz konto magazynu] [lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Zaloguj się i ustawić konta platformy Azure
 
-Zaloguj się do konta platformy Azure i wyboru subskrypcji.
+Zaloguj się tooyour konto platformy Azure i wyboru subskrypcji.
 
-1. W wierszu polecenia Uruchom [polecenia logowania][lnk-login-command]:
+1. W wierszu polecenia hello Uruchom hello [polecenia logowania][lnk-login-command]:
 
     ```azurecli
     az login
     ```
 
-    Postępuj zgodnie z instrukcjami w celu uwierzytelnienia przy użyciu kodu i zaloguj się do konta platformy Azure za pośrednictwem przeglądarki sieci web.
+    Postępuj zgodnie z tooauthenticate instrukcje hello przy użyciu kodu hello i zaloguj się na tooyour konto platformy Azure za pośrednictwem przeglądarki sieci web.
 
-1. Jeśli masz wiele subskrypcji Azure, logowanie do platformy Azure przydziela dostęp do wszystkich kont platformy Azure skojarzone z poświadczeniami użytkownika. Należy użyć następującego [polecenia do listy kont Azure] [ lnk-az-account-command] dostępne do użycia:
+1. Jeśli masz wiele subskrypcji Azure, logowanie tooAzure umożliwiają dostęp tooall hello Azure konta skojarzone z poświadczeniami użytkownika. Poniższych hello [toolist polecenia hello Azure kont] [ lnk-az-account-command] dostępne dla toouse możesz:
 
     ```azurecli
     az account list
     ```
 
-    Użyj następującego polecenia, aby wybrać subskrypcję, która ma być używany do uruchamiania poleceń, aby utworzyć Centrum IoT. Przy użyciu subskrypcji nazwa lub identyfikator z danych wyjściowych poprzednie polecenie:
+    Użyj następującego polecenia tooselect subskrypcji ma się, że toouse toorun hello polecenia toocreate Centrum IoT hello. Identyfikator lub Nazwa subskrypcji hello można użyć z danych wyjściowych hello hello poprzednie polecenie:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -59,25 +59,25 @@ Zaloguj się do konta platformy Azure i wyboru subskrypcji.
 
 ## <a name="retrieve-your-storage-account-details"></a>Pobieranie informacji o koncie magazynu
 
-W następujących krokach założono, używając konta magazynu utworzone **Resource Manager** modelu wdrażania i nie **klasycznego** modelu wdrażania.
+Hello kroków założono, że utworzone konto magazynu przy użyciu hello **Resource Manager** modelu wdrażania i nie hello **klasycznego** modelu wdrażania.
 
-Aby skonfigurować przekazywania plików z urządzeń, należy parametry połączenia dla konta magazynu platformy Azure. Konta magazynu musi być w tej samej subskrypcji co Centrum IoT. Należy również nazwę kontenera obiektów blob na koncie magazynu. Aby pobrać kluczy konta magazynu, użyj następującego polecenia:
+Plik tooconfigure przekazuje z urządzeń, należy hello parametry połączenia dla konta magazynu platformy Azure. Konto magazynu Hello musi znajdować się w hello tej samej subskrypcji co Centrum IoT. Należy również hello nazwa kontenera obiektów blob na koncie magazynu hello. Użyj następującego polecenia tooretrieve hello kluczy konta magazynu:
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
 ```
 
-Zanotuj **connectionString** wartość. Należy go w kolejnych krokach.
+Zanotuj hello **connectionString** wartość. Należy go hello następujące kroki.
 
 Można użyć istniejącego kontenera obiektów blob z przekazywania plików lub Utwórz nowe:
 
-* Aby wyświetlić listę istniejących kontenerów obiektów blob na koncie magazynu, użyj następującego polecenia:
+* toolist hello istniejących kontenerów obiektów blob na koncie magazynu, należy użyć hello następujące polecenie:
 
     ```azurecli
     az storage container list --connection-string "{your storage account connection string}"
     ```
 
-* Aby utworzyć kontener obiektów blob na koncie magazynu, użyj następującego polecenia:
+* toocreate kontenera obiektów blob na koncie magazynu hello Użyj następującego polecenia:
 
     ```azurecli
     az storage container create --name {container name} --connection-string "{your storage account connection string}"
@@ -85,21 +85,21 @@ Można użyć istniejącego kontenera obiektów blob z przekazywania plików lub
 
 ## <a name="file-upload"></a>Przekazywanie pliku
 
-Aby włączyć Centrum IoT można teraz skonfigurować [plików funkcji przekazywania] [ lnk-upload] przy użyciu informacji o koncie magazynu.
+Można teraz skonfigurować Twoje tooenable Centrum IoT [plików funkcji przekazywania] [ lnk-upload] przy użyciu informacji o koncie magazynu.
 
-Konfiguracja wymaga następujących wartości:
+Konfiguracja Hello wymaga hello następujące wartości:
 
-**Kontener magazynu**: kontener obiektów blob na koncie magazynu Azure w Twojej bieżącej subskrypcji platformy Azure do skojarzenia z Centrum IoT. Możesz pobrać informacje o koncie magazynu niezbędne w poprzedniej sekcji. Centrum IoT automatycznie generuje identyfikator URI sygnatury dostępu Współdzielonego z uprawnieniami do zapisu do tego kontenera obiektów blob dla urządzeń do użycia podczas ich przekazywania plików.
+**Kontener magazynu**: kontener obiektów blob na koncie magazynu Azure w Twojej bieżącej subskrypcji platformy Azure tooassociate z Centrum IoT. Można pobrać informacji o koncie magazynu niezbędne hello w powyższej sekcji hello. Centrum IoT automatycznie generuje identyfikator URI SAS z kontenera obiektów blob toothis uprawnienia zapisu dla urządzeń toouse podczas ich przekazywania plików.
 
 **Odbieranie powiadomień dla przekazanych plików**: Włącz lub Wyłącz powiadomienia o przekazywania plików.
 
-**Czas wygaśnięcia SAS**: to ustawienie jest time-to-live identyfikatorów SAS zwrócony do urządzenia przez Centrum IoT. Domyślnie do godzinę.
+**Czas wygaśnięcia SAS**: to ustawienie jest hello time-to-live z hello identyfikatorów URI SAS zwrócony toohello urządzenia przez Centrum IoT. Domyślnie tooone godzinę.
 
-**Plik powiadomienia, ustawienia domyślne TTL**: czas wygaśnięcia pliku Przekaż powiadomienia przed jego wygaśnięciem. Domyślnie na jeden dzień.
+**Plik powiadomienia, ustawienia domyślne TTL**: hello time-to-live powiadomienia przekazywania pliku przed jego wygaśnięciem. Domyślnie tooone dnia.
 
-**Powiadomienie dostarczania maksymalna liczba plików**: liczba prób Centrum IoT dostarczyć plik Przekaż powiadomień. Domyślnie do 10.
+**Powiadomienie dostarczania maksymalna liczba plików**: hello liczba hello Centrum IoT prób toodeliver powiadomienie przekazywania plików. Domyślnie too10.
 
-Użyj następujących poleceń interfejsu wiersza polecenia Azure, aby skonfigurować ustawienia przekazywania pliku w Centrum IoT:
+Użyj hello następujące ustawienia przekazywania plików hello tooconfigure polecenia wiersza polecenia platformy Azure w Centrum IoT:
 
 Użycie powłoki bash:
 
@@ -125,7 +125,7 @@ az iot hub update --name {your iot hub name} --set properties.messagingEndpoints
 az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
-Możesz przejrzeć konfigurację przekazywania pliku, na Centrum IoT przy użyciu następującego polecenia:
+Możesz przejrzeć konfiguracji przekazywania plików hello na Centrum IoT przy użyciu hello następujące polecenie:
 
 ```azurecli
 az iot hub show --name {your iot hub name}
@@ -133,19 +133,19 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat możliwości przekazywania plików Centrum IoT, zobacz [przekazywania plików z urządzeniem][lnk-upload].
+Aby uzyskać więcej informacji na temat możliwości przekazywania plików hello Centrum IoT, zobacz [przekazywania plików z urządzeniem][lnk-upload].
 
-Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu Centrum IoT Azure:
+Wykonaj te toolearn łącza więcej informacji na temat zarządzania Centrum IoT Azure:
 
 * [Zbiorcze zarządzania urządzeniami IoT][lnk-bulk]
 * [Metryki Centrum IoT][lnk-metrics]
 * [Operacje monitorowania][lnk-monitor]
 
-Aby dokładniej analizować możliwości Centrum IoT, zobacz:
+toofurther Poznaj możliwości hello Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
 * [Symuluje urządzenia IoT krawędzi][lnk-iotedge]
-* [Zabezpieczanie rozwiązania IoT od podstaw w górę][lnk-securing]
+* [Zabezpieczanie rozwiązania IoT z hello tła w][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png

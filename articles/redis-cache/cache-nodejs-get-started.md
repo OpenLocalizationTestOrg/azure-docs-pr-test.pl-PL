@@ -1,5 +1,5 @@
 ---
-title: "Jak korzystać z usługi Azure Redis Cache w środowisku Node.js | Microsoft Docs"
+title: "toouse aaaHow pamięci podręcznej Redis Azure za pomocą języka Node.js | Dokumentacja firmy Microsoft"
 description: "Rozpoczęcie pracy z pamięcią podręczną Redis Azure za pomocą środowiska Node.js i klienta node_redis."
 services: redis-cache
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc8732041d2c4e5793e684e0c80b87a1c9d17f34
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Jak korzystać z pamięci podręcznej Redis Azure w środowisku Node.js
+# <a name="how-toouse-azure-redis-cache-with-nodejs"></a>Jak toouse Azure pamięci podręcznej Redis za pomocą języka Node.js
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Pamięć podręczna Redis Azure umożliwia dostęp do bezpiecznej dedykowanej pamięci podręcznej Redis zarządzanej przez firmę Microsoft. Pamięć podręczna jest dostępna z poziomu dowolnej aplikacji na platformie Microsoft Azure.
+Zapewnia pamięci podręcznej Redis Azure, możesz uzyskać dostęp tooa bezpiecznego, dedykowane pamięć podręczna Redis, zarządzany przez firmę Microsoft. Pamięć podręczna jest dostępna z poziomu dowolnej aplikacji na platformie Microsoft Azure.
 
-W tym temacie opisano sposób rozpoczęcia pracy z pamięcią podręczną Redis Azure w środowisku Node.js. Inny przykład użycia pamięci podręcznej Redis Azure w środowisku Node.js można znaleźć w temacie [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md) (Tworzenie aplikacji czatu środowiska Node.js za pomocą biblioteki Socket.IO w witrynie sieci Web platformy Azure).
+W tym temacie przedstawiono sposób uruchamiania tooget z pamięci podręcznej Redis Azure za pomocą środowiska Node.js. Inny przykład użycia pamięci podręcznej Redis Azure w środowisku Node.js można znaleźć w temacie [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md) (Tworzenie aplikacji czatu środowiska Node.js za pomocą biblioteki Socket.IO w witrynie sieci Web platformy Azure).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Zainstaluj klienta [node_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-W tym samouczku jest używany klient [node_redis](https://github.com/mranney/node_redis). Przykłady użycia innych klientów Node.js można znaleźć w dokumentacji poszczególnych klientów Node.js wymienionych na stronie [klientów Node.js usługi Redis](http://redis.io/clients#nodejs).
+W tym samouczku jest używany klient [node_redis](https://github.com/mranney/node_redis). Przykłady użycia innych klientów Node.js, w dokumentacji hello poszczególnych klientów Node.js hello wymienione na [Node.js Redis klientów](http://redis.io/clients#nodejs).
 
 ## <a name="create-a-redis-cache-on-azure"></a>Tworzenie pamięci podręcznej Redis na platformie Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>Pobieranie nazwy hosta i kluczy dostępu
+## <a name="retrieve-hello-host-name-and-access-keys"></a>Pobieranie hello hosta nazwy i dostępu do kluczy
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="connect-to-the-cache-securely-using-ssl"></a>Bezpieczne łączenie się z pamięcią podręczną przy użyciu protokołu SSL
-Najnowsze kompilacje klienta [node_redis](https://github.com/mranney/node_redis) umożliwiają łączenie się z usługą Azure Redis Cache przy użyciu protokołu SSL. Poniższy przykład przedstawia, jak nawiązać połączenie z usługą Azure Redis Cache przy użyciu punktu końcowego 6380 protokołu SSL. Zastąp parametr `<name>` nazwą Twojej pamięci podręcznej, a parametr `<key>` kluczem podstawowym lub dodatkowym, jak opisano w poprzedniej sekcji [Pobieranie nazwy hosta i kluczy dostępu](#retrieve-the-host-name-and-access-keys).
+## <a name="connect-toohello-cache-securely-using-ssl"></a>Połączenie pamięci podręcznej toohello przy użyciu protokołu SSL
+Najnowsza wersja kompilacji Hello [node_redis](https://github.com/mranney/node_redis) zapewniają obsługę łączenie tooAzure pamięci podręcznej Redis przy użyciu protokołu SSL. Witaj poniższy przykład pokazuje, jak przy użyciu pamięci podręcznej Redis tooAzure tooconnect hello punkt końcowy SSL 6380. Zastąp `<name>` o nazwie hello pamięć podręczną i `<key>` przy użyciu jednej klucz podstawowy lub pomocniczy zgodnie z opisem w hello poprzedniej [pobrać hello nazwy i dostęp za pomocą klucza hosta](#retrieve-the-host-name-and-access-keys) sekcji.
 
      var redis = require("redis");
 
@@ -56,12 +56,12 @@ Najnowsze kompilacje klienta [node_redis](https://github.com/mranney/node_redis)
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 > [!NOTE]
-> Port inny niż SSL jest wyłączony w przypadku nowych wystąpień usługi Azure Redis Cache. Jeśli używasz innego klienta, który nie obsługuje protokołu SSL, zobacz [How to enable the non-SSL port](cache-configure.md#access-ports) (Jak włączyć port inny niż SSL).
+> port bez protokołu SSL Hello jest wyłączona dla nowego wystąpienia pamięci podręcznej Redis Azure. Jeśli korzystasz z innego klienta, który nie obsługuje protokołu SSL, zobacz [jak tooenable hello portu bez protokołu SSL](cache-configure.md#access-ports).
 > 
 > 
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Dodawanie elementu do pamięci podręcznej i pobieranie go
-Poniższy przykład pokazuje, jak połączyć się z wystąpieniem usługi Azure Redis Cache oraz jak zapisać i pobrać element z pamięci podręcznej. Aby uzyskać więcej przykładów użycia usługi Redis z klientem [node_redis](https://github.com/mranney/node_redis), zobacz [http://redis.js.org/](http://redis.js.org/).
+## <a name="add-something-toohello-cache-and-retrieve-it"></a>Dodaj element toohello pamięci podręcznej i pobranie
+powitania po przykładzie pokazano, jak Redis Azure tooconnect tooan pamięci podręcznej wystąpienia i przechowywania i pobierania elementu z pamięci podręcznej hello. Więcej przykładów dotyczących przy użyciu pamięci podręcznej Redis z hello [node_redis](https://github.com/mranney/node_redis) klienta, zobacz [http://redis.js.org/](http://redis.js.org/).
 
      var redis = require("redis");
 
@@ -83,6 +83,6 @@ Dane wyjściowe:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Włącz diagnostykę pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics), aby móc [monitorować](cache-how-to-monitor.md) jej kondycję.
-* Przeczytaj oficjalną [dokumentację magazynu Redis](http://redis.io/documentation).
+* [Włącz diagnostykę w pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics) można więc [monitor](cache-how-to-monitor.md) hello kondycji pamięci podręcznej.
+* Oficjalne hello odczytu [Redis dokumentacji](http://redis.io/documentation).
 

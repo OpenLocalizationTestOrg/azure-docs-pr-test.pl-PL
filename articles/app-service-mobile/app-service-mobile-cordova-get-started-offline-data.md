@@ -1,6 +1,6 @@
 ---
-title: "Włączanie synchronizacji w trybie offline dla aplikacji mobilnej Azure (Cordova) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać aplikacji usługi Mobile App do pamięci podręcznej i synchronizacji danych w trybie offline w aplikacji Cordova"
+title: Synchronizacja w trybie offline aaaEnable aplikacji mobilnej Azure (Cordova) | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse aplikacji usługi Mobile App toocache i synchronizacji danych w trybie offline w aplikacji Cordova"
 documentationcenter: cordova
 author: ggailey777
 manager: syntaxc4
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4e6ae96c3d96dac8ebb3749354b83a04686831b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Włączanie synchronizacji w trybie offline dla aplikacji mobilnej oprogramowania Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-Ten samouczek przedstawia funkcję synchronizacji w trybie offline w usłudze Azure Mobile Apps dla oprogramowania Cordova. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacją mobilną&mdash;przeglądanie, dodawanie lub modyfikowanie danych&mdash;nawet wtedy, gdy istnieje połączenie sieciowe. Zmiany są przechowywane w lokalnej bazie danych.  Gdy urządzenie jest w trybie online, te zmiany są synchronizowane z usługi zdalnej.
+Ten samouczek zawiera funkcję synchronizacji w trybie offline hello z usługą Azure Mobile Apps dla oprogramowania Cordova. Synchronizacja w trybie offline umożliwia toointeract użytkowników końcowych z aplikacji mobilnej&mdash;przeglądanie, dodawanie lub modyfikowanie danych&mdash;nawet wtedy, gdy istnieje połączenie sieciowe. Zmiany są przechowywane w lokalnej bazie danych.  Po powrocie do trybu online urządzenia hello te zmiany są zsynchronizowane z hello usługi zdalnej.
 
-W tym samouczku opiera się na rozwiązanie szybkiego startu Cordova Mobile Apps, utworzony po ukończeniu samouczka [szybki start dla oprogramowania Apache Cordova]. W tym samouczku należy zaktualizować rozwiązania Szybki Start można dodać funkcji w trybie offline z usługą Azure Mobile Apps.  Możemy również zaznacz kodu w trybie offline określonych w aplikacji.
+W tym samouczku jest oparta na hello Cordova rozwiązania szybkiego startu dla Mobile Apps, utworzonych po ukończeniu hello samouczek [szybki start dla oprogramowania Apache Cordova]. W tym samouczku należy zaktualizować hello szybkiego startu rozwiązania tooadd funkcji w trybie offline z usługą Azure Mobile Apps.  Możemy również zaznacz kodu w trybie offline określonych hello w aplikacji hello.
 
-Aby dowiedzieć się więcej na temat funkcji synchronizacji w trybie offline, zobacz temat [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps]. Aby uzyskać szczegółowe informacje dotyczące użycia interfejsu API, zobacz [dokumentacji interfejsu API](https://azure.github.io/azure-mobile-apps-js-client).
+toolearn więcej informacji na temat funkcji synchronizacji w trybie offline hello, zobacz temat hello [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps]. Aby uzyskać szczegółowe informacje dotyczące użycia interfejsu API, zobacz hello [dokumentacji interfejsu API](https://azure.github.io/azure-mobile-apps-js-client).
 
-## <a name="add-offline-sync-to-the-quickstart-solution"></a>Dodaj synchronizacji w trybie offline do rozwiązania Szybki Start
-Kod synchronizacji w trybie offline, należy dodać do aplikacji. Synchronizacja w trybie offline wymaga wtyczki cordova sqlite magazynu, który automatycznie pobiera dodany do aplikacji po wtyczkę Azure Mobile Apps jest dołączony do projektu. Projekt szybkiego startu zawiera oba te wtyczki.
+## <a name="add-offline-sync-toohello-quickstart-solution"></a>Dodaj rozwiązanie szybkiego startu toohello synchronizacji w trybie offline
+Hello synchronizacji w trybie offline kod należy dodać toohello aplikacji. Synchronizacja w trybie offline wymaga hello wtyczki cordova sqlite magazynu, który automatycznie pobiera dodawane tooyour aplikacji, gdy wtyczkę Azure Mobile Apps hello jest uwzględnione w projekcie hello. Projekt szybkiego startu Hello zawiera oba te wtyczki.
 
-1. W Eksploratorze rozwiązań programu Visual Studio Otwórz index.js i Zastąp następujący kod
+1. W Eksploratorze rozwiązań programu Visual Studio Otwórz index.js i Zastąp hello następującego kodu
 
-        var client,            // Connection to the Azure Mobile App backend
-           todoItemTable;      // Reference to a table endpoint on backend
+        var client,            // Connection toohello Azure Mobile App backend
+           todoItemTable;      // Reference tooa table endpoint on backend
 
     o tym kodzie:
 
-        var client,            // Connection to the Azure Mobile App backend
-           todoItemTable,      // Reference to a table endpoint on backend
-           syncContext;        // Reference to offline data sync context
+        var client,            // Connection toohello Azure Mobile App backend
+           todoItemTable,      // Reference tooa table endpoint on backend
+           syncContext;        // Reference toooffline data sync context
 
-2. Następnie zastąp następujący kod:
+2. Następnie zastąp hello następującego kodu:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
@@ -62,136 +62,136 @@ Kod synchronizacji w trybie offline, należy dodać do aplikacji. Synchronizacja
           }
         });
 
-        // Get the sync context from the client
+        // Get hello sync context from hello client
         syncContext = client.getSyncContext();
 
-    Dodatki kod z powyższej zainicjować magazynu lokalnego i zdefiniuj lokalnej tabeli, która odpowiada wartości w kolumnie używane w sieci Azure zaplecza. (Nie trzeba obejmują wszystkie wartości w kolumnie w tym kodu).  `version` Pole jest obsługiwany przez zaplecze aplikacji mobilnej, służy do rozwiązywania konfliktów.
+    Hello poprzedni kod dodatków zainicjować hello lokalnego magazynu i zdefiniuj lokalnej tabeli, która odpowiada wartości w kolumnie hello używane w sieci Azure zaplecza. (Nie trzeba tooinclude wszystkie wartości kolumn tego kodu.)  Witaj `version` pole jest obsługiwany przez zaplecze aplikacji mobilnej hello, służy do rozwiązywania konfliktów.
 
-    Możesz odwołać się do kontekstu synchronizacji przez wywołanie metody **getSyncContext**. Kontekst synchronizacji pomaga zachować relacje między tabelami, śledzenia i wypychanie zmiany we wszystkich tabelach aplikacji klienckiej został zmodyfikowany podczas obliczania `.push()` jest wywoływana.
+    Pobierz odwołanie kontekst synchronizacji toohello przez wywołanie metody **getSyncContext**. Witaj kontekstu synchronizacji ułatwia zachowanie relacje między tabelami, śledzenia i wypychanie zmiany we wszystkich tabelach aplikacji klienckiej został zmodyfikowany podczas obliczania `.push()` jest wywoływana.
 
-3. Zaktualizuj adres URL aplikacji do adresu URL aplikacji w Twojej aplikacji mobilnej.
+3. Aktualizowanie aplikacji hello adres URL aplikacji mobilnej tooyour aplikacji adresu URL.
 
 4. Następnie Zastąp ten kod:
 
-        todoItemTable = client.getTable('todoitem'); // todoitem is the table name
+        todoItemTable = client.getTable('todoitem'); // todoitem is hello table name
 
     o tym kodzie:
 
-        // Initialize the sync context with the store
+        // Initialize hello sync context with hello store
         syncContext.initialize(store).then(function () {
 
-        // Get the local table reference.
+        // Get hello local table reference.
         todoItemTable = client.getSyncTable('todoitem');
 
         syncContext.pushHandler = {
             onConflict: function (pushError) {
-                // Handle the conflict.
+                // Handle hello conflict.
                 console.log("Sync conflict! " + pushError.getError().message);
-                // Update failed, revert to server's copy.
+                // Update failed, revert tooserver's copy.
                 pushError.cancelAndDiscard();
               },
               onError: function (pushError) {
-                  // Handle the error
-                  // In the simulated offline state, you get "Sync error! Unexpected connection failure."
+                  // Handle hello error
+                  // In hello simulated offline state, you get "Sync error! Unexpected connection failure."
                   console.log("Sync error! " + pushError.getError().message);
               }
         };
 
-        // Call a function to perform the actual sync
+        // Call a function tooperform hello actual sync
         syncBackend();
 
-        // Refresh the todoItems
+        // Refresh hello todoItems
         refreshDisplay();
 
-        // Wire up the UI Event Handler for the Add Item
+        // Wire up hello UI Event Handler for hello Add Item
         $('#add-item').submit(addItemHandler);
         $('#refresh').on('click', refreshDisplay);
 
-    Poprzedni kod inicjuje kontekstu synchronizacji, a następnie wywołuje getSyncTable (zamiast getTable), aby pobrać odwołanie do lokalnej tabeli.
+    Witaj poprzedni kod inicjuje hello kontekstu synchronizacji, a następnie wywołuje tooget getSyncTable (zamiast getTable) toohello odwołanie do lokalnej tabeli.
 
-    To kod korzysta z lokalnej bazy danych dla wszystkich tworzenia, odczytu, aktualizacji i usuwania (CRUD) operacje tabeli.
+    Ten kod używa hello lokalnej bazy danych dla wszystkich tworzenia, odczytu, aktualizacji i usuwania (CRUD) operacje tabeli.
 
-    W tym przykładzie przeprowadza prosty błąd obsługi na konfliktów synchronizacji. Rzeczywistej aplikacji będzie obsługiwać różne błędy, takie jak warunków sieciowych, powoduje konflikt z serwera i inne. Aby uzyskać przykłady kodu, zobacz [próbki synchronizacji w trybie offline].
+    W tym przykładzie przeprowadza prosty błąd obsługi na konfliktów synchronizacji. Czy obsługa rzeczywistej aplikacji hello różne błędy, takie jak warunków sieciowych, powoduje konflikt z serwera i inne. Przykłady kodu, zobacz hello [próbki synchronizacji w trybie offline].
 
-5. Następnie dodaj tę funkcję, aby wykonać rzeczywiste synchronizacji.
+5. Następnie dodaj to funkcja tooperform hello rzeczywiste synchronizacji.
 
         function syncBackend() {
 
-          // Sync local store to Azure table when app loads, or when login complete.
+          // Sync local store tooAzure table when app loads, or when login complete.
           syncContext.push().then(function () {
               // Push completed
 
           });
 
-          // Pull items from the Azure table after syncing to Azure.
+          // Pull items from hello Azure table after syncing tooAzure.
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Podjęcie decyzji dotyczącej Wypchnij zmiany do zaplecza aplikacji mobilnej, wywołując **syncContext.push()**. Na przykład można wywołać **syncBackend** w obsłudze zdarzeń przycisk powiązane przycisk synchronizacji.
+    Zdecydujesz toopush zmiany zaplecza aplikacji mobilnej toohello przez wywołanie metody **syncContext.push()**. Na przykład można wywołać **syncBackend** w przycisk synchronizacji przycisk wiązanej tooa obsługi zdarzeń.
 
 ## <a name="offline-sync-considerations"></a>Zagadnienia dotyczące synchronizacji w trybie offline
 
-W przykładzie **wypychania** metody **syncContext** wywołać tylko podczas uruchamiania aplikacji w funkcji wywołania zwrotnego dla nazwy logowania.  W przypadku aplikacji rzeczywistych można także spowodować tej funkcji synchronizacji wywołane ręcznie lub zmiany stanu sieci.
+W przykładowym hello hello **wypychania** metody **syncContext** wywołać tylko podczas uruchamiania aplikacji hello funkcji wywołania zwrotnego dla nazwy logowania.  W przypadku aplikacji rzeczywistych można także spowodować tej funkcji synchronizacji wywołane ręcznie lub po zmianie stanu sieci hello.
 
-Podczas wykonywania ściąganie względem tabeli, która ma oczekujące aktualizacje z lokalnego śledzone przez kontekstu, która ściągnięcia operacji automatycznie wyzwalacze wypychania. Podczas odświeżania, dodawanie i wykonując elementów w tym przykładzie można pominąć jawnych **wypychania** wywołać, ponieważ może być nadmiarowe.
+Podczas wykonywania ściąganie względem tabeli, która ma oczekujące aktualizacje z lokalnego śledzone przez hello kontekstu, który ściągnięcia operacji automatycznie wyzwalacze wypychania. Podczas odświeżania, dodawania i kończenie elementów w tym przykładzie, można pominąć hello jawne **wypychania** wywołać, ponieważ może być nadmiarowe.
 
-Podany kod odpytywane będą wszystkie rekordy w tabeli todoItem zdalnego, ale jest również możliwe filtrowanie rekordów przez przekazanie identyfikator zapytania i kwerendę **wypychania**. Aby uzyskać więcej informacji, zobacz sekcję *synchronizacja przyrostowa* w [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps].
+W kodzie hello pod warunkiem, będą proszeni wszystkie rekordy w tabeli todoItem zdalnego hello, ale jest również możliwe toofilter rekordów przez przekazanie identyfikator zapytania i zapytań za**wypychania**. Aby uzyskać więcej informacji, zobacz sekcję hello *synchronizacja przyrostowa* w [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps].
 
 ## <a name="optional-disable-authentication"></a>(Opcjonalnie) Wyłącz uwierzytelnianie
 
-Jeśli nie chcesz skonfigurować uwierzytelnianie przed testowych synchronizacją w trybie offline, funkcja wywołania zwrotnego dla logowania w komentarz, ale pozostawić kodu wewnątrz odkomentowana funkcja wywołania zwrotnego.  Po komentowania wierszy logowania, następujący kod:
+Jeśli nie ma tooset się uwierzytelniania przed testowaniem synchronizacji w trybie offline, komentarz hello funkcja wywołania zwrotnego dla nazwy logowania, ale pozostaw hello kodu wewnątrz odkomentowana hello funkcja wywołania zwrotnego.  Po komentowania hello logowania wierszy, kod hello są następujące:
 
-      // Login to the service.
+      // Login toohello service.
       // client.login('twitter')
       //    .then(function () {
         syncContext.initialize(store).then(function () {
-          // Leave the rest of the code in this callback function  uncommented.
+          // Leave hello rest of hello code in this callback function  uncommented.
                 ...
         });
       // }, handleError);
 
-Teraz aplikacja przeprowadza synchronizację z wewnętrznej bazy danych Azure po uruchomieniu aplikacji.
+Teraz hello aplikacji przeprowadza synchronizację z wewnętrznej bazy danych Azure po uruchomieniu aplikacji hello hello.
 
-## <a name="run-the-client-app"></a>Uruchamianie aplikacji klienta
-Teraz włączony synchronizacja w trybie offline umożliwia uruchamianie aplikacji klienckiej co najmniej raz na każdej z platform do wypełniania bazy danych magazynu lokalnego. Później symulować scenariusz w trybie offline i modyfikować danych w magazynie lokalnym, gdy aplikacja jest w trybie offline.
+## <a name="run-hello-client-app"></a>Uruchom aplikację klienta hello
+Teraz włączony synchronizacja w trybie offline umożliwia uruchamianie aplikacji klienckiej hello co najmniej raz na każdej z platform do wypełniania bazy danych magazynu lokalne powitania. Później symulować scenariusz w trybie offline i modyfikować danych hello w lokalnym magazynie hello, gdy aplikacja hello jest w trybie offline.
 
-## <a name="optional-test-the-sync-behavior"></a>(Opcjonalnie) Testowanie zachowanie synchronizacji
-W tej sekcji możesz zmodyfikować projekt klienta, aby symulować scenariusz w trybie offline za pomocą nieprawidłowy adres URL aplikacji w danym zapleczu. Podczas dodawania lub zmienić elementów danych, zmiany te są przechowywane w lokalnym magazynie, ale nie są zsynchronizowane z wewnętrznej bazy danych magazynu danych, dopóki nie zostanie ponownie nawiązać połączenie.
+## <a name="optional-test-hello-sync-behavior"></a>(Opcjonalnie) Zachowanie synchronizacji hello testu
+W tej sekcji możesz zmodyfikować powitania klienta projektu toosimulate scenariusz w trybie offline za pomocą nieprawidłowy adres URL aplikacji w danym zapleczu. Podczas dodawania lub zmienić elementy danych te zmiany są przechowywane w magazynie lokalnym, ale nie są magazynu danych zsynchronizowanej toohello wewnętrznej bazy danych do momentu ponownym nawiązaniu połączenia hello.
 
-1. W Eksploratorze rozwiązań Otwórz plik projektu index.js i zmień adres URL aplikacji, aby wskazywał nieprawidłowy adres URL, podobnie do następującego kodu:
+1. W Eksploratorze rozwiązań hello Otwórz plik projektu index.js hello i zmień toopoint adres URL aplikacji hello nieprawidłowy adres URL, takie jak hello następującego kodu:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
-2. Dostawca usług Kryptograficznych aktualizacji index.html, `<meta>` element o tej samej nieprawidłowy adres URL.
+2. W index.html, zaktualizuj hello dostawcy usług Kryptograficznych `<meta>` element z hello tego samego nieprawidłowy adres URL.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
-3. Skompiluj i uruchom aplikację klienta i zwróć uwagę, że wyjątek jest rejestrowane w konsoli, gdy aplikacja próbuje synchronizować z wewnętrznej bazy danych po logowaniu. Nowe elementy, które można dodać istnieje tylko w lokalnym magazynie, dopóki nie są one przenoszone do zaplecza aplikacji mobilnych. Aplikacja kliencka zachowuje się tak, jakby nie jest połączona z wewnętrznej bazy danych.
+3. Tworzenie i uruchamianie powitania klienta aplikacji i zwróć uwagę, czy wyjątek jest rejestrowane w konsoli hello, gdy aplikacja hello próbuje synchronizować z zapleczem hello po logowania. Nowe elementy, które można dodać istnieją tylko w lokalnym magazynie hello, dopóki nie są one usuwane toohello zaplecze aplikacji mobilnej. Aplikacja kliencka Hello zachowuje się tak, jakby była połączonych toohello wewnętrznej bazy danych.
 
-4. Zamknij aplikację i uruchom ponownie, aby sprawdzić, czy nowe elementy utworzone zostały utrwalone w magazynie lokalnym.
+4. Zamknij aplikację hello i uruchom ją ponownie tooverify hello nowe elementy utworzone czy toohello utrwalonego magazynu lokalnego.
 
-5. (Opcjonalnie) Aby wyświetlić tabelę bazy danych SQL Azure, aby zobaczyć, czy dane w bazie danych zaplecza nie uległy zmianie, należy użyć programu Visual Studio.
+5. (Opcjonalnie) Za pomocą programu Visual Studio tooview toosee tabeli bazy danych SQL Azure, sieci danych hello w hello wewnętrznej bazy danych w bazie danych nie zostały zmienione.
 
-    W programie Visual Studio Otwórz **Eksploratora serwera**. Przejdź do bazy danych w **Azure**->**baz danych SQL**. Kliknij prawym przyciskiem myszy bazę danych i wybierz **Otwórz w Eksploratorze obiektów SQL Server**. Możesz teraz przejść do tabeli bazy danych SQL i jego zawartość.
+    W programie Visual Studio Otwórz **Eksploratora serwera**. Przejdź do bazy danych tooyour w **Azure**->**baz danych SQL**. Kliknij prawym przyciskiem myszy bazę danych i wybierz **Otwórz w Eksploratorze obiektów SQL Server**. Teraz można przeglądać tooyour tabeli w bazie danych SQL i jego zawartość.
 
-## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Opcjonalnie) Testowanie ponowne nawiązanie połączenia z wewnętrzną bazą danych w przenośnych
+## <a name="optional-test-hello-reconnection-tooyour-mobile-backend"></a>(Opcjonalnie) Test hello ponowne nawiązanie połączenia tooyour zaplecze aplikacji mobilnej
 
-W tej sekcji ponowne łączenie aplikacji zaplecza mobilnego, która symuluje aplikacji powracające do trybu online. Podczas logowania danych jest synchronizowany z przenośnymi wewnętrzną bazą danych.
+W tej sekcji ponownym hello aplikacji toohello zaplecze aplikacji mobilnej, która symuluje aplikacji hello powracające do trybu online. Podczas logowania, dane są zsynchronizowane tooyour zaplecze aplikacji mobilnej.
 
-1. Otwórz ponownie index.js i przywrócić adres URL aplikacji.
-2. Otwórz ponownie index.html i popraw adres URL aplikacji w dostawcy CSP `<meta>` elementu.
-3. Ponownie skompilować i uruchomić aplikację klienta. Aplikacja próbuje synchronizować z zaplecza aplikacji mobilnej po logowania. Upewnij się, że żadne wyjątki są rejestrowane w konsoli debugowania.
-4. (Opcjonalnie) Wyświetlanie zaktualizowanych danych przy użyciu Eksplorator obiektów SQL Server lub narzędzia REST, takiego jak Fiddler. Należy zauważyć, że zsynchronizowano dane między wewnętrzna baza danych i magazynu lokalnego.
+1. Otwórz ponownie index.js i przywrócić hello adres URL aplikacji.
+2. Otwórz ponownie index.html i popraw adres URL aplikacji hello w hello dostawcy usług Kryptograficznych `<meta>` elementu.
+3. Ponownie skompilować i uruchomić powitania klienta aplikacji. Aplikacja Hello prób toosync z zaplecza aplikacji mobilnej powitania po logowaniu. Upewnij się, że żadne wyjątki są rejestrowane w konsoli debugowania hello.
+4. (Opcjonalnie) Widok hello zaktualizowane dane przy użyciu Eksplorator obiektów SQL Server lub narzędzia REST, takiego jak Fiddler. Powiadomienie hello danych został zsynchronizowany między hello wewnętrznej bazy danych i hello magazynu lokalnego.
 
-    Zwróć uwagę, dane zostały zsynchronizowane między bazy danych i Magazyn lokalny i zawiera elementy, które dodano odłączeniu aplikacji.
+    Zwróć uwagę, hello dane zostały zsynchronizowane między hello bazy danych i magazynu lokalnego hello i zawiera elementy hello dodane odłączeniu aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps]
 * [Visual Studio Tools for Apache Cordova]
 
 ## <a name="next-steps"></a>Następne kroki
-* Przejrzyj bardziej zaawansowane funkcje synchronizacji w trybie offline, takie jak rozwiązywania konfliktów w [próbki synchronizacji w trybie offline]
-* Przejrzyj odwołanie do synchronizacji w trybie offline interfejsu API w [dokumentacji interfejsu API](https://azure.github.io/azure-mobile-apps-js-client).
+* Przejrzyj bardziej zaawansowane funkcje synchronizacji w trybie offline, takie jak rozwiązywania konfliktów w hello [próbki synchronizacji w trybie offline]
+* Przejrzyj synchronizacji w trybie offline hello dokumentacja interfejsu API w hello [dokumentacji interfejsu API](https://azure.github.io/azure-mobile-apps-js-client).
 
 <!-- ##Summary -->
 
@@ -204,7 +204,7 @@ W tej sekcji ponowne łączenie aplikacji zaplecza mobilnego, która symuluje ap
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
-[Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Work with hello .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md

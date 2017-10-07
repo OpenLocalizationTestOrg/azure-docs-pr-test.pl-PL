@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie i zarządzanie nimi w potokach danych - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorować i zarządzać nimi fabryki danych Azure i potoki przy użyciu aplikacji zarządzania i monitorowania."
+title: "aaaMonitor i zarządzanie nimi w potokach danych - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello monitorowanie i zarządzanie toomonitor aplikacji i zarządzanie fabryki danych Azure i potoki."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,309 +14,309 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
-ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e4ef6ec5fb8ebc9bda0be7899a39a51d58403d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji monitorowanie i zarządzanie
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-hello-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji hello monitorowanie i zarządzanie
 > [!div class="op_single_selector"]
 > * [Przy użyciu portalu Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Przy użyciu monitorowania i zarządzania aplikacjami](data-factory-monitor-manage-app.md)
 >
 >
 
-W tym artykule opisano sposób użycia aplikacji zarządzania i monitorowania do monitorowania, zarządzania i debugowania potoki z fabryki danych. Zawiera również informacje dotyczące sposobu tworzenia alerty, Otrzymuj powiadomienia dotyczące niepowodzeń. Możesz rozpocząć pracę z przy użyciu aplikacji od obejrzenia poniższego klipu wideo:
+W tym artykule opisano, jak toouse hello toomonitor aplikacji zarządzania i monitorowania, zarządzania i debugowania potoki z fabryki danych. Zawiera także informacje o jak toocreate alerty tooget powiadomienie dotyczące niepowodzeń. Użytkownik może rozpocząć korzystanie z aplikacji hello przez oglądaniu powitania po wideo:
 
 > [!NOTE]
-> Interfejs użytkownika pokazano wideo może nie pasować zobaczyć w portalu. Jest nieco starszy, ale pojęcia pozostają takie same. 
+> Witaj interfejsu użytkownika pokazano hello wideo może nie pasować informacje wyświetlane w portalu hello. Jest nieco starszy, przy zachowaniu pojęcia hello tego samego. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 
-## <a name="launch-the-monitoring-and-management-app"></a>Uruchom aplikacji do zarządzania i monitorowania
-Aby uruchomić Monitor i zarządzania aplikacji, kliknij przycisk **Monitor & Zarządzaj** Kafelek na **fabryki danych** bloku fabryką danych.
+## <a name="launch-hello-monitoring-and-management-app"></a>Uruchamianie aplikacji hello monitorowanie i zarządzanie
+hello toolaunch monitora i aplikacji do zarządzania, kliknij przycisk hello **Monitor & Zarządzaj** Kafelek na powitania **fabryki danych** bloku fabryką danych.
 
-![Monitorowanie kafelka na stronie głównej fabryki danych](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Monitorowanie kafelka na stronie głównej hello fabryki danych](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
-Monitorowanie i zarządzanie aplikacji, Otwórz w osobnym oknie powinny być widoczne.  
+Powinna zostać wyświetlona aplikacja monitorowanie i zarządzanie hello otworzyć w osobnym oknie.  
 
 ![Aplikacja do monitorowania i zarządzania](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Jeśli zobaczysz, że przeglądarki sieci web jest zablokowany na "Autoryzowanie...", wyczyść **zablokować pliki cookie innych firm, a dane lokacji** pole wyboru--lub Zachowaj ono zaznaczone, utworzyć wyjątek **login.microsoftonline.com**, i Spróbuj ponownie otworzyć aplikację.
+> Jeśli widzisz tej przeglądarki sieci web hello jest zablokowany na "Autoryzowanie...", wyczyść hello **zablokować pliki cookie innych firm, a dane lokacji** pole wyboru--lub Zachowaj ono zaznaczone, utworzyć wyjątek **login.microsoftonline.com** , a następnie spróbuj ponownie tooopen hello aplikacji.
 
 
-Na liście okien działania w środkowym okienku zobaczysz okno działania przy każdym uruchomieniu działania. Na przykład jeśli masz działania zaplanowane co godzinę przez pięć godzin, zobacz pięć okien działania związane z pięciu wycinków danych. Jeśli nie widzisz okien działania na liście u dołu, wykonaj następujące czynności:
+Na liście działanie Windows hello w środkowym okienku hello zobaczysz okno działania przy każdym uruchomieniu działania. Na przykład jeśli hello toorun działania zaplanowane co godzinę przez pięć godzin, zobacz pięć okien działania skojarzonych z wycinków danych pięć. Jeśli nie widzisz działania windows hello liście u dołu hello hello następujące:
  
-- Aktualizacja **godzina rozpoczęcia** i **czas zakończenia** filtrów w górnej odpowiada godziny rozpoczęcia i zakończenia potoku sieci, a następnie kliknij przycisk **Zastosuj** przycisku.  
-- Lista okien działania nie zostanie automatycznie odświeżony. Kliknij przycisk **Odśwież** przycisk na pasku narzędzi w **okien działania** listy.  
+- Aktualizacja hello **godzina rozpoczęcia** i **czas zakończenia** filtrów w hello top toomatch hello start i end razy potoku sieci, a następnie kliknij hello **Zastosuj** przycisku.  
+- Lista działań Windows Hello nie zostanie automatycznie odświeżony. Kliknij przycisk hello **Odśwież** przycisk na powitania narzędzi hello **okien działania** listy.  
 
-Jeśli nie masz aplikacji fabryki danych, aby przetestować te kroki samouczka wykonaj: [skopiowanie danych z magazynu obiektów Blob do bazy danych SQL przy użyciu fabryki danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Jeśli nie masz tootest aplikacji fabryki danych te kroki, hello samouczek: [kopiowanie danych z magazynu obiektów Blob tooSQL bazy danych przy użyciu fabryki danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="understand-the-monitoring-and-management-app"></a>Informacje o monitorowaniu i aplikacji do zarządzania
-Dostępne są trzy karty po lewej stronie: **Eksploratora zasobów**, **widoków monitorowania**, i **alerty**. Pierwszej karcie (**Eksploratora zasobów**) jest domyślnie zaznaczona.
+## <a name="understand-hello-monitoring-and-management-app"></a>Zrozumienie aplikacji hello monitorowanie i zarządzanie
+Dostępne są trzy karty po lewej stronie powitania: **Eksploratora zasobów**, **widoków monitorowania**, i **alerty**. Witaj pierwszej karcie (**Eksploratora zasobów**) jest domyślnie zaznaczona.
 
 ### <a name="resource-explorer"></a>Eksplorator zasobów
-Zostanie wyświetlony poniżej:
+Znajdują się hello w następujących tematach:
 
-* Eksplorator zasobów **widok drzewa** w okienku po lewej stronie.
-* **Widoku diagramu** u góry w środkowym okienku.
-* **Okien działania** listy u dołu w środkowym okienku.
-* **Właściwości**, **działania okna Eksploratora**, i **skryptu** karty w okienku po prawej stronie.
+* Witaj Eksploratora zasobów **widok drzewa** w okienku po lewej stronie powitania.
+* Witaj **widoku diagramu** u góry hello w środkowym okienku hello.
+* Witaj **okien działania** listy u dołu hello w środkowym okienku hello.
+* Witaj **właściwości**, **działania okna Eksploratora**, i **skryptu** karty w okienku po prawej stronie powitania.
 
-W Eksploratorze zasobów zobacz temat wszystkie zasoby (potoki, zestawy danych połączonych usług) w fabryce danych w widoku drzewa. Po wybraniu obiektu, w Eksploratorze zasobów:
+W Eksploratorze zasobów zobacz temat wszystkie zasoby (potoki, zestawy danych połączonych usług) w fabryce danych hello w widoku drzewa. Po wybraniu obiektu, w Eksploratorze zasobów:
 
-* Skojarzonej jednostki fabryki danych zostanie wyróżniona w widoku diagramu.
-* [Skojarzone działanie windows](data-factory-scheduling-and-execution.md) zostały wyróżnione na liście okien działania u dołu.  
-* Właściwości wybranego obiektu są wyświetlane w oknie właściwości w okienku po prawej stronie.
-* Definicja JSON wybranego obiektu jest wyświetlany, jeśli ma to zastosowanie. Na przykład: połączonej usługi, zestawu danych lub potoku.
+* Witaj skojarzone jednostki zostanie wyróżniona w widoku diagramu hello fabryki danych.
+* [Skojarzone działanie windows](data-factory-scheduling-and-execution.md) zostały wyróżnione na liście działanie Windows hello u dołu hello.  
+* właściwości Hello hello wybranego obiektu są wyświetlane w oknie właściwości hello w okienku po prawej stronie powitania.
+* Hello definicji JSON wybranego obiektu hello jest wyświetlany, jeśli ma to zastosowanie. Na przykład: połączonej usługi, zestawu danych lub potoku.
 
 ![Eksplorator zasobów](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Zobacz [planowania i wykonywania](data-factory-scheduling-and-execution.md) artykułu, aby uzyskać szczegółowe informacje o pojęciach dotyczących działania systemu windows.
+Zobacz hello [planowania i wykonywania](data-factory-scheduling-and-execution.md) artykułu, aby uzyskać szczegółowe informacje o pojęciach dotyczących działania systemu windows.
 
 ### <a name="diagram-view"></a>Widok diagramu
-Widok diagramu fabryki danych zapewnia jeden szkła monitorować i zarządzać fabryki danych i jego zasoby. Po wybraniu jednostki fabryki danych (dataset/potoku) w widoku diagramu:
+Hello widoku diagramu fabryki danych zapewnia jeden z toomonitor szkła i zarządzanie fabryki danych i jego zasoby. Po wybraniu podmiot fabryki danych (dataset/potoku) w widoku diagramu hello:
 
-* Obiekt fabryki danych wybrano w widoku drzewa.
-* Skojarzone działanie systemu windows są wyróżnione na liście działania systemu Windows.
-* Właściwości wybranego obiektu są wyświetlane w oknie właściwości.
+* w widoku drzewa hello wybrano jednostki fabryki danych Hello.
+* Witaj skojarzone działanie, które systemu windows są wyróżnione na liście działanie Windows hello.
+* właściwości Hello hello wybranego obiektu są wyświetlane w oknie właściwości hello.
 
-Po włączeniu potoku (nie jest w stanie wstrzymania) jest wyświetlany zielony linią:
+Po włączeniu potoku hello (nie jest w stanie wstrzymania) jest wyświetlany zielony linią:
 
 ![Potok uruchomiona](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Można wstrzymać, wznowić lub zakończenie potoku, wybierając ją w widoku diagramu i za pomocą przycisków na pasku poleceń.
+Można wstrzymać, wznowić lub zakończenie potoku, wybierając ją w widoku diagramu hello i za pomocą przycisków hello na pasku poleceń hello.
 
-![Wstrzymanie/wznowienie na pasku poleceń](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Wstrzymanie/wznowienie na pasku poleceń hello](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
  
-Istnieją trzy przyciski paska poleceń dla potoku, w widoku diagramu. Drugi przycisk służy do wstrzymywania potoku. Wstrzymywanie nie przerwanie działania aktualnie uruchomione i pozwala przejść do zakończenia. Trzeci przycisk potoku wstrzymuje i kończy istniejące wykonywanych działań. Pierwszy przycisk wznawia potoku. Wstrzymanie planowaną zmienia kolor potoku. Na przykład wstrzymanie potoku wygląda jak na poniższej ilustracji: 
+Istnieją trzy przyciski paska poleceń dla potoku hello w hello widoku diagramu. Możesz użyć hello drugiego przycisku toopause hello potoku. Wstrzymywanie nie zakończyć hello aktualnie uruchomione działania i umożliwia ich kontynuować toocompletion. przycisk trzeci Hello potoku hello wstrzymuje i kończy istniejące wykonywanych działań. pierwszy przycisk Hello wznawia hello potoku. Wstrzymanie planowaną zmienia kolor hello hello potoku. Na przykład wstrzymanie potoku wygląda powitania po obrazu: 
 
 ![Wstrzymane potoku](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
-Możesz wybrać wiele potoki dwóch lub więcej za pomocą klawisza Ctrl. Przyciski paska poleceń służy do wstrzymanie/wznowienie potoki wielu naraz.
+Można wybrać wiele potoki dwóch lub więcej używając hello klawisz Ctrl. Potoki wielu hello polecenia paska przycisków toopause/wznawiania można użyć w czasie.
 
-Można również kliknij prawym przyciskiem myszy potoku i wybierz opcję, aby wstrzymać, wznowić lub przerywania potoku. 
+Użytkownik może również kliknąć prawym przyciskiem myszy potoku i wybrania opcji toosuspend, Wznów lub zakończenie potoku. 
 
 ![Menu kontekstowe dla potoku](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
 
-Kliknij przycisk **Otwórz potoku** opcji, aby zobaczyć wszystkie działania w potoku. 
+Kliknij przycisk hello **Otwórz potoku** opcję toosee wszystkie działania hello w potoku hello. 
 
 ![Menu Otwórz potok](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-W widoku otwartą potoku wyświetlane są wszystkie działania w potoku. W tym przykładzie jest tylko jedno działanie: działanie kopiowania. 
+W widoku potoku hello otwarty można zobaczyć wszystkie działania w potoku hello. W tym przykładzie jest tylko jedno działanie: działanie kopiowania. 
 
 ![Otwarty potoku](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Aby powrócić do poprzedniego widoku, kliknij przycisk Nazwa fabryki danych w menu stron nadrzędnych u góry.
+toogo kopii toohello poprzedni widok, kliknij przycisk Nazwa fabryki danych hello hello nawigacją menu u góry hello.
 
-W widoku potoku po wybraniu wyjściowy zestaw danych lub gdy mysz przesuwa się nad wyjściowy zestaw danych, zobaczysz okno podręczne działania systemu Windows dla tego zestawu danych.
+W widoku potoku hello po wybraniu wyjściowy zestaw danych lub gdy mysz przesuwa się nad hello wyjściowy zestaw danych, zobaczysz okno podręczne działania Windows hello dla tego zestawu danych.
 
 ![Okno podręczne działania systemu Windows](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-Możesz kliknąć okno działania, aby wyświetlić szczegóły dla niego w **właściwości** okna w okienku po prawej stronie.
+Można kliknąć szczegóły toosee okna działania dla niego hello **właściwości** okna w okienku po prawej stronie powitania.
 
 ![Działanie właściwości okna](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-W okienku po prawej stronie, przełącz się do **działania okna Eksploratora** kartę, aby zobaczyć więcej szczegółów.
+W okienku po prawej stronie powitania, Przełącz toohello **działania okna Eksploratora** karcie toosee więcej szczegółów.
 
 ![Działanie okno Eksploratora](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Zobacz też **rozpoznać zmienne** dla każdego próba uruchomienia działania w **prób** sekcji.
+Zobacz też **rozpoznać zmienne** dla każdego próba uruchomienia działania w hello **prób** sekcji.
 
 ![Zmienne rozwiązany](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Przełącz się do **skryptu** kartę, aby wyświetlić definicji skryptu JSON dla wybranego obiektu.   
+Przełącz toohello **skryptu** karcie toosee hello JSON skryptu definicji hello wybranego obiektu.   
 
 ![Karta skryptu](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Można wyświetlić okien działania w trzech miejscach:
 
-* Okienko wyskakujące okien działania w widoku diagramu (w środkowym okienku).
-* Eksplorator okna działania w okienku po prawej stronie.
-* Lista okien działania w dolnym okienku.
+* Witaj okien działania wyskakujących w hello widoku diagramu (w środkowym okienku).
+* Działanie okno Eksploratora Hello w okienku po prawej stronie powitania.
+* Lista działania systemu Windows Hello w hello dolnym okienku.
 
-W oknie podręcznym okien działania i działania okna Eksploratora można przewijać w poprzednim tygodniu i następnym tygodniu za pomocą strzałki w lewo i w prawo.
+W oknie podręcznym działania Windows hello i działania okna Eksploratora toohello można przewijać w poprzednim tygodniu i hello hello następnym tygodniu za pomocą strzałki w lewo i w prawo.
 
 ![Strzałki prawej/lewej strony okna Eksploratora działania](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-W dolnej części widoku diagramu, zobacz tych przycisków: powiększenia powiększanie, zmniejszanie, aby dopasować, powiększenie 100%, Zablokuj układ. **Układu blokady** przycisk zapobiega przypadkowemu przenoszeniu tabel i potoków w widoku diagramu. Jest on domyślnie. Można ją wyłączyć i przenosić jednostek na diagramie. Wyłączenie opcji, można użyć przycisku ostatniej ma automatycznie tabele i potoki. Za pomocą kółka myszy, można powiększyć lub pomniejszyć.
+U dołu hello hello widoku diagramu, zobacz tych przycisków: powiększanie, zmniejszanie, tooFit powiększenia powiększenie 100%, Zablokuj układ. Witaj **układu blokady** przycisk zapobiega przypadkowemu przenoszeniu tabel i potoków hello widoku diagramu. Jest on domyślnie. Można ją wyłączyć i przenosić jednostek hello diagramu. Wyłączenie opcji, można użyć hello ostatniego przycisk tooautomatically pozycji tabele i potoki. Można również powiększanie lub pomniejszanie za pomocą kółka myszy hello.
 
 ![Diagram przedstawiający polecenia powiększenia widoku](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 ### <a name="activity-windows-list"></a>Lista działania systemu Windows
-Na liście okien działania w dolnej części środkowym okienku zostaną wyświetlone wszystkie okna działania dla zestawu danych, który wybrano w widoku diagramu lub Eksploratora zasobów. Domyślnie lista jest w kolejności malejącej, co oznacza, że wyświetlane najnowsze okna działanie u góry.
+Lista okien działania Hello u dołu hello w środkowym okienku hello Wyświetla wszystkie działania windows hello zestawu danych, wybranym hello Eksploratora zasobów lub hello widoku diagramu. Domyślnie lista hello jest w kolejności malejącej, co oznacza, że widoczny hello najnowsze okno działania u góry hello.
 
 ![Lista działania systemu Windows](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
-Ta lista nie automatycznego odświeżania, należy więc przycisk Odśwież na pasku narzędzi go ręcznie odświeżyć.  
+Ta lista nie odświeżane automatycznie, więc go odświeżyć. Użyj przycisku Odśwież hello na powitania toomanually narzędzi.  
 
-Działanie systemu windows może być w jednym z następujących stanów:
+Działanie systemu windows może działać w jednym z hello następujące stany:
 
 <table>
 <tr>
     <th align="left">Stan</th><th align="left">Podstan</th><th align="left">Opis</th>
 </tr>
 <tr>
-    <td rowspan="8">Oczekiwanie</td><td>ScheduleTime</td><td>Czas nie pochodzą okna działania do uruchamiania.</td>
+    <td rowspan="8">Oczekiwanie</td><td>ScheduleTime</td><td>czas Hello nie pochodzą dla hello działania okna toorun.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>Zależności strumienia wychodzącego nie są gotowe.</td>
+<td>DatasetDependencies</td><td>zależności strumienia wychodzącego Hello nie są gotowe.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Zasoby obliczeniowe są niedostępne.</td>
+<td>ComputeResources</td><td>zasoby obliczeniowe Hello nie są dostępne.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Wszystkie wystąpienia działania są zajęte uruchamianiem innych okien działania.</td>
+<td>ConcurrencyLimit</td> <td>Wszystkie wystąpienia działania hello są zajęte uruchamianiem innych okien działania.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Działanie jest wstrzymane i nie można uruchomić okien działania, dopóki nie zostanie wznowione.</td>
+<td>ActivityResume</td><td>działanie Hello jest wstrzymane i nie można uruchomić okien działania hello, dopóki nie zostanie wznowione.</td>
 </tr>
 <tr>
-<td>Spróbuj ponownie</td><td>Ponawiane wykonania działania.</td>
+<td>Spróbuj ponownie</td><td>ponawiane Hello wykonania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Weryfikacja jeszcze się nie rozpoczął.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Sprawdzanie poprawności oczekuje na ponowienie próby.</td>
+<td>ValidationRetry</td><td>Sprawdzanie poprawności jest ponowione toobe oczekiwania.</td>
 </tr>
 <tr>
 <tr>
 <td rowspan="2">W toku</td><td>Sprawdzanie poprawności</td><td>Trwa sprawdzanie poprawności.</td>
 </tr>
 <td>-</td>
-<td>Okno działania jest przetwarzana.</td>
+<td>Okno działania Hello jest przetwarzana.</td>
 </tr>
 <tr>
-<td rowspan="4">Nie powiodło się</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Nie powiodło się</td><td>Upłynął limit czasu</td><td>Witaj działania wykonywanie trwało dłużej niż jest dozwolonych przez działanie hello.</td>
 </tr>
 <tr>
-<td>Anulowane</td><td>Okno działanie zostało anulowane przez akcję użytkownika.</td>
+<td>Anulowane</td><td>Okno działania Hello zostało anulowane przez akcję użytkownika.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Weryfikacja nie powiodła się.</td>
 </tr>
 <tr>
-<td>-</td><td>Okno działania nie powiodło się można wygenerować lub sprawdzania poprawności.</td>
+<td>-</td><td>Okno działania Hello nie toobe wygenerowany lub sprawdzić jego poprawności.</td>
 </tr>
-<td>Gotowe</td><td>-</td><td>Okno działania jest gotowy do użycia.</td>
-</tr>
-<tr>
-<td>Pominięto</td><td>-</td><td>Okno działania nie został przetworzony.</td>
+<td>Gotowe</td><td>-</td><td>Okno działania Hello jest gotowy do użycia.</td>
 </tr>
 <tr>
-<td>Brak</td><td>-</td><td>Okno działania miał poprzednio inny stan, ale został zresetowany.</td>
+<td>Pominięto</td><td>-</td><td>Okno działania Hello nie został przetworzony.</td>
+</tr>
+<tr>
+<td>Brak</td><td>-</td><td>Okno działania używane tooexist inny stan, ale został zresetowany.</td>
 </tr>
 </table>
 
 
-Po kliknięciu okno działania na liście, zobacz szczegóły w **Eksploratora Windows działania** lub **właściwości** okna po prawej stronie.
+Po kliknięciu okno działania na liście hello Zobacz szczegółowe informacje o nim w hello **Eksploratora Windows działania** lub hello **właściwości** okno na powitania prawo.
 
 ![Działanie okno Eksploratora](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Odśwież działania systemu windows
-Szczegóły nie są automatycznie odświeżane, należy więc przycisk Odśwież (drugi przycisk) na pasku poleceń, aby ręcznie odświeżyć listę działania systemu windows.  
+Szczegóły Hello nie są automatycznie odświeżane, należy więc hello odświeżania (przycisk hello drugi) na pasku toomanually odświeżania hello działania systemu windows lista poleceń hello.  
 
 ### <a name="properties-window"></a>Okno właściwości
-Okno właściwości znajduje się w okienku prawej zarządzania i monitorowania aplikacji.
+Okno właściwości Hello znajduje się w okienku prawej hello hello zarządzania i monitorowania aplikacji.
 
 ![Okno właściwości](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Wyświetla właściwości dla elementu wybranego w Eksploratorze zasobów (widok drzewa), widok diagramu lub listę okien działania.
+Wyświetla właściwości elementu hello, wybranym hello Eksploratora zasobów (widok drzewa), widok diagramu lub listę okien działania.
 
 ### <a name="activity-window-explorer"></a>Działanie okno Eksploratora
-**Działania okna Eksploratora** okna znajduje się w okienku prawej zarządzania i monitorowania aplikacji. Wyświetla szczegółowe informacje o oknie działania wybranego w oknie podręcznym okien działania lub listę okien działania.
+Witaj **działania okna Eksploratora** okno jest w okienku prawej hello hello zarządzania i monitorowania aplikacji. Wyświetla szczegółowe informacje o okno działania hello wybranego w oknie podręcznym działania Windows hello lub listy działania Windows hello.
 
 ![Działanie okno Eksploratora](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Można przełączyć do innego okna działania, klikając go w widoku kalendarza u góry. Umożliwia także przycisk strzałki w lewo/Strzałka w prawo na górze wyświetlić okien działania z poprzedniego tygodnia lub następnym tygodniu.
+Okno działania tooanother można przełączać, klikając go w widoku kalendarza hello u góry hello. Można również użyć przycisk strzałki w lewo/Strzałka w prawo hello okien działania top toosee hello z hello poprzedniego tygodnia lub hello następnym tygodniu.
 
-Przyciski paska narzędzi w okienku u dołu umożliwia ponownie uruchom okno działania lub Odśwież dane w okienku.
+Można użyć przycisków paska narzędzi hello hello dolnym okienku toorerun hello działania okno lub odświeżyć szczegóły hello w okienku hello.
 
 ### <a name="script"></a>Skrypt
-Można użyć **skryptu** kartę, aby wyświetlić definicji JSON wybranej jednostki fabryki danych (połączonej usługi, zestawu danych lub potoku).
+Można użyć hello **skryptu** kartę tooview hello definicji JSON hello wybrane jednostek fabryki danych (połączonej usługi, zestawu danych lub potoku).
 
 ![Karta skryptu](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Używanie widoków systemu
-Monitorowanie i zarządzanie aplikacja zawiera widoki wbudowanych systemu (**ostatnie okien działania**, **nie powiodło się okien działania**, **okien działania w toku**) zezwalające na Możesz wyświetlić fabrykę danych w oknie ostatnie/nie powiodło się/w trakcie działania.
+Witaj zarządzania i monitorowania aplikacji zawiera widoki wbudowanych systemu (**ostatnie okien działania**, **nie powiodło się okien działania**, **okien działania w toku**) który Zezwalaj tooview windows ostatnie/nie powiodło się/w trakcie działania z fabryki danych.
 
-Przełącz się do **widoków monitorowania** karcie po lewej stronie, klikając go.
+Przełącz toohello **widoków monitorowania** karcie po lewej stronie powitania, klikając go.
 
 ![Karta widoków monitorowania](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Obecnie istnieją trzy widoki systemowe, które są obsługiwane. Wybierz opcję, aby wyświetlić ostatnie działanie systemu windows, windows działanie nie powiodło się lub okien działania w toku na liście działania systemu Windows (w dolnej części środkowym okienku).
+Obecnie istnieją trzy widoki systemowe, które są obsługiwane. Wybierz opcję toosee ostatnie działanie systemu windows, okien działania nie powiodło się lub okien działania w toku na liście działanie Windows hello (u dołu hello hello w środkowym okienku).
 
-Po wybraniu **ostatnie okien działania** opcji, zobacz wszystkie ostatnie okien działania malejąco **ostatniej próby czasu**.
+Po wybraniu hello **ostatnie okien działania** opcji, zobacz wszystkie ostatnie okien działania w porządku malejącym hello **ostatniej próby czasu**.
 
-Można użyć **nie powiodło się okien działania** widok, aby wyświetlić wszystkich okien działania nie powiodło się na liście. Wybierz przedział działanie nie powiodło się na liście, aby zobaczyć szczegółowe informacje o nim w **właściwości** okna lub **działania okna Eksploratora**. Możesz również pobrać wszystkie dzienniki dla okna działanie nie powiodło się.
+Można użyć hello **nie powiodło się okien działania** wyświetlanie okien działania toosee nie powiodło się na liście hello. Wybierz przedział nieudana czynność w hello szczegółów toosee listy informacji na ten temat w hello **właściwości** okna lub hello **działania okna Eksploratora**. Możesz również pobrać wszystkie dzienniki dla okna działanie nie powiodło się.
 
 ## <a name="sort-and-filter-activity-windows"></a>Sortuj i Filtruj działania systemu windows
-Zmień **godzina rozpoczęcia** i **czas zakończenia** ustawienia paska poleceń do systemu windows działanie filtru. Po zmianie godziny rozpoczęcia i godzina zakończenia, kliknij przycisk Dalej, aby odświeżyć listę okien działania czas zakończenia.
+Zmiana hello **godzina rozpoczęcia** i **czas zakończenia** ustawienia w poleceniu hello paska toofilter działania w systemie windows. Po zmianie hello godzinę rozpoczęcia i zakończenia, kliknij hello przycisku Dalej toohello zakończenia czasu toorefresh hello okien działania listę.
 
 ![Czas rozpoczęcia i zakończenia](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Obecnie wszystkie godziny są w formacie UTC w aplikacji zarządzania i monitorowania.
+> Obecnie wszystkie godziny są w formacie UTC w aplikacji hello zarządzania i monitorowania.
 >
 >
 
-W **listę okien działania**, kliknij nazwę kolumny (na przykład: stanu).
+W hello **listę okien działania**, kliknij nazwę hello kolumny (na przykład: stanu).
 
 ![Działanie systemu Windows lista kolumn menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Można wykonać następujące czynności:
+Można wykonać następujące hello:
 
 * Sortowanie w kolejności rosnącej.
 * Sortowanie w kolejności malejącej.
 * Filtruj według jednego lub więcej wartości (gotowe, oczekiwania itd.).
 
-Po określeniu filtru w kolumnie jest wyświetlany przycisk filtru włączone dla tej kolumny, co oznacza, że wartości w kolumnie są filtrowane wartości.
+Po określeniu filtru w kolumnie jest wyświetlany przycisk filtru hello włączone dla tej kolumny, co oznacza, że hello wartości w kolumnie hello są filtrowane wartości.
 
-![Filtrować według kolumny listy działania systemu Windows](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+![Filtrować według kolumny z listy działania Windows hello](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Aby wyczyścić filtry służy tym samym oknie podręcznym. Aby wyczyścić wszystkie filtry listę okien działania, kliknij przycisk Wyczyść filtr na pasku poleceń.
+Można użyć tych samych wyskakującego okienka filtrów tooclear hello. tooclear wszystkie filtry dla listy działania Windows hello, kliknij przycisk Wyczyść filtr hello na powitania paska poleceń.
 
-![Wyczyść wszystkie filtry listę okien działania](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+![Wyczyść wszystkie filtry dla listy działania Windows hello](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
 ## <a name="perform-batch-actions"></a>Akcje usługi partia zadań
 ### <a name="rerun-selected-activity-windows"></a>Uruchom ponownie wybrane działanie systemu windows
-Wybierz przedział działania, kliknij strzałkę w dół dla przycisku pierwszej pasek poleceń, a następnie wybierz **Uruchom ponownie** / **ponownie z powyżej w potoku**. Po wybraniu **ponownie z powyżej w potoku** opcji zwracające on również wszystkich okien działania nadrzędnego.
+Wybierz przedział działania, kliknij hello strzałka na powitania pierwszy przycisk paska poleceń w dół i wybierz **Uruchom ponownie** / **ponownie z powyżej w potoku**. Po wybraniu hello **ponownie z powyżej w potoku** opcji zwracające on również wszystkich okien działania nadrzędnego.
     ![Ponownie uruchom okno działania](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Można również wybrać wiele okien działania na liście i uruchom je ponownie w tym samym czasie. Można filtrować na podstawie stanu działania z systemem windows (na przykład: ****) — a następnie ponownie uruchom okien działania nie powiodło się po usunięciu problemu, który powoduje, że okien działania się niepowodzeniem. Zobacz sekcję poniżej, aby uzyskać więcej informacji dotyczących filtrowania okien działania na liście.  
+Można również wybrać wiele okien działania liście hello i uruchom je ponownie na powitania tym samym czasie. Może być toofilter okien działania na podstawie stanu hello (na przykład: ****)--i uruchom ponownie po usunięciu hello problem, który powoduje hello działania windows toofail okien działania hello nie powiodło się. Zobacz hello następujących sekcji, aby uzyskać więcej informacji dotyczących filtrowania działania windows hello na liście.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Wstrzymanie/wznowienie wielu potoki
-Możesz multiselect potoki dwóch lub więcej za pomocą klawisza Ctrl. Przyciski paska poleceń (które są wyróżnione kolorem czerwonym prostokątem na poniższej ilustracji) służy do wstrzymanie/wznowienie je.
+Można multiselect potoki dwóch lub więcej używając hello klawisz Ctrl. Korzystając z przycisków paska poleceń hello (które są wyróżnione na powitania czerwony prostokąt powitania po obrazu) toopause/wznowienia ich.
 
-![Wstrzymanie/wznowienie na pasku poleceń](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Wstrzymanie/wznowienie na pasku poleceń hello](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 ## <a name="create-alerts"></a>Tworzenie alertów
-**Alerty** strony pozwala na tworzenie alertów i wyświetlanie/edytowanie/usuwanie istniejące alerty. Użytkownik może również Włącz/Wyłącz alert. Aby wyświetlić stronę alertów, kliknij przycisk **alerty** kartę.
+Witaj **alerty** strony pozwala na tworzenie alertów i wyświetlanie/edytowanie/usuwanie istniejące alerty. Użytkownik może również Włącz/Wyłącz alert. toosee hello strony alertów, kliknij przycisk hello **alerty** kartę.
 
 ![Karta alerty](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
-### <a name="to-create-an-alert"></a>Aby utworzyć alert
-1. Kliknij przycisk **dodać Alert** można dodać alert. Zostanie wyświetlony **szczegóły** strony.
+### <a name="toocreate-an-alert"></a>toocreate alertu
+1. Kliknij przycisk **dodać Alert** tooadd alertu. Zobacz hello **szczegóły** strony.
 
     ![Utwórz alerty — strona szczegółów](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Określ **nazwa** i **opis** alert, a następnie kliknij przycisk **dalej**. Powinny pojawić się **filtry** strony.
+2. Określ hello **nazwa** i **opis** hello alert, a następnie kliknij przycisk **dalej**. Powinny pojawić się hello **filtry** strony.
 
     ![Utwórz alerty — filtry strony](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Wybierz **zdarzeń**, **stan**, i **podstanu** (opcjonalnie) mają Utwórz alert usługi fabryka danych dla, a następnie kliknij przycisk **dalej**. Powinny pojawić się **adresatów** strony.
+3. Wybierz hello **zdarzeń**, **stan**, i **podstanu** (opcjonalnie), które mają toocreate usługi fabryka danych alertów dla i kliknij przycisk **dalej**. Powinny pojawić się hello **adresatów** strony.
 
     ![Utwórz alerty — strona adresatów](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Wybierz **poczty E-mail Administratorzy subskrypcji** opcji lub wprowadź **e-mail administratora dodatkowe**i kliknij przycisk **Zakończ**. Powinien zostać wyświetlony alert na liście.
+4. Wybierz hello **poczty E-mail Administratorzy subskrypcji** opcji lub wprowadź **e-mail administratora dodatkowe**i kliknij przycisk **Zakończ**. Powinien zostać wyświetlony alert hello hello na liście.
 
     ![Lista alertów](./media/data-factory-monitor-manage-app/AlertsList.png)
 
-Na liście alertów użyj przycisków, które są skojarzone z alertem do edycji/delete/Włącz/Wyłącz alert.
+Na liście alertów hello użyj przycisków hello, które są skojarzone z hello alertu tooedit/delete/Włącz/Wyłącz alert.
 
 ### <a name="eventstatussubstatus"></a>Podstan zdarzeń/stanu
-Poniższa tabela zawiera listę dostępnych zdarzeń oraz Stany (i podstany).
+Witaj Poniższa tabela zawiera listę hello dostępnych zdarzeń oraz Stany (i podstany).
 
 | Nazwa zdarzenia | Stan | Podstan |
 | --- | --- | --- |
@@ -327,8 +327,8 @@ Poniższa tabela zawiera listę dostępnych zdarzeń oraz Stany (i podstany).
 | Pomyślnie utworzono klaster HDI na żądanie |Powodzenie |-|
 | Usunąć klaster HDI na żądanie |Powodzenie |-|
 
-### <a name="to-edit-delete-or-disable-an-alert"></a>Aby edytować, usunąć lub wyłączyć alertu
+### <a name="tooedit-delete-or-disable-an-alert"></a>tooedit, usunąć lub wyłączyć alertu
 
-Użyj przycisków następujące (wyróżnionych kolorem czerwonym), aby edytować, usuwać lub Wyłącz alert.
+Użyj powitania po tooedit przycisków (wyróżnionych kolorem czerwonym), usuń lub Wyłącz alert.
 
 ![Przyciski alertów](./media/data-factory-monitor-manage-app/AlertButtons.png)

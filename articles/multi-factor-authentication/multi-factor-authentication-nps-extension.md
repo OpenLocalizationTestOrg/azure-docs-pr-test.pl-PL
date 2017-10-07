@@ -1,6 +1,6 @@
 ---
-title: "Użyj istniejącego serwera NPS, aby zapewnić możliwości usługi Azure MFA | Dokumentacja firmy Microsoft"
-description: "Serwer zasad sieciowych rozszerzenie Azure Multi-Factor Authentication jest prostym rozwiązaniem, umożliwiające dodanie funkcji vericiation dwuetapowej oparte na chmurze do istniejącej infrastruktury uwierzytelniania."
+title: "aaaUse istniejącego serwera NPS serwerów tooprovide możliwości usługi Azure MFA | Dokumentacja firmy Microsoft"
+description: "powitania serwera zasad sieciowych rozszerzenie dla usługi Azure Multi-Factor Authentication jest prostym rozwiązaniem tooadd oparte na chmurze dwuetapowej vericiation możliwości tooyour istniejącej infrastruktury uwierzytelniania."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,44 +15,44 @@ ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: fa125292ee85bd9b5329cffeff7f076d3002cbf3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e9fc495b06873d45f06233f1aa618db9d94f8bd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integracja istniejącej infrastrukturze serwera NPS z usługi Azure Multi-Factor Authentication
 
-Rozszerzenia serwera zasad sieciowych (NPS) dla usługi Azure MFA dodaje możliwości usługi MFA oparte na chmurze do uwierzytelniania przy użyciu istniejących serwerów infrastruktury. Z rozszerzeniem serwera zasad Sieciowych można dodać połączenie telefoniczne, wiadomość tekstowa lub weryfikacji aplikacji telefonicznej z istniejących przepływ uwierzytelniania bez konieczności instalowania, konfigurowania i konserwacji nowe serwery. 
+rozszerzenia serwera zasad sieciowych (NPS) dla usługi Azure MFA Hello dodaje MFA możliwości tooyour uwierzytelniania infrastruktury chmurowej przy użyciu istniejących serwerów. Z hello rozszerzenia serwera zasad Sieciowych można dodać połączenie telefoniczne, wiadomość tekstowa lub telefonu aplikacji weryfikacji tooyour istniejących przepływ uwierzytelniania bez konieczności tooinstall, konfigurowania i konserwacji nowych serwerów. 
 
-To rozszerzenie został utworzony dla organizacji, które chcesz chronić połączenia sieci VPN bez wdrażania serwera usługi Azure MFA. Rozszerzenia serwera NPS działa jako karty sieciowej między usługi RADIUS i oparte na chmurze usługi Azure MFA, aby zapewnić drugi składnik uwierzytelniania federacyjnego lub zsynchronizowanych użytkowników.
+To rozszerzenie został utworzony dla organizacji, które mają tooprotect połączeń sieci VPN bez wdrażania powitania serwera usługi Azure MFA. Hello rozszerzenia serwera NPS działa jako karta między usługi RADIUS i oparte na chmurze usługi Azure MFA tooprovide drugiego etapu uwierzytelniania dla użytkowników federacyjnych lub zsynchronizowane.
 
-W przypadku używania rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA, przepływ uwierzytelniania obejmuje następujące składniki: 
+W przypadku używania powitania serwera NPS rozszerzenia dla usługi Azure MFA, przepływ uwierzytelniania hello obejmuje hello następujące składniki: 
 
-1. **Serwer NAS lub sieć VPN** odbiera żądania od klientów sieci VPN i konwertuje je na żądań RADIUS do serwera NPS. 
-2. **Serwer NPS** łączy do usługi Active Directory w celu przeprowadzenia podstawowego uwierzytelniania dla żądań RADIUS, a na sukces, przekazuje żądanie do wszystkich zainstalowanych rozszerzeń.  
-3. **Rozszerzenia serwera NPS** wyzwala żądania do usługi Azure MFA dodatkowego uwierzytelniania. Po rozszerzenia odbiera odpowiedź, a jeśli żądanie uwierzytelniania MFA zakończy się powodzeniem, kończy żądanie uwierzytelniania podając tokeny zabezpieczające, które obejmują oświadczenia MFA na serwerze NPS, wystawiony przez usługę STS Azure.  
-4. **Usługa Azure MFA** komunikuje się z usługą Azure Active Directory można pobrać szczegółów użytkownika i wykonuje dodatkowego uwierzytelniania przy użyciu metody weryfikacji skonfigurowane dla użytkownika.
+1. **Serwer NAS lub sieć VPN** odbiera żądania od klientów sieci VPN i konwertuje je na serwerach tooNPS żądań RADIUS. 
+2. **Serwer NPS** łączy tooActive katalogu tooperform hello podstawowego uwierzytelniania dla aplikacji hello RADIUS żądań i na sukces, przekazuje hello żądania tooany zainstalowanych rozszerzeń.  
+3. **Rozszerzenia serwera NPS** wyzwala tooAzure żądania usługi MFA dla hello dodatkowego uwierzytelniania. Po rozszerzenia hello odbiera odpowiedź hello i hello żądanie uwierzytelniania MFA zakończy się powodzeniem, kończy żądanie uwierzytelnienia hello podając tokeny zabezpieczające, które obejmują MFA oświadczenia wydane przez usługę STS Azure powitania serwera NPS.  
+4. **Usługa Azure MFA** komunikuje się z usługi Azure Active Directory tooretrieve hello szczegóły użytkownika i wykonuje hello dodatkowego uwierzytelniania przy użyciu użytkownika toohello metodę skonfigurowaną weryfikację.
 
-Na poniższym diagramie przedstawiono ten proces żądania uwierzytelniania wysokiego poziomu: 
+powitania po diagram ilustruje ten przepływ żądania uwierzytelniania wysokiego poziomu: 
 
 ![Diagram przepływu uwierzytelniania](./media/multi-factor-authentication-nps-extension/auth-flow.png)
 
 ## <a name="plan-your-deployment"></a>Planowanie wdrożenia
 
-Rozszerzenia serwera zasad Sieciowych automatycznie obsługuje nadmiarowość, więc nie trzeba specjalnej konfiguracji.
+Witaj rozszerzenia serwera zasad Sieciowych automatycznie obsługuje nadmiarowość, więc nie trzeba specjalnej konfiguracji.
 
 Można utworzyć dowolną liczbę serwerów NPS z włączoną usługą Azure MFA. W przypadku instalowania wielu serwerów, należy użyć certyfikatu klienta różnicy dla każdego z nich. Tworzenie certyfikatu dla każdego serwera oznacza indywidualnie zaktualizować każdego certyfikatu, a nie martw się o przestoju na wszystkich serwerach.
 
-Serwery sieci VPN trasy żądania uwierzytelniania, dlatego należy zwrócić uwagę na nowe serwery NPS z włączoną usługą Azure MFA.
+Serwery sieci VPN trasy żądania uwierzytelniania, więc toobe muszą pamiętać o hello nowych serwerów NPS z włączoną usługą Azure MFA.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Rozszerzenia serwera NPS jest przeznaczona do pracy z istniejącej infrastruktury. Upewnij się, że zostały spełnione następujące wymagania wstępne, przed rozpoczęciem.
+Witaj rozszerzenia serwera NPS jest przeznaczona toowork z istniejącej infrastruktury. Upewnij się, że masz hello następujące wymagania wstępne, aby rozpocząć.
 
 ### <a name="licenses"></a>Licencje
 
-Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA jest dostępny dla klientów z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub subskrypcji usługi MFA).
+Hello rozszerzenia serwera zasad Sieciowych na potrzeby usługi Azure MFA jest dostępne toocustomers z [licencji dla usługi Azure Multi-Factor Authentication](multi-factor-authentication.md) (dołączony do usługi Azure AD Premium, EMS lub subskrypcji usługi MFA).
 
 ### <a name="software"></a>Oprogramowanie
 
@@ -60,111 +60,111 @@ Windows Server 2008 R2 z dodatkiem SP1 lub nowszej.
 
 ### <a name="libraries"></a>Biblioteki
 
-Te biblioteki są automatycznie instalowane z rozszerzeniem.
+Te biblioteki są automatycznie instalowane z rozszerzeniem hello.
 -   [Pakiety redystrybucyjne języka Visual C++ dla programu Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Microsoft Azure Active Directory modułu dla Windows PowerShell w wersji 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
-Wszyscy przy użyciu rozszerzenia zasad Sieciowych musi być synchronizowane z usługi Azure Active Directory za pomocą usługi Azure AD Connect, a musi być zarejestrowana w usłudze MFA.
+Wszyscy przy użyciu rozszerzenia zasad Sieciowych hello muszą być zsynchronizowane tooAzure usługi Active Directory za pomocą usługi Azure AD Connect, a musi być zarejestrowana w usłudze MFA.
 
-Po zainstalowaniu rozszerzenia należy poświadczenia identyfikator i administratora katalogu dla dzierżawy usługi Azure AD. Można znaleźć Identyfikatora katalogu w [portalu Azure](https://portal.azure.com). Zaloguj się jako administrator, wybierz opcję **usługi Azure Active Directory** ikony po lewej stronie, następnie wybierz **właściwości**. Skopiuj identyfikator GUID w **identyfikator katalogu** i zapisz go. Należy użyć tego identyfikatora GUID jako Identyfikatora dzierżawy, po zainstalowaniu rozszerzenia serwera NPS.
+Po zainstalowaniu rozszerzenia hello potrzebne hello poświadczenia identyfikator i administratora katalogu dla dzierżawy usługi Azure AD. Identyfikator katalogu można znaleźć w hello [portalu Azure](https://portal.azure.com). Zaloguj się jako administrator, wybierz hello **usługi Azure Active Directory** ikona powitania po lewej stronie, następnie wybierz **właściwości**. Kopiuj hello identyfikatora GUID w hello **identyfikator katalogu** i zapisz go. Używasz tego identyfikatora GUID jako Identyfikatora dzierżawcy hello po zainstalowaniu hello rozszerzenia serwera NPS.
 
 ![Znajdź swój identyfikator katalogu we właściwościach usługi Azure Active Directory](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
 ## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
-Przed zainstalowaniem rozszerzenia serwera zasad Sieciowych, które chcesz przygotować możesz środowiska do obsługi ruchu uwierzytelniania.
+Przed zainstalowaniem rozszerzenia serwera NPS hello ma tooprepare możesz środowiska toohandle hello uwierzytelniania ruchu.
 
-### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Włączanie roli serwera NPS na serwerze przyłączonym do domeny
+### <a name="enable-hello-nps-role-on-a-domain-joined-server"></a>Włącz hello rola serwera NPS na serwerze przyłączonym do domeny
 
-Serwer zasad Sieciowych łączy do usługi Azure Active Directory i uwierzytelnia żądania usługi MFA. Należy wybrać serwer dla tej roli. Firma Microsoft zaleca, wybierając serwer, który nie obsłuży żądania od innych usług, ponieważ rozszerzenia serwera NPS zgłasza błędów dla żądań, które nie są usługi RADIUS.
+serwer NPS Hello łączy tooAzure usługi Active Directory i uwierzytelnia hello żądania usługi MFA. Należy wybrać serwer dla tej roli. Firma Microsoft zaleca, wybierając serwer, który nie obsłuży żądania od innych usług, ponieważ hello rozszerzenia serwera NPS zgłasza błędów dla żądań, które nie są usługi RADIUS.
 
-1. Na serwerze otwórz **Kreatora dodawania ról i funkcji** w menu Menedżera serwera — Szybki Start.
+1. Na serwerze otwórz hello **Kreatora dodawania ról i funkcji** z hello menu Menedżera serwera — Szybki Start.
 2. Wybierz **Instalacja roli lub funkcji** dla danego typu instalacji.
-3. Wybierz **usług zasad sieciowych i dostępu** roli serwera. Okno wyskakujące może informujące o wymaganych funkcji, aby uruchomić tę rolę.
-4. Kontynuuj pracę z kreatorem, aż do strony potwierdzenia. Wybierz **zainstalować**.
+3. Wybierz hello **usług zasad sieciowych i dostępu** roli serwera. Okno może wyskakujące tooinform o toorun wymagane funkcje tej roli.
+4. Aż Kreator hello hello stronę potwierdzenia. Wybierz **zainstalować**.
 
-Teraz, gdy masz serwer wyznaczony serwera zasad sieciowych, należy także skonfigurować ten serwer do obsługi przychodzących żądań RADIUS z rozwiązania sieci VPN.
+Teraz, gdy masz serwer wyznaczony serwera NPS należy także skonfigurować ten serwer toohandle przychodzących żądań RADIUS z hello rozwiązanie z siecią VPN.
 
-### <a name="configure-your-vpn-solution-to-communicate-with-the-nps-server"></a>Skonfiguruj rozwiązanie sieci VPN do komunikacji z serwerem zasad Sieciowych
+### <a name="configure-your-vpn-solution-toocommunicate-with-hello-nps-server"></a>Skonfiguruj toocommunicate rozwiązanie sieci VPN z serwera NPS hello
 
-W zależności od tego, które rozwiązanie sieci VPN, należy użyć różnią się kroki, aby skonfigurować zasady uwierzytelniania usługi RADIUS. Konfigurowanie tej zasady, aby wskazywały serwer usługi RADIUS serwera NPS.
+W zależności od tego, które rozwiązanie sieci VPN, należy hello tooconfigure kroki, które różnią się z zasadami uwierzytelniania usługi RADIUS. Skonfiguruj ten serwer RADIUS NPS tooyour toopoint zasad.
 
-### <a name="sync-domain-users-to-the-cloud"></a>Użytkownicy domeny synchronizacji w chmurze
+### <a name="sync-domain-users-toohello-cloud"></a>Chmura toohello użytkownicy domeny synchronizacji
 
-Ten krok może już zostać ukończone na swojej dzierżawy, ale warto dokładnie sprawdzić, czy usługa Azure AD Connect został zsynchronizowany baz danych.
+Ten krok może już zostać ukończone na swojej dzierżawy, ale jest dobrym toodouble — Sprawdź, czy Azure AD Connect został zsynchronizowany baz danych.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com) jako administrator.
 2. Wybierz **usługi Azure Active Directory** > **programu Azure AD Connect**
 3. Sprawdź, czy stan synchronizacji **włączone** i który ostatniej synchronizacji był mniejszy niż godzinę temu.
 
-Jeśli chcesz rozpocząć poza nowe round synchronizacji, nam zgodnie z instrukcjami w [synchronizacja programu Azure AD Connect: harmonogram](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+Tookick poza nowe round synchronizacji, należy nam hello instrukcjami [synchronizacja programu Azure AD Connect: harmonogram](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Określić, które użytkownicy mogą używać metody uwierzytelniania
 
 Istnieją dwa czynniki wpływające na które metody uwierzytelniania są dostępne z wdrażaniem rozszerzenia serwera NPS:
 
-1. Algorytm szyfrowania hasła używane między klientem RADIUS (sieć VPN, serwer Netscaler lub innych) i serwerach NPS.
-   - **PAP** obsługuje wszystkie metody uwierzytelniania usługi Azure MFA w chmurze: połączenie telefoniczne, wiadomość tekstowa jednokierunkowe powiadomienie aplikacji mobilnej i kod weryfikacyjny z aplikacji mobilnej.
+1. Algorytm szyfrowania hasła Hello używany podczas komunikacji między klientem RADIUS hello (sieci VPN, serwer Netscaler lub innych) i powitania serwera NPS.
+   - **PAP** obsługuje wszystkie hello metody uwierzytelniania usługi Azure MFA w chmurze hello: połączenie telefoniczne, wiadomość tekstowa jednokierunkowe powiadomienie aplikacji mobilnej i kod weryfikacyjny z aplikacji mobilnej.
    - **CHAPV2** i **EAP** obsługi połączeń telefonicznych i powiadomienia aplikacji mobilnej.
-2. Metody wejściowe który aplikacja kliencka (VPN, serwer Netscaler lub innych) może obsłużyć. Na przykład klient sieci VPN mają niektóre oznacza Zezwalaj użytkownikowi na wpisz kod weryfikacyjny z aplikacji mobilnej lub tekst?
+2. Hello wejściowych metody, które hello aplikacji klienckiej (sieć VPN, serwer Netscaler lub innych) może obsłużyć. Na przykład powitania klienta VPN ma na niektórych oznacza tooallow hello użytkownika tootype w kod weryfikacyjny z aplikacji mobilnej lub tekst?
 
-Podczas wdrażania rozszerzenia serwera NPS, użyj te czynniki do oceny, które metody są dostępne dla użytkowników. Jeśli klienta RADIUS obsługą protokołu PAP, ale klient UX nie ma pól wejściowych dla kod weryfikacyjny, następnie połączeń telefonicznych i powiadomienia aplikacji mobilnej są dwie opcje są obsługiwane.
+Podczas wdrażania hello rozszerzenia serwera NPS, użyj tych tooevaluate czynników, które metody są dostępne dla użytkowników. Jeśli klient RADIUS obsługą protokołu PAP, ale powitania klienta UX nie ma pól wejściowych dla kod weryfikacyjny, połączenia telefonicznego i powiadomienia aplikacji mobilnej to Witaj dwie opcje są obsługiwane.
 
 Możesz [wyłączyć metody uwierzytelniania nieobsługiwany](multi-factor-authentication-whats-next.md#selectable-verification-methods) na platformie Azure.
 
 ### <a name="enable-users-for-mfa"></a>Włącz użytkowników dla usługi MFA
 
-Przed wdrożeniem pełne rozszerzenia serwera zasad Sieciowych, należy włączyć uwierzytelnianie wieloskładnikowe dla użytkowników, którzy mają do przeprowadzenia weryfikacji dwuetapowej. Więcej natychmiast po jej wdrożeniu, należy przetestować rozszerzenia, musisz mieć konto co najmniej jeden test, pełni zarejestrowany w usłudze Multi-Factor Authentication.
+Przed wdrożeniem hello pełne rozszerzenia serwera NPS należy tooenable MFA dla użytkowników hello, które mają tooperform weryfikacji dwuetapowej. Więcej natychmiast rozszerzenia hello tootest podczas wdrażania, musisz mieć konto co najmniej jeden test, który pełni jest zarejestrowany w usłudze Multi-Factor Authentication.
 
-Uzyskanie testowe konto uruchomiona, wykonaj następujące kroki:
-1. Zaloguj się do [https://aka.ms/mfasetup](https://aka.ms/mfasetup) przy użyciu konta testowego. 
-2. Postępuj zgodnie z monitami, aby skonfigurować metodę weryfikacji.
-3. Utwórz zasady dostępu warunkowego lub [zmiany stanu użytkownika](multi-factor-authentication-get-started-user-states.md) do wymagania weryfikacji dwuetapowej dla konta testowego. 
+Użyj tych tooget kroki testowe konto uruchomiona:
+1. Zaloguj się za[https://aka.ms/mfasetup](https://aka.ms/mfasetup) przy użyciu konta testowego. 
+2. Wykonaj tooset monity hello metodę weryfikacji.
+3. Utwórz zasady dostępu warunkowego lub [zmiany stanu użytkownika hello](multi-factor-authentication-get-started-user-states.md) toorequire weryfikację dwuetapową dla konta testowego hello. 
 
-Użytkownicy muszą wykonaj następujące kroki, aby zarejestrować przed uwierzytelniają z rozszerzeniem serwera NPS.
+Użytkownicy również potrzebują toofollow tooenroll te kroki przed uwierzytelniają rozszerzeniem powitania serwera NPS.
 
-## <a name="install-the-nps-extension"></a>Zainstaluj rozszerzenie serwera NPS
+## <a name="install-hello-nps-extension"></a>Zainstaluj rozszerzenie serwera NPS hello
 
 > [!IMPORTANT]
-> Zainstaluj rozszerzenie serwera NPS na innym serwerze niż punkt dostępu do sieci VPN.
+> Zainstaluj rozszerzenie serwera NPS hello na innym serwerze niż punkt dostępu sieci VPN hello.
 
-### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Pobierz i zainstaluj rozszerzenie serwera zasad Sieciowych dla usługi Azure MFA
+### <a name="download-and-install-hello-nps-extension-for-azure-mfa"></a>Pobierz i zainstaluj powitania serwera NPS rozszerzenia dla usługi Azure MFA
 
-1.  [Pobierz rozszerzenie serwera NPS](https://aka.ms/npsmfa) z Centrum pobierania Microsoft.
-2.  Skopiuj plik binarny do serwera zasad sieciowych, które chcesz skonfigurować.
-3.  Uruchom *setup.exe* i postępuj zgodnie z instrukcjami instalacji. Jeśli wystąpią błędy, dokładnie dwie biblioteki, w sekcji wymagań wstępnych zostały pomyślnie zainstalowane.
+1.  [Pobierz hello rozszerzenia serwera NPS](https://aka.ms/npsmfa) z hello Microsoft Download Center.
+2.  Skopiuj hello toohello binarnej ma tooconfigure serwera zasad sieciowych.
+3.  Uruchom *setup.exe* i postępuj zgodnie z instrukcjami instalacji hello. Jeśli wystąpią błędy, dokładnie Sprawdź ten powitalne dwie biblioteki z sekcji wymagań wstępnych hello zostały pomyślnie zainstalowane.
 
-### <a name="run-the-powershell-script"></a>Uruchom skrypt programu PowerShell
+### <a name="run-hello-powershell-script"></a>Uruchom skrypt programu PowerShell hello
 
-Instalator tworzy skrypt programu PowerShell w tej lokalizacji: `C:\Program Files\Microsoft\AzureMfa\Config` (gdzie C:\ to dysk instalacji). Ten skrypt programu PowerShell są wykonywane następujące czynności:
+Witaj Instalator tworzy skrypt programu PowerShell w tej lokalizacji: `C:\Program Files\Microsoft\AzureMfa\Config` (gdzie C:\ to dysk instalacji). Ten skrypt programu PowerShell wykonuje hello następujące akcje:
 
 -   Tworzenie certyfikatu z podpisem własnym.
--   Kojarzenie klucza publicznego certyfikatu z usługą główną w usłudze Azure AD.
--   Przechowywanie certyfikat w magazynie certyfikatów komputera lokalnego.
--   Udziel dostępu do klucza prywatnego certyfikatu użytkownika sieci.
--   Uruchom ponownie serwer NPS.
+-   Kojarzenie klucza publicznego hello hello usługi toohello certyfikatu podmiotu zabezpieczeń w usłudze Azure AD.
+-   Magazyn hello certyfikatu w magazynie certyfikatów komputera lokalnego hello.
+-   Certyfikat Udziel dostępu toohello prywatnego klucza tooNetwork użytkownika.
+-   Uruchom ponownie powitania serwera NPS.
 
-Jeśli nie chcesz używać certyfikatów (zamiast certyfikatami z podpisem własnym generowanych skrypt programu PowerShell), uruchom skrypt programu PowerShell, aby zakończyć instalację. Po zainstalowaniu rozszerzenia na wielu serwerach, każdy z nich ma własny certyfikat.
+Chyba że chcesz toouse własne certyfikaty (zamiast hello certyfikaty z podpisem własnym, które hello generuje skrypt programu PowerShell), uruchom hello skrypt programu PowerShell toocomplete hello instalacji. Po zainstalowaniu rozszerzenia hello na wielu serwerach, każdy z nich ma własny certyfikat.
 
 1. Uruchom program Windows PowerShell jako administrator.
 2. Zmień katalog.
 
    `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
 
-3. Uruchom skrypt programu PowerShell utworzone przez Instalatora.
+3. Uruchom skrypt programu PowerShell hello utworzonych przez Instalatora hello.
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell monit o podanie identyfikatora dzierżawcy Użyj Identyfikatora GUID katalogu, który został skopiowany z portalu Azure w sekcji wymagania wstępne.
-5. Zaloguj się do usługi Azure AD jako administrator.
-6. PowerShell wyświetla komunikat z potwierdzeniem po zakończeniu działania skryptu.  
+4. PowerShell monit o podanie identyfikatora dzierżawcy Użyj hello katalogu Identyfikatora GUID, który został skopiowany z portalu Azure w sekcji wymagania wstępne hello hello.
+5. Zaloguj się jako administrator, tooAzure AD.
+6. PowerShell wyświetla komunikat z potwierdzeniem po zakończeniu hello skryptu.  
 
-Powtórz te czynności na wszystkie dodatkowe serwery NPS, które chcesz skonfigurować Równoważenie obciążenia sieciowego.
+Powtórz te czynności na wszelkie dodatkowe serwery NPS, które mają tooset dla równoważenia obciążenia.
 
 >[!NOTE]
->Jeśli używasz własne certyfikaty zamiast generowania certyfikatów przy użyciu skryptu programu PowerShell, upewnij się, że są wyrównane do konwencji nazewnictwa serwera NPS. Nazwa podmiotu musi być **CN =\<TenantID\>, OU = Microsoft NPS rozszerzenia**. 
+>Jeśli używasz własne certyfikaty zamiast generowania certyfikatów przy użyciu hello skrypt programu PowerShell, upewnij się, że są wyrównane konwencji nazewnictwa toohello serwera NPS. Hello nazwa podmiotu musi być **CN =\<TenantID\>, OU = Microsoft NPS rozszerzenia**. 
 
 ## <a name="configure-your-nps-extension"></a>Skonfiguruj rozszerzenie serwera NPS
 
@@ -172,39 +172,39 @@ Ta sekcja obejmuje zagadnienia dotyczące projektowania oraz sugestie dotyczące
 
 ### <a name="configuration-limitations"></a>Ograniczenia konfiguracji
 
-- Rozszerzenia serwera zasad Sieciowych dla usługi Azure MFA nie zawiera narzędzia do migracji użytkowników i ustawienia z serwera usługi MFA w chmurze. Z tego powodu zaleca się nowych wdrożeń zamiast istniejącego wdrożenia przy użyciu rozszerzenia. Jeśli używasz rozszerzenia na istniejące wdrożenie, użytkownicy mają do wykonania w górę dowód ponownie, aby wypełnić ich szczegóły usługi MFA w chmurze.  
-- Rozszerzenia serwera zasad Sieciowych używa nazwy UPN z lokalnej usługi Active directory do identyfikacji użytkownika na usługę Azure MFA do wykonywania dodatkowej uwierzytelniania Rozszerzenie można skonfigurować do używania innego identyfikatora alternatywnego Identyfikatora logowania lub pole niestandardowe usługi Active Directory niż głównej nazwy użytkownika. Zobacz [zaawansowane opcje konfiguracji dla rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe](multi-factor-authentication-advanced-vpn-configurations.md) Aby uzyskać więcej informacji.
+- nie ma Hello rozszerzenia serwera zasad Sieciowych na potrzeby usługi Azure MFA, użytkownicy toomigrate narzędzia i ustawienia z serwera usługi MFA toohello chmury. Z tego powodu zalecamy przy użyciu rozszerzenia hello nowych wdrożeń zamiast istniejącego wdrożenia. Jeśli używasz rozszerzenia hello na istniejące wdrożenie, użytkownicy mają tooperform dowód up ponownie toopopulate ich MFA szczegółowych informacji w chmurze hello.  
+- Witaj rozszerzenia serwera zasad Sieciowych używa hello UPN z hello lokalnej usługi Active directory tooidentify hello użytkownika na usługę Azure MFA do wykonywania hello dodatkowej uwierzytelniania hello rozszerzenia może być skonfigurowany toouse inny identyfikator takich jak logowanie alternatywny identyfikator lub niestandardowe usługi Active Directory pola innego niż głównej nazwy użytkownika. Zobacz [zaawansowane opcje konfiguracji hello rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe](multi-factor-authentication-advanced-vpn-configurations.md) Aby uzyskać więcej informacji.
 - Nie wszystkie protokoły szyfrowania obsługuje wszystkie metody weryfikacji.
    - **PAP** obsługuje połączenie telefoniczne, wiadomość tekstowa jednokierunkowe powiadomienie aplikacji mobilnej i kod weryfikacyjny z aplikacji mobilnej
    - **CHAPV2** i **EAP** obsługi połączeń telefonicznych i powiadomienia aplikacji mobilnej
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Formant klientów usługi RADIUS, które wymagają usługi MFA
 
-Po włączeniu usługi MFA dla klienta RADIUS przy użyciu rozszerzenia zasad Sieciowych wszystkie uwierzytelnienia dla tego klienta są wymagane do przeprowadzenia uwierzytelniania Wieloskładnikowego. Jeśli chcesz włączyć usługę MFA dla niektórych klientów usługi RADIUS, a innych nie można skonfigurować dwa serwery NPS i zainstaluj rozszerzenie na tylko jeden z nich. Konfigurowanie klientów usługi RADIUS, które chcesz wymagać uwierzytelniania Wieloskładnikowego w celu wysyłania żądań do serwera zasad Sieciowych skonfigurowano rozszerzenie i innych klientów RADIUS do serwera NPS nie jest skonfigurowany z rozszerzeniem.
+Po włączeniu uwierzytelnianie wieloskładnikowe dla klienta RADIUS przy użyciu hello rozszerzenia serwera NPS wszystkie uwierzytelnienia dla tego klienta są wymagane tooperform MFA. Jeśli chcesz tooenable MFA dla niektórych klientów usługi RADIUS, a innych nie można skonfigurować dwa serwery NPS i zainstaluj rozszerzenie hello na tylko jeden z nich. Konfigurowanie klientów usługi RADIUS, które mają toorequire MFA toosend żądań toohello serwera NPS skonfigurowany z rozszerzeniem hello i innych klientów usługi RADIUS toohello serwer NPS nie jest skonfigurowany z rozszerzeniem hello.
 
 ### <a name="prepare-for-users-that-arent-enrolled-for-mfa"></a>Przygotowanie do użytkowników, którzy nie są rejestrowane w usłudze MFA
 
-Jeśli masz użytkowników, którzy nie są rejestrowane w usłudze MFA, można określić, co się dzieje podczas próby uwierzytelnienia. Użyj ustawienia rejestru *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA* do sterowania zachowaniem funkcji. To ustawienie nie ma opcji konfiguracji pojedynczego:
+Jeśli masz użytkowników, którzy nie są rejestrowane w usłudze MFA, można określić, co się dzieje, gdy próbują tooauthenticate. Użyj ustawienia rejestru hello *REQUIRE_USER_MATCH* w ścieżce rejestru hello *HKLM\Software\Microsoft\AzureMFA* toocontrol hello funkcji zachowanie. To ustawienie nie ma opcji konfiguracji pojedynczego:
 
 | Klucz | Wartość | Domyślne |
 | --- | ----- | ------- |
-| REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nieustawione (równoważne TRUE) |
+| REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nieustawione (tooTRUE równoważne) |
 
-Celem tego ustawienia jest ustalenie, co należy zrobić, gdy użytkownik nie jest zarejestrowane w usłudze MFA. Po klucz nie istnieje, nie jest ustawiony lub jest ustawiony na wartość TRUE, a użytkownik nie jest zarejestrowany, a następnie rozszerzenia nie powiodło się żądanie uwierzytelniania MFA. Gdy jest ustawiona na wartość FALSE, a użytkownik nie jest zarejestrowany, uwierzytelnianie będzie kontynuowane bez wykonywania MFA.
+Witaj celem tego ustawienia jest toodetermine jakie toodo, gdy użytkownik nie jest zarejestrowane w usłudze MFA. Po klucz hello nie istnieje, nie jest ustawiona lub ma wartość tooTRUE, hello użytkownik nie jest zarejestrowany, a następnie hello rozszerzenia nie powiodło się żądanie uwierzytelniania MFA hello. Po klucz hello ustawiono tooFALSE i hello użytkownik nie jest zarejestrowany, uwierzytelnianie będzie kontynuowane bez wykonywania MFA.
 
-Możesz utworzyć ten klucz i ustawiona na FALSE, gdy użytkownicy są dołączania, a może nie wszystkie zarejestrowane na potrzeby usługi Azure MFA jeszcze. Jednak ponieważ ustawienie klucza pozwala na użytkowników, którzy nie są rejestrowane w usłudze MFA do logowania, należy usunąć ten klucz przed przejściem do środowiska produkcyjnego.
+Możesz wybrać toocreate ten klucz i ustawić jej tooFALSE podczas dołączania są użytkownicy, i może nie wszystkie zarejestrowane na potrzeby usługi Azure MFA jeszcze. Jednak ponieważ klucz hello ustawienia pozwala na użytkowników, którzy nie są rejestrowane w usłudze MFA toosign w, należy usunąć ten klucz przed przejściem tooproduction.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Jak sprawdzić, czy certyfikat klienta jest zainstalowany, zgodnie z oczekiwaniami?
+### <a name="how-do-i-verify-that-hello-client-cert-is-installed-as-expected"></a>Jak sprawdzić, czy tego certyfikatu klienta hello jest zainstalowana zgodnie z oczekiwaniami?
 
-Wyszukaj certyfikat z podpisem własnym utworzonych przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane użytkownikowi **usługi SIECIOWEJ**. Certyfikat ma nazwę podmiotu **CN \<tenantid\>, OU = Microsoft rozszerzenia serwera NPS**
+Wyszukaj certyfikat z podpisem własnym hello utworzonych przez Instalatora hello w magazynie certyfikatów hello i sprawdź, czy klucz prywatny hello ma uprawnienia przyznane toouser **usługi SIECIOWEJ**. Hello certyfikatu ma nazwę podmiotu **CN \<tenantid\>, OU = Microsoft rozszerzenia serwera NPS**
 
 -------------------------------------------------------------
 
-### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>Jak sprawdzić, czy Moje certyfikatu klienta jest skojarzona z mojej dzierżawy w usłudze Azure Active Directory?
+### <a name="how-can-i-verify-that-my-client-cert-is-associated-toomy-tenant-in-azure-active-directory"></a>Jak sprawdzić, czy Moje certyfikat klienta jest skojarzony toomy dzierżawy w usłudze Azure Active Directory?
 
-Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenia:
+Otwórz wiersz polecenia programu PowerShell i hello uruchom następujące polecenia:
 
 ```
 import-module MSOnline
@@ -212,36 +212,36 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
 ```
 
-Te polecenia Drukuj wszystkie certyfikaty skojarzenie dzierżawcy z wystąpienia rozszerzenia serwera NPS w sesji programu PowerShell. Wyszukaj certyfikat przez wyeksportowanie Twojego certyfikatu klienta w formacie "X.509(.cer) algorytmem Base-64" bez klucza prywatnego i porównania go z listy z programu PowerShell.
+Te polecenia Drukuj wszystkie certyfikaty hello kojarzenie dzierżawy z wystąpieniem hello rozszerzenia serwera NPS w sesji programu PowerShell. Wyszukaj certyfikat przez wyeksportowanie Twojego certyfikatu klienta w formacie "X.509(.cer) algorytmem Base-64" bez klucza prywatnego hello i porównania go z listy hello z programu PowerShell.
 
-Nieprawidłowa-z i prawidłowe-dopóki sygnatury czasowe, które są w formie czytelny dla człowieka, może służyć do odfiltrowywania misfits oczywiste, jeśli polecenie zwraca więcej niż jeden certyfikat.
+Nieprawidłowa-z i prawidłowe-dopóki sygnatury czasowe, które są w formie czytelny dla człowieka, może być używane toofilter się oczywiste misfits, jeśli polecenie hello zwraca więcej niż jeden certyfikat.
 
 -------------------------------------------------------------
 
 ### <a name="why-are-my-requests-failing-with-adal-token-error"></a>Dlaczego moje żądania kończą się niepowodzeniem z błędem tokenu ADAL?
 
-Ten błąd może wynikać z kilku powodów. Do rozwiązywania problemów, wykonaj następujące kroki:
+Ten błąd może być z powodu tooone z kilku powodów. Wykonaj następujące kroki rozwiązywania toohelp:
 
 1. Uruchom ponownie serwer NPS.
 2. Sprawdź, czy ten certyfikat klienta jest zainstalowany, zgodnie z oczekiwaniami.
-3. Sprawdź, czy certyfikat jest skojarzony z dzierżawą w usłudze Azure AD.
-4. Sprawdź, czy ten https://login.microsoftonline.com/ jest dostępny z serwera z uruchomionym programem rozszerzenia.
+3. Sprawdź, czy certyfikat hello jest skojarzony z dzierżawą w usłudze Azure AD.
+4. Sprawdź, czy ten https://login.microsoftonline.com/ jest dostępny z serwera hello systemem hello rozszerzenia.
 
 -------------------------------------------------------------
 
-### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-the-user-is-not-found"></a>Dlaczego uwierzytelniania nie ze względu na błąd w dziennikach HTTP z informacją, że użytkownik nie zostanie znaleziony?
+### <a name="why-does-authentication-fail-with-an-error-in-http-logs-stating-that-hello-user-is-not-found"></a>Dlaczego uwierzytelniania nie ze względu na błąd w dziennikach HTTP informujący, że nie znaleziono użytkownika hello?
 
-Sprawdź, czy AD Connect jest uruchomiona i czy użytkownik musi być obecny w usłudze Active Directory systemu Windows i usługi Azure Active Directory.
+Sprawdź, czy działa AD Connect, a użytkownik hello jest obecny w usłudze Active Directory systemu Windows i usługi Azure Active Directory.
 
 ------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Dlaczego widzę HTTP błędy w dziennikach Uzyskuj dostęp do mojej uwierzytelnienia się niepowodzeniem?
 
-Upewnij się, że adres https://adnotifications.windowsazure.com jest dostępny z serwera udostępniającego rozszerzenie serwera NPS.
+Sprawdź, czy ten https://adnotifications.windowsazure.com jest dostępny z serwera hello hello rozszerzenia serwera NPS.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Konfigurowanie alternatywnych identyfikatorów logowania lub konfigurowania listy wyjątek dla adresów IP, która nie należy przeprowadzać weryfikację dwuetapową w [zaawansowane opcje konfiguracji dla rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe](nps-extension-advanced-configuration.md)
+- Konfigurowanie alternatywnych identyfikatorów logowania lub konfigurowania listy wyjątek dla adresów IP, która nie należy przeprowadzać weryfikację dwuetapową w [zaawansowane opcje konfiguracji hello rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe](nps-extension-advanced-configuration.md)
 
-- [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md) (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
+- [Komunikatami o błędach z hello rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe Azure](multi-factor-authentication-nps-errors.md)

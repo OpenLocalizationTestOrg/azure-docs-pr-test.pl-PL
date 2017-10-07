@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie szablonu platformy Azure z tokenu sygnatury dostępu Współdzielonego i interfejsu wiersza polecenia Azure | Dokumentacja firmy Microsoft"
-description: "Użyj usługi Azure Resource Manager i interfejsu wiersza polecenia Azure, aby wdrożyć zasobów na platformie Azure z szablonu, który jest chroniony za pomocą tokenu sygnatury dostępu Współdzielonego."
+title: "aaaDeploy szablonu platformy Azure z tokenu sygnatury dostępu Współdzielonego i interfejsu wiersza polecenia Azure | Dokumentacja firmy Microsoft"
+description: "Usługi Azure Resource Manager i interfejsu wiersza polecenia Azure tooAzure zasobów toodeploy z szablonu, który jest chroniony za pomocą tokenu sygnatury dostępu Współdzielonego."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 22387aadd8f53a65efb76a29a9403c46a2c25954
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59c64616d6e1f5e456d88a72854d0ed99e1bdc0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Wdrażanie prywatnej szablonu usługi Resource Manager z tokenu sygnatury dostępu Współdzielonego i wiersza polecenia platformy Azure
 
-Gdy w szablonie znajduje się na koncie magazynu, można ograniczyć dostęp do szablonu, a także dostarczają token sygnatury dostępu Współdzielonego dostępu współdzielonego podczas wdrażania. W tym temacie wyjaśniono, jak przy użyciu programu Azure PowerShell z szablonami usługi Resource Manager zapewnienie tokenu sygnatury dostępu Współdzielonego podczas wdrażania. 
+Gdy w szablonie znajduje się na koncie magazynu, można ograniczyć dostęp toohello szablonu, a także dostarczają token sygnatury dostępu Współdzielonego dostępu współdzielonego podczas wdrażania. W tym temacie opisano sposób toouse programu Azure PowerShell z tooprovide szablonów usługi Resource Manager tokenu sygnatury dostępu Współdzielonego, podczas wdrażania. 
 
-## <a name="add-private-template-to-storage-account"></a>Dodaj szablon prywatnych do konta magazynu
+## <a name="add-private-template-toostorage-account"></a>Dodaj konto toostorage prywatnej szablonu
 
-Szablony można dodać do konta magazynu i link do ich podczas wdrażania z tokenem sygnatury dostępu Współdzielonego.
+Można dodać konta magazynu tooa szablony, a następnie połącz toothem podczas wdrażania z tokenem sygnatury dostępu Współdzielonego.
 
 > [!IMPORTANT]
-> Wykonując poniższe kroki, obiektu blob zawierającego szablon jest dostępny tylko dla właściciela konta. Podczas tworzenia tokenu SAS obiektu blob obiektu blob jest jednak dostępne dla wszystkich użytkowników z tym identyfikatorem URI. Jeśli inny użytkownik przechwytuje identyfikator URI, ten użytkownik jest w stanie uzyskać dostęp do szablonu. Za pomocą tokenu sygnatury dostępu Współdzielonego jest dobrym sposobem ograniczenia dostępu do szablonów, ale nie może zawierać dane poufne, takie jak hasła, bezpośrednio w szablonie.
+> Wykonując poniższe kroki hello hello obiektu blob zawierającego szablon hello jest właściciela konta hello tooonly dostępny. Podczas tworzenia tokenu SAS obiektu blob hello hello obiektu blob jest jednak dostępne tooanyone z tym identyfikatorem URI. Inny użytkownik przechwytuje hello identyfikatora URI, który jest możliwe tooaccess hello szablonu. Za pomocą tokenu sygnatury dostępu Współdzielonego jest dobrym sposobem ograniczenia dostępu tooyour szablonów, ale nie może zawierać dane poufne, takie jak hasła, bezpośrednio w szablonie hello.
 > 
 > 
 
-Poniższy przykład ustawia kontener konta magazynu prywatnych i przekazuje szablonu:
+Witaj poniższy przykład ustawia kontener konta magazynu prywatnych i przekazuje szablonu:
    
 ```azurecli
 az group create --name "ManageGroup" --location "South Central US"
@@ -59,7 +59,7 @@ az storage blob upload \
 ```
 
 ### <a name="provide-sas-token-during-deployment"></a>Podaj token sygnatury dostępu Współdzielonego podczas wdrażania
-Aby wdrożyć szablon prywatnych na koncie magazynu, wygenerowania tokenu sygnatury dostępu Współdzielonego i dołączyć go w identyfikatorze URI dla szablonu. Ustawianie czasu wygaśnięcia poczekać na ukończenie wdrożenia.
+toodeploy prywatnej szablonu na koncie magazynu wygenerowania tokenu sygnatury dostępu Współdzielonego i uwzględnić go w hello URI hello szablonu. Ustaw tooallow czas wygaśnięcia hello wdrożenia hello toocomplete wystarczająco dużo czasu.
    
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -85,7 +85,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 Na przykład za pomocą tokenu sygnatury dostępu Współdzielonego przy użyciu szablonów połączonych, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do wdrażania szablonów, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](resource-group-template-deploy-cli.md).
+* Wprowadzenie toodeploying szablonów, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](resource-group-template-deploy-cli.md).
 * Zakończenie przykładowego skryptu, który wdraża szablonu, zobacz [skryptu szablonu wdrażania Menedżera zasobów](resource-manager-samples-cli-deploy.md)
-* Aby określić parametry w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).
-* Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
+* Parametry toodefine w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).
+* Aby uzyskać wskazówki dotyczące użycia tooeffectively Menedżera zasobów przedsiębiorstwa Zarządzaj subskrypcjami, zobacz [szkieletu Azure enterprise — ładu przetestowanego subskrypcji](resource-manager-subscription-governance.md).

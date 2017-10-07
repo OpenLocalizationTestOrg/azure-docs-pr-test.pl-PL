@@ -1,6 +1,6 @@
 ---
-title: "Szyfrowanie dysków Azure — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Microsoft Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS."
+title: "aaaAzure szyfrowania dysku — często zadawane pytania | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera odpowiedzi toofrequently zadawane pytania dotyczące programu Microsoft Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS."
 services: security
 documentationcenter: na
 author: deventiwari
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 0d15bf42c156ea7a72c54d690f4016877913efe4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 17f084628ba4ef22e9d37dd3052ef10f8eb2cd7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-disk-encryption-frequently-asked-questions-faq"></a>Szyfrowanie dysków Azure — często zadawane pytania (FAQ)
 
@@ -31,7 +31,7 @@ Często zadawane pytania odpowiedzi na pytania dotyczące szyfrowania dysków Az
 
 **Pytanie:** napotyka użytkownika są dostępne w przypadku szyfrowania dysków Azure?
 
-**Odpowiedź:** GA szyfrowania dysków Azure obsługuje szablony usługi Azure Resource Manager, programu Azure PowerShell, interfejsu wiersza polecenia Azure. Zapewnia dużą elastyczność w tym ma trzy różne opcje dotyczące włączania szyfrowania dysku dla maszyn wirtualnych IaaS. Więcej informacji na temat środowiska użytkownika i wskazówki krok po kroku są dostępne w scenariuszach wdrażania szyfrowania dysków Azure i środowiska.
+**Odpowiedź:** GA szyfrowania dysków Azure obsługuje szablony usługi Azure Resource Manager, programu Azure PowerShell, interfejsu wiersza polecenia Azure. Zapewnia dużą elastyczność w tym ma trzy różne opcje dotyczące włączania szyfrowania dysku dla maszyn wirtualnych IaaS. Więcej informacji na temat środowiska użytkownika hello i wskazówki krok po kroku są dostępne w scenariuszach wdrażania szyfrowania dysków Azure hello i środowiska.
 
 **Pytanie:** ile kosztuje szyfrowania dysków Azure?
 
@@ -43,7 +43,7 @@ Często zadawane pytania odpowiedzi na pytania dotyczące szyfrowania dysków Az
 
 **Pytanie:** dystrybucje systemu Linux co to są obsługiwane przez szyfrowanie dysków Azure?
 
-**Odpowiedź:** szyfrowania dysków Azure jest obsługiwane w następujących dystrybucje serwera systemu Linux i wersji:
+**Odpowiedź:** szyfrowania dysków Azure jest obsługiwana na powitania po dystrybucje systemu Linux serwera i wersji:
 
 | Dystrybucja systemu Linux | Wersja | Typ woluminu obsługiwany w przypadku szyfrowania|
 | --- | --- |--- |
@@ -70,53 +70,53 @@ Często zadawane pytania odpowiedzi na pytania dotyczące szyfrowania dysków Az
 
 **Pytanie:** jak I rozpoczęcie pracy przy użyciu szyfrowania dysków Azure?
 
-**Odpowiedź:** klientów można dowiedzieć się, jak rozpocząć odczytując w dokumencie szyfrowania dysków Azure znajduje się [tutaj](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+**Odpowiedź:** informacji można znaleźć sposób uruchamiania tooget w przez hello odczytu oficjalny dokument szyfrowania dysków Azure znajduje się [tutaj](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 **Pytanie:** można zaszyfrować woluminów zarówno rozruchu i danych za pomocą szyfrowania dysków Azure?
 
-**Odpowiedź:** tak, można zaszyfrować woluminy rozruchowe i danych systemu Windows i maszyn wirtualnych systemu Linux IaaS. Dla maszyn wirtualnych systemu Windows nie można zaszyfrować dane bez pierwszy encrpting woluminu systemu operacyjnego. Dla maszyn wirtualnych systemu Linux można zaszyfrować najpierw ilość danych bez woluminu encryptinng systemu operacyjnego. Gdy wolumin systemu operacyjnego zostały zaszyfrowane na klastrach, wyłączenie szyfrowania na woluminie systemu operacyjnego dla maszyn wirtualnych systemu Linux IaaS nie jest obsługiwane
+**Odpowiedź:** tak, można zaszyfrować woluminy rozruchowe i danych systemu Windows i maszyn wirtualnych systemu Linux IaaS. Dla maszyn wirtualnych systemu Windows nie można zaszyfrować dane hello bez pierwszy hello encrpting woluminu systemu operacyjnego. Dla maszyn wirtualnych systemu Linux można zaszyfrować najpierw hello ilość danych bez hello encryptinng woluminu systemu operacyjnego. Gdy wolumin hello systemu operacyjnego zostały zaszyfrowane na klastrach, wyłączenie szyfrowania na woluminie systemu operacyjnego dla maszyn wirtualnych systemu Linux IaaS nie jest obsługiwane
 
 **Pytanie:** włączone jest szyfrowanie dysków Azure "bring your own key" (BYOK) możliwości?
 
-**Odpowiedź:** tak, możesz podać własne klucze szyfrowania kluczy. Te klucze są chronione w usłudze Azure Key Vault, która jest magazynu kluczy do szyfrowania dysków Azure. Więcej szczegółów w scenariuszach Obsługa kluczy szyfrowania zapoznaj się z szyfrowania dysków Azure wdrożeń i środowisk
+**Odpowiedź:** tak, możesz podać własne klucze szyfrowania kluczy. Te klucze są chronione w usłudze Azure Key Vault, która jest hello magazynu kluczy do szyfrowania dysków Azure. Więcej szczegółów klucza szyfrowania klucza hello obsługi scenariuszy, zobacz hello szyfrowania dysków Azure wdrożeń i środowisk
 
 **Pytanie:** można użyć klucza szyfrowania kluczy Azure utworzonych?
 
-**Odpowiedź:** tak, można użyć usługi Azure Key vault do wygenerowania klucza szyfrowania do użycia szyfrowania dysków Azure. Te klucze są chronione w usłudze Azure Key Vault, która jest magazynu kluczy do szyfrowania dysków Azure. Więcej szczegółów w scenariuszach Obsługa kluczy szyfrowania zapoznaj się z szyfrowania dysków Azure wdrożeń i środowisk
+**Odpowiedź:** tak, można użyć klucza szyfrowania klucza toogenerate magazynu kluczy Azure do użycia szyfrowania dysków Azure. Te klucze są chronione w usłudze Azure Key Vault, która jest hello magazynu kluczy do szyfrowania dysków Azure. Więcej szczegółów klucza szyfrowania klucza hello obsługi scenariuszy, zobacz hello szyfrowania dysków Azure wdrożeń i środowisk
 
-**Pytanie:** można użyć usługi zarządzania kluczami lokalnymi/HSM w celu ochrony kluczy szyfrowania?
+**Pytanie:** kluczy szyfrowania hello lokalnymi zarządzania kluczami toosafeguard usługi/HSM można używać?
 
-**Odpowiedź:** usługi zarządzania kluczami lokalnymi/HSM nie można użyć do ochrony kluczy szyfrowania przy użyciu szyfrowania dysków Azure. Usługi magazynu kluczy Azure służy tylko do ochrony kluczy szyfrowania. Więcej szczegółów w scenariuszach Obsługa kluczy szyfrowania zapoznaj się z szyfrowania dysków Azure wdrożeń i środowisk
+**Odpowiedź:** nie można używać kluczy szyfrowania hello toosafeguard usługi/HSM hello lokalnymi zarządzania kluczami szyfrowania dysków Azure. Można używać tylko klucze szyfrowania hello toosafeguard hello usługi Azure key vault usługi. Więcej szczegółów klucza szyfrowania klucza hello obsługi scenariuszy, zobacz hello szyfrowania dysków Azure wdrożeń i środowisk
 
-**Pytanie:** szyfrowanie dysków jakie są wymagania wstępne, aby skonfigurować Azure?
+**Pytanie:** co to są szyfrowania dysków Azure tooconfigure wymagania wstępne hello?
 
-**Odpowiedź:** Azure dysku szyfrowania wymagań wstępnych skrypt programu PowerShell do tworzenia aplikacji w usłudze AAD, utworzyć nowego magazynu kluczy lub Instalator istniejącego magazynu kluczy dla dostępu do szyfrowania dysku włączyć szyfrowanie i ochronę kluczy tajnych i klucza.  Więcej szczegółów w scenariuszach Obsługa kluczy szyfrowania Zobacz wymagań wstępnych szyfrowania dysków Azure i wdrożeń i środowisk
+**Odpowiedź:** hello Azure dysku szyfrowania wymagań wstępnych programu PowerShell toocreate usługi AAD aplikacji skryptu, Utwórz nowy magazyn kluczy lub skonfigurować istniejący magazyn kluczy dysku szyfrowania dostępu tooenable szyfrowania i ochrony kluczy tajnych i klucza.  Więcej szczegółów klucza szyfrowania klucza hello obsługi scenariuszy, zobacz wymagań wstępnych szyfrowania dysków Azure hello i scenariusze wdrażania i środowiska
 
-**Pytanie:** gdzie można uzyskać więcej informacji na temat sposobu konfigurowania szyfrowania dysków Azure przy użyciu programu PowerShell?
+**Pytanie:** gdzie można uzyskać więcej informacji na temat toouse programu PowerShell do konfigurowania szyfrowania dysków Azure?
 
-**Odpowiedź:** mamy niektóre dużą artykuły, w jaki sposób można wykonywać podstawowe zadania szyfrowania dysków Azure, a także bardziej zaawansowanych scenariuszy. Do podstawowych zadań, zapoznaj się z Eksploruj [szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Aby uzyskać bardziej zaawansowanych scenariuszy, zobacz Eksploruj [szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/)
+**Odpowiedź:** mamy niektóre dużą artykuły, w jaki sposób można wykonywać podstawowe zadania szyfrowania dysków Azure, a także bardziej zaawansowanych scenariuszy. Hello podstawowych zadań, zapoznaj się z Eksploruj [szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Aby uzyskać bardziej zaawansowanych scenariuszy, zobacz Eksploruj [szyfrowania dysków Azure przy użyciu programu Azure PowerShell — część 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/)
 
 **Pytanie:** jakiej wersji programu Azure PowerShell jest obsługiwana przez szyfrowanie dysków Azure?
 
-**Odpowiedź:** używać najnowszej wersji wersji zestawu SDK usługi Azure PowerShell do konfigurowania szyfrowania dysków Azure. Pobierz najnowszą wersję [programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Szyfrowanie dysków Azure nie jest obsługiwana przez zestaw Azure SDK w wersji 1.1.0.
+**Odpowiedź:** Użyj hello najnowszą wersję zestawu SDK usługi Azure PowerShell w wersji tooconfigure szyfrowania dysków Azure. Pobieranie hello najnowszej wersji [programu Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Szyfrowanie dysków Azure nie jest obsługiwana przez zestaw Azure SDK w wersji 1.1.0.
 
 > [!NOTE]
-> Rozszerzenie podglądu szyfrowania dysku systemu Linux platformy Azure jest przestarzały. Aby uzyskać więcej informacji, zapoznaj się dokumentacją [tutaj](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/)
+> Hello rozszerzenie Podgląd szyfrowania dysku systemu Linux platformy Azure jest przestarzały. Aby uzyskać więcej informacji, zobacz toodocumentation [tutaj](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/)
 
 **Pytanie:** I zastosować szyfrowanie dysków Azure na mój niestandardowego obrazu systemu Linux?
 
-**Odpowiedź:** szyfrowania dysków Azure nie można zastosować do niestandardowego obrazu systemu Linux. Firma Microsoft obsługuje tylko obrazy Linux galerii dla obsługiwanych dystrybucjach wymienione powyżej. Obecnie nie jest obsługiwana niestandardowych obrazów systemu Linux
+**Odpowiedź:** szyfrowania dysków Azure nie można zastosować do niestandardowego obrazu systemu Linux. Firma Microsoft obsługuje tylko obrazy Linux galerii hello dla hello obsługiwanych dystrybucjach wymienione powyżej. Obecnie nie jest obsługiwana niestandardowych obrazów systemu Linux
 
-**Pytanie:** I aktualizacje można stosować do Red Hat Maszynę wirtualną systemu Linux przy użyciu Yum aktualizacji?
+**Pytanie:** można stosować aktualizacje tooa maszyny Wirtualnej systemu Linux Red Hat przy użyciu Yum aktualizacji?
 
 **Odpowiedź:** tak, można wykonać operacji aktualizacji i lub poprawka Red Hat Linnux maszyny Wirtualnej zgodnie ze wskazówkami podanymi [tutaj](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/)
 
-**Pytanie:** I gdzie mogą aby zadać pytanie lub Prześlij opinię
+**Pytanie:** gdzie można przejść tooask pytanie lub wyrazić swoją opinię
 
-**Odpowiedź:** zapewniają zadać pytania lub opinie na forum szyfrowania dysków Azure [tutaj](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)
+**Odpowiedź:** zapewniają zadać pytania lub opinie na forum szyfrowania dysków Azure hello [tutaj](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)
 
 ## <a name="see-also"></a>Zobacz też
-W tym dokumencie przedstawiono więcej informacji na temat najczęstsze pytania dotyczące szyfrowania dysków Azure, aby uzyskać więcej informacji na temat tej usługi i jego możliwości odczytu:
+W tym dokumencie przedstawiono bardziej o hello najczęstsze pytania pokrewne tooAzure szyfrowanie dysków, aby uzyskać więcej informacji na temat tej usługi i jego możliwości odczytu:
 
 - [Zastosuj szyfrowanie dysków w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Szyfrowanie maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)

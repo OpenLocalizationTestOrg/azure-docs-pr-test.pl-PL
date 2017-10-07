@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczeń kontenera sieci szkieletowej usług platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się teraz w celu zabezpieczenia usługi kontenerów."
+title: "aaaAzure zabezpieczeń kontenera sieci szkieletowej usług | Dokumentacja firmy Microsoft"
+description: "Dowiedz się teraz toosecure kontenera usług."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 75faca1e827a0eca6b97adcb2e1c6ca72b3364d6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 88faf4e8f949c2f7743756b6272ca672d9710630
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="container-security"></a>Kontener zabezpieczeń
 
-Sieć szkieletowa usług udostępnia mechanizm dla usług wewnątrz kontenera można uzyskać dostępu do certyfikatu, który jest zainstalowany na węzłach w klastrze systemu Windows lub Linux (w wersji 5.7 lub nowszej). Ponadto sieci szkieletowej usług również obsługuje gMSA (kont usług zarządzanych grupy) dla systemu Windows kontenerów. 
+Sieć szkieletowa usług udostępnia mechanizm dla usług wewnątrz tooaccess kontenera certyfikatu zainstalowanego na powitania węzłów w klastrze systemu Windows lub Linux (w wersji 5.7 lub nowszej). Ponadto sieci szkieletowej usług również obsługuje gMSA (kont usług zarządzanych grupy) dla systemu Windows kontenerów. 
 
 ## <a name="certificate-management-for-containers"></a>Zarządzanie certyfikatami dla kontenerów
 
-Określając certyfikatu, można zabezpieczyć swoje usługi kontenera. Certyfikat należy zainstalować na węzłach klastra. Informacje o certyfikacie znajduje się w manifeście aplikacji w obszarze `ContainerHostPolicies` tagu w formie poniższy fragment kodu przedstawia:
+Określając certyfikatu, można zabezpieczyć swoje usługi kontenera. Witaj certyfikat należy zainstalować na węzłach hello hello klastra. Hello informacji o certyfikatach znajduje się w manifeście aplikacji hello w obszarze hello `ContainerHostPolicies` tagu w formie hello fragment kodu przedstawia następujące:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -34,12 +34,12 @@ Określając certyfikatu, można zabezpieczyć swoje usługi kontenera. Certyfik
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Podczas uruchamiania aplikacji, środowisko uruchomieniowe odczytuje certyfikaty i generuje plik PFX oraz hasła dla każdego certyfikatu. Ten plik PFX oraz hasła są dostępne w kontenerze, za pomocą następujących zmiennych środowiskowych: 
+Przy uruchamianiu aplikacji hello środowiska uruchomieniowego hello odczytuje hello certyfikatów i generuje plik PFX oraz hasła dla każdego certyfikatu. Ten plik PFX oraz hasła są dostępne w kontenerze hello przy użyciu hello następujące zmienne środowiskowe: 
 
 * **_PFX _ [CertName] Certificate_ [CodePackageName]**
 * **_Hasło _ [CertName] Certificate_ [CodePackageName]**
 
-Usługa kontenera lub proces jest odpowiedzialny za zaimportować plik PFX do kontenera. Aby zaimportować certyfikat, można użyć `setupentrypoint.sh` skrypty lub wykonania kodu niestandardowego, w ramach procesu kontenera. Następujący przykładowy kod w języku C# do importowania plików PFX:
+Usługa kontenera Hello lub proces jest odpowiedzialny za importowanie plików PFX hello hello kontenera. tooimport hello certyfikatu, można użyć `setupentrypoint.sh` skrypty lub wykonania kodu niestandardowego, w ramach procesu kontenera hello. Następujący przykładowy kod w języku C# do importowania plików PFX hello:
 
 ```c#
     string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
@@ -52,12 +52,12 @@ Usługa kontenera lub proces jest odpowiedzialny za zaimportować plik PFX do ko
     store.Add(cert);
     store.Close();
 ```
-Ten certyfikat PFX mogą służyć do uwierzytelniania aplikacji lub usługi lub bezpiecznego commmunication z innymi usługami.
+Ten certyfikat PFX można uwierzytelnić hello aplikacji lub usługi lub bezpiecznego commmunication z innymi usługami.
 
 
 ## <a name="set-up-gmsa-for-windows-containers"></a>Skonfiguruj grupę dla kontenerów systemu Windows
 
-Aby skonfigurować usługi zarządzane przez grupę (grupa zarządzanych kont usług), plik specyfikacji poświadczeń (`credspec`) znajduje się we wszystkich węzłach w klastrze. We wszystkich węzłach za pomocą rozszerzenia maszyny Wirtualnej można skopiować pliku.  `credspec` Plik musi zawierać informacje o koncie gMSA. Aby uzyskać więcej informacji na temat `credspec` plików, zobacz [kont usług](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Specyfikacja poświadczeń i `Hostname` tag są określone w manifeście aplikacji. `Hostname` Tag musi odpowiadać nazwie konta gMSA działającą w kontenerze.  `Hostname` Tagu umożliwia kontenera do samodzielnego uwierzytelnienia w innych usługach w domenie przy użyciu uwierzytelniania Kerberos.  Przykładowy służący do określania `Hostname` i `credspec` w aplikacji manifestu jest wyświetlany w następujący fragment kodu:
+tooset się przez grupę (grupa zarządzanych kont usług), plik specyfikacji poświadczeń (`credspec`) znajduje się we wszystkich węzłach w klastrze hello. można skopiować pliku Hello we wszystkich węzłach za pomocą rozszerzenia maszyny Wirtualnej.  Witaj `credspec` plik musi zawierać informacje o koncie gMSA hello. Aby uzyskać więcej informacji na temat hello `credspec` plików, zobacz [kont usług](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Specyfikacja poświadczeń Hello i hello `Hostname` tag są określone w manifeście aplikacji hello. Witaj `Hostname` tag musi odpowiadać nazwie konta gMSA hello, który hello kontenera działa pod.  Witaj `Hostname` tag temu tooauthenticate kontenera hello, samej usługi tooother w domenie hello za pomocą uwierzytelniania Kerberos.  Przykładowy służący do określania hello `Hostname` i hello `credspec` w hello manifest aplikacji jest wyświetlana po fragment hello:
 
 ```xml
 <Policies>
@@ -68,5 +68,5 @@ Aby skonfigurować usługi zarządzane przez grupę (grupa zarządzanych kont us
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wdrażanie kontenera systemu Windows w sieci szkieletowej usług w systemie Windows Server 2016](service-fabric-get-started-containers.md)
-* [Wdrażanie kontenera Docker sieci szkieletowej usług w systemie Linux](service-fabric-get-started-containers-linux.md)
+* [Wdrażanie systemu Windows tooService kontenera sieci szkieletowej w systemie Windows Server 2016](service-fabric-get-started-containers.md)
+* [Wdrażanie tooService kontenera Docker sieci szkieletowej w systemie Linux](service-fabric-get-started-containers-linux.md)

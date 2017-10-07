@@ -1,5 +1,5 @@
 ---
-title: "Azure maszyn wirtualnych wysokiej dostępności dla programu SAP NetWeaver | Dokumentacja firmy Microsoft"
+title: "Maszyny wirtualne wysokiej dostępności dla programu SAP NetWeaver aaaAzure | Dokumentacja firmy Microsoft"
 description: "Przewodnik wysokiej dostępności dla programu SAP NetWeaver na maszynach wirtualnych platformy Azure"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 662dd793390d7f6138b160ed86259d13391336aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure maszyn wirtualnych wysokiej dostępności dla programu SAP NetWeaver
 
@@ -154,22 +154,22 @@ ms.lasthandoff: 08/03/2017
 
 
 
-Maszyny wirtualne platformy Azure to rozwiązanie dla organizacji, które muszą obliczeniowych, magazynu i zasobów sieciowych w czasie minimalnego i bez cykle nabywania długie. Maszyny wirtualne Azure służy do wdrażania aplikacji klasycznej jak SAP NetWeaver na podstawie ABAP, Java i stosu ABAP + Java. Rozszerzenie, niezawodności i dostępności bez dodatkowych lokalnych zasobów. Maszyny wirtualne platformy Azure obsługuje łączności między lokalizacjami, maszynach wirtualnych platformy Azure można zintegrować lokalnej domeny Twojej organizacji, chmur prywatnych i pozioma systemu SAP.
+Maszyny wirtualne platformy Azure jest hello rozwiązania dla organizacji, które muszą obliczeniowych, magazynu i zasobów sieciowych w czasie minimalnego i bez cykle nabywania długie. Możesz użyć aplikacji klasycznej toodeploy maszyn wirtualnych platformy Azure, takich jak ABAP na podstawie SAP NetWeaver, Java i stosu ABAP + Java. Rozszerzenie, niezawodności i dostępności bez dodatkowych lokalnych zasobów. Maszyny wirtualne platformy Azure obsługuje łączności między lokalizacjami, maszynach wirtualnych platformy Azure można zintegrować lokalnej domeny Twojej organizacji, chmur prywatnych i pozioma systemu SAP.
 
-W tym artykule firma Microsoft opisano kroki, które należy wykonać w celu wdrażania systemów SAP wysokiej dostępności na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager. Firma Microsoft przeprowadzi użytkownika przez proces te zadania główne:
+W tym artykule opisano firma Microsoft hello czy możesz zrobić toodeploy systemów SAP wysokiej dostępności na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager hello. Firma Microsoft przeprowadzi użytkownika przez proces te zadania główne:
 
-* Znajdź prawo SAP uwagi i przewodniki dotyczące instalacji, na liście [zasobów] [ sap-ha-guide-2] sekcji. W tym artykule uzupełnia SAP instalacji dokumentacji i notatek SAP, które są głównej zasoby, które ułatwiają instalowanie i wdrażanie oprogramowania SAP na określonych platformach.
-* Dowiedz się różnic między modelu wdrażania usługi Azure Resource Manager i model klasyczny wdrożenia usługi Azure.
-* Więcej informacji na temat trybów kworum klastra trybu Failover systemu Windows Server, w którym można wybrać modelu, które jest odpowiednie dla danego wdrożenia usługi Azure.
+* Znajdź hello prawo przewodniki SAP uwagi i instalacji na liście hello [zasobów] [ sap-ha-guide-2] sekcji. W tym artykule uzupełnia SAP instalacji dokumentacji i notatek SAP, które są hello głównej zasobów, które ułatwiają instalowanie i wdrażanie oprogramowania SAP na określonych platformach.
+* Dowiedz się hello różnice między modelu wdrażania usługi Azure Resource Manager hello i hello Azure klasycznego modelu wdrażania.
+* Więcej informacji na temat trybów kworum klastra trybu Failover systemu Windows Server, w którym można wybrać hello modelu, które jest odpowiednie dla danego wdrożenia usługi Azure.
 * Więcej informacji na temat systemu Windows Server Failover Clustering udostępnionego magazynu w usług Azure.
-* Dowiedz się, jak chronić pojedynczego punktu z awarii składników jak zaawansowane biznesowych aplikacji programowania (ABAP) SAP centralnej usług (ASCS) / SAP centralnej usługi (SCS) i systemy zarządzania bazami danych (DBMS) i działanie elementów nadmiarowych, takie jak SAP serwera aplikacji, na platformie Azure.
+* Dowiedz się, jak toohelp chronić pojedynczego punktu z awarii składników jak zaawansowane biznesowych aplikacji programowania (ABAP) SAP centralnej usług (ASCS) / SAP centralnej usługi (SCS) i systemy zarządzania bazami danych (DBMS) i działanie elementów nadmiarowych, takie jak SAP Serwer aplikacji na platformie Azure.
 * Wykonaj krok przykład instalację i konfigurację systemu SAP wysokiej dostępności w klastrze systemu Windows Server Failover Clustering na platformie Azure przy użyciu usługi Azure Resource Manager.
-* Więcej informacji na temat dodatkowych czynności wymaganych do używania systemu Windows Server Failover Clustering w Azure, ale nie są wymagane w przypadku lokalnego wdrożenia.
+* Więcej informacji na temat toouse wymagane dodatkowe kroki, Windows Server Failover Clustering na platformie Azure, ale nie są wymagane w przypadku lokalnego wdrożenia.
 
-Aby uprościć wdrażanie i konfigurowanie, w tym artykule używamy szablony Menedżera zasobów systemu SAP trójwarstwowa wysokiej dostępności. Szablony zautomatyzować wdrożenie całej infrastruktury potrzebnym do systemu SAP wysokiej dostępności. Infrastruktura obsługuje również rozmiaru SAP aplikacji wydajności standardowe (protokoły SAP) systemu SAP.
+toosimplify wdrażania i konfiguracji, w tym artykule używamy hello szablony Menedżera zasobów systemu SAP trójwarstwowa wysokiej dostępności. Szablony Hello zautomatyzować wdrożenie całej infrastruktury hello potrzebnym do systemu SAP wysokiej dostępności. Infrastruktura Hello obsługuje również rozmiaru SAP aplikacji wydajności standardowe (protokoły SAP) systemu SAP.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Wymagania wstępne
-Przed rozpoczęciem upewnij się, że spełniają wymagania wstępne, które są opisane w poniższych sekcjach. Ponadto należy sprawdzić wszystkich zasobów wymienionych w [zasobów] [ sap-ha-guide-2] sekcji.
+Przed rozpoczęciem upewnij się, że spełniają wymagania wstępne dotyczące hello, które zostały opisane w hello następujące sekcje. Można również, czy toocheck wszystkich zasobów wymienionych w hello [zasobów] [ sap-ha-guide-2] sekcji.
 
 W tym artykule używamy szablonów usługi Azure Resource Manager dla [trójwarstwowa SAP NetWeaver za pomocą dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Przydatne Omówienie szablonów, zobacz [szablony Menedżera zasobów Azure SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
@@ -182,11 +182,11 @@ Artykuły te obejmują wdrożenia SAP na platformie Azure:
 * [Azure maszyn wirtualnych wysokiej dostępności dla programu SAP NetWeaver (w tym przewodniku)][sap-ha-guide]
 
 > [!NOTE]
-> Jeśli to możliwe, możemy umożliwiają łącze do odwołującego się Przewodnik instalacji SAP (zobacz [Przewodnik po instalacji programu SAP][sap-installation-guides]). Wymagania wstępne i informacje o procesie instalacji jest dobrym pomysłem jest dokładnie przeczytać SAP NetWeaver przewodniki instalacji. W tym artykule opisano tylko określone zadania dla systemów opartych na procesorze SAP NetWeaver, których można użyć z maszyn wirtualnych platformy Azure.
+> Jeśli to możliwe, możemy zapewniają toohello łącza, odwoływanie SAP w podręczniku instalacji (zobacz hello [Przewodnik po instalacji programu SAP][sap-installation-guides]). Wymagania wstępne i informacje o hello proces instalacji, to jest instalację dobrze tooread hello SAP NetWeaver prowadzi dokładnie. W tym artykule opisano tylko określone zadania dla systemów opartych na procesorze SAP NetWeaver, których można użyć z maszyn wirtualnych platformy Azure.
 >
 >
 
-Te informacje SAP są związane z tym tematem SAP na platformie Azure:
+Te informacje SAP są powiązane toohello tematu SAP na platformie Azure:
 
 | Numer | Tytuł |
 | --- | --- |
@@ -197,90 +197,90 @@ Te informacje SAP są związane z tym tematem SAP na platformie Azure:
 | [1999351] |Wirtualizacji w systemie Windows: rozszerzonego monitorowania |
 | [2243692] |Użycie magazynu SSD Azure — wersja Premium dla wystąpienia systemu DBMS SAP |
 
-Dowiedz się więcej o [ograniczenia subskrypcji platformy Azure][azure-subscription-service-limits-subscription], w tym domyślne ogólne ograniczenia i ograniczenia maksymalnej.
+Dowiedz się więcej o hello [ograniczenia subskrypcji platformy Azure][azure-subscription-service-limits-subscription], w tym domyślne ogólne ograniczenia i ograniczenia maksymalnej.
 
-## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP wysokiej dostępności z usługi Azure Resource Manager a Azure klasycznym modelu wdrażania
-Usługi Azure Resource Manager i usługi Azure klasycznych modeli wdrażania różnią się w następujących obszarach:
+## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP wysokiej dostępności z usługi Azure Resource Manager a hello Azure klasycznego modelu wdrażania
+Hello Azure Resource Manager i usługi Azure klasycznych modeli wdrażania są inne hello w następujących obszarach:
 
 - Grupy zasobów
-- Zależności usługi równoważenia obciążenia wewnętrznego platformy Azure na grupy zasobów platformy Azure
+- Azure wewnętrzny załadować równoważenia zależności na powitania grupy zasobów platformy Azure
 - Obsługa scenariuszy identyfikatora SID multi SAP
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a>Grupy zasobów
-W systemie Azure Resource Manager można użyć grup zasobów do zarządzania wszystkie zasoby aplikacji w Twojej subskrypcji platformy Azure. Podejście, w grupie zasobów, wszystkie zasoby mają tego samego cyklu życia. Na przykład wszystkie zasoby są tworzone w tym samym czasie i są usuwane w tym samym czasie. Dowiedz się więcej o [grupach zasobów](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+W systemie Azure Resource Manager służy toomanage grup zasobów wszystkie zasoby aplikacji hello w Twojej subskrypcji platformy Azure. Witaj ma podejście, w grupie zasobów, wszystkie zasoby tego samego cyklu życia. Na przykład wszystkie zasoby są tworzone w hello sam czas i są usuwane przy hello tym samym czasie. Dowiedz się więcej o [grupach zasobów](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a>Zależności usługi równoważenia obciążenia wewnętrznego platformy Azure na grupy zasobów platformy Azure
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a>Azure wewnętrzny załadować równoważenia zależności na powitania grupy zasobów platformy Azure
 
-W modelu wdrażania klasycznego Azure istnieje zależność między Azure wewnętrznego modułu równoważenia obciążenia (usługa Azure Load Balancer) i usługi w chmurze. Co wewnętrzny moduł równoważenia obciążenia musi jedną usługę w chmurze.
+W hello Azure klasycznego modelu wdrażania istnieje zależność między hello Azure wewnętrznego modułu równoważenia obciążenia (usługa Azure Load Balancer) i usługi w chmurze hello. Co wewnętrzny moduł równoważenia obciążenia musi jedną usługę w chmurze.
 
-W usłudze Azure Resource Manager, co zasobów platformy Azure musi być umieszczona w grupie zasobów platformy Azure i jest nieprawidłowa dla usługi równoważenia obciążenia Azure również. Jednak nie musi mieć jedną grupę zasobów platformy Azure dla usługi równoważenia obciążenia Azure, np. jedna grupa zasobów platformy Azure może zawierać wiele Azure usługi równoważenia obciążenia. Środowisko jest prostszy i bardziej elastyczne. 
+W usłudze Azure Resource Manager, co zasobów platformy Azure musi toobe umieszczane grupy zasobów platformy Azure i jest nieprawidłowa dla usługi równoważenia obciążenia Azure również. Jednak brak nie potrzeby toohave jednej Azure grupy zasobów dla usługi równoważenia obciążenia Azure, np. jedna grupa zasobów platformy Azure może zawierać wiele Azure usługi równoważenia obciążenia. środowisko Hello jest prostszy i bardziej elastyczne. 
 
 ### <a name="support-for-sap-multi-sid-scenarios"></a>Obsługa scenariuszy identyfikatora SID multi SAP
 
 W systemie Azure Resource Manager można zainstalować wielu SAP identyfikator ASCS/SCS wystąpień systemu w jednym klastrze. Identyfikator SID wielu wystąpień jest możliwe dzięki obsłudze wielu adresów IP dla każdego Azure wewnętrznego modułu równoważenia obciążenia.
 
-Aby użyć Azure klasycznym modelu wdrażania, wykonaj procedury opisane w temacie [SAP NetWeaver na platformie Azure: wystąpień klastrowania SAP ASCS/SCS przy użyciu klastra trybu Failover systemu Windows Server na platformie Azure z SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+toouse hello Azure klasycznego modelu wdrażania, wykonaj procedury hello opisane w temacie [SAP NetWeaver na platformie Azure: wystąpień klastrowania SAP ASCS/SCS przy użyciu klastra trybu Failover systemu Windows Server na platformie Azure z SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
-> Zdecydowanie zaleca się użycie modelu wdrażania usługi Azure Resource Manager dla instalacji programu SAP. Oferuje wiele korzyści, które nie są dostępne w klasycznym modelu wdrażania. Dowiedz się więcej o usłudze Azure [modele wdrażania][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+> Zdecydowanie zaleca się użycie modelu wdrażania usługi Azure Resource Manager powitania dla instalacji programu SAP. Oferuje wiele korzyści, które nie są dostępne w hello klasycznego modelu wdrażania. Dowiedz się więcej o usłudze Azure [modele wdrażania][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
 >
 >
 
 ## <a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a>Klaster trybu Failover serwera systemu Windows
-Windows Server Failover Clustering jest podstawą SAP ASCS/SCS instalacji wysokiej dostępności i bazami danych w systemie Windows.
+Windows Server Failover Clustering jest foundation hello instalacji SAP ASCS/SCS wysokiej dostępności i bazami danych w systemie Windows.
 
-Klaster trybu failover to grupa 1 + n niezależnych serwerów (węzłów), które współpracują ze sobą w celu zwiększenia dostępności aplikacji i usług. W przypadku awarii węzła usługi Windows Server Failover Clustering oblicza liczbę błędów, które mogą wystąpić przy zachowaniu dobrej kondycji klastra zapewnienie aplikacji i usług. Istnieje możliwość z kworum różne tryby osiągnięcia klastra trybu failover.
+Klaster trybu failover to grupa 1 + n niezależnych serwerów (węzłów), które współpracują ze sobą tooincrease hello dostępności aplikacji i usług. W przypadku awarii węzła usługi Windows Server Failover Clustering oblicza hello liczbę błędów, które mogą wystąpić przy zachowaniu dobrej kondycji klastra tooprovide aplikacji i usług. Można wybrać z kworum różne tryby tooachieve awaryjnej.
 
 ### <a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a>Tryb kworum
 Korzystając z usługi Windows Server Failover Clustering można wybrać z czterech trybów kworum:
 
-* **Większość węzłów**. Głosować na każdym węźle klastra. Klaster działa tylko z większością głosów, czyli z więcej niż połowy głosów. Firma Microsoft zaleca tej opcji w przypadku klastrów nieparzysta liczba węzłów. Na przykład trzech węzłów w klastrze siedem może zakończyć się niepowodzeniem, a aparaturze klastra osiąga większości i kontynuuje działanie.  
-* **Większość węzłów i dysków**. Każdy węzeł i wyznaczonych dysku (monitorem dysku) w magazynie klastra można głosowania, gdy są one dostępne i w komunikacie. Klaster działa tylko z większością głosów, oznacza to, z więcej niż połowy głosów. W tym trybie ma sens w środowisku klastra z parzystą liczbą węzłów. Jeśli połowa węzłów i dysk są w trybie online, gdy klaster będzie pozostawał w dobrej kondycji.
-* **Węzeł i udziału plików większość**. Każdy węzeł plus udział plików wyznaczonych (monitora udziału plików), który administrator tworzy głosować, niezależnie od tego, czy są dostępne węzły i udziału plików i komunikacji. Klaster działa tylko z większością głosów, oznacza to, z więcej niż połowy głosów. W tym trybie ma sens w środowisku klastra z parzystą liczbą węzłów. Jest on podobny do trybu Większość węzłów i dysków, ale zamiast monitora dysku używa monitora udziału plików. Ten tryb jest łatwa do wdrożenia, ale jeśli udział plików sam nie ma wysokiej dostępności, mogą stać się pojedynczym punktem awarii.
-* **Bez większości: Na dysku tylko**. Klaster ma kworum, jeśli jeden węzeł jest dostępny i komunikuje się z określonym dyskiem w magazynie klastra. Tylko węzły, które są także komunikuje się z tego dysku, można dołączyć do klastra. Zaleca się, że nie należy używać tego trybu.
+* **Większość węzłów**. Każdy węzeł klastra hello głosować. funkcje klastra Hello tylko z większością głosów, czyli z więcej niż połowy hello głosów. Firma Microsoft zaleca tej opcji w przypadku klastrów nieparzysta liczba węzłów. Na przykład trzech węzłów w klastrze siedem może zakończyć się niepowodzeniem, a aparaturze klastra hello osiąga większości i kontynuuje toorun.  
+* **Większość węzłów i dysków**. Każdy węzeł i wyznaczonych dysku (monitorem dysku) w magazynie klastra hello głosować gdy są one dostępne i w komunikacie. funkcje klastra Hello tylko w przypadku większości hello głosów, oznacza to, z więcej niż połowy głosów hello. W tym trybie ma sens w środowisku klastra z parzystą liczbą węzłów. Jeśli hello połowa węzłów i dysków hello są w trybie online, hello klaster będzie pozostawał w dobrej kondycji.
+* **Węzeł i udziału plików większość**. Każdy węzeł plus udział plików wyznaczonych (monitora udziału plików), który hello administrator tworzy głosować, niezależnie od tego, czy są dostępne węzły hello i udziału plików i komunikacji. funkcje klastra Hello tylko w przypadku większości hello głosów, oznacza to, z więcej niż połowy głosów hello. W tym trybie ma sens w środowisku klastra z parzystą liczbą węzłów. Jest podobne toohello węzła i tryb większość dysku, ale zamiast monitora dysku używa monitora udziału plików. Ten tryb jest łatwe tooimplement, ale jeśli udział plików hello sam nie ma wysokiej dostępności, mogą stać się pojedynczym punktem awarii.
+* **Bez większości: Na dysku tylko**. Hello klaster ma kworum, jeśli jeden węzeł jest dostępny i komunikuje się z określonym dyskiem w magazynie klastra hello. Tylko węzły hello, które są także komunikuje się z tego dysku może dołączać hello klastra. Zaleca się, że nie należy używać tego trybu.
  
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a>Windows Server awaryjnej lokalnej
-Rysunek 1 pokazuje klastra z dwoma węzłami. Jeśli udostępnianie połączenie sieciowe między węzły kończy się niepowodzeniem i zarówno Pozostań węzłów w zapasowej i uruchamiania, dysku kworum lub pliku Określa, który węzeł będzie dostarczać aplikacji i usług klastra. Węzeł, który ma dostęp do udziału pliku lub dysku kworum jest węzeł, który zapewnia, że usługi.
+Rysunek 1 pokazuje klastra z dwoma węzłami. Jeśli hello połączenie sieciowe między węzłami hello nie powiedzie się i oba węzły pozostać w górę i uruchomiona, udziału pliku lub dysku kworum Określa, który węzeł będzie tooprovide hello klastra aplikacji i usług. węzeł Hello, dysku kworum toohello dostępu lub udział plików jest hello węzła, który zapewnia, że usługi.
 
-Ponieważ w tym przykładzie użyto dwa węzły klastra, używamy Tryb kworum Większość węzłów i plików udziału. Większość węzłów i dysków również jest prawidłową opcją. W środowisku produkcyjnym zaleca się, że używasz dysku kworum. Można użyć technologii systemu sieci i magazynu o wysokiej dostępności.
+Ponieważ w tym przykładzie użyto dwa węzły klastra, używamy hello węzła i Tryb kworum Większość udziału plików. Większość dysku i Hello węzła również jest prawidłową opcją. W środowisku produkcyjnym zaleca się, że używasz dysku kworum. Można użyć sieci i magazynu toomake technologii systemu go wysokiej dostępności.
 
 ![Rysunek 1: Na przykład Windows Server Failover Clustering konfiguracji dla programu SAP ASCS/SCS na platformie Azure][sap-ha-guide-figure-1000]
 
 _**Rysunek 1.** przykład Windows Server Failover Clustering konfiguracji dla programu SAP ASCS/SCS na platformie Azure_
 
 ### <a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a>Magazyn udostępniony
-Rysunek 1 pokazuje również klastra magazynu udostępnionego z dwoma węzłami. W lokalnej klastra magazynu udostępnionego wszystkie węzły w klastrze wykryć magazynu udostępnionego. Mechanizm blokowania chroni dane przed uszkodzeniem. Wszystkie węzły mogą wykryć, jeśli inny węzeł nie powiedzie się. Jeśli jeden węzeł ulegnie awarii, pozostałe węzeł przejmuje zasobów magazynu i zapewnia dostępność usług.
+Rysunek 1 pokazuje również klastra magazynu udostępnionego z dwoma węzłami. W lokalnej klastra magazynu udostępnionego wszystkie węzły w klastrze hello wykryć magazynu udostępnionego. Mechanizm blokowania chroni dane hello przed uszkodzeniem. Wszystkie węzły mogą wykryć, jeśli inny węzeł nie powiedzie się. Jeśli jeden węzeł ulegnie awarii, drugi węzeł hello przejmuje hello zasoby magazynu oraz zapewnia hello dostępności usług.
 
 > [!NOTE]
-> Nie trzeba udostępnionych dysków wysokiej dostępności z niektórymi aplikacjami systemu DBMS, takich jak z programem SQL Server. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika z lokalnego dysku jednego węzła klastra na lokalny dysk innego węzła klastra. W takim przypadku konfiguracji klastra systemu Windows nie wymaga udostępnionego dysku.
+> Nie trzeba udostępnionych dysków wysokiej dostępności z niektórymi aplikacjami systemu DBMS, takich jak z programem SQL Server. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika z hello dysku jednego węzła toohello lokalnego dysku klastrowego innego węzła klastra. W takim przypadku konfiguracji klastra z systemem Windows hello nie wymaga udostępnionego dysku.
 >
 >
 
 ### <a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a>Sieci i rozpoznawanie nazw
-Komputery klienckie osiągnąć klastra za pośrednictwem wirtualnego adresu IP i nazwy hostów wirtualnych, które udostępnia serwer DNS. Węzły lokalnymi i serwer DNS może obsługiwać wiele adresów IP.
+Komputery klienckie osiągnąć hello klastra za pośrednictwem wirtualnego adresu IP i nazwy hostów wirtualnych tego hello, które udostępnia serwer DNS. Witaj węzłów lokalnymi i hello serwer DNS może obsłużyć wielu adresów IP.
 
 W typowej instalacji można użyć dwóch lub więcej połączeń sieciowych:
 
-* Dedykowane połączenie z magazynem
-* Połączenie z siecią wewnętrzną klastra dla pulsu
-* Używanego przez klientów Aby połączyć się z klastrem sieci publicznej
+* Magazyn toohello dedykowanego połączenia
+* Połączenie z siecią wewnętrzną klastra dla hello pulsu
+* Sieć publiczną, że klienci używają tooconnect toohello klastra
 
 ## <a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a>Windows Server awaryjnej na platformie Azure
-W porównaniu do bez systemu operacyjnego wdrożenia kompletnego stanu lub prywatnej chmury, maszyn wirtualnych Azure wymaga wykonania dodatkowych kroków do skonfigurowania klastra trybu Failover systemu Windows Server. Podczas tworzenia dysku udostępnionego klastra, należy ustawić kilka adresów IP i nazwy hostów wirtualnych dla wystąpienia programu SAP ASCS/SCS.
+W porównaniu toobare wdrożenia kompletnego stanu lub prywatnej chmury, maszyn wirtualnych Azure wymaga systemu Windows Server Failover Clustering tooconfigure dodatkowe kroki. Podczas tworzenia dysku udostępnionego klastra konieczne tooset kilka adresów IP i hostów wirtualnych nazwy hello SAP ASCS/SCS wystąpienia.
 
-W tym artykule omówiono kluczowe założenia i kolejne kroki wymagane do utworzenia klastra usług o wysokiej dostępności centralnej SAP na platformie Azure. Firma Microsoft dowiesz się, jak skonfigurować narzędzia innej firmy SIOS DataKeeper oraz konfigurowania Azure wewnętrznego modułu równoważenia obciążenia. Te narzędzia służy do tworzenia klastra trybu failover systemu Windows z monitora udziału plików na platformie Azure.
+W tym artykule firma Microsoft omówiono kluczowe założenia i hello toobuild wymagane dodatkowe kroki SAP klastra usług centralnej o wysokiej dostępności na platformie Azure. Firma Microsoft przedstawiają sposób tooset się narzędzia innej firmy hello SIOS DataKeeper i jak tooconfigure hello Azure wewnętrznego modułu równoważenia obciążenia. Toocreate te narzędzia klastra trybu failover w systemie Windows można użyć z monitora udziału plików na platformie Azure.
 
 ![Rysunek 2: Windows Server Failover Clustering konfiguracji platformy Azure bez udostępnionego dysku][sap-ha-guide-figure-1001]
 
 _**Rysunek 2.** Windows Server Failover Clustering konfiguracji na platformie Azure, bez udostępnionego dysku_
 
 ### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a>Udostępniony dysk na platformie Azure z SIOS DataKeeper
-Należy klastra magazynu udostępnionego dla wystąpienia programu SAP ASCS/SCS wysokiej dostępności. Począwszy od września 2016 r. Azure nie oferuje udostępnionego magazynu, którego można używać do tworzenia klastra magazynu udostępnionego. Oprogramowanie innych firm SIOS DataKeeper Cluster Edition umożliwia utworzenie magazynu dublowanej, która symuluje magazyn udostępniony klastra. Rozwiązanie SIOS zapewnia Replikacja synchroniczna danych w czasie rzeczywistym. Jest to tworzenia zasobu dysku udostępnionego dla klastra:
+Należy klastra magazynu udostępnionego dla wystąpienia programu SAP ASCS/SCS wysokiej dostępności. Września 2016 r. Azure nie oferuje magazyn udostępniony który program toocreate klastra magazynu udostępnionego. Można użyć oprogramowania innych firm SIOS DataKeeper Cluster Edition toocreate dublowany magazynu, która symuluje magazyn udostępniony klastra. Hello SIOS rozwiązanie zapewnia replikację danych w czasie rzeczywistym synchroniczne. Jest to tworzenia zasobu dysku udostępnionego dla klastra:
 
-1. Dodatkowy dysk należy dołączyć do poszczególnych maszyn wirtualnych (VM) w konfiguracji klastra systemu Windows.
+1. Dołącz tooeach dodatkowy dysk hello maszyn wirtualnych (VM) w konfiguracji klastra systemu Windows.
 2. Uruchamianie SIOS DataKeeper Cluster Edition w obu węzłach maszyny wirtualnej.
-3. Skonfiguruj SIOS DataKeeper Cluster Edition, aby go odzwierciedla zawartość woluminu dodatkowy dysk dołączony ze źródłowej maszyny wirtualnej, aby wielkość dodatkowy dysk dołączony docelowej maszyny wirtualnej. SIOS DataKeeper abstracts lokalnych woluminów źródłowych i docelowych, a następnie je do systemu Windows Server Failover Clustering jako jeden dysk udostępniony.
+3. Skonfiguruj SIOS DataKeeper Cluster Edition, aby go odzwierciedla hello zawartości woluminu dysku dodatkowe hello z hello źródłowej maszyny wirtualnej toohello dodatkowy dysk dołączony woluminu hello docelowej maszyny wirtualnej. SIOS DataKeeper abstracts hello źródłowa i docelowa woluminy lokalne, a następnie je tooWindows serwera jako jeden dysk udostępniony klaster pracy awaryjnej.
 
 Uzyskaj więcej informacji [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
@@ -289,18 +289,18 @@ Uzyskaj więcej informacji [SIOS DataKeeper](http://us.sios.com/products/datakee
 _**Rysunek 3.** konfiguracji klastra trybu Failover systemu Windows Server na platformie Azure z SIOS DataKeeper_
 
 > [!NOTE]
-> Nie potrzebujesz wysokiej dostępności z niektórych produktów, bazami danych, takich jak SQL Server udostępnione dyski. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika z lokalnego dysku jednego węzła klastra na lokalny dysk innego węzła klastra. W takim przypadku konfiguracji klastra systemu Windows nie wymaga udostępnionego dysku.
+> Nie potrzebujesz wysokiej dostępności z niektórych produktów, bazami danych, takich jak SQL Server udostępnione dyski. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika z hello dysku jednego węzła toohello lokalnego dysku klastrowego innego węzła klastra. W takim przypadku konfiguracji klastra z systemem Windows hello nie wymaga udostępnionego dysku.
 >
 >
 
 ### <a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a>Rozpoznawanie nazw w systemie Azure
-Chmury Azure platforma nie oferuje opcję, aby skonfigurować wirtualne adresy IP, takie jak adresy IP zmiennoprzecinkowych. Należy rozwiązań alternatywnych, aby skonfigurować wirtualny adres IP do zasobu klastra w chmurze.
-Platforma Azure ma wewnętrznego modułu równoważenia obciążenia w usłudze równoważenia obciążenia Azure. Z wewnętrznego modułu równoważenia obciążenia klienci osiągnąć klastra za pośrednictwem wirtualnego adresu IP klastra.
-Należy wdrożyć wewnętrznego modułu równoważenia obciążenia w grupie zasobów, która zawiera węzły klastra. Następnie należy skonfigurować wszystkie niezbędne portu przekazywania reguły z badaniem porty wewnętrznego modułu równoważenia obciążenia.
-Klienci mogą łączyć się za pomocą nazwy hostów wirtualnych. Serwer DNS rozpoznaje adres IP klastra, a port dojść modułu równoważenia obciążenia wewnętrznego przekazywania do aktywnego węzła klastra.
+Witaj chmury Azure platforma nie oferuje hello opcja tooconfigure wirtualnych adresów IP, takie jak adresy IP zmiennoprzecinkowych. Należy tooset rozwiązań alternatywnych zapasowej wirtualnego adresu IP adres tooreach hello zasób klastra w chmurze hello.
+Platforma Azure ma wewnętrznego modułu równoważenia obciążenia w hello Usługa równoważenia obciążenia Azure. Z hello wewnętrznego modułu równoważenia obciążenia klienci osiągnąć hello klastra za pośrednictwem hello klastra wirtualnego adresu IP.
+Należy toodeploy hello wewnętrznego modułu równoważenia obciążenia w grupie zasobów hello zawierający hello węzłów klastra. Następnie należy skonfigurować wszystkie niezbędne portu przekazywania reguły z badania hello porty hello wewnętrznego modułu równoważenia obciążenia.
+Witaj, klienci mogą łączyć za pomocą nazwy hostów wirtualnych hello. Witaj serwer DNS rozpoznaje adres IP klastra hello i przekazywania toohello aktywnego węzła klastra hello hello obciążenia wewnętrznego modułu równoważenia dojścia do portu.
 
 ## <a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a>SAP NetWeaver wysokiej dostępności w Azure infrastruktury jako — usługa (IaaS)
-Aby osiągnąć wysoką dostępność aplikacji SAP, takie jak dla składników oprogramowania SAP, musisz ochronę następujących składników:
+tooachieve SAP wysoką dostępność aplikacji, takie jak SAP składników oprogramowania, muszą hello tooprotect następujące składniki:
 
 * Wystąpienie serwera aplikacji SAP
 * Wystąpienie programu SAP ASCS/SCS
@@ -309,20 +309,20 @@ Aby osiągnąć wysoką dostępność aplikacji SAP, takie jak dla składników 
 Aby uzyskać więcej informacji o ochronie składników SAP w scenariuszach wysokiej dostępności, zobacz [maszyny wirtualne Azure planowania i wdrażania dla programu SAP NetWeaver][planning-guide-11].
 
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a>Serwer aplikacji SAP wysokiej dostępności
-Zwykle nie trzeba konkretnego rozwiązania wysokiej dostępności dla wystąpień serwera aplikacji SAP i okna dialogowe. Zapewniania wysokiej dostępności przez nadmiarowości i wiele wystąpień w oknie dialogowym należy skonfigurować w różnych wystąpień maszyn wirtualnych Azure. Powinien mieć co najmniej dwóch wystąpień aplikacji SAP zainstalowane w dwóch wystąpień maszyn wirtualnych Azure.
+Zwykle nie trzeba konkretnego rozwiązania wysokiej dostępności dla wystąpień serwera aplikacji SAP i okna dialogowe hello. Zapewniania wysokiej dostępności przez nadmiarowości i wiele wystąpień w oknie dialogowym należy skonfigurować w różnych wystąpień maszyn wirtualnych Azure. Powinien mieć co najmniej dwóch wystąpień aplikacji SAP zainstalowane w dwóch wystąpień maszyn wirtualnych Azure.
 
 ![Rysunek 4: SAP wysokiej dostępności aplikacji serwera][sap-ha-guide-figure-2000]
 
 _**Rysunek 4:** SAP wysokiej dostępności serwera aplikacji_
 
-Należy umieścić wszystkich maszyn wirtualnych, które ustawić wystąpień serwera aplikacji SAP hosta w tym samym dostępności Azure. Zestaw dostępności Azure upewnia się, że:
+Należy umieścić wszystkich maszyn wirtualnych, że host wystąpień serwera aplikacji SAP w hello tego samego zestawu dostępności Azure. Zestaw dostępności Azure upewnia się, że:
 
-* Wszystkie maszyny wirtualne są częścią tej samej domeny uaktualnienia. Domeny uaktualnienia, na przykład upewnia się, że maszyny wirtualne nie są aktualizowane w tym samym czasie podczas zaplanowanej konserwacji przestoju.
-* Wszystkie maszyny wirtualne są częścią tej samej domenie błędów. Domeny błędów, na przykład upewnia się, że maszyny wirtualne są wdrażane tak, aby nie pojedynczego punktu awarii wpływa na dostępność maszyn wirtualnych.
+* Wszystkie maszyny wirtualne są częścią hello tej samej domeny uaktualnienia. Domeny uaktualnienia, na przykład upewnia się, że hello maszyny wirtualne nie są aktualizowane na powitania jednocześnie podczas zaplanowanej konserwacji przestoju.
+* Wszystkie maszyny wirtualne są częścią hello tej samej domenie błędów. Domeny błędów, na przykład upewnia się, że maszyny wirtualne są wdrażane tak, aby nie pojedynczego punktu awarii wpływa na dostępność hello wszystkich maszyn wirtualnych.
 
-Dowiedz się więcej o sposobie [Zarządzaj dostępnością maszyn wirtualnych][virtual-machines-manage-availability].
+Dowiedz się więcej o tym, jak za[Zarządzanie hello dostępność maszyn wirtualnych][virtual-machines-manage-availability].
 
-Niezarządzane tylko na dysku: ponieważ konto magazynu Azure jest potencjalnych pojedynczy punkt awarii, jest należy dysponować co najmniej dwa konta magazynu platformy Azure, w których dystrybuowane są przynajmniej dwie maszyny wirtualne. W Instalatorze idealne dyski każdej maszyny wirtualnej, w którym jest uruchomione wystąpienie okna dialogowego SAP będzie można wdrożyć w innego konta magazynu.
+Niezarządzane tylko na dysku: hello kontem magazynu platformy Azure jest potencjalnych pojedynczy punkt awarii, dlatego jest ważne toohave przynajmniej dwóch kont magazynu Azure, w których są dystrybuowane co najmniej dwóch maszyn wirtualnych. W Instalatorze idealne dysków hello każdej maszyny wirtualnej, na którym jest uruchomione wystąpienie okna dialogowego SAP będzie można wdrożyć w innego konta magazynu.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a>Wystąpienie programu SAP ASCS/SCS wysokiej dostępności
 Rysunek 5 jest przykładem wystąpienia SAP ASCS/SCS wysokiej dostępności.
@@ -332,20 +332,20 @@ Rysunek 5 jest przykładem wystąpienia SAP ASCS/SCS wysokiej dostępności.
 _**Rysunek 5.** SAP wysokiej dostępności ASCS/SCS wystąpienia_
 
 #### <a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a>SAP ASCS/SCS wystąpienie wysokiej dostępności z systemu Windows Server Failover Clustering na platformie Azure
-W porównaniu do bez systemu operacyjnego wdrożenia kompletnego stanu lub prywatnej chmury, maszyn wirtualnych Azure wymaga wykonania dodatkowych kroków do skonfigurowania klastra trybu Failover systemu Windows Server. W celu zbudowania klastra pracy awaryjnej systemu Windows, należy dysku udostępnionego klastra, kilka adresów IP, kilka nazw hostów wirtualnych i Azure wewnętrznego modułu równoważenia obciążenia dla klastra z wystąpieniem SAP ASCS/SCS. Omówiono to bardziej szczegółowo w dalszej części tego artykułu.
+W porównaniu toobare wdrożenia kompletnego stanu lub prywatnej chmury, maszyn wirtualnych Azure wymaga systemu Windows Server Failover Clustering tooconfigure dodatkowe kroki. toobuild klastra pracy awaryjnej systemu Windows, należy dysku udostępnionego klastra, kilka adresów IP, kilka nazw hostów wirtualnych i Azure wewnętrznego modułu równoważenia obciążenia dla klastra z wystąpieniem SAP ASCS/SCS. Omówiono bardziej szczegółowo w dalszej części artykułu hello to.
 
 ![Rysunek 6: Windows Server Failover Clustering konfiguracji SAP ASCS/SCS na platformie Azure przy użyciu SIOS DataKeeper][sap-ha-guide-figure-1002]
 
 _**Rysunek 6.** Windows Server Failover Clustering konfiguracji SAP ASCS/SCS na platformie Azure z SIOS DataKeeper_
 
 ### <a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a>Wystąpienie systemu DBMS wysokiej dostępności
-Systemu DBMS jest również pojedynczy punkt kontaktu w systemie SAP. Należy chronić go przy użyciu rozwiązania wysokiej dostępności. Rysunek nr 7 przedstawia rozwiązania wysokiej dostępności programu SQL Server zawsze na platformie Azure, Windows Server Failover Clustering i Azure wewnętrzne usługi równoważenia obciążenia. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika przy użyciu własnego systemu DBMS replikacji. W takim przypadku można nie muszą klastra udostępnione dyski, które upraszcza całą konfigurację.
+Witaj DBMS jest również pojedynczy punkt kontaktu w systemie SAP. Należy tooprotect go za pomocą rozwiązania wysokiej dostępności. Rysunek nr 7 przedstawia rozwiązania wysokiej dostępności programu SQL Server zawsze na platformie Azure, Windows Server Failover Clustering i hello Azure wewnętrzne usługi równoważenia obciążenia. SQL Server AlwaysOn replikuje DBMS danych i plików dziennika przy użyciu własnego systemu DBMS replikacji. W takim przypadku możesz nie muszą klastra udostępnione dyski, które upraszcza hello wszystkie ustawienia.
 
 ![Rysunek 7: Przykładem DBMS SAP wysokiej dostępności, z programu SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
 _**Rysunek 7.** przykład DBMS SAP wysokiej dostępności, z programu SQL Server AlwaysOn_
 
-Aby uzyskać więcej informacji o klastrach programu SQL Server na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager zobacz następujące artykuły:
+Aby uzyskać więcej informacji o klastrach programu SQL Server na platformie Azure przy użyciu modelu wdrażania usługi Azure Resource Manager hello zobacz następujące artykuły:
 
 * [Konfiguruj zawsze włączone grupy dostępności w maszynach wirtualnych platformy Azure ręcznie przy użyciu usługi Resource Manager] [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 * [Konfiguruj Azure wewnętrznego modułu równoważenia obciążenia dla grupy dostępności AlwaysOn w Azure] [virtual-machines-windows-portal-sql-alwayson-int-listener]
@@ -356,8 +356,8 @@ Aby uzyskać więcej informacji o klastrach programu SQL Server na platformie Az
 
 Rysunek nr 8 przedstawia przykład architektury wysokiej dostępności programu SAP NetWeaver Azure **jeden** systemu SAP. Ten scenariusz jest skonfigurowane w następujący sposób:
 
-- Jeden dedykowanego klastra jest używany dla wystąpienia programu SAP ASCS/SCS.
-- Jeden dedykowanego klastra jest używany dla wystąpienia systemu DBMS.
+- Jeden dedykowanego klastra jest używany dla wystąpienia programu SAP ASCS/SCS hello.
+- Jeden dedykowanego klastra jest używany dla wystąpienia systemu DBMS hello.
 - SAP wystąpień serwera aplikacji są wdrażane w ich własnych dedykowanych maszyn wirtualnych.
 
 ![Rysunek 8: SAP wysokiej dostępności architektury szablonu 1, za pomocą dedykowanego klastra ASCS/SCS i bazami danych][sap-ha-guide-figure-2004]
@@ -368,7 +368,7 @@ _**Rysunek 8.** SAP architektury 1 szablonu wysokiej dostępności, dedykowane k
 
 Na rysunku nr 9 przedstawiono przykład architektury wysokiej dostępności programu SAP NetWeaver Azure **jeden** systemu SAP. Ten scenariusz jest skonfigurowane w następujący sposób:
 
-- Jeden klaster dedykowanych służy do **zarówno** wystąpienia SAP ASCS/SCS i systemu DBMS.
+- Jeden klaster dedykowanych służy do **zarówno** hello SAP ASCS/SCS wystąpienia i hello systemu DBMS.
 - SAP wystąpień serwera aplikacji są wdrażane w własnych dedykowanych maszyn wirtualnych.
 
 ![Rysunek 9: SAP wysokiej dostępności architektury szablonu 2, dedykowanego klastra dla ASCS/SCS i dedykowanego klastra dla systemu DBMS][sap-ha-guide-figure-2005]
@@ -379,39 +379,39 @@ _**Rysunek 9:** SAP wysokiej dostępności architektury szablonu 2, dedykowanego
 
 Na rysunku nr 10 przedstawiono architekturę SAP NetWeaver wysokiej dostępności platformy Azure dla **dwóch** SAP systemy, z &lt;SID1&gt; i &lt;SID2&gt;. Ten scenariusz jest skonfigurowane w następujący sposób:
 
-- Jeden dedykowanego klastra jest używany do **zarówno** z wystąpieniem SAP ASCS/SCS SID1 *i* z wystąpieniem SAP ASCS/SCS SID2 (jednego klastra).
+- Jeden dedykowanego klastra służy do **zarówno** wystąpienia hello SAP ASCS/SCS SID1 *i* hello SID2 ASCS/SCS SAP wystąpienia (jednego klastra).
 - Jeden dedykowanego klastra jest używany dla systemu DBMS SID1 i innym dedykowanego klastra jest używany dla systemu DBMS SID2 (dwa klastry).
-- SAP wystąpień serwera aplikacji dla systemu SAP SID1 ma swoje własne dedykowane maszyny wirtualne.
-- SAP wystąpień serwera aplikacji dla systemu SAP SID2 ma swoje własne dedykowane maszyny wirtualne.
+- SAP wystąpień serwera aplikacji hello systemu SAP SID1 ma swoje własne dedykowane maszyny wirtualne.
+- SAP wystąpień serwera aplikacji hello systemu SAP SID2 ma swoje własne dedykowane maszyny wirtualne.
 
 ![Rysunek 10: Wysoka dostępność architektury szablonu 3, z dedykowanym klastrem w różnych wystąpieniach ASCS/SCS SAP][sap-ha-guide-figure-6003]
 
 _**Rysunek 10:** wysokiej dostępności architektury szablonu 3, z dedykowanym klastrem w różnych wystąpieniach ASCS/SCS SAP_
 
-## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a>Przygotowanie infrastruktury
+## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a>Przygotowanie infrastruktury hello
 
-### <a name="prepare-the-infrastructure-for-architectural-template-1"></a>Przygotowanie infrastruktury dla architektury 1 szablonu
+### <a name="prepare-hello-infrastructure-for-architectural-template-1"></a>Przygotowanie infrastruktury hello architektury 1 szablonu
 Szablony usługi Azure Resource Manager dla programu SAP uprościć wdrażanie wymaganych zasobów.
 
-Trójwarstwowa szablonów usługi Azure Resource Manager obsługuje również scenariuszy wysokiej dostępności, takich jak w architektury 1 szablon, który ma dwa klastry. Każdy klaster jest SAP pojedynczego punktu awarii dla programu SAP ASCS/SCS i bazami danych.
+Hello trójwarstwowa szablonów usługi Azure Resource Manager obsługuje również scenariuszy wysokiej dostępności, takich jak w architektury 1 szablon, który ma dwa klastry. Każdy klaster jest SAP pojedynczego punktu awarii dla programu SAP ASCS/SCS i bazami danych.
 
-Oto, gdzie można uzyskać szablonów usługi Azure Resource Manager przykładowy scenariusz, który opisano w tym artykule:
+Oto, gdzie można uzyskać szablonów usługi Azure Resource Manager hello przykładowy scenariusz, który opisano w tym artykule:
 
 * [Obraz Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [Za pomocą zarządzanych dysków Azure obrazu z witryny Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 * [Niestandardowy obraz za pomocą dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
-Aby przygotować infrastrukturę do architektury szablon 1:
+Infrastruktura hello tooprepare dla architektury szablon 1:
 
-- W portalu Azure na **parametry** bloku, w **SYSTEMAVAILABILITY** wybierz opcję **HA**.
+- W portalu Azure na powitania hello **parametry** bloku w hello **SYSTEMAVAILABILITY** wybierz opcję **HA**.
 
   ![Rysunek 11: Ustaw parametry usługi Azure Resource Manager wysokiej dostępności SAP][sap-ha-guide-figure-3000]
 
 _**Rysunek 11:** ustawić parametry usługi Azure Resource Manager wysokiej dostępności SAP_
 
 
-  Tworzenie szablonów:
+  Utwórz szablony Hello:
 
   * **Maszyny wirtualne**:
     * Maszyny wirtualne serwera aplikacji SAP: <*SAPSystemSID*> - podpisane — <*numer*>
@@ -431,41 +431,41 @@ _**Rysunek 11:** ustawić parametry usługi Azure Resource Manager wysokiej dost
     * System DBMS klastrowanie maszyn wirtualnych: <*SAPSystemSID*> - avset - db
 
   * **Azure wewnętrznego modułu równoważenia obciążenia**:
-    * Z wszystkimi portami dla wystąpienia ASCS/SCS i adresu IP <*SAPSystemSID*> - lb - ascs
-    * Z wszystkimi portami dla adresu IP i bazami danych programu SQL Server <*SAPSystemSID*> - lb - db
+    * Z wszystkimi portami dla wystąpienia ASCS/SCS hello i adresu IP <*SAPSystemSID*> - lb - ascs
+    * Z wszystkimi portami dla adresu IP i bazami danych programu SQL Server hello <*SAPSystemSID*> - lb - db
 
   * **Grupy zabezpieczeń sieci**: <*SAPSystemSID*> - nsg - ascs-0  
-    * Z otwartego portu zewnętrznego protokołu RDP (Remote Desktop) do <*SAPSystemSID*> - ascs - 0 maszyny wirtualnej
+    * Z otwartych zewnętrznych toohello port protokołu RDP (Remote Desktop) <*SAPSystemSID*> - ascs - 0 maszyny wirtualnej
 
 > [!NOTE]
-> Wszystkie adresy IP Azure wewnętrzne moduły równoważenia obciążenia i karty sieciowe są **dynamiczne** domyślnie. Zmień je, aby **statycznych** adresów IP. Firma Microsoft opisano, jak to zrobić w dalszej części tego artykułu.
+> Wszystkie adresy IP karty sieciowej hello i Azure wewnętrzne moduły równoważenia obciążenia są **dynamiczne** domyślnie. Zmień je za**statycznych** adresów IP. Opisano sposób toodo to w dalszej części artykułu hello.
 >
 >
 
-### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Wdrażanie maszyn wirtualnych z połączeniem sieci firmowej (między lokalizacjami) do użycia w środowisku produkcyjnym
+### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Wdrażanie maszyn wirtualnych z siecią firmową toouse łączności (między lokalizacjami) w środowisku produkcyjnym
 Dla systemów SAP produkcyjnych, wdrażanie maszyn wirtualnych platformy Azure z [łączności z siecią firmową (między lokalizacjami)] [ planning-guide-2.2] za pomocą usługi Azure Site to Site VPN lub rozwiązania Azure ExpressRoute.
 
 > [!NOTE]
-> Można użyć wystąpienia sieci wirtualnej platformy Azure. Sieć wirtualna i podsieć już zostały utworzone i przygotowane.
+> Można użyć wystąpienia sieci wirtualnej platformy Azure. sieć wirtualna Hello i podsieć już zostały utworzone i przygotowane.
 >
 >
 
-1.  W portalu Azure na **parametry** bloku, w **NEWOREXISTINGSUBNET** wybierz opcję **istniejących**.
-2.  W **SUBNETID** Dodaj pełne ciąg przygotowanego sieci Azure SubnetID, w którym zamierzasz wdrożyć maszyny wirtualne Azure.
-3.  Aby uzyskać listę wszystkich podsieci w sieci Azure, uruchom następujące polecenie programu PowerShell:
+1.  W portalu Azure na powitania hello **parametry** bloku w hello **NEWOREXISTINGSUBNET** wybierz opcję **istniejących**.
+2.  W hello **SUBNETID** Dodaj pełne ciąg hello sieci Azure przygotowane SubnetID, w którym planujesz toodeploy maszynach wirtualnych platformy Azure.
+3.  tooget listę wszystkich podsieci w sieci Azure, uruchom następujące polecenie programu PowerShell:
 
   ```PowerShell
   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
   ```
 
-  **Identyfikator** pola pokazuje **SUBNETID**.
-4. Aby uzyskać listę wszystkich **SUBNETID** wartości, uruchom to polecenie programu PowerShell:
+  Witaj **identyfikator** pole zawiera hello **SUBNETID**.
+4. Lista wszystkich tooget **SUBNETID** wartości, uruchom to polecenie programu PowerShell:
 
   ```PowerShell
   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
   ```
 
-  **SUBNETID** wygląda podobnie do następującej:
+  Witaj **SUBNETID** wygląda podobnie do następującej:
 
   ```
   /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
@@ -474,19 +474,19 @@ Dla systemów SAP produkcyjnych, wdrażanie maszyn wirtualnych platformy Azure z
 ### <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a>Wdrażanie wystąpień SAP tylko w chmurze dla testu i pokaz
 Można wdrożyć systemu SAP wysokiej dostępności w modelu wdrażania tylko w chmurze. Tego rodzaju wdrożenia przede wszystkim jest przydatna do demo i test przypadki użycia. Nie nadaje się do przypadków użycia w środowisku produkcyjnym.
 
-- W portalu Azure na **parametry** bloku, w **NEWOREXISTINGSUBNET** wybierz opcję **nowe**. Pozostaw **SUBNETID** pole puste.
+- W portalu Azure na powitania hello **parametry** bloku w hello **NEWOREXISTINGSUBNET** wybierz opcję **nowe**. Pozostaw hello **SUBNETID** pole puste.
 
-  Szablon SAP usługi Azure Resource Manager automatycznie tworzy sieci wirtualnej platformy Azure i podsieć.
+  Witaj SAP usługi Azure Resource Manager automatycznie tworzy szablon hello sieci wirtualnej platformy Azure i podsieć.
 
 > [!NOTE]
-> Należy również wdrożyć co najmniej jednej maszyny wirtualnej dedykowanego dla usługi Active Directory i DNS w tym samym wystąpieniu sieci wirtualnej platformy Azure. Szablon nie tworzy tych maszyn wirtualnych.
+> Należy również toodeploy maszyny wirtualnej co najmniej jednego przeznaczonego do usługi Active Directory i DNS w hello tego samego wystąpienia usługi Azure Virtual Network. Szablon Hello nie tworzy tych maszyn wirtualnych.
 >
 >
 
 
-### <a name="prepare-the-infrastructure-for-architectural-template-2"></a>Przygotowanie infrastruktury dla architektury 2 szablonu
+### <a name="prepare-hello-infrastructure-for-architectural-template-2"></a>Przygotowanie infrastruktury hello architektury 2 szablonu
 
-Ten szablon Menedżera zasobów Azure dla programu SAP służy do uproszczenia wdrażania zasobów wymaganej infrastruktury dla programu SAP architektury 2 szablonu.
+Dla SAP toohelp uprościć wdrażanie zasobów wymaganej infrastruktury dla programu SAP architektury szablonu 2, można użyć tego szablonu usługi Azure Resource Manager.
 
 Oto, gdzie można uzyskać szablonów usługi Azure Resource Manager dla tego scenariusza wdrażania:
 
@@ -496,122 +496,122 @@ Oto, gdzie można uzyskać szablonów usługi Azure Resource Manager dla tego sc
 * [Niestandardowy obraz za pomocą dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
-### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Przygotowanie infrastruktury dla architektury 3 szablonu
+### <a name="prepare-hello-infrastructure-for-architectural-template-3"></a>Przygotowanie infrastruktury hello architektury 3 szablonu
 
-Można przygotować infrastrukturę i skonfigurować SAP dla **multi-SID**. Na przykład można dodać dodatkowe wystąpienia SAP ASCS/SCS do *istniejących* konfiguracji klastra. Aby uzyskać więcej informacji, zobacz [skonfigurować dodatkowe wystąpienia SAP ASCS/SCS do istniejącej konfiguracji klastra do utworzenia konfiguracji wielu SID SAP w usłudze Azure Resource Manager][sap-ha-multi-sid-guide].
+Można przygotować infrastrukturę hello i skonfigurować SAP dla **multi-SID**. Na przykład można dodać dodatkowe wystąpienia SAP ASCS/SCS do *istniejących* konfiguracji klastra. Aby uzyskać więcej informacji, zobacz [skonfigurować dodatkowe wystąpienia SAP ASCS/SCS do istniejącej konfiguracji klastra toocreate SAP identyfikatora SID wielu konfiguracji usługi Azure Resource Manager][sap-ha-multi-sid-guide].
 
-Jeśli chcesz utworzyć nowy klaster multi-identyfikator SID, można użyć identyfikatora SID multi [szablony szybkiego startu w serwisie GitHub](https://github.com/Azure/azure-quickstart-templates).
-Aby utworzyć nowy klaster multi-identyfikator SID, należy wdrożyć trzy następujące szablony:
+Chcąc toocreate multi-SID nowego klastra, można użyć hello multi-SID [szablony szybkiego startu w serwisie GitHub](https://github.com/Azure/azure-quickstart-templates).
+toocreate multi-SID nowego klastra należy hello toodeploy następujące trzy szablony:
 
 * [ASCS/SCS szablonu](#ASCS-SCS-template)
 * [Szablon bazy danych](#database-template)
 * [Szablon serwerów aplikacji](#application-servers-template)
 
-Poniższe sekcje mają więcej szczegółów na temat szablonów oraz parametry, które należy podać w szablonach.
+Witaj następujące sekcje mają więcej szczegółów na temat szablonów hello i parametry hello należy tooprovide w szablonach hello.
 
 #### <a name="ASCS-SCS-template"></a>ASCS/SCS szablonu
 
-Szablon ASCS/SCS wdraża dwie maszyny wirtualne, których można utworzyć klaster trybu failover systemu Windows Server, który obsługuje wiele wystąpień ASCS/SCS.
+Szablon ASCS/SCS Hello wdraża dwie maszyny wirtualne, których można używać klastra pracy awaryjnej systemu Windows Server, który obsługuje wiele wystąpień ASCS/SCS toocreate.
 
-Aby skonfigurować szablon identyfikatora SID multi ASCS/SCS, w [szablon identyfikatora SID multi ASCS/SCS] [ sap-templates-3-tier-multisid-xscs-marketplace-image] lub [ASCS/SCS identyfikatora SID multi szablonu za pomocą dysków zarządzanych] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], wprowadź wartości dla następujących parametrów:
+tooset się szablon hello ASCS/SCS multi-SID w hello [szablon identyfikatora SID multi ASCS/SCS] [ sap-templates-3-tier-multisid-xscs-marketplace-image] lub [ASCS/SCS identyfikatora SID multi szablonu za pomocą dysków zarządzanych] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], wprowadź wartości dla hello następujące parametry:
 
-  - **Prefiks zasobów**.  Ustaw prefiks zasobu, który jest używany do prefiksu wszystkie zasoby, które są tworzone podczas wdrażania. Ponieważ zasoby nie należą do tylko jednej systemu SAP, prefiks zasobu nie jest częścią identyfikatora SID jednego systemu SAP.  Prefiks musi należeć do zakresu od **trzech do sześciu znaków**.
-  - **Na stosie typu**. Wybierz typ stosu systemu SAP. W zależności od typu stosu modułu równoważenia obciążenia Azure ma jeden (ABAP lub tylko Java) lub dwóch (ABAP + Java) prywatnych adresów IP na systemu SAP.
-  -  **Typ systemu operacyjnego**. Wybierz system operacyjny maszyn wirtualnych.
-  -  **Liczba systemu SAP**. Wybierz liczbę systemów SAP, który ma zostać zainstalowany w tym klastrze.
+  - **Prefiks zasobów**.  Ustaw wszystkie zasoby, które są tworzone podczas wdrażania hello hello zasobów prefiks, który jest używany tooprefix. Ponieważ zasoby hello nie należą tooonly jednego systemu SAP, prefiks hello hello zasobu nie jest hello identyfikatora SID jednego systemu SAP.  Prefiks Hello musi należeć do zakresu od **trzech do sześciu znaków**.
+  - **Na stosie typu**. Wybierz typ stosu hello hello systemu SAP. W zależności od typu stosu hello usługi równoważenia obciążenia Azure ma jeden (ABAP lub tylko Java) lub dwóch (ABAP + Java) prywatnych adresów IP na systemu SAP.
+  -  **Typ systemu operacyjnego**. Wybierz system operacyjny hello hello maszyn wirtualnych.
+  -  **Liczba systemu SAP**. Wybierz liczbę hello systemów SAP ma tooinstall w tym klastrze.
   -  **Dostępność systemu**. Wybierz **HA**.
-  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, który może służyć do logowania się na tym komputerze.
-  -  **Nowy lub istniejący podsieci**. Określ, czy należy utworzyć nową sieć wirtualną i podsieć lub istniejącą podsieć powinna być używana. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz **istniejących**.
-  -  **Identyfikator podsieci**. Ustawienia identyfikatorów podsieci, do którego powinny być połączone maszyn wirtualnych. Wybierz podsieć sieci wirtualnej sieci prywatnej (VPN) lub usługi sieci wirtualnej sieci lokalnej nawiązać połączenia z maszyną wirtualną. Identyfikator zwykle wygląda następująco:
+  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, które mogą być używane toosign toohello maszyny.
+  -  **Nowy lub istniejący podsieci**. Określ, czy należy utworzyć nową sieć wirtualną i podsieć lub istniejącą podsieć powinna być używana. Jeśli masz już sieć wirtualną tooyour połączonych sieci lokalnej, wybierz **istniejących**.
+  -  **Identyfikator podsieci**. Identyfikator zestawu hello maszyn wirtualnych hello hello podsieci toowhich powinny być połączone. Wybierz podsieć hello wirtualnej sieci prywatnej (VPN) lub sieci lokalnej tooyour ExpressRoute sieci wirtualnej tooconnect hello maszyny wirtualnej. Identyfikator Hello zwykle wygląda następująco:
 
    /Subscriptions/ <*identyfikator subskrypcji*> /resourceGroups/ <*Nazwa grupy zasobów*> /providers/Microsoft.Network/virtualNetworks/ <*wirtualnej nazwy sieciowej*> /subnets/ <*nazwy podsieci*>
 
-Szablon wdraża jedno wystąpienie usługi równoważenia obciążenia Azure, która obsługuje wiele systemów SAP.
+Szablon Hello wdraża jedno wystąpienie usługi równoważenia obciążenia Azure, która obsługuje wiele systemów SAP.
 
-- Wystąpienia ASCS powinny być skonfigurowane dla liczby wystąpień 00, 10, 20...
-- Wystąpienia SCS powinny być skonfigurowane dla liczby wystąpień 01 11, 21...
-- Wystąpienia ASCS umieścić w kolejce replikacji serwera (Wywołujących) (tylko w systemie Linux) są skonfigurowane dla liczby wystąpień 02, 12, 22...
-- Wystąpienia Wywołujących SCS (tylko w systemie Linux) są skonfigurowane dla liczby wystąpień 03, 13, 23...
+- wystąpienia ASCS Hello są skonfigurowane dla liczby wystąpień 00, 10, 20...
+- wystąpienia SCS Hello są skonfigurowane dla liczby wystąpień 01 11, 21...
+- Witaj wystąpień ASCS umieścić w kolejce replikacji serwera (Wywołujących) (tylko w systemie Linux) są skonfigurowane do liczby wystąpień 02, 12, 22...
+- Witaj wystąpień Wywołujących SCS (tylko w systemie Linux) są skonfigurowane do liczby wystąpień 03, 13, 23...
 
-Moduł równoważenia obciążenia zawiera 1 (2 dla systemu Linux) VIP(s), 1 x dla ASCS/SCS i 1 x adres VIP dla Wywołujących (tylko w systemie Linux).
+Witaj modułu równoważenia obciążenia zawiera 1 (2 dla systemu Linux) VIP(s), 1 x dla ASCS/SCS i 1 x adres VIP dla Wywołujących (tylko w systemie Linux).
 
-Poniższa lista zawiera wszystkie reguły, o których (gdzie x jest numerem systemu SAP, na przykład 1, 2, 3...) równoważenia obciążenia:
+Witaj Poniższa lista zawiera wszystkie reguły, o których (gdzie x to liczba hello hello systemu SAP, na przykład 1, 2, 3...) równoważenia obciążenia:
 - Porty właściwe dla systemu Windows dla każdego systemu SAP: 445, 5985
 - Porty ASCS (liczby wystąpień x0): 32 x 0, 36 x 0, 39 x 0, 81 x 0, 5 x 013, 5 x 014, 5 x 016
 - Porty SCS (liczby wystąpień x1): 32 x 1, 33 x 1, 39 x 1, 81 x 1, 5 x 113, 5 x 114, 5 x 116
 - Wywołujących ASCS porty w systemie Linux (liczby wystąpień x2): 33 x 2, 5 x 213, 5 x 214, 5 x 216
 - Wywołujących SCS porty w systemie Linux (liczby wystąpień x3): 33 x 3, 5 x 313, 5 x 314, 5 x 316
 
-Moduł równoważenia obciążenia jest skonfigurowana do używania następujące porty sondowania (gdzie x jest numerem systemu SAP, na przykład 1, 2, 3...):
+Moduł równoważenia obciążenia Hello jest hello toouse skonfigurowane następujące porty sondowania (gdzie x to liczba hello hello systemu SAP, na przykład 1, 2, 3...):
 - Port sondy modułu równoważenia obciążenia wewnętrznego ASCS/SCS: 620 x 0
 - Wewnętrzny Wywołujących załadować port sondy modułu równoważenia (tylko w systemie Linux): 621 x 2
 
 #### <a name="database-template"></a>Szablon bazy danych
 
-Szablon bazy danych wdraża co najmniej dwóch maszyn wirtualnych, które służy do instalowania systemu zarządzania relacyjnej bazy danych (RDBMS) dla jednego systemu SAP. Na przykład jeśli wdrożono szablon ASCS/SCS pięć systemów SAP, należy wdrożyć tego szablonu pięć razy.
+szablon bazy danych Hello wdraża jedną lub dwie maszyny wirtualne, których można używać tooinstall hello system zarządzania relacyjnymi bazami (danych RDBMS) dla jednego systemu SAP. Na przykład jeśli wdrożono szablon ASCS/SCS pięć systemów SAP, należy toodeploy ten szablon pięć razy.
 
-Aby skonfigurować szablon identyfikatora SID multi bazy danych, w [bazy danych wielu SID szablonu] [ sap-templates-3-tier-multisid-db-marketplace-image] lub [szablon identyfikatora SID multi bazy danych przy użyciu dysków zarządzanych] [ sap-templates-3-tier-multisid-db-marketplace-image-md], wprowadź wartości dla następujących parametrów:
+tooset się hello szablon identyfikatora SID multi bazy danych, w hello [bazy danych wielu SID szablonu] [ sap-templates-3-tier-multisid-db-marketplace-image] lub [szablon identyfikatora SID multi bazy danych przy użyciu dysków zarządzanych] [ sap-templates-3-tier-multisid-db-marketplace-image-md], wprowadź wartości dla hello następujące parametry:
 
-  -  **Identyfikator systemu SAP**. Wprowadź identyfikator systemu SAP systemu SAP, które chcesz zainstalować. Identyfikator będzie służyć jako prefiks dla zasobów, które zostały wdrożone.
-  -  **Typ systemu operacyjnego**. Wybierz system operacyjny maszyn wirtualnych.
-  -  **Wartość DbType**. Wybierz typ bazy danych, którą chcesz zainstalować w klastrze. Wybierz **SQL** Jeśli chcesz zainstalować program Microsoft SQL Server. Wybierz **HANA** Jeśli zamierzasz zainstalować SAP HANA na maszynach wirtualnych. Upewnij się, że wybrano prawidłowy typ systemu operacyjnego: Wybierz **Windows** SQL i wybierz opcję dystrybucji systemu Linux HANA. Równoważenia obciążenia Azure, który jest podłączony do maszyny wirtualnej zostanie skonfigurowany do obsługi typu wybranej bazy danych:
-    * **SQL**. Moduł równoważenia obciążenia będzie Równoważenie obciążenia portu 1433. Upewnij się użyć tego portu dla ustawień programu SQL Server AlwaysOn.
-    * **HANA**. Moduł równoważenia obciążenia będzie Równoważenie obciążenia portów 35015 i 35017. Upewnij się zainstalować SAP HANA z liczby wystąpień **50**.
-    Moduł równoważenia obciążenia będzie używać portu sondowania 62550.
-  -  **Rozmiar systemu SAP**. Ustaw liczbę protokoły SAP zapewnia nowy system. Jeśli nie wiadomo jak wiele protokoły SAP wymaga systemu, zapytaj SAP technologii partnera lub Integrator systemu.
+  -  **Identyfikator systemu SAP**. Wprowadź identyfikator systemu SAP hello hello ma tooinstall systemu SAP. Identyfikator Hello będzie służyć jako prefiks hello zasobów, które zostały wdrożone.
+  -  **Typ systemu operacyjnego**. Wybierz system operacyjny hello hello maszyn wirtualnych.
+  -  **Wartość DbType**. Wybierz typ hello hello bazy danych ma tooinstall na powitania klastra. Wybierz **SQL** Jeśli chcesz tooinstall programu Microsoft SQL Server. Wybierz **HANA** Jeśli planujesz tooinstall SAP HANA hello maszyn wirtualnych. Upewnij się, że tooselect hello poprawnego typu systemu operacyjnego: Wybierz **Windows** SQL i wybierz opcję dystrybucji systemu Linux HANA. Witaj równoważenia obciążenia Azure, który jest połączony toohello, które maszyny wirtualne będą skonfigurowane toosupport hello wybrane bazy danych typu:
+    * **SQL**. Moduł równoważenia obciążenia Hello będzie Równoważenie obciążenia portu 1433. Upewnij się, że toouse tego portu dla ustawień programu SQL Server AlwaysOn.
+    * **HANA**. Moduł równoważenia obciążenia Hello będzie Równoważenie obciążenia portów 35015 i 35017. Upewnij się, że tooinstall SAP HANA z liczby wystąpień **50**.
+    Moduł równoważenia obciążenia Hello będzie używać portu sondowania 62550.
+  -  **Rozmiar systemu SAP**. Dostarcza zestaw hello liczba protokoły SAP hello nowy system. Jeśli nie masz pewności, ile protokoły SAP hello system będzie wymagać, zapytaj SAP technologii partnera lub Integrator systemu.
   -  **Dostępność systemu**. Wybierz **HA**.
-  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, który może służyć do logowania się na tym komputerze.
-  -  **Identyfikator podsieci**. Wprowadź identyfikator podsieci, który został użyty podczas wdrażania szablonu ASCS/SCS lub identyfikator podsieci, który został utworzony jako część wdrożenia szablonu ASCS/SCS.
+  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, które mogą być używane toosign toohello maszyny.
+  -  **Identyfikator podsieci**. Wprowadź identyfikator hello hello podsieci, który został użyty podczas wdrażania hello hello ASCS/SCS szablonu lub identyfikator hello hello podsieci, który został utworzony jako część hello ASCS/SCS szablonu wdrożenia.
 
 #### <a name="application-servers-template"></a>Szablon serwerów aplikacji
 
-Szablon aplikacji serwerów wdraża dwóch lub więcej maszyn wirtualnych, które mogą służyć jako wystąpień serwera aplikacji SAP jednego systemu SAP. Na przykład jeśli wdrożono szablon ASCS/SCS pięć systemów SAP, należy wdrożyć tego szablonu pięć razy.
+Szablon serwerów aplikacji Hello wdraża dwóch lub więcej maszyn wirtualnych, które mogą służyć jako wystąpień serwera aplikacji SAP jednego systemu SAP. Na przykład jeśli wdrożono szablon ASCS/SCS pięć systemów SAP, należy toodeploy ten szablon pięć razy.
 
-Aby skonfigurować szablon identyfikatora SID wielu serwerów aplikacji, w [szablon identyfikatora SID wielu serwerów aplikacji] [ sap-templates-3-tier-multisid-apps-marketplace-image] lub [szablon identyfikatora SID wielu serwerów aplikacji za pomocą zarządzania dyskami] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], wprowadź wartości dla następujących parametrów:
+tooset się hello serwerów wielu SID szablon aplikacji w hello [szablon identyfikatora SID wielu serwerów aplikacji] [ sap-templates-3-tier-multisid-apps-marketplace-image] lub [szablon identyfikatora SID wielu serwerów aplikacji za pomocą zarządzania dyskami] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], wprowadź wartości dla hello następujące parametry:
 
-  -  **Identyfikator systemu SAP**. Wprowadź identyfikator systemu SAP systemu SAP, które chcesz zainstalować. Identyfikator będzie służyć jako prefiks dla zasobów, które zostały wdrożone.
-  -  **Typ systemu operacyjnego**. Wybierz system operacyjny maszyn wirtualnych.
-  -  **Rozmiar systemu SAP**. Liczba protokoły SAP zapewnia nowy system. Jeśli nie wiadomo jak wiele protokoły SAP wymaga systemu, zapytaj SAP technologii partnera lub Integrator systemu.
+  -  **Identyfikator systemu SAP**. Wprowadź identyfikator systemu SAP hello hello ma tooinstall systemu SAP. Identyfikator Hello będzie służyć jako prefiks hello zasobów, które zostały wdrożone.
+  -  **Typ systemu operacyjnego**. Wybierz system operacyjny hello hello maszyn wirtualnych.
+  -  **Rozmiar systemu SAP**. określi liczbę Hello protokoły SAP hello nowy system. Jeśli nie masz pewności, ile protokoły SAP hello system będzie wymagać, zapytaj SAP technologii partnera lub Integrator systemu.
   -  **Dostępność systemu**. Wybierz **HA**.
-  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, który może służyć do logowania się na tym komputerze.
-  -  **Identyfikator podsieci**. Wprowadź identyfikator podsieci, który został użyty podczas wdrażania szablonu ASCS/SCS lub identyfikator podsieci, który został utworzony jako część wdrożenia szablonu ASCS/SCS.
+  -  **Nazwa użytkownika i hasło administratora**. Utwórz nowego użytkownika, które mogą być używane toosign toohello maszyny.
+  -  **Identyfikator podsieci**. Wprowadź identyfikator hello hello podsieci, który został użyty podczas wdrażania hello hello ASCS/SCS szablonu lub identyfikator hello hello podsieci, który został utworzony jako część hello ASCS/SCS szablonu wdrożenia.
 
 
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a>Sieć wirtualna platformy Azure
-W naszym przykładzie przestrzeni adresowej sieci wirtualnej platformy Azure jest 10.0.0.0/16. Brak jednej podsieci o nazwie **podsieci**, z zakresu adresów 10.0.0.0/24. Wszystkie maszyny wirtualne i wewnętrzne moduły równoważenia obciążenia są wdrażane w tej sieci wirtualnej.
+W naszym przykładzie hello przestrzeni adresowej sieci wirtualnej platformy Azure hello jest 10.0.0.0/16. Brak jednej podsieci o nazwie **podsieci**, z zakresu adresów 10.0.0.0/24. Wszystkie maszyny wirtualne i wewnętrzne moduły równoważenia obciążenia są wdrażane w tej sieci wirtualnej.
 
 > [!IMPORTANT]
-> Nie wprowadzono żadnych zmian w ustawieniach sieci w systemie operacyjnym gościa. W tym adresy IP, serwery DNS i podsieci. Skonfiguruj ustawienia sieci na platformie Azure. Usługa protokołu dynamicznej konfiguracji hosta (DHCP) propaguje ustawienia.
+> Nie wprowadzono żadnych zmian toohello ustawień sieciowych w systemie operacyjnym gościa hello. W tym adresy IP, serwery DNS i podsieci. Skonfiguruj ustawienia sieci na platformie Azure. Witaj usługi protokołu dynamicznej konfiguracji hosta (DHCP) propaguje ustawienia.
 >
 >
 
 ### <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a>Adresy IP serwera DNS
 
-Aby ustawić wymagany adres IP DNS adresów, wykonaj następujące kroki.
+Witaj tooset wymagane adresy IP serwera DNS, hello następujące kroki.
 
-1.  W portalu Azure na **serwerów DNS** bloku, upewnij się, że sieci wirtualnej **serwerów DNS** ustawiono opcję **niestandardowe DNS**.
-2.  Wybierz ustawienia, na podstawie typu sieci, z którą masz. Więcej informacji zawierają następujące zasoby:
-    * [Łączność sieci firmowej (między lokalizacjami)][planning-guide-2.2]: Dodaj adresy IP lokalnych serwerów DNS.  
-    Można rozszerzyć lokalnych serwerów DNS do maszyn wirtualnych, które są uruchomione na platformie Azure. W tym scenariuszu można dodać adresy IP maszyn wirtualnych platformy Azure, na których uruchomiono usługi DNS.
-    * [Tylko w chmurze wdrożenia][planning-guide-2.1]: wdrożyć dodatkowe maszyny wirtualnej, w tym samym wystąpieniu sieci wirtualnej, która służy jako serwer DNS. Dodaj adresy IP maszyn wirtualnych platformy Azure, które zostały skonfigurowane do uruchamiania usługi DNS.
+1.  W portalu Azure na powitania hello **serwerów DNS** bloku, upewnij się, że sieci wirtualne **serwerów DNS** opcja jest ustawiona zbyt**niestandardowe DNS**.
+2.  Wybierz ustawienia, na podstawie typu hello sieci, do których masz. Aby uzyskać więcej informacji zobacz następujące zasoby hello:
+    * [Łączność sieci firmowej (między lokalizacjami)][planning-guide-2.2]: Dodaj hello adresy IP serwerów DNS lokalne powitania.  
+    Można rozszerzyć lokalnymi DNS serwerów toohello maszyn wirtualnych, które są uruchomione na platformie Azure. W tym scenariuszu można dodać adresy IP hello hello Azure maszyn wirtualnych, na których uruchomiono hello usługi DNS.
+    * [Tylko w chmurze wdrożenia][planning-guide-2.1]: wdrożyć dodatkowe maszyny wirtualnej w hello tego samego wystąpienia sieci wirtualnej, która służy jako serwer DNS. Dodaj adresy IP hello hello Azure maszyn wirtualnych, które po skonfigurowaniu toorun usługi DNS.
 
     ![Rysunek 12: Należy skonfigurować serwery DNS dla sieci wirtualnej platformy Azure][sap-ha-guide-figure-3001]
 
     _**Rysunek 12:** DNS Konfigurowanie serwerów na potrzeby sieci wirtualnej platformy Azure_
 
   > [!NOTE]
-  > W przypadku zmiany adresów IP serwerów DNS, musisz ponownie uruchomić maszyn wirtualnych platformy Azure, aby zastosować zmiany oraz propagację nowych serwerów DNS.
+  > Jeśli zmienisz hello adresy IP serwerów DNS hello należy toorestart hello maszyn wirtualnych platformy Azure tooapply hello zmiany oraz propagację hello nowych serwerów DNS.
   >
   >
 
-W tym przykładzie usługa DNS jest zainstalowany i skonfigurowany na tych maszyn wirtualnych systemu Windows:
+W naszym przykładzie hello usługa DNS jest instalowany i konfigurowany na tych maszynach wirtualnych systemu Windows:
 
 | Roli maszyny wirtualnej | Nazwa hosta maszyny wirtualnej | Nazwa karty sieciowej | Statyczny adres IP |
 | --- | --- | --- | --- |
 | Pierwszy serwer DNS |domcontr 0 |PR1-nic-domcontr-0 |10.0.0.10 |
 | Drugi serwer DNS |domcontr-1 |PR1-nic-domcontr-1 |10.0.0.11 |
 
-### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>Nazwy hosta i statyczne adresy IP dla SAP ASCS/SCS wystąpienia klastra i klastrowanego wystąpienia systemu DBMS
+### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>Nazwy hosta i statyczne adresy IP dla klastrowanego wystąpienia programu SAP ASCS/SCS hello i DBMS klastrowanego wystąpienia
 
 Dla wdrożenia lokalnego należy te hosta zarezerwowanych nazw i adresów IP:
 
@@ -621,26 +621,26 @@ Dla wdrożenia lokalnego należy te hosta zarezerwowanych nazw i adresów IP:
 | Nazwa hosta wirtualnego wystąpienia programu SAP ASCS/SCS |PR1 ascs sap |10.0.0.43 |
 | Nazwa systemu DBMS SAP do hostów wirtualnych drugi klastra (klastra zarządzania) |PR1-dbms-vir |10.0.0.32 |
 
-Podczas tworzenia klastra, można utworzyć nazwy hostów wirtualnych **pr1-ascs-vir** i **pr1-dbms-vir** i skojarzony adresy IP, które zarządzania klastrem. Aby dowiedzieć się, jak to zrobić, zobacz [zbieranie węzłów klastra w konfiguracji klastra][sap-ha-guide-8.12.1].
+Podczas tworzenia klastra hello, utworzyć hello nazwy hostów wirtualnych **pr1-ascs-vir** i **pr1-dbms-vir** i hello skojarzony adresy IP, które Zarządzanie hello samego klastra. Aby uzyskać informacje na temat toodo tego, zobacz [zbieranie węzłów klastra w konfiguracji klastra][sap-ha-guide-8.12.1].
 
-Inne dwie nazwy hostów wirtualnych, można ręcznie utworzyć **pr1 ascs sap** i **pr1 dbms sap**i skojarzony adresy IP na serwerze DNS. Wystąpienia SAP ASCS/SCS klastra i klastrowanego wystąpienia systemu DBMS używać tych zasobów. Aby dowiedzieć się, jak to zrobić, zobacz [Utwórz nazwę hosta wirtualnego dla klastrowanego wystąpienia programu SAP ASCS/SCS][sap-ha-guide-9.1.1].
+Można ręcznie utworzyć hello innych dwie nazwy hostów wirtualnych, **pr1 ascs sap** i **pr1 dbms sap**, i hello skojarzony adresy IP na powitania serwera DNS. Witaj klastrowanego wystąpienia programu SAP ASCS/SCS i hello klastrowane wystąpienie DBMS używać tych zasobów. Aby uzyskać informacje na temat toodo tego, zobacz [Utwórz nazwę hosta wirtualnego dla klastrowanego wystąpienia programu SAP ASCS/SCS][sap-ha-guide-9.1.1].
 
-### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ustaw statycznych adresów IP dla maszyn wirtualnych SAP
-Po wdrożeniu maszyny wirtualnej do użycia w klastrze, należy określić statycznych adresów IP dla wszystkich maszyn wirtualnych. W tym w konfiguracji sieci wirtualnej platformy Azure, a nie w systemie operacyjnym gościa.
+### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ustaw statycznych adresów IP dla maszyn wirtualnych hello SAP
+Po wdrożeniu hello toouse maszyny wirtualne w klastrze, należy tooset statycznych adresów IP dla wszystkich maszyn wirtualnych. W tym w konfiguracji sieci wirtualnej Azure hello, a nie w systemie operacyjnym gościa hello.
 
-1.  W portalu Azure wybierz **grupy zasobów** > **karta sieciowa** > **ustawienia** > **adres IP**.
-2.  Na **adresów IP** bloku, w obszarze **przypisania**, wybierz pozycję **statycznych**. W **adres IP** wprowadź adres IP, który ma być używany.
+1.  Hello portalu Azure, wybierz **grupy zasobów** > **karta sieciowa** > **ustawienia** > **adresu IP** .
+2.  Na powitania **adresów IP** bloku, w obszarze **przypisania**, wybierz pozycję **statycznych**. W hello **adres IP** wprowadź adres IP hello, które mają toouse.
 
   > [!NOTE]
-  > W przypadku zmiany adresu IP karty sieciowej, musisz ponownie uruchomić maszyn wirtualnych platformy Azure, aby zastosować zmiany.  
+  > Jeśli zmienisz hello adresu IP karty sieciowej hello należy toorestart hello maszyn wirtualnych platformy Azure tooapply hello zmiany.  
   >
   >
 
-  ![Rysunek 13: Zestaw statycznych adresów IP dla każdej maszyny wirtualnej karty sieciowej][sap-ha-guide-figure-3002]
+  ![Rysunek 13: Ustaw statycznych adresów IP dla karty sieciowej hello każdej maszyny wirtualnej][sap-ha-guide-figure-3002]
 
-  _**Rysunek 13:** ustawić statyczny adres IP dla każdej maszyny wirtualnej karty sieciowej_
+  _**Rysunek 13:** ustawić statyczny adres IP dla karty sieciowej hello każdej maszyny wirtualnej_
 
-  Powtórz ten krok dla wszystkich interfejsów sieciowych, dla wszystkich maszyn wirtualnych, włącznie ze maszyn wirtualnych, które ma być używany dla usługi Active Directory/serwera DNS.
+  Powtórz ten krok dla wszystkich interfejsów sieciowych, oznacza to, że dla wszystkich maszyn wirtualnych, w tym maszyny wirtualne mają toouse usługi/DNS usługi Active Directory.
 
 W naszym przykładzie mamy tych maszyn wirtualnych i statycznymi adresami IP:
 
@@ -655,25 +655,25 @@ W naszym przykładzie mamy tych maszyn wirtualnych i statycznymi adresami IP:
 | Pierwszym węźle klastra dla systemu DBMS wystąpienia |PR1-db-0 |PR1-nic-db-0 |10.0.0.30 |
 | Drugi węzeł klastra dla systemu DBMS wystąpienia |PR1-db-1 |PR1-nic-db-1 |10.0.0.31 |
 
-### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>Ustawianie statycznego adresu IP dla platformy Azure wewnętrznego modułu równoważenia obciążenia
+### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>Ustawianie statycznego adresu IP dla hello Azure wewnętrznego modułu równoważenia obciążenia
 
-Szablon SAP usługi Azure Resource Manager tworzy Azure wewnętrznego modułu równoważenia obciążenia używanego SAP ASCS/SCS wystąpienia klastra i klastrów systemu DBMS.
+Szablon SAP usługi Azure Resource Manager Hello tworzy Azure wewnętrznego modułu równoważenia obciążenia używanego hello SAP ASCS/SCS wystąpienia klastra i hello DBMS klastra.
 
 > [!IMPORTANT]
-> Adres IP, nazwy hostów wirtualnych SAP ASCS/SCS jest taki sam jak adres IP usługi równoważenia obciążenia wewnętrznego SAP ASCS/SCS: **pr1-lb-ascs**.
-> Adres IP, nazwy wirtualnego systemu DBMS jest taki sam jak adres IP usługi równoważenia obciążenia wewnętrznego systemu DBMS: **pr1-lb-dbms**.
+> Witaj adresu IP, nazwy hostów wirtualnych hello hello jest SAP ASCS/SCS hello sam jako adres IP hello hello SAP ASCS/SCS wewnętrznego modułu równoważenia obciążenia: **pr1-lb-ascs**.
+> Witaj adresu IP wirtualnej nazwy hello jest DBMS hello hello sam jako adres IP hello hello DBMS wewnętrznego modułu równoważenia obciążenia: **pr1-lb-dbms**.
 >
 >
 
-Aby ustawić statyczny adres IP usługi równoważenia obciążenia wewnętrznego Azure:
+tooset statyczny adres IP dla hello Azure wewnętrzny moduł równoważenia obciążenia:
 
-1.  Początkowe wdrożenie ustawia adres IP usługi równoważenia obciążenia wewnętrznego **dynamiczne**. W portalu Azure na **adresów IP** bloku, w obszarze **przypisania**, wybierz pozycję **statycznych**.
-2.  Ustawienie adresu IP usługi równoważenia obciążenia wewnętrznego **pr1-lb-ascs** adres IP nazwę hosta wirtualnego wystąpienia programu SAP ASCS/SCS.
-3.  Ustawienie adresu IP usługi równoważenia obciążenia wewnętrznego **pr1-lb-dbms** adres IP nazwę hosta wirtualnego wystąpienia systemu DBMS.
+1.  Witaj początkowe wdrożenie ustawia adres IP usługi równoważenia obciążenia wewnętrznego hello zbyt**dynamiczne**. W portalu Azure na powitania hello **adresów IP** bloku, w obszarze **przypisania**, wybierz pozycję **statycznych**.
+2.  Ustaw adres IP hello hello wewnętrznego modułu równoważenia obciążenia **pr1-lb-ascs** toohello adres IP nazwę hosta wirtualnego hello hello SAP ASCS/SCS wystąpienia.
+3.  Ustaw adres IP hello hello wewnętrznego modułu równoważenia obciążenia **pr1-lb-dbms** adres IP toohello nazwę hosta wirtualnego hello hello DBMS wystąpienia.
 
-  ![Rysunek 14: Ustaw statycznych adresów IP dla wewnętrznego modułu równoważenia obciążenia dla tego wystąpienia programu SAP ASCS/SCS][sap-ha-guide-figure-3003]
+  ![Rysunek 14: Ustaw statycznych adresów IP dla hello wewnętrznego modułu równoważenia obciążenia dla wystąpienia programu SAP ASCS/SCS hello][sap-ha-guide-figure-3003]
 
-  _**Rysunek 14:** ustawić statycznych adresów IP dla wewnętrznego modułu równoważenia obciążenia dla tego wystąpienia programu SAP ASCS/SCS_
+  _**Rysunek 14:** ustawić statycznych adresów IP dla hello wewnętrznego modułu równoważenia obciążenia dla wystąpienia programu SAP ASCS/SCS hello_
 
 W naszym przykładzie mamy dwa Azure wewnętrzne moduły równoważenia obciążenia mających te statycznych adresów IP:
 
@@ -683,17 +683,17 @@ W naszym przykładzie mamy dwa Azure wewnętrzne moduły równoważenia obciąż
 | System DBMS SAP wewnętrznego modułu równoważenia obciążenia |PR1-lb-dbms |10.0.0.33 |
 
 
-### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a>Domyślne reguły dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia ASCS/SCS
+### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a>Domyślne reguły dla hello Azure wewnętrznego modułu równoważenia obciążenia równoważenia obciążenia ASCS/SCS
 
-Szablon SAP usługi Azure Resource Manager tworzy portów, które są potrzebne:
-* Wystąpienie ABAP ASCS z domyślnej liczby wystąpień **00**
-* Wystąpienie Java SCS, numer wystąpienia domyślnego **01**
+Szablon Menedżera zasobów Azure SAP Hello tworzy hello portów, które są potrzebne:
+* Wystąpienie ABAP ASCS o numerze wystąpienia domyślnego hello **00**
+* Wystąpienie Java SCS, z numerem wystąpienie domyślne hello **01**
 
-Po zainstalowaniu wystąpieniem SAP ASCS/SCS, należy użyć domyślnej liczby wystąpień **00** dla wystąpienia programu ABAP ASCS i numer wystąpienia domyślnego **01** dla swojego wystąpienia Java SCS.
+Po zainstalowaniu wystąpieniem SAP ASCS/SCS, należy użyć liczby wystąpień domyślnego hello **00** dla ABAP ASCS wystąpienia i hello domyślne wystąpienie numer **01** dla swojego wystąpienia Java SCS.
 
-Następnie należy utworzyć wymagane równoważenia punktów końcowych dla portów SAP NetWeaver obciążenia wewnętrznego.
+Następnie należy utworzyć równoważenia punktów końcowych dla hello SAP NetWeaver porty wymagane obciążenia wewnętrznego.
 
-Aby utworzyć wymagane obciążenia wewnętrznego równoważenia punktów końcowych, najpierw należy utworzyć te równoważenia punktów końcowych dla portów SAP NetWeaver ABAP ASCS obciążenia:
+toocreate wymagane punkty końcowe równoważenia obciążenia wewnętrznego, najpierw należy utworzyć te równoważenia punktów końcowych dla portów SAP NetWeaver ABAP ASCS hello obciążenia:
 
 | Nazwa reguły równoważenia obciążenia/usługi | Domyślne numery portów | Konkretnych portów (ASCS wystąpienia z liczby wystąpień 00) (Wywołujących z 10) |
 | --- | --- | --- |
@@ -709,9 +709,9 @@ Aby utworzyć wymagane obciążenia wewnętrznego równoważenia punktów końco
 | Win RM *Lbrule5985* | |5985 |
 | Udział plików *Lbrule445* | |445 |
 
-_**Tabela 1:** portu liczby wystąpień programu SAP NetWeaver ABAP ASCS_
+_**Tabela 1:** portu liczby wystąpień programu SAP NetWeaver ABAP ASCS hello_
 
-Następnie utwórz te równoważenia punktów końcowych dla portów SAP NetWeaver Java SCS obciążenia:
+Następnie utwórz te równoważenia punktów końcowych dla portów SAP NetWeaver Java SCS hello obciążenia:
 
 | Nazwa reguły równoważenia obciążenia/usługi | Domyślne numery portów | Konkretnych portów (SCS wystąpienia z liczby wystąpień 01) (Wywołujących z 11) |
 | --- | --- | --- |
@@ -727,55 +727,55 @@ Następnie utwórz te równoważenia punktów końcowych dla portów SAP NetWeav
 | Win RM *Lbrule5985* | |5985 |
 | Udział plików *Lbrule445* | |445 |
 
-_**Tabela 2:** portu liczby wystąpień programu SAP NetWeaver Java SCS_
+_**Tabela 2:** portu liczby wystąpień programu SAP NetWeaver Java SCS hello_
 
-![Rys. 15: Reguły dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia domyślne ASCS/SCS][sap-ha-guide-figure-3004]
+![Rys. 15: Reguły dla hello Azure wewnętrznego modułu równoważenia obciążenia równoważenia obciążenia domyślne ASCS/SCS][sap-ha-guide-figure-3004]
 
-_**Rysunek 15:** reguły dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia domyślne ASCS/SCS_
+_**Rysunek 15:** reguły dla hello Azure wewnętrznego modułu równoważenia obciążenia równoważenia obciążenia domyślne ASCS/SCS_
 
-Ustawienie adresu IP usługi równoważenia obciążenia **pr1-lb-dbms** adres IP nazwę hosta wirtualnego wystąpienia systemu DBMS.
+Ustawienie hello adresu IP usługi równoważenia obciążenia hello **pr1-lb-dbms** adres IP toohello nazwę hosta wirtualnego hello hello DBMS wystąpienia.
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a>Zmień zasady dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia domyślne ASCS/SCS
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a>Zmień obciążenia domyślne ASCS/SCS hello równoważenia zasady hello Azure wewnętrznego modułu równoważenia obciążenia
 
-Jeśli chcesz użyć innej liczby wystąpień SAP ASCS lub SCS, należy zmienić nazwy i wartości ich porty wartości domyślnych.
+Jeśli mają różne liczby toouse dla hello SAP ASCS lub SCS wystąpienia, należy zmienić hello nazwy i wartości ich porty z wartościami domyślnymi.
 
-1.  W portalu Azure wybierz  **<* SID*> - lb - ascs załadować równoważenia ** > **reguły równoważenia obciążenia**.
-2.  Dla wszystkich reguł, które należą do wystąpienia SAP ASCS lub SCS równoważenia obciążenia Zmień wartości tych:
+1.  Hello portalu Azure, wybierz  **<* SID*> - lb - ascs załadować równoważenia ** > **reguły równoważenia obciążenia**.
+2.  Dla wszystkich reguł, należące toohello SAP ASCS lub wystąpienie SCS równoważenia obciążenia Zmień wartości tych:
 
   * Nazwa
   * Port
   * Port zaplecza
 
-  Na przykład jeśli chcesz zmienić domyślną liczbę wystąpień ASCS od 00 do 31, musisz wprowadzić zmiany dla wszystkich portów wymienionych w tabeli 1.
+  Na przykład jeśli chcesz toochange hello domyślnej liczby wystąpień ASCS od 00 too31 należy toomake hello zmiany dla wszystkich portów wymienionych w tabeli 1.
 
   Oto przykład aktualizacji dla portu *lbrule3200*.
 
-  ![Rysunek 16: Zmień obciążenia domyślne ASCS/SCS równoważenia zasady Azure wewnętrznego modułu równoważenia obciążenia][sap-ha-guide-figure-3005]
+  ![Rysunek 16: Zmień obciążenia domyślne ASCS/SCS hello równoważenia zasady hello Azure wewnętrznego modułu równoważenia obciążenia][sap-ha-guide-figure-3005]
 
-  _**Rysunek 16:** Zmień zasady dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia domyślne ASCS/SCS_
+  _**Rysunek 16:** zmiany hello ASCS/SCS domyślne obciążenia równoważenia zasady hello Azure wewnętrznego modułu równoważenia obciążenia_
 
-### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a>Dodawanie maszyn wirtualnych systemu Windows do domeny
+### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a>Dodawanie domeny toohello maszyn wirtualnych systemu Windows
 
-Po przypisaniu statycznego adresu IP do maszyn wirtualnych, Dodaj maszyny wirtualne do domeny.
+Po przypisaniu statycznego maszyn wirtualnych toohello adres IP, należy dodać hello maszyn wirtualnych toohello domeny.
 
-![Rysunek 17: Dodaj maszynę wirtualną do domeny][sap-ha-guide-figure-3006]
+![Rysunek 17: Dodawanie domeny tooa maszyny wirtualnej][sap-ha-guide-figure-3006]
 
-_**Rysunek 17:** Dodaj maszynę wirtualną do domeny_
+_**Rysunek 17:** Dodawanie domeny tooa maszyny wirtualnej_
 
-### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Dodawanie wpisów rejestru na obu węzłach klastra z wystąpieniem SAP ASCS/SCS
+### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Dodawanie wpisów rejestru na obu węzłach hello SAP ASCS/SCS wystąpienia
 
-Moduł równoważenia obciążenia Azure zawiera wewnętrzny moduł równoważenia obciążenia zamknięciu połączeń w przypadku połączenia są w stanie bezczynności pewien okres czasu (limit czasu bezczynności). Procesy robocze SAP w oknie dialogowym wystąpień otwarte połączenia można umieścić w kolejce SAP przetworzyć zaraz po pierwszym umieścić w kolejce/usuwania z kolejki żądania musi być wysyłane. Te połączenia zazwyczaj pozostają ustalonych dopóki proces pracy lub ponownego uruchomienia procesu umieścić w kolejce. Jednak jeśli połączenie jest bezczynne na wybrany okres czasu, Azure wewnętrznego modułu równoważenia obciążenia zamyka połączenia. Nie stanowi problemu, ponieważ proces roboczy SAP przywraca połączenie do procesu umieścić w kolejce, jeśli już nie istnieje. Te działania są udokumentowane w ślady developer procesów SAP, ale ich tworzyć dużą ilością zawartości dodatkowe w tych danych śledzenia. Zaleca się zmienić TCP/IP `KeepAliveTime` i `KeepAliveInterval` na obu węzłów klastra. Połącz te zmiany w parametrach TCP/IP z parametrami profilu SAP, opisane w dalszej części tego artykułu.
+Moduł równoważenia obciążenia Azure zawiera wewnętrzny moduł równoważenia obciążenia zamknięciu połączeń w przypadku połączeń hello są w stanie bezczynności pewien okres czasu (limit czasu bezczynności). Procesów roboczych SAP w oknie dialogowym wystąpień otwarte połączenia toohello SAP umieścić przetworzyć jak hello pierwszy umieścić w kolejce/usuwania z kolejki żądania wysyłane toobe potrzeb. Te połączenia zazwyczaj pozostaje ustalonych do procesu roboczego hello lub ponownego uruchomienia procesu umieścić w kolejce hello. Jednak jeśli hello połączenie jest bezczynne na wybrany okres czasu, hello połączeń hello zostanie zamknięty usługi równoważenia obciążenia wewnętrznego platformy Azure. Nie stanowi problemu, ponieważ hello procesu roboczego SAP ustanawia ponownie hello połączenia toohello umieścić procesu, jeśli już nie istnieje. Te działania są udokumentowane w ślady developer hello procesów SAP, ale ich tworzyć dużą ilością zawartości dodatkowe w tych danych śledzenia. Jest dobrym rozwiązaniem toochange hello TCP/IP `KeepAliveTime` i `KeepAliveInterval` na obu węzłów klastra. Połącz te zmiany w parametrach TCP/IP hello z parametrami profilu SAP, opisane w dalszej części artykułu hello.
 
-Aby dodać wpisów rejestru na obu węzłach klastra z wystąpieniem SAP ASCS/SCS, najpierw dodaj te wpisy rejestru systemu Windows na obu węzłów klastra systemu Windows dla programu SAP ASCS/SCS:
+wpisy rejestru tooadd na obu węzłach hello SAP ASCS/SCS wystąpienia, najpierw dodaj te wpisy rejestru systemu Windows na obu węzłów klastra systemu Windows dla programu SAP ASCS/SCS:
 
 | Ścieżka | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nazwa zmiennej |`KeepAliveTime` |
 | Typ zmiennej |REG_DWORD (dziesiętna) |
 | Wartość |120000 |
-| Połącz się z dokumentacją |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Łącze toodocumentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
-_**Tabela 3:** zmienić pierwszy parametr TCP/IP_
+_**Tabela 3:** zmiany hello pierwszy parametr TCP/IP_
 
 Następnie należy dodać ten wpisów rejestru systemu Windows na obu węzłów klastra systemu Windows dla programu SAP ASCS/SCS:
 
@@ -784,41 +784,41 @@ Następnie należy dodać ten wpisów rejestru systemu Windows na obu węzłów 
 | Nazwa zmiennej |`KeepAliveInterval` |
 | Typ zmiennej |REG_DWORD (dziesiętna) |
 | Wartość |120000 |
-| Połącz się z dokumentacją |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Łącze toodocumentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
-_**Tabela 4:** zmienić drugi parametr TCP/IP_
+_**Tabela 4:** zmiany hello drugi parametr TCP/IP_
 
-**Aby zastosować zmiany, należy ponownie uruchomić oba węzły klastra**.
+**tooapply hello zmiany, ponownie uruchom oba węzły klastra**.
 
 ### <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a>Konfigurowanie klastra systemu Windows Server Failover Clustering dla wystąpienia programu SAP ASCS/SCS
 
 Konfigurowanie klastra systemu Windows Server Failover Clustering dla wystąpienia programu SAP ASCS/SCS obejmuje następujące zadania:
 
-- Zbieranie węzłów klastra w konfiguracji klastra
+- Zbieranie hello węzły klastra w konfiguracji klastra
 - Konfigurowanie monitora udziału plików klastra
 
-#### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a>Zbieraj węzły klastra w konfiguracji klastra
+#### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a>Zbieraj hello węzły klastra w konfiguracji klastra
 
-1.  Dodawanie roli i funkcji — Kreator Dodaj klaster dla obu węzłów klastra trybu failover.
-2.  Konfigurowanie klastra trybu failover za pomocą Menedżera klastra trybu Failover. W Menedżerze klastra trybu Failover wybierz **tworzenia klastrów**, a następnie dodaj tylko nazwę klastra pierwszy węzeł A. Nie dodawaj drugiego węzła jeszcze; drugi węzeł zostanie dodana w kolejnym kroku.
+1.  Hello Dodawanie roli i funkcji — Kreator Dodaj klaster tooboth węzły klastra pracy awaryjnej.
+2.  Konfigurowanie klastra trybu failover hello za pomocą Menedżera klastra trybu Failover. W Menedżerze klastra trybu Failover wybierz **tworzenia klastrów**, a następnie dodaj tylko hello nazwę hello pierwszy klaster, węzeł A. Nie dodawaj hello drugiego węzła jeszcze; w kolejnym kroku zostanie dodana hello drugiego węzła.
 
-  ![Rysunek 18: Dodaj nazwę serwera lub maszyny wirtualnej na pierwszym węźle klastra][sap-ha-guide-figure-3007]
+  ![Rysunek 18: Dodaj powitania serwera lub nazwę maszyny wirtualnej hello na pierwszym węźle klastra][sap-ha-guide-figure-3007]
 
-  _**Rysunek 18:** Dodaj nazwę serwera lub maszyny wirtualnej w pierwszym węźle klastra_
+  _**Rysunek 18:** Dodaj nazwę serwera lub maszyny wirtualnej hello hello pierwszego węzła klastra_
 
-3.  Wprowadź nazwę sieci (nazwa hosta wirtualnego) klastra.
+3.  Wprowadź nazwę sieci hello (nazwa hosta wirtualnego) hello klastra.
 
-  ![Rysunek 19: Wprowadź nazwę klastra][sap-ha-guide-figure-3008]
+  ![Rysunek 19: Wprowadź nazwę klastra hello][sap-ha-guide-figure-3008]
 
-  _**Rysunek 19:** wprowadź nazwę klastra_
+  _**Rysunek 19:** wprowadź nazwę klastra hello_
 
-4.  Po utworzeniu klastra, uruchom test sprawdzania poprawności klastra.
+4.  Po utworzeniu klastra hello uruchomienie testu poprawności klastra.
 
-  ![Rysunek 20: Uruchom sprawdzenie poprawności klastra][sap-ha-guide-figure-3009]
+  ![Rysunek 20: Uruchom sprawdzenie poprawności klastra hello][sap-ha-guide-figure-3009]
 
-  _**Rysunek 20:** uruchom sprawdzenie poprawności klastra_
+  _**Rysunek 20:** uruchom sprawdzenie poprawności klastra hello_
 
-  Możesz zignorować ostrzeżenia dotyczące dysków na tym etapie procesu. Zostanie dodana monitora udostępniania plików i SIOS udostępnionych dysków później. Na tym etapie nie trzeba martwić o kworum.
+  Możesz zignorować ostrzeżenia dotyczące dysków w tym momencie w procesie hello. Zostanie dodana monitora udostępniania plików i hello SIOS udostępnionych dysków później. Na tym etapie nie jest konieczne tooworry o kworum.
 
   ![Rysunek 21: Odnaleziono żadnego dysku kworum][sap-ha-guide-figure-3010]
 
@@ -828,52 +828,52 @@ Konfigurowanie klastra systemu Windows Server Failover Clustering dla wystąpien
 
   _**Rysunek 22:** zasobu klastra Core wymaga nowego adresu IP_
 
-5.  Zmienianie adresu IP usługi klastrowania core. Klastra nie można uruchomić, dopóki nie zmieni adres IP klastra usługi podstawowej, ponieważ adres IP serwera wskazuje na jednym z węzłów maszyny wirtualnej. To zrobić na **właściwości** strony podstawowej usługi klastrowania IP zasobu.
+5.  Zmień adres IP hello hello podstawowej usługi klastra. Witaj klastra nie można uruchomić, dopóki nie zmieni adres IP hello hello podstawowej klastra usługi, ponieważ hello adres IP serwera hello punktów tooone hello węzły maszyny wirtualnej. To zrobić na powitania **właściwości** strony usługi hello podstawowej klastra IP zasobu.
 
-  Na przykład, należy przypisać adres IP (w naszym przykładzie **10.0.0.42**) dla nazwy hostów wirtualnych klastra **pr1-ascs-vir**.
+  Na przykład, potrzebujemy tooassign adresu IP (w naszym przykładzie **10.0.0.42**) dla nazwy hosta wirtualnego klastra hello **pr1-ascs-vir**.
 
-  ![Rysunek 23: W oknie dialogowym właściwości Zmień adres IP][sap-ha-guide-figure-3012]
+  ![Rysunek 23: Okno dialogowe właściwości hello, zmienić adres IP hello][sap-ha-guide-figure-3012]
 
-  _**Rysunek 23:** w **właściwości** okno dialogowe Zmień adres IP_
+  _**Rysunek 23:** w hello **właściwości** okno dialogowe, Zmień adres IP hello_
 
-  ![Rysunek 24: Przypisz adres IP, które jest zastrzeżone dla klastra][sap-ha-guide-figure-3013]
+  ![Rysunek 24: Przypisać adres IP hello, które jest zastrzeżone dla klastra hello][sap-ha-guide-figure-3013]
 
-  _**Rysunek 24:** przypisać adres IP, które jest zastrzeżone dla klastra_
+  _**Rysunek 24:** przypisać adres IP hello, które jest zastrzeżone dla klastra hello_
 
-6.  Przełącz tryb online nazwę hosta wirtualnego klastra.
+6.  Przełącz nazwę hosta wirtualnego klastra hello online.
 
-  ![25 rysunek: Usługi podstawowej klastra jest uruchomiony i działa prawidłowo i z poprawny adres IP adresów][sap-ha-guide-figure-3014]
+  ![Rysunek 25: Usługi podstawowej klastra jest uruchomiony i działa prawidłowo, a z hello Popraw adres IP][sap-ha-guide-figure-3014]
 
-  _**Rysunek 25:** usługi podstawowej klastra jest uruchomiony i działa prawidłowo i z poprawny adres IP adresów_
+  _**Rysunek 25:** usługi podstawowej klastra jest uruchomiony i działa i z hello Popraw adres IP_
 
-7.  Dodawanie drugiego węzła klastra.
+7.  Dodaj hello drugiego węzła klastra.
 
-  Teraz, podstawowa usługa klastrowania jest uruchomiona, można dodać drugiego węzła klastra.
+  Teraz, że usługa klastrowania core hello jest uruchomiona, można dodać hello drugiego węzła klastra.
 
-  ![Rysunek 26: Dodanie drugiego węzła klastra][sap-ha-guide-figure-3015]
+  ![Rysunek 26: Dodaj hello drugiego węzła klastra][sap-ha-guide-figure-3015]
 
-  _**Rysunek 26:** dodania drugiego węzła klastra_
+  _**Rysunek 26:** hello Dodaj drugi węzeł klastra_
 
-8.  Wprowadź nazwę hosta drugiego węzła klastra.
+8.  Wprowadź nazwę hello hosta drugiego węzła klastra.
 
-  ![Rysunek 27: Wprowadź nazwę hosta drugiego węzła klastra][sap-ha-guide-figure-3016]
+  ![Rysunek 27: Wprowadź hello nazwy hosta w drugiego węzła klastra][sap-ha-guide-figure-3016]
 
-  _**Rysunek 27:** wprowadź nazwę hosta drugiego węzła klastra_
+  _**Rysunek 27:** Enter hello drugi nazwa węzła klastra hosta_
 
   > [!IMPORTANT]
-  > Upewnij się, że **Dodaj wszystkie odpowiednie magazyny do klastra** pole wyboru jest **nie** wybrane.  
+  > Upewnij się, że hello **Dodaj wszystkie odpowiednie magazyny toohello klaster** pole wyboru jest **nie** wybrane.  
   >
   >
 
-  ![Rysunek 28: Nie zaznaczaj pola wyboru][sap-ha-guide-figure-3017]
+  ![Rysunek 28: Nie zaznaczaj pola wyboru hello][sap-ha-guide-figure-3017]
 
-  _**Rysunek 28:** czy **nie** zaznacz pole wyboru_
+  _**Rysunek 28:** czy **nie** wybierz hello pole wyboru_
 
-  Możesz zignorować ostrzeżenia dotyczące kworum i dysków. Należy ustawić kworum i udostępnić dysk później, zgodnie z opisem w [instalowanie SIOS DataKeeper Cluster Edition dla programu SAP ASCS/SCS dysku klastra, udziału][sap-ha-guide-8.12.3].
+  Możesz zignorować ostrzeżenia dotyczące kworum i dysków. Opcje ustawisz hello kworum i udziału hello dysku później, zgodnie z opisem w [instalowanie SIOS DataKeeper Cluster Edition dla programu SAP ASCS/SCS dysku klastra, udziału][sap-ha-guide-8.12.3].
 
-  ![Rysunek 29: Ignoruj ostrzeżenia dotyczące dysku kworum][sap-ha-guide-figure-3018]
+  ![Rysunek 29: Ignoruj ostrzeżenia dotyczące hello dysku kworum][sap-ha-guide-figure-3018]
 
-  _**Rysunek 29:** Ignoruj ostrzeżenia dotyczące dysku kworum_
+  _**Rysunek 29:** Ignoruj ostrzeżenia dotyczące hello dysku kworum_
 
 
 #### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a>Skonfiguruj Monitor udziału plików klastra
@@ -881,111 +881,111 @@ Konfigurowanie klastra systemu Windows Server Failover Clustering dla wystąpien
 Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
 - Tworzenie udziału plików
-- Ustawienia kworum monitora udziału plików w Menedżerze klastra trybu Failover
+- Ustawienia kworum monitora udziału plików hello w Menedżerze klastra trybu Failover
 
 ##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a>Tworzenie udziału plików
 
 1.  Wybierz monitor udziału plików, zamiast dysku kworum. SIOS DataKeeper obsługuje tę opcję.
 
-  W przykładach w niniejszym artykule monitora udziału plików jest na serwerze/DNS usługi Active Directory, który działa na platformie Azure. Monitor udziału plików jest nazywany **domcontr 0**. Czy skonfigurować połączenia sieci VPN platformy Azure (za pośrednictwem sieci VPN typu lokacja-lokacja lub usługa Azure ExpressRoute), monitor udostępniania sieci/DNS usługi Active Directory usługi lokalnej i nie jest odpowiedni do uruchomienia pliku.
+  W przykładach hello w tym artykule Monitor udziału plików hello jest na powitania serwera/DNS usługi Active Directory, który działa na platformie Azure. Witaj monitora udziału plików jest nazywany **domcontr 0**. Ponieważ czy skonfigurowano tooAzure połączenia sieci VPN (za pośrednictwem sieci VPN typu lokacja-lokacja lub Azure ExpressRoute), monitor udostępniania sieci/DNS usługi Active Directory usługi lokalnej i nie jest toorun odpowiedniego pliku.
 
   > [!NOTE]
-  > Jeśli usługa/DNS usługi Active Directory działa tylko na lokalne, nie skonfigurować Twoje monitora udziału plików na Active Directory/serwera DNS systemu operacyjnego działającej lokalnie. Opóźnienie sieci między węzłami klastra z systemem Azure i/DNS usługi Active Directory w lokalnym programie może być zbyt duży i spowodować problemy z połączeniem. Należy skonfigurować monitor udostępniania plików na maszynie wirtualnej platformy Azure, uruchomionym bliski węzeł klastra.  
+  > Jeśli usługa/DNS usługi Active Directory działa tylko na lokalne, nie skonfigurować Twoje monitora udziału plików na hello Active Directory/serwera DNS systemu operacyjnego działającej lokalnie. Opóźnienie sieci między węzłami klastra z systemem Azure i/DNS usługi Active Directory w lokalnym programie może być zbyt duży i spowodować problemy z połączeniem. Należy się tooconfigure hello monitora udziału plików na maszynie wirtualnej platformy Azure, uruchomionym Zamknij toohello węzła klastra.  
   >
   >
 
-  Stacja kworum wymaga co najmniej 1024 MB wolnego miejsca. Zaleca się 2048 MB wolnego miejsca na dysku kworum.
+  Stacja kworum Hello wymaga co najmniej 1024 MB wolnego miejsca. Zaleca się 2048 MB wolnego miejsca na dysku kworum hello.
 
-2.  Dodaj obiekt nazwy klastra.
+2.  Dodaj obiekt nazwy klastra hello.
 
-  ![Rysunek 30: Przypisz uprawnienia udziału dla obiekt nazwy klastra][sap-ha-guide-figure-3019]
+  ![Rysunek 30: Przypisz hello uprawnienia udziału powitania dla obiekt nazwy klastra hello][sap-ha-guide-figure-3019]
 
-  _**Rysunek 30:** przypisać uprawnienia do udziału dla obiekt nazwy klastra_
+  _**Rysunek 30:** przypisać uprawnienia hello hello udziału dla obiekt nazwy klastra hello_
 
-  Pamiętaj, że uprawnienia obejmuje uprawnienia do zmiany danych w udziale dla obiekt nazwy klastra (w naszym przykładzie **pr1-ascs-vir$**).
+  Pamiętaj, że uprawnienia hello Dołącz dane toochange urzędu hello hello udział dla obiekt nazwy klastra hello (w naszym przykładzie **pr1-ascs-vir$**).
 
-3.  Aby dodać obiekt nazwy klastra do listy, wybierz opcję **Dodaj**. Zmień filtr, aby wyszukać obiektów komputerów, oprócz tych pokazano na rysunku 31.
+3.  tooadd hello klastra Nazwa obiektu toohello listy, wybierz **Dodaj**. Zmień hello toocheck filtru dla obiektów komputerów w toothose dodanie pokazano na rysunku 31.
 
-  ![Rysunek 31: Zmień typy obiektów, aby obejmują komputery][sap-ha-guide-figure-3020]
+  ![Rysunek 31: Zmiana hello typy obiektów tooinclude komputerów][sap-ha-guide-figure-3020]
 
-  _**Rysunek 31:** zmienić typ obiektu do obejmują komputery_
+  _**Rysunek 31:** zmienić hello typy obiektów tooinclude komputerów_
 
-  ![Rysunek 32: Zaznacz pole wyboru komputerów][sap-ha-guide-figure-3021]
+  ![32 rysunku: Zaznacz pole wyboru komputerów hello][sap-ha-guide-figure-3021]
 
-  _**Rysunek 32:** wybierz **komputery** pole wyboru_
+  _**Rysunek 32:** wybierz hello **komputery** pole wyboru_
 
-4.  Wprowadź obiektem nazwy klastra, tak jak pokazano na rysunku 31. Ponieważ rekord został już utworzony, można zmienić uprawnienia, jak pokazano na rysunku 30.
+4.  Wprowadź hello obiektem nazwy klastra, jak pokazano na rysunku 31. Ponieważ hello rekord został już utworzony, można zmienić uprawnienia hello, jak pokazano na rysunku 30.
 
-5.  Wybierz **zabezpieczeń** karcie udziału, a następnie ustawić bardziej szczegółowe uprawnienia dla obiekt nazwy klastra.
+5.  Wybierz hello **zabezpieczeń** karcie hello udziału, a następnie ustawić bardziej szczegółowe uprawnienia dla obiekt nazwy klastra hello.
 
-  ![Rysunek nr 33: Ustawić atrybutów zabezpieczeń dla obiekt nazwy klastra kworum udziału plików][sap-ha-guide-figure-3022]
+  ![Rysunek nr 33: Ustawić atrybutów zabezpieczeń hello dla obiekt nazwy klastra hello na powitania pliku udziału kworum][sap-ha-guide-figure-3022]
 
-  _**Rysunek nr 33:** ustawić atrybutów zabezpieczeń dla obiekt nazwy klastra kworum udziału plików_
+  _**Rysunek nr 33:** ustawić atrybutów zabezpieczeń powitania dla obiekt nazwy klastra hello na powitania pliku udziału kworum_
 
-##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a>Ustaw kworum monitora udziału plików w Menedżerze klastra trybu Failover
+##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a>Ustaw kworum monitora udziału plików hello w Menedżerze klastra trybu Failover
 
-1.  Otwórz kworum ustawienia kreatora konfiguracji.
+1.  Otwórz hello Konfigurowanie kworum ustawienia kreatora.
 
-  ![Rysunek 34: Uruchom Kreator ustawienia kworum klastra Konfiguruj][sap-ha-guide-figure-3023]
+  ![Rysunek 34: Start hello kreatora ustawienia kworum klastra konfiguracji][sap-ha-guide-figure-3023]
 
-  _**Rysunek 34:** Uruchamianie Kreatora ustawienie Konfigurowanie kworum klastra_
+  _**Rysunek 34:** Start hello kreatora ustawienia konfiguracji kworum klastra_
 
-2.  Na **wybrać konfigurację kworum** wybierz **Wybieranie monitora kworum**.
+2.  Na powitania **wybrać konfigurację kworum** wybierz **Wybieranie monitora kworum hello**.
 
   ![Rysunek 35: Konfiguracji kworum, możesz wybrać z][sap-ha-guide-figure-3024]
 
   _**Rysunek 35:** konfiguracji kworum, możesz wybrać spośród_
 
-3.  Na **Wybieranie monitora kworum** wybierz **Konfigurowanie monitora udziału plików**.
+3.  Na powitania **Wybieranie monitora kworum** wybierz **Konfigurowanie monitora udziału plików**.
 
-  ![Rysunek 36: Wybierz monitor udziału plików][sap-ha-guide-figure-3025]
+  ![36 rysunku: Monitor udziału plików wybierz hello][sap-ha-guide-figure-3025]
 
-  _**Rysunek 36:** Wybierz monitor udziału plików_
+  _**Rysunek 36:** Wybierz monitor udziału plików hello_
 
-4.  Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\domcontr 0\FSW). Aby wyświetlić listę wprowadzania zmian, zaznacz **dalej**.
+4.  Wprowadź udziału plików toohello ścieżki UNC hello (w naszym przykładzie \\domcontr 0\FSW). toosee listę hello zmiany mogą być, wybierz **dalej**.
 
-  ![Rysunek 37: Zdefiniuj lokalizację udziału plików monitora udziału][sap-ha-guide-figure-3026]
+  ![Rysunek 37: Zdefiniuj lokalizację udziału plików hello hello monitora udziału][sap-ha-guide-figure-3026]
 
-  _**Rysunek 37:** określić lokalizację udziału plików monitora udziału_
+  _**Rysunek 37:** określić lokalizację udziału plików hello hello monitora udziału_
 
-5.  Wybierz zmiany, a następnie wybierz **dalej**. Należy pomyślnie ponownie skonfigurować konfigurację klastra, jak pokazano na rysunku 38.  
+5.  Wybierz hello zmiany, a następnie wybierz **dalej**. Należy toosuccessfully ponownie skonfigurować hello konfiguracji klastra, jak pokazano na rysunku 38.  
 
-  ![38 rysunek: Potwierdzenie, że po zmianie konfiguracji klastra][sap-ha-guide-figure-3027]
+  ![38 rysunku: Czy został ponownie skonfigurować klaster hello potwierdzenie][sap-ha-guide-figure-3027]
 
-  _**Rysunek 38:** potwierdzenie, że po zmianie konfiguracji klastra_
+  _**Rysunek 38:** potwierdzenie, że zostały ponownie skonfigurować hello klastra_
 
-Po pomyślnym zainstalowaniu klastra pracy awaryjnej systemu Windows, należy dokonać niektórych progi w celu dostosowania wykrywania trybu failover do warunków na platformie Azure zmiany. Można zmienić parametry są opisane w tym blogu: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Przy założeniu, że Twoje dwóch maszyn wirtualnych, które kompilacji konfiguracji klastra systemu Windows dla ASCS/SCS znajdują się w tej samej podsieci, wymaga zmiany tych wartości następujących parametrów:
+Po pomyślnym zainstalowaniu klastra pracy awaryjnej systemu Windows hello zmiany muszą toobe wprowadzone toosome progi tooadapt pracy awaryjnej wykrywania tooconditions na platformie Azure. Hello zmienić toobe parametry są opisane w tym blogu: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Przy założeniu, że dwóch maszyn wirtualnych, które kompilacji hello konfiguracji klastra systemu Windows dla ASCS/SCS znajdują się w hello tej samej podsieci, hello następujące parametry muszą zmienić toobe toothese wartości:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
-Te ustawienia zostały przetestowane z klientami i dostępne dobrej naruszenia pozwala uzyskać odporność na jednej stronie. Z drugiej strony te ustawienia zostały udostępnianie fast wystarczająco dużo pracy awaryjnej w warunkach rzeczywistych błędu w przypadku awarii oprogramowania lub węzeł/wirtualna SAP. 
+Te ustawienia zostały przetestowane z klientami i dostępne toobe dobrej naruszenia wystarczająco odporne na jednej stronie powitania. Na powitania drugiej te ustawienia zostały udostępnianie fast wystarczająco dużo pracy awaryjnej w warunkach rzeczywistych błędu w przypadku awarii oprogramowania lub węzeł/wirtualna SAP. 
 
-### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>Zainstaluj dla dysku udziału klastra SAP ASCS/SCS SIOS DataKeeper Cluster Edition
+### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>Zainstaluj dla dysku udziału klastra SAP ASCS/SCS hello SIOS DataKeeper Cluster Edition
 
-Masz teraz pracy konfiguracji klastra trybu Failover systemu Windows Server na platformie Azure. Jednak, aby zainstalować wystąpienie programu SAP ASCS/SCS, zasób udostępniony dysk. Nie można utworzyć o współużytkowane zasoby dyskowe potrzebne na platformie Azure. SIOS DataKeeper Cluster Edition jest rozwiązań innych firm, których można używać do tworzenia współużytkowane zasoby dyskowe.
+Masz teraz pracy konfiguracji klastra trybu Failover systemu Windows Server na platformie Azure. Jednak tooinstall wystąpieniem SAP ASCS/SCS należy zasób udostępniony dysk. Nie można utworzyć potrzebne zasoby dysku udostępnionego hello na platformie Azure. SIOS DataKeeper Cluster Edition jest rozwiązań innych firm, można użyć toocreate współużytkowane zasoby dyskowe.
 
-Instalowanie SIOS DataKeeper Cluster Edition dla udziału dysk klastrowy SAP ASCS/SCS obejmuje następujące zadania:
+Instalowanie SIOS DataKeeper Cluster Edition dla programu SAP ASCS/SCS hello dysku klastrowego udziału obejmuje te zadania:
 
-- Dodawanie programu .NET Framework 3.5
+- Dodawanie hello .NET Framework 3.5
 - Instalowanie SIOS DataKeeper
 - Konfigurowanie SIOS DataKeeper
 
-#### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a>Dodaj programu .NET Framework 3.5
-Microsoft .NET Framework 3.5 nie jest automatycznie aktywowane lub zainstalowany w systemie Windows Server 2012 R2. Ponieważ SIOS DataKeeper wymaga programu .NET Framework jako we wszystkich węzłach, które należy zainstalować na DataKeeper, należy zainstalować program .NET Framework 3.5 w systemie operacyjnym gościa wszystkich maszyn wirtualnych w klastrze.
+#### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a>Dodaj hello .NET Framework 3.5
+Hello Microsoft .NET Framework 3.5 nie jest automatycznie aktywowane lub zainstalowany w systemie Windows Server 2012 R2. SIOS DataKeeper wymaga hello toobe .NET Framework na wszystkich węzłach, które należy zainstalować na DataKeeper, dlatego należy zainstalować w systemie operacyjnym gościa hello wszystkich maszyn wirtualnych w klastrze hello hello .NET Framework 3.5.
 
-Istnieją dwa sposoby dodawania programu .NET Framework 3.5:
+Istnieją dwa sposoby hello tooadd .NET Framework 3.5:
 
-- Użyj funkcje Kreatora dodawania ról i w systemie Windows, jak pokazano na rysunku 39.
+- Użyj Kreatora hello dodawania ról i funkcji w systemie Windows, jak pokazano 39 rysunku.
 
-  ![Rysunek 39: Zainstalować program .NET Framework 3.5 przy użyciu dodawania ról i funkcji — Kreator][sap-ha-guide-figure-3028]
+  ![Rysunek 39: Zainstaluj hello .NET Framework 3.5 przy użyciu hello dodawania ról i funkcji — Kreator][sap-ha-guide-figure-3028]
 
-  _**Rysunek 39:** zainstalować program .NET Framework 3.5 przy użyciu dodawania ról i funkcji — Kreator_
+  _**Rysunek 39:** hello instalacji programu .NET Framework 3.5 przy użyciu hello dodawania ról i funkcji — Kreator_
 
-  ![40 rysunek: Postęp instalacji pasek po zainstalowaniu programu .NET Framework 3.5 przy użyciu dodawania ról i funkcji — Kreator][sap-ha-guide-figure-3029]
+  ![40 rysunek: Postęp instalacji pasek po zainstalowaniu hello .NET Framework 3.5 przy użyciu hello dodawania ról i funkcji — Kreator][sap-ha-guide-figure-3029]
 
-  _**Rysunek 40:** pasek po zainstalowaniu programu .NET Framework 3.5 przy użyciu funkcji Kreatora dodawania ról i postępu instalacji_
+  _**Rysunek 40:** pasek po zainstalowaniu hello .NET Framework 3.5 przy użyciu hello dodawania ról i funkcji — Kreator postępu instalacji_
 
-- Użyj narzędzia wiersza polecenia dism.exe. Ten typ instalacji należy uzyskać dostępu do katalogu SxS na nośniku instalacyjnym systemu Windows. W wierszu polecenia z podwyższonym poziomem uprawnień wpisz polecenie:
+- Użyj hello narzędzia wiersza polecenia dism.exe. Ten typ instalacji należy katalogu SxS hello tooaccess na powitania nośnik instalacyjny systemu Windows. W wierszu polecenia z podwyższonym poziomem uprawnień wpisz polecenie:
 
   ```
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
@@ -993,209 +993,209 @@ Istnieją dwa sposoby dodawania programu .NET Framework 3.5:
 
 #### <a name="dd41d5a2-8083-415b-9878-839652812102"></a>Zainstaluj SIOS DataKeeper
 
-Zainstaluj SIOS DataKeeper Cluster Edition w każdym węźle w klastrze. Aby utworzyć wirtualny magazynu udostępnionego z SIOS DataKeeper, Utwórz zsynchronizowanej dublowania i następnie symulować magazyn udostępniony klastra.
+Zainstaluj SIOS DataKeeper Cluster Edition w każdym węźle w klastrze hello. toocreate wirtualnego magazynu udostępnionego SIOS DataKeeper Tworzenie zsynchronizowanej dublowania i następnie symulować magazyn udostępniony klastra.
 
-Przed zainstalowaniem oprogramowania SIOS, Utwórz użytkownika domeny **DataKeeperSvc**.
+Przed zainstalowaniem oprogramowania SIOS hello, Utwórz użytkownika domeny hello **DataKeeperSvc**.
 
 > [!NOTE]
-> Dodaj **DataKeeperSvc** użytkownikowi **administratora lokalnego** na obu węzłów klastra.
+> Dodaj hello **DataKeeperSvc** toohello użytkownika **administratora lokalnego** na obu węzłów klastra.
 >
 >
 
-Aby zainstalować SIOS DataKeeper:
+tooinstall SIOS DataKeeper:
 
-1.  Zainstaluj oprogramowanie SIOS na obu węzłów klastra.
+1.  Zainstaluj oprogramowanie SIOS hello na obu węzłów klastra.
 
   ![Instalator SIOS][sap-ha-guide-figure-3030]
 
-  ![41 rysunku: Pierwsza strona instalacji SIOS DataKeeper][sap-ha-guide-figure-3031]
+  ![41 rysunku: Pierwsza strona hello instalacji SIOS DataKeeper][sap-ha-guide-figure-3031]
 
-  _**Rysunek 41:** pierwszej strony instalacji SIOS DataKeeper_
+  _**Rysunek 41:** pierwszej strony hello SIOS DataKeeper instalacji_
 
-2.  W oknie dialogowym pokazano na rysunku 42, wybierz **tak**.
+2.  Okno dialogowe hello pokazano na rysunku 42, wybierz **tak**.
 
   ![Rysunek 42: DataKeeper informuje, czy usługa zostanie wyłączona][sap-ha-guide-figure-3032]
 
   _**Rysunek 42:** DataKeeper informuje, że usługa zostanie wyłączona_
 
-3.  W oknie dialogowym pokazano na rysunku 43, zaleca się wybranie **konta domeny lub tego serwera**.
+3.  Okno dialogowe hello pokazano na rysunku 43, zalecane w wybranym **konta domeny lub tego serwera**.
 
   ![Rysunek 43: Wybór użytkownika dla SIOS DataKeeper][sap-ha-guide-figure-3033]
 
   _**Rysunek 43:** SIOS DataKeeper określonego użytkownika_
 
-4.  Wprowadź nazwę użytkownika konta domeny i hasła, które zostały utworzone dla SIOS DataKeeper.
+4.  Wprowadź nazwę hello domeny konta użytkownika i hasła, które zostały utworzone dla SIOS DataKeeper.
 
-  ![Rysunek 44: Wprowadź nazwę użytkownika domeny i hasło dla instalacji SIOS DataKeeper][sap-ha-guide-figure-3034]
+  ![Rysunek 44: Wprowadź hello domena, nazwa użytkownika i hasło dla hello SIOS DataKeeper instalacji][sap-ha-guide-figure-3034]
 
-  _**Rysunek 44:** wprowadź nazwę użytkownika domeny i hasło dla instalacji SIOS DataKeeper_
+  _**Rysunek 44:** wprowadź nazwę użytkownika domeny hello i hasło dla hello SIOS DataKeeper instalacji_
 
-5.  Zainstaluj klucz licencji dla swojego wystąpienia SIOS DataKeeper, jak pokazano na rysunku 45.
+5.  Zainstaluj klucz licencji powitania dla swojego wystąpienia SIOS DataKeeper, jak pokazano na rysunku 45.
 
   ![Rysunek 45: Wprowadź klucz licencji SIOS DataKeeper][sap-ha-guide-figure-3035]
 
   _**Rysunek 45:** wprowadź klucz licencji SIOS DataKeeper_
 
-6.  Po wyświetleniu monitu uruchom ponownie maszynę wirtualną.
+6.  Po wyświetleniu monitu uruchom ponownie maszynę wirtualną hello.
 
 #### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a>Konfigurowanie SIOS DataKeeper
 
-Po zainstalowaniu SIOS DataKeeper na obu węzłach, należy uruchomić konfigurację. Cel konfiguracji ma synchroniczne dane replikacji między dodatkowych dysków dołączonych do poszczególnych maszyn wirtualnych.
+Po zainstalowaniu SIOS DataKeeper na obu węzłach należy toostart hello konfiguracji. Celem Hello konfiguracji hello jest toohave synchroniczne dane replikacji między hello dodatkowych dysków dołączonych tooeach hello maszyn wirtualnych.
 
-1.  Uruchom narzędzie DataKeeper zarządzania i konfiguracji, a następnie wybierz **połączenia serwera**. (W 46 rysunku, ta opcja jest zaznaczona kółkiem na czerwono.)
+1.  Uruchom hello DataKeeper zarządzanie i narzędzia do konfiguracji, a następnie wybierz **połączenia serwera**. (W 46 rysunku, ta opcja jest zaznaczona kółkiem na czerwono.)
 
   ![Rysunek 46: SIOS DataKeeper zarządzanie i narzędzia do konfiguracji][sap-ha-guide-figure-3036]
 
   _**Rysunek 46:** narzędzie SIOS DataKeeper zarządzania i konfiguracji_
 
-2.  Wprowadź nazwę lub adres TCP/IP pierwszy węzeł, który narzędzia zarządzania i konfiguracji należy połączenia oraz, w drugim kroku drugiego węzła.
+2.  Wprowadź nazwę hello lub adres TCP/IP hello pierwszy węzeł hello zarządzania i konfiguracji narzędzia powinny połączenia oraz, w drugim kroku hello drugiego węzła.
 
-  ![Rysunek 47: Wstaw nazwę lub adres TCP/IP pierwszego węzła Zarządzanie i narzędzia do konfiguracji należy łączyć, a w drugim etapie drugiego węzła][sap-ha-guide-figure-3037]
+  ![Rysunek 47: Wstaw hello nazwę lub adres TCP/IP hello pierwszy węzeł hello zarządzania i konfiguracji narzędzia należy łączyć, a w drugim etapie hello drugiego węzła][sap-ha-guide-figure-3037]
 
-  _**Rysunek 47:** Wstaw nazwę lub adres TCP/IP pierwszego węzła narzędzie zarządzania i konfiguracji należy łączyć, a w drugim etapie drugiego węzła_
+  _**Rysunek 47:** Insert hello nazwę lub adres TCP/IP hello pierwszy węzeł hello zarządzania i konfiguracji narzędzia należy łączyć, a w drugim etapie hello drugiego węzła_
 
-3.  Utwórz zadanie replikacji między dwoma węzłami.
+3.  Utwórz zadanie replikacji hello między dwoma węzłami hello.
 
   ![Rysunek 48: Tworzenie zadania replikacji][sap-ha-guide-figure-3038]
 
   _**Rysunek 48:** Utwórz zadanie replikacji_
 
-  Kreator prowadzi przez proces tworzenia zadania replikacji.
-4.  Zdefiniuj nazwę, adres TCP/IP i wolumin dysku węzła źródłowego.
+  Kreator prowadzi hello proces tworzenia zadania replikacji.
+4.  Zdefiniuj hello nazwa, adres TCP/IP i wolumin dysku hello źródło węzła.
 
-  ![Rysunek 49: Zdefiniuj nazwę zadania replikacji][sap-ha-guide-figure-3039]
+  ![Rysunek 49: Zdefiniuj nazwę hello hello zadania replikacji][sap-ha-guide-figure-3039]
 
-  _**Rysunek 49:** Zdefiniuj nazwę zadania replikacji_
+  _**Rysunek 49:** Zdefiniuj nazwę hello hello replikacji zadania_
 
-  ![Rysunek 50: Definiowanie danych podstawowych dla tego węzła, który powinien być bieżącego węzła źródłowego][sap-ha-guide-figure-3040]
+  ![Rysunek 50: Zdefiniuj hello danych podstawowych dla węzła hello, która powinna być hello bieżącego węzła źródłowego][sap-ha-guide-figure-3040]
 
-  _**Rysunek 50:** zdefiniować podstawowe dane dla tego węzła, który powinien być bieżącego węzła źródłowego_
+  _**Rysunek 50:** zdefiniować hello podstawowe dane dla węzła hello, która powinna być hello bieżącego węzła źródłowego_
 
-5.  Zdefiniuj nazwę, adres TCP/IP i wolumin dysku węzła docelowego.
+5.  Zdefiniuj nazwę hello, adres TCP/IP i wolumin dysku hello docelowego węzła.
 
-  ![Rysunek 51: Definiowanie danych podstawowych dla tego węzła, który powinien być bieżący węzeł docelowy][sap-ha-guide-figure-3041]
+  ![Rysunek 51: Zdefiniuj hello danych podstawowych dla węzła hello, która powinna być hello bieżący węzeł docelowy.][sap-ha-guide-figure-3041]
 
-  _**Rysunek 51:** zdefiniować podstawowe dane dla tego węzła, który powinien być bieżący węzeł docelowy_
+  _**Rysunek 51:** zdefiniować hello podstawowe dane dla węzła hello, która powinna być hello bieżący węzeł docelowy._
 
-6.  Zdefiniuj algorytmy kompresji. W naszym przykładzie zaleca się, że kompresji strumienia replikacji. Szczególnie w sytuacjach, ponowna synchronizacja kompresji, replikacji strumienia znacznie skraca czas ponownej synchronizacji. Należy pamiętać, że kompresja używa zasobów Procesora i pamięci RAM maszyny wirtualnej. Jak zwiększa się częstotliwość kompresji, co powoduje ilości zasobów procesora CPU używanych. Można również dostosować to ustawienie później.
+6.  Zdefiniuj hello algorytmy kompresji. W naszym przykładzie zaleca się, że kompresji hello replikacji strumienia. Szczególnie w sytuacjach, ponowna synchronizacja kompresji hello strumienia replikacji hello znacznie skraca czas ponownej synchronizacji. Należy pamiętać, że kompresja używa zasobów Procesora i pamięci RAM hello maszyny wirtualnej. Jako hello kompresji szybkość wzrostu tak hello ilości zasobów procesora CPU używanych. Można również dostosować to ustawienie później.
 
-7.  Inne ustawienie, które należy sprawdzić to, czy replikacja odbywa się asynchronicznie lub synchronicznie. *W przypadku ochrony SAP ASCS/SCS konfiguracji, należy użyć Replikacja synchroniczna*.  
+7.  Inny ustawienie konieczne jest toocheck czy hello replikacji asynchronicznie lub synchronicznie. *W przypadku ochrony SAP ASCS/SCS konfiguracji, należy użyć Replikacja synchroniczna*.  
 
   ![Rysunek 52: Zdefiniuj szczegóły replikacji][sap-ha-guide-figure-3042]
 
   _**Rysunek 52:** Zdefiniuj szczegóły replikacji_
 
-8.  Należy określić, czy wolumin, który jest replikowany za zadanie replikacji powinny być reprezentowane w konfiguracji klastra z systemem Windows Server Failover Clustering jako udostępniony dysk. SAP ASCS/SCS konfiguracji, wybierz **tak** tak, aby klaster systemu Windows widzi replikowanego woluminu jako udostępnionego dysku, której można użyć jako woluminu klastra.
+8.  Należy określić, czy hello wolumin, który jest replikowany za zadanie replikacji hello powinny być reprezentowana tooa Windows Server Failover Clustering konfiguracji klastra jako udostępniony dysk. Witaj SAP ASCS/SCS konfiguracji, wybierz **tak** , dzięki czemu widzi klastra Windows hello hello replikowanego woluminu jako udostępnionego dysku, której można użyć jako woluminu klastra.
 
-  ![Rysunek 53: Wybierz tak, aby ustawić replikowanego woluminu jako woluminu klastra][sap-ha-guide-figure-3043]
+  ![Rysunek 53: Wybierz tak tooset hello replikowane wolumin jako wolumin klastra][sap-ha-guide-figure-3043]
 
-  _**Rysunek 53:** wybierz **tak** można ustawić replikowanego woluminu jako woluminu klastra_
+  _**Rysunek 53:** wybierz **tak** tooset hello replikowane jako woluminu klastra_
 
-  Po utworzeniu woluminu narzędzie DataKeeper zarządzania i konfiguracji pokazuje, że zadanie replikacji jest aktywne.
+  Po utworzeniu woluminu hello hello DataKeeper zarządzania i konfiguracji narzędzia przedstawia zadania replikacji hello jest aktywny.
 
-  ![Rysunek 54: DataKeeper synchronicznego duplikowania dysku udziału SAP ASCS/SCS jest aktywny][sap-ha-guide-figure-3044]
+  ![Rysunek 54: DataKeeper duplikowanie synchroniczne dla hello SAP ASCS/SCS udziału dysku jest aktywny][sap-ha-guide-figure-3044]
 
-  _**Rysunek 54:** DataKeeper duplikowanie synchroniczne dla ASCS/SCS programu SAP współużytkować dysku jest aktywny_
+  _**Rysunek 54:** DataKeeper duplikowanie synchroniczne dla hello SAP ASCS/SCS współużytkować dysku jest aktywny_
 
-  Menedżer klastra trybu failover zawiera obecnie dysku jako dysku DataKeeper, jak pokazano na rysunku 55.
+  Menedżer klastra trybu failover zawiera obecnie hello dysku jako dysku DataKeeper, jak pokazano na rysunku 55.
 
-  ![Rysunek 55: Menedżer klastra trybu Failover zawiera dysk, który jest replikowany DataKeeper][sap-ha-guide-figure-3045]
+  ![Rysunek 55: Menedżer klastra trybu Failover zawiera dysk hello replikowane DataKeeper][sap-ha-guide-figure-3045]
 
-  _**Rysunek 55:** Menedżera klastra trybu Failover zawiera dysk tego DataKeeper replikowane_
+  _**Rysunek 55:** Menedżera klastra trybu Failover zawiera dysk hello tego DataKeeper replikowane_
 
-## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a>Instalowanie systemu SAP NetWeaver
+## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a>Instalowanie systemu SAP NetWeaver hello
 
-Instalator systemu DBMS nie opisano ustawienia się różnić w zależności od używanego systemu DBMS. Jednak przyjęto założenie, reagowania problemów o wysokiej dostępności z systemu DBMS z funkcje obsługiwanych przez różnych dostawców DBMS dla platformy Azure. Na przykład zawsze włączone lub dublowania bazy danych programu SQL Server i Oracle Data Guard dla baz danych Oracle. W tym scenariuszu używanych w tym artykule firma Microsoft nie dodał zwiększają ochronę dla systemu DBMS.
+Instalator systemu DBMS hello nie opisano ustawienia się różnić w zależności od używanego systemu DBMS hello. Jednak przyjęto założenie, że dotyczy wysokiej dostępności z systemu DBMS hello są adresowane za pomocą funkcje hello, obsługiwanych przez różnych dostawców DBMS hello Azure. Na przykład zawsze włączone lub dublowania bazy danych programu SQL Server i Oracle Data Guard dla baz danych Oracle. W scenariuszu hello używanych w tym artykule firma Microsoft nie dodał więcej toohello ochrony systemu DBMS.
 
 Istnieją specjalne uwagi dotyczące różnych usług systemu DBMS interakcji z tego rodzaju konfiguracji klastra SAP ASCS/SCS na platformie Azure.
 
 > [!NOTE]
-> Procedury instalacji programu SAP NetWeaver ABAP systemów, Java i systemami ABAP + Java są prawie takie same. Najbardziej znacząca różnica jest systemu SAP ABAP jedno wystąpienie ASCS. Systemu SAP Java ma jedno wystąpienie SCS. Systemu SAP ABAP + Java ma jedno wystąpienie ASCS i jedno wystąpienie SCS uruchomiony w tej samej grupie klastra trybu failover firmy Microsoft. Różnice instalacji dla każdej stosu instalacji SAP NetWeaver jawnie wymienione. Można założyć, że wszystkie inne elementy są takie same.  
+> procedury instalacji Hello programu SAP NetWeaver ABAP systemów, Java i systemami ABAP + Java są prawie takie same. najbardziej znacząca różnica Hello jest systemu SAP ABAP jedno wystąpienie ASCS. Witaj systemu SAP Java ma jedno wystąpienie SCS. Witaj systemu SAP ABAP + Java ma jedno wystąpienie ASCS i działania jednej wystąpienia SCS hello tej samej grupy klastra trybu failover firmy Microsoft. Różnice instalacji dla każdej stosu instalacji SAP NetWeaver jawnie wymienione. Można założyć, wszystkie inne elementy są hello takie same.  
 >
 >
 
 ### <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalowanie programu SAP przy użyciu wystąpienia ASCS/SCS wysokiej dostępności
 
 > [!IMPORTANT]
-> Pamiętaj, aby nie umieszczenia pliku stronicowania na DataKeeper dublowanych woluminów. DataKeeper nie obsługuje woluminy dublowane. Możesz pozostawić pliku stronicowania na dysku tymczasowym D maszyny wirtualnej platformy Azure, co jest ustawieniem domyślnym. Jeśli nie jest już istnieje, należy przenieść plik stronicowania systemu Windows na dysk D: Azure maszyny wirtualnej.
+> Upewnij się, nie tooplace ze strony plików na DataKeeper dublowanych woluminów. DataKeeper nie obsługuje woluminy dublowane. Można pozostawić pliku stronicowania na powitania tymczasowego dysku D z maszyny wirtualnej platformy Azure, który jest domyślnym hello. Jeśli nie jest już istnieje, należy przenieść hello Windows strony pliku toodrive D: Azure maszyny wirtualnej.
 >
 >
 
 Instalowanie SAP przy użyciu wystąpienia ASCS/SCS wysokiej dostępności obejmuje następujące zadania:
 
-- Tworzenie nazwę hosta wirtualnego wystąpienia klastra programu SAP ASCS/SCS
-- Instalowanie programu SAP pierwszym węźle klastra
-- Modyfikowanie profilu SAP wystąpienia ASCS/SCS
+- Tworzenie nazwę hosta wirtualnego wystąpienia programu SAP ASCS/SCS hello w klastrze
+- Instalowanie programu SAP hello pierwszym węźle klastra
+- Modyfikowanie profilu SAP hello hello ASCS/SCS wystąpienia
 - Dodawanie portu sondy
-- Otwarcie portu sondowania zapory systemu Windows
+- Otwarcie portu sondowania zapory systemu Windows hello
 
-#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Utwórz nazwę hosta wirtualnego wystąpienia klastra programu SAP ASCS/SCS
+#### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Utwórz nazwę hosta wirtualnego wystąpienia programu SAP ASCS/SCS hello w klastrze
 
-1.  W Menedżerze DNS z systemem Windows utwórz wpis DNS dla nazwy hostów wirtualnych ASCS/SCS wystąpienia.
+1.  W Menedżerze DNS z systemem Windows hello Utwórz wpis DNS dla nazwy hostów wirtualnych hello hello ASCS/SCS wystąpienia.
 
   > [!IMPORTANT]
-  > Adres IP, który można przypisać nazwę hosta wirtualnego wystąpienia ASCS/SCS musi być taka sama jak adres IP, który został przypisany do usługi równoważenia obciążenia Azure (**<*SID*> - lb - ascs **).  
+  > Witaj adres IP, który można przypisać nazwę hosta wirtualnego toohello hello ASCS/SCS wystąpienie musi być hello sam jako adres IP hello przypisania tooAzure modułu równoważenia obciążenia (**<*SID*> - lb - ascs **).  
   >
   >
 
-  Adres IP nazwę hosta wirtualnego SAP ASCS/SCS (**pr1 ascs sap**) jest taka sama jak adres IP usługi równoważenia obciążenia Azure (**pr1-lb-ascs**).
+  Witaj adresu IP wirtualnej nazwy hosta SAP ASCS/SCS hello (**pr1 ascs sap**) jest hello takie same jak hello adresu IP usługi równoważenia obciążenia Azure (**pr1-lb-ascs**).
 
-  ![Rysunek 56: Definiowanie wpis DNS dla nazwy wirtualnego klastra SAP ASCS/SCS i adres TCP/IP][sap-ha-guide-figure-3046]
+  ![Rysunek 56: Definiowanie hello wpisu DNS dla nazwy wirtualnego hello SAP ASCS/SCS klastra i adres TCP/IP][sap-ha-guide-figure-3046]
 
-  _**Rysunek 56:** zdefiniować wpis DNS dla nazwy wirtualnego klastra SAP ASCS/SCS i adres TCP/IP_
+  _**Rysunek 56:** zdefiniuj hello wpisu DNS dla nazwy wirtualnego hello SAP ASCS/SCS klastra i adres TCP/IP_
 
-2.  Aby zdefiniować adres IP przypisany do nazwy hostów wirtualnych, wybierz **Menedżera DNS** > **domeny**.
+2.  toodefine hello nazwę adresów IP przypisanych toohello hostów wirtualnych, wybierz **Menedżera DNS** > **domeny**.
 
   ![57 rysunek: Nowa nazwa wirtualnego i adres TCP/IP dla konfiguracji klastra SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
   _**Rysunek 57:** nową nazwę wirtualnego i TCP/IP adresów dla SAP ASCS/SCS konfiguracji klastra_
 
-#### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Zainstaluj na pierwszym węźle klastra SAP
+#### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Zainstaluj hello SAP pierwszym węźle klastra
 
-1.  Wykonanie pierwszej opcji węzła klastra w węźle klastra A. Na przykład na **pr1 ascs 0** hosta.
-2.  Zachowaj ustawienie domyślne portów dla usługi równoważenia obciążenia wewnętrznego platformy Azure, wybierz:
+1.  Wykonanie opcję hello do węzła pierwszego klastra w węźle klastra A. Na przykład na powitania **pr1 ascs 0** hosta.
+2.  porty domyślne hello tookeep hello Azure wewnętrznego modułu równoważenia obciążenia, wybierz:
 
   * **ABAP system**: **ASCS** wystąpienie numer **00**
   * **Java system**: **SCS** wystąpienie numer **01**
   * **System ABAP + Java**: **ASCS** wystąpienie numer **00** i **SCS** wystąpienie numer **01**
 
-  Aby użyć wystąpienia liczb innych niż 00 dla wystąpienia ABAP ASCS i 01 dla wystąpienia Java SCS, najpierw należy zmienić reguły, opisane w równoważenia obciążenia domyślne usługi równoważenia obciążenia wewnętrznego Azure [Zmień zasady dla usługi równoważenia obciążenia Azure wewnętrzny równoważenia obciążenia domyślne ASCS/SCS][sap-ha-guide-8.9].
+  wystąpienie toouse innych niż 00 hello ABAP ASCS liczb, wystąpienia i 01 hello Java SCS wystąpienia, należy najpierw toochange hello Azure obciążenia wewnętrznego domyślne równoważenia obciążenia modułu równoważenia reguł, opisanych w [zmiany hello ASCS/SCS domyślne obciążenia Równoważenie zasady hello Azure wewnętrznego modułu równoważenia obciążenia][sap-ha-guide-8.9].
 
-Następny kilka zadań nie są opisane w standardowe dokumentacji instalacji SAP.
+Witaj dalej kilka zadań nie są opisane w hello standardowe SAP instalacji dokumentacji.
 
 > [!NOTE]
-> Dokumentacja instalacji programu SAP opisuje sposób instalowania pierwszego węzła klastra ASCS/SCS.
+> Hello SAP instalacji dokumentacji opisano, jak tooinstall hello pierwszym węźle klastra ASCS/SCS.
 >
 >
 
-#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modyfikowanie profilu SAP wystąpienia ASCS/SCS
+#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Modyfikowanie profilu SAP hello hello ASCS/SCS wystąpienia
 
-Należy dodać nowy parametr profilu. Parametr profilu zapobiega połączeń między procesów roboczych SAP i umieścić w kolejce zamykania po okresie bezczynności wynoszącym zbyt długo. Wspomniano scenariusz problemu w [dodać wpisów rejestru na obu węzłach klastra z wystąpieniem SAP ASCS/SCS][sap-ha-guide-8.11]. W tej sekcji również wprowadzono dwie zmiany do niektórych podstawowych parametrów połączenia TCP/IP. W drugim kroku, należy określić serwer umieścić w kolejce do wysłania `keep_alive` sygnału, dzięki czemu połączeń nie osiągnął Próg bezczynności Azure wewnętrznego modułu równoważenia obciążenia.
+Należy tooadd nowy parametr profilu. Parametr profilu Hello zapobiega połączeń między procesów roboczych SAP i hello umieścić serwer zamykania po okresie bezczynności wynoszącym zbyt długo. Wspomniano hello scenariusz problemu w [dodać wpisów rejestru na obu węzłach hello SAP ASCS/SCS wystąpienia][sap-ha-guide-8.11]. W tej sekcji wprowadzono są również dwie zmiany toosome podstawowe TCP/IP Parametry połączenia. W drugim kroku należy tooset hello umieścić serwer toosend `keep_alive` sygnału, dzięki czemu hello połączeń nie osiągnął Próg bezczynności hello Azure wewnętrznego modułu równoważenia obciążenia.
 
-Aby zmodyfikować profil SAP wystąpienia ASCS/SCS:
+Witaj toomodify profilu SAP wystąpienia ASCS/SCS hello:
 
-1.  Dodaj parametr ten profil, do profilu wystąpienia SAP ASCS/SCS:
+1.  Dodaj ten profil parametru toohello SAP ASCS/SCS wystąpienia profilu:
 
   ```
   enque/encni/set_so_keepalive = true
   ```
-  W naszym przykładzie ścieżka jest:
+  W naszym przykładzie ścieżka hello jest:
 
   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
 
-  Na przykład do profilu wystąpienia SAP SCS i odpowiednie ścieżki:
+  Na przykład toohello SAP SCS wystąpienia profilu i odpowiednie ścieżki:
 
   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  Aby zastosować zmiany, ponownie uruchom wystąpienie /SCS SAP ASCS.
+2.  tooapply hello zmiany, ponownie uruchom wystąpienie /SCS SAP ASCS hello.
 
 #### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Dodaj port sondy
 
-Funkcja równoważenia obciążenia wewnętrznego sondy do pracy z usługą równoważenia obciążenia w Azure konfigurację całego klastra. Azure wewnętrznego modułu równoważenia obciążenia zwykle rozdziela przychodzące obciążenie równomiernie w poszczególnych uczestniczących maszyn wirtualnych. Jednak to nie będzie działać w niektórych konfiguracjach klastra, ponieważ jest aktywna tylko jedno wystąpienie. Inne wystąpienie jest w stanie pasywnym i nie akceptuje dowolne obciążenia. Funkcja badania pomaga Azure wewnętrznego modułu równoważenia obciążenia przypisuje pracy tylko do aktywnego wystąpienia. Z funkcją sondowania wewnętrznego modułu równoważenia obciążenia może wykryć, które wystąpienia są aktywne, a następnie ograniczyć tylko wystąpienia o obciążenie.
+Używać funkcji hello wewnętrznego modułu równoważenia obciążenia sondowania funkcji toomake hello całego klastra konfiguracji Praca z modułem równoważenia obciążenia w Azure. Hello Azure wewnętrznego modułu równoważenia obciążenia zwykle rozdziela przychodzące obciążenie hello równomiernie w poszczególnych uczestniczących maszyn wirtualnych. Jednak to nie będzie działać w niektórych konfiguracjach klastra, ponieważ jest aktywna tylko jedno wystąpienie. Hello inne wystąpienie jest w stanie pasywnym i nie akceptuje dowolne hello obciążenia. Funkcja badania pomaga przypisuje usługi równoważenia obciążenia Azure wewnętrzny hello działa tylko tooan aktywnym wystąpieniu. Z funkcją sondowania hello hello wewnętrznego modułu równoważenia obciążenia może wykryć, które wystąpienia są aktywne, a następnie tylko hello wystąpienia z obciążenia hello docelowego.
 
-Aby dodać port sondy:
+port sondy tooadd:
 
-1.  Sprawdź bieżący **ProbePort** ustawienie za pomocą następującego polecenia programu PowerShell. Wykonanie go z jednej maszyny wirtualnej w konfiguracji klastra.
+1.  Sprawdź bieżący hello **ProbePort** ustawienie, uruchamiając następujące polecenia programu PowerShell hello. Wykonanie go z jednej z maszyn wirtualnych hello w konfiguracji klastra hello.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1204,19 +1204,19 @@ Aby dodać port sondy:
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
   ```
 
-2.  Zdefiniuj port sondy. Domyślny numer portu sondowania to **0**. W tym przykładzie używamy port sondy **62000**.
+2.  Zdefiniuj port sondy. Witaj domyślny numer portu sondy jest **0**. W tym przykładzie używamy port sondy **62000**.
 
-  ![Rysunek 58: Port sondy konfiguracji klastra jest równa 0, domyślnie][sap-ha-guide-figure-3048]
+  ![Rysunek 58: port sondy konfiguracji klastra hello jest 0 domyślnie][sap-ha-guide-figure-3048]
 
-  _**Rysunek 58:** domyślny port sondy konfiguracji klastra jest równa 0_
+  _**Rysunek 58:** port sondy konfiguracji klastra domyślne hello wynosi 0_
 
-  Numer portu jest zdefiniowany w szablonach SAP usługi Azure Resource Manager. Można przypisać numer portu w programie PowerShell.
+  numer portu Hello jest zdefiniowany w szablonach SAP usługi Azure Resource Manager. Można przypisać numer portu hello w programie PowerShell.
 
-  Aby ustawić nową wartość ProbePort  **SAP <*SID*> IP ** zasobu klastra, uruchom następujący skrypt programu PowerShell. Zaktualizuj zmienne środowiska PowerShell. Po uruchomieniu skryptu, zostanie wyświetlony monit o ponowne uruchomienie Grupa klastra SAP do aktywowania zmian.
+  tooset nową wartość ProbePort hello  **SAP <*SID*> IP ** zasobu klastra, uruchom hello następującego skryptu programu PowerShell. Zaktualizuj hello zmiennych środowiska PowerShell dla danego środowiska. Po uruchomieniu skryptu hello się, zostanie wyświetlony monit o toorestart hello SAP grupy tooactivate hello zmiany dotyczące klastra.
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of hello Azure Internal Load Balancer
 
   Clear-Host
   $SAPClusterRoleName = "SAP $SAPSID"
@@ -1235,16 +1235,16 @@ Aby dodać port sondy:
   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
 
   Write-Host
-  Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
+  Write-Host "Current probe port property of hello SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
   Write-Host
-  Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
+  Write-Host "Setting hello new probe port property of hello SAP cluster resource '$SAPIPresourceName' too'$ProbePort' ..." -ForegroundColor Cyan
   Write-Host
 
   $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
 
   Write-Host
 
-  $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
+  $ActivateChanges = Read-Host "Do you want tootake restart SAP cluster role '$SAPClusterRoleName', tooactivate hello changes (yes/no)?"
 
   if($ActivateChanges -eq "yes"){
   Write-Host
@@ -1270,7 +1270,7 @@ Aby dodać port sondy:
   }
   ```
 
-  Po przełączeniu  **SAP <*SID*> ** klastra roli w tryb online, upewnij się, że **ProbePort** jest ustawiona na nową wartość.
+  Po przełączeniu hello  **SAP <*SID*> ** klastra roli w tryb online, upewnij się, że **ProbePort** ustawiono toohello nową wartość.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -1280,71 +1280,71 @@ Aby dodać port sondy:
 
   ```
 
-  ![Rysunek 59: Sondowania portu klastra po zainstalowaniu nowej wartości][sap-ha-guide-figure-3049]
+  ![Rysunek 59: Sondowania hello portu klastra po ustawieniu hello nowej wartości][sap-ha-guide-figure-3049]
 
-  _**Rysunek 59:** sondowania portu klastra po zainstalowaniu nowej wartości_
+  _**Rysunek 59:** sondowania portu klastra powitania po ustawieniu hello nowej wartości_
 
-#### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Otwórz port sondy zapory systemu Windows
+#### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Otwórz port sondy zapory systemu Windows hello
 
-Należy otworzyć port sondy zapory systemu Windows na obu węzłów klastra. Użyj następującego skryptu, aby otworzyć port sondy zapory systemu Windows. Zaktualizuj zmienne środowiska PowerShell.
+Należy tooopen port sondy zapory systemu Windows na obu węzłów klastra. Użyj następującego skryptu tooopen port sondy zapory systemu Windows hello. Zaktualizuj hello zmiennych środowiska PowerShell dla danego środowiska.
 
   ```PowerShell
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of hello Azure Internal Load Balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** ustawiono **62000**. Teraz można uzyskać dostępu do udziału plików  **\\\ascsha-clsap\sapmnt** od innych hostów, takie jak z **ascsha dbas**.
+Witaj **ProbePort** ustawiono zbyt**62000**. Teraz można dostęp do udziału plików hello  **\\\ascsha-clsap\sapmnt** od innych hostów, takie jak z **ascsha dbas**.
 
-### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Zainstaluj wystąpienie bazy danych
+### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Zainstaluj hello wystąpienia bazy danych
 
-Aby zainstalować wystąpienie bazy danych, wykonaj proces opisany w dokumentacji instalacji SAP.
+Baza danych hello tooinstall wystąpienia, należy wykonać hello procesu opisanego w hello dokumentacji instalacji SAP.
 
-### <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Zainstaluj drugiego węzła klastra
+### <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Zainstaluj hello drugiego węzła klastra
 
-Aby zainstalować drugi klaster, wykonaj czynności opisane w przewodniku instalacji SAP.
+tooinstall hello drugi klaster, wykonaj kroki hello hello SAP w podręczniku instalacji.
 
-### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Zmień typ uruchomienia wystąpienia usługi Windows Wywołujących SAP
+### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Zmień typ uruchomienia hello wystąpienie usługi SAP Wywołujących Windows hello
 
-Zmień typ uruchomienia usługi systemu Windows Wywołujących SAP **automatycznie (opóźnione uruchomienie)** na obu węzłów klastra.
+Zmień typ uruchamiania usługi SAP Wywołujących Windows hello hello zbyt**automatycznie (opóźnione uruchomienie)** na obu węzłów klastra.
 
-![Rysunek 60: Zmień typ usługi dla wystąpienia Wywołujących SAP do opóźnionego automatycznego][sap-ha-guide-figure-3050]
+![Rysunek 60: Zmień typ usługi hello hello Wywołujących SAP wystąpienia toodelayed automatyczne][sap-ha-guide-figure-3050]
 
-_**Rysunek 60:** Zmień typ usługi wystąpienie Wywołujących SAP do opóźnionego automatycznego_
+_**Rysunek 60:** zmienić typ usługi hello hello Wywołujących SAP wystąpienia toodelayed automatyczne_
 
-### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Zainstaluj serwer aplikacji głównej SAP
+### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Zainstaluj hello SAP podstawowego serwera aplikacji
 
-Zainstaluj wystąpienie serwera aplikacji głównej (adresy) <*SID*> - podpisane - 0 na maszynie wirtualnej, który został wybrany do obsługi adresy dostawcy. Nie ma żadnych zależności, Azure lub DataKeeper określonych ustawień.
+Zainstaluj wystąpienie serwera aplikacji głównej (adresy) hello <*SID*> - podpisane - 0 na maszynie wirtualnej hello, który został wybrany toohost hello adresy dostawcy. Nie ma żadnych zależności, Azure lub DataKeeper określonych ustawień.
 
-### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalowanie serwera aplikacji dodatkowe SAP
+### <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Zainstaluj hello SAP dodatkowego serwera aplikacji
 
-Zainstaluj SAP dodatkowych aplikacji serwera (AAS) na wszystkich maszynach wirtualnych, które zostały wyznaczone do obsługi wystąpienia serwera aplikacji SAP. Na przykład na <*SID*> - podpisane - 1 do <*SID*> - podpisane -&lt;n&gt;.
+Zainstaluj SAP dodatkowych aplikacji serwera (AAS) na wszystkich maszynach wirtualnych hello, że ustawiono toohost wystąpienia serwera aplikacji SAP. Na przykład na <*SID*> - podpisane - 1 za <*SID*> - podpisane -&lt;n&gt;.
 
 > [!NOTE]
-> Zakończy się instalacja systemu SAP NetWeaver wysokiej dostępności. Następnie należy kontynuować testowanie trybu failover.
+> Zakończy się instalacja hello systemu SAP NetWeaver wysokiej dostępności. Następnie należy kontynuować testowanie trybu failover.
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testowanie trybu failover wystąpienia programu SAP ASCS/SCS i SIOS replikacji
-Jest łatwy do testowania i monitorowania za pomocą narzędzia Menedżera klastra trybu Failover oraz zarządzania DataKeeper SIOS i konfiguracji trybu failover wystąpienia programu SAP ASCS/SCS i SIOS replikacji dysku.
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testowanie trybu failover wystąpienia programu SAP ASCS/SCS hello i SIOS replikacji
+Jest łatwy tootest i monitorowanie trybu failover wystąpienia programu SAP ASCS/SCS i replikacji dysku SIOS za pomocą Menedżera klastra trybu Failover i narzędzia hello SIOS DataKeeper zarządzania i konfiguracji.
 
 ### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>W węźle klastra, A jest uruchomione wystąpienie SAP ASCS/SCS
 
-**SAP PR1** grupy klastra jest uruchomiona w węźle klastra A. Na przykład na **pr1 ascs 0**. Przypisywanie udostępnionego dysku S, który jest częścią programu **SAP PR1** Grupa klastra, i używający wystąpienia ASCS/SCS, do klastra z węzła A.
+Witaj **SAP PR1** grupy klastra jest uruchomiona w węźle klastra A. Na przykład na **pr1 ascs 0**. Przypisz hello udostępnionego dysku S, który jest częścią hello **SAP PR1** grupy i które wystąpienie ASCS/SCS hello używa toocluster A. węzła klastra
 
-![61 rysunek: Menedżer klastra trybu Failover: SAP < SID > grupy klastra jest uruchomiona w węźle klastra, A][sap-ha-guide-figure-5000]
+![61 rysunek: Menedżer klastra trybu Failover: Grupa klastra SAP < SID > hello jest uruchomiona w węźle klastra, A][sap-ha-guide-figure-5000]
 
-_**Rysunek 61:** Menedżera klastra trybu Failover: SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra, A_
+_**Rysunek 61:** Menedżera klastra trybu Failover: hello SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra, A_
 
-W narzędziu Zarządzanie DataKeeper SIOS i jego konfiguracja widać, że udostępniony dysk synchronicznie replikacji danych z dysku woluminu źródłowego S w węźle klastra, A na dysku woluminu docelowego S w węźle klastra B. Na przykład są replikowane z **pr1 ascs 0 [10.0.0.40]** do **pr1 ascs 1 [10.0.0.41]**.
+Witaj SIOS DataKeeper zarządzanie i narzędzia do konfiguracji zawiera tego hello dysk udostępniony, który dane są replikowane synchronicznie w z dysku woluminu źródłowego hello S w węźle klastra toohello dysku woluminu docelowego S w węźle klastra B. Na przykład są replikowane z **pr1 ascs 0 [10.0.0.40]** za**pr1 ascs 1 [10.0.0.41]**.
 
-![Rysunek 62: W SIOS DataKeeper replikowane lokalnym woluminie z węzła klastra, A do węzła klastra B][sap-ha-guide-figure-5001]
+![Rysunek 62: W SIOS DataKeeper replikowane woluminu lokalne powitania z węzła z klastra węzeł toocluster B][sap-ha-guide-figure-5001]
 
-_**Rysunek 62:** w SIOS DataKeeper replikowane lokalnym woluminie z węzła klastra, A do węzła klastra B_
+_**Rysunek 62:** w SIOS DataKeeper replikowane woluminu lokalne powitania z węzła z klastra węzeł toocluster B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Tryb failover z węzła A węzła B
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Tryb failover z węzła A toonode B
 
-1.  Wybierz jedną z tych opcji, aby zainicjować trybu failover SAP <*SID*> Grupa klastra z węzła klastra, A do węzła klastra B:
+1.  Wybierz jedną z tych opcji tooinitiate awarię hello SAP <*SID*> Grupa klastra z klastra węzeł A toocluster węzeł B:
   - Menedżer klastra trybu Failover  
   - Za pomocą programu PowerShell klastra trybu Failover
 
@@ -1355,18 +1355,18 @@ _**Rysunek 62:** w SIOS DataKeeper replikowane lokalnym woluminie z węzła klas
   Move-ClusterGroup -Name $SAPClusterGroup
 
   ```
-2.  Uruchom ponownie, A węzeł klastra w ramach systemu operacyjnego gościa (powoduje to zainicjowanie automatycznej pracy awaryjnej SAP <*identyfikatora SID*> Grupa klastra z węzła A do węzła B).  
-3.  Uruchom ponownie, A węzeł klastra przy użyciu portalu Azure (powoduje to zainicjowanie automatycznej pracy awaryjnej SAP <*identyfikatora SID*> Grupa klastra z węzła A do węzła B).  
-4.  Uruchom ponownie A węzła klastra za pomocą programu Azure PowerShell (powoduje to zainicjowanie automatycznej pracy awaryjnej SAP <*identyfikatora SID*> Grupa klastra z węzła A do węzła B).
+2.  Uruchom ponownie, A węzeł klastra w systemie operacyjnym gościa Windows hello (powoduje to zainicjowanie automatycznej pracy awaryjnej hello SAP <*SID*> Grupa klastra z węzła A toonode B).  
+3.  Uruchom ponownie, A węzeł klastra z hello portalu Azure (powoduje to zainicjowanie automatycznej pracy awaryjnej hello SAP <*SID*> Grupa klastra z węzła A toonode B).  
+4.  Uruchom ponownie A węzła klastra za pomocą programu Azure PowerShell (powoduje to zainicjowanie automatycznej pracy awaryjnej hello SAP <*SID*> Grupa klastra z węzła A toonode B).
 
-  Po przejściu w tryb failover, SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra B. Na przykład, że jest uruchomiona w **pr1 ascs 1**.
+  Po przejściu w tryb failover, hello SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra B. Na przykład, że jest uruchomiona w **pr1 ascs 1**.
 
-  ![Rysunek 63: W Menedżerze klastra trybu Failover SAP < SID > grupy klastra jest uruchomiona w węźle klastra B][sap-ha-guide-figure-5002]
+  ![Rysunek 63: W Menedżerze klastra trybu Failover Grupa klastra SAP < SID > hello jest uruchomiona w węźle klastra B][sap-ha-guide-figure-5002]
 
-  _**Rysunek 63**: W Menedżerze klastra trybu Failover, SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra B_
+  _**Rysunek 63**: W Menedżerze klastra trybu Failover, hello SAP <*SID*> grupy klastra jest uruchomiona w węźle klastra B_
 
-  Udostępniony dysk jest teraz zainstalowany w klastrze węzła B. SIOS DataKeeper jest replikowanie danych z dysku woluminu źródłowego S w węźle klastra B na dysku woluminu docelowego S w węźle klastra A. Na przykład jest replikowany z **pr1 ascs 1 [10.0.0.41]** do **pr1 ascs 0 [10.0.0.40]**.
+  Witaj udostępniony dysk jest teraz zainstalowany w klastrze węzła B. SIOS DataKeeper jest replikowanie danych z dysku woluminu źródłowego S na węzeł B tootarget woluminu dysku klastrowego S w węźle klastra A. Na przykład jest replikowany z **pr1 ascs 1 [10.0.0.41]** za**pr1 ascs 0 [10.0.0.40]**.
 
-  ![Rysunek 64: SIOS DataKeeper replikuje lokalnym woluminie z węzła klastra B do A węzła klastra][sap-ha-guide-figure-5003]
+  ![Rysunek 64: SIOS DataKeeper replikuje woluminu lokalne powitania z klastra węzeł B toocluster węzła A][sap-ha-guide-figure-5003]
 
-  _**Rysunek 64:** SIOS DataKeeper replikuje lokalnym woluminie z węzła klastra B do A węzła klastra_
+  _**Rysunek 64:** SIOS DataKeeper replikuje woluminu lokalne powitania z klastra węzeł B toocluster węzeł A_

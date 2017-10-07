@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie aplikacji sieci Web w usłudze Azure App Service"
-description: "Jak skonfigurować aplikację sieci web w usłudze Azure App Services"
+title: "aaaConfigure aplikacji sieci web w usłudze aplikacji Azure"
+description: "Jak tooconfigure aplikacji sieci web w usłudze Azure App Services"
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8697ab6f21cfeb470e11f0d82c68692d43142fc5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurowanie aplikacji sieci Web w usłudze Azure App Service
-W tym temacie opisano sposób konfigurowania aplikacji sieci web za pomocą [Azure Portal].
+W tym temacie wyjaśniono, jak hello tooconfigure aplikacji sieci web przy użyciu [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Ustawienia aplikacji
-1. W [Azure Portal], otwórz blok dla aplikacji sieci web.
+1. W hello [Azure Portal], otwórz blok powitania dla aplikacji sieci web hello.
 2. Kliknij przycisk **wszystkie ustawienia**.
 3. Kliknij przycisk **ustawienia aplikacji**.
 
 ![Ustawienia aplikacji][configure01]
 
-**Ustawienia aplikacji** bloku ma ustawienia pogrupowane w różne kategorie.
+Witaj **ustawienia aplikacji** bloku ma ustawienia pogrupowane w różne kategorie.
 
 ### <a name="general-settings"></a>Ustawienia ogólne
 **Framework w wersji**. Ustaw tych opcji, jeśli aplikacja używa tych platform: 
 
-* **.NET framework**: Ustaw wersji programu .NET framework. 
-* **PHP**: Ustaw wersję PHP lub **OFF** wyłączyć PHP. 
-* **Java**: Wybierz wersję Java lub **OFF** wyłączyć Java. Użyj **kontener sieci Web** opcję, aby wybrać Tomcat i Jetty wersji.
-* **Python**: Wybierz wersję języka Python lub **OFF** wyłączyć Python.
+* **.NET framework**: hello zestawu .NET framework w wersji. 
+* **PHP**: Ustaw wersję PHP hello, lub **OFF** toodisable PHP. 
+* **Java**: hello wybierz wersję Java lub **OFF** toodisable Java. Hello użyj **kontener sieci Web** toochoose opcji między Tomcat i Jetty wersji.
+* **Python**: Wybierz hello wersji języka Python, lub **OFF** toodisable języka Python.
 
-Ze względów technicznych włączenie Java aplikacji powoduje wyłączenie opcji .NET, PHP i Python.
+Przyczyn technicznych Java, włączanie aplikacji wyłącza hello opcje .NET, PHP i Python.
 
 <a name="platform"></a>
-**Platforma**. Wybiera, czy aplikacja sieci web jest uruchamiana w środowisku 32-bitowy lub 64-bitowych. 64-bitowego środowiska wymaga trybu Basic lub Standard. Zwolnij i tryby udostępnione są zawsze uruchamiane w środowisku 32-bitowym.
+**Platforma**. Wybiera, czy aplikacja sieci web jest uruchamiana w środowisku 32-bitowy lub 64-bitowych. Witaj 64-bitowego środowiska wymaga trybu Basic lub Standard. Zwolnij i tryby udostępnione są zawsze uruchamiane w środowisku 32-bitowym.
 
-**Sieci Web Sockets**. Ustaw **ON** Aby włączyć protokół WebSocket; na przykład, jeśli aplikacja sieci web używa [ASP.NET SignalR] lub [użyciu biblioteki socket.io].
+**Sieci Web Sockets**. Ustaw **ON** tooenable hello protokół WebSocket; na przykład, jeśli aplikacja sieci web używa [ASP.NET SignalR] lub [użyciu biblioteki socket.io].
 
 <a name="alwayson"></a>
-**Zawsze włączone**. Domyślnie aplikacje sieci web są usuwane, jeśli są one bezczynności przez niektóre czas. Pozwala to zaoszczędzić zasoby systemu. W trybie Basic lub Standard, aby umożliwić **zawsze na** do zachowania aplikacji załadowana przez cały czas. Jeśli aplikacja będzie działać ciągłe zadania Webjob lub uruchamia zadania Webjob wyzwolone przy użyciu wyrażenia CRON, należy włączyć **zawsze na**, lub zadania sieci web mogą nie działać prawidłowo.
+**Zawsze włączone**. Domyślnie aplikacje sieci web są usuwane, jeśli są one bezczynności przez niektóre czas. Dzięki temu system hello zaoszczędzenia zasobów. W trybie Basic lub Standard, aby umożliwić **zawsze na** aplikacji hello tookeep załadować cały czas hello. Jeśli aplikacja będzie działać ciągłe zadania Webjob lub uruchamia zadania Webjob wyzwolone przy użyciu wyrażenia CRON, należy włączyć **zawsze na**, lub hello zadania sieci web mogą nie działać prawidłowo.
 
-**Zarządzane wersji potoku**. Ustawia IIS [tryb potokowy]. Pozostaw tego zestawu na zintegrowane (ustawienie domyślne), chyba że masz starszej wersji aplikacji, która wymaga starszej wersji programu IIS.
+**Zarządzane wersji potoku**. Ustawia hello IIS [tryb potokowy]. Pozostaw ustawić tooIntegrated (domyślnie: hello), chyba że masz starszej wersji aplikacji, która wymaga starszej wersji programu IIS.
 
-**Automatycznie wymiany**. Po włączeniu automatycznej wymiany dla miejsca wdrożenia usługi aplikacji — automatycznie zamianę aplikacji sieci web w środowisku produkcyjnym po naciśnięciu aktualizacji do tego miejsca. Aby uzyskać więcej informacji, zobacz [wdrażanie na tymczasowej miejsc aplikacji sieci web w usłudze Azure App Service](web-sites-staged-publishing.md).
+**Automatycznie wymiany**. Po włączeniu automatycznej wymiany dla miejsca wdrożenia usługi App Service automatycznie wymiany hello aplikacji sieci web w środowisku produkcyjnym po naciśnięciu gnieździe toothat aktualizacji. Aby uzyskać więcej informacji, zobacz [wdrażanie toostaging miejsc aplikacji sieci web w usłudze Azure App Service](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Debugowanie
-**Debugowanie zdalne**. Umożliwia zdalne debugowanie. Po włączeniu można użyć zdalnego debugera w programie Visual Studio, aby połączyć się bezpośrednio z aplikacji sieci web. Debugowanie zdalne pozostanie włączony 48 godzin. 
+**Debugowanie zdalne**. Umożliwia zdalne debugowanie. Po włączeniu umożliwia hello zdalnego debugera w Visual Studio tooconnect bezpośrednio aplikacji sieci web tooyour. Debugowanie zdalne pozostanie włączony 48 godzin. 
 
 ### <a name="app-settings"></a>Ustawienia aplikacji
 Ta sekcja zawiera pary nazwa/wartość, które sieci web aplikacji zostanie załadowany po uruchomieniu. 
 
 * W przypadku aplikacji .NET, te ustawienia są wstrzykiwane do konfiguracji .NET `AppSettings` w czasie wykonywania, zastępowanie istniejących ustawień. 
-* Aplikacje PHP, Python, Java i węzła mają dostęp do tych ustawień jako zmienne środowiskowe w czasie wykonywania. Dla każdego ustawienia aplikacji są tworzone dwie zmienne środowiskowe; jeden z nazwą określoną przez ustawienie wpis aplikacji, a druga z prefiksem APPSETTING_. Zawierają tę samą wartość.
+* Aplikacje PHP, Python, Java i węzła mają dostęp do tych ustawień jako zmienne środowiskowe w czasie wykonywania. Dla każdego ustawienia aplikacji są tworzone dwie zmienne środowiskowe; jeden z nazwą hello określoną przez wpis ustawienie aplikacji hello, a druga z prefiksem APPSETTING_. Zawierają hello tę samą wartość.
 
 ### <a name="connection-strings"></a>Parametry połączeń
 Parametry połączenia dla połączonych zasobów. 
 
-W przypadku aplikacji .NET, te parametry połączenia są wstrzykiwane do konfiguracji .NET `connectionStrings` ustawienia w czasie wykonywania, zastępowanie istniejących wpisów, gdy klucz jest równe nazwy połączonej bazy danych. 
+W przypadku aplikacji .NET, te parametry połączenia są wstrzykiwane do konfiguracji .NET `connectionStrings` ustawienia w czasie wykonywania, zastępowanie istniejących wpisów, gdzie jest klucz hello hello nazwy połączonej bazy danych. 
 
-W przypadku aplikacji PHP, Python, Java i węzła te ustawienia będą dostępne jako zmienne środowiskowe w czasie wykonywania, prefiksem typu połączenia. Prefiksy zmiennej środowiskowej są następujące: 
+W przypadku aplikacji PHP, Python, Java i węzła te ustawienia będą dostępne jako zmienne środowiskowe w czasie wykonywania, prefiksem hello typu połączenia. prefiksy zmiennej środowiskowej Hello są następujące: 
 
 * Program SQL Server:`SQLCONNSTR_`
 * MySQL:`MYSQLCONNSTR_`
 * Baza danych SQL:`SQLAZURECONNSTR_`
 * Niestandardowe:`CUSTOMCONNSTR_`
 
-Na przykład, jeśli parametry połączenia MySql nazwany `connectionstring1`, czy dostęp do niej za pomocą zmiennej środowiskowej `MYSQLCONNSTR_connectionString1`.
+Na przykład, jeśli parametry połączenia MySql nazwany `connectionstring1`, czy dostęp do niej za pomocą zmiennej środowiskowej hello `MYSQLCONNSTR_connectionString1`.
 
 ### <a name="default-documents"></a>Dokumenty domyślne
-Dokument domyślny jest strony sieci web wyświetlaną w głównego adresu URL witryny sieci Web.  Pierwszy odpowiedniego pliku na liście jest używany. 
+dokument domyślny Hello to strona sieci web hello jest wyświetlany na powitania głównego adresu URL witryny sieci Web.  Witaj pierwszy zgodnego pliku na liście hello jest używany. 
 
 Aplikacje sieci Web może używać modułów, że trasy na podstawie adresu URL, a nie obsługujących zawartość statyczną, w którym to przypadku nie jest dokument domyślny, w związku.    
 
 ### <a name="handler-mappings"></a>Mapowania programu obsługi
-Aby dodać procesorów skryptu niestandardowego do obsługi żądań określonych rozszerzeń plików, użyj tego obszaru. 
+Użyj tego obszaru tooadd skryptu niestandardowego procesory toohandle żądania dla określonych rozszerzeń plików. 
 
-* **Rozszerzenie**. Rozszerzenie pliku, które mają być obsługiwane, takie jak *.php lub handler.fcgi. 
-* **Ścieżka do procesora skryptów**. Ścieżka bezwzględna procesora skryptów. Żądania dostępu do plików, zgodne z rozszerzeniem pliku zostanie przetworzony przez procesora skryptów. Użyj ścieżki `D:\home\site\wwwroot` do odwoływania się do katalogu głównego aplikacji.
-* **Dodatkowe argumenty**. Opcjonalne argumenty wiersza polecenia do procesora skryptów 
+* **Rozszerzenie**. toobe rozszerzenie pliku Hello obsłużone, takich jak *.php lub handler.fcgi. 
+* **Ścieżka do procesora skryptów**. Ścieżka bezwzględna Hello hello procesora skryptów. Toofiles żądania, odpowiadających hello rozszerzenie zostanie przetworzony przez hello procesora skryptów. Użyj ścieżki hello `D:\home\site\wwwroot` katalog główny aplikacji tooyour toorefer.
+* **Dodatkowe argumenty**. Opcjonalne argumenty wiersza polecenia do procesora skryptów hello 
 
 ### <a name="virtual-applications-and-directories"></a>Wirtualne aplikacje i katalogi
-Aby skonfigurować wirtualne aplikacje i katalogi, określ każdy katalog wirtualny i jego odpowiedniego ścieżka fizyczna względem katalogu głównego witryny sieci Web. Opcjonalnie można wybrać **aplikacji** pole wyboru, aby oznaczyć katalogu wirtualnego jako aplikacji.
+aplikacje wirtualne tooconfigure i katalogi, określ poszczególne katalogi wirtualne i odpowiednie głównym witryny sieci Web toohello względną ścieżkę fizyczną. Opcjonalnie można wybrać hello **aplikacji** toomark wyboru katalogu wirtualnego jako aplikacji.
 
 ## <a name="enabling-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
-Aby włączyć dzienniki diagnostyczne:
+dzienniki diagnostyczne tooenable:
 
-1. W bloku dla aplikacji sieci web, kliknij **wszystkie ustawienia**.
+1. W bloku hello aplikacji sieci web, kliknij przycisk **wszystkie ustawienia**.
 2. Kliknij przycisk **dzienniki diagnostyczne**. 
 
 Opcje zapisywania dzienników diagnostycznych z aplikacji sieci web, która obsługuje rejestrowanie: 
 
-* **Rejestrowanie aplikacji**. Zapisuje Dzienniki aplikacji w systemie plików. Rejestrowanie okresu w okresie 12 godzin. 
+* **Rejestrowanie aplikacji**. Zapisuje Dzienniki aplikacji toohello systemu plików. Rejestrowanie okresu w okresie 12 godzin. 
 
-**Poziom**. Po włączeniu rejestrowania aplikacji, ta opcja określa, że ilość informacji, które będą rejestrowane (błąd, ostrzeżenie, informacje lub pełne).
+**Poziom**. Po włączeniu rejestrowania aplikacji, ta opcja określa hello ilość informacji, która zostanie zarejestrowane (błąd, ostrzeżenie, informacje lub pełne).
 
-**Rejestrowanie pracy serwera sieci Web**. Dzienniki są zapisywane w rozszerzonym formacie W3C dziennika pliku. 
+**Rejestrowanie pracy serwera sieci Web**. Dzienniki są zapisywane w hello rozszerzonym formacie W3C dziennika pliku. 
 
-**Szczegółowe komunikaty o błędach**. Zapisuje szczegółowe informacje o błędzie komunikatów pliki htm. Pliki są zapisywane w obszarze /LogFiles/DetailedErrors. 
+**Szczegółowe komunikaty o błędach**. Zapisuje szczegółowe informacje o błędzie komunikatów pliki htm. Witaj pliki są zapisywane w obszarze /LogFiles/DetailedErrors. 
 
-**Śledzenie nieudanych żądań**. Dzienniki nieudane żądania do plików XML. Pliki są zapisywane w obszarze/LogFiles/W3SVC*xxx*, gdzie xxx jest unikatowy identyfikator. Ten folder zawiera plik XSL i co najmniej jeden plik XML. Upewnij się, że Pobierz plik XSL, ponieważ zapewnia funkcje dotyczące formatowania i filtrowanie zawartości plików XML.
+**Śledzenie nieudanych żądań**. Żądania tooXML pliki dzienników, nie powiodło się. Witaj pliki są zapisywane w obszarze/LogFiles/W3SVC*xxx*, gdzie xxx jest unikatowy identyfikator. Ten folder zawiera plik XSL i co najmniej jeden plik XML. Czy toodownload hello pliku XSL, należy wprowadzić, ponieważ zawiera funkcję, formatowanie i filtrowania hello zawartość plików XML hello.
 
-Aby wyświetlić pliki dziennika, należy utworzyć poświadczenia FTP w następujący sposób:
+pliki dziennika hello tooview, należy utworzyć poświadczenia FTP w następujący sposób:
 
-1. W bloku dla aplikacji sieci web, kliknij **wszystkie ustawienia**.
+1. W bloku hello aplikacji sieci web, kliknij przycisk **wszystkie ustawienia**.
 2. Kliknij przycisk **poświadczenia wdrażania**.
 3. Wprowadź nazwę użytkownika i hasło.
 4. Kliknij pozycję **Zapisz**.
 
 ![Konfigurowanie poświadczeń wdrożenia][configure03]
 
-Pełna nazwa użytkownika FTP jest "app\username", gdzie *aplikacji* to nazwa aplikacji sieci web. Nazwa użytkownika jest wymieniony w bloku aplikacja sieci web, w obszarze **Essentials**.  
+Pełna nazwa użytkownika FTP Hello jest "app\username" gdzie *aplikacji* jest nazwą hello aplikacji sieci web. Witaj nazwy użytkownika znajduje się w bloku aplikacja sieci web hello, w obszarze **Essentials**.  
 
 ![Poświadczenia wdrożenia FTP][configure02]
 
@@ -129,26 +129,26 @@ Pełna nazwa użytkownika FTP jest "app\username", gdzie *aplikacji* to nazwa ap
 ### <a name="ssl"></a>PROTOKÓŁ SSL
 W trybie Basic lub Standard możesz przekazać certyfikatów SSL dla domeny niestandardowej. Aby uzyskać więcej informacji zobacz [Włącz protokół HTTPS dla aplikacji sieci web]. 
 
-Aby wyświetlić przekazane certyfikaty, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
+tooview przekazane certyfikaty, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
 
 ### <a name="domain-names"></a>Nazwy domen
 Dodawanie niestandardowych nazw domen dla aplikacji sieci web. Aby uzyskać więcej informacji zobacz [Konfigurowanie niestandardowej nazwy domeny dla aplikacji sieci web w usłudze Azure App Service].
 
-Aby wyświetlić nazwy domeny, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
+kliknij nazwy domeny tooview **wszystkie ustawienia** > **domen niestandardowych i SSL**.
 
 ### <a name="deployments"></a>Wdrożenia
-* Konfigurowanie ciągłego wdrażania. Zobacz [przy użyciu narzędzia Git do wdrożenia aplikacji Web Apps w usłudze Azure App Service](web-sites-deploy.md).
-* Miejsc wdrożenia. Zobacz [wdrożyć środowisk przejściowych dla aplikacji sieci Web w usłudze aplikacji Azure].
+* Konfigurowanie ciągłego wdrażania. Zobacz [toodeploy przy użyciu narzędzia Git aplikacji sieci Web w usłudze Azure App Service](web-sites-deploy.md).
+* Miejsc wdrożenia. Zobacz [wdrażania środowisk tooStaging dla aplikacji sieci Web w usłudze Azure App Service].
 
-Aby wyświetlić Twojego miejsca wdrożenia, kliknij przycisk **wszystkie ustawienia** > **miejsc wdrożenia**.
+tooview Twojego miejsca wdrożenia, kliknij przycisk **wszystkie ustawienia** > **miejsc wdrożenia**.
 
 ### <a name="monitoring"></a>Monitorowanie
-W trybie Basic lub Standard można sprawdzić dostępności punktów końcowych HTTP lub HTTPS, z maksymalnie trzech rozproszona geograficznie lokalizacji. Test monitorowania kończy się niepowodzeniem, jeśli kod odpowiedzi HTTP jest błąd (4xx lub 5xx) lub odpowiedzi trwa dłużej niż 30 sekund. Punkt końcowy jest traktowany jako dostępne w przypadku powodzenia testów monitorowania w określonych lokalizacjach. 
+W trybie Basic lub Standard można sprawdzić dostępności hello punktów końcowych HTTP lub HTTPS, z zapasowej toothree rozproszona geograficznie lokalizacje. Test monitorowania kończy się niepowodzeniem, jeśli hello kod odpowiedzi HTTP jest błąd (4xx lub 5xx) lub odpowiedź hello trwa dłużej niż 30 sekund. Punkt końcowy jest traktowane jako dostępne w przypadku powodzenia testów monitorowania hello ze wszystkich hello określonej lokalizacji. 
 
 Aby uzyskać więcej informacji, zobacz [porady: monitorować stan punktu końcowego sieci web].
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service] (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service], gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
@@ -163,14 +163,14 @@ Aby uzyskać więcej informacji, zobacz [porady: monitorować stan punktu końco
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurowanie niestandardowej nazwy domeny w usłudze Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[wdrożyć środowisk przejściowych dla aplikacji sieci Web w usłudze aplikacji Azure]: ./web-sites-staged-publishing.md
+[wdrażania środowisk tooStaging dla aplikacji sieci Web w usłudze Azure App Service]: ./web-sites-staged-publishing.md
 [Włącz protokół HTTPS dla aplikacji w usłudze aplikacji Azure]: ./app-service-web-tutorial-custom-ssl.md
 [porady: monitorować stan punktu końcowego sieci web]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Podstawy monitorowania aplikacji sieci Web w usłudze Azure App Service]: ./web-sites-monitor.md
 [tryb potokowy]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skalowanie aplikacji sieci web w usłudze Azure App Service]: ./web-sites-scale.md
 [użyciu biblioteki socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[Try App Service]: https://azure.microsoft.com/try/app-service/
+[Wypróbuj usługę App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

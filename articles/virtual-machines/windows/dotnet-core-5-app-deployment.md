@@ -1,5 +1,5 @@
 ---
-title: "Automatyzowanie wdrażaniem aplikacji za pomocą rozszerzenia maszyny wirtualnej | Dokumentacja firmy Microsoft"
+title: "aaaAutomating wdrażaniem aplikacji za pomocą rozszerzenia maszyny wirtualnej | Dokumentacja firmy Microsoft"
 description: Samouczek DotNet podstawowej maszyny wirtualnej platformy Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,22 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2996eef71b39c6240fac5484854f72d3e657d0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d52537fbd4e935f19d3864def11484f519f8598
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Wdrażanie aplikacji przy użyciu szablonów usługi Azure Resource Manager dla maszyn wirtualnych systemu Windows
 
-Po zidentyfikowaniu wszystkie wymagania infrastrukturalne Azure i przetłumaczyć Szablon wdrożenia, wdrożenia aplikacji rzeczywistych musi należy się zająć. Wdrażanie aplikacji w tym miejscu odwołuje się do instalowania plików binarnych aplikacji rzeczywistych na zasobów platformy Azure. Dla przykładu magazynu muzyki, .net Core i IIS muszą być zainstalowana i skonfigurowana na każdej maszynie wirtualnej. Pliki binarne utworów muzycznych magazynu muszą być zainstalowane na maszynie wirtualnej, a wstępnie utworzonej bazy danych magazynu utworów muzycznych.
+Po zidentyfikowaniu wszystkie wymagania infrastrukturalne Azure i przetłumaczyć Szablon wdrożenia, wdrożenia rzeczywistej aplikacji hello musi toobe problemu. Wdrażanie aplikacji w tym miejscu odwołuje się binarne rzeczywistej aplikacji hello tooinstalling na zasobów platformy Azure. Dla przykładu magazynu utworów muzycznych hello, .net Core i IIS wymagają toobe zainstalowany i skonfigurowany na każdej maszynie wirtualnej. Hello utworów muzycznych magazynu plików binarnych muszą toobe zainstalowana na maszynie wirtualnej hello i hello bazy danych magazynu utworów muzycznych wstępnie utworzone.
 
-Ten dokument zawiera szczegóły dotyczące sposobu rozszerzenia maszyny wirtualnej można zautomatyzować wdrożenie aplikacji i konfiguracji do maszyn wirtualnych platformy Azure. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Aby uzyskać najlepsze wyniki wykonaj wstępne wdrożenie wystąpienia rozwiązania do subskrypcji platformy Azure i pracy wraz z szablonu usługi Azure Resource Manager. Zakończenie szablonu można znaleźć tutaj — [utworów muzycznych wdrożenia magazynu w systemie Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Ten dokument zawiera szczegóły dotyczące sposobu rozszerzenia maszyny wirtualnej można zautomatyzować aplikacji wdrażania i konfigurowania tooAzure maszyn wirtualnych. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Hello najlepsze środowisko pracy wykonaj wstępne wdrożenie wystąpienie tooyour rozwiązania hello subskrypcji platformy Azure i pracy oraz hello szablonu usługi Azure Resource Manager. Szablon pełną Hello można znaleźć tutaj — [utworów muzycznych wdrożenia magazynu w systemie Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="configuration-script"></a>Skrypt konfiguracji
-Rozszerzenia maszyn wirtualnych to specjalne programy, które wykonać przed maszynami wirtualnymi w celu zapewnienia automatyzacji konfiguracji. Rozszerzenia są dostępne dla wielu określonych celów, takich jak oprogramowanie antywirusowe, Konfiguracja rejestrowania i konfiguracji Docker. Rozszerzenie skryptu niestandardowego może służyć do wykonywania dowolny skrypt do maszyny wirtualnej. Przykład utworów muzycznych magazynu jest rozszerzenie skryptu niestandardowego do konfigurowania maszyn wirtualnych systemu Windows i instalowanie aplikacji do sklepu utworów muzycznych.
+Rozszerzenia maszyn wirtualnych to specjalne programy, które wykonać automatyzacji konfiguracji tooprovide maszyn wirtualnych. Rozszerzenia są dostępne dla wielu określonych celów, takich jak oprogramowanie antywirusowe, Konfiguracja rejestrowania i konfiguracji Docker. Hello rozszerzenia niestandardowego skryptu może być używane toorun dowolny skrypt na maszynie wirtualnej. Przykład sklep muzyczny hello jest zapasowych maszyn wirtualnych systemu Windows hello tooconfigure toohello skryptu niestandardowego rozszerzenia i zainstaluj aplikację ze sklepu utworów muzycznych hello.
 
-Przed opisujące, jak został zadeklarowany rozszerzenia maszyny wirtualnej w szablonie usługi Azure Resource Manager, Sprawdź skrypt, który jest uruchamiany. Ten skrypt służy do konfigurowania maszyny wirtualnej systemu Windows do obsługi aplikacji utworów muzycznych magazynu. Uruchom skrypt instaluje wszystkie wymagane oprogramowanie, instalowania aplikacji do sklepu utworów muzycznych z kontroli źródła i przygotowanie bazy danych. 
+Przed opisujące, jak został zadeklarowany rozszerzenia maszyny wirtualnej w szablonie usługi Azure Resource Manager, sprawdź hello skrypt, który jest uruchamiany. Ten skrypt konfiguruje hello systemu Windows maszyny wirtualnej toohost hello aplikację ze sklepu utworów muzycznych. Po uruchomieniu skryptu hello instaluje wszystkie niezbędne oprogramowanie, zainstaluj aplikację ze sklepu utworów muzycznych hello z kontroli źródła i przygotowanie hello bazy danych. 
 
 > Ten przykład jest w celach demonstracyjnych.
 
@@ -84,11 +84,11 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 ```
 
 ## <a name="vm-script-extension"></a>Rozszerzenie skryptu maszyny Wirtualnej
-Rozszerzenia maszyny Wirtualnej mogą być uruchamiane na maszynie wirtualnej w czasie kompilacji poprzez włączenie rozszerzenia zasobu w szablonie usługi Azure Resource Manager. Rozszerzenie można dodać przy użyciu Kreatora programu Visual Studio dodawania zasobów lub przez wstawienie poprawne dane JSON do szablonu. Zasób rozszerzenie skryptu jest zagnieżdżona zasobu maszyny wirtualnej. Można to zaobserwować w poniższym przykładzie.
+Rozszerzenia maszyny Wirtualnej mogą być uruchamiane na maszynie wirtualnej w czasie kompilacji przez dołączenie hello rozszerzenie zasobu do szablonu usługi Azure Resource Manager hello. rozszerzenie Hello można dodać za pomocą Kreatora programu Visual Studio dodawania zasobów hello lub wstawiając poprawne dane JSON do hello szablonu. Hello zasobów rozszerzenie skryptu jest zagnieżdżona hello zasobu maszyny wirtualnej. Można to zaobserwować w hello poniższy przykład.
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [rozszerzenia maszyny Wirtualnej skryptu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [rozszerzenia maszyny Wirtualnej skryptu](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
 
-Zwróć uwagę, w poniżej JSON, że skrypt jest przechowywany w serwisie GitHub. Ten skrypt może być również przechowywane w magazynie obiektów Blob Azure. Ponadto szablonów usługi Azure Resource Manager Zezwalaj ciąg wykonywania skryptu do być skonstruowany w taki sposób, że wartości parametrów szablonu mogą być używane jako parametry do wykonania skryptu. W takim przypadku danych jest dostępne w przypadku wdrażania szablonów, a następnie można używać tych wartości, podczas wykonywania skryptu.
+Wyprzedzeniem hello poniżej JSON, który hello skrypt jest przechowywany w serwisie GitHub. Ten skrypt może być również przechowywane w magazynie obiektów Blob Azure. Ponadto szablonów usługi Azure Resource Manager Zezwalaj hello skryptu wykonywania ciąg toobe skonstruowany w taki sposób, że wartości parametrów szablonu mogą być używane jako parametry do wykonania skryptu. W takim przypadku danych jest dostępne w przypadku wdrażania hello szablony, a następnie można używać tych wartości, podczas wykonywania skryptu hello.
 
 ```json
 {
@@ -120,11 +120,11 @@ Zwróć uwagę, w poniżej JSON, że skrypt jest przechowywany w serwisie GitHub
 }
 ```
 
-Jak wcześniej wspomniano, istnieje również możliwość przechowywania niestandardowych skryptów w magazynie obiektów Blob Azure. Dostępne są dwie opcje do przechowywania zasobów skryptu w magazynie obiektów blob; albo udostępnić skryptu lub kontenera i wykonaj takie same jak powyżej podejścia lub również mogą być przechowywane w magazynie obiektów blob prywatnej, co wymaga podania storageAccountName i storageAccountKey CustomScriptExtension definicji zasobu.
+Jak wspomniano powyżej, jest również możliwe toostore niestandardowe skrypty w magazynie obiektów Blob Azure. Dostępne są dwie opcje do przechowywania zasobów skryptu hello w magazynie obiektów blob; Witaj publicznego kontenera skryptu i wykonaj hello podejścia takie same jak powyżej albo również mogą być przechowywane w magazynie obiektów blob prywatnej, co wymaga tooprovide hello storageAccountName i storageAccountKey toohello CustomScriptExtension definicji zasobu.
 
-W poniższym przykładzie mamy przeszły krok dalej. W trakcie można podać nazwę konta magazynu i klucz jako parametr lub zmienna podczas wdrażania usługi Resource Manager Szablony zapewniają `listKeys` funkcji, które można programowo uzyskać klucz konta magazynu i wstawić go do szablonu na w czasie wdrażania.
+W poniższym przykładzie hello możemy przeszły krok dalej. Mimo że jest nazwa konta magazynu hello możliwe tooprovide i klucz jako parametr lub zmienna podczas wdrażania, szablony Menedżera zasobów zapewniają hello `listKeys` funkcji, które można uzyskać konta magazynu hello klucza programowego i wstaw go w toohello Szablon można w czasie wdrażania.
 
-W przykładzie poniżej definicji zasobu CustomScriptExtension naszych niestandardowego skryptu już został przekazany do konta magazynu platformy Azure o nazwie `mystorageaccount9999` który istnieje w innej grupie zasobów o nazwie `mysa999rgname`. Firma Microsoft wdrażania szablonu zawierającego ten zasób `listKeys` funkcja uzyskuje programowo klucz konta magazynu dla konta magazynu `mystorageaccount9999` w grupie zasobów `mysa999rgname` i wstawia go do szablonu firmie Microsoft.
+W przykładzie hello CustomScriptExtension definicji zasobu poniżej, naszych niestandardowego skryptu został już przekazany tooan o nazwie konto magazynu Azure `mystorageaccount9999` który istnieje w innej grupie zasobów o nazwie `mysa999rgname`. Firma Microsoft wdrażania szablonu zawierającego ten zasób, hello `listKeys` funkcja uzyskuje programowo hello klucz konta magazynu dla konta magazynu hello `mystorageaccount9999` w hello grupy zasobów `mysa999rgname` i wstawia go w szablonie toohello firmie Microsoft.
 
 ```json
 {
@@ -158,9 +158,9 @@ W przykładzie poniżej definicji zasobu CustomScriptExtension naszych niestanda
 }
 ```
 
-Największą zaletą tej metody jest, że nie wymaga zmiany parametry szablonu lub wdrażania w przypadku magazynu konta klucza zmianę.
+Witaj Największą zaletą tej metody nie nie wymaga możesz toochange szablonu lub parametry wdrażania w przypadku hello hello zmianę kluczy konta magazynu.
 
-Aby uzyskać więcej informacji na temat używania niestandardowego rozszerzenia skryptu, zobacz [niestandardowego rozszerzenia skryptu z szablonami usługi Resource Manager](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby uzyskać więcej informacji na temat używania hello niestandardowe rozszerzenie skryptu, zobacz [niestandardowego rozszerzenia skryptu z szablonami usługi Resource Manager](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-step"></a>Następny krok
 <hr>

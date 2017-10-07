@@ -1,6 +1,6 @@
 ---
-title: "Łączenie komputera z siecią wirtualną przy użyciu połączenia typu punkt-lokacja i uwierzytelniania certyfikatu: Azure Portal | Microsoft Docs"
-description: "Bezpiecznie połącz komputer z siecią wirtualną platformy Azure przez utworzenie połączenia bramy sieci VPN typu punkt-lokacja przy użyciu uwierzytelniania certyfikatu. Ten artykuł ma zastosowanie w modelu wdrażania przy użyciu usługi Resource Manager i użyto w nim witryny Azure Portal."
+title: "Połącz komputer tooa sieć wirtualną przy użyciu punkt-lokacja i uwierzytelnianie certyfikatu: Azure Portal | Dokumentacja firmy Microsoft"
+description: "Bezpieczne łączenie z tooyour komputera sieci wirtualnej platformy Azure, tworząc połączenie bramy sieci VPN typu punkt-lokacja używa wstępnego uwierzytelniania certyfikatu. Ten artykuł dotyczy modelu wdrażania usługi Resource Manager toohello i używa hello portalu Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1419d6b4c160140b62d656b25bd02f6af7fd6655
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania certyfikatu: Azure Portal
+# <a name="configure-a-point-to-site-connection-tooa-vnet-using-certificate-authentication-azure-portal"></a>Skonfiguruj tooa połączenie punkt-lokacja sieci wirtualnej przy użyciu uwierzytelniania certyfikatów: Azure portal
 
-W tym artykule pokazano sposób tworzenia sieci wirtualnej z połączeniem typu punkt-lokacja w modelu wdrażania przy użyciu usługi Resource Manager za pomocą witryny Azure Portal. Ta konfiguracja korzysta z certyfikatów do uwierzytelniania klienta nawiązującego połączenie. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
+W tym artykule opisano, jak toocreate sieci wirtualnej za pomocą połączenia punkt-lokacja za pomocą modelu wdrażania usługi Resource Manager hello hello portalu Azure. Ta konfiguracja korzysta z certyfikatów tooauthenticate hello połączenie klienta. Można również utworzyć tę konfigurację za pomocą narzędzia wdrażania różnych lub model wdrożenia, wybierając inną opcję z hello następującej listy:
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -32,42 +32,42 @@ W tym artykule pokazano sposób tworzenia sieci wirtualnej z połączeniem typu 
 >
 >
 
-Brama sieci VPN typu punkt-lokacja (P2S, Point-to-Site) pozwala utworzyć bezpieczne połączenie z siecią wirtualną z poziomu komputera klienckiego. Połączenia sieci VPN typu punkt-lokacja przydają się w przypadku, gdy celem użytkownika jest połączenie się z siecią wirtualną z lokalizacji zdalnej, podczas pracy zdalnej z domu lub konferencji. Połączenie sieci VPN typu punkt-lokacja jest również przydatne zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. 
+Brama sieci VPN typu punkt-lokacja (P2S) umożliwia tworzenie sieci wirtualnej tooyour bezpiecznego połączenia z pojedynczym komputerem klienckim. Połączenia sieci VPN punkt-lokacja są przydatne, gdy chcesz tooyour tooconnect sieci wirtualnej z lokalizacji zdalnej, takie, gdy są Niezale¿nie z domu lub konferencji. P2S sieci VPN jest również toouse przydatne rozwiązanie, zamiast VPN lokacja-lokacja, jeśli istnieje tylko kilka klientów, którzy potrzebują tooa tooconnect sieci wirtualnej. 
 
-Połączenie typu punkt-lokacja używa protokołu SSTP (Secure Socket Tunneling Protocol), który jest protokołem sieci VPN opartym na protokole SSL. Połączenie sieci VPN typu punkt-lokacja jest nawiązywane przez zainicjowanie go z komputera klienckiego.
+Używa P2S hello gniazda Tunelowanie protokołu SSTP (Secure), która jest oparta na protokole SSL protokołu sieci VPN. Uruchamiając go z komputera klienckiego hello jest nawiązywane połączenie sieci VPN P2S.
 
 ![Diagram: połączenie typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
-Połączenia typu punkt-lokacja z uwierzytelnianiem certyfikatu mają następujące wymagania:
+Połączenia uwierzytelniania certyfikatów punkt-lokacja wymagają następujących hello:
 
 * Brama sieci VPN oparta na trasie.
-* Klucz publiczny (plik cer) dla certyfikatu głównego, przekazany na platformę Azure. Przekazany certyfikat jest uznawany za certyfikat zaufany i używany do uwierzytelniania.
-* Certyfikat klienta wygenerowany na podstawie certyfikatu głównego i zainstalowany na każdym komputerze klienckim, który będzie nawiązywać połączenie z siecią wirtualną. Ten certyfikat jest używany do uwierzytelniania klientów.
-* Pakiet konfiguracji klienta sieci VPN. Pakiet konfiguracji klienta sieci VPN zawiera informacje potrzebne klientowi do nawiązania połączenia z siecią wirtualną. Pakiet konfiguruje istniejącego klienta sieci VPN, który jest natywnym klientem systemu operacyjnego Windows. Każdy klient, który nawiązuje połączenie, musi być skonfigurowany przy użyciu pakietu konfiguracji.
+* Witaj klucz publiczny (plik cer) dla certyfikatu głównego, czyli tooAzure przekazane. Po przekazaniu plików certyfikatów hello jest uznawany za zaufany certyfikat i jest używany do uwierzytelniania.
+* Certyfikat klienta, który jest generowany na podstawie certyfikatu głównego hello i zainstalowane na każdym komputerze klienckim, w którym będą łączyć toohello sieci wirtualnej. Ten certyfikat jest używany do uwierzytelniania klientów.
+* Pakiet konfiguracji klienta sieci VPN. Pakiet konfiguracji klienta VPN Hello zawiera hello informacji niezbędnych do powitania klienta tooconnect toohello sieci wirtualnej. Pakiet HELLO konfiguruje hello istniejącej sieci VPN klienta, który jest natywny toohello systemu operacyjnego Windows. Każdy klient, który łączy muszą być skonfigurowane przy użyciu hello konfiguracji pakietu.
 
-Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani lokalnego publicznego adresu IP. Połączenie sieci VPN jest nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). Po stronie serwera obsługiwany jest protokół SSTP w wersji 1.0, 1.1 i 1.2. Klient decyduje o wyborze wersji do użycia. W przypadku systemu Windows 8.1 i nowszych protokół SSTP domyślnie używa wersji 1.2.
+Połączenia typu punkt-lokacja nie wymagają urządzenia sieci VPN ani lokalnego publicznego adresu IP. Witaj połączenia sieci VPN jest tworzony za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). Na powitania po stronie serwera firma Microsoft obsługuje protokół SSTP w wersji 1.0, 1.1 i 1.2. powitania klienta decyduje o tym, które toouse wersji. W przypadku systemu Windows 8.1 i nowszych protokół SSTP domyślnie używa wersji 1.2.
 
-Więcej informacji na temat połączeń typu punkt-lokacja znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.
+Aby uzyskać więcej informacji na temat połączenia punkt-lokacja, zobacz hello [punkt-lokacja często zadawane pytania dotyczące](#faq) na końcu hello w tym artykule.
 
 #### <a name="example"></a>Przykładowe wartości
 
-Następujących wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do tych wartości, aby lepiej zrozumieć przykłady w niniejszym artykule:
+Można użyć hello następujące wartości toocreate środowiska testowego lub można znaleźć wartości toothese toobetter zrozumieć hello przykłady w tym artykule:
 
 * **Nazwa sieci wirtualnej:** VNet1
 * **Przestrzeń adresowa:** 192.168.0.0/16<br>W tym przykładzie zostanie wykorzystana tylko jedna przestrzeń adresowa. Istnieje możliwość użycia więcej niż jednej przestrzeni adresowej dla sieci wirtualnej.
 * **Nazwa podsieci:** FrontEnd
 * **Zakres adresów podsieci:** 192.168.1.0/24
-* **Subskrypcja:** jeśli masz więcej niż jedną subskrypcję, sprawdź, czy korzystasz z właściwej.
+* **Subskrypcja:** Jeśli masz więcej niż jedną subskrypcję, sprawdź, czy używasz hello właściwy.
 * **Grupa zasobów:** TestRG
 * **Lokalizacja:** Wschodnie stany USA
 * **GatewaySubnet:** 192.168.200.0/24<br>
-* **Serwer DNS:** (opcjonalny) adres IP serwera DNS, który ma być używany do rozpoznawania nazw.
+* **Serwer DNS:** (opcjonalnie) adres IP serwera DNS hello mają toouse do rozpoznawania nazw.
 * **Nazwa bramy sieci wirtualnej:** VNet1GW
 * **Typ bramy:** VPN
 * **Typ sieci VPN:** oparta na trasach
 * **Publiczny adres IP:** VNet1GWpip
 * **Typ połączenia:** Punkt-lokacja
-* **Pula adresów klienta:** 172.16.201.0/24<br>Klienci sieci VPN połączeni z siecią wirtualną, którzy korzystają z tego połączenia punkt-lokacja, otrzymują adresy IP z puli adresów klientów.
+* **Pula adresów klienta:** 172.16.201.0/24<br>Klienci sieci VPN, łączący toohello sieci wirtualnej za pomocą to połączenie punkt-lokacja otrzymywać adresy IP z puli adresów powitania klienta.
 
 ## <a name="createvnet"></a>1. Tworzenie sieci wirtualnej
 
@@ -77,13 +77,13 @@ Przed rozpoczęciem sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie 
 
 ## <a name="gatewaysubnet"></a>2. Dodawanie podsieci bramy
 
-Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Usługi bramy korzystają z adresów IP określonych w podsieci bramy. Jeśli to możliwe, utwórz podsieć bramy przy użyciu bloku CIDR /28 lub /27 w celu zapewnienia wystarczającej liczby adresów IP, aby uwzględnić wymagania dotyczące dodatkowych przyszłych konfiguracji.
+Przed połączeniem tooa bramy sieci wirtualnej, należy najpierw podsieci bramy hello toocreate hello toowhich sieć wirtualna ma zostać tooconnect. usługi bramy Hello używać hello adresami IP określonymi w hello podsieci bramy. Jeśli to możliwe, Utwórz podsieć bramy przy użyciu blok CIDR /28 lub /27 tooprovide adresów IP za mało, tooaccommodate dodatkowych przyszłych wymagań konfiguracyjnych.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-p2s-rm-portal-include.md)]
 
 ## <a name="dns"></a>3. Określanie serwera DNS (opcjonalne)
 
-Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliwić obsługę rozpoznawania nazw. Serwer DNS jest opcjonalny w przypadku tej konfiguracji, ale jest wymagany, jeśli chcesz korzystać z rozpoznawania nazw. Określenie wartości nie powoduje utworzenia nowego serwera DNS. Określony adres IP serwera DNS powinien być adresem serwera będącego w stanie rozpoznawać nazwy zasobów, z którymi nawiązywane jest połączenie. W tym przykładzie użyto prywatnego adresu IP, ale może to nie być adres IP Twojego serwera DNS. Pamiętaj, aby użyć własnych wartości.
+Po utworzeniu sieci wirtualnej, można dodać hello adres IP serwera toohandle nazwę DNS. Serwer DNS Hello jest opcjonalne dla tej konfiguracji, ale wymagane, jeśli rozpoznawania nazw. Określenie wartości nie powoduje utworzenia nowego serwera DNS. Witaj adres IP serwera DNS, który określisz powinna być serwera DNS, który może rozpoznawać nazwy hello hello zasoby, które są nawiązywane. W tym przykładzie użyliśmy prywatnego adresu IP, ale istnieje duże prawdopodobieństwo, że nie jest hello adres IP serwera DNS. Należy się toouse własne wartości.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -93,9 +93,9 @@ Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS, aby umożliw
 
 ## <a name="generatecert"></a>5. Generowanie certyfikatów klienta
 
-Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów łączących się z siecią wirtualną za pośrednictwem połączenia sieci VPN typu punkt-lokacja. Po uzyskaniu certyfikatu głównego należy [przekazać](#uploadfile) informacje o kluczu publicznym do platformy Azure. Certyfikat główny jest następnie uznawany przez platformę Azure za zaufany dla połączeń typu punkt-lokacja z siecią wirtualną. Ponadto certyfikaty klienta są generowane na podstawie zaufanego certyfikatu głównego, a następnie instalowane na każdym komputerze klienckim. Certyfikat klienta jest używany do uwierzytelniania klienta, gdy inicjuje on połączenie z siecią wirtualną. 
+Certyfikaty są używane przez klientów Azure tooauthenticate łączenie tooa sieci wirtualnej za pośrednictwem połączenia sieci VPN typu punkt-lokacja. Po uzyskaniu certyfikatu głównego, możesz [przekazać](#uploadfile) hello tooAzure informacje o kluczu publicznym. certyfikat główny Hello jest następnie uznawany za "zaufanych" przez platformę Azure, dla połączenia za pośrednictwem sieci wirtualnej toohello P2S. Także wygenerować certyfikaty klienta z hello zaufanego certyfikatu głównego, a następnie zainstaluj je na każdym komputerze klienckim. certyfikat klienta na powitania jest używane tooauthenticate powitania klienta, gdy inicjują połączenia toohello sieci wirtualnej. 
 
-### <a name="getcer"></a>1. Uzyskiwanie pliku cer dla certyfikatu głównego
+### <a name="getcer"></a>1. Uzyskaj plik cer hello hello certyfikatu głównego
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
@@ -103,65 +103,65 @@ Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów ł
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="addresspool"></a>6. Dodawanie puli adresów klienta
+## <a name="addresspool"></a>6. Dodaj pulę adresów powitania klienta
 
-Pula adresów klienta to określony przez Ciebie zakres prywatnych adresów IP. Klienci łączący się przez połączenie VPN typu punkt-lokacja otrzymują adres IP z tego zakresu. Używaj zakresu prywatnych adresów IP nienakładającego się na lokalizację lokalną, z której się łączysz, ani na sieć wirtualną, z którą chcesz się łączyć.
+Pula adresów klienta Hello jest zakresu prywatnych adresów IP, które określisz. klientom Witaj, łączących się za pośrednictwem sieci VPN punkt-lokacja otrzymywać adresy IP z tego zakresu. Za pomocą zakresu prywatnych adresów IP, który nie nakłada się na hello lokalizacji lokalnej, która nawiązywanie połączenia z lub hello sieci wirtualnej, który ma tooconnect do.
 
-1. Po utworzeniu bramy sieci wirtualnej przejdź do sekcji **Ustawienia** na stronie bramy sieci wirtualnej. W sekcji **Ustawienia** kliknij pozycję **Konfiguracja punktu do lokacji**, aby otworzyć stronę **Konfiguracja punktu do lokacji**.
+1. Po utworzeniu bramy sieci wirtualnej hello Przejdź toohello **ustawienia** sekcji strony hello bramy sieci wirtualnej. W hello **ustawienia** kliknij **konfiguracjipunkt lokacja** tooopen hello **punkt do-— konfiguracja lokacji** strony.
 
   ![Strona połączenia typu punkt-lokacja](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png)
-2. Na stronie **Konfiguracja punktu do lokacji** możesz usunąć automatycznie wypełniony zakres, a następnie dodać zakres prywatnych adresów IP, z którego chcesz korzystać. Kliknij pozycję **Zapisz**, aby zweryfikować i zapisać ustawienie.
+2. Na powitania **punkt do-— konfiguracja lokacji** strony, możesz usunąć hello automatycznie wypełnianej zakresu, a następnie dodaj hello zakresu prywatnych adresów IP, które mają toouse. Kliknij przycisk **zapisać** toovalidate i zapisać ustawienia hello.
 
   ![Pula adresów klienta](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/ipaddresspool.png)
 
-## <a name="uploadfile"></a>7. Przekazywanie danych certyfikatu publicznego dla certyfikatu głównego
+## <a name="uploadfile"></a>7. Przekazywanie danych certyfikatu publicznego certyfikatu głównego hello
 
-Po utworzeniu bramy możesz przekazać do platformy Azure informacje o kluczu publicznym dla certyfikatu głównego. Po przekazaniu danych certyfikatu publicznego platforma Azure może używać go do uwierzytelniania klientów, którzy mają zainstalowany certyfikat klienta wygenerowany na podstawie zaufanego certyfikatu głównego. Możesz przekazać łącznie do 20 zaufanych certyfikatów głównych.
+Po utworzeniu bramy hello, możesz przekazać hello informacje o kluczu publicznym dla tooAzure certyfikatu głównego hello. Po przekazaniu plików danych certyfikatu publicznego hello Azure może być używany tooauthenticate klientów, którzy zainstalowali generowane na podstawie hello zaufanego certyfikatu głównego certyfikatu klienta. Możesz przekazać łącznie tooa up certyfikatów zaufanych głównych 20.
 
-1. Certyfikaty są dodawane na stronie **Konfiguracja punktu do lokacji** w sekcji **Certyfikat główny**.  
-2. Upewnij się, że certyfikat główny został wyeksportowany jako plik X.509 (cer) zaszyfrowany z użyciem algorytmu Base-64. Certyfikat należy wyeksportować w takim formacie, aby możliwe było jego otwarcie za pomocą edytora tekstów.
-3. Otwórz certyfikat za pomocą edytora tekstów, takiego jak Notatnik. Podczas kopiowania danych dotyczących certyfikatu upewnij się, że kopiujesz tekst jako jeden ciągły wiersz bez znaków powrotu karetki i wysuwu wiersza. Może zajść potrzeba zmodyfikowania widoku w edytorze tekstu na potrzeby pokazywania symboli lub pokazywania wszystkich znaków, aby wyświetlić znaki powrotu karetki i wysuwu wiersza. Skopiuj tylko następującą sekcję jako jeden ciągły wiersz:
+1. Certyfikaty są dodawane na powitania **konfiguracjępunktuwitryny** strony w hello **certyfikat główny** sekcji.  
+2. Upewnij się, wyeksportowany certyfikat główny hello, zgodnie z algorytmem Base-64 pliku X.509 (.cer). Wymagany jest certyfikat hello tooexport w następującym formacie, możesz otworzyć hello certyfikatu za pomocą edytora tekstu.
+3. Otwórz hello certyfikatu za pomocą edytora tekstu, takiego jak Notatnik. Kopiowanie danych certyfikatu hello, upewnij się, że możesz skopiować tekst hello jako pojedynczy wiersz ciągłego bez powrotu karetki i nowego wiersza. Toomodify może być konieczne widoku w too'Show Edytor tekstu hello Symbol/Pokaż wszystkie znaki toosee hello karetki zwraca i wiersz źródła danych. Skopiuj hello tylko po sekcji jako pojedynczy wiersz ciągłego:
 
   ![Dane dotyczące certyfikatu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
-4. Wklej dane dotyczące certyfikatu w polu **Dane certyfikatu publicznego**. Korzystając z pola **Nazwa**, określ nazwę certyfikatu, a następnie kliknij przycisk **Zapisz**. Możesz dodać maksymalnie 20 zaufanych certyfikatów głównych.
+4. Wklej dane certyfikatu hello do hello **danych certyfikatu publicznego** pola. **Nazwa** hello certyfikatu, a następnie kliknij przycisk **zapisać**. Możesz dodać zapasowej too20 zaufanych certyfikatów głównych.
 
   ![Przekazywanie certyfikatu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
 
-## <a name="clientconfig"></a>8. Generowanie i instalowanie pakietu konfiguracji klienta sieci VPN
+## <a name="clientconfig"></a>8. Generowanie i zainstalować pakiet konfiguracji klienta VPN hello
 
-Aby można było nawiązać połączenie z siecią wirtualną przy użyciu połączenia VPN typu punkt-lokacja, na każdym kliencie musi być zainstalowany pakiet konfiguracji klienta, który konfiguruje natywnego klienta sieci VPN przy użyciu ustawień i plików wymaganych do połączenia z siecią wirtualną. Pakiet konfiguracji klienta sieci VPN konfiguruje natywnego klienta sieci VPN systemu Windows. Nie instaluje on nowego ani innego klienta sieci VPN.
+tooa tooconnect sieci wirtualnej za pomocą sieci VPN punkt-lokacja, każdego klienta należy zainstalować pakiet konfiguracji klienta, który konfiguruje hello natywny klient VPN przy hello ustawień i plików, które są niezbędne tooconnect toohello wirtualnej sieci. natywny klient VPN systemu Windows hello konfiguruje pakietu konfiguracji klienta VPN Hello, nie instaluje nowe lub inne klienta sieci VPN.
 
-Tego samego pakietu konfiguracji klienta VPN można użyć na każdym komputerze klienckim, o ile wersja jest zgodna z architekturą dla klienta. Lista obsługiwanych systemów operacyjnych klienta znajduje się w sekcji [Często zadawane pytania dotyczące połączeń typu punkt-lokacja](#faq) na końcu tego artykułu.
+Tak długo, jak wersja hello zgodna architektura hello powitania klienta, można użyć hello pakietu tej samej konfiguracji klienta sieci VPN na każdym komputerze klienckim. Aby hello listę systemów operacyjnych klienta, które są obsługiwane, zobacz hello [połączeńpunkt-lokacja często zadawane pytania dotyczące](#faq) na końcu hello w tym artykule.
 
-### <a name="step-1---generate-and-download-the-client-configuration-package"></a>Krok 1 — Generowanie i pobieranie pakietu konfiguracji klienta
+### <a name="step-1---generate-and-download-hello-client-configuration-package"></a>Krok 1 — Generowanie i Pobierz pakiet konfiguracji powitania klienta
 
-1. Na stronie **Konfiguracja punktu do lokacji** kliknij przycisk **Download VPN client** (Pobierz klienta sieci VPN), aby otworzyć stronę **Download VPN client** (Pobieranie klienta sieci VPN). Wygenerowanie pakietu trwa minutę lub dwie.
+1. Na powitania **konfiguracjępunktuwitryny** kliknij przycisk **klienta VPN Pobierz** tooopen hello **klienta VPN Pobierz** strony. Trwa minutę lub dwie na powitania toogenerate pakietu.
 
   ![Pobieranie klienta VPN — sposób 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. Wybierz właściwy pakiet dla klienta, a następnie kliknij przycisk **Pobierz**. Zapisz plik pakietu konfiguracji. Pakiet konfiguracji klienta VPN należy zainstalować na każdym komputerze klienckim, który łączy się z siecią wirtualną.
+2. Wybierz pakiet poprawne powitania klienta, a następnie kliknij przycisk **Pobierz**. Zapisz plik pakietu konfiguracji hello. Pakiet konfiguracji klienta VPN hello należy zainstalować na każdym komputerze klienckim, łączącego toohello sieci wirtualnej.
 
   ![Pobieranie klienta VPN — sposób 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>Krok 2 — Instalowanie pakietu konfiguracji klienta
+### <a name="step-2---install-hello-client-configuration-package"></a>Krok 2 — pakiet konfiguracji klienta hello instalacji
 
-1. Skopiuj lokalnie plik konfiguracji na komputer, który chcesz połączyć z siecią wirtualną. 
-2. Kliknij dwukrotnie plik exe, aby zainstalować pakiet na komputerze klienckim. Ponieważ pakiet konfiguracji został utworzony przez Ciebie, nie jest podpisany i może zostać wyświetlone ostrzeżenie. Jeśli pojawi się okno podręczne Windows SmartScreen, kliknij pozycję **Więcej informacji** (z lewej strony), a następnie pozycję **Uruchom mimo to**, aby zainstalować pakiet.
-3. Zainstaluj pakiet na komputerze klienckim. Jeśli pojawi się okno podręczne Windows SmartScreen, kliknij pozycję **Więcej informacji** (z lewej strony), a następnie pozycję **Uruchom mimo to**, aby zainstalować pakiet.
-4. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie.
+1. Plik konfiguracji hello kopiowania lokalnie toohello komputera, które mają sieci wirtualnej tooyour tooconnect. 
+2. Kliknij dwukrotnie pakiet pliku .exe hello hello tooinstall na komputerze klienckim hello. Ponieważ utworzono pakiet konfiguracji hello, nie jest podpisany i mogą pojawić się ostrzeżenie. Jeśli otrzymasz wyskakujące okienko filtru Windows SmartScreen, kliknij przycisk **więcej informacji o** (po lewej stronie powitania), następnie **Uruchom mimo to** tooinstall hello pakietu.
+3. Zainstaluj pakiet hello na komputerze klienckim hello. Jeśli otrzymasz wyskakujące okienko filtru Windows SmartScreen, kliknij przycisk **więcej informacji o** (po lewej stronie powitania), następnie **Uruchom mimo to** tooinstall hello pakietu.
+4. Na komputerze klienckim hello Przejdź zbyt**ustawienia sieciowe** i kliknij przycisk **VPN**. Witaj połączenia sieci VPN jest wyświetlana nazwa hello hello sieci wirtualnej, która łączy się z.
 
 ## <a name="installclientcert"></a>9. Instalowanie wyeksportowanego certyfikatu klienta
 
-Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta. Zazwyczaj jest to kwestia dwukrotnego kliknięcia certyfikatu i zainstalowania go.
+Jeśli chcesz toocreate P2S połączenie z komputera klienckiego niż hello jeden używane certyfikaty klienta na powitania toogenerate należy tooinstall certyfikat klienta. Podczas instalowania certyfikatu klienta, należy hello hasło, które utworzono podczas eksportowania hello certyfikatu klienta. Zazwyczaj jest wystarczy dwukrotnie hello certyfikatu i instalując je.
 
-Upewnij się, że certyfikat klienta został wyeksportowany jako plik pfx wraz z całym łańcuchem certyfikatów (jest to ustawienie domyślne). W przeciwnym razie informacje o certyfikacie głównym nie będą dostępne na komputerze klienckim i klient nie będzie mógł się poprawnie uwierzytelnić. Aby uzyskać więcej informacji, zobacz [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install) (Instalowanie wyeksportowanego certyfikatu klienta).
+Upewnij się, że certyfikat klienta na powitania została wyeksportowana do pliku PFX oraz hello całego łańcucha certyfikatów (który jest domyślnym hello). W przeciwnym razie informacje o certyfikacie głównym hello nie jest obecny na komputerze klienckim hello i powitania klienta nie będzie możliwe tooauthenticate poprawnie. Aby uzyskać więcej informacji, zobacz [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install) (Instalowanie wyeksportowanego certyfikatu klienta).
 
-## <a name="connect"></a>10. Nawiązywanie połączenia z usługą Azure
+## <a name="connect"></a>10. Połącz tooAzure
 
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Kliknij przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Kliknij przycisk **Kontynuuj**, aby skorzystać z podwyższonego poziomu uprawnień.
+1. tooconnect tooyour sieci wirtualnej, na komputerze klienckim hello Przejdź tooVPN połączeń i Znajdź hello połączenia sieci VPN, który został utworzony. Nazwie hello sama nazwa jak sieci wirtualnej. Kliknij przycisk **Połącz**. Komunikat podręczny może pojawić się odwołuje się toousing hello certyfikatu. Kliknij przycisk **Kontynuuj** toouse podwyższonego poziomu uprawnień.
 
-2. Na stronie stanu **Połączenie** kliknij przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli nie, kliknij strzałkę na liście rozwijanej, aby wybrać właściwy certyfikat, a następnie kliknij przycisk **OK**.
+2. Na powitania **połączenia** stan strony, kliknij przycisk **Connect** toostart hello połączenia. Jeśli widzisz **wybierz certyfikat** ekranu, sprawdź, czy powitania klienta certyfikatu przedstawiający hello jedną, które mają toouse tooconnect. Jeśli nie, hello strzałkę listy rozwijanej tooselect hello poprawny certyfikat, a następnie kliknij przycisk **OK**.
 
-  ![Łączenie klienta sieci VPN z platformą Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+  ![Klient sieci VPN łączy tooAzure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. Połączenie zostało ustanowione.
 
   ![Ustanowiono połączenie](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
@@ -172,8 +172,8 @@ Upewnij się, że certyfikat klienta został wyeksportowany jako plik pfx wraz z
 
 ## <a name="verify"></a>11. Weryfikowanie połączenia
 
-1. Aby sprawdzić, czy połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień, a następnie uruchom polecenie *ipconfig/all*.
-2. Przejrzyj wyniki. Zwróć uwagę na fakt, że otrzymany adres IP należy do określonej podczas konfiguracji połączenia punkt-lokacja puli adresów klienta sieci VPN. Wyniki są podobne, jak w następującym przykładzie:
+1. tooverify, że połączenie sieci VPN jest aktywne, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom *ipconfig/all*.
+2. Wyświetl wyniki hello. Zauważ, że adres IP hello otrzymany jest jeden hello adresów w puli adresów klienta sieci VPN hello punkt-lokacja, określona w konfiguracji. wyniki Hello są podobny przykład toothis:
 
   ```
   PPP adapter VNet1:
@@ -188,45 +188,45 @@ Upewnij się, że certyfikat klienta został wyeksportowany jako plik pfx wraz z
       NetBIOS over Tcpip..............: Enabled
   ```
 
-## <a name="connectVM"></a>Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connectVM"></a>Połącz tooa maszyny wirtualnej
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect tooa VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
 ## <a name="add"></a>Dodawanie lub usuwanie zaufanych certyfikatów głównych
 
-Zaufane certyfikaty główne można dodawać do platformy Azure lub z niej usuwać. Po usunięciu certyfikatu głównego klienci, którzy mają certyfikat wygenerowany na podstawie tego certyfikatu głównego, nie będą w stanie się uwierzytelnić i w związku z tym nie będą mogli nawiązywać połączeń. Jeśli chcesz, aby klienci mogli uwierzytelniać się i nawiązywać połączenia, musisz zainstalować nowy certyfikat klienta wygenerowany na podstawie certyfikatu głównego, który jest traktowany jako zaufany przez platformę Azure (przekazany na tę platformę).
+Zaufane certyfikaty główne można dodawać do platformy Azure lub z niej usuwać. Po usunięciu certyfikatu głównego, nie będzie możliwe tooauthenticate klientów, którzy mają certyfikat, który został wygenerowany z elementem głównym, a w związku z tym nie będą mogli tooconnect. Jeśli mają tooauthenticate klienta i połączyć, należy tooinstall nowego certyfikatu klienta generowane na podstawie certyfikatu głównego, który jest zaufany tooAzure (przekazanego).
 
-### <a name="to-add-a-trusted-root-certificate"></a>Aby dodać zaufany certyfikat główny
+### <a name="tooadd-a-trusted-root-certificate"></a>tooadd zaufanego certyfikatu głównego
 
-Na platformie Azure można dodać maksymalnie 20 plików cer zaufanego certyfikatu głównego. Aby uzyskać instrukcje, zobacz sekcję [Przekazywanie zaufanego certyfikatu głównego](#uploadfile) w tym artykule.
+Możesz dodać zapasowej too20 zaufanego głównego certyfikatu .cer pliki tooAzure. Aby uzyskać instrukcje, zobacz sekcję hello [przekazać z zaufanym certyfikatem głównym](#uploadfile) w tym artykule.
 
-### <a name="to-remove-a-trusted-root-certificate"></a>Usuwanie zaufanego certyfikatu głównego
+### <a name="tooremove-a-trusted-root-certificate"></a>tooremove zaufanego certyfikatu głównego
 
-1. Aby usunąć zaufany certyfikat główny, przejdź do strony **Konfiguracja punktu do lokacji** dla bramy Twojej sieci wirtualnej.
-2. W sekcji **Certyfikat główny** na stronie znajdź certyfikat, który chcesz usunąć.
-3. Kliknij wielokropek obok certyfikatu, a następnie kliknij pozycję „Usuń”.
+1. tooremove z zaufanym certyfikatem głównym, przejdź toohello **punkt lokacja konfiguracji** strony dla bramy sieci wirtualnej.
+2. W hello **certyfikat główny** sekcji strony hello, zlokalizuj certyfikat hello, które mają tooremove.
+3. Kliknij przycisk wielokropka hello dalej certyfikat toohello, a następnie kliknij przycisk "Usuń".
 
 ## <a name="revokeclient"></a>Odwoływanie certyfikatu klienta
 
-Certyfikaty klienta można odwołać. Lista odwołania certyfikatów umożliwia dokonanie selektywnej odmowy połączenia punkt-lokacja w oparciu o indywidualne certyfikaty klienta. Różni się to od usuwania zaufanego certyfikatu głównego. Jeśli usuniesz plik cer zaufanego certyfikatu głównego z platformy Azure, spowoduje to odwołanie dostępu dla wszystkich certyfikatów klienta wygenerowanych lub podpisanych przez odwołany certyfikat główny. Odwołanie certyfikatu klienta zamiast certyfikatu głównego pozwala dalej używać innych certyfikatów wygenerowanych na podstawie certyfikatu głównego do uwierzytelniania.
+Certyfikaty klienta można odwołać. certyfikat Hello listy odwołania umożliwia tooselectively odmowy połączenia punkt-lokacja, w oparciu o certyfikaty klienta. Różni się to od usuwania zaufanego certyfikatu głównego. Jeśli usuniesz .cer certyfikatu zaufanego głównego z platformy Azure, odwołuje hello dostępu dla wszystkich certyfikatów klienta wygenerowany podpisane przez hello certyfikat główny odwołane. Odwoływanie certyfikatu klienta, zamiast hello certyfikatu głównego, umożliwia hello innych certyfikatów, które zostały wygenerowane z hello głównego certyfikatu toocontinue toobe używany do uwierzytelniania.
 
-Częstą praktyką jest użycie certyfikatu głównego do zarządzania dostępem na poziomach zespołu lub organizacji przy jednoczesnym korzystaniu z odwołanych certyfikatów klienta dla bardziej precyzyjnej kontroli dostępu poszczególnych użytkowników.
+Hello popularną praktyką jest toouse hello certyfikatu toomanage dostęp do konta root na poziomach zespół lub organizacja, używając cofnięte certyfikaty klienta dla szczegółowej kontroli dostępu na poszczególnych użytkowników.
 
-### <a name="to-revoke-a-client-certificate"></a>Aby odwołać certyfikat klienta
+### <a name="toorevoke-a-client-certificate"></a>toorevoke certyfikatu klienta
 
-Certyfikat klienta można odwołać przez dodanie odcisku palca do listy odwołania.
+Dodając listy odwołania toohello odcisk palca hello można odwołać certyfikat klienta.
 
-1. Pobierz odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [Jak pobrać odcisk palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Skopiuj informacje do edytora tekstu i usuń wszelkie spacje, tak aby powstał ciąg bez odstępów.
-3. Przejdź do strony **Konfiguracja punktu do lokacji** bramy sieci wirtualnej. Korzystając z tej samej strony, [przekazano zaufany certyfikat główny](#uploadfile).
-4. W sekcji **Odwołane certyfikaty** wprowadź przyjazną nazwę certyfikatu (nie musi to być nazwa pospolita certyfikatu).
-5. Skopiuj i wklej ciąg odcisku palca do pola **Odcisk palca**.
-6. Odcisk palca zostanie zweryfikowany i automatycznie dodany do listy odwołania. Na ekranie zobaczysz komunikat informujący o aktualizowaniu listy. 
-7. Po zakończeniu aktualizowania nie będzie można już używać certyfikatu do nawiązywania połączeń. Klienci, którzy spróbują połączyć się za pomocą tego certyfikatu, zobaczą komunikat informujący o tym, że certyfikat nie jest już ważny.
+1. Pobrać hello odcisk palca certyfikatu klienta. Aby uzyskać więcej informacji, zobacz [jak tooretrieve hello odcisk palca certyfikatu](https://msdn.microsoft.com/library/ms734695.aspx).
+2. Skopiuj Edytor tekstu tooa informacji hello i Usuń wszystkie spacje tak, aby ciąg.
+3. Przejdź do bramy sieci wirtualnej toohello **punkt do-— konfiguracja lokacji** strony. Jest to hello tej samej stronie, który został użyty zbyt[przekazać z zaufanym certyfikatem głównym](#uploadfile).
+4. W hello **odwołane certyfikaty** sekcji, wprowadź przyjazną nazwę certyfikatu hello (nazwa Pospolita certyfikatu hello toobe nie ma).
+5. Skopiuj i Wklej hello odcisk palca ciąg toohello **odcisk palca** pola.
+6. Odcisk palca Hello weryfikuje i jest automatycznie dodawany toohello listy odwołania. Zostanie wyświetlony na ekranie powitania tego hello aktualizuje listy. 
+7. Po zakończeniu aktualizowania hello certyfikatu nie można już tooconnect używane. Klienci, którzy spróbuj tooconnect przy użyciu tego certyfikatu wyświetlony komunikat z informacją, że ten certyfikat hello nie jest już prawidłowy.
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń typu punkt-lokacja
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne). Aby dowiedzieć się więcej o sieci i maszynach wirtualnych, zobacz [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Omówienie sieci maszyny wirtualnej z systemem Linux i platformy Azure).
+Po zakończeniu połączenia można dodać sieci wirtualnych tooyour maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne). toounderstand więcej informacji na temat sieci i maszyn wirtualnych, zobacz [omówienie sieci platformy Azure i maszyny Wirtualnej systemu Linux](../virtual-machines/linux/azure-vm-network-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: "Azure rozliczeń interfejsów API Enterprise — szczegóły użycia | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat użycia rozliczeń Azure i RateCard interfejsów API, które są używane do wgląd w użycie zasobów platformy Azure i trendów."
+title: "aaaAzure rozliczeń Enterprise interfejsów API — szczegóły użycia | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat użycia rozliczenia Azure i RateCard interfejsów API, które są używane tooprovide wgląd w informacje zużycia zasobów platformy Azure i trendów."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 5b49220e6eb27544dba54255ee88c56ad79c3141
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: def0805008261df5872f015db3d2b26e47d25569
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---usage-details"></a>Raportowanie interfejsów API dla klientów korporacyjnych — szczegóły użycia
 
-Interfejs API szczegółów użycia oferuje zestawienie ilości wykorzystanego i opłat szacowany przy rejestracji. Wynik zawiera również informacje dotyczące wystąpień, mierniki i działów. Interfejs API mogą być przeszukiwane przez okres rozliczeń lub określonej daty rozpoczęcia i zakończenia. 
+Hello użycia szczegółów API oferuje zestawienie ilości wykorzystanego i opłat szacowany przy rejestracji. wynik Hello zawiera również informacje dotyczące wystąpień, mierniki i działów. Witaj interfejsu API mogą być przeszukiwane przez okres rozliczeń lub określona data rozpoczęcia i zakończenia. 
 ## <a name="consumption-apis"></a>Interfejsy API zużycie
 
 
 ##<a name="request"></a>Żądanie 
-Wspólne właściwości nagłówka, które mają zostać dodane zostały określone [tutaj](billing-enterprise-api.md). Jeśli nie określono okresie rozliczeniowym, zwracany jest danych dla bieżącego okresu rozliczeniowego. Przedziałów czasu niestandardowych można określić z początkiem i kończyć się parametrami datę w formacie RRRR MM-dd. Zakres maksymalny czas obsługiwanych jest 36 miesięcy.  
+Wspólne właściwości nagłówka wymagające toobe dodawane są określone [tutaj](billing-enterprise-api.md). Jeśli nie określono okresie rozliczeniowym, dane dotyczące rozliczeń bieżącego hello okresu jest zwracany. Przedziałów czasu niestandardowych można określić z rozpoczęciem powitalne i kończyć się parametrami datę w formacie hello RRRR MM-dd. Hello maksymalny czas obsługiwany zakres to 36 miesięcy.  
 
 |Metoda | Identyfikator URI żądania|
 |-|-|
@@ -37,12 +37,12 @@ Wspólne właściwości nagłówka, które mają zostać dodane zostały określ
 |POBIERZ|https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} / usagedetailsbycustomdate? startTime = 2017-01-01 & endTime = 2017-01-10|
 
 > [!Note]
-> Aby użyć wersji zapoznawczej interfejsu API, Zastąp v2 v1 w powyższy adres URL.
+> Wersja zapoznawcza hello toouse interfejsu API, Zamień v2 v1 w hello powyżej adresu URL.
 >
 
 ## <a name="response"></a>Odpowiedź
 
-> Z powodu potencjalnie dużej ilości danych wynik stronicowanej jest zestaw. Właściwość nextLink, jeśli jest obecny, określa łącze do następnej strony danych. Jeśli link jest pusta, oznacza to, że jest to ostatnia strona. 
+> Powodu potencjalnie dużej liczby wyników hello danych toohello stronicowanej jest zestaw. Właściwość nextLink Hello, jeśli jest obecny, określa hello łącze do następnej strony hello danych. Jeśli hello link jest pusta, wskazuje to, że to hello ostatniej strony. 
 <br/>
 
     {
@@ -92,42 +92,42 @@ Wspólne właściwości nagłówka, które mają zostać dodane zostały określ
 
 |Nazwa właściwości| Typ| Opis
 |-|-|-|
-|id| Ciąg| Unikatowy identyfikator dla wywołania interfejsu API. |
-|Dane| Tablica JSON| Tablica dzienne Szczegóły obciążenia dla każdej instance\meter.|
-|nextLink| Ciąg| Jeśli istnieją więcej stron danych nextLink wskazuje adres URL zwracany następnej strony danych. |
+|id| Ciąg| Witaj Unikatowy identyfikator dla wywołania hello interfejsu API. |
+|Dane| Tablica JSON| Witaj tablicy dzienne Szczegóły obciążenia dla każdej instance\meter.|
+|nextLink| Ciąg| Jeśli istnieją więcej stron danych hello nextLink punktów toohello adres URL tooreturn hello następnej strony danych. |
 |accountId| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
 |Identyfikator produktu| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
 |resourceLocationId| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
 |consumedServiceID| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
 |departmentId| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
-|accountOwnerEmail| Ciąg| Konto e-mail właściciela konta. |
-|Nazwa konta| Ciąg| Odbiorcy wprowadzona nazwa konta. |
+|accountOwnerEmail| Ciąg| Konto e-mail właściciela konta hello. |
+|Nazwa konta| Ciąg| Odbiorcy wprowadzona nazwa konta hello. |
 |serviceAdministratorId| Ciąg| Adres e-mail dla administratora usługi. |
 |subscriptionId| int| Pole przestarzałe. Brak zgodności z poprzednimi wersjami. |
-|subscriptionGuid| Ciąg| Globalny identyfikator subskrypcji. |
-|Nazwa subskrypcji| Ciąg| Nazwa subskrypcji. |
-|Data| Ciąg| Data, w którym wystąpiło zużycia. |
-|Produktu| Ciąg| Więcej informacji na temat licznika. Przykład: A1 systemu Windows (VM) - wschodni Region Azji i Pacyfiku|
-|meterId| Ciąg| Identyfikator miernika, do którego emitowane użycia. |
-|meterCategory| Ciąg| Usługa platformy Azure, która została użyta. |
-|meterSubCategory| Ciąg| Definiuje typ usługi Azure, które mogą wpływać na szybkość. Przykład: A1 (z systemem innym niż Windows maszyny Wirtualnej|
-|meterRegion| Ciąg| Określa lokalizację centrum danych pewnych usług, które są wyceniane na podstawie lokalizacji centrum danych. |
-|meterName| Ciąg| Nazwa licznika. |
-|consumedQuantity| O podwójnej precyzji| Wartość licznika, który został zużyty. |
-|resourceRate| O podwójnej precyzji| Stawkę na jednostkę rozliczeniowy. |
-|Koszt| O podwójnej precyzji| Opłata, które zostały poniesione dla licznika. |
-|resourceLocation| Ciąg| Określa centrum danych, w którym jest uruchomiona licznika. |
-|consumedService| Ciąg| Usługa platformy Azure, która została użyta. |
-|Identyfikator wystąpienia| Ciąg| Ten identyfikator jest nazwa zasobu lub pełny identyfikator zasobu. Aby uzyskać więcej informacji, zobacz [interfejsu API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) |
+|subscriptionGuid| Ciąg| Globalne Unikatowy identyfikator dla hello subskrypcji. |
+|Nazwa subskrypcji| Ciąg| Nazwa subskrypcji hello. |
+|Data| Ciąg| Data Hello, w którym wystąpiło zużycia. |
+|Produktu| Ciąg| Więcej informacji na temat hello miernika. Przykład: A1 systemu Windows (VM) - wschodni Region Azji i Pacyfiku|
+|meterId| Ciąg| Identyfikator Hello hello miernika, którego emitowane użycia. |
+|meterCategory| Ciąg| Witaj usługi platformy Azure, która została użyta. |
+|meterSubCategory| Ciąg| Definiuje typ usługi Azure hello, które mogą wpływać na szybkość hello. Przykład: A1 (z systemem innym niż Windows maszyny Wirtualnej|
+|meterRegion| Ciąg| Określa lokalizację hello datacenter hello niektórych usług, które kosztują na podstawie lokalizacji centrum danych. |
+|meterName| Ciąg| Nazwa licznika hello. |
+|consumedQuantity| O podwójnej precyzji| Kwota Hello hello licznika, który został zużyty. |
+|resourceRate| O podwójnej precyzji| szybkość Hello stosowane na jednostkę rozliczeniowy. |
+|Koszt| O podwójnej precyzji| Opłata Hello, które zostały poniesione dla licznika hello. |
+|resourceLocation| Ciąg| Identyfikuje hello centrum danych, gdzie działa hello miernika. |
+|consumedService| Ciąg| Witaj usługi platformy Azure, która została użyta. |
+|Identyfikator wystąpienia| Ciąg| Ten identyfikator jest hello Nazwa zasobu hello lub hello w pełni kwalifikowany identyfikator zasobu. Aby uzyskać więcej informacji, zobacz [interfejsu API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) |
 |serviceInfo1| Ciąg| Metadane wewnętrzny usługi Azure. |
 |serviceInfo2| Ciąg| Na przykład typ obrazu maszyny wirtualnej i nazwę usługodawcy internetowego usługi ExpressRoute. |
 |części informacje dodatkowe Aby| Ciąg| Metadane specyficzne dla usługi. Na przykład typ obrazu dla maszyny wirtualnej. |
 |tags| Ciąg| Odbiorcy dodać tagi. Aby uzyskać więcej informacji, zobacz [organizowania zasobów na platformie Azure przy użyciu tagów](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags). |
 |storeServiceIdentifier| Ciąg| Tej kolumny nie jest używany. Brak zgodności z poprzednimi wersjami. |
-|DepartmentName| Ciąg| Nazwa działu. |
-|CostCenter| Ciąg| Centrum kosztów skojarzonego z użycia. |
-|unitOfMeasure| Ciąg| Określa jednostkę, dla której usługa jest rozliczana w. Przykład: GB, godziny, 10 000 s. |
-|Grupa zasobów| Ciąg| Grupy zasobów, w którym działa mierniku wdrożonej w. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+|DepartmentName| Ciąg| Nazwa hello działu. |
+|CostCenter| Ciąg| Centrum kosztów Hello użycia hello jest skojarzony. |
+|unitOfMeasure| Ciąg| Identyfikuje hello jednostki, która usługa hello jest rozliczana w. Przykład: GB, godziny, 10 000 s. |
+|Grupa zasobów| Ciąg| w których hello wdrożonej miernika jest uruchomiony w grupie zasobów Hello. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 <br/>
 ## <a name="see-also"></a>Zobacz też
 

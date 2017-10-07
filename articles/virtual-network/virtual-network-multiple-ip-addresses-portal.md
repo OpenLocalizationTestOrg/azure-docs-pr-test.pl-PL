@@ -1,6 +1,6 @@
 ---
-title: "Wiele adresów IP dla maszyn wirtualnych platformy Azure - Portal | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można przypisać wiele adresów IP do maszyny wirtualnej przy użyciu portalu Azure | Menedżer zasobów."
+title: "aaaMultiple adresów IP dla maszyn wirtualnych platformy Azure - Portal | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooassign wielu adresów IP tooa maszynę wirtualną przy użyciu hello portalu Azure | Menedżer zasobów."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -15,94 +15,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 34075766ac68c8de38c258a4d70e35881f28bb0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Przypisz wielu adresów IP do maszyn wirtualnych za pomocą portalu Azure
+# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-hello-azure-portal"></a>Przypisz maszyn toovirtual adresów IP w wielu przy użyciu hello portalu Azure
 
 >[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 >
-W tym artykule opisano sposób tworzenia maszyny wirtualnej (VM) za pośrednictwem modelu wdrażania usługi Azure Resource Manager przy użyciu portalu Azure. Nie można przypisać wiele adresów IP do zasobów została utworzona za pośrednictwem klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, przeczytaj [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
+W tym artykule opisano, jak toocreate maszynę wirtualną (VM) za pośrednictwem hello Azure Resource Manager deployment model przy użyciu hello portalu Azure. Wiele adresów IP nie można przypisać tooresources został utworzony za pomocą hello klasycznego modelu wdrażania. więcej informacji na temat modeli wdrażania platformy Azure, przeczytaj hello toolearn [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Utwórz maszynę Wirtualną z wielu adresów IP
 
-Jeśli chcesz utworzyć Maszynę wirtualną z wielu adresów IP lub statycznego prywatnego adresu IP, należy utworzyć ją przy użyciu programu PowerShell lub wiersza polecenia platformy Azure. Kliknij Opcje programu PowerShell lub interfejsu wiersza polecenia w górnej części tego artykułu, aby dowiedzieć się jak. Można utworzyć Maszynę wirtualną z jednego dynamicznego prywatnego adresu IP i (opcjonalnie) jeden publiczny adres IP za pomocą portalu, wykonując kroki opisane w [utworzyć Maszynę wirtualną systemu Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) lub [Utwórz Maszynę wirtualną systemu Linux](../virtual-machines/linux/quick-create-portal.md) artykułów. Po utworzeniu maszyny Wirtualnej, można zmienić typu adresu IP z dynamicznego statyczne i dodawania dodatkowych adresów IP przy użyciu portalu, wykonując kroki w [adresów IP dodać do maszyny Wirtualnej](#add) sekcji tego artykułu.
+Jeśli chcesz toocreate maszyny Wirtualnej z wielu adresów IP lub statycznego prywatnego adresu IP, należy utworzyć ją przy użyciu programu PowerShell lub interfejsu wiersza polecenia Azure hello. Jak kliknij hello programu PowerShell lub interfejsu wiersza polecenia Opcje u góry hello toolearn tego artykułu. Można utworzyć Maszynę wirtualną z jednego dynamicznego prywatnego adresu IP i (opcjonalnie) jeden publiczny adres IP za pomocą portalu hello, wykonując następujące kroki hello hello [utworzyć Maszynę wirtualną systemu Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) lub [Utwórz Maszynę wirtualną systemu Linux](../virtual-machines/linux/quick-create-portal.md) artykuły. Po utworzeniu hello maszyny Wirtualnej, można zmienić typu adresu IP hello z dynamicznego toostatic i dodawania dodatkowych adresów IP przy użyciu portalu hello, wykonując kroki w hello [tooa maszyn wirtualnych adresów IP dodać](#add) sekcji tego artykułu.
 
-## <a name="add"></a>Dodaj adresy IP do maszyny Wirtualnej
+## <a name="add"></a>Dodaj tooa adresów IP maszyny Wirtualnej
 
-Prywatne i publiczne adresy IP można dodać do karty Sieciowej, wykonując kroki, które należy wykonać. Przykłady w poniższych sekcjach założono, że już istnieje maszyna wirtualna z tych trzech konfiguracji adresu IP, opisane w [scenariusza](#Scenario) w tym artykule, ale nie jest to wymagane wykonanie.
+Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publicznych tooa adresy IP karty Sieciowej. Witaj przykłady w hello następujące sekcje założono, że już istnieje Maszynę wirtualną z konfiguracji adresów IP hello trzech opisanych w hello [scenariusza](#Scenario) w tym artykule, ale nie jest to wymagane wykonanie.
 
 ### <a name="coreadd"></a>Podstawowe kroki
 
-1. Przejdź do portalu Azure pod adresem https://portal.azure.com i zaloguj się do niego, jeśli to konieczne.
-2. W portalu kliknij **więcej usług** > typ *maszyn wirtualnych* w polu filtru, a następnie kliknij przycisk **maszyn wirtualnych**.
-3. W **maszyn wirtualnych** bloku, kliknij maszynę Wirtualną, aby dodać IP adresów do. Kliknij przycisk **interfejsy sieciowe** na maszynie wirtualnej adresy bloku, który zostanie wyświetlony, a następnie wybierz interfejs sieciowy, aby dodać adres IP. W przykładzie pokazano na poniższej ilustracji, karta sieciowa o nazwie *myNIC* z maszyny Wirtualnej o nazwie *myVM* wybrano:
+1. Przeglądaj toohello portalu Azure w https://portal.azure.com i zaloguj do niego, jeśli to konieczne.
+2. W portalu powitania kliknij **więcej usług** > typ *maszyn wirtualnych* w hello pola filtru, a następnie kliknij przycisk **maszyn wirtualnych**.
+3. W hello **maszyn wirtualnych** bloku, kliknij przycisk hello maszyna wirtualna ma tooadd IP adresów do. Kliknij przycisk **interfejsy sieciowe** w wyświetlonym bloku maszyny wirtualnej hello oraz sieci a następnie wybierz pozycję hello interfejsu mają tooadd hello IP adresów do. W przykładzie hello w hello poniższej ilustracji, hello karty Sieciowej o nazwie *myNIC* z hello maszyny Wirtualnej o nazwie *myVM* wybrano:
 
     ![Interfejs sieciowy](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)
 
-4. W wyświetlonym karty sieciowej wybranego bloku, kliknij przycisk **konfiguracje adresów IP**.
+4. W hello wyświetlonym bloku dla hello należy wybrać kartę Sieciową, kliknij przycisk **konfiguracje adresów IP**.
 
-Wykonaj kroki opisane w sekcji, które należy wykonać, na podstawie typu adresu IP, który chcesz dodać.
+Zakończenie hello kroków w jednej z kolejnych sekcjach hello, na podstawie typu hello adresu IP ma tooadd.
 
 ### <a name="add-a-private-ip-address"></a>**Dodaj prywatnego adresu IP**
 
-Wykonaj poniższe kroki, aby dodać nowy prywatnego adresu IP:
+Wykonaj hello następujące kroki tooadd prywatny adres IP:
 
-1. Wykonaj kroki [podstawowe kroki](#coreadd) sekcji tego artykułu.
-2. Kliknij pozycję **Dodaj**. W **konfiguracji IP dodać** bloku, zostanie wyświetlone, utworzyć konfigurację IP o nazwie *IPConfig 4* z *10.0.0.7* jako *statycznych* prywatnego adresu IP adresów, a następnie kliknij przycisk **OK**.
+1. Zakończenie hello etapami hello [podstawowe kroki](#coreadd) sekcji tego artykułu.
+2. Kliknij pozycję **Dodaj**. W hello **konfiguracji IP dodać** bloku, zostanie wyświetlone, utworzyć konfigurację IP o nazwie *IPConfig 4* z *10.0.0.7* jako *statycznych* prywatnego adresu IP adresów, a następnie kliknij przycisk **OK**.
 
     > [!NOTE]
-    > Podczas dodawania statycznego adresu IP, należy określić nieużywanych, prawidłowy adres podsieci, karta sieciowa jest połączona z. Jeśli wybrany adres nie jest dostępna, portalu zostaną wyświetlone X dla adresu IP i musisz wybrać inny.
+    > Podczas dodawania statycznego adresu IP, należy określić nieużywanych, prawidłowy adres na powitania hello podsieci, karta sieciowa jest połączona z. Jeśli adres hello, którą wybierzesz nie jest dostępny, hello portalu zostaną wyświetlone X hello adresu IP, a będziesz potrzebować tooselect innego.
 
-3. Po kliknięciu przycisku OK spowoduje zamknięcie bloku i zobaczysz nowej konfiguracji IP na liście. Kliknij przycisk **OK** zamknąć **konfiguracji IP dodać** bloku.
-4. Możesz kliknąć **Dodaj** Aby dodać dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków, aby zakończyć dodawanie adresów IP.
-5. Dodaj prywatnych adresów IP do systemu operacyjnego maszyny Wirtualnej, wykonując kroki odpowiednie dla systemu operacyjnego w [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](#os-config) sekcji tego artykułu.
+3. Po kliknięciu przycisku OK spowoduje zamknięcie bloku hello i zobaczysz hello nowej konfiguracji IP na liście. Kliknij przycisk **OK** tooclose hello **konfiguracji IP dodać** bloku.
+4. Możesz kliknąć **Dodaj** tooadd dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków toofinish dodawanie adresów IP.
+5. Dodaj hello prywatnego adresu IP dotyczy systemu operacyjnego maszyny Wirtualnej toohello, wykonując kroki hello systemu operacyjnego w hello [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](#os-config) sekcji tego artykułu.
 
 ### <a name="add-a-public-ip-address"></a>Dodaj publiczny adres IP
 
-Publiczny adres IP jest dodawany przez skojarzenie publicznego zasobu adresu IP do nowej konfiguracji IP lub istniejącej konfiguracji adresu IP.
+Publiczny adres IP jest dodawany przez skojarzenie publicznego tooeither zasobów adresu IP nowej konfiguracji IP lub istniejącej konfiguracji adresu IP.
 
 > [!NOTE]
-> Publiczne adresy IP ma nominalnego opłatą. Aby dowiedzieć się więcej o cenach adresu IP, przeczytaj [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Istnieje ograniczona liczba publicznych adresów IP, których można użyć w ramach subskrypcji. Aby uzyskać więcej informacji o limitach, przeczytaj artykuł dotyczący [limitów platformy Azure](../azure-subscription-service-limits.md#networking-limits).
+> Publiczne adresy IP ma nominalnego opłatą. więcej informacji o IP adresów o cenach, toolearn odczytu hello [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Brak limitu toohello liczba publicznych adresów IP, których można użyć w ramach subskrypcji. więcej informacji na temat limitów hello, przeczytaj hello toolearn [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu.
 > 
 
 ### <a name="create-public-ip"></a>Utwórz zasób publicznego adresu IP
 
-Publiczny adres IP jest jedno ustawienie zasobu publicznego adresu IP. Jeśli masz zasobu publicznego adresu IP, który nie jest obecnie skojarzony z konfigurację protokołu IP, który ma zostać skojarzona z konfiguracją protokołu IP pominęli następujące kroki i wykonaj kroki jednej z kolejnych sekcjach, ile potrzebujesz. Jeśli nie masz dostępnych zasób publicznego adresu IP, wykonaj następujące kroki, aby utworzyć:
+Publiczny adres IP jest jedno ustawienie zasobu publicznego adresu IP. Jeśli masz zasobu publicznego adresu IP, który nie jest obecnie skojarzony tooan konfigurację adresu IP, który ma konfiguracji adresów IP tooan tooassociate, Pomiń hello następujące kroki i czynności hello w jednym z hello kolejnych sekcjach, ile potrzebujesz. Jeśli nie masz dostępnych zasób publicznego adresu IP, wykonaj powitania po toocreate kroki, co:
 
-1. Przejdź do portalu Azure pod adresem https://portal.azure.com i zaloguj się do niego, jeśli to konieczne.
-3. W portalu kliknij **nowy** > **sieci** > **publicznego adresu IP**.
-4. W **tworzenie publicznego adresu IP** bloku, zostanie wyświetlone, wprowadź **nazwa**, wybierz pozycję **przypisywania adresów IP** typu **subskrypcji**, **Grupy zasobów**, a **lokalizacji**, następnie kliknij przycisk **Utwórz**, jak pokazano na poniższej ilustracji:
+1. Przeglądaj toohello portalu Azure w https://portal.azure.com i zaloguj do niego, jeśli to konieczne.
+3. W portalu powitania kliknij **nowy** > **sieci** > **publicznego adresu IP**.
+4. W hello **tworzenie publicznego adresu IP** bloku, zostanie wyświetlone, wprowadź **nazwa**, wybierz pozycję **przypisywania adresów IP** typu **subskrypcji**, **Grupy zasobów**, a **lokalizacji**, następnie kliknij przycisk **Utwórz**, jak pokazano na poniższej ilustracji hello:
 
     ![Utwórz zasób publicznego adresu IP](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
 
-5. Wykonaj kroki opisane w sekcji, które należy wykonać, aby skojarzyć zasób publicznego adresu IP do konfiguracji adresu IP.
+5. Pełne hello kroków w jednym z hello sekcjach tooassociate hello publicznej konfiguracji adresu IP zasobu tooan IP.
 
-#### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Skojarz zasób publicznego adresu IP nowej konfiguracji adresu IP
+#### <a name="associate-hello-public-ip-address-resource-tooa-new-ip-configuration"></a>Skojarz hello publicznej konfiguracji adresu IP zasobu tooa nowego adresu IP
 
-1. Wykonaj kroki [podstawowe kroki](#coreadd) sekcji tego artykułu.
-2. Kliknij pozycję **Dodaj**. W **konfiguracji IP dodać** bloku, zostanie wyświetlone, utworzyć konfigurację IP o nazwie *IPConfig 4*. Włącz **publicznego adresu IP** i wybierz istniejący, dostępne publicznego zasobu adresu IP z **wybierz publiczny adres IP** wyświetlonym bloku.
+1. Zakończenie hello etapami hello [podstawowe kroki](#coreadd) sekcji tego artykułu.
+2. Kliknij pozycję **Dodaj**. W hello **konfiguracji IP dodać** bloku, zostanie wyświetlone, utworzyć konfigurację IP o nazwie *IPConfig 4*. Włącz hello **publicznego adresu IP** i wybierz istniejący, dostępne publicznego zasobu adresu IP z hello **wybierz publiczny adres IP** wyświetlonym bloku.
 
-    Po wybraniu zasobu publicznego adresu IP, kliknij przycisk **OK** i blok zostanie zamknięte. Jeśli nie masz istniejącego publicznego adresu IP, możesz utworzyć jedną, wykonując kroki opisane w [Utwórz zasób publiczny adres IP](#create-public-ip) sekcji tego artykułu. 
+    Po wybraniu hello zasobu publicznego adresu IP, kliknij przycisk **OK** i bloku hello zostanie zamknięte. Jeśli nie masz istniejącego publicznego adresu IP, możesz utworzyć jedną, wykonując kroki hello hello [Utwórz zasób publiczny adres IP](#create-public-ip) sekcji tego artykułu. 
 
-3. Przejrzyj nowej konfiguracji adresu IP. Mimo że jawnie nie został przypisany prywatny adres IP, co zostało automatycznie przydzielone konfiguracji adresów IP, ponieważ wszystkie konfiguracje adresów IP muszą mieć prywatnego adresu IP.
-4. Możesz kliknąć **Dodaj** Aby dodać dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków, aby zakończyć dodawanie adresów IP.
-5. Dodaj prywatnego adresu IP do systemu operacyjnego maszyny Wirtualnej, wykonując kroki odpowiednie dla systemu operacyjnego w [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](#os-config) sekcji tego artykułu. Publiczny adres IP nie należy dodawać do systemu operacyjnego.
+3. Przejrzyj hello nową konfigurację IP. Mimo że jawnie nie został przypisany prywatny adres IP, co zostało automatycznie przypisany toohello konfiguracji adresów IP, ponieważ wszystkie konfiguracje adresów IP muszą mieć prywatnego adresu IP.
+4. Możesz kliknąć **Dodaj** tooadd dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków toofinish dodawanie adresów IP.
+5. Dodaj hello prywatnego adresu IP adres toohello maszyny Wirtualnej systemu operacyjnego, wykonując kroki hello systemu operacyjnego w hello [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](#os-config) sekcji tego artykułu. Nie należy dodawać hello publicznego adresu IP address toohello systemu operacyjnego.
 
-#### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Skojarz zasób publicznego adresu IP do istniejącej konfiguracji adresu IP
+#### <a name="associate-hello-public-ip-address-resource-tooan-existing-ip-configuration"></a>Skojarz hello publicznej konfiguracji adresu IP zasobu tooan istniejącego adresu IP
 
-1. Wykonaj kroki [podstawowe kroki](#coreadd) sekcji tego artykułu.
-2. Kliknij pozycję konfiguracji IP, które chcesz dodać zasobu publicznego adresu IP do.
-3. W wyświetlonym bloku IPConfig kliknij **adres IP**.
-4. W **wybierz publiczny adres IP** bloku, zostanie wyświetlone, wybierz publiczny adres IP.
-5. Kliknij przycisk **zapisać** i bloki zostanie zamknięte. Jeśli nie masz istniejącego publicznego adresu IP, możesz utworzyć jedną, wykonując kroki opisane w [Utwórz zasób publiczny adres IP](#create-public-ip) sekcji tego artykułu.
-3. Przejrzyj nowej konfiguracji adresu IP.
-4. Możesz kliknąć **Dodaj** Aby dodać dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków, aby zakończyć dodawanie adresów IP. Publiczny adres IP nie należy dodawać do systemu operacyjnego.
+1. Zakończenie hello etapami hello [podstawowe kroki](#coreadd) sekcji tego artykułu.
+2. Kliknij pozycję konfiguracji adresu IP hello ma tooadd hello publicznego adresu IP adres zasób.
+3. W bloku IPConfig hello jest wyświetlana, kliknij **adres IP**.
+4. W hello **wybierz publiczny adres IP** bloku, zostanie wyświetlone, wybierz publiczny adres IP.
+5. Kliknij przycisk **zapisać** i bloki hello zostanie zamknięte. Jeśli nie masz istniejącego publicznego adresu IP, możesz utworzyć jedną, wykonując kroki hello hello [Utwórz zasób publiczny adres IP](#create-public-ip) sekcji tego artykułu.
+3. Przejrzyj hello nową konfigurację IP.
+4. Możesz kliknąć **Dodaj** tooadd dodatkowe konfiguracje adresów IP, lub zamknij wszystkie otwarte bloków toofinish dodawanie adresów IP. Nie należy dodawać hello publicznego adresu IP address toohello systemu operacyjnego.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

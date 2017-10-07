@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie niestandardowych sondowania — brama usługi aplikacji Azure — klasyczny programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć niestandardowe sondowania bramy aplikacji przy użyciu programu PowerShell w klasycznym modelu wdrażania"
+title: "aaaCreate niestandardowych sondowania — brama usługi aplikacji Azure — klasyczny programu PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate niestandardowego sondowania bramy aplikacji przy użyciu programu PowerShell w hello klasycznego modelu wdrażania"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68332367c99328bd6456b0c339923765637be986
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Tworzenie niestandardowych sondowania bramy aplikacji Azure (klasyczne) przy użyciu programu PowerShell
 
@@ -28,49 +28,49 @@ ms.lasthandoff: 07/11/2017
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
-W tym artykule możesz dodać niestandardowe sondowania istniejącą bramę aplikacji przy użyciu programu PowerShell. Niestandardowe sond są przydatne dla aplikacji, które mają strona sprawdzania kondycji określonych lub aplikacji, które nie mają pomyślnej odpowiedzi na domyślnej aplikacji sieci web.
+W tym artykule możesz dodać niestandardowe sondowania tooan istniejących aplikacji bramy przy użyciu programu PowerShell. Niestandardowe sond są przydatne dla aplikacji, które mają strona sprawdzania kondycji określonych lub aplikacji, które nie mają pomyślnej odpowiedzi na powitania domyślnej aplikacji sieci web.
 
 > [!IMPORTANT]
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](application-gateway-create-probe-ps.md).
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Dowiedz się, jak za[wykonaj te czynności przy użyciu modelu Resource Manager hello](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-Aby utworzyć bramę aplikacji:
+toocreate bramę aplikacji:
 
 1. Utwórz zasób bramy aplikacji.
 2. Utwórz konfiguracyjny plik XML lub obiekt konfiguracji.
-3. Przekaż konfigurację aplikacji do nowo utworzonego zasobu bramy aplikacji.
+3. Zatwierdź toohello konfiguracji hello nowo utworzony zasób bramy aplikacji.
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Utwórz zasób bramy aplikacji z niestandardowego badania
 
-Aby utworzyć bramę, użyj polecenia cmdlet `New-AzureApplicationGateway`, zastępując wartości własnymi. Opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
+toocreate hello bramy, użyj hello `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości hello własne. Karta hello bramy nie rozpoczyna się w tym momencie. Karta rozpoczyna się od w kolejnym kroku hello bramy została pomyślnie uruchomiona.
 
-Poniższy przykład tworzy bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”.
+Witaj poniższy przykład tworzy bramę aplikacji przy użyciu sieci wirtualnej o nazwie "testvnet1" i podsieć o nazwie "podsieć 1".
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`.
+toovalidate, który hello bramy został utworzony, można użyć hello `Get-AzureApplicationGateway` polecenia cmdlet.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium (Średnia). Można wybrać w małych, średnich i dużych.
+> Witaj wartości domyślnej dla *InstanceCount* 2, maksymalna wartość 10. Witaj wartości domyślnej dla *GatewaySize* to średni. Można wybrać w małych, średnich i dużych.
 > 
 > 
 
-Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Te wartości są tworzone, gdy brama jest w stanie uruchomienia.
+*VirtualIPs* i *DnsName* są wyświetlane jako puste, ponieważ brama hello nie została jeszcze uruchomiona. Te wartości są tworzone po hello brama jest w hello stanu działania.
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>Skonfiguruj bramę aplikacji za pomocą XML
 
-W poniższym przykładzie używany jest plik XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i zatwierdzić je w zasobie bramy aplikacji.  
+W hello poniższy przykład użyj tooconfigure pliku XML wszystkie ustawienia bramy aplikacji i je zatwierdzić zasobu bramy toohello aplikacji.  
 
-Skopiuj poniższy tekst do Notatnika.
+Skopiuj powitania po tooNotepad tekstu.
 
 ```xml
 <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -136,39 +136,39 @@ Skopiuj poniższy tekst do Notatnika.
 </ApplicationGatewayConfiguration>
 ```
 
-Edytuj zawarte w nawiasach wartości elementów konfiguracji. Zapisz plik z rozszerzeniem .xml.
+Edytuj wartości hello między nawiasami hello hello elementów konfiguracji. Zapisz plik hello z rozszerzeniem .xml.
 
-Poniższy przykład przedstawia użycie pliku konfiguracji do skonfigurowania bramy aplikacji do ruchu HTTP na port publiczny 80 równoważenia obciążenia i wysyłania ruchu sieciowego do zaplecza port 80 między dwoma adresami IP przy użyciu niestandardowych sondowania.
+Witaj poniższy przykład przedstawia sposób toouse tooset pliku konfiguracji, zapasowej tooload bramy aplikacji hello równoważenie ruchu HTTP na port publiczny 80 i Wyślij ruch sieciowy tooback-end port 80 między dwoma adresami IP przy użyciu niestandardowych sondowania.
 
 > [!IMPORTANT]
-> W elemencie Http lub Https jest rozróżniana wielkość liter.
+> Element protokołu Hello Http lub Https jest rozróżniana wielkość liter.
 
-Nowy element konfiguracji \<sondowania\> zostanie dodany do skonfigurowania niestandardowej sondy.
+Nowy element konfiguracji \<sondowania\> dodaniu tooconfigure sond niestandardowych.
 
-Parametry konfiguracji są:
+Parametry konfiguracji Hello są:
 
 |Parametr|Opis|
 |---|---|
 |**Nazwa** |Nazwa odwołania dla niestandardowych sondy. |
 * **Protokół** | Protokół używany (możliwe wartości to HTTP lub HTTPS).|
-| **Host** i **ścieżki** | Pełną ścieżkę adresu URL, który jest wywoływany przez brama aplikacji w celu określenia kondycji wystąpienia. Na przykład jeśli masz http://contoso.com/ witryny sieci Web, następnie niestandardowe sondowania można skonfigurować dla "http://contoso.com/path/custompath.htm" kontroli sondowania zostały pomyślnie odpowiedzi HTTP.|
-| **Interwał** | Konfiguruje testów interwał sondowania w sekundach.|
-| **Limit czasu** | Określa limit czasu sondowania sprawdzanie odpowiedzi HTTP.|
-| **UnhealthyThreshold** | Liczba zakończonych niepowodzeniem odpowiedzi HTTP, konieczne jest flaga wystąpienia zaplecza jako *zła*.|
+| **Host** i **ścieżki** | Pełną ścieżkę adresu URL, który jest wywoływany przez kondycji bramy aplikacji hello hello toodetermine hello wystąpienia. Na przykład jeśli masz http://contoso.com/ witryny sieci Web, a następnie hello sondowania niestandardowych można skonfigurować dla "http://contoso.com/path/custompath.htm" dla sondy sprawdza toohave pomyślnej odpowiedzi HTTP.|
+| **Interwał** | Konfiguruje testów interwał sondowania hello w sekundach.|
+| **Limit czasu** | Określa limit czasu sondowania hello sprawdzanie odpowiedzi HTTP.|
+| **UnhealthyThreshold** | Witaj liczba odpowiedzi HTTP nie powiodło się, wymagane zaplecza tooflag hello wystąpienia jako *zła*.|
 
-Nazwa sondy jest przywoływany w \<elementu BackendHttpSettings\> konfigurację, aby przypisać puli zaplecza, które używa ustawień niestandardowych sondowania.
+Nazwa sondy Hello jest przywoływany w hello \<elementu BackendHttpSettings\> tooassign konfiguracji puli zaplecza, które używa ustawień niestandardowych sondowania.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Dodaj niestandardowy sondy do istniejącej bramy aplikacji
+## <a name="add-a-custom-probe-tooan-existing-application-gateway"></a>Dodaj istniejącą bramę aplikacji niestandardowych sondowania tooan
 
-Zmiana bieżącą konfigurację bramy aplikacji wymaga trzy kroki: Get bieżącego pliku konfiguracji XML, zmodyfikuj ma niestandardowy sondowania i skonfigurować bramę aplikacji przy użyciu nowych ustawień XML.
+Zmiana hello bieżącej konfiguracji bramy aplikacji wymaga trzy kroki: Get hello bieżącego pliku konfiguracji XML, zmodyfikuj toohave niestandardowych sondowania i skonfigurować bramę aplikacji hello hello nowe ustawienia XML.
 
-1. Pobierz plik XML przy użyciu `Get-AzureApplicationGatewayConfig`. To polecenie cmdlet eksportuje konfigurację XML można zmodyfikować, aby dodać ustawienie sondy.
+1. Pobierz plik XML hello przy użyciu `Get-AzureApplicationGatewayConfig`. To polecenie cmdlet eksportuje hello konfiguracji XML toobe zmodyfikować tooadd ustawienia sondy.
 
   ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path toofile>"
   ```
 
-1. Otwórz plik XML w edytorze tekstów. Dodaj `<probe>` sekcji po `<frontendport>`.
+1. Otwórz plik XML hello w edytorze tekstów. Dodaj `<probe>` sekcji po `<frontendport>`.
 
   ```xml
 <Probes>
@@ -184,7 +184,7 @@ Zmiana bieżącą konfigurację bramy aplikacji wymaga trzy kroki: Get bieżące
 </Probes>
   ```
 
-  W sekcji elementu backendHttpSettings XML Dodaj nazwę sondowania, jak pokazano w poniższym przykładzie:
+  W sekcji elementu backendHttpSettings hello hello XML Dodaj nazwę sondowania hello, jak pokazano w hello poniższy przykład:
 
   ```xml
     <BackendHttpSettings>
@@ -197,17 +197,17 @@ Zmiana bieżącą konfigurację bramy aplikacji wymaga trzy kroki: Get bieżące
     </BackendHttpSettings>
   ```
 
-  Zapisz plik XML.
+  Zapisz plik XML hello.
 
-1. Zaktualizuj konfigurację bramy aplikacji z nowym plikiem XML przy użyciu `Set-AzureApplicationGatewayConfig`. To polecenie cmdlet aktualizacji bramy aplikacji przy użyciu nowej konfiguracji.
+1. Konfiguracja bramy aplikacji hello aktualizacji hello nowy plik XML przy użyciu `Set-AzureApplicationGatewayConfig`. To polecenie cmdlet aktualizuje bramy aplikacji hello nowej konfiguracji.
 
 ```powershell
-Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path toofile>"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz skonfigurować odciążanie protokołu Secure Sockets Layer (SSL), zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl.md).
+Jeśli tooconfigure odciążanie protokołu Secure Sockets Layer (SSL), zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl.md).
 
-Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).
+Jeśli chcesz tooconfigure toouse bramy aplikacji z wewnętrznego modułu równoważenia obciążenia, zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB)](application-gateway-ilb.md).
 

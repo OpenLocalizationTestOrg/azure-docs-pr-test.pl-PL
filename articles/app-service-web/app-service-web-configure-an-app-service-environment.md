@@ -1,6 +1,6 @@
 ---
-title: "Jak skonfigurować usługę aplikacji środowiska v1"
-description: "Konfigurowanie, zarządzanie i monitorowanie v1 środowiska usługi aplikacji"
+title: "tooConfigure aaaHow v1 środowiska usługi aplikacji"
+description: "Konfigurowanie, zarządzanie i monitorowanie hello v1 środowiska usługi aplikacji"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,186 +14,186 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9539a72517276d8a1e340a408841561e8b8f56d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Konfigurowanie aplikacji usługi v1 środowiska
 
 > [!NOTE]
-> Ten artykuł dotyczy v1 środowiska usługi aplikacji.  Istnieje nowsza wersja środowiska usługi aplikacji jest łatwiejsza w użyciu, który jest uruchamiany na bardziej zaawansowanych infrastruktury. Aby dowiedzieć się więcej o nowy początek wersji z [wprowadzenie do środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
+> Ten artykuł dotyczy hello v1 środowiska usługi aplikacji.  Istnieje nowsza wersja hello środowiska usługi aplikacji jest łatwiejsze toouse, który jest uruchamiany na bardziej zaawansowanych infrastruktury. więcej informacji na temat nowej wersji hello rozpoczynać hello toolearn [toohello wprowadzenie środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
 > 
 
 ## <a name="overview"></a>Omówienie
 Na wysokim poziomie środowiska usługi aplikacji Azure składa się z kilku głównych składników:
 
-* Usługa hostowana zasoby obliczeniowe, które są uruchomione w środowisku usługi aplikacji
+* Usługa hostowana zasoby obliczeniowe, których są uruchomione w hello środowiska usługi aplikacji
 * Magazyn
 * Bazy danych
 * Classic(V1) lub zasobów Azure Manager(V2) sieć wirtualną (VNet) 
-* Podsieci w usłudze hostowanej środowiska usługi aplikacji uruchomionych w jej
+* Podsieć o usługi hostowanej środowiska usługi aplikacji hello uruchomionej w nim
 
 ### <a name="compute-resources"></a>Zasoby obliczeniowe
-Zasoby obliczeniowe są używane z pul zasobów cztery.  Każdego środowiska usługi aplikacji (ASE) ma zestaw punktów końcowych front i trzy pule procesów roboczych możliwe. Nie trzeba używać wszystkie pule procesów roboczych trzy — Jeśli chcesz, można użyć jednego lub dwóch.
+Zasoby obliczeniowe hello są używane z pul zasobów cztery.  Każdego środowiska usługi aplikacji (ASE) ma zestaw punktów końcowych front i trzy pule procesów roboczych możliwe. Nie ma potrzeby toouse wszystkie pule procesów roboczych trzy — Jeśli chcesz, można użyć jednego lub dwóch.
 
-Hosty w pulach zasobów (interfejsy i pracowników) nie są bezpośrednio dostępne dla dzierżawcy. Nie można za pomocą protokołu RDP (Remote Desktop) można łączyć się z nimi, zmienić ich inicjowania obsługi lub działać jako administrator na nich.
+hosty Hello w pulach zasobów hello (interfejsy i pracowników) nie są bezpośrednio dostępne tootenants. Nie można użyć toothem tooconnect protokołu RDP (Remote Desktop), zmienić ich inicjowania obsługi lub działać jako administrator na nich.
 
 Można ustawić liczby puli zasobów i rozmiaru. W elemencie ASE masz cztery opcje rozmiaru, które są oznaczone jako P1 za pośrednictwem P4. Aby uzyskać więcej informacji o tych rozmiary i ich ceny, zobacz [cennik usługi aplikacji](../app-service/app-service-value-prop-what-is.md).
-Zmiana rozmiaru lub ilość nosi nazwę operacji skalowania.  Operacja skalowania tylko jedna może być w toku w czasie.
+Zmiana liczby hello lub rozmiar nosi nazwę operacji skalowania.  Operacja skalowania tylko jedna może być w toku w czasie.
 
-**Zakończenia przód**: front końce są punktów końcowych HTTP/HTTPS do pracy z aplikacjami, które są wstrzymane w Twojej ASE. Nie uruchamiaj obciążeń w front kończy się.
+**Zakończenia przód**: hello front końce są punktów końcowych HTTP/HTTPS hello do pracy z aplikacjami, które są wstrzymane w Twojej ASE. Nie uruchamiaj obciążeń w hello interfejsy.
 
-* ASE rozpoczyna się od dwóch P2s, który jest wystarczająca dla obciążeń i testowania i obciążeń produkcyjnych niskiego poziomu. Zdecydowanie zaleca się P3s dla umiarkowany w przypadku obciążeń produkcyjnych duże.
-* Umiarkowany w przypadku obciążeń produkcyjnych duże zaleca się, że masz co najmniej cztery P3s, aby upewnić się, są wystarczające front kończy się uruchomione podczas zaplanowanej konserwacji. Działania zaplanowanej konserwacji zostanie wyświetlone w dół jeden fronton naraz. Zmniejsza to całkowita dostępna pojemność frontonu podczas działania obsługi.
-* Interfejsy może potrwać do godziny do udostępniania. 
-* Dalsze szczegóły skali, należy monitorować procent użycia procesora CPU, pamięci i metryki aktywne żądania dla puli frontonu. Jeśli wartości procentowe pamięci lub Procesora przekracza 70% podczas uruchamiania P3s, dodać więcej front kończy się. Jeśli wartość aktywnych żądań oblicza średnią do 15 000 do 20 000 żądań na frontonu, należy również dodać więcej front kończy się. Ogólnym celem jest zachowanie procesora CPU i pamięci wartości procentowe poniżej 70% i aktywnych żądań uśrednianie się poniżej 15 000 żądań na wierzch kończyć podczas pracy P3s.  
+* ASE rozpoczyna się od dwóch P2s, który jest wystarczająca dla obciążeń i testowania i obciążeń produkcyjnych niskiego poziomu. Zdecydowanie zaleca się P3s dla tooheavy umiarkowane obciążeń produkcyjnych.
+* W przypadku obciążeń produkcyjnych umiarkowane tooheavy zaleca się, czy masz co najmniej cztery tooensure P3s są wystarczające front kończy się uruchomione podczas zaplanowanej konserwacji. Działania zaplanowanej konserwacji zostanie wyświetlone w dół jeden fronton naraz. Zmniejsza to całkowita dostępna pojemność frontonu podczas działania obsługi.
+* Interfejsy może potrwać tooan tooprovision godzinę. 
+* Dalsze szczegóły skali, należy monitorować hello procent użycia procesora CPU i pamięci oraz metryki aktywnych żądań hello puli frontonu. Jeśli wartości procentowe procesora CPU lub pamięci hello powyżej 70 procent podczas uruchamiania P3s, dodać więcej front kończy się. Limit too15, 000 too20 000 żądań na frontonu oblicza średnią hello wartość aktywnych żądań, należy również dodać więcej front kończy się. Witaj ogólnym celem jest tookeep procesora CPU i procent pamięci poniżej 70% i aktywnych żądań uśrednianie limit toobelow 15 000 żądań na frontonu, gdy używasz P3s.  
 
-**Pracownicy**: pracownicy są, której uruchamiane aplikacje. Skalowanie w górę planów usługi aplikacji, która korzysta z procesów roboczych w puli skojarzony proces roboczy.
+**Pracownicy**: hello pracownicy są, gdy uruchamiane aplikacje. Skalowanie w górę planów usługi aplikacji, którymi używa się pracowników hello skojarzone puli procesów roboczych.
 
-* Nie można dodać natychmiast pracowników. One może potrwać do godziny do udostępniania.
-* Skalowanie rozmiar zasobów obliczeniowych, dla każdej puli potrwa < 1 godzina na domenę aktualizacji. W elemencie ASE jest 20 domen aktualizacji. W przypadku zmiany rozmiaru obliczeń puli procesów roboczych z wystąpieniami 10 skali może zająć do 10 godzin.
-* Jeśli zmienisz rozmiar zasoby obliczeniowe, które są używane w puli procesów roboczych spowoduje zimnych startów aplikacje, które działają w tej puli procesów roboczych.
+* Nie można dodać natychmiast pracowników. Może zajmowały tooan tooprovision godzinę.
+* Skalowanie hello rozmiar dla każdej puli zasobów obliczeniowych potrwa < 1 godzina na domenę aktualizacji. W elemencie ASE jest 20 domen aktualizacji. W przypadku zmiany skali hello obliczeń rozmiar puli procesów roboczych z 10 wystąpień może potrwać too10 toocomplete godzin.
+* Zmiana rozmiaru hello hello zasoby obliczeniowe, które są używane w puli procesów roboczych spowoduje zimnych startów aplikacji hello, które działają w tej puli procesów roboczych.
 
-Jest to najszybszy sposób, aby zmienić rozmiar zasobów obliczeniowych w puli procesów roboczych, który nie działa dla wszystkich aplikacji:
+Najszybszą metodą Hello toochange hello obliczeniowe rozmiar zasobu puli procesów roboczych, który nie działa dla wszystkich aplikacji, jest:
 
-* Skalowanie w dół do liczby procesów roboczych do 2.  Minimalna skali w dół rozmiar w portalu jest 2. Potrwa kilka minut, aby zwolnić swoich wystąpień. 
-* Wybierz nowy rozmiar obliczeń i liczby wystąpień. W tym miejscu potrwa do 2 godzin.
+* Skalowanie w dół hello ilość too2 pracowników.  Minimalna skali Hello w dół w portalu hello rozmiar wynosi 2. Potrwa kilka minut toodeallocate swoich wystąpień. 
+* Wybierz nowy rozmiar obliczeń hello i liczba wystąpień. W tym miejscu zajmuje on too2 toocomplete godzin.
 
-Jeśli aplikacje wymagają większy rozmiar zasobów obliczeniowych, możesz nie może korzystać z poprzedniej wskazówki. Zamiast zmiany rozmiaru puli procesów roboczych, który jest hostem tych aplikacji, można wypełnić innej puli procesów roboczych z pracowników wymagany rozmiar i przenieść swoje aplikacje do tej puli.
+Jeśli aplikacje wymagają większy rozmiar zasobów obliczeniowych, możesz nie może korzystać z poprzedniej wskazówki hello. Zamiast zmieniania rozmiaru hello hello procesu roboczego puli, która obsługuje te aplikacje, można wypełnić innej puli procesów roboczych z pracowników hello żądany rozmiar i przenieść je przez toothat puli aplikacji.
 
-* Utwórz dodatkowe wystąpienia rozmiar wymagane obliczeń w innej puli procesów roboczych. Będzie to potrwać do godziny do wykonania.
-* Ponownie przypisać obsługujące aplikacje, które muszą większy rozmiar do nowo skonfigurowanego procesu roboczego puli planów usługi aplikacji. Jest to szybkie operacji, które powinny zająć mniej niż minutę.  
-* Jeśli nie musisz już tych nieużywane wystąpienia skali pierwszej puli procesów roboczych. Ta operacja może zająć kilka minut.
+* Utwórz dodatkowe wystąpienia hello hello potrzebne obliczeniowe rozmiar w innej puli procesów roboczych. Zajmuje to tooan toocomplete godzinę.
+* Ponownie przypisać obsługujące hello aplikacje, które muszą większy rozmiar puli procesów roboczych toohello nowo skonfigurowane planów usługi aplikacji. Jest to szybkie operacji, które powinny zająć mniej niż minutę toocomplete.  
+* Jeśli nie musisz już tych nieużywane wystąpienia skali hello pierwszej puli procesów roboczych. Ta operacja trwa kilka minut toocomplete.
 
-**Skalowanie automatyczne**: jedno z narzędzi, które ułatwiają zarządzanie użycia zasobów obliczeniowych jest automatycznie. Umożliwia skalowanie automatyczne dla frontonu lub pule procesów roboczych. Możesz wykonywanie czynności takich jak zwiększenie swoich wystąpień dowolnego typu puli w nocy i jej zmniejszenia wieczorem. Lub może dodać wystąpień, gdy liczba pracowników, które są dostępne w puli procesów roboczych spadnie poniżej określonego progu.
+**Skalowanie automatyczne**: jeden hello narzędzi, które mogą pomóc Ci toomanage użycia zasobów obliczeniowych jest automatycznie. Umożliwia skalowanie automatyczne dla frontonu lub pule procesów roboczych. Możesz wykonywanie czynności takich jak zwiększenie swoich wystąpień dowolnego typu puli w rano hello i jej zmniejszenia w wieczorem hello. Lub może dodać wystąpienia podczas hello liczbę procesów roboczych, które są dostępne w puli procesów roboczych spadnie poniżej określonego progu.
 
-Jeśli chcesz ustawić reguły automatycznego skalowania wokół metryki puli zasobów obliczeniowych, a następnie pamiętać podczas inicjowania obsługi administracyjnej wymaga. Aby uzyskać więcej informacji na temat Skalowanie automatyczne środowiska usługi App Service, zobacz [Konfigurowanie automatycznego skalowania w środowisku usługi aplikacji][ASEAutoscale].
+Jeśli zasady automatycznego skalowania tooset wokół metryki puli zasobów obliczeniowych, a następnie zachować w czasie hello zdanie udostępniania tego wymaga. Aby uzyskać więcej informacji na temat Skalowanie automatyczne środowiska usługi App Service, zobacz [sposób skalowania automatycznego tooconfigure w środowisku usługi aplikacji][ASEAutoscale].
 
 ### <a name="storage"></a>Magazyn
-Każdy ASE skonfigurowano 500 GB miejsca do magazynowania. Ten obszar jest używany przez wszystkie aplikacje w ASE. To miejsce do magazynowania jest częścią ASE i obecnie nie można przełączyć do użycia miejsca do magazynowania. Podczas wprowadzania korekt do routingu w sieci wirtualnej lub zabezpieczeń, należy nadal dostęp do usługi Azure Storage — lub ASE nie może działać.
+Każdy ASE skonfigurowano 500 GB miejsca do magazynowania. Ten obszar jest używany przez wszystkie aplikacje hello hello ASE. To miejsce do magazynowania jest częścią hello ASE i obecnie nie może być wyłączone toouse miejsca do magazynowania. Podczas wprowadzania korekt tooyour sieci wirtualnej routingu lub zabezpieczeń, należy toostill Zezwalaj tooAzure dostępu do magazynu — lub hello ASE nie może działać.
 
 ### <a name="database"></a>Database (Baza danych)
-Bazy danych zawiera informacje, które definiują środowiska, a także szczegółowe informacje o aplikacji, które są uruchomione w nim. Jest za część przechowywana Azure subskrypcji. Nie jest coś, co ma bezpośredni możliwość manipulowania. Podczas wprowadzania korekt do routingu w sieci wirtualnej lub zabezpieczeń, należy nadal dostęp do usługi SQL Azure--lub ASE nie może działać.
+bazy danych Hello przechowuje informacje hello, definiujący hello środowiska, a także hello szczegóły dotyczące aplikacji hello, które są uruchomione w nim. Zbyt jest częścią hello przechowywać Azure subskrypcji. Nie jest coś czy masz toomanipulate bezpośredniego możliwości. Podczas wprowadzania korekt tooyour sieci wirtualnej routingu lub zabezpieczeń, należy toostill Zezwalaj na dostęp tooSQL Azure--lub hello ASE nie może działać.
 
 ### <a name="network"></a>Sieć
-Sieć wirtualną, która jest używana z Twojej ASE może być taki, który zostanie podjęta, gdy utworzono ASE lub jedną, który zgłosił wcześniejsze. Po utworzeniu podsieci podczas tworzenia ASE wymusza ASE w tej samej grupie zasobów co sieć wirtualna. Jeśli potrzebujesz grupy zasobów, używany przez Twoje ASE maja być inne niż w przypadku sieci wirtualnej, następnie należy utworzyć Twoje ASE przy użyciu szablonu usługi resource manager.
+Hello sieci wirtualnej, który jest używany z Twojej ASE może być jedną utworzonego podczas tworzenia hello ASE lub jedną, który zgłosił wcześniejsze. Po utworzeniu podsieci hello podczas tworzenia ASE wymusi toobe hello ASE w hello tej samej grupie zasobów co sieć wirtualna hello. Grupa zasobów hello używany przez Twoje toobe ASE inne niż w sieci wirtualnej, należy następnie należy toocreate Twojego ASE przy użyciu szablonu usługi resource manager.
 
-Istnieją pewne ograniczenia dotyczące sieci wirtualnej, która jest używana do ASE:
+Istnieją pewne ograniczenia dotyczące hello sieć wirtualna, która jest używana do ASE:
 
-* Sieć wirtualna musi być regionalną sieć wirtualną.
-* Musi istnieć co najmniej 8 adresów podsieci wdrożonym ASE.
-* Po podsieci jest używana do hostowania ASE, nie można zmienić zakres adresów podsieci. Z tego powodu zaleca się, że podsieć zawiera co najmniej 64 adresy na uwzględnienie przyszłego rozwoju ASE.
-* Nie można w tej podsieci, ale ASE nic.
+* sieć wirtualna Hello musi być regionalną sieć wirtualną.
+* Musi toobe podsieci z co najmniej 8 adresów wdrożonym hello ASE.
+* Podsieć po toohost używane ASE hello zakres adresów podsieci hello nie można zmienić. Z tego powodu zaleca się, że tej podsieci hello zawiera co najmniej 64 adresy tooaccommodate przyszłego rozwoju ASE.
+* Może istnieć nic w podsieci hello, ale hello ASE.
 
-W przeciwieństwie do usługi hostowanej, która zawiera ASE [sieci wirtualnej] [ virtualnetwork] i podsieci są pod kontrolą użytkownika.  Można administrować sieci wirtualnej za pośrednictwem wirtualnej sieci interfejsu użytkownika lub środowiska PowerShell.  ASE można wdrożyć w klasyczny lub Menedżera zasobów w sieci wirtualnej.  Portal i środowiska interfejsu API są nieco inne między Classic i sieci wirtualnych Menedżera zasobów, ale środowisko ASE jest taka sama.
+W przeciwieństwie do usługi hostowanej hello zawierający hello ASE, hello [sieci wirtualnej] [ virtualnetwork] i podsieci są pod kontrolą użytkownika.  Można administrować sieci wirtualnej za pomocą hello wirtualnych sieci interfejsu użytkownika lub środowiska PowerShell.  ASE można wdrożyć w klasyczny lub Menedżera zasobów w sieci wirtualnej.  Hello portal i środowiska interfejsu API są nieco inne między Classic i sieci wirtualnych Menedżera zasobów, ale hello ASE środowisko jest hello takie same.
 
-Sieć wirtualną, która jest używana do hostowania ASE można użyć albo prywatnych adresów RFC1918 IP lub może używać publicznych adresów IP.  Jeśli chcesz użyć zakres IP, który nie pasuje do żadnego RFC1918 (10.0.0.0/8 172.16.0.0/12, 192.168.0.0/16), a następnie musisz utworzyć sieci wirtualnej i podsieci, który będzie używany przez Twoje ASE wcześniejsze tworzenie ASE.
+Witaj sieci wirtualnej, która jest używana toohost ASE można użyć albo prywatnych adresów RFC1918 IP lub może używać publicznych adresów IP.  Jeśli chcesz toouse zakres IP, który nie pasuje do żadnego RFC1918 (10.0.0.0/8 172.16.0.0/12, 192.168.0.0/16), a następnie należy toocreate Twojej sieci wirtualnej i podsieci toobe używany przez Twoje ASE wcześniejsze tworzenie ASE.
 
-Ponieważ ta funkcja umieszcza usługi Azure App Service w sieci wirtualnej, oznacza to, że Twoje aplikacje, które znajdują się w sieci ASE można teraz uzyskiwać dostęp do zasobów, które są dostępne za pośrednictwem programu ExpressRoute lub wirtualnych sieci prywatnych (VPN) lokacja lokacja bezpośrednio. Aplikacje, które znajdują się w środowisku usługi aplikacji nie wymagają dodatkowe funkcje sieci na dostęp do zasobów dostępnych do sieci wirtualnej, który jest hostem środowiska usługi aplikacji. Oznacza to, że nie trzeba używać integracji sieci Wirtualnej lub połączeń hybrydowych na uzyskanie dostępu do zasobów w lub podłączone do sieci wirtualnej. Nadal można obie te funkcje Chociaż dostęp do zasobów w sieci, które nie są podłączone do sieci wirtualnej.
+Ponieważ ta funkcja wprowadza hello Azure App Service w sieci wirtualnej, oznacza to, że Twoje aplikacje, które znajdują się w sieci ASE można teraz uzyskiwać dostęp do zasobów, które są dostępne za pośrednictwem programu ExpressRoute lub wirtualnych sieci prywatnych (VPN) lokacja lokacja bezpośrednio. aplikacje Hello, znajdujące się w ramach środowiska usługi aplikacji nie wymagają dodatkowych sieci funkcje tooaccess zasoby dostępne toohello sieci wirtualnej obsługujący środowiska usługi aplikacji. Oznacza to, że nie jest wymagane toouse tooresources tooget integracji sieci Wirtualnej lub połączeń hybrydowych w lub tooyour połączenia wirtualnej sieci. Można nadal używać jednej z tych funkcji, chociaż tooaccess zasobów w sieci, które nie są połączone sieci wirtualnej tooyour łącze.
 
-Na przykład umożliwia integrację sieci Wirtualnej integracji z siecią wirtualną, która jest w ramach subskrypcji, ale nie jest podłączony do sieci wirtualnej, która jest Twoje ASE. Można nadal umożliwia również połączeń hybrydowych dostęp do zasobów, które znajdują się w innych sieciach, podobnie jak zwykle.  
+Na przykład można użyć toointegrate integracji sieci Wirtualnej z siecią wirtualną, która jest w ramach subskrypcji, ale nie ma podłączonych toohello sieci wirtualnej z ASE znajduje się w. Nadal można połączeń hybrydowych tooaccess zasobów, które znajdują się w innych sieciach, podobnie jak zwykle.  
 
-Jeśli masz sieci wirtualnej skonfigurowaną ExpressRoute sieci VPN, należy zwrócić uwagę niektórych potrzeb routingu, które ma ASE. Istnieją pewne konfiguracje trasy zdefiniowane przez użytkownika (przez), które są niezgodne z ASE. Aby uzyskać więcej informacji o uruchamianiu ASE w sieci wirtualnej z usługi ExpressRoute, zobacz [uruchamianie środowiska usługi aplikacji w sieci wirtualnej z ExpressRoute][ExpressRoute].
+Jeśli masz sieci wirtualnej skonfigurowaną ExpressRoute sieci VPN, należy zwrócić uwagę niektórych hello potrzeb routingu, które ma ASE. Istnieją pewne konfiguracje trasy zdefiniowane przez użytkownika (przez), które są niezgodne z ASE. Aby uzyskać więcej informacji o uruchamianiu ASE w sieci wirtualnej z usługi ExpressRoute, zobacz [uruchamianie środowiska usługi aplikacji w sieci wirtualnej z ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Zabezpieczanie ruchu przychodzącego
-Istnieją dwie podstawowe metody, aby kontrolować ruch przychodzący do Twojej ASE.  Groups(NSGs) zabezpieczeń sieci można użyć do kontrolowania jakie IP adresy mogą uzyskiwać dostęp do Twojego ASE, zgodnie z opisem w tym miejscu [kontrola ruchu przychodzącego w środowisku usługi aplikacji](app-service-app-service-environment-control-inbound-traffic.md) i można również skonfigurować Twoje ASE z wewnętrznego Balancer(ILB) obciążenia.  Te funkcje można również ze sobą, jeśli chcesz ograniczyć dostęp za pomocą grup NSG do Twojej ASE ILB.
+Istnieją dwie podstawowe metody toocontrol ASE tooyour ruchu przychodzącego.  Można użyć toocontrol Groups(NSGs) zabezpieczeń sieci IP, jakie adresy mogą uzyskiwać dostęp do Twojego ASE, zgodnie z opisem w tym miejscu [jak toocontrol ruchu przychodzącego ruchu sieciowego w środowisku usługi aplikacji](app-service-app-service-environment-control-inbound-traffic.md) i obciążenia wewnętrznego można również skonfigurować Twoje ASE Balancer(ILB).  Te funkcje można również ze sobą Chcąc toorestrict dostępu za pomocą grup NSG tooyour ILB ASE.
 
 Po utworzeniu ASE utworzy adresu VIP w sieci wirtualnej.  Istnieją dwa typy adresów VIP, wewnętrznych i zewnętrznych.  Po utworzeniu ASE z zewnętrznego adresu VIP aplikacji w Twojej ASE zostaną dostępny za pośrednictwem adresu IP routingu internetowego. Po wybraniu wewnętrzne Twojej ASE zostaną skonfigurowane ILB i nie będzie bezpośrednio dostępny internet.  ASE ILB nadal wymaga zewnętrznego adresu VIP, ale jest używana tylko dla platformy Azure, zarządzanie i obsługę dostępu.  
 
-Podczas tworzenia ILB ASE Podaj poddomeny używane przez ILB ASE i będzie musiał zarządzać własnego systemu DNS dla domeny podrzędnej, które określisz.  Ponieważ ustawienia nazwy poddomeny należy zarządzać certyfikatu używanego na potrzeby dostępu protokołu HTTPS.  Po utworzeniu ASE monit o podanie certyfikatu.  Aby dowiedzieć się więcej na temat tworzenia i używania ASE ILB przeczytaj [przy użyciu wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji][ILBASE]. 
+Podczas tworzenia ILB ASE Podaj hello poddomeny używane przez hello ILB ASE i będzie miał toomanage własne DNS w domenie podrzędnej hello, które określisz.  Ponieważ wartość nazwy poddomeny hello należy również toomanage hello certyfikatu używanego na potrzeby dostępu protokołu HTTPS.  Po ASE tworzenia, które monitowany tooprovide hello certyfikatu.  Przeczytaj toolearn więcej informacji na temat tworzenia i używania ASE ILB [przy użyciu wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji][ILBASE]. 
 
 ## <a name="portal"></a>Portal
-Można zarządzać i monitorować środowiska usługi aplikacji za pomocą interfejsu użytkownika w portalu Azure. Jeśli masz ASE, następnie najprawdopodobniej będzie widoczna ikona usługi aplikacji na Twoje paska bocznego. Ten symbol jest używany do reprezentowania środowiska usługi App Service w portalu Azure:
+Można zarządzać i monitorować za pomocą hello interfejsu użytkownika w portalu Azure hello środowiska usługi aplikacji. Jeśli masz ASE, to prawdopodobnie toosee hello symbol usługi aplikacji na Twoje paska bocznego. Ten symbol jest używany toorepresent środowiska usługi App Service w portalu Azure hello:
 
 ![Symbol środowiska usługi aplikacji][1]
 
-Aby otworzyć Interfejs użytkownika, który zawiera listę wszystkich środowisk usługi aplikacji, można użyć ikony lub wybrać cudzysłów ostrokątny (">" symbol) w dolnej części paska bocznego, aby wybrać środowiska usługi App Service. Wybranie jednego z ASEs na liście, możesz otworzyć Interfejs użytkownika, który służy do monitorowania i zarządzania nim.
+tooopen hello interfejsu użytkownika, który zawiera listę wszystkich środowisk usługi aplikacji, możesz użyć ikony hello lub wybierz hello cudzysłów ostrokątny (">" symbol) u dołu hello tooselect paska bocznego hello środowiska usługi App Service. Wybranie jednego z wymienionych ASEs hello, otwórz hello interfejsu użytkownika, który jest używany toomonitor i nim zarządzać.
 
 ![Interfejs umożliwiający monitorowanie i zarządzanie środowiskiem usługi aplikacji][2]
 
-Ten pierwszy blok zawiera niektóre właściwości sieci ASE wraz z wykresu metryki dla każdej puli zasobów. Niektóre właściwości, które przedstawiono w **Essentials** bloku są również hiperłącza, które spowoduje to otwarcie bloku, który jest skojarzony z nim. Na przykład można wybrać **sieci wirtualnej** nazwę, aby otworzyć Interfejs użytkownika skojarzonego z siecią wirtualną uruchomioną w Twojej ASE. **Planów usługi App Service** i **aplikacji** Otwórz każdy bloków, których te elementów, które znajdują się w sieci ASE.  
+Ten pierwszy blok zawiera niektóre właściwości sieci ASE wraz z wykresu metryki dla każdej puli zasobów. Niektóre właściwości hello, które przedstawiono w hello **Essentials** bloku są również hiperłącza, które spowoduje to otwarcie bloku hello, który jest skojarzony z nim. Na przykład można wybrać hello **sieci wirtualnej** tooopen nazwa zapasowej hello interfejsu użytkownika skojarzonego z hello sieci wirtualnej z ASE działa w. **Planów usługi App Service** i **aplikacji** Otwórz każdy bloków, których te elementów, które znajdują się w sieci ASE.  
 
 ### <a name="monitoring"></a>Monitorowanie
-Wykresy umożliwiają wyświetlanie różne metryki wydajności w każdej puli zasobów. Dla puli frontonu można monitorować średnią Procesora i pamięci. Dla pule procesów roboczych można monitorować ilość, która jest używana i ilość, która jest dostępna.
+Wykresy Hello pozwalają toosee różne metryki wydajności w każdej puli zasobów. Witaj puli frontonu można monitorować hello średnie wykorzystanie Procesora i pamięci. Pule procesów roboczych można monitorować ilość hello jest używany, a ilość hello, która jest dostępna.
 
-Użyj wielu usługi aplikacji, jakie można wprowadzać planów pracowników w puli procesów roboczych. Obciążenie nie jest dystrybuowane w taki sam sposób, jak z serwerami frontonu, więc użycia Procesora i pamięci nie zapewniają znacznie kategoriach przydatnych informacji na temat. Jest większe znaczenie śledzić liczbę pracowników, które zostały użyte i są dostępne — zwłaszcza, jeśli zarządzasz systemie dla innych użytkowników.  
+Użyj wielu usługi aplikacji, jakie można wprowadzać planów hello pracowników w puli procesów roboczych. Witaj obciążenia nie zostały rozprowadzone hello sam sposób jak w przypadku serwerów frontonu hello, tak hello użycia Procesora i pamięci nie udostępniają sposób hello przydatnych informacji. Jest większe znaczenie tootrack liczbę pracowników, które zostały użyte i są dostępne — zwłaszcza, jeśli zarządzasz tego systemu dla innych toouse.  
 
-Umożliwia także wszystkie metryki, które można śledzić na wykresach konfigurowania alertów. Konfigurowanie alertów w tym miejscu działa tak samo jak w innych miejscach w usłudze App Service. Można ustawić alert z poziomu **alerty** interfejsu użytkownika należą do lub z przechodzenia do dowolnego metryki interfejsu użytkownika i wybierając szczegółów **dodać Alert**.
+Umożliwia także wszystkie metryki hello można śledzić w tooset wykresy hello alerty. Konfigurowanie alertów w tym miejscu się, że działa hello takie same jak w innych miejscach w usłudze App Service. Można ustawić alert przy każdej hello **alerty** interfejsu użytkownika należą do lub z przechodzenia do dowolnego metryki interfejsu użytkownika i wybierając szczegółów **dodać Alert**.
 
 ![Metryki interfejsu użytkownika][3]
 
-Metryki, które właśnie zostały omówione są metryki środowiska usługi aplikacji. Dostępne są także metryk, które są dostępne na poziomie planu usługi aplikacji. Jest to, gdzie monitorowanie procesora CPU i pamięci sprawia, że wiele znaczeniu.
+Witaj metryk, które zostały omówione wystarczy są hello metryki środowiska usługi aplikacji. Dostępne są także metryki, które są dostępne pod adresem hello poziom planu usługi aplikacji. Jest to, gdzie monitorowanie procesora CPU i pamięci sprawia, że wiele znaczeniu.
 
-W elemencie ASE planów usługi aplikacji są dedykowane planów usługi aplikacji. Oznacza to, że tylko aplikacje, które są uruchomione na hostach przydzielone do planu usługi aplikacji to aplikacje w tym planie usługi aplikacji. Aby wyświetlić szczegóły na swój plan usługi aplikacji, wywołaj planu usługi aplikacji z dowolnego z listy w Interfejsie użytkownika ASE lub z **planów usługi App Service Przeglądaj** (które wyświetla listę wszystkich z nich).   
+W elemencie ASE powitalne planów usługi App Service są dedykowane planów usługi aplikacji. Oznacza to, że hello tylko aplikacje, które są uruchomione na powitania hostów przydzielone toothat planu usługi aplikacji są aplikacji hello w tym planie usługi aplikacji. Szczegóły toosee na swój plan usługi aplikacji wyświetlić swój plan usługi aplikacji z dowolnego z listy hello hello ASE interfejsu użytkownika lub z **planów usługi App Service Przeglądaj** (które wyświetla listę wszystkich z nich).   
 
 ### <a name="settings"></a>Ustawienia
-W bloku ASE jest **ustawienia** sekcja, która zawiera kilka ważnych funkcji:
+W bloku hello ASE jest **ustawienia** sekcja, która zawiera kilka ważnych funkcji:
 
-**Ustawienia** > **właściwości**: **ustawienia** automatycznie zostanie otwarty blok po uruchomieniu z bloku ASE. U góry jest **właściwości**. Liczba elementów w tym miejscu, które są zbędne, aby wyświetlić w **Essentials**, ale co to jest bardzo przydatny **wirtualnego adresu IP**, oraz **wychodzących adresów IP**.
+**Ustawienia** > **właściwości**: hello **ustawienia** automatycznie zostanie otwarty blok po uruchomieniu z bloku ASE. Na powitania górna jest **właściwości**. Liczba elementów w tym miejscu, które są nadmiarowe toowhat w **Essentials**, ale jest to bardzo przydatne **wirtualnego adresu IP**, jak również **wychodzących adresów IP**.
 
 ![Blok ustawień i właściwości][4]
 
-**Ustawienia** > **adresów IP**: po utworzeniu aplikacji IP Secure Sockets Layer (SSL) w Twojej ASE należy adresów IP protokołu SSL. Aby można było go uzyskać, Twoje ASE musi adresów IP protokołu SSL, które jest właścicielem które mogą być przydzielone. Po utworzeniu ASE ma jeden adres IP SSL do tego celu, ale można dodać więcej. Brak opłat dla dodatkowych SSL z adresu IP, adresy, jak pokazano w [cennik usługi aplikacji] [ AppServicePricing] (w sekcji połączenia SSL). Dodatkowe cena to cena SSL z adresu IP.
+**Ustawienia** > **adresów IP**: po utworzeniu aplikacji IP Secure Sockets Layer (SSL) w Twojej ASE należy adresów IP protokołu SSL. W kolejności tooobtain jedną z ASE musi adresów IP protokołu SSL, które jest właścicielem które mogą być przydzielone. Po utworzeniu ASE ma jeden adres IP SSL do tego celu, ale można dodać więcej. Brak opłat dla dodatkowych SSL z adresu IP, adresy, jak pokazano w [cennik usługi aplikacji] [ AppServicePricing] (w sekcji hello na połączenia SSL). Cena dodatkowe Hello jest hello cen SSL z adresu IP.
 
-**Ustawienia** > **Front End puli** / **pule procesów roboczych**: każdego z tych blokach puli zasobów oferuje możliwość wyświetlania informacji tylko w tej puli zasobów, oprócz formantów pełni skalowania tej puli zasobów.  
+**Ustawienia** > **Front End puli** / **pule procesów roboczych**: każdego z tych blokach puli zasobów oferuje hello możliwości toosee informacje tylko w tej puli zasobów , oprócz tooproviding steruje skali toofully tej puli zasobów.  
 
-Podstawowy bloku dla każdej puli zasobów udostępnia wykres z metryki dla tej puli zasobów. Podobnie jak w przypadku wykresów z bloku ASE można przejdź do wykresu i Konfigurowanie alertów, zgodnie z potrzebami. Ustawianie alertu z bloku ASE puli zasobów dla określonych ma tak samo, jak to zrobić z puli zasobów. Z puli procesów roboczych **ustawienia** bloku, musisz mieć dostęp do wszystkich aplikacji lub planów usługi App Service, które działają w tej puli procesów roboczych.
+Witaj bloku podstawowego dla każdej puli zasobów zawiera wykres z metryki dla tej puli zasobów. Podobnie jak w przypadku wykresów hello z bloku ASE hello, można przejdź do wykresu hello i Konfigurowanie alertów, zgodnie z potrzebami. Ustawianie alertu z bloku ASE hello puli zasobów dla określonych hello samo, jak to zrobić z hello puli zasobów. Z puli procesów roboczych hello **ustawienia** bloku masz hello tooall dostępu do aplikacji lub planów usługi App Service, które działają w tej puli procesów roboczych.
 
 ![Proces roboczy puli ustawienia interfejsu użytkownika][5]
 
 ### <a name="portal-scale-capabilities"></a>Możliwości skalowania portalu
 Istnieją trzy operacje skalowania:
 
-* Zmiana liczby adresów IP w ASE, które są dostępne do użycia protokołu SSL z adresu IP.
-* Zmiana rozmiaru zasobu obliczeń, który jest używany w puli zasobów.
-* Zmiana liczby zasoby obliczeniowe, które są używane w puli zasobów, ręcznie lub za pośrednictwem Skalowanie automatyczne.
+* Zmiana hello liczba adresów IP w hello ASE, które są dostępne do użycia protokołu SSL z adresu IP.
+* Zmiana rozmiaru hello hello obliczeń zasobu, który jest używany w puli zasobów.
+* Zmiana liczby hello zasoby obliczeniowe, które są używane w puli zasobów, ręcznie lub za pośrednictwem Skalowanie automatyczne.
 
-W portalu istnieją trzy sposoby kontrolowania liczby serwerów znajdujących się w sieci pule zasobów:
+W portalu hello istnieją trzy sposoby toocontrol liczby serwerów znajdujących się w sieci pule zasobów:
 
-* Operację skalowania w głównym bloku ASE u góry. Umożliwia skali wiele zmian w konfiguracji puli frontonu i proces roboczy. Są one wszystkich stosowane jako jedna operacja.
-* Operację skalowania ręczne z puli zasobów poszczególnych **skali** bloku, która znajduje się w **ustawienia**.
-* Skalowanie automatyczne, który został skonfigurowany z puli zasobów poszczególnych **skali** bloku.
+* Operację skalowania za pomocą hello głównego bloku ASE u góry hello. Możesz wprowadzić wielu skali zmiany konfiguracji toohello frontonu i pule procesów roboczych. Są one wszystkich stosowane jako jedna operacja.
+* Operację skalowania ręczne z puli zasobów poszczególnych hello **skali** bloku, która znajduje się w **ustawienia**.
+* Skalowanie automatyczne, który został skonfigurowany z puli zasobów poszczególnych hello **skali** bloku.
 
-Aby używać operacji skalowania w bloku ASE, przeciągnij suwak do ilości i Zapisz. Ten interfejs obsługuje również zmiany rozmiaru.  
+Operacja skalowania hello toouse w bloku ASE hello, przeciągnij hello suwaka toohello ilość i Zapisz. Ten interfejs obsługuje również zmieniania rozmiaru hello.  
 
 ![Skala interfejsu użytkownika][6]
 
-Aby korzystać z funkcji ręcznego i automatycznego skalowania w puli zasobów dla określonych, przejdź do **ustawienia** > **Front End puli** / **pule procesów roboczych** odpowiednio. Następnie otwarcie puli, który chcesz zmienić. Przejdź do **ustawienia** > **skalowanie** lub **ustawienia** > **skalowanie w górę**. **Skaluj w poziomie** bloku umożliwia sterowanie ilości wystąpieniu. **Skaluj w górę** umożliwia kontrolowanie rozmiaru zasobu.  
+toouse możliwości ręcznego i automatycznego skalowania hello w puli zasobów dla określonych zbyt Przejdź**ustawienia** > **Front End puli** / **pule procesów roboczych** jako odpowiednie. Następnie otwarcie hello puli, które mają toochange. Przejdź za**ustawienia** > **Skaluj w poziomie** lub **ustawienia** > **Skaluj w górę**. Witaj **Skaluj w poziomie** bloku umożliwia toocontrol ilości wystąpieniu. **Skaluj w górę** pozwala toocontrol rozmiaru zasobu.  
 
 ![Ustawienia skalowania interfejsu użytkownika][7]
 
 ## <a name="fault-tolerance-considerations"></a>Zagadnienia dotyczące odporności na uszkodzenia
-Można skonfigurować maksymalnie 55 zasoby obliczeniowe całkowita środowiska usługi aplikacji. Z tych 55 zasoby obliczeniowe tylko 50 może służyć do obsługi zadań. Przyczyną tego jest podwójny. Brak co najmniej 2 zasoby obliczeniowe frontonu.  Który pozostawia do 53 do obsługi alokacji puli procesów roboczych. Aby zapewnić odporność na uszkodzenia, trzeba zasobu dodatkowe zasoby obliczeniowe, który jest przydzielony zgodnie z następującymi zasadami:
+Można skonfigurować środowisko usługi aplikacji toouse too55 zasobów obliczeniowych całkowita. Tych 55 zasoby obliczeniowe tylko 50 może być używane toohost obciążeń. Witaj przyczyną tego błędu jest podwójny. Brak co najmniej 2 zasoby obliczeniowe frontonu.  Który pozostawia się too53 toosupport hello puli procesów roboczych alokacji. W kolejności tooprovide odporność na uszkodzenia należy toohave zasobu dodatkowe zasoby obliczeniowe przydzielonego zgodnie z toohello następujące reguły:
 
-* Każdego procesu roboczego puli wymaga co najmniej 1 zasobów dodatkowe zasoby obliczeniowe, który nie jest dostępny do przypisania obciążenia.
-* Gdy ilość zasobów obliczeniowych w puli procesów roboczych przekracza określoną wartość, inne zasoby obliczeniowe jest wymagany dla odporność na uszkodzenia. To nie jest w przypadku puli frontonu.
+* Każdego procesu roboczego puli wymaga co najmniej 1 zasobów dodatkowe zasoby obliczeniowe, który nie jest dostępny toobe przypisane obciążenia.
+* Gdy hello ilość zasobów obliczeniowych w puli procesów roboczych przekracza określoną wartość, inne zasoby obliczeniowe jest wymagany dla odporność na uszkodzenia. To nie jest hello hello puli frontonu.
 
-W każdej puli pojedynczego procesu roboczego wymagania dotyczące odporności na uszkodzenia obejmują dla danej wartości X zasoby przydzielone do puli procesów roboczych:
+W każdej puli pojedynczego procesu roboczego wymagania dotyczące odporności na uszkodzenia hello są dla danej wartości x zasoby przydzielone tooa puli procesów roboczych:
 
-* Jeśli X to od 2 do 20, ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-1.
-* Jeśli X to od 21 do 40, ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-2.
-* Jeśli X jest między 41 i 53, ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-3.
+* Jeśli X to od 2 do 20, hello ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-1.
+* Jeśli X to od 21 do 40, hello ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-2.
+* Jeśli X jest między 41 i 53, hello ilość zasoby obliczeniowe można używać, których można użyć w przypadku obciążeń jest X-3.
 
-Minimalnego miejsca zajmowanego ma 2 serwerów frontonu i 2 procesy robocze.  Z powyższych przypadków następnie, poniżej przedstawiono kilka przykładów wyjaśnienie:  
+Witaj minimalnego miejsca zajmowanego ma 2 serwerów frontonu i 2 procesy robocze.  Hello powyżej następnie instrukcje Oto kilka przykładów tooclarify:  
 
-* Jeśli masz 30 pracowników w jednej puli 28 z nich mogą używane do obsługi zadań.
-* Jeśli masz 2 procesy robocze w jednej puli 1 można użyć do obsługi zadań.
-* Jeśli masz 20 pracowników w jednej puli 19 można użyć do obsługi zadań.  
-* Jeśli masz 21 pracowników w jednej puli, można następnie nadal 19 tylko w przypadku obciążeń hosta.  
+* Jeśli masz 30 pracowników w jednej puli 28 z nich może być używane toohost obciążeń.
+* Jeśli masz 2 procesy robocze w jednej puli 1 może być używane toohost obciążeń.
+* Jeśli masz 20 pracowników w jednej puli 19 może być używane toohost obciążeń.  
+* Jeśli masz 21 pracowników w jednej puli nadal tylko 19 mogą być używane toohost obciążeń.  
 
-Ważne jest aspekt odporności na uszkodzenia, ale należy pamiętać o jego skalowania niektórych progi. Jeśli chcesz dodać większej pojemności z wystąpień 20, następnie przejdź do 22 lub nowszej ponieważ 21 nie dodaje żadnych większej pojemności. To samo dotyczy mają powyżej 40, gdzie kolejny numer, który dodaje pojemności jest 42.  
+aspekt odporności na uszkodzenia Hello jest ważne, ale należy tookeep go na uwadze podczas skalowania niektórych progi. Jeśli chcesz tooadd większej pojemności z 20 wystąpienia, a następnie przejdź too22 lub nowszej ponieważ 21 nie dodaje żadnych większej pojemności. Witaj, który dotyczy mają powyżej 40, gdzie hello kolejny numer, który dodaje pojemności jest 42.  
 
 ## <a name="deleting-an-app-service-environment"></a>Usuwanie środowiska usługi aplikacji
-Jeśli chcesz usunąć środowiska usługi aplikacji, po prostu użyj **usunąć** akcji w górnej części bloku środowiska usługi aplikacji. Po wykonaniu tej czynności zostanie wyświetlony monit wprowadź nazwę środowiska usługi aplikacji, aby upewnić się, że naprawdę chcesz to zrobić. Należy pamiętać, usunięcie środowiska usługi aplikacji powoduje usunięcie całej zawartości w niej również.  
+Jeśli chcesz toodelete środowiska usługi aplikacji, po prostu użyj hello **usunąć** akcji u góry bloku środowiska usługi aplikacji hello hello. Gdy to zrobisz, będziesz tooenter zostanie wyświetlony monit o nazwę hello tooconfirm Twojego środowiska usługi aplikacji, czy na pewno chcesz toodo to. Należy pamiętać, usunięcie środowiska usługi aplikacji powoduje usunięcie całej zawartości o hello znajdujące się w nim również.  
 
 ![Usuwanie środowiska usługi aplikacji interfejsu użytkownika][9]  
 
 ## <a name="getting-started"></a>Wprowadzenie
-Wprowadzenie do środowiska usługi App Service, zobacz [tworzenie środowiska usługi aplikacji](app-service-web-how-to-create-an-app-service-environment.md).
+tooget wprowadzenie do środowiska usługi App Service, zobacz [jak toocreate środowiska usługi aplikacji](app-service-web-how-to-create-an-app-service-environment.md).
 
-Aby uzyskać więcej informacji o platformie Azure App Service, zobacz temat [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+Aby uzyskać więcej informacji na temat hello platformy Azure App Service, zobacz [usłudze Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

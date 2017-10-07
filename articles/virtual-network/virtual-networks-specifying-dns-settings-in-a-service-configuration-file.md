@@ -1,5 +1,5 @@
 ---
-title: "Określanie ustawień DNS w pliku konfiguracji usługi | Dokumentacja firmy Microsoft"
+title: "Ustawienia systemu DNS w pliku konfiguracji usługi aaaSpecifying | Dokumentacja firmy Microsoft"
 description: "Określanie niestandardowych ustawień DNS dla sieci wirtualnej przy użyciu pliku konfiguracji usługi"
 services: virtual-network
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
-ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f192e33566dd8e669da04e6378a0c8e4b0b35ecc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Określanie ustawień DNS w pliku konfiguracji usługi
 ## <a name="dns-elements"></a>Elementy DNS
-Plik konfiguracji usługi może zawierać elementu DnsServers z listy adresów IPv4 dla serwerów systemu nazw domen (DNS, Domain Name System), które będą korzystać z usługi. Ustawienia w pliku konfiguracji usługi pierwszeństwo względem ustawień w pliku konfiguracji sieci. Aby uzyskać więcej informacji, zobacz [schemat konfiguracji usługi Azure (cscfg pliku)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+Plik konfiguracji usługi może zawierać elementu DnsServers z listy adresów IPv4 dla serwerów systemu nazw domen (DNS, Domain Name System) hello, które będzie używane przez usługę hello. Ustawienia w pliku konfiguracji usługi hello mają pierwszeństwo przed ustawień w pliku konfiguracji sieci hello. Aby uzyskać więcej informacji, zobacz [schemat konfiguracji usługi Azure (cscfg pliku)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **Element Konfiguracja sieci**
 
@@ -33,7 +33,7 @@ Plik konfiguracji usługi może zawierać elementu DnsServers z listy adresów I
       </DnsServers>
 
 > [!WARNING]
-> **Nazwa** atrybutu w **serwer DNS** element jest używany tylko jako nazwy odwołania. Ten element nie reprezentuje nazwę hosta dla serwera DNS. Każdy **serwer DNS** wartość atrybutu musi być unikatowy w całej subskrypcji Microsoft Azure.
+> Witaj **nazwa** atrybutu w hello **serwer DNS** element jest używany tylko jako nazwy odwołania. Reprezentuje nazwę hosta hello powitania serwera DNS. Każdy **serwer DNS** wartość atrybutu musi być unikatowa w hello całej subskrypcji Microsoft Azure.
 > 
 > 
 
@@ -44,5 +44,5 @@ Plik konfiguracji usługi może zawierać elementu DnsServers z listy adresów I
 
 [Skonfiguruj sieć wirtualną przy użyciu plików konfiguracji sieci](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[Ustawienia sieci wirtualnej w portalu zarządzania — informacje](http://go.microsoft.com/fwlink/?LinkId=248092)
+[Ustawienia sieci wirtualnej w portalu zarządzania hello — informacje](http://go.microsoft.com/fwlink/?LinkId=248092)
 

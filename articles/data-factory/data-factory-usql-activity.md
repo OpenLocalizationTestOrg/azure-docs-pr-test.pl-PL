@@ -1,6 +1,6 @@
 ---
-title: "Przekształcanie danych za pomocą skryptu U-SQL - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się sposobu przetwarzania lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze obliczeniowych Azure Data Lake Analytics."
+title: "aaaTransform danych przy użyciu skryptu U-SQL - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooprocess lub Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics obliczeniowe usługi."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 49a809af92ed1bc6664fbdd3bf1aabf36afb8180
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 51fdb40334d0c131720f65c3a96b4c5045a98b24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,46 +33,46 @@ ms.lasthandoff: 08/18/2017
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Działania niestandardowe .NET](data-factory-use-custom-activities.md)
 
-Potok w fabryce danych Azure przetwarza dane w usługach magazynu połączone, przy użyciu obliczeniowego połączonej usługi. Zawiera sekwencję działań, gdzie każde działanie wykonuje operację przetwarzania specyficznego dla. W tym artykule opisano **Data Lake Analytics U-SQL działania** , na którym działa **U-SQL** skryptom na **Azure Data Lake Analytics** obliczeniowe połączonej usługi. 
+Potok w fabryce danych Azure przetwarza dane w usługach magazynu połączone, przy użyciu obliczeniowego połączonej usługi. Zawiera sekwencję działań, gdzie każde działanie wykonuje operację przetwarzania specyficznego dla. W tym artykule opisano hello **Data Lake Analytics U-SQL działania** , na którym działa **U-SQL** skryptom na **Azure Data Lake Analytics** obliczeniowe połączonej usługi. 
 
 > [!NOTE]
-> Przed utworzeniem potoku z działaniem Data Lake Analytics U-SQL, należy utworzyć konto usługi Azure Data Lake Analytics. Aby zapoznać się z usługą Azure Data Lake Analytics, zobacz [Rozpoczynanie pracy z usługą Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+> Przed utworzeniem potoku z działaniem Data Lake Analytics U-SQL, należy utworzyć konto usługi Azure Data Lake Analytics. toolearn dotyczące usługi Azure Data Lake Analytics, zobacz [Rozpoczynanie pracy z usługą Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 > 
-> Przegląd [kompilacji pierwszy samouczek potoku](data-factory-build-your-first-pipeline.md) szczegółowy opis kroków można utworzyć fabryki danych, połączone usługi, zestawy danych i potoku. Za pomocą fragmenty kodu JSON Edytor fabryki danych lub Visual Studio lub Azure PowerShell do tworzenia jednostek fabryki danych.
+> Przejrzyj hello [kompilacji pierwszy samouczek potoku](data-factory-build-your-first-pipeline.md) dla toocreate szczegółowy opis kroków fabryki danych, połączone usługi, zestawy danych i potoku. Za pomocą fragmenty kodu JSON Edytor fabryki danych i jednostek fabryki danych toocreate programu Visual Studio lub Azure PowerShell.
 
 ## <a name="supported-authentication-types"></a>Typy obsługiwane uwierzytelniania
 Działanie U-SQL obsługuje poniżej typy uwierzytelniania względem usługi Data Lake Analytics:
 * Uwierzytelnianie jednostki usługi
 * Uwierzytelnianie użytkownika poświadczeń (OAuth) 
 
-Firma Microsoft zaleca korzystanie z uwierzytelniania głównej usługi, zwłaszcza w przypadku zaplanowane wykonanie U-SQL. Zachowanie wygaśnięcia tokenu może wystąpić przy użyciu uwierzytelniania poświadczeń użytkownika. Szczegółowe informacje dotyczące konfiguracji, zobacz [połączona usługa właściwości](#azure-data-lake-analytics-linked-service) sekcji.
+Firma Microsoft zaleca korzystanie z uwierzytelniania głównej usługi, zwłaszcza w przypadku zaplanowane wykonanie U-SQL. Zachowanie wygaśnięcia tokenu może wystąpić przy użyciu uwierzytelniania poświadczeń użytkownika. Szczegółowe informacje dotyczące konfiguracji, zobacz hello [połączona usługa właściwości](#azure-data-lake-analytics-linked-service) sekcji.
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Usługi Azure Data Lake Analytics połączona usługa
-Możesz utworzyć **Azure Data Lake Analytics** połączonej usługi, aby połączyć z usługą Azure Data Lake Analytics obliczeniowe usługi fabryka danych Azure. Data Lake Analytics U-SQL działania w potoku odwołuje się do tej połączonej usługi. 
+Możesz utworzyć **Azure Data Lake Analytics** połączone toolink usługi fabryki danych Azure tooan usługi Azure Data Lake Analytics obliczeń. Data Lake Analytics U-SQL działania w potoku hello Hello odwołuje się toothis połączone usługi. 
 
-Poniższa tabela zawiera opisy ogólne właściwości używane w definicji JSON. Dodatkowo można wybrać nazwy głównej usługi i uwierzytelnianie poświadczeń użytkownika.
+Witaj Poniższa tabela zawiera opisy hello ogólne właściwości używane w hello definicji JSON. Dodatkowo można wybrać nazwy głównej usługi i uwierzytelnianie poświadczeń użytkownika.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Typ** |Powinien mieć ustawioną właściwość type: **AzureDataLakeAnalytics**. |Tak |
+| **Typ** |powinien mieć ustawioną właściwość type Hello: **AzureDataLakeAnalytics**. |Tak |
 | **Nazwa konta** |Nazwa konta usługi Azure Data Lake Analytics. |Tak |
 | **Element dataLakeAnalyticsUri** |Identyfikator URI, usługi Azure Data Lake Analytics. |Nie |
-| **Identyfikator subskrypcji** |Identyfikator subskrypcji platformy Azure |Nie (Jeśli nie zostanie określony, używany subskrypcji fabryki danych). |
-| **grupy zasobów o nazwie** |Nazwa grupy zasobów platformy Azure |Nie (Jeśli nie zostanie określony, używana grupa zasobów z fabryką danych). |
+| **Identyfikator subskrypcji** |Identyfikator subskrypcji platformy Azure |Nie (Jeśli nie określono subskrypcji hello jest używana fabryka danych). |
+| **grupy zasobów o nazwie** |Nazwa grupy zasobów platformy Azure |Nie (Jeśli nie określono grupy zasobów hello jest używana fabryka danych). |
 
 ### <a name="service-principal-authentication-recommended"></a>Uwierzytelnianie główna usługi (zalecane)
-Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej dostęp do usługi Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
+główne uwierzytelnianie usługi toouse rejestru jednostki aplikacji w usłudze Azure Active Directory (Azure AD) i udziel go hello dostępu tooData Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na powitania następujące wartości, których używasz toodefine hello połączonej usługi:
 * Identyfikator aplikacji
 * Klucz aplikacji 
 * Identyfikator dzierżawy
 
-Uwierzytelnianie usługi głównej przez określenie następujących właściwości:
+Uwierzytelnianie usługi głównej określając hello następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Określ identyfikator aplikacji klienta. | Tak |
-| **servicePrincipalKey** | Określ klucz aplikacji. | Tak |
-| **dzierżawy** | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak |
+| **servicePrincipalId** | Określ identyfikator aplikacji hello klienta. | Tak |
+| **servicePrincipalKey** | Określ klucz aplikacji hello. | Tak |
+| **dzierżawy** | Określ informacje dzierżawy hello (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać aktywowania hello myszy w prawym górnym narożniku hello hello portalu Azure. | Tak |
 
 **Przykład: Usługa podmiotu zabezpieczeń uwierzytelniania**
 ```json
@@ -94,12 +94,12 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
 ```
 
 ### <a name="user-credential-authentication"></a>Uwierzytelnianie poświadczeń użytkownika
-Alternatywnie można uwierzytelnienia poświadczeń użytkownika dla usługi Data Lake Analytics przez określenie następujących właściwości:
+Alternatywnie można uwierzytelnienia poświadczeń użytkownika dla usługi Data Lake Analytics, określając hello następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| **autoryzacji** | Kliknij przycisk **autoryzacji** przycisk Edytor fabryki danych i wprowadź Twoje poświadczenia, który przypisuje do tej właściwości adresu URL autoryzacji wygenerowana automatycznie. | Tak |
-| **Identyfikator sesji** | Identyfikator sesji OAuth z sesji autoryzacji OAuth. Każdy identyfikator sesji jest unikatowy i mogą być użyte tylko raz. To ustawienie jest generowane automatycznie, gdy używasz Edytor fabryki danych. | Tak |
+| **autoryzacji** | Kliknij przycisk hello **autoryzacji** przycisku na powitania Edytor fabryki danych i wprowadź Twoje poświadczenia przypisującej właściwość toothis hello wygenerowana automatycznie autoryzacji URL. | Tak |
+| **Identyfikator sesji** | Identyfikator sesji OAuth z sesji autoryzacji OAuth hello. Każdy identyfikator sesji jest unikatowy i mogą być użyte tylko raz. To ustawienie jest automatycznie generowany, gdy używasz hello Edytor fabryki danych. | Tak |
 
 **Przykład: Użytkownik poświadczeń uwierzytelniania**
 ```json
@@ -120,14 +120,14 @@ Alternatywnie można uwierzytelnienia poświadczeń użytkownika dla usługi Dat
 ```
 
 #### <a name="token-expiration"></a>Wygaśnięcia tokenu
-Kod autoryzacji wygenerowanych przy użyciu **autoryzacji** przycisk wygaśnie po upływie pewnego czasu. Czas wygaśnięcia dla różnych typów kont użytkowników znajduje się w tabeli poniżej. Może zostać wyświetlony następujący błąd komunikatu podczas uwierzytelniania **wygaśnięcia tokenu**: poświadczeń błąd operacji: invalid_grant - AADSTS70002: błąd podczas sprawdzania poprawności poświadczeń. AADSTS70008: Udzielone prawa dostępu jest wygasnąć lub zostać odwołane. Identyfikator śledzenia: Identyfikator korelacji d18629e8-af88-43c5-88e3-d8419eb1fca1: sygnatura czasowa fac30a0c-6be6-4e02-8d69-a776d2ffefd7: 2015-12-15 21:09:31Z
+Witaj kod autoryzacji wygenerowanych przy użyciu hello **autoryzacji** przycisk wygaśnie po upływie pewnego czasu. Zobacz hello na powitania czas wygaśnięcia dla różnych typów kont użytkowników w poniższej tabeli. Może zostać wyświetlony następujący komunikat o błędzie hello hello podczas uwierzytelniania **wygaśnięcia tokenu**: poświadczeń błąd operacji: invalid_grant - AADSTS70002: błąd podczas sprawdzania poprawności poświadczeń. AADSTS70008: hello podać Udziel dostępu jest wygasnąć lub zostać odwołane. Identyfikator śledzenia: Identyfikator korelacji d18629e8-af88-43c5-88e3-d8419eb1fca1: sygnatura czasowa fac30a0c-6be6-4e02-8d69-a776d2ffefd7: 2015-12-15 21:09:31Z
 
 | Typ użytkownika | Wygasa po |
 |:--- |:--- |
 | Konta użytkowników, które nie są zarządzane przez usługę Azure Active Directory (@hotmail.com, @live.comitp.) |12 godzin |
-| Konta użytkowników zarządzanych przez usługi Azure Active Directory (AAD) |Uruchom 14 dni od ostatniego wycinka. <br/><br/>90 dni, jeśli wycinek oparte na podstawie OAuth połączonej usługi jest uruchamiana co najmniej raz na 14 dni. |
+| Konta użytkowników zarządzanych przez usługi Azure Active Directory (AAD) |Uruchom 14 dni od ostatniego wycinek hello. <br/><br/>90 dni, jeśli wycinek oparte na podstawie OAuth połączonej usługi jest uruchamiana co najmniej raz na 14 dni. |
 
-Aby uniknąć/Rozwiąż ten błąd, ponownie autoryzować przy użyciu **autoryzacji** przycisku, gdy **wygaśnięcia tokenu** i wdrożenie połączonej usługi. Można również tworzyć wartości **sessionId** i **autoryzacji** właściwości programowo przy użyciu kodu w następujący sposób:
+tooavoid/Rozwiąż ten błąd, ponownie autoryzować przy użyciu hello **autoryzacji** przycisku hello **wygaśnięcia tokenu** i wdrożenie usługi hello połączone. Można również tworzyć wartości **sessionId** i **autoryzacji** właściwości programowo przy użyciu kodu w następujący sposób:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -154,16 +154,16 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Zobacz [klasy AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [klasy AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), i [klasy AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tematy, aby uzyskać więcej informacji o klasach fabryki danych używana w kodzie. Dodaj odwołanie do: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll dla klasy WindowsFormsWebAuthenticationDialog. 
+Zobacz [klasy AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [klasy AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), i [klasy AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tematy, aby uzyskać więcej informacji informacje o klasach fabryki danych hello używane w kodzie hello. Dodaj odwołanie do: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll dla hello WindowsFormsWebAuthenticationDialog klasy. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Działania języka U-SQL usługi Data Lake Analytics
-Poniższy fragment kodu JSON definiuje potoku z działaniem Data Lake Analytics U-SQL. Definicji działania zawiera odwołanie do usługi Azure Data Lake Analytics połączone utworzony wcześniej.   
+powitania po fragment kodu JSON definiuje potoku z działaniem Data Lake Analytics U-SQL. Definicja działania Hello ma toohello odwołanie do usługi Azure Data Lake Analytics połączone, utworzony wcześniej.   
 
 ```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
-        "description": "This is a pipeline to compute events for en-gb locale and date less than 2012/02/19.",
+        "description": "This is a pipeline toocompute events for en-gb locale and date less than 2012/02/19.",
         "activities": 
         [
             {
@@ -210,25 +210,25 @@ Poniższy fragment kodu JSON definiuje potoku z działaniem Data Lake Analytics 
 }
 ```
 
-W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne dla tego działania. 
+Witaj poniższej tabeli opisano nazwy i opisy właściwości, które są określone toothis działania. 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną **DataLakeAnalyticsU SQL**. |Tak |
-| scriptPath |Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. |Nie (Jeśli używasz skryptu) |
-| Element scriptLinkedService |Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych |Nie (Jeśli używasz skryptu) |
+| type |zbyt należy ustawić właściwość typu Hello**DataLakeAnalyticsU SQL**. |Tak |
+| scriptPath |Ścieżka toofolder, zawierający skrypt hello U-SQL. Nazwa pliku hello jest rozróżniana wielkość liter. |Nie (Jeśli używasz skryptu) |
+| Element scriptLinkedService |Połączonej usługi, która łączy hello magazynu, który zawiera hello skryptu toohello usługi fabryka danych |Nie (Jeśli używasz skryptu) |
 | Skrypt |Określ skrypt wbudowany zamiast określania scriptPath i scriptLinkedService. Na przykład: `"script": "CREATE DATABASE test"`. |Nie (Jeśli używasz scriptPath i scriptLinkedService) |
-| degreeOfParallelism |Maksymalna liczba węzłów jednocześnie użyta do uruchomienia zadania. |Nie |
-| Priorytet |Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. |Nie |
-| Parametry |Parametry skryptu U-SQL |Nie |
-| runtimeVersion | Wersja środowiska uruchomieniowego aparatu U-SQL do użycia | Nie | 
-| właściwość compilationMode | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości:</p> <ul><li>**Semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli.</li><li>**Pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp.</li><li>**SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox.</li></ul><p>Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. </p>| Nie | 
+| degreeOfParallelism |Maksymalna liczba węzłów Hello używać jednocześnie toorun hello zadania. |Nie |
+| Priorytet |Określa, które spośród wszystkich znajdujących się w kolejce zadań powinna być wybranego toorun najpierw. Witaj hello niższą, wyższy priorytet hello hello. |Nie |
+| parameters |Parametry skryptu hello U-SQL |Nie |
+| runtimeVersion | Wersja środowiska uruchomieniowego toouse aparat hello U-SQL | Nie | 
+| właściwość compilationMode | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości:</p> <ul><li>**Semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli.</li><li>**Pełna:** wykonania pełnej kompilacji hello, w tym sprawdzanie składni, optymalizacja, generowanie kodu itp.</li><li>**SingleBox:** wykonania pełnej kompilacji hello z tooSingleBox ustawienie TargetType.</li></ul><p>Jeśli nie określisz wartości dla tej właściwości, powitania serwera określa tryb kompilacji optymalne hello. </p>| Nie | 
 
-Zobacz [definicji skryptu SearchLogProcessing.txt](#sample-u-sql-script) definicji skryptu. 
+Zobacz [definicji skryptu SearchLogProcessing.txt](#sample-u-sql-script) hello definicji skryptu. 
 
 ## <a name="sample-input-and-output-datasets"></a>Przykładowe dane wejściowe i wyjściowe zestawy danych
 ### <a name="input-dataset"></a>Wejściowy zestaw danych
-W tym przykładzie dane wejściowe znajduje się w usłudze Azure Data Lake Store (plik SearchLog.tsv plik w folderze datalake/wprowadzania). 
+W tym przykładzie danych wejściowych hello znajduje się w usłudze Azure Data Lake Store (plik SearchLog.tsv plik w folderze datalake/wprowadzania hello). 
 
 ```json
 {
@@ -254,7 +254,7 @@ W tym przykładzie dane wejściowe znajduje się w usłudze Azure Data Lake Stor
 ```
 
 ### <a name="output-dataset"></a>Wyjściowy zestaw danych
-W tym przykładzie danych wyjściowych generowanych przez skrypt U-SQL jest przechowywane w usłudze Azure Data Lake Store (datalake/wyjścia folder). 
+W tym przykładzie danych wyjściowych hello utworzonego przez hello skryptu U-SQL jest przechowywane w Azure Data Lake Store (datalake/wyjścia folder). 
 
 ```json
 {
@@ -274,7 +274,7 @@ W tym przykładzie danych wyjściowych generowanych przez skrypt U-SQL jest prze
 ```
 
 ### <a name="sample-data-lake-store-linked-service"></a>Przykładowe Data Lake Store połączona usługa
-W tym miejscu znajduje się definicja próbki Azure Data Lake Store połączonej usługi używana przez zestaw danych wejścia/wyjścia. 
+Oto definicji hello próbki hello Azure Data Lake Store połączonej usługi używana przez zestaw danych hello wejścia/wyjścia. 
 
 ```json
 {
@@ -291,7 +291,7 @@ W tym miejscu znajduje się definicja próbki Azure Data Lake Store połączonej
 }
 ```
 
-Zobacz [przenoszenie danych do i z usługi Azure Data Lake Store](data-factory-azure-datalake-connector.md) artykułu Opis właściwości JSON. 
+Zobacz [przenieść tooand danych z usługi Azure Data Lake Store](data-factory-azure-datalake-connector.md) artykułu Opis właściwości JSON. 
 
 ## <a name="sample-u-sql-script"></a>Przykładowy skrypt U-SQL
 
@@ -318,16 +318,16 @@ WHERE Region == "en-gb";
     WHERE Start <= DateTime.Parse("2012/02/19");
 
 OUTPUT @rs1   
-    TO @out
+    too@out
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Wartości  **@in**  i  **@out**  Parametry skryptu U-SQL są przekazywane dynamicznie przez ADF zgodnie z sekcją "parameters". Zobacz sekcję "parameters" w definicji potoku.
+Witaj wartości  **@in**  i  **@out**  Parametry skryptu U-SQL hello są przekazywane dynamicznie przez ADF z sekcją "parameters" hello. Zobacz sekcję "parameters" hello w definicji potoku hello.
 
-Inne właściwości, takie jak degreeOfParallelism i priorytet można określić również w definicji potoku dla zadań, które są uruchamiane w usłudze Azure Data Lake Analytics.
+Inne właściwości, takie jak degreeOfParallelism i priorytet można określić również w definicji potoku prac hello działające na powitania usługi Azure Data Lake Analytics.
 
 ## <a name="dynamic-parameters"></a>Parametry dynamiczne
-W definicji potoku próbki i wylogowywanie parametry są przypisywane z zakodowanych wartości. 
+W definicji potoku próbki hello i wylogowywanie parametry są przypisywane z zakodowanych wartości. 
 
 ```json
 "parameters": {
@@ -336,7 +336,7 @@ W definicji potoku próbki i wylogowywanie parametry są przypisywane z zakodowa
 }
 ```
 
-Istnieje możliwość zamiast tego użyj parametrów dynamicznych. Na przykład: 
+Zamiast niego jest możliwe toouse parametrów dynamicznych. Na przykład: 
 
 ```json
 "parameters": {
@@ -345,5 +345,5 @@ Istnieje możliwość zamiast tego użyj parametrów dynamicznych. Na przykład:
 }
 ```
 
-W takim przypadku pliki wejściowe nadal są pobierane z folderu /datalake/input i pliki wyjściowe są generowane w folderze /datalake/output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia wycinka.  
+W takim przypadku pliki wejściowe nadal są pobierane z folderu /datalake/input hello i pliki wyjściowe są generowane w folderze /datalake/output hello. nazwy plików Hello są dynamiczne na podstawie czasu rozpoczęcia hello wycinka.  
 

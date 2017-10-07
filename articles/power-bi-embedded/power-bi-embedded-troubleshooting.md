@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązywanie problemów z Microsoft Power BI Embedded Preview"
+title: "Rozwiązywanie problemów z Power BI Embedded Preview aaaMicrosoft"
 description: "Rozwiązywanie problemów z Microsoft Power BI Embedded Preview"
 services: power-bi-embedded
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: f406d23e578acc825514aa5bd9eabcbf160bf9ec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a0a25cd73977c0ea0bd6b7c82e215412245771bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Rozwiązywanie problemów z Microsoft Power BI Embedded Preview
-Ten artykuł zawiera odpowiedzi na jak rozwiązywać problemy z **Power BI Embedded**.
+Ten artykuł zawiera odpowiedzi na temat tootroubleshoot **Power BI Embedded**.
 
 <a name="connection-string"/>
 
 ## <a name="setting-sql-server-connection-strings"></a>Ustawianie parametrów połączenia SQL Server
-Aby ustawić ciąg połączenia programu SQL Server, należy wykonywać określonego formatu. Poniżej znajduje się przykład parametry połączenia dla programu SQL Server.
+tooset parametry połączenia SQL Server, należy toofollow określonego formatu. Poniżej znajduje się przykład parametry połączenia dla programu SQL Server.
 
 ```
 "Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
 ```
 
-Aby dowiedzieć się więcej na temat parametrów połączenia SQL Server, zobacz następujące artykuły:
+toolearn więcej informacji na temat parametrów połączenia SQL Server, zobacz następujące artykuły hello:
 
 * [Parametry połączenia serwera SQL](https://msdn.microsoft.com/library/jj653752.aspx)
 * [SqlConnection.ConnectionString](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
@@ -41,7 +41,7 @@ Aby dowiedzieć się więcej na temat parametrów połączenia SQL Server, zobac
 <a name="credentials"/>
 
 ## <a name="setting-credentials"></a>Ustawianie poświadczeń
-W przypadku, gdy użytkownik mający poświadczenia dla rozwoju lub środowiska przemieszczania, takie jak nazwa użytkownika i hasło może być konieczna aktualizacja poświadczenia, które odpowiadają rozwiązania produkcji.
+W przypadku hello, gdy użytkownik mający poświadczenia dla rozwoju lub środowiska przemieszczania, takie jak nazwa użytkownika i hasło może być konieczne tooupdate poświadczenia, które odpowiadają rozwiązania produkcji.
 
 ## <a name="see-also"></a>Zobacz też
 * [Rozpoczęcie pracy z przykładem](power-bi-embedded-get-started-sample.md)

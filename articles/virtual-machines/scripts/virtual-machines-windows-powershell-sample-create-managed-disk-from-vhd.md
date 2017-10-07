@@ -1,5 +1,5 @@
 ---
-title: "Skrypt programu PowerShell Azure przykładowe — tworzenie dysków zarządzanych z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowy skrypt programu PowerShell — Tworzenie dysku zarządzanego z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji | Dokumentacja firmy Microsoft"
 description: "Skrypt programu PowerShell Azure przykładowe — tworzenie dysków zarządzanych z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji."
 services: virtual-machines-windows
 documentationcenter: storage
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 728def40a3eb132537decbd099fa71f4544c6b87
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 47acff274cdf79d6fc3cd685cda01cad3d14ca8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>Tworzenie dysku zarządzanego z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji przy użyciu programu PowerShell
 
-Ten skrypt tworzy dysków zarządzanych z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji. Użyj tego skryptu, aby importować specjalne (nie uogólniony/Sysprep) wirtualnego dysku twardego na dysku systemu operacyjnego zarządzanych do utworzenia maszyny wirtualnej. Należy także użyć go do importowania danych dysku VHD na dysk danych zarządzanych. 
+Ten skrypt tworzy dysków zarządzanych z pliku VHD na koncie magazynu w tym samym lub różnych subskrypcji. Użyj tego skryptu tooimport specjalne (nie uogólniony/Sysprep) wirtualnego dysku twardego toomanaged OS dysku toocreate maszyny wirtualnej. Należy także użyć go tooimport dysku danych toomanaged dane wirtualnego dysku twardego. 
 
-Nie należy tworzyć wiele identycznych dysków zarządzanych z pliku VHD w krótkim czasie. Do tworzenia zarządzanego dysków z pliku vhd, obiektów blob migawki pliku vhd jest tworzony i następnie jest używany do tworzenia dysków zarządzanych. W ciągu jednej minuty powodujące błędy tworzenia dysku z powodu dławienia można utworzyć migawki tylko jeden obiekt blob. Aby uniknąć tego ograniczenia przepustowości, Utwórz [zarządzanych migawki z pliku vhd](virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) i następnie użyj zarządzanego migawki, aby utworzyć wiele zarządzanych w skrócie dyski ilość czasu. 
+Nie należy tworzyć wiele identycznych dysków zarządzanych z pliku VHD w krótkim czasie. toocreate zarządzane dysków z pliku vhd migawki obiektu blob hello pliku wirtualnego dysku twardego zostaje utworzony, a następnie jest używany toocreate zarządzanych dysków. W ciągu jednej minuty powodujące błędy tworzenia dysku można utworzyć migawki tylko jeden obiekt blob toothrottling ukończenia. tooavoid tego ograniczenia przepustowości, Utwórz [zarządzanych migawki z pliku vhd hello](virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) i następnie użyj hello zarządzane toocreate migawki wiele dysków zarządzanych w krótkim czasie. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -33,22 +33,22 @@ Nie należy tworzyć wiele identycznych dysków zarządzanych z pliku VHD w kró
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/virtual-machine/create-managed-disks-from-vhd-in-different-subscription/create-managed-disks-from-vhd-in-different-subscription.ps1 "tworzenie dysków zarządzanych z wirtualnego dysku twardego")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-managed-disks-from-vhd-in-different-subscription/create-managed-disks-from-vhd-in-different-subscription.ps1 "Create managed disk from VHD")]
 
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń w celu utworzenia dysków zarządzanych z dysku VHD w innej subskrypcji. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń toocreate dysków zarządzanych z dysku VHD w innej subskrypcji. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowe AzureRmDiskConfig](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | Tworzy konfiguracji dysku, który jest używany do tworzenia dysku. Zawiera typ magazynu, lokalizacji, identyfikator konto magazynu, w którym przechowywane nadrzędnego dysku VHD, identyfikator URI dysku VHD elementu nadrzędnego dysku VHD zasobu. |
+| [Nowe AzureRmDiskConfig](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | Tworzy konfiguracji dysku, który jest używany do tworzenia dysku. Zawiera typ magazynu, lokalizacji, identyfikator hello konta magazynu przechowywania hello nadrzędnego dysku VHD, identyfikator URI dysku VHD hello elementu nadrzędnego dysku VHD zasobu. |
 | [Nowe AzureRmDisk](/powershell/module/azurerm.compute/New-AzureRmDisk) | Tworzy dysk przy użyciu konfiguracji dysku, nazwa dysku i przekazywane jako parametry nazwę grupy zasobów. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 [Utwórz maszynę wirtualną, dołączając dysków zarządzanych jako dysk systemu operacyjnego](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na powitania modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 
-Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w hello [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: Azure wyzwalacza czasomierza funkcje | Dokumentacja firmy Microsoft
-description: "Zrozumienie, jak używać czasomierza Wyzwalacze w funkcji Azure."
+title: wyzwalacz czasomierza funkcje aaaAzure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse czasomierza wyzwala w funkcji platformy Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,26 +17,26 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 17fca22372dbc55d4684c8c099cc97923a7d3cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure wyzwalacza czasomierza funkcji
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-W tym artykule opisano sposób konfigurowania i wyzwalaczy czasomierza kodu w usługi Azure Functions. Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu. 
+W tym artykule opisano, jak tooconfigure i kod czasomierza wyzwala w funkcji platformy Azure. Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu. 
 
-Wyzwalacz czasomierza obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.
+wyzwalacz czasomierza Hello obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
 
 ## <a name="timer-trigger"></a>Wyzwalacz czasomierza
-Wyzwalacz czasomierza funkcji używa następujący obiekt JSON w `bindings` tablicy function.json:
+Witaj czasomierza wyzwalacza tooa funkcja używa powitania po obiekt JSON w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -47,22 +47,22 @@ Wyzwalacz czasomierza funkcji używa następujący obiekt JSON w `bindings` tabl
 }
 ```
 
-Wartość `schedule` jest [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) zawierających te sześć pola: 
+Witaj wartość `schedule` jest [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) zawierających te sześć pola: 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
->Wiele wyrażeń cron możesz znaleźć online Pomiń `{second}` pola. Po skopiowaniu jednego z nich, należy dostosować nadmiarowe `{second}` pola. Aby uzyskać szczegółowe przykłady, zobacz [zaplanować przykłady](#examples) poniżej.
+>Pomiń wiele wyrażeń cron hello możesz znaleźć online hello `{second}` pola. Po skopiowaniu jednego z nich, potrzebne tooadjust dla hello dodatkowe `{second}` pola. Aby uzyskać szczegółowe przykłady, zobacz [zaplanować przykłady](#examples) poniżej.
 
-Domyślna strefa czasowa używane w wyrażeniach CRON jest uniwersalny czas koordynowany (UTC). Aby wymusić wyrażenie CRON oparte na innej strefie czasowej, Utwórz nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE`. Ustaw wartość na nazwę odpowiednie strefy czasowej, jak pokazano w [indeksu strefy czasowej Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+Witaj domyślną strefę czasową używane w wyrażeniach CRON hello jest uniwersalny czas koordynowany (UTC). toohave wyrażenie CRON oparte na innej strefie czasowej, Utwórz nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE`. Zestaw hello wartość toohello nazwę hello potrzeby strefy czasowej, pokazane na powitania [indeksu strefy czasowej Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
 
-Na przykład *wschodni czas standardowy* jest UTC-05:00. Aby Twoje czasomierza wyzwolenia fire na 10:00 CET codziennie, użyj następujących kont dla strefy czasowej UTC wyrażenie CRON:
+Na przykład *wschodni czas standardowy* jest UTC-05:00. toohave Twojego czasomierza wyzwolić fire na 10:00 AM EST każdego dnia hello Użyj następującego konta dla strefy czasowej UTC wyrażenie CRON:
 
 ```json
 "schedule": "0 0 15 * * *",
 ``` 
 
-Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE` i ustaw wartość **wschodni czas standardowy**.  Poniższe wyrażenie CRON można następnie używać do 10:00 AM EST: 
+Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE` i ustaw wartość hello zbyt**wschodni czas standardowy**.  Następnie po wyrażeniu CRON hello może służyć do 10:00 AM EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
@@ -72,39 +72,39 @@ Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o n
 <a name="examples"></a>
 
 ## <a name="schedule-examples"></a>Przykłady harmonogramu
-Poniżej przedstawiono niektóre przykłady można użyć dla wyrażeń CRON `schedule` właściwości. 
+Poniżej przedstawiono niektóre przykłady można użyć dla hello wyrażeń CRON `schedule` właściwości. 
 
-Aby wyzwolić co pięć minut:
+tootrigger co pięć minut:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Aby wyzwolić raz, w górnej części co godzinę:
+tootrigger raz u góry hello co godzinę:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Aby wyzwolić co dwie godziny:
+tootrigger co dwie godziny:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Aby wyzwolić co godzinę z 9 AM do 17: 00:
+tootrigger co godzinę z 9 AM too5 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Aby wyzwolić na 9:30 AM codziennie:
+tootrigger na 9:30 AM codziennie:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Aby wyzwolić na 9:30 AM każdy dzień tygodnia:
+tootrigger na 9:30 AM każdy dzień tygodnia:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
@@ -113,7 +113,7 @@ Aby wyzwolić na 9:30 AM każdy dzień tygodnia:
 <a name="usage"></a>
 
 ## <a name="trigger-usage"></a>Użycie wyzwalacza
-Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji. Następujący kod JSON jest przykład reprezentację obiekt czasomierza. 
+Po wywołaniu funkcji wyzwalacza czasomierza hello [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji hello. Witaj następujące JSON to przykład reprezentację hello obiekt czasomierza. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github
 <a name="sample"></a>
 
 ## <a name="trigger-sample"></a>Przykładowe wyzwalacza
-Załóżmy, że masz następujące wyzwalacza czasomierza `bindings` tablicy function.json:
+Załóżmy, że masz powitania po czasomierza wyzwalacza w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -141,7 +141,7 @@ Załóżmy, że masz następujące wyzwalacza czasomierza `bindings` tablicy fun
 }
 ```
 
-Zobacz próbka specyficzny dla języka, która odczytuje obiekt czasomierza, aby zobaczyć, czy działa późne.
+Zobacz próbka specyficzny dla języka hello, która odczytuje czasomierza hello toosee obiektu, czy jest uruchomiona opóźnienia.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)

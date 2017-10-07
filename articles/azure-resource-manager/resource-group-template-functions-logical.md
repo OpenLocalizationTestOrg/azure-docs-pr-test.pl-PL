@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager szablonu funkcji - logicznego | Dokumentacja firmy Microsoft
-description: "Zawiera opis funkcji do używania szablonu usługi Azure Resource Manager w celu określenia wartości logiczne."
+title: "aaaAzure Menedżera zasobów szablonu funkcji - logicznego | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano toouse funkcje hello toodetermine szablon Menedżera zasobów Azure dla wartości logicznej."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 313601ad99cdc12c4b50f5469959d37a9fa70d35
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: aec6341fbde00b4eba3b4539ff9a9aec774333fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funkcje logiczne dla szablonów usługi Azure Resource Manager
 
@@ -39,8 +39,8 @@ Sprawdza, czy wartości obu parametrów są spełnione.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Wartość logiczna |Pierwsza wartość, aby sprawdzić, czy ma wartość true. |
-| Arg2 |Tak |Wartość logiczna |Druga wartość, aby sprawdzić, czy ma wartość true. |
+| arg1 |Tak |Wartość logiczna |Witaj pierwszy toocheck wartość określa, czy ma wartość true. |
+| Arg2 |Tak |Wartość logiczna |Witaj drugi toocheck wartość określa, czy ma wartość true. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -48,7 +48,7 @@ Zwraca **True** Jeśli obie wartości są wartość true, a w przeciwnym razie *
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia funkcji logicznych.
+powitania po przykładzie pokazano, jak toouse funkcji logicznych.
 
 ```json
 {
@@ -72,7 +72,7 @@ Poniższy przykład przedstawia sposób użycia funkcji logicznych.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -84,20 +84,20 @@ Dane wyjściowe z poprzedniego przykładu to:
 ## <a name="bool"></a>wartość logiczna
 `bool(arg1)`
 
-Konwertuje parametr na wartość logiczną.
+Konwertuje hello tooa parametru boolean.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |ciąg lub int |Wartość do przekonwertowania na wartość logiczną. |
+| arg1 |Tak |ciąg lub int |Witaj tooa tooconvert wartość logiczną. |
 
 ### <a name="return-value"></a>Wartość zwracana
-Wartość logiczna wartość przekonwertowana.
+Wartość logiczna hello przekonwertować wartość.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia użycie bool ciąg lub liczba całkowita.
+powitania po przykładzie pokazano, jak bool toouse ciąg lub liczba całkowita.
 
 ```json
 {
@@ -125,7 +125,7 @@ Poniższy przykład przedstawia użycie bool ciąg lub liczba całkowita.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -143,9 +143,9 @@ Zwraca wartość na podstawie warunku jest PRAWDA lub FAŁSZ.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Warunek |Tak |Wartość logiczna |Wartość do sprawdzenia, czy są spełnione. |
-| trueValue |Tak | ciąg, int, obiektów lub tablicy |Wartość zwracana, gdy warunek ma wartość true. |
-| falseValue |Tak | ciąg, int, obiektów lub tablicy |Wartość zwracana, gdy warunek ma wartość false. |
+| Warunek |Tak |Wartość logiczna |Witaj toocheck wartość, czy jest spełniony. |
+| trueValue |Tak | ciąg, int, obiektów lub tablicy |tooreturn wartość Hello hello warunek jest spełniony. |
+| falseValue |Tak | ciąg, int, obiektów lub tablicy |tooreturn wartość Hello hello warunek ma wartość false. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -153,7 +153,7 @@ Zwraca drugi parametr po pierwszym parametrem jest **True**; w przeciwnym razie 
 
 ### <a name="remarks"></a>Uwagi
 
-Ta funkcja umożliwia warunkowo ustawić właściwości zasobu. Poniższy przykład nie jest pełny szablon, ale pokazuje odpowiednich części warunkowo ustawiania zestawu dostępności.
+Ten zestaw tooconditionally funkcji można użyć właściwości zasobów. Witaj poniższy przykład nie jest pełny szablon, ale pokazuje hello odpowiednich części warunkowo ustawiania hello zestawu dostępności.
 
 ```json
 {
@@ -199,7 +199,7 @@ Ta funkcja umożliwia warunkowo ustawić właściwości zasobu. Poniższy przyk�
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia użycie `if` funkcji.
+powitania po przykładzie pokazano, jak toouse hello `if` funkcji.
 
 ```json
 {
@@ -220,7 +220,7 @@ Poniższy przykład przedstawia użycie `if` funkcji.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -231,13 +231,13 @@ Dane wyjściowe z poprzedniego przykładu to:
 ## <a name="not"></a>nie
 `not(arg1)`
 
-Konwertuje wartość przeciwną wartość logiczną.
+Konwertuje wartość logiczna tooits przeciwne wartości.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Wartość logiczna |Wartość do przekonwertowania. |
+| arg1 |Tak |Wartość logiczna |Witaj tooconvert wartość. |
 
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -246,7 +246,7 @@ Zwraca **True** gdy parametr jest **False**. Zwraca **False** gdy parametr jest 
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia funkcji logicznych.
+powitania po przykładzie pokazano, jak toouse funkcji logicznych.
 
 ```json
 {
@@ -270,7 +270,7 @@ Poniższy przykład przedstawia sposób użycia funkcji logicznych.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -278,7 +278,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 | orExampleOutput | wartość logiczna | True |
 | notExampleOutput | wartość logiczna | False |
 
-W poniższym przykładzie użyto **nie** z [jest równe](resource-group-template-functions-comparison.md#equals).
+Witaj poniższym przykładzie użyto **nie** z [jest równe](resource-group-template-functions-comparison.md#equals).
 
 ```json
 {
@@ -294,7 +294,7 @@ W poniższym przykładzie użyto **nie** z [jest równe](resource-group-template
     }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -310,8 +310,8 @@ Sprawdza, czy każda wartość parametru to true.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Wartość logiczna |Pierwsza wartość, aby sprawdzić, czy ma wartość true. |
-| Arg2 |Tak |Wartość logiczna |Druga wartość, aby sprawdzić, czy ma wartość true. |
+| arg1 |Tak |Wartość logiczna |Witaj pierwszy toocheck wartość określa, czy ma wartość true. |
+| Arg2 |Tak |Wartość logiczna |Witaj drugi toocheck wartość określa, czy ma wartość true. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -319,7 +319,7 @@ Zwraca **True** w przypadku wartości PRAWDA; w przeciwnym razie **False**.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład przedstawia sposób użycia funkcji logicznych.
+powitania po przykładzie pokazano, jak toouse funkcji logicznych.
 
 ```json
 {
@@ -343,7 +343,7 @@ Poniższy przykład przedstawia sposób użycia funkcji logicznych.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu to:
+dane wyjściowe Hello poprzedzających przykład hello jest:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -353,8 +353,8 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

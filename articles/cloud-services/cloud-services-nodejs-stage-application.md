@@ -1,6 +1,6 @@
 ---
-title: "Etap wdrażania usługi chmury (Node.js) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wdrożyć aplikację Azure do środowiska pomostowego, a następnie wdrożyć w środowisku produkcyjnym przy użyciu wirtualnego adresu IP (VIP) wymiany."
+title: "aaaStage wdrożenie usługi chmury (Node.js) | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodeploy Twojego tooa aplikacji Azure przemieszczania środowiska, następnie wdrożyć środowiska produkcyjnego tooa przy użyciu wirtualnego adresu IP (VIP) wymiany."
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,62 +14,62 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0656c84ac444a10f152f441265f85141347bf1fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Przemieszczania aplikacji na platformie Azure
-Spakowanych aplikacji można wdrożyć do środowiska pomostowego na platformie Azure do sprawdzenia przed przeniesieniem do środowiska produkcyjnego, w którym aplikacja jest dostępna w Internecie. Środowisko tymczasowe jest dokładnie takie same jak środowiska produkcyjnego, z wyjątkiem tego, że tylko dostęp do aplikacji przemieszczanego zaciemnionego adresu URL, który jest generowany przez usługę Azure. Po upewnieniu się, że aplikacja działa prawidłowo, można wdrożyć do środowiska produkcyjnego, wykonując wymiany wirtualnego adresu IP (VIP).
+Opakowanej aplikacji mogą być wdrożone toohello przemieszczania środowiska Azure toobe przetestowane przed przeniesieniem produkcji toohello środowisko, w którym hello aplikacji jest dostępny na powitania Internet. Środowisko przejściowe jest dokładnie takie same jak hello środowiska produkcyjnego, ale można tylko hello dostępu przygotowanych aplikacji zaciemnionego adresu URL, który jest generowany przez usługę Azure. Po upewnieniu się, że aplikacja działa prawidłowo, może być wdrożony toohello środowiska produkcyjnego, wykonując wymiany wirtualnego adresu IP (VIP).
 
 > [!NOTE]
-> Kroki opisane w tym artykule dotyczą tylko aplikacji węzła hostowany jako usługa w chmurze Azure.
+> Witaj kroki opisane w tym artykule są stosowane tylko wtedy toonode hostowanych jako usługi w chmurze platformy Azure.
 > 
 > 
 
 ## <a name="step-1-stage-an-application"></a>Krok 1: Przemieszczanie aplikacji
-To zadanie obejmuje sposób umieszczania aplikacji przy użyciu **Microsoft Azure PowerShell**.
+To zadanie obejmuje jak hello toostage aplikacji przy użyciu **Microsoft Azure PowerShell**.
 
-1. Gdy usługa publikowania, po prostu Przekaż **-gniazdo** parametr **Publish-AzureServiceProject** polecenia cmdlet.
+1. Podczas publikowania usługi, po prostu Przekaż hello **-gniazdo** parametru na powitania **Publish-AzureServiceProject** polecenia cmdlet.
    
    ```powershell
    Publish-AzureServiceProject -Slot staging
    ```
-2. Zaloguj się do [klasycznego portalu Azure] i wybierz **usługi w chmurze**. Po chmurze usługi jest tworzony i **przemieszczania** stan kolumna została zaktualizowana w celu **systemem**, kliknij nazwę usługi.
+2. Zaloguj się na toohello [klasycznego portalu Azure] i wybierz **usługi w chmurze**. Po hello usługi w chmurze jest tworzona i hello **przemieszczania** kolumny Stan został zaktualizowany za**systemem**, kliknij nazwę usługi hello.
    
    ![Wyświetlanie działającej usłudze portalu][cloud-service]
-3. Wybierz **pulpitu nawigacyjnego**, a następnie wybierz **przemieszczania**.
+3. Wybierz hello **pulpitu nawigacyjnego**, a następnie wybierz **przemieszczania**.
    
    ![pulpit nawigacyjny usługi w chmurze][cloud-service-dashboard]
-4. Zanotuj wartość w **adres URL witryny** wpisu z prawej strony. Nazwa DNS jest zaciemnionego wewnętrzny identyfikator, który wygenerował Azure.
+4. Zanotuj wartość hello w hello **adres URL witryny** prawo toohello wpisu. Nazwa DNS Hello jest zaciemnionego wewnętrzny identyfikator, który wygenerował Azure.
    
     ![adres url witryny][cloud-service-staging-url]
 
-Teraz można sprawdzić, czy aplikacja działa poprawnie w środowisku przemieszczania za pomocą przemieszczania adres URL witryny.
+Teraz można sprawdzić, czy aplikacja hello działa prawidłowo w hello przemieszczania środowiska przy użyciu hello przemieszczania adres URL witryny.
 
 ## <a name="step-2-upgrade-an-application-in-production-by-swapping-vips"></a>Krok 2: Uaktualnianie aplikacji w środowisku produkcyjnym przez Trwa zamienianie adresów VIP
-Po zweryfikowaniu uaktualnionej wersji aplikacji w środowisku przemieszczania, można szybko udostępnić go w środowisku produkcyjnym przez wymiany wirtualnych adresów IP (VIP) środowisk przemieszczania i produkcji.
+Po zweryfikowaniu hello uaktualnionej wersji aplikacji w środowisku przemieszczania, można szybko udostępnić go w środowisku produkcyjnym przez zamianę hello wirtualnych adresów IP (VIP) hello środowisk przemieszczania i produkcji.
 
 > [!NOTE]
-> Tego kroku przyjęto założenie, że masz już wdrożonych aplikacji do środowiska produkcyjnego i przemieszczane uaktualnionej wersji aplikacji.
+> Tego kroku przyjęto założenie, że już wdrożone tooproduction aplikacji i przemieszczane hello uaktualnionej wersji aplikacji.
 > 
 > 
 
-1. Zaloguj się do [klasycznego portalu Azure], kliknij przycisk **usługi w chmurze** , a następnie wybierz nazwę usługi.
-2. Z **pulpitu nawigacyjnego**, wybierz pozycję **przemieszczania**, a następnie kliknij przycisk **wymiany** w dolnej części strony. Spowoduje to otwarcie okna dialogowego wymiany wirtualnych adresów IP.
+1. Zaloguj się do hello [klasycznego portalu Azure], kliknij przycisk **usługi w chmurze** , a następnie wybierz nazwę usługi hello.
+2. Z hello **pulpitu nawigacyjnego**, wybierz pozycję **przemieszczania**, a następnie kliknij przycisk **wymiany** u dołu hello hello strony. Spowoduje to otwarcie hello okna dialogowego wymiany wirtualnych adresów IP.
    
    ![okno dialogowe wymiany adresów VIP][vip-swap-dialog]
-3. Przejrzyj informacje, a następnie kliknij przycisk **OK**. Dwa wdrożenia Rozpocznij aktualizowanie zmienia przemieszczania wdrożenia do środowiska produkcyjnego i wdrożenia produkcyjnego zmienia się na przemieszczania.
+3. Przejrzyj informacje hello, a następnie kliknij przycisk **OK**. Hello dwa wdrożenia Rozpocznij aktualizowanie jako hello przemieszczania wdrożenia przełączników tooproduction i hello produkcji wdrożenia przełączników toostaging.
 
-Pomyślnie przemieszczane wdrożenia i uaktualnienia wdrożenia produkcyjnego przez zamianę wirtualne adresy IP z wdrożeniem tymczasowych.
+Pomyślnie przemieszczane wdrożenia i uaktualnienia wdrożenia produkcyjnego przez zamianę wirtualne adresy IP z wdrożeniem hello tymczasowych.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Jak wdrożyć uaktualnienie usługi do środowiska produkcyjnego przez zamianę wirtualne adresy IP na platformie Azure]
+* [Jak tooDeploy tooProduction uaktualnienia usługi przez zamianę wirtualne adresy IP na platformie Azure]
 
 [klasycznego portalu Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Jak wdrożyć uaktualnienie usługi do środowiska produkcyjnego przez zamianę wirtualne adresy IP na platformie Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Jak tooDeploy tooProduction uaktualnienia usługi przez zamianę wirtualne adresy IP na platformie Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

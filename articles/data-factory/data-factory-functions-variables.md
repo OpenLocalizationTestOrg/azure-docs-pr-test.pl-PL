@@ -1,5 +1,5 @@
 ---
-title: Funkcje fabryki danych i zmienne systemu | Dokumentacja firmy Microsoft
+title: aaaData fabryki funkcje i zmienne systemu | Dokumentacja firmy Microsoft
 description: "Zawiera listę funkcji fabryki danych Azure i zmienne systemu"
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2936c2821797947bb37d9775226a6c19c4b8ab9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fabryki danych Azure — funkcje i zmienne systemu
 Ten artykuł zawiera informacje o funkcjach i zmiennych obsługiwane przez usługi fabryka danych Azure.
@@ -26,17 +26,17 @@ Ten artykuł zawiera informacje o funkcjach i zmiennych obsługiwane przez usłu
 ## <a name="data-factory-system-variables"></a>Zmienne systemowe fabryki danych
 | Nazwa zmiennej | Opis | Zakres obiektu | Zakres JSON i przypadki użycia |
 | --- | --- | --- | --- |
-| WindowStart |Początek przedziału czasu bieżącego działania Uruchom okno |Działanie |<ol><li>Określ kwerend danych zaznaczenia. Zobacz artykuły łącznika, do którego odwołuje się [działań przepływu danych](data-factory-data-movement-activities.md) artykułu.</li> |
+| WindowStart |Początek przedziału czasu bieżącego działania Uruchom okno |Działanie |<ol><li>Określ kwerend danych zaznaczenia. Zobacz artykuły łącznika, do którego odwołuje się hello [działań przepływu danych](data-factory-data-movement-activities.md) artykułu.</li> |
 | WindowEnd |Koniec przedziału czasu bieżącego działania Uruchom okno |Działanie |taka sama jak WindowStart. |
 | SliceStart |Początek przedziału czasu dla tworzonym wycinka danych |Działanie<br/>Zestaw danych |<ol><li>Określ folder dynamiczne ścieżki i nazwy plików podczas pracy z [obiektów Blob platformy Azure](data-factory-azure-blob-connector.md) i [zestawów danych systemu plików](data-factory-onprem-file-system-connector.md).</li><li>Określ zależności wejściowych z funkcji fabryki danych w kolekcji danych wejściowych działania.</li></ol> |
 | SliceEnd |Koniec przedziału czasu dla bieżącego wycinka danych. |Działanie<br/>Zestaw danych |taka sama jak SliceStart. |
 
 > [!NOTE]
-> Obecnie fabryki danych wymaga, czy określony w działaniu dokładnie harmonogram jest zgodny z harmonogramem określonym w dostępności wyjściowego zestawu danych. W związku z tym WindowStart, WindowEnd i SliceStart i SliceEnd zawsze są mapowane na ten sam okres czasu i wycinek pojedynczym wyjściowym.
+> Obecnie fabryki danych wymaga tego hello zaplanować hello określony w działanie dokładnie odpowiada harmonogram hello określony w dostępności hello wyjściowego zestawu danych. W związku z tym WindowStart, WindowEnd i SliceStart i SliceEnd zawsze mapy toohello sam czas okresu i wycinek pojedynczym wyjściowym.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Przykład zmiennej systemowej
-W poniższym przykładzie, rok, miesiąc, dzień i czas **SliceStart** są wyodrębniane do oddzielnych zmiennych, które są używane przez **folderPath** i **fileName** właściwości.
+W powitania po przykład, rok, miesiąc, dzień i czas **SliceStart** są wyodrębniane do oddzielnych zmiennych, które są używane przez **folderPath** i **fileName** właściwości.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -51,16 +51,16 @@ W poniższym przykładzie, rok, miesiąc, dzień i czas **SliceStart** są wyodr
 ```
 
 ## <a name="data-factory-functions"></a>Funkcje fabryki danych
-Możesz użyć funkcji w fabryce danych wraz z zmienne systemowe, do następujących celów:
+Możesz użyć funkcji w fabryce danych wraz z zmienne systemowe dla hello następujących celów:
 
-1. Określanie zapytania wyboru danych (zobacz artykuły łącznika odwołuje się [działań przepływu danych](data-factory-data-movement-activities.md) artykułu.
+1. Określanie zapytania wyboru danych (zobacz artykuły łącznika odwołuje się hello [działań przepływu danych](data-factory-data-movement-activities.md) artykułu.
    
-   Składnia służąca do wywołania funkcji fabryki danych jest:  **$$ <function>**  danych zapytania wyboru i innych właściwości w działaniu i zestawów danych.  
+   Witaj tooinvoke składni jest funkcja fabryki danych:  **$$ <function>**  dla danych zapytania wyboru i inne właściwości działania hello i zestawów danych.  
 2. Określanie wejściowych zależności przy użyciu funkcji fabryki danych w kolekcji danych wejściowych działania.
    
     $$ nie jest potrzebna do określenia wyrażeń wejściowych zależności.     
 
-W poniższym przykładzie **sqlReaderQuery** właściwość w pliku JSON jest przypisany do wartości zwracanych przez `Text.Format` funkcji. W tym przykładzie użyto również zmiennej systemu o nazwie **WindowStart**, który reprezentuje czas rozpoczęcia okna uruchamiania działania.
+W hello następujące przykładowe **sqlReaderQuery** właściwość w pliku JSON jest przypisywana wartość tooa zwrócony przez hello `Text.Format` funkcji. W tym przykładzie użyto również zmiennej systemu o nazwie **WindowStart**, reprezentuje hello godzina rozpoczęcia działania hello Uruchom okno.
 
 ```json
 {
@@ -72,34 +72,34 @@ W poniższym przykładzie **sqlReaderQuery** właściwość w pliku JSON jest pr
 Zobacz [niestandardowe ciągi daty i godziny Format](https://msdn.microsoft.com/library/8kb3ddd4.aspx) temat, który opisano różne opcje formatowania, można użyć (na przykład: dni, a rrrr). 
 
 ### <a name="functions"></a>Funkcje
-W poniższych tabelach przedstawiono wszystkie funkcje w fabryce danych Azure:
+następujące tabele Hello lista wszystkich funkcji hello w fabryce danych Azure:
 
 | Kategoria | Funkcja | Parametry | Opis |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje Y godziny do chwili X. <br/><br/>Przykład:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Time |AddMinutes(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje minut Y-X.<br/><br/>Przykład:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: Data i godzina |Pobiera godzinę rozpoczęcia, godzinę reprezentowany przez składnik godziny z wartości x. <br/><br/>Przykład:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y dni do X. <br/><br/>Przykład: 9/15/2013 12:00:00 PM + 2 dni = 9/17/2013 12:00:00 PM.<br/><br/>Zbyt odejmowania dni, określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y miesięcy do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Miesięcy można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje Y * X 3 miesięcy.<br/><br/>Przykład:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y * X 7 dni<br/><br/>Przykład: 9/15/2013 12:00:00 PM + 1 tydzień = 9/22/2013 12:00:00 PM.<br/><br/>Tygodnie można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y lat do X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Lat można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Day(X) |X: Data i godzina |Pobiera składnik dni z wartości X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek(X) |X: Data i godzina |Pobiera dzień tygodnia składnika wartości X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear(X) |X: Data i godzina |Pobiera dzień w roku reprezentowany przez składnik roku x.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth(X) |X: Data i godzina |Pobiera dni w miesiącu reprezentowany przez składnik miesiąca parametr X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay(X) |X: Data i godzina |Pobiera daty i godziny zakończenia dnia (składnik dni) x.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth(X) |X: Data i godzina |Pobiera koniec miesiąca reprezentowany przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (Data i godzina zakończenia miesiąca września) |
-| Date |StartOfDay(X) |X: Data i godzina |Pobiera początek dnia reprezentowany przez składnik dni z wartości parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Data i godzina |FROM(X) |X: ciąg |Przeanalizować ciągu X na czas daty. |
-| Data i godzina |Ticks(X) |X: Data i godzina |Pobiera właściwość parametru X to znaczniki osi. Jeden znaczników jest równy 100 nanosekundach. Wartość ta właściwość reprezentuje liczbę znaczników, które upłynęły od północy 12:00:00 1 stycznia 0001. |
-| Tekst |Format(X) |X: zmienna string |Formatuje tekst (Użyj `\\'` kombinacja ucieczki `'` znaków).|
+| Time |AddHours(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje podany czas X toohello godziny Y. <br/><br/>Przykład:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |AddMinutes(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje Y tooX minut.<br/><br/>Przykład:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |StartOfHour(X) |X: Data i godzina |Pobiera hello początkowy czas na godzinę hello reprezentowany przez składnik godziny hello x. <br/><br/>Przykład:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y tooX dni. <br/><br/>Przykład: 9/15/2013 12:00:00 PM + 2 dni = 9/17/2013 12:00:00 PM.<br/><br/>Zbyt odejmowania dni, określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje tooX miesięcy Y.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Miesięcy można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: Data i godzina <br/><br/>/ Y: int |Dodaje Y * tooX 3 miesiące.<br/><br/>Przykład:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje Y * tooX 7 dni<br/><br/>Przykład: 9/15/2013 12:00:00 PM + 1 tydzień = 9/22/2013 12:00:00 PM.<br/><br/>Tygodnie można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: Data i godzina<br/><br/>/ Y: int |Dodaje tooX lat Y.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Lat można odejmować zbyt określając Y jako wartość ujemną.<br/><br/>Przykład: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: Data i godzina |Pobiera hello składnik dni z wartości X.<br/><br/>Przykład: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: Data i godzina |Pobiera hello dzień tygodnia składnika wartości X.<br/><br/>Przykład: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: Data i godzina |Pobiera hello dzień w roku hello reprezentowany przez składnik roku hello x.<br/><br/>Przykłady:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: Data i godzina |Pobiera hello dni w miesiącu hello reprezentowany przez składnik miesiąca hello parametru X.<br/><br/>Przykład: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in hello September month`. |
+| Date |EndOfDay(X) |X: Data i godzina |Pobiera hello daty i godziny, reprezentujący hello koniec dnia hello (składnik dni) x.<br/><br/>Przykład: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: Data i godzina |Pobiera hello koniec miesiąca hello reprezentowany przez składnik miesiąca parametru X. <br/><br/>Przykład: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (Data i godzina reprezentujący hello koniec miesiąca września) |
+| Date |StartOfDay(X) |X: Data i godzina |Pobiera początek hello dnia hello reprezentowany przez składnik dni hello parametru X.<br/><br/>Przykład: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Data i godzina |FROM(X) |X: ciąg |Przeanalizować składni ciągu X tooa Data i godzina. |
+| Data i godzina |Ticks(X) |X: Data i godzina |Pobiera znaczniki hello właściwość parametru hello X. Jeden znaczników jest równy 100 nanosekundach. wartość tej właściwości Hello reprezentuje hello liczbę znaczników, które upłynęły od północy 12:00:00 1 stycznia 0001. |
+| Tekst |Format(X) |X: zmienna string |Formaty hello tekst (Użyj `\\'` tooescape kombinacja `'` znaków).|
 
 > [!IMPORTANT]
-> Podczas korzystania z funkcji w innej funkcji, nie trzeba używać  **$$**  prefiks dla funkcji wewnętrznej. Na przykład: $$Text.Format ("PartitionKey eq \\" my_pkey_filter_value\\"i RowKey ge \\" {0: yyyy-MM-dd gg}\\'', Time.AddHours (SliceStart, -6)). W tym przykładzie należy zauważyć, że  **$$**  prefiks nie jest używany przez **Time.AddHours** funkcji. 
+> Podczas korzystania z funkcji w innej funkcji, nie trzeba toouse  **$$**  prefiks hello funkcji wewnętrznej. Na przykład: $$Text.Format ("PartitionKey eq \\" my_pkey_filter_value\\"i RowKey ge \\" {0: yyyy-MM-dd gg}\\'', Time.AddHours (SliceStart, -6)). W tym przykładzie należy zauważyć, że  **$$**  prefiks nie jest używany przez hello **Time.AddHours** funkcji. 
 
 #### <a name="example"></a>Przykład
-W poniższym przykładzie parametrów wejściowych i wyjściowych działania gałęzi są określane za pomocą `Text.Format` funkcji i SliceStart zmiennej systemowej. 
+W hello następujące parametry przykład wejściowe i wyjściowe działania Hive hello są określane za pomocą hello `Text.Format` funkcji i SliceStart zmiennej systemowej. 
 
 ```json  
 {
@@ -140,7 +140,7 @@ W poniższym przykładzie parametrów wejściowych i wyjściowych działania ga�
 
 ### <a name="example-2"></a>Przykład 2
 
-W poniższym przykładzie parametr daty i godziny dla działania dotyczącego procedury składowanej jest określany przy użyciu tekstu. Funkcja format, a zmienna SliceStart. 
+W hello poniższy przykład parametr DateTime hello hello działania dotyczącego procedury składowanej jest określany przy użyciu hello tekstu. Format funkcji i hello SliceStart zmiennej. 
 
 ```json
 {
@@ -175,7 +175,7 @@ W poniższym przykładzie parametr daty i godziny dla działania dotyczącego pr
 ```
 
 ### <a name="example-3"></a>Przykład 3
-Można odczytać danych z poprzedniego dnia zamiast reprezentowany przez SliceStart dzień, należy użyć funkcji AddDays, jak pokazano w poniższym przykładzie: 
+tooread danych z poprzedniego dnia zamiast dzień reprezentowany przez hello SliceStart, użyj funkcji AddDays hello, jak pokazano hello poniższy przykład: 
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji sieci web Node.js dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "W tym samouczku środowiska Node.js opisuje sposób korzystania z bazy danych programu Microsoft Azure rozwiązania Cosmos w celu przechowywania i uzyskiwanie dostępu do danych z aplikacji sieci web Node.js Express hostowanej przez usługę Azure Websites."
+title: "Aplikacja sieci web Node.js dla bazy danych Azure rozwiązania Cosmos aaaBuild | Dokumentacja firmy Microsoft"
+description: "W tym samouczku środowiska Node.js opisuje, jak toouse bazy danych programu Microsoft Azure rozwiązania Cosmos toostore i dostępu do danych z aplikacji sieci web Node.js Express hostowanej przez usługę Azure Websites."
 keywords: "Projektowanie aplikacji, samouczek bazy danych, Poznaj środowisko node.js, samouczek środowiska node.js"
 services: cosmos-db
 documentationcenter: nodejs
@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 31194dccf37eef69d2219b0d8328a88d434f79b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="_Toc395783175"></a>Tworzenie aplikacji internetowej Node.js za pomocą usługi Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 08/18/2017
 > 
 > 
 
-W tym samouczku środowiska Node.js pokazano sposób korzystania z bazy danych rozwiązania Cosmos Azure i interfejsu API usługi DocumentDB do przechowywania i uzyskiwanie dostępu do danych z poziomu aplikacji Node.js Express hostowanej przez usługę Azure Websites. Utworzysz prostą, opartą na sieci Web aplikację do zarządzania zadaniami (aplikację ToDo), która umożliwia tworzenie, pobieranie i kończenie zadań. Zadania są przechowywane jako dokumenty JSON w usłudze Azure Cosmos DB. Ten samouczek zawiera szczegółowe omówienie tworzenia i rozwoju aplikacji oraz objaśnienie poszczególnych fragmentów kodu.
+W tym samouczku środowiska Node.js pokazano, jak toouse bazy danych Azure rozwiązania Cosmos i hello interfejsu API usługi DocumentDB toostore i danymi dostępu z poziomu aplikacji Node.js Express hostowanej przez usługę Azure Websites. Utworzysz prostą, opartą na sieci Web aplikację do zarządzania zadaniami (aplikację ToDo), która umożliwia tworzenie, pobieranie i kończenie zadań. Witaj zadania są przechowywane jako dokumenty JSON w usłudze Azure DB rozwiązania Cosmos. Ten samouczek przeprowadzi Cię przez kolejne hello tworzenia i wdrażania aplikacji hello i opisano, co dzieje się w każdym fragment kodu.
 
-![Zrzut ekranu aplikacji My Todo List utworzonej w tym samouczku środowiska Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
+![Zrzut ekranu przedstawiający hello aplikacji My Todo List utworzonej w tym samouczku środowiska Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
-Nie masz czasu na ukończenie tego samouczka i po prostu chcesz uzyskać kompletne rozwiązanie? Nie ma problemu, możesz pobrać kompletne przykładowe rozwiązanie z witryny [GitHub][GitHub]. Aby uzyskać instrukcje dotyczące uruchomienia aplikacji, wystarczy przeczytać plik [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md).
+Nie masz czasu toocomplete hello samouczka i po prostu chcesz tooget hello kompletne rozwiązanie? Nie ma problemu, możesz uzyskać hello kompletne przykładowe rozwiązanie z [GitHub][GitHub]. Tylko odczytać hello [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) pliku, aby uzyskać instrukcje dotyczące sposobu toorun hello aplikacji.
 
 ## <a name="_Toc395783176"></a>Wymagania wstępne
 > [!TIP]
@@ -42,30 +42,30 @@ Nie masz czasu na ukończenie tego samouczka i po prostu chcesz uzyskać komplet
 > 
 > 
 
-Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące elementy:
+Przed rozpoczęciem powitalne instrukcje w tym artykule, należy upewnij się, że masz następujące hello:
 
 * Aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
    LUB
 
-   Lokalna instalacja [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) (tylko system Windows).
+   Lokalna instalacja hello [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) (tylko system Windows).
 * [Node.js][Node.js] w wersji 0.10.29 lub nowszej.
 * [Generator Express](http://www.expressjs.com/starter/generator.html) (można go zainstalować za pomocą polecenia `npm install express-generator -g`)
 * [Git][Git].
 
 ## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi Azure Cosmos DB
-Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie nowej aplikacji Node.js](#_Toc395783178).
+Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli już masz konto lub jeśli używasz hello Azure rozwiązania Cosmos DB emulatora w tym samouczku, można pominąć zbyt[krok 2: Tworzenie nowej aplikacji Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
 ## <a name="_Toc395783178"></a>Krok 2: Tworzenie nowej aplikacji Node.js
-Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w środowisku Node.js przy użyciu platformy [Express](http://expressjs.com/).
+Teraz nauczysz się toocreate podstawowego projektu Hello World Node.js przy użyciu hello [Express](http://expressjs.com/) framework.
 
-1. Otwórz swój ulubiony terminal, na przykład wiersz polecenia środowiska Node.js.
-2. Przejdź do katalogu, w którym chcesz przechowywać nową aplikację.
-3. Użyj generatora platformy Express, aby wygenerować nową aplikację o nazwie **todo**.
+1. Otwórz swój ulubiony terminal, takich jak wiersza polecenia Node.js hello.
+2. Przejdź toohello katalogu, w którym mają toostore hello nowej aplikacji.
+3. Użyj toogenerate express generator hello nową aplikację o nazwie **todo**.
    
         express todo
 4. Otwórz nowy katalog **todo** i zainstaluj zależności.
@@ -75,22 +75,22 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 5. Uruchom nową aplikację.
    
         npm start
-6. Swoją nową aplikację możesz wyświetlić, przechodząc w przeglądarce na adres [http://localhost:3000](http://localhost:3000).
+6. Możesz wyświetlić swoją nową aplikację, przechodząc w przeglądarce za[http://localhost: 3000](http://localhost:3000).
    
-    ![Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
+    ![Poznaj środowisko Node.js — zrzut ekranu przedstawiający hello aplikacji Hello World w oknie przeglądarki](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
-    Następnie, aby zatrzymać aplikację, w oknie terminalu naciśnij klawisze CTRL+C, po czym naciśnij klawisz **Y** w celu zakończenia zadania wsadowego.
+    Następnie toostop hello aplikacji, naciśnij klawisze CTRL + C w hello okno terminalu, a następnie kliknij przycisk **y** tooterminate hello wsadowym.
 
 ## <a name="_Toc395783179"></a>Krok 3. Instalowanie dodatkowych modułów
-Plik **package.json** jest jednym z plików utworzonych w folderze głównym projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Później podczas wdrażania tej aplikacji w usłudze Azure Websites, ten plik jest używany do określenia, które moduły muszą być zainstalowane na platformie Azure w celu obsługi tej aplikacji. Nadal trzeba zainstalować jeszcze dwa pakiety dla tego samouczka.
+Witaj **package.json** plik jest jeden z plików hello tworzone w katalogu głównym hello hello projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Później podczas wdrażania tej aplikacji tooAzure witryn sieci Web, ten plik jest używany toodetermine, które moduły muszą toobe zainstalowanym Azure toosupport aplikacji. Nadal musisz tooinstall dwa pakiety dla tego samouczka.
 
-1. Z poziomu terminala zainstaluj moduł **async** za pośrednictwem menedżera npm.
+1. W terminalu hello, zainstaluj hello **async** modułu za pomocą Menedżera npm.
    
         npm install async --save
-2. Zainstaluj moduł **documentdb** za pomocą menedżera npm. To jest moduł, gdzie sytuacji wszystkie magic bazy danych Azure rozwiązania Cosmos.
+2. Zainstaluj hello **documentdb** modułu za pomocą Menedżera npm. Jest to moduł hello gdzie sytuacji wszystkie hello Azure DB rozwiązania Cosmos magic.
    
         npm install documentdb --save
-3. Szybkie sprawdzenie pliku **package.json** aplikacji powinno pokazać dodatkowe moduły. Ten plik poinformuje platformę Azure, które pakiety pobrać i zainstalować podczas uruchamiania aplikacji. Powinien on przypominać przykład poniżej.
+3. Szybkie sprawdzenie hello **package.json** pliku aplikacji hello powinny być widoczne w hello dodatkowych modułów. Ten plik będzie Poinformuj Azure toodownload pakiety, które i zainstalować podczas uruchamiania aplikacji. Powinien on przypominać przykład Witaj poniżej.
    
         {
           "name": "todo",
@@ -114,14 +114,14 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
    
     W ten sposób węzeł (a potem platforma Azure) otrzyma informacje o tym, że aplikacja zależy od dodatkowych modułów.
 
-## <a name="_Toc395783180"></a>Krok 4. Korzystanie z usługi Azure Cosmos DB w aplikacji Node
-To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do najważniejszej części tego samouczka, czyli napisania kodu za pomocą usługi Azure Cosmos DB.
+## <a name="_Toc395783180"></a>Krok 4: Przy użyciu usługi Azure DB rozwiązania Cosmos hello w aplikacji node
+Która zajmuje się wszystkie hello wstępną instalację i konfigurację, teraz załóżmy get dół toowhy jesteśmy tutaj i jest toowrite niektórych w kodzie za pomocą bazy danych Azure rozwiązania Cosmos.
 
-### <a name="create-the-model"></a>Tworzenie modelu
-1. W katalogu projektu utwórz nowy katalog o nazwie **models** w tym samym katalogu, w którym znajduje się plik package.json.
-2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera model dla zadań tworzonych przez naszą aplikację.
-3. W tym samym katalogu **models** utwórz nowy plik o nazwie **docdbUtils.js**. Ten plik będzie zawierał pewną ilość przydatnego kodu do ponownego wykorzystania, który będzie używany w naszej aplikacji. 
-4. Skopiuj poniższy kod do pliku**docdbUtils.js**
+### <a name="create-hello-model"></a>Tworzenie modelu hello
+1. W katalogu projektu hello, Utwórz nowy katalog o nazwie **modele** hello — w tym samym katalogu co plik package.json hello.
+2. W hello **modele** katalogu, Utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera model hello hello zadań tworzonych przez naszą aplikację.
+3. W hello sam **modele** katalogu, Utwórz nowy plik o nazwie **docdbUtils.js**. Ten plik będzie zawierał pewną ilość przydatnego kodu do ponownego wykorzystania, który będzie używany w naszej aplikacji. 
+4. Kopiuj hello poniższy kod w zbyt**docdbUtils.js**
    
         var DocumentDBClient = require('documentdb').DocumentClient;
    
@@ -189,12 +189,12 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
    
         module.exports = DocDBUtils;
    
-5. Zapisz i zamknij plik **docdbUtils.js**.
-6. Na początku pliku **taskDao.js** dodaj następujący kod, aby odwołać się do elementu **DocumentDBClient** i pliku **docdbUtils.js**, które zostały utworzone powyżej:
+5. Zapisz i zamknij hello **docdbUtils.js** pliku.
+6. Na początku hello hello **taskDao.js** plików, dodawanie hello następującego kodu tooreference hello **DocumentDBClient** i hello **docdbUtils.js** utworzyliśmy powyżej:
    
         var DocumentDBClient = require('documentdb').DocumentClient;
         var docdbUtils = require('./docdbUtils');
-7. Następnie dodasz kod w celu zdefiniowania i wyeksportowania obiektu Task. Jest on odpowiedzialny za inicjowanie obiektu Task oraz konfigurowanie bazy danych i kolekcji dokumentów, które będą używane.
+7. Następnie zostanie Dodaj kod toodefine i wyeksportować hello obiektu zadania. Jest on odpowiedzialny za inicjowanie obiektu Task oraz konfigurowanie hello bazy danych i kolekcji dokumentów, które będą używane.
    
         function TaskDao(documentDBClient, databaseId, collectionId) {
           this.client = documentDBClient;
@@ -206,7 +206,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
         }
    
         module.exports = TaskDao;
-8. Następnie dodaj poniższy kod, aby zdefiniować dodatkowe metody dla obiektu Task umożliwiające interakcje z danymi przechowywanymi w usłudze Azure Cosmos DB.
+8. Następnie dodaj hello następującego kodu toodefine dodatkowe metody dla obiektu zadania hello, umożliwiające interakcje z danych przechowywanych w usłudze Azure DB rozwiązania Cosmos.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -301,11 +301,11 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
                 });
             }
         };
-9. Zapisz i zamknij plik **taskDao.js**. 
+9. Zapisz i zamknij hello **taskDao.js** pliku. 
 
-### <a name="create-the-controller"></a>Tworzenie kontrolera
-1. W katalogu **routes** projektu utwórz nowy plik o nazwie **tasklist.js**. 
-2. Dodaj następujący kod do pliku **tasklist.js**. Służy on do ładowania modułów DocumentDBClient i async, które są używane przez plik **tasklist.js**. Definiuje również funkcję **TaskList**, która przekazuje wystąpienie obiektu **Task** zdefiniowanego wcześniej:
+### <a name="create-hello-controller"></a>Tworzenie kontrolera hello
+1. W hello **tras** katalogu projektu Utwórz nowy plik o nazwie **tasklist.js**. 
+2. Dodaj hello zbyt następującego kodu**tasklist.js**. Spowoduje to załadowanie modułów hello DocumentDBClient i async, które są używane przez **tasklist.js**. To też definiowany hello **TaskList** funkcji, która przekazuje wystąpienie hello **zadań** zdefiniowanego wcześniej:
    
         var DocumentDBClient = require('documentdb').DocumentClient;
         var async = require('async');
@@ -315,7 +315,7 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
         }
    
         module.exports = TaskList;
-3. Kontynuuj dodawanie do pliku **tasklist.js** przez dodanie metod **showTasks, addTask** i **completeTasks**:
+3. Kontynuować dodawanie toohello **tasklist.js** przez dodanie metody hello używane zbyt**showTasks, addTask**, i **completeTasks**:
    
         TaskList.prototype = {
             showTasks: function (req, res) {
@@ -375,38 +375,38 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
                 });
             }
         };
-4. Zapisz i zamknij plik **tasklist.js**.
+4. Zapisz i zamknij hello **tasklist.js** pliku.
 
 ### <a name="add-configjs"></a>Dodawanie pliku config.js
 1. W katalogu projektu utwórz nowy plik o nazwie **config.js**.
-2. Dodaj następujący kod do pliku **config.js**. Służy on do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
+2. Dodaje hello zbyt**config.js**. Służy on do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[hello URI value from hello Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[hello PRIMARY KEY value from hello Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
         module.exports = config;
-3. W pliku **config.js** zaktualizuj wartości kluczy HOST i AUTH_KEY przy użyciu wartości znajdujących się w bloku Klucze Twojego konta usługi Azure Cosmos DB w witrynie [Microsoft Azure Portal](https://portal.azure.com).
-4. Zapisz i zamknij plik **config.js**.
+3. W hello **config.js** plików aktualizacji hello wartości HOST i AUTH_KEY przy użyciu wartości hello znajdujące się w bloku klucze hello konta bazy danych Azure rozwiązania Cosmos na powitania [portalu Microsoft Azure](https://portal.azure.com).
+4. Zapisz i zamknij hello **config.js** pliku.
 
 ### <a name="modify-appjs"></a>Modyfikowanie pliku app.js
-1. W katalogu projektu otwórz plik **app.js**. Ten plik został utworzony wcześniej podczas tworzenia aplikacji sieci Web platformy Express.
-2. Dodaj następujący kod na górze pliku **tasklist.js**.
+1. W katalogu projektu hello, otwórz hello **app.js** pliku. Ten plik został utworzony wcześniej podczas tworzenia aplikacji sieci web Express hello.
+2. Dodaj następującego kodu toohello początku hello **app.js**
    
         var DocumentDBClient = require('documentdb').DocumentClient;
         var config = require('./config');
         var TaskList = require('./routes/tasklist');
         var TaskDao = require('./models/taskDao');
-3. Ten kod definiuje plik konfiguracji, który ma być używany, oraz odczytuje wartości z tego pliku i umieszcza je w pewnych zmiennych, których będziemy wkrótce używać.
-4. Zastąp następujące dwa wiersze w pliku **app.js**:
+3. Ten kod definiuje toobe pliku config hello używane i przechodzi do niektóre zmienne, których będziemy wkrótce używać tooread wartości z tego pliku.
+4. Zastąp następujące dwa wiersze w hello **app.js** pliku:
    
         app.use('/', index);
         app.use('/users', users); 
    
-      następującym fragmentem kodu:
+      z powitania po fragment kodu:
    
         var docDbClient = new DocumentDBClient(config.host, {
             masterKey: config.authKey
@@ -419,14 +419,14 @@ To kończy całą wstępną instalację i konfigurację. Teraz przejdźmy do naj
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. Te wiersze definiują nowe wystąpienie obiektu **TaskDao** z nowym połączeniem z usługą Azure Cosmos DB (przy użyciu wartości odczytanych z pliku **config.js**), inicjują obiekt zadania, a następnie wiążą akcje formularza z metodami w kontrolerze **TaskList**. 
-6. Na koniec zapisz i zamknij plik **app.js**. To już prawie koniec.
+5. Te wiersze definiują nowe wystąpienie klasy naszych **TaskDao** obiektu z nowego tooAzure połączenia DB rozwiązania Cosmos (przy użyciu wartości hello odczytywać hello **config.js**), inicjowanie obiektu task hello i następnie wiążą akcje formularza toomethods na naszych **TaskList** kontrolera. 
+6. Na koniec Zapisz i zamknij hello **app.js** pliku, już prawie koniec.
 
 ## <a name="_Toc395783181"></a>Krok 5. Tworzenie interfejsu użytkownika
-Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł faktycznie wchodzić w interakcję z naszą aplikacją. Utworzona aplikacja Express używa aparatu widoku **Jade**. Więcej informacji na temat aparatu Jade można znaleźć w witrynie [http://jade-lang.com/](http://jade-lang.com/).
+Teraz możemy zacząć naszych interfejsu użytkownika hello toobuilding uwagi, użytkownik może faktycznie wchodzić w interakcję z naszą aplikacją. Witaj używa utworzona aplikacja Express **Jade** jako hello aparatu widoku. Aby uzyskać więcej informacji na temat Jade można znaleźć zbyt[http://jade-lang.com/](http://jade-lang.com/).
 
-1. Plik **layout.jade** w katalogu **views** jest używany jako szablon globalny dla innych plików **jade**. W tym kroku zmodyfikujesz go w celu używania struktury [Twitter Bootstrap](https://github.com/twbs/bootstrap), która jest zestawem narzędzi ułatwiającym projektowanie dobrze wyglądającej witryny sieci Web. 
-2. Otwórz plik **layout.jade** znajdujący się w folderze **views** i zastąp jego zawartość następującym kodem:
+1. Witaj **layout.jade** pliku w hello **widoków** katalog jest używany jako szablon globalny dla innych **jade** plików. W tym kroku zmodyfikujesz go toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), która jest zestawem narzędzi, który umożliwia łatwe toodesign nieuprzywilejowany wyglądającej witryny sieci Web. 
+2. Otwórz hello **layout.jade** w hello można znaleźć pliku **widoków** folderu i Zastąp zawartość hello hello następujący:
 
     ```
     doctype html
@@ -444,11 +444,11 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
         script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
     ```
 
-    Ten kod w praktyce określa, że aparat **Jade** ma renderować kod HTML dla aplikacji, i tworzy **blok** o nazwie **content**, w którym można udostępnić układ dla stron zawartości.
+    Informuje hello **Jade** aparat toorender kod HTML dla aplikacji i tworzy **bloku** o nazwie **zawartości** którym można udostępnić układ hello naszej zawartości strony.
 
     Zapisz i zamknij ten plik **layout.jade**.
 
-3. Teraz otwórz plik **index.jade**, definiujący widok, który będzie używany przez naszą aplikację, i zastąp zawartość pliku następującym kodem:
+3. Teraz Otwórz hello **index.jade** plik, hello widok, który będzie używany przez naszą aplikację i Zastąp zawartość pliku hello hello hello poniżej:
    
         extends layout
         block content
@@ -490,52 +490,52 @@ Teraz skupimy się na tworzeniu interfejsu użytkownika, aby użytkownik mógł 
              button.btn(type="submit") Add item
    
 
-Rozszerza on układ i udostępnia zawartość dla symbolu zastępczego **content**, który wcześniej widzieliśmy w pliku **layout.jade**.
+To rozszerza on układ i udostępnia zawartość dla hello **zawartości** symbolu zastępczego widzieliśmy w hello **layout.jade** wcześniej.
    
 W tym układzie utworzyliśmy dwa formularze HTML.
 
-Pierwszy formularz zawiera tabelę danych i przycisk umożliwiający aktualizowanie elementów przez publikowanie do metody **/completetask** kontrolera.
+Witaj pierwszy formularz zawiera tabelę danych i przycisk umożliwiający wykonywanie elementów tooupdate przez zbyt księgowej**/completetask** metody kontrolera.
     
-Drugi formularz zawiera dwa pola wejściowe i przycisk umożliwiający utworzenie nowego elementu przez publikowanie do metody **/addtask** kontrolera.
+Witaj drugi formularz zawiera dwa pola wejściowe i przycisk umożliwiający wykonywanie toocreate nowy element przez zbyt księgowej**/addtask** metody kontrolera.
 
-To powinno być wszystko, czego potrzebujemy, aby nasza aplikacja działała.
+Powinno to być wszystkie wymagane dla toowork naszej aplikacji.
 
 ## <a name="_Toc395783181"></a>Krok 6. Uruchamianie aplikacji lokalnie
-1. Aby przetestować aplikację na komputerze lokalnym, w terminalu wykonaj polecenie `npm start` w celu uruchomienia aplikacji, a następnie odśwież stronę przeglądarki [http://localhost:3000](http://localhost:3000). Strona powinna teraz wyglądać podobnie jak na poniższym obrazie:
+1. Aplikacja hello tootest na komputerze lokalnym, uruchom `npm start` w hello terminali toostart aplikacji, a następnie Odśwież Twojej [http://localhost: 3000](http://localhost:3000) strona przeglądarki. Strona Hello powinna wyglądać tak jak hello obraz poniżej:
    
-    ![Zrzut ekranu aplikacji MyTodo List w oknie przeglądarki](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
+    ![Zrzut ekranu przedstawiający hello aplikacji MyTodo List w oknie przeglądarki](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
+    > Jeśli zostanie wyświetlony błąd o wcięcie hello w pliku layout.jade hello lub index.jade hello, upewnij się, że hello pierwsze dwa wiersze w obu plików jest wyrównane do lewej, nie może zawierać spacji. Jeśli istnieją spacje przed hello pierwsze dwa wiersze, usuń je, Zapisz oba pliki, a następnie odśwież okno przeglądarki. 
 
-2. Wprowadź nowe zadanie przy użyciu pól Item (Element), Item Name (Nazwa elementu) i Category (Kategoria), a następnie kliknij przycisk **Add Item** (Dodaj element). Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
-3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
+2. Użyj hello elementu, nazwę elementu i kategorii pól tooenter nowego zadania, a następnie kliknij przycisk **Dodaj element**. Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
+3. Strona Hello należy zaktualizować hello toodisplay nowo utworzony element na liście ToDo hello.
    
-    ![Zrzut ekranu aplikacji z nowym elementem na liście ToDo](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
-4. Aby zakończyć zadanie, po prostu zaznacz pole wyboru w kolumnie Complete (Zakończ), a następnie kliknij przycisk **Update tasks** (Aktualizuj zadania). Spowoduje to zaktualizowanie utworzonego już dokumentu.
+    ![Zrzut ekranu aplikacji hello z nowym elementem na liście ToDo hello](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
+4. toocomplete zadania, po prostu zaznacz pole wyboru hello w kolumnie pełną hello, a następnie kliknij **aktualizowanie zadań**. Spowoduje to zaktualizowanie dokumentu hello już utworzone.
 
-5. Aby zatrzymać aplikację, naciśnij klawisze CTRL+C w oknie terminalu, po czym naciśnij klawisz **Y** w celu zakończenia zadania wsadowego.
+5. Aplikacja hello toostop, naciśnij klawisze CTRL + C w hello okno terminalu, a następnie kliknij przycisk **Y** tooterminate hello wsadowym.
 
-## <a name="_Toc395783182"></a>Krok 7. Wdrażanie projektu tworzenia aplikacji w usłudze Azure Websites
-1. Jeśli jeszcze tego nie zrobiono, włącz repozytorium Git dla usługi Azure Websites. Instrukcje, jak to zrobić, można znaleźć w temacie [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) (Lokalne wdrażanie przy użyciu systemu Git w usłudze Azure App Service).
+## <a name="_Toc395783182"></a>Krok 7: Wdrażanie tooAzure projektu Twojej aplikacji projektowanie witryn sieci Web
+1. Jeśli jeszcze tego nie zrobiono, włącz repozytorium Git dla usługi Azure Websites. Instrukcje można znaleźć na temat toodo to w hello [tooAzure lokalnego wdrożenia Git usługi aplikacji](../app-service-web/app-service-deploy-local-git.md) tematu.
 2. Dodaj witrynę sieci Web platformy Azure jako element zdalny narzędzia Git.
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-3. Wdróż przez wypchnięcie do elementu zdalnego.
+3. Wdróż przez wypchnięcie toohello zdalnego.
    
         git push azure master
 4. W ciągu kilku sekund git zakończy publikowanie aplikacji sieci web i uruchomi przeglądarkę, w którym można zobaczyć Twojej handiwork działające na platformie Azure!
 
-    Gratulacje! Udało Ci się utworzyć swoją pierwszą aplikację internetową Node.js Express za pomocą usługi Azure Cosmos DB i opublikować ją w usłudze Azure Websites.
+    Gratulacje! Możesz po prostu utworzone pierwszego Node.js Express aplikacji sieci Web przy użyciu bazy danych Azure rozwiązania Cosmos i opublikować ją tooAzure witryn sieci Web.
 
-    Jeśli chcesz pobrać kompletną aplikację referencyjną dla tego samouczka lub się do niej odwołać, to jest ona dostępna do pobrania w repozytorium [GitHub][GitHub].
+    Toodownload lub toohello kompletnej aplikacji referencyjnej można znaleźć w tym samouczku, można go pobrać z [GitHub][GitHub].
 
 ## <a name="_Toc395637775"></a>Następne kroki
 
-* Czy chcesz wykonać testowanie wydajności i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
-* Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
-* Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
-* Zapoznaj się z [dokumentacją usługi Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
+* Chcesz testowanie z bazy danych Azure rozwiązania Cosmos wydajności i skalowania tooperform? Zobacz [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
+* Dowiedz się, jak za[monitorować konto bazy danych Azure rozwiązania Cosmos](monitor-accounts.md).
+* Uruchom zapytania względem naszego przykładowego zestawu danych w hello [Plac zabaw dla zapytań](https://www.documentdb.com/sql/demo).
+* Eksploruj hello [dokumentacji bazy danych Azure rozwiązania Cosmos](https://docs.microsoft.com/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

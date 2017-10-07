@@ -1,6 +1,6 @@
 ---
-title: "Generowanie zaleceń przy użyciu Mahout i HDInsight (SSH) - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać biblioteki uczenia maszynowego Apache Mahout do generowania zaleceń filmu z usługą HDInsight (Hadoop)."
+title: "zalecenia aaaGenerate przy użyciu Mahout i HDInsight (SSH) - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello Apache Mahout machine learning zaleceń filmu toogenerate biblioteki z usługą HDInsight (Hadoop)."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,52 +16,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: larryfr
-ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fedac9ceb4268f8421bce4623a5ad271041b8b3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generowanie zaleceń filmu przy użyciu Apache Mahout z opartą na systemie Linux platformą Hadoop w HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Dowiedz się, jak używać [Apache Mahout](http://mahout.apache.org) maszyny biblioteki learning z usługą Azure HDInsight w celu generowania zaleceń filmu.
+Dowiedz się, jak toouse hello [Apache Mahout](http://mahout.apache.org) maszyny biblioteki uczenie na podstawie zaleceń filmu toogenerate Azure HDInsight.
 
-Mahout jest [uczenia maszynowego] [ ml] biblioteki dla platformy Apache Hadoop. Mahout zawiera algorytmy przetwarzania danych, takich jak filtrowanie, klasyfikacji i klastrowania. W tym artykule aparat zalecenie służy do generowania zaleceń filmu, oparte na filmów, które miały Twoich znajomych.
+Mahout jest [uczenia maszynowego] [ ml] biblioteki dla platformy Apache Hadoop. Mahout zawiera algorytmy przetwarzania danych, takich jak filtrowanie, klasyfikacji i klastrowania. W tym artykule używamy zaleceń filmu toogenerate aparat zalecenie, oparte na filmów, które miały Twoich znajomych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klaster usługi HDInsight opartej na systemie Linux. Informacje o tworzeniu jedną, zobacz [Rozpoczynanie pracy z opartą na systemie Linux platformą Hadoop w usłudze HDInsight][getstarted].
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
-* Klient SSH. Aby uzyskać więcej informacji, zobacz dokument [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Klient SSH. Aby uzyskać więcej informacji, zobacz hello [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) dokumentu.
 
 ## <a name="mahout-versioning"></a>Przechowywanie wersji mahout
 
-Aby uzyskać więcej informacji na temat wersji Mahout w usłudze HDInsight, zobacz [HDInsight wersje i składniki platformy Hadoop](hdinsight-component-versioning.md).
+Aby uzyskać więcej informacji o wersji hello Mahout w usłudze HDInsight, zobacz [HDInsight wersje i składniki platformy Hadoop](hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Opis zalecenia
 
-Jedną z funkcji, które są udostępniane przez Mahout jest aparatem zalecenia. Ten aparat akceptuje dane w formacie `userID`, `itemId`, i `prefValue` (preferencji elementu). Mahout można wykonywać analizy w celu oznaczenia wystąpienia wspólnej: *użytkowników, którzy mają preferencji elementu również mieć preferencji tych innych elementów*. Mahout określa użytkownikom preferencje podobnych elementów, które mogą być używane zaleceń.
+Jedną z hello funkcje, które są udostępniane przez Mahout jest aparatem zalecenie. Ten aparat akceptuje dane w formacie hello `userID`, `itemId`, i `prefValue` (hello preferencji hello elementu). Mahout można wykonywać wystąpienia wspólnej analizy toodetermine: *użytkowników, którzy mają preferencji elementu również mieć preferencji tych innych elementów*. Mahout określa użytkownikom preferencje podobnych elementów, które mogą być używane toomake zalecenia.
 
-Poniższy przepływ pracy jest uproszczony przykład korzystający z danych film:
+Witaj poniższy przepływ pracy jest uproszczony przykład korzystający z danych film:
 
-* **Wystąpienia wspólnej**: Jan, Alicja i Robert wszystkie zbędne *słów*, *ponownie ataki Empire*, i *powrotu Jedi*. Mahout Określa, że użytkownicy, którzy także, takich jak jeden z tych filmów, takich jak pozostałe dwa.
+* **Wystąpienia wspólnej**: Jan, Alicja i Robert wszystkie zbędne *słów*, *Witaj ponownie ataki Empire*, i *powrotu hello Jedi*. Mahout Określa, że użytkownicy, którzy jak jeden z tych filmy również, takich jak hello pozostałe dwa.
 
-* **Wystąpienia wspólnej**: Robert i Alicja również zbędne *zagrożenie fantom*, *ataku klonów*, i *zemsty Sith*. Mahout Określa, że użytkownicy, którzy także zbędne poprzednie trzy filmów, takich jak te trzy filmów.
+* **Wystąpienia wspólnej**: Robert i Alicja również zbędne *hello zagrożenie fantom*, *atak powitania klony*, i *zemsty hello Sith*. Mahout Określa, że użytkownicy, którzy także zbędne hello poprzednie trzy filmów, takich jak te trzy filmów.
 
-* **Zalecenie podobieństwa**: ponieważ Jan zbędne pierwsze trzy filmów, Mahout analizuje filmy tej osoby z podobne preferencje zbędne, ale Jan nie ma obserwowane (zbędne/klasyfikowane). W takim przypadku zaleca Mahout *zagrożenie fantom*, *ataku klonów*, i *zemsty Sith*.
+* **Zalecenie podobieństwa**: ponieważ Jan zbędne hello pierwsze trzy filmów, Mahout analizuje filmy tej osoby z podobne preferencje zbędne, ale Jan nie ma obserwowane (zbędne/klasyfikowane). W takim przypadku zaleca Mahout *hello zagrożenie fantom*, *atak powitania klony*, i *zemsty hello Sith*.
 
-### <a name="understanding-the-data"></a>Opis danych
+### <a name="understanding-hello-data"></a>Opis hello danych
 
 Wygodnie [GroupLens Research] [ movielens] zapewnia filmów w formacie, który jest zgodny z Mahout klasyfikacji danych. Te dane są dostępne w magazynie domyślne klastra na `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Istnieją dwa pliki `moviedb.txt` i `user-ratings.txt`. Plik ratings.txt użytkownika jest używany podczas analizy, podczas gdy moviedb.txt służy do zapewnienia informacji tekstowych przyjazną dla użytkownika, wyświetlając wyniki analizy.
+Istnieją dwa pliki `moviedb.txt` i `user-ratings.txt`. Plik ratings.txt użytkownika Hello jest używany podczas analizy, podczas moviedb.txt informacje tekstowe przyjazną dla użytkownika tooprovide używane przy wyświetlaniu wyników hello hello analizy.
 
-Dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userRating`, i `timestamp`, który informuje NAS jak bardzo każdego użytkownika oceną filmu. Oto przykładowe dane:
+Witaj dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userRating`, i `timestamp`, który informuje NAS jak bardzo każdego użytkownika oceną filmu. Oto przykład hello danych:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -69,50 +69,50 @@ Dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userR
     244    51    2    880606923
     166    346    1    886397596
 
-## <a name="run-the-analysis"></a>Analiza jest przeprowadzana
+## <a name="run-hello-analysis"></a>Uruchom analizę hello
 
-Z połączenia SSH do klastra użyj następującego polecenia, aby uruchomić zadanie zalecenia:
+Z klastra toohello połączenia SSH należy użyć hello następujące polecenia toorun hello zalecenie zadania:
 
 ```bash
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
 > [!NOTE]
-> Zadanie może potrwać kilka minut, a może uruchomić wielu zadań MapReduce.
+> zadanie Hello może potrwać kilka minut toocomplete i może działać wiele zadań MapReduce.
 
-## <a name="view-the-output"></a>Wyświetl dane wyjściowe
+## <a name="view-hello-output"></a>Dane wyjściowe hello widoku
 
-1. Po zakończeniu zadania, użyj następującego polecenia, aby wyświetlić wygenerowanych danych wyjściowych:
+1. Po zakończeniu zadania hello hello Użyj następującego polecenia tooview hello wygenerowanych danych wyjściowych:
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
-    Dane wyjściowe wygląda następująco:
+    dane wyjściowe Hello wygląda następująco:
 
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-    Pierwsza kolumna `userID`. Wartości zawartych w "[" i "]" są `movieId`:`recommendationScore`.
+    Pierwsza kolumna Hello jest hello `userID`. Witaj wartości zawartych w "[" i "]" są `movieId`:`recommendationScore`.
 
-2. Dane wyjściowe, wraz z moviedb.txt, można użyć o podanie dodatkowych informacji zalecenia. Najpierw należy skopiować pliki lokalnie przy użyciu następujących poleceń:
+2. Więcej informacji można użyć hello dane wyjściowe, wraz z hello moviedb.txt, tooprovide na powitania zalecenia. Najpierw należy toocopy hello plików lokalnie za pomocą następującego polecenia hello:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    To polecenie powoduje skopiowanie danych wyjściowych w pliku o nazwie **recommendations.txt** w bieżącym katalogu, wraz z filmem plików danych.
+    To polecenie kopie hello o nazwie pliku tooa danych wyjściowych **recommendations.txt** w bieżącym katalogu hello wraz z hello filmu danych plików.
 
-3. Użyj następującego polecenia, aby utworzyć skrypt w języku Python, które wyszukuje nazwy filmu danych wyjściowych zalecenia:
+3. Użyj następującego polecenia toocreate skrypt w języku Python, które wyszukuje nazwy filmu danych hello w danych wyjściowych zalecenia hello hello:
 
     ```bash
     nano show_recommendations.py
     ```
 
-    Po otwarciu edytora, użyj następującego tekstu jako zawartość pliku:
+    Po otwarciu edytora hello, użyj następującego tekstu jako hello zawartość pliku hello hello:
 
    ```python
    #!/usr/bin/env python
@@ -166,43 +166,43 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    print "------------------------"
    ```
 
-    Naciśnij klawisz **Ctrl-X**, **Y**, a na końcu **Enter** do zapisania danych.
+    Naciśnij klawisz **Ctrl-X**, **Y**, a na końcu **Enter** toosave hello danych.
 
-4. Uruchom skrypt w języku Python. Polecenie przyjęto założenie, że znajdują się w katalogu, w którym wszystkie pliki zostały pobrane:
+4. Uruchom skrypt w języku Python hello. Witaj następującego polecenia przyjęto założenie, że znajdują się w katalogu hello, gdzie zostały pobrane wszystkie pliki hello:
 
     ```bash
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    To polecenie analizuje zalecenia wygenerowany dla użytkownika 4 identyfikator.
+    To polecenie analizuje zalecenia hello wygenerowany dla użytkownika 4 identyfikator.
 
-    * **Ratings.txt użytkownika** plik jest używany do pobierania filmów, które zostały sklasyfikowane.
+    * Witaj **ratings.txt użytkownika** plik jest używane tooretrieve filmów, które zostały sklasyfikowane.
 
-    * **Moviedb.txt** pliku służy do pobierania nazwy filmów.
+    * Witaj **moviedb.txt** tooretrieve używane hello nazw filmów hello jest plik.
 
-    * **Recommendations.txt** służy do pobierania zaleceń filmu dla tego użytkownika.
+    * Witaj **recommendations.txt** jest używane tooretrieve hello zaleceń filmu dla tego użytkownika.
 
-     Dane wyjściowe tego polecenia jest podobny do następującego tekstu:
+     Witaj danych wyjściowych tego polecenia jest podobne toohello następującego tekstu:
 
-        7 lat w Tibet (1997), wynik = 5.0 Kowalski Indiana i ostatniego Crusade (1989), wynik = 5.0 Jaws (1975), wynik = 5.0 znaczeniu i świadomości (1995), wynik = 5.0 niezależność dzień (ID4) (1996), wynik = 5.0 Moje najlepszy przyjaciel ślubu (1997), wynik = 5.0 Jerry Maguire (1996), wynik = 5.0 Scream 2 (1997), wynik = 5.0 czas Kill, (1996), wynik = 5.0
+        7 lat w Tibet (1997), wynik = 5.0 Kowalski Indiana i hello ostatniego Crusade (1989), wynik = 5.0 Jaws (1975), wynik = 5.0 znaczeniu i świadomości (1995), wynik = 5.0 niezależność dzień (ID4) (1996), wynik = 5.0 Moje najlepszy przyjaciel ślubu (1997), wynik = 5.0 Jerry Maguire (1996 ), wynik = 5.0 Scream 2 (1997), wynik = 5.0 tooKill czasu, (1996), wynik = 5.0
 
 ## <a name="delete-temporary-data"></a>Usuń dane tymczasowe
 
-Mahout zadania nie należy usuwać dane tymczasowe, który jest tworzony podczas przetwarzania zadania. `--tempDir` Parametr jest określony w zadaniu przykład do izolowania plików tymczasowych do określonej ścieżki do łatwego usunięcia. Aby usunąć pliki tymczasowe, użyj następującego polecenia:
+Mahout zadania nie należy usuwać dane tymczasowe, który jest tworzony podczas przetwarzania zadania hello. Witaj `--tempDir` określony parametr w hello przykładowe zadania tooisolate hello tymczasowych plików do określonej ścieżki do łatwego usunięcia. pliki tymczasowe hello tooremove, użyj hello następujące polecenie:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
 > [!WARNING]
-> Ponownie uruchom polecenie, należy również usunąć katalog wyjściowy. Aby usunąć ten katalog, skorzystaj z następujących:
+> Jeśli chcesz ponownie polecenie hello toorun, zostaną również usunięte hello katalogu wyjściowego. Użyj następującego toodelete hello tego katalogu:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy znasz sposobu używania Mahout, odnajdywanie inne sposoby pracy z danymi w usłudze HDInsight:
+Teraz, kiedy znasz już jak toouse Mahout, odnajdywanie inne sposoby pracy z danymi w usłudze HDInsight:
 
 * [Hive z usługą HDInsight](hdinsight-use-hive.md)
 * [Pig z usługą HDInsight](hdinsight-use-pig.md)

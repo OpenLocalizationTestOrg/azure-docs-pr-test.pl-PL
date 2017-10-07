@@ -1,6 +1,6 @@
 ---
-title: "Skonfiguruj klasycznego środowiska PowerShell odciążania — brama usługi aplikacji Azure — SSL | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera instrukcje, aby utworzyć bramę aplikacji przy użyciu protokołu SSL Odciążanie przy użyciu modelu klasycznego wdrożenia usługi Azure."
+title: "aaaConfigure SSL odciążania klasycznego środowiska PowerShell — brama usługi aplikacji Azure — | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera instrukcje toocreate bramę aplikacji przy użyciu protokołu SSL Odciążanie przy użyciu hello Azure klasycznego modelu wdrażania."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: 2eba6fb24c11add12ac16d04d3445e19a3486216
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5cb128015747ed4b71802cf751c80b60634601a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu klasycznego modelu wdrażania
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-hello-classic-deployment-model"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu hello klasycznego modelu wdrażania
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](application-gateway-ssl-portal.md)
@@ -28,34 +28,34 @@ ms.lasthandoff: 08/18/2017
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-ssl.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl-cli.md)
 
-Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web. Odciążanie protokołu SSL upraszcza również konfigurowanie serwerów frontonu i zarządzanie aplikacją sieci Web.
+Brama aplikacji w Azure może być sesji protokołu Secure Sockets Layer (SSL) hello tooterminate skonfigurowanych na powitania bramy tooavoid kosztowne SSL odszyfrowywania zadania toohappen na powitania kolektywu serwerów sieci web. Odciążanie protokołu SSL także upraszcza powitania serwera frontonu Konfiguracja i zarządzanie hello aplikacji sieci web.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web. Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).
-2. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze. Brama aplikacji musi znajdować się w podsieci sieci wirtualnej.
-3. Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.
+1. Zainstaluj najnowszą wersję hello hello Azure poleceń cmdlet programu PowerShell, za pomocą hello Instalatora platformy sieci Web. Można pobrać i zainstalować najnowszą wersję hello z hello **programu Windows PowerShell** sekcji hello [pliki do pobrania](https://azure.microsoft.com/downloads/).
+2. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że nie maszyny wirtualne lub wdrożenia chmury z hello podsieci. Brama aplikacji Hello należy samodzielnie w podsieci sieci wirtualnej.
+3. Skonfigurowanie bramy aplikacji hello toouse serwerów Hello musi istnieć lub mieć przypisane ich punkty końcowe utworzone w sieci wirtualnej hello lub z publicznego adresu IP/VIP.
 
-Aby skonfigurować bramę aplikacji odciążanie protokołu SSL, wykonaj następujące kroki w podanej kolejności:
+tooconfigure SSL odciążenia na bramę aplikacji, hello następujące kroki w podanej kolejności hello:
 
 1. [Tworzenie bramy aplikacji](#create-an-application-gateway)
 2. [Przekaż certyfikaty SSL](#upload-ssl-certificates)
-3. [Konfigurowanie bramy](#configure-the-gateway)
-4. [Ustaw konfigurację bramy](#set-the-gateway-configuration)
-5. [Uruchom bramę](#start-the-gateway)
-6. [Sprawdź stan bramy](#verify-the-gateway-status)
+3. [Konfigurowanie bramy hello](#configure-the-gateway)
+4. [Konfiguracja bramy hello zestawu](#set-the-gateway-configuration)
+5. [Uruchom hello bramy](#start-the-gateway)
+6. [Sprawdź stan bramy hello](#verify-the-gateway-status)
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-Aby utworzyć bramę, użyj polecenia cmdlet `New-AzureApplicationGateway`, zastępując wartości własnymi. Opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
+toocreate hello bramy, użyj hello `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości hello własne. Karta hello bramy nie rozpoczyna się w tym momencie. Karta rozpoczyna się od w kolejnym kroku hello bramy została pomyślnie uruchomiona.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`.
+toovalidate, który hello bramy został utworzony, można użyć hello `Get-AzureApplicationGateway` polecenia cmdlet.
 
-W przykładzie *opis*, *InstanceCount*, i *GatewaySize* są opcjonalnymi parametrami. Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium (Średnia). Małe i duże są inne dostępne wartości. Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Te wartości są tworzone, gdy brama jest w stanie uruchomienia.
+W przykładowym hello *opis*, *InstanceCount*, i *GatewaySize* są opcjonalnymi parametrami. Witaj wartości domyślnej dla *InstanceCount* 2, maksymalna wartość 10. Witaj wartości domyślnej dla *GatewaySize* to średni. Małe i duże są inne dostępne wartości. *VirtualIPs* i *DnsName* są wyświetlane jako puste, ponieważ brama hello nie została jeszcze uruchomiona. Te wartości są tworzone po hello brama jest w hello stanu działania.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -63,17 +63,17 @@ Get-AzureApplicationGateway AppGwTest
 
 ## <a name="upload-ssl-certificates"></a>Przekaż certyfikaty SSL
 
-Użyj `Add-AzureApplicationGatewaySslCertificate` można przekazać certyfikatu serwera w *pfx* format na bramie aplikacji. Nazwa certyfikatu jest nazwą wybranych przez użytkownika i muszą być unikatowe w ramach bramy aplikacji. Ten certyfikat jest określane o tej nazwie we wszystkich operacjach zarządzania certyfikatu dla bramy aplikacji.
+Użyj `Add-AzureApplicationGatewaySslCertificate` certyfikatu serwera hello tooupload w *pfx* brama aplikacji w formacie toohello. Nazwa certyfikatu Hello jest nazwą wybranych przez użytkownika i muszą być unikatowe w ramach bramy aplikacji hello. Ten certyfikat jest określony tooby tej nazwy we wszystkich operacjach zarządzania certyfikatu dla bramy aplikacji hello.
 
-To w poniższym przykładzie przedstawiono polecenie cmdlet, Zastąp wartości w próbce własnymi.
+Ta poniższy przykład przedstawia hello polecenia cmdlet, Zamień hello wartości w próbce hello własne.
 
 ```powershell
-Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path toopfx file>
 ```
 
-Następnie sprawdź poprawność przekazywanie certyfikatu. Użyj `Get-AzureApplicationGatewayCertificate` polecenia cmdlet.
+Następnie sprawdź poprawność hello przekazywanie certyfikatu. Użyj hello `Get-AzureApplicationGatewayCertificate` polecenia cmdlet.
 
-Przykład obejmuje polecenia cmdlet w pierwszym wierszu, to po danych wyjściowych.
+To przykładowe przedstawiono polecenie cmdlet hello na powitania pierwszy wiersz, następuje hello danych wyjściowych.
 
 ```powershell
 Get-AzureApplicationGatewaySslCertificate AppGwTest
@@ -90,28 +90,28 @@ State..........: Provisioned
 ```
 
 > [!NOTE]
-> Hasło certyfikatu musi należeć do przedziału od 4 do 12 znaków, liter i cyfr. Znaki specjalne nie są akceptowane.
+> Hasło certyfikatu Hello ma toobe między 4 znaki too12, liter i cyfr. Znaki specjalne nie są akceptowane.
 
-## <a name="configure-the-gateway"></a>Konfigurowanie bramy
+## <a name="configure-hello-gateway"></a>Konfigurowanie bramy hello
 
-Konfiguracja bramy aplikacji składa się z wielu wartości. Wartości mogą być powiązane ze sobą w celu utworzenia konfiguracji.
+Konfiguracja bramy aplikacji składa się z wielu wartości. mogą być związane Hello wartości konfiguracji hello tooconstruct razem.
 
-Potrzebne wartości:
+Witaj wartości są następujące:
 
-* **Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza. Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.
-* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
-* **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
-* **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
-* **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika. Obecnie jest obsługiwana tylko reguła *podstawowa*. Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.
+* **Pula serwerów zaplecza:** hello listę adresów IP serwerów wewnętrznych hello. wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieć sieci wirtualnej lub powinny być publicznego adresu IP/VIP.
+* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.
+* **Port frontonu:** ten port jest port publiczny hello, która jest otwarta w bramie aplikacji hello. Ruch trafienia tego portu, a następnie pobiera przekierowanie tooone serwerami zaplecza hello.
+* **Odbiornik:** odbiornika hello ma port frontonu, protokół (Http lub Https, te wartości jest rozróżniana wielkość liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).
+* **Reguła:** reguła hello wiąże odbiornika hello i hello puli serwerów zaplecza i określa, jaki ruch hello puli serwera zaplecza ukierunkowanej toowhen trafienia w szczególności odbiornika. Obecnie tylko hello *podstawowe* reguła jest obsługiwana. Witaj *podstawowe* reguła jest rozkład obciążenia okrężnego.
 
 **Uwagi dotyczące konfiguracji dodatkowych**
 
-W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). **SslCert** element zostanie dodany do **HttpListener** o wartości do tej samej nazwie w przekazywania poprzedzających SSL certyfikaty sekcji. Port frontonu należy zaktualizować do 443.
+Do konfigurowania certyfikatów SSL, hello protokół **HttpListener** należy zmienić zbyt*Https* (z uwzględnieniem wielkości liter). Witaj **SslCert** zbyt dodany element**HttpListener** z hello wartość toohello takie same nazwy w powyższej sekcji certyfikaty SSL przekazywania hello. port frontonu Hello powinien być zaktualizowany too443.
 
-**Aby włączyć koligację opartą na plikach cookie**: bramę aplikacji można skonfigurować tak, aby żądanie z sesji klienta było zawsze kierowane do tej samej maszyny wirtualnej w kolektywie serwerów sieci Web. W tym scenariuszu należy wstrzyknąć plik cookie sesji, który umożliwi bramie prawidłowe kierowanie ruchu. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
+**koligacji na podstawie plików cookie tooenable**: bramy aplikacji może być skonfigurowany tooensure żądania z sesji klienta jest zawsze ukierunkowanej toohello tej samej maszyny Wirtualnej w hello kolektywu serwerów sieci web. W tym scenariuszu odbywa się przez uruchomienie pliku cookie sesji, umożliwiającą hello bramy toodirect ruch odpowiednio. Ustaw koligacji na podstawie plików cookie tooenable **CookieBasedAffinity** za*włączone* w hello **elementu BackendHttpSettings** elementu.
 
 Można utworzyć konfiguracji poprzez utworzenie obiektu konfiguracji lub przy użyciu pliku XML konfiguracji.
-Aby utworzyć konfigurację za pomocą pliku XML konfiguracji, skorzystaj z poniższego przykładu:
+Użyj konfiguracji przy użyciu pliku XML konfiguracji tooconstruct hello następujący przykład:
 
 **Przykładowy plik XML konfiguracji**
 
@@ -162,20 +162,20 @@ Aby utworzyć konfigurację za pomocą pliku XML konfiguracji, skorzystaj z poni
 </ApplicationGatewayConfiguration>
 ```
 
-## <a name="set-the-gateway-configuration"></a>Ustaw konfigurację bramy
+## <a name="set-hello-gateway-configuration"></a>Konfiguracja bramy hello zestawu
 
-Następnie należy ustawić bramy aplikacji. Można użyć `Set-AzureApplicationGatewayConfig` polecenia cmdlet bez obiekt konfiguracji lub z pliku XML konfiguracji.
+Następnie należy ustawić bramę aplikacji hello. Można użyć hello `Set-AzureApplicationGatewayConfig` polecenia cmdlet bez obiekt konfiguracji lub z pliku XML konfiguracji.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
-## <a name="start-the-gateway"></a>Uruchamianie bramy
+## <a name="start-hello-gateway"></a>Uruchom hello bramy
 
-Po skonfigurowaniu bramy użyj polecenia cmdlet `Start-AzureApplicationGateway`, aby uruchomić bramę. Naliczanie opłat za bramę aplikacji rozpocznie się po pomyślnym uruchomieniu bramy.
+Po skonfigurowaniu bramy hello Użyj hello `Start-AzureApplicationGateway` bramy hello toostart polecenia cmdlet. Rozliczeń dla bramy aplikacji rozpocznie się po pomyślnym uruchomieniu hello bramy.
 
 > [!NOTE]
-> Wykonanie polecenia cmdlet `Start-AzureApplicationGateway` może zająć do 15–20 minut.
+> Witaj `Start-AzureApplicationGateway` polecenie cmdlet może potrwać toofinish too15 20 minut.
 >
 >
 
@@ -183,11 +183,11 @@ Po skonfigurowaniu bramy użyj polecenia cmdlet `Start-AzureApplicationGateway`,
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-the-gateway-status"></a>Sprawdzanie stanu bramy
+## <a name="verify-hello-gateway-status"></a>Sprawdź stan bramy hello
 
-Użyj polecenia cmdlet `Get-AzureApplicationGateway`, aby sprawdzić stan bramy. Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku, *stanu* powinna być uruchomiona, i *VirtualIPs* i *DnsName* powinny mieć prawidłowe wpisy.
+Użyj hello `Get-AzureApplicationGateway` polecenia cmdlet toocheck hello stan hello bramy. Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku hello *stanu* powinna być uruchomiona, i *VirtualIPs* i *DnsName* powinny mieć prawidłowe wpisy.
 
-W tym przykładzie pokazano bramę aplikacji, który, uruchomione i jest gotowa do sporządzenia ruchu.
+W tym przykładzie pokazano bramę aplikacji, który, uruchomione i jest gotowy tootake ruchu.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest

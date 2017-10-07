@@ -1,6 +1,6 @@
 ---
-title: "Rozmiary maszyny Wirtualnej systemu Windows Azure - pamięci | Dokumentacja firmy Microsoft"
-description: "Wyświetla listę rozmiarów różnych zoptymalizowanych pod kątem pamięci dostępnej dla maszyn wirtualnych systemu Windows na platformie Azure."
+title: "rozmiary maszyn wirtualnych Azure - pamięci aaaWindows | Dokumentacja firmy Microsoft"
+description: "Pamięć inną hello list zoptymalizowana dostępne dla maszyn wirtualnych systemu Windows Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: c282a314a057541852f0c94930bb656232960341
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4a27d464bc6261a1d368666441533373a38d2258
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="memory-optimized"></a>Optymalizacja pod kątem pamięci
 

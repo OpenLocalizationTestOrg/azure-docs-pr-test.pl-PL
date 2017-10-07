@@ -1,6 +1,6 @@
 ---
-title: "Komunikaty chmury do urządzenia z Centrum IoT Azure (Java) | Dokumentacja firmy Microsoft"
-description: "Jak wysyłać wiadomości chmury do urządzenia na urządzeniu z Centrum Azure IoT przy użyciu zestawów SDK IoT Azure dla języka Java. Możesz zmodyfikować aplikację symulowane urządzenie, aby odbierać komunikaty z chmury do urządzenia i modyfikowania aplikacji zaplecza, do wysyłania wiadomości chmury do urządzenia."
+title: "komunikaty aaaCloud do urządzenia z Centrum IoT Azure (Java) | Dokumentacja firmy Microsoft"
+description: "Jak chmury urządzenia toosend komunikatów tooa urządzenia z Centrum Azure IoT przy użyciu hello Azure IoT SDK dla języka Java. Modyfikowanie komunikatów chmury do urządzenia symulowane urządzenie aplikacji tooreceive i modyfikowanie aplikacji zaplecza toosend hello chmury do urządzenia komunikatów."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: f5e3ac46f4d144b12e2ab7fcfb456665ff6cc68f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8721f18428c849ed9a04aa2e45c65605c3e38101
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Wysyłanie komunikatów chmury do urządzenia z Centrum IoT (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Centrum IoT Azure jest w pełni zarządzaną usługę, która umożliwia włączanie i niezawodności komunikację dwukierunkową między milionów urządzeń i zaplecze rozwiązania. [Rozpoczynanie pracy z Centrum IoT] samouczek przedstawia sposób tworzenia Centrum IoT, udostępnić tożsamość urządzenia w nim i kodem aplikacji symulowane urządzenie, który wysyła wiadomości urządzenia do chmury.
+Centrum IoT Azure jest w pełni zarządzaną usługę, która umożliwia włączanie i niezawodności komunikację dwukierunkową między milionów urządzeń i zaplecze rozwiązania. Witaj [Rozpoczynanie pracy z Centrum IoT] samouczek pokazuje, jak udostępnić tożsamość urządzenia w nim toocreate Centrum IoT i kodu aplikacji symulowane urządzenie, który wysyła wiadomości urządzenia do chmury.
 
 W tym samouczku opiera się na [Rozpoczynanie pracy z Centrum IoT]. Jak przedstawiono na:
 
-* Z sieci zaplecza rozwiązania wysyłać chmury do urządzenia do jednego urządzenia za pośrednictwem Centrum IoT.
+* Z z zaplecza rozwiązania należy wysłać pojedyncze urządzenie tooa wiadomości chmury do urządzenia za pośrednictwem Centrum IoT.
 * Komunikaty chmury do urządzenia na urządzeniu.
-* Z sieci zaplecza rozwiązania, żądania potwierdzenia dostarczenia (*opinii*) dla wiadomości wysyłanych do urządzenia z Centrum IoT.
+* Z sieci zaplecza rozwiązania, żądania potwierdzenia dostarczenia (*opinii*) dla wiadomości wysyłane tooa urządzenie z Centrum IoT.
 
-Można znaleźć więcej informacji na temat wiadomości chmury do urządzenia w [Centrum IoT — przewodnik dewelopera][IoT Hub developer guide - C2D].
+Więcej informacji na temat wiadomości chmury do urządzenia można znaleźć w hello [Centrum IoT — przewodnik dewelopera][IoT Hub developer guide - C2D].
 
-Na końcu tego samouczka możesz uruchomić dwie aplikacje konsoli Java:
+Na końcu hello tego samouczka możesz uruchomić dwie aplikacje konsoli Java:
 
-* **Symulowane urządzenie**, zmodyfikowanej wersji aplikacji utworzonych w [Rozpoczynanie pracy z Centrum IoT], która łączy się z Centrum IoT i odbiera komunikaty chmury do urządzenia.
-* **send — c2d — liczba komunikatów**, który wysyła komunikat chmury do urządzenia do aplikacji symulowane urządzenie za pomocą Centrum IoT i następnie odbiera jego potwierdzenie dostarczenia.
+* **Symulowane urządzenie**, zmodyfikowanej wersji aplikacji hello utworzone w [Rozpoczynanie pracy z Centrum IoT], która łączy się z Centrum IoT tooyour i odbiera komunikaty chmury do urządzenia.
+* **send — c2d — liczba komunikatów**, który wysyła aplikacji symulowane urządzenie toohello komunikat chmury do urządzenia, za pośrednictwem Centrum IoT i następnie odbiera jego potwierdzenia dostarczenia.
 
 > [!NOTE]
-> Centrum IoT obsługuje zestawu SDK dla wielu platform urządzeń i języków (w tym C, Java i Javascript) za pośrednictwem zestawy SDK urządzenia Azure IoT. Aby uzyskać instrukcje krok po kroku dotyczące sposobu Podłącz urządzenie do kodu w tym samouczku i zwykle z Centrum IoT Azure, zobacz [Azure IoT Developer Center].
+> Centrum IoT obsługuje zestawu SDK dla wielu platform urządzeń i języków (w tym C, Java i Javascript) za pośrednictwem zestawy SDK urządzenia Azure IoT. Instrukcje krok po kroku dotyczące tooconnect samouczek toothis urządzenia kodu i zazwyczaj tooAzure Centrum IoT, zobacz temat hello [Azure IoT Developer Center].
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka należy hello następujące:
 
-* Pełną wersję pracy [Rozpoczynanie pracy z Centrum IoT](iot-hub-java-java-getstarted.md) lub [wiadomości urządzenia do chmury Centrum IoT procesu](iot-hub-java-java-process-d2c.md) samouczka.
-* Najnowszy zestaw [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Pełną wersję pracy hello [Rozpoczynanie pracy z Centrum IoT](iot-hub-java-java-getstarted.md) lub [wiadomości urządzenia do chmury Centrum IoT procesu](iot-hub-java-java-process-d2c.md) samouczka.
+* Witaj najnowszych [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Aktywne konto platformy Azure. (Jeśli go nie masz, możesz utworzyć [bezpłatne konto próbne][lnk-free-trial] w zaledwie kilka minut).
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Odbieranie komunikatów w aplikacji symulowane urządzenie
+## <a name="receive-messages-in-hello-simulated-device-app"></a>Odbieranie komunikatów w aplikacji symulowane urządzenie hello
 
-W tej sekcji możesz zmodyfikować aplikację symulowane urządzenie, utworzony w [Rozpoczynanie pracy z Centrum IoT] odbierać komunikaty z chmury do urządzenia z Centrum IoT.
+W tej sekcji możesz zmodyfikować aplikację symulowane urządzenie hello utworzony w [Rozpoczynanie pracy z Centrum IoT] tooreceive komunikaty chmury do urządzenia z Centrum IoT hello.
 
-1. Za pomocą edytora tekstów otwórz plik simulated-device\src\main\java\com\mycompany\app\App.java.
+1. Za pomocą edytora tekstu, otwórz plik simulated-device\src\main\java\com\mycompany\app\App.java hello.
 
-2. Dodaj następujące **MessageCallback** jak zagnieżdżone klasa wewnątrz **aplikacji** klasy. **Wykonania** metoda jest wywoływana, gdy urządzenie otrzyma wiadomość z Centrum IoT. W tym przykładzie urządzenie zawsze powiadamia o Centrum IoT o zakończeniu komunikat:
+2. Dodaj następujące hello **MessageCallback** jak zagnieżdżone klasa wewnątrz hello **aplikacji** klasy. Witaj **wykonania** metoda jest wywoływana, gdy urządzenie hello otrzyma komunikat z Centrum IoT. W tym przykładzie urządzenia hello zawsze powiadamia o Centrum IoT hello o zakończeniu wiadomość hello:
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -66,7 +66,7 @@ W tej sekcji możesz zmodyfikować aplikację symulowane urządzenie, utworzony 
       }
     }
     ```
-3. Modyfikowanie **głównego** metodę w celu utworzenia **AppMessageCallback** wystąpienia i wywołanie **setMessageCallback** metoda przed jego otwarciem klienta w następujący sposób:
+3. Modyfikowanie hello **głównego** toocreate — metoda **AppMessageCallback** hello wystąpienia i wywołanie **setMessageCallback** metoda przed jego otwarciem powitania klienta w następujący sposób:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -77,9 +77,9 @@ W tej sekcji możesz zmodyfikować aplikację symulowane urządzenie, utworzony 
     ```
 
     > [!NOTE]
-    > Jeśli używasz protokołu HTTP zamiast MQTT lub AMQP do transportu **DeviceClient** wystąpienia sprawdza, czy komunikaty z Centrum IoT rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji na temat różnic między MQTT, AMQP i HTTP pomocy technicznej i ograniczania Centrum IoT, zobacz [Centrum IoT — przewodnik dewelopera][IoT Hub developer guide - C2D].
+    > Witaj w przypadku wybrania protokołu HTTP zamiast MQTT lub AMQP jako transportu hello **DeviceClient** wystąpienia sprawdza, czy komunikaty z Centrum IoT rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji o różnicach hello MQTT, AMQP i HTTP pomocy technicznej i ograniczania Centrum IoT, zobacz hello [Centrum IoT — przewodnik dewelopera][IoT Hub developer guide - C2D].
 
-4. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
+4. Witaj toobuild **symulowane urządzenie** aplikacji za pomocą programu Maven, wykonaj następujące polecenie w wierszu polecenia hello w folderze symulowane urządzenie hello hello:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -87,17 +87,17 @@ W tej sekcji możesz zmodyfikować aplikację symulowane urządzenie, utworzony 
 
 ## <a name="send-a-cloud-to-device-message"></a>Wyślij wiadomość chmury do urządzenia
 
-W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikaty chmury do urządzenia do aplikacji symulowane urządzenie. Potrzebny jest identyfikator urządzenia urządzenia dodane w [Rozpoczynanie pracy z Centrum IoT] samouczka. Należy również parametry połączenia Centrum IoT, który znajduje się w Centrum [portalu Azure].
+W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikaty chmury do urządzenia toohello symulowane urządzenie aplikacji. Należy hello identyfikator urządzenia urządzenia hello dodane w hello [Rozpoczynanie pracy z Centrum IoT] samouczka. Centrum, które można znaleźć w hello muszą zostać hello parametry połączenia Centrum IoT [portalu Azure].
 
-1. Utwórz projekt Maven o nazwie **wysyłania — c2d — liczba komunikatów** za pomocą następującego polecenia z wiersza polecenia. Należy zauważyć, że to polecenie jest pojedynczą, długie polecenie:
+1. Utwórz projekt Maven o nazwie **wysyłania — c2d — liczba komunikatów** przy użyciu hello następujące polecenie z wiersza polecenia. Należy zauważyć, że to polecenie jest pojedynczą, długie polecenie:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. Wierszu polecenia przejdź do nowego folderu wysyłania — c2d — liczba komunikatów.
+2. Wierszu polecenia przejdź toohello nowy folder wysyłania — c2d — liczba komunikatów.
 
-3. Za pomocą edytora tekstu, otwórz plik pom.xml w folderze wysyłania — c2d — liczba komunikatów i dodaj następujące zależności do **zależności** węzła. Dodawanie zależności pozwala na użycie **Centrum iothub-java--klient usługi** pakietu aplikacji do komunikowania się z usługą Centrum IoT:
+3. Za pomocą edytora tekstu, otwórz plik pom.xml hello w folderze wysyłać c2d-wiadomości powitania i dodaj następujące zależności toohello hello **zależności** węzła. Dodawanie zależności hello umożliwia toouse hello **Centrum iothub-java--klient usługi** pakiet w Twojej toocommunicate aplikacji z usługą Centrum IoT:
 
     ```xml
     <dependency>
@@ -108,13 +108,13 @@ W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikat
     ```
 
     > [!NOTE]
-    > Możesz sprawdzić dostępność najnowszej wersji pakietu **iot-service-client** za pomocą [funkcji wyszukiwania narzędzia Maven][lnk-maven-service-search].
+    > Możesz sprawdzić hello najnowszą wersję **klienta w przypadku usługi iot** przy użyciu [wyszukiwania Maven][lnk-maven-service-search].
 
-4. Zapisz i zamknij plik pom.xml.
+4. Zapisz i zamknij plik pom.xml hello.
 
-5. Za pomocą edytora tekstu, otwórz plik send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+5. Za pomocą edytora tekstu, otwórz plik send-c2d-messages\src\main\java\com\mycompany\app\App.java hello.
 
-6. Dodaj do pliku następujące instrukcje **importowania**:
+6. Dodaj następujące hello **zaimportować** instrukcje toohello pliku:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.*;
@@ -122,7 +122,7 @@ W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikat
     import java.net.URISyntaxException;
     ```
 
-7. Dodaj następujące zmienne poziomie klasy do **aplikacji** klasy, zastępując **{yourhubconnectionstring}** i **{yourdeviceid}** z wartościami z dostrzeżone wcześniej:
+7. Dodaj następujące zmienne klasy toohello hello **aplikacji** klasy, zastępując **{yourhubconnectionstring}** i **{yourdeviceid}** hello wartości z dostrzeżone wcześniej:
 
     ```java
     private static final String connectionString = "{yourhubconnectionstring}";
@@ -130,7 +130,7 @@ W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikat
     private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
 
-8. Zastąp **głównego** metodę z następującym kodem. Ten kod łączy się z Centrum IoT, wysyła komunikat do Twojego urządzenia i czeka na potwierdzenie, że urządzenie odbierany i przetwarzany komunikat:
+8. Zastąp hello **głównego** metody z hello następującego kodu. Ten kod łączy z Centrum IoT tooyour, wysyła komunikat tooyour urządzenia i czeka na potwierdzenie tę wiadomość hello odebrane i przetwarzanie urządzenia hello:
    
     ```java
     public static void main(String[] args) throws IOException,
@@ -144,11 +144,11 @@ W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikat
           .getFeedbackReceiver();
         if (feedbackReceiver != null) feedbackReceiver.open();
    
-        Message messageToSend = new Message("Cloud to device message.");
+        Message messageToSend = new Message("Cloud toodevice message.");
         messageToSend.setDeliveryAcknowledgement(DeliveryAcknowledgement.Full);
    
         serviceClient.send(deviceId, messageToSend);
-        System.out.println("Message sent to device");
+        System.out.println("Message sent toodevice");
    
         FeedbackBatch feedbackBatch = feedbackReceiver.receive(10000);
         if (feedbackBatch != null) {
@@ -163,42 +163,42 @@ W tej sekcji utworzysz aplikację konsoli języka Java, która wysyła komunikat
     ```
 
     > [!NOTE]
-    > Sake na prostotę w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania (na przykład wykładniczego wycofywania), zgodnie z sugestią podaną w artykuł w witrynie MSDN [obsługi błędów przejściowych].
+    > Sake na prostotę w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania (na przykład wykładniczego wycofywania), zgodnie z sugestią podaną w artykuł w witrynie MSDN hello [obsługi błędów przejściowych].
 
 
-9. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
+9. Witaj toobuild **symulowane urządzenie** aplikacji za pomocą programu Maven, wykonaj następujące polecenie w wierszu polecenia hello w folderze symulowane urządzenie hello hello:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>Uruchamianie aplikacji
+## <a name="run-hello-applications"></a>Uruchamianie aplikacji hello
 
-Teraz można uruchomić aplikacje.
+Wszystko jest teraz gotowy toorun hello aplikacji.
 
-1. W wierszu polecenia w folderze symulowane urządzenie uruchom następujące polecenie, aby rozpocząć wysyłanie danych telemetrycznych do Centrum IoT i nasłuchiwać komunikatów chmury do urządzenia wysyłane z Centrum:
+1. W wierszu polecenia w folderze symulowane urządzenie hello Uruchom powitania po toobegin polecenie wysyłania danych telemetrycznych tooyour IoT hub i toolisten komunikatów chmury do urządzenia wysyłane z Centrum:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![Uruchamianie aplikacji symulowane urządzenie][img-simulated-device]
+    ![Uruchamianie aplikacji symulowane urządzenie hello][img-simulated-device]
 
-2. W wierszu polecenia w folderze wysyłania — c2d — liczba komunikatów uruchom następujące polecenie, aby wysłać wiadomość chmury do urządzenia i czeka na potwierdzenie opinii:
+2. W wierszu polecenia w folderze wysyłać c2d-wiadomości powitania uruchom następujące polecenie toosend hello komunikatu chmura urządzenie i oczekiwania na potwierdzenie opinii:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Uruchom polecenie, aby wysłać wiadomość chmury do urządzenia][img-send-command]
+    ![Uruchom wiadomość hello polecenia toosend powitania chmury do urządzenia][img-send-command]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób wysyłania i odbierania wiadomości chmury do urządzenia. 
+W tym samouczku można przedstawiono sposób toosend i odbierania wiadomości chmury do urządzenia. 
 
-Aby zapoznać się przykładem kompletnych rozwiązań end-to-end korzystających z Centrum IoT, zobacz [pakiet IoT Azure].
+Przykłady toosee kompletnych rozwiązań end-to-end korzystających z Centrum IoT, zobacz [pakiet IoT Azure].
 
-Aby dowiedzieć się więcej na temat tworzenia rozwiązań z Centrum IoT, zobacz [Centrum IoT — przewodnik dewelopera].
+toolearn więcej informacji na temat tworzenia rozwiązań z Centrum IoT, zobacz hello [Centrum IoT — przewodnik dewelopera].
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png

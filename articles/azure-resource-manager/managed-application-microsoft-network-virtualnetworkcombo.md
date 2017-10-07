@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji VirtualNetworkCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Network.VirtualNetworkCombo interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji VirtualNetworkCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Network.VirtualNetworkCombo interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 8bb255b76ac5c3de570fa569a1cfb3ee953f9687
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b0fa5360d93306f7a814723f77e42540bdaaa9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Element Microsoft.Network.VirtualNetworkCombo interfejsu użytkownika
 Grupa służy do wybierania nowej lub istniejącej sieci wirtualnej. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
@@ -25,8 +25,8 @@ Grupa służy do wybierania nowej lub istniejącej sieci wirtualnej. Użyj tego 
 ## <a name="ui-sample"></a>Przykład interfejsu użytkownika
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
 
-- Szkielet top użytkownik pobrał nowej sieci wirtualnej, więc użytkownik może dostosować prefiks nazwy i adresu każdej podsieci. W takim przypadku Konfigurowanie podsieci jest opcjonalne.
-- Szkielet dolnej użytkownik pobrał istniejącej sieci wirtualnej, więc użytkownik musi być zamapowany każdej podsieci, wymagane przez szablon wdrożenia na istniejącą podsieć. W takim przypadku Konfigurowanie podsieci jest wymagana.
+- W górnym szkielet hello hello użytkownika pobrał nowej sieci wirtualnej, więc hello użytkownik może dostosować prefiks nazwy i adresu każdej podsieci. W takim przypadku Konfigurowanie podsieci jest opcjonalne.
+- W szkielet dolnej hello hello użytkownik pobrał istniejącej sieci wirtualnej, więc hello użytkownika musi być zamapowany każdego szablonu wdrożenia hello podsieci wymaga tooan istniejącą podsieć. W takim przypadku Konfigurowanie podsieci jest wymagana.
 
 ## <a name="schema"></a>Schemat
 ```json
@@ -82,15 +82,15 @@ Grupa służy do wybierania nowej lub istniejącej sieci wirtualnej. Użyj tego 
 ```
 
 ## <a name="remarks"></a>Uwagi
-- Jeśli jest określony, pierwszy nienakładający adres prefiks rozmiar `defaultValue.addressPrefixSize` jest określane automatycznie w oparciu o istniejących sieci wirtualnych w subskrypcji użytkownika.
-- Wartość domyślna dla `defaultValue.name` i `defaultValue.addressPrefixSize` jest **null**.
-- `constraints.minAddressPrefixSize`musi być określona. Istniejących sieci wirtualnych się na przestrzeń adresową mniejszą niż określona wartość są niedostępne do wybrania.
+- Jeśli zostanie określona, hello pierwszy nienakładający prefiksu adresu rozmiar `defaultValue.addressPrefixSize` jest określane automatycznie w oparciu o istniejących sieci wirtualnych w subskrypcji hello użytkownika.
+- Witaj wartości domyślnej dla `defaultValue.name` i `defaultValue.addressPrefixSize` jest **null**.
+- `constraints.minAddressPrefixSize`musi być określona. Wszystkie istniejące sieci wirtualne się na przestrzeń adresową mniejsze niż hello określona wartość jest niedostępna w przypadku zaznaczenia.
 - `subnets`musi być określona, i `constraints.minAddressPrefixSize` musi być określona dla każdej podsieci.
-- Podczas tworzenia nowej sieci wirtualnej, prefiks adresu w każdej podsieci jest obliczana automatycznie na podstawie prefiksów adresów sieci wirtualnej i odpowiednio `addressPrefixSize`.
+- Podczas tworzenia nowej sieci wirtualnej, prefiks adresu w każdej podsieci jest obliczana automatycznie na podstawie prefiksów adresów sieci wirtualnej hello i odpowiednio `addressPrefixSize`.
 - Podczas korzystania z istniejącej wirtualnych sieci, żadnych podsieci mniejsze niż odpowiednie `constraints.minAddressPrefixSize` nie są dostępne do wyboru. Ponadto jeśli jest określony, podsieci, które nie zawierają co najmniej `minAddressCount` dostępne adresy są niedostępne do wybrania.
-Wartość domyślna to **0**. Aby upewnić się, że dostępnych adresów są ciągłe, określ **true** dla `requireContiguousAddresses`. Wartość domyślna to **true**.
+Witaj, wartość domyślna to **0**. tooensure, który hello dostępnych adresów są ciągłe, określ **true** dla `requireContiguousAddresses`. Witaj, wartość domyślna to **true**.
 - Tworzenie podsieci w istniejącej sieci wirtualnej nie jest obsługiwane.
-- Jeśli `options.hideExisting` jest **true**, użytkownik nie może wybrać istniejącej sieci wirtualnej. Wartość domyślna to **false**.
+- Jeśli `options.hideExisting` jest **true**, hello użytkownika nie można wybrać istniejącą sieć wirtualną. Witaj, wartość domyślna to **false**.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 ```json
@@ -115,6 +115,6 @@ Wartość domyślna to **0**. Aby upewnić się, że dostępnych adresów są ci
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

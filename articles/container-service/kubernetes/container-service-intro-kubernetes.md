@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure Container Service dla rozwiązania Kubernetes | Microsoft Docs"
-description: "Usługa Azure Container Service dla rozwiązania Kubernetes ułatwia wdrażanie aplikacji opartych na kontenerach i zarządzanie nimi na platformie Azure."
+title: "tooAzure aaaIntroduction usługi kontenera dla Kubernetes | Dokumentacja firmy Microsoft"
+description: "Usługa kontenera platformy Azure dla Kubernetes umożliwia proste toodeploy aplikacji i zarządzanie nimi na podstawie kontenera na platformie Azure."
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -17,22 +17,22 @@ ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 92cdbe20e7a2974a734dfed5294c547866050290
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bfc85a180bdf4a405c9047eb882d3eed01640dd1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-container-service-for-kubernetes"></a>Wprowadzenie do usługi Azure Container Service dla rozwiązania Kubernetes
-Usługa Azure Container Service dla rozwiązania Kubernetes upraszcza tworzenie i konfigurację klastra maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji, oraz zarządzanie nim. Umożliwia to używanie posiadanych umiejętności lub sięganie po duży i rosnący zasób wiedzy społeczności w celu wdrażania opartych na kontenerze aplikacji platformy Microsoft Azure i zarządzania nimi.
+# <a name="introduction-tooazure-container-service-for-kubernetes"></a>Wprowadzenie tooAzure usługi kontenera dla Kubernetes
+Usługa kontenera platformy Azure dla Kubernetes umożliwia proste toocreate, konfigurowanie i Zarządzanie klastrem maszyn wirtualnych, które są wstępnie skonfigurowane toorun konteneryzowanych aplikacji. Umożliwia możesz toouse Twojego posiadane umiejętności lub sięgać duży i rosnącym treści doświadczenia społeczności, toodeploy i Zarządzaj aplikacjami w kontenerze w systemie Microsoft Azure.
 
-Za pomocą usługi Azure Container Service możesz korzystać z funkcji klasy korporacyjnej platformy Azure, zachowując jednocześnie przenośność aplikacji dzięki usłudze Kubernetes i formatowi obrazów Docker.
+Za pomocą usługi kontenera platformy Azure, można skorzystać z hello korporacyjnej funkcji platformy Azure, zachowując przenośność aplikacji za pośrednictwem Kubernetes i hello Docker format obrazu.
 
 ## <a name="using-azure-container-service-for-kubernetes"></a>Używanie usługi Azure Container Service ma potrzeby rozwiązania Kubernetes
-Za pomocą usługi Azure Container Service chcemy zapewnić środowisko hostingu kontenerów za pomocą narzędzi i technologii typu open source, które już dziś są popularne wśród naszych klientów. W tym celu uwidaczniamy standardowe punkty końcowe interfejsu API rozwiązania Kubernetes. Za pomocą tych standardowych punktów końcowych można wykorzystać dowolne oprogramowanie, które jest w stanie komunikować się z klastrem usługi Kubernetes. Możesz wybrać narzędzie [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) lub [draft](https://github.com/Azure/draft).
+Naszym celem z usługi kontenera platformy Azure jest tooprovide środowisko macierzyste kontenera za pomocą open source, narzędzia i technologie, które są obecnie popularnością wśród klientów. końcowy toothis uwidaczniamy hello standardowe Kubernetes punkty końcowe interfejsu API. Za pomocą tych standardowych punktów końcowych, można wykorzystać dowolne oprogramowanie, które jest w stanie mówić tooa Kubernetes klastra. Możesz wybrać narzędzie [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) lub [draft](https://github.com/Azure/draft).
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service"></a>Tworzenie klastra Kubernetes przy użyciu usługi Azure Container Service
-Aby rozpocząć korzystanie z usługi Azure Container Service, musisz wdrożyć klaster usługi Azure Container Service przy użyciu [interfejsu wiersza polecenia platformy Azure 2.0](container-service-kubernetes-walkthrough.md) lub za pośrednictwem portalu (wyszukaj w witrynie Marketplace termin **Azure Container Service**). Jeśli jesteś użytkownikiem zaawansowanym, który musi mieć większą kontrolę nad szablonami usługi Azure Resource Manager, możesz użyć projektu [acs-engine](https://github.com/Azure/acs-engine) typu open source do kompilowania własnego niestandardowego klastra Kubernetes i wdrażania go za pomocą interfejsu wiersza polecenia `az`.
+toobegin przy użyciu usługi kontenera platformy Azure, wdrażanie klastra usługi kontenera platformy Azure z hello [Azure CLI 2.0](container-service-kubernetes-walkthrough.md) lub za pośrednictwem portalu hello (hello wyszukiwania portalu Marketplace dla **usługi kontenera platformy Azure**). Jeśli jesteś użytkownikiem zaawansowanym, który musi mieć większą kontrolę nad hello szablonów usługi Azure Resource Manager, można użyć typu open source hello [aparat acs](https://github.com/Azure/acs-engine) toobuild projektu własne niestandardowe Kubernetes klastra i wdróż je za pośrednictwem hello `az` interfejsu wiersza polecenia.
 
 ### <a name="using-kubernetes"></a>Korzystanie z rozwiązania Kubernetes
 Narzędzie Kubernetes automatyzuje proces wdrażania i skalowania aplikacji konteneryzowanych oraz zarządzania nimi. Narzędzie to obejmuje bogaty zestaw funkcji, m.in.:
@@ -47,7 +47,7 @@ Narzędzie Kubernetes automatyzuje proces wdrażania i skalowania aplikacji kont
 
 Diagram architektury rozwiązania Kubernetes wdrażanej za pomocą usługi Azure Container Service:
 
-![Usługa Azure Container Service skoordynowana do użycia narzędzia Kubernetes.](media/acs-intro/kubernetes.png)
+![Usługa kontenera platformy Azure skonfigurowane toouse Kubernetes.](media/acs-intro/kubernetes.png)
 
 ## <a name="videos"></a>Filmy wideo
 
@@ -65,4 +65,4 @@ Narzędzia do tworzenia i wdrażania aplikacji w systemie Kubernetes (Azure Open
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [przewodnikiem Szybki start dotyczącym rozwiązania Kubernetes](container-service-kubernetes-walkthrough.md), aby rozpocząć eksplorowanie usługi Azure Container Service już dziś.
+Eksploruj hello [szybkiego startu Kubernetes](container-service-kubernetes-walkthrough.md) toobegin dzisiaj Eksplorowanie usługi kontenera platformy Azure.

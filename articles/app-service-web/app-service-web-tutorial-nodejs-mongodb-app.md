@@ -1,6 +1,6 @@
 ---
-title: Tworzenie aplikacji sieci web Node.js i bazy danych MongoDB na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak pobrać aplikację Node.js, praca na platformie Azure z połączenia z bazą danych rozwiązania Cosmos bazy danych przy użyciu parametrów połączenia bazy danych MongoDB."
+title: aaaBuild Node.js i bazy danych MongoDB aplikacji sieci web na platformie Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooget aplikacji Node.js działa na platformie Azure, z połączenia tooa rozwiązania Cosmos DB bazy danych przy użyciu parametrów połączenia bazy danych MongoDB."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b309382be8cdf8d48b396207fd482a5dc5ed934
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 532251c51ed6f8513e6e366393e889b67a85e5b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tworzenie aplikacji sieci web Node.js i bazy danych MongoDB na platformie Azure
 
-Aplikacje sieci Web platformy Azure oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web Node.js na platformie Azure i podłącz go do bazy danych MongoDB. Gdy wszystko będzie gotowe, będziesz mieć uruchomionej aplikacji średniej (bazy danych MongoDB, Express AngularJS i Node.js) w [usłudze Azure App Service](app-service-web-overview.md). Dla uproszczenia Przykładowa aplikacja korzysta z [platforma sieci web MEAN.js](http://meanjs.org/).
+Aplikacje sieci Web platformy Azure oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. Ten samouczek pokazuje, jak toocreate Node.js sieci web aplikacji na platformie Azure i podłącz go tooa baza danych MongoDB. Gdy wszystko będzie gotowe, będziesz mieć uruchomionej aplikacji średniej (bazy danych MongoDB, Express AngularJS i Node.js) w [usłudze Azure App Service](app-service-web-overview.md). Dla uproszczenia hello Przykładowa aplikacja korzysta hello [platforma sieci web MEAN.js](http://meanjs.org/).
 
 ![Aplikacja MEAN.js uruchomiona w usłudze Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -31,15 +31,15 @@ Zawartość:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych MongoDB na platformie Azure
-> * Łączenie aplikacji Node.js z bazy danych MongoDB
-> * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
+> * Połącz tooMongoDB aplikacji Node.js
+> * Wdrażanie tooAzure aplikacji hello
+> * Aktualizacja modelu danych hello i wdrożenie aplikacji hello
 > * Strumieniowe przesyłanie dzienników diagnostycznych z platformy Azure
-> * Zarządzanie aplikacją w portalu Azure
+> * Zarządzanie aplikacją hello w hello portalu Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
+toocomplete tego samouczka:
 
 1. [Zainstaluj oprogramowanie Git](https://git-scm.com/)
 1. [Zainstaluj środowisko Node.js i menedżer NPM](https://nodejs.org/)
@@ -50,41 +50,41 @@ W celu ukończenia tego samouczka:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="test-local-mongodb"></a>Test lokalnej bazy danych MongoDB
 
-Otwórz okno terminala i `cd` do `bin` katalogu instalacji bazy danych MongoDB. To okno terminalu służy do uruchamiania wszystkich poleceń w tym samouczku.
+Witaj Otwórz okno terminala i `cd` toohello `bin` katalogu instalacji bazy danych MongoDB. Wszystkie polecenia hello toorun to okno terminalu można użyć w tym samouczku.
 
-Uruchom `mongo` w terminalu, aby połączyć się z lokalnym serwerem bazy danych MongoDB.
+Uruchom `mongo` w hello terminali tooconnect tooyour MongoDB serwera lokalnego.
 
 ```bash
 mongo
 ```
 
-Jeśli połączenie zostanie nawiązane, bazy danych MongoDB już jest uruchomiony. Jeśli nie, upewnij się, że lokalnej bazy danych MongoDB została uruchomiona, wykonując kroki opisane w temacie [zainstalować bazy danych MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Często jest zainstalowana baza danych MongoDB, ale nadal należy ją uruchomić, uruchamiając `mongod`. 
+Jeśli połączenie zostanie nawiązane, bazy danych MongoDB już jest uruchomiony. Jeśli nie, upewnij się, że lokalnej bazy danych MongoDB została uruchomiona, wykonując kroki hello na [zainstalować bazy danych MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). Często jest zainstalowana baza danych MongoDB, ale nadal potrzebujesz toostart ją, uruchamiając `mongod`. 
 
-Po zakończeniu testowania bazy danych MongoDB, wpisz `Ctrl+C` w terminalu. 
+Po zakończeniu testowania bazy danych MongoDB, wpisz `Ctrl+C` w hello terminala. 
 
 ## <a name="create-local-nodejs-app"></a>Tworzenie lokalnych aplikacji Node.js
 
-Ten krok służy do konfigurowania lokalnego projektu Node.js.
+Ten krok umożliwia zdefiniowanie hello lokalnego Node.js projektu.
 
-### <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
+### <a name="clone-hello-sample-application"></a>Klonowanie hello przykładowej aplikacji
 
-W oknie terminalu `cd` do katalogu roboczego.  
+Okno terminalu hello `cd` tooa katalog roboczy.  
 
-Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+Hello uruchom następujące polecenie tooclone hello próbki repozytorium. 
 
 ```bash
 git clone https://github.com/Azure-Samples/meanjs.git
 ```
 
-To repozytorium przykładowej zawiera kopię [repozytorium MEAN.js](https://github.com/meanjs/mean). Są modyfikowane w celu uruchomienia w usłudze aplikacji (Aby uzyskać więcej informacji, zobacz repozytorium MEAN.js [Plik README](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
+To repozytorium przykładowej zawiera kopię hello [repozytorium MEAN.js](https://github.com/meanjs/mean). Jest zmodyfikowany toorun w usłudze aplikacji (Aby uzyskać więcej informacji, zobacz repozytorium MEAN.js hello [Plik README](https://github.com/Azure-Samples/meanjs/blob/master/README.md)).
 
-### <a name="run-the-application"></a>Uruchamianie aplikacji
+### <a name="run-hello-application"></a>Uruchamianie aplikacji hello
 
-Uruchom następujące polecenia, aby zainstalować wymagane pakiety i uruchom aplikację.
+Uruchom następujące polecenia tooinstall hello wymaganych pakietów hello i uruchomienia aplikacji hello.
 
 ```bash
 cd meanjs
@@ -92,7 +92,7 @@ npm install
 npm start
 ```
 
-Gdy aplikacja zostanie całkowicie załadowany, zobacz podobny do następującego:
+Po całkowitym załadowaniem aplikacji hello pojawić coś podobnego toohello następującego komunikatu:
 
 ```
 --
@@ -106,25 +106,25 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Przejdź do http://localhost: 3000 w przeglądarce. Kliknij przycisk **Utwórz konto** w menu u góry i tworzenie użytkownika testowego. 
+Przejdź toohttp://localhost:3000 w przeglądarce. Kliknij przycisk **Utwórz konto** w menu u góry hello i tworzenie użytkownika testowego. 
 
-Przykładowa aplikacja MEAN.js przechowuje dane użytkowników w bazie danych. W przypadku pomyślnego tworzenia użytkownika i logowanie, aplikacja jest zapisywania danych do lokalnej bazy danych MongoDB.
+Witaj MEAN.js Przykładowa aplikacja przechowuje dane użytkownika w bazie danych hello. W przypadku pomyślnego tworzenia użytkownika i logowanie, aplikację zapisywania danych toohello lokalnej bazy danych MongoDB.
 
-![Pomyślne połączenie MEAN.js z MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
+![MEAN.js pomyślnie łączy tooMongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Wybierz **Admin > Zarządzaj artykuły** można dodać niektórych artykułach.
+Wybierz **Admin > Zarządzaj artykuły** tooadd niektórych artykułach.
 
-Aby zatrzymać Node.js w dowolnym momencie, naciśnij klawisz `Ctrl+C` w terminalu. 
+toostop Node.js w dowolnym momencie, naciśnij klawisz `Ctrl+C` w hello terminala. 
 
 ## <a name="create-production-mongodb"></a>Utwórz produkcyjnej bazy danych MongoDB
 
-W tym kroku utworzysz bazę danych MongoDB na platformie Azure. Po wdrożeniu aplikacji na platformie Azure wykorzystuje tę bazę danych w chmurze.
+W tym kroku utworzysz bazę danych MongoDB na platformie Azure. Gdy aplikacji jest wdrożony tooAzure, używa tej bazy danych w chmurze.
 
 Bazy danych mongodb, w tym samouczku używana [bazy danych Azure rozwiązania Cosmos](/azure/documentdb/). Rozwiązania cosmos bazy danych obsługuje połączenia klienta bazy danych MongoDB.
 
-### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+### <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Użyj interfejsu wiersza polecenia platformy Azure w wersji 2.0, aby utworzyć zasoby potrzebne do hostowania Twojej aplikacji na platformie Azure. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Użyjesz hello Azure CLI 2.0 toocreate hello zasobów niezbędnych toohost aplikacji na platformie Azure. Zaloguj się za tooyour subskrypcji platformy Azure z hello [logowania az](/cli/azure/#login) poleceń i wykonaj hello wyświetlanymi instrukcjami.
 
 ```azurecli-interactive
 az login
@@ -132,23 +132,23 @@ az login
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create).
+Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia.
 
 [!INCLUDE [Resource group intro](../../includes/resource-group.md)]
 
-Poniższy przykład obejmuje tworzenie grupy zasobów w regionie Europa Zachodnia.
+Witaj poniższy przykład tworzy grupę zasobów w regionie Europy Zachodniej hello.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-Użyj [appservice az listy lokalizacje](/cli/azure/appservice#list-locations) polecenia wiersza polecenia platformy Azure do listy dostępnych lokalizacji. 
+Użyj hello [appservice az listy lokalizacje](/cli/azure/appservice#list-locations) toolist dostępne lokalizacje polecenia wiersza polecenia platformy Azure. 
 
 ### <a name="create-a-cosmos-db-account"></a>Tworzenie konta bazy danych rozwiązania Cosmos
 
-Tworzenie konta bazy danych rozwiązania Cosmos z [az cosmosdb utworzyć](/cli/azure/cosmosdb#create) polecenia.
+Tworzenie konta bazy danych rozwiązania Cosmos z hello [az cosmosdb utworzyć](/cli/azure/cosmosdb#create) polecenia.
 
-W poniższym poleceniu zastąp unikatową nazwę bazy danych rozwiązania Cosmos  *\<cosmosdb_name >* symbolu zastępczego. Ta nazwa jest używana jako część rozwiązania Cosmos DB punkt końcowy, `https://<cosmosdb_name>.documents.azure.com/`, więc nazwa musi być unikatowa na wszystkich kontach DB rozwiązania Cosmos w programie Azure. Nazwa musi zawierać tylko małe litery, cyfry i znaki łącznika (-) i musi mieć długość od 3 do 50 znaków.
+W hello następujące polecenia, należy zastąpić unikatową nazwę bazy danych rozwiązania Cosmos hello  *\<cosmosdb_name >* symbolu zastępczego. Ta nazwa jest używana jako część hello hello DB rozwiązania Cosmos punktu końcowego, `https://<cosmosdb_name>.documents.azure.com/`, więc nazwa hello musi toobe unikatowy wszystkich kont rozwiązania Cosmos bazy danych na platformie Azure. Nazwa Hello musi zawierać tylko małe litery, cyfry i znaki łącznika (-) hello i musi mieć długość od 3 do 50 znaków.
 
 ```azurecli-interactive
 az cosmosdb create \
@@ -157,9 +157,9 @@ az cosmosdb create \
     --kind MongoDB
 ```
 
-*--Rodzaju bazy danych MongoDB* parametru zapewnia połączeń klienckich bazy danych MongoDB.
+Witaj *--rodzaju bazy danych MongoDB* parametru zapewnia połączeń klienckich bazy danych MongoDB.
 
-Po utworzeniu konta DB rozwiązania Cosmos interfejsu wiersza polecenia Azure zawiera informacje podobne do poniższego przykładu:
+Po utworzeniu hello konto bazy danych rozwiązania Cosmos hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:
 
 ```json
 {
@@ -177,19 +177,19 @@ Po utworzeniu konta DB rozwiązania Cosmos interfejsu wiersza polecenia Azure za
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>Łączenie aplikacji produkcyjnej bazy danych MongoDB
+## <a name="connect-app-tooproduction-mongodb"></a>Łączenie aplikacji tooproduction bazy danych MongoDB
 
-W tym kroku połączenie aplikacji przykładowej MEAN.js do bazy danych DB rozwiązania Cosmos utworzony, przy użyciu parametrów połączenia bazy danych MongoDB. 
+W tym kroku połączenie MEAN.js przykładowej bazy danych aplikacji toohello DB rozwiązania Cosmos utworzony, przy użyciu parametrów połączenia bazy danych MongoDB. 
 
-### <a name="retrieve-the-database-key"></a>Pobierz klucz bazy danych
+### <a name="retrieve-hello-database-key"></a>Pobrać hello klucza bazy danych
 
-Do połączenia z bazą danych rozwiązania Cosmos bazy danych, należy klucza bazy danych. Aby pobrać klucz podstawowy, użyj polecenia [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys).
+bazy danych DB rozwiązania Cosmos toohello tooconnect, należy hello klucza bazy danych. Użyj hello [az cosmosdb listy kluczy](/cli/azure/cosmosdb#list-keys) klucz podstawowy hello tooretrieve polecenia.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
-Interfejsu wiersza polecenia Azure zawiera informacje podobne do poniższego przykładu:
+Hello interfejsu wiersza polecenia Azure zawiera informacje o toohello podobnie poniższy przykład:
 
 ```json
 {
@@ -200,19 +200,19 @@ Interfejsu wiersza polecenia Azure zawiera informacje podobne do poniższego prz
 }
 ```
 
-Skopiuj wartość `primaryMasterKey`. Ta informacja będzie potrzebna w następnym kroku.
+Skopiuj wartość hello `primaryMasterKey`. Należy te informacje w hello następnego kroku.
 
 <a name="devconfig"></a>
-### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurowanie parametrów połączenia w aplikacji Node.js
+### <a name="configure-hello-connection-string-in-your-nodejs-application"></a>Konfigurowanie parametrów połączenia hello w aplikacji Node.js
 
 Otwórz w repozytorium MEAN.js _config/env/production.js_.
 
-W `db` obiektów, zaktualizuj wartość `uri`:
+W hello `db` obiektów, zaktualizuj wartość hello `uri`:
 
-* Zastąp dwa  *\<cosmosdb_name >* symbole zastępcze nazwą bazy danych DB rozwiązania Cosmos.
-* Zastąp  *\<primary_master_key >* symbol zastępczy klucz został skopiowany w poprzednim kroku.
+* Zastąp hello dwa  *\<cosmosdb_name >* symbole zastępcze nazwą bazy danych DB rozwiązania Cosmos.
+* Zastąp hello  *\<primary_master_key >* symbol zastępczy hello klucza skopiowany w poprzednim kroku hello.
 
-Poniższy kod przedstawia `db` obiektu:
+Witaj poniższy kod przedstawia hello `db` obiektu:
 
 ```javascript
 db: {
@@ -221,27 +221,27 @@ db: {
 },
 ```
 
-`ssl=true` Opcja jest wymagana, ponieważ [DB rozwiązania Cosmos wymaga protokołu SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+Witaj `ssl=true` opcja jest wymagana, ponieważ [DB rozwiązania Cosmos wymaga protokołu SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Zapisz zmiany.
 
-### <a name="test-the-application-in-production-mode"></a>Testowanie aplikacji w trybie produkcyjnym 
+### <a name="test-hello-application-in-production-mode"></a>Testowanie aplikacji hello w trybie produkcyjnym 
 
-Uruchom następujące polecenie w celu zminimalizowania i pakietów skryptów w środowisku produkcyjnym. Ten proces generuje pliki wymagane przez środowisko produkcyjne.
+Uruchom następujące polecenie toominify i pakietu skryptów w środowisku produkcyjnym hello hello. Ten proces generuje hello pliki wymagane przez hello środowiska produkcyjnego.
 
 ```bash
 gulp prod
 ```
 
-Uruchom następujące polecenie, aby użyć skonfigurowane w ciągu połączenia _config/env/production.js_.
+Hello uruchom następujące polecenie toouse hello ciąg połączenia został skonfigurowany w _config/env/production.js_.
 
 ```bash
 NODE_ENV=production node server.js
 ```
 
-`NODE_ENV=production`Ustawia zmienną środowiskową, informujący o Node.js do uruchamiania w środowisku produkcyjnym.  `node server.js`Uruchamia serwer Node.js z `server.js` w katalogu głównym repozytorium. Jest to, jak załadowano aplikację Node.js na platformie Azure. 
+`NODE_ENV=production`Ustawia zmienną środowiskową hello informujący o Node.js toorun w środowisku produkcyjnym hello.  `node server.js`Uruchamia hello Node.js server z `server.js` w katalogu głównym repozytorium. Jest to, jak załadowano aplikację Node.js na platformie Azure. 
 
-Podczas ładowania aplikacji, należy sprawdzić, czy działa w środowisku produkcyjnym:
+Podczas ładowania aplikacji hello Sprawdź toomake się, że jest uruchomiony w środowisku produkcyjnym hello:
 
 ```
 --
@@ -254,27 +254,27 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Przejdź do http://localhost:8443 w przeglądarce. Kliknij przycisk **Utwórz konto** w menu u góry i tworzenie użytkownika testowego. W przypadku pomyślnego tworzenia użytkownika i zaloguj się, aplikacja jest zapisywania danych do bazy danych DB rozwiązania Cosmos na platformie Azure. 
+Przejdź toohttp://localhost:8443 w przeglądarce. Kliknij przycisk **Utwórz konto** w menu u góry hello i tworzenie użytkownika testowego. Jeśli tworzenie użytkownika i logowanie powiodło się, aplikacja jest zapisywanie bazy danych DB rozwiązania Cosmos toohello danych na platformie Azure. 
 
-W terminalu, Zatrzymaj Node.js, wpisując `Ctrl+C`. 
+W terminalu hello, Zatrzymaj Node.js, wpisując `Ctrl+C`. 
 
-## <a name="deploy-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
+## <a name="deploy-app-tooazure"></a>Wdrażanie aplikacji tooAzure
 
-W tym kroku możesz wdrożyć aplikację Node.js połączenia bazy danych MongoDB w usłudze Azure App Service.
+W tym kroku możesz wdrożyć tooAzure aplikacji programu Node.js połączenia bazy danych MongoDB usługi aplikacji.
 
 ### <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create). 
+Tworzenie planu usługi aplikacji z hello [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#create) polecenia. 
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Poniższy przykład tworzy plan usługi aplikacji o nazwie _myAppServicePlan_ przy użyciu **wolne** warstwa cenowa:
+Witaj poniższy przykład tworzy plan usługi aplikacji o nazwie _myAppServicePlan_ przy użyciu hello **wolne** warstwa cenowa:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Po utworzeniu planu usługi aplikacji Azure CLI pokazuje informacje podobne do poniższego przykładu:
+Po utworzeniu planu usługi aplikacji hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:
 
 ```json 
 { 
@@ -294,17 +294,17 @@ Po utworzeniu planu usługi aplikacji Azure CLI pokazuje informacje podobne do p
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-Tworzenie aplikacji sieci web w `myAppServicePlan` planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#create) polecenia. 
+Tworzenie aplikacji sieci web w hello `myAppServicePlan` planu usługi aplikacji z hello [tworzenie aplikacji sieci Web az](/cli/azure/webapp#create) polecenia. 
 
-Aplikacja sieci web udostępnia hostingu miejsca, aby wdrożyć kod i zawiera adres URL do wyświetlania wdrożonej aplikacji. Służy do tworzenia aplikacji sieci web. 
+umożliwia aplikacji sieci web Hello możesz hosting miejsce toodeploy kodu i zawiera adres URL dla Ciebie tooview hello wdrożonych aplikacji. Użyj aplikacji sieci web hello toocreate. 
 
-W poniższym poleceniu zastąp  *\<nazwa_aplikacji >* symbol zastępczy unikatowej nazwy aplikacji. Ta nazwa jest używana jako część domyślnego adresu URL dla aplikacji sieci web, więc nazwa musi być unikatowy w obrębie wszystkich aplikacji w usłudze Azure App Service. 
+Witaj następujące polecenia, Zastąp hello  *\<nazwa_aplikacji >* symbol zastępczy unikatowej nazwy aplikacji. Ta nazwa jest używana jako część hello hello domyślny adres URL dla aplikacji sieci web hello, więc nazwa hello musi toobe unikatowy przez wszystkie aplikacje w usłudze Azure App Service. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących: 
+Podczas tworzenia aplikacji sieci web hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład: 
 
 ```json 
 {
@@ -323,11 +323,11 @@ Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy A
 
 ### <a name="configure-an-environment-variable"></a>Skonfigurować zmienną środowiskową
 
-Wcześniej w samouczku, zostanie zapisane na stałe połączenie z bazą danych ciąg w _config/env/production.js_. Zgodnie ze względów bezpieczeństwa chcesz zachować poufne dane poza repozytorium Git. Dla aplikacji działających na platformie Azure będzie zamiast tego użyć zmiennej środowiskowej.
+Wcześniej w hello samouczek, zostanie zapisane na stałe hello parametry połączenia bazy danych w _config/env/production.js_. Zgodnie z zaleceniami dotyczącymi zabezpieczeń ma tookeep danych poufnych poza repozytorium Git. Dla aplikacji działających na platformie Azure będzie zamiast tego użyć zmiennej środowiskowej.
 
-W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [zaktualizować appsettings konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/appsettings#update) polecenia. 
+W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ przy użyciu hello [zaktualizować appsettings konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/appsettings#update) polecenia. 
 
-Poniższy przykład konfiguruje `MONGODB_URI` ustawienie aplikacji w aplikacji sieci web platformy Azure. Zastąp  *\<nazwa_aplikacji >*,  *\<cosmosdb_name >*, i  *\<primary_master_key >* symbole zastępcze.
+Witaj poniższy przykład konfiguruje `MONGODB_URI` ustawienie aplikacji w aplikacji sieci web platformy Azure. Zastąp hello  *\<nazwa_aplikacji >*,  *\<cosmosdb_name >*, i  *\<primary_master_key >* symbole zastępcze.
 
 ```azurecli-interactive
 az webapp config appsettings update \
@@ -338,13 +338,13 @@ az webapp config appsettings update \
 
 W kodzie Node.js dostępu to ustawienie aplikacji o `process.env.MONGODB_URI`, tak jak będzie dostęp do wszelkich zmiennej środowiskowej. 
 
-Teraz, Cofnij zmiany _config/env/production.js_ przy użyciu następującego polecenia:
+Teraz Cofnij too_config/env/production.js_ Twoje zmiany z hello następujące polecenie:
 
 ```bash
 git checkout -- .
 ```
 
-Otwórz _config/env/production.js_ ponownie. Należy pamiętać, że domyślna aplikacja MEAN.js jest już skonfigurowana do używania `MONGODB_URI` zmienną środowiskową, który został utworzony.
+Otwórz _config/env/production.js_ ponownie. Należy pamiętać, aplikacja hello domyślnego MEAN.js jest już skonfigurowany toouse hello `MONGODB_URI` zmienną środowiskową, który został utworzony.
 
 ```javascript
 db: {
@@ -355,41 +355,41 @@ db: {
 
 ### <a name="configure-local-git-deployment"></a>Konfigurowanie lokalnego wdrożenia narzędzia Git 
 
-Użyj [ustawiono użytkownika wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/user#set) polecenie, aby utworzyć poświadczenia dla wdrożenia.
+Użyj hello [ustawiono użytkownika wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/user#set) polecenia toocreate poświadczeń do wdrożenia.
 
-Można wdrożyć aplikację w usłudze Azure App Service na różne sposoby, w tym FTP, Git lokalnego GitHub, Visual Studio Team Services i BitBucket. FTP i lokalne Git jest konieczne użytkownika wdrożenia skonfigurowane na serwerze do uwierzytelniania wdrożenia. Ten użytkownik wdrożenia poziomie konta i różni się od konta subskrypcji platformy Azure. Wystarczy raz skonfigurować ten użytkownik wdrożenia.
+Można wdrożyć tooAzure Twojej aplikacji usługi App Service na różne sposoby, w tym FTP, Git lokalnego GitHub, Visual Studio Team Services i BitBucket. FTP i lokalne Git, konieczne jest toohave użytkownika wdrożenia skonfigurowane na powitania serwera tooauthenticate wdrożenia. Ten użytkownik wdrożenia poziomie konta i różni się od konta subskrypcji platformy Azure. Wystarczy tooconfigure tego użytkownika wdrożenia raz.
 
-W poniższym poleceniu zastąp ciągi *\<user-name>* i *\<password>* nową nazwą użytkownika i hasłem. Nazwa użytkownika musi być unikatowa. Hasło musi mieć długość co najmniej ośmiu znaków i zawierać dwa z następujących trzech elementów: litery, cyfry, symbole. Jeśli wystąpił błąd ` 'Conflict'. Details: 409`, zmień nazwę użytkownika. Jeśli wystąpił błąd ` 'Bad Request'. Details: 400`, użyj silniejszego hasła.
+Zastąp następujące polecenie, w hello  *\<nazwa użytkownika >* i  *\<hasło >* nową nazwę użytkownika i hasło. Witaj, nazwa użytkownika musi być unikatowa. Witaj hasło musi mieć co najmniej ośmiu znaków, przy użyciu dwóch hello następujące trzy elementy: liter, cyfr, symboli. Jeśli otrzymasz ` 'Conflict'. Details: 409` błąd, username hello zmiany. Jeśli wystąpił błąd ` 'Bad Request'. Details: 400`, użyj silniejszego hasła.
 
 ```azurecli-interactive
 az appservice web deployment user set --user-name <username> --password <password>
 ```
 
-Zapisz nazwę użytkownika i hasło do użycia w kolejnych krokach podczas wdrażania aplikacji.
+Nazwa użytkownika hello rekordu i hasło do użycia w kolejnych krokach podczas wdrażania aplikacji hello.
 
-Użyj [źródło wdrożenia az aplikacji sieci Web — config lokalnych git](/cli/azure/webapp/deployment/source#config-local-git) polecenie, aby skonfigurować dostęp lokalny Git do aplikacji sieci web platformy Azure. 
+Użyj hello [źródło wdrożenia az aplikacji sieci Web — config lokalnych git](/cli/azure/webapp/deployment/source#config-local-git) polecenia tooconfigure lokalnego Git dostępu toohello aplikacji sieci web Azure. 
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup
 ```
 
-Po skonfigurowaniu użytkownika wdrażania interfejsu wiersza polecenia Azure zawiera adres URL wdrożenia dla aplikacji sieci web platformy Azure w następującym formacie:
+Po skonfigurowaniu użytkownika wdrażania hello hello Azure CLI zawiera hello adres URL wdrożenia dla aplikacji sieci web platformy Azure w hello następującego formatu:
 
 ```bash 
 https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
 ``` 
 
-Skopiuj dane wyjściowe z terminala, ponieważ będzie on używany w następnym kroku. 
+Skopiować hello dane wyjściowe z hello terminal, będzie on używany w hello następnego kroku. 
 
-### <a name="push-to-azure-from-git"></a>Wypychanie z narzędzia Git na platformę Azure
+### <a name="push-tooazure-from-git"></a>Wypychać tooAzure za pomocą narzędzia Git
 
-Dodaj zdalną platformę Azure do lokalnego repozytorium Git. 
+Dodaj Azure tooyour zdalnego lokalnego repozytorium Git. 
 
 ```bash
 git remote add azure <paste_copied_url_here> 
 ```
 
-Wypychanie do platformy Azure zdalnego wdrażania aplikacji Node.js. Zostanie wyświetlony monit o podanie hasła określonego wcześniej w ramach tworzenia użytkownika wdrożenia. 
+Wypchnij toohello Azure toodeploy zdalnego aplikacji Node.js. Pojawi się monit dla hello hasło wcześniej w ramach tworzenia hello hello wdrożenia użytkownika. 
 
 ```bash
 git push azure master
@@ -399,7 +399,7 @@ Podczas wdrażania usługi Azure App Service komunikuje się postęp za pomocą 
 
 ```bash
 Counting objects: 5, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
@@ -413,40 +413,40 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ``` 
 
-Można zauważyć, że proces wdrażania uruchamia [system Gulp](http://gulpjs.com/) po `npm install`. Usługi aplikacji nie działa Gulp lub Grunt zadań podczas wdrażania, dzięki czemu to repozytorium przykładowej mają dwa dodatkowe pliki w katalogu głównym ją włączyć: 
+Można zauważyć, że proces wdrażania hello uruchamia [system Gulp](http://gulpjs.com/) po `npm install`. Usługi aplikacji Gulp lub Grunt zadań nie jest uruchamiane podczas wdrażania, więc to repozytorium przykładowej ma dwa dodatkowe pliki w jego tooenable katalogu głównego go: 
 
-- _.Deployment_ — ten plik zawiera usługę aplikacji w celu uruchomienia `bash deploy.sh` jako niestandardowe wdrożenie skryptu.
-- _Deploy.sh_ -niestandardowe wdrożenie skryptu. Jeśli przejrzenie pliku, zobaczysz, że działa `gulp prod` po `npm install` i `bower install`. 
+- _.Deployment_ -toorun usługi aplikacji określa, że ten plik `bash deploy.sh` jako hello niestandardowe wdrożenie skryptu.
+- _Deploy.sh_ — Witaj niestandardowe wdrożenie skryptu. Jeśli możesz przejrzeć plik hello, zobaczysz, że działa `gulp prod` po `npm install` i `bower install`. 
 
-Ta metoda służy do dodawania każdy krok do wdrożenia na podstawie Git. W przypadku ponownego uruchomienia aplikacji sieci web platformy Azure w dowolnym momencie, usługi aplikacji nie ponownie te zadania automatyzacji.
+Tooadd tej metody można użyć dowolnego kroku tooyour wdrożenia na podstawie Git. W przypadku ponownego uruchomienia aplikacji sieci web platformy Azure w dowolnym momencie, usługi aplikacji nie ponownie te zadania automatyzacji.
 
-### <a name="browse-to-the-azure-web-app"></a>Przejdź do aplikacji sieci web platformy Azure 
+### <a name="browse-toohello-azure-web-app"></a>Przeglądaj toohello aplikacji sieci web Azure 
 
-Przejdź do wdrożonej aplikacji sieci web za pomocą przeglądarki sieci web. 
+Przeglądaj toohello wdrożyć aplikację sieci web przy użyciu przeglądarki sieci web. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
 ``` 
 
-Kliknij przycisk **Utwórz konto** w menu u góry i utworzyć fikcyjny użytkownika. 
+Kliknij przycisk **Utwórz konto** w menu u góry hello i Utwórz użytkownika zastępczego. 
 
-Jeśli aplikacja automatycznie loguje się do utworzonego użytkownika powiodą się, aplikacja MEAN.js na platformie Azure ma łączność z bazą danych MongoDB (DB rozwiązania Cosmos). 
+Jeśli pomyślnie i automatycznie loguje aplikacji hello toohello utworzyć użytkownika, a następnie MEAN.js aplikacji na platformie Azure ma bazy danych MongoDB (DB rozwiązania Cosmos) toohello łączności. 
 
 ![Aplikacja MEAN.js uruchomiona w usłudze Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Wybierz **Admin > Zarządzaj artykuły** można dodać niektórych artykułach. 
+Wybierz **Admin > Zarządzaj artykuły** tooadd niektórych artykułach. 
 
 **Gratulacje!** Używasz aplikacji Node.js opartych na danych w usłudze Azure App Service.
 
 ## <a name="update-data-model-and-redeploy"></a>Aktualizacja modelu danych i utwórz je ponownie
 
-W tym kroku, możesz zmienić `article` danych model i opublikuj zmiany na platformie Azure.
+W tym kroku, możesz zmienić hello `article` danych model i opublikuj tooAzure Twoje zmiany.
 
-### <a name="update-the-data-model"></a>Aktualizacja modelu danych
+### <a name="update-hello-data-model"></a>Model danych hello aktualizacji
 
 Otwórz _modules/articles/server/models/article.server.model.js_.
 
@@ -467,15 +467,15 @@ var ArticleSchema = new Schema({
 });
 ```
 
-### <a name="update-the-articles-code"></a>Zaktualizuj kod artykułów
+### <a name="update-hello-articles-code"></a>Zaktualizuj kod artykuły hello
 
-Zaktualizuj reszty Twojej `articles` kod, aby używał `comment`.
+Zaktualizuj hello reszty Twojej `articles` kodu toouse `comment`.
 
-Jest pięć plików, należy zmodyfikować: kontroler serwera i klienta cztery widoki. 
+Jest pięć plików należy toomodify: hello serwera kontrolera i hello cztery widoki klientów. 
 
 Otwórz _modules/articles/server/controllers/articles.server.controller.js_.
 
-W `update` funkcji, należy dodać przydziału `article.comment`. Poniższy kod przedstawia ukończonej `update` funkcji:
+W hello `update` funkcji, należy dodać przydziału `article.comment`. Witaj poniższy kod przedstawia ukończyć powitalnych `update` funkcji:
 
 ```javascript
 exports.update = function (req, res) {
@@ -491,7 +491,7 @@ exports.update = function (req, res) {
 
 Otwórz _modules/articles/client/views/view-article.client.view.html_.
 
-Powyżej zamknięcia `</section>` tagów, Dodaj następujący wiersz do wyświetlenia `comment` wraz z resztą dane artykułu:
+Powyżej zamknięcia hello `</section>` tagów, Dodaj powitania po wierszu toodisplay `comment` wraz z hello pozostałe dane artykułu hello:
 
 ```HTML
 <p class="lead" ng-bind="vm.article.comment"></p>
@@ -499,7 +499,7 @@ Powyżej zamknięcia `</section>` tagów, Dodaj następujący wiersz do wyświet
 
 Otwórz _modules/articles/client/views/list-articles.client.view.html_.
 
-Powyżej zamknięcia `</a>` tagów, Dodaj następujący wiersz do wyświetlenia `comment` wraz z resztą dane artykułu:
+Powyżej zamknięcia hello `</a>` tagów, Dodaj powitania po wierszu toodisplay `comment` wraz z hello pozostałe dane artykułu hello:
 
 ```HTML
 <p class="list-group-item-text" ng-bind="article.comment"></p>
@@ -507,7 +507,7 @@ Powyżej zamknięcia `</a>` tagów, Dodaj następujący wiersz do wyświetlenia 
 
 Otwórz _modules/articles/client/views/admin/list-articles.client.view.html_.
 
-Wewnątrz `<div class="list-group">` element i powyżej zamknięcia `</a>` tagów, Dodaj następujący wiersz do wyświetlenia `comment` wraz z resztą dane artykułu:
+Wewnątrz hello `<div class="list-group">` element i nad zamknięciem hello `</a>` tagów, Dodaj powitania po wierszu toodisplay `comment` wraz z hello pozostałe dane artykułu hello:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
@@ -515,7 +515,7 @@ Wewnątrz `<div class="list-group">` element i powyżej zamknięcia `</a>` tagó
 
 Otwórz _modules/articles/client/views/admin/form-article.client.view.html_.
 
-Znajdź `<div class="form-group">` element, który zawiera przycisk Prześlij, która wygląda podobnie do następującej:
+Znajdź hello `<div class="form-group">` element, który zawiera przycisk Prześlij hello, która wygląda podobnie do następującej:
 
 ```HTML
 <div class="form-group">
@@ -523,7 +523,7 @@ Znajdź `<div class="form-group">` element, który zawiera przycisk Prześlij, k
 </div>
 ```
 
-Powyżej tego tagu, dodać kolejne `<div class="form-group">` elementu można edytować `comment` pola. Nazwę nowego elementu powinna wyglądać następująco:
+Powyżej tego tagu, dodać kolejne `<div class="form-group">` elementu można edytować hello `comment` pola. Nazwę nowego elementu powinna wyglądać następująco:
 
 ```HTML
 <div class="form-group">
@@ -544,56 +544,56 @@ NODE_ENV=production node server.js
 ```
 
 > [!NOTE]
-> Należy pamiętać, że Twoje _config/env/production.js_ została wycofana i `MONGODB_URI` zmiennej środowiskowej ustawiono tylko w aplikacji sieci web platformy Azure, a nie na komputerze lokalnym. Należy sprawdzić plik konfiguracji, można znaleźć konfiguracji produkcji domyślnie korzystania z lokalnej bazy danych MongoDB. Dzięki temu nie ruszaj danych produkcyjnych podczas testowania zmiany kodu lokalnie.
+> Należy pamiętać, że Twoje _config/env/production.js_ została wycofana i hello `MONGODB_URI` zmiennej środowiskowej ustawiono tylko w aplikacji sieci web platformy Azure, a nie na komputerze lokalnym. Podczas przeglądania w pliku konfiguracyjnym hello okaże się, że hello toouse ustawienia domyślne konfiguracji produkcji lokalnej bazy danych MongoDB. Dzięki temu nie ruszaj danych produkcyjnych podczas testowania zmiany kodu lokalnie.
 
-Przejdź do `http://localhost:8443` w przeglądarce i upewnij się, że użytkownik jest zalogowany.
+Przejdź do zbyt`http://localhost:8443` w przeglądarce i upewnij się, że użytkownik jest zalogowany.
 
-Wybierz **Admin > Zarządzaj artykuły**, następnie dodać artykułu, wybierając  **+**  przycisku.
+Wybierz **Admin > Zarządzaj artykuły**, następnie dodać artykułu, wybierając hello  **+**  przycisku.
 
-Zostanie wyświetlony nowy `Comment` teraz pola tekstowego.
+Witaj Zobacz nowe `Comment` teraz pola tekstowego.
 
-![Pole komentarz dodany do artykułów](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
+![Komentarz dodany tooArticles pola](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
-W terminalu, Zatrzymaj Node.js, wpisując `Ctrl+C`. 
+W terminalu hello, Zatrzymaj Node.js, wpisując `Ctrl+C`. 
 
-### <a name="publish-changes-to-azure"></a>Publikowanie zmian na platformie Azure
+### <a name="publish-changes-tooazure"></a>Publikowanie zmian tooAzure
 
-Zatwierdź zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+Zatwierdź zmiany w usłudze Git, a następnie Wypchnij tooAzure zmiany kodu hello.
 
 ```bash
 git commit -am "added article comment"
 git push azure master
 ```
 
-Raz `git push` jest zakończenie, przejdź do aplikacji sieci web platformy Azure i wypróbowanie nowych funkcji.
+Raz hello `git push` jest zakończenie, przejdź tooyour aplikacji sieci web platformy Azure i wypróbować hello nowych funkcji.
 
-![Zmiany modelu i bazy danych publikowanych w systemie Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
+![Zmiany modelu i bazy danych publikowanych tooAzure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
-Jeśli wcześniej dodane artykułów, nadal widać je. Istniejące dane w bazie danych z rozwiązania Cosmos nie zostaną utracone. Ponadto aktualizacje schematu danych i pozostawienie bez zmian do istniejących danych.
+Jeśli wcześniej dodane artykułów, nadal widać je. Istniejące dane w bazie danych z rozwiązania Cosmos nie zostaną utracone. Ponadto schemat danych toohello aktualizacji i pozostawienie bez zmian do istniejących danych.
 
 ## <a name="stream-diagnostic-logs"></a>Dzienniki diagnostyczne strumienia 
 
-Podczas wykonywania aplikacji Node.js w usłudze Azure App Service można uzyskać dzienniki konsoli w potoku do terminalu. W ten sposób można uzyskać tego samego komunikaty diagnostyczne w celu ułatwienia debugowania błędów aplikacji.
+Podczas wykonywania aplikacji Node.js w usłudze Azure App Service można uzyskać tooyour gazociągami dzienniki konsoli hello terminala. W ten sposób można uzyskać hello tego samego komunikaty diagnostyczne toohelp Debugowanie błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dziennika, użyj [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/webapp/log#tail) polecenia.
+Dziennik toostart przesyłania strumieniowego, użyj hello [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/webapp/log#tail) polecenia.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Po rozpoczęciu przesyłania strumieniowego dzienników odświeżanie aplikacji sieci web platformy Azure w przeglądarce, aby uzyskać pewne ruchu w sieci web. Pojawi się w potoku do terminalu dzienniki konsoli.
+Po rozpoczęciu przesyłania strumieniowego dzienników odświeżanie aplikacji sieci web platformy Azure w tooget przeglądarki hello część ruchu w sieci web. Pojawi się dzienniki konsoli przetwarzana potokowo tooyour terminala.
 
 Dziennik zatrzymania przesyłania strumieniowego w dowolnym momencie, wpisując `Ctrl+C`. 
 
 ## <a name="manage-your-azure-web-app"></a>Zarządzanie aplikacji sieci web platformy Azure
 
-Przejdź do [portalu Azure](https://portal.azure.com) zobaczyć aplikacji sieci web został utworzony.
+Przejdź toohello [portalu Azure](https://portal.azure.com) aplikacji sieci web hello toosee został utworzony.
 
-W lewym menu kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji sieci Web platformy Azure.
+W menu po lewej stronie powitania kliknij **usługi aplikacji**, następnie kliknij nazwę hello aplikacji sieci web platformy Azure.
 
-![Nawigacja w portalu do aplikacji sieci Web platformy Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+![Aplikacja sieci web tooAzure nawigacji w portalu](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Domyślnie portalu zawiera aplikację sieci web **omówienie** strony. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. W lewej części strony kartach stron innej konfiguracji może być otwarty.
+Domyślnie hello portal przedstawiono aplikację sieci web **omówienie** strony. Ta strona udostępnia widok sposobu działania aplikacji. Tutaj możesz również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, uruchamianie, ponowne uruchamianie i usuwanie. Witaj w lewej części strony hello hello kartach hello innej konfiguracji stron, które można otworzyć.
 
 ![Strona usługi App Service w witrynie Azure Portal](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -606,13 +606,13 @@ Wiadomości:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych MongoDB na platformie Azure
-> * Łączenie aplikacji Node.js z bazy danych MongoDB
-> * Wdrażanie aplikacji na platformie Azure
-> * Aktualizacja modelu danych i ponownie wdrożyć aplikację
-> * Strumieniowe przesyłanie dzienników z platformy Azure na terminalu
-> * Zarządzanie aplikacją w portalu Azure
+> * Połącz tooMongoDB aplikacji Node.js
+> * Wdrażanie tooAzure aplikacji hello
+> * Aktualizacja modelu danych hello i wdrożenie aplikacji hello
+> * Strumieniowe przesyłanie dzienników z Azure tooyour terminali
+> * Zarządzanie aplikacją hello w hello portalu Azure
 
-Przejdź do następnego samouczek, aby dowiedzieć się, jak zamapować niestandardową nazwę DNS na aplikację sieci web.
+Przejść dalej toolearn samouczka toohello jak toomap DNS niestandardowej nazwy tooyour aplikacji sieci web.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps (Mapowanie istniejącej niestandardowej nazwy DNS na aplikacje internetowe platformy Azure)](app-service-web-tutorial-custom-domain.md)
+> [Mapowanie istniejących niestandardowe DNS nazwy tooAzure aplikacji sieci Web](app-service-web-tutorial-custom-domain.md)

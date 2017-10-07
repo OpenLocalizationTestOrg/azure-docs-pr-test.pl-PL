@@ -1,6 +1,6 @@
 ---
-title: "Zasady w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie tworzenia, edytowania i konfigurowania zasad w usłudze API Management."
+title: "aaaPolicies w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate, edytować i konfigurowania zasad w usłudze API Management."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ab0f884a655004cb10c05085034df1795f512e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
-W usłudze Azure API Management zasady są zaawansowanych możliwości systemu, który umożliwia wydawcy, aby zmienić zachowanie interfejsu API za pomocą konfiguracji. Zasady są zbiór instrukcji, które są wykonywane sekwencyjnie na żądanie lub odpowiedź interfejsu API. Popularne instrukcje obejmują Konwersja formatu z pliku XML do formatu JSON i Wywołaj szybkość ograniczenie, aby ograniczyć ilość przychodzących od dewelopera. Wiele zasad są dostępne poza pole.
+W usłudze Azure API Management zasady są zaawansowanych możliwości hello system, który umożliwia zachowanie hello toochange hello interfejsu API za pomocą konfiguracji hello wydawcy. Zasady są zbiór instrukcji, które są wykonywane sekwencyjnie na powitania żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują Konwersja formatu XML tooJSON i Wywołaj tempa ograniczania toorestrict hello ilość przychodzących od dewelopera. Wiele zasad są dostępne fabrycznej hello.
 
-Zobacz [informacje o zasadach] [ Policy Reference] pełną listę deklaracji zasad i ich ustawienia.
+Zobacz hello [informacje o zasadach] [ Policy Reference] pełną listę deklaracji zasad i ich ustawienia.
 
-Zasady są stosowane wewnątrz bramy, która znajduje się pomiędzy konsumenta interfejsu API i zarządzanego interfejsu API. Brama odbiera wszystkie żądania i zwykle przekazuje je niezmieniony do podstawowej interfejsu API. Jednak zasady można zastosować zmiany do żądania przychodzące i wychodzące odpowiedzi.
+Zasady są stosowane wewnątrz hello bramy, która znajduje się pomiędzy powitania klienta interfejsu API i hello zarządzanego interfejsu API. Hello Brama odbiera wszystkie żądania i zwykle przekazuje je niezmieniony toohello podstawowy interfejs API. Jednak zasady można zastosować zmian tooboth hello przychodzącego żądania i odpowiedzi wychodzących.
 
-Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, takie jak [sterowania przepływem] [ Control flow] i [zmiennej zestaw] [ Set variable] zasady są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz [zaawansowane zasady] [ Advanced policies] i [wyrażenie zasad][Policy expressions].
+Wyrażenie zasad może służyć jako wartości atrybutu lub tekst w żadnym z zasad interfejsu API zarządzania hello, chyba że zasady hello Określa, w przeciwnym razie wartość. Niektóre zasady, takie jak hello [sterowania przepływem] [ Control flow] i [zmiennej zestaw] [ Set variable] zasady są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz [zaawansowane zasady] [ Advanced policies] i [wyrażenie zasad][Policy expressions].
 
-## <a name="scopes"></a>Sposobu konfigurowania zasad
-Zasady można skonfigurować globalnie lub w zakresie [produktu][Product], [interfejsu API] [ API] lub [operacji] [Operation]. Aby skonfigurować zasadę, przejdź do edytora zasad w portalu wydawcy.
+## <a name="scopes"></a>Jak tooconfigure zasad
+Zasady można skonfigurować globalnie lub w zakresie hello [produktu][Product], [interfejsu API] [ API] lub [operacji] [Operation]. tooconfigure zasadę, przejdź toohello edytora zasad w portalu wydawcy hello.
 
 ![Menu zasad][policies-menu]
 
-Edytor zasad składa się z trzech głównych sekcji: zakres zasad (u góry), definicji zasad, gdy zasady są edytowane (lewych) i instrukcje listy (po prawej):
+Edytor zasad Hello składa się z trzech głównych sekcji: hello zasad zakresu (z góry), hello definicji zasad gdzie edycji zasad (lewych) i instrukcje hello listy (po prawej):
 
 ![Edytor zasad][policies-editor]
 
-Aby rozpocząć konfigurowanie zasad, musisz najpierw wybrać zakres, w którym mają dotyczyć zasady. Na poniższym zrzucie ekranu **Starter** produkt jest zaznaczony. Należy pamiętać, że kwadratowy symbol obok nazwy zasad wskazuje, że zasady jest już stosowane na tym poziomie.
+toobegin Konfigurowanie zasad, musisz najpierw wybrać zakres hello na powitania, które mają dotyczyć zasady. Zrzucie ekranu hello poniżej hello **Starter** produkt jest zaznaczony. Należy pamiętać, że w tym hello kwadratowy dalej toohello zasad nazwa symbolu wskazuje, że zasady jest już stosowane na tym poziomie.
 
 ![Zakres][policies-scope]
 
-Ponieważ zasady zostały już zastosowane, konfiguracji jest wyświetlany w definicji widoku.
+Ponieważ zasady zostały już zastosowane, konfiguracja hello jest wyświetlana w widoku definicji hello.
 
 ![Konfigurowanie][policies-configure]
 
-Zasady zostaną wyświetlone tylko do odczytu na początku. Aby edytować kliknij definicji **Konfiguruj zasady** akcji.
+zasady Hello są wyświetlane tylko do odczytu na początku. W kolejności tooedit definicji powitania kliknij hello **Konfiguruj zasady** akcji.
 
 ![Edytuj][policies-edit]
 
-Definicja zasad jest proste dokument XML, który opisuje sekwencji instrukcji dla ruchu przychodzącego i wychodzącego. Plik XML można edytować bezpośrednio w oknie definicji. Lista instrukcji znajduje się po prawej stronie i instrukcje mające zastosowanie do bieżącego zakresu są włączone i wyróżniony; jak dowodzą **Limit szybkości wywołać** instrukcji na zrzucie ekranu powyżej.
+Definicja zasad Hello jest proste dokument XML, który opisuje sekwencji instrukcji dla ruchu przychodzącego i wychodzącego. Witaj XML można edytować bezpośrednio w oknie definicji hello. Lista instrukcje są podane toohello prawo i bieżącego zakresu toohello odpowiednie instrukcje są włączone i wyróżniony; jak dowodzą hello **Limit szybkości wywołać** instrukcji na powitania zrzucie ekranu pokazano powyżej.
 
-Kliknięcie instrukcji włączone spowoduje dodanie odpowiednich XML w lokalizacji kursora w definicji widoku. 
+Kliknięcie instrukcji włączone spowoduje dodanie hello odpowiednie XML w lokalizacji hello hello kursora w hello definicji widoku. 
 
 > [!NOTE]
-> Zasady, które chcesz dodać nie jest włączona, upewnij się, że jesteś w niewłaściwym zakresie dla tej zasady. Każda instrukcja zasad jest przeznaczony do użytku w określonych zakresach i sekcje zasad. Aby zapoznać się z sekcji zasad i zakresy dla zasady, sprawdź **użycia** sekcji dla tej zasady w [informacje o zasadach][Policy Reference].
+> Hello zasad, które mają tooadd nie jest włączona, upewnij się, że jesteś w hello poprawny zakres dla tej zasady. Każda instrukcja zasad jest przeznaczony do użytku w określonych zakresach i sekcje zasad. sekcje zasad hello tooreview i zakresy dla zasady, sprawdź hello **użycia** sekcji dla tej zasady w hello [informacje o zasadach][Policy Reference].
 > 
 > 
 
-Pełna lista deklaracji zasad i ich ustawienia są dostępne w [informacje o zasadach][Policy Reference].
+Pełna lista deklaracji zasad i ich ustawienia są dostępne w hello [informacje o zasadach][Policy Reference].
 
-Na przykład, aby dodać nowe oświadczenie ograniczanie żądań przychodzących do określonych adresów IP, umieść kursor wewnątrz treści `inbound` — element XML i kliknij przycisk **wywołującego Ogranicz adresów IP** instrukcji.
+Na przykład tooadd nowe toorestrict instrukcji przychodzących żądań toospecified adresów IP, umieść kursor hello wewnątrz zawartości hello hello `inbound` XML hello element i kliknij przycisk **wywołującego Ogranicz adresów IP** instrukcji.
 
 ![Zasady ograniczeń][policies-restrict]
 
-Spowoduje to dodanie fragment kodu XML dotyczący `inbound` element, który zawiera wskazówki dotyczące sposobu konfigurowania instrukcji.
+Spowoduje to dodanie toohello fragment kodu XML `inbound` element, który zawiera wskazówki dotyczące sposobu tooconfigure hello instrukcji.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -74,7 +74,7 @@ Spowoduje to dodanie fragment kodu XML dotyczący `inbound` element, który zawi
 </ip-filter>
 ```
 
-Ogranicza liczby żądań przychodzących i zaakceptować tylko te z adresu IP 1.2.3.4 zmodyfikować kod XML w następujący sposób:
+toolimit ruchu przychodzącego żądania i zaakceptować tylko te z adresu IP 1.2.3.4 zmodyfikować hello XML w następujący sposób:
 
 ```xml
 <ip-filter action="allow">
@@ -84,43 +84,43 @@ Ogranicza liczby żądań przychodzących i zaakceptować tylko te z adresu IP 1
 
 ![Zapisz][policies-save]
 
-Po zakończeniu konfigurowania instrukcje zasad, kliknij przycisk **zapisać** i zmiany będą przekazywane do bramy usługi API Management natychmiast.
+Po zakończeniu konfigurowania instrukcje hello hello zasad, kliknij przycisk **zapisać** i hello zmiany zostaną propagowany toohello interfejsu API zarządzania bramy natychmiast.
 
 ## <a name="sections"></a>Opis zasad konfiguracji
-Zasady zostaną serię instrukcji, które są wykonywane w kolejności na żądania i odpowiedzi. Konfiguracja jest odpowiednio podzielone na `inbound`, `backend`, `outbound`, i `on-error` sekcjach przedstawiono, jak pokazano w poniższej konfiguracji.
+Zasady zostaną serię instrukcji, które są wykonywane w kolejności na żądania i odpowiedzi. Konfiguracja Hello jest odpowiednio podzielone na `inbound`, `backend`, `outbound`, i `on-error` sekcjach przedstawiono, jak pokazano w powitania po konfiguracji.
 
 ```xml
 <policies>
   <inbound>
-    <!-- statements to be applied to the request go here -->
+    <!-- statements toobe applied toohello request go here -->
   </inbound>
   <backend>
-    <!-- statements to be applied before the request is forwarded to 
-         the backend service go here -->
+    <!-- statements toobe applied before hello request is forwarded too
+         hello backend service go here -->
   </backend>
   <outbound>
-    <!-- statements to be applied to the response go here -->
+    <!-- statements toobe applied toohello response go here -->
   </outbound>
   <on-error>
-    <!-- statements to be applied if there is an error condition go here -->
+    <!-- statements toobe applied if there is an error condition go here -->
   </on-error>
 </policies> 
 ```
 
-Jeśli występuje błąd podczas przetwarzania żądania, wszystkie pozostałe kroki `inbound`, `backend`, lub `outbound` sekcje są pomijane i wykonywania przechodzi do instrukcji w `on-error` sekcji. Przez umieszczenie deklaracji zasad w `on-error` możesz przejrzeć kod błędu przy użyciu sekcji `context.LastError` właściwość, sprawdzić i dostosować za pomocą odpowiedzi błędu `set-body` zasad i skonfigurować, co się stanie w przypadku wystąpienia błędu. Brak kody błędów dla wbudowanych kroków i błędy, które mogą wystąpić podczas przetwarzania zasady. Aby uzyskać więcej informacji, zobacz [obsługi błędów w zasad interfejsu API zarządzania](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+Jeśli występuje błąd podczas przetwarzania żądania hello, wszystkie pozostałe kroki w hello `inbound`, `backend`, lub `outbound` sekcje są pomijane i wykonywania w tę łódź toohello instrukcje w hello `on-error` sekcji. Zaznaczając deklaracji zasad hello `on-error` sekcji można przejrzeć hello błędu przy użyciu hello `context.LastError` właściwość, sprawdzić i dostosować przy użyciu hello odpowiedzi na błąd hello `set-body` zasad i skonfigurować, co się stanie w przypadku wystąpienia błędu. Brak kody błędów dla wbudowanych kroków i błędy, które mogą wystąpić podczas przetwarzania hello deklaracji zasad. Aby uzyskać więcej informacji, zobacz [obsługi błędów w zasad interfejsu API zarządzania](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Ponieważ zasad można określić na różnych poziomach (globalne, produktu, interfejsu api i operacji) konfiguracji umożliwia określenie kolejności, w którym instrukcji definicji zasad wykonywania względem zasad nadrzędnej. 
+Ponieważ zasad można określić na różnych poziomach (globalne, produktu, interfejsu api i operacji) hello konfiguracji umożliwia dla Ciebie toospecify hello kolejność, w którym instrukcje definicji zasad hello wykonywane za pomocą zasad nadrzędnej toohello względem. 
 
-Zakresy zasad są oceniane w następującej kolejności.
+Zakresy zasad są oceniane w następującej kolejności hello.
 
 1. Globalne
 2. Zakres produktu
 3. Zakres interfejsu API
 4. Operacja zakresu
 
-Instrukcje w nich są oceniane według położenia `base` elementu, jeśli jest obecny. Globalne zasady nie ma nadrzędnego zasad i za pomocą `<base>` element w nim nie ma wpływu.
+Witaj instrukcje w nich są oceniane według położenia toohello hello `base` elementu, jeśli jest obecny. Globalne zasady ma żadnych zasad nadrzędny i przy użyciu hello `<base>` element w nim nie ma wpływu.
 
-Na przykład jeśli masz zasady na poziomie globalnym i zasady skonfigurowane dla interfejsu API, następnie każdorazowe użycie tego konkretnego interfejsu API obie zasady zostaną zastosowane. Zarządzanie interfejsami API umożliwia deterministyczne kolejność deklaracji zasad połączonych za pośrednictwem elementu podstawowego. 
+Na przykład jeśli masz zasady na poziomie globalnym hello i zasady skonfigurowane dla interfejsu API, następnie każdorazowe użycie tego konkretnego interfejsu API obie zasady zostaną zastosowane. Zarządzanie interfejsami API umożliwia deterministyczne kolejność deklaracji zasad połączonych za pośrednictwem hello base element. 
 
 ```xml
 <policies>
@@ -132,9 +132,9 @@ Na przykład jeśli masz zasady na poziomie globalnym i zasady skonfigurowane dl
 </policies>
 ```
 
-W definicji zasad przykład powyżej `cross-domain` instrukcji jest wykonywany przed następować wszystkie wyższej zasady, które z kolei, `find-and-replace` zasad. 
+W hello przykład definicji zasad powyżej, hello `cross-domain` instrukcji jest wykonywany przed wszystkie wyższej zasady, które z kolei, następować hello `find-and-replace` zasad. 
 
-Aby wyświetlić zasady w bieżącym zakresie w edytorze zasad, kliknij **ponownie Oblicz skutecznych zasad dla wybranego zakresu**.
+zasady hello toosee w bieżącym zakresie hello w edytorze zasad hello, kliknij polecenie **ponownie Oblicz skutecznych zasad dla wybranego zakresu**.
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującego wideo na wyrażeniach zasad.

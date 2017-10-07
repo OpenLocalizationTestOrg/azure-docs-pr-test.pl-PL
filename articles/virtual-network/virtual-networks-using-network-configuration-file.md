@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie sieci wirtualnej platformy Azure (klasyczne) — plik konfiguracji sieci | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć i modyfikować sieci wirtualnych (klasyczne) przez eksportowanie, zmienianie i importowanie pliku konfiguracji sieci."
+title: "aaaConfigure sieci wirtualnej platformy Azure (klasyczne) — plik konfiguracji sieci | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate i modyfikowania sieci wirtualnych (klasyczne) przez eksportowanie, zmienianie i importowanie pliku konfiguracji sieci."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,28 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 009108d4315b4b7146d3f1cf2436ee211d2d89ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Skonfiguruj sieć wirtualną (klasyczne) przy użyciu pliku konfiguracji sieci
 > [!IMPORTANT]
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać modelu wdrażania usługi Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). W tym artykule omówiono przy użyciu hello klasycznego modelu wdrażania. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać modelu wdrażania usługi Resource Manager hello.
 
-Można tworzyć i konfigurować sieć wirtualna (klasyczna) z pliku konfiguracji sieci przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) 1.0 lub Azure PowerShell. Nie można utworzyć lub zmodyfikować sieć wirtualną przy użyciu modelu wdrażania usługi Azure Resource Manager przy użyciu pliku konfiguracji sieci. Nie można użyć portalu Azure do tworzenia lub modyfikowania sieci wirtualnej (klasyczne) przy użyciu pliku konfiguracji sieci, jednak można utworzyć sieć wirtualną (klasyczne), portalu Azure, bez użycia pliku konfiguracji sieci.
+Można tworzyć i konfigurować sieć wirtualna (klasyczna) z pliku konfiguracji sieci przy użyciu hello Azure interfejsu wiersza polecenia (CLI) 1.0 lub Azure PowerShell. Nie można utworzyć lub zmodyfikować sieć wirtualną przy użyciu modelu wdrażania usługi Azure Resource Manager hello przy użyciu pliku konfiguracji sieci. Nie można użyć hello toocreate portalu Azure lub zmodyfikować sieci wirtualnej (klasyczne) przy użyciu pliku konfiguracji sieci, jednak można korzystać hello toocreate portalu Azure (klasyczną), sieci wirtualnej bez użycia pliku konfiguracji sieci.
 
-Tworzenie i konfigurowanie sieci wirtualnej (klasyczne) przy użyciu pliku konfiguracji sieci wymaga eksportowania, zmienianie i importowanie pliku.
+Tworzenie i konfigurowanie sieci wirtualnej (klasyczne) przy użyciu pliku konfiguracji sieci wymaga eksportowanie, zmienianie i importowanie pliku hello.
 
 ## <a name="export"></a>Eksportowanie plików konfiguracji sieci
 
-Aby wyeksportować plik konfiguracji sieci, można użyć programu PowerShell lub wiersza polecenia platformy Azure. PowerShell eksportuje pliku XML podczas interfejsu wiersza polecenia Azure eksportuje pliku json.
+Możesz użyć programu PowerShell lub hello Azure CLI tooexport pliku konfiguracji sieci. PowerShell eksportuje pliku XML, gdy hello Azure CLI eksportuje pliku json.
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Instalowanie programu Azure PowerShell i logowanie do platformy Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Zmień katalog (i upewnij się, istnieje) i nazwę pliku w poniższym poleceniu zgodnie z potrzebami, następnie uruchom polecenie, aby wyeksportować plik konfiguracji sieci:
+1. [Instalowanie programu Azure PowerShell i logowanie tooAzure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Zmień katalog hello (i upewnij się, istnieje) i nazwę pliku w hello następujące polecenie jako odpowiednie, a następnie uruchom hello polecenia tooexport hello sieci pliku konfiguracji:
 
     ```powershell
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
@@ -45,10 +45,10 @@ Aby wyeksportować plik konfiguracji sieci, można użyć programu PowerShell lu
 
 ### <a name="azure-cli-10"></a>Interfejs wiersza polecenia platformy Azure CLI w wersji 1.0
 
-1. [Zainstaluj Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wykonaj pozostałe kroki w wierszu polecenia, Azure CLI w wersji 1.0.
-2. Logowanie do platformy Azure, wprowadzając `azure login` polecenia.
-3. Upewnij się, jest w trybie asm wprowadzając `azure config mode asm` polecenia.
-4. Zmień katalog (i upewnij się, istnieje) i nazwę pliku w poniższym poleceniu zgodnie z potrzebami, następnie uruchom polecenie, aby wyeksportować plik konfiguracji sieci:
+1. [Zainstaluj hello Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wykonaj pozostałe kroki w wierszu polecenia, Azure CLI 1.0 hello.
+2. Zaloguj się za tooAzure wprowadzając hello `azure login` polecenia.
+3. Upewnij się, jest w trybie asm wprowadzając hello `azure config mode asm` polecenia.
+4. Zmień katalog hello (i upewnij się, istnieje) i nazwę pliku w hello następujące polecenie jako odpowiednie, a następnie uruchom hello polecenia tooexport hello sieci pliku konfiguracji:
     
     ```azurecli
     azure network export c:\azure\networkconfig.json
@@ -56,17 +56,17 @@ Aby wyeksportować plik konfiguracji sieci, można użyć programu PowerShell lu
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Utwórz lub zmodyfikuj plik konfiguracji sieci
 
-Plik konfiguracji sieci jest plik XML (w przypadku używania programu PowerShell) lub plik json (w przypadku używania interfejsu wiersza polecenia Azure). Można edytować plik w dowolnym tekstu lub edytora XML/json. [Ustawienia schematu pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx) artykuł zawiera szczegółowe informacje o wszystkich ustawieniach. Opis dodatkowych ustawień, zobacz [wyświetlić sieci wirtualnych i ustawienia](virtual-network-manage-network.md#view-vnet). Zmiany wprowadzone w pliku:
+Plik konfiguracji sieci jest plik XML (w przypadku używania programu PowerShell) lub plik json (w przypadku używania hello Azure CLI). Możesz edytować plik hello w dowolnym tekstu lub edytora XML/json. Witaj [ustawienia schematu pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx) artykuł zawiera szczegółowe informacje o wszystkich ustawieniach. Dodatkowe wyjaśnienie hello ustawień, zobacz [wyświetlić sieci wirtualnych i ustawienia](virtual-network-manage-network.md#view-vnet). Witaj wprowadzone zmiany pliku toohello:
 
-- Musi być zgodne z schematu lub importowanie niepowodzenia pliku konfiguracji sieci.
-- Zastąp wszystkie istniejące ustawienia sieci dla Twojej subskrypcji, dlatego należy zachować wyjątkową ostrożność podczas wprowadzania zmian. Na przykład odwołanie pliki konfiguracyjne przykład sieci, które należy wykonać. Powiedz oryginalny plik zawiera dwa **VirtualNetworkSite** wystąpienia, a uległ zmianie, jak przedstawiono w przykładach. Podczas importowania pliku Azure usuwa sieć wirtualną **VirtualNetworkSite** wystąpienia usunięte w pliku. W tym scenariuszu uproszczony przyjęto zostały żadnych zasobów w sieci wirtualnej, jak w przypadku, nie można usunąć sieci wirtualnej, a import nie powiedzie się.
+- Musi być zgodne z hello schematu lub importowania sieci hello pliku konfiguracji nie powiedzie się.
+- Zastąp wszystkie istniejące ustawienia sieci dla Twojej subskrypcji, dlatego należy zachować wyjątkową ostrożność podczas wprowadzania zmian. Na przykład odwołanie hello przykład sieci pliki konfiguracyjne, które należy wykonać. Powiedz hello oryginalny plik zawiera dwa **VirtualNetworkSite** wystąpienia, a uległ zmianie, jak przedstawiono w przykładach hello. Podczas importowania pliku hello Azure usuwa hello sieć wirtualną hello **VirtualNetworkSite** usunięte w pliku hello wystąpienia. W tym scenariuszu uproszczony przyjęto zostały żadnych zasobów w sieci wirtualnej hello, jak w przypadku, nie można usunąć sieci wirtualnej hello i hello import nie powiedzie się.
 
 > [!IMPORTANT]
-> Azure uwzględnia podsieć, która ma coś wdrożone w niej jako **używany**. Gdy używany jest podsieci, nie można modyfikować. Przed zmodyfikowaniem informacji o podsieci w pliku konfiguracji sieci, należy przenieść wszystkie elementy, które zostały wdrożone do podsieci do innej podsieci, która nie jest modyfikowana. Zobacz [przenieść do innej podsieci maszyny Wirtualnej lub wystąpienia roli](virtual-networks-move-vm-role-to-subnet.md) szczegółowe informacje.
+> Azure uwzględnia podsieć, która ma coś wdrożone tooit jako **używany**. Gdy używany jest podsieci, nie można modyfikować. Przed zmodyfikowaniem informacji o podsieci w pliku konfiguracji sieci, należy przenieść wszystkie elementy, które zostały wdrożone toohello podsieci tooa innej podsieci, która nie jest modyfikowany. Zobacz [przenoszenia maszyny Wirtualnej lub wystąpienia roli tooa innej podsieci](virtual-networks-move-vm-role-to-subnet.md) szczegółowe informacje.
 
 ### <a name="example-xml-for-use-with-powershell"></a>Przykład XML do użycia przy użyciu programu PowerShell
 
-Następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o nazwie *myVirtualNetwork* się na przestrzeń adresową z *10.0.0.0/16* w *wschodnie stany USA* Azure region. Sieć wirtualna zawiera jedną podsieć o nazwie *mySubnet* z prefiksem adresu o *10.0.0.0/24*.
+Witaj następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o nazwie *myVirtualNetwork* się na przestrzeń adresową z *10.0.0.0/16* w hello *wschodnie stany USA* Azure region. sieć wirtualna Hello zawiera jedną podsieć o nazwie *mySubnet* z prefiksem adresu o *10.0.0.0/24*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,11 +89,11 @@ Następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o naz
 </NetworkConfiguration>
 ```
 
-Wyeksportowany plik konfiguracji sieci zawiera zawartość nie, można skopiować kod XML w poprzednim przykładzie i wklej go do nowego pliku.
+Plik konfiguracji sieci hello wyeksportowanymi zawiera zawartość nie, można skopiować hello XML w poprzednim przykładzie hello i wklej go do nowego pliku.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>Przykład JSON do użytku z interfejsu wiersza polecenia platformy Azure w wersji 1.0
+### <a name="example-json-for-use-with-hello-azure-cli-10"></a>Przykład JSON do użycia z hello Azure CLI w wersji 1.0
 
-Następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o nazwie *myVirtualNetwork* się na przestrzeń adresową z *10.0.0.0/16* w *wschodnie stany USA* Azure region. Sieć wirtualna zawiera jedną podsieć o nazwie *mySubnet* z prefiksem adresu o *10.0.0.0/24*.
+Witaj następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o nazwie *myVirtualNetwork* się na przestrzeń adresową z *10.0.0.0/16* w hello *wschodnie stany USA* Azure region. sieć wirtualna Hello zawiera jedną podsieć o nazwie *mySubnet* z prefiksem adresu o *10.0.0.0/24*.
 
 ```json
 {
@@ -116,16 +116,16 @@ Następujący przykładowy plik konfiguracji sieci tworzy sieć wirtualną o naz
 }
 ```
 
-Wyeksportowany plik konfiguracji sieci zawiera zawartość nie, można skopiować dane json w poprzednim przykładzie i wklej go do nowego pliku.
+Plik konfiguracji sieci hello wyeksportowanymi zawiera zawartość nie, można skopiować hello json w poprzednim przykładzie hello i wklej go do nowego pliku.
 
 ## <a name="import"></a>Importowanie pliku konfiguracji sieci
 
-Aby zaimportować plik konfiguracji sieci, można użyć programu PowerShell lub interfejsu wiersza polecenia Azure. PowerShell importuje plik XML podczas interfejsu wiersza polecenia Azure importuje plik json. Jeśli import zakończy się niepowodzeniem, upewnij się, że plik spełnia [schemat konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+Możesz użyć programu PowerShell lub hello Azure CLI tooimport pliku konfiguracji sieci. PowerShell importuje plik XML, gdy hello Azure CLI importuje plik json. Jeśli hello zakończyła się niepowodzeniem, upewnij się, czy plik hello jest zgodny z hello [schemat konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Instalowanie programu Azure PowerShell i logowanie do platformy Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Zmień katalog i nazwę pliku w poniższym poleceniu w razie potrzeby, następnie uruchom polecenie, aby zaimportować plik konfiguracji sieci:
+1. [Instalowanie programu Azure PowerShell i logowanie tooAzure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Zmień katalog hello i nazwę pliku w hello następujące polecenie, w razie potrzeby, a następnie uruchom plik konfiguracji sieci tooimport hello hello polecenia:
  
     ```powershell
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
@@ -133,10 +133,10 @@ Aby zaimportować plik konfiguracji sieci, można użyć programu PowerShell lub
 
 ### <a name="azure-cli-10"></a>Interfejs wiersza polecenia platformy Azure CLI w wersji 1.0
 
-1. [Zainstaluj Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wykonaj pozostałe kroki w wierszu polecenia, Azure CLI w wersji 1.0.
-2. Logowanie do platformy Azure, wprowadzając `azure login` polecenia.
-3. Upewnij się, jest w trybie asm wprowadzając `azure config mode asm` polecenia.
-4. Zmień katalog i nazwę pliku w poniższym poleceniu w razie potrzeby, następnie uruchom polecenie, aby zaimportować plik konfiguracji sieci:
+1. [Zainstaluj hello Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Wykonaj pozostałe kroki w wierszu polecenia, Azure CLI 1.0 hello.
+2. Zaloguj się za tooAzure wprowadzając hello `azure login` polecenia.
+3. Upewnij się, jest w trybie asm wprowadzając hello `azure config mode asm` polecenia.
+4. Zmień katalog hello i nazwę pliku w hello następujące polecenie, w razie potrzeby, a następnie uruchom plik konfiguracji sieci tooimport hello hello polecenia:
 
     ```azurecli
     azure network import c:\azure\networkconfig.json

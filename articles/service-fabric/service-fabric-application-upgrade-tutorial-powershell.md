@@ -1,6 +1,6 @@
 ---
-title: "Uaktualnianie aplikacji sieci szkieletowej usług za pomocą programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Ten artykuł przeprowadzi Cię przez proces wdrażania aplikacji usługi Service Fabric, zmiana kodu i wprowadza uaktualnienia przy użyciu programu PowerShell."
+title: "Uaktualnianie aplikacji Fabric aaaService przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono hello środowisko wdrażania aplikacji usługi Service Fabric, zmiana kodu hello i wprowadza uaktualnienia przy użyciu programu PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 3591ced970887d4eb5a33cec8f6951b5476d04f8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f31212264de45c3b257a0efafb75c10c279b989f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uaktualnianie aplikacji sieci szkieletowej usług za pomocą programu PowerShell
 > [!div class="op_single_selector"]
@@ -29,35 +29,35 @@ ms.lasthandoff: 08/18/2017
 
 <br/>
 
-Najczęściej używane i monitorowanych uaktualnienia stopniowego jest zalecane podejście do uaktualnienia.  Sieć szkieletowa usług Azure monitoruje kondycję aplikacji uaktualniany na podstawie zestawu zasad dotyczących kondycji. Po uaktualnieniu domeny aktualizacji (UD) usługi sieć szkieletowa ocenia kondycję aplikacji i przechodzi do następnej domeny aktualizacji lub niepowodzenia uaktualniania, w zależności od zasad dotyczących kondycji.
+Hello najczęściej używane i zalecane podejście uaktualnienia uaktualnienia stopniowego hello monitorowane.  Sieć szkieletowa usług Azure monitoruje kondycję hello aplikacji hello uaktualniany na podstawie zestawu zasad dotyczących kondycji. Po uaktualnieniu domeny aktualizacji (UD) usługi sieć szkieletowa ocenia kondycji aplikacji hello i przechodzi dalej domeny aktualizacji toohello lub nie powiedzie się uaktualnienie hello w zależności od zasad dotyczących kondycji hello.
 
-Uaktualnienie monitorowanej aplikacji mogą być wykonywane przy użyciu zarządzanym lub macierzystym interfejsów API środowiska PowerShell i REST. Aby uzyskać instrukcje dotyczące wykonywania uaktualnienia przy użyciu programu Visual Studio, zobacz [uaktualniania aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Uaktualnienie monitorowanej aplikacji można przeprowadzić przy użyciu hello zarządzane lub macierzystych interfejsów API, programu PowerShell lub REST. Aby uzyskać instrukcje dotyczące wykonywania uaktualnienia przy użyciu programu Visual Studio, zobacz [uaktualniania aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Stopniowe monitorowania sieci szkieletowej usług administrator aplikacji można skonfigurować zasad oceny kondycji korzystającą z sieci szkieletowej usług w celu ustalenia, czy aplikacja jest w dobrej kondycji. Ponadto administrator może skonfigurować akcji do wykonania, gdy oceny kondycji nie powiodło się (na przykład podczas automatycznego wycofania.) Ta sekcja przeprowadzi Cię przez monitorowanych uaktualnienia dla jednego z przykłady zestawu SDK, które korzysta z programu PowerShell. Następujące Microsoft Virtual Academy wideo również przeprowadzi Cię przez kolejne uaktualnienia aplikacji:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
+Stopniowe monitorowania sieci szkieletowej usług administrator aplikacji hello umożliwiają konfigurowanie zasad oceny kondycji hello sieci szkieletowej usług używa toodetermine, jeśli aplikacja hello jest w dobrej kondycji. Ponadto hello administrator można skonfigurować hello toobe działania podejmowane podczas oceny kondycji hello zakończy się niepowodzeniem (na przykład podczas automatycznego wycofania.) Ta sekcja przeprowadzi Cię przez monitorowanych uaktualnienia dla jednego z hello SDK przykłady, które korzysta z programu PowerShell. Witaj poniższe wideo Microsoft Virtual Academy również przeprowadzi Cię przez kolejne uaktualnienia aplikacji:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Krok 1: Tworzenie i wdrażanie próbka obiektów Visual
-Tworzenie i publikowanie aplikacji, klikając prawym przyciskiem myszy projekt aplikacji **VisualObjectsApplication,** i wybierając **publikowania** polecenia.  Aby uzyskać więcej informacji, zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md).  Alternatywnie można użyć programu PowerShell do wdrożenia aplikacji.
+## <a name="step-1-build-and-deploy-hello-visual-objects-sample"></a>Krok 1: Tworzenie i wdrażanie hello obiektów Visual próbki
+Tworzenie i publikowanie aplikacji hello, klikając prawym przyciskiem myszy projekt aplikacji hello, **VisualObjectsApplication,** i wybierając hello **publikowania** polecenia.  Aby uzyskać więcej informacji, zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md).  Alternatywnie można użyć programu PowerShell toodeploy aplikacji.
 
 > [!NOTE]
-> Przed jakichkolwiek poleceń sieci szkieletowej usług mogą być używane w programu PowerShell, należy najpierw Połącz się z klastrem przy użyciu `Connect-ServiceFabricCluster` polecenia cmdlet. Podobnie zakłada się, że klaster ma już został skonfigurowany na komputerze lokalnym. Zapoznaj się z artykułem na [konfigurowania środowiska deweloperskiego sieci szkieletowej usług](service-fabric-get-started.md).
+> Przed jakichkolwiek poleceń usługi sieć szkieletowa hello mogą być używane w programu PowerShell, należy najpierw tooconnect toohello klastra przy użyciu hello `Connect-ServiceFabricCluster` polecenia cmdlet. Podobnie założono, że powitalne klastra nie został już skonfigurowany na komputerze lokalnym. Zobacz artykuł hello na [konfigurowania środowiska deweloperskiego sieci szkieletowej usług](service-fabric-get-started.md).
 > 
 > 
 
-Po utworzeniu projektu programu Visual Studio, możesz użyć polecenia środowiska PowerShell [ServiceFabricApplicationPackage kopiowania](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) Aby skopiować pakiet aplikacji do magazynu ImageStore. Jeśli chcesz sprawdzić lokalnie pakietu aplikacji, użyj [ServiceFabricApplicationPackage testu](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) polecenia cmdlet. Następnym krokiem jest można zarejestrować aplikacji przy użyciu środowiska uruchomieniowego platformy Service Fabric [ServiceFabricApplicationPackage rejestru](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) polecenia cmdlet. Ostatnim krokiem jest rozpoczęcie wystąpienia aplikacji przy użyciu [ServiceFabricApplication nowy](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenia cmdlet.  Te trzy kroki są podobne do przy użyciu **Wdróż** element menu w programie Visual Studio.
+Po utworzeniu hello projektu programu Visual Studio, możesz użyć polecenia środowiska PowerShell hello [ServiceFabricApplicationPackage kopiowania](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) toocopy hello aplikacji pakietu toohello magazynu ImageStore. Pakiet aplikacji hello tooverify lokalnie, należy użyć hello [ServiceFabricApplicationPackage testu](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) polecenia cmdlet. Witaj następnym krokiem jest tooregister hello toohello sieci szkieletowej usług plik wykonywalny aplikacji przy użyciu hello [ServiceFabricApplicationPackage rejestru](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) polecenia cmdlet. Witaj ostatnim krokiem jest toostart wystąpienie aplikacji hello przy użyciu hello [ServiceFabricApplication nowy](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) polecenia cmdlet.  Te trzy kroki są podobne toousing hello **Wdróż** element menu w programie Visual Studio.
 
-Teraz, można użyć [Service Fabric Explorer, aby wyświetlić klastra i aplikacji](service-fabric-visualizing-your-cluster.md). Aplikacja ma usługi sieci web, który może zostać przesłane do programu Internet Explorer, wpisując [http://localhost: 8081/visualobjects](http://localhost:8081/visualobjects) na pasku adresu.  Niektóre obiekty visual przestawne przenoszenia na ekranie powinna zostać wyświetlona.  Ponadto można użyć [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) do sprawdzania stanu aplikacji.
+Teraz, można użyć [Service Fabric Explorer tooview hello klastra i hello aplikacji](service-fabric-visualizing-your-cluster.md). Witaj aplikacja ma usługi sieci web, którą można nawigować tooin programu Internet Explorer, wpisując [http://localhost: 8081/visualobjects](http://localhost:8081/visualobjects) na pasku adresu hello.  Niektóre obiekty visual przestawne przenoszenia na ekranie powitania powinna zostać wyświetlona.  Ponadto można użyć [Get ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) stanu aplikacji hello toocheck.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Krok 2: Zaktualizuj próbka obiektów Visual
-Można zauważyć, że przy użyciu wersji, który został wdrożony w kroku 1, obiekt visual nie Obróć. Umożliwia uaktualnienie tej aplikacji na taki, gdzie obiekty widoczne również obracać.
+## <a name="step-2-update-hello-visual-objects-sample"></a>Krok 2: Aktualizacja hello obiektów Visual próbki
+Można zauważyć, że z wersją hello, który został wdrożony w kroku 1, obiektów visual hello nie Obróć. Uaktualnij teraz tooone tej aplikacji, gdzie obiektów visual hello również Obróć.
 
-Wybierz projekt VisualObjects.ActorService w ramach rozwiązania VisualObjects, a następnie otwórz plik StatefulVisualObjectActor.cs. W tym pliku, przejdź do metody `MoveObject`, komentarz `this.State.Move()`i Usuń komentarz `this.State.Move(true)`. Ta zmiana obraca obiekty po uaktualnieniu usługi.
+Wybierz hello VisualObjects.ActorService projektu w ramach hello VisualObjects rozwiązania, a następnie otwórz plik StatefulVisualObjectActor.cs hello. W tym pliku Przejdź metody toohello `MoveObject`, komentarz `this.State.Move()`i Usuń komentarz `this.State.Move(true)`. Ta zmiana obraca obiekty powitania po uaktualnieniu hello usługi.
 
-Ponadto należy zaktualizować *ServiceManifest.xml* pliku (w ramach elementu PackageRoot) projektu **VisualObjects.ActorService**. Aktualizacja *elementu CodePackage* i wersja 2.0 oraz odpowiednich wierszy w *ServiceManifest.xml* pliku.
-Można użyć programu Visual Studio *edytować pliki manifestu* opcję po kliknięciu prawym przyciskiem myszy rozwiązanie, aby wprowadzić zmiany pliku manifestu.
+Potrzebujemy tooupdate hello *ServiceManifest.xml* pliku (w ramach elementu PackageRoot) projektu hello **VisualObjects.ActorService**. Aktualizacja hello *elementu CodePackage* hello too2.0 wersji usługi i hello odpowiednich wierszy w hello *ServiceManifest.xml* pliku.
+Można użyć programu Visual Studio hello *edytować pliki manifestu* opcję po kliknięciu prawym przyciskiem myszy na zmiany hello toomake hello rozwiązania w pliku manifestu.
 
-Po wprowadzeniu zmian plik manifestu powinien wyglądać następująco (wyróżniony części Pokaż zmiany):
+Po dokonaniu zmiany hello hello manifest powinna wyglądać następujące hello (wyróżniony części Pokaż zmiany hello):
 
 ```xml
 <ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -65,7 +65,7 @@ Po wprowadzeniu zmian plik manifestu powinien wyglądać następująco (wyróżn
 <CodePackageName="Code" Version="2.0">
 ```
 
-Teraz *ApplicationManifest.xml* pliku (w obszarze **VisualObjects** projektu w obszarze **VisualObjects** rozwiązania) zostanie zaktualizowany do wersji 2.0 **VisualObjects.ActorService** projektu. Ponadto wersja aplikacji zostało zaktualizowane do 2.0.0.0 z 1.0.0.0. *ApplicationManifest.xml* powinno wyglądać podobnie do następującego fragmentu kodu:
+Teraz hello *ApplicationManifest.xml* pliku (w obszarze hello **VisualObjects** projektu w obszarze hello **VisualObjects** rozwiązania) jest zaktualizowane tooversion 2.0 z hello  **VisualObjects.ActorService** projektu. Ponadto wersja aplikacji hello jest zaktualizowane too2.0.0.0 z 1.0.0.0. Witaj *ApplicationManifest.xml* powinien wyglądać podobnie jak hello po fragment kodu:
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -74,14 +74,14 @@ Teraz *ApplicationManifest.xml* pliku (w obszarze **VisualObjects** projektu w o
 ```
 
 
-Teraz, skompiluj projekt, wybierając tylko **ActorService** projektu, a następnie prawym przyciskiem myszy i wybierając **kompilacji** w programie Visual Studio. W przypadku wybrania **odbudowanie wszystkiego**, należy zaktualizować wersje dla wszystkich projektów, ponieważ kod może zostać zmieniona. Następnie umożliwia pakiet aplikacji zaktualizowane, klikając prawym przyciskiem myszy ***VisualObjectsApplication***, wybierając z Menu sieci szkieletowej usług i wybierając **pakietu**. Ta akcja powoduje utworzenie pakietu aplikacji, które można wdrożyć.  Zaktualizowano aplikacja jest gotowa do wdrożenia.
+Teraz, kompilacji projektu hello, wybierając tylko hello **ActorService** projektu, a następnie prawym przyciskiem myszy i wybierając hello **kompilacji** w programie Visual Studio. W przypadku wybrania **odbudowanie wszystkiego**, należy zaktualizować hello wersji dla wszystkich projektów, ponieważ kod hello może zostać zmieniona. Następnie Załóżmy zaktualizowana aplikacja hello pakietu przez kliknięcie prawym przyciskiem myszy ***VisualObjectsApplication***, wybierając hello usługi sieć szkieletowa Menu i wybierając **pakietu**. Ta akcja powoduje utworzenie pakietu aplikacji, które można wdrożyć.  Zaktualizowano aplikacja jest gotowa toobe wdrożone.
 
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Krok 3: Wybierz zasady dotyczące kondycji i parametry uaktualnienia
-Zapoznaj się z [parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) i [procesu uaktualniania](service-fabric-application-upgrade.md) można uzyskać dobrą znajomość różnych parametrów uaktualnienia, limity czasu i zastosować kryterium kondycji. W ramach tego przewodnika kryterium oceny kondycji usługi jest ustawioną wartość domyślną (i zalecana) wartości, które oznacza, że wszystkie usługi i wystąpień powinny być *dobrej kondycji* po uaktualnieniu.  
+Zapoznaj się z hello [parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) i hello [procesu uaktualniania](service-fabric-application-upgrade.md) tooget dobrą znajomość hello uaktualniania różnych parametrów, limity czasu i zastosować kryterium kondycji . W ramach tego przewodnika kryterium oceny kondycji usługi hello jest ustawienie domyślne toohello (i zalecana) wartości, które oznacza, że wszystkie usługi i wystąpień powinny być *dobrej kondycji* po uaktualnieniu hello.  
 
-Jednak ta funkcja pozwala zwiększyć *HealthCheckStableDuration* do 60 sekund (tak, aby usługi są w dobrej kondycji dla co najmniej 20 sekund przed uaktualnienia przechodzi do następnej domeny aktualizacji).  Umożliwia również ustawić *UpgradeDomainTimeout* do 1200 sekund i *UpgradeTimeout* do 3000 sekund.
+Jednak ta funkcja pozwala zwiększyć hello *HealthCheckStableDuration* too60 sekund (tak, aby hello usługi są w dobrej kondycji dla co najmniej 20 sekund przed hello uaktualnianie będzie kontynuowane toohello Następna aktualizacja domeny).  Umożliwia również ustawić hello *UpgradeDomainTimeout* toobe 1200 sekund i hello *UpgradeTimeout* toobe 3000 sekund.
 
-Ponadto umożliwia także ustawić *UpgradeFailureAction* można wycofać. Ta opcja wymaga sieci szkieletowej usług wycofać aplikację do poprzedniej wersji, w przypadku napotkania problemów podczas uaktualniania. W związku z tym podczas rozpoczynania uaktualniania (w kroku 4), są określone następujące parametry:
+Ponadto umożliwia także ustawić hello *UpgradeFailureAction* toorollback. Ta opcja wymaga sieci szkieletowej usług tooroll wstecz hello aplikacji toohello poprzedniej wersji, w przypadku napotkania problemów podczas uaktualniania hello. W związku z tym podczas rozpoczynania uaktualniania hello (w kroku 4), hello określić następujące parametry są:
 
 FailureAction = wycofywania
 
@@ -92,53 +92,53 @@ UpgradeDomainTimeoutSec = 1200
 UpgradeTimeout = 3000
 
 ## <a name="step-4-prepare-application-for-upgrade"></a>Krok 4: Przygotowywanie aplikacji do uaktualnienia
-Teraz aplikacji jest zbudowany i gotowa do uaktualnienia. Jeśli Otwórz okno programu PowerShell jako administrator, a typ [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), powinien pozwalają wiedzieli, że jest on typ aplikacji 1.0.0.0 **VisualObjects** który jest wdrażany.  
+Teraz aplikacji hello jest wbudowana i uaktualnić toobe gotowe. Jeśli Otwórz okno programu PowerShell jako administrator, a typ [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), powinien pozwalają wiedzieli, że jest on typ aplikacji 1.0.0.0 **VisualObjects** który jest wdrażany.  
 
-Pakiet aplikacji są przechowywane w następującej ścieżce względnej, gdzie nieskompresowane zestawu SDK usług sieci szkieletowej — *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Folder "Pakietu" powinien znajdować się w tym katalogu, w którym jest przechowywany pakiet aplikacji. Sprawdź sygnatury czasowe do zapewnienia, że jest ostatniej kompilacji (może być konieczne ścieżki odpowiednio zmodyfikuj również).
+Witaj pakiet aplikacji są przechowywane w następujących hello ścieżki względnej, gdzie jako nieskompresowane hello zestawu SDK usług sieci szkieletowej — *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Folder "Pakietu" powinien znajdować się w tym katalogu, w którym przechowywana jest pakiet aplikacji hello. Sprawdź tooensure sygnatury czasowe hello jest hello ostatniej kompilacji (może być także odpowiednio toomodify hello ścieżki).
 
-Teraz Skopiuj pakiet zaktualizowanej aplikacji do magazynu ImageStore sieci szkieletowej usług, które zostały (gdzie pakiety aplikacji są przechowywane przez usługi sieć szkieletowa). Parametr *ApplicationPackagePathInImageStore* informuje o tym, gdzie można znaleźć pakietu aplikacji sieci szkieletowej usług. Testujemy zaktualizowaną aplikację "VisualObjects\_V2" przy użyciu następującego polecenia (konieczne może być ponownie odpowiednio zmodyfikuj ścieżki).
+Teraz załóżmy hello kopiowania zaktualizować toohello pakietu aplikacji magazynu ImageStore sieci szkieletowej usług (gdzie hello pakiety aplikacji są przechowywane przez sieć szkieletowa usług). Witaj parametru *ApplicationPackagePathInImageStore* informuje o tym, gdzie można znaleźć pakietu aplikacji hello sieci szkieletowej usług. Testujemy aplikacji hello zaktualizowane "VisualObjects\_V2" z hello następujące polecenie (czasem ścieżki toomodify ponownie odpowiednio).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
 -ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
-Następnym krokiem jest zarejestrować tej aplikacji za pomocą usługi Service Fabric, która może zostać wykonana przy użyciu [ServiceFabricApplicationType rejestru](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) polecenia:
+Witaj, następnym krokiem jest tooregister tej aplikacji z sieci szkieletowej usług, które mogą być wykonywane przy użyciu hello [ServiceFabricApplicationType rejestru](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) polecenia:
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
-Jeśli poprzednie polecenie nie powiedzie się, prawdopodobnie konieczność ponownej kompilacji wszystkich usług. Jak wspomniano w kroku 2, może być konieczne zaktualizuj swoją wersję usługi sieci Web.
+Jeśli hello poprzednie polecenie nie powiedzie się, prawdopodobnie konieczność ponownej kompilacji wszystkich usług. Jak wspomniano w kroku 2, konieczne może być tooupdate w używanej wersji usługi sieci Web.
 
-## <a name="step-5-start-the-application-upgrade"></a>Krok 5: Uruchom operację uaktualniania aplikacji
-Teraz możemy wszystko jest gotowe do uruchamiania uaktualniania aplikacji przy użyciu [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) polecenia:
+## <a name="step-5-start-hello-application-upgrade"></a>Krok 5: Uruchom uaktualniania aplikacji hello
+Teraz, jesteśmy wszystkich aplikacji hello toostart zestaw uaktualnienia przy użyciu hello [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) polecenia:
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
 ```
 
 
-Nazwa aplikacji jest taka sama, jak zostało opisane w *ApplicationManifest.xml* pliku. Sieć szkieletowa usług używa tej nazwy do identyfikowania, która aplikacja jest wprowadzenie uaktualniony. Jeśli ustawisz limity czasu się zbyt krótki, możesz napotkać komunikat o błędzie stwierdzający, problem. Zobacz sekcję dotyczącą rozwiązywania problemów, lub Zwiększ limity czasu.
+Witaj Nazwa aplikacji jest hello sam opisane w hello *ApplicationManifest.xml* pliku. Sieć szkieletowa usług używa tego tooidentify nazwę, która aplikacja jest wprowadzenie uaktualniony. Jeśli ustawisz toobe limity czasu hello jest zbyt krótki, możesz napotkać komunikat o błędzie, że stanów hello problem. Zobacz toohello Rozwiązywanie problemów z sekcji, lub zwiększ hello przekroczeń limitu czasu.
 
-Teraz kontynuowane uaktualniania aplikacji, można monitorować za pomocą Eksploratora usługi sieć szkieletowa, lub za pomocą [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) polecenia programu PowerShell: 
+Teraz, jak hello kontynuowane uaktualniania aplikacji, można monitorować za pomocą Eksploratora usługi sieć szkieletowa, lub za pomocą hello [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) polecenia programu PowerShell: 
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 ```
 
-Za kilka minut, stan, który uzyskano przy użyciu poprzedniego polecenia programu PowerShell, powinny prezentować, że wszystkie domeny aktualizacji zostały uaktualnione (ukończone). I powinien znajdować się, że uruchomiony obracanie visual obiektów w oknie przeglądarki!
+W ciągu kilku minut hello stan, który uzyskano przy użyciu hello poprzedzających polecenia programu PowerShell powinny prezentować uaktualniono wszystkie domeny aktualizacji (ukończone). I powinien znajdować się, że uruchomiony obracanie hello obiekty widoczne w oknie przeglądarki!
 
-Możesz spróbować uaktualniania z wersji 2 do wersji 3 lub w wersji 2 do wersji 1, ponieważ wykonywania. Przenoszenie z wersji 2 do wersji 1 jest traktowana jako uaktualnienia. Odtwarzanie z limitów czasu i zasady dotyczące kondycji z siebie uczynić z nich korzystać. W przypadku wdrażania klastra platformy Azure, parametry trzeba odpowiednio ustawione. Warto konserwatywnie Ustaw limity czasu.
+Możesz spróbować uaktualniania z wersji 2 tooversion 3 lub w wersji 2 tooversion 1, ponieważ wykonywanie. Przenoszenie z wersji 2 tooversion 1 jest traktowana jako uaktualnienia. Odtwarzanie z limitów czasu i toomake zasady kondycji samodzielnie z nich korzystać. W przypadku wdrażania klastra Azure tooan hello zestawu toobe potrzeby parametrów odpowiednio. Konserwatywnie jest dobrym tooset hello przekroczeń limitu czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 [Uaktualnianie aplikacji za pomocą programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
 
 Kontrolowanie sposobu uaktualnienia aplikacji przy użyciu [parametry uaktualnienia](service-fabric-application-upgrade-parameters.md).
 
-Uzyskania uaktualnień aplikacji zgodnych przez poznanie [szeregowanie danych](service-fabric-application-upgrade-data-serialization.md).
+Uzyskania uaktualnień aplikacji zgodnych przez uczenia jak toouse [szeregowanie danych](service-fabric-application-upgrade-data-serialization.md).
 
-Dowiedz się, jak korzystać z zaawansowanych funkcji podczas uaktualniania aplikacji, odwołując się do [Tematy zaawansowane](service-fabric-application-upgrade-advanced.md).
+Dowiedz się, jak toouse zaawansowanych funkcji podczas uaktualniania aplikacji, odnosząc się zbyt[Tematy zaawansowane](service-fabric-application-upgrade-advanced.md).
 
-Rozwiązywania typowych problemów w uaktualnień aplikacji, korzystając z procedury opisanej w [Rozwiązywanie problemów z uaktualnieniami aplikacji](service-fabric-application-upgrade-troubleshooting.md).
+Rozwiązywania typowych problemów w aplikacji uaktualnień, odnosząc się kroki toohello [Rozwiązywanie problemów z uaktualnieniami aplikacji](service-fabric-application-upgrade-troubleshooting.md).
 

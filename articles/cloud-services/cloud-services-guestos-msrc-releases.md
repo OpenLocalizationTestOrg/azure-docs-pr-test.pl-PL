@@ -1,6 +1,6 @@
 ---
-title: "Lista aktualizacje stosowane do systemu operacyjnego gościa Azure | Dokumentacja firmy Microsoft"
-description: "Listę aktualizacji, które dotyczą wersji systemu operacyjnego gościa"
+title: "aaaList toohello stosowania aktualizacji systemu operacyjnego gościa Azure | Dokumentacja firmy Microsoft"
+description: zwalnia Hello lista tooGuest stosowania aktualizacji systemu operacyjnego
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/24/2017
 ms.author: raiye
-ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac604bc8ea6a0c4aa9a9e0ae01ecde2f92a04e15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
-Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
+Witaj w poniższych tabelach powitalne aktualizacji firmy Microsoft Security odpowiedzi Center (MSRC) stosowane toohello Azure systemu operacyjnego gościa. Wyszukaj toodetermine tego artykułu, jeśli dana aktualizacja dotyczy toohello korzystasz z systemu operacyjnego gościa. Aktualizacje zawsze przeniesieniu dla konkretnego hello [rodziny] [ family-explain] zostały wprowadzone w.
 
 ## <a name="august-guest-os"></a>Sierpnia systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -173,7 +173,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 134 |[3193706] |Aktualizacja zabezpieczeń dla typowych sterownik systemu plików dziennika |5.3, 4.38, 3.45, 2.57 |8 listopada 2016 r. |
 | MS16 135 |[3199135] |Aktualizacja zabezpieczeń dla sterowników trybu jądra |5.3, 4.38, 3.45, 2.57 |8 listopada 2016 r. |
 | MS16 137 |[3199173]   |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |5.3, 4.38, 3.45, 2.57 |8 listopada 2016 r. |
-| MS16 138 |[3199647] |Aktualizacja zabezpieczeń Microsoft wirtualny dysk twardy |5.3, 4.38, 3.45 |8 listopada 2016 r. |
+| MS16 138 |[3199647] |TooMicrosoft aktualizacji zabezpieczeń wirtualnego dysku |5.3, 4.38, 3.45 |8 listopada 2016 r. |
 | MS16 139 |[3199720] |Aktualizacja zabezpieczeń dla jądra systemu Windows |2.57 |Lis 8.2016 |
 | MS16 140 |[3193479] |Aktualizacja zabezpieczeń dla Menedżera rozruchu |5.3, 4.38, 3.45 |8 listopada 2016 r. |
 | MS16 142 |[3198467] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |2.57, 4.38, 5.3 |8 listopada 2016 r. |
@@ -253,8 +253,8 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="june-guest-os"></a>System operacyjny gościa czerwca
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS16 035 |[3141780] |Aktualizacja zabezpieczeń dla programu .NET Framework w celu rozwiązania obejścia funkcji zabezpieczeń |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
-| Poradnik |[3155527] |Aktualizacja mechanizmy szyfrowania dla FalseStart |4.33, 3.40 |14 czerwca 2016 r. |
+| MS16 035 |[3141780] |Aktualizacja zabezpieczeń dla .NET Framework tooAddress obejścia funkcji zabezpieczeń |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
+| Poradnik |[3155527] |Aktualizowanie zestawów tooCipher dla FalseStart |4.33, 3.40 |14 czerwca 2016 r. |
 | MS16 063 |[3163649] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
 | MS16 069 |[3163640] |Zbiorcza aktualizacja zabezpieczeń dla języka JScript i VBScript |2.52 |14 czerwca 2016 r. |
 | MS16 071 |[3164065] |Aktualizacja zabezpieczeń dla serwera DNS systemu Microsoft Windows |4.33, 3.40 |14 czerwca 2016 r. |
@@ -268,9 +268,9 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 081 |[3160352] |Aktualizacja zabezpieczeń dla usługi Active Directory |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
 | Nie dotyczy |[2922223] |Nie można zmienić czas systemowy, jeśli wpis rejestru RealTimeIsUniversal jest włączona w systemie Windows |2.52 |14 czerwca 2016 r. |
 | Nie dotyczy |[3121255] |błąd zatrzymania "0x00000024" w pliku FsRtlNotifyFilterReportChange i skopiuj może zakończyć się niepowodzeniem w systemie Windows |2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3125424] |Zakleszczenie LSASS spowodować systemu Windows Server 2012 R2 lub Windows Server 2012 nie odpowiadały |4.33, 3.40 |14 czerwca 2016 r. |
+| Nie dotyczy |[3125424] |Zakleszczenie LSASS spowodować systemu Windows Server 2012 R2 lub Windows Server 2012 nie toorespond |4.33, 3.40 |14 czerwca 2016 r. |
 | Nie dotyczy |[3125574] |Wygody pakiet zbiorczy aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3140245] |Aktualizację, aby umożliwić protokołu TLS 1.1 i TLS 1.2 jako domyślnych protokołów bezpiecznego w WinHTTP w systemie Windows |3.40, 2.52 |14 czerwca 2016 r. |
+| Nie dotyczy |[3140245] |Aktualizacja tooenable protokołu TLS 1.1 i TLS 1.2 jako domyślnych protokołów bezpiecznego w WinHTTP w systemie Windows |3.40, 2.52 |14 czerwca 2016 r. |
 | Nie dotyczy |[3146604] |Awarie usługi WMI w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.33, 3.40 |14 czerwca 2016 r. |
 | Nie dotyczy |[3149157] |Ulepszenia niezawodności i skalowalności w TCP/IP dla Windows 8.1 i Windows Server 2012 R2 |4.33 |14 czerwca 2016 r. |
 | Nie dotyczy |[3156416] |Maj 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.40 |14 czerwca 2016 r. |
@@ -285,13 +285,13 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 055 |[3156754] |Aktualizacja zabezpieczeń dla składnika Microsoft grafiki |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 057 |[3156987] |Aktualizacja zabezpieczeń dla powłoki systemu Windows |4.32 |10 maja 2016 r. |
 | MS16 060 |[3154846] |Aktualizacja zabezpieczeń dla jądra systemu Windows |4.32, 3.39, 2.51 |10 maja 2016 r. |
-| MS16 061 |[3155520] |Aktualizacja zabezpieczeń RPC |4.32, 3.39, 2.51 |10 maja 2016 r. |
+| MS16 061 |[3155520] |TooRPC aktualizacji zabezpieczeń |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 062 |[3158222] |Aktualizacja zabezpieczeń dla sterowników trybu jądra |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 065 |[3156757] |Aktualizacja zabezpieczeń dla programu .net Framework |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 067 |[3155784] |Aktualizacja zabezpieczeń dla sterownika Menedżer woluminów |4.32, 3.39 |10 maja 2016 r. |
 | Nie dotyczy |[3148851] |Zmiany strefy czasowej dla Rosji w systemie Windows  |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | Nie dotyczy |[3133977] |Funkcja BitLocker nie szyfrowanie dysków z powodu awarii usługi, w procesie svchost.exe w systemie Windows 7 lub Windows Server 2008 R2  |2.51 |10 maja 2016 r. |
-| Nie dotyczy |[3133681] |Maszyny wirtualne nie odpowiada na operację w programie SCVMM w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
+| Nie dotyczy |[3133681] |Maszyny wirtualne nie odpowiadaj tooyour operacji w programie SCVMM w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
 | Nie dotyczy |[3123245] |Aktualizacja zwiększa identyfikacji wyczerpania portu w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
 | Nie dotyczy |[Wyłącz RC4] | Biuletyn zabezpieczeń firmy Microsoft: Aktualizacja dla wyłączaniu technologii RC4  |4.32, 3.39, 2.51 |10 maja 2016 r. |
 
@@ -310,40 +310,40 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS16 023 |[3142015] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 026 |[3143148] |Aktualizacja zabezpieczeń graficzne czcionek do adresów zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 027 |[3143146] |Zabezpieczenia aktualizacji dla Windows Media Player adres zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 028 |[3143081] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows PDF biblioteki w celu rozwiązania zdalne wykonywanie kodu |4.30, 3.37 |8 marca 2016 r. |
-| MS16 030 |[3143136] |Aktualizacja zabezpieczeń dla systemu Windows OLE w celu rozwiązania zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 031 |[3140410] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows w celu rozwiązania podniesienie uprawnień |2.49 |8 marca 2016 r. |
-| MS16 032 |[3143141] |Aktualizacja zabezpieczeń do dodatkowej logowania się do adresów podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 033 |[3143142] |Aktualizacja zabezpieczeń do sterownika klasy pamięci masowej USB w celu rozwiązania podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
-| MS16 034 |[3143145] |Aktualizacje zabezpieczeń, które sterownik trybu jądra na adres podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 026 |[3143148] |TooGraphic aktualizacji zabezpieczeń tooAddress czcionki zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 027 |[3143146] |Zabezpieczenia aktualizacji dla programu Windows Media Player tooaddress zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 028 |[3143081] |Aktualizacja zabezpieczeń dla biblioteki programu Microsoft Windows PDF tooAddress zdalne wykonywanie kodu |4.30, 3.37 |8 marca 2016 r. |
+| MS16 030 |[3143136] |Zabezpieczenia aktualizacji dla systemu Windows OLE tooAddress zdalne wykonywanie kodu |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 031 |[3140410] |Aktualizacja zabezpieczeń dla programu Microsoft Windows tooAddress podniesienie uprawnień |2.49 |8 marca 2016 r. |
+| MS16 032 |[3143141] |TooSecondary aktualizacji zabezpieczeń tooAddress logowania podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 033 |[3143142] |TooUSB aktualizacji zabezpieczeń tooAddress sterownika klasy pamięci masowej podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
+| MS16 034 |[3143145] |Aktualizacje zabezpieczeń, które sterownik trybu jądra tooaddress podniesienie uprawnień |4.30, 3.37, 2.49 |8 marca 2016 r. |
 
 ## <a name="february-guest-os"></a>Lutego systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS16 009 |[3134220] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16-013 |[3134811] |Aktualizacja zabezpieczeń dziennika systemu Windows w celu rozwiązania zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16 014 |[3134228] |Aktualizacja zabezpieczeń Microsoft Windows do adresu zdalnego wykonania kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16 016 |[3136041] |Aktualizacja zabezpieczeń WebDAV rozwiązującą podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16 018 |[3136082] |Aktualizacja zabezpieczeń dla sterownik trybu jądra systemu Windows w celu rozwiązania podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16 019 |[3137893] |Aktualizacja zabezpieczeń dla programu .NET Framework w celu rozwiązania zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| MS16 021 |[3133043] |Aktualizacja zabezpieczeń dla serwera zasad Sieciowych serwera RADIUS w celu rozwiązania "odmowa usługi" |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| Poradnik zabezpieczeń firmy Microsoft |[3109853] |Aktualizacja do poprawy współdziałania TLS |4.29, 3.36 |9 lutego 2016 r. |
+| MS16-013 |[3134811] |TooWindows aktualizacji zabezpieczeń tooAddress dziennika zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| MS16 014 |[3134228] |TooMicrosoft aktualizacji zabezpieczeń systemu Windows tooAddress zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| MS16 016 |[3136041] |TooAddress tooWebDAV aktualizacji zabezpieczeń podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| MS16 018 |[3136082] |Zabezpieczenia aktualizacji dla systemu Windows w trybie jądra sterownika tooAddress podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| MS16 019 |[3137893] |Aktualizacja zabezpieczeń dla .NET Framework tooAddress zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| MS16 021 |[3133043] |Aktualizacja zabezpieczeń dla serwera RADIUS NPS tooAddress "odmowa usługi" |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| Poradnik zabezpieczeń firmy Microsoft |[3109853] |Aktualizacja tooImprove współdziałanie protokołu TLS |4.29, 3.36 |9 lutego 2016 r. |
 | Nowe wydanie-MS15 101 |[3089662] |Luki w zabezpieczeniach .NET Framework może spowodować podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| Nowe wydanie-MS15 118 |[3104507] |Aktualizacje zabezpieczeń dla programu .NET Framework w celu rozwiązania podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
-| Nowe wydanie-MS15 128 |[3104503] |Aktualizacje zabezpieczeń dla składnika Microsoft Graphics rozwiązującą zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| Nowe wydanie-MS15 118 |[3104507] |Aktualizacje zabezpieczeń dla .NET Framework tooAddress podniesienie uprawnień |4.29, 3.36, 2.48 |9 lutego 2016 r. |
+| Nowe wydanie-MS15 128 |[3104503] |Aktualizacje zabezpieczeń Microsoft grafiki składnika tooAddress zdalne wykonywanie kodu |4.29, 3.36, 2.48 |9 lutego 2016 r. |
 
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS16 001 |[3124903] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
 | MS16 003 |[3125540] |Zbiorcza aktualizacja zabezpieczeń dla języka JScript i VBScript |2.47 |12 stycznia 2016 r. |
-| MS16 005 |[3124584] |Aktualizacja zabezpieczeń dla sterowników trybu jądra systemu Windows w celu rozwiązania zdalne wykonywanie kodu |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
-| MS16 007 |[3124901] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows w celu rozwiązania zdalne wykonywanie kodu |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
-| MS16 008 |[3124605] |Aktualizacja zabezpieczeń dla jądra w celu rozwiązania podniesienie uprawnień |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
+| MS16 005 |[3124584] |Zabezpieczenia aktualizacji dla systemu Windows w trybie jądra sterowniki tooAddress zdalne wykonywanie kodu |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
+| MS16 007 |[3124901] |Aktualizacja zabezpieczeń dla programu Microsoft Windows tooAddress zdalne wykonywanie kodu |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
+| MS16 008 |[3124605] |Aktualizacja zabezpieczeń dla jądra tooAddress podniesienie uprawnień |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
 | Microsoft Security Advisory poprawki |[2755801] |Aktualizacja dla usterki w programie Adobe Flash Player w programie Internet Explorer (pakiet KB: do ustalenia)-Advisory symbolu zastępczego |4.28, 3.35 |12 stycznia 2016 r. |
-| Poradnik zabezpieczeń firmy Microsoft |[3109853] |Aktualizacja do poprawy współdziałania TLS |4.28, 3.35 |12 stycznia 2016 r. |
+| Poradnik zabezpieczeń firmy Microsoft |[3109853] |Aktualizacja tooImprove współdziałanie protokołu TLS |4.28, 3.35 |12 stycznia 2016 r. |
 | Poradnik zabezpieczeń firmy Microsoft |[3123479] |Amortyzacja algorytmu wyznaczania wartości skrótu SHA-1 dla programu certyfikatów głównych firmy Microsoft. |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
 | Poradnik zabezpieczeń firmy Microsoft |[2736233] |Aktualizacje funkcji Killbit formantów ActiveX |4.28, 3.35, 2.47 |12 stycznia 2016 r. |
 
@@ -351,36 +351,36 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS15 124 |[3116180] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 126 |[3116178] |Aktualizacja zabezpieczeń dla Microsoft VBScript i JScript w celu rozwiązania zdalne wykonywanie kodu |2.46 |8 grudnia 2015 r. |
-| MS15 127 |[3100465] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows adresów zdalne wykonywanie kodu w systemie DNS |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 128 |[3104503] |Aktualizacje zabezpieczeń dla składnika Microsoft Graphics rozwiązującą zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 132 |[3116162] |Aktualizacja zabezpieczeń dla systemu Windows w celu rozwiązania zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 133 |[3116130] |Aktualizacja zabezpieczeń dla systemu Windows PGM rozwiązującą podniesienie uprawnień |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 134 |[3108669] |Aktualizacja zabezpieczeń dla programu Windows Media Center zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
-| MS15 135 |[3119075] |Aktualizacja zabezpieczeń dla sterowników trybu jądra systemu Windows w celu rozwiązania podniesienie uprawnień |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 126 |[3116178] |Aktualizacja zabezpieczeń dla programu Microsoft VBScript i JScript tooAddress zdalne wykonywanie kodu |2.46 |8 grudnia 2015 r. |
+| MS15 127 |[3100465] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows DNS tooAddress zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 128 |[3104503] |Aktualizacje zabezpieczeń Microsoft grafiki składnika tooAddress zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 132 |[3116162] |TooAddress aktualizacji dla systemu Windows zabezpieczeń zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 133 |[3116130] |Zabezpieczenia aktualizacji dla systemu Windows PGM tooAddress podniesienie uprawnień |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 134 |[3108669] |Zabezpieczenia aktualizacji programu Windows Media Center tooAddress zdalne wykonywanie kodu |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
+| MS15 135 |[3119075] |Zabezpieczenia aktualizacji dla systemu Windows sterowniki trybu jądra tooAddress podniesienie uprawnień |4.27, 3.34, 2.46 |8 grudnia 2015 r. |
 
 ## <a name="november-guest-os"></a>Listopad systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS15 112 |[3104517] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.26, 3.33, 2.45 |10 listopada 2015 r. |
-| MS15 114 |[3100213] |Aktualizacja zabezpieczeń dla dziennika systemu Windows w celu rozwiązania zdalne wykonywanie kodu |2.45 |10 listopada 2015 r. |
-| MS15 115 |[3105864] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows w celu rozwiązania zdalne wykonywanie kodu |4.26, 3.33, 2.45 |10 listopada 2015 r. |
-| MS15 117 |[3101722] |Aktualizacja zabezpieczeń dla NDIS rozwiązującą podniesienie uprawnień |2.45 |10 listopada 2015 r. |
-| MS15 118 |[3104507] |Aktualizacje zabezpieczeń dla programu .NET Framework w celu rozwiązania podniesienie uprawnień |4.26, 3.33, 2.45 |10 listopada 2015 r. |
-| MS15 119 |[3104521] |Aktualizacja zabezpieczeń dla Winsock w celu rozwiązania podniesienie uprawnień |4.26, 3.33, 2.45 |10 listopada 2015 r. |
-| MS15 120 |[3102939] |Aktualizacja zabezpieczeń dla protokołu IPSec rozwiązać odmowa usługi |4.26, 3.33 |10 listopada 2015 r. |
-| MS15 121 |[3081320] |Aktualizacja zabezpieczeń Schannel na fałszowanie adresów |4.26, 3.33, 2.45 |10 listopada 2015 r. |
-| MS15 122 |[3105256] |Aktualizacja zabezpieczeń dla protokołu Kerberos w celu rozwiązania obejścia funkcji zabezpieczeń |4.26, 3.33, 2.45 |10 listopada 2015 r. |
+| MS15 114 |[3100213] |TooAddress aktualizacji systemu Windows dla dziennika zabezpieczeń zdalne wykonywanie kodu |2.45 |10 listopada 2015 r. |
+| MS15 115 |[3105864] |Aktualizacja zabezpieczeń dla programu Microsoft Windows tooAddress zdalne wykonywanie kodu |4.26, 3.33, 2.45 |10 listopada 2015 r. |
+| MS15 117 |[3101722] |Aktualizacja zabezpieczeń dla tooAddress NDIS podniesienie uprawnień |2.45 |10 listopada 2015 r. |
+| MS15 118 |[3104507] |Aktualizacje zabezpieczeń dla .NET Framework tooAddress podniesienie uprawnień |4.26, 3.33, 2.45 |10 listopada 2015 r. |
+| MS15 119 |[3104521] |Aktualizacja zabezpieczeń dla tooAddress Winsock podniesienie uprawnień |4.26, 3.33, 2.45 |10 listopada 2015 r. |
+| MS15 120 |[3102939] |Aktualizacja zabezpieczeń dla protokołu IPSec tooAddress "odmowa usługi" |4.26, 3.33 |10 listopada 2015 r. |
+| MS15 121 |[3081320] |TooAddress tooSchannel aktualizacji zabezpieczeń Spoofing |4.26, 3.33, 2.45 |10 listopada 2015 r. |
+| MS15 122 |[3105256] |Aktualizacja zabezpieczeń dla protokołu Kerberos tooAddress obejścia funkcji zabezpieczeń |4.26, 3.33, 2.45 |10 listopada 2015 r. |
 | Poradnik zabezpieczeń firmy Microsoft |[3097966] |Przypadkowo ujawnione certyfikatów cyfrowych można pozwolić fałszowania |4.26, 3.33, 2.45 |10 listopada 2015 r. |
 
 ## <a name="october-guest-os"></a>Październik systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS15 106 |[3096441] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.25, 3.32, 2.44 |13 października 2015 |
-| MS15 108 |[3089659] |Aktualizacja zabezpieczeń dla języka JScript i VBScript rozwiązać potencjalne zdalne wykonywanie kodu |2.44 |13 października 2015 |
-| MS15 109 |[3096443] |Aktualizacja zabezpieczeń dla powłoki systemu Windows w celu rozwiązania zdalne wykonywanie kodu |4.25, 3.32, 2.44 |13 października 2015 |
-| MS15 111 |[3096447] |Aktualizacja zabezpieczeń dla jądra systemu Windows w celu rozwiązania podniesienie uprawnień |4.25, 3.32, 2.44 |13 października 2015 |
-| Poradnik zabezpieczeń firmy Microsoft |[3092627] |Zaktualizuj września 2015 r. Aby rozwiązać problem z systemem Windows lub aplikacja zawiesza się po zainstalowaniu aktualizacji zabezpieczeń 3076895 |4.25, 3.32, 2.44 |13 października 2015 |
+| MS15 108 |[3089659] |Aktualizacja zabezpieczeń dla języka JScript i VBScript tooAddress potencjalnych zdalne wykonywanie kodu |2.44 |13 października 2015 |
+| MS15 109 |[3096443] |Zabezpieczenia aktualizacji dla systemu Windows Shell tooAddress zdalne wykonywanie kodu |4.25, 3.32, 2.44 |13 października 2015 |
+| MS15 111 |[3096447] |TooAddress aktualizacji dla jądra systemu Windows zabezpieczeń podniesienie uprawnień |4.25, 3.32, 2.44 |13 października 2015 |
+| Poradnik zabezpieczeń firmy Microsoft |[3092627] |Września 2015 r. aktualizacji systemu Windows toofix lub aplikacja zawiesza się po zainstalowaniu aktualizacji zabezpieczeń 3076895 |4.25, 3.32, 2.44 |13 października 2015 |
 
 ## <a name="september-guest-os"></a>Września systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -421,7 +421,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS15 075 |[3072633] |Luki w zabezpieczeniach w OLE może spowodować podniesienie uprawnień |4.22, 3.29, 2.41 |14 lipca 2015 r. |
 | MS15 076 |[3067505] |Luki w zabezpieczeniach w wywołaniu procedury zdalnej systemu Windows może spowodować podniesienie uprawnień |4.22, 3.29, 2.41 |14 lipca 2015 r. |
 | MS15 077 |[3077657] |Luki w zabezpieczeniach w sterowniku czcionki ATM może spowodować podniesienie uprawnień |4.22, 3.29, 2.41 |14 lipca 2015 r. |
-| Nie dotyczy |[3057154] |Aktualizacja do ograniczenia szyfrowania DES |4.22, 3.29, 2.41 |14 lipca 2015 r. |
+| Nie dotyczy |[3057154] |Aktualizacja tooRestrict używają szyfrowania DES |4.22, 3.29, 2.41 |14 lipca 2015 r. |
 
 ## <a name="june-guest-os"></a>System operacyjny gościa czerwca
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -454,7 +454,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS15 040 |[3045711] |Luki w zabezpieczeniach w usługach AD FS może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 | MS15 041 |[3048010] |Usterki w programie .NET Framework może spowodować ujawnienie informacji |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 | MS15 042 |[3047234] |Luka w funkcji Hyper-V systemu Windows umożliwia odmowa usługi |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
-| Nie dotyczy |[3045755] |Aktualizację, aby poprawić uwierzytelniania protokołu PKU2U |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
+| Nie dotyczy |[3045755] |Aktualizacja tooImprove uwierzytelniania protokołu PKU2U |4.20, 3.27, 2.39 |17 kwietnia 2015 r. |
 
 ## <a name="april-guest-os"></a>System operacyjny gościa kwietnia
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -477,7 +477,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS15 030 |[3039976] |Usterka protokołu Remote Desktop Protocol umożliwia odmowa usługi |4.18, 3.25, 2.37 |Nie dotyczy |
 
 > [!NOTE]
-> Biuletyn MS15-031 może pojawić się, jak odinstalować. Jednak natomiast nie odnoszą się do tej wersji systemu operacyjnego gościa.
+> Biuletyn MS15-031 może pojawić się, jak odinstalować. Jednak nie dotyczy toothis, który wersji systemu operacyjnego gościa.
 >
 >
 
@@ -490,7 +490,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS15 014 |[3004361] |Luka w protokole SMB umożliwia obejście funkcji zabezpieczeń |4.17, 3.24, 2.36 |Nie dotyczy |
 | MS15 015 |[3031432] |Luki w zabezpieczeniach w systemie Microsoft Windows może spowodować podniesienie uprawnień |4.17, 3.24, 2.36 |Nie dotyczy |
 | MS15 016 |[3029944] |Luki w zabezpieczeniach w składniku Microsoft Graphics może spowodować ujawnienie informacji |4.17, 3.24, 2.36 |Nie dotyczy |
-| Nie dotyczy |[3004375] |Polecenie aktualizację, aby poprawić Windows inspekcji wiersza<p/>**Uwaga**: to jest zainstalowany, ale klucz rejestru, aby ją włączyć jest wyłączona. |4.17, 3.24, 2.36 |Nie dotyczy |
+| Nie dotyczy |[3004375] |Zaktualizuj tooImprove inspekcji wiersza polecenia systemu Windows<p/>**Uwaga**: to jest zainstalowany, ale tooenable klucza rejestru hello jest wyłączony |4.17, 3.24, 2.36 |Nie dotyczy |
 
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -511,17 +511,17 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| Nie dotyczy |[3013776] |System zawiesza się, korzystając z konta domeny można uruchomić aplikacji |4.15, 3.22, 2.34 |2015 13 stycznia |
+| Nie dotyczy |[3013776] |System zawiesza się, gdy używasz toostart konta domeny aplikacji |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[3013043] |Danych systemu plików jest uszkodzony komputera z systemem Windows, który ma więcej niż jeden węzeł NUMA |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[3012712] |Nowe bloki danych zainicjować niepoprawnie po rozwinięciu różnicowego dysku VHD |4.15, 3.22, 2.34 |201 13 stycznia |
 | Nie dotyczy |[3004905] |Poprawa Windows Hyper-V dla maszyn wirtualnych systemu Linux, które mają systemy plików, które są większe niż 2 TB |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[3004394] |Aktualizacja z grudnia 2014 dla programu certyfikatów głównych systemu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[2999323] |Tekst dla zdarzeń 17 identyfikator zostanie zmieniona. |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3013488] |Długim czasie oczekiwania na serwer WSUS resetowania podczas importowania CSA plików w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.15, 3.22, 2.34 |2015 13 stycznia |
+| Nie dotyczy |[2999323] |tekst Hello zdarzenia 17 identyfikator zostanie zmieniona. |4.15, 3.22, 2.34 |2015 13 stycznia |
+| Nie dotyczy |[3013488] |Serwer WSUS tooreset długim czasie oczekiwania podczas importowania CSA plików w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[3012325] |Wpisy w bazie danych systemu Windows APN aktualizacji dla DIGI, Vodafone i Telekom przenośnych operatorów w Windows 8.1 i Windows 8 |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+| Nie dotyczy |[2896881] |Długi czas logowania, jeśli używasz hello AddPrinterConnection VBScript polecenia toomap drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 
 
 [4034658]: http://support.microsoft.com/kb/4034658

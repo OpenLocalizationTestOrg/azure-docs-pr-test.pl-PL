@@ -1,6 +1,6 @@
 ---
 title: "Pierwsze spojrzenie: ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Recovery Services | Microsoft Docs"
-description: "Ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Recovery Services. Tworzenie kopii zapasowych maszyn wirtualnych wdrożonych przez usługę Resource Manager, maszyn wirtualnych wdrożonych klasycznie i maszyn wirtualnych usługi Premium Storage, szyfrowanych maszyn wirtualnych oraz maszyn wirtualnych na dyskach zarządzanych pozwala na ochronę danych. Utwórz i zarejestruj magazyn usługi Recovery Services. Rejestruj maszyny wirtualne, twórz zasady i chroń maszyny wirtualne na platformie Azure."
+description: "Ochrona maszyn wirtualnych platformy Azure przy użyciu magazynu usługi Recovery Services. Użyj danych kopii zapasowych wdrożonych przez Menedżera zasobów maszyn wirtualnych, wdrożone w klasycznej maszyny wirtualne i Premium magazynu maszyn wirtualnych, szyfrowane maszyn wirtualnych, maszyny wirtualne na tooprotect dysków zarządzanych. Utwórz i zarejestruj magazyn usługi Recovery Services. Rejestruj maszyny wirtualne, twórz zasady i chroń maszyny wirtualne na platformie Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -16,20 +16,20 @@ ms.topic: hero-article
 ms.date: 08/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 70e4700abb76e16e32e1ead06ce1dbe277e1f0e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynach usługi Recovery Services
+# <a name="back-up-azure-virtual-machines-toorecovery-services-vaults"></a>Wykonaj kopię zapasową Magazyny usług tooRecovery maszyn wirtualnych platformy Azure
 > [!div class="op_single_selector"]
 > * [Ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md)
 > * [Ochrona maszyn wirtualnych przy użyciu magazynu kopii zapasowych](backup-azure-vms-first-look.md)
 >
 >
 
-Ten samouczek zawiera kroki prowadzące do utworzenia magazynu usługi Recovery Services oraz utworzenia kopii zapasowej maszyny wirtualnej Azure. Magazyny usługi Recovery Services chronią:
+Ten samouczek przedstawia kroki hello tworzenia magazynu usług odzyskiwania i wykonywania kopii zapasowych maszyny wirtualnej platformy Azure (VM). Magazyny usługi Recovery Services chronią:
 
 * Maszyny wirtualne wdrożone przez program Resource Manager platformy Azure
 * Klasyczne maszyny wirtualne
@@ -39,308 +39,308 @@ Ten samouczek zawiera kroki prowadzące do utworzenia magazynu usługi Recovery 
 * Maszyny wirtualne szyfrowane przy użyciu usługi Azure Disk Encryption (BEK i KEK)
 * Spójna na poziomie aplikacji kopia zapasowa maszyn wirtualnych z systemem Windows wykonywana przy użyciu usługi VSS i kopia zapasowa maszyn wirtualnych z systemem Linux wykonywana przy użyciu niestandardowych skryptów uruchamianych przed utworzeniem i po utworzeniu migawki
 
-Dodatkowe informacje na temat ochrony maszyn wirtualnych usługi Premium Storage można znaleźć w artykule [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych usługi Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Dodatkowe informacje na temat obsługi maszyn wirtualnych dysku zarządzanego można znaleźć w sekcji [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych na dyskach zarządzanych](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Aby uzyskać więcej informacji dotyczących struktury skryptów wykonywanych przed utworzeniem kopii zapasowej maszyny wirtualnej z systemem Linux i po utworzeniu kopii zapasowej, zobacz [Application consistent Linux VM backup using pre-script and post-script (Spójna na poziomie aplikacji kopia zapasowa maszyn wirtualnych z systemem Linux wykonywana przy użyciu skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+Aby uzyskać więcej informacji o ochronie magazyn w warstwie Premium maszyn wirtualnych, zobacz artykuł hello [kopie zapasowe i przywracanie maszyn wirtualnych magazyn w warstwie Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Dodatkowe informacje na temat obsługi maszyn wirtualnych dysku zarządzanego można znaleźć w sekcji [Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych na dyskach zarządzanych](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Aby uzyskać więcej informacji dotyczących struktury skryptów wykonywanych przed utworzeniem kopii zapasowej maszyny wirtualnej z systemem Linux i po utworzeniu kopii zapasowej, zobacz [Application consistent Linux VM backup using pre-script and post-script (Spójna na poziomie aplikacji kopia zapasowa maszyn wirtualnych z systemem Linux wykonywana przy użyciu skryptów uruchamianych przed utworzeniem i po utworzeniu kopii zapasowej)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Więcej informacji na temat zasobów, których kopie zapasowe można wykonywać, możesz znaleźć [tutaj](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+toofind się więcej o tym, co może kopii zapasowej możesz i co nie można znaleźć [tutaj](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
-> W tym samouczku zakładamy, że masz już maszynę wirtualną w subskrypcji platformy Azure i zostały podjęte działania umożliwiające usłudze tworzenia kopii zapasowej dostęp do maszyny wirtualnej.
+> Ten samouczek zakłada już maszyny Wirtualnej w Twojej subskrypcji platformy Azure i wykonano środki tooallow hello usługi tworzenia kopii zapasowej tooaccess hello maszyny Wirtualnej.
 >
 >
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-W zależności od liczby maszyn wirtualnych, które chcesz chronić, możesz rozpocząć od różnych punktów początkowych. Jeśli chcesz utworzyć kopię zapasową wielu maszyn wirtualnych w ramach jednej operacji, przejdź do magazynu usługi Recovery Services i [zainicjuj zadanie tworzenia kopii zapasowej z poziomu pulpitu nawigacyjnego magazynu](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Jeśli chcesz utworzyć kopię zapasową jednej maszyny wirtualnej, możesz zainicjować zadanie tworzenia kopii zapasowej z bloku zarządzania maszyną wirtualną.
+W zależności od liczby hello maszyn wirtualnych ma tooprotect, możesz rozpocząć od różnych punktów początkowych. Tooback zapasową wielu maszyn wirtualnych w ramach jednej operacji, przejdź magazyn usług odzyskiwania toohello i [inicjować hello zadanie tworzenia kopii zapasowej z pulpitem nawigacyjnym magazynu hello](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Jeśli chcesz tooback jednej maszyny wirtualnej, można zainicjować hello zadanie tworzenia kopii zapasowej z bloku zarządzania maszyny Wirtualnej.
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Konfigurowanie zadania tworzenia kopii zapasowej z bloku zarządzania maszyną wirtualną
+## <a name="configure-hello-backup-job-from-hello-vm-management-blade"></a>Konfigurowanie zadania tworzenia kopii zapasowej hello z bloku zarządzania maszyny Wirtualnej hello
 
-Wykonaj poniższe kroki w celu skonfigurowania zadania tworzenia kopii zapasowej z bloku zarządzania maszyną wirtualną w witrynie Azure Portal. Te kroki nie dotyczą maszyn wirtualnych w portalu klasycznym.
+Użyj poniższych kroków zadanie tworzenia kopii zapasowej hello tooconfigure z hello bloku zarządzania maszyny wirtualnej w portalu Azure hello hello. Te kroki należy stosować toohello maszyn wirtualnych w portalu klasycznym hello.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu Centrum kliknij opcję **Więcej usług** i w oknie dialogowym filtrowania wpisz ciąg **Maszyny wirtualne**. Podczas pisania odbywa się filtrowanie listy zasobów. Po wyświetleniu ciągu „Maszyny wirtualne” wybierz go.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com/).
+2. W menu Centrum powitania kliknij **więcej usług** i w oknie dialogowym hello filtru wpisz **maszyn wirtualnych**. Podczas wpisywania hello lista filtrów zasobów. Po wyświetleniu ciągu „Maszyny wirtualne” wybierz go.
 
-  ![W menu Centrum kliknij pozycję Więcej usług, aby otworzyć okno dialogowe tekstu, a następnie wpisz ciąg „Maszyny wirtualne”](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![W menu Centrum kliknij okna dialogowego tekstu tooopen więcej usług, a następnie wpisz maszyny wirtualne](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
-  Zostanie wyświetlona lista maszyn wirtualnych w subskrypcji.
+  zostanie wyświetlona lista Hello maszyn wirtualnych (VM) w subskrypcji hello.
 
-  ![Zostanie wyświetlona lista maszyn wirtualnych w subskrypcji.](./media/backup-azure-vms-first-look-arm/list-of-vms.png)
+  ![zostanie wyświetlona lista Hello maszyn wirtualnych w hello subskrypcji.](./media/backup-azure-vms-first-look-arm/list-of-vms.png)
 
-3. Z listy wybierz maszynę wirtualną do utworzenia kopii zapasowej.
+3. Wybierz tooback maszyny Wirtualnej z listy hello się.
 
-  ![Zostanie wyświetlona lista maszyn wirtualnych w subskrypcji.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
+  ![zostanie wyświetlona lista Hello maszyn wirtualnych w hello subskrypcji.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
-  Wybranie maszyny wirtualnej spowoduje przesunięcie listy maszyn wirtualnych w lewo oraz otwarcie bloku zarządzania maszyną wirtualną i pulpitu nawigacyjnego. </br>
+  Po wybraniu hello wirtualna hello listę maszyn wirtualnych przewiduje toohello po lewej stronie i blok zarządzania hello maszyny wirtualnej i hello maszyny wirtualnej z pulpitu nawigacyjnego, Otwórz. </br>
  ![Blok zarządzania maszyną wirtualną](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
 
-4. W bloku zarządzania maszyną wirtualną w sekcji **Ustawienia** kliknij pozycję **Kopia zapasowa**. </br>
+4. Na powitania bloku zarządzania maszyny Wirtualnej, w hello **ustawienia** kliknij **kopii zapasowej**. </br>
 
   ![Opcja Kopia zapasowa w bloku zarządzania maszyną wirtualną](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
 
-  Spowoduje to otwarcie bloku włączania kopii zapasowej.
+  zostanie otwarty blok tworzenia kopii zapasowej Włącz Hello.
 
   ![Opcja Kopia zapasowa w bloku zarządzania maszyną wirtualną](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. W magazynie usługi Recovery Services kliknij pozycję **Wybierz istniejący** i wybierz magazyn z listy rozwijanej.
+5. Witaj magazynu usług odzyskiwania, kliknij przycisk **wybierz istniejącą** i wybierz z listy rozwijanej hello hello magazynu.
 
   ![Kreator włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  Jeśli nie ma magazynów usługi Recovery Services lub chcesz użyć nowego magazynu, kliknij pozycję **Utwórz nowy** i podaj nazwę nowego magazynu. Nowy magazyn zostanie utworzony w tej samej lokalizacji i tej samej grupie zasobów, co maszyna wirtualna. Jeśli chcesz utworzyć magazyn usługi Recovery Services przy użyciu różnych wartości, zobacz sekcję dotyczącą [tworzenia magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+  Jeśli nie ma żadnego magazynu usług odzyskiwania lub ma toouse nowy magazyn, kliknij przycisk **Utwórz nowy** i podaj nazwę hello hello nowego magazynu. Nowy magazyn jest tworzony w hello same grupy zasobów i tej samej lokalizacji co hello maszyny wirtualnej. Jeśli chcesz toocreate magazynu usług odzyskiwania o różnych wartościach sekcji hello na temat zbyt[Tworzenie magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
-6. Aby wyświetlić szczegóły zasad tworzenia kopii zapasowej, kliknij pozycję **Zasady tworzenia kopii zapasowej**.
+6. Szczegóły hello tooview hello zasad tworzenia kopii zapasowej, kliknij przycisk **kopii zapasowej zasad**.
 
-  Zostanie otwarty blok **Zasady tworzenia kopii zapasowej** zawierający szczegóły wybranych zasad. Jeśli istnieją inne zasady, użyj menu rozwijanego, aby wybrać inne zasady tworzenia kopii zapasowej. Aby utworzyć zasady, wybierz opcję **Utwórz nowy** z menu rozwijanego. Instrukcje dotyczące definiowania zasad tworzenia kopii zapasowych można znaleźć w sekcji [Definiowanie zasad tworzenia kopii zapasowej](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Aby zapisać zmiany zasad tworzenia kopii zapasowej i wrócić do bloku Włącz kopie zapasowe, kliknij przycisk **OK**.
+  Witaj **kopii zapasowej zasad** bloku otwiera i zawiera szczegóły hello hello wybrane zasady. Jeśli istnieją inne zasady, użyj toochoose menu rozwijanego hello różnych zasad tworzenia kopii zapasowej. Jeśli chcesz toocreate zasady, wybierz opcję **Utwórz nowy** z menu rozwijanego hello. Instrukcje dotyczące definiowania zasad tworzenia kopii zapasowych można znaleźć w sekcji [Definiowanie zasad tworzenia kopii zapasowej](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). zasady tworzenia kopii zapasowej toohello toosave hello zmian i zwracany toohello Włącz bloku kopii zapasowej, kliknij przycisk **OK**.
 
   ![Wybór zasad tworzenia kopii zapasowej](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
 
-7. W bloku włączania kopii zapasowej kliknij przycisk **Włącz wykonywanie kopii zapasowej**, aby wdrożyć zasady. Wdrożenie zasad spowoduje skojarzenie ich z magazynem i maszynami wirtualnymi.
+7. W bloku kopia zapasowa Włącz hello, kliknij **Włącz kopię zapasową** toodeploy hello zasad. Wdrażanie zasad hello kojarzy ją z hello magazynu i maszyn wirtualnych hello.
 
   ![Przycisk Włącz wykonywanie kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
 
-8. Możesz śledzić postęp konfiguracji za pośrednictwem powiadomień wyświetlanych w portalu. W poniższym przykładzie pokazano, że rozpoczęto wdrażanie.
+8. Możesz śledzić postępy konfiguracji hello za pośrednictwem hello powiadomienia, które są wyświetlane w portalu hello. Hello poniższy przykład pokazuje, że wdrożenie jest uruchomione.
 
   ![Powiadomienie dotyczące włączania kopii zapasowej](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
-9. Po zakończeniu konfiguracji w bloku zarządzania maszyną wirtualną kliknij pozycję **Kopia zapasowa**, aby otworzyć blok elementu kopii zapasowej i wyświetlić szczegóły.
+9. Po zakończeniu postęp konfiguracji hello na powitania bloku zarządzania maszyny Wirtualnej, kliknij przycisk **kopii zapasowej** tooopen hello kopii zapasowej elementu bloku i widoku hello szczegóły.
 
   ![Widok elementu kopii zapasowej maszyny wirtualnej](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
 
-  Do czasu zakończenia procesu tworzenia początkowej kopii zapasowej w polu **Stan ostatniej kopii zapasowej** wyświetlany jest komunikat **Ostrzeżenie (oczekiwanie na początkową kopię zapasową)**. Aby sprawdzić, na kiedy zaplanowano kolejne zadania tworzenia kopii zapasowej, w obszarze **Zasady tworzenia kopii zapasowej** kliknij nazwę zasad. Zostanie otwarty blok zasad tworzenia kopii zapasowej zawierający informacje o czasie zaplanowanego utworzenia kopii zapasowej.
+  Dopiero po ukończeniu tworzenia początkowej kopii zapasowej hello, **ostatniej kopii zapasowej stanu** jest pokazywana jako **ostrzeżenie (początkowa kopia zapasowa oczekujących)**. występuje toosee gdy hello Następne zaplanowane zadanie tworzenia kopii zapasowej, w obszarze **kopii zapasowej zasad** kliknij nazwę hello hello zasad. Blok zasady tworzenia kopii zapasowej Hello otwiera i pokazuje czas hello hello zaplanowanego tworzenia kopii zapasowej.
 
-10. Aby uruchomić zadanie tworzenia kopii zapasowej i utworzyć początkowy punkt odzyskiwania, w bloku magazynu kopii zapasowych kliknij pozycję **Utwórz teraz kopię zapasową**.
+10. toorun kopii zapasowej zadania i utworzyć hello początkowego punktu odzyskiwania, na powitania kopii zapasowej magazynu kliknij bloku **wykonaj kopię zapasową teraz**.
 
-  ![kliknięcie pozycji Utwórz teraz kopię zapasową w celu uruchomienia tworzenia początkowej kopii zapasowej](./media/backup-azure-vms-first-look-arm/backup-now.png)
+  ![kliknij kopię zapasową teraz toorun hello początkowa kopia zapasowa](./media/backup-azure-vms-first-look-arm/backup-now.png)
 
-  Zostanie otwarty blok Utwórz teraz kopię zapasową.
+  zostanie otwarty blok Utwórz kopię zapasową teraz Hello.
 
-  ![wyświetlanie bloku Utwórz teraz kopię zapasową](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![Pokazuje hello Utwórz kopię zapasową teraz bloku](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-11. W bloku Utwórz teraz kopię zapasową kliknij ikonę kalendarza, wybierz ostatni dzień okresu zachowywania tego punktu odzyskiwania przy użyciu kontrolki kalendarza, a następnie kliknij pozycję **Kopia zapasowa**.
+11. Na powitania Utwórz kopię zapasową teraz bloku, kliknij ikonę kalendarza hello, użyj hello kalendarza kontroli tooselect hello ostatni dzień tego punktu odzyskiwania jest zachowywana, a następnie kliknij przycisk **kopii zapasowej**.
 
-  ![ustawianie ostatniego dnia okresu zachowywania punktu odzyskiwania Utwórz teraz punkt odzyskiwania](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+  ![Ustaw hello ostatni dzień hello Utwórz kopię zapasową teraz punktu odzyskiwania są przechowywane.](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-  Powiadomienia dotyczące wdrożenia informują o wyzwoleniu zadania tworzenia kopii zapasowej, dzięki czemu możesz monitorować postęp zadania na stronie zadań tworzenia kopii zapasowych.
+  Wdrożenie powiadomień informujący zostało wyzwolone zadanie tworzenia kopii zapasowej hello i monitorować postęp hello hello zadania na stronie zadań tworzenia kopii zapasowej hello.
 
-## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Konfigurowanie zadania tworzenia kopii zapasowej z poziomu magazynu usługi Recovery Services
-Aby skonfigurować zadanie tworzenia kopii zapasowej, wykonaj poniższe kroki.  
+## <a name="configure-hello-backup-job-from-hello-recovery-services-vault"></a>Konfigurowanie zadania tworzenia kopii zapasowej hello z powitalne magazyn usług odzyskiwania
+zadanie tworzenia kopii zapasowej hello tooconfigure, wykonaj hello następujące kroki.  
 
 1. Utwórz magazyn usługi Recovery Services dla maszyny wirtualnej.
-2. W witrynie Azure Portal wybierz scenariusz, ustaw zasady tworzenia kopii zapasowej i zidentyfikuj elementy do objęcia ochroną.
-3. Uruchom proces tworzenia początkowej kopii zapasowej.
+2. Użyj hello Azure tooselect portalu scenariusza, ustawić zasady tworzenia kopii zapasowej i zidentyfikuj tooprotect elementów.
+3. Uruchom hello początkowa kopia zapasowa.
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Tworzenie magazynu usługi Recovery Services dla maszyny wirtualnej
-Magazyn Usług odzyskiwania jest jednostką, która przechowuje wszystkie utworzone dotychczas kopie zapasowe i punkty odzyskiwania. Magazyn Usług odzyskiwania zawiera także zasady tworzenia kopii zapasowej stosowane do chronionych maszyn wirtualnych.
+Magazyn usług odzyskiwania jest jednostka, która przechowuje wszystkie hello kopie zapasowe i punkty odzyskiwania, które zostały utworzone w czasie. Hello magazyn usług odzyskiwania zawiera również zasady tworzenia kopii zapasowej hello stosowane toohello chronionych maszyn wirtualnych.
 
 > [!NOTE]
-> Wykonywanie kopii zapasowych maszyn wirtualnych jest procesem lokalnym. Nie można utworzyć kopii maszyn wirtualnych z jednej lokalizacji w magazynie Usług odzyskiwania w innej lokalizacji. Z tego powodu w każdej lokalizacji platformy Azure zawierającej maszyny wirtualne, których kopie zapasowe mają być wykonywane, musi istnieć co najmniej jeden magazyn Usług odzyskiwania.
+> Wykonywanie kopii zapasowych maszyn wirtualnych jest procesem lokalnym. Nie można utworzyć kopii zapasowych maszyn wirtualnych z jednej lokalizacji magazynu usług odzyskiwania tooa w innej lokalizacji. Tak dla każdej platformy Azure lokalizacji, która zawiera kopię zapasową toobe maszyn wirtualnych, co najmniej jeden magazyn usług odzyskiwania musi istnieć w tej lokalizacji.
 >
 >
 
-Aby utworzyć magazyn Usług odzyskiwania:
+toocreate magazynu usług odzyskiwania:
 
-1. Jeśli nie zostało to jeszcze zrobione, zaloguj się do witryny [Azure Portal](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
-2. W menu Centrum kliknij opcję **Więcej usług** i w oknie dialogowym filtrowania wpisz ciąg **Recovery Services**. Podczas pisania odbywa się filtrowanie listy zasobów. Po wyświetleniu pozycji Magazyny usługi Recovery Services kliknij ją.
+1. Jeśli jeszcze tego nie zrobiono, zaloguj się w toohello [portalu Azure](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
+2. W menu Centrum powitania kliknij **więcej usług** w hello typu okna dialogowego filtru **usług odzyskiwania**. Podczas wpisywania hello lista filtrów zasobów. Gdy pojawi się magazyny usług odzyskiwania na liście hello, kliknij go.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Jeśli w ramach subskrypcji istnieją magazyny usługi Recovery Services, zostaną one wyświetlone.
+    Jeśli występują Magazyny usług odzyskiwania w ramach subskrypcji hello, magazynów hello są wyświetlane.
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-azure-vms-first-look-arm/list-of-rs-vault.png)
-3. W menu **Magazyny usługi Recovery Services** kliknij pozycję **Dodaj**.
+3. Na powitania **Magazyny usług odzyskiwania** menu, kliknij przycisk **Dodaj**.
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Zostanie otwarty blok magazynu Usług odzyskiwania i pojawi się monit o podanie wartości w polach **Nazwa**, **Subskrypcja**, **Grupa zasobów** i **Lokalizacja**.
+    Usługi odzyskiwania Hello zostanie otwarty blok magazyn monitem tooprovide **nazwa**, **subskrypcji**, **grupy zasobów**, i **lokalizacji**.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikalna w tej subskrypcji platformy Azure. Wpisz nazwę o długości od 2 do 50 znaków. Musi ona rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
+4. Aby uzyskać **nazwa**, wprowadź przyjazną nazwę tooidentify hello magazynu. Nazwa Hello musi toobe unikatowy dla hello subskrypcji platformy Azure. Wpisz nazwę o długości od 2 do 50 znaków. Musi ona rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
 
-5. W sekcji **Subskrypcja** użyj menu rozwijanego, aby wybrać subskrypcję platformy Azure. Jeśli używasz tylko jednej subskrypcji, zostanie ona wyświetlona i możesz przejść do następnego kroku. Jeśli nie masz pewności, której subskrypcji użyć, wybierz domyślną (lub sugerowaną). Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto organizacji jest skojarzone z wieloma subskrypcjami platformy Azure.
+5. W hello **subskrypcji** Użyj hello menu rozwijanego toochoose hello subskrypcji platformy Azure. Jeśli używasz tylko jedną subskrypcję, wyświetlonym subskrypcji i toohello następny krok można pominąć. Jeśli nie masz pewności, który toouse subskrypcji, użyj domyślnej hello (lub sugerowane) subskrypcji. Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto organizacji jest skojarzone z wieloma subskrypcjami platformy Azure.
 
-6. W sekcji **Grupa zasobów**:
+6. W hello **grupy zasobów** sekcji:
 
-    * wybierz pozycję **Utwórz nową**, jeśli chcesz utworzyć grupę zasobów.
+    * Wybierz **Utwórz nowy** Jeśli toocreate grupę zasobów.
     Lub
-    * wybierz pozycję **Użyj istniejącej** i kliknij menu rozwijane, aby wyświetlić listę dostępnych grup zasobów.
+    * Wybierz **Użyj istniejącego** i kliknij przycisk hello menu rozwijanego toosee hello listę dostępnych grup zasobów.
 
-  Pełne informacje na temat grup zasobów można znaleźć w temacie [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+  Aby uzyskać pełne informacje na temat grup zasobów, zobacz hello [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-7. Kliknij pozycję **Lokalizacja**, aby wybrać region geograficzny magazynu. Ten wybór określa region geograficzny, do którego wysyłane są dane kopii zapasowej.
+7. Kliknij przycisk **lokalizacji** tooselect hello region geograficzny magazynu hello. Ten wybór Określa region geograficzny hello wysyłania danych kopii zapasowych.
 
   > [!IMPORTANT]
-  > Jeśli nie wiesz, w jakiej lokalizacji znajdują się Twoje maszyny wirtualne, zamknij okno dialogowe tworzenia magazynu, a następnie przejdź do listy maszyn wirtualnych w portalu. Jeśli Twoje maszyny wirtualne znajdują się w wielu regionach, utwórz magazyn usługi Recovery Services w każdym regionie. Przed przejściem do następnej lokalizacji utwórz magazyn w pierwszej lokalizacji. Nie ma potrzeby określania kont magazynu do przechowywania danych kopii zapasowych — magazyn usługi Recovery Services i usługa Azure Backup automatycznie określają magazyn.
+  > Jeśli nie wiesz hello lokalizacji, w której istnieje maszyna wirtualna, Zamknij z okna dialogowego Tworzenie magazynu hello i przejdź toohello listę maszyn wirtualnych w portalu hello. Jeśli Twoje maszyny wirtualne znajdują się w wielu regionach, utwórz magazyn usługi Recovery Services w każdym regionie. Utwórz magazyn hello w miejscu pierwszego hello przed przejściem do następnej lokalizacji toohello. Brak kont magazynu nie konieczności toospecify hello używane dane kopii zapasowej hello toostore — Witaj magazyn usług odzyskiwania i hello usługi Kopia zapasowa Azure automatycznie obsługiwać hello magazynu.
   >
 
-8. W dolnej części bloku magazynu usług Recovery Services kliknij pozycję **Utwórz**.
+8. U dołu hello blok magazyn usług odzyskiwania hello, kliknij przycisk **Utwórz**.
 
-    Utworzenie magazynu usług Recovery Services może potrwać kilka minut. Monitoruj powiadomienia o stanie wyświetlane w prawej górnej części obszaru portalu. Po utworzeniu magazynu pojawi się on na liście magazynów Usług odzyskiwania. Jeśli po kilku minutach nie widzisz swojego magazynu, kliknij pozycję **Odśwież**.
+    Może upłynąć kilka minut hello toobe utworzony magazyn usług odzyskiwania. Monitor stanu hello powiadomienia w górnym obszarze po prawej stronie powitania hello portalu. Po utworzeniu magazynu zostanie wyświetlony hello listę magazynów usług odzyskiwania. Jeśli po kilku minutach nie widzisz swojego magazynu, kliknij pozycję **Odśwież**.
 
     ![Klikanie pozycji Odśwież](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-    Po wyświetleniu magazynu na liście magazynów usług Recovery Services możesz rozpocząć ustawianie nadmiarowości przechowywania.
+    Przeanalizowanie magazynu na liście hello magazynów usług odzyskiwania jest nadmiarowość magazynu hello tooset gotowe.
 
-Magazyn został już utworzony, więc teraz zajmiemy się skonfigurowaniem jego replikacji.
+Po utworzeniu magazynu, Dowiedz się, jak tooset hello replikacji magazynu.
 
 ### <a name="set-storage-replication"></a>Konfigurowanie replikacji magazynu
-Dla opcji replikacji magazynu można wybrać magazynowanie nadmiarowe geograficznie lub lokalnie. Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli magazyn usługi Recovery Services jest podstawową kopią zapasową, pozostaw opcję replikacji magazynu ustawioną na magazyn geograficznie nadmiarowy. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage) można znaleźć w temacie [Azure Storage replication overview](../storage/common/storage-redundancy.md) (Omówienie replikacji usługi Azure Storage).
+opcji replikacji magazynu Hello umożliwia toochoose między magazynu geograficznie nadmiarowego i lokalnie nadmiarowego magazynu. Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli powitalne magazyn usług odzyskiwania jest Twoja podstawowa kopia zapasowa, należy pozostawić hello magazynu replikacji opcji set toogeo nadmiarowego magazynu. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji. Przeczytaj więcej na temat [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [magazyn lokalnie nadmiarowy](../storage/common/storage-redundancy.md#locally-redundant-storage) opcje magazynu w hello [Omówienie replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
 
-Aby edytować ustawienia replikacji magazynu:
+ustawienia replikacji magazynu hello tooedit:
 
-1. W bloku **Magazyny usługi Recovery Services** wybierz nowy magazyn.
+1. Z hello **Magazyny usług odzyskiwania** bloku, wybierz hello nowy magazyn.
 
-  ![Wybieranie nowego magazynu z listy magazynów usług Recovery Services](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+  ![Wybierz nowy magazyn hello z listy hello magazynu usług odzyskiwania](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  Wybranie magazynu spowoduje otwarcie bloków Ustawienia (*o nazwie magazynu wskazanego w górnej części*) i szczegółów magazynu.
+  Po wybraniu magazynu hello hello blok ustawień (*mającego nazwę magazynu hello u góry hello*) i hello magazynu szczegóły blok otwarte.
 
-  ![Wyświetlanie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![Widok konfiguracji magazynu hello nowy magazyn](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
 
-2. W bloku ustawień nowego magazynu użyj pionowego suwaka, aby przewinąć w dół do sekcji Zarządzanie, a następnie kliknij pozycję **Infrastruktura zapasowa**.
-    Zostanie otwarty blok Infrastruktura zapasowa.
-3. W bloku Infrastruktura zapasowa kliknij pozycję **Konfiguracja kopii zapasowej** w celu otwarcia bloku **Konfiguracja kopii zapasowej**.
+2. W bloku ustawienia hello nowy magazyn, użyj tooscroll pionowy slajdów hello dół toohello sekcji Zarządzaj, a następnie kliknij przycisk **infrastruktura kopii zapasowej**.
+    zostanie otwarty blok infrastruktura kopii zapasowej Hello.
+3. W bloku infrastruktura kopii zapasowej powitania kliknij **konfiguracji kopii zapasowej** tooopen hello **konfiguracji kopii zapasowej** bloku.
 
-    ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
-4. Wybierz odpowiednią opcję replikacji dla magazynu.
+    ![Ustaw hello konfigurację magazynu dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+4. Wybierz hello odpowiednią opcję replikacji dla magazynu.
 
     ![Opcje konfiguracji usługi Storage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, kontynuuj korzystanie z magazynu **geograficznie nadmiarowego**. Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
+    Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych nadal toouse **geograficznie nadmiarowego**. Jeśli nie używasz Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, należy wybrać **magazyn lokalnie nadmiarowy**, co zmniejsza koszty usługi Azure storage hello. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
 
 
-## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Wybieranie celu tworzenia kopii zapasowej, ustawianie zasad i definiowanie elementów podlegających ochronie
-Przed zarejestrowaniem maszyny wirtualnej w magazynie uruchom proces wykrywania, aby mieć pewność, że zostały znalezione wszystkie nowe maszyny wirtualne dodane do subskrypcji. Proces wyszukuje na platformie Azure listę maszyn wirtualnych w ramach subskrypcji wraz z dodatkowymi informacjami, takimi jak nazwa usługi w chmurze i region. W portalu Azure scenariusz odnosi się do elementów, które mają zostać umieszczone w magazynie usług odzyskiwania. Zasady są harmonogramem określającym częstotliwość i czas tworzenia punktów odzyskiwania. Zasady zawierają także zakres przechowywania dla punktów odzyskiwania.
+## <a name="select-a-backup-goal-set-policy-and-define-items-tooprotect"></a>Wybierz cel kopii zapasowej, ustawienie zasad i zdefiniowanie tooprotect elementów
+Przed zarejestrowaniem maszyny Wirtualnej w magazynie, uruchom tooensure procesu odnajdywania hello rozpoznaniem żadnych nowych maszyn wirtualnych, które zostały dodane toohello subskrypcji. kwerendy procesu Hello Azure hello listę maszyn wirtualnych w subskrypcji hello, wraz z dodatkowymi informacjami, takie jak nazwa usługi w chmurze hello i hello regionu. W hello portalu Azure scenariusz odnosi się do magazynu usług odzyskiwania hello ma tooput toowhat. Zasady są harmonogram hello kiedy i jak często są pobierane punktów odzyskiwania. Zasady obejmują również zakres przechowywania hello hello punktów odzyskiwania.
 
-1. Jeśli Twój magazyn usługi Recovery Services jest już otwarty, przejdź do kroku 2. W przeciwnym razie w menu Centrum kliknij pozycję **Więcej usług**, na liście zasobów wpisz ciąg **Recovery Services**, a następnie kliknij pozycję **Magazyny usługi Recovery Services**.
+1. Jeśli masz już otworzyć magazyn usług odzyskiwania, należy kontynuować toostep 2. W przeciwnym razie w menu Centrum powitania kliknij **więcej usług** i hello listy zasobów, wpisz **usług odzyskiwania** i kliknij przycisk **Magazyny usług odzyskiwania**.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Zostanie wyświetlona lista magazynów usługi Recovery Services.
+    zostanie wyświetlona lista Hello Magazyny usług odzyskiwania.
 
-    ![Widok listy magazynów usługi Recovery Services](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+    ![Lista magazynów widoku hello usług odzyskiwania](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-    Wybierz magazyn z listy magazynów usługi Recovery Services, aby otworzyć jego pulpit nawigacyjny.
+    Z listy hello Magazyny usług odzyskiwania wybierz tooopen magazynu jego pulpitu nawigacyjnego.
 
      ![Otwarcie bloku magazynu](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. W menu pulpitu nawigacyjnego magazynu kliknij pozycję **Kopia zapasowa**, aby otworzyć blok Kopia zapasowa.
+2. W menu nawigacyjnym magazynu hello, kliknij polecenie **kopii zapasowej** tooopen hello kopii zapasowej bloku.
 
     ![Otwarcie bloku Kopia zapasowa](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Zostaną otwarte bloki Kopia zapasowa i Cel kopii zapasowej.
+    Otwórz Hello tworzenia kopii zapasowej i cel kopii zapasowej blokach.
 
     ![Otwarcie bloku scenariusza](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-3. W bloku Cel kopii zapasowej z menu rozwijanego **Gdzie jest uruchomione Twoje obciążenie?** wybierz platformę Azure. Z listy rozwijanej **Co ma zawierać kopia zapasowa** wybierz pozycję Maszyna wirtualna, a następnie kliknij przycisk **OK**.
+3. W bloku celu kopii zapasowej hello z hello **gdzie działa Twoje obciążenie** menu rozwijanego wybierz pozycję Azure. Z hello **co chcesz toobackup** listy rozwijanej, wybierz maszynę wirtualną, a następnie kliknij przycisk **OK**.
 
-    Te akcje spowodują zarejestrowanie rozszerzenia maszyny wirtualnej w magazynie. Blok Cel kopii zapasowej zostanie zamknięty, po czym zostanie otwarty blok **Zasady tworzenia kopii zapasowych**.
+    Te akcje Zarejestruj magazynie hello hello rozszerzenia maszyny Wirtualnej. Hello zamyka bloku celu kopii zapasowej i hello **kopii zapasowej zasad** zostanie otwarty blok.
 
     ![Otwarcie bloku scenariusza](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-4. W bloku zasad tworzenia kopii zapasowych wybierz zasady tworzenia kopii zapasowej, które mają zostać zastosowane do magazynu.
+4. W bloku zasad tworzenia kopii zapasowej hello wybierz zasady tworzenia kopii zapasowej hello ma tooapply toohello magazynu.
 
     ![Wybór zasad tworzenia kopii zapasowej](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    Szczegóły domyślnych zasad znajdują się w menu rozwijanym. Aby utworzyć zasady, wybierz opcję **Utwórz nowy** z menu rozwijanego. Instrukcje dotyczące definiowania zasad tworzenia kopii zapasowych można znaleźć w sekcji [Definiowanie zasad tworzenia kopii zapasowej](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
-    Kliknij przycisk **OK**, aby skojarzyć zasady tworzenia kopii zapasowych z magazynem.
+    Szczegóły Hello hello domyślne zasady są wyświetlane w menu rozwijanym hello. Jeśli chcesz toocreate zasady, wybierz opcję **Utwórz nowy** z menu rozwijanego hello. Instrukcje dotyczące definiowania zasad tworzenia kopii zapasowych można znaleźć w sekcji [Definiowanie zasad tworzenia kopii zapasowej](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+    Kliknij przycisk **OK** tooassociate hello zasad tworzenia kopii zapasowej w magazynie hello.
 
-    Blok Zasady tworzenia kopii zapasowej zostanie zamknięty, po czym zostanie otwarty blok **Wybieranie maszyn wirtualnych**.
-5. W bloku **Wybieranie maszyn wirtualnych** wybierz maszyny wirtualne do skojarzenia z określonymi zasadami i kliknij przycisk **OK**.
+    Witaj zamknięciu bloku zasady tworzenia kopii zapasowej i hello **wybierz maszyny wirtualne** zostanie otwarty blok.
+5. W hello **wybierz maszyny wirtualne** bloku, wybierz hello tooassociate maszyn wirtualnych z hello określone zasady i kliknij przycisk **OK**.
 
-    ![Wybór obciążenia](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+    ![Wybieranie obciążenia](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Wybrana maszyna wirtualna jest weryfikowana. Jeśli nie widzisz oczekiwanych maszyn wirtualnych, sprawdź, czy istnieją one w tej samej lokalizacji platformy Azure, co magazyn usługi Recovery Services. Lokalizacja magazynu usługi Recovery Services jest wyświetlana na pulpicie nawigacyjnym magazynu.
+    maszyny wirtualnej wybrany Hello jest weryfikowana. Jeśli nie widzisz hello wirtualnej maszyny, które powinny toosee, sprawdź, czy istnieją one w hello tej samej lokalizacji platformy Azure, jako magazyn usług odzyskiwania hello. na pulpicie nawigacyjnym magazynu hello wyświetlana jest lokalizacja Hello powitalne magazyn usług odzyskiwania.
 
-6. Skoro zdefiniowano wszystkie ustawienia magazynu, w bloku Kopia zapasowa kliknij przycisk **Włącz wykonywanie kopii zapasowej**, aby wdrożyć zasady w magazynie i na maszynach wirtualnych. Wdrożenie zasad tworzenia kopii zapasowej nie powoduje utworzenia początkowego punktu odzyskiwania maszyny wirtualnej.
+6. Teraz, gdy wszystkie ustawienia magazynu hello został zdefiniowany w bloku kopia zapasowa hello, kliknij przycisk **włączenia kopii zapasowej** toodeploy hello magazynu toohello zasad i hello maszyn wirtualnych. Wdrażanie zasad tworzenia kopii zapasowej hello nie tworzy hello początkowego punktu odzyskiwania dla maszyny wirtualnej hello.
 
     ![Włączenie kopii zapasowej](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Po pomyślnym włączeniu kopii zapasowej zasady tworzenia kopii zapasowych zostaną wykonane zgodnie z harmonogramem. Należy jednak przejść do inicjowania pierwszego zadania tworzenia kopii zapasowej.
+Po pomyślnym włączeniu kopii zapasowej hello zasad tworzenia kopii zapasowej będą wykonywane zgodnie z harmonogramem. Jednak kontynuować tooinitiate hello pierwszego zadania tworzenia kopii zapasowej.
 
 ## <a name="initial-backup"></a>Początkowa kopia zapasowa
-Wdrożenie zasad tworzenia kopii zapasowej na maszynie wirtualnej nie oznacza wykonania kopii zapasowej danych. Domyślnie pierwszą zaplanowaną kopią zapasową (zgodnie z definicją w zasadach tworzenia kopii zapasowej) jest początkowa kopia zapasowa. Do czasu uruchomienia procesu tworzenia początkowej kopii zapasowej w polu Stan ostatniej kopii zapasowej w bloku **Zadania tworzenia kopii zapasowej** wyświetlany jest komunikat **Ostrzeżenie (oczekiwanie na początkową kopię zapasową)**.
+Po wdrożeniu zasad tworzenia kopii zapasowej na maszynie wirtualnej hello, który nie oznacza to, hello danych wykonano kopię zapasową. Domyślnie pierwszą zaplanowaną kopią zapasową hello (zgodnie z definicją w zasadach tworzenia kopii zapasowej hello) jest hello początkowa kopia zapasowa. Dopóki nie wystąpi hello początkowa kopia zapasowa, hello stan ostatniej kopii zapasowej na powitania **zadania tworzenia kopii zapasowej** bloku jest pokazywana jako **ostrzeżenie (początkowa kopia zapasowa oczekujących)**.
 
 ![Oczekiwanie na kopię zapasową](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Jeśli tworzenie początkowej kopii zapasowej nie ma rozpocząć się wkrótce, zalecane jest wykonanie akcji **Wykonaj kopię zapasową teraz**.
+O ile nie przypada tworzenia początkowej kopii zapasowej toobegin wkrótce, zalecane jest uruchomienie **wykonaj kopię zapasową teraz**.
 
-Aby uruchomić zadanie tworzenia początkowej kopii zapasowej:
+toorun hello początkowej zadanie tworzenia kopii zapasowej:
 
-1. Na pulpicie nawigacyjnym magazynu kliknij liczbę w obszarze **Elementy kopii zapasowej** lub kliknij kafelek **Elementy kopii zapasowej**. <br/>
+1. Na pulpicie nawigacyjnym magazynu hello, kliknij przycisk numer hello pod **kopii zapasowej elementów**, lub kliknij przycisk hello **kopii zapasowej elementów** kafelka. <br/>
   ![Ikona Ustawienia](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  Zostanie otwarty blok **Elementy kopii zapasowej**.
+  Witaj **kopii zapasowej elementów** zostanie otwarty blok.
 
   ![Tworzenie kopii zapasowych elementów](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. W bloku **Elementy kopii zapasowej** wybierz element.
+2. Na powitania **kopii zapasowej elementów** bloku, wybierz hello elementu.
 
   ![Ikona Ustawienia](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-  Zostanie otwarta lista **Elementy kopii zapasowej**. <br/>
+  Witaj **kopii zapasowej elementów** listy zostanie otwarta. <br/>
 
   ![Zadanie tworzenia kopii zapasowej zostało wyzwolone](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. Na liście **Elementy kopii zapasowej** kliknij przycisk z wielokropkiem **...**, aby otworzyć menu Kontekst.
+3. Na powitania **kopii zapasowej elementów** kliknij wielokropek hello **...**  menu kontekstowe hello tooopen.
 
   ![Menu Kontekst](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-  Zostanie wyświetlone menu Kontekst.
+  zostanie wyświetlone menu kontekstowe Hello.
 
   ![Menu Kontekst](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
 
-4. W menu Kontekst kliknij pozycję **Utwórz teraz kopię zapasową**.
+4. W menu kontekstowym hello, kliknij przycisk **wykonaj kopię zapasową teraz**.
 
   ![Menu Kontekst](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Zostanie otwarty blok Utwórz teraz kopię zapasową.
+  zostanie otwarty blok Utwórz kopię zapasową teraz Hello.
 
-  ![wyświetlanie bloku Utwórz teraz kopię zapasową](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![Pokazuje hello Utwórz kopię zapasową teraz bloku](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. W bloku Utwórz teraz kopię zapasową kliknij ikonę kalendarza, wybierz ostatni dzień okresu zachowywania tego punktu odzyskiwania przy użyciu kontrolki kalendarza, a następnie kliknij pozycję **Kopia zapasowa**.
+5. Na powitania Utwórz kopię zapasową teraz bloku, kliknij ikonę kalendarza hello, użyj hello kalendarza kontroli tooselect hello ostatni dzień tego punktu odzyskiwania jest zachowywana, a następnie kliknij przycisk **kopii zapasowej**.
 
-  ![ustawianie ostatniego dnia okresu zachowywania punktu odzyskiwania Utwórz teraz punkt odzyskiwania](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+  ![Ustaw hello ostatni dzień hello Utwórz kopię zapasową teraz punktu odzyskiwania są przechowywane.](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-  Powiadomienia dotyczące wdrożenia informują o wyzwoleniu zadania tworzenia kopii zapasowej, dzięki czemu możesz monitorować postęp zadania na stronie zadań tworzenia kopii zapasowych. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
+  Wdrożenie powiadomień informujący zostało wyzwolone zadanie tworzenia kopii zapasowej hello i monitorować postęp hello hello zadania na stronie zadań tworzenia kopii zapasowej hello. W zależności od rozmiaru hello maszyny Wirtualnej tworzenie początkowej kopii zapasowej hello może chwilę potrwać.
 
-6. Aby wyświetlić lub śledzić stan początkowej kopii zapasowej, na pulpicie nawigacyjnym magazynu na kafelku **Zadania tworzenia kopii zapasowej** kliknij pozycję **W toku**.
+6. tooview lub Śledź stan hello hello tworzenia początkowej kopii zapasowej, na pulpicie nawigacyjnym magazynu hello, na powitania **zadania tworzenia kopii zapasowej** kliknij Kafelek **w toku**.
 
   ![Kafelek Zadania tworzenia kopii zapasowej](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  Zostanie otwarty blok Zadania tworzenia kopii zapasowej.
+  zostanie otwarty blok zadania tworzenia kopii zapasowej Hello.
 
   ![Kafelek Zadania tworzenia kopii zapasowej](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  W bloku **Zadania tworzenia kopii zapasowej** można sprawdzić stan wszystkich zadań. Sprawdź, czy zadanie tworzenia kopii zapasowej dla maszyny wirtualnej jest nadal w toku, czy zostało zakończone. Po zakończeniu zadania tworzenia kopii zapasowej stan przyjmuje wartość *Ukończono*.
+  W hello **kopii zapasowej zadania** bloku widać hello stan wszystkich zadań. Sprawdź, czy hello kopii zapasowej dla maszyny Wirtualnej jest nadal w toku, czy zakończyło się. Po zakończeniu zadania tworzenia kopii zapasowej stanu hello jest *Ukończono*.
 
   > [!NOTE]
-  > W ramach operacji tworzenia kopii zapasowej usługa Azure Backup wydaje polecenie rozszerzeniu kopii zapasowej w każdej maszynie wirtualnej powodujące opróżnienie wszystkich zapisów i wykonanie spójnej migawki.
+  > W ramach operacji tworzenia kopii zapasowej hello hello usługi Kopia zapasowa Azure problemy z rozszerzeniem kopii zapasowej polecenia toohello w każdej tooflush maszyna wirtualna, wszystkie zapisuje i migawki spójne.
   >
   >
 
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalowanie agenta maszyny wirtualnej na maszynie wirtualnej
-Te informacje są dostarczane w przypadku, gdy są wymagane. Aby rozszerzenie usługi Backup mogło działać, na maszynie wirtualnej Azure musi być zainstalowany agent maszyny wirtualnej. Jeśli jednak maszyna wirtualna została utworzona z poziomu galerii Azure, agent maszyny wirtualnej znajduje się już na maszynie wirtualnej. Maszyny wirtualne migrowane z lokalnych centrów danych nie będą miały zainstalowanego agenta maszyny wirtualnej. W takim przypadku konieczne jest zainstalowanie agenta maszyny wirtualnej. Jeśli masz problemy z tworzeniem kopii zapasowej maszyny wirtualnej Azure, sprawdź, czy agent maszyny wirtualnej Azure został poprawnie zainstalowany na maszynie wirtualnej (zobacz tabela poniżej). Jeśli tworzysz niestandardową maszynę wirtualną, przed jej udostępnieniem [upewnij się, że pole wyboru **Zainstaluj agenta maszyny wirtualnej** jest zaznaczone](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+## <a name="install-hello-vm-agent-on-hello-virtual-machine"></a>Zainstaluj hello agenta maszyny Wirtualnej na maszynie wirtualnej hello
+Te informacje są dostarczane w przypadku, gdy są wymagane. Witaj Agent maszyny Wirtualnej musi być zainstalowany na powitania maszyny wirtualnej platformy Azure dla hello kopii zapasowej rozszerzenia toowork. Jednak jeśli maszyna wirtualna została utworzona z hello galerii Azure, następnie hello agenta maszyny Wirtualnej jest już obecny w maszynie wirtualnej hello. Maszyny wirtualne, które są migrowane z lokalnymi centrami danych, czy nie hello agenta maszyny Wirtualnej zainstalowano. W takim przypadku hello agenta maszyny Wirtualnej musi toobe zainstalowane. Jeśli masz problemy z tworzenia kopii zapasowej hello maszyny Wirtualnej platformy Azure, sprawdź, czy Agent maszyny Wirtualnej hello jest poprawnie zainstalowany na maszynie wirtualnej hello (zobacz hello w poniższej tabeli). W przypadku utworzenia niestandardowego maszyny Wirtualnej, [zapewnienia hello **hello Zainstaluj agenta maszyny Wirtualnej** zaznaczone jest pole wyboru](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) przed udostępnieniu hello maszyny wirtualnej.
 
-Dowiedz się więcej o [agencie maszyny wirtualnej](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) i [sposobie jego instalowania](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Dowiedz się więcej o hello [agenta maszyny Wirtualnej](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) i [jak tooinstall go](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Poniższa tabela zawiera dodatkowe informacje na temat agenta maszyny wirtualnej dla maszyn wirtualnych systemów Windows i Linux.
+w poniższej tabeli Hello udostępnia dodatkowe informacje o hello VM Agent dla systemu Windows i maszyn wirtualnych systemu Linux.
 
 | **Operacja** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalowanie agenta maszyny wirtualnej |<li>Pobierz i zainstaluj [plik MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Do ukończenia procesu instalacji niezbędne są uprawnienia administratora. <li>[Zaktualizuj właściwości maszyny wirtualnej](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby wskazać, że agent jest zainstalowany. |<li> Zainstaluj najnowszą wersję [agenta systemu Linux](https://github.com/Azure/WALinuxAgent) z usługi GitHub. Do ukończenia procesu instalacji niezbędne są uprawnienia administratora. <li> [Zaktualizuj właściwości maszyny wirtualnej](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), aby wskazać, że agent jest zainstalowany. |
-| Aktualizowanie agenta maszyny wirtualnej |Aktualizowanie agenta maszyny wirtualnej jest równie proste, jak ponowne zainstalowanie [plików binarnych agenta maszyny wirtualnej](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Upewnij się, że żadna operacja tworzenia kopii zapasowej nie jest uruchomiona podczas aktualizowania agenta maszyny wirtualnej. |Postępuj zgodnie z instrukcjami dotyczącymi [aktualizowania agenta maszyny wirtualnej systemu Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Upewnij się, że podczas aktualizowania agenta maszyny wirtualnej żadna operacja tworzenia kopii zapasowej nie jest uruchomiona. |
-| Sprawdzanie poprawności instalacji agenta maszyny wirtualnej |<li>Przejdź do folderu *C:\WindowsAzure\Packages* w maszynie wirtualnej Azure. <li>Powinien znajdować się w nim plik WaAppAgent.exe.<li> Kliknij plik prawym przyciskiem myszy, przejdź do opcji **Właściwości**, a następnie wybierz kartę **Szczegóły**. W polu Wersja produktu powinna znajdować się wartość 2.6.1198.718 lub wyższa. |Nie dotyczy |
+| Instalowanie hello agenta maszyny Wirtualnej |<li>Pobierz i zainstaluj hello [pliku MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Potrzebujesz instalacji hello toocomplete uprawnienia administratora. <li>[Aktualizuj właściwości maszyny Wirtualnej hello](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) tooindicate, który hello agent jest zainstalowany. |<li> Zainstaluj najnowsze hello [agenta systemu Linux](https://github.com/Azure/WALinuxAgent) z usługi GitHub. Potrzebujesz instalacji hello toocomplete uprawnienia administratora. <li> [Aktualizuj właściwości maszyny Wirtualnej hello](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) tooindicate, który hello agent jest zainstalowany. |
+| Aktualizowanie hello agenta maszyny Wirtualnej |Aktualizowanie hello agenta maszyny Wirtualnej jest tak proste, jak ponowne zainstalowanie hello [plików binarnych agenta maszyny Wirtualnej](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Upewnij się, że żadna operacja tworzenia kopii zapasowej działa podczas aktualizowania hello agenta maszyny Wirtualnej. |Wykonaj instrukcje hello [aktualizowanie hello agenta maszyny Wirtualnej systemu Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Upewnij się, że podczas powitalne agenta maszyny Wirtualnej jest aktualizowana działa żadna operacja tworzenia kopii zapasowej. |
+| Sprawdzanie poprawności instalacji agenta maszyny Wirtualnej hello |<li>Przejdź toohello *C:\WindowsAzure\Packages* folderu w hello maszyny Wirtualnej platformy Azure. <li>Powinien znajdować się plik WaAppAgent.exe hello jest obecny.<li> Kliknij prawym przyciskiem myszy plik hello znajduje się zbyt**właściwości**, a następnie wybierz hello **szczegóły** kartę hello wersji produktu pole powinno być 2.6.1198.718 lub nowszej. |Nie dotyczy |
 
 ### <a name="backup-extension"></a>Rozszerzenie kopii zapasowej
-Po zainstalowaniu agenta na maszynie wirtualnej usługa Azure Backup instaluje rozszerzenie kopii zapasowej do agenta maszyny wirtualnej. Usługa Azure Backup płynnie uaktualnia rozszerzenia kopii zapasowej i wprowadza do nich poprawki bez dodatkowej interwencji użytkownika.
+Raz powitalne Agent maszyny Wirtualnej jest zainstalowany na maszynie wirtualnej hello hello usługi Kopia zapasowa Azure instaluje hello zapasowy numer wewnętrzny toohello agenta maszyny Wirtualnej. Witaj usługi Kopia zapasowa Azure bezproblemowo uaktualniania i poprawek hello zapasowy numer wewnętrzny bez interwencji użytkownika dodatkowe.
 
-Usługa Backup instaluje rozszerzenie kopii zapasowej, nawet jeśli maszyna wirtualna nie została uruchomiona. Uruchomiona maszyna wirtualna zapewnia największe prawdopodobieństwo uzyskania punktu odzyskiwania spójnego z aplikacją. Jednak usługa Azure Backup będzie kontynuować tworzenie kopii zapasowej maszyny wirtualnej nawet w sytuacji, gdy jest ona wyłączona i nie można zainstalować rozszerzenia. Ten typ kopii zapasowej jest określany jako maszyna wirtualna w trybie offline, a punkt odzyskiwania to *Spójne na poziomie awarii*.
+Usługa Kopia zapasowa Hello instaluje hello zapasowy numer wewnętrzny, nawet wtedy, gdy hello maszyna wirtualna nie jest uruchomiona. Uruchomionych maszynach wirtualnych zapewnia największe prawdopodobieństwo hello pobieranie punktów odzyskiwania zapewniających spójność aplikacji. Jednak hello usługi Kopia zapasowa Azure nadal tooback się hello maszyny Wirtualnej, nawet jeśli jest wyłączony i nie można zainstalować rozszerzenia hello. Ten typ kopii zapasowej nosi nazwę trybu Offline maszyny Wirtualnej, a punkt odzyskiwania hello jest *awaria spójne*.
 
 ## <a name="troubleshooting-information"></a>Informacje dotyczące rozwiązywania problemów
-W przypadku wystąpienia problemów z wykonaniem którychkolwiek zadań z tego artykułu zapoznaj się z tematem [Troubleshooting guidance](backup-azure-vms-troubleshoot.md) (Wskazówki dotyczące rozwiązywania problemów).
+Jeśli masz problemy z wykonywanie niektórych zadań hello w tym artykule, należy skontaktować się [wskazówki rozwiązywania problemów](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Cennik
-Koszt wykonywania kopii zapasowych maszyn wirtualnych platformy Azure jest określany na podstawie liczby chronionych wystąpień. Definicję chronionego wystąpienia można znaleźć w części [Co to jest chronione wystąpienie](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Przykład obliczania kosztu wykonania kopii zapasowej maszyny wirtualnej można znaleźć w części [How are protected instances calculated](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) (Sposób przeprowadzania obliczeń dotyczących chronionych wystąpień). Informacje na temat [cennika usługi Backup](https://azure.microsoft.com/pricing/details/backup/) można znaleźć na stronie cennika usługi Azure Backup.
+Hello koszt tworzenia kopii zapasowych maszyn wirtualnych platformy Azure jest oparta na powitania liczbę wystąpień chronionych. Definicję chronionego wystąpienia można znaleźć w części [Co to jest chronione wystąpienie](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Przykład obliczanie kosztu hello wykonywanie kopii zapasowej maszyny wirtualnej, zobacz [jak wystąpienia chronione są obliczane](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Zobacz hello cennikiem usługi Kopia zapasowa Azure strony informacji o [cennikiem usługi Kopia zapasowa](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="questions"></a>Pytania?
-Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
+Jeśli masz pytania lub w przypadku dowolnej funkcji, które chcesz toosee uwzględnione, [Prześlij nam opinię](http://aka.ms/azurebackup_feedback).

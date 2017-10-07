@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie pierwszej fabryki danych (szablon usługi Resource Manager) | Microsoft Docs"
+title: "aaaBuild pierwszy fabryki danych (szablonu usługi Resource Manager) | Dokumentacja firmy Microsoft"
 description: "W tym samouczku przedstawiono tworzenie przykładowego potoku usługi Azure Data Factory przy użyciu szablonu usługi Azure Resource Manager."
 services: data-factory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: c67169f296f2f13b9ee87180f126fb1dcf10fbea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fa08cd1ac3a0e5c5bf4bd4c6bd9dfa6dba9f4319
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Samouczek: tworzenie pierwszej fabryki danych Azure przy użyciu szablonu usługi Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -31,35 +31,35 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-W tym artykule opisano użycie szablonu usługi Azure Resource Manager do tworzenia pierwszej fabryki danych Azure. Aby wykonać instrukcje z tego samouczka przy użyciu innych narzędzi/zestawów SDK, wybierz jedną z opcji z listy rozwijanej.
+W tym artykule używamy toocreate szablonu usługi Azure Resource Manager Twojego pierwszego fabryki danych Azure. Samouczek hello toodo przy użyciu innych narzędzi/SDK, wybierz jedną z opcji hello z listy rozwijanej hello.
 
-Potok w tym samouczku zawiera jedno działanie: **działanie Hive usługi HDInsight**. To działanie uruchamia skrypt Hive w klastrze Azure HDInsight, który przekształca dane wejściowe, aby wygenerować dane wyjściowe. Uruchamianie potoku zaplanowano raz w miesiącu między określonym czasem rozpoczęcia i zakończenia. 
+Witaj potoku, w tym samouczku ma jedno działanie: **działania HDInsight Hive**. To działanie uruchamia skrypt hive w klastrze Azure HDInsight czy transformacji wejściowych danych wyjściowych tooproduce danych. potok Hello jest zaplanowane toorun po miesiącu między hello określono godziny rozpoczęcia i zakończenia. 
 
 > [!NOTE]
-> Potok danych przedstawiony w tym samouczku przekształca dane wejściowe w celu wygenerowania danych wyjściowych. Aby zapoznać się z samouczkiem dotyczącym kopiowania danych przy użyciu usługi Azure Data Factory, zobacz [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Samouczek: Kopiowanie danych z usługi Blob Storage do usługi SQL Database).
+> Witaj potoku danych w tym samouczku przekształca dane wyjściowe tooproduce danych wejściowych. Samouczek na temat danych toocopy przy użyciu fabryki danych Azure, zobacz [samouczek: kopiowanie danych z magazynu obiektów Blob tooSQL bazy danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Potok w tym samouczku zawiera tylko jedno działanie typu: HDInsightHive. Potok może obejmować więcej niż jedno działanie. Dwa działania można połączyć w łańcuch (uruchomić jedno działanie po drugim), ustawiając wyjściowy zestaw danych jednego działania jako zestaw wejściowy drugiego. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+> Witaj potoku, w tym samouczku jest tylko jedno działanie typu: HDInsightHive. Potok może obejmować więcej niż jedno działanie. I tworzenia łańcucha dwa działania (Uruchom jedno działanie po drugim), ustawiając hello wyjściowy zestaw danych z jednego działania jako hello wejściowy zestaw danych z hello innych działań. Więcej informacji znajduje się w artykule dotyczącym [planowania i wykonywania w usłudze Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**.
-* Postępuj zgodnie z instrukcjami w artykule [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell), aby zainstalować najnowszą wersję programu Azure PowerShell na komputerze.
-* Artykuł [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Tworzenie szablonów usługi Azure Resource Manager) zawiera informacje dotyczące szablonów usługi Azure Resource Manager. 
+* Zapoznaj się z artykułem [— samouczek Przegląd](data-factory-build-your-first-pipeline.md) artykułu i pełne hello **wymagań wstępnych** czynności.
+* Postępuj zgodnie z instrukcjami wyświetlanymi w [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu tooinstall najnowszą wersję programu Azure PowerShell na komputerze.
+* Zobacz [Authoring Azure Resource Manager szablony](../azure-resource-manager/resource-group-authoring-templates.md) toolearn informacje o szablonach usługi Azure Resource Manager. 
 
 ## <a name="in-this-tutorial"></a>Informacje o tym samouczku
 | Jednostka | Opis |
 | --- | --- |
-| Połączona usługa Azure Storage |Łączy konto usługi Azure Storage z fabryką danych. Konto usługi Azure Storage będzie przechowywać dane wejściowe i wyjściowe dla potoku w tym przykładzie. |
-| Połączona usługa HDInsight na żądanie |Łączy klaster usługi HDInsight na żądanie z fabryką danych. Klaster jest automatycznie tworzony na potrzeby przetwarzania danych i usuwany po zakończeniu przetwarzania. |
-| Wejściowy zestaw danych obiektów blob platformy Azure |Przywołuje połączoną usługę Azure Storage. Połączona usługa przywołuje konto usługi Azure Storage, a zestaw danych obiektów blob platformy Azure określa kontener, folder i nazwę pliku w magazynie, który przechowuje dane wejściowe. |
-| Wyjściowy zestaw danych obiektów blob platformy Azure |Przywołuje połączoną usługę Azure Storage. Połączona usługa przywołuje konto usługi Azure Storage, a zestaw danych obiektów blob platformy Azure określa kontener, folder i nazwę pliku w magazynie, który przechowuje dane wyjściowe. |
-| Potok danych |Potok ma jedno działanie typu HDInsightHive, które zużywa wejściowy zestaw danych i tworzy wyjściowy zestaw danych. |
+| Połączona usługa Azure Storage |Łączy fabrykę danych toohello konta magazynu Azure. blokady konta usługi Azure Storage Hello hello danych wejściowych i wyjściowych do potoku hello w tym przykładzie. |
+| Połączona usługa HDInsight na żądanie |Łącza fabrykę danych toohello klastra usługi HDInsight na żądanie. Hello klastra jest automatycznie tworzony tooprocess danych i zostaną usunięte po ukończeniu przetwarzania hello. |
+| Wejściowy zestaw danych obiektów blob platformy Azure |Odwołuje się toohello połączoną usługą magazynu Azure. Witaj połączonej usługi odwołuje się tooan konta magazynu Azure i zestawu danych obiektów Blob Azure hello Określa kontener hello, folder i nazwę pliku w magazynie hello, która przechowuje dane wejściowe hello. |
+| Wyjściowy zestaw danych obiektów blob platformy Azure |Odwołuje się toohello połączoną usługą magazynu Azure. Witaj połączonej usługi odwołuje się tooan konta magazynu Azure i zestawu danych obiektów Blob Azure hello Określa kontener hello, folder i nazwę pliku w magazynie hello, która przechowuje dane wyjściowe hello. |
+| Potok danych |potok Hello ma jedno działanie typu HDInsightHive, który zużywa hello wejściowy zestaw danych i tworzy hello wyjściowego zestawu danych. |
 
 Fabryka danych może obejmować jeden lub wiele potoków. Potok może obejmować jedno lub wiele działań. Istnieją dwa typy działań: [przenoszenia danych](data-factory-data-movement-activities.md) i [przekształcania danych](data-factory-data-transformation-activities.md). W tym samouczku tworzony jest potok z jednym działaniem (Działanie programu Hive).
 
-W poniższej sekcji przedstawiono pełny szablon usługi Resource Manager umożliwiający definiowanie jednostek usługi Data Factory, dzięki czemu można szybko przejść przez samouczek i przetestować szablon. Aby dowiedzieć się, jak jest zdefiniowana każda jednostka usługi Data Factory, zobacz sekcję [Jednostki usługi Data Factory w szablonie](#data-factory-entities-in-the-template).
+Witaj poniższej sekcji przedstawiono hello pełną szablonu usługi Resource Manager do definiowania jednostek fabryki danych, aby szybko uruchomić przy użyciu szablonu hello hello samouczek i testowania. toounderstand każdy obiekt fabryki danych jest zdefiniowany, zobacz [jednostek fabryki danych w szablonie hello](#data-factory-entities-in-the-template) sekcji.
 
 ## <a name="data-factory-json-template"></a>Szablon JSON usługi Data Factory
-Szablon najwyższego poziomu usługi Resource Manager umożliwiający zdefiniowanie fabryki danych to: 
+Witaj najwyższego poziomu szablonu usługi Resource Manager do definiowania fabryki danych jest: 
 
 ```json
 {
@@ -85,21 +85,21 @@ Szablon najwyższego poziomu usługi Resource Manager umożliwiający zdefiniowa
     ]
 }
 ```
-Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted** o następującej zawartości:
+Utwórz plik JSON o nazwie **ADFTutorialARM.json** w **C:\ADFGetStarted** folder o hello następującej zawartości:
 
 ```json
 {
     "contentVersion": "1.0.0.0",
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
-        "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the input/output data." } },
-          "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
-          "blobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
-          "inputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that has the input file." } },
-          "inputBlobName": { "type": "string", "metadata": { "description": "Name of the input file/blob." } },
-          "outputBlobFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that will hold the transformed data." } },
-          "hiveScriptFolder": { "type": "string", "metadata": { "description": "The folder in the blob container that contains the Hive query file." } },
-          "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of the hive query (HQL) file." } }
+        "storageAccountName": { "type": "string", "metadata": { "description": "Name of hello Azure storage account that contains hello input/output data." } },
+          "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for hello Azure storage account." } },
+          "blobContainer": { "type": "string", "metadata": { "description": "Name of hello blob container in hello Azure Storage account." } },
+          "inputBlobFolder": { "type": "string", "metadata": { "description": "hello folder in hello blob container that has hello input file." } },
+          "inputBlobName": { "type": "string", "metadata": { "description": "Name of hello input file/blob." } },
+          "outputBlobFolder": { "type": "string", "metadata": { "description": "hello folder in hello blob container that will hold hello transformed data." } },
+          "hiveScriptFolder": { "type": "string", "metadata": { "description": "hello folder in hello blob container that contains hello Hive query file." } },
+          "hiveScriptFile": { "type": "string", "metadata": { "description": "Name of hello hive query (HQL) file." } }
     },
     "variables": {
           "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
@@ -263,10 +263,10 @@ Utwórz plik JSON o nazwie **ADFTutorialARM.json** w folderze **C:\ADFGetStarted
 > 
 
 ## <a name="parameters-json"></a>Parametry JSON
-Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający parametry szablonu usługi Azure Resource Manager.  
+Utwórz plik JSON o nazwie **parameters.JSON następującym kodem ADFTutorialARM** zawierający parametry szablonu usługi Azure Resource Manager hello.  
 
 > [!IMPORTANT]
-> Określ nazwę i klucz konta usługi Azure Storage w pliku parametrów za pomocą parametrów **storageAccountName** i **storageAccountKey**. 
+> Określ nazwę hello oraz klucz konta magazynu Azure hello **storageAccountName** i **storageAccountKey** parametrów w tym pliku parametrów. 
 > 
 > 
 
@@ -304,60 +304,60 @@ Utwórz plik JSON o nazwie **ADFTutorialARM-Parameters.json** zawierający param
 ```
 
 > [!IMPORTANT]
-> Można używać oddzielnych plików parametrów JSON dla środowisk programistycznego, testowego i produkcyjnego do użycia z tym samym szablonem JSON usługi Data Factory. Za pomocą skryptu programu Power Shell można zautomatyzować wdrażanie jednostek usługi Data Factory w tych środowiskach. 
+> Może mieć osobny parametr pliki w formacie JSON do tworzenia, testowania i środowiska produkcyjnego, w których można używać z hello tego samego szablonu JSON fabryki danych. Za pomocą skryptu programu Power Shell można zautomatyzować wdrażanie jednostek usługi Data Factory w tych środowiskach. 
 > 
 > 
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
-1. Uruchom program **Azure PowerShell** i uruchom następujące polecenie: 
-   * Uruchom poniższe polecenie i wprowadź nazwę użytkownika oraz hasło, których używasz do logowania się w witrynie Azure Portal.
+1. Uruchom **programu Azure PowerShell** i hello uruchom następujące polecenie: 
+   * Uruchom następujące polecenie hello, a następnie wprowadź hello nazwy użytkownika i hasła, użyj toosign w toohello portalu Azure.
     ```PowerShell
     Login-AzureRmAccount
     ```  
-   * Uruchom poniższe polecenie, aby wyświetlić wszystkie subskrypcje dla tego konta.
+   * Uruchom następujące polecenie tooview hello wszystkie subskrypcje powitania dla tego konta.
     ```PowerShell
     Get-AzureRmSubscription
     ``` 
-   * Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Ta subskrypcja powinna być taka sama jak używana w witrynie Azure Portal.
+   * Uruchom następujące polecenie tooselect hello subskrypcję, która ma toowork z hello. Ta subskrypcja powinien Witaj, taka sama, jak hello jedną używaną w hello portalu Azure.
     ```
     Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
     ```   
-2. Uruchom następujące polecenie, aby wdrożyć jednostki usługi Data Factory przy użyciu szablonu usługi Resource Manager utworzonego w kroku 1. 
+2. Uruchom powitania po jednostek fabryki danych toodeploy polecenia przy użyciu szablonu usługi Resource Manager hello utworzonego w kroku 1. 
 
     ```PowerShell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
 
 ## <a name="monitor-pipeline"></a>Monitorowanie potoku
-1. Po zalogowaniu się do witryny [Azure Portal](https://portal.azure.com/) kliknij przycisk **Przeglądaj** i wybierz opcję **Fabryki danych**.
+1. Po zalogowaniu toohello [portalu Azure](https://portal.azure.com/), kliknij przycisk **Przeglądaj** i wybierz **fabryki danych**.
      ![Przeglądaj->Fabryki danych](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2. W bloku **Fabryki danych** kliknij utworzoną przez siebie fabrykę danych (**TutorialFactoryARM**).    
-3. W bloku **Fabryka danych** dla swojej fabryki danych kliknij opcję **Diagram**.
+2. W hello **fabryki danych** bloku, kliknij przycisk fabryki danych hello (**TutorialFactoryARM**) utworzony.    
+3. W hello **fabryki danych** bloku fabrykę danych, kliknij przycisk **Diagram**.
 
      ![Kafelek diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. Na stronie **Widok diagramu** zostanie wyświetlony przegląd potoków i zestawów danych używanych w tym samouczku.
+4. W hello **widoku diagramu**, zobacz Omówienie potoki hello i używać zestawów danych w tym samouczku.
    
    ![Widok diagramu](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. Na stronie Widok diagramu kliknij dwukrotnie zestaw danych **AzureBlobOutput**. Zostanie wyświetlony wycinek, który jest obecnie przetwarzany.
+5. Hello widoku diagramu, kliknij dwukrotnie hello dataset **AzureBlobOutput**. Użytkownik widzi tego hello wycinek, który jest obecnie przetwarzane.
    
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-6. Po zakończeniu przetwarzania wycinek będzie mieć stan **Gotowe**. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). Dlatego należy oczekiwać, że przetworzenie wycinka przez potok zajmie **około 30 minut**.
+6. Po zakończeniu przetwarzania zostanie wyświetlony wycinek hello **gotowe** stanu. Tworzenie klastra usługi HDInsight na żądanie zwykle trwa trochę czasu (około 20 minut). W związku z tym spodziewać się hello potoku tootake **około 30 minut** tooprocess hello wycinka.
    
     ![Zestaw danych](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
-7. Gdy wycinek będzie w stanie **Gotowe**, sprawdź folder **partitioneddata** w kontenerze **adfgetstarted** w magazynie obiektów blob pod kątem danych wyjściowych.  
+7. Gdy wycinek hello jest **gotowe** stanu, należy sprawdzić hello **partitioneddata** folderu w hello **adfgetstarted** kontenera w magazynie obiektów blob na powitania dane wyjściowe.  
 
-Zobacz artykuł [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) (Monitorowanie zestawów danych i potoku), aby uzyskać instrukcje dotyczące korzystania z bloków w witrynie Azure Portal w celu monitorowania potoku i zestawów danych utworzonych przez siebie w ramach tego samouczka.
+Zobacz [monitorowanie zestawów danych i potoku](data-factory-monitor-manage-pipelines.md) instrukcje dotyczące sposobu toouse hello Azure bloki portalu toomonitor hello potoku i zestawy danych zostały utworzone w tym samouczku.
 
-Do monitorowania potoków danych możesz też użyć aplikacji Monitorowanie i zarządzanie. Szczegółowe informacje dotyczące korzystania z aplikacji znajdują się w artykule [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) (Monitorowanie potoków usługi Fabryka danych Azure oraz zarządzanie nimi za pomocą aplikacji do monitorowania). 
+Umożliwia także monitora i zarządzanie aplikacjami toomonitor Twojego potokach danych. Zobacz [monitorowanie i zarządzanie nimi przy użyciu monitorowania aplikacji potoki fabryki danych Azure](data-factory-monitor-manage-app.md) szczegóły dotyczące używania aplikacji hello. 
 
 > [!IMPORTANT]
-> Po pomyślnym przetworzeniu wycinka plik wejściowy zostanie usunięty. Tak więc, jeśli chcesz ponownie uruchomić wycinek lub ponownie wykonać instrukcje z tego samouczka, przekaż plik wejściowy (input.log) do folderu inputdata kontenera adfgetstarted.
+> Plik wejściowy Hello zostaje usunięta, gdy hello wycinek jest przetwarzany pomyślnie. W związku z tym hello plik wejściowy (input.log) toohello inputdata folder kontenera adfgetstarted hello przekazywania wycinek hello toorerun lub Witaj ponownie samouczek.
 > 
 > 
 
-## <a name="data-factory-entities-in-the-template"></a>Jednostki usługi Data Factory w szablonie
+## <a name="data-factory-entities-in-hello-template"></a>Obiekty fabryki danych w szablonie hello
 ### <a name="define-data-factory"></a>Definiowanie fabryki danych
-Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano w następującym przykładzie:  
+Fabryka danych definiuje się w szablonie usługi Resource Manager hello pokazane na powitania następujące przykładowe:  
 
 ```json
 "resources": [
@@ -368,15 +368,15 @@ Fabrykę danych definiuje się w szablonie usługi Resource Manager jak pokazano
     "location": "West US"
 }
 ```
-Parametr dataFactoryName jest zdefiniowany jako: 
+Hello dataFactoryName jest zdefiniowany jako: 
 
 ```json
 "dataFactoryName": "[concat('HiveTransformDF', uniqueString(resourceGroup().id))]",
 ```
-To jest unikatowy ciąg oparty na identyfikatorze grupy zasobów.  
+Jest to unikatowy ciąg na podstawie identyfikatora hello zasobów grupy.  
 
 ### <a name="defining-data-factory-entities"></a>Definiowanie jednostek usługi Data Factory
-Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON: 
+Hello następujące jednostek fabryki danych są definiowane w szablonie JSON hello: 
 
 * [Połączona usługa Azure Storage](#azure-storage-linked-service)
 * [Połączona usługa HDInsight na żądanie](#hdinsight-on-demand-linked-service)
@@ -385,7 +385,7 @@ Następujące jednostki usługi Data Factory są zdefiniowane w szablonie JSON:
 * [Potok danych z działaniem kopiowania](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
-W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure Storage zawiera temat [Połączona usługa Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
+W tej sekcji można określić nazwę hello i klucza konta magazynu Azure. Zobacz [połączonej usługi magazynu Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) szczegółowe informacje o toodefine właściwości używane w formacie JSON połączonej usługi magazynu Azure. 
 
 ```json
 {
@@ -404,10 +404,10 @@ W tej sekcji określa się nazwę i klucz konta magazynu platformy Azure. Szczeg
     }
 }
 ```
-Parametr **connectionString** używa parametrów storageAccountName i storageAccountKey. Wartości tych parametrów są przekazywane przy użyciu pliku konfiguracji. Definicja używa także zmiennych azureStorageLinkedService i dataFactoryName zdefiniowanych w szablonie. 
+Witaj **connectionString** używa hello parametry storageAccountName i storageAccountKey. Hello wartości tych parametrów przekazane za pomocą pliku konfiguracji. Definicja Hello również używa zmiennych: azureStroageLinkedService i dataFactoryName zdefiniowane w szablonie hello. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Połączona usługa HDInsight na żądanie
-Szczegółowe informacje o właściwościach JSON używanych do definiowania połączonej usługi HDInsight na żądanie zawiera temat [Usługi połączone usługi Compute](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
+Zobacz [obliczeniowe połączonych usług](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) artykuł szczegółowe informacje o toodefine właściwości używane w formacie JSON na żądanie połączoną usługą usługi HDInsight.  
 
 ```json
 {
@@ -429,18 +429,18 @@ Szczegółowe informacje o właściwościach JSON używanych do definiowania po�
     }
 }
 ```
-Pamiętaj o następujących kwestiach: 
+Należy zwrócić uwagę hello następujące punkty: 
 
-* Usługa Data Factory tworzy klaster usługi HDInsight **oparty na systemie Linux** za pomocą powyższego kodu JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
+* Witaj fabryki danych tworzy **opartych na systemie Linux** klastra usługi HDInsight za pomocą hello powyżej JSON. Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie). 
 * Możesz użyć **własnego klastra usługi HDInsight** zamiast klastra usługi HDInsight na żądanie. Szczegółowe informacje znajdują się w artykule [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) (Połączona usługa HDInsight).
-* Klaster usługi HDInsight tworzy **kontener domyślny** w magazynie obiektów blob określonym w kodzie JSON (**linkedServiceName**). Usługa HDInsight nie powoduje usunięcia tego kontenera w przypadku usunięcia klastra. To zachowanie jest celowe. W przypadku połączonej usługi HDInsight na żądanie klaster usługi HDInsight jest tworzony za każdym razem, gdy trzeba przetworzyć wycinek — o ile w tym momencie nie istnieje aktywny klaster (**timeToLive**) — i zostaje usunięty po zakończeniu przetwarzania.
+* Tworzy klaster usługi HDInsight Hello **domyślny kontener** w magazynie obiektów blob hello określone w hello JSON (**linkedServiceName**). Po usunięciu klastra hello HDInsight nie usunie tego kontenera. To zachowanie jest celowe. Z usługą HDInsight połączony na żądanie, klastra usługi HDInsight jest tworzony za każdym razem, gdy wycinek musi toobe przetwarzane, o ile istnieje istniejącego klastra na żywo (**timeToLive**) i zostaną usunięte po zakończeniu przetwarzania hello.
   
-    Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie są potrzebne do rozwiązywania problemów z zadaniami, można je usunąć, aby zmniejszyć koszt przechowywania. Nazwy tych kontenerów są zgodne ze wzorcem: „adf**twojanazwafabrykidanych**-**nazwapołączonejusługi**-znacznikdatygodziny”. Aby usunąć kontenery z usługi Azure Blob Storage, użyj takich narzędzi, jak [Microsoft Storage Explorer](http://storageexplorer.com/).
+    Po przetworzeniu większej liczby wycinków w usłudze Azure Blob Storage będzie widocznych wiele kontenerów. Jeśli nie ma potrzeby do rozwiązywania problemów hello zadań, możesz toodelete ich magazynu hello tooreduce kosztów. nazwy Hello kontenery wykonaj wzorca: "adf**yourdatafactoryname**-**linkedservicename**- datetimestamp". Użyj narzędzia takiego jak [Eksploratora magazynu](http://storageexplorer.com/) magazynu obiektów blob toodelete kontenerów w platformy Azure.
 
 Szczegółowe informacje znajdują się w artykule [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) (Połączona usługa HDInsight na żądanie).
 
 #### <a name="azure-blob-input-dataset"></a>Wejściowy zestaw danych obiektów blob platformy Azure
-Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera dane wejściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) (Właściwości zestawu danych obiektów blob plaformy Azure). 
+Należy określić nazwy hello folder, plik zawierający dane wejściowe hello i kontener obiektów blob. Zobacz [właściwości zestawu danych obiektów Blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties) szczegółowe informacje o toodefine właściwości używane JSON zestawu danych obiektów Blob platformy Azure. 
 
 ```json
 {
@@ -470,10 +470,10 @@ Określane są nazwy kontenera obiektów blob, folderu i pliku, który zawiera d
     }
 }
 ```
-Ta definicja wykorzystuje następujące parametry zdefiniowane w szablonie parametrów: blobContainer, inputBlobFolder i inputBlobName. 
+Ta definicja używa następujących parametrów zdefiniowanych w szablonie parametru hello: blobContainer, inputBlobFolder i inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Wyjściowy zestaw danych obiektów blob platformy Azure
-Określane są nazwy kontenera obiektów blob i folderu przechowującego dane wyjściowe. Szczegóły dotyczące właściwości JSON używanych do definiowania zestawu danych obiektów blob platformy Azure zawiera temat [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) (Właściwości zestawu danych obiektów blob plaformy Azure).  
+Należy określić nazwy hello kontenera obiektów blob i folderu, która przechowuje dane wyjściowe hello. Zobacz [właściwości zestawu danych obiektów Blob platformy Azure](data-factory-azure-blob-connector.md#dataset-properties) szczegółowe informacje o toodefine właściwości używane JSON zestawu danych obiektów Blob platformy Azure.  
 
 ```json
 {
@@ -502,10 +502,10 @@ Określane są nazwy kontenera obiektów blob i folderu przechowującego dane wy
 }
 ```
 
-Ta definicja wykorzystuje następujące parametry zdefiniowane w szablonie parametrów: blobContainer i outputBlobFolder. 
+Ta definicja używa następujących parametrów zdefiniowanych w szablonie parametru hello hello: blobContainer i outputBlobFolder. 
 
 #### <a name="data-pipeline"></a>Potok danych
-Definiuje się potok przekształcający dane za pomocą skryptu Hive uruchamianego w klastrze usługi Azure HDInsight na żądanie. Opisy elementów JSON używanych do definiowania potoku w tym przykładzie zawiera temat [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json) (Kod JSON potoku). 
+Definiuje się potok przekształcający dane za pomocą skryptu Hive uruchamianego w klastrze usługi Azure HDInsight na żądanie. Zobacz [JSON potoku](data-factory-create-pipelines.md#pipeline-json) opisy toodefine elementów JSON potoku, w tym przykładzie. 
 
 ```json
 {
@@ -561,8 +561,8 @@ Definiuje się potok przekształcający dane za pomocą skryptu Hive uruchamiane
 }
 ```
 
-## <a name="reuse-the-template"></a>Ponowne użycie szablonu
-W ramach samouczka został utworzony szablon służący do definiowania jednostek usługi Data Factory i szablon służący do przekazywania wartości dla parametrów. Aby użyć tego samego szablonu do wdrożenia jednostek usługi Data Factory w różnych środowiskach, należy utworzyć plik parametrów dla każdego środowiska i użyć go podczas wdrażania do środowiska.     
+## <a name="reuse-hello-template"></a>Ponowne użycie szablonu hello
+W samouczku hello utworzony szablon do definiowania jednostek fabryki danych i przekazywanie wartości parametrów szablonu. toouse hello tego samego szablonu toodeploy fabryki danych jednostek toodifferent środowiskach, Utwórz plik parametr dla każdego środowiska i użyć go w przypadku wdrażania środowiska toothat.     
 
 Przykład:  
 
@@ -573,12 +573,12 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
-Należy zauważyć, że pierwsze polecenie używa pliku parametrów dla środowiska programistycznego, drugie dla środowiska testowego, a trzecie dla środowiska produkcyjnego.  
+Należy zauważyć, że pierwszy parametr używa polecenia hello plik hello Środowisko deweloperskie, drugi dla środowiska testowego hello i hello trzeci co w środowisku produkcyjnym hello.  
 
-Można także ponownie użyć szablonu do wykonywania powtarzających się zadań. Na przykład w sytuacji, gdy jest potrzebne utworzenie wielu fabryk danych z co najmniej jednym potokiem, które implementują tę samą logikę, lecz każda fabryka danych używa innego magazynu platformy Azure i kont usługi Azure SQL Database. W tym scenariuszu do tworzenia fabryk danych jest używany ten sam szablon w tym samym środowisku (programistycznym, testowym lub produkcyjnym) w połączeniu z różnymi plikami parametrów. 
+Można również ponownie użyć tooperform szablonu hello powtarzanych zadań. Na przykład należy toocreate wiele fabryk danych z jednego lub więcej potoki, które implementują hello samej logiki, ale każdy inny magazynu Azure danych fabryki używa i konta bazy danych SQL Azure. W tym scenariuszu, należy użyć hello tego samego szablonu hello — w tym samym środowisku (deweloperów, testów lub produkcji) z innym parametrem pliki toocreate fabryki danych. 
 
 ## <a name="resource-manager-template-for-creating-a-gateway"></a>Szablon usługi Resource Manager do tworzenia bramy
-Poniżej przedstawiono przykładowy szablon usługi Resource Manager do tworzenia logicznej bramy w tle. Zainstaluj bramę na komputerze lokalnym lub maszynie wirtualnej IaaS platformy Azure i zarejestruj bramę w usłudze Data Factory przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
+Poniżej przedstawiono szablon usługi Resource Manager próbki do tworzenia logicznej bramy w hello ponownie. Zainstaluj bramę na komputerze lokalnym lub maszyny Wirtualnej Azure IaaS i zarejestruj bramę hello usłudze fabryka danych przy użyciu klucza. Szczegółowe informacje znajdują się w artykule [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) (Przenoszenie danych między komputerem lokalnym i chmurą).
 
 ```json
 {
@@ -617,8 +617,8 @@ Ten szablon służy do tworzenia fabryki danych o nazwie GatewayUsingArmDF z bra
 ## <a name="see-also"></a>Zobacz też
 | Temat | Opis |
 |:--- |:--- |
-| [Potoki](data-factory-create-pipelines.md) |Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure Data Factory oraz ze sposobem konstruowania za ich pomocą przepływów pracy typu end-to-end opartych na danych na potrzeby scenariusza lub firmy. |
+| [Potoki](data-factory-create-pipelines.md) |Ten artykuł pomaga w zrozumieniu potoki i działań w fabryce danych Azure i w jaki sposób toouse ich tooconstruct end-to-end danymi przepływy pracy dla Twojego scenariusza lub firmy. |
 | [Zestawy danych](data-factory-create-datasets.md) |Ten artykuł ułatwia zapoznanie się z zestawami danych w usłudze Azure Data Factory. |
-| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Fabryka danych Azure. |
-| [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |Ten artykuł zawiera instrukcje dotyczące monitorowania i debugowania potoków oraz zarządzania nimi przy użyciu aplikacji do monitorowania i zarządzania. |
+| [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) |W tym artykule opisano aspekty planowania i wykonywania hello modelu aplikacji fabryki danych Azure. |
+| [Monitorowanie potoków i zarządzanie nimi za pomocą aplikacji do monitorowania](data-factory-monitor-manage-app.md) |W tym artykule opisano sposób toomonitor, zarządzania i debugowania potoki przy użyciu hello monitorowanie & aplikacji do zarządzania. |
 

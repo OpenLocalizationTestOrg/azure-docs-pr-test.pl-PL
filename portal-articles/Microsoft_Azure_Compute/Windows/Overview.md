@@ -1,5 +1,5 @@
 ---
-title: "Omówienie maszyn wirtualnych z systemem Windows | Dokumentacja firmy Microsoft"
+title: "aaaWindows maszyn wirtualnych — omówienie | Dokumentacja firmy Microsoft"
 description: "Pomoc zawartość omówienie maszyn wirtualnych systemu Windows w portalu Azure"
 services: virtual-machines-windows
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1992c0715d39669565cf1754975d2d82b19d3b22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Dokumentacja dotycząca maszyn wirtualnych z systemem Windows
 
-Maszyny wirtualne z systemem Windows na platformie Azure zapewniają bezpieczną infrastrukturę zwirtualizowaną na żądanie o dużej skali z zastosowaniem systemu Windows Server. Dowiedz się, jak tworzyć, konfigurować i skalować maszyny wirtualne z systemem Windows oraz zarządzać nimi, korzystając z przewodników Szybki Start, samouczków i przykładów.
+Maszyny wirtualne z systemem Windows na platformie Azure zapewniają bezpieczną infrastrukturę zwirtualizowaną na żądanie o dużej skali z zastosowaniem systemu Windows Server. Dowiedz się, jak toocreate, konfigurowanie, zarządzanie i skalowania maszyn wirtualnych systemu Windows z naszych poradniki Szybki Start, samouczki i przykłady.
 
 ## <a name="5-minute-quickstarts"></a>5-minutowe przewodniki Szybki start
 
-Dowiedz się, jak wdrożyć serwer sieci Web usług IIS na maszynie wirtualnej z systemem Windows Server 2016:
+Dowiedz się, jak toodeploy serwer sieci web usług IIS w ramach maszyny wirtualnej z systemem Windows Server 2016:
 
 - [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -28,7 +28,7 @@ Dowiedz się, jak wdrożyć serwer sieci Web usług IIS na maszynie wirtualnej z
 
 ## <a name="step-by-step-tutorials"></a>Samouczki krok po kroku
 
-Informacje o sposobie wdrażania, zarządzania i monitorowania maszyn wirtualnych systemu Windows Azure.
+Dowiedz się, jak toodeploy, zarządzanie i monitorowanie maszyn wirtualnych systemu Windows Azure.
 
 - [Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Tworzenie dysków maszyn wirtualnych i zarządzanie nimi](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -51,12 +51,12 @@ Informacje o sposobie wdrażania, zarządzania i monitorowania maszyn wirtualnyc
 
 ## <a name="samples"></a>Przykłady
 
-Wdrażanie pierwszej aplikacji na platformie Azure.
+Wdrażanie Twojego pierwszego tooAzure aplikacji.
 
 - [Interfejs wiersza polecenia platformy Azure](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="more"></a>Więcej
 
-- [Odwiedź stronę dokumentacji, aby dowiedzieć się więcej](/azure/virtual-machines/windows/index)
+- [Odwiedź stronę dokumentacji toolearn więcej](/azure/virtual-machines/windows/index)
 - [Więcej informacji na temat wszystkich usług Azure](https://aka.ms/j3wr7y)

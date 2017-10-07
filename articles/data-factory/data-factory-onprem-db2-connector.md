@@ -1,6 +1,6 @@
 ---
-title: "Przenieść dane z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przenieść dane z bazy danych DB2 lokalnie za pomocą działania kopiowania fabryki danych Azure"
+title: "aaaMove danych z bazy danych DB2 przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomove dane z bazy danych DB2 lokalnej bazy danych przy użyciu działania kopiowania fabryki danych Azure"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 696ac059be644cb3901c37d2fc746e0682c65a1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Przenieść dane z bazy danych DB2 za pomocą działania kopiowania fabryki danych Azure
-W tym artykule opisano, jak używasz działanie kopiowania w fabryce danych Azure można skopiować danych z lokalną bazą danych DB2 w magazynie danych. Można skopiować danych do dowolnego magazynu, który jest wymieniony jako obsługiwany zbiornika w [działań przepływu danych fabryki danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artykułu. W tym temacie opiera się na artykułu fabryki danych, które zawiera omówienie przepływu danych za pomocą działania kopiowania i wyświetla kombinacje magazynu obsługiwane dane. 
+W tym artykule opisano używania działania kopiowania fabryki danych Azure toocopy danych z magazynu danych tooa lokalnej bazy danych DB2 bazy danych. Możesz skopiować magazynu tooany danych, który jest wymieniony jako obsługiwany zbiornika w hello [działań przepływu danych fabryki danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artykułu. W tym temacie opiera się na powitania artykułu fabryki danych, które zawiera omówienie przepływu danych za pomocą działania kopiowania i wyświetla kombinacje magazynu danych hello obsługiwane. 
 
-Fabryka danych aktualnie obsługuje tylko przenoszenia danych z bazy danych DB2 do [obsługiwanych ujścia magazynu danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Przechowuje przenoszenia danych z innych danych do bazy danych DB2 bazy danych nie jest obsługiwana.
+Fabryka danych aktualnie obsługuje tylko przenoszenia danych z tooa bazy danych DB2 [obsługiwanych ujścia magazynu danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Przenoszenie danych z innych danych przechowuje tooa bazy danych DB2 bazy danych nie jest obsługiwana.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Fabryka danych obsługuje nawiązywania połączenia z lokalną bazą danych DB2 przy użyciu [brama zarządzania danymi](data-factory-data-management-gateway.md). Aby uzyskać instrukcje krok po kroku do konfigurowania potoku bramy danych w celu przenoszenia danych, zobacz [przenoszenia danych z lokalnymi do chmury](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
+Fabryka danych obsługuje połączenia bazy danych DB2 lokalnie tooan przy użyciu hello [brama zarządzania danymi](data-factory-data-management-gateway.md). Aby uzyskać instrukcje krok po kroku tooset zapasową hello bramy danych w potoku toomove danych, zobacz hello [przenoszenia danych z lokalnego toocloud](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
 
-Wymagana jest brama, nawet jeśli programu DB2 znajduje się na maszynie Wirtualnej Azure IaaS. Bramę można zainstalować na tej samej maszyny Wirtualnej IaaS do przechowywania danych. Jeśli bramy można połączyć z bazą danych, można zainstalować bramę na innej maszynie Wirtualnej.
+Wymagana jest brama, nawet jeśli hello bazy danych DB2 znajduje się na maszynie Wirtualnej Azure IaaS. Możesz zainstalować bramę hello na powitania tej samej IaaS maszyny Wirtualnej jako hello magazynu danych. Jeśli brama hello można połączyć z usługą toohello bazy danych, możesz zainstalować hello bramę na innej maszynie Wirtualnej.
 
-Brama zarządzania danymi zawiera wbudowane sterownik bazy danych DB2, dzięki czemu nie trzeba ręcznie zainstaluj sterownik na skopiowanie danych z bazy danych DB2.
+Brama zarządzania danymi Hello oferuje wbudowane sterownik bazy danych DB2, więc nie zostanie toomanually zainstalować sterownik toocopy danych z bazy danych DB2.
 
 > [!NOTE]
-> Aby uzyskać wskazówki dotyczące rozwiązywania problemów dotyczących połączenia i problemy bramy, zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) artykułu.
+> Aby uzyskać wskazówki dotyczące rozwiązywania problemów dotyczących połączenia i problemy bramy, zobacz hello [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) artykułu.
 
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
-Łącznik DB2 fabryki danych obsługuje następujące platformy IBM DB2 i wersje Menedżera dostępu programu SQL Distributed relacyjnej bazy danych architektury DRDA () w wersji 9, 10 lub 11:
+Łącznik Hello DB2 fabryki danych obsługuje hello IBM DB2 platform i wersje Menedżera dostępu programu SQL Distributed relacyjnej bazy danych architektury DRDA () w wersji 9, 10 lub 11:
 
 * IBM DB2 w wersji 11.1 z/OS
 * IBM DB2 w wersji 10.1 z/OS
@@ -48,79 +48,79 @@ Brama zarządzania danymi zawiera wbudowane sterownik bazy danych DB2, dzięki c
 * IBM DB2 dla LUW wersji 10.1
 
 > [!TIP]
-> Jeśli zostanie wyświetlony komunikat o błędzie "nie znaleziono pakietu odpowiadający żądania wykonania instrukcji SQL. SQLSTATE 51002 SQLCODE =-805, = "przyczyną jest potrzebny pakiet nie został utworzony dla zwykłego użytkownika w systemie operacyjnym. Aby rozwiązać ten problem, wykonaj następujące instrukcje dla danego typu serwera bazy danych DB2:
-> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję dla zwykłego użytkownika przed uruchomieniem działanie kopiowania. Aby utworzyć kolekcję, użyj polecenia:`create collection <username>`
-> - Bazy danych DB2 z/OS lub LUW: Użyj konta z wysokim poziomie uprawnień — użytkownik zaawansowany lub administrator urzędów pakietu i powiązania, BINDADD, PRZYZNAĆ uprawnienia publiczne — do skopiowania raz EXECUTE. Potrzebny pakiet jest tworzony automatycznie podczas kopiowania. Możesz później, przejdź do zwykłego użytkownika dla sekwencji kolejnych kopii.
+> Jeśli zostanie wyświetlony komunikat o błędzie powitania "hello pakietu odpowiedniego tooan SQL instrukcji żądania wykonania nie został znaleziony. SQLSTATE 51002 SQLCODE =-805, = "hello przyczyna jest potrzebny pakiet nie został utworzony dla zwykłego użytkownika hello na powitania systemu operacyjnego. tooresolve ten problem, wykonaj te instrukcje dla danego typu serwera bazy danych DB2:
+> - Bazy danych DB2 dla i (AS400): umożliwia użytkownikowi zasilania utworzyć kolekcję hello na powitania zwykłego użytkownika przed uruchomieniem działanie kopiowania. toocreate hello kolekcji, użyj polecenia hello:`create collection <username>`
+> - Bazy danych DB2 z/OS lub LUW: Użyj konta wysokiego poziomu uprawnień — użytkownik zaawansowany lub administrator urzędów pakietu i powiązania, BINDADD, uprawnienia EXECUTE tooPUBLIC — toorun hello raz kopiowania. Witaj potrzebny pakiet jest tworzony automatycznie podczas kopiowania hello. Potem można przełączać wstecz toohello zwykłego użytkownika dla sekwencji kolejnych kopii.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potok z działaniem kopiowania do przenoszenia danych z magazynu danych programu DB2 lokalnie przy użyciu różnych narzędzi i interfejsów API: 
+Można utworzyć potoku o toomove działania kopiowania danych z magazynu danych programu DB2 lokalnie przy użyciu różnych narzędzi i interfejsów API: 
 
-- Najprostszym sposobem, aby utworzyć potok jest użycie Kreatora kopiowania fabryki danych Azure. Szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania, zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md). 
-- Umożliwia także narzędzia do tworzenia potoku, w tym portalu Azure, programu Visual Studio, programu Azure PowerShell szablonu usługi Azure Resource Manager, interfejsu API programu .NET i interfejsu API REST. Aby uzyskać instrukcje utworzyć potok z działania kopiowania, zobacz [samouczek działanie kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Witaj Najprostszym sposobem toocreate potoku jest hello toouse kreatora kopiowania fabryki danych Azure. Szybkie przewodnik dotyczący tworzenia za pomocą Kreatora kopiowania hello potoku, zobacz hello [samouczek: tworzenie potoku za pomocą Kreatora kopiowania hello](data-factory-copy-data-wizard-tutorial.md). 
+- Można również użyć narzędzia toocreate potoku, w tym hello portalu Azure, programu Visual Studio, programu Azure PowerShell, usługi Azure Resource Manager szablonu, hello interfejs API .NET i hello interfejsu API REST. Aby uzyskać instrukcje krok po kroku toocreate potoku z działaniem kopiowania, zobacz hello [samouczek działanie kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
-1. Utwórz połączone usługi, aby połączyć dane wejściowe i wyjściowe magazyny danych z fabryką danych.
-2. Tworzenie zestawów danych do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Tworzenie fabryki danych tooyour magazynów danych wejściowych i wyjściowych toolink połączonych usług.
+2. Tworzenie zestawów danych toorepresent w danych wejściowych i wyjściowych danych dla operacji kopiowania hello. 
 3. Utworzyć potok aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z Kreatora kopiowania, definicje JSON dla fabryki danych połączone usługi, zestawy danych i jednostek potoku są tworzone automatycznie dla Ciebie. Korzystając z narzędzia lub interfejsów API (z wyjątkiem interfejsu API programu .NET), należy zdefiniować jednostek fabryki danych w formacie JSON. [Przykład JSON: kopiowanie danych z bazy danych DB2 do magazynu obiektów Blob Azure](#json-example-copy-data-from-db2-to-azure-blob) zawiera definicje JSON dla jednostek fabryki danych, które są używane do kopiowania danych z magazynu danych programu DB2 lokalnie.
+Używania hello kreatora kopiowania, definicje JSON hello fabryki danych połączone usługi, zestawy danych i jednostek potoku są tworzone automatycznie dla Ciebie. Użycie narzędzia lub interfejsów API (z wyjątkiem hello interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello hello jednostek fabryki danych. Witaj [przykład JSON: kopiowanie danych z bazy danych DB2 tooAzure magazynu obiektów Blob](#json-example-copy-data-from-db2-to-azure-blob) zawiera definicje JSON hello hello jednostek fabryki danych, które są używane toocopy danych z magazynu danych programu DB2 lokalnie.
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwościach JSON, które są używane do definiowania jednostek fabryki danych, które są specyficzne dla magazynu danych programu DB2.
+Witaj następujące sekcje zawierają szczegółowe informacje o hello właściwości JSON, które są używane toodefine hello fabryki danych podmiotów, które są określone tooa bazy danych DB2 magazynu danych.
 
 ## <a name="db2-linked-service-properties"></a>Właściwości usługi połączone bazy danych DB2
-W poniższej tabeli wymieniono właściwości JSON, które są specyficzne dla usługi bazy danych DB2 połączone.
+Witaj w poniższej tabeli wymieniono właściwości JSON hello, które są określone tooa bazy danych DB2 połączone usługi.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Typ** |Ta właściwość musi mieć ustawioną **OnPremisesDB2**. |Tak |
-| **Serwer** |Nazwa serwera bazy danych DB2. |Tak |
-| **bazy danych** |Nazwa bazy danych DB2. |Tak |
-| **Schemat** |Nazwa schematu bazy danych DB2. Ta właściwość jest rozróżniana wielkość liter. |Nie |
-| **Typ authenticationType** |Typ uwierzytelniania używany do łączenia z bazą danych DB2. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
-| **Nazwa użytkownika** |Nazwa konta użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
-| **hasło** |Hasło dla konta użytkownika. |Nie |
-| **gatewayName** |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych DB2. |Tak |
+| **Typ** |Ta właściwość musi być ustawiona zbyt**OnPremisesDB2**. |Tak |
+| **Serwer** |Nazwa powitania serwera hello bazy danych DB2. |Tak |
+| **bazy danych** |Nazwa Hello hello bazy danych DB2 bazy danych. |Tak |
+| **Schemat** |Nazwa Hello hello schematu w bazie danych hello bazy danych DB2. Ta właściwość jest rozróżniana wielkość liter. |Nie |
+| **Typ authenticationType** |Hello typ uwierzytelniania, który jest używany tooconnect toohello bazy danych DB2 w bazie danych. Witaj możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
+| **Nazwa użytkownika** |Nazwa Hello hello konta użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
+| **hasło** |Hello hasło dla konta użytkownika hello. |Nie |
+| **gatewayName** |Nazwa Hello hello bramy, która hello usługi fabryka danych należy używać tooconnect toohello lokalną bazą danych DB2. |Tak |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Listę sekcje i właściwości, które są dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje, takich jak **struktury**, **dostępności**i **zasad** dla zestawu danych JSON, są podobne dla wszystkich typów zestawu danych (Azure SQL, magazyn obiektów Blob platformy Azure, Magazyn tabel Azure itd.).
+Listę hello sekcje i właściwości, które są dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje, takich jak **struktury**, **dostępności**i hello **zasad** dla zestawu danych JSON, są podobne dla wszystkich typów obiektów dataset (Azure SQL, magazynem Azure Blob, tabel Azure Magazyn i tak dalej).
 
-**TypeProperties** sekcja jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. **TypeProperties** sekcja dla zestawu danych typu **RelationalTable**, w tym zestawie danych DB2, ma następującą właściwość:
+Witaj **typeProperties** sekcja zawiera informacje o lokalizacji hello hello danych w magazynie danych hello i różni się dla każdego typu zestawu danych. Witaj **typeProperties** sekcja dla zestawu danych typu **RelationalTable**, które dotyczą hello bazy danych DB2 zestawu danych, hello następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **tableName** |Nazwa tabeli w wystąpieniu bazy danych DB2 odnoszący się do połączonej usługi. Ta właściwość jest rozróżniana wielkość liter. |Nie (Jeśli **zapytania** właściwości działania kopiowania typu **RelationalSource** jest określona) |
+| **tableName** |Nazwa Hello hello tabeli w wystąpieniu bazy danych hello DB2, który hello połączonej usługi odwołuje się do. Ta właściwość jest rozróżniana wielkość liter. |Nie (jeśli hello **zapytania** właściwości działania kopiowania typu **RelationalSource** jest określona) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Aby uzyskać listę sekcji i właściwości, które są dostępne do definiowania działania kopiowania, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Kopiuj właściwości działania, takie jak **nazwa**, **opis**, **dane wejściowe** tabeli, **generuje** tabeli, i **zasad**, są dostępne dla wszystkich typów działań. Właściwości, które są dostępne w **typeProperties** sekcji działanie dla każdego typu działania. Dla działania kopiowania właściwości różnią się w zależności od typów źródeł danych i sink.
+Listę hello sekcje i właściwości, które są dostępne do definiowania działania kopiowania, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Kopiuj właściwości działania, takie jak **nazwa**, **opis**, **dane wejściowe** tabeli, **generuje** tabeli, i **zasad**, są dostępne dla wszystkich typów działań. Witaj właściwości, które są dostępne w hello **typeProperties** sekcji hello działanie dla każdego typu działania. Dla działania kopiowania właściwości hello zależy od hello typy źródeł danych i sink.
 
-Dla działania kopiowania, gdy źródłem jest typu **RelationalSource** (która obejmuje bazy danych DB2), są dostępne w następujących właściwości **typeProperties** sekcji:
+Dla działania kopiowania, gdy źródłem hello jest typu **RelationalSource** (która obejmuje bazy danych DB2), hello następujące właściwości są dostępne w hello **typeProperties** sekcji:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| **zapytania** |Użyj niestandardowych zapytania, aby odczytać danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from "MySchema"."MyTable""` |Nie (Jeśli **tableName** określono właściwości zestawu danych) |
+| **zapytania** |Użyj hello zapytanie niestandardowe tooread hello danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from "MySchema"."MyTable""` |Nie (jeśli hello **tableName** określono właściwości zestawu danych) |
 
 > [!NOTE]
-> Nazwy schematu i tabeli jest rozróżniana wielkość liter. W instrukcji zapytania, ujmij nazw właściwości, za pomocą "" (podwójne cudzysłowy). Na przykład:
+> Nazwy schematu i tabeli jest rozróżniana wielkość liter. W instrukcji zapytania hello, ujmij nazw właściwości, za pomocą "" (podwójne cudzysłowy). Na przykład:
 >
 > ```sql
 > "query": "select * from "DB2ADMIN"."Customers""
 > ```
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Przykład JSON: kopiowanie danych z bazy danych DB2 do magazynu obiektów Blob platformy Azure
-W poniższym przykładzie przedstawiono przykładowe definicje JSON, które można użyć, aby utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przykład przedstawia sposób kopiowania danych z bazy danych DB2 do magazynu obiektów Blob. Jednak dane mogą być kopiowane do [wszystkie obsługiwane dane przechowywane typ ujścia](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania fabryki danych Azure.
+## <a name="json-example-copy-data-from-db2-tooazure-blob-storage"></a>Przykład JSON: kopiowanie danych z bazy danych DB2 tooAzure magazynu obiektów Blob
+W poniższym przykładzie przedstawiono przykładowe definicje JSON przy użyciu hello można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). przykład Witaj pokazuje, jak toocopy dane z bazy danych DB2 bazy danych magazynu tooBlob. Jednak możesz skopiować dane zbyt[wszystkie obsługiwane dane przechowywane typ ujścia](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania fabryki danych Azure.
 
-Przykład zawiera następujące jednostek fabryki danych:
+przykład Witaj ma powitania po jednostek fabryki danych:
 
 - Bazy danych DB2 połączonej usługi typu [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
 - Połączonej usługi typu magazynu obiektów Blob platformy Azure [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - Dane wejściowe [dataset](data-factory-create-datasets.md) typu [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-- A [potoku](data-factory-create-pipelines.md) z działania kopiowania, która używa [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) właściwości
+- A [potoku](data-factory-create-pipelines.md) z działania kopiowania, który używa hello [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) właściwości
 
-Przykład kopiuje dane z wyniku kwerendy w bazie danych DB2 do obiektów blob platformy Azure co godzinę. Właściwości JSON, które są używane w przykładowym są opisane w następnych sekcjach definicje jednostki.
+przykład Witaj co godzinę kopiuje dane z wyniku kwerendy w tooan bazy danych DB2 obiektów blob platformy Azure. Witaj JSON właściwości, które są używane w przykładowym hello są opisane w hello sekcjach hello jednostki definicje.
 
-Pierwszym krokiem Zainstaluj i skonfiguruj bramę danych. Instrukcje znajdują się w [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
+Pierwszym krokiem Zainstaluj i skonfiguruj bramę danych. Instrukcje znajdują się w hello [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
 
 **Bazy danych DB2 połączone usługi**
 
@@ -158,9 +158,9 @@ Pierwszym krokiem Zainstaluj i skonfiguruj bramę danych. Instrukcje znajdują s
 
 **Wejściowy zestaw danych DB2**
 
-Próbka przyjęto założenie, że utworzono tabelę w bazie danych DB2 o nazwie "MyTable", która zawiera kolumnę z etykietą "timestamp" dla czasu danych w serii.
+przykład Witaj przyjęto założenie, że utworzono tabelę w bazie danych DB2 o nazwie "MyTable", która zawiera kolumnę z etykietą "timestamp" hello czasu serii danych.
 
-**Zewnętrznych** właściwość jest ustawiona na wartość "true". Usługi fabryka danych z tego ustawienia informuje o tym, że ten zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych. Zwróć uwagę, że **typu** właściwość jest ustawiona na **RelationalTable**.
+Witaj **zewnętrznych** właściwość jest ustawiona zbyt "wartość true." Usługi fabryka danych hello to ustawienie informuje o tym, że ten zestaw danych jest zewnętrzne toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello. Zwróć uwagę, że hello **typu** właściwość jest ustawiona zbyt**RelationalTable**.
 
 
 ```json
@@ -188,7 +188,7 @@ Próbka przyjęto założenie, że utworzono tabelę w bazie danych DB2 o nazwie
 
 **Azure Blob wyjściowy zestaw danych**
 
-Dane są zapisywane do nowego obiektu blob co godzinę, ustawiając **częstotliwość** dla właściwości "Godzina" i **interwał** właściwości na wartość 1. **FolderPath** właściwości dla obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godzinę części czas rozpoczęcia.
+Dane są zapisywane nowego obiektu blob tooa co godzinę przez ustawienie hello **częstotliwość** właściwości zbyt "Hour" i hello **interwał** too1 właściwości. Witaj **folderPath** właściwości dla obiektu blob hello dynamicznie jest obliczane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa hello rok, miesiąc, dzień i godzinę części hello czas rozpoczęcia.
 
 ```json
 {
@@ -246,15 +246,15 @@ Dane są zapisywane do nowego obiektu blob co godzinę, ustawiając **częstotli
 }
 ```
 
-**Potoku dla działania kopiowania**
+**Potoku dla aktywności kopiowania hello**
 
-Potok zawiera działanie kopiowania skonfigurowanym do używania określonych danych wejściowych i wyjściowych zestawów danych, które jest zaplanowane co godzinę. W definicji JSON dla potoku **źródła** ustawiono typ **RelationalSource** i **zbiornika** ustawiono typ **BlobSink**. Określony dla zapytania SQL **zapytania** właściwości wybiera danych z tabeli "Zamówienia".
+potok Hello zawiera działanie kopiowania, który jest skonfigurowany toouse określony wejściowych i wyjściowych zestawów danych i która jest toorun zaplanowane co godzinę. W definicji JSON dla potoku hello hello, hello **źródła** typu ustawiono zbyt**RelationalSource** i hello **zbiornika** typu ustawiono zbyt**BlobSink**. Zapytanie SQL Hello określone dla hello **zapytania** właściwości wybiera hello danych z tabeli "Zamówienia" hello.
 
 ```json
 {
     "name": "CopyDb2ToBlob",
     "properties": {
-        "description": "pipeline for the copy activity",
+        "description": "pipeline for hello copy activity",
         "activities": [
             {
                 "type": "Copy",
@@ -295,12 +295,12 @@ Potok zawiera działanie kopiowania skonfigurowanym do używania określonych da
 ```
 
 ## <a name="type-mapping-for-db2"></a>Mapowanie typu dla bazy danych DB2
-Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, działanie kopiowania przeprowadza automatyczne konwersje typu źródłowego do zbiornika typu przy użyciu następujących rozwinięcie:
+Jak wspomniano w hello [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, działanie kopiowania wykonuje automatyczne konwersje typu toosink typu źródłowego za pomocą następującego rozwinięcie hello:
 
-1. Konwertować z typu natywnego źródła do typu .NET
-2. Konwertować z typu .NET do typu sink natywnego
+1. Konwertować z typu .NET tooa typu natywnego źródła
+2. Konwertować z typu natywnego zbiornika tooa typu .NET
 
-Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane z bazy danych DB2 typu na typ architektury .NET:
+Hello następujące mapowania są używane, gdy działanie kopiowania konwertuje hello dane z bazy danych DB2 .NET tooa typu:
 
 | Typ bazy danych DB2 | Typ programu .NET framework |
 | --- | --- |
@@ -345,11 +345,11 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | XML |Byte] |
 | char |Ciąg |
 
-## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
-Informacje na temat mapowanie kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Mapowanie kolumny toosink źródłowe
+toolearn toomap kolumn w powitania źródło zestawu danych toocolumns w zestawie danych zbiornika hello, zobacz temat [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="repeatable-reads-from-relational-sources"></a>Odczyty powtarzalne źródłami relacyjnymi
-Po skopiowaniu danych z magazynu danych relacyjnych należy pamiętać, aby uniknąć niezamierzone wyniki powtarzalności. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować retry **zasad** właściwości dla obiektu dataset ponownie uruchomić wycinek, gdy wystąpi błąd. Upewnij się, że te same dane jest odczytu, niezależnie od tego, ile razy wycinek zostanie uruchomiona ponownie, i niezależnie od tego, jak ponownie uruchomić wycinka. Aby uzyskać więcej informacji, zobacz [Repeatable odczytuje z źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Po skopiowaniu danych z magazynu danych relacyjnych zachować powtarzalności w uwadze tooavoid niezamierzone wyników. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować ponawiania hello **zasad** właściwości zestawu danych toorerun wycinka, gdy wystąpi błąd. Upewnij się, że hello te same dane jest do odczytu niezależnie od tego, jak wiele razy hello wycinek jest Uruchom ponownie i niezależnie od tego, jak ponownie uruchomić hello wycinka. Aby uzyskać więcej informacji, zobacz [Repeatable odczytuje z źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie
-Więcej informacji na temat kluczowych czynników wpływających na wydajność działania kopiowania i sposobów w celu optymalizacji wydajności w [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md).
+Więcej informacji na temat kluczowych czynników wpływających na wydajność hello działanie kopiowania i sposoby wydajności toooptimize w hello [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md).

@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie niestandardowe R moduły w Azure Machine Learning | Dokumentacja firmy Microsoft"
+title: "aaaAuthor niestandardowych modułów R w usłudze Azure Machine Learning | Dokumentacja firmy Microsoft"
 description: "Szybki start do tworzenia niestandardowych modułów R w usłudze Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
-ms.openlocfilehash: 964ddb551a475243891abce8a2b835e65569a4ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8007c2abe20a4ab990f38b6d09bc4e6834ad2082
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Tworzenie niestandardowych modułów R w usłudze Azure Machine Learning
-W tym temacie opisano sposób tworzenia i wdrażania niestandardowego modułu R w usłudze Azure Machine Learning. Wyjaśniono, co to są niestandardowych modułów R i które pliki są używane do definiowania ich. Go ilustruje sposób tworzenia plików, które definiują modułu i jak można zarejestrować modułu do wdrożenia w obszarze roboczym uczenia maszynowego. Elementy i atrybuty używane w definicji niestandardowego modułu następnie są opisane bardziej szczegółowo. Również omówiono sposób użycia funkcji pomocniczych, plików i wielu wyjść. 
+W tym temacie opisano sposób tooauthor i wdrażanie niestandardowego modułu R w usłudze Azure Machine Learning. Wyjaśniono, co to są niestandardowych modułów R i które pliki są używane toodefine je. Go pokazano, jak tooconstruct hello pliki, które definiują modułu i jak tooregister hello modułu do wdrożenia w obszarze roboczym uczenia maszynowego. Witaj elementy i atrybuty użyte w definicji hello niestandardowego modułu hello są następnie opisane bardziej szczegółowo. Jak również omówiono funkcje pomocnicze toouse, plików i wielu wyjść. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-a-custom-r-module"></a>Co to jest niestandardowego modułu R?
-A **niestandardowego modułu** jest modułem zdefiniowane przez użytkownika, które można przekazać do swojego obszaru roboczego i wykonywane w ramach eksperymentu uczenia maszynowego Azure. A **niestandardowego modułu R** jest niestandardowy moduł, który wykonuje funkcję R zdefiniowane przez użytkownika. **R** to język programowania statystyczne obliczeniowych i grafiki, powszechnie używaną służące chi i dane dotyczące implementowania algorytmów. R jest obecnie jedynym obsługiwanym niestandardowe moduły, ale pomocy technicznej dla dodatkowych języków zostało zaplanowane w przyszłych wersjach językiem.
+A **niestandardowego modułu** jest moduł zdefiniowane przez użytkownika, które mogą być przekazywane tooyour obszaru roboczego i wykonywane w ramach eksperymentu uczenia maszynowego Azure. A **niestandardowego modułu R** jest niestandardowy moduł, który wykonuje funkcję R zdefiniowane przez użytkownika. **R** to język programowania statystyczne obliczeniowych i grafiki, powszechnie używaną służące chi i dane dotyczące implementowania algorytmów. R jest obecnie hello języka tylko obsługiwane niestandardowe moduły, ale pomocy technicznej dla dodatkowych języków zostało zaplanowane w przyszłych wersjach.
 
-Niestandardowe moduły mają **najwyższej jakości stan** w usłudze Azure Machine Learning, w tym sensie, że mogą być używane tak samo jak inne modułu. Można je wykonać na inne moduły zawarte w opublikowanych eksperymenty lub wizualizacji. Masz kontrolę nad algorytm implementowane przez moduł, danych wejściowych i wyjściowych porty mają zostać użyte parametry modelowania i innych różne zachowania środowiska uruchomieniowego. Eksperymentu, która zawiera niestandardowe moduły mogą być publikowane również do witryny Cortana Intelligence Gallery łatwe udostępnianie.
+Niestandardowe moduły mają **najwyższej jakości stan** w usłudze Azure Machine Learning w hello sensie, że mogą być używane tak samo jak inne modułu. Można je wykonać na inne moduły zawarte w opublikowanych eksperymenty lub wizualizacji. Mają kontrolę nad algorytm hello zaimplementowana przez moduł hello, hello toobe porty wejściowe i wyjściowe używany, hello parametry modelowania i innych różnych zachowanie w czasie wykonywania. Eksperymentu, która zawiera niestandardowe moduły mogą być publikowane na powitania Cortana Intelligence Gallery łatwe udostępnianie.
 
 ## <a name="files-in-a-custom-r-module"></a>Pliki w niestandardowego modułu R
 Niestandardowego modułu R jest zdefiniowane przez plik zip, który zawiera co najmniej dwa pliki:
 
-* A **plik źródłowy** R funkcji udostępnianych przez moduł, który zawiera
-* **Pliku definicji XML** , który opisuje interfejs niestandardowego modułu
+* A **plik źródłowy** implementującej hello R funkcji udostępnianych przez moduł hello
+* **Pliku definicji XML** , który opisuje interfejs niestandardowego modułu hello
 
-Dodatkowe pliki pomocnicze można również uwzględnić w pliku zip, który zawiera funkcje, które są dostępne z niestandardowego modułu. Ta opcja została szczegółowo opisana w **argumenty** część sekcji odwołania **elementów w pliku definicji XML** poniższy przykład szybkiego startu.
+Dodatkowe pliki pomocnicze można również uwzględnić w pliku .zip hello, który zawiera funkcje, które są dostępne z hello niestandardowego modułu. Ta opcja została szczegółowo opisana w hello **argumenty** część sekcji odwołania hello **elementów w pliku definicji XML hello** poniższy przykład szybkiego startu hello.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Przykład Szybki Start: zdefiniuj, pakowanie i zarejestrować niestandardowego modułu R
-W tym przykładzie przedstawiono sposób tworzenia pliki wymagane przez niestandardowego modułu R, umieścić je w pliku zip, a następnie Zarejestruj moduł w obszaru roboczego uczenia maszynowego. Przykład zip pakietu i przykładowe pliki można pobrać z [CustomAddRows.zip Pobierz plik](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+W tym przykładzie pokazano, jak tooconstruct hello pliki wymagane przez niestandardowego modułu R, umieścić je w pliku zip, a następnie moduł hello rejestru w obszaru roboczego uczenia maszynowego. Witaj przykład zip pakietu i przykładowe pliki można pobrać z [CustomAddRows.zip Pobierz plik](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
-## <a name="the-source-file"></a>Plik źródłowy
-Rozważmy przykładową **wierszy dodać niestandardowe** moduł, który modyfikuje standardowej implementacji **Dodawanie wierszy** moduł używany do łączenia wierszy (uwagi) z dwóch zestawów danych (danych ramki). Standardowe **Dodawanie wierszy** modułu dołącza wiersze drugi zestaw danych wejściowych w celu pierwszego użycia zestawu danych wejściowych `rbind` algorytmu. Dostosowane `CustomAddRows` funkcja podobnie akceptuje dwa zestawy danych, ale również zawierać parametr wymiany logiczną jako dodatkowe dane wejściowe. Jeśli ustawiono parametr wymiany **FALSE**, zwraca ten sam zestaw danych jako standardowej implementacji. Ale jeśli parametr wymiany jest **TRUE**, funkcji dołącza wierszy pierwszego zestawu danych wejściowych w celu drugiego zestawu danych zamiast tego. Plik CustomAddRows.R, który zawiera implementację R `CustomAddRows` funkcji udostępnianych przez **wierszy dodać niestandardowe** moduł ma następujący kod R.
+## <a name="hello-source-file"></a>plik źródłowy Hello
+Rozważ przykład hello **wierszy dodać niestandardowe** moduł, który modyfikuje hello standardowej implementacji hello **Dodawanie wierszy** moduł używany tooconcatenate wierszy (uwagi) z dwóch zestawów danych (danych ramki). Standardowa Hello **Dodawanie wierszy** modułu dołącza wierszy hello końca hello drugi zestaw danych wejściowych toohello hello pierwszego wejściowego zestawu danych za pomocą hello `rbind` algorytmu. Witaj, dostosowane `CustomAddRows` funkcja podobnie akceptuje dwa zestawy danych, ale również zawierać parametr wymiany logiczną jako dodatkowe dane wejściowe. Jeśli parametr wymiany hello ustawiono zbyt**FALSE**, jego zwraca hello tego samego zestawu danych, ponieważ hello standardowej implementacji. Jeśli parametr wymiany hello jest jednak **TRUE**, funkcja hello dołącza wierszy pierwszego zestawu danych wejściowych toohello koniec hello drugi zestaw danych, zamiast tego. Witaj CustomAddRows.R pliku, który zawiera implementację hello hello R `CustomAddRows` funkcji udostępnianych przez hello **wierszy dodać niestandardowe** moduł ma hello następującego kodu języka R.
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
     {
@@ -56,21 +56,21 @@ Rozważmy przykładową **wierszy dodać niestandardowe** moduł, który modyfik
         } 
     } 
 
-### <a name="the-xml-definition-file"></a>Plik definicji XML
-Do udostępnienia to `CustomAddRows` funkcji jako moduł usługi Azure Machine Learning pliku definicji XML musi zostać utworzony do określenia jak **wierszy dodać niestandardowe** modułu powinien wyglądu i zachowania. 
+### <a name="hello-xml-definition-file"></a>Plik definicji XML Hello
+tooexpose to `CustomAddRows` funkcji jako moduł usługi Azure Machine Learning pliku definicji XML muszą być tworzone toospecify jak hello **wierszy dodać niestandardowe** modułu powinien wyglądu i zachowania. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
         <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another. Dataset 2 is concatenated to Dataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
+        <Description>Appends one dataset tooanother. Dataset 2 is concatenated tooDataset 1 when Swap is FALSE, and vice versa when Swap is TRUE.</Description>
 
-    <!-- Specify the base language, script file and R function to use for this module. -->        
+    <!-- Specify hello base language, script file and R function toouse for this module. -->        
         <Language name="R" 
          sourceFile="CustomAddRows.R" 
          entryPoint="CustomAddRows" />  
 
     <!-- Define module input and output ports -->
-    <!-- Note: The values of the id attributes in the Input and Arg elements must match the parameter names in the R Function CustomAddRows defined in CustomAddRows.R. -->
+    <!-- Note: hello values of hello id attributes in hello Input and Arg elements must match hello parameter names in hello R Function CustomAddRows defined in CustomAddRows.R. -->
         <Ports>
             <Input id="dataset1" name="Dataset 1" type="DataTable">
                 <Description>First input dataset</Description>
@@ -79,7 +79,7 @@ Do udostępnienia to `CustomAddRows` funkcji jako moduł usługi Azure Machine L
                 <Description>Second input dataset</Description>
             </Input>
             <Output id="dataset" name="Dataset" type="DataTable">
-                <Description>The combined dataset</Description>
+                <Description>hello combined dataset</Description>
             </Output>
         </Ports>
 
@@ -92,96 +92,96 @@ Do udostępnienia to `CustomAddRows` funkcji jako moduł usługi Azure Machine L
     </Module>
 
 
-Warto zauważyć, że wartość **identyfikator** atrybuty **dane wejściowe** i **Arg** elementów w pliku XML muszą być zgodne nazwy parametrów funkcji kodu języka R w CustomAddRows.R dokładnie plików: (*dataset1*, *dataset2*, i *wymiany* w przykładzie). Podobnie, wartość **punktu wejścia** atrybutu **języka** elementu musi odpowiadać nazwie funkcji w skrypcie R dokładnie: (*CustomAddRows* w przykładzie) . 
+Jest toonote krytyczny, który hello wartość hello **identyfikator** atrybuty hello **dane wejściowe** i **Arg** elementów w pliku XML hello musi odpowiadać nazwy parametrów funkcji hello hello R kod w pliku CustomAddRows.R hello dokładnie: (*dataset1*, *dataset2*, i *wymiany* w przykładzie hello). Podobnie, hello wartość hello **punktu wejścia** atrybutu hello **języka** elementu muszą być zgodne hello nazwę funkcji hello w skrypcie hello R: (*CustomAddRows* w przykładzie hello). 
 
-Z kolei **identyfikator** atrybutu dla **dane wyjściowe** elementu nie odpowiada zmiennych w skrypcie R. Jeśli wymagane jest więcej niż jedno wyjście, po prostu zwraca listę z funkcji R z wynikami umieszczone *w tej samej kolejności* jako **dane wyjściowe** elementy są zadeklarowane w pliku XML.
+Z kolei hello **identyfikator** atrybutu hello **dane wyjściowe** elementu nie odpowiada tooany zmienne w skrypcie hello R. Jeśli wymagane jest więcej niż jedno wyjście, po prostu zwraca listę z funkcji hello R z wynikami umieszczone *w hello tej samej kolejności* jako **dane wyjściowe** elementy są zadeklarowane w pliku XML hello.
 
-### <a name="package-and-register-the-module"></a>Pakiet, a następnie zarejestrować modułu
-Zapisz te dwa pliki jako *CustomAddRows.R* i *CustomAddRows.xml* , a następnie do zip ze sobą dwa pliki *CustomAddRows.zip* pliku.
+### <a name="package-and-register-hello-module"></a>Moduł hello pakietu i rejestrowanie
+Zapisz te dwa pliki jako *CustomAddRows.R* i *CustomAddRows.xml* , a następnie zip hello dwa pliki ze sobą w *CustomAddRows.zip* pliku.
 
-Aby zarejestrować je w obszarze roboczym Machine Learning, przejdź do obszaru roboczego w Machine Learning Studio, kliknij przycisk **+ nowy** znajdującego się na dole i wybierz polecenie **modułu -> z pakietu ZIP** przekazać nowy **Wierszy dodać niestandardowe** modułu.
+tooregister je w obszarze roboczym uczenia maszynowego, obszar roboczy tooyour Przejdź w hello Machine Learning Studio, kliknij przycisk hello **+ nowy** znajdującego się na dole hello i wybierz polecenie **modułu -> z pakietu ZIP** tooupload nowe Hello **wierszy dodać niestandardowe** modułu.
 
 ![Przekaż Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
-**Wierszy dodać niestandardowe** moduł jest gotowy do dostęp do eksperymentów uczenia maszynowego.
+Witaj **wierszy dodać niestandardowe** modułu jest teraz gotowy toobe dostęp do eksperymentów uczenia maszynowego.
 
-## <a name="elements-in-the-xml-definition-file"></a>Elementy w pliku definicji XML
+## <a name="elements-in-hello-xml-definition-file"></a>Elementy w pliku definicji XML hello
 ### <a name="module-elements"></a>Moduł elementów
-**Modułu** element służy do definiowania niestandardowego modułu w pliku XML. Można zdefiniować wiele modułów w jednym pliku XML przy użyciu wielu **modułu** elementów. Każdy moduł w obszarze roboczym musi mieć unikatową nazwę. Zarejestruj niestandardowego modułu o takiej samej nazwie jak istniejący moduł niestandardowych i zastępuje istniejący moduł nowym. Niestandardowe moduły można jednak zarejestrowane o takiej samej nazwie jak istniejący moduł usługi Azure Machine Learning. Jeśli tak, pojawią się one w **niestandardowy** kategorii palety modułów.
+Witaj **modułu** element jest używany toodefine niestandardowego modułu w pliku XML hello. Można zdefiniować wiele modułów w jednym pliku XML przy użyciu wielu **modułu** elementów. Każdy moduł w obszarze roboczym musi mieć unikatową nazwę. Zarejestruj niestandardowego modułu z hello sama nazwę istniejącej niestandardowego modułu i jego zastępuje istniejący moduł hello hello nową. Niestandardowe moduły można jednak zarejestrowany hello sama nazwa jak istniejący moduł usługi Azure Machine Learning. Jeśli tak, pojawią się one w hello **niestandardowy** kategorii hello palety modułów.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
-        <Description>Appends one dataset to another...</Description>/> 
+        <Description>Appends one dataset tooanother...</Description>/> 
 
 
-W ramach **modułu** elementu, można określić dwa dodatkowe elementy opcjonalne:
+W ramach hello **modułu** elementu, można określić dwa dodatkowe elementy opcjonalne:
 
-* **właściciela** element, który jest osadzony w module  
-* **opis** element zawierający tekst, który jest wyświetlany w szybką pomoc dla modułu i kiedy umieść kursor nad modułu w Interfejsie użytkownika Machine Learning.
+* **właściciela** element, który jest osadzony w hello module  
+* **opis** element zawierający tekst, który jest wyświetlany w szybką pomoc dla modułu hello i po umieszczeniu na powitania modułu w hello Machine Learning w interfejsie użytkownika.
 
-Zasady ograniczeń znaków w elementach modułu:
+Zasady ograniczeń znaków w elementach modułu hello:
 
-* Wartość **nazwa** atrybutu w **modułu** element nie może przekraczać 64 znaków. 
-* Zawartość **opis** element nie może przekraczać 128 znaków.
-* Zawartość **właściciela** element nie może przekraczać 32 znaków.
+* Witaj wartość hello **nazwa** atrybutu w hello **modułu** element nie może przekraczać 64 znaków. 
+* Witaj zawartości hello **opis** element nie może przekraczać 128 znaków.
+* Witaj zawartości hello **właściciela** element nie może przekraczać 32 znaków.
 
-Moduł wyniki mogą być deterministyczna lub nondeterministic.* * Domyślnie, wszystkie moduły są uważane za deterministyczna. Oznacza to mając niezmiennych zestaw parametrów wejściowych i danych, modułu powinien zwrócić tego samego eacRAND wyników lub czas functionh, który jest uruchomiony. To zachowanie, Azure Machine Learning Studio zwracające tylko moduły oznaczona jako deterministyczna, jeśli parametr lub danych wejściowych został zmieniony. Zwraca buforowane wyniki także znacznie szybsze wykonywanie eksperymentów.
+Moduł wyniki mogą być deterministyczna lub nondeterministic.* * Domyślnie, wszystkie moduły są traktowane jako toobe deterministyczna. Oznacza to mając niezmiennych zestaw parametrów wejściowych i danych, modułu hello powinien zwrócić hello takie same wyniki eacRAND lub czas functionh, który jest uruchomiony. To zachowanie, Azure Machine Learning Studio zwracające tylko moduły oznaczona jako deterministyczna, jeśli parametr lub danych wejściowych hello została zmieniona. Zwracania wyników hello w pamięci podręcznej udostępnia znacznie szybsze wykonywanie eksperymentów.
 
-Dostępne są funkcje, które są niedeterministyczne, takich jak RAND lub funkcji, która zwraca bieżącą datę lub godzinę. Jeśli niedeterministyczna funkcja korzysta z modułu, można określić, czy moduł jest deterministyczna przez ustawienie opcjonalne **isDeterministic** atrybutu **FALSE**. Dzięki temu, że moduł zostanie uruchomiona ponownie, przy każdym uruchomieniu eksperyment, nawet jeśli nie zmieniono moduł danych wejściowych i parametrów. 
+Brak funkcji, które są niedeterministyczne, takich jak RAND lub funkcji, która zwraca hello bieżącą datę lub godzinę. Jeśli niedeterministyczna funkcja korzysta z modułu, można określić tego modułu hello jest deterministyczna przez ustawienie opcjonalne hello **isDeterministic** atrybutu zbyt**FALSE**. Dzięki temu, że ten moduł hello jest ponownie uruchamiany przy każdym uruchomieniu eksperymentu hello, nawet jeśli hello wejścia modułu i parametrów nie uległy zmianie. 
 
 ### <a name="language-definition"></a>Język definicji
-**Języka** elementu w pliku definicji XML jest używany do określenia niestandardowego modułu języka. R jest obecnie jedynym obsługiwanym językiem. Wartość **sourceFile** atrybutu musi być nazwą pliku R, który zawiera funkcji do wywołania po uruchomieniu modułu. Ten plik musi być częścią pakietu zip. Wartość **punktu wejścia** atrybut jest Nazwa wywoływanej funkcji i musi być zgodna z prawidłową funkcji zdefiniowanej przy w pliku źródłowym.
+Witaj **języka** elementu w pliku definicji XML jest używane toospecify hello niestandardowego modułu języka. Obecnie R jest hello tylko obsługiwanego języka. Witaj wartość hello **sourceFile** atrybutu musi być nazwą hello hello R zawierający toocall funkcja powitania po uruchomieniu hello modułu. Ten plik musi być częścią pakietu zip hello. Witaj wartość hello **punktu wejścia** atrybut jest hello nazwę wywoływanej funkcji hello i musi być zgodna z prawidłową funkcji zdefiniowanej przy w pliku źródłowym hello.
 
     <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
 
 
 ### <a name="ports"></a>Porty
-Porty wejściowe i wyjściowe dla niestandardowego modułu są określone w elementach podrzędnych **porty** sekcja pliku definicji XML. Kolejność tych elementów określa układ doświadczonym (UX) przez użytkowników. Pierwszy element podrzędny **wejściowych** lub **dane wyjściowe** wymienionych w **porty** port wejściowy lewej w UX. Learning maszyny staje się element pliku XML
-Każdy wejściowy i port wyjściowy może być opcjonalny **opis** elementu podrzędnego, który określa tekst wyświetlany, gdy Przesuń wskaźnik myszy za pośrednictwem portu w Interfejsie użytkownika Machine Learning.
+Witaj porty wejściowe i wyjściowe dla niestandardowego modułu są określone w elementach podrzędnych hello **porty** sekcja pliku definicji XML hello. kolejność Hello tych elementów określa hello układu doświadczonym (UX) przez użytkowników. pierwszym elementem podrzędnym Hello **wejściowych** lub **dane wyjściowe** hello na liście **porty** element pliku XML hello staje się hello lewej portu wejściowego w hello Machine Learning UX.
+Każdy wejściowy i port wyjściowy może być opcjonalny **opis** element podrzędny, który określa hello tekst wyświetlany, gdy Przesuń wskaźnik myszy hello za pośrednictwem portu hello w hello Machine Learning w interfejsie użytkownika.
 
 **Porty reguły**:
 
 * Maksymalna liczba **porty wejściowe i wyjściowe** to 8 dla każdego.
 
 ### <a name="input-elements"></a>Elementów wejściowych
-Porty wejściowe umożliwiają przekazywanie danych do obszaru roboczego i funkcja R. **Typy danych** obsługiwanych dla porty wejściowe są następujące: 
+Porty wejściowe pozwalają toopass danych tooyour R funkcji i obszaru roboczego. Witaj **typy danych** obsługiwanych dla porty wejściowe są następujące: 
 
-**Element DataTable:** tego typu jest przekazany do funkcji R jako data.frame. W rzeczywistości żadnych typów (na przykład plików CSV lub pliki ARFF), które są obsługiwane przez uczenia maszynowego i które są zgodne z **DataTable** są konwertowane na data.frame automatycznie. 
+**Element DataTable:** tego typu jest przekazywana funkcja tooyour R jako data.frame. W rzeczywistości żadnych typów (na przykład plików CSV lub pliki ARFF), które są obsługiwane przez uczenia maszynowego i które są zgodne z **DataTable** są automatycznie data.frame tooa przekonwertowany. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
            </Input>
 
-**Identyfikator** atrybut skojarzony z poszczególnymi **DataTable** port wejściowy musi mieć unikatową wartość i wartość ta musi odpowiadać odpowiadającego nazwany parametr w funkcji R.
-Opcjonalne **DataTable** portów, które nie są przekazywane jako dane wejściowe w eksperymencie ma wartość **NULL** przekazany do funkcji R i opcjonalnie zip, porty są ignorowane, jeśli dane wejściowe nie jest połączony. **IsOptional** atrybutu jest opcjonalny dla obu **DataTable** i **Zip** typów i jest *false* domyślnie.
+Witaj **identyfikator** atrybut skojarzony z poszczególnymi **DataTable** port wejściowy musi mieć unikatową wartość i wartość ta musi odpowiadać odpowiadającego nazwany parametr w funkcji R.
+Opcjonalne **DataTable** portów, które nie są przekazywane jako dane wejściowe w eksperymencie ma wartość hello **NULL** funkcja przekazany toohello R i zip opcjonalne porty są ignorowane, jeśli hello danych wejściowych nie jest połączona. Witaj **isOptional** atrybutu jest opcjonalny w przypadku obu hello **DataTable** i **Zip** typów i jest *false* domyślnie.
 
-**ZIP:** niestandardowe moduły można zaakceptować plik zip jako dane wejściowe. Tych danych wejściowych jest rozpakowane do katalogu roboczego R funkcji
+**ZIP:** niestandardowe moduły można zaakceptować plik zip jako dane wejściowe. Tych danych wejściowych jest rozpakowane do katalogu roboczego hello R funkcji
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
-            <Description>Zip files to be extracted to the R working directory.</Description>
+            <Description>Zip files toobe extracted toohello R working directory.</Description>
            </Input>
 
-Dla niestandardowych modułów R identyfikator portu Zip nie musi odpowiadać żadnych parametrów funkcji R. Jest to spowodowane pliku zip jest automatycznie wyodrębniane do katalogu roboczego R.
+Dla niestandardowych modułów R identyfikator hello portu Zip ma toomatch parametrów funkcji hello R. Jest to spowodowane plik zip hello jest automatycznie wyodrębnionego toohello R katalog roboczy.
 
 **Reguły wprowadzania:**
 
-* Wartość **identyfikator** atrybutu **dane wejściowe** element musi być prawidłową nazwą zmiennej języka R.
-* Wartość **identyfikator** atrybutu **dane wejściowe** element nie może być dłuższa niż 64 znaki.
-* Wartość **nazwa** atrybutu **dane wejściowe** element nie może być dłuższa niż 64 znaki.
-* Zawartość **opis** element nie może być dłuższa niż 128 znaków
-* Wartość **typu** atrybutu **dane wejściowe** element musi być *Zip* lub *DataTable*.
-* Wartość **isOptional** atrybutu **dane wejściowe** element nie jest wymagana (i jest *false* domyślnie, gdy nie określono); ale jeśli jest określona, musi ona być *true* lub *false*.
+* Witaj wartość hello **identyfikator** atrybutu hello **dane wejściowe** element musi być prawidłową nazwą zmiennej języka R.
+* Witaj wartość hello **identyfikator** atrybutu hello **dane wejściowe** element nie może być dłuższa niż 64 znaki.
+* Witaj wartość hello **nazwa** atrybutu hello **dane wejściowe** element nie może być dłuższa niż 64 znaki.
+* Witaj zawartości hello **opis** element nie może być dłuższa niż 128 znaków
+* Witaj wartość hello **typu** atrybutu hello **dane wejściowe** element musi być *Zip* lub *DataTable*.
+* Witaj wartość hello **isOptional** atrybutu hello **dane wejściowe** element nie jest wymagana (i jest *false* domyślnie, gdy nie określono); ale jeśli jest określona, musi ona być *true* lub *false*.
 
 ### <a name="output-elements"></a>Elementy danych wyjściowych
-**Standardowe dane wyjściowe porty:** porty dane wyjściowe są mapowane na wartości zwracanych z funkcji R, które mogą być następnie używane przez kolejne modułów. *Element DataTable* jest typ portu tylko standardowe wyjście obecnie obsługiwane. (Obsługę *uczących* i *przekształca* nadchodzi.) A *DataTable* danych wyjściowych jest zdefiniowany jako:
+**Standardowe dane wyjściowe porty:** porty dane wyjściowe są mapowane toohello wartości zwracanych z funkcji R, które mogą być następnie używane przez kolejne modułów. *Element DataTable* jest typ portu tylko standardowe wyjście hello obecnie obsługiwane. (Obsługę *uczących* i *przekształca* nadchodzi.) A *DataTable* danych wyjściowych jest zdefiniowany jako:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
     </Output>
 
-Dla danych wyjściowych w niestandardowych modułów R, wartość **identyfikator** atrybutu nie musi odpowiadać dowolny skrypt języka R, ale musi być unikatowa. Dla wyjścia pojedynczy moduł, musi być wartość zwrócona przez funkcję R *data.frame*. W celu przekazania więcej niż jeden obiekt obsługiwany typ danych, porty odpowiednie dane wyjściowe muszą być określone w pliku definicji XML i muszą być zwracane w postaci listy obiektów. Obiekty danych wyjściowych są przypisywane do danych wyjściowych porty od lewej do prawej, odzwierciedlający kolejności, w których obiekty są umieszczane w liście zwracanych.
+Dla danych wyjściowych w niestandardowych modułów R, hello wartość hello **identyfikator** atrybut nie ma w skrypcie hello R toocorrespond przy użyciu innych, ale musi być unikatowa. Dla wyjścia pojedynczy moduł, musi być hello wartość zwrócona przez funkcję hello R *data.frame*. W kolejność toooutput więcej niż jeden obiekt obsługiwany typ danych, hello odpowiednie dane wyjściowe porty muszą toobe określony w pliku definicji XML hello i hello obiekty wymagają toobe zwracane w postaci listy. obiekty danych wyjściowych Hello są przypisywane porty toooutput z tooright po lewej stronie, odzwierciedlający hello kolejność, w którym obiekty hello są umieszczane w hello zwrócił listę.
 
-Na przykład, jeśli chcesz zmodyfikować **wierszy dodać niestandardowe** modułu do oryginalnego dwóch zestawów danych wyjściowych *dataset1* i *dataset2*, oprócz sprzężonych nowy zestaw danych *dataset*, (w kolejności od lewej do prawej, jako: *dataset*, *dataset1*, *dataset2*), następnie zdefiniuj porty wyjścia w CustomAddRows.xml pliku w następujący sposób:
+Na przykład, jeśli chcesz toomodify hello **niestandardowe Dodawanie wierszy** toooutput modułu hello oryginalnego dwóch zestawów danych, *dataset1* i *dataset2*, ponadto przyłączone toohello nowego zestaw danych, *zestawu danych*, (w kolejności od lewej tooright jako: *dataset*, *dataset1*, *dataset2*), następnie zdefiniuj hello dane wyjściowe porty w pliku CustomAddRows.xml hello w następujący sposób:
 
     <Ports> 
         <Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -202,7 +202,7 @@ Na przykład, jeśli chcesz zmodyfikować **wierszy dodać niestandardowe** modu
     </Ports> 
 
 
-I zwracają listę obiektów w postaci listy we właściwej kolejności w "CustomAddRows.R":
+I zwróć hello listy obiektów na liście w kolejności poprawne hello w "CustomAddRows.R":
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -211,26 +211,26 @@ I zwracają listę obiektów w postaci listy we właściwej kolejności w "Custo
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Wizualizacja danych wyjściowych:** można także określić port wyjściowy typu *wizualizacji*, który zawiera dane wyjściowe z R grafiki urządzenia i konsola danych wyjściowych. Ten port nie jest częścią dane wyjściowe funkcji R i nie zakłóca kolejność inne typy portów danych wyjściowych. Aby dodać port wizualizacji na niestandardowe moduły, Dodaj **dane wyjściowe** element o wartości *wizualizacji* dla jego **typu** atrybutu:
+**Wizualizacja danych wyjściowych:** można także określić port wyjściowy typu *wizualizacji*, który zawiera dane wyjściowe hello hello R grafiki urządzenia i konsola danych wyjściowych. Ten port nie jest częścią dane wyjściowe funkcji hello R i nie zakłóca hello kolejność hello inne typy portów output. Dodaj wizualizacji portu toohello niestandardowe moduły tooadd **dane wyjściowe** element o wartości *wizualizacji* dla jego **typu** atrybutu:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
-      <Description>View the R console graphics device output.</Description>
+      <Description>View hello R console graphics device output.</Description>
     </Output>
 
 **Dane wyjściowe reguły:**
 
-* Wartość **identyfikator** atrybutu **dane wyjściowe** element musi być prawidłową nazwą zmiennej języka R.
-* Wartość **identyfikator** atrybutu **dane wyjściowe** element nie może być dłuższa niż 32 znaki.
-* Wartość **nazwa** atrybutu **dane wyjściowe** element nie może być dłuższa niż 64 znaki.
-* Wartość **typu** atrybutu **dane wyjściowe** element musi być *wizualizacji*.
+* Witaj wartość hello **identyfikator** atrybutu hello **dane wyjściowe** element musi być prawidłową nazwą zmiennej języka R.
+* Witaj wartość hello **identyfikator** atrybutu hello **dane wyjściowe** element nie może być dłuższa niż 32 znaki.
+* Witaj wartość hello **nazwa** atrybutu hello **dane wyjściowe** element nie może być dłuższa niż 64 znaki.
+* Witaj wartość hello **typu** atrybutu hello **dane wyjściowe** element musi być *wizualizacji*.
 
 ### <a name="arguments"></a>Argumenty
-Dodatkowe dane mogą zostać przekazane do funkcji R za pośrednictwem modułu parametrów, które są zdefiniowane w **argumenty** elementu. Te parametry są wyświetlane w okienku po prawej stronie właściwości interfejsu użytkownika nie jest Machine Learning, w przypadku wybrania modułu. Argumenty może być dowolną z obsługiwanych typów lub można utworzyć niestandardowe wyliczenie w razie potrzeby. Podobnie jak **porty** elementów, **argumenty** elementy mogą mieć opcjonalny **opis** element, który określa tekst, który jest wyświetlany, gdy wskaźnik myszy nad Nazwa parametru.
-Opcjonalne właściwości dla modułu, na przykład defaultValue minValue i maxValue może zostać dodana do wszystkich argumentów jako atrybuty **właściwości** elementu. Prawidłowe właściwości dla **właściwości** elementu są zależne od typu argumentu i opisano z typami argumentów obsługiwanych w następnej sekcji. Argumenty z **isOptional** ustawioną właściwość **"true"** nie wymagają od użytkownika wprowadzenia wartości. Jeśli wartość nie zostanie przekazany do argumentu, argument nie jest przekazany do funkcji punktu wejścia. Argumenty funkcji punktu wejścia, które są opcjonalne muszą być jawnie obsługiwany przez funkcję, np. domyślna wartość NULL w definicji funkcji punktu wejścia. Opcjonalny argument będzie tylko wymuszać innych ograniczeń argumentu, tj. min lub max, jeśli wartość jest podana przez użytkownika.
-Zgodnie z wejściami i wyjściami jest krytyczny, że każdego z parametrów ma unikatowy identyfikator skojarzony z nimi. W naszym przykładzie szybki start został skojarzony identyfikator i parametru *wymiany*.
+Dodatkowe dane mogą być przekazywane toohello R funkcji za pośrednictwem modułu parametrów, które są zdefiniowane w hello **argumenty** elementu. Te parametry są wyświetlane w okienku po prawej stronie właściwości hello hello Machine Learning w interfejsie użytkownika w przypadku wybrania modułu hello. Argumenty mogą być dowolnego typu hello obsługiwane lub można utworzyć niestandardowe wyliczenie w razie potrzeby. Podobne toohello **porty** elementów **argumenty** elementy mogą mieć opcjonalny **opis** element, który określa hello tekst wyświetlany, gdy wskaźnik myszy hello za pośrednictwem hello Nazwa parametru.
+Opcjonalne właściwości dla modułu, na przykład defaultValue minValue i maxValue można dodać argument tooany jako atrybuty tooa **właściwości** elementu. Prawidłowe właściwości hello **właściwości** elementu są zależne od typu argumentu hello i opisano z typami argumentów hello obsługiwane w następnej sekcji hello. Argumenty z hello **isOptional** właściwość zbyt**"true"** hello użytkownika tooenter wartość nie jest wymagana. Jeśli wartość nie zostanie podany toohello argument, następnie hello argument nie zostanie przekazany funkcję punktu wejścia toohello. Argumenty funkcji punktu wejścia hello, które są toobe opcjonalne muszą jawnie obsługiwany przez funkcję hello przypisane np. domyślna wartość NULL w definicji funkcji punktu wejścia hello. Opcjonalny argument będzie tylko wymuszać hello innych ograniczeń argumentu, tj. min lub max, jeśli wartość jest podana przez użytkownika hello.
+Zgodnie z wejściami i wyjściami jest krytyczny, że parametrów hello mieć skojarzone z nimi wartości unikatowego identyfikatora. W naszym szybki start zostało przykład hello skojarzony identyfikator i parametru *wymiany*.
 
 ### <a name="arg-element"></a>ARG — element
-Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **argumenty** sekcja pliku definicji XML. W przypadku elementów podrzędnych w **porty** sekcji kolejność parametrów w **argumenty** sekcja definiuje układu w UX. Parametry są wyświetlane od góry w dół w Interfejsie użytkownika w tej samej kolejności, w którym są zdefiniowane w pliku XML. Typy obsługiwane przez usługi Machine Learning parametrów są wyświetlane tutaj. 
+Parametr modułu jest definiowana za pomocą hello **Arg** elementem podrzędnym hello **argumenty** sekcja pliku definicji XML hello. Jak hello elementy podrzędne w hello **porty** sekcji, hello kolejność parametrów na powitania **argumenty** sekcja definiuje układ hello w hello UX. Witaj parametry są wyświetlane od góry w dół w hello interfejsu użytkownika w hello sam porządek, w którym są zdefiniowane w pliku XML hello. obsługiwane przez usługi Machine Learning parametrów typów Hello są wyświetlane tutaj. 
 
 **int** — parametr (32-bitowy) typu Liczba całkowita.
 
@@ -272,7 +272,7 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
 
 * *Opcjonalne właściwości*: **domyślne** i **isOptional**
 
-**ColumnPicker**: parametr wybór kolumny. Ten typ renderowania w środowiska użytkownika jako selektora kolumn. **Właściwości** element jest tu używany do określenia identyfikatora portu, z której są wybierane kolumny, której typ port docelowy musi być *DataTable*. Wynik kolumnę zaznaczenia jest przekazany do funkcji R jako listę ciągów zawierającą nazwy zaznaczonej kolumny. 
+**ColumnPicker**: parametr wybór kolumny. Ten typ renderowania w hello UX jako selektora kolumn. Witaj **właściwości** element jest używany tutaj toospecify identyfikator hello hello portu, z której są wybierane kolumny, której typ port docelowy hello musi być *DataTable*. wynik Hello hello kolumnę zaznaczenia jest przekazywana funkcja toohello R jako lista ciągów zawierająca nazwy kolumn hello wybrane. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -280,10 +280,10 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
         </Arg>
 
 
-* *Wymagane właściwości*: **portId** — identyfikator elementu danych wejściowych jest zgodny z typem *DataTable*.
+* *Wymagane właściwości*: **portId** -dopasowań hello identyfikator elementu danych wejściowych z typem *DataTable*.
 * *Opcjonalne właściwości*:
   
-  * **allowedTypes** — filtry kolumny typów, z której można wybrać. Prawidłowe wartości to: 
+  * **allowedTypes** — filtry hello kolumny typów, z której można wybrać. Prawidłowe wartości to: 
     
     * numeryczne
     * Wartość logiczna
@@ -293,7 +293,7 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
     * Funkcja
     * Wynik
     * Wszystkie
-  * **domyślne** -prawidłowy domyślny wybór selektor kolumn obejmują: 
+  * **domyślne** -prawidłowy domyślny wybór selektor kolumn hello obejmują: 
     
     * Brak
     * NumericFeature
@@ -317,7 +317,7 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
     * AllScore
     * Wszystkie
 
-**Lista rozwijana**: listę wyliczany określone przez użytkownika (rozwijaną). Elementy listy rozwijanej są określane w **właściwości** przy użyciu elementu **elementu** elementu. **Identyfikator** dla każdego **elementu** musi być unikatowa i prawidłową zmienną R. Wartość **nazwa** z **elementu** służy jako tekst, który zostanie wyświetlony i wartość, która została przekazana do funkcji R.
+**Lista rozwijana**: listę wyliczany określone przez użytkownika (rozwijaną). elementy listy rozwijanej Hello są określone w hello **właściwości** przy użyciu elementu **elementu** elementu. Witaj **identyfikator** dla każdego **elementu** musi być unikatowa i prawidłową zmienną R. Witaj wartość hello **nazwa** z **elementu** służy jako tekst hello widoczny i wartość hello przekazywana funkcja toohello R.
 
     <Arg id="color" name="Color" type="DropDown">
       <Properties default="red">
@@ -329,17 +329,17 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
     </Arg>    
 
 * *Opcjonalne właściwości*:
-  * **domyślne** — wartość domyślna właściwości musi być zgodna z wartość spośród **elementu** elementów.
+  * **domyślne** — Witaj wartość dla właściwości domyślnej hello musi być zgodna z wartość jednego z hello **elementu** elementów.
 
 ### <a name="auxiliary-files"></a>Pliki pomocnicze
-Każdego pliku, który znajduje się w pliku ZIP niestandardowego modułu będzie można używać w czasie wykonywania. Wszelkich struktur katalogów obecne są zachowywane. Oznacza to, czy plik sourcing działa takie same lokalnie i w usłudze Azure Machine Learning na wykonanie. 
+Każdego pliku, który znajduje się w pliku ZIP niestandardowego modułu jest toobe będzie dostępna do użycia w czasie wykonywania. Wszelkich struktur katalogów obecne są zachowywane. Oznacza to, że działa źródeł pliku hello sam lokalnie i w usłudze Azure Machine Learning na wykonanie. 
 
 > [!NOTE]
-> Zwróć uwagę, że wszystkie pliki są wyodrębniane do katalogu 'src', powinien mieć wszystkie ścieżki ' src / "prefiks.
+> Zwróć uwagę, że wszystkie pliki zostały wyodrębnione too'src "katalogu, więc wszystkie ścieżki powinny mieć" src / "prefiks.
 > 
 > 
 
-Załóżmy na przykład, że chcesz usunąć wszystkie wiersze z NAs z zestawu danych, a także usunąć wszystkie zduplikowane wiersze przed wyprowadzanie go do CustomAddRows i zostały już zapisane funkcję R, która robi to w pliku RemoveDupNARows.R:
+Na przykład chcesz tooremove wszystkie wiersze z NAs z hello zestawu danych, a także usunąć wszystkie zduplikowane wiersze przed wyprowadzanie go do CustomAddRows i zostały już zapisane funkcję R, która robi to w pliku RemoveDupNARows.R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -348,7 +348,7 @@ Załóżmy na przykład, że chcesz usunąć wszystkie wiersze z NAs z zestawu d
         finalDataFrame <- dataFrame[complete.cases(dataFrame),]
         return(finalDataFrame)
     }
-Może pobierać plików pomocniczych RemoveDupNARows.R w funkcji CustomAddRows:
+Może pobierać hello dodatkowego pliku RemoveDupNARows.R w hello CustomAddRows funkcji:
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
         source("src/RemoveDupNARows.R")
@@ -364,10 +364,10 @@ Może pobierać plików pomocniczych RemoveDupNARows.R w funkcji CustomAddRows:
 Następnie przekaż plik zip zawierający "CustomAddRows.R", "CustomAddRows.xml" i "RemoveDupNARows.R" jako niestandardowego modułu R.
 
 ## <a name="execution-environment"></a>Środowiska wykonawczego
-Środowisko wykonanie skryptu języka R używa tej samej wersji R jako **wykonanie skryptu języka R** modułu i używać tego samego domyślne pakiety. Można również dodać dodatkowe pakiety języka R do niestandardowego modułu przez włączenie ich do pakietu zip niestandardowego modułu. Wystarczy załadować je w skrypcie R tak jak w środowisku R. 
+środowiska wykonawczego Hello skryptu hello R używa hello tej samej wersji elementu R, co hello **wykonanie skryptu języka R** modułu i można Użyj hello same domyślne pakiety. Można również dodać dodatkowe pakiety tooyour niestandardowego modułu R przez włączenie ich do pakietu zip hello niestandardowego modułu. Wystarczy załadować je w skrypcie R tak jak w środowisku R. 
 
-**Ograniczenia środowiska wykonawczego** obejmują:
+**Ograniczenia środowiska wykonawczego hello** obejmują:
 
-* System plików nie trwała: pliki napisane po uruchomieniu niestandardowego modułu nie są zachowywane w wielu uruchomień tego samego modułu.
+* System plików nie trwała: pliki napisane po uruchomieniu hello niestandardowego modułu nie są zachowywane w wielu uruchomień hello tego samego modułu.
 * Nie dostępu do sieci
 

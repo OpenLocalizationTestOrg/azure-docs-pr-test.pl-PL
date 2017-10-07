@@ -1,6 +1,6 @@
 ---
-title: "Rozszerzenie usługi HDInsight za pomocą sieci wirtualnej - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać sieci wirtualnej platformy Azure do łączenia usługi HDInsight do innych zasobów w chmurze lub zasobów w centrum danych."
+title: "aaaExtend HDInsight z siecią wirtualną - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse sieci wirtualnej Azure tooconnect HDInsight tooother chmury zasobów lub zasobów w centrum danych."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,173 +15,173 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 380423ec42ad4905c73fcd57501102e9f7062e81
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ba80be4d9f280c6c62fa8acc996ef5f921acdbbd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure
 
-Dowiedz się, jak używać usługi HDInsight za pomocą [sieci wirtualnej Azure](../virtual-network/virtual-networks-overview.md). Przy użyciu sieci wirtualnej platformy Azure umożliwia następujące scenariusze:
+Dowiedz się, jak toouse HDInsight z [sieci wirtualnej Azure](../virtual-network/virtual-networks-overview.md). Przy użyciu sieci wirtualnej platformy Azure umożliwia hello następujące scenariusze:
 
-* Łączenie z usługą HDInsight bezpośrednio z sieci lokalnej.
+* Łączenie tooHDInsight bezpośrednio z sieci lokalnej.
 
-* Łączenie z danymi usługi HDInsight są przechowywane w sieci wirtualnej platformy Azure.
+* Łączenie HDInsight toodata są przechowywane w sieci wirtualnej platformy Azure.
 
-* Bezpośredni dostęp do usług Hadoop, które nie są dostępne publicznie w Internecie. Na przykład interfejsy API Kafka lub interfejsu API języka Java HBase.
+* Bezpośrednio dostęp do usług Hadoop, które nie są dostępne publicznie ponad hello internet. Na przykład interfejsy API Kafka lub hello interfejsu API języka Java HBase.
 
 > [!WARNING]
-> Informacje przedstawione w tym dokumencie wymaga zrozumienia sieci TCP/IP. Jeśli nie masz doświadczenia z TCP/IP w sieci, należy partnera z osobą, która jest przed dokonaniem zmiany w sieciach produkcyjnych.
+> Witaj informacje w tym dokumencie wymaga zrozumienia sieci TCP/IP. Jeśli nie masz doświadczenia z TCP/IP w sieci, należy partnera z osobą, która jest przed wprowadzeniem modyfikacji tooproduction sieci.
 
 ## <a name="planning"></a>Planowanie
 
-Poniżej przedstawiono pytania, na które musi odpowiedzieć w przypadku planowania instalacji usługi HDInsight w sieci wirtualnej:
+Oto Hello hello pytania, na które należy odpowiedzieć przy planowaniu tooinstall HDInsight w sieci wirtualnej:
 
-* Czy trzeba zainstalować usługi HDInsight w istniejącej sieci wirtualnej? Lub w przypadku tworzenia nowej sieci?
+* Potrzebujesz tooinstall HDInsight do istniejącej sieci wirtualnej? Lub w przypadku tworzenia nowej sieci?
 
-    Jeśli korzystasz z istniejącej sieci wirtualnej, może być konieczne modyfikowanie konfiguracji sieciowej, przed zainstalowaniem usługi HDInsight. Aby uzyskać więcej informacji, zobacz [dodać HDInsight do istniejącej sieci wirtualnej](#existingvnet) sekcji.
+    Jeśli korzystasz z istniejącej sieci wirtualnej, może być konieczne konfiguracji sieci hello toomodify przed zainstalowaniem usługi HDInsight. Aby uzyskać więcej informacji, zobacz hello [Dodaj istniejącej sieci wirtualnej HDInsight tooan](#existingvnet) sekcji.
 
-* Czy chcesz połączyć sieć wirtualną zawierający HDInsight do innej sieci wirtualnej lub w sieci lokalnej?
+* Czy chcesz tooconnect hello sieci wirtualnej zawierający sieci wirtualnej tooanother HDInsight lub sieci lokalnej?
 
-    Aby łatwo pracy z zasobami w sieciach, może być konieczne utworzyć niestandardowe DNS i skonfigurować przesyłania dalej DNS. Aby uzyskać więcej informacji, zobacz [łączenie wielu sieci](#multinet) sekcji.
+    tooeasily pracy z zasobami w sieciach, należy może toocreate niestandardowe DNS i skonfigurować przesyłania dalej DNS. Aby uzyskać więcej informacji, zobacz hello [łączenie wielu sieci](#multinet) sekcji.
 
-* Czy chcesz ograniczyć/przekierowanie ruchu przychodzącego i wychodzącego do usługi HDInsight
+* Czy chcesz toorestrict/przekierowanie ruchu przychodzącego i wychodzącego tooHDInsight?
 
-    HDInsight musi mieć nieograniczony komunikację z określonych adresów IP w centrum danych Azure. Istnieje kilka portów, które może do komunikacji z klientem za pośrednictwem zapór. Aby uzyskać więcej informacji, zobacz [kontrolowanie ruchu w sieci](#networktraffic) sekcji.
+    HDInsight musi mieć nieograniczony komunikację z określonych adresów IP w centrum danych Azure hello. Istnieje kilka portów, które może do komunikacji z klientem za pośrednictwem zapór. Aby uzyskać więcej informacji, zobacz hello [kontrolowanie ruchu w sieci](#networktraffic) sekcji.
 
-## <a id="existingvnet"></a>Dodaj HDInsight do istniejącej sieci wirtualnej
+## <a id="existingvnet"></a>Dodaj HDInsight tooan istniejącej sieci wirtualnej
 
-Wykonaj kroki w tej sekcji, aby dowiedzieć się, jak dodać nowy HDInsight do istniejącej sieci wirtualnej platformy Azure.
+Wykonaj kroki hello w tej sekcji toodiscover jak tooadd nowe tooan HDInsight istniejącej sieci wirtualnej platformy Azure.
 
 > [!NOTE]
 > Nie można dodać istniejącego klastra usługi HDInsight w sieci wirtualnej.
 
-1. Dla sieci wirtualnej jest używany klasyczny lub modelu wdrażania usługi Resource Manager?
+1. Dla sieci wirtualnej hello jest używany klasyczny lub modelu wdrażania usługi Resource Manager?
 
     HDInsight 3.4 i większa wymaga sieci wirtualnej Menedżera zasobów. Wcześniejszych wersji usługi hdinsight wymagane klasycznej sieci wirtualnej.
 
-    Istniejącej sieci w przypadku klasycznych sieci wirtualnej, należy utworzyć sieć wirtualną Resource Manager i połącz dwa. [Klasyczne sieci wirtualne nawiązywania połączenia z nowej sieci wirtualnych](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+    Istniejącej sieci w przypadku klasycznych sieci wirtualnej, należy utworzyć sieć wirtualną Resource Manager a następnie połącz hello dwa. [Łączenie klasycznych sieci wirtualnych toonew sieci wirtualnych](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-    Po dołączone do usługi HDInsight w sieci usługi Resource Manager może współdziałać z zasobów w klasycznej sieci.
+    Po dołączone do usługi HDInsight w sieci usługi Resource Manager hello mogą współdziałać z zasobów w sieci klasycznego hello.
 
-2. Należy używać tunelowania wymuszonego? Wymuszanie tunelowania jest ustawienia podsieci, która wymusza wychodzący ruch internetowy do urządzenie na potrzeby inspekcji i rejestrowania. HDInsight nie obsługuje wymuszanie tunelowania. Usuń wymuszanie tunelowania przed zainstalowaniem usługi HDInsight do podsieci albo utwórz nową podsieć dla usługi HDInsight.
+2. Należy używać tunelowania wymuszonego? Wymuszanie tunelowania jest ustawienia podsieci, wymuszający wychodzącego Internet ruchu tooa urządzenia do inspekcji i rejestrowania. HDInsight nie obsługuje wymuszanie tunelowania. Usuń wymuszanie tunelowania przed zainstalowaniem usługi HDInsight do podsieci albo utwórz nową podsieć dla usługi HDInsight.
 
-3. Używasz grup zabezpieczeń sieci, trasy zdefiniowane przez użytkownika lub urządzenia sieci wirtualne do ograniczania ruchu do lub z sieci wirtualnej?
+3. Używasz grup zabezpieczeń sieci, trasy zdefiniowane przez użytkownika lub urządzenia sieci wirtualne toorestrict ruchu do lub z sieci wirtualnej hello?
 
-    Jako zarządzanej usługi HDInsight wymaga nieograniczony dostęp do wielu adresów IP w centrum danych Azure. Aby umożliwić komunikację z tych adresów IP, zaktualizuj istniejących grup zabezpieczeń sieci ani trasy zdefiniowane przez użytkownika.
+    Jako zarządzanej usługi HDInsight wymaga adresów IP tooseveral nieograniczonego dostępu w centrum danych Azure hello. tooallow komunikacji z tych adresów IP, zaktualizuj żadnych istniejących grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika.
 
-    HDInsight obsługuje wielu usług, które korzystają z różnych portów. Nie blokuje ruchu skierowanego do tych portów. Aby uzyskać listę portów, aby umożliwić przez urządzenie wirtualne zapory, zobacz [zabezpieczeń](#security) sekcji.
+    HDInsight obsługuje wielu usług, które korzystają z różnych portów. Nie należy blokować ruchu toothese portów. Lista portów tooallow przez urządzenie wirtualne zapory, zobacz hello [zabezpieczeń](#security) sekcji.
 
-    Aby znaleźć istniejącej konfiguracji zabezpieczeń, użyj następujących poleceń programu Azure PowerShell lub interfejsu wiersza polecenia Azure:
+    toofind istniejącej konfiguracji zabezpieczeń, hello Użyj następującego polecenia programu Azure PowerShell lub interfejsu wiersza polecenia Azure:
 
     * Grupy zabezpieczeń sieci
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermnetworksecuritygroup -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z grup zabezpieczeń sieci](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) dokumentu.
+        Aby uzyskać więcej informacji, zobacz hello [Rozwiązywanie problemów z grup zabezpieczeń sieci](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) dokumentu.
 
         > [!IMPORTANT]
-        > Reguły grupy zabezpieczeń sieci są stosowane w kolejności, w oparciu o priorytet reguły. Zastosowano pierwszej reguły, która odpowiada wzorcowi ruchu, a nie inne są stosowane dla tego ruchu. Kolejność reguł z najbardziej ograniczająca najbardziej ograniczająca. Aby uzyskać więcej informacji, zobacz [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md) dokumentu.
+        > Reguły grupy zabezpieczeń sieci są stosowane w kolejności, w oparciu o priorytet reguły. Hello pierwszy pasujący wzorzec ruchu hello dotyczy reguła, a nie inne są stosowane dla tego ruchu. Kolejność reguł z najbardziej ograniczająca tooleast ograniczająca. Aby uzyskać więcej informacji, zobacz hello [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md) dokumentu.
 
     * Trasy definiowane przez użytkownika
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermroutetable -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z tras](../virtual-network/virtual-network-routes-troubleshoot-portal.md) dokumentu.
+        Aby uzyskać więcej informacji, zobacz hello [Rozwiązywanie problemów z tras](../virtual-network/virtual-network-routes-troubleshoot-portal.md) dokumentu.
 
-4. Tworzenie klastra usługi HDInsight i wybierz sieć wirtualną Azure podczas konfigurowania. Zrozumienie procesu tworzenia klastra, wykonaj kroki w następujących dokumentach:
+4. Tworzenie klastra usługi HDInsight i wybierz hello Azure Virtual Network podczas konfiguracji. Wykonaj kroki hello w hello następującego procesu tworzenia klastra hello toounderstand dokumentów:
 
-    * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) (Tworzenie klastrów usługi HDInsight za pomocą usługi Azure Portal)
+    * [Tworzenie usługi HDInsight przy użyciu hello portalu Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Tworzenie klastrów usługi HDInsight przy użyciu programu Azure PowerShell)
     * [Tworzenie usługi HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Tworzenie usługi HDInsight przy użyciu szablonu usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
-  > Dodawanie HDInsight do sieci wirtualnej jest to krok konfiguracji opcjonalnej. Należy wybrać sieć wirtualną podczas konfigurowania klastra.
+  > Dodawanie HDInsight tooa sieci wirtualnej jest to krok konfiguracji opcjonalnej. Należy się, że sieć wirtualna hello tooselect podczas konfigurowania klastra hello.
 
 ## <a id="multinet"></a>Łączenie wielu sieci
 
-Największych wyzwanie z konfiguracji usługi sieciowej jest rozpoznawania nazw między sieciami.
+Hello największych wyzwań z konfiguracji usługi sieciowej jest rozpoznawania nazw między sieciami hello.
 
-Platforma Azure udostępnia rozpoznawanie nazw dla usług Azure, które są zainstalowane w sieci wirtualnej. To rozwiązanie nazwa wbudowanego umożliwia HDInsight połączyć się z następującymi zasobami za pomocą w pełni kwalifikowaną nazwą domeny (FQDN):
+Platforma Azure udostępnia rozpoznawanie nazw dla usług Azure, które są zainstalowane w sieci wirtualnej. To rozwiązanie nazwa wbudowanego umożliwia toohello tooconnect HDInsight następujące zasoby przy użyciu w pełni kwalifikowaną nazwą domeny (FQDN):
 
-* Zasób, który jest dostępny w Internecie. Na przykład microsoft.com, google.com.
+* Dowolnego zasobu, który jest dostępny w hello internet. Na przykład microsoft.com, google.com.
 
-* Dowolnego zasobu, który znajduje się w tej samej sieci wirtualnej Azure, używając __wewnętrzna nazwa DNS__ zasobu. Na przykład podczas rozpoznawania nazwy domyślnej, poniżej przedstawiono przykład wewnętrznej nazwy DNS przypisane do węzłów procesu roboczego usługi HDInsight:
+* Dowolnego zasobu, który jest w hello tej samej sieci wirtualnej Azure, używając hello __wewnętrzna nazwa DNS__ hello zasobu. Na przykład podczas rozpoznawania nazwy domyślnej hello hello poniżej przedstawiono przykład wewnętrzny DNS nazwy przypisanej tooHDInsight węzłów procesu roboczego:
 
     * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
     * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Oba te węzły mogą komunikować się bezpośrednio ze sobą oraz inne węzły w usłudze HDInsight, za pomocą wewnętrznej nazwy DNS.
 
-Rozpoznawanie nazw domyślny jest __nie__ Zezwalaj HDInsight do rozpoznawania nazw zasobów w sieci, które są przyłączone do sieci wirtualnej. Na przykład jest wspólne, aby dołączyć do sieci wirtualnej sieci lokalnej. Tylko domyślny rozpoznawania nazw HDInsight nie uzyskiwanie dostępu do zasobów w sieci lokalnej według nazwy. Odwrotny również ma wartość true, zasobów w sieci lokalnej nie może uzyskać dostęp do zasobów w sieci wirtualnej według nazwy.
+rozpoznawanie nazw domyślne Hello jest __nie__ Zezwalaj HDInsight tooresolve hello nazw zasobów w sieci, które są przyłączone do toohello sieci wirtualnej. Na przykład jest typowe toojoin toohello sieci wirtualnej sieci lokalnej. Z tylko hello domyślne rozpoznawania nazw HDInsight nie może uzyskiwać dostęp do zasobów w sieci lokalnej hello według nazwy. Witaj przeciwną również ma wartość true, zasobów w sieci lokalnej nie może uzyskać dostęp do zasobów w sieci wirtualnej hello według nazwy.
 
 > [!WARNING]
-> Należy utworzyć niestandardowy serwer DNS i skonfiguruj sieć wirtualną w celu używania go przed utworzeniem klastra usługi HDInsight.
+> Należy utworzyć hello niestandardowy serwer DNS i skonfigurować toouse sieci wirtualnej hello hello go przed utworzeniem klastra usługi HDInsight.
 
-Aby włączyć rozpoznawanie nazw między zasobami w przyłączone do sieci i sieci wirtualnej, należy wykonać następujące czynności:
+rozpoznawanie nazw tooenable między zasobami w przyłączone do sieci i hello sieci wirtualnej, należy wykonać hello następujące akcje:
 
-1. Utwórz niestandardowy serwer DNS w sieci wirtualnej platformy Azure, której zamierzasz zainstalować usługi HDInsight.
+1. Utwórz niestandardowy serwer DNS w sieci wirtualnej platformy Azure, w którym planujesz tooinstall HDInsight hello.
 
-2. Skonfiguruj sieć wirtualną do użycia niestandardowego serwera DNS.
+2. Skonfiguruj hello sieci wirtualnej toouse hello niestandardowy serwer DNS.
 
-3. Znajdź Azure przypisane sufiksu DNS dla sieci wirtualnej. Ta wartość jest podobny do `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Aby uzyskać informacje o sufiks DNS, zobacz [przykład: niestandardowe DNS](#example-dns) sekcji.
+3. Znajdź hello Azure przypisać sufiksu DNS dla sieci wirtualnej. Ta wartość jest zbyt podobne`0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Aby uzyskać informacje o hello sufiks DNS, zobacz hello [przykład: niestandardowe DNS](#example-dns) sekcji.
 
-4. Konfiguruj przekazywanie między serwerami DNS. Konfiguracja zależy od wybranego typu sieci zdalnej.
+4. Konfiguruj przekazywanie między serwerami DNS hello. Konfiguracja Hello zależy od typu hello sieci zdalnej.
 
-    * W przypadku sieci zdalnej przez sieć lokalną DNS należy skonfigurować następująco:
+    * W przypadku sieci zdalnej hello sieci lokalnej, konfigurowanie systemu DNS w następujący sposób:
         
-        * __Niestandardowe DNS__ (w sieci wirtualnej):
+        * __Niestandardowe DNS__ (w sieci wirtualnej hello):
 
-            * Przesyłania żądań dla sufiksu DNS w sieci wirtualnej do platformy Azure cyklicznego programu rozpoznawania nazw (168.63.129.16). Azure obsługuje żądania zasobów w sieci wirtualnej
+            * Przesyłania żądań dla sufiksu DNS hello hello sieci wirtualnej toohello Azure cyklicznego programu rozpoznawania nazw (168.63.129.16). Azure obsługuje żądania zasobów w sieci wirtualnej hello
 
-            * Przekazuj wszystkie żądania do lokalnego serwera DNS. DNS lokalnymi obsługuje wszystkich innych żądań rozpoznawania nazw, nawet żądania zasobów internetowych, takich jak Microsoft.com.
+            * Przekazuj wszystkie inne żądania toohello lokalnego serwera DNS. Witaj w lokalnym DNS obsługuje wszystkie inne żądania dotyczące rozpoznawania nazw, nawet żądania zasobów internetowych, takich jak Microsoft.com.
 
-        * __DNS lokalnymi__: przesyłać żądania dla sufiksu DNS sieci wirtualnej do niestandardowego serwera DNS. Niestandardowy serwer DNS przekazuje następnie do platformy Azure cyklicznego programu rozpoznawania nazw.
+        * __DNS lokalnymi__: przekazywania żądań hello sieci wirtualnej sufiks toohello niestandardowe DNS serwera DNS. Witaj niestandardowy serwer DNS przekazuje następnie toohello Azure cyklicznego programu rozpoznawania nazw.
 
-        Tej konfiguracji żądania trasy dla w pełni kwalifikowane nazwy domen, zawierające sufiks DNS w sieci wirtualnej do niestandardowego serwera DNS. Wszystkie żądania (nawet w przypadku publicznych adresów internetowych) są obsługiwane przez lokalny serwer DNS.
+        Tej konfiguracji żądania trasy dla w pełni kwalifikowana nazwy domeny, które zawierają hello sufiks DNS hello sieci wirtualnej toohello niestandardowy serwer DNS. Wszystkie żądania (nawet w przypadku publicznych adresów internetowych) są obsługiwane przez serwer DNS lokalne powitania.
 
-    * W przypadku sieci zdalnej inna sieć wirtualna Azure DNS należy skonfigurować następująco:
+    * W przypadku sieci zdalnej hello innej sieci wirtualnej platformy Azure, konfigurowanie systemu DNS w następujący sposób:
 
         * __Niestandardowe DNS__ (w każdej sieci wirtualnej):
 
-            * Żądania dla sufiksu DNS, sieci wirtualnych są przekazywane do niestandardowych serwerów DNS. Serwer DNS w każdej sieci wirtualnej jest odpowiedzialny za rozpoznawania zasobów w sieci.
+            * Żądania dla sufiksu DNS hello hello sieci wirtualnych są przesyłane dalej toohello niestandardowych serwerów DNS. Witaj DNS w każdej sieci wirtualnej jest odpowiedzialny za rozpoznawania zasobów w sieci.
 
-            * Przesyła wszystkich innych żądaniach Azure cyklicznego programu rozpoznawania nazw. Cyklicznego programu rozpoznawania nazw jest odpowiedzialny za rozwiązania lokalnego i zasobów w Internecie.
+            * Przekazuj wszystkie inne żądania toohello Azure cyklicznego programu rozpoznawania nazw. Witaj cyklicznego programu rozpoznawania nazw jest odpowiedzialny za rozwiązania lokalnego i zasobów w Internecie.
 
-        Serwer DNS dla każdej sieci przekazuje żądania do drugiej strony, na podstawie sufiksu DNS. Inne żądania zostaną rozwiązane, za pomocą usługi Azure cyklicznego programu rozpoznawania nazw.
+        powitania serwera DNS dla każdej sieci przekazuje żądania toohello innych, oparte na sufiks DNS. Inne żądania są rozpoznawane przy użyciu hello Azure cyklicznego programu rozpoznawania nazw.
 
-    Na przykład każdej konfiguracji zobacz [przykład: niestandardowe DNS](#example-dns) sekcji.
+    Na przykład każdej konfiguracji zobacz hello [przykład: niestandardowe DNS](#example-dns) sekcji.
 
-Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazwy dla maszyn wirtualnych i wystąpień roli](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) dokumentu.
+Aby uzyskać więcej informacji, zobacz hello [rozpoznawanie nazwy dla maszyn wirtualnych i wystąpień roli](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) dokumentu.
 
-## <a name="directly-connect-to-hadoop-services"></a>Bezpośrednio z usługi Hadoop
+## <a name="directly-connect-toohadoop-services"></a>Bezpośrednie połączenie usługi tooHadoop
 
-Większość dokumentacji w usłudze HDInsight założono, że dostęp do klastra za pośrednictwem Internetu. Na przykład czy możesz połączyć się z klastrem w https://CLUSTERNAME.azurehdinsight.net. Ten adres używa publicznego brama nie jest dostępna w przypadku użycia grup NSG lub Udr ograniczyć dostęp z Internetu.
+Większość dokumentacji w usłudze HDInsight założono, że klaster toohello dostęp za pośrednictwem hello internet. Na przykład, że możesz połączyć https://CLUSTERNAME.azurehdinsight.net toohello klastra. Ten adres używa hello publicznego bramy, która nie jest dostępna, jeśli używasz grup NSG lub Udr toorestrict dostęp z hello internet.
 
-Aby połączyć się Ambari i stron sieci web za pośrednictwem sieci wirtualnej, użyj następujące czynności:
+tooconnect tooAmbari i stron sieci web za pośrednictwem hello sieci wirtualnej, użyj hello następujące kroki:
 
-1. Aby odnaleźć wewnętrzny pełni kwalifikowanych nazw domen (FQDN) węzły klastra usługi HDInsight, użyj jednej z następujących metod:
+1. toodiscover hello wewnętrzny pełni kwalifikowanych nazw domen (FQDN) węzły klastra usługi HDInsight hello, użyj jednej z hello następujące metody:
 
     ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = "hello resource group that contains hello virtual network used with HDInsight"
 
     $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
@@ -200,44 +200,44 @@ Aby połączyć się Ambari i stron sieci web za pośrednictwem sieci wirtualnej
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Na liście węzłów zwrócił znaleźć nazwę FQDN dla węzłów głównych i nawiązywania Ambari i innych usług sieci web przy użyciu nazw FQDN. Na przykład użyć `http://<headnode-fqdn>:8080` do narzędzia Ambari.
+    Liście hello węzłów zwrócił Znajdź hello nazwy FQDN dla hello węzłów głównych i użyj hello nazw FQDN tooconnect tooAmbari i innych usług sieci web. Na przykład użyć `http://<headnode-fqdn>:8080` tooaccess Ambari.
 
     > [!IMPORTANT]
-    > Niektóre usługi hostowanej o węzłach głównych są tylko aktywne na jednym węźle naraz. Jeśli spróbujesz uzyskiwanie dostępu do usługi na jednym węźle głównym i zwraca błąd 404, przełącz się do innego węzła głównego.
+    > Niektórych usług hostowanych na węzłach głównych hello są tylko aktywne na jednym węźle naraz. Jeśli spróbujesz uzyskiwanie dostępu do usługi na jednym węźle głównym i zwraca błąd 404, Przełącz toohello innych węzła głównego.
 
-2. Aby określić węzeł i port, który usługa jest dostępna na, zobacz [porty używane przez usługi Hadoop w usłudze HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentu.
+2. węzeł hello toodetermine i port, który usługa jest dostępna, zobacz hello [porty używane przez usługi Hadoop w usłudze HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentu.
 
 ## <a id="networktraffic"></a>Kontrolowanie ruchu w sieci
 
-Ruch sieciowy w sieciach wirtualnych platformy Azure można sterować przy użyciu następujących metod:
+Ruch sieciowy w sieciach wirtualnych platformy Azure mogą być kontrolowane za pomocą hello następujące metody:
 
-* **Sieciowe grupy zabezpieczeń** (NSG) umożliwiają filtrowanie ruchu przychodzącego i wychodzącego do sieci. Aby uzyskać więcej informacji, zobacz [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md) dokumentu.
+* **Sieciowe grupy zabezpieczeń** (NSG) pozwalają toofilter ruchu przychodzącego i wychodzącego toohello sieci. Aby uzyskać więcej informacji, zobacz hello [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md) dokumentu.
 
     > [!WARNING]
     > HDInsight nie obsługuje ograniczenia ruchu wychodzącego.
 
-* **Trasy zdefiniowane przez użytkownika** (przez) zdefiniuj, jak przepływa ruch między zasobami w sieci. Aby uzyskać więcej informacji, zobacz [trasy zdefiniowane przez użytkownika i przesyłanie dalej IP](../virtual-network/virtual-networks-udr-overview.md) dokumentu.
+* **Trasy zdefiniowane przez użytkownika** (przez) zdefiniuj, jak przepływa ruch między zasobami w sieci hello. Aby uzyskać więcej informacji, zobacz hello [trasy zdefiniowane przez użytkownika i przesyłanie dalej IP](../virtual-network/virtual-networks-udr-overview.md) dokumentu.
 
-* **Sieci wirtualnych urządzeń** replikować funkcjonalność urządzeń, takich jak routery i zapory. Aby uzyskać więcej informacji, zobacz [urządzenia sieciowe](https://azure.microsoft.com/solutions/network-appliances) dokumentu.
+* **Sieci wirtualnych urządzeń** replikować hello funkcjonalność urządzeń, takich jak routery i zapory. Aby uzyskać więcej informacji, zobacz hello [urządzenia sieciowe](https://azure.microsoft.com/solutions/network-appliances) dokumentu.
 
-Jako zarządzanej usługi HDInsight wymaga nieograniczony dostęp do usług platformy Azure kondycji i zarządzania w chmurze Azure. Przy użyciu grup NSG i Udr, należy się upewnić, że HDInsight tych usług można nadal komunikować się z usługą HDInsight.
+Jako usługa zarządzana HDInsight wymaga nieograniczony dostęp do usług kondycji i zarządzania tooAzure w hello chmury Azure. Przy użyciu grup NSG i Udr, należy się upewnić, że HDInsight tych usług można nadal komunikować się z usługą HDInsight.
 
-HDInsight udostępnia usługi na kilku portów. Używając urządzenie wirtualne zapory, musisz zezwolić na ruch na portach używanych na potrzeby tych usług. Aby uzyskać więcej informacji zobacz sekcję [wymagane porty].
+HDInsight udostępnia usługi na kilku portów. Używając urządzenie wirtualne zapory, musisz zezwolić na ruch na powitania porty używane w przypadku tych usług. Aby uzyskać więcej informacji zobacz sekcję hello [wymagane porty].
 
 ### <a id="hdinsight-ip"></a>HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika
 
-Jeśli planujesz używanie **sieciowej grupy zabezpieczeń** lub **trasy zdefiniowane przez użytkownika** do kontroli ruchu sieciowego, wykonaj następujące czynności przed zainstalowaniem usługi HDInsight:
+Jeśli planujesz używanie **sieciowej grupy zabezpieczeń** lub **trasy zdefiniowane przez użytkownika** toocontrol ruch sieciowy, wykonaj następujące akcje przed zainstalowaniem usługi HDInsight hello:
 
-1. Określ region platformy Azure, które będą używane dla usługi HDInsight.
+1. Zidentyfikuj hello planowanie toouse HDInsight region platformy Azure.
 
-2. Określ adresy IP wymagane przez usługi HDInsight. Aby uzyskać więcej informacji, zobacz [adresy IP wymagane przez HDInsight](#hdinsight-ip) sekcji.
+2. Określ adresy IP hello wymagane przez HDInsight. Aby uzyskać więcej informacji, zobacz hello [adresy IP wymagane przez HDInsight](#hdinsight-ip) sekcji.
 
-3. Utwórz lub zmodyfikuj grupy zabezpieczeń sieci lub zdefiniowanej przez użytkownika tras dla podsieci, które zamierzasz zainstalować HDInsight do.
+3. Tworzenie lub modyfikowanie grup zabezpieczeń sieci hello lub zdefiniowanej przez użytkownika tras dla podsieci hello zaplanowanie tooinstall HDInsight do.
 
-    * __Sieciowe grupy zabezpieczeń__: Zezwalaj na __przychodzących__ ruch na porcie __443__ z adresu IP, adresy.
-    * __Trasy zdefiniowane przez użytkownika__: Utwórz trasę do każdego adresu IP i ustaw __następnego przeskoku typu__ do __Internet__.
+    * __Sieciowe grupy zabezpieczeń__: Zezwalaj na __przychodzących__ ruch na porcie __443__ z hello adresów IP.
+    * __Trasy zdefiniowane przez użytkownika__: Utwórz adres IP tooeach trasy i ustaw hello __następnego przeskoku typu__ too__Internet__.
 
-Aby uzyskać więcej informacji na sieciowych grup zabezpieczeń lub trasy zdefiniowane przez użytkownika Zobacz następującą dokumentację:
+Aby uzyskać więcej informacji na sieciowych grup zabezpieczeń lub trasy zdefiniowane przez użytkownika Zobacz hello następującej dokumentacji:
 
 * [Grupy zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md)
 
@@ -245,18 +245,18 @@ Aby uzyskać więcej informacji na sieciowych grup zabezpieczeń lub trasy zdefi
 
 #### <a name="forced-tunneling"></a>Wymuszone tunelowanie
 
-Wymuszanie tunelowania jest zdefiniowane przez użytkownika Konfiguracja routingu którym cały ruch z podsieci będzie zmuszony do określonej sieci lub lokalizacji, takiej jak sieć lokalną. HDInsight jest __nie__ obsługi wymuszonego tunelowania.
+Wymuszanie tunelowania jest zdefiniowane przez użytkownika konfiguracji routingu, gdzie cały ruch z podsieci jest wymuszone tooa określonej sieci lub lokalizacji, takiej jak sieć lokalną. HDInsight jest __nie__ obsługi wymuszonego tunelowania.
 
 ## <a id="hdinsight-ip"></a>Wymaganych adresów IP
 
 > [!IMPORTANT]
-> Usług kondycji oraz zarządzania platformy Azure musi mieć możliwość komunikacji z usługą HDInsight. Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika, zezwalać na ruch z adresów IP dla tych usług do usługi HDInsight.
+> Witaj kondycji Azure i usługi zarządzania musi być w stanie toocommunicate z usługą HDInsight. Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika, zezwalać na ruch z hello adresów IP dla tych tooreach usługi HDInsight.
 >
-> Jeśli nie używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika do kontroli ruchu, można zignorować w tej sekcji.
+> Jeśli nie używasz ruch toocontrol trasy zdefiniowane przez użytkownika i grupy zabezpieczeń sieci, można zignorować w tej sekcji.
 
-Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika, musisz zezwolić na ruch z usług kondycji i zarządzania Azure do usługi HDInsight. Wykonaj następujące kroki, aby znaleźć adresy IP, które może:
+Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkownika, musisz zezwolić na ruch z hello Azure kondycji i zarządzania tooreach usługi HDInsight. Użyj hello następujące adresy IP hello toofind kroki, które może:
 
-1. Zawsze musi zezwalać na ruch z następujących adresów IP:
+1. Zawsze musi zezwalać na ruch z hello następujących adresów IP:
 
     | Adres IP | Port dozwolone | Kierunek |
     | ---- | ----- | ----- |
@@ -265,10 +265,10 @@ Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkowni
     | 168.61.48.131 | 443 | Przychodzący |
     | 138.91.141.162 | 443 | Przychodzący |
 
-2. W przypadku klastra HDInsight w jednym z następujących regionach, następnie należy zezwolić na ruch z wymienionych dla tego obszaru adresów IP:
+2. W przypadku klastra HDInsight w jednym z następujących regionach hello, następnie należy zezwolić na ruch z hello adresów IP dla regionu hello:
 
     > [!IMPORTANT]
-    > Jeśli nie ma region platformy Azure, którego używasz, następnie używać tylko cztery adresów IP z kroku 1.
+    > Jeśli hello region platformy Azure, którego używasz, nie jest wyświetlana, następnie używać tylko hello cztery adresów IP z kroku 1.
 
     | Kraj | Region | Dozwolonych adresów IP | Port dozwolone | Kierunek |
     | ---- | ---- | ---- | ---- | ----- |
@@ -288,7 +288,7 @@ Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkowni
     | Indie | Indie Środkowe | 52.172.153.209</br>52.172.152.49 | 443 | Przychodzący |
     | Japonia | Japonia Wschodnia | 13.78.125.90</br>13.78.89.60 | 443 | Przychodzący |
     | &nbsp; | Japonia Zachodnia | 40.74.125.69</br>138.91.29.150 | 443 | Przychodzący |
-    | Korea Południowa | Korea Środkowa | 52.231.39.142</br>52.231.36.209 | 433 | Przychodzący |
+    | Korea | Korea Środkowa | 52.231.39.142</br>52.231.36.209 | 433 | Przychodzący |
     | &nbsp; | Korea Południowa | 52.231.203.16</br>52.231.205.214 | 443 | Przychodzący
     | Wielka Brytania | Zachodnie Zjednoczone Królestwo | 51.141.13.110</br>51.141.7.20 | 443 | Przychodzący |
     | &nbsp; | Południowe Zjednoczone Królestwo | 51.140.47.39</br>51.140.52.16 | 443 | Przychodzący |
@@ -297,15 +297,15 @@ Jeśli używasz grup zabezpieczeń sieci lub trasy zdefiniowane przez użytkowni
     | &nbsp; | Środkowo-zachodnie stany USA | 52.161.23.15</br>52.161.10.167 | 443 | Przychodzący |
     | &nbsp; | Zachodnie stany USA 2 | 52.175.211.210</br>52.175.222.222 | 443 | Przychodzący |
 
-    Aby uzyskać informacje dotyczące adresów IP do użycia na potrzeby Azure dla instytucji rządowych, zobacz [Azure dla instytucji rządowych analizy i analiza](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentu.
+    Dla informacji na temat hello IP dotyczy toouse systemu Azure dla instytucji rządowych, zobacz hello [Azure dla instytucji rządowych analizy i analiza](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) dokumentu.
 
-3. Jeśli używasz niestandardowego serwera DNS z sieci wirtualnej, należy także zezwolić na dostęp z __168.63.129.16__. Ten adres jest platformy Azure, cyklicznego programu rozpoznawania nazw. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw dla maszyn wirtualnych i roli wystąpień](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentu.
+3. Jeśli używasz niestandardowego serwera DNS z sieci wirtualnej, należy także zezwolić na dostęp z __168.63.129.16__. Ten adres jest platformy Azure, cyklicznego programu rozpoznawania nazw. Aby uzyskać więcej informacji, zobacz hello [rozpoznawanie nazw dla maszyn wirtualnych i roli wystąpień](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentu.
 
-Aby uzyskać więcej informacji, zobacz [kontrolowanie ruchu w sieci](#networktraffic) sekcji.
+Aby uzyskać więcej informacji, zobacz hello [kontrolowanie ruchu w sieci](#networktraffic) sekcji.
 
 ## <a id="hdinsight-ports"></a>Wymagane porty
 
-Jeśli planowane jest użycie sieci **urządzenie wirtualne zapory** do zabezpieczania sieci wirtualnej, musisz zezwolić na ruch wychodzący na następujące porty:
+Jeśli planowane jest użycie sieci **urządzenie wirtualne zapory** toosecure hello sieci wirtualnej, a użytkownik musi zezwolić na ruch wychodzący na powitania następujące porty:
 
 * 53
 * 443
@@ -313,44 +313,44 @@ Jeśli planowane jest użycie sieci **urządzenie wirtualne zapory** do zabezpie
 * 11000-11999
 * 14000-14999
 
-Aby uzyskać listę portów do określonych usług, zobacz [porty używane przez usługi Hadoop w usłudze HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentu.
+Listę portów dla określonych usług, zobacz hello [porty używane przez usługi Hadoop w usłudze HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentu.
 
-Aby uzyskać więcej informacji na reguły zapory dla urządzenia wirtualnego, zobacz [scenariuszu urządzenie wirtualne](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentu.
+Aby uzyskać więcej informacji na reguły zapory dla urządzenia wirtualnego, zobacz hello [scenariuszu urządzenie wirtualne](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentu.
 
 ## <a id="hdinsight-nsg"></a>Przykład: sieciowych grup zabezpieczeń z usługą HDInsight
 
-Przykłady w tej sekcji przedstawiają sposób tworzenia zabezpieczeń sieci zasady grupy, zezwalających na HDInsight do komunikowania się z usługami zarządzania platformy Azure. Przed użyciem w przykładach, Dostosuj adresy IP, aby odpowiadały na region platformy Azure, którego używasz. Niniejsze informacje można znaleźć [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
+Przykłady Hello w tej sekcji pokazują, jak grupy zabezpieczeń sieci toocreate zasady umożliwiające toocommunicate HDInsight z hello usług zarządzania platformy Azure. Przed użyciem przykłady hello, Dostosuj hello IP adresów toomatch hello widocznych dla hello region platformy Azure, którego używasz. Te informacje można znaleźć w hello [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
 
 ### <a name="azure-resource-management-template"></a>Szablonu zarządzania zasobami platformy Azure
 
-Następujący szablon zarządzanie zasobami tworzy sieć wirtualną, która ogranicza ruchu przychodzącego, ale zezwala na ruch sieciowy z adresów IP wymaganych przez usługi HDInsight. Ten szablon umożliwia również tworzenie klastra usługi HDInsight w sieci wirtualnej.
+Witaj następujące zarządzanie zasobami szablon tworzy sieć wirtualną, która ogranicza ruchu przychodzącego, ale zezwala na ruch sieciowy z adresów IP hello wymagane przez HDInsight. Ten szablon tworzy klaster usługi HDInsight w sieci wirtualnej hello.
 
 * [Wdrażanie zabezpieczonej sieci wirtualnej platformy Azure i klaster usługi HDInsight Hadoop](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]
-> Zmień adresy IP używane w tym przykładzie, aby dopasować region platformy Azure, którego używasz. Niniejsze informacje można znaleźć [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
+> Zmień hello adresy IP używane w ten przykład toomatch hello region platformy Azure, którego używasz. Te informacje można znaleźć w hello [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Użyj następującego skryptu programu PowerShell można utworzyć sieci wirtualnej, która ogranicza ruchu przychodzącego i zezwala na ruch sieciowy z adresów IP dla regionu Europa Północna.
+Użyj powitania po toocreate skrypt programu PowerShell siecią wirtualną, która ogranicza ruchu przychodzącego i zezwala na ruch z hello adresów IP dla regionu Europa Północna, Europa hello.
 
 > [!IMPORTANT]
-> Zmień adresy IP używane w tym przykładzie, aby dopasować region platformy Azure, którego używasz. Niniejsze informacje można znaleźć [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
+> Zmień hello adresy IP używane w ten przykład toomatch hello region platformy Azure, którego używasz. Te informacje można znaleźć w hello [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
-$resourceGroupName = "Replace with the resource group the virtual network is in"
-$subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
-# Get the Virtual Network object
+$resourceGroupName = "Replace with hello resource group hello virtual network is in"
+$subnetName = "Replace with hello name of hello subnet that you plan toouse for HDInsight"
+# Get hello Virtual Network object
 $vnet = Get-AzureRmVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
-# Get the region the Virtual network is in.
+# Get hello region hello Virtual network is in.
 $location = $vnet.Location
-# Get the subnet object
+# Get hello subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
 # Create a Network Security Group.
-# And add exemptions for the HDInsight health and management services.
+# And add exemptions for hello HDInsight health and management services.
 $nsg = New-AzureRmNetworkSecurityGroup `
     -Name "hdisecure" `
     -ResourceGroupName $resourceGroupName `
@@ -432,9 +432,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Deny `
         -Priority 500 `
         -Direction Inbound
-# Set the changes to the security group
+# Set hello changes toohello security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-# Apply the NSG to the subnet
+# Apply hello NSG toohello subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name $subnetName `
@@ -443,9 +443,9 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 > [!IMPORTANT]
-> W tym przykładzie pokazano, jak dodać reguły zezwalające na ruch przychodzący na wymaganych adresów IP. Nie zawiera zasadę, aby ograniczyć dostęp dla ruchu przychodzącego z innych źródeł.
+> W tym przykładzie pokazano, jak tooadd tooallow reguły ruchu przychodzącego ruchu sieciowego na adresach IP hello wymagane. Nie zawiera toorestrict reguły ruchu przychodzącego dostęp z innych źródeł.
 >
-> W poniższym przykładzie pokazano, jak włączyć SSH dostępu z Internetu:
+> Witaj poniższy przykład przedstawia sposób tooenable SSH dostęp z Internetu hello:
 >
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
@@ -453,20 +453,20 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Poniższe kroki umożliwiają utworzenie sieci wirtualnej, która ogranicza ruchu przychodzącego, ale zezwala na ruch sieciowy z adresów IP wymaganych przez usługi HDInsight.
+Użyj hello następujące kroki toocreate sieci wirtualnej, który ogranicza ruchu przychodzącego, ale zezwala na ruch sieciowy z adresów IP hello wymagane przez usługi HDInsight.
 
-1. Użyj następującego polecenia, aby utworzyć nową grupę zabezpieczeń sieci o nazwie `hdisecure`. Zastąp **RESOURCEGROUPNAME** z grupą zasobów, który zawiera sieci wirtualnej platformy Azure. Zastąp **lokalizacji** z grupa została utworzona w lokalizacji (regionu).
+1. Witaj Użyj następującego polecenia toocreate nową sieciową grupę zabezpieczeń o nazwie `hdisecure`. Zastąp **RESOURCEGROUPNAME** z grupą zasobów hello zawierający hello sieci wirtualnej platformy Azure. Zastąp **lokalizacji** hello lokalizacji (regionu) tej grupy hello został utworzony w.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
     ```
 
-    Po utworzeniu grupy, pojawi się informacji na temat nowej grupy.
+    Po utworzeniu grupy hello otrzymasz informacji na temat hello nowej grupy.
 
-2. Użyj następującego polecenia można dodać reguły do nowej grupy zabezpieczeń sieci Zezwalaj na komunikację ruchu przychodzącego na porcie 443 w usłudze Azure HDInsight kondycji i zarządzania. Zastąp **RESOURCEGROUPNAME** z nazwą grupy zasobów, który zawiera sieci wirtualnej platformy Azure.
+2. Użyj powitania po tooadd reguły toohello nową grupę zabezpieczeń sieci umożliwiająca komunikacji przychodzącej na porcie 443 z hello Azure HDInsight usługi kondycji i zarządzania. Zastąp **RESOURCEGROUPNAME** o nazwie hello hello grupy zasobów, zawierającą hello sieci wirtualnej platformy Azure.
 
     > [!IMPORTANT]
-    > Zmień adresy IP używane w tym przykładzie, aby dopasować region platformy Azure, którego używasz. Niniejsze informacje można znaleźć [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
+    > Zmień hello adresy IP używane w ten przykład toomatch hello region platformy Azure, którego używasz. Te informacje można znaleźć w hello [HDInsight z grup zabezpieczeń sieci i trasy zdefiniowane przez użytkownika](#hdinsight-ip) sekcji.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -478,30 +478,30 @@ Poniższe kroki umożliwiają utworzenie sieci wirtualnej, która ogranicza ruch
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
-3. Aby pobrać Unikatowy identyfikator dla tej grupy zabezpieczeń sieci, użyj następującego polecenia:
+3. tooretrieve hello Unikatowy identyfikator dla tej grupy zabezpieczeń sieci hello Użyj następującego polecenia:
 
     ```azurecli
     az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
     ```
 
-    To polecenie zwraca wartość podobny do następującego tekstu:
+    To polecenie zwraca wartość toohello podobne, następującego tekstu:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-    Otrzymasz oczekiwanych rezultatów, użyj podwójnych cudzysłowów wokół identyfikatora w poleceniu.
+    Użyj podwójnych cudzysłowów wokół identyfikatora w poleceniu hello, jeśli nie otrzymasz hello oczekiwano wyników.
 
-4. Użyj następującego polecenia, aby zastosować sieciową grupę zabezpieczeń do podsieci. Zastąp __GUID__ i __RESOURCEGROUPNAME__ wartości z tymi zwracane z poprzedniego kroku. Zastąp __VNETNAME__ i __SUBNETNAME__ z wirtualną nazwą sieciową i nazwę podsieci, która ma zostać utworzona.
+4. Hello Użyj następującego polecenia tooapply hello zabezpieczeń grupy tooa podsieci. Zastąp hello __GUID__ i __RESOURCEGROUPNAME__ z hello te zwracane z hello w poprzednim kroku. Zastąp __VNETNAME__ i __SUBNETNAME__ z hello wirtualnej nazwy sieciowej i nazwy podsieci, które mają toocreate.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUPNAME --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     ```
 
-    Po zakończeniu wykonywania tego polecenia, można zainstalować usługi HDInsight w sieci wirtualnej.
+    Po zakończeniu wykonywania tego polecenia można zainstalować usługi HDInsight na powitania sieci wirtualnej.
 
 > [!IMPORTANT]
-> Te kroki otwierać tylko dostęp do usługi HDInsight kondycji i zarządzania w chmurze Azure. Inne dostęp do klastra usługi HDInsight z spoza sieci wirtualnej jest zablokowany. Aby włączyć dostęp spoza sieci wirtualnej, należy dodać dodatkowych reguł sieciowej grupy zabezpieczeń.
+> Te czynności tylko otworzyć dostępu toohello HDInsight kondycji i zarządzania usługi na powitania chmury Azure. Wszystkie inne dostępu toohello klastra usługi HDInsight z hello zewnętrznej sieci wirtualnej jest zablokowany. tooenable dostępu z zewnętrznej sieci wirtualnej hello, należy dodać dodatkowych reguł sieciowej grupy zabezpieczeń.
 >
-> W poniższym przykładzie pokazano, jak włączyć SSH dostępu z Internetu:
+> Witaj poniższy przykład przedstawia sposób tooenable SSH dostęp z Internetu hello:
 >
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
@@ -511,50 +511,50 @@ Poniższe kroki umożliwiają utworzenie sieci wirtualnej, która ogranicza ruch
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Rozpoznawanie nazw między sieci wirtualnej i sieci połączonych lokalnie
 
-W tym przykładzie powoduje, że następujące założenia:
+W tym przykładzie powoduje hello następujące założenia:
 
-* Masz sieci wirtualnej Azure, która jest połączona z siecią lokalną przy użyciu bramy sieci VPN.
+* Masz sieć wirtualna Azure, która jest tooan połączone siecią lokalną przy użyciu bramy sieci VPN.
 
-* Niestandardowy serwer DNS w sieci wirtualnej działa jako systemu operacyjnego Linux lub Unix.
+* Hello niestandardowy serwer DNS w sieci wirtualnej hello działa jako system operacyjny hello Linux lub Unix.
 
-* [Powiąż](https://www.isc.org/downloads/bind/) jest zainstalowany na serwerze DNS niestandardowych.
+* [Powiąż](https://www.isc.org/downloads/bind/) jest zainstalowany na powitania niestandardowy serwer DNS.
 
-Na niestandardowy serwer DNS w sieci wirtualnej:
+Na powitania niestandardowy serwer DNS w sieci wirtualnej hello:
 
-1. Użyj programu Azure PowerShell lub interfejsu wiersza polecenia Azure, aby znaleźć sufiks DNS w sieci wirtualnej:
+1. Użyj programu Azure PowerShell lub interfejsu wiersza polecenia Azure toofind hello sufiksu DNS sieci wirtualnej hello:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Na niestandardowy serwer DNS dla sieci wirtualnej, użyj następującego fragmentu jako zawartość `/etc/bind/named.conf.local` pliku:
+2. Na powitania niestandardowy serwer DNS dla sieci wirtualnej hello, użyj następującego tekstu jako zawartość hello hello hello `/etc/bind/named.conf.local` pliku:
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
         forwarders {168.63.129.16;}; # Azure recursive resolver
     };
     ```
 
-    Zastąp `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` wartość sufiksu DNS, sieci wirtualnych.
+    Zastąp hello `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` wartość sufiksu DNS hello sieci wirtualnej.
 
-    Ta konfiguracja kieruje wszystkie żądania DNS dla sufiksu DNS w sieci wirtualnej do platformy Azure cyklicznego programu rozpoznawania nazw.
+    Ta konfiguracja kieruje wszystkie żądania sufiks DNS hello hello sieci wirtualnej toohello Azure cyklicznego programu rozpoznawania nazw DNS.
 
-2. Na niestandardowy serwer DNS dla sieci wirtualnej, użyj następującego fragmentu jako zawartość `/etc/bind/named.conf.options` pliku:
+2. Na powitania niestandardowy serwer DNS dla sieci wirtualnej hello, użyj następującego tekstu jako zawartość hello hello hello `/etc/bind/named.conf.options` pliku:
 
     ```
-    // Clients to accept requests from
-    // TODO: Add the IP range of the joined network to this list
+    // Clients tooaccept requests from
+    // TODO: Add hello IP range of hello joined network toothis list
     acl goodclients {
-        10.0.0.0/16; # IP address range of the virtual network
+        10.0.0.0/16; # IP address range of hello virtual network
         localhost;
         localnets;
     };
@@ -566,75 +566,75 @@ Na niestandardowy serwer DNS w sieci wirtualnej:
 
             allow-query { goodclients; };
 
-            # All other requests are sent to the following
+            # All other requests are sent toohello following
             forwarders {
-                192.168.0.1; # Replace with the IP address of your on-premises DNS server
+                192.168.0.1; # Replace with hello IP address of your on-premises DNS server
             };
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Zastąp `10.0.0.0/16` wartość z zakresu adresów IP sieci wirtualnej. Ten wpis umożliwia adresy żądań rozpoznawania nazw w tym zakresie.
+    * Zastąp hello `10.0.0.0/16` wartość z zakresu adresów IP hello sieci wirtualnej. Ten wpis umożliwia adresy żądań rozpoznawania nazw w tym zakresie.
 
-    * Dodaj zakres adresów IP w sieci lokalnej do `acl goodclients { ... }` sekcji.  Wpis umożliwia żądań rozpoznawania nazw z zasobów w sieci lokalnej.
+    * Dodaj zakres adresów IP hello toohello sieci lokalne powitania `acl goodclients { ... }` sekcji.  Wpis umożliwia żądań rozpoznawania nazw z zasobów w sieci lokalnej hello.
     
-    * Zastąp wartość `192.168.0.1` przy użyciu adresu IP serwera DNS lokalnie. Ten wpis kieruje wszystkich innych żądaniach DNS do lokalnego serwera DNS.
+    * Zastąp wartość hello `192.168.0.1` o adresie IP hello lokalnego serwera DNS. Ten wpis kieruje wszystkich innych żądań toohello lokalnymi DNS serwera DNS.
 
-3. Do korzystania z konfiguracji, uruchom ponownie powiązania. Na przykład `sudo service bind9 restart`.
+3. Konfiguracja hello toouse, uruchom ponownie powiązania. Na przykład `sudo service bind9 restart`.
 
-4. Dodaj warunkowego przesyłania dalej do lokalnego serwera DNS. Konfigurowanie warunkowego przesyłania dalej do wysyłania żądań dla sufiksu DNS z kroku 1 do niestandardowego serwera DNS.
+4. Dodaj serwer DNS warunkowego przesyłania dalej toohello lokalnymi. Skonfiguruj hello warunkowego przesyłania dalej toosend żądań hello sufiksu DNS z kroku 1 toohello niestandardowy serwer DNS.
 
     > [!NOTE]
-    > W dokumentacji oprogramowania DNS dla szczegółowych informacji na temat dodawania warunkowego przesyłania dalej.
+    > Dokumentacja hello oprogramowania DNS dla szczegółowych informacji na temat tooadd warunkowego przesyłania dalej.
 
-Po wykonaniu tych czynności można połączyć się z zasobami w sieci, albo przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Teraz można zainstalować usługi HDInsight w sieci wirtualnej.
+Po wykonaniu tych czynności możesz połączyć tooresources w każdej sieci przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Teraz można zainstalować usługi HDInsight w sieci wirtualnej hello.
 
 ### <a name="name-resolution-between-two-connected-virtual-networks"></a>Rozpoznawanie nazw między dwiema połączone sieci wirtualne
 
-W tym przykładzie powoduje, że następujące założenia:
+W tym przykładzie powoduje hello następujące założenia:
 
 * Masz dwie sieci wirtualnych Azure, które są połączone przy użyciu bramy sieci VPN lub komunikacji równorzędnej.
 
-* Niestandardowy serwer DNS w obu sieci działa jako systemu operacyjnego Linux lub Unix.
+* Hello niestandardowy serwer DNS w obu sieci działa jako system operacyjny hello Linux lub Unix.
 
-* [Powiąż](https://www.isc.org/downloads/bind/) jest zainstalowany na niestandardowych serwerów DNS.
+* [Powiąż](https://www.isc.org/downloads/bind/) jest zainstalowany na powitania niestandardowych serwerów DNS.
 
-1. Użyj programu Azure PowerShell lub interfejsu wiersza polecenia Azure, aby znaleźć sufiks DNS obie sieci wirtualne:
+1. Użyj programu Azure PowerShell lub interfejsu wiersza polecenia Azure toofind hello sufiksu DNS obu sieci wirtualnych:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Skorzystaj z poniższego tekstu jako zawartość `/etc/bind/named.config.local` pliku na niestandardowy serwer DNS. To zrobić na serwerze DNS niestandardowych w obu sieciach wirtualnych.
+2. Witaj Użyj następującego tekstu jako zawartość hello hello `/etc/bind/named.config.local` pliku na powitania niestandardowy serwer DNS. Na powitania niestandardowy serwer DNS w sieci zarówno wirtualnych, należy wprowadzić tę zmianę.
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
-        forwarders {10.0.0.4;}; # The IP address of the DNS server in the other virtual network
+        forwarders {10.0.0.4;}; # hello IP address of hello DNS server in hello other virtual network
     };
     ```
 
-    Zastąp `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` wartości z sufiksem DNS __innych__ sieci wirtualnej. Ten wpis kieruje żądania dla sufiksu DNS w sieci zdalnej niestandardowe DNS w sieci.
+    Zastąp hello `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` wartości z sufiksem DNS hello hello __innych__ sieci wirtualnej. Ten wpis kieruje żądania dla sufiksu DNS hello toohello sieci zdalnej hello niestandardowe DNS w sieci.
 
-3. W niestandardowych serwerów DNS w sieci zarówno wirtualnych, użyj następującego fragmentu jako zawartość `/etc/bind/named.conf.options` pliku:
+3. Na powitania niestandardowych serwerów DNS w sieci zarówno wirtualnych, użyj następującego tekstu jako zawartość hello hello hello `/etc/bind/named.conf.options` pliku:
 
     ```
-    // Clients to accept requests from
+    // Clients tooaccept requests from
     acl goodclients {
-        10.1.0.0/16; # The IP address range of one virtual network
-        10.0.0.0/16; # The IP address range of the other virtual network
+        10.1.0.0/16; # hello IP address range of one virtual network
+        10.0.0.0/16; # hello IP address range of hello other virtual network
         localhost;
         localnets;
     };
@@ -652,24 +652,24 @@ W tym przykładzie powoduje, że następujące założenia:
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Zastąp `10.0.0.0/16` i `10.1.0.0/16` wartości IP odnoszą się do zakresów sieci wirtualne. Ten wpis umożliwia zasobów w każdej sieci na wysyłanie żądań do serwerów DNS.
+    * Zastąp hello `10.0.0.0/16` i `10.1.0.0/16` wartości z adresem IP hello odnoszą się do zakresów sieci wirtualne. Ten wpis umożliwia zasobów w każdej sieci żądań toomake hello serwerów DNS.
 
-    Wszystkie żądania, które nie są dostępne dla sufiksów DNS, sieci wirtualnych (na przykład microsoft.com) jest obsługiwane przez Azure cyklicznego programu rozpoznawania nazw.
+    Wszystkie żądania, które nie są dostępne dla sufiksów DNS hello hello sieciami wirtualnymi (na przykład microsoft.com) jest obsługiwane przez hello Azure cyklicznego programu rozpoznawania nazw.
 
-4. Do korzystania z konfiguracji, uruchom ponownie powiązania. Na przykład `sudo service bind9 restart` na obu serwerach DNS.
+4. Konfiguracja hello toouse, uruchom ponownie powiązania. Na przykład `sudo service bind9 restart` na obu serwerach DNS.
 
-Po wykonaniu tych czynności można połączyć się z zasobami w sieci wirtualnej przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Teraz można zainstalować usługi HDInsight w sieci wirtualnej.
+Po wykonaniu tych czynności możesz połączyć tooresources w hello sieci wirtualnej przy użyciu w pełni kwalifikowanych nazw domen (FQDN). Teraz można zainstalować usługi HDInsight w sieci wirtualnej hello.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Na przykład na trasie konfigurowania usługi HDInsight można nawiązać połączenia z siecią lokalną, zobacz [HDInsight połączenia z siecią lokalną](./connect-on-premises-network.md).
+* Na przykład na trasie konfiguracji sieci lokalnej tooan tooconnect HDInsight, zobacz [sieć lokalną tooan połączyć HDInsight](./connect-on-premises-network.md).
 
-* Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz [Omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
+* Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz hello [Omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 * Aby uzyskać więcej informacji dotyczących grup zabezpieczeń sieci, zobacz [sieciowej grupy zabezpieczeń](../virtual-network/virtual-networks-nsg.md).
 

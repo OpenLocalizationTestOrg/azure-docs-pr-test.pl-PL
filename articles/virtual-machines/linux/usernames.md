@@ -1,6 +1,6 @@
 ---
-title: "Wybieranie nazwy użytkownika dla systemu Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wybrać nazwy użytkownika dla maszyny wirtualnej systemu Linux na platformie Azure."
+title: "aaaSelecting nazwy użytkownika dla systemu Linux | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak nazwa użytkownika tooselect maszyny wirtualnej systemu Linux na platformie Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 1874d72e5f88816036667932371ff28704d186c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c65e2ac46f40bb8c9d74cccbaf248a070c0fa6cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="selecting-user-names-for-linux-on-azure"></a>Wybieranie nazw użytkowników dla systemu Linux na platformie Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Podczas obsługi administracyjnej maszyny wirtualnej systemu Linux na platformie Azure należy określić nazwę użytkownika z systemem innym niż główny, który mógł później użyć do zalogowania się do maszyny Wirtualnej. Można wybrać nazwę nowego użytkownika lub inicjowania obsługi administracyjnej za pośrednictwem klasycznego portalu Azure możesz zaakceptować domyślną nazwę "azureuser".
+Podczas obsługi administracyjnej maszyny wirtualnej systemu Linux na platformie Azure należy określić nazwę hello użytkownika głównego nie mógł później użyć toolog do hello maszyny Wirtualnej. Możesz wybrać nazwę hello hello nowego użytkownika, lub jeśli Inicjowanie obsługi za pomocą hello klasycznego portalu Azure możesz zaakceptować domyślną hello name "azureuser".
 
-W większości przypadków tego użytkownika nie istnieje na podstawowy obraz i zostanie utworzony podczas procesu inicjowania obsługi administracyjnej. Jeśli użytkownik istnieje na podstawowy obraz maszyny Wirtualnej, a następnie agenta systemu Linux platformy Azure po prostu konfiguruje hasła lub klucza SSH dla tego użytkownika na podstawie informacji, które można określić podczas tworzenia maszyny Wirtualnej.
+W większości przypadków tego użytkownika nie istnieje na podstawowy obraz powitania i zostanie utworzony podczas procesu udostępniania hello. Jeśli hello użytkownika znajduje się na podstawowy obraz maszyny Wirtualnej hello, agenta systemu Linux Azure hello po prostu skonfiguruje hello hasła lub klucza SSH dla tego użytkownika na podstawie informacji hello, określone podczas tworzenia hello maszyny Wirtualnej.
 
-**Jednak**, Linux definiuje zestaw nazwy użytkownika, które nie powinny być używane. Proces inicjowania obsługi administracyjnej zostanie **niepowodzenie** próba udostępnienia maszyny Wirtualnej systemu Linux przy użyciu istniejącego użytkownika system, który jest zdefiniowany jako użytkownik z UID 0-99. Typowym przykładem jest `root` użytkownika, który ma UID 0.
+**Jednak**, Linux definiuje zestaw nazwy użytkownika, które nie powinny być używane. Hello inicjowania obsługi będzie procesu **niepowodzenie** przy próbie tooprovision maszyny Wirtualnej systemu Linux przy użyciu istniejącego użytkownika system, który jest zdefiniowany jako użytkownik z UID 0-99. Typowym przykładem jest hello `root` użytkownika, który ma UID 0.
 
 * Zobacz też: [Linux Standard Base - zakresy identyfikator użytkownika](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Poniżej znajduje się lista typowych użytkowników wbudowanych systemu CentOS i Ubuntu, że należy unikać używania podczas inicjowania obsługi administracyjnej maszyny wirtualnej systemu Linux na platformie Azure. Ta lista jest tylko przykładem, zapoznaj się z dokumentacją dotyczącą Twojej dystrybucji upewnić się, że wybrana nazwa użytkownika nie powoduje konfliktu z istniejącym użytkownikiem systemu.
+Witaj poniżej znajduje się lista typowych użytkowników wbudowanych systemu CentOS i Ubuntu, że należy unikać używania podczas inicjowania obsługi administracyjnej maszyny wirtualnej systemu Linux na platformie Azure. Ta lista jest tylko przykładem, zobacz dokumentację toohello dla Twojego tooensure dystrybucji tej nazwie użytkownika hello wybranych nie powoduje konfliktu z istniejącym użytkownikiem systemu.
 
 ## <a name="centos"></a>CentOS
 * abrt

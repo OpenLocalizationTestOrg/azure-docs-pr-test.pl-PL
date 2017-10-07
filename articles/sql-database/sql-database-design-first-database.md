@@ -1,6 +1,6 @@
 ---
-title: "Projektowanie pierwszą bazę danych Azure SQL | Dokumentacja firmy Microsoft"
-description: "Dowiedz się do projektowania pierwszą bazę danych Azure SQL."
+title: "aaaDesign pierwszą bazę danych Azure SQL | Dokumentacja firmy Microsoft"
+description: "Dowiedz się toodesign pierwszą bazę danych Azure SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,50 +16,50 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/03/2017
 ms.author: carlrab
-ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 65f0a1594cbdda7480abf32a847266a073e7560d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Projektowanie pierwszą bazę danych Azure SQL
 
-Baza danych SQL Azure to relacyjnej bazy danych — jako a usługa (DBaaS) w Microsoft Cloud ("Azure"). W tym samouczku, możesz dowiedzieć się, jak korzystać z portalu Azure i [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) do: 
+Baza danych SQL Azure to relacyjnej bazy danych — jako a usługa (DBaaS) w hello Microsoft Cloud ("Azure"). Z tego samouczka, dowiesz się, jak toouse hello portalu Azure i [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) do: 
 
 > [!div class="checklist"]
-> * Utwórz bazę danych w portalu Azure
-> * Reguły zapory poziomu serwera w portalu Azure
-> * Połączenie z bazą danych z narzędzia SSMS
+> * Utwórz bazę danych w hello portalu Azure
+> * Skonfiguruj regułę zapory poziomu serwera w hello portalu Azure
+> * Połączenie bazy danych toohello z SSMS
 > * Tworzenie tabel z SSMS
 > * Danych ładowania zbiorczego, za pomocą narzędzia BCP
 > * Zapytanie danych z narzędzia SSMS
-> * Przywróć bazę danych do poprzedniej [punktu w czasie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore) w portalu Azure
+> * Przywróć poprzednie tooa bazy danych hello [punktu w czasie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore) w hello portalu Azure
 
 Jeśli nie masz subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka, upewnij się, że jest zainstalowana:
-- Najnowsza wersja [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-- Najnowsza wersja [BCP i SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
+toocomplete tego samouczka, upewnij się, że została zainstalowana:
+- Witaj najnowsza wersja [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- Witaj najnowsza wersja [BCP i SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
-## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
+## <a name="log-in-toohello-azure-portal"></a>Zaloguj się za toohello portalu Azure
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
 
-Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](sql-database-service-tiers.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) oraz na [serwerze logicznym bazy danych Azure SQL Database](sql-database-features.md). 
+Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](sql-database-service-tiers.md). Witaj baza danych została utworzona w ramach [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) i [serwera logicznego bazy danych SQL Azure](sql-database-features.md). 
 
-Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL. 
+Wykonaj te kroki toocreate pustej bazy danych SQL. 
 
-1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+1. Kliknij przycisk hello **nowy** znaleziono przycisku na powitania lewym górnym rogu hello portalu Azure.
 
-2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Bazy danych** wybierz pozycję **SQL Database**. 
+2. Wybierz **baz danych** z hello **nowy** i wybrać opcję **bazy danych SQL** z hello **baz danych** strony. 
 
    ![Tworzenie bazy danych puste](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:   
+3. Wypełnianie hello bazy danych SQL formularza z hello następujących informacji, jak pokazano na powitania poprzedzających obrazu:   
 
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -68,106 +68,106 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL.
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
    | **Wybierz źródło** | Pusta baza danych | Określa, czy można utworzyć pustej bazy danych. |
 
-4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnianie **nowy formularz serwera** z następującymi informacjami: 
+4. Kliknij przycisk **serwera** toocreate i skonfiguruj nowy serwer dla nowej bazy danych. Wypełnianie hello **nowy formularz serwera** z hello następujących informacji: 
 
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). | 
    | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych).|
-   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkich liter, małych liter, cyfr i znaków innych niż alfanumeryczne. |
+   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii hello: wielkich liter, małych liter, cyfr i znaków innych niż alfanumeryczne. |
    | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
    ![tworzenie serwera bazy danych](./media//sql-database-design-first-database/create-database-server.png)
 
 5. Kliknij pozycję **Wybierz**.
 
-6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi i poziom wydajności dla nowej bazy danych. W tym samouczku, wybierz **20 jednostek Dtu** i **250** GB miejsca do magazynowania.
+6. Kliknij przycisk **warstwa cenowa** toospecify hello warstwę i poziom wydajności usługi dla nowej bazy danych. W tym samouczku, wybierz **20 jednostek Dtu** i **250** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Kliknij przycisk **Zastosuj**.  
 
-8. Wybierz **sortowania** dla pustą bazę danych (w tym samouczku, użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
+8. Wybierz **sortowania** dla hello pustej bazy danych (w tym samouczku, wartość domyślna używana hello). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Inicjowanie obsługi administracyjnej ma temat minutę i pół do wykonania. 
+9. Kliknij przycisk **Utwórz** tooprovision hello w bazie danych. Inicjowanie obsługi administracyjnej ma o toocomplete minutę i pół. 
 
-10. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+10. Na pasku narzędzi hello, kliknij przycisk **powiadomienia** procesu wdrażania hello toomonitor.
 
    ![powiadomienie](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
-Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera usługi SQL Database](sql-database-firewall-configure.md) dla podanego adresu IP klienta i włączyć zewnętrzną łączność przez zaporę usługi SQL Database wyłącznie dla konkretnego adresu IP. 
+Hello usługi baza danych SQL tworzy zapory na poziomie hello server — które uniemożliwiają połączenie serwera toohello lub żadnych baz danych na serwerze hello, chyba że tooopen hello zapory dla określonych adresów IP jest tworzona reguła zapory aplikacji zewnętrznych i narzędzia. Wykonaj te kroki toocreate [regułę zapory poziomu serwera bazy danych SQL](sql-database-firewall-configure.md) dla adresów IP klienta i włączyć łączność zewnętrzną przez zaporę bazy danych SQL hello tylko adresu IP. 
 
 > [!NOTE]
-> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli nastąpi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433.
+> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz tooconnect z sieci firmowej, ruch wychodzący przez port 1433 może nie być dozwolone przez zaporę w sieci. Jeśli tak, nie można połączyć tooyour serwera bazy danych SQL Azure, chyba że dział IT otwiera port 1433.
 >
 
-1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver20170313.database.windows.net**) i opcje dalszej konfiguracji. Skopiuj tę w pełni kwalifikowaną nazwę serwera do użycia w przyszłości.
+1. Po zakończeniu wdrażania hello, kliknij przycisk **baz danych SQL** z menu po lewej stronie powitania, a następnie kliknij przycisk **mySampleDatabase** na powitania **baz danych SQL** strony. Witaj strona przeglądu otwartym bazy danych przedstawiający hello w pełni kwalifikowana nazwa serwera (takich jak **mynewserver20170313.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji. Skopiuj tę w pełni kwalifikowaną nazwę serwera do użycia w przyszłości.
 
    > [!IMPORTANT]
-   > Ta w pełni kwalifikowana nazwa serwera będzie potrzebna do nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start.
+   > Należy to pełna nazwa tooconnect tooyour serwera i jego baz danych w kolejnych Szybki Start.
    > 
 
    ![nazwa serwera](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-2. Kliknij pozycję **Ustaw zaporę serwera** na pasku narzędzi, tak jak pokazano to na wcześniejszej ilustracji. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
+2. Kliknij przycisk **ustawić Zapora serwera** na powitania narzędzi, jak pokazano na poprzedniej ilustracji hello. Witaj **ustawienia zapory** zostanie otwarta strona hello bazy danych SQL Server. 
 
    ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 
-3. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
+3. Kliknij przycisk **Dodaj adres IP klienta** na powitania narzędzi tooadd IP bieżący adres tooa nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-4. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
+4. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP otwierania portu 1433 na serwerze logicznym hello tworzona jest reguła zapory poziomu serwera.
 
    ![ustawianie reguły zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
+4. Kliknij przycisk **OK** , a następnie zamknij hello **ustawienia zapory** strony.
 
-Teraz można połączyć się z serwerem usługi SQL Database i jego bazami danych przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
+Teraz można podłączyć toohello bazy danych programu SQL server i bazy danych przy użyciu programu SQL Server Management Studio lub inne narzędzie do dowolnego z tego adresu IP przy użyciu konta administratora serwera hello utworzone wcześniej.
 
 > [!IMPORTANT]
-> Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij przycisk **WYŁ.** na tej stronie, aby wyłączyć tę opcję dla wszystkich usług platformy Azure.
+> Domyślnie dostęp za pośrednictwem zapory bazy danych SQL hello jest włączona dla wszystkich usług platformy Azure. Kliknij przycisk **OFF** na toodisable tej strony dla wszystkich usług platformy Azure.
 
 ## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. W pełni kwalifikowanej nazwy serwera używa się do nawiązywania połączenia z serwerem przy użyciu programu SQL Server Management Studio.
+Pobierz hello pełni kwalifikowaną nazwę serwera dla serwera bazy danych SQL Azure w hello portalu Azure. Możesz użyć hello pełną nazwę tooconnect tooyour serwera przy użyciu programu SQL Server Management Studio.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
-3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**.
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+2. Wybierz **baz danych SQL** z menu po lewej stronie powitania i kliknij bazę danych na powitania **baz danych SQL** strony. 
+3. W hello **Essentials** okienka w hello strony portalu systemu Azure dla bazy danych, Znajdź, a następnie skopiuj hello **nazwy serwera**.
 
    ![informacje o połączeniu](./media/sql-database-connect-query-dotnet/server-name.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Połączenie z bazą danych z narzędzia SSMS
+## <a name="connect-toohello-database-with-ssms"></a>Połączenie bazy danych toohello z SSMS
 
-Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) nawiązać połączenia z serwerem bazy danych SQL Azure.
+Użyj [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) tooestablish serwer bazy danych SQL Azure tooyour połączenia.
 
 1. Otwórz program SQL Server Management Studio.
 
-2. W oknie dialogowym **Połącz z serwerem** wprowadź następujące informacje:
+2. W hello **połączyć tooServer** okna dialogowego wprowadź hello następujących informacji:
 
    | Ustawienie       | Sugerowana wartość | Opis | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
-   | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Nazwa może mieć taką formę: **mynewserver20170313.database.windows.net**. |
-   | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-   | Login | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
-   | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
+   | Nazwa serwera | Nazwa FQDN serwera Hello | Witaj nazwa powinna być podobny do następującego: **mynewserver20170313.database.windows.net**. |
+   | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie programu SQL jest typ uwierzytelniania tylko hello ma został skonfigurowany w tym samouczku. |
+   | Login | konto administratora powitania serwera | To konto hello określone podczas tworzenia powitania serwera. |
+   | Hasło | Witaj hasło do konta administratora serwera | Jest to hasło hello określone podczas tworzenia powitania serwera. |
 
-   ![łączenie z serwerem](./media/sql-database-connect-query-ssms/connect.png)
+   ![Połącz tooserver](./media/sql-database-connect-query-ssms/connect.png)
 
-3. Kliknij przycisk **Opcje** w oknie dialogowym **Połącz z serwerem**. W sekcji **Nawiązywanie połączenia z bazą danych** wprowadź ciąg **mySampleDatabase**, aby nawiązać połączenie z tą bazą danych.
+3. Kliknij przycisk **opcje** w hello **połączyć tooserver** okno dialogowe. W hello **połączyć toodatabase** wprowadź **mySampleDatabase** tooconnect toothis w bazie danych.
 
-   ![nawiązywanie połączenia z bazą danych na serwerze](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+   ![Połącz toodb na serwerze](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Kliknij przycisk **Połącz**. W programie SSMS zostanie otwarte okno Eksplorator obiektów. 
+4. Kliknij przycisk **Połącz**. Okno Eksploratora obiektów Hello zostanie otwarty w programie SSMS. 
 
-5. W Eksploratorze obiektów rozwiń pozycję **Bazy danych**, a następnie rozwiń pozycję **mySampleDatabase**, aby wyświetlić obiekty w przykładowej bazie danych.
+5. W Eksploratorze obiektów rozwiń **baz danych** , a następnie rozwiń węzeł **mySampleDatabase** tooview hello obiektów hello przykładowej bazy danych.
 
    ![Obiekty bazy danych](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Tworzenie tabel w bazie danych 
+## <a name="create-tables-in-hello-database"></a>Tworzenie tabel w bazie danych hello 
 
 Tworzenie schematu bazy danych z czterech tabel, które system zarządzania uczniów uczelni przy użyciu modelu [języka Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -176,16 +176,16 @@ Tworzenie schematu bazy danych z czterech tabel, które system zarządzania uczn
 - Dla użytkowników domowych
 - System zarządzania uczniów uczelni modelu karty kredytowej
 
-Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Niektóre z tych tabel odwoływać się do kolumn w innych tabelach. Na przykład odwołuje się do tabeli uczniowie **PersonId** kolumny **osoby** tabeli. Badanie na diagramie, aby zrozumieć, jak tabele w tym samouczku są ze sobą powiązane. Aby omówiono sposób tworzenia tabel skuteczne bazy danych, zobacz [tworzenia tabel bazy danych skuteczne](https://msdn.microsoft.com/library/cc505842.aspx). Aby uzyskać informacje dotyczące wybierania typów danych, zobacz [typy danych](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
+Witaj poniższym diagramie przedstawiono sposób następujące tabele są powiązane tooeach innych. Niektóre z tych tabel odwoływać się do kolumn w innych tabelach. Na przykład hello uczniów tabeli odwołuje hello **PersonId** kolumny hello **osoby** tabeli. Diagram toounderstand hello badań, jak hello tabele w tym samouczku są powiązane tooone innego. Dla omówiono sposób toocreate tabele skuteczne bazy danych, zobacz [tworzenia tabel bazy danych skuteczne](https://msdn.microsoft.com/library/cc505842.aspx). Aby uzyskać informacje dotyczące wybierania typów danych, zobacz [typy danych](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
-> Można również użyć [projektanta tabel w programie SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) tworzenie i projektowanie tabelach. 
+> Można również użyć hello [projektanta tabel w programie SQL Server Management Studio](https://msdn.microsoft.com/library/hh272695.aspx) toocreate i projektowanie tabelach. 
 
 ![Relacje między tabelami](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **mySampleDatabase** i kliknij opcję **Nowe zapytanie**. Zostanie otwarte puste okno zapytania, które jest połączone z Twoją bazą danych.
+1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **mySampleDatabase** i kliknij opcję **Nowe zapytanie**. Puste zapytanie zostanie otwarte okno czyli tooyour połączenia bazy danych.
 
-2. W oknie zapytania wykonaj następujące zapytanie, aby utworzyć cztery tabele w bazie danych: 
+2. W oknie zapytania hello wykonaj hello następującego zapytania toocreate cztery tabel bazy danych: 
 
    ```sql 
    -- Create Person table
@@ -234,24 +234,24 @@ Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Ni
 
    ![Tworzenie tabel](./media/sql-database-design-first-database/create-tables.png)
 
-3. Rozwiń węzeł "tabele" w Eksploratorze programu SQL Server Management Studio obiektu, aby zobaczyć tabele, który został utworzony.
+3. Rozwiń węzeł "tabele" hello w hello programu SQL Server Management Studio obiektu explorer toosee hello tabele, które utworzono.
 
    ![tabele utworzone w programie ssms](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables"></a>Ładowanie danych do tabel
+## <a name="load-data-into-hello-tables"></a>Ładowanie danych do tabel hello
 
-1. Utwórz folder o nazwie **SampleTableData** w folderze pobrane do przechowywania przykładowych danych bazy danych. 
+1. Utwórz folder o nazwie **SampleTableData** pliki do pobrania folderu toostore przykładowych danych bazy danych. 
 
-2. Kliknij prawym przyciskiem myszy poniższe łącza, a następnie zapisać je w **SampleTableData** folderu. 
+2. Kliknij prawym przyciskiem myszy hello następujące łącza i zapisać je w hello **SampleTableData** folderu. 
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Otwórz okno wiersza polecenia i przejdź do folderu SampleTableData.
+3. Otwórz okno wiersza polecenia i przejdź do folderu SampleTableData toohello.
 
-4. Wykonaj następujące polecenia, aby wstawić przykładowych danych do tabel, zastępując wartości **ServerName**, **DatabaseName**, **UserName**, i  **Hasło** wartościami dla danego środowiska.
+4. Wykonaj następujące polecenia tooinsert przykładowych danych do tabel hello, zastępując wartości hello hello **ServerName**, **DatabaseName**, **UserName**i **Hasło** hello wartościami dla danego środowiska.
   
    ```bcp
    bcp Course in SampleCourseData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
@@ -260,16 +260,16 @@ Na poniższym diagramie przedstawiono, jak te tabele są ze sobą powiązane. Ni
    bcp Credit in SampleCreditData -S <ServerName>.database.windows.net -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    ```
 
-Teraz załadowano przykładowych danych do tabel, który został utworzony wcześniej.
+Teraz załadowano przykładowych danych do tabel hello, utworzony wcześniej.
 
 ## <a name="query-data"></a>Zapytania o dane
 
-Wykonaj następujące kwerendy, aby pobrać informacje z tabel bazy danych. Zobacz [Pisanie zapytań SQL](https://technet.microsoft.com/library/bb264565.aspx) Aby dowiedzieć się więcej na temat Pisanie zapytań SQL. Pierwsza kwerenda łączy wszystkie cztery tabele, aby znaleźć wszystkie studentów nauczanych przez "Dominick Pope", którzy mają wyższe niż 75% stopnia w swojej klasie. Dołącza wszystkie cztery tabele drugiego zapytania i klient znajdzie wszystkich kursów, w których kiedykolwiek zarejestrował "Noe Coleman".
+Wykonanie poniższych informacji tooretrieve zapytania z tabel bazy danych hello hello. Zobacz [Pisanie zapytań SQL](https://technet.microsoft.com/library/bb264565.aspx) toolearn więcej informacji na temat Pisanie zapytań SQL. Pierwsza kwerenda Hello łączy wszystkie cztery tabele toofind przez wszystkich studentów hello nauczanych przez "Dominick Pope" które mają wyższe niż 75% stopnia w swojej klasie. Witaj drugiego zapytania wszystkie cztery między tabelami i wyszukuje wszystkich kursów, w których kiedykolwiek zarejestrował "Noe Coleman".
 
-1. W oknie zapytania SQL Server Management Studio wykonaj następujące zapytanie:
+1. W oknie zapytania SQL Server Management Studio wykonaj następujące kwerendy hello:
 
    ```sql 
-   -- Find the students taught by Dominick Pope who have a grade higher than 75%
+   -- Find hello students taught by Dominick Pope who have a grade higher than 75%
 
    SELECT  person.FirstName,
    person.LastName,
@@ -286,7 +286,7 @@ Wykonaj następujące kwerendy, aby pobrać informacje z tabel bazy danych. Zoba
 2. W oknie zapytania SQL Server Management Studio wykonaj następujące zapytanie:
 
    ```sql
-   -- Find all the courses in which Noe Coleman has ever enrolled
+   -- Find all hello courses in which Noe Coleman has ever enrolled
 
    SELECT  course.Name,
    course.Teacher,
@@ -299,38 +299,38 @@ Wykonaj następujące kwerendy, aby pobrać informacje z tabel bazy danych. Zoba
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Przywracanie bazy danych do określonego punktu w czasie
+## <a name="restore-a-database-tooa-previous-point-in-time"></a>Przywracanie bazy danych tooa poprzedniego punktu w czasie
 
-Załóżmy, że przypadkowo usunięto tabelę. Jest to coś, co nie można łatwo odzyskać z. Baza danych SQL Azure umożliwia wróć do dowolnego punktu w czasie w górę ostatnich 35 dni i przywrócić ten punkt w czasie do nowej bazy danych. Można odzyskać danych usuniętych tej bazy danych. Poniższe kroki przywrócenie przykładowej bazy danych do punktu przed dodaniem tabel.
+Załóżmy, że przypadkowo usunięto tabelę. Jest to coś, co nie można łatwo odzyskać z. Bazy danych SQL Azure pozwala toogo tooany zapasowego punktu w czasie w hello ostatnio zapasowej too35 dni i przywrócić ten punkt w czasie tooa nowej bazy danych. Możesz to toorecover bazy danych usunięte dane. Hello następujące kroki hello przykładowej bazy danych tooa punktu przywracania przed dodaniem hello tabel.
 
-1. Na stronie Baza danych SQL dla bazy danych, kliknij przycisk **przywrócić** na pasku narzędzi. **Przywrócić** zostanie otwarta strona.
+1. Na stronie Baza danych SQL hello bazy danych, kliknij przycisk **przywrócić** na powitania narzędzi. Witaj **przywrócić** zostanie otwarta strona.
 
    ![Przywracanie](./media/sql-database-design-first-database/restore.png)
 
-2. Wypełnianie **przywrócić** formularza z informacjami wymaganymi:
+2. Wypełnianie hello **przywrócić** formularza hello wymagane informacje:
     * Nazwa bazy danych: podaj nazwę bazy danych 
-    * W momencie: Wybierz **w momencie** kartę w formularzu przywracania 
-    * Punkt przywracania: Wybierz godzinę, która występuje przed zmianą bazy danych
+    * W momencie: Wybierz hello **w momencie** kartę w formularzu przywracania hello 
+    * Punkt przywracania: Wybierz godzinę, która występuje przed zmianą hello bazy danych
     * Serwer docelowy: nie można zmienić tę wartość podczas przywracania bazy danych 
     * Elastyczna pula baz danych: Wybierz **None**  
     * Warstwa cenowa: Wybierz **20 jednostek Dtu** i **250 GB** magazynu.
 
    ![punkt przywracania](./media/sql-database-design-first-database/restore-point.png)
 
-3. Kliknij przycisk **OK** Aby przywrócić bazę danych do [Przywracanie do punktu w czasie](sql-database-recovery-using-backups.md#point-in-time-restore) przed dodaniem tabel. Przywracanie bazy danych do innego punktu w czasie tworzy duplikat bazy danych w tym samym serwerze co oryginalnej bazy danych, począwszy od punktu w czasie, możesz określić, tak długo, jak jest w okresie przechowywania dla Twojego [warstwy usług](sql-database-service-tiers.md).
+3. Kliknij przycisk **OK** toorestore hello bazy danych za[tooa punktu przywracania w czasie](sql-database-recovery-using-backups.md#point-in-time-restore) przed dodaniem hello tabel. Przywracanie bazy danych tooa innego punktu w czasie tworzy duplikat bazy danych w hello tym samym serwerze co hello oryginalnej bazy danych lub nowszym hello punktu w czasie określisz, tak długo, jak jest w okresie przechowywania powitania dla Twojego [warstwy usług](sql-database-service-tiers.md).
 
 ## <a name="next-steps"></a>Następne kroki 
-W tym samouczku przedstawiono bazy danych podstawowych zadań takich jak utworzyć bazę danych i tabele, załadować zapytania na danych i Przywróć bazę danych z wcześniejszego punktu w czasie. Możesz przedstawiono sposób do:
+W tym samouczku przedstawiono bazy danych podstawowych zadań takich jak utworzyć bazę danych i tabele, załadować zapytania na danych i przywrócić hello bazy danych tooa wcześniejszego punktu w czasie. W tym samouczku omówiono:
 > [!div class="checklist"]
 > * Tworzenie bazy danych
 > * Konfigurowanie reguł zapory
-> * Połączenie z bazą danych z [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
+> * Połączenia bazy danych toohello z [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)
 > * Tworzenie tabel
 > * Danych ładowania zbiorczego
 > * Dane zapytania
-> * Przywróć bazę danych z wcześniejszego punktu w czasie przy użyciu bazy danych SQL [punktu w czasie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore) możliwości
+> * Przywracanie bazy danych hello tooa poprzedniego punktu w czasie przy użyciu bazy danych SQL [punktu w czasie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore) możliwości
 
-Przejdź do następnego samouczek, aby dowiedzieć się więcej o projektowaniu bazy danych przy użyciu programu Visual Studio i C#.
+Przejdź dalej toolearn samouczka toohello o projektowaniu bazy danych przy użyciu programu Visual Studio i C#.
 
 > [!div class="nextstepaction"]
 >[Projekt bazy danych Azure SQL i Połącz z C# i ADO.NET](sql-database-design-first-database-csharp.md)

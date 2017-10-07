@@ -1,5 +1,5 @@
 ---
-title: "Indeksowanie tabel w usłudze SQL Data Warehouse | Microsoft Azure"
+title: "tabele aaaIndexing w usłudze SQL Data Warehouse | Microsoft Azure"
 description: "Wprowadzenie do korzystania z tabeli indeksowanie w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e614d63c8fb871f2ba388f14576cf9f282d4b818
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indeksowanie tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Magazyn danych SQL oferuje kilka opcji indeksowania tym [klastrowane indeksy magazynu kolumn][clustered columnstore indexes], [klastrowane indeksy i nieklastrowanych indeksów] [ clustered indexes and nonclustered indexes].  Ponadto zapewnia ona również nie opcji indeksu znanej także jako [sterty][heap].  W tym artykule omówiono zalety każdego typu indeksu, a także wskazówek dotyczących uzyskiwania większości wydajności poza z indeksów. Zobacz [Tworzenie tabeli składni] [ create table syntax] uzyskać więcej szczegółowych informacji na temat tworzenia tabeli w usłudze SQL Data Warehouse.
+Magazyn danych SQL oferuje kilka opcji indeksowania tym [klastrowane indeksy magazynu kolumn][clustered columnstore indexes], [klastrowane indeksy i nieklastrowanych indeksów] [ clustered indexes and nonclustered indexes].  Ponadto zapewnia ona również nie opcji indeksu znanej także jako [sterty][heap].  W tym artykule obejmuje korzyści hello każdego typu indeksu także porady toogetting hello większość wydajności poza z indeksów. Zobacz [Tworzenie tabeli składni] [ create table syntax] uzyskać więcej szczegółowych informacji na temat toocreate tabeli w usłudze SQL Data Warehouse.
 
 ## <a name="clustered-columnstore-indexes"></a>Klastrowane indeksy magazynu kolumn
-Domyślnie usługi SQL Data Warehouse tworzy klastrowany indeks magazynu kolumn, czy nie indeksu określono opcji dla tabeli. Tabel klastrowanego magazynu kolumn oferują zarówno najwyższy poziom kompresji danych, a także ogólną najlepszą wydajność zapytań.  Tabel klastrowanego magazynu kolumn będą zazwyczaj przewyższyć klastrowanego indeksu lub sterty tabel i są zazwyczaj najlepszym rozwiązaniem w przypadku dużych tabel.  Z tego względu klastrowanego magazynu kolumn jest najlepszym miejscem, aby rozpocząć, gdy wiadomo, jak indeksu tabeli.  
+Domyślnie usługi SQL Data Warehouse tworzy klastrowany indeks magazynu kolumn, czy nie indeksu określono opcji dla tabeli. Tabel klastrowanego magazynu kolumn oferują zarówno hello najwyższy poziom kompresji danych, a także najlepszą ogólną wydajność zapytań hello.  Tabel klastrowanego magazynu kolumn będą zazwyczaj przewyższyć klastrowanego indeksu lub sterty tabel i są zwykle najlepszym wyborem hello dużych tabel.  Z tego względu klastrowanego magazynu kolumn jest hello najlepsze toostart miejsce, gdy wiadomo, jak tooindex tabeli.  
 
-Aby utworzyć tabelę klastrowanego magazynu kolumn, po prostu określić KLASTROWANY indeks magazynu kolumn w klauzuli WITH lub pozostaw klauzuli WITH:
+toocreate klastrowanego magazynu kolumn tabeli, po prostu określić KLASTROWANY indeks magazynu kolumn w klauzuli WITH hello, lub pozostaw klauzuli WITH hello:
 
 ```SQL
 CREATE TABLE myTable   
@@ -57,11 +57,11 @@ Istnieje kilka scenariuszy, w którym klastrowanego magazynu kolumn nie może by
 * Mała tabele zawierające mniej niż 100 milionów wierszy.  Należy wziąć pod uwagę sterty tabel.
 
 ## <a name="heap-tables"></a>Tabele sterty
-W przypadku tymczasowego kierowania danych do usługi SQL Data Warehouse może okazać się, że użycie tabeli stosu przyśpieszy cały proces.  Jest to spowodowane obciążeń do stosów są szybsze niż tabele indeksu, a w niektórych przypadkach można wykonać kolejne odczytu z pamięci podręcznej.  Jeśli dane są ładowane tylko pod kątem przygotowania do uruchomienia kolejnych przekształceń, załadowanie tabeli do stosu będzie znacznie szybsze niż załadowanie danych do tabeli klastrowanego magazynu kolumn. Ponadto podczas ładowania danych do [tabeli tymczasowej] [ Temporary] również załaduje znacznie szybciej niż podczas ładowania tabeli w magazynie trwałym.  
+Gdy dane są tymczasowo kierowanych na SQL Data Warehouse, może się okazać, że przy użyciu tabeli sterty dokona szybciej hello całego procesu.  Jest to spowodowane tooheaps obciążenia są szybsze niż tabele tooindex i w niektórych przypadkach hello można wykonać kolejne odczytu z pamięci podręcznej.  Przypadku ładowania danych toostage tylko przed uruchomieniem więcej przekształcenia, ładowanie hello tooheap tabeli będzie znacznie szybsze niż ładowania tooa danych hello klastrowanego magazynu kolumn tabeli. Ponadto podczas ładowania danych tooa [tabeli tymczasowej] [ Temporary] również załaduje znacznie szybciej niż ładowania magazynu toopermanent tabeli.  
 
-Dla tabel odnośników małych, wiersze mniej niż 100 milionów często sterty tabel sensu.  Rozpocznij klastra magazynu kolumn tabel do osiągnięcia optymalnej kompresji po więcej niż 100 milionów wierszy.
+Dla tabel odnośników małych, wiersze mniej niż 100 milionów często sterty tabel sensu.  Klastra magazynu kolumn tabel rozpocząć tooachieve optymalnej kompresji po więcej niż 100 milionów wierszy.
 
-Aby utworzyć tabelę sterty, po prostu określić STERTY w klauzuli WITH:
+toocreate tabeli sterty, po prostu określić STERTY w klauzuli WITH hello:
 
 ```SQL
 CREATE TABLE myTable   
@@ -74,9 +74,9 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Klastrowanych i nieklastrowanych indeksów
-Indeksy klastrowane może przewyższyć tabel klastrowanego magazynu kolumn, gdy trzeba szybko pobrać pojedynczy wiersz.  Dla zapytania, gdy jeden lub kilka bardzo wyszukiwania wiersza jest wymagany do wydajność i szybkość skrajne należy wziąć pod uwagę indeksu klastra lub dodatkowej indeks nieklastrowany.  Wadą korzystania indeks klastrowany jest skorzystają tylko zapytania, które korzystać z wysokiej selektywnego filtru kolumny indeksu klastrowanego.  Do poprawy filtr na innych kolumn indeksu nieklastrowanego na indeks mogą być dodawane do innych kolumn.  Jednak każdy indeks, który zostanie dodany do tabeli doda zarówno miejsce i czas przetwarzania na obciążenia.
+Indeksy klastrowane może przewyższyć tabel klastrowanego magazynu kolumn, gdy pojedynczy wiersz musi toobe szybko pobrać.  Dla zapytania, gdy jeden lub kilka bardzo wyszukiwania wiersza jest wymagane tooperformance z najwyższą szybkości należy wziąć pod uwagę indeksu klastra lub dodatkowej indeks nieklastrowany.  Witaj wadą toousing indeks klastrowany jest skorzystają tylko zapytania, które korzystać z wysokiej selektywnego filtru hello indeksu klastrowanego kolumna.  Filtr tooimprove na innych kolumn indeksu nieklastrowanego na indeks może być dodany tooother kolumn.  Jednak każdy indeks, która jest dodawana tabeli tooa doda miejsca i tooloads czasu przetwarzania.
 
-Aby utworzyć tabelę indeks klastrowany, po prostu określić INDEKSU KLASTROWANEGO w klauzuli WITH:
+toocreate tabeli indeks klastrowany, po prostu określić INDEKSU KLASTROWANEGO w klauzuli WITH hello:
 
 ```SQL
 CREATE TABLE myTable   
@@ -88,16 +88,16 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Aby dodać nieklastrowanego indeksu dla tabeli, należy po prostu użyć następującej składni:
+tooadd nieklastrowanego indeksu dla tabeli, po prostu hello użyj następującej składni:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Optymalizacja klastrowane indeksy magazynu kolumn
-Tabel klastrowanego magazynu kolumn są zorganizowane w danych na segmenty.  Krytyczne znaczenie dla osiągnięcia optymalnego działania zapytań w tabeli magazynu kolumn jest posiadanie segmentu wysokiej jakości.  Jakość segmentu można zmierzyć przez liczbę wierszy w grupie skompresowany wiersza.  Jakość segmentu jest optymalny, gdy istnieją co najmniej 100 KB wiersze na wiersz skompresowany grupy i uzyskanie wydajności jako liczba wierszy przypadających na wiersz podejścia dotyczącego grupy 1 048 576 wierszy, czyli większości wiersze, które mogą zawierać grupę wierszy.
+Tabel klastrowanego magazynu kolumn są zorganizowane w danych na segmenty.  Segment wysokiej jakości jest krytyczne tooachieving optymalnego działania zapytań dla magazynu kolumn tabeli.  Jakość segmentu można mierząc hello liczbę wierszy w grupie skompresowany wiersza.  Jakość segmentu jest optymalny, gdy istnieją co najmniej 100K wiersze na wiersz skompresowany grupy i uzyskania w wydajności, ponieważ hello liczba wierszy w wierszu grupy podejście 1 048 576 wierszy, które jest hello większości wiersze, które mogą zawierać grupę wierszy.
 
-Poniżej widoku można tworzyć i używanych w systemie do obliczenia średniej wiersze na wiersz grupy i zidentyfikować indeksach magazynu kolumn nieoptymalnych klastra.  Ostatnia kolumna, w tym widoku wygeneruje jako instrukcji SQL, która może służyć do reorganizacji indeksów: sieci.
+Tworzenie i używanie Hello poniżej widoku na powitania toocompute Twojego systemu średnia liczba wierszy przypadających na wiersz grupy i zidentyfikować indeksach magazynu kolumn nieoptymalnych klastra.  Hello ostatniej kolumny w tym widoku wygeneruje jako instrukcji SQL, które mogą być używane toorebuild Twojego indeksów.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -146,7 +146,7 @@ GROUP BY
 ;
 ```
 
-Teraz, po utworzeniu widoku, uruchom to zapytanie do identyfikacji tabel z grupy wierszy jest mniejsza niż 100 KB wierszy.  Oczywiście można zwiększenie progu k 100, jeśli szukasz więcej jakości optymalne segmentu. 
+Teraz, po utworzeniu widoku hello, uruchom to zapytanie tooidentify tabel z grupy wierszy jest mniejsza niż 100 KB wierszy.  Oczywiście można próg hello tooincrease 100 k Jeśli szukasz więcej jakości optymalne segmentu. 
 
 ```sql
 SELECT    *
@@ -155,80 +155,80 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-Po uruchomieniu zapytania, które można rozpocząć przyjrzeć się dane i analiza wyników. W następującej tabeli opisano, co ma zostać wyszukane w analizy grupy wierszy.
+Po uruchomieniu kwerendy hello można rozpocząć toolook hello dane i analiza wyników. W następującej tabeli opisano, jakie toolook dla w analizy grupy wierszy.
 
-| Kolumna | Jak używać tych danych |
+| Kolumna | Jak toouse tych danych |
 | --- | --- |
-| [table_partition_count] |Jeśli tabela jest podzielona na partycje, może spodziewać zobaczyć liczby wyższej grupy Otwórz wiersz. Każda partycja w dystrybucji może teoretycznie istnieje grupa Otwórz wiersz skojarzony z nim. Uwzględnić to analizy. Mała tabelę, która ma zostać podzielona na partycje można zoptymalizowana przez usunięcie całkowicie partycjonowania ponieważ może to poprawić kompresji. |
-| [row_count_total] |Całkowita liczba wierszy tabeli. Na przykład tej wartości można użyć do obliczenia odsetek wierszy w stanie skompresowane. |
-| [row_count_per_distribution_MAX] |Jeśli wszystkie wiersze są równomiernie ta wartość będzie docelowy liczba wierszy przypadających na dystrybucji. Porównuje tę wartość z compressed_rowgroup_count. |
-| [COMPRESSED_rowgroup_rows] |Całkowita liczba wierszy w formacie magazynu kolumn dla tabeli. |
-| [COMPRESSED_rowgroup_rows_AVG] |Jeżeli to średnia liczba wierszy jest znacznie mniejsza niż maksymalna liczba wierszy dla grupy wierszy, należy rozważyć użycie CTAS lub ALTER INDEX REBUILD do ponownej danych |
-| [COMPRESSED_rowgroup_count] |Liczba grup wierszy w formacie magazynu kolumn. Jeśli ta liczba jest bardzo wysoka w odniesieniu do tabeli jest wskaźnik brakuje gęstość magazynu kolumn. |
-| [COMPRESSED_rowgroup_rows_DELETED] |Wiersze logicznie są usuwane z formatu magazynu kolumn. Jeśli liczba jest wysoka względem rozmiar tabeli, należy rozważyć ponowne tworzenie partycji lub odbudowanie indeksu, ponieważ spowoduje to usunięcie ich fizycznie. |
-| [COMPRESSED_rowgroup_rows_MIN] |Umożliwia to w połączeniu z kolumnami średnia i maksymalna zrozumieć zakres wartości dla grupy wierszy w Twojego magazynu kolumn. Niski numer powyżej wartości progowej obciążenia (102400 na partycji wyrównane dystrybucji) sugeruje, że optymalizacji są dostępne podczas ładowania danych |
+| [table_partition_count] |Tabela hello jest podzielona na partycje, może oczekiwać toosee wyższa liczba grupy Otwórz wierszy. Każdej partycji w dystrybucji hello może teoretycznie istnieje grupa Otwórz wiersz skojarzony z nim. Uwzględnić to analizy. Mała tabelę, która ma zostać podzielona na partycje można zoptymalizowana przez usunięcie hello partycjonowania całkowicie, ponieważ może to poprawić kompresji. |
+| [row_count_total] |Całkowita liczba wierszy dla tabeli hello. Na przykład można użyć tej wartości procentowej toocalculate wartości wierszy w stanie hello skompresowane. |
+| [row_count_per_distribution_MAX] |Jeśli wszystkie wiersze są równomiernie ta wartość będzie hello docelowy liczba wierszy w dystrybucji. Porównuje tę wartość z hello compressed_rowgroup_count. |
+| [COMPRESSED_rowgroup_rows] |Całkowita liczba wierszy w formacie magazynu kolumn dla tabeli hello. |
+| [COMPRESSED_rowgroup_rows_AVG] |Jeśli hello średnią liczbę wierszy jest znacznie mniejsza niż hello maksymalna liczba rzędów grupy wierszy, należy rozważyć użycie CTAS lub ALTER INDEX REBUILD toorecompress hello danych |
+| [COMPRESSED_rowgroup_count] |Liczba grup wierszy w formacie magazynu kolumn. Jeśli ta liczba jest bardzo duże w tabeli toohello relacji jest wskaźnik brakuje hello gęstość magazynu kolumn. |
+| [COMPRESSED_rowgroup_rows_DELETED] |Wiersze logicznie są usuwane z formatu magazynu kolumn. Jeśli liczba hello jest wysoka rozmiar tootable względny, należy rozważyć ponowne tworzenie partycji hello lub odbudowanie hello indeksu, ponieważ spowoduje to usunięcie ich fizycznie. |
+| [COMPRESSED_rowgroup_rows_MIN] |Użyj to w połączeniu z hello średnia i maksymalna liczba kolumn toounderstand hello zakres wartości dla grupy wierszy hello w Twojego magazynu kolumn. Niski numer powyżej wartości progowej obciążenia hello (102400 na partycji wyrównane dystrybucji) sugeruje, że optymalizacji są dostępne w hello ładowanie danych |
 | [COMPRESSED_rowgroup_rows_MAX] |Jak powyżej |
-| [OPEN_rowgroup_count] |Otwórz wiersz grupy to normalne zachowanie. Czy jedną spodziewać jednej grupy Otwórz wiersz na tabeli dystrybucji (60). Nadmiernej liczby sugeruje ładowania w partycji danych. Sprawdź strategii partycjonowania, aby zapewnić, że jest dźwięku |
-| [OPEN_rowgroup_rows] |Każda grupa wiersza może mieć 1 048 576 wierszy w nim co najwyżej. Użyj tej wartości, aby zobaczyć, jak Pełna grupy Otwórz wierszy są obecnie |
-| [OPEN_rowgroup_rows_MIN] |Otwieranie obszaru roboczego grupy oznaczać, że dane jest strumieniem ładowany do tabeli albo czy poprzedniej obciążenia za pośrednictwem rozrzucone pozostałych wierszy do tej grupy wierszy. Użyj MIN, MAX, AVG kolumn, aby zobaczyć, jak dużo danych jest znajdowało się w Otwórz wiersz grup. W przypadku małych tabel może to być 100% wszystkich danych! W takim przypadku ALTER INDEX REBUILD wymusić danych do magazynu kolumn. |
+| [OPEN_rowgroup_count] |Otwórz wiersz grupy to normalne zachowanie. Czy jedną spodziewać jednej grupy Otwórz wiersz na tabeli dystrybucji (60). Nadmiernej liczby sugeruje ładowania w partycji danych. Sprawdź hello partycjonowania strategii toomake się, że dźwięku |
+| [OPEN_rowgroup_rows] |Każda grupa wiersza może mieć 1 048 576 wierszy w nim co najwyżej. Użyj tej wartości toosee jak Pełna grupy wierszy Otwórz hello są obecnie |
+| [OPEN_rowgroup_rows_MIN] |Otwieranie obszaru roboczego grupy oznaczać, że dane jest strumieniem ładowany do tabeli hello albo które hello poprzedniego obciążenia rozrzucone za pośrednictwem pozostałe wiersze w tej grupie wiersza. Użyj hello MIN, MAX, AVG toosee kolumn, jak dużo danych jest znajdowało się w grupach Otwórz wiersz. W przypadku małych tabel może to być 100% wszystkich danych hello! W takim przypadku ALTER INDEX REBUILD tooforce hello toocolumnstore danych. |
 | [OPEN_rowgroup_rows_MAX] |Jak powyżej |
 | [OPEN_rowgroup_rows_AVG] |Jak powyżej |
-| [CLOSED_rowgroup_rows] |Spójrz na wiersz zamkniętego wiersze grupy w celu sprawdzenia związane z poprawnością. |
-| [CLOSED_rowgroup_count] |Liczba grupy zamkniętego wierszy powinna być niska, jeśli dowolne są widoczne w ogóle. Roups rowg skompresowane za pomocą ALTER INDEX można przekonwertować grupy wierszy zamkniętego... REORGANIZACJA polecenia. Jednak nie jest to zwykle wymagane. Zamknięte grupy są automatycznie konwertowane na grupy wierszy magazynu kolumn przez proces w tle "przenoszenia krotki". |
-| [CLOSED_rowgroup_rows_MIN] |Grupy wierszy zamkniętego powinny mieć współczynnik wypełnienia bardzo duże. Jeśli brakuje współczynnika wypełnienia grupy wierszy zamkniętego dalszej analizy magazynu kolumn jest wymagana. |
+| [CLOSED_rowgroup_rows] |Spójrz na powitania zamknięte wiersza grupy wierszy w celu sprawdzenia związane z poprawnością. |
+| [CLOSED_rowgroup_count] |Hello liczba grupy zamkniętego wierszy powinna być niska, jeśli dowolne są widoczne w ogóle. Grupy zamkniętego wierszy może być przekonwertowany toocompressed rowg roups przy użyciu hello ALTER INDEX... REORGANIZACJA polecenia. Jednak nie jest to zwykle wymagane. Zamknięte grupy to grupy wierszy toocolumnstore automatycznie przekonwertowane przez proces "przenoszenia krotki" hello w tle. |
+| [CLOSED_rowgroup_rows_MIN] |Grupy wierszy zamkniętego powinny mieć współczynnik wypełnienia bardzo duże. Jeśli brakuje hello współczynnika wypełnienia grupy zamkniętego wiersza dalsza analiza hello magazynu kolumn jest wymagana. |
 | [CLOSED_rowgroup_rows_MAX] |Jak powyżej |
 | [CLOSED_rowgroup_rows_AVG] |Jak powyżej |
-| [Rebuild_Index_SQL] |SQL do odbudowywania indeksu magazynu kolumn dla tabeli |
+| [Rebuild_Index_SQL] |Indeks magazynu kolumn toorebuild SQL dla tabeli |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Przyczyny jakości indeksu magazynu kolumn niska
-Po zidentyfikowaniu tabel z jakością niską segmentu, należy zidentyfikować przyczynę.  Poniżej przedstawiono niektóre typowe przyczyny quaility niską segmentu:
+W razie znalezienia tabel z segmentu słabą jakość ma tooidentify hello główną przyczynę.  Poniżej przedstawiono niektóre typowe przyczyny quaility niską segmentu:
 
 1. Wykorzystania pamięci, gdy indeks został skompilowany.
 2. Duża liczba operacji DML
 3. Mała lub ścieknie operacji obciążenia
 4. Zbyt wiele partycji
 
-Te czynniki mogą powodować indeksu magazynu kolumn, aby znacznie mniejsza niż optymalne 1 miliona wierszy dla każdej grupy wierszy.  Może również spowodować wiersze przejść do grupy wierszy delta zamiast grupy skompresowany wiersza. 
+Te czynniki mogą powodować toohave indeksu magazynu kolumn znacznie mniejszy niż hello optymalne 1 milion wierszy na grupę wierszy.  Może również spowodować wierszy toogo toohello delta wiersza grupy, zamiast grupy skompresowany wiersza. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Wykorzystania pamięci, gdy indeks został skompilowany.
-Liczba wierszy w grupę skompresowany wierszy są bezpośrednio związane z szerokość wiersza i ilość dostępnej pamięci, aby przetworzyć grupę wierszy.  Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  W związku z tym najlepszym rozwiązaniem jest zapewnienie sesji, który zapisuje dostęp tabel indeksu magazynu kolumn do ilości pamięci, jak to możliwe.  Ponieważ istnieje zależność między pamięci i współbieżności, wskazówki dotyczące alokacji pamięci prawo zależy od danych w każdym wierszu tabeli, ilość DWU przydzielone do systemu oraz ilości miejsc współbieżności, które można przekazać sesji, który jest Zapisywanie danych w tabeli.  Najlepszym rozwiązaniem zaleca się uruchomienie z xlargerc, jeśli używasz DW300 lub mniej largerc, jeśli używasz DW400 DW600 i mediumrc, jeśli używasz DW1000 lub nowszym.
+Hello liczba wierszy przypadających na grupę skompresowany wierszy są bezpośrednio powiązane toohello szerokość wiersza hello i hello ilość pamięci dostępna tooprocess hello grupę wierszy.  Jeśli wiersze są zapisywane tabel toocolumnstore wykorzystanie pamięci, może to spowodować obniżenie jakości segmentu magazynu kolumn.  W związku z tym hello najlepszym rozwiązaniem jest toogive hello sesji, który zapisuje tooas dostępu do tabel indeksu magazynu kolumn tooyour dużej ilości pamięci, jak to możliwe.  Ponieważ istnieje zależność między pamięcią i współbieżności, hello wskazówki dotyczące hello prawo, pamięci, których alokacji jest zależna od danych hello w każdym wierszu tabeli hello ilość DWU przydzielone tooyour systemu i hello ilość współbieżności gniazd, należy zapewnić toohello sesji, który zapisuje dane tooyour tabeli.  Najlepszym rozwiązaniem zaleca się uruchomienie z xlargerc, jeśli używasz DW300 lub mniej largerc, jeśli korzystasz z DW400 tooDW600 i mediumrc Jeśli używasz DW1000 lub nowszym.
 
 ### <a name="high-volume-of-dml-operations"></a>Duża liczba operacji DML
-Duża liczba operacji DML, które aktualizować i usuwać wiersze można wprowadzać nieefektywne podejście do magazynu kolumn. Dotyczy to zwłaszcza po zmodyfikowaniu większość wiersze, grupy wierszy.
+Duża liczba operacji DML, które aktualizować i usuwać wiersze można wprowadzać nieefektywne podejście do hello magazynu kolumn. Dotyczy to zwłaszcza po zmodyfikowaniu większość hello wierszy hello grupy wierszy.
 
-* Usuwanie wiersza z grupy wierszy skompresowany tylko logicznie oznacza wiersza jako usunięte. Wiersz pozostaje w grupie wiersza skompresowany, dopóki odbudowaniu partycji lub tabeli.
-* Wstawienie wiersza dodaje do wiersza do tabeli wewnętrznej magazynu wierszy o nazwie grupy wierszy delta. Wstawionego wiersza nie jest konwertowany na magazynu kolumn, aż grupy wierszy delta jest zapełniony i jest oznaczone jako zamknięte. Grupy wierszy zostaną zamknięte po upływie maksymalną pojemność 1 048 576 wierszy. 
-* Aktualizacja wiersza w formacie magazynu kolumn jest przetwarzany jako delete logicznej, a następnie insert. Wstawionego wiersza mogą być przechowywane w magazynie delta.
+* Usuwanie wiersza z grupy wierszy skompresowany tylko logicznie oznacza hello wiersza jako usunięte. Hello wiersza pozostaje w grupie skompresowany wiersza hello, dopóki odbudowaniu hello partycji lub tabeli.
+* Wstawienie wiersza dodaje hello wiersza tootooan wewnętrznego magazynu wierszy tabeli o nazwie grupy wierszy delta. Hello wstawiony wiersz nie jest toocolumnstore przekonwertowany, aż grupy wierszy delta hello jest zapełniony i jest oznaczone jako zamknięte. Grupy wierszy zostaną zamknięte po osiągnięcia maksymalnej pojemności hello 1 048 576 wierszy. 
+* Aktualizacja wiersza w formacie magazynu kolumn jest przetwarzany jako delete logicznej, a następnie insert. Wiersz wstawiony Hello mogą być przechowywane w magazynie delta hello.
 
-Umieścić w zadaniu wsadowym aktualizacji i Wstaw operacje przekraczające próg zbiorczego 102 400 wierszy przypadających na partycję wyrównany dystrybucji będą zapisywane bezpośrednio do formatu magazynu kolumn. Jednak przy założeniu Rozdziel, konieczne będzie można modyfikować ponad milion 6.144 wierszy w ramach jednej operacji w tym celu włączone. Jeśli liczba wierszy w danej partycji wyrównane dystrybucji znajduje się mniej niż 102400 wiersze nastąpi przejście do sklepu różnicowych i pozostaną dostępne do momentu wystarczające wiersze zostały wstawione lub zmodyfikowane zamknąć grupy wierszy lub indeks został ponownie skompilowany.
+Umieścić w zadaniu wsadowym aktualizacji i Wstaw operacje przekraczające próg zbiorczego hello 102 400 wierszy przypadających na partycję wyrównany dystrybucji będą zapisywane bezpośrednio formatu toohello magazynu kolumn. Jednak przy założeniu Rozdziel, będzie potrzebny toobe modyfikowanie więcej niż 6.144 mln wierszy w ramach jednej operacji dla tego toooccur. Jeśli hello liczbę wierszy dla danej partycji wyrównane dystrybucji znajduje się mniej niż 102400 wierszy hello przejdzie toohello delta magazynu i pozostaną dostępne do momentu wystarczające wiersze zostały wstawione lub zmodyfikowane tooclose hello grupy lub hello indeks wiersza został ponownie skompilowany.
 
 ### <a name="small-or-trickle-load-operations"></a>Mała lub ścieknie operacji obciążenia
-Mała liczba godzin ładuje, że przepływ do usługi SQL Data Warehouse czasami nazywa się ścieknie obciążeń. Zazwyczaj reprezentują near stały strumień danych jest pozyskanych przez system. Jednak ponieważ ten strumień jest bliski ciągłego wolumin wierszy nie jest szczególnie duże. Najczęściej danych znacznie jest poniżej wartości progowej, wymaganych do bezpośredniego obciążenia do formatu magazynu kolumn.
+Mała liczba godzin ładuje, że przepływ do usługi SQL Data Warehouse czasami nazywa się ścieknie obciążeń. Zazwyczaj reprezentują near stały strumień danych jest pozyskanych przez hello system. Jednak ponieważ ten strumień jest bliski ciągłego hello wolumin wierszy nie jest szczególnie duże. Najczęściej danych hello jest znacznie poniżej wartości progowej hello wymagane dla formatu toocolumnstore ładowania bezpośredniego.
 
-W takich sytuacjach warto często najpierw trafić dane w magazynie obiektów blob platformy Azure i pozwól mu gromadzone przed załadowaniem. Ta metoda jest często nazywany *przetwarzanie wsadowe micro*.
+W takich przypadkach często jest lepsze danych hello tooland najpierw w magazynie obiektów blob platformy Azure i pozwól mu gromadzone tooloading wcześniejszych. Ta metoda jest często nazywany *przetwarzanie wsadowe micro*.
 
 ### <a name="too-many-partitions"></a>Zbyt wiele partycji
-Innym czynnikiem, który należy wziąć pod uwagę jest wpływ partycjonowania na tabel klastrowanego magazynu kolumn.  Przed partycje, SQL Data Warehouse już dzieli dane 60 baz danych.  Dodatkowo partycjonowania dzieli dane.  Jeśli partycji danych, a następnie należy wziąć pod uwagę, że **każdego** partycji musi mieć co najmniej 1 milion wierszy do korzystania z klastrowanego indeksu magazynu kolumn.  Jeśli partycji tabeli na partycje 100, a następnie tabela musi mieć co najmniej 6 miliardy wierszy do korzystania z klastrowanego indeksu magazynu kolumn (60 dystrybucje * partycje 100 * 1 milion wierszy). Jeśli tabela 100 partycji nie ma 6 miliardy wierszy, Zmniejsz liczbę partycji lub tabeli sterty zamiast tego Rozważ użycie.
+Inny element tooconsider jest wpływ hello partycjonowania na tabel klastrowanego magazynu kolumn.  Przed partycje, SQL Data Warehouse już dzieli dane 60 baz danych.  Dodatkowo partycjonowania dzieli dane.  Jeśli partycji danych, a następnie można tooconsider który **każdego** partycji będzie potrzebne toohave co najmniej 1 milion wierszy toobenefit z klastrowanego indeksu magazynu kolumn.  Jeśli partycji tabeli na partycje 100, a następnie tabeli należy toohave co najmniej 6 miliard wierszy toobenefit z klastrowanego indeksu magazynu kolumn (60 dystrybucje * partycje 100 * 1 milion wierszy). Jeśli 100 partycji tabeli nie ma 6 miliardy wierszy, Zmniejsz liczbę hello partycji lub tabeli sterty zamiast tego Rozważ użycie.
 
-Po tabele zostały załadowane z niektórych danych, wykonaj następujące czynności, aby zidentyfikować i Przebuduj tabele z indeksami magazynu kolumn nieoptymalnych klastra.
+Po tabele zostały załadowane z niektórych danych, wykonaj hello poniżej tooidentify kroki i Przebuduj tabele z indeksami magazynu kolumn nieoptymalnych klastra.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Ponowne tworzenie indeksów do poprawy jakości segmentu
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Krok 1: Określenie lub Utwórz użytkownika, który używa klasy zasobu prawo
-Szybki sposób natychmiast poprawić jakość segmentu jest odbudowanie indeksu.  SQL zwrócone przez widok powyżej zwróci błąd instrukcji ALTER INDEX REBUILD, która może służyć do reorganizacji indeksów: sieci.  Ponowne tworzenie indeksów sieci, należy pamiętać, że można przydzielić wystarczającej ilości pamięci do sesji, który będzie odbudowanie indeksu.  Aby to zrobić, należy zwiększyć klasa zasobów użytkownika, który ma uprawnienia do odbudowywania indeksu w tej tabeli do minimum, zalecane.  Nie można zmienić klasy zasobów użytkownika właściciela bazy danych, więc jeśli nie utworzono użytkownika w systemie, należy w tym celu najpierw.  Zalecanym przez nas minimum jest xlargerc Jeśli używasz DW300 lub mniej, largerc Jeśli używasz DW400 DW600 i mediumrc, jeśli używasz DW1000 lub nowszym.
+## <a name="rebuilding-indexes-tooimprove-segment-quality"></a>Ponowne tworzenie indeksów tooimprove segmentu jakości
+### <a name="step-1-identify-or-create-user-which-uses-hello-right-resource-class"></a>Krok 1: Określenie lub Utwórz użytkownika, który używa klasy zasobu prawo hello
+Jednym ze sposobów szybkiego tooimmediately poprawić jakość segmentu jest toorebuild hello indeksu.  Hello zwrócony przez hello powyżej widoku SQL zwróci instrukcji ALTER INDEX REBUILD, które mogą być używane toorebuild Twojego indeksów.  Ponowne tworzenie indeksów sieci, należy pamiętać, że przydzielić wystarczającej ilości pamięci sesji toohello, który będzie odbudowanie indeksu.  toodo tej, Zwiększ hello zasobów klasy użytkownika, który ma uprawnienia toorebuild hello indeks minimalna zalecana toohello tabeli.  Nie można zmienić klasy zasobów Hello użytkownika właściciela bazy danych hello, więc jeśli nie utworzono użytkownika w systemie hello, konieczne będzie toodo najpierw.  zalecanym przez nas minimum Hello jest xlargerc Jeśli używasz DW300 lub mniej, largerc Jeśli korzystasz z DW400 tooDW600 i mediumrc Jeśli używasz DW1000 lub nowszym.
 
-Poniżej przedstawiono przykładowy sposób przydzielania większej ilości pamięci do użytkownika przez odpowiednie zwiększenie ich klasy zasobów.  Aby uzyskać więcej informacji o zasobie klasy oraz sposobu tworzenia nowego użytkownika można znaleźć w [zarządzania współbieżności i obciążenia] [ Concurrency] artykułu.
+Poniżej znajduje się przykład sposobu tooallocate więcej pamięci tooa użytkownika przez odpowiednie zwiększenie ich klasy zasobów.  Aby uzyskać więcej informacji na temat klasy zasobów i jak toocreate nowego użytkownika można znaleźć w hello [zarządzania współbieżności i obciążenia] [ Concurrency] artykułu.
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Krok 2: Ponownie klastrowane indeksy magazynu kolumn za pomocą nowszej użytkownika klasy zasobu
-Logowania jako użytkownik z kroku 1 (np. LoadUser), który jest teraz za pomocą nowszej klasy zasobów i wykonywania instrukcji ALTER INDEX.  Pamiętaj, że ten użytkownik ma uprawnienia ALTER tabel, w którym jest odbudować indeksu.  Poniższe przykłady prezentują sposób odbudowywania indeksu magazynu kolumn całą lub sposobie odbudowania jednej partycji. W dużych tabel jest więcej praktyczne odbudowy indeksów jednej partycji naraz.
+Zaloguj się jako hello użytkownika z kroku 1 (np. LoadUser), który jest teraz za pomocą nowszej klasy zasobów i wykonywania instrukcji ALTER INDEX hello.  Pamiętaj, że ten użytkownik ma toohello tabel uprawnienie ALTER, gdzie jest odbudować indeksu hello.  Poniższe przykłady pokazują, jak toorebuild hello indeksu magazynu kolumn całą lub jak toorebuild jednej partycji. W dużych tabel jest bardziej praktyczne indeksów toorebuild pojedynczej partycji naraz.
 
-Alternatywnie w zamiast odbudowanie indeksu, nowa za pomocą tabeli można skopiować tabeli [CTAS][CTAS].  Jaki sposób jest najlepsza? Dla dużych ilości danych [CTAS] [ CTAS] jest zwykle szybsze niż [ALTER INDEX][ALTER INDEX]. W przypadku mniejszych woluminów danych [ALTER INDEX] [ ALTER INDEX] jest łatwiejsza w użyciu i nie będzie trzeba wymienić tabeli.  Zobacz **ponowne tworzenie indeksów CTAS i przełączanie partycji** poniżej więcej szczegółów na temat sposobu Odbuduj indeksy z CTAS.
+Możesz też zamiast odbudowanie indeksu hello, można skopiować hello tabeli tooa nowej tabeli za pomocą [CTAS][CTAS].  Jaki sposób jest najlepsza? Dla dużych ilości danych [CTAS] [ CTAS] jest zwykle szybsze niż [ALTER INDEX][ALTER INDEX]. W przypadku mniejszych woluminów danych [ALTER INDEX] [ ALTER INDEX] jest łatwiejsze toouse i nie wymaga tooswap limit hello tabeli.  Zobacz **ponowne tworzenie indeksów CTAS i przełączanie partycji** poniżej uzyskać więcej informacji dotyczących sposobu toorebuild indeksy z CTAS.
 
 ```sql
--- Rebuild the entire clustered index
+-- Rebuild hello entire clustered index
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -247,16 +247,16 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Ponowne tworzenie indeksu w usłudze SQL Data Warehouse jest operacją w trybie offline.  Aby uzyskać więcej informacji na temat ponowne tworzenie indeksów w sekcji ALTER INDEX REBUILD w [defragmentacji indeksy magazynu kolumn] [ Columnstore Indexes Defragmentation] i tematu składni [ALTER INDEX] [ ALTER INDEX].
+Ponowne tworzenie indeksu w usłudze SQL Data Warehouse jest operacją w trybie offline.  Aby uzyskać więcej informacji na temat ponowne tworzenie indeksów, zobacz hello polecenia ALTER INDEX REBUILD sekcji [defragmentacji indeksy magazynu kolumn] [ Columnstore Indexes Defragmentation] i tematu składni hello [ALTER INDEX] [ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Krok 3: Sprawdź, czy uległa poprawie jakości segmentu klastrowanego magazynu kolumn
-Ponownie uruchom zapytanie, które zidentyfikowanych tabeli z słaby segment jakości i sprawdź jakości segmentu została ulepszona.  Jeżeli nie poprawy jakości segmentu, może to być, czy wiersze w tabeli są bardzo szeroki.  Należy rozważyć użycie nowszej klasy zasobu lub DWU podczas odbudowywania z indeksów.
+Uruchom ponownie hello zapytania, którego tabeli z słaby segment jakości i sprawdź, czy uległa poprawie jakości segmentu.  Jeśli nie poprawy jakości segmentu, może to być czy hello wierszy w tabeli są bardzo szeroki.  Należy rozważyć użycie nowszej klasy zasobu lub DWU podczas odbudowywania z indeksów.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Ponowne tworzenie indeksów CTAS i przełączanie partycji
-W tym przykładzie użyto [CTAS] [ CTAS] i przełączania w celu odbudowania partycji tabeli partycji. 
+W tym przykładzie użyto [CTAS] [ CTAS] i przełączania toorebuild partycji tabeli partycji. 
 
 ```sql
--- Step 1: Select the partition of data and write it out to a new table using CTAS
+-- Step 1: Select hello partition of data and write it out tooa new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -286,17 +286,17 @@ SELECT *
 FROM    [dbo].[FactInternetSales]
 WHERE   1=2 -- Note this table will be empty
 
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
+-- Step 3: Switch OUT hello data 
+ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 too [dbo].[FactInternetSales_20000101] PARTITION 2;
 
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 4: Switch IN hello rebuilt data
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 too [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-Aby uzyskać więcej informacji o ponowne tworzenie partycji przy użyciu `CTAS`, zobacz [partycji] [ Partition] artykułu.
+Aby uzyskać więcej informacji o ponowne tworzenie partycji przy użyciu `CTAS`, zobacz hello [partycji] [ Partition] artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej, zobacz artykuły w [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Partycjonowania tabeli][Partition], [utrzymania statystyk tabeli] [ Statistics] i [Tabel tymczasowych][Temporary].  Aby dowiedzieć się więcej o najlepszych rozwiązaniach, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
+toolearn więcej, zobacz artykuły hello na [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Partycjonowania tabeli][Partition], [utrzymania statystyk tabeli] [ Statistics] i [ Tabele tymczasowe][Temporary].  toolearn więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Mapowanie sieci dla maszyny Wirtualnej funkcji Hyper-V replikacji do lokacji dodatkowej z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób mapowania sieci podczas replikowania maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej programu VMM z usługą Azure Site Recovery."
+title: "aaaMap sieci dla lokacji dodatkowej tooa replikacji maszyny Wirtualnej funkcji Hyper-V z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toomap sieci podczas replikowania maszyn wirtualnych funkcji Hyper-V tooa lokacja dodatkowa programu VMM z usługą Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 606e2d3d0e31b9d80200105e812f9d7bbbcf939c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d4f621df4ce08ae055bc6809daea0b71b76754ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-7-map-networks-for-hyper-v-vm-replication-to-a-secondary-site"></a>Krok 7: Mapowanie sieci dla maszyny Wirtualnej funkcji Hyper-V replikacji do lokacji dodatkowej
+# <a name="step-7-map-networks-for-hyper-v-vm-replication-tooa-secondary-site"></a>Krok 7: Mapowanie sieci dla lokacji dodatkowej tooa replikacji maszyny Wirtualnej funkcji Hyper-V
 
 
-Po skonfigurowaniu [ustawienia źródłowe i docelowe](vmm-to-vmm-walkthrough-source-target.md) replikowania maszyn wirtualnych funkcji Hyper-V (VM) do lokacji dodatkowej programu System Center Virtual Machine Manager (VMM), użyj w tym artykule, aby skonfigurować mapowanie sieci dla funkcji Hyper-V maszyny wirtualnej ( Replikacja maszyny Wirtualnej) do dodatkowej lokacji przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
+Po skonfigurowaniu [ustawienia źródłowe i docelowe](vmm-to-vmm-walkthrough-source-target.md) replikację funkcji Hyper-V maszynach wirtualnych (VM) tooa System Center Virtual Machine Manager (VMM) lokacji dodatkowej, użyć tego mapowania artykułu tooconfigure sieci wirtualnej funkcji Hyper-v Maszyna wirtualna replikacji tooa dodatkowej lokacji przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
 
-Po przeczytaniu tego artykułu zamieść wszelkie komentarze u dołu lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Po przeczytaniu tego artykułu, post wszelkie komentarze u dołu hello, lub na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
 - Dowiedz się więcej o [mapowania sieci](vmm-to-vmm-walkthrough-network.md#network-mapping-overview) przed jego uruchomieniem.
-- Sprawdź, czy maszyny wirtualne na serwerach VMM są połączone z siecią maszyny Wirtualnej.
+- Sprawdź, czy maszyny wirtualne na serwerach VMM są połączone tooa sieci maszyny Wirtualnej.
 
 ## <a name="configure-network-mapping"></a>Konfiguracja mapowania sieci
 
 1. W **mapowanie sieci** > **mapowania sieci**, kliknij przycisk **+ mapowanie sieci**.
-2. W **Dodaj mapowanie sieci** , wybierz źródło i VMM serwery docelowe. Pobierane są wszystkie sieci maszyny Wirtualnej skojarzone z serwerów programu VMM.
-3. W **Sieć źródłowa**, wybierz sieć, którego chcesz użyć na liście sieci maszyny Wirtualnej skojarzone z podstawowym serwerem programu VMM.
-4. W **Sieć docelowa**, wybierz sieć, którego chcesz użyć na pomocniczym serwerze programu VMM. Następnie kliknij przycisk **OK**.
+2. W **Dodaj mapowanie sieci** , wybierz źródło hello i VMM serwery docelowe. Witaj sieci maszyny Wirtualnej skojarzone z serwerów VMM hello są pobierane.
+3. W **Sieć źródłowa**, wybierz sieć hello ma toouse z listy hello sieci maszyny Wirtualnej skojarzone z hello podstawowy serwer VMM.
+4. W **Sieć docelowa**, wybierz sieć hello ma toouse na powitania pomocniczy serwer programu VMM. Następnie kliknij przycisk **OK**.
 
     ![Mapowanie sieci](./media/vmm-to-vmm-walkthrough-network-mapping/network-mapping2.png)
 
 Oto, co się dzieje po rozpoczęciu mapowania sieci:
 
-* Wszystkie istniejące maszyny wirtualne repliki odpowiadające źródłowej sieci maszyny Wirtualnej zostaną podłączone do sieci docelowej maszyny Wirtualnej.
-* Nowe maszyny wirtualne, które są podłączone do źródłowej sieci maszyny Wirtualnej zostanie podłączona do sieci docelowej mapowane po replikacji.
-* Jeśli zmodyfikujesz istniejące mapowanie, uwzględniając nową sieć, maszyn wirtualne repliki zostaną podłączone z wykorzystaniem nowych ustawień.
-* Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę, jak podsieć, w której znajduje się źródłowa maszyna wirtualna, replika maszyny wirtualnej zostanie podłączona do tej docelowej podsieci po przejściu do trybu failover. Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna zostanie podłączona do pierwszej podsieci w sieci.
+* Wszystkie istniejące maszyny wirtualne repliki odpowiadające źródłowej sieci maszyny Wirtualnej toohello będzie sieć maszyny Wirtualnej podłączonej toohello docelowej.
+* Nowe maszyny wirtualne, które są połączone toohello źródłowej sieci maszyny Wirtualnej będzie mapowanej sieci docelowej połączonych toohello po replikacji.
+* Jeśli zmodyfikujesz istniejące mapowanie, uwzględniając nową sieć maszyn wirtualnych repliki zostaną podłączone z wykorzystaniem nowych ustawień hello.
+* Jeśli hello Sieć docelowa ma wiele podsieci i jedna z tych podsieci ma hello znajduje się samą nazwę jak podsieć, w których hello źródłowej maszyny wirtualnej, a następnie hello repliki maszyny wirtualnej zostaną połączone toothat docelowej podsieci po pracy awaryjnej. Jeśli nie ma żadnych docelowa podsieć o pasującej nazwie, maszyna wirtualna hello będzie toohello połączonych pierwszej podsieci w sieci hello.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [krok 8: Skonfiguruj zasady replikacji](vmm-to-vmm-walkthrough-replication.md).
+Przejdź za[krok 8: Skonfiguruj zasady replikacji](vmm-to-vmm-walkthrough-replication.md).

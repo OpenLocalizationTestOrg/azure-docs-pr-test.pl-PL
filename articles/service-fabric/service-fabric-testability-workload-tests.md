@@ -1,6 +1,6 @@
 ---
-title: "Symulowanie błędów w Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Jak zabezpieczyć przed awariami bezpieczne i nieprawidłowego usług."
+title: "usterki aaaSimulate mikrousług Azure | Dokumentacja firmy Microsoft"
+description: "Jak tooharden usługi przed awariami bezpieczne i nieprawidłowego."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 7ec671c23e101d0f7401bd4656fb201111602cad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05467e291dfc0f12a021955f8ea540881ec10746
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Symulowanie błędów w trakcie obciążenia usługi
-Scenariusze testowania w sieci szkieletowej usług Azure umożliwiają deweloperom nie martw się dotyczące poszczególnych błędów. Istnieją scenariusze, jednak gdzie jawne przeplataniem obciążenie klienta i błędy mogą być wymagane. Z przeplotem obciążenie klienta i błędy gwarantuje, że usługa rzeczywistego wykonania akcji w przypadku awarii. Podany poziom formant, który umożliwia zmianę, mogą to być punktach dokładne wykonywania obciążenia. To wywoływanie błędów w innych stanów w aplikacji można znaleźć usterek i poprawy jakości.
+Scenariusze testowania Hello w sieci szkieletowej usług Azure Włącz martwić toonot deweloperów dotyczące poszczególnych błędów. Istnieją scenariusze, jednak gdzie jawne przeplataniem obciążenie klienta i błędy mogą być wymagane. przeplataniem powitania klienta obciążenia oraz błędów gwarantuje, że usługi hello rzeczywistego wykonania akcji w przypadku awarii. Biorąc pod uwagę hello poziom formant, który umożliwia zmianę, mogą to być punktach dokładne hello obciążenia wykonywania. To wywoływanie błędów w innych stanów w aplikacji hello można znaleźć usterek i poprawy jakości.
 
 ## <a name="sample-custom-scenario"></a>Przykładowy scenariusz niestandardowych
-Ten test przedstawiono scenariusz, w którym przeplata obciążeń biznesowych o [awarii bezpieczne i nieprawidłowego](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Powinien zostać wywołane usterek w środku operacji usługi lub obliczeniowych w celu uzyskania najlepszych wyników.
+Ten test przedstawiono scenariusz, aby obciążenie interleaves hello biznesowych z [awarii bezpieczne i nieprawidłowego](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). błędy Hello powinien zostać wywołane w środku hello operacji usługi lub obliczeniowych w celu uzyskania najlepszych wyników.
 
-Przejdźmy przykład to usługa, która udostępnia cztery obciążeń: A, B, C i D. każde zestawowi przepływów pracy i może być obliczeniowych, pamięci masowej lub mieszane. Dla uproszczenia będzie abstrakcji pozwoliło obciążeń w naszym przykładzie. Różne błędy, wykonane w tym przykładzie są:
+Przejdźmy przykład to usługa, która udostępnia cztery obciążeń: A, B, C i D. każdego odpowiada zestaw tooa przepływów pracy i można obliczyć, magazynu lub mieszane. Dla zapewnienia hello prostotę będzie abstrakcji pozwoliło hello obciążeń w naszym przykładzie. błędy różnych Hello wykonane w tym przykładzie są:
 
-* RestartNode: Błąd nieprawidłowego Aby zasymulować ponowne uruchomienie komputera.
-* RestartDeployedCodePackage: Błąd nieprawidłowego symulowanie procesu hosta usługi ulega awarii.
-* RemoveReplica: Błąd łagodne symulowanie usuwania repliki.
-* MovePrimary: Błąd łagodne symulowanie przenosi repliki wyzwalane przez moduł równoważenia obciążenia sieci szkieletowej usług.
+* RestartNode: Błąd nieprawidłowego toosimulate maszynę Uruchom ponownie.
+* RestartDeployedCodePackage: Proces hosta usługi toosimulate błąd nieprawidłowego ulega awarii.
+* RemoveReplica: Usuwanie repliki toosimulate łagodne błędów.
+* MovePrimary: Bezpieczne błędów toosimulate repliki przenosi wyzwolona przez moduł równoważenia obciążenia sieci szkieletowej usług hello.
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
+// Add a reference tooSystem.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
@@ -46,7 +46,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and application.
+        // Replace these strings with hello actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -93,31 +93,31 @@ class Test
     {
         // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize.
+        // Maximum time toowait for a service toostabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute.
+        // How many loops of faults you want tooexecute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start the workload.
+            // Start hello workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // While hello task is running, induce faults into hello service. They can be ungraceful faults like
             // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector, which will select a primary replica from the given service to test.
+            // Create a replica selector, which will select a primary replica from hello given service tootest.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault.
+            // Run hello selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
-            // Validate the health and stability of the service.
+            // Validate hello health and stability of hello service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to finish successfully.
+            // Wait for hello workload toofinish successfully.
             await workloadTask;
         }
     }
@@ -145,9 +145,9 @@ class Test
     {
         throw new NotImplementedException();
         // This is where you trigger and complete your service workload.
-        // Note that the faults induced while your service workload is running will
-        // fault the primary service. Hence, you will need to reconnect to complete or check
-        // the status of the workload.
+        // Note that hello faults induced while your service workload is running will
+        // fault hello primary service. Hence, you will need tooreconnect toocomplete or check
+        // hello status of hello workload.
     }
 
     private static T SelectRandomValue<T>(Random random)

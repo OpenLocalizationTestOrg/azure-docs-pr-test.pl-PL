@@ -1,6 +1,6 @@
 ---
-title: "Kontrolowanie routingu i wirtualnych urządzeń w usłudze Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie kontrolowania routingu i wirtualnych urządzeń przy użyciu programu PowerShell."
+title: "aaaControl routingu i wirtualnych urządzeń w usłudze Azure - PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocontrol routingu i wirtualnych urządzeń przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: 3ab24f193c74449ae7414b4ea0675c0aae0211f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b7b8717529eb2cd8b1d28b8ab9c6e21159d14882
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-user-defined-routes-udr-using-powershell"></a>Tworzenie trasy zdefiniowane przez użytkownika (przez) przy użyciu programu PowerShell
 
@@ -34,21 +34,21 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-resource-manager/resource-manager-deployment-model.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu.
+> Przed rozpoczęciem pracy z zasobów platformy Azure, jest ważne toounderstand, że Azure ma obecnie dwa modele wdrażania: usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-resource-manager/resource-manager-deployment-model.md). Hello dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty hello u góry hello tego artykułu.
 >
 
-W tym artykule opisano model wdrażania usługi Resource Manager. Możesz również [utworzyć Udr w klasycznym modelu wdrażania](virtual-network-create-udr-classic-ps.md).
+W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. Możesz również [utworzyć Udr w hello klasycznego modelu wdrażania](virtual-network-create-udr-classic-ps.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-W powyższym scenariuszu na podstawie próbek PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone. Jeśli chcesz uruchomić polecenia wyświetlaną w tym dokumencie, wdrażając najpierw utworzyć środowisko testowe [ten szablon](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), kliknij przycisk **wdrażanie na platformie Azure**, Zastąp domyślne wartości parametrów, jeśli to konieczne i postępuj zgodnie z instrukcjami w portalu.
+w powyższym scenariuszu hello na podstawie próbek Hello PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone. Jeśli chcesz korzystać z poleceń hello toorun wyświetlaną w tym dokumencie, wdrażając najpierw utworzyć środowisko testowe hello [ten szablon](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), kliknij przycisk **wdrażanie tooAzure**, Zastąp hello domyślne wartości parametrów Jeśli to konieczne i wykonaj instrukcje hello hello portalu.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Utwórz przez podsieci frontonu
-Aby utworzyć tabelę tras i trasy wymagane dla podsieci frontonu, oparta na scenariuszu powyżej, wykonaj następujące kroki:
+## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Utwórz hello przez hello podsieci frontonu
+tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparte na scenariuszu hello powyżej pełną hello następujące kroki:
 
-1. Tworzenie trasy używana do wysyłania całego ruchu kierowanego do podsieci zaplecza (192.168.2.0/24), które mają być kierowane do **FW1** urządzenie wirtualne (192.168.0.4).
+1. Utwórz toosend trasy używane wszystkie toohello toobe kierowany ruch kierowany toohello podsieci zaplecza (192.168.2.0/24) **FW1** urządzenie wirtualne (192.168.0.4).
 
     ```powershell
     $route = New-AzureRmRouteConfig -Name RouteToBackEnd `
@@ -56,20 +56,20 @@ Aby utworzyć tabelę tras i trasy wymagane dla podsieci frontonu, oparta na sce
     -NextHopIpAddress 192.168.0.4
     ```
 
-2. Utwórz tabelę tras o nazwie **frontonu przez** w **westus** regionu zawierający trasy.
+2. Utwórz tabelę tras o nazwie **frontonu przez** w hello **westus** regionu zawierający hello trasy.
 
     ```powershell
     $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
     -Name UDR-FrontEnd -Route $route
     ```
 
-3. Tworzenie zmiennej, która zawiera przypadku podsieć sieci wirtualnej. W naszym scenariuszu sieci wirtualnej o nazwie **TestVNet**.
+3. Tworzenie zmiennej, która zawiera hello przypadku hello podsieci sieci wirtualnej. W naszym scenariuszu hello sieci wirtualnej nosi nazwę **TestVNet**.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     ```
 
-4. Skojarz utworzone powyżej do tabeli tras **frontonu** podsieci.
+4. Tabela tras hello Skojarz utworzone powyżej toohello **frontonu** podsieci.
 
     ```powershell
     Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
@@ -77,10 +77,10 @@ Aby utworzyć tabelę tras i trasy wymagane dla podsieci frontonu, oparta na sce
     ```
 
     > [!WARNING]
-    > Dane wyjściowe po wprowadzeniu powyższego polecenia zawiera zawartość dla obiekt konfiguracji sieci wirtualnej, który istnieje tylko na komputerze, na którym uruchomiony jest program PowerShell. Musisz uruchomić **AzureVirtualNetwork zestaw** polecenia cmdlet, aby zapisać te ustawienia do platformy Azure.
+    > Witaj dane wyjściowe polecenia hello powyżej przedstawiono hello zawartości dla obiekt konfiguracji sieci wirtualnej hello, który istnieje tylko na komputerze hello, w którym uruchomiony jest program PowerShell. Należy toorun hello **AzureVirtualNetwork zestaw** toosave polecenia cmdlet tooAzure tych ustawień.
     > 
 
-5. Zapisz nową konfigurację podsieci na platformie Azure.
+5. Zapisz nową konfigurację podsieci hello na platformie Azure.
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -134,11 +134,11 @@ Aby utworzyć tabelę tras i trasy wymagane dla podsieci frontonu, oparta na sce
                                 ...
                             ]    
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Utwórz przez podsieci wewnętrznej
+## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Utwórz hello przez hello zaplecza podsieci
 
-Aby utworzyć tabelę tras i trasy wymagane dla podsieci zaplecza opartą na tym scenariuszu powyżej, wykonaj poniższe kroki.
+tabeli tras hello toocreate i trasy wymagane do podsieci wewnętrznej hello oparta na scenariuszu hello powyżej, wykonaj poniższe kroki hello.
 
-1. Tworzenie trasy używana do wysyłania całego ruchu kierowanego do podsieci frontonu (192.168.1.0/24), aby być kierowane do **FW1** urządzenie wirtualne (192.168.0.4).
+1. Utwórz toosend trasy używane wszystkie toohello toobe kierowany ruch kierowany toohello podsieci frontonu (192.168.1.0/24) **FW1** urządzenie wirtualne (192.168.0.4).
 
     ```powershell
     $route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
@@ -146,21 +146,21 @@ Aby utworzyć tabelę tras i trasy wymagane dla podsieci zaplecza opartą na tym
     -NextHopIpAddress 192.168.0.4
     ```
 
-2. Utwórz tabelę tras o nazwie **wewnętrznej bazy danych przez** w **uswest** regionu zawierający trasy utworzone powyżej.
+2. Utwórz tabelę tras o nazwie **wewnętrznej bazy danych przez** w hello **uswest** regionu zawierający trasy hello utworzone powyżej.
 
     ```
     $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
     -Name UDR-BackEnd -Route $route
     ```
 
-3. Skojarz utworzone powyżej do tabeli tras **zaplecza** podsieci.
+3. Tabela tras hello Skojarz utworzone powyżej toohello **zaplecza** podsieci.
 
     ```powershell
     Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
     -AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
     ```
 
-4. Zapisz nową konfigurację podsieci na platformie Azure.
+4. Zapisz nową konfigurację podsieci hello na platformie Azure.
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -214,15 +214,15 @@ Aby utworzyć tabelę tras i trasy wymagane dla podsieci zaplecza opartą na tym
                             ]
 
 ## <a name="enable-ip-forwarding-on-fw1"></a>Włącz przesyłanie dalej IP na FW1
-Aby włączyć przesyłanie dalej IP w używany przez kartę Sieciową **FW1**, wykonaj poniższe kroki.
+przesyłanie dalej IP tooenable w hello używany przez kartę Sieciową **FW1**, wykonaj poniższe kroki hello.
 
-1. Tworzenie zmiennej, która zawiera ustawienia używane przez FW1 karty sieciowej. W naszym scenariuszu karty Sieciowej o nazwie **NICFW1**.
+1. Tworzenie zmiennej, która zawiera ustawienia hello hello używane przez FW1 karty Sieciowej. W naszym scenariuszu hello kart nosi nazwę **NICFW1**.
 
     ```powershell
     $nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
     ```
 
-2. Włącz przesyłanie dalej IP, a następnie Zapisz ustawienia karty Sieciowej.
+2. Włącz przesyłanie dalej IP i Zapisz ustawienia karty Sieciowej hello.
 
     ```powershell
     $nicfw1.EnableIPForwarding = 1

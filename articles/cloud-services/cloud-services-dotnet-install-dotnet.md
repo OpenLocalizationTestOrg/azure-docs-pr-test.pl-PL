@@ -1,6 +1,6 @@
 ---
-title: "Zainstaluj program .NET w przypadku ról usługi w chmurze Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak ręcznie zainstaluj program .NET Framework na role usługi w chmurze sieci web i proces roboczy"
+title: "aaaInstall .NET z ról, usług Azure Cloud Services | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak zainstalować toomanually hello .NET Framework na role usługi w chmurze sieci web i proces roboczy"
 services: cloud-services
 documentationcenter: .net
 author: thraka
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: adegeo
-ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 45f0f30221292f98c591511b091b02ebe1c1272c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Zainstaluj program .NET w przypadku ról usługi w chmurze Azure
-W tym artykule opisano sposób instalowania wersji programu .NET Framework, które nie pochodzą z systemu operacyjnego gościa Azure. Aby skonfigurować role usługi w chmurze sieci web i proces roboczy, można użyć .NET na systemu operacyjnego gościa.
+W tym artykule opisano, jak tooinstall wersje programu .NET Framework, które nie pochodzą z hello Azure systemu operacyjnego gościa. Można użyć .NET na powitania systemu operacyjnego gościa tooconfigure role usługi w chmurze sieci web i proces roboczy.
 
-Na przykład można zainstalować .NET 4.6.1 rodziny systemów operacyjnych gościa 4, które nie pochodzą z dowolną wersją .NET 4.6. (Rodziny systemów operacyjnych gościa 5 pochodzą z .NET 4.6). Aby uzyskać najnowsze informacje o wersjach systemu operacyjnego gościa Azure, zobacz [wiadomości wersji systemu operacyjnego gościa Azure](cloud-services-guestos-update-matrix.md). 
+Na przykład można zainstalować .NET 4.6.1 na powitania systemu operacyjnego gościa z rodziny 4, które nie pochodzą z dowolną wersją .NET 4.6. (hello rodziny systemów operacyjnych gościa 5 pochodzą z .NET 4.6). Najnowsze informacje o hello na powitania wersjami systemu operacyjnego gościa Azure, zobacz hello [wiadomości wersji systemu operacyjnego gościa Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Zestaw Azure SDK 2.9 zawiera ograniczenia dotyczące wdrażania .NET 4.6 rodziny systemów operacyjnych gościa, 4 lub starszym. Poprawka dla ograniczenia jest dostępna w [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) lokacji.
+>Hello Azure SDK 2.9 zawiera ograniczenia dotyczące wdrażania .NET 4.6 rodziny systemów operacyjnych gościa hello, 4 lub starszym. Poprawka dla ograniczenia hello jest dostępna na powitania [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) lokacji.
 
-Aby zainstalować program .NET w przypadku ról użytkownika sieci web i proces roboczy, należy uwzględnić Instalator sieci web .NET w ramach projektu usługi w chmurze. Uruchamianie Instalatora jako część zadania uruchamiania roli. 
+tooinstall .NET na poszczególnych ról sieci web i proces roboczy obejmują hello Instalator sieci web .NET w ramach projektu usługi w chmurze. Uruchom Instalator hello jako część zadania uruchamiania hello roli. 
 
-## <a name="add-the-net-installer-to-your-project"></a>Dodaj Instalator .NET do projektu
-Aby pobrać Instalatora sieci web dla programu .NET Framework, należy wybrać wersję, która ma zostać zainstalowany:
+## <a name="add-hello-net-installer-tooyour-project"></a>Dodaj projekt tooyour Instalator .NET hello
+Instalator sieci web hello toodownload dla hello .NET Framework, wybierz wersję hello, które mają tooinstall:
 
 * [Instalator sieci web .NET 4.7](http://go.microsoft.com/fwlink/?LinkId=825298)
 * [Instalator sieci web .NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729)
 
-Aby dodać Instalatora dla *web* roli:
+Instalator hello tooadd *web* roli:
   1. W **Eksploratora rozwiązań**w obszarze **ról** w projekcie usługi chmury, kliknij prawym przyciskiem myszy użytkownika *web* rolę i wybierz **Dodaj**  >  **Nowy Folder**. Utwórz folder o nazwie **bin**.
-  2. Kliknij prawym przyciskiem myszy bin folder, a następnie wybierz **Dodaj** > **istniejący element**. Wybierz Instalatora .NET i dodaj go do folderu bin.
+  2. Kliknij prawym przyciskiem myszy hello bin folder i wybierz **Dodaj** > **istniejący element**. Wybierz Instalatora .NET hello i dodaj go otworzyć folder bin toohello.
   
-Aby dodać Instalatora dla *procesu roboczego* roli:
-* Kliknij prawym przyciskiem myszy użytkownika *procesu roboczego* rolę i wybierz **Dodaj** > **istniejący element**. Wybierz Instalatora .NET i dodaj go do roli. 
+Instalator hello tooadd *procesu roboczego* roli:
+* Kliknij prawym przyciskiem myszy użytkownika *procesu roboczego* rolę i wybierz **Dodaj** > **istniejący element**. Wybierz Instalatora .NET hello i dodaj go toohello roli. 
 
-Kiedy pliki są dodawane w ten sposób do folderu zawartości roli, są one automatycznie dodawane do pakietu usługi w chmurze. Następnie wdrażane pliki do lokalizacji spójne na maszynie wirtualnej. Powtórz ten proces dla każdej roli sieci web i proces roboczy w usłudze w chmurze, aby wszystkie role mają kopię Instalatora.
+Kiedy pliki są dodawane w ten sposób toohello roli folder zawartości, są automatycznie dodawane pakiet usługi w chmurze tooyour. Witaj pliki są następnie spójne lokalizacji tooa wdrożone na maszynie wirtualnej hello. Powtórz ten proces dla każdej roli sieci web i proces roboczy w usłudze w chmurze, aby wszystkie role mają kopię hello Instalatora.
 
 > [!NOTE]
-> .NET 4.6.1 należy zainstalować na swojej roli usługi w chmurze, nawet jeśli jest przeznaczony dla aplikacji .NET 4.6. Systemu operacyjnego gościa zawiera bazy wiedzy Knowledge Base [aktualizacji 3098779](https://support.microsoft.com/kb/3098779) i [aktualizacji 3097997](https://support.microsoft.com/kb/3097997). Problemy mogą wystąpić przy uruchamianiu aplikacji platformy .NET, jeśli .NET 4.6 zostanie zainstalowana na aktualizacje bazy wiedzy Knowledge Base. Aby uniknąć tych problemów, należy zainstalować .NET 4.6.1 zamiast wersji 4.6. Aby uzyskać więcej informacji, zobacz [artykułu bazy wiedzy 3118750](https://support.microsoft.com/kb/3118750).
+> .NET 4.6.1 należy zainstalować na swojej roli usługi w chmurze, nawet jeśli jest przeznaczony dla aplikacji .NET 4.6. Witaj systemu operacyjnego gościa zawiera hello wiedzy [aktualizacji 3098779](https://support.microsoft.com/kb/3098779) i [aktualizacji 3097997](https://support.microsoft.com/kb/3097997). Problemy mogą wystąpić przy uruchamianiu aplikacji platformy .NET, jeśli .NET 4.6 zostanie zainstalowana na powitania aktualizacje bazy wiedzy Knowledge Base. tooavoid te problemy, należy zainstalować .NET 4.6.1 zamiast wersji 4.6. Aby uzyskać więcej informacji, zobacz hello [artykułu bazy wiedzy 3118750](https://support.microsoft.com/kb/3118750).
 > 
 > 
 
 ![Zawartość roli z plików Instalatora][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>Definiowanie zadań uruchomienia dla poszczególnych ról
-Zadania uruchamiania służy do wykonywania operacji przed rozpoczęciem roli. Instalowanie programu .NET Framework jako część zadania uruchamiania zapewnia czy framework jest zainstalowany, przed uruchomieniem kodu aplikacji. Aby uzyskać więcej informacji na temat uruchamiania zadań, zobacz [uruchamiać zadania uruchamiania na platformie Azure](cloud-services-startup-tasks.md). 
+Przed rozpoczęciem rolę, można użyć operacji tooperform zadania uruchamiania. Instalowanie hello .NET Framework, jako części hello uruchomienia zadania gwarantuje, że framework hello jest zainstalowany, przed uruchomieniem kodu aplikacji. Aby uzyskać więcej informacji na temat uruchamiania zadań, zobacz [uruchamiać zadania uruchamiania na platformie Azure](cloud-services-startup-tasks.md). 
 
-1. Dodaj następującą zawartość do pliku ServiceDefinition.csdef **sieć Web** lub **proces roboczy** węzła dla wszystkich ról:
+1. Dodaj poniższe plik ServiceDefinition.csdef toohello zawartości w obszarze hello hello **sieć Web** lub **proces roboczy** węzła dla wszystkich ról:
    
     ```xml
     <LocalResources>
@@ -75,29 +75,29 @@ Zadania uruchamiania służy do wykonywania operacji przed rozpoczęciem roli. I
     </Startup>
     ```
    
-    Tej konfiguracji uruchamia polecenie konsoli `install.cmd` z uprawnieniami administratora do zainstalowania programu .NET Framework. Tworzy również konfigurację **LocalStorage** elementu o nazwie **NETFXInstall**. Skrypt uruchamiania ustawia folder tymczasowy, aby użyć tego zasobu magazynu lokalnego. 
+    Witaj konfiguracji uruchamia hello konsoli polecenie `install.cmd` z tooinstall uprawnień administratora hello .NET Framework. tworzy również konfiguracji Hello **LocalStorage** elementu o nazwie **NETFXInstall**. skryptu uruchomieniowego Hello ustawia toouse folderu tymczasowego hello tego zasobu magazynu lokalnego. 
     
     > [!IMPORTANT]
-    > W celu zapewnienia prawidłowego zainstalowania platformy, należy ustawić rozmiaru tego zasobu na co najmniej 1024 MB.
+    > tooensure poprawną instalację platformy hello rozmiar hello zestawu tooat ten zasób najmniej 1024 MB.
     
     Aby uzyskać więcej informacji na temat uruchamiania zadań, zobacz [wspólne usługi w chmurze Azure uruchamiania zadań](cloud-services-startup-tasks-common.md).
 
-2. Utwórz plik o nazwie **install.cmd** i Dodaj poniższy skrypt instalacji do pliku.
+2. Utwórz plik o nazwie **install.cmd** i dodaj następujące hello Zainstaluj plik toohello skryptu.
 
-    Skrypt sprawdza, czy określonej wersji programu .NET Framework jest już zainstalowana na komputerze, badając rejestru. Jeśli nie zainstalowano programu .NET w wersji, Instalator sieci web .NET jest otwarty. Do rozwiązywania problemów, skrypt logowania wszystkich działań pliku startuptasklog-(bieżącą datę i godzinę) .txt są przechowywane w **InstallLogs** Magazyn lokalny.
+    skrypt Hello sprawdza, czy hello określonej wersji programu .NET Framework hello jest już zainstalowana na maszynie hello badając hello rejestru. Jeśli nie jest zainstalowana wersja .NET hello, Instalator sieci web .NET hello jest otwarty. toohelp rozwiązać wszelkie napotkane problemy, skrypt hello rejestruje wszystkie działania toohello pliku startuptasklog-(bieżącą datę i godzinę) .txt przechowywanego w **InstallLogs** Magazyn lokalny.
 
     > [!IMPORTANT]
-    > Umożliwia utworzenie pliku install.cmd edytorze tekstu podstawowego, takim jak Notatnik systemu Windows. Jeśli używasz programu Visual Studio Utwórz plik tekstowy i zmień rozszerzenie na .cmd plik nadal może zawierać znacznik kolejności bajtów UTF-8. Znak ten może spowodować błąd, gdy jest uruchamiany pierwszy wiersz skryptu. Aby uniknąć tego błędu, należy w pierwszym wierszu skryptu REM — instrukcja, który był pomijany przez przetwarzanie kolejności bajtów. 
+    > Użyj edytora tekstów podstawowe, takie jak Windows toocreate hello install.cmd Notatnika. Jeśli używasz programu Visual Studio toocreate plik tekstowy i zmienić too.cmd rozszerzenia hello, hello plików może nadal zawierać znacznik kolejności bajtów UTF-8. Znak ten może spowodować błąd, gdy hello pierwszego wiersza hello skrypt jest uruchamiany. tooavoid ten błąd, upewnij hello pierwszego wiersza hello skryptu REM — instrukcja, który był pomijany przez hello bajtów kolejności przetwarzania. 
     > 
     >
    
     ```cmd
-    REM Set the value of netfx to install appropriate .NET Framework. 
-    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
-    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
-    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
-    REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
+    REM Set hello value of netfx tooinstall appropriate .NET Framework. 
+    REM ***** tooinstall .NET 4.5.2 set hello variable netfx too"NDP452" *****
+    REM ***** tooinstall .NET 4.6 set hello variable netfx too"NDP46" *****
+    REM ***** tooinstall .NET 4.6.1 set hello variable netfx too"NDP461" *****
+    REM ***** tooinstall .NET 4.6.2 set hello variable netfx too"NDP462" *****
+    REM ***** tooinstall .NET 4.7 set hello variable netfx too"NDP47" *****
     set netfx="NDP47"
 
     REM ***** Set script start timestamp *****
@@ -108,7 +108,7 @@ Zadania uruchamiania służy do wykonywania operacji przed rozpoczęciem roli. I
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
 
-    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
+    REM ***** Needed toocorrectly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
 
@@ -167,7 +167,7 @@ Zadania uruchamiania służy do wykonywania operacji przed rozpoczęciem roli. I
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
 
     :restart
-    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
+    echo Restarting toocomplete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
 
     :installed
@@ -181,20 +181,20 @@ Zadania uruchamiania służy do wykonywania operacji przed rozpoczęciem roli. I
     ```
    
    > [!NOTE]
-   > Ten skrypt pokazuje, jak zainstalować platformę .NET 4.5.2 lub wersji 4.6, aby utrzymać ciągłość, nawet jeśli jest już dostępne w systemie operacyjnym gościa Azure .NET 4.5.2. Należy bezpośrednio zainstalować .NET 4.6.1 zamiast wersji 4.6, zgodnie z opisem w [artykułu bazy wiedzy 3118750](https://support.microsoft.com/kb/3118750).
+   > Ten skrypt pokazuje, jak tooinstall .NET 4.5.2 lub wersji 4.6 ciągłość działania, nawet wtedy, gdy jest już dostępny na .NET 4.5.2 hello Azure systemu operacyjnego gościa. Należy bezpośrednio zainstalować .NET 4.6.1 zamiast wersji 4.6, zgodnie z opisem w hello [artykułu bazy wiedzy 3118750](https://support.microsoft.com/kb/3118750).
    > 
    > 
 
-3. Dodaj plik install.cmd do każdej roli przy użyciu **Dodaj** > **istniejący element** w **Eksploratora rozwiązań** zgodnie z opisem we wcześniejszej części tego tematu. 
+3. Dodaj rolę tooeach plików install.cmd hello przy użyciu **Dodaj** > **istniejący element** w **Eksploratora rozwiązań** zgodnie z opisem we wcześniejszej części tego tematu. 
 
-    Po zakończeniu tego kroku wszystkie role powinny mieć plik Instalatora .NET i install.cmd pliku.
+    Po zakończeniu tego kroku wszystkie role powinny mieć plik Instalatora .NET hello i hello install.cmd pliku.
 
    ![Zawartość roli przy użyciu wszystkich plików][2]
 
-## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Skonfigurować diagnostykę do uruchomienia dzienniki transferu do magazynu obiektów Blob
-Aby ułatwić rozwiązywanie problemów z instalacji, możesz skonfigurować diagnostyki Azure, aby przenieść wszystkie pliki dziennika wygenerowane przez skryptu uruchomieniowego lub Instalator .NET do magazynu obiektów Blob Azure. Przy użyciu tej metody, można wyświetlić dzienniki, pobierania plików dziennika z magazynu obiektów Blob, zamiast konieczności pulpitu zdalnego do roli.
+## <a name="configure-diagnostics-tootransfer-startup-logs-tooblob-storage"></a>Konfigurowanie diagnostyki tootransfer uruchamiania dzienniki tooBlob magazynu
+toosimplify rozwiązywania problemów z instalacją, można skonfigurować tootransfer diagnostyki Azure wszystkie pliki dziennika wygenerowane przez hello uruchamiania skryptu lub hello magazynu obiektów Blob tooAzure Instalator .NET. Przy użyciu tej metody, można wyświetlić dzienniki hello przez pobieranie plików dziennika hello z magazynu obiektów Blob zamiast tooremote pulpitu do hello roli.
 
-Aby skonfigurować diagnostykę, otwórz plik diagnostics.wadcfgx i dodaj następującą zawartość w obszarze **katalogów** węzła: 
+Diagnostyka tooconfigure, otwórz plik diagnostics.wadcfgx hello i Dodaj powitania po zawartości w obszarze hello **katalogów** węzła: 
 
 ```xml 
 <DataSources>
@@ -204,18 +204,18 @@ Aby skonfigurować diagnostykę, otwórz plik diagnostics.wadcfgx i dodaj nastę
 </DataSources>
 ```
 
-Plik XML konfiguruje diagnostyki do transferu plików w katalogu dziennika w **NETFXInstall** zasobów na koncie magazynu diagnostyki w **netfx instalacji** kontenera obiektów blob.
+Plik XML konfiguruje diagnostyki tootransfer hello pliki w katalogu dziennika hello hello **NETFXInstall** toohello zasobów konta magazynu diagnostyki w hello **netfx instalacji** kontenera obiektów blob.
 
 ## <a name="deploy-your-cloud-service"></a>Wdrażanie usługi w chmurze
-Podczas wdrażania usługi w chmurze, uruchamiania zadań zainstalowania programu .NET Framework, jeśli to nie jest jeszcze zainstalowana. Role usługi w chmurze są w *zajęty* stanu podczas instalowania programu framework. Jeśli instalacja framework wymaga ponownego uruchomienia, role usługi również może być ponownie. 
+Podczas wdrażania usługi w chmurze hello uruchamiania zadań zainstalować hello .NET Framework, jeśli to nie jest jeszcze zainstalowana. Role usługi w chmurze są hello *zajęty* stanu podczas instalowania hello framework. Witaj framework instalacja wymaga ponownego uruchomienia, również może być ponownie hello usługi ról. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Instalowanie programu .NET Framework][Installing the .NET Framework]
+* [Instalowanie hello .NET Framework][Installing hello .NET Framework]
 * [Określanie, które wersje programu .NET Framework są zainstalowane][How to: Determine Which .NET Framework Versions Are Installed]
 * [Rozwiązywanie problemów z instalacja programu .NET Framework][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
-[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
+[Installing hello .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
 [Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
 
 <!--Image references-->

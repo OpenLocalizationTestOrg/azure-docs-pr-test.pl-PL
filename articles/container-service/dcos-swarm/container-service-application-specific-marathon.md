@@ -1,5 +1,5 @@
 ---
-title: "Usługa Marathon specyficzna dla aplikacji lub użytkownika | Microsoft Docs"
+title: "aaaApplication lub usługi Marathon specyficzne dla użytkownika | Dokumentacja firmy Microsoft"
 description: "Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika"
 services: container-service
 documentationcenter: 
@@ -16,45 +16,45 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1e6f69ed64e113a3a059788a71ddb57b6d3ad8da
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika
-Usługa kontenera platformy Azure oferuje zestaw serwerów głównych, na których wstępnie konfigurujemy usługi Apache Mesos i Marathon. Mogą one być używane do organizowania aplikacji w klastrze, ale stosowanie w tym celu serwerów głównych nie jest zalecane. Na przykład dostosowywanie konfiguracji usługi Marathon wymaga logowania do serwerów głównych i wprowadzania zmian. Oznacza to, że należy używać unikatowych serwerów głównych, które są nieco inne niż standardowe i wymagają niezależnej obsługi oraz zarządzania. Ponadto konfiguracja wymagana przez jeden zespół może nie być konfiguracją optymalną dla innego zespołu.
+Usługa kontenera platformy Azure oferuje zestaw serwerów głównych, na których wstępnie konfigurujemy usługi Apache Mesos i Marathon. Mogą to być tooorchestrate używanych aplikacji na powitania klastra, ale najlepiej nie toouse hello serwerów głównych, w tym celu. Na przykład Dostosowywanie konfiguracji hello usługi Marathon wymaga logowania do serwerów głównych hello się i wprowadzania zmian — to unikatowych serwerów głównych, które są nieco inne niż standardowe hello i toobe należy zapewnić opiekę i zarządzanie nimi niezależnie od siebie. Ponadto Konfiguracja hello wymagana przez jeden zespół może nie być hello konfiguracją optymalną dla innego zespołu.
 
-W tym artykule wyjaśnimy, jak dodać usługę Marathon specyficzną dla aplikacji lub użytkownika.
+W tym artykule wyjaśniamy sposób tooadd usługi Marathon dla aplikacji lub specyficzne dla użytkownika.
 
-Ponieważ usługa ta będzie należeć do pojedynczego użytkownika lub zespołu, będzie można w dowolny sposób skonfigurować jej działanie. Ponadto usługa Azure Container Service zapewni ciągłość działania usługi. Jeśli wystąpi awaria usługi, usługa Azure Container Service uruchomi ją ponownie. W większości przypadków taki przestój będzie niezauważalny.
+Ponieważ usługa ta będzie należeć tooa jednego użytkownika lub zespołu, są one wolnego tooconfigure w dowolny sposób, że chcą mieć. Usługi kontenera platformy Azure będzie upewnij się również, że usługa hello nadal toorun. W przypadku niepowodzenia usługi hello będzie Uruchom usługi kontenera platformy Azure. W większości przypadków hello nie nawet widać, że miała przestoju.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-[Wdróż wystąpienie usługi Azure Container Service](container-service-deployment.md) z typem aranżacji DCOS i [upewnij się, że klient może połączyć się z klastrem](../container-service-connect.md). Ponadto wykonaj poniższe kroki.
+[Wdróż wystąpienie usługi kontenera platformy Azure](container-service-deployment.md) z programem orchestrator wpisz DC/OS i [upewnij się, że klient połączenie klastra tooyour](../container-service-connect.md). Ponadto hello następujące kroki.
 
-[!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
+[!INCLUDE [install hello DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]
 
 ## <a name="create-an-application-or-user-specific-marathon-service"></a>Tworzenie usługi Marathon specyficznej dla aplikacji lub użytkownika
-Rozpocznij od utworzenia pliku konfiguracji JSON definiującego nazwę usługi aplikacji, którą chcesz utworzyć. W tym miejscu użyjemy ciągu `marathon-alice` jako nazwy szablonu. Zapisz plik z nazwą typu `marathon-alice.json`:
+Rozpocznij od utworzenia pliku konfiguracji JSON, który definiuje nazwę hello hello usługi aplikacji, które mają toocreate. W tym miejscu użyjemy `marathon-alice` jako nazwa struktury hello. Zapisz plik hello jako przypominać `marathon-alice.json`:
 
 ```json
 {"marathon": {"framework-name": "marathon-alice" }}
 ```
 
-Następnie użyj interfejsu wiersza polecenia DC/OS, aby zainstalować wystąpienie usługi Marathon z opcjami ustawionymi w pliku konfiguracji:
+Następnie użyj wystąpienie hello tooinstall hello interfejsu wiersza polecenia DC/OS usługi Marathon z opcjami hello, które są ustawione w pliku konfiguracji:
 
 ```bash
 dcos package install --options=marathon-alice.json marathon
 ```
 
-Usługa `marathon-alice` powinna teraz zostać wyświetlona jako działająca na karcie usług interfejsu użytkownika DC/OS. Jeśli chcesz bezpośrednio uzyskiwać dostęp do interfejsu użytkownika, zostanie użyta wartość `http://<hostname>/service/marathon-alice/`.
+Powinien zostać wyświetlony z `marathon-alice` usługa jest uruchomiona hello karcie usług interfejsu użytkownika DC/OS. Witaj interfejs użytkownika zostanie `http://<hostname>/service/marathon-alice/` Jeśli chcesz tooaccess go bezpośrednio.
 
-## <a name="set-the-dcos-cli-to-access-the-service"></a>Ustawianie interfejsu wiersza polecenia DC/OS w celu uzyskiwania dostępu do usługi
-Opcjonalnie możesz skonfigurować interfejs wiersza polecenia DC/OS do uzyskiwania dostępu do nowej usługi, ustawiając właściwość `marathon.url`, aby wskazywała wystąpienie `marathon-alice` w następujący sposób:
+## <a name="set-hello-dcos-cli-tooaccess-hello-service"></a>Ustaw tooaccess interfejsu wiersza polecenia DC/OS hello hello usługę
+Opcjonalnie można skonfigurować sieci tooaccess interfejsu wiersza polecenia DC/OS nowej usługi przez ustawienie hello `marathon.url` toohello toopoint właściwości `marathon-alice` wystąpienia w następujący sposób:
 
 ```bash
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-Możesz sprawdzić, z jakim wystąpieniem usługi Marathon działa interfejs wiersza polecenia, używając polecenia `dcos config show`. Możesz wrócić do korzystania z głównej usługi Marathon przy użyciu polecenia `dcos config unset marathon.url`.
+Możesz sprawdzić, którego wystąpienia usługi Marathon, czy interfejs wiersza polecenia działa z hello przed `dcos config show` polecenia. Możesz przywrócić toousing głównej usługi Marathon przy użyciu polecenia hello `dcos config unset marathon.url`.
 

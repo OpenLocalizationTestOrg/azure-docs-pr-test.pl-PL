@@ -1,5 +1,5 @@
 ---
-title: "Jak skalować aplikację w środowisku usługi aplikacji"
+title: "tooScale aaaHow aplikacji w środowisku usługi aplikacji"
 description: "Skalowanie aplikacji w środowisku usługi aplikacji"
 services: app-service
 documentationcenter: 
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 240c2486c23b7cd84e2471bf5b2170e08ee1f150
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08916eac056c46bf8cb6edffbf96285317b32062
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Skalowanie aplikacji w środowisku usługi App Service
-W usłudze Azure App Service są zwykle trzy czynności, które można skalować:
+Witaj w usłudze Azure App Service są zwykle trzy czynności, które można skalować:
 
 * Cennik planu
 * rozmiar procesu roboczego 
 * Liczba wystąpień.
 
-W elemencie ASE jest niepotrzebna, aby wybrać lub zmienić planu cenowego.  Pod względem możliwości jest już na poziomie możliwości cenowej Premium dostępne.  
+W elemencie ASE nie ma bez konieczności tooselect lub zmień hello cenową planu.  Pod względem możliwości jest już na poziomie możliwości cenowej Premium dostępne.  
 
-W odniesieniu do rozmiarów procesu roboczego ASE admin można przypisać rozmiar zasobów obliczeniowych do użycia dla każdej puli procesów roboczych.  Czy oznacza, że proces roboczy puli 1 z P4 zasobów obliczeniowych i proces roboczy puli 2 z P1 zasoby obliczeniowe, w razie potrzeby.  Nie mają być w kolejności rozmiar.  Szczegółowe informacje wokół rozmiary i ich cen można znaleźć tutaj dokumentu [Azure App Service — ceny][AppServicePricing].  Spowoduje to pozostawienie opcji skalowania dla aplikacji sieci web i plany usługi App Service w środowisku usługi aplikacji jako:
+Za pomocą względem tooworker rozmiary Witaj, Administratorze ASE można przypisać hello rozmiar toobe zasobów obliczeniowych hello używane dla każdej puli procesów roboczych.  Czy oznacza, że proces roboczy puli 1 z P4 zasobów obliczeniowych i proces roboczy puli 2 z P1 zasoby obliczeniowe, w razie potrzeby.  Nie mają toobe w kolejności rozmiar.  Szczegółowe informacje wokół hello rozmiary i ich cen można znaleźć tutaj dokumentu hello [Azure App Service — ceny][AppServicePricing].  Spowoduje to pozostawienie hello skalowanie opcje dla aplikacji sieci web i plany usługi App Service w toobe środowiska usługi aplikacji:
 
 * proces roboczy puli zaznaczenia
 * Liczba wystąpień
 
-Zmiana oba elementy odbywa się za pośrednictwem interfejsu użytkownika odpowiednie pokazywane dla Twojego ASE hostowanej plany usługi App Service.  
+Zmiana oba elementy odbywa się za pośrednictwem hello potrzeby pokazywane dla Twojego ASE hostowanej plany usługi App Service interfejsu użytkownika.  
 
 ![][1]
 
-Nie można skalować strona ASP poza liczba zasobów obliczeniowych dostępnych w puli procesów roboczych, który jest strona ASP.  Należy obliczyć zasobów w tej puli procesów roboczych należy uzyskać od administratora ASE, aby dodać je.  Dla informacji wokół ponowne konfigurowanie Twojego ASE przeczytaj informacje w tym miejscu: [jak skonfigurować środowisko usługi aplikacji][HowtoConfigureASE].  Można również korzystać z funkcji skalowania automatycznego ASE, aby dodać pojemności na podstawie harmonogramu lub metryki.  Aby uzyskać więcej informacji na temat konfigurowania automatycznego skalowania dla środowiska ASE się w temacie [Konfigurowanie automatycznego skalowania dla środowiska usługi aplikacji][ASEAutoscale].
+Nie można skalować strona ASP poza hello liczba zasobów obliczeniowych dostępnych w puli procesów roboczych hello, który jest strona ASP.  Jeśli należy obliczyć zasobów w tej puli procesów roboczych należy tooget Twojego tooadd administratora ASE je.  Aby odczytać informacji wokół ponowne konfigurowanie Twojego ASE tutaj informacje hello: [jak tooConfigure środowiska usługi aplikacji][HowtoConfigureASE].  Można również tootake zaletą hello ASE skalowania automatycznego funkcji tooadd pojemności na podstawie harmonogramu lub metryki.  więcej informacji na temat konfigurowania automatycznego skalowania dla środowiska hello ASE, się, zobacz tooget [jak tooconfigure funkcja automatycznego skalowania dla środowiska usługi aplikacji][ASEAutoscale].
 
-Można utworzyć wiele aplikacji przy użyciu zasobów obliczeniowych od pule procesów roboczych różnych planów usług lub można użyć tej samej puli procesów roboczych.  Na przykład jeśli masz (10) zasobów obliczeniowych dostępnych na proces roboczy puli 1, można utworzyć jeden plan usługi app service przy użyciu zasobów obliczeniowych (6) i plan usługi aplikacji — druga używającej (4) zasoby obliczeniowe.
+Można utworzyć wiele aplikacji przy użyciu zasobów obliczeniowych od pule procesów roboczych różnych planów usługi lub skorzystać z tej samej puli procesów roboczych hello.  Przykład, jeśli masz (10) zasobów obliczeniowych dostępnych w procesu roboczego puli 1, można wybrać toocreate jeden plan usługi app service przy użyciu zasobów obliczeniowych (6) i planowanie drugi usługi aplikacji, która używa zasobów obliczeniowych (4).
 
-### <a name="scaling-the-number-of-instances"></a>Skalowanie liczby wystąpień
-Podczas tworzenia aplikacji sieci web w środowisku usługi aplikacji rozpoczyna się od 1 wystąpienie.  Możesz następnie skalować w poziomie do dodatkowe wystąpienia, aby zapewnić zasoby obliczeniowe dla aplikacji.   
+### <a name="scaling-hello-number-of-instances"></a>Skalowanie hello liczba wystąpień
+Podczas tworzenia aplikacji sieci web w środowisku usługi aplikacji rozpoczyna się od 1 wystąpienie.  Mogą być następnie skalowania w poziomie tooprovide wystąpień tooadditional dodatkowe zasoby dla aplikacji obliczeniowe.   
 
-Jeśli Twoje ASE ma wystarczającą wydajność to bardzo proste.  Przejdź do planu usługi aplikacji przechowujący witrynami, które chcesz skalowanie w górę i wybierz skali.  Spowoduje to otwarcie interfejsu użytkownika, w którym można ręcznie ustawienie skali strona ASP lub skonfigurować reguły automatycznego skalowania dla Twojego środowiska ASP.  Aby ręcznie skalować aplikację po prostu ustaw ***skalowanie przez*** do ***liczba wystąpień ustawiana ręcznie***.  W tym miejscu przeciągnij suwak do żądanej ilości lub wprowadzić w polu obok suwaka.  
+Jeśli Twoje ASE ma wystarczającą wydajność to bardzo proste.  Możesz przejść tooyour planu usługi App Service przechowujący witryn hello tooscale się a wybrać skali.  Spowoduje to otwarcie hello interfejsu użytkownika, których można ręcznie ustawić hello skalowania dla strona ASP lub konfigurowanie reguł automatycznego skalowania dla Twojego środowiska ASP.  aplikację po prostu zestaw skalowania toomanually ***skalowanie przez*** za***liczba wystąpień ustawiana ręcznie***.  W tym miejscu przeciągnij hello suwaka toohello wymaganą ilość lub wprowadzić w hello pole dalej toohello suwaka.  
 
 ![][2] 
 
-Reguły automatycznego skalowania dla środowiska ASP w elemencie ASE działać w identyczny sposób jak zwykle.  Możesz wybrać ***procent użycia procesora CPU*** w obszarze ***skalowanie przez*** i utworzyć zasady automatycznego skalowania do programu ASP na podstawie procent użycia procesora CPU lub można utworzyć bardziej złożone zasady przy użyciu ***reguły wydajności i harmonogram***.  Aby wyświetlić bardziej szczegółowe informacje na temat konfigurowania automatycznego skalowania za pomocą przewodnika tutaj [skalować aplikację w usłudze Azure App Service][AppScale]. 
+Hello reguły automatycznego skalowania dla środowiska ASP, w pracach ASE hello takie same, jak zwykle.  Możesz wybrać ***procent użycia procesora CPU*** w obszarze ***skalowanie przez*** i utworzyć zasady automatycznego skalowania do programu ASP na podstawie procent użycia procesora CPU lub można utworzyć bardziej złożone zasady przy użyciu ***reguły wydajności i harmonogram***.  toosee ukończyć bardziej szczegółowe informacje na temat konfigurowania przewodnik hello Użyj skalowania automatycznego tutaj [skalować aplikację w usłudze Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Proces roboczy puli zaznaczenia
-Jak wspomniano wcześniej, zaznaczenie procesu roboczego puli jest dostępny z poziomu interfejsu użytkownika ASP.  Otwarcie bloku dla środowiska ASP, który chcesz skalować, a następnie wybierz puli procesów roboczych.  Są wyświetlane wszystkie pule procesów roboczych, które zostały skonfigurowane w środowisku usługi aplikacji.  Jeśli masz tylko jednego procesu roboczego puli następnie wyświetlany tylko jednej puli na liście.  Aby zmienić puli procesów roboczych, jaką strona ASP znajduje się w, po prostu zaznacz puli procesów roboczych ma Twojego planu usługi App Service można przenieść do.  
+Jak wspomniano wcześniej, hello procesu roboczego puli wybór jest dostępny hello ASP interfejsu użytkownika.  Otwarcie bloku hello hello ASP mają tooscale, a następnie wybierz puli procesów roboczych.  Są wyświetlane wszystkie hello pule procesów roboczych, które zostały skonfigurowane w środowisku usługi aplikacji.  Jeśli masz tylko jednego procesu roboczego puli będzie tylko Zobacz hello jednej puli na liście.  toochange jakiego procesu roboczego puli strona ASP, należy po prostu wybierz ma toomove Twojego planu usługi App Service, do puli procesów roboczych hello.  
 
 ![][3]
 
-Przed umieszczeniem jednego procesu roboczego puli strona ASP koniecznie upewnij się, że konieczne będzie odpowiedniej wydajności dla Twojego środowiska ASP.  Na liście pule procesów roboczych nie tylko znajduje się nazwa procesu roboczego puli, ale możesz też sprawdzić liczbę pracowników są dostępne w tej puli procesów roboczych.  Upewnij się, że ma wystarczającej liczby wystąpień mogła zawierać planu usługi aplikacji.  Zasoby w puli procesów roboczych, które chcesz przejść do bardziej muszą obliczeniowe, pobrać ASE administratorem, aby dodać je.  
+Przed przeniesieniem strona ASP z jednego procesu roboczego puli tooanother jest ważne toomake upewnić się, że będzie odpowiedniej wydajności dla Twojego środowiska ASP.  Na liście hello pule procesów roboczych nie tylko znajduje się nazwa puli worker hello, ale możesz też sprawdzić liczbę pracowników są dostępne w tej puli procesów roboczych.  Upewnij się, że ma wystarczającej liczby dostępnych toocontain wystąpień planu usługi aplikacji.  Jeśli zasoby w puli procesów roboczych hello wymagają więcej obliczeniowe mają toomove uzyskanie, następnie tooadd administratora Twojej ASE je.  
 
 > [!NOTE]
-> Uruchamia przeniesienie spowoduje, że chłodni ASP z jednego procesu roboczego puli aplikacji w ASP.  Może to spowodować żądań działanie aplikacji jest zimnych uruchomiona na nowe zasoby obliczeniowe.  Można uniknąć zimny start przy użyciu [aplikacji ciepłych się możliwość] [ AppWarmup] w usłudze Azure App Service.  Moduł Inicjowanie aplikacji, opisanej w artykule działa także dla zimnych startów ponieważ proces inicjowania jest również wywoływana, gdy aplikacje są zimnych uruchomiona na nowe zasoby obliczeniowe. 
+> Uruchamia przeniesienie spowoduje, że chłodni ASP z jednego procesu roboczego puli aplikacji hello w ASP.  Może to spowodować toorun żądań powoli aplikacji jest zimnych uruchomiona na powitania nowych zasobów obliczeniowych.  Witaj zimny start można uniknąć przy użyciu hello [aplikacji ciepłych się możliwość] [ AppWarmup] w usłudze Azure App Service.  Moduł Inicjowanie aplikacji Hello opisaną w artykule hello działa także dla zimnych startów ponieważ proces inicjowania hello również jest wywoływane, gdy aplikacje są zimnych uruchomiona na nowe zasoby obliczeniowe. 
 > 
 > 
 
 ## <a name="getting-started"></a>Wprowadzenie
-Wprowadzenie do środowiska usługi App Service, zobacz [jak do tworzenia środowiska usługi aplikacji][HowtoCreateASE]
+tooget wprowadzenie do środowiska usługi App Service, zobacz [jak tooCreate środowiska usługi aplikacji][HowtoCreateASE]
 
-Aby uzyskać więcej informacji o platformie usługi Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
+Aby uzyskać więcej informacji na temat hello platformy Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

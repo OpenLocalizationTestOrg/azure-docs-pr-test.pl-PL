@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do języka Python i usług Azure Cloud Services | Microsoft Docs"
-description: "Omówienie sposobu używania programu Python Tools for Visual Studio do tworzenia usług w chmurze platformy Azure, w tym ról Sieć Web i Proces roboczy."
+title: "aaaGet wprowadzenie do języka Python i usług Azure Cloud Services | Dokumentacja firmy Microsoft"
+description: "Omówienie używania programu Python Tools dla usług w chmurze Azure toocreate programu Visual Studio w tym ról sieć web i proces roboczy."
 services: cloud-services
 documentationcenter: python
 author: thraka
@@ -14,15 +14,15 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f5fd85e754839f146abe912351c59dc4a148c990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
-Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą narzędzi [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dowiedz się, jak używać programu Visual Studio do tworzenia i wdrażania podstawowej usługi w chmurze, która używa języka Python.
+Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy języka Python za pomocą narzędzi [Python Tools for Visual Studio][Python Tools for Visual Studio]. Dowiedz się, jak toouse toocreate programu Visual Studio i wdrażanie podstawowe usługi w chmurze, która używa języka Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Program Visual Studio w wersji 2013, 2015 lub 2017](https://www.visualstudio.com/)
@@ -35,45 +35,45 @@ Ten artykuł zawiera omówienie sposobu użycia ról Sieć Web i Proces roboczy 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Co to są role Sieć Web i Proces roboczy języka Python?
-Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] i [Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze rola internetowa zapewnia dedykowany serwer internetowy usług Internet Information Services (IIS), natomiast rola procesu roboczego może uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne od działań użytkownika lub danych wejściowych.
+Platforma Azure udostępnia trzy modele obliczeniowe na potrzeby uruchamiania aplikacji: [funkcja Web Apps w usłudze Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] i [Azure Cloud Services][execution model-cloud services]. Wszystkie trzy modele obsługują język Python. Usługi Cloud Services, które obejmują role Sieć Web i Proces roboczy, udostępniają rozwiązanie typu *Platforma jako usługa (Platform as a Service, PaaS)*. W ramach usługi w chmurze roli sieci web zapewnia dedykowany Internet Information Services (IIS) w sieci web serwera toohost frontonu sieci web aplikacji, natomiast roli procesu roboczego można uruchamiać asynchroniczne, długotrwałe lub ciągłe zadania niezależne interakcji z użytkownikiem lub danych wejściowych.
 
 Aby uzyskać więcej informacji, zobacz [Co to jest usługa w chmurze?]
 
 > [!NOTE]
-> *Chcesz utworzyć prostą witrynę sieci Web?*
-> Jeśli scenariusz obejmuje tylko prosty fronton witryny internetowej, rozważ użycie lekkiej funkcji Web Apps w usłudze App Service. Możesz łatwo przeprowadzić uaktualnienie do usługi w chmurze w przypadku rozwoju witryny sieci Web lub zmiany wymagań. W <a href="/develop/python/">Centrum deweloperów języka Python</a> można znaleźć artykuły, które dotyczą funkcji Web Apps w usłudze App Service.
+> *Szukasz toobuild prosty witryny sieci Web?*
+> Jeśli scenariusz obejmuje tylko prosty witryny sieci Web frontonu, rozważ użycie lekkiej funkcji Web Apps hello w usłudze Azure App Service. Możesz łatwo przeprowadzić uaktualnienie tooa usługi w chmurze rozwoju witryny sieci Web lub zmiany wymagań. Zobacz hello <a href="/develop/python/">Centrum deweloperów języka Python</a> dla artykułów o programowaniu hello funkcja Web Apps w usłudze Azure App Service.
 > <br />
 > 
 > 
 
 ## <a name="project-creation"></a>Tworzenie projektu
-W programie Visual Studio możesz wybrać pozycję **Usługa w chmurze platformy Azure** w oknie dialogowym **Nowy projekt** w obszarze **Python**.
+W programie Visual Studio, można wybrać **usługi w chmurze Azure** w hello **nowy projekt** okna dialogowego, w obszarze **Python**.
 
 ![Okno dialogowe Nowy projekt](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
-W Kreatorze usługi w chmurze platformy Azure można utworzyć nowe role Sieć Web i Proces roboczy.
+W Kreatorze usługi w chmurze Azure hello można utworzyć nową sieć web i proces roboczy.
 
 ![Okno dialogowe Usługa w chmurze platformy Azure](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
-Szablon roli procesu roboczego zawiera schematyczny kod służący do nawiązywania połączeń z kontem magazynu Azure lub z usługą Azure Service Bus.
+Szablon roli proces roboczy Hello zawiera schematyczny kod tooconnect tooan kontem magazynu platformy Azure lub usługi Azure Service Bus.
 
 ![Rozwiązanie usługi w chmurze](./media/cloud-services-python-ptvs/worker.png)
 
-W każdej chwili możliwe jest dodanie roli Sieć Web lub Proces roboczy do istniejącej usługi w chmurze.  Możesz dodawać istniejące projekty do rozwiązania lub tworzyć nowe.
+W dowolnym momencie można dodać sieci web lub procesu roboczego ról tooan istniejącą usługę w chmurze.  Możesz wybrać tooadd istniejących projektów w rozwiązaniu lub utworzyć nowe.
 
 ![Polecenie Dodaj rolę](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
 Usługa w chmurze może zawierać role zaimplementowane w różnych językach.  Na przykład można mieć rolę Sieć Web języka Python zaimplementowaną za pomocą środowiska Django, języka Python lub roli Proces roboczy języka C#.  Między rolami można się w łatwy sposób komunikować za pomocą kolejek usługi Service Bus lub kolejek magazynu.
 
-## <a name="install-python-on-the-cloud-service"></a>Instalowanie języka Python w usłudze w chmurze
+## <a name="install-python-on-hello-cloud-service"></a>Zainstaluj Python na powitania usługi w chmurze
 > [!WARNING]
-> Skrypty instalacji instalowane z programem Visual Studio (w momencie ostatniej aktualizacji artykułu) nie działają. W tej sekcji opisano sposób obejścia problemu.
+> Hello Instalatora skrypty, które są zainstalowane z programem Visual Studio (w czasie hello ostatniej aktualizacji w tym artykule) nie działają. W tej sekcji opisano sposób obejścia problemu.
 > 
 > 
 
-Główny problem ze skryptami instalacji polega na tym, że nie instalują one środowiska Python. Najpierw należy zdefiniować dwa [zadania uruchamiania](cloud-services-startup-tasks.md) w pliku [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). Pierwsze zadanie (**PrepPython.ps1**) pobiera i instaluje środowiska uruchomieniowe języka Python. Drugie zadanie (**PipInstaller.ps1**) uruchamia mechanizm pip, aby zainstalować wszystkie zależności.
+Hello główny problem z skryptów instalacji hello jest, czy należy instalować python. Najpierw należy zdefiniować dwa [uruchamiania zadań](cloud-services-startup-tasks.md) w hello [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) pliku. pierwszym zadaniem Hello (**PrepPython.ps1**) pobiera i instaluje środowisko uruchomieniowe języka Python hello. drugie zadanie Hello (**PipInstaller.ps1**) uruchamia pip tooinstall może mieć zależności.
 
-Poniższe skrypty zostały napisane dla języka Python 3.5. Jeśli chcesz korzystać z wersji 2.x języka Python, ustaw plik zmiennej **PYTHON2** na **on** dla dwóch zadań uruchamiania i zadania środowiska uruchomieniowego: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+następujące skrypty Hello napisanych przeznaczonych dla języka Python 3.5. Jeśli chcesz toouse hello wersji 2.x python, hello zestaw **PYTHON2** zmiennej pliku zbyt**na** hello dwa uruchamiania zadań i zadań środowiska uruchomieniowego hello: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -100,7 +100,7 @@ Poniższe skrypty zostały napisane dla języka Python 3.5. Jeśli chcesz korzys
 </Startup>
 ```
 
-Zmienne **PYTHON2** i **PYPATH** muszą zostać dodane do zadania uruchamiania procesu roboczego. Zmienna **PYPATH** jest używana tylko wtedy, gdy zmienna **PYTHON2** jest ustawiona na wartość **on**.
+Witaj **PYTHON2** i **PYPATH** zmienne należy dodać zadanie uruchamiania procesu roboczego toohello. Witaj **PYPATH** zmienna jest używana tylko w przypadku hello **PYTHON2** zmienna jest ustawiona zbyt**na**.
 
 ```xml
 <Runtime>
@@ -166,10 +166,10 @@ Zmienne **PYTHON2** i **PYPATH** muszą zostać dodane do zadania uruchamiania p
 
 
 
-Następnie należy utworzyć pliki **PrepPython.ps1** i **PipInstaller.ps1** w folderze **./bin** roli użytkownika.
+Następnie należy utworzyć hello **PrepPython.ps1** i **PipInstaller.ps1** pliki w hello **. / bin** folderu roli użytkownika.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Ten skrypt instaluje język Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest zainstalowane środowisko Python 2.7. W przeciwnym razie jest zainstalowane środowisko Python 3.5.
+Ten skrypt instaluje język Python. Jeśli hello **PYTHON2** zmienna środowiskowa jest ustawiona zbyt**na**, Python 2.7 jest zainstalowany, a następnie w przeciwnym razie Python 3.5 jest zainstalowana.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -195,7 +195,7 @@ if (-not $is_emulated){
             $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
         }
 
-        Write-Output "Not found, downloading $url to $outFile$nl"
+        Write-Output "Not found, downloading $url too$outFile$nl"
         Invoke-WebRequest $url -OutFile $outFile
         Write-Output "Installing$nl"
 
@@ -215,7 +215,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Ten skrypt wywołuje kod pip i instaluje wszystkie zależności w pliku **requirements.txt**. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
+Ten skrypt wymaga się pip i instaluje wszystkie zależności hello w hello **requirements.txt** pliku. Jeśli hello **PYTHON2** zmienna środowiskowa jest ustawiona zbyt**na**, Python 2.7 zostanie użyty, w przeciwnym razie Python 3.5 jest używana.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -244,13 +244,13 @@ if (-not $is_emulated){
 
 #### <a name="modify-launchworkerps1"></a>Modyfikowanie skryptu LaunchWorker.ps1
 > [!NOTE]
-> W przypadku projektu **roli procesu roboczego** plik **LauncherWorker.ps1** jest wymagany do wykonania pliku uruchamiania. W projektach **roli sieci Web** plik uruchamiania jest zdefiniowany we właściwościach projektu.
+> W przypadku hello **roli procesu roboczego** projektu, **LauncherWorker.ps1** plik jest plikiem uruchamiania hello tooexecute wymagane. W **roli sieci web** projekt, hello uruchamiania pliku zamiast zdefiniowano we właściwościach projektu hello.
 > 
 > 
 
-Skrypt **Bin\LaunchWorker.ps1** pierwotnie został utworzony w celu wykonywania działań przygotowawczych, ale w praktyce nie działa. Zastąp zawartość tego pliku następującym skryptem.
+Witaj **bin\LaunchWorker.ps1** został pierwotnie utworzony toodo dużo pracy przygotowania, ale naprawdę nie działa. Zamień zawartość hello w tym pliku hello następującego skryptu.
 
-Ten skrypt wywołuje plik **worker.py** z projektu języka Python. Jeśli zmienna środowiskowa **PYTHON2** jest ustawiona na wartość **on**, jest używane środowisko Python 2.7. W przeciwnym razie jest używane środowisko Python 3.5.
+Ten skrypt wymaga hello **worker.py** plik z projektu języka python. Jeśli hello **PYTHON2** zmienna środowiskowa jest ustawiona zbyt**na**, Python 2.7 zostanie użyty, w przeciwnym razie Python 3.5 jest używana.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -274,7 +274,7 @@ else
 {
     Write-Output "Running (EMULATED) worker.py$nl"
 
-    # Customize to your local dev environment
+    # Customize tooyour local dev environment
 
     if ($is_python2) {
         cd..
@@ -288,7 +288,7 @@ else
 ```
 
 #### <a name="pscmd"></a>ps.cmd
-Szablony Visual Studio powinny utworzyć plik **ps.cmd** w folderze **./bin**. Ten skrypt powłoki wywołuje powyższe skrypty otoki PowerShell i zapewnia rejestrowanie na podstawie nazwy wywołanej otoki PowerShell. Jeśli ten plik nie został utworzony, jego zawartość powinna wyglądać następująco. 
+Szablony Visual Studio Hello powinien utworzyć **ps.cmd** pliku w hello **. / bin** folderu. Ten skrypt powłoki uwidacznia hello PowerShell skrypty otoki powyżej i umożliwia rejestrowanie na podstawie nazwy hello hello otoki środowiska PowerShell o nazwie. Jeśli ten plik nie został utworzony, jego zawartość powinna wyglądać następująco. 
 
 ```bat
 @echo off
@@ -302,38 +302,38 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Uruchamianie lokalnie
-Jeśli ustawisz projekt usługi w chmurze jako projekt startowy i naciśniesz klawisz F5, usługa w chmurze zostanie uruchomiona w lokalnym emulatorze platformy Azure.
+Jeśli ustawisz projekt usługi w chmurze jako projekt startowy hello i naciśnij klawisz F5, usługa w chmurze hello jest uruchamiany w lokalnym emulatorze platformy Azure hello.
 
-Mimo że program PTVS obsługuje uruchamianie w emulatorze, debugowanie nie działa (dotyczy to na przykład punktów przerwania).
+Mimo że PTVS obsługuje uruchamianie w emulatorze hello, debugowania (na przykład punktów przerwania) nie działa.
 
-Aby debugować role Sieć Web i Proces roboczy, możesz ustawić projekt roli jako projekt startowy i debugować go zamiast ról.  Można również ustawić wiele projektów startowych.  Kliknij prawym przyciskiem myszy rozwiązanie, a następnie wybierz pozycję **Ustaw projekty startowe**.
+toodebug poszczególnych ról sieci web i proces roboczy, można ustawić hello projekt roli jako projekt startowy hello i to zamiast debugowania.  Można również ustawić wiele projektów startowych.  Kliknij prawym przyciskiem myszy rozwiązanie hello, a następnie wybierz **Ustaw projekty startowe**.
 
 ![Właściwości projektu startowego rozwiązania](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
-Aby przeprowadzić publikowanie, kliknij prawym przyciskiem myszy projekt usługi w chmurze w rozwiązaniu, a następnie wybierz pozycję **Publikuj**.
+## <a name="publish-tooazure"></a>Publikowanie tooAzure
+toopublish, kliknij prawym przyciskiem myszy projekt usługi w chmurze hello w rozwiązaniu hello, a następnie wybierz **publikowania**.
 
 ![Logowanie na potrzeby publikowania na platformie Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
-Postępuj zgodnie z poleceniami kreatora. Jeśli trzeba, włącz pulpit zdalny. Pulpit zdalny jest przydatny w przypadku konieczności debugowania elementów.
+Postępuj zgodnie z hello kreatora. Jeśli trzeba, włącz pulpit zdalny. Pulpit zdalny jest przydatne, gdy będziesz potrzebować toodebug coś.
 
 Po zakończeniu konfigurowania ustawień kliknij pozycję **Publikuj**.
 
-W oknie danych wyjściowych jest wyświetlany postęp, a następnie zostanie wyświetlone okno Dziennik aktywności platformy Microsoft Azure.
+Niektóre postęp jest wyświetlany w oknie danych wyjściowych hello, a następnie pojawi się okno Dziennik aktywności platformy Azure Microsoft hello.
 
 ![Okno Dziennik aktywności platformy Microsoft Azure](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Wdrożenie potrwa kilka minut, a następnie rola internetowa i/lub procesu roboczego będą działać na platformie Azure.
+Wdrożenie ma toocomplete kilka minut, następnie sieci web i/lub uruchamiania roli proces roboczy na platformie Azure!
 
 ### <a name="investigate-logs"></a>Sprawdzanie dzienników
-Po uruchomieniu maszyny wirtualnej usługi w chmurze i zainstalowaniu języka Python można sprawdzić dzienniki pod kątem komunikatów o błędach. Te dzienniki znajdują się w folderze **C:\Resources\Directory\\{rola}\LogFiles**. Plik **PrepPython.err.txt** zawiera co najmniej jeden błąd zwracany, gdy skrypt próbuje wykryć instalację środowiska Python, a plik **PipInstaller.err.txt** może zgłaszać błąd nieaktualnej wersji kodu pip.
+Po maszyny wirtualnej usługi chmury hello jest uruchamiany i instaluje Python, można przyjrzeć się toofind dzienniki hello jakiekolwiek komunikaty o błędach. Te dzienniki znajdują się w hello **C:\Resources\Directory\\\LogFiles {roli}** folderu. **PrepPython.err.txt** ma co najmniej jeden błąd w nim z po hello skrypt próbuje toodetect, jeśli jest zainstalowana Python i **PipInstaller.err.txt** może skarżą się o nieaktualną wersją pip.
 
 ## <a name="next-steps"></a>Następne kroki
-Bardziej szczegółowe informacje na temat pracy z rolami Sieć Web i Proces roboczy w ramach programu Python Tools for Visual Studio zawiera dokumentacja programu PTVS:
+Aby uzyskać szczegółowe informacje na temat pracy z role sieć web i proces roboczy w narzędzia Python Tools for Visual Studio zobacz dokumentację PTVS hello:
 
 * [Projekty usługi w chmurze][Cloud Service Projects]
 
-Więcej szczegółów dotyczących korzystania z usług Azure na podstawie roli internetowej i roli procesu roboczego, na przykład używania usługi Azure Storage lub Service Bus, można znaleźć w następujących artykułach:
+Aby uzyskać więcej informacji o korzystaniu z sieci web i proces roboczy role, takie jak przy użyciu usługi Azure Storage lub Service Bus usług Azure, zobacz następujące artykuły hello:
 
 * [Blob Service][Blob Service]
 * [Table Service][Table Service]

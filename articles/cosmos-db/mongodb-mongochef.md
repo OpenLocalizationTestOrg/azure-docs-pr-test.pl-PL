@@ -1,6 +1,6 @@
 ---
-title: "Użyj MongoChef dla rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak korzystać z bazy danych Azure rozwiązania Cosmos MongoChef: interfejsu API dla konta bazy danych MongoDB"
+title: "aaaUse MongoChef dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse MongoChef z bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB"
 keywords: mongochef
 services: cosmos-db
 author: AndrewHoh
@@ -15,57 +15,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b047797b231c34ccc6f2ed02416525c6228d596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Użyj MongoChef z bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB
 
-Aby nawiązać połączenie bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB, musi:
+tooan tooconnect bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB, musi:
 
 * Pobierz i zainstaluj [MongoChef](http://3t.io/mongochef)
 * Z bazy danych rozwiązania Cosmos Azure ma: interfejsu API dla konta bazy danych MongoDB [ciąg połączenia](connect-mongodb-account.md) informacji
 
-## <a name="create-the-connection-in-mongochef"></a>Utwórz połączenie w MongoChef
-Aby dodać bazy danych programu Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB MongoChef Menedżera połączeń, wykonaj następujące kroki.
+## <a name="create-hello-connection-in-mongochef"></a>Utwórz połączenie hello w MongoChef
+tooadd Twojego Azure DB rozwiązania Cosmos: interfejsu API dla bazy danych MongoDB konta toohello MongoChef Menedżera połączeń, należy wykonać hello następujące kroki.
 
-1. Pobieranie Twojej bazy danych rozwiązania Cosmos Azure: interfejs API dla bazy danych MongoDB informacje o połączeniu z instrukcjami [tutaj](connect-mongodb-account.md).
+1. Pobieranie Twojej bazy danych rozwiązania Cosmos Azure: interfejs API dla bazy danych MongoDB połączenia przy użyciu instrukcji hello [tutaj](connect-mongodb-account.md).
 
-    ![Zrzut ekranu przedstawiający blok ciągu połączenia](./media/mongodb-mongochef/ConnectionStringBlade.png)
-2. Kliknij przycisk **Connect** aby otworzyć Menedżera połączeń, a następnie przycisk **nowego połączenia**
+    ![Zrzut ekranu przedstawiający blok ciągu połączenia hello](./media/mongodb-mongochef/ConnectionStringBlade.png)
+2. Kliknij przycisk **Connect** tooopen hello Menedżera połączeń, a następnie kliknij przycisk **nowego połączenia**
 
-    ![Zrzut ekranu przedstawiający MongoChef Menedżera połączeń](./media/mongodb-mongochef/ConnectionManager.png)
-3. W **nowe połączenie** okna na **serwera** wprowadź hosta (FQDN) Azure DB rozwiązania Cosmos: interfejs API dla konta bazy danych MongoDB i numer portu.
+    ![Zrzut ekranu przedstawiający Menedżera połączeń MongoChef hello](./media/mongodb-mongochef/ConnectionManager.png)
+3. W hello **nowe połączenie** okna na powitania **serwera** wprowadź hello hosta (FQDN) hello Azure DB rozwiązania Cosmos: interfejsu API dla portu konta i hello bazy danych MongoDB.
 
-    ![Zrzut ekranu przedstawiający kartę MongoChef połączenie Menedżera serwera](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. W **nowe połączenie** okna na **uwierzytelniania** , wybierz pozycję tryb uwierzytelniania **Standard (CR bazy danych MONGODB lub SCARM-SHA-1)** , a następnie wprowadź nazwę użytkownika i hasło.  Zaakceptuj domyślną db uwierzytelniania (Administrator) lub podać własne wartości.
+    ![Zrzut ekranu: karta hello MongoChef połączenia Menedżera serwera](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. W hello **nowe połączenie** okna na powitania **uwierzytelniania** , wybierz pozycję tryb uwierzytelniania **Standard (CR bazy danych MONGODB lub SCARM-SHA-1)** , a następnie wprowadź hello nazwy użytkownika i HASŁO.  Zaakceptuj hello domyślne uwierzytelnianie db (Administrator) lub podać własne wartości.
 
-    ![Zrzut ekranu: karta Uwierzytelnianie Menedżera połączeń MongoChef](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. W **nowe połączenie** okna na **SSL** karcie wyboru **protokołu SSL używany nawiązać** pole wyboru i **akceptować certyfikaty SSL z podpisem własnym serwera**  przycisk radiowy.
+    ![Zrzut ekranu przedstawiający kartę hello MongoChef połączenia Menedżer uwierzytelniania](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+5. W hello **nowe połączenie** okna na powitania **SSL** pozycję Sprawdź hello **tooconnect protokołu SSL używany** pole wyboru i hello **SSL z podpisem własnym serwera Zaakceptuj Certyfikaty** przycisk radiowy.
 
-    ![Zrzut ekranu: karta SSL Menedżera połączeń MongoChef](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
-6. Kliknij przycisk **Testuj połączenie** przycisk, aby sprawdzić informacje o połączeniu, kliknij przycisk **OK** powrócić do okna nowe połączenie, a następnie kliknij przycisk **zapisać**.
+    ![Zrzut ekranu przedstawiający kartę hello MongoChef połączenia Menedżer protokołu SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+6. Kliknij hello **Testuj połączenie** toovalidate hello — informacje o połączeniu, kliknij **OK** tooreturn toohello nowe połączenie okna, a następnie kliknij przycisk **zapisać**.
 
-    ![Zrzut ekranu przedstawiający okno MongoChef testu połączenia](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Zrzut ekranu przedstawiający okno połączenia testowego MongoChef hello](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Użyj MongoChef, aby utworzyć bazę danych, kolekcji i dokumentów
-Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj następujące kroki.
+## <a name="use-mongochef-toocreate-a-database-collection-and-documents"></a>Użyj toocreate MongoChef bazy danych, kolekcji i dokumentów
+toocreate bazy danych, kolekcji i dokumentów za pomocą MongoChef, należy wykonać hello następujące kroki.
 
-1. W **Menedżera połączeń**, zaznacz połączenie i kliknij **Connect**.
+1. W **Menedżera połączeń**, zaznacz hello połączeń i kliknij **Connect**.
 
-    ![Zrzut ekranu przedstawiający MongoChef Menedżera połączeń](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Kliknij prawym przyciskiem myszy hosta, a następnie wybierz pozycję **dodawania bazy danych**.  Podaj nazwę bazy danych, a następnie kliknij przycisk **OK**.
+    ![Zrzut ekranu przedstawiający Menedżera połączeń MongoChef hello](./media/mongodb-mongochef/ConnectToAccount.png)
+2. Host powitania kliknij prawym przyciskiem myszy i wybierz polecenie **dodawania bazy danych**.  Podaj nazwę bazy danych, a następnie kliknij przycisk **OK**.
 
-    ![Zrzut ekranu opcji MongoChef dodawania bazy danych](./media/mongodb-mongochef/AddDatabase1.png)
-3. Kliknij prawym przyciskiem myszy kliknij bazę danych i wybierz polecenie **Dodaj kolekcji**.  Podaj nazwę kolekcji, a następnie kliknij przycisk **Utwórz**.
+    ![Zrzut ekranu przedstawiający hello opcja MongoChef dodawania bazy danych](./media/mongodb-mongochef/AddDatabase1.png)
+3. Kliknij prawym przyciskiem myszy hello bazy danych i wybierz polecenie **Dodaj kolekcji**.  Podaj nazwę kolekcji, a następnie kliknij przycisk **Utwórz**.
 
-    ![Zrzut ekranu opcji MongoChef Dodaj kolekcji](./media/mongodb-mongochef/AddCollection.png)
-4. Kliknij przycisk **kolekcji** menu elementu, następnie kliknij przycisk **Dodawanie dokumentu**.
+    ![Zrzut ekranu przedstawiający hello opcja MongoChef Dodaj kolekcji](./media/mongodb-mongochef/AddCollection.png)
+4. Kliknij przycisk hello **kolekcji** menu elementu, następnie kliknij przycisk **Dodawanie dokumentu**.
 
-    ![Zrzut ekranu przedstawiający element menu MongoChef Dodawanie dokumentu](./media/mongodb-mongochef/AddDocument1.png)
-5. W oknie dialogowym Dodawanie dokumentu, wklej następujący, a następnie kliknij przycisk **Dodawanie dokumentu**.
+    ![Zrzut ekranu przedstawiający hello MongoChef Dodaj element menu](./media/mongodb-mongochef/AddDocument1.png)
+5. W oknie dialogowym Dodawanie dokumentu hello Wklej hello poniżej, a następnie kliknij przycisk **Dodawanie dokumentu**.
 
         {
         "_id": "AndersenFamily",
@@ -83,7 +83,7 @@ Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Dodaj teraz o następującej zawartości innego dokumentu.
+6. Dodawanie innego dokumentu, tym razem z powitania po zawartości.
 
         {
         "_id": "WakefieldFamily",
@@ -110,7 +110,7 @@ Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
-7. Wykonaj przykładowe zapytanie. Na przykład wyszukaj o nazwisko "Andersen" i zwróć pola stanu i elementów nadrzędnych.
+7. Wykonaj przykładowe zapytanie. Na przykład wyszukiwanie o hello nazwisko "Andersen" i pola stanu i zwracany hello nadrzędnych.
 
     ![Zrzut ekranu przedstawiający Mongo Chef wyników zapytania](./media/mongodb-mongochef/QueryDocument1.png)
 

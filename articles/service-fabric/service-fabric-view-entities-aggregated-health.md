@@ -1,6 +1,6 @@
 ---
-title: "Jak wyświetlić jednostki sieci szkieletowej usług Azure zagregowane kondycji | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób zapytania, widoków i oceniania kondycji zagregowane jednostki sieci szkieletowej usług Azure, za pomocą zapytań o kondycję i ogólne zapytania."
+title: "jednostek aaaHow tooview sieć szkieletowa usług Azure zagregowane kondycji | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób tooquery, wyświetlać i oceniania kondycji zagregowane jednostki sieci szkieletowej usług Azure, za pomocą zapytań o kondycję i ogólne zapytania."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b97972b1bdc28a17fb9c3a0e997738f5bd0b5d15
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: add810551cac26d2b4ff81b57d94ddd780c2cc2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-service-fabric-health-reports"></a>Wyświetl raporty dotyczące kondycji sieci szkieletowej usług
-Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostek kondycji, na którym składników systemu i watchdogs można raportu lokalnego warunki, które są monitorowania. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane kondycji, aby określić, czy jednostki są w dobrej kondycji.
+Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostek kondycji, na którym składników systemu i watchdogs można raportu lokalnego warunki, które są monitorowania. Witaj [magazynu kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkich toodetermine danych kondycji, czy jednostki są w dobrej kondycji.
 
-Klaster jest automatycznie wypełniana raportów o kondycji wysyłane przez składniki systemu. Dowiedz się więcej o [użyć raportów o kondycji systemu w celu rozwiązania](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Witaj klastra jest automatycznie wypełniana wysyłane przez składniki systemu hello raportów o kondycji. Dowiedz się więcej o [tootroubleshoot raportów kondycji systemu używany](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Sieć szkieletowa usług zawiera wiele sposobów uzyskania zagregowane kondycji jednostek:
+Sieć szkieletowa usług zawiera wiele sposobów tooget hello zagregowane kondycji jednostek hello:
 
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lub innych narzędzi wizualizacji
 * Zapytań o kondycję (za pośrednictwem programu PowerShell, interfejsu API lub REST)
-* Ogólne zapytania to zwracany listę obiektów, które mają kondycji jako jedna z właściwości (przy użyciu programu PowerShell, interfejsu API lub REST)
+* Ogólne zapytania to zwracany listę obiektów, które mają kondycji jako jedna z właściwości hello (za pośrednictwem programu PowerShell, interfejsu API lub REST)
 
-Aby zademonstrować tych opcji, Użyjmy lokalny klaster z pięcioma węzłami i [fabric: / WordCount aplikacji](http://aka.ms/servicefabric-wordcountapp). **Fabric: / WordCount** aplikacji zawiera dwie domyślne usługi, usługi stanowej typu `WordCountServiceType`i usługi bezstanowej typu `WordCountWebServiceType`. Po zmianie `ApplicationManifest.xml` wymagające siedem target replik dla usługi stanowej i jedną partycję. Ponieważ istnieje tylko pięć węzłów w klastrze, składniki systemu raport ostrzeżenie na partycji usługi, ponieważ jest on poniżej docelowa liczba.
+toodemonstrate korzystać z tych opcji, umożliwia używanie lokalnego klastra z pięciu węzłów i hello [sieci szkieletowej: / WordCount aplikacji](http://aka.ms/servicefabric-wordcountapp). Hello **fabric: / WordCount** aplikacji zawiera dwie domyślne usługi, usługi stanowej typu `WordCountServiceType`i usługi bezstanowej typu `WordCountWebServiceType`. Po zmianie hello `ApplicationManifest.xml` toorequire siedmiu docelowej repliki usługi stanowej hello i jedną partycję. Ponieważ istnieje tylko pięć węzłów w klastrze hello, hello składników systemu raport ostrzeżenie na hello partycji usługi, ponieważ jest on poniżej hello docelowa liczba.
 
 ```xml
 <Service Name="WordCountService">
@@ -48,17 +48,17 @@ Aby zademonstrować tych opcji, Użyjmy lokalny klaster z pięcioma węzłami i 
 ```
 
 ## <a name="health-in-service-fabric-explorer"></a>Kondycji w narzędziu Service Fabric Explorer
-Service Fabric Explorer oferuje czytelny klastra. Na poniższej ilustracji można stwierdzić, że:
+Service Fabric Explorer zawiera czytelny hello klastra. Obraz powitania poniżej można stwierdzić, że:
 
-* Aplikacja **fabric: / WordCount** jest czerwony (w wyniku błędu), ponieważ ma ona zdarzenie błędu zgłoszony przez **MyWatchdog** dla właściwości **dostępności**.
-* Jedna z jego usług **fabric: / WordCount/usługi WordCountService** jest żółty (w ostrzeżenie). Usługa jest skonfigurowana z replikami siedem i klastra ma pięć węzłów, więc nie może zostać umieszczona repicas dwa. Wprawdzie nie pokazano poniżej, partycji usługi jest żółty, ze względu na raport dotyczący systemu z `System.FM` informacją, że `Partition is below target replica or instance count`. Żółty partycji wyzwala żółty usługi.
-* Z powodu red aplikacji jest czerwony klastra.
+* Aplikacja Hello **sieci szkieletowej: / WordCount** jest czerwony (w wyniku błędu), ponieważ ma ona zdarzenie błędu zgłoszony przez **MyWatchdog** dla właściwości hello **dostępności**.
+* Jedna z jego usług **fabric: / WordCount/usługi WordCountService** jest żółty (w ostrzeżenie). Usługa Hello jest skonfigurowana z replikami siedem i hello klastra ma pięć węzłów, więc nie może zostać umieszczona repicas dwa. Wprawdzie nie pokazano poniżej, partycji usługi hello jest żółty, ze względu na raport dotyczący systemu z `System.FM` informacją, że `Partition is below target replica or instance count`. Wyzwalacze żółty partycji Hello hello żółty usługi.
+* z powodu aplikacji hello red klastra Hello jest czerwony.
 
-Obliczanie korzysta z domyślnych zasad z manifestu klastra i manifest aplikacji. Są ścisłe zasady i nieodpowiednie jakiekolwiek niepowodzenie.
+Ocena Hello korzysta z domyślnych zasad z manifestu klastra hello i manifest aplikacji. Są ścisłe zasady i nieodpowiednie jakiekolwiek niepowodzenie.
 
-Widok klastra Service Fabric Explorer:
+Widok Eksploratora usługi sieć szkieletowa hello klastra:
 
-![Widok klastra z Eksploratora usługi sieć szkieletowa.][1]
+![Widok klastra hello z Eksploratora usługi sieć szkieletowa.][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -69,47 +69,47 @@ Widok klastra Service Fabric Explorer:
 >
 
 ## <a name="health-queries"></a>Zapytań o kondycję
-Usługa sieci szkieletowej udostępnia zapytań o kondycję dla każdej z obsługiwanych [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Są one dostępne za pośrednictwem interfejsu API, przy użyciu metod na [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), poleceń cmdlet programu PowerShell i REST. Te zapytania zwraca pełną kondycję informacje o jednostce: stan kondycji zagregowane, zdarzenia kondycji jednostki, stanów kondycji podrzędnych (jeśli jest to wymagane), zła ocen (jeśli jednostki nie jest w dobrej kondycji) i statystyki kondycji elementy podrzędne (gdy ma zastosowanie).
+Usługa sieci szkieletowej udostępnia zapytań o kondycję dla każdej z obsługiwanych hello [typów jednostek](service-fabric-health-introduction.md#health-entities-and-hierarchy). Są one dostępne za pośrednictwem hello interfejsu API, przy użyciu metody na [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), poleceń cmdlet programu PowerShell i REST. Te zapytania zwraca pełną kondycję informacje dotyczące jednostki hello: hello zagregowane stan kondycji, zdarzenia kondycji jednostki stanów kondycji podrzędnych (jeśli jest to wymagane), zła ocen (jeśli jednostki hello nie jest w dobrej kondycji) i statystyki kondycji elementy podrzędne (gdy ma zastosowanie).
 
 > [!NOTE]
-> Jednostki kondycji jest zwracany, gdy pełni znajduje się w magazynie kondycji. Obiekt musi być aktywne (nie usunięte) i ma raportu system. Jej nadrzędnej jednostki w łańcuchu hierarchii musi mieć również raporty systemu. Jeśli te warunki nie są spełnione, kondycję kwerendy powrotu [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) z [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` który pokazuje, dlaczego nie są zwracane jednostki.
+> Jednostki kondycji jest zwracany, gdy pełni znajduje się w magazynie kondycji hello. Hello jednostki musi być aktywne (nie usunięto) i ma raportu system. Jej podmioty nadrzędnego w łańcuchu hierarchii hello musi mieć również raporty systemu. Jeśli te warunki nie są spełnione, kondycji hello kwerendy powrotu [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) z [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` który pokazuje, dlaczego nie są zwracane jednostki hello.
 >
 >
 
-Zapytań o kondycję musi upłynąć w identyfikator jednostki, który jest zależny od typu jednostki. Zapytania zaakceptować kondycji opcjonalne parametry zasad. Jeśli nie określono żadnych zasad dotyczących kondycji, [zasady dotyczące kondycji](service-fabric-health-introduction.md#health-policies) w manifeście klastra lub aplikacji są używane do oceny. Jeśli manifesty nie zawiera definicji dla zasad dotyczących kondycji, domyślne zasady dotyczące kondycji służą do oceny. Domyślne zasady dotyczące kondycji nieodpowiednie zakończą się niepowodzeniem. Zapytania także zaakceptować filtry dla zwracania tylko częściowe elementy podrzędne lub zdarzenia — te, które przestrzegać określonych filtrów. Inny filtr zezwala, z wyłączeniem statystyki elementów podrzędnych.
+zapytań o kondycję Hello musi upłynąć w hello identyfikator jednostki, który jest zależny od typu jednostki hello. zapytania Hello zaakceptować kondycji opcjonalne parametry zasad. Jeśli nie określono żadnych zasad dotyczących kondycji, hello [zasady dotyczące kondycji](service-fabric-health-introduction.md#health-policies) z manifestu klastra lub aplikacji hello są używane do oceny. Jeśli hello manifestów nie zawiera definicji dla zasad dotyczących kondycji, zasady dotyczące kondycji domyślne hello są używane do oceny. zasady dotyczące kondycji domyślne Hello nieodpowiednie zakończą się niepowodzeniem. zapytania Hello również Zaakceptuj filtry dla zwracania tylko częściowe elementów podrzędnych lub zdarzenia — Witaj te, które przestrzegać hello określonych filtrów. Inny filtr zezwala, z wyłączeniem hello statystyki elementów podrzędnych.
 
 > [!NOTE]
-> Filtry wyjściowe są stosowane po stronie serwera, zmniejsza rozmiar komunikatu odpowiedzi. Zaleca się, że możesz użyć filtrów danych wyjściowych, aby ograniczyć dane zwrócone, zamiast zastosować filtry po stronie klienta.
+> filtrów danych wyjściowych Hello są stosowane na powitania po stronie serwera, więc zmniejsza rozmiar odpowiedzi wiadomości powitania. Zaleca się, że używasz filtrów danych wyjściowych hello toolimit hello danych zwrócił, zamiast zastosować filtry na powitania po stronie klienta.
 >
 >
 
 Prawidłowość jednostki zawiera:
 
-* Stan kondycji zagregowane jednostki. Obliczone przez magazynu kondycji na podstawie raportów o kondycji jednostki, stanów kondycji podrzędnych (jeśli jest to wymagane) i zasad dotyczących kondycji. Przeczytaj więcej na temat [oceny kondycji jednostki](service-fabric-health-introduction.md#health-evaluation).  
-* Zdarzenia kondycji jednostki.
-* Kolekcja stanów kondycji wszystkich elementów podrzędnych dla jednostek, które mogą mieć elementów podrzędnych. Stany kondycji zawiera identyfikatorów jednostki i stan kondycji zagregowanych. Aby uzyskać pełną kondycję dziecka, wywołaj kondycji zapytania dla typu obiektu podrzędnego i podaj identyfikator podrzędnych.
-* Zła oceny wskazujące do raportu, która wyzwoliła stanu jednostki, jeśli obiekt nie jest w dobrej kondycji. Oceny są cykliczne zawierające oceny kondycji elementy podrzędne, które wywołały bieżącego stanu kondycji. Na przykład programu alarmowego zgłosił błąd przed repliki. Kondycja aplikacji zawiera ocenę niezdrowy z powodu złej kondycji usługi; Usługa jest niezdrowe, ponieważ partycja w błąd; partycja jest niezdrowe, ponieważ replika błąd; Replika jest niezdrowe, ponieważ raport o kondycji programu alarmowego błędu.
-* Statystyki kondycji dla wszystkich elementów podrzędnych typów obiektów, które mają elementy podrzędne. Na przykład stan klastra jest wyświetlana łączna liczba aplikacji, usług, partycji i replik i wdrażane jednostek w klastrze. Kondycja usługi zawiera całkowitą liczbę partycji i replik w obszarze określonej usługi.
+* stan kondycji Hello zagregowane hello jednostki. Obliczone przez hello magazynu kondycji na podstawie raportów o kondycji jednostki, stanów kondycji podrzędnych (jeśli jest to wymagane) i zasad dotyczących kondycji. Przeczytaj więcej na temat [oceny kondycji jednostki](service-fabric-health-introduction.md#health-evaluation).  
+* zdarzenia kondycji Hello na powitania jednostki.
+* Kolekcja Hello stanów kondycji wszystkich elementów podrzędnych dla hello jednostek, które mogą mieć elementów podrzędnych. stany kondycji Hello zawierają identyfikatory jednostek i hello zagregowane kondycji. pełną kondycję tooget dziecka, wywołanie dla typów jednostek podrzędnych hello hello zapytania kondycji i podaj identyfikator podrzędnych hello.
+* Hello ocen zła raport toohello tego punktu, który wyzwalane hello stanu jednostki hello, jeżeli hello jednostki jest nieprawidłowa. Obliczanie Hello są cykliczne zawierające hello dzieci kondycji oceny, które wywołały bieżącego stanu kondycji. Na przykład programu alarmowego zgłosił błąd przed repliki. Kondycja aplikacji Hello pokazuje ocenę zła powodu usługi w złej kondycji tooan; Usługa Hello jest zła powodu tooa partycji w błąd; partycja Hello jest zła powodu repliki tooa błąd; Replika Hello jest nieprawidłowy, ponieważ raport o kondycji błąd programu alarmowego toohello.
+* Witaj statystyki kondycji dla wszystkich typów elementów podrzędnych hello jednostek, które mają elementy podrzędne. Na przykład stan klastra jest wyświetlana liczba całkowita hello aplikacji, usług, partycji i replik i wdrażane jednostek w klastrze hello. Kondycja usługi pokazuje hello łączna liczba partycji i replik w obszarze hello określonej usługi.
 
 ## <a name="get-cluster-health"></a>Pobierz stan klastra
-Zwraca kondycji jednostki klastra i zawiera stanów kondycji aplikacji i węzły (elementy podrzędne klastra). Dane wejściowe:
+Zwraca hello kondycji jednostki klastra hello i zawiera hello stanów kondycji aplikacji i węzły (dzieci hello klastra). Dane wejściowe:
 
-* [Opcjonalnie] Zasad dotyczących kondycji klastra używane do analizowania węzły i zdarzenia klastra.
-* [Opcjonalnie] Aplikacja kondycji zasad mapy, zasady dotyczące kondycji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, węzły i aplikacje, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, węzły i aplikacje są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
-* [Opcjonalnie] Filtr, aby wykluczyć statystyki kondycji.
-* [Opcjonalnie] Filtr w celu uwzględnienia fabric: / statystyki kondycji systemu w statystyki kondycji. Dotyczy tylko gdy statystyki kondycji nie są wyłączone. Domyślnie statystyki kondycji zawierają tylko statystyki dla użytkownika aplikacji i nie aplikacji systemowej.
+* [Opcjonalnie] hello zasad dotyczących kondycji klastra używane tooevaluate hello węzły i hello zdarzenia klastra.
+* Mapowanie zasady kondycji aplikacji hello [opcjonalnie], z zasad dotyczących kondycji hello używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń, węzły i aplikacje, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, węzły i aplikacji są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
+* [Opcjonalnie] Filtr tooexclude statystyki kondycji.
+* [Opcjonalnie] Filtrować tooinclude fabric: / statystyki kondycji systemu w hello statystyki kondycji. Dotyczy tylko gdy hello statystyki kondycji nie są wyłączone. Domyślnie statystyki kondycji hello zawierają tylko statystyki dla użytkownika aplikacji i nie hello aplikacji systemowej.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać stan klastra, Utwórz `FabricClient` i Wywołaj [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) metody na jego **HealthManager**.
+tooget klastra kondycji, należy utworzyć `FabricClient` i wywołanie hello [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) metody na jego **HealthManager**.
 
-Następujące wywołanie pobiera stan klastra:
+Witaj następujące wywołanie pobiera stan klastra hello:
 
 ```csharp
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-Poniższy kod pobiera stan klastra przy użyciu zasad kondycji niestandardowych klastra i filtry dla węzłów i aplikacji. Określa, że statystyki kondycji obejmuje sieci szkieletowej: / statystyk systemu. Tworzy [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), który zawiera informacje wejściowe.
+Witaj poniższy kod pobiera stan klastra hello za pomocą zasad niestandardowych klastra kondycji i filtrów dla węzłów i aplikacji. Określa, że statystyki kondycji hello obejmuje hello sieci szkieletowej: / statystyk systemu. Tworzy [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), który zawiera informacje wejściowe hello.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -141,11 +141,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby pobrać stan klastra jest [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Stan klastra hello tooget polecenia cmdlet Hello jest [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Stan klastra jest pięć węzłów, aplikacja systemu i sieci szkieletowej: / WordCount skonfigurowane zgodnie z opisem.
+Witaj stan klastra hello jest pięć węzłów, aplikacji systemowej hello i sieci szkieletowej: / WordCount skonfigurowane zgodnie z opisem.
 
-Następujące polecenie cmdlet pobiera stan klastra za pomocą domyślnych zasad kondycji. Ostrzeżenie zagregowane kondycji, ponieważ sieci szkieletowej: / WordCount aplikacja jest ostrzeżenie. Należy zwrócić uwagę, jak zła oceny zawierają szczegółowe informacje dotyczące warunków, które wywołały zagregowane kondycji.
+Hello następujące polecenie cmdlet pobiera stan klastra za pomocą domyślnych zasad kondycji. Witaj zagregowane kondycji jest w stanie ostrzegawczym, ponieważ hello fabric: / aplikacja WordCount jest ostrzeżenie. Należy zwrócić uwagę, jak hello zła oceny zawierają szczegółowe informacje dotyczące hello warunki, które wyzwalane kondycji hello agregowane.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -202,7 +202,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-Następujące polecenie cmdlet programu PowerShell pobiera kondycji klastra za pomocą zasad niestandardowych aplikacji. Filtruje wyniki można uzyskać tylko aplikacji i węzły w błąd lub ostrzeżenie. W związku z tym żadnych węzłów są zwracane, ponieważ są one wszystkich dobrej kondycji. Tylko fabric: / aplikacji WordCount szanuje filtru aplikacji. Ponieważ zasady niestandardowe określa wziąć pod uwagę ostrzeżenia jako błędy sieci szkieletowej: / aplikacji WordCount, aplikacja jest oceniany, tak jak błąd, a więc klastra.
+Witaj następujące polecenia cmdlet programu PowerShell pobiera kondycji hello hello klastra za pomocą zasad niestandardowych aplikacji. Filtruje wyniki tooget tylko aplikacji i węzły w błąd lub ostrzeżenie. W związku z tym żadnych węzłów są zwracane, ponieważ są one wszystkich dobrej kondycji. Tylko hello fabric: / WordCount aplikacji szanuje filtru aplikacji hello. Ponieważ zasady niestandardowe hello określa tooconsider ostrzeżenia jako błędy sieci szkieletowej hello: / WordCount aplikacji, aplikacji hello jest oceniany, tak jak błąd, i dlatego jest hello klastra.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -239,25 +239,25 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji klastra z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji klastra z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-node-health"></a>Pobierz węzeł kondycji
-Zwraca kondycji jednostek node i zawiera zdarzenia kondycji zgłoszone w węźle. Dane wejściowe:
+Zwraca hello kondycji jednostek node i zawiera zdarzenia kondycji hello zgłoszone w węźle hello. Dane wejściowe:
 
-* [Wymagane] Nazwa węzła, który identyfikuje węzeł.
-* [Opcjonalnie] Ustawienia zasad kondycji klastra używane do oceny kondycji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
+* Nazwa węzła hello [wymagane], która identyfikuje hello węzła.
+* Ustawienia zasad kondycji klastra [opcjonalnie] hello używane tooevaluate kondycji.
+* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać węzła kondycji za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) metody na jego HealthManager.
+Tworzenie tooget węzła kondycji za pomocą interfejsu API, hello `FabricClient` i hello wywołania [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) metody na jego HealthManager.
 
-Poniższy kod pobiera kondycji węzła nazwę określonego węzła:
+Witaj poniższy kod pobiera kondycji węzła hello nazwę określonego węzła hello:
 
 ```csharp
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-Poniższy kod pobiera kondycji węzła nazwę określonego węzła i przekazuje filtr zdarzeń i niestandardowych zasad za pośrednictwem [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+Witaj poniższy kod umożliwia pobranie kondycji węzła hello hello określić nazwy węzła i przekazuje filtr zdarzeń i niestandardowych zasad za pośrednictwem [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -270,8 +270,8 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycji węzła [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
-Następujące polecenie cmdlet pobiera kondycji węzłów za pomocą domyślnych zasad kondycji:
+Witaj polecenia cmdlet tooget hello węzła kondycja jest [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Hello następujące polecenie cmdlet pobiera hello węzła kondycji za pomocą domyślnych zasad kondycji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
@@ -293,7 +293,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 4:40:47 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-Następujące polecenie cmdlet pobiera kondycję wszystkich węzłów w klastrze:
+Witaj następujące polecenie cmdlet pobiera hello kondycję wszystkich węzłów w klastrze hello:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
@@ -308,26 +308,26 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji węzła z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji węzła z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-application-health"></a>Pobierz kondycji aplikacji
-Zwraca kondycji jednostki aplikacji. Zawiera ona stanów kondycji wdrożonej aplikacji i usług dzieci. Dane wejściowe:
+Zwraca hello kondycję obiektu aplikacji. Zawiera ona hello stanów kondycji aplikacji hello wdrożony i usługa dzieci. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI), który identyfikuje aplikację.
-* [Opcjonalnie] Zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, usług i wdrożone aplikacje, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia, usługi i wdrożone aplikacje są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
-* [Opcjonalnie] Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji obejmują ok, ostrzeżenia i liczby błędów dla wszystkich aplikacji elementów podrzędnych: usług, partycji, repliki, wdrożonych aplikacji i wdrożonych pakietów usługi.
+* [Wymagane] hello Nazwa aplikacji (URI) określający aplikacji hello.
+* Zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń, usług i wdrożone aplikacje, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Zdarzeń, usług i wdrożone aplikacje są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
+* [Opcjonalnie] Filtrowanie statystyki kondycji hello tooexclude. Jeśli nie zostanie określony, statystyki kondycji hello obejmują hello ok, ostrzeżenie i liczby błędów dla wszystkich aplikacji elementów podrzędnych: usług, partycji, repliki, wdrożonych aplikacji i wdrożonych pakietów usługi.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycji aplikacji, należy utworzyć `FabricClient` i Wywołaj [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) metody na jego HealthManager.
+tooget kondycji aplikacji, Utwórz `FabricClient` i wywołanie hello [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) metody na jego HealthManager.
 
-Poniższy kod pobiera kondycji aplikacji dla nazwy określonej aplikacji (URI):
+Witaj poniższy kod pobiera kondycji aplikacji hello nazwy określonej aplikacji hello (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-Poniższy kod pobiera kondycji aplikacji dla nazwy określonej aplikacji (URI) z filtrami i niestandardowych zasad określona za pomocą [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+Witaj poniższy kod pobiera kondycji aplikacji hello nazwy określonej aplikacji hello (URI), z filtrami i niestandardowych zasad określona za pomocą [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -356,9 +356,9 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycji aplikacji [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Kondycja aplikacji hello tooget polecenia cmdlet Hello jest [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Następujące polecenie cmdlet zwraca kondycji **fabric: / WordCount** aplikacji:
+Witaj następujące polecenie cmdlet zwraca hello kondycję hello **fabric: / WordCount** aplikacji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
@@ -426,7 +426,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-Przekazuje następującego polecenia cmdlet programu PowerShell w niestandardowych zasad. Filtruje także elementów podrzędnych i zdarzeń.
+Witaj, po przekazuje polecenia cmdlet programu PowerShell w ramach zasad niestandardowych. Filtruje także elementów podrzędnych i zdarzeń.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -454,26 +454,26 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji aplikacji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji aplikacji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-service-health"></a>Pobierz usługi kondycji
-Zwraca kondycji jednostki usługi. Zawiera ona stanów kondycji partycji. Dane wejściowe:
+Zwraca hello kondycji jednostki usługi. Zawiera ona stanów kondycji hello partycji. Dane wejściowe:
 
-* [Wymagane] Nazwa usługi (URI), który identyfikuje usługę.
-* [Opcjonalnie] Zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i partycje, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i partycji są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
-* [Opcjonalnie] Filtr, aby wykluczyć statystyki kondycji. Jeśli nie jest określony, statystyki kondycji Pokaż ok, ostrzeżenie, i liczby błędów dla wszystkich partycji i replik usługi.
+* [Wymagane] hello nazwa usługi (URI) określający hello usługi.
+* Zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń i partycje, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i partycji są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
+* [Opcjonalnie] Filtr tooexclude statystyki kondycji. Jeśli nie zostanie określony, ok hello hello Pokaż statystyki kondycji, ostrzeżenia i błędu liczba dla wszystkich partycji i replik hello usługi.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycja usługi za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) metody na jego HealthManager.
+Kondycja usługi tooget za pośrednictwem hello interfejsu API, Utwórz `FabricClient` i wywołanie hello [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) metody na jego HealthManager.
 
-Poniższy przykład pobiera kondycji usługi o nazwie określonej usługi (URI):
+Witaj poniższy przykład pobiera hello kondycji usługi o nazwie określonej usługi (URI):
 
 ```charp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-Poniższy kod pobiera kondycja usługi dla określonej nazwy usługi (URI), filtrów i zasad niestandardowych za pomocą [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+Witaj poniższy kod pobiera hello usługi kondycji dla nazwy usługi określony hello (URI), filtrów i zasad niestandardowych za pomocą [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -486,9 +486,9 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycja usługi [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Kondycja usługi hello tooget polecenia cmdlet Hello jest [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Następujące polecenie cmdlet pobiera kondycja usługi za pomocą domyślnych zasad kondycji:
+Hello następujące polecenie cmdlet pobiera hello usługi kondycji za pomocą domyślnych zasad kondycji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
@@ -526,27 +526,27 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Można pobrać usługi kondycji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Można pobrać usługi kondycji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-partition-health"></a>Pobierz kondycji partycji
-Zwraca kondycji jednostki partycji. Zawiera ona stanów kondycji repliki. Dane wejściowe:
+Zwraca hello kondycji jednostki partycji. Zawiera ona stanów kondycji hello repliki. Dane wejściowe:
 
-* [Wymagane] Partycja identyfikator (GUID), który identyfikuje partycji.
-* [Opcjonalnie] Zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i replik, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i repliki są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
-* [Opcjonalnie] Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji pokazują, jak wiele repliki są w ok, ostrzeżenia i błędu stanów.
+* [Wymagane] hello partycji identyfikator (GUID), który identyfikuje hello partycji.
+* Zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń i replik, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i repliki są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
+* [Opcjonalnie] Filtr tooexclude statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji hello pokazują, jak wiele repliki są w ok, ostrzeżenia i błędu stanów.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać partycji kondycji za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) metody na jego HealthManager. Aby określić następujące parametry opcjonalne, utworzyć [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Utwórz tooget partycji kondycji za pomocą interfejsu API, hello `FabricClient` i wywołanie hello [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) metody na jego HealthManager. Utwórz następujące parametry opcjonalne toospecify, [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycji partycji [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Witaj polecenia cmdlet tooget hello partycji kondycja jest [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Następujące polecenie cmdlet pobiera kondycji dla wszystkich partycji **fabric: / WordCount/usługi WordCountService** usługi i odfiltrowuje repliki stanów kondycji:
+Hello następujące polecenie cmdlet pobiera hello kondycji dla wszystkich partycji hello **fabric: / WordCount/usługi WordCountService** usługi i odfiltrowuje repliki stanów kondycji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -585,8 +585,8 @@ HealthEvents          :
                         SentAt                : 7/13/2017 6:35:17 PM
                         ReceivedAt            : 7/13/2017 6:35:18 PM
                         TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        Secondary replica could not be placed due to the following constraints and properties:  
+                        Description           : hello Load Balancer was unable toofind a placement for one or more of hello Service's Replicas:
+                        Secondary replica could not be placed due toohello following constraints and properties:  
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
@@ -618,26 +618,26 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji partycji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji partycji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-replica-health"></a>Pobierz kondycji repliki
-Zwraca kondycji repliki usługi stanowej lub wystąpienie usługi bezstanowej. Dane wejściowe:
+Zwraca kondycji hello repliki usługi stanowej lub wystąpienia usługi bezstanowej. Dane wejściowe:
 
-* [Wymagane] Identyfikator (GUID) i repliki Identyfikatora partycji identyfikujący repliki.
-* [Opcjonalnie] Parametry zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
+* [Wymagane] hello identyfikator partycji: Identyfikatora (GUID) i repliki identyfikujący hello repliki.
+* Parametry zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycji repliki za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) metody na jego HealthManager. Aby określić parametry zaawansowane, użyj [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Utwórz tooget hello repliki kondycji za pomocą interfejsu API, hello `FabricClient` i wywołanie hello [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) metody na jego HealthManager. Zaawansowane parametry, użyj toospecify [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycji repliki [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Witaj polecenia cmdlet tooget hello repliki kondycja jest [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Następujące polecenie cmdlet pobiera kondycji repliką podstawową dla wszystkich partycji usługi:
+Witaj następujące polecenie cmdlet pobiera hello kondycję hello repliki podstawowej dla wszystkich partycji usługi hello:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -661,18 +661,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji repliki z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji repliki z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-deployed-application-health"></a>Pobierz kondycji wdrożonej aplikacji
-Zwraca kondycji aplikacji wdrożone w ramach jednostki węzła. Zawiera ona stanów kondycji pakietu wdrożonej usługi. Dane wejściowe:
+Zwraca hello kondycji aplikacji wdrożone w ramach jednostki węzła. Zawiera ona stanów kondycji pakietu usługi hello wdrożone. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI) i nazwę węzła (ciąg) identyfikujących wdrożonej aplikacji.
-* [Opcjonalnie] Zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń i wdrożone pakiety usługi określające zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i wdrożone pakiety usługi są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
-* [Opcjonalnie] Filtr, aby wykluczyć statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji Pokaż liczbę wdrożone pakiety usługi ok, ostrzeżenia i błędu stany kondycji.
+* Nazwa aplikacji hello [wymagane] (URI) i nazwa węzła (ciąg) identyfikujących hello wdrożonych aplikacji.
+* Zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń i wdrożone pakiety usługi określające zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia i wdrożone pakiety usługi są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
+* [Opcjonalnie] Filtr tooexclude statystyki kondycji. Jeśli nie zostanie określony, statystyki kondycji hello zawierają hello liczbę pakietów wdrożonej usługi w ok, ostrzeżenia i błędu stanów kondycji.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycję aplikacji wdrożonych na węźle, za pośrednictwem interfejsu API, Utwórz `FabricClient` i Wywołaj [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) metody na jego HealthManager. Aby określić następujące parametry opcjonalne, użyj [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Utwórz tooget hello kondycji aplikacji wdrożonych na węźle, za pośrednictwem interfejsu API, hello `FabricClient` i wywołanie hello [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) metody na jego HealthManager. Parametry opcjonalne toospecify, użyj [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -680,9 +680,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-To polecenie cmdlet, aby pobrać kondycji wdrożonej aplikacji [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet. Aby dowiedzieć się, gdy aplikacja jest wdrażana, uruchom [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzyj się dzieci wdrożonej aplikacji.
+Witaj kondycji aplikacji hello wdrożone tooget polecenia cmdlet jest [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet. Uruchom toofind się, gdy aplikacja jest wdrażana, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzeć hello wdrożonych aplikacji elementów podrzędnych.
 
-Następujące polecenie cmdlet pobiera kondycji **fabric: / WordCount** aplikacji wdrożonych na **to węzeł _Node_2**.
+Hello następujące polecenie cmdlet pobiera hello kondycję hello **fabric: / WordCount** aplikacji wdrożonych na **to węzeł _Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -710,7 +710,7 @@ HealthEvents                       :
                                      SentAt                : 7/13/2017 5:57:06 PM
                                      ReceivedAt            : 7/13/2017 5:57:17 PM
                                      TTL                   : Infinite
-                                     Description           : The application was activated successfully.
+                                     Description           : hello application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/13/2017 5:57:17 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -720,17 +720,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać kondycji wdrożonej aplikacji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać kondycji wdrożonej aplikacji z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="get-deployed-service-package-health"></a>Pobierz kondycji pakietu wdrożonej usługi
-Zwraca kondycji jednostki pakietu wdrożonej usługi. Dane wejściowe:
+Zwraca hello kondycji jednostki pakietu wdrożonej usługi. Dane wejściowe:
 
-* [Wymagane] Nazwa aplikacji (URI), nazwę węzła (ciąg) i nazwa manifestu usługi (ciąg) identyfikujących pakietu wdrożonej usługi.
-* [Opcjonalnie] Zasady kondycji aplikacji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwracane w wynikach (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane do oceny kondycji jednostki zagregowane, niezależnie od tego filtru.
+* Nazwa aplikacji hello [wymagane] (URI), nazwę węzła (ciąg) i nazwa manifestu usługi (ciąg) identyfikujących hello wdrożony pakiet usługi.
+* Zasady kondycji aplikacji hello [opcjonalnie] używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla zdarzeń, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello (na przykład tylko błędy lub ostrzeżenia i błędy). Wszystkie zdarzenia są używane tooevaluate hello jednostki zagregowane kondycji, niezależnie od filtru hello.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać kondycji pakietu wdrożonej usługi za pomocą interfejsu API, Utwórz `FabricClient` i Wywołaj [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) metody na jego HealthManager. Aby określić następujące parametry opcjonalne, użyj [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Utwórz tooget hello kondycji pakietu wdrożonej usługi za pośrednictwem hello interfejsu API, `FabricClient` i wywołanie hello [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) metody na jego HealthManager. Parametry opcjonalne toospecify, użyj [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -738,9 +738,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby pobrać pakiet wdrożonej usługi kondycji jest [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet. Aby sprawdzić, gdy aplikacja jest wdrażana, uruchom [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzyj się wdrożone aplikacje. Aby wyświetlić usługi, które pakiety znajdują się w aplikacji, obejrzyj dzieci pakietu wdrożonej usługi w [Get ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) danych wyjściowych.
+Witaj polecenia cmdlet tooget hello wdrożone usługi pakietu kondycja jest [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet. Uruchom toosee, w którym aplikacja jest wdrażana, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) i przyjrzyj się hello wdrożone aplikacje. toosee, które pakiety usługi są w aplikacji, poszukać w hello wdrożone usługi pakietu dzieci w hello [Get ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) danych wyjściowych.
 
-Następujące polecenie cmdlet pobiera kondycji **WordCountServicePkg** pakiet usługi **fabric: / WordCount** aplikacji wdrożonych na **to węzeł _Node_2**. Jednostka ma **System.Hosting** raporty dla pomyślnej aktywacji w pakiecie usługi i punktu wejścia i pomyślną rejestrację typu usługi.
+Witaj następujące polecenie cmdlet pobiera hello kondycję hello **WordCountServicePkg** pakiet usługi hello **sieci szkieletowej: / WordCount** aplikacji wdrożonych na **to węzeł _Node_2**. Jednostka Hello ma **System.Hosting** raporty dla pomyślnej aktywacji w pakiecie usługi i punktu wejścia i pomyślną rejestrację typu usługi.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -759,7 +759,7 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:06 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The ServicePackage was activated successfully.
+                             Description           : hello ServicePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -771,7 +771,7 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:06 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The CodePackage was activated successfully.
+                             Description           : hello CodePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -783,51 +783,51 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:07 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The ServiceType was registered successfully.
+                             Description           : hello ServiceType was registered successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać wdrożonej usługi kondycji pakietu z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści.
+Możesz uzyskać wdrożonej usługi kondycji pakietu z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) zawierającej zasady dotyczące kondycji opisanego w treści hello.
 
 ## <a name="health-chunk-queries"></a>Fragmentu zapytań o kondycję
-Zapytania fragmentu kondycji mogą zwracać elementy podrzędne (rekursywnie), wielopoziomowe klastra na filtry. Obsługuje ona filtrów zaawansowanych, które umożliwiają dużą elastyczność w wyborze dzieci, który ma zostać zwrócona. Filtry można określić elementy podrzędne, za pomocą unikatowego identyfikatora lub przez inne grupy identyfikatorów i/lub stanów kondycji. Domyślnie bez żadnych elementów podrzędnych są uwzględnione, zamiast polecenia kondycji, które zawsze należy uwzględniać pierwszego poziomu elementów podrzędnych.
+Witaj kondycji fragmentu zapytania mogą zwracać elementy podrzędne (rekursywnie), wielopoziomowe klastra na filtry. Obsługuje ona filtrów zaawansowanych, zezwalających na dużą elastyczność w wyborze dzieci hello toobe zwracane. filtry Hello określić elementy podrzędne Unikatowy identyfikator hello lub przez inne grupy identyfikatorów i/lub stanów kondycji. Domyślnie bez żadnych elementów podrzędnych zostaną uzupełnione, w przeciwieństwie toohealth poleceń, które zawsze zawierają elementy podrzędne pierwszego stopnia.
 
-[Zapytań o kondycję](service-fabric-view-entities-aggregated-health.md#health-queries) zwracać tylko pierwszy poziom dzieci określonej jednostki na wymagane filtrów. Można uzyskać elementów podrzędnych elementu podrzędnego, należy wywołać kondycji dodatkowe interfejsy API dla każdej jednostki zainteresowań. Podobnie Aby uzyskać kondycji konkretnych obiektów, należy wywołać kondycji jednego interfejsu API dla każdej żądanej jednostki. Zapytanie fragmentu zaawansowane filtrowanie umożliwia zażądanie wielu elementy w jednym zapytaniu, minimalizując rozmiaru wiadomości i liczby wiadomości.
+Witaj [zapytań o kondycję](service-fabric-view-entities-aggregated-health.md#health-queries) zwracane elementy podrzędne tylko pierwszy poziom hello określone jednostki na wymagane filtrów. tooget hello podrzędnych elementów podrzędnych hello, należy wywołać kondycji dodatkowe interfejsy API dla każdej jednostki zainteresowań. Podobnie kondycję hello tooget konkretnych obiektów, należy wywołać kondycji jednego interfejsu API dla każdego żądanego obiektu. Witaj fragmentu zapytania zaawansowane filtrowanie pozwala toorequest wielu elementy w jednym zapytaniu, minimalizując rozmiaru wiadomości powitania i hello liczbę komunikatów.
 
-Wartość zapytania fragmentu jest, że wyświetlić stan kondycji dla kolejnych jednostek klastra (potencjalnie wszystkich klastra jednostek zaczynając od wymaganego głównego) w jednym wywołaniu. Można wyrazić zapytania kondycji złożonych takich jak:
+wartość Hello hello fragmentu zapytania jest, że możesz też uzyskać stan kondycji kolejnych jednostek klastra (potencjalnie wszystkich klastra jednostek zaczynając od wymaganego głównego) w jednym wywołaniu. Można wyrazić zapytania kondycji złożonych takich jak:
 
 * Zwracany aplikacji tylko w błąd, a w przypadku aplikacji obejmują wszystkie usługi w ostrzeżenia lub błędu. W przypadku zwróconych usług zawiera wszystkie partycje.
-* Zwróć tylko kondycję cztery aplikacji, określonych przez ich nazwy.
-* Zwróć tylko kondycję aplikacji typu żądanej aplikacji.
-* Zwraca wszystkie wdrożone jednostek w węźle. Zwraca wszystkie aplikacje, wszystkie wdrażane aplikacje na określony węzeł i wszystkie pakiety wdrożonej usługi na tym węźle.
+* Zwróć tylko hello kondycji cztery aplikacje, określonych przez ich nazwy.
+* Zwróć tylko hello kondycję aplikacji typu żądanej aplikacji.
+* Zwraca wszystkie wdrożone jednostek w węźle. Zwraca wszystkie aplikacje, wszystkich aplikacji wdrożonych na powitania określony węzeł i wszystkie pakiety service hello wdrożone w tym węźle.
 * Zwróć wszystkie repliki na błąd. Zwraca wszystkich aplikacji, usług, partycji i replik tylko z błędami.
 * Zwróć wszystkie aplikacje. Dla określonej usługi należy wprowadzić wszystkie partycje.
 
-Obecnie fragmentu zapytania kondycji jest widoczne tylko dla obiektu klastra. Zwraca fragmentu kondycji klastra, który zawiera:
+Obecnie hello kondycji fragmentu zapytania jest widoczne tylko dla obiektu klastra hello. Zwraca fragmentu kondycji klastra, który zawiera:
 
-* Stan kondycji jest agregowana w klastrze.
-* Lista fragmentu stanu kondycji węzłów, które przestrzegać filtry.
-* Lista fragmentu stan kondycji aplikacji, których przestrzeganie filtry. Każdego fragmentu stan kondycji aplikacji znajduje się lista fragmentu ze wszystkich usług, których przestrzeganie filtry i listy fragmentu z wszystkich wdrożonych aplikacji, które przestrzegać filtrów. Wartość taka sama dla dzieci, usług i wdrożone aplikacje. Dzięki temu wszystkie jednostki w klastrze może być potencjalnie zwracany żądanie w hierarchiczny sposób.
+* klaster Hello agregowana stan kondycji.
+* Hello kondycji stanu fragmentu listy węzłów, które przestrzegać filtry.
+* Hello kondycji stanu fragmentu lista aplikacji, których przestrzeganie filtry. Każdego fragmentu stan kondycji aplikacji znajduje się lista fragmentu ze wszystkich usług, których przestrzeganie filtry i listy fragmentu z wszystkich wdrożonych aplikacji, które przestrzegać hello filtrów. Wartość taka sama dla dzieci hello usług i wdrożone aplikacje. Dzięki temu wszystkie jednostki w klastrze hello może być potencjalnie zwracany żądanie w hierarchiczny sposób.
 
 ### <a name="cluster-health-chunk-query"></a>Klaster kondycji fragmentu zapytania
-Zwraca kondycji jednostki klastra i zawiera fragmenty stan kondycji hierarchiczna wymagane elementy podrzędne. Dane wejściowe:
+Zwraca hello kondycji jednostki klastra hello i zawiera fragmenty stan kondycji hierarchiczna hello wymagane elementy podrzędne. Dane wejściowe:
 
-* [Opcjonalnie] Zasad dotyczących kondycji klastra używane do analizowania węzły i zdarzenia klastra.
-* [Opcjonalnie] Aplikacja kondycji zasad mapy, zasady dotyczące kondycji służy do zastępowania zasad manifestu aplikacji.
-* [Opcjonalnie] Filtry dla węzłów i aplikacje, które określają zapisy, które są interesujące i powinny być zwracane w wynikach. Filtry są specyficzne dla jednostki/grupy jednostek lub mają zastosowanie do wszystkich jednostek na tym poziomie. Lista filtrów może zawierać jeden filtr ogólne i/lub filtrów dla określonych identyfikatorów dla jednostek szczegółowe dzielenie zwróconych przez kwerendę. W przypadku braku domyślnie nie są zwracane elementy podrzędne.
-  Przeczytaj więcej na temat filtrów w [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) i [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Rekursywnie może filtrów aplikacji określ filtry zaawansowane podrzędnych.
+* [Opcjonalnie] hello zasad dotyczących kondycji klastra używane tooevaluate hello węzły i hello zdarzenia klastra.
+* Mapowanie zasady kondycji aplikacji hello [opcjonalnie], z zasad dotyczących kondycji hello używane zasady manifestu aplikacji hello toooverride.
+* [Opcjonalnie] Filtry dla węzłów i aplikacje, które określają zapisy, które są interesujące i powinny być zwrócone w wyniku hello. filtry Hello są tooan określonej jednostki/grupy jednostek lub tooall odpowiednich jednostek na tym poziomie. Witaj lista filtrów może zawierać jeden filtr ogólne i/lub filtrów dla określonych identyfikatorów toofine ziarna jednostek zwróconych przez zapytanie hello. W przypadku braku hello elementy podrzędne nie są zwracane domyślnie.
+  Przeczytaj więcej na temat filtrów hello w [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) i [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). rekursywnie może filtrów aplikacji Hello określ filtry zaawansowane podrzędnych.
 
-Wynik fragmentu zawiera elementy podrzędne, które przestrzegać filtrów.
+Wynik fragmentu Hello zawiera elementy podrzędne hello przestrzegać hello filtrów.
 
-Obecnie zapytania fragmentu nie zwraca zła ocen lub zdarzeń jednostki. Dodatkowe informacje można uzyskać przy użyciu istniejącego zapytania kondycji klastra.
+Obecnie hello fragmentu zapytania nie zwraca zła ocen lub zdarzeń jednostki. Dodatkowe informacje można uzyskać za pomocą hello istniejące zapytanie kondycji klastra.
 
 ### <a name="api"></a>Interfejs API
-Aby uzyskać fragmentu kondycji klastra, Utwórz `FabricClient` i Wywołaj [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) metody na jego **HealthManager**. Można przekazać [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) do opisu zasady dotyczące kondycji i filtry zaawansowane.
+Stan klastra tooget bryłkach, Utwórz `FabricClient` i wywołanie hello [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) metody na jego **HealthManager**. Można przekazać [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) toodescribe zasady dotyczące kondycji i filtry zaawansowane.
 
-Poniższy kod pobiera fragmentu kondycji klastra z filtry zaawansowane.
+Witaj poniższy kod pobiera fragmentu kondycji klastra z filtry zaawansowane.
 
 ```csharp
 var queryDescription = new ClusterHealthChunkQueryDescription();
@@ -857,7 +857,7 @@ var wordCountServiceFilter = new ServiceHealthStateFilter()
 };
 wordCountServiceFilter.PartitionFilters.Add(wordCountServicePartitionFilter);
 
-// Application filter: for specific application, return no services except the ones of interest
+// Application filter: for specific application, return no services except hello ones of interest
 var wordCountApplicationFilter = new ApplicationHealthStateFilter()
     {
         // Always return fabric:/WordCount application
@@ -871,9 +871,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-Polecenie cmdlet, aby pobrać stan klastra jest [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Po pierwsze, połącz się z klastrem przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
+Stan klastra hello tooget polecenia cmdlet Hello jest [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Najpierw połącz toohello klastra przy użyciu hello [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) polecenia cmdlet.
 
-Poniższy kod pobiera węzły tylko wtedy, gdy są one błąd z wyjątkiem określonego węzła zawsze ma zostać zwrócony.
+Witaj poniższy kod pobiera węzły tylko wtedy, gdy są one błąd z wyjątkiem określonego węzła zawsze ma zostać zwrócony.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -881,7 +881,7 @@ $allFilter = [System.Fabric.Health.HealthStateFilter]::All;
 
 $nodeFilter1 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
 $nodeFilter2 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{NodeNameFilter="_Node_1";HealthStateFilter=$allFilter}
-# Create node filter list that will be passed in the cmdlet
+# Create node filter list that will be passed in hello cmdlet
 $nodeFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.NodeHealthStateFilter]
 $nodeFilters.Add($nodeFilter1)
 $nodeFilters.Add($nodeFilter2)
@@ -899,7 +899,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-Następujące polecenie cmdlet pobiera fragmentu klastra z filtrami aplikacji.
+Witaj następujące polecenie cmdlet pobiera fragmentu klastra z filtrami aplikacji.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -965,7 +965,7 @@ ApplicationHealthStateChunks :
                                         HealthState           : Error
 ```
 
-Następujące polecenie cmdlet zwraca wszystkie jednostki wdrożonej w węźle.
+Witaj następujące polecenie cmdlet zwraca wszystkie wdrożone jednostki w węźle.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1021,56 +1021,56 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Możesz uzyskać fragment kondycji klastra z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) zawierającej zasady dotyczące kondycji i filtry zaawansowane opisanego w treści.
+Możesz uzyskać fragment kondycji klastra z [żądania GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) lub [żądania POST](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) zawierającej zasady dotyczące kondycji i opisane w treści hello filtry zaawansowane.
 
 ## <a name="general-queries"></a>Ogólne zapytań
-Ogólne kwerendy zwracają listę jednostki sieci szkieletowej usług określonego typu. Są one dostępne za pośrednictwem interfejsu API (za pomocą metod na **FabricClient.QueryManager**), polecenia cmdlet programu PowerShell i REST. Te zapytania agregować podzapytania z wielu składników. Jeden z nich jest [magazynu kondycji](service-fabric-health-introduction.md#health-store), który wypełnia stan kondycji zagregowane dla każdego wyniku zapytania.  
+Ogólne kwerendy zwracają listę jednostki sieci szkieletowej usług określonego typu. Są one dostępne za pośrednictwem hello interfejsu API (za pomocą metod hello na **FabricClient.QueryManager**), polecenia cmdlet programu PowerShell i REST. Te zapytania agregować podzapytania z wielu składników. Jeden z nich jest hello [magazynu kondycji](service-fabric-health-introduction.md#health-store), który wypełnia hello zagregowane stan kondycji dla każdego wyniku zapytania.  
 
 > [!NOTE]
-> Ogólne zapytania zwracać zagregowane kondycja jednostki i nie zawierają danych sformatowanego kondycji. Jeśli jednostka nie jest w dobrej kondycji, można odpowiednio zareagować z zapytania kondycji, aby uzyskać wszystkie jego informacje kondycji, w tym zdarzenia, stanów kondycji podrzędnych i oceny złej kondycji.
+> Ogólne zapytania zwracać hello zagregowane stanu kondycji jednostki hello i nie zawierają danych sformatowanego kondycji. Jeśli jednostka nie jest w dobrej kondycji, można odpowiednio zareagować z tooget zapytania kondycji wszystkich jego kondycji informacji, w tym zdarzenia, stanów kondycji podrzędnych i oceny złej kondycji.
 >
 >
 
-Jeśli ogólne kwerend zwraca nieznany kondycja jednostki, jest to możliwe, że magazynu kondycji nie ma pełnych danych o tej jednostce. Istnieje również możliwość, że podzapytania w magazynie kondycji nie powiodło się (na przykład wystąpił błąd komunikacji lub został ograniczony magazynu kondycji). Dostosuj się zapytania kondycji dla jednostki. Jeśli podzapytanie napotkała błąd przejściowy, takie jak problemy z siecią, to zapytanie kolejnych może się powieść. Go może także zapewniają więcej szczegółowych informacji z magazynu kondycji o Dlaczego jednostki nie jest widoczne.
+Jeśli ogólne kwerend zwraca nieznany kondycja jednostki, istnieje możliwość tego magazynu kondycji hello nie ma pełnych danych o hello jednostki. Istnieje również możliwość, że sklep kondycji toohello podzapytania nie powiodło się (na przykład wystąpił błąd komunikacji lub magazynu kondycji hello został ograniczony). Wykonaj przy użyciu zapytania kondycji hello jednostki. Jeśli podzapytanie hello napotkała przejściowe błędy, takie jak problemy z siecią, to zapytanie kolejnych może się powieść. Go może także zapewniają więcej szczegółowych informacji z magazynu kondycji hello o Dlaczego hello jednostki nie jest widoczne.
 
-Zapytania, które zawierają **HealthState** dla jednostki to:
+Witaj zapytania, które zawierają **HealthState** dla jednostki to:
 
-* Listy węzłów: zwraca listy węzłów w klastrze (stronicowanej).
+* Listy węzłów: zwraca hello listy węzłów w klastrze hello (stronicowanej).
   * Interfejs API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * Środowiska PowerShell: Get-ServiceFabricNode
-* Lista aplikacji: zwraca listę aplikacji w klastrze (stronicowanej).
+* Lista aplikacji: hello zwraca listę aplikacji w klastrze hello (stronicowanej).
   * Interfejs API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * Środowiska PowerShell: Get-ServiceFabricApplication
-* Lista usług: zwraca listę usług w aplikacji (stronicowanej).
+* Lista usług: hello zwraca listę usług w aplikacji (stronicowanej).
   * Interfejs API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * Środowiska PowerShell: Get-ServiceFabricService
-* Lista partycji: zwraca listę partycji w usłudze (stronicowanej).
+* Lista partycji: zwraca listę hello partycji w usłudze (stronicowanej).
   * Interfejs API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * Środowiska PowerShell: Get-ServiceFabricPartition
-* Listy replik: zwraca listę replik partycji (stronicowanej).
+* Listy replik: zwraca hello listę replik w partycji (stronicowanej).
   * Interfejs API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * Środowiska PowerShell: Get-ServiceFabricReplica
-* Wdrożone listy aplikacji: zwraca listę wdrożonych aplikacji w węźle.
+* Wdrożone listy aplikacji: hello zwraca listę wdrożonych aplikacji w węźle.
   * Interfejs API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * Środowiska PowerShell: Get-ServiceFabricDeployedApplication
-* Wdrożone usługi listy pakietów: zwraca listę pakietów usług we wdrożonej aplikacji.
+* Wdrożone usługi listy pakietów: hello zwraca listę pakietów usług we wdrożonej aplikacji.
   * Interfejs API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * Środowiska PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Niektóre z zapytań Zwróć wyników stronicowania. Powrót z tych kwerend znajduje się lista pochodzące z [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki nie pasują do wiadomości, jest zwracana tylko stronę i ContinuationToken śledzi gdzie wyliczenie zatrzymana. Nadal wywołanie tej samej kwerendy i przekaż token kontynuacji z poprzedniej kwerendy, aby uzyskać wyniki dalej.
+> Niektóre z zapytań hello zwracać wyników stronicowania. Witaj zwrotu z tych kwerend znajduje się lista pochodzące z [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Jeśli wyniki hello nie pasują do wiadomości, jest zwracana tylko stronę i ContinuationToken śledzi gdzie wyliczenie zatrzymana. Nadal hello toocall sam zapytań i przekaż token kontynuacji hello z hello poprzednich zapytań tooget dalej wyników.
 >
 >
 
 ### <a name="examples"></a>Przykłady
-Poniższy kod pobiera złej kondycji aplikacji w klastrze:
+Witaj poniższy kod pobiera złej kondycji aplikacji hello w klastrze hello:
 
 ```csharp
 var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Where(
   app => app.HealthState == HealthState.Error);
 ```
 
-Następujące polecenie cmdlet pobiera szczegółów aplikacji w sieci szkieletowej: / WordCount aplikacji. Należy zauważyć, że stan kondycji jest ostrzeżenie.
+Witaj następujące polecenie cmdlet pobiera szczegóły aplikacji hello hello sieci szkieletowej: / WordCount aplikacji. Należy zauważyć, że stan kondycji jest ostrzeżenie.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1090,7 +1090,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-Następujące polecenie cmdlet pobiera usług o stanie kondycji błędu:
+Witaj następujące polecenie cmdlet pobiera hello usług o stanie kondycji błędu:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1107,13 +1107,13 @@ HealthState            : Error
 ```
 
 ## <a name="cluster-and-application-upgrades"></a>Uaktualnienia klastra i aplikacji
-Podczas uaktualniania monitorowanych klastra i aplikacji sieci szkieletowej usług umożliwia sprawdzenie kondycji, aby zapewnić wszystko działa prawidłowo. Jeśli jednostki jest nieprawidłowy, ponieważ oceniane przy użyciu zasad dotyczących kondycji skonfigurowanego, uaktualnienie ma zastosowanie zasad dla konkretnych uaktualnienia ustalenie następnej akcji. Uaktualnienia może być wstrzymane. Aby zezwolić na interakcję użytkownika (na przykład poprawki błędów lub zmiany zasad) lub może automatycznie przywracać stanu sprzed dobrej poprzedniej wersji.
+Podczas uaktualniania monitorowanych hello klastra i aplikacji sieci szkieletowej usług sprawdza tooensure kondycji wszystkich pozostaje dobrej kondycji. Jeśli jednostka jest nieprawidłowy, ponieważ oceniane przy użyciu zasad dotyczących kondycji skonfigurowanego, uaktualnienie hello ma zastosowanie zasad dla konkretnych uaktualnienia toodetermine hello następnej akcji. uaktualnienie Hello może być wstrzymana tooallow interakcji z użytkownikiem (na przykład poprawki błędów lub zmiany zasad) lub go może automatycznie przywrócić poprzedniej wersji dobrej toohello.
 
-Podczas *klastra* uaktualnienia, możesz uzyskać stan uaktualnienia klastra. Stan uaktualnienia obejmuje ocen złej kondycji, które wskaż co to jest w złej kondycji w klastrze. Jeśli uaktualnianie zostanie wycofana z powodu problemów kondycji, stan uaktualnienia pamięta ostatniego przyczyny złej kondycji. Te informacje mogą pomóc Administratorzy zbadać, co poszło źle po uaktualnieniu z powrotem obniżyć lub zatrzymana.
+Podczas *klastra* uaktualnienia, możesz uzyskać stan uaktualnienia klastra hello. Stan uaktualnienia Hello obejmuje oceny złej kondycji, które toowhat punkt jest zła hello klastra. Jeśli uaktualnienie hello jest przywracana powodu toohealth problemy, stan uaktualnienia hello pamięta hello ostatniego przyczyny złej kondycji. Te informacje mogą pomóc Administratorzy zbadać, co poszło źle po uaktualnieniu hello wycofana lub zatrzymana.
 
-Podobnie podczas *aplikacji* uaktualnienia, wszelkie nieprawidłowości oceny są zawarte w stan uaktualnienia aplikacji.
+Podobnie podczas *aplikacji* uaktualnienia, wszelkie nieprawidłowości oceny są zawarte w stan uaktualnienia aplikacji hello.
 
-Poniżej pokazano stanu uaktualniania aplikacji dla zmodyfikowanych sieci szkieletowej: / WordCount aplikacji. Programu alarmowego zgłosił błąd na jednym z jego repliki. Uaktualnianie jest stopniowych, ponieważ kontroli kondycji nie są przestrzegane.
+Hello poniżej przedstawia stan uaktualnienia aplikacji hello zmodyfikowane sieci szkieletowej: / WordCount aplikacji. Programu alarmowego zgłosił błąd na jednym z jego repliki. uaktualnienie Hello wykonuje procedurę wycofywania, ponieważ hello kontroli kondycji nie są przestrzegane.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1167,12 +1167,12 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-Przeczytaj więcej na temat [uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md).
+Dowiedz się więcej o hello [uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md).
 
-## <a name="use-health-evaluations-to-troubleshoot"></a>Rozwiązywanie problemów przy użyciu oceny kondycji
-Zawsze, gdy występuje problem z klastra lub aplikacji, obejrzyj kondycji klastra lub aplikacji w celu określenia, co jest nieprawidłowe. Zła oceny zawierają szczegółowe informacje o co wyzwoliło bieżący stan złej kondycji. Jeśli zajdzie potrzeba, użytkownik może przejść do jednostek podrzędne o złej kondycji, aby zidentyfikować przyczynę.
+## <a name="use-health-evaluations-tootroubleshoot"></a>Użyj tootroubleshoot oceny kondycji
+Zawsze, gdy występuje problem z klastra hello lub aplikacji, obejrzyj toopinpoint kondycji klastra lub aplikacji hello co to jest nieprawidłowy. Zła ocen Hello zawierają szczegółowe informacje o jakie wyzwalanych hello bieżący stan złej kondycji. Jeśli zajdzie potrzeba, użytkownik może przejść do podrzędne o złej kondycji jednostek tooidentify hello główną przyczynę.
 
-Rozważmy na przykład aplikacji nieprawidłowy, ponieważ raport o błędach na jednym z jego repliki. Następujące polecenie cmdlet programu Powershell pokazuje ocen złej kondycji:
+Rozważmy na przykład aplikacji nieprawidłowy, ponieważ raport o błędach na jednym z jego repliki. Hello następujące polecenia cmdlet programu Powershell pokazuje hello ocen złej kondycji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1200,7 +1200,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-Można przyjrzeć się replikę tak, aby uzyskać więcej informacji:
+Można przyjrzeć się tooget repliki hello więcej informacji:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricReplicaHealth -ReplicaOrInstanceId 131444422260002646 -PartitionId af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -1239,16 +1239,16 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> Zła ocen Pokaż pierwsze urząd jednostki jest obliczane do bieżącego stanu kondycji. Może istnieć wiele zdarzeń wyzwalających ten stan, ale są one nie zostać zawarte w oceny. Aby uzyskać więcej informacji, przejdź do szczegółów jednostki kondycji, aby poznać wszystkie raporty złej kondycji w klastrze.
+> Hello zła ocen Pokaż hello pierwszy przyczyny jednostka hello jest oceniane toocurrent stan kondycji. Może istnieć wiele zdarzeń wyzwalających ten stan, ale są one nie zostać zawarte w hello oceny. tooget więcej informacji, przechodzenie do toofigure jednostek kondycji hello limit wszystkich raportów zła hello hello klastra.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
-[Używanie raportów kondycji systemu do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Użyj tootroubleshoot Raporty kondycji systemu](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Dodawanie niestandardowych raportów kondycji sieci szkieletowej usług](service-fabric-report-health.md)
 
-[Jak zgłosić i Sprawdź kondycję usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Jak tooreport i zaznacz pole wyboru usługi kondycji](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Monitorowanie i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

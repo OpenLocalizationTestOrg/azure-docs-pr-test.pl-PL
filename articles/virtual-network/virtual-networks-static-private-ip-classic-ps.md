@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych (klasyczne) - programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować prywatnych adresów IP dla maszyn wirtualnych (klasyczne) przy użyciu programu PowerShell."
+title: "aaaConfigure prywatnych adresów IP dla maszyn wirtualnych (klasyczne) - programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak adresy IP prywatnej tooconfigure dla maszyn wirtualnych (klasyczne) przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da2992fad89a703086b7645c88f6d8e1a39e4b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99546ee9c2c4eb9aa7b67f30721d37ef9b2944f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej (klasyczne) przy użyciu programu PowerShell
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule opisano klasyczny model wdrażania. Możesz również [Zarządzanie statycznego prywatnego adresu IP w modelu wdrażania usługi Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+W tym artykule omówiono hello klasycznego modelu wdrażania. Możesz również [Zarządzanie statycznego prywatnego adresu IP w modelu wdrażania usługi Resource Manager hello](virtual-networks-static-private-ip-arm-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Poniższe przykładowe polecenia programu PowerShell oczekiwać środowisku niezłożonym już utworzone. Aby uruchomić polecenia wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-classic-netcfg-ps.md).
+Poniższe polecenia programu PowerShell próbki Hello oczekiwać środowisku niezłożonym już utworzone. Jeśli chcesz korzystać z poleceń hello toorun wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe hello opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Jak sprawdzić, czy określony adres IP jest dostępna
-Aby sprawdzić, czy adres IP *192.168.1.101* jest dostępny w sieci wirtualnej o nazwie *TestVNet*, uruchom następujące polecenie programu PowerShell i sprawdź wartość *IsAvailable*:
+## <a name="how-tooverify-if-a-specific-ip-address-is-available"></a>Jak tooverify, jeśli określony adres IP jest dostępna
+tooverify Jeśli hello adres IP *192.168.1.101* jest dostępny w sieci wirtualnej o nazwie *TestVNet*, uruchom następujące polecenia programu PowerShell hello i sprawdź wartość hello *IsAvailable*:
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -49,8 +49,8 @@ Oczekiwane dane wyjściowe:
     OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
     OperationStatus      : Succeeded
 
-## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Sposób określania statycznego prywatnego adresu IP, podczas tworzenia maszyny Wirtualnej
-Poniższy skrypt programu PowerShell tworzy nową usługę w chmurze o nazwie *TestService*, następnie pobierze obraz z platformy Azure, tworzy Maszynę wirtualną o nazwie *DNS01* w nowej usługi w chmurze przy użyciu obrazu pobrane, ustawia maszyny Wirtualnej w podsieci o nazwie *frontonu*i ustawia *192.168.1.7* jako statycznego prywatnego adresu IP dla maszyny Wirtualnej:
+## <a name="how-toospecify-a-static-private-ip-address-when-creating-a-vm"></a>Jak toospecify statycznych prywatnych adresów IP podczas tworzenia maszyny Wirtualnej
+Poniższy skrypt programu PowerShell Hello tworzy nową usługę w chmurze o nazwie *TestService*, następnie pobierze obraz z platformy Azure, tworzy Maszynę wirtualną o nazwie *DNS01* hello nowego w usłudze w chmurze przy użyciu obrazu hello pobrać, ustawia Witaj toobe maszyn wirtualnych w podsieci o nazwie *frontonu*i ustawia *192.168.1.7* jako statycznego prywatnego adresu IP hello maszyny Wirtualnej:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -68,8 +68,8 @@ Oczekiwane dane wyjściowe:
     New-AzureService     fcf705f1-d902-011c-95c7-b690735e7412 Succeeded      
     New-AzureVM          3b99a86d-84f8-04e5-888e-b6fc3c73c4b9 Succeeded  
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Jak pobrać statycznych prywatne informacje o adresie IP dla maszyny Wirtualnej
-Aby wyświetlić informacje statycznych adresów IP prywatne dla maszyny Wirtualnej utworzone za pomocą skryptu powyżej, uruchom następujące polecenie programu PowerShell i sprawdź wartości *IpAddress*:
+## <a name="how-tooretrieve-static-private-ip-address-information-for-a-vm"></a>Jak tooretrieve statycznych prywatnych adresów IP informacji dla maszyny Wirtualnej
+tooview hello statycznego prywatnego adresu IP adres dla hello maszyny Wirtualnej utworzone za pomocą skryptu hello powyżej, uruchom następujące polecenia programu PowerShell hello i sprawdź wartości hello *IpAddress*:
 
     Get-AzureVM -Name DNS01 -ServiceName TestService
 
@@ -102,8 +102,8 @@ Oczekiwane dane wyjściowe:
     OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
     OperationStatus             : OK
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Jak usunąć statycznego prywatnego adresu IP z maszyny Wirtualnej
-Aby usunąć statycznego prywatnego adresu IP dodane do maszyny Wirtualnej w skrypcie powyżej, uruchom następujące polecenie programu PowerShell:
+## <a name="how-tooremove-a-static-private-ip-address-from-a-vm"></a>Jak tooremove statycznych prywatnych adresów IP z maszyny Wirtualnej
+tooremove hello statycznego prywatnego adresu IP dodane toohello maszyny Wirtualnej w skrypcie hello powyżej hello uruchom następujące polecenia programu PowerShell:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Remove-AzureStaticVNetIP |
@@ -115,8 +115,8 @@ Oczekiwane dane wyjściowe:
     -------------------- -----------                          ---------------
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Jak dodać statycznego prywatnego adresu IP do istniejącej maszyny Wirtualnej
-Aby dodać statycznego prywatnych adresów IP do maszyny Wirtualnej utworzone za pomocą skryptu powyżej runt następujące polecenie:
+## <a name="how-tooadd-a-static-private-ip-address-tooan-existing-vm"></a>Jak tooadd statycznego prywatnego adresu IP adresów tooan istniejącej maszyny Wirtualnej
+tooadd statycznego prywatnego adresu IP adres toohello maszyny Wirtualnej utworzonej przy użyciu skryptu hello powyżej runt następujące polecenie:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |
@@ -131,5 +131,5 @@ Oczekiwane dane wyjściowe:
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zastrzeżone publicznego adresu IP](virtual-networks-reserved-public-ip.md) adresów.
 * Dowiedz się więcej o [poziomie wystąpienia publicznego adresu IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresów.
-* Zapoznaj się [zastrzeżone interfejsów API REST IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Zapoznaj się hello [zastrzeżonego adresu IP interfejsów API REST](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

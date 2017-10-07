@@ -1,6 +1,6 @@
 ---
 title: "Usługa Azure Active Directory B2C: Dodawanie usług AD FS jako dostawca tożsamości SAML za pomocą zasad niestandardowych"
-description: "Artykule na temat konfigurowania usług AD FS 2016 przy użyciu protokołu SAML i zasad niestandardowych"
+description: "Tooarticle instrukcje dotyczące konfigurowania usług AD FS 2016 przy użyciu protokołu SAML i zasad niestandardowych"
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
@@ -14,103 +14,103 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: ef0495460b5652dd6052a49ab9c722381e93458b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30fb7700e7834e3d91fab1fc1b169b761584b204
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Usługa Azure Active Directory B2C: Dodawanie usług AD FS jako dostawca tożsamości SAML za pomocą zasad niestandardowych
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule przedstawiono sposób włączenia logowania użytkowników z usług AD FS konta za pośrednictwem [niestandardowych zasad](active-directory-b2c-overview-custom.md).
+W tym artykule opisano sposób tooenable logowania użytkowników z konta usług AD FS przy użyciu hello [niestandardowych zasad](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj kroki [wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md) artykułu.
+Zakończenie hello etapami hello [wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md) artykułu.
 
 Kroki te obejmują:
 
 1.  Tworzenie usług AD FS jednostki uzależnionej zaufania.
-2.  Trwa dodawanie certyfikatu usługi AD FS zaufania jednostki uzależnionej do usługi Azure AD B2C.
-3.  Dodawanie dostawcy oświadczeń dla zasad.
-4.  Rejestrowanie usług AD FS konta oświadczeń dostawcy przebieg użytkownika.
-5.  Przekazywanie zasady do usługi Azure AD B2C dzierżawy i przetestować go.
+2.  Dodawanie tooAzure certyfikatu usług AD FS zaufania jednostki uzależnionej hello AD B2C.
+3.  Dodawanie zasad tooa dostawcy oświadczeń.
+4.  Konta usług AD FS w usłudze rejestrowania hello oświadczeń przebieg użytkownika tooa dostawcy.
+5.  Przekazywanie hello tooan zasad usługi Azure AD B2C dzierżawy i przetestować go.
 
-## <a name="to-create-a-claims-aware-relying-party-trust"></a>Aby utworzyć oświadczeń zaufania jednostki uzależnionej
+## <a name="toocreate-a-claims-aware-relying-party-trust"></a>toocreate oświadczeń zaufania jednostki uzależnionej
 
-Aby używać usług AD FS jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy do tworzenia usług AD FS zaufania jednostki uzależnionej dostarczyć prawo parametrów.
+toouse usług AD FS jako dostawca tożsamości w usłudze Azure Active Directory (Azure AD) B2C, należy toocreate usług AD FS zaufania jednostki uzależnionej i dostarczyć hello prawo parametrów.
 
-Aby dodać nowe zaufanie jednostki uzależnionej przy użyciu przystawki Zarządzanie usługami AD FS i należy ręcznie skonfigurować ustawienia, należy wykonać następującą procedurę na serwerze federacyjnym.
+tooadd nowe uzależnionej zaufania przy użyciu przystawki Zarządzanie FS hello AD i ręcznie skonfigurować ustawienia hello wykonać hello następujące procedury na serwerze federacyjnym.
 
-Członkostwo w grupie **Administratorzy**, lub równoważnej na komputerze lokalnym jest minimalnym wymaganiem do wykonania tej procedury. Szczegółowe informacje na temat używania odpowiednich kont i członkostwa w grupach [grupy domyślne w domenie i lokalne](http://go.microsoft.com/fwlink/?LinkId=83477)
+Członkostwo w grupie **Administratorzy**, lub równoważnej na komputerze lokalnym hello hello minimalne wymagane toocomplete tej procedury. Szczegółowe informacje o używaniu hello odpowiednich kont i członkostwa w grupach [grupy domyślne w domenie i lokalne](http://go.microsoft.com/fwlink/?LinkId=83477)
 
 1.  W Menedżerze serwera kliknij **narzędzia**, a następnie wybierz **zarządzania usług AD FS**.
 
 2.  Polecenie **Dodawanie zaufania jednostki uzależnionej**.
     ![Dodawanie zaufania jednostki uzależnionej](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-1.png)
 
-3.  Na **powitalnej** wybierz pozycję **oświadczeń pamiętać** i kliknij przycisk **Start**.
-    ![Na stronie powitalnej wybierz pamiętać oświadczeń](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-2.png)
-4.  Na **wybierz źródło danych** kliknij przycisk **ręcznie wprowadź dane jednostki uzależnionej**, a następnie kliknij przycisk **dalej**.
-    ![Wprowadź dane jednostki uzależnionej](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-3.png)
+3.  Na powitania **powitalnej** wybierz pozycję **oświadczeń pamiętać** i kliknij przycisk **Start**.
+    ![Na stronie powitalnej hello wybierz oświadczeń pamiętać](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-2.png)
+4.  Na powitania **wybierz źródło danych** kliknij przycisk **ręcznie wprowadź dane dotyczące jednostki uzależnionej hello**, a następnie kliknij przycisk **dalej**.
+    ![Wprowadź dane dotyczące jednostki uzależnionej hello](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-3.png)
 
-5.  Na **Określanie nazwy wyświetlanej** wpisz nazwę w **Nazwa wyświetlana**w obszarze **uwagi** wpisz opis tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej** .
+5.  Na powitania **Określanie nazwy wyświetlanej** wpisz nazwę w **Nazwa wyświetlana**w obszarze **uwagi** wpisz opis tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej** .
     ![Określ nazwę wyświetlaną i uwagi](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
-6.  Opcjonalny. Jeśli certyfikat szyfrowania tokenu opcjonalne następnie na **Konfigurowanie certyfikatu** kliknij przycisk **Przeglądaj** zlokalizuj plik certyfikatu, a następnie kliknij przycisk **dalej**.
+6.  Opcjonalny. Jeśli masz certyfikat szyfrowania tokenu opcjonalne następnie na powitania **Konfigurowanie certyfikatu** kliknij przycisk **Przeglądaj** toolocate plik certyfikatu, a następnie kliknij przycisk **dalej** .
     ![Konfigurowanie certyfikatu](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  Na **Konfigurowanie adresu URL** wybierz pozycję **Włącz obsługę protokołu SAML 2.0 WebSSO** pole wyboru. W obszarze **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**, wpisz adres URL punktu końcowego usługi Security (Assertion Markup Language SAML) dla tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej**.  Aby uzyskać **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**, Wklej `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Zamień na nazwę swojej dzierżawy (na przykład contosob2c.onmicrosoft.com) {dzierżawa} i {zasad} Zamień na nazwę zasady rozszerzenia (na przykład B2C_1A_TrustFrameworkExtensions).
+7.  Na powitania **Konfigurowanie adresu URL** strona, wybierz hello **Włącz obsługę protokołu SAML 2.0 WebSSO hello** pole wyboru. W obszarze **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**wpisz adres URL punktu końcowego usługi Security (Assertion Markup Language SAML) powitania dla tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej**.  Dla hello **URL usługi logowania jednokrotnego SAML 2.0 jednostki uzależnionej w strona**, Wklej hello `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Zamień na nazwę swojej dzierżawy (na przykład contosob2c.onmicrosoft.com) {dzierżawa} i {zasad} hello Zamień na nazwę zasady rozszerzenia (na przykład B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
-    >Nazwa zasady jest dziedziczący signup_or_signin zasady, w tym przypadku jest: `B2C_1A_TrustFrameworkExtensions`.
-    >Na przykład adres URL może być: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Nazwa zasady Hello jest hello jedną dziedziczący signup_or_signin zasady, w tym przypadku jest: `B2C_1A_TrustFrameworkExtensions`.
+    >Na przykład można hello adresu URL: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Jednostki uzależnionej adres URL strony logowania jednokrotnego SAML 2.0 usługi](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
-8. Na **skonfiguruj identyfikatory** Określ ten sam adres URL co w poprzednim kroku, kliknij przycisk **Dodaj** dodać je do listy, a następnie kliknij przycisk **dalej**.
+8. Na powitania **skonfiguruj identyfikatory** Określ hello tego samego adresu URL jako hello poprzedniego kroku, kliknij przycisk **Dodaj** tooadd ich toohello listy, a następnie kliknij przycisk **dalej**.
     ![Jednostki uzależnionej identyfikatorów zaufania](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-7.png)
-9.  Na **wybierz zasady kontroli dostępu** wybierz zasady, a następnie kliknij przycisk **dalej**.
+9.  Na powitania **wybierz zasady kontroli dostępu** wybierz zasady, a następnie kliknij przycisk **dalej**.
     ![Wybierz zasady kontroli dostępu](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-8.png)
-10.  Na **gotowe do dodania zaufania** , przejrzyj ustawienia, a następnie kliknij przycisk **dalej** zapisać uzależnionej informacje o zaufaniu.
+10.  Na powitania **gotowe tooAdd zaufania** , przejrzyj ustawienia hello, a następnie kliknij przycisk **dalej** toosave informacje o zaufaniu jednostki uzależnionej strony.
     ![Zapisz dane zaufania jednostki uzależnionej strony](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-9.png)
-11.  Na **Zakończ** kliknij przycisk **Zamknij**, ta czynność spowoduje automatyczne wyświetlenie **Edycja reguł oświadczeń** okno dialogowe.
+11.  Na powitania **Zakończ** kliknij przycisk **Zamknij**, ta czynność spowoduje automatyczne wyświetlenie hello **Edycja reguł oświadczeń** okno dialogowe.
     ![Edycja reguł oświadczeń](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-10.png)
 12. Kliknij przycisk **Dodaj regułę**.  
       ![Dodaj nową regułę](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-1.png)
 13.  W **szablonu reguły oświadczeń**, wybierz pozycję **Wyślij atrybuty LDAP jako oświadczeń**.
     ![Wybierz Wyślij atrybuty LDAP jako oświadczeń szablonu reguł](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-2.png)
-14.  Podaj **nazwy reguły oświadczeń**. Dla **magazynu atrybutów** wybierz **usługi Active Directory wybierz** Dodaj następujące oświadczeń, a następnie kliknij przycisk **Zakończ** i **OK**.
+14.  Podaj **nazwy reguły oświadczeń**. Dla hello **magazynu atrybutów** wybierz **usługi Active Directory wybierz** Dodaj powitania po oświadczeń, a następnie kliknij przycisk **Zakończ** i **OK**.
     ![Właściwości zestawu reguł](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-claims-3.png)
-15.  W Menedżerze serwera wybierz **zaufania jednostek uzależnionych** , a następnie wybierz jednostkę uzależnioną zaufania utworzony i kliknij przycisk **właściwości**.
+15.  W Menedżerze serwera wybierz **zaufania jednostek uzależnionych** wybierz hello zaufania jednostki uzależnionej został utworzony i kliknij **właściwości**.
     ![Jednostki uzależnionej strony Edytuj właściwości](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-1.png)
-16.  Okno Właściwości zaufania (pokaz B2C) jednostki uzależnionej strony kliknij jeden **podpisu** i kliknij polecenie **Dodaj**.  
+16.  Witaj jednej jednostki uzależnionej strony zaufania (pokaz B2C) właściwości kliknij **podpisu** i kliknij polecenie **Dodaj**.  
     ![Podpis zestawu](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-2.png)
 17.  Dodaj certyfikat podpisu (bez klucza prywatnego plik .cert).  
     ![Dodaj certyfikat podpisu](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-3.png)
-18.  W oknie Właściwości zaufania (pokaz B2C) jednostki uzależnionej strony kliknij **zaawansowane** karcie i zmień **skrótu Secure hash algorithm** do **SHA-1**, kliknij przycisk **Ok**.  
-    ![Wartość skrótu secure hash algorithm SHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
+18.  W oknie Właściwości zaufania (pokaz B2C) jednostki uzależnionej strony powitania kliknij **zaawansowane** karcie i zmień hello **skrótu Secure hash algorithm** za**SHA-1**, kliknij przycisk **Ok**.  
+    ![Wartość skrótu secure hash algorithm tooSHA-1](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-sig-4.png)
 
-## <a name="add-the-adfs-account-application-key-to-azure-ad-b2c"></a>Dodaj klucz aplikacji konto usług AD FS do usługi Azure AD B2C
-Federacja z kontami usług AD FS wymaga klucz tajny klienta konta usług AD FS do relacji zaufania usługi Azure AD B2C w imieniu aplikacji. Należy do przechowywania certyfikatu usług AD FS w dzierżawie usługi Azure AD B2C. 
+## <a name="add-hello-adfs-account-application-key-tooazure-ad-b2c"></a>Dodaj hello usług AD FS konta aplikacji klucza tooAzure AD B2C
+Federacja z kontami usług AD FS wymaga klucza tajnego klienta usług AD FS tootrust konta usługi Azure AD B2C w imieniu aplikacji hello. Należy toostore certyfikatu usług AD FS w dzierżawie usługi Azure AD B2C. 
 
-1.  Przejdź do dzierżawy usługi Azure AD B2C i wybierz **ustawieniami B2C** > **Framework obsługi tożsamości**
-2.  Wybierz **zasad kluczy** Aby wyświetlić dostępne w Twojej dzierżawie kluczy.
+1.  Przejdź do dzierżawy usługi Azure AD B2C tooyour i wybierz **ustawieniami B2C** > **Framework obsługi tożsamości**
+2.  Wybierz **zasad kluczy** klawiszy hello tooview dostępnych w dzierżawie.
 3.  Kliknij przycisk **+ Dodaj**.
 4.  Aby uzyskać **opcje**, użyj **przekazać**.
 5.  Aby uzyskać **nazwa**, użyj `ADFSSamlCert`.  
-    Prefiks `B2C_1A_` mogą być dodawane automatycznie.
-6.  W przypadku przekazywania pliku ** wybierz plik .pfx certyfikatu z kluczem prywatnym. Uwaga: ten certyfikat (z kluczem prywatnym) powinna być taka sama, wydane i używane dla jednostki uzależnionej usług AD FS.
+    Prefiks Hello `B2C_1A_` mogą być dodawane automatycznie.
+6.  W hello przekazywania pliku ** wybierz plik .pfx certyfikatu z kluczem prywatnym. Uwaga: ten certyfikat (z kluczem prywatnym hello) powinna być hello, tej samej, który wystawił i używane dla usług AD FS hello jednostki uzależnionej.
 ![Przekazywanie klucza zasad](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-cert.png)
 7.  Kliknij przycisk **Utwórz**
-8.  Upewnij się, że utworzono klucz `B2C_1A_ADFSSamlCert`.
+8.  Upewnij się, że utworzono klucz hello `B2C_1A_ADFSSamlCert`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Dodawanie dostawcy oświadczeń w zasadach rozszerzenia
-Użytkownikom na logowanie się przy użyciu konta usług AD FS, należy zdefiniować konta usług AD FS jako dostawcy oświadczeń. Innymi słowy należy określić punkt końcowy, który komunikuje się usługi Azure AD B2C. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez usługę Azure AD B2C, aby sprawdzić, czy określony użytkownik jest uwierzytelniony.
+Jeśli chcesz toosign użytkowników przy użyciu konta usług AD FS, musisz mieć konto usług AD FS toodefine jako dostawcy oświadczeń. Innymi słowy należy toospecify punktu końcowego, który komunikuje się usługi Azure AD B2C. punkt końcowy Hello zawiera zestaw oświadczeń, które są używane przez usługi Azure AD B2C tooverify, który został uwierzytelniony określonego użytkownika.
 
 Zdefiniuj usług AD FS jako dostawcy oświadczeń, dodając `<ClaimsProvider>` węzeł rozszerzenia pliku zasad:
 
-1. Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml) z katalogu roboczego. Jeśli potrzebujesz edytora XML [spróbuj Visual Studio Code](https://code.visualstudio.com/download), lekkie edytora i platform.
-2. Znajdź `<ClaimsProviders>` sekcji
-3. Dodaj następujący fragment kodu XML w obszarze `ClaimsProviders` elementu i zastępowanie `identityProvider` o systemie DNS (dowolną wartość, która wskazuje domenę) i Zapisz plik. 
+1. Otwórz plik zasad rozszerzenia hello (TrustFrameworkExtensions.xml) z katalogu roboczego. Jeśli potrzebujesz edytora XML [spróbuj Visual Studio Code](https://code.visualstudio.com/download), lekkie edytora i platform.
+2. Znajdź hello `<ClaimsProviders>` sekcji
+3. Dodaj następujące fragment kodu XML w obszarze hello hello `ClaimsProviders` elementu i zastępowanie `identityProvider` o systemie DNS (dowolną wartość, która wskazuje domenę) i Zapisz plik hello. 
 
 ```xml
 <ClaimsProvider>
@@ -151,30 +151,30 @@ Zdefiniuj usług AD FS jako dostawcy oświadczeń, dodając `<ClaimsProvider>` w
 </ClaimsProvider>
 ```
 
-## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Zarejestruj dostawcę oświadczeń konta usług AD FS do logowania się lub zaloguj się w podróży użytkownika
-W tym momencie dostawcy tożsamości nie został skonfigurowany.  Jednak nie jest dostępna w żadnym ekrany konta-konta/logowania. Teraz należy dodać dostawcy tożsamości konta usług AD FS do użytkownika `SignUpOrSignIn` podróży użytkownika. Aby było to możliwe, utworzymy duplikatem istniejącej przebieg użytkownika szablonu.  Następnie możemy zmodyfikować go, uwzględniając dostawcy tożsamości usługi AD FS:
+## <a name="register-hello-adfs-account-claims-provider-toosign-up-or-sign-in-user-journey"></a>Zarejestruj hello usług AD FS konta oświadczeń dostawcy tooSign się lub zaloguj się w podróży użytkownika
+W tym momencie hello dostawcy tożsamości nie został skonfigurowany.  Jednak nie jest dostępna w żadnym hello konta-konta/logowania ekranów. Teraz należy użytkownik tooyour dostawcy tożsamości konta tooadd hello usług AD FS `SignUpOrSignIn` podróży użytkownika. toomake ją, utworzymy duplikatem istniejącej przebieg użytkownika szablonu.  Następnie możemy zmodyfikować go, uwzględniając dostawcy tożsamości usługi AD FS hello:
     >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
-1.  Otwórz plik bazowy tej zasady (na przykład TrustFrameworkBase.xml).
-2.  Znajdź `<UserJourneys>` element i skopiuj cała zawartość `<UserJourneys>` węzła.
-3.  Otwórz plik rozszerzenia (na przykład TrustFrameworkExtensions.xml) i Znajdź `<UserJourneys>` elementu. Jeśli element nie istnieje, dodaj je.
-4.  Wklej całą zawartość `<UserJournesy>` węzła, który został skopiowany jako element podrzędny `<UserJourneys>` elementu.
+    >If you previously copied hello `<UserJourneys>` element from base file of your policy toohello extension file (TrustFrameworkExtensions.xml) you can skip this section.
+1.  Otwórz plik podstawowy hello zasad (na przykład TrustFrameworkBase.xml).
+2.  Znajdź hello `<UserJourneys>` element kopiowania hello całej zawartości i `<UserJourneys>` węzła.
+3.  Otwórz plik rozszerzenia hello (na przykład TrustFrameworkExtensions.xml) i Znajdź hello `<UserJourneys>` elementu. Jeśli hello element nie istnieje, dodaj je.
+4.  Wklej zawartość całego hello `<UserJournesy>` węzła, który został skopiowany jako element podrzędny hello `<UserJourneys>` elementu.
 
-### <a name="display-the-button"></a>Wyświetlany przycisk
-`<ClaimsProviderSelections>` Element definiuje listę opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>`element jest odpowiednikiem przycisku dostawcy tożsamości na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta usług AD FS, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie. Aby dodać ten element:
+### <a name="display-hello-button"></a>Przycisk hello wyświetlania
+Witaj `<ClaimsProviderSelections>` element definiuje listę hello opcje wyboru dostawcy oświadczeń i ich kolejność.  `<ClaimsProviderSelection>`element jest przycisku dostawcy tożsamości analogiczne tooan na stronie konta-konta/logowania. Jeśli dodasz `<ClaimsProviderSelection>` elementu dla konta usług AD FS, nowy przycisk zostaną wyświetlone po wyładowuje użytkownika na stronie powitania. tooadd tego elementu:
 
-1.  Znajdź `<UserJourney>` węzła, który zawiera `Id="SignUpOrSignIn"` w podróży użytkownika, które zostały skopiowane.
-2.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+1.  Znajdź hello `<UserJourney>` węzła, który zawiera `Id="SignUpOrSignIn"` w podróży użytkownika hello, które zostały skopiowane.
+2.  Zlokalizuj hello `<OrchestrationStep>` węzła, który zawiera`Order="1"`
 3.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
 ```
-### <a name="link-the-button-to-an-action"></a>Połącz przycisku akcji
+### <a name="link-hello-button-tooan-action"></a>Akcja tooan przycisku hello łącza
 
-Teraz, gdy masz przycisku w miejscu, należy połączyć je z akcją. Akcja, w tym przypadku jest dla usługi Azure AD B2C do komunikowania się z konta usług AD FS otrzymujących token. Połączyć przycisku akcji przez łączenie techniczne profilu dla dostawcy oświadczeń konta usług AD FS:
+Teraz, gdy masz przycisku w miejscu, należy toolink go tooan akcji. Akcja Hello jest dla usługi Azure AD B2C toocommunicate z tooreceive konta usług AD FS w takim przypadku tokenu. Łącze hello tooan Akcja przycisku przez łączenie hello techniczne profilu dla dostawcy oświadczeń konta usług AD FS:
 
-1.  Znajdź `<OrchestrationStep>` zawierającą `Order="2"` w `<UserJourney>` węzła.
+1.  Znajdź hello `<OrchestrationStep>` zawierającą `Order="2"` w hello `<UserJourney>` węzła.
 2.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsExchanges>` węzła:
 
 ```xml
@@ -182,47 +182,47 @@ Teraz, gdy masz przycisku w miejscu, należy połączyć je z akcją. Akcja, w t
 ```
 
 > [!NOTE]
-> * Upewnij się, `Id` ma taką samą wartość jak `TargetClaimsExchangeId` w poprzedniej sekcji.
-> * Upewnij się, `TechnicalProfileReferenceId` ustawiono techniczne profilu utworzonego wcześniej (Contoso-SAML2).
+> * Upewnij się, hello `Id` ma takie same wartości jak hello `TargetClaimsExchangeId` w powyższej sekcji hello.
+> * Upewnij się, `TechnicalProfileReferenceId` ustawiono profil techniczne toohello utworzony wcześniej (Contoso-SAML2).
 
-## <a name="upload-the-policy-to-your-tenant"></a>Przekaż zasady dla Twojej dzierżawy
-1.  W [portalu Azure](https://portal.azure.com), przejdź do [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), a następnie otwórz **usługi Azure AD B2C** bloku.
+## <a name="upload-hello-policy-tooyour-tenant"></a>Przekaż hello zasad tooyour dzierżawy
+1.  W hello [portalu Azure](https://portal.azure.com), przejdź do hello [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)i otwórz hello **usługi Azure AD B2C** bloku.
 2.  Wybierz **Framework obsługi tożsamości**.
-3.  Otwórz **wszystkie zasady** bloku.
+3.  Otwórz hello **wszystkie zasady** bloku.
 4.  Wybierz **przekazywać zasady**.
-5.  Sprawdź **zastąpić zasady, jeśli istnieje** pole.
-6.  **Przekaż** TrustFrameworkExtensions.xml i upewnij się, że nie wystąpi niepowodzenie weryfikacji
+5.  Sprawdź **zastąpić hello zasady, jeśli istnieje** pole.
+6.  **Przekaż** TrustFrameworkExtensions.xml i upewnij się, że nie wystąpi niepowodzenie weryfikacji hello
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych przy użyciu Uruchom teraz
-1.  Otwórz **ustawienia usługi Azure AD B2C** i przejdź do **Framework obsługi tożsamości**.
-2.  Otwórz **B2C_1A_signup_signin**, jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
-3.  Można będzie zalogować się przy użyciu konta usług AD FS.
+## <a name="test-hello-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych hello przy użyciu Uruchom teraz
+1.  Otwórz **ustawienia usługi Azure AD B2C** i przejść za**Framework obsługi tożsamości**.
+2.  Otwórz **B2C_1A_signup_signin**, hello jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
+3.  Powinno być możliwe toosign za pomocą konta usług AD FS.
 
-## <a name="optional-register-the-adfs-account-claims-provider-to-profile-edit-user-journey"></a>[Opcjonalnie] Zarejestruj dostawcę oświadczeń konta usług AD FS do edycji profilu użytkownika podróży
-Można również dodać dostawcy tożsamości konta usług AD FS do użytkownika `ProfileEdit` podróży użytkownika. Aby było to możliwe, możemy Powtórz ostatnie dwa kroki:
+## <a name="optional-register-hello-adfs-account-claims-provider-tooprofile-edit-user-journey"></a>[Opcjonalnie] Zarejestruj przebieg użytkownika edycji tooProfile dostawcy oświadczeń hello usług AD FS konta
+Możesz dostawcy tożsamości konta usług AD FS hello tooadd również użytkownika tooyour `ProfileEdit` podróży użytkownika. toomake ją, powtórz firma Microsoft hello ostatnie dwa kroki:
 
-### <a name="display-the-button"></a>Wyświetlany przycisk
-1.  Otwórz plik rozszerzenia zasad (na przykład TrustFrameworkExtensions.xml).
-2.  Znajdź `<UserJourney>` węzła, który zawiera `Id="ProfileEdit"` w podróży użytkownika, które zostały skopiowane.
-3.  Zlokalizuj `<OrchestrationStep>` węzła, który zawiera`Order="1"`
+### <a name="display-hello-button"></a>Przycisk hello wyświetlania
+1.  Otwórz plik rozszerzenia hello zasad (na przykład TrustFrameworkExtensions.xml).
+2.  Znajdź hello `<UserJourney>` węzła, który zawiera `Id="ProfileEdit"` w podróży użytkownika hello, które zostały skopiowane.
+3.  Zlokalizuj hello `<OrchestrationStep>` węzła, który zawiera`Order="1"`
 4.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsProviderSelections>` węzła:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
 ```
 
-### <a name="link-the-button-to-an-action"></a>Połącz przycisku akcji
-1.  Znajdź `<OrchestrationStep>` zawierającą `Order="2"` w `<UserJourney>` węzła.
+### <a name="link-hello-button-tooan-action"></a>Akcja tooan przycisku hello łącza
+1.  Znajdź hello `<OrchestrationStep>` zawierającą `Order="2"` w hello `<UserJourney>` węzła.
 2.  Dodaj następujący fragment kodu XML w obszarze `<ClaimsExchanges>` węzła:
 
 ```xml
 <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
 ```
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testowanie zasad niestandardowych edycji profilu przy użyciu Uruchom teraz
-1.  Otwórz **ustawienia usługi Azure AD B2C** i przejdź do **Framework obsługi tożsamości**.
-2.  Otwórz **B2C_1A_ProfileEdit**, jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
-3.  Można będzie zalogować się przy użyciu konta usług AD FS.
+### <a name="test-hello-custom-profile-edit-policy-by-using-run-now"></a>Testowanie zasad niestandardowych edycji profilu hello przy użyciu Uruchom teraz
+1.  Otwórz **ustawienia usługi Azure AD B2C** i przejść za**Framework obsługi tożsamości**.
+2.  Otwórz **B2C_1A_ProfileEdit**, hello jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
+3.  Powinno być możliwe toosign za pomocą konta usług AD FS.
 
-## <a name="download-the-complete-policy-files"></a>Pobierz pliki pełną zasad
-Opcjonalnie: Zaleca się tworzenie scenariusz przy użyciu własnych zasad niestandardowych, które przeprowadzenie pliki po zakończeniu wprowadzenie do zasad niestandardowych. [Pliki przykładowe zasady jedynie do celów referencyjnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
+## <a name="download-hello-complete-policy-files"></a>Pobierz pliki zasad pełną hello
+Opcjonalnie: Zaleca się kompilacji danego scenariusza przy użyciu własnych niestandardowych zasad plików po zakończeniu hello przeprowadzenie wprowadzenie zasady niestandardowe. [Pliki przykładowe zasady jedynie do celów referencyjnych](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)

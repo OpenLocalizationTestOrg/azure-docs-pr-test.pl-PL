@@ -1,6 +1,6 @@
 ---
-title: "Kopia zapasowa Azure — tworzenie kopii zapasowej obciążeń programu DPM w programie PowerShell | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie wdrażania i zarządzania nimi kopia zapasowa Azure dla Data Protection Manager (DPM) przy użyciu programu PowerShell"
+title: "aaaAzure Backup - Użyj programu PowerShell tooback zapasowej obciążeń programu DPM | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodeploy i zarządzanie nimi dla Data Protection Manager (DPM) przy użyciu programu PowerShell usługi Kopia zapasowa Azure"
 services: backup
 documentationcenter: 
 author: NKolli1
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 2e3b4a094511a59cfa02917efc2e3e053840af0c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 27d2b4b3127b68c9da564697eb61dc3ccbc34b3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
+# <a name="deploy-and-manage-backup-tooazure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie i zarządzanie nimi tooAzure kopii zapasowej na serwerach Data Protection Manager (DPM) przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Wdrożenie klasyczne](backup-dpm-automation-classic.md)
 >
 >
 
-W tym artykule przedstawiono sposób instalacji usługi Kopia zapasowa Azure na serwerze DPM przy użyciu programu PowerShell, a zarządzanie kopii zapasowych i odzyskiwania.
+W tym artykule opisano sposób toouse PowerShell toosetup Azure Backup na serwerze DPM i toomanage kopii zapasowej i odzyskiwania.
 
-## <a name="setting-up-the-powershell-environment"></a>Konfigurowanie środowiska PowerShell
+## <a name="setting-up-hello-powershell-environment"></a>Konfigurowanie środowiska PowerShell hello
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Przed użyciem programu PowerShell do zarządzania kopiami zapasowymi z programu Data Protection Manager na platformie Azure, musisz mieć prawo środowiska w programie PowerShell. Na początku sesji programu PowerShell upewnij się, że uruchom następujące polecenie, aby zaimportować moduły, prawym i pozwalają na poprawnie odwołują się następujące polecenia cmdlet programu DPM:
+Przed użyciem programu PowerShell toomanage tworzenia kopii zapasowych z tooAzure programu Data Protection Manager, należy toohave hello prawo środowiska PowerShell. Na początku hello hello sesji programu PowerShell upewnij się, uruchom hello następujące polecenia tooimport hello prawo modułów i pozwala toocorrectly poleceń cmdlet DPM powitania dla odwołania:
 
 ```
 PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
-Welcome to the DPM Management Shell!
+Welcome toohello DPM Management Shell!
 
 Full list of cmdlets: Get-Command
 Only DPM cmdlets: Get-DPMCommand
@@ -48,45 +48,45 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## <a name="setup-and-registration"></a>Instalację i rejestrację
-Aby rozpocząć:
+toobegin:
 
 1. [Pobierz najnowsze PowerShell](https://github.com/Azure/azure-powershell/releases) (minimalna wersja wymagana jest: 1.0.0)
-2. Włącz przez przełączenie do polecenia cmdlet usługi Kopia zapasowa Azure *AzureResourceManager* trybie przy użyciu **Switch-AzureMode** apletu polecenia:
+2. Włącz polecenia cmdlet usługi Kopia zapasowa Azure hello przełączając zbyt*AzureResourceManager* trybie przy użyciu hello **Switch-AzureMode** apletu polecenia:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
 ```
 
-Następujące zadania instalację i rejestrację można zautomatyzować przy użyciu programu PowerShell:
+Witaj następujące ustawienia i zadania rejestracji można zautomatyzować przy użyciu programu PowerShell:
 
 * Tworzenie magazynu Usług odzyskiwania
-* Instalowanie agenta usługi Kopia zapasowa Azure
-* Rejestrowanie w usłudze Kopia zapasowa Azure
+* Instalowanie agenta usługi Kopia zapasowa Azure hello
+* Rejestrowanie w hello usługi Kopia zapasowa Azure
 * Ustawienia sieciowe
 * Ustawienia szyfrowania
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
-Poniższe kroki prowadzi przez proces tworzenia magazynu usług odzyskiwania. Magazyn usług odzyskiwania są inne niż magazynu kopii zapasowych.
+następujące kroki Hello przeprowadzi Cię przez tworzenie magazynu usług odzyskiwania. Magazyn usług odzyskiwania są inne niż magazynu kopii zapasowych.
 
-1. Jeśli korzystasz z usługi Kopia zapasowa Azure po raz pierwszy, należy użyć **AzureRMResourceProvider rejestru** polecenia cmdlet, aby zarejestrować dostawcę usług odzyskiwania Azure w ramach subskrypcji.
+1. Jeśli kopia zapasowa Azure jest używana do powitania po raz pierwszy, należy użyć hello **AzureRMResourceProvider rejestru** polecenia cmdlet tooregister hello Azure odzyskiwania usługodawcy w ramach subskrypcji.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. Magazyn usług odzyskiwania jest zasobem ARM, więc należy umieścić w grupie zasobów. Użyj istniejącej grupy zasobów lub Utwórz nową. Podczas tworzenia nowej grupy zasobów, określ nazwę i lokalizację dla grupy zasobów.  
+2. Witaj magazyn usług odzyskiwania jest zasobu ARM, więc należy tooplace go w grupie zasobów. Użyj istniejącej grupy zasobów lub Utwórz nową. Podczas tworzenia nowej grupy zasobów, określ hello nazwy i lokalizacji hello grupy zasobów.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Użyj **AzureRmRecoveryServicesVault nowy** , aby utworzyć nowy magazyn. Należy określić tę samą lokalizację dla magazynu, które było używane dla grupy zasobów.
+3. Użyj hello **AzureRmRecoveryServicesVault nowy** toocreate polecenia cmdlet nowy magazyn. Pamiętaj, toospecify hello tę samą lokalizację dla magazynu hello, które było używane dla grupy zasobów hello.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Określ typ nadmiarowość magazynu mają być używane; można użyć [lokalnie nadmiarowego magazynu (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) lub [z magazynu geograficznie nadmiarowego magazynu (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). W poniższym przykładzie przedstawiono, że opcja - BackupStorageRedundancy testVault jest ustawiona na GeoRedundant.
+4. Określ typ hello toouse nadmiarowość magazynu; można użyć [lokalnie nadmiarowego magazynu (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) lub [z magazynu geograficznie nadmiarowego magazynu (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Witaj poniższy przykład przedstawia się, że opcja - BackupStorageRedundancy hello testVault ustawiono tooGeoRedundant.
 
    > [!TIP]
-   > Wiele poleceń cmdlet narzędzia Kopia zapasowa Azure wymaga obiektu magazynu usług odzyskiwania jako danych wejściowych. Z tego powodu jest wygodne do przechowywania obiektów magazynu usług odzyskiwania kopii zapasowej w zmiennej.
+   > Wiele poleceń cmdlet narzędzia Kopia zapasowa Azure wymaga obiektu magazynu usług odzyskiwania hello jako danych wejściowych. Z tego powodu jest wygodne toostore hello usług odzyskiwania kopii zapasowej magazynu obiekt w zmiennej.
    >
    >
 
@@ -95,10 +95,10 @@ Poniższe kroki prowadzi przez proces tworzenia magazynu usług odzyskiwania. Ma
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
-## <a name="view-the-vaults-in-a-subscription"></a>Wyświetlanie magazynów w ramach subskrypcji
-Użyj **Get AzureRmRecoveryServicesVault** Aby wyświetlić listę wszystkich magazynów w bieżącej subskrypcji. Można użyć tego polecenia, aby sprawdzić, czy został utworzony nowy magazyn lub aby zobaczyć, jakie magazyny są dostępne w ramach subskrypcji.
+## <a name="view-hello-vaults-in-a-subscription"></a>Widok hello magazynów w ramach subskrypcji
+Użyj **Get-AzureRmRecoveryServicesVault** tooview hello listę wszystkich magazynów w hello bieżącej subskrypcji. Możesz użyć tego polecenia toocheck, utworzono nowy magazyn lub toosee magazynów, jakie są dostępne w hello subskrypcji.
 
-Uruchom polecenie Get-AzureRmRecoveryServicesVault i są wyświetlane wszystkie magazyny do subskrypcji.
+Uruchom polecenie hello, Get-AzureRmRecoveryServicesVault i wszystkich magazynów w subskrypcji hello są wyświetlane.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -112,36 +112,36 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalowanie agenta usługi Kopia zapasowa Azure na serwerze programu DPM
-Przed zainstalowaniem agenta usługi Kopia zapasowa Azure, musisz mieć Instalator pobrane i są obecne w systemie Windows Server. Możesz pobrać najnowszą wersję Instalatora z [Microsoft Download Center](http://aka.ms/azurebackup_agent) lub ze strony pulpitu nawigacyjnego magazynu usług odzyskiwania. Zapisanie Instalatora, aby łatwo dostępnej lokalizacji, takich jak * C:\Downloads\*.
+## <a name="installing-hello-azure-backup-agent-on-a-dpm-server"></a>Instalowanie agenta usługi Kopia zapasowa Azure hello na serwerze programu DPM
+Przed zainstalowaniem agenta usługi Kopia zapasowa Azure hello należy toohave hello Instalatora, pobranych i znajdują się na powitania serwera systemu Windows. Możesz pobrać najnowszą wersję Instalatora hello hello ze hello [Microsoft Download Center](http://aka.ms/azurebackup_agent) lub z magazynu usług odzyskiwania hello strony pulpitu nawigacyjnego. Zapisz Instalator hello tooan łatwo dostępnej lokalizacji, takich jak * C:\Downloads\*.
 
-Aby zainstalować agenta, uruchom następujące polecenie w konsoli programu PowerShell z podwyższonym poziomem uprawnień **na serwerze programu DPM**:
+tooinstall hello agenta, uruchom następujące polecenie w konsoli programu PowerShell z podwyższonym poziomem uprawnień hello **na serwerze DPM hello**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Spowoduje to zainstalowanie agenta przy użyciu opcji domyślnej. Instalacja trwa kilka minut w tle. Jeśli nie określisz */nu* opcji **usługi Windows Update** zostanie otwarte okno po zakończeniu instalacji sprawdź, czy wszystkie aktualizacje.
+Spowoduje to zainstalowanie agenta hello z wszystkich opcji domyślnych hello. Instalacja Hello zajmuje kilka minut w tle hello. Jeśli nie określisz hello */nu* hello opcja **usługi Windows Update** na końcu hello hello toocheck instalacji dla wszystkich aktualizacji, zostanie otwarte okno.
 
-Agent zostaną wyświetlone na liście zainstalowanych programów. Aby wyświetlić listę zainstalowanych programów, przejdź do **Panelu sterowania** > **programy** > **programy i funkcje**.
+Hello agent zostaną wyświetlone w hello listy zainstalowanych programów. toosee hello listy zainstalowanych programów, należy przejść za**Panelu sterowania** > **programy** > **programy i funkcje**.
 
 ![Agent został zainstalowany](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opcje instalacji
-Aby wyświetlić wszystkie opcje dostępne za pomocą wiersza polecenia, użyj następującego polecenia:
+toosee wszystkie opcje hello dostępne za pośrednictwem commandline hello, hello Użyj następującego polecenia:
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
 ```
 
-Dostępne opcje to:
+Witaj dostępne opcje to:
 
 | Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalację cichą |- |
-| / p: "Lokalizacja" |Ścieżka do folderu instalacji agenta usługi Kopia zapasowa Azure. |C:\Program Files\Microsoft Azure Recovery usługi agenta |
-| / s: "Lokalizacja" |Ścieżka do folderu pamięci podręcznej agenta usługi Kopia zapasowa Azure. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Zezwól na usługi Microsoft Update |- |
+| / p: "Lokalizacja" |Ścieżka folderu instalacji toohello hello Azure Backup Agent. |C:\Program Files\Microsoft Azure Recovery usługi agenta |
+| / s: "Lokalizacja" |Ścieżka folderu pamięci podręcznej toohello hello Azure Backup Agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |TooMicrosoft opcjonalnych aktualizacji |- |
 | /nu |Nie sprawdzaj aktualizacji po ukończeniu instalacji |- |
 | /d |Odinstalowuje agenta usług odzyskiwania Microsoft Azure |- |
 | /pH |Adres hosta serwera proxy |- |
@@ -149,8 +149,8 @@ Dostępne opcje to:
 | /Pu |Nazwa użytkownika serwera proxy hosta |- |
 | /PW |Hasło serwera proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Magazyn usługi rejestrowania programu DPM do odzyskiwania
-Po utworzeniu magazynu usług odzyskiwania, Pobierz najnowszą wersję agenta i poświadczenia magazynu i zapisz go w dogodnym miejscu, podobnie jak C:\Downloads.
+## <a name="registering-dpm-tooa-recovery-services-vault"></a>Rejestrowanie programu DPM tooa magazynu usług odzyskiwania
+Po utworzeniu magazynu usług odzyskiwania hello, Pobierz najnowszą wersję agenta hello i poświadczenia magazynu hello i zapisz go w dogodnym miejscu, podobnie jak C:\Downloads.
 
 ```
 PS C:\> $credspath = "C:\downloads"
@@ -159,7 +159,7 @@ PS C:\> $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-Na serwerze programu DPM Uruchom [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) polecenia cmdlet, aby zarejestrować komputer w magazynie.
+Na powitania serwera DPM, uruchom hello [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) polecenia cmdlet tooregister hello maszyny z magazynem hello.
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -172,44 +172,44 @@ Machine registration succeeded.
 ```
 
 ### <a name="initial-configuration-settings"></a>Ustawienia konfiguracji początkowej
-Gdy serwer DPM jest zarejestrowany w magazynie usług odzyskiwania, rozpoczyna się od domyślnego ustawienia subskrypcji. Te ustawienia subskrypcji obejmują sieci, szyfrowania i obszaru przemieszczania. Aby zmienić ustawienia subskrypcji, należy najpierw uzyskać uchwytu na istniejące ustawienia (ustawienie domyślne), za pomocą [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) polecenia cmdlet:
+Po hello serwer DPM został zarejestrowany za pomocą hello magazyn usług odzyskiwania, rozpoczyna się domyślnych ustawień subskrypcji. Te ustawienia subskrypcji obejmują sieci, szyfrowania i hello obszaru przemieszczania. ustawienia subskrypcji toochange należy toofirst uzyskać dojścia do na powitania istniejące ustawienia (ustawienie domyślne) przy użyciu hello [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) polecenia cmdlet:
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Wszystkie modyfikacje są dokonywane na ten obiekt programu PowerShell ```$setting``` , a następnie pełne obiektu jest przekazane do programu DPM i kopia zapasowa Azure, aby zapisać je przy użyciu [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet. Należy użyć ```–Commit``` flagę, aby upewnić się, że zmiany są zachowywane. Ustawienia nie będą stosowane i używane przez usługi Kopia zapasowa Azure, chyba że zostało zatwierdzone.
+Wszystkie modyfikacje są wykonane toothis lokalnego środowiska PowerShell obiektu ```$setting``` , a następnie obiektowego hello jest tooDPM zatwierdzone i kopia zapasowa Azure toosave je przy użyciu hello [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet. Należy toouse hello ```–Commit``` tooensure flagę, która hello zmiany są zachowywane. Witaj ustawienia nie będą stosowane i używane przez usługi Kopia zapasowa Azure, chyba że zostało zatwierdzone.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
 ## <a name="networking"></a>Sieć
-W przypadku łączności maszyny programu DPM z usługą kopia zapasowa Azure w sieci internet za pośrednictwem serwera proxy, ustawienia serwera proxy należy podać dla pomyślnie utworzone kopie zapasowe. Jest to zrobić za pomocą ```-ProxyServer```i ```-ProxyPort```, ```-ProxyUsername``` i ```ProxyPassword``` parametrów z [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet. W tym przykładzie nie żadnego serwera proxy, dlatego firma Microsoft są jawnie wyczyszczenie żadnych informacji dotyczących serwera proxy.
+W przypadku łączności hello hello DPM maszyny toohello usługi Azure Backup na powitania internet za pośrednictwem serwera proxy, ustawienia serwera proxy hello należy podać dla pomyślnie utworzone kopie zapasowe. Odbywa się przy użyciu hello ```-ProxyServer```i ```-ProxyPort```, ```-ProxyUsername``` i hello ```ProxyPassword``` parametrów z hello [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet. W tym przykładzie nie żadnego serwera proxy, dlatego firma Microsoft są jawnie wyczyszczenie żadnych informacji dotyczących serwera proxy.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
 ```
 
-Wykorzystanie przepustowości można również sterować za pomocą opcji ```-WorkHourBandwidth``` i ```-NonWorkHourBandwidth``` dla danego zestawu dni tygodnia. W tym przykładzie firma Microsoft nie ustawienia dowolnej ograniczania.
+Wykorzystanie przepustowości można również sterować za pomocą opcji ```-WorkHourBandwidth``` i ```-NonWorkHourBandwidth``` dla danego zestawu dni tygodnia hello. W tym przykładzie firma Microsoft nie ustawienia dowolnej ograniczania.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
 ```
 
-## <a name="configuring-the-staging-area"></a>Konfigurowanie obszaru przemieszczania
-Agent usługi Kopia zapasowa Azure uruchomionych na serwerze programu DPM wymaga tymczasowego magazynu dla danych przywróconych z chmury (lokalny obszar przemieszczania). Konfigurowanie przy użyciu obszaru przemieszczania [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet i ```-StagingAreaPath``` parametru.
+## <a name="configuring-hello-staging-area"></a>Konfigurowanie hello obszaru przemieszczania
+agent usługi Kopia zapasowa Azure Hello działającej na serwerze DPM hello wymaga tymczasowego magazynu dla danych przywróconych z chmury hello (lokalny obszar przemieszczania). Konfigurowanie przy użyciu hello obszaru przemieszczania hello [DPMCloudSubscriptionSetting zestaw](https://technet.microsoft.com/library/jj612791) polecenia cmdlet i hello ```-StagingAreaPath``` parametru.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-W powyższym przykładzie obszar tymczasowy zostanie ustawiona do *C:\StagingArea* w obiekcie środowiska PowerShell ```$setting```. Upewnij się, że podany folder już istnieje, w przeciwnym razie końcowego zatwierdzania ustawień subskrypcji zakończy się niepowodzeniem.
+W powyższym przykładzie hello, obszaru przemieszczania hello zostanie ustawiona zbyt*C:\StagingArea* w obiekcie środowiska PowerShell hello ```$setting```. Upewnij się, że hello określony folder już istnieje, w przeciwnym razie hello końcowego zatwierdzania ustawienia subskrypcji hello zakończy się niepowodzeniem.
 
 ### <a name="encryption-settings"></a>Ustawienia szyfrowania
-Dane kopii zapasowej wysyłane do usługi Kopia zapasowa Azure są szyfrowane w chronieniu poufności danych. Hasło szyfrowania jest "password" do odszyfrowania danych w czasie przywracania. Należy zachować te informacje bezpieczne po ustawieniu.
+tooAzure wysyłane dane kopii zapasowej Hello kopii zapasowej jest zaszyfrowany tooprotect hello poufność danych hello. hasło szyfrowania Hello jest hello "password" toodecrypt hello danych w czasie hello przywracania. Jest to bezpieczne informacje ważne tookeep i secure po ustawieniu.
 
-W poniższym przykładzie pierwsze polecenie konwertuje ciąg ```passphrase123456789``` ciąg bezpieczny i przypisuje bezpieczny ciąg do zmiennej o nazwie ```$Passphrase```. drugie polecenie ustawia bezpieczny ciąg w ```$Passphrase``` jako hasło do szyfrowania kopii zapasowych.
+W poniższym przykładzie hello, pierwsze polecenie hello konwertuje ciąg hello ```passphrase123456789``` tooa bezpieczny ciąg i przypisuje hello bezpieczny ciąg toohello zmiennej o nazwie ```$Passphrase```. drugie polecenie Hello ustawia bezpieczny ciąg hello w ```$Passphrase``` jako hello hasła do szyfrowania kopii zapasowych.
 
 ```
 PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPlainText -Force
@@ -218,52 +218,52 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 > [!IMPORTANT]
-> Zachowaj informacje hasło bezpieczne po ustawieniu. Nie można przywrócić dane z platformy Azure bez tego hasła.
+> Zachowaj informacje hasło hello bezpieczne po ustawieniu. Nie będzie możliwe toorestore danych z platformy Azure bez tego hasła.
 >
 >
 
-W tym momencie powinien wprowadzone wszystkie zmiany wymagane w celu ```$setting``` obiektu. Pamiętaj, aby zatwierdzić zmiany.
+W tym momencie powinien wprowadzone wszystkie hello wymagane zmiany toohello ```$setting``` obiektu. Należy pamiętać, toocommit hello zmiany.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="protect-data-to-azure-backup"></a>Ochrona danych do usługi Kopia zapasowa Azure
-W tej sekcji zostanie Dodawanie serwera produkcyjnego do programu DPM, a następnie włącz ochronę danych do lokalnego magazynu programu DPM, a następnie kopia zapasowa Azure. W przykładach przedstawiony zostanie sposób wykonywania kopii zapasowej plików i folderów. Logika można z łatwością rozszerzyć kopii zapasowej dowolnych źródeł danych obsługiwane przez program DPM. Kopii zapasowych programu DPM są regulowane przez ochronę grupy (PG) z czterech części:
+## <a name="protect-data-tooazure-backup"></a>Ochrona danych tooAzure kopii zapasowej
+W tej sekcji możesz dodać tooDPM serwera produkcyjnego i chronić magazynu programu DPM toolocal danych hello, a następnie tooAzure kopii zapasowej. W przykładach hello przedstawiony zostanie sposób tooback zapasowe plików i folderów. Witaj logiki można łatwo można toobackup rozszerzonej z dowolnego źródła danych obsługiwane przez program DPM. Kopii zapasowych programu DPM są regulowane przez ochronę grupy (PG) z czterech części:
 
-1. **Członków grupy** znajduje się lista wszystkich obiekty chronione (nazywane również *źródeł danych* w programie DPM), które mają być chronione w tej samej grupy ochrony. Na przykład można chronić produkcji maszyny wirtualne w jednej grupy ochrony i baz danych programu SQL Server w innej grupy ochrony, ponieważ mogą mieć różne wymagania kopii zapasowej. Przed utworzeniem kopii zapasowej żadnego źródła danych na serwerze produkcyjnym, które należy się upewnić, Agent programu DPM jest zainstalowany na serwerze i jest zarządzany przez program DPM. Wykonaj kroki [zainstalowanie agenta DPM](https://technet.microsoft.com/library/bb870935.aspx) i połączenie go do odpowiedniego serwera programu DPM.
-2. **Metoda ochrony danych** Określa docelowy kopii zapasowej lokalizacje - taśmy, dysku i chmury. W naszym przykładzie będzie chronić dane na dysku lokalnym i w chmurze.
-3. A **harmonogram tworzenia kopii zapasowych** Określa, kiedy należy podjąć kopii zapasowych i jak często dane powinny być synchronizowane między serwerem DPM i serwerze produkcyjnym.
-4. A **harmonogramu przechowywania** określająca czas przechowywania punktów odzyskiwania na platformie Azure.
+1. **Członków grupy** znajduje się lista wszystkich hello obiekty chronione (nazywane również *źródeł danych* w programie DPM), które mają tooprotect w hello tej samej grupy ochrony. Na przykład można tooprotect produkcji maszyny wirtualne w jednej grupy ochrony i baz danych programu SQL Server w innej grupy ochrony jako mogą mieć różne wymagania kopii zapasowej. Przed utworzeniem kopii zapasowej żadnego źródła danych na serwerze produkcyjnym należy toomake hello się, że Agent programu DPM jest zainstalowany na serwerze hello i jest zarządzany przez program DPM. Wykonaj procedurę hello [instalowanie hello agenta DPM](https://technet.microsoft.com/library/bb870935.aspx) i połączenie go toohello odpowiednie serwera DPM.
+2. **Metoda ochrony danych** określa hello docelowej lokalizacji kopii zapasowych — taśma, dysk i chmura. W naszym przykładzie będzie chronić danych toohello lokalny dysk i toohello w chmurze.
+3. A **harmonogram tworzenia kopii zapasowych** , który określa podczas tworzenia kopii zapasowych należy toobe podjęte i jak często hello dane mają być synchronizowane między hello serwera programu DPM i serwerze produkcyjnym hello.
+4. A **harmonogramu przechowywania** Określa, jak długo punkty odzyskiwania hello tooretain na platformie Azure.
 
 ### <a name="creating-a-protection-group"></a>Utworzenie grupy ochrony
-Rozpocznij od utworzenia nowej grupy ochrony za pomocą [DPMProtectionGroup nowy](https://technet.microsoft.com/library/hh881722) polecenia cmdlet.
+Rozpocznij od utworzenia nowej grupy ochrony za pomocą hello [DPMProtectionGroup nowy](https://technet.microsoft.com/library/hh881722) polecenia cmdlet.
 
 ```
 PS C:\> $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
 ```
 
-Powyższe polecenia cmdlet spowoduje utworzenie grupy ochrony o nazwie *ProtectGroup01*. Aby dodać kopii zapasowej w chmurze platformy Azure istniejącej grupy ochrony może być modyfikowany również później. Jednak wprowadzać żadnych zmian do grupy ochrony — nowy lub istniejący - musimy pobrać dojścia *modyfikowalnymi* przy użyciu [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) polecenia cmdlet.
+Witaj powyżej polecenie cmdlet spowoduje utworzenie grupy ochrony o nazwie *ProtectGroup01*. Istniejącej grupy ochrony można także modyfikować nowszych kopii zapasowej tooadd toohello chmury Azure. Jednak toomake zmiany toohello grupy ochrony — nowy lub istniejący - potrzebujemy tooget dojścia na *modyfikowalnymi* obiektu przy użyciu hello [Get DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) polecenia cmdlet.
 
 ```
 PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
-### <a name="adding-group-members-to-the-protection-group"></a>Dodawanie członków grupy do grupy ochrony
-Lista źródeł danych na serwerze, na którym jest zainstalowany na wie, każdego agenta programu DPM. Aby dodać źródła danych do grupy ochrony, agenta programu DPM musi najpierw wysłać listę źródeł danych na serwer programu DPM. Jeden lub więcej źródeł danych są następnie i dodane do grupy ochrony. Potrzebne w tym kroki programu PowerShell są:
+### <a name="adding-group-members-toohello-protection-group"></a>Dodawanie grupy toohello członków grupy ochrony
+Każdy Agent programu DPM wie hello listy źródeł danych na powitania serwera, który jest zainstalowany na. tooadd toohello datasource grupy ochrony, hello toofirst potrzeb agenta DPM wysyła listę hello źródeł danych toohello zapasowego serwera programu DPM. Jeden lub więcej źródeł danych są, a następnie wybrać i dodać toohello grupy ochrony. Hello PowerShell kroki potrzebne tooachieve są to:
 
-1. Pobierz listę wszystkich serwerów zarządzanych przez program DPM za pomocą agenta programu DPM.
+1. Pobierz listę wszystkich serwerów zarządzanych przez program DPM za pomocą hello agenta programu DPM.
 2. Wybierz określonego serwera.
-3. Pobranie listy wszystkich źródeł danych na serwerze.
-4. Wybierz co najmniej jednego źródła danych i dodaj je do grupy ochrony
+3. Pobranie listy wszystkich źródeł danych na powitania serwera.
+4. Wybierz co najmniej jednego źródła danych, a następnie dodać toohello grupy ochrony
 
-Lista serwerów, na których Agent programu DPM jest zainstalowany i jest zarządzany przez serwer programu DPM są uzyskiwane z [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) polecenia cmdlet. W tym przykładzie firma Microsoft będzie filtrowania i skonfigurować tylko PS o nazwie *productionserver01* do utworzenia kopii zapasowej.
+Hello listy serwerów, na które hello agenta programu DPM jest zainstalowany i jest zarządzany przez powitania serwera programu DPM są uzyskiwane z hello [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) polecenia cmdlet. W tym przykładzie firma Microsoft będzie filtrowania i skonfigurować tylko PS o nazwie *productionserver01* do utworzenia kopii zapasowej.
 
 ```
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Teraz pobrać listy źródeł danych na ```$server``` przy użyciu [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) polecenia cmdlet. W tym przykładzie mamy filtrowania dla woluminu * D:\* interesujące można skonfigurować dla kopii zapasowej. To źródło danych jest dodawane do grupy ochrony za pomocą [DPMChildDatasource Dodaj](https://technet.microsoft.com/library/hh881732) polecenia cmdlet. Pamiętaj, aby użyć *modyfikowalnymi* obiektu grupy ochrony ```$MPG``` uzupełnianie.
+Teraz pobrać hello listy źródeł danych na ```$server``` przy użyciu hello [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) polecenia cmdlet. W tym przykładzie mamy filtrowania dla woluminu hello * D:\* chcemy tooconfigure do utworzenia kopii zapasowej. To źródło danych jest następnie dodawana toohello grupy ochrony za pomocą hello [DPMChildDatasource Dodaj](https://technet.microsoft.com/library/hh881732) polecenia cmdlet. Pamiętaj toouse hello *modyfikowalnymi* obiektu grupy ochrony ```$MPG``` toomake hello dodatków.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -271,26 +271,26 @@ PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Nam
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-Powtórz ten krok liczbę razy, aż zostaną dodane wszystkie wybrane źródła danych do grupy ochrony. Można również uruchomić z tylko jednego źródła danych i ukończenia przepływu pracy tworzenia grupy ochrony i w późniejszym czasie dodać więcej źródeł danych do grupy ochrony.
+Powtórz ten krok liczbę razy, aż zostaną dodane wszystkie hello wybrane grupy ochrony toohello źródeł danych. Można również uruchomić tylko jedno źródło danych i hello pełny przepływ pracy tworzenia hello grupy ochrony i w późniejszym czasie dodać więcej źródeł danych toohello grupy ochrony.
 
-### <a name="selecting-the-data-protection-method"></a>Wybieranie metody ochrony danych
-Po źródła danych zostały dodane do grupy ochrony, następnym krokiem jest określenie, przy użyciu metody ochrony [DPMProtectionType zestaw](https://technet.microsoft.com/library/hh881725) polecenia cmdlet. W tym przykładzie grupy ochrony jest ustawiony na potrzeby dysku lokalnego, a kopia zapasowa w chmurze. Należy również określić źródło danych, które chcesz chronić do chmury przy użyciu [DPMChildDatasource Dodaj](https://technet.microsoft.com/library/hh881732.aspx) polecenia cmdlet flagą - Online.
+### <a name="selecting-hello-data-protection-method"></a>Wybieranie metody ochrony danych hello
+Po dodaniu źródła danych hello toohello grupy ochrony, hello następnym krokiem jest metoda ochrony hello toospecify przy użyciu hello [DPMProtectionType zestaw](https://technet.microsoft.com/library/hh881725) polecenia cmdlet. W tym przykładzie hello grupy ochrony jest ustawiony na potrzeby dysku lokalnego, a kopia zapasowa w chmurze. Należy również toospecify hello datasource, które mają toocloud tooprotect przy użyciu hello [DPMChildDatasource Dodaj](https://technet.microsoft.com/library/hh881732.aspx) polecenia cmdlet flagą - Online.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
-### <a name="setting-the-retention-range"></a>Ustawianie zakresu przechowywania
-Ustawienia przechowywania dla punktów kopii zapasowej za pomocą [DPMPolicyObjective zestaw](https://technet.microsoft.com/library/hh881762) polecenia cmdlet. Gdy może wydawać się nieparzysta ustawień przechowywania, przed rozpoczęciem zdefiniowano harmonogram tworzenia kopii zapasowych, przy użyciu ```Set-DPMPolicyObjective``` polecenie cmdlet automatycznie ustawia domyślny harmonogram tworzenia kopii zapasowej, który może być modyfikowany. Zawsze jest możliwe zestawu kopii zapasowej najpierw zaplanować, jak i zasady przechowywania po.
+### <a name="setting-hello-retention-range"></a>Ustawianie zakresu przechowywania hello
+Ustawienia przechowywania hello hello punktów kopii zapasowej za pomocą hello [DPMPolicyObjective zestaw](https://technet.microsoft.com/library/hh881762) polecenia cmdlet. Gdy może wydawać się przechowywania hello nieparzysta tooset przed zdefiniowaniem hello harmonogram tworzenia kopii zapasowych, przy użyciu hello ```Set-DPMPolicyObjective``` polecenie cmdlet automatycznie ustawia domyślny harmonogram tworzenia kopii zapasowej, który może być modyfikowany. Jest zawsze harmonogram tworzenia kopii zapasowych hello możliwe tooset najpierw i hello zasady przechowywania po.
 
-W poniższym przykładzie polecenia cmdlet do ustawiania parametrów przechowywania kopii zapasowych na dyskach. To zachowują kopie zapasowe 10 dni i synchronizowanie danych co 6 godzin między serwerem produkcyjnym i serwerze programu DPM. ```SynchronizationFrequencyMinutes``` Nie definiuje, jak często punktu kopii zapasowej jest tworzony, ale jak często dane są kopiowane do serwera DPM.  To ustawienie uniemożliwia tworzenie kopii zapasowych za duży.
+W poniższym przykładzie hello polecenia cmdlet hello ustawia hello parametry przechowywania kopii zapasowych na dysku. To zachowują kopie zapasowe 10 dni i synchronizowanie danych co 6 godzin między serwerem produkcyjnym hello i hello programu DPM. Witaj ```SynchronizationFrequencyMinutes``` nie definiuje, jak często punktu kopii zapasowej jest tworzony, ale jak często dane są skopiowanych toohello serwera DPM.  To ustawienie uniemożliwia tworzenie kopii zapasowych za duży.
 
 ```
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
-Kopii zapasowych, przechodząc do platformy Azure (Program DPM odwołuje się do nich jako kopii zapasowych Online) zakresów przechowywania można skonfigurować dla [długoterminowych przechowywania użyciu schematu dziadek-ojciec-syn. (GFS)](backup-azure-backup-cloud-as-tape.md). Oznacza to można zdefiniować zasady przechowywania Scalonej obejmujące codziennie, co tydzień, miesięcznych i rocznych zasady przechowywania. W tym przykładzie, możemy utworzyć tablicy reprezentujący schemat przechowywania złożonych, która ma, a następnie skonfiguruj, przy użyciu zakresu przechowywania [DPMPolicyObjective zestaw](https://technet.microsoft.com/library/hh881762) polecenia cmdlet.
+Kopii zapasowych będzie tooAzure (Program DPM stosowany jest wspólny termin toothem kopii zapasowych Online) można skonfigurować dla zakresów przechowywania hello [długoterminowych przechowywania użyciu schematu dziadek-ojciec-syn. (GFS)](backup-azure-backup-cloud-as-tape.md). Oznacza to można zdefiniować zasady przechowywania Scalonej obejmujące codziennie, co tydzień, miesięcznych i rocznych zasady przechowywania. W tym przykładzie firma Microsoft utworzenia tablicy reprezentujący schemat przechowywania złożonych hello chcemy, a następnie skonfiguruj zakres przechowywania hello za pomocą hello [DPMPolicyObjective zestaw](https://technet.microsoft.com/library/hh881762) polecenia cmdlet.
 
 ```
 PS C:\> $RRlist = @()
@@ -301,8 +301,8 @@ PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dl
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
 ```
 
-### <a name="set-the-backup-schedule"></a>Ustaw harmonogram tworzenia kopii zapasowych
-Program DPM ustawia automatycznie domyślny harmonogram tworzenia kopii zapasowej, jeśli określisz ochronę celu za pomocą ```Set-DPMPolicyObjective``` polecenia cmdlet. Aby zmienić domyślne harmonogramy, użyj [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) polecenia cmdlet następuje [DPMPolicySchedule zestaw](https://technet.microsoft.com/library/hh881723) polecenia cmdlet.
+### <a name="set-hello-backup-schedule"></a>Harmonogram tworzenia kopii zapasowych hello zestawu
+Program DPM ustawia automatycznie domyślny harmonogram tworzenia kopii zapasowej, jeśli Określ cel ochrony hello przy użyciu hello ```Set-DPMPolicyObjective``` polecenia cmdlet. toochange hello domyślne harmonogramy, użyj hello [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) polecenia cmdlet następuje hello [DPMPolicySchedule zestaw](https://technet.microsoft.com/library/hh881723) polecenia cmdlet.
 
 ```
 PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
@@ -313,36 +313,36 @@ PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -Tim
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-W powyższym przykładzie ```$onlineSch``` jest tablicą o czterech elementów zawierający istniejący harmonogram ochrony w trybie online dla grupy ochrony w schemacie GFS:
+W hello powyżej przykład ```$onlineSch``` jest tablicy z czterech elementów, które zawierają hello istniejący harmonogram ochrony w trybie online dla hello grupy ochrony w schemacie GFS hello:
 
-1. ```$onlineSch[0]```zawiera harmonogramu dziennego
-2. ```$onlineSch[1]```zawiera harmonogramu tygodniowego
-3. ```$onlineSch[2]```zawiera harmonogramu miesięcznego
-4. ```$onlineSch[3]```zawiera corocznych harmonogramu
+1. ```$onlineSch[0]```zawiera harmonogramu dziennego hello
+2. ```$onlineSch[1]```zawiera hello harmonogramu tygodniowego
+3. ```$onlineSch[2]```zawiera hello harmonogramu miesięcznego
+4. ```$onlineSch[3]```zawiera hello corocznych harmonogramu
 
-Dlatego jeśli trzeba zmodyfikować harmonogram tygodniowy, trzeba odwoływać się do ```$onlineSch[1]```.
+Więc jeśli potrzebujesz harmonogramu tygodniowego hello toomodify należy toorefer toohello ```$onlineSch[1]```.
 
 ### <a name="initial-backup"></a>Początkowa kopia zapasowa
-Podczas wykonywania kopii zapasowej źródła danych po raz pierwszy, program DPM musi tworzy repliki początkowej który tworzy pełną kopię źródła danych mają być chronione na woluminie repliki programu DPM. To działanie albo mogą być planowane na określoną godzinę lub mogą być wyzwalane ręcznie, używając [DPMReplicaCreationMethod zestaw](https://technet.microsoft.com/library/hh881715) polecenia cmdlet z parametrem ```-NOW```.
+Podczas tworzenia kopii zapasowej źródła danych powitania po raz pierwszy, program DPM musi tworzy repliki początkowej który tworzy pełną kopię hello toobe źródeł danych chronionych na woluminie repliki programu DPM. To działanie albo mogą być planowane na określoną godzinę lub mogą być wyzwalane ręcznie, używając hello [DPMReplicaCreationMethod zestaw](https://technet.microsoft.com/library/hh881715) polecenia cmdlet z parametrem hello ```-NOW```.
 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Zmiana rozmiaru repliki programu DPM i wolumin punktu odzyskiwania
-Możesz również zmienić rozmiar woluminu repliki programu DPM i kopii w tle woluminu przy użyciu [DPMDatasourceDiskAllocation zestaw](https://technet.microsoft.com/library/hh881618.aspx) jak w poniższym przykładzie polecenie cmdlet: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Źródło danych $DS - ProtectionGroup $MPG-ręczne - ReplicaArea (2 gb) — ShadowCopyArea (2 gb)
+### <a name="changing-hello-size-of-dpm-replica--recovery-point-volume"></a>Zmiana rozmiaru hello repliki programu DPM i wolumin punktu odzyskiwania
+Możesz również zmienić rozmiar hello woluminu repliki programu DPM i kopii w tle woluminu przy użyciu [DPMDatasourceDiskAllocation zestaw](https://technet.microsoft.com/library/hh881618.aspx) polecenia cmdlet, tak jak hello poniższy przykład: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Datasource $DS - ProtectionGroup $MPG-ręczne - ReplicaArea (2 gb) — ShadowCopyArea (2 gb)
 
-### <a name="committing-the-changes-to-the-protection-group"></a>Zatwierdzenie zmian do grupy ochrony
-Na koniec zmiany muszą być zatwierdzone przed programu DPM można wykonać kopię zapasową na nową konfigurację grupy ochrony. Można to osiągnąć przy użyciu [DPMProtectionGroup zestaw](https://technet.microsoft.com/library/hh881758) polecenia cmdlet.
+### <a name="committing-hello-changes-toohello-protection-group"></a>Przekazywanie hello toohello zmiany grupy ochrony
+Na koniec hello zmiany muszą toobe zatwierdzona przed programu DPM można wykonać kopię zapasową hello na powitania nowej konfiguracji grupy ochrony. Można to osiągnąć przy użyciu hello [DPMProtectionGroup zestaw](https://technet.microsoft.com/library/hh881758) polecenia cmdlet.
 
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-## <a name="view-the-backup-points"></a>Wyświetlanie punktów kopii zapasowej
-Można użyć [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) polecenia cmdlet, aby uzyskać listę wszystkich punktów odzyskiwania dla źródła danych. W tym przykładzie zostaną wykonane następujące czynności:
+## <a name="view-hello-backup-points"></a>Wyświetlanie hello punktów kopii zapasowej
+Można użyć hello [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) tooget polecenia cmdlet listę wszystkich punktów odzyskiwania dla źródła danych. W tym przykładzie zostaną wykonane następujące czynności:
 
-* Pobierz wszystkie PGA na serwerze DPM i przechowywane w tablicy```$PG```
-* Pobierz odpowiadający źródeł danych```$PG[0]```
-* Pobierz wszystkie punkty odzyskiwania dla źródła danych.
+* Pobieranie wszystkich hello PGA na serwerze DPM hello i przechowywane w tablicy```$PG```
+* Pobierz toohello odpowiedniego hello źródeł danych```$PG[0]```
+* Pobierz wszystkie hello punkty odzyskiwania dla źródła danych.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -351,13 +351,13 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ```
 
 ## <a name="restore-data-protected-on-azure"></a>Przywracanie danych chronionych na platformie Azure
-Przywracanie danych jest kombinacją ```RecoverableItem``` obiektu i ```RecoveryOption``` obiektu. W poprzedniej sekcji dotarliśmy listę punktów kopii zapasowej dla źródła danych.
+Przywracanie danych jest kombinacją ```RecoverableItem``` obiektu i ```RecoveryOption``` obiektu. W poprzedniej sekcji hello dotarliśmy listę hello punktów kopii zapasowej dla źródła danych.
 
-W poniższym przykładzie przedstawiony sposób przywracania maszyny wirtualnej funkcji Hyper-V z kopii zapasowej Azure dzięki połączeniu z elementem docelowym odzyskiwania punktów kopii zapasowej. Ten przykład obejmuje:
+W poniższym przykładzie hello przedstawiony sposób toorestore funkcji Hyper-V maszyny wirtualnej z kopii zapasowej Azure za pomocą punktów kopii zapasowej łączenie z hello docelowe dla odzyskiwania. Ten przykład obejmuje:
 
-* Utworzenie przy użyciu opcji odzyskiwania [DPMRecoveryOption nowy](https://technet.microsoft.com/library/hh881592) polecenia cmdlet.
-* Tablica punktów kopii zapasowej przy użyciu pobierania ```Get-DPMRecoveryPoint``` polecenia cmdlet.
-* Wybieranie punktu kopii zapasowej do przywrócenia z.
+* Tworzenie opcję odzyskiwania przy użyciu hello [DPMRecoveryOption nowy](https://technet.microsoft.com/library/hh881592) polecenia cmdlet.
+* Pobrano tablicy hello punktów kopii zapasowej za pomocą hello ```Get-DPMRecoveryPoint``` polecenia cmdlet.
+* Po wybraniu opcji tworzenia kopii zapasowej toorestore punktu z.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -369,7 +369,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
 ```
 
-Polecenia można z łatwością rozszerzyć dla dowolnego typu źródła danych.
+polecenia Hello można z łatwością rozszerzyć dla dowolnego typu źródła danych.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać więcej informacji na temat programu DPM w usłudze Kopia zapasowa Azure zobacz [wprowadzenie do kopii zapasowej programu DPM](backup-azure-dpm-introduction.md)
+* Aby uzyskać więcej informacji na temat programu DPM Zobacz tooAzure kopii zapasowej [tooDPM wprowadzenie kopii zapasowej](backup-azure-dpm-introduction.md)

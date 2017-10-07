@@ -1,6 +1,6 @@
 ---
-title: "Przepływy pracy dotyczące konfigurowania obwodu usługi ExpressRoute | Dokumentacja firmy Microsoft"
-description: "Ta strona przeprowadzi Cię przez przepływy pracy dotyczące konfigurowania obwodu ExpressRoute i komunikacji równorzędnych"
+title: "aaaWorkflows konfigurowania obwodu usługi ExpressRoute | Dokumentacja firmy Microsoft"
+description: "Ta strona przeprowadzi Cię przez przepływy pracy hello związane z konfigurowaniem obwodu ExpressRoute i komunikacji równorzędnych"
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8e1dfc137401e0d6d53608ae6c8de0085e182eba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Przepływy pracy ExpressRoute dla aprowizacji obwodu i stanów obwodu
-Ta strona przeprowadzi Cię przez usługę routing przepływy pracy configuration na wysokim poziomie i inicjowania obsługi administracyjnej.
+Ta strona przeprowadzi Cię przez Inicjowanie obsługi usługi hello i przepływy pracy routingu configuration na wysokim poziomie.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-Poniższa ilustracja i odpowiadające jej kroki Pokaż zadania, które należy wykonać, aby przypisać obwodu usługi ExpressRoute udostępniane na trasie. 
+Witaj Poniższa ilustracja i odpowiadające jej kroki Pokaż hello zadań należy wykonać w kolejności toohave ExpressRoute obwodu elastycznie end-to-end. 
 
-1. Za pomocą programu PowerShell skonfigurować obwód usługi ExpressRoute. Postępuj zgodnie z instrukcjami [obwody tworzenia usługi ExpressRoute](expressroute-howto-circuit-classic.md) artykułu, aby uzyskać więcej informacji.
-2. Kolejność łączność z dostawcy usług. Ten proces może być różna. Aby uzyskać więcej informacji o sposobie kolejność łączności, skontaktuj się z dostawcą połączenia.
-3. Upewnij się, że obwód zainicjowano pomyślnie sprawdzając stan za pomocą programu PowerShell inicjowania obwód usługi expressroute. 
-4. Konfigurowanie domen routingu. Jeśli dostawca połączenia zarządza warstwy 3, firma chce skonfigurować routing dla obwodu. Jeśli dostawca połączenia udostępnia tylko usługi warstwy 2, należy skonfigurować routing według wskazówek opisanych w [wymagania dotyczące routingu](expressroute-routing.md) i [konfiguracji routingu](expressroute-howto-routing-classic.md) stron.
+1. Za pomocą programu PowerShell tooconfigure obwodu usługi ExpressRoute. Postępuj zgodnie z instrukcjami hello hello [obwody tworzenia usługi ExpressRoute](expressroute-howto-circuit-classic.md) artykułu, aby uzyskać więcej informacji.
+2. Kolejność łączność z usługodawcą hello. Ten proces może być różna. Skontaktuj się z dostawcą połączenia, aby uzyskać więcej informacji o tym, jak tooorder łączności.
+3. Upewnij się, że obwód hello zainicjowano pomyślnie weryfikując obwodu ExpressRoute hello udostępniania stanu za pomocą programu PowerShell. 
+4. Konfigurowanie domen routingu. Jeśli dostawca połączenia zarządza warstwy 3, firma chce skonfigurować routing dla obwodu. Jeśli dostawca połączenia udostępnia tylko usługi warstwy 2, należy skonfigurować routing według wskazówek opisanych w hello [wymagania dotyczące routingu](expressroute-routing.md) i [konfiguracji routingu](expressroute-howto-routing-classic.md) stron.
    
-   * Włącz Azure prywatnej komunikacji równorzędnej — należy włączyć komunikacji równorzędnej można nawiązać połączenia z maszynami wirtualnymi / wdrożone w ramach sieci wirtualnej usługi w chmurze.
-   * Włącz Azure publicznej komunikacji równorzędnej — należy włączyć publicznej komunikacji równorzędnej platformy Azure, jeśli chcesz połączyć się z usługami platformy Azure hostowanej na publiczne adresy IP. Jest to wymagane, aby uzyskać dostęp do zasobów platformy Azure, jeśli chcesz włączyć routing domyślny dla platformy Azure prywatnej komunikacji równorzędnej.
-   * Włączanie komunikacji równorzędnej firmy Microsoft — należy włączyć to z dostępem do usługi Office 365 i Dynamics 365. 
+   * Włącz Azure prywatnej komunikacji równorzędnej — musi umożliwić tej komunikacji równorzędnej tooVMs tooconnect / wdrożone w ramach sieci wirtualnej usługi w chmurze.
+   * Włącz Azure publicznej komunikacji równorzędnej — należy włączyć Azure publicznej komunikacji równorzędnej w razie potrzeby tooconnect tooAzure usług hostowanych na publiczne adresy IP. Jest to wymaganie tooaccess zasobów platformy Azure, jeśli wybrano tooenable routing domyślny dla platformy Azure prywatnej komunikacji równorzędnej.
+   * Włączanie komunikacji równorzędnej firmy Microsoft — należy włączyć to tooaccess usługi Office 365 i Dynamics 365. 
      
      > [!IMPORTANT]
-     > Należy upewnić się, że używasz oddzielnego serwera proxy / krawędzi połączenia z firmą Microsoft w niż można użyć w Internecie. Zarówno ExpressRoute, jak i z Internetu przy użyciu tej samej granicy powoduje asymetrycznego routingu i powodować awarie łączność w sieci.
+     > Należy upewnić się, że używasz oddzielnego serwera proxy / tooMicrosoft tooconnect krawędzi niż używany dla hello hello Internet. Przy użyciu hello samej krawędzi ExpressRoute i hello Internet będą powodować asymetrycznego routingu i powodować awarie łączność w sieci.
      > 
      > 
      
      ![](./media/expressroute-workflows/routing-workflow.png)
-5. Łączenie sieci wirtualne obwody usługi ExpressRoute — sieci wirtualne można połączyć z obwodem usługi ExpressRoute. Postępuj zgodnie z instrukcjami [połączyć sieci wirtualnych](expressroute-howto-linkvnet-arm.md) do obwodu. Te sieci wirtualnych może być w tej samej subskrypcji platformy Azure jako obwodu ExpressRoute lub może być w innej subskrypcji.
+5. Połączenie wirtualnej sieci obwody tooExpressRoute — możesz połączyć obwodu ExpressRoute tooyour sieci wirtualnych. Postępuj zgodnie z instrukcjami [toolink sieci wirtualnych](expressroute-howto-linkvnet-arm.md) tooyour obwodu. Te sieci wirtualne mogą być w tej samej subskrypcji platformy Azure jako obwodu ExpressRoute hello hello, lub może być w innej subskrypcji.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>Inicjowanie obsługi administracyjnej stanów obwodu usługi expressroute
 Każdy obwód usługi ExpressRoute ma dwa stany:
@@ -50,62 +50,62 @@ Każdy obwód usługi ExpressRoute ma dwa stany:
 * Stan inicjowania obsługi administracyjnej dostawcy usługi
 * Stan
 
-Stan reprezentuje stan inicjowania obsługi administracyjnej firmy Microsoft. Ta właściwość jest ustawiony na włączone po utworzeniu obwodu usługi Expressroute
+Stan reprezentuje stan inicjowania obsługi administracyjnej firmy Microsoft. Ta właściwość ma wartość tooEnabled, podczas tworzenia obwodu usługi Expressroute
 
-Stan inicjowania obsługi administracyjnej dostawcy łączności reprezentuje stan po stronie dostawcy łączności. Może to być *NotProvisioned*, *inicjowania obsługi administracyjnej*, lub *obsługiwane administracyjnie*. Obwód usługi expressroute musi być w stanie obsługiwane administracyjnie dla Ciebie można było go używać.
+Stan inicjowania obsługi administracyjnej dostawcy łączności Hello reprezentuje stan powitania po stronie powitania połączenia dostawcy. Może to być *NotProvisioned*, *inicjowania obsługi administracyjnej*, lub *obsługiwane administracyjnie*. Hello obwodu ExpressRoute należy w stanie obsługiwane administracyjnie możesz toobe stanie toouse go.
 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Możliwe stany obwodu usługi ExpressRoute
-Ta sekcja zawiera się możliwe stany obwodu usługi ExpressRoute.
+Ta sekcja zawiera limit hello możliwe stany dla obwodu usługi ExpressRoute.
 
 **W czasie tworzenia**
 
-Zobaczysz obwodu usługi expressroute w następującym stanie zaraz po uruchomieniu polecenia cmdlet programu PowerShell, aby utworzyć obwodu usługi expressroute.
+Zostanie wyświetlone hello obwodu usługi expressroute w powitania po stanie tak szybko, jak można uruchomić obwodu ExpressRoute hello toocreate polecenia cmdlet programu PowerShell hello.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-**Gdy dostawca połączenia Trwa inicjowanie obsługi administracyjnej obwodu**
+**Gdy dostawca połączenia jest w procesie inicjowania obsługi administracyjnej obwodu hello hello**
 
-Zobaczysz obwodu usługi expressroute w następującym stanie natychmiast po klucz usługi są przekazywane do dostawcy łączności i uruchomienia procesu inicjowania obsługi administracyjnej.
+Zobaczysz hello obwodu usługi expressroute w powitania po stanie tak szybko, jak możesz przekazać hello usługodawcy klucza toohello łączności i uruchomienia hello w procesie inicjowania obsługi.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-**Po zakończeniu procesu udostępniania dostawcy łączności**
+**Po zakończeniu procesu udostępniania hello dostawca połączenia**
 
-Zostanie wyświetlone obwodu usługi expressroute w następującym stanie, jak dostawca połączenia zostało ukończone proces inicjowania obsługi administracyjnej.
+Zobaczysz hello obwodu usługi expressroute w powitania po stanu, jak dostawca połączenia hello ukończono hello w procesie inicjowania obsługi.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
-Zainicjowano obsługę administracyjną i włączone jest tylko stan obwodu może być w dla Ciebie można było go używać. Jeśli używasz dostawcy warstwy 2, można skonfigurować routing dla obwodu tylko wtedy, gdy znajduje się w tym stanie.
+Zainicjowano obsługę administracyjną i włączone jest hello obwodu hello stanu może być tylko w dla możesz toobe stanie toouse go. Jeśli używasz dostawcy warstwy 2, można skonfigurować routing dla obwodu tylko wtedy, gdy znajduje się w tym stanie.
 
-**Gdy dostawca połączenia jest anulowania obsługi obwodu**
+**Gdy dostawca połączenia jest anulowania obsługi hello obwodu**
 
-Jeśli żądanego dostawcy usług w anulowanie zastrzeżenia obwodu ExpressRoute, zostanie wyświetlony obwodu ustawioną następującym stanie po zakończeniu procesu anulowania obsługi dostawcy usług.
+Jeśli zażądano hello usługi dostawcy toodeprovision hello obwodu usługi expressroute, pojawi się zestawu obwodu hello toohello po stanie po zakończeniu hello anulowania obsługi procesu hello dostawcy usług.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-Można ją włączyć ponownie, jeśli potrzebne lub uruchamiania poleceń cmdlet programu PowerShell, można usunąć obwodu.  
+Możesz wybrać toore włącz go, jeśli potrzebne lub uruchamiania poleceń cmdlet programu PowerShell toodelete hello obwodu.  
 
 > [!IMPORTANT]
-> Po uruchomieniu polecenia cmdlet programu PowerShell, aby usunąć obwód podczas inicjowania obsługi administracyjnej ServiceProviderProvisioningState lub obsługiwane administracyjnie operacja zakończy się niepowodzeniem. We współpracy z dostawcą połączenia, aby najpierw anulowanie zastrzeżenia obwodu ExpressRoute, a następnie usuń obwodu. Firma Microsoft będzie naliczać opłaty obwód, dopóki nie zostanie uruchomione polecenie cmdlet programu PowerShell, można usunąć obwodu.
+> Po uruchomieniu hello PowerShell polecenia cmdlet toodelete hello obwodu hello ServiceProviderProvisioningState jest operacja hello inicjowania obsługi administracyjnej lub obsługiwane administracyjnie zakończy się niepowodzeniem. Należy najpierw współpracować obwodu ExpressRoute hello toodeprovision dostawcy łączność, a następnie usuń hello obwodu. Firma Microsoft będzie toobill hello obwód, dopóki nie zostanie uruchomione hello obwodu hello toodelete polecenia cmdlet programu PowerShell.
 > 
 > 
 
 ## <a name="routing-session-configuration-state"></a>Stan konfiguracji sesji routingu
-BGP stan inicjowania obsługi pozwala sprawdzić, czy włączono sesję protokołu BGP na krawędzi firmy Microsoft. Stan musi być włączona dla Ciebie można było użyć komunikację równorzędną.
+Hello stan inicjowania obsługi protokołu BGP pozwala sprawdzić, czy sesji BGP hello został włączony na powitania Microsoft edge. Witaj stanu, należy włączyć możesz toobe toouse stanie hello równorzędna.
 
-Należy sprawdzić stan sesji protokołu BGP, szczególnie w przypadku komunikacji równorzędnej firmy Microsoft. Oprócz BGP stan inicjowania obsługi, istnieje inny stan, o nazwie *stanu publiczne prefiksy anonsowane*. Stan anonsowany prefiksów publicznych musi być w *skonfigurowane* stanu, zarówno na można się sesji protokołu BGP i routingu do pracy na trasie. 
+Jest stan sesji BGP hello ważne toocheck szczególnie w przypadku komunikacji równorzędnej firmy Microsoft. Toohello dodanie BGP stan inicjowania obsługi administracyjnej, istnieje inny stan o nazwie *stanu publiczne prefiksy anonsowane*. Witaj anonsowany stan prefiksów publicznych musi być w *skonfigurowane* stanu, zarówno dla toobe sesji BGP hello się i Twoje routingu toowork end-to-end. 
 
-Jeśli ustawiono stan anonsowany prefiks publicznego *weryfikacji potrzebne* stanu sesji BGP nie jest włączone, ponieważ anonsowane prefiksy nie odpowiada numerowi AS w żadnym z rejestrów routingu. 
+Jeśli hello anonsowane ustawiony stan publicznego prefiks tooa *weryfikacji potrzebne* stanu sesji BGP hello nie jest włączona, jak hello anonsowane prefiksy jest niezgodny z hello jako liczba w żadnym hello rejestrów routingu. 
 
 > [!IMPORTANT]
-> Jeśli stan anonsowane prefiksy publiczny jest *weryfikowanie ręczne* stanu, należy otworzyć bilet pomocy technicznej z [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) i udowodnić, że posiadanych adresów IP anonsowane wraz z programem skojarzone z nimi numery systemu autonomicznego.
+> Jeśli stan publiczne prefiksy anonsowane hello jest *weryfikowanie ręczne* stanu, należy otworzyć bilet pomocy technicznej z [pomocy technicznej firmy Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) i udowodnić, że posiadanych adresów IP hello anonsowane wzdłuż z hello skojarzony numer systemu autonomicznego.
 > 
 > 
 
@@ -114,5 +114,5 @@ Jeśli ustawiono stan anonsowany prefiks publicznego *weryfikacji potrzebne* sta
   
   * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-arm.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-arm.md)
-  * [Link a VNet to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-arm.md)
+  * [Link sieci wirtualnej tooan obwodu usługi expressroute](expressroute-howto-linkvnet-arm.md)
 

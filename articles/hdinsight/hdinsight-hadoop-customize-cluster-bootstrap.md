@@ -1,6 +1,6 @@
 ---
-title: "Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosować klastry usługi HDInsight przy użyciu ładowania początkowego."
+title: "aaaCustomize klastrów usługi HDInsight przy użyciu ładowania początkowego — Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocustomize HDInsight clusters przy użyciu ładowania początkowego."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: c7a6fafa90eac66774d564c82c926c662baf784c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0029680fd1aa0e9e6aa9cdf667256c31b7ddc565
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego
 
-Czasami użytkownik chce skonfigurować pliki konfiguracyjne, które obejmują:
+Czasami mają pliki konfiguracji hello tooconfigure, które obejmują:
 
 * clusterIdentity.xml
 * Core-site.xml
@@ -42,7 +42,7 @@ Czasami użytkownik chce skonfigurować pliki konfiguracyjne, które obejmują:
 * webhcat site.xml
 * yarn-site.xml
 
-Istnieją trzy metody do początkowego użycia:
+Istnieją trzy metody toouse bootstrap:
 
 * Korzystanie z programu Azure PowerShell
 * Korzystanie z zestawu SDK dla platformy .NET
@@ -50,12 +50,12 @@ Istnieją trzy metody do początkowego użycia:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrze usługi HDInsight podczas tworzenia zobacz:
+Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrze usługi HDInsight podczas tworzenia hello zobacz:
 
 * [Dostosowywanie klastrów usługi HDInsight przy użyciu akcji skryptu (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
-Poniższy kod programu PowerShell dostosowuje konfiguracji gałęzi:
+Witaj następującego kodu programu PowerShell dostosowuje konfiguracji gałęzi:
 
     # hive-site.xml configuration
     $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
@@ -80,19 +80,19 @@ Poniższy kod programu PowerShell dostosowuje konfiguracji gałęzi:
 
 Zakończenie pracy skryptu programu PowerShell można znaleźć w [dodatek A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
 
-**Aby sprawdzić zmiany:**
+**Zmiana hello tooverify:**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Z menu po lewej stronie kliknij **klastrów usługi HDInsight**. Jeśli nie widzisz, kliknij przycisk **więcej usług** pierwszy.
-3. Kliknij utworzony przy użyciu skryptu środowiska PowerShell klastra.
-4. Kliknij przycisk **pulpitu nawigacyjnego** od górnej krawędzi bloku, aby otworzyć Interfejs użytkownika narzędzia Ambari.
-5. Kliknij przycisk **Hive** z menu po lewej stronie.
+1. Zaloguj się na toohello [portalu Azure](https://portal.azure.com).
+2. W menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**. Jeśli nie widzisz, kliknij przycisk **więcej usług** pierwszy.
+3. Kliknij właśnie utworzony za pomocą skryptu PowerShell hello klastra hello.
+4. Kliknij przycisk **pulpitu nawigacyjnego** od góry hello tooopen bloku hello hello interfejsu użytkownika narzędzia Ambari.
+5. Kliknij przycisk **Hive** z menu po lewej stronie powitania.
 6. Kliknij przycisk **serwera HiveServer2** z **Podsumowanie**.
-7. Kliknij przycisk **Configs** kartę.
-8. Kliknij przycisk **Hive** z menu po lewej stronie.
-9. Kliknij przycisk **zaawansowane** kartę.
+7. Kliknij przycisk hello **Configs** kartę.
+8. Kliknij przycisk **Hive** z menu po lewej stronie powitania.
+9. Kliknij przycisk hello **zaawansowane** kartę.
 10. Przewiń w dół, a następnie rozwiń węzeł **zaawansowane witryny hive**.
-11. Wyszukaj **hive.metastore.client.socket.timeout** w sekcji.
+11. Wyszukaj **hive.metastore.client.socket.timeout** w sekcji hello.
 
 Niektóre przykłady więcej o dostosowywaniu inne pliki konfiguracji:
 
@@ -111,7 +111,7 @@ Niektóre przykłady więcej o dostosowywaniu inne pliki konfiguracji:
 Aby uzyskać więcej informacji, zobacz blog Azim Uddin zatytułowany [tworzenia klastra usługi HDInsight dostosowywanie](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## <a name="use-net-sdk"></a>Korzystanie z zestawu SDK dla platformy .NET
-Zobacz [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu zestawu .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
+Zobacz [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu hello zestawu .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## <a name="use-resource-manager-template"></a>Użyj Menedżera zasobów szablonu
 Bootstrap można użyć w szablonie usługi Resource Manager:
@@ -129,7 +129,7 @@ Bootstrap można użyć w szablonie usługi Resource Manager:
 ![HDInsight Hadoop dostosowuje klastra ładowania początkowego szablonu usługi Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Zobacz też
-* [Tworzenie klastrów Hadoop w usłudze HDInsight] [ hdinsight-provision-cluster] zawiera instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight przy użyciu niestandardowych opcji.
+* [Tworzenie klastrów Hadoop w usłudze HDInsight] [ hdinsight-provision-cluster] zawiera instrukcje dotyczące sposobu toocreate HDInsight klastra przy użyciu niestandardowych opcji.
 * [Tworzenie skryptów akcji skryptu dla usługi HDInsight][hdinsight-write-script]
 * [Zainstalować i używać platformy Spark w usłudze hdinsight][hdinsight-install-spark]
 * [Zainstaluj i użyj języka R w klastrach HDInsight][hdinsight-install-r]
@@ -181,10 +181,10 @@ Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje us
     $ErrorActionPreference = "Stop"
 
     ####################################
-    # Connect to Azure
+    # Connect tooAzure
     ####################################
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #endregion
@@ -198,7 +198,7 @@ Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje us
         -Name  $resourceGroupName `
         -Location $location
 
-    Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
+    Write-Host "Creating hello default storage account and default blob container ..."  -ForegroundColor Green
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
@@ -213,7 +213,7 @@ Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje us
                                     -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer `
         -Name $defaultBlobContainerName `
-        -Context $defaultStorageContext #use the cluster name as the container name
+        -Context $defaultStorageContext #use hello cluster name as hello container name
 
     ####################################
     # Create a configuration object
@@ -249,7 +249,7 @@ Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje us
         -Config $config
 
     ####################################
-    # Verify the cluster
+    # Verify hello cluster
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 

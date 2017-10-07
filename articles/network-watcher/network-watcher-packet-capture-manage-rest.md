@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie przechwytywania pakietów z obserwatora sieciowego Azure - interfejsu API REST | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśnia sposób zarządzania funkcja przechwytywania pakietów obserwatora sieciowego przy użyciu interfejsu API REST Azure"
+title: "Przechwytywanie pakietów aaaManage z obserwatora sieciowego Azure - interfejsu API REST | Dokumentacja firmy Microsoft"
+description: "Ta strona wyjaśniono, jak toomanage hello funkcja przechwytywania pakietów obserwatora sieciowego przy użyciu interfejsu API REST Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 49ec20802a252258d8493eb26510270b925e851a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a531fbe796e85e94961bd192d171defb299be05
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Zarządzanie przechwytywania pakietów za pomocą Monitora sieci Azure przy użyciu interfejsu API REST Azure
 
@@ -29,24 +29,24 @@ ms.lasthandoff: 08/29/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [Interfejs API Azure REST](network-watcher-packet-capture-manage-rest.md)
 
-Przechwytywania pakietów obserwatora sieciowego umożliwia tworzenie sesji przechwytywania, aby śledzić ruch do i z maszyny wirtualnej. Filtry są dostępne dla sesji przechwytywania, aby upewnić się, że przechwytywać ruch, który ma. Przechwytywania pakietów ułatwia diagnozowanie anomalii sieci rozbudowy i aktywne. Innych celów obejmują zbieranie statystyk sieciowych, uzyskanie informacji na temat wtargnięcia sieci, aby debugować komunikacja klient serwer i o wiele więcej. Dzięki możliwości zdalnie wywołać przechwytywania pakietów, ta funkcja ułatwia obciążeń uruchomionych przechwytywania pakietów, ręcznie i tylko na odpowiednią maszynę, która zapisuje cenny czas.
+Przechwytywania pakietów obserwatora sieciowego umożliwia toocreate przechwytywania sesji tootrack ruch tooand z maszyny wirtualnej. Filtry są przewidziane tooensure sesji przechwytywania hello przechwytywać tylko hello ruchu. Przechwytywania pakietów pomaga anomalii sieci toodiagnose rozbudowy i aktywne. Innych celów obejmują zbieranie statystyk sieciowych, uzyskanie informacji na temat sieci wtargnięcia toodebug klient serwer, komunikację i o wiele więcej. Jest przechwytywania pakietów wyzwalacza stanie tooremotely, ta funkcja ułatwia hello obciążeń uruchomionych przechwytywania pakietów ręcznego, jak i na powitania żądanego komputera, który zapisuje cenny czas.
 
-Ten artykuł przedstawia za pomocą zadań zarządzania różnych, które są obecnie dostępne dla przechwytywania pakietów.
+Ten artykuł przedstawia hello zarządzania różnych zadań, które są obecnie dostępne dla przechwytywania pakietów.
 
 - [**Pobierz przechwytywania pakietów**](#get-a-packet-capture)
 - [**Wyświetl listę wszystkich przechwytywania pakietów**](#list-all-packet-captures)
-- [**Zapytać o stan przechwytywania pakietów**](#query-packet-capture-status)
+- [**Badanie stanu hello przechwytywania pakietów**](#query-packet-capture-status)
 - [**Uruchom przechwytywania pakietów**](#start-packet-capture)
 - [**Zatrzymaj przechwytywania pakietów**](#stop-packet-capture)
 - [**Usuń przechwytywania pakietów**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu można wywołać interfejsu API Rest obserwatora sieciowego do uruchomienia przepływu Sprawdź IP. ARMclient służy do wywołania interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
+W tym scenariuszu należy wywołać toorun interfejsu API Rest obserwatora sieciowego hello Sprawdź przepływ IP. ARMclient jest używane toocall: hello interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego.
+W tym scenariuszu przyjęto zostały już wykonane kroki hello [utworzyć obserwatora sieciowego](network-watcher-create.md) toocreate obserwatora sieciowego.
 
-> Rozszerzenie maszyny wirtualnej wymaga przechwytywania pakietów `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Rozszerzenie maszyny wirtualnej wymaga przechwytywania pakietów `AzureNetworkWatcherExtension`. Instalowanie hello rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Zaloguj się za pomocą ARMClient
 
@@ -56,12 +56,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Pobieranie maszyny wirtualnej
 
-Uruchom następujący skrypt, aby wrócić do maszyny wirtualnej. Te informacje są potrzebne do uruchomienia przechwytywania pakietów.
+Uruchom maszynę wirtualną powitania po tooreturn skryptu. Te informacje są potrzebne do uruchomienia przechwytywania pakietów.
 
-Poniższy kod wymaga zmiennych:
+Witaj następujący kod wymaga zmiennych:
 
-- **Identyfikator subskrypcji** — identyfikator subskrypcji można również pobrać z **Get-AzureRMSubscription** polecenia cmdlet.
-- **resourceGroupName** — Nazwa grupy zasobów, która zawiera maszyny wirtualne.
+- **Identyfikator subskrypcji** -hello identyfikator subskrypcji można również pobrać z hello **Get-AzureRMSubscription** polecenia cmdlet.
+- **resourceGroupName** — Witaj Nazwa grupy zasobów, która zawiera maszyny wirtualne.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -70,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Z następujących danych wyjściowych identyfikator maszyny wirtualnej jest używany w następnym przykładzie.
+Z danych wyjściowych poniżej hello, hello identyfikator maszyny wirtualnej hello jest używany w następnym przykładzie hello.
 
 ```json
 ...
@@ -88,7 +88,7 @@ Z następujących danych wyjściowych identyfikator maszyny wirtualnej jest uży
 
 ## <a name="get-a-packet-capture"></a>Pobierz przechwytywania pakietów
 
-Poniższy przykład pobiera stan przechwytywania pojedynczy pakiet
+Witaj poniższy przykład pobiera stan hello przechwytywania pojedynczy pakiet
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -97,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Przykłady typowych odpowiedzi zwracany podczas wysyłania zapytania o stan przechwytywania pakietów są następujące odpowiedzi.
+Hello są następujące odpowiedzi przykłady typowych odpowiedzi zwracany, gdy badanie stanu hello przechwytywania pakietów.
 
 ```json
 {
@@ -122,7 +122,7 @@ Przykłady typowych odpowiedzi zwracany podczas wysyłania zapytania o stan prze
 
 ## <a name="list-all-packet-captures"></a>Wyświetl listę wszystkich przechwytywania pakietów
 
-Poniższy przykład pobiera wszystkie sesje przechwytywania pakietów w regionie.
+Poniższy przykład Hello pobiera wszystkie sesje przechwytywania pakietów w regionie.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -131,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Następującą odpowiedź jest przechwytuje przykład typowej odpowiedzi zwracany podczas pobierania wszystkich pakietów
+Witaj następującą odpowiedź jest przechwytuje przykład typowej odpowiedzi zwracany podczas pobierania wszystkich pakietów
 
 ```json
 {
@@ -196,7 +196,7 @@ ture_17_23_15_364.cap",
 
 ## <a name="query-packet-capture-status"></a>Kwerenda o stan przechwytywania pakietów
 
-Poniższy przykład pobiera wszystkie sesje przechwytywania pakietów w regionie.
+Poniższy przykład Hello pobiera wszystkie sesje przechwytywania pakietów w regionie.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -206,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Następującą odpowiedź jest przykładem typowych odpowiedzi zwracany podczas wysyłania zapytania o stan przechwytywania pakietów.
+Witaj następującą odpowiedź jest przykładem typowych odpowiedzi zwracany, gdy badanie stanu hello przechwytywania pakietów.
 
 ```json
 {
@@ -220,7 +220,7 @@ Następującą odpowiedź jest przykładem typowych odpowiedzi zwracany podczas 
 
 ## <a name="start-packet-capture"></a>Uruchom przechwytywania pakietów
 
-Poniższy przykład tworzy przechwytywania pakietów na maszynie wirtualnej.  Przykład jest parametry umożliwiające elastyczność tworzenia przykładem.
+Witaj poniższy przykład tworzy przechwytywania pakietów na maszynie wirtualnej.  przykład Witaj jest sparametryzowane tooallow elastyczność tworzenia przykładem.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -272,7 +272,7 @@ armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/Reso
 
 ## <a name="stop-packet-capture"></a>Zatrzymaj przechwytywania pakietów
 
-Poniższy przykład zatrzymuje przechwytywania pakietów na maszynie wirtualnej.  Przykład jest parametry umożliwiające elastyczność tworzenia przykładem.
+Poniższy przykład Hello zatrzymuje przechwytywania pakietów na maszynie wirtualnej.  przykład Witaj jest sparametryzowane tooallow elastyczność tworzenia przykładem.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -284,7 +284,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="delete-packet-capture"></a>Usuń przechwytywania pakietów
 
-W następującym przykładzie przechwytywania pakietów, na maszynie wirtualnej.  Przykład jest parametry umożliwiające elastyczność tworzenia przykładem.
+Poniższy przykład Hello usuwa przechwytywania pakietów, na maszynie wirtualnej.  przykład Witaj jest sparametryzowane tooallow elastyczność tworzenia przykładem.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -296,13 +296,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Usunięcie przechwytywania pakietów nie powoduje usunięcia plików na koncie magazynu
+> Usunięcie przechwytywania pakietów nie powoduje usunięcia pliku hello na koncie magazynu hello
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać instrukcje dotyczące pobierania plików z kontami magazynu azure, zapoznaj się [Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kolejnym narzędziem, który może służyć jest Eksploratora usługi Storage. Więcej informacji na temat Eksploratora usługi Storage można znaleźć tutaj przy użyciu następującego łącza: [Eksploratora usługi Storage](http://storageexplorer.com/)
+Aby uzyskać instrukcje dotyczące pobierania plików z kontami magazynu azure, zobacz zbyt[Rozpoczynanie pracy z magazynem obiektów Blob platformy Azure przy użyciu platformy .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kolejnym narzędziem, który może służyć jest Eksploratora usługi Storage. Więcej informacji na temat Eksploratora usługi Storage można znaleźć tutaj na powitania następującego łącza: [Eksploratora usługi Storage](http://storageexplorer.com/)
 
-Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
+Dowiedz się, jak przechwytywanie pakietów tooautomate z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 
 
 

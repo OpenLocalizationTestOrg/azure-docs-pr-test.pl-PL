@@ -1,5 +1,5 @@
 ---
-title: "W aplikacji sieci Web usługi aplikacji Azure w systemie Linux przy użyciu Ruby | Dokumentacja firmy Microsoft"
+title: "aaaUsing Ruby w aplikacji sieci Web usługi aplikacji Azure w systemie Linux | Dokumentacja firmy Microsoft"
 description: "Używanie Ruby w aplikacji sieci Web usługi aplikacji Azure w systemie Linux."
 keywords: "Usługa aplikacji Azure, aplikacji sieci web, często zadawane pytania, linux, oss, ruby"
 services: app-service
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 45692cb3bf1da9ff65b9466055029bfaef8b7d8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-ruby-in-web-app-on-linux"></a>W aplikacji sieci Web w systemie Linux przy użyciu Ruby #
 
-Przy użyciu najnowszych aktualizacji do naszej wewnętrznej bazy danych wprowadzono obsługę v.2.3 dopisków fonetycznych. Przez ustawienie konfiguracji aplikacji sieci web systemu Linux, można zmienić stosu aplikacji.
+Z hello najnowszych aktualizacji tooour wewnętrznej bazy danych wprowadzono obsługę v.2.3 dopisków fonetycznych. Przez ustawienie hello konfigurację aplikacji sieci web systemu Linux można zmienić hello stosu aplikacji.
 
-## <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal ##
+## <a name="using-hello-azure-portal"></a>Przy użyciu hello portalu Azure ##
 
-W menu Nowy [portalu Azure](https://portal.azure.com), można wybrać do utworzenia aplikacji sieci Web w systemie Linux z sieci Web i opcji mobilnych, jak pokazano na poniższej ilustracji:
+Z menu Nowy hello w hello [portalu Azure](https://portal.azure.com), można wybrać toocreate aplikacji sieci Web w systemie Linux Witaj Web + opcji mobilnych pokazane na powitania po obrazu:
 
-![Rozpocznij tworzenie aplikacji sieci web w portalu Azure][1]
+![Rozpocznij tworzenie aplikacji sieci web na powitania portalu Azure][1]
 
-Następnie **bloku Utwórz** otwiera, jak pokazano na poniższej ilustracji:
+Następnie hello **bloku Utwórz** otwiera pokazane na powitania po obrazu:
 
-![Tworzenie bloku][2]
+![bloku Utwórz Hello][2]
 
 1. Nadaj nazwę aplikacji sieci web.
-2. Wybierz istniejącą grupę zasobów lub Utwórz nową. (Zobacz dostępnych regionów w [sekcji ograniczenia](app-service-linux-intro.md).)
-3. Wybierz istniejący plan usługi aplikacji Azure lub Utwórz nową. (Zobacz uwagi planu usługi aplikacji w [sekcji ograniczenia](app-service-linux-intro.md).)
-4. Wybierz Ruby z stosów wbudowanych środowiska wykonawczego.
+2. Wybierz istniejącą grupę zasobów lub Utwórz nową. (Zobacz dostępnych regionów w hello [sekcji ograniczenia](app-service-linux-intro.md).)
+3. Wybierz istniejący plan usługi aplikacji Azure lub Utwórz nową. (Zobacz uwagi planu usługi aplikacji w hello [sekcji ograniczenia](app-service-linux-intro.md).)
+4. Wybierz hello Ruby z hello stosów wbudowanych środowiska wykonawczego.
 
-Po utworzeniu aplikacji sieci web dopisków fonetycznych pobiera można wdrożyć do niej przy użyciu narzędzia Git i FTP.
+Po utworzeniu aplikacji sieci web dopisków fonetycznych pobiera można wdrożyć tooit przy użyciu narzędzia Git i FTP.
 
-Aby dowiedzieć się więcej o tworzeniu aplikacji dopisków fonetycznych, sprawdź [przewodnika get](app-service-linux-ruby-get-started.md)
+więcej informacji o toolearn tworzenie aplikacji dopisków fonetycznych, sprawdź hello [przewodnika get](app-service-linux-ruby-get-started.md)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Co to jest aplikacja sieci Web w systemie Linux?](app-service-linux-intro.md)
-* [Wdrażanie lokalnej usługi Git w usłudze Azure App Service](app-service-deploy-local-git.md)
+* [Lokalnego wdrożenia Git tooAzure usługi aplikacji](app-service-deploy-local-git.md)
 * [Usługa aplikacji Azure aplikacji sieci Web w systemie Linux — często zadawane pytania](app-service-linux-faq.md)
 * [Tworzenie aplikacji dopisków fonetycznych w aplikacji sieci Web platformy Azure w systemie Linux](app-service-linux-ruby-get-started.md)
 

@@ -1,9 +1,9 @@
 ---
-title: "Wygasić dane w usłudze Azure DB rozwiązania Cosmos z czasu wygaśnięcia | Dokumentacja firmy Microsoft"
-description: "TTL bazy danych programu Microsoft Azure rozwiązania Cosmos zapewnia możliwość dokumentów automatycznie usunięte z systemu po upływie określonego czasu."
+title: "aaaExpire danych w usłudze Azure DB rozwiązania Cosmos z czasem toolive | Dokumentacja firmy Microsoft"
+description: "TTL bazy danych programu Microsoft Azure rozwiązania Cosmos zawiera dokumenty toohave możliwości hello automatycznie usunięte z systemu hello po upływie określonego czasu."
 services: cosmos-db
 documentationcenter: 
-keywords: "czas wygaśnięcia"
+keywords: czas toolive
 author: arramac
 manager: jhubbard
 editor: 
@@ -15,47 +15,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 6f1c43ca0113dc7579b0fc3743d3314c16ce78a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 51d8ec46add72c9624457316a4ccd1e23fb83ad0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Ważność danych w kolekcjach bazy danych rozwiązania Cosmos Azure automatycznie z czasu wygaśnięcia
-Aplikacje można tworzyć i przechowywania dużych ilości danych. Niektóre z tych danych, takich jak machine generowane zdarzenie danych, dzienników i użytkownika sesji informacji przydaje się tylko ograniczone okres czasu. Gdy dane będą nadwyżka na potrzeby aplikacji jest bezpieczne przeczyścić tych danych i zmniejszyć wymagania dotyczące magazynu aplikacji.
+# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-toolive"></a>Ważność danych w kolekcjach bazy danych rozwiązania Cosmos Azure automatycznie z czasem toolive
+Aplikacje można tworzyć i przechowywania dużych ilości danych. Niektóre z tych danych, takich jak machine generowane zdarzenie danych, dzienników i użytkownika sesji informacji przydaje się tylko ograniczone okres czasu. Po hello danych staje się toohello nadmierne wymagania dotyczące aplikacji hello jest bezpieczne toopurge tych danych i zmniejszyć wymagania dotyczące magazynu hello aplikacji.
 
-"Czas wygaśnięcia" lub TTL bazy danych programu Microsoft Azure rozwiązania Cosmos zapewnia możliwość dokumentów automatycznie usunięte z bazy danych po upływie określonego czasu. Domyślny czas wygaśnięcia można ustawić na poziomie kolekcji i zastąpiona na podstawie powiązany z dokumentem. Po ustawieniu TTL domyślnie kolekcji lub na poziomie dokumentu, DB rozwiązania Cosmos automatycznie usunie dokumenty znajdujące się po upływie tego czasu w sekundach od ostatniej modyfikacji.
+"Czas toolive" lub TTL bazy danych programu Microsoft Azure rozwiązania Cosmos zawiera dokumenty toohave możliwości hello automatycznie usunięte z bazy danych powitania po upływie określonego czasu. Hello domyślny czas toolive można ustawić na poziomie kolekcji hello i zastąpiona na podstawie powiązany z dokumentem. Po ustawieniu TTL domyślnie kolekcji lub na poziomie dokumentu, DB rozwiązania Cosmos automatycznie usunie dokumenty znajdujące się po upływie tego czasu w sekundach od ostatniej modyfikacji.
 
-Czas wygaśnięcia w bazie danych rozwiązania Cosmos używa przesunięcia względem datę ostatniej modyfikacji dokumentu. W tym używa `_ts` pola, które znajduje się na każdy dokument. Pole _ts jest sygnatura czasowa typu unix epoki reprezentujący datę i godzinę. `_ts` Pole jest aktualizowane za każdym razem, gdy dokument zostanie zmodyfikowany. 
+Czas toolive w bazie danych rozwiązania Cosmos używa przesunięcia względem datę ostatniej modyfikacji hello dokumentu. toodo hello używa tego `_ts` pola, które znajduje się na każdy dokument. Witaj _ts pole jest typu unix epoki sygnatury czasowej reprezentujące hello daty i godziny. Witaj `_ts` pole jest aktualizowane za każdym razem, gdy dokument zostanie zmodyfikowany. 
 
 ## <a name="ttl-behavior"></a>Zachowanie TTL
-Funkcja czas wygaśnięcia jest kontrolowana przez właściwości TTL na dwa poziomy - poziomem kolekcji i dokumentu. Wartości są ustawiane w sekundach i są traktowane jako różnicowej z `_ts` czy dokument został ostatnio zmodyfikowany.
+Funkcja TTL Hello jest kontrolowana przez właściwości TTL na dwa poziomy - hello poziom kolekcji i dokumentu hello. Witaj wartości są ustawiane w sekundach i są traktowane jako różnicowej z hello `_ts` w ostatniej modyfikacji tego dokumentu hello.
 
-1. DefaultTTL dla kolekcji
+1. DefaultTTL hello kolekcji
    
-   * Jeśli brakuje (lub ustawionej na wartość null), dokumenty nie są automatycznie usuwane.
-   * Jeśli obecny i wartość to "-1" = nieskończone — dokumenty nie wygasa domyślnie
-   * Jeśli jest obecny i wartość jest niektórych numer ("n") — dokumenty wygasają "n" sekundach od ostatniej modyfikacji
-2. Czas wygaśnięcia dokumentów: 
+   * Jeśli brakuje (lub zestaw toonull) dokumenty nie są automatycznie usuwane.
+   * Jeśli jest obecny i -"1" jest wartość hello = nieskończone — dokumenty nie wygasa domyślnie
+   * Jeśli jest obecny i wartość hello jest liczbą, niektóre ("n") — dokumenty wygasają "n" sekundach od ostatniej modyfikacji
+2. Czas wygaśnięcia dokumentów hello: 
    
-   * Właściwość ma zastosowanie, tylko wtedy, gdy dla kolekcji nadrzędnej DefaultTTL.
-   * Zastępuje wartość DefaultTTL dla kolekcji nadrzędnej.
+   * Właściwość ma zastosowanie, tylko wtedy, gdy dla kolekcji nadrzędnej hello DefaultTTL.
+   * Zastępuje wartość DefaultTTL hello hello kolekcji nadrzędnej.
 
-Jak wygasł dokumentu (`ttl`  +  `_ts` > = bieżący czas serwera), dokument jest oznaczony jako "wygasł". Żadna operacja będą dozwolone na tych dokumentów po upływie tego czasu i będzie można wykluczyć z wyników kwerendy wykonywane. Dokumenty są fizycznie usunięte z systemu i są usuwane w tle używana w późniejszym czasie. To nie zużywa żadnego [jednostek żądania (RUs)](request-units.md) z budżetu kolekcji.
+Jak wygasł hello dokumentu (`ttl`  +  `_ts` > = bieżący czas serwera), dokument hello jest oznaczony jako "wygasł". Żadna operacja będą dozwolone na tych dokumentów po upływie tego czasu i zostaną wykluczone z hello wyników kwerendy wykonywane. dokumenty Hello są fizycznie usunięte w systemie hello i są usuwane w tle hello używana w późniejszym czasie. To nie zużywa żadnego [jednostek żądania (RUs)](request-units.md) z hello kolekcji budżetu.
 
-W poniższej tabeli można pokazać logiki powyżej:
+Witaj powyżej logiki można pokazać na powitania po macierzy:
 
-|  | DefaultTTL Brak nie ustawiać kolekcji | DefaultTTL = -1 w kolekcji | DefaultTTL = "n" w kolekcji |
+|  | DefaultTTL Brak nie ustawiony na powitania kolekcji | DefaultTTL = -1 w kolekcji | DefaultTTL = "n" w kolekcji |
 | --- |:--- |:--- |:--- |
-| Brak TTL dokumentu |Nie można zastąpić na poziomie dokumentu, ponieważ dokumentu i kolekcji nie ma żadnych koncepcji TTL. |Wygaśnie żaden dokument w tej kolekcji. |Dokumenty w tej kolekcji wygaśnie po upływie interwału n. |
-| Czas wygaśnięcia = -1 do dokumentu |Nie można zastąpić na poziomie dokumentu od kolekcji nie zdefiniowano Właściwość DefaultTTL, którą można zastąpić dokumentu. Wartość TTL dokumentu jest nie interpretowany przez system. |Wygaśnie żaden dokument w tej kolekcji. |Nigdy nie wygasa dokument z = TTL-1 w tej kolekcji. Wszystkie inne dokumenty wygaśnie po upływie interwału "n". |
-| Czas wygaśnięcia = n dokumentu |Nie można zastąpić na poziomie dokumentu. Wartość TTL dokumentu nie interpretowany przez system. |Dokument z TTL = n wygaśnie po n interwał, w sekundach. Inne dokumenty będą dziedziczyć interwał-1 i nigdy nie wygasa. |Dokument z TTL = n wygaśnie po n interwał, w sekundach. Inne dokumenty będzie dziedziczyć interwał "n" z kolekcji. |
+| Brak TTL dokumentu |Nic toooverride na poziomie dokumentu, ponieważ dokument hello programu i kolekcji mają nie koncepcji TTL. |Wygaśnie żaden dokument w tej kolekcji. |dokumenty Hello w tej kolekcji wygaśnie po upływie interwału n. |
+| Czas wygaśnięcia = -1 do dokumentu |Nic toooverride na poziomie dokumentu hello, ponieważ kolekcja hello nie definiuje hello DefaultTTL właściwość, którą można zastąpić dokumentu. Cofanie interpretowany przez hello system jest czas wygaśnięcia w dokumencie. |Wygaśnie żaden dokument w tej kolekcji. |nigdy nie wygasa Hello dokument z = TTL-1 w tej kolekcji. Wszystkie inne dokumenty wygaśnie po upływie interwału "n". |
+| Czas wygaśnięcia = n dokumentu |Nic toooverride na poziomie dokumentu hello. Wartość TTL dokumentu nie interpretowany przez hello system. |dokument Hello TTL = n wygaśnie po n interwał, w sekundach. Inne dokumenty będą dziedziczyć interwał-1 i nigdy nie wygasa. |dokument Hello TTL = n wygaśnie po n interwał, w sekundach. Inne dokumenty będą dziedziczyć interwał "n" hello kolekcji. |
 
 ## <a name="configuring-ttl"></a>Konfigurowanie TTL
-Domyślnie czas wygaśnięcia jest domyślnie wyłączona, we wszystkich zbiorach DB rozwiązania Cosmos i na wszystkich dokumentach.
+Domyślnie czas toolive jest domyślnie wyłączona, we wszystkich zbiorach DB rozwiązania Cosmos i na wszystkich dokumentach.
 
 ## <a name="enabling-ttl"></a>Włączanie TTL
-Włącz TTL kolekcji lub dokumentów w kolekcji, należy ustawić właściwość DefaultTTL kolekcji -1 lub liczbą dodatnią inną niż zero. Ustawienie DefaultTTL-1 oznacza domyślne wszystkich dokumentów w kolekcji, zawsze na żywo, ale usługa DB rozwiązania Cosmos monitorować tej kolekcji dokumentów, które zostały zastąpione to ustawienie domyślne.
+tooenable TTL na kolekcję lub hello dokumentów w kolekcji należy tooset hello DefaultTTL właściwości kolekcji tooeither -1 lub liczbą dodatnią inną niż zero. Ustawienie hello DefaultTTL zbyt-1 oznacza, że domyślnie wszystkie dokumenty w kolekcji hello będzie funkcjonować w nieskończoność, ale hello usługi rozwiązania Cosmos bazy danych należy monitorować tej kolekcji dokumentów, które zostały zastąpione to ustawienie domyślne.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -68,7 +68,7 @@ Włącz TTL kolekcji lub dokumentów w kolekcji, należy ustawić właściwość
         new RequestOptions { OfferThroughput = 20000 });
 
 ## <a name="configuring-default-ttl-on-a-collection"></a>Konfigurowanie domyślny czas wygaśnięcia w kolekcji
-Jesteś w stanie skonfigurować domyślny czas wygaśnięcia na poziomie kolekcji. Aby ustawić czas wygaśnięcia w kolekcji, należy podać liczbą dodatnią niezerowa wskazuje okres, w sekundach, wygaśnie wszystkich dokumentów w kolekcji po jego ostatniej modyfikacji sygnatury czasowej dokumentu (`_ts`). Alternatywnie można ustawić wartość domyślna -1, co oznacza, że wszystkie dokumenty wstawione do kolekcji będzie domyślnie funkcjonować w nieskończoność.
+Jesteś tooconfigure stanie domyślny czas toolive na poziomie kolekcji. Witaj tooset TTL w kolekcji, należy tooprovide liczbą dodatnią niezerowa wskazuje w sekundach, tooexpire czasu hello wszystkich dokumentów w kolekcji powitania po hello ostatniej modyfikacji sygnatury czasowej hello dokumentu (`_ts`). Lub możesz ustawić hello domyślne zbyt-1, co oznacza, że wszystkie dokumenty wstawione w kolekcji toohello będzie funkcjonować nieskończoność domyślnie.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -82,15 +82,15 @@ Jesteś w stanie skonfigurować domyślny czas wygaśnięcia na poziomie kolekcj
 
 
 ## <a name="setting-ttl-on-a-document"></a>Ustawienie TTL w dokumencie
-Poza ustawieniem domyślny czas wygaśnięcia w kolekcji można ustawić TTL określonych na poziomie dokumentu. W ten sposób zastępują domyślne w kolekcji.
+Ponadto toosetting domyślny czas wygaśnięcia w kolekcji można ustawić TTL określonych na poziomie dokumentu. W ten sposób zastępują domyślne hello hello kolekcji.
 
-* Aby ustawić czas wygaśnięcia dokument, musisz podać liczbą dodatnią inną niż zero, co oznacza okres, w sekundach, wygaśnie dokumentu po jego ostatniej modyfikacji sygnatury czasowej dokumentu (`_ts`).
-* Jeśli dokument nie zawiera TTL pola, domyślnej kolekcji zostaną zastosowane.
-* Jeśli czas wygaśnięcia jest wyłączona na poziomie kolekcji, pola TTL dokumentu zostanie zignorowany, aż do ponownego włączenia TTL w kolekcji.
+* Witaj tooset TTL na dokumentu, należy tooprovide liczbą dodatnią inną niż zero, co oznacza hello okres, w sekundach, tooexpire hello dokumentu po hello ostatniej modyfikacji sygnatury czasowej hello dokumentu (`_ts`).
+* Jeśli dokument nie zawiera TTL pola, następnie hello domyślnej kolekcji hello zostaną zastosowane.
+* Jeśli czas wygaśnięcia jest wyłączona na poziomie zbioru hello, hello TTL pola w dokumencie hello zostanie zignorowany, aż do ponownego włączenia TTL na powitania kolekcji.
 
-Oto fragment przedstawiający sposób ustawiania wygaśnięcia TTL w dokumencie:
+Oto fragment przedstawiający sposób tooset hello wygaśnięcia TTL w dokumencie:
 
-    // Include a property that serializes to "ttl" in JSON
+    // Include a property that serializes too"ttl" in JSON
     public class SalesOrder
     {
         [JsonProperty(PropertyName = "id")]
@@ -99,14 +99,14 @@ Oto fragment przedstawiający sposób ustawiania wygaśnięcia TTL w dokumencie:
         [JsonProperty(PropertyName="cid")]
         public string CustomerId { get; set; }
         
-        // used to set expiration policy
+        // used tooset expiration policy
         [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
         public int? TimeToLive { get; set; }
         
         //...
     }
     
-    // Set the value to the expiration in seconds
+    // Set hello value toohello expiration in seconds
     SalesOrder salesOrder = new SalesOrder
     {
         Id = "SO05",
@@ -116,31 +116,31 @@ Oto fragment przedstawiający sposób ustawiania wygaśnięcia TTL w dokumencie:
 
 
 ## <a name="extending-ttl-on-an-existing-document"></a>Rozszerzanie TTL na istniejącego dokumentu
-Wartość TTL dokumentu można zresetować wykonując żadnej operacji zapisu w dokumencie. Spowoduje to ustawi `_ts` bieżący czas i odlicza czas do wygaśnięcia dokumentu, zgodnie z ustawieniami `ttl`, rozpocznie się ponownie. Jeśli chcesz zmienić `ttl` dokumentu, można zaktualizować pola, jak mogą z innego pola można ustawić.
+Wykonując dowolną operację zapisu na powitania dokumentu, można zresetować hello TTL w dokumencie. W ten sposób ustawi hello `_ts` toohello bieżący czas i toohello odliczania hello dokumentu ważności, zgodnie z ustawieniami hello `ttl`, rozpocznie się ponownie. Jeśli chcesz, aby toochange hello `ttl` dokumentu, można zaktualizować pola hello, jak można zrobić za pomocą innego pola można ustawić.
 
     response = await client.ReadDocumentAsync(
         "/dbs/salesdb/colls/orders/docs/SO05"), 
         new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
     
     Document readDocument = response.Resource;
-    readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+    readDocument.TimeToLive = 60 * 30 * 30; // update time toolive
     
     response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## <a name="removing-ttl-from-a-document"></a>Usuwanie TTL z dokumentu
-Jeśli wartości TTL został ustawiony w dokumencie i nie ma już ten dokument wygasa, następnie można pobrać dokumentu, usuń pola TTL i zastąpić dokument na serwerze. Pola TTL zostanie usunięty z dokumentu, zostaną zastosowane domyślne w kolekcji. Aby zatrzymać dokumentu z wygasa i nie dziedziczy z kolekcji należy ustawić wartość TTL-1.
+Jeśli wartości TTL został ustawiony w dokumencie i nie ma już tooexpire tego dokumentu, następnie można pobrać dokumentu hello, usuń pola TTL hello i zastąpić dokument hello na powitania serwera. Po usunięciu hello TTL pole z dokumentu hello hello domyślnej kolekcji hello zostaną zastosowane. toostop dokumentu z wygasa i nie dziedziczy z kolekcji hello, wówczas należy tooset hello TTL wartość zbyt-1.
 
     response = await client.ReadDocumentAsync(
         "/dbs/salesdb/colls/orders/docs/SO05"), 
         new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
     
     Document readDocument = response.Resource;
-    readDocument.TimeToLive = null; // inherit the default TTL of the collection
+    readDocument.TimeToLive = null; // inherit hello default TTL of hello collection
     
     response = await client.ReplaceDocumentAsync(salesOrder);
 
 ## <a name="disabling-ttl"></a>Wyłączanie TTL
-Wyłączenie TTL całkowicie w kolekcji i zatrzymać proces w tle z wyszukiwanie wygasłe dokumenty Właściwość DefaultTTL w kolekcji należy go usunąć. Usunięcie tej właściwości jest inna niż ustawieniem dla niego wartość -1. Ustawienie, aby nowe dokumenty-1 oznacza dodać do kolekcji, zawsze na żywo, ale można zmienić na określonych dokumentów w kolekcji. Usunięcie tej właściwości całkowicie z kolekcji oznacza, że żaden dokument wygaśnie, nawet jeśli istnieją dokumenty, które zostały jawnie przesłonięte wcześniejszy domyślny.
+toodisable TTL na kolekcji i tła hello Zatrzymaj przetwarzanie od wyszukiwanie wygasłe dokumenty hello DefaultTTL właściwości w kolekcji hello powinien zostać usunięty. Usunięcie tej właściwości jest inna niż ustawienie zbyt-1. Ustawienie zbyt-1 oznacza nowych dokumentów dodane kolekcji toohello będzie funkcjonować w nieskończoność, ale można zmienić na określonych dokumentów w kolekcji hello. Usunięcie tej właściwości całkowicie z kolekcji hello oznacza, że żaden dokument wygaśnie, nawet jeśli istnieją dokumenty, które zostały jawnie przesłonięte wcześniejszy domyślny.
 
     DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
     
@@ -153,24 +153,24 @@ Wyłączenie TTL całkowicie w kolekcji i zatrzymać proces w tle z wyszukiwanie
 ## <a name="faq"></a>Często zadawane pytania
 **Co to jest czas wygaśnięcia koszt mnie?**
 
-Nie ma żadnych dodatkowych kosztów do ustawiania wartości TTL w dokumencie.
+Nie ma żadnych dodatkowych kosztów toosetting TTL w dokumencie.
 
-**Jak długo trwa usuwanie dokumentu po czas wygaśnięcia jest uruchomiony?**
+**Jak długo trwa toodelete dokumencie po hello TTL działa?**
 
-Dokumenty są wygasł natychmiast po czas wygaśnięcia jest uruchomiony i nie będzie dostępny za pośrednictwem CRUD lub kwerendy interfejsów API. 
+dokumenty Hello wygasły natychmiast po hello TTL jest uruchomiony i nie będzie dostępny za pośrednictwem CRUD lub kwerendy interfejsów API. 
 
 **Zostanie TTL w dokumencie miały wpływu na RU opłat**
 
 Nie, nie będzie bez wpływu na RU opłat za usunięcia wygasłych dokumentów za pomocą TTL w bazie danych rozwiązania Cosmos.
 
-**Funkcja TTL tylko dotyczy całego dokumenty lub pojedynczy dokument wartości właściwości mogą wygaśnie?**
+**Funkcja TTL hello tylko dotyczy tooentire dokumenty lub pojedynczy dokument wartości właściwości mogą wygaśnie?**
 
-Czas wygaśnięcia ma zastosowanie do całego dokumentu. Jeśli chcesz tylko części dokumentu wygaśnie, następnie zalecane jest aby wyodrębnić część z głównego dokumentu w oddzielnych "połączony" dokument, a następnie użyć TTL na wyodrębnione dokumentu.
+Czas wygaśnięcia stosuje toohello całego dokumentu. Jeśli chcesz tooexpire tylko części dokumentu, a następnie go zaleca się czy wyodrębniania hello części dokumentu głównego hello w oddzielnych "połączony" dokument tooa, a następnie użyć TTL na tym dokumencie wyodrębnione.
 
-**Funkcja TTL ma szczególne wymagania indeksowania?**
+**Funkcja TTL hello ma szczególne wymagania indeksowania?**
 
-Tak. Kolekcja musi mieć [indeksowania zestawu zasad](indexing-policies.md) spójność lub opóźnieniem. Ustawiany DefaultTTL w kolekcji z indeksowania zestaw None spowoduje błąd, podobnie jak w trakcie wyłączyć indeksowanie w kolekcji, której DefaultTTL został już ustawiony.
+Tak. Witaj, Kolekcja musi mieć [indeksowania zestawu zasad](indexing-policies.md) tooeither spójność lub opóźnieniem. W trakcie tooset DefaultTTL na kolekcję z zestawu tooNone indeksowania spowoduje błąd, podobnie jak w trakcie tooturn poza indeksowania w kolekcji, której DefaultTTL został już ustawiony.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat bazy danych Azure rozwiązania Cosmos, zapoznaj się z usługą [ *dokumentacji* ](https://azure.microsoft.com/documentation/services/cosmos-db/) strony.
+toolearn więcej informacji na temat bazy danych rozwiązania Cosmos platformy Azure, można znaleźć usługi toohello [ *dokumentacji* ](https://azure.microsoft.com/documentation/services/cosmos-db/) strony.
 

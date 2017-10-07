@@ -1,6 +1,6 @@
 ---
-title: "Umowy dotyczące komunikacji B2B - Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Tworzenie umów, partnerzy mogą komunikować się w scenariusze B2B usługi Azure Logic Apps i pakiet integracyjny dla przedsiębiorstw"
+title: aaaAgreements komunikacji B2B - Azure Logic Apps | Dokumentacja firmy Microsoft
+description: "Tworzenie umów, partnerzy mogą komunikować się w scenariusze B2B usługi Azure Logic Apps i hello pakiet integracyjny dla przedsiębiorstw"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 7ce0860272901f3b4e4cf3d63f7361d539f64741
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 499edcbab1cd67fbc169e393c3cad7b81658a250
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Umowy z partnerami komunikacji B2B usługi Azure Logic Apps i pakiet integracyjny dla przedsiębiorstw
 
-Umowy pozwalają jednostki biznesowe, które komunikują się bezproblemowo przy użyciu standardowych protokołach branżowych i to podstawy komunikacji biznesowych między firmami (B2B). Podczas włączania scenariusze B2B dla aplikacji logiki z pakiet integracyjny dla przedsiębiorstw, Umowa jest w układzie komunikacji między partnerami handlowymi B2B. Niniejsza Umowa jest oparte na komunikacji, że partnerów chcesz ustanowić i protokół lub specyficznych dla transportu.
+Umowy pozwalają jednostki biznesowe, które komunikują się bezproblemowo przy użyciu standardowych protokołach branżowych i są podstawy hello komunikacji biznesowych między firmami (B2B). Podczas włączania scenariusze B2B dla aplikacji logiki z hello pakiet integracyjny dla przedsiębiorstw, Umowa jest w układzie komunikacji między partnerami handlowymi B2B. Niniejsza Umowa jest oparta na powitania zbyt nawiązania łączności, które mają partnerów hello i protokołu lub transportu specyficzne.
 
 Integracja Enterprise obsługuje te standardy protokołu lub transportu:
 
@@ -34,45 +34,45 @@ Integracja Enterprise obsługuje te standardy protokołu lub transportu:
 
 Oto niektóre typowe korzyści, korzystając z umowy:
 
-* Umożliwia różnych organizacji i firm do wymiany informacji w formacie dobrze znany.
+* Umożliwia różne informacje tooexchange organizacje i firmy w formacie dobrze znany.
 * Zwiększa wydajność podczas przeprowadzania transakcji B2B
-* Łatwe do tworzenia, zarządzania i używać przy tworzeniu aplikacji integracji przedsiębiorstwa
+* Toocreate łatwe zarządzanie i używane podczas tworzenia aplikacji integracji przedsiębiorstwa
 
-## <a name="how-to-create-agreements"></a>Tworzenie umów
+## <a name="how-toocreate-agreements"></a>Jak toocreate umowy
 
 * [Tworzenie umów AS2](logic-apps-enterprise-integration-as2.md)
 * [Utwórz X12 umowy](logic-apps-enterprise-integration-x12.md)
 * [Tworzenie umów EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
-## <a name="how-to-use-an-agreement"></a>Jak używać umowy
+## <a name="how-toouse-an-agreement"></a>Jak toouse umowy
 
 Można utworzyć [aplikacje logiki](logic-apps-what-are-logic-apps.md "Dowiedz się więcej o aplikacjach logiki") z możliwościami B2B za pomocą utworzonego umowy.
 
-## <a name="how-to-edit-an-agreement"></a>Jak edytować umowy
+## <a name="how-tooedit-an-agreement"></a>Jak tooedit umowy
 
 Wszystkie umowy można edytować, wykonaj następujące czynności:
 
-1. Wybierz konto integracji, które ma umowę, którą chcesz zaktualizować.
+1. Wybierz konto integracji hello, które ma umowę hello, które chcesz tooupdate.
 
-2. Wybierz **umowy** kafelka.
+2. Wybierz hello **umowy** kafelka.
 
-3. Na **umowy** bloku, wybierz umowy.
+3. Na powitania **umowy** bloku, wybierz hello umowy.
 
 4. Wybierz **Edytuj**. Wprowadź zmiany.
 
-5. Aby zapisać zmiany, wybierz **OK**.
+5. Wybierz zmiany, toosave **OK**.
 
-## <a name="how-to-delete-an-agreement"></a>Jak usunąć umowy
+## <a name="how-toodelete-an-agreement"></a>Jak toodelete umowy
 
 Aby usunąć wszystkie umowy, wykonaj następujące czynności:
 
-1. Wybierz konto integracji, które ma umowę, którą chcesz usunąć.
-2. Wybierz **umowy** kafelka.
-3. Na **umowy** bloku, wybierz umowy.
+1. Wybierz konto integracji hello, które ma umowę hello, które chcesz toodelete.
+2. Wybierz hello **umowy** kafelka.
+3. Na powitania **umowy** bloku, wybierz hello umowy.
 4. Wybierz **usunąć**.
-5. Upewnij się, że chcesz usunąć wybraną umowę.
+5. Potwierdzenie toodelete hello wybrane umowy.
 
-    Blok umów nie jest już wyświetlana usunięto umowy.
+    Witaj umów bloku nie jest już wyświetlana hello usunąć umowy.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie umów AS2](logic-apps-enterprise-integration-as2.md)

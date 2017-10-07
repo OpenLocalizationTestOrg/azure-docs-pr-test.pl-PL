@@ -1,5 +1,5 @@
 ---
-title: "Diagnozowanie błędów i wyjątków w aplikacji sieci web za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
+title: "aaaDiagnose błędów i wyjątków w sieci web aplikacji za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
 description: "Przechwytywanie wyjątków w aplikacji ASP.NET oraz dane telemetryczne żądania."
 services: application-insights
 documentationcenter: .net
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 7eeacdc6677ccdebb1653e94a163ecb47090b7ee
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8930e6d2b29f83ea635c4ecb7afd11fc1d97d085
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach sieci web za pomocą usługi Application Insights
-Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługi Application Insights](app-insights-overview.md). Żądań zakończonych niepowodzeniem może być zgodne z wyjątków i innych zdarzeń klienta i serwera, dzięki czemu można szybko diagnozowania przyczyn.
+Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługi Application Insights](app-insights-overview.md). Żądań zakończonych niepowodzeniem może być zgodne z wyjątków oraz inne zdarzenia na powitania klienta i serwera, dzięki czemu można szybko diagnozowania przyczyn hello.
 
 ## <a name="set-up-exception-reporting"></a>Konfigurowanie zgłoszenie wyjątku
-* Istnieć wyjątki zgłoszone z aplikacji serwera:
+* toohave wyjątki zgłaszane przez aplikację serwera:
   * Zainstaluj [zestaw SDK usługi Application Insights](app-insights-asp-net.md) w kodzie aplikacji lub
   * Serwery sieci web usług IIS: Uruchom [agenta Application Insights](app-insights-monitor-performance-live-website-now.md); lub
-  * Aplikacje sieci web platformy Azure: Dodaj [rozszerzenie usługi Application Insights](app-insights-azure-web-apps.md)
-  * Aplikacje sieci web Java: Zainstaluj [agenta Java](app-insights-java-agent.md)
-* Zainstaluj [fragment kodu JavaScript](app-insights-javascript.md) na stronach sieci web, aby przechwytywać wyjątki przeglądarki.
-* W niektórych struktur aplikacji lub z niektórych ustawień należy wykonać kilka dodatkowych czynności, aby przechwytywać wyjątki więcej:
+  * Aplikacje sieci web platformy Azure: Dodaj hello [rozszerzenie usługi Application Insights](app-insights-azure-web-apps.md)
+  * Aplikacje sieci web Java: hello instalacji [agenta Java](app-insights-java-agent.md)
+* Zainstaluj hello [fragment kodu JavaScript](app-insights-javascript.md) w listy wyjątków przeglądarki toocatch stron sieci web.
+* W niektórych struktur aplikacji lub z niektórymi ustawieniami, potrzebujesz tootake toocatch pewnych dodatkowych czynności więcej wyjątków:
   * [Formularze sieci Web](#web-forms)
   * [MVC](#mvc)
   * [1.* interfejsu API sieci Web](#web-api-1)
@@ -37,77 +37,77 @@ Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługi Applicatio
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnozowanie wyjątków przy użyciu programu Visual Studio
-Otwórz rozwiązanie aplikacji w programie Visual Studio, aby pomóc w debugowaniu.
+Otwórz rozwiązanie aplikacji hello w Visual Studio toohelp z debugowaniem.
 
-Uruchom aplikację, na serwerze lub na komputerze deweloperskim za pomocą F5.
+Uruchamianie aplikacji hello na serwerze lub na komputerze deweloperskim za pomocą F5.
 
-Otwórz okno wyszukiwania usługi Application Insights w programie Visual Studio i ustawić go, aby wyświetlić zdarzenia z aplikacji. Podczas debugowania kodu, możesz to zrobić, klikając przycisk Application Insights.
+Otwórz okno wyszukiwania usługi Application Insights hello w programie Visual Studio i skonfigurować go toodisplay zdarzeń aplikacji. Podczas debugowania kodu, możesz to zrobić, klikając przycisk Application Insights hello.
 
-![Kliknij prawym przyciskiem myszy projekt i wybierz polecenie usługi Application Insights, Otwórz.](./media/app-insights-asp-net-exceptions/34.png)
+![Kliknij prawym przyciskiem myszy projekt hello i wybierz polecenie usługi Application Insights, Otwórz.](./media/app-insights-asp-net-exceptions/34.png)
 
-Zwróć uwagę, czy raport ma zawierać tylko wyjątki można filtrować.
+Zwróć uwagę, filtrować hello raport tooshow tylko wyjątki.
 
 *Żadne wyjątki przedstawiający? Zobacz [przechwytywania wyjątków](#exceptions).*
 
-Kliknij raport do wyświetlenia jego ślad stosu.
-Kliknij przycisk informacje w wierszu w ślad stosu, aby otworzyć plik odpowiedni kod.  
+Kliknij jego ślad stosu wyjątku tooshow raportu.
+Kliknij przycisk informacje w wierszu w hello ślad stosu, tooopen hello odpowiedni kod pliku.  
 
-W kodzie Zwróć uwagę, że CodeLens zawiera dane dotyczące wyjątków:
+W kodzie hello Zwróć uwagę, że CodeLens zawiera dane dotyczące wyjątków hello:
 
 ![Powiadomienie CodeLens wyjątków.](./media/app-insights-asp-net-exceptions/35.png)
 
-## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnozowanie błędów przy użyciu portalu Azure
-Na stronie przeglądu usługi Application Insights aplikacji kafelka błędów Wyświetla wykresy wyjątków i nieudane żądania HTTP, wraz z listy żądania adresów URL, które powodują najczęstsze błędy.
+## <a name="diagnosing-failures-using-hello-azure-portal"></a>Diagnozowanie błędów przy użyciu hello portalu Azure
+Z przeglądu usługi Application Insights hello aplikacji, hello błędów kafelka zawiera wykresy wyjątków i nieudanych żądań HTTP, wraz z listą hello adresów URL żądań powodujących hello najczęstsze błędy.
 
 ![Wybierz ustawienia, błędów](./media/app-insights-asp-net-exceptions/012-start.png)
 
-Kliknij przycisk za pomocą jednego z typów wyjątku nie powiodło się na liście, aby uzyskać dostęp do poszczególnych wystąpień tego wyjątku, której można wyświetlić szczegóły i ślad stosu:
+Kliknij przycisk za pomocą jednego z hello nie typów wyjątków w hello listy tooget tooindividual wystąpień hello wyjątku, której można wyświetlić szczegóły hello i ślad stosu:
 
-![Wybierz wystąpienie nieudanych żądań, a w obszarze szczegółów wyjątku, uzyskać dostęp do wystąpienia wyjątku.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Wybierz wystąpienie nieudanych żądań, a w obszarze szczegółów wyjątku, komunikat tooinstances hello wyjątek.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-**Alternatywnie** można uruchomić z listy żądań i znaleźć wyjątki z nim związane.
+**Alternatywnie** można uruchomić z listy hello żądań i Znajdź tooit powiązanych wyjątków.
 
 *Żadne wyjątki przedstawiający? Zobacz [przechwytywania wyjątków](#exceptions).*
 
 
 ## <a name="custom-tracing-and-log-data"></a>I śledzenie niestandardowe dane dziennika
-Aby uzyskać dane diagnostyczne specyficzne dla aplikacji, można wstawić kod, aby wysłać dane telemetryczne. To wyświetlane w diagnostycznych wyszukiwania obok żądania, widok strony i inne dane zbierane automatycznie.
+tooget danych diagnostycznych tooyour określonych aplikacji, można wstawić kodu toosend danych telemetrii. To wyświetlane w diagnostycznych wyszukiwania obok hello żądania, widok strony i inne dane zbierane automatycznie.
 
 Istnieje kilka opcji:
 
-* [Funkcji TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) jest zwykle używana do monitorowania wzorce użycia, ale dane wysyła również są wyświetlane w obszarze niestandardowych zdarzeń diagnostycznych wyszukiwania. Zdarzenia są nazywane i mogą przenosić właściwości ciągu lub liczbowego metryki, w których można [filtru wyszukiwania diagnostycznych](app-insights-diagnostic-search.md).
+* [Funkcji TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) jest zwykle używana do monitorowania wzorce użycia, ale hello dane wysyła również są wyświetlane w obszarze niestandardowe zdarzenia diagnostyczne wyszukiwania. Zdarzenia są nazywane i mogą przenosić właściwości ciągu lub liczbowego metryki, w których można [filtru wyszukiwania diagnostycznych](app-insights-diagnostic-search.md).
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) pozwala wysyłać dane dłużej, takie jak informacje POST.
 * [Funkcji TrackException()](#exceptions) wysyła stos danych śledzenia. [Więcej informacji na temat wyjątki](#exceptions).
 * Jeśli używasz już struktury rejestrowania, takich jak Log4Net lub NLog, możesz [przechwytywania tych dzienników](app-insights-asp-net-trace-logs.md) i wyświetlać je w diagnostycznych wyszukiwania obok danych żądania i wyjątków.
 
-Aby wyświetlić te zdarzenia, otwórz [wyszukiwania](app-insights-diagnostic-search.md), otwórz filtru, a następnie wybierz Custom Event śledzenia i wyjątków.
+Otwórz te zdarzenia toosee [wyszukiwania](app-insights-diagnostic-search.md), otwórz filtru, a następnie wybierz Custom Event śledzenia i wyjątków.
 
 ![Drążenie wskroś](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Jeśli aplikacja generuje wiele danych telemetrycznych, moduł próbkowania adaptacyjnego będzie automatycznie redukować ilość danych wysyłanych do portalu, wysyłając tylko ich reprezentatywną część. Zdarzenia, które są częścią tej samej operacji zostanie wybrana lub zostanie usunięte zaznaczenie jako grupa, dzięki czemu można przechodzić między powiązanych zdarzeń. [Więcej informacji na temat pobierania próbek.](app-insights-sampling.md)
+> Jeśli aplikacja generuje wiele telemetrii, hello adaptacyjną próbkowania modułu automatycznie zmniejsza hello wolumin, który jest wysyłany portalu toohello wysyłając reprezentatywny część zdarzeń. Zdarzenia, które są częścią hello tej samej operacji będzie być zaznaczany lub odznaczany jako grupa, dzięki czemu można przechodzić między powiązanych zdarzeń. [Więcej informacji na temat pobierania próbek.](app-insights-sampling.md)
 >
 >
 
-### <a name="how-to-see-request-post-data"></a>Jak wyświetlić dane POST na żądanie
-Szczegóły żądania nie zawierają danych wysłanych do aplikacji w wywołaniu POST. Te dane są raportowane:
+### <a name="how-toosee-request-post-data"></a>Jak toosee żądania POST danych
+Szczegóły żądania nie zawierają danych hello wysyłane tooyour aplikacji w wywołaniu POST. toohave zgłoszone dane:
 
-* [Zainstaluj zestaw SDK](app-insights-asp-net.md) w projekcie aplikacji.
-* Wstawianie kodu w aplikacji do wywołania [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Wyślij dane POST w parametrze wiadomości. Istnieje limit dozwolony rozmiar, dlatego powinna próbować wysłać tylko istotne dane.
-* Podczas badania, żądanie nie powiodło się, Znajdź skojarzone dane śledzenia.  
+* [Zainstaluj zestaw SDK hello](app-insights-asp-net.md) w projekcie aplikacji.
+* Wstawianie kodu w Twojej aplikacji toocall [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Wysyłanie danych POST hello w parametrze wiadomość hello. Brak Ogranicz rozmiar toohello dozwolone, należy spróbować toosend hello tylko istotne dane.
+* Podczas badania, żądanie nie powiodło się, Znajdź hello skojarzone dane śledzenia.  
 
 ![Drążenie wskroś](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
 ## <a name="exceptions"></a>Przechwytywanie wyjątków i powiązane dane diagnostyczne
-Na początku nie będą widzieć w portalu wszystkie wyjątki, które spowodować awarię aplikacji. Zobaczysz wszystkie wyjątki przeglądarki (Jeśli używasz [JavaScript SDK](app-insights-javascript.md) na stronach sieci web). Jednak większość serwera wyjątki są przechwytywane przez usługi IIS i trzeba napisać z bitowego kodu w celu zapoznania się z nimi.
+Na początku nie będą widzieć w portalu hello wszystkie wyjątki hello, których przyczyną błędów w aplikacji. Zobaczysz wszystkie wyjątki przeglądarki (Jeśli używasz hello [JavaScript SDK](app-insights-javascript.md) na stronach sieci web). Jednak większość serwera wyjątki są przechwytywane przez usługi IIS i masz toowrite nieco toosee kodu je.
 
 Możesz:
 
-* **Wyjątki rejestru jawnie** przez wstawianie kodu do obsługi wyjątków, aby zgłosić wyjątki.
-* **Przechwytywanie wyjątków automatycznie** przez skonfigurowanie struktury programu ASP.NET. Dodatki niezbędne są różne dla różnych typów framework.
+* **Wyjątki rejestru jawnie** przez wstawienie kodu w wyjątkach hello tooreport programy obsługi wyjątków.
+* **Przechwytywanie wyjątków automatycznie** przez skonfigurowanie struktury programu ASP.NET. dodatki niezbędne Hello są różne dla różnych typów framework.
 
 ## <a name="reporting-exceptions-explicitly"></a>Raportowanie jawnie wyjątków
-Najprostszym sposobem jest aby wstawić wywołań funkcji trackexception() obsługi wyjątków.
+Witaj Najprostszym sposobem jest tooinsert tooTrackException() wywołania programu obsługi wyjątków.
 
 JavaScript
 
@@ -137,7 +137,7 @@ C#
        var measurements = new Dictionary <string, double>
          {{"Users", currentGame.Users.Count}};
 
-       // Send the exception telemetry:
+       // Send hello exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
 
@@ -155,21 +155,21 @@ VB
       Dim measurements = New Dictionary (Of String, Double)
       measurements.Add("Users", currentGame.Users.Count)
 
-      ' Send the exception telemetry:
+      ' Send hello exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
 
-Właściwości i pomiarów parametry są opcjonalne, ale są przydatne w przypadku [filtrowanie i dodawanie](app-insights-diagnostic-search.md) dodatkowe informacje. Na przykład jeśli aplikację można uruchomić kilka gier, można znaleźć wszystkie raporty wyjątek związane z określonym gier. Możesz dodać dowolną liczbę elementów jak do każdego słownika.
+Witaj właściwości i pomiarów parametry są opcjonalne, ale są przydatne w przypadku [filtrowanie i dodawanie](app-insights-diagnostic-search.md) dodatkowe informacje. Na przykład jeśli aplikację można uruchomić kilka gier, można znaleźć wszystkie hello wyjątek raportów powiązanych tooa określonego gier. Możesz dodać dowolną liczbę elementów podczas jak tooeach słownika.
 
 ## <a name="browser-exceptions"></a>Wyjątki przeglądarki
 Większość przeglądarki wyjątki są zgłaszane.
 
-Jeśli strony sieci web zawiera pliki skryptów z sieci dostarczania zawartości lub inne domeny, upewnij się, Twoje tag skryptu ma atrybut ```crossorigin="anonymous"```, oraz że serwer wysyła [nagłówki CORS](http://enable-cors.org/). Pozwoli to uzyskać ślad stosu i szczegóły dla nieobsłużonych wyjątków JavaScript z tych zasobów.
+Jeśli strony sieci web zawiera pliki skryptów z sieci dostarczania zawartości lub inne domeny, upewnij się, Twoje tag skryptu ma atrybut hello ```crossorigin="anonymous"```, i wysyła ten serwer hello [nagłówki CORS](http://enable-cors.org/). Dzięki temu będzie można tooget ślad stosu i szczegóły dla nieobsłużonych wyjątków JavaScript z tych zasobów.
 
 ## <a name="web-forms"></a>Formularze sieci Web
-W przypadku formularzy sieci web modułu HTTP będzie można zebrać wyjątki, kiedy nie ma żadnych przekierowuje skonfigurowano CustomErrors.
+W formularzach sieci web hello moduł HTTP będą mogli toocollect hello wyjątki podczas nie ma żadnych przekierowuje skonfigurowano CustomErrors.
 
-Ale jeśli masz active przekierowania, Dodaj następujące wiersze do funkcji Application_Error w Global.asax.cs. (Dodaj plik Global.asax, jeśli nie został wcześniej).
+Ale jeśli masz active przekierowuje dodać powitania po funkcji Application_Error toohello wiersze w Global.asax.cs. (Dodaj plik Global.asax, jeśli nie został wcześniej).
 
 *C#*
 
@@ -185,7 +185,7 @@ Ale jeśli masz active przekierowania, Dodaj następujące wiersze do funkcji Ap
 
 
 ## <a name="mvc"></a>MVC
-Jeśli [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfiguracja jest `Off`, a następnie wyjątki będą dostępne dla [moduł HTTP](https://msdn.microsoft.com/library/ms178468.aspx) do zbierania. Jednak jeśli jest `RemoteOnly` (ustawienie domyślne) lub `On`, a następnie wyjątek zostanie wyczyszczony i nie są dostępne dla usługi Application Insights w celu automatycznego zbierania. Możesz rozwiązać ten problem, zastępowanie [klasy System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosowanie przesłoniętych klasy, jak pokazano poniżej różnych wersji MVC ([źródła github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Jeśli hello [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfiguracja jest `Off`, a następnie wyjątki będą dostępne dla hello [moduł HTTP](https://msdn.microsoft.com/library/ms178468.aspx) toocollect. Jednak jeśli jest `RemoteOnly` (ustawienie domyślne) lub `On`, hello wyjątek zostanie wyczyszczony i zbierać tooautomatically nie są dostępne dla usługi Application Insights. Możesz rozwiązać ten problem, zastępowanie hello [klasy System.Web.Mvc.HandleErrorAttribute](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)i stosowanie hello przesłonięcia klasy, jak pokazano na powitania MVC wersje poniżej ([źródła github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
     using System;
     using System.Web.Mvc;
@@ -200,7 +200,7 @@ Jeśli [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfigur
         {
             if (filterContext != null && filterContext.HttpContext != null && filterContext.Exception != null)
             {
-                //If customError is Off, then AI HTTPModule will report the exception
+                //If customError is Off, then AI HTTPModule will report hello exception
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
                 {   //or reuse instance (recommended!). see note above  
                     var ai = new TelemetryClient();
@@ -213,7 +213,7 @@ Jeśli [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) konfigur
     }
 
 #### <a name="mvc-2"></a>MVC 2
-Zastąp atrybutu HandleError Twojego nowy atrybut w kontrolerach.
+Zastąp atrybutu HandleError hello nowy atrybut w kontrolerach.
 
     namespace MVC2App.Controllers
     {
@@ -244,7 +244,7 @@ AiHandleErrorAttribute rejestru jako filtr globalny w FilterConfig.cs:
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
       {
-        // Default replaced with the override to track unhandled exceptions
+        // Default replaced with hello override tootrack unhandled exceptions
         filters.Add(new AiHandleErrorAttribute());
       }
     }
@@ -273,7 +273,7 @@ Zastąp System.Web.Http.Filters.ExceptionFilterAttribute:
       }
     }
 
-Możesz dodać ten atrybut przesłoniętej do określonych kontrolerów lub dodać je do konfiguracji filtrów globalnych klasy WebApiConfig:
+Możesz dodawania kontrolerów toospecific tego atrybutu przesłoniętej lub dodać toohello filtrów globalnych konfiguracji w klasa WebApiConfig hello:
 
     using System.Web.Http;
     using WebApi1.x.App_Start;
@@ -297,7 +297,7 @@ Możesz dodać ten atrybut przesłoniętej do określonych kontrolerów lub doda
 
 [Próbki](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Istnieje wiele przypadków, które nie obsługują filtry wyjątków. Na przykład:
+Brak liczbę przypadków mogących hello filtry wyjątków nie może obsłużyć. Na przykład:
 
 * Wyjątki generowane z konstruktorami kontrolera.
 * Wyjątków zgłaszanych przez programy obsługi wiadomości.
@@ -326,7 +326,7 @@ Dodaj implementacji interfejsu IExceptionLogger:
       }
     }
 
-Dodaj ją do usług w WebApiConfig:
+Dodaj ten usług toohello WebApiConfig:
 
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
@@ -357,8 +357,8 @@ Dodaj ją do usług w WebApiConfig:
 
 Opis rozwiązań alternatywnych można:
 
-1. Zamień tylko ExceptionHandler niestandardowej implementacji IExceptionHandler. Jest to nazywane tylko, gdy platformę jest nadal mogli wybrać które komunikat odpowiedzi do odesłania, (nie gdy połączenie zostało przerwane dla wystąpienia)
-2. Filtry wyjątków (zgodnie z opisem w sekcji kontrolery 1.x interfejsu API sieci Web powyżej) — nie jest wywoływana we wszystkich przypadkach.
+1. Zastąp hello tylko ExceptionHandler niestandardowych implementacji IExceptionHandler. Jest to nazywane tylko, gdy hello framework jest nadal toochoose toosend (nie po hello połączenie zostało przerwane dla wystąpienia) komunikatu odpowiedzi, które
+2. Filtry wyjątków (zgodnie z opisem w sekcji hello na kontrolerach 1.x interfejsu API sieci Web powyżej) — nie jest wywoływana we wszystkich przypadkach.
 
 ## <a name="wcf"></a>WCF
 Dodaj klasę Attribute i implementującą interfejsy IErrorHandler i IServiceBehavior.
@@ -412,7 +412,7 @@ Dodaj klasę Attribute i implementującą interfejsy IErrorHandler i IServiceBeh
       }
     }
 
-Dodaj atrybut do implementacji usługi:
+Dodaj implementacji usługi toohello atrybutu hello:
 
     namespace WcfService4
     {
@@ -424,19 +424,19 @@ Dodaj atrybut do implementacji usługi:
 [Próbki](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## <a name="exception-performance-counters"></a>Liczniki wydajności wyjątku
-Jeśli masz [zainstalować agenta programu Application Insights](app-insights-monitor-performance-live-website-now.md) na serwerze, można uzyskać wykres wyjątki szybkości, mierząc .NET. Dotyczy to zarówno obsłużonych i nieobsłużonych wyjątków .NET.
+Jeśli masz [zainstalowany Agent Insights aplikacji hello](app-insights-monitor-performance-live-website-now.md) na serwerze, można uzyskać wykresu hello wyjątki szybkości, mierząc .NET. Dotyczy to zarówno obsłużonych i nieobsłużonych wyjątków .NET.
 
 Otwiera blok Explorer metryki, Dodaj nowy wykres i wybierz **szybkość wyjątek**, to wymienione w obszarze liczników wydajności.
 
-.NET framework oblicza stopę przez liczenie wyjątków w interwale i podzielenie przez długość interwału.
+Hello .NET framework szybkość hello jest obliczana przez zliczanie hello liczba wyjątków w interwale i podzielenie przez długość interwału powitania hello.
 
-Należy pamiętać, że będzie się różnił od liczby "Wyjątków" obliczana na podstawie raportów TrackException przez portal usługi Application Insights. Interwałami próbkowania są różne, a zestaw SDK nie wysyła raporty TrackException wszystkie obsługiwane i nieobsługiwane wyjątki.
+Należy pamiętać, że będzie się różnił od obliczana przez portal usługi Application Insights hello na podstawie raportów TrackException liczba wyjątków"hello". interwałami próbkowania Hello są różne, a hello zestawu SDK nie wysyłaj raportów TrackException wszystkich obsłużonych i nieobsłużonych wyjątków.
 
 ## <a name="video"></a>Połączenia wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Monitorowanie REST, SQL i innych wywołania zależności](app-insights-asp-net-dependencies.md)
+* [Monitorowanie REST, SQL i innych toodependencies wywołania](app-insights-asp-net-dependencies.md)
 * [Czas ładowania strony monitora, wyjątki przeglądarki i wywołania AJAX](app-insights-javascript.md)
 * [Liczniki Monitora wydajności](app-insights-performance-counters.md)

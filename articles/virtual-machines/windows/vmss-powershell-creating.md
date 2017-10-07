@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie zestawów skali maszyny wirtualnej za pomocą poleceń cmdlet programu PowerShell | Dokumentacja firmy Microsoft"
+title: "Ustawia aaaCreating skalowania maszyn wirtualnych przy użyciu poleceń cmdlet programu PowerShell | Dokumentacja firmy Microsoft"
 description: "Rozpocząć tworzenie i zarządzanie nimi z pierwszego zestawy skalowania maszyny wirtualnej Azure, na przy użyciu poleceń cmdlet programu Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: danielsollondon
-ms.openlocfilehash: a3a36028a75d6cb7eb36277f3e2b5ab833c96a96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7979be367d04c904b60d78849c1b751a52cc8caf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Tworzenie zestawów skali maszyny wirtualnej za pomocą poleceń cmdlet programu PowerShell
-W tym artykule przedstawiono przykład sposobu tworzenia zestawu skali maszyny wirtualnej (VMSS). Tworzy zestaw skalowania trzy węzły z skojarzone sieci i magazynu.
+W tym artykule przedstawiono przykład sposobu toocreate zestawu skalowania maszyn wirtualnych (VMSS). Tworzy zestaw skalowania trzy węzły z skojarzone sieci i magazynu.
 
 ## <a name="first-steps"></a>Pierwsze kroki
-Upewnij się, że masz najnowszą modułu Azure PowerShell zainstalowany, aby upewnić się, masz niezbędnych do utrzymania apletów poleceń programu PowerShell i utworzyć zestawy skalowania.
-Przejdź do narzędzia wiersza polecenia [tutaj](http://aka.ms/webpi-azps) najnowszych dostępnych Azure modułów.
+Upewnij się, masz hello zainstalowane najnowsze modułu Azure PowerShell, toomake upewnić się, że polecenia cmdlet środowiska PowerShell hello potrzeby toomaintain i utworzyć zestawy skalowania.
+Przejdź do narzędzia wiersza polecenia toohello [tutaj](http://aka.ms/webpi-azps) dla hello najnowszych dostępnych modułów Azure.
 
-Aby znaleźć VMSS powiązane polecenia cmdlet, użyj ciągu wyszukiwania \*VMSS\*. Na przykład _gcm *vmss*_
+polecenia cmdlet związane z toofind VMSS, użyj ciągu wyszukiwania hello \*VMSS\*. Na przykład _gcm *vmss*_
 
 ## <a name="creating-a-vmss"></a>Tworzenie VMSS
 #### <a name="create-resource-group"></a>Tworzenie grupy zasobów
@@ -50,12 +50,12 @@ $subnetName = 'websubnet'
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
-# In this case assume the new subnet is the only one
+# In this case assume hello new subnet is hello only one
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-#### <a name="create-public-ip-resource-to-allow-external-access"></a>Utwórz zasób publicznego adresu IP, aby dostęp do zewnętrznych
-Będą to związane z usługą równoważenia obciążenia.
+#### <a name="create-public-ip-resource-tooallow-external-access"></a>Tworzenie publicznego adresu IP zasobu tooAllow dostępu zewnętrznego
+Są to toohello powiązanej usługi równoważenia obciążenia.
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
@@ -71,24 +71,24 @@ $inboundNatPoolName = 'innatpool' + $rgname
 $lbruleName = 'lbrule' + $rgname
 $lbName = 'vmsslb' + $rgname
 
-# Bind Public IP to Load Balancer
+# Bind Public IP tooLoad Balancer
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
 #### <a name="configure-load-balancer"></a>Konfigurowanie usługi równoważenia obciążenia
-Tworzenie konfiguracji puli adresów zaplecza, to będzie udostępniany przez karty sieciowe maszyn wirtualnych w zestawie skalowania.
+Tworzenie konfiguracji puli adresów zaplecza, to będzie udostępniany przez karty sieciowe hello hello maszyn wirtualnych w zestawie skalowania hello.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
 ```
 
-Ustawiony Port sondy z równoważeniem obciążenia, Zmień ustawienia zgodnie z potrzebami dla aplikacji.
+Ustawiony Port sondy z równoważeniem obciążenia, Zmień ustawienia hello odpowiedni dla twojej aplikacji.
 
 ```
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Tworzenie puli NAT dla ruchu przychodzącego bezpośrednie połączenie między kierowanymi (równoważenia obciążenia) na maszynach wirtualnych w skali ustawione przez moduł równoważenia obciążenia. To jest, aby zademonstrować, za pomocą protokołu RDP i nie mogą być wymagane w aplikacji.
+Tworzenie puli NAT dla ruchu przychodzącego bezpośrednie połączenie między kierowanymi (zrównoważonym obciążeniu) toohello maszyn wirtualnych w skali hello ustawionych wcześniej za pośrednictwem hello moduł równoważenia obciążenia. To jest toodemonstrate za pomocą protokołu RDP i nie mogą być wymagane w aplikacji.
 
 ```
 $frontendpoolrangestart = 3360
@@ -98,7 +98,7 @@ $inboundNatPool = New-AzureRmLoadBalancerInboundNatPoolConfig -Name $inboundNatP
 $frontend.Id -Protocol Tcp -FrontendPortRangeStart $frontendpoolrangestart -FrontendPortRangeEnd $frontendpoolrangeend -BackendPort $backendvmport;
 ```
 
-Utworzyć załadować zrównoważonym regułę, w przykładzie przedstawiono załadować równoważenia port 80 żądań, za pomocą ustawień z poprzednich kroków.
+Utwórz hello załadować zrównoważonym reguły w przykładzie przedstawiono załadować równoważenia port 80 żądań, przy użyciu ustawień hello z poprzednich kroków.
 
 ```
 $protocol = 'Tcp'
@@ -119,14 +119,14 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Sprawdź ustawienia LB, sprawdź configs portu równoważone, należy pamiętać, nie będzie mógł przeglądać reguł ruchu przychodzącego translatora adresów Sieciowych aż do utworzenia w zestawie skalowania maszyn wirtualnych.
+Sprawdź ustawienia LB, sprawdź obciążenia configs zrównoważonym portów, należy zwrócić uwagę, nie będzie mógł przeglądać reguły NAT ruchu przychodzącego do hello maszyn wirtualnych w zestawie skalowania hello są tworzone.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### <a name="configure-and-create-the-scale-set"></a>Konfigurowanie i tworzenie zestaw skali
-Uwaga: w tym przykładzie infrastruktury pokazano, jak skonfigurować dystrybucji i skali ruchu w sieci web przez zestaw skali, ale obrazów maszyn wirtualnych, określone w tym miejscu nie mają żadnych zainstalowanych usług sieci web.
+##### <a name="configure-and-create-hello-scale-set"></a>Skonfigurowania i Utwórz hello skali
+Uwaga: w tym przykładzie infrastruktury pokazano sposób dystrybucji tooset w górę i skalowania ruchu w sieci web przez zestaw skali hello, ale hello obrazów maszyn wirtualnych określone w tym miejscu nie mają żadnych zainstalowanych usług sieci web.
 
 ```
 # specify scale set Name
@@ -149,7 +149,7 @@ $exttype = 'BGInfo';
 $extver = '2.1';
 ```
 
-Powiązać karta sieciowa usługi równoważenia obciążenia i podsieci
+Powiąż tooLoad karta sieciowa usługi równoważenia i podsieci
 
 ```
 $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
@@ -179,7 +179,7 @@ Konfiguracja zestawu skali kompilacji
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-Po utworzeniu zestawu skali. Można sprawdzić połączenie z poszczególnych maszyn wirtualnych, za pomocą protokołu RDP w tym przykładzie:
+Zestaw skali hello został utworzony. Można przetestować połączenia toohello poszczególnych maszyn wirtualnych za pomocą protokołu RDP w tym przykładzie:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360

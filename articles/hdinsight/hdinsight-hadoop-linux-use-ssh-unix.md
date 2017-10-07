@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z protokołu SSH w usłudze Hadoop — Azure HDInsight | Microsoft Docs"
-description: "Do usługi HDInsight można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje dotyczące nawiązywania połączenia z usługą HDInsight przy użyciu poleceń ssh i scp z klientów systemów Windows, Linux, Unix lub macOS."
+title: "aaaUse SSH z usługą Hadoop - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Do usługi HDInsight można uzyskać dostęp przy użyciu protokołu Secure Shell (SSH). Ten dokument zawiera informacje dotyczące łączenia z klientów systemu Windows, Linux, Unix lub macOS tooHDInsight przy użyciu hello ssh i scp poleceń."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,17 +17,17 @@ ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ac9e70ce3c70693c1b81c9514ba4fd47686070ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Łączenie się z usługą HDInsight (Hadoop) przy użyciu protokołu SSH
+# <a name="connect-toohdinsight-hadoop-using-ssh"></a>Połącz tooHDInsight (Hadoop) przy użyciu protokołu SSH
 
-Dowiedz się, jak nawiązać bezpieczne połączenie z usługą Hadoop w usłudze Azure HDInsight przy użyciu protokołu [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell). 
+Dowiedz się, jak toouse [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) toosecurely połączyć tooHadoop w usłudze Azure HDInsight. 
 
-Usługa HDInsight może używać systemu Linux (Ubuntu) jako systemu operacyjnego dla węzłów klastra usługi Hadoop. Poniższa tabela zawiera informacje dotyczące adresów i portów wymagane podczas nawiązywania połączenia z usługą HDInsight opartą na systemie Linux przy użyciu klienta protokołu SSH:
+HDInsight można użyć jako system operacyjny hello systemu Linux (Ubuntu) dla węzłów w klastrze Hadoop hello. Witaj Poniższa tabela zawiera informacje adres i port hello potrzebne podczas nawiązywania połączenia na podstawie tooLinux HDInsight przy użyciu klienta SSH:
 
 | Adres | Port | Element docelowy połączenia |
 | ----- | ----- | ----- |
@@ -37,205 +37,205 @@ Usługa HDInsight może używać systemu Linux (Ubuntu) jako systemu operacyjneg
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Dodatkowy węzeł główny |
 
 > [!NOTE]
-> Element `<edgenodename>` należy zastąpić nazwą węzła krawędzi.
+> Zastąp `<edgenodename>` o nazwie hello hello węzła krawędzi.
 >
-> Zastąp ciąg `<clustername>` nazwą klastra.
+> Zastąp `<clustername>` o nazwie hello klastra.
 >
-> Jeśli klaster zawiera węzeł krawędzi, zalecamy, aby __zawsze łączyć się z węzłem krawędzi__ przy użyciu protokołu SSH. Węzły główne hostują usługi o krytycznym znaczeniu dla kondycji usługi Hadoop. W węźle krawędzi działają tylko obciążenia umieszczone przez użytkownika.
+> Jeśli klaster zawiera węzeł krawędzi, zalecamy, aby użytkownik __zawsze połączyć z węzłem krawędzi toohello__ przy użyciu protokołu SSH. głównymi węzłami Hello hosta usług, które są krytyczne toohello kondycji usługi Hadoop. węzeł brzegowy Hello działa tylko umieszczona na nim.
 >
 > Więcej informacji dotyczących używania węzłów krawędzi można znaleźć w temacie [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node) (Używanie węzłów krawędzi w usłudze HDInsight).
 
 ## <a name="ssh-clients"></a>Klienci SSH
 
-Systemy Linux, Unix i macOS obejmują polecenia `ssh` i `scp`. Klient `ssh` jest najczęściej używany do tworzenia zdalnej sesji wiersza polecenia za pomocą systemu Linux lub Unix. Klient `scp` służy do bezpiecznego kopiowania plików między klientem użytkownika a systemem zdalnym.
+Systemy Linux, Unix i macOS zapewniają hello `ssh` i `scp` poleceń. Witaj `ssh` klienta jest często używane toocreate zdalnej sesji wiersza polecenia systemu Unix lub Linux. Witaj `scp` klienta jest używane toosecurely kopiowania plików między klienta i hello systemu zdalnego.
 
-System Microsoft Windows domyślnie nie udostępnia żadnych klientów SSH. Klienci `ssh` i `scp` są dostępni dla systemu Windows za pośrednictwem następujących pakietów:
+System Microsoft Windows domyślnie nie udostępnia żadnych klientów SSH. Witaj `ssh` i `scp` klientów są dostępne dla systemu Windows hello następujące pakiety:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): usługa Cloud Shell zapewnia środowisko powłoki Bash w przeglądarce i polecenia `ssh`, `scp` oraz inne typowe polecenia systemu Linux.
+* [Powłoka chmury Azure](../cloud-shell/quickstart.md): hello powłoki chmury udostępnia środowisko Bash w przeglądarce, a także hello `ssh`, `scp`oraz inne typowe polecenia systemu Linux.
 
-* [Powłoka Bash w systemie Ubuntu w systemie Windows 10](https://msdn.microsoft.com/commandline/wsl/about): polecenia `ssh` i `scp` są dostępne za pośrednictwem powłoki Bash w wierszu polecenia systemu Windows.
+* [Bash na Ubuntu w systemie Windows 10](https://msdn.microsoft.com/commandline/wsl/about): hello `ssh` i `scp` polecenia są dostępne za pośrednictwem hello Bash w wierszu polecenia systemu Windows.
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): polecenia `ssh` i `scp` są dostępne za pośrednictwem wiersza polecenia GitBash.
+* [Git (https://git-scm.com/)](https://git-scm.com/): hello `ssh` i `scp` polecenia są dostępne za pomocą wiersza polecenia GitBash hello.
 
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) polecenia `ssh` i `scp` są dostępne za pośrednictwem wiersza polecenia powłoki GitHub Shell. W rozwiązaniu GitHub Desktop można skonfigurować wiersz polecenia dla powłoki Git Shell, wybierając funkcję Bash, wiersz polecenia systemu Windows lub program PowerShell.
+* [Pulpitu GitHub (https://desktop.github.com/)](https://desktop.github.com/) hello `ssh` i `scp` polecenia są dostępne za pośrednictwem hello wiersza polecenia powłoki GitHub. Pulpitu GitHub może być skonfigurowany toouse Bash, hello w wierszu polecenia systemu Windows lub programu PowerShell jako hello wiersz polecenia dla hello powłoki Git.
 
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): obecnie zespół ds. programu PowerShell pracuje nad przeniesieniem pakietu OpenSSH do systemu Windows. Dodatkowo są udostępniane wersje testowe.
+* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): hello zespołu programu PowerShell jest eksportowanie OpenSSH tooWindows, a także wersje testu.
 
     > [!WARNING]
-    > Pakiet OpenSSH zawiera składnik serwera SSH — `sshd`. Składnik ten pozwala uruchomić w systemie serwer SSH i umożliwia innym osobom połączenie się z tym serwerem. Nie konfiguruj tego składnika ani nie otwieraj portu 22, chyba że chcesz hostować w systemie serwer SSH. Składnik ten nie jest wymagany do komunikowania się z usługą HDInsight.
+    > Pakiet OpenSSH Hello zawiera składnik serwera SSH hello, `sshd`. Ten składnik uruchamia obsługującym serwer SSH w systemie, dzięki czemu inne tooconnect tooit. Skonfiguruj ten składnik lub nie Otwórz port 22, chyba że chcesz toohost obsługującym serwer SSH w systemie. Nie jest wymagane toocommunicate z usługą HDInsight.
 
-Dostępnych jest również kilka graficznych klientów SSH, takich jak [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) i [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Mimo że ci klienci umożliwiają nawiązywanie połączeń z usługą HDInsight, proces łączenia się jest inny niż w przypadku narzędzia `ssh`. Aby uzyskać więcej informacji, zobacz dokumentację graficznego klienta, którego używasz.
+Dostępnych jest również kilka graficznych klientów SSH, takich jak [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) i [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Ci klienci mogą być używane tooconnect tooHDInsight, hello proces łączenia jest różni się od stosowania hello `ssh` narzędzia. Aby uzyskać więcej informacji zobacz dokumentację hello powitania klienta graficznego używanego.
 
 ## <a id="sshkey"></a>Uwierzytelnianie: klucze SSH
 
-Klucze SSH używają [kryptografii klucza publicznego](https://en.wikipedia.org/wiki/Public-key_cryptography) do uwierzytelnienia sesji SSH. Klucze SSH są bezpieczniejsze niż hasła i umożliwiają łatwe zabezpieczenie dostępu do klastra usługi Hadoop.
+SSH klucze używają [kryptografii klucza publicznego](https://en.wikipedia.org/wiki/Public-key_cryptography) tooauthenticate sesji SSH. Kluczy SSH są bezpieczniejsze niż hasła i zapewniają prosty sposób toosecure dostępu tooyour Hadoop klastra.
 
-Jeśli konto SSH zostanie zabezpieczone za pomocą klucza, podczas nawiązywania połączenia klient musi podać zgodny klucz prywatny:
+W przypadku konta SSH jest zabezpieczone przy użyciu klucza, powitania klienta należy podać hello dopasowania klucz prywatny, podczas nawiązywania połączenia:
 
-* Większość klientów można skonfigurować do używania __domyślnego klucza__. Na przykład w środowiskach Linux i Unix klient `ssh` szuka klucza prywatnego w lokalizacji `~/.ssh/id_rsa`.
+* Większość klientów może być skonfigurowany toouse __domyślny klucz__. Na przykład Witaj `ssh` klienta szuka klucza prywatnego na `~/.ssh/id_rsa` w środowiskach Linux i Unix.
 
-* Można określić __ścieżkę do klucza prywatnego__. W przypadku klienta `ssh` do określenia ścieżki do klucza prywatnego służy parametr `-i`. Na przykład `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* Można określić hello __klucza prywatnego tooa ścieżki__. Z hello `ssh` klienta, hello `-i` parametr jest używany toospecify hello ścieżki tooprivate klucza. Na przykład `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-* Jeśli masz __wiele kluczy prywatnych__, których używasz dla różnych serwerów, rozważ użycie takiego narzędzia jak [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent). Narzędzie `ssh-agent` może służyć do automatycznego wybierania klucza do użycia podczas ustanawiania sesji SSH.
+* Jeśli masz __wiele kluczy prywatnych__, których używasz dla różnych serwerów, rozważ użycie takiego narzędzia jak [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent). Witaj `ssh-agent` narzędzie może być używane tooautomatically wybierz hello klucza toouse podczas ustanawiania sesji SSH.
 
 > [!IMPORTANT]
 >
-> W przypadku zabezpieczenia klucza prywatnego za pomocą hasła musisz je podać przed użyciem klucza. Takie narzędzia, jak `ssh-agent`, umożliwiają wygodne przechowywanie haseł w pamięci podręcznej.
+> Jeśli zabezpieczenie klucza prywatnego za pomocą hasła, należy wprowadzić hasło hello przypadku używania klucza hello. Narzędzia, takie jak `ssh-agent` mogą buforować hasła powitania dla Twojej wygody.
 
 ### <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
-Do tworzenia plików klucza publicznego i prywatnego służy polecenie `ssh-keygen`. Następujące polecenie generuje parę 2048-bitowych kluczy RSA, która pozwala połączyć się z usługą HDInsight:
+Użyj hello `ssh-keygen` toocreate publicznego i prywatnego klucza pliki poleceń. Witaj następujące polecenie generuje parę kluczy RSA 2048-bitowego, które mogą być używane z usługą HDInsight:
 
     ssh-keygen -t rsa -b 2048
 
-W trakcie procesu tworzenia kluczy zostaną wyświetlone monity o podanie informacji. Mogą one dotyczyć na przykład hasła lub lokalizacji przechowywania kluczy. Po zakończeniu tego procesu zostaną utworzone dwa pliki: klucz publiczny i klucz prywatny.
+Zostanie wyświetlony monit o informacje o procesie tworzenia klucza hello. Na przykład, którym są przechowywane klucze hello lub czy toouse hasło. Po zakończeniu procesu hello są tworzone dwa pliki; klucz publiczny i klucz prywatny.
 
-* __Klucz publiczny__ służy do tworzenia klastra usługi HDInsight i ma rozszerzenie `.pub`.
+* Witaj __klucz publiczny__ jest używane toocreate klastra usługi HDInsight. klucz publiczny Hello ma rozszerzenie `.pub`.
 
-* __Klucz prywatny__ służy do uwierzytelniania klienta w klastrze usługi HDInsight.
+* Witaj __klucza prywatnego__ jest używane tooauthenticate z klastrem usługi HDInsight toohello klienta.
 
 > [!IMPORTANT]
-> Klucze można zabezpieczyć przy użyciu hasła. W praktyce hasłem zabezpiecza się klucz prywatny. Nawet w przypadku uzyskania klucza prywatnego przez inną osobę do jego użycia jest potrzebne hasło.
+> Klucze można zabezpieczyć przy użyciu hasła. W praktyce hasłem zabezpiecza się klucz prywatny. Nawet wtedy, gdy ktoś uzyskuje klucz prywatny, muszą mieć hello hasło toouse hello klucza.
 
-### <a name="create-hdinsight-using-the-public-key"></a>Tworzenie klastrów usługi HDInsight przy użyciu klucza publicznego
+### <a name="create-hdinsight-using-hello-public-key"></a>Tworzenie usługi HDInsight przy użyciu klucza publicznego hello
 
-| Metoda tworzenia | Sposób użycia klucza publicznego |
+| Metoda tworzenia | Jak toouse hello klucza publicznego |
 | ------- | ------- |
-| **Witryna Azure Portal** | Usuń zaznaczenie pola __Użyj tego samego hasła podczas logowania do klastra__, a następnie wybierz opcję __Klucz publiczny__ jako typ uwierzytelniania SSH. Na koniec wybierz plik klucza publicznego lub wklej zawartość tekstową pliku w polu __Klucz publiczny SSH__.</br>![Okno dialogowe dotyczące klucza publicznego SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | Użyj parametru `-SshPublicKey` polecenia cmdlet `New-AzureRmHdinsightCluster` i przekaż zawartość klucza publicznego jako ciąg.|
-| **Interfejs wiersza polecenia platformy Azure 1.0** | Użyj parametru `--sshPublicKey` polecenia `azure hdinsight cluster create` i przekaż zawartość klucza publicznego jako ciąg. |
-| **Szablon usługi Resource Manager** | Przykład użycia kluczy SSH razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu klucza SSH). Element `publicKeys` w pliku [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) umożliwia przekazanie kluczy do platformy Azure podczas tworzenia klastra. |
+| **Witryna Azure Portal** | Usuń zaznaczenie pola wyboru __Użyj tego samego hasła jak logowania do klastra__, a następnie wybierz __klucz publiczny__ jako hello typ uwierzytelniania SSH. Na koniec wybierz plik klucza publicznego hello lub Wklej zawartość tekstową pliku hello hello hello __klucz publiczny SSH__ pola.</br>![Okno dialogowe dotyczące klucza publicznego SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure PowerShell** | Użyj hello `-SshPublicKey` parametru hello `New-AzureRmHdinsightCluster` polecenia cmdlet i przekazać zawartość hello hello klucz publiczny w postaci ciągu.|
+| **Interfejs wiersza polecenia platformy Azure 1.0** | Użyj hello `--sshPublicKey` parametru hello `azure hdinsight cluster create` polecenia i przekaż hello zawartość klucza publicznego hello jako ciąg. |
+| **Szablon usługi Resource Manager** | Przykład użycia kluczy SSH razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu klucza SSH). Witaj `publicKeys` element hello [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) plik jest tooAzure klucze hello toopass używane podczas tworzenia klastra hello. |
 
 ## <a id="sshpassword"></a>Uwierzytelnianie: hasło
 
-Konta SSH mogą być chronione przy użyciu hasła. Podczas łączenia się z usługą HDInsight przy użyciu protokołu SSH pojawia się monit o podanie hasła.
+Konta SSH mogą być chronione przy użyciu hasła. Po ustanowieniu połączenia przy użyciu protokołu SSH tooHDInsight jesteś tooenter zostanie wyświetlony monit o hasło hello.
 
 > [!WARNING]
-> W przypadku protokołu SSH nie zalecamy korzystania z uwierzytelniania za pomocą hasła. Hasła można złamać i są one podatne na ataki siłowe. Zamiast tego zalecamy używanie [kluczy SSH w celu uwierzytelniania](#sshkey).
+> W przypadku protokołu SSH nie zalecamy korzystania z uwierzytelniania za pomocą hasła. Hasła można złamać i są narażone toobrute siłową. Zamiast tego zalecamy używanie [kluczy SSH w celu uwierzytelniania](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>Tworzenie klastrów usługi HDInsight przy użyciu hasła
 
-| Metoda tworzenia | Sposób określenia hasła |
+| Metoda tworzenia | Jak toospecify hello hasła |
 | --------------- | ---------------- |
-| **Azure Portal** | Domyślnie hasło do konta użytkownika SSH jest takie samo jak hasło do konta umożliwiającego logowanie do klastra. Aby użyć innego hasła, usuń zaznaczenie pola __Użyj tego samego hasła podczas logowania do klastra__, a następnie wprowadź hasło w polu __Hasło SSH__.</br>![Okno dialogowe dotyczące hasła SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | Użyj parametru `--SshCredential` polecenia cmdlet `New-AzureRmHdinsightCluster` i przekaż obiekt `PSCredential` zawierający nazwę użytkownika i hasło do konta SSH. |
-| **Interfejs wiersza polecenia platformy Azure 1.0** | Użyj parametru `--sshPassword` polecenia `azure hdinsight cluster create` i podaj hasło. |
-| **Szablon usługi Resource Manager** | Przykład użycia hasła razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu hasła SSH). Element `linuxOperatingSystemProfile` w pliku [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) umożliwia przekazanie nazwy konta SSH i hasła do platformy Azure podczas tworzenia klastra.|
+| **Witryna Azure Portal** | Domyślnie hello konta użytkownika SSH ma hello tego samego hasła jako konto logowania hello klastra. Usuń zaznaczenie pola wyboru toouse inne hasło __Użyj tego samego hasła jak logowania do klastra__, a następnie wprowadź hasło hello w hello __hasło SSH__ pola.</br>![Okno dialogowe dotyczące hasła SSH w procesie tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure PowerShell** | Użyj hello `--SshCredential` parametru hello `New-AzureRmHdinsightCluster` polecenia cmdlet, a następnie przekaż `PSCredential` obiekt, który zawiera nazwę konta użytkownika SSH hello i hasło. |
+| **Interfejs wiersza polecenia platformy Azure 1.0** | Użyj hello `--sshPassword` parametru hello `azure hdinsight cluster create` poleceń i podaj wartości hasła hello. |
+| **Szablon usługi Resource Manager** | Przykład użycia hasła razem z szablonem można znaleźć w temacie [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Wdrażanie usługi HDInsight w systemie Linux przy użyciu hasła SSH). Witaj `linuxOperatingSystemProfile` element hello [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) plik jest używany toopass hello SSH konta nazwy i hasła tooAzure podczas tworzenia klastra hello.|
 
-### <a name="change-the-ssh-password"></a>Zmienianie hasła SSH
+### <a name="change-hello-ssh-password"></a>Zmień hasło SSH hello
 
-Informacje dotyczące zmiany hasła użytkownika konta SSH można znaleźć w sekcji __Change passwords__ (Zmienianie haseł) dokumentu [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) (Zarządzanie usługą HDInsight).
+Aby uzyskać informacje dotyczące zmiany hasła konta użytkownika SSH hello, zobacz hello __zmiany haseł__ sekcji hello [Zarządzanie HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) dokumentu.
 
 ## <a id="domainjoined"></a>Uwierzytelnianie: przyłączony do domeny klaster usługi HDInsight
 
-Jeśli używasz __przyłączonego do domeny klastra usługi HDInsight__, po nawiązaniu połączenia przy użyciu protokołu SSH musisz uruchomić polecenie `kinit`. Spowoduje to wyświetlenie monitu o podanie nazwy użytkownika domeny i hasła oraz uwierzytelnienie sesji w domenie usługi Azure Active Directory skojarzonej z klastrem.
+Jeśli używasz __przyłączonych do domeny klastra usługi HDInsight__, należy użyć hello `kinit` polecenia po nawiązaniu połączenia przy użyciu protokołu SSH. Tego polecenia monit dla użytkownika domeny i hasło, a sesja jest uwierzytelniany w usłudze hello Azure Active Directory domeny skojarzony z klastrem hello.
 
 Aby uzyskać więcej informacji, zobacz [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md) (Konfigurowanie przyłączonej do domeny usługi HDInsight).
 
-## <a name="connect-to-nodes"></a>Nawiązywanie połączeń z węzłami
+## <a name="connect-toonodes"></a>Połącz toonodes
 
-Do węzłów głównych i węzła brzegowego (jeśli taki istnieje) można uzyskiwać dostęp za pośrednictwem Internetu przez porty 22 i 23.
+Witaj węzłów głównych i węzłem krawędzi (jeśli istnieje) jest dostępna za pośrednictwem hello Internetu na portach, 22 i 23.
 
-* Podczas nawiązywania połączenia z __węzłami głównymi__ użyj portu __22__, aby łączyć się z podstawowym węzłem głównym, oraz portu __23__, aby łączyć się z pomocniczym węzłem głównym. W pełni kwalifikowana nazwa domeny do zastosowania to `clustername-ssh.azurehdinsight.net`, gdzie `clustername` jest nazwą Twojego klastra.
+* Podczas łączenia z toohello __węzły główne__, używają portu __22__ toohello tooconnect głównej head, węzła i port __23__ tooconnect toohello drugiego węzła głównego. Witaj toouse nazwy FQDN jest `clustername-ssh.azurehdinsight.net`, gdzie `clustername` jest hello nazwą klastra.
 
     ```bash
-    # Connect to primary head node
-    # port not specified since 22 is the default
+    # Connect tooprimary head node
+    # port not specified since 22 is hello default
     ssh sshuser@clustername-ssh.azurehdinsight.net
 
-    # Connect to secondary head node
+    # Connect toosecondary head node
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* W przypadku nawiązywania połączenia z __węzłem brzegowym__ użyj portu 22. W pełni kwalifikowana nazwa domeny to `edgenodename.clustername-ssh.azurehdinsight.net`, gdzie `edgenodename` jest nazwą podaną podczas tworzenia węzła brzegowego. `clustername` jest nazwą klastra.
+* Gdy connectiung toohello __węzła krawędzi__, korzystanie z portu 22. Witaj pełni kwalifikowana nazwa domeny jest `edgenodename.clustername-ssh.azurehdinsight.net`, gdzie `edgenodename` jest nazwą podane podczas tworzenia węzła krawędzi hello. `clustername`jest nazwą hello hello klastra.
 
     ```bash
-    # Connect to edge node
+    # Connect tooedge node
     ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
     ```
 
 > [!IMPORTANT]
-> Poprzednie przykłady zakładają, że korzystasz z uwierzytelniania przy użyciu hasła lub że uwierzytelnianie certyfikatu odbywa się automatycznie. Jeśli korzystasz z pary kluczy SSH do uwierzytelniania, a certyfikat nie jest używany automatycznie, skorzystaj z parametru `-i`, aby określić klucz prywatny. Na przykład `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> Hello poprzednich przykładach założono, że używasz uwierzytelniania hasła lub uwierzytelnianie certyfikatu jest automatycznie występujących. Jeśli używasz parę klucza SSH do uwierzytelniania, i hello certyfikat nie jest automatycznie używany, użyj hello `-i` klucza prywatnego hello toospecify parametru. Na przykład `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Po nawiązaniu połączenia wiersz polecenia zmieni się, aby wskazać nazwę użytkownika SSH i węzeł, z którym nawiązano połączenie. Na przykład w przypadku połączenia z podstawowym węzłem głównym jako użytkownik `sshuser` wiersz polecenia będzie wyglądać następująco: `sshuser@hn0-clustername:~$`.
+Po nawiązaniu połączenia hello zmieni tooindicate hello SSH użytkownika nazwa hello węzeł i są podłączone do. Na przykład, jeśli połączone toohello głównej węzła głównego jako `sshuser`, wiersz hello jest `sshuser@hn0-clustername:~$`.
 
-### <a name="connect-to-worker-and-zookeeper-nodes"></a>Łączenie się z węzłami procesu roboczego i węzłami dozorcy
+### <a name="connect-tooworker-and-zookeeper-nodes"></a>Połącz tooworker i węzły dozorcy
 
-Węzły procesu roboczego i węzły dozorcy nie są dostępne bezpośrednio z Internetu. Można uzyskać do nich dostęp z węzłów głównych lub węzłów krawędzi klastra. Poniżej przedstawiono ogólny zarys czynności, które należy wykonać w celu nawiązania połączenia z innymi węzłami:
+Witaj węzłów procesu roboczego i dozorcy węzłów nie ma bezpośredniego połączenia z hello internet. Aby były dostępne z głównymi węzłami klastra hello lub węzłów krawędzi. Oto Hello hello ogólne kroki tooconnect tooother węzłów:
 
-1. Połącz się z węzłem głównym lub węzłem krawędzi za pomocą protokołu SSH:
+1. Za pomocą protokołu SSH tooconnect tooa head lub krawędzi węzła:
 
         ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
 
-2. Z poziomu połączenia SSH z węzłem głównym lub węzłem krawędzi połącz się z węzłem procesu roboczego w klastrze za pomocą polecenia `ssh`:
+2. Witaj head toohello połączenia SSH lub węzłem krawędzi, użyj funkcji hello `ssh` polecenia tooconnect tooa procesu roboczego w węźle klastra hello:
 
         ssh sshuser@wn0-myhdi
 
-    Aby pobrać listę nazw domen węzłów w klastrze, zobacz artykuł [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Zarządzanie usługą HDInsight przy użyciu interfejsu API REST Ambari).
+    tooretrieve listę nazw domen hello hello węzłów w klastrze hello, zobacz hello [Zarządzanie HDInsight przy użyciu hello interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) dokumentu.
 
-Jeśli konto SSH jest zabezpieczone przy użyciu __hasła__, wprowadź hasło podczas nawiązywania połączenia.
+Jeśli konto SSH hello jest zabezpieczone przy użyciu __hasło__, wprowadź hasło hello podczas nawiązywania połączenia.
 
-Jeśli konto SSH jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, że na kliencie jest włączone przekazywanie SSH.
+Jeśli konto SSH hello jest zabezpieczone przy użyciu __kluczy SSH__, upewnij się, że na powitania klienta jest włączone przekazywanie SSH.
 
 > [!NOTE]
-> Innym sposobem uzyskiwania bezpośredniego dostępu do wszystkich węzłów w klastrze jest zainstalowanie usługi HDInsight w usłudze Azure Virtual Network. Pozwoli to na przyłączenie komputera zdalnego do tej samej sieci wirtualnej i uzyskiwanie bezpośredniego dostępu do wszystkich węzłów w klastrze.
+> Innym sposobem toodirectly dostęp do wszystkich węzłów w klastrze hello jest tooinstall HDInsight w sieci wirtualnej platformy Azure. Następnie można dołączyć toohello Twojego komputera zdalnego sam wirtualnych sieci i uzyskać bezpośredni dostęp do wszystkich węzłów w klastrze hello.
 >
 > Aby uzyskać więcej informacji, zobacz [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md) (Używanie sieci wirtualnej z usługą HDInsight).
 
 ### <a name="configure-ssh-agent-forwarding"></a>Konfigurowanie przekazywania przez agenta SSH
 
 > [!IMPORTANT]
-> W poniższej procedurze założono korzystanie z systemu opartego na systemie Linux lub UNIX, ale działa ona również w przypadku powłoki Bash w systemie Windows 10. Jeśli te czynności nie działają w Twoim systemie, zapoznaj się z dokumentacją używanego klienta SSH.
+> Hello kroków założono, Linux lub UNIX z systemem oraz pracować z Bash w systemie Windows 10. Jeśli te kroki nie działają w systemie, może być konieczne tooconsult dokumentacji powitania klienta SSH.
 
 1. Za pomocą edytora tekstów otwórz plik `~/.ssh/config`. Jeśli ten plik nie istnieje, możesz go utworzyć, wprowadzając polecenie `touch ~/.ssh/config` w wierszu polecenia.
 
-2. Dodaj następujący tekst do pliku `config`.
+2. Dodaj następujące toohello tekst hello `config` pliku.
 
         Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
           ForwardAgent yes
 
-    Informacje w sekcji __Host__ zastąp adresem węzła, z którym łączysz się przy użyciu protokołu SSH. W poprzednim przykładzie użyto węzła krawędzi. Wpis ten umożliwia skonfigurowanie przekazywania przez agenta SSH dla określonego węzła.
+    Zastąp hello __hosta__ informacji o adresie hello węzła hello połączyć toousing SSH. Poprzedni przykład Hello korzysta z węzłem krawędzi hello. Ten wpis umożliwia skonfigurowanie Agenta przekazywania SSH dla hello określonego węzła.
 
-3. Przetestuj agenta przekazywania SSH za pomocą następującego polecenia z terminala:
+3. Przetestuj agenta przekazywania SSH za pomocą następującego polecenia z terminala hello hello:
 
         echo "$SSH_AUTH_SOCK"
 
-    To polecenie zwraca informacje podobne do następującego tekstu:
+    To polecenie zwraca informacje toohello podobne następującego tekstu:
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Jeśli nie zostaną zwrócone żadne informacje, oznacza to, że agent `ssh-agent` nie działa. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat skryptów uruchamiania agenta na stronie [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Korzystanie z agenta SSH z protokołem SSH) lub z dokumentacją używanego klienta SSH.
+    Jeśli nie zostaną zwrócone żadne informacje, oznacza to, że agent `ssh-agent` nie działa. Aby uzyskać więcej informacji, zobacz informacje skrypty uruchamiania agenta hello na [przy użyciu ssh-agent z ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) lub zapoznaj się z dokumentacją klienta SSH.
 
-4. Po upewnieniu się, że program **ssh-agent** działa, należy wykonać następujące czynności, aby dodać klucz prywatny SSH do agenta:
+4. Po upewnieniu się, że **ssh-agent** jest uruchomiona, użyj powitania po tooadd agenta toohello klucza prywatnego SSH:
 
         ssh-add ~/.ssh/id_rsa
 
-    Jeśli klucz prywatny jest przechowywany w innym pliku, zastąp `~/.ssh/id_rsa` ścieżką do pliku.
+    Jeśli klucz prywatny jest przechowywany w innym pliku, Zastąp `~/.ssh/id_rsa` z hello ścieżki toohello pliku.
 
-5. Połącz się z węzłem krawędzi lub węzłami głównymi klastra przy użyciu protokołu SSH. Następnie połącz się z węzłem procesu roboczego lub węzłem dozorcy przy użyciu polecenia SSH. Połączenie zostanie nawiązane przy użyciu przekazanego klucza.
+5. Połączenie toohello węzła krawędzi lub węzłów głównych przy użyciu protokołu SSH. Następnie można użyć procesu roboczego tooa tooconnect hello SSH polecenie lub węzeł dozorcy. Witaj, połączenie zostanie nawiązane, przy użyciu klucza hello przekazywane.
 
 ## <a name="copy-files"></a>Kopiowanie plików
 
-Narzędzia `scp` można użyć do kopiowania plików do i z poszczególnych węzłów w klastrze. Na przykład następujące polecenie kopiuje katalog `test.txt` z systemu lokalnego do podstawowego węzła głównego:
+Witaj `scp` narzędzie może być tooand pliki toocopy używanych w poszczególnych węzłach w klastrze hello. Na przykład Witaj następujące polecenia kopie hello `test.txt` katalogu z hello systemu lokalnego toohello głównego węzła podstawowego:
 
 ```bash
 scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
 ```
 
-Ponieważ po znaku `:` nie określono ścieżki, plik zostanie umieszczony w katalogu macierzystym użytkownika `sshuser`.
+Ponieważ nie określono ścieżki po hello `:`, plik hello jest umieszczany w hello `sshuser` katalogu macierzystego.
 
-Poniższy przykład kopiuje plik `test.txt` z katalogu macierzystego użytkownika `sshuser` w podstawowym węźle głównym do systemu lokalnego:
+Witaj następujący przykład kopii hello `test.txt` pliku z hello `sshuser` katalogu macierzystego w systemie lokalnym toohello głównej węzła głównego hello:
 
 ```bash
 scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]
-> Narzędzie `scp` może uzyskać dostęp tylko do systemu plików poszczególnych węzłów w klastrze. Nie może zostać użyte w celu uzyskania dostępu do danych w magazynie zgodnym z systemem HDFS dla klastra.
+> `scp`ma dostęp tylko do systemu plików hello pojedynczych węzłów w klastrze hello. Nie można go dane tooaccess używanych w magazynie hello zgodnego systemem plików HDFS hello klastra.
 >
-> Użyj narzędzia `scp`, jeśli musisz przekazać zasób do użycia z sesji SSH. Na przykład przekaż skrypt języka Python, a następnie uruchom go z sesji SSH.
+> Użyj `scp` potrzebne tooupload zasób do użytku w sesji SSH. Na przykład przekazać skrypt w języku Python, a następnie uruchom skrypt hello w sesji SSH.
 >
-> Aby uzyskać informacje o bezpośrednim ładowaniu danych do magazynu zgodnego z systemem HDFS, zobacz następujące dokumenty:
+> Uzyskać na bezpośrednio ładowania danych do hello magazynu zgodny z systemem plików HDFS Zobacz hello w następujących dokumentach:
 >
 > * [Usługa HDInsight korzystająca z usługi Azure Storage](hdinsight-hadoop-use-blob-storage.md).
 >

@@ -1,6 +1,6 @@
 ---
-title: "Wykrywanie twarzy na obrazie i emocji z analizy multimediów Azure | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono sposób wykrywania kroje i emocji z analizy multimediów Azure."
+title: "aaaDetect krój i emocji z analizy multimediów Azure | Dokumentacja firmy Microsoft"
+description: "W tym temacie przedstawiono sposób skierowany toodetect i emocji z analizy multimediów Azure."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,45 +14,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: d7f3bc6c0d21db7adbb0c16c752d4ce49e99da5a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f58d81d82dde08a694cdb4d92c6bab6a40a9c157
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Wykrywanie twarzy na obrazie i emocji z analizy multimediów Azure
 ## <a name="overview"></a>Omówienie
-**Azure Media krój detektora** procesor multimediów (MP) umożliwia count, śledzić przeniesień i nawet określić udział odbiorców i reakcji za pośrednictwem twarzy. Ta usługa zawiera dwie funkcje: 
+Witaj **Azure Media krój detektora** procesor multimediów (MP) pozwala toocount, przeniesień Śledź i nawet miernika odbiorców udziału i reakcji za pośrednictwem twarzy. Ta usługa zawiera dwie funkcje: 
 
 * **Wykrywanie twarzy na obrazie**
   
-    Wykrywanie twarzy na obrazie znajduje i śledzi człowieka kroje w pliku wideo. Wiele powierzchni mogą być wykrywane i następnie śledzenia przechodzą wokół, czas i lokalizację metadanymi zwrócił w pliku JSON. Podczas śledzenia podejmie ma zostać przypisany do tej samej kroju spójny identyfikator, gdy osoba jest przenoszenia na ekranie, nawet jeśli są zablokowane lub pozostaw krótko ramki.
+    Wykrywanie twarzy na obrazie znajduje i śledzi człowieka kroje w pliku wideo. Wiele powierzchni mogą być wykrywane i następnie śledzenia przechodzą wokół, hello czas i lokalizację metadane zwrócony w pliku JSON. Podczas śledzenia podejmie toogive spójne toohello identyfikator sam stają przed podczas osoby hello jest przenoszenia na ekranie, nawet jeśli są zablokowane lub pozostaw krótko hello ramki.
   
   > [!NOTE]
-  > Ta usługa nie przeprowadza rozpoznawanie twarzy. Osoba, która pozostawia ramki lub staje się blokować dla zbyt długo będzie mógł skorzystać z nowym Identyfikatorem gdy zwracają.
+  > Ta usługa nie przeprowadza rozpoznawanie twarzy. Osoba, która pozostawia ramki hello lub staje się blokować dla zbyt długo będzie mógł skorzystać z nowym Identyfikatorem gdy zwracają.
   > 
   > 
 * **Wykrywanie emocji**
   
-    Wykrywanie emocji jest opcjonalnym składnikiem procesor multimediów wykrywania twarzy na obrazie, które zwraca analizy na wiele atrybutów emocjonalne kroje wykryte, w tym szczęście, sadness, obawy i gniew. 
+    Wykrywanie emocji jest opcjonalnym składnikiem hello procesor multimediów wykrywania twarzy na obrazie, które zwraca analizy na wiele atrybutów emocjonalne kroje hello wykryte, w tym szczęście, sadness, obawy i gniew. 
 
-**Azure Media krój detektora** pakiet administracyjny jest obecnie w przeglądzie.
+Witaj **Azure Media krój detektora** pakiet administracyjny jest obecnie w przeglądzie.
 
-Ten temat zawiera szczegółowe informacje o **Azure Media krój detektora** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
+Ten temat zawiera szczegółowe informacje o **Azure Media krój detektora** i przedstawia sposób toouse go przy użyciu zestawu SDK usługi Media Services dla platformy .NET.
 
 ## <a name="face-detector-input-files"></a>Stają przed detektora plików wejściowych
-Pliki wideo. Obecnie obsługiwane są następujące formaty: MP4, MOV i WMV.
+Pliki wideo. Obecnie są obsługiwane następujące formaty hello: MP4, MOV i WMV.
 
 ## <a name="face-detector-output-files"></a>Stają przed detektora pliki wyjściowe
-Interfejsu API śledzenia i wykrywania twarzy na obrazie zapewnia wysokiej precyzji krój lokalizacji wykrywania i śledzenia wykrywające maksymalnie 64 kroje człowieka wideo. Kroje czołowego Podaj najlepsze wyniki, podczas boczne i w małych kroje (mniejsze niż lub równe 24 x 24 piksele) może nie być tak dokładne.
+Hello krój wykrywania i śledzenia interfejsu API zapewnia wysokiej precyzji krój lokalizacji wykrywania i śledzenia wykrywające się too64 człowieka powierzchni wideo. Czołowego kroje Podaj hello uzyskać jak najlepsze rezultaty, podczas boczne i małych powierzchni (mniej niż lub równa too24x24 pikseli) nie może być tak dokładne.
 
-Kroje wykryte i śledzonych są zwracane z współrzędne (po lewej, top, szerokość i wysokość) wskazujący lokalizację kroje obrazu w pikselach, a także numer identyfikacyjny krój, wskazując śledzenia tej osoby. Numery identyfikatorów krój są podatne na zresetować w sytuacji, gdy czołowego kroju zostanie utracony lub pokrywający się w ramce spowodować, że niektóre osoby pobierania przypisanych wiele identyfikatorów.
+Hello kroje wykryte i śledzonych są zwracane z współrzędne (po lewej, top, szerokość i wysokość) wskazujący lokalizację hello kroje hello obrazu w pikselach, a także krój identyfikator liczba wskazująca hello śledzenia tej osoby. Numery identyfikatorów krój są podatne tooreset czynników podczas krój czołowego hello zostanie utracony lub pokrywający się w ramce hello spowodować, że niektóre osoby pobierania przypisanych wiele identyfikatorów.
 
-## <a id="output_elements"></a>Elementy pliku wyjściowego w formacie JSON
+## <a id="output_elements"></a>Elementy hello pliku wyjściowego w formacie JSON
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
-Wykrywanie twarzy na obrazie używa technik fragmentacji (gdzie metadanych można podzielić w oparte na czasie fragmentów i można pobrać tylko potrzebnych) i segmentacji (gdzie zdarzenia są podzielony na wypadek, gdyby otrzymują zbyt duży). Niektórych prostych obliczeń może pomóc przekształcania danych. Na przykład, jeśli zdarzenie rozpoczęty o godzinie 6300 (znaczniki) z skali czasu 2997 (Takty/s) i szybkość klatek z 29,97 (ramek na sekundę), następnie:
+Wykrywanie twarzy na obrazie używa technik fragmentacji (gdzie hello metadanych można podzielić w oparte na czasie fragmentów i można pobrać tylko potrzebnych) i segmentacji (gdzie hello zdarzenia są podzielony na wypadek, gdyby otrzymują zbyt duży). Niektórych prostych obliczeń może pomóc przekształcania danych hello. Na przykład, jeśli zdarzenie rozpoczęty o godzinie 6300 (znaczniki) z skali czasu 2997 (Takty/s) i szybkość klatek z 29,97 (ramek na sekundę), następnie:
 
 * Start/skali czasu = sekund 2.1
 * Sekundy x Framerate = 63 ramki
@@ -62,7 +62,7 @@ Wykrywanie twarzy na obrazie używa technik fragmentacji (gdzie metadanych możn
 [Wejściowy plik wideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Konfiguracja zadania (ustawienia domyślne)
-Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić ustawienia domyślne konfiguracji. Następujące ustawienie konfiguracji jest tylko do wykrywania twarzy na obrazie.
+Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić ustawienia domyślne konfiguracji. Witaj następujące ustawienie konfiguracji jest tylko do wykrywania twarzy na obrazie.
 
     {
       "version":"1.0",
@@ -77,7 +77,7 @@ Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić 
 | Tryb |Fast — szybkiego przetwarzania szybkości, ale mniej dokładne (ustawienie domyślne).|
 
 ### <a name="json-output"></a>Dane wyjściowe JSON
-Poniższy przykład danych wyjściowych JSON została obcięta.
+Poniższy przykład danych wyjściowych JSON Hello została obcięta.
 
     {
     "version": 1,
@@ -131,7 +131,7 @@ Poniższy przykład danych wyjściowych JSON została obcięta.
 [Wejściowy plik wideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Konfiguracja zadania (ustawienia domyślne)
-Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić ustawienia domyślne konfiguracji. Określa następujące ustawienie konfiguracji można utworzyć oparty na wykrywaniu emocji JSON.
+Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić ustawienia domyślne konfiguracji. Witaj następujące ustawienie konfiguracji określa toocreate JSON oparta na powitania emocji wykrywania.
 
     {
       "version": "1.0",
@@ -147,11 +147,11 @@ Podczas tworzenia zadania z **Azure Media krój detektora**, należy określić 
 | Nazwa atrybutu | Opis |
 | --- | --- |
 | Tryb |Kroje: Tylko stają przed wykrywania.<br/>PerFaceEmotion: Zwraca emocji osobno dla każdej wykrywania twarzy na obrazie.<br/>AggregateEmotion: Wartości zwracane emocji średni wszystkie powierzchnie w ramce. |
-| AggregateEmotionWindowMs |Użyj, jeśli wybrany tryb AggregateEmotion. Określa długość wideo użyta do wyprodukowania każdy łączny wynik, w milisekundach. |
-| AggregateEmotionIntervalMs |Użyj, jeśli wybrany tryb AggregateEmotion. Określa częstotliwość dostarczyło wyników agregacji. |
+| AggregateEmotionWindowMs |Użyj, jeśli wybrany tryb AggregateEmotion. Określa długość hello wideo tooproduce używane łączny wynik, w milisekundach. |
+| AggregateEmotionIntervalMs |Użyj, jeśli wybrany tryb AggregateEmotion. Określa, z jakiego agregacji tooproduce częstotliwość powoduje. |
 
 #### <a name="aggregate-defaults"></a>Łączny wartości domyślnych
-Poniżej są zalecane wartości ustawień okna i interwał agregacji. AggregateEmotionWindowMs powinien być dłuższy niż AggregateEmotionIntervalMs.
+Poniżej są zalecane wartości hello okna agregacji i ustawienia interwału. AggregateEmotionWindowMs powinien być dłuższy niż AggregateEmotionIntervalMs.
 
 || Ustawienia domyślne (s) | Min(s) | MAX(s) |
 |--- | --- | --- | --- |
@@ -313,26 +313,26 @@ Dane wyjściowe dla agregacji emocji (obcięty) JSON:
                  "fear": 0,
 
 ## <a name="limitations"></a>Ograniczenia
-* Obsługiwane formaty wideo wejściowych obejmują MP4, MOV i WMV.
-* Zakres rozmiaru wykrywalny krój jest 24 x 24 do 2048 x 2048 pikseli. Nie są wykrywane kroje poza tym zakresem.
-* Dla każdego wideo maksymalna liczba kroje zwrócił wynosi 64.
-* Niektóre kroje mogą nie być wykrywane z powodu problemów technicznych; np. w przypadku bardzo dużych kąty przedniej (head ułożenia) i dużych zamknięcia. Kroje czołowego i niemal czołowego mieć najlepsze wyniki.
+* formatów wejściowych wideo Hello obsługiwane obejmują MP4, MOV i WMV.
+* Witaj wykrywalny krój rozmiar zakres jest 24 x 24 too2048x2048 piksele. nie są wykrywane kroje Hello poza tym zakresem.
+* Dla każdego wideo hello maksymalna liczba kroje zwrócił wynosi 64.
+* Niektóre kroje mogą nie być wykrywane powodu wyzwania tootechnical; np. w przypadku bardzo dużych kąty przedniej (head ułożenia) i dużych zamknięcia. Kroje czołowego i niemal czołowego ma hello najlepsze wyniki.
 
 ## <a name="net-sample-code"></a>.NET przykładowy kod
 
-Następujących programów przedstawiono sposób:
+następujące Hello program pokazuje sposób:
 
-1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
-2. Utwórz zadanie z zadania wykrywania twarzy na obrazie w zależności od pliku konfiguracji, który zawiera następujące ustawienie json. 
+1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do hello zawartości.
+2. Utwórz zadanie z zadania wykrywania twarzy na obrazie w zależności od pliku konfiguracji, który zawiera hello następujące ustawienie wstępne json. 
    
         {
             "version": "1.0"
         }
-3. Pobierz pliki danych wyjściowych w formacie JSON. 
+3. Pobierz pliki w formacie JSON dane wyjściowe hello. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
+Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Przykład
 
@@ -363,17 +363,17 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run the FaceDetection job.
+                // Run hello FaceDetection job.
                 var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
                                             @"C:\supportFiles\FaceDetection\config.json");
 
-                // Download the job output asset.
+                // Download hello job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
             }
 
             static IAsset RunFaceDetectionJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload the input media file to storage.
+                // Create an asset and upload hello input media file toostorage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Face Detection Input Asset",
                     AssetCreationOptions.None);
@@ -381,38 +381,38 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Face Detection Job");
 
-                // Get a reference to Azure Media Face Detector.
+                // Get a reference tooAzure Media Face Detector.
                 string MediaProcessorName = "Azure Media Face Detector";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from the specified file.
+                // Read configuration from hello specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with the encoding details, using a string preset.
+                // Create a task with hello encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Face Detection Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify the input asset.
+                // Specify hello input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset to contain the results of the job.
+                // Add an output asset toocontain hello results of hello job.
                 task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
 
-                // Use the following event handler to check job progress.  
+                // Use hello following event handler toocheck job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch the job.
+                // Launch hello job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish.
+                // Check job execution and wait for job toofinish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, the event handling
+                // If job state is Error, hello event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

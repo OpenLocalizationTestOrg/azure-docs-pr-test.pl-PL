@@ -1,6 +1,6 @@
 ---
-title: "Aplikacja sieci Web w technologii Node.js wykorzystująca usługę Azure Table Service"
-description: "W tym samouczku jest przedstawienie sposobu korzystania z usługi tabel Azure do przechowywania danych z aplikacji Node.js, która jest hostowana w aplikacji sieci Web usługi aplikacji Azure."
+title: "aaaNode.js aplikacji sieci web przy użyciu hello Azure usługa tabel"
+description: "Ten samouczek zawiera wskazówki dotyczące sposobu hello toouse tabel Azure usługi toostore danych z aplikacji Node.js, który jest obsługiwany w aplikacji sieci Web usługi aplikacji Azure."
 tags: azure-portal
 services: app-service\web, storage
 documentationcenter: nodejs
@@ -15,35 +15,35 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.openlocfilehash: 3252914934c1084a165fa39ee983d3039e04d567
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f6e08335b4c7f62f7b3994287edd586860cb7135
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="nodejs-web-app-using-the-azure-table-service"></a>Aplikacja sieci Web w technologii Node.js wykorzystująca usługę Azure Table Service
+# <a name="nodejs-web-app-using-hello-azure-table-service"></a>Aplikacja sieci web node.js za pomocą hello Azure usługa tabel
 ## <a name="overview"></a>Omówienie
-Ten samouczek pokazuje, jak korzystać z usługi tabeli przez zarządzanie danymi Azure do przechowywania i uzyskać dostęp do danych z [węzła] aplikacji hostowanej w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) aplikacji sieci Web. W tym samouczku założono, że pewne doświadczenie w korzystaniu z węzła i [Git].
+Ten samouczek pokazuje, jak usługa tabel toouse udostępniane przez zarządzanie danymi Azure toostore i dostępu do danych z [węzła] aplikacji hostowanej w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) aplikacji sieci Web. W tym samouczku założono, że pewne doświadczenie w korzystaniu z węzła i [Git].
 
 Dowiesz się:
 
-* Jak używać programu npm (węzeł Menedżera pakietów) Aby zainstalować moduły węzła
-* Jak pracować z usługą Azure tabeli
-* Jak utworzyć aplikację sieci web za pomocą wiersza polecenia platformy Azure.
+* Jak tooinstall npm (węzeł Menedżera pakietów) toouse hello modułów węzła
+* Jak toowork z hello usługi tabeli platformy Azure
+* Jak toouse hello toocreate wiersza polecenia platformy Azure, aplikacji sieci web.
 
-W ramach tego samouczka, utworzysz prostą opartych na sieci web aplikacji "Lista zadań do wykonania", która umożliwia tworzenie, pobieranie i kończenie zadań. Zadania są przechowywane w usłudze tabel.
+W ramach tego samouczka, utworzysz prostą opartych na sieci web aplikacji "Lista zadań do wykonania", która umożliwia tworzenie, pobieranie i kończenie zadań. Witaj zadania są przechowywane w hello usługi tabel.
 
-W tym miejscu jest ukończona aplikacja:
+Oto aplikacji hello zakończone:
 
 ![Strona sieci web tasklist pusty][node-table-finished]
 
 > [!NOTE]
-> Jeśli chcesz zacząć korzystać z usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź do artykułu [Try App Service](https://azure.microsoft.com/try/app-service/) (Wypróbuj usługę App Service), w którym wyjaśniono, jak od razu utworzyć początkową aplikację sieci Web o krótkim okresie istnienia w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
+> Tooget wprowadzenie do usługi Azure App Service przed utworzeniem konta platformy Azure, przejdź zbyt[Wypróbuj usługę App Service](https://azure.microsoft.com/try/app-service/), gdzie możesz od razu utworzyć krótkotrwałą, początkową aplikację sieci web w usłudze App Service. Bez kart kredytowych i bez zobowiązań.
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wykonaniem instrukcji zawartych w tym artykule, upewnij się, że masz następujące elementy:
+Przed rozpoczęciem powitalne instrukcje w tym artykule, upewnij się, że mają zainstalowane następujące hello:
 
 * [węzła] wersji 0.10.24 lub nowszej
 * [Git]
@@ -51,46 +51,46 @@ Przed wykonaniem instrukcji zawartych w tym artykule, upewnij się, że masz nas
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-Utworzenie konta magazynu platformy Azure. Aplikacja będzie używać tego konta do przechowywania elementów do wykonania.
+Utworzenie konta magazynu platformy Azure. Aplikacja Hello będzie używać tego konta toostore hello zadaniach do wykonania.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
-2. Kliknij przycisk **nowy** pozostałych ikony w dolnej części portalu, kliknij przycisk **dane i magazyn** > **magazynu**. Nadaj unikatową nazwę konta magazynu i utworzyć nową [grupy zasobów](../azure-resource-manager/resource-group-overview.md) dla niego.
+1. Zaloguj się do hello [Azure Portal](https://portal.azure.com/).
+2. Kliknij przycisk hello **nowy** ikony na dole hello pozostałych hello portalu, kliknij przycisk **dane i magazyn** > **magazynu**. Nadaj unikatową nazwę konta magazynu hello i utworzyć nową [grupy zasobów](../azure-resource-manager/resource-group-overview.md) dla niego.
    
       ![Przycisk Nowy](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
    
-    Po utworzeniu konta magazynu, **powiadomienia** przycisk będzie flash zielona **Powodzenie** i bloku konto magazynu jest otwarty, aby pokazać, że należy on do tworzenia nowej grupy zasobów.
-3. W bloku konto magazynu, kliknij **ustawienia** > **klucze**. Skopiuj podstawowy klucz dostępu do Schowka.
+    Po utworzeniu konta magazynu hello hello **powiadomienia** przycisk będzie flash zielona **Powodzenie** i bloku konto magazynu hello jest otwarty tooshow należy toohello nowy zasób grupy utworzony.
+3. W bloku konto magazynu powitania kliknij **ustawienia** > **klucze**. Kopiuj hello Schowka toohello klucza podstawowego dostępu.
    
     ![Klucz dostępu][portal-storage-access-keys]
 
 ## <a name="install-modules-and-generate-scaffolding"></a>Zainstaluj moduły i Generowanie szkieletów
-W tej sekcji utworzysz nową aplikację węzła i umożliwia dodawanie pakietów moduł npm. Ta aplikacja będzie używać [Express] i [Azure] modułów. Modułu Express zapewnia platformę kontrolera widoku modelu dla węzła, gdy moduł Azure zapewnia łączność z usługą tabeli.
+W tej sekcji utworzysz nową aplikację węzła i za pomocą programu npm tooadd modułu pakietów. Dla tej aplikacji będzie używać hello [Express] i [Azure] modułów. Hello modułu Express zapewnia platformę kontrolera widoku modelu dla węzła, podczas hello modułów Azure udostępnia usługi tabel toohello łączności.
 
 ### <a name="install-express-and-generate-scaffolding"></a>Zainstaluj express i Generowanie szkieletów
-1. W wierszu polecenia Utwórz nowy katalog o nazwie **tasklist** i przełączać się do tego katalogu.  
-2. Wprowadź następujące polecenie, aby zainstalować moduł Express.
+1. Z wiersza polecenia hello, Utwórz nowy katalog o nazwie **tasklist** i katalog toothat przełącznika.  
+2. Wprowadź hello następujące polecenia tooinstall hello Express modułu.
    
         npm install express-generator@4.2.0 -g
    
-    W zależności od systemu operacyjnego może być konieczne umieszczanie 'sudo' przed wykonaniem polecenia:
+    W zależności od systemu operacyjnego hello może być konieczne tooput 'sudo' przed wykonaniem polecenia hello:
    
         sudo npm install express-generator@4.2.0 -g
    
-    Dane wyjściowe wygląda podobnie do poniższego przykładu:
+    dane wyjściowe Hello pojawia się toohello podobnie poniższy przykład:
    
         express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
    
    > [!NOTE]
-   > "-G" parametr instaluje moduł globalnie. W ten sposób możemy użyć **express** do generowania szkieletu aplikacji sieci web bez konieczności wpisz dodatkowe informacje o ścieżce.
+   > Witaj "-g" parametr instaluje moduł hello globalnie. W ten sposób możemy użyć **express** toogenerate funkcja szkieletów aplikacji sieci web bez konieczności tootype w dodatkowe informacje o ścieżce.
    > 
    > 
-3. Aby utworzyć szkielet aplikacji, wprowadź **express** polecenia:
+3. toocreate hello szkieletów dla aplikacji hello wprowadź hello **express** polecenia:
    
         express
    
-    Dane wyjściowe tego polecenia jest podobny do poniższego przykładu:
+    Witaj dane wyjściowe tego polecenia zostaną wyświetlone podobne toohello poniższy przykład:
    
            create : .
            create : ./package.json
@@ -113,19 +113,19 @@ W tej sekcji utworzysz nową aplikację węzła i umożliwia dodawanie pakietów
            install dependencies:
              $ cd . && npm install
    
-           run the app:
+           run hello app:
              $ DEBUG=my-application ./bin/www
    
-    Masz teraz kilka nowych katalogów i plików w **tasklist** katalogu.
+    Masz teraz kilka nowych katalogów i plików w hello **tasklist** katalogu.
 
 ### <a name="install-additional-modules"></a>Instalowanie dodatkowych modułów
-Jeden z plików który **express** tworzy jest **package.json**. Ten plik zawiera listę zależności modułu. Później podczas wdrażania aplikacji do aplikacji usługi sieci Web aplikacji, ten plik Określa, które moduły muszą być zainstalowane na platformie Azure.
+Jeden z hello pliki **express** tworzy jest **package.json**. Ten plik zawiera listę zależności modułu. Później podczas wdrażania tooApp aplikacji hello usługi aplikacje sieci Web, ten plik Określa, które moduły muszą toobe zainstalowane na platformie Azure.
 
-W wierszu polecenia wprowadź następujące polecenie, aby zainstalować moduły opisanego w **package.json** pliku. Może być konieczne użycie "sudo".
+Z wiersza polecenia hello, wprowadź następujące moduły hello tooinstall polecenia opisanego w hello hello **package.json** pliku. Może być konieczne toouse "sudo".
 
     npm install
 
-Dane wyjściowe tego polecenia jest podobny do poniższego przykładu:
+Witaj dane wyjściowe tego polecenia zostaną wyświetlone podobne toohello poniższy przykład:
 
     debug@0.7.4 node_modules\debug
 
@@ -136,13 +136,13 @@ Dane wyjściowe tego polecenia jest podobny do poniższego przykładu:
     [...]
 
 
-Następnie wprowadź następujące polecenie, aby zainstalować [azure], [uuid węzła], [nconf] i [async] modułów:
+Następnie wprowadź następujące polecenie tooinstall hello hello [azure], [uuid węzła], [nconf] i [async] modułów:
 
     npm install azure-storage node-uuid async nconf --save
 
-**— Zapisywanie** Flaga Dodaje wpisy dla tych modułów, aby **package.json** pliku.
+Witaj **— zapisywanie** Flaga Dodaje wpisy dla tych modułów toohello **package.json** pliku.
 
-Dane wyjściowe tego polecenia jest podobny do poniższego przykładu:
+Witaj dane wyjściowe tego polecenia zostaną wyświetlone podobne toohello poniższy przykład:
 
     async@0.9.0 node_modules\async
 
@@ -156,11 +156,11 @@ Dane wyjściowe tego polecenia jest podobny do poniższego przykładu:
     [...]
 
 
-## <a name="create-the-application"></a>Tworzenie aplikacji
-Teraz już wszystko gotowe do tworzenia aplikacji.
+## <a name="create-hello-application"></a>Tworzenie aplikacji hello
+Jest teraz gotowy toobuild hello aplikacji.
 
 ### <a name="create-a-model"></a>Tworzenie modelu
-A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Dla aplikacji tylko model jest obiekt zadania, który reprezentuje element na liście zadań do wykonania. Zadania będzie zawierać następujące pola:
+A *modelu* jest obiekt, który reprezentuje dane hello w aplikacji. Dla aplikacji hello modelu tylko hello jest obiekt zadania, który reprezentuje element w hello listy zadań do wykonania. Zadania mają hello następujące pola:
 
 * PartitionKey
 * RowKey
@@ -168,16 +168,16 @@ A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Dla aplikacji tylk
 * Kategoria (ciąg)
 * Ukończono (wartość logiczna)
 
-**PartitionKey** i **RowKey** są używane przez usługę tabeli jako klucze tabeli. Aby uzyskać więcej informacji, zobacz [opis modelu danych usługi tabel](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** i **RowKey** są używane przez usługi tabel hello jako klucze tabeli. Aby uzyskać więcej informacji, zobacz [modelu danych usługi tabel hello opis](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-1. W **tasklist** katalogu, Utwórz nowy katalog o nazwie **modele**.
-2. W **modele** katalogu, Utwórz nowy plik o nazwie **task.js**. Ten plik zawiera model dla zadań tworzonych przez aplikację.
-3. Na początku **task.js** pliku, Dodaj następujący kod, aby odwołać wymagane biblioteki:
+1. W hello **tasklist** katalogu, Utwórz nowy katalog o nazwie **modele**.
+2. W hello **modele** katalogu, Utwórz nowy plik o nazwie **task.js**. Ten plik będzie zawierać hello model dla zadań hello utworzonych przez aplikację.
+3. Na początku hello hello **task.js** plików, dodawanie hello następującego kodu tooreference wymagane biblioteki:
    
         var azure = require('azure-storage');
           var uuid = require('node-uuid');
         var entityGen = azure.TableUtilities.entityGenerator;
-4. Dodaj następujący kod w celu zdefiniowania i wyeksportowania obiektu Task. Ten obiekt jest odpowiedzialny za nawiązywania połączenia z tabeli.
+4. Dodaj następujący hello code toodefine i wyeksportować hello obiektu zadania. Ten obiekt jest odpowiedzialny za łączenie toohello tabeli.
    
           module.exports = Task;
    
@@ -191,7 +191,7 @@ A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Dla aplikacji tylk
             }
           });
         };
-5. Dodaj następujący kod, aby zdefiniować dodatkowe metody dla obiektu Task umożliwiające interakcje z danymi przechowywanymi w tabeli:
+5. Dodaj hello następującego kodu toodefine dodatkowe metody dla obiektu zadania hello, umożliwiające interakcje z danymi przechowywanymi w tabeli hello:
    
         Task.prototype = {
           find: function(query, callback) {
@@ -207,7 +207,7 @@ A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Dla aplikacji tylk
    
           addItem: function(item, callback) {
             self = this;
-            // use entityGenerator to set types
+            // use entityGenerator tooset types
             // NOTE: RowKey must be a string type, even though
             // it contains a GUID in this example.
             var itemDescriptor = {
@@ -241,13 +241,13 @@ A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Dla aplikacji tylk
             });
           }
         }
-6. Zapisz i Zamknij **task.js** pliku.
+6. Zapisz i zamknij hello **task.js** pliku.
 
 ### <a name="create-a-controller"></a>Tworzenie kontrolera
-A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
+A *kontrolera* obsługi żądań HTTP i renderuje odpowiedź hello HTML.
 
-1. W **tasklist/trasy** katalogu, Utwórz nowy plik o nazwie **tasklist.js** i otwórz go w edytorze tekstów.
-2. Dodaj następujący kod do pliku **tasklist.js**. Spowoduje to załadowanie modułów azure i async, które są używane przez **tasklist.js**. Definiuje również **TaskList** funkcji, która została przekazana wystąpienia **zadań** zdefiniowanego wcześniej:
+1. W hello **tasklist/trasy** katalogu, Utwórz nowy plik o nazwie **tasklist.js** i otwórz go w edytorze tekstów.
+2. Dodaj hello zbyt następującego kodu**tasklist.js**. Spowoduje to załadowanie modułów hello azure i async, które są używane przez **tasklist.js**. Definiuje również hello **TaskList** funkcji, która przekazuje wystąpienie hello **zadań** zdefiniowanego wcześniej:
    
         var azure = require('azure-storage');
         var async = require('async');
@@ -258,7 +258,7 @@ A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
         function TaskList(task) {
           this.task = task;
         }
-4. Dodaj następujące metody umożliwiające **TaskList**:
+4. Dodaj następujące metody zbyt hello**TaskList**:
    
         TaskList.prototype = {
           showTasks: function(req, res) {
@@ -303,8 +303,8 @@ A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
         }
 
 ### <a name="modify-appjs"></a>Modyfikowanie pliku app.js
-1. Z **tasklist** katalogu, otwórz **app.js** pliku. Ten plik został utworzony wcześniej przez uruchomienie **express** polecenia.
-2. Na początku pliku Dodaj następujące polecenie, aby załadować moduł azure, ustaw nazwę tabeli klucza partycji i Ustaw poświadczenia magazynu użyte w tym przykładzie:
+1. Z hello **tasklist** hello katalogu, otwórz **app.js** pliku. Ten plik został utworzony wcześniej przez uruchomienie hello **express** polecenia.
+2. Na początku hello pliku hello, Dodaj powitania po tooload hello azure modułu, nazwa tabeli hello zestawu klucz partycji i poświadczenia magazynu hello zestaw używany w tym przykładzie:
    
         var azure = require('azure-storage');
         var nconf = require('nconf');
@@ -316,15 +316,15 @@ A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
         var accountKey = nconf.get("STORAGE_KEY");
    
    > [!NOTE]
-   > nconf załaduje wartości konfiguracji z obu zmiennych środowiskowych lub **config.json** pliku, który zostanie utworzony później.
+   > nconf załaduje hello konfiguracji wartości zmiennych środowiskowych lub hello **config.json** pliku, który zostanie utworzony później.
    > 
    > 
-3. W pliku app.js przewiń w dół, do której występuje następujący wiersz:
+3. W pliku app.js hello, przewiń w dół toowhere widzisz hello następujący wiersz:
    
         app.use('/', routes);
         app.use('/users', users);
    
-    Zamień wiersze powyżej kodu pokazano poniżej. Spowoduje to zainicjować wystąpienia <strong>zadań</strong> z połączeniem z konta magazynu. To jest przekazywana do <strong>TaskList</strong>, który zostanie użyty do komunikowania się z usługą tabeli:
+    Zastąp hello powyżej wierszy kodu hello pokazano poniżej. Spowoduje to zainicjować wystąpienia <strong>zadań</strong> z kontem magazynu tooyour połączenia. To jest przekazywany toohello <strong>TaskList</strong>, którego użyje on toocommunicate z hello usługa tabel:
    
         var TaskList = require('./routes/tasklist');
         var Task = require('./models/task');
@@ -334,11 +334,11 @@ A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
         app.get('/', taskList.showTasks.bind(taskList));
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
-4. Zapisz **app.js** pliku.
+4. Zapisz hello **app.js** pliku.
 
-### <a name="modify-the-index-view"></a>Zmodyfikuj widok indeksu
-1. Otwórz **tasklist/views/index.jade** plik w edytorze tekstów.
-2. Zastąp całą zawartość pliku następującym kodem. Określa widok, w którym wyświetlane istniejące zadania oraz formularz służący do dodawania nowych zadań i oznaczenie istniejących jako ukończone.
+### <a name="modify-hello-index-view"></a>Zmodyfikuj widok indeksu hello
+1. Otwórz hello **tasklist/views/index.jade** plik w edytorze tekstów.
+2. Zastąp całą zawartość pliku hello hello hello następującego kodu. Określa widok, w którym wyświetlane istniejące zadania oraz formularz służący do dodawania nowych zadań i oznaczenie istniejących jako ukończone.
    
         extends layout
    
@@ -378,12 +378,12 @@ A *kontrolera* obsługi żądań HTTP i renderuje odpowiedzi HTML.
             button.btn(type="submit") Add item
 3. Zapisz i Zamknij **index.jade** pliku.
 
-### <a name="modify-the-global-layout"></a>Modyfikowanie globalnych układu
-**Layout.jade** w pliku **widoków** katalog jest szablon globalny dla innych **jade** plików. W tym kroku zmodyfikujesz go do korzystania ze [Twitter Bootstrap](https://github.com/twbs/bootstrap), która jest zestawem narzędzi ułatwiającym projektowanie nieuprzywilejowany wyglądającej aplikacji sieci web.
+### <a name="modify-hello-global-layout"></a>Modyfikuj hello układ globalne
+Witaj **layout.jade** pliku w hello **widoków** katalog jest szablon globalny dla innych **jade** plików. W tym kroku zmodyfikujesz go toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), która jest zestawem narzędzi, który umożliwia łatwe toodesign nieuprzywilejowany wyglądającej aplikacji sieci web.
 
-Pobierz i Wyodrębnij pliki do [Twitter Bootstrap](http://getbootstrap.com/). Kopiuj **bootstrap.min.css** pliku z ładowania początkowego programu **css** do folderu **publiczne/arkusze stylów** katalogu aplikacji.
+Pobierać i wyodrębniać pliki hello [Twitter Bootstrap](http://getbootstrap.com/). Hello kopiowania **bootstrap.min.css** pliku z hello Bootstrap **css** folderu do hello **publiczne/arkusze stylów** katalogu aplikacji.
 
-Z **widoków** folder, otwórz **layout.jade** i Zastąp całą zawartość następującym kodem:
+Z hello **widoków** folder, otwórz **layout.jade** i Zastąp całą zawartość hello hello następujące czynności:
 
     doctype html
     html
@@ -398,7 +398,7 @@ Z **widoków** folder, otwórz **layout.jade** i Zastąp całą zawartość nast
         block content
 
 ### <a name="create-a-config-file"></a>Utwórz plik konfiguracji
-Aby uruchomić aplikację lokalnie, będzie testujemy poświadczeń usługi Azure Storage w pliku konfiguracji. Utwórz plik o nazwie **config.json* * z następujących JSON:
+toorun lokalnie aplikacji hello, będzie testujemy poświadczeń usługi Azure Storage w pliku konfiguracji. Utwórz plik o nazwie **config.json* * z powitania po JSON:
 
     {
         "STORAGE_NAME": "<storage account name>",
@@ -407,7 +407,7 @@ Aby uruchomić aplikację lokalnie, będzie testujemy poświadczeń usługi Azur
         "TABLE_NAME": "tasks"
     }
 
-Zastąp **nazwy konta magazynu** o nazwie magazynu konta utworzonego wcześniej i Zastąp **klucz dostępu do magazynu** z podstawowy klucz dostępu dla konta magazynu. Na przykład:
+Zastąp **nazwy konta magazynu** o nazwie hello magazynu hello konta utworzonego wcześniej i Zastąp **klucz dostępu do magazynu** z hello podstawowy klucz dostępu dla konta magazynu. Na przykład:
 
     {
         "STORAGE_NAME": "nodejsappstorage",
@@ -416,77 +416,77 @@ Zastąp **nazwy konta magazynu** o nazwie magazynu konta utworzonego wcześniej 
         "TABLE_NAME": "tasks"
     }
 
-Zapisz ten plik *poziomu katalogów wyższych* niż **tasklist** katalogu w następujący sposób:
+Zapisz ten plik *poziomu katalogów wyższych* niż hello **tasklist** katalogu w następujący sposób:
 
     parent/
       |-- config.json
       |-- tasklist/
 
-Przyczyna w ten sposób jest uniknięcie sprawdzania pliku konfiguracji do kontroli źródła, gdzie mogą być publiczny. Firma Microsoft wdrażania aplikacji na platformie Azure, użyjemy zmienne środowiskowe zamiast pliku konfiguracji.
+Przyczyna Hello w ten sposób jest tooavoid sprawdzanie hello pliku konfiguracji do kontroli źródła, gdzie mogą być publiczny. Firma Microsoft wdrażania tooAzure aplikacji hello, użyjemy zmienne środowiskowe zamiast pliku konfiguracji.
 
-## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
-Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynności:
+## <a name="run-hello-application-locally"></a>Uruchamianie aplikacji hello lokalnie
+Aplikacja hello tootest na komputerze lokalnym, wykonywać hello następujące kroki:
 
-1. W wierszu polecenia Zmień katalog na **tasklist** katalogu.
-2. Aby uruchomić aplikację lokalnie, użyj następującego polecenia:
+1. Z wiersza polecenia hello, zmień katalogi toohello **tasklist** katalogu.
+2. Użyj hello następujące polecenie lokalnie aplikacji hello toolaunch:
    
         npm start
-3. Otwórz przeglądarkę sieci web i przejdź do http://127.0.0.1:3000.
+3. Otwórz przeglądarkę sieci web i przejdź toohttp://127.0.0.1:3000.
    
-    Zostanie wyświetlona strona sieci web podobny do poniższego przykładu.
+    Zostanie wyświetlona strona sieci web toohello podobne, poniższy przykład.
    
     ![Wyświetlanie tasklist puste strony sieci Web][node-table-finished]
-4. Aby utworzyć nowe zadanie do wykonania, wprowadź nazwę i kategorii, a następnie kliknij przycisk **Dodaj element**. 
-5. Aby oznaczyć zadanie jako zakończone, sprawdź **Complete** i kliknij przycisk **zadania aktualizacji**.
+4. toocreate nowe zadanie do wykonania, wprowadź nazwę i kategorii i kliknij przycisk **Dodaj element**. 
+5. zadanie jako zakończone, sprawdź toomark **Complete** i kliknij przycisk **zadania aktualizacji**.
    
-    ![Obraz nowego elementu na liście zadań][node-table-list-items]
+    ![Obraz powitania nowy element hello listy zadań][node-table-list-items]
 
-Mimo że aplikacja działa lokalnie, danych jest przechowywana w usłudze tabel Azure.
+Mimo że aplikacja hello działa lokalnie, hello danych jest przechowywana w hello usługi tabel Azure.
 
-## <a name="deploy-your-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
-Kroki opisane w tej sekcji umożliwiają tworzenie nowej aplikacji sieci web w usłudze App Service narzędzia wiersza polecenia platformy Azure, a następnie użyj Git do wdrożenia aplikacji. Aby wykonać te czynności musi mieć subskrypcję platformy Azure.
+## <a name="deploy-your-application-tooazure"></a>Wdrażanie tooAzure Twojej aplikacji
+kroki Hello w tej sekcji Użyj toocreate narzędzi wiersza polecenia platformy Azure hello nowej aplikacji sieci web w usłudze App Service, a następnie użyj Git toodeploy aplikacji. tooperform następujące kroki, musi mieć subskrypcję platformy Azure.
 
 > [!NOTE]
-> Można także wykonać te czynności przy użyciu [Azure Portal](https://portal.azure.com/). Zobacz [tworzenia i wdrażania aplikacji sieci web Node.js w usłudze Azure App Service].
+> Można także wykonać te czynności przy użyciu hello [Azure Portal](https://portal.azure.com/). Zobacz [tworzenia i wdrażania aplikacji sieci web Node.js w usłudze Azure App Service].
 > 
-> Jeśli jest to pierwszej aplikacji sieci web, które zostały utworzone, należy wdrożyć tę aplikację za pomocą portalu Azure.
+> Jeśli jest to hello pierwszej aplikacji sieci web utworzone, należy użyć hello toodeploy Azure Portal tej aplikacji.
 > 
 > 
 
-Aby rozpocząć pracę, należy zainstalować [interfejsu wiersza polecenia Azure] , wprowadzając następujące polecenie w wierszu polecenia:
+tooget pracę, zainstaluj hello [interfejsu wiersza polecenia Azure] , wprowadzając następujące polecenie z wiersza polecenia hello hello:
 
     npm install azure-cli -g
 
 ### <a name="import-publishing-settings"></a>Importowanie ustawień publikowania
 W tym kroku pobierze plik zawierający informacje o Twojej subskrypcji.
 
-1. Wprowadź następujące polecenie:
+1. Wprowadź hello następujące polecenie:
    
         azure login
    
-    To polecenie spowoduje uruchomienie przeglądarki i przechodzi do strony pobierania. W przypadku wyświetlenia monitu zaloguj się przy użyciu konta skojarzonego z subskrypcją platformy Azure.
+    To polecenie spowoduje uruchomienie przeglądarki i przechodzi do strony pobierania toohello. W przypadku wyświetlenia monitu zaloguj się przy użyciu konta hello skojarzonego z subskrypcją platformy Azure.
    
-    <!-- ![The download page][download-publishing-settings] -->
+    <!-- ![hello download page][download-publishing-settings] -->
    
-    Pobieranie pliku rozpoczyna się automatycznie. Jeśli nie, kliknięcie łącza na początku strony, aby ręcznie pobrać plik. Zapisz plik i Zanotuj ścieżkę pliku.
-2. Wprowadź następujące polecenie, aby zaimportować ustawienia:
+    Pobieranie pliku Hello rozpoczyna się automatycznie. Jeśli nie, mogą kliknąć link hello na początku hello hello strony toomanually pobierania hello pliku. Zapisz hello plików i Uwaga hello ścieżkę pliku.
+2. Wprowadź następujące ustawienia hello tooimport polecenia hello:
    
         azure account import <path-to-file>
    
-    Określ ścieżkę i nazwę pliku ustawień publikowania, który został pobrany w poprzednim kroku.
-3. Zaimportowane ustawienia, należy usunąć plik ustawień publikowania. Nie jest już potrzebne i zawiera poufne informacje dotyczące subskrypcji platformy Azure.
+    Podaj nazwę i ścieżka pliku hello hello publikowania w poprzednim kroku hello pobranego pliku ustawień.
+3. Zaimportowane ustawienia hello usunąć hello pliku ustawień publikowania. Nie jest już potrzebne i zawiera poufne informacje dotyczące subskrypcji platformy Azure.
 
 ### <a name="create-an-app-service-web-app"></a>Tworzenie aplikacji sieci web usługi aplikacji
-1. W wierszu polecenia Zmień katalog na **tasklist** katalogu.
-2. Użyj następującego polecenia, aby utworzyć nową aplikację sieci web.
+1. Z wiersza polecenia hello, zmień katalogi toohello **tasklist** katalogu.
+2. Użyj hello następujące polecenia toocreate nowej aplikacji sieci web.
    
         azure site create --git
    
-    Pojawi się monit dla nazwy aplikacji sieci web i lokalizacji. Podaj unikatową nazwę i wybierz tej samej lokalizacji geograficznej co konto magazynu Azure.
+    Pojawi się monit dla nazwy aplikacji sieci web hello i lokalizacji. Podaj unikatową nazwę i wybierz hello tej samej lokalizacji geograficznej co konto magazynu Azure.
    
-    `--git` Parametr tworzy repozytorium Git na platformie Azure dla tej aplikacji sieci web. Inicjuje również repozytorium Git w bieżącym katalogu, jeśli nie istnieje i dodaje [zdalnego Git] o nazwie "azure", która jest używana do publikowania aplikacji na platformie Azure. Na koniec tworzy **web.config** pliku, który zawiera ustawienia używane przez usługę Azure umożliwia obsługę aplikacji węzła. W przypadku pominięcia `--git` parametr, ale katalog zawiera repozytorium Git, polecenie nadal utworzy azure zdalnego.
+    Witaj `--git` parametru tworzy repozytorium Git na platformie Azure dla tej aplikacji sieci web. Inicjuje również repozytorium Git w bieżącym katalogu hello Jeśli brak istnieje i dodaje [zdalnego Git] o nazwie "azure", która jest tooAzure aplikacji hello toopublish używane. Na koniec tworzy **web.config** pliku, który zawiera ustawienia używane przez aplikacje węzła toohost platformy Azure. W przypadku pominięcia hello `--git` parametr, ale hello katalog zawiera repozytorium Git, polecenie hello nadal utworzy zdalnego hello "azure".
    
-    Po ukończeniu tego polecenia, zostanie wyświetlone dane wyjściowe podobne do następującego. Należy pamiętać, że wiersz, począwszy od **witryny sieci Web utworzonego w dniu** zawiera adres URL aplikacji sieci web.
+    Po ukończeniu tego polecenia, zostanie wyświetlone dane wyjściowe podobne toohello poniżej. Należy pamiętać, że powitania od wiersza z **witryny sieci Web utworzonego w dniu** zawiera adres URL hello hello aplikacji sieci web.
    
         info:   Executing command site create
         help:   Need a site name
@@ -502,33 +502,33 @@ W tym kroku pobierze plik zawierający informacje o Twojej subskrypcji.
         info:   site create command OK
    
    > [!NOTE]
-   > Jeśli jest to pierwszej aplikacji sieci web usługi aplikacji — dla Twojej subskrypcji, pojawi się instrukcja za pomocą portalu Azure do utworzenia aplikacji sieci web. Aby uzyskać więcej informacji, zobacz [tworzenia i wdrażania aplikacji sieci web Node.js w usłudze Azure App Service].
+   > Jeśli jest to hello pierwszej aplikacji usługi aplikacji sieci web dla Twojej subskrypcji, będzie aplikacji sieci web hello toocreate instrukcją toouse hello portalu Azure. Aby uzyskać więcej informacji, zobacz [tworzenia i wdrażania aplikacji sieci web Node.js w usłudze Azure App Service].
    > 
    > 
 
 ### <a name="set-environment-variables"></a>Ustaw zmienne środowiskowe
-W tym kroku zmiennych środowiskowych zostaną dodane do konfiguracji aplikacji sieci web na platformie Azure.
-W wierszu polecenia wprowadź następujące informacje:
+W tym kroku zostaną dodane konfiguracji aplikacji sieci web tooyour zmienne środowiskowe na platformie Azure.
+Z wiersza polecenia hello wprowadź następujące hello:
 
     azure site appsetting add
         STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Zastąp  **<storage account name>**  o nazwie magazynu konta utworzonego wcześniej i Zastąp  **<storage access key>**  z podstawowy klucz dostępu dla konta magazynu. (Użyj tej samej wartości jako plik config.json, który został utworzony wcześniej).
+Zastąp  **<storage account name>**  o nazwie hello magazynu hello konta utworzonego wcześniej i Zastąp  **<storage access key>**  z hello podstawowy klucz dostępu dla konta magazynu. (Użyj hello takie same wartości jak wcześniej utworzony plik config.json hello).
 
-Alternatywnie można ustawić zmienne środowiskowe [Azure Portal](https://portal.azure.com/):
+Alternatywnie można ustawić zmienne środowiskowe w hello [Azure Portal](https://portal.azure.com/):
 
-1. Otwarcie bloku aplikacji sieci web, klikając **Przeglądaj** > **aplikacje sieci Web** > Nazwa aplikacji sieci web.
+1. Otwarcie bloku aplikacji sieci web hello klikając **Przeglądaj** > **aplikacje sieci Web** > Nazwa aplikacji sieci web.
 2. W bloku aplikacja sieci web, kliknij przycisk **wszystkie ustawienia** > **ustawienia aplikacji**.
    
      <!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
-3. Przewiń w dół do **ustawień aplikacji** i Dodaj pary klucz wartość.
+3. Przewiń w dół toohello **ustawień aplikacji** i Dodaj hello pary klucz wartość.
    
      ![Ustawienia aplikacji](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
 4. Kliknij przycisk **SAVE** (Zapisz).
 
-### <a name="publish-the-application"></a>Publikowanie aplikacji
-Aby opublikować aplikację, Przekaż plików kodu do Git, a następnie Wypchnij azure/wzorzec.
+### <a name="publish-hello-application"></a>Publikowanie aplikacji hello
+Aplikacja hello toopublish, zatwierdzić tooGit plików kodu hello, a następnie Wypchnij tooazure/główną.
 
 1. Ustaw poświadczenia wdrażania.
    
@@ -537,24 +537,24 @@ Aby opublikować aplikację, Przekaż plików kodu do Git, a następnie Wypchnij
    
         git add .
         git commit -m "adding files"
-3. Wypchnij zatwierdzenia do aplikacji sieci web usługi aplikacji:
+3. Wypchnij hello zatwierdzania toohello aplikacji sieci web usługi aplikacji:
    
         git push azure master
    
-    Użyj **wzorca** jako gałęzi docelowej. Po zakończeniu wdrażania zobacz temat instrukcję podobny do poniższego przykładu:
+    Użyj **wzorca** jako hello gałęzi docelowej. Na końcu hello hello wdrożenia zobacz temat instrukcji toohello podobne, poniższy przykład:
    
-        To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
+        toohttps://username@tabletasklist.azurewebsites.net/TableTasklist.git
           * [new branch]      master -> master
-4. Po ukończeniu operacji wypychania, przejdź do adresu URL aplikacji sieci web, które zostały wcześniej zwrócony przez `azure create site` polecenie, aby wyświetlić aplikację.
+4. Po zakończeniu operacji push hello Przeglądaj URL aplikacji sieci web toohello wcześniej zwrócony przez hello `azure create site` polecenia tooview aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
-Podczas czynności opisane w tym artykule opisano przy użyciu usługi tabel do przechowywania informacji, można również użyć [MongoDB](https://mlab.com/azure/). 
+Gdy hello w tym artykule opisano przy użyciu informacji o toostore usługi tabel hello, można również użyć [MongoDB](https://mlab.com/azure/). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 [interfejsu wiersza polecenia Azure]
 
 ## <a name="whats-changed"></a>Co zostało zmienione
-* Przewodnik dotyczący przejścia od usługi Witryny sieci Web do usługi App Service można znaleźć w temacie [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714) (Usługa Azure App Service i jej wpływ na istniejące usługi platformy Azure).
+* Toohello przewodnik zmiany z tooApp witryn sieci Web usługi dla: [usłudze Azure App Service i jej wpływ na istniejące usługi platformy Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- URLs -->
 
@@ -576,7 +576,7 @@ Podczas czynności opisane w tym artykule opisano przy użyciu usługi tabel do 
 
 [Azure Portal]: https://portal.azure.com
 
-[Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application tooan Azure Web Site]: app-service-web-get-started-nodejs.md
 
 <!-- Image References -->
 

@@ -1,6 +1,6 @@
 ---
-title: "Jak wykonać zapytanie dotyczące tabeli danych w usłudze Azure DB rozwiązania Cosmos? | Microsoft Docs"
-description: "Dowiedz się, jak dane tabeli zapytania w usłudze Azure DB rozwiązania Cosmos"
+title: "dane tabeli tooquery aaaHow w usłudze Azure DB rozwiązania Cosmos? | Microsoft Docs"
+description: "Dowiedz się tooquery tabeli danych w usłudze Azure DB rozwiązania Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: kanshiG
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 32526c3488c589c5be3a4a2f174aa769570f0c0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie tabeli danych przy użyciu interfejsu API tabeli (wersja zapoznawcza)?
+# <a name="azure-cosmos-db-how-tooquery-table-data-by-using-hello-table-api-preview"></a>Azure DB rozwiązania Cosmos: Jak tooquery tabeli danych przy użyciu hello tabeli interfejsu API (wersja zapoznawcza)?
 
-Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) (wersja zapoznawcza) obsługuje OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) zapytań dotyczących danych klucz wartość (tabeli).  
+Hello Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) (wersja zapoznawcza) obsługuje OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) zapytań dotyczących danych klucz wartość (tabeli).  
 
-W tym artykule opisano następujące zadania: 
+W tym artykule omówiono hello następujące zadania: 
 
 > [!div class="checklist"]
-> * Wykonywanie zapytania na danych przy użyciu interfejsu API tabeli
+> * Wykonywanie zapytania na danych z hello tabeli interfejsu API
 
-Zapytania w tym artykule, skorzystaj z poniższego przykładu `People` tabeli:
+Witaj zapytania w tym artykule Użyj hello następujące przykładowe `People` tabeli:
 
 | PartitionKey | RowKey | Adres e-mail | Numer telefonu |
 | --- | --- | --- | --- |
@@ -38,16 +38,16 @@ Zapytania w tym artykule, skorzystaj z poniższego przykładu `People` tabeli:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jan | Jeff@contoso.com| 425-555-0104 | 
 
-Ponieważ bazy danych Azure rozwiązania Cosmos jest zgodny z interfejsami API magazynu tabel Azure, zobacz [badania tabel i jednostek] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) Aby uzyskać więcej informacji na temat sposobu zapytania przy użyciu tabeli INTERFEJS API. 
+Ponieważ bazy danych Azure rozwiązania Cosmos jest zgodny z hello interfejsów API magazynu tabel Azure, zobacz [badania tabel i jednostek] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) szczegółowe informacje na temat sposobu hello tooquery przy użyciu Tabela interfejsu API. 
 
-Aby uzyskać więcej informacji na możliwości premium, które oferuje bazy danych rozwiązania Cosmos Azure, zobacz [bazy danych Azure rozwiązania Cosmos: API tabeli](table-introduction.md) i [opracowanie przy użyciu interfejsu API tabeli w programie .NET](tutorial-develop-table-dotnet.md). 
+Aby uzyskać więcej informacji na powitania premium możliwości, które oferuje bazy danych rozwiązania Cosmos Azure, zobacz [bazy danych Azure rozwiązania Cosmos: Tabela interfejsu API](table-introduction.md) i [opracowanie z hello tabeli interfejs API .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dla tych zapytań do pracy musi mieć konto bazy danych Azure rozwiązania Cosmos i danych jednostki w kontenerze. Nie masz żadnego z tych? Zakończenie [szybkiego startu 5 minutową](https://aka.ms/acdbtnetqs) lub [samouczek developer](https://aka.ms/acdbtabletut) Tworzenie konta usługi i umieścić w bazie danych.
+Dla tych toowork zapytania musi mieć konto bazy danych Azure rozwiązania Cosmos i danych jednostki w kontenerze hello. Nie masz żadnego z tych? Zakończenie hello [szybkiego startu 5 minutową](https://aka.ms/acdbtnetqs) lub hello [samouczek developer](https://aka.ms/acdbtabletut) toocreate konta i wypełnić bazę danych.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Zapytanie dotyczące PartitionKey i RowKey
-Ponieważ właściwości PartitionKey i RowKey tworzą klucza podstawowego jednostki, aby zidentyfikować jednostki można użyć następującej składni specjalne: 
+Ponieważ właściwości PartitionKey i RowKey hello tworzą klucza podstawowego jednostki, można użyć powitania po jednostki hello tooidentify specjalnej składni: 
 
 **Zapytanie**
 
@@ -60,17 +60,17 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
-Alternatywnie można określić właściwości jako część `$filter` opcji, jak pokazano w poniższej sekcji. Należy pamiętać, że nazw właściwości kluczy i wartości stałe jest rozróżniana wielkość liter. Właściwości PartitionKey i RowKey są typu ciąg. 
+Alternatywnie można określić właściwości jako część hello `$filter` opcji, jak pokazano w hello następujących sekcji. Należy pamiętać, że hello nazw właściwości kluczy i wartości stałe jest rozróżniana wielkość liter. Zarówno hello PartitionKey i właściwości RowKey są typu ciąg. 
 
 ## <a name="query-by-using-an-odata-filter"></a>Zapytanie za pomocą filtru OData
 Gdy w przypadku tworzenia ciąg filtru, pamiętać o tych reguł: 
 
-* Aby porównać właściwości na wartość, należy użyć operatorów logicznych w specyfikacji protokołu OData. Należy pamiętać, że nie można porównać właściwości na wartość dynamiczną. Po jednej stronie wyrażenia musi być stałą. 
-* Nazwa właściwości, operator i wartość stała muszą być oddzielone spacjami zakodowane w adresie URL. Odstęp jest zakodowane w adresie URL jako `%20`. 
-* Wszystkie części ciąg filtru jest rozróżniana wielkość liter. 
-* Stała wartość musi być tego samego typu danych jako wartość właściwości w kolejności filtru do zwrócenia prawidłowe wyniki. Aby uzyskać więcej informacji na temat typów obsługiwanych właściwości zobacz [opis modelu danych usługi tabel](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
+* Operatory logiczne hello Użyj zdefiniowany przez toocompare Specyfikacja protokołu OData hello tooa wartości właściwości. Należy pamiętać, że nie można porównać wartości właściwości dynamicznych tooa. Po jednej stronie powitania wyrażenie musi być stałą. 
+* Hello nazwę właściwości, operator i wartość stała muszą być oddzielone spacjami zakodowane w adresie URL. Odstęp jest zakodowane w adresie URL jako `%20`. 
+* Wszystkie części hello ciąg filtru jest rozróżniana wielkość liter. 
+* musi być wartością stałą Hello hello tych samych danych typu jako właściwość hello aby hello filtru tooreturn prawidłowe wyniki. Aby uzyskać więcej informacji na temat typów obsługiwanych właściwości zobacz [hello opis modelu danych usługi tabel](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
 
-Poniżej przedstawiono przykładowe zapytanie, które pokazuje, jak do filtrowania według właściwości PartitionKey i poczty E-mail przy użyciu OData `$filter`.
+Poniżej przedstawiono przykładowe zapytanie, które pokazuje, jak toofilter przez hello PartitionKey i E-mail właściwości przy użyciu OData `$filter`.
 
 **Zapytanie**
 
@@ -78,7 +78,7 @@ Poniżej przedstawiono przykładowe zapytanie, które pokazuje, jak do filtrowan
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Aby uzyskać więcej informacji dotyczących sposobu tworzenia wyrażenia filtru dla różnych typów danych, zobacz [badania tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Aby uzyskać więcej informacji dotyczących sposobu tooconstruct filtru wyrażeń dla różnych typów danych, zobacz [badania tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
 **Wyniki**
 
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji dotyczących sposobu tworzenia wyrażenia filtru
 | Ben |Smith | Ben@contoso.com| 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>Zapytanie za pomocą LINQ 
-Możesz także zbadać za pomocą LINQ, co oznacza odpowiedniego wyrażenia zapytania OData. Oto przykład sposobu tworzenia zapytań przy użyciu zestawu .NET SDK:
+Możesz także zbadać za pomocą LINQ, który tłumaczy toohello odpowiedniego wyrażenia zapytania OData. Poniżej przedstawiono przykład sposobu toobuild zapytania przy użyciu hello zestawu .NET SDK:
 
 ```csharp
 CloudTableClient tableClient = account.CreateCloudTableClient();
@@ -106,12 +106,12 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wykonaniu następujących czynności:
+W tym samouczku wykonaniu hello następujące czynności:
 
 > [!div class="checklist"]
-> * Przedstawiono sposób tworzenia zapytań przy użyciu interfejsu API tabeli (wersja zapoznawcza) 
+> * Przedstawiono sposób tooquery przy użyciu hello tabeli interfejsu API (wersja zapoznawcza) 
 
-Możesz teraz przejść do następnym samouczku informacje na temat dystrybucji danych globalnie.
+Można teraz kontynuować toohello następny samouczek toolearn jak toodistribute danych globalnie.
 
 > [!div class="nextstepaction"]
 > [Globalny dystrybucji danych](tutorial-global-distribution-documentdb.md)

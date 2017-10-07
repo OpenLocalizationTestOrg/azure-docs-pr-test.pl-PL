@@ -1,6 +1,6 @@
 ---
-title: "Migracja z usług mobilnych do aplikacji mobilnej usługi aplikacji"
-description: "Dowiedz się, jak łatwo przeprowadzić migrację aplikacji usługi Mobile Services do aplikacji usługi Mobile App Service"
+title: "aaaMigrate z usługi Mobile Services tooan aplikację usługi Mobile aplikacji"
+description: "Dowiedz się, jak tooeasily migracji z tooan aplikacji usługi Mobile Services aplikację usługi Mobile aplikacji"
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
-ms.openlocfilehash: 16cf05f62602e494affed49e466209b68413e53a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cd2e8d98595703389300b79da9bf51cdcefe7b40
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="article-top"></a>Migracji istniejącej usługi mobilnej Azure w usłudze Azure App Service
-Z [ogólnej dostępności usługi Azure App Service], lokacji usług Azure Mobile Services można łatwo migracji w miejscu, aby korzystać ze wszystkich funkcji usługi Azure App Service.  W tym dokumencie opisano, czego można oczekiwać podczas migracji lokacji z usług Azure Mobile Services w usłudze Azure App Service.
+# <a name="article-top"></a>Migrowanie istniejących tooAzure usługi mobilnej Azure App Service
+Z hello [ogólnej dostępności usługi Azure App Service], mogą być łatwo witryny usług Azure Mobile Services migracji w miejscu tootake zaletą wszystkich funkcji hello Azure App Service.  W tym dokumencie opisano jakie tooexpect podczas migracji lokacji z usług Azure Mobile Services tooAzure usługi aplikacji.
 
-## <a name="what-does-migration-do"></a>Migracja czego do swojej witryny
-Migracja usługi mobilnej Azure włącza usługi mobilnej do [usłudze Azure App Service] aplikacji bez wpływu na kod.  Centra powiadomień, połączenie danych SQL, ustawień uwierzytelniania, zaplanowane zadania i nazwy domeny pozostają niezmienione.  Klientów mobilnych za pomocą usługi mobilnej Azure w dalszym ciągu działać normalnie.  Migracji powoduje ponowne uruchomienie usługi, gdy są przesyłane do usługi Azure App Service.
+## <a name="what-does-migration-do"></a>Migracja czego tooyour lokacji
+Migracja usługi mobilnej Azure włącza usługi mobilnej do [usłudze Azure App Service] aplikacji bez wpływu na powitania kodu.  Centra powiadomień, połączenie danych SQL, ustawień uwierzytelniania, zaplanowane zadania i nazwy domeny pozostają niezmienione.  Klientów mobilnych za pomocą usługi mobilnej Azure nadal toooperate normalnie.  Migracja powoduje ponowne uruchomienie usługi po przekazanych tooAzure usługi aplikacji.
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 ## <a name="why-migrate"></a>Dlaczego należy dokonanie migracji lokacji
-Microsoft jest rekomendowania dokonać migracji z usługi mobilnej Azure, aby móc korzystać z funkcji usługi aplikacji Azure, w tym:
+Microsoft jest rekomendowania dokonać migracji z usługi mobilnej Azure tootake z zalet hello funkcji Azure App Service, w tym:
 
 * Nowe funkcje hosta, w tym [Webjob] i [niestandardowych nazw domen].
-* Łączność z zasobami lokalnymi przy użyciu [sieci wirtualnej] oprócz [połączeń hybrydowych].
+* Łączność tooyour zasobów lokalnych za pomocą [sieci wirtualnej] dodatkowo zbyt[połączeń hybrydowych].
 * Monitorowanie i rozwiązywanie problemów z usługi New Relic lub [usługi Application Insights].
 * Wbudowane narzędzia DevOps, łącznie z [przemieszczania miejsc], wycofywania i w środowisku produkcyjnym testowania.
 * [Automatyczne skalowanie], równoważenie obciążenia, a [monitorowania wydajności].
 
-Aby uzyskać więcej informacji o zaletach usługi Azure App Service, zobacz [vs usług Mobile Services. Usługi aplikacji] tematu.
+Aby uzyskać więcej informacji na powitania świadczenia usługi Azure App Service, zobacz hello [vs usług Mobile Services. Usługi aplikacji] tematu.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Przed rozpoczęciem głównych pracę, witryny, należy kopię zapasową skryptów usługi mobilnej i bazy danych SQL.
 
 ## <a name="migrating-site"></a>Migrowanie witryn
-Zostaną zmigrowane wszystkie lokacje w jednym regionie Azure.
+Witaj zostaną zmigrowane wszystkie lokacje w jednym regionie Azure.
 
-Aby przeprowadzić migrację witryny:
+toomigrate witryny:
 
-1. Zaloguj się do [klasycznego portalu Azure].
-2. Wybierz usługi mobilnej w regionie, w którym chcesz przeprowadzić migrację.
-3. Kliknij przycisk **migracji do usługi App Service** przycisku.
+1. Zaloguj się za toohello [klasycznego portalu Azure].
+2. Wybierz usługi mobilnej w regionie hello mają toomigrate.
+3. Kliknij przycisk hello **migracji tooApp usługi** przycisku.
 
-   ![Przycisk migracji][0]
-4. Przeczytaj migracji do okna dialogowego z usługi aplikacji.
-5. Wprowadź nazwę usługi mobilnej w odpowiednim polu.  Na przykład, jeśli nazwa domeny to contoso.azure mobile.net, wprowadź *contoso* w odpowiednim polu.
-6. Kliknij przycisk znaczników.
+   ![Witaj przycisk migracji][0]
+4. Przeczytaj hello migracji tooApp usługi w oknie dialogowym.
+5. Wprowadź nazwę hello usługi mobilnej w polu hello.  Na przykład, jeśli nazwa domeny to contoso.azure mobile.net, wprowadź *contoso* w polu hello.
+6. Przycisk hello znaczników.
 
-Monitorowanie stanu migracji w monitorze działania. Witryna jest wymienione jako *Migrowanie* w klasycznym portalu Azure.
+Monitorowanie stanu hello migracji hello w hello Monitora aktywności. Witryna jest wymienione jako *Migrowanie* w hello klasycznego portalu Azure.
 
   ![Monitorowanie aktywności migracji][1]
 
-Każdy migracja może zająć od 3 do 15 minut na migrowanym usługi mobilnej.  Witryna jest nadal dostępny w trakcie migracji.
-Witryna jest uruchamiany ponownie po zakończeniu procesu migracji.  Witryna jest niedostępna podczas procesu ponownego uruchomienia komputera, który może trwać kilka sekund.
+Każdy migracji może potrwać od 3 minuty too15 na migrowanym usługi mobilnej.  Witryna jest nadal dostępny w trakcie migracji hello.
+Witryna zostanie ponownie na końcu hello hello procesu migracji.  Witryna Hello jest niedostępna podczas hello ponownego uruchomienia procesu, który może trwać kilka sekund.
 
-## <a name="finalizing-migration"></a>Kończenie migracji
-Warto zaplanować testowanie witryny z klienta mobilnego po zakończeniu procesu migracji.  Upewnij się, że można wykonywać wszystkie typowe Akcje klienta bez wprowadzania zmian do klientów urządzeń przenośnych.  
+## <a name="finalizing-migration"></a>Finalizowanie hello migracji
+Planowanie tootest witryny z klienta mobilnego po zakończeniu hello hello procesu migracji.  Sprawdź, czy można wykonać wszystkich typowych akcji klienta bez klientów urządzeń przenośnych toohello zmiany.  
 
 ### <a name="update-app-service-tier"></a>Wybierz odpowiednią usługę aplikacji warstwy cenowej
-Uzyskuje się większą elastyczność w cenowej po zakończeniu migracji do usługi Azure App Service.
+Uzyskuje się większą elastyczność w cennik po przeprowadzeniu migracji tooAzure usługi aplikacji.
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **planu usługi App Service** w menu Ustawienia.
-5. Kliknij przycisk **warstwy cenowej** kafelka.
-6. Kliknij odpowiednie do własnych potrzeb, a następnie kliknij przycisk **wybierz**.  Może być konieczne kliknięcie **Wyświetl wszystkie** aby zobaczyć dostępne warstwy cenowe.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **planu usługi App Service** w menu Ustawienia hello.
+5. Kliknij przycisk hello **warstwy cenowej** kafelka.
+6. Kliknij hello kafelka tooyour odpowiednie wymagania, a następnie kliknij przycisk **wybierz**.  Może być konieczne tooClick **Wyświetl wszystkie** toosee hello dostępnych warstw cenowych.
 
-Jako punkt początkowy zaleca się następujące poziomy:
+Jako punkt początkowy zaleca się hello następujące warstwy:
 
 | Warstwy cenowej usługi mobilnej | Usługi aplikacji warstwy cenowej |
 |:--- |:--- |
@@ -84,89 +84,89 @@ Jako punkt początkowy zaleca się następujące poziomy:
 | Podstawowa |B1 Basic |
 | Standardowa |Standardowa S1 |
 
-Brak dużą elastyczność w wyborze prawo warstwę cenową dla aplikacji.  Zapoznaj się [App Service — ceny] szczegółowe informacje o cenach nowej usługi aplikacji.
+Brak dużą elastyczność w wyborze hello prawo warstwę cenową dla aplikacji.  Odwołuje się zbyt[App Service — ceny] Aby uzyskać szczegółowe informacje o cenach hello nowej usługi aplikacji.
 
 > [!TIP]
-> Zawiera warstwy standardowa usługi aplikacji dostęp do wielu funkcji, które chcesz użyć, w tym [przemieszczania miejsc], automatycznego tworzenia kopii zapasowej i automatyczne skalowanie.  Zapoznaj się z nowych funkcji, gdy istnieje!
+> Witaj warstwy standardowa usługi aplikacji zawiera funkcje toomany dostępu, które mogą podlegać toouse, łącznie z [przemieszczania miejsc], automatycznego tworzenia kopii zapasowej i automatyczne skalowanie.  Zapoznaj się hello nowe możliwości, gdy istnieje!
 >
 >
 
-### <a name="review-migration-scheduler-jobs"></a>Przejrzyj zadania migrowanych harmonogramu
-Harmonogram zadań nie będą widoczne dopiero po zakończeniu migracji około 30 minut.  Zaplanowane zadania nadal uruchomione w tle.
-Aby wyświetlić Twoje zaplanowane zadania są widoczne ponownie:
+### <a name="review-migration-scheduler-jobs"></a>Przejrzyj zadania harmonogramu migracji hello
+Harmonogram zadań nie będą widoczne dopiero po zakończeniu migracji około 30 minut.  Zaplanowane zadania nadal toorun w tle hello.
+tooview Twoje zaplanowane zadania po są widoczne ponownie:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **Przeglądaj >**, wprowadź **harmonogram** w *filtru* polu, a następnie wybierz **kolekcje harmonogramu**.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **Przeglądaj >**, wprowadź **harmonogram** w hello *filtru* polu, a następnie wybierz **kolekcje harmonogramu**.
 
-Istnieje ograniczona liczba wolnych harmonogram zadania dostępne po migracji.  Przejrzyj użycie i [plany harmonogramu Azure].
+Istnieje ograniczona liczba wolnych harmonogram zadania dostępne po migracji.  Przejrzyj użycia i hello [plany harmonogramu Azure].
 
 ### <a name="configure-cors"></a>Konfigurowanie mechanizmu CORS w razie potrzeby
-Współużytkowanie zasobów między źródłami to technika, aby umożliwić dostęp interfejs API sieci Web w innej domenie do witryny sieci Web.  Jeśli korzystasz z usług Azure Mobile Services z skojarzone witryny sieci Web, następnie należy skonfigurować CORS w ramach migracji.  Jeśli uzyskują dostęp do usług Azure Mobile Services wyłącznie z urządzeń przenośnych, CORS nie muszą być konfigurowane z wyjątkiem w rzadkich przypadkach.
+Współużytkowanie zasobów między źródłami to technika tooallow tooaccess witryny sieci Web interfejs API sieci Web w innej domenie.  Jeśli korzystasz z usług Azure Mobile Services z witryny sieci Web skojarzony, należy tooconfigure CORS w ramach migracji hello.  Jeśli uzyskują dostęp do usług Azure Mobile Services wyłącznie z urządzeń przenośnych, CORS nie musi toobe skonfigurowany z wyjątkiem w rzadkich przypadkach.
 
-Zmigrowane ustawienia mechanizmu CORS są dostępne jako **MS_CrossDomainWhitelist** ustawienia aplikacji.  Aby przeprowadzić migrację witryny w obiekcie mechanizmu CORS usługi App Service:
+Zmigrowane ustawienia mechanizmu CORS są dostępne jako hello **MS_CrossDomainWhitelist** ustawienia aplikacji.  toomigrate Twojego toohello lokacji zakładzie mechanizmu CORS usługi App Service:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **CORS** w menu interfejsu API.
-5. Wprowadź wszelkie dozwolone źródła w odpowiednim polu, naciskając klawisz Enter po każdym.
-6. Po liście dozwolone źródła jest poprawny, kliknij przycisk Zapisz.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **CORS** w menu hello interfejsu API.
+5. Wprowadź wszelkie dozwolone źródła w polu hello pod warunkiem, naciskając klawisz Enter po każdym.
+6. Po liście dozwolone źródła jest poprawny, kliknij przycisk Zapisz hello.
 
 > [!TIP]
-> Jest jedną z zalet funkcji Azure App Service można uruchamiać witryn sieci web i usługi mobilnej w na tej samej lokacji.  Aby uzyskać więcej informacji, zobacz [następne kroki](#next-steps) sekcji.
+> Jest jedną z zalet hello przy użyciu usługi Azure App Service można uruchamiać witryn sieci web i usługi mobilnej w na powitania tej samej lokacji.  Aby uzyskać więcej informacji, zobacz hello [następne kroki](#next-steps) sekcji.
 >
 >
 
 ### <a name="download-publish-profile"></a>Pobierz nowy profil publikowania
-Profil publikowania witryny jest zmieniany podczas migracji do usługi Azure App Service.  Zamierzasz opublikować witrynę sieci z poziomu programu Visual Studio, należy najpierw profilu publikowania.  Aby pobrać nowy profil publikowania:
+Hello profilu publikowania witryny jest zmieniany, gdy migracja tooAzure usługi aplikacji.  Jeśli planujesz toopublish witryny z poziomu programu Visual Studio, konieczne jest nowy profil publikowania.  toodownload hello nowy profil publikowania:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
 3. Kliknij przycisk **profilu publikowania Get**.
 
-Plik ustawień publikacji zostanie pobrana do komputera.  Jest to zwykle *sitename*. Ustawień publikacji.  Importowanie ustawień publikowania do istniejącego projektu:
+Plik ustawień publikacji Hello jest pobrany tooyour komputera.  Jest to zwykle *sitename*. Ustawień publikacji.  Importuj hello opublikować ustawienia do istniejącego projektu:
 
 1. Otwórz program Visual Studio i projekt usługi mobilnej Azure.
-2. Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **publikowania...**
+2. Kliknij prawym przyciskiem myszy projekt w hello **Eksploratora rozwiązań** i wybierz **publikowania...**
 3. Kliknij przycisk **importu**
 4. Kliknij przycisk **Przeglądaj** i wybierz z pobranego pliku ustawień publikowania.  Kliknij przycisk **OK**.
-5. Kliknij przycisk **sprawdzania poprawności połączenia** aby zapewnić działanie ustawień publikowania.
-6. Kliknij przycisk **publikowania** opublikowanie witryny.
+5. Kliknij przycisk **sprawdzania poprawności połączenia** tooensure hello opublikować ustawienia pracę.
+6. Kliknij przycisk **publikowania** toopublish witryny.
 
 ## <a name="working-with-your-site"></a>Praca z Twojej lokacji po migracji
-Rozpocząć pracę z usługą nowych aplikacji w [Azure Portal] po migracji.  Poniżej przedstawiono niektóre informacje o na określonych operacji, które zostały użyte do wykonania w [klasycznego portalu Azure], wraz z ich odpowiedniki usługi aplikacji.
+Rozpocząć pracę z usługą nowych aplikacji w hello [portalu Azure] po migracji.  Witaj poniżej przedstawiono niektóre informacje o na określonych operacji używane tooperform w hello [klasycznego portalu Azure], wraz z ich odpowiedniki usługi aplikacji.
 
 ### <a name="publishing-your-site"></a>Pobieranie i publikowanie migrowanych witryny
-Witryna jest dostępna za pośrednictwem git i ftp i należy ponownie opublikować z różnych mechanizmów różne, w tym WebDeploy, TFS Mercurial, GitHub i FTP.  Poświadczenia wdrożenia są migrowane z resztą witryny.  Jeśli nie określono poświadczeń wdrożenia lub nie pamiętać, można zresetować je:
+Witryna jest dostępna za pośrednictwem git i ftp i należy ponownie opublikować z różnych mechanizmów różne, w tym WebDeploy, TFS Mercurial, GitHub i FTP.  poświadczenia wdrożenia Hello są migrowane z pozostałą hello witryny.  Jeśli nie określono poświadczeń wdrożenia lub nie pamiętać, można zresetować je:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **poświadczenia wdrażania** w publikacji menu.
-5. Wprowadź nowe poświadczenia wdrożenia w odpowiednich polach, a następnie kliknij przycisk Zapisz.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **poświadczenia wdrażania** w hello publikowania menu.
+5. Wprowadź nowe poświadczenia wdrożenia hello w dostępnych polach hello, a następnie kliknij przycisk Zapisz hello.
 
-Te poświadczenia można użyć do witryny za pomocą narzędzia git clone lub konfigurowanie zautomatyzowanych wdrożeń z usługi GitHub, TFS lub Mercurial.  Aby uzyskać więcej informacji, zobacz [dokumentacja wdrażania usługi aplikacji Azure].
+Można używać tych poświadczeń tooclone hello lokacji za pomocą narzędzia git lub konfigurowanie zautomatyzowanych wdrożeń z usługi GitHub, TFS lub Mercurial.  Aby uzyskać więcej informacji, zobacz hello [dokumentacja wdrażania usługi aplikacji Azure].
 
 ### <a name="appsettings"></a>Ustawienia aplikacji
-Większość ustawień zmigrowanych usługi mobilnej są dostępne za pośrednictwem ustawień aplikacji.  Zostanie wyświetlona lista ustawień aplikacji z [Azure Portal].
-Aby wyświetlić lub zmienić ustawienia aplikacji:
+Większość ustawień zmigrowanych usługi mobilnej są dostępne za pośrednictwem ustawień aplikacji.  Lista ustawień aplikacji hello można uzyskać z hello [portalu Azure].
+tooview lub zmienić ustawienia aplikacji:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **ustawienia aplikacji** w menu Ogólne.
-5. Przewiń do sekcji ustawień aplikacji i znajdowanie ustawienia aplikacji.
-6. Kliknij wartość ustawienia aplikacji, aby edytować wartość.  Kliknij przycisk **zapisać** można zapisać wartości.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **ustawienia aplikacji** hello ogólne menu.
+5. Przewiń w sekcji Ustawienia aplikacji toohello i znaleźć ustawienia aplikacji.
+6. Kliknij wartość hello hello aplikacji ustawienie tooedit hello wartości.  Kliknij przycisk **zapisać** toosave hello wartość.
 
-W tym samym czasie, należy zaktualizować wiele ustawień aplikacji.
+Można zaktualizować wiele ustawień aplikacji na powitania tym samym czasie.
 
 > [!TIP]
-> Istnieją dwa ustawienia aplikacji o tej samej wartości.  Na przykład może zostać wyświetlony *ApplicationKey* i *MS\_ApplicationKey*.  Zaktualizuj ustawienia zarówno aplikacji w tym samym czasie.
+> Istnieją dwa ustawienia aplikacji z hello tę samą wartość.  Na przykład może zostać wyświetlony *ApplicationKey* i *MS\_ApplicationKey*.  Aktualizowanie ustawień aplikacji, zarówno na powitania tym samym czasie.
 >
 >
 
 ### <a name="authentication"></a>Uwierzytelnianie
-Wszystkie ustawienia uwierzytelniania są dostępne jako ustawienia aplikacji w witrynie zmigrowane.  Aby zaktualizować ustawienia uwierzytelniania, w przypadku modyfikowania ustawień odpowiednich aplikacji.  W poniższej tabeli przedstawiono ustawienia aplikacji właściwe dla dostawcy uwierzytelniania:
+Wszystkie ustawienia uwierzytelniania są dostępne jako ustawienia aplikacji w witrynie zmigrowane.  tooupdate ustawienia uwierzytelniania, należy zmienić ustawienia odpowiedniej aplikacji.  Witaj poniższej tabeli przedstawiono hello ustawień aplikacji właściwe dla dostawcy uwierzytelniania:
 
 | Dostawca | Identyfikator klienta | Klucz tajny klienta | Inne ustawienia |
 |:--- |:--- |:--- |:--- |
@@ -176,108 +176,108 @@ Wszystkie ustawienia uwierzytelniania są dostępne jako ustawienia aplikacji w 
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
 | Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
-Uwaga: **MS\_AadTenants** jest przechowywana jako rozdzielanej przecinkami listy domen dzierżawy (pola "Dozwolone dzierżawcy" w portalu usług mobilnych).
+Uwaga: **MS\_AadTenants** jest przechowywane w postaci listy rozdzielanej przecinkami domen dzierżawy (pola "Dozwolone dzierżaw" hello w portalu usługi Mobile Services hello).
 
 > [!WARNING]
-> **Nie używa mechanizmów uwierzytelniania w menu Ustawienia**
+> **Nie używaj hello mechanizmów uwierzytelniania w menu Ustawienia hello**
 >
-> Usługa aplikacji Azure zapewnia osobne "bez kodu" uwierzytelnianie i autoryzacja system w obszarze *uwierzytelniania / autoryzacji* (przestarzałe) i ustawień menu *uwierzytelniania Mobile* opcji w menu Ustawienia.  Te opcje są niezgodne z migrowanych usługi mobilnej Azure.  Możesz [uaktualniania lokacji](app-service-mobile-net-upgrading-from-mobile-services.md) mógł korzystać z uwierzytelniania usługi Azure App Service.
+> Usługa aplikacji Azure zapewnia osobne "bez kodu" uwierzytelnianie i autoryzacja system w obszarze hello *uwierzytelniania / autoryzacji* hello (przestarzałe) i ustawień menu *uwierzytelniania Mobile* Opcja menu Ustawienia hello.  Te opcje są niezgodne z migrowanych usługi mobilnej Azure.  Możesz [uaktualniania lokacji](app-service-mobile-net-upgrading-from-mobile-services.md) tootake zaletą hello uwierzytelniania usługi Azure App Service.
 >
 >
 
 ### <a name="easytables"></a>Dane
-*Danych* karty w usłudze Mobile Services została zastąpiona przez *łatwe tabel* w portalu Azure.  Aby uzyskać dostęp do tabel łatwe:
+Hello *danych* karty w usłudze Mobile Services została zastąpiona przez *łatwe tabel* w hello portalu Azure.  tooaccess łatwe tabel:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **łatwe tabel** w przenośnych menu.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **łatwe tabel** hello przenośnych menu.
 
-Tabelę można dodać, klikając **Dodaj** przycisk lub dostępu do istniejących tabel, klikając nazwę tabeli.  Istnieją różne operacje, które można wykonać z poziomu tego bloku, w tym:
+Tabelę można dodać, klikając hello **Dodaj** przycisk lub dostępu do istniejących tabel, klikając nazwę tabeli.  Istnieją różne operacje, które można wykonać z poziomu tego bloku, w tym:
 
 * Zmienianie uprawnień tabeli
-* Edytowanie operacyjne skryptów
-* Zarządzanie schematem tabeli
-* Usuwanie tabeli
-* Czyszczenie zawartości tabeli
-* Usuwanie określonych wierszy w tabeli
+* Edytowanie hello operacyjne skryptów
+* Zarządzanie schematem tabeli hello
+* Usuwanie tabeli hello
+* Wyczyszczenie hello spisu treści
+* Usuwanie określonych wierszy w tabeli hello
 
 ### <a name="easyapis"></a>INTERFEJS API
-*Interfejsu API* karty w usłudze Mobile Services została zastąpiona przez *łatwe interfejsów API* w portalu Azure.  Aby uzyskać dostęp do interfejsów API łatwe:
+Witaj *interfejsu API* karty w usłudze Mobile Services została zastąpiona przez *łatwe interfejsów API* w hello portalu Azure.  tooaccess łatwe interfejsów API:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Kliknij przycisk **łatwe interfejsów API** w przenośnych menu.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Kliknij przycisk **łatwe interfejsów API** hello przenośnych menu.
 
-Swoje migrowanych interfejsy API są już wyświetlane w bloku.  Można również dodać interfejsu API z poziomu tego bloku.  Aby zarządzać określonego interfejsu API, kliknij przycisk interfejsu API.
-Za pomocą nowego bloku można dostosowanie uprawnień i edytowania skryptów dla interfejsu API.
+Swoje migrowanych interfejsy API są już na liście hello bloku.  Można również dodać interfejsu API z poziomu tego bloku.  toomanage określonego interfejsu API, kliknij przycisk hello interfejsu API.
+Na nowy blok hello można dostosować uprawnienia hello i edytować hello skryptów na potrzeby hello interfejsu API.
 
 ### <a name="on-demand-jobs"></a>Zadania harmonogramu
-Wszystkie zadania harmonogramu są dostępne za pośrednictwem sekcji kolekcji zadań harmonogramu.  Aby uzyskać dostęp do harmonogramu zadań:
+Wszystkie zadania harmonogramu są dostępne za pośrednictwem hello sekcji kolekcji zadań harmonogramu.  tooaccess harmonogramu zadań:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **Przeglądaj >**, wprowadź **harmonogram** w *filtru* polu, a następnie wybierz **kolekcje harmonogramu**.
-3. Wybierz kolekcję zadań dla witryny.  Szablon ma nazwę *sitename*-zadania.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **Przeglądaj >**, wprowadź **harmonogram** w hello *filtru* polu, a następnie wybierz **kolekcje harmonogramu**.
+3. Wybierz hello kolekcji zadań dla witryny.  Szablon ma nazwę *sitename*-zadania.
 4. Kliknij przycisk **ustawienia**.
 5. Kliknij przycisk **zadania harmonogramu** w obszarze Zarządzanie.
 
-Zaplanowane zadania są wyświetlane z częstotliwością określone przed migracją.  Zadania na żądanie są wyłączone.  Aby uruchomić zadanie na żądanie:
+Zaplanowane zadania są wyświetlane z częstotliwością hello, określone przed migracją.  Zadania na żądanie są wyłączone.  toorun zadanie na żądanie:
 
-1. Wybierz zadania, które chcesz uruchomić.
-2. W razie potrzeby kliknij **włączyć** można włączyć zadania.
+1. Wybierz zadanie hello mają toorun.
+2. W razie potrzeby kliknij **włączyć** tooenable hello zadania.
 3. Kliknij przycisk **ustawienia**, następnie **harmonogram**.
 4. Wybierz opcję ponownego **raz**, następnie kliknij przycisk **Zapisz**
 
-Twoje zadania na żądanie znajdują się w `App_Data/config/scripts/scheduler post-migration`.  Zalecamy przekształcenie wszystkie zadania na żądanie do [Webjob] lub [funkcji].  Zapisać nowe zadania harmonogramu jako [Webjob] lub [funkcji].
+Twoje zadania na żądanie znajdują się w `App_Data/config/scripts/scheduler post-migration`.  Firma Microsoft zaleca przekonwertować wszystkie zadania na żądanie za[Webjob] lub [funkcji].  Zapisać nowe zadania harmonogramu jako [Webjob] lub [funkcji].
 
 ### <a name="notification-hubs"></a>Centra powiadomień
-Mobile Services używa centra powiadomień dla powiadomień wypychanych.  Następujących ustawień aplikacji są używane do łączenia z Centrum powiadomień z usługą Mobile po migracji:
+Mobile Services używa centra powiadomień dla powiadomień wypychanych.  następujące ustawienia aplikacji Hello są używane toolink hello tooyour Centrum powiadomień usługi mobilnej po migracji:
 
 | Ustawienia aplikacji | Opis |
 |:--- |:--- |
-| **MS\_PushEntityNamespace** |Namespace Centrum powiadomień |
-| **MS\_NotificationHubName** |Nazwa centrum powiadomień |
-| **MS\_NotificationHubConnectionString** |Parametry połączenia Centrum powiadomień |
+| **MS\_PushEntityNamespace** |Witaj Namespace Centrum powiadomień |
+| **MS\_NotificationHubName** |Witaj nazwę Centrum powiadomień |
+| **MS\_NotificationHubConnectionString** |Witaj parametry połączenia Centrum powiadomień |
 | **MS\_nazwa przestrzeni nazw** |Alias MS_PushEntityNamespace |
 
-Centrum powiadomień jest zarządzana za pomocą [Azure Portal].  Zanotuj nazwę Centrum powiadomień (można go znaleźć za pomocą ustawień aplikacji):
+Centrum powiadomień jest zarządzana za pomocą hello [portalu Azure].  Zanotuj nazwę Centrum powiadomień hello (można go znaleźć za pomocą ustawień aplikacji hello):
 
-1. Zaloguj się do witryny [Azure Portal].
+1. Zaloguj się za toohello [portalu Azure].
 2. Wybierz **Przeglądaj**>, a następnie wybierz pozycję **centra powiadomień**
-3. Kliknij nazwę Centrum powiadomień, skojarzone z usługi mobilnej.
+3. Kliknij nazwę Centrum powiadomień hello skojarzony z usługą mobilną hello.
 
 > [!NOTE]
-> Jeśli Centrum powiadomień jest typu "Mixed", nie jest widoczne.  "Mieszany" wpisz powiadomień koncentratory wykorzystywać zarówno usługi Notification Hubs i starszych funkcji usługi Service Bus.  [Konwertuj mieszanych obszary nazw] przed kontynuowaniem.  Po zakończeniu konwersji Centrum powiadomień zostanie wyświetlony w [Azure Portal].
+> Jeśli Centrum powiadomień jest typu "Mixed", nie jest widoczne.  "Mieszany" wpisz powiadomień koncentratory wykorzystywać zarówno usługi Notification Hubs i starszych funkcji usługi Service Bus.  [Konwertuj mieszanych obszary nazw] przed kontynuowaniem.  Po ukończeniu konwersji hello Centrum powiadomień zostanie wyświetlony w hello [portalu Azure].
 >
 >
 
-Aby uzyskać więcej informacji, przejrzyj [usługi Notification Hubs] dokumentacji.
+Aby uzyskać więcej informacji, przejrzyj hello [usługi Notification Hubs] dokumentacji.
 
 > [!TIP]
-> Funkcje zarządzania centra powiadomień w [Azure Portal] są nadal w wersji zapoznawczej.  [klasycznego portalu Azure] pozostaje dostępna, zarządzanie centrów powiadomień.
+> Funkcje zarządzania centra powiadomień w hello [portalu Azure] są nadal w wersji zapoznawczej.  Witaj [klasycznego portalu Azure] pozostaje dostępna, zarządzanie centrów powiadomień.
 >
 >
 
 ### <a name="legacy-push"></a>Ustawienia starszych wypychania
-Skonfigurowanie na usługi mobilnej przed wprowadzeniem na centra powiadomień wypychanych, czy używasz *starszych wypychania*.  Jeśli używasz wypychania i nie ma na liście konfiguracji centrum powiadomień, a następnie prawdopodobnie używasz *starszych wypychania*.  Ta funkcja jest migrowana z innymi funkcjami.  Jednak zaleca się uaktualnienie do usługi Notification Hubs zaraz po zakończeniu migracji.
+Skonfigurowanie na usługi mobilnej przed wprowadzeniem hello na centra powiadomień wypychanych, czy używasz *starszych wypychania*.  Jeśli używasz wypychania i nie ma na liście konfiguracji centrum powiadomień, a następnie prawdopodobnie używasz *starszych wypychania*.  Ta funkcja jest migrowana z innymi funkcjami.  Jednak zaleca się uaktualnienie koncentratory tooNotification zaraz po zakończeniu migracji hello.
 
-W międzyczasie wszystkie ustawienia push starszej wersji (z wyjątkiem zauważalne certyfikat usługi APN) są dostępne w ustawieniach aplikacji.  Zaktualizuj certyfikat usługi APN za pomocą zastąpienia odpowiedniego pliku w systemie plików.
+W hello tymczasowe wszystkie ustawienia starszych wypychania hello (z wyjątkiem zauważalne hello certyfikatu APNS hello) są dostępne w ustawień aplikacji.  Zaktualizuj certyfikat usługi APN hello zastępując hello odpowiedniego pliku na powitania systemu plików.
 
 ### <a name="app-settings"></a>Inne ustawienia aplikacji
-Następujące ustawienia dodatkowe aplikacji są migrowane z usługi mobilnej i dostępnych w ramach *ustawienia* > *ustawień aplikacji*:
+następujące ustawienia dodatkowe aplikacji Hello są migrowane z usługi mobilnej i dostępnych w ramach *ustawienia* > *ustawień aplikacji*:
 
 | Ustawienia aplikacji | Opis |
 |:--- |:--- |
-| **MS\_MobileServiceName** |Nazwa aplikacji |
-| **MS\_MobileServiceDomainSuffix** |Prefiks domeny. tj Azure mobile.net |
+| **MS\_MobileServiceName** |Nazwa aplikacji Hello |
+| **MS\_MobileServiceDomainSuffix** |Prefiks domeny Hello. tj Azure mobile.net |
 | **MS\_ApplicationKey** |Klucz aplikacji |
 | **MS\_umożliwia** |Klucz główny aplikacji |
 
-Klucz aplikacji i klucz główny są identyczne z kluczy aplikacji z oryginalnego usługi mobilnej.  W szczególności klucz aplikacji są wysyłane przez klientów mobilnych można sprawdzić poprawności ich stosowania przenośnych interfejsu API.
+Klucz aplikacji Hello i klucz główny są identyczne toohello kluczy aplikacji z oryginalnego usługi mobilnej.  W szczególności hello klucz aplikacji jest wysyłane przez klientów mobilnych toovalidate ich stosowania hello przenośnych interfejsu API.
 
 ### <a name="cliequivalents"></a>Odpowiedniki wiersza polecenia
-Można już używać *azure przenośnych* polecenia do zarządzania witryną usług Azure Mobile Services.  Zamiast tego zostały zastąpione wiele funkcji *usługi azure site* polecenia.  Skorzystaj z poniższej tabeli, aby znaleźć odpowiedniki dla typowych poleceń:
+Można już używać hello *azure przenośnych* polecenia toomanage witryny usług Azure Mobile Services.  Zamiast tego wiele funkcji zostało zastąpione hello *usługi azure site* polecenia.  Użyj poniższej hello tabeli toofind odpowiedniki Typowe polecenia:
 
 | *Azure Mobile* polecenia | Odpowiednik *usługi Azure Site* polecenia |
 |:--- |:--- |
@@ -300,37 +300,37 @@ Można już używać *azure przenośnych* polecenia do zarządzania witryną us�
 | Usuń przenośnych appsetting *nazwa* *klucza* |Usuń appsetting lokacji *klucza* *nazwy* |
 | Pokaż przenośnych appsetting *nazwa* *klucza* |Usuń appsetting lokacji *klucza* *nazwy* |
 
-Aktualizacja uwierzytelniania lub ustawienia powiadomień wypychanych, aktualizując odpowiednie ustawienie aplikacji.
+Zaktualizuj uwierzytelniania lub wypychanej powiadomienie o ustawienia aktualizując hello odpowiednie ustawienie aplikacji.
 Edytowanie plików i opublikować swoją witrynę przy użyciu protokołu ftp lub git.
 
 ### <a name="diagnostics"></a>Rejestrowanie i Diagnostyka
-Rejestrowanie diagnostyczne zwykle jest wyłączony w usłudze Azure App Service.  Aby włączyć rejestrowanie diagnostyczne:
+Rejestrowanie diagnostyczne zwykle jest wyłączony w usłudze Azure App Service.  tooenable rejestrowania diagnostycznego:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Domyślnie zostanie otwarty blok ustawień.
-4. Wybierz **dzienników diagnostycznych** w menu funkcji.
-5. Kliknij przycisk **ON** dla następujące dzienniki: **rejestrowania aplikacji (systemu plików)**, **szczegółowe komunikaty o błędach**, i **śledzenie nieudanych żądań**
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Domyślnie zostanie otwarty blok ustawień Hello.
+4. Wybierz **dzienników diagnostycznych** hello funkcje menu.
+5. Kliknij przycisk **ON** dla hello następujące dzienniki: **rejestrowania aplikacji (systemu plików)**, **szczegółowe komunikaty o błędach**, i **śledzenie nieudanych żądań**
 6. Kliknij przycisk **systemu plików** dla rejestrowania serwera sieci Web
 7. Kliknij przycisk **Zapisz**
 
-Aby wyświetlić dzienniki:
+Dzienniki hello tooview:
 
-1. Zaloguj się do witryny [Azure Portal].
-2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę zmigrowane usługi mobilnej.
-3. Kliknij przycisk **narzędzia** przycisku
-4. Wybierz **strumienia dziennika** w OBSERVE menu.
+1. Zaloguj się za toohello [portalu Azure].
+2. Wybierz **wszystkie zasoby** lub **usługi aplikacji** następnie kliknij nazwę hello zmigrowane usługi mobilnej.
+3. Kliknij przycisk hello **narzędzia** przycisku
+4. Wybierz **strumienia dziennika** hello OBSERVE menu.
 
-Dzienniki są wyświetlane w oknie, ponieważ są one generowane.  Możesz również pobrać dzienniki dla późniejszej analizy przy użyciu poświadczeń wdrożenia. Aby uzyskać więcej informacji, zobacz [rejestrowanie] dokumentacji.
+Dzienniki są wyświetlane w oknie hello, ponieważ są one generowane.  Możesz również pobrać dzienniki hello potrzeby późniejszej analizy przy użyciu poświadczeń wdrożenia. Aby uzyskać więcej informacji, zobacz hello [rejestrowanie] dokumentacji.
 
 ## <a name="known-issues"></a>Znane problemy
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Usuwanie klon migracji aplikacji mobilnej powoduje awarii lokacji
-Jeśli klonowanie zmigrowane usługi mobilnej przy użyciu programu Azure PowerShell, należy usunąć klonu wpis DNS dla usługi produkcji zostaną usunięte.  Witryny nie jest dostępny z Internetu.  
+Jeśli klonowanie zmigrowane usługi mobilnej przy użyciu programu Azure PowerShell, a następnie usuń hello klonowania, hello wpis DNS dla usługi produkcji zostaną usunięte.  Witryny jest już dostępny z Internetu hello.  
 
-Rozwiązanie: Jeśli chcesz sklonować lokacji, to zrobić za pośrednictwem portalu.
+Rozwiązanie: W razie potrzeby tooclone lokacji to zrobić za pośrednictwem portalu hello.
 
 ### <a name="changing-webconfig-does-not-work"></a>Zmienianie pliku Web.config nie działa
-Jeśli masz witryny ASP.NET zmieni się na `Web.config` pliku nie zostać zastosowane.  Usługa aplikacji Azure tworzy odpowiedniej `Web.config` pliku podczas uruchamiania do obsługi środowiska uruchomieniowego usługi Mobile Services.  Można zastąpić niektórych ustawień (np. nagłówki niestandardowe) przy użyciu pliku transformacji XML.  Utwórz plik w nazwie `applicationHost.xdt` — ten plik musi kończyć w `D:\home\site` katalogu w usłudze Azure.  Przekaż `applicationHost.xdt` plików za pomocą skryptu wdrażania niestandardowych lub bezpośrednio za pomocą Kudu.  Poniżej przedstawiono przykładowy dokument:
+Jeśli masz witryny ASP.NET zmieni się toohello `Web.config` pliku nie zostać zastosowane.  Hello Azure App Service kompilacje odpowiedniej `Web.config` pliku podczas uruchamiania toosupport hello usług Mobile Services w czasie wykonywania.  Można zastąpić niektórych ustawień (np. nagłówki niestandardowe) przy użyciu pliku transformacji XML.  Utwórz plik w nazwie `applicationHost.xdt` — ten plik musi kończyć w hello `D:\home\site` katalogu na powitania usługi platformy Azure.  Przekaż `applicationHost.xdt` plików za pomocą skryptu wdrażania niestandardowych lub bezpośrednio za pomocą Kudu.  Witaj poniżej pokazano przykładowy dokument:
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -349,23 +349,23 @@ Jeśli masz witryny ASP.NET zmieni się na `Web.config` pliku nie zostać zastos
 </configuration>
 ```
 
-Aby uzyskać więcej informacji, zobacz [przykłady przekształcenie XDT] dokumentacji w witrynie GitHub.
+Aby uzyskać więcej informacji, zobacz hello [przykłady przekształcenie XDT] dokumentacji w witrynie GitHub.
 
-### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Nie można dodać zmigrowane usługi mobilnej do usługi Traffic Manager
-Podczas tworzenia profilu usługi Traffic Manager nie można bezpośrednio wybrać zmigrowane usługi mobilnej do profilu.  Użyj "zewnętrznego punktu końcowego."  Zewnętrznego punktu końcowego można dodawać tylko za pomocą programu PowerShell.  Aby uzyskać więcej informacji, zobacz [samouczek Menedżera ruchu](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
+### <a name="migrated-mobile-services-cannot-be-added-tootraffic-manager"></a>Nie można dodać zmigrowane usługi mobilnej tooTraffic Manager
+Podczas tworzenia profilu usługi Traffic Manager nie może bezpośrednio wybierz profil toohello zmigrowane usługi mobilnej.  Użyj "zewnętrznego punktu końcowego."  Zewnętrznego punktu końcowego można dodawać tylko za pomocą programu PowerShell.  Aby uzyskać więcej informacji, zobacz [samouczek Menedżera ruchu](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy aplikacja jest migrowana do usługi App Service, istnieją nawet więcej funkcji, których można użyć:
+Teraz, że aplikacja jest tooApp zmigrowane usługi, istnieją nawet więcej funkcji, których można użyć:
 
-* Wdrożenie [przemieszczania miejsc] umożliwiają etap zmian witryny i wykonywać A / B, testowanie.
+* Wdrożenie [przemieszczania miejsc] pozwalają toostage zmiany tooyour lokacji i wykonywania A / B testowania.
 * [Webjob] zapewnieniu jej zamiennika dla zadania zaplanowane na żądanie.
-* Możesz [stale wdrażanie] witryny przez łączenie z witryny GitHub, TFS lub Mercurial.
-* Można użyć [usługi Application Insights] do monitorowania witryny.
-* Udostępniają witryny sieci Web i interfejs API Mobile z tego samego kodu.
+* Możesz [stale wdrażanie] witryny przez łączenie z witryny tooGitHub, TFS lub Mercurial.
+* Można użyć [usługi Application Insights] toomonitor witryny.
+* Służą a witryny sieci Web i interfejs API Mobile z hello tego samego kodu.
 
-### <a name="upgrading-your-site"></a>Uaktualnianie lokacji usług Mobile Services do zestawu SDK usługi Azure Mobile Apps
-* Dla projektów z serwera opartego na Node.js nowe [zestaw SDK usługi Mobile Apps Node.js] udostępnia kilka nowych funkcji. Na przykład można teraz nie lokalne działania projektowe i debugowanie, użyj dowolnej wersji środowiska Node.js powyżej 0.10 i dostosować za pomocą wszystkich programów pośredniczących Express.js.
-* Aby uzyskać. Projekty serwera opartego na sieci, nowa [pakietów NuGet zestawu SDK aplikacji mobilnych](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) zależności NuGet uzyskuje się większą elastyczność.  Te pakiety obsługi nowych uwierzytelniania usługi aplikacji i tworzą z żadnym projektem platformy ASP.NET. Aby dowiedzieć się więcej na temat uaktualniania, zobacz [uaktualnienia istniejącej usługi mobilnej platformy .NET do usługi App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
+### <a name="upgrading-your-site"></a>Uaktualnianie tooAzure lokacji z usług Mobile Services zestaw SDK usługi Mobile Apps
+* Dla projektów serwera opartego na Node.js hello nowych [zestaw SDK usługi Mobile Apps Node.js] udostępnia kilka nowych funkcji. Na przykład można teraz nie lokalne działania projektowe i debugowanie, użyj dowolnej wersji środowiska Node.js powyżej 0.10 i dostosować za pomocą wszystkich programów pośredniczących Express.js.
+* Aby uzyskać. Projekty oparte na sieci serwera hello nowych [pakietów NuGet zestawu SDK aplikacji mobilnych](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) zależności NuGet uzyskuje się większą elastyczność.  Te pakiety obsługuje hello nowej aplikacji usługi uwierzytelniania i tworzą z żadnym projektem platformy ASP.NET. Aby dowiedzieć się więcej na temat uaktualniania, zobacz [uaktualnić istniejącą tooApp usługi mobilnej platformy .NET usługi](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
@@ -379,7 +379,7 @@ Teraz, gdy aplikacja jest migrowana do usługi App Service, istnieją nawet wię
 [usłudze Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [dokumentacja wdrażania usługi aplikacji Azure]: ../app-service-web/web-sites-deploy.md
 [klasycznego portalu Azure]: https://manage.windowsazure.com
-[Azure Portal]: https://portal.azure.com
+[portalu Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [plany harmonogramu Azure]: ../scheduler/scheduler-plans-billing.md
 [stale wdrażanie]: ../app-service-web/app-service-continuous-deployment.md

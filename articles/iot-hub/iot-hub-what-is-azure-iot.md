@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązania platformy Azure dla Internetu rzeczy (Pakiet IoT) | Microsoft Docs"
-description: "Przegląd przykładowej architektury rozwiązania IoT i jej relacji z urządzeniami, usługą Azure IoT Hub, zestawami SDK urządzeń Azure IoT, zestawami SDK usługi Azure IoT i innymi usługami Azure."
+title: "rozwiązania aaaAzure Internetu rzeczy (IoT pakiet) | Dokumentacja firmy Microsoft"
+description: "Omówienie architektury rozwiązania IoT próbki i jego powiązań toodevices, hello usługa Azure IoT Hub, zestawy SDK urządzenia Azure IoT zestawów SDK usługi Azure IoT i innymi usługami Azure."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 1d54f090a0e07cd5102cb48cd70a1377845d6654
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d934e3f988c530de6a242869c021712d2aa1576
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Azure IoT Hub jest usługą platformy Azure, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między zapleczem rozwiązania a milionami urządzeń. Umożliwia zapleczu rozwiązania:
+Azure IoT Hub jest usługą platformy Azure, która umożliwia bezpieczną i niezawodną dwukierunkową komunikację między zapleczem rozwiązania a milionami urządzeń. Umożliwia ona hello zaplecza rozwiązania do:
 
 * Otrzymywanie danych telemetrycznych w odpowiedniej skali z urządzeń użytkownika.
-* Przekazywanie danych z urządzeń użytkownika do strumieniowego procesora zdarzeń.
+* Dane trasy z procesora urządzenia tooa strumienia zdarzeń.
 * Odbieranie przekazywanych plików z urządzeń.
-* Wysyłanie komunikatów chmura-urządzenie do określonych urządzeń.
+* Wysyłanie wiadomości chmury do urządzenia toospecific urządzeń.
 
-Za pomocą usługi IoT Hub można implementować własne zaplecze rozwiązania. Ponadto usługa IoT Hub zawiera rejestr tożsamości używany do aprowizacji urządzeń, ich poświadczeń zabezpieczeń oraz praw do łączenia się z centrum IoT. Aby dowiedzieć się więcej na temat usługi IoT Hub, zobacz [Co to jest usługa IoT Hub?][lnk-iot-hub].
+Można użyć Centrum IoT tooimplement zaplecze własne rozwiązania. Ponadto Centrum IoT zawiera tożsamości rejestru używane tooprovision urządzeń, ich poświadczenia zabezpieczeń i ich Centrum IoT toohello tooconnect praw. Zobacz toolearn więcej informacji na temat Centrum IoT [co to jest Centrum IoT?] [lnk-iot-hub].
 
-Aby dowiedzieć się, jak usługa Azure IoT Hub umożliwia oparte na standardach zarządzanie urządzeniami pozwalające na zdalne konfigurowanie i aktualizowanie urządzeń oraz zarządzanie nimi, zobacz [Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub][lnk-device-management].
+toolearn Centrum IoT Azure umożliwia zarządzanie urządzeniami oparte na standardach tooremotely można zarządzać, konfigurowanie i zaktualizować urządzenia, zobacz [omówienie zarządzania urządzeniami z Centrum IoT][lnk-device-management].
 
-W celu wdrożenia aplikacji klienckich na wielu różnych platformach sprzętowych i w różnych systemach operacyjnych można użyć zestawów SDK urządzeń Azure IoT. Te zestawy SDK urządzeń zawierają biblioteki, które ułatwiają wysyłanie danych telemetrycznych do centrum IoT Hub i odbieranie komunikatów wysyłanych z chmury do urządzeń. Korzystając z zestawów SDK urządzeń, można wybierać spośród wielu protokołów sieciowych służących do komunikowania się z usługą IoT Hub. Aby dowiedzieć się więcej, zobacz [informacje dotyczące zestawów SDK urządzeń][lnk-device-sdks].
+aplikacje klienckie tooimplement w różnych systemach operacyjnych i platform sprzętowych urządzeń, można użyć urządzenia Azure IoT hello zestawów SDK. urządzenie Hello zestawów SDK obejmują bibliotek, które ułatwiają wysyłanie danych telemetrycznych tooan IoT hub i odbieranie chmury do urządzenia wiadomości. Jeśli używasz urządzenia hello zestawów SDK, możesz wybrać spośród kilku toocommunicate protokoły sieci z Centrum IoT. toolearn więcej, zobacz hello [informacji o urządzeniu zestawów SDK][lnk-device-sdks].
 
-Aby rozpocząć pisanie kodu i uruchomić kilka przykładów, zobacz samouczek [Wprowadzenie do usługi IoT Hub][lnk-getstarted].
+tooget uruchomiono pisanie kodu i systemem niektóre przykłady, zobacz hello [Rozpoczynanie pracy z Centrum IoT] [ lnk-getstarted] samouczka.
 
-Warto również zainteresować się [Pakietem IoT Azure][lnk-iot-suite], który stanowi kolekcję wstępnie skonfigurowanych rozwiązań. Pakiet IoT pozwala szybko rozpocząć pracę i skalować projekty IoT na potrzeby typowych scenariuszy, takich jak zdalne monitorowanie, zarządzanie zasobami i konserwacja predykcyjna.
+Warto również zainteresować się [Pakietem IoT Azure][lnk-iot-suite], który stanowi kolekcję wstępnie skonfigurowanych rozwiązań. Pakiet IoT umożliwia tooget szybko rozpocząć pracę i skalować IoT projekty tooaddress typowych scenariuszach IoT — takie jak zdalne monitorowanie, zarządzanie zasobami i konserwacji predykcyjnej.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks

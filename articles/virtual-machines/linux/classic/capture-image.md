@@ -1,6 +1,6 @@
 ---
-title: "Przechwyć obraz maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie przechwytywania obrazu opartych na systemie Linux Azure maszyny wirtualnej (VM) utworzone za pomocą klasycznym modelu wdrażania."
+title: aaaCapture obrazu maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocapture obraz opartych na systemie Linux Azure maszynę wirtualną (VM) utworzony z hello klasycznego modelu wdrażania."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 33c4059d5bb919a86bdc3492abca540750f365ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Jak przechwycić klasyczną maszynę wirtualną z systemem Linux jako obraz
+# <a name="how-toocapture-a-classic-linux-virtual-machine-as-an-image"></a>Jak toocapture klasyczne maszyny wirtualnej systemu Linux jako obrazu
 > [!IMPORTANT]
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Dowiedz się, jak za[wykonaj te czynności przy użyciu modelu Resource Manager hello](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-W tym artykule przedstawiono sposób Przechwytywanie klasycznego Azure maszyny wirtualnej (VM) systemem Linux jako obrazu, aby utworzyć pozostałe maszyny wirtualne. Ten obraz zawiera dysku systemu operacyjnego i dyskach danych dołączonych do maszyny Wirtualnej. Nie ma wśród nich konfiguracji sieci, dlatego należy skonfigurować, które po utworzeniu maszyny Wirtualnej z obrazu.
+W tym artykule opisano sposób toocapture klasycznego Azure maszynę wirtualną (VM) systemem Linux jako obrazu toocreate innych maszyn wirtualnych. Ten obraz zawiera hello dysku systemu operacyjnego i dysków z danymi dołączone toohello maszyny Wirtualnej. Nie ma wśród nich konfiguracji sieci, więc należy tooconfigure które po utworzeniu hello inne maszyny Wirtualnej z obrazu hello.
 
-Azure zapisuje obraz w obszarze **obrazów**, oraz wszystkie obrazy zostały przekazane. Aby uzyskać więcej informacji na temat obrazów, zobacz [o obrazy maszyny wirtualnej na platformie Azure][About Virtual Machine Images in Azure].
+Magazyny Azure hello obrazu w obszarze **obrazów**, oraz wszystkie obrazy zostały przekazane. Aby uzyskać więcej informacji na temat obrazów, zobacz [o obrazy maszyny wirtualnej na platformie Azure][About Virtual Machine Images in Azure].
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Tych krokach przyjęto założenie, że już utworzone przy użyciu klasycznego modelu wdrożenia maszyny Wirtualnej platformy Azure i skonfigurować systemu operacyjnego, w tym dołączanie dowolnego dysku z danymi. Jeśli musisz utworzyć Maszynę wirtualną, przeczytaj [tworzenie maszyny wirtualnej systemu Linux][How to Create a Linux Virtual Machine].
+Tych krokach przyjęto założenie, że zostało już utworzone przy użyciu klasycznego modelu wdrożenia hello i hello skonfigurowanego systemu operacyjnego, dołączanie wszystkich dysków danych maszyny Wirtualnej platformy Azure. Toocreate maszyny Wirtualnej, należy przeczytać [jak tooCreate maszyny wirtualnej systemu Linux][How tooCreate a Linux Virtual Machine].
 
-## <a name="capture-the-virtual-machine"></a>Przechwytywanie maszyny wirtualnej
-1. [Połączenie z maszyną Wirtualną](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) przy użyciu klienta SSH wybranych przez użytkownika.
-2. W oknie SSH wpisz następujące polecenie. Dane wyjściowe z `waagent` mogą się nieco różnić w zależności od wersji tego narzędzia:
+## <a name="capture-hello-virtual-machine"></a>Przechwytywanie maszyny wirtualnej hello
+1. [Połącz toohello wirtualna](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) przy użyciu klienta SSH wybranych przez użytkownika.
+2. W oknie SSH hello wpisz następujące polecenie hello. Witaj dane wyjściowe z `waagent` mogą się nieco różnić w zależności od wersji hello tego narzędzia:
 
     ```bash
     sudo waagent -deprovision+user
     ```
 
-    Poprzednie polecenie próbuje wyczyścić systemu i zapewnić ich odpowiednie dla reprovisioning. Tę operację wykonuje następujące zadania:
+    Witaj poprzednie polecenie prób tooclean hello system i nie była odpowiednia dla reprovisioning. Tę operację wykonuje hello następujące zadania:
 
-   * Usuwa kluczy SSH hosta (jeśli Provisioning.RegenerateSshHostKeyPair "y" w pliku konfiguracji)
+   * Usuwa kluczy SSH hosta (jeśli Provisioning.RegenerateSshHostKeyPair "y" w pliku konfiguracyjnym hello)
    * Czyści konfiguracji serwera nazw w /etc/resolv.conf
-   * Usuwa `root` hasło użytkownika w tle/etc / (jeśli Provisioning.DeleteRootPassword "y" w pliku konfiguracji)
+   * Usuwa hello `root` hasło użytkownika w tle/etc / (jeśli Provisioning.DeleteRootPassword "y" w pliku konfiguracyjnym hello)
    * Usunięcie buforowanych dzierżaw klientów DHCP
-   * Zresetowanie nazwy hosta na wartość localhost.localdomain
-   * Usuwa konto użytkownika (uzyskane z /var/lib/waagent) udostępniane przez ostatnie **i skojarzone dane**.
+   * Resetuje hosta toolocalhost.localdomain nazwy
+   * Usuwa hello ostatnie konto użytkownika elastycznie (uzyskane z /var/lib/waagent) **i skojarzone dane**.
 
      > [!NOTE]
-     > Cofanie zastrzegania usuwa pliki i dane do "generalize" obrazu. To polecenie należy uruchamiać tylko na maszynie Wirtualnej, który ma zostać przechwytywania jako nowy szablon obrazu. Nie gwarantuje, że obraz jest wyczyszczone wszystkie informacje poufne lub nadaje się do ponownej dystrybucji osobom trzecim.
+     > Cofanie zastrzegania usuwa pliki i dane za "generalize" hello obrazu. Tylko Uruchom to polecenie na maszynie Wirtualnej, który ma toocapture jako nowy szablon obrazu. Nie gwarantuje obrazu hello jest brany pod uwagę wszystkie informacje poufne lub nadaje się do strony toothird ponownej dystrybucji.
 
-3. Typ **y** aby kontynuować. Możesz dodać `-force` parametr, aby uniknąć tego kroku potwierdzenia.
-4. Typ **zakończenia** zamykania klienta SSH.
-
-   > [!NOTE]
-   > Pozostałe kroki założono, że masz już [zainstalowane interfejsu wiersza polecenia Azure](../../../cli-install-nodejs.md) na komputerze klienckim. Można również wykonać następujące kroki [portalu Azure](http://portal.azure.com).
-
-5. Na komputerze klienckim otwórz wiersza polecenia platformy Azure i zaloguj się do subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj [połączenie z subskrypcją platformy Azure z wiersza polecenia platformy Azure](../../../xplat-cli-connect.md).
+3. Typ **y** toocontinue. Możesz dodać hello `-force` tooavoid parametr ten krok potwierdzenia.
+4. Typ **zakończenia** tooclose hello SSH klienta.
 
    > [!NOTE]
-   > W portalu Azure należy zalogować się do portalu.
+   > Witaj pozostałych kroków założono, że masz już [zainstalowane hello Azure CLI](../../../cli-install-nodejs.md) na komputerze klienckim. Można również wykonać wszystkie hello następujące kroki w hello [portalu Azure](http://portal.azure.com).
+
+5. Na swoim komputerze klienckim otwórz okno wiersza polecenia platformy Azure i tooyour logowania subskrypcji platformy Azure. Aby uzyskać więcej informacji, przeczytaj [połączyć tooan subskrypcji platformy Azure z hello Azure CLI](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > W portalu Azure hello Zaloguj się w portalu toohello.
 
 6. Upewnij się, że jesteś w trybie zarządzania usługami:
 
@@ -69,45 +69,45 @@ Tych krokach przyjęto założenie, że już utworzone przy użyciu klasycznego 
     azure config mode asm
     ```
 
-7. Zamknij maszynę Wirtualną, która jest już anulowana. Poniższy przykład wyłączania maszyny Wirtualnej o nazwie `myVM`:
+7. Zamknij maszynę Wirtualną, która jest już anulowana hello. Witaj poniższy przykład zamyka hello maszyny Wirtualnej o nazwie `myVM`:
 
     ```azurecli
     azure vm shutdown myVM
     ```
-   Jeśli to konieczne, można wyświetlić listę wszystkich maszyny wirtualne utworzone w ramach subskrypcji przy użyciu`azure vm list`
+   Jeśli to konieczne, można wyświetlić listę hello wszystkie maszyny wirtualne utworzone w ramach subskrypcji przy użyciu`azure vm list`
 
    > [!NOTE]
-   > Jeśli używasz portalu Azure, wybierz maszynę Wirtualną i kliknij przycisk **zatrzymać** można zamknąć maszyny Wirtualnej.
+   > Jeśli używasz hello portalu Azure wybierz hello maszyny Wirtualnej i kliknij przycisk **zatrzymać** zamknie hello maszyny Wirtualnej.
 
-8. Po zatrzymaniu maszyny Wirtualnej Przechwyć obraz. Poniższy przykład przechwytuje maszynę Wirtualną o nazwie `myVM` i tworzy uogólniony obraz o nazwie `myNewVM`:
+8. Po zatrzymaniu hello maszyny Wirtualnej Przechwyć obraz powitania. następujące przechwytywania przykład Hello hello maszyny Wirtualnej o nazwie `myVM` i tworzy uogólniony obraz o nazwie `myNewVM`:
 
     ```azurecli
     azure vm capture -t myVM myNewVM
     ```
 
-    `-t` Podpolecenia Usuwa oryginalny maszyny wirtualnej.
+    Witaj `-t` podpolecenia usuwa hello oryginalna maszyna wirtualna.
 
     > [!NOTE]
-    > W portalu Azure, można przechwycić obraz, wybierając **obrazu** w menu Centrum. Należy podać następujące informacje dotyczące obrazu: Nazwa grupy zasobów, lokalizacji, typu systemu operacyjnego i ścieżki do magazynu obiektów blob.
+    > W portalu Azure hello, można przechwycić obraz, wybierając **obrazu** menu hello koncentratora. Potrzebujesz następujących informacji o obrazie hello hello toosupply: Nazwa grupy zasobów, lokalizacji, typu systemu operacyjnego i ścieżki do magazynu obiektów blob.
 
-9. Nowy obraz jest teraz dostępny na liście obrazów, które mogą służyć do konfigurowania żadnych nowej maszyny Wirtualnej. Możesz je wyświetlić przy użyciu polecenia:
+9. Nowy obraz powitania jest teraz dostępna w hello listy obrazów, które mogą być tooconfigure używanej żadnej nowej maszyny Wirtualnej. Możesz je wyświetlić przy użyciu polecenia hello:
 
    ```azurecli
    azure vm image list
    ```
 
-   Na [portalu Azure](http://portal.azure.com), nowy obraz zostanie wyświetlony w **obrazów maszyn wirtualnych (klasyczne)** należący do **obliczeniowe** usług. Dostęp można uzyskać **obrazów maszyn wirtualnych (klasyczne)** , klikając _więcej usług_ w dolnej części platformy Azure Usługa listy, a następnie sprawdzając **obliczeniowe** usług.   
+   Na powitania [portalu Azure](http://portal.azure.com), w hello pojawi się nowy obraz powitania **obrazów maszyn wirtualnych (klasyczne)** należący toohello **obliczeniowe** usług. Dostęp można uzyskać **obrazów maszyn wirtualnych (klasyczne)** klikając _więcej usług_ u dołu hello hello Azure Usługa listy, a następnie sprawdzając w hello **obliczeniowe** usług.   
 
    ![Pomyślne przechwytywania obrazu](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Obraz jest gotowy do użycia do tworzenia maszyn wirtualnych. Możesz użyć polecenia interfejsu wiersza polecenia Azure `azure vm create` i podaj nazwę obraz został utworzony. Aby uzyskać więcej informacji, zobacz [z klasycznego modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Obraz powitania jest gotowy toobe używane toocreate maszyn wirtualnych. Możesz użyć polecenia interfejsu wiersza polecenia Azure hello `azure vm create` i nazwa obrazu hello dostaw został utworzony. Aby uzyskać więcej informacji, zobacz [hello Using Azure CLI z klasycznego modelu wdrożenia](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-Można również użyć [portalu Azure](http://portal.azure.com) Tworzenie niestandardowych maszyny Wirtualnej za pomocą **obrazu** — metoda i wybierając obraz został utworzony. Aby uzyskać więcej informacji, zobacz [tworzenie maszyny Wirtualnej niestandardowe][How to Create a Custom Virtual Machine].
+Można również użyć hello [portalu Azure](http://portal.azure.com) toocreate niestandardowych maszyny Wirtualnej za pomocą hello **obrazu** — metoda i wybierając hello obrazu utworzonego. Aby uzyskać więcej informacji, zobacz [jak tooCreate wirtualna niestandardowe][How tooCreate a Custom Virtual Machine].
 
 **Zobacz też:** [Podręcznik użytkownika Azure agenta systemu Linux](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
-[How to Create a Linux Virtual Machine]:create-custom.md
+[How tooCreate a Custom Virtual Machine]:create-custom.md
+[How tooAttach a Data Disk tooa Virtual Machine]:attach-disk.md
+[How tooCreate a Linux Virtual Machine]:create-custom.md

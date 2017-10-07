@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure sieci szkieletowej z rozwiązania Docker Compose w wersji zapoznawczej | Dokumentacja firmy Microsoft"
-description: "Sieć szkieletowa usług Azure akceptuje rozwiązania Docker Compose format, aby ułatwić organizowanie kontenery exsiting przy użyciu sieci szkieletowej usług. Ta obsługa jest obecnie w przeglądzie."
+title: "Usługa sieci szkieletowej rozwiązania Docker Compose Podgląd aaaAzure | Dokumentacja firmy Microsoft"
+description: "Sieć szkieletowa usług Azure akceptuje rozwiązania Docker Compose toomake format go łatwiejsze tooorchestrate exsiting kontenerów przy użyciu sieci szkieletowej usług. Ta obsługa jest obecnie w przeglądzie."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 824044fd698f0ed94c4212722bc82187905315dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Określanie woluminu dodatków plug-in i sterowniki rejestrowania dla Twojego kontenera
 
-Sieć szkieletowa usług obsługuje określanie [wtyczek woluminu Docker](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera. Wtyczki są określone w manifeście aplikacji, jak pokazano w manifeście następujące:
+Sieć szkieletowa usług obsługuje określanie [wtyczek woluminu Docker](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera. wtyczki Hello są określone w manifeście aplikacji hello pokazane na powitania po manifestu:
 
 
 ```xml
@@ -56,9 +56,9 @@ Sieć szkieletowa usług obsługuje określanie [wtyczek woluminu Docker](https:
 </ApplicationManifest>
 ```
 
-W powyższym przykładzie `Source` znacznika `Volume` odwołuje się do folderu źródłowego. Folder źródłowy może być folderem w maszynie Wirtualnej, która obsługuje kontenery lub trwałego magazynu zdalnego. `Destination` Tag to lokalizacja, w który `Source` jest mapowany w kontenerze uruchomione. 
+W hello poprzedzających przykład, hello `Source` tagu hello `Volume` odwołuje się toohello folderu źródłowego. folder źródłowy Hello może być folderem w hello maszynę Wirtualną, która obsługuje kontenery hello lub trwałego magazynu zdalnego. Witaj `Destination` tag jest lokalizacja hello hello `Source` hello zamapowanych toowithin działa kontenera. 
 
-Podczas określania wtyczki woluminu, Service Fabric automatycznie tworzy woluminu przy użyciu określonych parametrów. `Source` Tag jest nazwa woluminu, a `Driver` tag określa dodatek sterownika woluminu. Opcje można określić za pomocą `DriverOption` tagów, jak pokazano w poniższy fragment kodu:
+Podczas określania wtyczki woluminu, Service Fabric automatycznie tworzy hello woluminu przy użyciu określonych parametrów hello. Witaj `Source` tag jest nazwą hello hello woluminu i hello `Driver` tag określa dodatek sterownika hello woluminu. Opcje można określić za pomocą hello `DriverOption` tagu pokazane na powitania po fragment kodu:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
@@ -66,9 +66,9 @@ Podczas określania wtyczki woluminu, Service Fabric automatycznie tworzy wolumi
 </Volume>
 ```
 
-Jeśli sterownik dziennika Docker jest określony, jest wymagane do wdrożenia agentów (lub kontenery) do obsługi dzienników w klastrze.  `DriverOption` Tag może służyć do określ także opcje sterownika dziennika.
+Jeśli sterownik dziennika Docker jest określony, jest konieczne toodeploy, dzienniki w klastrze hello hello toohandle agentów (lub kontenery).  Witaj `DriverOption` tag może być także opcje sterownika dziennika używanych toospecify.
 
-Zobacz następujące artykuły, aby wdrażanie kontenerów do klastra usługi sieć szkieletowa usług:
+Zapoznaj się toohello po klastra sieci szkieletowej usług tooa kontenery toodeploy artykuły:
 
 
 [Wdrażanie kontenera w sieci szkieletowej usług](service-fabric-deploy-container.md)

@@ -1,6 +1,6 @@
 ---
-title: "Publikowania aplikacji rozruchu Spring jako kontener Docker przy użyciu zestawu narzędzi platformy Azure dla IntelliJ | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak opublikować aplikację sieci web do systemu Microsoft Azure jako kontener Docker za pomocą narzędzi Azure for IntelliJ."
+title: "aaaPublish aplikacji Spring rozruchu, jako kontener Docker przy użyciu hello Azure Toolkit for IntelliJ | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toopublish tooMicrosoft aplikacji sieci web Azure jako kontener Docker przy użyciu hello Azure Toolkit for IntelliJ."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,75 +14,75 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm
-ms.openlocfilehash: b771238934183c953615ac33c42a275d80657556
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8964cb33fd8f61a39f091633ae9074d9658232fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-the-azure-toolkit-for-intellij"></a>Publikowania aplikacji rozruchu Spring jako kontener Docker przy użyciu zestawu narzędzi platformy Azure dla IntelliJ
+# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-hello-azure-toolkit-for-intellij"></a>Publikowanie aplikacji rozruchu Spring jako kontener Docker przy użyciu hello Azure Toolkit for IntelliJ
 
-[Spring Framework] to rozwiązanie open source, które pomaga deweloperom języka Java, tworzenie aplikacji na poziomie przedsiębiorstwa. Jeden z popularnych więcej projektów, które jest wbudowane znajdujący się na platformy jest [rozruchu Spring], zapewniające uproszczone podejście do tworzenia autonomicznych aplikacji Java.
+Witaj [Spring Framework] to rozwiązanie open source, które pomaga deweloperom języka Java, tworzenie aplikacji na poziomie przedsiębiorstwa. Jednego z projektów innych popularnych hello, które jest wbudowane znajdujący się na platformie jest [rozruchu Spring], zapewniające uproszczone podejście do tworzenia autonomicznych aplikacji Java.
 
-[Docker] jest to rozwiązanie open source, które pomaga deweloperom automatyzację wdrażania, skalowania i zarządzania ich aplikacji, które są uruchomione w kontenerach.
+[Docker] jest to rozwiązanie open source, które pomaga deweloperom automatyzację wdrażania hello, skalowania i zarządzania ich aplikacji, które są uruchomione w kontenerach.
 
-Ten samouczek przedstawia kroki wdrażania aplikacji rozruchu Spring jako kontener Docker do systemu Microsoft Azure przy użyciu zestawu narzędzi platformy Azure dla IntelliJ.
+W tym samouczku przedstawiono hello kroki toodeploy aplikacja rozruchu Spring jako Docker tooMicrosoft kontenera Azure za pomocą hello Azure Toolkit for IntelliJ.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="clone-the-default-spring-boot-docker-repo"></a>Sklonuj repozytorium Docker rozruchu Spring domyślne
+## <a name="clone-hello-default-spring-boot-docker-repo"></a>Klonowanie repozytorium Docker rozruchu Spring domyślne hello
 
-W poniższych krokach objaśniono przez klonowanie repozytorium Spring Docker rozruch przy użyciu IntelliJ. Jeśli chcesz użyć wiersza polecenia, zobacz [wdrażanie aplikacji Spring rozruchu w systemie Linux w usłudze kontenera platformy Azure][Deploy Spring Boot on Linux in ACS].
+Witaj kolejnych krokach objaśniono sposób za pomocą klonowania repozytorium Docker rozruchu Spring hello przy użyciu IntelliJ. Jeśli chcesz toouse wiersza polecenia, zobacz [wdrażanie aplikacji Spring rozruchu w systemie Linux w usłudze kontenera platformy Azure][Deploy Spring Boot on Linux in ACS].
 
 1. Otwórz środowisko IntelliJ.
 
-1. Na ekranie powitalnym zaznacz **GitHub** opcji **wyewidencjonowania z kontroli wersji** listy.
+1. Na ekranie powitalnym hello, wybierz hello **GitHub** opcję hello **wyewidencjonowania z kontroli wersji** listy.
 
    ![Opcja GitHub kontroli wersji][CL01]
 
-1. Jeśli zostanie wyświetlony monit, aby się zalogować, wprowadź swoje poświadczenia.
+1. Wprowadź swoje poświadczenia, jeśli zostanie wyświetlony monit o toolog w.
 
-   * Jeśli używane są nazwy użytkownika i hasła do logowania witrynie GitHub:
+   * Jeśli używasz toolog nazwy użytkownika i hasła w tooGitHub:
 
       ![Okno dialogowe wprowadzanie GitHub nazwy użytkownika i hasła][CL02a]
 
-   * Jeśli używasz tokenu do logowania witrynie GitHub:
+   * Jeśli używasz tokenu toolog w tooGitHub:
 
       ![Okno dialogowe wprowadzanie GitHub token][CL02b]
 
-1. Wprowadź **https://github.com/spring-guides/gs-spring-boot-docker.git** dla adresu URL repozytorium, określ informacje o Twoich ścieżka lokalna i folder, a następnie kliknij przycisk **klonowania**.
+1. Wprowadź **https://github.com/spring-guides/gs-spring-boot-docker.git** dla adresu URL repozytorium hello, określ informacje o Twoich ścieżka lokalna i folder, a następnie kliknij **klonowania**.
 
    ![Okno dialogowe klonowanie repozytorium][CL03]
 
-1. Po wyświetleniu monitu, aby utworzyć projekt IntelliJ, wybierz **nr**.
+1. Gdy pojawi się monit toocreate IntelliJ projektu wybierz **nr**.
 
-   ![Odrzucanie do tworzenia projektu IntelliJ][CL04]
+   ![Odrzucanie toocreate projektu IntelliJ][CL04]
 
-1. Na stronie powitalnej kliknij **Importowanie projektu**.
+1. Na stronie powitalnej powitania kliknij **Importowanie projektu**.
 
    ![Wybór projektu importu][CL05]
 
-1. Znajdź ścieżki, gdzie sklonować repozytorium Spring rozruchu, wybierz **pełną** folderu głównego, a następnie kliknij przycisk **OK**.
+1. Znajdź ścieżki hello gdzie sklonować repozytorium rozruchu Spring hello, wybierz hello **pełną** folder główny hello, a następnie kliknij przycisk **OK**.
 
    ![Wybierz folder do zaimportowania][CL06]
 
 1. Po wyświetleniu monitu wybierz **Tworzenie projektu z istniejących źródeł**.
 
-   ![Opcję, aby utworzyć projekt z istniejących źródeł][CL07]
+   ![Opcja toocreate projekt z istniejących źródeł][CL07]
 
-1. Określ nazwę projektu lub zaakceptuj wartość domyślną, Sprawdź poprawną ścieżkę do **pełną** folder, a następnie kliknij przycisk **dalej**.
+1. Określ nazwę projektu lub zaakceptuj domyślną hello, sprawdź hello poprawną ścieżkę toohello **pełną** folder, a następnie kliknij przycisk **dalej**.
 
-   ![Określ nazwę projektu][CL08]
+   ![Określ nazwę projektu hello][CL08]
 
 1. Dostosowywanie wszelkich katalogów do zaimportowania, a następnie kliknij przycisk **dalej**.
 
    ![Wybierz katalogów][CL09]
 
-1. Przegląd biblioteki do zaimportowania, a następnie kliknij przycisk **dalej**.
+1. Przejrzyj hello tooimport biblioteki, a następnie kliknij przycisk **dalej**.
 
    ![Przegląd biblioteki projektu][CL10]
 
-1. Przejrzyj struktury modułu, a następnie kliknij przycisk **dalej**.
+1. Przejrzyj hello struktury modułu, a następnie kliknij przycisk **dalej**.
 
    ![Przejrzyj struktury modułu][CL11]
 
@@ -94,19 +94,19 @@ W poniższych krokach objaśniono przez klonowanie repozytorium Spring Docker ro
 
    ![Przycisk Zakończ][CL13]
 
-IntelliJ importuje aplikacji rozruchu Spring jako projekt i wyświetla strukturę po zakończeniu importowania.
+IntelliJ importuje hello rozruchu Spring aplikacji jako projekt i wyświetla struktury powitania po zakończeniu importowania hello.
 
 ![Spring aplikacji rozruchu w IntelliJ][CL14]
 
 ## <a name="build-your-spring-boot-app"></a>Tworzenie rozruchowych Spring aplikacji
 
-### <a name="build-the-app-by-using-the-maven-pom"></a>Tworzenie aplikacji przy użyciu Maven POM
+### <a name="build-hello-app-by-using-hello-maven-pom"></a>Tworzenie aplikacji hello przy użyciu hello Maven POM
 
-1. Otwórz okno narzędzia Maven, jeśli nie jest już otwarty. Kliknij przycisk **widoku** > **narzędzia systemu Windows** > **projekty Maven**.
+1. Otwórz okno narzędzia Maven hello, jeśli nie jest już otwarty. Kliknij przycisk **widoku** > **narzędzia systemu Windows** > **projekty Maven**.
 
    ![Polecenia narzędzia Windows i projekty Maven][BU01]
 
-1. W oknie narzędzia Maven, kliknij prawym przyciskiem myszy **pakietu** i wybierz **Uruchom kompilacja Maven**. (Jeśli projekt Maven nie występuje automatycznie, kliknij przycisk **ponownie zaimportować** ikonę na pasku narzędzi Maven.)
+1. W oknie narzędzia Maven hello, kliknij prawym przyciskiem myszy **pakietu** i wybierz **Uruchom kompilacja Maven**. (Jeśli projekt Maven nie występuje automatycznie, kliknij przycisk hello **ponownie zaimportować** ikonę na pasku narzędzi Maven hello.)
 
    ![Uruchom polecenie kompilacja Maven][BU02]
 
@@ -116,7 +116,7 @@ IntelliJ importuje aplikacji rozruchu Spring jako projekt i wyświetla struktur�
 
 ### <a name="create-a-deployment-ready-artifact"></a>Tworzenie artefaktu gotowe do wdrożenia
 
-Aby opublikować aplikację Spring rozruchu, należy utworzyć artefaktu gotowe do wdrożenia. Wykonaj następujące czynności:
+toopublish aplikacji Spring rozruchu, należy toocreate artefaktu gotowe do wdrożenia. Użyj hello następujące kroki:
 
 1. Otwórz projekt aplikacji sieci web w środowisko IntelliJ.
 
@@ -124,11 +124,11 @@ Aby opublikować aplikację Spring rozruchu, należy utworzyć artefaktu gotowe 
 
    ![Struktura projekt — polecenie][ART01]
 
-1. Kliknij zielony plus (**+**) symbolu, aby dodać artefaktu, kliknij polecenie **JAR**, a następnie kliknij przycisk **pusty**.
+1. Kliknij zielony oraz hello (**+**) symboli tooadd artefaktu, kliknij przycisk **JAR**, a następnie kliknij przycisk **pusty**.
 
    ![Dodaj artefaktów][ART02]
 
-1. Nazwa użytkownika artefaktu pamiętając nie można dodać rozszerzenia "JAR", a następnie określ folder docelowy dla danych wyjściowych Maven.
+1. Nazwa Twojej artefaktu pamiętając nie tooadd rozszerzenia "JAR" hello, a następnie określ hello folderu docelowego dla danych wyjściowych Maven powitalne.
 
    ![Określ właściwości artefaktów][ART03]
 
@@ -136,13 +136,13 @@ Aby opublikować aplikację Spring rozruchu, należy utworzyć artefaktu gotowe 
 
    a. Kliknij przycisk **tworzenie manifestu**.
 
-      ![Kliknij przycisk Utwórz manifestu][ART04a]
+      ![Kliknij przycisk Utwórz manifestu hello][ART04a]
 
-   b. Wybierz domyślną ścieżkę dla artefaktu, a następnie kliknij przycisk **OK**.
+   b. Wybierz hello domyślną ścieżkę dla artefaktu hello, a następnie kliknij przycisk **OK**.
 
       ![Określ ścieżkę artefaktów][ART04b]
 
-   c. Kliknij przycisk wielokropka (**...** ) można znaleźć klasy głównym.
+   c. Kliknij przycisk wielokropka hello (**...** ) klasy głównym hello toolocate.
 
       ![Zlokalizuj klasy głównym][ART04c]
 
@@ -152,65 +152,65 @@ Aby opublikować aplikację Spring rozruchu, należy utworzyć artefaktu gotowe 
 
 1. Kliknij przycisk **OK**.
 
-   ![Zamknij okno dialogowe struktury projektu][ART05]
+   ![Zamknij okno dialogowe hello struktury projektu][ART05]
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia artefaktów w IntelliJ, zobacz [Konfigurowanie artefakty] na JetBrains witryny sieci Web.
+> Aby uzyskać więcej informacji na temat tworzenia artefaktów w IntelliJ, zobacz [Konfigurowanie artefakty] na powitania JetBrains witryny sieci Web.
 >
 
-### <a name="build-the-artifact-for-deployment"></a>Tworzenie artefaktu dla wdrożenia
+### <a name="build-hello-artifact-for-deployment"></a>Tworzenie artefaktu hello wdrożenia
 
 1. Kliknij przycisk **kompilacji**, a następnie kliknij przycisk **artefakty**.
 
    ![Polecenie artefaktów kompilacji][BU04]
 
-1. Gdy **artefaktów kompilacji** zostanie wyświetlone menu kontekstowego, kliknij przycisk **kompilacji**.
+1. Gdy hello **artefaktów kompilacji** zostanie wyświetlone menu kontekstowego, kliknij przycisk **kompilacji**.
 
    ![Tworzenie artefaktu menu kontekstowe][BU05]
 
-IntelliJ ukończone artefaktu dla aplikacji rozruchu Spring powinien być wyświetlany w oknie narzędzia projektu.
+IntelliJ artefaktu ukończyć powitalnych dla aplikacji rozruchu Spring powinien być wyświetlany w oknie narzędzia projektu hello.
 
    ![Utworzony artefaktów][BU06]
 
-## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Publikowanie aplikacji sieci web na platformie Azure przy użyciu kontenera Docker
+## <a name="publish-your-web-app-tooazure-by-using-a-docker-container"></a>Publikowanie tooAzure aplikacji sieci web przy użyciu kontenera Docker
 
-1. Jeśli użytkownik nie ma zalogowany do konta platformy Azure, postępuj zgodnie z instrukcjami [logowania instrukcje dotyczące zestawu narzędzi Azure for IntelliJ][Azure Sign In for IntelliJ].
+1. Jeśli użytkownik nie ma zarejestrowany tooyour konto platformy Azure, wykonaj kroki hello w [logowania instrukcje dotyczące hello Azure Toolkit for IntelliJ][Azure Sign In for IntelliJ].
 
-1. W oknie narzędzia Eksplorator projektów kliknij prawym przyciskiem myszy projekt, a następnie wybierz **Azure** > **Publikuj jako kontener Docker**.
+1. W oknie narzędzia hello Eksplorator projektów kliknij prawym przyciskiem myszy projekt hello, a następnie wybierz **Azure** > **Publikuj jako kontener Docker**.
 
    ![Publikuj jako polecenia w kontenerze Docker][PU01]
 
-1. Gdy **wdrożenia kontenera Docker na platformie Azure** zostanie wyświetlone okno dialogowe, wyświetlane są wszystkie istniejące hosty Docker. Jeśli chcesz wdrożyć istniejącą hosta można przejdź do kroku 4. W przeciwnym razie wykonaj następujące kroki, aby utworzyć hosta:
+1. Gdy hello **wdrożenia kontenera Docker na platformie Azure** zostanie wyświetlone okno dialogowe, wyświetlane są wszystkie istniejące hosty Docker. Jeśli wybierzesz toodeploy tooan istniejącą hosta, możesz pominąć toostep 4. W przeciwnym razie użyj hello następujące kroki toocreate hosta:
 
-   a. Kliknij przycisk plus zielony (**+**) symbolu.
+   a. Kliknij zielony oraz hello (**+**) symbolu.
 
       ![Dodaj nowy host platformy Docker][PU02]
 
-   b. Gdy **hostów Docker Utwórz** zostanie wyświetlone okno dialogowe, użytkownik może zaakceptować wartości domyślne lub można określić wszystkie niestandardowe ustawienia dla nowego hosta platformy Docker. (Aby uzyskać szczegółowe opisy różnych ustawień, zobacz [opublikować aplikację sieci web jako kontener Docker za pomocą narzędzi Azure for IntelliJ][Publish Container with Azure Toolkit].) Kliknij przycisk **dalej** po określeniu ustawień.
+   b. Gdy hello **hostów Docker Utwórz** zostanie wyświetlone okno dialogowe, możesz wybrać domyślne hello tooaccept lub można określić wszystkie niestandardowe ustawienia dla nowego hosta platformy Docker. (Aby uzyskać szczegółowe opisy hello różne ustawienia, zobacz [opublikować aplikację sieci web jako kontener Docker za pomocą hello Azure Toolkit for IntelliJ][Publish Container with Azure Toolkit].) Kliknij przycisk **dalej** po określeniu które toouse ustawienia.
 
       ![Określ opcje hostów Docker][PU03a]
 
-   c. Istnieje możliwość używania istniejących poświadczeń logowania z usługi Azure key vault, lub użytkownik może wprowadzić nowe poświadczenia logowania Docker. Kliknij przycisk **Zakończ** po określeniu opcji.
+   c. Możesz wybrać toouse istniejących poświadczeń logowania usługi Azure key vault lub tooenter można wybrać nowe poświadczenia logowania Docker. Kliknij przycisk **Zakończ** po określeniu opcji.
 
       ![Określ poświadczenia hostów Docker][PU03b]
 
 1. Wybierz hosta Docker, a następnie kliknij przycisk **dalej**.
 
-   ![Wybierz host Docker do użycia][PU04]
+   ![Wybierz toouse hostów Docker hello][PU04]
 
-1. Na ostatniej stronie **wdrożenia kontenera Docker na platformie Azure** oknie dialogowym określ następujące opcje:
+1. Na ostatniej stronie powitania hello **wdrożenia kontenera Docker na platformie Azure** oknie dialogowym Określ hello następujące opcje:
 
-   a. Użytkownik może określić niestandardową nazwę kontenera, który będzie hostem z kontenera Docker lub zaakceptować ustawienia domyślne.
+   a. Można wybrać toospecify niestandardową nazwę kontenera hello, który będzie obsługiwał z kontenera Docker lub możesz zaakceptować domyślną hello.
 
-   b. Wprowadź porty TCP dla hosta docker przy użyciu następującej składni: *[portu zewnętrznego]*:*[wewnętrznego portu]*. Na przykład **80:8080** określa zewnętrznego portu 80 oraz domyślnego portu rozruchu Spring wewnętrzny 8080.
+   b. Wprowadź porty TCP powitania dla hosta docker przy użyciu składni hello: *[portu zewnętrznego]*:*[wewnętrznego portu]*. Na przykład **80:8080** określa zewnętrznego portu 80 i hello domyślnego wewnętrzny rozruchu Spring portu 8080.
    
-      Jeśli dostosowano wewnętrzny port (na przykład, edytując plik application.yml), należy określić numer portu dla poprawne routingu w usłudze Azure.
+      Jeśli dostosowano wewnętrzny port (na przykład, edytując plik application.yml hello), należy numer portu hello toospecify dla hello poprawne toooccur routingu na platformie Azure.
 
    c. Po skonfigurowaniu tych opcji, kliknij przycisk **Zakończ**.
 
    ![Wdrażanie kontenera Docker na platformie Azure][PU05]
 
-1. Po zakończeniu publikowania narzędzi Azure dziennika aktywności platformy Azure Wyświetla **opublikowano** stanu.
+1. Po zakończeniu publikowania hello Azure Toolkit hello Wyświetla dziennika aktywności platformy Azure **opublikowano** hello stanu.
 
    ![Pomyślnie wdrożono hostów Docker][PU06]
 
@@ -218,7 +218,7 @@ IntelliJ ukończone artefaktu dla aplikacji rozruchu Spring powinien być wyświ
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Informacje na temat dodatkowych metod do tworzenia aplikacji Spring rozruch przy użyciu IntelliJ, zobacz [tworzenia projektów rozruchu Spring](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) na JetBrains witryny sieci Web.
+toolearn o dodatkowe metody do tworzenia aplikacji Spring rozruch przy użyciu IntelliJ, zobacz [tworzenia projektów rozruchu Spring](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) na powitania JetBrains witryny sieci Web.
 
 <!-- URL List -->
 

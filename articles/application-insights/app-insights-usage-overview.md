@@ -1,5 +1,5 @@
 ---
-title: "Analiza użycia aplikacji sieci web za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
+title: "Analiza aaaUsage dla aplikacji sieci web za pomocą usługi Azure Application Insights | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, użytkownicy i ich działania z aplikacji sieci web."
 services: application-insights
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.openlocfilehash: 63b74399790b718e14a5b6e09bc009a336caf928
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f7f9173cf411fa0d2dfb3b5ba99134a02bbc0e89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Analiza użycia aplikacji sieci web za pomocą usługi Application Insights
 
@@ -24,90 +24,90 @@ Funkcje aplikacji sieci web są najbardziej popularnych? Czy użytkownicy osiąg
 
 ## <a name="send-telemetry-from-your-app"></a>Wysłać dane telemetryczne z aplikacji
 
-Najlepsze środowisko są uzyskiwane przez zainstalowanie usługi Application Insights, zarówno w kodzie serwera aplikacji, jak i na stronach sieci web. Składniki klienta i serwera aplikacji wysłać dane telemetryczne, wróć do portalu Azure do analizy.
+najlepsze środowisko Hello są uzyskiwane przez zainstalowanie usługi Application Insights, zarówno w kodzie serwera aplikacji, jak i na stronach sieci web. składniki klienta i serwera aplikacji Hello wysłać dane telemetryczne wstecz toohello portalu Azure do analizy.
 
-1. **Kod serwera:** zainstalować moduł odpowiednie dla Twojej [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), lub [innych](app-insights-platforms.md) aplikacji.
+1. **Kod serwera:** instalacji hello moduł odpowiednie dla Twojej [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), lub [innych](app-insights-platforms.md) aplikacji.
 
-    * *Nie chcesz zainstalować kod serwera? Po prostu [tworzenie zasobów Azure Application Insights](app-insights-create-new-resource.md).*
+    * *Nie chcesz tooinstall kod serwera? Po prostu [tworzenie zasobów Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Kod strony sieci Web:** Otwórz [portalu Azure](https://portal.azure.com), otwórz zasobu usługi Application Insights dla aplikacji, a następnie **wprowadzenie > Monitorowanie i diagnozowanie po stronie klienta**. 
+2. **Kod strony sieci Web:** Otwórz hello [portalu Azure](https://portal.azure.com), otwórz hello zasobu usługi Application Insights dla aplikacji, a następnie **wprowadzenie > Monitorowanie i diagnozowanie po stronie klienta**. 
 
-    ![Skopiuj skrypt do Nagłówek strony wzorcowej sieci web.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+    ![Skopiuj skrypt hello do head hello głównej strony sieci web.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
 
-3. **Pobierz dane telemetryczne:** uruchomić projekt w trybie debugowania na kilka minut, a następnie sprawdź wyniki w bloku omówienie w usłudze Application Insights.
+3. **Pobierz dane telemetryczne:** uruchomić projekt w trybie debugowania na kilka minut, a następnie sprawdź wyniki w bloku omówienie hello w usłudze Application Insights.
 
-    Publikowanie aplikacji w celu monitorowania wydajności aplikacji i dowiedzieć się, co robią użytkownicy z aplikacją.
+    Publikowanie z toomonitor aplikacji wydajność aplikacji i dowiedzieć się, co robią użytkownicy z aplikacją.
 
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Uwzględnia Identyfikatora użytkownika i sesji w obrębie telemetrii
-Aby śledzić użytkowników w czasie, usługi Application Insights wymaga do ich identyfikowania. Narzędzie zdarzenia jest tylko narzędzie użycia, które nie wymagają Identyfikatora użytkownika lub identyfikator sesji.
+Użytkownicy tootrack wraz z upływem czasu, usługa Application Insights wymaga tooidentify sposób ich. Zdarzenia Hello jest narzędzie hello jedynym narzędziem użycia, które nie wymagają Identyfikatora użytkownika lub identyfikator sesji.
 
 Rozpocznij wysyłanie tych identyfikatorów [tutaj](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Eksploruj demograficznych użycia oraz statystyki
 Dowiedz się, gdy użytkownicy korzystają z aplikacji, jakie stron one jest najbardziej zainteresowani, gdzie znajdują się użytkownicy, jakie przeglądarek i systemów operacyjnych korzystają. 
 
-Raporty użytkowników i sesji filtrować dane według stron lub zdarzeń niestandardowych, a segment je za pomocą właściwości, takie jak lokalizacja, środowisko i strony. Można także dodać własne filtry.
+Raporty Hello użytkowników i sesji filtrować dane według stron lub zdarzeń niestandardowych i segmentację je przez właściwości, takie jak lokalizacja, środowiska i strony. Można także dodać własne filtry.
 
 ![Użytkownicy](./media/app-insights-usage-overview/users.png)  
 
-Szczegółowe informacje, z prawej strony punktu interesujących wzorców w zestawie danych.  
+Szczegółowe informacje na powitania prawym punktu interesujących wzorców w hello zestawu danych.  
 
-* **Użytkowników** raport liczby unikatowych użytkowników, które uzyskują dostęp do stron w ramach Twojej wybranych okresów. (Użytkownicy są liczone przy użyciu plików cookie. Jeśli ktoś uzyskuje dostęp do witryny za pomocą różnych przeglądarkach lub komputerów klienckich, lub czyści ich plików cookie, a następnie będzie można zliczane więcej niż raz.)
-* **Sesji** raport zlicza sesje użytkowników, które uzyskują dostęp do witryny. Sesja jest okres aktywności przez użytkownika, został przerwany przez okres aktywności ponad pół godziny.
+* Witaj **użytkowników** raport liczby hello liczby unikatowych użytkowników, które uzyskują dostęp do stron w ramach Twojej wybranych okresów. (Użytkownicy są liczone przy użyciu plików cookie. Jeśli ktoś uzyskuje dostęp do witryny za pomocą różnych przeglądarkach lub komputerów klienckich, lub czyści ich plików cookie, a następnie będzie można zliczane więcej niż raz.)
+* Witaj **sesji** raport zlicza hello sesje użytkowników, które uzyskują dostęp do witryny. Sesja jest okres aktywności przez użytkownika, został przerwany przez okres aktywności ponad pół godziny.
 
-[Więcej informacji na temat narzędzia użytkownikami, sesjami i zdarzenia](app-insights-usage-segmentation.md)  
+[Więcej informacji na temat narzędzia hello użytkownikami, sesjami i zdarzenia](app-insights-usage-segmentation.md)  
 
 ## <a name="page-views"></a>Liczba wyświetleń strony
 
-W bloku użycia kliknij za pośrednictwem kafelkiem wyświetleń strony, aby uzyskać podział najpopularniejszych stron:
+W bloku użycia hello kliknij za pośrednictwem hello wyświetleń strony kafelka tooget podział najpopularniejszych stron:
 
-![W bloku Przegląd kliknij wykres widoków strony](./media/app-insights-usage-overview/05-games.png)
+![W bloku omówienie hello kliknij hello strony widoki wykresu](./media/app-insights-usage-overview/05-games.png)
 
-W powyższym przykładzie jest gry witryny sieci web. Wykresy firma Microsoft może natychmiast zobacz:
+w powyższym przykładzie Hello jest gry witryny sieci web. Z wykresów hello natychmiast widać:
 
-* Użycie nie ulepszona w zeszłym tygodniu. Może być powinniśmy pomyśleć o optymalizacji dla aparatów wyszukiwania?
-* Tenisa jest najbardziej popularnym strona gier. Ta funkcja pozwala skupić się na dalszych poprawek do tej strony.
-* Średnio odwiedzin strony tenisa około trzy razy w tygodniu. (Istnieją sesje około trzy razy więcej niż użytkowników.)
-* Większość użytkowników w witrynie w tygodniu pracy USA, a w godzinach pracy. Być może należy udostępniamy przycisk "szybkie Ukryj" na stronie sieci web.
-* [Adnotacje](app-insights-annotations.md) na wykresie Pokaż, gdy nowe wersje witryny sieci Web zostały wdrożone. Brak najnowszych wdrożeń ma zauważalnego wpływu na sposób użycia.
+* Użycie nie zwiększona hello zeszłym tygodniu. Może być powinniśmy pomyśleć o optymalizacji dla aparatów wyszukiwania?
+* Tenisa jest najbardziej popularnym strona gier hello. Ta funkcja pozwala skupić się na dodatkowe ulepszenia toothis strony.
+* Średnio użytkowników stronie powitania tenisa około trzy razy w tygodniu. (Istnieją sesje około trzy razy więcej niż użytkowników.)
+* Większość użytkowników w witrynie hello hello USA pracy tygodniu i w godzinach pracy. Być może należy udostępniamy przycisk "szybkie Ukryj" na stronie sieci web hello.
+* Witaj [adnotacje](app-insights-annotations.md) na wykresie hello Pokaż, gdy nowe wersje hello witryny sieci Web zostały wdrożone. Brak hello ostatnie wdrożeń ma zauważalnego wpływu na sposób użycia.
 
-Co zrobić, jeśli chcesz zbadać ruch do witryny bardziej szczegółowo, takich jak dzielenie według właściwości niestandardowej, wysyłanych w jego dane telemetryczne wyświetleń strony witryny?
+Co zrobić, jeśli chcesz tooinvestigate hello ruchu tooyour lokacji bardziej szczegółowo, takich jak dzielenie według właściwości niestandardowej, wysyłanych w jego dane telemetryczne wyświetleń strony witryny?
 
-1. Otwórz **zdarzenia** narzędzia w menu zasobu usługi Application Insights. To narzędzie umożliwia analizowanie, ile strony widoków i zdarzeń niestandardowych, które zostały wysłane z aplikacji, w oparciu o różne opcje filtrowania, cohorting i segmentacji.
-2. Na liście rozwijanej "Kto używane" Wybierz "Dowolny widok strony".
-3. Na liście rozwijanej "Podział według" Wybierz właściwość, według której będzie dzielony Twoje dane telemetryczne wyświetleń strony.
+1. Otwórz hello **zdarzenia** narzędzia w menu zasobu usługi Application Insights hello. To narzędzie umożliwia analizowanie, ile strony widoków i zdarzeń niestandardowych, które zostały wysłane z aplikacji, w oparciu o różne opcje filtrowania, cohorting i segmentacji.
+2. W hello "Kto używane" z listy rozwijanej wybierz "Dowolny widok strony".
+3. W polu listy rozwijanej "Podziału przez" hello wybierz właściwości, według których toosplit ze strony wyświetlić dane telemetryczne.
 
 ## <a name="retention---how-many-users-come-back"></a>Przechowywania - wróć ilu użytkowników?
 
-Przechowywania pomaga zrozumieć, jak często użytkownicy powrócić do używać aplikacji w oparciu stado użytkowników, którzy wykonać akcję biznesowych w przedziale czasu. 
+Przechowywania pomaga zrozumieć, jak często użytkownicy zwracać toouse aplikacji w oparciu stado użytkowników, którzy wykonać akcję biznesowych w przedziale czasu. 
 
-- Zrozumienie, jakie określone funkcje, że użytkownicy przejdzie ponownie więcej niż inne 
+- Zrozumienie, jakie określone funkcje, że użytkownicy wstecz toocome więcej niż inne 
 - Na podstawie danych użytkownika rzeczywistych hipotez formularza 
 - Określić, czy przechowywania jest problem w programie 
 
 ![Przechowywanie](./media/app-insights-usage-overview/retention.png) 
 
-Formanty przechowywania u góry, umożliwiają definiowanie określonych zdarzeń i zakres czasu, aby obliczyć przechowywania. Wykres w środku zapewnia wizualną reprezentację ogólny procent przechowywania przez podany zakres czasu. Wykres w dolnej reprezentuje indywidualne przechowywania w danym okresie. Taki poziom szczegółowości pozwala zrozumieć, co robią użytkownicy i co może mieć wpływ na użytkowników zwracająca na bardziej szczegółowy poziom szczegółowości.  
+Formanty przechowywania Hello na górze umożliwiają, możesz toodefine określonych zdarzeń i przechowywania toocalculate zakresu czasu. Witaj wykresu w środku hello daje wizualną reprezentację hello ogólną procent przechowywania hello zakres czasu. Wykres Hello na dole hello reprezentuje indywidualne przechowywania w danym okresie. Taki poziom szczegółowości pozwala toounderstand, jakie użytkownicy wirtualni i co może mieć wpływ na użytkowników zwracająca na bardziej szczegółowy poziom szczegółowości.  
 
-[Więcej informacji na temat narzędzia przechowywania](app-insights-usage-retention.md)
+[Więcej informacji na temat narzędzia przechowywania hello](app-insights-usage-retention.md)
 
 ## <a name="custom-business-events"></a>Zdarzenia niestandardowe biznesowe
 
-Aby uzyskać przejrzysty użytkowników czy z aplikacji sieci web, jest przydatne do wstawiania wierszy kodu do dziennika zdarzeń niestandardowych. Zdarzenia te można śledzić żadnych czynności użytkownika szczegółowe akcje, takie jak kliknięcie określonego przycisków, aby bardziej znaczących zdarzenia biznesowe, takie jak dokonywania zakupu lub zastosowanie gier. 
+tooget przejrzysty co użytkownicy nie z aplikacji sieci web, jest przydatne tooinsert wierszy kodu toolog niestandardowych zdarzeń. Zdarzenia te można śledzić żadnych czynności użytkownika szczegółowe akcje, takie jak kliknięcie określonego przycisków, toomore firma zdarzenia, takie jak dokonywania zakupu lub zastosowanie gier. 
 
-Chociaż w niektórych przypadkach wyświetleń strony może reprezentować przydatne zdarzeń, nie jest PRAWDA ogólnie. Użytkownik może otworzyć stronę produktu bez zakupu produktu. 
+Chociaż w niektórych przypadkach wyświetleń strony może reprezentować przydatne zdarzeń, nie jest PRAWDA ogólnie. Użytkownik może otworzyć stronę produktu bez kupowanie hello produktu. 
 
-Zdarzenia firmy można wykresu postępu użytkowników za pośrednictwem witryny. Można sprawdzić ich preferencje dotyczące różnych opcjach i gdzie one usunąć out lub ma trudności. Z tej wiedzy można podejmowania świadomych decyzji o priorytetów w rozwoju listę prac.
+Zdarzenia firmy można wykresu postępu użytkowników za pośrednictwem witryny. Można sprawdzić ich preferencje dotyczące różnych opcjach i gdzie one usunąć out lub ma trudności. Z tej wiedzy można podejmowania świadomych decyzji o hello priorytetów w rozwoju listę prac.
 
-Na stronie sieci web mogą być rejestrowane zdarzenia:
+Na stronie sieci web hello mogą być rejestrowane zdarzenia:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Lub w aplikacji sieci web po stronie serwera:
+Lub po stronie serwera na powitania hello aplikacji sieci web:
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -118,27 +118,27 @@ Lub w aplikacji sieci web po stronie serwera:
     tc.TrackEvent("CompletedPurchase");
 ```
 
-Wartości właściwości można dołączyć do tych zdarzeń, dzięki czemu można filtrować lub podzielić zdarzenia inspekcji w portalu. Ponadto standardowy zestaw właściwości jest dołączany do każdego zdarzenia, takie jak identyfikator użytkownika anonimowego, co pozwala na śledzenie sekwencję działań użytkownika.
+Zdarzenia toothese wartości właściwości, można dołączyć, aby mogą filtrować lub podziału hello zdarzeń inspekcji w portalu hello. Ponadto standardowy zestaw właściwości jest dołączone tooeach zdarzeń, takich jak identyfikator użytkownika anonimowego, co pozwala tootrace hello sekwencji działań użytkownika.
 
 Dowiedz się więcej o [zdarzeń niestandardowych](app-insights-api-custom-events-metrics.md#trackevent) i [właściwości](app-insights-api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Zdarzenia metod selekcji i projekcji
 
-W menu Narzędzia użytkownikami, sesjami i zdarzenia możesz można kątami zdarzeń niestandardowych przez użytkownika, nazwę zdarzenia i właściwości.
+W narzędziach użytkownikami, sesjami i zdarzenia hello użytkownik może kątami zdarzeń niestandardowych przez użytkownika, nazwę zdarzenia i właściwości.
 ![Użytkownicy](./media/app-insights-usage-overview/users.png)  
   
-## <a name="design-the-telemetry-with-the-app"></a>Projekt telemetrii w aplikacji
+## <a name="design-hello-telemetry-with-hello-app"></a>Dane telemetryczne hello projekt aplikacji hello
 
-Podczas projektowania każdej funkcji aplikacji, należy wziąć pod uwagę, jak zamierzasz oceny sukcesu jej z użytkownikami. Zdecyduj, jakie zdarzenia biznesowe, które trzeba zarejestrować i kod wywołuje śledzenia dla tych zdarzeń w swojej aplikacji od początku.
+Podczas projektowania każdej funkcji aplikacji, należy wziąć pod uwagę, jak ma toomeasure jego powodzenia z użytkownikami. Zdecyduj, zdarzenia biznesowe muszą toorecord, a kodem hello śledzenia wywołań dla tych zdarzeń w aplikacji z hello start.
 
 ## <a name="a--b-testing"></a>A | Testowanie B
-Jeśli nie wiesz, który wariant funkcji więcej powiedzie się, zwolnij ich wprowadzania każdego dostępne dla różnych użytkowników. Mierzony sukces każdego z nich, a następnie przesuń do ujednoliconego wersji.
+Jeśli nie wiesz, który wariant funkcji więcej powiedzie się, zwolnij ich wprowadzania poszczególnych użytkowników toodifferent dostępny. Mierzony sukces hello każdego z nich, a następnie przesuń tooa ujednoliconego wersji.
 
-Dla tej metody możesz dołączyć wartości różnych właściwości wszystkie dane telemetryczne wysyłany przez poszczególnych wersji aplikacji. Możesz to zrobić przez definiowanie właściwości w active TelemetryContext. Te właściwości domyślne są dodawane do każdej telemetrii komunikat, który wysyła aplikacji — nie tylko komunikaty niestandardowe, ale także standardowe telemetrii.
+Dla tej metody można dołączyć właściwości różne wartości tooall hello telemetrii, wysyłany przez poszczególnych wersji aplikacji. Możesz to zrobić przez definiowanie właściwości w hello active TelemetryContext. Te właściwości domyślne są dodawane wysyła tooevery telemetrii wiadomość hello aplikacji — nie tylko z niestandardowych wiadomości, ale hello także standardowe telemetrii.
 
-W portalu usługi Application Insights filtrowania i podziału danych w wartości właściwości w taki sposób, aby porównać różne wersje.
+W portalu usługi Application Insights hello filtrowania i podziału danych w wartości właściwości hello, tak jak toocompare hello różne wersje.
 
-Aby to zrobić, [Konfigurowanie inicjatora telemetrii](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+toodo, [Konfigurowanie inicjatora telemetrii](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```C#
 
@@ -153,7 +153,7 @@ Aby to zrobić, [Konfigurowanie inicjatora telemetrii](app-insights-api-filterin
     }
 ```
 
-W inicjatorze aplikacji sieci web, takich jak Global.asax.cs:
+W inicjatorze aplikacji sieci web hello takich jak Global.asax.cs:
 
 ```C#
 
@@ -165,7 +165,7 @@ W inicjatorze aplikacji sieci web, takich jak Global.asax.cs:
     }
 ```
 
-Wszystkie nowe TelemetryClients automatycznie dodają podaną wartość właściwości. Zdarzenia telemetrii poszczególnych można zastąpić wartości domyślne.
+Wszystkie nowe TelemetryClients automatycznie dodają hello wartości właściwości, które określisz. Zdarzenia telemetrii poszczególnych można zastąpić wartości domyślne hello.
 
 ## <a name="next-steps"></a>Następne kroki
    - [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)

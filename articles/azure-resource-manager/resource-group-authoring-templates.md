@@ -1,6 +1,6 @@
 ---
-title: "Strukturę szablonu usługi Azure Resource Manager i składni | Dokumentacja firmy Microsoft"
-description: "Opis struktury i właściwości szablonów usługi Azure Resource Manager za pomocą składni deklaratywnej JSON."
+title: "Menedżer zasobów aaaAzure struktury szablonu i składni | Dokumentacja firmy Microsoft"
+description: "Opis hello struktury i właściwości szablonów usługi Azure Resource Manager za pomocą składni deklaratywnej JSON."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b0709852f8777c91cc1704d6bca16257a017d515
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Struktura i składni szablonów usługi Azure Resource Manager
-W tym temacie opisano strukturę szablonu usługi Azure Resource Manager. Stanowi różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Samouczek krok po kroku dotyczące tworzenia szablonu, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md).
+# <a name="understand-hello-structure-and-syntax-of-azure-resource-manager-templates"></a>Struktura hello i składni szablonów usługi Azure Resource Manager
+W tym temacie opisano strukturę hello szablonu usługi Azure Resource Manager. Stanowi hello różnych części szablonu i hello właściwości, które są dostępne w tych sekcjach. Szablon Hello składa się z kodu JSON i wyrażeń, że możesz użyć wartości tooconstruct dla danego wdrożenia. Samouczek krok po kroku dotyczące tworzenia szablonu, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Format szablonu
-W swojej najprostszej strukturze szablonu zawiera następujące elementy:
+W swojej najprostszej struktury szablonu zawiera hello następujące elementy:
 
 ```json
 {
@@ -39,14 +39,14 @@ W swojej najprostszej strukturze szablonu zawiera następujące elementy:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| $schema |Tak |Lokalizacja pliku schematu JSON, który zawiera opis wersji języka szablonu. Użyj adres URL wyświetlany w poprzednim przykładzie. |
-| contentVersion |Tak |Wersja szablonu (na przykład 1.0.0.0). Musisz podać wartości dla tego elementu. Podczas wdrażania zasobów przy użyciu szablonu, ta wartość może służyć do upewnij się, że używany jest odpowiedniego szablonu. |
-| Parametry |Nie |Wartości, które są podane podczas wdrażania jest wykonywany w celu dostosowania wdrożenia zasobów. |
-| zmienne |Nie |Wartości, które są używane jako fragmenty JSON w szablonie, aby uprościć wyrażeń języka szablonu. |
+| $schema |Tak |Lokalizacja pliku hello schematu JSON, który zawiera opis wersji hello hello języka szablonu. Użyj adresu URL hello pokazano hello poprzedzających przykład. |
+| contentVersion |Tak |Wersja szablonu hello (na przykład 1.0.0.0). Musisz podać wartości dla tego elementu. W przypadku wdrażania zasobów przy użyciu szablonu hello, ta wartość może być używane toomake się, że ten szablon prawo hello jest używany. |
+| parameters |Nie |Wartości, które są dostarczane, gdy wdrożenie jest wykonywane toocustomize zasobu wdrożenia. |
+| zmienne |Nie |Wartości, które są używane jako fragmenty JSON w wyrażeń języka szablonu hello szablonu toosimplify. |
 | Zasoby |Tak |Typy zasobów, które są wdrożone lub zaktualizowane w grupie zasobów. |
 | dane wyjściowe |Nie |Wartości, które są zwracane po wdrożeniu. |
 
-Każdy element zawiera właściwości, które można ustawić. Poniżej przedstawiono przykład zawierający pełnej składni szablonu:
+Każdy element zawiera właściwości, które można ustawić. Poniższy przykład Hello zawiera hello pełnej składni szablonu:
 
 ```json
 {
@@ -62,7 +62,7 @@ Każdy element zawiera właściwości, które można ustawić. Poniżej przedsta
             "minLength": <minimum-length-for-string-or-array>,
             "maxLength": <maximum-length-for-string-or-array-parameters>,
             "metadata": {
-                "description": "<description-of-the parameter>" 
+                "description": "<description-of-hello parameter>" 
             }
         }
     },
@@ -117,14 +117,14 @@ Każdy element zawiera właściwości, które można ustawić. Poniżej przedsta
 }
 ```
 
-Omówione części szablonu bardziej szczegółowo w dalszej części tego tematu.
+Omówione hello części szablonu hello bardziej szczegółowo w dalszej części tego tematu.
 
 ## <a name="expressions-and-functions"></a>Wyrażeń i funkcji
-Podstawowa składnia szablonu jest JSON. Jednak wyrażeń i funkcji rozszerzyć dostępnych w szablonie wartości JSON.  Wyrażenia są zapisywane w literałach ciągu JSON, których pierwszy i ostatnie znaki są nawiasy: `[` i `]`odpowiednio. Wartość wyrażenia jest oceniane podczas wdrażania szablonu. Podczas zapisywania jako literału ciągu, wynik obliczania wyrażenia może być innego typu JSON, takich jak tablicy lub liczba całkowita, w zależności od rzeczywistej wyrażenia.  Mieć literałem rozpoczynać nawiasu `[`, ale nie została ona interpretowana jako wyrażenie, Dodaj dodatkowe nawiasu zacząć ciąg z `[[`.
+Podstawowa składnia Hello szablonu hello jest JSON. Jednak wartości JSON hello dostępnych w szablonie hello rozszerzyć wyrażeń i funkcji.  Wyrażenia są zapisywane w literałach ciągu JSON, których pierwszy i ostatnie znaki to nawiasy hello: `[` i `]`odpowiednio. Hello wartość wyrażenia hello jest oceniane podczas wdrażania szablonu hello. Gdy zapisywane jako literału ciągu, hello wynikiem obliczenia wyrażenia hello może mieć innego typu JSON, takich jak tablicy lub liczba całkowita, w zależności od hello rzeczywistego wyrażenia.  toohave literałem rozpoczynać nawiasu `[`, ale nie została ona interpretowana jako wyrażenie, Dodaj ciąg hello nawiasu dodatkowe toostart z `[[`.
 
-Zazwyczaj umożliwia wyrażenia funkcji wykonywać operacje związane z konfigurowaniem wdrażania. Po prostu, tak jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)`. Możesz odwoływać się do właściwości przy użyciu operatorów kropka i [Indeks].
+Zwykle Użyj wyrażenia z operacjami tooperform funkcje związane z konfigurowaniem wdrażania hello. Po prostu, tak jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)`. Możesz odwoływać się do właściwości przy użyciu operatorów hello kropka i [Indeks].
 
-Poniższy przykład przedstawia użycie kilku funkcji podczas tworzenia wartości:
+Witaj poniższy przykład pokazuje, jak toouse kilka funkcji podczas tworzenia wartości:
 
 ```json
 "variables": {
@@ -134,12 +134,12 @@ Poniższy przykład przedstawia użycie kilku funkcji podczas tworzenia wartośc
 }
 ```
 
-Aby uzyskać pełną listę funkcji szablonu, zobacz [funkcje szablonu usługi Azure Resource Manager](resource-group-template-functions.md). 
+Witaj pełną listę funkcji szablonu, zobacz [funkcje szablonu usługi Azure Resource Manager](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametry
-W sekcji Parametry szablonu można określić wartości, które można wprowadzić podczas wdrażania zasobów. Wartości tych parametrów umożliwiają dostosowanie wdrożenie, podając wartości, które są dostosowane określonym środowisku (na przykład deweloperów, testowego i produkcyjnego). Nie musisz podać parametry w szablonie, ale bez parametrów szablonu będzie zawsze wdrażać te same zasoby z tej samej nazwy, lokalizacji i właściwości.
+W sekcji parametrów hello hello szablonu należy określić wartości, które można wprowadzić w przypadku wdrażania hello zasobów. Wartości tych parametrów Włącz toocustomize hello wdrożenia, podając wartości, które są dostosowane określonym środowisku (na przykład deweloperów, testowego i produkcyjnego). Nie masz tooprovide parametry w szablonie, ale bez parametrów szablonu będzie zawsze wdrażać hello hello tyle samo zasobów o tej samej nazwy, lokalizacji i właściwości.
 
-Definiuje parametry o następującej strukturze:
+Definiuje parametry z następującej struktury hello:
 
 ```json
 "parameters": {
@@ -152,7 +152,7 @@ Definiuje parametry o następującej strukturze:
         "minLength": <minimum-length-for-string-or-array>,
         "maxLength": <maximum-length-for-string-or-array-parameters>,
         "metadata": {
-            "description": "<description-of-the parameter>" 
+            "description": "<description-of-hello parameter>" 
         }
     }
 }
@@ -160,17 +160,17 @@ Definiuje parametry o następującej strukturze:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| Nazwa parametru |Tak |Nazwa parametru. Musi być prawidłowym identyfikatorem języka JavaScript. |
-| type |Tak |Typ wartości parametru. Zobacz listę dozwolonych typów pod tą tabelą. |
-| Wartość domyślna |Nie |Wartość domyślna parametru, jeśli wartość nie zostanie podana dla parametru. |
-| allowedValues |Nie |Tablica dozwolonych wartości tego parametru upewnić się, że podano wartość prawej strony. |
-| Wartość MinValue |Nie |Minimalna wartość parametrów typu int, ta wartość jest włącznie. |
-| MaxValue |Nie |Maksymalna wartość dla parametrów typu int, ta wartość jest włącznie. |
-| Element minLength |Nie |Minimalna długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
-| Element maxLength |Nie |Maksymalna długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
-| Opis elementu |Nie |Opis parametru, który będzie wyświetlany użytkownikom za pośrednictwem portalu. |
+| Nazwa parametru |Tak |Nazwa parametru hello. Musi być prawidłowym identyfikatorem języka JavaScript. |
+| type |Tak |Typ wartości parametru hello. Lista hello dozwolonymi typami pod tą tabelą. |
+| Wartość domyślna |Nie |Wartość domyślna parametru hello, jeśli wartość nie zostanie podana dla parametru hello. |
+| allowedValues |Nie |Tablica toomake parametru hello się upewnić, że wartość prawej strony hello jest dozwolonych wartości. |
+| Wartość MinValue |Nie |Witaj minimalną wartość parametrów typu int, ta wartość jest włącznie. |
+| MaxValue |Nie |Witaj maksymalną wartość parametrów typu int, ta wartość jest włącznie. |
+| Element minLength |Nie |Witaj minimalną długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
+| Element maxLength |Nie |Witaj maksymalną długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
+| description |Nie |Opis parametru hello, który jest wyświetlany toousers za pośrednictwem portalu hello. |
 
-Są dozwolonymi typami i wartości:
+Witaj dozwolonymi typami i wartości to:
 
 * **ciąg**
 * **secureString**
@@ -180,19 +180,19 @@ Są dozwolonymi typami i wartości:
 * **secureObject**
 * **Tablica**
 
-Aby określić parametr jako opcjonalne, należy podać właściwość defaultValue (może być ciągiem pustym). 
+toospecify parametr jako opcjonalną, podaj wartości (może być ciągiem pustym). 
 
-Jeśli określono nazwę parametru w szablonie parametr w poleceniu, aby wdrożyć szablon jest zgodny, jest potencjalnych niejednoznaczności wartości podane przez użytkownika. Menedżer zasobów usuwa to pomyłka, dodając przyrostek **FromTemplate** do parametru szablonu. Na przykład, jeśli zawiera parametr o nazwie **ResourceGroupName** w szablonie, powoduje konflikt z **ResourceGroupName** parametru w [AzureRmResourceGroupDeployment nowy](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) polecenia cmdlet. Podczas wdrażania, monit o podanie wartości **ResourceGroupNameFromTemplate**. Ogólnie rzecz biorąc należy unikać to pomyłka nie nadawanie nazw parametrów o takiej samej nazwie jako parametry używane dla operacji wdrożenia.
+Jeśli określono nazwę parametru w szablonie parametru hello polecenia toodeploy hello szablonu jest zgodny, jest potencjalnych niejednoznaczności wartości hello. Menedżer zasobów usuwa to pomyłka, dodając przyrostek hello **FromTemplate** toohello parametru szablonu. Na przykład, jeśli zawiera parametr o nazwie **ResourceGroupName** w szablonie, powoduje konflikt z hello **ResourceGroupName** parametru w hello [ Nowy AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) polecenia cmdlet. Podczas wdrażania, są tooprovide zostanie wyświetlony monit o wartości **ResourceGroupNameFromTemplate**. Ogólnie rzecz biorąc należy unikać to pomyłka nie nadawanie nazw parametrów z hello takie same nazwy jako parametry używane dla operacji wdrożenia.
 
 > [!NOTE]
-> Wszystkie hasła, klucze i innych informacji poufnych, należy użyć **secureString** typu. W przypadku przekazania danych poufnych w obiekcie JSON, użyj **secureObject** typu. Nie można odczytać parametrów szablonu z typami secureString lub secureObject po wdrożeniu zasobów. 
+> Wszystkie hasła, klucze i innych informacji poufnych, należy użyć hello **secureString** typu. W przypadku przekazania danych poufnych w obiekcie JSON, użyj hello **secureObject** typu. Nie można odczytać parametrów szablonu z typami secureString lub secureObject po wdrożeniu zasobów. 
 > 
-> Na przykład następujący wpis w historii wdrożenia zawiera wartość dla ciągu lub obiektu, ale nie dla secureString i secureObject.
+> Na przykład hello następujący wpis w historii wdrożenia hello pokazuje hello wartość dla ciągu lub obiektu, ale nie dla secureString i secureObject.
 >
 > ![Pokaż wartości wdrożenia](./media/resource-group-authoring-templates/show-parameters.png)  
 >
 
-Poniższy przykład przedstawia sposób definiowania parametrów:
+powitania po przykładzie pokazano, jak toodefine parametry:
 
 ```json
 "parameters": {
@@ -230,12 +230,12 @@ Poniższy przykład przedstawia sposób definiowania parametrów:
 }
 ```
 
-Jak wartości parametrów wejściowych podczas wdrażania, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md). 
+Dla jak wartości parametrów hello tooinput, podczas wdrażania, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md). 
 
 ## <a name="variables"></a>Zmienne
-W sekcji variables można skonstruować wartości, które mogą być używane w szablonie. Nie trzeba zdefiniować zmienne, ale one często uprościć szablonu zmniejszając złożonych wyrażeń.
+W sekcji zmiennych hello utworzymy wartości, które mogą być używane w szablonie. Nie trzeba toodefine zmiennych, ale one często uprościć szablonu zmniejszając złożonych wyrażeń.
 
-Można zdefiniować zmienne o następującej strukturze:
+Można zdefiniować zmienne z następującej struktury hello:
 
 ```json
 "variables": {
@@ -246,7 +246,7 @@ Można zdefiniować zmienne o następującej strukturze:
 }
 ```
 
-Poniższy przykład przedstawia sposób zdefiniowania zmiennej, który jest tworzony z dwóch wartości parametrów:
+powitania po przykładzie pokazano, jak toodefine zmiennej, która jest tworzony z dwóch wartości parametrów:
 
 ```json
 "variables": {
@@ -254,7 +254,7 @@ Poniższy przykład przedstawia sposób zdefiniowania zmiennej, który jest twor
 }
 ```
 
-W kolejnym przykładzie pokazano zmiennej, która jest typem złożonym JSON i zmienne, które są tworzone na podstawie innych zmiennych:
+Witaj kolejnym przykładzie pokazano zmiennej, która jest typem złożonym JSON i zmienne, które są tworzone na podstawie innych zmiennych:
 
 ```json
 "parameters": {
@@ -284,9 +284,9 @@ W kolejnym przykładzie pokazano zmiennej, która jest typem złożonym JSON i z
 ```
 
 ## <a name="resources"></a>Zasoby
-W sekcji zasobów można zdefiniować zasoby, które są wdrożone lub aktualizowane. W tej sekcji można uzyskać skomplikowane, ponieważ należy zrozumieć typy, które jest wdrażany w celu zapewnienia właściwych wartości. Dla określonych zasobów wartości (apiVersion, typ i właściwości), które należy ustawić, zobacz [zdefiniować zasoby w szablonach usługi Azure Resource Manager](/azure/templates/). 
+W sekcji zasobów hello można zdefiniować hello zasobów, które są wdrożone lub aktualizowane. W tej sekcji można uzyskać skomplikowane, ponieważ należy poznać hello typów wdrażania tooprovide hello właściwych wartości. Witaj określonych zasobów wartości (apiVersion, typ i właściwości) należy tooset, zobacz [zdefiniować zasoby w szablonach usługi Azure Resource Manager](/azure/templates/). 
 
-Można zdefiniować zasoby o następującej strukturze:
+Definiuje się zasoby z następującej struktury hello:
 
 ```json
 "resources": [
@@ -329,19 +329,19 @@ Można zdefiniować zasoby o następującej strukturze:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| Warunek | Nie | Wartość logiczna wskazująca, czy zasób jest wdrażany. |
-| apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. |
-| type |Tak |Typ zasobu. Ta wartość jest kombinacją przestrzeń nazw dostawcy zasobów i typu zasobu (takich jak **magazyn.Microsoft/kontamagazynu**). |
-| name |Tak |Nazwa zasobu. Nazwa musi występować po zdefiniowane w RFC3986 ograniczenia składnika identyfikatora URI. Ponadto usług platformy Azure, które udostępniają poza strony zweryfikować nazwę, aby zapewnić, że nazwa zasobu nie jest próba podszywają się pod innego tożsamości. |
-| location |Zmienia się |Obsługiwane lokalizacje geograficzne podane zasobu. Można wybrać dowolny z dostępnych lokalizacji, ale zazwyczaj warto wybrać, który znajduje się w pobliżu użytkowników. Zazwyczaj również dobrym rozwiązaniem jest umieszczenie zasoby, które współdziałają ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale nie wymagają lokalizację niektórych typów (takich jak przypisanie roli). Zobacz [Ustaw lokalizację zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-location.md). |
-| tags |Nie |Tagi, które są skojarzone z zasobem. Zobacz [tagów zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-tags.md). |
-| Komentarze |Nie |Notatki za dokumentację zasobów w szablonie |
-| Kopiuj |Nie |Jeśli wymagane jest więcej niż jedno wystąpienie, liczba zasobów do utworzenia. Domyślnym trybem jest równoległe. Określ tryb serial gdy nie ma wszystkich lub zasoby w celu wdrożenia w tym samym czasie. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nie |Zasoby, które należy wdrożyć przed wdrożeniem tego zasobu. Menedżer zasobów ocenia zależności między zasobami i wdraża je w odpowiedniej kolejności. Zasoby nie są zależne od siebie, są wdrożone równolegle. Wartość może być rozdzielaną przecinkami listą zasobu nazwy lub unikatowych identyfikatorów zasobów. Tylko listy zasobów, które są wdrażane w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie musi już istnieć. Unikaj Dodawanie zależności niepotrzebne, jak mogą spowalniać wdrożenia i utworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące zależności ustawienia, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md). |
-| properties |Nie |Ustawienia konfiguracji określonych zasobów. Wartości właściwości są takie same jak wartości podane w treści żądania dla operacji interfejsu API REST (metody PUT) do utworzenia zasobu. Można również określić tablicy kopiowania, aby utworzyć wiele wystąpień właściwości. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
-| Zasoby |Nie |Zasoby podrzędne, które zależą od zasobu został określony. Podaj tylko typy zasobów, które są dozwolone w schemacie zasobu nadrzędnego. Pełny typ zasobu podrzędnych obejmuje nadrzędny typ zasobu, takich jak **Microsoft.Web/sites/extensions**. Zależność od zasobu nadrzędnego nie jest oznaczany. Jawnie zdefiniuj tej zależności. |
+| Warunek | Nie | Wartość logiczna wskazująca, czy zasób hello jest wdrażany. |
+| apiVersion |Tak |Wersja hello toouse interfejsu API REST do tworzenia hello zasobów. |
+| type |Tak |Typ zasobu hello. Ta wartość jest kombinacją hello przestrzeń nazw dostawcy zasobów hello i typu zasobu hello (takich jak **magazyn.Microsoft/kontamagazynu**). |
+| name |Tak |Nazwa zasobu hello. Witaj musi spełniać zdefiniowane w RFC3986 ograniczenia składnika identyfikatora URI. Ponadto usług platformy Azure, które udostępniają hello zasobu Nazwa toooutside strony sprawdzania poprawności, nie jest toospoof próba toomake nazwa hello tożsamość. |
+| location |Zmienia się |Obsługiwane lokalizacje geograficzne z hello podać zasobów. Można wybrać dowolny z dostępnych lokalizacji hello, ale zazwyczaj ułatwia wykrywanie toopick jest Zamknij tooyour użytkowników. Zazwyczaj również dobrym rozwiązaniem jest tooplace zasobów, współpracujące ze sobą w hello sam region. Większość typów zasobów wymaga lokalizacji, ale nie wymagają lokalizację niektórych typów (takich jak przypisanie roli). Zobacz [Ustaw lokalizację zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-location.md). |
+| tags |Nie |Tagi, które są skojarzone z hello zasobów. Zobacz [tagów zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-tags.md). |
+| Komentarze |Nie |Notatki za dokumentację hello zasobów w szablonie |
+| Kopiuj |Nie |W razie potrzeby więcej niż jedno wystąpienie hello liczba toocreate zasobów. tryb domyślny Hello jest równoległe. Określ tryb serial, gdy nie ma wszystkich lub hello toodeploy zasobów na powitania tym samym czasie. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nie |Zasoby, które należy wdrożyć przed wdrożeniem tego zasobu. Menedżer zasobów ocenia hello zależności między zasobami i wdraża je w odpowiedniej kolejności hello. Zasoby nie są zależne od siebie, są wdrożone równolegle. Hello wartość może być rozdzielaną przecinkami listą zasobu nazwy lub unikatowych identyfikatorów zasobów. Tylko listy zasobów, które są wdrażane w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie musi już istnieć. Unikaj Dodawanie zależności niepotrzebne, jak mogą spowalniać wdrożenia i utworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące zależności ustawienia, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md). |
+| properties |Nie |Ustawienia konfiguracji określonych zasobów. Hello wartości właściwości hello są takie same hello jako wartości hello, podane w treści żądania hello hello interfejsu API REST operacji (metody PUT) toocreate hello zasobu. Można również określić toocreate tablicy kopiowania wielu wystąpień właściwości. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
+| Zasoby |Nie |Zasoby podrzędne, które są zależne od zasobów hello definiowanego. Podaj tylko typy zasobów, które są dozwolone w ramach schematu hello hello zasobu nadrzędnego. Witaj pełny typ zasobu podrzędnego hello zawiera typ zasobu nadrzędnego hello, takich jak **Microsoft.Web/sites/extensions**. Zależność od zasobu nadrzędnego hello jest niejawnego. Jawnie zdefiniuj tej zależności. |
 
-Sekcja zasobów zawiera zasoby w celu wdrożenia. W ramach każdego zasobu można również zdefiniować tablicę zasoby podrzędne. W związku z tym sekcji zasobów można mieć struktury, takiej jak:
+Witaj sekcja zasobów zawiera tablicę hello toodeploy zasobów. W ramach każdego zasobu można również zdefiniować tablicę zasoby podrzędne. W związku z tym sekcji zasobów można mieć struktury, takiej jak:
 
 ```json
 "resources": [
@@ -367,7 +367,7 @@ Sekcja zasobów zawiera zasoby w celu wdrożenia. W ramach każdego zasobu możn
 
 Aby uzyskać więcej informacji na temat definiowania zasoby podrzędne, zobacz [Ustaw nazwę i typ zasobu podrzędnego w szablonie usługi Resource Manager](resource-manager-template-child-resource.md).
 
-**Warunku** element określa, czy zasób jest wdrażany. Wartość dla tego elementu jest rozpoznawany jako PRAWDA lub FAŁSZ. Na przykład aby określić, czy nowe konto magazynu jest wdrażany, należy użyć:
+Witaj **warunku** element określa, czy zasób hello jest wdrażany. Witaj wartość dla tego elementu rozpoznaje tootrue, lub FAŁSZ. Na przykład toospecify czy nowe konto magazynu jest wdrażana, użyj:
 
 ```json
 {
@@ -386,7 +386,7 @@ Aby uzyskać więcej informacji na temat definiowania zasoby podrzędne, zobacz 
 
 Na przykład za pomocą nowego lub istniejącego zasobu, zobacz [nowy lub istniejący szablon warunku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
 
-Aby określić, czy maszyna wirtualna jest wdrażany za pomocą hasła lub klucza SSH, należy zdefiniować dwie wersje maszyny wirtualnej w szablonie i użyj **warunku** rozróżnianie użycia. Podaj parametr, który określa scenariusza wdrażania.
+toospecify czy wdrożono maszynę wirtualną za pomocą hasła lub klucza SSH, zdefiniuj dwie wersje hello maszyny wirtualnej w szablonie i użyj **warunku** toodifferentiate użycia. Podaj parametr, który określa, które toodeploy scenariusza.
 
 ```json
 {
@@ -429,12 +429,12 @@ Aby określić, czy maszyna wirtualna jest wdrażany za pomocą hasła lub klucz
 }
 ``` 
 
-Przykład wdrożenia maszyny wirtualnej za pomocą hasła lub klucza SSH, zobacz [nazwa użytkownika lub SSH szablonu warunku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+Na przykład przy użyciu hasła lub maszyny wirtualnej toodeploy klucza SSH, zobacz [nazwa użytkownika lub SSH szablonu warunku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## <a name="outputs"></a>dane wyjściowe
-W sekcji danych wyjściowych można określić wartości, które są zwracane z wdrożenia. Na przykład można zwrócić identyfikator URI do uzyskania dostępu do zasobu wdrożone.
+W sekcji danych wyjściowych hello należy określić wartości, które są zwracane z wdrożenia. Na przykład można zwrócić hello URI tooaccess wdrożonych zasobów.
 
-W poniższym przykładzie przedstawiono struktura definicji danych wyjściowych:
+Witaj poniższy przykład przedstawia hello struktura definicji danych wyjściowych:
 
 ```json
 "outputs": {
@@ -447,11 +447,11 @@ W poniższym przykładzie przedstawiono struktura definicji danych wyjściowych:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| outputName |Tak |Nazwa wartości danych wyjściowych. Musi być prawidłowym identyfikatorem języka JavaScript. |
-| type |Tak |Typ wartości danych wyjściowych. Dane wyjściowe wartości obsługuje te same typy tablic jako parametrów wejściowych szablonu. |
+| outputName |Tak |Nazwa wartości wyjściowych hello. Musi być prawidłowym identyfikatorem języka JavaScript. |
+| type |Tak |Typ wartości wyjściowych hello. Dane wyjściowe wartości obsługuje hello takie same typy tablic jako parametrów wejściowych szablonu. |
 | wartość |Tak |Wyrażenia języka szablonu, który jest obliczany i zwracany, jako wartość wyjściowa. |
 
-W poniższym przykładzie przedstawiono wartość, która jest zwracana w sekcji danych wyjściowych.
+Witaj poniższy przykład przedstawia wartość, która jest zwracana w sekcji danych wyjściowych hello.
 
 ```json
 "outputs": {
@@ -466,7 +466,7 @@ Aby uzyskać więcej informacji na temat pracy z danych wyjściowych, zobacz [ud
 
 ## <a name="template-limits"></a>Limity szablonu
 
-Limit rozmiaru szablon 1 MB, a każdy plik parametrów do 64 KB. Limit 1 MB jest stosowana do stanu końcowego szablonu zostanie rozwinięty definicje interakcyjnych zasobów i wartości zmiennych i parametrów. 
+Limit rozmiaru hello too1 Twojego szablonu MB, a każdy parametr plików too64 KB. limit 1 MB Hello jest stosowana toohello stan końcowy hello szablonu zostanie rozwinięty definicje interakcyjnych zasobów i wartości zmiennych i parametrów. 
 
 Możesz również są ograniczone do:
 
@@ -476,10 +476,10 @@ Możesz również są ograniczone do:
 * 64 wartości danych wyjściowych
 * 24 576 znaków w wyrażeniu szablonu
 
-Niektóre limity szablonu może przekroczyć przy użyciu szablonu zagnieżdżonego. Aby uzyskać więcej informacji, zobacz [przy użyciu szablonów połączonych w przypadku wdrażania zasobów Azure](resource-group-linked-templates.md). Aby zmniejszyć liczbę parametrów, zmiennych lub dane wyjściowe, można połączyć kilka wartości do obiektu. Aby uzyskać więcej informacji, zobacz [obiektów jako parametry](resource-manager-objects-as-parameters.md).
+Niektóre limity szablonu może przekroczyć przy użyciu szablonu zagnieżdżonego. Aby uzyskać więcej informacji, zobacz [przy użyciu szablonów połączonych w przypadku wdrażania zasobów Azure](resource-group-linked-templates.md). numer hello tooreduce parametrów, zmiennych lub dane wyjściowe, można połączyć kilka wartości do obiektu. Aby uzyskać więcej informacji, zobacz [obiektów jako parametry](resource-manager-objects-as-parameters.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
-* Aby uzyskać więcej informacji o funkcje, których można użyć z w ramach szablonu, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md).
-* Aby połączyć wiele szablonów podczas wdrażania, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Może być konieczne użycie zasobów, które istnieją w innej grupie zasobów. Ten scenariusz jest typowy podczas pracy z kontami magazynu lub sieci wirtualne, które są współdzielone przez wiele grup zasobów. Aby uzyskać więcej informacji, zobacz [funkcja resourceId](resource-group-template-functions-resource.md#resourceid).
+* Szablony pełną tooview do różnych rozwiązań, zobacz hello [szablonów Szybki Start Azure](https://azure.microsoft.com/documentation/templates/).
+* Szczegółowe informacje na temat korzystania z szablonu jako funkcje hello, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md).
+* toocombine wielu szablonów podczas wdrażania, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* Może być konieczne toouse zasoby, które istnieją w innej grupie zasobów. Ten scenariusz jest typowy podczas pracy z kontami magazynu lub sieci wirtualne, które są współdzielone przez wiele grup zasobów. Aby uzyskać więcej informacji, zobacz hello [funkcja resourceId](resource-group-template-functions-resource.md#resourceid).

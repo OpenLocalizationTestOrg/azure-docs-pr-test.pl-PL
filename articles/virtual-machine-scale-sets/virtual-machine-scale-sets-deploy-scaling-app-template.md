@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure | Microsoft Docs"
-description: "Dowiedz się, jak wdrożyć prostą aplikację skalowania automatycznego w zestawie skalowania maszyn wirtualnych przy użyciu szablonu usługi Azure Resource Manager."
+title: aaaDeploy aplikacji na podstawie zestawu skali maszyny wirtualnej platformy Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się toodeploy proste Skalowanie automatyczne aplikacji w skali maszyny wirtualnej ustawić za pomocą szablonu usługi Azure Resource Manager."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: rwike77
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6fccc310312cabfcdddfcbcd2d154fc5cc440417
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Wdrażanie aplikacji skalowania automatycznego przy użyciu szablonu
 
-[Szablony usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) to doskonały sposób wdrażania grup powiązanych zasobów. Ten samouczek stanowi rozwinięcie tematu [Deploy a simple scale set](virtual-machine-scale-sets-mvss-start.md) (Wdrażanie prostego zestawu skalowania). Opisano w nim, jak wdrożyć prostą aplikację skalowania automatycznego w zestawie skalowania przy użyciu szablonu usługi Azure Resource Manager.  Skalowanie automatyczne można również skonfigurować przy użyciu programu PowerShell, interfejsu wiersza polecenia lub portalu. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem skalowania automatycznego](virtual-machine-scale-sets-autoscale-overview.md).
+[Szablony usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) są toodeploy doskonały sposób grup powiązanych zasobów. W tym samouczku opiera się na [wdrożenia zestawu skali proste](virtual-machine-scale-sets-mvss-start.md) i w tym artykule opisano, jak toodeploy proste Skalowanie automatyczne aplikacji w skali ustawić za pomocą szablonu usługi Azure Resource Manager.  Można również skonfigurować przy użyciu programu PowerShell, interfejsu wiersza polecenia lub portalu hello Skalowanie automatyczne. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem skalowania automatycznego](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>Dwa szablony szybkiego startu
-Podczas wdrażania zestawu skalowania można zainstalować nowe oprogramowanie na obrazie platformy przy użyciu [rozszerzenia maszyny wirtualnej](../virtual-machines/virtual-machines-windows-extensions-features.md). Rozszerzenie maszyny wirtualnej to mała aplikacja, która zapewnia konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych Azure, takie jak wdrażanie aplikacji. W folderze [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) znajdują się dwa różne przykładowe szablony, które przedstawiają, jak wdrożyć aplikację skalowania automatycznego do zestawu skalowania przy użyciu rozszerzeń maszyny wirtualnej.
+Podczas wdrażania zestawu skalowania można zainstalować nowe oprogramowanie na obrazie platformy przy użyciu [rozszerzenia maszyny wirtualnej](../virtual-machines/virtual-machines-windows-extensions-features.md). Rozszerzenie maszyny wirtualnej to mała aplikacja, która zapewnia konfigurację po wdrożeniu i zadania automatyzacji na maszynach wirtualnych Azure, takie jak wdrażanie aplikacji. Dwie przykładowe różne szablony znajdują się w [Azure/azure — Szybki Start — szablony](https://github.com/Azure/azure-quickstart-templates) wykazujących jak toodeploy aplikacji Skalowanie automatyczne na skali ustawić za pomocą rozszerzeń maszyny Wirtualnej.
 
 ### <a name="python-http-server-on-linux"></a>Serwer HTTP Python w systemie Linux
-Przykładowy szablon [serwera HTTP Python w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) wdraża prostą aplikację skalowania automatycznego działającą w zestawie skalowania w systemie Linux.  [Bottle](http://bottlepy.org/docs/dev/), struktura sieci Web języka Python, oraz prosty serwer HTTP są wdrażane na każdej maszynie wirtualnej w zestawie skalowania przy użyciu rozszerzenia maszyny wirtualnej skryptu niestandardowego. Zestaw skalowania jest skalowany w górę, gdy średnie wykorzystanie procesora na wszystkich maszynach wirtualnych przekracza 60%, lub w dół, gdy średnie wykorzystanie procesora jest mniejsze niż 30%.
+Witaj [Python HTTP serwera w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) przykładowy szablon wdraża aplikację proste Skalowanie automatyczne, w systemie Linux zestaw skali.  [Bottle](http://bottlepy.org/docs/dev/), Python sieci web framework i prosty serwer HTTP zostały wdrożone na każdej maszynie Wirtualnej w skali hello ustawić za pomocą skryptu niestandardowego rozszerzenia maszyny Wirtualnej. Skala Hello skonfigurować skale gdy średnie wykorzystanie procesora CPU na wszystkich maszynach wirtualnych jest większa niż 60% i skalowany w dół, gdy hello średnie wykorzystanie procesora CPU jest mniej niż 30%.
 
-Oprócz zasobu zestawu skalowania przykładowy szablon *azuredeploy.json* deklaruje również sieć wirtualną, publiczny adres IP, moduł równoważenia obciążenia i zasoby ustawień skalowania automatycznego.  Aby uzyskać więcej informacji dotyczących tworzenia tych zasobów w szablonie, zobacz artykuł [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md) (Zestaw skalowania w systemie Linux obejmujący skalowanie automatyczne).
+Ponadto toohello zestawu skalowania zasobu hello *azuredeploy.json* przykładowy szablon deklaruje również sieć wirtualną, publiczny adres IP usługi równoważenia obciążenia i zasoby Ustawienia skalowania automatycznego.  Aby uzyskać więcej informacji dotyczących tworzenia tych zasobów w szablonie, zobacz artykuł [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md) (Zestaw skalowania w systemie Linux obejmujący skalowanie automatyczne).
 
-W szablonie *azuredeploy.json* właściwość `extensionProfile` zasobu `Microsoft.Compute/virtualMachineScaleSets` określa rozszerzenie skryptu niestandardowego. `fileUris` określa lokalizację skryptu. W tym przypadku są to dwa pliki: *workserver.py*, który definiuje prosty serwer HTTP, i *installserver.sh*, który instaluje program Bottle i uruchamia serwer HTTP. `commandToExecute` określa polecenie do uruchomienia po wdrożeniu zestawu skalowania.
+W hello *azuredeploy.json* szablonu, hello `extensionProfile` właściwości hello `Microsoft.Compute/virtualMachineScaleSets` zasobu określa rozszerzenie skryptu niestandardowego. `fileUris`Określa lokalizację, hello (ów). W takim przypadku dwa pliki: *workserver.py*, który definiuje prosty serwer HTTP, i *installserver.sh*, co spowoduje zainstalowanie Bottle i uruchamia hello serwera HTTP. `commandToExecute`Określa toorun polecenia powitania po wdrożeniu hello zestaw skali.
 
 ```json
           "extensionProfile": {
@@ -59,11 +59,11 @@ W szablonie *azuredeploy.json* właściwość `extensionProfile` zasobu `Microso
 ```
 
 ### <a name="aspnet-mvc-application-on-windows"></a>Aplikacja platformy ASP.NET MVC w systemie Windows
-Przykładowy szablon [Aplikacja platformy ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) wdraża prostą aplikację platformy ASP.NET MVC działającą w środowisku IIS w zestawie skalowania systemu Windows.  Oprogramowanie IIS i aplikacja platformy MVC są wdrażane przy użyciu rozszerzenia maszyny wirtualnej [PowerShell Desired State Configuration (DSC)](virtual-machine-scale-sets-dsc.md).  Zestaw skalowania jest skalowany w górę (jednorazowo na jednym wystąpieniu maszyny wirtualnej), gdy wykorzystanie procesora przekracza 50% przez 5 minut. 
+Witaj [aplikacji ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) przykładowy szablon wdraża prostej aplikacji ASP.NET MVC systemem zestaw skalowania systemu Windows w usługach IIS.  Usługi IIS i hello aplikacji MVC są wdrażane za pomocą hello [konfiguracji stanu (DSC) żądanego programu PowerShell](virtual-machine-scale-sets-dsc.md) rozszerzenia maszyny Wirtualnej.  Skala Hello skonfigurować skali (w wystąpieniu maszyny Wirtualnej w czasie) gdy wykorzystanie procesora CPU jest większa niż 50% 5 minut. 
 
-Oprócz zasobu zestawu skalowania przykładowy szablon *azuredeploy.json* deklaruje również sieć wirtualną, publiczny adres IP, moduł równoważenia obciążenia i zasoby ustawień skalowania automatycznego. Ten szablon przedstawia również uaktualnienie aplikacji.  Aby uzyskać więcej informacji dotyczących tworzenia tych zasobów w szablonie, zobacz artykuł [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md) (Zestaw skalowania w systemie Windows obejmujący skalowanie automatyczne).
+Ponadto toohello zestawu skalowania zasobu hello *azuredeploy.json* przykładowy szablon deklaruje również sieć wirtualną, publiczny adres IP usługi równoważenia obciążenia i zasoby Ustawienia skalowania automatycznego. Ten szablon przedstawia również uaktualnienie aplikacji.  Aby uzyskać więcej informacji dotyczących tworzenia tych zasobów w szablonie, zobacz artykuł [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md) (Zestaw skalowania w systemie Windows obejmujący skalowanie automatyczne).
 
-W szablonie *azuredeploy.json* właściwość `extensionProfile` zasobu `Microsoft.Compute/virtualMachineScaleSets` określa rozszerzenie [Desired State Configuration (DSC)](virtual-machine-scale-sets-dsc.md), które instaluje program IIS i domyślną aplikację sieci Web z pakietu WebDeploy.  Skrypt *IISInstall.ps1* instaluje program IIS na maszynie wirtualnej i znajduje się w folderze *DSC*.  Aplikacja sieci web MVC znajduje się w folderze *WebDeploy*.  Ścieżki do skryptu instalacji i aplikacji sieci Web są definiowane w parametrach `powershelldscZip` i `webDeployPackage` w pliku *azuredeploy.parameters.json*. 
+W hello *azuredeploy.json* szablonu, hello `extensionProfile` właściwości hello `Microsoft.Compute/virtualMachineScaleSets` zasobu określa [konfiguracji żądanego stanu (DSC)](virtual-machine-scale-sets-dsc.md) rozszerzenia, które instaluje usługi IIS i wartości domyślnej Aplikacja sieci Web z pakietu WebDeploy.  Witaj *IISInstall.ps1* skrypt instaluje usługi IIS na maszynie wirtualnej hello i znajduje się w hello *DSC* folderu.  Aplikacja sieci web MVC Hello znajduje się w hello *WebDeploy* folderu.  skrypt instalacji toohello ścieżki Hello i aplikacji sieci web hello są zdefiniowane w hello `powershelldscZip` i `webDeployPackage` parametrów w hello *azuredeploy.parameters.json* pliku. 
 
 ```json
           "extensionProfile": {
@@ -93,11 +93,11 @@ W szablonie *azuredeploy.json* właściwość `extensionProfile` zasobu `Microso
           }
 ```
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
-Najprostszym sposobem wdrażania szablonu [serwera HTTP Python w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) lub [aplikacji platformy ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) jest użycie przycisku **Wdróż na platformie Azure** znajdującego się w plikach Readme w serwisie GitHub.  Aby wdrożyć przykładowe szablony, można również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+## <a name="deploy-hello-template"></a>Wdrażanie szablonu hello
+Witaj najprostszy sposób toodeploy Witaj [Python HTTP serwera w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) lub [aplikacji ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) szablon jest toouse hello **wdrażanie tooAzure** znaleziono przycisku w hello w plikach readme hello w serwisie GitHub.  Umożliwia także programu PowerShell lub interfejsu wiersza polecenia Azure toodeploy hello przykładowe szablony.
 
 ### <a name="powershell"></a>PowerShell
-Skopiuj pliki [serwera HTTP Python w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) lub [aplikacji platformy ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) z repozytorium serwisu GitHub do folderu na komputerze lokalnym.  Otwórz plik *azuredeploy.parameters.json* i zaktualizuj domyślne wartości parametrów `vmssName`, `adminUsername` i `adminPassword`. Zapisz poniższy skrypt programu PowerShell do pliku *deploy.ps1* w tym samym folderze co szablon *azuredeploy.json*. Aby wdrożyć przykładowy szablon, uruchom skrypt *deploy.ps1* w oknie wiersza polecenia programu PowerShell.
+Kopiuj hello [Python HTTP serwera w systemie Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) lub [aplikacji ASP.NET MVC w systemie Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) pliki z folderu tooa repozytorium GitHub hello na komputerze lokalnym.  Otwórz hello *azuredeploy.parameters.json* plików i aktualizacji hello wartościami domyślnymi hello `vmssName`, `adminUsername`, i `adminPassword` parametrów. Zapisz hello następującego skryptu programu PowerShell za*deploy.ps1* hello — w tym samym folderze co hello *azuredeploy.json* szablonu. toodeploy hello przykładowy szablon, uruchom hello *deploy.ps1* skryptu z okno poleceń programu PowerShell.
 
 ```powershell
 param(
@@ -163,7 +163,7 @@ if($resourceProviders.length) {
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
 if(!$resourceGroup)
 {
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
+    Write-Host "Resource group '$resourceGroupName' does not exist. toocreate a new resource group, please enter a location.";
     if(!$resourceGroupLocation) {
         $resourceGroupLocation = Read-Host "resourceGroupLocation";
     }
@@ -174,7 +174,7 @@ else{
     Write-Host "Using existing resource group '$resourceGroupName'";
 }
 
-# Start the deployment
+# Start hello deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
@@ -191,7 +191,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -238,12 +238,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
+    echo "Enter a location below toocreate a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file to be used
+#templateFile Path - template file toobe used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -264,7 +264,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login to azure using your credentials
+#login tooazure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -272,7 +272,7 @@ then
     az login
 fi
 
-#set the default subscription id
+#set hello default subscription id
 az account set --name $subscriptionId
 
 set +e

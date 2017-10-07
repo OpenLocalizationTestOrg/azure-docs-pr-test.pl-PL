@@ -1,6 +1,6 @@
 ---
-title: "Analizowanie danych opóźnienie transmitowane przy użyciu Hive w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak korzystanie z programu Hive można analizować dane transmitowane w HDInsight opartych na systemie Linux, a następnie wyeksportować dane do bazy danych SQL przy użyciu Sqoop."
+title: "aaaAnalyze transmitowane opóźnienie danych przy użyciu Hive w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Hive dane transmitowane tooanalyze na HDInsight opartych na systemie Linux, a następnie wyeksportować hello tooSQL danych bazy danych przy użyciu Sqoop."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 8cdc19ac8a517b6d8eefabb5476a686aa252a332
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7830457a7100880dff1c647dde1b4d203bfea3c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizowanie danych opóźnienie transmitowane przy użyciu usługi Hive w usłudze HDInsight z systemem Linux
 
-Dowiedz się, jak i analizować dane opóźnienie transmitowane przy użyciu Hive w usłudze HDInsight z systemem Linux, a następnie wyeksportować dane do bazy danych SQL Azure przy użyciu Sqoop.
+Dowiedz się, jak tooanalyze transmitowane opóźnienie danych przy użyciu Hive w usłudze HDInsight z systemem Linux następnie wyeksportować hello tooAzure danych bazy danych SQL przy użyciu Sqoop.
 
 > [!IMPORTANT]
-> Kroki opisane w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux. Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> kroki Hello w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux. Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 * **Klaster usługi HDInsight**. Zobacz [rozpocząć korzystanie z usługi Hadoop przy użyciu Hive w usłudze HDInsight w systemie Linux](hdinsight-hadoop-linux-tutorial-get-started.md) instrukcje dotyczące tworzenia nowego klastra usługi HDInsight opartej na systemie Linux.
 
-* **Baza danych Azure SQL**. Korzystasz z bazy danych Azure SQL jako miejsce docelowe magazynu danych. Jeśli nie masz już bazę danych SQL, zobacz [samouczek usługi SQL Database: tworzenie bazy danych SQL w minutach](../sql-database/sql-database-get-started.md).
+* **Usługa Azure SQL Database**. Korzystasz z bazy danych Azure SQL jako miejsce docelowe magazynu danych. Jeśli nie masz już bazę danych SQL, zobacz [samouczek usługi SQL Database: tworzenie bazy danych SQL w minutach](../sql-database/sql-database-get-started.md).
 
-* **Interfejs wiersza polecenia platformy Azure**. Jeśli nie zainstalowano wiersza polecenia platformy Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) dla większej liczby kroków.
+* **Interfejs wiersza polecenia platformy Azure**. Jeśli nie zainstalowano hello wiersza polecenia platformy Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) dla większej liczby kroków.
 
-## <a name="download-the-flight-data"></a>Pobierz dane transmitowane
+## <a name="download-hello-flight-data"></a>Pobierz dane transmitowane hello
 
-1. Przejdź do [badań i Nowatorska technologia administracji, biura statystyk transportu][rita-website].
+1. Przeglądaj zbyt[badań i innowacyjnych technologii administracji, biura statystyk transportu][rita-website].
 
-2. Na stronie wybierz następujące wartości:
+2. Na stronie powitania wybierz hello następujące wartości:
 
    | Nazwa | Wartość |
    | --- | --- |
@@ -51,26 +51,26 @@ Dowiedz się, jak i analizować dane opóźnienie transmitowane przy użyciu Hiv
 
 3. Kliknij pozycję **Pobierz**.
 
-## <a name="upload-the-data"></a>Przekazywanie danych
+## <a name="upload-hello-data"></a>Przekazywanie danych hello
 
-1. Użyj następującego polecenia, aby przekazać plik zip do węzła głównego klastra usługi HDInsight:
+1. Użyj następującego polecenia tooupload hello zip pliku toohello HDInsight węzła głównego klastra hello:
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    Zastąp **FILENAME** z nazwą pliku zip. Zastąp **USERNAME** z logowaniem SSH dla klastra usługi HDInsight. Zamień NAZWAKLASTRA nazwę klastra usługi HDInsight.
+    Zastąp **FILENAME** o nazwie hello hello pliku zip. Zastąp **USERNAME** z logowaniem SSH hello hello klastra usługi HDInsight. Zamień NAZWAKLASTRA hello nazwę hello klastra usługi HDInsight.
 
    > [!NOTE]
-   > Jeśli używasz hasła uwierzytelniania nazwy logowania SSH, zostanie wyświetlony monit o hasło. Jeśli używasz klucza publicznego, może być konieczne użycie `-i` parametru i określ ścieżkę do odpowiedniego klucza prywatnego. Na przykład `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Jeśli używasz tooauthenticate hasło logowanie SSH, zostanie wyświetlony monit o hasło hello. Jeśli używasz klucza publicznego, może być konieczne toouse hello `-i` parametru i określ toohello ścieżka hello pasujących do klucza prywatnego. Na przykład `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
-2. Po zakończeniu przekazywania nawiązać połączenia z klastrem przy użyciu protokołu SSH:
+2. Po zakończeniu przekazywania hello połączenie toohello klastra przy użyciu protokołu SSH:
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
 
     Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Po nawiązaniu połączenia, Rozpakuj plik zip należy wykonać następujące kroki:
+3. Po nawiązaniu połączenia użyj następującego pliku .zip hello toounzip hello:
 
     ```
     unzip FILENAME.zip
@@ -78,28 +78,28 @@ Dowiedz się, jak i analizować dane opóźnienie transmitowane przy użyciu Hiv
 
     To polecenie wyodrębnia plik CSV, który jest około 60 MB.
 
-4. Użyj następującego polecenia, aby utworzyć katalog w magazynie usługi HDInsight, a następnie skopiuj plik do katalogu:
+4. Użyj hello następujące polecenia toocreate katalogu w magazynie usługi HDInsight, a następnie skopiuj katalog toohello pliku hello:
 
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
 
-## <a name="create-and-run-the-hiveql"></a>Tworzenie i uruchamianie HiveQL
+## <a name="create-and-run-hello-hiveql"></a>Tworzenie i uruchamianie hello HiveQL
 
-Wykonaj następujące kroki, aby zaimportować dane z pliku CSV do tabeli programu Hive o nazwie **opóźnienia**.
+Użyj następujących hello kroki tooimport danych z pliku CSV hello w tabeli programu Hive o nazwie **opóźnienia**.
 
-1. Użyj następującego polecenia można tworzyć i edytować nowy plik o nazwie **flightdelays.hql**:
+1. Użyj następujących hello polecenia toocreate i Edytuj plik o nazwie **flightdelays.hql**:
 
     ```
     nano flightdelays.hql
     ```
 
-    Zawartość tego pliku, należy użyć następującego tekstu:
+    Użyj hello następującego tekstu jako hello zawartość tego pliku:
 
     ```hiveql
     DROP TABLE delays_raw;
-    -- Creates an external table over the csv file
+    -- Creates an external table over hello csv file
     CREATE EXTERNAL TABLE delays_raw (
         YEAR string,
         FL_DATE string,
@@ -123,16 +123,16 @@ Wykonaj następujące kroki, aby zaimportować dane z pliku CSV do tabeli progra
         NAS_DELAY float,
         SECURITY_DELAY float,
         LATE_AIRCRAFT_DELAY float)
-    -- The following lines describe the format and location of the file
+    -- hello following lines describe hello format and location of hello file
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
     LOCATION '/tutorials/flightdelays/data';
 
-    -- Drop the delays table if it exists
+    -- Drop hello delays table if it exists
     DROP TABLE delays;
-    -- Create the delays table and populate it with data
-    -- pulled in from the CSV file (via the external table defined previously)
+    -- Create hello delays table and populate it with data
+    -- pulled in from hello CSV file (via hello external table defined previously)
     CREATE TABLE delays AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -157,24 +157,24 @@ Wykonaj następujące kroki, aby zaimportować dane z pliku CSV do tabeli progra
     FROM delays_raw;
     ```
 
-2. Aby zapisać plik, użyj **Ctrl + X**, następnie **Y** .
+2. toosave hello pliku, użyj **Ctrl + X**, następnie **Y** .
 
-3. Aby uruchomić Hive i przeprowadzić **flightdelays.hql** plików, użyj następującego polecenia:
+3. toostart Hive i wykonywania hello **flightdelays.hql** plików, użyj następującego polecenia hello:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
-   > W tym przykładzie `localhost` służy Skoro masz połączenie z węzłem głównym klastra usługi HDInsight, czyli gdzie działa serwera HiveServer2.
+   > W tym przykładzie `localhost` jest używany, ponieważ są połączone toohello węzła głównego klastra usługi HDInsight hello, czyli gdzie działa serwera HiveServer2.
 
-4. Raz __flightdelays.hql__ zakończeniu uruchamiania skryptu, użyj następującego polecenia, aby otworzyć sesji interaktywnej Beeline:
+4. Raz hello __flightdelays.hql__ skrypt uruchomiony zakończeniu Użyj hello następujące polecenie tooopen jako sesja interaktywna Beeline:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. Po otrzymaniu `jdbc:hive2://localhost:10001/>` monit, użyj następującego zapytania do pobierania danych z transmitowane importowanych danych opóźnienia.
+5. Po otrzymaniu hello `jdbc:hive2://localhost:10001/>` monit, użyj hello poniższych zapytania tooretrieve danych z danych opóźnienie transmitowane hello zaimportowane.
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -186,47 +186,47 @@ Wykonaj następujące kroki, aby zaimportować dane z pliku CSV do tabeli progra
     GROUP BY origin_city_name;
     ```
 
-    To zapytanie pobiera listę miast, w których wystąpił pogody opóźnienia, oraz średnie opóźnienie czasu i zapisać go do `/tutorials/flightdelays/output`. Później Sqoop odczytuje dane z tej lokalizacji i eksportowania ich do bazy danych SQL Azure.
+    To zapytanie pobiera listę miejscowości opóźnienia doświadczonym pogodzie, wraz ze średnią hello opóźnienie czasu i zapisać go za`/tutorials/flightdelays/output`. Później Sqoop odczytuje hello danych z tej lokalizacji i wyeksportować go tooAzure bazy danych SQL.
 
-6. Aby zakończyć Beeline, wprowadź `!quit` w wierszu.
+6. Wprowadź tooexit Beeline, `!quit` hello w wierszu.
 
 ## <a name="create-a-sql-database"></a>Tworzenie bazy danych SQL
 
-Jeśli masz już bazę danych SQL, należy uzyskać nazwę serwera. Można znaleźć nazwę serwera w [portalu Azure](https://portal.azure.com) wybierając **baz danych**i filtrowanie Nazwa bazy danych chcesz użyć. Nazwa serwera ma na liście **serwera** kolumny.
+Jeśli masz już bazę danych SQL, należy uzyskać hello nazwy serwera. Hello nazwy serwera można znaleźć w hello [portalu Azure](https://portal.azure.com) wybierając **baz danych**, i filtrowanie hello hello nazwę bazy danych należy ma toouse. Nazwa serwera Hello ma na liście hello **serwera** kolumny.
 
-Jeśli nie masz już bazę danych SQL, skorzystaj z informacji w [samouczek usługi SQL Database: tworzenie bazy danych SQL w minutach](../sql-database/sql-database-get-started.md) go utworzyć. Zapisz nazwę serwera, do bazy danych.
+Jeśli nie masz już bazę danych SQL, użyj informacji hello w [samouczek usługi SQL Database: tworzenie bazy danych SQL w minutach](../sql-database/sql-database-get-started.md) toocreate jeden. Zapisz nazwę serwera hello do hello bazy danych.
 
 ## <a name="create-a-sql-database-table"></a>Tworzenie tabeli bazy danych SQL
 
 > [!NOTE]
-> Istnieje wiele sposobów łączenia z bazą danych SQL i tworzenie tabeli. Następujące kroki użyj [protokół FreeTDS](http://www.freetds.org/) z klastrem usługi HDInsight.
+> Istnieje wiele sposobów tooSQL tooconnect bazy danych i Utwórz tabelę. Witaj, użyj czynności po [protokół FreeTDS](http://www.freetds.org/) z klastrem usługi HDInsight hello.
 
 
-1. Połącz się z klastrem usługi HDInsight opartej na systemie Linux przy użyciu protokołu SSH, a wykonanie następujących kroków w sesji SSH.
+1. Użyj SSH tooconnect toohello opartych na systemie Linux klaster usługi HDInsight i uruchamiania hello następujące kroki w sesji SSH hello.
 
-2. Aby zainstalować protokół FreeTDS, użyj następującego polecenia:
+2. Użyj następującego polecenia tooinstall protokół FreeTDS hello:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Po zakończeniu instalacji, użyj następującego polecenia, aby połączyć się z serwerem bazy danych SQL. Zastąp **serverName** z nazwą serwera bazy danych SQL. Zastąp **adminLogin** i **adminPassword** z nazwy logowania bazy danych SQL. Zastąp **databaseName** o nazwie bazy danych.
+3. Po zakończeniu instalacji hello Użyj hello następujące polecenia tooconnect toohello bazy danych programu SQL server. Zastąp **serverName** z nazwą serwera bazy danych SQL hello. Zastąp **adminLogin** i **adminPassword** z logowaniem hello bazy danych SQL. Zastąp **databaseName** hello nazwą bazy danych.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Pojawi się dane wyjściowe podobne do następującego tekstu:
+    Pojawi się toohello podobne dane wyjściowe następującego tekstu:
 
     ```
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
     using default charset "UTF-8"
-    Default database being set to sqooptest
+    Default database being set toosqooptest
     1>
     ```
 
-4. W `1>` monit, wprowadź następujące wiersze:
+4. Na powitania `1>` monit, wprowadź hello następujące wiersze:
 
     ```
     CREATE TABLE [dbo].[delays](
@@ -237,60 +237,60 @@ Jeśli nie masz już bazę danych SQL, skorzystaj z informacji w [samouczek usł
     GO
     ```
 
-    Gdy `GO` instrukcja została wprowadzona, poprzednie instrukcje są oceniane. To zapytanie tworzy tabelę o nazwie **opóźnienia**, z indeksem klastrowanym.
+    Gdy hello `GO` instrukcja została wprowadzona, poprzednie instrukcje hello są oceniane. To zapytanie tworzy tabelę o nazwie **opóźnienia**, z indeksem klastrowanym.
 
-    Użyj następującego zapytania, aby sprawdzić, czy tabela została utworzona:
+    Utworzono hello Użyj następującego tooverify zapytania, który hello tabeli:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Dane wyjściowe będą podobne do następującego tekstu:
+    Witaj danych wyjściowych jest podobne toohello następującego tekstu:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. Wprowadź `exit` na `1>` prompt wyjść z narzędzia tsql.
+5. Wprowadź `exit` na powitania `1>` Monituj tooexit hello tsql narzędzia.
 
 ## <a name="export-data-with-sqoop"></a>Eksportowanie danych z Sqoop
 
-1. Aby sprawdzić, czy Sqoop widzą bazy danych SQL, użyj następującego polecenia:
+1. Użyj hello następujące polecenie tooverify czy Sqoop widzą bazy danych SQL:
 
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
-    To polecenie zwraca listę baz danych, łącznie z bazy danych utworzone wcześniej tabeli opóźnienia.
+    To polecenie zwraca listę baz danych, w tym hello bazy danych, utworzone wcześniej hello tabeli opóźnień w.
 
-2. Eksportowanie danych z hivesampletable do tabeli mobiledata, użyj następującego polecenia:
+2. Użyj następującego polecenia tooexport danych z tabeli mobiledata toohello hivesampletable hello:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop nawiązuje połączenie z bazą danych zawierającą tabeli opóźnienia i eksportowanie danych `/tutorials/flightdelays/output` katalogu do tabeli opóźnienia.
+    Sqoop łączy toohello bazy danych zawierające hello opóźnienia tabeli i eksportuje dane z hello `/tutorials/flightdelays/output` tabeli opóźnienia toohello katalogów.
 
-3. Po zakończeniu wykonywania polecenia, użyj następujących funkcji do łączenia z bazą danych przy użyciu języka TSQL:
+3. Po zakończeniu wykonywania polecenia hello Użyj hello następujące bazy danych toohello tooconnect przy użyciu języka TSQL:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Po nawiązaniu połączenia, należy zastosować następujące instrukcje, aby sprawdzić, czy dane zostały wyeksportowane do tabeli mobiledata:
+    Po nawiązaniu połączenia użyj hello następujące instrukcje tooverify czy hello danych został wyeksportowany toohello mobiledata tabeli:
 
     ```
     SELECT * FROM delays
     GO
     ```
 
-    Powinna zostać wyświetlona lista danych w tabeli. Typ `exit` aby wyjść z narzędzia tsql.
+    Powinna zostać wyświetlona lista dane w tabeli hello. Typ `exit` tooexit hello tsql narzędzia.
 
 ## <a id="nextsteps"></a> Następne kroki
 
-Aby dowiedzieć się więcej sposobów pracować z danymi w usłudze HDInsight, można znaleźć w następujących dokumentach:
+Zobacz więcej sposobów toowork z danymi w usłudze HDInsight, toolearn hello w następujących dokumentach:
 
 * [Korzystanie z programu Hive z usługą HDInsight][hdinsight-use-hive]
 * [Korzystanie z Oozie z usługą HDInsight][hdinsight-use-oozie]

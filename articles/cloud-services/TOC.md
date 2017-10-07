@@ -25,13 +25,13 @@
 ### [Konfigurowanie reguł ruchu dla roli](cloud-services-enable-communication-role-instances.md)
 ### [Obsługa zdarzeń cyklu życia usługi w chmurze](cloud-services-role-lifecycle-dotnet.md)
 ### [Biblioteka Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-### [Nawiązywanie połączenia telefonicznego za pomocą usługi Twilio (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+### [Użyj usługi Twilio toomake rozmowy telefonicznej (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
 ### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Konfigurowanie zadań uruchamiania
 #### [Tworzenie zadań uruchamiania](cloud-services-startup-tasks.md)
 #### [Popularne zadania uruchamiania](cloud-services-startup-tasks-common.md)
-#### [Instalowanie programu .NET w roli usługi w chmurze przy użyciu zadania](cloud-services-dotnet-install-dotnet.md)
+#### [Użyj tooInstall zadań .NET dla roli usługi w chmurze](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurowanie pulpitu zdalnego
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -47,7 +47,7 @@
 #### [Portal](cloud-services-custom-domain-name-portal.md)
 #### [Portal klasyczny](cloud-services-custom-domain-name.md)
 ### [Testowanie wdrażania usługi w chmurze (Node.js)](cloud-services-nodejs-stage-application.md)
-### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
+### [Połącz niestandardowe tooa kontrolera domeny](cloud-services-connect-to-custom-domain.md)
 
 ## Zarządzanie usługą
 ### Typowe zadania zarządzania
@@ -60,7 +60,7 @@
 ### Konfigurowanie automatycznego skalowania
 #### [Portal](cloud-services-how-to-scale-portal.md)
 #### [Portal klasyczny](cloud-services-how-to-scale.md)
-### [Zarządzanie zasobami platformy Azure przy użyciu języka Python](cloud-services-python-how-to-use-service-management.md)
+### [Korzystanie z zasobów Azure toomanage języka Python](cloud-services-python-how-to-use-service-management.md)
 
 ### [Poprawki systemu operacyjnego gościa](cloud-services-guestos-msrc-releases.md)
 ### Wycofanie systemu operacyjnego gościa
@@ -86,7 +86,7 @@
 ### [Używanie liczników wydajności w usłudze Diagnostyka Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
 ### [Śledzenie usługi w chmurze przy użyciu usługi Diagnostyka](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Wysyłanie danych diagnostycznych do usługi App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
+### [Wysyłanie danych diagnostycznych tooApp Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Rozwiązywanie problemów
 ### Debugowanie 
@@ -98,7 +98,7 @@
 ### [Typowe przyczyny powtarzania cykli ról usługi w chmurze](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [Domyślny rozmiar folderu TEMP jest zbyt mały dla roli](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
 ### [Typowe problemy z wdrażaniem](cloud-services-troubleshoot-deployment-problems.md)
-### [Nie można uruchomić roli](cloud-services-troubleshoot-roles-that-fail-start.md)
+### [Toostart ról nie powiodło się](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Wskazówki dotyczące odzyskiwania](cloud-services-disaster-recovery-guidance.md)
 ### Cloud Services — często zadawane pytania
 #### [Często zadawane pytania dotyczące dostępności aplikacji i usług](cloud-services-application-and-service-availability-faq.md)

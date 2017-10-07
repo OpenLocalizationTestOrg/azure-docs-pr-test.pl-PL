@@ -1,6 +1,6 @@
 ---
-title: "Azure wersji schematu konfiguracji rozszerzenie diagnostyki i historię | Dokumentacja firmy Microsoft"
-description: "Właściwe dla zbierania liczników wydajności w maszynach wirtualnych platformy Azure, zestawy skalowania maszyny Wirtualnej, sieci szkieletowej usług i usługi w chmurze."
+title: "aaaAzure diagnostyki wersji schematu konfiguracji rozszerzenie i historię | Dokumentacja firmy Microsoft"
+description: "Toocollecting odpowiednich liczników wydajności w maszynach wirtualnych platformy Azure, zestawy skalowania maszyny Wirtualnej, sieci szkieletowej usług i usługi w chmurze."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 854ad118f660810aa38703670284794d658142c7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure wersji schematu konfiguracji rozszerzenie diagnostyki i historii
-Indeksy tej strony wersji schematu rozszerzenia diagnostyki Azure dostarczana jako część zestawu SDK platformy Microsoft Azure.  
+Indeksy tej strony wersji schematu rozszerzenia diagnostyki Azure dostarczana jako część programu hello zestawu SDK usługi Microsoft Azure.  
 
 > [!NOTE]
-> Rozszerzenie Azure Diagnostics jest składnik służący do zbierania liczników wydajności i innych danych statystycznych z:
+> Hello rozszerzenie Azure Diagnostics jest składnik hello używany toocollect liczniki wydajności i innych danych statystycznych z:
 > - Azure Virtual Machines 
 > - Zestawy skali maszyn wirtualnych
 > - Service Fabric 
@@ -33,7 +33,7 @@ Indeksy tej strony wersji schematu rozszerzenia diagnostyki Azure dostarczana ja
 > 
 > Ta strona jest tylko istotne, jeśli używasz tych usług.
 
-Rozszerzenia Azure Diagnostics jest używany z innymi produktami firmy Microsoft diagnostyki, takich jak Azure monitora, usługi Application Insights i analizy dzienników. Aby uzyskać więcej informacji, zobacz [omówienie narzędzi monitorowania Microsoft](monitoring-overview.md).
+Witaj rozszerzenie Azure Diagnostics jest używany z innymi produktami firmy Microsoft diagnostyki, takich jak Azure monitora, usługi Application Insights i analizy dzienników. Aby uzyskać więcej informacji, zobacz [omówienie narzędzi monitorowania Microsoft](monitoring-overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure wersji zestawu SDK i informacji diagnostycznych wysyłania wykresu  
 
@@ -53,9 +53,9 @@ Rozszerzenia Azure Diagnostics jest używany z innymi produktami firmy Microsoft
 
 
 
- Azure diagnostyki w wersji 1.0 najpierw dostarczoną w wtyczki model — co oznacza, że podczas instalowania zestawu Azure SDK uzyskano wersję diagnostyki Azure zostały wydane z nim.  
+ Diagnostyka Azure w wersji 1.0 najpierw dostarczoną w wtyczki model — co oznacza, czy zainstalowany hello Azure SDK, masz wersji hello diagnostyki Azure zostały wydane z nim.  
 
- Począwszy od zestawu SDK, 2.5 (Diagnostyka w wersji 1.2), Diagnostyka Azure poszło na model rozszerzenia. Narzędzia mogą korzystać z nowych funkcji tylko były dostępne w nowszej Azure SDK, ale usługi za pomocą diagnostyki Azure czy odebrania najnowszej wersji wysyłki bezpośrednio z platformy Azure. Na przykład każdy użytkownik nadal przy użyciu zestawu SDK, 2.5 będzie można ładowania najnowszej wersji, które są wyświetlane w poprzedniej tabeli, niezależnie od tego, jeśli używają nowsze funkcje.  
+ Począwszy od zestawu SDK, 2.5 (Diagnostyka w wersji 1.2), Diagnostyka Azure poszło tooan rozszerzenia modelu. nowe funkcje tooutilize narzędzia Hello tylko były dostępne w nowszej Azure SDK, ale usługi za pomocą diagnostyki Azure czy odebrania hello najnowszej wersji wysyłki bezpośrednio z platformy Azure. Na przykład każdy użytkownik nadal przy użyciu zestawu SDK, 2.5 będzie można ładowania najnowszej wersji hello pokazano w poprzedniej tabeli hello, niezależnie od tego, jeśli używają hello nowsze funkcje.  
 
 ## <a name="schemas-index"></a>Indeks schematów  
 Różne wersje diagnostyki Azure używają schematy innej konfiguracji. 
@@ -74,7 +74,7 @@ Dodano obsługę Docker.
 
 
 ### <a name="diagnostics-extension-181"></a>Diagnostyka rozszerzenia 1.8.1 
-Można określić tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu w konfiguracji prywatnej. Jeśli zostanie podany SAS token, klucz konta magazynu jest ignorowana.
+Można określić tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu w konfiguracji prywatnej hello. Jeśli zostanie podany SAS token, klucz konta magazynu hello jest ignorowana.
 
 
 ```json
@@ -105,7 +105,7 @@ Można określić tokenu sygnatury dostępu Współdzielonego, zamiast klucz kon
 
 
 ### <a name="diagnostics-extension-18"></a>Diagnostyka rozszerzenia 1.8 
-Typ magazynu dodanych do PublicConfig. Może być StorageType *tabeli*, *obiektu Blob*, *TableAndBlob*. *Tabela* jest ustawieniem domyślnym.
+Dodano tooPublicConfig typu magazynu. Może być StorageType *tabeli*, *obiektu Blob*, *TableAndBlob*. *Tabela* jest domyślnym hello.
 
 
 ```json
@@ -127,42 +127,42 @@ Typ magazynu dodanych do PublicConfig. Może być StorageType *tabeli*, *obiektu
 
 
 ### <a name="diagnostics-extension-17"></a>Diagnostyka rozszerzenia 1.7 
-Dodano możliwość trasy do Centrum EventHub.
+Dodano hello tooEventHub tooroute możliwości.
 
 ### <a name="diagnostics-extension-15"></a>Rozszerzenia diagnostyki w wersji 1.5
-Dodaje element wychwytywanie i umożliwia wysyłanie danych diagnostycznych [usługi Application Insights](../application-insights/app-insights-cloudservices.md) co ułatwia diagnozowanie problemów w aplikacji, a także poziom systemu i infrastruktury.
+Dodaje hello wychwytywanie elementu i hello dane diagnostyczne toosend możliwości zbyt[usługi Application Insights](../application-insights/app-insights-cloudservices.md) co ułatwia problemów toodiagnose w Twojej aplikacji, a także hello poziom systemu i infrastruktury.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>2.6 zestawu SDK i informacji diagnostycznych rozszerzenie Azure 1.3 
-Usługi w chmurze projektów programu Visual Studio wprowadzono następujące zmiany. (Te zmiany również dotyczyć nowsze wersje zestawu SDK platformy Azure.)
+Usługi w chmurze projektów programu Visual Studio hello następujące zmiany zostały wprowadzone. (Te zmiany mają zastosowanie również toolater wersji zestawu SDK platformy Azure.)
 
-* Lokalne emulatora obsługuje teraz diagnostyki. Oznacza to, można zbierać dane diagnostyczne i upewnij się, że aplikacja tworzy prawo śladów podczas tworzenia i testowania w programie Visual Studio. Parametry połączenia `UseDevelopmentStorage=true` umożliwia zbieranie danych diagnostycznych, gdy używasz projekt usługi w chmurze w programie Visual Studio przy użyciu emulatora magazynu Azure. Wszystkie dane diagnostyczne są zbierane w ramach konta magazynu (Programowanie magazynu).
-* Parametry połączenia konta magazynu diagnostyki (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) znajduje się jeszcze raz w pliku konfiguracji (cscfg) usługi. W systemie Azure SDK 2.5 konto magazynu diagnostyki została określona w pliku diagnostics.wadcfgx.
+* emulator lokalne powitania obsługuje teraz diagnostyki. Oznacza to, można zbierać dane diagnostyczne i upewnij się, że aplikacja tworzy hello prawo śladów podczas tworzenia i testowania w programie Visual Studio. Witaj parametry połączenia `UseDevelopmentStorage=true` umożliwia zbieranie danych diagnostycznych, gdy używasz projekt usługi w chmurze w programie Visual Studio przy użyciu emulatora magazynu Azure hello. Wszystkie dane diagnostyczne są zbierane na koncie magazynu hello (Programowanie magazynu).
+* Parametry połączenia konta magazynu diagnostyki Hello (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) znajduje się jeszcze raz w pliku konfiguracji (cscfg) hello usługi. W systemie Azure SDK 2.5 konto magazynu diagnostyki hello została określona w pliku diagnostics.wadcfgx hello.
 
-Istnieją pewne ważne różnice między jak parametry połączenia działał w 2.4 zestawu SDK platformy Azure i starszych i jak działa w Azure SDK w wersji 2.6 lub nowszej.
+Istnieją pewne ważne różnice między jak parametry połączenia hello działał w 2.4 zestawu SDK platformy Azure i starszych i jak działa w Azure SDK w wersji 2.6 lub nowszej.
 
-* W 2.4 zestawu SDK platformy Azure i starszych parametry połączenia została użyta jako środowisko uruchomieniowe dodatek diagnostyki można pobrać informacji o koncie magazynu przesyłania dzienników diagnostycznych.
-* W Azure SDK w wersji 2.6 lub nowszej ciąg połączenia diagnostyki jest używany przez program Visual Studio Aby skonfigurować rozszerzenie diagnostyki magazynu odpowiednie informacje o koncie podczas publikowania. Parametry połączenia umożliwia definiowanie różnych kont magazynu dla konfiguracji innej usługi, które Visual Studio będzie korzystać w przypadku publikowania. Jednak ponieważ wtyczki Diagnostyka nie jest już dostępny (po 2.5 zestawu SDK platformy Azure), plik .cscfg samodzielnie nie można włączyć rozszerzenia diagnostyki. Należy włączyć rozszerzenie z osobna za pomocą narzędzi, takich jak Visual Studio lub programu PowerShell.
-* Aby uprościć proces konfigurowania rozszerzenia diagnostyki przy użyciu programu PowerShell, dane wyjściowe pakietu z programu Visual Studio zawiera publicznej konfiguracji XML dla rozszerzenia diagnostyki dla każdej roli. Visual Studio będzie korzystać diagnostyki parametry połączenia do wypełniania informacji o koncie magazynu, które są obecne w publicznej konfiguracji. Pliki konfiguracji publicznego są tworzone w folderze rozszerzenia i postępuj zgodnie ze wzorcem PaaSDiagnostics. <RoleName>. PubConfig.xml. Wszystkie wdrożenia na podstawie programu PowerShell można użyć tego wzorca do mapowania każdej konfiguracji do roli.
-* Parametry połączenia w pliku .cscfg służy również w portalu Azure do uzyskiwania dostępu do danych diagnostycznych, może występować w **monitorowanie** kartę. Ciąg połączenia jest potrzebne do skonfigurowania usługi, aby wyświetlić pełne dane monitorowania w portalu.
+* W 2.4 zestawu SDK platformy Azure i starszych parametry połączenia hello był używany jako środowisko uruchomieniowe w hello diagnostyki wtyczki tooget hello informacji o koncie magazynu przesyłania dzienników diagnostycznych.
+* W Azure SDK w wersji 2.6 lub nowszej ciąg połączenia diagnostyki hello jest używany przez rozszerzenie Diagnostyka programu Visual Studio tooconfigure hello hello magazynu odpowiednie informacje o koncie podczas publikowania. Parametry połączenia Hello umożliwia definiowanie różnych kont magazynu dla konfiguracji innej usługi, które Visual Studio będzie korzystać w przypadku publikowania. Jednak ponieważ hello diagnostyki wtyczki nie jest już dostępny (po 2.5 zestawu SDK platformy Azure), plik .cscfg hello samodzielnie nie można włączyć hello rozszerzenia diagnostyki. Masz rozszerzenia hello tooenable z osobna za pomocą narzędzi, takich jak Visual Studio lub programu PowerShell.
+* proces hello toosimplify konfigurowania rozszerzenia diagnostyki hello przy użyciu programu PowerShell, hello pakietu wyjście z programu Visual Studio zawiera także hello publicznej konfiguracji XML hello diagnostyki rozszerzenia dla poszczególnych ról. Visual Studio będzie korzystać hello diagnostyki połączenia ciąg toopopulate hello informacji o koncie magazynu w konfiguracji publicznego hello. pliki konfiguracji publicznego Hello są tworzone w folderze rozszerzenia hello i wykonaj wzorzec hello PaaSDiagnostics. <RoleName>. PubConfig.xml. Wszystkie wdrożenia programu PowerShell na podstawie można użyć tego wzorca toomap każdego tooa konfiguracji roli.
+* Witaj parametry połączenia w pliku .cscfg hello jest już używana przez hello dane diagnostyczne hello tooaccess portalu Azure, może występować w hello **monitorowanie** parametry połączenia hello kartę są potrzebne tooconfigure hello usługi tooshow pełne dane w portalu hello monitorowania.
 
-#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrowanie projektów Azure SDK w wersji 2.6 lub nowszego
-Podczas migracji z 2.5 zestawu SDK platformy Azure do usługi Azure SDK w wersji 2.6 lub nowszej, jeśli masz konto magazynu diagnostyki określone w pliku .wadcfgx, następnie pozostanie on istnieje. Aby móc korzystać z elastyczność przy użyciu różnych kont magazynu dla konfiguracji innego magazynu, musisz ręcznie dodać parametry połączenia do projektu. W przypadku migrowania projektu z Azure SDK 2.4 lub jego starszej wersji 2.6 zestawu SDK platformy Azure, Diagnostyka parametry połączenia zostaną zachowane. Pamiętaj jednak zmiany w sposób parametry połączenia są traktowane w Azure SDK w wersji 2.6 określone w poprzedniej sekcji.
+#### <a name="migrating-projects-tooazure-sdk-26-and-later"></a>Migrowanie projektów tooAzure SDK 2.6 lub nowszej
+Podczas migrowania z tooAzure Azure SDK 2.5 SDK w wersji 2.6 lub nowszej, jeśli masz konto magazynu diagnostyki określone w pliku .wadcfgx hello, następnie pozostanie on istnieje. Zaletą tootake hello elastyczność za pomocą innego magazynu kont do innego magazynu konfiguracji, należy dodać projekt tooyour ciąg połączenia hello toomanually. W przypadku migrowania projektu z Azure SDK 2.4 lub starszych tooAzure 2.6 zestawu SDK, następnie hello diagnostyki parametry połączenia zostaną zachowane. Pamiętaj jednak zmiany hello jak parametry połączenia są traktowane w Azure SDK w wersji 2.6 określone w poprzedniej sekcji hello.
 
-#### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Jak Visual Studio Określa konto magazynu diagnostyki
-* Jeśli parametry połączenia diagnostyki jest określone w pliku .cscfg, Visual Studio używa go do konfigurowania rozszerzenia diagnostyki podczas publikowania i podczas generowania publicznej konfiguracji plików xml podczas pakowania.
-* Jeśli ciąg połączenia diagnostyki nie została określona w pliku .cscfg, następnie Visual Studio powraca do przy użyciu konta magazynu określony w pliku .wadcfgx, aby skonfigurować rozszerzenie diagnostyki podczas publikowania i generowanie publicznej konfiguracji plików xml Podczas tworzenia pakietu.
-* Diagnostyka parametry połączenia w pliku .cscfg mają pierwszeństwo przed konta magazynu w pliku .wadcfgx. Jeśli parametry połączenia diagnostyki jest określone w pliku .cscfg, Visual Studio użyty i ignoruje konta magazynu w .wadcfgx.
+#### <a name="how-visual-studio-determines-hello-diagnostics-storage-account"></a>Jak określa konto magazynu diagnostyki hello w Visual Studio
+* Jeśli parametry połączenia diagnostyki jest określone w pliku .cscfg hello, Visual Studio używa on tooconfigure hello diagnostyki rozszerzenia podczas publikowania i podczas generowania pliki xml konfiguracji publicznego hello podczas pakowania.
+* Jeśli ciąg połączenia diagnostyki nie została określona w pliku .cscfg hello, następnie Visual Studio w języku konta magazynu hello toousing określonego w hello .wadcfgx tooconfigure hello diagnostyki rozszerzenie pliku podczas publikowania i generowania hello publicznego pliki xml konfiguracji podczas pakowania.
+* Parametry połączenia diagnostyki Hello w pliku .cscfg hello mają pierwszeństwo przed hello konta magazynu w pliku .wadcfgx hello. Jeśli parametry połączenia diagnostyki jest określona w pliku .cscfg hello, następnie Visual Studio użyty i ignoruje hello konta magazynu w .wadcfgx.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Co to jest "Aktualizacja programowanie magazynu ciągów połączenia..." czy pole wyboru?
-Pole wyboru **zaktualizować parametry połączenia magazynu programowanie dla diagnostyki i buforowanie z poświadczeniami konta magazynu Microsoft Azure podczas publikowania do systemu Microsoft Azure** udostępnia wygodny sposób zaktualizować rozwojem Parametry połączenia konta magazynu z kontem magazynu systemu Azure podczas publikowania określono.
+#### <a name="what-does-hello-update-development-storage-connection-strings-checkbox-do"></a>Co to Witaj, "Aktualizuj parametry połączenia magazynu programowanie..." czy pole wyboru?
+Witaj wyboru **zaktualizować parametry połączenia magazynu programowanie dla diagnostyki i buforowanie z poświadczeniami konta magazynu Microsoft Azure podczas publikowania tooMicrosoft Azure** daje żadnych tooupdate wygodny sposób Programowanie parametry połączenia konta magazynu z kontem magazynu platformy Azure hello określony podczas publikowania.
 
-Załóżmy na przykład, zaznacz to pole wyboru i określa parametry połączenia diagnostyki `UseDevelopmentStorage=true`. Podczas publikowania projektu na platformie Azure, programu Visual Studio automatycznie zaktualizuje diagnostyki parametry połączenia z kontem magazynu określone w Kreatorze publikowania. Jednak jeśli konto magazynu rzeczywista określono jako parametry połączenia diagnostyki, następnie to konto jest używana zamiast tego.
+Załóżmy na przykład, zaznacz to pole wyboru i określa parametry połączenia diagnostyki hello `UseDevelopmentStorage=true`. Podczas publikowania hello tooAzure projektu programu Visual Studio będzie automatycznie zaktualizować parametry połączenia diagnostyki hello z kontem magazynu hello określone w Kreatorze publikowania hello. Jednak jeśli konto magazynu rzeczywista określono jako parametry połączenia diagnostyki hello, następnie to konto jest używana zamiast tego.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diagnostyka funkcji różnice między 2.4 zestawu SDK platformy Azure i wcześniej i Azure SDK, 2.5 lub nowszej
-Jeśli uaktualniasz projektu z 2.4 zestawu SDK platformy Azure, Azure SDK 2.5 lub nowszej, musisz należy pamiętać następujące różnice funkcji diagnostyki.
+Jeśli uaktualniasz projektu z tooAzure Azure SDK 2.4 SDK, 2.5 lub nowszej, powinna zawierać się w hello uwadze następujące różnice funkcji diagnostyki.
 
-* **Konfiguracyjne interfejsy API są przestarzałe** — trybu diagnostyki jest dostępna w 2.4 zestawu SDK platformy Azure i jego wcześniejsze wersje, ale jest przestarzała w wersji 2.5 zestawu SDK platformy Azure i nowszych. Jeśli konfiguracji diagnostyki jest obecnie zdefiniowane w kodzie, należy ponownie skonfigurować te ustawienia od podstaw w projekcie migrowane w kolejności diagnostyki, aby kontynuować pracę. Plik konfiguracji diagnostyki Azure SDK 2.4 jest diagnostics.wadcfg i diagnostics.wadcfgx dla 2.5 zestawu SDK platformy Azure i nowszych.
-* **Diagnostyki dla aplikacji usługi w chmurze można skonfigurować tylko na poziomie roli, nie na poziomie wystąpienia.**
-* **Za każdym razem, gdy wdrażanie aplikacji, zaktualizowano konfigurację diagnostyki** — może to powodować problemy z parzystością, jeśli zmiana konfiguracji diagnostyki z Eksploratora serwera, a następnie ponowne wdrożenie aplikacji.
-* **W wersji 2.5 zestawu SDK platformy Azure i nowszych, zrzuty awaryjne są konfigurowane w pliku konfiguracji diagnostyki nie w kodzie** — Jeśli masz zrzuty awaryjne skonfigurowane w kodzie, musisz ręcznie przenieść konfiguracji z kodu do pliku konfiguracji, ponieważ zrzuty awaryjne nie są przenoszone podczas migracji do 2.6 zestawu SDK platformy Azure.
+* **Konfiguracyjne interfejsy API są przestarzałe** — trybu diagnostyki jest dostępna w 2.4 zestawu SDK platformy Azure i jego wcześniejsze wersje, ale jest przestarzała w wersji 2.5 zestawu SDK platformy Azure i nowszych. Jeśli aktualnie zdefiniowano konfigurację diagnostyki w kodzie, konieczne będzie tooreconfigure tych ustawień od podstaw w projekcie migrowanych hello aby pracy tookeep diagnostyki. plik konfiguracji diagnostyki Hello Azure SDK 2.4 jest diagnostics.wadcfg i diagnostics.wadcfgx dla 2.5 zestawu SDK platformy Azure i nowszych.
+* **Można skonfigurować tylko na poziomie roli hello, nie na poziomie wystąpienia hello diagnostyki dla aplikacji usługi w chmurze.**
+* **Za każdym razem, gdy wdrażanie aplikacji, zaktualizowano konfigurację diagnostyki hello** — może to powodować problemy z parzystością, jeśli zmiana konfiguracji diagnostyki z Eksploratora serwera, a następnie ponowne wdrożenie aplikacji.
+* **W wersji 2.5 zestawu SDK platformy Azure i nowszych, zrzuty awaryjne są konfigurowane w pliku konfiguracji diagnostyki hello, nie w kodzie** — Jeśli masz zrzuty awaryjne skonfigurowane w kodzie, będziesz mieć toomanually transfer hello konfiguracji z pliku konfiguracji toohello kodu, Ponieważ zrzuty awaryjne hello nie są przenoszone podczas tooAzure migracji hello 2.6 zestawu SDK.
 

@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Stream Analytics — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak uruchamiać analizę IoT w chmurze za pomocą w pełni zarządzanego przetwarzania zdarzeń. Analizuj w czasie rzeczywistym dane z aplikacji, czujników, urządzeń i innych źródeł."
+title: "aaaAzure dokumentacji analityka strumienia — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toorun IoT analityka w hello chmury przetwarzania zdarzeń w pełni zarządzane. Analizuj w czasie rzeczywistym dane z aplikacji, czujników, urządzeń i innych źródeł."
 services: stream-analytics
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
 ms.author: carolz
-ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4015137b0f39f86ada69d92e77e72b77b799d2d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="stream-analytics-documentation"></a>Dokumentacja usługi Stream Analytics
 
-Dowiedz się, jak uruchamiać analizę Internetu rzeczy (IoT, Internet of Things) w chmurze za pomocą usługi Stream Analytics — w pełni zarządzanego aparatu przetwarzania zdarzeń. W samouczkach i w pozostałej dokumentacji przedstawiono, jak w czasie rzeczywistym analizować dane z aplikacji, czujników, urządzeń, mediów społecznościowych i innych źródeł. 
+Dowiedz się, jak toorun analytics Internetu rzeczy (IoT) w hello chmury z analiza strumienia, w pełni zarządzana aparat przetwarzania zdarzeń. Samouczki i dokumentacji przedstawia sposób tooanalyze danych w czasie rzeczywistym z aplikacji, czujników, urządzeń i mediów społecznościowych. 
 
 <ul class="panelContent cardsFTitle">
      <li>

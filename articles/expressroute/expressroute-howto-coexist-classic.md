@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie połączeń usługi ExpressRoute i sieci VPN typu lokacja-lokacja, które mogą współistnieć: wersja klasyczna: Azure | Microsoft Docs"
-description: "Ten artykuł zawiera instrukcje dotyczące konfigurowania połączeń usługi ExpressRoute oraz sieci VPN typu lokacja-lokacja, które mogą współistnieć, w klasycznym modelu wdrożenia."
+description: "W tym artykule przedstawiono konfigurowanie ExpressRoute, jak i połączenie sieci VPN typu lokacja-lokacja, które mogą współistnieć na powitania klasycznego modelu wdrażania."
 documentationcenter: na
 services: expressroute
 author: charwen
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: abb30fff55e8ec243f2920c5b2f70c43717755fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurowanie współistniejących połączeń usługi ExpressRoute i połączeń typu lokacja-lokacja (wersja klasyczna)
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Możliwość skonfigurowania sieci VPN typu lokacja-lokacja i usługi ExpressRoute niesie ze sobą pewne korzyści. Sieć VPN typu lokacja-lokacja można skonfigurować jako bezpieczną ścieżkę pracy awaryjnej dla usługi ExpressRoute lub użyć jej do połączenia z witrynami, które nie zostały połączone za pośrednictwem usługi ExpressRoute. Ten artykuł zawiera instrukcje konfiguracji obu scenariuszy. Dotyczy on klasycznego modelu wdrożenia. Ta konfiguracja nie jest dostępna w portalu.
+Witaj możliwości tooconfigure sieci VPN typu lokacja-lokacja i ExpressRoute ma kilka zalet. Konfigurowanie sieci VPN typu lokacja-lokacja jako ścieżka bezpiecznego trybu failover dla ExressRoute lub użyj toosites tooconnect sieci VPN typu lokacja-lokacja, które nie są połączone za pośrednictwem usługi ExpressRoute. Omówimy tooconfigure kroki hello oba scenariusze, w tym artykule. Ten artykuł dotyczy toohello klasycznego modelu wdrażania. Ta konfiguracja nie jest dostępna w portalu hello.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -37,32 +37,32 @@ Możliwość skonfigurowania sieci VPN typu lokacja-lokacja i usługi ExpressRou
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
-> Przed wykonaniem poniższych instrukcji należy wstępnie skonfigurować obwody usługi ExpressRoute. Przed wykonaniem poniższych kroków należy koniecznie wykonać instrukcje [tworzenia obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i [konfigurowania routingu](expressroute-howto-routing-classic.md).
+> Obwody usługi ExpressRoute musi być wstępnie skonfigurowany przed wykonaniem instrukcji hello poniżej. Upewnij się, że zbyt po przewodnikach hello[utworzyć obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i [Konfigurowanie routingu](expressroute-howto-routing-classic.md) przed wykonaniem kroków hello poniżej.
 > 
 > 
 
 ## <a name="limits-and-limitations"></a>Limity i ograniczenia
 * **Routing tranzytowy nie jest obsługiwany.** Nie można skierować połączenia (przez platformę Azure) między lokalną siecią połączoną za pośrednictwem sieci VPN typu lokacja-lokacja i lokalną siecią połączoną za pośrednictwem usługi ExpressRoute.
-* **Połączenia typu punkt-lokacja nie są obsługiwane.** Nie można włączyć połączeń VPN typu punkt-lokacja do tej samej sieci wirtualnej, która jest połączona z usługą ExpressRoute. Sieć VPN typu punkt-lokacja i usługa ExpressRoute nie mogą współistnieć dla tej samej sieci wirtualnej.
-* **Nie można włączyć tunelowania wymuszonego dla bramy sieci VPN typu lokacja-lokacja.** Można tylko „wymusić” przesyłanie całego ruchu skierowanego do Internetu z powrotem do sieci lokalnej za pośrednictwem usługi ExpressRoute.
-* **Podstawowa brama jednostki SKU nie jest obsługiwana.** Należy użyć innej niż podstawowa bramy jednostki SKU zarówno dla [bramy usługi ExpressRoute](expressroute-about-virtual-network-gateways.md), jak i [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* **Połączenia typu punkt-lokacja nie są obsługiwane.** Nie można włączyć toohello połączenia VPN punkt lokacja tej samej sieci wirtualnej, który jest połączony tooExpressRoute. Punkt lokacja sieci VPN i ExpressRoute nie mogą współistnieć na powitania sam sieci wirtualnej.
+* **Wymuszanie tunelowania nie można włączyć na powitania Brama VPN lokacja-lokacja.** Możesz tylko "wymusić" wszystkie powiązane z Internetu ruchu wstecz tooyour sieci lokalnej za pośrednictwem usługi ExpressRoute.
+* **Podstawowa brama jednostki SKU nie jest obsługiwana.** Należy użyć bramy z systemem innym niż — podstawowy SKU dla obu hello [bramę usługi ExpressRoute](expressroute-about-virtual-network-gateways.md) i hello [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Obsługiwana jest tylko brama sieci VPN oparta na trasach.** Należy użyć [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) opartej na trasach.
-* **Dla bramy sieci VPN należy skonfigurować trasę statyczną.** Jeśli sieć lokalna jest połączona z usługą ExpressRoute oraz siecią VPN typu lokacja-lokacja, aby skierować połączenie sieci VPN typu lokacja-lokacja do publicznego Internetu, trzeba mieć skonfigurowaną trasę statyczną w sieci lokalnej.
-* **Najpierw należy skonfigurować bramę usługi ExpressRoute.** Przed dodaniem bramy sieci VPN typu lokacja-lokacja należy utworzyć bramę usługi ExpressRoute.
+* **Dla bramy sieci VPN należy skonfigurować trasę statyczną.** Jeśli sieci lokalnej jest tooboth połączenia ExpressRoute, a Site-to-Site VPN, musi mieć tras statycznych skonfigurowana w Twojej sieci lokalnej tooroute hello Site-to-Site VPN połączenia toohello publicznej sieci Internet.
+* **Najpierw należy skonfigurować bramę usługi ExpressRoute.** Należy najpierw utworzyć bramę usługi ExpressRoute hello przed dodaniem hello Brama VPN lokacja-lokacja.
 
 ## <a name="configuration-designs"></a>Projekty konfiguracji
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja jako ścieżki pracy awaryjnej dla usługi ExpressRoute
-Połączenie sieci VPN typu lokacja-lokacja można skonfigurować do przechowywania kopii zapasowych dla usługi ExpressRoute. Dotyczy to tylko sieci wirtualnych połączonych ze ścieżką prywatnej sieci równorzędnej Azure. Nie ma rozwiązania pracy awaryjnej opartego na sieci VPN dla usług dostępnych przez publiczne sesje komunikacji równorzędnej platformy Azure ani komunikacji równorzędnej firmy Microsoft. Obwód usługi ExpressRoute jest zawsze połączeniem podstawowym. Dane będą przepływać przez ścieżkę sieci VPN typu lokacja-lokacja tylko w wypadku awarii obwodu usługi ExpressRoute. 
+Połączenie sieci VPN typu lokacja-lokacja można skonfigurować do przechowywania kopii zapasowych dla usługi ExpressRoute. Dotyczy to tylko toovirtual sieci połączonych toohello Azure prywatnej komunikacji równorzędnej ścieżki. Nie ma rozwiązania pracy awaryjnej opartego na sieci VPN dla usług dostępnych przez publiczne sesje komunikacji równorzędnej platformy Azure ani komunikacji równorzędnej firmy Microsoft. Witaj obwodu ExpressRoute jest zawsze hello łącze podstawowe. Dane będą przepływać za pomocą ścieżki sieci VPN typu lokacja-lokacja hello tylko wtedy, gdy hello obwodu usługi expressroute nie powiedzie się. 
 
 > [!NOTE]
-> Obwód usługi ExpressRoute jest preferowany w porównaniu z siecią VPN typu lokacja-lokacja, jeśli obydwie trasy są takie same, a na platformie Azure dopasowanie najdłuższego prefiksu będzie używane do wybierania trasy do miejsca docelowego pakietu.
+> Podczas obwodu ExpressRoute preferowanych za pośrednictwem połączenia VPN lokacja-lokacja po obu trasy są takie same Witaj, Azure użyje hello Najdłuższy prefiks dopasowania toochoose hello trasy do miejsca docelowego hello pakietu.
 > 
 > 
 
 ![Współistnienie](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja do łączenia z witrynami niepołączonymi przez usługę ExpressRoute
-Można skonfigurować sieć w taki sposób, by niektóre witryny łączyły się bezpośrednio z platformą Azure za pośrednictwem sieci VPN typu lokacja-lokacja, a niektóre przez usługę ExpressRoute. 
+### <a name="configure-a-site-to-site-vpn-tooconnect-toosites-not-connected-through-expressroute"></a>Konfigurowanie sieci VPN typu lokacja-lokacja toosites tooconnect, nie są połączone za pośrednictwem usługi ExpressRoute
+Można skonfigurować sieci, której niektóre Lokacje łączą się bezpośrednio tooAzure za pośrednictwem połączenia VPN lokacja-lokacja, a niektóre witryny łączenie się za pośrednictwem usługi ExpressRoute. 
 
 ![Współistnienie](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
@@ -71,28 +71,28 @@ Można skonfigurować sieć w taki sposób, by niektóre witryny łączyły się
 > 
 > 
 
-## <a name="selecting-the-steps-to-use"></a>Wybieranie czynności do wykonania
-Istnieją dwa różne zestawy procedur do wyboru służące do konfigurowania połączeń, które mogą współistnieć. Wybór procedury konfiguracji będzie zależeć od tego, czy masz istniejącą sieć wirtualną, z którą chcesz się połączyć, czy chcesz utworzyć nową.
+## <a name="selecting-hello-steps-toouse"></a>Wybieranie toouse kroki hello
+Istnieją dwa różne zestawy toochoose procedury od w kolejności tooconfigure połączeń, które mogą współistnieć. procedury konfiguracji Hello, która zostanie wybrana zależy od tego, czy masz istniejącej sieci wirtualnej ma tooconnect do, czy chcesz toocreate nowej sieci wirtualnej.
 
-* Nie mam sieci wirtualnej i muszę ją utworzyć.
+* Nie ma sieci wirtualnej i toocreate, co potrzebne.
   
-    Jeśli nie masz jeszcze sieci wirtualnej, ta procedura zawiera instrukcje tworzenia nowej sieci wirtualnej za pomocą klasycznego modelu wdrożenia i tworzenia nowych połączeń usługi ExpressRoute i sieci VPN typu lokacja-lokacja. Aby przeprowadzić konfigurację, wykonaj kroki opisane w sekcji artykułu [Aby utworzyć nową sieć wirtualną i współistniejące połączenia](#new).
+    Jeśli nie masz już sieć wirtualną, ta procedura przeprowadzi możesz tworzenia nowej sieci wirtualnej przy użyciu hello klasycznego modelu wdrażania i tworzenie nowych połączeń sieci VPN ExpressRoute, jak i lokacja-lokacja. tooconfigure, wykonaj kroki hello w sekcji artykule hello [toocreate nowej sieci wirtualnej i ważnych połączeń](#new).
 * Mam już sieć wirtualną wdrożoną w ramach modelu klasycznego.
   
-    Być może masz już gotową sieć wirtualną z istniejącym połączeniem sieci VPN typu lokacja-lokacja lub połączeniem usługi ExpressRoute. Sekcja artykułu [Aby skonfigurować współistniejące połączenia dla już istniejących sieci wirtualnych](#add) zawiera instrukcje usuwania bramy, a następnie tworzenia nowych połączeń usługi ExpressRoute i połączeń VPN typu lokacja-lokacja. Należy pamiętać, że podczas tworzenia nowych połączeń kroki muszą być wykonywane po kolei. Do tworzenia bram i połączeń nie używaj instrukcji z innych artykułów.
+    Być może masz już gotową sieć wirtualną z istniejącym połączeniem sieci VPN typu lokacja-lokacja lub połączeniem usługi ExpressRoute. Witaj sekcji artykule [tooconfigure coexsiting połączeń dla już istniejącej sieci wirtualnej](#add) przeprowadzi użytkownika przez proces usuwania hello bramy, a następnie utworzyć nowe połączenia ExpressRoute, jak i sieci VPN typu lokacja-lokacja. Należy pamiętać, że podczas tworzenia nowych połączeń hello, hello czynności musi wykonać w bardzo określonej kolejności. Nie należy używać instrukcji hello w innych artykułach toocreate połączenia i bram.
   
-    W tej procedurze tworzenie połączeń, które mogą współistnieć, wymaga usunięcia bramy, a następnie skonfigurowania nowych bram. Oznacza to, że podczas usuwania i odtwarzania bramy oraz połączeń wystąpi przestój względem połączeń obejmujących wiele lokalizacji, ale nie trzeba będzie migrować żadnych maszyn wirtualnych ani usług do nowej sieci wirtualnej. Podczas konfigurowania bramy maszyny wirtualne i usługi będą mogły nadal komunikować się za pośrednictwem modułu równoważenia obciążenia, jeżeli zostały w taki sposób skonfigurowane.
+    W tej procedurze tworzenia połączeń, które mogą współistnieć będzie wymagają toodelete możesz bramy, a następnie skonfiguruj nowych bram. Oznacza to, że konieczne będzie przestojów w przypadku połączeń między lokalizacjami w przypadku usunięcia i ponownego tworzenia bramy i połączenia, ale nie będzie konieczne toomigrate poszczególnych maszyn wirtualnych lub usług tooa nowej sieci wirtualnej. Maszyn wirtualnych i usług będą nadal mogli toocommunicate się za pośrednictwem usługi równoważenia obciążenia hello podczas konfigurowania bramy, jeśli są one skonfigurowane toodo tak.
 
-## <a name="new"></a>Aby utworzyć nową sieć wirtualną i współistniejące połączenia
+## <a name="new"></a>toocreate nowej sieci wirtualnej i ważnych połączeń
 Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lokacja-lokacja oraz usługi ExpressRoute, które będą współistnieć.
 
-1. Niezbędne jest zainstalowanie najnowszej wersji poleceń cmdlet programu Azure PowerShell.  Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell). Pamiętaj, że polecenia cmdlet, które zostaną użyte do tej konfiguracji, mogą trochę różnić się od tych, które znasz. Koniecznie użyj poleceń cmdlet podanych w tych instrukcjach. 
-2. Utwórz schemat dla sieci wirtualnej. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Schemat konfiguracji sieci wirtualnej Azure).
+1. Będziesz potrzebować tooinstall hello najnowszą wersję hello poleceń cmdlet programu Azure PowerShell. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji o instalowaniu hello poleceń cmdlet programu PowerShell. Należy pamiętać, że polecenia cmdlet hello, który ma być używany dla tej konfiguracji mogą być nieco inne niż co można zapoznać się z. Polecenia cmdlet hello toouse się, że można określić w tej instrukcji. 
+2. Utwórz schemat dla sieci wirtualnej. Aby uzyskać więcej informacji na temat hello schemat konfiguracji, zobacz [schemat konfiguracji sieci wirtualnej Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
-    Podczas tworzenia schematu pamiętaj, aby użyć następujących wartości:
+    Podczas tworzenia schematu, upewnij się, że używasz hello następujące wartości:
    
-   * Wartość podsieci bramy dla sieci wirtualnej musi wynosić /27; prefiks może też być krótszy (np. /26 lub /25).
-   * Typ połączenia bramy ma wartość „Dedykowane”.
+   * Witaj podsieci bramy sieci wirtualnej hello musi być /27 lub krótszy prefiksu (na przykład /26 lub /25).
+   * Typ połączenia bramy Hello jest "dedykowany".
      
              <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
                <AddressSpace>
@@ -114,24 +114,24 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
                  </ConnectionsToLocalNetwork>
                </Gateway>
              </VirtualNetworkSite>
-3. Po utworzeniu i skonfigurowaniu pliku schematu xml przekaż plik. Spowoduje to utworzenie sieci wirtualnej.
+3. Po utworzeniu i konfigurowanie pliku schematu xml, Przekaż plik hello. Spowoduje to utworzenie sieci wirtualnej.
    
-    Użyj poniższego polecenia cmdlet do przekazania pliku, zastępując wartość swoją własną.
+    Użyj następującego polecenia cmdlet tooupload hello pliku, zastępując wartość hello własne.
    
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
-4. <a name="gw"></a>Utwórz bramę usługi ExpressRoute. Koniecznie określ wartość *Standard*, *HighPerformance* lub *UltraPerformance* dla parametru GatewaySKU oraz wartość *DynamicRouting* dla parametru GatewayType.
+4. <a name="gw"></a>Utwórz bramę usługi ExpressRoute. Należy się toospecify hello GatewaySKU jako *standardowe*, *wysokowydajnej*, lub *UltraPerformance* i hello elementu GatewayType jako *DynamicRouting*.
    
-    Użyj poniższego przykładu, podstawiając wartości zamiast swoich własnych.
+    Użyj hello następujące przykładowe, zastępując hello własne wartości.
    
         New-AzureVNetGateway -VNetName MyAzureVNET -GatewayType DynamicRouting -GatewaySKU HighPerformance
-5. Połącz bramę usługi ExpressRoute z obwodem usługi ExpressRoute. Po ukończeniu tego kroku zostanie nawiązane połączenie między siecią lokalną i platformą Azure za pośrednictwem usługi ExpressRoute.
+5. Połącz obwodu ExpressRoute toohello hello ExpressRoute bramy. Po wykonaniu tego kroku hello połączenie między siecią lokalną a Azure za pośrednictwem usługi ExpressRoute, zostanie nawiązane.
    
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-6. <a name="vpngw"></a>Następnie utwórz bramę sieci VPN typu lokacja-lokacja. Parametr GatewaySKU musi mieć wartość *Standard*, *HighPerformance* lub *UltraPerformance*, a parametr GatewayType — *DynamicRouting*.
+6. <a name="vpngw"></a>Następnie utwórz bramę sieci VPN typu lokacja-lokacja. Witaj GatewaySKU musi być *standardowe*, *wysokowydajnej*, lub *UltraPerformance* i hello elementu GatewayType musi być *DynamicRouting*.
    
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
    
-    Aby pobrać ustawienia bramy sieci wirtualnej, w tym identyfikator bramy i publiczny adres IP, użyj polecenia `Get-AzureVirtualNetworkGateway`.
+    Ustawienia bramy w tooretrieve hello sieci wirtualnej, tym hello identyfikator bramy i hello publicznego adresu IP, użyj hello `Get-AzureVirtualNetworkGateway` polecenia cmdlet.
    
         Get-AzureVirtualNetworkGateway
    
@@ -140,7 +140,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
         LastEventData        :
         GatewayType          : DynamicRouting
         LastEventTimeStamp   : 5/29/2015 4:41:41 PM
-        LastEventMessage     : Successfully created a gateway for the following virtual network: GNSDesMoines
+        LastEventMessage     : Successfully created a gateway for hello following virtual network: GNSDesMoines
         LastEventID          : 23002
         State                : Provisioned
         VIPAddress           : 104.43.x.y
@@ -153,14 +153,14 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
         OperationDescription : Get-AzureVirtualNetworkGateway
         OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
         OperationStatus      : Succeeded
-7. Utwórz obiekt bramy sieci VPN witryny lokalnej. To polecenie nie powoduje skonfigurowania bramy lokalnej sieci VPN. Umożliwia raczej zapewnienie ustawień bramy lokalnej, np. publicznego adresu IP i lokalnej przestrzeni adresowej, aby brama sieci VPN Azure mogła się z nimi połączyć.
+7. Utwórz obiekt bramy sieci VPN witryny lokalnej. To polecenie nie powoduje skonfigurowania bramy lokalnej sieci VPN. Zamiast pozwala tooprovide hello bramy lokalnej ustawienia, takie jak hello publicznego adresu IP i hello lokalnej przestrzeni adresów, dzięki czemu hello bramy sieci VPN platformy Azure można łączyć tooit.
    
    > [!IMPORTANT]
-   > Lokalna witryna dla sieci VPN typu lokacja-lokacja nie jest definiowana w pliku netcfg. Zamiast tego musisz użyć tego polecenia cmdlet do określania lokalnych parametrów witryny. Nie możesz jej definiować przy użyciu portalu ani pliku netcfg.
+   > Witaj lokalnej lokacji hello sieci VPN typu lokacja-lokacja nie jest zdefiniowany w hello netcfg. Zamiast tego należy użyć tego polecenia cmdlet toospecify hello lokacji lokalnej parametrów. Nie można zdefiniować za pomocą portalu lub hello netcfg pliku.
    > 
    > 
    
-    Użyj poniższego przykładu, zastępując wartości swoimi własnymi.
+    Użyj hello następujące przykładowe, zastępując wartości hello własne.
    
         New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>
    
@@ -169,7 +169,7 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
    > 
    > 
 
-    Aby pobrać ustawienia bramy sieci wirtualnej, w tym identyfikator bramy i publiczny adres IP, użyj polecenia `Get-AzureVirtualNetworkGateway`. Zobacz poniższy przykład.
+    Ustawienia bramy w tooretrieve hello sieci wirtualnej, tym hello identyfikator bramy i hello publicznego adresu IP, użyj hello `Get-AzureVirtualNetworkGateway` polecenia cmdlet. Zobacz poniższy przykład hello.
 
         Get-AzureLocalNetworkGateway
 
@@ -182,41 +182,41 @@ Ta procedura zawiera instrukcje tworzenia sieci wirtualnej i połączeń typu lo
         OperationStatus      : Succeeded
 
 
-1. Skonfiguruj lokalne urządzenie sieci VPN do połączenia z nową bramą. Podczas konfigurowania urządzenia VPN użyj informacji pobranych w kroku 6. Więcej informacji na temat konfigurowania urządzenia VPN znajduje się w artykule [VPN Device Configuration](../vpn-gateway/vpn-gateway-about-vpn-devices.md) (Konfigurowanie urządzenia VPN).
-2. Połącz bramę sieci VPN typu lokacja-lokacja na platformie Azure z bramą lokalną.
+1. Konfigurowanie bramy lokalnej sieci VPN urządzenia tooconnect toohello nowe. Użyj informacji hello, którego został pobrany w kroku 6 podczas konfigurowania urządzenia sieci VPN. Więcej informacji na temat konfigurowania urządzenia VPN znajduje się w artykule [VPN Device Configuration](../vpn-gateway/vpn-gateway-about-vpn-devices.md) (Konfigurowanie urządzenia VPN).
+2. Łącze hello bramy sieci VPN typu lokacja-lokacja w Azure toohello bramy lokalnej.
    
-    W tym przykładzie connectedEntityId jest identyfikatorem bramy lokalnej, który można znaleźć, uruchamiając polecenie `Get-AzureLocalNetworkGateway`. Identyfikator VirtualNetworkGatewayId można znaleźć przy użyciu polecenia cmdlet `Get-AzureVirtualNetworkGateway`. Po wykonaniu tego kroku zostanie nawiązane połączenie między siecią lokalną i platformą Azure za pośrednictwem połączenia VPN typu lokacja-lokacja.
+    W tym przykładzie connectedEntityId to identyfikator bramy lokalnej hello, który można znaleźć, uruchamiając `Get-AzureLocalNetworkGateway`. VirtualNetworkGatewayId można znaleźć przy użyciu hello `Get-AzureVirtualNetworkGateway` polecenia cmdlet. Po wykonaniu tego kroku zostanie nawiązane połączenie hello między siecią lokalną a Azure za pośrednictwem hello połączenie sieci VPN typu lokacja-lokacja.
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Aby skonfigurować współistniejące połączenia dla istniejącej sieci wirtualnej
-Jeśli masz istniejącą sieć wirtualną, sprawdź rozmiar podsieci bramy. Jeśli podsieć bramy ma wartość /28 lub /29, musisz najpierw usunąć bramę sieci wirtualnej i zwiększyć rozmiar podsieci bramy. W krokach w tej sekcji przedstawiono, jak to zrobić.
+## <a name="add"></a>tooconfigure coexsiting połączeń dla już istniejącej sieci wirtualnej
+Jeśli masz istniejącą sieć wirtualną, należy sprawdzić rozmiar podsieci bramy hello. Podsieć bramy hello jest /28 lub /29, należy najpierw usunąć bramę sieci wirtualnej hello, Zwiększ rozmiar podsieci bramy hello. Witaj kroki opisane w tej sekcji opisano, jak toodo który.
 
-Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest połączona za pośrednictwem usługi ExpressRoute, możesz pominąć poniższe kroki i przejść do tematu [„Krok 6 — tworzenie bramy sieci VPN typu lokacja-lokacja”](#vpngw) w poprzedniej sekcji.
+Jeśli podsieć bramy hello jest /27 lub większy i sieć wirtualna hello jest połączony za pośrednictwem usługi ExpressRoute, można pominąć kroki hello poniżej i przejść za["Krok 6 — utworzenie bramy sieci VPN typu lokacja-lokacja"](#vpngw) hello w poprzedniej sekcji.
 
 > [!NOTE]
-> Po usunięciu istniejącej bramy podczas pracy nad tą konfiguracją lokalizacja miejscowa straci połączenie z siecią wirtualną.
+> Po usunięciu hello istniejącą bramę lokalnego lokalnej spowoduje utratę hello sieci wirtualnej tooyour połączenia podczas pracy w tej konfiguracji.
 > 
 > 
 
-1. Niezbędne jest zainstalowanie najnowszej wersji poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu Azure PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell). Pamiętaj, że polecenia cmdlet, które zostaną użyte do tej konfiguracji, mogą trochę różnić się od tych, które znasz. Koniecznie użyj poleceń cmdlet podanych w tych instrukcjach. 
-2. Usuń istniejącą bramę usługi ExpressRoute lub sieci VPN typu lokacja-lokacja. Użyj poniższego polecenia cmdlet, zastępując wartości swoimi własnymi.
+1. Będziesz potrzebować tooinstall hello najnowszą wersję hello poleceń cmdlet programu PowerShell usługi Azure Resource Manager. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) Aby uzyskać więcej informacji o instalowaniu hello poleceń cmdlet programu PowerShell. Należy pamiętać, że polecenia cmdlet hello, który ma być używany dla tej konfiguracji mogą być nieco inne niż co można zapoznać się z. Polecenia cmdlet hello toouse się, że można określić w tej instrukcji. 
+2. Usuń hello istniejącą bramę usługi ExpressRoute lub sieci VPN typu lokacja-lokacja. Użyj hello następującego polecenia cmdlet, zastępując wartości hello własne.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
-3. Wyeksportuj schemat sieci wirtualnej. Użyj poniższego polecenia cmdlet programu PowerShell, zastępując wartości swoimi własnymi.
+3. Eksportuj hello schemat sieci wirtualnej. Użyj hello następującego polecenia cmdlet programu PowerShell, zastępując wartości hello własne.
    
         Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
-4. Edytuj schemat pliku konfiguracji sieci w taki sposób, aby wartość podsieci bramy wynosiła /27 lub miała krótszy prefiks (np. /26 lub /25). Zobacz poniższy przykład. 
+4. Edytuj schemat pliku konfiguracji sieci hello tak, aby podsieci bramy hello jest /27 lub krótszy prefiksu (na przykład /26 lub /25). Zobacz poniższy przykład hello. 
    
    > [!NOTE]
-   > Jeśli nie masz wystarczającej liczby adresów IP w sieci wirtualnej, aby zwiększyć rozmiar podsieci bramy, dodaj więcej przestrzeni adresowej IP. Więcej informacji na temat schematu konfiguracji znajduje się w artykule [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) (Schemat konfiguracji sieci wirtualnej Azure).
+   > Jeśli masz za mało adresów IP pozostałych w rozmiar podsieci bramy sieci wirtualnej tooincrease hello należy tooadd więcej przestrzeni adresów IP. Aby uzyskać więcej informacji na temat hello schemat konfiguracji, zobacz [schemat konfiguracji sieci wirtualnej Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    > 
    > 
    
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-5. Jeśli poprzednia brama pochodziła z sieci VPN typu lokacja-lokacja, musisz również zmienić typ połączenia na **Dedykowane**.
+5. Jeśli poprzednie Brama VPN lokacja-lokacja, należy również zmienić typ połączenia hello zbyt**dedykowana**.
    
                  <Gateway>
                   <ConnectionsToLocalNetwork>
@@ -225,8 +225,8 @@ Jeśli podsieć bramy ma wartość /27 lub większą, a sieć wirtualna jest po�
                     </LocalNetworkSiteRef>
                   </ConnectionsToLocalNetwork>
                 </Gateway>
-6. Na tym etapie będziesz mieć sieć wirtualną bez bram. W celu utworzenia nowych bram i wykonania połączeń wykonaj instrukcje z części [Krok 4 — tworzenie bramy usługi ExpressRoute](#gw) znajdujące się w poprzednim zestawie kroków.
+6. Na tym etapie będziesz mieć sieć wirtualną bez bram. toocreate nowych bram i zakończenie połączenia, można przystąpić do [krok 4 — Utwórz bramę usługi ExpressRoute](#gw), liczba znalezionych w hello poprzedzających zestaw kroków.
 
 ## <a name="next-steps"></a>Następne kroki
-Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
+Aby uzyskać więcej informacji na temat połączenia ExpressRoute, zobacz hello [ExpressRoute — często zadawane pytania](expressroute-faqs.md)
 

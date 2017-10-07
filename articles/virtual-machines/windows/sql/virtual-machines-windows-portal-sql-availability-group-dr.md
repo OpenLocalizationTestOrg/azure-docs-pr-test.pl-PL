@@ -1,6 +1,6 @@
 ---
-title: "Grupy dostępności serwera SQL, odzyskiwania po awarii — maszyn wirtualnych platformy Azure — | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób konfigurowania grupy dostępności programu SQL Server na maszynach wirtualnych Azure z repliką w innym regionie."
+title: "aaaSQL odzyskiwania po awarii grup dostępności serwera — maszyny wirtualne Azure - | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak grupa tooconfigure dostępności programu SQL Server na maszynach wirtualnych platformy Azure z repliką w innym regionie."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,41 +16,41 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: df6238dc61c5a56879c75c9bf7314c618f43c0ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurowanie zawsze włączonej grupy dostępności na maszynach wirtualnych Azure w różnych regionach
 
-W tym artykule opisano sposób konfigurowania programu SQL Server AlwaysOn repliki grupy dostępności na maszynach wirtualnych Azure w lokalizacji zdalnej platformy Azure. Użyj tej konfiguracji do obsługi odzyskiwania po awarii.
+W tym artykule opisano, jak tooconfigure dostępności programu SQL Server zawsze włączone grupy replik na maszynach wirtualnych Azure w lokalizacji zdalnej platformy Azure. Użyj tego odzyskiwania po awarii toosupport konfiguracji.
 
-Ten artykuł dotyczy na maszynach wirtualnych platformy Azure w trybie Menedżera zasobów.
+Ten artykuł dotyczy tooAzure maszyn wirtualnych w trybie Menedżera zasobów.
 
-Na poniższej ilustracji przedstawiono typowe wdrożenie grupy dostępności na maszynach wirtualnych Azure:
+Witaj poniższej ilustracji przedstawiono typowe wdrożenie grupy dostępności na maszynach wirtualnych Azure:
 
    ![Grupy dostępności](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-W tym wdrożeniu wszystkie maszyny wirtualne znajdują się w jednym regionie Azure. Repliki grupy dostępności może mieć zatwierdzanie synchroniczne z automatycznej pracy awaryjnej na SQL-1 i 2 dla programu SQL. Aby utworzyć tej architektury, zobacz [szablonu grupy dostępności lub samouczek](virtual-machines-windows-portal-sql-availability-group-overview.md).
+W tym wdrożeniu wszystkie maszyny wirtualne znajdują się w jednym regionie Azure. repliki grupy dostępności Hello może mieć zatwierdzanie synchroniczne z automatycznej pracy awaryjnej na SQL-1 i 2 dla programu SQL. toobuild tej architektury, zobacz [szablonu grupy dostępności lub samouczek](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-Taka architektura jest narażony na Przestój, gdy region platformy Azure stanie się niedostępna. Aby rozwiązać tę lukę w zabezpieczeniach, należy dodać repliki w innym regionie Azure. Na poniższym diagramie przedstawiono, jak będzie wyglądać architektura:
+Tej architektury jest narażone toodowntime, gdy hello regionu Azure stanie się niedostępna. tooovercome tę lukę w zabezpieczeniach, Dodaj replikę w innym regionie Azure. Witaj poniższym diagramie przedstawiono wygląd architektura hello:
 
    ![DR grupy dostępności](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
-Na powyższym diagramie przedstawiono nowej maszyny wirtualnej o nazwie SQL 3. SQL 3 jest w innym regionie Azure. SQL 3 jest dodawany do klastra trybu Failover systemu Windows Server. SQL 3 może obsługiwać repliki grupy dostępności. Warto zauważyć, że region platformy Azure dla programu SQL 3 ma nowego modułu równoważenia obciążenia Azure.
+Witaj poprzedni diagram przedstawia nowej maszyny wirtualnej o nazwie SQL 3. SQL 3 jest w innym regionie Azure. SQL 3 jest dodawana toohello klastra pracy awaryjnej systemu Windows Server. SQL 3 może obsługiwać repliki grupy dostępności. Warto zauważyć, że hello region platformy Azure dla programu SQL 3 ma nowego modułu równoważenia obciążenia Azure.
 
 >[!NOTE]
-> Zestaw dostępności Azure jest wymagany, gdy więcej niż jednej maszyny wirtualnej jest w tym samym regionie. Jeśli tylko jednej maszyny wirtualnej znajduje się w regionie, zestaw dostępności nie jest wymagane. Maszyny wirtualne można umieścić tylko w zestawie w czasie tworzenia dostępności. Jeśli maszyna wirtualna już znajduje się w zestawie dostępności, możesz dodać maszyny wirtualnej do dodatkowej repliki później.
+> Zestaw dostępności Azure jest wymagany, gdy hello więcej niż jeden maszyny wirtualnej znajduje się w tym samym regionie. Jeśli tylko jednej maszyny wirtualnej znajduje się w regionie hello, hello zestaw dostępności nie jest wymagane. Maszyny wirtualne można umieścić tylko w zestawie w czasie tworzenia dostępności. Jeśli hello maszyna wirtualna już znajduje się w zestawie dostępności, możesz dodać maszyny wirtualnej do dodatkowej repliki później.
 
-W ramach tej architektury replik w zdalnym regionie zwykle skonfigurowano tryb dostępności zatwierdzania asynchronicznego i ręczny tryb pracy awaryjnej.
+W ramach tej architektury hello repliki w regionie zdalnego hello zwykle skonfigurowano tryb dostępności zatwierdzania asynchronicznego i ręczny tryb pracy awaryjnej.
 
 W przypadku replik grupy dostępności na maszynach wirtualnych Azure w różnych regionach platformy Azure, wymaga każdego regionu:
 
 * Brama sieci wirtualnej
 * Połączenie bramy sieci wirtualnej
 
-Na poniższym diagramie przedstawiono sposób sieci komunikacji między centrami danych.
+Witaj poniższym diagramie przedstawiono sposób sieci hello komunikacji między centrami danych.
 
    ![Grupy dostępności](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
@@ -59,78 +59,78 @@ Na poniższym diagramie przedstawiono sposób sieci komunikacji między centrami
 
 ## <a name="create-remote-replica"></a>Utwórz zdalnej repliki
 
-Aby utworzyć replikę w centrum danych zdalnych, wykonaj następujące czynności:
+toocreate repliki w centrum danych zdalnych hello następujące kroki:
 
-1. [Tworzenie sieci wirtualnej w nowym regionie](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+1. [Tworzenie sieci wirtualnej w obszarze nowe hello](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
-1. [Konfigurowanie połączenia do wirtualnymi przy użyciu portalu Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Konfigurowanie połączenia do wirtualnymi przy użyciu portalu Azure hello](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
-   >W niektórych przypadkach może być konieczne do utworzenia połączenia do wirtualnymi za pomocą programu PowerShell. Na przykład użycie innego konta platformy Azure w portalu nie można skonfigurować połączenie. W takim przypadku wyświetlony [skonfigurować połączenia do wirtualnymi przy użyciu portalu Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+   >W niektórych przypadkach może być toouse PowerShell toocreate hello wirtualnymi do połączenia. Na przykład korzystanie z różnych kont platformy Azure nie można skonfigurować połączenia hello w portalu hello. W takim przypadku wyświetlony [Konfiguruj do wirtualnymi połączenia za pomocą hello portalu Azure](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Tworzenie kontrolera domeny w nowym regionie](../../../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Tworzenie kontrolera domeny w obszarze nowe hello](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
-   Ten kontroler domeny zapewnia uwierzytelnianie, jeśli kontroler domeny w lokacji głównej nie jest dostępny.
+   Ten kontroler domeny zapewnia uwierzytelnianie, jeśli hello kontrolera domeny w lokacji głównej hello jest niedostępny.
 
-1. [Utwórz maszynę wirtualną programu SQL Server w nowym regionie](virtual-machines-windows-portal-sql-server-provision.md).
+1. [Tworzenie maszyny wirtualnej programu SQL Server w obszarze nowe hello](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Utwórz moduł równoważenia obciążenia Azure w sieci na nowy region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+1. [Utwórz moduł równoważenia obciążenia Azure w sieci hello na powitania nowy region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
    Ten moduł równoważenia obciążenia musi:
 
-   - Można w tej samej sieci i podsieci jako nowej maszyny wirtualnej.
-   - Ma statyczny adres IP dla odbiornika grupy dostępności.
-   - Obejmują puli zaplecza, składające się z tylko maszyny wirtualne w tym samym regionie co moduł równoważenia obciążenia.
-   - Za pomocą sondowania port TCP specyficzne dla adresu IP.
-   - Ma specyficzne dla serwera SQL, w tym samym regionie reguły równoważenia obciążenia.  
+   - Można w hello tej samej sieci i podsieci, jak hello nowej maszyny wirtualnej.
+   - Ma statyczny adres IP dla odbiornika grupy dostępności hello.
+   - Obejmują puli zaplecza, składające się z tylko hello maszyn wirtualnych w tym samym regionie Witaj, jak hello modułu równoważenia obciążenia.
+   - Użyj adresu IP określonego toohello sondowania portu TCP.
+   - Ma toohello określonej reguły programu SQL Server w hello równoważenia obciążenia tego samego regionu.  
 
-1. [Dodaj funkcję Klaster pracy awaryjnej na nowy serwer SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Dodaj klaster pracy awaryjnej toohello funkcji nowy serwer SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Dołącz nowy serwer SQL do domeny](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Dołącz hello nowej domeny toohello programu SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-1. [Ustaw nowe konto usługi programu SQL Server do używania konta domeny](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
+1. [Ustaw toouse konta usługi programu SQL Server hello nowe konto domeny](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [Dodaj nowy serwer SQL do klastra trybu Failover systemu Windows Server](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
+1. [Dodaj hello nowego programu SQL Server toohello klastra pracy awaryjnej systemu Windows Server](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Utwórz zasób adresu IP w klastrze.
+1. Utwórz zasób adresu IP na powitania klastra.
 
-   W Menedżerze klastra trybu Failover można utworzyć zasobu adresu IP. Kliknij prawym przyciskiem myszy rolę grupy dostępności, kliknij przycisk **dodawania zasobów**, **więcej zasobów**i kliknij przycisk **adres IP**.
+   Można utworzyć zasobu adresu IP hello w Menedżerze klastra trybu Failover. Kliknij prawym przyciskiem myszy rolę grupy dostępności hello, kliknij przycisk **dodawania zasobów**, **więcej zasobów**i kliknij przycisk **adres IP**.
 
    ![Utwórz adres IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
    Ten adres IP należy skonfigurować w następujący sposób:
 
-   - Używać sieci z centrum danych zdalnych.
-   - Przypisz adres IP z nowej usługi równoważenia obciążenia Azure. 
+   - Użyj hello sieci z centrum danych zdalnych hello.
+   - Przypisz adres IP hello z hello nowe Azure modułu równoważenia obciążenia. 
 
-1. Na nowym serwerze SQL w programie SQL Server Configuration Manager [Włącz zawsze włączone grupy dostępności](http://msdn.microsoft.com/library/ff878259.aspx).
+1. Na hello nowego programu SQL Server w programie SQL Server Configuration Manager [Włącz zawsze włączone grupy dostępności](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Otworzyć porty zapory na nowym serwerze SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+1. [Porty zapory otwarte na hello nowy serwer SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
-   Numery portów, które należy otworzyć zależą od środowiska. Otwieranie portów dla punktu końcowego dublowania i Azure załadować sondy kondycji modułu równoważenia.
+   numery portów Hello należy tooopen zależą od środowiska. Otwórz porty hello dublowania punktu końcowego i Azure załadować sondy kondycji modułu równoważenia.
 
-1. [Dodaj replikę grupy dostępności na nowym serwerze SQL](http://msdn.microsoft.com/library/hh213239.aspx).
+1. [Dodaj grupę dostępności toohello repliki na powitania nowy serwer SQL](http://msdn.microsoft.com/library/hh213239.aspx).
 
    Dla replik w zdalnym regionie Azure należy ustawić dla asynchronicznego replikacji z ręcznego przełączania trybu failover.  
 
-1. Dodaj zasób adresu IP jako zależność klastra (Nazwa sieciowa) punktu dostępu klienta odbiornika.
+1. Dodaj zasób adresu IP hello jako zależność klastra (Nazwa sieciowa) punktu dostępu klienta odbiornika hello.
 
-   Poniższy zrzut ekranu przedstawia poprawnego skonfigurowania zasobu klastra adresu IP:
+   Witaj Poniższy zrzut ekranu przedstawia poprawnego skonfigurowania zasobu klastra adresu IP:
 
    ![Grupy dostępności](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
-   >Grupa zasobów klastra zawiera oba adresy IP. Oba adresy IP są zależności dla odbiornika punktu dostępu klienta. Użyj **lub** operatora w konfiguracji klastra zależności.
+   >Grupa zasobów klastra Hello zawiera oba adresy IP. Oba adresy IP są zależności dla punktu dostępu klienta odbiornika hello. Użyj hello **lub** operatora w konfiguracji zależności klastra hello.
 
-1. [Ustaw parametry klastra w programie PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Ustaw parametry klastra hello w programie PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
-Uruchom skrypt programu PowerShell z nazwy sieciowej klastra, adres IP i port sondy, skonfigurowanego w regionie nowego modułu równoważenia obciążenia.
+Uruchom skrypt programu PowerShell hello Nazwa sieciowa klastra hello, adres IP i port sondy, skonfigurowanego w module równoważenia obciążenia hello w regionie nowe hello.
 
    ```PowerShell
-   $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
+   $ClusterNetworkName = "<MyClusterNetworkName>" # hello cluster name for hello network in hello new region (Use Get-ClusterNetwork on Windows Server 2012 of higher toofind hello name).
+   $IPResourceName = "<IPResourceName>" # hello cluster name for hello new IP Address resource.
+   $ILBIP = “<n.n.n.n>” # hello IP Address of hello Internal Load Balancer (ILB) in hello new region. This is hello static IP address for hello load balancer you configured in hello Azure portal.
+   [int]$ProbePort = <nnnnn> # hello probe port you set on hello ILB.
 
    Import-Module FailoverClusters
 
@@ -139,29 +139,29 @@ Uruchom skrypt programu PowerShell z nazwy sieciowej klastra, adres IP i port so
 
 ## <a name="set-connection-for-multiple-subnets"></a>Ustaw połączenie dla wielu podsieci
 
-Repliki w centrum danych zdalnych jest częścią grupy dostępności, ale jest w innej podsieci. Jeśli replika stanie się repliką podstawową, limity czasu połączenia aplikacji mogą wystąpić. To zachowanie jest takie same lokalne grupy dostępności w ramach wdrożenia wielu podsieci. Umożliwia nawiązywanie połączeń z klienta aplikacji, zaktualizuj połączenie klienta lub skonfigurowania rozpoznawania nazw buforowanie na zasobu nazwy sieciowej klastra.
+Replika Hello w centrum danych zdalnych hello jest częścią grupy dostępności hello, ale jest w innej podsieci. Jeśli ta replika staje się repliką podstawową hello, limity czasu połączenia aplikacji mogą wystąpić. To zachowanie jest hello identyczny z lokalnej grupy dostępności w ramach wdrożenia wielu podsieci. tooallow połączeń za pośrednictwem aplikacji klienckich, zaktualizuj powitania klienta połączenie lub skonfigurować buforowanie na zasobu nazwy sieciowej klastra hello rozpoznawania nazw.
 
-Najlepiej, zaktualizuj parametry połączenia klienta, aby ustawić `MultiSubnetFailover=Yes`. Zobacz [nawiązywania połączenia z MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+Najlepiej, zaktualizuj powitania klienta połączenia ciągów tooset `MultiSubnetFailover=Yes`. Zobacz [nawiązywania połączenia z MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Jeśli nie można zmodyfikować parametry połączenia, można skonfigurować buforowanie rozpoznawania nazw. Zobacz [przekroczeń limitu czasu połączenia w grupie dostępności wielu podsieci](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Jeśli nie można zmodyfikować parametry połączenia hello, można skonfigurować buforowanie rozpoznawania nazw. Zobacz [przekroczeń limitu czasu połączenia w grupie dostępności wielu podsieci](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## <a name="fail-over-to-remote-region"></a>Przełączyć zdalnego regionu
+## <a name="fail-over-tooremote-region"></a>Tryb failover tooremote regionu
 
-Aby przetestować połączenie odbiornika zdalnego regionu, można przełączyć repliki w celu zdalnego regionu. Replika jest asynchroniczne, pracy awaryjnej jest narażone na ryzyko utraty danych. Do trybu failover bez utraty danych, Zmień tryb dostępności na synchroniczne i ustaw tryb pracy awaryjnej na automatyczny. Wykonaj następujące czynności:
+tootest odbiornika łączności toohello zdalnego regionu, można przełączyć hello repliki toohello zdalnego regionu. Replika hello jest asynchroniczne, pracy awaryjnej jest narażony toopotential utraty danych. toofail za pośrednictwem bez utraty danych, zmień toosynchronous tryb dostępności hello i ustawić tooautomatic tryb pracy awaryjnej hello. Użyj hello następujące kroki:
 
-1. W **Eksplorator obiektów**, połącz się z wystąpieniem programu SQL Server, który obsługuje replikę podstawową.
+1. W **Eksplorator obiektów**, Połącz toohello wystąpienie programu SQL Server, który obsługuje replikę podstawową hello.
 1. W obszarze **zawsze włączonych grup dostępności**, **grup dostępności**, kliknij prawym przyciskiem myszy tej grupy dostępności i kliknij przycisk **właściwości**.
-1. Na **ogólne** w obszarze **replik dostępności**, ustaw repliki pomocniczej w lokacji odzyskiwania po awarii, aby użyć **zatwierdzania synchronicznego** tryb dostępności i  **Automatyczne** tryb pracy awaryjnej.
-1. Jeśli masz repliki pomocniczej w tej samej lokacji co repliki podstawowej wysokiej dostępności, wartość ta replika **zatwierdzania asynchronicznego** i **ręcznego**.
+1. Na powitania **ogólne** w obszarze **replik dostępności**, zestaw hello repliki pomocniczej w hello odzyskiwania po awarii lokacji toouse **zatwierdzania synchronicznego** tryb dostępności i **Automatyczne** tryb pracy awaryjnej.
+1. Jeśli masz repliki pomocniczej w tej samej lokacji co repliki podstawowej wysokiej dostępności, ustaw tę replikę za**zatwierdzania asynchronicznego** i **ręcznego**.
 1. Kliknij przycisk OK.
-1. W **Eksplorator obiektów**, kliknij prawym przyciskiem myszy grupę dostępności i kliknij przycisk **Pokaż pulpit nawigacyjny**.
-1. Na pulpicie nawigacyjnym Sprawdź, czy synchronizacji repliki w lokacji odzyskiwania po awarii.
-1. W **Eksplorator obiektów**, kliknij prawym przyciskiem myszy grupę dostępności i kliknij przycisk **pracy awaryjnej...** . SQL Server Management Studio zostanie otwarty Kreator do pracy awaryjnej programu SQL Server.  
-1. Kliknij przycisk **dalej**i wybierz wystąpienie programu SQL Server w lokacji odzyskiwania po awarii. Kliknij przycisk **dalej** ponownie.
-1. Połącz z wystąpieniem programu SQL Server w lokacji odzyskiwania po awarii, a następnie kliknij przycisk **dalej**.
-1. Na **Podsumowanie** , sprawdź ustawienia i kliknij przycisk **Zakończ**.
+1. W **Eksplorator obiektów**, kliknij prawym przyciskiem myszy hello grupy dostępności i kliknij przycisk **Pokaż pulpit nawigacyjny**.
+1. Na pulpicie nawigacyjnym hello, sprawdź, że hello synchronizacji repliki w lokacji hello odzyskiwania po awarii.
+1. W **Eksplorator obiektów**, kliknij prawym przyciskiem myszy hello grupy dostępności i kliknij przycisk **pracy awaryjnej...** . SQL Server Management Studio otworzy toofail kreatora za pośrednictwem programu SQL Server.  
+1. Kliknij przycisk **dalej**i wybierz hello wystąpienia programu SQL Server w lokacji hello odzyskiwania po awarii. Kliknij przycisk **dalej** ponownie.
+1. Połącz toohello wystąpienia programu SQL Server w lokacji hello odzyskiwania po awarii i kliknij przycisk **dalej**.
+1. Na powitania **Podsumowanie** , sprawdź ustawienia hello i kliknij przycisk **Zakończ**.
 
-Po zakończeniu testowania łączności, przenieść podstawową replikę z powrotem do centrum danych głównej i ustaw tryb dostępności do ustawień normalnego działania. W poniższej tabeli przedstawiono normalne ustawienia robocze dotyczące architektury opisanej w tym dokumencie:
+Po zakończeniu testowania łączności, przenoszenie danych podstawowych wstecz tooyour repliki podstawowej hello Centrum i ustawienia tootheir wstecz tryb dostępności hello normalnego działania. Hello poniższej tabeli przedstawiono hello normalne ustawienia robocze dotyczące architektury hello opisanych w tym dokumencie:
 
 | Lokalizacja | Wystąpienie serwera | Rola | Tryb dostępności | Tryb pracy awaryjnej
 | ----- | ----- | ----- | ----- | -----
@@ -172,7 +172,7 @@ Po zakończeniu testowania łączności, przenieść podstawową replikę z powr
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Więcej informacji na temat planowanymi, jak i wymuszonego ręcznego przełączania trybu failover
 
-Aby uzyskać więcej informacji, zobacz następujące tematy:
+Aby uzyskać więcej informacji zobacz następujące tematy hello:
 
 - [Wykonaj planowane ręcznego przełączania trybu Failover grupy dostępności (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Wykonaj wymuszonego ręcznego przełączania trybu Failover grupy dostępności (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)

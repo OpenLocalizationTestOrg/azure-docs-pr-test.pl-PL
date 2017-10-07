@@ -1,6 +1,6 @@
 ---
-title: "Włącz replikację dla maszyn wirtualnych platformy Azure do innego regionu Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Zawiera podsumowanie kroków należy włączyć replikację do innego regionu Azure dla maszyn wirtualnych platformy Azure przy użyciu usługi Azure Site Recovery"
+title: "aaaEnable replikację dla maszyn wirtualnych platformy Azure tooanother region platformy Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Zawiera podsumowanie kroków hello potrzebne tooenable replikacji tooanother region platformy Azure dla maszyn wirtualnych platformy Azure przy użyciu usługi Azure Site Recovery hello"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 8/01/2017
 ms.author: raynew
-ms.openlocfilehash: f426ba4341e61d3c7da820d7d5097b217e94ca0e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2fa03db45a18ccb8b9f31ed05589be0dd6d5f031
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="step-5-enable-replication-for-azure-vms"></a>Krok 5: Włączanie replikacji maszyn wirtualnych Azure
 
 
-Po skonfigurowaniu [magazyn usług odzyskiwania i](azure-to-azure-walkthrough-vault.md), użyj w tym artykule, aby włączyć replikację maszyn wirtualnych (VM) do innego regionu Azure, z [usługi Azure Site Recovery](site-recovery-overview.md). Aby włączyć replikację, należy skonfigurować ustawienia źródłowym i docelowym, sprawdź zasady replikacji, a następnie wybierz maszyny wirtualne mają być replikowane.
+Po skonfigurowaniu [magazyn usług odzyskiwania i](azure-to-azure-walkthrough-vault.md), za pomocą tego artykułu replikacji tooenable maszyn wirtualnych (VM), tooanother regionu Azure, [usługi Azure Site Recovery](site-recovery-overview.md). tooenable replikacji, należy skonfigurować ustawienia źródłowym i docelowym, sprawdź hello zasad replikacji, a następnie wybierz maszyny wirtualne mają tooreplicate.
 
-- Po zakończeniu tego artykułu, maszynach wirtualnych platformy Azure należy replikację do dodatkowej regionu Azure.
-- Opublikuj wszelkie komentarze u dołu w tym artykule, lub zadać pytania w [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+- Po zakończeniu hello artykułu, maszynach wirtualnych platformy Azure powinna być replikacja toohello dodatkowej region platformy Azure.
+- Opublikuj wszelkie komentarze u dołu hello w tym artykule, lub zadać pytania w hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 >[!NOTE]
 >
 > Replikacja maszyny Wirtualnej platformy Azure jest obecnie w przeglądzie.
 
 
-## <a name="select-the-source"></a>Wybierz źródło 
+## <a name="select-hello-source"></a>Wybierz źródło hello 
 
-1. Magazyny usług odzyskiwania, kliknij nazwę magazynu > **+ Replikuj**.
+1. Magazyny usług odzyskiwania, kliknij nazwę magazynu hello > **+ Replikuj**.
 2. W **źródła**, wybierz pozycję **Azure — wersja ZAPOZNAWCZA**.
-2. W **lokalizacja źródłowa**, wybierz źródło region platformy Azure, w którym są uruchomione maszyny wirtualne.
-3. Wybierz **modelu wdrażania maszyny wirtualnej platformy Azure** dla maszyn wirtualnych: **Resource Manager** lub **klasycznego**.
-4. Wybierz **źródłowa grupa zasobów** dla maszyn wirtualnych Menedżera zasobów lub **usługi w chmurze** klasycznych maszyn wirtualnych.
-5. Kliknij pozycję **OK**, aby zapisać ustawienia.
+2. W **lokalizacja źródłowa**, wybierz źródło hello region platformy Azure, w którym są uruchomione maszyny wirtualne.
+3. Wybierz hello **modelu wdrażania maszyny wirtualnej platformy Azure** dla maszyn wirtualnych: **Resource Manager** lub **klasycznego**.
+4. Wybierz hello **źródłowa grupa zasobów** dla maszyn wirtualnych Menedżera zasobów lub **usługi w chmurze** klasycznych maszyn wirtualnych.
+5. Kliknij przycisk **OK** toosave hello ustawienia.
 
-    ![Skonfiguruj źródło](./media/azure-to-azure-walkthrough-enable-replication/source.png)
+    ![Konfigurowanie źródła hello](./media/azure-to-azure-walkthrough-enable-replication/source.png)
 
-## <a name="select-the-vms"></a>Wybierz maszyny wirtualne
+## <a name="select-hello-vms"></a>Wybierz hello maszyny wirtualne
 
-Usługa Site Recovery pobiera listę maszyn wirtualnych, związanych z subskrypcji i zasobu grupy/usługa w chmurze.
+Usługa Site Recovery pobiera listę hello maszyn wirtualnych z którą skojarzona hello subskrypcji i zasobu grupy/usługa w chmurze.
 
-1. W **maszyn wirtualnych**, wybierz maszyny wirtualne mają być replikowane.
+1. W **maszyn wirtualnych**, wybierz hello maszyny wirtualne mają tooreplicate.
 2. Kliknij przycisk **OK**.
 
     ![Wybierz maszyny wirtualne](./media/azure-to-azure-walkthrough-enable-replication/vms.png)
@@ -56,52 +56,52 @@ Usługa Site Recovery pobiera listę maszyn wirtualnych, związanych z subskrypc
 
 ## <a name="configure-settings"></a>Konfigurowanie ustawień
 
-Przepisy odzyskiwania lokacji domyślne ustawienia dla region docelowy (zgodnie z ustawieniami region źródłowego), a zasady replikacji:
+Domyślne ustawienia dla region docelowy hello (na podstawie hello źródła region ustawień), udostępnia usługi Site Recovery i zasad replikacji hello:
 
-   - **Lokalizacja docelowa**: region docelowy, którego chcesz użyć do odzyskiwania po awarii. Zaleca się, że lokalizacja docelowa odpowiada lokalizacji magazynu usługi Site Recovery.
-   - **Docelowa grupa zasobów**: grupy zasobów, do których maszynach wirtualnych platformy Azure w celu region będzie należał po pracy awaryjnej. Domyślnie usługi Site Recovery tworzy nową grupę zasobów w regionie docelowych z sufiksem "asr". 
-   - **Wirtualne sieci docelowej**: sieci, na których maszynach wirtualnych Azure w celu region zostaną umieszczone po pracy awaryjnej. Domyślnie usługa Site Recovery tworzy nową sieć wirtualną (i podsieci) w regionie docelowych z sufiksem "asr". Ta sieć jest zamapowana na sieć źródła. Należy pamiętać, przypisanie określonego adresu IP po przejściu w tryb failover maszyny wirtualnej, jeśli chcesz zachować ten sam adres IP w lokalizacji źródłowej i docelowej. 
-   - **Buforowanie kont magazynu**: Usługa Site Recovery używa konta magazynu w regionie źródła. Zmiany w źródłowe maszyny wirtualne są wysyłane do tego konta, przed replikacji do lokalizacji docelowej. 
-   - **Docelowa kont magazynu**: Domyślnie, Usługa Site Recovery tworzy nowe konto magazynu, w obszarze docelowym dublowanego źródła konta magazynu maszyny Wirtualnej.
-   -  **Docelowa zestawów dostępności**: Domyślnie, Usługa Site Recovery tworzy nowy zestawem dostępności w region docelowy, wraz z sufiksem "asr". 
+   - **Lokalizacja docelowa**: hello region docelowy ma toouse odzyskiwania po awarii. Firma Microsoft zaleca zgodność hello lokalizację magazynu usługi Site Recovery hello hello lokalizacji docelowej.
+   - **Docelowa grupa zasobów**: toowhich grupy zasobów maszyn wirtualnych Azure w region docelowy hello będą należeć po pracy awaryjnej. Domyślnie usługi Site Recovery tworzy nową grupę zasobów w regionie docelowym hello z sufiksem "asr". 
+   - **Wirtualne sieci docelowej**: hello sieci, na których maszynach wirtualnych Azure w hello region docelowy zostaną umieszczone po pracy awaryjnej. Domyślnie usługa Site Recovery tworzy nową sieć wirtualną (i podsieci) region docelowy hello z sufiksem "asr". Ta sieć jest siecią źródła tooyour mapowane. Należy pamiętać, że po przejściu w tryb failover maszyny wirtualnej można przypisać określony adres IP, jeśli potrzebujesz tooretain hello sam adres IP w lokalizacji źródłowej i docelowej hello. 
+   - **Buforowanie kont magazynu**: Usługa Site Recovery używa konta magazynu w regionie źródła hello. Zmiany dotyczące źródłowe maszyny wirtualne będą wysyłane konta toothis przed lokalizacji docelowej toohello replikacji. 
+   - **Docelowa kont magazynu**: Domyślnie, Usługa Site Recovery tworzy nowe konto magazynu w regionie docelowym hello, toomirror hello źródła konta magazynu maszyny Wirtualnej.
+   -  **Docelowa zestawów dostępności**: Domyślnie, Usługa Site Recovery tworzy nowy zestawem dostępności w hello region docelowy, z sufiksem "asr" hello. 
    - **Nazwa zasad replikacji**: Nazwa zasad.
    - **Przechowywania punktu odzyskiwania**: domyślnie Site Recovery przechowuje punkty odzyskiwania przez 24 godziny. Można skonfigurować wartość z zakresu od 1 do 72 godzin.
    - **Częstotliwość migawek spójności aplikacji**: domyślnie Site Recovery przyjmuje migawki dotyczącej spójności aplikacji co 4 godziny. Można skonfigurować dowolną wartość z zakresu od 1 do 12 godzin. Dane są replikowane w sposób ciągły:
-    - Punktów odzyskiwania zapewniających spójność awarii zachowania spójności danych zapisu kolejności podczas tworzenia. Ten rodzaj punktu odzyskiwania jest zwykle wystarczające, jeśli aplikacja jest przeznaczona Aby dokonać odzyskiwania po awarii bez niespójności w danych
-    - Punktów odzyskiwania zapewniających spójność awarii są generowane co kilka minut. Przy użyciu tych punktów odzyskiwania w tryb failover i odzyskiwania maszyn wirtualnych zapewnia odzyskiwania punktu cel (RPO) kolejności minut.
-    - Punktów odzyskiwania zapewniających spójność aplikacji (oprócz spójności zapisu kolejności) zapewnić ukończenie wszystkich operacji uruchomionych aplikacji i opróżnienia buforów na dysku (przełączany w stan spoczynku aplikacji). Firma Microsoft zaleca korzystanie z tych punktów odzyskiwania dla bazy danych aplikacji, takich jak SQL Server, Oracle i Exchange.
+    - Punktów odzyskiwania zapewniających spójność awarii zachowania spójności danych zapisu kolejności podczas tworzenia. Ten rodzaj punktu odzyskiwania jest zwykle wystarczające, jeśli aplikacja jest zaprojektowana toorecover z awarii bez niespójności danych
+    - Punktów odzyskiwania zapewniających spójność awarii są generowane co kilka minut. Przy użyciu tych toofail punkty odzyskiwania przez i odzyskiwanie maszyn wirtualnych zapewnia odzyskiwania punktu cel (RPO) w kolejności hello minut.
+    - Punktów odzyskiwania zapewniających spójność aplikacji (w spójności kolejności toowrite dodanie) zapewnić ukończenie wszystkich operacji uruchomionych aplikacji i opróżnienia buforów toodisk (przełączany w stan spoczynku aplikacji). Firma Microsoft zaleca korzystanie z tych punktów odzyskiwania dla bazy danych aplikacji, takich jak SQL Server, Oracle i Exchange.
         
     ![Konfigurowanie ustawień](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
 
 ### <a name="modify-settings"></a>Modyfikowanie ustawień
 
-Jeśli chcesz zmodyfikować ustawienia zasad docelowych i replikacji, wykonaj następujące czynności:
+Jeśli chcesz, aby ustawienia zasad replikacji i docelowe toomodify, hello następujące:
 
-1. Aby wyświetlić lub zmodyfikować ustawienia obiektu docelowego, kliknij przycisk **ustawienia**.
-2. Aby zastąpić domyślne ustawienia docelowych, kliknij przycisk **Dostosuj**. Można określić docelowa grupa zasobów, sieć wirtualną, zestawu dostępności i docelowe konto magazynu. Zestawy dostępności można dodawać tylko, jeśli maszyny wirtualne są częścią zestawu w regionie źródła.
+1. tooview lub zmodyfikować ustawienia obiektu docelowego, kliknij przycisk **ustawienia**.
+2. toooverride hello domyślne ustawień obiektu docelowego, kliknij przycisk **Dostosuj**. Można określić docelowa grupa zasobów, sieć wirtualną, zestawu dostępności i docelowe konto magazynu. Zestawy dostępności można dodawać tylko, jeśli maszyny wirtualne są częścią zestawu w regionie źródła hello.
 
     ![Konfigurowanie ustawień](./media/azure-to-azure-walkthrough-enable-replication/customize-target.png)
 
-3. Aby zastąpić ustawienia replikacji dla punktów odzyskiwania i migawek spójności aplikacji, kliknij przycisk **Dostosuj** obok **zasad replikacji**.
+3. ustawienia replikacji toooverride punktów odzyskiwania oraz migawki spójne z aplikacjami, kliknij przycisk **Dostosuj** dalej zbyt**zasad replikacji**.
  
     ![Konfigurowanie ustawień](./media/azure-to-azure-walkthrough-enable-replication/customize-policy.png)
 
-4. Aby rozpocząć Inicjowanie obsługi zasobów docelowych, kliknij **Utwórz zasoby docelowe**. Inicjowanie obsługi administracyjnej ma minuty. Nie zamykaj bloku podczas inicjowania obsługi lub należy zacząć od początku.
+4. toostart inicjowania obsługi administracyjnej hello zasobów docelowych, kliknij przycisk **Utwórz zasoby docelowe**. Inicjowanie obsługi administracyjnej ma minuty. Nie zamykaj bloku hello podczas inicjowania obsługi lub toostart będziesz mieć za pośrednictwem.
 
 
 
 
 ## <a name="enable-replication"></a>Włączanie replikacji
 
-1. W **ustawienia**, kliknij przycisk **włączyć replikację**. Dzięki temu replikacji początkowej wybranych maszyn wirtualnych. Stan replikacji początkowej może potrwać pewien czas, aby odświeżyć. Kliknij przycisk **Odśwież** można pobrać najnowszy stan.
+1. W **ustawienia**, kliknij przycisk **włączyć replikację**. Dzięki temu replikacji początkowej hello wybranych maszyn wirtualnych. Stan replikacji początkowej może potrwać kilka toorefresh czas. Kliknij przycisk **Odśwież** tooget hello najnowszy stan.
 
-2. Możesz śledzić postęp **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**.
+2. Możesz śledzić postępy hello **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**.
 
-3. W **ustawienia** > **elementy replikowane**, można wyświetlić stan maszyn wirtualnych i postęp replikacji początkowej. Kliknij maszynę Wirtualną, aby przejść do jego ustawień.
+3. W **ustawienia** > **elementy replikowane**, można wyświetlić stan hello maszyn wirtualnych i hello postęp replikacji początkowej. Kliknij przycisk hello toodrill maszyny Wirtualnej w dół do jego ustawień.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [krok 6: testować tryb failover](azure-to-azure-walkthrough-test-failover.md)
+Przejdź do zbyt[krok 6: testować tryb failover](azure-to-azure-walkthrough-test-failover.md)

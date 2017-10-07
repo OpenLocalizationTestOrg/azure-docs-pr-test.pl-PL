@@ -1,6 +1,6 @@
 ---
-title: "Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET"
-description: "W tym temacie przedstawiono sposób .NET umożliwia kodowanie elementu zawartości oraz generowanie miniatur, w tym samym czasie przy użyciu standardu Media Encoder Standard."
+title: "miniatury toogenerate aaaHow przy użyciu standardu Media Encoder Standard z platformą .NET"
+description: "W tym temacie przedstawiono sposób toouse .NET tooencode zasobów oraz generowanie miniatur na powitania tym samym czasie przy użyciu standardu Media Encoder Standard."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: juliako
-ms.openlocfilehash: 89d15cbdf71a140e78f34e07ff208776b7d4cab3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 23d3e4d9bf64a688d45499c045f19d2792167990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET
+# <a name="how-toogenerate-thumbnails-using-media-encoder-standard-with-net"></a>Jak miniatur toogenerate przy użyciu standardu Media Encoder Standard z platformą .NET
 
-Umożliwia Media Encoder Standard generowanie miniatur co najmniej jeden z wejściowego pliku wideo w [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), lub [BMP](https://en.wikipedia.org/wiki/BMP_file_format) obrazów w formatach. Można przesłać zadania, które powodują powstanie tylko obrazy, lub można łączyć generowanie miniatur z kodowaniem. Ten temat zawiera kilka przykładowych XML i JSON miniatur ustawienia dla tych scenariuszy. Na końcu tego tematu jest [przykładowy kod](#code_sample) który przedstawia sposób użycia SDK .NET usługi Media Services do wykonania zadania kodowania.
+Można użyć toogenerate Media Encoder Standard miniatur co najmniej jeden z wejściowego pliku wideo w [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), lub [BMP](https://en.wikipedia.org/wiki/BMP_file_format) obrazów w formatach. Można przesłać zadania, które powodują powstanie tylko obrazy, lub można łączyć generowanie miniatur z kodowaniem. Ten temat zawiera kilka przykładowych XML i JSON miniatur ustawienia dla tych scenariuszy. Na końcu hello hello tematu, istnieje [przykładowy kod](#code_sample) który pokazuje, jak toouse hello .NET SDK usługi Media Services tooaccomplish hello kodowania zadań.
 
-Więcej szczegółów dla elementów, które są używane w predefiniowane próbki, należy przejrzeć [Media Encoder Standard schematu](media-services-mes-schema.md).
+Więcej szczegółów na powitania elementów, które są używane w predefiniowane próbki, należy przejrzeć [Media Encoder Standard schematu](media-services-mes-schema.md).
 
-Upewnij się przejrzeć [zagadnienia](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sekcji.
+Upewnij się, że hello tooreview [zagadnienia](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) sekcji.
 
 ## <a name="example--single-png-file"></a>Przykład — pojedynczy plik PNG
 
-Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia pliku PNG pojedynczym wyjściowym poza pierwszym kilka sekund wejścia wideo, gdzie koder sprawia, że próba optymalnych Znajdowanie ramki "interesujące". Należy pamiętać, że wymiary obrazu wyjściowego zostały ustawione na 100%, co oznacza te będą zgodne wymiary wejściowy plik wideo. Należy też zauważyć, jak ustawienie "Format" w "Dane wyjściowe" jest konieczne dopasowanie użycie "PngLayers" w sekcji "Koderów-dekoderów". 
+Witaj następującego formatu JSON i XML ustawienie może być używane tooproduce pojedynczego wyjścia PNG pliku poza hello najpierw kilka sekund wejściowy plik wideo hello, gdzie kodera hello sprawia, że próba optymalnych Znajdowanie ramki "interesujące". Należy pamiętać, że wymiary obrazu wyjściowego hello ustawiono too100%, co oznacza, że odpowiadają one hello wymiary hello wejściowy plik wideo. Należy też zauważyć, jak ustawienie "Format" hello "Dane wyjściowe" jest wymagane użycie hello toomatch "PngLayers" w sekcji "Koderów-dekoderów" hello. 
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
@@ -82,7 +82,7 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia plik
 
 ## <a name="example--a-series-of-jpeg-images"></a>Przykład — szereg obrazy JPEG
 
-Następujące ustawienie JSON i XML można utworzyć zestaw 10 obrazów w sygnatury czasowe 5% 15%,..., 95% wejściowych osi czasu, gdy określono rozmiar obrazu jest jednym kwartału elementu wejściowego pliku wideo.
+Witaj następującego formatu JSON i XML ustawienie może być używane tooproduce zestaw 10 obrazów w sygnatury czasowe 5% 15%,..., 95% wejściowych osi czasu hello, których rozmiar obrazu hello jest określony toobe co kwartał, który hello wejściowych wideo.
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
@@ -138,7 +138,7 @@ Następujące ustawienie JSON i XML można utworzyć zestaw 10 obrazów w sygnat
 
 ## <a name="example--one-image-at-a-specific-timestamp"></a>Przykład — jeden obraz w określonej sygnatury czasowej
 
-Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia pojedynczego obrazu JPEG na 30 drugi znacznik wejściowy plik wideo. To ustawienie wstępne oczekuje danych wejściowych w postaci ponad 30 sekund czasu trwania (else zadanie nie powiedzie się).
+Hello następujące ustawienie wstępne JSON i XML może być używane tooproduce jeden obraz JPEG na powitania 30 sekund znak wejściowy plik wideo hello. To ustawienie wstępne oczekuje toobe wejściowych hello ponad 30 sekund czasu trwania (else zadania hello zakończy się niepowodzeniem).
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
 
@@ -194,21 +194,21 @@ Następujące ustawienia wstępnego JSON i XML może służyć do tworzenia poje
 
 ## <a id="code_sample"></a>Przykład — kodowanie wideo i generowanie miniatur
 
-Poniższy przykład kodu wykorzystuje .NET SDK usługi Media Services do wykonywania następujących zadań:
+Poniższy przykład kodu Hello używa hello tooperform .NET SDK usługi Media Services następujące zadania:
 
 * Utwórz zadania kodowania.
-* Pobierz odwołanie do kodera Media Encoder Standard.
-* Ładowanie ustawień [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) zawierających ustawienia oraz informacje potrzebne do generowania miniatur kodowania. Można go zapisać [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) w pliku i użyj poniższy kod do załadowania pliku.
+* Pobiera koder Media Encoder Standard toohello odwołania.
+* Ustawienia wstępnego ładowania hello [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) zawierających hello kodowanie ustawienia wstępnego również miniatur toogenerate potrzebne informacje. Można go zapisać [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) w pliku i użyj hello, następującego pliku hello tooload kodu.
   
-        // Load the XML (or JSON) from the local file.
+        // Load hello XML (or JSON) from hello local file.
         string configuration = File.ReadAllText(fileName);  
-* Dodaj pojedynczego zadania kodowania do zadania. 
-* Określ wejściowych zasobów do zakodowania.
-* Utwórz zasób danych wyjściowych, który będzie zawierać zakodowanym elementem zawartości.
-* Dodaj program obsługi zdarzeń, aby sprawdzić postęp zadania.
-* Przesłać zadanie.
+* Dodaj jednego zadania kodowania toohello zadań. 
+* Określ dane wejściowe hello zakodowane toobe zasobów.
+* Tworzenie zasobu danych wyjściowych, który będzie zawierać hello zakodowane zasobów.
+* Dodaj postęp zadania hello toocheck zdarzeń programu obsługi.
+* Prześlij zadanie hello.
 
-Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md) tematu dla wskazówki dotyczące sposobu konfigurowania środowiska deweloperów.
+Zobacz hello [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md) tematu, aby uzyskać instrukcje na temat tooset Twojego środowiska deweloperów.
 
         using System;
         using System.Configuration;
@@ -221,7 +221,7 @@ Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotne
         {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -245,7 +245,7 @@ Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotne
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate the thumbnails.
+            // Encode and generate hello thumbnails.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -255,11 +255,11 @@ Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotne
             {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load the XML (or JSON) from the local file.
+            // Load hello XML (or JSON) from hello local file.
             string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
 
             // Create a task
@@ -268,11 +268,11 @@ Zobacz [tworzenia usługi Media Services z platformą .NET](media-services-dotne
                 configuration,
                 TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
                 AssetCreationOptions.None);
 
@@ -443,24 +443,24 @@ Aby uzyskać informacje o schemacie, zobacz [to](https://msdn.microsoft.com/libr
     </Preset>
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
-Następujące kwestie:
+Zastosuj Hello następujące zagadnienia:
 
-* Użycie jawnego sygnatury czasowe początku/krok/zakresu zakłada, że źródło danych wejściowych jest co najmniej 1 minutę.
+* Hello użycie jawnego znacznika czasu rozpoczęcia/krok/zakresu przyjęto założenie, że źródło danych wejściowych w tym hello jest co najmniej 1 minutę.
 * Elementy BmpImage-jpg/Png mają Start, krok i zakres string atrybutów — mogą być interpretowane jako:
   
   * Numer ramki, jeśli są one — nieujemne liczby całkowite, np. "Start": "120"
-  * Względem źródła czas trwania, jeśli wyrażony jako sufiks %, np. "Start": "15%", lub
+  * Względna toosource czas trwania, jeśli wyrażony jako sufiks %, np. "Start": "15%", lub
   * Sygnatura czasowa Jeśli wyrażonej w postaci hh: mm:... Format. Np. "Start": "00: 01:00"
     
     Można mieszać i dopasowywać notacji jako użytkownik należy.
     
-    Ponadto Start obsługuje makra specjalnego: {najlepszych}, który próbuje określić pierwszej ramki "interesujące" notatki zawartości: (krok i zakres są ignorowane, gdy Start ma ustawioną wartość {najlepiej})
+    Ponadto Start obsługuje makra specjalnego: {najlepszych}, który próbuje hello toodetermine pierwszej ramki "interesujące" hello zawartości Uwaga: (krok i zakres są ignorowane w przypadku rozpoczęcia ustawiono zbyt {najlepsze})
   * Wartości domyślne: Start: {najlepsze}
-* Format danych wyjściowych muszą zostać jawnie dostarczone dla każdego formatu obrazu: BmpFormat-Jpg/Png. Jeśli jest obecny, rynkowej będzie odpowiadała JpgVideo do JpgFormat i tak dalej. OutputFormat wprowadza nowe określone makro koder-dekoder obrazów: {indeks}, która musi być zawierają (jeden raz i tylko jeden raz) formatów wyjściowych obrazu.
+* Format danych wyjściowych musi toobe jawnie podany dla każdego format obrazu: BmpFormat-Jpg/Png. Jeśli jest obecny, rynkowej będzie odpowiadała JpgVideo tooJpgFormat i tak dalej. OutputFormat wprowadza nowe określone makro koder-dekoder obrazów: {indeks}, która wymaga toobe obecne (jeden raz i tylko jeden raz) dla formatów wyjściowych obrazu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz sprawdzić [postępu zadania](media-services-check-job-progress.md) podczas oczekujące zadania kodowania.
+Możesz sprawdzić hello [postępu zadania](media-services-check-job-progress.md) podczas hello oczekuje zadania kodowania.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
