@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Health — samouczki | Microsoft Docs"
+title: "Kondycja zasobów — samouczki aaaAzure | Dokumentacja firmy Microsoft"
 description: 
 services: Resource health
 author: bernardm
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/17/2017
 ms.author: bernardm
-ms.openlocfilehash: ef6709b623acb3b823ea337af0062e8c95d0478e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 124ef729fb2be77e7e3a83708d9e6c3c65f08be3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-health-documentation"></a>Dokumentacja usługi Azure Resource Health
 
-Usługa Resource Health ułatwia diagnozowanie i uzyskanie pomocy technicznej, gdy problem z platformą Azure ma wpływ na zasoby. Informuje o bieżącej i wcześniejszej kondycji zasobów oraz pomaga uniknąć problemów. Usługa Resource Health oferuje pomoc techniczną w przypadku problemów z usługą platformy Azure.
+Usługa Resource Health ułatwia diagnozowanie i uzyskanie pomocy technicznej, gdy problem z platformą Azure ma wpływ na zasoby. Informuje o hello kondycji do bieżących i starszych zasobów, a pomaga ograniczać problemy. Usługa Resource Health oferuje pomoc techniczną w przypadku problemów z usługą platformy Azure.
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/resource-health/resource-health-overview">

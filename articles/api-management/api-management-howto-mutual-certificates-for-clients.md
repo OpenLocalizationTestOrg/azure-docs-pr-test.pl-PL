@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenie interfejsów API przy użyciu klienta uwierzytelniania certyfikatów w usłudze API Management — zarządzanie interfejsami API Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak bezpieczny dostęp do interfejsów API przy użyciu certyfikatów klienta"
+title: "aaaSecure interfejsów API przy użyciu wstępnego uwierzytelniania certyfikatu klienta w usłudze API Management — zarządzanie interfejsami API Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosecure dostępu tooAPIs przy użyciu certyfikatów klienta"
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: d3d51d0575a6d2dacced931601d48eb1e51a4051
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6ff78bda3d429829da79d0dc4d652f19669cc919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a><span data-ttu-id="65e8a-103">Jak zabezpieczyć interfejsy API za pomocą klienta uwierzytelniania certyfikatów w usłudze API Management</span><span class="sxs-lookup"><span data-stu-id="65e8a-103">How to secure APIs using client certificate authentication in API Management</span></span>
+# <a name="how-toosecure-apis-using-client-certificate-authentication-in-api-management"></a><span data-ttu-id="51e41-103">W jaki sposób toosecure interfejsów API przy użyciu klienta certyfikatów uwierzytelniania w zarządzanie interfejsami API</span><span class="sxs-lookup"><span data-stu-id="51e41-103">How toosecure APIs using client certificate authentication in API Management</span></span>
 
-<span data-ttu-id="65e8a-104">Zarządzanie interfejsami API oferuje możliwość bezpiecznego dostępu do interfejsów API (np. od klienta do usługi API Management) przy użyciu certyfikatów klienta.</span><span class="sxs-lookup"><span data-stu-id="65e8a-104">API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates.</span></span> <span data-ttu-id="65e8a-105">Obecnie można sprawdzić odcisk palca certyfikatu klienta na żądaną wartość.</span><span class="sxs-lookup"><span data-stu-id="65e8a-105">Currently, you can check the thumbprint of a client certificate against a desired value.</span></span> <span data-ttu-id="65e8a-106">Można również sprawdzić odcisk palca z istniejących certyfikatów przekazanych do interfejsu API zarządzania.</span><span class="sxs-lookup"><span data-stu-id="65e8a-106">You can also check the thumbprint against existing certificates uploaded to API Management.</span></span>  
+<span data-ttu-id="51e41-104">Zarządzanie interfejsami API udostępnia hello możliwości toosecure dostępu tooAPIs (tj., klient tooAPI Management) przy użyciu certyfikatów klienta.</span><span class="sxs-lookup"><span data-stu-id="51e41-104">API Management provides hello capability toosecure access tooAPIs (i.e., client tooAPI Management) using client certificates.</span></span> <span data-ttu-id="51e41-105">Obecnie można sprawdzić hello odcisk palca certyfikatu klienta na żądaną wartość.</span><span class="sxs-lookup"><span data-stu-id="51e41-105">Currently, you can check hello thumbprint of a client certificate against a desired value.</span></span> <span data-ttu-id="51e41-106">Możesz również sprawdzić się, że odcisk palca hello z istniejących certyfikatów przekazano tooAPI zarządzania.</span><span class="sxs-lookup"><span data-stu-id="51e41-106">You can also check hello thumbprint against existing certificates uploaded tooAPI Management.</span></span>  
 
-<span data-ttu-id="65e8a-107">Aby uzyskać informacji na temat zabezpieczania dostępu do usługi zaplecza interfejsu API przy użyciu certyfikatów klienta (np. interfejsu API Management do wewnętrznej), zobacz [zabezpieczania usług zaplecza za pomocą klienta uwierzytelnianie certyfikatu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)</span><span class="sxs-lookup"><span data-stu-id="65e8a-107">For information about securing access to the back-end service of an API using client certificates (i.e., API Management to back-end), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)</span></span>
+<span data-ttu-id="51e41-107">Aby uzyskać informacje dotyczące zabezpieczania usługi zaplecza toohello dostępu do interfejsu API przy użyciu certyfikatów klienta (np. zarządzanie interfejsami API tooback-end), zobacz [jak za pomocą klienta usług zaplecza toosecure certyfikatu uwierzytelniania](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)</span><span class="sxs-lookup"><span data-stu-id="51e41-107">For information about securing access toohello back-end service of an API using client certificates (i.e., API Management tooback-end), see [How toosecure back-end services using client certificate authentication](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)</span></span>
 
-## <a name="checking-the-expiration-date"></a><span data-ttu-id="65e8a-108">Sprawdzanie daty wygaśnięcia</span><span class="sxs-lookup"><span data-stu-id="65e8a-108">Checking the expiration date</span></span>
+## <a name="checking-hello-expiration-date"></a><span data-ttu-id="51e41-108">Sprawdzanie, czy data wygaśnięcia hello</span><span class="sxs-lookup"><span data-stu-id="51e41-108">Checking hello expiration date</span></span>
 
-<span data-ttu-id="65e8a-109">Aby sprawdzić, czy certyfikat wygasł można skonfigurować poniżej zasad:</span><span class="sxs-lookup"><span data-stu-id="65e8a-109">Below policies can be configured to check if the certificate is expired:</span></span>
+<span data-ttu-id="51e41-109">Poniżej zasad może być skonfigurowany toocheck Jeśli hello certyfikat wygasł:</span><span class="sxs-lookup"><span data-stu-id="51e41-109">Below policies can be configured toocheck if hello certificate is expired:</span></span>
 
 ```
 <choose>
@@ -39,9 +39,9 @@ ms.lasthandoff: 07/11/2017
 </choose>
 ```
 
-## <a name="checking-the-issuer-and-subject"></a><span data-ttu-id="65e8a-110">Sprawdzanie wystawcy i podmiotu</span><span class="sxs-lookup"><span data-stu-id="65e8a-110">Checking the issuer and subject</span></span>
+## <a name="checking-hello-issuer-and-subject"></a><span data-ttu-id="51e41-110">Sprawdzanie, czy wystawca hello i podmiotu</span><span class="sxs-lookup"><span data-stu-id="51e41-110">Checking hello issuer and subject</span></span>
 
-<span data-ttu-id="65e8a-111">Poniżej zasad można skonfigurować w celu sprawdzenia wystawcy i podmiotu certyfikatu klienta:</span><span class="sxs-lookup"><span data-stu-id="65e8a-111">Below policies can be configured to check the issuer and subject of a client certificate:</span></span>
+<span data-ttu-id="51e41-111">Poniżej zasad może być skonfigurowany toocheck hello wystawcy i podmiotu certyfikatu klienta:</span><span class="sxs-lookup"><span data-stu-id="51e41-111">Below policies can be configured toocheck hello issuer and subject of a client certificate:</span></span>
 
 ```
 <choose>
@@ -53,9 +53,9 @@ ms.lasthandoff: 07/11/2017
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a><span data-ttu-id="65e8a-112">Sprawdzanie odcisk palca</span><span class="sxs-lookup"><span data-stu-id="65e8a-112">Checking the thumbprint</span></span>
+## <a name="checking-hello-thumbprint"></a><span data-ttu-id="51e41-112">Sprawdzanie, czy hello odcisk palca</span><span class="sxs-lookup"><span data-stu-id="51e41-112">Checking hello thumbprint</span></span>
 
-<span data-ttu-id="65e8a-113">Poniżej zasad można skonfigurować w celu Sprawdź odcisk palca certyfikatu klienta:</span><span class="sxs-lookup"><span data-stu-id="65e8a-113">Below policies can be configured to check the thumbprint of a client certificate:</span></span>
+<span data-ttu-id="51e41-113">Poniżej zasad może być skonfigurowany toocheck hello odcisk palca certyfikatu klienta:</span><span class="sxs-lookup"><span data-stu-id="51e41-113">Below policies can be configured toocheck hello thumbprint of a client certificate:</span></span>
 
 ```
 <choose>
@@ -67,9 +67,9 @@ ms.lasthandoff: 07/11/2017
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a><span data-ttu-id="65e8a-114">Sprawdzanie odcisk palca przed certyfikatami, przekazany do interfejsu API zarządzania</span><span class="sxs-lookup"><span data-stu-id="65e8a-114">Checking a thumbprint against certificates uploaded to API Management</span></span>
+## <a name="checking-a-thumbprint-against-certificates-uploaded-tooapi-management"></a><span data-ttu-id="51e41-114">Sprawdzanie odcisk palca przed certyfikatami, przekazać tooAPI zarządzania</span><span class="sxs-lookup"><span data-stu-id="51e41-114">Checking a thumbprint against certificates uploaded tooAPI Management</span></span>
 
-<span data-ttu-id="65e8a-115">Poniższy przykład przedstawia sposób Sprawdź odcisk palca certyfikatu klienta przed przekazany do interfejsu API zarządzania certyfikatami:</span><span class="sxs-lookup"><span data-stu-id="65e8a-115">The following example shows how to check the thumbprint of a client certificate against certificates uploaded to API Management:</span></span> 
+<span data-ttu-id="51e41-115">Witaj poniższy przykład przedstawia sposób toocheck hello odcisk palca certyfikatu klienta przed certyfikatami, przekazać tooAPI zarządzania:</span><span class="sxs-lookup"><span data-stu-id="51e41-115">hello following example shows how toocheck hello thumbprint of a client certificate against certificates uploaded tooAPI Management:</span></span> 
 
 ```
 <choose>
@@ -82,8 +82,8 @@ ms.lasthandoff: 07/11/2017
 
 ```
 
-## <a name="next-step"></a><span data-ttu-id="65e8a-116">Następny krok</span><span class="sxs-lookup"><span data-stu-id="65e8a-116">Next step</span></span>
+## <a name="next-step"></a><span data-ttu-id="51e41-116">Następny krok</span><span class="sxs-lookup"><span data-stu-id="51e41-116">Next step</span></span>
 
-*  [<span data-ttu-id="65e8a-117">Jak zabezpieczyć za pomocą klienta usług zaplecza uwierzytelnianie certyfikatu</span><span class="sxs-lookup"><span data-stu-id="65e8a-117">How to secure back-end services using client certificate authentication</span></span>](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
-*  [<span data-ttu-id="65e8a-118">Jak przekazywać certyfikatów</span><span class="sxs-lookup"><span data-stu-id="65e8a-118">How to upload certificates</span></span>](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [<span data-ttu-id="51e41-117">Jak za pomocą klienta usług zaplecza toosecure certyfikatu uwierzytelniania</span><span class="sxs-lookup"><span data-stu-id="51e41-117">How toosecure back-end services using client certificate authentication</span></span>](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [<span data-ttu-id="51e41-118">Jak tooupload certyfikatów</span><span class="sxs-lookup"><span data-stu-id="51e41-118">How tooupload certificates</span></span>](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

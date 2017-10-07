@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Active Directory B2C — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak wdrożyć kompleksowe rozwiązanie do zarządzania tożsamościami klientów w chmurze. W dokumentacji pokazano, jak chronić aplikacje sieci Web i aplikacje mobilne dla klientów."
+title: "aaaAzure Active Directory B2C dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak Zarządzanie tożsamościami konsumentów kompleksowe toodeploy w hello w chmurze. Dokumentacja pokazuje sposób tooprotect internetowych i aplikacji mobilnych."
 services: active-directory-b2c
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f9f6939d4d5bbe49533cad037a9085ce3da63155
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="active-directory-b2c-documentation"></a>Dokumentacja usługi Active Directory B2C
 
-Dowiedz się, jak skonfigurować kompleksowe rozwiązanie do zarządzania tożsamościami klientów w chmurze i zarządzać nim za pomocą usługi Active Directory B2C. W samouczkach, dokumentacji i innych dokumentach pokazano, jak chronić aplikacje sieci Web i aplikacje mobilne dla klientów za pomocą bezpiecznego logowania.
+Dowiedz się, jak tooset Konfigurowanie i zarządzanie nim konsumenta kompleksowe zarządzanie tożsamościami w chmurze hello w usłudze Active Directory B2C. Samouczki, odwołań i dokumentacji opisano sposób tooprotect dla użytkowników w sieci web i aplikacji dla urządzeń przenośnych z bezpiecznego logowania.
 
 <ul class="panelContent cardsFTitle">
     <li>

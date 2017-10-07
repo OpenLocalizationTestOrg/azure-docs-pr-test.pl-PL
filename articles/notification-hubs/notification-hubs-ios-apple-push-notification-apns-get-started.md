@@ -1,6 +1,6 @@
 ---
-title: "Wysyłanie powiadomień wypychanych do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs | Microsoft Docs"
-description: "Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs."
+title: "tooiOS powiadomienia wypychane aaaSending przy użyciu usługi Azure Notification Hubs | Dokumentacja firmy Microsoft"
+description: "Z tego samouczka dowiesz się, jak toosend usługi Azure Notification Hubs toouse wypychanych aplikacji dla systemu iOS tooan powiadomienia."
 services: notification-hubs
 documentationcenter: ios
 keywords: powiadomienie wypychane, powiadomienia wypychane, powiadomienia wypychane w systemie ios
@@ -15,49 +15,49 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8bb47fee4c229b3ed2a7a4dbff25a56a7a7d009
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a><span data-ttu-id="82b56-104">Wysyłanie powiadomień wypychanych do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs</span><span class="sxs-lookup"><span data-stu-id="82b56-104">Sending push notifications to iOS with Azure Notification Hubs</span></span>
+# <a name="sending-push-notifications-tooios-with-azure-notification-hubs"></a><span data-ttu-id="542c3-104">Wysyłanie tooiOS powiadomień wypychanych przy użyciu usługi Azure Notification Hubs</span><span class="sxs-lookup"><span data-stu-id="542c3-104">Sending push notifications tooiOS with Azure Notification Hubs</span></span>
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a><span data-ttu-id="82b56-105">Omówienie</span><span class="sxs-lookup"><span data-stu-id="82b56-105">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="542c3-105">Omówienie</span><span class="sxs-lookup"><span data-stu-id="542c3-105">Overview</span></span>
 > [!NOTE]
-> <span data-ttu-id="82b56-106">Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="82b56-106">To complete this tutorial, you must have an active Azure account.</span></span> <span data-ttu-id="82b56-107">Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut.</span><span class="sxs-lookup"><span data-stu-id="82b56-107">If you don't have an account, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="82b56-108">Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).</span><span class="sxs-lookup"><span data-stu-id="82b56-108">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).</span></span>
+> <span data-ttu-id="542c3-106">toocomplete tego samouczka, musi mieć aktywne konto platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="542c3-106">toocomplete this tutorial, you must have an active Azure account.</span></span> <span data-ttu-id="542c3-107">Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut.</span><span class="sxs-lookup"><span data-stu-id="542c3-107">If you don't have an account, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="542c3-108">Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).</span><span class="sxs-lookup"><span data-stu-id="542c3-108">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).</span></span>
 > 
 > 
 
-<span data-ttu-id="82b56-109">Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji dla systemu iOS przy użyciu usługi Azure Notification Hubs.</span><span class="sxs-lookup"><span data-stu-id="82b56-109">This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application.</span></span> <span data-ttu-id="82b56-110">Utworzysz pustą aplikację dla systemu iOS służącą do odbierania powiadomień wypychanych przy użyciu usługi [Apple Push Notification Service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html).</span><span class="sxs-lookup"><span data-stu-id="82b56-110">You'll create a blank iOS app that receives push notifications by using the [Apple Push Notification service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html).</span></span> 
+<span data-ttu-id="542c3-109">Ten samouczek pokazuje, jak toosend usługi Azure Notification Hubs toouse wypychanych aplikacji dla systemu iOS tooan powiadomienia.</span><span class="sxs-lookup"><span data-stu-id="542c3-109">This tutorial shows you how toouse Azure Notification Hubs toosend push notifications tooan iOS application.</span></span> <span data-ttu-id="542c3-110">Utworzysz aplikację iOS puste, która odbiera powiadomienia wypychane przy użyciu hello [Apple Push Notification service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html).</span><span class="sxs-lookup"><span data-stu-id="542c3-110">You'll create a blank iOS app that receives push notifications by using hello [Apple Push Notification service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html).</span></span> 
 
-<span data-ttu-id="82b56-111">Po zakończeniu będzie można za pomocą centrum powiadomień wysyłać powiadomienia wypychane do wszystkich urządzeń z tą aplikacją.</span><span class="sxs-lookup"><span data-stu-id="82b56-111">When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.</span></span>
+<span data-ttu-id="542c3-111">Po zakończeniu będziesz w stanie toouse Twojego toobroadcast Centrum powiadomień wypychanych powiadomienia tooall hello urządzeń z tą aplikacją.</span><span class="sxs-lookup"><span data-stu-id="542c3-111">When you're finished, you'll be able toouse your notification hub toobroadcast push notifications tooall hello devices running your app.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="82b56-112">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="82b56-112">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="542c3-112">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="542c3-112">Before you begin</span></span>
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-<span data-ttu-id="82b56-113">Kompletny kod dla tego samouczka można znaleźć [w witrynie GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).</span><span class="sxs-lookup"><span data-stu-id="82b56-113">The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).</span></span> 
+<span data-ttu-id="542c3-113">Kod ukończyć powitalnych dla tego samouczka można znaleźć [w serwisie GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).</span><span class="sxs-lookup"><span data-stu-id="542c3-113">hello completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).</span></span> 
 
-## <a name="prerequisites"></a><span data-ttu-id="82b56-114">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="82b56-114">Prerequisites</span></span>
-<span data-ttu-id="82b56-115">Dla tego samouczka wymagane są następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="82b56-115">This tutorial requires the following:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="542c3-114">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="542c3-114">Prerequisites</span></span>
+<span data-ttu-id="542c3-115">Ten samouczek wymaga następujących hello:</span><span class="sxs-lookup"><span data-stu-id="542c3-115">This tutorial requires hello following:</span></span>
 
-* <span data-ttu-id="82b56-116">[zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]</span><span class="sxs-lookup"><span data-stu-id="82b56-116">[Mobile Services iOS SDK version 1.2.4]</span></span>
-* <span data-ttu-id="82b56-117">Najnowsza wersja środowiska [Xcode]</span><span class="sxs-lookup"><span data-stu-id="82b56-117">Latest version of [Xcode]</span></span>
-* <span data-ttu-id="82b56-118">Urządzenie zgodne z systemem iOS 8 (lub nowszą wersją)</span><span class="sxs-lookup"><span data-stu-id="82b56-118">An iOS 8 (or later version)-capable device</span></span>
-* <span data-ttu-id="82b56-119">Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/)</span><span class="sxs-lookup"><span data-stu-id="82b56-119">[Apple Developer Program](https://developer.apple.com/programs/) membership.</span></span>
+* <span data-ttu-id="542c3-116">[usług Mobile Services systemu iOS SDK w wersji 1.2.4]</span><span class="sxs-lookup"><span data-stu-id="542c3-116">[Mobile Services iOS SDK version 1.2.4]</span></span>
+* <span data-ttu-id="542c3-117">Najnowsza wersja środowiska [Xcode]</span><span class="sxs-lookup"><span data-stu-id="542c3-117">Latest version of [Xcode]</span></span>
+* <span data-ttu-id="542c3-118">Urządzenie zgodne z systemem iOS 8 (lub nowszą wersją)</span><span class="sxs-lookup"><span data-stu-id="542c3-118">An iOS 8 (or later version)-capable device</span></span>
+* <span data-ttu-id="542c3-119">Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/)</span><span class="sxs-lookup"><span data-stu-id="542c3-119">[Apple Developer Program](https://developer.apple.com/programs/) membership.</span></span>
   
   > [!NOTE]
-  > <span data-ttu-id="82b56-120">Ze względu na wymagania dotyczące konfiguracji powiadomień wypychanych należy wdrożyć i przetestować powiadomienia wypychane na fizycznym urządzeniu z systemem iOS (telefonie iPhone lub tablecie iPad), a nie w symulatorze systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-120">Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.</span></span>
+  > <span data-ttu-id="542c3-120">Ze względu na wymagania dotyczące konfiguracji powiadomień wypychanych należy wdrożyć i przetestować powiadomienia wypychane na urządzenie fizyczne z systemem iOS (iPhone i iPad) zamiast hello symulatora systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="542c3-120">Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of hello iOS Simulator.</span></span>
   > 
   > 
 
-<span data-ttu-id="82b56-121">Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji dla systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-121">Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for iOS apps.</span></span>
+<span data-ttu-id="542c3-121">Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji dla systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="542c3-121">Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for iOS apps.</span></span>
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a><span data-ttu-id="82b56-122">Konfigurowanie centrum powiadomień dla powiadomień wypychanych systemu iOS</span><span class="sxs-lookup"><span data-stu-id="82b56-122">Configure your Notification Hub for iOS push notifications</span></span>
-<span data-ttu-id="82b56-123">W tej sekcji opisano kroki tworzenia nowego centrum powiadomień i konfigurowania uwierzytelniania w usłudze APNs przy użyciu utworzonego przez Ciebie certyfikatu powiadomień wypychanych **.p12**.</span><span class="sxs-lookup"><span data-stu-id="82b56-123">This section walks you through creating a new notification hub and configuring authentication with APNS using the **.p12** push certificate that you created.</span></span> <span data-ttu-id="82b56-124">Jeśli chcesz użyć już utworzonego centrum powiadomień, możesz przejść do kroku 5.</span><span class="sxs-lookup"><span data-stu-id="82b56-124">If you want to use a notification hub that you have already created, you can skip to step 5.</span></span>
+## <a name="configure-your-notification-hub-for-ios-push-notifications"></a><span data-ttu-id="542c3-122">Konfigurowanie centrum powiadomień dla powiadomień wypychanych systemu iOS</span><span class="sxs-lookup"><span data-stu-id="542c3-122">Configure your Notification Hub for iOS push notifications</span></span>
+<span data-ttu-id="542c3-123">Ta sekcja przeprowadzi Cię przez proces tworzenia nowego centrum powiadomień i konfigurowania uwierzytelniania w usłudze APNS przy użyciu hello **.p12** utworzony certyfikat wypychania.</span><span class="sxs-lookup"><span data-stu-id="542c3-123">This section walks you through creating a new notification hub and configuring authentication with APNS using hello **.p12** push certificate that you created.</span></span> <span data-ttu-id="542c3-124">Jeśli chcesz toouse Centrum powiadomień, które zostały już utworzone, możesz pominąć toostep 5.</span><span class="sxs-lookup"><span data-stu-id="542c3-124">If you want toouse a notification hub that you have already created, you can skip toostep 5.</span></span>
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -65,55 +65,55 @@ ms.lasthandoff: 07/11/2017
 
 <li>
 
-<p><span data-ttu-id="82b56-125">Kliknij przycisk <b>Usługi powiadomień</b> w bloku <b>Ustawienia</b>, a następnie wybierz pozycję <b>Apple (APNs)</b>.</span><span class="sxs-lookup"><span data-stu-id="82b56-125">Click the <b>Notification Services</b> button in the <b>Settings</b> blade, then select <b>Apple (APNS)</b>.</span></span> <span data-ttu-id="82b56-126">Kliknij pozycję <b>Przekaż certyfikat</b> i wybierz wcześniej wyeksportowany plik <b>.p12</b>.</span><span class="sxs-lookup"><span data-stu-id="82b56-126">Click on <b>Upload Certificate</b> and select the <b>.p12</b> file that you exported earlier.</span></span> <span data-ttu-id="82b56-127">Upewnij się, że określono prawidłowe hasło.</span><span class="sxs-lookup"><span data-stu-id="82b56-127">Make sure you also specify the correct password.</span></span></p>
+<p><span data-ttu-id="542c3-125">Kliknij przycisk hello <b>usługi powiadomień</b> przycisku na powitania <b>ustawienia</b> bloku, następnie wybierz <b>Apple (APNS)</b>.</span><span class="sxs-lookup"><span data-stu-id="542c3-125">Click hello <b>Notification Services</b> button in hello <b>Settings</b> blade, then select <b>Apple (APNS)</b>.</span></span> <span data-ttu-id="542c3-126">Polecenie <b>Przekaż certyfikat</b> i wybierz hello <b>.p12</b> wcześniej wyeksportowany plik.</span><span class="sxs-lookup"><span data-stu-id="542c3-126">Click on <b>Upload Certificate</b> and select hello <b>.p12</b> file that you exported earlier.</span></span> <span data-ttu-id="542c3-127">Upewnij się, że należy także określić hello poprawne hasło.</span><span class="sxs-lookup"><span data-stu-id="542c3-127">Make sure you also specify hello correct password.</span></span></p>
 
-<p><span data-ttu-id="82b56-128">Upewnij się, że wybrano tryb <b>Piaskownica</b> na potrzeby tworzenia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="82b56-128">Make sure to select <b>Sandbox</b> mode since this is for development.</span></span> <span data-ttu-id="82b56-129">Tryb <b>Produkcja</b> należy wybrać wyłącznie wówczas, gdy chcesz wysyłać powiadomienia wypychane do użytkowników, którzy kupili Twoją aplikację w sklepie.</span><span class="sxs-lookup"><span data-stu-id="82b56-129">Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</span></span></p>
+<p><span data-ttu-id="542c3-128">Upewnij się, że tooselect <b>piaskownicy</b> trybu, ponieważ jest to do tworzenia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="542c3-128">Make sure tooselect <b>Sandbox</b> mode since this is for development.</span></span> <span data-ttu-id="542c3-129">Używaj tylko hello <b>produkcji</b> Chcąc toosend toousers powiadomień wypychanych, którzy kupili twoją aplikację w sklepie hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-129">Only use hello <b>Production</b> if you want toosend push notifications toousers who purchased your app from hello store.</span></span></p>
 </li>
 </ol>
-<span data-ttu-id="82b56-130">&emsp;&emsp;&emsp;&emsp;![Konfigurowanie usługi APNS w portalu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)</span><span class="sxs-lookup"><span data-stu-id="82b56-130">&emsp;&emsp;&emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)</span></span>
+<span data-ttu-id="542c3-130">&emsp;&emsp;&emsp;&emsp;![Konfigurowanie usługi APNS w portalu Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)</span><span class="sxs-lookup"><span data-stu-id="542c3-130">&emsp;&emsp;&emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)</span></span>
 
 &emsp;&emsp;&emsp;&emsp;![Konfigurowanie certyfikacji APNs w witrynie Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-<span data-ttu-id="82b56-132">Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i uzyskano parametry połączenia służące do rejestrowania aplikacji w celu wysyłania powiadomień wypychanych.</span><span class="sxs-lookup"><span data-stu-id="82b56-132">Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.</span></span>
+<span data-ttu-id="542c3-132">Centrum powiadomień jest teraz skonfigurowany toowork przy użyciu usługi APNS i mieć tooregister ciągów połączenia hello aplikacji oraz wysyłać powiadomienia wypychane.</span><span class="sxs-lookup"><span data-stu-id="542c3-132">Your notification hub is now configured toowork with APNS, and you have hello connection strings tooregister your app and send push notifications.</span></span>
 
-## <a name="connect-your-ios-app-to-notification-hubs"></a><span data-ttu-id="82b56-133">Łączenie aplikacji dla systemu iOS z usługą Notification Hubs</span><span class="sxs-lookup"><span data-stu-id="82b56-133">Connect your iOS app to Notification Hubs</span></span>
-1. <span data-ttu-id="82b56-134">W środowisku Xcode utwórz nowy projekt dla systemu iOS i wybierz szablon **Single View Application** (Aplikacja z jednym widokiem).</span><span class="sxs-lookup"><span data-stu-id="82b56-134">In Xcode, create a new iOS project and select the **Single View Application** template.</span></span>
+## <a name="connect-your-ios-app-toonotification-hubs"></a><span data-ttu-id="542c3-133">Połącz z tooNotification aplikacji systemu iOS koncentratory</span><span class="sxs-lookup"><span data-stu-id="542c3-133">Connect your iOS app tooNotification Hubs</span></span>
+1. <span data-ttu-id="542c3-134">W środowisku Xcode Utwórz nowy projekt dla systemu iOS, a następnie wybierz hello **pojedynczą aplikacją widoku** szablonu.</span><span class="sxs-lookup"><span data-stu-id="542c3-134">In Xcode, create a new iOS project and select hello **Single View Application** template.</span></span>
    
     ![Xcode — aplikacja z jednym widokiem][8]
     
-2. <span data-ttu-id="82b56-136">Podczas określania opcji dla nowego projektu upewnij się, że użyto tych samych wartości **Product Name** (Nazwa produktu) i **Organization Identifier** (Identyfikator organizacji), które zostały użyte podczas wcześniejszego ustawiania identyfikatora pakietu w portalu dla deweloperów firmy Apple.</span><span class="sxs-lookup"><span data-stu-id="82b56-136">When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you previously set the bundle ID on the Apple Developer portal.</span></span>
+2. <span data-ttu-id="542c3-136">Podczas ustawiania opcji hello nowego projektu, upewnij się, toouse hello sam **nazwa produktu** i **identyfikator organizacji** które zostały użyte podczas wcześniejszego ustawiania Identyfikatora pakietu hello na powitania deweloperów firmy Apple Portal.</span><span class="sxs-lookup"><span data-stu-id="542c3-136">When setting hello options for your new project, make sure toouse hello same **Product Name** and **Organization Identifier** that you used when you previously set hello bundle ID on hello Apple Developer portal.</span></span>
    
     ![Xcode — opcje projektu][11]
     
-3. <span data-ttu-id="82b56-138">W obszarze **Targets** (Elementy docelowe) kliknij nazwę projektu, kliknij kartę **Build Settings** (Ustawienia kompilacji) i rozwiń węzeł **Code Signing Identity** (Tożsamość podpisywania kodu), a następnie w obszarze **Debug** (Debugowanie) ustaw tożsamość podpisywania kodu.</span><span class="sxs-lookup"><span data-stu-id="82b56-138">Under **Targets**, click your project name, click the **Build Settings** tab and expand **Code Signing Identity**, and then under **Debug**, set your code-signing identity.</span></span> <span data-ttu-id="82b56-139">Zmień ustawienie opcji **Levels** (Poziomy) z **Basic** (Podstawowe) na **All** (Wszystkie) i jako **Provisioning Profile** (Profil aprowizowania) ustaw wcześniej utworzony profil aprowizowania.</span><span class="sxs-lookup"><span data-stu-id="82b56-139">Toggle **Levels** from **Basic** to **All**, and set **Provisioning Profile** to the provisioning profile that you created previously.</span></span>
+3. <span data-ttu-id="542c3-138">W obszarze **elementy docelowe**, kliknij nazwę projektu, kliknij przycisk hello **ustawieniach kompilacji** karcie i rozwiń **tożsamość podpisywania kodu**, a następnie w obszarze **debugowania**, ustaw swoją tożsamość podpisywania kodu.</span><span class="sxs-lookup"><span data-stu-id="542c3-138">Under **Targets**, click your project name, click hello **Build Settings** tab and expand **Code Signing Identity**, and then under **Debug**, set your code-signing identity.</span></span> <span data-ttu-id="542c3-139">Przełącz **poziomy** z **podstawowe** za**wszystkie**i ustaw **profilu inicjowania obsługi administracyjnej** toohello profil utworzony wcześniej inicjowania obsługi administracyjnej .</span><span class="sxs-lookup"><span data-stu-id="542c3-139">Toggle **Levels** from **Basic** too**All**, and set **Provisioning Profile** toohello provisioning profile that you created previously.</span></span>
    
-    <span data-ttu-id="82b56-140">Jeśli nowy profil aprowizowania utworzony w programie Xcode nie jest widoczny, odśwież profile dla Twojej tożsamości podpisywania.</span><span class="sxs-lookup"><span data-stu-id="82b56-140">If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity.</span></span> <span data-ttu-id="82b56-141">Kliknij pozycję **Xcode** na pasku menu, kliknij pozycję **Preferences** (Preferencje), kliknij kartę **Account** (Konto), kliknij przycisk **View Details** (Pokaż szczegóły), kliknij tożsamość podpisywania, a następnie kliknij przycisk odświeżania w prawym dolnym rogu.</span><span class="sxs-lookup"><span data-stu-id="82b56-141">Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.</span></span>
+    <span data-ttu-id="542c3-140">Jeśli nie widzisz hello nowych inicjowania obsługi profilu utworzonego w programie Xcode, spróbuj odświeżyć hello profile dla Twojej tożsamości podpisywania.</span><span class="sxs-lookup"><span data-stu-id="542c3-140">If you don't see hello new provisioning profile that you created in Xcode, try refreshing hello profiles for your signing identity.</span></span> <span data-ttu-id="542c3-141">Kliknij przycisk **Xcode** hello paska menu, kliknij przycisk **preferencje**, kliknij hello **konta** , kliknij pozycję hello **Wyświetl szczegóły** , kliknij użytkownika tożsamość podpisywania, a następnie kliknij przycisk Odśwież hello hello prawym dolnym rogu.</span><span class="sxs-lookup"><span data-stu-id="542c3-141">Click **Xcode** on hello menu bar, click **Preferences**, click hello **Account** tab, click hello **View Details** button, click your signing identity, and then click hello refresh button in hello bottom-right corner.</span></span>
    
     ![Xcode — profil aprowizowania][9]
-4. <span data-ttu-id="82b56-143">Pobierz [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4] i rozpakuj plik.</span><span class="sxs-lookup"><span data-stu-id="82b56-143">Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file.</span></span> <span data-ttu-id="82b56-144">W programie Xcode kliknij prawym przyciskiem myszy projekt i kliknij opcję **Add Files to** (Dodaj pliki do), aby dodać folder **WindowsAzureMessaging.framework** do projektu Xcode.</span><span class="sxs-lookup"><span data-stu-id="82b56-144">In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project.</span></span> <span data-ttu-id="82b56-145">Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).</span><span class="sxs-lookup"><span data-stu-id="82b56-145">Select **Copy items if needed**, and then click **Add**.</span></span>
+4. <span data-ttu-id="542c3-143">Pobierz hello [usług Mobile Services systemu iOS SDK w wersji 1.2.4] i rozpakuj plik hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-143">Download hello [Mobile Services iOS SDK version 1.2.4] and unzip hello file.</span></span> <span data-ttu-id="542c3-144">W programie Xcode, kliknij prawym przyciskiem myszy projekt i kliknij przycisk hello **Dodaj pliki do** hello tooadd opcji **WindowsAzureMessaging.framework** projektu Xcode tooyour folderu.</span><span class="sxs-lookup"><span data-stu-id="542c3-144">In Xcode, right-click your project and click hello **Add Files to** option tooadd hello **WindowsAzureMessaging.framework** folder tooyour Xcode project.</span></span> <span data-ttu-id="542c3-145">Wybierz pozycję **Copy items if needed** (Skopiuj elementy w razie potrzeby), a następnie kliknij pozycję **Add** (Dodaj).</span><span class="sxs-lookup"><span data-stu-id="542c3-145">Select **Copy items if needed**, and then click **Add**.</span></span>
    
    > [!NOTE]
-   > <span data-ttu-id="82b56-146">Zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego w programie Xcode 7.</span><span class="sxs-lookup"><span data-stu-id="82b56-146">The notification hubs SDK does not currently support bitcode on Xcode 7.</span></span>  <span data-ttu-id="82b56-147">Dla ustawienia **Enable Bitcode** (Włącz kod bitowy) należy wybrać opcję **No** (Nie) w obszarze **Build Options** (Opcje kompilacji) projektu.</span><span class="sxs-lookup"><span data-stu-id="82b56-147">You must set **Enable Bitcode** to **No** in the **Build Options** for your project.</span></span>
+   > <span data-ttu-id="542c3-146">centra powiadomień Hello zestawu SDK nie obsługuje obecnie kodu bitowego w programie Xcode 7.</span><span class="sxs-lookup"><span data-stu-id="542c3-146">hello notification hubs SDK does not currently support bitcode on Xcode 7.</span></span>  <span data-ttu-id="542c3-147">Należy ustawić **włączyć Bitcode** za**nr** w hello **opcji kompilacji** dla projektu.</span><span class="sxs-lookup"><span data-stu-id="542c3-147">You must set **Enable Bitcode** too**No** in hello **Build Options** for your project.</span></span>
    > 
    > 
    
     ![Rozpakowywanie zestawu SDK platformy Azure][10]
-5. <span data-ttu-id="82b56-149">Dodaj nowy plik nagłówka do projektu o nazwie `HubInfo.h`.</span><span class="sxs-lookup"><span data-stu-id="82b56-149">Add a new header file to your project named `HubInfo.h`.</span></span> <span data-ttu-id="82b56-150">Ten plik będzie zawierać stałe dla centrum powiadomień.</span><span class="sxs-lookup"><span data-stu-id="82b56-150">This file will hold the constants for your notification hub.</span></span>  <span data-ttu-id="82b56-151">Dodaj następujące definicje i zastąp symbole zastępcze literału ciągu przy użyciu *nazwy centrum* i wartości *DefaultListenSharedAccessSignature* zanotowanej wcześniej.</span><span class="sxs-lookup"><span data-stu-id="82b56-151">Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.</span></span>
+5. <span data-ttu-id="542c3-149">Dodawanie nowego nagłówka pliku tooyour projektu o nazwie `HubInfo.h`.</span><span class="sxs-lookup"><span data-stu-id="542c3-149">Add a new header file tooyour project named `HubInfo.h`.</span></span> <span data-ttu-id="542c3-150">Ten plik będzie zawierać hello stałe dla Centrum powiadomień.</span><span class="sxs-lookup"><span data-stu-id="542c3-150">This file will hold hello constants for your notification hub.</span></span>  <span data-ttu-id="542c3-151">Dodaj następujące definicje hello i Zastąp hello symbole zastępcze literału ciągu z Twojej *nazwy centrum* i hello *DefaultListenSharedAccessSignature* zanotowany wcześniej.</span><span class="sxs-lookup"><span data-stu-id="542c3-151">Add hello following definitions and replace hello string literal placeholders with your *hub name* and hello *DefaultListenSharedAccessSignature* that you noted earlier.</span></span>
    
         #ifndef HubInfo_h
         #define HubInfo_h
    
-            #define HUBNAME @"<Enter the name of your hub>"
+            #define HUBNAME @"<Enter hello name of your hub>"
             #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
         #endif /* HubInfo_h */
-6. <span data-ttu-id="82b56-152">Otwórz plik `AppDelegate.h` i dodaj następujące dyrektywy importu:</span><span class="sxs-lookup"><span data-stu-id="82b56-152">Open your `AppDelegate.h` file add the following import directives:</span></span>
+6. <span data-ttu-id="542c3-152">Otwórz z `AppDelegate.h` pliku Dodaj następujące dyrektywy importu hello:</span><span class="sxs-lookup"><span data-stu-id="542c3-152">Open your `AppDelegate.h` file add hello following import directives:</span></span>
    
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
          #import "HubInfo.h"
-7. <span data-ttu-id="82b56-153">W pliku `AppDelegate.m file` dodaj następujący kod w metodzie `didFinishLaunchingWithOptions` zależnie od wersji systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-153">In your `AppDelegate.m file`, add the following code in the `didFinishLaunchingWithOptions` method based on your version of iOS.</span></span> <span data-ttu-id="82b56-154">Ten kod rejestruje dojście do urządzenia w usłudze APNs:</span><span class="sxs-lookup"><span data-stu-id="82b56-154">This code registers your device handle with APNs:</span></span>
+7. <span data-ttu-id="542c3-153">W Twojej `AppDelegate.m file`, Dodaj hello następującego kodu w hello `didFinishLaunchingWithOptions` zależnie od wersji systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="542c3-153">In your `AppDelegate.m file`, add hello following code in hello `didFinishLaunchingWithOptions` method based on your version of iOS.</span></span> <span data-ttu-id="542c3-154">Ten kod rejestruje dojście do urządzenia w usłudze APNs:</span><span class="sxs-lookup"><span data-stu-id="542c3-154">This code registers your device handle with APNs:</span></span>
    
-    <span data-ttu-id="82b56-155">Dla systemu iOS 8:</span><span class="sxs-lookup"><span data-stu-id="82b56-155">For iOS 8:</span></span>
+    <span data-ttu-id="542c3-155">Dla systemu iOS 8:</span><span class="sxs-lookup"><span data-stu-id="542c3-155">For iOS 8:</span></span>
    
          UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
                                                 UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
@@ -121,10 +121,10 @@ ms.lasthandoff: 07/11/2017
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
    
-    <span data-ttu-id="82b56-156">Dla wersji systemu iOS starszych niż 8:</span><span class="sxs-lookup"><span data-stu-id="82b56-156">For iOS versions prior to 8:</span></span>
+    <span data-ttu-id="542c3-156">Dla too8 wcześniejsze wersje systemu iOS:</span><span class="sxs-lookup"><span data-stu-id="542c3-156">For iOS versions prior too8:</span></span>
    
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-8. <span data-ttu-id="82b56-157">W tym samym pliku dodaj następujące metody.</span><span class="sxs-lookup"><span data-stu-id="82b56-157">In the same file, add the following methods.</span></span> <span data-ttu-id="82b56-158">Ten kod łączy się z centrum powiadomień przy użyciu informacji o połączeniu określonych w pliku HubInfo.h.</span><span class="sxs-lookup"><span data-stu-id="82b56-158">This code connects to the notification hub using the connection information you specified in HubInfo.h.</span></span> <span data-ttu-id="82b56-159">Następnie przekazuje token urządzenia do centrum powiadomień, aby umożliwić wysyłanie powiadomień:</span><span class="sxs-lookup"><span data-stu-id="82b56-159">It then gives the device token to the notification hub so that the notification hub can send notifications:</span></span>
+8. <span data-ttu-id="542c3-157">W hello tego samego pliku, Dodaj następujące metody hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-157">In hello same file, add hello following methods.</span></span> <span data-ttu-id="542c3-158">Ten kod łączy toohello Centrum powiadomień przy użyciu hello informacji o połączeniu określonych w pliku HubInfo.h.</span><span class="sxs-lookup"><span data-stu-id="542c3-158">This code connects toohello notification hub using hello connection information you specified in HubInfo.h.</span></span> <span data-ttu-id="542c3-159">Następnie przekazuje Centrum powiadomień token toohello urządzenia hello tak, aby hello Centrum powiadomień może wysyłać powiadomienia:</span><span class="sxs-lookup"><span data-stu-id="542c3-159">It then gives hello device token toohello notification hub so that hello notification hub can send notifications:</span></span>
    
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
             SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
@@ -146,42 +146,42 @@ ms.lasthandoff: 07/11/2017
                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-9. <span data-ttu-id="82b56-160">W tym samym pliku dodaj następującą metodę służącą do wyświetlania elementu **UIAlert** w przypadku otrzymania powiadomienia, gdy aplikacja jest aktywna:</span><span class="sxs-lookup"><span data-stu-id="82b56-160">In the same file, add the following method to display a **UIAlert** if the notification is received while the app is active:</span></span>
+9. <span data-ttu-id="542c3-160">W hello tego samego pliku, Dodaj następujące metody toodisplay hello **UIAlert** w przypadku otrzymania powiadomienia hello, gdy aplikacja hello jest aktywna:</span><span class="sxs-lookup"><span data-stu-id="542c3-160">In hello same file, add hello following method toodisplay a **UIAlert** if hello notification is received while hello app is active:</span></span>
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
         }
 
-1. <span data-ttu-id="82b56-161">Skompiluj i uruchom aplikację na urządzeniu, aby upewnić się, że nie występują żadne błędy.</span><span class="sxs-lookup"><span data-stu-id="82b56-161">Build and run the app on your device to verify that there are no failures.</span></span>
+1. <span data-ttu-id="542c3-161">Tworzenie i uruchamianie aplikacji hello na tooverify Twojego urządzenia, czy nie występują żadne błędy.</span><span class="sxs-lookup"><span data-stu-id="542c3-161">Build and run hello app on your device tooverify that there are no failures.</span></span>
 
-## <a name="send-test-push-notifications"></a><span data-ttu-id="82b56-162">Wysyłanie testowych powiadomień wypychanych</span><span class="sxs-lookup"><span data-stu-id="82b56-162">Send test push notifications</span></span>
-<span data-ttu-id="82b56-163">Odbieranie powiadomień w aplikacji możesz przetestować, wysyłając powiadomienia wypychane w witrynie [Azure Portal] za pośrednictwem sekcji **Rozwiązywanie problemów** w bloku centrum (użyj opcji *Wysyłanie testowe*).</span><span class="sxs-lookup"><span data-stu-id="82b56-163">You can test receiving notifications in your app by sending push notifications in the [Azure Portal] via the **Troubleshooting** section in the hub blade (use the *Test Send* option).</span></span>
+## <a name="send-test-push-notifications"></a><span data-ttu-id="542c3-162">Wysyłanie testowych powiadomień wypychanych</span><span class="sxs-lookup"><span data-stu-id="542c3-162">Send test push notifications</span></span>
+<span data-ttu-id="542c3-163">Możesz przetestować odbieranie powiadomień w aplikacji przez wysyłanie powiadomień wypychanych w hello [Azure Portal] za pośrednictwem hello **Rozwiązywanie problemów** sekcji w bloku Centrum hello (Użyj hello *Wysyłanietestowe* opcja).</span><span class="sxs-lookup"><span data-stu-id="542c3-163">You can test receiving notifications in your app by sending push notifications in hello [Azure Portal] via hello **Troubleshooting** section in hello hub blade (use hello *Test Send* option).</span></span>
 
 ![Portal Azure — wysyłanie testowe][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## <a name="optional-send-push-notifications-from-the-app"></a><span data-ttu-id="82b56-165">(Opcjonalnie) Wysyłanie powiadomień wypychanych z poziomu aplikacji</span><span class="sxs-lookup"><span data-stu-id="82b56-165">(Optional) Send push notifications from the app</span></span>
+## <a name="optional-send-push-notifications-from-hello-app"></a><span data-ttu-id="542c3-165">(Opcjonalnie) Wysyłanie powiadomień wypychanych z aplikacji hello</span><span class="sxs-lookup"><span data-stu-id="542c3-165">(Optional) Send push notifications from hello app</span></span>
 > [!IMPORTANT]
-> <span data-ttu-id="82b56-166">Ten przykład wysyłania powiadomień z aplikacji klienckiej został podany tylko dla celów szkoleniowych.</span><span class="sxs-lookup"><span data-stu-id="82b56-166">This example of sending notifications from the client app is provided for learning purposes only.</span></span> <span data-ttu-id="82b56-167">Ponieważ wymaga to obecności `DefaultFullSharedAccessSignature` w aplikacji klienckiej, naraża centrum powiadomień na ryzyko, że użytkownik może uzyskać dostęp do wysyłania nieautoryzowanych powiadomień do Twoich klientów.</span><span class="sxs-lookup"><span data-stu-id="82b56-167">Since this will require the `DefaultFullSharedAccessSignature` to be present on the client app, it exposes your notification hub to the risk that a user may gain access to send unauthorized notifications to your clients.</span></span>
+> <span data-ttu-id="542c3-166">Przykładem wysyłania powiadomień z powitania klienta aplikacji jest dostępna dla tylko do celów szkoleniowych.</span><span class="sxs-lookup"><span data-stu-id="542c3-166">This example of sending notifications from hello client app is provided for learning purposes only.</span></span> <span data-ttu-id="542c3-167">Ponieważ wymaga to hello `DefaultFullSharedAccessSignature` toobe na powitania klienta aplikacji, opisuje czy użytkownik może uzyskać powiadomienia toosend nieautoryzowany dostęp tooyour klientów ryzyko toohello Centrum powiadomień.</span><span class="sxs-lookup"><span data-stu-id="542c3-167">Since this will require hello `DefaultFullSharedAccessSignature` toobe present on hello client app, it exposes your notification hub toohello risk that a user may gain access toosend unauthorized notifications tooyour clients.</span></span>
 > 
 > 
 
-<span data-ttu-id="82b56-168">Jeśli chcesz wysyłać powiadomienia wypychane z poziomu aplikacji, ta sekcja zawiera przykład, jak to zrobić przy użyciu interfejsu REST.</span><span class="sxs-lookup"><span data-stu-id="82b56-168">If you want to send push notifications from within an app, this section provides an example of how to do this using the REST interface.</span></span>
+<span data-ttu-id="542c3-168">Jeśli chcesz toosend powiadomień wypychanych z poziomu aplikacji, ta sekcja zawiera przykładowy sposób toodo to przy użyciu hello interfejsu REST.</span><span class="sxs-lookup"><span data-stu-id="542c3-168">If you want toosend push notifications from within an app, this section provides an example of how toodo this using hello REST interface.</span></span>
 
-1. <span data-ttu-id="82b56-169">W programie Xcode otwórz plik `Main.storyboard` i dodaj następujące składniki interfejsu użytkownika z biblioteki obiektów, aby umożliwić użytkownikom wysyłanie powiadomień wypychanych w aplikacji:</span><span class="sxs-lookup"><span data-stu-id="82b56-169">In Xcode, open `Main.storyboard` and add the following UI components from the object library to allow the user to send push notifications in the app:</span></span>
+1. <span data-ttu-id="542c3-169">Otwórz w programie Xcode, `Main.storyboard` i dodaj następujące składniki interfejsu użytkownika z hello obiekt bibliotece tooallow hello użytkownika toosend powiadomień wypychanych w aplikacji hello hello:</span><span class="sxs-lookup"><span data-stu-id="542c3-169">In Xcode, open `Main.storyboard` and add hello following UI components from hello object library tooallow hello user toosend push notifications in hello app:</span></span>
    
-   * <span data-ttu-id="82b56-170">Etykieta bez tekstu etykiety.</span><span class="sxs-lookup"><span data-stu-id="82b56-170">A label with no label text.</span></span> <span data-ttu-id="82b56-171">Będzie służyć do raportowania błędów wysyłania powiadomień.</span><span class="sxs-lookup"><span data-stu-id="82b56-171">It will be used to report errors in sending notifications.</span></span> <span data-ttu-id="82b56-172">Dla właściwości **Lines** (Wiersze) należy ustawić wartość **0**, aby rozmiar elementu był automatycznie ograniczony do lewego i prawego marginesu oraz góry widoku.</span><span class="sxs-lookup"><span data-stu-id="82b56-172">The **Lines** property should be set to **0** so that it will automatically size constrained to the right and left margins and the top of the view.</span></span>
-   * <span data-ttu-id="82b56-173">Pole tekstowe **Placeholder** (Symbol zastępczy) z ustawionym tekstem **Enter Notification Message** (Wprowadź komunikat powiadomienia).</span><span class="sxs-lookup"><span data-stu-id="82b56-173">A text field with **Placeholder** text set to **Enter Notification Message**.</span></span> <span data-ttu-id="82b56-174">Ogranicz pole bezpośrednio pod etykietą w sposób przedstawiony poniżej.</span><span class="sxs-lookup"><span data-stu-id="82b56-174">Constrain the field just below the label as shown below.</span></span> <span data-ttu-id="82b56-175">Ustaw kontroler widoku jako delegat gniazda.</span><span class="sxs-lookup"><span data-stu-id="82b56-175">Set the View Controller as the outlet delegate.</span></span>
-   * <span data-ttu-id="82b56-176">Przycisk zatytułowany **Send Notification** (Wyślij powiadomienie) ograniczony bezpośrednio poniżej pola tekstowego i wyśrodkowany w poziomie.</span><span class="sxs-lookup"><span data-stu-id="82b56-176">A button titled **Send Notification** constrained just below the text field and in the horizontal center.</span></span>
+   * <span data-ttu-id="542c3-170">Etykieta bez tekstu etykiety.</span><span class="sxs-lookup"><span data-stu-id="542c3-170">A label with no label text.</span></span> <span data-ttu-id="542c3-171">Będzie ona używana tooreport błędów wysyłania powiadomień.</span><span class="sxs-lookup"><span data-stu-id="542c3-171">It will be used tooreport errors in sending notifications.</span></span> <span data-ttu-id="542c3-172">Witaj **wierszy** właściwość powinna być ustawiona zbyt**0** tak, aby automatycznie zmieni rozmiar, prawo ograniczonego toohello i prawego marginesu oraz góry hello hello widoku.</span><span class="sxs-lookup"><span data-stu-id="542c3-172">hello **Lines** property should be set too**0** so that it will automatically size constrained toohello right and left margins and hello top of hello view.</span></span>
+   * <span data-ttu-id="542c3-173">Pole tekstowe **symbolu zastępczego** tekst jest ustawiany za**wprowadź komunikat powiadomienia**.</span><span class="sxs-lookup"><span data-stu-id="542c3-173">A text field with **Placeholder** text set too**Enter Notification Message**.</span></span> <span data-ttu-id="542c3-174">Ogranicz pole hello poniżej hello etykiety, jak pokazano poniżej.</span><span class="sxs-lookup"><span data-stu-id="542c3-174">Constrain hello field just below hello label as shown below.</span></span> <span data-ttu-id="542c3-175">Ustaw hello kontroler widoku jako delegat gniazda hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-175">Set hello View Controller as hello outlet delegate.</span></span>
+   * <span data-ttu-id="542c3-176">Przycisk zatytułowany **Wyślij powiadomienie E-mail** ograniczony bezpośrednio poniżej pola tekstowego hello i w poziomie Centrum hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-176">A button titled **Send Notification** constrained just below hello text field and in hello horizontal center.</span></span>
      
-     <span data-ttu-id="82b56-177">Widok powinien wyglądać w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="82b56-177">The view should look as follows:</span></span>
+     <span data-ttu-id="542c3-177">Widok Hello powinna wyglądać następująco:</span><span class="sxs-lookup"><span data-stu-id="542c3-177">hello view should look as follows:</span></span>
      
      ![Projektant programu Xcode][32]
-2. <span data-ttu-id="82b56-179">[Dodaj gniazda](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) dla etykiety i pola tekstowego połączonych z widokiem i zaktualizuj definicję `interface` w celu obsługi elementów `UITextFieldDelegate` i `NSXMLParserDelegate`.</span><span class="sxs-lookup"><span data-stu-id="82b56-179">[Add outlets](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) for the label and text field connected your view, and update your `interface` definition to support `UITextFieldDelegate` and `NSXMLParserDelegate`.</span></span> <span data-ttu-id="82b56-180">Dodaj trzy deklaracje właściwości przedstawione poniżej, aby ułatwić obsługę wywołań interfejsu API REST i analizowanie odpowiedzi.</span><span class="sxs-lookup"><span data-stu-id="82b56-180">Add the three property declarations shown below to help support calling the REST API and parsing the response.</span></span>
+2. <span data-ttu-id="542c3-179">[Dodaj gniazda](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) dla hello etykiety i pola tekstowego połączonych z widokiem i zaktualizuj Twojej `interface` toosupport definicji `UITextFieldDelegate` i `NSXMLParserDelegate`.</span><span class="sxs-lookup"><span data-stu-id="542c3-179">[Add outlets](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) for hello label and text field connected your view, and update your `interface` definition toosupport `UITextFieldDelegate` and `NSXMLParserDelegate`.</span></span> <span data-ttu-id="542c3-180">Dodaj hello trzy deklaracje właściwości przedstawione poniżej toohelp obsługę wywoływania hello interfejsu API REST i analizowanie odpowiedzi hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-180">Add hello three property declarations shown below toohelp support calling hello REST API and parsing hello response.</span></span>
    
-    <span data-ttu-id="82b56-181">Plik ViewController.h powinien wyglądać następująco:</span><span class="sxs-lookup"><span data-stu-id="82b56-181">Your ViewController.h file should look as follows:</span></span>
+    <span data-ttu-id="542c3-181">Plik ViewController.h powinien wyglądać następująco:</span><span class="sxs-lookup"><span data-stu-id="542c3-181">Your ViewController.h file should look as follows:</span></span>
    
         #import <UIKit/UIKit.h>
    
@@ -190,7 +190,7 @@ ms.lasthandoff: 07/11/2017
             NSXMLParser *xmlParser;
         }
    
-        // Make sure these outlets are connected to your UI by ctrl+dragging
+        // Make sure these outlets are connected tooyour UI by ctrl+dragging
         @property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
         @property (weak, nonatomic) IBOutlet UILabel *sendResults;
    
@@ -198,15 +198,15 @@ ms.lasthandoff: 07/11/2017
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. <span data-ttu-id="82b56-182">Otwórz plik `HubInfo.h` i dodaj następujące ograniczenia, które będą używane podczas wysyłania powiadomień do centrum.</span><span class="sxs-lookup"><span data-stu-id="82b56-182">Open `HubInfo.h` and add the following constants which will be used for sending notifications to your hub.</span></span> <span data-ttu-id="82b56-183">Zastąp symbol zastępczy literału ciągu rzeczywistymi parametrami połączenia *DefaultFullSharedAccessSignature*.</span><span class="sxs-lookup"><span data-stu-id="82b56-183">Replace the placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.</span></span>
+3. <span data-ttu-id="542c3-182">Otwórz `HubInfo.h` i Dodaj hello następujące ograniczenia, które będą używane do wysyłania powiadomień tooyour koncentratora.</span><span class="sxs-lookup"><span data-stu-id="542c3-182">Open `HubInfo.h` and add hello following constants which will be used for sending notifications tooyour hub.</span></span> <span data-ttu-id="542c3-183">Zamień na powitania symbol zastępczy literału ciągu rzeczywistymi *DefaultFullSharedAccessSignature* parametry połączenia.</span><span class="sxs-lookup"><span data-stu-id="542c3-183">Replace hello placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.</span></span>
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-4. <span data-ttu-id="82b56-184">Dodaj następujące instrukcje `#import` do pliku `ViewController.h`:</span><span class="sxs-lookup"><span data-stu-id="82b56-184">Add the following `#import` statements to your `ViewController.h` file.</span></span>
+4. <span data-ttu-id="542c3-184">Dodaj następujące hello `#import` tooyour instrukcje `ViewController.h` pliku.</span><span class="sxs-lookup"><span data-stu-id="542c3-184">Add hello following `#import` statements tooyour `ViewController.h` file.</span></span>
    
         #import <CommonCrypto/CommonHMAC.h>
         #import "HubInfo.h"
-5. <span data-ttu-id="82b56-185">W pliku `ViewController.m` dodaj następujący kod do implementacji interfejsu.</span><span class="sxs-lookup"><span data-stu-id="82b56-185">In `ViewController.m` add the following code to the interface implementation.</span></span> <span data-ttu-id="82b56-186">Ten kod będzie analizować parametry połączenia *DefaultFullSharedAccessSignature*.</span><span class="sxs-lookup"><span data-stu-id="82b56-186">This code will parse your *DefaultFullSharedAccessSignature* connection string.</span></span> <span data-ttu-id="82b56-187">Jak wspomniano w [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), te przeanalizowane informacje będą używane do generowania tokenu sygnatury dostępu współdzielonego dla nagłówka żądania **Authorization**.</span><span class="sxs-lookup"><span data-stu-id="82b56-187">As mentioned in the [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information will be used to generate a SaS token for the **Authorization** request header.</span></span>
+5. <span data-ttu-id="542c3-185">W `ViewController.m` dodać powitania po implementacji interfejsu toohello kodu.</span><span class="sxs-lookup"><span data-stu-id="542c3-185">In `ViewController.m` add hello following code toohello interface implementation.</span></span> <span data-ttu-id="542c3-186">Ten kod będzie analizować parametry połączenia *DefaultFullSharedAccessSignature*.</span><span class="sxs-lookup"><span data-stu-id="542c3-186">This code will parse your *DefaultFullSharedAccessSignature* connection string.</span></span> <span data-ttu-id="542c3-187">Jak wspomniano w hello [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx), te przeanalizowane informacje będą używane toogenerate token sygnatury dostępu współdzielonego dla hello **autoryzacji** nagłówek żądania.</span><span class="sxs-lookup"><span data-stu-id="542c3-187">As mentioned in hello [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information will be used toogenerate a SaS token for hello **Authorization** request header.</span></span>
    
         NSString *HubEndpoint;
         NSString *HubSasKeyName;
@@ -241,7 +241,7 @@ ms.lasthandoff: 07/11/2017
                 }
             }
         }
-6. <span data-ttu-id="82b56-188">W pliku `ViewController.m` zaktualizuj metodę `viewDidLoad`, aby parametry połączenia były analizowane po załadowaniu widoku.</span><span class="sxs-lookup"><span data-stu-id="82b56-188">In `ViewController.m`, update the `viewDidLoad` method to parse the connection string when the view loads.</span></span> <span data-ttu-id="82b56-189">Dodaj również metody narzędziowe przedstawione poniżej do implementacji interfejsu.</span><span class="sxs-lookup"><span data-stu-id="82b56-189">Also add the utility methods, shown below, to the interface implementation.</span></span>  
+6. <span data-ttu-id="542c3-188">W `ViewController.m`, hello aktualizacji `viewDidLoad` metody tooparse hello ciągu połączenia podczas ładowania widoku hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-188">In `ViewController.m`, update hello `viewDidLoad` method tooparse hello connection string when hello view loads.</span></span> <span data-ttu-id="542c3-189">Dodaj również metody narzędziowe hello, pokazano poniżej, toohello implementacji interfejsu.</span><span class="sxs-lookup"><span data-stu-id="542c3-189">Also add hello utility methods, shown below, toohello interface implementation.</span></span>  
 
         - (void)viewDidLoad
         {
@@ -267,7 +267,7 @@ ms.lasthandoff: 07/11/2017
 
 
 
-1. <span data-ttu-id="82b56-190">W pliku `ViewController.m` dodaj następujący kod do implementacji interfejsu w celu wygenerowania tokenu sygnatury dostępu współdzielonego, który zostanie podany w nagłówku **Authorization**, jak opisano w [dokumentacji interfejsu API REST](http://msdn.microsoft.com/library/azure/dn495627.aspx).</span><span class="sxs-lookup"><span data-stu-id="82b56-190">In `ViewController.m`, add the following code to the interface implementation to generate the SaS authorization token that will be provided in the **Authorization** header, as mentioned in the [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).</span></span>
+1. <span data-ttu-id="542c3-190">W `ViewController.m`, Dodaj hello następującego kodu toohello interfejsu implementacji toogenerate hello tokenu sygnatury dostępu współdzielonego autoryzacji zapewnianej w hello **autoryzacji** nagłówka, jak wspomniano w hello [interfejsu API REST Odwołanie](http://msdn.microsoft.com/library/azure/dn495627.aspx).</span><span class="sxs-lookup"><span data-stu-id="542c3-190">In `ViewController.m`, add hello following code toohello interface implementation toogenerate hello SaS authorization token that will be provided in hello **Authorization** header, as mentioned in hello [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).</span></span>
    
         -(NSString*) generateSasToken:(NSString*)uri
         {
@@ -288,7 +288,7 @@ ms.lasthandoff: 07/11/2017
                 UInt64 expires = trunc(expiresOnDate);
                 NSString* toSign = [NSString stringWithFormat:@"%@\n%qu", targetUri, expires];
    
-                // Get an hmac_sha1 Mac instance and initialize with the signing key
+                // Get an hmac_sha1 Mac instance and initialize with hello signing key
                 const char *cKey  = [HubSasKeyValue cStringUsingEncoding:NSUTF8StringEncoding];
                 const char *cData = [toSign cStringUsingEncoding:NSUTF8StringEncoding];
                 unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
@@ -314,7 +314,7 @@ ms.lasthandoff: 07/11/2017
    
             return token;
         }
-2. <span data-ttu-id="82b56-191">Naciśnij klawisz Ctrl i przeciągnij od przycisku **Send Notification** (Wyślij powiadomienie) do pliku `ViewController.m`, aby dodać akcję **SendNotificationMessage** dla zdarzenia **Touch Down** (Dotknięcie).</span><span class="sxs-lookup"><span data-stu-id="82b56-191">Ctrl+drag from the **Send Notification** button to `ViewController.m` to add an action named **SendNotificationMessage** for the **Touch Down** event.</span></span> <span data-ttu-id="82b56-192">Zaktualizuj metodę przy użyciu następującego kodu w celu wysyłania powiadomień przy użyciu interfejsu API REST.</span><span class="sxs-lookup"><span data-stu-id="82b56-192">Update method with the following code to send the notification using the REST API.</span></span>
+2. <span data-ttu-id="542c3-191">CTRL i przeciągnij od hello **Wyślij powiadomienie E-mail** przycisk zbyt`ViewController.m` tooadd akcji o nazwie **SendNotificationMessage** dla hello **Touch Down** zdarzeń.</span><span class="sxs-lookup"><span data-stu-id="542c3-191">Ctrl+drag from hello **Send Notification** button too`ViewController.m` tooadd an action named **SendNotificationMessage** for hello **Touch Down** event.</span></span> <span data-ttu-id="542c3-192">Zaktualizuj metodę przy hello następujące powiadomienia hello toosend kodu za pomocą hello interfejsu API REST.</span><span class="sxs-lookup"><span data-stu-id="542c3-192">Update method with hello following code toosend hello notification using hello REST API.</span></span>
    
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -328,18 +328,18 @@ ms.lasthandoff: 07/11/2017
                              sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                              delegate:nil delegateQueue:nil];
    
-            // Apple Notification format of the notification message
+            // Apple Notification format of hello notification message
             NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}",
                                 self.notificationMessage.text];
    
-            // Construct the message's REST endpoint
+            // Construct hello message's REST endpoint
             NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
                                                 HUBNAME, API_VERSION]];
    
-            // Generate the token to be used in the authorization header
+            // Generate hello token toobe used in hello authorization header
             NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
    
-            //Create the request to add the APNs notification message to the hub
+            //Create hello request tooadd hello APNs notification message toohello hub
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -347,13 +347,13 @@ ms.lasthandoff: 07/11/2017
             // Signify Apple notification format
             [request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
    
-            //Authenticate the notification message POST request with the SaS token
+            //Authenticate hello notification message POST request with hello SaS token
             [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
    
-            //Add the notification message body
+            //Add hello notification message body
             [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
    
-            // Send the REST request
+            // Send hello REST request
             NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
             {
@@ -371,7 +371,7 @@ ms.lasthandoff: 07/11/2017
             }];
             [dataTask resume];
         }
-3. <span data-ttu-id="82b56-193">W pliku `ViewController.m` dodaj następującą metodę delegata w celu obsługi zamykania klawiatury dla pola tekstowego.</span><span class="sxs-lookup"><span data-stu-id="82b56-193">In `ViewController.m`, add the following delegate method to support closing the keyboard for the text field.</span></span> <span data-ttu-id="82b56-194">Naciśnij klawisz Ctrl i przeciągnij od pola tekstowego do ikony kontrolera widoku w projektancie interfejsu, aby ustawić kontroler widoku jako delegat gniazda.</span><span class="sxs-lookup"><span data-stu-id="82b56-194">Ctrl+drag from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.</span></span>
+3. <span data-ttu-id="542c3-193">W `ViewController.m`, Dodaj powitania od zamknięcia hello klawiatury dla pola tekstowego hello toosupport metody delegata.</span><span class="sxs-lookup"><span data-stu-id="542c3-193">In `ViewController.m`, add hello following delegate method toosupport closing hello keyboard for hello text field.</span></span> <span data-ttu-id="542c3-194">CTRL i przeciągnij od hello tekst pola toohello ikony kontrolera widoku w hello interfejsu tooset projektanta hello wyświetlić kontroler jako delegat gniazda hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-194">Ctrl+drag from hello text field toohello View Controller icon in hello interface designer tooset hello view controller as hello outlet delegate.</span></span>
    
         //===[ Implement UITextFieldDelegate methods ]===
    
@@ -380,7 +380,7 @@ ms.lasthandoff: 07/11/2017
             [textField resignFirstResponder];
             return YES;
         }
-4. <span data-ttu-id="82b56-195">W pliku `ViewController.m` dodaj następujące metody delegata w celu obsługi analizowania odpowiedzi przy użyciu analizatora `NSXMLParser`.</span><span class="sxs-lookup"><span data-stu-id="82b56-195">In `ViewController.m`, add the following delegate methods to support parsing the response by using `NSXMLParser`.</span></span>
+4. <span data-ttu-id="542c3-195">W `ViewController.m`, Dodaj następujące hello delegować metody toosupport podczas analizowania odpowiedzi hello za pomocą `NSXMLParser`.</span><span class="sxs-lookup"><span data-stu-id="542c3-195">In `ViewController.m`, add hello following delegate methods toosupport parsing hello response by using `NSXMLParser`.</span></span>
    
        //===[ Implement NSXMLParserDelegate methods ]===
    
@@ -410,40 +410,40 @@ ms.lasthandoff: 07/11/2017
    
        -(void)parserDidEndDocument:(NSXMLParser *)parser
        {
-           // Set the status label text on the UI thread
+           // Set hello status label text on hello UI thread
            dispatch_async(dispatch_get_main_queue(),
            ^{
                [self.sendResults setText:self.statusResult];
            });
        }
-5. <span data-ttu-id="82b56-196">Skompiluj projekt i upewnij się, że nie ma żadnych błędów.</span><span class="sxs-lookup"><span data-stu-id="82b56-196">Build the project and verify that there are no errors.</span></span>
+5. <span data-ttu-id="542c3-196">Skompiluj projekt hello i sprawdź, czy nie ma żadnych błędów.</span><span class="sxs-lookup"><span data-stu-id="542c3-196">Build hello project and verify that there are no errors.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="82b56-197">W przypadku wystąpienia błędu kompilacji w programie Xcode 7 dotyczącego obsługi kodu bitowego, należy zmienić ustawienie **Build Settings** (Ustawienia kompilacji)  >  **Enable Bitcode (ENABLE_BITCODE)** (Włącz kod bitowy [ENABLE_BITCODE]) na **NO** (NIE) w programie Xcode.</span><span class="sxs-lookup"><span data-stu-id="82b56-197">If you encounter a build error in Xcode7 about bitcode support, you should change the **Build Settings** > **Enable Bitcode (ENABLE_BITCODE)** to **NO** in Xcode.</span></span> <span data-ttu-id="82b56-198">Zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego.</span><span class="sxs-lookup"><span data-stu-id="82b56-198">The Notification Hubs SDK does not currently support bitcode.</span></span> 
+> <span data-ttu-id="542c3-197">Jeśli wystąpi błąd kompilacji w Xcode7 dotyczące obsługi kodu bitowego, należy zmienić hello **ustawieniach kompilacji** > **włączyć Bitcode (ENABLE_BITCODE)** za**nr** w środowisku Xcode.</span><span class="sxs-lookup"><span data-stu-id="542c3-197">If you encounter a build error in Xcode7 about bitcode support, you should change hello **Build Settings** > **Enable Bitcode (ENABLE_BITCODE)** too**NO** in Xcode.</span></span> <span data-ttu-id="542c3-198">Witaj zestaw SDK usługi Notification Hubs nie obsługuje obecnie kodu bitowego.</span><span class="sxs-lookup"><span data-stu-id="542c3-198">hello Notification Hubs SDK does not currently support bitcode.</span></span> 
 > 
 > 
 
-<span data-ttu-id="82b56-199">Wszystkie możliwe ładunki powiadomień można znaleźć w publikacji [Podręcznik programowania powiadomień lokalnych i wypychanych] firmy Apple.</span><span class="sxs-lookup"><span data-stu-id="82b56-199">You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].</span></span>
+<span data-ttu-id="542c3-199">Wszystkie hello możliwe ładunki powiadomień można znaleźć w hello Apple [lokalnych i wypychanych Podręcznik programowania powiadomień].</span><span class="sxs-lookup"><span data-stu-id="542c3-199">You can find all hello possible notification payloads in hello Apple [Local and Push Notification Programming Guide].</span></span>
 
-## <a name="checking-if-your-app-can-receive-push-notifications"></a><span data-ttu-id="82b56-200">Sprawdzanie, czy aplikacja może odbierać powiadomienia wypychane</span><span class="sxs-lookup"><span data-stu-id="82b56-200">Checking if your app can receive push notifications</span></span>
-<span data-ttu-id="82b56-201">Aby przetestować powiadomienia wypychane w systemie iOS, należy wdrożyć aplikację na fizycznym urządzeniu z systemem iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-201">To test push notifications on iOS, you must deploy the app to a physical iOS device.</span></span> <span data-ttu-id="82b56-202">Nie można wysłać powiadomień wypychanych firmy Apple przy użyciu symulatora systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-202">You cannot send Apple push notifications by using the iOS Simulator.</span></span>
+## <a name="checking-if-your-app-can-receive-push-notifications"></a><span data-ttu-id="542c3-200">Sprawdzanie, czy aplikacja może odbierać powiadomienia wypychane</span><span class="sxs-lookup"><span data-stu-id="542c3-200">Checking if your app can receive push notifications</span></span>
+<span data-ttu-id="542c3-201">tootest powiadomienia wypychane w systemie iOS, należy wdrożyć urządzenie fizyczne z systemem iOS tooa aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="542c3-201">tootest push notifications on iOS, you must deploy hello app tooa physical iOS device.</span></span> <span data-ttu-id="542c3-202">Nie można wysłać powiadomień wypychanych firmy Apple przy użyciu hello symulatora systemu iOS.</span><span class="sxs-lookup"><span data-stu-id="542c3-202">You cannot send Apple push notifications by using hello iOS Simulator.</span></span>
 
-1. <span data-ttu-id="82b56-203">Uruchom aplikację i upewnij się, że rejestracja zakończyła się powodzeniem, a następnie naciśnij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="82b56-203">Run the app and verify that registration succeeds, and then press **OK**.</span></span>
+1. <span data-ttu-id="542c3-203">Uruchamianie aplikacji hello i sprawdź, czy rejestracja zakończy się powodzeniem, a następnie naciśnij **OK**.</span><span class="sxs-lookup"><span data-stu-id="542c3-203">Run hello app and verify that registration succeeds, and then press **OK**.</span></span>
    
     ![Test rejestracji powiadomień wypychanych aplikacji dla systemu iOS][33]
-2. <span data-ttu-id="82b56-205">Testowe powiadomienie wypychane możesz wysłać z poziomu witryny [Azure Portal] zgodnie z powyższym opisem.</span><span class="sxs-lookup"><span data-stu-id="82b56-205">You can send a test push notification from the [Azure Portal], as described above.</span></span> <span data-ttu-id="82b56-206">Jeśli dodano kod umożliwiający wysyłanie powiadomień wypychanych z aplikacji, dotknij w polu tekstowym, aby wprowadzić komunikat powiadomienia.</span><span class="sxs-lookup"><span data-stu-id="82b56-206">If you added code for sending push notifications in the app, touch inside the text field to enter a notification message.</span></span> <span data-ttu-id="82b56-207">Następnie naciśnij przycisk **Send** (Wyślij) na klawiaturze lub przycisk **Send Notification** (Wyślij powiadomienie) w widoku, aby wysłać komunikat powiadomienia.</span><span class="sxs-lookup"><span data-stu-id="82b56-207">Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.</span></span>
+2. <span data-ttu-id="542c3-205">Testowe powiadomienie wypychane możesz wysłać z hello [Azure Portal], zgodnie z powyższym opisem.</span><span class="sxs-lookup"><span data-stu-id="542c3-205">You can send a test push notification from hello [Azure Portal], as described above.</span></span> <span data-ttu-id="542c3-206">Jeśli dodano kod umożliwiający wysyłanie powiadomień wypychanych w aplikacji hello, dotknij w tooenter pole tekstowe hello komunikatu powiadomienia.</span><span class="sxs-lookup"><span data-stu-id="542c3-206">If you added code for sending push notifications in hello app, touch inside hello text field tooenter a notification message.</span></span> <span data-ttu-id="542c3-207">Następnie naciśnij klawisz hello **wysyłania** przycisk hello klawiatury lub hello **Wyślij powiadomienie E-mail** przycisku na powitania widoku toosend hello powiadomienie.</span><span class="sxs-lookup"><span data-stu-id="542c3-207">Then press hello **Send** button on hello keyboard or hello **Send Notification** button in hello view toosend hello notification message.</span></span>
    
     ![Test wysyłania powiadomienia wypychanego z aplikacji dla systemu iOS][34]
-3. <span data-ttu-id="82b56-209">Powiadomienie wypychane zostanie wysłane do wszystkich urządzeń zarejestrowanych do odbierania powiadomień od określonego centrum powiadomień.</span><span class="sxs-lookup"><span data-stu-id="82b56-209">The push notification is sent to all devices that are registered to receive the notifications from the particular Notification Hub.</span></span>
+3. <span data-ttu-id="542c3-209">Witaj powiadomienie wypychane zostanie wysłane tooall urządzeń, które są zarejestrowane tooreceive hello powiadomień z hello określonego Centrum powiadomień.</span><span class="sxs-lookup"><span data-stu-id="542c3-209">hello push notification is sent tooall devices that are registered tooreceive hello notifications from hello particular Notification Hub.</span></span>
    
     ![Test odbierania powiadomienia wypychanego z aplikacji dla systemu iOS][35]
 
-## <a name="next-steps"></a><span data-ttu-id="82b56-211">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="82b56-211">Next steps</span></span>
-<span data-ttu-id="82b56-212">W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich zarejestrowanych urządzeń z systemem iOS.</span><span class="sxs-lookup"><span data-stu-id="82b56-212">In this simple example, you broadcasted push notifications to all your registered iOS devices.</span></span> <span data-ttu-id="82b56-213">Jako kolejny krok sugerujemy zapoznanie się z samouczkiem [Azure Notification Hubs Notify Users for iOS with .NET backend] (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET), który zawiera instrukcje dotyczące tworzenia zaplecza służącego do wysyłania powiadomień wypychanych przy użyciu tagów.</span><span class="sxs-lookup"><span data-stu-id="82b56-213">We suggest as a next step in your learning that you proceed to the [Azure Notification Hubs Notify Users for iOS with .NET backend] tutorial, which will walk you through creating a backend to send push notifications using tags.</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="542c3-211">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="542c3-211">Next steps</span></span>
+<span data-ttu-id="542c3-212">W tym prostym przykładzie wysłano tooall powiadomień wypychanych urządzeń z systemem iOS w zarejestrowany.</span><span class="sxs-lookup"><span data-stu-id="542c3-212">In this simple example, you broadcasted push notifications tooall your registered iOS devices.</span></span> <span data-ttu-id="542c3-213">Sugerujemy jako kolejny krok zapoznanie się czy kontynuować toohello [Azure Notification Hubs Powiadom użytkowników dla systemu iOS z zaplecza programu .NET] samouczek, który przeprowadzi Cię przez proces tworzenia wypychania toosend zaplecza powiadomienia przy użyciu tagów.</span><span class="sxs-lookup"><span data-stu-id="542c3-213">We suggest as a next step in your learning that you proceed toohello [Azure Notification Hubs Notify Users for iOS with .NET backend] tutorial, which will walk you through creating a backend toosend push notifications using tags.</span></span> 
 
-<span data-ttu-id="82b56-214">Jeśli chcesz podzielić użytkowników na grupy zainteresowań, możesz dodatkowo zapoznać się z samouczkiem [Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs].</span><span class="sxs-lookup"><span data-stu-id="82b56-214">If you want to segment your users by interest groups, you can additionally move on to the [Use Notification Hubs to send breaking news] tutorial.</span></span> 
+<span data-ttu-id="542c3-214">Jeśli chcesz toosegment użytkowników na grupy zainteresowań, możesz również przejść toohello [toosend użyciu usługi Notification Hubs fundamentalne wiadomości] samouczka.</span><span class="sxs-lookup"><span data-stu-id="542c3-214">If you want toosegment your users by interest groups, you can additionally move on toohello [Use Notification Hubs toosend breaking news] tutorial.</span></span> 
 
-<span data-ttu-id="82b56-215">Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotyczące usługi Notification Hubs].</span><span class="sxs-lookup"><span data-stu-id="82b56-215">For general information about Notification Hubs, see [Notification Hubs Guidance].</span></span>
+<span data-ttu-id="542c3-215">Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotyczące usługi Notification Hubs].</span><span class="sxs-lookup"><span data-stu-id="542c3-215">For general information about Notification Hubs, see [Notification Hubs Guidance].</span></span>
 
 <!-- Images. -->
 
@@ -464,7 +464,7 @@ ms.lasthandoff: 07/11/2017
 
 
 <!-- URLs. -->
-<span data-ttu-id="82b56-216">[zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]: http://aka.ms/kymw2g</span><span class="sxs-lookup"><span data-stu-id="82b56-216">[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g</span></span>
+[usług Mobile Services systemu iOS SDK w wersji 1.2.4]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -472,13 +472,13 @@ ms.lasthandoff: 07/11/2017
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Azure Classic Portal]: https://manage.windowsazure.com/
-<span data-ttu-id="82b56-217">[Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx</span><span class="sxs-lookup"><span data-stu-id="82b56-217">[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx</span></span>
-<span data-ttu-id="82b56-218">[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532</span><span class="sxs-lookup"><span data-stu-id="82b56-218">[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532</span></span>
+[Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-<span data-ttu-id="82b56-219">[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)</span><span class="sxs-lookup"><span data-stu-id="82b56-219">[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md</span></span>
-<span data-ttu-id="82b56-220">[Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs]: notification-hubs-ios-xplat-segmented-apns-push-notification.md</span><span class="sxs-lookup"><span data-stu-id="82b56-220">[Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md</span></span>
+[Azure Notification Hubs Powiadom użytkowników dla systemu iOS z zaplecza programu .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md (Powiadamianie użytkowników urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs z zapleczem programu .NET)
+[toosend użyciu usługi Notification Hubs fundamentalne wiadomości]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
-<span data-ttu-id="82b56-221">[Podręcznik programowania powiadomień lokalnych i wypychanych]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1</span><span class="sxs-lookup"><span data-stu-id="82b56-221">[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1</span></span>
-<span data-ttu-id="82b56-222">[Azure Portal]: https://portal.azure.com</span><span class="sxs-lookup"><span data-stu-id="82b56-222">[Azure Portal]: https://portal.azure.com</span></span>
+[lokalnych i wypychanych Podręcznik programowania powiadomień]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Azure Portal]: https://portal.azure.com

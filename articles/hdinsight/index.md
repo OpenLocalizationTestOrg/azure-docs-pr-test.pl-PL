@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure HDInsight — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie."
+title: "aaaAzure dokumentacja dotycząca usługi HDInsight — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacji przedstawiono toouse Hadoop, Spark, HBase, serwer R i więcej tooprocess analizowanie i Uzyskaj wgląd w dane big data."
 services: hdinsight
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6f16d77f3590bedf9338afc784110c2acff80592
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
 
-Informacje o sposobie używania usługi Hadoop w chmurze w usłudze HDInsight w celu analizowania danych przesyłanych strumieniowo lub danych historycznych. Samouczki i inne dokumenty przedstawiające sposób tworzenia klastrów, przetwarzania i analizowania danych big data oraz opracowywania rozwiązań korzystających z platform Hadoop, Spark, HBase, R-Server i Storm, a także innych technologii udostępnianych w ekosystemie usługi Hadoop.
+Dowiedz się, jak toouse Hadoop w hello chmury na HDInsight tooanalyze przesyłania strumieniowego lub historycznych danych. Samouczki i dokumentacji opisano sposób klastrów toocreate przetwarzania i analizy danych big data i opracowywania rozwiązań z platformy Hadoop, Spark, HBase, serwer R, Storm i inne technologie w ekosystemie Hadoop hello.
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -1,6 +1,6 @@
 ---
 title: "Odwołanie obraz niestandardowy w skali Azure Ustaw szablon | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dodać do istniejącego zestawu skalowania maszyn wirtualnych Azure szablonu niestandardowego obrazu"
+description: "Dowiedz się, jak tooadd niestandardowego obrazu tooan istniejący szablon Azure zestaw skali maszyny wirtualnej"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a17d989e44d241b460238c0106350c3ef038e56
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a><span data-ttu-id="bd46e-103">Dodawanie niestandardowego obrazu do szablonu zestaw skalowania Azure</span><span class="sxs-lookup"><span data-stu-id="bd46e-103">Add a custom image to an Azure scale set template</span></span>
+# <a name="add-a-custom-image-tooan-azure-scale-set-template"></a><span data-ttu-id="3fc88-103">Dodawanie zestawu szablonu niestandardowego obrazu tooan Azure skali</span><span class="sxs-lookup"><span data-stu-id="3fc88-103">Add a custom image tooan Azure scale set template</span></span>
 
-<span data-ttu-id="bd46e-104">W tym artykule przedstawiono sposób modyfikowania [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) do wdrożenia z niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="bd46e-104">This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.</span></span>
+<span data-ttu-id="3fc88-104">W tym artykule przedstawiono sposób toomodify hello [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) toodeploy z niestandardowego obrazu.</span><span class="sxs-lookup"><span data-stu-id="3fc88-104">This article shows how toomodify hello [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) toodeploy from custom image.</span></span>
 
-## <a name="change-the-template-definition"></a><span data-ttu-id="bd46e-105">Zmiany definicji szablonu</span><span class="sxs-lookup"><span data-stu-id="bd46e-105">Change the template definition</span></span>
+## <a name="change-hello-template-definition"></a><span data-ttu-id="3fc88-105">Zmień hello definicji szablonu</span><span class="sxs-lookup"><span data-stu-id="3fc88-105">Change hello template definition</span></span>
 
-<span data-ttu-id="bd46e-106">Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i naszych szablonu dla wdrażania skali zestawu z niestandardowego obrazu widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="bd46e-106">Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span></span> <span data-ttu-id="bd46e-107">Przeanalizujmy różnicowego używany do tworzenia tego szablonu (`git diff minimum-viable-scale-set custom-image`) element przez element:</span><span class="sxs-lookup"><span data-stu-id="bd46e-107">Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:</span></span>
+<span data-ttu-id="3fc88-106">Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i widoczne naszych szablon do wdrażania zestaw z obrazu niestandardowego skalowania hello [tutaj](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="3fc88-106">Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying hello scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span></span> <span data-ttu-id="3fc88-107">Przeanalizujmy hello toocreate różnicowego używany ten szablon (`git diff minimum-viable-scale-set custom-image`) element przez element:</span><span class="sxs-lookup"><span data-stu-id="3fc88-107">Let's examine hello diff used toocreate this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:</span></span>
 
-### <a name="creating-a-managed-disk-image"></a><span data-ttu-id="bd46e-108">Tworzenie obrazu dysku zarządzanego</span><span class="sxs-lookup"><span data-stu-id="bd46e-108">Creating a managed disk image</span></span>
+### <a name="creating-a-managed-disk-image"></a><span data-ttu-id="3fc88-108">Tworzenie obrazu dysku zarządzanego</span><span class="sxs-lookup"><span data-stu-id="3fc88-108">Creating a managed disk image</span></span>
 
-<span data-ttu-id="bd46e-109">Jeśli masz już obraz niestandardowy dysku zarządzanego (zasobu typu `Microsoft.Compute/images`), a następnie można pominąć tę sekcję.</span><span class="sxs-lookup"><span data-stu-id="bd46e-109">If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.</span></span>
+<span data-ttu-id="3fc88-109">Jeśli masz już obraz niestandardowy dysku zarządzanego (zasobu typu `Microsoft.Compute/images`), a następnie można pominąć tę sekcję.</span><span class="sxs-lookup"><span data-stu-id="3fc88-109">If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.</span></span>
 
-<span data-ttu-id="bd46e-110">Najpierw dodamy `sourceImageVhdUri` parametr, który jest identyfikatorem URI do ogólnych obiektu blob w magazynie Azure, który zawiera niestandardowy obraz do wdrożenia z.</span><span class="sxs-lookup"><span data-stu-id="bd46e-110">First, we add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.</span></span>
+<span data-ttu-id="3fc88-110">Najpierw dodamy `sourceImageVhdUri` parametru, który jest hello URI toohello uogólniony blob w magazynie Azure, zawierającą hello toodeploy niestandardowego obrazu z.</span><span class="sxs-lookup"><span data-stu-id="3fc88-110">First, we add a `sourceImageVhdUri` parameter, which is hello URI toohello generalized blob in Azure Storage that contains hello custom image toodeploy from.</span></span>
 
 
 ```diff
@@ -44,14 +44,14 @@ ms.lasthandoff: 07/11/2017
 +    "sourceImageVhdUri": {
 +      "type": "string",
 +      "metadata": {
-+        "description": "The source of the generalized blob containing the custom image"
++        "description": "hello source of hello generalized blob containing hello custom image"
 +      }
      }
    },
    "variables": {},
 ```
 
-<span data-ttu-id="bd46e-111">Następnie dodamy zasobu typu `Microsoft.Compute/images`, która jest oparta na ogólnych znajdujący się pod identyfikatorem URI obiektu blob obrazu dysków zarządzanych w `sourceImageVhdUri`.</span><span class="sxs-lookup"><span data-stu-id="bd46e-111">Next, we add a resource of type `Microsoft.Compute/images`, which is the managed disk image based on the generalized blob located at URI `sourceImageVhdUri`.</span></span> <span data-ttu-id="bd46e-112">Ten obraz musi być w tym samym regionie co zestaw skalowania, która korzysta z niego.</span><span class="sxs-lookup"><span data-stu-id="bd46e-112">This image must be in the same region as the scale set that uses it.</span></span> <span data-ttu-id="bd46e-113">We właściwościach obrazu określono typ systemu operacyjnego, lokalizacji obiektu blob (z `sourceImageVhdUri` parametru), a typ konta magazynu:</span><span class="sxs-lookup"><span data-stu-id="bd46e-113">In the properties of the image, we specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:</span></span>
+<span data-ttu-id="3fc88-111">Następnie dodamy zasobu typu `Microsoft.Compute/images`, która obrazu dysku twardego zarządzanego hello opiera się na powitania uogólniony obiektu blob znajduje się pod identyfikatorem URI `sourceImageVhdUri`.</span><span class="sxs-lookup"><span data-stu-id="3fc88-111">Next, we add a resource of type `Microsoft.Compute/images`, which is hello managed disk image based on hello generalized blob located at URI `sourceImageVhdUri`.</span></span> <span data-ttu-id="3fc88-112">Ten obraz musi być w hello hello skali zestaw, który używa tego samego regionu.</span><span class="sxs-lookup"><span data-stu-id="3fc88-112">This image must be in hello same region as hello scale set that uses it.</span></span> <span data-ttu-id="3fc88-113">We właściwościach hello hello obrazu, możemy określić typ hello systemu operacyjnego, hello lokalizacji obiektu hello blob (z hello `sourceImageVhdUri` parametru), a typ konta magazynu hello:</span><span class="sxs-lookup"><span data-stu-id="3fc88-113">In hello properties of hello image, we specify hello OS type, hello location of hello blob (from hello `sourceImageVhdUri` parameter), and hello storage account type:</span></span>
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/11/2017
 
 ```
 
-<span data-ttu-id="bd46e-114">W zestawie skalowania zasobu, dodamy `dependsOn` klauzuli odwołujących się do niestandardowego obrazu, aby upewnić się, że obraz jest tworzony przed skali podejmuje próbę wdrożenia z tego obrazu:</span><span class="sxs-lookup"><span data-stu-id="bd46e-114">In the scale set resource, we add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:</span></span>
+<span data-ttu-id="3fc88-114">W hello zestawu skalowania zasobu, dodamy `dependsOn` klauzuli przywołuje toomake niestandardowego obrazu toohello się obraz powitania pobiera utworzone przed zestaw skali hello próbuje toodeploy z tego obrazu:</span><span class="sxs-lookup"><span data-stu-id="3fc88-114">In hello scale set resource, we add a `dependsOn` clause referring toohello custom image toomake sure hello image gets created before hello scale set tries toodeploy from that image:</span></span>
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -93,9 +93,9 @@ ms.lasthandoff: 07/11/2017
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a><span data-ttu-id="bd46e-115">Zmiana skali Ustaw właściwości, aby używać obrazu dysku twardego zarządzanego</span><span class="sxs-lookup"><span data-stu-id="bd46e-115">Changing scale set properties to use the managed disk image</span></span>
+### <a name="changing-scale-set-properties-toouse-hello-managed-disk-image"></a><span data-ttu-id="3fc88-115">Zmiana skali ustawić właściwości toouse hello dysków zarządzanych w obrazie</span><span class="sxs-lookup"><span data-stu-id="3fc88-115">Changing scale set properties toouse hello managed disk image</span></span>
 
-<span data-ttu-id="bd46e-116">W `imageReference` skali ustawić `storageProfile`, zamiast określania wydawcy, oferty, jednostki sku i wersji obrazu platformy, określono `id` z `Microsoft.Compute/images` zasobów:</span><span class="sxs-lookup"><span data-stu-id="bd46e-116">In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, we specify the `id` of the `Microsoft.Compute/images` resource:</span></span>
+<span data-ttu-id="3fc88-116">W hello `imageReference` skali hello ustawić `storageProfile`, zamiast określania hello wydawcy, oferty, jednostki sku i wersji obrazu platformy, określono hello `id` z hello `Microsoft.Compute/images` zasobów:</span><span class="sxs-lookup"><span data-stu-id="3fc88-116">In hello `imageReference` of hello scale set `storageProfile`, instead of specifying hello publisher, offer, sku, and version of a platform image, we specify hello `id` of hello `Microsoft.Compute/images` resource:</span></span>
 
 ```diff
          "virtualMachineProfile": {
@@ -111,9 +111,9 @@ ms.lasthandoff: 07/11/2017
            "osProfile": {
 ```
 
-<span data-ttu-id="bd46e-117">W tym przykładzie używamy `resourceId` funkcji, aby uzyskać identyfikator zasobu obrazu utworzonego w tym samym szablonie.</span><span class="sxs-lookup"><span data-stu-id="bd46e-117">In this example, we use the `resourceId` function to get the resource ID of the image created in the same template.</span></span> <span data-ttu-id="bd46e-118">Jeśli wcześniej utworzono obrazu dysku twardego zarządzanego, należy zamiast tego Podaj identyfikator obrazu.</span><span class="sxs-lookup"><span data-stu-id="bd46e-118">If you have created the managed disk image beforehand, you should provide the id of that image instead.</span></span> <span data-ttu-id="bd46e-119">Ten identyfikator musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span><span class="sxs-lookup"><span data-stu-id="bd46e-119">This id must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span></span>
+<span data-ttu-id="3fc88-117">W tym przykładzie używamy hello `resourceId` funkcja tooget hello identyfikator zasobu obrazu hello utworzone w hello sam szablonu.</span><span class="sxs-lookup"><span data-stu-id="3fc88-117">In this example, we use hello `resourceId` function tooget hello resource ID of hello image created in hello same template.</span></span> <span data-ttu-id="3fc88-118">Jeśli wcześniej utworzono obrazu dysku twardego zarządzanego hello, należy zamiast tego Podaj identyfikator hello tego obrazu.</span><span class="sxs-lookup"><span data-stu-id="3fc88-118">If you have created hello managed disk image beforehand, you should provide hello id of that image instead.</span></span> <span data-ttu-id="3fc88-119">Ten identyfikator musi mieć formę hello: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span><span class="sxs-lookup"><span data-stu-id="3fc88-119">This id must be of hello form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="bd46e-120">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="bd46e-120">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3fc88-120">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="3fc88-120">Next Steps</span></span>
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

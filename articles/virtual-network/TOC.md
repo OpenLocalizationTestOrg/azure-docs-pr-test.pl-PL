@@ -80,15 +80,15 @@
 #### [Tworzenie maszyny wirtualnej z wydajniejszą siecią](virtual-network-create-vm-accelerated-networking.md)
 
 ### Scenariusze łączności
-#### [Z sieci wirtualnej do sieci wirtualnej](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Z sieci wirtualnej (Resource Manager) do sieci wirtualnej (klasycznej)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Z sieci wirtualnej do sieci lokalnej (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Z sieci wirtualnej do sieci lokalnej (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [TooVNet sieć wirtualną (VNet)](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Tooa sieciami wirtualnymi (Resource Manager) (klasyczne) w sieci wirtualnej](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Sieci wirtualnej sieci lokalnej tooon (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Sieci wirtualnej sieci lokalnej tooon (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Wysoko dostępna hybrydowa architektura sieci](../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### Scenariusze zabezpieczeń
 #### [Zabezpieczanie sieci przy użyciu urządzeń wirtualnych](virtual-network-scenario-udr-gw-nva.md)
-#### [Strefa DMZ między platformą Azure i Internetem](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [DMZ platformy Azure i hello Internet](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Zabezpieczenia usługi w chmurze i sieci](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Prosta strefa DMZ z sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-asm.md)
 ##### [Strefa DMZ z zaporą i sieciowymi grupami zabezpieczeń](virtual-networks-dmz-nsg-fw-asm.md)
@@ -118,7 +118,7 @@
 #### [Komunikacja równorzędna](virtual-network-manage-peering.md)
 #### Wdrożenie klasyczne
 ##### [Plik konfiguracji sieci](virtual-networks-using-network-configuration-file.md)
-##### [Migrowanie z grupy koligacji do regionu](virtual-networks-migrate-to-regional-vnet.md)
+##### [Migracja z regionu tooa grupy koligacji](virtual-networks-migrate-to-regional-vnet.md)
 ### Grupy zabezpieczeń sieci
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Program PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -128,7 +128,7 @@
 #### [Tworzenie, zmienianie lub usuwanie interfejsów sieciowych](virtual-network-network-interface.md)
 #### [Dodawanie, zmienianie lub usuwanie adresów IP](virtual-network-network-interface-addresses.md)
 ### Maszyny wirtualne
-#### [Przenoszenie maszyny wirtualnej do innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
+#### [Przenoszenie maszyny Wirtualnej tooa innej podsieci](virtual-networks-move-vm-role-to-subnet.md)
 ### [Publiczne adresy IP](virtual-network-public-ip-address.md)
 
 ## Rozwiązywanie problemów
@@ -140,7 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Testowanie przepływności](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks (Nie można usunąć sieci wirtualnych)](virtual-network-troubleshoot-cannot-delete-vnet.md)
-### [Problemy z łącznością między maszynami wirtualnymi](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Problemy z łącznością tooVM maszyny Wirtualnej](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie klastrem Azure DC/OS z interfejsu API REST platformy Marathon | Dokumentacja firmy Microsoft"
-description: "Wdrażanie kontenerów do klastra usługi kontenera platformy Azure DC/OS przy użyciu interfejsu API REST platformy Marathon."
+title: aaaManage Azure DC/OS klaster z interfejsu API REST platformy Marathon | Dokumentacja firmy Microsoft
+description: "Wdrażanie klastra usługi kontenera platformy Azure DC/OS tooan kontenerów przy użyciu hello interfejsu API REST platformy Marathon."
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,35 +17,35 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d926b9b90f5d4eda85a015d9ea0d96fea2c4b566
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a><span data-ttu-id="bcc29-104">Zarządzanie kontenerem DC/OS przy użyciu interfejsu API REST platformy Marathon</span><span class="sxs-lookup"><span data-stu-id="bcc29-104">DC/OS container management through the Marathon REST API</span></span>
-<span data-ttu-id="bcc29-105">Platforma DC/OS dostarcza środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu bazowego.</span><span class="sxs-lookup"><span data-stu-id="bcc29-105">DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware.</span></span> <span data-ttu-id="bcc29-106">Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych.</span><span class="sxs-lookup"><span data-stu-id="bcc29-106">On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.</span></span> <span data-ttu-id="bcc29-107">Platformy są dostępne dla wielu popularnych zadań, ten dokument stanowi wprowadzenie tworzenie i skalować wdrożenia kontenerów przy użyciu interfejsu API REST platformy Marathon.</span><span class="sxs-lookup"><span data-stu-id="bcc29-107">Although frameworks are available for many popular workloads, this document gets you started creating and scaling container deployments by using the Marathon REST API.</span></span> 
+# <a name="dcos-container-management-through-hello-marathon-rest-api"></a><span data-ttu-id="98383-104">Zarządzanie kontenerem DC/OS przy użyciu hello interfejsu API REST platformy Marathon</span><span class="sxs-lookup"><span data-stu-id="98383-104">DC/OS container management through hello Marathon REST API</span></span>
+<span data-ttu-id="98383-105">DC/OS udostępnia środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu źródłowego hello.</span><span class="sxs-lookup"><span data-stu-id="98383-105">DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting hello underlying hardware.</span></span> <span data-ttu-id="98383-106">Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych.</span><span class="sxs-lookup"><span data-stu-id="98383-106">On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.</span></span> <span data-ttu-id="98383-107">Platformy są dostępne dla wielu popularnych zadań, ten dokument stanowi wprowadzenie tworzenia i skalowania wdrożenia kontenerów przy użyciu hello interfejsu API REST platformy Marathon.</span><span class="sxs-lookup"><span data-stu-id="98383-107">Although frameworks are available for many popular workloads, this document gets you started creating and scaling container deployments by using hello Marathon REST API.</span></span> 
 
-## <a name="prerequisites"></a><span data-ttu-id="bcc29-108">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="bcc29-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="98383-108">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="98383-108">Prerequisites</span></span>
 
-<span data-ttu-id="bcc29-109">Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klastra DC/OS skonfigurowanego w usłudze kontenera platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="bcc29-109">Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service.</span></span> <span data-ttu-id="bcc29-110">Potrzebna będzie także zdalna łączność z tym klastrem.</span><span class="sxs-lookup"><span data-stu-id="bcc29-110">You also need to have remote connectivity to this cluster.</span></span> <span data-ttu-id="bcc29-111">Aby uzyskać więcej informacji na temat tych elementów, zobacz następujące artykuły:</span><span class="sxs-lookup"><span data-stu-id="bcc29-111">For more information on these items, see the following articles:</span></span>
+<span data-ttu-id="98383-109">Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klastra DC/OS skonfigurowanego w usłudze kontenera platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="98383-109">Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service.</span></span> <span data-ttu-id="98383-110">Należy również toohave łączności zdalnej toothis klastra.</span><span class="sxs-lookup"><span data-stu-id="98383-110">You also need toohave remote connectivity toothis cluster.</span></span> <span data-ttu-id="98383-111">Aby uzyskać więcej informacji na temat tych elementów zobacz następujące artykuły hello:</span><span class="sxs-lookup"><span data-stu-id="98383-111">For more information on these items, see hello following articles:</span></span>
 
-* [<span data-ttu-id="bcc29-112">Wdrażanie klastra usługi Azure Container Service</span><span class="sxs-lookup"><span data-stu-id="bcc29-112">Deploying an Azure Container Service cluster</span></span>](container-service-deployment.md)
-* [<span data-ttu-id="bcc29-113">Łączenie z klastrem usługi Azure Container Service</span><span class="sxs-lookup"><span data-stu-id="bcc29-113">Connecting to an Azure Container Service cluster</span></span>](../container-service-connect.md)
+* [<span data-ttu-id="98383-112">Wdrażanie klastra usługi Azure Container Service</span><span class="sxs-lookup"><span data-stu-id="98383-112">Deploying an Azure Container Service cluster</span></span>](container-service-deployment.md)
+* [<span data-ttu-id="98383-113">Łączenie tooan klastra usługi kontenera platformy Azure</span><span class="sxs-lookup"><span data-stu-id="98383-113">Connecting tooan Azure Container Service cluster</span></span>](../container-service-connect.md)
 
-## <a name="access-the-dcos-apis"></a><span data-ttu-id="bcc29-114">Dostęp do interfejsów API platformy DC/OS</span><span class="sxs-lookup"><span data-stu-id="bcc29-114">Access the DC/OS APIs</span></span>
-<span data-ttu-id="bcc29-115">Po nawiązaniu połączeniu z klastrem usługi kontenera platformy Azure masz dostęp do platformy DC/OS i powiązanych interfejsów API REST pod adresem http://localhost:local-port.</span><span class="sxs-lookup"><span data-stu-id="bcc29-115">After you are connected to the Azure Container Service cluster, you can access the DC/OS and related REST APIs through http://localhost:local-port.</span></span> <span data-ttu-id="bcc29-116">W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80.</span><span class="sxs-lookup"><span data-stu-id="bcc29-116">The examples in this document assume that you are tunneling on port 80.</span></span> <span data-ttu-id="bcc29-117">Na przykład punkty końcowe platformy Marathon można połączyć się z na identyfikatory URI rozpoczynające się od `http://localhost/marathon/v2/`.</span><span class="sxs-lookup"><span data-stu-id="bcc29-117">For example, the Marathon endpoints can be reached at URIs beginning with `http://localhost/marathon/v2/`.</span></span> 
+## <a name="access-hello-dcos-apis"></a><span data-ttu-id="98383-114">Witaj dostępu do interfejsów API DC/OS</span><span class="sxs-lookup"><span data-stu-id="98383-114">Access hello DC/OS APIs</span></span>
+<span data-ttu-id="98383-115">Po są połączone toohello klastra usługi kontenera platformy Azure, możesz uzyskać dostęp do hello DC/OS i powiązanych interfejsów API REST, za pośrednictwem portu http://localhost:local.</span><span class="sxs-lookup"><span data-stu-id="98383-115">After you are connected toohello Azure Container Service cluster, you can access hello DC/OS and related REST APIs through http://localhost:local-port.</span></span> <span data-ttu-id="98383-116">Przykłady Hello w tym dokumencie założono, że tunelowanie korzysta na porcie 80.</span><span class="sxs-lookup"><span data-stu-id="98383-116">hello examples in this document assume that you are tunneling on port 80.</span></span> <span data-ttu-id="98383-117">Na przykład punkty końcowe platformy Marathon hello jest osiągalna na identyfikatory URI rozpoczynające się od `http://localhost/marathon/v2/`.</span><span class="sxs-lookup"><span data-stu-id="98383-117">For example, hello Marathon endpoints can be reached at URIs beginning with `http://localhost/marathon/v2/`.</span></span> 
 
-<span data-ttu-id="bcc29-118">Aby uzyskać więcej informacji o różnych interfejsach API, zobacz dokumentację Mesosphere dotyczącą [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [interfejsu API programu Chronos](https://mesos.github.io/chronos/docs/api.html) oraz dokumentację Apache dotyczącą [interfejsu API aplikacji Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).</span><span class="sxs-lookup"><span data-stu-id="bcc29-118">For more information on the various APIs, see the Mesosphere documentation for the [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the Apache documentation for the [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).</span></span>
+<span data-ttu-id="98383-118">Aby uzyskać więcej informacji na temat hello różnych interfejsów API, zobacz hello dokumentację Mesosphere dotyczącą hello [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [Chronos interfejsu API](https://mesos.github.io/chronos/docs/api.html)oraz dokumentację Apache dotyczącą hello [Mesos API harmonogramu ](http://mesos.apache.org/documentation/latest/scheduler-http-api/).</span><span class="sxs-lookup"><span data-stu-id="98383-118">For more information on hello various APIs, see hello Mesosphere documentation for hello [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) and the [Chronos API](https://mesos.github.io/chronos/docs/api.html), and the Apache documentation for hello [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).</span></span>
 
-## <a name="gather-information-from-dcos-and-marathon"></a><span data-ttu-id="bcc29-119">Gromadzenie informacji z platform DC/OS i Marathon</span><span class="sxs-lookup"><span data-stu-id="bcc29-119">Gather information from DC/OS and Marathon</span></span>
-<span data-ttu-id="bcc29-120">Przed wdrożeniem kontenerów do klastra DC/OS Zbierz określone informacje o klastrze DC/OS, takie jak nazwy i stan agentów DC/OS.</span><span class="sxs-lookup"><span data-stu-id="bcc29-120">Before you deploy containers to the DC/OS cluster, gather some information about the DC/OS cluster, such as the names and status of the DC/OS agents.</span></span> <span data-ttu-id="bcc29-121">W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS.</span><span class="sxs-lookup"><span data-stu-id="bcc29-121">To do so, query the `master/slaves` endpoint of the DC/OS REST API.</span></span> <span data-ttu-id="bcc29-122">Jeśli operacja zostanie wykonana pomyślnie, zapytanie zwróci listę agentów DC/OS i szereg właściwości każdego z nich.</span><span class="sxs-lookup"><span data-stu-id="bcc29-122">If everything goes well, the query returns a list of DC/OS agents and several properties for each.</span></span>
+## <a name="gather-information-from-dcos-and-marathon"></a><span data-ttu-id="98383-119">Gromadzenie informacji z platform DC/OS i Marathon</span><span class="sxs-lookup"><span data-stu-id="98383-119">Gather information from DC/OS and Marathon</span></span>
+<span data-ttu-id="98383-120">Przed wdrożeniem klastra DC/OS toohello kontenery Zbierz określone informacje o klastrze DC/OS hello, takich jak nazwy hello i stan agentów DC/OS hello.</span><span class="sxs-lookup"><span data-stu-id="98383-120">Before you deploy containers toohello DC/OS cluster, gather some information about hello DC/OS cluster, such as hello names and status of hello DC/OS agents.</span></span> <span data-ttu-id="98383-121">toodo zapytanie tak, hello `master/slaves` punkt końcowy hello interfejsu API REST platformy DC/OS.</span><span class="sxs-lookup"><span data-stu-id="98383-121">toodo so, query hello `master/slaves` endpoint of hello DC/OS REST API.</span></span> <span data-ttu-id="98383-122">Jeśli wszystko odbędzie się poprawnie, hello zapytanie zwraca listę agentów DC/OS i szereg właściwości każdego.</span><span class="sxs-lookup"><span data-stu-id="98383-122">If everything goes well, hello query returns a list of DC/OS agents and several properties for each.</span></span>
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-<span data-ttu-id="bcc29-123">Teraz użyj punktu końcowego `/apps` platformy Marathon, aby sprawdzić bieżące wdrożenia aplikacji w klastrze DC/OS.</span><span class="sxs-lookup"><span data-stu-id="bcc29-123">Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster.</span></span> <span data-ttu-id="bcc29-124">Jeśli jest to nowy klaster, pojawi się pusta tablica aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-124">If this is a new cluster, you see an empty array for apps.</span></span>
+<span data-ttu-id="98383-123">Teraz, przy użyciu platformy Marathon hello `/apps` toocheck punktu końcowego dla bieżącego klastra DC/OS toohello wdrożeń aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-123">Now, use hello Marathon `/apps` endpoint toocheck for current application deployments toohello DC/OS cluster.</span></span> <span data-ttu-id="98383-124">Jeśli jest to nowy klaster, pojawi się pusta tablica aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-124">If this is a new cluster, you see an empty array for apps.</span></span>
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -53,8 +53,8 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-docker-formatted-container"></a><span data-ttu-id="bcc29-125">Wdrażanie kontenera w formacie programu Docker</span><span class="sxs-lookup"><span data-stu-id="bcc29-125">Deploy a Docker-formatted container</span></span>
-<span data-ttu-id="bcc29-126">Kontenery w formacie Docker za pośrednictwem interfejsu API REST platformy Marathon można wdrożyć przy użyciu pliku JSON, który opisuje zamierzone wdrożenie.</span><span class="sxs-lookup"><span data-stu-id="bcc29-126">You deploy Docker-formatted containers through the Marathon REST API by using a JSON file that describes the intended deployment.</span></span> <span data-ttu-id="bcc29-127">Poniższy przykład wdraża kontener Nginx prywatny agenta w klastrze.</span><span class="sxs-lookup"><span data-stu-id="bcc29-127">The following sample deploys an Nginx container to a private agent in the cluster.</span></span> 
+## <a name="deploy-a-docker-formatted-container"></a><span data-ttu-id="98383-125">Wdrażanie kontenera w formacie programu Docker</span><span class="sxs-lookup"><span data-stu-id="98383-125">Deploy a Docker-formatted container</span></span>
+<span data-ttu-id="98383-126">Kontenery w formacie Docker za pośrednictwem interfejsu API REST platformy Marathon hello wdrażania przy użyciu pliku JSON, który opisuje hello zamierzone wdrożenie.</span><span class="sxs-lookup"><span data-stu-id="98383-126">You deploy Docker-formatted containers through hello Marathon REST API by using a JSON file that describes hello intended deployment.</span></span> <span data-ttu-id="98383-127">Witaj poniższego przykładu wdraża Nginx kontenera tooa prywatny agenta hello klastra.</span><span class="sxs-lookup"><span data-stu-id="98383-127">hello following sample deploys an Nginx container tooa private agent in hello cluster.</span></span> 
 
 ```json
 {
@@ -75,59 +75,59 @@ curl localhost/marathon/v2/apps
 }
 ```
 
-<span data-ttu-id="bcc29-128">Do wdrożenia kontenera formacie programu Docker, przechowuj plik JSON w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-128">To deploy a Docker-formatted container, store the JSON file in an accessible location.</span></span> <span data-ttu-id="bcc29-129">Następnie w celu wdrożenia kontenera uruchom następujące polecenie.</span><span class="sxs-lookup"><span data-stu-id="bcc29-129">Next, to deploy the container, run the following command.</span></span> <span data-ttu-id="bcc29-130">Określ nazwę pliku JSON (`marathon.json` w tym przykładzie).</span><span class="sxs-lookup"><span data-stu-id="bcc29-130">Specify the name of the JSON file (`marathon.json` in this example).</span></span>
+<span data-ttu-id="98383-128">toodeploy formacie programu Docker kontenerze, przechowywania pliku JSON hello w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="98383-128">toodeploy a Docker-formatted container, store hello JSON file in an accessible location.</span></span> <span data-ttu-id="98383-129">Następnie toodeploy hello kontener, uruchom następujące polecenie hello.</span><span class="sxs-lookup"><span data-stu-id="98383-129">Next, toodeploy hello container, run hello following command.</span></span> <span data-ttu-id="98383-130">Określ nazwę pliku JSON hello hello (`marathon.json` w tym przykładzie).</span><span class="sxs-lookup"><span data-stu-id="98383-130">Specify hello name of hello JSON file (`marathon.json` in this example).</span></span>
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-<span data-ttu-id="bcc29-131">Dane wyjściowe będą podobne do następujących:</span><span class="sxs-lookup"><span data-stu-id="bcc29-131">The output is similar to the following:</span></span>
+<span data-ttu-id="98383-131">dane wyjściowe Hello są podobne toohello następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="98383-131">hello output is similar toohello following:</span></span>
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-<span data-ttu-id="bcc29-132">Teraz po wykonaniu zapytania dotyczącego aplikacji na platformie Marathon nowa aplikacja pojawi się w danych wyjściowych.</span><span class="sxs-lookup"><span data-stu-id="bcc29-132">Now, if you query Marathon for applications, this new application appears in the output.</span></span>
+<span data-ttu-id="98383-132">Teraz po wykonaniu zapytania Marathon dla aplikacji, ta nowa aplikacja pojawi się w danych wyjściowych hello.</span><span class="sxs-lookup"><span data-stu-id="98383-132">Now, if you query Marathon for applications, this new application appears in hello output.</span></span>
 
 ```bash
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-the-container"></a><span data-ttu-id="bcc29-133">Osiągnąć kontenera</span><span class="sxs-lookup"><span data-stu-id="bcc29-133">Reach the container</span></span>
+## <a name="reach-hello-container"></a><span data-ttu-id="98383-133">Osiągnąć hello kontenera</span><span class="sxs-lookup"><span data-stu-id="98383-133">Reach hello container</span></span>
 
-<span data-ttu-id="bcc29-134">Aby sprawdzić, czy Nginx działa w kontenerze w jednej z prywatnych agentów w klastrze.</span><span class="sxs-lookup"><span data-stu-id="bcc29-134">You can verify that the Nginx is running in a container on one of the private agents in the cluster.</span></span> <span data-ttu-id="bcc29-135">Aby znaleźć hosta i portu, na którym jest uruchomiona kontenera, zapytanie Marathon uruchomione zadania:</span><span class="sxs-lookup"><span data-stu-id="bcc29-135">To find the host and port where the container is running, query Marathon for the running tasks:</span></span> 
+<span data-ttu-id="98383-134">Możesz zweryfikować tego hello Nginx jest uruchomione w kontenerze na jednym z agentów prywatnej hello w klastrze hello.</span><span class="sxs-lookup"><span data-stu-id="98383-134">You can verify that hello Nginx is running in a container on one of hello private agents in hello cluster.</span></span> <span data-ttu-id="98383-135">toofind hello hosta i portu, w którym jest uruchomiona kontenera hello, kwerendy Marathon hello uruchomionych zadań:</span><span class="sxs-lookup"><span data-stu-id="98383-135">toofind hello host and port where hello container is running, query Marathon for hello running tasks:</span></span> 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-<span data-ttu-id="bcc29-136">Znajdź wartość `host` w danych wyjściowych (podobnie jak adres IP `10.32.0.x`), a wartością `ports`.</span><span class="sxs-lookup"><span data-stu-id="bcc29-136">Find the value of `host` in the output (an IP address similar to `10.32.0.x`), and the value of `ports`.</span></span>
+<span data-ttu-id="98383-136">Znajdź wartość hello `host` w danych wyjściowych hello (adresów IP podobny zbyt`10.32.0.x`) i wartość hello `ports`.</span><span class="sxs-lookup"><span data-stu-id="98383-136">Find hello value of `host` in hello output (an IP address similar too`10.32.0.x`), and hello value of `ports`.</span></span>
 
 
-<span data-ttu-id="bcc29-137">Teraz należy terminali połączenia SSH (nie połączeń tunelowych) do zarządzania nazwy FQDN klastra.</span><span class="sxs-lookup"><span data-stu-id="bcc29-137">Now make an SSH terminal connection (not a tunneled connection) to the management FQDN of the cluster.</span></span> <span data-ttu-id="bcc29-138">Po nawiązaniu połączenia, wprowadź następujące żądania, zastępując poprawne wartości `host` i `ports`:</span><span class="sxs-lookup"><span data-stu-id="bcc29-138">Once connected, make the following request, substituting the correct values of `host` and `ports`:</span></span>
+<span data-ttu-id="98383-137">Teraz należy SSH terminali (nie połączeń tunelowych) toohello zarządzania połączeniami nazwy FQDN klastra hello.</span><span class="sxs-lookup"><span data-stu-id="98383-137">Now make an SSH terminal connection (not a tunneled connection) toohello management FQDN of hello cluster.</span></span> <span data-ttu-id="98383-138">Po nawiązaniu połączenia należy hello następujące żądania, zastępując wartości poprawne hello `host` i `ports`:</span><span class="sxs-lookup"><span data-stu-id="98383-138">Once connected, make hello following request, substituting hello correct values of `host` and `ports`:</span></span>
 
 ```bash
 curl http://host:ports
 ```
 
-<span data-ttu-id="bcc29-139">Dane wyjściowe server Nginx jest podobny do następującego:</span><span class="sxs-lookup"><span data-stu-id="bcc29-139">The Nginx server output is similar to the following:</span></span>
+<span data-ttu-id="98383-139">Hello dane wyjściowe server Nginx jest podobne toohello następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="98383-139">hello Nginx server output is similar toohello following:</span></span>
 
 ![Nginx z kontenera](./media/container-service-mesos-marathon-rest/nginx.png)
 
 
 
 
-## <a name="scale-your-containers"></a><span data-ttu-id="bcc29-141">Skalowanie kontenerów</span><span class="sxs-lookup"><span data-stu-id="bcc29-141">Scale your containers</span></span>
-<span data-ttu-id="bcc29-142">Interfejsu API platformy Marathon umożliwia skalowanie w poziomie oraz skalowanie w przypadku wdrożeń aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-142">You can use the Marathon API to scale out or scale in application deployments.</span></span> <span data-ttu-id="bcc29-143">W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-143">In the previous example, you deployed one instance of an application.</span></span> <span data-ttu-id="bcc29-144">Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-144">Let's scale this out to three instances of an application.</span></span> <span data-ttu-id="bcc29-145">W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-145">To do so, create a JSON file by using the following JSON text, and store it in an accessible location.</span></span>
+## <a name="scale-your-containers"></a><span data-ttu-id="98383-141">Skalowanie kontenerów</span><span class="sxs-lookup"><span data-stu-id="98383-141">Scale your containers</span></span>
+<span data-ttu-id="98383-142">W przypadku wdrożeń aplikacji, można użyć tooscale interfejsu API platformy Marathon hello out lub skali.</span><span class="sxs-lookup"><span data-stu-id="98383-142">You can use hello Marathon API tooscale out or scale in application deployments.</span></span> <span data-ttu-id="98383-143">W poprzednim przykładzie hello wdrożono jedno wystąpienie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-143">In hello previous example, you deployed one instance of an application.</span></span> <span data-ttu-id="98383-144">Przeprowadź skalowanie tę możliwość toothree wystąpienia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-144">Let's scale this out toothree instances of an application.</span></span> <span data-ttu-id="98383-145">toodo tak, Utwórz plik JSON przy użyciu powitania po tekst JSON i zapisze go w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="98383-145">toodo so, create a JSON file by using hello following JSON text, and store it in an accessible location.</span></span>
 
 ```json
 { "instances": 3 }
 ```
 
-<span data-ttu-id="bcc29-146">Z tunelowane połączenie uruchom następujące polecenie, aby skalować aplikację w poziomie.</span><span class="sxs-lookup"><span data-stu-id="bcc29-146">From your tunneled connection, run the following command to scale out the application.</span></span>
+<span data-ttu-id="98383-146">Z połączeniem tunelowane Uruchom hello następujące polecenia tooscale limit aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="98383-146">From your tunneled connection, run hello following command tooscale out hello application.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="bcc29-147">Identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/ z dołączonym identyfikatorem aplikacji do skalowania.</span><span class="sxs-lookup"><span data-stu-id="bcc29-147">The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale.</span></span> <span data-ttu-id="bcc29-148">W przypadku użycia przedstawionej tutaj przykładowej aplikacji Nginx identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/nginx.</span><span class="sxs-lookup"><span data-stu-id="bcc29-148">If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.</span></span>
+> <span data-ttu-id="98383-147">Witaj identyfikatora URI jest http://localhost/marathon/v2/apps/ następuje identyfikator hello tooscale aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="98383-147">hello URI is http://localhost/marathon/v2/apps/ followed by hello ID of hello application tooscale.</span></span> <span data-ttu-id="98383-148">Jeśli używasz hello przykład Nginx, który znajduje się w tym miejscu, hello identyfikator URI będzie http://localhost/marathon/v2/apps/nginx.</span><span class="sxs-lookup"><span data-stu-id="98383-148">If you are using hello Nginx sample that is provided here, hello URI would be http://localhost/marathon/v2/apps/nginx.</span></span>
 > 
 > 
 
@@ -135,22 +135,22 @@ curl http://host:ports
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-<span data-ttu-id="bcc29-149">Na koniec wykonaj zapytanie dotyczące aplikacji w punkcie końcowym platformy Marathon.</span><span class="sxs-lookup"><span data-stu-id="bcc29-149">Finally, query the Marathon endpoint for applications.</span></span> <span data-ttu-id="bcc29-150">Widoczne będą trzy kontenery Nginx.</span><span class="sxs-lookup"><span data-stu-id="bcc29-150">You see that there are now three Nginx containers.</span></span>
+<span data-ttu-id="98383-149">Na koniec wykonaj zapytanie hello punktu końcowego platformy Marathon dla aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-149">Finally, query hello Marathon endpoint for applications.</span></span> <span data-ttu-id="98383-150">Widoczne będą trzy kontenery Nginx.</span><span class="sxs-lookup"><span data-stu-id="98383-150">You see that there are now three Nginx containers.</span></span>
 
 ```bash
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="equivalent-powershell-commands"></a><span data-ttu-id="bcc29-151">Równoważne polecenia programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="bcc29-151">Equivalent PowerShell commands</span></span>
-<span data-ttu-id="bcc29-152">Te same akcje można wykonać za pomocą poleceń programu PowerShell w systemie Windows.</span><span class="sxs-lookup"><span data-stu-id="bcc29-152">You can perform these same actions by using PowerShell commands on a Windows system.</span></span>
+## <a name="equivalent-powershell-commands"></a><span data-ttu-id="98383-151">Równoważne polecenia programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="98383-151">Equivalent PowerShell commands</span></span>
+<span data-ttu-id="98383-152">Te same akcje można wykonać za pomocą poleceń programu PowerShell w systemie Windows.</span><span class="sxs-lookup"><span data-stu-id="98383-152">You can perform these same actions by using PowerShell commands on a Windows system.</span></span>
 
-<span data-ttu-id="bcc29-153">Aby zebrać informacje dotyczące klastra DC/OS, takie jak nazwy i stan agenta, uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="bcc29-153">To gather information about the DC/OS cluster, such as agent names and agent status, run the following command:</span></span>
+<span data-ttu-id="98383-153">toogather informacje o klastrze DC/OS hello, takich jak nazwy i stan agenta, uruchom następujące polecenie hello:</span><span class="sxs-lookup"><span data-stu-id="98383-153">toogather information about hello DC/OS cluster, such as agent names and agent status, run hello following command:</span></span>
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-<span data-ttu-id="bcc29-154">Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie.</span><span class="sxs-lookup"><span data-stu-id="bcc29-154">You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment.</span></span> <span data-ttu-id="bcc29-155">W poniższym przykładzie wdrożono kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera.</span><span class="sxs-lookup"><span data-stu-id="bcc29-155">The following sample deploys the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.</span></span>
+<span data-ttu-id="98383-154">Kontenery w formacie Docker za pośrednictwem platformy Marathon wdrażania przy użyciu pliku JSON, który opisuje hello zamierzone wdrożenie.</span><span class="sxs-lookup"><span data-stu-id="98383-154">You deploy Docker-formatted containers through Marathon by using a JSON file that describes hello intended deployment.</span></span> <span data-ttu-id="98383-155">Witaj następującym przykładowym wdraża hello kontener Nginx, powiązania z portem 80 tooport agenta DC/OS hello 80 kontenera hello.</span><span class="sxs-lookup"><span data-stu-id="98383-155">hello following sample deploys hello Nginx container, binding port 80 of hello DC/OS agent tooport 80 of hello container.</span></span>
 
 ```json
 {
@@ -171,22 +171,22 @@ Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 }
 ```
 
-<span data-ttu-id="bcc29-156">Do wdrożenia kontenera formacie programu Docker, przechowuj plik JSON w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-156">To deploy a Docker-formatted container, store the JSON file in an accessible location.</span></span> <span data-ttu-id="bcc29-157">Następnie w celu wdrożenia kontenera uruchom następujące polecenie.</span><span class="sxs-lookup"><span data-stu-id="bcc29-157">Next, to deploy the container, run the following command.</span></span> <span data-ttu-id="bcc29-158">Określ ścieżkę do pliku JSON (`marathon.json` w tym przykładzie).</span><span class="sxs-lookup"><span data-stu-id="bcc29-158">Specify the path to the JSON file (`marathon.json` in this example).</span></span>
+<span data-ttu-id="98383-156">toodeploy formacie programu Docker kontenerze, przechowywania pliku JSON hello w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="98383-156">toodeploy a Docker-formatted container, store hello JSON file in an accessible location.</span></span> <span data-ttu-id="98383-157">Następnie toodeploy hello kontener, uruchom następujące polecenie hello.</span><span class="sxs-lookup"><span data-stu-id="98383-157">Next, toodeploy hello container, run hello following command.</span></span> <span data-ttu-id="98383-158">Określ plik JSON toohello ścieżka hello (`marathon.json` w tym przykładzie).</span><span class="sxs-lookup"><span data-stu-id="98383-158">Specify hello path toohello JSON file (`marathon.json` in this example).</span></span>
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-<span data-ttu-id="bcc29-159">Interfejs API platformy Marathon umożliwia także skalowanie w poziomie oraz skalowanie na zewnątrz wdrożeń aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-159">You can also use the Marathon API to scale out or scale in application deployments.</span></span> <span data-ttu-id="bcc29-160">W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-160">In the previous example, you deployed one instance of an application.</span></span> <span data-ttu-id="bcc29-161">Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-161">Let's scale this out to three instances of an application.</span></span> <span data-ttu-id="bcc29-162">W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="bcc29-162">To do so, create a JSON file by using the following JSON text, and store it in an accessible location.</span></span>
+<span data-ttu-id="98383-159">W przypadku wdrożeń aplikacji, można użyć tooscale interfejsu API platformy Marathon hello out lub skali.</span><span class="sxs-lookup"><span data-stu-id="98383-159">You can also use hello Marathon API tooscale out or scale in application deployments.</span></span> <span data-ttu-id="98383-160">W poprzednim przykładzie hello wdrożono jedno wystąpienie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-160">In hello previous example, you deployed one instance of an application.</span></span> <span data-ttu-id="98383-161">Przeprowadź skalowanie tę możliwość toothree wystąpienia aplikacji.</span><span class="sxs-lookup"><span data-stu-id="98383-161">Let's scale this out toothree instances of an application.</span></span> <span data-ttu-id="98383-162">toodo tak, Utwórz plik JSON przy użyciu powitania po tekst JSON i zapisze go w dostępnej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="98383-162">toodo so, create a JSON file by using hello following JSON text, and store it in an accessible location.</span></span>
 
 ```json
 { "instances": 3 }
 ```
 
-<span data-ttu-id="bcc29-163">Uruchom następujące polecenie, aby skalować aplikację w poziomie:</span><span class="sxs-lookup"><span data-stu-id="bcc29-163">Run the following command to scale out the application:</span></span>
+<span data-ttu-id="98383-163">Witaj uruchom następujące polecenie tooscale limit aplikacji hello:</span><span class="sxs-lookup"><span data-stu-id="98383-163">Run hello following command tooscale out hello application:</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="bcc29-164">Identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/ z dołączonym identyfikatorem aplikacji do skalowania.</span><span class="sxs-lookup"><span data-stu-id="bcc29-164">The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale.</span></span> <span data-ttu-id="bcc29-165">W przypadku użycia przedstawionej tutaj przykładowej aplikacji Nginx, identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/nginx.</span><span class="sxs-lookup"><span data-stu-id="bcc29-165">If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.</span></span>
+> <span data-ttu-id="98383-164">Witaj identyfikatora URI jest http://localhost/marathon/v2/apps/ następuje identyfikator hello tooscale aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="98383-164">hello URI is http://localhost/marathon/v2/apps/ followed by hello ID of hello application tooscale.</span></span> <span data-ttu-id="98383-165">Jeśli używasz hello Nginx przykładu dostępnego w tym miejscu, hello identyfikator URI będzie http://localhost/marathon/v2/apps/nginx.</span><span class="sxs-lookup"><span data-stu-id="98383-165">If you are using hello Nginx sample provided here, hello URI would be http://localhost/marathon/v2/apps/nginx.</span></span>
 > 
 > 
 
@@ -194,7 +194,7 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="bcc29-166">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="bcc29-166">Next steps</span></span>
-* [<span data-ttu-id="bcc29-167">Więcej informacji na temat punktów końcowych HTTP platformy Mesos</span><span class="sxs-lookup"><span data-stu-id="bcc29-167">Read more about the Mesos HTTP endpoints</span></span>](http://mesos.apache.org/documentation/latest/endpoints/)
-* [<span data-ttu-id="bcc29-168">Więcej informacji na temat interfejsu API REST platformy Marathon</span><span class="sxs-lookup"><span data-stu-id="bcc29-168">Read more about the Marathon REST API</span></span>](https://mesosphere.github.io/marathon/docs/rest-api.html)
+## <a name="next-steps"></a><span data-ttu-id="98383-166">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="98383-166">Next steps</span></span>
+* [<span data-ttu-id="98383-167">Więcej informacji na temat punktów końcowych HTTP platformy Mesos hello</span><span class="sxs-lookup"><span data-stu-id="98383-167">Read more about hello Mesos HTTP endpoints</span></span>](http://mesos.apache.org/documentation/latest/endpoints/)
+* [<span data-ttu-id="98383-168">Więcej informacji na temat hello interfejsu API REST platformy Marathon</span><span class="sxs-lookup"><span data-stu-id="98383-168">Read more about hello Marathon REST API</span></span>](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

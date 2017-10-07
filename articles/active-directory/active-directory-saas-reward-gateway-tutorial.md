@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracja usługi Azure Active Directory z bramą opłatą | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i bramą osób trzecich."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i bramą osób trzecich."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,104 +13,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: b1a468caa22159ad603dbec1ef530e7e0e24f96d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 30cdd538471b373468c3d990e4568ddb08081a76
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a><span data-ttu-id="27720-103">Samouczek: Integracja usługi Azure Active Directory z bramą osób trzecich</span><span class="sxs-lookup"><span data-stu-id="27720-103">Tutorial: Azure Active Directory integration with Reward Gateway</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a><span data-ttu-id="9abfc-103">Samouczek: Integracja usługi Azure Active Directory z bramą osób trzecich</span><span class="sxs-lookup"><span data-stu-id="9abfc-103">Tutorial: Azure Active Directory integration with Reward Gateway</span></span>
 
-<span data-ttu-id="27720-104">Z tego samouczka dowiesz integrowanie opłatą bramy z usługą Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="27720-104">In this tutorial, you learn how to integrate Reward Gateway with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="9abfc-104">Z tego samouczka, dowiesz się, jak toointegrate wynagrodzenie bramy w usłudze Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="9abfc-104">In this tutorial, you learn how toointegrate Reward Gateway with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="27720-105">Integrowanie opłatą bramy z usługą Azure AD zapewnia następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="27720-105">Integrating Reward Gateway with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="9abfc-105">Integrowanie opłatą bramy z usługą Azure AD zapewnia hello następujące korzyści:</span><span class="sxs-lookup"><span data-stu-id="9abfc-105">Integrating Reward Gateway with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="27720-106">Można kontrolować w usłudze Azure AD, który ma dostęp do bramy osób trzecich</span><span class="sxs-lookup"><span data-stu-id="27720-106">You can control in Azure AD who has access to Reward Gateway</span></span>
-- <span data-ttu-id="27720-107">Umożliwia użytkownikom automatycznie pobrać zalogowane do osób trzecich bramy (logowanie jednokrotne) z konta usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="27720-107">You can enable your users to automatically get signed-on to Reward Gateway (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="27720-108">Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure</span><span class="sxs-lookup"><span data-stu-id="27720-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="9abfc-106">Można kontrolować w usłudze Azure AD, kto ma dostęp do tooReward bramy</span><span class="sxs-lookup"><span data-stu-id="9abfc-106">You can control in Azure AD who has access tooReward Gateway</span></span>
+- <span data-ttu-id="9abfc-107">Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooReward bramy (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="9abfc-107">You can enable your users tooautomatically get signed-on tooReward Gateway (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="9abfc-108">Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure</span><span class="sxs-lookup"><span data-stu-id="9abfc-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="27720-109">Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="27720-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="9abfc-109">Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="9abfc-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="27720-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="27720-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="9abfc-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="9abfc-110">Prerequisites</span></span>
 
-<span data-ttu-id="27720-111">Aby skonfigurować integrację usługi Azure AD z bramą wynagrodzenie, potrzebne są następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="27720-111">To configure Azure AD integration with Reward Gateway, you need the following items:</span></span>
+<span data-ttu-id="9abfc-111">tooconfigure Integracja usługi Azure AD z bramą wynagrodzenie, należy hello następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="9abfc-111">tooconfigure Azure AD integration with Reward Gateway, you need hello following items:</span></span>
 
-- <span data-ttu-id="27720-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="27720-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="27720-113">Bramy opłatą logowanie jednokrotne włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="27720-113">A Reward Gateway single sign-on enabled subscription</span></span>
+- <span data-ttu-id="9abfc-112">Subskrypcję usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="9abfc-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="9abfc-113">Bramy opłatą logowanie jednokrotne włączone subskrypcji</span><span class="sxs-lookup"><span data-stu-id="9abfc-113">A Reward Gateway single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="27720-114">Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="27720-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="9abfc-114">tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="27720-115">Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="27720-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="9abfc-115">tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:</span><span class="sxs-lookup"><span data-stu-id="9abfc-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="27720-116">Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="27720-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="27720-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="27720-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="9abfc-116">Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.</span><span class="sxs-lookup"><span data-stu-id="9abfc-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="9abfc-117">Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="9abfc-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="27720-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="27720-118">Scenario description</span></span>
-<span data-ttu-id="27720-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="27720-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="27720-120">Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="27720-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="9abfc-118">Opis scenariusza</span><span class="sxs-lookup"><span data-stu-id="9abfc-118">Scenario description</span></span>
+<span data-ttu-id="9abfc-119">W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.</span><span class="sxs-lookup"><span data-stu-id="9abfc-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="9abfc-120">Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:</span><span class="sxs-lookup"><span data-stu-id="9abfc-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="27720-121">Dodawanie opłatą bramy z galerii</span><span class="sxs-lookup"><span data-stu-id="27720-121">Adding Reward Gateway from the gallery</span></span>
-2. <span data-ttu-id="27720-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="27720-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="9abfc-121">Dodawanie opłatą bramy z galerii hello</span><span class="sxs-lookup"><span data-stu-id="9abfc-121">Adding Reward Gateway from hello gallery</span></span>
+2. <span data-ttu-id="9abfc-122">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="9abfc-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-reward-gateway-from-the-gallery"></a><span data-ttu-id="27720-123">Dodawanie opłatą bramy z galerii</span><span class="sxs-lookup"><span data-stu-id="27720-123">Adding Reward Gateway from the gallery</span></span>
-<span data-ttu-id="27720-124">Aby skonfigurować integrację usługi Azure AD bramy osób trzecich, należy dodać opłatą bramy z galerii do listy zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="27720-124">To configure the integration of Reward Gateway into Azure AD, you need to add Reward Gateway from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-reward-gateway-from-hello-gallery"></a><span data-ttu-id="9abfc-123">Dodawanie opłatą bramy z galerii hello</span><span class="sxs-lookup"><span data-stu-id="9abfc-123">Adding Reward Gateway from hello gallery</span></span>
+<span data-ttu-id="9abfc-124">tooconfigure hello integracji opłatą bramy w usłudze Azure Active Directory, należy tooadd wynagrodzenie bramy z hello galerii tooyour listę zarządzanych aplikacji SaaS.</span><span class="sxs-lookup"><span data-stu-id="9abfc-124">tooconfigure hello integration of Reward Gateway into Azure AD, you need tooadd Reward Gateway from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="27720-125">**Aby dodać bramę opłatą z galerii, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="27720-125">**To add Reward Gateway from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="9abfc-125">**tooadd wynagrodzenie bramy z galerii hello wykonaj hello następujące kroki:**</span><span class="sxs-lookup"><span data-stu-id="9abfc-125">**tooadd Reward Gateway from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="27720-126">W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="27720-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="9abfc-126">W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="9abfc-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Usługa Active Directory][1]
 
-2. <span data-ttu-id="27720-128">Przejdź do **aplikacje dla przedsiębiorstw**.</span><span class="sxs-lookup"><span data-stu-id="27720-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="27720-129">Następnie przejdź do **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="27720-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="9abfc-128">Przejdź za**aplikacje dla przedsiębiorstw**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="9abfc-129">Następnie przejdź zbyt**wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-129">Then go too**All applications**.</span></span>
 
     ![Aplikacje][2]
     
-3. <span data-ttu-id="27720-131">Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="27720-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="9abfc-131">tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplikacje][3]
 
-4. <span data-ttu-id="27720-133">W polu wyszukiwania wpisz **bramy opłatą**.</span><span class="sxs-lookup"><span data-stu-id="27720-133">In the search box, type **Reward Gateway**.</span></span>
+4. <span data-ttu-id="9abfc-133">W polu wyszukiwania hello wpisz **bramy opłatą**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-133">In hello search box, type **Reward Gateway**.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_search.png)
 
-5. <span data-ttu-id="27720-135">W panelu wyników wybierz **bramy opłatą**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.</span><span class="sxs-lookup"><span data-stu-id="27720-135">In the results panel, select **Reward Gateway**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="9abfc-135">W panelu wyników hello, wybierz **wynagrodzenie bramy**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.</span><span class="sxs-lookup"><span data-stu-id="9abfc-135">In hello results panel, select **Reward Gateway**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="27720-137">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="27720-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="27720-138">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z bramą osób trzecich, na podstawie użytkownika testowego, nazywany "Britta Simona".</span><span class="sxs-lookup"><span data-stu-id="27720-138">In this section, you configure and test Azure AD single sign-on with Reward Gateway based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="9abfc-137">Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne</span><span class="sxs-lookup"><span data-stu-id="9abfc-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="9abfc-138">W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z bramą osób trzecich, na podstawie użytkownika testowego, nazywany "Britta Simona".</span><span class="sxs-lookup"><span data-stu-id="9abfc-138">In this section, you configure and test Azure AD single sign-on with Reward Gateway based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="27720-139">Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednikiem opłatą bramy jest dla użytkownika, w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="27720-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Reward Gateway is to a user in Azure AD.</span></span> <span data-ttu-id="27720-140">Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi opłatą bramy musi określone.</span><span class="sxs-lookup"><span data-stu-id="27720-140">In other words, a link relationship between an Azure AD user and the related user in Reward Gateway needs to be established.</span></span>
+<span data-ttu-id="9abfc-139">Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello opłatą bramy jest tooa użytkownika w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="9abfc-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Reward Gateway is tooa user in Azure AD.</span></span> <span data-ttu-id="9abfc-140">Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi opłatą bramy musi toobe ustanowione.</span><span class="sxs-lookup"><span data-stu-id="9abfc-140">In other words, a link relationship between an Azure AD user and hello related user in Reward Gateway needs toobe established.</span></span>
 
-<span data-ttu-id="27720-141">W polu Brama wynagrodzenie, przypisz wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącze.</span><span class="sxs-lookup"><span data-stu-id="27720-141">In Reward Gateway, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="9abfc-141">W polu Brama wynagrodzenie, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.</span><span class="sxs-lookup"><span data-stu-id="9abfc-141">In Reward Gateway, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="27720-142">Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z bramą osób trzecich, należy wykonać poniższe bloki konstrukcyjne:</span><span class="sxs-lookup"><span data-stu-id="27720-142">To configure and test Azure AD single sign-on with Reward Gateway, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="9abfc-142">tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z bramą wynagrodzenie, należy po bloków konstrukcyjnych hello toocomplete:</span><span class="sxs-lookup"><span data-stu-id="9abfc-142">tooconfigure and test Azure AD single sign-on with Reward Gateway, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="27720-143">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="27720-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="27720-144">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="27720-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="27720-145">**[Tworzenie użytkownika testowego bramy opłatą](#creating-a-reward-gateway-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta bramy wynagrodzenie, która jest połączona z usługi Azure AD reprezentację użytkownika.</span><span class="sxs-lookup"><span data-stu-id="27720-145">**[Creating a Reward Gateway test user](#creating-a-reward-gateway-test-user)** - to have a counterpart of Britta Simon in Reward Gateway that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="27720-146">**[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="27720-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="27720-147">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.</span><span class="sxs-lookup"><span data-stu-id="27720-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="9abfc-143">**[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.</span><span class="sxs-lookup"><span data-stu-id="9abfc-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="9abfc-144">**[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="9abfc-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="9abfc-145">**[Tworzenie użytkownika testowego bramy opłatą](#creating-a-reward-gateway-test-user)**  -toohave odpowiednikiem Simona Britta bramy osób trzecich, który jest połączony toohello usługi Azure AD reprezentację użytkownika.</span><span class="sxs-lookup"><span data-stu-id="9abfc-145">**[Creating a Reward Gateway test user](#creating-a-reward-gateway-test-user)** - toohave a counterpart of Britta Simon in Reward Gateway that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="9abfc-146">**[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="9abfc-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="9abfc-147">**[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.</span><span class="sxs-lookup"><span data-stu-id="9abfc-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="27720-148">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="27720-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="9abfc-148">Konfigurowanie usługi Azure AD rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="9abfc-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="27720-149">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="27720-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Reward Gateway application.</span></span>
+<span data-ttu-id="9abfc-149">W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w aplikacji bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="9abfc-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Reward Gateway application.</span></span>
 
-<span data-ttu-id="27720-150">**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z bramą wynagrodzenie, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="27720-150">**To configure Azure AD single sign-on with Reward Gateway, perform the following steps:**</span></span>
+<span data-ttu-id="9abfc-150">**tooconfigure usługi Azure AD rejestracji jednokrotnej z bramą wynagrodzenie, wykonaj hello następujące kroki:**</span><span class="sxs-lookup"><span data-stu-id="9abfc-150">**tooconfigure Azure AD single sign-on with Reward Gateway, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="27720-151">W portalu Azure na **bramy opłatą** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.</span><span class="sxs-lookup"><span data-stu-id="27720-151">In the Azure portal, on the **Reward Gateway** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="9abfc-151">W portalu Azure na powitania hello **bramy opłatą** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-151">In hello Azure portal, on hello **Reward Gateway** application integration page, click **Single sign-on**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. <span data-ttu-id="27720-153">Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.</span><span class="sxs-lookup"><span data-stu-id="27720-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="9abfc-153">Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.</span><span class="sxs-lookup"><span data-stu-id="9abfc-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_samlbase.png)
 
-3. <span data-ttu-id="27720-155">Na **domeny bramy opłatą i adres URL** sekcji, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="27720-155">On the **Reward Gateway Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="9abfc-155">Na powitania **domeny bramy opłatą i adres URL** sekcji, wykonaj następujące kroki hello:</span><span class="sxs-lookup"><span data-stu-id="9abfc-155">On hello **Reward Gateway Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
-    <span data-ttu-id="27720-157">a.</span><span class="sxs-lookup"><span data-stu-id="27720-157">a.</span></span> <span data-ttu-id="27720-158">W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:</span><span class="sxs-lookup"><span data-stu-id="27720-158">In the **Identifier** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="9abfc-157">a.</span><span class="sxs-lookup"><span data-stu-id="9abfc-157">a.</span></span> <span data-ttu-id="9abfc-158">W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:</span><span class="sxs-lookup"><span data-stu-id="9abfc-158">In hello **Identifier** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -118,7 +118,7 @@ ms.lasthandoff: 07/11/2017
     | `https://<companyname>.rewardgateway.co.nz/` |
     | `https://<companyname>.rewardgateway.com.au/` |
 
-    <span data-ttu-id="27720-159">b.</span><span class="sxs-lookup"><span data-stu-id="27720-159">b.</span></span> <span data-ttu-id="27720-160">W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:</span><span class="sxs-lookup"><span data-stu-id="27720-160">In the **Reply URL** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="9abfc-159">b.</span><span class="sxs-lookup"><span data-stu-id="9abfc-159">b.</span></span> <span data-ttu-id="9abfc-160">W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:</span><span class="sxs-lookup"><span data-stu-id="9abfc-160">In hello **Reply URL** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -127,97 +127,97 @@ ms.lasthandoff: 07/11/2017
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > <span data-ttu-id="27720-161">Wartości te nie są prawdziwe.</span><span class="sxs-lookup"><span data-stu-id="27720-161">These values are not real.</span></span> <span data-ttu-id="27720-162">Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości.</span><span class="sxs-lookup"><span data-stu-id="27720-162">Update these values with the actual Identifier and Reply URL.</span></span> <span data-ttu-id="27720-163">Skontaktuj się z [zespołem pomocy technicznej bramy opłatą](mailto:clientsupport@rewardgateway.com) uzyskać te wartości.</span><span class="sxs-lookup"><span data-stu-id="27720-163">Contact [Reward Gateway support team](mailto:clientsupport@rewardgateway.com) to get these values.</span></span>
+    > <span data-ttu-id="9abfc-161">Wartości te nie są prawdziwe.</span><span class="sxs-lookup"><span data-stu-id="9abfc-161">These values are not real.</span></span> <span data-ttu-id="9abfc-162">Witaj rzeczywisty identyfikator i odpowiedzi adresu URL, należy zaktualizować te wartości.</span><span class="sxs-lookup"><span data-stu-id="9abfc-162">Update these values with hello actual Identifier and Reply URL.</span></span> <span data-ttu-id="9abfc-163">Skontaktuj się z [zespołem pomocy technicznej bramy opłatą](mailto:clientsupport@rewardgateway.com) tooget tych wartości.</span><span class="sxs-lookup"><span data-stu-id="9abfc-163">Contact [Reward Gateway support team](mailto:clientsupport@rewardgateway.com) tooget these values.</span></span>
  
-4. <span data-ttu-id="27720-164">Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.</span><span class="sxs-lookup"><span data-stu-id="27720-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="9abfc-164">Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.</span><span class="sxs-lookup"><span data-stu-id="9abfc-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_certificate.png) 
 
-5. <span data-ttu-id="27720-166">Kliknij przycisk **zapisać** przycisku.</span><span class="sxs-lookup"><span data-stu-id="27720-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="9abfc-166">Kliknij przycisk **zapisać** przycisku.</span><span class="sxs-lookup"><span data-stu-id="9abfc-166">Click **Save** button.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="27720-168">Skonfigurować logowanie jednokrotne w **bramy opłatą** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej bramy osób trzecich](mailto:clientsupport@rewardgateway.com).</span><span class="sxs-lookup"><span data-stu-id="27720-168">To configure single sign-on on **Reward Gateway** side, you need to send the downloaded **Metadata XML** to [Reward Gateway support team](mailto:clientsupport@rewardgateway.com).</span></span> <span data-ttu-id="27720-169">To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.</span><span class="sxs-lookup"><span data-stu-id="27720-169">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+6. <span data-ttu-id="9abfc-168">tooconfigure rejestracji jednokrotnej w **wynagrodzenie bramy** strony, należy pobrać hello toosend **XML metadanych** zbyt[zespołem pomocy technicznej bramy opłatą](mailto:clientsupport@rewardgateway.com).</span><span class="sxs-lookup"><span data-stu-id="9abfc-168">tooconfigure single sign-on on **Reward Gateway** side, you need toosend hello downloaded **Metadata XML** too[Reward Gateway support team](mailto:clientsupport@rewardgateway.com).</span></span> <span data-ttu-id="9abfc-169">To ustawienie toohave hello prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one ustawić.</span><span class="sxs-lookup"><span data-stu-id="9abfc-169">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="27720-170">Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!</span><span class="sxs-lookup"><span data-stu-id="27720-170">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="27720-171">Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu.</span><span class="sxs-lookup"><span data-stu-id="27720-171">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="27720-172">Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="27720-172">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="9abfc-170">Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!</span><span class="sxs-lookup"><span data-stu-id="9abfc-170">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="9abfc-171">Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello.</span><span class="sxs-lookup"><span data-stu-id="9abfc-171">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="9abfc-172">Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="9abfc-172">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="27720-173">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="27720-173">Creating an Azure AD test user</span></span>
-<span data-ttu-id="27720-174">Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.</span><span class="sxs-lookup"><span data-stu-id="27720-174">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="9abfc-173">Tworzenie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="9abfc-173">Creating an Azure AD test user</span></span>
+<span data-ttu-id="9abfc-174">Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.</span><span class="sxs-lookup"><span data-stu-id="9abfc-174">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-<span data-ttu-id="27720-176">**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="27720-176">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="9abfc-176">**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**</span><span class="sxs-lookup"><span data-stu-id="9abfc-176">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="27720-177">W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="27720-177">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="9abfc-177">W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.</span><span class="sxs-lookup"><span data-stu-id="9abfc-177">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="27720-179">Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.</span><span class="sxs-lookup"><span data-stu-id="27720-179">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="9abfc-179">toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-179">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="27720-181">Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="27720-181">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="9abfc-181">Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-181">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="27720-183">Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="27720-183">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="9abfc-183">Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="9abfc-183">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-reward-gateway-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="27720-185">a.</span><span class="sxs-lookup"><span data-stu-id="27720-185">a.</span></span> <span data-ttu-id="27720-186">W **nazwa** pole tekstowe, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="27720-186">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="9abfc-185">a.</span><span class="sxs-lookup"><span data-stu-id="9abfc-185">a.</span></span> <span data-ttu-id="9abfc-186">W hello **nazwa** pole tekstowe, typ **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-186">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="27720-187">b.</span><span class="sxs-lookup"><span data-stu-id="27720-187">b.</span></span> <span data-ttu-id="27720-188">W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="27720-188">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="9abfc-187">b.</span><span class="sxs-lookup"><span data-stu-id="9abfc-187">b.</span></span> <span data-ttu-id="9abfc-188">W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="9abfc-188">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="27720-189">c.</span><span class="sxs-lookup"><span data-stu-id="27720-189">c.</span></span> <span data-ttu-id="27720-190">Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.</span><span class="sxs-lookup"><span data-stu-id="27720-190">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="9abfc-189">c.</span><span class="sxs-lookup"><span data-stu-id="9abfc-189">c.</span></span> <span data-ttu-id="9abfc-190">Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-190">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="27720-191">d.</span><span class="sxs-lookup"><span data-stu-id="27720-191">d.</span></span> <span data-ttu-id="27720-192">Kliknij przycisk **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="27720-192">Click **Create**.</span></span>
+    <span data-ttu-id="9abfc-191">d.</span><span class="sxs-lookup"><span data-stu-id="9abfc-191">d.</span></span> <span data-ttu-id="9abfc-192">Kliknij przycisk **Utwórz**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-192">Click **Create**.</span></span>
  
-### <a name="creating-a-reward-gateway-test-user"></a><span data-ttu-id="27720-193">Tworzenie użytkownika testowego bramy osób trzecich</span><span class="sxs-lookup"><span data-stu-id="27720-193">Creating a Reward Gateway test user</span></span>
+### <a name="creating-a-reward-gateway-test-user"></a><span data-ttu-id="9abfc-193">Tworzenie użytkownika testowego bramy osób trzecich</span><span class="sxs-lookup"><span data-stu-id="9abfc-193">Creating a Reward Gateway test user</span></span>
 
-<span data-ttu-id="27720-194">W tej sekcji utworzysz użytkownika o nazwie Simona Britta w bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="27720-194">In this section, you create a user called Britta Simon in Reward Gateway.</span></span> <span data-ttu-id="27720-195">Praca z bramą opłatą [zespołu obsługi](mailto:clientsupport@rewardgateway.com) Aby dodać użytkowników na platformie bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="27720-195">Work with Reward Gateway [support team](mailto:clientsupport@rewardgateway.com) to add the users in the Reward Gateway platform.</span></span>
+<span data-ttu-id="9abfc-194">W tej sekcji utworzysz użytkownika o nazwie Simona Britta w bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="9abfc-194">In this section, you create a user called Britta Simon in Reward Gateway.</span></span> <span data-ttu-id="9abfc-195">Praca z bramą osób trzecich [zespołu obsługi](mailto:clientsupport@rewardgateway.com) użytkowników hello tooadd hello bramy opłatą platformy.</span><span class="sxs-lookup"><span data-stu-id="9abfc-195">Work with Reward Gateway [support team](mailto:clientsupport@rewardgateway.com) tooadd hello users in hello Reward Gateway platform.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="27720-196">Przypisanie użytkownika testowego usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="27720-196">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="9abfc-196">Przypisanie użytkownika testowego hello Azure AD</span><span class="sxs-lookup"><span data-stu-id="9abfc-196">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="27720-197">W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do bramy osób trzecich.</span><span class="sxs-lookup"><span data-stu-id="27720-197">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Reward Gateway.</span></span>
+<span data-ttu-id="9abfc-197">W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooReward bramy.</span><span class="sxs-lookup"><span data-stu-id="9abfc-197">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooReward Gateway.</span></span>
 
 ![Przypisz użytkownika][200] 
 
-<span data-ttu-id="27720-199">**Aby przypisać Simona Britta bramy wynagrodzenie, wykonaj następujące czynności:**</span><span class="sxs-lookup"><span data-stu-id="27720-199">**To assign Britta Simon to Reward Gateway, perform the following steps:**</span></span>
+<span data-ttu-id="9abfc-199">**tooassign tooReward Simona Britta bramy, należy wykonać hello następujące kroki:**</span><span class="sxs-lookup"><span data-stu-id="9abfc-199">**tooassign Britta Simon tooReward Gateway, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="27720-200">W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="27720-200">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="9abfc-200">W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-200">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Przypisz użytkownika][201] 
 
-2. <span data-ttu-id="27720-202">Na liście aplikacji zaznacz **bramy opłatą**.</span><span class="sxs-lookup"><span data-stu-id="27720-202">In the applications list, select **Reward Gateway**.</span></span>
+2. <span data-ttu-id="9abfc-202">Z listy aplikacji hello wybierz **bramy opłatą**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-202">In hello applications list, select **Reward Gateway**.</span></span>
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_app.png) 
 
-3. <span data-ttu-id="27720-204">W menu po lewej stronie kliknij **użytkowników i grup**.</span><span class="sxs-lookup"><span data-stu-id="27720-204">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="9abfc-204">W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.</span><span class="sxs-lookup"><span data-stu-id="9abfc-204">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Przypisz użytkownika][202] 
 
-4. <span data-ttu-id="27720-206">Kliknij przycisk **Dodaj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="27720-206">Click **Add** button.</span></span> <span data-ttu-id="27720-207">Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="27720-207">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="9abfc-206">Kliknij przycisk **Dodaj** przycisku.</span><span class="sxs-lookup"><span data-stu-id="9abfc-206">Click **Add** button.</span></span> <span data-ttu-id="9abfc-207">Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-207">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Przypisz użytkownika][203]
 
-5. <span data-ttu-id="27720-209">Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.</span><span class="sxs-lookup"><span data-stu-id="27720-209">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="9abfc-209">Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.</span><span class="sxs-lookup"><span data-stu-id="9abfc-209">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="27720-210">Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="27720-210">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="9abfc-210">Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-210">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="27720-211">Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="27720-211">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="9abfc-211">Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="9abfc-211">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="27720-212">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="27720-212">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="9abfc-212">Testowanie rejestracji jednokrotnej</span><span class="sxs-lookup"><span data-stu-id="9abfc-212">Testing single sign-on</span></span>
 
-<span data-ttu-id="27720-213">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="27720-213">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="9abfc-213">W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.</span><span class="sxs-lookup"><span data-stu-id="9abfc-213">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="27720-214">Po kliknięciu kafelka opłatą bramy w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do osób trzecich bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="27720-214">When you click the Reward Gateway tile in the Access Panel, you should get automatically signed-on to your Reward Gateway application.</span></span>
+<span data-ttu-id="9abfc-214">Po kliknięciu kafelka bramy opłatą hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour wynagrodzenie bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9abfc-214">When you click hello Reward Gateway tile in hello Access Panel, you should get automatically signed-on tooyour Reward Gateway application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="27720-215">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="27720-215">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="9abfc-215">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="9abfc-215">Additional resources</span></span>
 
-* [<span data-ttu-id="27720-216">Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="27720-216">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="27720-217">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="27720-217">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="9abfc-216">Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="9abfc-216">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="9abfc-217">Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="9abfc-217">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

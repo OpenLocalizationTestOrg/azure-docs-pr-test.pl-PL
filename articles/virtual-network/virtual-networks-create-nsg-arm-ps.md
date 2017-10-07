@@ -1,6 +1,6 @@
 ---
-title: "Utwórz grupy zabezpieczeń sieci - programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć i wdrożyć przy użyciu programu PowerShell grup zabezpieczeń sieci."
+title: "aaaCreate sieciowej grupy zabezpieczeń - programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate i wdrażanie grup zabezpieczeń sieci przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,29 +16,29 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c8db773febb163d9cb010d23f2913b5ebe0fa94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-network-security-groups-using-powershell"></a><span data-ttu-id="ee7bb-103">Tworzenie sieci za pomocą programu PowerShell grup zabezpieczeń</span><span class="sxs-lookup"><span data-stu-id="ee7bb-103">Create network security groups using PowerShell</span></span>
+# <a name="create-network-security-groups-using-powershell"></a><span data-ttu-id="29cc3-103">Tworzenie sieci za pomocą programu PowerShell grup zabezpieczeń</span><span class="sxs-lookup"><span data-stu-id="29cc3-103">Create network security groups using PowerShell</span></span>
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-<span data-ttu-id="ee7bb-104">Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-104">Azure has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="ee7bb-105">Firma Microsoft zaleca tworzenie zasobów za pomocą modelu wdrożenia usługi Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-105">Microsoft recommends creating resources through the Resource Manager deployment model.</span></span> <span data-ttu-id="ee7bb-106">Aby dowiedzieć się więcej o różnicach między dwoma modelami, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informacje na temat modeli wdrażania platformy Azure).</span><span class="sxs-lookup"><span data-stu-id="ee7bb-106">To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.</span></span> <span data-ttu-id="ee7bb-107">W tym artykule opisano model wdrażania usługi Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-107">This article covers the Resource Manager deployment model.</span></span> <span data-ttu-id="ee7bb-108">Możesz również [tworzenia grup NSG w klasycznym modelu wdrażania](virtual-networks-create-nsg-classic-ps.md).</span><span class="sxs-lookup"><span data-stu-id="ee7bb-108">You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).</span></span>
+<span data-ttu-id="29cc3-104">Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna.</span><span class="sxs-lookup"><span data-stu-id="29cc3-104">Azure has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="29cc3-105">Firma Microsoft zaleca utworzenie zasobów za pośrednictwem modelu wdrażania usługi Resource Manager hello.</span><span class="sxs-lookup"><span data-stu-id="29cc3-105">Microsoft recommends creating resources through hello Resource Manager deployment model.</span></span> <span data-ttu-id="29cc3-106">więcej informacji o toolearn hello różnice między modelami hello dwa odczytu hello [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md) artykułu.</span><span class="sxs-lookup"><span data-stu-id="29cc3-106">toolearn more about hello differences between hello two models, read hello [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.</span></span> <span data-ttu-id="29cc3-107">W tym artykule omówiono modelu wdrażania usługi Resource Manager hello.</span><span class="sxs-lookup"><span data-stu-id="29cc3-107">This article covers hello Resource Manager deployment model.</span></span> <span data-ttu-id="29cc3-108">Możesz również [tworzenia grup NSG w hello klasycznego modelu wdrażania](virtual-networks-create-nsg-classic-ps.md).</span><span class="sxs-lookup"><span data-stu-id="29cc3-108">You can also [create NSGs in hello classic deployment model](virtual-networks-create-nsg-classic-ps.md).</span></span>
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-<span data-ttu-id="ee7bb-109">W powyższym scenariuszu na podstawie próbek PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-109">The sample PowerShell commands below expect a simple environment already created based on the scenario above.</span></span> <span data-ttu-id="ee7bb-110">Jeśli chcesz uruchomić polecenia wyświetlaną w tym dokumencie, wdrażając najpierw utworzyć środowisko testowe [ten szablon](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), kliknij przycisk **wdrażanie na platformie Azure**, Zastąp domyślne wartości parametrów, jeśli to konieczne i postępuj zgodnie z instrukcjami w portalu.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-110">If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.</span></span>
+<span data-ttu-id="29cc3-109">w powyższym scenariuszu hello na podstawie próbek Hello PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone.</span><span class="sxs-lookup"><span data-stu-id="29cc3-109">hello sample PowerShell commands below expect a simple environment already created based on hello scenario above.</span></span> <span data-ttu-id="29cc3-110">Jeśli chcesz korzystać z poleceń hello toorun wyświetlaną w tym dokumencie, wdrażając najpierw utworzyć środowisko testowe hello [ten szablon](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), kliknij przycisk **wdrażanie tooAzure**, Zastąp hello domyślne wartości parametrów Jeśli to konieczne i wykonaj instrukcje hello hello portalu.</span><span class="sxs-lookup"><span data-stu-id="29cc3-110">If you want toorun hello commands as they are displayed in this document, first build hello test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy tooAzure**, replace hello default parameter values if necessary, and follow hello instructions in hello portal.</span></span>
 
-## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a><span data-ttu-id="ee7bb-111">Jak utworzyć grupę NSG dla podsieci frontonu</span><span class="sxs-lookup"><span data-stu-id="ee7bb-111">How to create the NSG for the front end subnet</span></span>
-<span data-ttu-id="ee7bb-112">Aby utworzyć grupy NSG o nazwie *frontonu NSG* oparte na scenariuszu, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-112">To create an NSG named *NSG-FrontEnd* based on the scenario, complete the following steps:</span></span>
+## <a name="how-toocreate-hello-nsg-for-hello-front-end-subnet"></a><span data-ttu-id="29cc3-111">Jak toocreate hello NSG dla podsieci frontonu hello</span><span class="sxs-lookup"><span data-stu-id="29cc3-111">How toocreate hello NSG for hello front end subnet</span></span>
+<span data-ttu-id="29cc3-112">toocreate o nazwie grupy NSG *frontonu NSG* oparte na powitania scenariusz, wykonać hello następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="29cc3-112">toocreate an NSG named *NSG-FrontEnd* based on hello scenario, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="ee7bb-113">Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-113">If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.</span></span>
-2. <span data-ttu-id="ee7bb-114">Utwórz regułę zabezpieczeń, umożliwiając dostęp z Internetu do portu 3389.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-114">Create a security rule allowing access from the Internet to port 3389.</span></span>
+1. <span data-ttu-id="29cc3-113">Jeśli nie znasz programu Azure PowerShell, zobacz [jak tooInstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i wykonaj instrukcje hello wszystkich toohello sposób hello kończyć toosign na platformie Azure i wyboru subskrypcji.</span><span class="sxs-lookup"><span data-stu-id="29cc3-113">If you have never used Azure PowerShell, see [How tooInstall and Configure Azure PowerShell](/powershell/azure/overview) and follow hello instructions all hello way toohello end toosign into Azure and select your subscription.</span></span>
+2. <span data-ttu-id="29cc3-114">Utwórz regułę zabezpieczeń zezwalającą na dostęp z hello Internet tooport 3389.</span><span class="sxs-lookup"><span data-stu-id="29cc3-114">Create a security rule allowing access from hello Internet tooport 3389.</span></span>
 
     ```powershell
     $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/11/2017
     -DestinationAddressPrefix * -DestinationPortRange 3389
     ```
 
-3. <span data-ttu-id="ee7bb-115">Utwórz regułę zabezpieczeń, umożliwiając dostęp z Internetu do portu 80.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-115">Create a security rule allowing access from the Internet to port 80.</span></span>
+3. <span data-ttu-id="29cc3-115">Utwórz regułę zabezpieczeń zezwalającą na dostęp z hello Internet tooport 80.</span><span class="sxs-lookup"><span data-stu-id="29cc3-115">Create a security rule allowing access from hello Internet tooport 80.</span></span>
 
     ```powershell
     $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
@@ -56,20 +56,20 @@ ms.lasthandoff: 07/11/2017
     -DestinationPortRange 80
     ```
 
-4. <span data-ttu-id="ee7bb-116">Dodaj reguły utworzone powyżej, aby nowa grupa NSG o nazwie **frontonu NSG**.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-116">Add the rules created above to a new NSG named **NSG-FrontEnd**.</span></span>
+4. <span data-ttu-id="29cc3-116">Dodawanie reguł hello utworzone powyżej tooa o nazwie Nowa grupa NSG **frontonu NSG**.</span><span class="sxs-lookup"><span data-stu-id="29cc3-116">Add hello rules created above tooa new NSG named **NSG-FrontEnd**.</span></span>
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
     -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
     ```
 
-5. <span data-ttu-id="ee7bb-117">Sprawdź reguły utworzone w grupie NSG, wpisując następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-117">Check the rules created in the NSG by typing the following:</span></span>
+5. <span data-ttu-id="29cc3-117">Sprawdź zasady hello utworzone w hello NSG, wpisując następujące hello:</span><span class="sxs-lookup"><span data-stu-id="29cc3-117">Check hello rules created in hello NSG by typing hello following:</span></span>
 
     ```powershell
     $nsg
     ```
    
-    <span data-ttu-id="ee7bb-118">Dane wyjściowe przedstawiający tylko reguły zabezpieczeń:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-118">Output showing just the security rules:</span></span>
+    <span data-ttu-id="29cc3-118">Dane wyjściowe reguły zabezpieczeń tylko hello przedstawiający:</span><span class="sxs-lookup"><span data-stu-id="29cc3-118">Output showing just hello security rules:</span></span>
    
         SecurityRules        : [
                                  {
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
                                    "ProvisioningState": "Succeeded"
                                  }
                                ]
-6. <span data-ttu-id="ee7bb-119">Kojarzenie grupy NSG utworzone powyżej do *frontonu* podsieci.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-119">Associate the NSG created above to the *FrontEnd* subnet.</span></span>
+6. <span data-ttu-id="29cc3-119">Skojarz hello NSG utworzone powyżej toohello *frontonu* podsieci.</span><span class="sxs-lookup"><span data-stu-id="29cc3-119">Associate hello NSG created above toohello *FrontEnd* subnet.</span></span>
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/11/2017
     -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
     ```
 
-    <span data-ttu-id="ee7bb-120">Dane wyjściowe są wyświetlane tylko *frontonu* ustawienia podsieci, zwróć uwagę, wartość **grupy NetworkSecurityGroup** właściwości:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-120">Output showing only the *FrontEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:</span></span>
+    <span data-ttu-id="29cc3-120">Dane wyjściowe przedstawiający tylko hello *frontonu* ustawienia podsieci, wartość hello powiadomienia hello **grupy NetworkSecurityGroup** właściwości:</span><span class="sxs-lookup"><span data-stu-id="29cc3-120">Output showing only hello *FrontEnd* subnet settings, notice hello value for hello **NetworkSecurityGroup** property:</span></span>
    
                     Subnets           : [
                                           {
@@ -135,25 +135,25 @@ ms.lasthandoff: 07/11/2017
                                           }
    
    > [!WARNING]
-   > <span data-ttu-id="ee7bb-121">Dane wyjściowe po wprowadzeniu powyższego polecenia zawiera zawartość dla obiekt konfiguracji sieci wirtualnej, który istnieje tylko na komputerze, na którym uruchomiony jest program PowerShell.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-121">The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell.</span></span> <span data-ttu-id="ee7bb-122">Musisz uruchomić `Set-AzureRmVirtualNetwork` polecenia cmdlet, aby zapisać te ustawienia do platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-122">You need to run the `Set-AzureRmVirtualNetwork` cmdlet to save these settings to Azure.</span></span>
+   > <span data-ttu-id="29cc3-121">Witaj dane wyjściowe polecenia hello powyżej przedstawiono hello zawartości dla obiekt konfiguracji sieci wirtualnej hello, który istnieje tylko na komputerze hello, w którym uruchomiony jest program PowerShell.</span><span class="sxs-lookup"><span data-stu-id="29cc3-121">hello output for hello command above shows hello content for hello virtual network configuration object, which only exists on hello computer where you are running PowerShell.</span></span> <span data-ttu-id="29cc3-122">Należy toorun hello `Set-AzureRmVirtualNetwork` toosave polecenia cmdlet tooAzure tych ustawień.</span><span class="sxs-lookup"><span data-stu-id="29cc3-122">You need toorun hello `Set-AzureRmVirtualNetwork` cmdlet toosave these settings tooAzure.</span></span>
    > 
    > 
-7. <span data-ttu-id="ee7bb-123">Zapisz ustawienia w nowej sieci wirtualnej Azure.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-123">Save the new VNet settings to Azure.</span></span>
+7. <span data-ttu-id="29cc3-123">Zapisz hello nowe tooAzure ustawień sieci wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="29cc3-123">Save hello new VNet settings tooAzure.</span></span>
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-    <span data-ttu-id="ee7bb-124">Wyświetlanie tylko części NSG dane wyjściowe:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-124">Output showing just the NSG portion:</span></span>
+    <span data-ttu-id="29cc3-124">Dane wyjściowe, pokazujący tylko części NSG hello:</span><span class="sxs-lookup"><span data-stu-id="29cc3-124">Output showing just hello NSG portion:</span></span>
    
         "NetworkSecurityGroup": {
           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
         }
 
-## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a><span data-ttu-id="ee7bb-125">Jak utworzyć grupę NSG podsieci wewnętrznej</span><span class="sxs-lookup"><span data-stu-id="ee7bb-125">How to create the NSG for the back-end subnet</span></span>
-<span data-ttu-id="ee7bb-126">Aby utworzyć grupy NSG o nazwie *zaplecza NSG* oparte na powyższym scenariuszu, wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-126">To create an NSG named *NSG-BackEnd* based on the scenario above, complete the following steps:</span></span>
+## <a name="how-toocreate-hello-nsg-for-hello-back-end-subnet"></a><span data-ttu-id="29cc3-125">Jak toocreate hello NSG dla podsieci wewnętrznej hello</span><span class="sxs-lookup"><span data-stu-id="29cc3-125">How toocreate hello NSG for hello back-end subnet</span></span>
+<span data-ttu-id="29cc3-126">grupy NSG o nazwie toocreate *zaplecza NSG* oparte na powyższym scenariuszu hello, ukończyć powitalnych następujące kroki:</span><span class="sxs-lookup"><span data-stu-id="29cc3-126">toocreate an NSG named *NSG-BackEnd* based on hello scenario above, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="ee7bb-127">Utwórz regułę zabezpieczeń zezwalającą na dostęp z podsieci frontonu do portu 1433 (domyślny port używany przez program SQL Server).</span><span class="sxs-lookup"><span data-stu-id="ee7bb-127">Create a security rule allowing access from the front-end subnet to port 1433 (default port used by SQL Server).</span></span>
+1. <span data-ttu-id="29cc3-127">Utwórz regułę zabezpieczeń zezwalającą na dostęp z hello podsieci frontonu tooport 1433 (domyślny port używany przez program SQL Server).</span><span class="sxs-lookup"><span data-stu-id="29cc3-127">Create a security rule allowing access from hello front-end subnet tooport 1433 (default port used by SQL Server).</span></span>
 
     ```powershell
     $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule `
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/11/2017
     -DestinationAddressPrefix * -DestinationPortRange 1433
     ```
 
-2. <span data-ttu-id="ee7bb-128">Utwórz regułę zabezpieczeń blokuje dostęp do Internetu.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-128">Create a security rule blocking access to the Internet.</span></span>
+2. <span data-ttu-id="29cc3-128">Utwórz regułę zabezpieczeń blokuje toohello dostęp do Internetu.</span><span class="sxs-lookup"><span data-stu-id="29cc3-128">Create a security rule blocking access toohello Internet.</span></span>
 
     ```powershell
     $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule `
@@ -173,7 +173,7 @@ ms.lasthandoff: 07/11/2017
     -DestinationAddressPrefix Internet -DestinationPortRange *
     ```
 
-3. <span data-ttu-id="ee7bb-129">Dodaj reguły utworzone powyżej, aby nowa grupa NSG o nazwie **zaplecza NSG**.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-129">Add the rules created above to a new NSG named **NSG-BackEnd**.</span></span>
+3. <span data-ttu-id="29cc3-129">Dodawanie reguł hello utworzone powyżej tooa o nazwie Nowa grupa NSG **zaplecza NSG**.</span><span class="sxs-lookup"><span data-stu-id="29cc3-129">Add hello rules created above tooa new NSG named **NSG-BackEnd**.</span></span>
 
     ```powershell
     $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG `
@@ -181,14 +181,14 @@ ms.lasthandoff: 07/11/2017
     -SecurityRules $rule1,$rule2
     ```
 
-4. <span data-ttu-id="ee7bb-130">Kojarzenie grupy NSG utworzone powyżej do *zaplecza* podsieci.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-130">Associate the NSG created above to the *BackEnd* subnet.</span></span>
+4. <span data-ttu-id="29cc3-130">Skojarz hello NSG utworzone powyżej toohello *zaplecza* podsieci.</span><span class="sxs-lookup"><span data-stu-id="29cc3-130">Associate hello NSG created above toohello *BackEnd* subnet.</span></span>
 
     ```powershell
     Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
     -AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
     ```
 
-    <span data-ttu-id="ee7bb-131">Dane wyjściowe są wyświetlane tylko *zaplecza* ustawienia podsieci, zwróć uwagę, wartość **grupy NetworkSecurityGroup** właściwości:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-131">Output showing only the *BackEnd* subnet settings, notice the value for the **NetworkSecurityGroup** property:</span></span>
+    <span data-ttu-id="29cc3-131">Dane wyjściowe przedstawiający tylko hello *wewnętrznej bazy danych* ustawienia podsieci, wartość hello powiadomienia hello **grupy NetworkSecurityGroup** właściwości:</span><span class="sxs-lookup"><span data-stu-id="29cc3-131">Output showing only hello *BackEnd* subnet settings, notice hello value for hello **NetworkSecurityGroup** property:</span></span>
    
         Subnets           : [
                       {
@@ -203,16 +203,16 @@ ms.lasthandoff: 07/11/2017
                         "RouteTable": null,
                         "ProvisioningState": "Succeeded"
                       }
-5. <span data-ttu-id="ee7bb-132">Zapisz ustawienia w nowej sieci wirtualnej Azure.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-132">Save the new VNet settings to Azure.</span></span>
+5. <span data-ttu-id="29cc3-132">Zapisz hello nowe tooAzure ustawień sieci wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="29cc3-132">Save hello new VNet settings tooAzure.</span></span>
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-## <a name="how-to-remove-an-nsg"></a><span data-ttu-id="ee7bb-133">Jak usunąć grupy NSG</span><span class="sxs-lookup"><span data-stu-id="ee7bb-133">How to remove an NSG</span></span>
-<span data-ttu-id="ee7bb-134">Aby usunąć istniejące grupy NSG, nazywany *frontonu NSG* w takim przypadku należy wykonać kroki opisane poniżej:</span><span class="sxs-lookup"><span data-stu-id="ee7bb-134">To delete an existing NSG, called *NSG-Frontend* in this case, follow the step below:</span></span>
+## <a name="how-tooremove-an-nsg"></a><span data-ttu-id="29cc3-133">Jak tooremove grupy NSG</span><span class="sxs-lookup"><span data-stu-id="29cc3-133">How tooremove an NSG</span></span>
+<span data-ttu-id="29cc3-134">toodelete istniejącej grupy NSG, nazywany *frontonu NSG* w takim przypadku należy wykonać krok hello poniżej:</span><span class="sxs-lookup"><span data-stu-id="29cc3-134">toodelete an existing NSG, called *NSG-Frontend* in this case, follow hello step below:</span></span>
 
-<span data-ttu-id="ee7bb-135">Uruchom **AzureRmNetworkSecurityGroup Usuń** pokazano poniżej i należy uwzględnić grupa NSG jest w grupie zasobów.</span><span class="sxs-lookup"><span data-stu-id="ee7bb-135">Run the **Remove-AzureRmNetworkSecurityGroup** shown below and be sure to include the resource group the NSG is in.</span></span>
+<span data-ttu-id="29cc3-135">Uruchom hello **AzureRmNetworkSecurityGroup Usuń** pokazano poniżej i można się tooinclude hello zasobów grupy hello grupa NSG jest.</span><span class="sxs-lookup"><span data-stu-id="29cc3-135">Run hello **Remove-AzureRmNetworkSecurityGroup** shown below and be sure tooinclude hello resource group hello NSG is in.</span></span>
 
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
