@@ -1,6 +1,6 @@
 ---
-title: "Zapytania na danych z przez środowisko Insights serii czasu Azure przy użyciu języka C# | Dokumentacja firmy Microsoft"
-description: "Ten samouczek obejmuje jak wykonać zapytanie dotyczące danych ze środowiska Insights serii czasu za pomocą C# z przykładowego kodu."
+title: "dane aaaQuery z hello Azure czas serii Insights środowisko przy użyciu języka C# | Dokumentacja firmy Microsoft"
+description: "W tym samouczku opisano, jak dane tooquery hello środowiska Insights serii czasu za pomocą C# z przykładowy kod."
 keywords: 
 services: tsi
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: ankryach
-ms.openlocfilehash: 1444b517664355e8e240ea181d707c464d7ec5bb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0ddec36b7f275f6de279948193e45f045d30b644
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a><span data-ttu-id="ebb9a-103">Pobiera dane ze środowiska Azure czas serii Insights przy użyciu języka C#</span><span class="sxs-lookup"><span data-stu-id="ebb9a-103">Query data from the Azure Time Series Insights environment using C#</span></span>
+# <a name="query-data-from-hello-azure-time-series-insights-environment-using-c"></a><span data-ttu-id="f5cc5-103">Zapytania na danych z hello Azure czas serii Insights środowiska przy użyciu języka C#</span><span class="sxs-lookup"><span data-stu-id="f5cc5-103">Query data from hello Azure Time Series Insights environment using C#</span></span>
 
-<span data-ttu-id="ebb9a-104">C# przykładzie pokazano sposób wysyłania kwerend danych ze środowiska Azure czas serii Insights.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-104">This C# example demonstrates how to query data from the Azure Time Series Insights environment.</span></span>
-<span data-ttu-id="ebb9a-105">Przykładowy kod zawiera kilka podstawowych przykładów użycia interfejsu API zapytań:</span><span class="sxs-lookup"><span data-stu-id="ebb9a-105">The sample shows several basic examples of Query API usage:</span></span>
-1. <span data-ttu-id="ebb9a-106">Krok przygotowania należy uzyskać token dostępu za pośrednictwem interfejsu API usługi Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-106">As a preparation step, acquire the access token through the Azure Active Directory API.</span></span> <span data-ttu-id="ebb9a-107">Przekazany token w `Authorization` nagłówku każdego żądania interfejsu API zapytania.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-107">Pass this token in the `Authorization` header of every Query API request.</span></span> <span data-ttu-id="ebb9a-108">Do konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md).</span><span class="sxs-lookup"><span data-stu-id="ebb9a-108">For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).</span></span> <span data-ttu-id="ebb9a-109">Ponadto upewnij się, że wszystkie stałe zdefiniowane na początku próbki są poprawnie ustawione.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-109">Also, ensure all the constants defined at the beginning of the sample are correctly set.</span></span>
-2. <span data-ttu-id="ebb9a-110">Uzyskać listy środowisk, w których użytkownik ma dostęp.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-110">The list of environments that the user has access to is obtained.</span></span> <span data-ttu-id="ebb9a-111">Jeden z tych środowisk zostaje pobrana jako nazwa środowiska zainteresowań i dalsze danych jest poddawany kwerendzie dla tego środowiska.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-111">One of the environments is picked up as the environment of interest, and further data is queried for this environment.</span></span>
-3. <span data-ttu-id="ebb9a-112">Przykładem żądania HTTPS może być żądanie danych dostępności dla odpowiedniego środowiska.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-112">As an example of HTTPS request, availability data is requested for the environment of interest.</span></span>
-4. <span data-ttu-id="ebb9a-113">Przykładem żądania gniazda sieci Web może być żądanie danych agregowania zdarzeń dla odpowiedniego środowiska.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-113">As an example of web socket request, event aggregates data is requested for the environment of interest.</span></span> <span data-ttu-id="ebb9a-114">Żądanie danych obejmuje cały zakres czasu dostępności.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-114">Data is requested for the whole availability time range.</span></span>
+<span data-ttu-id="f5cc5-104">C# przykładzie pokazano, jak dane tooquery z hello Azure czas serii Insights środowiska.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-104">This C# example demonstrates how tooquery data from hello Azure Time Series Insights environment.</span></span>
+<span data-ttu-id="f5cc5-105">przykład Witaj przedstawiono kilka przykładów podstawowe użycie zapytania API:</span><span class="sxs-lookup"><span data-stu-id="f5cc5-105">hello sample shows several basic examples of Query API usage:</span></span>
+1. <span data-ttu-id="f5cc5-106">Krok przygotowania uzyskać token dostępu hello za pośrednictwem hello interfejsu API usługi Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-106">As a preparation step, acquire hello access token through hello Azure Active Directory API.</span></span> <span data-ttu-id="f5cc5-107">Przekazany token w hello `Authorization` nagłówku każdego żądania interfejsu API zapytania.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-107">Pass this token in hello `Authorization` header of every Query API request.</span></span> <span data-ttu-id="f5cc5-108">Do konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md).</span><span class="sxs-lookup"><span data-stu-id="f5cc5-108">For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).</span></span> <span data-ttu-id="f5cc5-109">Ponadto upewnij się, że wszystkich stałych hello zdefiniowana na początku hello hello próbki są poprawnie ustawione.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-109">Also, ensure all hello constants defined at hello beginning of hello sample are correctly set.</span></span>
+2. <span data-ttu-id="f5cc5-110">Hello lista środowisk, w których hello użytkownika ma dostęp toois uzyskany.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-110">hello list of environments that hello user has access toois obtained.</span></span> <span data-ttu-id="f5cc5-111">Jeden środowisk hello zostaje pobrana jako hello środowiska zainteresowań i dalsze danych jest poddawany kwerendzie dla tego środowiska.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-111">One of hello environments is picked up as hello environment of interest, and further data is queried for this environment.</span></span>
+3. <span data-ttu-id="f5cc5-112">Na przykład żądanie HTTPS danych dostępności jest wymagany dla hello środowiska zainteresowań.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-112">As an example of HTTPS request, availability data is requested for hello environment of interest.</span></span>
+4. <span data-ttu-id="f5cc5-113">Na przykład żądanie gniazda sieci web zdarzeń wartości zagregowanych danych jest wymagany dla hello środowiska zainteresowań.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-113">As an example of web socket request, event aggregates data is requested for hello environment of interest.</span></span> <span data-ttu-id="f5cc5-114">Zakres czasu dostępności całego hello żądania danych.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-114">Data is requested for hello whole availability time range.</span></span>
 
-## <a name="c-example"></a><span data-ttu-id="ebb9a-115">Przykład C#</span><span class="sxs-lookup"><span data-stu-id="ebb9a-115">C# example</span></span>
+## <a name="c-example"></a><span data-ttu-id="f5cc5-115">Przykład C#</span><span class="sxs-lookup"><span data-stu-id="f5cc5-115">C# example</span></span>
 
 ```csharp
 using System;
@@ -51,16 +51,16 @@ namespace TimeSeriesInsightsQuerySample
     {
         // For automated execution under application identity,
         // use application created in Active Directory.
-        // To create the application in AAD, follow the steps provided here:
+        // toocreate hello application in AAD, follow hello steps provided here:
         // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
-        // SET the application ID of application registered in your Azure Active Directory
+        // SET hello application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
 
-        // SET the application key of the application registered in your Azure Active Directory
+        // SET hello application key of hello application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
 
-        // SET the Azure Active Directory tenant.
+        // SET hello Azure Active Directory tenant.
         private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         public static async Task SampleAsync()
@@ -68,7 +68,7 @@ namespace TimeSeriesInsightsQuerySample
             // 1. Acquire an access token.
             string accessToken = await AcquireAccessTokenAsync();
 
-            // 2. Obtain list of environments and get environment FQDN for the environment of interest.
+            // 2. Obtain list of environments and get environment FQDN for hello environment of interest.
             string environmentFqdn;
             {
                 Uri uri = new UriBuilder("https", "api.timeseries.azure.com")
@@ -90,12 +90,12 @@ namespace TimeSeriesInsightsQuerySample
                     JArray environmentsList = (JArray)result["environments"];
                     if (environmentsList.Count == 0)
                     {
-                        // List of user environments is empty, fallback to sample environment.
+                        // List of user environments is empty, fallback toosample environment.
                         environmentFqdn = "10000000-0000-0000-0000-100000000108.env.timeseries.azure.com";
                     }
                     else
                     {
-                        // Assume the first environment is the environment of interest.
+                        // Assume hello first environment is hello environment of interest.
                         JObject firstEnvironment = (JObject)environmentsList[0];
                         environmentFqdn = firstEnvironment["environmentFqdn"].Value<string>();
                     }
@@ -103,7 +103,7 @@ namespace TimeSeriesInsightsQuerySample
             }
             Console.WriteLine("Using environment FQDN '{0}'", environmentFqdn);
 
-            // 3. Obtain availability data for the environment and get availability range.
+            // 3. Obtain availability data for hello environment and get availability range.
             DateTime fromAvailabilityTimestamp;
             DateTime toAvailabilityTimestamp;
             {
@@ -133,16 +133,16 @@ namespace TimeSeriesInsightsQuerySample
                 fromAvailabilityTimestamp,
                 toAvailabilityTimestamp);
 
-            // 4. Get aggregates for the environment:
+            // 4. Get aggregates for hello environment:
             //    group by Event Source Name and calculate number of events in each group.
             {
-                // Assume data for the whole availablility range is requested.
+                // Assume data for hello whole availablility range is requested.
                 DateTime from = fromAvailabilityTimestamp;
-                DateTime to = toAvailabilityTimestamp;
+                DateTime too= toAvailabilityTimestamp;
 
                 JObject inputPayload = new JObject(
-                    // Send HTTP headers as a part of the message since .NET WebSocket does not support
-                    // sending custom headers on HTTP GET upgrade request to WebSocket protocol request.
+                    // Send HTTP headers as a part of hello message since .NET WebSocket does not support
+                    // sending custom headers on HTTP GET upgrade request tooWebSocket protocol request.
                     new JProperty("headers", new JObject(
                         new JProperty("x-ms-client-application-name", "TimeSeriesInsightsQuerySample"),
                         new JProperty("Authorization", "Bearer " + accessToken))),
@@ -186,7 +186,7 @@ namespace TimeSeriesInsightsQuerySample
                         string message;
                         using (var ms = new MemoryStream())
                         {
-                            // Write from socket to memory stream.
+                            // Write from socket toomemory stream.
                             const int bufferSize = 16 * 1024;
                             var temporaryBuffer = new byte[bufferSize];
                             while (true)
@@ -202,7 +202,7 @@ namespace TimeSeriesInsightsQuerySample
                                 }
                             }
 
-                            // Reset position to the beginning to allow reads.
+                            // Reset position toohello beginning tooallow reads.
                             ms.Position = 0;
 
                             using (var sr = new StreamReader(ms))
@@ -219,7 +219,7 @@ namespace TimeSeriesInsightsQuerySample
                             break;
                         }
 
-                        // Number of items corresponds to number of aggregates in input payload
+                        // Number of items corresponds toonumber of aggregates in input payload
                         JArray currentContents = (JArray)messageObj["content"];
 
                         // In this sample list of aggregates in input payload contains
@@ -266,7 +266,7 @@ namespace TimeSeriesInsightsQuerySample
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use hello link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} tooupdate hello values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -279,7 +279,7 @@ namespace TimeSeriesInsightsQuerySample
                     clientId: ApplicationClientId,
                     clientSecret: ApplicationClientSecret));
 
-            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Show interactive logon dialog tooacquire token on behalf of hello user.
             // Suitable for native apps, and not on server-side of a web application.
             //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
             //    resource: "https://api.timeseries.azure.com/",
@@ -300,6 +300,6 @@ namespace TimeSeriesInsightsQuerySample
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="ebb9a-116">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="ebb9a-116">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f5cc5-116">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="f5cc5-116">Next steps</span></span>
 
-<span data-ttu-id="ebb9a-117">Aby uzyskać pełną dokumentację interfejsu API zapytania, zobacz [zapytania interfejsu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) dokumentu.</span><span class="sxs-lookup"><span data-stu-id="ebb9a-117">For the full Query API reference, see the [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) document.</span></span>
+<span data-ttu-id="f5cc5-117">Aby hello pełną dokumentację interfejsu API zapytania, zobacz hello [zapytania interfejsu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) dokumentu.</span><span class="sxs-lookup"><span data-stu-id="f5cc5-117">For hello full Query API reference, see hello [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) document.</span></span>

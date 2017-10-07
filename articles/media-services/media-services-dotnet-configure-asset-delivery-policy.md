@@ -1,6 +1,6 @@
 ---
-title: "Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK | Dokumentacja firmy Microsoft"
-description: "W tym temacie pokazano, jak skonfigurować zasady dostarczania różnych zasobów z zestawu .NET SDK usługi Azure Media Services."
+title: "zasady dostarczania zasobów aaaConfigure przy użyciu zestawu .NET SDK | Dokumentacja firmy Microsoft"
+description: "W tym temacie przedstawiono sposób zasady dostarczania zasobów różnych tooconfigure z zestawu .NET SDK usługi Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -14,58 +14,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a6f2644d639cd36d4cdc269b6f01fd4acdf7160b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-asset-delivery-policies-with-net-sdk"></a><span data-ttu-id="7d2a2-103">Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK</span><span class="sxs-lookup"><span data-stu-id="7d2a2-103">Configure asset delivery policies with .NET SDK</span></span>
+# <a name="configure-asset-delivery-policies-with-net-sdk"></a><span data-ttu-id="d6cf3-103">Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK</span><span class="sxs-lookup"><span data-stu-id="d6cf3-103">Configure asset delivery policies with .NET SDK</span></span>
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-## <a name="overview"></a><span data-ttu-id="7d2a2-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="7d2a2-104">Overview</span></span>
-<span data-ttu-id="7d2a2-105">Jeśli planujesz trwałych dostarczania zaszyfrowane, jeden z kroków w przepływie pracy dostarczania zawartości Media Services konfiguruje zasady dostarczania zasobów.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-105">If you plan to delivery encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets.</span></span> <span data-ttu-id="7d2a2-106">Zasady dostarczania elementu zawartości informuje usługi Media Services sposób dla zawartości dostarczanej: w których przesyłania strumieniowego protokołu powinna zawartości dynamicznie umieszczone (na przykład, MPEG DASH, HLS, Smooth Streaming lub wszystkie), czy ma być dynamicznego szyfrowania zawartości i w jaki sposób (koperty lub szyfrowania common encryption).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-106">The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).</span></span>
+## <a name="overview"></a><span data-ttu-id="d6cf3-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="d6cf3-104">Overview</span></span>
+<span data-ttu-id="d6cf3-105">Jeśli planujesz trwałych toodelivery zaszyfrowane, jeden z hello kroków w hello zawartości dostarczania przepływu pracy jest konfigurowanie zasad dostarczania dla zasobów usługi Media Services.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-105">If you plan toodelivery encrypted assets, one of hello steps in hello Media Services content delivery workflow is configuring delivery policies for assets.</span></span> <span data-ttu-id="d6cf3-106">zasady dostarczania elementu zawartości Hello informuje usługi Media Services sposób dla Twojego toobe zasobów dostarczyć: w przypadku protokołu przesyłania strumieniowego powinno zawartości dynamicznie umieszczone (na przykład, MPEG DASH, HLS, Smooth Streaming lub wszystkie), czy chcesz toodynamically szyfrowanie zawartości i w jaki sposób (koperty lub szyfrowania common encryption).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-106">hello asset delivery policy tells Media Services how you want for your asset toobe delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want toodynamically encrypt your asset and how (envelope or common encryption).</span></span>
 
-<span data-ttu-id="7d2a2-107">W tym temacie omówiono dlaczego i jak utworzyć i skonfigurować zasady dostarczania zasobów.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-107">This topic discusses why and how to create and configure asset delivery policies.</span></span>
+<span data-ttu-id="d6cf3-107">W tym temacie omówiono dlaczego i w jaki sposób toocreate i skonfigurować zasady dostarczania zasobów.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-107">This topic discusses why and how toocreate and configure asset delivery policies.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="7d2a2-108">Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-108">When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state.</span></span> <span data-ttu-id="7d2a2-109">Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-109">To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.</span></span> 
+><span data-ttu-id="d6cf3-108">Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-108">When your AMS account is created a **default** streaming endpoint is added tooyour account in hello **Stopped** state.</span></span> <span data-ttu-id="d6cf3-109">przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-109">toostart streaming your content and take advantage of dynamic packaging and dynamic encryption, hello streaming endpoint from which you want toostream content has toobe in hello **Running** state.</span></span> 
 >
-><span data-ttu-id="7d2a2-110">Ponadto aby można było korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-110">Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</span></span>
+><span data-ttu-id="d6cf3-110">Ponadto toobe toouse stanie dynamicznego tworzenia pakietów i dynamicznego szyfrowania zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-110">Also, toobe able toouse dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</span></span>
 
 
-<span data-ttu-id="7d2a2-111">Różnych zasad można zastosować do tego samego zasobu.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-111">You could apply different policies to the same asset.</span></span> <span data-ttu-id="7d2a2-112">Na przykład można zastosować szyfrowanie PlayReady do szyfrowania Smooth Streaming i szyfrowanie AES Envelope MPEG DASH i HLS.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-112">For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS.</span></span> <span data-ttu-id="7d2a2-113">Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-113">Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming.</span></span> <span data-ttu-id="7d2a2-114">Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-114">The exception to this is if you have no asset delivery policy defined at all.</span></span> <span data-ttu-id="7d2a2-115">Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-115">Then, all protocols will be allowed in the clear.</span></span>
+<span data-ttu-id="d6cf3-111">Toohello różnych zasad można zastosować elementu zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-111">You could apply different policies toohello same asset.</span></span> <span data-ttu-id="d6cf3-112">Na przykład można zastosować PlayReady szyfrowania tooSmooth przesyłania strumieniowego i szyfrowanie AES Envelope szyfrowania tooMPEG kreska i HLS.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-112">For example, you could apply PlayReady encryption tooSmooth Streaming and AES Envelope encryption tooMPEG DASH and HLS.</span></span> <span data-ttu-id="d6cf3-113">Wszystkie protokoły, które nie są zdefiniowane w zasadzie dostarczania (na przykład dodać jedną zasadę, która tylko określa hello protokół HLS), zostanie zablokowany przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-113">Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as hello protocol) will be blocked from streaming.</span></span> <span data-ttu-id="d6cf3-114">toothis wyjątek Hello jest, jeśli masz nie zdefiniowano zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-114">hello exception toothis is if you have no asset delivery policy defined at all.</span></span> <span data-ttu-id="d6cf3-115">Następnie wszystkie protokoły mogą być przesyłane hello Wyczyść.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-115">Then, all protocols will be allowed in hello clear.</span></span>
 
-<span data-ttu-id="7d2a2-116">Jeśli chcesz dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-116">If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy.</span></span> <span data-ttu-id="7d2a2-117">Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości przy użyciu zasady dostarczania określony.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-117">Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy.</span></span> <span data-ttu-id="7d2a2-118">Na przykład aby dostarczania zawartości zaszyfrowane za pomocą klucza szyfrowania koperty Advanced Encryption (Standard AES), Ustaw typ zasad **DynamicEnvelopeEncryption**.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-118">For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set the policy type to **DynamicEnvelopeEncryption**.</span></span> <span data-ttu-id="7d2a2-119">Aby usunąć szyfrowanie magazynu i zasobów niezabezpieczona strumienia, Ustaw typ zasad **NoDynamicEncryption**.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-119">To remove storage encryption and stream the asset in the clear, set the policy type to **NoDynamicEncryption**.</span></span> <span data-ttu-id="7d2a2-120">Wykonaj przykłady, które pokazują, jak skonfigurować te typy zasad.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-120">Examples that show how to configure these policy types follow.</span></span>
+<span data-ttu-id="d6cf3-116">Chcąc toodeliver zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania zasobów hello.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-116">If you want toodeliver a storage encrypted asset, you must configure hello asset’s delivery policy.</span></span> <span data-ttu-id="d6cf3-117">Przed zawartości mogą być przesyłane strumieniowo, hello i przesyłania strumieniowego szyfrowania magazynu hello usuwa strumieni zawartości przy użyciu hello określone zasady dostarczania.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-117">Before your asset can be streamed, hello streaming server removes hello storage encryption and streams your content using hello specified delivery policy.</span></span> <span data-ttu-id="d6cf3-118">Na przykład toodeliver zawartości zaszyfrowane za pomocą klucza szyfrowania koperty Advanced Encryption (Standard AES), Ustaw typ zasad hello zbyt**DynamicEnvelopeEncryption**.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-118">For example, toodeliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set hello policy type too**DynamicEnvelopeEncryption**.</span></span> <span data-ttu-id="d6cf3-119">szyfrowanie magazynu tooremove i zasobów hello strumienia w hello Wyczyść, Ustaw typ zasad hello zbyt**NoDynamicEncryption**.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-119">tooremove storage encryption and stream hello asset in hello clear, set hello policy type too**NoDynamicEncryption**.</span></span> <span data-ttu-id="d6cf3-120">Przykłady, które pokazują, jak tooconfigure tych typów zasad należy wykonać.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-120">Examples that show how tooconfigure these policy types follow.</span></span>
 
-<span data-ttu-id="7d2a2-121">W zależności od konfiguracji zasad dostarczania elementów zawartości będzie możliwe dynamicznie pakietu dynamicznie szyfrowania i przesyłania strumieniowego następujących protokołów: Smooth Streaming, HLS i MPEG DASH strumieni.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-121">Depending on how you configure the asset delivery policy you would be able to dynamically package, dynamically encrypt, and stream the following streaming protocols: Smooth Streaming, HLS, and MPEG DASH streams.</span></span>
+<span data-ttu-id="d6cf3-121">W zależności od konfiguracji zasad dostarczania elementów zawartości hello czy pakietu toodynamically może być dynamicznie szyfrowania i strumienia powitania po protokołów przesyłania strumieniowego: Smooth Streaming, HLS i MPEG DASH strumieni.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-121">Depending on how you configure hello asset delivery policy you would be able toodynamically package, dynamically encrypt, and stream hello following streaming protocols: Smooth Streaming, HLS, and MPEG DASH streams.</span></span>
 
-<span data-ttu-id="7d2a2-122">Na poniższej liście przedstawiono formaty umożliwia strumienia Smooth, HLS i KRESKI.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-122">The following list shows the formats that you use to stream Smooth, HLS, and DASH.</span></span>
+<span data-ttu-id="d6cf3-122">Witaj Poniższa lista zawiera formaty hello używasz toostream Smooth, HLS i KRESKI.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-122">hello following list shows hello formats that you use toostream Smooth, HLS, and DASH.</span></span>
 
-<span data-ttu-id="7d2a2-123">Funkcje Smooth Streaming:</span><span class="sxs-lookup"><span data-stu-id="7d2a2-123">Smooth Streaming:</span></span>
+<span data-ttu-id="d6cf3-123">Funkcje Smooth Streaming:</span><span class="sxs-lookup"><span data-stu-id="d6cf3-123">Smooth Streaming:</span></span>
 
-<span data-ttu-id="7d2a2-124">{nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest</span><span class="sxs-lookup"><span data-stu-id="7d2a2-124">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</span></span>
+<span data-ttu-id="d6cf3-124">{nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest</span><span class="sxs-lookup"><span data-stu-id="d6cf3-124">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</span></span>
 
-<span data-ttu-id="7d2a2-125">HLS:</span><span class="sxs-lookup"><span data-stu-id="7d2a2-125">HLS:</span></span>
+<span data-ttu-id="d6cf3-125">HLS:</span><span class="sxs-lookup"><span data-stu-id="d6cf3-125">HLS:</span></span>
 
-<span data-ttu-id="7d2a2-126">{name}.streaming.mediaservices.windows.net/{locator konta usługi media Nazwa punktu końcowego ID}/{filename}.ism/Manifest(format=m3u8-aapl) przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="7d2a2-126">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</span></span>
+<span data-ttu-id="d6cf3-126">{name}.streaming.mediaservices.windows.net/{locator konta usługi media Nazwa punktu końcowego ID}/{filename}.ism/Manifest(format=m3u8-aapl) przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="d6cf3-126">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</span></span>
 
-<span data-ttu-id="7d2a2-127">MPEG DASH</span><span class="sxs-lookup"><span data-stu-id="7d2a2-127">MPEG DASH</span></span>
+<span data-ttu-id="d6cf3-127">MPEG DASH</span><span class="sxs-lookup"><span data-stu-id="d6cf3-127">MPEG DASH</span></span>
 
-<span data-ttu-id="7d2a2-128">{name}.streaming.mediaservices.windows.net/{locator konta usługi media Nazwa punktu końcowego ID}/{filename}.ism/Manifest(format=mpd-time-csf) przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="7d2a2-128">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</span></span>
+<span data-ttu-id="d6cf3-128">{name}.streaming.mediaservices.windows.net/{locator konta usługi media Nazwa punktu końcowego ID}/{filename}.ism/Manifest(format=mpd-time-csf) przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="d6cf3-128">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</span></span>
 
 
-## <a name="considerations"></a><span data-ttu-id="7d2a2-129">Zagadnienia do rozważenia</span><span class="sxs-lookup"><span data-stu-id="7d2a2-129">Considerations</span></span>
-* <span data-ttu-id="7d2a2-130">Nie można usunąć AssetDeliveryPolicy skojarzone z zasobów, gdy Lokalizator OnDemand (streaming) istnieje dla tego zasobu.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-130">You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset.</span></span> <span data-ttu-id="7d2a2-131">Zalecane jest, aby usunąć zasady z zasobu przed usunięciem zasad.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-131">The recommendation is to remove the policy from the asset before deleting the policy.</span></span>
-* <span data-ttu-id="7d2a2-132">Nie można utworzyć Lokalizator przesyłania strumieniowego magazynu trwałego zaszyfrowane, jeśli ustawiono nie zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-132">A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.</span></span>  <span data-ttu-id="7d2a2-133">Jeśli element zawartości nie jest szyfrowany w magazynie, system będzie umożliwiają tworzenie lokalizatora i strumienia zasobów w zwykłym bez zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-133">If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.</span></span>
-* <span data-ttu-id="7d2a2-134">Może mieć wiele zasady dostarczania zasobów skojarzonych z pojedynczego zasobu, ale można określić tylko jeden sposób obsługi danego AssetDeliveryProtocol.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-134">You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.</span></span>  <span data-ttu-id="7d2a2-135">Co oznacza, spróbuj połączyć dwie zasady dostarczania, które określają protokół AssetDeliveryProtocol.SmoothStreaming, który spowoduje błąd, ponieważ system nie może określić, które co ma to zastosowanie, gdy klient przesyła żądanie Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-135">Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.</span></span>
-* <span data-ttu-id="7d2a2-136">Jeśli masz zasób z istniejących Lokalizator przesyłania strumieniowego nie może połączyć nowe zasady w zasobie (możesz odłączyć istniejące zasady z zasobu, lub zaktualizowania zasad dostarczania skojarzone z elementu zawartości).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-136">If you have an asset with an existing streaming locator, you cannot link a new policy to the asset (you can either unlink an existing policy from the asset, or update a delivery policy associated with the asset).</span></span>  <span data-ttu-id="7d2a2-137">Należy najpierw usuń Lokalizator przesyłania strumieniowego, Dostosuj zasady, a następnie ponownie utwórz Lokalizator przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-137">You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.</span></span>  <span data-ttu-id="7d2a2-138">Można użyć tego samego locatorId podczas ponownego tworzenia Lokalizator przesyłania strumieniowego, ale należy upewnić się, że nie będzie powodować problemy dla klientów od zawartości mogą być buforowane źródła lub podrzędne CDN.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-138">You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.</span></span>
+## <a name="considerations"></a><span data-ttu-id="d6cf3-129">Zagadnienia do rozważenia</span><span class="sxs-lookup"><span data-stu-id="d6cf3-129">Considerations</span></span>
+* <span data-ttu-id="d6cf3-130">Nie można usunąć AssetDeliveryPolicy skojarzone z zasobów, gdy Lokalizator OnDemand (streaming) istnieje dla tego zasobu.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-130">You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset.</span></span> <span data-ttu-id="d6cf3-131">zalecenie Hello jest tooremove hello zasady z zasobu hello przed usunięciem hello zasad.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-131">hello recommendation is tooremove hello policy from hello asset before deleting hello policy.</span></span>
+* <span data-ttu-id="d6cf3-132">Nie można utworzyć Lokalizator przesyłania strumieniowego magazynu trwałego zaszyfrowane, jeśli ustawiono nie zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-132">A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.</span></span>  <span data-ttu-id="d6cf3-133">Jeśli hello zasobów nie jest szyfrowany w magazynie, hello system umożliwi utworzyć lokalizator i strumień zasobów hello w hello wyczyść bez zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-133">If hello Asset isn’t storage encrypted, hello system will let you create a locator and stream hello asset in hello clear without an asset delivery policy.</span></span>
+* <span data-ttu-id="d6cf3-134">Może mieć wiele zasady dostarczania zasobów skojarzonych z pojedynczego zasobu, ale można określić tylko jednokierunkowe toohandle AssetDeliveryProtocol danego.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-134">You can have multiple asset delivery policies associated with a single asset but you can only specify one way toohandle a given AssetDeliveryProtocol.</span></span>  <span data-ttu-id="d6cf3-135">Co oznacza, Jeśli spróbujesz toolink dwóch dostarczania zasad określających hello AssetDeliveryProtocol.SmoothStreaming protokół, który spowoduje błąd, ponieważ hello system nie może określić, która z nich ma tooapply gdy klient przesyła żądanie Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-135">Meaning if you try toolink two delivery policies that specify hello AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because hello system does not know which one you want it tooapply when a client makes a Smooth Streaming request.</span></span>
+* <span data-ttu-id="d6cf3-136">Jeśli zasób z istniejących Lokalizator przesyłania strumieniowego, nie możesz połączyć nowy trwały toohello zasad (możesz odłączyć istniejące zasady z zasobu hello, lub zaktualizowania zasad dostarczania skojarzone z hello zasobów).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-136">If you have an asset with an existing streaming locator, you cannot link a new policy toohello asset (you can either unlink an existing policy from hello asset, or update a delivery policy associated with hello asset).</span></span>  <span data-ttu-id="d6cf3-137">Najpierw ma Lokalizator przesyłania strumieniowego hello tooremove, Dostosuj zasady hello i ponownie utwórz hello przesyłania strumieniowego lokalizatora.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-137">You first have tooremove hello streaming locator, adjust hello policies, and then re-create hello streaming locator.</span></span>  <span data-ttu-id="d6cf3-138">Możesz użyć powitalne tego samego locatorId podczas ponownego tworzenia hello przesyłania strumieniowego lokalizatora, ale powinien zapewnić, że nie będzie powodować problemy dla klientów, ponieważ zawartości mogą być buforowane pochodzenia hello lub podrzędne CDN.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-138">You can use hello same locatorId when you recreate hello streaming locator but you should ensure that won’t cause issues for clients since content can be cached by hello origin or a downstream CDN.</span></span>
 
-## <a name="clear-asset-delivery-policy"></a><span data-ttu-id="7d2a2-139">Zasady dostarczania elementu zawartości wyczyść</span><span class="sxs-lookup"><span data-stu-id="7d2a2-139">Clear asset delivery policy</span></span>
+## <a name="clear-asset-delivery-policy"></a><span data-ttu-id="d6cf3-139">Zasady dostarczania elementu zawartości wyczyść</span><span class="sxs-lookup"><span data-stu-id="d6cf3-139">Clear asset delivery policy</span></span>
 
-<span data-ttu-id="7d2a2-140">Następujące **ConfigureClearAssetDeliveryPolicy** metody określa nie dotyczyć szyfrowania dynamicznego i dostarczać strumienia w jednym z następujących protokołów: MPEG DASH, HLS i Smooth Streaming protokołów.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-140">The following **ConfigureClearAssetDeliveryPolicy** method specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.</span></span> <span data-ttu-id="7d2a2-141">Można stosować te zasady do zasobów magazynu szyfrowane.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-141">You might want to apply this policy to your storage encrypted assets.</span></span>
+<span data-ttu-id="d6cf3-140">następujące Hello **ConfigureClearAssetDeliveryPolicy** metody określa toonot zastosowanie szyfrowania dynamicznego i toodeliver hello strumienia w żadnym hello następujące protokoły: MPEG DASH, HLS i Smooth Streaming protokołów.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-140">hello following **ConfigureClearAssetDeliveryPolicy** method specifies toonot apply dynamic encryption and toodeliver hello stream in any of hello following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.</span></span> <span data-ttu-id="d6cf3-141">Możesz tooapply zasoby szyfrowany w magazynie tooyour tej zasady.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-141">You might want tooapply this policy tooyour storage encrypted assets.</span></span>
 
-<span data-ttu-id="7d2a2-142">Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-142">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>
+<span data-ttu-id="d6cf3-142">Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-142">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -77,11 +77,11 @@ ms.lasthandoff: 08/29/2017
         asset.DeliveryPolicies.Add(policy);
     }
 
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a><span data-ttu-id="7d2a2-143">Zasady dostarczania elementu zawartości DynamicCommonEncryption</span><span class="sxs-lookup"><span data-stu-id="7d2a2-143">DynamicCommonEncryption asset delivery policy</span></span>
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a><span data-ttu-id="d6cf3-143">Zasady dostarczania elementu zawartości DynamicCommonEncryption</span><span class="sxs-lookup"><span data-stu-id="d6cf3-143">DynamicCommonEncryption asset delivery policy</span></span>
 
-<span data-ttu-id="7d2a2-144">Następujące **CreateAssetDeliveryPolicy** metoda tworzy **AssetDeliveryPolicy** skonfigurowanego do zastosowania dynamicznego szyfrowania common encryption (**DynamicCommonEncryption**) do sprawnego protokołu przesyłania strumieniowego (inne protokoły będzie blokowany przesyłania strumieniowego).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-144">The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming).</span></span> <span data-ttu-id="7d2a2-145">Metoda przyjmuje dwa parametry: **zasobów** (zasobów, do której chcesz zastosować zasady dostarczania) i **IContentKey** (klucz zawartości **CommonEncryption** typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#common_contentkey)).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-145">The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#common_contentkey)).</span></span>
+<span data-ttu-id="d6cf3-144">następujące Hello **CreateAssetDeliveryPolicy** metoda tworzy hello **AssetDeliveryPolicy** który jest skonfigurowany tooapply dynamicznego szyfrowania common encryption (**DynamicCommonEncryption**) tooa smooth streaming protocol (inne protokoły będzie blokowany przesyłania strumieniowego).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-144">hello following **CreateAssetDeliveryPolicy** method creates hello **AssetDeliveryPolicy** that is configured tooapply dynamic common encryption (**DynamicCommonEncryption**) tooa smooth streaming protocol (other protocols will be blocked from streaming).</span></span> <span data-ttu-id="d6cf3-145">Metoda Hello przyjmuje dwa parametry: **zasobów** (hello toowhich zasobów ma zasady dostarczania hello tooapply) i **IContentKey** (klucz zawartości hello hello **CommonEncryption**typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#common_contentkey)).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-145">hello method takes two parameters : **Asset** (hello asset toowhich you want tooapply hello delivery policy) and **IContentKey** (hello content key of hello **CommonEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#common_contentkey)).</span></span>
 
-<span data-ttu-id="7d2a2-146">Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-146">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>
+<span data-ttu-id="d6cf3-146">Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-146">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -99,7 +99,7 @@ ms.lasthandoff: 08/29/2017
                 AssetDeliveryProtocol.SmoothStreaming,
                 assetDeliveryPolicyConfiguration);
     
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy toohello asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
     
             Console.WriteLine();
@@ -107,20 +107,20 @@ ms.lasthandoff: 08/29/2017
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
 
-<span data-ttu-id="7d2a2-147">Usługa Azure Media Services umożliwia również dodanie Widevine szyfrowania.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-147">Azure Media Services also enables you to add Widevine encryption.</span></span> <span data-ttu-id="7d2a2-148">W poniższym przykładzie pokazano zarówno PlayReady i Widevine dodawany do zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-148">The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.</span></span>
+<span data-ttu-id="d6cf3-147">Usługa Azure Media Services umożliwia również tooadd Widevine szyfrowania.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-147">Azure Media Services also enables you tooadd Widevine encryption.</span></span> <span data-ttu-id="d6cf3-148">Witaj poniższym przykładzie pokazano zarówno PlayReady i Widevine dodawany zasad dostarczania elementów zawartości toohello.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-148">hello following example demonstrates both PlayReady and Widevine being added toohello asset delivery policy.</span></span>
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        // Get the PlayReady license service URL.
+        // Get hello PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
 
-        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+        // GetKeyDeliveryUrl for Widevine attaches hello KID toohello URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+        // hello WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // tooappend /? KID =< keyId > toohello end of hello url when creating hello manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
-        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+        // so we need tooremove hello KID that in hello URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
         UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -142,38 +142,38 @@ ms.lasthandoff: 08/29/2017
             assetDeliveryPolicyConfiguration);
 
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
 
 > [!NOTE]
-> <span data-ttu-id="7d2a2-149">W przypadku szyfrowania przy użyciu metody Widevine, tylko będzie mogła dostarczać przy użyciu kreska.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-149">When encrypting with Widevine, you would only be able to deliver using DASH.</span></span> <span data-ttu-id="7d2a2-150">Upewnij się określić DASH w Protokół dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-150">Make sure to specify DASH in the asset delivery protocol.</span></span>
+> <span data-ttu-id="d6cf3-149">W przypadku szyfrowania przy użyciu metody Widevine, tylko będzie możliwe toodeliver przy użyciu kreska.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-149">When encrypting with Widevine, you would only be able toodeliver using DASH.</span></span> <span data-ttu-id="d6cf3-150">Upewnij się, że toospecify DASH w Protokół dostarczania elementów zawartości hello.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-150">Make sure toospecify DASH in hello asset delivery protocol.</span></span>
 > 
 > 
 
-## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a><span data-ttu-id="7d2a2-151">Zasady dostarczania elementu zawartości DynamicEnvelopeEncryption</span><span class="sxs-lookup"><span data-stu-id="7d2a2-151">DynamicEnvelopeEncryption asset delivery policy</span></span>
-<span data-ttu-id="7d2a2-152">Następujące **CreateAssetDeliveryPolicy** metoda tworzy **AssetDeliveryPolicy** skonfigurowanego na zastosowanie szyfrowania dynamicznego koperty (**DynamicEnvelopeEncryption**) do protokołów Smooth Streaming, HLS i KRESKI (Jeśli zdecydujesz nie określać niektóre protokoły, będą blokowani z przesyłania strumieniowego).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-152">The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming).</span></span> <span data-ttu-id="7d2a2-153">Metoda przyjmuje dwa parametry: **zasobów** (zasobów, do której chcesz zastosować zasady dostarczania) i **IContentKey** (klucz zawartości **EnvelopeEncryption** typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#envelope_contentkey)).</span><span class="sxs-lookup"><span data-stu-id="7d2a2-153">The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).</span></span>
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a><span data-ttu-id="d6cf3-151">Zasady dostarczania elementu zawartości DynamicEnvelopeEncryption</span><span class="sxs-lookup"><span data-stu-id="d6cf3-151">DynamicEnvelopeEncryption asset delivery policy</span></span>
+<span data-ttu-id="d6cf3-152">następujące Hello **CreateAssetDeliveryPolicy** metoda tworzy hello **AssetDeliveryPolicy** będący szyfrowania dynamicznego koperty tooapply skonfigurowany (**DynamicEnvelopeEncryption** ) tooSmooth protokołów przesyłania strumieniowego, HLS i KRESKI (Jeśli zdecydujesz się toonot Określ niektóre protokoły, będzie można korzystać z przesyłania strumieniowego).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-152">hello following **CreateAssetDeliveryPolicy** method creates hello **AssetDeliveryPolicy** that is configured tooapply dynamic envelope encryption (**DynamicEnvelopeEncryption**) tooSmooth Streaming, HLS, and DASH protocols (if you decide toonot specify some protocols, they will be blocked from streaming).</span></span> <span data-ttu-id="d6cf3-153">Metoda Hello przyjmuje dwa parametry: **zasobów** (hello toowhich zasobów ma zasady dostarczania hello tooapply) i **IContentKey** (klucz zawartości hello hello **EnvelopeEncryption**typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#envelope_contentkey)).</span><span class="sxs-lookup"><span data-stu-id="d6cf3-153">hello method takes two parameters : **Asset** (hello asset toowhich you want tooapply hello delivery policy) and **IContentKey** (hello content key of hello **EnvelopeEncryption** type, for more information, see: [Creating a content key](media-services-dotnet-create-contentkey.md#envelope_contentkey)).</span></span>
 
-<span data-ttu-id="7d2a2-154">Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-154">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
+<span data-ttu-id="d6cf3-154">Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-154">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
-        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
-        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
-        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
-        //  allows the AssetDelivery policy to be reused by more than one asset.
+        //  Get hello Key Delivery Base Url by removing hello Query parameter.  hello Dynamic Encryption service will
+        //  automatically add hello correct key identifier toohello url when it generates hello Envelope encrypted content
+        //  manifest.  Omitting hello IV will also cause hello Dynamice Encryption service toogenerate a deterministic
+        //  IV for hello content automatically.  By using hello EnvelopeBaseKeyAcquisitionUrl and omitting hello IV, this
+        //  allows hello AssetDelivery policy toobe reused by more than one asset.
         //
         Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
         UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
         uriBuilder.Query = String.Empty;
         keyAcquisitionUri = uriBuilder.Uri;
 
-        // The following policy configuration specifies: 
-        //   key url that will have KID=<Guid> appended to the envelope and
-        //   the Initialization Vector (IV) to use for the envelope encryption.
+        // hello following policy configuration specifies: 
+        //   key url that will have KID=<Guid> appended toohello envelope and
+        //   hello Initialization Vector (IV) toouse for hello envelope encryption.
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
         {
@@ -187,7 +187,7 @@ ms.lasthandoff: 08/29/2017
                         AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         Console.WriteLine();
@@ -195,11 +195,11 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <span data-ttu-id="7d2a2-155"><a id="types"></a>Typy używane podczas definiowania AssetDeliveryPolicy</span><span class="sxs-lookup"><span data-stu-id="7d2a2-155"><a id="types"></a>Types used when defining AssetDeliveryPolicy</span></span>
+## <span data-ttu-id="d6cf3-155"><a id="types"></a>Typy używane podczas definiowania AssetDeliveryPolicy</span><span class="sxs-lookup"><span data-stu-id="d6cf3-155"><a id="types"></a>Types used when defining AssetDeliveryPolicy</span></span>
 
-### <span data-ttu-id="7d2a2-156"><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol</span><span class="sxs-lookup"><span data-stu-id="7d2a2-156"><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol</span></span>
+### <span data-ttu-id="d6cf3-156"><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol</span><span class="sxs-lookup"><span data-stu-id="d6cf3-156"><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol</span></span>
 
-<span data-ttu-id="7d2a2-157">Następujące wyliczenia opisano wartości, które można ustawić dla Protokół dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-157">The following enum describes values you can set for the asset delivery protocol.</span></span>
+<span data-ttu-id="d6cf3-157">Witaj następujące wyliczenia opisano wartości ustawione przez protokół dostarczania elementów zawartości hello.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-157">hello following enum describes values you can set for hello asset delivery protocol.</span></span>
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -232,9 +232,9 @@ ms.lasthandoff: 08/29/2017
         All = 0xFFFF
     }
 
-### <span data-ttu-id="7d2a2-158"><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType</span><span class="sxs-lookup"><span data-stu-id="7d2a2-158"><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType</span></span>
+### <span data-ttu-id="d6cf3-158"><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType</span><span class="sxs-lookup"><span data-stu-id="d6cf3-158"><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType</span></span>
 
-<span data-ttu-id="7d2a2-159">Następujące wyliczenia opisano wartości, które można ustawić dla typu zasady dostarczania elementu zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-159">The following enum describes values you can set for the asset delivery policy type.</span></span>  
+<span data-ttu-id="d6cf3-159">Witaj następujące wyliczenia opisano wartości, które można ustawić dla typu zasady dostarczania elementu zawartości hello.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-159">hello following enum describes values you can set for hello asset delivery policy type.</span></span>  
 
     public enum AssetDeliveryPolicyType
     {
@@ -244,12 +244,12 @@ ms.lasthandoff: 08/29/2017
         None,
 
         /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption to the asset.
+        /// Do not apply dynamic encryption toohello asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -265,9 +265,9 @@ ms.lasthandoff: 08/29/2017
         DynamicCommonEncryption
         }
 
-### <span data-ttu-id="7d2a2-160"><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType</span><span class="sxs-lookup"><span data-stu-id="7d2a2-160"><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType</span></span>
+### <span data-ttu-id="d6cf3-160"><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType</span><span class="sxs-lookup"><span data-stu-id="d6cf3-160"><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType</span></span>
 
-<span data-ttu-id="7d2a2-161">Następujące wyliczenia opisano wartości, które służy do konfigurowania metody dostarczania zawartości klucza do klienta.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-161">The following enum describes values you can use to configure the delivery method of the content key to the client.</span></span>
+<span data-ttu-id="d6cf3-161">Witaj następujące wyliczenia opisano wartości można użyć metody dostarczania hello tooconfigure powitania klienta toohello klucza zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-161">hello following enum describes values you can use tooconfigure hello delivery method of hello content key toohello client.</span></span>
     
     public enum ContentKeyDeliveryType
     {
@@ -297,9 +297,9 @@ ms.lasthandoff: 08/29/2017
 
     }
 
-### <span data-ttu-id="7d2a2-162"><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey</span><span class="sxs-lookup"><span data-stu-id="7d2a2-162"><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey</span></span>
+### <span data-ttu-id="d6cf3-162"><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey</span><span class="sxs-lookup"><span data-stu-id="d6cf3-162"><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey</span></span>
 
-<span data-ttu-id="7d2a2-163">Następujące wyliczenia opisano wartości, które można ustawić, aby skonfigurować klucze służące do pobrania konfiguracji określonych dla zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="7d2a2-163">The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.</span></span>
+<span data-ttu-id="d6cf3-163">powitania po wyliczenia opisano wartości, które można ustawić określonej konfiguracji tooget tooconfigure klucze używane dla zasad dostarczania elementów zawartości.</span><span class="sxs-lookup"><span data-stu-id="d6cf3-163">hello following enum describes values you can set tooconfigure keys used tooget specific configuration for an asset delivery policy.</span></span>
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -319,22 +319,22 @@ ms.lasthandoff: 08/29/2017
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// hello initialization vector toouse for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// hello PlayReady License Acquisition Url toouse for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption.
+        /// hello initialization vector toouse for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 
@@ -344,9 +344,9 @@ ms.lasthandoff: 08/29/2017
         WidevineLicenseAcquisitionUrl
     }
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="7d2a2-164">Ścieżki szkoleniowe dotyczące usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="7d2a2-164">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="d6cf3-164">Ścieżki szkoleniowe dotyczące usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="d6cf3-164">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="7d2a2-165">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="7d2a2-165">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="d6cf3-165">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="d6cf3-165">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

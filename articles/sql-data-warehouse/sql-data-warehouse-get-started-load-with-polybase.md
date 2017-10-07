@@ -1,6 +1,6 @@
 ---
-title: "Aparat PolyBase w usłudze SQL Data Warehouse — samouczek | Microsoft Docs"
-description: "Dowiedz się, co to jest aparat PolyBase i jak z niego korzystać w scenariuszach dotyczących magazynów danych."
+title: "aaaPolyBase w SQL Data Warehouse — samouczek | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, co to jest aparat PolyBase i jak toouse go w scenariuszach dotyczących magazynów danych."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,47 +15,47 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3e680ec407c1d920dd59ea922b82c9208b5e9a84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="load-data-with-polybase-in-sql-data-warehouse"></a><span data-ttu-id="34b75-103">Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse</span><span class="sxs-lookup"><span data-stu-id="34b75-103">Load data with PolyBase in SQL Data Warehouse</span></span>
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a><span data-ttu-id="17b00-103">Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse</span><span class="sxs-lookup"><span data-stu-id="17b00-103">Load data with PolyBase in SQL Data Warehouse</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="34b75-104">Redgate</span><span class="sxs-lookup"><span data-stu-id="34b75-104">Redgate</span></span>](sql-data-warehouse-load-with-redgate.md)  
-> * [<span data-ttu-id="34b75-105">Data Factory</span><span class="sxs-lookup"><span data-stu-id="34b75-105">Data Factory</span></span>](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [<span data-ttu-id="34b75-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="34b75-106">PolyBase</span></span>](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [<span data-ttu-id="34b75-107">BCP</span><span class="sxs-lookup"><span data-stu-id="34b75-107">BCP</span></span>](sql-data-warehouse-load-with-bcp.md)
+> * [<span data-ttu-id="17b00-104">Redgate</span><span class="sxs-lookup"><span data-stu-id="17b00-104">Redgate</span></span>](sql-data-warehouse-load-with-redgate.md)  
+> * [<span data-ttu-id="17b00-105">Data Factory</span><span class="sxs-lookup"><span data-stu-id="17b00-105">Data Factory</span></span>](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [<span data-ttu-id="17b00-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="17b00-106">PolyBase</span></span>](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [<span data-ttu-id="17b00-107">BCP</span><span class="sxs-lookup"><span data-stu-id="17b00-107">BCP</span></span>](sql-data-warehouse-load-with-bcp.md)
 > 
 > 
 
-<span data-ttu-id="34b75-108">Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase.</span><span class="sxs-lookup"><span data-stu-id="34b75-108">This tutorial shows how to load data into SQL Data Warehouse using AzCopy and PolyBase.</span></span> <span data-ttu-id="34b75-109">Po zakończeniu będziesz umieć wykonywać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="34b75-109">When finished, you will know how to:</span></span>
+<span data-ttu-id="17b00-108">Ten samouczek pokazuje, jak tooload danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase.</span><span class="sxs-lookup"><span data-stu-id="17b00-108">This tutorial shows how tooload data into SQL Data Warehouse using AzCopy and PolyBase.</span></span> <span data-ttu-id="17b00-109">Po zakończeniu będziesz umieć wykonywać następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="17b00-109">When finished, you will know how to:</span></span>
 
-* <span data-ttu-id="34b75-110">Kopiowanie danych do magazynu obiektów blob platformy Azure przy użyciu programu AzCopy</span><span class="sxs-lookup"><span data-stu-id="34b75-110">Use AzCopy to copy data to Azure blob storage</span></span>
-* <span data-ttu-id="34b75-111">Tworzenie obiektów bazy danych do definiowania danych</span><span class="sxs-lookup"><span data-stu-id="34b75-111">Create database objects to define the data</span></span>
-* <span data-ttu-id="34b75-112">Uruchamianie zapytania T-SQL do ładowania danych</span><span class="sxs-lookup"><span data-stu-id="34b75-112">Run a T-SQL query to load the data</span></span>
+* <span data-ttu-id="17b00-110">Użyj magazynu obiektów blob tooAzure AzCopy toocopy danych</span><span class="sxs-lookup"><span data-stu-id="17b00-110">Use AzCopy toocopy data tooAzure blob storage</span></span>
+* <span data-ttu-id="17b00-111">Tworzenie obiektów bazy danych toodefine hello danych</span><span class="sxs-lookup"><span data-stu-id="17b00-111">Create database objects toodefine hello data</span></span>
+* <span data-ttu-id="17b00-112">Uruchamianie zapytania T-SQL tooload hello danych</span><span class="sxs-lookup"><span data-stu-id="17b00-112">Run a T-SQL query tooload hello data</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
-## <a name="prerequisites"></a><span data-ttu-id="34b75-113">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="34b75-113">Prerequisites</span></span>
-<span data-ttu-id="34b75-114">Do wykonania kroków opisanych w tym samouczku potrzebne są:</span><span class="sxs-lookup"><span data-stu-id="34b75-114">To step through this tutorial, you need</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="17b00-113">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="17b00-113">Prerequisites</span></span>
+<span data-ttu-id="17b00-114">toostep opisanych w tym samouczku, należy</span><span class="sxs-lookup"><span data-stu-id="17b00-114">toostep through this tutorial, you need</span></span>
 
-* <span data-ttu-id="34b75-115">Baza danych usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="34b75-115">A SQL Data Warehouse database.</span></span>
-* <span data-ttu-id="34b75-116">Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).</span><span class="sxs-lookup"><span data-stu-id="34b75-116">An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).</span></span>
-* <span data-ttu-id="34b75-117">Narzędzie wiersza polecenia AzCopy.</span><span class="sxs-lookup"><span data-stu-id="34b75-117">AzCopy Command-Line Utility.</span></span> <span data-ttu-id="34b75-118">Pobierz i zainstaluj [najnowszą wersję programu AzCopy][latest version of AzCopy], która jest instalowana z narzędziami Microsoft Azure Storage Tools.</span><span class="sxs-lookup"><span data-stu-id="34b75-118">Download and install the [latest version of AzCopy][latest version of AzCopy] which is installed with the Microsoft Azure Storage Tools.</span></span>
+* <span data-ttu-id="17b00-115">Baza danych usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="17b00-115">A SQL Data Warehouse database.</span></span>
+* <span data-ttu-id="17b00-116">Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).</span><span class="sxs-lookup"><span data-stu-id="17b00-116">An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).</span></span>
+* <span data-ttu-id="17b00-117">Narzędzie wiersza polecenia AzCopy.</span><span class="sxs-lookup"><span data-stu-id="17b00-117">AzCopy Command-Line Utility.</span></span> <span data-ttu-id="17b00-118">Pobierz i zainstaluj hello [najnowszą wersję programu AzCopy] [ latest version of AzCopy] który został zainstalowany z hello narzędzia magazynu usługi Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="17b00-118">Download and install hello [latest version of AzCopy][latest version of AzCopy] which is installed with hello Microsoft Azure Storage Tools.</span></span>
   
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## <a name="step-1-add-sample-data-to-azure-blob-storage"></a><span data-ttu-id="34b75-120">Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure</span><span class="sxs-lookup"><span data-stu-id="34b75-120">Step 1: Add sample data to Azure blob storage</span></span>
-<span data-ttu-id="34b75-121">Aby załadować dane, trzeba umieścić trochę przykładowych danych w magazynie obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="34b75-121">In order to load data, we need to put some sample data into an Azure blob storage.</span></span> <span data-ttu-id="34b75-122">W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi.</span><span class="sxs-lookup"><span data-stu-id="34b75-122">In this step we populate an Azure Storage blob with sample data.</span></span> <span data-ttu-id="34b75-123">Następnie użyjemy aparatu PolyBase, aby załadować te przykładowe dane do bazy danych usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="34b75-123">Later, we will use PolyBase to load this sample data into your SQL Data Warehouse database.</span></span>
+## <a name="step-1-add-sample-data-tooazure-blob-storage"></a><span data-ttu-id="17b00-120">Krok 1: Dodawanie przykładowych danych tooAzure obiektu blob magazynu</span><span class="sxs-lookup"><span data-stu-id="17b00-120">Step 1: Add sample data tooAzure blob storage</span></span>
+<span data-ttu-id="17b00-121">W danych tooload potrzebujemy tooput przykładowych danych do magazynu obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="17b00-121">In order tooload data, we need tooput some sample data into an Azure blob storage.</span></span> <span data-ttu-id="17b00-122">W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi.</span><span class="sxs-lookup"><span data-stu-id="17b00-122">In this step we populate an Azure Storage blob with sample data.</span></span> <span data-ttu-id="17b00-123">Później użyjemy PolyBase tooload przykładowe dane do bazy danych SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="17b00-123">Later, we will use PolyBase tooload this sample data into your SQL Data Warehouse database.</span></span>
 
-### <a name="a-prepare-a-sample-text-file"></a><span data-ttu-id="34b75-124">A.</span><span class="sxs-lookup"><span data-stu-id="34b75-124">A.</span></span> <span data-ttu-id="34b75-125">Przygotowanie przykładowego pliku tekstowego</span><span class="sxs-lookup"><span data-stu-id="34b75-125">Prepare a sample text file</span></span>
-<span data-ttu-id="34b75-126">Aby przygotować przykładowy plik tekstowy:</span><span class="sxs-lookup"><span data-stu-id="34b75-126">To prepare a sample text file:</span></span>
+### <a name="a-prepare-a-sample-text-file"></a><span data-ttu-id="17b00-124">A.</span><span class="sxs-lookup"><span data-stu-id="17b00-124">A.</span></span> <span data-ttu-id="17b00-125">Przygotowanie przykładowego pliku tekstowego</span><span class="sxs-lookup"><span data-stu-id="17b00-125">Prepare a sample text file</span></span>
+<span data-ttu-id="17b00-126">Przykładowy plik tekstowy tooprepare:</span><span class="sxs-lookup"><span data-stu-id="17b00-126">tooprepare a sample text file:</span></span>
 
-1. <span data-ttu-id="34b75-127">Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku.</span><span class="sxs-lookup"><span data-stu-id="34b75-127">Open Notepad and copy the following lines of data into a new file.</span></span> <span data-ttu-id="34b75-128">Zapisz go jako % temp%\DimDate2.txt w lokalnym katalogu tymczasowym.</span><span class="sxs-lookup"><span data-stu-id="34b75-128">Save this to your local temp directory as %temp%\DimDate2.txt.</span></span>
+1. <span data-ttu-id="17b00-127">Otwórz Notatnik i skopiuj hello następujące wiersze danych do nowego pliku.</span><span class="sxs-lookup"><span data-stu-id="17b00-127">Open Notepad and copy hello following lines of data into a new file.</span></span> <span data-ttu-id="17b00-128">Zapisz ten tooyour lokalnym katalogu tymczasowym jako % temp%\DimDate2.txt.</span><span class="sxs-lookup"><span data-stu-id="17b00-128">Save this tooyour local temp directory as %temp%\DimDate2.txt.</span></span>
 
 ```
 20150301,1,3
@@ -72,80 +72,80 @@ ms.lasthandoff: 08/29/2017
 20150101,1,3
 ```
 
-### <a name="b-find-your-blob-service-endpoint"></a><span data-ttu-id="34b75-129">B.</span><span class="sxs-lookup"><span data-stu-id="34b75-129">B.</span></span> <span data-ttu-id="34b75-130">Znajdowanie punktu końcowego usługi Blob</span><span class="sxs-lookup"><span data-stu-id="34b75-130">Find your blob service endpoint</span></span>
-<span data-ttu-id="34b75-131">Aby znaleźć punkt końcowy usługi Blob:</span><span class="sxs-lookup"><span data-stu-id="34b75-131">To find your blob service endpoint:</span></span>
+### <a name="b-find-your-blob-service-endpoint"></a><span data-ttu-id="17b00-129">B.</span><span class="sxs-lookup"><span data-stu-id="17b00-129">B.</span></span> <span data-ttu-id="17b00-130">Znajdowanie punktu końcowego usługi Blob</span><span class="sxs-lookup"><span data-stu-id="17b00-130">Find your blob service endpoint</span></span>
+<span data-ttu-id="17b00-131">toofind punktu końcowego usługi blob:</span><span class="sxs-lookup"><span data-stu-id="17b00-131">toofind your blob service endpoint:</span></span>
 
-1. <span data-ttu-id="34b75-132">W Portalu Azure wybierz opcje **Przeglądaj**  >  **Konta magazynu**.</span><span class="sxs-lookup"><span data-stu-id="34b75-132">From the Azure Portal select **Browse** > **Storage Accounts**.</span></span>
-2. <span data-ttu-id="34b75-133">Kliknij konto magazynu, którego chcesz użyć.</span><span class="sxs-lookup"><span data-stu-id="34b75-133">Click the storage account you want to use.</span></span>
-3. <span data-ttu-id="34b75-134">W bloku Konto magazynu kliknij pozycję Obiekty blob.</span><span class="sxs-lookup"><span data-stu-id="34b75-134">In the Storage account blade, click Blobs</span></span>
+1. <span data-ttu-id="17b00-132">Z hello portalu Azure wybierz **Przeglądaj** > **kont magazynu**.</span><span class="sxs-lookup"><span data-stu-id="17b00-132">From hello Azure Portal select **Browse** > **Storage Accounts**.</span></span>
+2. <span data-ttu-id="17b00-133">Kliknij przycisk hello konta magazynu, które chcesz toouse.</span><span class="sxs-lookup"><span data-stu-id="17b00-133">Click hello storage account you want toouse.</span></span>
+3. <span data-ttu-id="17b00-134">W bloku konto magazynu hello kliknij pozycję obiekty BLOB</span><span class="sxs-lookup"><span data-stu-id="17b00-134">In hello Storage account blade, click Blobs</span></span>
    
     ![Klikanie pozycji Obiekty blob](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
-4. <span data-ttu-id="34b75-136">Zapisz adres URL punktu końcowego usługi Blob do użycia później.</span><span class="sxs-lookup"><span data-stu-id="34b75-136">Save your blob service endpoint URL for later.</span></span>
+4. <span data-ttu-id="17b00-136">Zapisz adres URL punktu końcowego usługi Blob do użycia później.</span><span class="sxs-lookup"><span data-stu-id="17b00-136">Save your blob service endpoint URL for later.</span></span>
    
     ![Punkt końcowy usługi Blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c-find-your-azure-storage-key"></a><span data-ttu-id="34b75-138">C.</span><span class="sxs-lookup"><span data-stu-id="34b75-138">C.</span></span> <span data-ttu-id="34b75-139">Znajdowanie klucza magazynu Azure</span><span class="sxs-lookup"><span data-stu-id="34b75-139">Find your Azure storage key</span></span>
-<span data-ttu-id="34b75-140">Aby znaleźć klucz magazynu Azure:</span><span class="sxs-lookup"><span data-stu-id="34b75-140">To find your Azure storage key:</span></span>
+### <a name="c-find-your-azure-storage-key"></a><span data-ttu-id="17b00-138">C.</span><span class="sxs-lookup"><span data-stu-id="17b00-138">C.</span></span> <span data-ttu-id="17b00-139">Znajdowanie klucza magazynu Azure</span><span class="sxs-lookup"><span data-stu-id="17b00-139">Find your Azure storage key</span></span>
+<span data-ttu-id="17b00-140">toofind klucza magazynu Azure:</span><span class="sxs-lookup"><span data-stu-id="17b00-140">toofind your Azure storage key:</span></span>
 
-1. <span data-ttu-id="34b75-141">W witrynie Azure Portal wybierz opcje **Przeglądaj** > **Konta magazynu**.</span><span class="sxs-lookup"><span data-stu-id="34b75-141">From the Azure Portal, select **Browse** > **Storage Accounts**.</span></span>
-2. <span data-ttu-id="34b75-142">Kliknij konto magazynu, którego chcesz użyć.</span><span class="sxs-lookup"><span data-stu-id="34b75-142">Click on the storage account you want to use.</span></span>
-3. <span data-ttu-id="34b75-143">Wybierz pozycje **Wszystkie ustawienia**  >  **Klucze dostępu**.</span><span class="sxs-lookup"><span data-stu-id="34b75-143">Select **All settings** > **Access keys**.</span></span>
-4. <span data-ttu-id="34b75-144">Kliknij pole kopiowania, aby skopiować jeden z kluczy dostępu do schowka.</span><span class="sxs-lookup"><span data-stu-id="34b75-144">Click the copy box to copy one of your access keys to the clipboard.</span></span>
+1. <span data-ttu-id="17b00-141">Z hello portalu Azure, wybierz **Przeglądaj** > **kont magazynu**.</span><span class="sxs-lookup"><span data-stu-id="17b00-141">From hello Azure Portal, select **Browse** > **Storage Accounts**.</span></span>
+2. <span data-ttu-id="17b00-142">Polecenie hello konta magazynu, które chcesz toouse.</span><span class="sxs-lookup"><span data-stu-id="17b00-142">Click on hello storage account you want toouse.</span></span>
+3. <span data-ttu-id="17b00-143">Wybierz pozycje **Wszystkie ustawienia**  >  **Klucze dostępu**.</span><span class="sxs-lookup"><span data-stu-id="17b00-143">Select **All settings** > **Access keys**.</span></span>
+4. <span data-ttu-id="17b00-144">Kliknij przycisk hello toocopy pole kopiowania, jeden Schowka toohello klucze dostępu.</span><span class="sxs-lookup"><span data-stu-id="17b00-144">Click hello copy box toocopy one of your access keys toohello clipboard.</span></span>
    
     ![Kopiowanie klucza magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a><span data-ttu-id="34b75-146">D.</span><span class="sxs-lookup"><span data-stu-id="34b75-146">D.</span></span> <span data-ttu-id="34b75-147">Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure</span><span class="sxs-lookup"><span data-stu-id="34b75-147">Copy the sample file to Azure blob storage</span></span>
-<span data-ttu-id="34b75-148">Aby skopiować dane do magazynu obiektów blob platformy Azure:</span><span class="sxs-lookup"><span data-stu-id="34b75-148">To copy your data to Azure blob storage:</span></span>
+### <a name="d-copy-hello-sample-file-tooazure-blob-storage"></a><span data-ttu-id="17b00-146">D.</span><span class="sxs-lookup"><span data-stu-id="17b00-146">D.</span></span> <span data-ttu-id="17b00-147">Skopiuj magazynu obiektów blob tooAzure hello przykładowych plików</span><span class="sxs-lookup"><span data-stu-id="17b00-147">Copy hello sample file tooAzure blob storage</span></span>
+<span data-ttu-id="17b00-148">toocopy usługi magazynu obiektów blob tooAzure danych:</span><span class="sxs-lookup"><span data-stu-id="17b00-148">toocopy your data tooAzure blob storage:</span></span>
 
-1. <span data-ttu-id="34b75-149">Otwórz wiersz polecenia i zmień katalogi na katalog instalacyjny programu AzCopy.</span><span class="sxs-lookup"><span data-stu-id="34b75-149">Open a command prompt, and change directories to the AzCopy installation directory.</span></span> <span data-ttu-id="34b75-150">To polecenie powoduje zmianę domyślnego katalogu instalacji na 64-bitowym kliencie systemu Windows.</span><span class="sxs-lookup"><span data-stu-id="34b75-150">This command changes to the default installation directory on a 64-bit Windows client.</span></span>
+1. <span data-ttu-id="17b00-149">Otwórz wiersz polecenia i zmień katalog instalacyjny AzCopy toohello katalogów.</span><span class="sxs-lookup"><span data-stu-id="17b00-149">Open a command prompt, and change directories toohello AzCopy installation directory.</span></span> <span data-ttu-id="17b00-150">To polecenie powoduje zmianę domyślnego katalogu instalacji na komputerze klienckim systemu Windows w 64-bitowych toohello.</span><span class="sxs-lookup"><span data-stu-id="17b00-150">This command changes toohello default installation directory on a 64-bit Windows client.</span></span>
    
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-2. <span data-ttu-id="34b75-151">Uruchom następujące polecenie, aby przekazać plik.</span><span class="sxs-lookup"><span data-stu-id="34b75-151">Run the following command to upload the file.</span></span> <span data-ttu-id="34b75-152">Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.</span><span class="sxs-lookup"><span data-stu-id="34b75-152">Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.</span></span>
+2. <span data-ttu-id="17b00-151">Uruchom poniższe polecenie tooupload hello plik hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-151">Run hello following command tooupload hello file.</span></span> <span data-ttu-id="17b00-152">Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.</span><span class="sxs-lookup"><span data-stu-id="17b00-152">Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.</span></span>
    
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-<span data-ttu-id="34b75-153">Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][Getting Started with the AzCopy Command-Line Utility].</span><span class="sxs-lookup"><span data-stu-id="34b75-153">See also [Getting Started with the AzCopy Command-Line Utility][Getting Started with the AzCopy Command-Line Utility].</span></span>
+<span data-ttu-id="17b00-153">Zobacz też [wprowadzenie hello wiersza polecenia Azcopy][Getting Started with hello AzCopy Command-Line Utility].</span><span class="sxs-lookup"><span data-stu-id="17b00-153">See also [Getting Started with hello AzCopy Command-Line Utility][Getting Started with hello AzCopy Command-Line Utility].</span></span>
 
-### <a name="e-explore-your-blob-storage-container"></a><span data-ttu-id="34b75-154">E.</span><span class="sxs-lookup"><span data-stu-id="34b75-154">E.</span></span> <span data-ttu-id="34b75-155">Eksplorowanie kontenera magazynu obiektów blob</span><span class="sxs-lookup"><span data-stu-id="34b75-155">Explore your blob storage container</span></span>
-<span data-ttu-id="34b75-156">Aby zobaczyć plik przekazany do magazynu obiektów blob:</span><span class="sxs-lookup"><span data-stu-id="34b75-156">To see the file you uploaded to blob storage:</span></span>
+### <a name="e-explore-your-blob-storage-container"></a><span data-ttu-id="17b00-154">E.</span><span class="sxs-lookup"><span data-stu-id="17b00-154">E.</span></span> <span data-ttu-id="17b00-155">Eksplorowanie kontenera magazynu obiektów blob</span><span class="sxs-lookup"><span data-stu-id="17b00-155">Explore your blob storage container</span></span>
+<span data-ttu-id="17b00-156">Plik hello toosee przekazać tooblob magazynu:</span><span class="sxs-lookup"><span data-stu-id="17b00-156">toosee hello file you uploaded tooblob storage:</span></span>
 
-1. <span data-ttu-id="34b75-157">Wróć do bloku usługi Blob.</span><span class="sxs-lookup"><span data-stu-id="34b75-157">Go back to your Blob service blade.</span></span>
-2. <span data-ttu-id="34b75-158">W obszarze Kontenery kliknij dwukrotnie pozycję **datacontainer**.</span><span class="sxs-lookup"><span data-stu-id="34b75-158">Under Containers, double-click **datacontainer**.</span></span>
-3. <span data-ttu-id="34b75-159">Aby wyświetlić ścieżkę do danych, kliknij folder **datedimension**, w którym będzie widoczny przekazany plik **DimDate2.txt**.</span><span class="sxs-lookup"><span data-stu-id="34b75-159">To explore the path to your data, click the folder **datedimension** and you will see your uploaded file **DimDate2.txt**.</span></span>
-4. <span data-ttu-id="34b75-160">Aby wyświetlić właściwości, kliknij plik **DimDate2.txt**.</span><span class="sxs-lookup"><span data-stu-id="34b75-160">To view properties, click **DimDate2.txt**.</span></span>
-5. <span data-ttu-id="34b75-161">Zauważ, że w bloku właściwości obiektu blob można pobrać lub usunąć plik.</span><span class="sxs-lookup"><span data-stu-id="34b75-161">Note that in the Blob properties blade, you can download or delete the file.</span></span>
+1. <span data-ttu-id="17b00-157">Przejdź wstecz bloku usługi Blob tooyour.</span><span class="sxs-lookup"><span data-stu-id="17b00-157">Go back tooyour Blob service blade.</span></span>
+2. <span data-ttu-id="17b00-158">W obszarze Kontenery kliknij dwukrotnie pozycję **datacontainer**.</span><span class="sxs-lookup"><span data-stu-id="17b00-158">Under Containers, double-click **datacontainer**.</span></span>
+3. <span data-ttu-id="17b00-159">dane tooyour tooexplore hello ścieżki, kliknij hello folder **datedimension** i będzie widoczny przekazany plik **DimDate2.txt**.</span><span class="sxs-lookup"><span data-stu-id="17b00-159">tooexplore hello path tooyour data, click hello folder **datedimension** and you will see your uploaded file **DimDate2.txt**.</span></span>
+4. <span data-ttu-id="17b00-160">Kliknij przycisk Właściwości tooview **DimDate2.txt**.</span><span class="sxs-lookup"><span data-stu-id="17b00-160">tooview properties, click **DimDate2.txt**.</span></span>
+5. <span data-ttu-id="17b00-161">Należy pamiętać, że w bloku właściwości obiektu Blob hello, można pobrać lub usunąć hello pliku.</span><span class="sxs-lookup"><span data-stu-id="17b00-161">Note that in hello Blob properties blade, you can download or delete hello file.</span></span>
    
     ![Wyświetlanie obiektu blob magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## <a name="step-2-create-an-external-table-for-the-sample-data"></a><span data-ttu-id="34b75-163">Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych</span><span class="sxs-lookup"><span data-stu-id="34b75-163">Step 2: Create an external table for the sample data</span></span>
-<span data-ttu-id="34b75-164">W tej sekcji utworzymy tabelę zewnętrzną definiującą przykładowe dane.</span><span class="sxs-lookup"><span data-stu-id="34b75-164">In this section we create an external table that defines the sample data.</span></span>
+## <a name="step-2-create-an-external-table-for-hello-sample-data"></a><span data-ttu-id="17b00-163">Krok 2: Tworzenie tabeli zewnętrznej hello przykładowych danych</span><span class="sxs-lookup"><span data-stu-id="17b00-163">Step 2: Create an external table for hello sample data</span></span>
+<span data-ttu-id="17b00-164">W tej sekcji utworzymy tabelę zewnętrzną definiującą hello przykładowych danych.</span><span class="sxs-lookup"><span data-stu-id="17b00-164">In this section we create an external table that defines hello sample data.</span></span>
 
-<span data-ttu-id="34b75-165">Aparat PolyBase używa tabel zewnętrznych do uzyskiwania dostępu do danych w magazynie obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="34b75-165">PolyBase uses external tables to access data in Azure blob storage.</span></span> <span data-ttu-id="34b75-166">Ponieważ dane nie są przechowywane w usłudze SQL Data Warehouse, aparat PolyBase obsługuje uwierzytelnianie w odniesieniu do danych zewnętrznych przy użyciu poświadczeń o zakresie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="34b75-166">Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.</span></span>
+<span data-ttu-id="17b00-165">Program PolyBase używa tabel zewnętrznych tooaccess danych w magazynie obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="17b00-165">PolyBase uses external tables tooaccess data in Azure blob storage.</span></span> <span data-ttu-id="17b00-166">Ponieważ hello dane nie są przechowywane w usłudze SQL Data Warehouse, aparat PolyBase obsługuje dane zewnętrzne toohello uwierzytelniania przy użyciu poświadczeń o zakresie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="17b00-166">Since hello data is not stored within SQL Data Warehouse, PolyBase handles authentication toohello external data by using a database-scoped credential.</span></span>
 
-<span data-ttu-id="34b75-167">W tym kroku przykładu użyto następujących instrukcji języka Transact-SQL do utworzenia tabeli zewnętrznej.</span><span class="sxs-lookup"><span data-stu-id="34b75-167">The example in this step uses these Transact-SQL statements to create an external table.</span></span>
+<span data-ttu-id="17b00-167">przykład Witaj w tym kroku używa tych toocreate instrukcji języka Transact-SQL tabeli zewnętrznej.</span><span class="sxs-lookup"><span data-stu-id="17b00-167">hello example in this step uses these Transact-SQL statements toocreate an external table.</span></span>
 
-* <span data-ttu-id="34b75-168">[Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] w celu szyfrowania wpisu tajnego poświadczeń o zakresie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="34b75-168">[Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] to encrypt the secret of your database scoped credential.</span></span>
-* <span data-ttu-id="34b75-169">[Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)], aby określić dane uwierzytelniania dla konta usługi Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="34b75-169">[Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] to specify authentication information for your Azure storage account.</span></span>
-* <span data-ttu-id="34b75-170">[Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)], aby określić lokalizację usługi Azure Blob Storage.</span><span class="sxs-lookup"><span data-stu-id="34b75-170">[Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] to specify the location of your Azure blob storage.</span></span>
-* <span data-ttu-id="34b75-171">[Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)], aby określić format danych.</span><span class="sxs-lookup"><span data-stu-id="34b75-171">[Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] to specify the format of your data.</span></span>
-* <span data-ttu-id="34b75-172">[Create External Table (Transact-SQL)][Create External Table (Transact-SQL)], aby określić definicję tabeli i lokalizację danych.</span><span class="sxs-lookup"><span data-stu-id="34b75-172">[Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] to specify the table definition and location of the data.</span></span>
+* <span data-ttu-id="17b00-168">[Tworzenie klucza głównego (Transact-SQL)] [ Create Master Key (Transact-SQL)] poświadczeń o zakresie klucz tajny hello tooencrypt bazy danych.</span><span class="sxs-lookup"><span data-stu-id="17b00-168">[Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] tooencrypt hello secret of your database scoped credential.</span></span>
+* <span data-ttu-id="17b00-169">[Create Database Scoped Credential (Transact-SQL)] [ Create Database Scoped Credential (Transact-SQL)] toospecify informacje dotyczące uwierzytelniania dla konta magazynu Azure.</span><span class="sxs-lookup"><span data-stu-id="17b00-169">[Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] toospecify authentication information for your Azure storage account.</span></span>
+* <span data-ttu-id="17b00-170">[Create External Data Source (Transact-SQL)] [ Create External Data Source (Transact-SQL)] toospecify hello lokalizacji magazynu obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="17b00-170">[Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)] toospecify hello location of your Azure blob storage.</span></span>
+* <span data-ttu-id="17b00-171">[Create External File Format (Transact-SQL)] [ Create External File Format (Transact-SQL)] toospecify hello format danych.</span><span class="sxs-lookup"><span data-stu-id="17b00-171">[Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] toospecify hello format of your data.</span></span>
+* <span data-ttu-id="17b00-172">[Create External Table (Transact-SQL)] [ Create External Table (Transact-SQL)] definicji tabeli hello toospecify i lokalizację hello danych.</span><span class="sxs-lookup"><span data-stu-id="17b00-172">[Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] toospecify hello table definition and location of hello data.</span></span>
 
-<span data-ttu-id="34b75-173">Uruchom to zapytanie w bazie danych usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="34b75-173">Run this query against your SQL Data Warehouse database.</span></span> <span data-ttu-id="34b75-174">W schemacie dbo zostanie utworzona zewnętrzna tabela o nazwie DimDate2External wskazująca przykładowe dane DimDate2.txt w magazynie obiektów blob platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="34b75-174">It will create an external table named DimDate2External in the dbo schema that points to the DimDate2.txt sample data in the Azure blob storage.</span></span>
+<span data-ttu-id="17b00-173">Uruchom to zapytanie w bazie danych usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="17b00-173">Run this query against your SQL Data Warehouse database.</span></span> <span data-ttu-id="17b00-174">Zostanie utworzony o nazwie DimDate2External w schemacie dbo hello wskazujące przykładowe dane DimDate2.txt toohello w magazynie obiektów blob Azure hello tabeli zewnętrznej.</span><span class="sxs-lookup"><span data-stu-id="17b00-174">It will create an external table named DimDate2External in hello dbo schema that points toohello DimDate2.txt sample data in hello Azure blob storage.</span></span>
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -157,9 +157,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -181,10 +181,10 @@ WITH (
 );
 
 
--- E: Create the external table
--- Specify column names and data types. This needs to match the data in the sample file.
--- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
--- To point to all files under the blob container, use LOCATION='.'
+-- E: Create hello external table
+-- Specify column names and data types. This needs toomatch hello data in hello sample file.
+-- LOCATION: Specify path toofile or directory that contains hello data (relative toohello blob container).
+-- toopoint tooall files under hello blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
     DateId INT NOT NULL,
@@ -198,25 +198,25 @@ WITH (
 );
 
 
--- Run a query on the external table
+-- Run a query on hello external table
 
 SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
 
-<span data-ttu-id="34b75-175">W Eksploratorze obiektów SQL Server w programie Visual Studio widoczne będą: format pliku zewnętrznego, zewnętrzne źródło danych oraz tabela DimDate2External.</span><span class="sxs-lookup"><span data-stu-id="34b75-175">In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.</span></span>
+<span data-ttu-id="17b00-175">W Eksploratorze obiektów SQL Server w programie Visual Studio mogą zobaczyć hello format pliku zewnętrznego, zewnętrzne źródło danych i tabela DimDate2External hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-175">In SQL Server Object Explorer in Visual Studio, you can see hello external file format, external data source, and hello DimDate2External table.</span></span>
 
 ![Widok tabeli zewnętrznej](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3-load-data-into-sql-data-warehouse"></a><span data-ttu-id="34b75-177">Krok 3: ładowanie danych do usługi SQL Data Warehouse</span><span class="sxs-lookup"><span data-stu-id="34b75-177">Step 3: Load data into SQL Data Warehouse</span></span>
-<span data-ttu-id="34b75-178">Po utworzeniu tabeli zewnętrznej można załadować dane do nowej tabeli lub wstawić je do tabeli istniejącej.</span><span class="sxs-lookup"><span data-stu-id="34b75-178">Once the external table is created, you can either load the data into a new table or insert it into an existing table.</span></span>
+## <a name="step-3-load-data-into-sql-data-warehouse"></a><span data-ttu-id="17b00-177">Krok 3: ładowanie danych do usługi SQL Data Warehouse</span><span class="sxs-lookup"><span data-stu-id="17b00-177">Step 3: Load data into SQL Data Warehouse</span></span>
+<span data-ttu-id="17b00-178">Po utworzeniu tabeli zewnętrznej hello można załadować danych hello do nowej tabeli lub wstawić je do istniejącej tabeli.</span><span class="sxs-lookup"><span data-stu-id="17b00-178">Once hello external table is created, you can either load hello data into a new table or insert it into an existing table.</span></span>
 
-* <span data-ttu-id="34b75-179">Aby załadować dane do nowej tabeli, uruchom instrukcję [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].</span><span class="sxs-lookup"><span data-stu-id="34b75-179">To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="34b75-180">Nowa tabela będzie miała kolumny o nazwach podanych w zapytaniu.</span><span class="sxs-lookup"><span data-stu-id="34b75-180">The new table will have the columns named in the query.</span></span> <span data-ttu-id="34b75-181">Typy danych kolumn będą zgodne z typami danych w definicji tabeli zewnętrznej.</span><span class="sxs-lookup"><span data-stu-id="34b75-181">The data types of the columns will match the data types in the external table definition.</span></span>
-* <span data-ttu-id="34b75-182">Aby załadować dane do istniejącej tabeli, użyj instrukcji [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].</span><span class="sxs-lookup"><span data-stu-id="34b75-182">To load the data into an existing table, use the [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] statement.</span></span>
+* <span data-ttu-id="17b00-179">tooload hello danych do nowej tabeli, uruchom hello [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrukcji.</span><span class="sxs-lookup"><span data-stu-id="17b00-179">tooload hello data into a new table, run hello [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="17b00-180">Witaj nowa tabela będzie miała hello kolumny o nazwie w zapytaniu hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-180">hello new table will have hello columns named in hello query.</span></span> <span data-ttu-id="17b00-181">typy danych Hello hello kolumn będą zgodne hello typów danych w definicji tabeli zewnętrznej hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-181">hello data types of hello columns will match hello data types in hello external table definition.</span></span>
+* <span data-ttu-id="17b00-182">tooload hello danych w istniejącej tabeli, użyj hello [INSERT... SELECT (Transact-SQL)] [ INSERT...SELECT (Transact-SQL)] instrukcji.</span><span class="sxs-lookup"><span data-stu-id="17b00-182">tooload hello data into an existing table, use hello [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] statement.</span></span>
 
 ```sql
--- Load the data from Azure blob storage to SQL Data Warehouse
+-- Load hello data from Azure blob storage tooSQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
 WITH
@@ -228,10 +228,10 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a><span data-ttu-id="34b75-183">Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych</span><span class="sxs-lookup"><span data-stu-id="34b75-183">Step 4: Create statistics on your newly loaded data</span></span>
-<span data-ttu-id="34b75-184">Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny.</span><span class="sxs-lookup"><span data-stu-id="34b75-184">SQL Data Warehouse does not auto-create or auto-update statistics.</span></span> <span data-ttu-id="34b75-185">Dlatego, aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn każdej tabeli po pierwszym załadowaniu.</span><span class="sxs-lookup"><span data-stu-id="34b75-185">Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load.</span></span> <span data-ttu-id="34b75-186">Istotne jest również aktualizowanie statystyk po wprowadzeniu istotnych zmian w danych.</span><span class="sxs-lookup"><span data-stu-id="34b75-186">It's also important to update statistics after substantial changes in the data.</span></span>
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a><span data-ttu-id="17b00-183">Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych</span><span class="sxs-lookup"><span data-stu-id="17b00-183">Step 4: Create statistics on your newly loaded data</span></span>
+<span data-ttu-id="17b00-184">Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny.</span><span class="sxs-lookup"><span data-stu-id="17b00-184">SQL Data Warehouse does not auto-create or auto-update statistics.</span></span> <span data-ttu-id="17b00-185">W związku z tym tooachieve wysoką wydajność zapytań, ważne jest, najpierw załadować toocreate statystyk dotyczących poszczególnych kolumn każdej tabeli po hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-185">Therefore, tooachieve high query performance, it's important toocreate statistics on each column of each table after hello first load.</span></span> <span data-ttu-id="17b00-186">Możliwe jest również tooupdate ważnych statystyk po wprowadzeniu istotnych zmian w danych hello.</span><span class="sxs-lookup"><span data-stu-id="17b00-186">It's also important tooupdate statistics after substantial changes in hello data.</span></span>
 
-<span data-ttu-id="34b75-187">W tym przykładzie zostaną utworzone statystyki dla pojedynczej kolumny w nowej tabeli DimDate2.</span><span class="sxs-lookup"><span data-stu-id="34b75-187">This example creates single-column statistics on the new DimDate2 table.</span></span>
+<span data-ttu-id="17b00-187">Ten przykład tworzy statystyki pojedynczej kolumny hello nowej tabeli DimDate2.</span><span class="sxs-lookup"><span data-stu-id="17b00-187">This example creates single-column statistics on hello new DimDate2 table.</span></span>
 
 ```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
@@ -239,10 +239,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-<span data-ttu-id="34b75-188">Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statistics].</span><span class="sxs-lookup"><span data-stu-id="34b75-188">To learn more, see [Statistics][Statistics].</span></span>  
+<span data-ttu-id="17b00-188">toolearn więcej, zobacz [statystyki][Statistics].</span><span class="sxs-lookup"><span data-stu-id="17b00-188">toolearn more, see [Statistics][Statistics].</span></span>  
 
-## <a name="next-steps"></a><span data-ttu-id="34b75-189">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="34b75-189">Next steps</span></span>
-<span data-ttu-id="34b75-190">Zobacz [Przewodnik po programie PolyBase][PolyBase guide] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.</span><span class="sxs-lookup"><span data-stu-id="34b75-190">See the [PolyBase guide][PolyBase guide] for further information you should know as you develop a solution that uses PolyBase.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="17b00-189">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="17b00-189">Next steps</span></span>
+<span data-ttu-id="17b00-190">Zobacz hello [Przewodnik po programie PolyBase] [ PolyBase guide] dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.</span><span class="sxs-lookup"><span data-stu-id="17b00-190">See hello [PolyBase guide][PolyBase guide] for further information you should know as you develop a solution that uses PolyBase.</span></span>
 
 <!--Image references-->
 
@@ -252,7 +252,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[Getting Started with hello AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
 [latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->

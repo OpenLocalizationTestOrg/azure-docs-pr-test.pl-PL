@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usług Azure Cloud Services — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne i skalowalne aplikacje w chmurze oraz interfejsy API."
+title: "aaaAzure dokumentacji usług w chmurze — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób toouse toohost usługi w chmurze i uruchamianie aplikacji w chmurze wysoką dostępność i skalowalność i interfejsów API."
 services: cloud-services
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-services-documentation"></a>Dokumentacja usług Cloud Services
 
-Dowiedz się, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne, skalowalne aplikacje w chmurze i interfejsy API.  W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać hostami maszyn wirtualnych oraz jak konfigurować i instalować oprogramowanie, a także stosować do niego poprawki.
+Dowiedz się, jak toouse w chmurze usługi toohost i uruchamianie aplikacji w chmurze o wysokiej dostępności i skalowalności i interfejsów API.  Samouczki, odwołania do interfejsu API i dokumentacji zawierają jak toomanage maszyny wirtualnej obsługuje skonfigurować, zastosować poprawki i zainstalować oprogramowanie.
 
 <ul class="panelContent cardsFTitle">
     <li>

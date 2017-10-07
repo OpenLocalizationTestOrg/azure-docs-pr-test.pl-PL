@@ -13,7 +13,7 @@
 ### [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
-## [Delegowanie domeny do usługi Azure DNS](dns-delegate-domain-azure-dns.md)
+## [Delegowanie tooAzure Twojego domeny DNS](dns-delegate-domain-azure-dns.md)
 ## [Tworzenie niestandardowych rekordów DNS aplikacji sieci Web](dns-web-sites-custom-domain.md)
 
 # Instrukcje
@@ -38,7 +38,7 @@
 ## [Importowanie i eksportowanie pliku strefy systemu DNS](dns-import-export.md)
 ## [Integracja z innymi usługami platformy Azure](dns-for-azure-services.md)
 ## [Ochrona stref i rekordów DNS](dns-protect-zones-recordsets.md)
-## [Automatyzowanie operacji systemu DNS przy użyciu zestawu .NET SDK](dns-sdk.md)
+## [Automatyzowanie operacji DNS z hello zestawu .NET SDK](dns-sdk.md)
 
 ## [Domeny niestandardowe dla zasobów platformy Azure](dns-custom-domain.md)
 ## Rozwiązywanie problemów

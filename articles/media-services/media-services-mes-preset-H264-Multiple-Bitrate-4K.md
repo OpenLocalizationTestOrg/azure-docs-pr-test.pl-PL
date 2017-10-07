@@ -1,6 +1,6 @@
 ---
-title: "Media Encoder Standard ustawienie wstępne wiele transmisji bitów H264 4K - Azure | Dokumentacja firmy Microsoft"
-description: "Temat zawiera omówienie ** wielu transmisji bitów H264 4 K ** ustawienie wstępne zadań."
+title: "szybkość transmisji bitów 4K Media Encoder Standard ustawienie wstępne aaaH264 - Azure | Dokumentacja firmy Microsoft"
+description: "Witaj temat zawiera omówienie hello ** wielu transmisji bitów H264 4 K ** ustawienie wstępne zadań."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 4f0863f3db1bfc814971fca740e460012b1aca60
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e22e0bd3bb110f54f7d624e099b5e34e8d4820a6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-multiple-bitrate-4k"></a><span data-ttu-id="450fc-103">H264 Wiele transmisji bitów 4K</span><span class="sxs-lookup"><span data-stu-id="450fc-103">H264 Multiple Bitrate 4K</span></span>
-<span data-ttu-id="450fc-104">`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania.</span><span class="sxs-lookup"><span data-stu-id="450fc-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="450fc-105">Można użyć `preset name` do określenia do formatu, który chcesz kodować pliku nośnika.</span><span class="sxs-lookup"><span data-stu-id="450fc-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="450fc-106">Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16.</span><span class="sxs-lookup"><span data-stu-id="450fc-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="450fc-107">Następnie możesz przejdzie niestandardowe ustawienia do kodera.</span><span class="sxs-lookup"><span data-stu-id="450fc-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="450fc-108">Aby uzyskać listę wszystkich istniejących nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="450fc-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-multiple-bitrate-4k"></a><span data-ttu-id="4d68b-103">H264 Wiele transmisji bitów 4K</span><span class="sxs-lookup"><span data-stu-id="4d68b-103">H264 Multiple Bitrate 4K</span></span>
+<span data-ttu-id="4d68b-104">`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania.</span><span class="sxs-lookup"><span data-stu-id="4d68b-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="4d68b-105">Można użyć `preset name` toospecify do formatu, który chcesz tooencode Twojego pliku multimedialnego.</span><span class="sxs-lookup"><span data-stu-id="4d68b-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="4d68b-106">Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16.</span><span class="sxs-lookup"><span data-stu-id="4d68b-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="4d68b-107">Następnie możesz przejdzie hello toohello wstępnie ustawiony niestandardowy koder.</span><span class="sxs-lookup"><span data-stu-id="4d68b-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="4d68b-108">Lista hello hello wszystkie ustawienia wstępnego nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="4d68b-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="450fc-109">W tym temacie przedstawiono `H264 Multiple Bitrate 4K` ustawienia wstępnego w formacie XML i JSON.</span><span class="sxs-lookup"><span data-stu-id="450fc-109">This topic shows the `H264 Multiple Bitrate 4K` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="4d68b-109">W tym temacie przedstawiono hello `H264 Multiple Bitrate 4K` ustawienia wstępnego w formacie XML i JSON.</span><span class="sxs-lookup"><span data-stu-id="4d68b-109">This topic shows hello `H264 Multiple Bitrate 4K` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="450fc-110">To ustawienie powoduje utworzenie zestawu plików MP4 wyrównane GOP 12, od 20000 KB/s do 1000 KB/s i stereo AAC audio.</span><span class="sxs-lookup"><span data-stu-id="450fc-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps to 1000 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="450fc-111">Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdzić XML lub JSON określonych poniżej.</span><span class="sxs-lookup"><span data-stu-id="450fc-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="450fc-112">Wyjaśnień jakie każdego elementu w sposób te ustawienia i prawidłowe wartości dla każdego elementu, zobacz [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="450fc-112">For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
-  
-> [!NOTE]
->  <span data-ttu-id="450fc-113">Należy pobrać jednostka zarezerwowanego Premium koduje typu z 4K.</span><span class="sxs-lookup"><span data-stu-id="450fc-113">You should get the Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="450fc-114">Aby uzyskać więcej informacji, zobacz [sposób kodowania skali](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="450fc-114">For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
+ <span data-ttu-id="4d68b-110">To ustawienie powoduje utworzenie zestawu plików MP4 wyrównane GOP 12, od 20000 KB/s too1000 KB/s i stereo AAC audio.</span><span class="sxs-lookup"><span data-stu-id="4d68b-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps too1000 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="4d68b-111">Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdź hello XML lub JSON określonych poniżej.</span><span class="sxs-lookup"><span data-stu-id="4d68b-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="4d68b-112">Dla wyjaśnienia, jaki każdego elementu w tych oznacza, że ustawienia i hello prawidłowe wartości dla każdego elementu, zobacz hello [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="4d68b-112">For explanations of what each element in these presets means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
   
 > [!NOTE]
->  <span data-ttu-id="450fc-115">Podczas modyfikowania `Width` i `Height` wartości warstw, upewnij się, że spójność współczynnik proporcji.</span><span class="sxs-lookup"><span data-stu-id="450fc-115">When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent.</span></span> <span data-ttu-id="450fc-116">Na przykład: 1920 x 1080 pikseli, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="450fc-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="450fc-117">Nie należy używać kombinację proporcje, takich jak: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="450fc-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+>  <span data-ttu-id="4d68b-113">Należy pobrać hello Premium zastrzeżone koduje typu jednostki z 4K.</span><span class="sxs-lookup"><span data-stu-id="4d68b-113">You should get hello Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="4d68b-114">Aby uzyskać więcej informacji, zobacz [jak tooScale kodowanie](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="4d68b-114">For more information, see [How tooScale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
   
- <span data-ttu-id="450fc-118">XML</span><span class="sxs-lookup"><span data-stu-id="450fc-118">XML</span></span>  
+> [!NOTE]
+>  <span data-ttu-id="4d68b-115">Podczas modyfikowania hello `Width` i `Height` wartości warstw, upewnij się, że ten współczynnik proporcji hello pozostaje spójna.</span><span class="sxs-lookup"><span data-stu-id="4d68b-115">When modifying hello `Width` and `Height` values across layers, make sure that hello aspect ratio remains consistent.</span></span> <span data-ttu-id="4d68b-116">Na przykład: 1920 x 1080 pikseli, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="4d68b-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="4d68b-117">Nie należy używać kombinację proporcje, takich jak: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="4d68b-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+  
+ <span data-ttu-id="4d68b-118">XML</span><span class="sxs-lookup"><span data-stu-id="4d68b-118">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -240,7 +240,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="450fc-119">JSON</span><span class="sxs-lookup"><span data-stu-id="450fc-119">JSON</span></span>  
+ <span data-ttu-id="4d68b-119">JSON</span><span class="sxs-lookup"><span data-stu-id="4d68b-119">JSON</span></span>  
   
 ```  
 {  

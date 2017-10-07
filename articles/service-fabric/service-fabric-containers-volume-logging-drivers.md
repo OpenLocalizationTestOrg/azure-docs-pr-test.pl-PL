@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure sieci szkieletowej z rozwiązania Docker Compose w wersji zapoznawczej | Dokumentacja firmy Microsoft"
-description: "Sieć szkieletowa usług Azure akceptuje rozwiązania Docker Compose format, aby ułatwić organizowanie kontenery exsiting przy użyciu sieci szkieletowej usług. Ta obsługa jest obecnie w przeglądzie."
+title: "Usługa sieci szkieletowej rozwiązania Docker Compose Podgląd aaaAzure | Dokumentacja firmy Microsoft"
+description: "Sieć szkieletowa usług Azure akceptuje rozwiązania Docker Compose toomake format go łatwiejsze tooorchestrate exsiting kontenerów przy użyciu sieci szkieletowej usług. Ta obsługa jest obecnie w przeglądzie."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 824044fd698f0ed94c4212722bc82187905315dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a><span data-ttu-id="bdb01-104">Określanie woluminu dodatków plug-in i sterowniki rejestrowania dla Twojego kontenera</span><span class="sxs-lookup"><span data-stu-id="bdb01-104">Specifying volume plugins and logging drivers for your container</span></span>
+# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a><span data-ttu-id="060f0-104">Określanie woluminu dodatków plug-in i sterowniki rejestrowania dla Twojego kontenera</span><span class="sxs-lookup"><span data-stu-id="060f0-104">Specifying volume plugins and logging drivers for your container</span></span>
 
-<span data-ttu-id="bdb01-105">Sieć szkieletowa usług obsługuje określanie [wtyczek woluminu Docker](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera.</span><span class="sxs-lookup"><span data-stu-id="bdb01-105">Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service.</span></span> <span data-ttu-id="bdb01-106">Wtyczki są określone w manifeście aplikacji, jak pokazano w manifeście następujące:</span><span class="sxs-lookup"><span data-stu-id="bdb01-106">The plugins are specified in the application manifest as shown in the following manifest:</span></span>
+<span data-ttu-id="060f0-105">Sieć szkieletowa usług obsługuje określanie [wtyczek woluminu Docker](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera.</span><span class="sxs-lookup"><span data-stu-id="060f0-105">Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service.</span></span> <span data-ttu-id="060f0-106">wtyczki Hello są określone w manifeście aplikacji hello pokazane na powitania po manifestu:</span><span class="sxs-lookup"><span data-stu-id="060f0-106">hello plugins are specified in hello application manifest as shown in hello following manifest:</span></span>
 
 
 ```xml
@@ -56,9 +56,9 @@ ms.lasthandoff: 08/18/2017
 </ApplicationManifest>
 ```
 
-<span data-ttu-id="bdb01-107">W powyższym przykładzie `Source` znacznika `Volume` odwołuje się do folderu źródłowego.</span><span class="sxs-lookup"><span data-stu-id="bdb01-107">In the preceding example, the `Source` tag for the `Volume` refers to the source folder.</span></span> <span data-ttu-id="bdb01-108">Folder źródłowy może być folderem w maszynie Wirtualnej, która obsługuje kontenery lub trwałego magazynu zdalnego.</span><span class="sxs-lookup"><span data-stu-id="bdb01-108">The source folder could be a folder in the VM that hosts the containers or a persistent remote store.</span></span> <span data-ttu-id="bdb01-109">`Destination` Tag to lokalizacja, w który `Source` jest mapowany w kontenerze uruchomione.</span><span class="sxs-lookup"><span data-stu-id="bdb01-109">The `Destination` tag is the location that the `Source` is mapped to within the running container.</span></span> 
+<span data-ttu-id="060f0-107">W hello poprzedzających przykład, hello `Source` tagu hello `Volume` odwołuje się toohello folderu źródłowego.</span><span class="sxs-lookup"><span data-stu-id="060f0-107">In hello preceding example, hello `Source` tag for hello `Volume` refers toohello source folder.</span></span> <span data-ttu-id="060f0-108">folder źródłowy Hello może być folderem w hello maszynę Wirtualną, która obsługuje kontenery hello lub trwałego magazynu zdalnego.</span><span class="sxs-lookup"><span data-stu-id="060f0-108">hello source folder could be a folder in hello VM that hosts hello containers or a persistent remote store.</span></span> <span data-ttu-id="060f0-109">Witaj `Destination` tag jest lokalizacja hello hello `Source` hello zamapowanych toowithin działa kontenera.</span><span class="sxs-lookup"><span data-stu-id="060f0-109">hello `Destination` tag is hello location that hello `Source` is mapped toowithin hello running container.</span></span> 
 
-<span data-ttu-id="bdb01-110">Podczas określania wtyczki woluminu, Service Fabric automatycznie tworzy woluminu przy użyciu określonych parametrów.</span><span class="sxs-lookup"><span data-stu-id="bdb01-110">When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified.</span></span> <span data-ttu-id="bdb01-111">`Source` Tag jest nazwa woluminu, a `Driver` tag określa dodatek sterownika woluminu.</span><span class="sxs-lookup"><span data-stu-id="bdb01-111">The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin.</span></span> <span data-ttu-id="bdb01-112">Opcje można określić za pomocą `DriverOption` tagów, jak pokazano w poniższy fragment kodu:</span><span class="sxs-lookup"><span data-stu-id="bdb01-112">Options can be specified using the `DriverOption` tag as shown in the following snippet:</span></span>
+<span data-ttu-id="060f0-110">Podczas określania wtyczki woluminu, Service Fabric automatycznie tworzy hello woluminu przy użyciu określonych parametrów hello.</span><span class="sxs-lookup"><span data-stu-id="060f0-110">When specifying a volume plugin, Service Fabric automatically creates hello volume using hello parameters specified.</span></span> <span data-ttu-id="060f0-111">Witaj `Source` tag jest nazwą hello hello woluminu i hello `Driver` tag określa dodatek sterownika hello woluminu.</span><span class="sxs-lookup"><span data-stu-id="060f0-111">hello `Source` tag is hello name of hello volume, and hello `Driver` tag specifies hello volume driver plugin.</span></span> <span data-ttu-id="060f0-112">Opcje można określić za pomocą hello `DriverOption` tagu pokazane na powitania po fragment kodu:</span><span class="sxs-lookup"><span data-stu-id="060f0-112">Options can be specified using hello `DriverOption` tag as shown in hello following snippet:</span></span>
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
@@ -66,10 +66,10 @@ ms.lasthandoff: 08/18/2017
 </Volume>
 ```
 
-<span data-ttu-id="bdb01-113">Jeśli sterownik dziennika Docker jest określony, jest wymagane do wdrożenia agentów (lub kontenery) do obsługi dzienników w klastrze.</span><span class="sxs-lookup"><span data-stu-id="bdb01-113">If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster.</span></span>  <span data-ttu-id="bdb01-114">`DriverOption` Tag może służyć do określ także opcje sterownika dziennika.</span><span class="sxs-lookup"><span data-stu-id="bdb01-114">The `DriverOption` tag can be used to specify log driver options as well.</span></span>
+<span data-ttu-id="060f0-113">Jeśli sterownik dziennika Docker jest określony, jest konieczne toodeploy, dzienniki w klastrze hello hello toohandle agentów (lub kontenery).</span><span class="sxs-lookup"><span data-stu-id="060f0-113">If a Docker log driver is specified, it is necessary toodeploy agents (or containers) toohandle hello logs in hello cluster.</span></span>  <span data-ttu-id="060f0-114">Witaj `DriverOption` tag może być także opcje sterownika dziennika używanych toospecify.</span><span class="sxs-lookup"><span data-stu-id="060f0-114">hello `DriverOption` tag can be used toospecify log driver options as well.</span></span>
 
-<span data-ttu-id="bdb01-115">Zobacz następujące artykuły, aby wdrażanie kontenerów do klastra usługi sieć szkieletowa usług:</span><span class="sxs-lookup"><span data-stu-id="bdb01-115">Refer to the following articles to deploy containers to a Service Fabric cluster:</span></span>
+<span data-ttu-id="060f0-115">Zapoznaj się toohello po klastra sieci szkieletowej usług tooa kontenery toodeploy artykuły:</span><span class="sxs-lookup"><span data-stu-id="060f0-115">Refer toohello following articles toodeploy containers tooa Service Fabric cluster:</span></span>
 
 
-[<span data-ttu-id="bdb01-116">Wdrażanie kontenera w sieci szkieletowej usług</span><span class="sxs-lookup"><span data-stu-id="bdb01-116">Deploy a container on Service Fabric</span></span>](service-fabric-deploy-container.md)
+[<span data-ttu-id="060f0-116">Wdrażanie kontenera w sieci szkieletowej usług</span><span class="sxs-lookup"><span data-stu-id="060f0-116">Deploy a container on Service Fabric</span></span>](service-fabric-deploy-container.md)
 

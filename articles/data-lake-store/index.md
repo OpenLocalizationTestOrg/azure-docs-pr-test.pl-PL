@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Data Lake Store — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować zgodne z usługą Hadoop repozytorium usługi Data Lake o ogromnej skali na potrzeby przeprowadzania analiz danych o dowolnym rozmiarze, typie i szybkości wprowadzania, oraz jak nim zarządzać i uzyskiwać do niego dostęp."
+title: "aaaAzure Data Lake magazynu dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset, zarządzania i dostęp do repozytorium lake hiperskali, Hadoop zgodnym danych analizy danych każdej prędkości rozmiar, typ i wprowadzanie."
 services: data-lake-store
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 473cb9709421f853cb78853b54682adb3e48d372
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8a4730472b7811f022991bffc6dde7bb1be6458e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-store-documentation"></a>Dokumentacja usługi Data Lake Store
 
-Dowiedz się, jak przy użyciu usługi Data Lake Store utworzyć zgodne z usługą Hadoop repozytorium o ogromnej skali na potrzeby przeprowadzania analiz danych o dowolnym rozmiarze, typie i szybkości wprowadzania. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować repozytorium usługi Data Lake na potrzeby analiz operacyjnych i poznawczych, oraz jak nim zarządzać i uzyskiwać do niego dostęp.
+Dowiedz się, jak toouse usługi Data Lake Store toocreate hiperskali, Hadoop zgodnym repozytorium na potrzeby analizy danych, rozmiar, typ i wprowadzanie szybkości. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooset, zarządzania i dostęp do danych repozytorium lake analiz operacyjnych i poznawczych.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak przy użyciu usługi Data Lake Store utworzyć zgodne z usług
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy z usługą Azure Data Lake Store za pośrednictwem witryny Azure Portal</h3>
+                        <h3>Wprowadzenie do usługi Azure Data Lake Store za pomocą hello portalu Azure</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak przy użyciu usługi Data Lake Store utworzyć zgodne z usług
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy z usługą Azure Data Lake Store za pośrednictwem interfejsu wiersza polecenia platformy Azure</h3>
+                        <h3>Wprowadzenie do usługi Azure Data Lake Store za pomocą hello wiersza polecenia platformy Azure</h3>
                     </div>
                 </div>
             </div>

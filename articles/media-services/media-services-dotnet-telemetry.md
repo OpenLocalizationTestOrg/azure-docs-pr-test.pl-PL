@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie usługi Azure Media Services dane telemetryczne z platformą .NET | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono sposób użycia telemetrii usługi Azure Media Services przy użyciu zestawu .NET SDK."
+title: "aaaConfiguring telemetrii usługi Azure Media Services z platformą .NET | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toouse hello telemetrii usługi Azure Media Services przy użyciu zestawu .NET SDK."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 1d857f3d062d8d1b15c64fa4b8c3e27ad6c2247e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4019fa7d080ca3f8a8709bd1e666f7062b883954
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a><span data-ttu-id="fcd35-103">Konfigurowanie usługi Azure Media Services dane telemetryczne z platformą .NET</span><span class="sxs-lookup"><span data-stu-id="fcd35-103">Configuring Azure Media Services telemetry with .NET</span></span>
+# <a name="configuring-azure-media-services-telemetry-with-net"></a><span data-ttu-id="6eb1f-103">Konfigurowanie usługi Azure Media Services dane telemetryczne z platformą .NET</span><span class="sxs-lookup"><span data-stu-id="6eb1f-103">Configuring Azure Media Services telemetry with .NET</span></span>
 
-<span data-ttu-id="fcd35-104">W tym temacie opisano ogólne kroki, które może wykonać podczas konfigurowania telemetrii usługi Azure Media Services (AMS) przy użyciu zestawu .NET SDK.</span><span class="sxs-lookup"><span data-stu-id="fcd35-104">This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK.</span></span> 
+<span data-ttu-id="6eb1f-104">W tym temacie opisano ogólne kroki, które może wykonać podczas konfigurowania hello telemetrii usługi Azure Media Services (AMS) przy użyciu zestawu .NET SDK.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-104">This topic describes general steps that you might take when configuring hello Azure Media Services (AMS) telemetry using .NET SDK.</span></span> 
 
 >[!NOTE]
-><span data-ttu-id="fcd35-105">Aby uzyskać szczegółowy opis co to jest AMS telemetrii oraz sposób pobrać go, zobacz [omówienie](media-services-telemetry-overview.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="fcd35-105">For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.</span></span>
+><span data-ttu-id="6eb1f-105">Witaj szczegółowe wyjaśnienie, co jest AMS telemetrii i w jaki sposób tooconsume, zobacz hello [omówienie](media-services-telemetry-overview.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-105">For hello detailed explanation of what is AMS telemetry and how tooconsume it, see hello [overview](media-services-telemetry-overview.md) topic.</span></span>
 
-<span data-ttu-id="fcd35-106">Dane telemetryczne można korzystać w jednym z następujących sposobów:</span><span class="sxs-lookup"><span data-stu-id="fcd35-106">You can consume telemetry data in one of the following ways:</span></span>
+<span data-ttu-id="6eb1f-106">Będzie można korzystać z danych telemetrycznych w jednym z hello następujące sposoby:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-106">You can consume telemetry data in one of hello following ways:</span></span>
 
-- <span data-ttu-id="fcd35-107">Odczytywanie danych bezpośrednio z magazynem tabel Azure (np. przy użyciu zestawu SDK usługi Magazyn).</span><span class="sxs-lookup"><span data-stu-id="fcd35-107">Read data directly from Azure Table Storage (e.g. using the Storage SDK).</span></span> <span data-ttu-id="fcd35-108">Opis tabel do przechowywania danych telemetrycznych zawiera **wykorzystywanie informacji telemetrii** w [to](https://msdn.microsoft.com/library/mt742089.aspx) tematu.</span><span class="sxs-lookup"><span data-stu-id="fcd35-108">For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.</span></span>
+- <span data-ttu-id="6eb1f-107">Odczytywanie danych bezpośrednio z magazynem tabel Azure (np. przy użyciu hello zestawu SDK usługi Magazyn).</span><span class="sxs-lookup"><span data-stu-id="6eb1f-107">Read data directly from Azure Table Storage (e.g. using hello Storage SDK).</span></span> <span data-ttu-id="6eb1f-108">Opis hello tabel do przechowywania danych telemetrii, zobacz hello **wykorzystywanie informacji telemetrii** w [to](https://msdn.microsoft.com/library/mt742089.aspx) tematu.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-108">For hello description of telemetry storage tables, see hello **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.</span></span>
 
-<span data-ttu-id="fcd35-109">Lub</span><span class="sxs-lookup"><span data-stu-id="fcd35-109">Or</span></span>
+<span data-ttu-id="6eb1f-109">Lub</span><span class="sxs-lookup"><span data-stu-id="6eb1f-109">Or</span></span>
 
-- <span data-ttu-id="fcd35-110">Użyć funkcji w SDK .NET usługi Media Services do odczytywania danych z magazynu.</span><span class="sxs-lookup"><span data-stu-id="fcd35-110">Use the support in the Media Services .NET SDK for reading storage data.</span></span> <span data-ttu-id="fcd35-111">W tym temacie pokazano, jak włączyć dane telemetryczne dla określonego konta usługi AMS oraz jak zapytania metryki przy użyciu zestawu SDK .NET usługi Azure Media Services.</span><span class="sxs-lookup"><span data-stu-id="fcd35-111">This topic shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.</span></span>  
+- <span data-ttu-id="6eb1f-110">Użyj hello pomocy technicznej hello .NET SDK usługi Media Services do odczytywania danych z magazynu.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-110">Use hello support in hello Media Services .NET SDK for reading storage data.</span></span> <span data-ttu-id="6eb1f-111">W tym temacie przedstawiono, jak dane telemetryczne tooenable dla hello określić konta usługi AMS i jak przy użyciu metryk hello tooquery hello zestawu .NET SDK usługi Azure Media Services.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-111">This topic shows how tooenable telemetry for hello specified AMS account and how tooquery hello metrics using hello Azure Media Services .NET SDK.</span></span>  
 
-## <a name="configuring-telemetry-for-a-media-services-account"></a><span data-ttu-id="fcd35-112">Konfigurowanie dane telemetryczne dla konta usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="fcd35-112">Configuring telemetry for a Media Services account</span></span>
+## <a name="configuring-telemetry-for-a-media-services-account"></a><span data-ttu-id="6eb1f-112">Konfigurowanie dane telemetryczne dla konta usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="6eb1f-112">Configuring telemetry for a Media Services account</span></span>
 
-<span data-ttu-id="fcd35-113">Poniższe kroki są wymagane do włączenia telemetrii:</span><span class="sxs-lookup"><span data-stu-id="fcd35-113">The following steps are needed to enable telemetry:</span></span>
+<span data-ttu-id="6eb1f-113">Witaj następujące kroki są wymagane tooenable telemetrii:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-113">hello following steps are needed tooenable telemetry:</span></span>
 
-- <span data-ttu-id="fcd35-114">Uzyskiwanie poświadczeń konta usługi Magazyn dołączany do konta usługi Media Services.</span><span class="sxs-lookup"><span data-stu-id="fcd35-114">Get the credentials of the storage account attached to the Media Services account.</span></span> 
-- <span data-ttu-id="fcd35-115">Tworzenie punktu końcowego powiadomienia o **EndPointType** ustawioną **AzureTable** i endPointAddress wskazujący tabeli magazynu.</span><span class="sxs-lookup"><span data-stu-id="fcd35-115">Create a Notification Endpoint with **EndPointType** set to **AzureTable** and endPointAddress pointing to the storage table.</span></span>
+- <span data-ttu-id="6eb1f-114">Pobierz poświadczenia hello toohello dołączonego konta magazynu hello konta usługi Media Services.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-114">Get hello credentials of hello storage account attached toohello Media Services account.</span></span> 
+- <span data-ttu-id="6eb1f-115">Tworzenie punktu końcowego powiadomienia o **EndPointType** ustawić także**AzureTable** i wskazujący tabeli magazynu toohello endPointAddress.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-115">Create a Notification Endpoint with **EndPointType** set too**AzureTable** and endPointAddress pointing toohello storage table.</span></span>
 
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- <span data-ttu-id="fcd35-116">Tworzenie konfiguracji monitorowania ustawienia usługi, które chcesz monitorować.</span><span class="sxs-lookup"><span data-stu-id="fcd35-116">Create a monitoring configuration settings for the services you want to monitor.</span></span> <span data-ttu-id="fcd35-117">Nie więcej niż jednego ustawienia konfiguracji monitorowania jest dozwolone.</span><span class="sxs-lookup"><span data-stu-id="fcd35-117">No more than one monitoring configuration settings is allowed.</span></span> 
+- <span data-ttu-id="6eb1f-116">Utwórz ustawienia konfiguracji monitorowania hello usług można mają toomonitor.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-116">Create a monitoring configuration settings for hello services you want toomonitor.</span></span> <span data-ttu-id="6eb1f-117">Nie więcej niż jednego ustawienia konfiguracji monitorowania jest dozwolone.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-117">No more than one monitoring configuration settings is allowed.</span></span> 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -56,21 +56,21 @@ ms.lasthandoff: 08/29/2017
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
-## <a name="consuming-telemetry-information"></a><span data-ttu-id="fcd35-118">Wykorzystywanie informacji telemetrii</span><span class="sxs-lookup"><span data-stu-id="fcd35-118">Consuming telemetry information</span></span>
+## <a name="consuming-telemetry-information"></a><span data-ttu-id="6eb1f-118">Wykorzystywanie informacji telemetrii</span><span class="sxs-lookup"><span data-stu-id="6eb1f-118">Consuming telemetry information</span></span>
 
-<span data-ttu-id="fcd35-119">Informacji o odbierającą telemetrii, zobacz [to](media-services-telemetry-overview.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="fcd35-119">For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.</span></span>
+<span data-ttu-id="6eb1f-119">Informacji o odbierającą telemetrii, zobacz [to](media-services-telemetry-overview.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-119">For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.</span></span>
 
-## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="fcd35-120">Tworzenie i konfigurowanie projektu programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fcd35-120">Create and configure a Visual Studio project</span></span>
+## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="6eb1f-120">Tworzenie i konfigurowanie projektu programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6eb1f-120">Create and configure a Visual Studio project</span></span>
 
-1. <span data-ttu-id="fcd35-121">Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="fcd35-121">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+1. <span data-ttu-id="6eb1f-121">Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="6eb1f-121">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-2. <span data-ttu-id="fcd35-122">Dodaj następujący element do **appSettings** zdefiniowane w pliku app.config:</span><span class="sxs-lookup"><span data-stu-id="fcd35-122">Add the following element to **appSettings** defined in your app.config file:</span></span>
+2. <span data-ttu-id="6eb1f-122">Dodaj hello zbyt następującego elementu**appSettings** zdefiniowane w pliku app.config:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-122">Add hello following element too**appSettings** defined in your app.config file:</span></span>
 
     <add key="StorageAccountName" value="storage_name" />
  
-## <a name="example"></a><span data-ttu-id="fcd35-123">Przykład</span><span class="sxs-lookup"><span data-stu-id="fcd35-123">Example</span></span>  
+## <a name="example"></a><span data-ttu-id="6eb1f-123">Przykład</span><span class="sxs-lookup"><span data-stu-id="6eb1f-123">Example</span></span>  
     
-<span data-ttu-id="fcd35-124">Poniższy przykład przedstawia, jak włączyć dane telemetryczne dla określonego konta usługi AMS i jak wykonać zapytanie metryki przy użyciu zestawu SDK .NET usługi Azure Media Services.</span><span class="sxs-lookup"><span data-stu-id="fcd35-124">The following example shows how to enable telemetry for the specified AMS account and how to query the metrics using the Azure Media Services .NET SDK.</span></span>  
+<span data-ttu-id="6eb1f-124">Hello poniższy przykład pokazuje, jak dane telemetryczne tooenable dla hello określić konta usługi AMS i jak przy użyciu metryk hello tooquery hello zestawu .NET SDK usługi Azure Media Services.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-124">hello following example shows how tooenable telemetry for hello specified AMS account and how tooquery hello metrics using hello Azure Media Services .NET SDK.</span></span>  
 
     using System;
     using System.Collections.Generic;
@@ -192,7 +192,7 @@ ms.lasthandoff: 08/29/2017
 
             var channelMetrics = telemetry.GetChannelHeartbeats(timerangeStart, timerangeEnd);
 
-            // Print the channel metrics.
+            // Print hello channel metrics.
             Console.WriteLine("Channel metrics:");
 
             foreach (var channelHeartbeat in channelMetrics.OrderBy(x => x.ObservedTime))
@@ -210,10 +210,10 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <a name="next-steps"></a><span data-ttu-id="fcd35-125">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="fcd35-125">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6eb1f-125">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="6eb1f-125">Next steps</span></span>
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="fcd35-126">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="fcd35-126">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="6eb1f-126">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="6eb1f-126">Provide feedback</span></span>
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

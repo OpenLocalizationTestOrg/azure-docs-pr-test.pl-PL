@@ -1,6 +1,6 @@
 ---
-title: "Ustawienie Media Encoder Standard H264 pojedynczej szybkości transmisji bitów 4K - Azure | Dokumentacja firmy Microsoft"
-description: "Temat zawiera omówienie ** pojedynczej szybkości transmisji bitów H264 4 K ** ustawienie wstępne zadań."
+title: "Ustawienie aaaH264 pojedynczej szybkości transmisji bitów 4K Media Encoder Standard - Azure | Dokumentacja firmy Microsoft"
+description: "Witaj temat zawiera omówienie hello ** pojedynczej szybkości transmisji bitów H264 4 K ** ustawienie wstępne zadań."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 64c68363d4ba89e9ebbcaca8ff45d12f771e3a8c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3a88207ba89baaefddfea631aa5d4c1c74194c68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-single-bitrate-4k"></a><span data-ttu-id="fa2c7-103">H264 Pojedynczej szybkości transmisji bitów 4K</span><span class="sxs-lookup"><span data-stu-id="fa2c7-103">H264 Single Bitrate 4K</span></span>
-<span data-ttu-id="fa2c7-104">`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="fa2c7-105">Można użyć `preset name` do określenia do formatu, który chcesz kodować pliku nośnika.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="fa2c7-106">Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="fa2c7-107">Następnie możesz przejdzie niestandardowe ustawienia do kodera.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="fa2c7-108">Aby uzyskać listę wszystkich istniejących nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="fa2c7-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-single-bitrate-4k"></a><span data-ttu-id="2bbee-103">H264 Pojedynczej szybkości transmisji bitów 4K</span><span class="sxs-lookup"><span data-stu-id="2bbee-103">H264 Single Bitrate 4K</span></span>
+<span data-ttu-id="2bbee-104">`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania.</span><span class="sxs-lookup"><span data-stu-id="2bbee-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="2bbee-105">Można użyć `preset name` toospecify do formatu, który chcesz tooencode Twojego pliku multimedialnego.</span><span class="sxs-lookup"><span data-stu-id="2bbee-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="2bbee-106">Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16.</span><span class="sxs-lookup"><span data-stu-id="2bbee-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="2bbee-107">Następnie możesz przejdzie hello toohello wstępnie ustawiony niestandardowy koder.</span><span class="sxs-lookup"><span data-stu-id="2bbee-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="2bbee-108">Lista hello hello wszystkie ustawienia wstępnego nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="2bbee-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="fa2c7-109">W tym temacie przedstawiono `H264 Single Bitrate 4K` ustawienia wstępnego w formacie XML i JSON.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-109">This topic shows the `H264 Single Bitrate 4K` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="2bbee-109">W tym temacie przedstawiono hello `H264 Single Bitrate 4K` ustawienia wstępnego w formacie XML i JSON.</span><span class="sxs-lookup"><span data-stu-id="2bbee-109">This topic shows hello `H264 Single Bitrate 4K` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="fa2c7-110">Ten plik wstępnie zdefiniowane i tworzy jednej MP4 o szybkości transmisji bitów 18000 KB/s i stereo AAC audio.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-110">This preset produces a single MP4 file with a bitrate of 18000 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="fa2c7-111">Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdzić XML lub JSON określonych poniżej.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="fa2c7-112">Wyjaśnień jakie każdego elementu w sposób te ustawienia i prawidłowe wartości dla każdego elementu, zobacz [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-112">For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
+ <span data-ttu-id="2bbee-110">Ten plik wstępnie zdefiniowane i tworzy jednej MP4 o szybkości transmisji bitów 18000 KB/s i stereo AAC audio.</span><span class="sxs-lookup"><span data-stu-id="2bbee-110">This preset produces a single MP4 file with a bitrate of 18000 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="2bbee-111">Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdź hello XML lub JSON określonych poniżej.</span><span class="sxs-lookup"><span data-stu-id="2bbee-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="2bbee-112">Dla wyjaśnienia, jaki każdego elementu w tych oznacza, że ustawienia i hello prawidłowe wartości dla każdego elementu, zobacz hello [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.</span><span class="sxs-lookup"><span data-stu-id="2bbee-112">For explanations of what each element in these presets means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
   
 > [!NOTE]
->  <span data-ttu-id="fa2c7-113">Należy pobrać jednostka zarezerwowanego Premium koduje typu z 4K.</span><span class="sxs-lookup"><span data-stu-id="fa2c7-113">You should get the Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="fa2c7-114">Aby uzyskać więcej informacji, zobacz [sposób kodowania skali](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="fa2c7-114">For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
+>  <span data-ttu-id="2bbee-113">Należy pobrać hello Premium zastrzeżone koduje typu jednostki z 4K.</span><span class="sxs-lookup"><span data-stu-id="2bbee-113">You should get hello Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="2bbee-114">Aby uzyskać więcej informacji, zobacz [jak tooScale kodowanie](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="2bbee-114">For more information, see [How tooScale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
   
- <span data-ttu-id="fa2c7-115">XML</span><span class="sxs-lookup"><span data-stu-id="fa2c7-115">XML</span></span>  
+ <span data-ttu-id="2bbee-115">XML</span><span class="sxs-lookup"><span data-stu-id="2bbee-115">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="fa2c7-116">JSON</span><span class="sxs-lookup"><span data-stu-id="fa2c7-116">JSON</span></span>  
+ <span data-ttu-id="2bbee-116">JSON</span><span class="sxs-lookup"><span data-stu-id="2bbee-116">JSON</span></span>  
   
 ```  
 {  

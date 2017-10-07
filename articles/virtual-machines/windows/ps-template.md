@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny Wirtualnej systemu Windows z szablonu na platformie Azure | Dokumentacja firmy Microsoft
-description: "Łatwe tworzenie nowej maszyny Wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager i programu PowerShell."
+title: aaaCreate systemu Windows maszyny Wirtualnej z szablonu na platformie Azure | Dokumentacja firmy Microsoft
+description: "Szablon usługi Resource Manager i programu PowerShell tooeasily tworzenia nowej maszyny Wirtualnej systemu Windows."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -16,45 +16,45 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 630111482c7dc046091632e2ed458ac143325d59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a><span data-ttu-id="b70d0-103">Utwórz maszynę wirtualną systemu Windows z szablonem usługi Resource Manager</span><span class="sxs-lookup"><span data-stu-id="b70d0-103">Create a Windows virtual machine from a Resource Manager template</span></span>
+# <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a><span data-ttu-id="d5a83-103">Utwórz maszynę wirtualną systemu Windows z szablonem usługi Resource Manager</span><span class="sxs-lookup"><span data-stu-id="d5a83-103">Create a Windows virtual machine from a Resource Manager template</span></span>
 
-<span data-ttu-id="b70d0-104">W tym artykule przedstawiono sposób wdrażania szablonu usługi Azure Resource Manager przy użyciu programu PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b70d0-104">This article shows you how to deploy an Azure Resource Manager template using PowerShell.</span></span> <span data-ttu-id="b70d0-105">Tworzony szablon wdraża jednej maszyny wirtualnej z systemem Windows Server w nowej sieci wirtualnej z pojedynczą podsiecią.</span><span class="sxs-lookup"><span data-stu-id="b70d0-105">The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.</span></span>
+<span data-ttu-id="d5a83-104">W tym artykule opisano sposób toodeploy usługi Azure Resource Manager szablonu przy użyciu programu PowerShell.</span><span class="sxs-lookup"><span data-stu-id="d5a83-104">This article shows you how toodeploy an Azure Resource Manager template using PowerShell.</span></span> <span data-ttu-id="d5a83-105">tworzony szablon Hello wdraża jednej maszyny wirtualnej z systemem Windows Server w nowej sieci wirtualnej z pojedynczą podsiecią.</span><span class="sxs-lookup"><span data-stu-id="d5a83-105">hello template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.</span></span>
 
-<span data-ttu-id="b70d0-106">Aby uzyskać szczegółowy opis zasobu maszyny wirtualnej, zobacz [maszyn wirtualnych w szablonie usługi Azure Resource Manager](template-description.md).</span><span class="sxs-lookup"><span data-stu-id="b70d0-106">For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md).</span></span> <span data-ttu-id="b70d0-107">Aby uzyskać więcej informacji na temat wszystkich zasobów w szablonie, zobacz [Przewodnik po szablonie usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).</span><span class="sxs-lookup"><span data-stu-id="b70d0-107">For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).</span></span>
+<span data-ttu-id="d5a83-106">Aby uzyskać szczegółowy opis hello zasobu maszyny wirtualnej, zobacz [maszyn wirtualnych w szablonie usługi Azure Resource Manager](template-description.md).</span><span class="sxs-lookup"><span data-stu-id="d5a83-106">For a detailed description of hello virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md).</span></span> <span data-ttu-id="d5a83-107">Aby uzyskać więcej informacji o wszystkich zasobów hello w szablonie, zobacz [Przewodnik po szablonie usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).</span><span class="sxs-lookup"><span data-stu-id="d5a83-107">For more information about all hello resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).</span></span>
 
-<span data-ttu-id="b70d0-108">Wykonaj kroki opisane w tym artykule powinno zająć około pięciu minut.</span><span class="sxs-lookup"><span data-stu-id="b70d0-108">It should take about five minutes to do the steps in this article.</span></span>
+<span data-ttu-id="d5a83-108">Należy go zająć około pięciu minut, którą toodo hello kroków w tym artykule.</span><span class="sxs-lookup"><span data-stu-id="d5a83-108">It should take about five minutes toodo hello steps in this article.</span></span>
 
-## <a name="install-azure-powershell"></a><span data-ttu-id="b70d0-109">Instalowanie programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="b70d0-109">Install Azure PowerShell</span></span>
+## <a name="install-azure-powershell"></a><span data-ttu-id="d5a83-109">Instalowanie programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="d5a83-109">Install Azure PowerShell</span></span>
 
-<span data-ttu-id="b70d0-110">Zobacz [How to install and configure Azure PowerShell](../../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.</span><span class="sxs-lookup"><span data-stu-id="b70d0-110">See [How to install and configure Azure PowerShell](../../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.</span></span>
+<span data-ttu-id="d5a83-110">Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](../../powershell-install-configure.md) uzyskać informacji na temat instalowania najnowszej wersji programu Azure PowerShell hello, wybierając subskrypcję i logowanie tooyour konta.</span><span class="sxs-lookup"><span data-stu-id="d5a83-110">See [How tooinstall and configure Azure PowerShell](../../powershell-install-configure.md) for information about installing hello latest version of Azure PowerShell, selecting your subscription, and signing in tooyour account.</span></span>
 
-## <a name="create-a-resource-group"></a><span data-ttu-id="b70d0-111">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="b70d0-111">Create a resource group</span></span>
+## <a name="create-a-resource-group"></a><span data-ttu-id="d5a83-111">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="d5a83-111">Create a resource group</span></span>
 
-<span data-ttu-id="b70d0-112">Wszystkie zasoby musi być wdrażana w [grupy zasobów](../../azure-resource-manager/resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="b70d0-112">All resources must be deployed in a [resource group](../../azure-resource-manager/resource-group-overview.md).</span></span>
+<span data-ttu-id="d5a83-112">Wszystkie zasoby musi być wdrażana w [grupy zasobów](../../azure-resource-manager/resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d5a83-112">All resources must be deployed in a [resource group](../../azure-resource-manager/resource-group-overview.md).</span></span>
 
-1. <span data-ttu-id="b70d0-113">Pobierz listę dostępnych lokalizacji, w których można utworzyć zasoby.</span><span class="sxs-lookup"><span data-stu-id="b70d0-113">Get a list of available locations where resources can be created.</span></span>
+1. <span data-ttu-id="d5a83-113">Pobierz listę dostępnych lokalizacji, w których można utworzyć zasoby.</span><span class="sxs-lookup"><span data-stu-id="d5a83-113">Get a list of available locations where resources can be created.</span></span>
    
     ```powershell   
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. <span data-ttu-id="b70d0-114">Utwórz grupę zasobów w wybranej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="b70d0-114">Create the resource group in the location that you select.</span></span> <span data-ttu-id="b70d0-115">Ten przykład przedstawia tworzenie grupy zasobów o nazwie **myResourceGroup** w **zachodnie stany USA** lokalizacji:</span><span class="sxs-lookup"><span data-stu-id="b70d0-115">This example shows the creation of a resource group named **myResourceGroup** in the **West US** location:</span></span>
+2. <span data-ttu-id="d5a83-114">Utwórz grupę zasobów hello w lokalizacji hello.</span><span class="sxs-lookup"><span data-stu-id="d5a83-114">Create hello resource group in hello location that you select.</span></span> <span data-ttu-id="d5a83-115">Ten przykład przedstawia tworzenie grupy zasobów o nazwie hello **myResourceGroup** w hello **zachodnie stany USA** lokalizacji:</span><span class="sxs-lookup"><span data-stu-id="d5a83-115">This example shows hello creation of a resource group named **myResourceGroup** in hello **West US** location:</span></span>
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="create-the-files"></a><span data-ttu-id="b70d0-116">Tworzenie plików</span><span class="sxs-lookup"><span data-stu-id="b70d0-116">Create the files</span></span>
+## <a name="create-hello-files"></a><span data-ttu-id="d5a83-116">Tworzenie plików hello</span><span class="sxs-lookup"><span data-stu-id="d5a83-116">Create hello files</span></span>
 
-<span data-ttu-id="b70d0-117">W tym kroku utworzysz pliku szablonu, który wdraża zasobów i pliku parametrów, które dostarcza wartości parametru do szablonu.</span><span class="sxs-lookup"><span data-stu-id="b70d0-117">In this step, you create a template file that deploys the resources and a parameters file that supplies parameter values to the template.</span></span> <span data-ttu-id="b70d0-118">Możesz również utworzyć pliku autoryzacji, który służy do wykonywania operacji usługi Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="b70d0-118">You also create an authorization file that is used to perform Azure Resource Manager operations.</span></span>
+<span data-ttu-id="d5a83-117">W tym kroku utworzysz plik szablonu, który wdraża hello zasobów i pliku parametrów, który dostarcza szablonu toohello wartości parametru.</span><span class="sxs-lookup"><span data-stu-id="d5a83-117">In this step, you create a template file that deploys hello resources and a parameters file that supplies parameter values toohello template.</span></span> <span data-ttu-id="d5a83-118">Możesz również utworzyć pliku autoryzacji, który jest używane tooperform operacji usługi Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="d5a83-118">You also create an authorization file that is used tooperform Azure Resource Manager operations.</span></span>
 
-1. <span data-ttu-id="b70d0-119">Utwórz plik o nazwie *CreateVMTemplate.json* i Dodaj ten kod JSON do niej:</span><span class="sxs-lookup"><span data-stu-id="b70d0-119">Create a file named *CreateVMTemplate.json* and add this JSON code to it:</span></span>
+1. <span data-ttu-id="d5a83-119">Utwórz plik o nazwie *CreateVMTemplate.json* i Dodaj ten tooit kodu JSON:</span><span class="sxs-lookup"><span data-stu-id="d5a83-119">Create a file named *CreateVMTemplate.json* and add this JSON code tooit:</span></span>
 
     ```json
     {
@@ -159,7 +159,7 @@ ms.lasthandoff: 08/29/2017
     }
     ```
 
-2. <span data-ttu-id="b70d0-120">Utwórz plik o nazwie *parameters.JSON następującym kodem* i Dodaj ten kod JSON do niej:</span><span class="sxs-lookup"><span data-stu-id="b70d0-120">Create a file named *Parameters.json* and add this JSON code to it:</span></span>
+2. <span data-ttu-id="d5a83-120">Utwórz plik o nazwie *parameters.JSON następującym kodem* i Dodaj ten tooit kodu JSON:</span><span class="sxs-lookup"><span data-stu-id="d5a83-120">Create a file named *Parameters.json* and add this JSON code tooit:</span></span>
 
     ```json
     {
@@ -172,7 +172,7 @@ ms.lasthandoff: 08/29/2017
     }
     ```
 
-3. <span data-ttu-id="b70d0-121">Utwórz nowe konto magazynu i kontener:</span><span class="sxs-lookup"><span data-stu-id="b70d0-121">Create a new storage account and container:</span></span>
+3. <span data-ttu-id="d5a83-121">Utwórz nowe konto magazynu i kontener:</span><span class="sxs-lookup"><span data-stu-id="d5a83-121">Create a new storage account and container:</span></span>
 
     ```powershell
     $storageName = "st" + (Get-Random)
@@ -182,18 +182,18 @@ ms.lasthandoff: 08/29/2017
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. <span data-ttu-id="b70d0-122">Przekazywanie plików do konta magazynu:</span><span class="sxs-lookup"><span data-stu-id="b70d0-122">Upload the files to the storage account:</span></span>
+4. <span data-ttu-id="d5a83-122">Przekaż konta magazynu toohello pliki hello:</span><span class="sxs-lookup"><span data-stu-id="d5a83-122">Upload hello files toohello storage account:</span></span>
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    <span data-ttu-id="b70d0-123">Zmiana - ścieżki do plików do lokalizacji, w którym są przechowywane pliki.</span><span class="sxs-lookup"><span data-stu-id="b70d0-123">Change the -File paths to the location where you stored the files.</span></span>
+    <span data-ttu-id="d5a83-123">Zmień hello — lokalizacja toohello ścieżki pliku przechowywania plików hello.</span><span class="sxs-lookup"><span data-stu-id="d5a83-123">Change hello -File paths toohello location where you stored hello files.</span></span>
 
-## <a name="create-the-resources"></a><span data-ttu-id="b70d0-124">Utworzenie zasobów</span><span class="sxs-lookup"><span data-stu-id="b70d0-124">Create the resources</span></span>
+## <a name="create-hello-resources"></a><span data-ttu-id="d5a83-124">Utwórz zasoby hello</span><span class="sxs-lookup"><span data-stu-id="d5a83-124">Create hello resources</span></span>
 
-<span data-ttu-id="b70d0-125">Wdrażanie szablonu przy użyciu parametrów:</span><span class="sxs-lookup"><span data-stu-id="b70d0-125">Deploy the template using the parameters:</span></span>
+<span data-ttu-id="d5a83-125">Wdrażanie szablonu hello przy użyciu parametrów hello:</span><span class="sxs-lookup"><span data-stu-id="d5a83-125">Deploy hello template using hello parameters:</span></span>
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -202,10 +202,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> <span data-ttu-id="b70d0-126">Można także wdrożyć parametry z lokalnych plików i szablonów.</span><span class="sxs-lookup"><span data-stu-id="b70d0-126">You can also deploy templates and parameters from local files.</span></span> <span data-ttu-id="b70d0-127">Aby dowiedzieć się więcej, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).</span><span class="sxs-lookup"><span data-stu-id="b70d0-127">To learn more, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).</span></span>
+> <span data-ttu-id="d5a83-126">Można także wdrożyć parametry z lokalnych plików i szablonów.</span><span class="sxs-lookup"><span data-stu-id="d5a83-126">You can also deploy templates and parameters from local files.</span></span> <span data-ttu-id="d5a83-127">toolearn więcej, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).</span><span class="sxs-lookup"><span data-stu-id="d5a83-127">toolearn more, see [Using Azure PowerShell with Azure Storage](../../storage/common/storage-powershell-guide-full.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="b70d0-128">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b70d0-128">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d5a83-128">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="d5a83-128">Next Steps</span></span>
 
-- <span data-ttu-id="b70d0-129">Jeśli wystąpiły problemy dotyczące wdrożenia, może potrwać przyjrzeć się [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](../../resource-manager-common-deployment-errors.md).</span><span class="sxs-lookup"><span data-stu-id="b70d0-129">If there were issues with the deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).</span></span>
-- <span data-ttu-id="b70d0-130">Informacje o sposobie tworzenia i zarządzania nimi maszynę wirtualną w [tworzenia i zarządzania maszynami wirtualnymi systemu Windows za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="b70d0-130">Learn how to create and manage a virtual machine in [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
+- <span data-ttu-id="d5a83-129">Jeśli wystąpiły problemy z wdrażaniem hello, może potrwać przyjrzeć się [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](../../resource-manager-common-deployment-errors.md).</span><span class="sxs-lookup"><span data-stu-id="d5a83-129">If there were issues with hello deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).</span></span>
+- <span data-ttu-id="d5a83-130">Dowiedz się, jak toocreate i zarządzanie nimi maszynę wirtualną w [tworzenia i zarządzania maszynami wirtualnymi systemu Windows za pomocą modułu Azure PowerShell hello](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="d5a83-130">Learn how toocreate and manage a virtual machine in [Create and manage Windows VMs with hello Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
 

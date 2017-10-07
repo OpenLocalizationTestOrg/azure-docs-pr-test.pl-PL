@@ -1,5 +1,5 @@
 ---
-title: Implementowanie Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux | Dokumentacja firmy Microsoft
+title: aaaImplement Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux | Dokumentacja firmy Microsoft
 description: "Szybko uzyskać Oracle Data Guard zapasowej i uruchamiania w środowisku platformy Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6bb530098737e3ca7dd8bab3f4306ecbb620f3f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a><span data-ttu-id="68f9f-103">Implementowanie Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux</span><span class="sxs-lookup"><span data-stu-id="68f9f-103">Implement Oracle Data Guard on an Azure Linux virtual machine</span></span> 
+# <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a><span data-ttu-id="30876-103">Implementowanie Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux</span><span class="sxs-lookup"><span data-stu-id="30876-103">Implement Oracle Data Guard on an Azure Linux virtual machine</span></span> 
 
-<span data-ttu-id="68f9f-104">Interfejs wiersza polecenia platformy Azure jest używana do tworzenia i zarządzania zasobami Azure z poziomu wiersza polecenia lub w skryptach.</span><span class="sxs-lookup"><span data-stu-id="68f9f-104">Azure CLI is used to create and manage Azure resources from the command line or in scripts.</span></span> <span data-ttu-id="68f9f-105">W tym artykule opisano sposób wdrażania bazy danych programu Oracle Database 12c z obrazu witryny Marketplace Azure za pomocą wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="68f9f-105">This article describes how to use Azure CLI to deploy an Oracle Database 12c database from the Azure Marketplace image.</span></span> <span data-ttu-id="68f9f-106">W tym artykule następnie pokaże Ci, krok po kroku, jak zainstalować i skonfigurować ochrona danych na maszynie wirtualnej platformy Azure (VM).</span><span class="sxs-lookup"><span data-stu-id="68f9f-106">This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM).</span></span>
+<span data-ttu-id="30876-104">Interfejs wiersza polecenia platformy Azure jest używane toocreate i zarządzania zasobami Azure z wiersza polecenia hello lub w skryptach.</span><span class="sxs-lookup"><span data-stu-id="30876-104">Azure CLI is used toocreate and manage Azure resources from hello command line or in scripts.</span></span> <span data-ttu-id="30876-105">W tym artykule opisano, jak toouse toodeploy wiersza polecenia platformy Azure z bazą danych Oracle 12c bazy danych z hello Azure Marketplace obrazu.</span><span class="sxs-lookup"><span data-stu-id="30876-105">This article describes how toouse Azure CLI toodeploy an Oracle Database 12c database from hello Azure Marketplace image.</span></span> <span data-ttu-id="30876-106">W tym artykule następnie przedstawiono, krok po kroku, jak tooinstall i skonfigurować ochrona danych na maszynie wirtualnej platformy Azure (VM).</span><span class="sxs-lookup"><span data-stu-id="30876-106">This article then shows you, step by step, how tooinstall and configure Data Guard on an Azure virtual machine (VM).</span></span>
 
-<span data-ttu-id="68f9f-107">Przed rozpoczęciem upewnij się, czy zainstalowano wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="68f9f-107">Before you start, make sure that Azure CLI is installed.</span></span> <span data-ttu-id="68f9f-108">Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="68f9f-108">For more information, see the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).</span></span>
+<span data-ttu-id="30876-107">Przed rozpoczęciem upewnij się, czy zainstalowano wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="30876-107">Before you start, make sure that Azure CLI is installed.</span></span> <span data-ttu-id="30876-108">Aby uzyskać więcej informacji, zobacz hello [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="30876-108">For more information, see hello [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).</span></span>
 
-## <a name="prepare-the-environment"></a><span data-ttu-id="68f9f-109">Przygotowanie środowiska</span><span class="sxs-lookup"><span data-stu-id="68f9f-109">Prepare the environment</span></span>
-### <a name="assumptions"></a><span data-ttu-id="68f9f-110">Wartości domyślne</span><span class="sxs-lookup"><span data-stu-id="68f9f-110">Assumptions</span></span>
+## <a name="prepare-hello-environment"></a><span data-ttu-id="30876-109">Przygotowanie środowiska hello</span><span class="sxs-lookup"><span data-stu-id="30876-109">Prepare hello environment</span></span>
+### <a name="assumptions"></a><span data-ttu-id="30876-110">Wartości domyślne</span><span class="sxs-lookup"><span data-stu-id="30876-110">Assumptions</span></span>
 
-<span data-ttu-id="68f9f-111">Aby zainstalować program Oracle Data Guard, należy utworzyć dwie maszyny wirtualne platformy Azure na tym samym zestawie dostępności:</span><span class="sxs-lookup"><span data-stu-id="68f9f-111">To install Oracle Data Guard, you need to create two Azure VMs on the same availability set:</span></span>
+<span data-ttu-id="30876-111">tooinstall Oracle Data Guard należy toocreate dwóch maszyn wirtualnych platformy Azure na powitania tego samego zestawu dostępności:</span><span class="sxs-lookup"><span data-stu-id="30876-111">tooinstall Oracle Data Guard, you need toocreate two Azure VMs on hello same availability set:</span></span>
 
-- <span data-ttu-id="68f9f-112">Podstawowej maszyny Wirtualnej (myVM1) ma uruchomione wystąpienie programu Oracle.</span><span class="sxs-lookup"><span data-stu-id="68f9f-112">The primary VM (myVM1) has a running Oracle instance.</span></span>
-- <span data-ttu-id="68f9f-113">Stan wstrzymania maszyny Wirtualnej (myVM2) są zainstalowane tylko oprogramowanie Oracle.</span><span class="sxs-lookup"><span data-stu-id="68f9f-113">The standby VM (myVM2) has the Oracle software installed only.</span></span>
+- <span data-ttu-id="30876-112">Witaj podstawowej maszyny Wirtualnej (myVM1) ma uruchomione wystąpienie programu Oracle.</span><span class="sxs-lookup"><span data-stu-id="30876-112">hello primary VM (myVM1) has a running Oracle instance.</span></span>
+- <span data-ttu-id="30876-113">Witaj rezerwy maszyny Wirtualnej (myVM2) są zainstalowane tylko oprogramowanie Oracle hello.</span><span class="sxs-lookup"><span data-stu-id="30876-113">hello standby VM (myVM2) has hello Oracle software installed only.</span></span>
 
-<span data-ttu-id="68f9f-114">Obrazu z witryny Marketplace, która służy do tworzenia maszyn wirtualnych jest Oracle: Oracle — bazy danych — Ee:12.1.0.2:latest.</span><span class="sxs-lookup"><span data-stu-id="68f9f-114">The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-Ee:12.1.0.2:latest.</span></span>
+<span data-ttu-id="30876-114">Witaj obrazu witryny Marketplace, że używasz hello toocreate maszyn wirtualnych jest Oracle: Oracle — bazy danych — Ee:12.1.0.2:latest.</span><span class="sxs-lookup"><span data-stu-id="30876-114">hello Marketplace image that you use toocreate hello VMs is Oracle:Oracle-Database-Ee:12.1.0.2:latest.</span></span>
 
-### <a name="sign-in-to-azure"></a><span data-ttu-id="68f9f-115">Logowanie do platformy Azure</span><span class="sxs-lookup"><span data-stu-id="68f9f-115">Sign in to Azure</span></span> 
+### <a name="sign-in-tooazure"></a><span data-ttu-id="30876-115">Zaloguj się tooAzure</span><span class="sxs-lookup"><span data-stu-id="30876-115">Sign in tooAzure</span></span> 
 
-<span data-ttu-id="68f9f-116">Zaloguj się do subskrypcji platformy Azure przy użyciu [logowania az](/cli/azure/#login) poleceń i wykonaj na ekranie instrukcjami.</span><span class="sxs-lookup"><span data-stu-id="68f9f-116">Sign in to your Azure subscription by using the [az login](/cli/azure/#login) command and follow the on-screen directions.</span></span>
+<span data-ttu-id="30876-116">Zaloguj się tooyour subskrypcji platformy Azure przy użyciu hello [logowania az](/cli/azure/#login) poleceń i wykonaj hello na ekranie instrukcjami.</span><span class="sxs-lookup"><span data-stu-id="30876-116">Sign in tooyour Azure subscription by using hello [az login](/cli/azure/#login) command and follow hello on-screen directions.</span></span>
 
 ```azurecli
 az login
 ```
 
-### <a name="create-a-resource-group"></a><span data-ttu-id="68f9f-117">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="68f9f-117">Create a resource group</span></span>
+### <a name="create-a-resource-group"></a><span data-ttu-id="30876-117">Tworzenie grupy zasobów</span><span class="sxs-lookup"><span data-stu-id="30876-117">Create a resource group</span></span>
 
-<span data-ttu-id="68f9f-118">Utwórz grupę zasobów za pomocą [Tworzenie grupy az](/cli/azure/group#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="68f9f-118">Create a resource group by using the [az group create](/cli/azure/group#create) command.</span></span> <span data-ttu-id="68f9f-119">Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby.</span><span class="sxs-lookup"><span data-stu-id="68f9f-119">An Azure resource group is a logical container in which Azure resources are deployed and managed.</span></span> 
+<span data-ttu-id="30876-118">Utwórz grupę zasobów za pomocą hello [Tworzenie grupy az](/cli/azure/group#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="30876-118">Create a resource group by using hello [az group create](/cli/azure/group#create) command.</span></span> <span data-ttu-id="30876-119">Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby.</span><span class="sxs-lookup"><span data-stu-id="30876-119">An Azure resource group is a logical container in which Azure resources are deployed and managed.</span></span> 
 
-<span data-ttu-id="68f9f-120">Poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w `westus` lokalizacji:</span><span class="sxs-lookup"><span data-stu-id="68f9f-120">The following example creates a resource group named `myResourceGroup` in the `westus` location:</span></span>
+<span data-ttu-id="30876-120">Witaj poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w hello `westus` lokalizacji:</span><span class="sxs-lookup"><span data-stu-id="30876-120">hello following example creates a resource group named `myResourceGroup` in hello `westus` location:</span></span>
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-### <a name="create-an-availability-set"></a><span data-ttu-id="68f9f-121">Tworzenie zestawu dostępności</span><span class="sxs-lookup"><span data-stu-id="68f9f-121">Create an availability set</span></span>
+### <a name="create-an-availability-set"></a><span data-ttu-id="30876-121">Tworzenie zestawu dostępności</span><span class="sxs-lookup"><span data-stu-id="30876-121">Create an availability set</span></span>
 
-<span data-ttu-id="68f9f-122">Tworzenie zestawu dostępności jest opcjonalne, ale jest zalecane.</span><span class="sxs-lookup"><span data-stu-id="68f9f-122">Creating an availability set is optional, but we recommend it.</span></span> <span data-ttu-id="68f9f-123">Aby uzyskać więcej informacji, zobacz [wytyczne zestawy dostępności Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).</span><span class="sxs-lookup"><span data-stu-id="68f9f-123">For more information, see [Azure availability sets guidelines](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).</span></span>
+<span data-ttu-id="30876-122">Tworzenie zestawu dostępności jest opcjonalne, ale jest zalecane.</span><span class="sxs-lookup"><span data-stu-id="30876-122">Creating an availability set is optional, but we recommend it.</span></span> <span data-ttu-id="30876-123">Aby uzyskać więcej informacji, zobacz [wytyczne zestawy dostępności Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).</span><span class="sxs-lookup"><span data-stu-id="30876-123">For more information, see [Azure availability sets guidelines](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).</span></span>
 
 ```azurecli
 az vm availability-set create \
@@ -67,13 +67,13 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-### <a name="create-a-virtual-machine"></a><span data-ttu-id="68f9f-124">Tworzenie maszyny wirtualnej</span><span class="sxs-lookup"><span data-stu-id="68f9f-124">Create a virtual machine</span></span>
+### <a name="create-a-virtual-machine"></a><span data-ttu-id="30876-124">Tworzenie maszyny wirtualnej</span><span class="sxs-lookup"><span data-stu-id="30876-124">Create a virtual machine</span></span>
 
-<span data-ttu-id="68f9f-125">Utwórz maszynę Wirtualną za pomocą [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="68f9f-125">Create a VM by using the [az vm create](/cli/azure/vm#create) command.</span></span> 
+<span data-ttu-id="30876-125">Utwórz maszynę Wirtualną za pomocą hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="30876-125">Create a VM by using hello [az vm create](/cli/azure/vm#create) command.</span></span> 
 
-<span data-ttu-id="68f9f-126">Poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2`.</span><span class="sxs-lookup"><span data-stu-id="68f9f-126">The following example creates two VMs named `myVM1` and `myVM2`.</span></span> <span data-ttu-id="68f9f-127">Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza.</span><span class="sxs-lookup"><span data-stu-id="68f9f-127">It also creates SSH keys, if they do not already exist in a default key location.</span></span> <span data-ttu-id="68f9f-128">Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.</span><span class="sxs-lookup"><span data-stu-id="68f9f-128">To use a specific set of keys, use the `--ssh-key-value` option.</span></span>
+<span data-ttu-id="30876-126">Witaj poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2`.</span><span class="sxs-lookup"><span data-stu-id="30876-126">hello following example creates two VMs named `myVM1` and `myVM2`.</span></span> <span data-ttu-id="30876-127">Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza.</span><span class="sxs-lookup"><span data-stu-id="30876-127">It also creates SSH keys, if they do not already exist in a default key location.</span></span> <span data-ttu-id="30876-128">toouse określonego zestawu kluczy, należy użyć hello `--ssh-key-value` opcji.</span><span class="sxs-lookup"><span data-stu-id="30876-128">toouse a specific set of keys, use hello `--ssh-key-value` option.</span></span>
 
-<span data-ttu-id="68f9f-129">Utwórz myVM1 (podstawowe):</span><span class="sxs-lookup"><span data-stu-id="68f9f-129">Create myVM1 (primary):</span></span>
+<span data-ttu-id="30876-129">Utwórz myVM1 (podstawowe):</span><span class="sxs-lookup"><span data-stu-id="30876-129">Create myVM1 (primary):</span></span>
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -85,7 +85,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-<span data-ttu-id="68f9f-130">Po utworzeniu maszyny Wirtualnej Azure CLI pokazuje informacje podobne do poniższego przykładu.</span><span class="sxs-lookup"><span data-stu-id="68f9f-130">After you create the VM, Azure CLI shows information similar to the following example.</span></span> <span data-ttu-id="68f9f-131">Zanotuj wartość ustawienia `publicIpAddress`.</span><span class="sxs-lookup"><span data-stu-id="68f9f-131">Note the value of `publicIpAddress`.</span></span> <span data-ttu-id="68f9f-132">Ten adres umożliwia dostęp do maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="68f9f-132">You use this address to access the VM.</span></span>
+<span data-ttu-id="30876-130">Po utworzeniu maszyny Wirtualnej hello interfejsu wiersza polecenia Azure zawiera informacje toohello podobnie poniższy przykład.</span><span class="sxs-lookup"><span data-stu-id="30876-130">After you create hello VM, Azure CLI shows information similar toohello following example.</span></span> <span data-ttu-id="30876-131">Zanotuj wartość hello z `publicIpAddress`.</span><span class="sxs-lookup"><span data-stu-id="30876-131">Note hello value of `publicIpAddress`.</span></span> <span data-ttu-id="30876-132">Możesz użyć tego adresu tooaccess hello maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="30876-132">You use this address tooaccess hello VM.</span></span>
 
 ```azurecli
 {
@@ -100,7 +100,7 @@ az vm create \
 }
 ```
 
-<span data-ttu-id="68f9f-133">Utwórz myVM2 (rezerwy):</span><span class="sxs-lookup"><span data-stu-id="68f9f-133">Create myVM2 (standby):</span></span>
+<span data-ttu-id="30876-133">Utwórz myVM2 (rezerwy):</span><span class="sxs-lookup"><span data-stu-id="30876-133">Create myVM2 (standby):</span></span>
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -112,13 +112,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-<span data-ttu-id="68f9f-134">Zanotuj wartość ustawienia `publicIpAddress` po utworzeniu myVM2.</span><span class="sxs-lookup"><span data-stu-id="68f9f-134">Note the value of `publicIpAddress` after you create myVM2.</span></span>
+<span data-ttu-id="30876-134">Zanotuj wartość hello z `publicIpAddress` po utworzeniu myVM2.</span><span class="sxs-lookup"><span data-stu-id="30876-134">Note hello value of `publicIpAddress` after you create myVM2.</span></span>
 
-### <a name="open-the-tcp-port-for-connectivity"></a><span data-ttu-id="68f9f-135">Otwórz port TCP dla łączności</span><span class="sxs-lookup"><span data-stu-id="68f9f-135">Open the TCP port for connectivity</span></span>
+### <a name="open-hello-tcp-port-for-connectivity"></a><span data-ttu-id="30876-135">Otwórz port TCP hello łączności</span><span class="sxs-lookup"><span data-stu-id="30876-135">Open hello TCP port for connectivity</span></span>
 
-<span data-ttu-id="68f9f-136">Ten krok obejmuje skonfigurowanie zewnętrzne punkty końcowe, które umożliwiają zdalny dostęp do bazy danych Oracle.</span><span class="sxs-lookup"><span data-stu-id="68f9f-136">This step configures external endpoints, which allow remote access to the Oracle database.</span></span>
+<span data-ttu-id="30876-136">Ten krok obejmuje skonfigurowanie zewnętrzne punkty końcowe, umożliwiających bazą danych Oracle toohello dostępu zdalnego.</span><span class="sxs-lookup"><span data-stu-id="30876-136">This step configures external endpoints, which allow remote access toohello Oracle database.</span></span>
 
-<span data-ttu-id="68f9f-137">Otwórz port myVM1:</span><span class="sxs-lookup"><span data-stu-id="68f9f-137">Open the port for myVM1:</span></span>
+<span data-ttu-id="30876-137">Otwórz hello port myVM1:</span><span class="sxs-lookup"><span data-stu-id="30876-137">Open hello port for myVM1:</span></span>
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -128,7 +128,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-<span data-ttu-id="68f9f-138">Wynik powinien być podobny do następującego odpowiedzi:</span><span class="sxs-lookup"><span data-stu-id="68f9f-138">The result should look similar to the following response:</span></span>
+<span data-ttu-id="30876-138">wynik Hello powinien wyglądać podobnie toohello po odpowiedzi:</span><span class="sxs-lookup"><span data-stu-id="30876-138">hello result should look similar toohello following response:</span></span>
 
 ```bash
 {
@@ -149,7 +149,7 @@ az network nsg rule create --resource-group myResourceGroup\
 }
 ```
 
-<span data-ttu-id="68f9f-139">Otwórz port myVM2:</span><span class="sxs-lookup"><span data-stu-id="68f9f-139">Open the port for myVM2:</span></span>
+<span data-ttu-id="30876-139">Otwórz hello port myVM2:</span><span class="sxs-lookup"><span data-stu-id="30876-139">Open hello port for myVM2:</span></span>
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -159,25 +159,25 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a><span data-ttu-id="68f9f-140">Nawiązywanie połączenia z maszyną wirtualną</span><span class="sxs-lookup"><span data-stu-id="68f9f-140">Connect to the virtual machine</span></span>
+### <a name="connect-toohello-virtual-machine"></a><span data-ttu-id="30876-140">Połącz toohello maszyny wirtualnej</span><span class="sxs-lookup"><span data-stu-id="30876-140">Connect toohello virtual machine</span></span>
 
-<span data-ttu-id="68f9f-141">Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną.</span><span class="sxs-lookup"><span data-stu-id="68f9f-141">Use the following command to create an SSH session with the virtual machine.</span></span> <span data-ttu-id="68f9f-142">Zastąp adres IP z `publicIpAddress` wartość dla maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="68f9f-142">Replace the IP address with the `publicIpAddress` value for your virtual machine.</span></span>
+<span data-ttu-id="30876-141">Użyj hello następujące polecenie toocreate jako sesji SSH z maszyną wirtualną hello.</span><span class="sxs-lookup"><span data-stu-id="30876-141">Use hello following command toocreate an SSH session with hello virtual machine.</span></span> <span data-ttu-id="30876-142">Zamień adres IP hello hello `publicIpAddress` wartość dla maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="30876-142">Replace hello IP address with hello `publicIpAddress` value for your virtual machine.</span></span>
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="create-the-database-on-myvm1-primary"></a><span data-ttu-id="68f9f-143">Utwórz bazę danych na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-143">Create the database on myVM1 (primary)</span></span>
+### <a name="create-hello-database-on-myvm1-primary"></a><span data-ttu-id="30876-143">Utwórz bazę danych hello myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="30876-143">Create hello database on myVM1 (primary)</span></span>
 
-<span data-ttu-id="68f9f-144">Oprogramowanie Oracle jest już zainstalowana na obrazu z witryny Marketplace, następnym krokiem jest zainstalowanie bazy danych.</span><span class="sxs-lookup"><span data-stu-id="68f9f-144">The Oracle software is already installed on the Marketplace image, so the next step is to install the database.</span></span> 
+<span data-ttu-id="30876-144">oprogramowanie Oracle Hello jest już zainstalowana na hello obrazu z witryny Marketplace, więc hello następnym krokiem jest tooinstall hello w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="30876-144">hello Oracle software is already installed on hello Marketplace image, so hello next step is tooinstall hello database.</span></span> 
 
-<span data-ttu-id="68f9f-145">Przełącz się do administratora Oracle:</span><span class="sxs-lookup"><span data-stu-id="68f9f-145">Switch to the Oracle superuser:</span></span>
+<span data-ttu-id="30876-145">Przełącz toohello Oracle administratora:</span><span class="sxs-lookup"><span data-stu-id="30876-145">Switch toohello Oracle superuser:</span></span>
 
 ```bash
 $ sudo su - oracle
 ```
 
-<span data-ttu-id="68f9f-146">Tworzenie bazy danych:</span><span class="sxs-lookup"><span data-stu-id="68f9f-146">Create the database:</span></span>
+<span data-ttu-id="30876-146">Utwórz bazę danych hello:</span><span class="sxs-lookup"><span data-stu-id="30876-146">Create hello database:</span></span>
 
 ```bash
 $ dbca -silent \
@@ -198,7 +198,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-<span data-ttu-id="68f9f-147">Dane wyjściowe powinny wyglądać podobnie do następującą odpowiedź:</span><span class="sxs-lookup"><span data-stu-id="68f9f-147">Outputs should look similar to the following response:</span></span>
+<span data-ttu-id="30876-147">Dane wyjściowe powinien wyglądać podobnie toohello po odpowiedzi:</span><span class="sxs-lookup"><span data-stu-id="30876-147">Outputs should look similar toohello following response:</span></span>
 
 ```bash
 Copying database files
@@ -227,17 +227,17 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+Look at hello log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-<span data-ttu-id="68f9f-148">Ustaw zmienne ORACLE_SID i ORACLE_HOME:</span><span class="sxs-lookup"><span data-stu-id="68f9f-148">Set the ORACLE_SID and ORACLE_HOME variables:</span></span>
+<span data-ttu-id="30876-148">Ustaw zmienne ORACLE_SID i ORACLE_HOME hello:</span><span class="sxs-lookup"><span data-stu-id="30876-148">Set hello ORACLE_SID and ORACLE_HOME variables:</span></span>
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-<span data-ttu-id="68f9f-149">Opcjonalnie można dodać ORACLE_HOME i ORACLE_SID do pliku /home/oracle/.bashrc tak, aby te ustawienia są zapisywane dla przyszłych logowania:</span><span class="sxs-lookup"><span data-stu-id="68f9f-149">Optionally, you can add ORACLE_HOME and ORACLE_SID to the /home/oracle/.bashrc file, so that these settings are saved for future logins:</span></span>
+<span data-ttu-id="30876-149">Opcjonalnie można dodać plik /home/oracle/.bashrc toohello ORACLE_HOME i ORACLE_SID, tak, aby te ustawienia są zapisywane dla przyszłych logowania:</span><span class="sxs-lookup"><span data-stu-id="30876-149">Optionally, you can add ORACLE_HOME and ORACLE_SID toohello /home/oracle/.bashrc file, so that these settings are saved for future logins:</span></span>
 
 ```bash
 # add oracle home
@@ -246,9 +246,9 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-## <a name="configure-data-guard"></a><span data-ttu-id="68f9f-150">Konfigurowanie ochrony danych</span><span class="sxs-lookup"><span data-stu-id="68f9f-150">Configure Data Guard</span></span>
+## <a name="configure-data-guard"></a><span data-ttu-id="30876-150">Konfigurowanie ochrony danych</span><span class="sxs-lookup"><span data-stu-id="30876-150">Configure Data Guard</span></span>
 
-### <a name="enable-archive-log-mode-on-myvm1-primary"></a><span data-ttu-id="68f9f-151">Włącz tryb dziennika archiwum na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-151">Enable archive log mode on myVM1 (primary)</span></span>
+### <a name="enable-archive-log-mode-on-myvm1-primary"></a><span data-ttu-id="30876-151">Włącz tryb dziennika archiwum na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="30876-151">Enable archive log mode on myVM1 (primary)</span></span>
 
 ```bash
 $ sqlplus / as sysdba
@@ -263,14 +263,14 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-<span data-ttu-id="68f9f-152">Włącz rejestrowanie życie i upewnij się, że istnieje co najmniej jeden plik dziennika:</span><span class="sxs-lookup"><span data-stu-id="68f9f-152">Enable force logging, and make sure at least one log file is present:</span></span>
+<span data-ttu-id="30876-152">Włącz rejestrowanie życie i upewnij się, że istnieje co najmniej jeden plik dziennika:</span><span class="sxs-lookup"><span data-stu-id="30876-152">Enable force logging, and make sure at least one log file is present:</span></span>
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-<span data-ttu-id="68f9f-153">Utwórz rezerwy Powtórz dzienników:</span><span class="sxs-lookup"><span data-stu-id="68f9f-153">Create standby redo logs:</span></span>
+<span data-ttu-id="30876-153">Utwórz rezerwy Powtórz dzienników:</span><span class="sxs-lookup"><span data-stu-id="30876-153">Create standby redo logs:</span></span>
 
 ```bash
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
@@ -279,7 +279,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-<span data-ttu-id="68f9f-154">Włącz Flashback (co ułatwia odzyskiwanie znacznie) i ustawić stan WSTRZYMANIA\_pliku\_zarządzania można automatycznie.</span><span class="sxs-lookup"><span data-stu-id="68f9f-154">Turn on Flashback (which makes recovery a lot easier) and set STANDBY\_FILE\_MANAGEMENT to auto.</span></span> <span data-ttu-id="68f9f-155">Zakończ SQL * Plus później.</span><span class="sxs-lookup"><span data-stu-id="68f9f-155">Exit SQL*Plus after that.</span></span>
+<span data-ttu-id="30876-154">Włącz Flashback (co ułatwia odzyskiwanie znacznie) i ustawić stan WSTRZYMANIA\_pliku\_tooauto zarządzania.</span><span class="sxs-lookup"><span data-stu-id="30876-154">Turn on Flashback (which makes recovery a lot easier) and set STANDBY\_FILE\_MANAGEMENT tooauto.</span></span> <span data-ttu-id="30876-155">Zakończ SQL * Plus później.</span><span class="sxs-lookup"><span data-stu-id="30876-155">Exit SQL*Plus after that.</span></span>
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -287,11 +287,11 @@ SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
 SQL> EXIT;
 ```
 
-### <a name="set-up-service-on-myvm1-primary"></a><span data-ttu-id="68f9f-156">Konfigurowanie usługi na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-156">Set up service on myVM1 (primary)</span></span>
+### <a name="set-up-service-on-myvm1-primary"></a><span data-ttu-id="30876-156">Konfigurowanie usługi na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="30876-156">Set up service on myVM1 (primary)</span></span>
 
-<span data-ttu-id="68f9f-157">Edytuj lub tworzenia pliku tnsnames.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.</span><span class="sxs-lookup"><span data-stu-id="68f9f-157">Edit or create the tnsnames.ora file, which is in the $ORACLE_HOME\network\admin folder.</span></span>
+<span data-ttu-id="30876-157">Edytuj lub Utwórz hello tnsnames.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.</span><span class="sxs-lookup"><span data-stu-id="30876-157">Edit or create hello tnsnames.ora file, which is in hello $ORACLE_HOME\network\admin folder.</span></span>
 
-<span data-ttu-id="68f9f-158">Dodaj następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="68f9f-158">Add the following entries:</span></span>
+<span data-ttu-id="30876-158">Dodaj hello następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="30876-158">Add hello following entries:</span></span>
 
 ```bash
 cdb1 =
@@ -315,9 +315,9 @@ cdb1_stby =
   )
 ```
 
-<span data-ttu-id="68f9f-159">Edytuj lub Utwórz plik listener.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.</span><span class="sxs-lookup"><span data-stu-id="68f9f-159">Edit or create the listener.ora file, which is in the $ORACLE_HOME\network\admin folder.</span></span>
+<span data-ttu-id="30876-159">Edytuj lub Utwórz hello listener.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.</span><span class="sxs-lookup"><span data-stu-id="30876-159">Edit or create hello listener.ora file, which is in hello $ORACLE_HOME\network\admin folder.</span></span>
 
-<span data-ttu-id="68f9f-160">Dodaj następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="68f9f-160">Add the following entries:</span></span>
+<span data-ttu-id="30876-160">Dodaj hello następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="30876-160">Add hello following entries:</span></span>
 
 ```bash
 LISTENER =
@@ -340,36 +340,36 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-<span data-ttu-id="68f9f-161">Włącz brokera ochrona danych:</span><span class="sxs-lookup"><span data-stu-id="68f9f-161">Enable Data Guard Broker:</span></span>
+<span data-ttu-id="30876-161">Włącz brokera ochrona danych:</span><span class="sxs-lookup"><span data-stu-id="30876-161">Enable Data Guard Broker:</span></span>
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
-<span data-ttu-id="68f9f-162">Uruchomić odbiornik:</span><span class="sxs-lookup"><span data-stu-id="68f9f-162">Start the listener:</span></span>
+<span data-ttu-id="30876-162">Uruchomić odbiornik hello:</span><span class="sxs-lookup"><span data-stu-id="30876-162">Start hello listener:</span></span>
 
 ```bash
 $ lsnrctl stop
 $ lsnrctl start
 ```
 
-### <a name="set-up-service-on-myvm2-standby"></a><span data-ttu-id="68f9f-163">Konfigurowanie usługi na myVM2 (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-163">Set up service on myVM2 (standby)</span></span>
+### <a name="set-up-service-on-myvm2-standby"></a><span data-ttu-id="30876-163">Konfigurowanie usługi na myVM2 (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="30876-163">Set up service on myVM2 (standby)</span></span>
 
-<span data-ttu-id="68f9f-164">SSH myVM2:</span><span class="sxs-lookup"><span data-stu-id="68f9f-164">SSH to myVM2:</span></span>
+<span data-ttu-id="30876-164">SSH toomyVM2:</span><span class="sxs-lookup"><span data-stu-id="30876-164">SSH toomyVM2:</span></span>
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
 ```
 
-<span data-ttu-id="68f9f-165">Zaloguj się jako Oracle:</span><span class="sxs-lookup"><span data-stu-id="68f9f-165">Log in as Oracle:</span></span>
+<span data-ttu-id="30876-165">Zaloguj się jako Oracle:</span><span class="sxs-lookup"><span data-stu-id="30876-165">Log in as Oracle:</span></span>
 
 ```bash
 $ sudo su - oracle
 ```
 
-<span data-ttu-id="68f9f-166">Edytuj lub tworzenia pliku tnsnames.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.</span><span class="sxs-lookup"><span data-stu-id="68f9f-166">Edit or create the tnsnames.ora file, which is in the $ORACLE_HOME\network\admin folder.</span></span>
+<span data-ttu-id="30876-166">Edytuj lub Utwórz hello tnsnames.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.</span><span class="sxs-lookup"><span data-stu-id="30876-166">Edit or create hello tnsnames.ora file, which is in hello $ORACLE_HOME\network\admin folder.</span></span>
 
-<span data-ttu-id="68f9f-167">Dodaj następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="68f9f-167">Add the following entries:</span></span>
+<span data-ttu-id="30876-167">Dodaj hello następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="30876-167">Add hello following entries:</span></span>
 
 ```bash
 cdb1 =
@@ -393,9 +393,9 @@ cdb1_stby =
   )
 ```
 
-<span data-ttu-id="68f9f-168">Edytuj lub Utwórz plik listener.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.</span><span class="sxs-lookup"><span data-stu-id="68f9f-168">Edit or create the listener.ora file, which is in the $ORACLE_HOME\network\admin folder.</span></span>
+<span data-ttu-id="30876-168">Edytuj lub Utwórz hello listener.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.</span><span class="sxs-lookup"><span data-stu-id="30876-168">Edit or create hello listener.ora file, which is in hello $ORACLE_HOME\network\admin folder.</span></span>
 
-<span data-ttu-id="68f9f-169">Dodaj następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="68f9f-169">Add the following entries:</span></span>
+<span data-ttu-id="30876-169">Dodaj hello następujące wpisy:</span><span class="sxs-lookup"><span data-stu-id="30876-169">Add hello following entries:</span></span>
 
 ```bash
 LISTENER =
@@ -418,7 +418,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-<span data-ttu-id="68f9f-170">Uruchomić odbiornik:</span><span class="sxs-lookup"><span data-stu-id="68f9f-170">Start the listener:</span></span>
+<span data-ttu-id="30876-170">Uruchomić odbiornik hello:</span><span class="sxs-lookup"><span data-stu-id="30876-170">Start hello listener:</span></span>
 
 ```bash
 $ lsnrctl stop
@@ -426,14 +426,14 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-the-database-to-myvm2-standby"></a><span data-ttu-id="68f9f-171">Przywróć bazę danych do myVM2 (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-171">Restore the database to myVM2 (standby)</span></span>
+### <a name="restore-hello-database-toomyvm2-standby"></a><span data-ttu-id="30876-171">Przywróć hello toomyVM2 bazy danych (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="30876-171">Restore hello database toomyVM2 (standby)</span></span>
 
-<span data-ttu-id="68f9f-172">Utwórz parametr /tmp/initcdb1_stby.ora pliku z następującą zawartość:</span><span class="sxs-lookup"><span data-stu-id="68f9f-172">Create the parameter file /tmp/initcdb1_stby.ora with the following contents:</span></span>
+<span data-ttu-id="30876-172">Utwórz hello parametru pliku /tmp/initcdb1_stby.ora z hello następującej zawartości:</span><span class="sxs-lookup"><span data-stu-id="30876-172">Create hello parameter file /tmp/initcdb1_stby.ora with hello following contents:</span></span>
 ```bash
 *.db_name='cdb1'
 ```
 
-<span data-ttu-id="68f9f-173">Tworzenie folderów:</span><span class="sxs-lookup"><span data-stu-id="68f9f-173">Create folders:</span></span>
+<span data-ttu-id="30876-173">Tworzenie folderów:</span><span class="sxs-lookup"><span data-stu-id="30876-173">Create folders:</span></span>
 
 ```bash
 mkdir -p /u01/app/oracle/oradata/cdb1/pdbseed
@@ -442,12 +442,12 @@ mkdir -p /u01/app/oracle/fast_recovery_area/cdb1
 mkdir -p /u01/app/oracle/admin/cdb1/adump
 ```
 
-<span data-ttu-id="68f9f-174">Utwórz plik hasła:</span><span class="sxs-lookup"><span data-stu-id="68f9f-174">Create a password file:</span></span>
+<span data-ttu-id="30876-174">Utwórz plik hasła:</span><span class="sxs-lookup"><span data-stu-id="30876-174">Create a password file:</span></span>
 
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
-<span data-ttu-id="68f9f-175">Uruchom bazę danych na myVM2:</span><span class="sxs-lookup"><span data-stu-id="68f9f-175">Start the database on myVM2:</span></span>
+<span data-ttu-id="30876-175">Uruchom myVM2 hello bazy danych:</span><span class="sxs-lookup"><span data-stu-id="30876-175">Start hello database on myVM2:</span></span>
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -457,13 +457,13 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-<span data-ttu-id="68f9f-176">Przywróć bazę danych za pomocą narzędzia RMAN:</span><span class="sxs-lookup"><span data-stu-id="68f9f-176">Restore the database by using the RMAN tool:</span></span>
+<span data-ttu-id="30876-176">Przywróć bazę danych hello za pomocą narzędzia RMAN hello:</span><span class="sxs-lookup"><span data-stu-id="30876-176">Restore hello database by using hello RMAN tool:</span></span>
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
-<span data-ttu-id="68f9f-177">Uruchom następujące polecenia w RMAN:</span><span class="sxs-lookup"><span data-stu-id="68f9f-177">Run the following commands in RMAN:</span></span>
+<span data-ttu-id="30876-177">Uruchom następujące polecenia w RMAN hello:</span><span class="sxs-lookup"><span data-stu-id="30876-177">Run hello following commands in RMAN:</span></span>
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -474,7 +474,7 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-<span data-ttu-id="68f9f-178">Powinny pojawić się komunikaty podobne do następujących po zakończeniu polecenia.</span><span class="sxs-lookup"><span data-stu-id="68f9f-178">You should see messages similar to the following when the command is completed.</span></span> <span data-ttu-id="68f9f-179">Zakończ RMAN.</span><span class="sxs-lookup"><span data-stu-id="68f9f-179">Exit RMAN.</span></span>
+<span data-ttu-id="30876-178">Po zakończeniu polecenia hello powinny zostać wyświetlone komunikaty podobne toohello następujące.</span><span class="sxs-lookup"><span data-stu-id="30876-178">You should see messages similar toohello following when hello command is completed.</span></span> <span data-ttu-id="30876-179">Zakończ RMAN.</span><span class="sxs-lookup"><span data-stu-id="30876-179">Exit RMAN.</span></span>
 ```bash
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
@@ -483,7 +483,7 @@ Finished Duplicate Db at 29-JUN-17
 RMAN> EXIT;
 ```
 
-<span data-ttu-id="68f9f-180">Opcjonalnie można dodać ORACLE_HOME i ORACLE_SID do pliku /home/oracle/.bashrc tak, aby te ustawienia są zapisywane dla przyszłych logowania:</span><span class="sxs-lookup"><span data-stu-id="68f9f-180">Optionally, you can add ORACLE_HOME and ORACLE_SID to the /home/oracle/.bashrc file, so that these settings are saved for future logins:</span></span>
+<span data-ttu-id="30876-180">Opcjonalnie można dodać plik /home/oracle/.bashrc toohello ORACLE_HOME i ORACLE_SID, tak, aby te ustawienia są zapisywane dla przyszłych logowania:</span><span class="sxs-lookup"><span data-stu-id="30876-180">Optionally, you can add ORACLE_HOME and ORACLE_SID toohello /home/oracle/.bashrc file, so that these settings are saved for future logins:</span></span>
 
 ```bash
 # add oracle home
@@ -492,16 +492,16 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-<span data-ttu-id="68f9f-181">Włącz brokera ochrona danych:</span><span class="sxs-lookup"><span data-stu-id="68f9f-181">Enable Data Guard Broker:</span></span>
+<span data-ttu-id="30876-181">Włącz brokera ochrona danych:</span><span class="sxs-lookup"><span data-stu-id="30876-181">Enable Data Guard Broker:</span></span>
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-### <a name="configure-data-guard-broker-on-myvm1-primary"></a><span data-ttu-id="68f9f-182">Skonfiguruj brokera ochrona danych na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-182">Configure Data Guard Broker on myVM1 (primary)</span></span>
+### <a name="configure-data-guard-broker-on-myvm1-primary"></a><span data-ttu-id="30876-182">Skonfiguruj brokera ochrona danych na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="30876-182">Configure Data Guard Broker on myVM1 (primary)</span></span>
 
-<span data-ttu-id="68f9f-183">Uruchom Menedżera danych osłony i zaloguj się przy użyciu SYS i hasła.</span><span class="sxs-lookup"><span data-stu-id="68f9f-183">Start Data Guard Manager and log in by using SYS and a password.</span></span> <span data-ttu-id="68f9f-184">(Nie należy używać uwierzytelniania systemu operacyjnego). Wykonaj następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="68f9f-184">(Do not use OS authentication.) Perform the following:</span></span>
+<span data-ttu-id="30876-183">Uruchom Menedżera danych osłony i zaloguj się przy użyciu SYS i hasła.</span><span class="sxs-lookup"><span data-stu-id="30876-183">Start Data Guard Manager and log in by using SYS and a password.</span></span> <span data-ttu-id="30876-184">(Nie należy używać uwierzytelniania systemu operacyjnego). Wykonaj następujące hello:</span><span class="sxs-lookup"><span data-stu-id="30876-184">(Do not use OS authentication.) Perform hello following:</span></span>
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -509,7 +509,7 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
 DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS cdb1 CONNECT IDENTIFIER IS cdb1;
 Configuration "my_dg_config" created with primary database "cdb1"
@@ -519,7 +519,7 @@ DGMGRL> ENABLE CONFIGURATION;
 Enabled.
 ```
 
-<span data-ttu-id="68f9f-185">Sprawdź konfigurację:</span><span class="sxs-lookup"><span data-stu-id="68f9f-185">Review the configuration:</span></span>
+<span data-ttu-id="30876-185">Przejrzyj konfigurację hello:</span><span class="sxs-lookup"><span data-stu-id="30876-185">Review hello configuration:</span></span>
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -536,13 +536,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-<span data-ttu-id="68f9f-186">Zakończono instalację Oracle Data Guard.</span><span class="sxs-lookup"><span data-stu-id="68f9f-186">You've completed the Oracle Data Guard setup.</span></span> <span data-ttu-id="68f9f-187">Następnej sekcji opisano testowanie łączności i przełączyć na.</span><span class="sxs-lookup"><span data-stu-id="68f9f-187">The next section shows you how to test the connectivity and switch over.</span></span>
+<span data-ttu-id="30876-186">Zakończono hello Oracle Data Guard Instalatora.</span><span class="sxs-lookup"><span data-stu-id="30876-186">You've completed hello Oracle Data Guard setup.</span></span> <span data-ttu-id="30876-187">Witaj następnej części pokazano, jak tootest hello łączności i przełączyć.</span><span class="sxs-lookup"><span data-stu-id="30876-187">hello next section shows you how tootest hello connectivity and switch over.</span></span>
 
-### <a name="connect-the-database-from-the-client-machine"></a><span data-ttu-id="68f9f-188">Połączenia bazy danych z komputera klienta</span><span class="sxs-lookup"><span data-stu-id="68f9f-188">Connect the database from the client machine</span></span>
+### <a name="connect-hello-database-from-hello-client-machine"></a><span data-ttu-id="30876-188">Połącz z komputera klienta hello hello bazy danych</span><span class="sxs-lookup"><span data-stu-id="30876-188">Connect hello database from hello client machine</span></span>
 
-<span data-ttu-id="68f9f-189">Zaktualizuj lub Utwórz plik tnsnames.ora na komputerze klienckim.</span><span class="sxs-lookup"><span data-stu-id="68f9f-189">Update or create the tnsnames.ora file on your client machine.</span></span> <span data-ttu-id="68f9f-190">Ten plik jest zwykle $ORACLE_HOME\network\admin.</span><span class="sxs-lookup"><span data-stu-id="68f9f-190">This file is usually in $ORACLE_HOME\network\admin.</span></span>
+<span data-ttu-id="30876-189">Zaktualizuj lub Utwórz plik tnsnames.ora hello na komputerze klienckim.</span><span class="sxs-lookup"><span data-stu-id="30876-189">Update or create hello tnsnames.ora file on your client machine.</span></span> <span data-ttu-id="30876-190">Ten plik jest zwykle $ORACLE_HOME\network\admin.</span><span class="sxs-lookup"><span data-stu-id="30876-190">This file is usually in $ORACLE_HOME\network\admin.</span></span>
 
-<span data-ttu-id="68f9f-191">Adresy IP z sieci `publicIpAddress` wartości myVM1 i myVM2:</span><span class="sxs-lookup"><span data-stu-id="68f9f-191">Replace the IP addresses with your `publicIpAddress` values for myVM1 and myVM2:</span></span>
+<span data-ttu-id="30876-191">Zastąp hello adresów IP przy użyciu programu `publicIpAddress` wartości myVM1 i myVM2:</span><span class="sxs-lookup"><span data-stu-id="30876-191">Replace hello IP addresses with your `publicIpAddress` values for myVM1 and myVM2:</span></span>
 
 ```bash
 cdb1=
@@ -572,7 +572,7 @@ cdb1_stby=
   )
 ```
 
-<span data-ttu-id="68f9f-192">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="68f9f-192">Start SQL*Plus:</span></span>
+<span data-ttu-id="30876-192">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="30876-192">Start SQL*Plus:</span></span>
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -582,15 +582,15 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
-## <a name="test-the-data-guard-configuration"></a><span data-ttu-id="68f9f-193">Przetestuj konfigurację ochrony danych</span><span class="sxs-lookup"><span data-stu-id="68f9f-193">Test the Data Guard configuration</span></span>
+## <a name="test-hello-data-guard-configuration"></a><span data-ttu-id="30876-193">Ochrona danych hello testowym</span><span class="sxs-lookup"><span data-stu-id="30876-193">Test hello Data Guard configuration</span></span>
 
-### <a name="switch-over-the-database-on-myvm1-primary"></a><span data-ttu-id="68f9f-194">Przełączyć bazę danych na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-194">Switch over the database on myVM1 (primary)</span></span>
+### <a name="switch-over-hello-database-on-myvm1-primary"></a><span data-ttu-id="30876-194">Przełączyć bazy danych hello na myVM1 (podstawowy)</span><span class="sxs-lookup"><span data-stu-id="30876-194">Switch over hello database on myVM1 (primary)</span></span>
 
-<span data-ttu-id="68f9f-195">Aby przełączyć się z podstawowym stan wstrzymania (cdb1 do cdb1_stby):</span><span class="sxs-lookup"><span data-stu-id="68f9f-195">To switch from primary to standby (cdb1 to cdb1_stby):</span></span>
+<span data-ttu-id="30876-195">tooswitch z głównej toostandby (cdb1 toocdb1_stby):</span><span class="sxs-lookup"><span data-stu-id="30876-195">tooswitch from primary toostandby (cdb1 toocdb1_stby):</span></span>
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -598,12 +598,12 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1_stby;
+DGMGRL> SWITCHOVER toocdb1_stby;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1_stby"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1_stby"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1_stby" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1"
@@ -614,9 +614,9 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-<span data-ttu-id="68f9f-196">Teraz można podłączyć do wstrzymania bazy danych.</span><span class="sxs-lookup"><span data-stu-id="68f9f-196">You can now connect to the standby database.</span></span>
+<span data-ttu-id="30876-196">Teraz możesz połączyć toohello wstrzymania bazy danych.</span><span class="sxs-lookup"><span data-stu-id="30876-196">You can now connect toohello standby database.</span></span>
 
-<span data-ttu-id="68f9f-197">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="68f9f-197">Start SQL*Plus:</span></span>
+<span data-ttu-id="30876-197">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="30876-197">Start SQL*Plus:</span></span>
 
 ```bash
 
@@ -627,26 +627,26 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-### <a name="switch-over-the-database-on-myvm2-standby"></a><span data-ttu-id="68f9f-198">Przełączyć bazę danych na myVM2 (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="68f9f-198">Switch over the database on myVM2 (standby)</span></span>
+### <a name="switch-over-hello-database-on-myvm2-standby"></a><span data-ttu-id="30876-198">Przełączyć bazy danych hello na myVM2 (rezerwy)</span><span class="sxs-lookup"><span data-stu-id="30876-198">Switch over hello database on myVM2 (standby)</span></span>
 
-<span data-ttu-id="68f9f-199">Aby przełączyć, uruchom następujące polecenie na myVM2:</span><span class="sxs-lookup"><span data-stu-id="68f9f-199">To switch over, run the following on myVM2:</span></span>
+<span data-ttu-id="30876-199">tooswitch, uruchom następujące hello na myVM2:</span><span class="sxs-lookup"><span data-stu-id="30876-199">tooswitch over, run hello following on myVM2:</span></span>
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1;
+DGMGRL> SWITCHOVER toocdb1;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1_stby"
@@ -656,9 +656,9 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-<span data-ttu-id="68f9f-200">Ponownie należy teraz możliwość łączenia z podstawowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="68f9f-200">Once again, you should now be able to connect to the primary database.</span></span>
+<span data-ttu-id="30876-200">Ponownie powinno być teraz możliwe tooconnect toohello podstawowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="30876-200">Once again, you should now be able tooconnect toohello primary database.</span></span>
 
-<span data-ttu-id="68f9f-201">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="68f9f-201">Start SQL*Plus:</span></span>
+<span data-ttu-id="30876-201">Uruchom program SQL * Plus:</span><span class="sxs-lookup"><span data-stu-id="30876-201">Start SQL*Plus:</span></span>
 
 ```bash
 
@@ -669,24 +669,24 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-<span data-ttu-id="68f9f-202">Po zakończeniu instalacji i konfiguracji danych osłony na Oracle Linux.</span><span class="sxs-lookup"><span data-stu-id="68f9f-202">You've finished the installation and configuration of Data Guard on Oracle Linux.</span></span>
+<span data-ttu-id="30876-202">Po zakończeniu hello instalację i konfigurację danych osłony na Oracle Linux.</span><span class="sxs-lookup"><span data-stu-id="30876-202">You've finished hello installation and configuration of Data Guard on Oracle Linux.</span></span>
 
 
-## <a name="delete-the-virtual-machine"></a><span data-ttu-id="68f9f-203">Usuń maszynę wirtualną</span><span class="sxs-lookup"><span data-stu-id="68f9f-203">Delete the virtual machine</span></span>
+## <a name="delete-hello-virtual-machine"></a><span data-ttu-id="30876-203">Usuń maszynę wirtualną hello</span><span class="sxs-lookup"><span data-stu-id="30876-203">Delete hello virtual machine</span></span>
 
-<span data-ttu-id="68f9f-204">Gdy maszyna wirtualna nie jest już potrzebny, służy polecenie Usuń grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby:</span><span class="sxs-lookup"><span data-stu-id="68f9f-204">When you no longer need the VM, you can use the following command to remove the resource group, VM, and all related resources:</span></span>
+<span data-ttu-id="30876-204">Gdy nie jest już konieczne hello maszyny Wirtualnej, można użyć hello następujące grupy zasobów hello tooremove polecenia, maszyny Wirtualnej i wszystkich powiązanych zasobów:</span><span class="sxs-lookup"><span data-stu-id="30876-204">When you no longer need hello VM, you can use hello following command tooremove hello resource group, VM, and all related resources:</span></span>
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="68f9f-205">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="68f9f-205">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="30876-205">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="30876-205">Next steps</span></span>
 
-[<span data-ttu-id="68f9f-206">Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności</span><span class="sxs-lookup"><span data-stu-id="68f9f-206">Tutorial: Create highly available virtual machines</span></span>](../../linux/create-cli-complete.md)
+[<span data-ttu-id="30876-206">Samouczek: Tworzenie maszyn wirtualnych o wysokiej dostępności</span><span class="sxs-lookup"><span data-stu-id="30876-206">Tutorial: Create highly available virtual machines</span></span>](../../linux/create-cli-complete.md)
 
-[<span data-ttu-id="68f9f-207">Eksploruj przykłady Azure CLI wdrożenia maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="68f9f-207">Explore VM deployment Azure CLI samples</span></span>](../../linux/cli-samples.md)
+[<span data-ttu-id="30876-207">Eksploruj przykłady Azure CLI wdrożenia maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="30876-207">Explore VM deployment Azure CLI samples</span></span>](../../linux/cli-samples.md)

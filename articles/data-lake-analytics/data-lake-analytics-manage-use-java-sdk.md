@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie Azure Data Lake Analytics przy użyciu zestawu SDK Java usługi Azure | Dokumentacja firmy Microsoft"
-description: "Korzystanie z zestawu Java SDK usługi Azure Data Lake Analytics w celu projektowania aplikacji"
+title: "Azure Data Lake Analytics przy użyciu zestawu SDK Java usługi Azure aaaManage | Dokumentacja firmy Microsoft"
+description: "Korzystanie z zestawu Java SDK usługi Azure Data Lake Analytics toodevelop aplikacji"
 services: data-lake-analytics
 documentationcenter: 
 author: matt1883
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 79e5fa1bacd5fd65072a1c3c480482a8e51d94b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="fc60b-103">Zarządzanie przy użyciu zestawu SDK Java usługi Azure Data Lake Analytics</span><span class="sxs-lookup"><span data-stu-id="fc60b-103">Manage  Azure Data Lake Analytics using Java SDK</span></span>
+# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="43265-103">Zarządzanie przy użyciu zestawu SDK Java usługi Azure Data Lake Analytics</span><span class="sxs-lookup"><span data-stu-id="43265-103">Manage  Azure Data Lake Analytics using Java SDK</span></span>
 
-<span data-ttu-id="fc60b-104">W tym samouczku opracowywania aplikacji konsoli Java, która wykonuje operacje typowe dla usługi Azure Data Lake.</span><span class="sxs-lookup"><span data-stu-id="fc60b-104">In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.</span></span>
+<span data-ttu-id="43265-104">W tym samouczku opracowywania aplikacji konsoli Java, która wykonuje operacje typowe dla usługi Azure Data Lake.</span><span class="sxs-lookup"><span data-stu-id="43265-104">In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="fc60b-105">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="fc60b-105">Prerequisites</span></span>
-* <span data-ttu-id="fc60b-106">**Java Development Kit (JDK) 8** (przy użyciu języka Java w wersji 1.8).</span><span class="sxs-lookup"><span data-stu-id="fc60b-106">**Java Development Kit (JDK) 8** (using Java version 1.8).</span></span>
-* <span data-ttu-id="fc60b-107">**IntelliJ** lub innego odpowiednie środowisko programistyczne Java.</span><span class="sxs-lookup"><span data-stu-id="fc60b-107">**IntelliJ** or another suitable Java development environment.</span></span> <span data-ttu-id="fc60b-108">Instrukcje w tym dokumencie jest używane środowisko IntelliJ.</span><span class="sxs-lookup"><span data-stu-id="fc60b-108">The instructions in this document use IntelliJ.</span></span>
-* <span data-ttu-id="fc60b-109">Tworzenie aplikacji usługi Azure Active Directory (AAD) i pobieranie jej **identyfikatora klienta**, **identyfikatora dzierżawy** i **klucza**.</span><span class="sxs-lookup"><span data-stu-id="fc60b-109">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="fc60b-110">Aby uzyskać więcej informacji o aplikacjach usługi AAD i instrukcje na temat uzyskiwania identyfikatora klienta, zobacz [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Tworzenie aplikacji i głównej nazwy usługi Active Directory przy użyciu portalu).</span><span class="sxs-lookup"><span data-stu-id="fc60b-110">For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="fc60b-111">Identyfikator URI odpowiedzi i klucz jest dostępna z portalu po utworzeniu aplikacji i generowanie klucza.</span><span class="sxs-lookup"><span data-stu-id="fc60b-111">The Reply URI and Key is available from the portal once you have the application created and key generated.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="43265-105">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="43265-105">Prerequisites</span></span>
+* <span data-ttu-id="43265-106">**Java Development Kit (JDK) 8** (przy użyciu języka Java w wersji 1.8).</span><span class="sxs-lookup"><span data-stu-id="43265-106">**Java Development Kit (JDK) 8** (using Java version 1.8).</span></span>
+* <span data-ttu-id="43265-107">**IntelliJ** lub innego odpowiednie środowisko programistyczne Java.</span><span class="sxs-lookup"><span data-stu-id="43265-107">**IntelliJ** or another suitable Java development environment.</span></span> <span data-ttu-id="43265-108">Witaj instrukcje w tym dokumencie jest używane środowisko IntelliJ.</span><span class="sxs-lookup"><span data-stu-id="43265-108">hello instructions in this document use IntelliJ.</span></span>
+* <span data-ttu-id="43265-109">Tworzenie aplikacji usługi Azure Active Directory (AAD) i pobieranie jej **identyfikatora klienta**, **identyfikatora dzierżawy** i **klucza**.</span><span class="sxs-lookup"><span data-stu-id="43265-109">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="43265-110">Aby uzyskać więcej informacji dotyczących usługi AAD aplikacji i instrukcje na temat tooget Identyfikatora klienta, zobacz [aplikacji usługi Active Directory Utwórz i nazwę główną usługi za pomocą portalu](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="43265-110">For more information about AAD applications and instructions on how tooget a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="43265-111">Hello odpowiedzi identyfikatora URI i klucz jest dostępna z portalu powitania po utworzeniu aplikacji hello utworzone i generowania kluczy.</span><span class="sxs-lookup"><span data-stu-id="43265-111">hello Reply URI and Key is available from hello portal once you have hello application created and key generated.</span></span>
 
-## <a name="authenticating-using-azure-active-directory"></a><span data-ttu-id="fc60b-112">Uwierzytelnianie za pomocą usługi Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="fc60b-112">Authenticating using Azure Active Directory</span></span>
+## <a name="authenticating-using-azure-active-directory"></a><span data-ttu-id="43265-112">Uwierzytelnianie za pomocą usługi Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="43265-112">Authenticating using Azure Active Directory</span></span>
 
-<span data-ttu-id="fc60b-113">Kod następujący fragment kodu zawiera kod **nieinterakcyjnym** uwierzytelniania, gdzie aplikacja udostępnia własne poświadczenia.</span><span class="sxs-lookup"><span data-stu-id="fc60b-113">The code following snippet provides code for **non-interactive** authentication, where the application provides its own credentials.</span></span>
+<span data-ttu-id="43265-113">Witaj kod następujący fragment kodu zawiera kod **nieinterakcyjnym** uwierzytelniania, gdzie hello aplikacja udostępnia własne poświadczenia.</span><span class="sxs-lookup"><span data-stu-id="43265-113">hello code following snippet provides code for **non-interactive** authentication, where hello application provides its own credentials.</span></span>
 
-## <a name="create-a-java-application"></a><span data-ttu-id="fc60b-114">Tworzenie aplikacji Java</span><span class="sxs-lookup"><span data-stu-id="fc60b-114">Create a Java application</span></span>
-1. <span data-ttu-id="fc60b-115">Otwórz środowisko IntelliJ i Utwórz projekt języka Java przy użyciu **wiersza polecenia aplikacji** szablonu.</span><span class="sxs-lookup"><span data-stu-id="fc60b-115">Open IntelliJ and create a Java project using the **Command-Line App** template.</span></span>
-2. <span data-ttu-id="fc60b-116">Kliknij prawym przyciskiem myszy projekt po lewej stronie ekranu, a następnie kliknij pozycję **Add Framework Support** (Dodaj obsługę struktury).</span><span class="sxs-lookup"><span data-stu-id="fc60b-116">Right-click on the project on the left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="fc60b-117">Wybierz pozycję **Maven** i kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="fc60b-117">Choose **Maven** and click **OK**.</span></span>
-3. <span data-ttu-id="fc60b-118">Otwórz nowo utworzony plik **„pom.xml”** i dodaj poniższy fragment tekstu między tagami **\</version >** i **\</project >**:</span><span class="sxs-lookup"><span data-stu-id="fc60b-118">Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:</span></span>
+## <a name="create-a-java-application"></a><span data-ttu-id="43265-114">Tworzenie aplikacji Java</span><span class="sxs-lookup"><span data-stu-id="43265-114">Create a Java application</span></span>
+1. <span data-ttu-id="43265-115">Otwórz środowisko IntelliJ i Utwórz projekt języka Java przy użyciu hello **wiersza polecenia aplikacji** szablonu.</span><span class="sxs-lookup"><span data-stu-id="43265-115">Open IntelliJ and create a Java project using hello **Command-Line App** template.</span></span>
+2. <span data-ttu-id="43265-116">Kliknij prawym przyciskiem myszy na projekt hello na powitania po lewej stronie ekranu, a następnie kliknij przycisk **dodać obsługę Framework**.</span><span class="sxs-lookup"><span data-stu-id="43265-116">Right-click on hello project on hello left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="43265-117">Wybierz pozycję **Maven** i kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="43265-117">Choose **Maven** and click **OK**.</span></span>
+3. <span data-ttu-id="43265-118">Witaj Otwórz nowo utworzony **"pom.xml"** i dodaj następujące fragment tekstu między hello hello  **\</version >** znacznika i hello  **\< /project >** tagu:</span><span class="sxs-lookup"><span data-stu-id="43265-118">Open hello newly created **"pom.xml"** file and add hello following snippet of text between hello **\</version>** tag and hello **\</project>** tag:</span></span>
 
 ```
 <repositories>
@@ -89,9 +89,9 @@ ms.lasthandoff: 08/03/2017
 </dependencies>
 ```
 
-<span data-ttu-id="fc60b-119">Przejdź do **Plik > Ustawienia > kompilacji > wykonanie > wdrożenia**.</span><span class="sxs-lookup"><span data-stu-id="fc60b-119">Go to **File > Settings > Build > Execution > Deployment**.</span></span> <span data-ttu-id="fc60b-120">Wybierz **narzędzi do kompilacji > Maven > importowania**.</span><span class="sxs-lookup"><span data-stu-id="fc60b-120">Select **Build Tools > Maven > Importing**.</span></span> <span data-ttu-id="fc60b-121">Następnie sprawdź **Import Maven projektów automatycznie**.</span><span class="sxs-lookup"><span data-stu-id="fc60b-121">Then check **Import Maven projects automatically**.</span></span>
+<span data-ttu-id="43265-119">Przejdź za**Plik > Ustawienia > kompilacji > wykonanie > wdrożenia**.</span><span class="sxs-lookup"><span data-stu-id="43265-119">Go too**File > Settings > Build > Execution > Deployment**.</span></span> <span data-ttu-id="43265-120">Wybierz **narzędzi do kompilacji > Maven > importowania**.</span><span class="sxs-lookup"><span data-stu-id="43265-120">Select **Build Tools > Maven > Importing**.</span></span> <span data-ttu-id="43265-121">Następnie sprawdź **Import Maven projektów automatycznie**.</span><span class="sxs-lookup"><span data-stu-id="43265-121">Then check **Import Maven projects automatically**.</span></span>
 
-<span data-ttu-id="fc60b-122">Otwórz `Main.java` i Zastąp istniejący blok kodu poniższy fragment kodu:</span><span class="sxs-lookup"><span data-stu-id="fc60b-122">Open `Main.java` and replace the existing code block with the following code snippet:</span></span>
+<span data-ttu-id="43265-122">Otwórz `Main.java` i Zastąp hello istniejący blok kodu z hello następującego fragmentu kodu:</span><span class="sxs-lookup"><span data-stu-id="43265-122">Open `Main.java` and replace hello existing code block with hello following code snippet:</span></span>
 
 ```
 package com.company;
@@ -175,10 +175,10 @@ public class Main {
         WaitForNewline("File created.", "Submitting a job.");
 
         // ----------------------------------------
-        // Submit a job to Data Lake Analytics
+        // Submit a job tooData Lake Analytics
         // ----------------------------------------
 
-string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob";
+string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob";
         UUID jobId = SubmitJobByScript(script);
         WaitForNewline("Job submitted.", "Getting job status.");
 
@@ -201,21 +201,21 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-<span data-ttu-id="fc60b-123">Podaj wartości parametrów wywoływanych we fragmencie kodu:</span><span class="sxs-lookup"><span data-stu-id="fc60b-123">Provide the values for parameters called out in the code snippet:</span></span>
+<span data-ttu-id="43265-123">Podaj hello wartości parametrów wywoływanych we fragmencie kodu hello:</span><span class="sxs-lookup"><span data-stu-id="43265-123">Provide hello values for parameters called out in hello code snippet:</span></span>
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
 * `_resourceGroupName`
 
-<span data-ttu-id="fc60b-124">Zastąp symbole zastępcze dla:</span><span class="sxs-lookup"><span data-stu-id="fc60b-124">Replace the placeholders for:</span></span>
-* <span data-ttu-id="fc60b-125">`CLIENT-ID`,</span><span class="sxs-lookup"><span data-stu-id="fc60b-125">`CLIENT-ID`,</span></span>
-* <span data-ttu-id="fc60b-126">`CLIENT-SECRET`,</span><span class="sxs-lookup"><span data-stu-id="fc60b-126">`CLIENT-SECRET`,</span></span>
+<span data-ttu-id="43265-124">Zastąp symbole zastępcze hello:</span><span class="sxs-lookup"><span data-stu-id="43265-124">Replace hello placeholders for:</span></span>
+* <span data-ttu-id="43265-125">`CLIENT-ID`,</span><span class="sxs-lookup"><span data-stu-id="43265-125">`CLIENT-ID`,</span></span>
+* <span data-ttu-id="43265-126">`CLIENT-SECRET`,</span><span class="sxs-lookup"><span data-stu-id="43265-126">`CLIENT-SECRET`,</span></span>
 * `TENANT-ID`
 * `SUBSCRIPTION-ID`
 
-## <a name="helper-functions"></a><span data-ttu-id="fc60b-127">Funkcje pomocy</span><span class="sxs-lookup"><span data-stu-id="fc60b-127">Helper functions</span></span>
+## <a name="helper-functions"></a><span data-ttu-id="43265-127">Funkcje pomocy</span><span class="sxs-lookup"><span data-stu-id="43265-127">Helper functions</span></span>
 
-### <a name="setup-clients"></a><span data-ttu-id="fc60b-128">Konfiguracja klientów</span><span class="sxs-lookup"><span data-stu-id="fc60b-128">Setup clients</span></span>
+### <a name="setup-clients"></a><span data-ttu-id="43265-128">Konfiguracja klientów</span><span class="sxs-lookup"><span data-stu-id="43265-128">Setup clients</span></span>
 
 ```
 public static void SetupClients(ServiceClientCredentials creds)
@@ -231,7 +231,7 @@ public static void SetupClients(ServiceClientCredentials creds)
 ```
 
 
-### <a name="wait-for-input"></a><span data-ttu-id="fc60b-129">Oczekiwanie na dane wejściowe</span><span class="sxs-lookup"><span data-stu-id="fc60b-129">Wait for input</span></span>
+### <a name="wait-for-input"></a><span data-ttu-id="43265-129">Oczekiwanie na dane wejściowe</span><span class="sxs-lookup"><span data-stu-id="43265-129">Wait for input</span></span>
 
 ```
 public static void WaitForNewline(String reason, String nextAction)
@@ -239,7 +239,7 @@ public static void WaitForNewline(String reason, String nextAction)
     if (nextAction == null)
         nextAction = "";
 
-    System.out.println(reason + "\r\nPress ENTER to continue...");
+    System.out.println(reason + "\r\nPress ENTER toocontinue...");
     try{System.in.read();}
     catch(Exception e){}
 
@@ -250,7 +250,7 @@ public static void WaitForNewline(String reason, String nextAction)
 }
 ```
 
-### <a name="create-accounts"></a><span data-ttu-id="fc60b-130">Tworzenie kont</span><span class="sxs-lookup"><span data-stu-id="fc60b-130">Create accounts</span></span>
+### <a name="create-accounts"></a><span data-ttu-id="43265-130">Tworzenie kont</span><span class="sxs-lookup"><span data-stu-id="43265-130">Create accounts</span></span>
 
 ```
 public static void CreateAccounts() throws InterruptedException, CloudException, IOException 
@@ -284,7 +284,7 @@ public static void CreateAccounts() throws InterruptedException, CloudException,
 }
 ```
 
-### <a name="create-a-file"></a><span data-ttu-id="fc60b-131">Utwórz plik</span><span class="sxs-lookup"><span data-stu-id="fc60b-131">Create a file</span></span>
+### <a name="create-a-file"></a><span data-ttu-id="43265-131">Utwórz plik</span><span class="sxs-lookup"><span data-stu-id="43265-131">Create a file</span></span>
 
 ```
 public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException 
@@ -295,7 +295,7 @@ public static void CreateFile(String path, String contents, boolean force) throw
 }
 ```
 
-### <a name="delete-a-file"></a><span data-ttu-id="fc60b-132">Usuwanie pliku</span><span class="sxs-lookup"><span data-stu-id="fc60b-132">Delete a file</span></span>
+### <a name="delete-a-file"></a><span data-ttu-id="43265-132">Usuwanie pliku</span><span class="sxs-lookup"><span data-stu-id="43265-132">Delete a file</span></span>
 
 ```
 public static void DeleteFile(String filePath) throws IOException, CloudException 
@@ -304,7 +304,7 @@ public static void DeleteFile(String filePath) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="download-a-file"></a><span data-ttu-id="fc60b-133">Pobieranie pliku</span><span class="sxs-lookup"><span data-stu-id="fc60b-133">Download a file</span></span>
+### <a name="download-a-file"></a><span data-ttu-id="43265-133">Pobieranie pliku</span><span class="sxs-lookup"><span data-stu-id="43265-133">Download a file</span></span>
 
 ```
 public static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException 
@@ -336,7 +336,7 @@ public static void DownloadFile(String srcPath, String destPath) throws IOExcept
 }
 ```
 
-### <a name="submit-a-u-sql-job"></a><span data-ttu-id="fc60b-134">Przesyłanie zadania U-SQL</span><span class="sxs-lookup"><span data-stu-id="fc60b-134">Submit a U-SQL job</span></span>
+### <a name="submit-a-u-sql-job"></a><span data-ttu-id="43265-134">Przesyłanie zadania U-SQL</span><span class="sxs-lookup"><span data-stu-id="43265-134">Submit a U-SQL job</span></span>
 
 ```
 public static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException 
@@ -367,7 +367,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a><span data-ttu-id="fc60b-135">Pobierz stan zadania</span><span class="sxs-lookup"><span data-stu-id="fc60b-135">Retrieve job status</span></span>
+### <a name="retrieve-job-status"></a><span data-ttu-id="43265-135">Pobierz stan zadania</span><span class="sxs-lookup"><span data-stu-id="43265-135">Retrieve job status</span></span>
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 
@@ -377,8 +377,8 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="fc60b-136">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="fc60b-136">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="43265-136">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="43265-136">Next steps</span></span>
 
-* <span data-ttu-id="fc60b-137">Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) i [Dokumentację języka SQL](http://go.microsoft.com/fwlink/?LinkId=691348).</span><span class="sxs-lookup"><span data-stu-id="fc60b-137">To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
-* <span data-ttu-id="fc60b-138">Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).</span><span class="sxs-lookup"><span data-stu-id="fc60b-138">For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).</span></span>
-* <span data-ttu-id="fc60b-139">Aby zapoznać się z omówieniem usługi Data Lake Analytics, zobacz [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="fc60b-139">To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>
+* <span data-ttu-id="43265-137">toolearn U-SQL, zobacz [wprowadzenie do języka Azure Data Lake Analytics U-SQL](data-lake-analytics-u-sql-get-started.md), i [dokumentację języka U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).</span><span class="sxs-lookup"><span data-stu-id="43265-137">toolearn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
+* <span data-ttu-id="43265-138">Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).</span><span class="sxs-lookup"><span data-stu-id="43265-138">For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).</span></span>
+* <span data-ttu-id="43265-139">Zobacz tooget Przegląd usługi Data Lake Analytics [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="43265-139">tooget an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>

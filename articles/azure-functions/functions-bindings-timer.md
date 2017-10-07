@@ -1,6 +1,6 @@
 ---
-title: Azure wyzwalacza czasomierza funkcje | Dokumentacja firmy Microsoft
-description: "Zrozumienie, jak używać czasomierza Wyzwalacze w funkcji Azure."
+title: wyzwalacz czasomierza funkcje aaaAzure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse czasomierza wyzwala w funkcji platformy Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,26 +17,26 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 17fca22372dbc55d4684c8c099cc97923a7d3cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-functions-timer-trigger"></a><span data-ttu-id="97863-104">Azure wyzwalacza czasomierza funkcji</span><span class="sxs-lookup"><span data-stu-id="97863-104">Azure Functions timer trigger</span></span>
+# <a name="azure-functions-timer-trigger"></a><span data-ttu-id="2d460-104">Azure wyzwalacza czasomierza funkcji</span><span class="sxs-lookup"><span data-stu-id="2d460-104">Azure Functions timer trigger</span></span>
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-<span data-ttu-id="97863-105">W tym artykule opisano sposób konfigurowania i wyzwalaczy czasomierza kodu w usługi Azure Functions.</span><span class="sxs-lookup"><span data-stu-id="97863-105">This article explains how to configure and code timer triggers in Azure Functions.</span></span> <span data-ttu-id="97863-106">Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu.</span><span class="sxs-lookup"><span data-stu-id="97863-106">Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule.</span></span> 
+<span data-ttu-id="2d460-105">W tym artykule opisano, jak tooconfigure i kod czasomierza wyzwala w funkcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="2d460-105">This article explains how tooconfigure and code timer triggers in Azure Functions.</span></span> <span data-ttu-id="2d460-106">Środowisko Azure Functions ma powiązanie wyzwalacza czasomierza umożliwia uruchamianie funkcji kodu na podstawie zdefiniowanego harmonogramu.</span><span class="sxs-lookup"><span data-stu-id="2d460-106">Azure Functions has a timer trigger binding that lets you run your function code based on a defined schedule.</span></span> 
 
-<span data-ttu-id="97863-107">Wyzwalacz czasomierza obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.</span><span class="sxs-lookup"><span data-stu-id="97863-107">The timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.</span></span>
+<span data-ttu-id="2d460-107">wyzwalacz czasomierza Hello obsługuje wiele wystąpień skalowalnego w poziomie. Pojedyncze wystąpienie funkcji określonego czasomierza jest uruchamiane we wszystkich wystąpieniach.</span><span class="sxs-lookup"><span data-stu-id="2d460-107">hello timer trigger supports multi-instance scale-out. A single instance of a particular timer function is run across all instances.</span></span>
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
 
-## <a name="timer-trigger"></a><span data-ttu-id="97863-108">Wyzwalacz czasomierza</span><span class="sxs-lookup"><span data-stu-id="97863-108">Timer trigger</span></span>
-<span data-ttu-id="97863-109">Wyzwalacz czasomierza funkcji używa następujący obiekt JSON w `bindings` tablicy function.json:</span><span class="sxs-lookup"><span data-stu-id="97863-109">The timer trigger to a function uses the following JSON object in the `bindings` array of function.json:</span></span>
+## <a name="timer-trigger"></a><span data-ttu-id="2d460-108">Wyzwalacz czasomierza</span><span class="sxs-lookup"><span data-stu-id="2d460-108">Timer trigger</span></span>
+<span data-ttu-id="2d460-109">Witaj czasomierza wyzwalacza tooa funkcja używa powitania po obiekt JSON w hello `bindings` tablicy function.json:</span><span class="sxs-lookup"><span data-stu-id="2d460-109">hello timer trigger tooa function uses hello following JSON object in hello `bindings` array of function.json:</span></span>
 
 ```json
 {
@@ -47,22 +47,22 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-<span data-ttu-id="97863-110">Wartość `schedule` jest [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) zawierających te sześć pola:</span><span class="sxs-lookup"><span data-stu-id="97863-110">The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields:</span></span> 
+<span data-ttu-id="2d460-110">Witaj wartość `schedule` jest [wyrażenie CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) zawierających te sześć pola:</span><span class="sxs-lookup"><span data-stu-id="2d460-110">hello value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields:</span></span> 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
-><span data-ttu-id="97863-111">Wiele wyrażeń cron możesz znaleźć online Pomiń `{second}` pola.</span><span class="sxs-lookup"><span data-stu-id="97863-111">Many of the cron expressions you find online omit the `{second}` field.</span></span> <span data-ttu-id="97863-112">Po skopiowaniu jednego z nich, należy dostosować nadmiarowe `{second}` pola.</span><span class="sxs-lookup"><span data-stu-id="97863-112">If you copy from one of them, you need to adjust for the extra `{second}` field.</span></span> <span data-ttu-id="97863-113">Aby uzyskać szczegółowe przykłady, zobacz [zaplanować przykłady](#examples) poniżej.</span><span class="sxs-lookup"><span data-stu-id="97863-113">For specific examples, see [Schedule examples](#examples) below.</span></span>
+><span data-ttu-id="2d460-111">Pomiń wiele wyrażeń cron hello możesz znaleźć online hello `{second}` pola.</span><span class="sxs-lookup"><span data-stu-id="2d460-111">Many of hello cron expressions you find online omit hello `{second}` field.</span></span> <span data-ttu-id="2d460-112">Po skopiowaniu jednego z nich, potrzebne tooadjust dla hello dodatkowe `{second}` pola.</span><span class="sxs-lookup"><span data-stu-id="2d460-112">If you copy from one of them, you need tooadjust for hello extra `{second}` field.</span></span> <span data-ttu-id="2d460-113">Aby uzyskać szczegółowe przykłady, zobacz [zaplanować przykłady](#examples) poniżej.</span><span class="sxs-lookup"><span data-stu-id="2d460-113">For specific examples, see [Schedule examples](#examples) below.</span></span>
 
-<span data-ttu-id="97863-114">Domyślna strefa czasowa używane w wyrażeniach CRON jest uniwersalny czas koordynowany (UTC).</span><span class="sxs-lookup"><span data-stu-id="97863-114">The default time zone used with the CRON expressions is Coordinated Universal Time (UTC).</span></span> <span data-ttu-id="97863-115">Aby wymusić wyrażenie CRON oparte na innej strefie czasowej, Utwórz nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE`.</span><span class="sxs-lookup"><span data-stu-id="97863-115">To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`.</span></span> <span data-ttu-id="97863-116">Ustaw wartość na nazwę odpowiednie strefy czasowej, jak pokazano w [indeksu strefy czasowej Microsoft](https://msdn.microsoft.com/library/ms912391.aspx).</span><span class="sxs-lookup"><span data-stu-id="97863-116">Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx).</span></span> 
+<span data-ttu-id="2d460-114">Witaj domyślną strefę czasową używane w wyrażeniach CRON hello jest uniwersalny czas koordynowany (UTC).</span><span class="sxs-lookup"><span data-stu-id="2d460-114">hello default time zone used with hello CRON expressions is Coordinated Universal Time (UTC).</span></span> <span data-ttu-id="2d460-115">toohave wyrażenie CRON oparte na innej strefie czasowej, Utwórz nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE`.</span><span class="sxs-lookup"><span data-stu-id="2d460-115">toohave your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`.</span></span> <span data-ttu-id="2d460-116">Zestaw hello wartość toohello nazwę hello potrzeby strefy czasowej, pokazane na powitania [indeksu strefy czasowej Microsoft](https://msdn.microsoft.com/library/ms912391.aspx).</span><span class="sxs-lookup"><span data-stu-id="2d460-116">Set hello value toohello name of hello desired time zone as shown in hello [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx).</span></span> 
 
-<span data-ttu-id="97863-117">Na przykład *wschodni czas standardowy* jest UTC-05:00.</span><span class="sxs-lookup"><span data-stu-id="97863-117">For example, *Eastern Standard Time* is UTC-05:00.</span></span> <span data-ttu-id="97863-118">Aby Twoje czasomierza wyzwolenia fire na 10:00 CET codziennie, użyj następujących kont dla strefy czasowej UTC wyrażenie CRON:</span><span class="sxs-lookup"><span data-stu-id="97863-118">To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:</span></span>
+<span data-ttu-id="2d460-117">Na przykład *wschodni czas standardowy* jest UTC-05:00.</span><span class="sxs-lookup"><span data-stu-id="2d460-117">For example, *Eastern Standard Time* is UTC-05:00.</span></span> <span data-ttu-id="2d460-118">toohave Twojego czasomierza wyzwolić fire na 10:00 AM EST każdego dnia hello Użyj następującego konta dla strefy czasowej UTC wyrażenie CRON:</span><span class="sxs-lookup"><span data-stu-id="2d460-118">toohave your timer trigger fire at 10:00 AM EST every day, use hello following CRON expression that accounts for UTC time zone:</span></span>
 
 ```json
 "schedule": "0 0 15 * * *",
 ``` 
 
-<span data-ttu-id="97863-119">Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE` i ustaw wartość **wschodni czas standardowy**.</span><span class="sxs-lookup"><span data-stu-id="97863-119">Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.</span></span>  <span data-ttu-id="97863-120">Poniższe wyrażenie CRON można następnie używać do 10:00 AM EST:</span><span class="sxs-lookup"><span data-stu-id="97863-120">Then the following CRON expression could be used for 10:00 AM EST:</span></span> 
+<span data-ttu-id="2d460-119">Alternatywnie możesz dodać nowe ustawienie aplikacji dla aplikacji funkcja o nazwie `WEBSITE_TIME_ZONE` i ustaw wartość hello zbyt**wschodni czas standardowy**.</span><span class="sxs-lookup"><span data-stu-id="2d460-119">Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set hello value too**Eastern Standard Time**.</span></span>  <span data-ttu-id="2d460-120">Następnie po wyrażeniu CRON hello może służyć do 10:00 AM EST:</span><span class="sxs-lookup"><span data-stu-id="2d460-120">Then hello following CRON expression could be used for 10:00 AM EST:</span></span> 
 
 ```json
 "schedule": "0 0 10 * * *",
@@ -71,40 +71,40 @@ ms.lasthandoff: 08/29/2017
 
 <a name="examples"></a>
 
-## <a name="schedule-examples"></a><span data-ttu-id="97863-121">Przykłady harmonogramu</span><span class="sxs-lookup"><span data-stu-id="97863-121">Schedule examples</span></span>
-<span data-ttu-id="97863-122">Poniżej przedstawiono niektóre przykłady można użyć dla wyrażeń CRON `schedule` właściwości.</span><span class="sxs-lookup"><span data-stu-id="97863-122">Here are some samples of CRON expressions you can use for the `schedule` property.</span></span> 
+## <a name="schedule-examples"></a><span data-ttu-id="2d460-121">Przykłady harmonogramu</span><span class="sxs-lookup"><span data-stu-id="2d460-121">Schedule examples</span></span>
+<span data-ttu-id="2d460-122">Poniżej przedstawiono niektóre przykłady można użyć dla hello wyrażeń CRON `schedule` właściwości.</span><span class="sxs-lookup"><span data-stu-id="2d460-122">Here are some samples of CRON expressions you can use for hello `schedule` property.</span></span> 
 
-<span data-ttu-id="97863-123">Aby wyzwolić co pięć minut:</span><span class="sxs-lookup"><span data-stu-id="97863-123">To trigger once every five minutes:</span></span>
+<span data-ttu-id="2d460-123">tootrigger co pięć minut:</span><span class="sxs-lookup"><span data-stu-id="2d460-123">tootrigger once every five minutes:</span></span>
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-<span data-ttu-id="97863-124">Aby wyzwolić raz, w górnej części co godzinę:</span><span class="sxs-lookup"><span data-stu-id="97863-124">To trigger once at the top of every hour:</span></span>
+<span data-ttu-id="2d460-124">tootrigger raz u góry hello co godzinę:</span><span class="sxs-lookup"><span data-stu-id="2d460-124">tootrigger once at hello top of every hour:</span></span>
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-<span data-ttu-id="97863-125">Aby wyzwolić co dwie godziny:</span><span class="sxs-lookup"><span data-stu-id="97863-125">To trigger once every two hours:</span></span>
+<span data-ttu-id="2d460-125">tootrigger co dwie godziny:</span><span class="sxs-lookup"><span data-stu-id="2d460-125">tootrigger once every two hours:</span></span>
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-<span data-ttu-id="97863-126">Aby wyzwolić co godzinę z 9 AM do 17: 00:</span><span class="sxs-lookup"><span data-stu-id="97863-126">To trigger once every hour from 9 AM to 5 PM:</span></span>
+<span data-ttu-id="2d460-126">tootrigger co godzinę z 9 AM too5 PM:</span><span class="sxs-lookup"><span data-stu-id="2d460-126">tootrigger once every hour from 9 AM too5 PM:</span></span>
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-<span data-ttu-id="97863-127">Aby wyzwolić na 9:30 AM codziennie:</span><span class="sxs-lookup"><span data-stu-id="97863-127">To trigger At 9:30 AM every day:</span></span>
+<span data-ttu-id="2d460-127">tootrigger na 9:30 AM codziennie:</span><span class="sxs-lookup"><span data-stu-id="2d460-127">tootrigger At 9:30 AM every day:</span></span>
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-<span data-ttu-id="97863-128">Aby wyzwolić na 9:30 AM każdy dzień tygodnia:</span><span class="sxs-lookup"><span data-stu-id="97863-128">To trigger At 9:30 AM every weekday:</span></span>
+<span data-ttu-id="2d460-128">tootrigger na 9:30 AM każdy dzień tygodnia:</span><span class="sxs-lookup"><span data-stu-id="2d460-128">tootrigger At 9:30 AM every weekday:</span></span>
 
 ```json
 "schedule": "0 30 9 * * 1-5",
@@ -112,8 +112,8 @@ ms.lasthandoff: 08/29/2017
 
 <a name="usage"></a>
 
-## <a name="trigger-usage"></a><span data-ttu-id="97863-129">Użycie wyzwalacza</span><span class="sxs-lookup"><span data-stu-id="97863-129">Trigger usage</span></span>
-<span data-ttu-id="97863-130">Po wywołaniu funkcji wyzwalacza czasomierza [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji.</span><span class="sxs-lookup"><span data-stu-id="97863-130">When a timer trigger function is invoked, the [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) is passed into the function.</span></span> <span data-ttu-id="97863-131">Następujący kod JSON jest przykład reprezentację obiekt czasomierza.</span><span class="sxs-lookup"><span data-stu-id="97863-131">The following JSON is an example representation of the timer object.</span></span> 
+## <a name="trigger-usage"></a><span data-ttu-id="2d460-129">Użycie wyzwalacza</span><span class="sxs-lookup"><span data-stu-id="2d460-129">Trigger usage</span></span>
+<span data-ttu-id="2d460-130">Po wywołaniu funkcji wyzwalacza czasomierza hello [obiekt czasomierza](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) została przekazana do funkcji hello.</span><span class="sxs-lookup"><span data-stu-id="2d460-130">When a timer trigger function is invoked, hello [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) is passed into hello function.</span></span> <span data-ttu-id="2d460-131">Witaj następujące JSON to przykład reprezentację hello obiekt czasomierza.</span><span class="sxs-lookup"><span data-stu-id="2d460-131">hello following JSON is an example representation of hello timer object.</span></span> 
 
 ```json
 {
@@ -129,8 +129,8 @@ ms.lasthandoff: 08/29/2017
 
 <a name="sample"></a>
 
-## <a name="trigger-sample"></a><span data-ttu-id="97863-132">Przykładowe wyzwalacza</span><span class="sxs-lookup"><span data-stu-id="97863-132">Trigger sample</span></span>
-<span data-ttu-id="97863-133">Załóżmy, że masz następujące wyzwalacza czasomierza `bindings` tablicy function.json:</span><span class="sxs-lookup"><span data-stu-id="97863-133">Suppose you have the following timer trigger in the `bindings` array of function.json:</span></span>
+## <a name="trigger-sample"></a><span data-ttu-id="2d460-132">Przykładowe wyzwalacza</span><span class="sxs-lookup"><span data-stu-id="2d460-132">Trigger sample</span></span>
+<span data-ttu-id="2d460-133">Załóżmy, że masz powitania po czasomierza wyzwalacza w hello `bindings` tablicy function.json:</span><span class="sxs-lookup"><span data-stu-id="2d460-133">Suppose you have hello following timer trigger in hello `bindings` array of function.json:</span></span>
 
 ```json
 {
@@ -141,15 +141,15 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-<span data-ttu-id="97863-134">Zobacz próbka specyficzny dla języka, która odczytuje obiekt czasomierza, aby zobaczyć, czy działa późne.</span><span class="sxs-lookup"><span data-stu-id="97863-134">See the language-specific sample that reads the timer object to see whether it's running late.</span></span>
+<span data-ttu-id="2d460-134">Zobacz próbka specyficzny dla języka hello, która odczytuje czasomierza hello toosee obiektu, czy jest uruchomiona opóźnienia.</span><span class="sxs-lookup"><span data-stu-id="2d460-134">See hello language-specific sample that reads hello timer object toosee whether it's running late.</span></span>
 
-* [<span data-ttu-id="97863-135">C#</span><span class="sxs-lookup"><span data-stu-id="97863-135">C#</span></span>](#triggercsharp)
-* [<span data-ttu-id="97863-136">F#</span><span class="sxs-lookup"><span data-stu-id="97863-136">F#</span></span>](#triggerfsharp)
-* [<span data-ttu-id="97863-137">Node.js</span><span class="sxs-lookup"><span data-stu-id="97863-137">Node.js</span></span>](#triggernodejs)
+* [<span data-ttu-id="2d460-135">C#</span><span class="sxs-lookup"><span data-stu-id="2d460-135">C#</span></span>](#triggercsharp)
+* [<span data-ttu-id="2d460-136">F#</span><span class="sxs-lookup"><span data-stu-id="2d460-136">F#</span></span>](#triggerfsharp)
+* [<span data-ttu-id="2d460-137">Node.js</span><span class="sxs-lookup"><span data-stu-id="2d460-137">Node.js</span></span>](#triggernodejs)
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-sample-in-c"></a><span data-ttu-id="97863-138">Przykładowe wyzwalacza w języku C#</span><span class="sxs-lookup"><span data-stu-id="97863-138">Trigger sample in C#</span></span> #
+### <a name="trigger-sample-in-c"></a><span data-ttu-id="2d460-138">Przykładowe wyzwalacza w języku C#</span><span class="sxs-lookup"><span data-stu-id="2d460-138">Trigger sample in C#</span></span> #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -163,7 +163,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### <a name="trigger-sample-in-f"></a><span data-ttu-id="97863-139">Przykładowe wyzwalacza w języku F #</span><span class="sxs-lookup"><span data-stu-id="97863-139">Trigger sample in F#</span></span> #
+### <a name="trigger-sample-in-f"></a><span data-ttu-id="2d460-139">Przykładowe wyzwalacza w języku F #</span><span class="sxs-lookup"><span data-stu-id="2d460-139">Trigger sample in F#</span></span> #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then
@@ -174,7 +174,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 
 <a name="triggernodejs"></a>
 
-### <a name="trigger-sample-in-nodejs"></a><span data-ttu-id="97863-140">Przykładowe wyzwalacza w środowisku Node.js</span><span class="sxs-lookup"><span data-stu-id="97863-140">Trigger sample in Node.js</span></span>
+### <a name="trigger-sample-in-nodejs"></a><span data-ttu-id="2d460-140">Przykładowe wyzwalacza w środowisku Node.js</span><span class="sxs-lookup"><span data-stu-id="2d460-140">Trigger sample in Node.js</span></span>
 ```JavaScript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -189,6 +189,6 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="97863-141">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="97863-141">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2d460-141">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="2d460-141">Next steps</span></span>
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

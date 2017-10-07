@@ -13,7 +13,7 @@
 ## [Przepływy pracy](expressroute-workflows.md)
 ## [Wymagania dotyczące routingu](expressroute-routing.md)
 ## [Wymagania funkcji QoS](expressroute-qos.md)
-## [Informacje o przenoszeniu obwodów z wersji klasycznej do usługi Resource Manager](expressroute-move.md)
+## [O przenoszeniu scalone z klasycznym tooResource Manager](expressroute-move.md)
 
 # Instrukcje
 ## Tworzenie i modyfikowanie obwodu
@@ -24,8 +24,8 @@
 ### [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-routing-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
-## Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+## Link sieci wirtualnej tooan obwodu usługi expressroute
+### [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 ## Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
@@ -35,8 +35,8 @@
 ## Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft
 ### [Witryna Azure Portal](how-to-routefilter-portal.md)
 ### [PowerShell](how-to-routefilter-powershell.md)
-## [Przenoszenie obwodu z wersji klasycznej do usługi Resource Manager](expressroute-howto-move-arm.md)
-## [Migrowanie skojarzonych sieci wirtualnych z wersji klasycznej do usługi Resource Manager](expressroute-migration-classic-resource-manager.md)
+## [Przenieś obwód z klasycznym tooResource Manager](expressroute-howto-move-arm.md)
+## [Migrowanie skojarzone sieci wirtualne z klasycznym tooResource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurowanie routera dla usługi ExpressRoute
 ### [Konfigurowanie routera](expressroute-config-samples-routing.md)
 ### [Przykłady konfiguracji routera pod kątem translatora adresów sieciowych](expressroute-config-samples-nat.md)
@@ -75,12 +75,12 @@
 ## [Umowa SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Limity usług i subskrypcji](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
-### [Łączenie bramy sieci wirtualnej z obwodem](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
+### [Połącz z obwodem tooa bramy sieci wirtualnej](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Tworzenie sieci wirtualnej dla usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)
 ### [Tworzenie bramy sieci wirtualnej dla usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
 ### [Tworzenie obwodu usługi ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Rozwijanie infrastruktury sieciowej na potrzeby łączności](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [Jak skonfigurować prywatną komunikację równorzędną dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
+### [Jak tooset się prywatnej komunikacji równorzędnej dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Partnerstwa hybrydowe: obsługa scenariuszy lokalnych](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ### [Konfigurowanie komunikacji równorzędnej firmy Microsoft dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
 ### [Konfigurowanie publicznej komunikacji równorzędnej dla obwodu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)

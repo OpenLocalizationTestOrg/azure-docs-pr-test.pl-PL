@@ -1,6 +1,6 @@
 ---
-title: "Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosować klastry usługi HDInsight przy użyciu ładowania początkowego."
+title: "aaaCustomize klastrów usługi HDInsight przy użyciu ładowania początkowego — Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocustomize HDInsight clusters przy użyciu ładowania początkowego."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,46 +16,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: c7a6fafa90eac66774d564c82c926c662baf784c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0029680fd1aa0e9e6aa9cdf667256c31b7ddc565
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-hdinsight-clusters-using-bootstrap"></a><span data-ttu-id="77999-103">Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego</span><span class="sxs-lookup"><span data-stu-id="77999-103">Customize HDInsight clusters using Bootstrap</span></span>
+# <a name="customize-hdinsight-clusters-using-bootstrap"></a><span data-ttu-id="d940b-103">Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego</span><span class="sxs-lookup"><span data-stu-id="d940b-103">Customize HDInsight clusters using Bootstrap</span></span>
 
-<span data-ttu-id="77999-104">Czasami użytkownik chce skonfigurować pliki konfiguracyjne, które obejmują:</span><span class="sxs-lookup"><span data-stu-id="77999-104">Sometimes, you want to configure the configuration files, which include:</span></span>
+<span data-ttu-id="d940b-104">Czasami mają pliki konfiguracji hello tooconfigure, które obejmują:</span><span class="sxs-lookup"><span data-stu-id="d940b-104">Sometimes, you want tooconfigure hello configuration files, which include:</span></span>
 
-* <span data-ttu-id="77999-105">clusterIdentity.xml</span><span class="sxs-lookup"><span data-stu-id="77999-105">clusterIdentity.xml</span></span>
-* <span data-ttu-id="77999-106">Core-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-106">core-site.xml</span></span>
-* <span data-ttu-id="77999-107">Gateway.XML</span><span class="sxs-lookup"><span data-stu-id="77999-107">gateway.xml</span></span>
-* <span data-ttu-id="77999-108">hbase env.xml</span><span class="sxs-lookup"><span data-stu-id="77999-108">hbase-env.xml</span></span>
-* <span data-ttu-id="77999-109">hbase-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-109">hbase-site.xml</span></span>
-* <span data-ttu-id="77999-110">System plików hdfs-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-110">hdfs-site.xml</span></span>
-* <span data-ttu-id="77999-111">env.xml gałęzi</span><span class="sxs-lookup"><span data-stu-id="77999-111">hive-env.xml</span></span>
-* <span data-ttu-id="77999-112">gałąź site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-112">hive-site.xml</span></span>
-* <span data-ttu-id="77999-113">mapred lokacji</span><span class="sxs-lookup"><span data-stu-id="77999-113">mapred-site</span></span>
-* <span data-ttu-id="77999-114">oozie-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-114">oozie-site.xml</span></span>
-* <span data-ttu-id="77999-115">oozie env.xml</span><span class="sxs-lookup"><span data-stu-id="77999-115">oozie-env.xml</span></span>
-* <span data-ttu-id="77999-116">STORM-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-116">storm-site.xml</span></span>
-* <span data-ttu-id="77999-117">tez site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-117">tez-site.xml</span></span>
-* <span data-ttu-id="77999-118">webhcat site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-118">webhcat-site.xml</span></span>
-* <span data-ttu-id="77999-119">yarn-site.xml</span><span class="sxs-lookup"><span data-stu-id="77999-119">yarn-site.xml</span></span>
+* <span data-ttu-id="d940b-105">clusterIdentity.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-105">clusterIdentity.xml</span></span>
+* <span data-ttu-id="d940b-106">Core-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-106">core-site.xml</span></span>
+* <span data-ttu-id="d940b-107">Gateway.XML</span><span class="sxs-lookup"><span data-stu-id="d940b-107">gateway.xml</span></span>
+* <span data-ttu-id="d940b-108">hbase env.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-108">hbase-env.xml</span></span>
+* <span data-ttu-id="d940b-109">hbase-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-109">hbase-site.xml</span></span>
+* <span data-ttu-id="d940b-110">System plików hdfs-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-110">hdfs-site.xml</span></span>
+* <span data-ttu-id="d940b-111">env.xml gałęzi</span><span class="sxs-lookup"><span data-stu-id="d940b-111">hive-env.xml</span></span>
+* <span data-ttu-id="d940b-112">gałąź site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-112">hive-site.xml</span></span>
+* <span data-ttu-id="d940b-113">mapred lokacji</span><span class="sxs-lookup"><span data-stu-id="d940b-113">mapred-site</span></span>
+* <span data-ttu-id="d940b-114">oozie-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-114">oozie-site.xml</span></span>
+* <span data-ttu-id="d940b-115">oozie env.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-115">oozie-env.xml</span></span>
+* <span data-ttu-id="d940b-116">STORM-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-116">storm-site.xml</span></span>
+* <span data-ttu-id="d940b-117">tez site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-117">tez-site.xml</span></span>
+* <span data-ttu-id="d940b-118">webhcat site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-118">webhcat-site.xml</span></span>
+* <span data-ttu-id="d940b-119">yarn-site.xml</span><span class="sxs-lookup"><span data-stu-id="d940b-119">yarn-site.xml</span></span>
 
-<span data-ttu-id="77999-120">Istnieją trzy metody do początkowego użycia:</span><span class="sxs-lookup"><span data-stu-id="77999-120">There are three methods to use bootstrap:</span></span>
+<span data-ttu-id="d940b-120">Istnieją trzy metody toouse bootstrap:</span><span class="sxs-lookup"><span data-stu-id="d940b-120">There are three methods toouse bootstrap:</span></span>
 
-* <span data-ttu-id="77999-121">Korzystanie z programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="77999-121">Use Azure PowerShell</span></span>
-* <span data-ttu-id="77999-122">Korzystanie z zestawu SDK dla platformy .NET</span><span class="sxs-lookup"><span data-stu-id="77999-122">Use .NET SDK</span></span>
-* <span data-ttu-id="77999-123">Korzystanie z szablonu usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="77999-123">Use Azure Resource Manager template</span></span>
+* <span data-ttu-id="d940b-121">Korzystanie z programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="d940b-121">Use Azure PowerShell</span></span>
+* <span data-ttu-id="d940b-122">Korzystanie z zestawu SDK dla platformy .NET</span><span class="sxs-lookup"><span data-stu-id="d940b-122">Use .NET SDK</span></span>
+* <span data-ttu-id="d940b-123">Korzystanie z szablonu usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="d940b-123">Use Azure Resource Manager template</span></span>
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-<span data-ttu-id="77999-124">Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrze usługi HDInsight podczas tworzenia zobacz:</span><span class="sxs-lookup"><span data-stu-id="77999-124">For information on installing additional components on HDInsight cluster during the creation time, see:</span></span>
+<span data-ttu-id="d940b-124">Aby uzyskać informacje na temat instalowania dodatkowych składników w klastrze usługi HDInsight podczas tworzenia hello zobacz:</span><span class="sxs-lookup"><span data-stu-id="d940b-124">For information on installing additional components on HDInsight cluster during hello creation time, see:</span></span>
 
-* [<span data-ttu-id="77999-125">Dostosowywanie klastrów usługi HDInsight przy użyciu akcji skryptu (Linux)</span><span class="sxs-lookup"><span data-stu-id="77999-125">Customize HDInsight clusters using Script Action (Linux)</span></span>](hdinsight-hadoop-customize-cluster-linux.md)
+* [<span data-ttu-id="d940b-125">Dostosowywanie klastrów usługi HDInsight przy użyciu akcji skryptu (Linux)</span><span class="sxs-lookup"><span data-stu-id="d940b-125">Customize HDInsight clusters using Script Action (Linux)</span></span>](hdinsight-hadoop-customize-cluster-linux.md)
 
-## <a name="use-azure-powershell"></a><span data-ttu-id="77999-126">Korzystanie z programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="77999-126">Use Azure PowerShell</span></span>
-<span data-ttu-id="77999-127">Poniższy kod programu PowerShell dostosowuje konfiguracji gałęzi:</span><span class="sxs-lookup"><span data-stu-id="77999-127">The following PowerShell code customizes a Hive configuration:</span></span>
+## <a name="use-azure-powershell"></a><span data-ttu-id="d940b-126">Korzystanie z programu Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="d940b-126">Use Azure PowerShell</span></span>
+<span data-ttu-id="d940b-127">Witaj następującego kodu programu PowerShell dostosowuje konfiguracji gałęzi:</span><span class="sxs-lookup"><span data-stu-id="d940b-127">hello following PowerShell code customizes a Hive configuration:</span></span>
 
     # hive-site.xml configuration
     $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
@@ -78,23 +78,23 @@ ms.lasthandoff: 07/11/2017
         -HttpCredential $httpCredential `
         -Config $config 
 
-<span data-ttu-id="77999-128">Zakończenie pracy skryptu programu PowerShell można znaleźć w [dodatek A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).</span><span class="sxs-lookup"><span data-stu-id="77999-128">A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).</span></span>
+<span data-ttu-id="d940b-128">Zakończenie pracy skryptu programu PowerShell można znaleźć w [dodatek A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).</span><span class="sxs-lookup"><span data-stu-id="d940b-128">A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).</span></span>
 
-<span data-ttu-id="77999-129">**Aby sprawdzić zmiany:**</span><span class="sxs-lookup"><span data-stu-id="77999-129">**To verify the change:**</span></span>
+<span data-ttu-id="d940b-129">**Zmiana hello tooverify:**</span><span class="sxs-lookup"><span data-stu-id="d940b-129">**tooverify hello change:**</span></span>
 
-1. <span data-ttu-id="77999-130">Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="77999-130">Sign on to the [Azure portal](https://portal.azure.com).</span></span>
-2. <span data-ttu-id="77999-131">Z menu po lewej stronie kliknij **klastrów usługi HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="77999-131">From the left menu, click **HDInsight clusters**.</span></span> <span data-ttu-id="77999-132">Jeśli nie widzisz, kliknij przycisk **więcej usług** pierwszy.</span><span class="sxs-lookup"><span data-stu-id="77999-132">If you don't see it, click **More services** first.</span></span>
-3. <span data-ttu-id="77999-133">Kliknij utworzony przy użyciu skryptu środowiska PowerShell klastra.</span><span class="sxs-lookup"><span data-stu-id="77999-133">Click the cluster you just created using the PowerShell script.</span></span>
-4. <span data-ttu-id="77999-134">Kliknij przycisk **pulpitu nawigacyjnego** od górnej krawędzi bloku, aby otworzyć Interfejs użytkownika narzędzia Ambari.</span><span class="sxs-lookup"><span data-stu-id="77999-134">Click **Dashboard** from the top of the blade to open the Ambari UI.</span></span>
-5. <span data-ttu-id="77999-135">Kliknij przycisk **Hive** z menu po lewej stronie.</span><span class="sxs-lookup"><span data-stu-id="77999-135">Click **Hive** from the left menu.</span></span>
-6. <span data-ttu-id="77999-136">Kliknij przycisk **serwera HiveServer2** z **Podsumowanie**.</span><span class="sxs-lookup"><span data-stu-id="77999-136">Click **HiveServer2** from **Summary**.</span></span>
-7. <span data-ttu-id="77999-137">Kliknij przycisk **Configs** kartę.</span><span class="sxs-lookup"><span data-stu-id="77999-137">Click the **Configs** tab.</span></span>
-8. <span data-ttu-id="77999-138">Kliknij przycisk **Hive** z menu po lewej stronie.</span><span class="sxs-lookup"><span data-stu-id="77999-138">Click **Hive** from the left menu.</span></span>
-9. <span data-ttu-id="77999-139">Kliknij przycisk **zaawansowane** kartę.</span><span class="sxs-lookup"><span data-stu-id="77999-139">Click the **Advanced** tab.</span></span>
-10. <span data-ttu-id="77999-140">Przewiń w dół, a następnie rozwiń węzeł **zaawansowane witryny hive**.</span><span class="sxs-lookup"><span data-stu-id="77999-140">Scroll down and then expand **Advanced hive-site**.</span></span>
-11. <span data-ttu-id="77999-141">Wyszukaj **hive.metastore.client.socket.timeout** w sekcji.</span><span class="sxs-lookup"><span data-stu-id="77999-141">Look for **hive.metastore.client.socket.timeout** in the section.</span></span>
+1. <span data-ttu-id="d940b-130">Zaloguj się na toohello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="d940b-130">Sign on toohello [Azure portal](https://portal.azure.com).</span></span>
+2. <span data-ttu-id="d940b-131">W menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="d940b-131">From hello left menu, click **HDInsight clusters**.</span></span> <span data-ttu-id="d940b-132">Jeśli nie widzisz, kliknij przycisk **więcej usług** pierwszy.</span><span class="sxs-lookup"><span data-stu-id="d940b-132">If you don't see it, click **More services** first.</span></span>
+3. <span data-ttu-id="d940b-133">Kliknij właśnie utworzony za pomocą skryptu PowerShell hello klastra hello.</span><span class="sxs-lookup"><span data-stu-id="d940b-133">Click hello cluster you just created using hello PowerShell script.</span></span>
+4. <span data-ttu-id="d940b-134">Kliknij przycisk **pulpitu nawigacyjnego** od góry hello tooopen bloku hello hello interfejsu użytkownika narzędzia Ambari.</span><span class="sxs-lookup"><span data-stu-id="d940b-134">Click **Dashboard** from hello top of hello blade tooopen hello Ambari UI.</span></span>
+5. <span data-ttu-id="d940b-135">Kliknij przycisk **Hive** z menu po lewej stronie powitania.</span><span class="sxs-lookup"><span data-stu-id="d940b-135">Click **Hive** from hello left menu.</span></span>
+6. <span data-ttu-id="d940b-136">Kliknij przycisk **serwera HiveServer2** z **Podsumowanie**.</span><span class="sxs-lookup"><span data-stu-id="d940b-136">Click **HiveServer2** from **Summary**.</span></span>
+7. <span data-ttu-id="d940b-137">Kliknij przycisk hello **Configs** kartę.</span><span class="sxs-lookup"><span data-stu-id="d940b-137">Click hello **Configs** tab.</span></span>
+8. <span data-ttu-id="d940b-138">Kliknij przycisk **Hive** z menu po lewej stronie powitania.</span><span class="sxs-lookup"><span data-stu-id="d940b-138">Click **Hive** from hello left menu.</span></span>
+9. <span data-ttu-id="d940b-139">Kliknij przycisk hello **zaawansowane** kartę.</span><span class="sxs-lookup"><span data-stu-id="d940b-139">Click hello **Advanced** tab.</span></span>
+10. <span data-ttu-id="d940b-140">Przewiń w dół, a następnie rozwiń węzeł **zaawansowane witryny hive**.</span><span class="sxs-lookup"><span data-stu-id="d940b-140">Scroll down and then expand **Advanced hive-site**.</span></span>
+11. <span data-ttu-id="d940b-141">Wyszukaj **hive.metastore.client.socket.timeout** w sekcji hello.</span><span class="sxs-lookup"><span data-stu-id="d940b-141">Look for **hive.metastore.client.socket.timeout** in hello section.</span></span>
 
-<span data-ttu-id="77999-142">Niektóre przykłady więcej o dostosowywaniu inne pliki konfiguracji:</span><span class="sxs-lookup"><span data-stu-id="77999-142">Some more samples on customizing other configuration files:</span></span>
+<span data-ttu-id="d940b-142">Niektóre przykłady więcej o dostosowywaniu inne pliki konfiguracji:</span><span class="sxs-lookup"><span data-stu-id="d940b-142">Some more samples on customizing other configuration files:</span></span>
 
     # hdfs-site.xml configuration
     $HdfsConfigValues = @{ "dfs.blocksize"="64m" } #default is 128MB in HDI 3.0 and 256MB in HDI 2.1
@@ -108,13 +108,13 @@ ms.lasthandoff: 07/11/2017
     # oozie-site.xml configuration
     $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-<span data-ttu-id="77999-143">Aby uzyskać więcej informacji, zobacz blog Azim Uddin zatytułowany [tworzenia klastra usługi HDInsight dostosowywanie](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).</span><span class="sxs-lookup"><span data-stu-id="77999-143">For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).</span></span>
+<span data-ttu-id="d940b-143">Aby uzyskać więcej informacji, zobacz blog Azim Uddin zatytułowany [tworzenia klastra usługi HDInsight dostosowywanie](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).</span><span class="sxs-lookup"><span data-stu-id="d940b-143">For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).</span></span>
 
-## <a name="use-net-sdk"></a><span data-ttu-id="77999-144">Korzystanie z zestawu SDK dla platformy .NET</span><span class="sxs-lookup"><span data-stu-id="77999-144">Use .NET SDK</span></span>
-<span data-ttu-id="77999-145">Zobacz [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu zestawu .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).</span><span class="sxs-lookup"><span data-stu-id="77999-145">See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).</span></span>
+## <a name="use-net-sdk"></a><span data-ttu-id="d940b-144">Korzystanie z zestawu SDK dla platformy .NET</span><span class="sxs-lookup"><span data-stu-id="d940b-144">Use .NET SDK</span></span>
+<span data-ttu-id="d940b-145">Zobacz [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu hello zestawu .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).</span><span class="sxs-lookup"><span data-stu-id="d940b-145">See [Create Linux-based clusters in HDInsight using hello .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).</span></span>
 
-## <a name="use-resource-manager-template"></a><span data-ttu-id="77999-146">Użyj Menedżera zasobów szablonu</span><span class="sxs-lookup"><span data-stu-id="77999-146">Use Resource Manager template</span></span>
-<span data-ttu-id="77999-147">Bootstrap można użyć w szablonie usługi Resource Manager:</span><span class="sxs-lookup"><span data-stu-id="77999-147">You can use bootstrap in Resource Manager template:</span></span>
+## <a name="use-resource-manager-template"></a><span data-ttu-id="d940b-146">Użyj Menedżera zasobów szablonu</span><span class="sxs-lookup"><span data-stu-id="d940b-146">Use Resource Manager template</span></span>
+<span data-ttu-id="d940b-147">Bootstrap można użyć w szablonie usługi Resource Manager:</span><span class="sxs-lookup"><span data-stu-id="d940b-147">You can use bootstrap in Resource Manager template:</span></span>
 
     "configurations": {
         …
@@ -128,13 +128,13 @@ ms.lasthandoff: 07/11/2017
 
 ![HDInsight Hadoop dostosowuje klastra ładowania początkowego szablonu usługi Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a><span data-ttu-id="77999-149">Zobacz też</span><span class="sxs-lookup"><span data-stu-id="77999-149">See also</span></span>
-* <span data-ttu-id="77999-150">[Tworzenie klastrów Hadoop w usłudze HDInsight] [ hdinsight-provision-cluster] zawiera instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight przy użyciu niestandardowych opcji.</span><span class="sxs-lookup"><span data-stu-id="77999-150">[Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.</span></span>
-* <span data-ttu-id="77999-151">[Tworzenie skryptów akcji skryptu dla usługi HDInsight][hdinsight-write-script]</span><span class="sxs-lookup"><span data-stu-id="77999-151">[Develop Script Action scripts for HDInsight][hdinsight-write-script]</span></span>
-* <span data-ttu-id="77999-152">[Zainstalować i używać platformy Spark w usłudze hdinsight][hdinsight-install-spark]</span><span class="sxs-lookup"><span data-stu-id="77999-152">[Install and use Spark on HDInsight clusters][hdinsight-install-spark]</span></span>
-* <span data-ttu-id="77999-153">[Zainstaluj i użyj języka R w klastrach HDInsight][hdinsight-install-r]</span><span class="sxs-lookup"><span data-stu-id="77999-153">[Install and use R on HDInsight clusters][hdinsight-install-r]</span></span>
-* <span data-ttu-id="77999-154">[Zainstalować i używać Solr w klastrach HDInsight](hdinsight-hadoop-solr-install.md).</span><span class="sxs-lookup"><span data-stu-id="77999-154">[Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).</span></span>
-* <span data-ttu-id="77999-155">[Zainstalować i używać Giraph w klastrach HDInsight](hdinsight-hadoop-giraph-install.md).</span><span class="sxs-lookup"><span data-stu-id="77999-155">[Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).</span></span>
+## <a name="see-also"></a><span data-ttu-id="d940b-149">Zobacz też</span><span class="sxs-lookup"><span data-stu-id="d940b-149">See also</span></span>
+* <span data-ttu-id="d940b-150">[Tworzenie klastrów Hadoop w usłudze HDInsight] [ hdinsight-provision-cluster] zawiera instrukcje dotyczące sposobu toocreate HDInsight klastra przy użyciu niestandardowych opcji.</span><span class="sxs-lookup"><span data-stu-id="d940b-150">[Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how toocreate an HDInsight cluster by using other custom options.</span></span>
+* <span data-ttu-id="d940b-151">[Tworzenie skryptów akcji skryptu dla usługi HDInsight][hdinsight-write-script]</span><span class="sxs-lookup"><span data-stu-id="d940b-151">[Develop Script Action scripts for HDInsight][hdinsight-write-script]</span></span>
+* <span data-ttu-id="d940b-152">[Zainstalować i używać platformy Spark w usłudze hdinsight][hdinsight-install-spark]</span><span class="sxs-lookup"><span data-stu-id="d940b-152">[Install and use Spark on HDInsight clusters][hdinsight-install-spark]</span></span>
+* <span data-ttu-id="d940b-153">[Zainstaluj i użyj języka R w klastrach HDInsight][hdinsight-install-r]</span><span class="sxs-lookup"><span data-stu-id="d940b-153">[Install and use R on HDInsight clusters][hdinsight-install-r]</span></span>
+* <span data-ttu-id="d940b-154">[Zainstalować i używać Solr w klastrach HDInsight](hdinsight-hadoop-solr-install.md).</span><span class="sxs-lookup"><span data-stu-id="d940b-154">[Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).</span></span>
+* <span data-ttu-id="d940b-155">[Zainstalować i używać Giraph w klastrach HDInsight](hdinsight-hadoop-giraph-install.md).</span><span class="sxs-lookup"><span data-stu-id="d940b-155">[Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).</span></span>
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -143,10 +143,10 @@ ms.lasthandoff: 07/11/2017
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
-<span data-ttu-id="77999-156">[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Etapy podczas tworzenia klastra"</span><span class="sxs-lookup"><span data-stu-id="77999-156">[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"</span></span>
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Etapy podczas tworzenia klastra"
 
-## <a name="appx-a-powershell-sample"></a><span data-ttu-id="77999-157">Próbka a. Appx programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="77999-157">Appx-A: PowerShell sample</span></span>
-<span data-ttu-id="77999-158">Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje ustawienie gałęzi:</span><span class="sxs-lookup"><span data-stu-id="77999-158">This PowerShell script creates an HDInsight cluster and customizes a Hive setting:</span></span>
+## <a name="appx-a-powershell-sample"></a><span data-ttu-id="d940b-157">Próbka a. Appx programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="d940b-157">Appx-A: PowerShell sample</span></span>
+<span data-ttu-id="d940b-158">Ten skrypt programu PowerShell tworzy klaster usługi HDInsight i dostosowuje ustawienie gałęzi:</span><span class="sxs-lookup"><span data-stu-id="d940b-158">This PowerShell script creates an HDInsight cluster and customizes a Hive setting:</span></span>
 
     ####################################
     # Set these variables
@@ -181,10 +181,10 @@ ms.lasthandoff: 07/11/2017
     $ErrorActionPreference = "Stop"
 
     ####################################
-    # Connect to Azure
+    # Connect tooAzure
     ####################################
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #endregion
@@ -198,7 +198,7 @@ ms.lasthandoff: 07/11/2017
         -Name  $resourceGroupName `
         -Location $location
 
-    Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
+    Write-Host "Creating hello default storage account and default blob container ..."  -ForegroundColor Green
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
@@ -213,7 +213,7 @@ ms.lasthandoff: 07/11/2017
                                     -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer `
         -Name $defaultBlobContainerName `
-        -Context $defaultStorageContext #use the cluster name as the container name
+        -Context $defaultStorageContext #use hello cluster name as hello container name
 
     ####################################
     # Create a configuration object
@@ -249,7 +249,7 @@ ms.lasthandoff: 07/11/2017
         -Config $config
 
     ####################################
-    # Verify the cluster
+    # Verify hello cluster
     ####################################
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
