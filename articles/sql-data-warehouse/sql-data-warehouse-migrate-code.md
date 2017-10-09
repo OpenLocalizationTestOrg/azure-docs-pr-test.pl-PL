@@ -1,6 +1,6 @@
 ---
-title: Migrowanie kodu SQL do SQL Data Warehouse | Dokumentacja firmy Microsoft
-description: "Wskazówki dotyczące migrowania kodu SQL Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
+title: aaaMigrate Twojego tooSQL kodu SQL Data Warehouse | Dokumentacja firmy Microsoft
+description: "Wskazówki dotyczące migrowania związane z opracowywaniem rozwiązań programu SQL tooAzure kodu SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a16d579d068e9df9aba3dc61e4a09bcaa551588
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrowanie kodu SQL do SQL Data Warehouse
-W tym artykule opisano zmiany kodu, które mają być podczas migracji kodu z innej bazy danych do usługi SQL Data Warehouse. Niektóre funkcje usługi SQL Data Warehouse może znacznie poprawić wydajność, ponieważ są one przeznaczone do pracy w sposób rozproszonych. Jednak aby zachować wydajność i skalę, niektóre funkcje są również dostępne.
+# <a name="migrate-your-sql-code-toosql-data-warehouse"></a>Migracja z tooSQL kodu SQL magazynu danych
+W tym artykule opisano zmiany kodu, prawdopodobnie zajdzie toomake podczas migrowania kodu z innego tooSQL bazy danych magazynu danych. Niektóre funkcje usługi SQL Data Warehouse może znacznie poprawić wydajność, ponieważ są one toowork zaprojektowanych w sposób rozproszonych. Jednak toomaintain wydajność i skalę, niektóre funkcje również nie są dostępne.
 
 ## <a name="common-t-sql-limitations"></a>Typowych ograniczeń T-SQL
-Poniższa lista zawiera podsumowanie najczęściej używane funkcje, których nie obsługuje usługi SQL Data Warehouse. Łącza prowadzą do obejścia nieobsługiwane funkcje:
+Witaj następujące listy zawiera podsumowanie hello najczęściej używane funkcje, które nie obsługuje usługi SQL Data Warehouse. Witaj łącza prowadzą tooworkarounds hello nieobsługiwane funkcje:
 
 * [Sprzężenia ANSI na aktualizacje][ANSI joins on updates]
 * [Sprzężenia ANSI na usuwaniu][ANSI joins on deletes]
@@ -52,10 +52,10 @@ Poniższa lista zawiera podsumowanie najczęściej używane funkcje, których ni
 * [Użycie wybierz przypisanie zmiennej][use of select for variable assignment]
 * [Typ danych nie MAX dynamiczne ciągów SQL][no MAX data type for dynamic SQL strings]
 
-Na szczęście wokół można pracować większość tych ograniczeń. Wyjaśnienia dotyczące znajdują się w artykułów odpowiednich programowanie wymienionych powyżej.
+Na szczęście wokół można pracować większość tych ograniczeń. Wyjaśnienia dotyczące znajdują się w hello programowanie odpowiednich artykułów wymienionych powyżej.
 
 ## <a name="supported-cte-features"></a>Obsługiwane funkcje CTE
-Wspólnych wyrażeniach tabel (wyrażeń CTE) są obsługiwane częściowo w usłudze SQL Data Warehouse.  Następujące funkcje CTE są obecnie obsługiwane:
+Wspólnych wyrażeniach tabel (wyrażeń CTE) są obsługiwane częściowo w usłudze SQL Data Warehouse.  obecnie obsługiwane są następujące funkcje CTE Hello:
 
 * CTE można określić w instrukcji SELECT.
 * CTE można określić w instrukcji CREATE VIEW.
@@ -70,17 +70,17 @@ Wspólnych wyrażeniach tabel (wyrażeń CTE) są obsługiwane częściowo w us�
 Wspólnego wyrażenia tabeli mają następujące ograniczenia z magazynu danych SQL, w tym:
 
 * CTE musi następować jednej instrukcji SELECT. INSERT, UPDATE, DELETE i instrukcjach MERGE nie są obsługiwane.
-* Wspólne wyrażenie tabeli, która zawiera odwołania do samego siebie (cykliczne wspólne wyrażenie tabeli) nie jest obsługiwany (patrz poniżej).
+* Wspólne wyrażenie tabeli, zawierającą tooitself odwołań (cykliczne wspólne wyrażenie tabeli) nie jest obsługiwany (patrz poniżej).
 * Określanie więcej niż jeden z klauzulą w CTE jest niedozwolone. Na przykład jeśli CTE_query_definition zawiera podzapytanie, że podzapytania nie może zawierać zagnieżdżoną z klauzulą definiujący CTE innego.
-* Nie można użyć klauzuli ORDER BY w CTE_query_definition, z wyjątkiem, gdy określono klauzulę TOP.
-* CTE jest używana w instrukcji, która jest częścią partii, instrukcję przed jego musi następować średnikiem.
-* Gdy jest używany w instrukcjach przygotowane przez sp_prepare, wspólnych wyrażeń tabel działają w taki sam sposób jak inne instrukcji SELECT w PDW. Jednak jeśli wspólnych wyrażeń tabel są używane jako część CETAS przygotowane przez sp_prepare, zachowanie może odroczyć z programu SQL Server i inne instrukcje PDW ze względu na sposób powiązania jest zaimplementowany dla sp_prepare. Wybierz OPCJĘ odwołania CTE wykorzystanie niewłaściwej kolumnie, która nie istnieje w CTE sp_prepare przechodzą bez wykrycia błędu, ale błąd zostanie zgłoszony podczas procedury składowanej sp_execute zamiast tego.
+* Nie można użyć klauzuli ORDER BY w hello CTE_query_definition, z wyjątkiem, gdy określono klauzulę TOP.
+* CTE jest używana w instrukcji, która jest częścią partii, instrukcja hello przed nią musi następować średnikiem.
+* W przypadku w instrukcjach przygotowane przez sp_prepare wspólnych wyrażeń tabel będą zachowywać się hello sam sposób jak inne instrukcji SELECT w PDW. Jednak jeśli wspólnych wyrażeń tabel są używane jako część CETAS przygotowane przez sp_prepare, zachowanie hello może odroczyć z programu SQL Server i inne instrukcje PDW ze względu na sposób hello powiązania jest zaimplementowany dla sp_prepare. Wybierz OPCJĘ odwołania CTE wykorzystanie niewłaściwej kolumnie, która nie istnieje w CTE hello sp_prepare przechodzą bez wykrycia hello błąd, ale błąd hello zostanie zgłoszony podczas procedury składowanej sp_execute zamiast tego.
 
 ## <a name="recursive-ctes"></a>Cyklicznych wspólnych wyrażeń tabel
-Cyklicznych wspólnych wyrażeń tabel nie są obsługiwane w usłudze SQL Data Warehouse.  Migracja cykliczne CTE mogą być nieco złożone i proces najlepiej jest aby podzielić go na wiele kroków. Zwykle można skorzystać z pętli i wypełniania tabeli tymczasowej jako iteracja tymczasowe zapytania cyklicznego. Po zapełnieniu tabeli tymczasowej należy zwrócić dane jako pojedynczy zestaw wyników. Podejście podobne został użyty do rozwiązania `GROUP BY WITH CUBE` w [Grupuj według klauzuli z pakietem zbiorczym / modułu / Ustawia opcje grupowania] [ group by clause with rollup / cube / grouping sets options] artykułu.
+Cyklicznych wspólnych wyrażeń tabel nie są obsługiwane w usłudze SQL Data Warehouse.  Migracja Hello cykliczne CTE mogą być nieco złożone i proces najlepsze hello jest toobreak go do wielu kroków. Zwykle można skorzystać z pętli i wypełniania tabeli tymczasowej jako iteracja tymczasowe kwerendy cykliczne hello. Po zapełnieniu tabeli tymczasowej hello mogą następnie zwracać dane hello jako pojedynczy zestaw wyników. Podejście podobne został użyty toosolve `GROUP BY WITH CUBE` w hello [Grupuj według klauzuli z pakietem zbiorczym / modułu / Ustawia opcje grupowania] [ group by clause with rollup / cube / grouping sets options] artykułu.
 
 ## <a name="unsupported-system-functions"></a>Nieobsługiwany system funkcji
-Dostępne są także niektóre funkcje systemu, które nie są obsługiwane. Główne te, które zwykle można znaleźć używane w magazynowania danych, należą:
+Dostępne są także niektóre funkcje systemu, które nie są obsługiwane. Hello podstawowe zwykle mogą być używane w magazynowania danych, należą:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -92,7 +92,7 @@ Dostępne są także niektóre funkcje systemu, które nie są obsługiwane. Gł
 Niektóre z tych problemów można pracować wokół.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT obejście problemu
-Aby obejść Brak obsługi @@ROWCOUNT, Tworzenie procedury przechowywanej, która będzie pobrać liczbę ostatnich wierszy z sys.dm_pdw_request_steps, a następnie wykonaj `EXEC LastRowCount` po instrukcji DML.
+toowork wokół Brak obsługi @@ROWCOUNT, Tworzenie procedury przechowywanej, która będzie pobierać hello ostatniego liczba wierszy z sys.dm_pdw_request_steps, a następnie wykonaj `EXEC LastRowCount` po instrukcji DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS

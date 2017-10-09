@@ -1,6 +1,6 @@
 ---
-title: "Przegląd architektury replikacji serwera fizycznego na platformie Azure przy użyciu usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie składników i architektury używane podczas replikowania lokalnych serwerów fizycznych do platformy Azure z usługą Azure Site Recovery"
+title: "Architektura hello aaaReview tooAzure replikacji serwera fizycznego, za pomocą usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera omówienie składników i architektury używane podczas replikowania lokalnych serwerów fizycznych tooAzure z hello usługi Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: 843c3f1b54f50fe50b162ed242deab717a080830
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4f334c181fa6f0821adf978ebe9dbd7d36a3c753
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-1-review-the-architecture-for-physical-server-replication-to-azure"></a>Krok 1: Przejrzyj architekturę replikacji serwera fizycznego na platformie Azure
+# <a name="step-1-review-hello-architecture-for-physical-server-replication-tooazure"></a>Krok 1: Przejrzyj hello architektura tooAzure replikacji serwera fizycznego
 
-W tym artykule opisano składniki i procesy stosowane podczas replikacji lokalnych serwerów fizycznych systemu Windows i Linux na platformie Azure, przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
+W tym artykule opisano składniki hello i procesy stosowane podczas replikacji lokalnej tooAzure serwerach fizycznych systemu Windows i Linux, przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
 
-Wszelkie komentarze umieszczaj pod tym artykułem lub zadawaj pytania na [Forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opublikuj wszelkie komentarze u dołu hello w tym artykule, lub zadać pytania w hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="architectural-components"></a>Składniki architektury
 
-W tabeli przedstawiono składniki, które są potrzebne.
+Witaj tabela zawiera podsumowanie hello potrzebnych składników.
 
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
-**Azure** | Potrzebujesz konta platformy Azure, konto usługi Azure storage i sieć platformy Azure. | Replikowane dane są przechowywane na koncie magazynu i maszyn wirtualnych platformy Azure są tworzone przy użyciu zreplikowanych danych podczas pracy awaryjnej. Maszyny wirtualne platformy Azure nawiązać sieci wirtualnej platformy Azure, gdy są tworzone.
-**Serwer konfiguracji** | Pojedynczy lokalnego serwera zarządzania (serwer fizyczny lub maszyna wirtualna oprogramowania VMware), który uruchamia wszystkie lokalną składnikami usługi Site Recovery. Należą do konfiguracji serwera, serwer przetwarzania, główny serwer docelowy. | Składnik serwera konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
- **Serwer przetwarzania**  | Domyślnie instalowany na serwerze konfiguracji. | Działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage.<br/><br/> Serwer przetwarzania również obsługę instalacji wypychanej usługi mobilności na chronionych maszyn.<br/><br/> Można dodać dodatkowych oddzielnych dedykowanych serwerów przetwarzania, do obsługi coraz większej ilości danych z replikacją.
- **Główny serwer docelowy** | Instalowany domyślnie na lokalnym serwerze konfiguracji. | Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure.<br/><br/> W przypadku dużego ruchu powrotu po awarii można wdrożyć oddzielny główny serwer docelowy na potrzeby obsługi powrotu po awarii.
-**Zreplikowane serwerów** | Składnik usługi mobilności jest zainstalowany na każdym serwerze systemu Windows i Linux, które mają być replikowane. Można ją zainstalować ręcznie na poszczególnych maszynach lub za pośrednictwem instalacji wypychanej z serwera przetwarzania.
-**Powrót po awarii** | Powrotu po awarii VMware infrastruktury jest wymagany. Nie można powracać po awarii do serwera fizycznego.
+**Azure** | Potrzebujesz konta platformy Azure, konto usługi Azure storage i sieć platformy Azure. | Replikowane dane są przechowywane na koncie magazynu hello, a podczas pracy awaryjnej maszyn wirtualnych platformy Azure są tworzone z hello replikowane dane. Maszyny wirtualne platformy Azure połączyć toohello sieci wirtualnej platformy Azure, gdy są tworzone.
+**Serwer konfiguracji** | Pojedynczy lokalnego serwera zarządzania (serwer fizyczny lub maszyna wirtualna oprogramowania VMware), który uruchamia wszystkie hello lokalnymi składnikami usługi Site Recovery. Należą do konfiguracji serwera, serwer przetwarzania, główny serwer docelowy. | składnik serwera konfiguracji Hello koordynuje komunikacji między lokalną i platformą Azure i zarządza replikacji danych.
+ **Serwer przetwarzania**  | Instalowany domyślnie na powitania serwera konfiguracji. | Działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania i wysyła je tooAzure magazynu.<br/><br/> serwer przetwarzania Hello również obsługę instalacji wypychanej hello mobilności usługi tooprotected maszyn.<br/><br/> Można dodać dodatkowych oddzielnych dedykowanych serwerów przetwarzania, toohandle zwiększenie wielkości ruchu replikacji.
+ **Główny serwer docelowy** | Instalowany domyślnie na serwerze konfiguracji lokalne powitania. | Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure.<br/><br/> W przypadku dużego ruchu powrotu po awarii można wdrożyć oddzielny główny serwer docelowy na potrzeby obsługi powrotu po awarii.
+**Zreplikowane serwerów** | Witaj składnika usługi Mobility jest zainstalowany na każdym serwerze z systemem Windows lub Linux ma tooreplicate. Na każdym komputerze lub z instalacją wypychaną z serwera przetwarzania hello może być ręcznie zainstalowana.
+**Powrót po awarii** | Powrotu po awarii VMware infrastruktury jest wymagany. Nie można przerwać tooa zapasowego serwera fizycznego.
 
 
-**Rysunek 1: Fizyczna składniki platformy Azure**
+**Rysunek 1: Składniki fizyczne tooAzure**
 
 ![Składniki](./media/physical-walkthrough-architecture/arch-enhanced.png)
 
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Konfigurowanie wdrożenia, łącznie z lokalnymi i składniki platformy Azure. W magazynie usług odzyskiwania Określ replikacji źródłowych i docelowych, skonfiguruj serwer konfiguracji Utwórz zasady replikacji, wdrażanie usługi mobilności, Włącz replikację i testować tryb failover.
-2.  Replikacja maszyny, zgodnie z zasadami replikacji i początkowej kopii danych są replikowane do magazynu Azure.
-4. Po zakończeniu replikacji początkowej, rozpoczyna replikację zmian różnicowych na platformie Azure. Śledzone zmiany dla maszyny są przechowywane w pliku hrl.
-    - Na potrzeby zarządzania replikacją replikowane maszyny komunikują się z serwerem konfiguracji na porcie HTTPS 443 dla danych przychodzących.
-    - Maszyn replikowanych wysyłanie danych replikacji na serwer przetwarzania na porcie HTTPS 9443 dla ruchu przychodzącego (może być modyfikowany).
-    - Serwer konfiguracji synchronizuje replikację z platformą Azure za pośrednictwem portu HTTPS 443 dla danych wychodzących.
-    - Serwer przetwarzania odbiera dane z maszyn źródłowych, optymalizuje je i szyfruje, a następnie wysyła do usługi Azure Storage za pośrednictwem portu 443 dla danych wychodzących.
-    - Jeśli włączono spójność wielu maszyn wirtualnych, maszyny z grupy replikacji komunikują się między sobą na porcie 20004. Funkcja spójności wielu maszyn wirtualnych jest używana, jeśli wiele maszyn zostanie połączonych w grupę replikacji, która współużytkuje punkty odzyskiwania spójne na poziomie awarii i aplikacji. Jest to przydatne, jeśli maszyny obsługują to samo obciążenie i muszą być spójne.
-5. Ruch jest replikowany do publicznych punktów końcowych usługi Azure Storage za pośrednictwem Internetu. Alternatywnie można użyć [publicznej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#public-peering) usługi Azure ExpressRoute. Replikowanie ruchu za pośrednictwem sieci VPN typu lokacja-lokacja z lokacji lokalnej platformy Azure nie jest obsługiwane.
+1. Należy skonfigurować wdrożenie hello, takie jak lokalnymi i składniki platformy Azure. W magazynie usług odzyskiwania hello Określ hello replikacji źródłowym i docelowym, skonfiguruj serwer konfiguracji hello, Utwórz zasady replikacji, wdrożyć usługę mobilności hello włączyć replikację i testować tryb failover.
+2.  Replikacja maszyny, zgodnie z zasadami replikacji hello i początkowej kopii danych hello jest tooAzure replikowanego magazynu.
+4. Po zakończeniu replikacji początkowej, rozpoczyna się replikacja tooAzure zmian różnicowych. Śledzone zmiany dla maszyny są przechowywane w pliku hrl.
+    - Replikacji maszyny komunikacji z serwerem konfiguracji hello na porcie 443 protokołu HTTPS dla ruchu przychodzącego dla zarządzania replikacji.
+    - Replikacji maszyny wysyłania replikacji danych toohello procesu serwera na porcie HTTPS 9443 dla ruchu przychodzącego (może być modyfikowany).
+    - Serwer konfiguracji Hello organizuje Zarządzanie replikacją z platformą Azure za pośrednictwem portu HTTPS 443 dla ruchu wychodzącego.
+    - serwer przetwarzania Hello odbiera dane z maszyn źródłowych, optymalizuje i szyfruje go i wysyła je tooAzure magazynu za pośrednictwem portu 443 wychodzących.
+    - Włączenie spójności wielu maszyn wirtualnych, następnie maszyn w grupie replikacji hello komunikują się ze sobą za pośrednictwem portu 20004. Funkcja spójności wielu maszyn wirtualnych jest używana, jeśli wiele maszyn zostanie połączonych w grupę replikacji, która współużytkuje punkty odzyskiwania spójne na poziomie awarii i aplikacji. Jest to przydatne, jeśli są uruchomione maszyny hello tego samego obciążenia i wymagają toobe spójne.
+5. Ruch jest ponad tooAzure replikowanego magazynu publiczne punkty końcowe, hello internet. Alternatywnie można użyć [publicznej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#public-peering) usługi Azure ExpressRoute. Replikowanie ruchu za pośrednictwem sieci VPN lokacja lokacja z lokalnej lokacji tooAzure nie jest obsługiwana.
 
-**Rysunek 2: Fizyczna Azure replikacji**
+**Rysunek 2: Fizycznego tooAzure replikacji**
 
 ![Rozszerzone](./media/physical-walkthrough-architecture/v2a-architecture-henry.png)
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
-Po upewnieniu się, że testowe przełączenie w tryb failover działa zgodnie z oczekiwaniami, możesz uruchamiać niezaplanowane przełączenia w tryb failover na platformę Azure zgodnie z potrzebami. Po uruchomieniu trybu failover, maszynach wirtualnych platformy Azure są tworzone na podstawie replikowanych danych. Następnie gdy lokacji głównej lokalnymi jest ponownie dostępny, można w trybie ponownie. Należy pamiętać, że:
+Po upewnieniu się, że ten test trybu failover działa zgodnie z oczekiwaniami, możesz uruchomić tooAzure niezaplanowanych operacji Failover zgodnie z potrzebami. Po uruchomieniu trybu failover, maszynach wirtualnych platformy Azure są tworzone na podstawie replikowanych danych. Następnie gdy lokacji głównej lokalnymi jest ponownie dostępny, można w trybie ponownie. Należy pamiętać, że:
 
 - Planowane przejście w tryb failover nie jest obsługiwane.
-- Można przełączyć jednego komputera lub utworzyć [planów odzyskiwania](site-recovery-create-recovery-plans.md), aby przenosić wiele maszyn jednocześnie.
-- Po zatwierdzeniu trybu failover można rozpocząć uzyskiwanie dostępu do obciążenia z poziomu repliki maszyny wirtualnej platformy Azure.
-- Gdy lokacja główna jest ponownie dostępny, są replikowane maszyny z lokacji dodatkowej do lokacji głównej. Następnie należy uruchomić nieplanowanego trybu failover z lokacji dodatkowej. Po zatwierdzeniu pracy w trybie failover dane będą znowu dostępne lokalnie i konieczne będzie ponowne włączenie replikacji do platformy Azure.
+- Można przełączyć jednego komputera lub utworzyć [planów odzyskiwania](site-recovery-create-recovery-plans.md), toofail na wielu komputerach jednocześnie.
+- Tryb failover toostart podczas uzyskiwania dostępu do hello obciążenia zatwierdzeniu z hello repliki maszyny Wirtualnej platformy Azure.
+- Gdy hello lokacji głównej jest ponownie dostępny, replikacji z lokacji głównej dodatkowej toohello hello hello maszyny. Następnie należy uruchomić nieplanowanego trybu failover z lokacji dodatkowej hello. Po zatwierdzeniu tej pracy awaryjnej, dane będą wstecz lokalnymi i tooAzure replikacji tooenable należy ponownie.
 
 Następujące składniki powrotu po awarii:
 
-- **Tymczasowy serwer przetwarzania na platformie Azure**: należy skonfigurować maszyny Wirtualnej platformy Azure do działania jako serwer przetwarzania, do obsługi replikacji z platformy Azure. Po zakończeniu powrotu po awarii można usunąć tę maszynę wirtualną.
-- **Połączenia sieci VPN**: należy połączenie sieci VPN (lub usługa Azure ExpressRoute) z sieci platformy Azure do lokacji lokalnej.
-- **Oddzielny lokalny główny serwer docelowy**: lokalny główny serwer docelowy (instalowana domyślnie na serwer konfiguracji) obsługuje powrót po awarii. Jeśli nie zostanie ponownie dużych ilości ruchu, należy skonfigurować oddzielny lokalny główny serwer docelowy do tego celu.
+- **Tymczasowy serwer przetwarzania na platformie Azure**: należy tooset tooact maszyny Wirtualnej platformy Azure jako serwera przetwarzania, toohandle replikacja z platformy Azure. Po zakończeniu powrotu po awarii można usunąć tę maszynę wirtualną.
+- **Połączenia sieci VPN**: potrzebuje połączenia sieci VPN (lub usługa Azure ExpressRoute) z lokacji lokalnej toohello hello w sieci platformy Azure.
+- **Oddzielny lokalny główny serwer docelowy**: hello lokalny główny serwer docelowy (instalowany domyślnie na serwerze konfiguracji hello) obsługuje powrót po awarii. Jeśli nie zostanie ponownie dużych ilości ruchu, należy skonfigurować oddzielny lokalny główny serwer docelowy do tego celu.
 - **Zasady powrotu po awarii**: należy zasady powrotu po awarii. Są one tworzone automatycznie podczas tworzenia zasad replikacji.
-- **Infrastruktura VMware**: musisz wykonać powrót po awarii do lokalnej maszyny wirtualnej programu VMware. Oznacza to, że wymagana jest lokalna infrastruktura VMware, nawet jeśli replikujesz lokalne serwery fizyczne do platformy Azure.
+- **Infrastruktura VMware**: musisz powrócić tooan lokalnej maszyny Wirtualnej VMware. Oznacza to, że należy lokalnej infrastruktury VMware, nawet jeśli replikujesz lokalnych serwerów fizycznych tooAzure.
 
 **Rysunek 3: Serwer fizyczny powrotu po awarii**
 
@@ -85,4 +85,4 @@ Następujące składniki powrotu po awarii:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [krok 2: Sprawdź wymagania wstępne i ograniczenia](physical-walkthrough-prerequisites.md)
+Przejdź do zbyt[krok 2: Sprawdź wymagania wstępne i ograniczenia](physical-walkthrough-prerequisites.md)

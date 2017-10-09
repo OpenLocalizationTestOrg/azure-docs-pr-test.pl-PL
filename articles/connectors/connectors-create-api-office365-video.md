@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z łącznika programu Office 365 wideo w aplikacjach logiki | Dokumentacja firmy Microsoft"
-description: "Rozpoczynanie pracy przy użyciu łącznika programu Office 365 wideo w aplikacjach logiki usługi aplikacji platformy Microsoft Azure"
+title: "Łącznik Office 365 wideo hello aaaUse w aplikacjach logiki | Dokumentacja firmy Microsoft"
+description: "Rozpoczęcie pracy z łącznika Office 365 wideo hello w aplikacjach logiki usługi aplikacji platformy Microsoft Azure"
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6e0a4b658d166d1cf8096d50f4bf2d502053aa43
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Office 365 wideo
-Podłącz do pakietu Office 365 film, aby uzyskać informacje na temat usługi Office 365 wideo, Pobierz listę filmy wideo i inne. Za pomocą pakietu Office 365 wideo można:
+# <a name="get-started-with-hello-office365-video-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Office 365 wideo hello
+Połączenia tooOffice 365 wideo tooget informacji na temat usługi Office 365 wideo, Pobierz listę filmy wideo i inne. Za pomocą pakietu Office 365 wideo można:
 
-* Tworzenie sieci przepływu biznesowe na podstawie danych otrzymywanych z pakietu Office 365 wideo. 
-* Użyj akcji, które Sprawdź wideo stan portalu, Pobierz listę wszystkich wideo w kanale i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Można na przykład użyj łącznika wyszukiwania usługi Bing w celu wyszukania wideo usługi Office 365, a następnie korzystania z łącznika wideo usługi Office 365, aby uzyskać informacje o tym wideo. Jeśli wideo spełnia Twoje wymagania, należy po ten film w serwisie Facebook. 
+* Tworzenie sieci przepływu biznesowe na podstawie danych hello, uzyskasz z pakietu Office 365 wideo. 
+* Użyj akcji, które Sprawdź stan portalu wideo hello, Pobierz listę wszystkich wideo w kanale i inne. Te akcje odpowiedzi, a następnie wprowadź dane wyjściowe hello dostępne dla innych działań. Można na przykład toosearch łącznik wyszukiwania usługi Bing hello na użytek wideo usługi Office 365, a następnie użyć hello usługi Office 365 wideo łącznika tooget informacji na temat wideo. Jeśli hello wideo spełnia Twoje wymagania, należy po ten film w serwisie Facebook. 
 
 Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Utwórz połączenie łącznik usługi Office 365 wideo
-Po dodaniu tego łącznika do aplikacji logiki, należy zalogować się do swojego konta Office 365 wideo i Zezwalaj aplikacjom logiki do łączenia się z kontem.
+## <a name="create-a-connection-toooffice365-video-connector"></a>Tworzenie łącznika wideo tooOffice365 połączenia
+Po dodaniu aplikacji logiki tooyour tego łącznika, musisz zalogować się — w tooyour Office 365 wideo konta i Zezwalaj aplikacjom logiki tooconnect tooyour konta.
 
-> [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
+> [!INCLUDE [Steps toocreate a connection tooOffice 365 Video](../../includes/connectors-create-api-office365video.md)]
 > 
 > 
 
-Po utworzeniu połączenie, wprowadź właściwości wideo usługi Office 365, takie jak nazwa dzierżawy lub kanału identyfikatora. 
+Po utworzeniu połączenia hello, wprowadź właściwości wideo hello usługi Office 365, takich jak nazwa dzierżawcy hello, lub kanału identyfikatora. 
 
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/office365videoconnector/).
+Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w hello swagger i zobacz też żadnych limitów w hello [szczegóły łącznika](/connectors/office365videoconnector/).
 
 ## <a name="more-connectors"></a>Więcej łączników
-Wróć do [listy interfejsów API](apis-list.md).
+Przejdź wstecz toohello [listy interfejsów API](apis-list.md).

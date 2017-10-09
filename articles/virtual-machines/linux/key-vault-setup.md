@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie usługi Azure Key Vault dla maszyn wirtualnych systemu Linux | Dokumentacja firmy Microsoft"
-description: "Jak skonfigurować magazyn kluczy do użycia z maszyny wirtualnej platformy Azure Resource Manager 2.0 interfejsu wiersza polecenia."
+title: aaaSet zapasowej Azure Key Vault dla maszyn wirtualnych systemu Linux | Dokumentacja firmy Microsoft
+description: "Jak tooset się Key Vault do użycia z maszyny wirtualnej platformy Azure Resource Manager z hello 2.0 interfejsu wiersza polecenia."
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-ms.openlocfilehash: 2cc9b4c978e9a4deb0c8443c4b0f9e301a7cf492
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a5dc1fbe59a71b4456ba5b9bbacdb90440064757
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>Jak skonfigurować magazyn kluczy dla maszyn wirtualnych z 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="how-tooset-up-key-vault-for-virtual-machines-with-hello-azure-cli-20"></a>Jak tooset się Key Vault dla maszyn wirtualnych z hello Azure CLI 2.0
 
-W stosie usługi Azure Resource Manager kluczy tajnych/certyfikaty są modelowane jako zasoby, które są udostępniane przez usługi Key Vault. Aby dowiedzieć się więcej na temat usługi Azure Key Vault, zobacz [co to jest usługa Azure Key Vault?](../../key-vault/key-vault-whatis.md) W kolejności dla usługi Key Vault ma być używany z maszyn wirtualnych Menedżera zasobów Azure *EnabledForDeployment* właściwość na magazynu kluczy musi być ustawiona na wartość true. W tym artykule przedstawiono sposób konfigurowania usługi Key Vault do użycia z programem Azure maszynach wirtualnych (VM) używa interfejsu wiersza polecenia Azure w wersji 2.0. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+W stosie usługi Azure Resource Manager hello kluczy tajnych/certyfikaty są modelowane jako zasoby, które są udostępniane przez usługi Key Vault. toolearn więcej informacji na temat usługi Azure Key Vault, zobacz [co to jest usługa Azure Key Vault?](../../key-vault/key-vault-whatis.md) Aby używać z maszynami wirtualnymi Azure Resource Manager toobe Key Vault, hello *EnabledForDeployment* tootrue musi być ustawiona właściwość na magazyn kluczy. W tym artykule opisano sposób tooset zapasowej Key Vault do użycia z programem Azure maszynach wirtualnych (VM) przy użyciu hello Azure CLI 2.0. Można również wykonać te kroki hello [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Aby wykonać te kroki, należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+tooperform tych kroków, należy hello najnowszych [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zarejestrowane za pomocą konta Azure tooan [logowania az](/cli/azure/#login).
 
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
-Tworzenie magazynu kluczy i przypisać zasady wdrażania z [az keyvault utworzyć](/cli/azure/keyvault#create). Poniższy przykład tworzy magazyn kluczy o nazwie `myKeyVault` w `myResourceGroup` grupy zasobów:
+Utwórz magazyn kluczy i przypisz hello zasady wdrażania z [az keyvault utworzyć](/cli/azure/keyvault#create). Witaj poniższy przykład tworzy magazyn kluczy o nazwie `myKeyVault` w hello `myResourceGroup` grupy zasobów:
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>Zaktualizuj magazyn kluczy do użytku z maszynami wirtualnymi
-Ustaw zasady wdrażania na istniejącego klucza magazynu z [az keyvault aktualizacji](/cli/azure/keyvault#update). Następujące aktualizacje magazyn kluczy o nazwie `myKeyVault` w `myResourceGroup` grupy zasobów:
+Ustaw zasady wdrażania hello na istniejący magazyn kluczy o [az keyvault aktualizacji](/cli/azure/keyvault#update). Witaj następujące aktualizacje hello magazyn kluczy o nazwie `myKeyVault` w hello `myResourceGroup` grupy zasobów:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
 ```
 
-## <a name="use-templates-to-set-up-key-vault"></a>Konfigurowanie usługi Key Vault za pomocą szablonów
-Gdy używasz szablonu, musisz ustawić `enabledForDeployment` właściwości `true` klucza magazynu zasobów w następujący sposób:
+## <a name="use-templates-tooset-up-key-vault"></a>Użycie szablonów tooset zapasowej magazyn kluczy
+W przypadku użycia szablonu należy tooset hello `enabledForDeployment` właściwości zbyt`true` dla zasobu usługi Key Vault hello w następujący sposób:
 
 ```json
 {

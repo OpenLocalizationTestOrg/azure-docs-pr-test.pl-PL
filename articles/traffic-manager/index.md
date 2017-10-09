@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Traffic Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak zarządzać ruchem przychodzącym, aby uzyskać optymalną wydajność aplikacji. W dokumentacji przedstawiono sposób dystrybucji ruchu do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej."
+title: "aaaAzure dokumentacji usługi Traffic Manager — Samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomanage przychodzącego ruchu dla optymalną wydajnością. Dokumentacji przedstawiono, jak toodistribute ruchu tooAzure lub punktów końcowych usług zewnętrznych."
 services: traffic-manager
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5ba8a589e319928365dbdc5fb6b2295119de77ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb547f220186c8db9020bcd61a7e4c4d47838107
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="traffic-manager-documentation"></a>Dokumentacja usługi Traffic Manager
 
-Dowiedz się, jak za pomocą usługi Traffic Manager kierować ruchem przychodzącym, aby uzyskać optymalną wydajność i niezawodność aplikacji. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać ruchem do punktów końcowych platformy Azure lub punktów końcowych usługi zewnętrznej.
+Dowiedz się, jak toouse Traffic Manager tooroute przychodzącego ruchu dla aplikacji optymalnej wydajności i niezawodności. Samouczki, odwołania do interfejsu API i dokumentacji Pokaż jak toomanage ruchu tooAzure lub punktów końcowych usług zewnętrznych.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Dowiedz się, jak za pomocą usługi Traffic Manager kierować ruchem przychodz�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie zarządzania punktami końcowymi usługi Traffic Manager za pośrednictwem witryny Azure Portal</h3>
+                        <h3>Rozpoczęcie zarządzania punktów końcowych usługi Traffic Manager przy użyciu hello portalu Azure</h3>
                     </div>
                 </div>
             </div>

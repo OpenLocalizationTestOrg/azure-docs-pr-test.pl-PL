@@ -1,5 +1,5 @@
 ---
-title: "Przezroczystego szyfrowania danych w usłudze SQL Data Warehouse (Portal) | Dokumentacja firmy Microsoft"
+title: "aaaTransparent szyfrowanie danych w usłudze SQL Data Warehouse (Portal) | Dokumentacja firmy Microsoft"
 description: Przezroczystego szyfrowania danych (funkcji TDE) w magazynie danych SQL
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8233886ecf170844104e0d1459e2a829cafa9b8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Rozpoczynanie pracy z przezroczystym danych szyfrowania (funkcji TDE) w magazynie danych SQL
 > [!div class="op_single_selector"]
@@ -31,30 +31,30 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="required-permssions"></a>Wymagane uprawnienia
-Aby włączyć funkcji przezroczystego szyfrowania danych (TDE), musi być administrator lub członek roli dbmanager:.
+tooenable przezroczystego danych szyfrowania (funkcji TDE), musisz być administratorem lub członkiem roli dbmanager: hello.
 
 ## <a name="enabling-encryption"></a>Włączenie szyfrowania
-Aby włączyć funkcji TDE dla magazynu danych SQL, wykonaj następujące czynności:
+tooenable funkcji TDE dla magazynu danych SQL, wykonaj poniższe kroki hello:
 
-1. Otworzyć bazy danych w [portalu Azure](https://portal.azure.com)
-2. W bloku bazy danych, kliknij przycisk **ustawienia** przycisku
-3. Wybierz **przezroczystego szyfrowania danych** opcji![][1]
-4. Wybierz **na** ustawienie![][2]
+1. Bazy danych otwórz hello w hello [portalu Azure](https://portal.azure.com)
+2. W bloku bazy danych powitania kliknij hello **ustawienia** przycisku
+3. Wybierz hello **przezroczystego szyfrowania danych** opcji![][1]
+4. Wybierz hello **na** ustawienie![][2]
 5. Wybierz **Zapisz**
    ![][3]  
 
 ## <a name="disabling-encryption"></a>Wyłączenie szyfrowania
-Aby wyłączyć funkcji TDE dla magazynu danych SQL, wykonaj następujące czynności:
+toodisable funkcji TDE dla magazynu danych SQL, wykonaj poniższe kroki hello:
 
-1. Otworzyć bazy danych w [portalu Azure](https://portal.azure.com)
-2. W bloku bazy danych, kliknij przycisk **ustawienia** przycisku
-3. Wybierz **przezroczystego szyfrowania danych** opcji![][1]
-4. Wybierz **poza** ustawienie![][4]
+1. Bazy danych otwórz hello w hello [portalu Azure](https://portal.azure.com)
+2. W bloku bazy danych powitania kliknij hello **ustawienia** przycisku
+3. Wybierz hello **przezroczystego szyfrowania danych** opcji![][1]
+4. Wybierz hello **poza** ustawienie![][4]
 5. Wybierz **Zapisz**
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>Szyfrowanie widoków DMV
-Szyfrowanie może zostać potwierdzony z następujących widoków DMV:
+Szyfrowanie może zostać potwierdzony z następujących widoków DMV hello:
 
 * [sys.Databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]

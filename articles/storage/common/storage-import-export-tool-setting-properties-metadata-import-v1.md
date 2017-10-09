@@ -1,6 +1,6 @@
 ---
-title: "Ustawienie właściwości i metadanych za pomocą Import/Eksport Azure - v1 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak określić właściwości oraz metadanych ma być ustawiony na obiekty BLOB docelowego podczas uruchamiania narzędzia importu/eksportu Azure do przygotowania dysków. Odnosi się do v1 narzędzia importu/eksportu."
+title: "aaaSetting właściwości i metadanych za pomocą Import/Eksport Azure - v1 | Dokumentacja firmy Microsoft"
+description: "Dowiedz się toospecify toobe metadanych i właściwości konfiguracji na obiekty BLOB docelowego hello podczas uruchamiania hello Azure narzędzie importu/eksportu tooprepare dysków. Odnosi się toov1 hello narzędzie importu/eksportu."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 77bdaa5559de86cd1de9f30e70656e47fd5719e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5b7b1c346ecde8a26d985bd5de7efcf7d86eb9e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setting-properties-and-metadata-during-the-import-process"></a>Ustawianie właściwości i metadanych podczas procesu importowania
-Po uruchomieniu narzędzia importu/eksportu w usłudze Microsoft Azure do przygotowania dysków, można określić właściwości i metadanych ma być ustawiony na docelowym obiektów blob. Wykonaj następujące kroki:  
+# <a name="setting-properties-and-metadata-during-hello-import-process"></a>Ustawianie właściwości i metadanych podczas hello importowania
+Po uruchomieniu tooprepare narzędzie importu/eksportu pakietu Microsoft Azure hello dysków, można określić właściwości i ustawić na obiekty BLOB docelowego hello toobe metadanych. Wykonaj następujące kroki:  
   
-1.  Aby ustawić właściwości obiektu blob, Utwórz plik tekstowy na komputerze lokalnym, który określa nazwy i wartości właściwości.  
+1.  właściwości obiektu blob tooset, Utwórz plik tekstowy na komputerze lokalnym, który określa nazwy i wartości właściwości.  
   
-2.  Aby ustawić metadane obiektu blob, Utwórz plik tekstowy na komputerze lokalnym, określający, metadane nazwy i wartości.  
+2.  tooset metadane obiektu blob, Utwórz plik tekstowy na komputerze lokalnym, określający, metadane nazwy i wartości.  
   
-3.  Przekaż pełną ścieżkę do jednej lub obu tych plików do narzędzia importu/eksportu Azure jako część `PrepImport` operacji.  
+3.  Przekaż hello tooone pełną ścieżkę lub oba te pliki toohello narzędzie importu/eksportu Azure jako część hello `PrepImport` operacji.  
   
 > [!NOTE]
->  Po określeniu właściwości lub metadane pliku w ramach sesji kopiowania tych właściwości lub metadane są ustawione dla każdy obiekt blob importowanych w ramach tej sesji kopiowania. Jeśli chcesz określić inny zestaw właściwości lub metadanych dla niektórych importowanych obiektów blob, należy utworzyć sesję oddzielna kopia z różnych właściwości lub pliki metadanych.  
+>  Po określeniu właściwości lub metadane pliku w ramach sesji kopiowania tych właściwości lub metadane są ustawione dla każdy obiekt blob importowanych w ramach tej sesji kopiowania. Jeśli chcesz toospecify inny zestaw właściwości lub metadane dla niektórych obiektów blob hello importowana należy toocreate oddzielnie skopiować sesji z różnych właściwości lub pliki metadanych.  
   
 ## <a name="specify-blob-properties-in-a-text-file"></a>Określ właściwości obiektu Blob w pliku tekstowym  
-Aby określić właściwości obiektu blob, Utwórz plik tekstowy lokalnego i zawierać kod XML, który określa właściwości nazwy elementów i wartości właściwości jako wartości. Oto przykład, który określa niektórych wartości właściwości:  
+właściwości obiektu blob toospecify, Utwórz lokalny plik tekstowy i zawierać kod XML, który określa właściwości nazwy elementów i wartości właściwości jako wartości. Oto przykład, który określa niektórych wartości właściwości:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -44,10 +44,10 @@ Aby określić właściwości obiektu blob, Utwórz plik tekstowy lokalnego i za
 </Properties>  
 ```
   
-Zapisz plik do lokalnej lokalizacji, takiej jak `C:\WAImportExport\ImportProperties.txt`.  
+Zapisz lokalizacji lokalnej tooa pliku hello jak `C:\WAImportExport\ImportProperties.txt`.  
   
 ## <a name="specify-blob-metadata-in-a-text-file"></a>Określ metadane obiektu Blob w pliku tekstowym  
-Podobnie Aby określić metadane obiektu blob, należy utworzyć plik tekstowy lokalnego, który określa nazwy metadanych jako elementy, a wartości metadanych jako wartości. Oto przykład, który określa niektórych wartości metadanych:  
+Podobnie toospecify metadane obiektu blob, Utwórz plik tekstowy lokalnego, który określa nazwy metadanych jako elementy, a wartości metadanych jako wartości. Oto przykład, który określa niektórych wartości metadanych:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -58,10 +58,10 @@ Podobnie Aby określić metadane obiektu blob, należy utworzyć plik tekstowy l
 </Metadata>  
 ```
   
-Zapisz plik do lokalnej lokalizacji, takiej jak `C:\WAImportExport\ImportMetadata.txt`.  
+Zapisz lokalizacji lokalnej tooa pliku hello jak `C:\WAImportExport\ImportMetadata.txt`.  
   
-## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Tworzenie sesji kopiowania, włącznie z właściwości lub pliki metadanych  
-W celu uruchomienia narzędzia importu/eksportu Azure, aby przygotować zadanie importu, określ plik właściwości przy użyciu wiersza polecenia `PropertyFile` parametru. Określ plik metadanych przy użyciu wiersza polecenia `/MetadataFile` parametru. Oto przykład, który określa oba pliki:  
+## <a name="create-a-copy-session-including-hello-properties-or-metadata-files"></a>Tworzenie kopii sesji w tym hello, właściwości lub pliki metadanych  
+Po uruchomieniu zadania importu hello hello Azure narzędzie importu/eksportu tooprepare, określ plik właściwości hello na powitania wiersza polecenia przy użyciu hello `PropertyFile` parametru. Określ plik metadanych hello na powitania wiersza polecenia przy użyciu hello `/MetadataFile` parametru. Oto przykład, który określa oba pliki:  
   
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  

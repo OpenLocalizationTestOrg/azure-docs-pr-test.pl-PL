@@ -1,6 +1,6 @@
 ---
 title: "Biblioteki połączeń dla bazy danych Azure dla PostgreSQL | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano kilka bibliotek i sterowniki, deweloperzy mogą używać podczas kodowania aplikacji do nawiązywania połączeń i PostgreSQL kwerendy bazy danych Azure."
+description: "W tym artykule opisano kilka bibliotek i sterowniki, które deweloperzy mogą używać podczas kodowania PostgreSQL tooconnect aplikacji i zapytań bazy danych Azure."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/15/2017
-ms.openlocfilehash: 1f99ef7fefb1ff9d35f564a1f0ad77c8dd64659e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f7234499d8abe37f8de9008e3158765b1fb0bde
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Biblioteki połączeń dla bazy danych Azure dla PostgreSQL
-Ten temat zawiera listę bibliotek i sterowników do użycia przez deweloperów do programowania aplikacji do nawiązywania połączeń i PostgreSQL kwerendy bazy danych Azure.
+Ten temat zawiera listę bibliotek i sterowników do użycia przez deweloperów programowania dla PostgreSQL tooconnect aplikacji i zapytań bazy danych Azure.
 
 ## <a name="client-interfaces"></a>Interfejsy klienta
-Większość bibliotek klienckich języka Aby połączyć się z serwerem PostgreSQL projektów zewnętrznych i są dystrybuowane niezależnie. Są obsługiwane na platformach Windows, Linux lub Mac.. Niektóre sterowniki klientów popularnych przedstawiono:
+Większość języka klienta biblioteki tooconnect tooPostgreSQL serwera są projekty zewnętrzne i są dystrybuowane niezależnie. Są obsługiwane na platformach Windows, Linux lub Mac.. Niektóre sterowniki klientów popularnych hello przedstawiono:
 
 | **Język** | **Interfejs klienta** | **Dodatkowe informacje** | **Pobieranie** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
@@ -35,6 +35,6 @@ Większość bibliotek klienckich języka Aby połączyć się z serwerem Postgr
 | C++ | [libpqxx](http://pqxx.org/) | Nowy styl interfejsu C++ | [Pobieranie](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Następne kroki
-Przeczytaj te przewodniki Szybki Start dotyczące połączenia i kwerendy bazy danych platformy Azure przy użyciu języka wybór PostgreSQL:
+Przeczytaj te przewodniki Szybki Start dotyczące tooconnect i zapytań Azure bazy danych PostgreSQL przy użyciu języka wyboru:
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)

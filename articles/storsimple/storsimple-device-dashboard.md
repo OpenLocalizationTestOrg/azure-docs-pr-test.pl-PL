@@ -1,6 +1,6 @@
 ---
-title: "Pulpit nawigacyjny urządzeń Menedżer StorSimple | Dokumentacja firmy Microsoft"
-description: "Opisuje pulpit nawigacyjny urządzenia usługi Menedżer StorSimple i jak z niego korzystać, aby wyświetlić metryki magazynu i inicjatorów połączonych i znaleźć numer seryjny i IQN."
+title: "aaaUse hello Menedżer StorSimple urządzenia w pulpicie nawigacyjnym | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano nawigacyjnym urządzenia usługi Menedżer StorSimple hello i w jaki sposób toouse go tooview magazynu metryki i inicjatorów połączonych i Znajdź hello numer seryjny i IQN."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,72 +15,72 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e213fc0a081c21b9d6b408a3dd845cc93a31e250
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Pulpit nawigacyjny urządzenia w usłudze Menedżer StorSimple  
+# <a name="use-hello-device-dashboard-in-storsimple-manager-service"></a>Pulpit nawigacyjny urządzenia hello w usłudze Menedżer StorSimple  
 
 ## <a name="overview"></a>Omówienie
-Pulpit nawigacyjny urządzenia StorSimple Manager zapewnia przegląd informacji dla określonego urządzenia StorSimple, w przeciwieństwie do pulpitu nawigacyjnego usługi, który zawiera informacje o wszystkich urządzeniach zawarte w rozwiązaniu Microsoft Azure StorSimple.
+pulpit nawigacyjny urządzenia StorSimple Manager Hello zawiera przegląd informacji dla określonego urządzenia StorSimple, natomiast toohello usługi Pulpit nawigacyjny, który zawiera informacje o wszystkich urządzeniach hello zawarte w rozwiązaniu Microsoft Azure StorSimple.
 
 ![Strona pulpitu nawigacyjnego urządzenia](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
-Pulpit nawigacyjny zawiera następujące informacje:
+pulpit nawigacyjny Hello zawiera hello następujących informacji:
 
-* **Obszar wykresu** — widać metryki istotne magazynu w obszarze wykresu w górnej części pulpitu nawigacyjnego. Na tym wykresie można wyświetlić metryki całkowita ilość miejsca głównej (ilość danych zapisanych przez hosty z urządzeniem) i magazynu w chmurze całkowita liczba zużywane przez urządzenie w danym okresie czasu.
+* **Obszar wykresu** — widać hello odpowiedniego magazynu metryki w obszarze wykresu hello u góry hello hello pulpitu nawigacyjnego. Na tym wykresie można wyświetlać metryki dla hello głównej pamięci masowej (hello ilość danych zapisanych przez urządzenie tooyour hostów) i hello całkowita liczba zużywane przez urządzenie w danym okresie czasu magazynu w chmurze.
   
-     W tym kontekście *magazynu głównego* odwołuje się do całkowitej ilości danych zapisanych przez hosta i mogą być podzielone przez typ woluminu: *podstawowego do warstwy magazynu* obejmuje zarówno lokalnie przechowywanych danych i warstwy do Chmura; *głównej przypięty lokalnie magazynu* zawiera tylko dane przechowywane lokalnie. *Magazyn w chmurze*, z drugiej strony, jest wartość całkowita ilość danych przechowywanych w chmurze. W tym warstwowych danych i tworzenie kopii zapasowych. Zauważ, że dane przechowywane w chmurze jest deduplikowany i kompresji magazynu podstawowego wskazuje ilość miejsca w magazynie używana, zanim dane jest deduplikowany i skompresowane. (Porównanie tych dwóch liczb, aby poznać częstotliwość kompresji). Dla obu lokacji podstawowej i magazynu w chmurze, wartości podanych w oparciu częstotliwość śledzenia, należy skonfigurować. Na przykład jeśli częstotliwość tydzień, następnie wykresu spowodują wyświetlenie danych dla poszczególnych dni w poprzednim tygodniu.
+     W tym kontekście *magazynu głównego* odwołuje się toohello łączną ilość danych zapisanych przez hosta hello i mogą być podzielone przez typ woluminu: *podstawowego do warstwy magazynu* obejmuje zarówno lokalnie przechowywanych danych i danych Chmura warstwowych toohello; *głównej przypięty lokalnie magazynu* zawiera tylko dane przechowywane lokalnie. *Magazyn w chmurze*, na hello drugiej, to miara hello łączną ilość danych przechowywanych w chmurze hello. W tym warstwowych danych i tworzenie kopii zapasowych. Należy pamiętać, że dane przechowywane w chmurze hello jest deduplikowany i kompresji magazynu podstawowego wskazuje ilość hello Magazyn używany przed danych hello jest deduplikowany i skompresowane. (Możesz porównać tych dwóch liczb tooget pomysł szybkość kompresji hello). Dla obu lokacji podstawowej i magazynu, hello kwotach będą oparte na powitania śledzenia częstotliwości należy skonfigurować w chmurze. Na przykład jeśli częstotliwość tydzień, następnie wykresu hello spowodują wyświetlenie danych dla poszczególnych dni w hello poprzedniego tygodnia.
   
-     Wykres można skonfigurować w następujący sposób:
+     Wykres hello można skonfigurować w następujący sposób:
   
-  * Aby sprawdzić ilość magazynu w chmurze używane wraz z upływem czasu, wybierz **używany Magazyn w CHMURZE** opcji. Aby wyświetlić całkowita ilość miejsca, które zostały napisane przez hosta, wybierz **podstawowego do warstwy MAGAZYNU używane** i **głównej LOKALNIE PRZYPIĘTY Magazyn używany** opcje. Na ilustracji są zaznaczone obie opcje; w związku z tym na wykresie przedstawiono ilości pamięci masowej dla chmury i podstawowego magazynu. Należy pamiętać, że każdy magazyn podstawowy używany przed zainstalowaniem aktualizacji 2 jest reprezentowana przez **podstawowego do warstwy MAGAZYNU używane** wiersza.
-  * Użyj menu rozwijanego w prawym górnym rogu wykresu, aby określić okres czasu 1 tydzień, 1-miesięcznego, 3-miesięczna lub 1 rok. Zauważ, że wykres najwyższego poziomu zostanie odświeżony tylko jeden raz dziennie i w związku z tym będzie odzwierciedlać sumy poprzedniego dnia.
+  * toosee hello ilość magazynu w chmurze używane w czasie, wybierz hello **używany Magazyn w CHMURZE** opcji. toosee hello całkowita ilość miejsca, która została zapisana przez hosta hello, wybierz hello **podstawowego do warstwy MAGAZYNU używane** i **głównej LOKALNIE PRZYPIĘTY Magazyn używany** opcje. Na ilustracji hello są zaznaczone obie opcje; w związku z tym hello wykres przedstawia kwoty magazynu dla chmurą i z magazynu głównego. Należy pamiętać, że dowolny magazyn podstawowy używane wcześniejsze tooinstalling Update 2 jest reprezentowana przez hello **podstawowego do warstwy MAGAZYNU używane** wiersza.
+  * Użyj menu rozwijanego hello hello prawym górnym rogu toospecify wykresu hello przez pewien czas 1 tygodnia, miesiąca 1, 3-miesięczna lub 1 rok. Należy pamiętać, że hello najwyższego poziomu wykresu zostanie odświeżony tylko jeden raz dziennie, a w związku z tym będzie odzwierciedlać hello sumy poprzedniego dnia.
     
-    Aby uzyskać więcej informacji, zobacz [monitorować urządzenia StorSimple przy użyciu usługi Menedżer StorSimple](storsimple-monitor-device.md).
-* **Przegląd wykorzystania** — w **przegląd wykorzystania** obszaru, można obejrzeć ilość miejsca w magazynie podstawowy używany, ilość zainicjowanego magazynu i pojemności pamięci masowej dla danego urządzenia. Porównując te liczby użycia maksymalną ilość pamięci, która jest dostępna, można wyświetlić w skrócie Uzyskaj dodatkowe miejsce do magazynowania. Warto zauważyć, że w tym omówieniu jest aktualizowany co 15 minut, z powodu różnicy w częstotliwość aktualizacji mogą być wyświetlane różne numery niż te wyświetlane w obszarze wykresu powyżej, która jest aktualizowana raz dziennie. Aby uzyskać więcej informacji, zobacz [monitorować urządzenia StorSimple przy użyciu usługi Menedżer StorSimple](storsimple-monitor-device.md).
-* **Alerty** — **alerty** obszaru zawiera omówienie alerty dla danego urządzenia. Alerty są pogrupowane według ważności, a liczby alertów na każdym poziomie ważność podana jest liczba. Ważność alertu kliknięcie spowoduje otwarcie widoku zakresami kartę alerty, aby pokazać tylko alerty ten poziom ważności, dla tego urządzenia.
-* **Zadania** — **zadania** obszaru przedstawia wynik ostatniej aktywności zadania. To należy zapewnić system działa zgodnie z oczekiwaniami, czy można pozwalają wiedzieć, że trzeba podjąć działania naprawcze. Aby uzyskać więcej informacji o ostatnio wykonanych zadań, kliknij przycisk **zadań zakończyło się pomyślnie w ciągu ostatnich 24 godzin**.
-* **Szybkiego dostępu** obszaru po prawej stronie pulpitu nawigacyjnego zawiera przydatne informacje, takie jak model urządzenia, numer seryjny, stan, opisu i liczby woluminów.
+    Aby uzyskać więcej informacji, zobacz [Użyj hello toomonitor usługi Menedżer StorSimple, urządzenia StorSimple](storsimple-monitor-device.md).
+* **Przegląd wykorzystania** — Witaj **przegląd wykorzystania** obszarze widać hello ilość miejsca w magazynie podstawowy używany ilość hello zainicjowanego magazynu i hello maksymalna pojemność magazynu dla danego urządzenia. Porównując te użycia numery toohello maksymalną ilość pamięci, która jest dostępna, można wyświetlić w skrócie należy tooobtain dodatkowego magazynu. Warto zauważyć, że w tym omówieniu jest aktualizowany co 15 minut, z powodu różnicy hello częstotliwość aktualizacji, mogą być wyświetlane różne numery niż wyświetlanych w hello obszaru wykresu powyżej, która jest aktualizowana raz dziennie. Aby uzyskać więcej informacji, zobacz [Użyj hello toomonitor usługi Menedżer StorSimple, urządzenia StorSimple](storsimple-monitor-device.md).
+* **Alerty** — Witaj **alerty** obszaru zawiera omówienie hello alerty dla danego urządzenia. Alerty są pogrupowane według ważności, a licznik podano hello liczby alertów na każdym poziomie ważność. Kliknięcie przycisku alertów hello ważność spowoduje otwarcie widoku zakresami hello alerty tooshow kartę tylko hello alerty ten poziom ważności, dla tego urządzenia.
+* **Zadania** — Witaj **zadania** pokazuje obszaru hello wyników ostatnią aktywność zadania. To należy zapewnić że hello system działa zgodnie z oczekiwaniami, lub umożliwić użytkownika, należy tootake działań naprawczych. Kliknij przycisk więcej informacji o zadaniach ostatnio wykonanych toosee **zadań pomyślnie hello ostatnich 24 godzinach**.
+* Witaj **szybkiego dostępu** obszar na powitania rogu hello pulpit nawigacyjny zawiera przydatne informacje, takie jak model urządzenia, numer seryjny, stan, opisu i liczby woluminów.
 
-Można również skonfigurować trybu failover i wyświetlić inicjatorów połączonych z poziomu pulpitu nawigacyjnego urządzenia.
+Można również skonfigurować trybu failover i wyświetlić inicjatorów połączonych z poziomu pulpitu nawigacyjnego hello urządzenia.
 
-Typowe zadania, które mogą być wykonywane na tej stronie są:
+Witaj typowych zadań, które mogą być wykonywane na tej stronie są:
 
 * Wyświetl połączone inicjatorów
-* Znaleźć numer seryjny urządzenia
-* Znajdź urządzenia docelowego IQN
+* Znaleźć numer seryjny urządzenia hello
+* Znajdź hello urządzenia docelowego IQN
 
 ## <a name="view-connected-initiators"></a>Wyświetl połączone inicjatorów
-Możesz wyświetlić inicjatorów iSCSI, które są podłączone do urządzenia, klikając **wyświetlanie połączonych inicjatorów** łącza w **szybkiego dostępu** części pulpitu nawigacyjnego urządzenia. Ta strona zawiera listę tabelarycznym inicjatory, względem których pomyślnie nawiązano połączenie z urządzeniem. Dla każdego inicjatora można wyświetlić:
+Możesz wyświetlić hello inicjatorów iSCSI, które są tooyour podłączonego urządzenia, klikając hello **wyświetlanie połączonych inicjatorów** łącza w hello **szybkiego dostępu** części pulpitu nawigacyjnego urządzenia. Ta strona zawiera listę tabelarycznym inicjatorów hello, które pomyślnie nawiązano połączenie tooyour urządzenia. Dla każdego inicjatora można wyświetlić:
 
-* ISCSI kwalifikowana nazwa (IQN) podłączonej inicjatora.
-* Nazwa rekordu kontroli dostępu (ACR), który umożliwia tego inicjatora połączonych.
-* Adres IP połączenia inicjatora.
-* Interfejsy sieciowe podłączone do inicjatora urządzenia magazynującego. Te mogą należeć do zakresu od dane 0 do dane 5.
-* Wszystkie woluminy, które połączonych inicjatora może dostępu zgodnie z bieżącą konfigurację ACR.
+* Witaj iSCSI kwalifikowana nazwa (IQN) z hello połączone inicjatora.
+* Nazwa Hello hello rekord kontroli dostępu (ACR) umożliwiający tego inicjatora połączonych.
+* adres IP Hello hello połączone inicjatora.
+* Witaj interfejsy sieciowe tego inicjatora hello jest tooon podłączonego urządzenia pamięci masowej. Te mogą należeć do zakresu od danych 0 tooDATA 5.
+* Wszystkie woluminy hello, które hello połączonych inicjatora jest dozwolone tooaccess zgodnie z bieżącą konfigurację ACR toohello.
 
-Jeśli Zobacz nieoczekiwany inicjatorów na tej liście lub nie ma oczekiwanymi, Przejrzyj konfigurację ACR. Maksymalnie 512 inicjatorów mogą łączyć się urządzenia.
+Jeśli Zobacz nieoczekiwany inicjatorów na tej liście lub nie ma się, że hello oczekiwano te, należy przejrzeć konfigurację ACR. Urządzenie tooyour można podłączyć maksymalnie 512 inicjatorów.
 
-## <a name="find-the-device-serial-number"></a>Znaleźć numer seryjny urządzenia
-Numer seryjny urządzenia może być konieczne po skonfigurowaniu wielościeżkowego We/Wy (MPIO) firmy Microsoft na urządzeniu. Wykonaj poniższe kroki, aby znaleźć numer seryjny urządzenia.
+## <a name="find-hello-device-serial-number"></a>Znaleźć numer seryjny urządzenia hello
+Po skonfigurowaniu wielościeżkowego We/Wy (MPIO) firmy Microsoft na urządzeniu hello numer seryjny urządzenia hello może być konieczne. Wykonaj hello następującego numeru seryjnego urządzenia hello toofind czynności.
 
-#### <a name="to-find-the-device-serial-number"></a>Aby znaleźć numer seryjny urządzenia
-1. Przejdź do **urządzeń** > **pulpitu nawigacyjnego**.
-2. W okienku po prawej stronie pulpitu nawigacyjnego, Znajdź **szybkiego dostępu** obszaru.
-3. Przewiń w dół, a następnie zlokalizuj numer seryjny.
+#### <a name="toofind-hello-device-serial-number"></a>numer seryjny urządzenia hello toofind
+1. Przejdź za**urządzeń** > **pulpitu nawigacyjnego**.
+2. W prawym okienku hello hello pulpitu nawigacyjnego, Znajdź hello **szybkiego dostępu** obszaru.
+3. Przewiń w dół, a następnie zlokalizuj hello numeru seryjnego.
 
-## <a name="find-the-device-target-iqn"></a>Znajdź urządzenia docelowego IQN
-Element docelowy urządzenia IQN może być konieczne podczas konfigurowania protokołu uwierzytelniania typu Challenge Handshake (CHAP) na urządzeniu StorSimple. Wykonaj poniższe kroki, aby znaleźć elementu docelowego urządzenia IQN.
+## <a name="find-hello-device-target-iqn"></a>Znajdź hello urządzenia docelowego IQN
+Witaj urządzenia docelowego IQN może być konieczne po skonfigurowaniu hello protokół uwierzytelniania typu Challenge Handshake (CHAP) na urządzeniu StorSimple. Wykonaj następujące kroki toofind hello urządzenia docelowego IQN hello.
 
-### <a name="to-find-the-device-target-iqn"></a>Aby znaleźć elementu docelowego urządzenia IQN
-1. Przejdź do **urządzeń** > **pulpitu nawigacyjnego**.
-2. W okienku po prawej stronie pulpitu nawigacyjnego, Znajdź **szybkiego dostępu** obszaru.
-3. Przewiń w dół, a następnie zlokalizuj element docelowy IQN.
+### <a name="toofind-hello-device-target-iqn"></a>toofind hello urządzenia docelowego IQN
+1. Przejdź za**urządzeń** > **pulpitu nawigacyjnego**.
+2. W prawym okienku hello hello pulpitu nawigacyjnego, Znajdź hello **szybkiego dostępu** obszaru.
+3. Przewiń w dół, a następnie zlokalizuj docelowy hello IQN.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [pulpit nawigacyjny usługi Menedżer StorSimple](storsimple-service-dashboard.md).
-* Dowiedz się więcej o [przy użyciu usługi Menedżer StorSimple do administrowania urządzeniem StorSimple](storsimple-manager-service-administration.md).
+* Dowiedz się więcej o hello [pulpit nawigacyjny usługi Menedżer StorSimple](storsimple-service-dashboard.md).
+* Dowiedz się więcej o [tooadminister usługi Menedżer StorSimple przy użyciu hello urządzenia StorSimple](storsimple-manager-service-administration.md).
 

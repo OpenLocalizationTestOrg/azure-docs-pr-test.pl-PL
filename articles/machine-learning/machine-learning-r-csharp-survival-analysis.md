@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Analiza przetrwania przy użyciu usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
+title: "AAA(deprecated) przetrwania analizy przy użyciu usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
 description: "(przestarzałe) Prawdopodobieństwo wystąpienia zdarzenia analizy przetrwania"
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: zhangya
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7d4066d5f15a39c428d8035257c4841f9b3cc775
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: af946d8df5ba650a9d74fbabbe3b15d3a07dd508
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-survival-analysis"></a>(przestarzałe) Surwiwalowy analizy
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-W wielu scenariuszach główny wynik oceny to czas na zdarzenie zainteresowań. Innymi słowy zapytania "wystąpieniu tego zdarzenia zostanie?" monitu. Jako przykłady, należy wziąć pod uwagę sytuacji, gdy dane w tym artykule opisano czas (dni, lat, przebieg itp.) do zdarzenia zainteresowań (relapse choroby, stopień Praca odebrane, konsola hamulca awarii) występuje. Każde wystąpienie w danych reprezentuje określonego obiektu (pacjenta, gdy uczniowie, car, itp.).
+W wielu scenariuszach hello główny wynik oceny jest zdarzenie tooan czasu hello zainteresowań. Innymi słowy hello pytanie "wystąpieniu tego zdarzenia zostanie?" monitu. Jako przykłady, należy wziąć pod uwagę sytuacji, w którym hello danych opisuje hello Upłynęło czasu (dni, lat, przebieg itp.) do momentu hello zdarzenie zainteresowań (relapse choroby, stopień Praca odebrane, konsola hamulca awarii). Każde wystąpienie w danych hello reprezentuje określonego obiektu (pacjenta, gdy uczniowie, car, itp.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) odpowiedzi na pytanie "jakie jest prawdopodobieństwo, że zdarzenie odsetek zostanie przeprowadzona przez czas n dla obiekt x?" Zapewniając modelu analizy przetrwania tej usługi sieci web umożliwia użytkownikom dostarczania danych do nauczenia modelu i przetestować go. Motywu głównego doświadczenia jest model długość czasu, jaki upłynął, dopóki nie wystąpi zdarzenie zainteresowań. 
+To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) odpowiedzi na pytanie hello "co to jest hello prawdopodobieństwo, że hello zdarzeń odsetek nastąpi przez czas n dla obiekt x?" Zapewniając modelu analizy przetrwania tej usługi sieci web umożliwia użytkownikom toosupply danych tootrain hello modelu i przetestować go. Hello motywu głównego doświadczenia hello jest toomodel hello hello Upłynęło czasu do czasu wystąpienia zdarzeń hello zainteresowań. 
 
-> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługi sieci web może następnie opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w całym świecie bez ustawień infrastruktury przez autora usługi sieci web.  
+> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. usługi sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w Witaj świecie bez ustawień infrastruktury przez autora hello hello usługi sieci web.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
-W poniższej tabeli przedstawiono schemat danych wejściowych usługi sieci web. Sześć części informacje są wymagane jako dane wejściowe: uczenie danych, testowanie, wymiaru czasu zainteresowań, indeks "czas", indeks wymiaru "event" i typy zmiennych (ciągłe lub współczynnik). Dane szkoleniowe odpowiada na ciąg, gdzie wiersze są oddzielone przecinkami, a kolumny oddzielonych średnikami. Liczba elementów danych jest elastyczny. Wszystkie elementy w ciąg wejściowy musi być liczbą. W danych szkoleniowych wymiaru "czas" oznacza, że liczba jednostek czasu (dni, lat, przebieg itp.), jaki upłynął od punkt początkowy badania (pacjenta odbieranie narkotyków traktowania programów, badanie Praca początkowy dla użytkowników domowych, samochodu rozpoczyna się zmiennych, itp.) do zdarzenia zainteresowań (pacjenta wracając do użycia narkotyków, uczniów uzyskania stopnia praca, car o awarii hamulca konsoli itp.) występuje. Wymiar "event" wskazuje, czy zdarzenie odsetek na końcu badania. Wartość "zdarzenia = 1" oznacza, że odsetek zdarzenie o godzinie określonej w wymiarze "czas"; "zdarzenie = 0" oznacza, że nie przeprowadzono zdarzenia odsetek czasu wskazanych w wymiarze "czas".
+Schemat danych wejściowych Hello hello usługi sieci web jest wyświetlana w hello w poniższej tabeli. Sześć części informacje są wymagane jako dane wejściowe hello: dane szkoleniowe, danych testowych, czas odsetek, indeks wymiaru "time" hello, indeks hello wymiaru "event" i typy zmiennych hello (ciągłe lub współczynnik). dane szkoleniowe Hello jest reprezentowane na ciąg, gdzie wierszy hello są oddzielone przecinkami, a kolumny hello są oddzielone średnikami. Witaj liczbę funkcji danych hello jest elastyczny. Wszystkie elementy hello hello ciąg wejściowy musi być liczbą. W danych szkoleniowych hello wymiaru czasu"hello" oznacza, że hello liczbę jednostek czasu (dni, lat, przebieg itp.), jaki upłynął od hello punkt początkowy hello badanie (pacjenta odbieranie narkotyków traktowania programów, badanie Praca początkowy dla użytkowników domowych, samochodu uruchamianie toobe sterowane, itp.) do czasu uruchomienia hello zdarzeń zainteresowań (pacjenta hello zwracanie toodrug użycia, hello uczniów uzyskania hello Praca stopień, car hello o awarii konsoli hamulca, itp.). Wymiar "event" Hello wskazuje, czy zdarzeń hello zainteresowania na końcu hello badania hello. Wartość "zdarzenia = 1" oznacza, że hello zdarzeń odsetek występuje w momencie hello wskazywanym przez wymiar "czas" hello; "zdarzenie = 0" oznacza, że hello zdarzeń odsetek nie przeprowadzono czasu hello wskazywanym przez wymiar "czas" hello.
 
 * trainingdata — ciąg znaków. Wiersze są oddzielone przecinkami, a kolumny oddzielonych średnikami. Każdy wiersz zawiera wymiaru "czas", "event" wymiaru i zmienne predykcyjne.
 * testingdata — jeden wiersz danych zawierający zmienne predykcyjne dla danego obiektu.
-* time_of_interest - n odsetek czas, który upłynął.
-* index_time — indeks kolumny wymiaru "czas" (począwszy od 1).
-* index_event — indeks kolumny wymiaru "event" (począwszy od 1).
+* time_of_interest — czas hello n zainteresowań.
+* index_time — indeks kolumny hello wymiaru "czas" hello (począwszy od 1).
+* index_event — indeks kolumny hello wymiaru "event" hello (począwszy od 1).
 * variable_types — ciąg znaków średnikami jako separatorów w nim. 0 reprezentuje ciągłe, zmiennych i 1 oznacza współczynnik zmiennych.
 
-Dane wyjściowe to prawdopodobieństwo zdarzenia występujące w określonym czasie. 
+dane wyjściowe Hello jest prawdopodobieństwo hello zdarzenia występujące w określonym czasie. 
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
     public class Input
@@ -93,14 +93,14 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 
-Interpretacja tego testu ma następującą składnię. Zakładając, że celem danych jest modelować czas, który upłynął do powrotu do użycia narkotyków dla pacjentów, którzy otrzymali jeden z dwóch traktowania programów. Dane wyjściowe odczytów usługi sieci web: pacjentów trwa 35 lat, o poprzednim leku traktowania 2 godziny, biorąc program traktowania długo lokalną i z użyciem zarówno heroiny, jak i kokainy, wracając do użycia narkotyków prawdopodobieństwo 95.64% dzień 500.
+Interpretacja Hello tego testu ma następującą składnię. Przy założeniu celem hello hello danych jest toomodel hello Upłynęło czasu do czasu hello zwrócił użycia toodrug pacjentów hello, którzy otrzymali jednego z programów traktowania hello dwa. Witaj dane wyjściowe odczytów usługi sieci web hello: pacjentów trwa 35 lat, o poprzednim leku traktowania 2 godziny, biorąc program długo rezydentnej traktowania hello, i z użyciem zarówno heroiny, jak i kokainy, prawdopodobieństwo hello przekazujących użycia narkotyków toohello 95.64% dzień 500.
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
-Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona i dwa [wykonanie skryptu języka R] [ execute-r-script] moduły są pobierane na obszar roboczy. Schemat danych został utworzony przy użyciu prostego [wykonanie skryptu języka R][execute-r-script], który definiuje schemat danych wejściowych dla usługi sieci web. Ten moduł jest następnie łączony drugi [wykonanie skryptu języka R] [ execute-r-script] moduł, który główne pracy. Ten moduł jest wstępnego przetwarzania danych, konstruowania modelu i prognoz. W kroku wstępnego przetwarzania danych danych wejściowych reprezentowany przez ciąg jest przekształcać i konwertowana do ramki danych. W kroku tworzenia modelu pakietów zewnętrznych R "survival_2.37 7.zip" najpierw zainstalowano przeprowadzania analizy przeżycia. Następnie funkcja "coxph" jest wykonywana po zadań przetwarzania danych serii. Szczegóły funkcji "coxph" przetrwania analizy mogą być odczytywane z dokumentacji R. W kroku prognozowania testowania wystąpienia jest dostarczany do trenowanego modelu przy użyciu funkcji "surfit", i krzywej przetrwania dla tego wystąpienia testowania jest tworzony jako zmienną "krzywej". Na koniec są uzyskiwane prawdopodobieństwo czasu zainteresowań. 
+Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona i dwa [wykonanie skryptu języka R] [ execute-r-script] moduły są pobierane na powitania obszaru roboczego. Witaj schemat danych została utworzona przy użyciu prostego [wykonanie skryptu języka R][execute-r-script], który definiuje schemat danych wejściowych hello hello usługi sieci web. Ten moduł jest następnie drugi połączone toohello [wykonanie skryptu języka R] [ execute-r-script] moduł, który główne pracy. Ten moduł jest wstępnego przetwarzania danych, konstruowania modelu i prognoz. Hello danych wejściowych reprezentowany przez ciąg hello krok wstępnego przetwarzania danych, jest przekształcać i konwertowana do ramki danych. W kroku tworzenia modelu hello pakietów zewnętrznych R "survival_2.37 7.zip" najpierw jest zainstalowany na przeprowadzanie analizy przeżycia. Następnie funkcja "coxph" hello jest wykonywana po zadań przetwarzania danych serii. Szczegóły Hello funkcji "coxph" hello przetrwania analizy mogą być odczytywane z dokumentacji hello R. W kroku prognozowania hello testowania wystąpienia jest dostarczany do hello uczonego modelu z funkcją "surfit" hello, i hello krzywej przetrwania dla tego wystąpienia testowania jest tworzony jako zmienną "krzywej". Na koniec są uzyskiwane prawdopodobieństwo hello czasu hello zainteresowań. 
 
 ### <a name="experiment-flow"></a>Przepływ eksperymentu:
 ![Przepływ eksperymentu][1]
@@ -118,7 +118,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 
-    maml.mapOutputPort("sampleInput"); #send data to output port
+    maml.mapOutputPort("sampleInput"); #send data toooutput port
 
 #### <a name="module-2"></a>Moduł 2:
     #Read data from input port
@@ -148,7 +148,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     install.packages("src/packages_survival/survival_2.37-7.zip",lib=".",repos=NULL,verbose=TRUE)
     library(survival)
 
-    # Prepare to build model
+    # Prepare toobuild model
     attach(mydata)
 
     for (i in 1:n_col){ mydata[,i]=as.numeric(mydata[,i])} 
@@ -160,7 +160,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     variable_types = unlist(strsplit(as.character(variable_types),";"))
 
     len = length(v_predictors)
-    c="" # Construct the execution string
+    c="" # Construct hello execution string
     for (i in 1:len){
     if(i==len){
     if(variable_types[i]!=0){ c=paste(c, "factor(",v_predictors[i],")",sep="")}
@@ -174,7 +174,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     f=paste(f,c)
     f=paste(f,", data=mydata )")
 
-    # Fit a Cox proportional hazards model and get the predicted survival curve for a testing instance 
+    # Fit a Cox proportional hazards model and get hello predicted survival curve for a testing instance 
     fit=eval(parse(text=f))
 
     testingdata = as.data.frame(matrix(testingdata, ncol=len,byrow = TRUE),stringsAsFactors=FALSE)
@@ -183,7 +183,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 
     curve=survfit(fit,testingdata)
 
-    # Based on user input, find the event occurrence probability
+    # Based on user input, find hello event occurrence probability
     position_closest=which.min(abs(prob_event$time - time_of_interest))
 
     if(prob_event[position_closest,"time"]==time_of_interest){# exact match
@@ -196,7 +196,7 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     }else{output=(prob_event[position_closest,"prob"]+prob_event[position_closest+1,"prob"])/2}
     }
 
-    #Pull out results to send to web service
+    #Pull out results toosend tooweb service
     output=paste(round(100*output, 2), "%") 
     maml.mapOutputPort("output"); #output port
 
@@ -204,10 +204,10 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
 
 
 ## <a name="limitations"></a>Ograniczenia
-Ta usługa sieci web może zająć tylko wartości liczbowe jako zmienne funkcji (kolumny). Kolumna "event" może być tylko wartość 0 lub 1. Kolumna "time" musi być dodatnią liczbą całkowitą.
+Ta usługa sieci web może zająć tylko wartości liczbowe jako zmienne funkcji (kolumny). Kolumna "event" Hello może trwać tylko wartości 0 lub 1. Kolumna "time" Hello musi toobe dodatnią liczbą całkowitą.
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
 

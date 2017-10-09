@@ -1,5 +1,5 @@
 ---
-title: "Samouczek usługi kontenera platformy Azure — wdrażanie aplikacji | Dokumentacja firmy Microsoft"
+title: "Samouczek usługi kontenera aaaAzure — wdrażanie aplikacji | Dokumentacja firmy Microsoft"
 description: "Samouczek usługi kontenera platformy Azure — wdrażanie aplikacji"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ea67f0beb6a5926393b26e7590302ad0f46a63f9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e2fa06d359caf83e684df3966624a6e9a8e7efa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-applications-in-kubernetes"></a>Uruchamianie aplikacji w Kubernetes
 
@@ -30,15 +30,15 @@ W tym samouczku część cztery siedmiu, przykładowa aplikacja jest wdrażana w
 > [!div class="checklist"]
 > * Pobierz pliki manifestu Kubernetes
 > * Uruchom aplikację w Kubernetes
-> * Testowanie aplikacji
+> * Testowanie aplikacji hello
 
-W kolejnych samouczkach tej aplikacji jest skalowana, aktualizacji, oraz Operations Management Suite jest skonfigurowana do monitorowania Kubernetes klastra.
+W kolejnych samouczkach tej aplikacji jest skalowanie, aktualizacji i Operations Management Suite skonfigurowany toomonitor hello Kubernetes klastra.
 
-Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje o Zobacz Kubernetes [dokumentacji Kubernetes](https://kubernetes.io/docs/home/).
+Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje na temat Kubernetes Zobacz hello [dokumentacji Kubernetes](https://kubernetes.io/docs/home/).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W poprzednim samouczki aplikacji zostało umieszczone w obrazie kontenera, ten obraz został załadowany w rejestrze kontenera Azure i klaster Kubernetes został utworzony. Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./container-service-tutorial-kubernetes-prepare-app.md). 
+W poprzednich samouczki aplikacji zostało umieszczone w obrazie kontenera, ten obraz został przekazany tooAzure rejestru kontenera i klaster Kubernetes został utworzony. Jeśli nie zostało wykonane następujące kroki, a chcesz toofollow wzdłuż, zwróć zbyt[samouczek 1 — Tworzenie kontenera obrazów](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 Co najmniej tego samouczka wymaga Kubernetes klastra.
 
@@ -46,13 +46,13 @@ Co najmniej tego samouczka wymaga Kubernetes klastra.
 
 W tym samouczku [obiektów Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) są wdrażane za pomocą Kubernetes manifestu. Kubernetes manifest jest yaml programu lub JSON sformatowanym plikiem instrukcjami Kubernetes obiektu wdrażania i konfiguracji.
 
-Plik manifestu aplikacji do celów tego samouczka jest dostępna w repozytorium aplikacji głos Azure, który został sklonowany w poprzednim samouczka. Jeśli jeszcze nie sklonuj repozytorium przy użyciu następującego polecenia: 
+Plik manifestu aplikacji Hello w tym samouczku jest dostępna w hello Azure głos aplikacji repozytorium, który został sklonowany w poprzednim samouczka. Jeśli nie zostało to jeszcze zrobione, klonowanie repozytorium hello z hello następujące polecenie: 
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Plik manifestu znajduje się w następującym katalogu sklonowanego repozytorium.
+Plik manifestu Hello znajduje się w hello następującego katalogu hello sklonować repozytorium.
 
 ```bash
 /azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
@@ -60,15 +60,15 @@ Plik manifestu znajduje się w następującym katalogu sklonowanego repozytorium
 
 ## <a name="update-manifest-file"></a>Aktualizacja pliku manifestu
 
-Jeśli za pomocą rejestru kontenera Azure do przechowywania obrazów kontenera, manifest musi zostać zaktualizowany o nazwie loginServer ACR.
+Jeśli za pomocą rejestru kontenera Azure toostore hello kontener obrazów, toobe manifestu potrzeb hello zaktualizowane hello nazwa ACR loginServer.
 
-Pobierz nazwę serwera ACR logowania z [listy acr az](/cli/azure/acr#list) polecenia.
+Pobierz nazwę serwera hello ACR logowania z hello [listy acr az](/cli/azure/acr#list) polecenia.
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Manifest próbki został wstępnie utworzone przy użyciu nazwy repozytorium *microsoft*. Otwórz plik w dowolnym edytorze tekstu i Zastąp *microsoft* wartości z nazwą serwera logowania wystąpienia ACR.
+Witaj próbki manifest został wstępnie utworzone przy użyciu nazwy repozytorium *microsoft*. Otwórz plik hello w dowolnym edytorze tekstu i Zastąp hello *microsoft* wartości z nazwą serwera logowania hello wystąpienia ACR.
 
 ```yaml
 containers:
@@ -78,7 +78,7 @@ containers:
 
 ## <a name="deploy-application"></a>Wdrażanie aplikacji
 
-Użyj polecenia [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create), aby uruchomić aplikację. To polecenie analizuje pliku manifestu i tworzenia zdefiniowanych obiektów Kubernetes.
+Użyj hello [kubectl utworzyć](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) polecenia aplikacji hello toorun. Tego polecenia po analizie hello pliku manifestu i tworzenie obiektów Kubernetes hello zdefiniowane.
 
 ```azurecli-interactive
 kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
@@ -95,15 +95,15 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testowanie aplikacji
 
-A [usługi Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) jest tworzony, który udostępnia aplikacji w Internecie. Może to potrwać kilka minut. 
+A [usługi Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) jest tworzony, który udostępnia toohello aplikacji hello internet. Może to potrwać kilka minut. 
 
-Aby monitorować postęp, użyj polecenia [kubectl get-service](https://review.docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) z argumentem `--watch`.
+postęp toomonitor, użyj hello [kubectl pobrać usługi](https://review.docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) z hello `--watch` argumentu.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-Początkowo **IP zewnętrznego** dla *azure głos początku* usługi pojawia się jako *oczekujące*. Po zmianie adresu EXTERNAL-IP z *oczekującego* na *adres IP*, użyj polecenia `CTRL-C`, aby zatrzymać proces śledzenia narzędzia kubectl.
+Początkowo hello **IP zewnętrznego** dla hello *azure głos początku* usługi pojawia się jako *oczekujące*. Gdy adres IP zewnętrznego hello zmienił się z *oczekujące* tooan *adres IP*, użyj `CTRL-C` toostop hello kubectl czujki procesu.
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
@@ -111,20 +111,20 @@ azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m
 ```
 
-Aby wyświetlić aplikację, przejdź do zewnętrznego adresu IP.
+Aplikacja hello toosee, przeglądania toohello zewnętrzny adres IP.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku aplikacji Azure głos został wdrożony do klastra Kubernetes usługi kontenera platformy Azure. Zadania ukończone obejmują:  
+W tym samouczku hello Azure głos aplikacji został wdrożony tooan klastra Kubernetes usługi kontenera platformy Azure. Zadania ukończone obejmują:  
 
 > [!div class="checklist"]
 > * Pobierz pliki manifestu Kubernetes
-> * Uruchom aplikację w Kubernetes
-> * Przetestowane aplikacji
+> * Uruchamianie aplikacji hello w Kubernetes
+> * Aplikacja hello przetestowany
 
-Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat skalowania aplikacji Kubernetes jak podstawowej infrastruktury Kubernetes. 
+Przejdź dalej toolearn toohello temat skalowania aplikacji Kubernetes jak hello podstawowej infrastruktury Kubernetes samouczka. 
 
 > [!div class="nextstepaction"]
 > [Skala Kubernetes aplikacji i infrastruktury](./container-service-tutorial-kubernetes-scale.md)

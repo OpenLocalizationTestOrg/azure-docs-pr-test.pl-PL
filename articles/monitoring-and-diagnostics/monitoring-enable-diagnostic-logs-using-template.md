@@ -1,6 +1,6 @@
 ---
-title: "Automatycznie włączaj ustawień diagnostycznych przy użyciu szablonu usługi Resource Manager | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak szablon Menedżera zasobów do tworzenia ustawień diagnostycznych, które umożliwi strumienia dzienników diagnostycznych do usługi Event Hubs lub przechowywać je na koncie magazynu."
+title: "aaaAutomatically Włącz ustawienia diagnostyki za pomocą szablonu usługi Resource Manager | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Menedżera zasobów szablonu toocreate diagnostycznych ustawień, które umożliwią toostream Twojego diagnostykę rejestruje koncentratory tooEvent lub przechowywać je na koncie magazynu."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
-ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8f38731107029928029c6d940da7bd076fea5d49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatycznie włączaj ustawień diagnostycznych na tworzenie zasobów przy użyciu szablonu usługi Resource Manager
-W tym artykule zostanie przedstawiony sposób korzystania [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) do konfigurowania ustawień diagnostycznych zasobu podczas jego tworzenia. Umożliwia to automatyczne uruchamianie przesyłanych strumieniowo z dzienników diagnostycznych i metryk do usługi Event Hubs, archiwizacji je na koncie magazynu lub wysyłania ich do analizy dzienników po utworzeniu zasobu.
+W tym artykule zostanie przedstawiony sposób korzystania [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) tooconfigure ustawień diagnostycznych dla zasobu podczas jego tworzenia. Dzięki temu tooautomatically rozpoczęcia przesyłania strumieniowego dzienników diagnostycznych i metryki tooEvent koncentratory, archiwizacji je na koncie magazynu lub wysyłania ich tooLog Analytics podczas tworzenia zasobu.
 
-Metoda Włączanie dzienników diagnostycznych przy użyciu szablonu usługi Resource Manager zależy od typu zasobu.
+Metoda Hello Włączanie dzienników diagnostycznych przy użyciu szablonu usługi Resource Manager zależy od typu zasobu hello.
 
 * **Inne niż obliczeń** używany przez zasoby (na przykład automatyzacji grup zabezpieczeń sieci, Logic Apps) [ustawień diagnostycznych opisane w tym artykule](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **Obliczenia bazy danych** zasobów (WAD/LAD w oparciu o), użyj [WAD/LAD pliku konfiguracji opisanych w tym artykule](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Obliczenia bazy danych** (WAD/LAD-zasobów opartych na plikach) Użyj hello [WAD/LAD pliku konfiguracji opisanych w tym artykule](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-W tym artykule możemy opisano sposób konfigurowania diagnostyki za pomocą jednej z metod.
+W tym artykule opisano sposób diagnostyki tooconfigure za pomocą jednej z metod.
 
-Podstawowe kroki są następujące:
+podstawowe kroki Hello są następujące:
 
-1. Tworzenie szablonu w formacie JSON, który opisuje sposób utworzenia zasobu i Włącz diagnostykę.
-2. [Wdrażanie szablonu przy użyciu dowolnej metody wdrażania](../azure-resource-manager/resource-group-template-deploy.md).
+1. Tworzenie szablonu w formacie JSON, który opisuje sposób toocreate hello zasobów i Włącz diagnostykę.
+2. [Wdrażanie szablonu hello przy użyciu dowolnej metody wdrażania](../azure-resource-manager/resource-group-template-deploy.md).
 
-Poniżej możemy podać przykład pliku JSON szablonu, który chcesz wygenerować z systemem innym niż obliczeniowych i zasobów obliczeniowych.
+Poniżej możemy podać przykład hello szablon pliku JSON należy toogenerate z systemem innym niż obliczeniowych i zasobów obliczeniowych.
 
 ## <a name="non-compute-resource-template"></a>Zasób obliczeniowy bez szablonu
-Dla zasobów obliczeniowych nie należy wykonać dwie czynności:
+Dla zasobów obliczeniowych nie są potrzebne toodo dwie czynności:
 
-1. Dodawanie parametrów do obiektu blob parametry dla nazwy konta magazynu, identyfikator reguły magistrali usługi i/lub identyfikator obszaru roboczego analizy dzienników OMS (Włączanie archiwizacji dzienników diagnostycznych na konto magazynu, przesyłania strumieniowego dzienników do usługi Event Hubs i/lub wysyłania dzienników do analizy dzienników).
+1. Dodaj obiekt blob parametry toohello parametry dla nazwy konta magazynu hello, identyfikator reguły magistrali usługi i/lub identyfikator obszaru roboczego analizy dzienników OMS (Włączanie archiwizacji dzienników diagnostycznych na koncie magazynu, przesyłanie strumieniowe tooEvent dzienniki koncentratorów i/lub wysyłania dzienników tooLog Analytics).
    
     ```json
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId":{
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
     ```
-2. W tablicy zasobów zasobu, dla którego chcesz włączyć dzienniki diagnostyczne, Dodaj zasób typu `[resource namespace]/providers/diagnosticSettings`.
+2. W tablicy zasobów hello hello zasobu, dla której ma zostać tooenable dzienników diagnostycznych, Dodaj zasób typu `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
@@ -102,9 +102,9 @@ Dla zasobów obliczeniowych nie należy wykonać dwie czynności:
     ]
     ```
 
-Właściwości obiektu blob dla ustawienie diagnostyczne następuje [opisany w tym artykule](https://msdn.microsoft.com/library/azure/dn931931.aspx). Dodawanie `metrics` właściwości umożliwi to również wysłać metryki zasobów do tych samym dane wyjściowe, pod warunkiem, że [zasób obsługuje metryki Azure Monitor](monitoring-supported-metrics.md).
+Hello obiektu blob właściwości dla hello ustawienie diagnostyczne następuje [format hello opisane w tym artykule](https://msdn.microsoft.com/library/azure/dn931931.aspx). Dodawanie hello `metrics` właściwość spowoduje włączenie wysyłania tooalso zasobu metryki toothese sam danych wyjściowych, pod warunkiem, że [zasób hello obsługuje metryki Azure Monitor](monitoring-supported-metrics.md).
 
-W tym miejscu jest pełny przykład, która tworzy aplikację logiki i włącza opcję przesyłania strumieniowego centra zdarzeń i magazynu w ramach konta magazynu.
+W tym miejscu jest pełny przykład, która tworzy aplikację logiki i włącza opcję przesyłania strumieniowego tooEvent koncentratorów i magazynu w ramach konta magazynu.
 
 ```json
 
@@ -115,7 +115,7 @@ W tym miejscu jest pełny przykład, która tworzy aplikację logiki i włącza 
     "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Logic App that will be created."
+        "description": "Name of hello Logic App that will be created."
       }
     },
     "testUri": {
@@ -125,19 +125,19 @@ W tym miejscu jest pełny przykład, która tworzy aplikację logiki i włącza 
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId": {
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
   },
@@ -224,20 +224,20 @@ W tym miejscu jest pełny przykład, która tworzy aplikację logiki i włącza 
 ```
 
 ## <a name="compute-resource-template"></a>Obliczenia bazy danych zasobów szablonu
-Aby włączyć diagnostykę na zasobów obliczeniowych, na przykład klaster maszyny wirtualnej lub usługi Service Fabric należy:
+Diagnostyka tooenable w zasobie obliczeń, na przykład maszynę wirtualną lub klastra sieci szkieletowej usług, musisz:
 
-1. Dodaj rozszerzenie diagnostyki Azure w definicji zasobu maszyny Wirtualnej.
+1. Dodawanie definicji zasobu hello Azure Diagnostics rozszerzenia toohello maszyny Wirtualnej.
 2. Określ konta i/lub zdarzenia koncentratora magazynu jako parametr.
-3. Dodaj zawartość pliku WADCfg XML do właściwości XMLCfg, prawidłowo anulowanie wszystkich znaków XML.
+3. Dodaj hello zawartość pliku WADCfg XML do właściwości XMLCfg hello, prawidłowo anulowanie wszystkich znaków XML.
 
 > [!WARNING]
-> Ten ostatni krok mogą być nieco kłopotliwe prawo. [Znajduje się w artykule](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) przykład dzielącą schemat konfiguracji diagnostyki na zmiennych, które są anulowane i prawidłowo sformatowane.
+> Ten ostatni krok można trudnych tooget prawo. [Znajduje się w artykule](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) na przykład, że podziałów hello schemat konfiguracji diagnostyki do zmiennych, które są anulowane i poprawnie sformatowany.
 > 
 > 
 
-Cały proces, w tym przykłady, jest opisany [w tym dokumencie](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Witaj cały proces, w tym przykłady, jest opisany [w tym dokumencie](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Więcej informacji na temat dzienników diagnostycznych platformy Azure](monitoring-overview-of-diagnostic-logs.md)
-* [Strumienia Azure dzienników diagnostycznych do usługi Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Strumień dzienników diagnostycznych platformy Azure tooEvent koncentratory](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

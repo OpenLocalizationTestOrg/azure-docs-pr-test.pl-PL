@@ -53,7 +53,7 @@
 ## Zarządzanie
 ### [Biblioteki zarządzania usługi Service Bus](service-bus-management-libraries.md)
 ### [Używanie szablonów usługi Azure Resource Manager](service-bus-resource-manager-overview.md)
-### [Aprowizacja jednostek za pomocą programu PowerShell](service-bus-manage-with-ps.md)
+### [Przy użyciu programu PowerShell tooprovision jednostek](service-bus-manage-with-ps.md)
 
 # Dokumentacja
 ## .NET

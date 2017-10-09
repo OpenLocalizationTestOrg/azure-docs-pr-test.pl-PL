@@ -1,6 +1,6 @@
 ---
-title: Przywracanie serwera w bazie danych systemu Azure dla PostgreSQL | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano sposób przywracania serwera w bazie danych Azure dla PostgreSQL przy użyciu portalu Azure."
+title: Jak tooRestore serwera w bazie danych Azure PostgreSQL | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano sposób toorestore serwera w bazie danych Azure poświęcone PostgreSQL hello portalu Azure."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,47 +9,47 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bc7351f384607397806d837afd3e1d7a26575e0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Sposób wykonywania kopii zapasowej i przywracania serwera w bazie danych Azure dla PostgreSQL przy użyciu portalu Azure
+# <a name="how-toobackup-and-restore-a-server-in-azure-database-for-postgresql-using-hello-azure-portal"></a>Jak tooBackup i przywracania serwera w bazie danych Azure poświęcone PostgreSQL hello portalu Azure
 
 ## <a name="backup-happens-automatically"></a>Kopia zapasowa jest wykonywana automatycznie
-W przypadku używania bazy danych platformy Azure dla PostgreSQL, usługa bazy danych automatycznie tworzy kopię zapasową usługi co 5 minut. 
+Korzystając z bazy danych Azure PostgreSQL, hello bazy danych usługi automatycznie tworzy kopię zapasową usługi hello co 5 minut. 
 
-Kopie zapasowe są dostępne przez 7 dni, korzystając z warstwy podstawowej i 35 dni po użyciu warstwy standardowa. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla warstwy usług PostgreSQL](concepts-service-tiers.md)
+kopie zapasowe Hello są dostępne przez 7 dni, korzystając z warstwy podstawowej i 35 dni po użyciu warstwy standardowa. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla warstwy usług PostgreSQL](concepts-service-tiers.md)
 
-Tej funkcji automatycznego tworzenia kopii zapasowej można przywrócić serwer i wszystkie jej baz danych do nowego serwera do wcześniejszego punktu w stanu.
+Tej funkcji automatycznego tworzenia kopii zapasowej można przywrócić powitania serwera i wszystkich jego baz danych do nowego serwera tooan wcześniej punktu w czasie.
 
-## <a name="restore-in-the-azure-portal"></a>Przywracanie w portalu Azure
-Bazy danych platformy Azure dla PostgreSQL służy do przywrócenia serwera do punktu w czasie, a do z uprawnieniami do nowego serwera. Aby odzyskać dane, można użyć tego nowego serwera. 
+## <a name="restore-in-hello-azure-portal"></a>Przywracanie w hello portalu Azure
+Bazy danych platformy Azure dla PostgreSQL pozwala toorestore powitania serwera zapasowego tooa punktu w czasie, do nowej kopii tooa powitania serwera. Ten nowy toorecover serwera można użyć danych. 
 
-Na przykład jeśli przypadkowo tabeli w południe dzisiaj, można przywrócenie na czas bezpośrednio przed południe i pobieranie Brak tabeli i danych z tej kopii nowego serwera.
+Na przykład jeśli tabela została przypadkowo porzucony w południe dzisiaj, można przywrócenie czasu toohello tuż przed południe i pobrać hello Brak tabeli i danych z tej nowej kopii powitania serwera.
 
-Poniższe kroki przywrócenie serwera próbki do punktu w czasie:
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/)
-2. Zlokalizuj PostgreSQL serwera bazy danych Azure. W portalu Azure kliknij **wszystkie zasoby** z menu po lewej stronie i wpisz nazwę, taką jak **mypgserver 20170401**, aby wyszukać istniejącego serwera. Kliknij nazwę serwera wyświetlaną w wynikach wyszukiwania. Zostanie otwarta strona **Przegląd**, która zawiera dalsze opcje konfiguracji.
+Witaj następujące kroki hello przykładowy serwer tooa punkt przywracania w czasie:
+1. Zaloguj się na powitania [portalu Azure](https://portal.azure.com/)
+2. Zlokalizuj PostgreSQL serwera bazy danych Azure. W portalu Azure hello, kliknij przycisk **wszystkie zasoby** z menu po lewej stronie powitania i wpisz nazwę hello, takich jak **mypgserver 20170401**, toosearch dla istniejącego serwera. Kliknij nazwę serwera hello hello wynik wyszukiwania na liście. Witaj **omówienie** strony dla serwera zostanie otwarty i udostępnia opcje dla dalszej konfiguracji.
 
-   ![Portal Azure — Wyszukaj, aby zlokalizować serwera](media/postgresql-howto-restore-server-portal/1-locate.png)
+   ![Portal Azure — wyszukiwanie toolocate serwera](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. W górnej części bloku Omówienie serwera, kliknij przycisk **przywrócić** na pasku narzędzi. Zostanie otwarty blok przywracania.
+3. U góry hello powitania serwera omówienie bloku, kliknij przycisk **przywrócić** na powitania narzędzi. zostanie otwarty blok przywracania Hello.
 
    ![Bazy danych platformy Azure dla przycisku PostgreSQL — Przegląd — przywracania](./media/postgresql-howto-restore-server-portal/2_server.png)
 
-4. Wypełnij formularz przywracania wymagane informacje:
+4. Wypełnij formularz przywracania hello hello wymagane informacje:
 
    ![Bazy danych platformy Azure dla PostgreSQL — informacji dotyczące przywracania ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Punkt przywracania**: Wybierz w momencie po serwer został zmieniony
-  - **Serwer docelowy**: Podaj nową nazwę serwera mają zostać przywrócone
-  - **Lokalizacja**: nie można wybrać region, domyślnie jest taki sam jak serwer źródłowy
-  - **Warstwa cenowa**: nie można zmienić tę wartość podczas przywracania serwera. Jest taki sam jak serwer źródłowy. 
+  - **Punkt przywracania**: Wybierz w momencie po hello serwer został zmieniony
+  - **Serwer docelowy**: Podaj nową nazwę serwera ma toorestore do
+  - **Lokalizacja**: nie można wybrać hello region, domyślnie jest taka sama jak powitania serwera źródłowego
+  - **Warstwa cenowa**: nie można zmienić tę wartość podczas przywracania serwera. Jest taki sam jak powitania serwera źródłowego. 
 
-5. Kliknij przycisk **OK** do przywrócenia serwera, aby wykonać przywracanie do punktu w czasie. 
+5. Kliknij przycisk **OK** toorestore powitania serwera toorestore tooa punktu w czasie. 
 
-6. Po zakończeniu przywracania, zlokalizuj nowy serwer, który jest tworzony w celu sprawdzenia, czy dane została przywrócona, zgodnie z oczekiwaniami.
+6. Po zakończeniu przywracania hello zlokalizować hello nowy serwer, który jest tworzony powitalne tooverify danych zostało przywrócone, zgodnie z oczekiwaniami.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Biblioteki połączeń dla bazy danych Azure dla PostgreSQL](concepts-connection-libraries.md)

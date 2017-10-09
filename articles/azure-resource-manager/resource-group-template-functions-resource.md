@@ -1,6 +1,6 @@
 ---
-title: "Funkcje szablonów Menedżera zasobów Azure - zasobów | Dokumentacja firmy Microsoft"
-description: "Zawiera opis funkcji można użyć w szablonie usługi Azure Resource Manager można pobrać wartości o zasobach."
+title: "funkcje szablonu usługi Resource Manager aaaAzure — zasoby | Dokumentacja firmy Microsoft"
+description: "Opisuje hello funkcje toouse wartości tooretrieve szablonu usługi Azure Resource Manager dotyczących zasobów."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c9d524b338b8b7ea6d8c9e0135d48e4fb8f167c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funkcje zasobów dla szablonów usługi Azure Resource Manager
 
-Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości zasobu:
+Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości zasobów hello:
 
 * [listKeys i listy {Value}](#listkeys)
 * [dostawców](#providers)
@@ -31,7 +31,7 @@ Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości 
 * [Identyfikator zasobu](#resourceid)
 * [Subskrypcja](#subscription)
 
-Aby uzyskać wartości z parametrów, zmiennych lub bieżącego wdrożenia, zobacz [wdrożenia wartość funkcji](resource-group-template-functions-deployment.md).
+tooget wartości z parametrów, zmiennych lub hello bieżącego wdrożenia, zobacz [wdrożenia wartość funkcji](resource-group-template-functions-deployment.md).
 
 <a id="listkeys" />
 <a id="list" />
@@ -41,18 +41,18 @@ Aby uzyskać wartości z parametrów, zmiennych lub bieżącego wdrożenia, zoba
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Zwraca wartości dla dowolnego typu zasobu, który obsługuje operacja listy. Najbardziej typowe obciążenie jest `listKeys`. 
+Zwraca hello wartości dla dowolnego typu zasobu, który obsługuje hello listy operacji. najbardziej typowe użycie Hello jest `listKeys`. 
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Tak |Ciąg |Unikatowy identyfikator zasobu. |
-| apiVersion |Tak |Ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zazwyczaj w formacie **rrrr mm-dd**. |
+| resourceName lub resourceIdentifier |Tak |Ciąg |Unikatowy identyfikator zasobu hello. |
+| apiVersion |Tak |Ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zazwyczaj w formacie hello **rrrr mm-dd**. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Obiekt zwrócony z listKeys ma następujący format:
+Witaj zwracany obiekt listKeys ma hello następującego formatu:
 
 ```json
 {
@@ -71,32 +71,32 @@ Obiekt zwrócony z listKeys ma następujący format:
 }
 ```
 
-Inne funkcje listy mają różne formaty zwracany. Aby wyświetlić format funkcji, Uwzględnij go w sekcji danych wyjściowych jak pokazano w przykładzie szablonu. 
+Inne funkcje listy mają różne formaty zwracany. format hello toosee funkcji, uwzględnić go w sekcji danych wyjściowych hello, jak pokazano w szablonie przykład hello. 
 
 ### <a name="remarks"></a>Uwagi
 
-Żadnej operacji, która rozpoczyna się od **listy** mogą być używane jako funkcję w szablonie. Dostępne operacje zawiera nie tylko listKeys, ale również operacji, takich jak `list`, `listAdminKeys`, i `listStatus`. Nie można jednak użyć **listy** operacje, które wymagają wartości w treści żądania. Na przykład [SAS konta listy](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operacja wymaga parametrów treści żądania, takich jak *signedExpiry*, więc nie można go użyć w ramach szablonu.
+Żadnej operacji, która rozpoczyna się od **listy** mogą być używane jako funkcję w szablonie. Witaj dostępne operacji zalicza się nie tylko listKeys, ale również operacji, takich jak `list`, `listAdminKeys`, i `listStatus`. Nie można jednak użyć **listy** operacje, które wymagają wartości hello treść żądania. Na przykład Witaj [SAS konta listy](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) operacja wymaga parametrów treści żądania, takich jak *signedExpiry*, więc nie można go użyć w ramach szablonu.
 
-Aby określić, jakie typy zasobów operacja listy, masz następujące opcje:
+typy zasobów, które mają operacja listy toodetermine, masz hello następujące opcje:
 
-* Widok [operacje interfejsu API REST](/rest/api/) dla dostawcy zasobów, a następnie wyszukaj listę operacji. Na przykład mieć kont magazynu [operacji listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Użyj [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) polecenia cmdlet programu PowerShell. Poniższy przykład pobiera wszystkie operacje listy kont magazynu:
+* Widok hello [operacje interfejsu API REST](/rest/api/) dla dostawcy zasobów, a następnie wyszukaj listę operacji. Na przykład konta magazynu ma hello [operacji listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Użyj hello [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) polecenia cmdlet programu PowerShell. Witaj poniższy przykład pobiera wszystkie operacje listy kont magazynu:
 
   ```powershell
   Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
   ```
-* Użyj następującego polecenia wiersza polecenia platformy Azure, aby filtrować tylko operacje listy:
+* Użyj następującego polecenia wiersza polecenia platformy Azure toofilter hello tylko operacje listy hello:
 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Określ zasób, używając [funkcja resourceId](#resourceid), lub format `{providerNamespace}/{resourceType}/{resourceName}`.
+Określ zasób hello przy użyciu albo hello [funkcja resourceId](#resourceid), lub hello format `{providerNamespace}/{resourceType}/{resourceName}`.
 
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia sposób zwrócenia klucze podstawowe i pomocnicze z konta magazynu w sekcji danych wyjściowych.
+Witaj poniższy przykład przedstawia sposób tooreturn klucze podstawowe i pomocnicze hello z konta magazynu w hello generuje sekcji.
 
 ```json
 {
@@ -122,18 +122,18 @@ Poniższy przykład przedstawia sposób zwrócenia klucze podstawowe i pomocnicz
 ## <a name="providers"></a>dostawców
 `providers(providerNamespace, [resourceType])`
 
-Zwraca informacje o dostawcy zasobów i jego obsługiwane typy zasobów. Jeśli typ zasobu nie zostanie określona, funkcja zwraca obsługiwane typy dla dostawcy zasobów.
+Zwraca informacje o dostawcy zasobów i jego obsługiwane typy zasobów. Jeśli typ zasobu nie zostanie określona, funkcja hello zwraca wszystkie typy hello obsługiwane dla dostawcy zasobów hello.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Tak |Ciąg |Namespace dostawcy |
-| Typ zasobu |Nie |Ciąg |Typ zasobu w określonej przestrzeni nazw. |
+| providerNamespace |Tak |Ciąg |Namespace hello dostawcy |
+| Typ zasobu |Nie |Ciąg |określony Hello typ zasobu w hello przestrzeni nazw. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwrócono każdego obsługiwanego typu w następującym formacie: 
+Każdego obsługiwanego typu, jest zwracany w hello następującego formatu: 
 
 ```json
 {
@@ -143,11 +143,11 @@ Zwrócono każdego obsługiwanego typu w następującym formacie:
 }
 ```
 
-Kolejność zwracanych wartości tablicy nie jest gwarantowana.
+Tablica kolejność hello zwracane wartości nie jest gwarantowana.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia sposób użycia funkcji dostawcy:
+Witaj poniższy przykład pokazuje, jak toouse hello funkcja dostawcy:
 
 ```json
 {
@@ -163,7 +163,7 @@ Poniższy przykład przedstawia sposób użycia funkcji dostawcy:
 }
 ```
 
-Poprzedni przykład zwraca obiekt w następującym formacie:
+Witaj poprzednim przykładzie zwraca obiekt hello następującego formatu:
 
 ```json
 {
@@ -197,21 +197,21 @@ Zwraca obiekt reprezentujący stan czasu wykonywania zasobu.
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |Ciąg |Nazwa lub identyfikator zasobu. |
-| apiVersion |Nie |Ciąg |Wersja interfejsu API określonego zasobu. Obejmują tego parametru, gdy zasób nie zostanie zainicjowana w ramach tego samego szablonu. Zazwyczaj w formacie **rrrr mm-dd**. |
+| apiVersion |Nie |Ciąg |Wersja interfejsu API hello określony zasób. Ten parametr jest uwzględniony, gdy nie zainicjowano hello zasobów w ramach tego samego szablonu. Zazwyczaj w formacie hello **rrrr mm-dd**. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Każdy typ zasobu zwraca inne właściwości dla funkcji odwołania. Funkcja nie zwraca jednego, wstępnie zdefiniowanego formatu. Aby wyświetlić właściwości dla typu zasobu, zwracać obiekt w sekcji danych wyjściowych, jak pokazano w przykładzie.
+Każdy typ zasobu zwraca inne właściwości hello odwołanie do funkcji. Funkcja Hello nie zwraca jednego, wstępnie zdefiniowanego formatu. Obiekt hello w hello generuje sekcji, jak pokazano w przykładzie hello zwrotu toosee hello właściwości dla typu zasobu.
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja odwołanie pochodzi wartość ze stanu środowiska uruchomieniowego i nie można użyć w sekcji zmiennych. Można go w sekcji danych wyjściowych szablonu. 
+Hello odwołanie funkcji pochodzi wartość ze stanu środowiska uruchomieniowego i nie można użyć w sekcji zmiennych hello. Można go w sekcji danych wyjściowych szablonu. 
 
-Za pomocą funkcji odwołania, niejawnie deklarowaniu czy jeden zasób jest zależny od innego zasobu, jeśli przywoływany zasób jest udostępniony w ramach tego samego szablonu. Nie trzeba również użyć dependsOn właściwości. Funkcja nie jest oceniany, aż do zakończenia wdrażania żądanego zasobu.
+Funkcja odwołanie hello niejawnie deklarowaniu czy jeden zasób jest zależny od innego zasobu, jeśli hello odwołuje się do zasobu jest udostępniony w ramach tego samego szablonu. Nie trzeba tooalso Użyj hello dependsOn właściwości. Witaj funkcja nie jest oceniany, dopóki nie zakończy się hello zasobu wdrożenia.
 
-Aby wyświetlić nazwy właściwości i wartości dla typu zasobu, należy utworzyć szablon, który zwraca obiekt, w sekcji danych wyjściowych. Jeśli masz istniejący zasób tego typu do szablonu zwraca obiekt bez wdrażania żadnych nowych zasobów. 
+toosee hello nazwy i wartości właściwości dla typu zasobu, utworzyć szablon, który zwraca obiekt hello w sekcji danych wyjściowych hello. Jeśli masz istniejący zasób tego typu do szablonu zwraca obiekt hello bez wdrażania żadnych nowych zasobów. 
 
-Zazwyczaj **odwołania** funkcja zwraca wartość określonego obiektu, na przykład obiektu blob identyfikatora URI punktu końcowego lub w pełni kwalifikowaną nazwę domeny.
+Należy zwykle użyć hello **odwołania** funkcji tooreturn określonej wartości z obiektu, na przykład hello identyfikator URI punktu końcowego obiektu blob lub w pełni kwalifikowaną nazwę domeny.
 
 ```json
 "outputs": {
@@ -228,7 +228,7 @@ Zazwyczaj **odwołania** funkcja zwraca wartość określonego obiektu, na przyk
 
 ### <a name="example"></a>Przykład
 
-Aby wdrożyć i odwoływać się do zasobu w tym samym szablonie, należy użyć:
+Dokumentacja i toodeploy zasobu hello w hello tego samego szablonu, użyj:
 
 ```json
 {
@@ -263,7 +263,7 @@ Aby wdrożyć i odwoływać się do zasobu w tym samym szablonie, należy użyć
 }
 ``` 
 
-Poprzedni przykład zwraca obiekt w następującym formacie:
+Witaj poprzednim przykładzie zwraca obiekt hello następującego formatu:
 
 ```json
 {
@@ -281,7 +281,7 @@ Poprzedni przykład zwraca obiekt w następującym formacie:
 }
 ```
 
-Poniższy przykład odwołuje się do konta magazynu, który nie jest wdrożony w tym szablonie. Konto magazynu już istnieje w tej samej grupie zasobów.
+Witaj poniższy przykład odwołuje się do konta magazynu, który nie jest wdrożony w tym szablonie. Witaj konto magazynu już istnieje w ramach hello same grupy zasobów.
 
 ```json
 {
@@ -307,11 +307,11 @@ Poniższy przykład odwołuje się do konta magazynu, który nie jest wdrożony 
 ## <a name="resourcegroup"></a>Grupa zasobów
 `resourceGroup()`
 
-Zwraca obiekt reprezentujący bieżącej grupie zasobów. 
+Zwraca obiekt reprezentujący hello bieżącej grupie zasobów. 
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Zwrócony obiekt jest w następującym formacie:
+Witaj zwrócony obiekt jest zgodny z formatem hello:
 
 ```json
 {
@@ -328,7 +328,7 @@ Zwrócony obiekt jest w następującym formacie:
 
 ### <a name="remarks"></a>Uwagi
 
-Użycia funkcji grupa zasobów ma tworzyć zasoby w tej samej lokalizacji co grupy zasobów. W poniższym przykładzie użyto lokalizacja grupy zasobów, aby przypisać lokalizacji dla witryny sieci web.
+Zazwyczaj hello funkcji grupa zasobów jest używane zasoby toocreate w hello tej samej lokalizacji co hello grupy zasobów. Witaj poniższym przykładzie użyto lokalizacja hello tooassign lokalizacji hello grupy zasobów dla witryny sieci web.
 
 ```json
 "resources": [
@@ -344,7 +344,7 @@ Użycia funkcji grupa zasobów ma tworzyć zasoby w tej samej lokalizacji co gru
 
 ### <a name="example"></a>Przykład
 
-Następujący szablon zwraca właściwości grupy zasobów.
+Witaj następujący szablon zwraca hello właściwości hello grupy zasobów.
 
 ```json
 {
@@ -360,7 +360,7 @@ Następujący szablon zwraca właściwości grupy zasobów.
 }
 ```
 
-Poprzedni przykład zwraca obiekt w następującym formacie:
+Witaj poprzednim przykładzie zwraca obiekt hello następującego formatu:
 
 ```json
 {
@@ -378,21 +378,21 @@ Poprzedni przykład zwraca obiekt w następującym formacie:
 ## <a name="resourceid"></a>resourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
-Zwraca unikatowy identyfikator zasobu. Aby użyć tej funkcji, jeśli nazwa zasobu jest niejednoznaczny lub nie udostępnione w ramach tego samego szablonu. 
+Zwraca hello Unikatowy identyfikator zasobu. Aby użyć tej funkcji, gdy nazwa zasobu hello jest niejednoznaczny lub nie jest inicjowana w hello tego samego szablonu. 
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nie |ciąg (format identyfikatora GUID w) |Wartość domyślna to bieżącej subskrypcji. Należy podać tę wartość, gdy trzeba pobrać zasobu w innej subskrypcji. |
-| Grupy zasobów o nazwie |Nie |Ciąg |Wartość domyślna to bieżącej grupie zasobów. Należy podać tę wartość, gdy trzeba pobrać zasobu w innej grupie zasobów. |
+| subscriptionId |Nie |ciąg (format identyfikatora GUID w) |Wartość domyślna to hello bieżącej subskrypcji. Należy podać tę wartość, gdy będziesz potrzebować tooretrieve zasobów w innej subskrypcji. |
+| Grupy zasobów o nazwie |Nie |Ciąg |Wartość domyślna to bieżącej grupie zasobów. Należy podać tę wartość, gdy będziesz potrzebować tooretrieve zasobów w innej grupie zasobów. |
 | Typ zasobu |Tak |Ciąg |Typ zasobu, włącznie z przestrzenią nazw dostawcy zasobów. |
 | resourceName1 |Tak |Ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |Ciąg |Następny nazwy segmentu zasobu, jeśli zasób jest zagnieżdżony. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Identyfikator jest zwracany w następującym formacie:
+Identyfikator Hello jest zwracany w hello następującego formatu:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -400,33 +400,33 @@ Identyfikator jest zwracany w następującym formacie:
 
 ### <a name="remarks"></a>Uwagi
 
-Wartości parametrów, które określisz zależą od tego, czy zasób jest w tej samej grupie subskrypcji i zasobu jako bieżącego wdrożenia.
+Hello można określić wartości parametrów są zależne od tego, czy zasób hello jest hello tej samej subskrypcji i zasobu grupy jako hello bieżącego wdrożenia.
 
-Aby uzyskać identyfikator zasobu dla konta magazynu w tej samej subskrypcji i grupy zasobów, należy użyć:
+tooget hello zasobów identyfikator dla konta magazynu w hello sam subskrypcji i grupy zasobów, należy użyć:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Aby uzyskać identyfikator zasobu dla konta magazynu w tej samej subskrypcji, ale innej grupie zasobów, należy użyć:
+Identyfikator zasobu hello tooget dla konta magazynu w hello tej samej subskrypcji, ale innej grupie zasobów, użyj:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Aby uzyskać identyfikator zasobu dla konta magazynu w innej subskrypcji i grupy zasobów, należy użyć:
+Identyfikator zasobu hello tooget dla konta magazynu w innej subskrypcji i grupy zasobów, należy użyć:
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Aby uzyskać identyfikator zasobu bazy danych w innej grupie zasobów, należy użyć:
+Identyfikator zasobu hello tooget bazy danych w innej grupie zasobów, należy użyć:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Często należy użyć tej funkcji, korzystając z konta magazynu lub sieci wirtualnej w grupie zasobów alternatywny. W poniższym przykładzie pokazano, jak łatwo można zasobu z grupy zasobów zewnętrznych:
+Często potrzebne toouse tej funkcji za pomocą konta magazynu lub sieci wirtualnej w grupie zasobów alternatywny. Witaj poniższy przykład przedstawia zasobu z grupy zasobów zewnętrznych można łatwo użycia:
 
 ```json
 {
@@ -473,7 +473,7 @@ Często należy użyć tej funkcji, korzystając z konta magazynu lub sieci wirt
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład zwraca identyfikator zasobu dla konta magazynu w grupie zasobów:
+Witaj poniższy przykład zwraca identyfikator zasobu powitania dla konta magazynu w grupie zasobów hello:
 
 ```json
 {
@@ -501,7 +501,7 @@ Poniższy przykład zwraca identyfikator zasobu dla konta magazynu w grupie zaso
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -515,11 +515,11 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="subscription"></a>subskrypcja
 `subscription()`
 
-Zwraca szczegółowe informacje o subskrypcji dla bieżącego wdrożenia. 
+Zwraca szczegółowe informacje o subskrypcji hello hello bieżące wdrożenia. 
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Funkcja zwraca następujący format:
+Witaj, funkcja zwraca hello następującego formatu:
 
 ```json
 {
@@ -532,7 +532,7 @@ Funkcja zwraca następujący format:
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia funkcję subskrypcji o nazwie w sekcji danych wyjściowych. 
+Witaj poniższy przykład przedstawia hello subskrypcji funkcji o nazwie w sekcji danych wyjściowych hello. 
 
 ```json
 {
@@ -549,8 +549,8 @@ Poniższy przykład przedstawia funkcję subskrypcji o nazwie w sekcji danych wy
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

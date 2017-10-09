@@ -1,6 +1,6 @@
 ---
-title: "Obciążenie — usługi Azure Data Lake Store SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak ładowanie danych z usługi Azure Data Lake Store do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase tabel zewnętrznych."
+title: aaaLoad - Azure Data Lake Store tooSQL Data Warehouse | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak zewnętrzny PolyBase toouse tabele tooload dane z usługi Azure Data Lake Store do usługi Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,60 +15,60 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: ab951c30aae0d4afdd931e245f25d4645bba1681
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 50ef23b3eba5f58bc9974095f84140dc5c11fa4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Ładowanie danych z usługi Azure Data Lake Store do magazynu danych SQL
-Ten dokument stanowi wszystkie czynności, które należy załadować własne dane z usługi Azure Data Lake magazyn (ADLS) do usługi SQL Data Warehouse przy użyciu programu PolyBase.
-Gdy jesteś w stanie uruchamianie zapytań ad hoc przez dane przechowywane w ADLS przy użyciu tabel zewnętrznych, jako najlepsze rozwiązanie zaleca się importowania danych do usługi SQL Data Warehouse.
-Szacowanie czasu: 10 minut, przy założeniu, że zostały spełnione wymagania wstępne, trzeba wykonać.
+Ten dokument stanowi wszystkie czynności, które należy tooload własne dane z usługi Azure Data Lake magazyn (ADLS) do usługi SQL Data Warehouse przy użyciu programu PolyBase.
+Podczas pracy zapytań ad hoc toorun mogli za pośrednictwem hello danych przechowywanych w ADLS przy użyciu tabel zewnętrznych hello jako najlepsze rozwiązanie zaleca się importowanie danych hello hello SQL Data Warehouse.
+Szacowanie czasu: 10 minut, przy założeniu, że masz hello wymagań wstępnych konieczne toocomplete.
 W tym samouczku przedstawiono sposób:
 
-1. Tworzenie obiektów zewnętrznej bazy danych można załadować z usługi Azure Data Lake Store.
-2. Nawiązać katalog usługi Azure Data Lake Store.
+1. Utwórz tooload obiekty zewnętrznej bazy danych z usługi Azure Data Lake Store.
+2. Połącz tooan Azure Data Lake magazynu katalogu.
 3. Ładowanie danych do usługi Azure SQL Data Warehouse.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Aby uruchomić ten samouczek, potrzebne są:
+toorun tego samouczka należy:
 
-* Azure aplikacji usługi Active Directory do użycia na potrzeby uwierzytelniania do usługi. Aby utworzyć, wykonaj [uwierzytelniania usługi Active directory](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
+* Azure toouse aplikacji usługi Active Directory do usługi uwierzytelniania. toocreate, wykonaj [uwierzytelniania usługi Active directory](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
 
 >[!NOTE] 
-> Potrzebujesz Identyfikatora klienta, klucz i wartość tokenu punktu końcowego OAuth2.0 aplikacji Active Directory do nawiązania połączenia z usługi Azure Data Lake z magazynu danych SQL. Szczegóły dotyczące sposobu uzyskania tych wartości znajdują się w łącze powyżej.
->Uwaga dotycząca rejestracji aplikacji Azure Active Directory, użyj Identyfikatora aplikacji jako identyfikator klienta.
+> Wymagane hello Identyfikatora klienta, klucz i wartość tokenu punktu końcowego OAuth2.0 z Twojej aplikacji usługi Active Directory tooconnect tooyour usługi Azure Data Lake z magazynu danych SQL. Szczegóły dotyczące sposobu tooget te wartości są w powyższy link hello.
+>Uwaga dotycząca rejestracji aplikacji Azure Active Directory użyj hello "Identyfikator aplikacji" jako hello identyfikator klienta.
 
-* SQL Server Management Studio lub SQL Server Data Tools, aby pobrać narzędzia SSMS i połączyć zobacz [SSMS zapytania](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
+* SQL Server Management Studio lub SQL Server Data Tools toodownload SSMS i połączenia zobacz [SSMS zapytania](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Magazyn danych SQL Azure, aby utworzyć wykonaj jedną: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Wykonaj toocreate jeden magazyn danych SQL Azure: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Azure Data Lake Store, lub nie jest włączone szyfrowanie. Aby utworzyć wykonaj jedną: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
+* Azure Data Lake Store, lub nie jest włączone szyfrowanie. Wykonaj jeden toocreate: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
-## <a name="configure-the-data-source"></a>Konfigurowanie źródła danych
-Aparat PolyBase używa obiektów zewnętrznych T-SQL w celu zdefiniowania lokalizacji i atrybuty danych zewnętrznych. Obiekty zewnętrzne są przechowywane w usłudze SQL Data Warehouse i odwołują się dane, które th są przechowywane zewnętrznie.
+
+
+## <a name="configure-hello-data-source"></a>Konfigurowanie hello źródła danych
+Program PolyBase używa lokalizacji hello toodefine zewnętrznych obiektów T-SQL i atrybuty hello danych zewnętrznych. Witaj zewnętrznych obiektów są przechowywane w SQL Data Warehouse i hello danych referencyjnych th jest przechowywana zewnętrznie.
 
 
 ###  <a name="create-a-credential"></a>Utwórz poświadczenia
-Aby uzyskać dostęp do usługi Azure Data Lake Store, należy utworzyć klucz główny bazy danych, aby zaszyfrować klucz tajny poświadczenie użyte w następnym kroku.
-Następnie można utworzyć poświadczenia bazy danych, której są przechowywane poświadczenia główne usługi skonfigurowane w usłudze AAD. Dla osób, które użyto który można podłączyć do obiektów blob magazynu Azure z systemem Windows, należy pamiętać, że składnia poświadczeń różnych PolyBase.
-Aby połączyć się z usługi Azure Data Lake Store, należy najpierw **pierwszy** tworzenie aplikacji Azure Active Directory Utwórz klucz dostępu i umożliwić aplikacji dostęp do zasobów usługi Azure Data Lake. Instrucitons, aby wykonać te czynności znajdują się [tutaj](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+tooaccess Twojego Azure Data Lake przechowywania, konieczne będzie toocreate tooencrypt klucz główny bazy danych klucz tajny poświadczenie używane w hello następnego kroku.
+Następnie można utworzyć poświadczenia bazy danych, której są przechowywane poświadczenia główne usługi hello skonfigurowane w usłudze AAD. Dla osób, które zostały użyte PolyBase tooconnect tooWindows obiektach blob magazynu Azure, należy pamiętać, że poświadczenie hello składni jest inny.
+tooAzure tooconnect usługi Data Lake Store, należy najpierw **pierwszy** tworzenie aplikacji Azure Active Directory, Utwórz klucz dostępu, a następnie przyznać hello aplikacji dostępu toohello usługi Azure Data Lake zasobów. Instrucitons tooperform znajdują się następujące kroki [tutaj](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 -- For more information on Master Key: https://msdn.microsoft.com/en-us/library/ms174382.aspx?f=255&MSPPError=-2147217396
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
+-- IDENTITY: Pass hello client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/en-us/library/mt270260.aspx
 
@@ -87,15 +87,15 @@ WITH
 ```
 
 
-### <a name="create-the-external-data-source"></a>Tworzenie zewnętrznego źródła danych
-Użyj tej [Tworzenie zewnętrznego źródła danych] [ CREATE EXTERNAL DATA SOURCE] polecenia do przechowywania lokalizacji danych i typu danych.
-Identyfikator URI ADL można znaleźć w portalu Azure i www.portal.azure.com.
+### <a name="create-hello-external-data-source"></a>Utwórz hello zewnętrznego źródła danych
+Użyj tej [Tworzenie zewnętrznego źródła danych] [ CREATE EXTERNAL DATA SOURCE] polecenia toostore lokalizacji hello hello danych i hello typu danych.
+Witaj ADL URI można znaleźć w hello portalu Azure i www.portal.azure.com.
 
 ```sql
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Store.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure Data Lake Store.
 -- LOCATION: Provide Azure Data Lake accountname and URI
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
@@ -108,14 +108,14 @@ WITH (
 
 
 ## <a name="configure-data-format"></a>Skonfiguruj format danych
-Aby zaimportować dane z ADLS, należy określić format pliku zewnętrznego. To polecenie ma format opcje do opisywania danych.
+dane hello tooimport z ADLS, należy toospecify hello zewnętrznego formatu pliku. To polecenie ma toodescribe opcje związane z formatem danych.
 Poniżej przedstawiono przykład często używane formacie, który jest plikiem tekstowym rozdzielany potoku.
 Szukaj w naszej dokumentacji T-SQL, aby uzyskać pełną listę [Tworzenie zewnętrznych FORMAT pliku][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
 -- D: Create an external file format
--- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
--- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
+-- FIELD_TERMINATOR: Marks hello end of each field (column) in a delimited text file
+-- STRING_DELIMITER: Specifies hello field terminator for data of type string in hello text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
 -- Use_Type_Default: Store all Missing values as NULL
 
@@ -130,16 +130,16 @@ WITH
 );
 ```
 
-## <a name="create-the-external-tables"></a>Tworzenie tabel zewnętrznych
-Teraz, gdy został określony format źródła i plików danych, możesz przystąpić do tworzenia tabel zewnętrznych. Tabele zewnętrzne są interakcje z danymi zewnętrznymi. Program PolyBase używa cyklicznego katalogu Przechodzenie do odczytu wszystkich plików w podkatalogach katalogu określonego w parametrze lokalizacji. Ponadto poniższy przykład pokazuje, jak utworzyć obiektu. Należy dostosować instrukcję do pracy z danymi w ADLS.
+## <a name="create-hello-external-tables"></a>Tworzenie tabel zewnętrznych hello
+Określono hello danych źródła i format pliku, użytkownik jest tabel zewnętrznych hello toocreate gotowe. Tabele zewnętrzne są interakcje z danymi zewnętrznymi. Program PolyBase używa cyklicznego katalogu przechodzenie tooread wszystkie pliki w wszystkie podkatalogi katalogu hello określony w parametrze lokalizacji hello. Ponadto hello poniższy przykład pokazuje, jak toocreate hello obiektu. Należy toocustomize hello instrukcji toowork z danych hello w ADLS.
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the ADLS root folder.
--- DATA_SOURCE: Specifies which Data Source Object to use.
--- FILE_FORMAT: Specifies which File Format Object to use
--- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
--- REJECT_VALUE: Sets the Reject value based on the reject type.
+-- LOCATION: Folder under hello ADLS root folder.
+-- DATA_SOURCE: Specifies which Data Source Object toouse.
+-- FILE_FORMAT: Specifies which File Format Object toouse
+-- REJECT_TYPE: Specifies how you want toodeal with rejected rows. Either Value or percentage of hello total
+-- REJECT_VALUE: Sets hello Reject value based on hello reject type.
 
 -- DimProduct
 CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
@@ -160,22 +160,22 @@ WITH
 ```
 
 ## <a name="external-table-considerations"></a>Zagadnienia dotyczące tabeli zewnętrznej
-Tworzenie tabeli zewnętrznej jest proste, ale istnieją pewne różnice, które muszą zostać omówione.
+Tworzenie tabeli zewnętrznej jest proste, ale istnieją pewne różnice wymagające toobe omówione.
 
-Ładowanie danych przy użyciu programu PolyBase jest silnie typizowane. Oznacza to, że każdy wiersz danych jest pozyskanych muszą spełniać definicja schematu tabeli.
-Jeśli dany wiersz jest niezgodny z definicji schematu, wiersz został odrzucony z obciążenia.
+Ładowanie danych przy użyciu programu PolyBase jest silnie typizowane. Oznacza to, że każdy wiersz danych hello jest pozyskanych muszą spełniać definicja schematu tabeli hello.
+Jeśli danego wiersza nie jest zgodny z definicji schematu hello, wiersz hello jest odrzucona z hello obciążenia.
 
-Opcje REJECT_TYPE i REJECT_VALUE umożliwiają definiowanie, ile wierszy lub wartość procentowa danych musi być obecny w końcowym tabeli.
-Podczas ładowania po osiągnięciu wartości Odrzuć obciążenia kończy się niepowodzeniem. Najczęstszą przyczyną odrzuconych wierszy jest niezgodność definicji schematu.
-Na przykład kolumny niepoprawnie podano schematu int, gdy dane w pliku jest ciągiem, każdy wiersz zakończy się niepowodzeniem do załadowania.
+Witaj REJECT_TYPE i REJECT_VALUE opcje pozwalają toodefine liczby wierszy lub wartość procentowa danych hello musi znajdować się w tabeli końcowej hello.
+Podczas ładowania po osiągnięciu wartości Odrzuć hello obciążenia hello kończy się niepowodzeniem. Najczęstszą przyczyną Hello odrzucone wierszy jest niezgodność definicji schematu.
+Na przykład jeśli kolumny niepoprawnie podano schematu hello int, gdy hello dane w pliku hello jest ciągiem, każdy wiersz zakończy się niepowodzeniem tooload.
 
-Lokalizacja określa katalogu najwyższego poziomu, który chcesz odczytać danych z.
-W takim przypadku, gdyby podkatalogów w obszarze /DimProduct/ PolyBase jaki są importowane wszystkich danych w podkatalogach.
+Witaj Lokalizacja określa hello katalogu najwyższego poziomu tooread danych z.
+W takim przypadku, gdyby podkatalogów w obszarze /DimProduct/ PolyBase jaki są importowane wszystkich danych hello w Witaj podkatalogi.
 
-## <a name="load-the-data"></a>Ładowanie danych
-Aby załadować dane z użycia usługi Azure Data Lake Store [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrukcji. Ładowanie z CTAS używa jednoznacznie tabeli zewnętrznej, które utworzono.
+## <a name="load-hello-data"></a>Ładowanie danych hello
+tooload dane z usługi Azure Data Lake Store Użyj hello [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrukcji. Podczas ładowania z CTAS hello używa silnie typizowane tabeli zewnętrznej, które zostały utworzone.
 
-CTAS tworzy nową tabelę i wypełnia wyników w instrukcji select. CTAS definiuje nowa tabela na tej samej kolumny i typy danych wyników w instrukcji select. Po wybraniu wszystkich kolumn z tabeli zewnętrznej nowa tabela jest repliką kolumn i typy danych w tabeli zewnętrznej.
+CTAS tworzy nową tabelę i wypełnia hello wyników w instrukcji select. CTAS definiuje hello nowej tabeli toohave hello tej samej kolumny i typy danych jak wyniki hello hello wybierz instrukcji. Po wybraniu wszystkich hello kolumn z tabeli zewnętrznej nową tabelę hello jest repliką hello kolumn i typy danych w tabeli zewnętrznej hello.
 
 W tym przykładzie tworzymy tabeli rozproszonej wyznaczania wartości skrótu o nazwie DimProduct z naszych zewnętrznych DimProduct_external tabeli.
 
@@ -190,9 +190,9 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Optymalizacja magazynu kolumn kompresji
-Domyślnie usługa SQL Data Warehouse przechowuje tabeli jako klastrowany indeks magazynu kolumn. Po zakończeniu obciążenia niektóre wiersze danych może nie można skompresować do magazynu kolumn.  Brak z różnych powodów, dlaczego jest to możliwe. Aby dowiedzieć się więcej, zobacz [Zarządzaj indeksami magazynu kolumn][manage columnstore indexes].
+Domyślnie usługa SQL Data Warehouse przechowuje hello tabeli jako klastrowany indeks magazynu kolumn. Po zakończeniu obciążenia nie może być niektóre wiersze danych hello skompresowane w hello magazynu kolumn.  Brak z różnych powodów, dlaczego jest to możliwe. toolearn więcej, zobacz [Zarządzaj indeksami magazynu kolumn][manage columnstore indexes].
 
-Aby zoptymalizować wydajność zapytań i ich kompresji magazynu kolumn po załadowaniu, Odbuduj tabelę, aby wymusić indeksu magazynu kolumn do skompresowania wszystkie wiersze.
+toooptimize wydajność zapytań i ich kompresji magazynu kolumn po załadowaniu, Odbuduj hello tabeli tooforce hello magazynu kolumn indeksu toocompress wszystkie wiersze hello.
 
 ```sql
 
@@ -200,21 +200,21 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-Aby uzyskać więcej informacji na temat zachowania indeksy magazynu kolumn, zobacz [Zarządzaj indeksami magazynu kolumn] [ manage columnstore indexes] artykułu.
+Aby uzyskać więcej informacji na temat zachowania indeksy magazynu kolumn, zobacz hello [Zarządzaj indeksami magazynu kolumn] [ manage columnstore indexes] artykułu.
 
 ## <a name="optimize-statistics"></a>Optymalizacja statystyki
-Najlepiej utworzyć statystyki dla pojedynczej kolumny natychmiast po załadowaniu. Dostępne są niektóre opcje wyboru statystyk. Na przykład jeśli tworzenie statystyk pojedynczej kolumny w każdej kolumnie go może zająć dużo czasu odbudować wszystkie statystyki. Jeśli wiesz, że niektóre kolumny nie będą znajdować się w predykatach kwerendy, można pominąć tworzenie statystyk na podstawie tych kolumn.
+Najważniejsze dane statystyczne pojedynczej kolumny toocreate jest natychmiast po załadowaniu. Dostępne są niektóre opcje wyboru statystyk. Na przykład jeśli tworzenie statystyk pojedynczej kolumny w każdej kolumnie może potrwać toorebuild długo wszystkie statystyki hello. Jeśli wiesz, że niektóre kolumny nie będą toobe w predykatach kwerendy, można pominąć tworzenie statystyk na podstawie tych kolumn.
 
-Jeśli zdecydujesz się tworzenie statystyk pojedynczej kolumny w każdej kolumnie każdej tabeli, można użyć procedury składowanej przykładowy kod `prc_sqldw_create_stats` w [statystyki] [ statistics] artykułu.
+Jeśli zdecydujesz toocreate statystyki pojedynczej kolumny w każdej kolumnie każda tabela służy przykładowy kod procedury składowanej hello `prc_sqldw_create_stats` w hello [statystyki] [ statistics] artykułu.
 
-Poniższy przykład jest dobry punkt wyjścia do tworzenia statystyk. Tworzy statystyki pojedynczej kolumny w każdej kolumnie w tabeli wymiarów i w każdej kolumnie łącząca w tabelach faktów. Można dodać jednego lub wielu kolumn statystyki do kolumn tabeli faktów później.
+Poniższy przykład Hello jest dobry punkt wyjścia do tworzenia statystyk. W każdej kolumnie w tabeli wymiarów hello i w każdej kolumnie łącząca w tabelach faktów hello tworzy statystyki pojedynczej kolumny. Później można dodać kolumny tabeli faktów tooother statystyki jednego lub wielu kolumn.
 
 
 ## <a name="achievement-unlocked"></a>Osiągnięcia odblokowane!
 Dane zostały pomyślnie załadowane do magazynu danych SQL Azure. Dobra robota!
 
 ##<a name="next-steps"></a>Następne kroki
-Podczas ładowania danych jest pierwszy krok projektowania rozwiązania magazynu danych przy użyciu usługi SQL Data Warehouse. Zobacz nasze zasoby projektowe na [tabel](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) i [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Podczas ładowania danych jest hello pierwszy krok toodeveloping rozwiązania magazynu danych przy użyciu usługi SQL Data Warehouse. Zobacz nasze zasoby projektowe na [tabel](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) i [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
 <!--Image references-->
@@ -237,4 +237,4 @@ Podczas ładowania danych jest pierwszy krok projektowania rozwiązania magazynu
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

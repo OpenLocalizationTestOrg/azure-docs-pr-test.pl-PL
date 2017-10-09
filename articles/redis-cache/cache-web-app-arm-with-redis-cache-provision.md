@@ -1,6 +1,6 @@
 ---
-title: "Zainicjuj obsługę aplikacji sieci Web z pamięci podręcznej Redis"
-description: "Szablon usługi Azure Resource Manager umożliwia wdrażanie aplikacji sieci web z pamięci podręcznej Redis."
+title: "aaaProvision aplikacji sieci Web z pamięci podręcznej Redis"
+description: "Użyj aplikacji sieci web toodeploy szablonu usługi Azure Resource Manager z pamięci podręcznej Redis."
 services: app-service
 documentationcenter: 
 author: steved0x
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: sdanie
-ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b95b5e230dc40c1157940c2017cba836975b6930
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Tworzenie aplikacji sieci Web oraz usługi pamięć podręczna Redis przy użyciu szablonu
-W tym temacie dowiesz się, jak utworzyć szablon usługi Azure Resource Manager, która wdraża aplikacji sieci Web platformy Azure z pamięcią podręczną Redis. Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+W tym temacie przedstawiono sposób toocreate szablonu usługi Azure Resource Manager, która wdraża aplikacji sieci Web platformy Azure z pamięcią podręczną Redis. Dowiesz się jak toodefine zasobów, do których są wdrażane i jak parametry toodefine, które są określone, podczas wdrażania hello jest wykonywana. Można użyć tego szablonu własnych wdrożeniach lub dostosować go toomeet wymagań.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Authoring Azure Resource Manager szablony](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Zakończenie szablonu, zobacz [aplikacji sieci Web za pomocą szablonu usługi pamięć podręczna Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
+Hello pełną szablonu, zobacz [aplikacji sieci Web za pomocą szablonu usługi pamięć podręczna Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
 ## <a name="what-you-will-deploy"></a>Zostanie wdrożona
 W tym szablonie zostanie wdrożona:
@@ -33,17 +33,17 @@ W tym szablonie zostanie wdrożona:
 * Aplikacja sieci Web platformy Azure
 * Pamięć podręczna Azure Redis.
 
-Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
+toorun automatycznie hello wdrożenia, kliknij powitania po przycisku:
 
-[![Wdrażanie na platformie Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![Wdrażanie tooAzure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>W celu określenia
+## <a name="parameters-toospecify"></a>Parametry toospecify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Zmienne dla nazwy
-Ten szablon używa zmiennych do konstruowania nazwy dla zasobów. Używa [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) funkcji, aby utworzyć wartość oparte na identyfikator grupy zasobów.
+Ten szablon używa nazwy tooconstruct zmienne hello zasobów. Używa hello [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) funkcji tooconstruct wartość oparta na identyfikator grupy zasobów.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -52,13 +52,13 @@ Ten szablon używa zmiennych do konstruowania nazwy dla zasobów. Używa [unique
     },
 
 
-## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
+## <a name="resources-toodeploy"></a>Toodeploy zasobów
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="redis-cache"></a>Pamięć podręczna Redis
-Tworzy pamięć podręczna Redis Azure używany w aplikacji sieci web. Nazwa pamięci podręcznej została określona w **cacheName** zmiennej.
+Tworzy hello pamięć podręczna Redis Azure używany z hello aplikacji sieci web. Nazwa Hello hello pamięci podręcznej została określona w hello **cacheName** zmiennej.
 
-Szablon tworzy pamięci podręcznej w tej samej lokalizacji co grupy zasobów.
+Szablon Hello tworzy hello pamięci podręcznej w hello tej samej lokalizacji co hello grupy zasobów.
 
     {
       "name": "[variables('cacheName')]",
@@ -80,9 +80,9 @@ Szablon tworzy pamięci podręcznej w tej samej lokalizacji co grupy zasobów.
 
 
 ### <a name="web-app"></a>Aplikacja internetowa
-Tworzenie aplikacji sieci web o nazwie określonej w **podaną** zmiennej.
+Tworzy hello aplikacji sieci web o nazwie określonej w hello **podaną** zmiennej.
 
-Zwróć uwagę, że aplikacji sieci web jest skonfigurowany z właściwościami ustawienie aplikacji, które było w stanie pracy w pamięci podręcznej Redis. Ta aplikacja, ustawienia dynamiczne są tworzone na podstawie wartości podana podczas wdrażania.
+Należy zauważyć, że tej aplikacji sieci web hello jest skonfigurowany z aplikacją ustawienie właściwości, które ją włączyć toowork z hello pamięci podręcznej Redis. Ta aplikacja, ustawienia dynamiczne są tworzone na podstawie wartości podana podczas wdrażania.
 
     {
       "apiVersion": "2015-08-01",
@@ -117,7 +117,7 @@ Zwróć uwagę, że aplikacji sieci web jest skonfigurowany z właściwościami 
       ]
     }
 
-## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
+## <a name="commands-toorun-deployment"></a>Polecenia toorun wdrożenia
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell

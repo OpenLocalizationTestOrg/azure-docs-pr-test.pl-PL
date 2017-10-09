@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu obiektów Blob platformy Azure z systemem iOS | Dokumentacja firmy Microsoft"
-description: "Przechowuj dane niestrukturalne w chmurze za pomocą Magazynu obiektów blob Azure."
+title: "toouse aaaHow magazynu obiektów Blob platformy Azure z systemem iOS | Dokumentacja firmy Microsoft"
+description: "Przechowuj dane niestrukturalne w chmurze hello z magazynu obiektów Blob platformy Azure (obiekt magazynu)."
 services: storage
 documentationcenter: ios
 author: michaelhauss
@@ -14,39 +14,39 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b5f43156d46b1ab9dd10ff5a93427270c1b839ca
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cc08b76b682537a9a51e970c76bd76c7c06a4ccb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-ios"></a>Jak używać magazynu obiektów Blob z systemem iOS
+# <a name="how-toouse-blob-storage-from-ios"></a>Jak toouse magazynu obiektów Blob z systemem iOS
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym artykule opisano sposób wykonywania typowych scenariuszy przy użyciu magazynu obiektów Blob Microsoft Azure. Przykłady są napisane w języku Objective C i użyj [biblioteki klienta magazynu Azure dla systemu iOS](https://github.com/Azure/azure-storage-ios). Omówione scenariusze obejmują **przekazywania**, **wyświetlania**, **pobieranie**, i **usuwanie** obiektów blob. Aby uzyskać więcej informacji dotyczących obiektów blob, zobacz [następne kroki](#next-steps) sekcji. Możesz również pobrać [Przykładowa aplikacja](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) szybko wyświetlić korzystanie z usługi Azure Storage w aplikacji systemu iOS.
+W tym artykule opisano, jak tooperform typowych scenariuszy przy użyciu magazynu obiektów Blob Microsoft Azure. Witaj przykłady są napisane w języku Objective C i używają hello [biblioteki klienta magazynu Azure dla systemu iOS](https://github.com/Azure/azure-storage-ios). Witaj omówione scenariusze obejmują **przekazywania**, **wyświetlania**, **pobieranie**, i **usuwanie** obiektów blob. Aby uzyskać więcej informacji dotyczących obiektów blob, zobacz hello [następne kroki](#next-steps) sekcji. Możesz również pobrać hello [Przykładowa aplikacja](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) Zobacz tooquickly hello korzystanie z usługi Azure Storage w aplikacji systemu iOS.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importowanie biblioteki z systemem iOS magazynu Azure do aplikacji
-Możesz zaimportować biblioteki z systemem iOS magazynu Azure do aplikacji przy użyciu [CocoaPod magazynu Azure](https://cocoapods.org/pods/AZSClient) lub importując **Framework** pliku. CocoaPod jest zalecany, ponieważ ułatwia integrowanie łatwiejsze, jednak importowania z pliku framework jest ta opcja jest mniej pożądana dla istniejącego projektu biblioteki.
+## <a name="import-hello-azure-storage-ios-library-into-your-application"></a>Importowanie biblioteki dla systemu iOS usługi Azure Storage hello do aplikacji
+Możesz zaimportować hello Azure Storage iOS biblioteki do aplikacji przy użyciu hello [CocoaPod magazynu Azure](https://cocoapods.org/pods/AZSClient) lub importując hello **Framework** pliku. CocoaPod jest hello zalecany sposób, zgodnie z jego ułatwia całkującej biblioteki hello, jednak importowania z pliku framework hello jest ta opcja jest mniej pożądana dla istniejącego projektu.
 
-Aby użyć tej biblioteki, są potrzebne następujące elementy:
+toouse tej biblioteki, trzeba hello następujące:
 - System iOS 8 i nowsze
 - Xcode 7 +
 
 ## <a name="cocoapod"></a>CocoaPod
-1. Jeśli użytkownik jeszcze tego nie zrobiono, [instalacji programu CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) na komputerze, otwierając okno terminalu i uruchom następujące polecenie
+1. Jeśli użytkownik jeszcze tego nie zrobiono, [instalacji programu CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) na komputerze, otwierając okno terminalu i uruchamiając następujące polecenie hello
     
     ```shell   
     sudo gem install cocoapods
     ```
 
-2. Następnie w katalogu projektu (katalog zawierający plik .xcodeproj), Utwórz nowy plik o nazwie _Podfile_(bez rozszerzenia pliku). Dodaj następujący kod do _Podfile_ i Zapisz.
+2. Następnie w katalogu projektu hello (hello katalog zawierający plik .xcodeproj), Utwórz nowy plik o nazwie _Podfile_(bez rozszerzenia pliku). Dodaj następujące too_Podfile_ hello i Zapisz.
 
     ```ruby
     platform :ios, '8.0'
@@ -56,55 +56,55 @@ Aby użyć tej biblioteki, są potrzebne następujące elementy:
     end
     ```
 
-3. W oknie terminalu przejdź do katalogu projektu i uruchom następujące polecenie
+3. Hello okno terminalu Przejdź toohello katalogu projektu i hello uruchom następujące polecenie
 
     ```shell    
     pod install
     ```
 
-4. Jeśli Twoje .xcodeproj jest otwarty w programie Xcode, należy go zamknąć. W katalogu projektu otwórz plik nowo utworzonego projektu, który ma rozszerzenie .xcworkspace. Jest to plik, który będzie skorzystać z dla teraz.
+4. Jeśli Twoje .xcodeproj jest otwarty w programie Xcode, należy go zamknąć. W pliku projektu hello Otwórz nowo utworzony katalog projektu będą mieć hello .xcworkspace rozszerzenia. Jest to plik hello, który będzie skorzystać z dla teraz.
 
 ## <a name="framework"></a>Framework
-Innym sposobem korzystania z biblioteki jest skompilować platformę ręcznie:
+Witaj innych sposób biblioteki hello toouse toobuild hello framework ręcznie:
 
-1. Najpierw należy pobrać lub sklonować [repozytorium azure magazynu ios](https://github.com/azure/azure-storage-ios).
+1. Pierwszy, pobierania lub hello w klonowania [repozytorium azure magazynu ios](https://github.com/azure/azure-storage-ios).
 2. Przejdź do *systemu ios magazynu azure* -> *Lib* -> *biblioteki klienta magazynu Azure*, a następnie otwórz `AZSClient.xcodeproj` w środowisku Xcode.
-3. W lewym górnym Xcode należy zmienić schemat active "Biblioteki klienta magazynu Azure" do "Framework".
-4. Kompilacji projektu (⌘ + B). Spowoduje to utworzenie `AZSClient.framework` plik na pulpicie.
+3. Na powitania lewego górnego narzędzia xcode, zmień hello active schemat z "Biblioteki klienta magazynu Azure" za "Framework".
+4. Tworzenie projektu hello (⌘ + B). Spowoduje to utworzenie `AZSClient.framework` plik na pulpicie.
 
-Następnie można zaimportować plik framework w aplikacji, wykonując następujące czynności:
+Następnie można zaimportować plik framework hello w aplikacji, wykonując następujące hello:
 
 1. Tworzenie nowego projektu lub otworzenie istniejącego projektu w środowisku Xcode.
-2. Przeciągnij i upuść `AZSClient.framework` do Nawigatora projektu Xcode.
+2. Przeciąganie i upuszczanie hello `AZSClient.framework` do Nawigatora projektu Xcode.
 3. Wybierz *skopiować elementy w razie potrzeby*i kliknij przycisk *Zakończ*.
-4. Kliknij projekt w obszarze nawigacji po lewej stronie, a następnie kliknij przycisk *ogólne* kartę w górnej części edytora projektu.
-5. W obszarze *połączone struktury i biblioteki* sekcji, kliknij przycisk Dodaj (+).
-6. Na liście bibliotek już dostarczona, wyszukaj `libxml2.2.tbd` i dodaj go do projektu.
+4. Kliknij projekt w hello nawigacji po lewej stronie, a następnie kliknij przycisk hello *ogólne* u góry hello hello projektu edytora.
+5. W obszarze hello *połączone struktury i biblioteki* sekcji, kliknij przycisk Dodaj hello (+).
+6. Na liście hello biblioteki są dostępne, wyszukaj `libxml2.2.tbd` i dodaj go tooyour projektu.
 
-## <a name="import-the-library"></a>Importuj biblioteki 
+## <a name="import-hello-library"></a>Witaj Importuj biblioteki 
 ```objc
-// Include the following import statement to use blob APIs.
+// Include hello following import statement toouse blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
 
-Jeśli używasz Swift, konieczne będzie Utwórz nagłówek mostkowania i zaimportuj < AZSClient/AZSClient.h > istnieje:
+Jeśli używasz Swift, należy toocreate nagłówek mostkowania, a importowanie < AZSClient/AZSClient.h >:
 
-1. Utwórz plik nagłówka `Bridging-Header.h`i Dodaj powyżej instrukcję import.
-2. Przejdź do *ustawieniach kompilacji* , a następnie wyszukaj *nagłówków mostkowania języka Objective-C*.
-3. Kliknij dwukrotnie w zakresie *nagłówków mostkowania języka Objective-C* i Dodaj ścieżkę do pliku nagłówka:`ProjectName/Bridging-Header.h`
-4. Kompilacji projektu (⌘ + B), aby sprawdzić, czy nagłówek mostkowania została pobrana przez Xcode.
-5. Rozpoczynanie korzystania z biblioteki bezpośrednio w żadnym pliku Swift, nie istnieje potrzeba dla instrukcje importu.
+1. Utwórz plik nagłówka `Bridging-Header.h`i Dodaj hello powyżej instrukcję import.
+2. Przejdź toohello *ustawieniach kompilacji* , a następnie wyszukaj *nagłówków mostkowania języka Objective-C*.
+3. Kliknij dwukrotnie pole hello *nagłówków mostkowania języka Objective-C* i Dodaj hello ścieżki tooyour nagłówka pliku:`ProjectName/Bridging-Header.h`
+4. Tooverify kompilacji projektu (⌘ + B) hello, który hello nagłówka mostkowania została pobrana przez Xcode.
+5. Rozpoczynanie korzystania z biblioteki hello bezpośrednio w żadnym pliku Swift, nie istnieje potrzeba dla instrukcje importu.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="asynchronous-operations"></a>Operacje asynchroniczne
 > [!NOTE]
-> Wszystkie metody, które wykonują żądania z usługą są operacji asynchronicznych. W przykładach kodu znajdziesz, że te metody ma obsługi zakończenia. Uruchomi kodu wewnątrz obsługi uzupełniania **po** ukończyć żądania. Kod po zakończeniu obsługi zostanie uruchomiony **podczas** odbywa się żądanie.
+> Wszystkie metody, które wykonania żądania usługi hello są operacji asynchronicznych. W przykładach kodu hello znajdziesz, czy te metody ma obsługi zakończenia. Uruchomi kodu wewnątrz obsługi uzupełniania hello **po** hello żądania zostało zakończone. Kod po hello zakończenia obsługi zostanie uruchomiony **podczas** hello jest żądań.
 > 
 > 
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
-Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Poniższy przykład przedstawia sposób tworzenia kontenera o nazwie *newcontainer*, na Twoim koncie magazynu, jeśli jeszcze nie istnieje. W przypadku wybrania nazwy użytkownika kontenera, należy zachować ostrożność, reguły nazewnictwa wymienionych powyżej.
+Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Witaj poniższy przykład przedstawia sposób toocreate kontener o nazwie *newcontainer*, na Twoim koncie magazynu, jeśli jeszcze nie istnieje. W przypadku wybrania nazwy użytkownika kontenera, można w trosce o hello nazewnictwa zasad wymienione powyżej.
 
 ```objc
 -(void)createContainer{
@@ -123,7 +123,7 @@ Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Poniższ
     // Create a local container object.
     AZSCloudBlobContainer *blobContainer = [blobClient containerReferenceFromName:@"newcontainer"];
 
-    // Create container in your Storage account if the container doesn't already exist
+    // Create container in your Storage account if hello container doesn't already exist
     [blobContainer createContainerIfNotExistsWithCompletionHandler:^(NSError *error, BOOL exists) {
         if (error){
             NSLog(@"Error in creating container.");
@@ -132,16 +132,16 @@ Każdy obiekt blob w magazynie Azure musi znajdować się w kontenerze. Poniższ
 }
 ```
 
-Można potwierdzić, że to działa, analizując [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com) i sprawdzić, czy *newcontainer* znajduje się na liście kontenery konta magazynu.
+Można potwierdzić, że to działa, analizując hello [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com) i sprawdzić, czy *newcontainer* się na liście hello kontenerów dla konta magazynu.
 
 ## <a name="set-container-permissions"></a>Ustaw uprawnienia do kontenera
 Kontener uprawnienia są skonfigurowane dla **prywatnej** dostępu domyślnie. Kontenery zapewnia jednak kilka różnych opcji dla dostępu do kontenera:
 
-* **Prywatne**: obiektów blob i kontenera danych mogą być odczytywane tylko właściciel konta.
-* **Obiekt blob**: dane obiektów Blob w tym kontenerze mogą być odczytywane za pomocą żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Klienci nie można wyliczyć obiektów blob w kontenerze, za pomocą żądania od użytkowników anonimowych.
-* **Kontener**: obiektów blob i kontenera danych mogą być odczytywane za pomocą żądania od użytkowników anonimowych. Klientów można wyliczyć obiektów blob w kontenerze, za pomocą żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu.
+* **Prywatne**: obiektów blob i kontenera danych może zostać odczytany przez hello tylko właściciel konta.
+* **Obiekt blob**: dane obiektów Blob w tym kontenerze mogą być odczytywane za pomocą żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Klienci nie można wyliczyć obiektów blob w kontenerze hello za pomocą żądania od użytkowników anonimowych.
+* **Kontener**: obiektów blob i kontenera danych mogą być odczytywane za pomocą żądania od użytkowników anonimowych. Klientów można wyliczyć obiektów blob w kontenerze hello za pomocą żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu hello.
 
-Poniższy przykład przedstawia sposób tworzenia kontenera o **kontenera** dostępu uprawnienia, które pozwoli na dostęp publiczny, tylko do odczytu dla wszystkich użytkowników w Internecie:
+Witaj poniższym przykładzie pokazano, jak toocreate a kontener z **kontenera** uprawnienia, które zezwoli na dostęp publiczny, tylko do odczytu dla wszystkich użytkowników na powitania Internet dostępu:
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -160,7 +160,7 @@ Poniższy przykład przedstawia sposób tworzenia kontenera o **kontenera** dost
     // Create a local container object.
     AZSCloudBlobContainer *blobContainer = [blobClient containerReferenceFromName:@"containerpublic"];
 
-    // Create container in your Storage account if the container doesn't already exist
+    // Create container in your Storage account if hello container doesn't already exist
     [blobContainer createContainerIfNotExistsWithAccessType:AZSContainerPublicAccessTypeContainer requestOptions:nil operationContext:nil completionHandler:^(NSError *error, BOOL exists){
         if (error){
             NSLog(@"Error in creating container.");
@@ -170,9 +170,9 @@ Poniższy przykład przedstawia sposób tworzenia kontenera o **kontenera** dost
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Przekazywanie obiektu blob do kontenera
-Jak wspomniano w [pojęcia dotyczące usługi Blob](#blob-service-concepts) sekcji magazynu obiektów Blob udostępnia trzy typy obiektów blob: blokowe obiekty BLOB, uzupełnialnych obiektów blob i stronicowe. Biblioteka systemu iOS usługi Azure Storage obsługuje wszystkie trzy typy obiektów blob. W większości przypadków zalecane jest użycie blokowych obiektów blob.
+Jak wspomniano w hello [pojęcia dotyczące usługi Blob](#blob-service-concepts) sekcji magazynu obiektów Blob udostępnia trzy typy obiektów blob: blokowe obiekty BLOB, uzupełnialnych obiektów blob i stronicowe. Biblioteka systemu iOS usługi Azure Storage Hello obsługuje wszystkie trzy typy obiektów blob. W większości przypadków blokowych obiektów blob jest hello zalecane toouse typu.
 
-Poniższy przykład pokazuje, jak przekazać obiekt blob blokowy z NSString. Jeśli obiektu blob o takiej samej nazwie już istnieje w tym kontenerze, zawartość tego obiektu blob zostaną zastąpione.
+Witaj poniższy przykład pokazuje, jak tooupload blokowych obiektów blob z NSString. Jeśli obiekt blob o takiej nazwie już istnieje w tym kontenerze powitalne hello zawartość tego obiektu blob zostaną zastąpione.
 
 ```objc
 -(void)uploadBlobToContainer{
@@ -200,8 +200,8 @@ Poniższy przykład pokazuje, jak przekazać obiekt blob blokowy z NSString. Je�
                 // Create a local blob object
                 AZSCloudBlockBlob *blockBlob = [blobContainer blockBlobReferenceFromName:@"sampleblob"];
 
-                // Upload blob to Storage
-                [blockBlob uploadFromText:@"This text will be uploaded to Blob Storage." completionHandler:^(NSError *error) {
+                // Upload blob tooStorage
+                [blockBlob uploadFromText:@"This text will be uploaded tooBlob Storage." completionHandler:^(NSError *error) {
                     if (error){
                         NSLog(@"Error in creating blob.");
                     }
@@ -211,29 +211,29 @@ Poniższy przykład pokazuje, jak przekazać obiekt blob blokowy z NSString. Je�
 }
 ```
 
-Można potwierdzić, że to działa, analizując [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com) i sprawdzić, czy kontener, *containerpublic*, zawiera obiekt blob, *sampleblob*. W tym przykładzie użyliśmy publicznego kontenera, można również sprawdzić, czy tej aplikacji zadziałała, przechodząc do obiektów blob identyfikatora URI:
+Można potwierdzić, że to działa, analizując hello [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com) i weryfikowania tego kontenera hello *containerpublic*, zawiera hello blob *sampleblob*. W tym przykładzie użyliśmy publicznego kontenera, można również sprawdzić, czy ta aplikacja pracy będzie toohello obiekty BLOB identyfikatora URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
-Oprócz przekazywania blokowych obiektów blob z NSString, istnieją podobne metody NSData, NSInputStream lub pliku lokalnego.
+Ponadto toouploading blokowych obiektów blob z NSString podobnych metod istnieje NSData, NSInputStream lub pliku lokalnego.
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
-Poniższy przykład przedstawia sposób wyświetlania wszystkich obiektów blob w kontenerze. Po wykonaniu tej operacji można mając na uwadze następujące parametry:     
+## <a name="list-hello-blobs-in-a-container"></a>Lista hello BLOB w kontenerze
+Witaj poniższy przykład przedstawia sposób toolist wszystkie obiekty BLOB w kontenerze. Po wykonaniu tej operacji można mając na uwadze hello następujące parametry:     
 
-* **continuationToken** -reprezentuje token kontynuacji gdzie powinien rozpocząć operację wyświetlania listy. Jeśli token nie zostanie podany, będzie zawierała listę obiektów BLOB od początku. Dowolną liczbę obiektów blob może być wymieniona od zera do maksymalnej zestaw. Nawet jeśli ta metoda zwraca wyników, jeśli `results.continuationToken` nie jest tokenem nil, może być więcej obiektów blob w usłudze, które nie zostały wymienione.
-* **prefiks** — można określić prefiks do użycia na potrzeby listę obiektów blob. Zostaną wyświetlone tylko te obiekty BLOB, zaczynające się z tym prefiksem.
-* **useFlatBlobListing** — jak wspomniano w [nazewnictwa i odwołuje się do kontenerów i obiektów blob](#naming-and-referencing-containers-and-blobs) sekcji, chociaż usługa Blob jest schemat płaskiej magazynu można utworzyć wirtualnego hierarchii za pomocą nazw obiektów blob z informacje o ścieżce. Jednak lista-flat nie jest obecnie obsługiwane. Ta funkcja będzie dostępna wkrótce. Obecnie ta wartość powinna być **tak**.
-* **blobListingDetails** — można określić elementów do uwzględnienia podczas wyświetlania obiektów blob
+* **continuationToken** — Witaj reprezentuje token kontynuacji, gdzie powinna zaczynać się hello listę operacji. Jeśli token nie zostanie podany, będzie zawierała listę obiektów BLOB od początku hello. Dowolną liczbę obiektów blob może być wymieniona od zera się tooa wartość maksymalna. Nawet jeśli ta metoda zwraca wyników, jeśli `results.continuationToken` nie jest tokenem nil, może być więcej obiektów blob na powitania usługi, które nie zostały wymienione.
+* **prefiks** — można określić hello prefiks toouse listę obiektów blob. Zostaną wyświetlone tylko te obiekty BLOB, zaczynające się z tym prefiksem.
+* **useFlatBlobListing** — jak wspomniano w hello [nazewnictwa i odwołuje się do kontenerów i obiektów blob](#naming-and-referencing-containers-and-blobs) sekcji hello usługi obiektów Blob jest schemat płaskiej magazynu można utworzyć wirtualnego hierarchii za pomocą nazw obiektów blob ze ścieżką informacje. Jednak lista-flat nie jest obecnie obsługiwane. Ta funkcja będzie dostępna wkrótce. Obecnie ta wartość powinna być **tak**.
+* **blobListingDetails** -tooinclude elementów, które można określić podczas wyświetlania obiektów blob
   * _AZSBlobListingDetailsNone_: wyświetlanie tylko zatwierdzone obiektów blob, a nie zwracać metadane obiektu blob.
   * _AZSBlobListingDetailsSnapshots_: wyświetlanie obiektów blob zatwierdzone i migawki obiektu blob.
-  * _AZSBlobListingDetailsMetadata_: zwrócony pobrać metadane obiektu blob dla każdego obiektu blob na liście.
+  * _AZSBlobListingDetailsMetadata_: pobieranie metadane obiektu blob dla każdego obiektu blob zwrócił liście hello.
   * _AZSBlobListingDetailsUncommittedBlobs_: wyświetlanie zatwierdzonej i niezatwierdzone obiektów blob.
-  * _AZSBlobListingDetailsCopy_: obejmują kopiowania właściwości na liście.
+  * _AZSBlobListingDetailsCopy_: obejmują kopiowania właściwości liście hello.
   * _AZSBlobListingDetailsAll_: wyświetlić listę wszystkich dostępnych obiektów blob zatwierdzone, niezatwierdzone obiekty BLOB i migawki, a następnie wróć wszystkich metadanych i kopia stanu dla tych obiektów blob.
-* **maxResults** — maksymalna liczba wyników do zwrócenia do wykonania tej operacji. Użyj wartości -1 nie ustawić limit.
-* **completionHandler** — blok kodu do wykonania z wynikami operację wyświetlania listy.
+* **maxResults** — Witaj maksymalną liczbę wyników tooreturn dla tej operacji. Użyj wartości -1 toonot ustawienie limitu.
+* **completionHandler** -hello blok kodu tooexecute z wynikiem hello hello listę operacji.
 
-W tym przykładzie jest używane do metody pomocnika rekursywnie wywołanie listy obiektów blob — metoda, za każdym razem, gdy token kontynuacji jest zwracany.
+W tym przykładzie metoda pomocnika jest toorecursively używane wywołania hello listy obiektów blob metoda, za każdym razem, gdy token kontynuacji jest zwracany.
 
 ```objc
 -(void)listBlobsInContainer{
@@ -287,7 +287,7 @@ W tym przykładzie jest używane do metody pomocnika rekursywnie wywołanie list
 ```
 
 ## <a name="download-a-blob"></a>Pobieranie obiektu blob
-Poniższy przykład przedstawia sposób pobierania obiektu blob do obiektu NSString.
+powitania po przykładzie pokazano, jak toodownload obiektu blob tooa NSString.
 
 ```objc
 -(void)downloadBlobToString{
@@ -322,7 +322,7 @@ Poniższy przykład przedstawia sposób pobierania obiektu blob do obiektu NSStr
 ```
 
 ## <a name="delete-a-blob"></a>Usuwanie obiektu blob
-Poniższy przykład pokazuje, jak można usunąć obiektu blob.
+powitania po przykładzie pokazano, jak toodelete obiektu blob.
 
 ```objc
 -(void)deleteBlob{
@@ -354,7 +354,7 @@ Poniższy przykład pokazuje, jak można usunąć obiektu blob.
 ```
 
 ## <a name="delete-a-blob-container"></a>Usunięcie kontenera obiektów blob
-Poniższy przykład pokazuje, jak można usunąć kontenera.
+powitania po przykładzie pokazano, jak toodelete kontenera.
 
 ```objc
 -(void)deleteContainer{
@@ -383,13 +383,13 @@ Poniższy przykład pokazuje, jak można usunąć kontenera.
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz, jak używać magazynu obiektów Blob z systemem iOS, skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat biblioteki z systemem iOS i usługi magazynu.
+Teraz, kiedy znasz już jak toouse magazynu obiektów Blob z systemem iOS, wykonaj te toolearn łącza więcej informacji na temat biblioteki z systemem iOS hello i hello usługi magazynu.
 
 * [Biblioteka klienta usługi Azure Storage dla systemu iOS](https://github.com/azure/azure-storage-ios)
 * [IOS magazynu Azure dokumentacji](http://azure.github.io/azure-storage-ios/)
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog zespołu odpowiedzialnego za usługę Azure Storage](http://blogs.msdn.com/b/windowsazurestorage)
 
-Jeśli masz pytania dotyczące tej biblioteki, możesz do wysłania do naszej [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) lub [przepełnienie stosu](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-Jeśli masz sugestie funkcji usługi Azure Storage, Opublikuj do [opinii magazynu Azure](https://feedback.azure.com/forums/217298-storage/).
+Jeśli masz pytania dotyczące tej biblioteki, możesz tooour wolnego toopost [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) lub [przepełnienie stosu](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Jeśli masz sugestie funkcji usługi Azure Storage, Opublikuj zbyt[opinii magazynu Azure](https://feedback.azure.com/forums/217298-storage/).
 

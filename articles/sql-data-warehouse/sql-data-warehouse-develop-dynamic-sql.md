@@ -1,5 +1,5 @@
 ---
-title: "Dynamiczne SQL w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "aaaDynamic SQL w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: "Porady dotyczące używania dynamicznych SQL w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d66eecb37621510f657d1ec9a2a935daaa16052
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Dynamiczne SQL w usłudze SQL Data Warehouse
-Podczas tworzenia kodu aplikacji dla usługi SQL Data Warehouse może być konieczne korzystać z sql dynamicznej w celu udostępnienia rozwiązań elastyczny, ogólne i moduły. Usługi SQL Data Warehouse nie obsługuje typów danych obiektów blob w tym momencie. Może to limit rozmiaru z ciągów jako typy obiektów blob obejmują typy zarówno varchar(max), jak i nvarchar(max). Jeśli użyto tych typów w kodzie aplikacji podczas kompilowania bardzo dużych ciągów, konieczne będzie Podziel kod na fragmenty, a zamiast tego użyj instrukcji EXEC.
+Podczas tworzenia kodu aplikacji dla usługi SQL Data Warehouse może muszą toohelp dynamiczne sql toouse dostarczanie rozwiązań elastyczny, ogólne i moduły. Usługi SQL Data Warehouse nie obsługuje typów danych obiektów blob w tym momencie. Może to limit rozmiaru hello z ciągów, jak typy obiektów blob obejmują typy zarówno varchar(max), jak i nvarchar(max). Jeśli użyto tych typów w kodzie aplikacji podczas kompilowania bardzo dużych ciągów, należy toobreak hello kodu do fragmentów i użycie instrukcji use EXEC hello zamiast tego.
 
 Prosty przykład:
 
@@ -34,10 +34,10 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Jeśli ciąg jest krótkim możesz użyć [sp_executesql] [ sp_executesql] normalnego.
+Jeśli hello ciąg jest krótkim służy [sp_executesql] [ sp_executesql] normalnego.
 
 > [!NOTE]
-> Instrukcje wykonywane jako dynamiczny SQL będą nadal podlegać wszystkie reguły sprawdzania poprawności TSQL.
+> Instrukcje wykonywane jako dynamiczny SQL nadal będzie reguł sprawdzania poprawności TSQL tooall podmiotu.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie zasobów Azure Service Bus przy użyciu szablonów usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
-description: "Szablony usługi Azure Resource Manager umożliwia zautomatyzowanie tworzenie zasobów usługi Service Bus"
+title: "zasoby usługi Azure Service Bus aaaCreate przy użyciu szablonów usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+description: "Używanie usługi Azure Resource Manager szablony tooautomate hello tworzenia zasobów usługi Service Bus"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm
-ms.openlocfilehash: c8142d8edfd3a527b13d655bac21acf5332f2d14
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e539902cae307b63ae7c332580e2064761331ec5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Tworzenie zasobów usługi Service Bus przy użyciu szablonów usługi Azure Resource Manager
 
-W tym artykule opisano sposób tworzenia i wdrażania zasobów usługi Service Bus przy użyciu szablonów usługi Azure Resource Manager, programu PowerShell i dostawcy zasobów usługi Service Bus.
+W tym artykule opisano sposób toocreate i wdrażanie zasobów usługi Service Bus przy użyciu szablonów usługi Azure Resource Manager, programu PowerShell i dostawcy zasobów usługi Service Bus hello.
 
-Szablony usługi Azure Resource Manager pomagają zdefiniować zasobów do wdrożenia rozwiązania, aby określić parametry i zmienne, które umożliwią wprowadzanie wartości dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Aby uzyskać szczegółowe informacje na temat pisania szablonów usługi Azure Resource Manager i omówione w formacie szablonu, zobacz [struktury i składni szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Szablony usługi Azure Resource Manager pomagają zdefiniować hello toodeploy zasobów dla rozwiązania i toospecify parametry i zmienne, które pozwalają tooinput wartości dla różnych środowisk. Szablon Hello składa się z kodu JSON i wyrażeń, że możesz użyć wartości tooconstruct dla danego wdrożenia. Aby uzyskać szczegółowe informacje na temat pisania szablonów usługi Azure Resource Manager oraz omówienie formacie szablonu hello, zobacz [struktury i składni szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Przykłady w tym artykule pokazano, jak używać usługi Azure Resource Manager do tworzenia nazw usługi Service Bus i jednostki obsługi komunikatów (kolejki). Inne przykłady szablonów można znaleźć [galerię szablonów Szybki Start Azure] [ Azure Quickstart Templates gallery] i wyszukaj "Service Bus".
+> jak Hello przykłady w tym artykule Pokaż toouse Azure Resource Manager toocreate przestrzeni nazw usługi Service Bus i jednostek (kolejki) wiadomości. Inne przykłady szablonów można znaleźć hello [galerię szablonów Szybki Start Azure] [ Azure Quickstart Templates gallery] i wyszukaj "Service Bus".
 >
 >
 
 ## <a name="service-bus-resource-manager-templates"></a>Szablony Menedżera zasobów magistrali usług
 
-Te szablony usługi magistrali usługi Azure Resource Manager są dostępne do pobrania i wdrożenia. Kliknij poniższe łącza, aby uzyskać szczegółowe informacje o każdym z nich, wraz z łączami do szablonów w witrynie GitHub:
+Te szablony usługi magistrali usługi Azure Resource Manager są dostępne do pobrania i wdrożenia. Kliknij hello następującego łącza Aby uzyskać szczegółowe informacje o każdym z nich, przy użyciu łącza toohello szablonów w witrynie GitHub:
 
 * [Tworzenie przestrzeni nazw usługi Service Bus](service-bus-resource-manager-namespace.md)
 * [Tworzenie przestrzeni nazw usługi Service Bus z kolejki](service-bus-resource-manager-namespace-queue.md)
@@ -43,25 +43,25 @@ Te szablony usługi magistrali usługi Azure Resource Manager są dostępne do p
 
 ## <a name="deploy-with-powershell"></a>Wdrażanie przy użyciu programu PowerShell
 
-W poniższej procedurze opisano sposób użycia programu PowerShell do wdrożenia szablonu usługi Azure Resource Manager, która tworzy **standardowe** warstwy przestrzeń nazw magistrali usług i kolejką w tej przestrzeni nazw. Ten przykład jest oparty na [tworzenie przestrzeni nazw usługi Service Bus z kolejką](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) szablonu. Przybliżony przepływu pracy jest następujący:
+Hello Poniższa procedura opisuje sposób toouse PowerShell toodeploy szablonu usługi Azure Resource Manager tworzącą **standardowe** warstwy przestrzeń nazw magistrali usług i kolejką w tej przestrzeni nazw. Ten przykład jest oparty na powitania [tworzenie przestrzeni nazw usługi Service Bus z kolejką](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) szablonu. Witaj przybliżonej przepływu pracy jest następujący:
 
 1. Instalowanie programu PowerShell.
-2. Utwórz szablon i (opcjonalnie) pliku parametrów.
-3. W programie PowerShell należy zalogować się do konta platformy Azure.
+2. Utwórz szablon hello i (opcjonalnie) pliku parametrów.
+3. W programie PowerShell Zaloguj się za tooyour konto platformy Azure.
 4. Utwórz nową grupę zasobów, jeśli jeszcze nie istnieje.
-5. Testowanie wdrożenia.
-6. W razie potrzeby można ustawić trybu wdrożenia.
-7. Wdrażanie szablonu.
+5. Testowanie wdrażania hello.
+6. W razie potrzeby można ustawić trybu wdrożenia hello.
+7. Wdrażanie szablonu hello.
 
 Aby uzyskać pełne informacje na temat wdrażania szablonów usługi Azure Resource Manager, zobacz [wdrożenie zasobów przy użyciu szablonów usługi Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>Instalowanie programu PowerShell
 
-Instalowanie programu Azure PowerShell zgodnie z instrukcjami w [wprowadzenie do programu Azure PowerShell](/powershell/azure/get-started-azureps).
+Zainstaluj program Azure PowerShell, wykonując instrukcje hello w [wprowadzenie do programu Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Tworzenie szablonu
 
-Klonuj lub kopiowanie [201 magistrali usług — Tworzenie kolejki](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) szablonu z serwisu GitHub:
+Witaj w klonowania lub kopiowanie [201 magistrali usług — Tworzenie kolejki](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) szablonu z serwisu GitHub:
 
 ```json
 {
@@ -71,20 +71,20 @@ Klonuj lub kopiowanie [201 magistrali usług — Tworzenie kolejki](https://gith
         "serviceBusNamespaceName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Service Bus namespace"
+                "description": "Name of hello Service Bus namespace"
             }
         },
         "serviceBusQueueName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Queue"
+                "description": "Name of hello Queue"
             }
         },
         "serviceBusApiVersion": {
             "type": "string",
             "defaultValue": "2015-08-01",
             "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
+                "description": "Service Bus ApiVersion used by hello template"
             }
         }
     },
@@ -131,7 +131,7 @@ Klonuj lub kopiowanie [201 magistrali usług — Tworzenie kolejki](https://gith
 
 ### <a name="create-a-parameters-file-optional"></a>Utwórz plik parametrów (opcjonalnie)
 
-Aby użyć pliku następujące parametry opcjonalne, skopiuj [201 magistrali usług — Tworzenie kolejki](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) pliku. Zastąp wartość `serviceBusNamespaceName` z nazwą przestrzeni nazw usługi Service Bus chcesz utworzyć w tym wdrożeniu i zastąp wartość `serviceBusQueueName` nazwą kolejki, w którym chcesz utworzyć.
+toouse pliku następujące parametry opcjonalne hello kopiowania [201 magistrali usług — Tworzenie kolejki](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) pliku. Zastąp wartość hello `serviceBusNamespaceName` o nazwie hello przestrzeni nazw usługi Service Bus hello toocreate w tym wdrożeniu, a następnie zastąp wartości hello `serviceBusQueueName` o nazwie hello kolejki hello ma toocreate.
 
 ```json
 {
@@ -151,37 +151,37 @@ Aby użyć pliku następujące parametry opcjonalne, skopiuj [201 magistrali us�
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [parametry](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) tematu.
+Aby uzyskać więcej informacji, zobacz hello [parametry](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) tematu.
 
-### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Logowanie do platformy Azure i ustaw subskrypcji platformy Azure
+### <a name="log-in-tooazure-and-set-hello-azure-subscription"></a>Zaloguj się za tooAzure i ustawić hello subskrypcji platformy Azure
 
-Z wiersza polecenia programu PowerShell, uruchom następujące polecenie:
+Uruchom hello następujące polecenie z wiersza polecenia programu PowerShell:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Zostanie wyświetlony monit logowania do konta platformy Azure. Po zalogowaniu, uruchom następujące polecenie, aby wyświetlić dostępne subskrypcji.
+Jesteś zostanie wyświetlony monit o toolog na tooyour konto platformy Azure. Po zalogowaniu, uruchom następujące polecenie tooview hello dostępnych subskrypcji.
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję dla bieżącej sesji, uruchamiając następujące polecenie. Zastąp `<YourSubscriptionId>` o identyfikatorze GUID dla subskrypcji platformy Azure, którego chcesz użyć.
+To polecenie zwraca listę dostępnych subskrypcji platformy Azure. Wybierz subskrypcję dla hello bieżącej sesji, uruchamiając następujące polecenie hello. Zastąp `<YourSubscriptionId>` z hello identyfikatora GUID dla hello subskrypcji platformy Azure ma toouse.
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
-### <a name="set-the-resource-group"></a>Ustaw grupę zasobów
+### <a name="set-hello-resource-group"></a>Witaj grupy zasobów
 
-Jeśli nie masz istniejący zasób grupy, Utwórz nową grupę zasobów o ** New-AzureRmResourceGroup ** polecenia. Podaj nazwę grupy zasobów i lokalizacji, w której chcesz użyć. Na przykład:
+Jeśli nie masz istniejący zasób grupy, Utwórz nową grupę zasobów o hello ** New-AzureRmResourceGroup ** polecenia. Podaj nazwę grupy zasobów hello i lokalizację toouse hello. Na przykład:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Jeśli to się powiedzie, zostanie wyświetlone podsumowanie nowej grupy zasobów.
+Jeśli to się powiedzie, zostanie wyświetlone podsumowanie hello nowej grupy zasobów.
 
 ```powershell
 ResourceGroupName : MyDemoRG
@@ -191,44 +191,44 @@ Tags              :
 ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 ```
 
-### <a name="test-the-deployment"></a>Testowanie wdrożenia
+### <a name="test-hello-deployment"></a>Testowe wdrożenie na powitania
 
-Sprawdzanie poprawności wdrożenia, uruchamiając `Test-AzureRmResourceGroupDeployment` polecenia cmdlet. Podczas testowania wdrożenia, należy podać parametry, dokładnie tak jak w przypadku wykonywania wdrożenia.
-
-```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
-```
-
-### <a name="create-the-deployment"></a>Tworzenie wdrożenia
-
-Aby utworzyć nowe wdrożenie, uruchom `New-AzureRmResourceGroupDeployment` polecenia cmdlet i podaj niezbędne parametry, po wyświetleniu monitu. Parametry zawierają nazwę dla danego wdrożenia, nazwę grupy zasobów, a ścieżka lub adres URL do pliku szablonu. Jeśli **tryb** parametr nie zostanie określony, wartością domyślną **przyrostowe** jest używany. Aby uzyskać więcej informacji, zobacz [przyrostowe i pełne wdrożeń](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
-
-Polecenie wyświetla monit o podanie trzy parametry w oknie programu PowerShell:
+Sprawdzanie poprawności wdrożenia, uruchamiając hello `Test-AzureRmResourceGroupDeployment` polecenia cmdlet. Podczas testowania wdrożenia hello, należy podać parametry, dokładnie tak jak w przypadku wykonywania hello wdrożenia.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Aby zamiast tego określ plik parametrów, należy użyć następującego polecenia.
+### <a name="create-hello-deployment"></a>Tworzenie wdrożenia hello
+
+toocreate hello nowe wdrożenie, uruchom hello `New-AzureRmResourceGroupDeployment` polecenia cmdlet i podaj niezbędne parametry powitania po wyświetleniu monitu. Parametry Hello obejmować nazwę dla danego wdrożenia hello nazwy grupy zasobów i ścieżka hello lub pliku szablonu toohello adresu URL. Jeśli hello **tryb** parametr nie zostanie określony, hello wartość domyślną **przyrostowe** jest używany. Aby uzyskać więcej informacji, zobacz [przyrostowe i pełne wdrożeń](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+
+Witaj następujących wierszy polecenia można hello trzech parametrów w oknie programu PowerShell hello:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Umożliwia także parametry wbudowanego po uruchomieniu polecenia cmdlet wdrażania. Polecenie wygląda następująco:
+toospecify pliku parametrów zamiast tego należy użyć następującego polecenia hello.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -TemplateParameterFile <path tooparameters file>\azuredeploy.parameters.json
 ```
 
-Do uruchomienia [pełną](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) wdrożenia, ustaw **tryb** parametr **Complete**:
+Umożliwia także parametry wbudowanego po uruchomieniu polecenia cmdlet wdrażania hello. polecenie Hello jest następujący:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-### <a name="verify-the-deployment"></a>Weryfikacja wdrażania
-Jeśli zasoby zostały pomyślnie wdrożone, zostanie wyświetlone podsumowanie wdrożenia w oknie programu PowerShell:
+toorun [pełną](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) wdrożenia, zestaw hello **tryb** parametru zbyt**Complete**:
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
+```
+
+### <a name="verify-hello-deployment"></a>Sprawdź hello wdrożenia
+Jeśli pomyślnie są wdrażane zasoby hello, w oknie programu PowerShell hello zostanie wyświetlone podsumowanie wdrożenia hello:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -247,7 +247,7 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz przedstawiono podstawowy przepływ pracy i polecenia służące do wdrażania szablonu usługi Azure Resource Manager. Bardziej szczegółowe informacje można znaleźć w następujących łączy:
+Teraz przedstawiono podstawowy przepływ pracy hello i polecenia służące do wdrażania szablonu usługi Azure Resource Manager. Aby uzyskać szczegółowe informacje odwiedź hello następującego łącza:
 
 * [Omówienie usługi Azure Resource Manager][Azure Resource Manager overview]
 * [Wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell][Deploy resources with Azure Resource Manager templates]

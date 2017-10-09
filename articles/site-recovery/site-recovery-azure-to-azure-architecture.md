@@ -1,6 +1,6 @@
 ---
-title: "Jak działa replikacja maszyny wirtualnej platformy Azure między regiony platformy Azure w usłudze Azure Site Recovery?  | Microsoft Docs"
-description: "Ten artykuł zawiera omówienie składników i architektury używane podczas replikowania maszyn wirtualnych platformy Azure między regiony platformy Azure przy użyciu usługi Azure Site Recovery."
+title: "aaaHow czy replikacja maszyny wirtualnej platformy Azure między pracy regiony platformy Azure w usłudze Azure Site Recovery?  | Microsoft Docs"
+description: "Ten artykuł zawiera omówienie składników i architektury używane podczas replikowania maszyn wirtualnych platformy Azure między regiony platformy Azure przy użyciu usługi Azure Site Recovery hello."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/29/2017
 ms.author: sujayt
-ms.openlocfilehash: ec397eaeda963f257d1bd996f1f57189bcde17ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 01eda83e490821f8afc8a2973c18a19453a2e84a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-azure-vm-replication-work-in-site-recovery"></a>Jak działa replikacja maszyny Wirtualnej platformy Azure w usłudze Site Recovery?
 
 
-W tym artykule opisano składniki i procesy zaangażowane w replikacji i odzyskiwania maszyn wirtualnych platformy Azure (maszyn wirtualnych) z jednego regionu do drugiego za pomocą [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
+W tym artykule opisano składniki hello i procesy wykonywane w replikacji i odzyskiwania maszyn wirtualnych platformy Azure (maszyn wirtualnych) z jednego regionu tooanother przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
 
 >[!NOTE]
->Azure replikacji maszyny Wirtualnej za pomocą usługi Site Recovery jest obecnie w przeglądzie.
+>Azure replikacji maszyny Wirtualnej za pomocą hello usługi Site Recovery jest obecnie w przeglądzie.
 
-Wszelkie komentarze umieszczaj pod tym artykułem lub zadawaj pytania na [Forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opublikuj wszelkie komentarze u dołu hello w tym artykule, lub zadać pytania w hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="architectural-components"></a>Składniki architektury
 
-Poniższy diagram przedstawia ogólny widok środowiska maszyny Wirtualnej platformy Azure w określonym regionie (w tym przykładzie lokalizacji wschodnie stany USA). W środowisku maszyny Wirtualnej platformy Azure:
+powitania po diagram przedstawia ogólny widok środowiska maszyny Wirtualnej platformy Azure w określonym regionie (w tym przykładzie hello wschodnie stany USA lokalizacji). W środowisku maszyny Wirtualnej platformy Azure:
 - Aplikacje mogą działać na maszynach wirtualnych z dyskami rozmieszczenie do kont magazynu.
-- Maszyny wirtualne mogą zostać włączone w co najmniej jednej podsieci sieci wirtualnej.
+- Witaj maszyny wirtualne mogą zostać włączone w co najmniej jednej podsieci sieci wirtualnej.
 
 ![środowisko klienta](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymagań w [macierz obsługi](site-recovery-support-matrix-azure-to-azure.md).
+Dowiedz się więcej o wymaganiach wstępnych wdrożenia hello oraz wymagań dotyczących hello [macierz obsługi](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="replication-process"></a>Proces replikacji
 
 ### <a name="step-1"></a>Krok 1
 
-Po włączeniu replikacji maszyny Wirtualnej platformy Azure w portalu Azure w region docelowy są automatycznie tworzone zasoby pokazano na poniższym diagramie i tabeli. Domyślnie zasoby są tworzone zgodnie z ustawieniami region źródła. Można dostosować ustawienia obiektu docelowego, zgodnie z wymaganiami. [Dowiedz się więcej](site-recovery-replicate-azure-to-azure.md).
+Po włączeniu replikacji maszyny Wirtualnej platformy Azure w portalu Azure hello hello pokazane w powitania po diagram i tabeli są tworzone automatycznie w region docelowy hello zasobów. Domyślnie zasoby są tworzone zgodnie z ustawieniami region źródła. Można dostosować ustawienia obiektu docelowego hello zgodnie z potrzebami. [Dowiedz się więcej](site-recovery-replicate-azure-to-azure.md).
 
 ![Włącz proces replikacji, krok 1](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-1.png)
 
 **Zasób** | **Szczegóły**
 --- | ---
-**Docelowa grupa zasobów** | Grupa zasobów replikowane maszyny wirtualne należą po pracy awaryjnej.
-**Docelowy sieci wirtualnej** | Sieć wirtualna, w którym replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej. Mapowanie sieci jest tworzony między sieciami wirtualnymi źródłowym i docelowym i na odwrót.
-**Konta magazynu pamięci podręcznej** | Przed Replikacja zmian na maszynach wirtualnych źródłowego na docelowe konto magazynu, są one śledzone i wysyłane do konta magazynu pamięci podręcznej w lokalizacji docelowej. Dzięki temu minimalny wpływ na aplikacje produkcji działające na maszynie Wirtualnej.
-**Konta magazynu docelowego**  | Konta magazynu w lokalizacji docelowej, do którego dane są replikowane.
-**Docelowy zestawów dostępności**  | Zestawy dostępności, której replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej.
+**Docelowa grupa zasobów** | Witaj toowhich grupy zasobów należy replikowanych maszyn wirtualnych po pracy awaryjnej.
+**Docelowy sieci wirtualnej** | sieć wirtualna Hello w którym replikowanych maszyn wirtualnych znajdują się po pracy awaryjnej. Mapowanie sieci jest tworzony między sieciami wirtualnymi źródłowym i docelowym i na odwrót.
+**Konta magazynu pamięci podręcznej** | Przed zmian w źródle, które maszyny wirtualne są replikowane toohello docelowe konto magazynu, są śledzone i wysłane konta magazynu pamięci podręcznej toohello w miejscu docelowym hello. Dzięki temu minimalny wpływ na produkcji aplikacje działające na powitania maszyny Wirtualnej.
+**Konta magazynu docelowego**  | Konta magazynu w hello docelowej lokalizacji toowhich hello dane są replikowane.
+**Docelowy zestawów dostępności**  | Zestawy dostępności w których hello replikowane maszyny wirtualne znajdują się po pracy awaryjnej.
 
 ### <a name="step-2"></a>Krok 2
 
-Ponieważ replikacja jest włączona, rozszerzenia usługi Site Recovery usługa mobilności jest automatycznie instalowany na maszynie Wirtualnej. Następujące operacje:
+Ponieważ replikacja jest włączona, hello rozszerzenia usługi Site Recovery usługi mobilności jest automatycznie instalowany na powitania maszyny Wirtualnej. występuje Hello następujące czynności:
 
-1. Maszyna wirtualna jest zarejestrowany z usługą Site Recovery.
+1. Witaj maszyny Wirtualnej jest zarejestrowany z usługą Site Recovery.
 
-2. Ciągła replikacja jest skonfigurowana dla maszyny Wirtualnej. Zapisuje dane na dyskach maszyny Wirtualnej stale są przenoszone do konta magazynu pamięci podręcznej w lokalizacji źródłowej.
+2. Ciągła replikacja jest skonfigurowana dla hello maszyny Wirtualnej. Zapisuje dane na powitania maszyny Wirtualnej dyski są stale toohello konta magazynu pamięci podręcznej w lokalizacji źródłowej hello transferu.
 
    ![Włącz proces replikacji, krok 2](./media/site-recovery-azure-to-azure-architecture/enable-replication-step-2.png)
 
    >[!IMPORTANT]
-   > Usługi Site Recovery, nigdy nie musi mieć łączność przychodzący do maszyny Wirtualnej. Maszyna wirtualna musi mieć tylko ruchu wychodzącego łączność adresy IP/adresy URL usługi Site Recovery, adresy IP/adresy URL uwierzytelniania usługi Office 365 i adresów IP konta magazynu pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [sieci wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure-networking-guidance.md) artykułu.
+   > Usługa Site Recovery nigdy nie musi toohello przychodzących połączeń maszyny Wirtualnej. Witaj maszyny Wirtualnej musi tylko adresy IP/adresy URL usługi odzyskiwania tooSite łączność wychodząca, adresy IP/adresy URL uwierzytelniania usługi Office 365 i adresy IP konta magazynu pamięci podręcznej. Aby uzyskać więcej informacji, zobacz hello [sieci wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure-networking-guidance.md) artykułu.
 
 ## <a name="continuous-replication-process"></a>Proces replikacji ciągłej
 
-Po replikacji ciągłej działa, dysku operacje zapisu natychmiast są przenoszone do konta magazynu pamięci podręcznej. Usługa Site Recovery przetwarza dane i wysyła je do docelowe konto magazynu. Po przetworzeniu danych punkty odzyskiwania są generowane w docelowe konto magazynu, co kilka minut.
+Po replikacji ciągłej działa, dysk, który zapisuje są natychmiast przekazywane konta magazynu pamięci podręcznej toohello. Usługa Site Recovery przetwarza dane hello i wysyła je toohello docelowe konto magazynu. Po przetworzeniu danych hello punkty odzyskiwania są generowane w hello docelowe konto magazynu, co kilka minut.
 
 ## <a name="failover-process"></a>Proces trybu failover
 
-Po zainicjowaniu tryb failover maszyn wirtualnych są tworzone w docelowa grupa zasobów, wirtualne sieci docelowej, podsieci docelowej i zestawu dostępności docelowego. Podczas pracy awaryjnej można użyć dowolnego punktu odzyskiwania.
+Po zainicjowaniu tryb failover maszyny wirtualne są tworzone w hello docelowa grupa zasobów, wirtualnych sieci docelowej, podsieci docelowej powitalne i hello docelowego zestawu dostępności. Podczas pracy awaryjnej można użyć dowolnego punktu odzyskiwania.
 
 ![Proces trybu failover](./media/site-recovery-azure-to-azure-architecture/failover.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [sieci](site-recovery-azure-to-azure-networking-guidance.md) replikacji maszyny Wirtualnej platformy Azure.
-- Wykonaj wskazówki do [replikowanie maszyn wirtualnych Azure.](site-recovery-azure-to-azure.md)
+- Wykonaj przewodnik zbyt[replikowanie maszyn wirtualnych Azure.](site-recovery-azure-to-azure.md)

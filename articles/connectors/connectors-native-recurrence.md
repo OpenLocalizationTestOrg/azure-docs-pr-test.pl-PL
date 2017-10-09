@@ -1,6 +1,6 @@
 ---
-title: Dodaj wyzwalacza cyklu w aplikacjach logiki | Dokumentacja firmy Microsoft
-description: "Przegląd cyklu wyzwalacza i jak z niego korzystać z aplikacji logiki platformy Azure."
+title: wyzwalacz cyklu hello aaaAdd w aplikacji logiki | Dokumentacja firmy Microsoft
+description: "Omówienie hello cyklu wyzwalacza i w jaki sposób toouse go z aplikacji logiki platformy Azure."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: fe558958c316c8dba42163e277ae01451f712e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7c625c382a88a1e7cdfff4ddc0caf55727232bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-recurrence-trigger"></a>Rozpoczynanie pracy z wyzwalaczem cyklu
-Przy użyciu wyzwalacza cyklu, można tworzyć rozbudowane przepływy pracy w chmurze.
+# <a name="get-started-with-hello-recurrence-trigger"></a>Rozpoczynanie pracy z wyzwalaczem cyklu hello
+Za pomocą wyzwalacza cyklu hello, mogą tworzyć zaawansowane przepływy pracy w chmurze hello.
 
 Można na przykład:
 
-* Planowanie przepływu pracy do uruchomienia codziennie procedury składowane SQL.
-* Wyślij wiadomość e-mail podsumowanie wszystkich tweetów w ostatnim tygodniu o niektórych hasztagiem.
+* Planowanie przepływu pracy toorun procedury składowane SQL każdego dnia.
+* Wyślij wiadomość e-mail podsumowanie wszystkich tweetów w ciągu ostatniego tygodnia o niektórych hasztagiem hello.
 
-Aby rozpocząć korzystanie z wyzwalacza cyklu w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget uruchomiony przy użyciu wyzwalacza cyklu hello w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-a-recurrence-trigger"></a>Użyj wyzwalacz cyklu
-Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](connectors-overview.md).
+Wyzwalacz jest zdarzenie, które mogą być używane toostart przepływu pracy hello zdefiniowanej w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](connectors-overview.md).
 
-Oto przykład sekwencji sposobu konfigurowania wyzwalacz cyklu w aplikacji logiki:
+Oto przykład sekwencji jak tooset się cykl wyzwalacz w aplikacji logiki:
 
-1. Dodaj **cyklu** wyzwalacza jako pierwszy krok w aplikacji logiki.
-2. Wprowadź interwał cyklu w parametrach.
+1. Dodaj hello **cyklu** jako hello pierwszym etapem aplikacji logiki.
+2. Wprowadź parametry hello hello interwał cyklu.
 
-Uruchomieniu aplikacji logiki teraz uruchamianie po każdym interwale czasu.
+Aplikacja logiki Hello uruchamia uruchamianie po każdym interwale czasu.
 
 ![Wyzwalacz HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
 ## <a name="trigger-details"></a>Szczegóły wyzwalacza
-Wyzwalacz cyklu ma następujące właściwości, które można skonfigurować.
+wyzwalacz cyklu Hello ma następujące właściwości, które można skonfigurować hello.
 
 Generowane aplikacji logiki, po upływie czasu określonego czasu.
 A * oznacza, że jest polem wymaganym.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Częstotliwość * |częstotliwość |Jednostka czasu: `Second`, `Minute`, `Hour`, `Day`, lub `Year`. |
-| Interwał * |Interwał |Interwał częstotliwości danego cyklu. |
+| Częstotliwość * |frequency |Jednostka czasu Hello: `Second`, `Minute`, `Hour`, `Day`, lub `Year`. |
+| Interwał * |interval |Interwał powitania hello podana częstotliwość cyklu hello. |
 | Strefa czasowa |Strefa czasowa |Jeśli godzina rozpoczęcia jest dostarczany bez przesunięcie czasu UTC, będą używane tej strefy czasowej. |
-| Godzina rozpoczęcia |startTime |Czas rozpoczęcia w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
+| Godzina rozpoczęcia |startTime |Godzina rozpoczęcia Hello w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). |
 
 <br>
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+Teraz, wypróbuj hello platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Można eksplorować hello innych dostępnych łączników w aplikacjach logiki analizując naszych [listy interfejsów API](apis-list.md).
 

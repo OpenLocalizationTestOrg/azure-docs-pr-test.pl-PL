@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z zastępcy | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i zastępcy."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i zastępcy."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,104 +13,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 42f65b758682ce2513b6bb38ef40a19f955c88c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Samouczek: Integracji Azure Active Directory z zastępcy
 
-Z tego samouczka dowiesz się integrowanie zastępcy w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate zastępcy w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD zastępcy zapewnia następujące korzyści:
+Integracja z usługą Azure AD zastępcy zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do zastępcy
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do zastępcy (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooDeputy
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooDeputy (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z zastępcy, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z zastępcy należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Zastępcy logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie zastępcy z galerii
+1. Dodawanie zastępcy z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-deputy-from-the-gallery"></a>Dodawanie zastępcy z galerii
-Aby skonfigurować integrację usługi Azure AD zastępcy, należy dodać zastępcy z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-deputy-from-hello-gallery"></a>Dodawanie zastępcy z galerii hello
+tooconfigure hello integracji zastępcy do usługi Azure AD, należy tooadd zastępcy z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać zastępcy z galerii, wykonaj następujące czynności:**
+**tooadd zastępcy z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **zastępcy**.
+4. W polu wyszukiwania hello wpisz **zastępcy**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_search.png)
 
-5. W panelu wyników wybierz **zastępcy**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello zaznacz **zastępcy**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zastępcy oparte na koncie użytkownika testu o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w zastępcy jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w zastępcy musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w zastępcy jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w zastępcy musi toobe ustanowione.
 
-W zastępcy, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W zastępcy, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zastępcy, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z zastępcy, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zastępcy](#creating-a-deputy-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta zastępcy połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego zastępcy](#creating-a-deputy-test-user)**  -toohave odpowiednikiem Simona Britta w zastępcy, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji zastępcy.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji zastępcy.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z zastępcy, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z zastępcy, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **zastępcy** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **zastępcy** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_samlbase.png)
 
-3. Na **zastępcy domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **IDP** inicjowane tryb:
+3. Na powitania **zastępcy domeny i adres URL** sekcji, jeśli chcesz, aby aplikacja hello tooconfigure w **IDP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url1.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:
+    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -129,7 +129,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | `https://<subdomain>.<region>.ent-an.deputy.com` |
     | `https://<subdomain>.<region>.deputy.com` |
 
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:
+    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:
     | |
     |----|
     | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs.` |
@@ -148,19 +148,19 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs.` |
     | `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs.` |
 
-4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Jeśli chcesz, aby aplikacja hello tooconfigure w **SP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url2.png)
 
-    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<your-subdomain>.<region>.deputy.com`
+    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<your-subdomain>.<region>.deputy.com`
     
     >[!NOTE]
     > Sufiks region zastępcy jest opcjonalne, lub go należy użyć jednej z tych: Australia | na | Europa | jako | la | af | | Australia Enterprise | Enterprise na | Enterprise eu | Enterprise — jako | Enterprise la | Enterprise af | usługi Enterprise
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej zastępcy](https://www.deputy.com/call-centers-customer-support-scheduling-software) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej zastępcy](https://www.deputy.com/call-centers-customer-support-scheduling-software) tooget tych wartości. 
 
-5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+5. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_certificate.png) 
 
@@ -168,11 +168,11 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_general_400.png)
     
-7. Na **konfiguracji zastępcy** , kliknij przycisk **skonfigurować zastępcy** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+7. Na powitania **konfiguracji zastępcy** kliknij **skonfigurować zastępcy** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_configure.png) 
 
-8. Przejdź do następującego adresu URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Przejdź do **ustawienia zabezpieczeń** i kliknij przycisk **Edytuj**.
+8. Przejdź toohello następującego adresu URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Przejdź za**ustawienia zabezpieczeń** i kliknij przycisk **Edytuj**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 
@@ -182,97 +182,97 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     a. Włącz **społecznościowych logowania**.
    
-    b. Otwórz z certyfikatu szyfrowania Base64 pobrany z portalu Azure w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu biblioteki OpenSSL** pola tekstowego.
+    b. Otwórz z certyfikatu szyfrowania Base64 pobrany z portalu Azure w programie Notatnik hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **certyfikatu biblioteki OpenSSL** pola tekstowego.
    
-    c. W polu tekstowym adres URL logowania jednokrotnego SAML wpisz`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. W polu tekstowym adres URL logowania jednokrotnego SAML hello wpisz`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
-    d. W polu tekstowym adres URL logowania jednokrotnego SAML Zastąp `<your subdomain>` z Twojej domeny podrzędnej.
+    d. W polu tekstowym adres URL logowania jednokrotnego SAML hello, Zastąp `<your subdomain>` z Twojej domeny podrzędnej.
    
-    e. W polu tekstowym adres URL logowania jednokrotnego SAML Zastąp `<saml sso url>` z **SAML pojedynczy znak na adres URL usługi** zostały skopiowane z portalu Azure.
+    e. W polu tekstowym adres URL logowania jednokrotnego SAML hello, Zastąp `<saml sso url>` z hello **SAML pojedynczy znak na adres URL usługi** zostały skopiowane z hello portalu Azure.
    
     f. Kliknij przycisk **Zapisz ustawienia**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-deputy-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-deputy-test-user"></a>Tworzenie użytkownika testowego zastępcy
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do zastępcy, muszą mieć przydzielone do zastępcy. W przypadku zastępcy Inicjowanie obsługi to zadanie ręczne.
+toolog użytkowników tooenable usługi Azure AD w tooDeputy, muszą mieć przydzielone do zastępcy. W przypadku zastępcy Inicjowanie obsługi to zadanie ręczne.
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Aby udostępnić konta użytkownika, wykonaj następujące czynności:
-1. Zaloguj się do witryny firmy zastępcy jako administrator.
+#### <a name="tooprovision-a-user-account-perform-hello-following-steps"></a>tooprovision konta użytkownika, należy wykonać hello następujące kroki:
+1. Zaloguj się w witrynie firmy zastępcy tooyour jako administrator.
 
-2. W okienku górnym menu nawigacyjnym kliknij **osób**.
+2. W okienku nawigacji w górnym powitania kliknij **osób**.
    
    ![Osoby](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_001.png "osób")
 
-3. Kliknij przycisk **dodać osób** przycisk **dodać jedną osobę**.
+3. Kliknij przycisk hello **dodawania osoby** przycisk **dodać jedną osobę**.
    
    ![Dodaj użytkowników](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_002.png "Dodaj użytkowników")
 
-4. Wykonaj poniższe czynności, a następnie kliknij przycisk **Zapisz & zaprosić**.
+4. Wykonaj następujące kroki hello, a następnie kliknij przycisk **Zapisz & zaprosić**.
    
    ![Nowy użytkownik](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_003.png "nowego użytkownika")
 
-   a. W **nazwa** pole tekstowe, nazwa typu użytkownika, takich jak **BrittaSimon**.
+   a. W hello **nazwa** pole tekstowe, nazwa typu hello użytkownika, takich jak **BrittaSimon**.
    
-   b. W **E-mail** tekstowym, wpisz adres e-mail konta usługi Azure AD, aby udostępnić.
+   b. W hello **E-mail** pole tekstowe, typ hello adres e-mail konta usługi Azure AD ma tooprovision.
    
-   c. W **działania na** tekstowym, wpisz nazwę biznesowych.
+   c. W hello **działania na** pole tekstowe, nazwa firmy hello typu.
    
    d. Kliknij przycisk **Zapisz & zaprosić** przycisku.
 
-5. Właściciel konta usługi AAD otrzymuje wiadomość e-mail i następuje łącze, aby potwierdzić swoje konto, zanim staje się aktywny. Możesz użyć innych zastępcy użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez zastępcy do kont użytkowników usługi AAD.
+5. Właściciel konta usługi AAD Hello otrzymuje wiadomość e-mail i następuje tooconfirm łącze swojego konta, zanim staje się aktywny. Możesz użyć innych zastępcy użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision zastępcy AAD kont użytkowników.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu zastępcy.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooDeputy.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta zastępcy, wykonaj następujące czynności:**
+**tooassign tooDeputy Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **zastępcy**.
+2. Z listy aplikacji hello wybierz **zastępcy**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -280,7 +280,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -288,13 +288,13 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+Celem Hello w tej sekcji jest tootest programu Azure AD SSO konfiguracji przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka zastępcy w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji zastępcy.
+Po kliknięciu hello zastępcy kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour zastępcy aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

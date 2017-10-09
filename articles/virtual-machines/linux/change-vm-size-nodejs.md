@@ -1,6 +1,6 @@
 ---
-title: "Jak zmienić rozmiar maszyny Wirtualnej systemu Linux, z interfejsu wiersza polecenia platformy Azure w wersji 1.0 | Dokumentacja firmy Microsoft"
-description: "Jak skalowanie w górę i skalowania maszynę wirtualną systemu Linux przez zmianę rozmiaru maszyny Wirtualnej."
+title: "tooresize aaaHow Maszynę wirtualną systemu Linux z hello Azure CLI 1.0 | Dokumentacja firmy Microsoft"
+description: "Jak tooscale zapasowych lub Zmniejsz maszyny wirtualnej systemu Linux, zmieniając hello rozmiar maszyny Wirtualnej."
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
@@ -16,38 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72f5a3cd6463befd5108040ed166984281bfc5f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43dd955dc2f2dd9d1b2da07ecbfbf2459bcaa4d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>Zmień rozmiar maszyny Wirtualnej systemu Linux z interfejsu wiersza polecenia platformy Azure 1.0
 
 ## <a name="overview"></a>Omówienie
 
-Po udostępnić maszynę wirtualną (VM), można skalować maszyny Wirtualnej w górę lub w dół, zmieniając [rozmiar maszyny Wirtualnej][vm-sizes]. W niektórych przypadkach należy najpierw cofnąć maszyny Wirtualnej. Może to nastąpić, jeśli nowy rozmiar jest niedostępny w klastrze sprzętu, który jest hostem maszyny Wirtualnej.
+Po udostępnić maszynę wirtualną (VM), można skalować hello maszyny Wirtualnej w górę lub w dół, zmieniając hello [rozmiar maszyny Wirtualnej][vm-sizes]. W niektórych przypadkach należy najpierw cofnąć hello maszyny Wirtualnej. Może to nastąpić, jeśli hello nowy rozmiar jest niedostępny na hello sprzętu klastra, który jest hostem hello maszyny Wirtualnej.
 
-W tym artykule przedstawiono sposób zmiany rozmiaru maszyny Wirtualnej systemu Linux przy użyciu [interfejsu wiersza polecenia Azure][azure-cli].
+W tym artykule przedstawiono sposób tooresize a maszyny Wirtualnej systemu Linux przy użyciu hello [interfejsu wiersza polecenia Azure][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
+## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
+Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
 
-- [Azure CLI 1.0](#resize-a-linux-vm) — nasze interfejsu wiersza polecenia dla klasycznego i zasobów zarządzania wdrażania modeli (w tym artykule)
-- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+- [Azure CLI 1.0](#resize-a-linux-vm) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania wdrażania modeli (w tym artykule)
+- [Azure CLI 2.0](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello
 
 
 ## <a name="resize-a-linux-vm"></a>Zmień rozmiar maszyny Wirtualnej systemu Linux
-Aby zmienić rozmiar maszyny Wirtualnej, wykonaj następujące kroki.
+tooresize maszyny Wirtualnej, wykonaj hello następujące kroki.
 
-1. Uruchom następujące polecenie, interfejsu wiersza polecenia. To polecenie wyświetla listę rozmiarów maszyn wirtualnych, które są dostępne w klastrze sprzętu, gdzie jest hostowana maszyny Wirtualnej.
+1. Uruchom następujące polecenia interfejsu wiersza polecenia hello. To polecenie wyświetla hello rozmiarów maszyn wirtualnych, które są dostępne w klastrze sprzętu hello gdzie hello maszyny Wirtualnej jest hostowana.
    
     ```azurecli
     azure vm sizes -g myResourceGroup --vm-name myVM
     ```
-2. Jeśli na liście jest wymagany rozmiar, uruchom następujące polecenie, aby zmienić rozmiar maszyny Wirtualnej.
+2. W razie potrzeby hello znajduje się rozmiar Uruchom hello następujące polecenia tooresize hello maszyny Wirtualnej.
    
     ```azurecli
     azure vm set -g myResourceGroup --vm-size <new-vm-size> -n myVM  \
@@ -55,10 +55,10 @@ Aby zmienić rozmiar maszyny Wirtualnej, wykonaj następujące kroki.
         --boot-diagnostics-storage-uri https://mystorageaccount.blob.core.windows.net/ 
     ```
    
-    Maszyna wirtualna zostanie ponownie uruchomiona w trakcie tego procesu. Po uruchomieniu z istniejącego systemu operacyjnego i dysków z danymi będzie można ponownie zamapować. Elementy na dysku tymczasowym zostaną utracone.
+    Witaj maszyna wirtualna zostanie ponownie uruchomiona w trakcie tego procesu. Po ponownym uruchomieniu hello z istniejącego systemu operacyjnego i dysków z danymi będzie można ponownie zamapować. Elementy na dysku tymczasowym hello zostaną utracone.
    
-    Użyj `--enable-boot-diagnostics` powoduje włączenie [diagnostyki rozruchu][boot-diagnostics], aby rejestrować błędy dotyczące uruchamiania.
-3. W przeciwnym razie Jeśli żądany rozmiar nie jest wyświetlana, uruchom następujące polecenia można cofnąć alokacji maszyny Wirtualnej, rozmiar i ponownie uruchom maszynę Wirtualną.
+    Użyj hello `--enable-boot-diagnostics` powoduje włączenie [diagnostyki rozruchu][boot-diagnostics], toolog żadnych toostartup powiązane błędy.
+3. W przeciwnym razie w razie potrzeby hello się, że nie ma rozmiar Uruchom hello następujące polecenia toodeallocate hello maszyny Wirtualnej, jej rozmiar, a następnie ponownie uruchom hello maszyny Wirtualnej.
    
     ```azurecli
     azure vm deallocate -g myResourceGroup myVM
@@ -69,7 +69,7 @@ Aby zmienić rozmiar maszyny Wirtualnej, wykonaj następujące kroki.
     ```
    
    > [!WARNING]
-   > Cofanie przydziału maszyny Wirtualnej zwalnia również dynamiczne adresy IP przypisane do maszyny Wirtualnej. Nie dotyczy systemu operacyjnego i dysków z danymi.
+   > Cofanie przydziału hello wirtualna zwalnia również dynamiczne adresy IP przypisane toohello maszyny Wirtualnej. nie dotyczy Hello systemu operacyjnego i dysków z danymi.
    > 
    > 
 

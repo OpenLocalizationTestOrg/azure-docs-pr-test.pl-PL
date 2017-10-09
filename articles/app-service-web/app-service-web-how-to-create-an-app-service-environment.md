@@ -1,5 +1,5 @@
 ---
-title: "Jak utworzyć usługę aplikacji środowiska v1"
+title: "tooCreate aaaHow v1 środowiska usługi aplikacji"
 description: "Tworzenie opisu przepływu v1 środowiska usługi aplikacji"
 services: app-service
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 400bcc08650f8a13911c05c8d0d04ddc22327dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 95feb33854eee5bac02fa68b066e2fc10eb3fede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-an-app-service-environment-v1"></a>Jak utworzyć usługę aplikacji środowiska v1 
+# <a name="how-toocreate-an-app-service-environment-v1"></a>Jak tooCreate v1 środowiska usługi aplikacji 
 
 > [!NOTE]
-> Ten artykuł dotyczy v1 środowiska usługi aplikacji. Istnieje nowsza wersja środowiska usługi aplikacji jest łatwiejsza w użyciu, który jest uruchamiany na bardziej zaawansowanych infrastruktury. Aby dowiedzieć się więcej o nowy początek wersji z [wprowadzenie do środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
+> Ten artykuł dotyczy hello v1 środowiska usługi aplikacji. Istnieje nowsza wersja hello środowiska usługi aplikacji jest łatwiejsze toouse, który jest uruchamiany na bardziej zaawansowanych infrastruktury. więcej informacji na temat nowej wersji hello rozpoczynać hello toolearn [toohello wprowadzenie środowiska usługi aplikacji](../app-service/app-service-environment/intro.md).
 > 
 
 ### <a name="overview"></a>Omówienie
-Środowiska usługi aplikacji (ASE) to opcja Premium usługi Azure App Service, która zapewnia możliwość rozszerzonej konfiguracji, która nie jest dostępna w sygnatury wielodostępnej. Funkcja ASE zasadniczo wdraża usługi aplikacji Azure do klienta sieci wirtualnej. Aby uzyskać lepsze zrozumienie możliwości oferowane przez odczytać środowiska usługi App Service [co to jest środowisko usługi aplikacji] [ WhatisASE] dokumentacji.
+Witaj środowiska usługi aplikacji (ASE) to opcja usługi Premium usługi Azure App Service oferuje możliwość rozszerzonej konfiguracji, która nie jest dostępna w hello wielodostępne sygnatury. Funkcja ASE Hello wdraża zasadniczo hello Azure App Service w sieci wirtualnej do klienta. toogain lepsze zrozumienie hello możliwości oferowane przez środowiska usługi App Service odczytu hello [co to jest środowisko usługi aplikacji] [ WhatisASE] dokumentacji.
 
 ### <a name="before-you-create-your-ase"></a>Przed utworzeniem sieci ASE
-Należy zwrócić uwagę czynników, które nie można zmienić. Te aspekty, nie można zmienić o Twojej ASE po jego utworzeniu są:
+Jest ważne toobe uwagę hello rzeczy, o których nie można zmienić. Te aspekty, nie można zmienić o Twojej ASE po jego utworzeniu są:
 
 * Lokalizacja
 * Subskrypcja
@@ -39,24 +39,24 @@ Należy zwrócić uwagę czynników, które nie można zmienić. Te aspekty, nie
 * Podsieci używane 
 * Rozmiar podsieci
 
-Podczas pobierania sieci wirtualnej i określania podsieci, upewnij się, jest wystarczająco duża, aby uwzględnić przyszłego rozwoju. 
+Podczas pobierania sieci wirtualnej i określania podsieci, sprawdzać, czy jest wystarczająco duży tooaccomodate przyszłego rozwoju. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Tworzenie aplikacji usługi v1 środowiska
-Aby utworzyć v1 środowiska usługi aplikacji, należy wyszukać Azure Marketplace w celu ***v1 środowiska usługi aplikacji***, lub za pośrednictwem nowy -> Sieć Web i mobilność -> środowisko usługi aplikacji. Aby utworzyć ASEv1:
+toocreate v1 środowiska usługi aplikacji muszą toosearch hello Azure Marketplace w celu ***v1 środowiska usługi aplikacji***, lub za pośrednictwem nowy -> Sieć Web i mobilność -> środowisko usługi aplikacji. toocreate ASEv1:
 
-1. Podaj nazwę użytkownika ASE. Nazwa określona dla ASE będzie używany dla aplikacji utworzonych w ASE. Jeśli nazwa ASE appsvcenvdemo może być nazwa poddomeny. *appsvcenvdemo.p.azurewebsites.net*. Jeśli w związku z tym utworzono aplikację o nazwie *mytestapp* , a następnie byłoby adresowanego na *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Biały znak nie można użyć nazwy użytkownika ASE. Jeśli używasz wielkich liter w nazwie nazwy domeny będzie całkowita wersją małe o tej nazwie. Jeśli używasz ILB to nazwę ASE nie jest używana w Twojej domeny podrzędnej, ale zamiast tego jest jasno określone podczas tworzenia ASE
+1. Podaj nazwę użytkownika ASE hello. Nazwa Hello, określony dla hello ASE będzie używana dla aplikacji hello utworzone w hello ASE. Jeśli nazwa hello ASE jest appsvcenvdemo następnie nazwy poddomeny hello będzie. *appsvcenvdemo.p.azurewebsites.net*. Jeśli w związku z tym utworzono aplikację o nazwie *mytestapp* , a następnie byłoby adresowanego na *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Nie można użyć biały znak w nazwie hello Twojej ASE. Jeśli używasz wielkich liter w nazwie hello hello nazwy domeny będzie hello całkowita małe litery wersją tej nazwy. Jeśli używasz ILB to nazwę ASE nie jest używana w Twojej domeny podrzędnej, ale zamiast tego jest jasno określone podczas tworzenia ASE
    
     ![][1]
-2. Wybierz subskrypcję. Subskrypcja używana na potrzeby Twojego ASE jest również ten, który będzie zawierał wszystkie aplikacje w tym ASE. Twoje ASE nie można umieścić w sieci wirtualnej, który znajduje się w innej subskrypcji
-3. Wybierz lub określ nową grupę zasobów. Grupa zasobów używany do Twojej ASE muszą być takie same, służący do sieci wirtualnej. W przypadku wybrania istniejącej sieci wirtualnej wybranej grupy zasobów dla Twojego ASE zostanie zaktualizowany w celu odzwierciedlenia z sieci wirtualnej.
+2. Wybierz subskrypcję. Subskrypcja Hello używana na potrzeby Twojego ASE jest również hello jedną wszystkie aplikacje w tym ASE zostanie utworzony z. Twoje ASE nie można umieścić w sieci wirtualnej, który znajduje się w innej subskrypcji
+3. Wybierz lub określ nową grupę zasobów. grupy zasobów Hello używane dla sieci ASE musi być hello samo hasło, które jest używane dla sieci wirtualnej. Jeśli wybierz istniejące sieci wirtualnej, a następnie hello wybranej grupy zasobów dla Twojego ASE zostaną zaktualizowane tooreflect z sieci wirtualnej.
    
     ![][2]
-4. Wybierz odpowiednie opcje sieci wirtualnej i lokalizacji. Możesz utworzyć nową sieć wirtualną lub wybierz istniejące sieci wirtualnej. W przypadku wybrania nowej sieci wirtualnej, a następnie można określić nazwy i lokalizacji. Nowej sieci wirtualnej mają 192.168.250.0/23 zakres adresów i podsieć o nazwie **domyślne** zdefiniowanej jako 192.168.250.0/24. Można także po prostu wybierz klasyczny istniejące lub Menedżera zasobów w sieci wirtualnej. Wybór typu VIP określa Twojej ASE są bezpośrednio dostępne z Internetu (zewnętrzne) lub korzysta z wewnętrznego modułu równoważenia obciążenia (ILB). Aby dowiedzieć się więcej o je odczytać [przy użyciu wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji][ILBASE]. Należy wybrać typ VIP zewnętrznych można wybrać system jest tworzony z celów IPSSL ile zewnętrzne adresy IP. W przypadku wybrania wewnętrzne następnie należy określić poddomeny, który będzie używany przez Twoje ASE. ASEs można wdrożyć w sieci wirtualnych, które używają *albo* zakresy publicznych adresów, *lub* przestrzenie adresowe RFC1918 (tj.) adresy prywatne). Aby użyć sieci wirtualnej z zakresem adresów publicznych, należy utworzyć sieć wirtualną wcześniejsze. Wybierz istniejące sieci wirtualnej należy utworzyć nową podsieć podczas tworzenia ASE. **Nie można użyć podsieci wstępnie utworzone w portalu. W przypadku utworzenia użytkownika ASE przy użyciu szablonu usługi resource manager, możesz utworzyć ASE z istniejącym podsieci.** Aby utworzyć ASE przed użyciem szablonu informacje w tym miejscu [tworzenia środowiska usługi aplikacji na podstawie szablonu] [ ILBAseTemplate] i w tym miejscu [tworzenia środowiska usługi aplikacji ILB na podstawie szablonu][ASEfromTemplate].
+4. Wybierz odpowiednie opcje sieci wirtualnej i lokalizacji. Można wybrać toocreate nowej sieci wirtualnej lub wybierz istniejące sieci wirtualnej. W przypadku wybrania nowej sieci wirtualnej, a następnie można określić nazwy i lokalizacji. Witaj nowej sieci wirtualnej mają 192.168.250.0/23 zakres adresów hello i podsieć o nazwie **domyślne** zdefiniowanej jako 192.168.250.0/24. Można także po prostu wybierz klasyczny istniejące lub Menedżera zasobów w sieci wirtualnej. Hello wybrany typ VIP Określa, czy Twoje ASE są bezpośrednio dostępne z hello internet (zewnętrzne) lub jeśli używa wewnętrznego modułu równoważenia obciążenia (ILB). więcej informacji na temat je odczytać toolearn [przy użyciu wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji][ILBASE]. W przypadku wybrania typu zewnętrznego adresu VIP, można wybrać, ile zewnętrzny system hello adresów IP jest tworzony z do celów IPSSL. W przypadku wybrania wewnętrznego należy poddomeny hello toospecify, który będzie używany przez Twoje ASE. ASEs można wdrożyć w sieci wirtualnych, które używają *albo* zakresy publicznych adresów, *lub* przestrzeni adresowych RFC1918 (czyli adresy prywatne). W kolejności toouse sieci wirtualnej z zakresem adresów publicznych konieczne będzie toocreate hello sieci wirtualnej wcześniejsze. Po wybraniu wstępnie istniejącej sieci wirtualnej należy toocreate nowej podsieci podczas tworzenia ASE. **Nie można użyć podsieci wstępnie utworzone w portalu hello. W przypadku utworzenia użytkownika ASE przy użyciu szablonu usługi resource manager, możesz utworzyć ASE z istniejącym podsieci.** toocreate ASE z szablonu miejscu użyć informacji hello [tworzenia środowiska usługi aplikacji na podstawie szablonu] [ ILBAseTemplate] i w tym miejscu [tworzenia środowiska usługi aplikacji ILB na podstawie szablonu] [ASEfromTemplate].
 
 ### <a name="details"></a>Szczegóły
-ASE jest tworzony z 2 frontonu i 2 procesy robocze. Front kończy się działać jako punktów końcowych HTTP/HTTPS i wysyłania ruchu do pracowników, które są role, które Hostuj aplikacje sieci. Można dopasować ilość po utworzeniu ASE i może nawet zestawu reguł skalowania automatycznego na tych pul zasobów. Więcej szczegółów wokół ręczne skalowanie, zarządzania i monitorowania środowiska usługi aplikacji w tym miejscu: [sposobu konfigurowania środowiska usługi aplikacji][ASEConfig] 
+ASE jest tworzony z 2 frontonu i 2 procesy robocze. frontonu Hello działać jako punktów końcowych HTTP/HTTPS hello i wysyłania ruchu toohello pracowników, które są hello ról, które Hostuj aplikacje sieci. Można dopasować ilość powitania po utworzeniu ASE i może nawet zestawu reguł skalowania automatycznego na tych pul zasobów. Więcej szczegółów wokół ręczne skalowanie, zarządzania i monitorowania środowiska usługi aplikacji w tym miejscu: [jak tooconfigure środowiska usługi aplikacji][ASEConfig] 
 
-W podsieci używane przez ASE może istnieć tylko jeden ASE. Nie można użyć podsieci dla wszystkich elementów innych niż ASE
+W podsieci hello używane przez hello ASE może istnieć tylko hello ASE jeden. Nie można użyć podsieci Hello do wszelkich innych niż hello ASE
 
 ### <a name="after-app-service-environment-v1-creation"></a>Po utworzeniu v1 środowiska usługi aplikacji
 Po utworzeniu ASE można dostosować:
@@ -64,20 +64,20 @@ Po utworzeniu ASE można dostosować:
 * Ilość frontonu (minimalna: 2)
 * Liczba procesów roboczych (minimalna: 2)
 * Liczba adresów IP dostępnych dla protokołu SSL z adresu IP
-* Obliczeniowe rozmiary zasobów używanych przez frontonu lub pracowników (minimalny rozmiar fronton jest P2)
+* Obliczeniowe rozmiary zasobów używanych przez hello frontonu lub pracowników (minimalny rozmiar fronton jest P2)
 
-Brak więcej szczegółów dotyczących ręczne skalowania, zarządzania i monitorowania środowiska usługi App Service w tym miejscu: [sposobu konfigurowania środowiska usługi aplikacji][ASEConfig] 
+Brak więcej szczegółów dotyczących ręczne skalowania, zarządzania i monitorowania środowiska usługi App Service w tym miejscu: [jak tooconfigure środowiska usługi aplikacji][ASEConfig] 
 
-Aby uzyskać informacje dotyczące skalowania automatycznego jest przewodnik tutaj: [Konfigurowanie automatycznego skalowania dla środowiska usługi aplikacji][ASEAutoscale]
+Aby uzyskać informacje dotyczące skalowania automatycznego jest przewodnik tutaj: [jak tooconfigure funkcja automatycznego skalowania dla środowiska usługi aplikacji][ASEAutoscale]
 
-Istnieją dodatkowe zależności, które nie są możliwe do dostosowania, takie jak bazy danych i magazynu. Są obsługiwane przez platformę Azure i wyposażone w system. Magazyn systemu obsługuje do 500 GB dla całego środowiska usługi aplikacji i bazy danych zostanie zmieniona przez platformę Azure, zgodnie z potrzebami Skala systemu.
+Istnieją dodatkowe zależności, które nie są możliwe do dostosowania, takie jak hello bazy danych i magazynu. Są obsługiwane przez platformę Azure i wyposażone w hello system. obsługuje magazyn systemu Hello się too500 GB dla hello całego środowiska usługi aplikacji i hello bazy danych zostanie zmieniona przez platformę Azure, zgodnie z potrzebami Skala hello hello systemu.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
+Wszystkie artykuły i w jaki sposób — do użytkownika dla środowiska usługi aplikacji są dostępne w hello [Plik README dla środowiska usługi aplikacji](../app-service/app-service-app-service-environments-readme.md).
 
-Aby rozpocząć pracę z v1 środowiska usługi aplikacji, zobacz [wprowadzenie do v1 środowiska usługi aplikacji][WhatisASE]
+tooget wprowadzenie v1 środowiska usługi aplikacji, zobacz [toohello wprowadzenie v1 środowiska usługi aplikacji][WhatisASE]
 
-Aby uzyskać więcej informacji o platformie usługi Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
+Aby uzyskać więcej informacji na temat hello platformy Azure App Service, zobacz [usłudze Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

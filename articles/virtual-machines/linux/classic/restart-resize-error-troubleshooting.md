@@ -1,5 +1,5 @@
 ---
-title: "Maszyny Wirtualnej, ponownego uruchamiania lub zmiana rozmiaru problemów | Dokumentacja firmy Microsoft"
+title: "aaaVM ponownego uruchamiania lub zmiana rozmiaru problemów | Dokumentacja firmy Microsoft"
 description: "Rozwiązywanie problemów wdrożenie klasyczne z ponownym uruchomieniem lub zmieniania rozmiaru istniejącej maszyny wirtualnej systemu Linux na platformie Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
-ms.openlocfilehash: c6d4ed45133dc3f4b1f3d17fb5a87d3bf77aa3f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fb1dc88bb1b83043c434590118bc8810ad402872
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów wdrożenie klasyczne z ponownym uruchomieniem lub zmieniania rozmiaru istniejącej maszyny wirtualnej systemu Linux na platformie Azure
 > [!div class="op_single_selector"]
@@ -28,56 +28,56 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Podczas uruchamiania zatrzymanej maszyny wirtualnej Azure (VM), lub zmień rozmiar istniejącej maszyny Wirtualnej Azure, wystąpią typowych błędów jest błąd alokacji. Ten błąd powoduje klastra lub regionie nie ma dostępu do zasobów lub nie może obsługiwać żądany rozmiar maszyny Wirtualnej.
+Spróbuj toostart zatrzymania maszyny wirtualnej Azure (VM), lub zmień rozmiar istniejącej maszyny Wirtualnej Azure, hello typowym błędem występujących po błąd alokacji. Ten błąd powoduje hello klastra lub regionie nie ma dostępnych zasobów lub nie hello Obsługa żądany rozmiar maszyny Wirtualnej.
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Wersja Menedżera zasobów dla [tutaj](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Wersja hello Menedżera zasobów dla [tutaj](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Dzienniki inspekcji zbieranie
-Zacząć Rozwiązywanie problemów, zbierz dzienniki inspekcji, aby określić błąd skojarzone z problem.
+Rozwiązywanie problemów, toostart hello zbierania danych inspekcji rejestruje błąd hello tooidentify skojarzone z hello problem.
 
-W portalu Azure kliknij **Przeglądaj** > **maszyn wirtualnych** > *maszyny wirtualnej systemu Linux*  >   **Ustawienia** > **dzienniki inspekcji**.
+W portalu Azure hello, kliknij przycisk **Przeglądaj** > **maszyn wirtualnych** > *maszyny wirtualnej systemu Linux*  >   **Ustawienia** > **dzienniki inspekcji**.
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problem: Błąd podczas uruchamiania zatrzymanej maszyny Wirtualnej
-Próby uruchomienia zatrzymanej maszyny Wirtualnej, ale awaria alokacji.
+Spróbuj toostart zatrzymanej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
 
 ### <a name="cause"></a>Przyczyna
-Żądania uruchomienia zatrzymanej maszyny Wirtualnej musi podjąć w oryginalnego klastra, który jest hostem usługi w chmurze. Jednak klaster nie ma wolnego miejsca do spełnienia żądania.
+Żądanie hello toostart hello zatrzymana maszyna wirtualna ma toobe podjęto na powitania oryginalnego klastra obsługującego hello usługi w chmurze. Witaj klaster nie ma jednak żądania hello toofulfill dostępne wolne miejsce.
 
 ### <a name="resolution"></a>Rozwiązanie
 * Utwórz nową usługę w chmurze i skojarzyć go z jednego regionu lub sieci wirtualnej region, ale nie grupy koligacji.
-* Usuń zatrzymanej maszyny Wirtualnej.
-* Utwórz ponownie maszynę Wirtualną w nowej usługi w chmurze przy użyciu dysków.
-* Uruchom ponownie utworzyć maszynę Wirtualną.
+* Usuń hello zatrzymana maszyna wirtualna.
+* Utwórz ponownie hello maszyny Wirtualnej w hello nową usługę w chmurze przy użyciu hello dysków.
+* Uruchom hello ponownie utworzyć maszyny Wirtualnej.
 
-Jeśli wystąpi błąd podczas próby utworzenia nowej usługi w chmurze, spróbuj ponownie później lub zmienić regionu dla usługi w chmurze.
+Jeśli wystąpi błąd podczas próby toocreate nową usługę w chmurze, spróbuj ponownie później lub zmienić regionu hello hello usłudze w chmurze.
 
 > [!IMPORTANT]
-> Nowa usługa w chmurze będzie miała nowej nazwy i adresu VIP, dlatego należy zmieniać te informacje dla wszystkich zależności, korzystających z tych informacji do istniejącej usługi w chmurze.
+> Hello nową usługę w chmurze będzie miała nowej nazwy i adresu VIP, dlatego należy toochange te informacje dla wszystkich zależności hello korzystających z tych informacji w celu hello istniejącą usługę w chmurze.
 > 
 > 
 
 ## <a name="issue-error-when-resizing-an-existing-vm"></a>Problem: Błąd podczas zmiany rozmiaru istniejącej maszyny Wirtualnej
-Spróbuj zmienić rozmiar istniejącej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
+Spróbuj tooresize istniejącej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
 
 ### <a name="cause"></a>Przyczyna
-Żądanie zmiany rozmiaru maszyny Wirtualnej musi podjąć w oryginalnego klastra, który jest hostem usługi w chmurze. Klaster nie obsługuje jednak żądany rozmiar maszyny Wirtualnej.
+żądania Hello hello tooresize maszyna wirtualna ma toobe nastąpiła w oryginalnym klastrze hello danej usługi w chmurze hello hostów. Witaj klastra nie obsługuje jednak hello żądany rozmiar maszyny Wirtualnej.
 
 ### <a name="resolution"></a>Rozwiązanie
-Zmniejsz żądany rozmiar maszyny Wirtualnej i ponów żądanie zmiany rozmiaru.
+Zmniejsz hello żądany rozmiar maszyny Wirtualnej i ponów próbę hello rozmiaru żądania.
 
-* Kliknij przycisk **Przeglądaj wszystkie** > **maszyn wirtualnych (klasyczne)** > *maszyny wirtualnej* > **ustawienia**  >  **Rozmiar**. Aby uzyskać szczegółowe instrukcje, zobacz [zmienić rozmiaru maszyny wirtualnej](https://msdn.microsoft.com/library/dn168976.aspx).
+* Kliknij przycisk **Przeglądaj wszystkie** > **maszyn wirtualnych (klasyczne)** > *maszyny wirtualnej* > **ustawienia**  >  **Rozmiar**. Aby uzyskać szczegółowe instrukcje, zobacz [zmienić rozmiaru maszyny wirtualnej hello](https://msdn.microsoft.com/library/dn168976.aspx).
 
-Jeśli nie jest możliwe zmniejszenie rozmiaru maszyny Wirtualnej, wykonaj następujące kroki:
+Jeśli nie jest możliwe tooreduce hello rozmiar maszyny Wirtualnej, wykonaj następujące kroki:
 
-* Utwórz nową usługę w chmurze, zapewniając jest nie jest połączony z grupą koligacji i nie jest skojarzona z siecią wirtualną, która jest połączona z grupą koligacji.
+* Utwórz nową usługę w chmurze, zapewnienie, że nie jest połączona grupa koligacji tooan i nie są skojarzone z sieci wirtualnej jest tooan połączonej grupy koligacji.
 * Utwórz nowy, o większym rozmiarze maszyny Wirtualnej w nim.
 
-Umożliwiającej obsługę wszystkich maszyn wirtualnych w tej samej usłudze w chmurze. Jeśli istniejącą usługę w chmurze jest skojarzone z sieci wirtualnej na podstawie regionu, możesz połączyć nową usługę w chmurze do istniejącej sieci wirtualnej.
+Umożliwiającej obsługę wszystkich maszyn wirtualnych w hello sama usługa w chmurze. Jeśli istniejącą usługę w chmurze jest skojarzone z sieci wirtualnej na podstawie regionu, możesz połączyć hello nowe chmury usługi toohello istniejącej sieci wirtualnej.
 
-Jeśli istniejącą usługę w chmurze nie jest powiązana z siecią wirtualną regionu, następnie należy usunąć maszyn wirtualnych w istniejącej usługi w chmurze i utwórz je ponownie w nowej usługi w chmurze z ich dysków. Jest jednak należy pamiętać, że nowa usługa w chmurze będzie są nowej nazwy i adresu VIP, więc należy zaktualizować te zależności, których te informacje jest obecnie używana dla istniejącej usługi w chmurze.
+Jeśli hello istniejącej usługi chmury nie jest skojarzony z sieci wirtualnej na podstawie regionu, następnie należy mieć toodelete hello maszyn wirtualnych w hello istniejącą usługę w chmurze i utwórz je ponownie hello nowego w usłudze w chmurze z ich dysków. Jest jednak ważne tooremember hello nową usługę w chmurze że nowej nazwy i adresu VIP, dlatego należy tooupdate tych opcji dla wszystkich zależności hello, które obecnie korzystanie z tej informacji hello istniejącą usługę w chmurze.
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli wystąpią problemy podczas tworzenia nowej maszyny Wirtualnej systemu Linux na platformie Azure, zobacz [Rozwiązywanie problemów dotyczących wdrożenia z Tworzenie nowej maszyny wirtualnej systemu Linux na platformie Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

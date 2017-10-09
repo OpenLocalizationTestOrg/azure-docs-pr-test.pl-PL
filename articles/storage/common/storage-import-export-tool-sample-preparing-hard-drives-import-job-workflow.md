@@ -1,6 +1,6 @@
 ---
-title: "Przykładowy przepływ pracy do przygotowywanie dyski twarde dla zadania importu Import/Eksport Azure | Dokumentacja firmy Microsoft"
-description: "Zobacz Przewodnik ukończenia procesu przygotowywania dysków dla zadania importu w usłudze Import/Eksport Azure."
+title: "aaaSample przepływu pracy tooprep dyski twarde dla Import/Eksport Azure Importuj zadanie | Dokumentacja firmy Microsoft"
+description: "Zobacz wskazówki dla hello Zakończ proces przygotowywania dysków dla zadania importu w hello usługi Import/Eksport Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 83cb82b9807718e7a509312d159eb766a5da1d2c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fa7f36300b35b81757523de4960fd583bd4bf305
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Przykładowy przepływ pracy przygotowywania dysków twardych do zadania importu
+# <a name="sample-workflow-tooprepare-hard-drives-for-an-import-job"></a>Przykładowy przepływ pracy tooprepare dysków dla zadania importu
 
-W tym artykule przedstawiono Zakończ proces przygotowywania dysków dla zadania importu.
+W tym artykule przedstawiono hello Zakończ proces przygotowywania dysków dla zadania importu.
 
 ## <a name="sample-data"></a>Dane przykładowe
 
-W tym przykładzie importuje następujące dane do konta magazynu platformy Azure o nazwie `mystorageaccount`:
+W tym przykładzie importuje powitania po danych do konta magazynu platformy Azure o nazwie `mystorageaccount`:
 
 |Lokalizacja|Opis|Rozmiar danych|
 |--------------|-----------------|-----|
@@ -37,7 +37,7 @@ W tym przykładzie importuje następujące dane do konta magazynu platformy Azur
 
 ## <a name="storage-account-destinations"></a>Miejsca docelowe konto magazynu
 
-Zadania importu będzie importowanie danych do następujących miejsc docelowych na koncie magazynu:
+zadania importu Hello zostaną zaimportowane hello danych do następujących miejsc docelowych na koncie magazynu hello hello:
 
 |Element źródłowy|Katalog wirtualny docelowego lub obiektu blob|
 |------------|-------------------------------------------|
@@ -46,25 +46,25 @@ Zadania importu będzie importowanie danych do następujących miejsc docelowych
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Muzyka|
 
-Z tego mapowania pliku `H:\Video\Drama\GreatMovie.mov` zostaną zaimportowane do obiektu blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Do tego mapowania hello pliku `H:\Video\Drama\GreatMovie.mov` będzie toohello importowanych obiektów blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
 ## <a name="determine-hard-drive-requirements"></a>Określenie wymagań dotyczących dysku twardego
 
-Następnie aby ustalić, ile dyski twarde są potrzebne, obliczeń rozmiar danych:
+Następnie toodetermine liczbę dysków twardych są potrzebne, obliczeń hello rozmiar danych hello:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Na przykład dwa 8TB dyski twarde powinny być wystarczające. Jednak ponieważ katalog źródłowy `H:\Video` ma 12TB danych i pojemności pojedynczego dysku twardego w tylko 8TB, można określić w poniższy sposób w **driveset.csv** pliku:
+Na przykład dwa 8TB dyski twarde powinny być wystarczające. Jednak ponieważ katalog źródłowy hello `H:\Video` ma 12TB danych i pojemności pojedynczego dysku twardego w tylko 8TB, będziesz w stanie toospecify to w hello w następujący sposób w hello **driveset.csv** pliku:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-Narzędzie będzie rozpowszechniają danych dwóch dysków twardych w sposób zoptymalizowane.
+Narzędzie Hello będzie rozpowszechniają danych dwóch dysków twardych w sposób zoptymalizowane.
 
-## <a name="attach-drives-and-configure-the-job"></a>Dołącz dysków i skonfigurować zadania
-Zostanie Dołącz obydwa dyski do maszyny i tworzyć woluminów. Następnie tworzyć **dataset.csv** pliku:
+## <a name="attach-drives-and-configure-hello-job"></a>Dołącz dysków i skonfigurować zadanie hello
+Zostanie Dołącz zarówno maszyny toohello dysków i tworzyć woluminów. Następnie tworzyć **dataset.csv** pliku:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -73,13 +73,13 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 \\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-Ponadto można ustawić następujące metadane dla wszystkich plików:
+Ponadto można ustawić hello następujące metadane dla wszystkich plików:
 
 * **UploadMethod:** usługi Import/Eksport systemu Windows Azure
 * **DataSetName:** SampleData
 * **CreationDate:** 10/1/2013
 
-Aby ustawić metadane dla importowanych plików, Utwórz plik tekstowy `c:\WAImportExport\SampleMetadata.txt`, o następującej treści:
+metadane tooset plików hello zaimportowane, Utwórz plik tekstowy `c:\WAImportExport\SampleMetadata.txt`, z hello następującej zawartości:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -90,13 +90,13 @@ Aby ustawić metadane dla importowanych plików, Utwórz plik tekstowy `c:\WAImp
 </Metadata>
 ```
 
-Można również ustawić niektórych właściwości `FavoriteMovie.ISO` obiektu blob:
+Można również ustawić niektórych właściwości hello `FavoriteMovie.ISO` obiektu blob:
 
 * **Content-Type:** application/octet-stream
 * **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
 * **Cache-Control:** no-cache
 
-Aby ustawić te właściwości, należy utworzyć plik tekstowy `c:\WAImportExport\SampleProperties.txt`:
+tooset te właściwości, Utwórz plik tekstowy `c:\WAImportExport\SampleProperties.txt`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -107,25 +107,25 @@ Aby ustawić te właściwości, należy utworzyć plik tekstowy `c:\WAImportExpo
 </Properties>
 ```
 
-## <a name="run-the-azure-importexport-tool-waimportexportexe"></a>Uruchom narzędzie Azure importu/eksportu (WAImportExport.exe)
+## <a name="run-hello-azure-importexport-tool-waimportexportexe"></a>Uruchom hello Azure narzędzie importu/eksportu (WAImportExport.exe)
 
-Teraz można przystąpić do uruchomienia narzędzia importu/eksportu Azure przygotować dwóch dysków twardych.
+Teraz wszystko jest gotowe toorun hello Azure narzędzie importu/eksportu tooprepare hello dwóch dysków twardych.
 
-**Podczas pierwszej sesji:**
+**Dla hello pierwszej sesji:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Jeśli więcej danych musi zostać dodany, należy utworzyć inny plik zestawu danych (tego samego formatu co Initialdataset).
+Jeśli więcej danych wymaga toobe dodany, należy utworzyć inny plik zestawu danych (tego samego formatu co Initialdataset).
 
-**Dla drugiego sesji:**
+**Dla hello drugiej sesji:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Po sesji kopiowania została ukończona, można odłączyć dwóch dysków z komputera, kopiowania i wysyłać je do centrum danych Azure. Będzie przekazać pliki dziennika dwóch `<FirstDriveSerialNumber>.xml` i `<SecondDriveSerialNumber>.xml`, podczas tworzenia zadania importu w portalu Azure.
+Po hello kopiowania sesji została ukończona, można odłączyć Witaj dwie stacje z komputera kopiowania hello i wysłać je toohello centrum danych Azure. Będzie przekazać hello dwa pliki dziennika, `<FirstDriveSerialNumber>.xml` i `<SecondDriveSerialNumber>.xml`, podczas tworzenia zadania importu hello w hello portalu Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

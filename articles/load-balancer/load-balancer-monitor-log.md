@@ -1,6 +1,6 @@
 ---
-title: "Monitorowanie działań, zdarzenia i liczniki dla usługi równoważenia obciążenia | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak włączyć zdarzenia alertu i sondy kondycji stanu rejestrowania dla usługi równoważenia obciążenia Azure"
+title: "aaaMonitor operacje, zdarzenia i liczniki dla usługi równoważenia obciążenia | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooenable alertów zdarzeń i sondy kondycji stanu rejestrowania dla usługi równoważenia obciążenia Azure"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac53c2254e06cad780ad6144c5c30f0085d12576
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Analiza dzienników dotyczących usługi Azure Load Balancer
 
-Różne typy dzienników Azure umożliwia zarządzanie i rozwiązywanie problemów z usługi równoważenia obciążenia. Niektóre z tych dzienników jest możliwy za pośrednictwem portalu. Wszystkie dzienniki można wyodrębnić z magazynu obiektów blob platformy Azure i wyświetlane w różnych narzędzi, takich jak program Excel i Power BI. Możesz można dowiedzieć się więcej o różnych typach dzienników z poniższej listy.
+Można użyć różnych typów dzienników w Azure toomanage i rozwiązywanie problemów z usługi równoważenia obciążenia. Niektóre z tych dzienników jest możliwy za pośrednictwem portalu hello. Wszystkie dzienniki można wyodrębnić z magazynu obiektów blob platformy Azure i wyświetlane w różnych narzędzi, takich jak program Excel i Power BI. Użytkownik może Dowiedz się więcej o hello różne typy dzienników z poniższej listy hello.
 
-* **Dzienniki inspekcji:** można użyć [dzienników inspekcji platformy Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (wcześniej znane jako operacyjne dzienniki), aby wyświetlić wszystkie operacje przesyłany do Twojej subskrypcji platformy Azure i ich stan. Dzienniki inspekcji są domyślnie włączone i mogą być wyświetlane w portalu Azure.
-* **Dzienniki zdarzeń alertów:** ten dziennik służy do wyświetlania alertów rasied przez moduł równoważenia obciążenia. Stan usługi równoważenia obciążenia są gromadzone co pięć minut. Ten dziennik napisano tylko, jeśli zdarzenia alertu modułu równoważenia obciążenia jest wywoływane.
-* **Dzienniki badania kondycji:** ten dziennik służy do wyświetlania problemów wykrytych przez użytkownika sondy kondycji, takie jak liczba wystąpień w puli zaplecza, które nie są odbierane żądań z modułu równoważenia obciążenia z powodu błędów sondy kondycji. Ten dziennik jest zapisywany po zmianie stanu sondy kondycji.
+* **Dzienniki inspekcji:** można użyć [dzienników inspekcji platformy Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (wcześniej znane jako operacyjne dzienniki) tooview wszystkie operacje są przesłane tooyour subskrypcji platformy Azure i ich stan. Dzienniki inspekcji są domyślnie włączone i mogą być wyświetlane w portalu Azure hello.
+* **Dzienniki zdarzeń alertów:** można użyć tego dziennika tooview alerty rasied przez hello równoważenia obciążenia. Stan powitania dla usługi równoważenia obciążenia hello są gromadzone co pięć minut. Ten dziennik napisano tylko, jeśli zdarzenia alertu modułu równoważenia obciążenia jest wywoływane.
+* **Dzienniki badania kondycji:** można użyć tego dziennika tooview problemach przez użytkownika sondy kondycji, takich jak hello liczbę wystąpień w puli zaplecza, które nie są odbierane żądań z modułu równoważenia obciążenia hello spowodowane błędami sondy kondycji. Ten dziennik jest zapisywany toowhen nastąpiła zmiana stanu sondy kondycji hello.
 
 > [!IMPORTANT]
-> Zaloguj się analytics jest obecnie obsługiwane tylko w przypadku internetowy usług równoważenia obciążenia. Dzienniki są dostępne tylko dla zasobów wdrożone w modelu wdrażania usługi Resource Manager. Nie można używać dzienników zasobów w klasycznym modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania, zobacz [wdrożenia Understanding Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md).
+> Zaloguj się analytics jest obecnie obsługiwane tylko w przypadku internetowy usług równoważenia obciążenia. Dzienniki są dostępne tylko dla zasobów wdrożone w modelu wdrażania usługi Resource Manager hello. Nie można używać dzienników zasobów w hello klasycznego modelu wdrażania. Aby uzyskać więcej informacji na temat modeli wdrażania hello, zobacz [wdrożenia Understanding Resource Manager oraz wdrażania klasycznego](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Włącz rejestrowanie
 
-Rejestrowanie inspekcji jest automatycznie włączona dla każdego zasobu usługi Resource Manager. Musisz włączyć zdarzeń i rejestrowania sondy kondycji w celu rozpoczęcia, zbierania danych dostępne za pośrednictwem tych dzienników. Wykonaj następujące kroki, aby włączyć rejestrowanie.
+Rejestrowanie inspekcji jest automatycznie włączona dla każdego zasobu usługi Resource Manager. Należy tooenable zdarzeń i toostart rejestrowania sondy kondycji zbierania danych hello dostępne za pośrednictwem tych dzienników. Użyj hello następujące kroki tooenable rejestrowania.
 
-Zaloguj się do [portalu Azure](http://portal.azure.com). Jeśli nie masz już usługę równoważenia obciążenia, [tworzenia modułu równoważenia obciążenia](load-balancer-get-started-internet-arm-ps.md) przed kontynuowaniem.
+Logowanie toohello [portalu Azure](http://portal.azure.com). Jeśli nie masz już usługę równoważenia obciążenia, [tworzenia modułu równoważenia obciążenia](load-balancer-get-started-internet-arm-ps.md) przed kontynuowaniem.
 
-1. W portalu kliknij **Przeglądaj**.
+1. W portalu powitania kliknij **Przeglądaj**.
 2. Wybierz **usługi równoważenia obciążenia**.
 
     ![Portal — moduł równoważenia obciążenia](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
 3. Wybierz istniejący moduł równoważenia obciążenia >> **wszystkie ustawienia**.
-4. Po prawej stronie okna dialogowego pod nazwą usługi równoważenia obciążenia, przewiń do **monitorowanie**, kliknij przycisk **diagnostyki**.
+4. Na powitania po prawej stronie okna dialogowego hello pod nazwą hello hello usługi równoważenia obciążenia, przewiń zbyt**monitorowanie**, kliknij przycisk **diagnostyki**.
 
     ![Portal — ustawienia usługi równoważenia obciążenia](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. W **diagnostyki** okienku w obszarze **stan**, wybierz pozycję **na**.
+5. W hello **diagnostyki** okienku w obszarze **stan**, wybierz pozycję **na**.
 6. Kliknij przycisk **konta magazynu**.
-7. W obszarze **DZIENNIKI**, wybrać istniejące konto magazynu lub Utwórz nową. Aby określić liczbę dni ważności danych zdarzenia będą przechowywane w dziennikach zdarzeń za pomocą suwaka. 
+7. W obszarze **DZIENNIKI**, wybrać istniejące konto magazynu lub Utwórz nową. Użyj toodetermine suwaka hello ilu dniach danych zdarzenia będą przechowywane w dziennikach zdarzeń hello. 
 8. Kliknij pozycję **Zapisz**.
 
     ![Portal — dzienniki diagnostyczne](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Dzienniki inspekcji nie wymagają oddzielnego konta magazynu. Użycie magazynu dla zdarzeń i kondycji sondowania rejestrowania będą naliczane opłaty za usługę.
+> Dzienniki inspekcji nie wymagają oddzielnego konta magazynu. Witaj wykorzystania przestrzeni dyskowej na zdarzenie oraz kondycji sondowania rejestrowania będą naliczane opłaty za usługę.
 
 ## <a name="audit-log"></a>Dziennik inspekcji
 
-Dziennik inspekcji jest generowany domyślnie. Dzienniki są zachowywane przez 90 dni w magazynie dzienniki zdarzeń platformy Azure. Dowiedz się więcej o tych dzienników, odczytując [wyświetlania zdarzeń i dzienniki inspekcji](../monitoring-and-diagnostics/insights-debugging-with-events.md) artykułu.
+Dziennik inspekcji Hello jest generowany domyślnie. Dzienniki Hello są zachowywane przez 90 dni w magazynie dzienniki zdarzeń platformy Azure. Dowiedz się więcej o tych dzienników, odczytując hello [wyświetlania zdarzeń i dzienniki inspekcji](../monitoring-and-diagnostics/insights-debugging-with-events.md) artykułu.
 
 ## <a name="alert-event-log"></a>Dziennik zdarzeń alertów
 
-Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych usługi równoważenia obciążenia. Zdarzenia są rejestrowane w formacie JSON i przechowywane na koncie magazynu, określone po włączeniu rejestrowania. Oto przykład zdarzenia.
+Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych usługi równoważenia obciążenia. Hello zdarzenia są rejestrowane w formacie JSON i przechowywane na koncie magazynu hello określone, gdy włączone rejestrowanie hello. Witaj poniżej znajduje się przykład zdarzenia.
 
 ```json
 {
@@ -82,11 +82,11 @@ Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych usługi
 }
 ```
 
-Przedstawia dane wyjściowe JSON *eventname* właściwość, która będzie opisywać Przyczyna dla usługi równoważenia obciążenia utworzony alert. W takim przypadku alert wygenerowany został z powodu wyczerpania port TCP spowodowane przez źródło IP translatora adresów Sieciowych limity (SNAT).
+Pokazuje hello output Hello JSON *eventname* właściwość, która będzie opisywać hello Przyczyna hello modułu równoważenia obciążenia utworzony alert. W takim przypadku hello alert wygenerowany został powodu tooTCP portu wyczerpania spowodowane przez źródło, który ogranicza IP translatora adresów Sieciowych (SNAT).
 
 ## <a name="health-probe-log"></a>Dziennik badania kondycji
 
-Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych obciążenia równoważenia zgodnie z opisem powyżej. Dane są przechowywane na koncie magazynu, określone po włączeniu rejestrowania. Kontener o nazwie "insights dzienniki loadbalancerprobehealthstatus" jest tworzony i rejestrowane są następujące dane:
+Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych obciążenia równoważenia zgodnie z opisem powyżej. Witaj dane są przechowywane na koncie magazynu hello określone, gdy włączone rejestrowanie hello. Kontener o nazwie "insights dzienniki loadbalancerprobehealthstatus" jest tworzony i jest rejestrowany hello następujące dane:
 
 ```json
 {
@@ -122,21 +122,21 @@ Ten dziennik jest generowany tylko, jeśli włączono na poszczególnych obcią�
 }
 ```
 
-Dane wyjściowe JSON w polu właściwości zawiera podstawowe informacje dotyczące stanu kondycji sondowania. *DipDownCount* właściwość zawiera całkowitą liczbę wystąpień na zaplecza, które nie są odbierane ruchu sieciowego z powodu odpowiedzi sondy nie powiodło się.
+dane wyjściowe JSON Hello zawiera hello właściwości pola hello podstawowe informacje dotyczące stanu kondycji hello sondowania. Witaj *dipDownCount* właściwość pokazuje hello całkowita liczba wystąpień na zaplecza hello, które nie są odbierane ruchu sieciowego powodu toofailed sondowania odpowiedzi.
 
-## <a name="view-and-analyze-the-audit-log"></a>Wyświetlanie i analizowanie dzienników inspekcji
+## <a name="view-and-analyze-hello-audit-log"></a>Wyświetlanie i analizowanie dzienników inspekcji hello
 
-Można wyświetlać i analizować dane dzienników inspekcji przy użyciu dowolnej z następujących metod:
+Można wyświetlać i analizować dane dzienników inspekcji przy użyciu dowolnej z następujących metod hello:
 
-* **Narzędzia platformy Azure:** pobieranie informacji z dzienników inspekcji za pośrednictwem programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure (CLI), interfejsu API REST Azure lub w portalu Azure w wersji zapoznawczej. Instrukcje krok po kroku dla każdej metody wyszczególnione w [inspekcji operacji za pomocą Menedżera zasobów](../azure-resource-manager/resource-group-audit.md) artykułu.
-* **Usługa Power BI:** Jeśli jeszcze nie masz [usługi Power BI](https://powerbi.microsoft.com/pricing) konta, możesz spróbować ją bezpłatnie. Przy użyciu [dzienników inspekcji platformy Azure zawartości pakietu dla usługi Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)można analizować danych za pomocą wstępnie skonfigurowanych pulpitów nawigacyjnych i można dostosowywać widoki ze swoimi potrzebami.
+* **Narzędzia platformy Azure:** pobieranie informacji z dzienników inspekcji hello za pomocą programu Azure PowerShell, hello Azure interfejsu wiersza polecenia (CLI), hello interfejsu API REST Azure lub hello Azure w wersji zapoznawczej portalu. Instrukcje krok po kroku dla każdej metody wyszczególnione w hello [inspekcji operacji za pomocą Menedżera zasobów](../azure-resource-manager/resource-group-audit.md) artykułu.
+* **Usługa Power BI:** Jeśli jeszcze nie masz [usługi Power BI](https://powerbi.microsoft.com/pricing) konta, możesz spróbować ją bezpłatnie. Przy użyciu hello [dzienników inspekcji platformy Azure zawartości pakietu dla usługi Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)można analizować danych za pomocą wstępnie skonfigurowanych pulpitów nawigacyjnych i można dostosowywać widoki toosuit wymagań.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Wyświetlanie i analizowanie sondy kondycji i dziennika zdarzeń
+## <a name="view-and-analyze-hello-health-probe-and-event-log"></a>Wyświetlanie i analizowanie hello sondy kondycji i dziennika zdarzeń
 
-Należy do łączenia się z kontem magazynu i pobierania JSON wpisów dziennika zdarzeń i kondycji dzienników sondowania. Po pobraniu pliki w formacie JSON, należy przekonwertować je na CSV i widoku w programie Excel, usłudze PowerBI lub inne narzędzie do wizualizacji danych.
+Potrzebny jest magazyn tooyour tooconnect konta i pobieranie hello wpisy dziennika JSON dla dziennikami sondy kondycji i zdarzeń. Po pobraniu hello pliki w formacie JSON można konwertować tooCSV i widoku w programie Excel, usłudze PowerBI lub inne narzędzie do wizualizacji danych.
 
 > [!TIP]
-> Jeśli znasz podstawowe koncepcje zmiany wartości stałych i zmiennych w języku C# i Visual Studio, możesz użyć [dziennika narzędzia konwertera](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostępne w serwisie GitHub.
+> Jeśli znasz podstawowe koncepcje zmiany wartości stałych i zmiennych w języku C# i Visual Studio, możesz użyć hello [dziennika narzędzia konwertera](https://github.com/Azure-Samples/networking-dotnet-log-converter) dostępne w serwisie GitHub.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

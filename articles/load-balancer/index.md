@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Load Balancer — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie używania usługi Load Balancer do zarządzania wydajnością aplikacji w sieci. Zarządzanie ruchem dla maszyn wirtualnych i zasobów w chmurze oraz w sieciach wirtualnych obejmujących wiele lokalizacji."
+title: "aaaAzure dokumentacji usługi równoważenia obciążenia — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse usługi równoważenia obciążenia sieci wydajność aplikacji. Zarządzanie ruchem dla maszyn wirtualnych i zasobów w chmurze oraz w sieciach wirtualnych obejmujących wiele lokalizacji."
 services: load-balancer
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 96da506c8545a1b863e62133706a2687c2498bbd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 877aef347f9d6f97da1562944676c2e95ddba470
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="load-balancer-documentation"></a>Dokumentacja usługi Load Balancer
 
-Dowiedz się, jak skonfigurować usługę Load Balancer, aby zapewnić aplikacjom wysoką dostępność i wydajność sieci. Dokumentacja przedstawiająca sposób równoważenia obciążenia ruchu w sieciach wirtualnych obejmujących wiele lokalizacji oraz kierowanego do i z maszyn wirtualnych i zasobów w chmurze.
+Dowiedz się, jak tooconfigure modułu równoważenia obciążenia toodeliver wysokiej dostępności i wydajności tooyour aplikacje sieciowe. Dokumentacji przedstawiono, jak tooload saldo tooand ruch z maszyny wirtualnej i zasobów w chmurze, a w sieciach wirtualnych między lokalizacjami.
 
 <ul class="panelContent cardsFTitle">
     <li>

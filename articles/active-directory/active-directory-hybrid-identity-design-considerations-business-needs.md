@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących tożsamości | Dokumentacja firmy Microsoft"
-description: "Ustalenie potrzeb firmy firmy, które prowadzą do definiowania wymagań dotyczących projektowania tożsamości hybrydowej."
+title: "aaaAzure usługi Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących tożsamości | Dokumentacja firmy Microsoft"
+description: "Ustalenie potrzeb firmy hello firmy, które spowoduje toodefine hello wymagań dotyczących projektowania tożsamości hybrydowej hello."
 documentationcenter: 
 services: active-directory
 author: billmath
@@ -14,92 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b2f1cad923b0f08ededa0d8f9a4ea8e799956e54
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Określenie wymagań dotyczących tożsamości dla rozwiązania z tożsamością hybrydową
-Pierwszy krok w projektowaniu rozwiązania z tożsamością hybrydową jest ustalenie wymagań dotyczących organizacji biznesowych, która będzie wykorzystanie tego rozwiązania.  Tożsamość hybrydowa uruchamia rolę pomocniczych (obsługuje on innych rozwiązań w chmurze, zapewniając uwierzytelniania) i przechodzi do mają nowe, ciekawe funkcje, które odblokować nowych obciążeń dla użytkowników.  Te obciążenia lub usługi, które chcesz przyjąć dla użytkowników będzie określać wymagania dotyczące projektowania tożsamości hybrydowej.  Te usługi i obciążeń należy wykorzystać tożsamość hybrydowa lokalnie i w chmurze.  
+Witaj pierwszy krok w projektowaniu rozwiązania z tożsamością hybrydową jest toodetermine hello wymagania dotyczące hello biznesowe organizacji, która będzie wykorzystanie tego rozwiązania.  Tożsamość hybrydowa uruchamia rolę pomocniczych (obsługuje on innych rozwiązań w chmurze, zapewniając uwierzytelniania) i przejdzie w możliwości nowe, ciekawe tooprovide, które odblokować nowych obciążeń dla użytkowników.  Te obciążenia lub usługi ma tooadopt użytkowników wyznaczają hello wymagań dotyczących projektowania tożsamości hybrydowej hello.  Te usługi i obciążeń należy tożsamość hybrydowa tooleverage lokalnie i w chmurze hello.  
 
-Należy zapoznać się z kluczowymi aspektami biznesowe, aby zrozumieć, jakie są wymagania teraz i firma planuje w przyszłości. Jeśli nie masz widoczność długoterminowej strategii dla projektowania tożsamości hybrydowej prawdopodobnie czy rozwiązania nie będzie skalowalne miarę wzrostu i rozwoju firmy.   T on diagramie poniżej przedstawiono przykład architektura tożsamości hybrydowej i obciążeń, które są trwa odblokowywanie dla użytkowników. Jest to przykład wszystkie nowe możliwości, które można odblokować i dostarczane ze strategią tożsamość hybrydowa stałe. 
+Należy toogo kluczowymi aspektami hello firm toounderstand co jest wymagane teraz i jakie firmy hello planów dla przyszłych hello. Jeśli nie masz hello widoczność hello długoterminowej strategii dla projektowania tożsamości hybrydowej prawdopodobnie czy rozwiązania nie będzie skalowalne potrzeb biznesowych hello wzrostu i rozwoju.   T on diagramie poniżej przedstawiono przykład hybrydowego tożsamości architektury i hello obciążeń, które są trwa odblokowywanie dla użytkowników. Jest to przykład wszystkich hello nowe możliwości, które można odblokować i dostarczane ze strategią tożsamość hybrydowa stałe. 
 
-Niektóre składniki, które są częścią architektury tożsamości hybrydowej![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Niektóre składniki, które są częścią architektura tożsamości hybrydowej hello![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Określanie potrzeb biznesowych
-Każda firma będzie miała inne wymagania, nawet jeśli firmy działają w tej samej branży, organizację rzeczywiste wymagania mogą się różnić. Oczywiście można wykorzystywać najlepsze rozwiązania z branży, ale ostatecznie to potrzeby biznesowe firmy, które prowadzą do definiowania wymagań dotyczących projektowania tożsamości hybrydowej. 
+Każda firma będzie miała inne wymagania, nawet jeśli firmy działają hello tej samej branży, hello rzeczywiste wymagania biznesowe mogą się różnić. Oczywiście można wykorzystywać najlepsze rozwiązania z branży hello, ale ostatecznie to potrzeby biznesowe firmy hello doprowadzi toodefine hello wymagań dotyczących projektowania tożsamości hybrydowej hello. 
 
-Upewnij się, że odpowiedzieć na następujące pytania na ustalenie potrzeb firmy:
+Upewnij się, że tooanswer hello następujące pytania dotyczące tooidentify firma musi:
 
-* Firma poszukuje wycinania kosztów operacyjnych IT?
-* Firma potrzebuje do zabezpieczania zasobów chmury (aplikacji SaaS, infrastruktury)
-* Firma chce modernizacji dział IT?
-  * Czy użytkownicy bardziej mobilni i wymagających IT, aby utworzyć wyjątki w sieci Obwodowej, aby umożliwić innego typu ruchu na dostęp do różnych zasobów?
-  * Czy firma dysponuje starsze aplikacje, które wymagane do opublikowania dla tych użytkowników nowoczesnych, ale nie są łatwe do ponownego zapisywania?
-  * Czy firma musi wykonać te zadania i przełączyć go pod kontrolą w tym samym czasie?
-* Firma potrzebuje do zabezpieczania tożsamości użytkowników i zmniejszyć ryzyko przełączając nowe narzędzia korzystających z doświadczenia firmy Microsoft Azure zabezpieczeń doświadczenia z lokalnej firmy?
-* Firma chce się pozbyć się dreaded "external" kont lokalnie i przenieś je do chmury, w którym nie są one nieaktywni zagrożeń w środowisku lokalnym?
+* Firma poszukuje toocut kosztów operacyjnych IT?
+* Firma poszukuje toosecure chmury zasoby (aplikacji SaaS, infrastruktury)?
+* Czy Twoja firma potrzebuje toomodernize dział IT?
+  * Są bardziej mobilni i wymagających IT toocreate wyjątki w sieci DMZ tooallow innego typu ruchu tooaccess różne zasoby użytkowników?
+  * Czy firma dysponuje starsze aplikacje, które potrzebne toobe opublikowane użytkownicy nowoczesnych toothese ale nie są łatwe toorewrite?
+  * Firmy muszą tooaccomplish te zadania i ustaw kontrolę na powitania jednocześnie?
+* Jest firma wyszukiwania tożsamości użytkowników toosecure i ograniczyć ryzyko związane z przełączając nowe narzędzia korzystających z hello doświadczenie firmy Microsoft Azure zabezpieczeń doświadczenia z lokalnymi?
+* Jest firma próby tooget usuwanie hello dreaded "external" kont lokalnych i przenieś je chmurze toohello, gdy nie są one nieaktywni zagrożeń w środowisku lokalnym?
 
 ## <a name="analyze-on-premises-identity-infrastructure"></a>Analizowanie lokalnej infrastruktury tożsamości
-Teraz, gdy masz pomysł dotyczące wymagania biznesowe firmy, musisz ocenić lokalnej infrastruktury tożsamości. Tej oceny jest ważne w przypadku definiowania wymagania techniczne do integracji tożsamości rozwiązanie do systemu zarządzania tożsamości chmury. Upewnij się, że należy odpowiedzieć na następujące pytania:
+Teraz, gdy masz pomysł dotyczące wymagania biznesowe firmy, należy tooevaluate lokalnej infrastruktury tożsamości. Tej oceny jest ważne w przypadku definiowania toointegrate wymagania techniczne hello bieżącej tożsamości rozwiązania toohello chmury tożsamości systemu zarządzania. Upewnij się, że hello tooanswer następujące pytania:
 
 * Jakie rozwiązania uwierzytelniania i autoryzacji jest firma użyć lokalnego? 
 * Czy firma ma obecnie żadnych lokalnych usług synchronizacji?
 * Czy firma korzysta żadnych innych dostawców tożsamości (IdP)?
 
-Należy mieć świadomość usługi w chmurze, które firma może mieć. Bardzo ważne jest wykonanie oceny zrozumienie bieżącego integracji z modelami SaaS, IaaS i PaaS w środowisku. Upewnij się, że należy odpowiedzieć na następujące pytania podczas oceny:
+Należy również toobe hello usługi chmury, które firma może mieć świadomość. Modele IaaS i PaaS w środowisku wykonywania oceny toounderstand hello bieżącego integracji z SaaS, jest bardzo ważne. Upewnij się, że hello tooanswer następujące pytania podczas oceny:
 
 * Czy firma dysponuje zintegrowany z dostawcą usług w chmurze?
 * Jeśli tak, usług, które są używane?
 * Trwa tej integracji w środowisku produkcyjnym lub jest on pilotażu?
 
 > [!NOTE]
-> Jeśli nie masz dokładne mapowania wszystkich aplikacji i usług w chmurze, można użyć narzędzia Cloud App Discovery. To narzędzie można udostępnić dział IT wgląd w Twojej organizacji wszystkie działalności biznesowej i użytkownika aplikacji w chmurze. Znacznie ułatwia to odkrywanie działań IT w organizacji, w tym szczegółów wzorów użytkowania oraz wszystkich użytkowników uzyskujących dostęp do aplikacji w chmurze. Aby uzyskać wstępne informacje, zobacz [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Jeśli nie masz dokładne mapowania wszystkich aplikacji i usług w chmurze, można użyć narzędzia Cloud App Discovery hello. To narzędzie można udostępnić dział IT wgląd w Twojej organizacji wszystkie działalności biznesowej i użytkownika aplikacji w chmurze. Który umożliwia łatwiejsze niż kiedykolwiek toodiscover tle IT w organizacji, w tym informacji o sposobie używania oraz żadnych użytkowników uzyskujących dostęp do aplikacji w chmurze. Zobacz tooget uruchomiona [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
 > 
 > 
 
 ## <a name="evaluate-identity-integration-requirements"></a>Ocena wymagań integracja tożsamości
-Następnie należy do oceny wymagań dotyczących integracji tożsamości. Ocena ważne jest, aby zdefiniować wymagania techniczne dotyczące sposobu uwierzytelniania użytkowników, wygląd obecności organizacji w chmurze, jak dozwolony autoryzacji w organizacji i środowisko użytkownika ma być. Upewnij się, że należy odpowiedzieć na następujące pytania:
+Następnie należy tooevaluate hello identity integration wymagania. Tej oceny jest ważne toodefine hello wymagania techniczne dla sposób uwierzytelniania użytkowników, wygląd obecności hello organizacji w chmurze hello, jak dozwolony autoryzacji w organizacji hello i jakie środowisko użytkownika hello jest toobe będzie. Upewnij się, że hello tooanswer następujące pytania:
 
 * Twoja organizacja użyje federacyjnych, standardowe uwierzytelnianie lub obu?
-* Jest to wymagane federacyjnej?  Z następującej przyczyny:
+* Jest to wymagane federacyjnej?  Ze względu na powitania następujące czynności:
   * Usługa rejestracji Jednokrotnej opartego na protokole Kerberos
   * Twoja firma ma aplikacji lokalnych (albo utworzona strona wewnętrznych lub 3), które używa SAML lub podobne możliwości federacji.
   * Usługi MFA za pomocą kart inteligentnych. RSA SecurID itp.
-  * Reguły dostępu klienta, które rozwiązują pytań poniżej:
-    1. Czy można zablokować zewnętrzny dostęp do usługi Office 365 na podstawie adresu IP klienta
-    2. Czy można zablokować zewnętrzny dostęp do usługi Office 365, z wyjątkiem programu Exchange ActiveSync?
-    3. Czy można zablokować zewnętrzny dostęp do usługi Office 365, z wyjątkiem aplikacji opartych na przeglądarce (program OWA, SPO)
-    4. Dla członków wyznaczonych grup usługi Active Directory można zablokować zewnętrzny dostęp do usługi Office 365
+  * Reguły dostępu klienta, które rozwiązują hello pytań poniżej:
+    1. Czy można zablokować wszystkie tooOffice dostępu zewnętrznego 365 na podstawie adresu IP hello powitania klienta
+    2. Czy można zablokować wszystkie tooOffice dostępu zewnętrznego 365, z wyjątkiem programu Exchange ActiveSync?
+    3. Czy można zablokować wszystkie tooOffice dostępu zewnętrznego 365, z wyjątkiem aplikacji opartych na przeglądarce (program OWA, SPO)
+    4. Dla członków wyznaczonych grup usługi Active Directory można zablokować wszystkie tooOffice dostępu zewnętrznego 365
 * Inspekcja zabezpieczeń/problemy
 * Już istniejących inwestycji w uwierzytelniania federacyjnego
-* Jaką nazwę naszej organizacji będą korzystać z naszych domeny w chmurze?
-* Czy organizacja ma niestandardową domenę?
+* Jaką nazwę naszej organizacji będą korzystać z naszych domeny w chmurze hello?
+* Witaj organizacja ma niestandardową domenę?
   1. Jest tej domeny publicznej i łatwy do zweryfikowania przy użyciu usługi DNS?
-  2. Jeśli nie, następnie masz domeny publicznej, który może służyć do rejestrowania alternatywne nazwy UPN w usłudze AD?
-* Identyfikatory użytkowników są spójne dla reprezentacji chmury? 
-* Czy organizacja ma aplikacje, które wymagają do działania integracji z usługami w chmurze?
-* Organizacja ma wiele domen i użyje wszystkie standardowe lub federacyjnych uwierzytelniania?
+  2. Jeśli nie, następnie masz domeny publicznej, które mogą być używane tooregister alternatywne nazwy UPN w usłudze AD?
+* Witaj identyfikatorów użytkowników są spójne dla reprezentacji chmury? 
+* Czy organizacja hello ma aplikacje, które wymagają do działania integracji z usługami w chmurze?
+* Hello organizacji ma wiele domen i użyje wszystkie standardowe lub federacyjnych uwierzytelniania?
 
 ## <a name="evaluate-applications-that-run-in-your-environment"></a>Ocena aplikacji działających w środowisku
-Teraz, gdy masz pomysł dotyczące lokalną i infrastruktury w chmurze, należy ocenić aplikacje, które uruchamiane w tych środowiskach. Ocena ważne jest, aby zdefiniować wymagania techniczne, aby zintegrować te aplikacje do systemu zarządzania tożsamości chmury. Upewnij się, że należy odpowiedzieć na następujące pytania:
+Masz pomysł dotyczące lokalnej i w chmurze infrastruktury, trzeba tooevaluate hello aplikacje, które działają w tych środowiskach. Tej oceny jest ważne, toodefine hello toointegrate wymagania techniczne systemu toohello zarządzania tożsamości chmury tych aplikacji. Upewnij się, że hello tooanswer następujące pytania:
 
 * Gdy będzie funkcjonować nasze aplikacje?
-* Uzyskują użytkownikom dostęp do lokalnych aplikacji?  W chmurze? Czy oba?
-* Czy istnieją plany wziąć istniejących obciążeń aplikacji i przenieś je do chmury?
-* Czy istnieją plany tworzyć nowe aplikacje, które będą znajdować się lokalnie lub w chmurze, która będzie używana w chmurze uwierzytelniania?
+* Uzyskują użytkownikom dostęp do lokalnych aplikacji?  W chmurze hello? Czy oba?
+* Czy istnieją plany istniejących obciążeń aplikacji hello tootake i przenieś je toohello chmury?
+* Czy istnieją plany toodevelop nowe aplikacje, które będą znajdować się lokalnie lub w hello chmury, który będzie używał uwierzytelniania w chmurze?
 
 ## <a name="evaluate-user-requirements"></a>Ocena wymagań użytkownika
-Należy również ocenić wymagań użytkownika. Ocena ważne jest, aby zdefiniować czynności, które będą potrzebne do dołączania i wspomaganie użytkowników, zgodnie z ich przejście do chmury. Upewnij się, że należy odpowiedzieć na następujące pytania:
+Masz również wymagania użytkownika hello tooevaluate. Tej oceny jest toodefine ważne hello kroki, które będą potrzebne do dołączania i wspomaganie użytkowników, zgodnie z ich przejście toohello chmury. Upewnij się, że hello tooanswer następujące pytania:
 
 * Uzyskują użytkownikom dostęp do aplikacji lokalnych?
-* Uzyskują użytkownikom dostęp do aplikacji w chmurze?
-* Jak użytkownicy zazwyczaj logowanie do ich w środowisku lokalnym?
-* Jak będzie użytkowników logowania w chmurze?
+* Uzyskują użytkownikom dostęp do aplikacji w chmurze hello?
+* Jak użytkownicy zazwyczaj tootheir logowania lokalnego środowiska?
+* Jak użytkownicy logowania toohello będzie chmury?
 
 > [!NOTE]
-> Upewnij się zanotować wszystkie odpowiedzi i zrozumieć ich uzasadnienie. [Określenie wymagań dotyczących odpowiedzi na zdarzenia](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) będą przekazywane dostępne opcje oraz zalety/wady każdej opcji.  Po udzieleniu odpowiedzi na te pytania można wybrać opcji najlepiej pasujące do firmy wymaga.
+> Upewnij się, że notatki tootake wszystkie odpowiedzi i zrozumieć hello uzasadnienie hello odpowiedzi. [Określenie wymagań dotyczących odpowiedzi na zdarzenia](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) będą przekazywane hello dostępne opcje oraz zalety/wady każdej opcji.  Po udzieleniu odpowiedzi na te pytania można wybrać opcji najlepiej pasujące do firmy wymaga.
 > 
 > 
 

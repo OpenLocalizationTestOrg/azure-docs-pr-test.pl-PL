@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Resource Manager — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak za pomocą usługi Resource Manager wdrażać zasoby rozwiązań i zarządzać nimi jako grupą oraz jak tworzyć szablony na potrzeby spójnego i powtarzalnego wdrażania zasobów."
+title: "aaaAzure dokumentacji usługi Resource Manager — Samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse toodeploy Resource Manager oraz zarządzanie tymi zasobami rozwiązania jako grupy i toocreate szablony zasobów spójne i powtarzalne wdrożenia."
 services: azure-resource-manager
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: e74ec7e061c7b00acbf1cba7fdcc1864a81fff3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc920b14e84bbad1a178fc91a61a1d2642d644b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Dokumentacja usługi Azure Resource Manager
 
-Dowiedz się, jak używać usługi Resource Manager w celu wdrażania i monitorowania zasobów rozwiązań oraz zarządzania nimi jako grupą. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania grup zasobów i tworzenia szablonów na potrzeby spójnego i powtarzalnego wdrażania.
+Dowiedz się, jak toouse toodeploy Resource Manager, monitorowanie i zarządzanie zasobami rozwiązania jako grupa. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooset się zasobów grup i tworzenia szablonów dla wdrożenia spójne i powtarzalne.
 
 <ul class="panelContent cardsFTitle">
     <li>

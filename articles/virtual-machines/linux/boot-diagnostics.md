@@ -1,6 +1,6 @@
 ---
-title: Rozruch diagnostyki dla maszyn wirtualnych systemu Linux na platformie Azure | Doc firmy Microsoft
-description: "Omówienie dwóch funkcji debugowania dla maszyn wirtualnych systemu Linux na platformie Azure"
+title: Diagnostyka aaaBoot dla maszyn wirtualnych systemu Linux na platformie Azure | Doc firmy Microsoft
+description: "Omówienie Witaj dwie funkcje debugowania dla maszyn wirtualnych systemu Linux na platformie Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: delhan
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d355d512de09d2f1d7a2718e3db3fb99c9dd9e24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Rozwiązywanie problemów z maszyn wirtualnych systemu Linux na platformie Azure przy użyciu diagnostyki rozruchu
+# <a name="how-toouse-boot-diagnostics-tootroubleshoot-linux-virtual-machines-in-azure"></a>Jak toouse rozruchu maszyn wirtualnych systemu Linux tootroubleshoot Diagnostyka Azure
 
 Na platformie Azure jest teraz dostępna obsługa dwóch funkcji debugowania: obsługa danych wyjściowych konsoli i zrzutu ekranu dla modelu wdrażania przy użyciu usługi Azure Virtual Machines Resource Manager. 
 
-Podczas korzystania z własnego obrazu na platformie Azure, a nawet wykonywania rozruchu jednego z obrazów platformy, może wystąpić wiele przyczyn przejścia maszyny wirtualnej do stanu uniemożliwiającego rozruch. Te funkcje umożliwiają łatwe diagnozowanie i odzyskiwanie maszyn wirtualnych po niepowodzeniach rozruchu.
+Podczas przełączania tooAzure własny obraz lub nawet rozruch jeden z obrazów platformy hello, może istnieć wiele przyczyn, dlaczego pobiera maszynę wirtualną do stanu rozruchowego. Te funkcje włączenia należy tooeasily diagnozowanie i odzyskiwanie po błędach rozruchu maszyn wirtualnych.
 
-Dla maszyn wirtualnych z systemem Linux można łatwo wyświetlić dane wyjściowe konsoli dziennika za pomocą portalu:
+Dla maszyn wirtualnych systemu Linux można łatwo przeglądać dane wyjściowe hello dziennika konsoli z hello portalu:
 
 ![Azure Portal](./media/boot-diagnostics/screenshot1.png)
  
-Jednak zarówno dla maszyn wirtualnych z systemem Linux, jak i Windows, platforma Azure umożliwia również wyświetlenie zrzutu ekranu maszyny wirtualnej za pomocą funkcji hypervisor:
+Jednak dla systemów Windows i maszyn wirtualnych systemu Linux Azure umożliwia również toosee hello maszyny Wirtualnej z funkcji hypervisor hello zrzut ekranu:
 
 ![Błąd](./media/boot-diagnostics/screenshot2.png)
 
-Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszystkich regionach. Należy pamiętać, że może minąć do 10 minut, zanim zrzuty ekranu i dane wyjściowe pojawią się na koncie magazynu.
+Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszystkich regionach. Uwaga, zrzuty ekranu i danych wyjściowych może potrwać too10 tooappear minut na koncie magazynu.
 
 ## <a name="common-boot-errors"></a>Typowe błędy rozruchu
 
@@ -44,15 +44,15 @@ Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszys
 - [Błędy FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Włączanie diagnostyki na nowej maszynie wirtualnej
-1. Podczas tworzenia nowej maszyny wirtualnej w portalu w wersji zapoznawczej wybierz pozycję **Azure Resource Manager** z listy rozwijanej modelu wdrażania:
+1. Podczas tworzenia nowej maszyny wirtualnej z hello portalu w wersji zapoznawczej, wybierz hello **usługi Azure Resource Manager** z listy rozwijanej modelu wdrażania hello:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Skonfiguruj opcję Monitorowanie, aby wybrać konto magazynu, w którym chcesz umieścić te pliki diagnostyczne.
+2. Skonfiguruj te pliki diagnostyczne hello miejsce chcesz tooplace monitorowanie opcja tooselect hello magazynu konta.
  
     ![Tworzenie maszyny wirtualnej](./media/boot-diagnostics/screenshot4.jpg)
 
-3. Jeśli wykonujesz wdrożenie z szablonu usługi Azure Resource Manager, przejdź do zasobu maszyny wirtualnej i dołącz sekcję profilu diagnostyki. Pamiętaj, aby użyć nagłówka wersji interfejsu API „2015-06-15”.
+3. Jeśli wdrażasz za pomocą szablonu usługi Azure Resource Manager, przejdź tooyour zasobu maszyny wirtualnej i Dołącz sekcji profilu diagnostyki hello. Należy pamiętać, nagłówek wersji interfejsu API toouse hello "2015-06-15".
 
     ```json
     {
@@ -61,7 +61,7 @@ Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszys
           … 
     ```
 
-4. Profil diagnostyki umożliwia wybranie konta magazynu, na którym chcesz umieścić te dzienniki.
+4. profilu diagnostyki Hello umożliwia konta magazynu hello tooselect miejscu tooput tych dzienników.
 
     ```json
             "diagnosticsProfile": {
@@ -76,6 +76,6 @@ Obie te funkcje są obsługiwane dla maszyn wirtualnych platformy Azure we wszys
 
 ## <a name="update-an-existing-virtual-machine"></a>Aktualizowanie istniejącej maszyny wirtualnej
 
-Aby włączyć diagnostyki rozruchu za pośrednictwem portalu, należy zaktualizować istniejącej maszyny wirtualnej za pośrednictwem portalu. Wybierz opcję Diagnostyka rozruchu i kliknij ikonę Zapisz. Uruchom ponownie maszynę wirtualną, aby zmiany zaczęły obowiązywać.
+diagnostyki rozruchu tooenable za pośrednictwem portalu hello, można także zaktualizować istniejącej maszyny wirtualnej za pośrednictwem portalu hello. Wybierz hello diagnostyki rozruchu opcji i Zapisz. Uruchom ponownie hello wirtualna tootake efekt.
 
 ![Aktualizowanie istniejącej maszyny wirtualnej](./media/boot-diagnostics/screenshot5.png)

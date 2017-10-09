@@ -1,12 +1,12 @@
 ---
 title: "Symulowane urządzenie & Azure IoT bramy - lekcji 3: uruchamianie aplikacji przykładowych | Dokumentacja firmy Microsoft"
-description: "Uruchom przykładową aplikację symulowane urządzenie do przesyłania danych temperatury do Centrum IoT"
+description: "Uruchom symulowane urządzenie przykładowej aplikacji toosend temperatury danych tooyour Centrum IoT"
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: dane w chmurze
+keywords: toocloud danych
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
@@ -17,26 +17,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 7df2d730c38a9f715e0fd57b4d436724a5727760
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bc2c97919e95e4e3977a8b6ac75162bf2b5017be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-and-run-a-simulated-device-sample-app"></a>Konfigurowanie i uruchamianie aplikacji przykładowej symulowane urządzenie
 
 ## <a name="what-you-will-do"></a>Będzie wykonywać
 
-- Klonuj repozytorium przykładowej.
-- Użyj interfejsu wiersza polecenia Azure, aby uzyskać informacje o Twoich Centrum IoT i urządzenia logicznego symulowane urządzenie przykładowej aplikacji. Skonfiguruj i uruchom przykładową aplikację symulowane urządzenie.
+- Repozytorium przykładowej hello klonowania.
+- Użyj hello Azure CLI tooget informacje o Twoich Centrum IoT i urządzenia logicznego symulowane urządzenie przykładowej aplikacji. Skonfiguruj i uruchom hello symulowane urządzenie przykładowej aplikacji.
 
-Jeśli masz problemy, poszukaj rozwiązania [Rozwiązywanie problemów z strony](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Jeśli masz problemy, poszukaj rozwiązania na powitania [Rozwiązywanie problemów z strony](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Co dowiesz się
 
 W tym artykule dowiesz się:
 
-- Jak skonfigurować i uruchomić aplikację przykładową symulowane urządzenie.
+- Jak tooconfigure i wykonywania hello symulowane urządzenie przykładowej aplikacji.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
@@ -44,21 +44,21 @@ Pomyślnie zakończono
 
 - [Create an IoT hub and register your device](iot-hub-gateway-kit-c-sim-lesson2-register-device.md) (Tworzenie centrum IoT Hub i rejestrowanie urządzenia)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Klonuj repozytorium przykładowej do komputera hosta
+## <a name="clone-hello-sample-repository-toohello-host-computer"></a>Klonowanie hello próbki repozytorium toohello hosta
 
-Klonowanie repozytorium przykładowej, wykonaj następujące kroki na komputerze-hoście:
+repozytorium przykładowej hello tooclone, wykonaj następujące kroki na komputerze hosta hello:
 
 1. Otwórz wiersz polecenia w systemie Windows lub Otwórz terminal macOS lub Ubuntu.
-2. Uruchom następujące polecenia:
+2. Uruchom następujące polecenia hello:
 
    ```bash
    git clone https://github.com/Azure-samples/iot-hub-c-intel-nuc-gateway-getting-started
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="configure-the-simulated-device-and-your-nuc"></a>Skonfiguruj symulowane urządzenie i NUC Twojego
+## <a name="configure-hello-simulated-device-and-your-nuc"></a>Skonfiguruj hello symulowane urządzenie i NUC Twojego
 
-1. Otwórz plik konfiguracji `config.json` w programie Visual Studio Code, uruchamiając następujące polecenie:
+1. Plik konfiguracji Otwórz hello `config.json` w programie Visual Studio Code, uruchamiając następujące polecenie hello:
 
    ```bash
    code config.json
@@ -68,7 +68,7 @@ Klonowanie repozytorium przykładowej, wykonaj następujące kroki na komputerze
 
    ![Nie masz urządzenia Sensor tag analizy czasowej konfiguracji](media/iot-hub-gateway-kit-lessons/lesson3/config_no_sensortag.png)
 
-3. Inicjowanie pliku konfiguracji, uruchamiając następujące polecenia:
+3. Inicjowanie pliku konfiguracji hello, uruchamiając następujące polecenia hello:
 
    ```bash
    cd Lesson3
@@ -76,7 +76,7 @@ Klonowanie repozytorium przykładowej, wykonaj następujące kroki na komputerze
    gulp init
    ```
 
-4. Otwórz `config-gateway.json` w programie Visual Studio Code, uruchamiając następujące polecenie:
+4. Otwórz `config-gateway.json` w programie Visual Studio Code, uruchamiając następujące polecenie hello:
 
    ```bash
    # For Windows command prompt
@@ -85,24 +85,24 @@ Klonowanie repozytorium przykładowej, wykonaj następujące kroki na komputerze
    code ~/.iot-hub-getting-started/config-gateway.json
    ```
 
-5. Znajdź następujący wiersz kodu i Zastąp `[device hostname or IP address]` z adresu IP adres lub nazwę hosta Intel NUC.
+5. Znajdź powitania po wierszu kodu i Zastąp `[device hostname or IP address]` z adresu IP adres lub nazwę hosta hello Intel NUC.
    ![Zrzut ekranu przedstawiający konfiguracji bramy](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)
 
-## <a name="get-the-connection-string-of-your-iot-hub-logical-device"></a>Pobierz ciąg połączenia urządzenia logicznego centrum IoT
+## <a name="get-hello-connection-string-of-your-iot-hub-logical-device"></a>Pobierz ciąg połączenia hello urządzenia logicznego centrum IoT
 
-Można pobrać ciągu połączenia Centrum Azure IoT urządzenia logicznego, uruchom następujące polecenie na komputerze-hoście:
+Witaj tooget parametry połączenia Centrum Azure IoT urządzenia logicznego, uruchom następujące polecenie na komputerze hosta hello hello:
 
 ```bash
 az iot device show-connection-string --hub-name {IoT hub name} --device-id mydevice --resource-group iot-gateway
 ```
 
-`{IoT hub name}`jest to nazwa Centrum IoT użyty. Użyj bramy iot jako wartość `{resource group name}` i użyj mydevice jako wartość `{device id}` nie zmiany wartości Lekcja 2.
+`{IoT hub name}`jest hello nazwę Centrum IoT, który został użyty. Użyj bramy iot jako wartość hello `{resource group name}` i użyj mydevice jako wartość hello `{device id}` nie zmiany wartości hello Lekcja 2.
 
-## <a name="configure-the-simulated-device-cloud-upload-sample-application"></a>Skonfiguruj symulowane urządzenie chmury przekazywania przykładowej aplikacji
+## <a name="configure-hello-simulated-device-cloud-upload-sample-application"></a>Skonfiguruj hello symulowane urządzenie chmury przekazywania przykładowej aplikacji
 
-Aby skonfigurować i uruchomić symulowane urządzenie chmury przekazywania przykładowej aplikacji, wykonaj następujące kroki na komputerze-hoście:
+tooconfigure i wykonywania hello symulowane urządzenie chmury przekazać przykładowej aplikacji, wykonaj następujące kroki na komputerze hosta hello:
 
-1. Otwórz `config-sensortag.json` w programie Visual Studio Code, uruchamiając następujące polecenie:
+1. Otwórz `config-sensortag.json` w programie Visual Studio Code, uruchamiając następujące polecenie hello:
 
    ```bash
    # For Windows command prompt
@@ -113,29 +113,29 @@ Aby skonfigurować i uruchomić symulowane urządzenie chmury przekazywania przy
 
    ![Zrzut ekranu przedstawiający Sensor tag konfiguracji](media/iot-hub-gateway-kit-lessons/lesson3/config_simulated_device.png)
 
-2. Wprowadź następujące elementy zastępcze w kodzie:
-   - Zastąp `[IoT hub name]` nazwą Centrum IoT.
-   - Zastąp `[IoT device connection string]` z parametrami połączenia urządzenia logicznego centrum IoT.
+2. Wprowadź następujące elementy zastępcze w kodzie hello hello:
+   - Zastąp `[IoT hub name]` o nazwie Centrum IoT hello.
+   - Zastąp `[IoT device connection string]` z ciągu połączenia hello urządzenia logicznego centrum IoT.
 
-3. Uruchom aplikację.
+3. Uruchamianie aplikacji hello.
 
-   Wdrażanie i uruchamianie aplikacji, uruchamiając następujące polecenie:
+   Wdrażanie i uruchamianie aplikacji hello, uruchamiając następujące polecenie hello:
 
    ```bash
    gulp run
    ```
 
-## <a name="verify-the-sample-application-works"></a>Weryfikowanie działania aplikacji przykładowych
+## <a name="verify-hello-sample-application-works"></a>Weryfikowanie działania aplikacji przykładowej hello
 
-Teraz powinny być widoczne dane wyjściowe podobne do następujących:
+Teraz powinny być widoczne dane wyjściowe podobne do następujących hello:
 
 ![Symulowane urządzenie przykładowej aplikacji w danych wyjściowych](media/iot-hub-gateway-kit-lessons/lesson3/gulp_run_simudev.png)
 
-Aplikacja wysyła dane temperatury Centrum IoT, który jest ważny przez 40 sekund.
+Aplikacja Hello wysyła Centrum IoT tooyour danych temperatury, który jest ważny przez 40 sekund.
 
 ## <a name="summary"></a>Podsumowanie
 
-Pomyślnie zostały skonfigurowane i uruchomić aplikacji przykładowej przekazywania Chmury symulowane urządzenie, który wysyła dane do Centrum IoT z symulowane urządzenie.
+Pomyślnie skonfigurowano i wykonywania hello symulowane urządzenie chmury przekazywania przykładowej aplikacji, która wysyła Centrum IoT tooyour danych z symulowane urządzenie.
 
 ## <a name="next-steps"></a>Następne kroki
 [Read messages from your IoT hub](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md) (Odczytywanie komunikatów z centrum IoT Hub)

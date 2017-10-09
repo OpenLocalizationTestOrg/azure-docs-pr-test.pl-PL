@@ -1,6 +1,6 @@
 ---
-title: "PowerShell przykład — monitor — skali-elastycznej puli Azure SQL bazy danych SQL | Dokumentacja firmy Microsoft"
-description: "Azure przykładowy skrypt programu PowerShell do monitorowania i skalowania puli elastycznej SQL w bazie danych SQL Azure"
+title: "aaaPowerShell przykład — monitor skali SQL elastycznej puli Azure SQL Database | Dokumentacja firmy Microsoft"
+description: "Azure PowerShell przykładowy skrypt toomonitor i skalowania puli elastycznej SQL w bazie danych SQL Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 7b6a5bd43aadbed33882cf0736ec70436ffdb47b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 149a45174ccb8072ea21753364196c7f98fd4101
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Monitorowanie i skalowania puli elastycznej SQL w bazie danych SQL Azure przy użyciu programu PowerShell
+# <a name="use-powershell-toomonitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Użyj programu PowerShell toomonitor i Skaluj w puli elastycznej SQL w bazie danych SQL Azure
 
-Ten przykładowy skrypt programu PowerShell monitoruje metryk wydajności puli elastycznej, skaluje go na wyższy poziom wydajności i tworzy regułę alertu w jednym z metryk wydajności. 
+Ten przykładowy skrypt programu PowerShell się, że monitory hello metryk wydajności puli elastycznej skaluje go tooa wyższy poziom wydajności i tworzy regułę alertu w jednym z hello metryki wydajności. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "monitora i skali Pojedyncza baza danych SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po uruchomieniu przykładowym skrypcie hello hello następujące polecenie może być grupa zasobów hello tooremove używane i wszystkie zasoby skojarzone z nim.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -50,15 +50,15 @@ Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do
 | [Nowe AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Tworzy serwer logiczny, który jest hostem bazy danych lub elastyczna pula. |
 | [Nowe AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Tworzy elastycznej puli w ramach serwera logicznego. |
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Tworzy bazę danych w serwera logicznego jako jedną lub puli bazy danych. |
-| [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Przedstawia informacje o użyciu rozmiar bazy danych.|
+| [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Zawiera informacje o użyciu rozmiar hello hello bazy danych.|
 | [Dodaj AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Dodaje lub aktualizuje regułę alertu metryki. |
 | [Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool) | Aktualizuje właściwości puli elastycznej |
-| [Dodaj AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Ustawia reguły alertu automatycznie monitorować jednostek Dtu w przyszłości. |
+| [Dodaj AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Ustawia reguły alertu tooautomatically monitora jednostek Dtu w hello przyszłych. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących programu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na powitania programu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 
-Dodatkowe przykłady skryptów programu PowerShell bazy danych SQL można znaleźć w [skryptów programu PowerShell bazy danych SQL Azure](../sql-database-powershell-samples.md).
+Dodatkowe przykłady skryptów programu PowerShell bazy danych SQL można znaleźć w hello [skryptów programu PowerShell bazy danych SQL Azure](../sql-database-powershell-samples.md).

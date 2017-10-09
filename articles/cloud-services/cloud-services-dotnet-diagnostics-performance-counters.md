@@ -1,6 +1,6 @@
 ---
-title: "Użyj liczników wydajności w diagnostyce Azure | Dokumentacja firmy Microsoft"
-description: "Użyj liczników wydajności usługi w chmurze platformy Azure lub maszyny wirtualnej, aby znaleźć wąskich gardeł i dostrajania wydajności."
+title: "Liczniki wydajności w diagnostyce Azure aaaUse | Dokumentacja firmy Microsoft"
+description: "Użyj liczników wydajności usługi w chmurze platformy Azure lub wąskich gardeł toofind maszyny wirtualnej i dostrajania wydajności."
 services: cloud-services
 documentationcenter: .net
 author: rboucher
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f3250816c01fc6e164a6aae48da5035845e6d2b3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Tworzenie i używanie liczników wydajności w aplikacji Azure
-W tym artykule opisano zalet i jak poddane liczniki wydajności aplikacji platformy Azure. Można używać ich do zbierania danych, Znajdź wąskich gardeł i dostrajania wydajności systemu i aplikacji.
+W tym artykule opisano hello zalet i jak liczniki wydajności tooput do aplikacji platformy Azure. Można ich używać danych toocollect, Znajdź wąskich gardeł i dostrajania wydajności systemu i aplikacji.
 
-Można również zebranych liczników wydajności dostępnych dla systemu Windows Server, IIS i platformy ASP.NET i używany w celu określenia kondycji role sieci web platformy Azure, roli proces roboczy i maszyny wirtualne. Można również utworzyć i używać niestandardowe liczniki wydajności.  
+Liczniki wydajności są dostępne dla systemu Windows Server, IIS i platformy ASP.NET można także gromadzić i używane kondycji hello toodetermine role sieci web platformy Azure, roli proces roboczy i maszyn wirtualnych. Można również utworzyć i używać niestandardowe liczniki wydajności.  
 
 Należy zbadać dane licznika wydajności
 
-1. Bezpośrednio na hoście aplikacji za pomocą narzędzia Monitor wydajności dostęp za pomocą pulpitu zdalnego
-2. Za pomocą programu System Center Operations Manager przy użyciu pakietu administracyjnego platformy Azure
-3. Przy użyciu innych narzędzi monitorowania, które uzyskują dostęp do danych diagnostycznych przekazywane do magazynu Azure. Zobacz [magazynu i widoku danych diagnostycznych w usłudze Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) Aby uzyskać więcej informacji.  
+1. Bezpośrednio na hoście aplikacji hello za pomocą narzędzia Monitor wydajności hello dostęp za pomocą pulpitu zdalnego
+2. Przy użyciu programu System Center Operations Manager hello Azure pakietu administracyjnego
+3. Przy użyciu innych narzędzi monitorowania, które uzyskują dostęp do hello danych diagnostycznych transferu tooAzure magazynu. Zobacz [magazynu i widoku danych diagnostycznych w usłudze Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) Aby uzyskać więcej informacji.  
 
-Aby uzyskać więcej informacji na temat monitorowania wydajności aplikacji w [portalu Azure](http://portal.azure.com/), zobacz [jak usługi w chmurze Monitor](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+Aby uzyskać więcej informacji na temat monitorowania wydajności aplikacji hello hello [portalu Azure](http://portal.azure.com/), zobacz [jak usług w chmurze tooMonitor](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
-Aby uzyskać dodatkowe szczegółowe wskazówki dotyczące tworzenia rejestrowania i śledzenia strategii i przy użyciu diagnostyki i innych technik rozwiązywania problemów i optymalizowanie aplikacji Azure, zobacz [Rozwiązywanie problemów z najlepszych rozwiązań dotyczących tworzenia Azure Aplikacje](https://msdn.microsoft.com/library/azure/hh771389.aspx).
+Aby uzyskać dodatkowe szczegółowe wskazówki na temat tworzenia rejestrowania i śledzenia strategii i przy użyciu innych technik tootroubleshoot problemów i Diagnostyka i optymalizowanie aplikacji Azure, zobacz [Rozwiązywanie problemów z najlepszych rozwiązań dotyczących tworzenia Azure Aplikacje](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
 ## <a name="enable-performance-counter-monitoring"></a>Aby włączyć monitorowanie licznika wydajności
-Liczniki wydajności nie są domyślnie włączone. Aplikacja lub zadanie uruchamiania należy zmodyfikować domyślną konfigurację agenta diagnostyki uwzględnienie liczniki wydajności zależnych, które chcesz monitorować dla każdego wystąpienia roli.
+Liczniki wydajności nie są domyślnie włączone. Aplikacja lub zadanie uruchamiania należy zmodyfikować diagnostyki domyślne hello liczników wydajności zależnych hello tooinclude konfiguracji agenta, że chcesz toomonitor dla każdego wystąpienia roli.
 
 ### <a name="performance-counters-available-for-microsoft-azure"></a>Liczniki wydajności dostępne platformy Microsoft Azure
-Platforma Azure udostępnia podzbioru dostępnych liczników wydajności dla systemu Windows Server, IIS i stosu ASP.NET. W poniższej tabeli wymieniono niektóre liczniki wydajności szczególne znaczenie dla aplikacji platformy Azure.
+Platforma Azure udostępnia podzbiór hello dostępnych liczników wydajności dla systemu Windows Server, IIS i hello stosu ASP.NET. Witaj poniższej tabeli wymieniono niektóre liczniki wydajności hello szczególne znaczenie dla aplikacji platformy Azure.
 
 | Kategoria licznika: Obiektu (wystąpienia) | Nazwa licznika | Dokumentacja |
 | --- | --- | --- |
@@ -69,54 +69,54 @@ Platforma Azure udostępnia podzbioru dostępnych liczników wydajności dla sys
 | Interfejs sieciowy (_2 karty magistrali maszyny wirtualnej Microsoft sieci) |Bajty wysłane/s |Obiekt interfejsu sieciowego |
 | Interfejs sieciowy (_2 karty magistrali maszyny wirtualnej Microsoft sieci) |Całkowita liczba bajtów/s |Obiekt interfejsu sieciowego |
 
-## <a name="create-and-add-custom-performance-counters-to-your-application"></a>Utwórz i Dodaj niestandardowe liczniki wydajności do aplikacji
-Platforma Azure ma techniczną w celu tworzenia i modyfikowania niestandardowe liczniki wydajności dla ról sieci web i proces roboczy. Liczniki mogą służyć do śledzenie i monitorowanie zachowania specyficzne dla aplikacji. Można tworzyć i usuwanie kategorii licznika wydajności niestandardowych i specyfikatory zadanie uruchamiania, rola sieci web lub roli proces roboczy z podwyższonym poziomem uprawnień.
+## <a name="create-and-add-custom-performance-counters-tooyour-application"></a>Tworzenie i dodawanie aplikacji tooyour liczniki wydajności niestandardowych
+Azure ma toocreate pomocy technicznej i zmodyfikuj niestandardowe liczniki wydajności dla ról sieci web i proces roboczy. Hello liczniki mogą być używane tootrack i monitorowanie zachowania specyficzne dla aplikacji. Można tworzyć i usuwanie kategorii licznika wydajności niestandardowych i specyfikatory zadanie uruchamiania, rola sieci web lub roli proces roboczy z podwyższonym poziomem uprawnień.
 
 > [!NOTE]
-> Kod, który zmienia niestandardowe liczniki wydajności mają podwyższony poziom uprawnień do uruchomienia. Jeśli kod jest w roli sieci web lub roli proces roboczy, rola musi zawierać znacznik <Runtime executionContext="elevated" /> w pliku ServiceDefinition.csdef dla roli, aby został poprawnie zainicjowany.
+> Kod, który zmienia toocustom liczników wydajności mają podwyższony poziom uprawnień toorun. Jeśli kod hello jest w roli sieci web lub roli proces roboczy, hello roli musi zawierać znacznik hello <Runtime executionContext="elevated" /> w hello ServiceDefinition.csdef plików dla tooinitialize roli hello poprawnie.
 >
 >
 
-Możesz wysłać dane licznika wydajności niestandardowych do magazynu platformy Azure przy użyciu agenta diagnostyki.
+Możesz wysłać wydajność — niestandardowy licznik tooAzure zapisywanie danych przy użyciu hello Diagnostyka agenta.
 
-Dane licznika wydajności standardowe jest generowany przez procesy Azure. Dane licznika wydajności niestandardowych muszą być utworzone przez aplikację sieci web roli lub procesu roboczego roli. Zobacz [typy licznika wydajności](https://msdn.microsoft.com/library/z573042h.aspx) informacje o typach danych, które mogą być przechowywane w niestandardowe liczniki wydajności. Zobacz [próbki liczniki wydajności](http://code.msdn.microsoft.com/azure/) na przykład, które tworzy i ustawia dane licznika wydajności niestandardowych w roli sieci web.
+dane licznika wydajności standardowe Hello jest generowany przez hello Azure przetwarzania. Dane licznika wydajności niestandardowych muszą być utworzone przez aplikację sieci web roli lub procesu roboczego roli. Zobacz [typy licznika wydajności](https://msdn.microsoft.com/library/z573042h.aspx) informacje o typach hello danych, które mogą być przechowywane w niestandardowe liczniki wydajności. Zobacz [próbki liczniki wydajności](http://code.msdn.microsoft.com/azure/) na przykład, które tworzy i ustawia dane licznika wydajności niestandardowych w roli sieci web.
 
 ## <a name="store-and-view-performance-counter-data"></a>Magazyn i widoku danych licznika wydajności
-Azure przechowuje dane licznika wydajności z innych informacji diagnostycznych. Te dane są dostępne dla monitorowania zdalnego uruchomionej dla wystąpienia roli przy użyciu zdalnego dostępu do pulpitu. Aby wyświetlić narzędzi, takich jak monitora wydajności. Do utrwalenia danych poza wystąpienia roli, agenta diagnostyki należy przenieść dane do magazynu Azure. Limit rozmiaru danych licznika wydajności pamięci podręcznej można skonfigurować w agencie diagnostyki lub może być skonfigurowany jako część udostępnionego limit dla wszystkich danych diagnostycznych. Aby uzyskać więcej informacji na temat ustawiania rozmiaru buforu, zobacz [OverallQuotaInMB](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) i [DirectoriesBufferConfiguration](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx). Zobacz [magazynu i widoku danych diagnostycznych w usłudze Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) omówienie konfigurowania agenta diagnostyki na przesyłanie danych do konta magazynu.
+Azure przechowuje dane licznika wydajności z innych informacji diagnostycznych. Te dane są dostępne dla monitorowania zdalnego wystąpienia roli hello jest uruchomiona za pomocą narzędzi tooview dostępu do pulpitu zdalnego, takich jak monitora wydajności. toopersist hello poza hello wystąpienia roli, agenta diagnostyki hello musi transferu danych hello tooAzure pamięci masowej. limit rozmiaru Hello danych licznika wydajności hello w pamięci podręcznej, można skonfigurować w hello Diagnostyka agenta lub może być skonfigurowane toobe częścią udostępnionego limit hello wszystkich danych diagnostycznych. Aby uzyskać więcej informacji na temat ustawiania rozmiaru buforu hello, zobacz [OverallQuotaInMB](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) i [DirectoriesBufferConfiguration](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx). Zobacz [magazynu i widoku danych diagnostycznych w usłudze Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) omówienie konfigurowania konta magazynu tooa danych tootransfer hello Diagnostyka agenta.
 
-Każde wystąpienie licznika wydajności skonfigurowany jest rejestrowana w określonym próbkowania, a próbki danych jest przekazywana do konta magazynu przez żądanie transferu zaplanowanego lub żądanie transferu na żądanie. Przeniesienia automatyczne może zostać zaplanowane tak często, jak jeden raz na minutę. Przekazywane przez agenta diagnostyki danych licznika wydajności są przechowywane w tabeli, WADPerformanceCountersTable, w ramach konta magazynu. Ta tabela może uzyskać dostępu do i wykonać zapytania z metody interfejsu API magazynu Azure w warstwie standardowa. Zobacz [przykład liczniki wydajności programu Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) przykład kwerend i wyświetlanie danych licznika wydajności z tabeli WADPerformanceCountersTable.
+Każde wystąpienie licznika wydajności skonfigurowany jest rejestrowana w określonym próbkowania i hello pobrane dane są przesyłane toohello konta magazynu przez żądanie transferu zaplanowanego lub żądanie transferu na żądanie. Przeniesienia automatyczne może zostać zaplanowane tak często, jak jeden raz na minutę. Dane licznika wydajności przekazywane przez agenta diagnostyki hello są przechowywane w tabeli, WADPerformanceCountersTable, hello konta magazynu. Ta tabela może uzyskać dostępu do i wykonać zapytania z metody interfejsu API magazynu Azure w warstwie standardowa. Zobacz [przykład liczniki wydajności programu Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) przykład kwerend i wyświetlanie danych licznika wydajności z hello WADPerformanceCountersTable tabeli.
 
 > [!NOTE]
-> W zależności od Diagnostyka agenta transferu częstotliwość i czas oczekiwania w kolejce najnowsze dane licznika wydajności w ramach konta magazynu może potrwać kilka minut nieaktualny.
+> W zależności od hello Diagnostyka agenta transferu częstotliwość i czas oczekiwania w kolejce hello najnowsze dane liczników wydajności na koncie magazynu hello może potrwać kilka minut nieaktualny.
 >
 >
 
 ## <a name="enable-performance-counters-using-diagnostics-configuration-file"></a>Włącz użycie pliku konfiguracji diagnostyki liczniki wydajności
-Aby włączyć liczniki wydajności w aplikacji platformy Azure, użyj poniższej procedury.
+Użyj hello następujące liczniki wydajności tooenable procedury w aplikacji platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tej sekcji założono, że zaimportowane monitor diagnostyki aplikacji i plik konfiguracji diagnostyki dodany do rozwiązania Visual Studio (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszej). Zobacz kroki 1 i 2 w [Włączanie diagnostyki w usług Azure Cloud Services i maszyn wirtualnych](cloud-services-dotnet-diagnostics.md)) Aby uzyskać więcej informacji.
+W tej sekcji założono, że zaimportowane hello monitor diagnostyki aplikacji i dodać hello diagnostyki konfiguracji pliku tooyour rozwiązania Visual Studio (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszym). Zobacz kroki 1 i 2 w [Włączanie diagnostyki w usług Azure Cloud Services i maszyn wirtualnych](cloud-services-dotnet-diagnostics.md)) Aby uzyskać więcej informacji.
 
 ## <a name="step-1-collect-and-store-data-from-performance-counters"></a>Krok 1: Zbieranie i przechowywanie danych z liczników wydajności
-Po dodaniu pliku diagnostyki do rozwiązania Visual Studio, można skonfigurować zbieranie i przechowywanie danych licznika wydajności w aplikacji Azure. Jest to realizowane przez dodanie liczników wydajności do pliku diagnostyki. Dane diagnostyczne, łącznie z liczników wydajności, najpierw są zbierane w wystąpieniu. Dane następnie jest trwały do tabeli WADPerformanceCountersTable w usłudze tabel Azure, więc należy również określić konto magazynu w aplikacji. W przypadku testowania lokalnie aplikację w emulatorze obliczeniowe, można również przechowywać dane diagnostyczne lokalnie w emulatorze magazynu. Przed zapisaniem danych diagnostycznych, należy najpierw przejść do [portalu Azure](http://portal.azure.com/) i Utwórz konto magazynu klasycznego. Najlepszym rozwiązaniem jest można znaleźć konta magazynu w tej samej lokalizacji geograficznej jako aplikacji platformy Azure. Przez zachowanie aplikacji Azure i konto magazynu znajdują się w tej samej lokalizacji geograficznej, uniknąć kosztów przepustowości zewnętrznych płatności i zmniejszenia opóźnień.
+Po dodaniu diagnostyki hello plików rozwiązania Visual Studio tooyour hello zbieranie i przechowywanie danych licznika wydajności można skonfigurować w aplikacji Azure. Jest to realizowane przez dodanie pliku diagnostyki toohello liczników wydajności. W wystąpieniu hello najpierw zbieranych danych diagnostycznych, łącznie z liczników wydajności. Hello dane są następnie utrwalonego toohello WADPerformanceCountersTable tabeli w hello usługi tabel Azure, więc będzie również konieczne toospecify hello konta magazynu w aplikacji. Jeśli testujesz aplikację w lokalnie w hello obliczeniowe emulatora, można również przechowywać dane diagnostyczne lokalnie w hello emulatora magazynu. Przed zapisaniem danych diagnostycznych, należy najpierw przejść toohello [portalu Azure](http://portal.azure.com/) i Utwórz konto magazynu klasycznego. Najlepszym rozwiązaniem jest toolocate konta magazynu w hello tej samej lokalizacji geograficznej jako aplikacji platformy Azure. Przy zachowaniu hello Azure aplikacji i konto magazynu są w hello tej samej lokalizacji geograficznej, uniknąć kosztów przepustowości zewnętrznych płatności i zmniejszenia opóźnień.
 
-### <a name="add-performance-counters-to-the-diagnostics-file"></a>Dodaj liczniki wydajności do pliku diagnostyki
-Istnieje wiele liczników, których można użyć. W poniższym przykładzie przedstawiono kilka liczniki wydajności, które są zalecane sieci web i monitorowania roli procesu roboczego.
+### <a name="add-performance-counters-toohello-diagnostics-file"></a>Dodaj plik diagnostyki toohello liczników wydajności
+Istnieje wiele liczników, których można użyć. Witaj poniższym przykładzie pokazano kilka liczniki wydajności, które są zalecane sieci web i monitorowania roli procesu roboczego.
 
-Otwórz plik diagnostyki (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszym) i dodaj następującą wartość do elementu DiagnosticMonitorConfiguration:
+Otwórz plik diagnostyki hello (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszym) i Dodaj hello następującego elementu DiagnosticMonitorConfiguration toohello:
 
 ```xml
 <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
     <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT30S" />
     <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT30S" />
 
-    <!-- Use the Process(w3wp) category counters in a web role -->
+    <!-- Use hello Process(w3wp) category counters in a web role -->
 
     <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\% Processor Time" sampleRate="PT30S" />
     <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Private Bytes" sampleRate="PT30S" />
     <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Thread Count" sampleRate="PT30S" />
 
-    <!-- Use the Process(WaWorkerHost) category counters in a worker role.
+    <!-- Use hello Process(WaWorkerHost) category counters in a worker role.
         <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\% Processor Time" sampleRate="PT30S" />
         <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Private Bytes" sampleRate="PT30S" />
         <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Thread Count" sampleRate="PT30S" />
@@ -132,67 +132,67 @@ Otwórz plik diagnostyki (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub di
 </PerformanceCounters>
 ```
 
-Atrybut bufferQuotaInMB, która określa maksymalną ilość pamięci systemu plików, która jest dostępna dla tego typu kolekcji danych (Azure dzienniki, dzienniki programu IIS, itp.). Wartość domyślna to 0. Po osiągnięciu limitu przydziału najstarsze dane zostaną usunięte po dodaniu nowych danych. Suma wszystkich właściwości bufferQuotaInMB musi być większa niż wartość atrybutu OverallQuotaInMB. Bardziej szczegółowe omówienie określania, ile miejsca do magazynowania jest wymagana w przypadku zbierania danych diagnostycznych, zobacz sekcję konfiguracji WAD [Rozwiązywanie problemów z najlepszych rozwiązań dotyczących tworzenia aplikacji Azure](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
+Atrybut bufferQuotaInMB Hello, który określa hello maksymalną ilość pamięci systemu plików, która jest dostępna dla typu kolekcji danych hello (Azure dzienniki, dzienniki programu IIS, itp.). Witaj domyślna to 0. Zostanie osiągnięty przydział hello, hello najstarsze dane są usuwane po dodaniu nowych danych. Witaj sumę wszystkich właściwości bufferQuotaInMB hello musi być większa niż wartość hello hello OverallQuotaInMB atrybutu. Bardziej szczegółowe omówienie określania, ile miejsca do magazynowania jest wymagana w przypadku hello zbierania danych diagnostycznych, zobacz hello sekcji konfiguracji WAD [Rozwiązywanie problemów z najlepszych rozwiązań dotyczących tworzenia aplikacji Azure](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
 
-Atrybut scheduledTransferPeriod, który określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę. W poniższych przykładach jest ustawiona na PT30M (30 minut). Ustawienie okresu transfer mała wartość, na przykład 1 minutę, obniży wydajności aplikacji w środowisku produkcyjnym, ale może być przydatne w przypadku diagnostyki oglądanie Postaramy się szybko podczas testowania. Wartość okresu zaplanowanego transferu powinna być duże, aby upewnić się, że danych diagnostycznych nie jest zastępowana wystąpienia, ale wystarczająco duży, że nie ma wpływu na wydajność aplikacji.
+Witaj scheduledTransferPeriod atrybut, który określa interwał powitania między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę. W hello następujące przykłady jest ustawiona tooPT30M (30 minut). Ustawienie hello transfer okresu tooa mała wartość, na przykład 1 minutę, obniży wydajności aplikacji w środowisku produkcyjnym, ale może być przydatne przy przeglądaniu diagnostyki Postaramy się szybko podczas testowania. okres zaplanowanego transferu Hello powinien być duże tooensure danych diagnostycznych nie jest zastąpione na powitania wystąpienia, ale wystarczająco duży, że nie ma wpływu hello wydajność aplikacji.
 
-Atrybut counterSpecifier Określa licznik wydajności do zbierania. Atrybut sampleRate określa szybkość, w którym licznik wydajności powinny być pobrane, w tym przypadku 30 sekund.
+Atrybut counterSpecifier Hello określa toocollect licznika wydajności hello. Atrybut sampleRate Hello określa szybkość hello, w którym licznik wydajności hello powinny być pobrane, w tym przypadku 30 sekund.
 
-Po dodaniu liczniki wydajności, które chcesz zebrać, Zapisz zmiany w pliku diagnostyki. Następnie należy określić konto magazynu, które zostaną utrwalone danych diagnostycznych.
+Po dodaniu się, że liczniki wydajności hello, które mają toocollect zapisać zmiany toohello diagnostyki. Następnie należy konto magazynu hello toospecify zostaną utrwalone hello danych diagnostycznych.
 
-### <a name="specify-the-storage-account"></a>Określ konto magazynu
-Aby utrwalić danych diagnostycznych do konta magazynu Azure, należy określić parametry połączenia w pliku konfiguracyjnym (pliku ServiceConfiguration.cscfg) usługi.
+### <a name="specify-hello-storage-account"></a>Określ konto magazynu hello
+toopersist konta użytkownika tooyour informacji diagnostyki Azure Storage, należy określić parametry połączenia w pliku konfiguracyjnym (pliku ServiceConfiguration.cscfg) usługi.
 
-2.5 zestawu SDK platformy Azure konta magazynu można określić w pliku diagnostics.wadcfgx.
+Dla 2.5 zestawu SDK platformy Azure można określić w pliku diagnostics.wadcfgx hello hello konta magazynu.
 
 > [!NOTE]
-> Te instrukcje dotyczą tylko, 2.4 zestawu SDK platformy Azure i poniżej. 2.5 zestawu SDK platformy Azure konta magazynu można określić w pliku diagnostics.wadcfgx.
+> Te instrukcje mają zastosowanie tylko tooAzure 2.4 zestawu SDK i poniżej. Dla 2.5 zestawu SDK platformy Azure można określić w pliku diagnostics.wadcfgx hello hello konta magazynu.
 >
 >
 
-Aby ustawić parametry połączenia:
+Parametry połączenia hello tooset:
 
-1. Otwórz plik ServiceConfiguration.Cloud.cscfg przy użyciu w ulubionym edytorze tekstów i ustaw parametry połączenia magazynu. *AccountName* i *AccountKey* wartości znajdują się w portalu Azure na pulpicie nawigacyjnym konta magazynu, w obszarze klucze dostępu.
+1. Otwórz plik ServiceConfiguration.Cloud.cscfg hello przy użyciu ulubionym edytorze tekstów i parametry połączenia hello zestaw magazynu. Witaj *AccountName* i *AccountKey* wartości znajdują się w hello portalu Azure w hello konta pulpitu nawigacyjnego magazynu, w obszarze klucze dostępu.
 
     ```xml
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
     </ConfigurationSettings>
     ```
-2. Zapisz plik ServiceConfiguration.Cloud.cscfg.
-3. Otwórz plik ServiceConfiguration.Local.cscfg i sprawdź, czy UseDevelopmentStorage jest ustawiony na wartość true.
+2. Zapisz plik ServiceConfiguration.Cloud.cscfg hello.
+3. Otwórz plik ServiceConfiguration.Local.cscfg hello i sprawdź, czy UseDevelopmentStorage jest ustawiony tootrue.
 
     ```xml
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
     </ConfigurationSettings>
     ```
-   Teraz, gdy parametry połączenia są ustawione, aplikacji zachować dane diagnostyczne do konta magazynu, po wdrożeniu aplikacji.
+   Teraz, gdy parametry połączenia hello są ustawione, aplikacji zachować konta magazynu tooyour danych diagnostycznych, po wdrożeniu aplikacji.
 4. Zapisz i skompilowanie projektu, a następnie wdrożyć aplikację.
 
 ## <a name="step-2-optional-create-custom-performance-counters"></a>Krok 2: (Opcjonalnie) Utwórz niestandardowe liczniki wydajności
-Oprócz liczniki wydajności wstępnie zdefiniowane można dodać własne niestandardowe liczniki wydajności do monitorowania role sieci web lub procesu roboczego. Niestandardowe liczniki wydajności mogą służyć do śledzenia i monitorowanie zachowania specyficzne dla aplikacji i może być utworzone lub usunięte zadanie uruchamiania, rola sieci web lub roli proces roboczy z podwyższonym poziomem uprawnień.
+Ponadto toohello wstępnie zdefiniowana liczniki wydajności, można dodawać role sieci web lub procesu roboczego toomonitor liczników wydajności niestandardowych. Niestandardowe liczniki wydajności mogą być używane tootrack i monitorowanie zachowania specyficzne dla aplikacji i można utworzyć lub usunąć zadanie uruchamiania, rola sieci web lub roli proces roboczy z podwyższonym poziomem uprawnień.
 
-Agent Azure diagnostics odświeża konfigurację liczników wydajności z pliku .wadcfg minutę po uruchomieniu.  Utwórz niestandardowe liczniki wydajności w przypadku metody OnStart, uruchamiania zadań trwać dłużej niż minutę do wykonania Twoje niestandardowe liczniki wydajności zostaną nie utworzono podczas diagnostyki Azure agent próbuje załadować je.  W tym scenariuszu zobaczysz, że diagnostyki Azure poprawnie przechwytuje wszystkie dane diagnostyczne, z wyjątkiem Twojego niestandardowe liczniki wydajności.  Aby rozwiązać ten problem, należy utworzyć liczniki wydajności w zadanie uruchamiania lub Przenieś niektóre zadania uruchamiania działają metody OnStart po utworzeniu liczników wydajności.
+agent Azure diagnostics Hello odświeża hello konfigurację liczników wydajności z pliku .wadcfg hello minutę po uruchomieniu.  Utwórz niestandardowe liczniki wydajności w hello — metoda OnStart, uruchamiania zadań trwać dłużej niż minutę tooexecute Twoje niestandardowe liczniki wydajności będą nie została utworzona podczas agenta diagnostyki Azure hello tooload je.  W tym scenariuszu zobaczysz, że diagnostyki Azure poprawnie przechwytuje wszystkie dane diagnostyczne, z wyjątkiem Twojego niestandardowe liczniki wydajności.  tooresolve ten problem, Utwórz hello liczników wydajności w zadanie uruchamiania lub Przenieś niektóre zadania uruchamiania działają — metoda OnStart toohello po utworzeniu hello liczników wydajności.
 
-Wykonaj poniższe kroki, aby utworzyć prosty wydajności niestandardowych licznik o nazwie "\MyCustomCounterCategory\MyButton1Counter":
+Wykonaj następujące kroki toocreate proste wydajności niestandardowych licznik o nazwie "\MyCustomCounterCategory\MyButton1Counter" hello:
 
-1. Otwórz plik definicji usługi (CSDEF) dla aplikacji.
-2. Dodaj element środowiska uruchomieniowego do sieć Web lub proces roboczy elementu umożliwia wykonanie z podwyższonym poziomem uprawnień:
+1. Otwórz plik definicji usługi hello (CSDEF) dla aplikacji.
+2. Dodaj hello środowiska uruchomieniowego element toohello sieć Web lub proces roboczy elementu tooallow wykonywania z podwyższonym poziomem uprawnień:
 
     ```xml
     <runtime executioncontext="elevated"/>
     ```
-3. Zapisz plik.
-4. Otwórz plik diagnostyki (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszym) i dodaj następującą wartość do DiagnosticMonitorConfiguration
+3. Zapisz plik hello.
+4. Otwórz plik diagnostyki hello (diagnostics.wadcfg w 2.4 zestawu SDK i poniżej lub diagnostics.wadcfgx w zestawie SDK, 2.5 lub nowszym) i dodaj następujące toohello DiagnosticMonitorConfiguration hello
 
     ```xml
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
       <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
     </PerformanceCounters>
     ```
-5. Zapisz plik.
-6. Tworzenie kategorii licznika wydajności niestandardowe metody OnStart roli użytkownika przed wywołaniem bazy. OnStart. W poniższym przykładzie C# tworzy kategorię niestandardową, jeśli jeszcze nie istnieje:
+5. Zapisz plik hello.
+6. Utwórz kategorii licznika wydajności niestandardowych hello w — metoda OnStart hello swojej roli przed wywołaniem base. OnStart. Witaj poniższy przykład C# tworzy kategorię niestandardową, jeśli jeszcze nie istnieje:
 
     ```csharp
     public override bool OnStart()
@@ -222,7 +222,7 @@ Wykonaj poniższe kroki, aby utworzyć prosty wydajności niestandardowych liczn
     return base.OnStart();
     }
     ```
-7. Aktualizuj liczniki w aplikacji. Poniższy przykład aktualizacje licznika wydajności niestandardowych zdarzeń Button1_Click:
+7. Aktualizuj liczniki hello w aplikacji. Poniższy przykład Hello aktualizacje licznika wydajności niestandardowych zdarzeń Button1_Click:
 
     ```csharp
     protected void Button1_Click(object sender, EventArgs e)
@@ -237,14 +237,14 @@ Wykonaj poniższe kroki, aby utworzyć prosty wydajności niestandardowych liczn
         button1Counter.RawValue.ToString();
     }
     ```
-8. Zapisz plik.  
+8. Zapisz plik hello.  
 
-Dane licznika wydajności niestandardowych teraz zostaną zebrane przez monitor diagnostycznych platformy Azure.
+Dane licznika wydajności niestandardowych teraz zostaną zebrane przez monitor diagnostyki Azure hello.
 
 ## <a name="step-3-query-performance-counter-data"></a>Krok 3: Wykonywanie zapytań danych licznika wydajności
-Po wdrożeniu aplikacji i uruchomiona, monitor diagnostyki rozpocznie się zbierania liczników wydajności i przechowywanie danych do magazynu Azure. Użyj narzędzi takich jak Eksplorator serwera w programie Visual Studio, [Eksploratora usługi Storage Azure](http://azurestorageexplorer.codeplex.com/), lub [Menedżera diagnostyki Azure](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) przez Cerebrata, aby wyświetlić dane w WADPerformanceCountersTable liczniki wydajności Tabela. Można również programowo zapytania przy użyciu usługi tabeli [C#](../cosmos-db/table-storage-how-to-use-dotnet.md), [Java](../cosmos-db/table-storage-how-to-use-java.md), [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md), lub [PHP](../cosmos-db/table-storage-how-to-use-php.md).
+Po wdrożeniu aplikacji i uruchomiona, monitor diagnostyki hello rozpocznie się zbierania liczników wydajności i przechowywanie tego tooAzure pamięci masowej. Użyj narzędzi takich jak Eksplorator serwera w programie Visual Studio, [Eksploratora usługi Storage Azure](http://azurestorageexplorer.codeplex.com/), lub [Menedżera diagnostyki Azure](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) przez Cerebrata danych w hello liczniki wydajności hello tooview Tabela WADPerformanceCountersTable. Można również programowo zapytania przy użyciu usługi tabeli hello [C#](../cosmos-db/table-storage-how-to-use-dotnet.md), [Java](../cosmos-db/table-storage-how-to-use-java.md), [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md), lub [PHP](../cosmos-db/table-storage-how-to-use-php.md).
 
-W poniższym przykładzie C# zawiera zapytania podstawowego w tabeli WADPerformanceCountersTable i zapisuje dane diagnostyczne do pliku CSV. Liczniki wydajności są zapisane do pliku CSV, można użyć graficznych możliwości programu Microsoft Excel lub inne narzędzie do wizualizacji danych. Pamiętaj dodać odwołania do Microsoft.WindowsAzure.Storage.dll, która jest uwzględniona w zestawie Azure SDK dla platformy .NET października 2012 lub nowszym. Zestaw jest instalowany w katalogu % Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
+Hello poniższy przykład C# zawiera podstawowe zapytanie tabeli WADPerformanceCountersTable hello i zapisuje plik CSV tooa hello diagnostyki danych. Po hello liczniki wydajności zostaną zapisane w pliku CSV tooa, można użyć hello Tworzenie wykresów możliwości programu Microsoft Excel lub pewne inne narzędzie toovisualize hello dane. Należy się tooadd tooMicrosoft.WindowsAzure.Storage.dll odwołania, który jest dostępny w hello Azure SDK dla platformy .NET października 2012 lub nowszy. zestaw Hello jest zainstalowana toohello % Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ katalogu.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -252,28 +252,28 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Table;
 ...
 
-// Get the connection string. When using Microsoft Azure Cloud Services, it is recommended
-// you store your connection string using the Microsoft Azure service configuration
-// system (*.csdef and *.cscfg files). You can you use the CloudConfigurationManager type
-// to retrieve your storage connection string.  If you're not using Cloud Services, it's
-// recommended that you store the connection string in your web.config or app.config file.
-// Use the ConfigurationManager type to retrieve your storage connection string.
+// Get hello connection string. When using Microsoft Azure Cloud Services, it is recommended
+// you store your connection string using hello Microsoft Azure service configuration
+// system (*.csdef and *.cscfg files). You can you use hello CloudConfigurationManager type
+// tooretrieve your storage connection string.  If you're not using Cloud Services, it's
+// recommended that you store hello connection string in your web.config or app.config file.
+// Use hello ConfigurationManager type tooretrieve your storage connection string.
 
 string connectionString = Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
 //string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
 
-// Get a reference to the storage account using the connection string.  You can also use the development
+// Get a reference toohello storage account using hello connection string.  You can also use hello development
 // storage account (Storage Emulator) for local debugging.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
 //CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
 
-// Create the table client.
+// Create hello table client.
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-// Create the CloudTable object that represents the "WADPerformanceCountersTable" table.
+// Create hello CloudTable object that represents hello "WADPerformanceCountersTable" table.
 CloudTable table = tableClient.GetTableReference("WADPerformanceCountersTable");
 
-// Create the table query, filter on a specific CounterName, DeploymentId and RoleInstance.
+// Create hello table query, filter on a specific CounterName, DeploymentId and RoleInstance.
 TableQuery<PerformanceCountersEntity> query = new TableQuery<PerformanceCountersEntity>()
   .Where(
     TableQuery.CombineFilters(
@@ -287,10 +287,10 @@ TableQuery<PerformanceCountersEntity> query = new TableQuery<PerformanceCounters
   )
 );
 
-// Execute the table query.
+// Execute hello table query.
 IEnumerable<PerformanceCountersEntity> result = table.ExecuteQuery(query);
 
-// Process the query results and build a CSV file.
+// Process hello query results and build a CSV file.
 StringBuilder sb = new StringBuilder("TimeStamp,EventTickCount,DeploymentId,Role,RoleInstance,CounterName,CounterValue\n");
 
 foreach (PerformanceCountersEntity entity in result)
@@ -304,7 +304,7 @@ sw.Write(sb.ToString());
 sw.Close();
 ```
 
-Jednostki są mapowane do obiektów C# za pomocą niestandardowej klasy pochodzącej od **TableEntity**. Poniższy kod definiuje klasę jednostki, która reprezentuje licznika wydajności w **WADPerformanceCountersTable** tabeli.
+Jednostki są mapowane tooC # obiektów za pomocą niestandardowej klasy pochodzącej od **TableEntity**. Witaj poniższy kod definiuje klasę jednostki, która reprezentuje licznika wydajności w hello **WADPerformanceCountersTable** tabeli.
 
 ```csharp
 public class PerformanceCountersEntity : TableEntity

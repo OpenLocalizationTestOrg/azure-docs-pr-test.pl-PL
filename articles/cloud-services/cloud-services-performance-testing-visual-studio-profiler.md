@@ -1,7 +1,7 @@
 ---
-title: "Usługi w chmurze lokalnie w emulatorze obliczeń profilowania | Dokumentacja firmy Microsoft"
+title: "Chmury usługę lokalnie w hello obliczeniowe emulatora aaaProfiling | Dokumentacja firmy Microsoft"
 services: cloud-services
-description: "Zbadaj problemy z wydajnością usług w chmurze przy użyciu profilera Visual Studio"
+description: "Zbadaj problemy z wydajnością usług w chmurze z hello profilera Visual Studio"
 documentationcenter: 
 author: kraigb
 manager: ghogen
@@ -15,34 +15,34 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: 51c8192d8312dc5cf546b4c357aeecf6f19d56b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc37c85dad4db4cc0310f73afad56fc0fe5f3963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testowanie wydajności usługi w chmurze lokalnie w emulatorze obliczeń platformy Azure przy użyciu profilera Visual Studio
-Różnych narzędzi i technik są dostępne do testowania wydajności usługi w chmurze.
-Po opublikowaniu usługi w chmurze na platformie Azure, program Visual Studio zbierania danych profilowania, a następnie analizować lokalnie, zgodnie z opisem w [profilowania aplikacji Azure][1].
-Umożliwia także diagnostyki do śledzenia różne liczniki wydajności, zgodnie z opisem w [na platformie Azure za pomocą liczników wydajności][2].
-Można także profilu aplikacji lokalnie w emulatorze obliczeń przed jego wdrożeniem w chmurze.
+# <a name="testing-hello-performance-of-a-cloud-service-locally-in-hello-azure-compute-emulator-using-hello-visual-studio-profiler"></a>Testowanie hello wydajność lokalnie usługi chmury w hello hello Azure obliczeniowe z emulatora programu Visual Studio profilera
+Różnych narzędzi i technik są dostępne do testowania wydajności hello usług w chmurze.
+Podczas publikowania tooAzure usługi chmury, program Visual Studio zbierania danych profilowania, a następnie analizować lokalnie, zgodnie z opisem w [profilowania aplikacji Azure][1].
+Umożliwia także tootrack diagnostyki liczników różnych wydajności, zgodnie z opisem w [na platformie Azure za pomocą liczników wydajności][2].
+Można także tooprofile aplikacji lokalnie w emulatorze obliczeń hello przed jego wdrożeniem toohello chmury.
 
-W tym artykule opisano profilowanie metodą próbkowania procesora, które można przeprowadzić lokalnie w emulatorze. Próbkowanie Procesora jest metoda profilowania, która nie jest bardzo niepożądanych. Interwałem próbkowania wyznaczonych profilera wykonuje migawkę stosu wywołań. Dane są zbierane przez pewien czas i wyświetlane w raporcie. Ta metoda profilowania zwykle wskazuje, gdzie w praktyce znacznym aplikacji większość pracy Procesora jest wykonywana.  Zapewnia możliwość skupić się na "ścieżce aktywnej" gdzie aplikacji jest poświęcany najwięcej czasu.
+W tym artykule omówiono hello próbkowania procesora CPU — metoda profilowania, która może odbywać się lokalnie w emulatorze hello. Próbkowanie Procesora jest metoda profilowania, która nie jest bardzo niepożądanych. Interwałem próbkowania wyznaczonych profilera hello tworzy migawkę hello stosu wywołań. Witaj dane są zbierane przez pewien czas i wyświetlane w raporcie. Ta metoda profilowania zwykle tooindicate, gdzie w praktyce znacznym aplikacji większość pracy hello Procesora jest wykonywana.  Dzięki temu hello toofocus możliwości na powitania "aktywnej ścieżki" gdzie aplikacji jest poświęcany hello większość czasu.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurowanie programu Visual Studio do profilowania
-Najpierw istnieje kilka opcji konfiguracji programu Visual Studio, które mogą być przydatne podczas profilowania. Aby sensu raportów profilowania, musisz symboli (.pdb, pliki) dla aplikacji i również symboli dla biblioteki systemu. Należy się upewnić, że odwoływania serwerów dostępna symbolu. Aby to zrobić, na **narzędzia** menu w programie Visual Studio, wybierz **opcje**, a następnie wybierz **debugowanie**, następnie **symbole**. Upewnij się, że serwerów symboli firmy Microsoft znajduje się w obszarze **symboli (.pdb) lokalizacje**.  Można także odwoływać http://referencesource.microsoft.com/symbols, które mogą mieć dodatkowe symboli plików.
+Najpierw istnieje kilka opcji konfiguracji programu Visual Studio, które mogą być przydatne podczas profilowania. toomake rozumieniu hello raportów dotyczących profilowania, potrzebne będą symboli (.pdb, pliki) dla aplikacji i również symboli dla biblioteki systemu. Należy toomake się odwoływać się hello symbol dostępne serwery. toodo to na powitania **narzędzia** menu w programie Visual Studio, wybierz **opcje**, a następnie wybierz **debugowanie**, następnie **symbole**. Upewnij się, że serwerów symboli firmy Microsoft znajduje się w obszarze **symboli (.pdb) lokalizacje**.  Można także odwoływać http://referencesource.microsoft.com/symbols, które mogą mieć dodatkowe symboli plików.
 
 ![Opcje symbolu][4]
 
-W razie potrzeby można uprościć raportów, które generuje profilera, ustawiając opcję tylko mój kod. Z tylko mój kod włączone stosy wywołań funkcji są uproszczone, dzięki czemu wywołania całkowicie wewnętrznej biblioteki i .NET Framework są ukryte przed raporty. Na **narzędzia** menu, wybierz **opcje**. Następnie rozwiń węzeł **narzędzi wydajności** węzeł i wybierz polecenie **ogólne**. Zaznacz pole wyboru **Włącz opcję tylko mój kod dla raportów profilera**.
+W razie potrzeby można uprościć hello zgłasza, że profiler hello generuje, ustawiając opcję tylko mój kod. Tylko mój kod włączone stosy wywołań funkcji są uproszczone tak, który odwołuje się całkowicie wewnętrzny toolibraries i hello .NET Framework są ukryte przed hello raportów. Na powitania **narzędzia** menu, wybierz **opcje**. Rozwiń węzeł hello **narzędzi wydajności** węzeł i wybierz polecenie **ogólne**. Zaznacz pole wyboru powitania dla **Włącz opcję tylko mój kod dla raportów profilera**.
 
 ![Tylko mój kod opcje][17]
 
-Instrukcje te mogą posłużyć z istniejącego projektu lub z nowym projektem.  Jeśli tworzysz nowy projekt, aby spróbować techniki opisane poniżej, wybierz C# **usługi w chmurze Azure** projekt i wybierz **roli sieci Web** i **roli procesu roboczego**.
+Instrukcje te mogą posłużyć z istniejącego projektu lub z nowym projektem.  Jeśli tworzysz nowy hello tootry projektu techniki opisane poniżej, wybierz C# **usługi w chmurze Azure** projekt i wybierz **roli sieci Web** i **roli procesu roboczego**.
 
 ![Azure ról projektu usługi w chmurze][5]
 
-Na przykład celów, dodać kod do projektu, który zajmuje dużo czasu i przedstawiono niektóre problem z wydajnością oczywiste. Na przykład dodaj następujący kod do projektu roli proces roboczy:
+Na przykład celów, dodać niektóre projektu tooyour kodu, który zajmuje dużo czasu i przedstawiono niektóre problem z wydajnością oczywiste. Na przykład dodać hello następującego projektu roli proces roboczy tooa kodu:
 
     public class Concatenator
     {
@@ -58,11 +58,11 @@ Na przykład celów, dodać kod do projektu, który zajmuje dużo czasu i przeds
         }
     }
 
-Wywołaj ten kod w metodzie RunAsync w klasie pochodnej RoleEntryPoint roli procesu roboczego. (Zignorować ostrzeżenie dotyczące metody uruchomiona synchronicznie).
+Wywołać ten kod w metodzie RunAsync w klasie pochodnej RoleEntryPoint roli procesu roboczego hello hello. (Ignoruj hello ostrzeżenie dotyczące metody hello uruchomiona synchronicznie).
 
         private async Task RunAsync(CancellationToken cancellationToken)
         {
-            // TODO: Replace the following with your own logic.
+            // TODO: Replace hello following with your own logic.
             while (!cancellationToken.IsCancellationRequested)
             {
                 Trace.TraceInformation("Working");
@@ -70,61 +70,61 @@ Wywołaj ten kod w metodzie RunAsync w klasie pochodnej RoleEntryPoint roli proc
             }
         }
 
-Tworzenie i uruchamianie usługi w chmurze lokalnie bez debugowania (Ctrl + F5) z konfiguracją rozwiązania ustawioną **wersji**. Dzięki temu, że wszystkie pliki i foldery są tworzone dla aplikacji uruchomionej na komputerze lokalnym i zapewnia, że są uruchomione te emulatory. Uruchom interfejs użytkownika emulatora obliczeń z poziomu paska zadań, aby sprawdzić, czy działa swojej roli procesu roboczego.
+Tworzenie i uruchamianie usługi w chmurze lokalnie bez debugowania (Ctrl + F5) z konfiguracją rozwiązania hello ustawić także**wersji**. Dzięki temu, że wszystkie pliki i foldery są tworzone dla uruchomionej aplikacji hello na komputerze lokalnym i zapewnia uruchomienia wszystkich emulatory hello. Uruchom hello interfejs użytkownika emulatora obliczeń z tooverify zadań hello, uruchomionym swojej roli procesu roboczego.
 
-## <a name="2-attach-to-a-process"></a>2: dołączanie do procesu
-Profilowanie aplikacji przez uruchomienie go z programu Visual Studio 2010 IDE, a nie musi dołączanie profilera do uruchomionego procesu. 
+## <a name="2-attach-tooa-process"></a>2: dołączanie tooa procesu
+Zamiast profilowanie aplikacji hello przez od hello programu Visual Studio 2010 IDE, możesz dołączyć tooa profilera hello uruchomiony proces. 
 
-Aby dołączanie profilera do procesu, na **Analizuj** menu, wybierz **profilera** i **Attach/Detach**.
+tooattach hello tooa procesem profilera, na powitania **Analizuj** menu, wybierz **profilera** i **Attach/Detach**.
 
 ![Dołącz profile — opcja][6]
 
-Dla roli proces roboczy Znajdź proces WaWorkerHost.exe.
+Dla roli proces roboczy odnaleźć hello WaWorkerHost.exe procesu.
 
 ![Proces WaWorkerHost][7]
 
-W przypadku folderu projektu na dysku sieciowym, profilera zostanie wyświetlony monit o podanie inną lokalizację, aby zapisać raportów profilowania.
+W przypadku folderu projektu na dysku sieciowym, profilera hello wyświetli monit tooprovide innej lokalizacji toosave hello raporty profilowania.
 
- Możesz także dołączyć do roli sieci web przez dołączenie do WaIISHost.exe.
-Jeśli istnieje wiele procesów roli procesu roboczego w aplikacji, należy użyć processID, aby odróżnić je. ProcessID można badać programowo, uzyskując dostęp do obiektu procesu. Na przykład jeśli dodasz ten kod do metody Run klas pochodnych po RoleEntryPoint w roli można przyjrzeć się zaloguj interfejs użytkownika emulatora obliczeń wiedzieć, jakie procesy, aby nawiązać połączenie.
+ Można również dołączyć tooa roli sieci web, dołączając tooWaIISHost.exe.
+Jeśli istnieje wiele procesów roli procesu roboczego w aplikacji, należy toouse hello processID toodistinguish je. Hello processID można badać programowo, uzyskując dostęp do obiektu procesu hello. Na przykład jeśli dodasz to metoda Run toohello kod klas pochodnych RoleEntryPoint hello w roli należy można przeglądać w dzienniku tooknow interfejs użytkownika emulatora obliczeń hello jakie tooconnect procesu do.
 
     var process = System.Diagnostics.Process.GetCurrentProcess();
     var message = String.Format("Process ID: {0}", process.Id);
     Trace.WriteLine(message, "Information");
 
-Aby wyświetlić dziennik, uruchom interfejs użytkownika emulatora obliczeń.
+tooview hello dziennika hello start interfejs użytkownika emulatora obliczeń.
 
-![Uruchom Emulator obliczeń interfejsu użytkownika][8]
+![Uruchom hello interfejs użytkownika emulatora obliczeń][8]
 
-Otwórz okno konsoli dziennik roli procesu roboczego w interfejs użytkownika emulatora obliczeń, klikając na pasku tytułu okna konsoli. Identyfikator procesu w dzienniku jest widoczny.
+Otwórz okno konsoli dziennik roli procesu roboczego hello w hello interfejs użytkownika emulatora obliczeń, klikając pasek tytułu okna konsoli hello. Identyfikator procesu hello w dzienniku hello jest widoczny.
 
 ![Identyfikator procesu widoku][9]
 
-Jedna podłączona, wykonaj kroki w interfejsie użytkownika aplikacji (w razie potrzeby) do odtworzenia tego scenariusza.
+Jedna podłączona, wykonaj kroki hello w scenariuszu hello tooreproduce interfejsu użytkownika (w razie potrzeby) aplikacji.
 
-Aby zatrzymać profilowanie, wybrać **Zatrzymaj profilowanie** łącza.
+Profilowanie toostop, wybrać hello **Zatrzymaj profilowanie** łącza.
 
 ![Zatrzymaj profilowanie opcji][10]
 
 ## <a name="3-view-performance-reports"></a>3: Wyświetl raporty wydajności
-Zostanie wyświetlony raport wydajności aplikacji.
+zostanie wyświetlony raport wydajności Hello aplikacji.
 
-W tym momencie profilera zatrzymuje wykonywanie, zapisuje dane w pliku Vsp i wyświetla raport zawiera analizę danych.
+W tym momencie profilera hello zatrzymuje wykonywanie, zapisuje dane w pliku Vsp i wyświetla raport zawiera analizę danych.
 
 ![Raport programu profilującego][11]
 
-Jeśli widzisz String.wstrcpy w aktywnej ścieżki, kliknij tylko mój kod, aby zmienić widok, aby pokazać tylko kod użytkownika.  Jeśli widzisz String.concat — spróbuj nacisnąć przycisk Pokaż cały kod.
+Jeśli zostanie wyświetlony w hello String.wstrcpy aktywnej ścieżki, kliknij opcję tylko mój kod toochange hello wyświetlić tooshow tylko kod użytkownika.  Jeśli widzisz String.concat — spróbuj nacisnąć przycisk Pokaż cały kod hello.
 
-Powinna zostać wyświetlona ZŁĄCZ.teksty metoda i String.concat — zajmuje dużo czasu wykonywania.
+Metoda ZŁĄCZ.teksty hello i zajmuje dużo czasu wykonywania hello String.concat — powinien być widoczny.
 
 ![Raport analizy][12]
 
-Jeśli dodano kod łączenia ciągu w tym artykule, w tym powinna zostać wyświetlona ostrzeżenie na liście zadań. Może również zostać wyświetlony ostrzeżenie, że jest nadmierne ilości pamięci, czyli z powodu liczby ciągów, które są tworzone i usunięty.
+Jeśli dodano kod łączenia ciąg hello w tym artykule, w tym powinna zostać wyświetlona ostrzeżenie w hello listy zadań. Może również zostać wyświetlony ostrzeżenie, że jest nadmierne ilości pamięci jest powodu toohello liczba ciągów, które są tworzone i usunięty.
 
 ![Ostrzeżenia wydajności][14]
 
 ## <a name="4-make-changes-and-compare-performance"></a>4: wprowadź zmiany i porównanie wydajności
-Można także porównać wydajności przed i po zmianie kodu.  Zatrzymaj uruchomionego procesu, a następnie Edytuj kod, aby zastąpić ciąg operacji łączenia z użyciem klasy StringBuilder:
+Porównanie wydajności hello przed i po zmianie kodu.  Zatrzymaj hello uruchomienie procesu, a następnie edytuj hello kodu tooreplace hello łączenia operacja ciągów z użyciem hello elementu StringBuilder:
 
     public static string Concatenate(int number)
     {
@@ -137,26 +137,26 @@ Można także porównać wydajności przed i po zmianie kodu.  Zatrzymaj uruchom
         return builder.ToString();
     }
 
-Czy inne uruchomienie wydajności, a następnie porównaj wydajność. W Eksploratorze wydajności, jeśli działa znajdują się w tej samej sesji można po prostu wybraniu obu raportów, otwórz menu skrótów i **raporty porównanie wydajności**. Do porównania z uruchomiony w innej sesji wydajności, należy otworzyć **Analizuj** menu i wybierz polecenie **raporty porównanie wydajności**. Określ oba pliki, w wyświetlonym oknie dialogowym.
+Czy inne uruchomienie wydajności, a następnie porównaj hello wydajności. W hello Eksplorator wydajności, jeśli hello uruchamia znajdują się w hello tej samej sesji, po prostu wybierz obu raportów, otwórz menu skrótów hello i wybierz polecenie **raporty porównanie wydajności**. Toocompare z uruchomiony w innej sesji wydajności, należy otworzyć hello **Analizuj** menu i wybierz polecenie **raporty porównanie wydajności**. Określ oba pliki, pojawi się okno dialogowe hello.
 
 ![Porównanie opcji raporty wydajności][15]
 
-Raporty zaznacz różnice między dwa przebiegi.
+Raporty Hello zaznacz różnice między hello dwa przebiegi.
 
 ![Raport porównawczy][16]
 
-Gratulacje! Rozpoczęciu pracy przy użyciu profilera.
+Gratulacje! Rozpoczęciu pracy z hello profilera.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 * Upewnij się, czy profilowania kompilacji wydania i uruchomić bez debugowania.
-* Jeśli opcja Attach/Detach nie jest włączona w menu profilera, uruchom Kreatora wydajności.
-* Interfejs użytkownika emulatora obliczeń Umożliwia wyświetlenie stanu aplikacji. 
-* Jeśli masz problemy z uruchamianiem aplikacji w emulatorze lub dołączenie profilera, zamknij emulator obliczeń w dół i uruchom ją ponownie. Jeśli to nie rozwiąże problemu, spróbuj wykonać ponowny rozruch. Ten problem może wystąpić, jeśli używasz emulatora obliczeniowe do wstrzymania i usuwanie wdrożeń uruchomionych.
-* Jeśli używasz dowolnego z profilowania poleceń w wierszu polecenia, szczególnie ustawienia globalne, upewnij się, VSPerfClrEnv /globaloff została wywołana i zamknąć VsPerfMon.exe.
-* Jeśli podczas pobierania próbek, zostanie wyświetlony komunikat "PRF0025: żadne dane nie zostały zebrane," Sprawdź, czy dołączyć do procesu ma aktywności Procesora. Aplikacje, które są bezczynny obliczeniowy może nie dawać dane z próbkowania.  Istnieje również możliwość, że proces został zakończony zanim wykonano żadnych próbkowania. Sprawdź, czy metoda Run dla roli, do której są profilowania nie kończy.
+* Jeśli nie włączono hello Attach/Detach opcji menu profilera hello, uruchom hello Kreator wydajności.
+* Użyj hello interfejs użytkownika emulatora obliczeń tooview hello stanu aplikacji. 
+* Jeśli masz problemy z uruchamianiem aplikacji w emulatorze hello lub dołączanie hello profilera, zamknij emulator obliczeń hello i uruchom go ponownie. Jeśli to nie rozwiąże problemu hello, spróbuj wykonać ponowny rozruch. Ten problem może wystąpić, jeśli używasz hello obliczeniowe emulatora toosuspend i Usuń uruchomionych wdrożeniach.
+* Jeśli używasz dowolnej hello profilowania poleceń w wierszu polecenia szczególnie hello ustawienia globalne, upewnij się, że VSPerfClrEnv /globaloff została wywołana i zamknąć VsPerfMon.exe.
+* Jeśli podczas pobierania próbek, zobacz wiadomości powitania "PRF0025: żadne dane nie zostały zebrane," Sprawdź, czy hello proces dołączony działania toohas procesora CPU. Aplikacje, które są bezczynny obliczeniowy może nie dawać dane z próbkowania.  Istnieje również możliwość, że hello proces został zakończony zanim wykonano żadnych próbkowania. Sprawdź toosee, która metoda Run powitania dla roli, do której są profilowania nie kończy.
 
 ## <a name="next-steps"></a>Następne kroki
-Instrumentacja Azure pliki binarne w emulatorze nie jest obsługiwany w profilera Visual Studio, ale jeśli chcesz przetestować alokacji pamięci, możesz wybrać tę opcję podczas profilowania. Można również wybrać profilowania współbieżności, który pomaga ustalić, czy wątki są marnować czas rywalizuje blokady lub warstwy profilowanie interakcji, który pomaga wykrywać problemy z wydajnością, gdy interakcji między warstwami aplikacji, większość często między warstwą danych i rolę procesu roboczego.  Można wyświetlić kwerendy bazy danych, które generuje aplikacji i za pomocą danych profilowania zwiększyć korzystania z bazy danych. Informacji o profilowanie interakcji między warstwami znajduje się w temacie we wpisie blogu [wskazówki: w programie Visual Studio Team System 2010 przy użyciu profilera interakcji warstwy][3].
+Instrumentacja Azure pliki binarne w emulatorze hello nie jest obsługiwany w hello profilera Visual Studio, ale jeśli chcesz tootest alokacji pamięci, można wybrać opcję podczas profilowania. Można również wybrać profilowania współbieżności, który pomaga ustalić, czy wątki są marnować czas rywalizuje blokady lub warstwy profilowanie interakcji, który pomaga wykrywać problemy z wydajnością, gdy interakcji między warstwami aplikacji, większość często między hello warstwy danych i rolę procesu roboczego.  Można wyświetlić hello kwerendy bazy danych, które generuje aplikacji i używać hello profilowania korzystania z bazy danych hello tooimprove danych. Informacje profilowanie interakcji między warstwami, zobacz hello blogu [wskazówki: przy użyciu hello warstwy profilera interakcji w programie Visual Studio Team System 2010][3].
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx

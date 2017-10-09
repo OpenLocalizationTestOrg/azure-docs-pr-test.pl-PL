@@ -1,5 +1,5 @@
 ---
-title: "Jak korzystać z usługi Azure Redis Cache za pomocą języka Python | Microsoft Docs"
+title: "toouse aaaHow pamięci podręcznej Redis Azure języka Python | Dokumentacja firmy Microsoft"
 description: "Rozpoczęcie pracy z pamięcią podręczną Redis Azure za pomocą języka Python"
 services: redis-cache
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74c03eb4ce17ff3574595fd2bb37e399d71c6eb4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-redis-cache-with-python"></a>Jak korzystać z pamięci podręcznej Redis Azure za pomocą języka Python
+# <a name="how-toouse-azure-redis-cache-with-python"></a>Jak toouse Azure pamięci podręcznej Redis języka Python
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-W tym temacie opisano sposób rozpoczęcia pracy z usługą Azure Redis Cache za pomocą języka Python.
+W tym temacie przedstawiono sposób uruchamiania tooget z pamięci podręcznej Redis Azure za pomocą języka Python.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Zainstaluj klienta [redis-py](https://github.com/andymccurdy/redis-py).
@@ -38,15 +38,15 @@ Zainstaluj klienta [redis-py](https://github.com/andymccurdy/redis-py).
 ## <a name="create-a-redis-cache-on-azure"></a>Tworzenie pamięci podręcznej Redis na platformie Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>Pobieranie nazwy hosta i kluczy dostępu
+## <a name="retrieve-hello-host-name-and-access-keys"></a>Pobieranie hello hosta nazwy i dostępu do kluczy
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-non-ssl-endpoint"></a>Włączanie punktu końcowego bez obsługi protokołu SSL
-Niektórzy klienci Redis nie obsługują protokołu SSL, a domyślnie [port nieobsługujący protokołu SSL jest wyłączony dla nowych wystąpień pamięci podręcznej Redis Azure](cache-configure.md#access-ports). Obecnie klient [redis-py](https://github.com/andymccurdy/redis-py) nie obsługuje protokołu SSL. 
+## <a name="enable-hello-non-ssl-endpoint"></a>Włącz hello endpoint bez użycia protokołu SSL
+Niektórzy klienci Redis nie obsługuje protokołu SSL i przez domyślny hello [portu bez protokołu SSL jest wyłączone dla nowego wystąpienia pamięci podręcznej Redis Azure](cache-configure.md#access-ports). W czasie hello pisania tego dokumentu, hello [redis py](https://github.com/andymccurdy/redis-py) klienta nie obsługuje protokołu SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Dodawanie elementu do pamięci podręcznej i pobieranie go
+## <a name="add-something-toohello-cache-and-retrieve-it"></a>Dodaj element toohello pamięci podręcznej i pobranie
     >>> import redis
     >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
           port=6380, db=0, password='<key>', ssl=True)

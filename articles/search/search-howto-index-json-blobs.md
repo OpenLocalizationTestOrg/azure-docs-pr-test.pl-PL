@@ -1,5 +1,5 @@
 ---
-title: "Indeksowanie obiektów blob JSON z indeksatora obiektów blob Azure Search"
+title: "obiekty BLOB JSON aaaIndexing z indeksatora obiektów blob Azure Search"
 description: "Indeksowanie obiektów blob JSON z indeksatora obiektów blob Azure Search"
 services: search
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 269968714358cd40ea66863b4dbb97766e1d77e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indeksowanie obiektów blob JSON z indeksatora obiektów blob Azure Search
-W tym artykule przedstawiono sposób konfigurowania usługi Azure Search indeksatora obiektu blob do wyodrębniania zawartości strukturalnych z obiektów blob, które zawierają JSON.
+W tym artykule opisano, jak tooextract indeksatora obiektów blob Azure Search tooconfigure strukturę zawartości z obiektów blob, które zawierają JSON.
 
 ## <a name="scenarios"></a>Scenariusze
-Domyślnie [indeksatora obiektów blob Azure Search](search-howto-indexing-azure-blob-storage.md) analizuje obiekty BLOB JSON jako pojedynczy fragmentów tekstu. Często chcesz zachować struktury dokumentów JSON. Na przykład, dla danego dokumentu JSON
+Domyślnie [indeksatora obiektów blob Azure Search](search-howto-indexing-azure-blob-storage.md) analizuje obiekty BLOB JSON jako pojedynczy fragmentów tekstu. Często mają strukturę hello toopreserve dokumentów JSON. Na przykład, dla danego dokumentu JSON hello
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-Możesz przeanalizować go do usługi Azure Search dokumentu z pola "tagi", "datePublished" i "text".
+Możesz tooparse go do usługi Azure Search dokument z pola "tagów", "datePublished" i "text".
 
-Alternatywnie, jeśli obiektów blob zawiera **Tablica obiektów JSON**, może być każdy element tablicy, tak aby stać się oddzielny dokument usługi Azure Search. Na przykład, dla danego obiektu blob z JSON:  
+Alternatywnie, jeśli obiektów blob zawiera **Tablica obiektów JSON**, może być każdy element toobecome tablicy hello oddzielny dokument usługi Azure Search. Na przykład, dla danego obiektu blob z JSON:  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -47,12 +47,12 @@ Alternatywnie, jeśli obiektów blob zawiera **Tablica obiektów JSON**, może b
 można wypełnić indeksu usługi Azure Search przy użyciu trzech oddzielnych dokumentów, każdy z pola "id" i "tekst".
 
 > [!IMPORTANT]
-> Podczas analizowania funkcji tablicy JSON jest obecnie w przeglądzie. Jest on dostępny tylko w wersji interfejsu API REST **2015-02-28-Preview**. Należy pamiętać, Podgląd interfejsy API są przeznaczone do testowania i ocenie, a nie powinna być używana w środowisku produkcyjnym.
+> Tablica JSON Hello analizowania funkcji jest obecnie w przeglądzie. Jest on dostępny tylko w wersji interfejsu API REST hello **2015-02-28-Preview**. Należy pamiętać, Podgląd interfejsy API są przeznaczone do testowania i ocenie, a nie powinna być używana w środowisku produkcyjnym.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>Konfigurowanie indeksowania JSON
-Indeksowanie obiektów blob JSON jest podobny do wyodrębniania zwykłego dokumentu. Najpierw Utwórz źródło danych, dokładnie w normalny sposób: 
+Indeksowanie obiektów blob JSON jest podobne toohello zwykłego dokumentu wyodrębniania. Najpierw Utwórz źródło danych hello dokładnie w normalny sposób: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -65,9 +65,9 @@ Indeksowanie obiektów blob JSON jest podobny do wyodrębniania zwykłego dokume
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-Następnie utwórz indeksu wyszukiwania docelowego, jeśli nie został wcześniej. 
+Następnie utwórz indeksu wyszukiwania docelowego hello, jeśli nie został wcześniej. 
 
-Na koniec Utwórz indeksator i ustawić `parsingMode` parametr `json` (do indeksowania każdy obiekt blob jako pojedynczego dokumentu) lub `jsonArray` (jeśli obiektów blob zawiera tablice notacji JSON i trzeba każdy element tablicy powinien być traktowany jako osobny dokument):
+Na koniec Utwórz indeksator i ustawić hello `parsingMode` parametru zbyt`json` (tooindex każdego obiektu blob jako pojedynczego dokumentu) lub `jsonArray` (jeśli obiektów blob zawiera tablice notacji JSON i trzeba każdy element toobe tablicy potraktowano jako osobny dokument):
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -81,27 +81,27 @@ Na koniec Utwórz indeksator i ustawić `parsingMode` parametr `json` (do indeks
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Jeśli to konieczne, użyj **mapowań pól** do pobrania właściwości dokumentu JSON źródłowej używana do wypełniania indeksu wyszukiwania docelowym, jak pokazano w następnej sekcji.
+Jeśli to konieczne, użyj **mapowań pól** toopick hello właściwości toopopulate dokumentu JSON źródła hello docelowy indeksu wyszukiwania, jak pokazano w następnej sekcji hello.
 
 > [!IMPORTANT]
-> Jeśli używasz `json` lub `jsonArray` analizy tryb usługi Azure Search przyjęto założenie, że wszystkie obiekty BLOB w źródle danych zawierają JSON. Daj nam znać, jeśli zachodzi potrzeba obsługi różnych obiektów blob JSON i z systemem innym niż JSON w tym samym źródle danych, na [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Jeśli używasz `json` lub `jsonArray` analizy tryb usługi Azure Search przyjęto założenie, że wszystkie obiekty BLOB w źródle danych zawierają JSON. Jeśli potrzebujesz toosupport kombinację JSON i JSON z systemem innym niż obiekty BLOB w hello same źródła danych poinformować nas na [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
-## <a name="using-field-mappings-to-build-search-documents"></a>Tworzenie dokumentów wyszukiwania przy użyciu mapowań pól
-Obecnie usługi Azure Search nie można indeksować dowolnych dokumentów JSON bezpośrednio, ponieważ obsługuje on typów danych tylko typy pierwotne, tablic ciągów i punkty GeoJSON. Można jednak użyć **mapowań pól** wybrać części dokumentu JSON, a "Podnieś" je do pól najwyższego poziomu dokumentu wyszukiwania. Aby poznać podstawy mapowania pól, zobacz temat [mapowań pól indeksator usługi Azure Search zestawiania różnice między źródłami danych i indeksów wyszukiwania](search-indexer-field-mappings.md).
+## <a name="using-field-mappings-toobuild-search-documents"></a>Używanie dokumentów wyszukiwania toobuild mapowań pól
+Obecnie usługi Azure Search nie można indeksować dowolnych dokumentów JSON bezpośrednio, ponieważ obsługuje on typów danych tylko typy pierwotne, tablic ciągów i punkty GeoJSON. Można jednak użyć **mapowań pól** części toopick Twojego JSON dokumentów i "Podnieś" je do pól najwyższego poziomu hello wyszukiwania dokumentu. toolearn dotyczących podstaw mapowania pól, zobacz [mapowań pól indeksator usługi Azure Search zestawiania hello różnice między źródłami danych i indeksów wyszukiwania](search-indexer-field-mappings.md).
 
-Powracające do dokumentu JSON naszym przykładzie:
+Powracające tooour przykładowy dokument JSON:
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-Załóżmy, że masz indeksem wyszukiwania z następującymi polami: `text` typu `Edm.String`, `date` typu `Edm.DateTimeOffset`, i `tags` typu `Collection(Edm.String)`. Do mapowania użytkownika JSON do żądanego kształtu, użyj następującego mapowania pól:
+Załóżmy, że masz indeksu wyszukiwania z kolejnych pól hello: `text` typu `Edm.String`, `date` typu `Edm.DateTimeOffset`, i `tags` typu `Collection(Edm.String)`. toomap Twoje dane JSON do hello żądanego kształtu, użyj następującego mapowania pól hello:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -109,21 +109,21 @@ Załóżmy, że masz indeksem wyszukiwania z następującymi polami: `text` typu
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-Nazwy pól źródła w mapowania są określane za pomocą [wskaźnika JSON](http://tools.ietf.org/html/rfc6901) notacji. Można rozpoczynać się kreską ukośną do odwoływania się do katalogu głównego dokumentu JSON, a następnie wybierz odpowiednie właściwości (na poziomie dowolnego zagnieżdżenia) przy użyciu ścieżki rozdzielonych ukośnikiem do przodu.
+Witaj źródła nazwy pól w mapowaniach hello są określane za pomocą hello [wskaźnika JSON](http://tools.ietf.org/html/rfc6901) notacji. Możesz zaczynać się od znaku kreski ułamkowej toorefer toohello głównego dokumentu JSON, a następnie wybierz właściwość hello żądanego (na poziomie dowolnego zagnieżdżenia) przy użyciu ścieżki rozdzielonych ukośnikiem do przodu.
 
-Ponadto mogą odwoływać się do poszczególnych elementów przy użyciu liczony od zera indeks. Na przykład wybierz pierwszy element tablicy "tagi" w powyższym przykładzie, należy użyć mapowania pól, jak to:
+Można także skorzystać tooindividual elementów tablicy przy użyciu indeksu liczony od zera. Na przykład toopick hello pierwszy element macierzy "tagi" hello z hello powyżej przykład użyć mapowania pól, jak to:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Jeśli nazwa pola źródła w ścieżce mapowania pola odwołuje się do właściwości, która nie istnieje w formacie JSON, że to mapowanie zostanie pominięty bez błędu. Można to zrobić, aby firma Microsoft obsługuje dokumenty z innym schematem (co jest typowe przypadek użycia). Ponieważ nie ma żadnych weryfikacji, należy zwrócić uwagę, aby uniknąć błędów pisowni w specyfikacji mapowania pól.
+> Jeśli nazwa pola źródła w ścieżce mapowania pola odwołuje się właściwość tooa, która nie istnieje w formacie JSON, że to mapowanie zostanie pominięty bez błędu. Można to zrobić, aby firma Microsoft obsługuje dokumenty z innym schematem (co jest typowe przypadek użycia). Ponieważ nie ma żadnych weryfikacji, należy tootake opieki tooavoid błędów w specyfikacji mapowania pól.
 >
 >
 
-Jeśli dokumentów JSON zawierają tylko proste właściwości najwyższego poziomu, mogą nie być potrzebne mapowań pól w ogóle. Na przykład jeśli Twoje JSON wygląda tak, najwyższego poziomu właściwości "text", "datePublished" i "tagów" bezpośrednio mapy do odpowiednich pól w indeksie wyszukiwania:
+Jeśli dokumentów JSON zawierają tylko proste właściwości najwyższego poziomu, mogą nie być potrzebne mapowań pól w ogóle. Na przykład jeśli Twoje JSON wygląda tego hello najwyższego poziomu właściwości "text", "datePublished" i "tagów" bezpośrednio mapuje toohello odpowiednich pól w indeksie wyszukiwania hello:
 
     {
-       "text" : "A hopefully useful article explaining how to parse JSON blobs",
+       "text" : "A hopefully useful article explaining how tooparse JSON blobs",
        "datePublished" : "2016-04-13"
        "tags" : [ "search", "storage", "howto" ]    
      }
@@ -148,19 +148,19 @@ Poniżej przedstawiono pełną indeksatora ładunku z mapowania pól:
     }
 
 ## <a name="indexing-nested-json-arrays"></a>Indeksowanie tablice zagnieżdżone JSON
-Co zrobić, jeśli chcesz indeksu jest Tablica obiektów JSON, ale tablicy jest zagnieżdżony gdzieś w dokumencie? Można wybrać, które właściwości zawiera przy użyciu tablicy `documentRoot` właściwości konfiguracji. Jeśli na przykład obiektów blob wyglądać następująco:
+Co zrobić, jeśli chcesz tooindex jest Tablica obiektów JSON, ale tablicy jest zagnieżdżony gdzieś w dokumencie hello? Można wybrać, które właściwości zawiera hello macierzą hello `documentRoot` właściwości konfiguracji. Jeśli na przykład obiektów blob wyglądać następująco:
 
     {
         "level1" : {
             "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
+                { "id" : "1", "text" : "Use hello documentRoot property" },
+                { "id" : "2", "text" : "toopluck hello array you want tooindex" },
+                { "id" : "3", "text" : "even if it's nested inside hello document" }  
             ]
         }
     }
 
-Indeks tablicy zawarte w przy użyciu tej konfiguracji `level2` właściwości:
+Użyj tej tablicy hello tooindex konfiguracji zawarte w hello `level2` właściwości:
 
     {
         "name" : "my-json-array-indexer",
@@ -169,4 +169,4 @@ Indeks tablicy zawarte w przy użyciu tej konfiguracji `level2` właściwości:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Pomóż nam udoskonalić usługę Azure Search
-Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń dotrzeć do nas w naszej [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń dotrzeć toous na naszych [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

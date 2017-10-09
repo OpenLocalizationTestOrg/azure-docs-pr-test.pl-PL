@@ -1,6 +1,6 @@
 ---
-title: "Należy wystawić szablony w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dostosować zawartość strony problem w portalu dla deweloperów w usłudze Azure API Management."
+title: "Szablony aaaIssue w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocustomize hello zawartość hello problem stron w portalu dla deweloperów hello w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e13344df198bca4f73c75fa58221436b94e2f258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e12902e52c164f73902a97f15ea550790dfecf1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Szablony problem w usłudze Azure API Management
-Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartość strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i Edytor wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [symboli zasobów](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
+Zarządzanie interfejsami API Azure oferuje hello możliwości toocustomize hello zawartości strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) edytora składni i hello wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [ Zasoby symbolu](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), masz dużą elastyczność tooconfigure hello zawartość stron hello zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
   
- Szablony w tej sekcji umożliwiają dostosowanie zawartości stron problem w portalu dla deweloperów.  
+ Szablony Hello w tej sekcji pozwalają toocustomize zawartość hello hello problem stron w portalu dla deweloperów hello.  
   
 -   [Lista problemów](#IssueList)  
   
 > [!NOTE]
->  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji, ale mogą ulec zmianie z powodu ciągłe ulepszenia. Szablonów domyślnych na żywo można wyświetlić w portalu dla deweloperów, przechodząc do żądanego szablony osobno. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).  
+>  Przykładowe domyślnych szablonów znajdują się w następującej dokumentacji hello, ale są toochange podmiotu powodu toocontinuous ulepszenia. Hello na żywo domyślnych szablonów można wyświetlić w portalu dla deweloperów hello, przechodząc toohello potrzeby poszczególnych szablonów. Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a>Lista problemów  
- **Lista problemów** szablonu umożliwia dostosowanie treści strony listy problem w portalu dla deweloperów.  
+ Witaj **Lista problemów** szablonu pozwala toocustomize treści hello hello problem listy strony w portalu dla deweloperów hello.  
   
  ![Wystawiać portalu dla deweloperów listy](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM problem listy Developer Portal.")  
   
@@ -88,7 +88,7 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```  
   
 ### <a name="controls"></a>Kontrolki  
- `Issue list` Szablonu może korzystać z następujących [strony kontrolki](api-management-page-controls.md).  
+ Witaj `Issue list` szablonu może używać następujących hello [strony kontrolki](api-management-page-controls.md).  
   
 -   [Formant stronicowania](api-management-page-controls.md#paging-control)  
   
@@ -96,10 +96,10 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|Problemy|Kolekcja [problem](api-management-template-data-model-reference.md#Issue) jednostek.|Problemy widoczne dla bieżącego użytkownika.|  
-|Stronicowanie|[Stronicowanie](api-management-template-data-model-reference.md#Paging) jednostki.|Informacje o stronicowania dla kolekcji aplikacji.|  
-|IsAuthenticated|Wartość logiczna|Określa, czy bieżący użytkownik jest zalogowany do portalu dla deweloperów.|  
-|CanReportIssues|Wartość logiczna|Określa, czy bieżący użytkownik ma uprawnienia do pliku problemu.|  
+|Problemy|Kolekcja [problem](api-management-template-data-model-reference.md#Issue) jednostek.|Witaj problemów widoczne toohello bieżącego użytkownika.|  
+|Stronicowanie|[Stronicowanie](api-management-template-data-model-reference.md#Paging) jednostki.|informacje o Hello stronicowania dla kolekcji aplikacji hello.|  
+|IsAuthenticated|Wartość logiczna|Określa, czy hello bieżący użytkownik jest zalogowany toohello portalu dla deweloperów.|  
+|CanReportIssues|Wartość logiczna|Określa, czy hello bieżący użytkownik nie ma uprawnień toofile problemu.|  
 |Wyszukiwanie|Ciąg|Ta właściwość jest przestarzała i nie powinna być używana.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
@@ -110,8 +110,8 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
         {  
             "Id": "5702b68bb16653124c8f9ba7",  
             "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
+            "Title": "I couldn't figure out how tooconnect my application toohello API",  
+            "Description": "I'm having trouble connecting my application toohello backend API.",  
             "SubscriptionDeveloperName": "Clayton",  
             "IssueState": "Proposed",  
             "ReportedOn": "2016-04-04T18:46:35.64",  
@@ -134,4 +134,4 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).
+Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [jak toocustomize hello portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).

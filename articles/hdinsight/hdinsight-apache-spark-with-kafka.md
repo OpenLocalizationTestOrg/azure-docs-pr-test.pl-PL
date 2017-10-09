@@ -1,6 +1,6 @@
 ---
-title: "Apache Spark przesyłania strumieniowego z Kafka - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak służące do lub wychodzący przy użyciu DStreams Kafka Apache Spark Apache Spark do transmisji danych. W tym przykładzie można przesyłać strumieniowo dane za pomocą notesu Jupyter z platformy Spark w usłudze HDInsight."
+title: "aaaApache Spark przesyłania strumieniowego z Kafka - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Spark Apache Spark toostream danych do lub wychodzący Kafka Apache przy użyciu DStreams. W tym przykładzie można przesyłać strumieniowo dane za pomocą notesu Jupyter z platformy Spark w usłudze HDInsight."
 keywords: "przykład kafka, dozorcy kafka, spark, przesyłanie strumieniowe kafka, przesyłania strumieniowego przykład kafka spark"
 services: hdinsight
 documentationcenter: 
@@ -16,88 +16,88 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/13/2017
 ms.author: larryfr
-ms.openlocfilehash: 81fa319f6fb94bdabacd8f68d14b9a1063a9749a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f48b37aadafa4979cd27af68e8417db6acc8a0e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Apache Spark przesyłania strumieniowego (DStream) przykład: Kafka (wersja zapoznawcza) w usłudze HDInsight
 
-Dowiedz się, jak używać Spark Apache Spark do transmisji danych do lub wychodzący Kafka Apache na HDInsight przy użyciu DStreams. W tym przykładzie użyto notesu Jupyter w klastrze Spark.
+Dowiedz się, jak toouse Spark Apache Spark toostream danych do lub wychodzący Kafka Apache na HDInsight przy użyciu DStreams. W tym przykładzie użyto notesu Jupyter w klastrze Spark hello.
 > [!NOTE]
-> Kroki opisane w tym dokumencie Tworzenie grupy zasobów platformy Azure, który zawiera zarówno Spark w usłudze HDInsight i Kafka w klastrze usługi HDInsight. Te klastry są oba znajdujących się w sieci wirtualnej platformy Azure, dzięki czemu klastra Spark do bezpośredniego komunikowania się z Kafka klastra.
+> kroki Hello w tym dokumencie Tworzenie grupy zasobów platformy Azure, który zawiera zarówno Spark w usłudze HDInsight i Kafka w klastrze usługi HDInsight. Tych klastrów są oba znajdujących się w sieci wirtualnej platformy Azure, dzięki czemu hello toodirectly klastra Spark komunikować się z hello Kafka klastra.
 >
-> Po zakończeniu kroków w tym dokumencie, pamiętaj, aby usuwać te klastry, aby zapobiec zmianom nadmiarowe.
+> Po zakończeniu kroków hello w tym dokumencie, pamiętaj toodelete hello klastrów tooavoid nadmiarowe opłat.
 
-## <a name="create-the-clusters"></a>Tworzenie klastrów
+## <a name="create-hello-clusters"></a>Tworzenie klastrów hello
 
-Kafka Apache na HDInsight nie zapewnia dostępu do brokerzy Kafka za pośrednictwem publicznej sieci internet. Wszystkie elementy, które komunikuje się Kafka musi być w tej samej sieci wirtualnej platformy Azure jako węzły w klastrze Kafka. W tym przykładzie zarówno Kafka, jak i Spark klastrach znajdują się w sieci wirtualnej platformy Azure. Na poniższym diagramie przedstawiono sposób komunikacji przepływa między klastrami:
+Kafka Apache na HDInsight nie zapewnia dostępu toohello Kafka brokerzy za pośrednictwem hello publicznej sieci internet. Wszystko, co rozmów, muszą mieć tooKafka hello tej samej sieci wirtualnej platformy Azure jako węzły hello w hello Kafka klastra. W tym przykładzie zarówno hello Kafka, jak i klastry Spark znajdują się w sieci wirtualnej platformy Azure. Witaj poniższym diagramie przedstawiono sposób komunikacji przepływa między klastrami hello:
 
 ![Diagram klastry Spark i Kafka w sieci wirtualnej platformy Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Chociaż Kafka sam jest ograniczone do komunikacji w sieci wirtualnej, są dostępne inne usługi w klastrze, takich jak SSH i Ambari w Internecie. Aby uzyskać więcej informacji na portach publicznego dostępne z usługą HDInsight, zobacz [portów i identyfikatory URI używany przez HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Chociaż Kafka sam jest ograniczona toocommunication w ramach sieci wirtualnej hello, inne usługi w klastrze hello takich jak SSH i Ambari są dostępne za pośrednictwem hello internet. Aby uzyskać więcej informacji na powitania publicznego portów dostępnych z usługą HDInsight, zobacz [portów i identyfikatory URI używany przez HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Podczas tworzenia sieci wirtualnej platformy Azure, Kafka, i Spark klastrów ręcznie, łatwiej jest użyć szablonu usługi Azure Resource Manager. Wykonaj następujące kroki, aby wdrożyć sieci wirtualnej platformy Azure, Kafka i Spark klastrów do subskrypcji platformy Azure.
+Chociaż można utworzyć sieci wirtualnej platformy Azure, Kafka i Spark klastry ręcznie, jest łatwiejsze toouse szablonu usługi Azure Resource Manager. Użyj następujących hello kroki toodeploy sieci wirtualnej platformy Azure, Kafka, i Spark klastrów tooyour subskrypcji platformy Azure.
 
-1. Poniższy przycisk umożliwia logowanie do platformy Azure i otwórz szablon w portalu Azure.
+1. Użyj hello toosign przycisk w tooAzure i hello Otwórz szablon hello portalu Azure.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy tooAzure"></a>
     
-    Szablon usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
+    Witaj szablonu usługi Azure Resource Manager znajduje się pod adresem **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
 
     > [!WARNING]
-    > Aby zapewnić dostępność platformy Kafka w usłudze HDInsight, klaster musi zawierać co najmniej trzy węzły procesu roboczego. Ten szablon umożliwia tworzenie klastra Kafka, który zawiera trzy węzłów procesu roboczego.
+    > dostępność tooguarantee Kafka w usłudze HDInsight, klaster musi zawierać co najmniej trzech węzłów procesu roboczego. Ten szablon umożliwia tworzenie klastra Kafka, który zawiera trzy węzłów procesu roboczego.
 
     Ten szablon umożliwia tworzenie klastra usługi HDInsight 3,6 Kafka i Spark.
 
-2. Użyj poniższych informacji, aby wypełnić wpisy na **wdrożenie niestandardowe** bloku:
+2. Witaj Użyj następujących informacji toopopulate hello wpisy na powitania **wdrożenie niestandardowe** bloku:
    
     ![Niestandardowe wdrożenie usługi HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Grupa zasobów**: Utwórz grupę lub wybierz istniejący. Ta grupa zawiera klastra usługi HDInsight.
+    * **Grupa zasobów**: Utwórz grupę lub wybierz istniejący. Ta grupa zawiera hello klastra usługi HDInsight.
 
-    * **Lokalizacja**: Wybierz lokalizację lokalizacji geograficznej blisko.
+    * **Lokalizacja**: Wybierz lokalizację tooyou geograficznie Zamknij.
 
-    * **Podstawowa nazwa klastra**: Ta wartość jest używana jako nazwa podstawowa platformy Spark i Kafka klastrów. Na przykład wprowadzenie **hdi** tworzy Spark klastra o nazwie spark hdi__ i Kafka klastra o nazwie **kafka hdi**.
+    * **Podstawowa nazwa klastra**: Ta wartość jest używana jako nazwa podstawowa hello hello Spark i Kafka klastrów. Na przykład wprowadzenie **hdi** tworzy Spark klastra o nazwie spark hdi__ i Kafka klastra o nazwie **kafka hdi**.
 
-    * **Nazwa użytkownika logowania klastra**: nazwa użytkownika administratora klastrów platformy Spark i Kafka.
+    * **Nazwa użytkownika logowania klastra**: nazwa użytkownika administratora hello hello Spark i Kafka klastrów.
 
-    * **Hasło logowania klastra**: hasła użytkownika administratora klastrów platformy Spark i Kafka.
+    * **Hasło logowania klastra**: hello hasła użytkownika administratora klastrów platformy Spark i Kafka hello.
 
-    * **Nazwa użytkownika SSH**: użytkownika SSH do tworzenia klastrów platformy Spark i Kafka.
+    * **Nazwa użytkownika SSH**: hello toocreate użytkownika SSH hello Spark i Kafka klastrów.
 
-    * **Hasło SSH**: hasło dla użytkownika SSH dla klastrów Spark i Kafka.
+    * **Hasło SSH**: hello hasło użytkownika SSH hello hello Spark i Kafka klastrów.
 
-3. Odczyt **warunków i postanowień**, a następnie wybierz **akceptuję warunki i postanowienia, o których wspomniano**.
+3. Witaj odczytu **warunków i postanowień**, a następnie wybierz **zgadzam się toohello warunki i postanowienia, o których wspomniano**.
 
-4. Ponadto sprawdź **Przypnij do pulpitu nawigacyjnego** , a następnie wybierz **zakupu**. Tworzenie klastrów trwa około 20 minut.
+4. Ponadto sprawdź **toodashboard numeru Pin** , a następnie wybierz **zakupu**. Trwa około 20 minut toocreate hello klastrów.
 
-Po utworzeniu zasoby są przekierowywane do bloku grupy zasobów, zawierającą klastrów i pulpitu nawigacyjnego sieci web.
+Po utworzeniu hello zasoby zostaną przekierowane tooa bloku hello grupę zasobów, która zawiera hello klastrów i pulpitu nawigacyjnego sieci web.
 
-![Bloku grupy zasobów dla sieci wirtualnej i klastrów](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Bloku grupy zasobów dla sieci wirtualnej hello i klastrów](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> Należy zauważyć, że nazwy klastrów usługi HDInsight są **nazwę BAZOWĄ spark** i **nazwę BAZOWĄ kafka**, gdzie nazwę BAZOWĄ jest podana nazwa do szablonu. Te nazwy można użyć w kolejnych krokach, podczas nawiązywania połączenia z klastrów.
+> Zwróć uwagę, że w nazwach hello klastrów HDInsight hello jest **nazwę BAZOWĄ spark** i **nazwę BAZOWĄ kafka**, gdzie nazwę BAZOWĄ jest nazwą hello podane toohello szablonu. Te nazwy można użyć w kolejnych krokach, podczas łączenia klastrów toohello.
 
-## <a name="use-the-notebooks"></a>Użyj notebooki
+## <a name="use-hello-notebooks"></a>Użyj notesów hello
 
-Kod, na przykład opisanych w niniejszym dokumencie jest dostępny na [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+Kod Hello na przykład hello opisanych w niniejszym dokumencie jest dostępny w [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-Postępuj zgodnie z instrukcjami `README.md` plik, aby ukończyć w tym przykładzie.
+Wykonaj kroki hello hello `README.md` pliku toocomplete w tym przykładzie.
 
-## <a name="delete-the-cluster"></a>Usuwanie klastra
+## <a name="delete-hello-cluster"></a>Usuń klaster hello
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Ponieważ kroki opisane w tym dokumencie utworzyć obu klastrów w tej samej grupy zasobów platformy Azure, można usunąć grupy zasobów w portalu Azure. Usuwanie grupy usuwa wszystkie zasoby utworzone przez tego dokumentu, Azure Virtual Network i konto magazynu używane przez klaster.
+Ponieważ hello kroków w tym dokumencie Tworzenie zarówno klastrów w hello tej samej grupy zasobów platformy Azure, można usunąć grupy zasobów hello w hello portalu Azure. Usuwanie grupy hello usuwa wszystkie zasoby utworzone, postępując w tym dokumencie, hello Azure Virtual Network i konto magazynu używane przez hello klastrów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przykładzie przedstawiono sposób użycia platformy Spark do odczytu i zapisu do Kafka. Aby dowiedzieć się, inne metody pracy z Kafka, użyj następujących łączy:
+W tym przykładzie przedstawiono sposób toouse Spark tooread i zapisać tooKafka. Z Kafka, należy użyć następującego łącza toodiscover hello toowork inne sposoby:
 
 * [Wprowadzenie do Apache Kafka w usłudze HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](hdinsight-apache-kafka-mirroring.md)
+* [Użyj toocreate MirrorMaker repliki Kafka w usłudze HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
 

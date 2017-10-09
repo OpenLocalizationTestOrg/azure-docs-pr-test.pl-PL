@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Concur | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Concur."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Concur."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 13ba364af26a5ce0f1d2b51aaa0f84a4c353b107
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>Samouczek: Konfigurowanie cząstkowe do inicjowania obsługi użytkowników
 
-Celem tego samouczka jest opisano czynności, które należy wykonać w Concur i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD Concur.
+Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w Concur i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooConcur.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że już następujące elementy:
+Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory.
 *   Concur logowanie jednokrotne włączone subskrypcji.
 *   Konto użytkownika w Concur z uprawnieniami administratora zespołu.
 
-## <a name="assigning-users-to-concur"></a>Przypisywanie użytkowników do Concur
+## <a name="assigning-users-tooconcur"></a>Przypisywanie użytkowników tooConcur
 
-Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany.
+Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany.
 
-Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Concur. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji Concur:
+Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy muszą uzyskiwać dostęp do aplikacji Concur tooyour. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać tych użytkowników tooyour Concur aplikacji:
 
-[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-concur"></a>Ważne porady dotyczące przypisywania użytkowników do Concur
+### <a name="important-tips-for-assigning-users-tooconcur"></a>Ważne porady dotyczące przypisywania tooConcur użytkowników
 
-*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać do Concur do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać hello tootest tooConcur inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Przypisanie użytkownika do Concur, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Podczas przypisywania tooConcur użytkownika, należy wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
 
 ## <a name="enable-user-provisioning"></a>Włącz inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika w Concur inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w Concur w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika tooConcur programu Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w Concur w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
 
 > [!Tip] 
-> Można też włączyć na języku SAML logowania jednokrotnego dla Concur, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też tooenabled na języku SAML logowania jednokrotnego dla Concur hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="to-configure-user-account-provisioning"></a>Aby skonfigurować, inicjowanie obsługi konta użytkownika:
+### <a name="tooconfigure-user-account-provisioning"></a>Przypisywanie konta użytkowników tooconfigure:
 
-Celem tej sekcji jest przedstawiają sposób włączania obsługi administracyjnej kont użytkowników usługi Active Directory do Concur.
+Celem Hello w tej sekcji jest toooutline jak tooConcur kont tooenable Inicjowanie obsługi administracyjnej użytkownika usługi Active Directory.
 
-Aby włączyć aplikacje w usłudze wydatków, musi być prawidłową konfigurację i korzystania z profilem administrator usługi sieci Web. Nie dodawaj rolę administratora WS istniejącego profilu administratora używanego do T & j funkcji administracyjnych.
+aplikacje tooenable w hello usługi wydatków, ma prawidłową konfigurację toobe i korzystania z profilem administrator usługi sieci Web. Nie dodawaj hello WS Admin roli tooyour istniejący profil administratora używanej do T & j funkcji administracyjnych.
 
-Cząstkowe konsultantów lub administrator klienta należy utworzyć różne profilu administratora usługi sieci Web i administrator klienta musi używać tego profilu funkcji administratora usług sieci Web (na przykład włączenie aplikacje). Te profile muszą być przechowywane oddzielnie od administratora klient codzienne T & E admin profilu (T & E profilu administratora nie powinna mieć rolę WSAdmin przypisane).
+Cząstkowe konsultantów lub powitania klienta administrator musi utworzyć różne profilu administratora usługi sieci Web i powitania klienta administrator musi używać tego profilu dla funkcji administratora usługi sieci Web hello (na przykład włączenie aplikacje). Te profile muszą być przechowywane oddzielnie od powitania klienta administrator codzienne T & E admin profilu (hello T & E profilu administratora nie powinny mieć przypisanej roli WSAdmin hello).
 
-Podczas tworzenia profilu służący do włączania aplikacji, wprowadź nazwę administratora klienta do pól profilu użytkownika. W ten sposób własności do tego profilu. Po utworzeniu co najmniej jeden profil, klient musi Zaloguj się za pomocą tego profilu, kliknij "*włączyć*" przycisk aplikacji partnera w menu usługi sieci Web.
+Podczas tworzenia toobe profilu hello używane do włączania aplikacji hello nazwę administratora powitania klienta do pól profilu użytkownika hello. W ten sposób własność toohello profilu. Po utworzeniu co najmniej jeden profil powitania klienta musi Zaloguj się za pomocą tego profilu hello tooclick "*włączyć*" przycisk aplikacji partnera w hello menu usługi sieci Web.
 
-Z następujących powodów tej akcji nie można wykonać za pomocą profilu używanego do normalnej T & E administracji.
+Dla następujących powodów hello ta akcja nie można wykonać z profilem hello, używanego do normalnej T & E administracji.
 
-* Klient musi być elementem kliknie "*tak*" w oknie dialogu, które jest wyświetlane, gdy aplikacja zostanie włączona. Kliknij ten przycisk uznaje się, że klient jest gotowa dla aplikacji partnera dostępu do danych, więc możesz lub partnera nie kliknij ten przycisk Tak.
+* Witaj klient ma toobe Witaj, który kliknie "*tak*" w oknie dialogu hello, w którym jest wyświetlany po włączeniu aplikacji. Kliknij ten przycisk uznaje się, że powitania klienta jest gotowi dla tooaccess aplikacji partnera hello ich danych, więc możesz lub hello partnera nie kliknij odpowiedni przycisk Tak.
 
-* Jeśli administrator klienta, która włączyła aplikację za pomocą administratora T & E profilu odchodzi z firmy (co w profilu jest dezaktywowane), włączyć za pomocą profilu nie działać do czasu włączenia aplikacji z innym profilem administratora WS aktywne dla wszystkich aplikacji. Jest to, dlaczego są powinien utworzyć różne Admin WS profile.
+* Jeśli administrator klienta, która włączyła aplikację przy użyciu hello T & E profilu administratora pozostawia hello firmy (co w profilu hello jest dezaktywowane), wszystkie aplikacje włączone za pomocą tego profilu nie działa, aż do włączenia aplikacji hello z innym administratorem WS active profil. Jest to, dlaczego powinni toocreate różne profile WS administratora.
 
-* Jeśli administrator odchodzi z firmy, można można zmienić nazwy skojarzone z profilem administratora WS administratorowi zastąpienia, w razie potrzeby bez wpływu na pewno włączonych aplikacji, ponieważ ten profil nie jest konieczne dezaktywowane.
+* Jeśli administrator pozostawia hello firmy, nazwę hello skojarzone toohello profilu WS administratora może być toohello zmienionych administratora zastąpienia, w razie potrzeby bez wpływu na powitania włączone, że aplikacji, ponieważ ten profil nie jest konieczne dezaktywowane.
 
-**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
+**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
 
-1. Zaloguj się do Twojego **Concur** dzierżawy.
+1. Zaloguj się na tooyour **Concur** dzierżawy.
 
-2. Z **administracji** menu, wybierz opcję **usług sieci Web**.
+2. Z hello **administracji** menu, wybierz opcję **usług sieci Web**.
    
     ![Dzierżawy Concur](./media/active-directory-saas-concur-provisioning-tutorial/IC721729.png "Concur dzierżawy")
 
-3. Po lewej stronie z **usług sieci Web** okienku wybierz **Włącz aplikacji partnera**.
+3. Na powitania po lewej stronie, z hello **usług sieci Web** okienku wybierz **Włącz aplikacji partnera**.
    
     ![Włączanie aplikacji partnera](./media/active-directory-saas-concur-provisioning-tutorial/ic721730.png "włączyć partnera aplikacji")
 
-4. Z **Włącz aplikacji** listy, wybierz **usługi Azure Active Directory**, a następnie kliknij przycisk **włączyć**.
+4. Z hello **Włącz aplikacji** listy, wybierz **usługi Azure Active Directory**, a następnie kliknij przycisk **włączyć**.
    
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Kliknij przycisk **tak** zamknąć **potwierdzenie akcji** okna dialogowego.
+5. Kliknij przycisk **tak** tooclose hello **potwierdzenie akcji** okna dialogowego.
    
     ![Potwierdzenie akcji](./media/active-directory-saas-concur-provisioning-tutorial/ic721732.png "potwierdzenie akcji")
 
-6. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+6. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-7. Jeśli Concur został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem Concur przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Concur** w galerii aplikacji. Wybierz Concur w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
+7. Concur został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem Concur za pomocą hello pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Concur** w galerii aplikacji hello. Wybierz Concur z wyników wyszukiwania hello i dodać go tooyour listy aplikacji.
 
-8. Wybierz wystąpienia programu Concur, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
+8. Wybierz wystąpienia programu Concur, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
 
-9. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
+9. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**. 
  
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
-10. W obszarze **poświadczeń administratora** wprowadź **nazwy użytkownika** i **hasło** administratora Concur.
+10. W obszarze hello **poświadczeń administratora** wprowadź hello **nazwy użytkownika** i hello **hasło** administratora Concur.
 
-11. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Concur. Jeśli połączenie nie powiedzie się, upewnij się, że Twoje konto Concur ma uprawnienia administratora zespołu.
+11. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD można połączyć tooyour Concur aplikację. Jeśli hello połączenia nie powiedzie się, upewnij się, że Twoje konto Concur ma uprawnienia administratora zespołu.
 
-12. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru.
+12. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru hello.
 
 13. Kliknij przycisk **zapisać.**
 
-14. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Concur.**
+14. W obszarze hello sekcji mapowania, wybierz **tooConcur synchronizacji Azure Active Directory użytkowników.**
 
-15. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD Concur. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Concur dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+15. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooConcur. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kontom Concur dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
 
-16. Aby włączyć usługi Azure AD usługi dla Concur inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
+16. tooenable hello inicjowania obsługi usługi Azure AD dla Concur, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w hello **ustawienia** sekcji
 
 17. Kliknij przycisk **zapisać.**
 
-Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z Concur poczekaj maksymalnie 20 minut.
+Można teraz utworzyć konta testowego. Poczekaj na górę minut too20 tooverify, który hello konto zostało zsynchronizowane tooConcur.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

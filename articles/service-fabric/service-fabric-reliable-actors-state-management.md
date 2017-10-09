@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie stanem Reliable Actors | Dokumentacja firmy Microsoft"
+title: "Podmiotów aaaReliable stanu zarządzania | Dokumentacja firmy Microsoft"
 description: "Opisuje sposób Reliable Actors stanu jest zarządzany, utrwalenia i replikacji wysokiej dostępności."
 services: service-fabric
 documentationcenter: .net
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: aca8cf2b94e8b746a5cac6af021c7221a29b7345
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 346d92426b1890617d108a9504afb179e463bded
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem podmiotów niezawodnej
-Reliable Actors są jednowątkowych obiektów hermetyzacji zarówno logiki i stanu. Ponieważ podmioty są uruchamiane na niezawodne usługi, ich niezawodnie zachowują stan, przy użyciu tego samego stanu trwałego i mechanizmów replikacji, które używa niezawodne usługi. W ten sposób złośliwych użytkowników nie utracili ich stanu po awariach po ponownej aktywacji po wyrzucanie elementów bezużytecznych lub po przeniesieniu ich między węzłami w klastrze równoważenia zasobów lub uaktualnień.
+Reliable Actors są jednowątkowych obiektów hermetyzacji zarówno logiki i stanu. Ponieważ podmioty są uruchamiane na niezawodne usługi, ich można zachować stanu niezawodnie przy użyciu hello same utrwalanie i replikację mechanizmy, które używa niezawodne usługi. W ten sposób złośliwych użytkowników nie utracili ich stanu po awariach po ponownej aktywacji po wyrzucanie elementów bezużytecznych lub po przeniesieniu ich między węzłami w klastrze równoważenia tooresource lub uaktualnień.
 
 ## <a name="state-persistence-and-replication"></a>Trwałość stanu i replikacji
-Uwzględniane są wszystkie Reliable Actors *stateful* ponieważ każde wystąpienie aktora jest mapowany na unikatowy identyfikator. Oznacza to, że ten sam identyfikator aktora powtarzane wywołania są kierowane do tego samego wystąpienia aktora. W systemie bezstanowych natomiast wywołań klienta nie ma gwarancji być kierowane do tego samego serwera zawsze. Z tego powodu usługi aktora są zawsze usług stanowych.
+Uwzględniane są wszystkie Reliable Actors *stateful* ponieważ każde wystąpienie aktora mapuje tooa unikatowego identyfikatora. Oznacza to, że toohello powtarzane wywołania są w tym samym identyfikatorze aktora kierowane toohello tego samego wystąpienia aktora. W systemie bezstanowych, natomiast wywołań klienta nie ma gwarancji toohello toobe kierowane tym samym serwerze co czasu. Z tego powodu usługi aktora są zawsze usług stanowych.
 
-Mimo że podmioty są traktowane jako wartość, która oznacza to, że ich musi niezawodne przechowywanie stanu. Złośliwych użytkowników można wybrać poziom trwałości stanu i replikacji na podstawie ich danych wymagania dotyczące magazynu:
+Mimo że podmioty są traktowane jako wartość, która oznacza to, że ich musi niezawodne przechowywanie stanu. Złośliwych użytkowników można wybrać hello poziom trwałości stanu i replikacji na podstawie ich danych wymagania dotyczące magazynu:
 
-* **Stan utrwalony**: stan jest zachowywany na dysku i jest replikowany do replik 3 lub więcej. Jest to najbardziej niezawodna opcji magazynu stanu gdzie stan może się powtarzać, za pośrednictwem awarii całego klastra.
-* **Stan volatile**: stan jest replikowana do replik 3 lub więcej i tylko przechowywany w pamięci. Zapewnia odporność względem awarii węzła i niepowodzenie aktora oraz podczas uaktualniania i równoważenia zasobów. Jednak stan nie jest zachowywany na dysku. Jeśli więc wszystkie repliki zostaną utracone na raz, stan utracone również.
-* **Nie stanu utrwalonego**: stan nie jest replikowany lub zapisany na dysku. Ten poziom jest osób, które nie wymagają po prostu do zarządzania stanem niezawodnie.
+* **Stan utrwalony**: stanu utrwalonego toodisk i jest replikowany too3 lub więcej repliki. To hello najbardziej niezawodna opcji magazynu stanu, gdy stan może się powtarzać, za pośrednictwem awarii całego klastra.
+* **Stan volatile**: stan jest replikowany too3 lub więcej repliki i tylko przechowywany w pamięci. Zapewnia odporność względem awarii węzła i niepowodzenie aktora oraz podczas uaktualniania i równoważenia zasobów. Stan nie jest jednak toodisk utrwalonych. Jeśli więc wszystkie repliki zostaną utracone na raz, stan hello utracone również.
+* **Nie stanu utrwalonego**: stan nie jest replikowany lub zapisywane toodisk. Ten poziom jest osób, które po prostu nie wymagają niezawodnie toomaintain stanu.
 
-Każdy poziom trwałości jest po prostu inną *dostawcy stanu* i *replikacji* konfiguracji usługi. Określa, czy stan jest zapisywany na dysku jest zależna od dostawcy stanu — składnik w niezawodnej usługi, która przechowuje stan. Zależy od liczby replikami usługa jest wdrażana z replikacji. Podobnie jak w przypadku niezawodne usługi dostawcy stanu i liczby replik można łatwo skonfigurować ręcznie. Framework aktora udostępnia atrybut, gdy używany na aktora, automatycznie wybiera domyślny dostawca stanu i automatycznie generuje ustawienia liczby replik osiągnięcie jednego z tych trzech ustawień trwałości. Atrybut StatePersistence nie jest dziedziczone przez klasy pochodnej, podać jego poziom StatePersistence każdego typu aktora.
+Każdy poziom trwałości jest po prostu inną *dostawcy stanu* i *replikacji* konfiguracji usługi. Czy stan jest zapisywany toodisk zależy od dostawcy stanu hello — składnik hello w niezawodnej usługi, która przechowuje stan. Zależy od liczby replikami usługa jest wdrażana z replikacji. Podobnie jak w przypadku niezawodne usługi zarówno hello dostawcy stanu i liczby replik można łatwo ręcznie skonfigurować. Witaj aktora framework zapewnia atrybutu, gdy jest używany na aktora automatycznie wybiera domyślny dostawca stanu i automatycznie generuje ustawienia tooachieve liczby replik, jednego z tych trzech ustawień trwałości. Atrybut StatePersistence Hello nie jest dziedziczone przez klasy pochodnej, podać jego poziom StatePersistence każdego typu aktora.
 
 ### <a name="persisted-state"></a>Stan utrwalony
 ```csharp
@@ -47,7 +47,7 @@ class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
-To ustawienie powoduje użycie dostawcy stanu, która przechowuje dane na dysku i automatycznie ustawia liczbę repliki usługi do 3.
+To ustawienie powoduje użycie dostawcy stanu, który przechowuje dane na dysku i automatycznie ustawia too3 liczby replik usługi hello.
 
 ### <a name="volatile-state"></a>Stan nietrwałe
 ```csharp
@@ -62,7 +62,7 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-To ustawienie korzysta z dostawcy stanu w pamięci wyłącznie- i ustawia liczby replik 3.
+To ustawienie powoduje użycie dostawcy stanu w pamięci wyłącznie- i ustawia hello too3 liczby replik.
 
 ### <a name="no-persisted-state"></a>Nie stanu utrwalonego
 ```csharp
@@ -77,12 +77,12 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-To ustawienie korzysta z dostawcy stanu w pamięci — tylko i ustawia liczbę replik równą 1.
+To ustawienie powoduje użycie dostawcy stanu w pamięci wyłącznie- i ustawia hello too1 liczby replik.
 
 ### <a name="defaults-and-generated-settings"></a>Wygenerowany ustawienia i wartości domyślnych
-Jeśli używasz `StatePersistence` atrybutu, dostawcy stanu jest automatycznie wybrana w czasie wykonywania podczas uruchamiania usługi aktora. Liczba replik, jednak jest ustawiony w czasie kompilacji za pomocą narzędzi Visual Studio aktora kompilacji. Narzędzia kompilacji automatycznego generowania *usługi domyślnej* usługi aktora w pliku ApplicationManifest.xml. Parametry są tworzone dla **rozmiar zestawu replik min** i **rozmiar zestawu replik docelowej**.
+Jeśli używasz hello `StatePersistence` atrybutu, dostawcy stanu jest automatycznie wybrana w czasie wykonywania podczas uruchamiania usługi aktora hello. liczba replik Hello, jednak jest ustawiony w czasie kompilacji przez hello aktora Visual Studio narzędzia kompilacji. Witaj narzędzia kompilacji automatycznego generowania *usługi domyślnej* hello usługi aktora w pliku ApplicationManifest.xml. Parametry są tworzone dla **rozmiar zestawu replik min** i **rozmiar zestawu replik docelowej**.
 
-Te parametry można zmienić ręcznie. Ale zawsze `StatePersistence` zmiany atrybutu, parametry zostaną ustawione na wartości domyślne rozmiar zestawu replik dla wybranego `StatePersistence` atrybutu zastąpienie poprzedniej wartości. Innymi słowy, są ustawiane w pliku ServiceManifest.xml wartości *tylko* zastąpione w czasie kompilacji zmiana `StatePersistence` wartość atrybutu.
+Te parametry można zmienić ręcznie. Ale każdego hello czasu `StatePersistence` zmiany atrybutu, hello parametry zostały ustawione toohello repliki Ustaw rozmiar wartości domyślne hello wybrane `StatePersistence` atrybutu zastąpienie poprzedniej wartości. Innymi słowy, są hello wartości, które można ustawić w pliku ServiceManifest.xml *tylko* zastąpione w czasie kompilacji zmiana hello `StatePersistence` wartość atrybutu.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -105,20 +105,20 @@ Te parametry można zmienić ręcznie. Ale zawsze `StatePersistence` zmiany atry
 ```
 
 ## <a name="state-manager"></a>Menedżer stanu
-Każde wystąpienie aktora ma własną Menedżer stanu: struktura typu słownika danych, która w niezawodny sposób przechowuje par klucz/wartość. Menedżer stanów jest otokę dostawcy stanu. Można go użyć do przechowywania danych, niezależnie od tego, które jest używane ustawienie trwałości. Nie ma żadnej gwarancji, że można zmienić uruchomionej usługi aktora z ustawienie volatile (w pamięci —) stanie tylko do ustawienia stanu utrwalonego za pomocą uaktualnienia stopniowego przy zachowaniu danych. Istnieje możliwość zmiany liczby replik dla uruchomionej usługi.
+Każde wystąpienie aktora ma własną Menedżer stanu: struktura typu słownika danych, która w niezawodny sposób przechowuje par klucz/wartość. Menedżer stanu Hello jest otokę dostawcy stanu. Służy on toostore danych niezależnie od ustawień trwałości jest używany. Nie zapewnia się, że ustawienia stanu za pomocą uaktualnienia stopniowego przy zachowaniu danych utrwalone żadnej gwarancji, że uruchomionej usługi aktora można zmienić z tooa ustawienie volatile stanu (w pamięci wyłącznie-). Jest jednak możliwe toochange liczba replik dla uruchomionej usługi.
 
-Menedżer stanu klucze muszą być ciągami. Wartości są ogólne i mogą być dowolnego typu, łącznie z niestandardowych typów. Wartości przechowywane w Menedżerze stanu musi być kontraktu danych, które można serializować, ponieważ mogą być przesyłane przez sieć do innych węzłów podczas replikacji i mogą być zapisywane na dysku, w zależności od ustawienia trwałości stanu aktora.
+Menedżer stanu klucze muszą być ciągami. Wartości są ogólne i mogą być dowolnego typu, łącznie z niestandardowych typów. Wartości przechowywane w Menedżerze stanu hello musi być kontraktu danych, które można serializować, ponieważ mogą zostać przesłane przez węzły tooother sieci hello podczas replikacji i mogą być zapisane toodisk, w zależności od ustawienia trwałości stanu aktora.
 
-Menedżer stanu przedstawia stan podobne do tych znaleziony w słowniku niezawodnej zarządzania typowe metody słownika.
+Menedżer stanu Hello opisuje typowe metody słownika stan, podobne toothose znaleziony w słowniku niezawodnej zarządzania.
 
 ### <a name="accessing-state"></a>Uzyskiwanie dostępu do stanu
-Stan jest możliwy za pośrednictwem Menedżera stanu według klucza. Metody menedżera stanu są wszystkie asynchronicznego, ponieważ może wymagać We/Wy dysku, gdy podmiotów utrwalonych stanu. Po pierwszym dostępie obiekty stanu są buforowane w pamięci. Powtórz uzyskiwanie dostępu do operacji dostępu do obiektów bezpośrednio z pamięci i zwracany synchronicznie, bez ponoszenia We/Wy dysku lub asynchroniczne przełączania kontekstu. Obiekt stanu zostanie usunięty z pamięci podręcznej w następujących przypadkach:
+Stan jest możliwy za pośrednictwem Menedżera stanu hello według klucza. Metody menedżera stanu są wszystkie asynchronicznego, ponieważ może wymagać We/Wy dysku, gdy podmiotów utrwalonych stanu. Po pierwszym dostępie obiekty stanu są buforowane w pamięci. Powtórz uzyskiwanie dostępu do operacji dostępu do obiektów bezpośrednio z pamięci i zwracany synchronicznie, bez ponoszenia We/Wy dysku lub asynchroniczne przełączania kontekstu. Obiekt stanu jest usuwane z pamięci podręcznej hello w hello w następujących przypadkach:
 
-* Metoda aktora zgłasza nieobsługiwany wyjątek, po jego pobiera obiekt przez menedżera stanu.
+* Metoda aktora zgłasza nieobsługiwany wyjątek, po jego pobiera obiekt z hello Menedżer stanu.
 * Uaktywnieniu aktora, po dezaktywowany lub po awarii.
-* Dostawca stanu strony stanu na dysku. To zachowanie zależy od implementacji dostawcy stanu. Domyślny dostawca stanu dla `Persisted` ma to zachowanie.
+* stron dostawcy stanu Hello stanu toodisk. To zachowanie zależy od implementacji dostawcy stanu hello. Witaj domyślnego dostawcę stanu hello `Persisted` ma to zachowanie.
 
-Stan można pobrać za pomocą standardowego *uzyskać* operacja, która zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), jeśli wpis nie istnieje dla klucza:
+Stan można pobrać za pomocą standardowego *uzyskać* operacja, która zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java), jeśli wpis nie istnieje dla klucza hello:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -194,9 +194,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ### <a name="saving-state"></a>Zapisywanie stanu
-Metody pobierania stanu Menedżera zwraca odwołanie do obiektu w pamięci lokalnej. Modyfikowanie tego obiektu w pamięci lokalnej wyłącznie nie powoduje jego zapisania trwałym. Gdy obiekt jest pobierane z Menedżera stanu i modyfikować, należy ponownie wstawić do przez menedżera stanu można zapisać trwałym.
+metody pobierania menedżera stanu Hello zwraca obiekt tooan odwołania w lokalnej pamięci. Modyfikowanie tego obiektu w pamięci lokalnej wyłącznie nie powoduje jego toobe trwale zapisać. Gdy obiekt jest pobierane z Menedżera stanu hello i modyfikować, należy ponownie wstawić do toobe menedżera stanu hello trwale zapisać.
 
-Stan można wstawić za pomocą bezwarunkowe *ustawić*, który jest odpowiednikiem `dictionary["key"] = value` składni:
+Stan można wstawić za pomocą bezwarunkowe *ustawić*, jest hello odpowiednik hello `dictionary["key"] = value` składni:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -229,7 +229,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Stan można dodać za pomocą *Dodaj* metody. Ta metoda zgłasza `InvalidOperationException`(C#) lub `IllegalStateException`(Java) próbuje dodać klucz już istnieje.
+Stan można dodać za pomocą *Dodaj* metody. Ta metoda zgłasza `InvalidOperationException`(C#) lub `IllegalStateException`(Java) próbuje tooadd klucz, który już istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -262,7 +262,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Stan można również dodać za pomocą *TryAdd* metody. Ta metoda nie zgłasza, gdy próbuje dodać klucz już istnieje.
+Stan można również dodać za pomocą *TryAdd* metody. Ta metoda nie zgłasza podczas próby tooadd klucz, który już istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -305,9 +305,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Na końcu metody aktora Menedżer stanu automatycznie zapisuje wartości, które zostały dodane lub zmodyfikowane przez operacji insert lub update. "Zapisz" może zawierać przechowywanie na dysku i replikacji, w zależności od ustawienia używane. Wartości, które nie zostały zmodyfikowane nie są zachowywane lub replikowane. Jeśli wartości nie zostały zmodyfikowane, Zapisz działania nie działają. Jeśli zapiszesz kończy się niepowodzeniem, zostanie odrzucony stanu modyfikacji i załadowaniu oryginalnego stanu.
+Na końcu hello metodę aktora Menedżer stanu hello automatycznie zapisuje wartości, które zostały dodane lub zmodyfikowane przez operacji insert lub update. "Zapisz" może zawierać toodisk utrwalanie i replikację, w zależności od ustawienia hello używane. Wartości, które nie zostały zmodyfikowane nie są zachowywane lub replikowane. Jeśli wartości nie zostały zmodyfikowane, hello operacji zapisywania nie działa. Jeśli zapiszesz kończy się niepowodzeniem, hello stanu modyfikacji zostaną odrzucone i załadowaniu hello pierwotnego stanu.
 
-Można także zapisać stan ręcznie przez wywołanie metody `SaveStateAsync` metody na podstawie aktora:
+Można także zapisać stan ręcznie przez wywołanie hello `SaveStateAsync` metoda aktora hello podstawowej:
 
 ```csharp
 async Task IMyActor.SetCountAsync(int count)
@@ -329,7 +329,7 @@ interface MyActor {
 ```
 
 ### <a name="removing-state"></a>Usuwanie stanu
-Możesz usunąć stan trwale z Menedżer stanu aktora wywołując *Usuń* metody. Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java) podczas próby usunięcia klucz, który nie istnieje.
+Możesz usunąć stan trwale z Menedżer stanu aktora przez wywołanie hello *Usuń* metody. Ta metoda zgłasza `KeyNotFoundException`(C#) lub `NoSuchElementException`(Java) próbuje tooremove klucz, który nie istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -362,7 +362,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-Można również usunąć stan trwale przy użyciu *TryRemove* metody. Ta metoda nie zgłasza podczas próby usunięcia klucza, który nie istnieje.
+Można również usunąć stan trwale przy użyciu hello *TryRemove* metody. Ta metoda nie zgłasza podczas próby tooremove klucz, który nie istnieje.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -407,6 +407,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Stan, który jest przechowywany w Reliable Actors musi być serializowany przed zapisany na dysku i replikowany wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Stan, który jest przechowywany w Reliable Actors należy serializacji przed jego toodisk zapisywane i replikowane wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Następnie Dowiedz się więcej o [aktora Diagnostyka i monitorowanie wydajności](service-fabric-reliable-actors-diagnostics.md).

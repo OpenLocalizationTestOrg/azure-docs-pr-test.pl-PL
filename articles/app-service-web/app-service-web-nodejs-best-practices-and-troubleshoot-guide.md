@@ -1,6 +1,6 @@
 ---
-title: "Najlepsze rozwiązania i w podręczniku rozwiązywania problemów z węzła aplikacje aplikacji sieci Web Azure"
-description: "Dowiedz się, najlepszych rozwiązań i kroki rozwiązywania problemów z węzła aplikacje na platformie Azure aplikacje sieci Web."
+title: "aaaBest rozwiązań i w podręczniku rozwiązywania problemów z węzła aplikacje aplikacji sieci Web Azure"
+description: "Dowiedz się hello najlepszych rozwiązań i kroki rozwiązywania problemów z węzła aplikacje na platformie Azure aplikacje sieci Web."
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,52 +14,52 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr
-ms.openlocfilehash: d820ef3438e13332657641b06b57fa277e79f811
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 975898142a224f14df1091a46d16e9074d9e2831
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Najlepsze rozwiązania i w podręczniku rozwiązywania problemów z węzła aplikacje aplikacji sieci Web Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-W tym artykule dowiesz się najlepszych rozwiązań i kroki rozwiązywania problemów z [węzła aplikacje](app-service-web-get-started-nodejs.md) systemem Azure Webapps (z [iisnode](https://github.com/azure/iisnode)).
+W tym artykule dowiesz się hello najlepszych rozwiązań i kroki rozwiązywania problemów z [węzła aplikacje](app-service-web-get-started-nodejs.md) systemem Azure Webapps (z [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
-> Przy użyciu kroków w swojej witrynie produkcji, należy zachować ostrożność. Zalecanie służy do rozwiązywania problemów z aplikacją w Instalator nieprodukcyjnych na przykład Twoje miejsce przemieszczania, a jeśli problem został rozwiązany, zamienić Twoje miejsce wystawiania z Twojego miejsca produkcji.
+> Przy użyciu kroków w swojej witrynie produkcji, należy zachować ostrożność. Zalecane jest tootroubleshoot aplikacji na nieprodukcyjnych na przykład skonfigurować Twoje miejsce wystawiania i gdy problemu hello wymiany Twoje miejsce wystawiania z Twojego miejsca produkcji.
 > 
 > 
 
 ## <a name="iisnode-configuration"></a>Konfiguracja programu IISNODE
-To [pliku schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) zawiera wszystkie ustawienia, które można skonfigurować dla programu iisnode. Niektóre ustawienia, które będą przydatne w przypadku aplikacji, to:
+To [pliku schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisnode_schema_x64.xml) zawiera wszystkie ustawienia hello, które można skonfigurować dla programu iisnode. Niektóre ustawienia hello, które będą przydatne w przypadku aplikacji są:
 
 * nodeProcessCountPerApplication
   
-    To ustawienie określa liczbę procesów węzła, które będą uruchamiane na aplikacji usług IIS. Wartość domyślna to 1. Można uruchomić dowolną liczbę node.exe jako liczba rdzeni sieci maszyn wirtualnych przez ustawienie to 0. Zalecana wartość to 0 dla większości aplikacji, można korzystać ze wszystkich rdzeni na tym komputerze. Node.exe jest pojedynczym wątku, maksymalnie 1 rdzeń i uzyskanie maksymalnej wydajności poza węzeł aplikacji chcesz wykorzystać wszystkie rdzenie będą korzystać z jednego node.exe.
+    To ustawienie określa hello liczbę procesów węzła, które będą uruchamiane na aplikacji usług IIS. Wartość domyślna to 1. Przez ustawienie to too0 można uruchomić dowolną liczbę node.exe jako liczba rdzeni sieci maszyn wirtualnych. Zalecana wartość to 0 dla większości aplikacji, więc można korzystać ze wszystkich rdzeni hello na tym komputerze. Node.exe jest pojedynczym wątku, co node.exe będą korzystać z maksymalnie 1 rdzeni i tooget maksymalną wydajność poza węzeł aplikacji warto tooutilize wszystkich rdzeni.
 * nodeProcessCommandLine
   
-    To ustawienie określa ścieżkę do node.exe. Można ustawić tej wartości, aby wskazywał wersji node.exe.
+    To ustawienie określa hello ścieżki toohello node.exe. Można ustawić tej wartości toopoint tooyour node.exe wersji.
 * maxConcurrentRequestsPerProcess
   
-    To ustawienie określa maksymalną liczbę jednoczesnych żądań wysłanych przez program iisnode do każdego node.exe. Na używanie usługi azure wartość domyślna to jest bez ograniczeń czasowych. Nie musisz martwić się o tym ustawieniu. Poza azure webapps wartość domyślna to 1024. Można to skonfigurować, w zależności od liczby żądań, pobiera aplikacji i tempa aplikacji przetwarzania każdego żądania.
+    To ustawienie określa maksymalną liczbę równoczesnych żądań wysłanych przez program iisnode tooeach node.exe hello. Na używanie azure hello wartość domyślna to jest bez ograniczeń czasowych. Nie trzeba tooworry o tym ustawieniu. Poza azure webapps hello wartość domyślna to 1024. Możesz tooconfigure, który pobiera to w zależności od tego, ile żądań aplikacji i tempa aplikacji przetwarzania każdego żądania.
 * maxNamedPipeConnectionRetry
   
-    To ustawienie określa maksymalną liczbę razy iisnode ponowi próbę połączenia wprowadzania na nazwanym potoku do wysłania żądania do node.exe. To ustawienie w połączeniu z namedPipeConnectionRetryDelay określa całkowity limit czasu każdego żądania w ramach programu iisnode. Wartość domyślna to 200 na używanie usługi Azure. Całkowity limit czasu w sekundach = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+    To ustawienie określa maksymalną liczbę razy iisnode ponowi próbę połączenia wprowadzania na powitania o nazwie potoku toosend hello żądanie za pośrednictwem toonode.exe hello. To ustawienie w połączeniu z namedPipeConnectionRetryDelay określa hello łącznego limitu czasu każdego żądania w ramach programu iisnode. Wartość domyślna to 200 na używanie usługi Azure. Całkowity limit czasu w sekundach = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 * namedPipeConnectionRetryDelay
   
-    To ustawienie określa ilość czasu (w ms) iisnode będzie oczekiwał na między kolejnymi próbami wysłać żądania do node.exe za pomocą potoku nazwanego. Wartość domyślna to 250ms.
+    Ustawienie formanty hello ilość czasu (w ms) iisnode będzie oczekiwał na między każdego toonode.exe żądania toosend ponów próbę za pośrednictwem hello nazwany potok. Wartość domyślna to 250ms.
     Całkowity limit czasu w sekundach = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
   
-    Domyślnie łącznego limitu czasu w iisnode na używanie azure to 200 \* 250ms = 50 sekund.
+    Domyślnie hello łącznego limitu czasu w iisnode na używanie azure to 200 \* 250ms = 50 sekund.
 * logDirectory
   
-    To ustawienie określa, gdzie iisnode będzie rejestrować stdout/stderr katalogu. Wartość domyślna to iisnode, która jest względem katalogu głównego skryptu (gdzie występuje server.js głównego katalogu)
+    To ustawienie określa, gdzie iisnode będzie rejestrować stdout/stderr katalogu hello. Wartość domyślna to iisnode, który jest katalogiem głównym skryptu względną toohello (gdzie występuje server.js głównego katalogu)
 * debuggerExtensionDll
   
-    To ustawienie określa, jakie wersji narzędzia node-inspector iisnode będzie używany podczas debugowania aplikacji węzła. Obecnie iisnode inspektora 0.7.3.dll i iisnode inspector.dll są tylko 2 prawidłowe wartości dla tego ustawienia. Wartość domyślna to iisnode inspektora 0.7.3.dll. wersja programu iisnode inspektora 0.7.3.dll używa 0.7.3-node-inspector i używa protokołu websocket, więc musisz włączyć protokół websockets na azure aplikacji sieci Web do użycia tej wersji. Zobacz <http://www.ranjithr.com/?p=98> Aby uzyskać więcej informacji na temat konfigurowania programu iisnode, aby użyć nowego narzędzia node-inspector.
+    To ustawienie określa, jakie wersji narzędzia node-inspector iisnode będzie używany podczas debugowania aplikacji węzła. Obecnie iisnode inspektora 0.7.3.dll i iisnode inspector.dll są hello 2 tylko prawidłowe wartości dla tego ustawienia. Wartość domyślna to iisnode inspektora 0.7.3.dll. wersja programu iisnode inspektora 0.7.3.dll używa 0.7.3-node-inspector i używa protokołu websocket, więc należy tooenable websocket w Twojej aplikacji sieci Web azure toouse tej wersji. Zobacz <http://www.ranjithr.com/?p=98> uzyskać więcej informacji dotyczących sposobu tooconfigure iisnode toouse hello nowe narzędzia node-inspector.
 * flushResponse
   
-    Domyślne zachowanie usług IIS jest buforuje dane odpowiedzi na górę 4 MB przed opróżnianie lub aż do zakończenia odpowiedzi, zależnie od zostanie osiągnięty jako pierwszy. iisnode oferuje ustawienie konfiguracji, aby zmienić to zachowanie: Aby opróżnić fragment treści jednostki odpowiedzi, jak program iisnode odbiera on z node.exe, należy ustawić iisnode/@flushResponse atrybutu w pliku web.config na wartość "true":
+    Witaj domyślne zachowanie usług IIS nie buforuje dane odpowiedzi na górę too4MB przed opróżnianie, lub do końca hello hello odpowiedzi, zależnie od zostanie osiągnięty jako pierwszy. iisnode oferuje ustawienie toooverride to zachowanie konfiguracji: tooflush fragment treści jednostki hello odpowiedź tak szybko, jak program iisnode odbiera on z node.exe należy tooset hello iisnode/@flushResponse atrybutu w pliku web.config too'true ":
   
     ```
     <configuration>    
@@ -70,9 +70,9 @@ To [pliku schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisn
     </configuration>
     ```
   
-    Włączanie opróżnianie każdego fragmentu odpowiedzi treści jednostki zwiększa wydajność ograniczającą przepływności systemu % ~ 5 (począwszy od v0.1.13), dlatego najlepiej zakres to ustawienie tylko dla punktów końcowych, które wymagają odpowiedzi przesyłania strumieniowego (np. przy użyciu <location> elementu w pliku web.config)
+    Włączanie opróżnianie każdego fragmentu treść jednostki odpowiedzi hello zwiększa wydajność ograniczającą przepływności hello hello systemu % ~ 5 (począwszy od v0.1.13), dlatego najlepszym tooscope tego tooendpoints tylko ustawienie, które wymagają odpowiedzi przesyłania strumieniowego (np. przy użyciu hello <location> elementu w pliku web.config hello)
   
-    Oprócz tego do przesyłania strumieniowego aplikacji, należy również ustawić responseBufferLimit Twojego programu iisnode obsługi na 0.
+    W toothis dodanie do przesyłania strumieniowego aplikacji, konieczne będzie tooalso responseBufferLimit zestawu z programu iisnode too0 programu obsługi.
   
     ```
     <handlers>    
@@ -81,37 +81,37 @@ To [pliku schematu](https://github.com/Azure/iisnode/blob/master/src/config/iisn
     ```
 * watchedFiles
   
-    Jest to rozdzielana średnikami lista plików, które będą monitorowane zmian. Zmiany w pliku powoduje, że aplikacja do odtworzenia. Każdy wpis zawiera nazwę katalogu opcjonalne oraz nazwę wymaganego pliku, które są względem katalogu, w którym znajduje się punkt wejścia aplikacji głównej. Symbole wieloznaczne są dozwolone w tylko części nazwy pliku. Wartość domyślna to "\*. js;web.config"
+    Jest to rozdzielana średnikami lista plików, które będą monitorowane zmian. Zmienianie pliku tooa powoduje, że toorecycle aplikacji hello. Każdy wpis składa się z nazwy katalogu opcjonalne i nazwy wymaganego pliku, która są katalog toohello względny, w którym znajduje się punkt wejścia aplikacji głównej hello. Symbole wieloznaczne są dozwolone w tylko część nazwy pliku hello. Wartość domyślna to "\*. js;web.config"
 * recycleSignalEnabled
   
-    Wartość domyślna to false. Włączenie aplikacji węzła można nawiązać połączenia nazwanego potoku (zmienną środowiskową IISNODE\_kontroli\_POTOKU) i wysłać wiadomość "odtworzenia". Spowoduje to w3wp do odtworzenia bezpiecznie zamknąć.
+    Wartość domyślna to false. U możliwia aplikacji węzła można połączyć tooa nazwany potok (zmienną środowiskową IISNODE\_kontroli\_POTOKU) i wysłać wiadomość "odtworzenia". Spowoduje to hello w3wp toorecycle bezpiecznie zamknąć.
 * idlePageOutTimePeriod
   
-    Wartość domyślna to 0, co oznacza, że ta funkcja jest wyłączona. Gdy ustawiona niektórych wartość większą niż 0, iisnode będzie strony się jego procesy podrzędne co milisekund "idlePageOutTimePeriod". Aby zrozumieć, co strony limit oznacza, zapoznaj się to [dokumentacji](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx). To ustawienie będzie przydatna dla aplikacji, które zużywają dużej ilości pamięci i chcesz pageout pamięci na dysk od czasu do czasu zwolnienia niektórych pamięci RAM.
+    Wartość domyślna to 0, co oznacza, że ta funkcja jest wyłączona. Gdy zestaw toosome wartość większą niż 0, iisnode będzie strony się jego podrzędny przetwarza co milisekund "idlePageOutTimePeriod". toounderstand co strony limit oznacza, zobacz toothis [dokumentacji](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx). To ustawienie będzie przydatna dla aplikacji, które zużywają dużej ilości pamięci i mają toodisk pamięci toopageout czasami toofree pamięć RAM niektórych.
 
 > [!WARNING]
-> Należy zachować ostrożność podczas włączania następujące ustawienia konfiguracji w przypadku aplikacji produkcyjnej. Zaleca się nie je włączyć w przypadku aplikacji produkcyjnej na żywo.
+> Należy zachować ostrożność podczas włączania hello następujące ustawienia konfiguracji w przypadku aplikacji produkcyjnej. Zalecane jest toonot Włącz aplikacji produkcyjnych na żywo.
 > 
 > 
 
 * debugHeaderEnabled
   
-    Wartość domyślna to false. Jeśli ustawiono wartość true, iisnode doda HTTP odpowiedzi nagłówka iisnode debugowania do każdej odpowiedzi HTTP wysyła się, że wartość nagłówka debugowania programu iisnode jest adresem URL. Pojedynczych informacji diagnostycznych może zgromadzone analizując fragmentu adresu URL, ale jest to osiągane przez otwierania adresu URL w przeglądarce dużo lepsze wizualizacje.
+    Witaj wartość domyślna to false. Jeśli wartość tootrue, iisnode doda odpowiedzi nagłówka debugowania programu iisnode tooevery HTTP odpowiedzi HTTP wysyła wartość nagłówka debugowania programu iisnode hello jest adresem URL. Poszczególne informacje diagnostyczne dotyczące można zgromadzone analizując hello fragmentu adresu URL, ale otwierając hello adresu URL w przeglądarce hello uzyskuje się znacznie lepsze wizualizacje.
 * loggingEnabled
   
-    To ustawienie określa rejestrowanie stdout i stderr przez program iisnode. Iisnode będzie przechwytywać stdout/stderr z procesów węzła, który jest uruchamiany i zapis w katalogu określonym w ustawieniu "logDirectory". Gdy jest włączone, aplikacja będzie można zapisywania dzienników do systemu plików i w zależności od ilości rejestrowania wykonywane przez aplikację, może mieć wpływ na wydajność.
+    To ustawienie określa rejestrowanie hello stdout i stderr przez program iisnode. Iisnode będzie przechwytywać stdout/stderr z procesów węzła, który jest uruchamiany i zapisu katalogu toohello określona w ustawieniu "logDirectory" hello. Po to jest włączona, aplikacja będzie zapisywania toohello dzienniki w systemie plików, a następnie w zależności od ilości hello rejestrowania programach aplikacji hello, może być wpływ na wydajność.
 * devErrorsEnabled
   
-    Wartość domyślna to false. Gdy ustawiona na wartość true, iisnode wyświetli kod stanu HTTP i kod błędu Win32 w przeglądarce. Kod win32 będzie pomocnych w debugowaniu niektóre rodzaje problemów.
+    Wartość domyślna to false. Po ustawieniu tootrue, iisnode wyświetli kod stanu hello HTTP i kod błędu Win32 w przeglądarce. Kod win32 Hello będzie pomocnych w debugowaniu niektóre rodzaje problemów.
 * debuggingEnabled (nie należy włączać w witrynie produkcyjnym)
   
-    To ustawienie określa funkcja debugowania. Program Iisnode jest zintegrowany z narzędzia node-inspector. Po włączeniu tego ustawienia, należy włączyć debugowanie aplikacji węzła. Po włączeniu tego ustawienia program iisnode będzie układu niezbędne narzędzia node-inspector plików w katalogu "debuggerVirtualDir" na pierwsze żądanie debugowania do węzła aplikacji. Można załadować narzędzia node-inspector, wysyłając żądanie do http://yoursite/server.js/debug. Segment adresu URL debugowania można kontrolować z ustawieniem "debuggerPathSegment". Domyślne debuggerPathSegment = "debugowanie". Możesz ustawić na identyfikator GUID, na przykład, aby trudniej mają zostać wykryte przez innych użytkowników.
+    To ustawienie określa funkcja debugowania. Program Iisnode jest zintegrowany z narzędzia node-inspector. Po włączeniu tego ustawienia, należy włączyć debugowanie aplikacji węzła. Po włączeniu tego ustawienia program iisnode będzie układu hello niezbędne narzędzia node-inspector plików w katalogu "debuggerVirtualDir" na powitania pierwszej debugowania żądania tooyour węzła aplikacji. Można załadować narzędzia node-inspector hello wysyłając toohttp://yoursite/server.js/debug żądania. Segment adresu URL debugowania hello można kontrolować z ustawieniem "debuggerPathSegment". Domyślne debuggerPathSegment = "debugowanie". Ta tooa identyfikator GUID, na przykład można ustawić tak, aby trudniejsze toobe odnalezione przez innych użytkowników.
   
     Sprawdź [łącze](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) uzyskać więcej informacji dotyczących debugowania.
 
 ## <a name="scenarios-and-recommendationstroubleshooting"></a>Scenariusze i zalecenia/Rozwiązywanie problemów
 ### <a name="my-node-application-is-making-too-many-outbound-calls"></a>Moja aplikacja węzła jest wprowadzenie zbyt wiele wywołań wychodzących.
-Wiele aplikacji warto, aby nawiązywać połączenia wychodzące w ramach ich regularnych operacji. Na przykład gdy nadejdzie żądanie, węzeł aplikacji warto, aby skontaktować się z interfejsu API REST w innym miejscu i niektóre informacje do przetwarzania żądania. Czy chcesz użyć agenta keep alive wywołania protokołu http lub https. Na przykład można użyć modułu programu agentkeepalive jako keep alive agenta, podczas wprowadzania tych wywołań wychodzących. Dzięki temu, że w sieci azure aplikacji sieci Web maszyny Wirtualnej nie są ponownie gniazdami i zmniejsza obciążenie związane z tworzenia nowych gniazd dla każdego żądania wychodzącego. Ponadto dzięki temu się, że używasz mniejszą liczbę gniazd, aby wprowadzić wiele żądań wychodzących i dlatego nie może przekraczać ustawienie maxSockets, które są przydzielone dla maszyny Wirtualnej. Zalecenie dotyczące Azure Webapps będzie można ustawić wartości ustawienie maxSockets agentKeepAlive w sumie 160 gniazda dla maszyny Wirtualnej. Oznacza to, jeśli masz 4 node.exe uruchomione na maszynie Wirtualnej, czy chcesz ustawioną ustawienie maxSockets agentKeepAlive 40 za node.exe czyli 160 całkowita dla maszyny Wirtualnej.
+Wiele aplikacji warto toomake połączeń wychodzących, w ramach ich regularnych operacji. Na przykład gdy nadejdzie żądanie, aplikację węzła czy mają toocontact interfejsu API REST w innym miejscu i pobrać niektóre informacje tooprocess hello żądania. Czy chcesz toouse agenta keep alive wywołania protokołu http lub https. Można na przykład użyć modułu agentkeepalive hello jako keep alive agenta, podczas wprowadzania tych wywołań wychodzących. Dzięki temu się upewnić, że hello sockets są ponownie w tej aplikacji sieci Web azure maszyny Wirtualnej i zmniejszenie obciążenia hello tworzenia nowych gniazd dla każdego żądania wychodzącego. Dzięki temu też się upewnić, że używasz mniejszą liczbę toomake sockets wiele żądań wychodzących i dlatego nie przekraczają ustawienie maxSockets hello, które są przydzielone dla maszyny Wirtualnej. Zalecenie dotyczące Azure Webapps mogą być ustawienie maxSockets agentKeepAlive hello tooset wartości całkowitej tooa 160 gniazd dla maszyny Wirtualnej. Oznacza to, że jeśli masz 4 node.exe systemem hello wirtualna byłaby wskazana tooset hello agentKeepAlive ustawienie maxSockets too40 na node.exe czyli 160 całkowita dla maszyny Wirtualnej.
 
 Przykład [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) konfiguracji:
 
@@ -124,15 +124,15 @@ var keepaliveAgent = new Agent({
 });
 ```
 
-W tym przykładzie przyjęto założenie, że masz 4 node.exe uruchomione na maszynie Wirtualnej. Jeśli masz inną liczbę node.exe uruchomione na maszynie Wirtualnej, należy zmodyfikować ustawienie maxSockets, w związku z tym ustawieniem.
+W tym przykładzie przyjęto założenie, że masz 4 node.exe uruchomione na maszynie Wirtualnej. Jeśli masz inną liczbę node.exe systemem hello maszyny Wirtualnej, konieczne będzie ustawienie maxSockets hello toomodify odpowiednio ustawienia.
 
 ### <a name="my-node-application-is-consuming-too-much-cpu"></a>Moja aplikacja węzła zużywa zbyt dużej ilości Procesora.
-Zalecenia w Azure Webapps prawdopodobnie zostanie wyświetlony w portalu sieci o wysokie użycie procesora cpu. Można również skonfigurować monitory do monitorowania określonych [metryki](web-sites-monitor.md). Podczas sprawdzania użycia procesora CPU na [pulpitu nawigacyjnego portalu Azure](../application-insights/app-insights-web-monitor-performance.md), sprawdź, czy wartości MAX procesora CPU, nie zostały pominięte wartości szczytowe.
-W przypadkach, gdy uważasz, że aplikacja zużywa zbyt dużej ilości procesora CPU i nie można wyjaśnić, dlaczego należy do profilu aplikacji węzła.
+Zalecenia w Azure Webapps prawdopodobnie zostanie wyświetlony w portalu sieci o wysokie użycie procesora cpu. Możesz również toowatch monitory konfiguracji dla niektórych [metryki](web-sites-monitor.md). Podczas sprawdzania użycia procesora CPU hello na powitania [pulpitu nawigacyjnego portalu Azure](../application-insights/app-insights-web-monitor-performance.md), sprawdź, czy wartości maksymalnej hello procesora CPU, nie zostały pominięte wartości szczytowe hello.
+W przypadkach, gdy uważasz, że aplikacja zużywa zbyt dużej ilości procesora CPU i nie można wyjaśnić, dlaczego należy tooprofile aplikacji węzła.
 
 ### 
 #### <a name="profiling-your-node-application-on-azure-webapps-with-v8-profiler"></a>Profilowanie aplikacji węzła na używanie azure z V8 profilera
-Na przykład umożliwia powiedz aplikacji world hello, który ma zostać profilu, jak pokazano poniżej:
+Na przykład umożliwia powiedz aplikacja hello world mają tooprofile, jak pokazano poniżej:
 
 ```
 var http = require('http');    
@@ -153,16 +153,16 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Przejdź do Twojej scm https://yoursite.scm.azurewebsites.net/DebugConsole lokacji
+Przejdź tooyour scm lokacji https://yoursite.scm.azurewebsites.net/DebugConsole
 
 Zobaczysz wiersz polecenia, jak pokazano poniżej. Przejdź do katalogu witryny/wwwroot
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
-Uruchom polecenie "npm install v8 profilera"
+Uruchom polecenie Witaj, "npm install v8 profilera"
 
 To należy instalować programu profilującego v8 w węźle\_modułów katalogu i wszystkich jego zależności.
-Teraz Edytuj server.js sieci do profilu aplikacji.
+Teraz Edytuj tooprofile Twojego server.js aplikacji.
 
 ```
 var http = require('http');    
@@ -188,74 +188,74 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Powyżej zmian będzie profilu funkcji WriteConsoleLog, a następnie wpisz profilu dane wyjściowe do pliku "profile.cpuprofile" w obszarze wwwroot z lokacji. Wyślij żądanie do aplikacji. Zostanie wyświetlony plik 'profile.cpuprofile' utworzone na podstawie wwwroot z lokacji.
+Hello powyżej zmiany będą profilu hello WriteConsoleLog funkcji, a następnie wpisz hello profilu dane wyjściowe too'profile.cpuprofile "plik w Twojej lokacji wwwroot. Wyślij żądanie tooyour aplikacji. Zostanie wyświetlony plik 'profile.cpuprofile' utworzone na podstawie wwwroot z lokacji.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Pobierz ten plik i musisz otworzyć ten plik z narzędziami F12 Chrome. Trafienia F12 na chrome, a następnie na karcie"profilów". Kliknij przycisk "Obciążenia". Wybierz plik profile.cpuprofile, który został pobrany. Kliknij żądany profil załadowane przed chwilą.
+Pobierz ten plik i trzeba będzie tooopen ten plik przy użyciu narzędzia F12 Chrome. Trafienia F12 na chrome, a następnie kliknij na powitania "Kartę Profile". Kliknij przycisk "Obciążenia". Wybierz plik profile.cpuprofile, który został pobrany. Kliknij profil hello załadowane przed chwilą.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
-Zobaczysz, że 95% czasu został wykorzystany przez funkcję WriteConsoleLog, jak pokazano poniżej. To również wyświetlanie numerów wierszy dokładne i plików źródłowych, które mogą powodować ten problem.
+Zobaczysz, że 95% czasu hello została wykorzystana przez WriteConsoleLog funkcji, jak pokazano poniżej. To również zawiera numery wierszy dokładne hello i plików źródłowych, których przyczyną problemu hello.
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Moja aplikacja węzła zużywa zbyt dużej ilości pamięci.
-Zalecenia w Azure używanie prawdopodobnie zostanie wyświetlony w portalu sieci o duże użycie pamięci. Można również skonfigurować monitory do monitorowania określonych [metryki](web-sites-monitor.md). Podczas sprawdzania użycia pamięci na [pulpitu nawigacyjnego portalu Azure](../application-insights/app-insights-web-monitor-performance.md), sprawdź wartości maksymalna wartość pamięci, dzięki czemu nie traci wartości szczytowe.
+Zalecenia w Azure używanie prawdopodobnie zostanie wyświetlony w portalu sieci o duże użycie pamięci. Możesz również toowatch monitory konfiguracji dla niektórych [metryki](web-sites-monitor.md). Podczas sprawdzania użycia pamięci hello na powitania [pulpitu nawigacyjnego portalu Azure](../application-insights/app-insights-web-monitor-performance.md), dzięki czemu nie traci wartości szczytowe hello Sprawdź hello wartości maksymalnej pamięci.
 
 #### <a name="leak-detection-and-heap-diffing-for-nodejs"></a>Wykrywanie przecieków i porównywania sterty dla środowiska node.js
-Można użyć [memwatch węzła](https://github.com/lloyd/node-memwatch) pomoże zidentyfikować pamięci przecieków.
-Można zainstalować memwatch podobnie jak profilera v8 i edytować kod do przechwytywania i różnicowy stosów do identyfikowania pamięć przecieków w aplikacji.
+Można użyć [memwatch węzła](https://github.com/lloyd/node-memwatch) przecieków toohelp zidentyfikować pamięci.
+Należy zainstalować memwatch podobnie jak profilera v8 i edycji przez użytkownika kod toocapture i różnicowy stosów tooidentify hello wyciek pamięci w aplikacji.
 
 ### <a name="my-nodeexes-are-getting-killed-randomly"></a>Moje node.exe są pobierania losowo skasowane.
 Istnieje kilka przyczyn, dlaczego może to występować:
 
-1. Aplikacji wywołującej nieprzechwyconych wyjątków — d: wyboru Sprawdź\\macierzystego\\LogFiles\\aplikacji\\errors.txt rejestrowania w pliku na wyjątek. Ten plik zawiera ślad stosu, więc można naprawić na podstawie tych aplikacji.
-2. Aplikacja zużywa zbyt dużej ilości pamięci, co ma wpływ na inne procesy z wprowadzenie. Jeśli łączna ilość pamięci maszyny Wirtualnej jest bliski 100%, Twoje node.exe można kasować przez Menedżera procesu, aby umożliwić inne procesy, które umożliwiają wykonania dodatkowych czynności. Aby rozwiązać ten problem, upewnij się, że aplikacja nie jest przeciek pamięci lub jeśli naprawdę aplikacji użytkownik musi używać dużej ilości pamięci, proszę skalowanie w górę do większych maszyn wirtualnych ze znacznie większą ilość pamięci RAM.
+1. Aplikacji wywołującej nieprzechwyconych wyjątków — d: wyboru Sprawdź\\macierzystego\\LogFiles\\aplikacji\\errors.txt rejestrowania w pliku hello na powitania został zwrócony wyjątek. Ten plik zawiera hello ślad stosu, można naprawić na podstawie tych aplikacji.
+2. Aplikacja zużywa zbyt dużej ilości pamięci, co ma wpływ na inne procesy z wprowadzenie. Hello całkowitej ilości pamięci maszyny Wirtualnej w przypadku zamknięcia too100%, Twoje node.exe można kasować przez hello proces Menedżera toolet inne procesy pracę toodo szansy. toofix, upewnij się, że aplikacja nie jest przeciek pamięci albo jeśli użytkownik aplikacji musi naprawdę toouse dużej ilości pamięci, należy skalować tooa większych maszyn wirtualnych ze znacznie większą ilość pamięci RAM.
 
 ### <a name="my-node-application-does-not-start"></a>Moja aplikacja węzła nie uruchamia.
 Jeśli aplikacja zwraca 500 błędów podczas uruchamiania, może istnieć kilka przyczyn:
 
-1. Node.exe nie jest obecny w poprawnej lokalizacji. Sprawdź ustawienie nodeProcessCommandLine.
-2. Plik skryptu głównego nie ma w poprawnej lokalizacji. Sprawdź plik web.config i upewnij się, że nazwa pliku głównego skryptu w sekcji obsługi pasuje do pliku głównego skryptu.
-3. Plik Web.config konfiguracji jest niepoprawna — sprawdzanie nazw/wartości ustawień.
-4. Zimny Start — aplikacja działa zbyt długo do uruchomienia. Jeśli aplikacja będzie trwało dłużej niż (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000 sekund iisnode zwróci błąd 500. Zwiększenie wartości tych ustawień, aby dopasować godziną początkową aplikacji, aby zapobiec iisnode limit czasu i zwróceniem komunikatu o błędzie 500.
+1. Node.exe nie jest obecny w poprawnej lokalizacji hello. Sprawdź ustawienie nodeProcessCommandLine.
+2. Plik skryptu głównego nie ma na powitania poprawnej lokalizacji. Plik web.config i upewnij się, że hello nazwę pliku głównego skryptu hello w pliku skryptu głównego hello dopasowań hello obsługi sekcji.
+3. Plik Web.config konfiguracji jest niepoprawna — Sprawdź wartości nazwy ustawień hello.
+4. Zimny Start — aplikacji trwa zbyt długo toostartup. Jeśli aplikacja będzie trwało dłużej niż (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000 sekund iisnode zwróci błąd 500. Zwiększenie wartości hello te toomatch ustawienia aplikacji uruchomić program iisnode tooprevent czasu z limit czasu i zwróci komunikat hello 500.
 
 ### <a name="my-node-application-crashed"></a>Moja aplikacja węzła awaria
-Aplikacji wywołującej nieprzechwyconych wyjątków — d: wyboru Sprawdź\\macierzystego\\LogFiles\\aplikacji\\errors.txt rejestrowania w pliku na wyjątek. Ten plik zawiera ślad stosu, więc można naprawić na podstawie tych aplikacji.
+Aplikacji wywołującej nieprzechwyconych wyjątków — d: wyboru Sprawdź\\macierzystego\\LogFiles\\aplikacji\\errors.txt rejestrowania w pliku hello na powitania został zwrócony wyjątek. Ten plik zawiera hello ślad stosu, można naprawić na podstawie tych aplikacji.
 
-### <a name="my-node-application-takes-too-much-time-to-startup-cold-start"></a>Moja aplikacja węzeł ma zbyt dużo czasu do uruchomienia (zimny Start)
-Najczęstszą przyczyną tego jest, że aplikacja ma wiele plików w węźle\_moduły i aplikacja próbuje załadować większość tych plików podczas uruchamiania. Domyślnie ponieważ pliki znajdują się w udziale sieciowym na używanie Azure ładowanie tak wielu plików może zająć trochę czasu.
-Są to przyspieszyć rozwiązania:
+### <a name="my-node-application-takes-too-much-time-toostartup-cold-start"></a>Moja aplikacja węzeł ma za dużo toostartup czasu (zimny Start)
+Najczęstszą przyczyną tego jest aplikacji hello wiele plików w węźle hello\_moduły i tooload prób aplikacji hello większość tych plików podczas uruchamiania. Domyślnie ponieważ pliki znajdują się w udziale sieciowym hello na używanie Azure ładowanie tak wielu plików może zająć trochę czasu.
+Niektóre toomake rozwiązania to szybciej są:
 
-1. Upewnij się, że masz struktury płaskiej zależności i ma zduplikowane zależności za pomocą npm3 własnych modułów.
-2. Próba opóźnionego ładowania węzeł\_moduły i nie wszystkie moduły podczas uruchamiania obciążenia. Oznacza to, że wywołanie require('module') ma się odbywać w razie konieczności faktycznie wewnątrz funkcji próbować użyć modułu.
-3. Używanie Azure oferuje funkcję o nazwie lokalnej pamięci podręcznej. Ta funkcja kopiuje zawartość z udziału sieciowego na lokalny dysk na maszynie Wirtualnej. Ponieważ pliki znajdują się lokalnie, czas ładowania węzła\_modułów jest znacznie szybsze. -Tym [dokumentacji](../app-service/app-service-local-cache.md) opisano sposób korzystania z lokalnej pamięci podręcznej bardziej szczegółowo.
+1. Upewnij się, że masz struktury płaskiej zależności i ma zduplikowane zależności za pomocą npm3 tooinstall własnych modułów.
+2. Spróbuj obciążenia toolazy węzeł\_moduły i nie wszystkie moduły hello podczas uruchamiania obciążenia. Oznacza to, że toorequire('module') wywołania tej hello należy zrobić, jeśli potrzebujesz faktycznie w funkcji hello spróbuj toouse hello modułu.
+3. Używanie Azure oferuje funkcję o nazwie lokalnej pamięci podręcznej. Ta funkcja kopiuje zawartość z hello sieci udziału toohello dysku lokalnego na powitania maszyny Wirtualnej. Ponieważ pliki hello są lokalne, hello czas węzła ładowania\_modułów jest znacznie szybsze. -Tym [dokumentacji](../app-service/app-service-local-cache.md) wyjaśniono, jak toouse lokalnej pamięci podręcznej w bardziej szczegółowo.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stan http IISNODE i podstanu
-To [plik źródłowy](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) zawiera wszystkie możliwe stan/podstanu iisnode kombinacja może zwrócić w przypadku błędu.
+To [plik źródłowy](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) listy wszystkich iisnode kombinacja możliwe stan/podstanu hello może zwrócić w przypadku błędu.
 
-Włącz FREB dla aplikacji, aby zobaczyć kod błędu win32 (Upewnij się, możesz włączyć FREB tylko w lokacjach nieprodukcyjnych ze względu na wydajność).
+Włącz FREB dla kod błędu win32 hello toosee aplikacji (Upewnij się, możesz włączyć FREB tylko w lokacjach nieprodukcyjnych ze względu na wydajność).
 
 | Stan HTTP | Podstan protokołu HTTP | Możliwa przyczyna? |
 | --- | --- | --- |
-| 500 |1000 |Znaleziono niektórych problem podczas wysyłania żądania do programu IISNODE — Sprawdź, czy node.exe został uruchomiony w. Node.exe może ulec awarii podczas uruchamiania. Sprawdź konfigurację web.config błędów. |
-| 500 |1001 |-Win32Error 0x2 — aplikacja nie odpowiada na adres URL. Sprawdź reguły ponownego zapisywania adresów URL lub jeśli aplikacja express ma poprawne trasy zdefiniowane. -Win32Error 0x6d — nazwany potok jest zajęty — Node.exe nie akceptuje żądania potoku jest zajęty. Sprawdź wysokiego użycia procesora cpu. -Inne błędy — Sprawdź, czy awaria node.exe. |
+| 500 |1000 |Znaleziono niektórych problem podczas wysyłania tooIISNODE żądania hello — Sprawdź, czy node.exe został uruchomiony w. Node.exe może ulec awarii podczas uruchamiania. Sprawdź konfigurację web.config błędów. |
+| 500 |1001 |-Win32Error 0x2 — aplikacja nie odpowiada toohello adresu URL. Ponowne zapisywanie adresów URL wyboru, reguł lub jeśli aplikacja express ma hello tras poprawne określonych. -Win32Error 0x6d — nazwany potok jest zajęty — Node.exe nie akceptuje żądania potoku hello jest zajęty. Sprawdź wysokiego użycia procesora cpu. -Inne błędy — Sprawdź, czy awaria node.exe. |
 | 500 |1002 |Awaria node.exe — sprawdź d:\\macierzystego\\LogFiles\\rejestrowania errors.txt dla ślad stosu. |
-| 500 |1003 |Potok konfiguracji problem — nigdy nie powinno to zobaczyć, ale jeśli to zrobisz, konfiguracja nazwany potok jest niepoprawna. |
-| 500 |1004-1018 |Wystąpił błąd podczas wysyłania żądania lub odpowiedzi z node.exe przetwarzania. Sprawdź, czy awaria node.exe. Sprawdź d:\\macierzystego\\LogFiles\\rejestrowania errors.txt dla ślad stosu. |
-| 503 |1000 |Za mało pamięci, aby przydzielić więcej połączeń nazwanych potoków. Sprawdź, dlaczego aplikacja zużywa dużej ilości pamięci. Sprawdź wartość ustawienia maxConcurrentRequestsPerProcess. Jeśli nie jest on nieskończone i wiele żądań, zwiększyć tę wartość, aby uniknąć tego błędu. |
-| 503 |1001 |Nie można wysłać żądania do node.exe, ponieważ aplikacja jest odtwarzania. Po aplikacji po odtworzeniu, żądania powinien być obsługiwany normalnie. |
-| 503 |1002 |Kod błędu win32 wyboru przyczyny rzeczywiste — żądanie nie mógł zostać wysłany do node.exe. |
+| 500 |1003 |Konfiguracja potoku problem — powinien nigdy nie widzisz taki komunikat, ale jeśli to zrobisz, hello o nazwie Konfiguracja potoku jest nieprawidłowy. |
+| 500 |1004-1018 |Wystąpił błąd podczas wysyłania odpowiedzi hello żądania lub przetwarzania hello z node.exe. Sprawdź, czy awaria node.exe. Sprawdź d:\\macierzystego\\LogFiles\\rejestrowania errors.txt dla ślad stosu. |
+| 503 |1000 |Za mało pamięci tooallocate więcej o nazwie połączenia potoku. Sprawdź, dlaczego aplikacja zużywa dużej ilości pamięci. Sprawdź wartość ustawienia maxConcurrentRequestsPerProcess. Jeśli nie jest on nieskończone i wiele żądań, zwiększenie tej wartości tooprevent ten błąd. |
+| 503 |1001 |Żądania nie można toonode.exe wysłane, ponieważ jest odtwarzanie aplikacji hello. Po aplikacji hello po odtworzeniu, żądania powinien być obsługiwany normalnie. |
+| 503 |1002 |Kod błędu win32 wyboru przyczyny rzeczywiste — żądanie nie można node.exe tooa wysłane. |
 | 503 |1003 |Nazwany potok jest zbyt zajęty — Sprawdź, czy węzeł zużywa dużo zasobów procesora |
 
-Ustawienie w NODE.exe węzeł\_OCZEKUJE\_POTOKU\_WYSTĄPIEŃ. Domyślnie poza azure webapps ta wartość to 4. Oznacza to, że node.exe w czasie na nazwanym potoku może akceptować tylko 4 żądania. Na używanie usługi Azure ta wartość jest równa 5000 i ta wartość powinna być wystarczająca dla większości aplikacji węzła działających na używanie usługi azure. Użytkownik nie powinien być widoczny 503.1003 na używanie azure ponieważ mamy wysokiej wartości dla węzła\_OCZEKUJE\_POTOKU\_WYSTĄPIEŃ.  |
+Ustawienie w NODE.exe węzeł\_OCZEKUJE\_POTOKU\_WYSTĄPIEŃ. Domyślnie poza azure webapps ta wartość to 4. Oznacza to, że node.exe w czasie na powitania nazwany potok może akceptować tylko 4 żądania. Na używanie Azure too5000 tę wartość i wartość ta powinna być wystarczająca dla większości aplikacji węzła działających na używanie usługi azure. Użytkownik nie powinien być widoczny 503.1003 na używanie usługi azure, ponieważ będziemy mieć dużą wartość dla hello węzła\_OCZEKUJE\_POTOKU\_WYSTĄPIEŃ.  |
 
 ## <a name="more-resources"></a>Więcej zasobów
-Skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat aplikacji node.js w usłudze Azure App Service.
+Wykonaj te toolearn łącza więcej informacji na temat aplikacji programu node.js w usłudze Azure App Service.
 
 * [Rozpoczynanie pracy z aplikacjami sieci web Node.js w usłudze Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service (Jak debugować aplikację sieci Web Node.js w usłudze Azure App Service)](web-sites-nodejs-debug.md)
+* [Jak toodebug Node.js sieci web aplikacji w usłudze Azure App Service](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js (Aplikacje sieci Web w usłudze Azure App Service: Node.js)](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centrum deweloperów środowiska Node.js](../nodejs-use-node-modules-azure-apps.md)
-* [Exploring the Super Secret Kudu Debug Console (Szczegółowe informacje o ściśle tajnej konsoli debugowania aparatu Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
+* [Eksploracja hello Super Secret Kudu Debug konsoli](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
 

@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z języka Hadoop Pig przy użyciu protokołu SSH w klastrze usługi HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak łączyć się z SSH, a następnie użyć polecenia Pig do uruchomienia instrukcji Pig Latin interakcyjnego lub w trybie wsadowym klastra opartą na systemie Linux platformą Hadoop."
+title: "aaaUse Hadoop Pig przy użyciu protokołu SSH w klastrze usługi HDInsight - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak połączyć tooa opartych na systemie Linux klastra usługi Hadoop przy użyciu protokołu SSH, a następnie hello Pig polecenia toorun Pig Latin instrukcji interakcyjnego lub jako partii zadań."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,89 +16,89 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: e4c893ef4bfa573dd9fbc9c9b0ae296720769842
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1da303e239b537e6b331b1d33010058582718c90
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Uruchamianie zadań Pig na klastrze opartych na systemie Linux przy użyciu polecenia Pig (SSH)
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-hello-pig-command-ssh"></a>Uruchamianie zadań Pig na opartych na systemie Linux klaster o hello polecenia Pig (SSH)
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Dowiedz się, jak interakcyjnego uruchamiania zadań Pig z połączenia SSH do klastra usługi HDInsight. Język programowania Pig Latin służy do opisywania przekształceń, które są stosowane do danych wejściowych w celu utworzenia żądanego wyniku.
+Dowiedz się, jak toointeractively uruchamiania zadań Pig z klastra usługi HDInsight tooyour połączenia SSH. Witaj język programowania Pig Latin umożliwia toodescribe transformacje, których są stosowane toohello wejściowych danych tooproduce hello potrzebne w danych wyjściowych.
 
 > [!IMPORTANT]
-> Kroki opisane w tym dokumencie wymagają klastra usługi HDInsight opartej na systemie Linux. Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Witaj czynności w tym dokumencie wymagają klastra usługi HDInsight opartej na systemie Linux. Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 ## <a id="ssh"></a>Połącz przy użyciu protokołu SSH
 
-Używanie protokołu SSH, aby nawiązać połączenie z klastrem usługi HDInsight. Poniższy przykład łączy do klastra o nazwie **myhdinsight** jako konta o nazwie **sshuser**:
+Użyj klastra usługi HDInsight tooyour tooconnect SSH. Witaj poniższy przykład łączy tooa klastra o nazwie **myhdinsight** jako hello konta o nazwie **sshuser**:
 
     ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
-**Jeśli podano klucz certyfikatu dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight, konieczne może być Określ lokalizację klucza prywatnego na komputerze klienckim.
+**Jeśli podano klucz certyfikatu dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight hello może być konieczne lokalizacji hello toospecify hello klucza prywatnego na komputerze klienckim.
 
     ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
-**Jeśli podano hasło dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight, podaj hasło po wyświetleniu monitu.
+**Jeśli podano hasło dla uwierzytelniania SSH** podczas tworzenia klastra usługi HDInsight hello hello hasło po wyświetleniu monitu podaj.
 
 Aby uzyskać więcej informacji o korzystaniu z protokołu SSH z usługą HDInsight, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="pig"></a>Użyj polecenia Pig
+## <a id="pig"></a>Użyj polecenia Pig hello
 
-1. Po nawiązaniu połączenia, należy uruchomić Pig interfejsu wiersza polecenia (CLI) za pomocą następującego polecenia:
+1. Po nawiązaniu połączenia, należy uruchomić hello Pig wiersza polecenia (CLI) przy użyciu hello następujące polecenie:
 
         pig
 
     Po chwili powinna zostać wyświetlona `grunt>` wiersza.
 
-2. Wprowadź następująca instrukcja:
+2. Wprowadź hello następującej instrukcji:
 
         LOGS = LOAD '/example/data/sample.log';
 
-    To polecenie ładuje zawartość pliku sample.log do DZIENNIKÓW. Można wyświetlić zawartość pliku za pomocą następujących instrukcji:
+    To polecenie ładuje hello zawartość pliku sample.log hello w dzienniku. Witaj zawartość pliku hello można wyświetlić przy użyciu hello następującej instrukcji:
 
         DUMP LOGS;
 
-3. Następnie przekształcać dane za pomocą wyrażenia regularnego można wyodrębnić poziom rejestrowania z każdego rekordu przy użyciu następujących instrukcji:
+3. Następnie przekształcania danych hello stosując poziom tooextract tylko hello rejestrowania wyrażenia regularnego z każdego rekordu przy użyciu hello następującej instrukcji:
 
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-    Można użyć **zrzutu** do wyświetlania danych po przekształceniu. W takim przypadku należy użyć `DUMP LEVELS;`.
+    Można użyć **zrzutu** tooview hello danych po przekształceniu hello. W takim przypadku należy użyć `DUMP LEVELS;`.
 
-4. Kontynuować stosowanie przekształceń przy użyciu instrukcje w poniższej tabeli:
+4. Kontynuować stosowanie przekształceń za pomocą instrukcji hello w hello w poniższej tabeli:
 
-    | Pig Latin — instrukcja | Jaki jest instrukcji |
+    | Pig Latin — instrukcja | Jakie instrukcji hello jest |
     | ---- | ---- |
-    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Usuwa wiersze, które zawierają wartość null dla poziomu dziennika i przechowuje wyniki w `FILTEREDLEVELS`. |
-    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Grupuje wiersze według poziom dziennika i przechowuje wyniki w `GROUPEDLEVELS`. |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Tworzy zestaw danych zawierający każdego dziennika unikatową wartość poziomu i ile razy występuje. Zestaw danych jest przechowywany w `FREQUENCIES`. |
-    | `RESULT = order FREQUENCIES by COUNT desc;` | Porządkuje poziomy dziennika według liczby (malejąco) i są przechowywane w `RESULT`. |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Usuwa wiersze, które zawierają wartość null dla poziomu dziennika hello i przechowuje wyniki hello do `FILTEREDLEVELS`. |
+    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Hello grup wierszy przez poziom dziennika i przechowuje wyniki hello do `GROUPEDLEVELS`. |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Tworzy zestaw danych zawierający każdego dziennika unikatową wartość poziomu i ile razy występuje. zestaw danych Hello jest przechowywany w `FREQUENCIES`. |
+    | `RESULT = order FREQUENCIES by COUNT desc;` | Porządkuje poziomy dziennika hello według liczby (malejąco) i są przechowywane w `RESULT`. |
 
     > [!TIP]
-    > Użyj `DUMP` do wyświetlania wyniku transformacji po każdym kroku.
+    > Użyj `DUMP` tooview hello wynik transformacji powitania po każdym kroku.
 
-5. Można także zapisać wyniki przekształcania za pomocą `STORE` instrukcji. Na przykład następująca instrukcja zapisuje `RESULT` do `/example/data/pigout` katalogu na domyślny magazyn dla klastra:
+5. Można także zapisać wyniki hello przekształcania za pomocą hello `STORE` instrukcji. Na przykład po instrukcji hello zapisuje hello `RESULT` toohello `/example/data/pigout` katalogu na powitania domyślny magazyn dla klastra:
 
         STORE RESULT into '/example/data/pigout';
 
    > [!NOTE]
-   > Dane są przechowywane w katalogu określonym w plikach o nazwie `part-nnnnn`. Jeśli katalog już istnieje, zostanie wyświetlony błąd.
+   > Hello dane są przechowywane w katalogu określonym hello w plikach o nazwie `part-nnnnn`. Jeśli hello katalog już istnieje, zostanie wyświetlony błąd.
 
-6. Aby zamknąć wiersz grunt, wprowadź następującą instrukcję:
+6. Witaj tooexit o tej grunt monit, wprowadź hello następującej instrukcji:
 
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin pliki wsadowe
 
-Polecenie Pig umożliwia również uruchomić Pig Latin zawarte w pliku.
+Umożliwia także hello Pig polecenia toorun Pig Latin zawarte w pliku.
 
-1. Po zakończeniu wiersza grunt, użyj następującego polecenia do potoku STDIN do pliku o nazwie `pigbatch.pig`. Ten plik jest tworzony w katalogu macierzystego dla konta użytkownika SSH.
+1. Po zakończeniu hello grunt wiersza, użyj hello następujące polecenie toopipe STDIN do pliku o nazwie `pigbatch.pig`. Ten plik jest tworzony w katalogu macierzystym hello hello konta użytkownika SSH.
 
         cat > ~/pigbatch.pig
 
-2. Wpisz lub wklej poniższe wiersze, a następnie użyj klawiszy Ctrl + D po zakończeniu.
+2. Wpisz lub Wklej hello następujące wiersze, a następnie użyj klawiszy Ctrl + D po zakończeniu.
 
         LOGS = LOAD '/example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -108,11 +108,11 @@ Polecenie Pig umożliwia również uruchomić Pig Latin zawarte w pliku.
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 
-3. Użyj następującego polecenia do uruchomienia `pigbatch.pig` pliku za pomocą polecenia Pig.
+3. Użyj hello następujące polecenie toorun hello `pigbatch.pig` pliku za pomocą polecenia Pig hello.
 
         pig ~/pigbatch.pig
 
-    Po zakończeniu zadania wsadowego, zapoznaj się następujące dane wyjściowe:
+    Po zakończeniu zadania wsadowego hello, zapoznaj się hello następujące dane wyjściowe:
 
         (TRACE,816)
         (DEBUG,434)
@@ -124,11 +124,11 @@ Polecenie Pig umożliwia również uruchomić Pig Latin zawarte w pliku.
 
 ## <a id="nextsteps"></a>Następne kroki
 
-Ogólne informacje na temat Pig w usłudze HDInsight zobacz następujący dokument:
+Ogólne informacje na temat Pig w usłudze HDInsight zobacz następujące dokumentu hello:
 
 * [Korzystanie z języka Pig z usługą Hadoop w usłudze HDInsight](hdinsight-use-pig.md)
 
-Aby uzyskać więcej informacji na inne sposoby pracy z platformą Hadoop w usłudze HDInsight można znaleźć w następujących dokumentach:
+Aby uzyskać więcej informacji na inne sposoby toowork z platformą Hadoop w usłudze HDInsight Zobacz hello w następujących dokumentach:
 
 * [Korzystanie z programu Hive z usługą Hadoop w usłudze HDInsight](hdinsight-use-hive.md)
 * [Używanie MapReduce z usługą Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md)

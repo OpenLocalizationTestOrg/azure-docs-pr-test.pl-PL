@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs bezpiecznego Push
-description: "Dowiedz się, jak wysyłać powiadomienia wypychane bezpieczny do aplikacji systemu iOS z platformy Azure. Przykłady kodu napisane w języku Objective C i C#."
+title: aaaAzure powiadomienia Push Secure koncentratory
+description: "Dowiedz się, jak bezpieczne toosend push aplikacji dla systemu iOS tooan powiadomienia z platformy Azure. Przykłady kodu napisane w języku Objective C i C#."
 documentationcenter: ios
 author: ysxu
 manager: erikre
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86dd8d7042e5b9e55d2d7ff41cb42f23831fc575
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpiecznego Push
 > [!div class="op_single_selector"]
@@ -29,22 +29,22 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="overview"></a>Omówienie
-Obsługa powiadomień wypychanych w Microsoft Azure pozwala uzyskiwać dostęp do infrastruktury wypychania łatwy w użyciu, wieloplatformową skalowalnych w poziomie, co znacznie upraszcza implementacji powiadomienia wypychane dla aplikacji zarówno konsumenckie i korporacyjne dla platform urządzeń przenośnych.
+Obsługa powiadomień wypychanych w Microsoft Azure umożliwia tooaccess infrastruktury wypychania łatwy w użyciu, wieloplatformową skalowalnych w poziomie, który jest znacznie ułatwione hello stosowania powiadomienia wypychane zarówno konsumenckie i korporacyjne aplikacji dla urządzeń przenośnych platform.
 
-Z powodu przepisami ograniczeń dotyczących zabezpieczeń, czasami aplikacji może mają zostać uwzględnione coś w powiadomienie, które nie są przesyłane za pośrednictwem infrastruktury powiadomień wypychanych standardowa. Ten przewodnik opisuje sposób do osiągnięcia w tym samym środowisku, wysyłając informacje poufne za pośrednictwem bezpiecznego uwierzytelnionego połączenia od urządzeń klienckich i zaplecza aplikacji.
+Czasami ze względu na ograniczenia tooregulatory lub zabezpieczeń, aplikacja może być tooinclude coś w hello powiadomienie, które nie są przesyłane za pośrednictwem infrastruktury powiadomień wypychanych standardowe hello. W tym samouczku opisano, jak tooachieve hello tego samego środowiska poprzez wysłanie poufnych informacji za pośrednictwem bezpiecznego połączenia uwierzytelnionego między powitania klienta urządzenia i aplikacji hello wewnętrznej bazy danych.
 
-Na wysokim poziomie przepływ wygląda następująco:
+Na wysokim poziomie przepływu hello jest następujący:
 
-1. Zaplecza aplikacji:
+1. Witaj zaplecze aplikacji:
    * Magazyny bezpiecznego ładunku w wewnętrznej bazie danych.
-   * Wysyła identyfikator tego powiadomienia do urządzenia (nie informacji o są wysyłane).
-2. Aplikacją na urządzeniu, podczas odbierania powiadomienia:
-   * Urządzenie kontaktuje się z zaplecza żąda bezpiecznego ładunku.
-   * Aplikację można wyświetlić ładunku jako powiadomienie na urządzeniu.
+   * Wysyła identyfikator hello tego urządzenia toohello powiadomienie (nie bezpiecznego informacje są wysyłane).
+2. Aplikacja Hello na urządzeniu hello podczas odbierania powiadomień hello:
+   * urządzenie Hello kontaktuje się hello zaplecza żądania hello bezpiecznego ładunku.
+   * Aplikacja Hello można wyświetlić ładunku hello jako powiadomienie na urządzeniu hello.
 
-Należy pamiętać, że w poprzednim przepływu (i w tym samouczku) przyjęto założenie, że urządzenia są przechowywane token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to całkowicie nie zakłóca pracy, jak urządzenia mogą pobierać ładunku bezpiecznego powiadomienia za pomocą tego tokenu. Jeśli aplikacja nie przechowuje tokeny uwierzytelniania na urządzeniu lub tokeny te mogą wygasnąć, aplikacji urządzenia, po otrzymaniu powiadomienia powinien być wyświetlany ogólny powiadomienie monitowania użytkownika do uruchomienia aplikacji. Następnie aplikacja uwierzytelnia użytkownika i zawiera ładunek powiadomienia.
+Jest ważne toonote, że w hello poprzedzających przepływu (i w tym samouczku) przyjęto założenie, urządzenia hello po zalogowaniu użytkownika hello przechowuje token uwierzytelniania w magazynie lokalnym. Gwarantuje to całkowicie sprawnie, jak urządzenia hello mogą pobierać ładunku bezpiecznego hello powiadomienia za pomocą tego tokenu. Jeśli aplikacja nie przechowuje tokeny uwierzytelniania na urządzeniu hello lub tokeny te mogą wygasnąć, hello aplikacji urządzenia po otrzymaniu powiadomienia hello powinien być wyświetlany ogólny powiadomienie aplikacji hello toolaunch użytkownika hello monitowania. Aplikacja Hello następnie uwierzytelnia użytkownika hello i zawiera ładunek powiadomienia hello.
 
-W tym samouczku Secure wypychania pokazano, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek opiera się na [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczku, dlatego należy wykonać kroki tego samouczka najpierw.
+W tym samouczku Secure wypychania przedstawiono sposób toosend powiadomienie wypychane bezpieczny sposób. Samouczek Hello opiera się na powitania [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczku, dlatego należy wykonać kroki hello w tym samouczku najpierw.
 
 > [!NOTE]
 > Ten samouczek zakłada, że utworzony i skonfigurowany Centrum powiadomień, zgodnie z opisem w [wprowadzenie do korzystania z usługi Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
@@ -53,20 +53,20 @@ W tym samouczku Secure wypychania pokazano, jak bezpiecznie wysyłać powiadomie
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-ios-project"></a>Zmodyfikuj projekt dla systemu iOS
-Teraz, aby modyfikować Twojej aplikacji zaplecza wysłać tylko *identyfikator* powiadomienia, należy zmienić aplikacji systemu iOS w celu obsługi tego powiadomienia i wywołania zwrotnego z zaplecza można pobrać zabezpieczoną wiadomość, który będzie wyświetlany.
+## <a name="modify-hello-ios-project"></a>Modyfikowanie hello projekt dla systemu iOS
+Teraz, aby modyfikować tylko aplikacji hello w toosend zaplecza *identyfikator* powiadomienia, masz toochange Twojego toohandle aplikacji systemu iOS, czy powiadomień i wywołanie zwrotne użytkownika hello tooretrieve zaplecza secure toobe komunikat wyświetlany.
 
-Na osiągnięcie tego celu, musimy pisanie logiki można pobrać zawartości bezpiecznej z zaplecza aplikacji.
+tooachieve tego celu mamy toowrite hello logiki tooretrieve hello bezpieczne zawartości z hello zaplecze aplikacji.
 
-1. W **AppDelegate.m**, upewnij się, że aplikacja rejestruje dyskretnej powiadomień, przetwarza identyfikator powiadomień wysyłanych z wewnętrznej bazy danych. Dodaj **UIRemoteNotificationTypeNewsstandContentAvailability** opcji w didFinishLaunchingWithOptions:
+1. W **AppDelegate.m**, upewnij się, że rejestruje powiadomienia dyskretnej aplikacji hello tak przetwarza hello identyfikator powiadomień wysyłanych z hello wewnętrznej bazy danych. Dodaj hello **UIRemoteNotificationTypeNewsstandContentAvailability** opcji w didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
-2. W Twojej **AppDelegate.m** Dodaj sekcji implementacji u góry z deklaracją następujące:
+2. W Twojej **AppDelegate.m** Dodaj sekcji implementacji u góry hello z powitania po deklaracji:
    
         @interface AppDelegate ()
         - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
         @end
-3. Następnie dodaj w sekcji implementacji następujący kod, zastępując symbol zastępczy `{back-end endpoint}` z poziomu zaplecza uzyskany wcześniej punktu końcowego:
+3. Następnie dodaj w hello hello sekcji implementacja po kod, zastępując hello symbolu zastępczego `{back-end endpoint}` z punktem końcowym hello na danym zapleczu uzyskany wcześniej:
 
 ```
         NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
@@ -115,13 +115,13 @@ Na osiągnięcie tego celu, musimy pisanie logiki można pobrać zawartości bez
         }
 ```
 
-    This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
+    This method calls your app back-end tooretrieve hello notification content using hello credentials stored in hello shared preferences.
 
-1. Teraz musimy obsługi przychodzących powiadomień i pobrać zawartość do wyświetlenia przy użyciu metody powyżej. Najpierw musimy włączyć uruchomione w tle podczas odbierania powiadomień wypychanych w aplikacji systemu iOS. W **XCode**, wybierz projekt aplikacji w lewym panelu, a następnie kliknij urządzenie docelowe głównej aplikacji w **cele** sekcji w okienku centralnym.
-2. Następnie kliknij przycisk z **możliwości** w górnej części okienka centralnej i sprawdź **zdalnego powiadomienia** wyboru.
+1. Teraz możemy mają toohandle hello przychodzące powiadomienia i użyj metody hello powyżej toodisplay zawartości hello tooretrieve. Po pierwsze mamy tooenable Twojego toorun aplikacji systemu iOS w tle hello podczas odbierania powiadomień wypychanych. W **XCode**, wybierz projekt aplikacji hello lewym panelu, a następnie kliknij urządzenie docelowe głównej aplikacji w hello **cele** sekcji w okienku centralnym hello.
+2. Następnie kliknij przycisk z **możliwości** u góry hello okienka centralnej i sprawdź hello **zdalnego powiadomienia** wyboru.
    
     ![][IOS1]
-3. W **AppDelegate.m** Dodaj następującą metodę do obsługi powiadomień wypychanych:
+3. W **AppDelegate.m** dodać hello następujące powiadomienia wypychane toohandle — metoda:
    
         -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
         {
@@ -144,13 +144,13 @@ Na osiągnięcie tego celu, musimy pisanie logiki można pobrać zawartości bez
    
         }
    
-    Należy pamiętać, że preferowane do obsługi przypadków brakujących właściwości nagłówka uwierzytelniania lub odrzucenia przez zaplecza. Obsługę określonych przypadkach zależą od większości użytkowników docelowych. Jedną z opcji jest powiadomienia z monitem ogólnego dla użytkownika do uwierzytelniania można pobrać rzeczywiste powiadomienia mają być wyświetlane.
+    Należy pamiętać, że preferowane toohandle hello przypadków brakujących właściwości nagłówka uwierzytelniania lub odrzucenia przez hello zaplecza. Obsługa określonego Hello powyższych przypadkach zależą od przede wszystkim użytkowników docelowych. Jedną z opcji jest toodisplay powiadomienie z wierszem ogólnego hello użytkownika tooauthenticate tooretrieve hello rzeczywiste powiadomienia o.
 
-## <a name="run-the-application"></a>Uruchamianie aplikacji
-Aby uruchomić aplikację, wykonaj następujące czynności:
+## <a name="run-hello-application"></a>Uruchom hello aplikacji
+toorun hello aplikacji, hello następujące:
 
-1. W programie XCode Uruchom aplikację na urządzenie fizyczne z systemem iOS (wypychanie powiadomień nie będzie działać w symulatorze).
-2. W aplikacji systemu iOS interfejsu użytkownika wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą one mieć taką samą wartość.
-3. W aplikacji systemu iOS interfejsu użytkownika, kliknij przycisk **Zaloguj**. Następnie kliknij przycisk **wysyłania wypychania**. Powinny pojawić się bezpiecznego powiadomienia są wyświetlane w Centrum powiadomień.
+1. W programie XCode uruchamianie aplikacji hello na urządzenie fizyczne z systemem iOS (push, które nie będą działać powiadomienia w symulatorze hello).
+2. W aplikacji dla systemu iOS hello interfejsu użytkownika wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą one być hello tę samą wartość.
+3. W aplikacji dla systemu iOS hello interfejsu użytkownika, kliknij przycisk **Zaloguj**. Następnie kliknij przycisk **wysyłania wypychania**. Powinny pojawić się powiadomienie bezpiecznego hello będzie wyświetlany w Centrum powiadomień.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie dziennikami przepływu grupy zabezpieczeń sieci z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśnia sposób zarządzania przepływem grupy zabezpieczeń sieci dzienniki w Azure obserwatora sieciowego przy użyciu programu PowerShell"
+title: "aaaManage przepływ grupy zabezpieczeń sieci dzienniki z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
+description: "Ta strona wyjaśniono sposób rejestrowania toomanage przepływu grupy zabezpieczeń sieci w Azure obserwatora sieciowego przy użyciu programu PowerShell"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 9fa2e2e1c09b119bd2a1e149fd2cc080957af296
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 987e8728fb6459fd6ff8eb5cd3d36ff855f2ccfc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurowanie przepływu grupy zabezpieczeń sieci dzienników przy użyciu programu PowerShell
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 07/11/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 
-Dzienniki przepływu sieciowej grupy zabezpieczeń są funkcją obserwatora sieciowego, który służy do wyświetlania informacji na temat przychodzące i wychodzące ruchu IP za pośrednictwem grupy zabezpieczeń sieci. Te dzienniki przepływu są zapisywane w formacie json i Pokaż przepływów wychodzącego i przychodzącego na podstawie reguły w poszczególnych kart przepływ dotyczy 5-elementowej informacji o przepływie (źródłowego i docelowego adresu IP, portu źródłowego i docelowego Protocol), i jeśli ruch został dozwolony lub niedozwolony.
+Dzienniki przepływu sieciowej grupy zabezpieczeń są funkcją obserwatora sieciowego, który pozwala tooview informacji na temat przychodzące i wychodzące ruchu IP za pośrednictwem grupy zabezpieczeń sieci. Te dzienniki przepływu są zapisywane w formacie json i Pokaż wychodzących i przepływów przychodzących na podstawie reguł na, hello przepływu hello kart stosuje, 5-elementowej informacji o przepływie hello (źródłowego i docelowego adresu IP, portu źródłowego i docelowego Protocol), a jeśli hello ruchu jest dozwolone, lub Odmowa dostępu.
 
 ## <a name="register-insights-provider"></a>Zarejestruj dostawcę usługi Insights
 
-Aby rejestrowanie działało poprawnie, przepływ **elemencie Microsoft.Insights** dostawcy musi być zarejestrowana. Jeśli nie masz pewności Jeśli **elemencie Microsoft.Insights** dostawca został zarejestrowany, uruchom następujący skrypt.
+Aby przepływ hello pomyślnie, rejestrowanie toowork **elemencie Microsoft.Insights** dostawcy musi być zarejestrowana. Jeśli nie masz pewności, czy hello **elemencie Microsoft.Insights** dostawca jest zarejestrowany, uruchom hello poniższy skrypt.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
@@ -41,7 +41,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
 
 ## <a name="enable-network-security-group-flow-logs"></a>Dzienniki przepływu włączyć grupy zabezpieczeń sieci
 
-Polecenie, aby umożliwić przepływ dzienników przedstawiono w poniższym przykładzie:
+Dzienniki przepływu tooenable polecenia Hello jest pokazywana w hello poniższy przykład:
 
 ```powershell
 $NW = Get-AzurermNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
@@ -53,7 +53,7 @@ Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $ns
 
 ## <a name="disable-network-security-group-flow-logs"></a>Dzienniki przepływu wyłączyć grupy zabezpieczeń sieci
 
-Skorzystaj z następującego przykładu, aby wyłączyć przepływ dzienników:
+Następujące przykładowe toodisable przepływu dzienniki hello użycia:
 
 ```powershell
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
@@ -61,18 +61,18 @@ Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $ns
 
 ## <a name="download-a-flow-log"></a>Pobierz dziennik przepływu
 
-Lokalizacja magazynu dziennika przepływu jest definiowany podczas tworzenia. Wygodne narzędzie dostępu do tych dzienników przepływu na koncie magazynu jest Microsoft Azure Eksploratora usługi Storage, który można pobrać tutaj: http://storageexplorer.com/
+Witaj lokalizacji magazynu dziennika przepływu jest definiowany podczas tworzenia. Tooaccess wygodne narzędzie, te konta magazynu tooa Dzienniki zapisane przepływu jest Microsoft Azure Eksploratora usługi Storage, który można pobrać tutaj: http://storageexplorer.com/
 
-Jeśli określono konto magazynu, pliki przechwytywania pakietów są zapisywane na koncie magazynu w następującej lokalizacji:
+Jeśli określono konto magazynu, zapisywane są pliki przechwytywania pakietów tooa konta magazynu w następującej lokalizacji hello:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
 ```
 
-Informacje o strukturze dziennika można znaleźć [dziennika przepływu grupy zabezpieczeń sieci — omówienie](network-watcher-nsg-flow-logging-overview.md)
+Informacje o strukturze hello hello dziennika można znaleźć [dziennika przepływu grupy zabezpieczeń sieci — omówienie](network-watcher-nsg-flow-logging-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [wizualizacji dzienników przepływu grupy NSG z usługą Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Dowiedz się, jak za[wizualizacji dzienników przepływu grupy NSG z usługą Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Dowiedz się, jak [wizualizacji NSG przepływu dzienników przy użyciu narzędzi typu open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Dowiedz się, jak za[wizualizacji NSG przepływu dzienników przy użyciu narzędzi typu open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

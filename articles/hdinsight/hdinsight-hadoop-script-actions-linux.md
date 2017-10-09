@@ -1,6 +1,6 @@
 ---
-title: "Skrypt programowanie akcji z usługą HDInsight opartą na systemie Linux - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skrypty powłoki systemowej umożliwia dostosowywanie klastrów usługi HDInsight opartych na systemie Linux. Funkcja Akcja skryptu HDInsight pozwala na uruchamianie skryptów podczas lub po utworzeniu klastra. Skrypty można zmienić ustawienia konfiguracji klastra lub zainstalować dodatkowe oprogramowanie."
+title: "Programowanie akcji aaaScript z usługą HDInsight opartą na systemie Linux - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Bash skrypty toocustomize opartych na systemie Linux klastrów usługi HDInsight. Hello funkcji Akcja skryptu HDInsight umożliwia skrypty toorun podczas lub po utworzeniu klastra. Skrypty można toochange używanych ustawień konfiguracji klastra lub zainstalować dodatkowe oprogramowanie."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1f504b00365df5f4cfb3ae19ad55ff7630342650
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
-Dowiedz się, jak dostosować z klastrem usługi HDInsight przy użyciu skrypty Bash. Akcje skryptu to sposób, aby dostosować HDInsight podczas lub po utworzeniu klastra.
+Dowiedz się, jak użyciu klastra usługi HDInsight Bash toocustomize skryptów. Akcje skryptu to sposób toocustomize HDInsight podczas lub po utworzeniu klastra.
 
 > [!IMPORTANT]
-> Kroki opisane w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux. Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> kroki Hello w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux. Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 ## <a name="what-are-script-actions"></a>Co to są akcji skryptu
 
-Akcje skryptu to skrypty Bash, które Azure działa na węzłach klastra dokonać zmian konfiguracji lub instalacja oprogramowania. Akcja skryptu jest wykonywany jako główny i zapewnia pełne prawa dostępu do węzłów klastra.
+Akcje skryptu to skrypty Bash, które Azure działa na zmiany konfiguracji toomake węzłów klastra hello ani instalować oprogramowania. Akcja skryptu jest wykonywany jako główny i zapewnia pełny dostęp węzłów klastra toohello praw.
 
-Akcje skryptu można zastosować za pomocą następujących metod:
+Akcje skryptu można zastosować za pośrednictwem hello następujące metody:
 
-| Ta metoda umożliwia zastosowanie skryptu... | Tworzenie klastra podczas... | W klastrze uruchomione... |
+| Użyj tej metody tooapply skryptu... | Tworzenie klastra podczas... | W klastrze uruchomione... |
 | --- |:---:|:---:|
 | Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
@@ -42,37 +42,37 @@ Akcje skryptu można zastosować za pomocą następujących metod:
 | Zestaw SDK dla platformy .NET usługi HDInsight |✓ |✓ |
 | Szablonu usługi Azure Resource Manager |✓ |&nbsp; |
 
-Aby uzyskać więcej informacji o używaniu tych metod do zastosowania akcji skryptu, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+Aby uzyskać więcej informacji na za pomocą akcji skryptu tooapply tych metod, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Najlepsze rozwiązania dotyczące tworzenia skryptów
 
-Podczas opracowywania niestandardowego skryptu dla klastra usługi HDInsight, istnieje kilka najlepszych rozwiązań, które należy wziąć pod uwagę:
+Podczas opracowywania niestandardowego skryptu dla klastra usługi HDInsight są kilka tookeep najlepszych praktyk pamiętać:
 
-* [Docelowa wersja platformy Hadoop](#bPS1)
-* [Docelowa wersja systemu operacyjnego](#bps10)
-* [Podaj stabilna linki do zasobów skryptu](#bPS2)
+* [Docelowa wersja platformy Hadoop hello](#bPS1)
+* [Witaj docelowej wersji systemu operacyjnego](#bps10)
+* [Znajdują się stabilne łączy tooscript zasoby](#bPS2)
 * [Użyj wstępnie skompilowanym zasobów](#bPS4)
-* [Upewnij się, że skrypt dostosowywania klastra jest idempotentności](#bPS3)
-* [Zapewni to wysoką dostępność architektury klastra](#bPS5)
-* [Konfigurowanie niestandardowych składników można używać magazynu obiektów Blob platformy Azure](#bPS6)
-* [Zapisywanie informacji o STDOUT i STDERR.](#bPS7)
+* [Upewnij się, że hello klastra dostosowywania skryptu jest idempotentności](#bPS3)
+* [Zapewni to wysoką dostępność hello architektury klastra](#bPS5)
+* [Konfigurowanie magazynu obiektów Blob platformy Azure toouse niestandardowych składników hello](#bPS6)
+* [Zapis tooSTDOUT informacji i STDERR.](#bPS7)
 * [Zapisz pliki jako ASCII z końców LF](#bps8)
-* [Logika ponawiania umożliwia odzyskanie w przypadku błędów przejściowych](#bps9)
+* [Użyj toorecover logiki ponownych prób w przypadku błędów przejściowych](#bps9)
 
 > [!IMPORTANT]
-> Akcje skryptu należy zakończyć w ciągu 60 minut lub proces nie powiedzie się. Podczas inicjowania obsługi węzła, skrypt zostanie uruchomiony równocześnie z innymi procesami instalacji i konfiguracji. Konkurowanie o zasoby, takie jak czas lub sieci przepustowości Procesora może powodować skrypt potrwać dłużej niż w środowisku projektowania.
+> Akcje skryptu musi zostać zakończone w ciągu 60 minut lub hello proces zakończy się niepowodzeniem. Podczas inicjowania obsługi węzła, hello skrypt jest uruchamiany równocześnie z innymi procesami instalacji i konfiguracji. Konkurowanie o zasoby, takie jak czas lub sieci przepustowości Procesora może powodować hello skryptu tootake dłużej toofinish niż w środowisku projektowania.
 
-### <a name="bPS1"></a>Docelowa wersja platformy Hadoop
+### <a name="bPS1"></a>Docelowa wersja platformy Hadoop hello
 
-Różne wersje HDInsight korzystają z różnych wersji usług Hadoop i zainstalowanych składników. Jeśli skrypt oczekuje określoną wersję usługi lub składnika, skrypt należy używać tylko z wersją HDInsight, która zawiera wymagane składniki. Można znaleźć informacje o wersji składników uwzględnionych w usłudze HDInsight przy użyciu [przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md) dokumentu.
+Różne wersje HDInsight korzystają z różnych wersji usług Hadoop i zainstalowanych składników. Jeśli skrypt oczekuje określoną wersję usługi lub składnika, skrypt hello należy używać tylko z wersją hello HDInsight zawierającym hello wymagane składniki. Informacje można znaleźć w wersji składników dołączone do usługi HDInsight przy użyciu hello [przechowywanie wersji składnika usługi HDInsight](hdinsight-component-versioning.md) dokumentu.
 
-### <a name="bps10"></a>Docelowa wersja systemu operacyjnego
+### <a name="bps10"></a>Docelowa wersja hello systemu operacyjnego
 
-HDInsight opartych na systemie Linux jest oparta na dystrybucji Ubuntu Linux. Różnych wersji usługi hdinsight korzystają z różnych wersji systemu Ubuntu, która może zmienić sposób działania skryptu. Na przykład HDInsight 3.4 i starsze wersje są oparte na wersji Ubuntu, które używają Upstart. Wersja 3.5 jest oparta na 16.04 Ubuntu, który używa Systemd. Systemd i Upstart zależne inne polecenia, aby skrypt powinien być zapisywany do pracy z programem.
+HDInsight opartych na systemie Linux jest oparta na powitania dystrybucji Ubuntu Linux. Różnych wersji usługi hdinsight korzystają z różnych wersji systemu Ubuntu, która może zmienić sposób działania skryptu. Na przykład HDInsight 3.4 i starsze wersje są oparte na wersji Ubuntu, które używają Upstart. Wersja 3.5 jest oparta na 16.04 Ubuntu, który używa Systemd. Systemd i Upstart zależne inne polecenia, aby skrypt powinien być zapisywany toowork zarówno.
 
-Inna ważna różnica między HDInsight 3.4 i 3.5 jest to, że `JAVA_HOME` teraz wskazuje Java 8.
+Inna ważna różnica między HDInsight 3.4 i 3.5 jest to, że `JAVA_HOME` teraz punkty tooJava 8.
 
-Wersja systemu operacyjnego można sprawdzić za pomocą `lsb_release`. Poniższy kod przedstawia sposób określania, czy skrypt jest uruchomiony na Ubuntu 14 lub 16:
+Wersja systemu operacyjnego hello można sprawdzić za pomocą `lsb_release`. Witaj poniższy kod przedstawia sposób toodetermine Jeśli hello skryptu systemem Ubuntu 14 lub 16:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -103,89 +103,89 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Można znaleźć pełnej skrypt, który zawiera te wstawki na https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+Można znaleźć hello pełne skrypt, który zawiera te wstawki na https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
-Wersja Ubuntu, który jest używany przez usługi HDInsight dla [składnika usługi HDInsight w wersji](hdinsight-component-versioning.md) dokumentu.
+Wersję hello Ubuntu, który jest używany przez usługi HDInsight, zobacz hello [składnika usługi HDInsight w wersji](hdinsight-component-versioning.md) dokumentu.
 
-Aby poznać różnice między Systemd i Upstart, zobacz [Systemd dla użytkowników Upstart](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+toounderstand hello różnice między Systemd i Upstart, zobacz [Systemd dla użytkowników Upstart](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
-### <a name="bPS2"></a>Podaj stabilna linki do zasobów skryptu
+### <a name="bPS2"></a>Znajdują się stabilne łączy tooscript zasoby
 
-Skrypt i skojarzonych zasobów musi być dostępna przez cały cykl życia klastra. Te zasoby są wymagane, jeśli zostaną dodane nowe węzły do klastra podczas operacji skalowania.
+Witaj skrypt i skojarzonych zasobów musi być dostępna przez cały okres istnienia hello hello klastra. Te zasoby są wymagane, jeśli zostaną dodane nowe węzły klastra toohello podczas operacji skalowania.
 
-Najlepszym rozwiązaniem jest, aby pobrać i zarchiwizowanie wszystkich na koncie magazynu Azure w ramach subskrypcji.
+Witaj, najlepszym rozwiązaniem jest toodownload i zarchiwizowanie wszystkich na koncie magazynu Azure w ramach subskrypcji.
 
 > [!IMPORTANT]
-> Konto magazynu używane musi być domyślne konto magazynu dla klastra lub kontener publiczne, tylko do odczytu na inne konto magazynu.
+> Konto magazynu Hello używane musi być hello domyślne konto magazynu dla klastra hello lub kontener publiczne, tylko do odczytu na inne konto magazynu.
 
-Na przykład przykłady obsługiwane przez firmę Microsoft są przechowywane w [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) konta magazynu. To jest kontenerem publiczne, tylko do odczytu obsługiwanego przez zespół usługi HDInsight.
+Na przykład przykłady hello obsługiwane przez firmę Microsoft są przechowywane w hello [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) konta magazynu. Jest obsługiwana przez zespół usługi HDInsight hello kontener publiczne, tylko do odczytu.
 
 ### <a name="bPS4"></a>Użyj wstępnie skompilowanym zasobów
 
-Aby skrócić czas wymagany do uruchomienia skryptu, należy unikać operacji kompilowane zasobów z kodu źródłowego. Na przykład wstępnie skompilować zasobów i przechowywać je w obiekcie blob konta magazynu Azure w tym samym centrum danych jako HDInsight.
+tooreduce hello czasu zajmuje toorun hello skryptu, uniknąć operacji kompilowane zasobów z kodu źródłowego. Na przykład wstępnie skompilować zasobów i zapisanie ich w obiekcie blob konta usługi Azure Storage w hello tego samego centrum danych, w usłudze HDInsight.
 
-### <a name="bPS3"></a>Upewnij się, że skrypt dostosowywania klastra jest idempotentności
+### <a name="bPS3"></a>Upewnij się, że hello klastra dostosowywania skryptu jest idempotentności
 
-Skrypty musi być idempotentności. Jeśli skrypt jest uruchamiany wiele razy, jego powinien zwrócić klastra do tego samego stanu zawsze.
+Skrypty musi być idempotentności. Jeśli hello skrypt jest uruchamiany wiele razy, powinien on zwrócić hello sam stan zawsze toohello klastra.
 
 Na przykład skrypt, który modyfikuje pliki konfiguracji nie dodać zduplikowanych wpisów, gdy uruchomiono wiele razy.
 
-### <a name="bPS5"></a>Zapewni to wysoką dostępność architektury klastra
+### <a name="bPS5"></a>Zapewni to wysoką dostępność hello architektury klastra
 
-Klastry HDInsight opartych na systemie Linux zapewniają dwa węzły head, które są aktywne w klastrze, a akcji skryptu, uruchom na obu węzłów. Jeśli składniki, które będą instalowane oczekuje tylko jednego węzła głównego, nie należy instalować na obu węzłów głównych składników.
+Klastry HDInsight opartych na systemie Linux zapewniają dwa węzły head, które są aktywne w ramach klastra hello, a akcji skryptu, uruchom na obu węzłów. Jeżeli hello składniki, które można zainstalować tylko jednego węzła głównego, nie należy instalować na obu węzłów głównych hello składników.
 
 > [!IMPORTANT]
-> Usługi w ramach usługi HDInsight zostały zaprojektowane do pracy awaryjnej między dwoma węzłami head, zgodnie z potrzebami. Ta funkcja nie jest rozszerzony do niestandardowe składniki zainstalowane za pomocą akcji skryptu. Jeśli potrzebujesz wysokiej dostępności dla niestandardowych składników, musisz zaimplementować własny mechanizm pracy awaryjnej.
+> Usługi w ramach usługi HDInsight są zaprojektowane toofail za pośrednictwem, między dwoma węzłami head hello, zgodnie z potrzebami. Ta funkcja nie jest przedłużana toocustom składniki zainstalowane za pomocą akcji skryptu. Jeśli potrzebujesz wysokiej dostępności dla niestandardowych składników, musisz zaimplementować własny mechanizm pracy awaryjnej.
 
-### <a name="bPS6"></a>Konfigurowanie niestandardowych składników można używać magazynu obiektów Blob platformy Azure
+### <a name="bPS6"></a>Konfigurowanie magazynu obiektów Blob platformy Azure toouse niestandardowych składników hello
 
-Składniki, które można zainstalować w klastrze może być konfigurację domyślną, która korzysta z magazynu systemu Distributed plików Hadoop (HDFS). HDInsight używa magazynu Azure lub usługi Data Lake Store jako domyślnego magazynu. Podaj zarówno systemu plików zgodny system plików HDFS, który będzie się powtarzał danych, nawet jeśli klaster zostanie usunięty. Może być konieczne skonfigurowanie składników, które można zainstalować, aby użyć WASB lub ADL zamiast systemu plików HDFS.
+Składniki, które można zainstalować w klastrze hello może mieć konfigurację domyślną, która korzysta z magazynu systemu Distributed plików Hadoop (HDFS). HDInsight używa magazynu Azure lub usługi Data Lake Store jako hello domyślny magazyn. Podaj zarówno systemu plików zgodny system plików HDFS, który będzie się powtarzać danych, nawet jeśli klaster hello jest usunięty. Może być konieczne składniki tooconfigure zainstalować toouse WASB lub ADL zamiast systemu plików HDFS.
 
-Dla większości operacji nie trzeba określić system plików. Na przykład następujące kopiuje plik giraph-examples.jar z lokalnego systemu plików do magazynu klastra:
+Dla większości operacji nie trzeba toospecify hello w systemie plików. Na przykład następujące hello kopiuje plik giraph-examples.jar hello z hello pliku lokalnego systemu toocluster magazynu:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-W tym przykładzie `hdfs` polecenie niewidocznie używa domyślnego magazynu klastra. Dla niektórych operacji może być konieczne Określ identyfikator URI. Na przykład `adl:///example/jars` dla usługi Data Lake Store lub `wasb:///example/jars` usługi Azure Storage.
+W tym przykładzie hello `hdfs` polecenie niewidocznie używa magazynu klastra hello domyślne. Dla niektórych operacji może być konieczne hello toospecify identyfikatora URI. Na przykład `adl:///example/jars` dla usługi Data Lake Store lub `wasb:///example/jars` usługi Azure Storage.
 
-### <a name="bPS7"></a>Zapisywanie informacji o STDOUT i STDERR.
+### <a name="bPS7"></a>Zapis tooSTDOUT informacji i STDERR.
 
-HDInsight rejestruje dane wyjściowe skryptu, które są zapisywane do strumienia wyjściowego STDOUT i STDERR. Można wyświetlić te informacje przy użyciu interfejsu użytkownika sieci web Ambari.
+HDInsight rejestruje dane wyjściowe skryptu jest zapisywane tooSTDOUT i STDERR. Można wyświetlić te informacje przy użyciu hello Ambari web UI.
 
 > [!NOTE]
-> Ambari jest dostępna tylko jeśli klaster został utworzony pomyślnie. Jeśli używasz akcji skryptu podczas tworzenia klastra i utworzenie kończy się niepowodzeniem, zobacz sekcję dotyczącą rozwiązywania problemów [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) dotyczące innych metod uzyskiwania dostępu do zarejestrowane informacje.
+> Ambari jest dostępna tylko jeśli hello klaster został utworzony pomyślnie. Jeśli używasz akcji skryptu podczas tworzenia klastra i utworzenie kończy się niepowodzeniem, zobacz hello Rozwiązywanie problemów z sekcji [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) dotyczące innych metod uzyskiwania dostępu do zarejestrowane informacje.
 
-Większość narzędzi i pakiety instalacyjne już zapisuje informacje o do STDOUT i STDERR, jednak można dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, należy użyć `echo`. Na przykład:
+Większość narzędzi i pakiety instalacyjne już zapisu tooSTDOUT informacji i STDERR, jednak może być tooadd dodatkowe rejestrowanie. toosend tekst tooSTDOUT, użyj `echo`. Na przykład:
 
 ```bash
-echo "Getting ready to install Foo"
+echo "Getting ready tooinstall Foo"
 ```
 
-Domyślnie `echo` wysyła ciąg do STDOUT. Aby skierować ją stderr, Dodaj `>&2` przed `echo`. Na przykład:
+Domyślnie `echo` wysyła hello tooSTDOUT ciągu. toodirect go tooSTDERR, Dodaj `>&2` przed `echo`. Na przykład:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
 ```
 
-To przekierowuje informacje zapisane zamiast tego do STDOUT stderr (2). Aby uzyskać więcej informacji dotyczących przekierowania we/wy, zobacz [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+To przekierowuje informacje zapisane zamiast tooSTDERR tooSTDOUT (2). Aby uzyskać więcej informacji dotyczących przekierowania we/wy, zobacz [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Aby uzyskać więcej informacji o wyświetlaniu informacji zarejestrowanych przez akcje skryptu, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ### <a name="bps8"></a>Zapisz pliki jako ASCII z końców LF
 
-Skrypty powłoki systemowej powinny być przechowywane w formacie ASCII, liniami został przerwany przez wysuwu wiersza. Pliki, które są przechowywane w formacie UTF-8, lub użyj CRLF jako zakończenie wiersza może zakończyć się niepowodzeniem z powodu następującego błędu:
+Skrypty powłoki systemowej powinny być przechowywane w formacie ASCII, liniami został przerwany przez wysuwu wiersza. Pliki, które są przechowywane w formacie UTF-8, lub użyj CRLF jako zakończenie wiersza hello może zakończyć się niepowodzeniem z hello następujący błąd:
 
 ```
 $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a>Logika ponawiania umożliwia odzyskanie w przypadku błędów przejściowych
+### <a name="bps9"></a>Użyj toorecover logiki ponownych prób w przypadku błędów przejściowych
 
-Pobieranie plików, instalowanie pakietów przy użyciu stanie get lub innych działań, których dane są przesyłane za pośrednictwem Internetu, akcja może zakończyć się niepowodzeniem z powodu przejściowych błędów sieci. Na przykład zasób zdalny, które komunikują się z może być w trakcie awarii węzła kopii zapasowej.
+Podczas pobierania plików, instalowanie pakietów przy użyciu stanie get lub innych działań, których dane są przesyłane za pośrednictwem hello internet, akcja hello może zakończyć się niepowodzeniem ze względu na błędy łączności sieciowej tootransient. Na przykład zasób zdalny hello, które komunikują się z może być w procesie hello niepowodzenie nad węzłem kopii zapasowej tooa.
 
-Aby skrypt odporność błędów przejściowych, można implementację logiki ponawiania próby. Następująca funkcja demonstracja implementację logiki ponawiania próby. Ponowną operacji trzy razy przed niepowodzeniem.
+toomake tootransient odporność błędy skryptu, można implementację logiki ponawiania próby. powitania po funkcja pokazano, jak Logika ponawiania próby tooimplement. Ponowną operacji hello trzy razy przed niepowodzeniem.
 
 ```bash
 #retry
@@ -211,7 +211,7 @@ retry() {
 }
 ```
 
-Poniższe przykłady pokazują, jak użyć tej funkcji.
+Witaj poniższe przykłady pokazują, jak toouse tej funkcji.
 
 ```bash
 retry ls -ltr foo
@@ -221,85 +221,85 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Metody pomocnicze dla niestandardowych skryptów
 
-Metody pomocnicze akcji skryptu są narzędzia, które można użyć podczas pisania skryptów niestandardowych. Te metody są zawarte w[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skryptu. Pobranie i użycie ich jako część skryptu należy wykonać następujące kroki:
+Metody pomocnicze akcji skryptu są narzędzia, które można użyć podczas pisania skryptów niestandardowych. Te metody są zawarte w[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skryptu. Użyj następującego toodownload hello i używać ich jako część skryptu:
 
 ```bash
-# Import the helper method module.
+# Import hello helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-Następujące pomocników dostępne do użycia w skrypcie:
+powitania po pomocników dostępne do użycia w skrypcie:
 
 | Użycie pomocnika | Opis |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Pobiera ze źródła identyfikatora URI pliku określona ścieżka pliku. Domyślnie go nie zastępuj istniejącego pliku. |
-| `untar_file TARFILE DESTDIR` |Wyodrębnia plik tar (przy użyciu `-xf`) do katalogu docelowego. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Pobiera plik z hello źródła identyfikatora URI toohello określona ścieżka pliku. Domyślnie go nie zastępuj istniejącego pliku. |
+| `untar_file TARFILE DESTDIR` |Wyodrębnia plik tar (przy użyciu `-xf`) toohello katalogu docelowego. |
 | `test_is_headnode` |Jeśli został uruchomiony na węzła głównego klastra zwracany 1; w przeciwnym razie wartość 0. |
-| `test_is_datanode` |Jeśli bieżący węzeł jest węzłem danych (proces roboczy), zwraca 1; w przeciwnym razie wartość 0. |
-| `test_is_first_datanode` |W przypadku bieżącego węzła jest pierwsze dane (proces roboczy) węzła (o nazwie workernode0) zwraca 1; w przeciwnym razie wartość 0. |
-| `get_headnodes` |Zwraca w pełni kwalifikowaną nazwę domeny z headnodes w klastrze. Nazwy są rozdzielone przecinkami. Ciąg pusty jest zwracana w przypadku błędu. |
-| `get_primary_headnode` |Pobiera nazwę FQDN headnode podstawowego. Ciąg pusty jest zwracana w przypadku błędu. |
-| `get_secondary_headnode` |Pobiera nazwę FQDN headnode dodatkowej. Ciąg pusty jest zwracana w przypadku błędu. |
-| `get_primary_headnode_number` |Pobiera liczbowego sufiksu podstawowej headnode. Ciąg pusty jest zwracana w przypadku błędu. |
-| `get_secondary_headnode_number` |Pobiera sufiks numeryczny z headnode dodatkowej. Ciąg pusty jest zwracana w przypadku błędu. |
+| `test_is_datanode` |W przypadku hello bieżący węzeł jest węzłem danych (proces roboczy), zwraca 1; w przeciwnym razie wartość 0. |
+| `test_is_first_datanode` |W przypadku bieżącego węzła hello jest pierwsze dane hello (proces roboczy) węzła (o nazwie workernode0) zwraca 1; w przeciwnym razie wartość 0. |
+| `get_headnodes` |Zwraca nazwę FQDN hello hello headnodes hello klastra. Nazwy są rozdzielone przecinkami. Ciąg pusty jest zwracana w przypadku błędu. |
+| `get_primary_headnode` |Pobiera nazwę FQDN hello hello headnode podstawowego. Ciąg pusty jest zwracana w przypadku błędu. |
+| `get_secondary_headnode` |Pobiera nazwę FQDN hello hello headnode dodatkowej. Ciąg pusty jest zwracana w przypadku błędu. |
+| `get_primary_headnode_number` |Pobiera sufiks numeryczny hello z hello headnode podstawowego. Ciąg pusty jest zwracana w przypadku błędu. |
+| `get_secondary_headnode_number` |Pobiera sufiks numeryczny hello z hello headnode dodatkowej. Ciąg pusty jest zwracana w przypadku błędu. |
 
 ## <a name="commonusage"></a>Wspólne wzorce użycia
 
-Ta sekcja zawiera wskazówki dotyczące implementowania niektóre typowe wzorce użycia, które możesz napotkać podczas pisania skryptu niestandardowego.
+Ta sekcja zawiera wskazówki dotyczące implementowania niektóre hello typowe wzorce użycia, które możesz napotkać podczas pisania skryptu niestandardowego.
 
-### <a name="passing-parameters-to-a-script"></a>Przekazywanie parametrów do skryptu
+### <a name="passing-parameters-tooa-script"></a>Przekazywanie parametrów tooa skryptu
 
-W niektórych przypadkach skrypt może wymagać parametrów. Na przykład mogą być potrzebne hasło administratora klastra, korzystając z interfejsu API REST Ambari.
+W niektórych przypadkach skrypt może wymagać parametrów. Na przykład mogą być potrzebne hasło administratora hello hello klastra, korzystając z interfejsu API REST Ambari hello.
 
-Parametry przekazywane do skryptu są określane jako *parametrów pozycyjnych*i są przypisane do `$1` jako pierwszy parametr `$2` sekundy i dlatego w przypadku. `$0`zawiera nazwę sam skrypt.
+Parametry przekazywane do skryptu toohello są określane jako *parametrów pozycyjnych*i są przydzielane za`$1` dla pierwszego parametru hello `$2` dla hello drugi i tak w przypadku. `$0`zawiera nazwę hello hello sam skrypt.
 
-Wartości przekazywane do skryptu jako parametry powinna zostać ujęta w apostrofy ('). Daje to gwarancję, że przekazana wartość jest traktowany jako literału.
+Wartości przekazane jako parametry skryptu toohello powinna zostać ujęta w pojedynczym cudzysłowie ('). Daje to gwarancję, że hello przekazana wartość jest traktowany jako literału.
 
 ### <a name="setting-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-Ustawienie zmiennej środowiskowej jest wykonywane przez następująca instrukcja:
+Ustawienie zmiennej środowiskowej jest wykonywane przez hello następującej instrukcji:
 
     VARIABLENAME=value
 
-Gdzie NAZWA_ZMIENNEJ to nazwa zmiennej. Aby uzyskać dostęp do zmiennej, należy użyć `$VARIABLENAME`. Na przykład można przypisać dla wartości dostarczonej przez parametrów pozycyjnych jako zmienną środowiskową o nazwie HASŁA, należy użyć następującej instrukcji:
+Gdzie NAZWA_ZMIENNEJ to nazwa hello hello zmiennej. Użycie zmiennej, hello tooaccess `$VARIABLENAME`. Na przykład tooassign dla wartości dostarczonej przez parametrów pozycyjnych jako zmienną środowiskową o nazwie HASŁA, należy użyć następującej instrukcji hello:
 
     PASSWORD=$1
 
-Następnie można użyć kolejnych dostępu do informacji `$PASSWORD`.
+Dostęp do informacji toohello można następnie użyć `$PASSWORD`.
 
-Zmienne środowiskowe w skrypt istnieje tylko w zakresie skryptu. W niektórych przypadkach może być konieczne dodanie zmiennych środowiskowych na poziomie całego systemu, zachowywanych po zakończeniu działania skryptu. Aby dodać zmiennych środowiskowych na poziomie całego systemu, należy dodać zmienną `/etc/environment`. Na przykład następująca instrukcja dodaje `HADOOP_CONF_DIR`:
+Zmienne środowiskowe w hello skrypt istnieje tylko w zakresie hello hello skryptu. W niektórych przypadkach może być konieczne tooadd zmiennych środowiskowych całego systemu, które pozostają po zakończeniu działania skryptu hello. zmienne środowiskowe systemowe tooadd, Dodaj zmienną hello zbyt`/etc/environment`. Na przykład dodaje powitania po instrukcji `HADOOP_CONF_DIR`:
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 ```
 
-### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Dostęp do lokalizacji, w którym są przechowywane niestandardowe skrypty
+### <a name="access-toolocations-where-hello-custom-scripts-are-stored"></a>Gdzie są przechowywane niestandardowe skrypty hello toolocations dostępu
 
-Skrypty używane w celu dostosowania klastra musi być przechowywany w jednym z następujących lokalizacji:
+Skrypty używane toocustomize klastra musi toobe przechowywane w jednej z następujących lokalizacji hello:
 
-* __Konta magazynu Azure__ skojarzonego z klastrem.
+* __Konta magazynu Azure__ skojarzonego z klastrem hello.
 
-* __Konta magazynu dodatkowe__ skojarzony z klastrem.
+* __Konta magazynu dodatkowe__ skojarzony z klastrem hello.
 
-* A __publicznie można odczytać identyfikatora URI__. Na przykład adres URL, do danych przechowywanych na OneDrive, Dropbox lub innych plików obsługującego usługę.
+* A __publicznie można odczytać identyfikatora URI__. Na przykład adres URL toodata przechowywane na OneDrive, Dropbox lub innych plików usługi hosta.
 
-* __Konta usługi Azure Data Lake Store__ skojarzonego z klastrem usługi HDInsight. Aby uzyskać więcej informacji na temat używania usługi Azure Data Lake Store z usługą HDInsight, zobacz [tworzenia klastra usługi HDInsight z usługą Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* __Konta usługi Azure Data Lake Store__ skojarzonego z klastrem usługi HDInsight hello. Aby uzyskać więcej informacji na temat używania usługi Azure Data Lake Store z usługą HDInsight, zobacz [tworzenia klastra usługi HDInsight z usługą Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     > [!NOTE]
-    > Nazwy głównej usługi, które HDInsight używa do uzyskiwania dostępu usługi Data Lake Store musi mieć dostęp do odczytu do skryptu.
+    > Hello usługi głównej HDInsight używa tooaccess Data Lake — Magazyn musi mieć dostęp do odczytu toohello skryptu.
 
-Zasoby używane przez skrypt również musi być publicznie dostępny.
+Zasoby używane przez skrypt hello również musi być publicznie dostępny.
 
-Przechowywanie plików w koncie magazynu Azure lub usługi Azure Data Lake Store zapewnia szybki dostęp, jako zarówno w ramach sieci platformy Azure.
+Przechowywanie plików hello w koncie magazynu Azure lub usługi Azure Data Lake Store zapewnia szybki dostęp, jako zarówno w ramach hello sieć platformy Azure.
 
 > [!NOTE]
-> Format identyfikatora URI używany w celu skrypt różni się w zależności od używanej usługi. Dla konta magazynu skojarzone z klastrem usługi HDInsight, użyj `wasb://` lub `wasbs://`. Identyfikatory URI publicznie do odczytu, użyj `http://` lub `https://`. Data Lake Store, użyj `adl://`.
+> w zależności od używanej usługi hello różni się Hello skryptu hello tooreference formatu identyfikatora URI. Dla konta magazynu skojarzone z klastrem usługi HDInsight hello, użyj `wasb://` lub `wasbs://`. Identyfikatory URI publicznie do odczytu, użyj `http://` lub `https://`. Data Lake Store, użyj `adl://`.
 
-### <a name="checking-the-operating-system-version"></a>Sprawdzanie wersji systemu operacyjnego
+### <a name="checking-hello-operating-system-version"></a>Sprawdzanie wersji systemu operacyjnego hello
 
-Różne wersje HDInsight korzystają z określonych wersji systemu Ubuntu. Może to być różnice między systemami Operacyjnymi, które muszą sprawdzaj w skrypcie. Na przykład konieczne może zainstalować pliku binarnego, który jest powiązany z wersją Ubuntu.
+Różne wersje HDInsight korzystają z określonych wersji systemu Ubuntu. Może to być różnice między systemami Operacyjnymi, które muszą sprawdzaj w skrypcie. Na przykład może być konieczne tooinstall pliku binarnego, który jest wersja wiązanej toohello Ubuntu.
 
-Aby sprawdzić wersję systemu operacyjnego, należy użyć `lsb_release`. Na przykład poniższy skrypt pokazuje, jak odwołać plik tar określonych w zależności od wersji systemu operacyjnego:
+toocheck wersji hello systemu operacyjnego, użyj `lsb_release`. Na przykład hello następującego skryptu pokazano, jak tooreference tar określonego pliku w zależności od wersji systemu operacyjnego hello:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -314,27 +314,27 @@ fi
 
 ## <a name="deployScript"></a>Lista kontrolna wdrażania akcji skryptu
 
-Poniżej przedstawiono kroki, które Wybraliśmy podczas przygotowania do wdrożenia tych skryptów:
+Poniżej przedstawiono kroki hello Wybraliśmy podczas przygotowywania toodeploy te skrypty:
 
-* Umieścić pliki, które zawierają niestandardowe skrypty w miejscu, który jest dostępny dla węzłów klastra podczas wdrażania. Na przykład domyślny magazyn dla klastra. Pliki mogą być również przechowywane w publicznie do odczytu usług hostingu.
-* Sprawdź, czy skrypt impotent. Dzięki temu skryptu do wykonania wiele razy w tym samym węźle.
-* Użyj /tmp katalogu plików tymczasowych, aby zachować pobrane pliki używane przez skrypty i następnie wyczyść je po wykonaniu skryptów.
-* Ustawienia na poziomie systemu operacyjnego lub plików konfiguracyjnych usługi Hadoop są zmieniane, można ponownie uruchomić usługi HDInsight.
+* Umieść hello pliki, które zawierają hello niestandardowych skryptów w miejscu, który jest dostępny dla węzłów klastra hello podczas wdrażania. Na przykład hello domyślny magazyn dla klastra hello. Pliki mogą być również przechowywane w publicznie do odczytu usług hostingu.
+* Sprawdź, czy skrypt hello impotent. Dzięki temu toobe skryptu hello wykonywane wiele razy na powitania sam węzeł.
+* Użyj pliku tymczasowego katalogu /tmp tookeep hello pobrane pliki używane przez skrypty hello i następnie wyczyść je po wykonaniu skryptów.
+* Jeśli ustawienia na poziomie systemu operacyjnego lub plików konfiguracyjnych usługi Hadoop są zmieniane, możesz toorestart usługi HDInsight.
 
-## <a name="runScriptAction"></a>Jak uruchomić akcję skryptu
+## <a name="runScriptAction"></a>Jak toorun akcji skryptu
 
-Akcje skryptu umożliwia dostosowywanie klastrów usługi HDInsight przy użyciu następujących metod:
+Można użyć skryptu akcje toocustomize klastrów usługi HDInsight przy użyciu hello następujące metody:
 
 * Azure Portal
 * Azure PowerShell
 * Szablony usługi Azure Resource Manager
-* Zestaw .NET SDK usługi HDInsight.
+* Witaj zestawu .NET SDK usługi HDInsight.
 
-Aby uzyskać więcej informacji na temat używania każdej z metod, zobacz [sposób użycia akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
+Aby uzyskać więcej informacji na temat używania każdej z metod, zobacz [jak toouse skryptu akcji](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Przykłady niestandardowych skryptów
 
-Firma Microsoft udostępnia przykładowe skrypty, aby zainstalować składniki w klastrze usługi HDInsight. Zobacz następujące linki dla więcej przykład akcji skryptu.
+Firma Microsoft udostępnia przykładowe skrypty tooinstall składników w klastrze usługi HDInsight. Zobacz następujące łącza więcej akcji skryptu przykład hello.
 
 * [Zainstalować i używać Hue w klastrach HDInsight](hdinsight-hadoop-hue-linux.md)
 * [Zainstalować i używać Solr w klastrach HDInsight](hdinsight-hadoop-solr-install-linux.md)
@@ -343,38 +343,38 @@ Firma Microsoft udostępnia przykładowe skrypty, aby zainstalować składniki w
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Błędy, które mogą wystąpić podczas za pomocą skryptów, które zostały opracowane są następujące:
+błędy, które mogą wystąpić podczas za pomocą skryptów, które zostały opracowane są następujące Hello:
 
 **Błąd**: `$'\r': command not found`. Czasami następuje `syntax error: unexpected end of file`.
 
-*Przyczyna*: ten błąd występuje, gdy wierszy w skrypcie kończyć CRLF. Systemy UNIX oczekiwać tylko LF jako zakończenia linii.
+*Przyczyna*: ten błąd występuje, gdy hello wierszy w skrypcie kończyć CRLF. Systemy UNIX oczekiwać tylko LF jako hello koniec wiersza.
 
-Ten problem najczęściej występuje, gdy skrypt został utworzony w środowisku Windows CRLF jest linii Kończenie dla wielu edytory tekstów w systemie Windows.
+Ten problem najczęściej występuje, gdy hello skrypt został utworzony w środowisku Windows CRLF jest linii Kończenie dla wielu edytory tekstów w systemie Windows.
 
-*Rozdzielczość*: Jeśli jest to opcja w edytorze tekstu, wybierz Unix format lub LF na koniec wiersza. Aby zmienić CRLF LF może także użyć następujących poleceń w systemie Unix:
+*Rozdzielczość*: Jeśli jest to opcja w edytorze tekstu, wybierz format systemu Unix lub LF dla hello zakończenia wiersza. Można także użyć następujących poleceń na Unix systemu toochange hello CRLF tooan LF hello:
 
 > [!NOTE]
-> Poniższe polecenia są w przybliżeniu w tym powinien Zmień zakończenia wierszy CRLF wysuwu wiersza. Wybierz jedno z narzędzi dostępnych w systemie w oparciu.
+> Witaj poniższe polecenia są w przybliżeniu powinny one zmieniać tooLF zakończenia wiersza CRLF hello. Wybierz jedną oparte na powitania narzędzi dostępnych w systemie.
 
 | Polecenie | Uwagi |
 | --- | --- |
-| `unix2dos -b INFILE` |Kopii zapasowej oryginalnego pliku z. Rozszerzeniem BAK |
+| `unix2dos -b INFILE` |kopii zapasowej oryginalnego pliku Hello z. Rozszerzeniem BAK |
 | `tr -d '\r' < INFILE > OUTFILE` |PLIKWYJŚCIOWY zawiera wersję z tylko LF zakończenia |
-| `perl -pi -e 's/\r\n/\n/g' INFILE` | Modyfikuje plik bezpośrednio |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | Modyfikuje plik hello bezpośrednio |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |PLIKWYJŚCIOWY zawiera wersję z tylko LF zakończenia. |
 
 **Błąd**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Przyczyna*: ten błąd występuje, gdy skrypt został zapisany jako UTF-8 z znacznik kolejności bajtów (BOM).
+*Przyczyna*: ten błąd występuje, gdy hello skrypt został zapisany jako UTF-8 z znacznik kolejności bajtów (BOM).
 
-*Rozdzielczość*: Zapisz plik w formacie ASCII lub jako UTF-8 bez BOM. Aby utworzyć plik bez BOM może także użyć następującego polecenia w systemie Linux lub Unix:
+*Rozdzielczość*: hello Zapisz albo jako ASCII lub UTF-8 bez BOM. Można także użyć następującego polecenia w systemie Linux lub Unix systemu toocreate pliku bez hello BOM hello:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Zastąp `INFILE` z pliku zawierającego BOM. `OUTFILE`powinien być nową nazwę pliku, który zawiera skrypt bez BOM.
+Zastąp `INFILE` hello plik zawierający hello BOM. `OUTFILE`powinien być nową nazwę pliku, zawierającego hello skryptu bez hello BOM.
 
 ## <a name="seeAlso"></a>Następne kroki
 
-* Dowiedz się, jak [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)
-* Użyj [odwołania do zestawu SDK .NET usługi HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) Aby dowiedzieć się więcej o tworzeniu aplikacji .NET, które zarządzają HDInsight
-* Użyj [interfejsu API REST usługi HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) więcej informacji na temat używania REST do wykonywania akcji związanych z zarządzaniem w klastrach usługi HDInsight.
+* Dowiedz się, jak za[HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)
+* Użyj hello [odwołania do zestawu SDK .NET usługi HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) toolearn więcej informacji na temat tworzenia aplikacji .NET, które zarządzają HDInsight
+* Użyj hello [interfejsu API REST usługi HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) toolearn jak klastrów akcje zarządzania tooperform toouse REST w usłudze HDInsight.

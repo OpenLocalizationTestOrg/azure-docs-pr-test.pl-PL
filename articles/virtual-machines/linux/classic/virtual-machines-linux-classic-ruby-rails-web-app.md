@@ -1,5 +1,5 @@
 ---
-title: Host Ruby w witrynie sieci Web szyny na maszynie Wirtualnej systemu Linux | Dokumentacja firmy Microsoft
+title: aaaHost Ruby w witrynie sieci Web szyny na maszynie Wirtualnej systemu Linux | Dokumentacja firmy Microsoft
 description: "Konfigurowanie i udostępniać Ruby na podstawie szyny witryny sieci Web na platformie Azure przy użyciu maszyny wirtualnej systemu Linux."
 services: virtual-machines-linux
 documentationcenter: ruby
@@ -15,48 +15,48 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 0518519da6c5e62a863a47d6743ab7b7c5923acf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c545c24fc6c89497854bbe55a6d0d1d0b072c386
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplikacja sieci Web Ruby on Rails na maszynie wirtualnej platformy Azure
-Ten samouczek pokazuje, jak udostępniać Ruby na szyny witryny sieci Web na platformie Azure przy użyciu maszyny wirtualnej systemu Linux.  
+Ten samouczek pokazuje, jak toohost Ruby na szyny witryny sieci Web na platformie Azure przy użyciu maszyny wirtualnej systemu Linux.  
 
-W tym samouczku została zweryfikowana przy użyciu Ubuntu Server 14.04 LTS. Jeśli używasz innej dystrybucji systemu Linux, może być konieczne zmodyfikowanie kroki, aby zainstalować szyny.
+W tym samouczku została zweryfikowana przy użyciu Ubuntu Server 14.04 LTS. Jeśli używasz innej dystrybucji systemu Linux, może być konieczne toomodify hello kroki szyny tooinstall.
 
 > [!IMPORTANT]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../../../azure-resource-manager/resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../../../azure-resource-manager/resource-manager-deployment-model.md).  W tym artykule omówiono przy użyciu hello klasycznego modelu wdrażania. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager.
 >
 >
 
 ## <a name="create-an-azure-vm"></a>Tworzenie maszyny Wirtualnej platformy Azure
 Rozpocznij od utworzenia maszyny Wirtualnej platformy Azure z obrazem systemu Linux.
 
-Aby utworzyć maszynę Wirtualną, używając portalu Azure lub interfejsu wiersza polecenia platformy Azure (CLI).
+toocreate hello maszyny Wirtualnej, można użyć hello portalu Azure lub hello Azure interfejsu wiersza polecenia (CLI).
 
 ### <a name="azure-portal"></a>Azure Portal
-1. Zaloguj się do [portalu Azure](https://portal.azure.com)
-2. Kliknij przycisk **nowy**, następnie w polu wyszukiwania wpisz "Ubuntu Server 14.04". Kliknij wpis zwrócony przez wyszukiwanie. Wybierz model wdrażania **klasycznego**, następnie kliknij przycisk "Utwórz".
-3. Podaj wartości dla pól wymaganych w bloku podstawowe służące: Nazwa (VM), nazwę użytkownika, typ uwierzytelniania i odpowiednie poświadczenia subskrypcji platformy Azure, lokalizacji i grupy zasobów.
+1. Zaloguj się na powitania [portalu Azure](https://portal.azure.com)
+2. Kliknij przycisk **nowy**, wpisz "Ubuntu Server 14.04" hello pola wyszukiwania. Kliknij pozycję hello zwróconych hello wyszukiwania. Wybierz model wdrażania hello, **klasycznego**, następnie kliknij przycisk "Utwórz".
+3. W bloku podstawy hello, podaj wartości dla pól wymaganych hello: Nazwa (hello maszyny Wirtualnej), nazwę użytkownika, typ uwierzytelniania i hello odpowiednie poświadczenia, subskrypcji platformy Azure, grupy zasobów i lokalizacji.
 
    ![Utwórz nowy obraz Ubuntu](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
 
-4. Po zainicjowaniu obsługi maszyny Wirtualnej, kliknij nazwę maszyny Wirtualnej i kliknij przycisk **punkty końcowe** w **ustawienia** kategorii. Znaleźć punkt końcowy SSH, kategorii **autonomiczny**.
+4. Po udostępnieniu hello maszyny Wirtualnej, kliknij nazwę maszyny Wirtualnej hello i kliknij przycisk **punkty końcowe** w hello **ustawienia** kategorii. Znajdź hello punkt końcowy SSH, kategorii **autonomiczny**.
 
    ![Domyślny punkt końcowy](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Postępuj zgodnie z instrukcjami [tworzenia maszyny wirtualnej systemem Linux][vm-instructions].
+Wykonaj kroki hello w [tworzenia maszyny wirtualnej systemem Linux][vm-instructions].
 
-Po zainicjowaniu obsługi maszyny Wirtualnej, można uzyskać punkt końcowy SSH, uruchamiając następujące polecenie:
+Po udostępnieniu hello maszyny Wirtualnej można uzyskać, uruchamiając następujące polecenie hello punkt końcowy SSH hello:
 
     azure vm endpoint list <vm-name>  
 
 ## <a name="install-ruby-on-rails"></a>Zainstaluj na szyny Ruby
-1. Używanie protokołu SSH, aby nawiązać połączenie z maszyną Wirtualną.
-2. W sesji SSH Aby zainstalować Ruby na maszynie Wirtualnej należy użyć następujących poleceń:
+1. Użyj toohello tooconnect SSH maszyny Wirtualnej.
+2. Hello sesji SSH używając hello, wykonując polecenia tooinstall Ruby na powitania maszyny Wirtualnej:
 
         sudo apt-get update -y
         sudo apt-get upgrade -y
@@ -66,77 +66,77 @@ Po zainicjowaniu obsługi maszyny Wirtualnej, można uzyskać punkt końcowy SSH
         sudo apt-get install ruby2.4
 
         > [!TIP]
-        > The brightbox repository contains the current Ruby distribution.
+        > hello brightbox repository contains hello current Ruby distribution.
 
-    Instalacja może zająć kilka minut. Po ukończeniu, użyj następującego polecenia, aby sprawdzić, czy zainstalowano Ruby:
+    Witaj, instalacja może zająć kilka minut. Po ukończeniu, należy użyć powitania po tooverify polecenia zainstalowano Ruby:
 
         ruby -v
 
-3. Aby zainstalować szyny, użyj następującego polecenia:
+3. Użyj hello następujące polecenie szyny tooinstall:
 
         sudo gem install rails --no-rdoc --no-ri -V
 
-    Użyj nie rdoc i--nie ri flagi pomijania instalowanie dokumentacji, co jest szybsze.
-    To polecenie będzie prawdopodobnie zająć dużo czasu do wykonania, więc Dodawanie -V zostaną wyświetlone informacje o postępie instalacji.
+    Użyj hello--nie rdoc i--nie ri flagi tooskip instalowanie dokumentacji hello jest szybszy.
+    To polecenie będzie może zająć dużo czasu tooexecute, więc Dodawanie hello -V zostaną wyświetlone informacje o postępie instalacji hello.
 
 ## <a name="create-and-run-an-app"></a>Tworzenie i uruchamianie aplikacji
-Jest nadal zalogowany za pośrednictwem protokołu SSH, uruchom następujące polecenia:
+Jest nadal zalogowany za pośrednictwem protokołu SSH, uruchom następujące polecenia hello:
 
     rails new myapp
     cd myapp
     rails server -b 0.0.0.0 -p 3000
 
-[Nowe](http://guides.rubyonrails.org/command_line.html#rails-new) polecenie tworzy nową aplikację szyny. [Serwera](http://guides.rubyonrails.org/command_line.html#rails-server) polecenie uruchamia serwer sieci web WEBrick dołączony do szyny. (Do użytku produkcyjnego będzie prawdopodobnie chcesz użyć innego serwera, takie jak Unicorn lub pasażerów.)
+Witaj [nowe](http://guides.rubyonrails.org/command_line.html#rails-new) polecenie tworzy nową aplikację szyny. Witaj [serwera](http://guides.rubyonrails.org/command_line.html#rails-server) polecenie uruchamia hello serwera sieci web WEBrick dołączony do szyny. (Do użytku produkcyjnego prawdopodobnie odpowiedni będzie toouse innego serwera, takie jak Unicorn lub pasażerów.)
 
-Powinny pojawić się dane wyjściowe podobne do następujących:
+Powinny pojawić się dane wyjściowe podobne toohello poniżej.
 
     => Booting WEBrick
     => Rails 4.2.1 application starting in development on http://0.0.0.0:3000
     => Run `rails server -h` for more startup options
-    => Ctrl-C to shutdown server
+    => Ctrl-C tooshutdown server
     [2015-06-09 23:34:23] INFO  WEBrick 1.3.1
     [2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Dodawanie punktu końcowego
-1. Przejdź do [Azure portal] [https://portal.azure.com] i wybierz maszyny Wirtualnej.
+1. Przejdź toohello [portalu Azure] [https://portal.azure.com] i wybierz maszyny Wirtualnej.
 
-2. Wybierz **punkty końcowe** w **ustawienia** wzdłuż lewej krawędzi strony.
+2. Wybierz **punkty końcowe** w hello **ustawienia** wzdłuż hello lewej krawędzi hello strony.
 
-3. Kliknij przycisk **dodać** w górnej części strony.
+3. Kliknij przycisk **dodać** u góry hello hello strony.
 
-4. W **dodać punkt końcowy** okna dialogowego wprowadź następujące informacje:
+4. W hello **dodać punkt końcowy** okna dialogowego wprowadź hello następujących informacji:
 
    * **Nazwa**: HTTP
    * **Protokół**: TCP
    * **Port publiczny**: 80
    * **Port prywatny**: 3000
    * **Pływającego adresu PI**: wyłączone
-   * **Listy kontroli dostępu — kolejność**: 1001 lub inną wartość, która ustawia priorytet tej reguły dostępu.
+   * **Listy kontroli dostępu — kolejność**: 1001 lub inną wartość, która ustawia hello priorytet tej reguły dostępu.
    * **Listy kontroli dostępu — nazwa**: allowHTTP
    * **Listy kontroli dostępu — Akcja**: Zezwalaj
    * **Listy kontroli dostępu - podsieci zdalnej**: 1.0.0.0/16
 
-     Ten punkt końcowy ma publiczny port 80, które będzie kierować ruch do port prywatny 3000, gdzie serwer szyny nasłuchuje. Reguły listy kontroli dostępu zezwala na publiczny ruch na porcie 80.
+     Ten punkt końcowy ma publiczny port 80, który skieruje ruchu toohello port prywatny 3000, gdzie hello szyny serwer nasłuchuje. reguły listy kontroli dostępu Hello umożliwia publiczny ruch na porcie 80.
 
      ![nowy punkt końcowy](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
-5. Kliknij przycisk OK, aby zapisać punktu końcowego.
+5. Kliknij przycisk OK toosave hello endpoint.
 
-6. Komunikat powinien zostać wyświetlony stwierdzający **zapisywanie punktu końcowego maszyny wirtualnej**. Gdy ten komunikat nie zniknie, punkt końcowy jest aktywna. Może teraz przetestować aplikację, przechodząc do nazwę DNS maszyny wirtualnej. Witryna sieci Web powinna wyglądać podobnie do następującego:
+6. Komunikat powinien zostać wyświetlony stwierdzający **zapisywanie punktu końcowego maszyny wirtualnej**. Gdy ten komunikat nie zniknie, punktu końcowego hello jest aktywna. Może teraz przetestować aplikację, przechodząc toohello nazwę DNS maszyny wirtualnej. Hello witryny sieci Web powinna wyglądać podobnie toohello następujące:
 
     ![Domyślna strona szyny][default-rails-cloud]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku jak większość czynności ręcznie. W środowisku produkcyjnym może napisać aplikację na komputerze deweloperskim i wdrożyć go na maszynie Wirtualnej platformy Azure. Ponadto większość środowisk produkcyjnych hostowania aplikacji szyny w połączeniu z innym procesem serwera, takich jak Apache lub NginX, która obsługuje żądania routingu do wielu wystąpień aplikacji szyny i obsługująca zasoby statyczne. Aby uzyskać więcej informacji zobacz http://rubyonrails.org/deploy/.
+W tym samouczku jak większość kroków hello ręcznie. W środowisku produkcyjnym może napisać aplikację na komputerze deweloperskim i wdrożyć ją toohello maszyny Wirtualnej platformy Azure. Ponadto większość środowisk produkcyjnych hostowanie aplikacji szyny hello w połączeniu z innym procesem serwera, takich jak Apache lub NginX, która obsługuje żądania routingu wystąpień toomultiple hello szyny aplikacji oraz obsługująca zasoby statyczne. Aby uzyskać więcej informacji zobacz http://rubyonrails.org/deploy/.
 
-Aby dowiedzieć się więcej na temat Ruby na szyny, odwiedź stronę [dopisków fonetycznych w przewodnikach szyny][rails-guides].
+toolearn więcej informacji na temat Ruby na szyny, odwiedź stronę hello [dopisków fonetycznych w przewodnikach szyny][rails-guides].
 
-Aby korzystać z aplikacji dopisków fonetycznych usług Azure, zobacz:
+toouse Azure usług z aplikacji dopisków fonetycznych, zobacz:
 
 * [Przechowywania danych niestrukturalnych przy użyciu obiektów blob][blobs]
 * [Pary klucz wartość magazynu przy użyciu tabel][tables]
-* [Udostępniać zawartość dużej przepustowości w sieci dostarczania zawartości][cdn-howto]
+* [Obsługiwać zawartości wysokiej przepustowości z hello sieci dostarczania zawartości][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

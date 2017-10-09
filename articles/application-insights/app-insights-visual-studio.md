@@ -1,5 +1,5 @@
 ---
-title: "Debugowanie aplikacji z usługą Azure Application Insights w programie Visual Studio | Dokumentacja firmy Microsoft"
+title: "aaaDebug aplikacji za pomocą usługi Azure Application Insights w programie Visual Studio | Dokumentacja firmy Microsoft"
 description: "Analiza wydajności i diagnostyka aplikacji sieci Web podczas debugowania oraz w środowisku produkcyjnym."
 services: application-insights
 documentationcenter: .net
@@ -13,63 +13,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/7/2017
 ms.author: bwren
-ms.openlocfilehash: e0ac2bf01992520cdbea22a232dc42d678d77c7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 20491fbe4505bf719039e5d1c220b1afec01db25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debugowanie aplikacji przy użyciu usługi Azure Application Insights w programie Visual Studio
 W programie Visual Studio (w wersji 2015 i nowszych) można analizować wydajność i diagnozować problemy w aplikacji sieci Web platformy ASP.NET zarówno podczas debugowania, jak i w środowisku produkcyjnym, przy użyciu telemetrii z usługi [Azure Application Insights](app-insights-overview.md).
 
-Jeśli aplikację sieci Web platformy ASP.NET utworzono przy użyciu programu Visual Studio 2017 lub nowszego, zawiera już ona zestaw SDK usługi Application Insights. W przeciwnym razie, jeśli jeszcze tego nie zrobiono, należy [dodać usługę Application Insights do aplikacji](app-insights-asp-net.md).
+Jeśli utworzono aplikację sieci web ASP.NET przy użyciu programu Visual Studio 2017 lub później, jest już hello zestaw SDK usługi Application Insights. W przeciwnym razie, jeśli użytkownik jeszcze tego nie zrobiono, [dodać usługi Application Insights tooyour aplikację](app-insights-asp-net.md).
 
-Monitorowanie aplikacji w środowisku produkcyjnym zwykle polega na przeglądaniu danych telemetrycznych z usługi Application Insights w witrynie [Azure Portal](https://portal.azure.com), w której można ustawiać alerty i stosować zaawansowane narzędzia do monitorowania. Jednak na potrzeby debugowania można również wyszukiwać i analizować dane telemetryczne w programie Visual Studio. Visual Studio umożliwia analizowanie danych telemetrycznych zarówno z lokacji produkcyjnych i debugowanie działa na komputerze deweloperskim. W tym ostatnim przypadku można analizować przebiegi debugowania, nawet jeśli nie skonfigurowano jeszcze zestawu SDK na potrzeby wysyłania danych telemetrycznych do witryny Azure Portal. 
+toomonitor aplikacji po jej w środowisku produkcyjnym na żywo, zwykle wyświetlić hello telemetrii usługi Application Insights w hello [portalu Azure](https://portal.azure.com), gdzie można ustawić alertów i zastosować zaawansowanych narzędzi monitorowania. Jednak do debugowania, możesz również wyszukiwania i analizować dane telemetryczne hello w programie Visual Studio. Używając telemetrii tooanalyze programu Visual Studio zarówno z lokacji produkcyjnych i debugowanie działa na komputerze deweloperskim. W drugim przypadku hello można analizować debugowania działa nawet, jeśli jeszcze nie skonfigurowano hello SDK toosend telemetrii toohello portalu Azure. 
 
 ## <a name="run"></a> Debugowanie projektu
-Uruchom aplikację sieci Web w trybie debugowania lokalnego, naciskając klawisz F5. Otwórz różne strony w celu wygenerowania telemetrii.
+Uruchom aplikację sieci Web w trybie debugowania lokalnego, naciskając klawisz F5. Otwórz niektóre dane telemetryczne toogenerate różnych stron.
 
-W programie Visual Studio zobacz temat liczbę zdarzeń, które zostały zarejestrowane przez moduł usługi Application Insights w projekcie.
+W programie Visual Studio zobacz temat liczbę hello zdarzenia, które zostały zarejestrowane przez moduł usługi Application Insights hello w projekcie.
 
-![Przycisk usługi Application Insights jest widoczny w programie Visual Studio podczas debugowania.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
+![W programie Visual Studio przycisk Application Insights hello pokazuje podczas debugowania.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
 
-Kliknij ten przycisk, aby wyszukać dane telemetryczne. 
+Kliknij ten przycisk toosearch telemetrii. 
 
 ## <a name="application-insights-search"></a>Wyszukiwanie usługi Application Insights
-Okno wyszukiwania usługi Application Insights pokazuje zarejestrowane zdarzenia. (Jeśli użytkownik zarejestrowany w usłudze Azure podczas konfigurowania usługi Application Insights, można wyszukiwać tego samego zdarzenia w portalu Azure.)
+Okno wyszukiwania usługi Application Insights Hello zawiera zdarzenia, które zostały zarejestrowane. (Jeśli zalogowano tooAzure podczas konfigurowania usługi Application Insights, możesz wyszukać hello tego samego zdarzenia w portalu Azure hello.)
 
-![Kliknij prawym przyciskiem myszy projekt i wybierz kolejno opcje Application Insights, Wyszukiwanie](./media/app-insights-visual-studio/34.png)
+![Kliknij prawym przyciskiem myszy projekt hello i wybierz usługę Application Insights wyszukiwania](./media/app-insights-visual-studio/34.png)
 
 > [!NOTE] 
-> Po wybraniu lub anulowaniu wyboru filtrów kliknij przycisk wyszukiwania na końcu tekstowego pola wyszukiwania.
+> Po zaznaczeniu lub Anuluj wybór filtrów, kliknij przycisk wyszukiwania hello na końcu hello hello pole wyszukiwania.
 >
 
-Wyszukiwanie dowolnego tekstu działa we wszystkich polach zdarzeń. Można wyszukać na przykład część adresu URL strony, wartość właściwości (taką jak miasto klienta) lub określone słowa w dzienniku śledzenia.
+na wszystkie pola w zdarzeniach hello działa Hello dowolny tekst wyszukiwania. Na przykład wyszukać część hello adres URL strony; lub hello wartość właściwości, takie jak klient Miasto; lub słów w dzienniku śledzenia.
 
-Kliknij dowolne zdarzenie, aby wyświetlić jego szczegółowe właściwości.
+Kliknij przycisk Właściwości szczegółowe toosee żadnych zdarzeń.
 
-W celu wyświetlenia żądań wysyłanych do aplikacji sieci Web można kliknąć w obrębie kodu.
+Dla żądania tooyour aplikacji sieci web możesz kliknąć za pośrednictwem toohello kodu.
 
-![W obszarze Szczegóły żądania kliknij w obrębie kodu](./media/app-insights-visual-studio/31.png)
+![W obszarze szczegółów żądania kliknij go, toohello kodu](./media/app-insights-visual-studio/31.png)
 
-Można również otworzyć elementy pokrewne, aby łatwiej diagnozować niepowodzenia żądań lub wyjątki.
+Elementy pokrewne można również otworzyć toohelp diagnozowanie żądań zakończonych niepowodzeniem lub wyjątki.
 
-![W obszarze Szczegóły żądania przewiń w dół do elementów pokrewnych](./media/app-insights-visual-studio/41.png)
+![W obszarze szczegółów żądania przewiń w dół toorelated elementów](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Wyświetl wyjątki oraz nieudanych żądań.
-Raporty dotyczące wyjątków są wyświetlane w oknie wyszukiwania. W niektórych starszych typach aplikacji sieci Web platformy ASP.NET trzeba [skonfigurować monitorowanie wyjątków](app-insights-asp-net-exceptions.md), aby zobaczyć wyjątki, które są obsługiwane przez architekturę.
+Pokaż raporty wyjątek hello wyszukiwania okna. (W niektórych starszych typów aplikacji sieci Web ASP.NET, należy za[monitorowania wyjątków](app-insights-asp-net-exceptions.md) toosee wyjątki, które są obsługiwane przez platformę hello.)
 
-Kliknij wyjątek, aby uzyskać ślad stosu. Jeśli kod aplikacji jest otwarty w programie Visual Studio, można przejść przez ślad stosu do odpowiedniego wiersza kodu.
+Kliknij przycisk tooget wyjątku, ślad stosu. Jeśli kod aplikacji hello hello jest otwarty w programie Visual Studio, możesz kliknąć za pośrednictwem z hello stosu śledzenia toohello odpowiedni wiersz kodu hello.
 
 ![Ślad stosu wyjątków](./media/app-insights-visual-studio/17.png)
 
-## <a name="view-request-and-exception-summaries-in-the-code"></a>Wyświetlanie podsumowań żądania i wyjątków w kodzie
-W wierszu kodu obiektyw powyżej każdej metody obsługi można zobaczyć liczbę żądań i wyjątki zarejestrowane przez usługę Application Insights w ciągu ostatnich 24 godzin.
+## <a name="view-request-and-exception-summaries-in-hello-code"></a>Wyświetlanie podsumowań żądania i wyjątków w kodzie hello
+W hello obiektyw kodu wiersz powyżej każdej metody obsługi można zobaczyć liczbę żądań hello i wyjątki zarejestrowane przez usługę Application Insights w ciągu ostatnich 24 godzin hello.
 
 ![Ślad stosu wyjątków](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Dane usługi Application Insights są wyświetlane w wierszach Code Lens tylko wtedy, gdy [skonfigurowano aplikację na potrzeby wysyłania danych telemetrycznych do portalu usługi Application Insights](app-insights-asp-net.md).
+> Obiektyw kod przedstawia tylko dane usługi Application Insights, jeśli masz [skonfigurowane portalem usługi Application Insights aplikacji toosend telemetrii toohello](app-insights-asp-net.md).
 >
 
 [Więcej informacji o usłudze Application Insights w wierszach Code Lens](app-insights-visual-studio-codelens.md)
@@ -77,30 +77,30 @@ W wierszu kodu obiektyw powyżej każdej metody obsługi można zobaczyć liczb�
 ## <a name="trends"></a>Trends
 Trends to narzędzie do wizualizacji zachowania aplikacji wraz z upływem czasu. 
 
-Na przycisku paska narzędzi Application Insights lub w oknie Application Insights Search wybierz pozycję **Eksploruj trendy telemetryczne**. Wybierz jedno z pięciu typowych zapytań, aby rozpocząć. W zależności od typów telemetrii, zakresów czasu i innych właściwości możesz analizować różne zestawy danych . 
+Wybierz **Eksploruj trendy Telemetrii** z przycisku paska narzędzi Application Insights hello lub okno wyszukiwania usługi Application Insights. Wybierz jeden z pięciu tooget zapytania wspólnej pracy. W zależności od typów telemetrii, zakresów czasu i innych właściwości możesz analizować różne zestawy danych . 
 
-Aby znaleźć anomalie w danych, wybierz jedną z opcji anomalii w menu rozwijanym „Typ widoku”. Opcje filtrowania u dołu okna ułatwiają sprecyzowanie konkretnych podzestawów w telemetrii.
+anomalie toofind danych, wybierz jedną z opcji anomalii hello w obszarze rozwijanym "Typ widoku" hello. Opcje filtrowania Hello u dołu okna hello hello był łatwo toohone w na konkretne podzestawy telemetrii.
 
 ![Trends](./media/app-insights-visual-studio/51.png)
 
 [Więcej informacji na temat narzędzia Trends](app-insights-visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitorowanie lokalne
-(Z programu Visual Studio 2015 Update 2) Jeśli nie skonfigurowano zestaw SDK, aby wysłać dane telemetryczne do portalu usługi Application Insights (tak, aby klucz nie istnieje Instrumentacji w ApplicationInsights.config) oknie diagnostyki wyświetla dane telemetryczne z sesji debugowania najnowsza wersja. 
+(Z programu Visual Studio 2015 Update 2) Jeśli nie skonfigurowano portalu Application Insights toohello telemetrii toosend hello SDK (tak, aby klucz nie istnieje Instrumentacji w ApplicationInsights.config) okna diagnostyki hello wyświetla dane telemetryczne z sesji debugowania najnowsza wersja. 
 
-Jest to pożądane, jeśli poprzednia wersji aplikacji została już opublikowana. Lepiej, aby telemetria z sesji debugowania nie była mieszana z telemetrią z opublikowanej aplikacji w portalu Application Insights.
+Jest to pożądane, jeśli poprzednia wersji aplikacji została już opublikowana. Nie chcesz telemetrii hello z Twojej debugowania toobe sesji łączyć z telemetrii hello na powitania portalu Application Insights z opublikowanych aplikacji hello.
 
-Jest to również przydatne, jeśli masz trochę [niestandardowej telemetrii](app-insights-api-custom-events-metrics.md), którą chcesz debugować przed wysłaniem telemetrii do portalu.
+Jest również przydatne w przypadku niektórych [telemetria niestandardowa](app-insights-api-custom-events-metrics.md) mają toodebug przed wysłaniem danych telemetrycznych toohello portalu.
 
-* *Na początku usługa Application Insights została skonfigurowana do wysyłania telemetrii do portalu, ale teraz chcę widzieć telemetrię tylko w programie Visual Studio.*
+* *Na początku I w pełni skonfigurowane usługi Application Insights toosend telemetrii toohello portalu. A teraz chcesz I dane telemetryczne hello toosee tylko w programie Visual Studio.*
   
-  * W ustawieniach okna wyszukiwania istnieje możliwość wyszukiwania lokalnych danych diagnostycznych, nawet jeśli aplikacja wysyła telemetrię do portalu.
-  * Aby zatrzymać przesyłanie telemetrii do portalu, zakomentuj wiersz `<instrumentationkey>...` w pliku ApplicationInsights.config. Gdy wszystko będzie gotowe, odkomentuj wiersz, aby wznowić wysyłanie telemetrii do portalu.
+  * W ustawieniach okna wyszukiwania hello jest opcja toosearch lokalnego diagnostyki nawet wtedy, gdy aplikacja wysyła dane telemetryczne toohello portalu.
+  * dane telemetryczne toostop wysyłane toohello portalu komentarz linii hello `<instrumentationkey>...` z ApplicationInsights.config. Jeśli wszystko jest gotowe toosend telemetrii toohello portal Usuń komentarz.
 
 
 ## <a name="next-steps"></a>Następne kroki
 |  |  |
 | --- | --- |
 | **[Dodawanie większej ilości danych](app-insights-asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Praca z portalem usługi Application Insights](app-insights-dashboards.md)**<br/>Wyświetlanie pulpitów nawigacyjnych, zaawansowanych narzędzi diagnostycznych i danych analitycznych, alerty, mapa na żywo zależności aplikacji i danych telemetrycznych wyeksportowane. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Praca z portalu Application Insights hello](app-insights-dashboards.md)**<br/>Wyświetlanie pulpitów nawigacyjnych, zaawansowanych narzędzi diagnostycznych i danych analitycznych, alerty, mapa na żywo zależności aplikacji i danych telemetrycznych wyeksportowane. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

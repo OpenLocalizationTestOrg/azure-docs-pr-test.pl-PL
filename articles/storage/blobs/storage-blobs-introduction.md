@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do magazynu obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do magazynu obiektów Blob platformy Azure"
+title: "tooAzure aaaIntroduction magazynu obiektów Blob | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie tooAzure magazynu obiektów Blob"
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: robinsh
-ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3431f826ae51d42dbced084ee60f9ff70a8168d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-blob-storage"></a>Wprowadzenie do magazynu obiektów Blob
+# <a name="introduction-tooblob-storage"></a>Wprowadzenie tooBlob magazynu
 
-Azure Blob Storage to usługa do przechowywania dużych ilości danych obiektów niestrukturalnych, takich jak dane tekstowe lub binarne, do których można uzyskać dostęp z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Magazyn obiektów Blob może być użyty do udostępniania danych publicznie lub do przechowywania danych aplikacji prywatnie.
+Magazyn obiektów Blob Azure to usługa do przechowywania dużych ilości danych obiektów niestrukturalnych, takich jak dane tekstowe lub binarne, który można uzyskać z dowolnego miejsca w Witaj świecie za pośrednictwem protokołu HTTP lub HTTPS. Możesz użyć danych tooexpose magazynu obiektów Blob publicznie toohello world lub toostore danych aplikacji prywatnie.
 
 Najczęstsze zastosowania usługi Blob Storage obejmują:
 
-* Obsługiwanie obrazów i dokumentów bezpośrednio w przeglądarce
+* Obrazy lub dokumentów bezpośrednio tooa przeglądarki
 * Przechowywanie plików do dostępu rozproszonego
 * Przesyłanie strumieniowe audio i wideo
 * Zapisywanie danych w celu tworzenia kopii zapasowych, przywracania, odzyskiwania po awarii i archiwizowania
@@ -34,19 +34,19 @@ Najczęstsze zastosowania usługi Blob Storage obejmują:
 
 ## <a name="blob-service-concepts"></a>Pojęcia dotyczące usługi Blob
 
-Usługa Blob obejmuje następujące składniki:
+Usługa Blob Hello zawiera hello następujące składniki:
 
 ![Architektura obiektów blob](./media/storage-blobs-introduction/blob1.png)
 
-* **Konto magazynu:** cały dostęp do usługi Azure Storage odbywa się przez konto magazynu. Konto magazynu może być **konta magazynu ogólnego przeznaczenia** lub **kontem magazynu obiektów Blob** które jest przeznaczone do przechowywania obiektów blob. Aby uzyskać więcej informacji, zobacz [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Informacje o kontach usługi Azure Storage).
+* **Konto magazynu:** wszystkie dostępu tooAzure magazynu odbywa się za pomocą konta magazynu. Konto magazynu może być **konta magazynu ogólnego przeznaczenia** lub **kontem magazynu obiektów Blob** które jest przeznaczone do przechowywania obiektów blob. Aby uzyskać więcej informacji, zobacz [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Informacje o kontach usługi Azure Storage).
 
-* **Kontener:** kontener zawiera grupowanie zestawu obiektów blob. Wszystkie obiekty blob muszą być w kontenerze. Konto może zawierać nieograniczoną liczbę kontenerów. Kontener może przechowywać nieograniczoną liczbę obiektów blob. Pamiętaj, że wszystkie litery w nazwie kontenera muszą być małymi literami.
+* **Kontener:** kontener zawiera grupowanie zestawu obiektów blob. Wszystkie obiekty blob muszą być w kontenerze. Konto może zawierać nieograniczoną liczbę kontenerów. Kontener może przechowywać nieograniczoną liczbę obiektów blob. Należy pamiętać, że czy nazwa kontenera hello muszą być małymi literami.
 
 * **Obiekt blob:** plik dowolnego typu o dowolnym rozmiarze. Usługa Azure Storage udostępnia trzy typy obiektów blob: blokowe, stronicowe i uzupełnialne.
   
-    *Blokowe obiekty blob* idealnie nadają się do przechowywania tekstu lub plików binarnych, takich dokumenty czy pliki multimedialne. *Uzupełnialne obiekty blob* są podobne do obiektów blokowych, ponieważ składają się z bloków, ale zoptymalizowane do operacji uzupełnialnych, więc przydatne w scenariuszach logowania. Pojedynczy blokowy obiekt blob może zawierać do 50 000 bloków do 100 MB każdy, których rozmiar całkowity może nieco przekraczać 4.75 TB (100 MB X 50 000). Pojedynczy uzupełniany obiekt blob może zawierać do 50 000 bloków do 4 MB każdy, których rozmiar całkowity może nieco przekraczać 195 GB (4 MB X 50 000).
+    *Blokowe obiekty blob* idealnie nadają się do przechowywania tekstu lub plików binarnych, takich dokumenty czy pliki multimedialne. *Uzupełnialne* są podobne tooblock obiekty BLOB w tym składają się z bloków, ale zoptymalizowane do operacji uzupełnialnych, więc są przydatne w scenariuszach logowania. Pojedynczy blokowy obiekt blob może zawierać zapasowej too50, 000 bloków too100 MB, rozmiar całkowity może nieco przekraczać 4,75 TB (100 MB X 50 000). Dołącz pojedynczego obiektu blob może zawierać zapasowej too50, 000 bloków too4 MB, całkowita rozmiaru nieco przekraczać 195 GB (4 MB X 50 000).
   
-    *Stronicowe obiekty blob* mogą mieć rozmiar maksymalnie 1 TB i są bardziej efektywne w przypadku operacji częstego odczytu/zapisu. Maszyny wirtualne platformy Azure używa stronicowych obiektów blob jako systemu operacyjnego i dysków z danymi.
+    *Stronicowe obiekty BLOB* może być zapasowej too1 TB, rozmiar i są bardziej efektywne w przypadku operacji częstego odczytu/zapisu. Maszyny wirtualne platformy Azure używa stronicowych obiektów blob jako systemu operacyjnego i dysków z danymi.
   
     Aby uzyskać szczegółowe informacje o nazewnictwie kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych).
 

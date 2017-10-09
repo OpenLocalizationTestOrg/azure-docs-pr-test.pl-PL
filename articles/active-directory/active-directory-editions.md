@@ -1,6 +1,6 @@
 ---
-title: "Wersje usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano opcje bezpłatnie i uregulowaniu wersje usługi Azure Active Directory. Azure Active Directory — wersja podstawowa usługi Azure Active Directory Premium P1 i Azure Active Directory Premium P2 są wersje płatną."
+title: "wersje usługi Active Directory aaaAzure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano opcje bezpłatnie i uregulowaniu wersje usługi Azure Active Directory. Azure Active Directory — wersja podstawowa usługi Azure Active Directory Premium P1 i Azure Active Directory Premium P2 są wersje hello płatnej."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59478692020e84c7bf3fc96cba81eba4e9eb1ae6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-editions"></a>Wersje usługi Azure Active Directory
-Wszystkie usługi biznesowe w witrynie Microsoft Online zależą od usługi Azure Active Directory (Azure AD) do logowania i musi innych tożsamości. Jeśli subskrybujesz usług firm Online firmy Microsoft (na przykład usługi Office 365 lub Microsoft Azure), możesz uzyskać usługi Azure AD dostęp do wszystkich funkcji bezpłatne, opisane poniżej.  
+Wszystkie usługi biznesowe w witrynie Microsoft Online zależą od usługi Azure Active Directory (Azure AD) do logowania i musi innych tożsamości. Jeśli zasubskrybowaniu tooany usług firm Online firmy Microsoft (na przykład usługi Office 365 lub Microsoft Azure), możesz uzyskać usługi Azure AD z tooall dostępu z hello wolnego funkcje opisane poniżej.  
 
-Usługa Azure Active Directory to kompleksowe rozwiązanie o wysokiej dostępności do zarządzania tożsamościami i dostępem w chmurze, które oferuje podstawowe usługi katalogowe, zaawansowane funkcje zarządzania tożsamościami i zarządzania dostępem do aplikacji. Usługa Azure Active Directory oferuje także rozbudowaną platformę opartą na standardach, która umożliwia deweloperom umieszczanie w aplikacjach funkcji kontroli dostępu opartych na scentralizowanych zasadach i regułach. Z usługi Azure Active Directory bezpłatnej wersji można zarządzać użytkownikami i grupami, synchronizować z lokalnymi katalogami, Pobierz rejestracji jednokrotnej na platformie Azure, Office 365 i tysiące popularnych aplikacji SaaS, takich jak Salesforce, produktu Workday, Concur, DocuSign, Google Aplikacje, okno usługi ServiceNow, Dropbox i więcej. Aby dowiedzieć się więcej o usłudze Azure Active Directory, przeczytaj [co to jest usługa Azure AD?](active-directory-whatis.md)
+Usługa Azure Active Directory to kompleksowe rozwiązanie o wysokiej dostępności do zarządzania tożsamościami i dostępem w chmurze, które oferuje podstawowe usługi katalogowe, zaawansowane funkcje zarządzania tożsamościami i zarządzania dostępem do aplikacji. Usługi Azure Active Directory oferuje rozbudowane, opartych na standardach platforma, która umożliwia deweloperom toodeliver dostępu formantu tootheir aplikacji, na podstawie scentralizowanych zasad i reguł. Z hello Azure Active Directory bezpłatna wersja można zarządzać użytkownikami i grupami, synchronizować z lokalnymi katalogami, Pobierz rejestracji jednokrotnej na platformie Azure, Office 365 i tysiące popularnych aplikacji SaaS, takich jak Salesforce, produktu Workday, Concur, DocuSign, Usługi Google Apps, okno usługi ServiceNow, Dropbox i więcej. Przeczytaj toolearn więcej informacji na temat usługi Azure Active Directory, [co to jest usługa Azure AD?](active-directory-whatis.md)
 
-Aby ulepszyć usługi Azure Active Directory, możesz dodać płatnych funkcji przy użyciu wersji usługi Azure Active Directory — wersja podstawowa, Premium P1 i Premium P2. Usługi Azure Active Directory płatnej wersje są zbudowane na podstawie istniejącego katalogu bezpłatne, zapewnia enterprise możliwości klasy spanning samoobsługi, rozszerzone monitorowanie, zabezpieczenia raportowania usługi Multi-Factor Authentication (MFA) i bezpieczny dostęp do sieci pracowników mobilnych.
+tooenhance usłudze Azure Active Directory, można dodać płatnych funkcji przy użyciu wersji hello Azure Active Directory — wersja podstawowa, Premium P1 i Premium P2. Usługi Azure Active Directory płatnej wersje są zbudowane na podstawie istniejącego katalogu bezpłatne, zapewnia enterprise możliwości klasy spanning samoobsługi, rozszerzone monitorowanie, zabezpieczenia raportowania usługi Multi-Factor Authentication (MFA) i bezpieczny dostęp do sieci pracowników mobilnych.
 
-Subskrypcje usługi Office 365 obejmują dodatkowe funkcje usługi Azure Active Directory opisane w poniższej tabeli porównania.
+Subskrypcje usługi Office 365 obejmują dodatkowe funkcje usługi Azure Active Directory opisane w poniższej tabeli hello porównania.
 
 > [!NOTE]
-> Do cenników tych wersji, zobacz [Azure Active Directory cennik](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1 Premium P2 i Azure Active Directory — wersja podstawowa nie są obecnie obsługiwane w Chinach. Skontaktuj się z nami na Azure Active Directory Forum Aby uzyskać więcej informacji.
+> Dla hello cennik opcje te wersje, zobacz [Azure Active Directory cennik](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1 Premium P2 i Azure Active Directory — wersja podstawowa nie są obecnie obsługiwane w Chinach. Prosimy o kontakt hello Azure Active Directory Forum, aby uzyskać więcej informacji.
 >
 >
 
-* **Azure Active Directory — wersja podstawowa** -przeznaczone dla pracowników zadań musi najpierw chmury, ta wersja zawiera chmury aplikacji na dostęp i samoobsługi rozwiązań do zarządzania tożsamościami. W ramach wersji Podstawowa usługi Azure Active Directory uzyskujesz dostęp do funkcji zwiększających produktywność oraz redukujących koszty, takich jak zarządzanie dostępem opartym na grupach, samoobsługowe resetowanie haseł do aplikacji w chmurze oraz serwer proxy aplikacji usługi Azure Active Directory (na potrzeby publikowania lokalnych aplikacji sieci Web przy użyciu usługi Azure Active Directory), z którymi powiązana jest umowa SLA na poziomie przedsiębiorstwa gwarantująca brak awarii przez 99,9% czasu.
-* **Azure Active Directory Premium P1** — mające na celu zwiększenie możliwości dostępnych dla organizacji mających więcej wymagających wymagania w zakresie zarządzania tożsamościami i dostępem, Azure Active Directory — wersja Premium dodaje tożsamości przedsiębiorstw bogate możliwości zarządzania i Umożliwia użytkownikom hybrydowego bezproblemowo uzyskiwać dostęp do lokalnych i możliwości w chmurze. Ta wersja oferuje wszystko, czego potrzebujesz dla informacyjnych procesów roboczych oraz administratorów tożsamości w środowiskach hybrydowych na potrzeby funkcji uzyskiwania dostępu do aplikacji, samoobsługowego zarządzania tożsamościami i dostępem, ochrony tożsamości i bezpieczeństwa w chmurze. Obsługuje zaawansowane administracji i delegowanie zasobów, takich jak grupami dynamicznymi i Samoobsługowe zarządzanie grupami. Zawiera program Microsoft Identity Manager (lokalne tożsamości i dostępu do zarządzania pakiet), a zapewnia chmury możliwości zapisu włączania rozwiązań, takich jak samoobsługowego resetowania haseł dla użytkowników lokalnych.
-* **Azure Active Directory Premium P2** -zaprojektowany z zaawansowaną ochronę dla wszystkich użytkowników i administratorów, to nową ofertę zawiera wszystkie funkcje w Azure AD Premium P1, a także naszych nowe Identity Protection i tożsamościami uprzywilejowanymi Zarządzanie. Azure Active Directory Identity Protection wykorzystuje miliardów sygnałów w celu zapewnienia ryzyka warunkowego dostępu do aplikacji i najważniejsze dane firmy. Możemy też pomóc chronić kont uprzywilejowanych z usługi Azure Active Directory Privileged Identity Management, więc można wyszukiwać i zarządzać nimi ograniczyć i monitorować administratorów oraz ich dostępu do zasobów i zapewnić dostęp w czasie, gdy jest wymagane.  
+* **Azure Active Directory — wersja podstawowa** -przeznaczone dla pracowników zadań musi najpierw chmury, ta wersja zawiera chmury aplikacji na dostęp i samoobsługi rozwiązań do zarządzania tożsamościami. Z hello wersja podstawowa usługi Azure Active Directory Pobierz zwiększenia wydajności i kosztów zmniejszenie funkcje, takie jak zarządzanie dostępem na podstawie grupy, samoobsługowego resetowania hasła dla aplikacji w chmurze i Azure Active Directory serwera Proxy aplikacji (toopublish lokalnych aplikacji sieci web przy użyciu usługi Azure Active Directory), wszystkie kopie przez umowy SLA dla przedsiębiorstw o dostępności 99,9%.
+* **Azure Active Directory Premium P1** -zaprojektowane tooempower organizacje mające więcej wymagających wymagania w zakresie zarządzania tożsamościami i dostępem, Azure Active Directory — wersja Premium dodaje tożsamości przedsiębiorstw bogate możliwości zarządzania i tooseamlessly użytkowników hybrydowego umożliwia dostęp do lokalnego i możliwości w chmurze. Ta wersja zawiera wszystko, co jest potrzebne dla pracowników przetwarzających informacje i administratorów tożsamości w środowiskach hybrydowych na dostęp do aplikacji, samoobsługowego zarządzania tożsamościami i dostępem (IAM), ochrony tożsamości i zabezpieczeń w chmurze hello. Obsługuje zaawansowane administracji i delegowanie zasobów, takich jak grupami dynamicznymi i Samoobsługowe zarządzanie grupami. Zawiera program Microsoft Identity Manager (lokalne tożsamości i dostępu do zarządzania pakiet), a zapewnia chmury możliwości zapisu włączania rozwiązań, takich jak samoobsługowego resetowania haseł dla użytkowników lokalnych.
+* **Azure Active Directory Premium P2** -zaprojektowany z zaawansowaną ochronę dla wszystkich użytkowników i administratorów, to nową ofertę obejmuje wszystkie funkcje hello Azure AD Premium P1 oraz naszej nowej ochrony tożsamości i Privileged Identity Zarządzanie. Azure Active Directory Identity Protection wykorzystuje miliardów sygnały tooprovide dostępu warunkowego opartego na ryzyko tooyour aplikacji i najważniejsze dane firmy. Możemy też pomóc chronić kont uprzywilejowanych z usługi Azure Active Directory Privileged Identity Management, więc można wyszukiwać i zarządzać nimi ograniczyć i monitorować Administratorzy i ich tooresources dostępu i zapewnić dostęp w czasie, gdy jest wymagane.  
 
-Aby utworzyć konto i rozpocząć korzystanie z dzisiaj Active Directory Premium, zobacz [wprowadzenie do korzystania z usługi Azure Active Directory Premium](active-directory-get-started-premium.md).
+Zobacz toosign się i rozpocząć dzisiaj, za pomocą Active Directory Premium [wprowadzenie do korzystania z usługi Azure Active Directory Premium](active-directory-get-started-premium.md).
 
 > [!NOTE]
 > Wiele możliwości usługi Azure Active Directory są dostępne wersje "płatności zgodnie z rzeczywistym użyciem":
 >
-> * Active Directory B2C to rozwiązanie zarządzania tożsamościami i dostępem dla aplikacji dla użytkownika. Aby uzyskać więcej informacji, zobacz [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
+> * Active Directory B2C jest hello tożsamościami i dostępem rozwiązania do zarządzania dla aplikacji dla użytkownika. Aby uzyskać więcej informacji, zobacz [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
 > * Usługa Azure Multi-Factor Authentication może służyć za pośrednictwem dla użytkownika lub dla dostawców uwierzytelniania. Aby uzyskać więcej informacji, zobacz [co to jest uwierzytelnianie wieloskładnikowe Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 >
 >
 
 ## <a name="comparing-generally-available-features"></a>Porównanie funkcji ogólnie dostępna
 > [!NOTE]
-> Do innego widoku danych, zobacz [Azure Active Directory możliwości](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
+> Do innego widoku danych, zobacz hello [Azure Active Directory możliwości](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 >
 >
 
@@ -60,7 +60,7 @@ Aby utworzyć konto i rozpocząć korzystanie z dzisiaj Active Directory Premium
 * [Zarządzanie użytkownika/grupy (Dodaj/aktualizowania/usuwania) / oparta na użytkowniku inicjowania obsługi rejestracji urządzeń](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 * [Logowanie jednokrotne (SSO)](#single-sign-on-sso)
 * [Samoobsługowe zmiany hasła dla użytkowników chmury](#self-service-password-change-for-cloud-users)
-* [Połącz (aparatu synchronizacji, rozszerzający katalogów lokalnych do usługi Azure Active Directory)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
+* [Połącz (aparatu synchronizacji, rozszerzający tooAzure katalogów lokalnej usługi Active Directory)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
 * [Zabezpieczenia / Reports użycia](#securityusage-reports)
 
 **Podstawowe funkcje**
@@ -88,20 +88,20 @@ Aby utworzyć konto i rozpocząć korzystanie z dzisiaj Active Directory Premium
 
 **Usługa Azure Active Directory Join — Windows 10 tylko powiązane funkcje**
 
-* [Dołączenie urządzenia do usługi Azure AD, logowanie Jednokrotne pulpitu, Microsoft Passport dla usługi Azure AD, odzyskiwania funkcji Bitlocker administratora](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
-* [Zarządzanie urządzeniami Przenośnymi autorejestrowania, odzyskiwanie Samoobsługowe funkcji Bitlocker, dodatkowych administratorów lokalnych na urządzeniach z systemem Windows 10 za pomocą usługi Azure AD Join](#mdm-auto-enrollment)
+* [Dołącz do urządzenia tooAzure AD, logowanie Jednokrotne pulpitu, Microsoft Passport dla usługi Azure AD, odzyskiwania funkcji Bitlocker administratora](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
+* [Zarządzanie urządzeniami Przenośnymi autorejestrowania, odzyskiwanie Samoobsługowe funkcji Bitlocker, urządzeń tooWindows 10 dodatkowych administratorów lokalnych za pomocą usługi Azure AD Join](#mdm-auto-enrollment)
 
 ## <a name="common-features"></a>Popularne funkcje
 #### <a name="directory-objects"></a>Obiekty katalogu
 **Typ:** wspólne funkcje
 
-Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudze katalogowej reprezentowany przez unikatową nazwę wyróżniającą. Przykładem obiektu jest wpis określający użytkownika, używany w celu uwierzytelniania. Jeśli potrzebujesz przekracza ten limit przydziału domyślne, skontaktuj się z obsługą. Limit obiektów wynoszący 500 000 nie dotyczy usług Office 365 i Microsoft Intune ani żadnych innych płatnych usług online firmy Microsoft, których usługi katalogowe bazują na usłudze Azure Active Directory.
+przydział użycia domyślnej Hello jest 150 000 obiektów. Wpis w usłudze katalogowej hello, reprezentowany przez jej unikatową nazwę wyróżniającą jest obiekt. Przykładem obiektu jest wpis określający użytkownika, używany w celu uwierzytelniania. Tooexceed tego domyślnego przydziału, należy, skontaktuj się z pomocą techniczną. limit obiektu Hello 500 KB nie jest stosowany dla usługi Office 365, Microsoft Intune lub usługa online, która zależy od usługi Azure Active Directory dla usług katalogowych płatnej innych firmy Microsoft.
 
 **Dostępność:**
 
 | Bezpłatna wersja | Wersja Basic | Wersji Premium (P1 i P2) | Tylko aplikacje pakietu Office 365 |
 |:---:|:---:|:---:|:---:|
-| Do 500 000 obiektów |Brak limitu obiektu |Brak limitu obiektu |Brak limitu obiektu dla kont użytkowników usługi Office 365 |
+| Zapasowej too500, 000 obiektów |Brak limitu obiektu |Brak limitu obiektu |Brak limitu obiektu dla kont użytkowników usługi Office 365 |
 
 #### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Użytkownika/grupy zarządzania (Dodaj/aktualizowania/usuwania), oparta na użytkowniku inicjowania obsługi administracyjnej, rejestracji urządzenia
 **Typ:** wspólne funkcje
@@ -126,8 +126,8 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 |:---:|:---:|:---:|:---:|
 | 10 aplikacje na użytkownika (1) |10 aplikacje na użytkownika (1) |Bez ograniczeń (2) |10 aplikacje na użytkownika (1) |
 
-1. Dzięki usłudze Azure AD w warstwach Bezpłatna i Podstawowa użytkownicy końcowi mogą uzyskiwać dostęp aż do 10 aplikacji za pomocą funkcji jednokrotnego logowania.
-2. Samoobsługowa integracja aplikacji obsługujących język SAML i standard SCIM lub uwierzytelnianie oparte na formularzach przy użyciu szablonów dostępnych w menu galerii aplikacji. Aby uzyskać więcej informacji, zobacz [konfigurowania rejestracji jednokrotnej do aplikacji, które nie znajdują się w galerii aplikacji usługi Azure Active Directory](active-directory-saas-custom-apps.md).
+1. Wolne usługi Azure AD i Azure AD podstawowa użytkownicy końcowi mają prawo tooget pojedynczego logowania jednokrotnego dostępu dla zapasowe too10 aplikacji.
+2. Integracja samoobsługi dowolnej aplikacji obsługujących SAML, SCIM lub uwierzytelnianie oparte na formularzach przy użyciu szablonów dostępnych w menu galerii aplikacji hello. Aby uzyskać więcej informacji, zobacz [konfigurowania pojedynczego logowania jednokrotnego tooapplications, które nie znajdują się w galerii aplikacji usługi Azure Active Directory hello](active-directory-saas-custom-apps.md).
 
 **Więcej szczegółów:**
 
@@ -144,9 +144,9 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 **Więcej szczegółów:**
 
-* [Jak zaktualizować własne hasło](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
+* [Jak tooupdate własnego hasła](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
-#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Połącz (aparatu synchronizacji, rozszerzający katalogów lokalnych do usługi Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-tooazure-active-directory"></a>Połącz (aparatu synchronizacji, rozszerzający tooAzure katalogów lokalnej usługi Active Directory)
 **Typ:** wspólne funkcje
 
 **Dostępność:**
@@ -184,7 +184,7 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 **Więcej szczegółów:**
 
-* [Zarządzanie dostępem do aplikacji SaaS przy użyciu grupy](active-directory-accessmanagement-group-saasapps.md)
+* [Przy użyciu aplikacji tooSaaS grupy toomanage dostępu](active-directory-accessmanagement-group-saasapps.md)
 
 #### <a name="self-service-password-reset-for-cloud-users"></a>Samoobsługowe resetowanie haseł użytkowników w chmurze
 **Typ:** podstawowe funkcje
@@ -210,7 +210,7 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 **Więcej szczegółów:**
 
-* [Dodawanie znakowania firmowego do stron logowania i panelu dostępu](active-directory-add-company-branding.md)
+* [Dodawanie znakowania firmowego tooyour logowania i panelu dostępu do stron](active-directory-add-company-branding.md)
 
 #### <a name="application-proxy"></a>Serwer proxy aplikacji
 **Typ:** podstawowe funkcje
@@ -223,7 +223,7 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 **Więcej szczegółów:**
 
-* [Jak zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych](active-directory-application-proxy-get-started.md)
+* [Jak tooprovide bezpiecznego dostępu zdalnego tooon lokalnej aplikacji](active-directory-application-proxy-get-started.md)
 
 #### <a name="sla-999"></a>UMOWA SLA 99,9%
 **Typ:** podstawowe funkcje
@@ -266,7 +266,7 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 | Bezpłatna wersja | Wersja Basic | Wersji Premium (P1 i P2) | Tylko aplikacje pakietu Office 365 |
 |:---:|:---:|:---:|:---:|
-| &nbsp; | &nbsp; |![Zaznacz][12] |Ograniczone do chmury tylko w przypadku aplikacji pakietu Office 365 |
+| &nbsp; | &nbsp; |![Zaznacz][12] |Ograniczone toocloud tylko w przypadku aplikacji pakietu Office 365 |
 
 **Więcej szczegółów:**
 
@@ -274,7 +274,7 @@ Użycie domyślnego przydziału jest 150 000 obiektów. Obiekt to wpis w usłudz
 
 
 #### <a name="mim-cal-mim-server"></a>MIM CAL + serwera MIM
-Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielane w ramach licencji na system Windows Server (w każdej wersji). Ponieważ program Microsoft Identity Manager działa w systemie operacyjnym Windows Server tak długo, jak na serwerze jest uruchomiona prawidłowy, licencjonowanych kopii systemu Windows Server, następnie Microsoft Identity Manager można instalować i używać na tym serwerze. Serwer programu Microsoft Identity Manager nie wymaga osobnej licencji.
+Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielane w ramach licencji na system Windows Server (w każdej wersji). Ponieważ program Microsoft Identity Manager działa w systemie operacyjnym Windows Server hello, tak długo, jak działa prawidłowy serwer hello, licencjonowanej kopii systemu Windows Server, a następnie Microsoft Identity Manager można instalować i używać na tym serwerze. Serwer programu Microsoft Identity Manager nie wymaga osobnej licencji.
 
 **Typ:** funkcji Premium
 
@@ -308,7 +308,7 @@ Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielan
 
 **Więcej szczegółów:**
 
-* [Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze](active-directory-aadconnect-health.md)
+* [Monitorowanie lokalnej tożsamości infrastruktury i synchronizacji usług w chmurze hello](active-directory-aadconnect-health.md)
 
 #### <a name="automatic-password-rollover-for-group-accounts"></a>Automatyczne przenoszenie haseł dla kont grupowych
 **Typ:** funkcji Premium
@@ -334,7 +334,7 @@ Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielan
 | &nbsp; | &nbsp; | ![Zaznacz][12] | &nbsp; |
 
 ## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Usługa Azure Active Directory Join — Windows 10 tylko powiązane funkcje
-#### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Przyłącz urządzenie w celu dostępu do usługi Azure AD, logowania jednokrotnego na komputerze, usługi Microsoft Passport dla Azure AD oraz odzyskiwania administracyjnego funkcją Bitlocker.
+#### <a name="join-a-device-tooazure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Dołącz do urządzenia tooAzure AD, logowanie Jednokrotne pulpitu, Microsoft Passport dla usługi Azure AD, odzyskiwania funkcji Bitlocker administratora
 **Typ:** Azure Active Directory Join — tylko powiązane funkcje systemu Windows 10
 
 **Dostępność:**
@@ -344,7 +344,7 @@ Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielan
 | ![Zaznacz][12] |![Zaznacz][12] |![Zaznacz][12] |![Zaznacz][12] |
 
 
-#### <a name="mdm-auto-enrollment"></a>Zarządzanie urządzeniami Przenośnymi autorejestrowania, odzyskiwanie Samoobsługowe funkcji Bitlocker, dodatkowych administratorów lokalnych na urządzeniach z systemem Windows 10 za pomocą usługi Azure AD Join
+#### <a name="mdm-auto-enrollment"></a>Zarządzanie urządzeniami Przenośnymi autorejestrowania, odzyskiwanie Samoobsługowe funkcji Bitlocker, urządzeń tooWindows 10 dodatkowych administratorów lokalnych za pomocą usługi Azure AD Join
 **Typ:** Azure Active Directory Join — tylko powiązane funkcje systemu Windows 10
 
 **Dostępność:**
@@ -368,7 +368,7 @@ Prawa do oprogramowania serwera programu Microsoft Identity Manager są udzielan
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do usługi Azure Active Directory — wersja Premium](active-directory-get-started-premium.md)
-* [Dodawanie znakowania firmowego do logowania i panelu dostępu stron](active-directory-add-company-branding.md)
+* [Dodaj firmowe logowania tooyour i strony panelu dostępu](active-directory-add-company-branding.md)
 * [Wyświetlanie raportów dostępu i użycia](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->

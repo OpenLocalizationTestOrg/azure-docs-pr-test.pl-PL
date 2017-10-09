@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z ponownego trenowania usługi sieci web Azure Machine Learning klasycznego | Dokumentacja firmy Microsoft"
-description: "Zidentyfikować i rozwiązać typowe problemy napotkano, gdy są ponownego trenowania modelu dla usługi sieci Web Azure Machine Learning."
+title: "Usługa sieci web aaaTroubleshoot ponownego trenowania klasycznego Azure Machine Learning | Dokumentacja firmy Microsoft"
+description: "Zidentyfikować i rozwiązać typowe problemy napotkano, gdy są ponownego trenowania hello modelu dla usługi sieci Web Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: VDonGlover
@@ -14,95 +14,93 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: fc36499ebff88c86635228ff899c85e9166aabed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b6a78eaba161877106dccdc23437b5e454fca7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Rozwiązywanie problemów z ponownego trenowania usługi sieci Web Azure Machine Learning klasycznego
+# <a name="troubleshooting-hello-retraining-of-an-azure-machine-learning-classic-web-service"></a>Rozwiązywanie problemów z hello ponownego trenowania usługi sieci Web Azure Machine Learning klasycznego
 ## <a name="retraining-overview"></a>Ponownego trenowania — omówienie
-Podczas wdrażania eksperyment predykcyjny jako usługę sieci web oceniania jest statyczny modelu. Wraz ze wzrostem dostępności nowych danych lub w przypadku interfejsu API klienta ma własne dane modelu musi być retrained. 
+Podczas wdrażania eksperyment predykcyjny jako usługę sieci web oceniania jest statyczny modelu. Wraz ze wzrostem dostępności nowych danych lub w przypadku hello konsumenta hello interfejsu API ma własne dane modelu hello musi toobe retrained. 
 
-Aby uzyskać pełny przewodnik ponownego trenowania proces usługi sieci Web klasycznego, zobacz [Retrain Machine Learning modeli programowo](machine-learning-retrain-models-programmatically.md).
+Aby uzyskać pełny przewodnik hello ponownego trenowania procesu usługi sieci Web klasycznego, zobacz [Retrain Machine Learning modeli programowo](machine-learning-retrain-models-programmatically.md).
 
 ## <a name="retraining-process"></a>Proces ponownego trenowania
-Musisz ponownie ucz usługi sieci Web, należy dodać niektóre dodatkowe elementy:
+Jeśli potrzebujesz hello tooretrain usługi sieci Web, należy dodać niektóre dodatkowe elementy:
 
-* Usługa sieci Web wdrożone z eksperymentów szkolenia. Eksperyment musi mieć **wyjście usługi sieci Web** modułu dołączony do danych wyjściowych **Train Model** modułu.  
+* Wdrożone z hello eksperyment uczenia usługi sieci Web. musi mieć eksperymentu Hello **wyjście usługi sieci Web** toohello dane wyjściowe hello podłączony moduł **Train Model** modułu.  
   
-    ![Wyjście usługi sieci web należy dołączyć do modelu pociągu.][image1]
-* Nowy punkt końcowy dodane do oceniania usługi sieci Web.  Można dodać punktu końcowego, programowo przy użyciu przykładowy kod odwołuje się do modeli Retrain Machine Learning programowo tematu lub za pośrednictwem klasycznego portalu Azure.
+    ![Dołącz modelu train toohello dane wyjściowe hello usług sieci web.][image1]
+* Nowy punkt końcowy dodać tooyour oceniania usługi sieci Web.  Można dodać punktu końcowego hello programowo przy użyciu hello przykładowego kodu, do którego odwołuje się hello Retrain Machine Learning modeli tematu lub za pośrednictwem hello klasycznego portalu Azure.
 
-Następnie można przykładowy kod C# z strona pomocy interfejsu API usługi sieci Web szkolenia retrain modelu. Po zostały obliczone wyniki i uzyskaniu je, należy zaktualizować trenowanego modelu oceniania usługi sieci web przy użyciu nowego punktu końcowego, który został dodany.
+Następnie można użyć hello próbki kodu C# z modelu tooretrain strony pomocy interfejsu API usługi hello szkolenia sieci Web. Po zostały obliczone wyniki hello i uzyskaniu je, należy zaktualizować hello uczonego modelu oceniania usługi sieci web przy użyciu hello nowy punkt końcowy, który został dodany.
 
-Wszystkie elementy w miejscu główne kroki, które należy wykonać, aby ponownie ucz modelu są w następujący sposób:
+Z wszystkich elementów hello w miejscu hello główne kroki należy wykonać tooretrain hello modelu są następujące:
 
-1. Wywoływanie usługi sieci Web szkolenia: wywołanie jest do wsadowe wykonywanie usługi (BES), nie żądanie odpowiedzi usługi (RR). Przykładowy kod C# na stronie pomocy interfejsu API służy do wywoływania. 
-2. Znajdź wartości dla *BaseLocation*, *RelativeLocation*, i *SasBlobToken*: te wartości są zwracane w danych wyjściowych z połączenia z usługą sieci Web szkolenia. 
-   ![Wyświetlanie danych wyjściowych ponownego trenowania próbki i wartości BaseLocation, RelativeLocation i SasBlobToken.][image6]
-3. Zaktualizuj dodano punkt końcowy usługi sieci web oceniania za pomocą nowego trenowanego modelu: przy użyciu przykładowy kod podany w modelach Retrain Machine Learning programowo, zaktualizuj nowy punkt końcowy, dodane do oceniania modelu z nowo trenowanego modelu z Usługa sieci Web szkolenia.
+1. Wywołanie usługi sieci Web szkolenia hello: wywołanie hello jest toohello usługi wykonywania wsadowego (BES), nie hello żądanie odpowiedzi usługi (RR). Można użyć hello próbki C# kodu na powitania interfejsu API pomocy strony toomake hello wywołania. 
+2. Znajdź hello wartości dla hello *BaseLocation*, *RelativeLocation*, i *SasBlobToken*: te wartości są zwracane w danych wyjściowych hello z toohello Twojego wywołania szkoleń w sieci Web Usługa. 
+   ![Wyświetlanie danych wyjściowych hello hello ponownego trenowania próbki i hello BaseLocation, RelativeLocation i SasBlobToken wartości.][image6]
+3. Hello aktualizacji dodano punkt końcowy z hello nowych oceniania usługi sieci web z hello uczenia modelu: przy użyciu hello przykładowy kod podany w hello Retrain Machine Learning modeli programowo, zaktualizuj nowy punkt końcowy hello dodane toohello nowo oceniania modelu z hello uczonego modelu z hello usługi sieci Web szkolenia.
 
 ## <a name="common-obstacles"></a>Typowych wąskich gardeł
-### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Sprawdź, czy masz poprawny adres URL poprawki
-POPRAWKA adres URL, którego używasz, musi być skojarzony z nowego oceniania punktu końcowego, dodane do oceniania usługi sieci Web. Istnieje wiele sposobów, aby uzyskać adres URL poprawki:
+### <a name="check-toosee-if-you-have-hello-correct-patch-url"></a>Sprawdź toosee, jeśli masz hello Popraw poprawki
+Hello poprawka używasz adres URL musi być hello, co skojarzony z hello nowego punktu końcowego oceniania dodaniu toohello oceniania usługi sieci Web. Istnieje wiele sposobów tooobtain hello poprawka adresu URL:
 
 **Opcja 1: programowo**
 
-Aby uzyskać poprawny adres URL poprawki:
+Witaj tooget Popraw poprawki:
 
-1. Uruchom [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) przykładowy kod.
-2. Z danych wyjściowych AddEndpoint znaleźć *HelpLocation* wartości i skopiuj adres URL.
+1. Uruchom hello [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) przykładowy kod.
+2. Z danych wyjściowych hello AddEndpoint, Znajdź hello *HelpLocation* wartość i skopiuj adres URL hello.
    
-   ![HelpLocation w danych wyjściowych próbki addEndpoint.][image2]
-3. Wklej adres URL do przeglądarki, aby przejść do strony, która zawiera łącza pomocy dla usługi sieci Web.
-4. Kliknij przycisk **aktualizacji zasobów** łącze, aby otworzyć stronę pomocy poprawki.
+   ![HelpLocation w danych wyjściowych hello hello addEndpoint próbki.][image2]
+3. Wklej adres URL hello na stronę tooa toonavigate przeglądarki łącza pomocy hello usługi sieci Web.
+4. Kliknij przycisk hello **aktualizacji zasobów** strona pomocy poprawki hello tooopen łącza.
 
-**Opcja 2: Użyj klasycznego portalu Azure**
+**Opcja 2: Hello Użyj klasycznego portalu Azure**
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. Otwórz kartę uczenia maszynowego. 
-   ![Karta oparcie maszyny.][image4]
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Hello Otwórz kartę uczenia maszynowego. ![Karta oparcie maszyny.][image4]
 3. Następnie kliknij nazwę obszaru roboczego **usług sieci Web**.
-4. Kliknij przycisk oceniania usługi sieci Web, którą użytkownik pracuje z. (Jeśli nie zmienił domyślnej nazwy usługi sieci web, będą kończyć się [Exp oceniania.]).
+4. Kliknij przycisk hello oceniania usługi sieci Web, którą użytkownik pracuje z. (Jeśli nie jest zmodyfikowała hello domyślnej nazwy usługi sieci web hello, będą kończyć się [Exp oceniania.]).
 5. Kliknij przycisk **dodać punkt końcowy**.
-6. Po dodaniu punktu końcowego, kliknij nazwę punktu końcowego. Następnie kliknij przycisk **aktualizacji zasobów** otworzyć stosowania poprawek strony pomocy.
+6. Po dodaniu punktu końcowego powitania kliknij nazwę punktu końcowego hello. Następnie kliknij przycisk **aktualizacji zasobów** tooopen hello stosowania poprawek strony pomocy.
 
 > [!NOTE]
-> Jeśli dodano punkt końcowy z usługą sieci Web szkolenia zamiast predykcyjnej usługi sieci Web, zostanie wyświetlony następujący błąd, po kliknięciu **aktualizacji zasobów** łącza: Niestety, ale ta funkcja nie jest obsługiwana lub dostępna w tym kontekst. Ta usługa sieci Web ma nie nadaje się do aktualizacji zasobów. Firma Microsoft Przepraszamy za utrudnienia i działają na ułatwieniu ten przepływ pracy.
+> Jeśli dodano hello toohello punkt końcowy usługi sieci Web szkolenia zamiast hello predykcyjnej usługi sieci Web, zostanie wyświetlony następujący błąd, po kliknięciu hello hello **aktualizacji zasobów** łącza: Niestety, ale ta funkcja nie jest obsługiwana lub niedostępne w tym kontekście. Ta usługa sieci Web ma nie nadaje się do aktualizacji zasobów. Firma Microsoft Przepraszamy za niedogodności hello i działają na ułatwieniu ten przepływ pracy.
 > 
 > 
 
 ![Nowy punkt końcowy pulpitu nawigacyjnego.][image3]
 
-Strona pomocy poprawki zawiera adres URL poprawka, należy użyć i udostępnia przykładowy kod, którego można użyć w celu wywołania go.
+Strona pomocy poprawki Hello zawiera hello PATCH musi używać adresu URL i udostępnia przykładowy kod, można użyć toocall go.
 
 ![Adres URL poprawki.][image5]
 
-### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Sprawdź, czy aktualizujesz właściwego punktu końcowego oceniania
-* Nie poprawka usługę sieci Web szkolenia: operacja poprawki musi zostać wykonana na oceniania usługi sieci Web.
-* Poprawka nie jest domyślny punkt końcowy usługi sieci Web: operacja poprawki musi zostać wykonana na nowe oceniania końcowy usługi sieci Web dodany.
+### <a name="check-toosee-that-you-are-updating-hello-correct-scoring-endpoint"></a>Aktualizacja punktu końcowego oceniania poprawne hello toosee wyboru
+* Nie poprawka hello usługi sieci Web szkolenia: hello poprawki operacja musi zostać wykonana na powitania oceniania usługi sieci Web.
+* Nie poprawka hello domyślny punkt końcowy usługi sieci Web: hello poprawki operacja musi zostać wykonana na powitania oceniania nowy punkt końcowy usługi sieci Web, który został dodany.
 
-Możesz sprawdzić, które usługi sieci Web punktu końcowego jest w klasycznym portalu Azure. 
+Możesz sprawdzić, które hello końcowy usługi sieci Web jest włączone zaproszonych hello klasycznego portalu Azure. 
 
 > [!NOTE]
-> Upewnij się, że punkt końcowy jest dodawany do predykcyjnej usługi sieci Web nie usługę sieci Web szkolenia. Jeśli zostały poprawnie wdrożone zarówno szkolenia, jak i usługi sieci Web predykcyjnej, powinny pojawić się dwa oddzielne usług sieci Web na liście. Predykcyjnej usługi sieci Web powinien kończyć się "[exp predykcyjnych.]".
+> Upewnij się, że w przypadku dodawania hello toohello punkt końcowy usługi sieci Web predykcyjnych, hello usługi sieci Web szkolenia. Jeśli zostały poprawnie wdrożone zarówno szkolenia, jak i usługi sieci Web predykcyjnej, powinny pojawić się dwa oddzielne usług sieci Web na liście. Hello predykcyjnej usługi sieci Web powinien kończyć się "[exp predykcyjnych.]".
 > 
 > 
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. Otwórz kartę uczenia maszynowego. 
-   ![Obszaru roboczego uczenia maszyny interfejsu użytkownika.][image4]
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Hello Otwórz kartę uczenia maszynowego. ![Obszaru roboczego uczenia maszyny interfejsu użytkownika.][image4]
 3. Wybierz obszar roboczy.
 4. Kliknij przycisk **usług sieci Web**.
 5. Wybierz usługę sieci Web predykcyjnej.
-6. Sprawdź, czy nowy punkt końcowy został dodany do usługi sieci Web.
+6. Sprawdź, czy nowy punkt końcowy został dodany toohello usługi sieci Web.
 
-### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Sprawdź obszar roboczy usługi sieci web jest w celu zapewnienia, że jest poprawny region
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. Uczenie maszynowe, wybierz z menu.
+### <a name="check-hello-workspace-that-your-web-service-is-in-tooensure-it-is-in-hello-correct-region"></a>Sprawdź hello roboczy usługi sieci web w tooensure jest poprawny region hello
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Wybierz hello menu uczenia maszynowego.
    ![Machine learning region interfejsu użytkownika.][image4]
-3. Sprawdź lokalizację swojego obszaru roboczego.
+3. Sprawdź lokalizację hello obszaru roboczego.
 
 <!-- Image Links -->
 

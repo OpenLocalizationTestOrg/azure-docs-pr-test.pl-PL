@@ -1,6 +1,6 @@
 ---
-title: "Używanie emotikonów Emoji w ramach usługi Azure Mobile Engagement"
-description: "Jak używać emotikony Emoji w powiadomień wypychanych"
+title: "emotikony Emoji aaaUse w ramach usługi Azure Mobile Engagement"
+description: "Jak emotikony Emoji toouse w powiadomień wypychanych"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bbb7ce5e95b229a7505c5e97b6866d5a302a1d27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 63bfc59ef472e9fe9aa28b5ac8761017b9250e0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-emoji-emoticon-within-push-notifications"></a>Użyj emotikon Emoji w powiadomień wypychanych
 Można uwzględnić Emoji emotikony w przypadku powiadomienie wypychane w kilku prostych krokach: 
 
-1. Przede wszystkim należy znaleźć Emoji chcesz wysłać w wiadomości. Upewnij się, że Emoji wybierasz będą obsługiwane przez urządzenie docelowe jako urządzenia produkującej zająć trochę czasu, można dodać nowo zatwierdzonych Emojis do platformy urządzeń. 
-2. Na **Windows** — można przejść do tego [łącze](http://apps.timwhitlock.info/emoji/tables/unicode) i skopiuj ikonę "Native".
+1. Przede wszystkim należy hello toofind Emoji ma toosend w wiadomości powitania. Upewnij się, że powitalne Emoji wybierasz będą obsługiwane przez urządzenie docelowe hello produkującej urządzenia sporządzania niektórych tooadd czasu nowo zatwierdzonych platform urządzeń toohello Emojis. 
+2. Na **Windows** — można przejść toothis [łącze](http://apps.timwhitlock.info/emoji/tables/unicode) ikona "Native" hello kopiowania i.
    
     ![][7] 
-3. Na **Mac** — można znaleźć Emojis w słowniku aplikacji w obszarze Edycja -> Emoji & symboli.
+3. Na **Mac** — można znaleźć hello Emojis w słowniku aplikacji w obszarze Edycja -> Emoji & symboli.
    
     ![][6] 
-4. Teraz, przejdź do **osiągnąć** karcie w portalu usługi Azure Mobile Engagement. Wybierz typ powiadomienia wypychane (anons sonduje itp). W tym przykładzie wybrany powiadomienia wypychane.
-5. Określ innego pola powiadomienia, aż zostanie wyświetlony tekst powiadomienia. Jest to, którym można dodać emotikonu Emoji. Można go umieścić w tytułu i/lub wiadomości. Konieczne będzie przeciągnij i upuść lub skopiuj Emoji, który można znaleźć w powyższych lokalizacjach. 
+4. Teraz przejdź toohello **osiągnąć** kartę w portalu usługi Azure Mobile Engagement hello hello. Wybierz typ hello powiadomienia wypychane (anons, ankiety itp.). W tym przykładzie wybrany powiadomienia wypychane.
+5. Określ hello polami hello powiadomień, aż zostanie wyświetlony tekst hello hello powiadomienia. Jest to, którym można dodać emotikonu Emoji. Możesz wybrać tooput w hello tytułu i/lub wiadomości powitania. Będzie konieczne toodrag i upuszczanie lub skopiuj hello Emoji, który znaleźć z lokalizacji hello powyżej. 
    
     ![][1]
-6. Wypełnij pola inne powiadomienia i zapisz go. 
-7. Przy próbie uruchomienia testu lub aktywować anons zobaczysz powiadomienie z emotikon określone.   
+6. Zakończenie hello innych pól dla powiadomień hello i zapisz go. 
+7. Przy próbie uruchomienia testu lub aktywować anonsu hello zobaczysz powiadomienie z emotikon hello określone.   
    
     ![][3] ![][4] ![][5]
 

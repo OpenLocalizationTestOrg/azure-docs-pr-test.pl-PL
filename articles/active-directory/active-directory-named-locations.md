@@ -1,6 +1,6 @@
 ---
-title: "O nazwie lokalizacjach w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Konfigurując o nazwie lokalizacji, możesz uniknąć generowanie adresów IP, które są własnością organizacji fałszywych alarmów dla Impossible podróż do nietypowych lokalizacji ryzyka zdarzeń typu."
+title: "lokalizacje aaaNamed w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Konfigurując o nazwie lokalizacji, możesz uniknąć IP adresów, które są własnością organizacji wygenerować fałszywych alarmów dla lokalizacji tooatypical niemożliwa podróż hello ryzyka typ zdarzenia."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,48 +14,48 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ff31ded1d9d60e47e0ae5f01119de78cd7f2df38
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 591e4b94b2ec9d45e20c01711e922f9972e047e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Nazwane lokalizacje w usłudze Azure Active Directory
 
-Dzięki funkcji o nazwie lokalizacji usługi Azure Active Directory można opisać zaufanych zakresów adresów IP w Twojej organizacji. W danym środowisku, można użyć nazwane lokalizacje w kontekście wykrywania [ryzyka zdarzenia](active-directory-reporting-risk-events.md). Pomaga zmniejszyć liczbę fałszywych alarmów zgłoszone dla *Impossible podróż do nietypowych lokalizacji* ryzyka typ zdarzenia. 
+Z hello o nazwie lokalizacji funkcji usługi Azure Active Directory można opisać zaufanych zakresów adresów IP w Twojej organizacji. W danym środowisku, można użyć nazwane lokalizacje w kontekście hello wykrywanie hello [ryzyka zdarzenia](active-directory-reporting-risk-events.md). Witaj pomaga zmniejszyć hello liczbę fałszywych alarmów zgłoszone dla hello *lokalizacje tooatypical niemożliwa podróż* ryzyka typ zdarzenia. 
 
 ## <a name="configuration"></a>Konfiguracja
 
-Aby skonfigurować lokalizację o nazwie:
+tooconfigure lokalizacji o nazwie:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) jako administrator globalny.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com) jako administrator globalny.
 
-2. W okienku po lewej stronie kliknij **usługi Azure Active Directory**.
+2. W okienku po lewej stronie powitania kliknij **usługi Azure Active Directory**.
 
-    ![Łącze usługi Azure Active Directory w okienku po lewej stronie](./media/active-directory-named-locations/01.png)
+    ![Hello Azure Active Directory łącze w okienku po lewej stronie powitania](./media/active-directory-named-locations/01.png)
 
-3. Na **usługi Azure Active Directory** bloku, w **zabezpieczeń** kliknij **dostępu warunkowego**.
+3. Na powitania **usługi Azure Active Directory** bloku w hello **zabezpieczeń** kliknij **dostępu warunkowego**.
 
-    ![Polecenie dostępu warunkowego](./media/active-directory-named-locations/05.png)
-
-
-4. Na **dostępu warunkowego** bloku, w **Zarządzaj** kliknij **o nazwie lokalizacje**.
-
-    ![Polecenie lokalizacji o nazwie](./media/active-directory-named-locations/06.png)
+    ![Witaj polecenie dostępu warunkowego](./media/active-directory-named-locations/05.png)
 
 
-5. Na **o nazwie lokalizacje** bloku, kliknij przycisk **nową lokalizację**.
+4. Na powitania **dostępu warunkowego** bloku w hello **Zarządzaj** kliknij **o nazwie lokalizacje**.
 
-    ![Nowe polecenie lokalizacji](./media/active-directory-named-locations/07.png)
+    ![Witaj polecenia lokalizacji o nazwie](./media/active-directory-named-locations/06.png)
 
 
-6. Na **nowy** blok, wykonaj następujące czynności:
+5. Na powitania **o nazwie lokalizacje** bloku, kliknij przycisk **nową lokalizację**.
 
-    ![Nowy blok](./media/active-directory-named-locations/08.png)
+    ![Witaj nowe polecenie lokalizacji](./media/active-directory-named-locations/07.png)
 
-    a. W **nazwa** wpisz nazwę dla nazwanego lokalizacji.
 
-    b. W **zakresów IP** wpisz zakres adresów IP. Zakres adresów IP musi być w *Bezklasowego routingu międzydomenowego* formacie (CIDR).  
+6. Na powitania **nowy** bloku hello następujące:
+
+    ![Nowy blok Hello](./media/active-directory-named-locations/08.png)
+
+    a. W hello **nazwa** wpisz nazwę dla nazwanego lokalizacji.
+
+    b. W hello **zakresów IP** wpisz zakres adresów IP. zakres adresów IP Hello musi toobe w hello *Bezklasowego routingu międzydomenowego* formacie (CIDR).  
 
     c. Kliknij przycisk **Utwórz**.
 
@@ -63,15 +63,15 @@ Aby skonfigurować lokalizację o nazwie:
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
-**Aktualizacje zbiorcze**: tworzenia lub aktualizowania nazwane lokalizacje aktualizacje zbiorcze, możesz przekazać lub pobrać plik CSV z zakresu adresów IP. Przekazanie dodaje zakresu adresów IP w pliku do listy zamiast zastępowanie na liście.
+**Aktualizacje zbiorcze**: tworzenia lub aktualizowania nazwane lokalizacje aktualizacji zbiorczej można przekazać lub pobrania pliku CSV hello zakresów adresów IP. Przekazanie dodaje zakresów IP hello hello pliku toohello listy zamiast zastępowanie hello listy.
 
-![Przekazywanie i pobieranie łącza](./media/active-directory-named-locations/09.png)
+![Witaj, przekazywanie i pobieranie łącza](./media/active-directory-named-locations/09.png)
 
 
-**Ograniczenia**: można określić maksymalnie 60 nazwane lokalizacje, z jeden zakres adresów IP przypisanych do każdego z nich. Jeśli masz tylko jedną lokalizację o nazwie skonfigurowane do 500 zakresów adresów IP można zdefiniować dla niego.
+**Ograniczenia**: można określić maksymalnie 60 nazwane lokalizacje, z jedną tooeach zakresu przypisanego adresu IP z nich. Jeśli masz tylko jedną lokalizację o nazwie skonfigurowane dla niego można zdefiniować się too500 zakresów adresów IP.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat zdarzeń o podwyższonym ryzyku, zobacz [zdarzenia o podwyższonym ryzyku usługi Azure Active Directory](active-directory-reporting-risk-events.md).
+toolearn więcej informacji na temat zdarzeń o podwyższonym ryzyku, zobacz [zdarzenia o podwyższonym ryzyku usługi Azure Active Directory](active-directory-reporting-risk-events.md).
 

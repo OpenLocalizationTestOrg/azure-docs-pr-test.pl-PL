@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie kontami usługi Azure Media przy użyciu programu PowerShell"
-description: "Dowiedz się, jak zarządzać kontami usługi Azure Media Services za pomocą poleceń cmdlet programu PowerShell."
+title: "aaaManage kont usługi Azure Media przy użyciu programu PowerShell"
+description: "Dowiedz się, jak toomanage usługi Azure Media Services kont za pomocą poleceń cmdlet programu PowerShell."
 author: Juliako
 manager: erikre
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
-ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8f97bb2393343e45fabf9c437b4fc09f2525dc2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-media-services-accounts-with-powershell"></a>Zarządzanie kontami usługi Azure Media przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
@@ -27,12 +27,12 @@ ms.lasthandoff: 07/11/2017
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> Aby można było utworzyć konto usługi Azure Media Services, musi mieć konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Bezpłatna wersja próbna platformy Azure</a>.
+> toobe stanie toocreate konta usługi Azure Media Services, musi mieć konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Bezpłatna wersja próbna platformy Azure</a>.
 > 
 > 
 
 ## <a name="overview"></a>Omówienie
-Ten artykuł zawiera listę poleceń cmdlet programu Azure PowerShell dla usługi Azure Media Services (AMS) w ramach usługi Azure Resource Manager. Istnieją polecenia cmdlet w **Microsoft.Azure.Commands.Media** przestrzeni nazw.
+Ten artykuł zawiera listę poleceń cmdlet programu Azure PowerShell hello Azure Media Services (AMS) w ramach usługi Azure Resource Manager hello. polecenia cmdlet Hello istnieje w hello **Microsoft.Azure.Commands.Media** przestrzeni nazw.
 
 ## <a name="versions"></a>Wersje
 **ApiVersion**: "2015-10-01"
@@ -52,11 +52,11 @@ Zestaw parametrów: StorageAccountsParamSet
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -64,11 +64,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Nazwa |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
@@ -76,11 +76,11 @@ Określa nazwę usługi multimediów.
 
 **-Lokalizacji &lt;ciągu&gt;**
 
-Określa lokalizację zasobów usługi multimediów.
+Określa lokalizację zasobów hello hello media service.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |2 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -88,14 +88,14 @@ Określa lokalizację zasobów usługi multimediów.
 
 **-StorageAccountId &lt;ciągu&gt;**
 
-Określa konto magazynu głównego, który skojarzony z usługą media.
+Określa konto magazynu głównego, który skojarzony z usługą media hello.
 
-* Nowe konto magazynu (utworzone przy użyciu interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
-* Konto magazynu musi istnieć i ma tę samą lokalizację w usłudze media.
+* Nowe konto magazynu (utworzone z hello interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
+* Witaj konta magazynu musi istnieć i ma hello tej samej lokalizacji z usługą media hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |3 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -104,15 +104,15 @@ Określa konto magazynu głównego, który skojarzony z usługą media.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Określa kont magazynu, które są skojarzone z usługą media.
+Określa kont magazynu, które są skojarzone z usługą media hello.
 
-* Nowe konto magazynu (utworzone przy użyciu interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
-* Konto magazynu musi istnieć i ma tę samą lokalizację w usłudze media.
+* Nowe konto magazynu (utworzone z hello interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
+* Witaj konta magazynu musi istnieć i ma hello tej samej lokalizacji z usługą media hello.
 * Tylko jedno konto magazynu można określić jako podstawowy.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |3 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -121,13 +121,13 @@ Określa kont magazynu, które są skojarzone z usługą media.
 
 **-Znaczniki &lt;Hashtable&gt;**
 
-Określa tablicy skrótów tagów, które są skojarzone z usługą media.
+Określa tablicy skrótów hello tagów, które są skojarzone z usługą media hello.
 
 * Przykład: @{"tag1"="wartość1";" tag2 "=: wartość2"}
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Pozycja? |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
@@ -135,13 +135,13 @@ Określa tablicy skrótów tagów, które są skojarzone z usługą media.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Aktualizacje usługi multimediów.
@@ -152,11 +152,11 @@ Aktualizacje usługi multimediów.
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -164,11 +164,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Nazwa |
 | --- | --- |
-| Wymagane? |True |
+| Wymagana? |True |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -176,15 +176,15 @@ Określa nazwę usługi multimediów.
 
 **-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
-Określa kont magazynu, które są skojarzone z usługą media.
+Określa kont magazynu, które są skojarzone z usługą media hello.
 
-* Nowe konto magazynu (utworzone przy użyciu interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
-* Konto magazynu musi istnieć i ma tę samą lokalizację w usłudze media.
+* Nowe konto magazynu (utworzone z hello interfejsu API usługi Resource Manager) obsługiwany tylko przez system.
+* Witaj konta magazynu musi istnieć i ma hello tej samej lokalizacji z usługą media hello.
 * Tylko jedno konto magazynu można określić jako podstawowy.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |wartość false |
+| Wymagana? |wartość false |
 | Pozycja? |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -193,13 +193,13 @@ Określa kont magazynu, które są skojarzone z usługą media.
 
 **-Znaczniki &lt;Hashtable&gt;**
 
-Określa tablicy skrótów tagów, które są skojarzone z tą usługą multimediów.
+Określa tablicy skrótów hello tagów, które są skojarzone z tą usługą media.
 
-* Tagi, które są skojarzone z usługą media są zastępowane podana przez klienta.
+* Witaj tagi, które są skojarzone z usługą media hello są zastępowane wartość określoną przez powitania klienta.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |False |
+| Wymagana? |False |
 | Pozycja? |o nazwie |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -207,13 +207,13 @@ Określa tablicy skrótów tagów, które są skojarzone z tą usługą multimed
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Usuwa usługi multimediów.
@@ -224,11 +224,11 @@ Usuwa usługi multimediów.
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -236,11 +236,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |2 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -248,13 +248,13 @@ Określa nazwę usługi multimediów.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Pobiera wszystkie usługi media services w grupie zasobów lub usług media o podanej nazwie.
@@ -271,11 +271,11 @@ ParameterSet: AccountNameParameterSet
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -285,11 +285,11 @@ Akceptowanie symboli wieloznacznych?   wartość false
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -298,13 +298,13 @@ Określa nazwę usługi multimediów.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Pobiera klucze usługi multimediów.
@@ -315,11 +315,11 @@ Pobiera klucze usługi multimediów.
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -327,11 +327,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -339,13 +339,13 @@ Określa nazwę usługi multimediów.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Generuje ponownie klucz podstawowy lub pomocniczy usługi multimediów.
@@ -356,11 +356,11 @@ Generuje ponownie klucz podstawowy lub pomocniczy usługi multimediów.
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -368,11 +368,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -380,13 +380,13 @@ Określa nazwę usługi multimediów.
 
 **-KeyType &lt;Właściwość KeyType&gt;**
 
-Określa typ klucza usługi multimediów.
+Określa typ klucza hello hello media service.
 
 * Podstawowy lub pomocniczy
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |2 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |wartość false |
@@ -394,16 +394,16 @@ Określa typ klucza usługi multimediów.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toothe polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
-Synchronizuje klucze konta magazynu dla konta magazynu skojarzone z usługą media.
+Synchronizuje klucze konta magazynu dla konta magazynu skojarzone z usługą media hello.
 
 ### <a name="syntax"></a>Składnia
     Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
@@ -411,11 +411,11 @@ Synchronizuje klucze konta magazynu dla konta magazynu skojarzone z usługą med
 ### <a name="parameters"></a>Parametry
 **-ResourceGroupName &lt;ciągu&gt;**
 
-Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
+Określa nazwę hello hello toowhich grupy zasobów, której należy ta usługa multimediów.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |0 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -423,11 +423,11 @@ Określa nazwę grupy zasobów, do którego należy ta usługa multimediów.
 
 **-AccountName &lt;ciągu&gt;**
 
-Określa nazwę usługi multimediów.
+Określa nazwę usługi multimediów hello hello.
 
 | Aliasy | Brak |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |1 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -435,11 +435,11 @@ Określa nazwę usługi multimediów.
 
 **-StorageAccountId &lt;ciągu&gt;**
 
-Określa konto magazynu skojarzonych z usługą media.
+Określa konto magazynu hello skojarzonych z usługą media hello.
 
 | Aliasy | Identyfikator |
 | --- | --- |
-| Wymagane? |Wartość true |
+| Wymagana? |Wartość true |
 | Pozycja? |2 |
 | Wartość domyślna |Brak |
 | Akceptowanie danych wejściowych potoku? |True(ByPropertyName) |
@@ -447,13 +447,13 @@ Określa konto magazynu skojarzonych z usługą media.
 
 **&lt;Właściwość CommandParameters&gt;**
 
-To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
+To polecenie cmdlet obsługuje typowe parametry hello:-Debug, - ErrorAction, - ErrorVariable, - InformationAction, - InformationVariable, - OutVariable,-OutBuffer, - PipelineVariable, - Verbose, - WarningAction i - WarningVariable.
 
 ### <a name="inputs"></a>Dane wejściowe
-Typ danych wejściowych to typ obiektów, które można przekazać w potoku do polecenia cmdlet.
+Typ danych wejściowych Hello jest typu hello hello obiekty przekazać toohello polecenia cmdlet.
 
 ### <a name="outputs"></a>dane wyjściowe
-Typ danych wyjściowych to typ obiektów emitowanych przez polecenie cmdlet.
+Typ danych wyjściowych Hello jest emituje typu hello hello obiektów, które hello polecenia cmdlet.
 
 ## <a name="next-step"></a>Następny krok
 Zapoznaj się z ścieżki szkoleniowe dotyczące usługi Media Services.

@@ -1,5 +1,5 @@
 ---
-title: "Przegląd tabel w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "aaaOverview tabel w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: Wprowadzenie do tabel magazynu danych SQL Azure.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4edabcb4b0754bf6c99c2b6b3f0c077749051d9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Przegląd tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,37 +33,37 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Wprowadzenie do tworzenia tabel w usłudze SQL Data Warehouse jest proste.  Podstawowe [CREATE TABLE] [ CREATE TABLE] składni następuje wspólnej składni, najprawdopodobniej już znasz Praca z innych baz danych.  Aby utworzyć tabelę, należy po prostu nazwę tabeli, nazwy kolumn i definiowanie typów danych dla każdej kolumny.  Jeśli już tworzenie tabel w innych bazach danych, to wygląda bardzo znane.
+Wprowadzenie do tworzenia tabel w usłudze SQL Data Warehouse jest proste.  podstawowe Hello [CREATE TABLE] [ CREATE TABLE] składni następuje hello składni wspólnej najprawdopodobniej już znasz Praca z innych baz danych.  toocreate tabelę, wystarczy tooname tabeli nazwy kolumn i definiowanie typów danych dla każdej kolumny.  Jeśli już tworzenie tabel w innych bazach danych, to powinno wyglądać bardzo znanych tooyou.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
-Powyższy przykład tworzy tabeli o nazwie klientów z dwiema kolumnami, imię i nazwisko.  Każda kolumna jest zdefiniowana z typem danych VARCHAR(25), co ogranicza dane do 25 znaków.  Te atrybuty podstawowych w tabeli, a także innych osób, przede wszystkim są takie same jak innych baz danych.  Typy danych są zdefiniowane dla każdej kolumny i zapewniania integralności danych.  Aby zwiększyć wydajność przez zmniejszenie we/wy, można dodać indeksów.  Partycjonowanie można dodać do zwiększenia wydajności, gdy konieczna modyfikacja danych.
+Witaj powyżej przykład tworzy tabeli o nazwie klientów z dwiema kolumnami, imię i nazwisko.  Każda kolumna jest zdefiniowana z typem danych VARCHAR(25), co ogranicza hello danych too25 znaków.  Te atrybuty podstawowych w tabeli, a także innych osób, przede wszystkim są hello jak w przypadku innych baz danych.  Typy danych są zdefiniowane dla każdej kolumny i zapewnienia hello integralność danych.  Indeksy można dodać tooimprove wydajność dzięki zmniejszeniu we/wy.  Partycjonowanie mogą być dodawane tooimprove wydajności podczas należy toomodify danych.
 
 [Zmiana nazwy] [ RENAME] tabeli SQL Data Warehouse wygląda następująco:
 
 ```sql  
-RENAME OBJECT Customer TO CustomerOrig; 
+RENAME OBJECT Customer tooCustomerOrig; 
  ```
 
 ## <a name="distributed-tables"></a>Rozproszone tabele
-Nowy atrybut podstawowych wynikające z systemów rozproszonych, takich jak SQL Data Warehouse jest **kolumny dystrybucji**.  Kolumny dystrybucji jest znacznie co wydaje się to np.  Jest kolumna, która określa sposób dystrybucji lub podziału danych w tle.  Po utworzeniu tabeli bez określania dystrybucji kolumny tabeli jest automatycznie dystrybuowany za pomocą **działanie okrężne**.  Działanie okrężne tabele mogą być wystarczające w niektórych scenariuszach, definiowania kolumn dystrybucji może znacznie zmniejszyć przenoszenia danych podczas wykonywania kwerend, w związku z tym optymalizacji wydajności.  W sytuacjach, w przypadku małej ilości danych w tabeli, wybierając opcję utworzenia tabeli z **replikować** typ dystrybucji kopiuje dane na każdy węzeł obliczeniowy i zapisuje przenoszenia danych w czasie wykonywania zapytania. Zobacz [Dystrybucja tabeli] [ Distribute] Aby dowiedzieć się więcej na temat sposobu wybierania kolumn dystrybucji.
+Nowy atrybut podstawowych wynikające z systemów rozproszonych, takich jak SQL Data Warehouse jest hello **kolumny dystrybucji**.  Kolumna dystrybucji Hello jest znacznie co wydaje się jak.  Jest hello kolumny, która określa, jak toodistribute, lub dzielenia, dane w tle hello.  Po utworzeniu tabeli bez określania hello dystrybucji kolumny tabeli hello jest automatycznie dystrybuowany za pomocą **działanie okrężne**.  Działanie okrężne tabele mogą być wystarczające w niektórych scenariuszach, definiowania kolumn dystrybucji może znacznie zmniejszyć przenoszenia danych podczas wykonywania kwerend, w związku z tym optymalizacji wydajności.  W sytuacjach, w przypadku małej ilości danych w tabeli, wybierając toocreate hello tabeli z hello **replikować** typ dystrybucji kopiuje węzeł obliczeniowy tooeach danych i zapisuje przenoszenia danych w czasie wykonywania zapytania. Zobacz [Dystrybucja tabeli] [ Distribute] toolearn więcej informacji na temat tooselect kolumny dystrybucji.
 
 ## <a name="indexing-and-partitioning-tables"></a>Indeksowanie i Partycjonowanie tabel
-Staną się bardziej zaawansowane za pomocą usługi SQL Data Warehouse i chcesz zoptymalizować wydajność, należy dowiedzieć się więcej o projektowaniu tabel.  Aby dowiedzieć się więcej, zobacz artykuły w [typy danych tabeli][Data Types], [Dystrybucja tabeli][Distribute], [indeksowania tabeli] [ Index] i [partycjonowania tabeli][Partition].
+Staną się bardziej zaawansowane za pomocą usługi SQL Data Warehouse i mają toooptimize wydajności, należy toolearn dodatkowe informacje o projektowaniu tabel.  toolearn więcej, zobacz artykuły hello na [typy danych tabeli][Data Types], [Dystrybucja tabeli][Distribute], [indeksowania tabeli] [ Index] i [partycjonowania tabeli][Partition].
 
 ## <a name="table-statistics"></a>Statystyk tabeli
-Statystyki są bardzo ważne dla pobierania najlepszą wydajność poza usługą SQL Data Warehouse.  Ponieważ Magazyn danych SQL nie zostały jeszcze automatycznie utworzyć i Aktualizuj statystyki, takie jak mogą pochodzić można oczekiwać w bazie danych SQL Azure, odczytywanie artykułem na [statystyki] [ Statistics] może być jednym z najważniejszych artykułów odczytu Upewnij się, aby uzyskać najlepszą wydajność zapytań.
+Statystyki są bardzo ważne toogetting hello najlepszą wydajność poza usługą SQL Data Warehouse.  Ponieważ Magazyn danych SQL nie zostały jeszcze automatycznie utworzyć i Aktualizuj statystyki, takie jak pochodzić tooexpect w bazie danych SQL Azure, odczytywanie artykułem na [statystyki] [ Statistics] może być jednym z hello Najważniejsze artykuły odczytu tooensure otrzymasz hello najlepszą wydajność zapytań.
 
 ## <a name="temporary-tables"></a>Tabele tymczasowe
-Tabele tymczasowe są tabele, które tylko istnieją w czasie trwania logowania i nie są widoczne dla innych użytkowników.  Tabele tymczasowe może być dobrym sposobem uniemożliwienia podglądu wyników tymczasowego i również ograniczyć potrzebę oczyszczania.  Ponieważ tabele tymczasowe również korzystać z lokalnego magazynu, umożliwiając im szybsza dla niektórych operacji.  Zobacz [tabeli tymczasowej] [ Temporary] artykuły, aby uzyskać więcej informacji o tabelach tymczasowych.
+Tabele tymczasowe są tabele, które tylko istnieją na czas trwania hello logowania i nie są widoczne dla innych użytkowników.  Tabele tymczasowe można innym tooprevent dobry sposób wyświetlania wyników tymczasowego i również zmniejszyć hello potrzebę oczyszczania.  Ponieważ tabele tymczasowe również korzystać z lokalnego magazynu, umożliwiając im szybsza dla niektórych operacji.  Zobacz hello [tabeli tymczasowej] [ Temporary] artykuły, aby uzyskać więcej informacji o tabelach tymczasowych.
 
 ## <a name="external-tables"></a>Tabele zewnętrzne
-Tabele zewnętrzne, znanej także jako Polybase tabele są tabele, które można wykonać zapytania z usługi SQL Data Warehouse, ale punkt, aby dane zewnętrzne z usługi SQL Data Warehouse.  Na przykład można utworzyć tabeli zewnętrznej wskazującą na plików w magazynie obiektów Blob Azure.  Aby uzyskać więcej informacji na temat sposobu tworzenia i przeszukiwania tabeli zewnętrznej, zobacz [ładowanie danych przy użyciu programu Polybase][Load data with Polybase].  
+Tabele zewnętrzne, znanej także jako Polybase tabele są tabel, które można wykonać zapytania z usługi SQL Data Warehouse, ale toodata punktu zewnętrzne z usługi SQL Data Warehouse.  Na przykład tworzenia tabeli zewnętrznej toofiles punktów, które na magazyn obiektów Blob Azure.  Więcej informacji dotyczących sposobu toocreate i zapytania tabeli zewnętrznej, zobacz [ładowanie danych przy użyciu programu Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Funkcje nieobsługiwane tabeli
-Gdy usługi SQL Data Warehouse zawiera wiele tej samej tabeli funkcji oferowanych przez innych baz danych, brak niektórych funkcji, które nie są jeszcze obsługiwane.  Poniżej przedstawiono listę niektórych funkcji tabeli, które nie są jeszcze obsługiwane.
+Gdy usługi SQL Data Warehouse zawiera wiele hello tej samej tabeli funkcje dostępne w innych bazach danych, brak niektórych funkcji, które nie są jeszcze obsługiwane.  Poniżej znajduje się lista niektórych hello funkcji tabeli, które nie są jeszcze obsługiwane.
 
 | Nieobsługiwane funkcje |
 | --- |
@@ -78,13 +78,13 @@ Gdy usługi SQL Data Warehouse zawiera wiele tej samej tabeli funkcji oferowanyc
 | [Synonimy][Synonyms] |
 
 ## <a name="table-size-queries"></a>Zapytania o rozmiar tabeli
-Prosty sposób identyfikacji miejsca i używane przez tabelę w każdym z 60 dystrybucje wierszy jest użycie [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Jeden prosty sposób tooidentify miejsca i używane przez tabelę w każdym dystrybucje hello 60 wierszy jest toouse [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Jednak przy użyciu polecenia DBCC może być dość ograniczenie.  Dynamicznych widoków zarządzania (widoków DMV) umożliwiają znacznie bardziej szczegółowo w temacie, a także zapewniają znacznie większą kontrolę nad wyników zapytania.  Rozpocznij od utworzenia tego widoku, który będzie odwoływać się wiele nasze przykłady w tym i innych artykułów.
+Jednak przy użyciu polecenia DBCC może być dość ograniczenie.  Dynamicznych widoków zarządzania (widoków DMV) umożliwi toosee bardziej szczegółowo opisano, jak również mieć znacznie większą kontrolę nad hello wyników zapytania.  Rozpocznij od utworzenia wielu nasze przykłady tego widoku, który będzie tooby określonego w tym i innych artykułów.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -199,7 +199,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Podsumowanie obszaru tabel
-To zapytanie zwraca wiersze i miejsca przez tabelę.  Jest bardzo zapytań do tabel, które są największych tabel i określa, czy mają one okrężnego replikowane lub rozpowszechniane skrót.  Dla tablic skrótów rozproszonych zawiera także kolumny dystrybucji.  W większości przypadków największych tabel należy skrótu rozpowszechnianej za pomocą klastrowanego indeksu magazynu kolumn.
+To zapytanie zwraca wiersze hello i miejsca przez tabelę.  Jest toosee dużą zapytania, tabel, które są największych tabel i czy są one okrężnego replikowane lub skrótu rozproszonych.  Dla tablic skrótów rozproszonych zawiera także hello dystrybucji kolumny.  W większości przypadków największych tabel należy skrótu rozpowszechnianej za pomocą klastrowanego indeksu magazynu kolumn.
 
 ```sql
 SELECT 
@@ -273,7 +273,7 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej, zobacz artykuły w [typy danych tabeli][Data Types], [Dystrybucja tabeli][Distribute], [indeksowania tabeli][Index], [partycjonowania tabeli][Partition], [utrzymania statystyk tabeli] [ Statistics] i [tabel tymczasowych][Temporary].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
+toolearn więcej, zobacz artykuły hello na [typy danych tabeli][Data Types], [Dystrybucja tabeli][Distribute], [indeksowania tabeli] [ Index], [Partycjonowania tabeli][Partition], [utrzymania statystyk tabeli] [ Statistics] i [ Tabele tymczasowe][Temporary].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

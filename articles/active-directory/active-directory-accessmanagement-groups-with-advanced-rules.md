@@ -1,6 +1,6 @@
 ---
-title: "Wypełnianie grupy dynamicznie oparte na atrybutach obiektu w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak — do obiektu tworzenie zaawansowanych reguł w tym członkostwa grupy obsługiwane wyrażenie operatorami reguł i parametry."
+title: "grupy aaaPopulate dynamicznie oparte na atrybutach obiektu w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak-aby toocreate zaawansowane zasady tym członkostwa grupy obsługiwane wyrażenie operatorami reguł i parametry."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,55 +15,55 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fe22829118ed8f5137a619d93fa6f9bf80835863
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>Wypełnianie grupy dynamicznie na podstawie obiektu atrybutów
-Klasyczny portal Azure udostępnia możliwość włączenia bardziej złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach usługi Azure Active Directory (Azure AD).  
+Hello klasyczny portal Azure udostępnia hello tooenable możliwości bardziej złożonych opartych na atrybutach dynamiczne zarządzanie członkostwem w grupach usługi Azure Active Directory (Azure AD).  
 
-Po zmianie wszystkie atrybuty użytkowników lub urządzeń, system ocenia wszystkie reguły dynamicznej grupy w katalogu, aby sprawdzić, czy spowoduje zmianę żadnej grupy dodaje lub usuwa. Jeśli użytkownik lub urządzenie spełnia zasady grupy, zostaną dodane jako członkiem tej grupy. Jeśli nie spełniają reguły, zostaną usunięte.
+Atrybuty zmiany użytkowników lub urządzeń, hello system ma wszystkie reguły grupy dynamicznej w toosee katalogu, jeśli spowoduje zmianę hello żadnej grupy dodaje lub usuwa. Jeśli użytkownik lub urządzenie spełnia zasady grupy, zostaną dodane jako członkiem tej grupy. Jeśli nie spełniają reguły hello, zostaną usunięte.
 
 > [!NOTE]
 > - Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365.
 >
-> - Ta funkcja wymaga licencji usługi Azure AD Premium P1 dla każdego użytkownika został dodany do co najmniej jednej grupy dynamicznej.
+> - Ta funkcja wymaga licencji usługi Azure AD Premium P1 dla każdego elementu członkowskiego tooat dodano co najmniej jedną dynamiczne grupy użytkowników.
 >
 > - Można utworzyć grupy dynamicznej dla urządzeń lub użytkowników, ale nie można utworzyć regułę, która zawiera zarówno obiektów użytkowników i urządzeń.
 
-> - W tej chwili nie jest możliwe tworzenie grupy urządzeń w oparciu będącej właścicielem, jeśli atrybuty użytkownika. Reguły członkostwa urządzenie może odwoływać się tylko natychmiastowe atrybutów obiektów urządzeń w katalogu.
+> - W momencie hello nie jest możliwe toocreate na będącej właścicielem, jeśli atrybuty użytkownika na podstawie grupy urządzeń. Urządzenie reguł członkostwa można tylko odwołanie do bezpośredniego atrybuty obiekty urządzeń w katalogu hello.
 
-## <a name="to-create-an-advanced-rule"></a>Aby utworzyć regułę zaawansowane
-1. W [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie otwórz katalogu organizacji.
-2. Wybierz **grup** karcie, a następnie otwórz grupę, którą chcesz edytować.
-3. Wybierz **Konfiguruj** wybierz opcję **reguły zaawansowanej** opcji, a następnie wprowadź zaawansowane reguły do pola tekstowego.
+## <a name="toocreate-an-advanced-rule"></a>toocreate zaawansowanej reguły
+1. W hello [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie otwórz katalogu organizacji.
+2. Wybierz hello **grup** kartę, a następnie otwórz hello grupę tooedit.
+3. Wybierz hello **Konfiguruj** kartę, zaznacz hello **reguły zaawansowanej** opcji, a następnie wprowadź hello zaawansowane reguły do pola tekstowego hello.
 
-## <a name="constructing-the-body-of-an-advanced-rule"></a>Konstruowanie treści zaawansowanej reguły
-Zaawansowane zasady, która można tworzyć dla dynamiczne zarządzanie członkostwem w grupach jest zasadniczo wyrażenie binarne, która składa się z trzech części i otrzymywania wyników w wyniku wartość true lub false. Dostępne są następujące trzy części:
+## <a name="constructing-hello-body-of-an-advanced-rule"></a>Konstruowanie hello treści zaawansowanej reguły
+reguły zaawansowanej Hello utworzonego dla hello dynamiczne zarządzanie członkostwem w grupach jest zasadniczo wyrażenie binarne, która składa się z trzech części i otrzymywania wyników w wyniku wartość true lub false. dostępne są następujące trzy części Hello:
 
 * Lewy parametr
 * Operator binarny.
 * Stała prawo
 
-Zakończenie reguły zaawansowanej wygląda podobnie do następującej: (leftParameter binaryOperator "RightConstant"), gdzie otwierające i zamykające są wymagane do całego wyrażenia binarne, podwójne cudzysłowy są wymagane dla prawo stała oraz składni Lewy parametr jest user.property. Reguły zaawansowanej może zawierać więcej niż jednego wyrażenia binarne oddzielone i, -, lub i - operatorów logicznych nie.
-Poniżej przedstawiono przykłady prawidłowo skonstruowanej reguł zaawansowanych:
+Zakończenie reguły zaawansowanej wygląda podobnie toothis: (leftParameter binaryOperator "RightConstant"), gdzie hello otwierające i zamykające nawiasy są wymagane dla całego wyrażenia binarne hello, podwójne cudzysłowy są wymagane dla stała prawo hello i hello składni Lewy parametr hello jest user.property. Reguły zaawansowanej może zawierać więcej niż jednego wyrażenia binarne oddzielone hello- i, -, lub i - operatorów logicznych nie.
+Witaj poniżej przedstawiono przykłady prawidłowo skonstruowanej reguł zaawansowanych:
 
 * (user.department - eq "Sprzedaż")- lub (user.department - eq "Marketing")
 * (user.department - eq "Sprzedaż")- i - nie (user.jobTitle — zawiera, "które integrują usługi")
 
-Pełna lista obsługiwanych parametrów i operatorami reguł wyrażenia znajduje się w sekcjach poniżej.
+Hello pełną listę obsługiwanych parametrów i operatorami reguł wyrażenia znajduje się w sekcjach poniżej.
 
 
-Należy pamiętać, że właściwość musi być poprzedzona znakiem prawidłowy obiekt typu: użytkownik lub urządzenie.
-Poniżej reguły zakończy się niepowodzeniem sprawdzania poprawności: null — ne poczty
+Należy pamiętać, że właściwość hello musi być poprzedzona znakiem hello prawidłowy obiekt typu: użytkownik lub urządzenie.
+Witaj poniżej reguły zakończy się niepowodzeniem sprawdzania poprawności hello: null — ne poczty
 
-Prawidłowa reguła będzie:
+Reguła poprawne Hello mogą być następujące:
 
 User.mail — ne wartości null
 
-Całkowita długość treści zaawansowane reguły nie może przekraczać 2048 znaków.
+Całkowita długość Hello treści hello zaawansowane reguły nie może przekraczać 2048 znaków.
 
 > [!NOTE]
 > Parametry i wyrażeń regularnych operacji są bez uwzględniania wielkości liter.
@@ -73,7 +73,7 @@ Całkowita długość treści zaawansowane reguły nie może przekraczać 2048 z
 >
 
 ## <a name="supported-expression-rule-operators"></a>Obsługiwane wyrażenie operatorami reguł
-W poniższej tabeli wymieniono wszystkie operatory obsługiwane wyrażenie reguły i ich składni, które mają być użyte w treści zaawansowanych reguł:
+Hello Poniższa tabela zawiera listę wszystkich operatorów reguły wyrażenie hello obsługiwane i ich toobe składni używane w treści hello hello zaawansowanych reguł:
 
 | Operator | Składnia |
 | --- | --- |
@@ -90,11 +90,11 @@ W poniższej tabeli wymieniono wszystkie operatory obsługiwane wyrażenie regu�
 
 ## <a name="operator-precedence"></a>Kolejność wykonywania działań
 
-Wszystkich operatorów poniżej wymieniono na pierwszeństwo z niższych do wyższych, operator w tym samym wierszu znajdują się w taki sam priorytet — żadnych - all - lub - i - nie - eq - No - startsWith — notStartsWith — zawiera - notContains — odpowiada notMatch — — w notIn —
+Wszystkich operatorów poniżej wymieniono na pierwszeństwo z niższym toohigher, operator w tym samym wierszu znajdują się w taki sam priorytet — żadnych - all - lub - i - nie - eq - No - startsWith — notStartsWith — zawiera - notContains — odpowiada notMatch — — w notIn —
 
 Wszystkich operatorów można używać z lub bez prefiksu łącznik.
 
-Należy pamiętać, że nawiasy nie są wymagane zawsze konieczne jest dodanie nawias pierwszeństwo nie spełnia wymagań dotyczących na przykład:
+Należy pamiętać, że nawiasy nie są zawsze potrzebne tylko potrzebne nawias tooadd pierwszeństwo nie spełnia wymagań dotyczących na przykład:
 
    User.Department-eq "Marketing" — i user.country-eq "PL"
 
@@ -102,27 +102,27 @@ odpowiada to:
 
    (user.department-eq "Marketingowych") — a (user.country-eq "PL")
 
-## <a name="using-the--in-and--notin-operators"></a>Przy użyciu w i notIn — operatory
+## <a name="using-hello--in-and--notin-operators"></a>Przy użyciu hello — w i notIn — operatory
 
-Jeśli chcesz porównać wartości atrybutu użytkownika przed szereg różnych wartości można użyć w lub operatory - notIn. Oto przykład przy użyciu w operatorze:
+Jeśli wartość hello toocompare atrybutu użytkownika przed szereg różnych wartości można użyć hello — w lub operatory - notIn. Oto przykład przy użyciu hello — w operatorze:
 
     user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
 
-Zwróć uwagę na użycie "[" i "]" na początku i na końcu listy wartości. Ten warunek ma wartość True, wartość równa user.department jednej z wartości na liście.
+Należy zwrócić uwagę użycie hello hello "[" i "]" na powitania początek i koniec hello listy wartości. Warunek tooTrue hello wartość równa user.department jednej wartości hello liście hello.
 
 ## <a name="query-error-remediation"></a>Korygowanie błąd zapytania
-W poniższej tabeli przedstawiono potencjalne błędy i popraw je, jeśli występują one jak
+Witaj Poniższa tabela zawiera listę potencjalnych błędów i w jaki sposób toocorrect je, jeśli występują one
 
 | Błąd analizy zapytania | Błąd użycia | Poprawiony użycia |
 | --- | --- | --- |
-| Błąd: Atrybut nie jest obsługiwane. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/>Właściwość powinna być zgodna z [obsługiwane listy właściwości](#supported-properties). |
-| Błąd: Operator nie jest obsługiwany w atrybucie. |(user.accountEnabled — zawiera wartość true) |(user.accountEnabled - eq true)<br/>Właściwość jest typu boolean. Operatory obsługiwane (-eq lub - ne) na typ boolean z powyższej listy. |
-| Błąd: Błąd kompilacji zapytania. |(user.department - eq "Sprzedaż") — a (user.department - eq "Marketing") (user.userPrincipalName-match "*@domain.ext") |(user.department - eq "Sprzedaż")- a (user.department - eq "Marketing")<br/>Operator logiczny powinna być zgodna z powyższej listy obsługiwanych właściwości. (user.userPrincipalName-odpowiada ". *@domain.ext") lub (user.userPrincipalName-odpowiada "@domain.ext$") błąd w wyrażeniu regularnym. |
+| Błąd: Atrybut nie jest obsługiwane. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/>Właściwość powinna być zgodna z hello [obsługiwane listy właściwości](#supported-properties). |
+| Błąd: Operator nie jest obsługiwany w atrybucie. |(user.accountEnabled — zawiera wartość true) |(user.accountEnabled - eq true)<br/>Właściwość jest typu boolean. Operatory obsługiwane hello (-eq lub - ne) na typ boolean z hello powyżej listy. |
+| Błąd: Błąd kompilacji zapytania. |(user.department - eq "Sprzedaż") — a (user.department - eq "Marketing") (user.userPrincipalName-match "*@domain.ext") |(user.department - eq "Sprzedaż")- a (user.department - eq "Marketing")<br/>Operator logiczny powinna być zgodna z powyższej listy właściwości hello obsługiwane. (user.userPrincipalName-odpowiada ". *@domain.ext") lub (user.userPrincipalName-odpowiada "@domain.ext$") błąd w wyrażeniu regularnym. |
 | Błąd: Wyrażenie binarne nie jest w prawidłowym formacie. |(user.department-eq "Sprzedaż") (user.department - eq "Sprzedaż") (user.department-eq "Sprzedaż") |(true - eq user.accountEnabled)- a (user.userPrincipalName — zawiera "alias@domain")<br/>Kwerenda ma wiele błędów. Nawias nie w odpowiednim miejscu. |
 | Błąd: Wystąpił nieznany błąd podczas konfigurowania członkostwo dynamiczne. |(user.accountEnabled - eq "True" i user.userPrincipalName — zawiera "alias@domain") |(true - eq user.accountEnabled)- a (user.userPrincipalName — zawiera "alias@domain")<br/>Kwerenda ma wiele błędów. Nawias nie w odpowiednim miejscu. |
 
 ## <a name="supported-properties"></a>Obsługiwanych właściwości
-Wszystkie właściwości użytkownika, które można używać w zaawansowanych reguły są następujące:
+wszystkie właściwości hello użytkownika, które można używać w zaawansowanych reguły są następujące Hello:
 
 ### <a name="properties-of-type-boolean"></a>Właściwości typu boolean
 Dozwolonych operatorów
@@ -159,11 +159,11 @@ Dozwolonych operatorów
 | facsimileTelephoneNumber |Dowolna wartość ciągu lub $null |(user.facsimileTelephoneNumber - eq "value") |
 | Imię |Dowolna wartość ciągu lub $null |(user.givenName - eq "value") |
 | Stanowisko |Dowolna wartość ciągu lub $null |(user.jobTitle - eq "value") |
-| Poczty |Dowolna wartość ciągu lub $null (adresu SMTP użytkownika) |(user.mail - eq "value") |
-| mailNickName |Dowolną wartość ciągu (poczty alias użytkownika) |(user.mailNickName - eq "value") |
+| Poczty |Dowolna wartość ciągu lub $null (adresu SMTP użytkownika hello) |(user.mail - eq "value") |
+| mailNickName |Dowolną wartość ciągu (alias wiadomości powitania użytkownika) |(user.mailNickName - eq "value") |
 | Telefon komórkowy |Dowolna wartość ciągu lub $null |(user.mobile - eq "value") |
-| Identyfikator obiektu |Identyfikator GUID obiektu użytkownika |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | Lokalny identyfikator zabezpieczeń (SID) dla użytkowników, którzy zostały zsynchronizowane z lokalnymi do chmury. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| Identyfikator obiektu |Identyfikator GUID obiektu użytkownika hello |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Lokalny identyfikator zabezpieczeń (SID) dla użytkowników, którzy są synchronizowane z lokalnej toohello chmury. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Brak DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Dowolna wartość ciągu lub $null |(user.physicalDeliveryOfficeName - eq "value") |
 | KodPocztowy |Dowolna wartość ciągu lub $null |(user.postalCode - eq "value") |
@@ -191,63 +191,63 @@ Dozwolonych operatorów
 ## <a name="multi-value-properties"></a>Właściwości wielu wartości
 Dozwolonych operatorów
 
-* -wszelkie (spełnione po co najmniej jeden element w kolekcji odpowiada warunek)
-* -wszystkie (spełnione, kiedy wszystkie elementy w kolekcji zgodne z warunkiem)
+* -wszelkie (spełniony, gdy co najmniej jeden element w kolekcji hello spełnia warunek hello)
+* -wszystkie (spełnione, gdy wszystkie elementy w kolekcji hello zgodne warunku hello)
 
 | Właściwości | Wartości | Sposób użycia |
 | --- | --- | --- |
-| assignedPlans |Każdy obiekt w kolekcji udostępnia następujące właściwości ciągu: capabilityStatus, usługi, servicePlanId |user.assignedPlans — wszystkie (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- i assignedPlan.capabilityStatus - eq "Włączone") |
+| assignedPlans |Każdy obiekt w kolekcji hello uwidacznia następujące właściwości ciąg hello: capabilityStatus, usługi, servicePlanId |user.assignedPlans — wszystkie (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- i assignedPlan.capabilityStatus - eq "Włączone") |
 
-Właściwości wielowartościowe są kolekcje obiektów tego samego typu. Można użyć — wszystkie — wszystkie operatory i do zastosowania warunku, odpowiednio do jednego lub wszystkich elementów w kolekcji. Na przykład:
+Właściwości wielowartościowe są kolekcje obiektów hello tego samego typu. Można użyć - wszelkich i - wszystkie tooapply operatory tooone warunku lub wszystkich hello elementów w kolekcji hello odpowiednio. Na przykład:
 
-assignedPlans jest właściwością wielu wartościach, która wyświetla wszystkie plany usługi przypisane do użytkownika. Poniżej wyrażenie będzie Wybierz użytkowników, którzy mają usługi Exchange Online (Plan 2) planu obsługi, który jest również w stanie włączone:
+assignedPlans jest właściwością wielu wartościach, która wyświetla wszystkie plany usługi przypisany użytkownik toohello. Witaj poniżej wyrażenie będzie Wybierz użytkowników, którzy mają hello usługi Exchange Online (Plan 2) usługa plan, który również jest w stanie włączone:
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(Identyfikator Guid identyfikuje planie usługi Exchange Online (Plan 2)).
+(identyfikator Guid hello identyfikuje plan usługi Exchange Online (Plan 2) hello).
 
 > [!NOTE]
-> Jest to przydatne, jeśli chcesz zidentyfikować wszystkich użytkowników, dla którego usługi Office 365 (lub innych usług Microsoft Online) funkcja została włączona, na przykład, do których zestaw zasad.
+> Jest to przydatne w przypadku tooidentify wszystkich użytkowników dla którego usługi Office 365 (lub innych usług Microsoft Online) funkcja została włączona, na przykład tootarget z zestawu zasad.
 
-Poniższe wyrażenie będzie wybierz wszystkich użytkowników, którzy mają wszystkie planu usług, który jest skojarzony z usługą Intune (określanego przez nazwę usługi "SCO"):
+Witaj poniższe wyrażenie będzie wybierz wszystkich użytkowników, którzy mają każdego planu usługi skojarzony z hello usługi Intune (określanego przez nazwę usługi "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
 ## <a name="use-of-null-values"></a>Użyj wartości Null
 
-Aby określić wartości null w regule, można użyć "null" lub $null. Przykład:
+toospecify wartość null w regule, można użyć "null" lub $null. Przykład:
 
    User.mail — ne wartość null jest odpowiednikiem user.mail — ne $null
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atrybuty rozszerzenia oraz atrybuty niestandardowe
 Atrybuty rozszerzenia oraz atrybuty niestandardowe są obsługiwane w regułach członkostwo dynamiczne.
 
-Atrybuty rozszerzenia są synchronizowane z lokalną okna serwera AD i mieć format "ExtensionAttributeX", gdzie X jest równa 1 – 15.
+Atrybuty rozszerzenia są synchronizowane z lokalną okna serwera AD i podejmij hello format "ExtensionAttributeX", gdzie X jest równa 1 – 15.
 Oto przykład regułę, która używa atrybutu rozszerzenia
 
 (user.extensionAttribute15 - eq "marketingowych")
 
-Atrybuty niestandardowe są synchronizowane z lokalną AD systemu Windows Server lub połączonych aplikacji SaaS i format "user.extension_[GUID]\__ [Attribute]", gdzie [identyfikator GUID] jest unikatowy identyfikator aplikacji, która utworzyła w usłudze AAD atrybut w usłudze AAD i [Attribute] jest nazwa atrybutu, ponieważ został on utworzony.
+Atrybuty niestandardowe są synchronizowane z lokalną AD systemu Windows Server lub połączonych SaaS aplikacji i hello hello formacie "user.extension_[GUID]\__ [Attribute]", gdzie [identyfikator GUID] jest unikatowy identyfikator hello w usłudze AAD aplikacji hello który Atrybut hello utworzone w usłudze AAD i [Attribute] jest hello nazwa atrybutu hello, ponieważ został on utworzony.
 Na przykład regułę, która korzysta z atrybutem niestandardowym
 
 User.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-Nazwa atrybutu niestandardowego można znaleźć w katalogu, badając użytkowników atrybutu za pomocą Eksploratora wykres i wyszukiwania dla nazwy atrybutu.
+Witaj nazwie atrybutu niestandardowego można znaleźć w katalogu hello badając użytkowników atrybutu za pomocą Eksploratora wykres i wyszukiwania dla nazwy atrybutu hello.
 
 ## <a name="direct-reports-rule"></a>Reguła "Bezpośrednich podwładnych"
-Można utworzyć grupę wszystkich bezpośrednich podwładnych menedżera. Menedżera bezpośrednich podwładnych zmiany w przyszłości, członkostwo w grupie zostanie automatycznie dostosowana.
+Można utworzyć grupę wszystkich bezpośrednich podwładnych menedżera. Menedżer hello bezpośrednich podwładnych zmiany w przyszłości hello, członkostwo w grupie hello zostanie automatycznie korygowane.
 
 > [!NOTE]
-> 1. Aby reguła mogła działać, upewnij się, że **identyfikator menedżera** właściwość została poprawnie ustawiona dla użytkowników w dzierżawie. Bieżąca wartość dla użytkownika można sprawdzić na ich **karta Profil**.
-> 2. Ta reguła obsługuje tylko **bezpośredniego** raportów. Obecnie nie jest możliwe tworzenie grupy zagnieżdżone hierarchii, np. grupy, która zawiera bezpośrednich podwładnych i ich raporty.
+> 1. Dla toowork reguły hello, upewnij się, że hello **identyfikator menedżera** właściwość została poprawnie ustawiona dla użytkowników w dzierżawie. Możesz sprawdzić hello bieżąca wartość dla użytkownika na ich **karta Profil**.
+> 2. Ta reguła obsługuje tylko **bezpośredniego** raportów. Obecnie nie jest możliwe toocreate grupy zagnieżdżone hierarchii, np. grupy, która zawiera bezpośrednich podwładnych i ich raporty.
 
-**Aby skonfigurować grupę**
+**tooconfigure hello grupy**
 
-1. Wykonaj kroki 1 – 5 z sekcji [do tworzenia zaawansowanych reguł](#to-create-the-advanced-rule)i wybierz **Typ członkostwa** z **dynamiczne użytkownika**.
-2. Na **członkostwo dynamiczne reguły** bloku, wprowadź regułę przy użyciu następującej składni:
+1. Wykonaj kroki 1 – 5 z sekcji [reguły zaawansowanej toocreate hello](#to-create-the-advanced-rule)i wybierz **Typ członkostwa** z **dynamiczne użytkownika**.
+2. Na powitania **członkostwo dynamiczne reguły** bloku, wprowadź hello reguły z hello następującej składni:
 
     *Bezpośrednich podwładnych dla "{obectID_of_manager}"*
 
@@ -255,11 +255,11 @@ Można utworzyć grupę wszystkich bezpośrednich podwładnych menedżera. Mened
 ```
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
-    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. Po zapisaniu reguły, wszyscy użytkownicy z określoną wartością Identyfikator menedżera zostanie dodany do grupy.
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is hello objectID of hello manager. hello object ID can be found on manager's **Profile tab**.
+3. Po zapisaniu hello reguły, wszyscy użytkownicy z hello określony ma zostać dodana wartość Identyfikatora Menedżera toohello grupy.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Aby utworzyć zasady obiekty urządzeń przy użyciu atrybutów
-Można również utworzyć regułę, która wybiera obiekty urządzeń do członkostwa w grupie. Można to następujące atrybuty:
+## <a name="using-attributes-toocreate-rules-for-device-objects"></a>Przy użyciu reguł toocreate atrybuty obiektów urządzeń
+Można również utworzyć regułę, która wybiera obiekty urządzeń do członkostwa w grupie. Witaj następujące atrybuty urządzenia mogą być używane:
 
 | Właściwości              | Dozwolone wartości                  | Sposób użycia                                                       |
 |-------------------------|---------------------------------|-------------------------------------------------------------|
@@ -280,7 +280,7 @@ Można również utworzyć regułę, która wybiera obiekty urządzeń do człon
 | Identyfikator obiektu                | Nieprawidłowa objectId AAD            | (device.objectId - eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Reguły te urządzenia nie można utworzyć za pomocą listy rozwijanej "Prosta reguła" w klasycznym portalu Azure.
+> Reguły te urządzenia nie można utworzyć za pomocą listy rozwijanej "Prosta reguła" hello w hello klasycznego portalu Azure.
 >
 >
 
@@ -288,7 +288,7 @@ Można również utworzyć regułę, która wybiera obiekty urządzeń do człon
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
 * [Rozwiązywanie problemów z dynamiczne zarządzanie członkostwem w grupach](active-directory-accessmanagement-troubleshooting.md)
-* [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
+* [Zarządzanie tooresources dostępu za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
 * [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)

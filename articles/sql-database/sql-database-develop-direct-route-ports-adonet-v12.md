@@ -1,6 +1,6 @@
 ---
-title: "Porty inne niż 1433 dla bazy danych SQL | Dokumentacja firmy Microsoft"
-description: "Czasami połączeń klientów z ADO.NET z bazy danych SQL Azure pominąć serwer proxy i bezpośrednią interakcję z bazy danych. Porty inne niż 1433 nabierają znaczenia."
+title: aaaPorts poza 1433 dla bazy danych SQL | Dokumentacja firmy Microsoft
+description: "Połączenia klientów z tooAzure ADO.NET bazy danych SQL czasami używaj serwera proxy hello i bezpośrednią interakcję z hello bazy danych. Porty inne niż 1433 nabierają znaczenia."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a35ff2d827ae3fa29b3ea855dbb7ed78583c82eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty inne niż 1433 dla ADO.NET 4.5
-W tym temacie opisano zachowanie połączenia bazy danych SQL Azure dla klientów używających ADO.NET 4.5 lub nowszej wersji. 
+W tym temacie opisano zachowanie połączenia bazy danych SQL Azure powitania dla klientów używających ADO.NET 4.5 lub nowszej wersji. 
 
 > [!IMPORTANT]
 > Informacje o architekturze łączności, zobacz [architektury połączenia bazy danych SQL Azure](sql-database-connectivity-architecture.md).
 >
 
 ## <a name="outside-vs-inside"></a>Poza vs wewnątrz
-Dla połączeń z bazą danych SQL Azure, musi najpierw poprosimy czy uruchamia program kliencki *poza* lub *wewnątrz* granic chmury Azure. Podpunkty omówiono w nim dwóch typowych scenariuszy.
+Dla połączeń tooAzure bazy danych SQL, należy najpierw poprosimy czy uruchamia program kliencki *poza* lub *wewnątrz* hello chmury Azure granic. Podpunkty Hello omówiono w nim dwóch typowych scenariuszy.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*Poza:* klient jest uruchamiany na komputerze stacjonarnym
-Port 1433 jest tylko port, który musi być otwarty na komputerze stacjonarnym, hostującego aplikację kliencką bazy danych SQL.
+Port 1433 jest hello wyłącznie port, który musi być otwarty na komputerze stacjonarnym, hostującego aplikację kliencką bazy danych SQL.
 
 #### <a name="inside-client-runs-on-azure"></a>*Wewnątrz:* klienta działa na platformie Azure
-Po uruchomieniu klienta wewnątrz granic chmury Azure używa można zwany *trasy bezpośredniej* do interakcji z serwerem bazy danych SQL. Po nawiązaniu połączenia dalszej interakcji między klientem a bazy danych obejmują żadnego serwera proxy oprogramowania pośredniczącego.
+Po uruchomieniu wewnątrz granic chmury Azure powitania klienta używa można zwany *trasy bezpośredniej* toointeract z hello bazy danych SQL server. Po nawiązaniu połączenia dalszych interakcji między powitania klienta i bazy danych obejmują żadnego serwera proxy oprogramowania pośredniczącego.
 
-Sekwencja jest następujący:
+kolejność Hello jest następująca:
 
-1. ADO.NET 4.5 (lub nowszej) inicjuje krótki interakcji z chmury Azure i odbiera numeru portu dynamicznie zidentyfikowane.
+1. ADO.NET 4.5 (lub nowszej) inicjuje krótki interakcji z hello chmury Azure i odbiera numeru portu dynamicznie zidentyfikowane.
    
-   * Numer portu dynamicznie zidentyfikowanych jest w zasięgu 11000 11999 lub 14000 14999.
-2. ADO.NET następnie nawiązuje połączenie z serwerem bazy danych SQL bezpośrednio, z nie oprogramowania pośredniczącego między nimi.
-3. Zapytania są wysyłane bezpośrednio do bazy danych, a wyniki są zwracane bezpośrednio do klienta.
+   * numer portu Hello dynamicznie identyfikowane jest w zasięgu hello 11000 11999 lub 14000 14999.
+2. ADO.NET następnie łączy toohello bazy danych programu SQL server bezpośrednio z nie oprogramowania pośredniczącego między nimi.
+3. Zapytania są wysyłane bezpośrednio toohello bazy danych, a wyniki są zwracane bezpośrednio toohello klienta.
 
-Upewnij się, że port, który 11000 11999 i 14000-14999 na komputerze klienta usługi Azure pozostają dostępne dla ADO.NET 4.5 interakcji klientów z bazy danych SQL.
+Upewnij się, ten port hello 11000 11999 i 14000-14999 na komputerze klienta usługi Azure pozostają dostępne dla ADO.NET 4.5 interakcji klientów z bazy danych SQL.
 
-* W szczególności porty z zakresu nie może zawierać innych blokują ruchu wychodzącego.
-* Na maszynie Wirtualnej Azure **Zapora systemu Windows z zabezpieczeniami zaawansowanymi** kontroluje ustawienia portu.
+* W szczególności porty hello zakresu nie może zawierać innych blokują ruchu wychodzącego.
+* Na maszynie Wirtualnej Azure, hello **Zapora systemu Windows z zabezpieczeniami zaawansowanymi** formanty hello ustawienia portu.
   
-  * Można użyć [interfejsu użytkownika zapory](http://msdn.microsoft.com/library/cc646023.aspx) Aby dodać regułę, dla którego należy określić **TCP** , takich jak protokół wraz z zakresu portów przy użyciu składni **11000 11999**.
+  * Można użyć hello [interfejsu użytkownika zapory](http://msdn.microsoft.com/library/cc646023.aspx) tooadd a regułę, dla którego określone hello **TCP** protokołu wraz ze składnią hello zakres portów, takich jak **11000 11999**.
 
 ## <a name="version-clarifications"></a>Wyjaśnienia wersji
-Ta sekcja zawiera wyjaśnienie informujące, krótkie, które odwołują się do wersji produktu. Zawiera także listę par niektóre wersje produktów.
+Monikery hello, odwołujące się do wersji tooproduct wyjaśnia, w tej sekcji. Zawiera także listę par niektóre wersje produktów.
 
 #### <a name="adonet"></a>ADO.NET
-* ADO.NET 4.0 obsługuje protokół TDS 7.3, ale nie 7.4.
-* ADO.NET 4.5 lub nowszej obsługuje protokół TDS 7.4.
+* ADO.NET 4.0 obsługuje protokół hello TDS 7.3, ale nie 7.4.
+* ADO.NET 4.5 lub nowszej obsługuje protokół hello TDS 7.4.
 
 ## <a name="related-links"></a>Powiązane linki
-* ADO.NET 4.6 został wydany 20 lipca 2015 r. Zawiadomienie blog zespołu .NET jest dostępna [tutaj](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 został wydany 15 sierpień 2012. Zawiadomienie blog zespołu .NET jest dostępna [tutaj](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+* ADO.NET 4.6 został wydany 20 lipca 2015 r. Zawiadomienie blog zespołu .NET hello jest dostępna [tutaj](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 został wydany 15 sierpień 2012. Zawiadomienie blog zespołu .NET hello jest dostępna [tutaj](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
   
   * Jest dostępna w blogu o ADO.NET 4.5.1 [tutaj](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 * [Lista wersji protokołu TDS](http://www.freetds.org/userguide/tdshistory.htm)

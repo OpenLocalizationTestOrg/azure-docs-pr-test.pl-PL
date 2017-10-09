@@ -1,5 +1,5 @@
 ---
-title: "Defragmentacja metryki w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
+title: "aaaDefragmentation metryki w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
 description: "Omówienie przy użyciu defragmentacji lub pakowania jako strategię metryki w sieci szkieletowej usług"
 services: service-fabric
 documentationcenter: .net
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b253cc07066092aa82d218c9c82c8aac502245a8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d09045a6cf196d2771f1a0794637f4579d3eb96b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentacja metryki i obciążenia w sieci szkieletowej usług
-Strategię domyślnego menedżera zasobów klastra sieci szkieletowej usług zarządzania metryki obciążenia w klastrze jest rozkładanie obciążenia. Zapewnienie, że węzły są wykorzystywane równomiernie pozwala uniknąć gorącego i zimnych miejsc prowadzących do rywalizacji i nieużywanego zasobów. Dystrybucji obciążeń w klastrze jest również najbezpieczniejszy pod względem pozostałych błędy, ponieważ gwarantuje, że błąd nie Wyjmij znaczną część danego obciążenia. 
+Strategia domyślne Hello usługi sieć szkieletowa klastra Menedżera zasobów do zarządzania metryki obciążenia w klastrze hello jest toodistribute hello obciążenia. Zapewnienie, że węzły są wykorzystywane równomiernie pozwala uniknąć gorącego i zimnych miejsc prowadzących rywalizacji tooboth i nieużywanego zasobów. Dystrybucji obciążeń w klastrze hello jest również hello najbezpieczniejszy pod względem pozostałych błędy, ponieważ gwarantuje, że błąd nie Wyjmij znaczną część danego obciążenia. 
 
-Menedżer zasobów klastra sieci szkieletowej usług obsługę zarządzania obciążenia, który jest defragmentacji innych strategii. Defragmentacja oznacza, że zamiast w trakcie rozpowszechniają wykorzystania metryki klastra, jego są konsolidowane. Konsolidacji jest po prostu odwracanie domyślne równoważenie strategii — zamiast minimalizując odchylenie standardowe średni metryki obciążenia, próbuje powinna ona być Menedżera zasobów klastra.
+Hello zasobu klastra sieci szkieletowej programu Service Manager obsługuje innych strategii zarządzania obciążenia, który jest defragmentacji. Defragmentacja oznacza, że zamiast w trakcie wykorzystania hello toodistribute metryki w klastrze hello, jego są konsolidowane. Konsolidacja jest po prostu odwracanie domyślne hello równoważenia strategii — zamiast minimalizując hello średni odchylenie standardowe metryki obciążenia, hello Menedżera zasobów klastra próbuje tooincrease go.
 
-## <a name="when-to-use-defragmentation"></a>Kiedy należy używać defragmentacji
-Dystrybucja obciążenia w klastrze zużywa niektórych zasobów w każdym węźle. Niektórych zadań tworzenia usług, które są wyjątkowo dużą i używać większości lub wszystkich węzła. W takich przypadkach jest to możliwe, że w przypadku dużych obciążeń, uzyskiwanie utworzony nie ma wystarczającej ilości miejsca na dowolnym węźle, aby uruchomić je. Duże obciążenia nie są problem w sieci szkieletowej usług; w takich przypadkach klaster Resource Manager ustala, że potrzebuje do klastra, aby zwolnić miejsce dla to duże obciążenie reorganizowanie. Jednak w tym samym czasie aby obciążenie ma czekać do zaplanowania w klastrze.
+## <a name="when-toouse-defragmentation"></a>Gdy defragmentacji toouse
+Dystrybucja obciążenia w klastrze hello zużywa niektórych zasobów hello w każdym węźle. Niektórych zadań tworzenia usług, które są wyjątkowo dużą i używać większości lub wszystkich węzła. W takich przypadkach jest to możliwe, że w przypadku dużych pobierania utworzone obciążeń, które nie ma wystarczającej ilości miejsca w toorun dowolnego węzła je. Duże obciążenia nie są problem w sieci szkieletowej usług; w tych przypadkach hello Cluster Resource Manager ustala, że potrzebuje tooreorganize hello klastra toomake miejsca na tym duże obciążenie. Jednak w hello międzyczasie aby obciążenie ma toobe toowait zaplanowane hello klastra.
 
-Jeśli istnieje wiele usług i stanie, aby przenosić, jego może potrwać długo duże obciążenie można umieścić w klastrze. Jest to bardziej prawdopodobne, jeśli inne obciążenia w klastrze są także duży i dlatego trwać dłużej reorganizować. Zespół usługi sieć szkieletowa mierzone czasy tworzenia w symulacji tego scenariusza. Znaleziono się, że tworzenie dużych usług trwało dłużej zaraz po wykorzystaniu klastra otrzymano powyżej od 30% do 50%. Aby obsługiwać ten scenariusz, wprowadzono defragmentacji jako równoważenia strategii. Znaleziono się, że w przypadku dużych obciążeń, zwłaszcza tych, których czas utworzenia było ważne defragmentacji naprawdę pomocne te nowe obciążenia są planowane w klastrze.
+Jeśli istnieje wiele usług i stan toomove wokół, jego może potrwać długo toobe duże obciążenie hello umieszczone w klastrze hello. Jest to bardziej prawdopodobne, jeśli inne obciążenia w klastrze hello są także duży i dlatego trwać dłużej tooreorganize. zespołu usługi sieć szkieletowa Hello mierzone czasy tworzenia w symulacji tego scenariusza. Znaleziono się, że tworzenie dużych usług trwało dłużej zaraz po wykorzystaniu klastra otrzymano powyżej od 30% do 50%. toohandle tego scenariusza, wprowadzono defragmentacji jako równoważenia strategii. Znaleziono się, że w przypadku dużych obciążeń, zwłaszcza tych, których czas utworzenia było ważne defragmentacji naprawdę pomocne te nowe obciążenia są planowane hello klastra.
 
-Można skonfigurować metryki defragmentacji mają Menedżera zasobów klastra, aby aktywnie spróbuj zmniejszyć obciążenie usługi do mniej węzłów. Pomaga to zapewnić, że jest prawie zawsze miejsca dla dużych usług bez reorganizacja klastra. Brak konieczności reorganizować klastra umożliwia szybkie tworzenie dużych obciążeń.
+Defragmentacja metryki toohave hello tooproactively Menedżera zasobów klastra spróbuj toocondense hello obciążenia hello usług można skonfigurować do mniej węzłów. Pomaga to zapewnić, że jest prawie zawsze miejsca dla dużych usług bez reorganizacja hello klastra. Nie ma tooreorganize hello klastra umożliwia szybkie tworzenie dużych obciążeń.
 
-Defragmentacja nie ma potrzeby większości użytkowników. Usług są zwykle jest mały, więc nie jest trudne do odszukania miejsce dla nich w klastrze. Gdy reorganizacji jest możliwe, przechodzi ona szybko ponownie ponieważ większość usług są małe i mogą zostać przeniesione szybkie i równolegle. Jeśli jednak duże usług i należy je szybko utworzyć następnie strategii defragmentacji jest dla Ciebie. Omówiono wady i zalety używania defragmentacji dalej. 
+Defragmentacja nie ma potrzeby większości użytkowników. Usług są zwykle jest mały, więc nie twardych toofind miejsca dla nich w klastrze hello. Gdy reorganizacji jest możliwe, przechodzi ona szybko ponownie ponieważ większość usług są małe i mogą zostać przeniesione szybkie i równolegle. Jednak jeśli dużych usług i należy je szybko utworzyć hello strategii defragmentacji jest dla Ciebie. Omówiono wady i zalety korzystania defragmentacji obok hello. 
 
 ## <a name="defragmentation-tradeoffs"></a>Defragmentacja wady i zalety
-Defragmentacji może zwiększyć impactfulness błędy, ponieważ w węzłach, które nie są uruchomione usługi więcej. Defragmentacji także może zwiększyć koszty, ponieważ zasobów w klastrze, musi być przechowywany w rezerwy oczekiwanie na tworzenie dużych obciążeń.
+Defragmentacji może zwiększyć impactfulness błędy, ponieważ w węzłach, które nie są uruchomione usługi więcej. Defragmentacja także może zwiększyć koszty, ponieważ zasobów w klastrze hello musi być przechowywany w rezerwy czeka na utworzenie hello dużych obciążeń.
 
-Poniższy diagram zapewnia wizualną reprezentację dwa klastry, który defragmentacji i jedną, która nie jest. 
+Witaj poniższym diagramie zapewnia wizualną reprezentację dwa klastry, który defragmentacji i jedną, która nie jest. 
 
 <center>
 ![Porównywanie zrównoważonym i defragmentacji klastrów][Image1]
 </center>
 
-W przypadku zrównoważonym należy wziąć pod uwagę liczbę przesunięcia, które należy umieścić jedną z największych obiektów usługi. W klastrze zdefragmentowanej duże obciążenie może umieścić w węzłów czterech lub pięciu bez potrzeby czekania na inne usługi przenieść.
+W przypadku hello zrównoważonym należy wziąć pod uwagę liczbę hello przemieszczania, które mogą być niezbędne tooplace, jeden z największych obiektów usługi hello. W klastrze zdefragmentowanej hello hello duże obciążenie można umieścić w węzłach czterech lub pięciu bez konieczności toowait dla innych toomove usług.
 
 ## <a name="defragmentation-pros-and-cons"></a>Defragmentacja zalet i wad
-Co to są tych pojęć kompromisy? Poniżej przedstawiono szybki spis kwestii:
+Co to są tych pojęć kompromisy? Poniżej przedstawiono szybki spis toothink rzeczy, o:
 
 | Specjaliści defragmentacji | Defragmentacja wad |
 | --- | --- |
@@ -54,16 +54,16 @@ Co to są tych pojęć kompromisy? Poniżej przedstawiono szybki spis kwestii:
 | Umożliwia obniżyć przenoszenia danych podczas tworzenia |Błędy może mieć wpływ na inne usługi i przenoszenie więcej |
 | Umożliwia zaawansowane opis wymagań i odzyskiwanie miejsca |Bardziej złożonych konfiguracji ogólnej zarządzanie zasobami |
 
-Można mieszać zdefragmentowanej i normalnym metryki w tym samym klastrze. Menedżer zasobów klastra próbuje konsolidować możliwie często podczas rozkładanie innych metryk defragmentacji. Wyniki mieszanie defragmentacji i równoważenie strategii zależy od kilka czynników, takich jak:
-  - Liczba równoważenia metryki, a liczba defragmentacji metryk
+Można mieszać zdefragmentowanej i normalnym metryki w hello tego samego klastra. Witaj Menedżera zasobów klastra prób tooconsolidate hello defragmentacji metryki możliwie często podczas rozkładanie hello innych użytkowników. wyniki Hello mieszanie defragmentacji oraz równoważenia strategii zależy od kilka czynników, takich jak:
+  - Liczba Hello równoważenia metryki a hello liczby metryk defragmentacji
   - Określa, czy usługi używa obu typów metryk 
-  - metryki wag
+  - metryki wag Hello
   - ładuje bieżący metryki
   
-Eksperymenty jest niezbędne do określenia dokładnej konfiguracji niezbędne. Zalecamy dokładne pomiary obciążeń przed włączeniem metryki defragmentacji w środowisku produkcyjnym. Dotyczy to zwłaszcza mieszanie defragmentacji i zrównoważonym metryki w ramach tej samej usługi. 
+Eksperymenty jest wymagana toodetermine hello dokładnej konfiguracji niezbędne. Zalecamy dokładne pomiary obciążeń przed włączeniem metryki defragmentacji w środowisku produkcyjnym. Jest to szczególnie istotne, jeśli mieszanie defragmentacji i zrównoważonym metryki w hello tę samą usługę. 
 
 ## <a name="configuring-defragmentation-metrics"></a>Konfigurowanie metryki defragmentacji
-Konfigurowanie metryki defragmentacji jest globalne decyzji w klastrze, a do defragmentacji można wybrać poszczególnych metryki. Poniższe fragmenty kodu config przedstawiają sposób konfigurowania metryki dla defragmentacji. W takim przypadku "Metric1" jest skonfigurowana jako metrykę defragmentacji "Metric2" będzie nadal normalnie zrównoważenia. 
+Konfigurowanie metryki defragmentacji jest globalne decyzji w klastrze hello i do defragmentacji można wybrać poszczególnych metryki. powitania po konfiguracji wstawki pokazują, jak metryki tooconfigure defragmentacji. W takim przypadku "Metric1" jest skonfigurowana jako metrykę defragmentacji "Metric2" będzie nadal toobe zrównoważonym normalnie. 
 
 ClusterManifest.xml:
 
@@ -96,7 +96,7 @@ za pomocą pliku ClusterConfig.json dla autonomicznych wdrożeniach lub Template
 
 
 ## <a name="next-steps"></a>Następne kroki
-- Menedżer zasobów klastra ma opcje man opisujące klastra. Aby dowiedzieć się więcej na ich temat, zapoznaj się w tym artykule na [opisujące klastra sieci szkieletowej usług](service-fabric-cluster-resource-manager-cluster-description.md)
-- Metryki są zarządzaniu Menedżer zasobów klastra sieci szkieletowej usług konsumenckich i pojemności w klastrze. Aby dowiedzieć się więcej na temat metryki i sposobach ich konfigurowania, zapoznaj się [w tym artykule](service-fabric-cluster-resource-manager-metrics.md)
+- Hello Menedżera zasobów klastra ma opcje man opisujące hello klastra. toofind się więcej na ich temat, zapoznaj się w tym artykule na [opisujące klastra sieci szkieletowej usług](service-fabric-cluster-resource-manager-cluster-description.md)
+- Metryki są zarządzaniu hello Menedżer zasobów klastra sieci szkieletowej usług konsumenckich i pojemności w klastrze hello. więcej informacji na temat metryki toolearn i jak tooconfigure, zapoznaj się z [w tym artykule](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

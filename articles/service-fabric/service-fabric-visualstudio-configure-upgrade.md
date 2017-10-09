@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie uaktualnienia aplikacji usługi Service Fabric | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować ustawienia dotyczące uaktualniania aplikacji sieci szkieletowej usług za pomocą programu Microsoft Visual Studio."
+title: "uaktualnienie hello aaaConfigure aplikacji usługi Service Fabric | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooconfigure hello ustawienia dotyczące uaktualniania aplikacji sieci szkieletowej usług za pomocą programu Microsoft Visual Studio."
 services: service-fabric
 documentationcenter: na
 author: mikkelhegn
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ca50aa9d911f3c98f017490c8fe29011e8d80cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Konfigurowanie uaktualnienia aplikacji usługi Service Fabric w programie Visual Studio
-Visual Studio tools dla sieci szkieletowej usług Azure zapewniają obsługę uaktualnienia publikowanie do klastrów lokalnym lub zdalnym. Istnieją trzy scenariusze, w których ma zostać uaktualniony do nowszej wersji zamiast zastępowania aplikacji podczas testowania i debugowania aplikacji:
+# <a name="configure-hello-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Skonfiguruj hello uaktualnienie aplikacji usługi Service Fabric w programie Visual Studio
+Visual Studio tools dla sieci szkieletowej usług Azure zapewniają obsługę uaktualnienia publikowania toolocal lub zdalnych klastrów. Istnieją trzy scenariusze, w których chcesz tooupgrade Twojej aplikacji tooa nowsza wersja zamiast zastępowania aplikacji hello podczas testowania i debugowania:
 
-* Dane aplikacji nie będzie utracone podczas uaktualniania.
-* Dostępności pozostaje wysoka, nie będzie przerw w działaniu usługi podczas uaktualniania, jeśli brak wystarczającej liczby wystąpień usługi rozmieszczenie domen uaktualnienia.
+* Dane aplikacji nie będzie utracone podczas uaktualniania hello.
+* Dostępności pozostaje wysoka, nie będzie przerw w działaniu usługi podczas uaktualniania hello, jeśli brak wystarczającej liczby wystąpień usługi rozmieszczenie domen uaktualnienia.
 * Testy mogą być uruchamiane na aplikacji, podczas gdy jest uaktualniany.
 
-## <a name="parameters-needed-to-upgrade"></a>Parametry niezbędne do uaktualnienia
-Są dostępne dwa typy wdrażania: regularne lub uaktualniania. Regularne wdrożenia usuwa wszelkie poprzednie informacje na temat wdrażania i dane w klastrze, podczas wdrażania uaktualnienia zachowuje on. Podczas uaktualniania aplikacji usługi Service Fabric w programie Visual Studio, musisz podać parametry uaktualniania aplikacji i kondycji Sprawdź zasady. Parametry uaktualniania aplikacji ograniczyć uaktualnienia, podczas gdy zasady dotyczące kondycji wyboru ustalić, czy uaktualnienie zakończyło się pomyślnie. Zobacz [uaktualniania aplikacji usługi Service Fabric: parametry uaktualnienia](service-fabric-application-upgrade-parameters.md) więcej szczegółów.
+## <a name="parameters-needed-tooupgrade"></a>Parametry wymagane tooupgrade
+Są dostępne dwa typy wdrażania: regularne lub uaktualniania. Regularne wdrożenia usuwa wszelkie poprzednie informacje na temat wdrażania i dane w klastrze hello podczas wdrażania uaktualnienia zachowuje on. Podczas uaktualniania aplikacji usługi Service Fabric w programie Visual Studio należy parametry uaktualnienia tooprovide aplikacji i zasad dotyczących kondycji wyboru. Parametry uaktualniania aplikacji pomocy formantu hello uaktualnieniu podczas kondycji Sprawdź zasady określają, czy hello uaktualnienie zakończyło się pomyślnie. Zobacz [uaktualniania aplikacji usługi Service Fabric: parametry uaktualnienia](service-fabric-application-upgrade-parameters.md) więcej szczegółów.
 
 Istnieją trzy tryby uaktualnienia: *monitorowanej*, *UnmonitoredAuto*, i *UnmonitoredManual*.
 
-* Uaktualnienie monitorowanej automatyzuje uaktualnienia i sprawdzenie kondycji aplikacji.
-* Uaktualnienie UnmonitoredAuto automatyzuje uaktualnienia, ale pomija sprawdzanie kondycji aplikacji.
-* Po wykonaniu uaktualnienia UnmonitoredManual, należy ręcznie uaktualnić każdej z domen.
+* Uaktualnienie monitorowanej automatyzuje hello uaktualnienia i aplikacji sprawdzania kondycji.
+* Uaktualnienie UnmonitoredAuto automatyzuje hello uaktualnienia, ale pomija hello sprawdzenie kondycji aplikacji.
+* Po wykonaniu uaktualnienia UnmonitoredManual należy toomanually każdej z domen uaktualnienia.
 
-Każdy tryb uaktualniania wymaga różnych zestawów parametrów. Zobacz [parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) Aby dowiedzieć się więcej o dostępnych opcjach uaktualniania.
+Każdy tryb uaktualniania wymaga różnych zestawów parametrów. Zobacz [parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md) toolearn więcej informacji na temat dostępnych opcji uaktualniania hello.
 
 ## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Uaktualnianie aplikacji usługi Service Fabric w programie Visual Studio
-Jeśli używasz narzędzia Visual Studio sieci szkieletowej usług do uaktualniania aplikacji usługi Service Fabric, można określić proces publikowania, do uaktualnienia, a nie regularnego wdrażania sprawdzając **uaktualnienie aplikacji** pole wyboru.
+Jeśli używasz hello sieci szkieletowej usług programu Visual Studio tools tooupgrade aplikacji usługi Service Fabric, można określić toobe proces publikowania uaktualnienia zamiast regularnego wdrażania sprawdzając hello **uaktualnienia aplikacji hello** Sprawdź pole.
 
-### <a name="to-configure-the-upgrade-parameters"></a>Aby skonfigurować parametry uaktualnienia
-1. Kliknij przycisk **ustawienia** przycisk obok pola wyboru. **Edytuj parametry uaktualnienia** zostanie wyświetlone okno dialogowe. **Edytuj parametry uaktualnienia** okno dialogowe obsługuje monitorowana, UnmonitoredAuto i UnmonitoredManual tryby uaktualnienia.
-2. Wybierz tryb uaktualniania, który chcesz wykorzystać, a następnie wypełnij siatce parametrów.
+### <a name="tooconfigure-hello-upgrade-parameters"></a>Parametry uaktualniania hello tooconfigure
+1. Kliknij przycisk hello **ustawienia** przycisku Dalej toohello pole wyboru. Witaj **Edytuj parametry uaktualnienia** zostanie wyświetlone okno dialogowe. Witaj **Edytuj parametry uaktualnienia** okno dialogowe obsługuje hello monitorowana, UnmonitoredAuto i UnmonitoredManual tryby uaktualnienia.
+2. Wybierz tryb uaktualniania hello mają toouse, a następnie wypełnij hello parametru siatki.
 
-    Każdy parametr ma wartości domyślnej. Opcjonalny parametr *DefaultServiceTypeHealthPolicy* przyjmuje wprowadzania tabeli skrótów. Poniżej przedstawiono przykładowy format wejściowy tabeli skrótów dla *DefaultServiceTypeHealthPolicy*:
+    Każdy parametr ma wartości domyślnej. Witaj opcjonalny parametr *DefaultServiceTypeHealthPolicy* przyjmuje wprowadzania tabeli skrótów. Oto przykład hello skrótu tabeli format wejściowy *DefaultServiceTypeHealthPolicy*:
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
 
-    *ServiceTypeHealthPolicyMap* jest inny opcjonalnym parametrem, który przyjmuje wprowadzania tabeli skrótów w następującym formacie:
+    *ServiceTypeHealthPolicyMap* jest inny opcjonalnym parametrem, który przyjmuje wprowadzania tabeli skrótów hello następującego formatu:
 
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
@@ -62,15 +62,15 @@ Jeśli używasz narzędzia Visual Studio sieci szkieletowej usług do uaktualnia
     ```
     @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
     ```
-3. W przypadku wybrania UnmonitoredManual tryb uaktualniania, należy ręcznie uruchomić konsolę programu PowerShell, aby kontynuować, a następnie Zakończ proces uaktualniania. Zapoznaj się [uaktualniania aplikacji usługi Service Fabric: Tematy zaawansowane](service-fabric-application-upgrade-advanced.md) Aby dowiedzieć się, jak Ręczne uaktualnianie działa.
+3. W przypadku wybrania UnmonitoredManual tryb uaktualniania należy ręcznie uruchomić toocontinue konsoli programu PowerShell i Zakończ proces uaktualniania hello. Odwołuje się zbyt[uaktualniania aplikacji sieci szkieletowej usług: Tematy zaawansowane](service-fabric-application-upgrade-advanced.md) toolearn sposób ręcznego uaktualnienia działa.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Uaktualnianie aplikacji przy użyciu programu PowerShell
-Polecenia cmdlet programu PowerShell służą do uaktualnienia aplikacji sieci szkieletowej usług. Zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md) i [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx) Aby uzyskać szczegółowe informacje.
+Możesz użyć tooupgrade poleceń cmdlet programu PowerShell aplikacji sieci szkieletowej usług. Zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md) i [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx) Aby uzyskać szczegółowe informacje.
 
-## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Określ zasady sprawdzania kondycji w pliku manifestu aplikacji
-Każda usługa w aplikacji platformy Service Fabric może mieć własną parametry zasad kondycji, które zastępują ustawienia domyślne. Możesz podać te wartości parametrów w pliku manifestu aplikacji.
+## <a name="specify-a-health-check-policy-in-hello-application-manifest-file"></a>Określ zasady sprawdzania kondycji w pliku manifestu aplikacji hello
+Każda usługa w aplikacji platformy Service Fabric może mieć własne parametry zasad kondycji, które zastąpić wartości domyślne hello. Możesz podać te wartości parametrów w pliku manifestu aplikacji hello.
 
-Poniższy przykład pokazuje, jak zastosować zasady sprawdzania kondycji unikatowy dla poszczególnych usług w manifeście aplikacji.
+Witaj poniższy przykład przedstawia sposób tooapply unikatowy kondycji Sprawdź zasady dla każdej usługi w manifeście aplikacji hello.
 
 ```xml
 <Policies>

@@ -1,6 +1,6 @@
 ---
-title: "Dodaj CDN usłudze Azure App Service | Dokumentacja firmy Microsoft"
-description: "Dodaj usługę Content Delivery Network (CDN) do usługi Azure App Service, aby buforować i dostarczać pliki statyczne z serwerów znajdujących się blisko klientów na całym świecie."
+title: "aaaAdd tooan CDN usłudze Azure App Service | Dokumentacja firmy Microsoft"
+description: "Dodaj toocache usłudze Azure App Service tooan sieci dostarczania zawartości (CDN) i dostarczanie plików statycznych z serwerów klientów Zamknij tooyour wokół hello world."
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,17 +10,17 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 88b7fd884517279064472b804a6d1dc2921cbd24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Dodawanie usługi Content Delivery Network (CDN) do usługi Azure App Service
+# <a name="add-a-content-delivery-network-cdn-tooan-azure-app-service"></a>Dodaj tooan sieci dostarczania zawartości (CDN) usługi Azure App Service
 
-Usługa [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) buforuje zawartość statyczną sieci Web w strategicznie rozmieszczonych lokalizacjach w celu zapewnienia maksymalnej przepływności dostarczania zawartości dla użytkowników. Usługa CDN zmniejsza również obciążenie serwera w aplikacji sieci Web. W tym samouczku przedstawiono sposób dodawania usługi Azure CDN do [aplikacji sieci Web w usłudze Azure App Service](app-service-web-overview.md). 
+[Usługa Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) buforuje zawartość statyczną sieci web w strategicznie rozmieszczonych lokalizacjach tooprovide maksymalnej przepływności dostarczania zawartości toousers. Hello CDN również zmniejsza obciążenie serwera w aplikacji sieci web. Ten samouczek pokazuje, jak tooa Azure CDN tooadd [aplikacji sieci web w usłudze Azure App Service](app-service-web-overview.md). 
 
-Oto strona główna przykładowej statycznej witryny HTML, z którą będziesz pracować:
+Oto strony głównej hello hello próbki statycznego HTML lokacji, która będzie współpracować:
 
 ![Strona główna przykładowej aplikacji](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
 
@@ -29,63 +29,63 @@ Zawartość:
 > [!div class="checklist"]
 > * Tworzenie punktu końcowego usługi CDN.
 > * Odświeżanie elementów zawartości zapisanych w pamięci podręcznej.
-> * Używanie ciągów zapytań do sterowania zbuforowanymi wersjami.
-> * Używanie domeny niestandardowej na potrzeby punktu końcowego usługi CDN.
+> * Użyj zapytania ciągi wersji toocontrol w pamięci podręcznej.
+> * Użyj domeny niestandardowej dla punktu końcowego CDN hello.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
+toocomplete tego samouczka:
 
 - [Zainstaluj oprogramowanie Git](https://git-scm.com/)
 - [Zainstaluj interfejs wiersza polecenia platformy Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-web-app"></a>Tworzenie aplikacji sieci Web
+## <a name="create-hello-web-app"></a>Tworzenie aplikacji sieci web hello
 
-Aby utworzyć aplikację sieci web, która będzie współpracować, wykonaj [statycznych Szybki Start — HTML](app-service-web-get-started-html.md) za pośrednictwem **przejdź do aplikacji** kroku.
+Aplikacja sieci web hello toocreate, który będzie działać z hello wykonaj [statycznych Szybki Start — HTML](app-service-web-get-started-html.md) za pośrednictwem hello **przeglądania toohello aplikacji** krok.
 
 ### <a name="have-a-custom-domain-ready"></a>Przygotowywanie domeny niestandardowej
 
-Aby wykonać krok domeny niestandardowej z tego samouczka, należy właścicielem domeny niestandardowej i uzyskiwania dostępu do rejestru systemu DNS dla domeny dostawcy (takie jak GoDaddy). Aby na przykład dodać wpisy DNS dla domen `contoso.com` i `www.contoso.com`, musisz mieć możliwość skonfigurowania ustawień DNS dla domeny głównej `contoso.com`.
+krok domeny niestandardowej hello toocomplete tego samouczka należy tooown niestandardową domenę i mają dostęp tooyour DNS rejestru dla dostawcy domeny (na przykład GoDaddy). Na przykład tooadd wpisów DNS dla `contoso.com` i `www.contoso.com`, musi mieć ustawienia DNS hello tooconfigure dostępu dla hello `contoso.com` domeny głównej.
 
-Jeśli nie masz jeszcze nazwy domeny, możesz postępować według instrukcji zawartych w [samouczku dotyczącym domeny usługi App Service](custom-dns-web-site-buydomains-web-app.md) w celu zakupienia domeny za pośrednictwem witryny Azure Portal. 
+Jeśli nie masz jeszcze nazwy domeny, należy wziąć pod uwagę następujące hello [usługi aplikacji — samouczek domeny](custom-dns-web-site-buydomains-web-app.md) toopurchase domeny przy użyciu hello portalu Azure. 
 
-## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
+## <a name="log-in-toohello-azure-portal"></a>Zaloguj się za toohello portalu Azure
 
-Otwórz przeglądarkę i przejdź do witryny [Azure Portal](https://portal.azure.com).
+Otwórz przeglądarkę i przejdź toohello [portalu Azure](https://portal.azure.com).
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Tworzenie profilu i punktu końcowego usługi CDN
 
-Na lewym panelu nawigacyjnym wybierz pozycję **App Services**, a następnie wybierz aplikację utworzoną w samouczku [tworzenie statycznej witryny HTML — szybki start](app-service-web-get-started-html.md).
+Hello lewy pasek nawigacyjny, wybierz **usługi aplikacji**, a następnie wybierz aplikacji hello, który został utworzony w hello [statycznych Szybki Start — HTML](app-service-web-get-started-html.md).
 
-![Wybieranie aplikacji usługi App Service w portalu](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
+![Wybierz aplikację usługi aplikacji w portalu hello](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
-Na stronie **App Service** w sekcji **Ustawienia** wybierz pozycję **Sieć > Skonfiguruj usługę Azure CDN dla aplikacji**.
+W hello **usługi aplikacji** strony w hello **ustawienia** zaznacz **sieci > Konfigurowanie usługi Azure CDN aplikacji**.
 
-![Wybieranie usługi CDN w portalu](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
+![Wybierz sieci CDN w portalu hello](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
 
-Na stronie **Azure Content Delivery Network** określ ustawienia dla **nowego punktu końcowego** zgodnie z informacjami podanymi w tabeli.
+W hello **Azure Content Delivery Network** Podaj hello **nowy punkt końcowy** ustawień określonych w tabeli hello.
 
-![Tworzenie profilu i punktu końcowego w portalu](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
+![Tworzenie profilu i punktu końcowego w portalu hello](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
 | Ustawienie | Sugerowana wartość | Opis |
 | ------- | --------------- | ----------- |
-| **Profil CDN** | myCDNProfile | Wybierz **Utwórz nowy** można utworzyć profilu CDN. Profil CDN jest kolekcją punktów końcowych usługi CDN znajdujących się w tej samej warstwie cenowej. |
-| **Warstwa cenowa** | Standard Akamai | [Warstwa cenowa](../cdn/cdn-overview.md#azure-cdn-features) określa dostawcę i dostępne funkcje. W tym samouczku używamy Akamai standardowa. |
-| **Nazwa punktu końcowego usługi CDN** | Dowolna unikatowa nazwa w domenie azureedge.net | Dostęp do zbuforowanych zasobów można uzyskać w domenie *\<nazwapunktukoncowego>.azureedge.net*.
+| **Profil CDN** | myCDNProfile | Wybierz **Utwórz nowy** toocreate profilu CDN. Profil CDN jest kolekcją punktów końcowych usługi CDN z hello samą warstwę cenową. |
+| **Warstwa cenowa** | Standard Akamai | Witaj [warstwy cenowej](../cdn/cdn-overview.md#azure-cdn-features) określa hello dostawcy i dostępnych funkcji. W tym samouczku używamy Akamai standardowa. |
+| **Nazwa punktu końcowego usługi CDN** | Dowolną nazwę, która jest unikatowa w domenie azureedge.net hello | Możesz uzyskać dostępu do buforowanych zasobów w domenie hello  *\<endpointname >. azureedge.net*.
 
 Wybierz pozycję **Utwórz**.
 
-Na platformie Azure zostanie utworzony profil i punkt końcowy. Nowy punkt końcowy zostanie wyświetlony na liście **Punkty końcowe**, a kiedy zostanie zaprowizowany, będzie miał stan **Uruchomiono**.
+Platforma Azure tworzy hello profilu i punktu końcowego. Witaj nowy punkt końcowy jest wyświetlany w hello **punkty końcowe** listy na hello tej samej stronie, a jego obsługa została zainicjowana hello stan to **systemem**.
 
 ![Nowy punkt końcowy na liście](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
 
-### <a name="test-the-cdn-endpoint"></a>Testowanie punktu końcowego usługi CDN
+### <a name="test-hello-cdn-endpoint"></a>Test hello punktu końcowego CDN
 
 W przypadku wybrania warstwy cenowej Verizon propagacja punktu końcowego trwa zwykle około 90 minut. W przypadku warstwy Akamai propagacja zajmuje kilka minut.
 
-Przykładowa aplikacja ma plik `index.html` i foldery *css*, *img* oraz *js*, które zawierają inne statyczne elementy zawartości. Ścieżki zawartości dla wszystkich tych plików są takie same w punkcie końcowym usługi CDN. Na przykład oba następujące adresy URL umożliwiają dostęp do pliku *bootstrap.css* w folderze *css*:
+Witaj Przykładowa aplikacja ma `index.html` pliku i *css*, *img*, i *js* foldery, które zawierają inne zasoby statyczne. Hello zawartości ścieżki wszystkie te pliki są takie same hello na powitania punktu końcowego CDN. Na przykład dostęp zarówno hello następujące adresy URL hello *bootstrap.css* pliku w hello *css* folderu:
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -95,7 +95,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Przejdź przeglądarki pod następujący adres URL:
+Przejdź toohello przeglądarki, następującego adresu URL:
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -103,36 +103,36 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Strona główna aplikacji przykładowej udostępnianej przez usługę CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
- Zostanie wyświetlona strona tego samego, który został przeprowadzony wcześniej w aplikacji sieci web platformy Azure. Usługi Azure CDN ma pobrać zasobów aplikacji sieci web pochodzenia i obsługujący z punktu końcowego CDN
+ Zostanie wyświetlony hello sama strona uruchomiono wcześniej w aplikacji sieci web platformy Azure. Usługi Azure CDN ma pobrać zasoby aplikacji hello pochodzenia sieci web i obsługujący z hello punktu końcowego CDN
 
-Odśwież tę stronę, aby się upewnić, że jest ona buforowana w usłudze CDN. Aby usługa CDN umieściła żądaną zawartość w pamięci podręcznej, czasami wymagane są dwa żądania tego samego elementu zawartości.
+tooensure, że ta strona jest buforowany w hello CDN, strona hello odświeżania. Dwa żądania dla hello zasobów tego samego są czasami wymagane dla hello CDN toocache hello żądanej zawartości.
 
 Aby uzyskać więcej informacji o sposobie tworzenia profilów i punktów końcowych usługi Azure CDN, zobacz [Wprowadzenie do usługi Azure CDN](../cdn/cdn-create-new-endpoint.md).
 
-## <a name="purge-the-cdn"></a>Przeczyszczanie usługi CDN
+## <a name="purge-hello-cdn"></a>Przeczyść hello CDN
 
-Usługa CDN okresowo odświeża swoje zasoby z oryginalnej aplikacji sieci Web zgodnie z konfiguracją czasu wygaśnięcia (TTL). Domyślny czas wygaśnięcia wynosi siedem dni.
+Witaj CDN okresowo odświeża jej zasobach z aplikacji sieci web pochodzenia hello na podstawie hello time to live (TTL) konfiguracji. Witaj, domyślny czas wygaśnięcia wynosi siedem dni.
 
-Czasami może zajść konieczność odświeżenia usługi CDN przed upływem czasu wygaśnięcia — na przykład podczas wdrażania zaktualizowanej zawartości w aplikacji sieci Web. Aby wyzwolić odświeżanie, można ręcznie przeczyścić zasoby usługi CDN. 
+W czasie należy toorefresh hello CDN przed hello wygaśnięcia TTL — na przykład podczas wdrażania aplikacji sieci web zaktualizowane toohello zawartości. tootrigger odświeżania, można ręcznie przeczyścić hello CDN zasobów. 
 
-W tej części samouczka zostanie wdrożona zmiana w aplikacji sieci Web i nastąpi przeczyszczenie usługi CDN w celu wyzwolenia odświeżenia pamięci podręcznej tej usługi.
+W tej sekcji samouczka hello wdrażanie aplikacji sieci web toohello zmiany i przeczyścić hello CDN tootrigger hello CDN toorefresh pamięci podręcznej.
 
-### <a name="deploy-a-change-to-the-web-app"></a>Wdrażanie zmiany w aplikacji sieci Web
+### <a name="deploy-a-change-toohello-web-app"></a>Wdrażanie aplikacji sieci web toohello zmiany
 
-Otwórz plik `index.html` i dodaj ciąg „-V2” do nagłówka H1, jak pokazano w poniższym przykładzie: 
+Otwórz hello `index.html` i Dodaj "-V2" toohello H1 nagłówka, jak pokazano w hello poniższy przykład: 
 
 ```
 <h1>Azure App Service - Sample Static HTML Site - V2</h1>
 ```
 
-Zatwierdź zmianę i wdróż ją w aplikacji sieci Web.
+Zatwierdź zmiany i wdróż je toohello aplikacji sieci web.
 
 ```bash
 git commit -am "version 2"
 git push azure master
 ```
 
-Po zakończeniu wdrażania przejdź do adresu URL aplikacji sieci Web i zobacz, czy zmiana jest widoczna.
+Po zakończeniu wdrażania URL aplikacji sieci web toohello przeglądania i zostanie wyświetlony hello zmienić.
 
 ```
 http://<appname>.azurewebsites.net/index.html
@@ -140,7 +140,7 @@ http://<appname>.azurewebsites.net/index.html
 
 ![Ciąg V2 w tytule aplikacji sieci Web](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
 
-Po przejściu do adresu URL punktu końcowego usługi CDN dla strony głównej zobaczysz, że wprowadzona zmiana nie jest widoczna, ponieważ wersja zbuforowana w usłudze CDN jeszcze nie wygasła. 
+Adres URL punktu końcowego CDN toohello przeglądania dla strony głównej hello, a nie widzisz hello zmienić, ponieważ wersja buforowana hello w hello CDN nie jeszcze wygasł. 
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -148,35 +148,35 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Brak ciągu V2 w tytule w usłudze CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
 
-### <a name="purge-the-cdn-in-the-portal"></a>Przeczyszczanie usługi CDN w portalu
+### <a name="purge-hello-cdn-in-hello-portal"></a>Przeczyść hello sieci CDN w portalu hello
 
-Aby w usłudze CDN wyzwolić zaktualizowanie zbuforowanej wersji, przeczyść usługę CDN.
+tootrigger hello CDN tooupdate jego wersja buforowana, Przeczyść hello CDN.
 
-Na lewym panelu nawigacyjnym portalu wybierz pozycję **Grupy zasobów**, a następnie wybierz grupę zasobów utworzoną na potrzeby aplikacji sieci Web (myResourceGroup).
+W nawigacji po lewej stronie portalu hello, wybierz **grup zasobów**, a następnie wybierz grupę zasobów hello, który został utworzony dla aplikacji sieci web (myResourceGroup).
 
 ![Wybieranie grupy zasobów](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
 
-Na liście zasobów wybierz punkt końcowy usługi CDN.
+Hello listy zasobów wybierz punkt końcowy CDN.
 
 ![Wybieranie punktu końcowego](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
 
-W górnej części strony **Punkt końcowy** kliknij pozycję **Przeczyść**.
+U góry hello hello **punktu końcowego** kliknij przycisk **przeczyścić**.
 
 ![Wybieranie pozycji Przeczyść](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
 
-Wprowadź ścieżki zawartości, które chcesz przeczyścić. Możesz podać pełną ścieżkę, aby przeczyścić pojedynczy plik, lub segment ścieżki, aby przeczyścić i odświeżyć całą zawartość folderu. Ponieważ zmieniono plik `index.html`, upewnij się, że znajduje się on w jednej ze ścieżek.
+Wprowadź hello ścieżek zawartości mają toopurge. Można przekazywać toopurge ścieżka całego pliku pojedynczego pliku lub toopurge segmentu ścieżki i Odśwież całą zawartość w folderze. Ponieważ zmieniono `index.html`, upewnij się, że jest jedna ze ścieżek hello.
 
-W dolnej części strony wybierz pozycję **Przeczyść**.
+U dołu hello strony hello, zaznacz pole wyboru **przeczyścić**.
 
 ![Strona przeczyszczania](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
 
-### <a name="verify-that-the-cdn-is-updated"></a>Sprawdzanie zaktualizowania usługi CDN
+### <a name="verify-that-hello-cdn-is-updated"></a>Sprawdź, że hello CDN jest aktualizowany
 
-Poczekaj na zakończenie przetwarzania żądania przeczyszczenia (zwykle trwa to kilka minut). Aby wyświetlić bieżący stan, wybierz ikonę dzwonka w górnej części strony. 
+Poczekaj, aż żądanie przeczyszczenia hello zakończy przetwarzanie zwykle kilka minut. toosee hello bieżący stan, hello wybierz ikonę dzwonka na początku hello hello strony. 
 
 ![Powiadomienie o przeczyszczaniu](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
 
-Przejdź do adresu URL punktu końcowego usługi CDN dla pliku `index.html`, a zobaczysz, że teraz ciąg V2 jest już widoczny w tytule strony głównej. Oznacza to, że pamięć podręczna usługi CDN została odświeżona.
+Przeglądaj URL punktu końcowego CDN toohello `index.html`, i teraz zobaczyć hello dodane toohello tytuł na stronie głównej hello V2. Ta operacja wyświetla odświeżeniu pamięci podręcznej CDN hello.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -186,23 +186,23 @@ http://<endpointname>.azureedge.net/index.html
 
 Aby uzyskać więcej informacji, zobacz [Przeczyszczanie punktu końcowego usługi Azure CDN](../cdn/cdn-purge-endpoint.md). 
 
-## <a name="use-query-strings-to-version-content"></a>Używanie ciągów zapytań do sterowania wersjami zawartości
+## <a name="use-query-strings-tooversion-content"></a>Korzystać z zawartości tooversion ciągi zapytania
 
-Usługa Azure CDN oferuje następujące opcje zachowania podczas buforowania:
+Hello Azure CDN oferuje następujące opcje zachowanie buforowania hello:
 
 * Ignoruj ciągi zapytań
 * Pomiń buforowanie dla ciągów zapytań
 * Buforuj każdy unikatowy adres URL 
 
-Pierwszy z nich jest wartość domyślna, co oznacza, że istnieje tylko jedna wersja buforowanych zasobów, niezależnie od tego ciągu zapytania w adresie URL. 
+Witaj pierwszy z nich jest hello domyślnej, co oznacza, że istnieje tylko jedna wersja buforowanych zasobów, niezależnie od hello ciągu zapytania w adresie URL hello. 
 
-W tej części samouczka zostanie zmienione zachowanie buforowania w taki sposób, że w pamięci podręcznej będzie umieszczany każdy unikatowy adres URL.
+W tej sekcji samouczka hello zmienisz hello buforowanie toocache zachowanie każdy unikatowy adres URL.
 
-### <a name="change-the-cache-behavior"></a>Zmienianie zachowania buforowania
+### <a name="change-hello-cache-behavior"></a>Należy zmienić to zachowanie pamięci podręcznej hello
 
-W witrynie Azure Portal na stronie **Punkt końcowy usługi CDN** wybierz pozycję **Pamięć podręczna**.
+W portalu Azure hello **punktu końcowego CDN** wybierz pozycję **pamięci podręcznej**.
 
-Z listy rozwijanej **Zachowanie buforowania ciągu kwerendy** wybierz pozycję **Buforuj każdy unikatowy adres URL**.
+Wybierz **Buforuj każdy unikatowy adres URL** z hello **zachowanie buforowania ciągu kwerendy** listy rozwijanej.
 
 Wybierz pozycję **Zapisz**.
 
@@ -210,24 +210,24 @@ Wybierz pozycję **Zapisz**.
 
 ### <a name="verify-that-unique-urls-are-cached-separately"></a>Sprawdzanie, czy unikatowe adresy URL są buforowane osobno
 
-W przeglądarce przejdź do strony głównej w punkcie końcowym usługi CDN, ale dołącz ciąg zapytania: 
+W przeglądarce przejdź do strony głównej toohello na punkt końcowy CDN hello, ale zawierają ciąg zapytania: 
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=1
 ```
 
-Usługa CDN zwraca bieżącą zawartość aplikacji sieci Web, w tym ciąg „V2” w nagłówku. 
+Witaj CDN zwraca hello bieżącej zawartości sieci web aplikacji, w tym "V2" hello nagłówka. 
 
-Odśwież tę stronę, aby się upewnić, że jest ona buforowana w usłudze CDN. 
+tooensure, że ta strona jest buforowany w hello CDN, strona hello odświeżania. 
 
-Otwórz plik `index.html` i zamień ciąg „V2” na „V3”, a następnie wdróż tę zmianę. 
+Otwórz `index.html` i zmień "V2" za "3" i wdrażanie zmiany hello. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-W przeglądarce przejdź do adresu URL punktu końcowego usługi CDN, korzystając z nowego ciągu zapytania, na przykład `q=2`. Usługa CDN pobierze bieżący plik `index.html` i wyświetli ciąg „V3”.  Jednak jeśli przejdziesz do punktu końcowego usługi CDN, korzystając z ciągu zapytania `q=1`, zobaczysz ciąg „V2”.
+W przeglądarce Przejdź takie jak adres URL punktu końcowego CDN toohello z nowego ciągu zapytania `q=2`. Witaj CDN pobiera hello bieżącego `index.html` plików i wyświetla "3".  Ale jeśli oddalisz się punkt końcowy CDN toohello z hello `q=1` ciągu, zapytania zobacz "2".
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -244,49 +244,49 @@ http://<endpointname>.azureedge.net/index.html?q=1
 Te dane wyjściowe pokazuje, czy każdy ciąg zapytania jest traktowane inaczej:
 
 * q = 1 był używany przed, więc zawartości z pamięci podręcznej są zwracane (V2).
-* q = 2 jest nowy, więc pobierania najnowszej zawartości aplikacji sieci web i zwracane (V3).
+* q = 2 jest nowy, więc hello najnowszą zawartość aplikacji sieci web są pobierane i zwracane (V3).
 
 Aby uzyskać więcej informacji, zobacz [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md) (Sterowanie zachowaniem buforowania usługi CDN za pomocą ciągów zapytań).
 
-## <a name="map-a-custom-domain-to-a-cdn-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi CDN
+## <a name="map-a-custom-domain-tooa-cdn-endpoint"></a>Mapa punktu końcowego usługi CDN tooa domeny niestandardowej
 
-Mapowanie domeny niestandardowej na punkt końcowy usługi CDN odbywa się przez utworzenie rekordu CNAME. Rekord CNAME jest funkcją systemu DNS, która mapuje domenę źródłową na domenę docelową. Na przykład można mapować domenę `cdn.contoso.com` lub `static.contoso.com` na `contoso.azureedge.net`.
+Twoje domeny niestandardowej tooyour punktu końcowego CDN będzie mapy przez utworzenie rekordu CNAME. Rekord CNAME jest funkcją DNS, która mapuje domeny docelowej tooa domeny źródłowej. Na przykład mogą być mapowane `cdn.contoso.com` lub `static.contoso.com` zbyt`contoso.azureedge.net`.
 
-Jeśli nie masz domeny niestandardowej, możesz postępować według instrukcji zawartych w [samouczku dotyczącym domeny usługi App Service](custom-dns-web-site-buydomains-web-app.md) w celu zakupienia domeny za pośrednictwem witryny Azure Portal. 
+Jeśli nie masz domenę niestandardową, należy wziąć pod uwagę następujące hello [usługi aplikacji — samouczek domeny](custom-dns-web-site-buydomains-web-app.md) toopurchase domeny przy użyciu hello portalu Azure. 
 
-### <a name="find-the-hostname-to-use-with-the-cname"></a>Znajdowanie nazwy hosta do użycia z rekordem CNAME
+### <a name="find-hello-hostname-toouse-with-hello-cname"></a>Znajdź hello toouse nazwy hosta z hello CNAME
 
-W witrynie Azure Portal na stronie **Punkt końcowy** wybierz na lewym panelu nawigacyjnym pozycję **Przegląd** i w górnej części strony wybierz przycisk **+ Domena niestandardowa**.
+W portalu Azure hello **punktu końcowego** upewnij się, że **omówienie** wybrano hello pozostałych nawigacji, a następnie wybierz opcję hello **+ domeny niestandardowe** przycisk u góry hello hello strony.
 
 ![Wybieranie opcji dodawania domeny niestandardowej](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
 
-Na stronie **Dodaj domenę niestandardową** zobaczysz nazwę hosta punktu końcowego do użycia w celu utworzenia rekordu CNAME. Nazwa hosta jest tworzona na podstawie adresu URL punktu końcowego usługi CDN:  **&lt;NazwaPunktuKoncowego>.azureedge.net**. 
+W hello **dodać niestandardową domenę** strony, zobacz hello punktu końcowego host name toouse utworzyć rekord CNAME. Nazwa hosta Hello jest pochodną adres URL punktu końcowego CDN:  **&lt;EndpointName >. azureedge.net**. 
 
 ![Strona dodawania domeny](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
 
-### <a name="configure-the-cname-with-your-domain-registrar"></a>Konfigurowanie rekordu CNAME u rejestratora domen
+### <a name="configure-hello-cname-with-your-domain-registrar"></a>Skonfiguruj hello CNAME u rejestratora domen
 
-Przejdź do witryny sieci Web swojego rejestratora domen i znajdź sekcję tworzenia rekordów DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
+Przejdź do witryny sieci web rejestratora domen tooyour, a następnie zlokalizuj hello sekcji do tworzenia rekordów DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
 
-Znajdź sekcję zarządzania rekordami CNAME. W tym celu może być konieczne przejście do strony ustawień zaawansowanych i poszukanie słów CNAME, Alias lub Subdomains (Poddomeny).
+Znajdź sekcję hello zarządzania CNAME. Może mieć toogo tooan Zaawansowane ustawienia strony i poszukaj słowa hello CNAME, aliasu lub poddomeny.
 
-Utwórz rekord CNAME mapujący z wybranym domeny podrzędnej (na przykład **statycznych** lub **cdn**) do **nazwę hosta punktu końcowego** pokazano wcześniej w portalu. 
+Utwórz rekord CNAME mapujący z wybranym domeny podrzędnej (na przykład **statycznych** lub **cdn**) toohello **nazwę hosta punktu końcowego** pokazano wcześniej w portalu hello. 
 
-### <a name="enter-the-custom-domain-in-azure"></a>Wprowadzanie domeny niestandardowej na platformie Azure
+### <a name="enter-hello-custom-domain-in-azure"></a>Wprowadź domenę niestandardową hello na platformie Azure
 
-Powróć do strony **Dodaj domenę niestandardową** i wprowadź w oknie dialogowym domenę niestandardową, w tym poddomenę. Na przykład wprowadź wartość `cdn.contoso.com`.   
+Zwraca toohello **dodać niestandardową domenę** strony, a następnie wprowadź domenę niestandardową, w tym poddomeny hello, w oknie dialogowym hello. Na przykład wprowadź wartość `cdn.contoso.com`.   
    
-Platforma Azure sprawdzi, czy dla wprowadzonej nazwy domeny istnieje rekord CNAME. Jeśli rekord CNAME jest poprawny, domena niestandardowa jest weryfikowana.
+Azure sprawdza, czy istnieje rekord CNAME powitania dla hello nazwy domeny, który został wprowadzony. Jeśli hello CNAME jest poprawny, domeny niestandardowej jest weryfikowana.
 
-Może upłynąć trochę czasu, zanim rekord CNAME zostanie rozpropagowany do serwerów nazw w Internecie. Jeśli domena nie została zweryfikowana natychmiast, zaczekaj kilka minut i spróbuj ponownie.
+Może upłynąć czasu dla serwerów tooname toopropagate rekordów CNAME z hello na powitania Internet. Jeśli domena nie została zweryfikowana natychmiast, zaczekaj kilka minut i spróbuj ponownie.
 
-### <a name="test-the-custom-domain"></a>Testowanie domeny niestandardowej
+### <a name="test-hello-custom-domain"></a>Domena niestandardowa hello testu
 
-W przeglądarce przejdź do pliku `index.html`, korzystając z domeny niestandardowej (na przykład `cdn.contoso.com/index.html`), aby sprawdzić, czy wynik jest taki sam jak podczas bezpośredniego przechodzenia do adresu `<endpointname>azureedge.net/index.html`.
+W przeglądarce Przejdź toohello `index.html` pliku używania domeny niestandardowej (na przykład `cdn.contoso.com/index.html`) tooverify będący wynikiem hello hello takie same jak przejściu bezpośrednio za`<endpointname>azureedge.net/index.html`.
 
 ![Strona główna przykładowej aplikacji wyświetlona przy użyciu adresu URL domeny niestandardowej](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
 
-Aby uzyskać więcej informacji, zobacz [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md) (Mapowanie zawartości usługi Azure CDN na domenę niestandardową).
+Aby uzyskać więcej informacji, zobacz [domeny niestandardowej tooa zawartości mapy usługi Azure CDN](../cdn/cdn-map-content-to-custom-domain.md).
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -297,10 +297,10 @@ Wiadomości:
 > [!div class="checklist"]
 > * Tworzenie punktu końcowego usługi CDN.
 > * Odświeżanie elementów zawartości zapisanych w pamięci podręcznej.
-> * Używanie ciągów zapytań do sterowania zbuforowanymi wersjami.
-> * Używanie domeny niestandardowej na potrzeby punktu końcowego usługi CDN.
+> * Użyj zapytania ciągi wersji toocontrol w pamięci podręcznej.
+> * Użyj domeny niestandardowej dla punktu końcowego CDN hello.
 
-Dowiedz się, jak zoptymalizować wydajność sieci CDN w następujących artykułach:
+Dowiedz się, jak toooptimize wydajność sieci CDN w hello następujące artykuły:
 
 > [!div class="nextstepaction"]
 > [Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN](../cdn/cdn-improve-performance.md)

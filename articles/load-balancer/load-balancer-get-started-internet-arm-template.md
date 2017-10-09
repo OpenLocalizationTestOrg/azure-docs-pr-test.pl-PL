@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie modułu równoważenia obciążenia dostępnego z Internetu — szablon platformy Azure | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w usłudze Resource Manager za pomocą szablonu"
+title: "równoważenia obciążenia aaaCreate internetowy - szablonu Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate Internetem obciążenia w Menedżerze zasobów przy użyciu szablonu usługi równoważenia"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: d829000e63515814b192f3f8256e3b8637bb3a34
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bce8cb87303838f3bc732d51228ab46d8015552
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Tworzenie modułu równoważenia obciążenia dostępnego z Internetu za pomocą szablonu
 
@@ -32,20 +32,20 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule opisano model wdrażania usługi Resource Manager. Możesz też zapoznać się z artykułem na temat [tworzenia modułu równoważenia obciążenia dostępnego z Internetu w klasycznym modelu wdrażania](load-balancer-get-started-internet-classic-portal.md).
+W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. Możesz również [Dowiedz się, jak toocreate Internetem obciążenia przy użyciu klasycznego modelu wdrażania usługi równoważenia](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="deploy-the-template-by-using-click-to-deploy"></a>Wdrażanie szablonu przy użyciu metody „kliknij, aby wdrożyć”
+## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Wdrażanie szablonu hello przy użyciu kliknij toodeploy
 
-Przykładowy szablon dostępny w repozytorium publicznym korzysta z pliku parametrów zawierającego wartości domyślne używane do generowania scenariusza opisanego powyżej. Aby wdrożyć ten szablon przy użyciu metody „kliknij, aby wdrożyć”, kliknij [ten link](http://go.microsoft.com/fwlink/?LinkId=544801), kliknij przycisk **Deploy to Azure** (Wdróż na platformie Azure), w razie potrzeby zastąp wartości domyślne parametrów i postępuj zgodnie z instrukcjami podanymi w portalu.
+Hello przykładowy szablon dostępne w publicznych repozytorium hello używa parametru plik zawierający hello domyślne wartości używane toogenerate hello scenariusz opisany powyżej. toodeploy przy użyciu tego szablonu kliknij toodeploy, postępuj zgodnie z [to łącze](http://go.microsoft.com/fwlink/?LinkId=544801), kliknij przycisk **wdrażanie tooAzure**, Zastąp hello domyślne wartości parametrów w razie potrzeby i wykonaj te instrukcje hello hello portalu.
 
-## <a name="deploy-the-template-by-using-powershell"></a>Wdrażanie szablonu przy użyciu programu PowerShell
+## <a name="deploy-hello-template-by-using-powershell"></a>Wdrażanie szablonu hello przy użyciu programu PowerShell
 
-Aby wdrożyć pobrany szablon przy użyciu programu PowerShell, wykonaj poniższe kroki.
+toodeploy hello szablon, który został pobrany przy użyciu programu PowerShell, wykonaj poniższe kroki hello.
 
-1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
-2. Uruchom polecenie cmdlet **New AzureRmResourceGroupDeployment**, aby utworzyć grupę zasobów za pomocą szablonu.
+1. Jeśli nie znasz programu Azure PowerShell, zobacz [jak tooInstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i wykonaj instrukcje hello wszystkich toohello sposób hello kończyć toosign na platformie Azure i wyboru subskrypcji.
+2. Uruchom hello **AzureRmResourceGroupDeployment nowy** toocreate polecenia cmdlet, grupy zasobów przy użyciu hello szablonu.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
@@ -53,23 +53,23 @@ Aby wdrożyć pobrany szablon przy użyciu programu PowerShell, wykonaj poniższ
         -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```
 
-## <a name="deploy-the-template-by-using-the-azure-cli"></a>Wdrażanie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure
+## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Wdrażanie szablonu hello przy użyciu hello wiersza polecenia platformy Azure
 
-Aby wdrożyć szablon przy użyciu interfejsu wiersza polecenia platformy Azure, wykonaj poniższe kroki.
+Szablon hello toodeploy za pomocą hello wiersza polecenia platformy Azure, wykonaj kroki hello poniżej.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
-2. Uruchom polecenie **azure config mode**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) i wykonaj instrukcje hello zapasowej punktu toohello, gdzie należy wybrać konto platformy Azure i subskrypcji.
+2. Uruchom hello **trybie azure config** tooswitch tooResource menedżera trybu poleceń, jak pokazano poniżej.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
+    Oto hello oczekiwane dane wyjściowe polecenia hello powyżej:
 
         info:    New mode is arm
 
-3. Przejdź w przeglądarce do [szablonów szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules), skopiuj zawartość pliku json i wklej ją do nowego pliku na komputerze. Na potrzeby tego scenariusza należy skopiować poniższe wartości do pliku **c:\lb\azuredeploy.parameters.json**.
-4. Uruchom polecenie cmdlet **azure group deployment create**, aby wdrożyć nowy moduł równoważenia obciążenia przy użyciu uprzednio pobranych i zmodyfikowanych plików szablonu oraz parametrów. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
+3. W przeglądarce Przejdź zbyt[hello szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules), skopiuj zawartość pliku json hello hello i Wklej do nowy plik na swoim komputerze. W tym scenariuszu może kopiować wartości hello poniżej tooa plik o nazwie **c:\lb\azuredeploy.parameters.json**.
+4. Uruchom hello **tworzenia wdrożenia grupy azure** polecenia cmdlet toodeploy hello nowego modułu równoważenia obciążenia przy użyciu szablonu hello i parametr pliki uprzednio pobranego i zmodyfikowanego. Lista Hello wyświetlana po danych wyjściowych hello wyjaśniono hello parametry używane.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'

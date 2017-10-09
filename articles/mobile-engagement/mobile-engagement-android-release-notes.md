@@ -1,5 +1,5 @@
 ---
-title: "Integracja zestawu SDK systemu Android z usługi Azure Mobile Engagement"
+title: aaaAzure Mobile Engagement Android SDK integracji
 description: "Najnowsze aktualizacje i procedury dotyczące zestawu SDK systemu Android dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,26 +14,26 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 16b098198674c49567d720d0c01d984cb763ed8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
 ## <a name="431-07172017"></a>4.3.1 (07/17/2017)
-* Usuń awarii rzadko może się zdarzyć podczas wywoływania metody `EngagementAgentUtils.isInDedicatedEngagementProcess`, która jest już używana przez `EngagementApplication` klasy.
+* Usuń awarii rzadko może się zdarzyć podczas wywoływania metody `EngagementAgentUtils.isInDedicatedEngagementProcess`, która jest już używana przez hello `EngagementApplication` klasy.
 
 ## <a name="430-06272017"></a>4.3.0 (06/27/2017)
-* 8 Obsługa systemu android (poprzednie wersje zestawu SDK nie będą działać na 8 dla systemu Android).
+* Obsługa 8 systemu android (poprzednie wersje powitalne zestawu SDK nie będą działać na 8 dla systemu Android).
 * Nie więcej zależności biblioteki pomocy technicznej.
 * Usuń `EngagementFragmentActivity` klasy.
-* Ze względu na [limity wykonywania tła](https://developer.android.com/preview/features/background.html) na 8 dla systemu Android, może być opóźnione dzienniki w tle, dopóki użytkownik wchodzi w interakcję z urządzeniem, będzie to mieć wpływ na Push kampanii **dostarczone** i **powiadomienie systemowe wyświetlane** statystyki opóźnieniu, jeśli urządzenie zostało uśpiony (powiadomienia będą nadal wyświetlane, będzie pierścienia i Włącz wibrację w czasie rzeczywistym bez problemów).
-* Ze względu na [ograniczenia lokalizacji tła](https://developer.android.com/preview/features/background-location-limits.html), w czasie rzeczywistym lokalizacji w tle nie zostanie zaktualizowany często na 8 dla systemu Android.
+* Z powodu zbyt[limity wykonywania tła](https://developer.android.com/preview/features/background.html) na 8 dla systemu Android, dzienniki w tle mogą zostać opóźnione aż hello użytkownik wchodzi w interakcję z urządzeniem hello, będzie to mieć wpływ na Push kampanii **dostarczone** i **Powiadomienie systemowe wyświetlane** statystyki opóźnieniu, jeśli został uśpiony hello urządzenia (hello powiadomienia będą nadal wyświetlane, będzie pierścienia i Włącz wibrację w czasie rzeczywistym bez problemów).
+* Z powodu zbyt[ograniczenia lokalizacji tła](https://developer.android.com/preview/features/background-location-limits.html), hello czasu rzeczywistego lokalizacji w tle nie zostanie zaktualizowany często na 8 dla systemu Android.
 
 ## <a name="424-03302017"></a>4.2.4 (03/30/2017)
-* Usuń powiadomienie w aplikacji koloru tekstu na 7 dla systemu Android, aby być taka sama jak starsze wersje systemu Android.
+* Napraw powiadomień w aplikacji koloru tekstu na toobe Android 7 hello takie same jak starsze wersje systemu Android.
 
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * Więcej blokady sieci Wi-Fi.
@@ -45,10 +45,10 @@ ms.lasthandoff: 08/03/2017
 ## <a name="421-05102016"></a>4.2.1 (05/10/2016)
 * Zabezpieczenia: Wyłącz dostęp do pliku lokalnego widoku sieci web.
 * Security: usunąć `EngagementPreferenceActivity` klasy, która rozszerza przestarzałe i niezabezpieczone `PreferenceActivity` klasy.
-* Zabezpieczenia: reach działania jest udokumentowany do użycia `exported="false"`, ta flaga umożliwia również w poprzednich wersjach zestawu SDK.
+* Zabezpieczenia: reach działania są teraz udokumentowane toouse `exported="false"`, ta flaga umożliwia również w poprzednich wersjach zestawu SDK.
 
 ## <a name="420-03112016"></a>4.2.0 (03/11/2016)
-* Zestaw SDK jest teraz licencją MIT.
+* Witaj zestawu SDK jest teraz licencją MIT.
 * Pozwala na stosowanie identyfikator urządzeń niestandardowych w czasie inicjowania zestawu SDK.
 
 ## <a name="415-02012016"></a>4.1.5 (02/01/2016)
@@ -73,19 +73,19 @@ ms.lasthandoff: 08/03/2017
 * Ulepszenia.
 
 ## <a name="400-07062015"></a>4.0.0 (07/06/2015)
-* Protokół zmiany, aby analiza i wypychania bardziej niezawodne.
-* Natywnych powiadomień wypychanych (GCM/ADM) teraz służy także do w powiadomieniach wewnętrznych aplikacji, musisz skonfigurować poświadczenia natywnych powiadomień wypychanych dla dowolnego typu wypychania kampanii.
+* Wewnętrzny protokołu zmienia toomake analytics i bardziej niezawodny wypychania.
+* Natywnych powiadomień wypychanych (GCM/ADM) teraz służy także do w powiadomieniach wewnętrznych aplikacji, musisz skonfigurować poświadczenia natywnych powiadomień wypychanych powitania dla dowolnego typu wypychania kampanii.
 * Usuń powiadomień szerszej: były wyświetlane tylko 10s po przekazywanej.
-* Naprawa błędów w widoku sieci web: kliknięcie łącza powodowała również domyślny adres URL akcji.
-* Napraw rzadkich awarii związanych z zarządzaniem lokalnej pamięci masowej.
+* Naprawa błędów w widoku sieci web: kliknięcie łącza również wykonywania hello będzie domyślny adres URL akcji.
+* Usuń rzadkich awarii powiązane toolocal zarządzania magazynem.
 * Napraw zarządzania ciągu konfiguracji dynamicznej.
 * Zaktualizuj umowy licencyjnej.
 
 ## <a name="300-02172015"></a>3.0.0 (02/17/2015)
 * Początkowa wersja usługi Azure Mobile Engagement
 * Konfiguracja appId zastępuje konfigurację ciągu połączenia.
-* Usunięto interfejs API do wysyłania i odbierania wiadomości XMPP dowolnego z dowolnego XMPP jednostek.
-* Usunięto interfejs API do wysyłania i odbierania wiadomości między urządzeniami.
+* Usunięte toosend interfejsu API i odbieranie komunikatów XMPP dowolnego z dowolnego XMPP jednostek.
+* Usunięte toosend interfejsu API i odbierania wiadomości między urządzeniami.
 * Ulepszenia zabezpieczeń.
 * Śledzenie Google Play i SmartAd usunięte.
 

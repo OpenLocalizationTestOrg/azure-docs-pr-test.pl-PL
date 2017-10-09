@@ -1,6 +1,6 @@
 ---
-title: "Wyświetl zadania i zarządzać nimi StorSimple | Dokumentacja firmy Microsoft"
-description: "Opis strony zadania usługi Menedżer StorSimple oraz używać go do śledzenia ostatnie, bieżących i zaplanowanych zadań tworzenia kopii zapasowej."
+title: "aaaView StorSimple zadania i zarządzać nimi | Dokumentacja firmy Microsoft"
+description: "Zawiera opis strony zadania usługi Menedżer StorSimple hello i w jaki sposób toouse on tootrack ostatnie, bieżących i zaplanowanych zadań tworzenia kopii zapasowej."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6ecdcbc3d8a4757c2328303f268e51c8ce26b65
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs-update-2"></a>Użyj usługi Menedżer StorSimple, aby wyświetlić zadania i zarządzać nimi StorSimple (aktualizacja Update 2)
+# <a name="use-hello-storsimple-manager-service-tooview-and-manage-storsimple-jobs-update-2"></a>Użyj tooview usługi Menedżer StorSimple hello zadania i zarządzać nimi StorSimple (aktualizacja Update 2)
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>Omówienie
-**Zadania** strony zapewnia jednym portalu centralnej do przeglądania i zarządzania zadaniami, które zostały uruchomione na urządzeniach połączona z usługą Menedżer StorSimple. Można wyświetlić zadań zaplanowanych, uruchomionych, zakończone, anulowane i nie powiodło się dla wielu urządzeń. Wyniki są prezentowane w formie tabeli. 
+Witaj **zadania** strona zawiera pojedynczy portalu centralnej do przeglądania i zarządzania zadaniami, które zostały uruchomione na urządzeniach podłączony tooyour usługi Menedżer StorSimple. Można wyświetlić zadań zaplanowanych, uruchomionych, zakończone, anulowane i nie powiodło się dla wielu urządzeń. Wyniki są prezentowane w formie tabeli. 
 
 ![Strona zadania](./media/storsimple-manage-jobs-u2/jobs.png)
 
-Można szybko znaleźć zadania, które są zainteresowani przez filtrowanie w polach, takich jak:
+Można szybko znaleźć hello zadania, które są zainteresowani przez filtrowanie w polach, takich jak:
 
 * **Stan** — zadania może być uruchomiony, zakończone, anulowane, nie powiodło się, anulowanie lub ukończone z błędami.
-* **Od i do** — zadania mogą być filtrowane w oparciu o zakres dat i godzin.
-* **Typ** — typ zadania mogą być kopii zapasowej, ręcznego wykonywania kopii zapasowej, przywracania, klonowania, tryb failover urządzeń, tworzenia woluminu przypiętego lokalnie, zmodyfikować woluminu, aktualizowanie i obsługuje pakiet lub inicjowania obsługi urządzenia wirtualnego.
-* **Urządzenia** — zadań są inicjowane na niektórych urządzeniach połączona z usługą.
-  Następnie wyszczególniono odfiltrowanych zadań na podstawie następujących atrybutów:
+* **Od i do** — zadania mogą być filtrowane na podstawie hello zakres dat i godzin.
+* **Typ** — typ zadania hello może być kopii zapasowej, ręcznego wykonywania kopii zapasowej, przywracania, klonowania, tryb failover urządzeń, tworzenia woluminu przypiętego lokalnie, zmodyfikować woluminu, aktualizowanie i obsługuje pakiet lub inicjowania obsługi urządzenia wirtualnego.
+* **Urządzenia** — zadań są inicjowane na niektórych usługi tooyour podłączonych urządzeń.
+  Witaj odfiltrowanych zadań następnie wyszczególniono na podstawie hello hello następujące atrybuty:
   
   * **Typ** — kopia zapasowa, ręcznego wykonywania kopii zapasowej, przywracania, klonowania, tryb failover urządzeń, tworzenia woluminu przypiętego lokalnie, zmodyfikować woluminu, aktualizowanie i obsługuje pakiet lub inicjowania obsługi urządzenia wirtualnego.
   * **Stan** — uruchomiona, zakończone, anulowane, nie powiodło się, anulowanie lub ukończone z błędami.
-  * **Jednostka** — zadania może być skojarzony z woluminu, zasad tworzenia kopii zapasowej lub urządzeniu. Na przykład zadanie klonowania jest skojarzony z woluminem, zaplanowane zadanie tworzenia kopii zapasowej jest skojarzone z zasadami tworzenia kopii zapasowej. Zadania urządzenia jest tworzony w wyniku odzyskiwania awaryjnego (DR) lub operacji przywracania.
-  * **Urządzenie** — nazwa urządzenia, na którym zadanie zostało uruchomione.
-  * **Rozpoczęto w** — czas uruchomienia zadania.
-  * **Postęp** — zakończenia procent uruchomionego zadania. Zadanie zostało ukończone, aby uzyskać to zawsze być 100%.
+  * **Jednostka** — hello zadań można skojarzyć z woluminu, zasad tworzenia kopii zapasowej lub urządzeniu. Na przykład zadanie klonowania jest skojarzony z woluminem, zaplanowane zadanie tworzenia kopii zapasowej jest skojarzone z zasadami tworzenia kopii zapasowej. Zadania urządzenia jest tworzony w wyniku odzyskiwania awaryjnego (DR) lub operacji przywracania.
+  * **Urządzenie** — Witaj nazwa hello urządzenia, na którym hello zadanie zostało uruchomione.
+  * **Rozpoczęto w** — Witaj czas uruchomienia zadania hello.
+  * **Postęp** — Witaj procentu ukończenia uruchomionego zadania. Zadanie zostało ukończone, aby uzyskać to zawsze być 100%.
 
-Lista zadań są odświeżane co 30 sekund.
+Witaj listy zadań są odświeżane co 30 sekund.
 
-Na tej stronie można wykonywać następujące czynności związanych z pracą:
+Można wykonywać następujące zadania związane z akcji na tej stronie powitania:
 
-* Wyświetl szczegóły zadania
+* Wyświetlanie szczegółów zadania
 * Anulowanie zadania
 
-## <a name="view-job-details"></a>Wyświetl szczegóły zadania
-Wykonaj poniższe kroki, aby wyświetlić szczegóły wszystkie zadania.
+## <a name="view-job-details"></a>Wyświetlanie szczegółów zadania
+Wykonaj hello poniższe kroki tooview hello informacje wszystkie zadania.
 
-#### <a name="to-view-job-details"></a>Aby wyświetlić szczegóły zadania
-1. Na **zadania** strony, wyświetlania zadań są zainteresowani, uruchamiając zapytanie o odpowiednie filtry. Można wyszukiwać ukończone, uruchomiona lub anulowane zadania.
+#### <a name="tooview-job-details"></a>Szczegóły zadania tooview
+1. Na powitania **zadania** strony, wyświetlania zadań hello są zainteresowani, uruchamiając zapytanie o odpowiednie filtry. Można wyszukiwać ukończone, uruchomiona lub anulowane zadania.
 2. Wybierz zadanie.
-3. W dolnej części strony kliknij **szczegóły**.
-4. W **szczegóły zadania tworzenia kopii zapasowej** okno dialogowe, można wyświetlić stan, szczegóły, statystyk czasu i statystyki danych.
+3. U dołu hello hello strony, kliknij przycisk **szczegóły**.
+4. W hello **szczegóły zadania tworzenia kopii zapasowej** okno dialogowe, można wyświetlić stan hello, szczegóły statystyk czasu i statystyki danych.
    
     ![Strona szczegółów zadania](./media/storsimple-manage-jobs-u2/JobDetails.png)
 
 ## <a name="cancel-a-job"></a>Anulowanie zadania
-Wykonaj poniższe kroki, aby anulować zadanie uruchomione.
+Wykonaj następujące kroki toocancel wykonywanym zadaniem hello.
 
 > [!NOTE]
-> Niektóre zadania, takie jak modyfikowanie woluminu, aby zmienić typ woluminu lub rozszerzenie woluminu, nie można anulować.
+> Niektóre zadania, takie jak modyfikowanie woluminu toochange hello woluminie, którego typ lub rozszerzenie woluminu, nie można anulować.
 > 
 > 
 
-### <a name="to-cancel-a-job"></a>Aby anulować zadanie
-1. Na **zadania** pozycję Wyświetl uruchomione zadania, które chcesz anulować, uruchamiając zapytanie z filtrami odpowiednie.
-2. Wybierz zadanie.
-3. W dolnej części strony kliknij **anulować**.
+### <a name="toocancel-a-job"></a>toocancel zadania
+1. Na powitania **zadania** strony, wyświetlania zadań uruchomionych hello mają toocancel, uruchamiając zapytanie o odpowiednie filtry.
+2. Wybierz zadanie hello.
+3. U dołu hello hello strony, kliknij przycisk **anulować**.
 4. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**.
 
 To zadanie jest teraz anulowane.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak [Zarządzanie zasadami tworzenia kopii zapasowej StorSimple](storsimple-manage-backup-policies.md).
-* Dowiedz się, jak [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple](storsimple-manager-service-administration.md).
+* Dowiedz się, jak za[Zarządzanie zasadami tworzenia kopii zapasowej StorSimple](storsimple-manage-backup-policies.md).
+* Dowiedz się, jak za[Użyj hello tooadminister usługi Menedżer StorSimple, urządzenia StorSimple](storsimple-manager-service-administration.md).
 

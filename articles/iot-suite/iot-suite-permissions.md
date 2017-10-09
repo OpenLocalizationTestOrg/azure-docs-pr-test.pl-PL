@@ -1,6 +1,6 @@
 ---
-title: Pakiet Azure IoT i Azure Active Directory | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano, jak pakiet IoT Azure używa usługi Azure Active Directory do zarządzania uprawnieniami."
+title: aaaAzure pakiet IoT i Azure Active Directory | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano, jak pakiet IoT Azure używa usługi Azure Active Directory toomanage uprawnienia."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,134 +15,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: dobett
-ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4768630f2de4bb431731fbd4e8929232bc80b9f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="permissions-on-the-azureiotsuitecom-site"></a>Uprawnienia w witrynie the azureiotsuite.com
+# <a name="permissions-on-hello-azureiotsuitecom-site"></a>Uprawnienia w witrynie azureiotsuite.com hello
 
 ## <a name="what-happens-when-you-sign-in"></a>Co się stanie po zalogowaniu
 
-Przy pierwszym zalogowaniu się na [azureiotsuite.com][lnk-azureiotsuite], witryny Określa poziomy uprawnień, należy mieć na podstawie aktualnie wybranej dzierżawy usługi Azure Active Directory (AAD) i subskrypcji platformy Azure.
+Witaj pierwszym zalogowaniu się na [azureiotsuite.com][lnk-azureiotsuite], lokacji hello Określa poziomy uprawnień hello oparte na powitania aktualnie wybrane dzierżawy usługi Azure Active Directory (AAD) i Azure Subskrypcja.
 
-1. Najpierw do wypełnienia listy dzierżawców widoczne obok nazwy użytkownika, lokacji znajduje na platformie Azure dzierżaw usługi AAD, które należą do. Obecnie witryny można uzyskać tokeny użytkownika dla jednego dzierżawcy w czasie. W związku z tym podczas przełączania dzierżawcy przy użyciu listy rozwijanej w prawym górnym rogu lokacji rejestruje w tej dzierżawy uzyskać tokenów dla tej dzierżawy.
+1. Najpierw toopopulate hello listę dzierżawców widoczne dalej tooyour username, hello lokacji znajduje z platformy Azure dzierżaw usługi AAD, które należą do. Obecnie hello witryny można uzyskać tokeny użytkownika dla jednego dzierżawcy w czasie. W związku z tym po przełączeniu dzierżawcy przy użyciu listy rozwijanej hello w prawym górnym rogu hello lokacji hello loguje użytkownika w tokenach hello tooobtain dzierżawy toothat dla tej dzierżawy.
 
-2. Następnie lokacji znajduje z platformy Azure, subskrypcje, które zostały skojarzone z wybranej dzierżawy. Podczas tworzenia nowego rozwiązania wstępnie skonfigurowane są wyświetlane dostępnych subskrypcji.
+2. Następnie hello lokacji znajduje z dzierżawy wybrane subskrypcje, które zostały skojarzone z hello Azure. Podczas tworzenia nowego rozwiązania wstępnie skonfigurowane są wyświetlane hello dostępnych subskrypcji.
 
-3. Na koniec lokacji pobiera wszystkie zasoby w subskrypcji i grup zasobów oznakowane jako wstępnie skonfigurowanych rozwiązań i wypełnia Kafelki na stronie głównej.
+3. Na koniec hello lokacji pobiera wszystkie zasoby hello w subskrypcjach hello i grup zasobów oznakowane jako wstępnie skonfigurowanych rozwiązań i wypełnia hello Kafelki na stronie głównej hello.
 
-W poniższych sekcjach opisano role, które kontrolują dostęp do wstępnie skonfigurowanych rozwiązań.
+Hello następujące sekcje opisują role hello, kontrolujących dostęp toohello wstępnie rozwiązania.
 
 ## <a name="aad-roles"></a>Role usługi AAD
 
-Role AAD kontrolowanie możliwości rozwiązania wstępnie udostępnić i zarządzanie użytkownikami w wstępnie skonfigurowane rozwiązanie.
+role AAD Hello kontrolować hello możliwości należy wstępnie skonfigurować rozwiązań i zarządzanie użytkownikami w wstępnie skonfigurowane rozwiązanie.
 
-Można znaleźć więcej informacji na temat ról administratorów w usłudze AAD w [przypisywanie ról administratorów w usłudze Azure AD][lnk-aad-admin]. Bieżący artykuł skupia się na **administratora globalnego** i **użytkownika** ról katalogu jako używane przez wstępnie skonfigurowanych rozwiązań.
+Można znaleźć więcej informacji na temat ról administratorów w usłudze AAD w [przypisywanie ról administratorów w usłudze Azure AD][lnk-aad-admin]. Witaj bieżącego artykuł skupia się na powitania **administratora globalnego** i hello **użytkownika** ról katalogu jako używane przez hello wstępnie rozwiązania.
 
 ### <a name="global-administrator"></a>Administrator globalny
 
 Może istnieć wiele Administratorzy globalni na dzierżawę usługi AAD:
 
-* Podczas tworzenia dzierżawy usługi AAD jest domyślnie administratora globalnego tej dzierżawy.
-* Administrator globalny może udostępnić wstępnie skonfigurowane rozwiązanie i przypisano **Admin** roli dla aplikacji w ich dzierżawę usługi AAD.
-* Jeśli inny użytkownik w tej samej dzierżawie usługi AAD tworzy aplikację, domyślna rola przyznane administratora globalnego jest **tylko do odczytu**.
-* Administrator globalny można przypisać użytkowników do ról aplikacji za pomocą [portalu Azure][lnk-portal].
+* Podczas tworzenia dzierżawy usługi AAD, są przez administratora globalnego hello domyślne tej dzierżawy.
+* administrator globalny Hello można udostępnić wstępnie skonfigurowane rozwiązanie i przypisano **Admin** roli dla aplikacji hello wewnątrz ich dzierżawę usługi AAD.
+* Jeśli inny użytkownik w hello sam dzierżawę usługi AAD tworzy aplikację, hello domyślna rola przyznaje jest administrator globalny toohello **tylko do odczytu**.
+* Administrator globalny można przypisać tooroles użytkowników dla aplikacji za pomocą hello [portalu Azure][lnk-portal].
 
 ### <a name="domain-user"></a>Użytkownik domeny
 
 Może istnieć wiele użytkowników domeny w dzierżawie usługi AAD:
 
-* Użytkownik domeny można udostępnić wstępnie skonfigurowane rozwiązanie za pośrednictwem [azureiotsuite.com] [ lnk-azureiotsuite] lokacji. Domyślnie udzielony jest użytkownik domeny **Admin** roli w aplikacji elastycznie.
-* Użytkownik domeny, można utworzyć aplikację przy użyciu skryptu build.cmd w [azure iot — zdalnego monitorowania][lnk-rm-github-repo], [azure-iot —-konserwacji predykcyjnej][lnk-pm-github-repo], lub [azure iot — połączony fabryka] [ lnk-cf-github-repo] repozytorium. Domyślna rola przyznane użytkownikowi domeny jest jednak **tylko do odczytu**, ponieważ użytkownik domeny nie ma uprawnień do przypisywania ról.
-* Jeśli inny użytkownik w dzierżawie usługi AAD tworzy aplikację, są przypisane do użytkownika domeny **tylko do odczytu** roli domyślnie dla tej aplikacji.
+* Użytkownik domeny można udostępnić wstępnie skonfigurowane rozwiązanie za pośrednictwem hello [azureiotsuite.com] [ lnk-azureiotsuite] lokacji. Domyślnie program hello domeny użytkownik otrzymuje hello **Admin** roli w hello zainicjowano obsługę administracyjną aplikacji.
+* Użytkownik domeny, można utworzyć aplikację przy użyciu skryptu build.cmd hello w hello [azure iot — zdalnego monitorowania][lnk-rm-github-repo], [azure-iot —-konserwacji predykcyjnej] [ lnk-pm-github-repo], lub [azure iot — połączony fabryka] [ lnk-cf-github-repo] repozytorium. Jednak hello domyślnej roli przyznano jest użytkownik domeny toohello **tylko do odczytu**, ponieważ użytkownik domeny nie ma uprawnień tooassign ról.
+* Jeśli inny użytkownik w dzierżawie usługi AAD hello tworzy aplikację, użytkownika domeny hello jest przypisany hello **tylko do odczytu** roli domyślnie dla tej aplikacji.
 * Użytkownik domeny nie można przypisać role w aplikacji; w związku z tym użytkownikiem domeny nie można dodać użytkowników lub ról użytkowników dla aplikacji, nawet jeśli ich obsługi administracyjnej.
 
 ### <a name="guest-user"></a>Gość
 
-Może istnieć wiele gości na dzierżawę usługi AAD. Goście mają ograniczony zestaw praw w dzierżawie usługi AAD. W związku z tym gości nie może obsłużyć wstępnie skonfigurowane rozwiązanie w dzierżawie usługi AAD.
+Może istnieć wiele gości na dzierżawę usługi AAD. Goście mają ograniczony zestaw praw w dzierżawie usługi AAD hello. W związku z tym gości nie może obsłużyć wstępnie skonfigurowane rozwiązanie w dzierżawie usługi AAD hello.
 
-Aby uzyskać więcej informacji dotyczących użytkowników i role w usłudze AAD zobacz następujące zasoby:
+Aby uzyskać więcej informacji dotyczących użytkowników i role w usłudze AAD zobacz następujące zasoby hello:
 
 * [Tworzenie użytkowników w usłudze Azure AD][lnk-create-edit-users]
-* [Przypisywanie użytkowników do aplikacji][lnk-assign-app-roles]
+* [Przypisywanie użytkowników tooapps][lnk-assign-app-roles]
 
 ## <a name="azure-subscription-administrator-roles"></a>Role administratorów subskrypcji platformy Azure
 
-Role administratora platformy Azure kontrolować możliwość mapowania subskrypcji platformy Azure do dzierżawy usługi AD.
+Role administratora platformy Azure Hello kontrolować hello możliwości toomap dzierżawę tooan AD subskrypcji platformy Azure.
 
-Dowiedz się więcej o rolach administratora platformy Azure w artykule [jak dodać lub zmienić administratora współpracującego Azure, Administrator usługi i konto administratora][lnk-admin-roles].
+Dowiedz się więcej o rolach administratora platformy Azure hello w artykule hello [jak tooadd lub zmień Współadministratorem Azure, Administrator usługi i konto administratora][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Role aplikacji
 
-Role aplikacji kontroli dostępu na urządzeniach w wstępnie skonfigurowane rozwiązanie.
+Role aplikacji Hello kontroli dostępu toodevices w wstępnie skonfigurowane rozwiązanie.
 
 Istnieją dwa zdefiniowanych ról i jedną rolę niejawne zdefiniowanych w aplikacji udostępnione:
 
-* **Administrator:** ma pełną kontrolę do dodawania, zarządzania, usuń urządzenia i zmodyfikować ustawienia.
+* **Administrator:** ma pełną kontrolę tooadd, zarządzania, usuń urządzenia i zmodyfikować ustawienia.
 * **Tylko do odczytu:** mogą wyświetlać urządzenia, zasad, akcje, zadania i dane telemetryczne.
 
-Można znaleźć uprawnienia przypisane do każdej roli w [RolePermissions.cs] [ lnk-resource-cs] pliku źródłowego.
+Można znaleźć roli tooeach w hello przypisane uprawnienia hello [RolePermissions.cs] [ lnk-resource-cs] pliku źródłowego.
 
 ### <a name="changing-application-roles-for-a-user"></a>Zmiana aplikacji ról użytkownika
 
-Poniższa procedura służy do wyznaczenia użytkownika w usłudze Active Directory administratora wstępnie skonfigurowanych rozwiązań.
+Możesz użyć hello następujące procedury toomake użytkownika w usłudze Active Directory administrator wstępnie skonfigurowanych rozwiązań.
 
-Musi być administratorem globalnym usługi AAD, aby zmienić role dla użytkownika:
+Musi być AAD administratora globalnego toochange role dla użytkownika:
 
-1. Przejdź do witryny [Azure Portal][lnk-portal].
+1. Przejdź toohello [portalu Azure][lnk-portal].
 2. Wybierz **usługi Azure Active Directory**.
-3. Upewnij się, że używasz katalogu, który wybrano w azureiotsuite.com podczas przydzielania rozwiązania. Jeśli masz wiele katalogów, skojarzonymi z Twoją subskrypcją, można przełączać się między nimi po kliknięciu nazwę swojego konta w prawym górnym rogu portalu.
+3. Upewnij się, że używasz hello katalog, który wybrano w azureiotsuite.com podczas przydzielania rozwiązania. Jeśli masz wiele katalogów, skojarzonymi z Twoją subskrypcją, można przełączać się między nimi po kliknięciu nazwę swojego konta w hello prawym górnym rogu portalu hello.
 4. Kliknij przycisk **aplikacje dla przedsiębiorstw**, następnie **wszystkie aplikacje**.
 4. Pokaż **wszystkie aplikacje** z **żadnych** stanu. Następnie wyszukaj aplikację o nazwie wstępnie skonfigurowanych rozwiązań.
-5. Kliknij nazwę aplikacji, która jest zgodna z nazwą wstępnie skonfigurowane rozwiązanie.
+5. Kliknij nazwę hello aplikacji hello, która jest zgodna z nazwą wstępnie skonfigurowane rozwiązanie.
 6. Kliknij przycisk **użytkowników i grup**.
-7. Wybierz użytkownika, aby przełączyć role.
-8. Kliknij przycisk **przypisać** i wybierz rolę (takich jak **Admin**) ma zostać przypisany do użytkownika, kliknij znacznik wyboru.
+7. Wybierz użytkownika hello ma tooswitch ról.
+8. Kliknij przycisk **przypisać** i wybierz hello roli (takich jak **Admin**) ma tooassign toohello użytkownika, kliknij znacznik wyboru hello.
 
 ## <a name="faq"></a>Często zadawane pytania
 
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Jestem administratorem usługi, a chcę zmienić katalogu mapowanie między mojej subskrypcji i określonych dzierżawę usługi AAD. Jak wykonać to zadanie?
+### <a name="im-a-service-administrator-and-id-like-toochange-hello-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Jestem administratorem usługi, a chcę toochange hello katalogu mapowania między mojej subskrypcji i określonych dzierżawę usługi AAD. Jak wykonać to zadanie?
 
-1. Przejdź do [klasycznego portalu Azure][lnk-classic-portal], kliknij przycisk **ustawienia** na liście usług po lewej stronie.
-2. Wybierz subskrypcję chcesz zmienić mapowanie katalogu.
+1. Przejdź toohello [klasycznego portalu Azure][lnk-classic-portal], kliknij przycisk **ustawienia** liście hello usług na powitania po lewej stronie.
+2. Wybierz subskrypcję hello, którą chcesz mapowanie katalogu hello toochange na.
 3. Kliknij przycisk **Edytuj katalog**.
-4. Wybierz **katalogu** chcesz użyć na liście rozwijanej. Kliknij strzałkę w przód.
-5. Potwierdź mapowanie katalogu i wpływ współadministratorów. Jeśli przenosisz z innego katalogu współadministratorów z oryginalnym katalogu zostaną usunięte.
+4. Wybierz hello **katalogu** chcesz toouse w hello listy rozwijanej. Kliknij strzałkę w przód hello.
+5. Potwierdź mapowanie katalogu hello i wpływ współadministratorów. Jeśli przenosisz z innego katalogu, wszystkie hello współadministratorów z oryginalnym katalogu hello są usuwane.
 
-### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Jestem użytkownika/członek domeny na dzierżawę usługi AAD i utworzono wstępnie skonfigurowanych rozwiązań. Jak pobrać przypisane roli dla mojej aplikacji?
+### <a name="im-a-domain-usermember-on-hello-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Jestem użytkownika/członek domeny na powitania dzierżawę usługi AAD i utworzono wstępnie skonfigurowanych rozwiązań. Jak pobrać przypisane roli dla mojej aplikacji?
 
-Skontaktuj się administratorem globalnym, aby utworzyć administratora globalnego dla dzierżawcy usługi AAD i przypisz role użytkowników samodzielnie. Alternatywnie poproś administratora globalnego przypisanie roli bezpośrednio. Jeśli chcesz zmienić dzierżawę usługi AAD wstępnie skonfigurowane rozwiązanie zostało wdrożone do, zobacz następne pytanie.
+Użytkownik administrator globalny na powitania AAD dzierżawy i przypisz role toousers samodzielnie, poproś toomake administratora globalnego. Alternatywnie, poproś tooassign administratora globalnego należy bezpośrednio roli. Jeśli chcesz dzierżawę usługi AAD hello toochange wdrożonej wstępnie skonfigurowane rozwiązanie w Zobacz hello następne pytanie.
 
-### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Jak zmienić dzierżawę usługi AAD, który Moje zdalnego monitorowania wstępnie skonfigurowane rozwiązanie i aplikacji, które są przypisane do?
+### <a name="how-do-i-switch-hello-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Jak zmienić hello dzierżawę usługi AAD, który Moje zdalnego monitorowania wstępnie skonfigurowane rozwiązanie i aplikacji, które są przypisane do?
 
-Można uruchamiać wdrożeń w chmurze z <https://github.com/Azure/azure-iot-remote-monitoring> i wdrożenie z nowo utworzonego dzierżawę usługi AAD. Ponieważ jesteś, domyślnie administratorem globalnym, podczas tworzenia dzierżawy usługi AAD, masz uprawnienia do dodawania użytkowników i przypisać role do tych użytkowników.
+Można uruchamiać wdrożeń w chmurze z <https://github.com/Azure/azure-iot-remote-monitoring> i wdrożenie z nowo utworzonego dzierżawę usługi AAD. Ponieważ jesteś, domyślnie administratorem globalnym, podczas tworzenia dzierżawy usługi AAD, mają uprawnienia użytkowników tooadd i przypisz role użytkowników toothose.
 
-1. Tworzenie katalogu usługi AAD w [portalu Azure][lnk-portal].
-2. Przejdź do <https://github.com/Azure/azure-iot-remote-monitoring>.
+1. Tworzenie katalogu usługi AAD w hello [portalu Azure][lnk-portal].
+2. Przejdź za<https://github.com/Azure/azure-iot-remote-monitoring>.
 3. Uruchom `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (na przykład `build.cmd cloud debug myRMSolution`)
-4. Po wyświetleniu monitu, ustaw **tenantid** się nowo utworzone dzierżawy zamiast dzierżawy poprzedniej.
+4. Po wyświetleniu monitu, ustaw hello **tenantid** toobe nowo utworzone dzierżawy zamiast poprzedniego dzierżawy.
 
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Zmienianie administratorem usługi ani Współadministratorem podczas logowania się za pomocą konta organizacyjnego
+### <a name="i-want-toochange-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Chcę toochange administratorem usługi ani Współadministratorem podczas logowania się za pomocą konta organizacyjnego
 
-Zobacz artykuł pomocy technicznej [zmiany administratora usługi i Współadministrator podczas logowania się przy użyciu konta organizacyjne][lnk-service-admins].
+Zobacz artykuł pomocy technicznej hello [zmiany administratora usługi i Współadministrator podczas logowania się przy użyciu konta organizacyjne][lnk-service-admins].
 
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Dlaczego widzę ten błąd? "Twoje konto nie ma odpowiednich uprawnień do utworzenia rozwiązania. Spróbuj skontaktować się z administratorem konta lub za pomocą innego konta."
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-hello-proper-permissions-toocreate-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Dlaczego widzę ten błąd? "Twoje konto nie ma toocreate odpowiednie uprawnienia hello rozwiązania. Spróbuj skontaktować się z administratorem konta lub za pomocą innego konta."
 
-Szukaj na poniższym diagramie, aby uzyskać wskazówki:
+Obejrzyj powitania po diagramu w celu uzyskania wskazówek:
 
 ![][img-flowchart]
 
 > [!NOTE]
-> Jeśli nadal wyświetlany błąd po weryfikacji można administratora globalnego dla dzierżawcy usługi AAD i współadministratorem subskrypcji, poproś administratora konta, Usuń użytkownika i przypisać odpowiednie uprawnienia w podanej kolejności. Najpierw dodaj użytkownika jako administrator globalny, a następnie dodaj użytkownika jako współadministratorem subskrypcji platformy Azure. Jeśli problemy będą się powtarzać, skontaktuj się z [Pomoc i obsługa techniczna][lnk-help-support].
+> Jeśli będziesz kontynuować toosee hello błąd po weryfikacji jesteś administratorem globalnym dzierżawcy usługi AAD hello i współadministrator subskrypcji hello, poproś administratora konta, Usuń hello użytkownika i przypisać odpowiednie uprawnienia w tej kolejności. Najpierw dodaj hello użytkownika jako administratora globalnego, a następnie dodaj użytkownika jako administratora współpracującego na powitania subskrypcji platformy Azure. Jeśli problemy będą się powtarzać, skontaktuj się z [Pomoc i obsługa techniczna][lnk-help-support].
 
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Dlaczego widzę ten błąd gdy subskrypcji platformy Azure? "Subskrypcji platformy Azure jest wymagane do utworzenia wstępnie skonfigurowanych rozwiązań. Użytkownik może utworzyć bezpłatne konto próbne w zaledwie kilka minut."
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-toocreate-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Dlaczego widzę ten błąd gdy subskrypcji platformy Azure? "Subskrypcji platformy Azure jest wymagane toocreate wstępnie skonfigurowanych rozwiązań. Użytkownik może utworzyć bezpłatne konto próbne w zaledwie kilka minut."
 
-Jeśli masz pewność, że masz subskrypcję platformy Azure, sprawdź poprawność mapowania dla Twojej subskrypcji dzierżawcy i upewnij się, że wybrano poprawny dzierżawy na liście rozwijanej. Jeśli zostały sprawdzone żądaną dzierżawy jest poprawna, postępuj zgodnie z wcześniejszym diagramie i sprawdzić poprawności mapowania subskrypcji i tego dzierżawę usługi AAD.
+Jeśli masz pewność, że masz subskrypcję platformy Azure, sprawdź poprawność mapowania dla Twojej subskrypcji dzierżawcy hello i upewnij się, że wybrano hello poprawne dzierżawy w listy rozwijanej hello. Jeśli zostały sprawdzone hello potrzeby czy dzierżawy jest prawidłowa, postępuj zgodnie hello poprzedzających diagram i sprawdzić poprawności mapowania hello subskrypcji i tego dzierżawę usługi AAD.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby kontynuować zapoznawanie pakiet IoT, zobacz temat [dostosować wstępnie skonfigurowane rozwiązanie][lnk-customize].
+toocontinue poznawania pakiet IoT, zobacz temat [dostosować wstępnie skonfigurowane rozwiązanie][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

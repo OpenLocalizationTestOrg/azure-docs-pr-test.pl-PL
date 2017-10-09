@@ -1,6 +1,6 @@
 ---
-title: "Wstępnie skonfigurowane rozwiązanie konserwacji predykcyjnej | Microsoft Docs"
-description: "Opis wstępnie skonfigurowanego rozwiązania Pakietu Azure IoT do konserwacji predykcyjnej."
+title: "Konserwacja aaaPredictive wstępnie skonfigurowane rozwiązanie | Dokumentacja firmy Microsoft"
+description: "Opis konserwacji predykcyjnej pakiet IoT Azure hello wstępnie skonfigurowane rozwiązanie."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,125 +15,125 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2d09801467d33db6b7d6333fa071aea2bf573f20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Omówienie wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej
 
-[Wstępnie skonfigurowane rozwiązanie][lnk_preconfigured_solutions] *konserwacji predykcyjnej* jest jednym ze wstępnie skonfigurowanych rozwiązań [Pakietu IoT Microsoft Azure][lnk_iot_suite]. To rozwiązanie obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk-machine-learning].
+Witaj *konserwacji predykcyjnej* [wstępnie skonfigurowane rozwiązanie] [ lnk_preconfigured_solutions] jest jednym z hello [pakiet IoT Microsoft Azure] [ lnk_iot_suite] wstępnie rozwiązania. To rozwiązanie obejmuje zbieranie danych telemetrycznych z urządzeń w czasie rzeczywistym i model predykcyjny utworzony za pomocą usługi [Azure Machine Learning][lnk-machine-learning].
 
-Pakiet IoT Azure pozwala szybko i łatwo łączyć się z zasobami i monitorować je oraz analizować dane telemetryczne w czasie rzeczywistym w ramach pulpitów nawigacyjnych i wizualizacji. W przypadku rozwiązania konserwacji predykcyjnej pulpity nawigacyjne i wizualizacje dostarczają nowe informacje analityczne, które pozwalają zwiększyć wydajność i wygenerować dodatkowe źródła przychodów.
+Z pakiet IoT Azure można szybko i łatwo połączyć tooand monitor zasobów i analizowania telemetrii w czasie rzeczywistym w pulpitach nawigacyjnych i wizualizacji. W rozwiązaniu konserwacji predykcyjnej hello hello pulpitów nawigacyjnych i wizualizacji umożliwiają nowe analizy, które można dysków wydajność i zwiększyć przychody strumieni.
 
-## <a name="the-scenario"></a>Scenariusz
+## <a name="hello-scenario"></a>Witaj scenariusza
 
-Fabrikam to regionalny przewoźnik lotniczy, ukierunkowany na zapewnienie doskonałej obsługi klientów przy zachowaniu konkurencyjnych cen. Jedną z przyczyn powodujących opóźnienia lotów są kwestie związane z obsługą techniczną samolotów. Dotyczy to w szczególności konserwacji silników. Firma Fabrikam musi za wszelką cenę zapobiegać awariom silników podczas lotu, zatem przeprowadza regularne przeglądy sprzętu i tworzy odpowiedni harmonogram konserwacji. Jednak występują różnice dotyczące stopnia zużycia silników samolotów. Zdarzają się przypadki wykonania prac konserwacyjnych, które nie były konieczne. Co więcej, pojawiają się problemy, które mogą prowadzić do uziemienia danego samolotu, dopóki nie zostanie przeprowadzona konserwacja. Te problemy powodują kosztowne opóźnienia, zwłaszcza jeśli samolot znajduje się w lokalizacji, w której nie są dostępne części zamienne lub odpowiednio wykwalifikowany personel.
+Fabrikam to regionalny przewoźnik lotniczy, ukierunkowany na zapewnienie doskonałej obsługi klientów przy zachowaniu konkurencyjnych cen. Jedną z przyczyn powodujących opóźnienia lotów są kwestie związane z obsługą techniczną samolotów. Dotyczy to w szczególności konserwacji silników. Firma Fabrikam należy unikać błąd aparatu w locie za wszelką cenę regularnie bada jego aparaty i harmonogramy konserwacji zgodnie z planem tooa. Jednak powietrznego przez aparaty nie zawsze nosić hello takie same. Zdarzają się przypadki wykonania prac konserwacyjnych, które nie były konieczne. Co więcej, pojawiają się problemy, które mogą prowadzić do uziemienia danego samolotu, dopóki nie zostanie przeprowadzona konserwacja. Jeśli samolotu znajduje się w lokalizacji gdzie hello techników prawo lub zamiennych nie są dostępne, te problemy mogą być szczególnie kosztowne.
 
-Silniki samolotów linii Fabrikam są wyposażone w czujniki, które monitorują stan silnika podczas lotu. Firma Fabrikam korzysta z rozwiązania do konserwacji predykcyjnej w celu gromadzenia danych zebranych z czujników podczas lotu. Zbierane przez całe lata dane dotyczące pracy i awarii silników umożliwiły inżynierom danych w firmie Fabrikam opracowanie modelu przewidywania pozostałego czasu eksploatacji silnika samolotu. Model korzysta z zależności między danymi pochodzącymi z czterech czujników w silniku a zużyciem silnika, które może prowadzić do wystąpienia awarii. Linie Fabrikam wciąż regularnie przeprowadzają przeglądy w celu zapewnienia bezpieczeństwa, ale dysponują również modelami, które umożliwiają obliczenie pozostałego czasu eksploatacji poszczególnych silników po każdym locie. Model wykorzystuje dane telemetryczne zebrane z silników podczas lotu. Pozwala to przewidywać przyszłe awarie i odpowiednio wcześniej zaplanować prace konserwacyjne i naprawcze.
+aparaty Hello samolotów firmy są instrumentowane przy użyciu czujników, które monitorują aparat warunków w locie. Firma Fabrikam stosuje hello konserwacji predykcyjnej rozwiązania toocollect hello czujnik dane zebrane podczas transmitowane hello. Po kumulowanych lat aparatu operacyjne i dane awarii analityków danych w firmie Fabrikam mają modelowane hello toopredict sposób pozostała użytkowania (RUL) powietrznego aparatu. Hello model używa korelacji między danymi z czterech hello aparat czujników i zużycia aparatu, który prowadzi tooeventual awarii. Gdy firma Fabrikam nadal tooperform regularne inspekcje tooensure bezpieczeństwa, go teraz używać hello modele toocompute hello RUL dla każdego aparatu po każdym locie. Hello model używa hello dane telemetryczne zebrane z aparaty hello w locie hello. Pozwala to przewidywać przyszłe awarie i odpowiednio wcześniej zaplanować prace konserwacyjne i naprawcze.
 
 > [!NOTE]
-> W modelu rozwiązania wykorzystano dane dotyczące rzeczywistego zużycia silników.
+> model rozwiązania Hello używa aparatu rzeczywistego zużycia danych.
 
-Dzięki możliwości przewidywania terminu wymaganej obsługi technicznej firma Fabrikam może zoptymalizować swoje operacje, aby obniżyć koszty.
+Przez punkt hello gdy wymagana jest obsługa, Fabrikam można optymalizować koszty tooreduce jego operacji.
 
 Współpraca koordynatorów ds. konserwacji z personelem odpowiedzialnym za rozkład lotów ma na celu:
 
-- Opracowanie harmonogramu, który umożliwia przeprowadzanie prac technicznych podczas postoju samolotu w danej lokalizacji.
-- Zapewnienie, że dostępna jest wystarczająca ilość czasu na serwisowanie samolotu, aby nie spowodować występowania zakłóceń w rozkładzie.
-- Zaplanowanie pracy personelu technicznego tak, aby serwisowanie samolotów odbywało się bez przestojów.
+- Planowanie obsługi toocoincide z samolotu zatrzymywanie w określonej lokalizacji.
+- Upewnij się, że czas wystarczający jest dostępna dla hello powietrznego toobe poza eksploatacją bez powodowania przerw w działaniu harmonogramu.
+- tooensure techników tooschedule efektywną obsługę powietrznego bez czasu oczekiwania.
 
 Menedżerowie odpowiedzialni za magazyny podzespołów mają dostęp do planów konserwacji, dzięki czemu mogą zoptymalizować zapasy części zamiennych i proces ich zamawiania.
 
-Te działania umożliwiają firmie Fabrikam zminimalizowanie czasu obsługi naziemnej samolotów i zmniejszenie kosztów operacyjnych przy jednoczesnym zapewnieniu bezpieczeństwa pasażerów i załóg.
+Te działania firmy Fabrikam toominimize powietrznego podstaw czas i zmniejszyć koszty operacyjne, przy równoczesnym zapewnieniu bezpieczeństwa hello osób i zespół ds..
 
-Aby dowiedzieć się, jakie funkcje dostępne w [Pakiecie IoT Azure][lnk_iot_suite] umożliwiają klientom wykorzystanie potencjalnych możliwości konserwacji predykcyjnej, zapoznaj się z tą [grafiką informacyjną][lnk_infographic].
+toounderstand jak [pakiet IoT Azure] [ lnk_iot_suite] zapewnia hello możliwości klienci muszą potencjalne hello toorealize konserwacji predykcyjnej, przejrzyj to [infographic] [lnk_infographic].
 
-## <a name="how-the-predictive-maintenance-solution-is-built"></a>Jak zbudowane jest rozwiązanie konserwacji predykcyjnej
+## <a name="how-hello-predictive-maintenance-solution-is-built"></a>Jak jest wbudowane rozwiązanie do konserwacji predykcyjnej hello
 
-Rozwiązanie korzysta z istniejącego modelu usługi Azure Machine Learning dostępnego w postaci szablonu, który pozwala na demonstrację działania funkcji przy użyciu danych telemetrycznych pochodzących z urządzeń i zebranych za pomocą usług Pakietu IoT. Firma Microsoft opracowała [model regresji][lnk_regression_model] silnika samolotu na podstawie publicznie dostępnych danych<sup>\[1\]</sup> oraz szczegółowe wskazówki dotyczące używania tego modelu.
+rozwiązanie Hello używa istniejącego modelu uczenia maszynowego Azure dostępna jako tooshow szablonu te możliwości pracy z telemetrii urządzenia zbieranych za pośrednictwem usługi pakiet IoT. Microsoft opracowała [modelu regresji] [ lnk_regression_model] aparatu powietrznego na podstawie publicznie dostępnych danych<sup>\[1\]</sup>i krok po kroku wskazówki dotyczące sposobu toouse hello modelu.
 
-Rozwiązanie Azure IoT do konserwacji predykcyjnej używa modelu regresji utworzonego na podstawie tego szablonu. Model jest wdrożony w ramach subskrypcji platformy Azure i dostępny za pośrednictwem automatycznie generowanego interfejsu API. Rozwiązanie to zawiera podzbiór danych testowych odpowiadających 4 ze 100 silników oraz strumieniom danych z 4 z 21 czujników. Te dane wystarczają do uzyskania dokładnego wyniku za pomocą nauczonego modelu.
+Hello Azure IoT rozwiązanie do konserwacji predykcyjnej wykorzystuje model regresji hello utworzone na podstawie tego szablonu. Hello model jest wdrożonych w ramach subskrypcji platformy Azure i dostępne za pośrednictwem interfejsu API wygenerowanej automatycznie. rozwiązanie Hello zawiera podzbiór hello testowania dane reprezentujące 4 (całkowita liczba 100) aparaty oraz strumieni danych czujnika hello 4 (of 21 całkowita). Te dane są wystarczające tooprovide dokładne wyniku hello trenowanego modelu.
 
 *\[1\] A. Saxena and K. Goebel (2008). „Turbofan Engine Degradation Simulation Data Set” (Zestaw danych dotyczących symulacji degradacji silnika turbowentylatorowego), repozytorium danych prognostycznych NASA w Ames (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), ośrodek badawczy NASA w Ames, Moffett Field, Kalifornia*
 
 ## <a name="get-started-with-predictive-maintenance"></a>Rozpoczynanie pracy z konserwacja predykcyjną
 
-W tym samouczku przedstawiono, jak wykonać aprowizację rozwiązania konserwacji predykcyjnej. Samouczek zawiera również opis podstawowych funkcji rozwiązania konserwacji predykcyjnej. Dostęp do wielu z tych funkcji można uzyskać za pośrednictwem pulpitu nawigacyjnego rozwiązania, który jest wdrażany razem ze wstępnie skonfigurowanym rozwiązaniem.
+Ten samouczek pokazuje, jak tooprovision hello rozwiązanie do konserwacji predykcyjnej. On również przeprowadzi Cię przez hello podstawowych funkcji hello rozwiązanie do konserwacji predykcyjnej. Wiele z tych funkcji dostępne za pośrednictwem pulpitu nawigacyjnego rozwiązania hello, która wdraża wraz z hello wstępnie skonfigurowane rozwiązanie.
 
-Do wykonania kroków tego samouczka jest potrzebna aktywna subskrypcja platformy Azure.
+toocomplete tego samouczka należy aktywną subskrypcją platformy Azure.
 
 > [!NOTE]
 > Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk_free_trial].
 
-1. Zaloguj się w witrynie [azureiotsuite.com][lnk-azureiotsuite] przy użyciu poświadczeń konta platformy Azure i kliknij pozycję **+**, aby utworzyć rozwiązanie.
-1. **Wybierz** kafelek **Konserwacja predykcyjna**.
+1. Zaloguj się za[azureiotsuite.com] [ lnk-azureiotsuite] poświadczenia konta przy użyciu platformy Azure i kliknij przycisk  **+**  toocreate rozwiązania.
+1. Kliknij przycisk **wybierz** hello **konserwacji predykcyjnej** kafelka.
 1. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej.
-1. W polach **Region** i **Subskrypcja** wybierz wartości, których chcesz użyć do aprowizacji rozwiązania.
-1. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Zwykle trwa on kilka minut.
+1. Wybierz hello **Region** i **subskrypcji** toouse tooprovision hello rozwiązanie.
+1. Kliknij przycisk **Utwórz rozwiązanie** hello toobegin w procesie inicjowania obsługi. Ten proces zwykle trwa kilka minut toorun.
 
-### <a name="wait-for-the-provisioning-process-to-complete"></a>Oczekiwanie na ukończenie procesu aprowizowania
+### <a name="wait-for-hello-provisioning-process-toocomplete"></a>Poczekaj, aż hello inicjowania obsługi administracyjnej toocomplete procesu
 
-1. Kliknij kafelek swojego rozwiązania zawierający informację o stanie **aprowizacji**.
-1. Zwróć uwagę na informację o **stanach aprowizacji** podczas wdrażania usług Azure w Twojej subskrypcji platformy Azure.
-1. Po ukończeniu aprowizowania stan zmieni się na wartość **Gotowe**.
-1. Kliknij kafelek, aby wyświetlić szczegóły rozwiązania w prawym okienku. Z poziomu tego okienka możesz uruchomić pulpit nawigacyjny rozwiązania i uzyskać dostęp do obszaru roboczego usługi Machine Learning.
+1. Kliknij Kafelek hello rozwiązania z **inicjowania obsługi administracyjnej** stanu.
+1. Powiadomienie hello **inicjowania obsługi administracyjnej stanów** podczas wdrażania usług platformy Azure w ramach subskrypcji platformy Azure.
+1. Po ukończeniu inicjowania obsługi administracyjnej hello zmiany stanu zbyt**gotowe**.
+1. Kliknij przycisk hello kafelka toosee hello szczegóły rozwiązania w okienku po prawej stronie powitania. W tym okienku możesz uruchomić hello rozwiązania dostępu i pulpit nawigacyjny hello obszaru roboczego uczenia maszynowego.
 
 > [!NOTE]
-> Jeśli podczas wdrażania wstępnie skonfigurowanego rozwiązania pojawią się problemy, zapoznaj się z tematami [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions] i [Często zadawane pytania][lnk-faq]. Jeśli problemy będą się powtarzać, utwórz żądanie pomocy w [portalu][lnk-portal].
+> Jeśli wystąpią problemy dotyczące wdrażania rozwiązania hello wstępnie skonfigurowane, przejrzyj [uprawnienia w witrynie azureiotsuite.com hello] [ lnk-permissions] i hello [— często zadawane pytania] [ lnk-faq]. Jeśli hello problemy będą się powtarzać, Utwórz biletu usługi na powitania [portal][lnk-portal].
 
-Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie są wyświetlane, a Twoim zdaniem powinny być widoczne? Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).
+Czy istnieją szczegółowe informacje można oczekiwać toosee, które nie są wyświetlane dla rozwiązania? Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).
 
-## <a name="view-the-solution"></a>Wyświetlanie rozwiązania
+## <a name="view-hello-solution"></a>Wyświetl hello rozwiązanie
 
-W tej sekcji opisano interfejs użytkownika rozwiązania.
+Ta sekcja przeprowadzi Cię przez rozwiązanie hello interfejsu użytkownika.
 
 ### <a name="predictive-maintenance-dashboard"></a>Pulpit nawigacyjny konserwacji predykcyjnej
 
-Na tej stronie aplikacji sieci Web są używane kontrolki JavaScript usługi Power BI (zobacz [repozytorium PowerBI-visuals][lnk-powerbi]), które umożliwiają wizualizację następujących elementów:
+Ta strona w aplikacji sieci web hello używa kontrolek JavaScript usługi Power BI (zobacz hello [repozytorium elementów wizualnych usługi Power BI][lnk-powerbi]) toovisualize:
 
-* Dane wyjściowe zadań usługi Stream Analytics przechowywane w magazynie obiektów blob.
-* Liczba cykli i pozostały czas eksploatacji silnika.
+* Witaj danych wyjściowych z zadania usługi analiza strumienia hello w magazynie obiektów blob.
+* Witaj RUL i cyklu liczba na powietrznego aparatu.
 
-### <a name="observing-the-behavior-of-the-cloud-solution"></a>Monitorowanie działania rozwiązania w chmurze
+### <a name="observing-hello-behavior-of-hello-cloud-solution"></a>Obserwowania zachowanie hello hello rozwiązania chmury
 
-W portalu Azure przejdź do grupy zasobów z nazwą wybranego rozwiązania, aby wyświetlić aprowizowane zasoby.
+W portalu Azure Witaj, przejdź toohello grupy zasobów o nazwie rozwiązania hello wybrano tooview udostępnione zasoby.
 
 ![][img-resource-group]
 
-Po przeprowadzeniu aprowizacji wstępnie skonfigurowanego rozwiązania otrzymasz wiadomość e-mail z linkiem do obszaru roboczego usługi Machine Learning. Do obszaru roboczego usługi Machine Learning można także przejść ze strony [azureiotsuite.com][lnk-azureiotsuite] zaprowizowanego rozwiązania. Kafelek jest dostępny na tej stronie, gdy rozwiązanie jest w stanie **Gotowe**.
+Podczas obsługi administracyjnej hello wstępnie skonfigurowane rozwiązanie otrzymasz wiadomość e-mail z obszaru roboczego uczenia maszynowego toohello łącza. Można także przechodzić obszaru roboczego uczenia maszynowego toohello z hello [azureiotsuite.com] [ lnk-azureiotsuite] strony elastycznie rozwiązania. Kafelek jest dostępne na tej stronie, gdy rozwiązanie hello jest hello **gotowe** stanu.
 
 ![][img-machine-learning]
 
-W portalu rozwiązania możesz zobaczyć, że do aprowizacji przykładu użyto czterech symulowanych urządzeń (dwa samoloty z dwoma silnikami każdy) i czterech czujników na silnik. Gdy po raz pierwszy przejdziesz do portalu rozwiązania, zobaczysz, że symulacja jest zatrzymana.
+W portalu rozwiązania hello można zauważyć, że z próbką hello jest udostępniane z dwóch powietrznego toorepresent cztery symulowanego urządzenia dwa aparaty na lotniczych, każdy z czterech czujników. Podczas pierwszego przechodzenia toohello rozwiązanie portalu, symulacji hello jest zatrzymana.
 
 ![][img-simulation-stopped]
 
-Kliknij pozycję **Rozpocznij symulację**, aby uruchomić symulację. Na pulpicie nawigacyjnym zostanie wyświetlona liczba cykli, historia danych z czujników i pozostały czas eksploatacji wraz z historią.
+Kliknij przycisk **Start symulacji** toobegin hello symulacji. Witaj historii czujnika, RUL cykle i RUL historii wypełnić hello pulpitu nawigacyjnego.
 
 ![][img-simulation-running]
 
-Jeśli wartość pozostałego czasu eksploatacji jest mniejsza niż 160 (arbitralna wartość progowa dla celów demonstracyjnych), w portalu rozwiązania zostanie wyświetlony symbol ostrzeżenia obok pozostałego czasu eksploatacji. Dodatkowo w portalu rozwiązania silnik samolotu zostanie wyróżniony kolorem żółtym. Zwróć uwagę na to, jak pozostały czas eksploatacji ma ogólną tendencję zniżkową ze skokami w górę i w dół. Takie zachowanie wynika z dokładności modelu i różnych czasów trwania cykli.
+Gdy RUL jest mniejsza niż 160 (dowolnego próg wybrany dla celów demonstracyjnych), portalu rozwiązania hello wyświetla ostrzeżenie symbol toohello dalej, wyświetlić RUL. portal rozwiązania Hello również wyodrębnić hello powietrznego aparat kolorem żółtym. Zwróć uwagę, jak hello RUL wartości mają ogólne trend pobieranej ogólnej, ale mają tendencję toobounce w górę i w dół. To zachowanie jest wynikiem hello różne długości cyklu i hello dokładności modelu.
 
 ![][img-simulation-warning]
 
-Pełna symulacja, obejmująca 148 cykli, trwa około 35 minut. Pozostały czas eksploatacji po raz pierwszy osiąga wartość progową równą 160 po upływie około 5 minut, a oba silniki osiągają wartości progowe po upływie około 8 minut.
+Pełna symulacji Hello trwa około 35 toocomplete minut 148 cykle. Hello 160 RUL osiągnięty jest próg dla powitania po raz pierwszy po około 5 minut, a oba aparaty trafienie próg hello około 8 minut.
 
-W trakcie symulacji obejmującej 148 cykli jest przetwarzany pełny zestaw danych, co prowadzi do określenia końcowej liczby cykli i wartości pozostałego czasu eksploatacji.
+Symulacja Hello jest uruchomiony za pośrednictwem hello pełen zestaw 148 cykle i reguluje na wartości końcowe RUL i cyklu.
 
-Symulację można zatrzymać w dowolnym momencie, ale kliknięcie przycisku **Rozpocznij symulację** powoduje ponowne uruchomienie symulacji od początku zestawu danych.
+Można zatrzymać symulacji hello w dowolnym punkt, ale kliknięcie **Start symulacji** odtworzenie hello symulacji od początku hello hello zestawu danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o obsłudze scenariuszy konserwacji predykcyjnej w Pakiecie IoT Azure, zapoznaj się z dokumentem[Capture value from the Internet of Things][lnk_capture_value] (Korzyści z Internetu rzeczy).
+więcej informacji na temat sposobu Azure IoT umożliwia scenariuszy konserwacji predykcyjnej, przeczytaj toolearn [przechwytywania wartość z Internetu rzeczy hello][lnk_capture_value].
 
-Skorzystaj z [przewodnika][lnk-predictive-walkthrough] po rozwiązaniu do konserwacji predykcyjnej.
+Podejmij [wskazówki] [ lnk-predictive-walkthrough] hello konserwacji predykcyjnej rozwiązania.
 
-Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skonfigurowanych rozwiązań Pakietu IoT:
+Możesz też przeglądać niektóre hello inne funkcje i możliwości rozwiązań pakiet IoT wstępnie hello:
 
 * [Często zadawane pytania dotyczące Pakietu IoT][lnk-faq]
-* [Zabezpieczenia IoT od podstaw][lnk-security-groundup]
+* [Zabezpieczenia IoT z hello tła w][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
 [img-simulation-stopped]: media/iot-suite-predictive-overview/simulation-stopped.png

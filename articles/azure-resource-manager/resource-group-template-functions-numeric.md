@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager szablonu funkcji - liczbowych | Dokumentacja firmy Microsoft
-description: "Opisuje funkcje do użycia w szablonu usługi Azure Resource Manager, aby pracować z liczbami."
+title: "aaaAzure Menedżera zasobów szablonu funkcji - liczbowych | Dokumentacja firmy Microsoft"
+description: "Opisuje toouse funkcje hello w toowork szablonu usługi Azure Resource Manager z liczbami."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 855d5b354d094b9815edc160e3d72efbfd36ba77
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funkcje numeryczne szablonów usługi Azure Resource Manager
 
-Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami całkowitymi:
+Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami całkowitymi hello:
 
 * [Dodaj](#add)
 * [copyIndex](#copyindex)
@@ -40,22 +40,22 @@ Usługa Resource Manager zapewnia następujące funkcje do pracy z liczbami cał
 ## <a name="add"></a>Dodaj
 `add(operand1, operand2)`
 
-Zwraca sumę dwóch podanych liczb całkowitych.
+Zwraca hello Suma hello dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- | 
-|operand1 |Tak |int |Pierwszy numer do dodania. |
-|operand2 |Tak |int |Druga liczba do dodania. |
+|operand1 |Tak |int |Najpierw numerów tooadd. |
+|operand2 |Tak |int |Druga liczba tooadd. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita, która zawiera sumę wartości parametrów.
+Liczba całkowita, która zawiera sumę hello hello parametrów.
 
 ### <a name="example"></a>Przykład
 
-W poniższym przykładzie dodano dwa parametry.
+Poniższy przykład Hello dodaje dwa parametry.
 
 ```json
 {
@@ -66,14 +66,14 @@ W poniższym przykładzie dodano dwa parametry.
             "type": "int",
             "defaultValue": 5,
             "metadata": {
-                "description": "First integer to add"
+                "description": "First integer tooadd"
             }
         },
         "second": {
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Second integer to add"
+                "description": "Second integer tooadd"
             }
         }
     },
@@ -88,7 +88,7 @@ W poniższym przykładzie dodano dwa parametry.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -99,26 +99,26 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Zwraca indeks iteracji pętli. 
+Zwraca hello indeksu iteracji pętli. 
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| loopName | Nie | Ciąg | Nazwa uzyskania iteracji pętli. |
-| Przesunięcie |Nie |int |Numer do dodania do wartość iteracji liczony od zera. |
+| loopName | Nie | Ciąg | Hello nazwa pętli hello dla uzyskiwania hello iteracji. |
+| Przesunięcie |Nie |int |Witaj tooadd toohello iteracji liczony od zera wartość liczbową. |
 
 ### <a name="remarks"></a>Uwagi
 
-Ta funkcja jest zawsze używana z **kopiowania** obiektu. Jeśli wartość nie zostanie podana dla **przesunięcie**, jest zwracana wartość bieżącą iterację. Wartość iteracji zaczyna się od zera.
+Ta funkcja jest zawsze używana z **kopiowania** obiektu. Jeśli wartość nie zostanie podana dla **przesunięcie**, zwracany jest hello bieżącą wartość iteracji. Wartość iteracji Hello zaczyna się od zera.
 
-**LoopName** właściwość umożliwia określenie, czy copyIndex odwołuje się do zasobu iteracji lub właściwość iteracji. Jeśli wartość nie zostanie podana dla **loopName**, bieżącą iterację typu zasobu jest używana. Podaj wartość dla **loopName** podczas iteracji we właściwości. 
+Witaj **loopName** właściwości umożliwia toospecify czy copyIndex przywołuje tooa zasobów iteracji lub właściwość iteracji. Jeśli wartość nie zostanie podana dla **loopName**, bieżącą iterację typu zasobu hello jest używany. Podaj wartość dla **loopName** podczas iteracji we właściwości. 
  
 Pełny opis stosowania **copyIndex**, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
 
 ### <a name="example"></a>Przykład
 
-W poniższym przykładzie przedstawiono pętlę kopiowania i wartość indeksu uwzględniona w nazwie. 
+Witaj poniższy przykład przedstawia kopiowania pętli i hello wartość indeksu uwzględniony w nazwie hello. 
 
 ```json
 "resources": [ 
@@ -136,29 +136,29 @@ W poniższym przykładzie przedstawiono pętlę kopiowania i wartość indeksu u
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita reprezentująca indeks bieżącej iteracji.
+Liczba całkowita reprezentująca hello bieżącego indeksu hello iteracji.
 
 <a id="div" />
 
 ## <a name="div"></a>DIV
 `div(operand1, operand2)`
 
-Zwraca dzielenie liczby całkowitej dwóch podanych liczb całkowitych.
+Zwraca hello dzielenie liczby całkowitej hello dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| operand1 |Tak |int |Liczba jest podzielona. |
-| operand2 |Tak |int |Liczba, która jest używana do dzielenia. Nie może wynosić 0. |
+| operand1 |Tak |int |Liczba Hello jest podzielona. |
+| operand2 |Tak |int |numer Hello jest używany toodivide. Nie może wynosić 0. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita reprezentująca podziału.
+Napotkano dzielenie liczby całkowitej reprezentująca hello.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład dzieli jeden parametr przez inny parametr.
+Poniższy przykład Hello dzieli jeden parametr przez inny parametr.
 
 ```json
 {
@@ -176,7 +176,7 @@ Poniższy przykład dzieli jeden parametr przez inny parametr.
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer used to divide"
+                "description": "Integer used toodivide"
             }
         }
     },
@@ -191,7 +191,7 @@ Poniższy przykład dzieli jeden parametr przez inny parametr.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -202,20 +202,20 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="float"></a>Float
 `float(arg1)`
 
-Konwertuje wartość zmiennoprzecinkową numer punktu. Podczas przekazywania niestandardowych parametrów do aplikacji, takie jak aplikacja logiki tylko użyć tej funkcji.
+Konwertuje liczbę zmiennoprzecinkową tooa wartość hello. Podczas przekazywania niestandardowych parametrów tooan aplikacji, takie jak aplikacja logiki tylko użyć tej funkcji.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |ciąg lub int |Wartość do przekonwertowania zmiennoprzecinkowej numer punktu. |
+| arg1 |Tak |ciąg lub int |Liczba zmiennoprzecinkowa tooa tooconvert wartość Hello. |
 
 ### <a name="return-value"></a>Wartość zwracana
 Liczba zmiennoprzecinkowa.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie float do przekazania parametrów do aplikacji logiki:
+Witaj poniższy przykład pokazuje, jak toouse float toopass parametry tooa aplikacji logiki:
 
 ```json
 {
@@ -236,21 +236,21 @@ Poniższy przykład przedstawia użycie float do przekazania parametrów do apli
 ## <a name="int"></a>int
 `int(valueToConvert)`
 
-Konwertuje określoną wartość na liczbę całkowitą.
+Konwertuje hello określona wartość tooan całkowitą.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Tak |ciąg lub int |Wartość do przekonwertowania na liczbę całkowitą. |
+| valueToConvert |Tak |ciąg lub int |Witaj wartość tooconvert tooan liczba całkowita. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Całkowitą wartość przekonwertowana.
+Liczba całkowita hello przekonwertować wartości.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład konwertuje wartość parametru dostarczane przez użytkownika do liczby całkowitej.
+Witaj poniższy przykład konwertuje toointeger wartość parametru dostarczane przez użytkownika hello.
 
 ```json
 {
@@ -273,7 +273,7 @@ Poniższy przykład konwertuje wartość parametru dostarczane przez użytkownik
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -285,21 +285,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="min"></a>min.
 `min (arg1)`
 
-Zwraca minimalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
+Zwraca hello wartość minimalna z tablica liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Kolekcja można uzyskać wartość minimalna. |
+| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Witaj kolekcji tooget hello wartość minimalna. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita reprezentująca minimalną wartość z kolekcji.
+Liczba całkowita reprezentująca minimalną wartość z kolekcji hello.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie min z tablicy i listy liczb całkowitych:
+powitania po przykładzie pokazano, jak min toouse z tablicy i listy liczb całkowitych:
 
 ```json
 {
@@ -325,7 +325,7 @@ Poniższy przykład przedstawia użycie min z tablicy i listy liczb całkowitych
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -337,21 +337,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="max"></a>Maksymalna
 `max (arg1)`
 
-Zwraca maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
+Zwraca hello maksymalną wartość z tablicy liczb całkowitych lub rozdzielaną przecinkami listę liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Kolekcja można uzyskać wartość maksymalna. |
+| arg1 |Tak |tablica liczb całkowitych lub rozdzielaną przecinkami listą liczb całkowitych |Witaj kolekcji tooget hello wartość maksymalna. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita reprezentująca maksymalną wartość z kolekcji.
+Liczba całkowita reprezentująca hello maksymalną wartość z kolekcji hello.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład przedstawia użycie max z tablicy i listy liczb całkowitych:
+powitania po przykładzie pokazano, jak toouse max z tablicy i listy liczb całkowitych:
 
 ```json
 {
@@ -377,7 +377,7 @@ Poniższy przykład przedstawia użycie max z tablicy i listy liczb całkowitych
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -389,21 +389,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="mod"></a>mod
 `mod(operand1, operand2)`
 
-Zwraca resztę z dzielenia przy użyciu dwóch podanych liczb całkowitych.
+Zwraca hello pozostałej części dzielenie liczby całkowitej hello przy użyciu hello dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| operand1 |Tak |int |Liczba jest podzielona. |
-| operand2 |Tak |int |Liczba, która jest używana do dzielenia, nie może wynosić 0. |
+| operand1 |Tak |int |Liczba Hello jest podzielona. |
+| operand2 |Tak |int |Liczba Hello, która jest używana toodivide nie może wynosić 0. |
 
 ### <a name="return-value"></a>Wartość zwracana
-Liczba całkowita reprezentująca resztę.
+Liczba całkowita reprezentująca hello resztę.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład zwraca resztę z dzielenia jeden parametr przez inny parametr.
+Witaj poniższy przykład zwraca hello resztę z dzielenia jeden parametr przez inny parametr.
 
 ```json
 {
@@ -421,7 +421,7 @@ Poniższy przykład zwraca resztę z dzielenia jeden parametr przez inny paramet
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer used to divide"
+                "description": "Integer used toodivide"
             }
         }
     },
@@ -436,7 +436,7 @@ Poniższy przykład zwraca resztę z dzielenia jeden parametr przez inny paramet
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -447,22 +447,22 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="mul"></a>mul
 `mul(operand1, operand2)`
 
-Zwraca iloczyn dwóch podanych liczb całkowitych.
+Zwraca hello mnożenia hello dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| operand1 |Tak |int |Pierwszy liczbę Aby pomnożyć. |
-| operand2 |Tak |int |Druga liczba do wielokrotnie. |
+| operand1 |Tak |int |Najpierw numerów toomultiply. |
+| operand2 |Tak |int |Druga liczba toomultiply. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Liczba całkowita reprezentująca mnożenia.
+Liczba całkowita reprezentująca hello mnożenia.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład mnoży jeden parametr przez inny parametr.
+Poniższy przykład Hello mnoży jeden parametr przez inny parametr.
 
 ```json
 {
@@ -473,14 +473,14 @@ Poniższy przykład mnoży jeden parametr przez inny parametr.
             "type": "int",
             "defaultValue": 5,
             "metadata": {
-                "description": "First integer to multiply"
+                "description": "First integer toomultiply"
             }
         },
         "second": {
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Second integer to multiply"
+                "description": "Second integer toomultiply"
             }
         }
     },
@@ -495,7 +495,7 @@ Poniższy przykład mnoży jeden parametr przez inny parametr.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -506,21 +506,21 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 ## <a name="sub"></a>Sub
 `sub(operand1, operand2)`
 
-Zwraca odejmowania dwóch podanych liczb całkowitych.
+Zwraca hello odejmowania hello dwóch podanych liczb całkowitych.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| operand1 |Tak |int |Liczba, która jest odejmowany od. |
-| operand2 |Tak |int |Liczba, która jest odejmowany. |
+| operand1 |Tak |int |numer Hello jest odejmowany od. |
+| operand2 |Tak |int |numer Hello jest odejmowany. |
 
 ### <a name="return-value"></a>Wartość zwracana
-Liczba całkowita reprezentująca odejmowania.
+Liczba całkowita reprezentująca hello odejmowanie.
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład odejmuje jeden parametr z inny parametr.
+Poniższy przykład Hello odejmuje jeden parametr z inny parametr.
 
 ```json
 {
@@ -538,7 +538,7 @@ Poniższy przykład odejmuje jeden parametr z inny parametr.
             "type": "int",
             "defaultValue": 3,
             "metadata": {
-                "description": "Integer to subtract"
+                "description": "Integer toosubtract"
             }
         }
     },
@@ -553,15 +553,15 @@ Poniższy przykład odejmuje jeden parametr z inny parametr.
 }
 ```
 
-Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
+przykład z wartościami domyślnymi hello Hello danych wyjściowych z poprzednim hello:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 
 ## <a name="next-steps"></a>Następne kroki
-* Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
-* Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
-* Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
-* Aby zobaczyć, jak wdrożyć szablon został utworzony, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
+* Aby uzyskać opis hello części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
+* Zobacz wielu szablonów toomerge [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+* toosee toodeploy hello szablonu po utworzeniu, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md).
 

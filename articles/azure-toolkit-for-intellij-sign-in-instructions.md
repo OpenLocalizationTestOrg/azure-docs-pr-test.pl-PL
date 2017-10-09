@@ -1,6 +1,6 @@
 ---
-title: "Logowanie instrukcje dotyczące zestawu narzędzi Azure for IntelliJ | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zalogować się do systemu Microsoft Azure przy użyciu zestawu narzędzi platformy Azure dla IntelliJ."
+title: "aaaSign w instrukcje dotyczące hello Azure Toolkit for IntelliJ | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosign w tooMicrosoft Azure przy użyciu hello Azure Toolkit for IntelliJ."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,144 +14,144 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2de781fc19267cce133b1e6456481497e165fce4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sign-in-instructions-for-the-azure-toolkit-for-intellij"></a>Logowanie instrukcje dotyczące zestawu narzędzi Azure for IntelliJ
+# <a name="sign-in-instructions-for-hello-azure-toolkit-for-intellij"></a>Logowanie instrukcje dotyczące hello Azure Toolkit for IntelliJ
 
-Zestaw narzędzi platformy Azure dla IntelliJ udostępnia dwie metody logowania do konta platformy Azure:
+Hello Azure Toolkit for IntelliJ udostępnia dwie metody logowania tooyour konto platformy Azure:
 
-  * **Interakcyjne**: należy wprowadzić poświadczenia platformy Azure za każdym razem, zaloguj się do konta platformy Azure.
-  * **Automatyczne**: Tworzenie pliku poświadczeń, który służy do automatycznego logowania do konta platformy Azure.
+  * **Interakcyjne**: Wprowadź każdym logowaniu poświadczenia platformy Azure w tooyour konto platformy Azure.
+  * **Automatyczne**: Utwórz plik poświadczeń w tooyour konto platformy Azure można tooautomatically logowania.
 
-W poniższych sekcjach opisano sposób używania każdej metody.
+Witaj poniższych sekcjach opisano sposób toouse każdej metody.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="sign-in-to-your-azure-account-interactively"></a>Zaloguj się interaktywnie do konta platformy Azure
+## <a name="sign-in-tooyour-azure-account-interactively"></a>Zaloguj się interaktywnie tooyour konto platformy Azure
 
-Aby zalogować się do platformy Azure ręcznie wprowadzić poświadczenia platformy Azure, wykonaj następujące czynności:
+toosign w tooAzure ręcznie wprowadzić poświadczenia platformy Azure, hello następujące:
 
 1. Otwórz projekt z IntelliJ IDEA.
 
-2. Kliknij przycisk **narzędzia**, wskaż polecenie **Azure**, a następnie kliknij przycisk **Azure logowania**.
+2. Kliknij przycisk **narzędzia**, punktu zbyt**Azure**, a następnie kliknij przycisk **Azure logowania**.
 
-   ![Polecenie IntelliJ Azure logowania][I01]
+   ![Witaj polecenia IntelliJ Azure logowania][I01]
 
-3. W **Azure logowania** wybierz **Interactive**, a następnie kliknij przycisk **Zaloguj**.
+3. W hello **Azure logowania** wybierz **Interactive**, a następnie kliknij przycisk **Zaloguj**.
 
-   ![Okno Azure logowania z Interactive wybrane][I02]
+   ![Hello Azure logowania okna z Interactive wybrane][I02]
 
-4. W **Azure dziennika w** zostanie wyświetlone okno dialogowe, wprowadź swoje poświadczenia usługi Azure, a następnie kliknij przycisk **Zaloguj**.
+4. W hello **Azure dziennika w** zostanie wyświetlone okno dialogowe, wprowadź swoje poświadczenia usługi Azure, a następnie kliknij przycisk **Zaloguj**.
 
-   ![W oknie dialogowym logowania do platformy Azure][I03]
+   ![okno dialogowe logowania Azure Hello][I03]
 
-5. W **Wybierz subskrypcje** okno dialogowe, subskrypcje, które chcesz użyć, a następnie kliknij przycisk **OK**.
+5. W hello **Wybierz subskrypcje** okno dialogowe, wybierz hello subskrypcje mają toouse, a następnie kliknij przycisk **OK**.
 
-   ![Okno dialogowe Wybieranie subskrypcji][I04]
+   ![Wybierz subskrypcje Hello — okno dialogowe][I04]
 
 ## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Wylogować się z konta platformy Azure, po zarejestrowaniu trybie interakcyjnym
 
-Po skonfigurowaniu konta przy użyciu powyższych kroków możesz spowoduje automatyczne wylogowanie z konta platformy Azure każdorazowo po ponownym uruchomieniu IntelliJ IDEA. Jednak jeśli chcesz wylogować się z konta platformy Azure *bez* ponowne uruchomienie IntelliJ IDEA, wykonaj następujące czynności.
+Po skonfigurowaniu konta przy użyciu hello w poprzednich krokach, użytkownik będzie automatyczne wylogowanie z konta platformy Azure każdorazowo po ponownym uruchomieniu IntelliJ IDEA. Jednak jeśli chcesz toosign poza konta platformy Azure *bez* ponowne uruchomienie IntelliJ IDEA hello następujące.
 
-1. W IntelliJ IDEA na **narzędzia** menu wskaż **Azure**, a następnie kliknij przycisk **Azure Wyloguj**.
+1. W IntelliJ IDEA, na powitania **narzędzia** menu punktu zbyt**Azure**, a następnie kliknij przycisk **Azure Wyloguj**.
 
-   ![Polecenie IntelliJ Azure Wyloguj][L01]
+   ![Witaj IntelliJ Azure Wyloguj polecenia][L01]
 
-2. W **Azure Wyloguj** oknie potwierdzenia kliknij **tak**.
+2. W hello **Azure Wyloguj** oknie potwierdzenia kliknij **tak**.
 
-   ![Okno potwierdzenia Azure Wyloguj][L02]
+   ![Hello Azure Wyloguj okno potwierdzenia][L02]
 
-## <a name="sign-in-to-your-azure-account-automatically"></a>Zaloguj się do konta platformy Azure automatycznie
+## <a name="sign-in-tooyour-azure-account-automatically"></a>Zaloguj się automatycznie tooyour konto platformy Azure
 
-Ta sekcja przeprowadzi Cię przez proces tworzenia pliku poświadczeń, który zawiera dane główne usługi. Po zakończeniu tego procesu Eclipse używa pliku poświadczeń do automatycznie Cię logować do usługi Azure każdym otwarciu projektu.
+Ta sekcja przeprowadzi Cię przez proces tworzenia pliku poświadczeń, który zawiera dane główne usługi. Po zakończeniu tego procesu Eclipse używa hello poświadczenia pliku tooautomatically logowania się, że w każdym tooAzure czasu Otwórz projekt.
 
 1. Otwórz projekt z IntelliJ IDEA.
 
-2. Na **narzędzia** menu wskaż **Azure**, a następnie kliknij przycisk **Azure logowania**.
+2. Na powitania **narzędzia** menu punktu zbyt**Azure**, a następnie kliknij przycisk **Azure logowania**.
 
-   ![Polecenie IntelliJ Azure logowania][A01]
+   ![Witaj polecenia IntelliJ Azure logowania][A01]
 
-3. W **Azure logowania** wybierz **automatycznego**, a następnie kliknij przycisk **nowy**.
+3. W hello **Azure logowania** wybierz **automatycznego**, a następnie kliknij przycisk **nowy**.
 
-   ![Okno Azure logowania z automatycznego wybrane][A02]
+   ![Hello Azure logowania okna z automatycznego wybrane][A02]
 
-4. W **dialogowym logowania do usługi Azure** okna, wprowadź swoje poświadczenia usługi Azure, a następnie kliknij przycisk **Zaloguj**.
+4. W hello **dialogowym logowania do usługi Azure** okna, wprowadź swoje poświadczenia usługi Azure, a następnie kliknij przycisk **Zaloguj**.
 
-   ![W oknie dialogowym logowania do platformy Azure][A03]
+   ![okno dialogowe logowania Azure Hello][A03]
 
-5. W **tworzenia plików uwierzytelniania** okna, wybierz subskrypcje, które chcesz użyć, wybierz katalogu docelowego, a następnie kliknij przycisk **Start**.
+5. W hello **tworzenia plików uwierzytelniania** okna, wybierz hello subskrypcje mają toouse, wybierz katalogu docelowego, a następnie kliknij przycisk **Start**.
 
-   ![Tworzenie plików uwierzytelniania okna][A04]
+   ![Witaj okna Tworzenie plików uwierzytelniania][A04]
 
-6. W **stan tworzenia nazwy głównej usługi** okno dialogowe po Twoje pliki zostały utworzone pomyślnie, kliknij przycisk **OK**.
+6. W hello **stan tworzenia nazwy głównej usługi** okno dialogowe po Twoje pliki zostały utworzone pomyślnie, kliknij przycisk **OK**.
 
-   ![Okno dialogowe Stan tworzenia nazwy głównej usługi][A05]
+   ![Witaj okno dialogowe Stan tworzenia nazwy głównej usługi][A05]
 
-7. W **Azure logowania** okna, kliknij przycisk **Zaloguj**.
+7. W hello **Azure logowania** okna, kliknij przycisk **Zaloguj**.
 
    ![Okno dialogowe logowania do platformy Azure][A06]
 
-8. W **Wybierz subskrypcje** okno dialogowe, subskrypcje, które chcesz użyć, a następnie kliknij przycisk **OK**.
+8. W hello **Wybierz subskrypcje** okno dialogowe, wybierz hello subskrypcje mają toouse, a następnie kliknij przycisk **OK**.
 
-   ![Okno dialogowe Wybieranie subskrypcji][A07]
+   ![Wybierz subskrypcje Hello — okno dialogowe][A07]
 
 ## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-automatically"></a>Wylogować się z konta platformy Azure po zalogowaniu się automatycznie
 
-Po skonfigurowaniu konta przy użyciu powyższych kroków Azure Toolkit automatycznie loguje się użytkownik do konta platformy Azure każdorazowo po ponownym uruchomieniu IntelliJ IDEA. Jednak aby wylogować się z konta platformy Azure i uniemożliwić automatycznego rejestrowania w zestawie narzędzi programu Azure, wykonaj następujące czynności:
+Po skonfigurowaniu konta przy użyciu poprzednich krokach hello, hello Azure Toolkit automatycznie loguje się użytkownik tooyour każdorazowo po ponownym uruchomieniu IntelliJ IDEA konto platformy Azure. Jednak toosign poza konta platformy Azure i zapobiec hello Azure Toolkit z automatycznego rejestrowania, hello następujące:
 
-1. W IntelliJ IDEA na **narzędzia** menu wskaż **Azure**, a następnie kliknij przycisk **Azure Wyloguj**.
+1. W IntelliJ IDEA, na powitania **narzędzia** menu punktu zbyt**Azure**, a następnie kliknij przycisk **Azure Wyloguj**.
 
-   ![Polecenie IntelliJ Azure Wyloguj][L01]
+   ![Witaj IntelliJ Azure Wyloguj polecenia][L01]
 
-2. W **Azure Wyloguj** oknie potwierdzenia kliknij **tak**.
+2. W hello **Azure Wyloguj** oknie potwierdzenia kliknij **tak**.
 
-   ![Okno potwierdzenia Azure Wyloguj][L03]
+   ![Hello Azure Wyloguj okno potwierdzenia][L03]
 
-## <a name="sign-in-to-your-azure-account-automatically-by-using-an-existing-credentials-file"></a>Zaloguj się do konta platformy Azure automatycznie przy użyciu istniejącego pliku poświadczeń
+## <a name="sign-in-tooyour-azure-account-automatically-by-using-an-existing-credentials-file"></a>Zaloguj się tooyour konta Azure automatycznie przy użyciu istniejącego pliku poświadczeń
 
-Jeśli możesz wylogować się z konta platformy Azure, korzystając z IntelliJ IDEA, możesz korzystać istniejący plik poświadczeń do automatycznie zalogować się do konta. Aby skonfigurować zestaw narzędzi platformy Azure dla programu Eclipse wykorzystywała istniejący plik poświadczeń, wykonaj następujące czynności:
+Jeśli możesz wylogować się z konta platformy Azure, korzystając z IntelliJ IDEA, należy użyć znaku tooautomatically pliku istniejących poświadczeń w toohello konta. tooconfigure hello Azure zestawu narzędzi dla programu Eclipse toouse istniejący plik poświadczeń, hello następujące:
 
 1. Otwórz projekt z IntelliJ IDEA.
 
-2. Na **narzędzia** menu wskaż **Azure**, a następnie kliknij przycisk **Azure logowania**.
+2. Na powitania **narzędzia** menu punktu zbyt**Azure**, a następnie kliknij przycisk **Azure logowania**.
 
-   ![Polecenie IntelliJ Azure logowania][A01]
+   ![Witaj polecenia IntelliJ Azure logowania][A01]
 
-3. W **Azure logowania** wybierz **automatycznego**, a następnie kliknij przycisk **Przeglądaj**.
+3. W hello **Azure logowania** wybierz **automatycznego**, a następnie kliknij przycisk **Przeglądaj**.
 
-   ![Okno Azure logowania z automatycznego wybrane][A02]
+   ![Hello Azure logowania okna z automatycznego wybrane][A02]
 
-4. W **wybierz plik Authentication** okno dialogowe, wybierz plik utworzonej wcześniej poświadczenia, a następnie kliknij **wybierz**.
+4. W hello **wybierz plik Authentication** okno dialogowe, wybierz plik utworzonej wcześniej poświadczenia, a następnie kliknij **wybierz**.
 
-   ![Wybierz plik Authentication — okno dialogowe][A08]
+   ![Wybierz plik Authentication Hello — okno dialogowe][A08]
 
-5. W **Azure logowania** okna, kliknij przycisk **Zaloguj**.
+5. W hello **Azure logowania** okna, kliknij przycisk **Zaloguj**.
 
-   ![Okno Azure logowania z automatycznego wybrane][A06]
+   ![Hello Azure logowania okna z automatycznego wybrane][A06]
 
-6. W **Wybierz subskrypcje** okno dialogowe, subskrypcje, które chcesz użyć, a następnie kliknij przycisk **OK**.
+6. W hello **Wybierz subskrypcje** okno dialogowe, wybierz hello subskrypcje mają toouse, a następnie kliknij przycisk **OK**.
 
-   ![Okno dialogowe Wybieranie subskrypcji][A07]
+   ![Wybierz subskrypcje Hello — okno dialogowe][A07]
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji o zestawach narzędzi platformy Azure dla środowisk IDE języka Java, skorzystaj z następujących linków:
+Aby uzyskać więcej informacji na temat hello narzędzi Azure dla języka Java IDEs Zobacz hello następującego łącza:
 
 * [Azure zestawu narzędzi dla programu Eclipse]
-  * [Nowości w zestawie narzędzi programu Azure dla programu Eclipse]
-  * [Installing the Azure Toolkit for Eclipse] (Instalowanie zestawu narzędzi platformy Azure dla środowiska Eclipse)
-  * [Instrukcje logowania dla zestawu narzędzi platformy Azure dla programu Eclipse]
+  * [What's new in hello zestawu narzędzi platformy Azure dla programu Eclipse]
+  * [Instalowanie hello zestawu narzędzi platformy Azure dla programu Eclipse]
+  * [Instrukcje logowania hello zestawu narzędzi platformy Azure dla programu Eclipse]
   * [Tworzenie aplikacji sieci web Hello World na platformie Azure w programie Eclipse]
 * [Azure Toolkit for IntelliJ] (Zestaw narzędzi platformy Azure dla środowiska IntelliJ)
-  * [Nowości w zestawie narzędzi programu Azure for IntelliJ]
-  * [Installing the Azure Toolkit for IntelliJ] (Instalowanie zestawu narzędzi platformy Azure dla środowiska IntelliJ)
-  * *Logowanie instrukcje dotyczące zestawu narzędzi Azure for IntelliJ* (w tym artykule)
+  * [What's new in hello Azure Toolkit for IntelliJ]
+  * [Instalowanie hello Azure Toolkit for IntelliJ]
+  * *Logowanie instrukcje dotyczące hello Azure Toolkit for IntelliJ* (w tym artykule)
   * [Tworzenie aplikacji sieci web Hello World na platformie Azure w IntelliJ]
 
-Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zobacz [Centrum deweloperów języka Java dla platformy Azure] i [Java Tools for Visual Studio Team Services] (Narzędzia języka Java dla usługi Visual Studio Team Services).
+Aby uzyskać więcej informacji o korzystaniu z językiem Java Azure, zobacz hello [Azure Java Developer Center] i hello [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
@@ -159,14 +159,14 @@ Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zo
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md (Zestaw narzędzi platformy Azure dla środowiska IntelliJ)
 [Tworzenie aplikacji sieci Web Hello World na platformie Azure w programie Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Tworzenie aplikacji sieci web Hello World na platformie Azure w IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md (Instalowanie zestawu narzędzi platformy Azure dla środowiska Eclipse)
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md (Instalowanie zestawu narzędzi platformy Azure dla środowiska IntelliJ)
-[Instrukcje logowania dla zestawu narzędzi platformy Azure dla programu Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Nowości w zestawie narzędzi programu Azure dla programu Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Nowości w zestawie narzędzi programu Azure for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Instalowanie hello zestawu narzędzi platformy Azure dla programu Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Instalowanie hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Instrukcje logowania hello zestawu narzędzi platformy Azure dla programu Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Sign-in instructions for hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[What's new in hello zestawu narzędzi platformy Azure dla programu Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Centrum deweloperów języka Java dla platformy Azure]: https://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->

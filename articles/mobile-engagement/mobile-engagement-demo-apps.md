@@ -1,6 +1,6 @@
 ---
-title: "Aplikacja demonstracyjna usługi Azure Mobile Engagement | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, skąd pobrać, jak używać i korzyści wynikające ze stosowania aplikacji demonstracyjnej usługi Azure Mobile Engagement"
+title: Aplikacja demonstracyjna aaaAzure Mobile Engagement | Dokumentacja firmy Microsoft
+description: "Opisuje miejsce toodownload, jak toouse i zalet hello przy użyciu usługi Azure Mobile Engagement demonstracją aplikacji"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ff0df0d21e1bad6aff573db49304a55593df1c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Aplikacja demonstracyjna usługi Azure Mobile Engagement
-Firma Microsoft już opublikowana aplikacja demonstracyjna usługi Azure Mobile Engagement dla **iOS**, **Android**, i **Windows** platformy, aby ułatwić znajdowanie przydatne zasoby i Dowiedz się więcej o Mobile Zaangażowania.
+Mamy już opublikowana aplikacja demonstracyjna usługi Azure Mobile Engagement dla **iOS**, **Android**, i **Windows** toohelp platform można toofind przydatne zasoby i Dowiedz się więcej o Mobile Zaangażowania.
 
-Aplikacja ułatwia:
+Aplikacja Hello ułatwia:
 
-* Łatwo łącza przydatne do usługi Mobile Engagement zasobów, takich jak pliki wideo, dokumentacji forum pomocy technicznej i gdzie można wywołać funkcji żądania.
-* Środowisko próbki powiadomień, które są obsługiwane przez usługi Mobile Engagement i wykorzystać je we własnych aplikacji dla urządzeń przenośnych.
-* Implementacja odwołanie umożliwia badanie sposobu implementacji usługi Mobile Engagement do własnych aplikacji. Aby dowiedzieć się do:
+* Łatwo łącza przydatne tooMobile zaangażowania zasobów, takich jak pliki wideo, dokumentację, hello forum pomocy technicznej, i gdy zażąda toogo tooraise funkcji.
+* Środowisko próbki powiadomień, które są obsługiwane przez pomysły tooget Mobile Engagement dla aplikacji mobilnych.
+* Jak używać toostudy implementacji odwołanie tooimplement Mobile Engagement do własnych aplikacji. Aby dowiedzieć się do:
   
   * Zbierać dane analityczne.
   * Wdrożenie, takie jak zaawansowanych scenariuszy powiadomień typów *pełnoekranowy międzysegmentowe* lub *wyskakujących*.
@@ -35,20 +35,20 @@ Aplikacja ułatwia:
   * Implementowanie scenariuszy dyskretnej wypychania danych i wypychania.   
 
 ## <a name="app-installation"></a>Instalacja aplikacji
-Ta aplikacja jest dostępna w następujących sklepów z aplikacjami:
+Ta aplikacja jest dostępna w powitania po sklepów z aplikacjami:
 
 * **Uniwersalnych systemu Windows aplikacja demonstracyjna**:
   
-  * Pobierz aplikację na [Sklepu Windows](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
-  * Aplikacja został opracowany jako aplikacji uniwersalnych systemu Windows 10. Kod źródłowy jest dostępny na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
+  * Pobierz aplikację hello na powitania [Sklepu Windows](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
+  * Aplikacja Hello został opracowany jako aplikacji uniwersalnych systemu Windows 10. Kod źródłowy Hello jest dostępne na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
 * **iOS demonstracją aplikacji**:
   
-  * Pobierz aplikację na [sklepu Apple](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090).
-  * Aplikacja został opracowany w systemu iOS w języku Swift. Kod źródłowy jest dostępny na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
+  * Pobierz aplikację hello na powitania [sklepu Apple](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090).
+  * Aplikacja Hello został opracowany w systemu iOS w języku Swift. Kod źródłowy Hello jest dostępne na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
 * **Aplikacja demonstracyjna android**:
   
-  * Pobierz aplikację na [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement).
-  * Kod źródłowy jest dostępny na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android).
+  * Pobierz aplikację hello na powitania [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement).
+  * Kod źródłowy Hello jest dostępne na [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android).
 
 ![Aplikacja demonstracyjna uniwersalnych systemu Windows][1]
 
@@ -56,62 +56,62 @@ Ta aplikacja jest dostępna w następujących sklepów z aplikacjami:
 ![aplikacja demonstracyjna systemu Android][3]
 
 ## <a name="usage"></a>Sposób użycia
-Możesz użyć tej aplikacji, w następujący sposób:
+Można użyć tej aplikacji w hello następujące sposoby:
 
-**Pobierz aplikację na urządzeniu z aplikacji sklepu łączy (starszych):**
+**Pobierz aplikacji hello na urządzeniu z hello aplikacji sklepu łączy (starszych):**
 
 > [!IMPORTANT]
-> Nie potrzebujesz konta platformy Azure lub muszą nawiązać zaplecze aplikacji. Aplikacja działa niezależnie.
+> Nie potrzebujesz konta platformy Azure lub wymagają tooconnect hello aplikacji tooa zaplecza. Aplikacja Hello działa niezależnie.
 > 
 > 
 
-* Po utworzeniu aplikacji na urządzeniu, można przejść za pośrednictwem łączy w menu po lewej stronie, aby znaleźć przydatne zasoby dotyczące usługi Mobile Engagement.
-* Dodaliśmy [źródło danych RSS usługi](https://aka.ms/azmerssfeed) do tej aplikacji, aby zawsze jest zaktualizowano o najnowsze aktualizacje produktu.
-* Można również przejść przez przykładowe scenariusze powiadomień występować typ powiadomień, które są obsługiwane przez usługi Mobile Engagement dla każdej platformy. Te powiadomienia mogą wystąpić lokalnie — czyli, możesz kliknąć przyciski na ekranach pokazanie środowiska powiadomień do wysyłania powiadomień z platformy Mobile Engagement.
+* Po utworzeniu aplikacji hello na urządzeniu, można przejść za pośrednictwem łączy hello w hello menu po lewej stronie toofind hello przydatne zasoby dotyczące usługi Mobile Engagement.
+* Dodaliśmy hello [źródło danych RSS usługi](https://aka.ms/azmerssfeed) do tej aplikacji, aby zawsze jest zaktualizowano o najnowsze aktualizacje produktu hello.
+* Można również przejść przez hello przykładowe scenariusze tooexperience hello typ powiadomienia powiadomień, które są obsługiwane przez usługi Mobile Engagement dla każdej platformy. Te powiadomienia mogą być doświadczonym lokalnie — to znaczy, możesz kliknąć przyciski hello na tooshow ekranów powitalnych możesz hello środowiska powiadomienia powiadomienia hello toosending identyczne z hello platformy Mobile Engagement.
 
 ![Menu aplikacji dla systemu Windows][4]
 
 ![Menu aplikacji dla systemu iOS][5]
 ![menu aplikacji dla systemu Android][6]
 
-**Pobieranie kodu źródłowego z usługi GitHub łączy (starszych):**
+**Pobierz kod źródłowy hello z hello GitHub łączy (starszych):**
 
-* Po pobraniu kodu źródłowego, można go otworzyć w środowisku programistycznym odpowiednich--XCode dla systemu iOS, Android Studio dla systemów Android i Visual Studio dla systemu Windows.
-* Następnie należy wykonać naszych [podstawowe kroki integracji zestawu SDK](mobile-engagement-windows-store-dotnet-get-started.md) , dzięki czemu możesz połączyć tę aplikację z własne wystąpienie zaplecza usługi Mobile Engagement.
-  * Należy skonfigurować parametry połączenia w aplikacji.
-  * Należy również skonfigurować platformę powiadomień wypychanych dla aplikacji.
-* Można zauważyć, że aplikacja jest instrumentowane przy użyciu usługi Mobile Engagement. W związku z tym po otwarciu aplikacji po podłączeniu go do wewnętrznej będzie widoczne w sesji użytkownika, działania, zdarzeń i tak dalej **Monitor** kartę.
-* Można również wysyłać powiadomienia do tej aplikacji z własnego wystąpienia usługi Mobile Engagement, zamiast lokalnego powiadomienia.
+* Po pobraniu hello kodu źródłowego, można go otworzyć w środowisku projektowym odpowiednich hello--XCode dla systemu iOS, Android Studio dla systemów Android i Visual Studio dla systemu Windows.
+* Następnie należy wykonać naszych [podstawowe kroki integracji zestawu SDK](mobile-engagement-windows-store-dotnet-get-started.md) tak, że wszystko jest w stanie tooconnect tooits tej aplikacji własne wystąpienie zaplecza usługi Mobile Engagement.
+  * Należy tooconfigure parametry połączenia w aplikacji hello.
+  * Należy również tooconfigure hello wypychania powiadomień platformy dla aplikacji.
+* Można zauważyć, że w tej samej aplikacji hello są instrumentowane przy użyciu usługi Mobile Engagement. W związku z tym po otwarciu aplikacji hello po podłączeniu go zaplecza toohello będzie sesji użytkownika hello stanie toosee, działania, zdarzenia i tak dalej, na powitania **Monitor** kartę.
+* Również będziesz aplikacji toothis powiadomienia o stanie toosend własnego wystąpienia usługi Mobile Engagement, zamiast lokalnego powiadomienia.
   
-  * Tutaj Dodaj urządzenia jako urządzenia testu przy użyciu **pobranie Identyfikatora urządzenia** element menu w aplikacji. Zapewnia to identyfikator urządzenia, które następnie zarejestrować jako urządzenia testu z wystąpieniem platformy zaplecza.
+  * W tym miejscu można dodać urządzenia jako urządzenia testu za pomocą hello **hello pobranie Identyfikatora urządzenia** element menu w aplikacji hello. Zapewnia to identyfikator urządzenia, które następnie zarejestrować jako urządzenia testu z wystąpieniem platformy zaplecza.
     
     ![Identyfikator urządzenia w systemie Windows][7]
     
     ![Identyfikator urządzenia w systemie iOS][8]
     ![identyfikator urządzenia w systemie Android][9]
 
-## <a name="key-features-of-the-demo-app"></a>Najważniejsze funkcje aplikacja demonstracyjna
-* Jak wspomniano wcześniej, z tą aplikacją, masz kluczowych zasobów dla usługi Mobile Engagement w dłoni. W menu po lewej stronie, można przejść za pośrednictwem łącza.
-* Może wystąpić poza aplikacji powiadomień dla każdej platformy. Te powiadomienia mogą być dostarczane jako **tylko powiadomienie**, gdzie kliknięcie powiadomienia po prostu Otwiera ekran natywnych aplikacji (przy użyciu **bezpośrednich połączeń**)--lub jako **sieci Web Zawiadomienie**, gdzie mogą dostarczać dodatkowych zawartość HTML z zaplecza usługi Mobile Engagement będzie wyświetlana po kliknięciu powiadomienia.
+## <a name="key-features-of-hello-demo-app"></a>Najważniejsze funkcje aplikacja demonstracyjna hello
+* Jak wspomniano wcześniej, z tą aplikacją, masz wszystkie hello kluczowych zasobów dla usługi Mobile Engagement w dłoni. W menu po lewej stronie powitania można przejść za pośrednictwem łącza hello.
+* Może wystąpić poza aplikacji powiadomień dla każdej platformy. Te powiadomienia mogą być dostarczane jako **tylko powiadomienie**, gdzie kliknięcie powiadomienia powitania po prostu otwiera natywnego ekranu aplikacji hello (przy użyciu **bezpośrednich połączeń**)--lub jako **sieci Web Zawiadomienie**, gdzie można dostarczyć dodatkową zawartość HTML z hello kończyć powrotem Engagement Mobile toobe wyświetlane po kliknięciu hello powiadomień.
   
     ![Powiadomienia w poziomie aplikacji][29]
-* W systemach iOS należy zamknąć aplikację, aby wyświetlić powiadomienia wypychane poza aplikacji lub systemu. Można przyjrzeć się tutaj implementację dodawania **przycisków akcji**, takich jak te, które są dodawane do tego powiadomienia poza aplikacji dla *opinii* i *udziału* (, aby Użytkownik może zająć akcji bezpośrednio w powiadomień, się).
+* W systemach iOS masz tooclose hello aplikacji toosee hello poza aplikacji lub systemu powiadomień wypychanych. Można przyjrzeć się hello implementację dodawania **przycisków akcji**, takie jak hello te, które są dodane toothis poza aplikacji powiadomienia o *opinii* i *udziału* (dzięki czemu Witaj użytkownika może potrwać akcji bezpośrednio w hello powiadomień, się).
   
     ![Powiadomienia poza aplikacji w systemie iOS][11] ![Wyświetl powiadomienie poza aplikacji w systemie iOS][14]
-* Opcje, które są obsługiwane w systemie Android, dodawania wielowierszowy tekst (**tekst Big**) lub obraz powiadomienia (**szerszej**) do powiadomienia, wraz z programem **przycisków akcji**(jak obsługiwane przez system iOS).
+* Hello opcje, które są obsługiwane w systemie Android, dodawania wielowierszowy tekst (**tekst Big**) lub obraz powiadomienia (**szerszej**) toohello powiadomienia, oraz hello **przycisków akcji** (jak obsługiwane przez system iOS).
   
     ![Powiadomienia poza aplikacji w systemie Android][12] ![Wyświetl powiadomienie poza aplikacji w systemie Android][15]
-* W systemie Windows 10 można zobaczyć wygląd powiadomienia na komputerze. To powiadomienie również zostaną wyświetlone w systemie Windows 10 **Centrum powiadomień**. Nie obsługuje dodawania **przycisków akcji** w tej chwili w zestawie Windows SDK.
+* W systemie Windows 10 widać wygląd powiadomienia hello na powitania komputera. To powiadomienie również zostaną wyświetlone w hello systemu Windows 10 **Centrum powiadomień**. Nie obsługuje dodawania **przycisków akcji** w chwili hello hello zestaw Windows SDK.
   
     ![Powiadomienia poza aplikacji w systemie Windows][10] ![Wyświetl poza aplikacji w systemie Windows][13]
-* Może wystąpić powiadomień "w aplikacji" domyślna dla każdej platformy. To środowisko dwuetapowej gdzie **powiadomień** okno jest wyświetlane jako pierwsze. Po kliknięciu go uruchomi pełny ekran **anonsu**wyświetlane na poniższym zrzucie ekranu. Zawartość tego anonsu pochodzi z wystąpieniem zaplecza usługi Mobile Engagement. Zestaw SDK zawiera szablony powiadomień i anonsów. Możesz można łatwo dostosować je, jak pokazano w tym aplikacja demonstracyjna, z uwzględnieniem kolorowanie i logo firmy Microsoft.  
+* Może wystąpić powiadomień "w aplikacji" domyślna dla każdej platformy. To środowisko dwuetapowej gdzie **powiadomień** okno jest wyświetlane jako pierwsze. Po kliknięciu go uruchomi pełny ekran **anonsu**wyświetlane w hello następującego zrzutu ekranu. zawartość Hello tego anonsu pochodzi z wystąpieniem zaplecza usługi Mobile Engagement. Hello zestaw SDK zawiera szablony hello powiadomienia i anonsów. Możesz można łatwo dostosować je, jak pokazano w tej aplikacji demonstracyjnej z dodanie hello kolorowanie i logo firmy Microsoft.  
   
     ![Powiadomienia w aplikacji w systemie Windows][16]
   
     ![Powiadomienia w aplikacji w systemie iOS][17]  ![Powiadomienia w aplikacji w systemie Android][18]
   
     **iOS**, **systemu Android**
-* Można również użyć **kategorii** funkcji usługi Mobile Engagement, aby dostosować ten domyślny. W aplikacji demonstracyjnej firma Microsoft została przedstawiona dwa podstawowe sposoby zmienić obsługi powiadomień. Należy pamiętać, że funkcja kategorii nie jest jeszcze obsługiwana w zestawie Windows SDK.
+* Można również użyć hello **kategorii** funkcji toocustomize Mobile Engagement to środowisko domyślne. W aplikacji demonstracyjnej hello firma Microsoft już zostało to pokazane dwie typowe sposoby toochange hello środowisko hello powiadomienia. Należy pamiętać, że funkcja ta kategoria hello nie jest jeszcze obsługiwana w hello zestaw Windows SDK.
   
     **Pełnoekranowy międzysegmentowe:**
   
@@ -127,7 +127,7 @@ Możesz użyć tej aplikacji, w następujący sposób:
 
 **iOS**, **systemu Android**
 
-* Usługa Mobile Engagement obsługuje również specjalistyczną odmianą powiadomienie w aplikacji o nazwie **sond**. Dzięki temu można wysyłać do użytkowników aplikacji segmentu szybkie ankiet. Możesz dodać pytania i opcje dla każdego pytania, tak jak na poniższym zrzucie ekranu. Będzie to następnie Pobierz wyświetlany jako powiadomienie w aplikacji użytkownika aplikacji.   
+* Usługa Mobile Engagement obsługuje również specjalistyczną odmianą powiadomienie w aplikacji o nazwie **sond**. Dzięki temu toosend użytkowników aplikacji tooyour segmentem szybkie ankiet. Możesz dodać pytania i opcje dla każdego pytania, jak hello następującego zrzutu ekranu. To następnie Uzyskaj wyświetlona jako użytkownik aplikacji toohello powiadomienie w aplikacji.   
   
     ![Powiadomienia sondowania][32]
   
@@ -137,7 +137,7 @@ Możesz użyć tej aplikacji, w następujący sposób:
 
 **iOS**, **systemu Android**
 
-* Usługa Mobile Engagement obsługuje również wysyłanie dyskretnej **wypychania danych** powiadomienia. Z te powiadomienia można wysyłać dane z usługą (np. danych JSON w poniższym przykładzie), który może obsługiwać w aplikacji i niektóre reakcję. Przykładem jest sposób Zmieniamy cen elementu selektywnie przy użyciu powiadomień wypychanych danych.
+* Usługa Mobile Engagement obsługuje również wysyłanie dyskretnej **wypychania danych** powiadomienia. Z te powiadomienia można wysyłać dane z usługi (na przykład hello dane JSON w hello poniższy przykład), który może obsługiwać w aplikacji i niektóre reakcję. Przykładem jest sposób Zmieniamy cen hello elementu selektywnie przy użyciu powiadomień wypychanych danych.
   
     ![Powiadomienia wypychane danych][33]
   
@@ -148,7 +148,7 @@ Możesz użyć tej aplikacji, w następujący sposób:
 **iOS**, **systemu Android**
 
 > [!NOTE]
-> Szczegółowe instrukcje krok po kroku dla każdego powiadomienia te można wyświetlić, klikając **kliknij tutaj, aby uzyskać instrukcje dotyczące sposobu wysyłania powiadomień z platformy Mobile Engagement** na wszystkie próbki powiadomienia ekranu.
+> Szczegółowe instrukcje krok po kroku dla każdego powiadomienia te można wyświetlić, klikając **kliknij tutaj, aby uzyskać instrukcje dotyczące toosend te powiadomienia z platformy Mobile Engagement** na wszystkie próbki powiadomienia ekranu.
 > 
 > 
 

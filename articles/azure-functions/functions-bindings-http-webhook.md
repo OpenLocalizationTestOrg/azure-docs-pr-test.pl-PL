@@ -1,6 +1,6 @@
 ---
-title: "Azure powiązania HTTP funkcje i elementu webhook | Dokumentacja firmy Microsoft"
-description: "Zrozumienie, jak używać protokołu HTTP i elementu webhook wyzwalaczy i powiązań w usługi Azure Functions."
+title: "powiązania HTTP funkcje i elementu webhook aaaAzure | Dokumentacja firmy Microsoft"
+description: "Zrozumienie, jak wyzwala toouse HTTP i elementu webhook i powiązania usługi Azure Functions."
 services: functions
 documentationcenter: na
 author: mattchenderson
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-ms.openlocfilehash: 71c0d22c4b1824078982b9d1cc76645f947ae603
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c23b7a1443d492ed78c595e97d1d778a7ab12416
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure powiązania HTTP funkcje i elementu webhook
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-W tym artykule opisano sposób konfigurowania i pracować z HTTP wyzwalaczy i powiązań w usługi Azure Functions.
-Z tych opcji możesz użyć funkcji Azure kompilacji niekorzystającą interfejsów API i reagowanie na elementów webhook.
+W tym artykule opisano, jak wyzwala tooconfigure i korzystają z protokołu HTTP i powiązania usługi Azure Functions.
+Z tych opcji możesz użyć usługi Azure Functions toobuild niekorzystającą interfejsów API i odpowiedź toowebhooks.
 
-Środowisko Azure Functions zapewnia następujące powiązania:
-- [Wyzwalacza HTTP](#httptrigger) umożliwia wywołanie funkcji z żądania HTTP. To można dostosować, aby odpowiadać na [elementów webhook](#hooktrigger).
-- [Powiązania wyjściowego HTTP](#output) pozwala odpowiedzieć na żądanie.
+Środowisko Azure Functions zapewnia następujące powiązania hello:
+- [Wyzwalacza HTTP](#httptrigger) umożliwia wywołanie funkcji z żądania HTTP. Może to być dostosowane toorespond zbyt[elementów webhook](#hooktrigger).
+- [Powiązania wyjściowego HTTP](#output) pozwala toorespond toohello żądania.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,14 +39,14 @@ Z tych opcji możesz użyć funkcji Azure kompilacji niekorzystającą interfejs
 <a name="httptrigger"></a>
 
 ## <a name="http-trigger"></a>Wyzwalacz HTTP
-Wyzwalacza HTTP będzie wykonywał funkcji w odpowiedzi na żądania HTTP. Można dostosować go do odpowiedzi z określonego adresu URL lub zestaw metod HTTP. Wyzwalacz HTTP można skonfigurować w taki sposób, aby odpowiedzieć na elementów webhook. 
+wyzwalacza HTTP Hello wykona funkcja w żądaniu HTTP tooan odpowiedzi. Można go dostosować toorespond tooa określonego adresu URL lub zestawu metod HTTP. Wyzwalacz HTTP może być również skonfigurowany toorespond toowebhooks. 
 
-Jeśli za pomocą portalu funkcji, można również rozpocząć od razu przy użyciu predefiniowanych szablonów. Wybierz **nową funkcję** i wybierz polecenie "Interfejsu API i elementów Webhook" z **scenariusza** listy rozwijanej. Wybierz jeden z szablonów i kliknij przycisk **Utwórz**.
+Jeśli za pomocą portalu funkcje hello, można również rozpocząć od razu przy użyciu predefiniowanych szablonów. Wybierz **nową funkcję** i wybierz polecenie "Interfejsu API i elementów Webhook" z hello **scenariusza** listy rozwijanej. Wybierz jeden z szablonów hello, a następnie kliknij przycisk **Utwórz**.
 
-Domyślnie wyzwalacza HTTP będzie odpowiadać na żądania z kodem stanu HTTP 200 OK i pustej treści. Aby zmodyfikować odpowiedzi, należy skonfigurować [powiązania wyjściowego HTTP](#output)
+Domyślnie wyzwalacza HTTP będzie odpowiadać na żądania toohello z kodem stanu HTTP 200 OK i pustej treści. toomodify hello odpowiedzi, skonfigurować [powiązania wyjściowego HTTP](#output)
 
 ### <a name="configuring-an-http-trigger"></a>Konfigurowanie wyzwalacza HTTP
-Wyzwalacz protokołu HTTP jest zdefiniowane przez obiekt JSON, podobnie jak poniżej w tym `bindings` tablicy function.json:
+Wyzwalacz protokołu HTTP jest zdefiniowany przez dołączenie JSON obiektu toohello podobne, po w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -58,37 +58,37 @@ Wyzwalacz protokołu HTTP jest zdefiniowane przez obiekt JSON, podobnie jak poni
     "route": "values/{id}"
 },
 ```
-Wiązanie obsługuje następujące właściwości:
+Powiązanie Hello obsługuje hello następujące właściwości:
 
-* **Nazwa** : wymagana — nazwa zmiennej używane w kodzie funkcji żądania lub treści żądania. Zobacz [Praca z wyzwalacza HTTP z kodu](#httptriggerusage).
-* **Typ** : wymagana — musi być ustawiona na "httpTrigger".
-* **kierunek** : wymagana — musi być ustawiona na "w".
-* _authLevel_ : Określa, jakie klucze, jeśli taki występuje, musi być obecny na żądanie, aby można było wywołać funkcję. Zobacz [Praca z kluczami](#keys) poniżej. Wartość może być jedną z następujących czynności:
+* **Nazwa** : wymagana — nazwa zmiennej hello używane w kodzie funkcji żądania hello lub treści żądania. Zobacz [Praca z wyzwalacza HTTP z kodu](#httptriggerusage).
+* **Typ** : wymagana — musi być ustawiona zbyt "httpTrigger".
+* **kierunek** : wymagana — musi być ustawiona zbyt "w".
+* _authLevel_ : Określa, jakie klucze, należy toobe obecne w żądaniu hello w kolejności tooinvoke hello funkcji. Zobacz [Praca z kluczami](#keys) poniżej. wartość Hello może być jedną z następujących hello:
     * _anonimowe_: klucz interfejsu API nie jest wymagana.
-    * _Funkcja_: wymagany jest klucz interfejsu API właściwe dla funkcji. Jeśli nie zostanie podana jest wartość domyślna.
-    * _Administrator_ : jest wymagany klucz główny.
-* **metody** : to jest tablica metod HTTP, na które będzie odpowiadać funkcji. Jeśli nie zostanie określony, wszystkie metody HTTP będzie odpowiadać funkcji. Zobacz [Dostosowywanie punkt końcowy HTTP](#url).
-* **trasy** : Określa szablon trasy, kontrolowanie, do którego adresów URL żądań funkcji będzie odpowiadać. Jeśli nie zostanie podana wartość domyślna to `<functionname>`. Zobacz [Dostosowywanie punkt końcowy HTTP](#url).
-* **webHookType** : spowoduje to skonfigurowanie wyzwalacza HTTP do działania jako reciever elementu webhook dla określonego dostawcy. _Metody_ właściwość nie powinna być ustawiona, jeśli to jest wybrane. Zobacz [odpowiada na żądania elementów webhook](#hooktrigger). Wartość może być jedną z następujących czynności:
+    * _Funkcja_: wymagany jest klucz interfejsu API właściwe dla funkcji. Jeśli nie zostanie podana jest wartość domyślna hello.
+    * _Administrator_ : jest wymagany klucz główny hello.
+* **metody** : to jest tablica metod hello HTTP będzie odpowiadać toowhich hello funkcji. Jeśli nie zostanie określony, funkcja hello będzie odpowiadać metody tooall HTTP. Zobacz [Dostosowywanie punktu końcowego hello HTTP](#url).
+* **trasy** : Określa szablon trasy hello, kontrolowanie toowhich adresów URL będzie odpowiadać funkcji żądań. Witaj wartość domyślną, jeśli nie zostanie podana jest `<functionname>`. Zobacz [Dostosowywanie punktu końcowego hello HTTP](#url).
+* **webHookType** : spowoduje to skonfigurowanie tooact wyzwalacza hello HTTP jako reciever elementu webhook dla hello określonego dostawcy. Witaj _metody_ właściwość nie powinna być ustawiona, jeśli to jest wybrane. Zobacz [toowebhooks odpowiada](#hooktrigger). wartość Hello może być jedną z następujących hello:
     * _genericJson_ : punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy.
-    * _github_ : funkcja będzie odpowiadać elementów webhook GitHub. _AuthLevel_ właściwość nie powinna być ustawiona, jeśli to jest wybrane.
-    * _zapas czasu_ : funkcja będzie odpowiadać elementów webhook Slack. _AuthLevel_ właściwość nie powinna być ustawiona, jeśli to jest wybrane.
+    * _github_ : funkcja hello będzie odpowiadać tooGitHub elementów webhook. Witaj _authLevel_ właściwość nie powinna być ustawiona, jeśli to jest wybrane.
+    * _zapas czasu_ : funkcja hello będzie odpowiadać tooSlack elementów webhook. Witaj _authLevel_ właściwość nie powinna być ustawiona, jeśli to jest wybrane.
 
 <a name="httptriggerusage"></a>
 ### <a name="working-with-an-http-trigger-from-code"></a>Praca z wyzwalacza HTTP z kodu
-Dla funkcji języka C# i F #, mogą zadeklarować typ danych wejściowych musi mieć przypisany wyzwalacz `HttpRequestMessage` lub typu niestandardowego. Jeśli wybierzesz `HttpRequestMessage`, a następnie pobierze pełny dostęp do obiektu żądania. Dla typu niestandardowego (na przykład POCO) funkcje podejmie próbę przeanalizować treść żądania jako ciąg JSON do wypełniania właściwości obiektu.
+Dla funkcji języka C# i F #, mogą zadeklarować typu hello Twojej toobe wejściowych wyzwalacza albo `HttpRequestMessage` lub typu niestandardowego. Jeśli wybierzesz `HttpRequestMessage`, a następnie pobierze obiektu żądania toohello pełny dostęp. Dla typu niestandardowego (na przykład POCO) funkcje podejmie treści żądania hello tooparse jako właściwości obiektu hello toopopulate JSON.
 
-W przypadku funkcji Node.js środowisko uruchomieniowe Functions zapewnia treści żądania, zamiast obiektu żądania.
+W przypadku funkcji Node.js środowisko uruchomieniowe Functions hello zapewnia treści żądania hello zamiast obiektu żądania hello.
 
 Zobacz [przykłady wyzwalacza HTTP](#httptriggersample) na przykład sposobu użycia.
 
 
 <a name="output"></a>
 ## <a name="http-response-output-binding"></a>Powiązania wyjściowego odpowiedzi HTTP
-Za pomocą raportu HTTP powiązanie odpowiedź do nadawcy żądania HTTP. To powiązanie wymaga wyzwalacza HTTP i umożliwia dostosowanie odpowiedzi skojarzony z żądaniem tego wyzwalacza. Jeśli powiązania wyjściowego HTTP nie zostanie podany, wyzwalacz HTTP zwróci o pustej treści HTTP 200 OK. 
+Użyj hello HTTP dane wyjściowe powiązania toorespond toohello HTTP żądania nadawcy. To powiązanie wymaga wyzwalacza HTTP i pozwala odpowiedź hello toocustomize skojarzony z żądaniem hello wyzwalacza. Jeśli powiązania wyjściowego HTTP nie zostanie podany, wyzwalacz HTTP zwróci o pustej treści HTTP 200 OK. 
 
 ### <a name="configuring-an-http-output-binding"></a>Konfigurowanie protokołu HTTP powiązania wyjściowego
-HTTP powiązania danych wyjściowych jest zdefiniowane przez obiekt JSON, podobnie jak poniżej w tym `bindings` tablicy function.json:
+Hello HTTP output powiązania jest definiowana za pomocą tym JSON obiektu toohello podobne, po w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -97,38 +97,38 @@ HTTP powiązania danych wyjściowych jest zdefiniowane przez obiekt JSON, podobn
     "direction": "out"
 }
 ```
-Wiązanie zawiera następujące właściwości:
+Powiązanie Hello zawiera hello następujące właściwości:
 
-* **Nazwa** : wymagana — nazwa zmiennej używane w kodzie funkcja odpowiedzi. Zobacz [powiązania z kodu wyjściowego roboczych protokołu HTTP z](#outputusage).
-* **Typ** : wymagana — musi być ustawiona na "http".
-* **kierunek** : wymagana — musi być ustawiona na "out".
+* **Nazwa** : wymagana — Witaj używane w kodzie funkcja odpowiedź hello nazwy zmiennej. Zobacz [powiązania z kodu wyjściowego roboczych protokołu HTTP z](#outputusage).
+* **Typ** : wymagana — musi być ustawiona zbyt "http".
+* **kierunek** : wymagana — musi być ustawiona zbyt "out".
 
 <a name="outputusage"></a>
 ### <a name="working-with-an-http-output-binding-from-code"></a>Praca z HTTP output powiązania z kodu
-Można użyć parametru wyjściowego (np. "res") odpowiedź do obiektu wywołującego http lub elementu webhook. Alternatywnie można użyć standardowego `Request.CreateResponse()` (C#) lub `context.res` wzorca (Node.JS), aby powrócić do odpowiedzi. Przykłady dotyczące sposobu używania druga metoda, zobacz [przykłady wyzwalacza HTTP](#httptriggersample) i [przykłady wyzwalacza elementu Webhook](#hooktriggersample).
+Możesz użyć hello dane wyjściowe parametru (np. "res") toorespond toohello http lub elementu webhook wywołującego. Alternatywnie można użyć standardowego `Request.CreateResponse()` (C#) lub `context.res` tooreturn wzorca (Node.JS) do odpowiedzi. Przykłady w sposób toouse hello druga metoda, zobacz [przykłady wyzwalacza HTTP](#httptriggersample) i [przykłady wyzwalacza elementu Webhook](#hooktriggersample).
 
 
 <a name="hooktrigger"></a>
-## <a name="responding-to-webhooks"></a>Odpowiada na żądania elementów webhook
-Wyzwalacz protokołu HTTP z _webHookType_ właściwości będzie skonfigurowanego do reagowania na [elementów webhook](https://en.wikipedia.org/wiki/Webhook). Konfiguracja podstawowa używana do określania "genericJson". To ogranicza żądania tylko do tych przy użyciu protokołu HTTP POST i z `application/json` typ zawartości.
+## <a name="responding-toowebhooks"></a>Odpowiada toowebhooks
+Wyzwalacz protokołu HTTP z hello _webHookType_ właściwość będzie skonfigurowany toorespond zbyt[elementów webhook](https://en.wikipedia.org/wiki/Webhook). Podstawowa konfiguracja Hello używa ustawienia "genericJson" hello. Umożliwia ograniczenie żądań tooonly tych przy użyciu protokołu HTTP POST i hello `application/json` typ zawartości.
 
-Wyzwalacz dodatkowo umożliwia dostosowanie dostawcy określonego elementu webhook (np. [GitHub](https://developer.github.com/webhooks/) i [Slack](https://api.slack.com/outgoing-webhooks)). Jeśli jest określony dostawca, środowisko uruchomieniowe Functions zająć się dostawcy logikę weryfikacji dla Ciebie.  
+Witaj wyzwalacza można dodatkowo dopasowane tooa webhook określonego dostawcy (np. [GitHub](https://developer.github.com/webhooks/) i [Slack](https://api.slack.com/outgoing-webhooks)). Jeśli jest określony dostawca, środowisko uruchomieniowe Functions hello zająć się dostawcy hello logikę weryfikacji dla Ciebie.  
 
 ### <a name="configuring-github-as-a-webhook-provider"></a>Konfigurowanie dostawcy elementu webhook GitHub
-Aby odpowiedzieć elementów webhook GitHub, najpierw utwórz funkcji z wyzwalaczem HTTP i ustaw _webHookType_ dla właściwości "github". Następnie skopiuj jej [adres URL](#url) i [klucz interfejsu API](#keys) w repozytorium GitHub **Dodawanie elementu webhook** strony. Zobacz GitHub [tworzenia elementów Webhook](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) dokumentacji, aby uzyskać więcej informacji.
+toorespond tooGitHub elementów webhook, najpierw utwórz funkcji z wyzwalaczem HTTP i ustaw hello _webHookType_ właściwości zbyt "github". Następnie skopiuj jej [adres URL](#url) i [klucz interfejsu API](#keys) w repozytorium GitHub **Dodawanie elementu webhook** strony. Zobacz GitHub [tworzenia elementów Webhook](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) dokumentacji, aby uzyskać więcej informacji.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="configuring-slack-as-a-webhook-provider"></a>Konfigurowanie zapas czasu jako dostawca elementu webhook
-Slack elementu webhook generuje token dla Ciebie, zamiast czekać na określeniu, dlatego należy skonfigurować klucz właściwe dla funkcji przy użyciu tokenu z zapas czasu. Zobacz [Praca z kluczami](#keys).
+Hello Slack webhook generuje token dla Ciebie zamiast czekać na określeniu, dlatego należy skonfigurować klucz właściwe dla funkcji z tokenem hello z zapas czasu. Zobacz [Praca z kluczami](#keys).
 
 <a name="url"></a>
-## <a name="customizing-the-http-endpoint"></a>Dostosowywanie punkt końcowy HTTP
-Domyślnie podczas tworzenia funkcja wyzwalacza HTTP lub elementu WebHook, funkcja jest adresowanego trasa formularza:
+## <a name="customizing-hello-http-endpoint"></a>Dostosowywanie hello punkt końcowy HTTP
+Domyślnie podczas tworzenia funkcja wyzwalacza HTTP lub elementu WebHook, funkcja hello jest adresowanego trasa hello formularza:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-Można dostosować tej trasy przy użyciu opcjonalnego `route` wejściowych powiązania właściwości wyzwalacza HTTP. Na przykład następujące *function.json* plik definiuje `route` właściwości dla wyzwalacza HTTP:
+Można dostosować tej trasy, używając hello opcjonalne `route` wejściowych powiązania właściwości dla elementu trigger hello HTTP. Przykład Witaj po *function.json* plik definiuje `route` właściwości dla wyzwalacza HTTP:
 
 ```json
     {
@@ -149,11 +149,11 @@ Można dostosować tej trasy przy użyciu opcjonalnego `route` wejściowych powi
     }
 ```
 
-Za pomocą tej konfiguracji, funkcja jest teraz adresowanego trasa następujących zamiast oryginalnej trasy.
+Za pomocą tej konfiguracji, funkcja hello jest teraz adresowanego z hello następujące trasy zamiast hello oryginalnego trasy.
 
     http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-Dzięki temu funkcja kodu do obsługi dwóch parametrów w adres, "kategorii" i "id". Można użyć dowolnego [ograniczenia trasy interfejsu API sieci Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) z parametrami. Poniższy kod funkcji języka C# korzysta z obu tych parametrów.
+Dzięki temu kod funkcji hello toosupport dwa parametry adres Witaj, "kategorii" i "id". Można użyć dowolnego [ograniczenia trasy interfejsu API sieci Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) z parametrami. Witaj następującego kodu funkcji języka C# korzysta z obu tych parametrów.
 
 ```csharp
     public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
@@ -166,7 +166,7 @@ Dzięki temu funkcja kodu do obsługi dwóch parametrów w adres, "kategorii" i 
     }
 ```
 
-Oto kod funkcji Node.js do korzystania z tego samego parametrów trasy.
+Oto hello toouse kodu funkcji Node.js takie same parametry trasy.
 
 ```javascript
     module.exports = function (context, req) {
@@ -176,13 +176,13 @@ Oto kod funkcji Node.js do korzystania z tego samego parametrów trasy.
 
         if (!id) {
             context.res = {
-                // status: 200, /* Defaults to 200 */
+                // status: 200, /* Defaults too200 */
                 body: "All " + category + " items were requested."
             };
         }
         else {
             context.res = {
-                // status: 200, /* Defaults to 200 */
+                // status: 200, /* Defaults too200 */
                 body: category + " item with id = " + id + " was requested."
             };
         }
@@ -191,7 +191,7 @@ Oto kod funkcji Node.js do korzystania z tego samego parametrów trasy.
     } 
 ```
 
-Domyślnie wszystkie trasy funkcji są poprzedzane prefiksem *interfejsu api*. Można również dostosować lub usunąć przy użyciu prefiksu `http.routePrefix` właściwości w Twojej *host.json* pliku. Poniższy przykład umożliwia usunięcie *interfejsu api* prefiks trasy przy użyciu pustego ciągu dla prefiksu w *host.json* pliku.
+Domyślnie wszystkie trasy funkcji są poprzedzane prefiksem *interfejsu api*. Można również dostosować lub usuń prefiks hello przy użyciu hello `http.routePrefix` właściwości w Twojej *host.json* pliku. Witaj poniższy przykład umożliwia usunięcie hello *interfejsu api* prefiks trasy przy użyciu pustego ciągu dla prefiksu hello w hello *host.json* pliku.
 
 ```json
     {
@@ -201,52 +201,52 @@ Domyślnie wszystkie trasy funkcji są poprzedzane prefiksem *interfejsu api*. M
     }
 ```
 
-Aby uzyskać szczegółowe informacje na temat aktualizowania *host.json* plików dla funkcji, zobacz [jak zaktualizować pliki aplikacji funkcji](functions-reference.md#fileupdate). 
+Aby uzyskać szczegółowe informacje na temat tooupdate hello *host.json* plików dla funkcji, zobacz [jak tooupdate funkcji pliki aplikacji](functions-reference.md#fileupdate). 
 
 Aby uzyskać informacje na temat innych właściwości można skonfigurować w sieci *host.json* plików, zobacz [odwołania host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 
 <a name="keys"></a>
 ## <a name="working-with-keys"></a>Praca z kluczy
-HttpTriggers mogą korzystać z kluczy w celu zwiększenia bezpieczeństwa. Standardowe HttpTrigger służy je jako klucz interfejsu API wymagające klucza, który ma być obecne w żądaniu. Elementów Webhook można używać kluczy do autoryzowania żądań na różne sposoby, w zależności od tego, czy dostawca obsługuje.
+HttpTriggers mogą korzystać z kluczy w celu zwiększenia bezpieczeństwa. Standardowe HttpTrigger można użyć je jako klucz interfejsu API, wymagających hello klucza toobe na powitania żądania. Elementów Webhook użyć klawiszy tooauthorize żądań na różne sposoby, w zależności od tego, jakie hello dostawca obsługuje.
 
-Klucze są przechowywane w ramach funkcji aplikacji na platformie Azure i są szyfrowane, gdy. Aby wyświetlić klucze, tworzenie nowych, lub Przywróć do nowych wartości kluczy, przejdź do jednej z funkcji w portalu i wybierz "Manage". 
+Klucze są przechowywane w ramach funkcji aplikacji na platformie Azure i są szyfrowane, gdy. tooview klucze, tworzenie nowych lub toonew wartości kluczy zbiorczego, przejdź tooone funkcji hello portalu i wybierz "Manage". 
 
 Istnieją dwa typy kluczy:
-- **Klucze hosta**: klucze te są współużytkowane przez wszystkie funkcje w ramach funkcji aplikacji. Gdy jest używany jako klucz interfejsu API, umożliwiają one dostęp do dowolnej funkcji w funkcji aplikacji.
-- **Klawisze funkcyjne**: te klucze mają zastosowanie tylko do określonych funkcji, w których są zdefiniowane. Gdy jest używany jako klucz interfejsu API, te tylko zezwolić na dostęp do tej funkcji.
+- **Klucze hosta**: klucze te są współużytkowane przez wszystkie funkcje w hello funkcji aplikacji. Gdy jest używany jako klucz interfejsu API, umożliwiają one funkcja tooany dostępu w hello funkcji aplikacji.
+- **Klawisze funkcyjne**: te klucze zastosować tylko toohello określone funkcje, zgodnie z którymi są zdefiniowane. Gdy jest używany jako klucz interfejsu API, te tylko Zezwalaj funkcja toothat dostępu.
 
-Każdy klucz nosi nazwę odwołania, a jest domyślny klucz (o nazwie "domyślne") na poziomie funkcji i hosta. **Klucza głównego** domyślny klucz hosta o nazwie "_master", który jest zdefiniowany dla każdej funkcji aplikacji i nie może zostać odwołany. Zapewnia dostęp administracyjny do interfejsów API środowiska wykonawczego. Przy użyciu `"authLevel": "admin"` powiązanie JSON będzie wymagać tego klucza, aby być prezentowana na żądanie; innego klucza spowoduje błąd autoryzacji.
+Każdy klucz nosi nazwę odwołania, a na poziomie funkcji oraz hosta hello jest domyślny klucz (o nazwie "domyślne"). Witaj **klucza głównego** domyślny klucz hosta o nazwie "_master", który jest zdefiniowany dla każdej funkcji aplikacji i nie może zostać odwołany. Zapewnia dostęp administracyjny toohello runtime interfejsów API. Przy użyciu `"authLevel": "admin"` w hello powiązanie JSON będzie wymagać tego klucza toobe przedstawionych na żądanie hello; innego klucza spowoduje błąd autoryzacji.
 
 > [!NOTE]
-> Z powodu podwyższonym poziomem uprawnień przyznanych przez klucz główny nie należy udostępnić ten klucz osobom trzecim ani rozpowszechnienie go w aplikacjach klienckich natywnego. Należy zachować ostrożność podczas wybierania poziom dostępu administratora.
+> Z powodu toohello podniesione uprawnienia przyznane przez klucz główny hello, nie należy udostępniać tego klucza osobom trzecim ani rozpowszechnienie go w aplikacjach klienckich natywnego. Należy zachować ostrożność podczas wybierania hello autoryzacji na poziomie administratora.
 > 
 > 
 
 ### <a name="api-key-authorization"></a>Autoryzacji klucza interfejsu API
-Domyślnie HttpTrigger wymaga klucza interfejsu API w żądaniu HTTP. Dlatego żądanie HTTP zwykle wygląda następująco:
+Domyślnie HttpTrigger wymaga klucza interfejsu API w hello żądania HTTP. Dlatego żądanie HTTP zwykle wygląda następująco:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Klucz może być uwzględniony w zmiennej ciągu zapytania o nazwie `code`, zgodnie z powyższym, lub można je uwzględnić w `x-functions-key` nagłówka HTTP. Wartość klucza może być dowolny klawisz funkcji zdefiniowany dla funkcji lub dowolnego klucz hosta.
+klucz Hello może być uwzględniony w zmiennej ciągu zapytania o nazwie `code`, zgodnie z powyższym, lub można je uwzględnić w `x-functions-key` nagłówka HTTP. wartość Hello hello klucza może być dowolny klawisz funkcji zdefiniowany dla funkcji hello lub dowolnego klucz hosta.
 
-Możesz zezwolić na żądania bez kluczy lub określ, że klucz główny musi być używane przez zmiana `authLevel` właściwości w powiązaniu JSON (zobacz [wyzwalacza HTTP](#httptrigger)).
+Możesz wybrać tooallow żądań bez kluczy lub określ hello klucza głównego musi być używana przez zmianę hello `authLevel` właściwości w hello powiązanie JSON (zobacz [wyzwalacza HTTP](#httptrigger)).
 
 ### <a name="keys-and-webhooks"></a>Klucze i elementów webhook
-Autoryzacji elementu Webhook jest obsługiwany przez składnik reciever elementu webhook część HttpTrigger, i mechanizmu w zależności od typu elementu webhook. Nie mechanizmu, jednak zależne od klucza. Domyślnie funkcja klucz o nazwie "domyślne" będzie używany. Jeśli chcesz użyć innego klucza, należy skonfigurować dostawcę elementu webhook można wysłać nazwę klucza z żądaniem w jednym z następujących sposobów:
+Autoryzacji elementu Webhook jest obsługiwane przez składnik reciever elementu webhook hello, część hello HttpTrigger i mechanizmu hello w zależności od typu elementu webhook hello. Nie mechanizmu, jednak zależne od klucza. Domyślnie posłuży hello funkcja klucz o nazwie "domyślny". W razie potrzeby toouse inny klucz należy tooconfigure hello nazwa elementu webhook dostawcy toosend hello klucza z żądaniem hello w jednym z hello następujące sposoby:
 
-- **Długość ciągu zapytania**: dostawca przekazuje nazwę klucza w `clientid` parametr ciągu zapytania (np. `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
-- **Nagłówek żądania**: dostawca przekazuje nazwę klucza w `x-functions-clientid` nagłówka.
+- **Długość ciągu zapytania**: hello dostawcy przekazuje nazwę klucza hello w hello `clientid` parametr ciągu zapytania (np. `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+- **Nagłówek żądania**: hello dostawcy przekazuje nazwę klucza hello w hello `x-functions-clientid` nagłówka.
 
 > [!NOTE]
-> Klawisze funkcyjne mają pierwszeństwo przed klucze hosta. Jeśli dwa klucze są zdefiniowane z tą samą nazwą, będzie używany klawisze funkcyjne.
+> Klawisze funkcyjne mają pierwszeństwo przed klucze hosta. Jeśli dwa klucze są zdefiniowane z hello takie same nazwy, hello funkcja klucz będzie używany.
 > 
 > 
 
 
 <a name="httptriggersample"></a>
 ## <a name="http-trigger-samples"></a>Przykłady wyzwalacza HTTP
-Załóżmy, że masz następujące wyzwalacza HTTP `bindings` tablicy function.json:
+Załóżmy, że masz następujące wyzwalacza HTTP w hello hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -257,7 +257,7 @@ Załóżmy, że masz następujące wyzwalacza HTTP `bindings` tablicy function.j
 },
 ```
 
-Zobacz przykład specyficzny dla języka, która sprawdza, czy `name` parametru w ciągu zapytania lub w treści żądania HTTP.
+Witaj przykładu specyficzny dla języka, która sprawdza, czy `name` parametru ciągu zapytania hello lub hello treści żądania hello HTTP.
 
 * [C#](#httptriggercsharp)
 * [F#](#httptriggerfsharp)
@@ -282,16 +282,16 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     // Get request body
     dynamic data = await req.Content.ReadAsAsync<object>();
 
-    // Set name to query string or body data
+    // Set name tooquery string or body data
     name = name ?? data?.name;
 
     return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on hello query string or in hello request body")
         : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
 }
 ```
 
-Można także powiązać POCO zamiast `HttpRequestMessage`. Spowoduje to uwodniony, z treści żądania jako JSON. Podobnie typu mogą być przekazywane dane wyjściowe odpowiedzi HTTP, powiązania i ta wartość jest zwracana jako treść odpowiedzi z kodem stanu 200.
+Może także powiązać tooa POCO zamiast `HttpRequestMessage`. Spowoduje to uwodniony, z hello treści żądania hello, być analizowana jako JSON. Podobnie typu mogą być przekazywane dane wyjściowe odpowiedzi toohello HTTP powiązanie, a ta wartość jest zwracana jako treść odpowiedzi hello, z kodem stanu 200.
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -327,11 +327,11 @@ let Run(req: HttpRequestMessage) =
             try
                 return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
             with e ->
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on hello query string or in hello request body")
     } |> Async.StartAsTask
 ```
 
-Należy `project.json` pliku, który używa NuGet, aby odwołać `FSharp.Interop.Dynamic` i `Dynamitey` zestawów, w następujący sposób:
+Należy `project.json` pliku, który używa NuGet tooreference hello `FSharp.Interop.Dynamic` i `Dynamitey` zestawów, w następujący sposób:
 
 ```json
 {
@@ -346,7 +346,7 @@ Należy `project.json` pliku, który używa NuGet, aby odwołać `FSharp.Interop
 }
 ```
 
-Zostanie użyty NuGet na pobieranie zależności i odwoływać je w skrypcie.
+Zostanie użyty NuGet toofetch zależności i odwoływać je w skrypcie.
 
 <a name="httptriggernodejs"></a>
 ### <a name="http-trigger-sample-in-nodejs"></a>Przykładowe wyzwalacza HTTP w środowisku Node.JS
@@ -356,14 +356,14 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status: 200, /* Defaults too200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
     else {
         context.res = {
             status: 400,
-            body: "Please pass a name on the query string or in the request body"
+            body: "Please pass a name on hello query string or in hello request body"
         };
     }
     context.done();
@@ -374,7 +374,7 @@ module.exports = function(context, req) {
 
 <a name="hooktriggersample"></a>
 ## <a name="webhook-samples"></a>Przykłady elementu Webhook
-Załóżmy, że masz następujące wyzwalacza elementu webhook `bindings` tablicy function.json:
+Załóżmy, że masz hello następującego elementu webhook wyzwalacza w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -385,7 +385,7 @@ Załóżmy, że masz następujące wyzwalacza elementu webhook `bindings` tablic
 },
 ```
 
-Patrz zaloguje się komentarze problem GitHub próbki specyficzny dla języka.
+Zobacz przykład specyficzny dla języka hello, który rejestruje komentarze problem GitHub.
 
 * [C#](#hooktriggercsharp)
 * [F#](#hooktriggerfsharp)

@@ -1,6 +1,6 @@
 ---
-title: "Nowości do prognozowania vehicle kondycji i wspierającym zwyczaje - Azure | Dokumentacja firmy Microsoft"
-description: "Korzystanie z możliwości Cortana Intelligence, aby uzyskać wgląd w czasie rzeczywistym oraz predykcyjnej na vehicle kondycji i wspierającym zwyczaje."
+title: "Poznaj aaaDeep prognozowania vehicle kondycji i wspierającym zwyczaje - Azure | Dokumentacja firmy Microsoft"
+description: "Korzystanie z możliwości hello wgląd w czasie rzeczywistym oraz predykcyjnej toogain Cortana Intelligence na kondycji vehicle i wspierającym zwyczaje."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 0a4dba58445cf0fd9fd8f51d443576bacd92251b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ba1448a5081762292561f904d9ec54617c9a5330
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Podręcznik dotyczący rozwiązań analizy telemetrii pojazdów: szczegółowe informacje na temat rozwiązania
-To **menu** łącza do sekcji tego podręcznika dotyczącego: 
+# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-hello-solution"></a>Vehicle telemetrii analizy rozwiązania podręcznikowym: nowości w hello rozwiązania
+To **menu** toohello części tego podręcznika dotyczącego łączy: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Ta sekcja rozwija na każdym z etapów przedstawiono architekturę rozwiązania wraz z instrukcjami i wskaźniki do dostosowania. 
+Ta sekcja rozwija na każdym z etapów hello pokazana na powitania architektury rozwiązania wraz z instrukcjami i wskaźniki do dostosowania. 
 
 ## <a name="data-sources"></a>Źródła danych
-Rozwiązanie używa dwóch różnych źródeł danych:
+rozwiązanie Hello używa dwóch różnych źródeł danych:
 
 * **Symulowane sygnały vehicle i danych diagnostycznych** i 
 * **vehicle katalogu**
 
-Symulator telematyki vehicle wchodzi w skład tego rozwiązania. Emituje informacje diagnostyczne, a sygnały odpowiadającego stanu mechanizm i kierowania wzorca w danym punkcie w czasie. Kliknij przycisk [symulatora telematyki Vehicle](http://go.microsoft.com/fwlink/?LinkId=717075) do pobrania **Vehicle telematyki symulatora rozwiązania Visual Studio** dostosowań, w zależności od wymagań. Katalog vehicle zawiera odwołanie do zestawu danych VIN do mapowania modelu.
+Symulator telematyki vehicle wchodzi w skład tego rozwiązania. Emituje informacje diagnostyczne, a sygnały odpowiadający mu stan toohello hello vehicle i toohello zwiększają wzorca w danym punkcie w czasie. Kliknij przycisk [symulatora telematyki Vehicle](http://go.microsoft.com/fwlink/?LinkId=717075) toodownload hello **Vehicle telematyki symulatora rozwiązania Visual Studio** dostosowań, w zależności od wymagań. katalog vehicle Hello zawiera odwołanie do zestawu danych z mapowaniem toomodel VIN.
 
 ![Symulator telematyki vehicle](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
 *Rysunek 1 — Vehicle telematyki symulatora*
 
-Jest to formacie JSON zestawu danych, który zawiera następujące schematu.
+Jest to formacie JSON zestawu danych zawierającego powitania po schematu.
 
 | Kolumna | Opis | Wartości |
 | --- | --- | --- |
 | VIN |Losowo generowany numer identyfikacyjny |To są uzyskiwane ze wzorca listę 10 000 numery identyfikacyjne losowo generowany pojazdów. |
-| Poza temperatury |Gdzie sterujące mechanizm temperatury na zewnątrz |Losowo generowany numer od 0 do 100 |
-| Aparat temperatury |Aparat temperatury mechanizm |Losowo generowany numer od 0-500 |
-| Szybkość |Szybkość aparatu, jaką mechanizm sterujące |Losowo generowany numer od 0 do 100 |
-| Paliwa |Poziom paliwa mechanizm |Losowo generowany numer od 0 do 100 (procent poziomu paliwa wskazuje) |
-| EngineOil |Poziom wydobycie ropy naftowej aparat mechanizm |Losowo generowany numer od 0 do 100 (procent poziomu wydobycie ropy naftowej aparat oznacza) |
-| Opona wykorzystania |Wykorzystanie opona pojazdów. |Losowo generowany numer 50 0 (wskazuje procent poziomu wykorzystania opona) |
-| Licznika |Odczytywanie licznika mechanizm |Losowo generowany numer od 0 200000 |
-| Accelerator_pedal_position |Pozycja szkła mechanizm klawiszy skrótów |Losowo generowany numer od 0 do 100 (procent poziomu akceleratora wskazuje) |
-| Parking_brake_status |Wskazuje, czy mechanizm jest stoi lub nie |Wartość PRAWDA lub FAŁSZ |
-| Headlamp_status |Wskazuje, gdzie reflektor znajduje się na lub nie |Wartość PRAWDA lub FAŁSZ |
-| Brake_pedal_status |Wskazuje, czy pedału hamulca zostanie naciśnięty, czy nie |Wartość PRAWDA lub FAŁSZ |
-| Transmission_gear_position |Pozycja koło zębate transmisji mechanizm |Stan: najpierw drugie, trzecie czwarty, piąte, szóstego, siódme, kolejnego, ósmego |
-| Ignition_status |Wskazuje, czy mechanizm jest uruchomiona lub zatrzymana |Wartość PRAWDA lub FAŁSZ |
-| Windshield_wiper_status |Wskazuje, czy Wycieraczka szyby jest wyłączone lub nie |Wartość PRAWDA lub FAŁSZ |
+| Poza temperatury |Witaj poza temperatury gdzie sterujące hello vehicle |Losowo generowany numer od 0 do 100 |
+| Aparat temperatury |Witaj aparat temperatury pojazdów hello |Losowo generowany numer od 0-500 |
+| Szybkość |szybkość aparat Hello na które hello sterujące vehicle |Losowo generowany numer od 0 do 100 |
+| Paliwa |poziom paliwa Hello pojazdów hello |Losowo generowany numer od 0 do 100 (procent poziomu paliwa wskazuje) |
+| EngineOil |Witaj aparatu wydobycie ropy naftowej pojazdów hello |Losowo generowany numer od 0 do 100 (procent poziomu wydobycie ropy naftowej aparat oznacza) |
+| Opona wykorzystania |Witaj opona wykorzystania pojazdów hello |Losowo generowany numer 50 0 (wskazuje procent poziomu wykorzystania opona) |
+| Licznika |Odczytywanie licznika Hello hello vehicle |Losowo generowany numer od 0 200000 |
+| Accelerator_pedal_position |Pozycja szkła akceleratora Hello pojazdów hello |Losowo generowany numer od 0 do 100 (procent poziomu akceleratora wskazuje) |
+| Parking_brake_status |Wskazuje, czy hello vehicle jest stoi lub nie |Wartość PRAWDA lub FAŁSZ |
+| Headlamp_status |Wskazuje, gdzie reflektor hello jest na lub nie |Wartość PRAWDA lub FAŁSZ |
+| Brake_pedal_status |Wskazuje, czy pedał hamulca hello zostanie naciśnięty, czy nie |Wartość PRAWDA lub FAŁSZ |
+| Transmission_gear_position |Pozycja koło zębate transmisji Hello pojazdów hello |Stan: najpierw drugie, trzecie czwarty, piąte, szóstego, siódme, kolejnego, ósmego |
+| Ignition_status |Wskazuje, czy hello vehicle jest uruchomiona lub zatrzymana |Wartość PRAWDA lub FAŁSZ |
+| Windshield_wiper_status |Wskazuje, czy Wycieraczka szyby hello jest wyłączone lub nie |Wartość PRAWDA lub FAŁSZ |
 | ABS |Wskazuje, czy ABS prowadzi lub nie |Wartość PRAWDA lub FAŁSZ |
-| Znacznik czasu |Sygnatura czasowa po utworzeniu punktu danych. |Date |
-| Miasto |Lokalizacja mechanizm |4 miejscowości, w tym rozwiązaniu: Bellevue, Redmond, Sammamish, Seattle |
+| Znacznik czasu |Witaj sygnatury czasowej po utworzeniu hello punktu danych. |Date |
+| Miasto |Lokalizacja Hello pojazdów hello |4 miejscowości, w tym rozwiązaniu: Bellevue, Redmond, Sammamish, Seattle |
 
-Zestaw danych odwołania modelu vehicle zawiera VIN do mapowania modelu. 
+Hello vehicle modelu odwołanie dataset zawiera mapowania modelu toohello VIN. 
 
 | VIN | Model |
 | --- | --- |
@@ -105,10 +105,10 @@ Zestaw danych odwołania modelu vehicle zawiera VIN do mapowania modelu.
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 ## <a name="ingestion"></a>Wprowadzanie
-Kombinacje Azure Event Hubs, Stream Analytics i fabryki danych można wykorzystać do pozyskiwania sygnały vehicle, zdarzeń diagnostycznych i w czasie rzeczywistym i partii analytics. Wszystkie te składniki są tworzone i skonfigurowany jako część wdrożenia rozwiązania. 
+Kombinacje Azure Event Hubs, Stream Analytics i fabryki danych są wykorzystywane tooingest hello vehicle sygnałów, hello zdarzeń diagnostycznych, w czasie rzeczywistym i partii analytics. Wszystkie te składniki są tworzone i skonfigurowany jako część hello wdrażania rozwiązania. 
 
 ### <a name="real-time-analysis"></a>Analiza w czasie rzeczywistym
-Zdarzenia generowane przez symulator telematyki Vehicle są publikowane w Centrum zdarzeń przy użyciu zestawu SDK Centrum zdarzeń. Zadanie Stream Analytics wysyła strumień te zdarzenia z Centrum zdarzeń i przetwarza dane w czasie rzeczywistym do analizy kondycji pojazdów. 
+Witaj zdarzenia generowane przez hello Vehicle telematyki symulatora są publikowane za pomocą Centrum zdarzeń toohello hello SDK Centrum zdarzeń. Zadanie usługi Stream Analytics Hello wysyła strumień te zdarzenia z hello Centrum zdarzeń i danych w czasie rzeczywistym tooanalyze hello vehicle kondycji hello procesów. 
 
 ![Pulpit nawigacyjny Centrum zdarzeń](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
@@ -118,32 +118,32 @@ Zdarzenia generowane przez symulator telematyki Vehicle są publikowane w Centru
 
 *Rysunek 5. zadania usługi analiza strumienia przetwarzania danych*
 
-Zadanie Stream Analytics.
+zadanie Stream Analytics Hello;
 
-* wysyła strumień danych z Centrum zdarzeń 
-* wykonuje sprzężenie z mapowania vehicle VIN na odpowiedni model danych źródłowych 
+* wysyła strumień danych z hello Centrum zdarzeń 
+* wykonuje sprzężenie z hello odwołanie toomap hello vehicle VIN toohello odpowiedni model danych 
 * są utrwalane w magazynie obiektów blob platformy Azure dla analizach wsadowych sformatowanego. 
 
-Następujące zapytanie Stream Analytics jest używany do utrwalenia danych do magazynu obiektów blob platformy Azure. 
+powitania po zapytań usługi Stream Analytics jest używane toopersist hello dane do magazynu obiektów blob platformy Azure. 
 
 ![Zapytanie dotyczące zadań analizy strumienia dla wprowadzanie danych](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
 *Rysunek 6 - analiza strumienia zadania zapytania na wprowadzanie danych*
 
 ### <a name="batch-analysis"></a>Analiza partii
-Możemy również generowania woluminów sygnały symulowane vehicle i diagnostycznych zestawu danych dla bardziej zaawansowane funkcje analizy partii. Jest to wymagane, aby zapewnić objętość danych reprezentatywnych dla przetwarzania wsadowego. W tym celu potoku o nazwie "PrepareSampleDataPipeline" w przepływie pracy z fabryką danych Azure jest używany do generowania wartość jednego roku sygnały symulowane vehicle i zestawu danych diagnostycznych. Kliknij przycisk [działania niestandardowego fabryki danych](http://go.microsoft.com/fwlink/?LinkId=717077) do pobrania działania DotNet niestandardowego fabryki danych rozwiązania Visual Studio dla dostosowania, w zależności od wymagań. 
+Możemy również generowania woluminów sygnały symulowane vehicle i diagnostycznych zestawu danych dla bardziej zaawansowane funkcje analizy partii. Jest to wymagane tooensure wolumin danych reprezentatywnych dla przetwarzania wsadowego. W tym celu używamy potoku o nazwie "PrepareSampleDataPipeline" w toogenerate przepływu pracy fabryki danych Azure hello wartość jednego roku sygnały symulowane vehicle i zestawu danych diagnostycznych. Kliknij przycisk [działania niestandardowego fabryki danych](http://go.microsoft.com/fwlink/?LinkId=717077) toodownload hello niestandardowego działania DotNet rozwiązania Visual Studio dla dostosowania fabryki danych zgodnie z wymaganiami. 
 
 ![Przygotowanie przykładowych danych do przepływu pracy przetwarzania wsadowego](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
 *Rysunek 7 — przygotowanie przykładowych danych do przepływu pracy przetwarzania wsadowego*
 
-Potok składa się z niestandardowych .net ADF działania, Pokaż tutaj:
+potok Hello składa się z niestandardowych .net ADF działania, Pokaż tutaj:
 
 ![Działanie PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
 *Rysunek 8 - PrepareSampleDataPipeline*
 
-Po potoku wykonuje pomyślnie i zestawu danych "RawCarEventsTable" jest oznaczona jako "Gotowe", jednego roku warto symulowane vehicle sygnałów oraz diagnostyki danych są tworzone. Zostanie wyświetlony następujący folder i plik utworzony na koncie magazynu w kontenerze "connectedcar":
+Po potoku hello wykonuje pomyślnie i zestawu danych "RawCarEventsTable" jest oznaczona jako "Gotowe", jednego roku warto symulowane vehicle sygnałów oraz diagnostyki danych są tworzone. Zobacz następujące hello utworzone na Twoim koncie magazynu w kontenerze "connectedcar" hello plików i folderów:
 
 ![Dane wyjściowe PrepareSampleDataPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
@@ -157,22 +157,22 @@ Po potoku wykonuje pomyślnie i zestawu danych "RawCarEventsTable" jest oznaczon
 
 [Rozwiązanie programu visual studio działania DotNet fabryki danych Azure przygotowania przykładowe dane](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
-## <a name="partition-the-dataset"></a>Partycja zestawu danych
-Sygnały raw vehicle częściową strukturą i zestawu danych diagnostycznych są dzielone w kroku przygotowania danych do formatu rok i miesiąc. Zamienia kwerend większą wydajność i skalowalność magazynu długoterminowego jako pierwsze konto się zapełni, włączając błędów w tryb failover z jednego obiektu blob konta do następnego tej partycji. 
+## <a name="partition-hello-dataset"></a>Zestaw danych hello partycji
+sygnały raw vehicle częściowo ustrukturyzowanych Hello i zestawu danych diagnostycznych są dzielone w kroku przygotowania danych hello na format rok i miesiąc. Tym partycjonowanie wspiera efektywniejsze wykonywanie zapytania i skalowalności magazynu długoterminowego przez włączenie błędów w tryb failover z jednego obiektu blob konta toohello obok jako pierwsze konto hello wypełnia. 
 
 >[!NOTE] 
->Ten krok w rozwiązaniu ma zastosowanie tylko do przetwarzania wsadowego.
+>Ten krok w rozwiązaniu hello jest stosowane tylko toobatch przetwarzania.
 
 Wejście i wyjście danych zarządzania danymi:
 
-* **Dane wyjściowe** (etykietą *PartitionedCarEventsTable*) ma być przechowywane przez dłuższy czas jako podstawowych / "rawest" formularza danych odbiorcy "Data Lake". 
-* **Dane wejściowe** do tego potoku będzie zazwyczaj odrzucone jako danych wyjściowych ma pełnej rozdzielczości w danych wejściowych — wystarczy znajduje (podzielona na partycje) lepiej dla dalszego wykorzystania.
+* Witaj **dane wyjściowe** (etykietą *PartitionedCarEventsTable*) toobe pozostaje długi okres czasu jako formularz podstawowych / "rawest" hello danych w powitania klienta "Data Lake". 
+* Witaj **dane wejściowe** potoku toothis zwykle będą usunięte, ponieważ dane wyjściowe hello ma toohello pełnej rozdzielczości danych wejściowych — wystarczy znajduje (podzielona na partycje) lepiej dla dalszego wykorzystania.
 
 ![Przepływ pracy zdarzenia samochodu partycji](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
 *Rysunek 10 — przepływ pracy zdarzenia samochodu partycji*
 
-Dane pierwotne jest podzielona na partycje przy użyciu działania Hive HDInsight w "PartitionCarEventsPipeline". Przykładowe dane generowane w kroku 1 rok partycjonowanego rok i miesiąc. Partycje są używane do generowania sygnałów vehicle i danych diagnostycznych dla każdego miesiąca roku (całkowita liczba partycji 12). 
+dane pierwotne Hello jest podzielona na partycje przy użyciu działania Hive HDInsight w "PartitionCarEventsPipeline". ROK i miesiąc partycjonowanego Hello przykładowych danych wygenerowanych w kroku 1 rok. partycje Hello są używane toogenerate vehicle sygnały i danych diagnostycznych dla każdego miesiąca roku (całkowita liczba partycji 12). 
 
 ![Działanie PartitionCarEventsPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
@@ -180,7 +180,7 @@ Dane pierwotne jest podzielona na partycje przy użyciu działania Hive HDInsigh
 
 ***Skryptu PartitionConnectedCarEvents Hive***
 
-Poniższy skrypt Hive o nazwie "partitioncarevents.hql" służy do partycjonowania i znajduje się w folderze "\demo\src\connectedcar\scripts" pobrany zip. 
+Witaj poniższy skrypt Hive, o nazwie "partitioncarevents.hql" służy do partycjonowania i znajduje się w folderze "\demo\src\connectedcar\scripts" hello zip hello pobrane. 
     
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -317,105 +317,105 @@ Poniższy skrypt Hive o nazwie "partitioncarevents.hql" służy do partycjonowan
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są generowane na koncie magazynu w kontenerze "connectedcar".
+Po pomyślnym wykonaniu potoku hello zapoznaj się hello następujące partycje generowane na koncie magazynu w kontenerze "connectedcar" hello.
 
 ![Dane wyjściowe podzielonym na partycje](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
 *Rysunek 12 — partycjonowanej danych wyjściowych*
 
-Dane są zoptymalizowane pod, jest bardziej łatwe w zarządzaniu i gotowa do dalszego przetwarzania, aby uzyskać wgląd w partii sformatowanego. 
+dane Hello jest zoptymalizowane, jest bardziej łatwe w zarządzaniu i gotowa do dalszego przetwarzania toogain partii bogate informacje na temat technologii. 
 
 ## <a name="data-analysis"></a>Analiza danych
-W tej sekcji zobacz temat jak połączyć usługi Azure Stream Analytics, usługi Azure Machine Learning fabryki danych Azure i usłudze Azure HDInsight dla zaawansowanej, zaawansowane analizy na vehicle kondycji i wspierającym zwyczaje. Istnieją trzy podpunkty tutaj:
+W tej sekcji, zobaczysz, jak zaawansowane toocombine Azure Stream Analytics, usługi Azure Machine Learning fabryki danych Azure i usłudze Azure HDInsight dla zaawansowanej analizy kondycji vehicle i wspierającym zwyczaje. Istnieją trzy podpunkty tutaj:
 
-1. **Machine Learning**: ta podsekcja zawiera informacje na temat eksperymentu wykrywania anomalii, która użyliśmy w tym rozwiązaniu do prognozowania pojazdów wymagających obsługi konserwacji i pojazdów wymagających odwołania z powodu problemów bezpieczeństwa.
-2. **W czasie rzeczywistym analizy**: ta podsekcja zawiera informacje dotyczące analiz w czasie rzeczywistym za pomocą język zapytań usługi analiza strumienia i operacyjnych eksperymentu uczenia maszynowego w czasie rzeczywistym za pomocą aplikacji niestandardowej.
-3. **Partii analizy**: ta podsekcja zawiera informacje dotyczące, przekształcanie i przetwarzania wsadowego danych przy użyciu usługi Azure HDInsight i usługi Azure Machine Learning operationalized przez fabryki danych Azure.
+1. **Machine Learning**: ta podsekcja zawiera informacje na temat hello eksperymentu wykrywania anomalii, użytymi w tym pojazdów toopredict rozwiązania wymagające obsługi konserwacji i pojazdów odwołania powodu toosafety problemy wymagające.
+2. **W czasie rzeczywistym analizy**: ta podsekcja zawiera informacje dotyczące analiz w czasie rzeczywistym hello przy użyciu hello język zapytań usługi analiza strumienia i operacyjnych uczenia maszynowego hello eksperymentu w czasie rzeczywistym za pomocą aplikacji niestandardowej.
+3. **Partii analizy**: ta podsekcja zawiera informacje dotyczące hello, przekształcanie i przetwarzania danych partii hello przy użyciu usługi Azure HDInsight i usługi Azure Machine Learning operationalized przez fabryki danych Azure.
 
 ### <a name="machine-learning"></a>Usługa Machine Learning
-Naszym celem jest do prognozowania pojazdów, które wymagają konserwacji lub wycofania oparte na niektórych statystyki kondycji. Firma Microsoft wprowadzać następujące założenia
+Naszym celem jest pojazdów hello toopredict, które wymagają konserwacji lub wycofania oparte na niektórych statystyki kondycji. Wykonujemy powitania po założenia
 
-* Jeśli jeden z następujących trzech warunków są spełnione, wymagają pojazdów **obsługi konserwacji**:
+* Jeśli jeden z hello następujące trzy warunki są spełnione, wymagają pojazdów hello **obsługi konserwacji**:
   
   * Brakuje opona wykorzystania
   * Brakuje wydobycie ropy naftowej aparatu
   * Aparat temperatury jest wysoka
-* Jeśli jeden z następujących warunków jest spełniony, może być pojazdów **problem bezpieczeństwa** i wymagają **odwołania**:
+* Jeśli jeden z hello następujące warunki są spełnione, może być pojazdów hello **problem bezpieczeństwa** i wymagają **odwołania**:
   
   * Aparat temperatury jest wysoka, ale brakuje poza temperatury
   * Aparat temperatury jest niska, ale poza temperatury jest wysoka
 
-Na podstawie poprzedniego wymagań, został utworzony dwóch osobnych modeli do wykrywania anomalii: jeden vehicle obsługi wykrywania i jeden do wykrywania odwołania pojazdów. W obu tych modeli wbudowanych algorytm analizy składnik główny (PCA) służy do wykrywania anomalii. 
+Na podstawie hello poprzedniej wymagań, został utworzony dwóch osobnych modeli toodetect anomalii: jeden vehicle obsługi wykrywania i jeden do wykrywania odwołania pojazdów. W obu tych modeli hello wbudowanych algorytm analizy składnik główny (PCA) służy do wykrywania anomalii. 
 
 **Model wykrywania konserwacji**
 
-Jeśli jeden z trzech wskaźniki opona wykorzystania, aparat wydobycie ropy naftowej lub temperatury aparat — spełniał stanu odpowiednich, model wykrywania konserwacji raporty anomalii. W związku z tym tylko należy wziąć pod uwagę następujące trzy zmienne podczas konstruowania modelu. W naszym eksperymentu w usłudze Azure Machine Learning, najpierw używamy **Select Columns in Dataset** modułu, aby wyodrębnić te trzy zmienne. Następnie używamy modułu wykrywania anomalii oparte na PCA do tworzenia modelu wykrywania anomalii. 
+Jeśli jeden z trzech wskaźniki opona wykorzystania, aparat wydobycie ropy naftowej lub temperatury aparat — spełniał stanu odpowiednich, model wykrywania konserwacji hello raporty anomalii. W związku z tym tylko potrzebujemy tooconsider te trzy zmienne w budynku hello modelu. W naszym eksperymentu w usłudze Azure Machine Learning, najpierw używamy **Select Columns in Dataset** tooextract modułu tych trzech zmiennych. Następnie użyć hello anomalii oparte na PCA wykrywania modułu toobuild hello anomalii wykrywania modelu. 
 
-Podmiot zabezpieczeń składnika analiza (PCA) to technikę ustalonych w uczeniu maszynowym, który można zastosować funkcji wyboru cech, klasyfikacji i wykrywania anomalii. PCA Konwertuje zestaw przypadku zawierającego prawdopodobnie skorelowane zmienne, do wartości o nazwie główne składniki. Klucza pomysł na podstawie PCA modelowania jest danych projektu na małe wymiarowej miejsca, aby funkcje i anomalie, można łatwiej zidentyfikować.
+Podmiot zabezpieczeń składnika analiza (PCA) to technikę ustalonych w uczeniu maszynowym, które mogą być zastosowane toofeature zaznaczenia, klasyfikacji i anomalii wykrywania. PCA Konwertuje zestaw przypadku zawierającego prawdopodobnie skorelowane zmienne, do wartości o nazwie główne składniki. Hello klucza informacje o tym, na podstawie PCA modelowania jest tooproject danych na małe wymiarowej miejsca, aby funkcje i anomalie, można łatwiej zidentyfikować.
 
-Dla każdego nowego danych wejściowych do modelu wykrywania wykrywanie anomalii najpierw oblicza swojej projekcji na eigenvectors, a następnie oblicza błąd znormalizowane odbudowy. Ten błąd znormalizowane jest wynik anomalii. Im wyższa błąd, więcej nietypowych wystąpienie jest. 
+Dla każdego nowego wprowadzania hello zbyt model wykrywania, wykrywanie anomalii hello najpierw oblicza swojej projekcji na powitania eigenvectors, a następnie oblicza hello znormalizowany błąd odbudowy. Ten błąd znormalizowane jest hello anomalii wynik. Hello wyższej hello błąd hello więcej nietypowe wystąpienia hello jest. 
 
-Problem wykrywania konserwacji każdy rekord jest uznawana za ustalony punktu 3-wymiarową przestrzeni opona wykorzystania, aparat wydobycie ropy naftowej i temperatury aparat współrzędnych. Aby przechwytywać anomalie te, firma Microsoft project oryginalnych danych w przestrzeni trójwymiarowej 3 na 2-wymiarową miejsca, przy użyciu PCA. W związku z tym firma Microsoft ustaw dla parametru liczby składników do użycia w PCA 2. Ten parametr odgrywa ważną rolę w stosowaniu wykrywania anomalii oparte na PCA. Po zakończeniu operacji przewidywania danych przy użyciu PCA możemy łatwiej ustalić tych nieprawidłowości.
+Hello obsługi wykrywania problem każdy rekord jest uznawana za ustalony punktu 3-wymiarową przestrzeni opona wykorzystania, aparat wydobycie ropy naftowej i temperatury aparat współrzędnych. toocapture tych nieprawidłowości możemy projektu hello oryginalne dane przestrzeni 3-wymiarową hello na 2-wymiarową miejsca, przy użyciu PCA. W związku z tym możemy ustawić parametr hello liczby składników toouse w PCA toobe 2. Ten parametr odgrywa ważną rolę w stosowaniu wykrywania anomalii oparte na PCA. Po zakończeniu operacji przewidywania danych przy użyciu PCA możemy łatwiej ustalić tych nieprawidłowości.
 
-**Model wykrywania anomalii odwołania** w modelu wykrywania anomalii odwołania używamy Select Columns in Dataset i anomalii oparte na PCA modułów wykrywania w podobny sposób. W szczególności firma Microsoft najpierw wyodrębnić, trzy - poza temperatury i szybkość temperatury aparat — zmienne przy użyciu **Select Columns in Dataset** modułu. Możemy także zmiennej szybkości ponieważ temperatury aparat zwykle są korelowane szybkości. Następnie używamy modułu wykrywania anomalii oparte na PCA do projektu danych z 3-wymiarową miejsca na miejsce 2-wymiarowej. Są spełnione kryteria odwołania i mechanizm wymaga odwołania gdy aparat temperatury i poza temperatury wysokiej negatywnie skorelowane. Za pomocą algorytmu wykrywania anomalii oparte na PCA, możemy przechwytywania po wykonaniu PCA nieprawidłowości. 
+**Model wykrywania anomalii odwołania** w model wykrywania anomalii odwołania hello używamy hello Select Columns in Dataset i anomalii oparte na PCA modułów wykrywania w podobny sposób. W szczególności firma Microsoft najpierw wyodrębnić trzy zmienne - temperatury aparatu, poza temperatury i szybkość — przy użyciu hello **Select Columns in Dataset** modułu. Przeprowadzamy szybkości hello zmiennej, ponieważ temperatury aparat hello jest zwykle skorelowane toohello szybkości. Następnie używamy anomalii oparte na PCA wykrywania modułu tooproject hello danych z 3-wymiarową obszaru hello do 2-wymiarowej. Hello odwołania kryteriami i hello vehicle wymaga odwołania gdy aparat temperatury i poza temperatury wysokiej negatywnie skorelowane. Za pomocą algorytmu wykrywania anomalii oparte na PCA, firma Microsoft przechwytywać anomalie hello po wykonaniu PCA. 
 
-Podczas uczenia modelu albo, musimy użyj normalnych danych, które nie wymaga jako dane wejściowe do uczenia modelu wykrywania anomalii oparte na PCA konserwacji lub wycofania. W eksperymencie oceniania używamy wykrywania anomalii uczonego modelu do wykrywania, czy mechanizm wymaga konserwacji lub wycofania. 
+Podczas uczenia modelu albo, potrzebujemy danych normalne toouse, które nie wymagają konserwacji lub wycofania jako model wykrywania anomalii oparte na PCA hello tootrain hello danych wejściowych. W hello oceniania eksperymentu używamy toodetect model wykrywania anomalii hello uczony czy hello vehicle wymaga konserwacji lub wycofania. 
 
 ### <a name="real-time-analysis"></a>Analiza w czasie rzeczywistym
-Następujące zapytanie SQL Stream Analytics jest używany do pobierania średnią wszystkie parametry ważny, takie jak prędkość, poziom paliwa temperatury aparatu, odczytu licznika, opona wykorzystania, aparatu wydobycie ropy naftowej i inne. Średnie są używane do wykrywania anomalii, alerty, wystawiania i określają warunki ogólnej kondycji pojazdów obsługiwane w określonym regionie i następnie skorelowany demograficznych. 
+następujące zapytanie SQL Stream Analytics Hello jest używany tooget średnią hello wszystkich hello ważny parametry, takie jak prędkość, poziom paliwa temperatury aparatu, odczytu licznika, opona wykorzystania, aparatu wydobycie ropy naftowej i inne. Witaj średnie są używane toodetect anomalii, wydawania alertów i określić hello ogólnej kondycji warunki pojazdów obsługiwane w określonym regionie i skorelowania go po toodemographics. 
 
 ![Stream Analytics zapytania do przetworzenia w czasie rzeczywistym](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
 *Rysunek 13 — zapytań usługi Stream Analytics do przetworzenia w czasie rzeczywistym*
 
-Wszystkie wartości średnie są obliczane przez TumblingWindow 3 sekundy. Użyto TubmlingWindow w takim przypadku ponieważ wymagamy przedziały czasu nienakładający, jak i ciągłe. 
+Wszystkie średnie hello są obliczane przez TumblingWindow 3 sekundy. Użyto TubmlingWindow w takim przypadku ponieważ wymagamy przedziały czasu nienakładający, jak i ciągłe. 
 
-Aby dowiedzieć się więcej na temat wszystkie funkcje "Okien" Azure Stream Analytics, kliknij przycisk [okien (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Kliknij toolearn więcej informacji na temat wszystkie funkcje "Okien" hello, w systemie Azure Stream Analytics [okien (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Prognozowanie w czasie rzeczywistym**
 
-Aplikacja jest zawarte w ramach rozwiązania, który umożliwia operacjonalizację modelu uczenia maszynowego w czasie rzeczywistym. Ta aplikacja o nazwie "RealTimeDashboardApp" jest utworzony i skonfigurowany jako część wdrożenia rozwiązania. Aplikacja wykonuje następujące działania:
+Aplikacja jest częścią modelu uczenia maszynowego hello toooperationalize rozwiązania hello w czasie rzeczywistym. Ta aplikacja o nazwie "RealTimeDashboardApp" zostało utworzone i skonfigurowane jako część wdrożenia rozwiązania hello. Aplikacja Hello wykonuje następujące hello:
 
-1. Nasłuchuje Centrum zdarzeń wystąpienia których Stream Analytics jest publikowanie zdarzenia we wzorcu stale. ![Stream Analytics zapytania do publikowania danych](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *rysunek 14 — zapytań usługi Stream Analytics do publikowania danych wyjściowych Centrum zdarzeń wystąpienia* 
+1. Wykrywa tooan Centrum zdarzeń wystąpienia których Stream Analytics jest publikowania hello zdarzeń we wzorcu stale. ![Stream Analytics zapytania do publikowania danych hello](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *rysunek 14 — zapytań usługi Stream Analytics publikowania hello tooan danych wyjściowych Centrum zdarzeń wystąpienia* 
 2. Dla każdego zdarzenia, które otrzymuje tej aplikacji: 
    
-   * Przetwarza dane przy użyciu punktu końcowego Machine Learning żądań i odpowiedzi oceniania (RR). Punkt końcowy rekordy zasobów są automatycznie publikowane jako część wdrożenia.
-   * Dane wyjściowe rekordy zasobów jest opublikowana w zestawie danych usługi Power BI za pomocą wypychania interfejsów API.
+   * Procesy hello danych przy użyciu punktu końcowego Machine Learning żądań i odpowiedzi oceniania (RR). punkt końcowy RR Hello jest automatycznie publikowany jako część wdrożenia hello.
+   * dane wyjściowe RR Hello jest wypychania hello interfejsów API usługi Power BI tooa opublikowanych w zestawie danych.
 
-Ten wzorzec jest również dotyczy scenariuszy, w których chcesz zintegrować aplikacji biznesowych (LoB) wraz z przepływem analiz w czasie rzeczywistym dla scenariuszy, takich jak alerty, powiadomienia i wiadomości.
+Ten wzorzec jest również tooscenarios dotyczy mają toointegrate aplikacji biznesowych (LoB), z przepływem analiz w czasie rzeczywistym hello, dla scenariuszy, takich jak alerty, powiadomienia i wiadomości.
 
-Kliknij przycisk [pobierania RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) Aby pobrać rozwiązanie RealtimeDashboardApp Visual Studio dostosowań. 
+Kliknij przycisk [pobierania RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) hello toodownload RealtimeDashboardApp rozwiązania Visual Studio dostosowań. 
 
-**Do wykonania aplikacji pulpitu nawigacyjnego w czasie rzeczywistym**
+**Witaj tooexecute w czasie rzeczywistym pulpitu nawigacyjnego aplikacji**
 1. Wyodrębnij i Zapisz lokalnie ![folderu RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *rysunek 16 – RealtimeDashboardApp folderu*  
-2. Uruchom aplikację RealtimeDashboardApp.exe
-3. Podaj prawidłowe poświadczenia usługi Power BI, zaloguj się i kliknij przycisk Akceptuj ![W czasie rzeczywistym pulpit nawigacyjny aplikacji logowania do usługi Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Zakończ w czasie rzeczywistym pulpit nawigacyjny aplikacji logowania do usługi Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+2. Uruchom aplikację hello RealtimeDashboardApp.exe
+3. Podaj prawidłowe poświadczenia usługi Power BI, zaloguj się i kliknij przycisk Akceptuj ![W czasie rzeczywistym pulpit nawigacyjny aplikacji logowania tooPower analizy Biznesowej](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Logowania tooPower BI Zakończ w czasie rzeczywistym pulpitu nawigacyjnego aplikacji](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
-*Rysunek 17 — RealtimeDashboardApp: Logowania do usługi Power BI*
+*Rysunek 17 — RealtimeDashboardApp: Logowania tooPower analizy Biznesowej*
 
 >[!NOTE] 
->Jeśli chcesz opróżnić zestawu danych usługi Power BI, wykonaj RealtimeDashboardApp z parametrem "flushdata": 
+>Zestaw danych usługi Power BI hello tooflush należy wykonać hello RealtimeDashboardApp z parametrem "flushdata" hello: 
 
     RealtimeDashboardApp.exe -flushdata
 
 
 ### <a name="batch-analysis"></a>Analiza partii
-Celem jest pokazanie, jak silniki Contoso korzysta z możliwości obliczeń platformy Azure o danych big data, aby uzyskać szczegółowe, bogate informacje na wzorzec, zachowanie użycia i kondycji pojazdów. Dzięki temu możliwe:
+Celem Hello jest tooshow jak Motors Contoso używa hello obliczeń platformy Azure możliwości tooharness danych big data toogain szczegółowe, bogate informacje na wzorzec, zachowanie użycia i kondycji pojazdów. Dzięki temu możliwe:
 
-* Poprawy obsługi klienta i zapewnić ich tańsze zapewniając wgląd na zwyczaje i wydajne zachowania pobudzenie paliwa
-* Zapoznaj się z wyprzedzeniem klientów i ich pobudzenie patters regulują decyzje biznesowe i podaj najciekawszych klasy produktów i usług
+* Udoskonalanie powitania klienta i zapewnić ich tańsze zapewniając wgląd na zwyczaje i wydajne zachowania pobudzenie paliwa
+* Dowiedz się więcej o klientów i ich pobudzenie decyzje biznesowe toogovern patters aktywnego i podaj hello najlepiej w klasie produktów i usług
 
-W tym rozwiązaniu możemy przeznaczonych następujące metryki:
+W tym rozwiązaniu możemy przeznaczonych hello następujące metryki:
 
-1. **Agresywna zwiększają zachowanie**: identyfikuje trend modeli, lokalizacje pobudzenie warunki i czas roku, aby uzyskać wgląd w bliskiej schematy. Silniki contoso można używać tych insights kampanii marketingowych, nowe funkcje spersonalizowane i ubezpieczenia opartej na użyciu.
-2. **Paliwa wydajne działanie pobudzenie**: identyfikuje trend modeli, lokalizacje pobudzenie warunki i czas roku, aby uzyskać szczegółowe informacje na efektywne schematy paliwa. Silniki contoso można używać tych insights kampanii, zwiększają nowe funkcje i aktywne podlegające sterowniki kosztów przyjazną zwyczaje pobudzenie wejścia w życie i środowiska. 
-3. **Odwołaj modele**: identyfikuje modele wymagających odwołań przez operacyjnych eksperymentu uczenia maszynowego wykrywania anomalii
+1. **Agresywna zwiększają zachowanie**: identyfikuje trend hello hello modeli, lokalizacje pobudzenie warunki i czas hello roku toogain wgląd w bliskiej schematy. Silniki contoso można używać tych insights kampanii marketingowych, nowe funkcje spersonalizowane i ubezpieczenia opartej na użyciu.
+2. **Paliwa wydajne działanie pobudzenie**: identyfikuje trend hello hello modeli, lokalizacje pobudzenie warunki i czas hello roku toogain rozeznanie wydajne schematy paliwa. Silniki contoso można używać tych insights kampanii, zwiększają nowe funkcje i aktywne raportowania toohello sterowniki kosztów obowiązującej oraz środowisko przyjazne zwyczaje jazdy. 
+3. **Odwołaj modele**: identyfikuje modele wymagających odwołań przez operacyjnych hello eksperymentu uczenia maszynowego wykrywania anomalii
 
-Oto do szczegółów każdego z tych metryk
+Oto do hello szczegóły każdego z tych metryk
 
 **Agresywne pobudzenie wzorca**
 
-Sygnały vehicle podzielonym na partycje i danych diagnostycznych są przetwarzane w potoku o nazwie "AggresiveDrivingPatternPipeline" przy użyciu Hive w celu określenia modele, lokalizacji vehicle, warunki jazdy i inne parametry który wykazuje zwiększają aktywnego wzorzec.
+Hello sygnały vehicle podzielona na partycje i danych diagnostycznych są przetwarzane w potoku hello o nazwie "AggresiveDrivingPatternPipeline" przy użyciu modeli hello toodetermine Hive, lokalizacji, vehicle, zwiększają warunki oraz innych parametrów, które wykazuje aktywnego wzorzec jazdy.
 
 ![Agresywne pobudzenie przepływu pracy wzorzec](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
 *rysunek 18 — agresywne pobudzenie przepływu pracy wzorca*
@@ -423,7 +423,7 @@ Sygnały vehicle podzielonym na partycje i danych diagnostycznych są przetwarza
 
 ***Agresywne kierowania zapytań Hive wzorca***
 
-Skryptu Hive o nazwie "aggresivedriving.hql" używany do analizowania aktywnego wzorca warunku jazdy znajduje się w folderze "\demo\src\connectedcar\scripts" zip pobranego. 
+Hello skryptu Hive o nazwie "aggresivedriving.hql" używany do analizowania aktywnego wzorca warunku jazdy znajduje się w folderze "\demo\src\connectedcar\scripts" hello pobrane zip. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -483,9 +483,9 @@ Skryptu Hive o nazwie "aggresivedriving.hql" używany do analizowania aktywnego 
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
 
-Kombinacja transmisji koło zębate pozycji w vehicle, stan szkła hamulca i szybkość używa do wykrywania reckless/agresywne działanie pobudzenie hamowania wzorzec dużą prędkością. 
+Używa kombinacji hello vehicle w pozycji koło zębate transmisji, hamulca szkła stanu i szybkość toodetect reckless/agresywne zwiększają działanie hamowania wzorzec dużą prędkością. 
 
-Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są generowane na koncie magazynu w kontenerze "connectedcar".
+Po pomyślnym wykonaniu potoku hello zapoznaj się hello następujące partycje generowane na koncie magazynu w kontenerze "connectedcar" hello.
 
 ![Dane wyjściowe AggressiveDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
@@ -493,7 +493,7 @@ Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są 
 
 **Efektywne wzorzec pobudzenie paliwa**
 
-Sygnały vehicle podzielonym na partycje i danych diagnostycznych są przetwarzane w potoku o nazwie "FuelEfficientDrivingPatternPipeline". Gałąź służy do określenia modele, lokalizacji vehicle, warunki jazdy i inne właściwości, które wykazują paliwa wydajne pobudzenie wzorzec.
+Hello sygnały vehicle podzielona na partycje i danych diagnostycznych są przetwarzane w potoku hello o nazwie "FuelEfficientDrivingPatternPipeline". Gałąź jest używane toodetermine hello modeli, lokalizacji vehicle, pobudzenie warunki i inne właściwości, które wykazują paliwa wydajne pobudzenie wzorca.
 
 ![Wzorzec pobudzenie obniżające zużycie paliwa](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
@@ -501,7 +501,7 @@ Sygnały vehicle podzielonym na partycje i danych diagnostycznych są przetwarza
 
 ***Paliwa wydajne pobudzenie wzorzec zapytań Hive***
 
-Skryptu Hive o nazwie "fuelefficientdriving.hql" używany do analizowania aktywnego wzorca warunku jazdy znajduje się w folderze "\demo\src\connectedcar\scripts" zip pobranego. 
+Hello skryptu Hive o nazwie "fuelefficientdriving.hql" używany do analizowania aktywnego wzorca warunku jazdy znajduje się w folderze "\demo\src\connectedcar\scripts" hello pobrane zip. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -561,9 +561,9 @@ Skryptu Hive o nazwie "fuelefficientdriving.hql" używany do analizowania aktywn
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-Używa kombinacji pozycji koło zębate transmisji vehicle w, stan szkła hamulca, szybkości, akceleratora pedał wykryć paliwa wydajne pobudzenie działanie przyspieszenie hamowania i szybkości wzorce. 
+Wykorzystuje kombinację hello vehicle w pozycji koło zębate transmisji, stan szkła hamulca szybkość i paliwa toodetect szkła pozycji akceleratora wydajne działanie pobudzenie oparte na przyspieszenie hamowania, oraz przyspieszyć wzorce. 
 
-Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są generowane na koncie magazynu w kontenerze "connectedcar".
+Po pomyślnym wykonaniu potoku hello zapoznaj się hello następujące partycje generowane na koncie magazynu w kontenerze "connectedcar" hello.
 
 ![Dane wyjściowe FuelEfficientDrivingPatternPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
@@ -571,19 +571,19 @@ Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są 
 
 **Operacje przewidywania dla odwołania**
 
-Eksperymentu uczenia maszynowego jest udostępniane i opublikowane jako usługi sieci web jako część wdrożenia rozwiązania. Punkt końcowy oceniania partii jest wykorzystywana w tym przepływie pracy, zarejestrowany jako usługa połączone fabryki danych i operationalized przy użyciu danych fabryki działanie wsadowego oceniania.
+eksperymentu uczenia maszynowego Hello jest udostępniane i opublikowane jako usługi sieci web jako część wdrożenia rozwiązania hello. Witaj wsadowego oceniania punkt końcowy jest wykorzystywana w tym przepływie pracy, zarejestrowany jako usługa połączone fabryki danych i operationalized przy użyciu danych fabryki działanie wsadowego oceniania.
 
 ![Punkt końcowy Machine Learning](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
 *Rysunek 22 — punktu końcowego uczenia maszynowego zarejestrowany jako połączonej usługi z fabryki danych*
 
-Zarejestrowanej połączonej usługi jest używany w DetectAnomalyPipeline punkty danych za pomocą modelu wykrywania anomalii. 
+Witaj zarejestrowanej połączonej usługi jest używany w hello DetectAnomalyPipeline tooscore hello danych przy użyciu modelu wykrywania anomalii hello. 
 
 ![Learning działanie wsadowego oceniania w fabryce danych komputera](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
 
 *Rysunek 23 — działanie usługi Azure Machine Learning wsadowego oceniania z fabryki danych* 
 
-Istnieje kilka czynności wykonywanych w tym potoku w celu przygotowania danych, dzięki czemu mogą być operationalized z wsadowego oceniania usługi sieci web. 
+Istnieje kilka czynności wykonywanych w tym potoku w celu przygotowania danych, dzięki czemu mogą być operationalized z hello wsadowego oceniania usługi sieci web. 
 
 ![DetectAnomalyPipeline do prognozowania pojazdów wymagających odwołań](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
 
@@ -591,7 +591,7 @@ Istnieje kilka czynności wykonywanych w tym potoku w celu przygotowania danych,
 
 ***Zapytanie Hive wykrywania anomalii***
 
-Po zakończeniu oceny działanie HDInsight służy do przetwarzania i agregowanie danych, które są skategoryzowane jako anomalii przez model z wynikiem prawdopodobieństwo: 0,60 lub nowszej.
+Po zakończeniu oceniania hello działanie HDInsight jest używane tooprocess i hello agregacji danych, które są sklasyfikowane jako anomalii przez model hello wynik prawdopodobieństwa: 0,60 lub nowszego.
 
     DROP TABLE IF EXISTS CarEventsAnomaly; 
     CREATE EXTERNAL TABLE CarEventsAnomaly 
@@ -651,7 +651,7 @@ Po zakończeniu oceny działanie HDInsight służy do przetwarzania i agregowani
     where RecallLabel = '1' AND RecallProbability >= '0.60'
 
 
-Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są generowane na koncie magazynu w kontenerze "connectedcar".
+Po pomyślnym wykonaniu potoku hello zapoznaj się hello następujące partycje generowane na koncie magazynu w kontenerze "connectedcar" hello.
 
 ![Dane wyjściowe DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
@@ -660,28 +660,28 @@ Po pomyślnym wykonaniu potoku zapoznaj się następujące partycje, które są 
 ## <a name="publish"></a>Publikowanie
 
 ### <a name="real-time-analysis"></a>Analiza w czasie rzeczywistym
-Jeden z zapytania w zadaniu Stream Analytics publikuje zdarzenia w danych wyjściowych Centrum zdarzeń wystąpienia. 
+Jedną z hello kwerend w zadaniu Stream Analytics hello publikuje dane wyjściowe tooan zdarzenia hello wystąpienia Centrum zdarzeń. 
 
-![Publikuje dane wyjściowe zadania usługi analiza strumienia wystąpienia Centrum zdarzeń](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Zadania usługi analiza strumienia publikuje dane wyjściowe tooan wystąpienia Centrum zdarzeń](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*Rysunek 26 — publikuje dane wyjściowe zadania usługi analiza strumienia wystąpienia Centrum zdarzeń*
+*Rysunek 26 — zadanie usługi Stream Analytics publikuje dane wyjściowe tooan wystąpienia Centrum zdarzeń*
 
-![Stream Analytics zapytania do publikowania danych wyjściowych Centrum zdarzeń wystąpienia](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![Stream Analytics query toopublish toohello output wystąpień Centrum zdarzeń](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*Rysunek 27 — zapytań usługi Stream Analytics do publikowania danych wyjściowych Centrum zdarzeń wystąpienia*
+*Rysunek 27 — toohello toopublish zapytań usługi Stream Analytics output wystąpień Centrum zdarzeń*
 
-Ten strumień zdarzeń jest używany przez RealTimeDashboardApp zawarty w rozwiązaniu. Ta aplikacja korzysta z usługą sieci web Machine Learning żądań i odpowiedzi w czasie rzeczywistym oceniania i publikuje dane wynikowe z zestawem danych usługi Power BI zużycia. 
+Ten strumień zdarzeń jest używany przez powitalne RealTimeDashboardApp zawartych w rozwiązaniu hello. Ta aplikacja korzysta z usługi sieci web Machine Learning żądań i odpowiedzi hello wyników w czasie rzeczywistym i publikuje zestawu danych usługi Power BI tooa dane wynikowe hello zużycia. 
 
 ### <a name="batch-analysis"></a>Analiza partii
-Wyniki partii i przetwarzanie w czasie rzeczywistym są publikowane w tabelach bazy danych SQL Azure zużycia. Azure SQL Server, bazy danych i tabele są tworzone automatycznie w ramach skrypt instalacyjny. 
+wyniki Hello hello partii i przetwarzanie w czasie rzeczywistym są tabele bazy danych SQL Azure opublikowanych toohello zużycia. Hello Azure SQL Server, bazy danych i tabele hello są tworzone automatycznie w ramach hello w skrypcie Instalatora. 
 
-![Kopiuj wyniki do przepływu pracy składnicy danych przetwarzania wsadowego](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+![Przepływ pracy składnicy toodata skopiować wyniki przetwarzania wsadowego](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-*Rysunek 28 — kopiowania wyniki do przepływu pracy składnicy danych przetwarzania wsadowego*
+*Rysunek 28 — przetwarzania przepływu składnicy toodata kopiowania wyników wsadowego*
 
-![Zadania usługi analiza strumienia publikuje do składnicy danych](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![Zadania usługi analiza strumienia publikuje składnicy toodata](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-*Rysunek 29 — analiza strumienia zadania publikuje do składnicy danych*
+*Rysunek 29 — zadanie usługi Stream Analytics publikuje składnicy toodata*
 
 ![Ustawienie składnicy danych w zadaniu Stream Analytics](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
@@ -690,12 +690,12 @@ Wyniki partii i przetwarzanie w czasie rzeczywistym są publikowane w tabelach b
 ## <a name="consume"></a>Używanie
 Usługi Power BI pozwala to rozwiązanie sformatowanego pulpitu nawigacyjnego i analizy predykcyjnej wizualizacji danych w czasie rzeczywistym. 
 
-Kliknij tutaj, aby uzyskać szczegółowe instrukcje dotyczące konfigurowania raportów usługi Power BI i pulpitu nawigacyjnego. Końcowy pulpitu nawigacyjnego wygląda następująco:
+Kliknij tutaj, aby uzyskać szczegółowe instrukcje dotyczące konfigurowania raportów usługi Power BI hello i hello pulpitu nawigacyjnego. pulpit nawigacyjny końcowego Hello wygląda następująco:
 
 ![Pulpit nawigacyjny programu Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
 *Rysunek 31 - pulpitu nawigacyjnego programu Power BI*
 
 ## <a name="summary"></a>Podsumowanie
-Ten dokument zawiera szczegółowe przechodzenia z rozwiązania analizy Telemetrii pojazdów. Ten wzorzec architektury lambda, dla których są wyświetlane w czasie rzeczywistym i partii analizy w usłudze prognoz i akcji. Ten wzorzec dotyczy szeroką gamę przypadków użycia, które wymagają aktywnej ścieżki (w czasie rzeczywistym) i analiza zimnych ścieżki (partii). 
+Ten dokument zawiera szczegółowe przechodzenia z hello rozwiązania analizy Telemetrii pojazdów. Ten wzorzec architektury lambda, dla których są wyświetlane w czasie rzeczywistym i partii analizy w usłudze prognoz i akcji. Ten wzorzec stosuje tooa szeroką gamę przypadków użycia, które wymagają aktywnej ścieżki (w czasie rzeczywistym) i analiza zimnych ścieżki (partii). 
 

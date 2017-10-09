@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bcfc710861b19d8f86f094ced0d1c691e0911f08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>Więcej informacji na temat funkcji w wersji zapoznawczej
-W tym temacie opisano sposób użycia funkcji obecnie w wersji zapoznawczej.
+W tym temacie opisano, jak toouse obecnie funkcje w wersji zapoznawczej.
 
 ## <a name="group-writeback"></a>Zapisywanie zwrotne grup
-Opcja dla zapisu zwrotnego grup w funkcji opcjonalnych służy do zapisywania zwrotnego **grupy usługi Office 365** do lasu za pomocą programu Exchange jest zainstalowany. To jest grupa, która zawsze jest zarządzany w chmurze. Jeśli masz lokalnego programu Exchange, następnie można napisać ponownie te grupy do lokalnego, wysyłanie i odbieranie wiadomości e-mail z następujących grup użytkowników z skrzynki pocztowej programu Exchange lokalnie.
+Opcja powitania dla zapisu zwrotnego grup w funkcji opcjonalnych umożliwia toowriteback **grupy usługi Office 365** tooa lasu za pomocą programu Exchange jest zainstalowany. To jest grupa, która zawsze jest zarządzany w chmurze hello. Jeśli masz lokalnego programu Exchange, następnie można napisać ponownie lokalnych tooon tych grup, wysyłanie i odbieranie wiadomości e-mail z następujących grup użytkowników z skrzynki pocztowej programu Exchange lokalnie.
 
-Więcej informacji na temat grupy usługi Office 365 i sposobu ich użycia można znaleźć [tutaj](http://aka.ms/O365g).
+Więcej informacji na temat grupy usługi Office 365 i jak toouse je można znaleźć [tutaj](http://aka.ms/O365g).
 
-Grupy usługi Office 365 jest reprezentowany jako grupy dystrybucji w lokalnej instalacji usług AD DS. Z lokalnym programem Exchange server musi być na aktualizację zbiorczą programu Exchange 2013 8 (wydane w marca 2015) lub programów Exchange 2016 rozpoznać ten nowy typ grupy.
+Grupy usługi Office 365 jest reprezentowany jako grupy dystrybucji w lokalnej instalacji usług AD DS. Z lokalnym programem Exchange server musi być na aktualizację zbiorczą programu Exchange 2013 8 (wydane w marca 2015) lub programów Exchange 2016 toorecognize ten nowy typ grupy.
 
-**Informacje w wersji zapoznawczej**
+**Informacje o wersji zapoznawczej hello**
 
-* Atrybut książki adresu jest obecnie pusta w wersji zapoznawczej. Bez tego atrybutu grupy nie jest widoczny w globalnej. Najprostszym sposobem wypełniania tego atrybutu jest użycie polecenia cmdlet programu PowerShell usługi Exchange `update-recipient`.
-* Tylko lasy ze schematem Exchange są prawidłowe elementy docelowe dla grup. Jeśli Exchange nie został wykryty, zapisu zwrotnego grup nie jest możliwe do włączenia.
-* Tylko jeden las wdrożenia organizacji programu Exchange są obecnie obsługiwane. Jeśli masz więcej niż jednej organizacji do lokalnego programu Exchange, należy lokalnego rozwiązania usługi GALSync dla tych grup, które mają być widoczne w Twojej innych lasach.
-* Nie obsługuje funkcji zapisywania zwrotnego grup, grup zabezpieczeń lub grup dystrybucji.
+* Atrybut książki adresu Hello obecnie jest pusta w wersji zapoznawczej hello. Bez tego atrybutu hello grupy nie jest widoczny w hello usługi GAL. Najprostszym sposobem toopopulate Hello ten atrybut to polecenie cmdlet programu PowerShell usługi Exchange hello toouse `update-recipient`.
+* Tylko lasy ze schematem Exchange hello są prawidłowe elementy docelowe dla grup. Jeśli wykryto nie programu Exchange, następnie zapisu zwrotnego grup nie jest możliwe tooenable.
+* Tylko jeden las wdrożenia organizacji programu Exchange są obecnie obsługiwane. Jeśli masz więcej niż jednej organizacji do lokalnego programu Exchange, wymagana będzie używane rozwiązanie lokalne usługi GALSync dla tych grup tooappear w sieci w innych lasach.
+* funkcji zapisywania zwrotnego grupy Hello nie obsługuje grup zabezpieczeń lub grup dystrybucji.
 
 > [!NOTE]
-> Subskrypcja usługi Azure AD Premium jest wymagana dla zapisu zwrotnego grup.
+> Subskrypcja tooAzure AD — wersja Premium jest wymagana dla zapisu zwrotnego grup.
 > 
 >
 
 ## <a name="user-writeback"></a>Zapisywanie zwrotne użytkowników
 > [!IMPORTANT]
-> Funkcja zapisywania zwrotnego użytkowników w wersji zapoznawczej został usunięty w sierpnia 2015 aktualizacji do programu Azure AD Connect. Jeśli zostanie włączona, należy wyłączyć tę funkcję.
+> Witaj użytkownika funkcja zapisywania zwrotnego w wersji zapoznawczej została usunięta w hello sierpnia 2015 aktualizacja tooAzure AD Connect. Jeśli zostanie włączona, należy wyłączyć tę funkcję.
 >
 >
 

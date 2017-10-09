@@ -1,6 +1,6 @@
 ---
-title: "Lista zgodności usługi Azure AD z usługami federacyjnymi"
-description: "Ta strona zawiera dostawców tożsamości innych firm, które mogą służyć do implementowania rejestracji jednokrotnej."
+title: "listę zgodności federacyjnych aaaAzure AD"
+description: "Ta strona zawiera innych niż Microsoft dostawców tożsamości, które mogą być używane tooimplement logowanie jednokrotne."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ac2f9ad324c8ca6b587b73ea465426ad6b074b03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista zgodności usługi Azure AD z usługami federacyjnymi
-Usługa Azure Active Directory zapewnia jednokrotnego na i rozszerzone zabezpieczenia dostępu do aplikacji dla usługi Office 365 i innych usług Online firmy Microsoft dla implementacji tylko w chmurze i hybrydowa bez konieczności dowolnego rozwiązania innej firmy niż Microsoft. Usługi Office 365, takich jak większość usług Online firmy Microsoft, jest zintegrowany z usługą Azure Active Directory usług katalogowych, uwierzytelniania i autoryzacji. Usługa Azure Active Directory udostępnia jednokrotnego do tysięcy aplikacji SaaS i lokalnej aplikacji sieci web. Zobacz galerii aplikacji usługi Azure Active Directory dla obsługiwanych aplikacji SaaS.
+Usługa Azure Active Directory zapewnia jednokrotnego na i rozszerzone zabezpieczenia dostępu do aplikacji dla usługi Office 365 i innych usług Online firmy Microsoft dla implementacji tylko w chmurze i hybrydowa bez konieczności dowolnego rozwiązania innej firmy niż Microsoft. Usługi Office 365, takich jak większość usług Online firmy Microsoft, jest zintegrowany z usługą Azure Active Directory usług katalogowych, uwierzytelniania i autoryzacji. Usługa Azure Active Directory udostępnia również toothousands znak jednej aplikacji SaaS i lokalnej aplikacji sieci web. Zobacz hello galerii aplikacji usługi Azure Active Directory dla obsługiwanych aplikacji SaaS.
 
-W przypadku organizacji, które zainwestowały w rozwiązaniach federacyjnej innych niż Microsoft w tym temacie zawiera wskazówki dotyczące konfigurowania rejestracji jednokrotnej dla użytkowników usługi Active Directory systemu Windows Server z usługami Online firmy Microsoft przy użyciu dostawcy tożsamości innych firm z "Azure Active Directory federation zgodności"poniższej listy. 
+W przypadku organizacji, które zainwestowały w rozwiązaniach federacyjnej innych niż Microsoft w tym temacie zawiera wskazówki dotyczące konfigurowania rejestracji jednokrotnej dla użytkowników usługi Active Directory systemu Windows Server z usługami Online firmy Microsoft przy użyciu dostawcy tożsamości innych firm z hello "Azure Active Directory listę zgodności federacyjnych" poniżej. 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
 [Grupa komputerów Oxford](http://oxfordcomputergroup.com/), innych firm, w imieniu firmy Microsoft, przetestowane jednej funkcji logowania jednokrotnego przy użyciu dostawcy tożsamości innych firm z zestawem typowe przypadki użycia z usługą Azure Active Directory.
@@ -31,9 +31,9 @@ W przypadku organizacji, które zainwestowały w rozwiązaniach federacyjnej inn
 Informacji na temat jak wprowadzasz dostawcy tożsamości innych firm przedstawione w tym miejscu, skontaktuj się z Oxford grupy komputerów w [ idp@oxfordcomputergroup.com ](mailto:idp@oxfordcomputergroup.com).
 
 > [!IMPORTANT]
-> Grupy komputerów Oxford przetestowane tylko funkcje federacyjnego tych pojedynczego scenariuszy logowania jednokrotnego. Grupa komputerów Oxford nie wykonał badań, synchronizacja, uwierzytelnianie dwuskładnikowe, itp. składniki te pojedynczego scenariusze logowania jednokrotnego.
+> Grupy komputerów Oxford przetestowane tylko funkcje federacyjnego hello tych pojedynczego scenariuszy logowania jednokrotnego. Grupa komputerów Oxford nie wykonał badań hello synchronizacji, uwierzytelnianie dwuskładnikowe, itp. składniki te pojedynczego scenariusze logowania jednokrotnego.
 > 
-> Korzystanie z logowania za pomocą alternatywnego Identyfikatora do głównej nazwy użytkownika również nie został przetestowany w tym programie.
+> Również używać logowania tooUPN alternatywnego Identyfikatora nie został przetestowany w tym programie.
 > 
 > 
 
@@ -64,15 +64,15 @@ Informacji na temat jak wprowadzasz dostawcy tożsamości innych firm przedstawi
 
 
 > [!IMPORTANT]
-> Ponieważ te produkty innych firm, firma Microsoft nie zapewnia obsługi wdrażania, konfiguracji, rozwiązywania problemów i najlepsze rozwiązania w zakresie, itp. problemów i pytania dotyczące tych dostawców tożsamości. Do obsługi i pytania dotyczące tych dostawców tożsamości skontaktuj się bezpośrednio z obsługiwanych stron trzecich.
+> Ponieważ te produkty innych firm, firma Microsoft nie zapewnia obsługi hello wdrażania, konfiguracji, rozwiązywania problemów i najlepsze rozwiązania w zakresie, itp. problemów i pytania dotyczące tych dostawców tożsamości. Do obsługi i pytania dotyczące tych dostawców tożsamości skontaktuj się bezpośrednio z stron trzecich hello obsługiwane.
 > 
-> Ci dostawcy tożsamości innych firm zostały przetestowane na współdziałanie z usługami w chmurze firmy Microsoft tylko protokoły WS-Trust i WS-Federation. Testowanie nie obejmują przy użyciu protokołu SAML.
+> Ci dostawcy tożsamości innych firm zostały przetestowane na współdziałanie z usługami w chmurze firmy Microsoft tylko protokoły WS-Trust i WS-Federation. Testowanie nie obejmują przy użyciu protokołu SAML hello.
 > 
 
 
 ## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
-Poniżej przedstawiono scenariusz macierz obsługi dla tego działania logowania jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to środowisko logowania: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji o korzystaniu z usługi Azure Active Directory z
 
 ## <a name="authanvil-single-sign-on-45"></a>AuthAnvil logowania jednokrotnego 4.5
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Aby uzyskać więcej informacji, zobacz [AuthAnvil rejestracji jednokrotnej.](ht
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP z wersja Menedżera zasad dostępu BIG-IP 11.3 x — 11, 6 x
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -110,11 +110,11 @@ Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotn
 
 Aby uzyskać więcej informacji na temat Menedżera zasad dostępu BIG-IP, zobacz [Menedżera zasad dostępu BIG-IP.](https://f5.com/products/modules/access-policy-manager) 
 
-Instrukcje Menedżera zasad dostępu BIG-IP na temat sposobu konfigurowania tego STS w celu zapewnienia jednego środowisko logowania użytkowników Active Directory, Pobierz plik pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
+Witaj Menedżera zasad dostępu BIG-IP instrukcje dotyczące sposobu tooconfigure tego STS tooprovide hello środowisko rejestracji jednokrotnej tooyour użytkownicy usługi Active Directory, Pobierz hello pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
 
 ## <a name="bitglass"></a>BitGlass
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji na temat BitGlass zobacz [BitGlass](http://www.b
 
 ## <a name="ca-secure-cloud"></a>Chmura bezpiecznego urzędu certyfikacji
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ Aby uzyskać więcej informacji o chmurze Secure urzędu certyfikacji, zobacz [u
 
 ## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>Urząd certyfikacji SiteMinder 12.52 SP1 zbiorczą w wersji 4
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -150,7 +150,7 @@ Aby uzyskać więcej informacji na temat SiteMinder urzędu certyfikacji, zobacz
 
 ## <a name="centrify"></a>Centrify
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -162,7 +162,7 @@ Aby uzyskać więcej informacji o Centrify, zobacz [Centrify](http://www.centrif
 
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell jeden v7.1 Menedżer dostępu do tożsamości chmury
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -172,11 +172,11 @@ Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotn
 
 Aby uzyskać więcej informacji o Dell jednej tożsamości chmury Menedżera dostępu, zobacz [Menedżer dostępu do chmury co tożsamości Dell](http://software.dell.com/products/cloud-access-manager).
 
- Aby uzyskać instrukcje dotyczące konfigurowania tej usługi STS zapewnienie jednej środowisko logowania do sieci użytkowników usługi Office 365, zobacz [skonfigurowania użytkowników usługi Office 365](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
+ Instrukcje hello tooconfigure tej usługi STS tooprovide hello środowisko rejestracji jednokrotnej tooyour użytkowników usługi Office 365, zobacz temat [skonfigurowania użytkowników usługi Office 365](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
 
 ## <a name="digitalpersona-composite-authentication"></a>Uwierzytelnianie złożone DigitalPersona  
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -189,7 +189,7 @@ Aby uzyskać więcej informacji, zobacz [uwierzytelniania złożonego DigitalPer
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>Menedżer tożsamości 6.2.2 federacyjnych IBM Tivoli
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -201,7 +201,7 @@ Aby uzyskać więcej informacji na temat IBM Tivoli federacyjnych Identity Manag
 
 ## <a name="icewall-federation-version-30"></a>IceWall Federation w wersji 3.0
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ Aby uzyskać więcej informacji na temat IceWall federacyjnego, zobacz [IceWall 
 
 ## <a name="memority"></a>Memority
 
-Poniżej przedstawiono scenariusz macierz obsługi dla tego działania logowania jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to środowisko logowania: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Aby uzyskać więcej informacji o używaniu Memority zobacz [Memority](http://ww
 
 ## <a name="netiq-access-manager-4x"></a>Menedżer dostępu do NetIQ 4.x
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Aby uzyskać więcej informacji, zobacz [Menedżer dostępu do NetIQ](https://ww
 
 ## <a name="okta"></a>Usługi okta
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -250,7 +250,7 @@ Aby uzyskać więcej informacji na temat usługi Okta, zobacz [usługi Okta](htt
 
 ## <a name="onelogin"></a>OneLogin
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -262,7 +262,7 @@ Aby uzyskać więcej informacji o OneLogin, zobacz [OneLogin](https://www.onelog
 
 ## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Usługi federacyjne serwera wirtualnego tożsamości optymalne IDM
 
-Poniżej przedstawiono Scenariusz ten pojedynczy jednokrotnego macierz obsługi:
+następujące Hello hello macierz obsługi Scenariusz ten pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ Poniżej przedstawiono Scenariusz ten pojedynczy jednokrotnego macierz obsługi:
 | Rozbudowane aplikacje klienckie, takie jak Lync subskrypcji pakietu Office, CRM |Obsługiwane |Zintegrowane uwierzytelnianie systemu Windows |
 | Bogate w wiadomości e-mail klientów, takich jak Outlook i programu ActiveSync |Obsługiwane |
 
-Dla więcej informacji na temat dostępu klienta zasady zobacz [ograniczanie dostępu do pakietu Office 365 usługi na podstawie lokalizacji klienta](https://technet.microsoft.com/library/hh526961.aspx).
+Aby uzyskać więcej informacji o kliencie Zobacz zasady dostępu [tooOffice ograniczanie dostępu do usługi 365 oparte na powitania lokalizacji powitania klienta](https://technet.microsoft.com/library/hh526961.aspx).
 
 
 
@@ -278,7 +278,7 @@ Dla więcej informacji na temat dostępu klienta zasady zobacz [ograniczanie dos
 
 ## <a name="pingfederate-611-72-8x"></a>PingFederate 6.11, 7.2, 8.x
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -286,7 +286,7 @@ Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotn
 | Rozbudowane aplikacje klienckie, takie jak Lync subskrypcji pakietu Office, CRM |Obsługiwane |Brak |
 | Bogate w wiadomości e-mail klientów, takich jak Outlook i programu ActiveSync |Obsługiwane |Brak |
 
-PingFederate instrukcje dotyczące konfigurowania tej usługi STS zapewnienie jednej środowisko logowania jednokrotnego dla użytkowników usługi Active Directory Zobacz jedną z następujących czynności: 
+Hello PingFederate instrukcje jak tooconfigure tej usługi STS tooprovide hello rejestracji jednokrotnej wystąpić tooyour użytkowników usługi Active Directory, zobacz jedną z następujących hello: 
 
 - [PingFederate 6.11](http://go.microsoft.com/fwlink/?LinkID=266321)
 - [PingFederate 7.2](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
@@ -294,7 +294,7 @@ PingFederate instrukcje dotyczące konfigurowania tej usługi STS zapewnienie je
 
 ## <a name="radiantone-cfs-30"></a>RadiantOne CFS 3.0
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -306,7 +306,7 @@ Aby uzyskać więcej informacji na temat RadiantOne CFS, zobacz [RadiantOne CFS]
 
 ## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -318,7 +318,7 @@ Aby uzyskać więcej informacji, zobacz [Sailpoint IdentityNow](https://www.sail
 
 ## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego: 
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego: 
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -343,7 +343,7 @@ Aby uzyskać więcej informacji o SecureAuth, zobacz [SecureAuth IdP](http://go.
 
 ## <a name="signgo-53"></a>Zaloguj się i przejdź 5.3
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -351,11 +351,11 @@ Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotn
 | Rozbudowane aplikacje klienckie, takie jak Lync subskrypcji pakietu Office, CRM |Obsługiwane |Brak |
 | Bogate w wiadomości e-mail klientów, takich jak Outlook i programu ActiveSync |Obsługiwane |Brak |
 
-Znak & go 5.3 obsługuje uwierzytelnianie Kerberos za pomocą konfiguracji kontrakt protokołu Kerberos.  Aby uzyskać pomoc w przypadku tej konfiguracji, skontaktuj się z Ilex lub wyświetlić przewodnik konfiguracji [znak & go](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Znak & go 5.3 obsługuje uwierzytelnianie Kerberos za pomocą konfiguracji kontrakt protokołu Kerberos.  Aby uzyskać pomoc w przypadku tej konfiguracji, skontaktuj się z widoku lub Ilex przewodnik konfiguracji hello [znak & go](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 ## <a name="softbank-technology-online-service-gate"></a>Brama usługi Online SoftBank technologii
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |
@@ -367,7 +367,7 @@ Aby uzyskać więcej informacji na temat technologii SoftBank Online bramy usłu
 
 ## <a name="vmware-workspace-one"></a>Obszar roboczy VMware co
 
-Poniżej przedstawiono scenariusz macierzy obsługi tego pojedynczego jednokrotnego:
+następujące Hello jest macierzy obsługi scenariusza hello to pojedynczy jednokrotnego:
 
 | Klient | Pomoc techniczna | Wyjątki |
 | --- | --- | --- |

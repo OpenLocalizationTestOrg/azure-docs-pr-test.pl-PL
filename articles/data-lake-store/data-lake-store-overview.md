@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi Azure Data Lake Store | Microsoft Docs"
-description: "Dowiedz się, czym jest usługa Azure Data Lake Store i dlaczego jest lepsza od innych magazynów danych"
+title: "aaaOverview usługi Azure Data Lake Store | Dokumentacja firmy Microsoft"
+description: "Informacje o funkcjach usługi Azure Data Lake Store i hello wartość, która jest lepsza od innych magazynów danych"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,91 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 1cea19f0db0e1e0cd8deb6de6a8152adde1b579b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5a60a6b86a51c44647cf4ee168fb333d1c37b1b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Omówienie usługi Azure Data Lake Store
-Azure Data Lake Store to repozytorium w hiperskali obsługujące całe przedsiębiorstwo na potrzeby obciążeń analizy dużych ilości danych (big data). Usługa Azure Data Lake umożliwia przechwytywanie danych dowolnego typu, o dowolnym rozmiarze i szybkości wprowadzania oraz przechowywanie ich w jednym miejscu na potrzeby analiz operacyjnych i poznawczych.
+Azure Data Lake Store to repozytorium w hiperskali obsługujące całe przedsiębiorstwo na potrzeby obciążeń analizy dużych ilości danych (big data). Usługa Azure Data Lake umożliwia toocapture danych o dowolnym rozmiar, typ i wprowadzanie szybkości w jednym miejscu na potrzeby analiz operacyjnych i poznawczych.
 
 > [!TIP]
-> Skorzystaj ze [ścieżki szkoleniowej usługi Data Lake Store](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/), aby rozpocząć eksplorowanie usługi Azure Data Lake Store.
+> Użyj hello [ścieżka szkoleniowa dotycząca usługi Data Lake Store](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) toostart Eksplorowanie usługi Azure Data Lake Store hello.
 > 
 > 
 
-Do usługi Azure Data Lake Store można uzyskać dostęp z platformy Hadoop (dostępnej z klastrem usługi HDInsight) przy użyciu zgodnych interfejsów API REST WebHDFS. Usługa została specjalnie zaprojektowana w celu umożliwienia analizy przechowywanych danych i dostosowana pod kątem wydajności dla scenariuszy analizy danych. Natychmiast po wdrożeniu zapewnia wszystkie funkcje klasy korporacyjnej — zabezpieczeń, zarządzania, skalowalności, niezawodności i dostępności — niezbędne do obsługi rzeczywistych przypadków użycia w przedsiębiorstwie.
+Azure Data Lake Store można uzyskać z platformy Hadoop (dostępnych z klastrem usługi HDInsight) przy użyciu hello interfejsów API REST zgodny z WebHDFS. Jest specjalnie zaprojektowanego tooenable analizy hello przechowywanych danych i dostosowana pod kątem wydajności dla scenariuszy analizy danych. Fabrycznej hello obejmuje wszystkie funkcje klasy korporacyjnej hello — zabezpieczeń, możliwości zarządzania, skalowalności, niezawodności i dostępności — niezbędne dla organizacji rzeczywistych przypadków użycia.
 
 ![Azure Data Lake](./media/data-lake-store-overview/data-lake-store-concept.png)
 
-Poniżej przedstawiono niektóre z kluczowych możliwości usługi Azure Data Lake.
+Niektóre z kluczowych możliwości hello Azure Data Lake hello obejmują następujące hello.
 
 ### <a name="built-for-hadoop"></a>Stworzona dla platformy Hadoop
-Usługa Azure Data Lake Store jest systemem plików Apache Hadoop zgodnym z rozproszonym systemem plików Hadoop (HDFS, Hadoop Distributed File System) i działa z ekosystemem Hadoop.  Istniejące aplikacje lub usługi HDInsight korzystające z interfejsu API WebHDFS można łatwo zintegrować z usługą Data Lake Store. Usługa Data Lake Store udostępnia również interfejs REST zgodny z WebHDFS dla aplikacji.
+Hello Azure Data Lake store jest zgodna z platformą Hadoop Distributed pliku System (HDFS) systemem plików Apache Hadoop i działa z ekosystemem Hadoop hello.  Istniejące aplikacje usługi HDInsight lub usługi, które korzystają z interfejsu API WebHDFS hello można łatwo zintegrować z usługą Data Lake Store. Usługa Data Lake Store udostępnia również interfejs REST zgodny z WebHDFS dla aplikacji.
 
-Dane przechowywane w usłudze Data Lake Store można łatwo analizować za pomocą platform analitycznych Hadoop, takich jak MapReduce lub Hive. Klastry usługi Microsoft Azure HDInsight można zainicjować i skonfigurować tak, aby miały bezpośredni dostęp do danych przechowywanych w usłudze Data Lake Store.
+Dane przechowywane w usłudze Data Lake Store można łatwo analizować za pomocą platform analitycznych Hadoop, takich jak MapReduce lub Hive. Microsoft Azure w usłudze hdinsight można udostępnić i skonfigurować toodirectly dostępu do danych przechowywanych w usłudze Data Lake Store.
 
 ### <a name="unlimited-storage-petabyte-files"></a>Nieograniczony magazyn, petabajtowe pliki
-Usługa Azure Data Lake Store zapewnia nieograniczony magazyn i nadaje się do przechowywania różnorodnych danych na potrzeby analiz. Nie nakłada żadnych limitów dotyczących rozmiarów kont, rozmiarów plików lub ilości danych, które mogą być przechowywane w usłudze Data Lake. Pojedyncze pliki mogą mieć rozmiar od kilobajta do petabajtów, co czyni usługę doskonałym wyborem do przechowywania danych dowolnego typu. Dane są przechowywane trwale dzięki tworzeniu wielu kopii i nie ma żadnego limitu czasu przechowywania danych w usłudze Data Lake.
+Usługa Azure Data Lake Store zapewnia nieograniczony magazyn i nadaje się do przechowywania różnorodnych danych na potrzeby analiz. Nie nakłada żadnych limitów dotyczących rozmiarów kont, rozmiarów plików lub hello ilość danych, które mogą być przechowywane w usłudze data lake. Pojedyncze pliki mogą należeć do zakresu od kilobajta toopetabytes rozmiaru, dzięki czemu toostore doskonałym wyborem danych dowolnego typu. Dane są przechowywane trwale dzięki tworzeniu wielu kopii i nie ma żadnego limitu na czas hello, dla których hello dane mogą być przechowywane w usłudze data lake hello.
 
 ### <a name="performance-tuned-for-big-data-analytics"></a>Wydajność dostosowana na potrzeby analizy danych big data
-Usługa Azure Data Lake Store została stworzona z myślą o obsłudze działania dużych systemów analitycznych, które wymagają ogromnej przepływności w celu odpytywania i analizowania dużych ilości danych. Usługa Data Lake rozmieszcza części pliku na wielu serwerach magazynu. Zwiększa to przepływność odczytu podczas odczytywania pliku równolegle w celu wykonywania analizy danych.
+Azure Data Lake Store jest skompilowany dla działania dużych systemów analitycznych, które wymagają ogromnej przepływności tooquery i analizowania dużych ilości danych. Witaj data lake rozmieszcza części pliku na wielu serwerach magazynu. Zwiększa to hello przepływności do odczytu podczas odczytywania pliku hello równolegle w celu wykonywania analizy danych.
 
 ### <a name="enterprise-ready-highly-available-and-secure"></a>Gotowa do użycia w przedsiębiorstwie: wysoce dostępna i bezpieczna
-Usługa Azure Data Lake Store zapewnia dostępność i niezawodność zgodne ze standardami branżowymi. Dane są przechowywane trwale dzięki wykonywaniu nadmiarowych kopii, aby zapewnić ochronę danych na wypadek nieoczekiwanych awarii. Przedsiębiorstwa mogą wykorzystywać usługę Azure Data Lake w swoich rozwiązaniach jako istotny element istniejącej platformy danych.
+Usługa Azure Data Lake Store zapewnia dostępność i niezawodność zgodne ze standardami branżowymi. Twoje dane są przechowywane trwale dzięki tooguard nadmiarowe kopie na wypadek nieoczekiwanych awarii. Przedsiębiorstwa mogą wykorzystywać usługę Azure Data Lake w swoich rozwiązaniach jako istotny element istniejącej platformy danych.
 
-Usługa Data Lake Store zapewnia również zabezpieczenia klasy korporacyjnej dla przechowywanych danych. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](#DataLakeStoreSecurity).
+Data Lake Store zapewnia również zabezpieczenia korporacyjnej hello przechowywanych danych. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](#DataLakeStoreSecurity).
 
 ### <a name="all-data"></a>Wszystkie dane
-Usługa Azure Data Lake Store może przechowywać wszystkie dane w ich natywnym formacie, bez wymagania jakiegokolwiek uprzedniego przekształcania danych. Usługa Data Lake Store nie wymaga zdefiniowania schematu przed załadowaniem danych, pozostawiając poszczególnym środowiskom analitycznym interpretację danych i zdefiniowanie schematu w czasie analizy. Dzięki możliwości przechowywania plików dowolnych rozmiarów i w dowolnych formatach usługa Data Lake Store obsługuje dane z pełną lub częściową strukturą i bez struktury.
+Usługa Azure Data Lake Store może przechowywać wszystkie dane w ich natywnym formacie, bez wymagania jakiegokolwiek uprzedniego przekształcania danych. Data Lake Store nie wymagają toobe schematu, zdefiniowane przed załadowaniem danych hello pozostawieniu ich w górę toohello poszczególnym środowiskom analitycznym toointerpret hello danych i zdefiniowanie schematu w czasie hello hello analizy. Trwa stanie toostore plików dowolnych rozmiarów i formaty umożliwia strukturę, toohandle Data Lake — magazyn danych z częściową strukturą i bez struktury.
 
-Kontenerami danych usługi Azure Data Lake Store są zasadniczo foldery i pliki. Przechowywane dane można obsługiwać przy użyciu zestawów SDK, witryny Azure Portal i programu Azure Powershell. Dopóki dane są umieszczane w magazynie usługi za pomocą tych interfejsów i przy użyciu odpowiednich kontenerów, można w niej przechowywać dane dowolnego typu. Usługa Data Lake Store nie wykonuje żadnej specjalnej obsługi danych na podstawie typu danych, które przechowuje.
+Kontenerami danych usługi Azure Data Lake Store są zasadniczo foldery i pliki. Możesz pracować na powitania przechowywanych danych przy użyciu zestawów SDK, portalu Azure i programu Azure Powershell. Tak długo, jak dane są umieszczane w magazynie hello za pomocą tych interfejsów i przy użyciu odpowiednich kontenerów hello, można przechowywać dane dowolnego typu. Data Lake Store nie wykonuje żadnej specjalnej obsługi danych na podstawie typu danych, które przechowuje hello.
 
 ## <a name="DataLakeStoreSecurity"></a>Zabezpieczanie danych w usłudze Azure Data Lake Store
-Usługa Azure Data Lake Store używa usługi Azure Active Directory na potrzeby uwierzytelniania oraz list kontroli dostępu (ACL, access control list) w celu zarządzania dostępem do danych.
+Azure Data Lake Store używa usługi Azure Active Directory do uwierzytelniania i listy kontroli dostępu (ACL) toomanage dostępu tooyour danych.
 
 | Funkcja | Opis |
 | --- | --- |
-| Authentication |Usługa Azure Data Lake Store integruje się z usługą Azure Active Directory (AAD) na potrzeby zarządzania tożsamościami i dostępem dla wszystkich danych przechowywanych w usłudze Azure Data Lake Store. Dzięki tej integracji usługa Azure Data Lake korzysta ze wszystkich funkcji usługi AAD, w tym uwierzytelniania wieloskładnikowego, dostępu warunkowego, kontroli dostępu opartej na rolach, monitorowania użycia aplikacji, monitorowania zabezpieczeń, alertów zabezpieczeń itd. Usługa Azure Data Lake obsługuje protokół OAuth 2.0 na potrzeby uwierzytelniania przy użyciu interfejsu REST. |
-| Kontrola dostępu |Usługa Azure Data Lake Store zapewnia kontrolę dostępu dzięki obsłudze uprawnień POSIX udostępnianych przez protokół WebHDFS. W publicznej wersji zapoznawczej usługi Data Lake Store (bieżąca wersja) listy ACL można włączyć w folderze głównym, podfolderach i w poszczególnych plikach. Aby uzyskać więcej informacji na temat sposobu działania list kontroli dostępu w kontekście usługi Data Lake Store, zobacz [Kontrola dostępu w usłudze Data Lake Store](data-lake-store-access-control.md). |
-| Szyfrowanie |Usługa Data Lake Store umożliwia także szyfrowanie danych przechowywanych w ramach konta. Ustawienia szyfrowania możesz określić podczas tworzenia konta usługi Data Lake Store. Możesz wybrać szyfrowanie danych lub jego brak. Aby uzyskać więcej informacji na temat sposobu zapewnienia konfiguracji odnoszącej się do szyfrowania, zobacz [Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal](data-lake-store-get-started-portal.md). |
+| Authentication |Azure Data Lake Store integruje się z usługi Azure Active Directory (AAD) do zarządzania tożsamościami i dostępem dla wszystkich danych hello przechowywane w usłudze Azure Data Lake Store. W wyniku integracji hello Azure Data Lake korzysta ze wszystkich funkcji usługi AAD, w tym uwierzytelniania wieloskładnikowego, dostępu warunkowego, kontroli dostępu opartej na rolach, monitorowania użycia aplikacji, zabezpieczeń, alertów itp. Azure Data Lake Store obsługuje hello protokołu OAuth 2.0 do uwierzytelniania przy użyciu interfejsu REST hello. |
+| Kontrola dostępu |Azure Data Lake Store zapewnia kontrolę dostępu dzięki obsłudze uprawnień POSIX udostępnianych przez hello protokół WebHDFS. W hello Data Lake magazynu publicznej wersji zapoznawczej (hello bieżącej wersji) można włączyć listy kontroli dostępu w folderze głównym hello, podfoldery i poszczególnych plików. Aby uzyskać więcej informacji na temat sposobu działania list kontroli dostępu w kontekście usługi Data Lake Store, zobacz [Kontrola dostępu w usłudze Data Lake Store](data-lake-store-access-control.md). |
+| Szyfrowanie |Data Lake Store zapewnia również szyfrowanie danych przechowywanych w hello konta. Ustawienia szyfrowania hello należy określić podczas tworzenia konta usługi Data Lake Store. Można wybrać toohave dane szyfrowane lub wybrać opcję bez szyfrowania. Aby uzyskać więcej informacji na temat konfiguracji tooprovide związane z szyfrowaniem, zobacz [wprowadzenie do usługi Azure Data Lake Store za pomocą portalu Azure hello](data-lake-store-get-started-portal.md). |
 
-Dowiedz się więcej na temat zabezpieczania danych w usłudze Data Lake Store. Skorzystaj z poniższych linków.
+Mają toolearn więcej informacji na temat zabezpieczania danych w usłudze Data Lake Store. Wykonaj poniższe linki hello.
 
-* Aby uzyskać instrukcje, jak zabezpieczyć dane w usłudze Data Lake Store, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](data-lake-store-secure-data.md).
-* Wolisz filmy wideo? [Obejrzyj ten film](https://mix.office.com/watch/1q2mgzh9nn5lx), aby dowiedzieć się, jak zabezpieczyć dane przechowywane w usłudze Data Lake Store.
+* Aby uzyskać instrukcje dotyczące toosecure dane w usłudze Data Lake Store, zobacz [Zabezpieczanie danych w usłudze Azure Data Lake Store](data-lake-store-secure-data.md).
+* Wolisz filmy wideo? [Obejrzyj ten film](https://mix.office.com/watch/1q2mgzh9nn5lx) na sposób przechowywania danych toosecure w usłudze Data Lake Store.
 
 ## <a name="applications-compatible-with-azure-data-lake-store"></a>Aplikacje zgodne z usługą Azure Data Lake Store
-Usługa Azure Data Lake Store jest zgodna z większością składników typu „open source” w ekosystemie Hadoop. Bardzo dobrze integruje się również z innymi usługami Azure. Wszystko to sprawia, że usługa Data Lake Store jest doskonałą opcją dla potrzeb magazynu danych. Skorzystaj z poniższych linków, aby dowiedzieć się więcej o tym, jak usługa Data Lake Store może być używana ze składnikami typu „open source” i innymi usługami Azure.
+Azure Data Lake Store jest zgodna z najbardziej otwartych składników źródła w ekosystemie Hadoop hello. Bardzo dobrze integruje się również z innymi usługami Azure. Wszystko to sprawia, że usługa Data Lake Store jest doskonałą opcją dla potrzeb magazynu danych. Skorzystaj z linków hello poniżej toolearn więcej informacji na temat sposobu użycia usługi Data Lake Store ze składnikami typu open source, a także innych usług platformy Azure.
 
 * Zobacz [Aplikacje i usługi zgodne z usługą Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md), aby uzyskać listę aplikacji typu „open source” współpracujących z usługą Azure Data Lake Store.
-* Zobacz [Integracja z innymi usługami Azure](data-lake-store-integrate-with-other-services.md), aby zrozumieć możliwości korzystania z usługi Data Lake Store w połączeniu z innymi usługami Azure w celu realizacji szerszego zakresu scenariuszy.
-* Zobacz [Scenariusze korzystania z usługi Data Lake Store](data-lake-store-data-scenarios.md), aby dowiedzieć się, jak korzystać z usługi Data Lake Store w scenariuszach takich jak odbieranie danych, przetwarzanie danych, pobieranie danych i wizualizacja danych.
+* Zobacz [integracji z innymi usługami Azure](data-lake-store-integrate-with-other-services.md) toounderstand sposobu użycia usługi Data Lake Store z platformy Azure, innych usług tooenable szerszego zakresu scenariuszy.
+* Zobacz [scenariusze korzystania z usługi Data Lake Store](data-lake-store-data-scenarios.md) toolearn jak przechowywać toouse Data Lake w scenariuszach, takich jak odbieranie danych, przetwarzanie danych, pobieranie danych i wizualizacja danych.
 
 ## <a name="what-is-azure-data-lake-store-file-system-adl"></a>Co to jest system plików usługi Azure Data Lake Store (adl://)?
-Za pomocą nowego systemu plików AzureDataLakeFilesystem (adl://) można uzyskiwać dostęp do usługi Data Lake Store w środowiskach Hadoop (dostępnych z klastrem usługi HDInsight). Aplikacje i usługi używające systemu plików adl:// mogą skorzystać z dalszej optymalizacji wydajności, która nie jest obecnie dostępna w systemie plików WebHDFS. W związku z tym usługa Data Lake Store zapewnia elastyczność — można uzyskać najlepszą wydajność dzięki używaniu systemu plików adl:// (zalecana opcja) lub nadal obsługiwać istniejący kod bezpośrednio przy użyciu interfejsu API WebHDFS. Usługa Azure HDInsight w pełni wykorzystuje system AzureDataLakeFilesystem, aby zapewnić najlepszą wydajność usługi Data Lake Store.
+Data Lake Store jest dostępny za pośrednictwem hello nowego systemu plików, hello AzureDataLakeFilesystem (adl: / /), w środowiskach Hadoop (dostępnych z klastrem usługi HDInsight). Aplikacje i usługi, które używają adl: / / są tootake można skorzystać z dalszej optymalizacji wydajności, które nie są obecnie dostępne w systemie plików WebHDFS. W związku z tym usługa Data Lake Store zapewnia hello tooeither elastyczność korzystać hello najlepszą wydajność z hello zalecana opcja używania adl: / / lub nadal obsługiwać istniejący kod przez kontynuowanie hello toouse interfejsu API WebHDFS bezpośrednio. Usługa Azure HDInsight w pełni wykorzystuje hello AzureDataLakeFilesystem tooprovide hello najlepszą wydajność w usłudze Data Lake Store.
 
-Dostęp do danych w usłudze Data Lake Store można uzyskać przy użyciu adresu `adl://<data_lake_store_name>.azuredatalakestore.net`. Aby uzyskać więcej informacji na temat sposobu uzyskiwania dostępu do danych w usłudze Data Lake Store, zobacz [Wyświetlanie właściwości przechowywanych danych](data-lake-store-get-started-portal.md#properties).
+Można uzyskać dostępu do danych za pomocą usługi Data Lake Store hello `adl://<data_lake_store_name>.azuredatalakestore.net`. Aby uzyskać więcej informacji dotyczących sposobu tooaccess hello danych w hello usługi Data Lake Store, zobacz [Wyświetl właściwości hello przechowywanych danych](data-lake-store-get-started-portal.md#properties)
 
 ## <a name="how-do-i-start-using-azure-data-lake-store"></a>Jak zacząć korzystać z usługi Azure Data Lake Store?
-Zobacz [Rozpoczynanie pracy z usługą Azure Data Lake Store za pomocą witryny Azure Portal](data-lake-store-get-started-portal.md), aby dowiedzieć się, jak aprowizować usługę Data Lake Store za pomocą witryny Azure Portal. Po aprowizowaniu usługi Azure Data Lake możesz nauczyć się, jak korzystać z rozwiązań do obsługi danych big data, takich jak Azure Data Lake Analytics lub Azure HDInsight, z usługą Data Lake Store. Możesz również utworzyć aplikację .NET w celu utworzenia konta usługi Azure Data Lake Store i wykonywania operacji, takich jak przekazywanie danych, pobieranie danych itp.
+Zobacz [wprowadzenie do usługi Data Lake Store za pomocą hello Azure Portal](data-lake-store-get-started-portal.md), w sposób tooprovision za pomocą usługi Data Lake Store hello portalu Azure. Po aprowizowaniu usługi Azure Data Lake, aby dowiedzieć się jak toouse oferty danych big data, takich jak Azure Data Lake Analytics lub Azure HDInsight z usługą Data Lake Store. Można również utworzyć konto usługi Azure Data Lake Store toocreate aplikacji .NET i wykonywanie operacji takich jak przekazywanie danych, pobieranie danych itp.
 
 * [Rozpoczynanie pracy z usługą Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Korzystanie z usługi Azure HDInsight z usługą Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Rozpoczynanie pracy z usługą Azure Data Lake Store z użyciem zestawu SDK .NET](data-lake-store-get-started-net-sdk.md)
 
 ## <a name="data-lake-store-videos"></a>Filmy wideo dotyczące usługi Data Lake Store
-Jeśli wolisz obejrzeć filmy wideo, aby nauczyć się korzystać z usługi, usługa Data Lake Store udostępnia filmy wideo dotyczące różnych funkcji.
+Jeśli wolisz obserwowanie toolearn wideo, Data Lake Store udostępnia filmy wideo dotyczące różnych funkcji.
 
 * [Tworzenie konta usługi Azure Data Lake Store](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Zarządzanie danymi w usłudze Azure Data Lake Store za pomocą Eksploratora danych](https://mix.office.com/watch/icletrxrh6pc)
-* [Łączenie usługi Azure Data Lake Analytics z usługą Azure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k)
+* [Użyj hello Eksploratora danych tooManage danych w usłudze Azure Data Lake Store](https://mix.office.com/watch/icletrxrh6pc)
+* [Łączenie usługi Azure Data Lake Analytics tooAzure Data Lake Store](https://mix.office.com/watch/qwji0dc9rx9k)
 * [Uzyskiwanie dostępu do usługi Azure Data Lake Store za pomocą usługi Data Lake Analytics](https://mix.office.com/watch/1n0s45up381a8)
-* [Łączenie usługi Azure HDInsight z usługą Azure Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
+* [Łączenie usługi Azure HDInsight tooAzure Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
 * [Uzyskiwanie dostępu do usługi Azure Data Lake Store za pomocą technologii Hive i Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [Kopiowanie danych do i z usługi Azure Data Lake Store za pomocą narzędzia DistCp (Distributed Copy) platformy Hadoop](https://mix.office.com/watch/1liuojvdx6sie)
-* [Przenoszenie danych między źródłami relacyjnymi i usługą Azure Data Lake Store z wykorzystaniem narzędzia Apache Sqoop](https://mix.office.com/watch/1butcdjxmu114)
+* [Użyj narzędzia DistCp (Hadoop Distributed Copy) toocopy danych tooand z usługi Azure Data Lake Store](https://mix.office.com/watch/1liuojvdx6sie)
+* [Używanie Apache Sqoop toomove danych między źródłami relacyjnymi i usługą Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
 * [Organizowanie danych za pomocą usługi Azure Data Factory dla usługi Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Zabezpieczanie danych w usłudze Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
+* [Zabezpieczanie danych w hello Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
 

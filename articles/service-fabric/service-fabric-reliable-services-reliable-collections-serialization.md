@@ -1,5 +1,5 @@
 ---
-title: "Niezawodne serializacji obiektu kolekcji w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
+title: "aaaReliable serializacji obiektu kolekcji w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
 description: "Azure serializacji obiektu kolekcji niezawodnej sieci szkieletowej usług"
 services: service-fabric
 documentationcenter: .net
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 248defbe0ae6f65b4ac5dc7c74e80d8f1152ce94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Niezawodne serializacji obiektu kolekcji w sieci szkieletowej usług Azure
-Niezawodne kolekcje replikacji i utrwalić swoich elementów, aby upewnić się, że są trwałe na błędy maszyn i awarie zasilania.
-Do replikacji i elementy będą się powtarzać, niezawodne kolekcje muszą serializować je.
+Niezawodne kolekcje replikacji i utrwalić ich elementów toomake się, że są one trwałego na błędy maszyn i awarie zasilania.
+Elementy zarówno tooreplicate i toopersist, niezawodne kolekcje muszą tooserialize je.
 
-Kolekcje niezawodnej uzyskanie odpowiedniego programu szeregującego dla danego typu niezawodnej Menedżer stanu.
-Menedżer stanu niezawodny zawiera wbudowane serializatorów i umożliwia niestandardowych serializatorów rejestracji dla danego typu.
+Niezawodne kolekcje Pobierz hello odpowiedni serializator dla danego typu z niezawodnej Menedżer stanów.
+Menedżer stanu niezawodny zawiera wbudowane serializatorów i umożliwia toobe serializatorów niestandardowych zarejestrowany dla danego typu.
 
 ## <a name="built-in-serializers"></a>Wbudowane serializatorów
 
-Menedżer stanu niezawodny obejmuje wbudowane serializatora dla niektórych typowych tak, aby serializować wydajnie domyślnie. Dla innych typów niezawodnej Menedżer stanu powraca do użycia [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
-Wbudowane serializatorów są bardziej wydajne, ponieważ wiedzieli, nie można zmienić ich typów i nie muszą obejmować informacje o typie, takie jak jego nazwa typu.
+Menedżer stanu niezawodny obejmuje wbudowane serializatora dla niektórych typowych tak, aby serializować wydajnie domyślnie. Dla innych typów, Menedżer stanu niezawodnej powraca toouse hello [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+Wbudowane serializatorów są bardziej wydajne, ponieważ wiedzieli, nie można zmienić ich typów i nie potrzebują oni tooinclude informacje o typie hello, takie jak jego nazwa typu.
 
 Menedżer stanu niezawodny ma wbudowane serializatora dla następujących typów: 
 - Identyfikator GUID
@@ -52,9 +52,9 @@ Menedżer stanu niezawodny ma wbudowane serializatora dla następujących typów
 
 ## <a name="custom-serialization"></a>Niestandardowej serializacji
 
-Niestandardowe serializatorów są często używane w celu zwiększenia wydajności lub do szyfrowania danych przez sieć oraz na dysku. Wśród innych powodów serializatorów niestandardowe są często bardziej efektywne niż ogólny serializator, ponieważ nie potrzebują do serializacji informacje o typie. 
+Serializatorów niestandardowe są często używane tooincrease wydajności lub tooencrypt hello danych za pośrednictwem hello przewodowy i na dysku. Wśród innych przyczyn serializatorów niestandardowe są często bardziej efektywne niż ogólny serializator, ponieważ nie potrzebują tooserialize informacje o typie hello. 
 
-[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) służy do rejestrowania niestandardowego programu szeregującego dla danego typu T. Rejestracja powinno się zdarzyć w konstrukcji StatefulServiceBase zapewnienie przed rozpoczęciem odzyskiwania, wszystkie kolekcje niezawodny dostęp do odpowiednich serializatora do odczytania ich danych.
+[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) jest używane tooregister niestandardowego programu szeregującego dla danego typu T. hello Rejestracja powinno się zdarzyć w konstrukcji hello hello StatefulServiceBase tooensure czy przed rozpoczęciem odzyskiwania, wszystkie kolekcje niezawodnej mają dostęp do tooread odpowiedni serializator toohello utrwalonych danych.
 
 ```C#
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,17 +62,17 @@ public StatefulBackendService(StatefulServiceContext context)
   {
     if (!this.StateManager.TryAddStateSerializer(new OrderKeySerializer()))
     {
-      throw new InvalidOperationException("Failed to set OrderKey custom serializer");
+      throw new InvalidOperationException("Failed tooset OrderKey custom serializer");
     }
   }
 ```
 
 > [!NOTE]
-> Niestandardowe serializatorów są pierwszeństwo nad serializatorów wbudowanych. Na przykład po zarejestrowaniu niestandardowego programu szeregującego dla int on jest używany do serializacji liczb całkowitych zamiast wbudowanego serializatora dla int.
+> Niestandardowe serializatorów są pierwszeństwo nad serializatorów wbudowanych. Na przykład po zarejestrowaniu niestandardowego programu szeregującego dla int jest liczb całkowitych tooserialize używane zamiast hello wbudowanych serializatora dla int.
 
-### <a name="how-to-implement-a-custom-serializer"></a>Jak zaimplementować serializatora niestandardowego
+### <a name="how-tooimplement-a-custom-serializer"></a>Jak tooimplement serializatora niestandardowego
 
-Serializatora niestandardowego należy zaimplementować [IStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interfejsu.
+Serializatora niestandardowego wymaga tooimplement hello [IStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interfejsu.
 
 > [!NOTE]
 > IStateSerializer<T> zawiera przeciążenia dla zapisu i odczytu, która przyjmuje w dodatkowych T jako wartości podstawowej. Ten interfejs API jest różnicowej serializacji. Obecnie funkcja różnicowej serializacji nie jest widoczne. W związku z tym te dwa przeciążenia nie są nazywane, dopóki różnicowej serializacji jest widoczne i włączone.
@@ -135,17 +135,17 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 ```
 
 ## <a name="upgradability"></a>Możliwość
-W [aplikacji uaktualnienia stopniowego](service-fabric-application-upgrade.md), uaktualnienie ma zostać zastosowane do podzbioru węzłów, domeny uaktualnienia pojedynczo. W trakcie tego procesu będzie niektórych domen uaktualnienia w nowszej wersji aplikacji, a niektóre domen uaktualnienia będą realizowane w starszej wersji aplikacji. Podczas wdrożenia nowa wersja aplikacji musi mieć możliwość odczytu starą wersję danych, a starą wersję aplikacji musi mieć możliwość odczytu nowej wersji danych. Jeśli format danych jest niezgodny z przodu i do tyłu, uaktualnienie może się nie powieść lub gorsza, może utraty lub uszkodzenia danych.
+W [aplikacji uaktualnienia stopniowego](service-fabric-application-upgrade.md), uaktualnienie hello jest stosowane tooa podzbioru węzłów, domeny uaktualnienia pojedynczo. W trakcie tego procesu będzie niektórych domen uaktualnienia w nowszej wersji aplikacji hello, a niektóre domen uaktualnienia musi być na powitania starszej wersji aplikacji. Podczas fazy hello hello nowej wersji aplikacji musi być możliwe tooread hello starą wersję danych, a hello starą wersję aplikacji musi być możliwe tooread hello nowej wersji danych. Jeśli format danych hello nie jest zgodny, uaktualnienie hello do przodu i do tyłu może zakończy się awarią lub gorsza, dane mogą być utracone lub uszkodzony.
 
-Jeśli korzystasz z wbudowanych serializator, nie masz martwić się o zgodności.
-Jednak jeśli używasz niestandardowego programu szeregującego lub elementu DataContractSerializer, dane muszą być nieograniczonej zgodne przodu i do tyłu.
-Innymi słowy każda wersja programu szeregującego musi być możliwe do serializacji i deserializacji dowolnej wersji tego typu.
+Jeśli korzystasz z wbudowanych serializator, nie masz tooworry o zgodności.
+Jednak jeśli używasz niestandardowego programu szeregującego lub hello DataContractSerializer hello danych ma toobe nieograniczonej Wstecz i przekazuje zgodne.
+Innymi słowy każda wersja programu szeregującego wymaga tooserialize stanie toobe oraz zdeserializować dowolnej wersji hello typu.
 
-Użytkownicy kontraktu danych powinien być zgodny reguły dobrze zdefiniowany kontroli wersji, dodawanie, usuwanie i zmiana pola. Kontrakt danych ma również obsługę zajmujących się nieznany pól, przechwytywanie do procesu serializacji i deserializacji i zajmujących się dziedziczenia klas. Aby uzyskać więcej informacji, zobacz [kontraktu danych przy użyciu](https://msdn.microsoft.com/library/ms733127.aspx).
+Użytkownicy kontraktu danych powinien być zgodny hello reguły dobrze zdefiniowany kontroli wersji, dodawanie, usuwanie i zmiana pola. Kontrakt danych ma również obsługę zajmujących się nieznany pól, przechwytywanie procesem hello serializacji i deserializacji i zajmujących się dziedziczenia klas. Aby uzyskać więcej informacji, zobacz [kontraktu danych przy użyciu](https://msdn.microsoft.com/library/ms733127.aspx).
 
-Użytkownicy niestandardowego programu szeregującego powinien zgodne z wytycznymi serializator, którego używają Sprawdź jest Wstecz i przekazuje zgodne.
-Typowy sposób obsługi wszystkich wersji jest dodawania informacji o rozmiarze na początku i tylko właściwości opcjonalnych.
-W ten sposób każdej wersji może odczytywać znacznie można i przejść w pozostałej części strumienia.
+Użytkownicy niestandardowego programu szeregującego przestrzegać toohello wytycznymi serializator hello używają toomake się, że jest Wstecz i przekazuje zgodne.
+Typowy sposób obsługi wszystkich wersji jest dodawanie informacji o rozmiarze na początku hello i tylko dodanie właściwości opcjonalnych.
+W ten sposób każdej wersji mogą odczytywać, jaka może i przejść przez hello pozostała część hello strumienia.
 
 ## <a name="next-steps"></a>Następne kroki
   * [Serializacja i uaktualniania](service-fabric-application-upgrade-data-serialization.md)
@@ -153,5 +153,5 @@ W ten sposób każdej wersji może odczytywać znacznie można i przejść w poz
   * [Uaktualnianie aplikacji za pomocą Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
   * [Uaktualnienie z aplikacji przy użyciu programu Powershell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu PowerShell.
   * Kontrolowanie sposobu uaktualnienia aplikacji przy użyciu [uaktualnienia parametrów](service-fabric-application-upgrade-parameters.md).
-  * Dowiedz się, jak korzystać z zaawansowanych funkcji podczas uaktualniania aplikacji, odwołując się do [Tematy zaawansowane](service-fabric-application-upgrade-advanced.md).
-  * Rozwiązywania typowych problemów w uaktualnień aplikacji, korzystając z procedury opisanej w [Rozwiązywanie problemów z uaktualnieniami aplikacji](service-fabric-application-upgrade-troubleshooting.md).
+  * Dowiedz się, jak toouse zaawansowanych funkcji podczas uaktualniania aplikacji, odnosząc się zbyt[Tematy zaawansowane](service-fabric-application-upgrade-advanced.md).
+  * Rozwiązywania typowych problemów w aplikacji uaktualnień, odnosząc się kroki toohello [Rozwiązywanie problemów z uaktualnieniami aplikacji](service-fabric-application-upgrade-troubleshooting.md).

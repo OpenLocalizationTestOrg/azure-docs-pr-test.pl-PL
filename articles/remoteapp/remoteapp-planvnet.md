@@ -1,6 +1,6 @@
 ---
-title: "Sposób planowania sieci wirtualnej dla kolekcji usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zaplanować sieci wirtualnej dla kolekcji usługi Azure RemoteApp."
+title: "aaaHow tooplan sieci wirtualnej dla kolekcji usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooplan sieci wirtualnej dla kolekcji usługi Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
 author: mghosh1616
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7eeefc3c66815b18f9338e2e428585e6f81a12a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>Sposób planowania sieci wirtualnej Azure RemoteApp
+# <a name="how-tooplan-your-virtual-network-for-azure-remoteapp"></a>Jak tooplan sieci wirtualnej dla usługi Azure RemoteApp
 > [!IMPORTANT]
-> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).
+> Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r. Witaj odczytu [anonsu](https://go.microsoft.com/fwlink/?linkid=821148) szczegółowe informacje.
 > 
 > 
 
-Ten dokument zawiera opis sposobu konfigurowania sieci wirtualnej platformy Azure (VNET) i podsieci usługi Azure RemoteApp. Jeśli znasz sieci wirtualnych platformy Azure, jest możliwość, która ułatwia wirtualizację infrastruktury sieci w chmurze oraz tworzenie hybrydowych rozwiązań z platformy Azure i zasobami lokalnymi. Więcej informacji na ten temat można znaleźć [tutaj](../virtual-network/virtual-networks-overview.md).
+W tym dokumencie opisano sposób tooset Twojej sieci wirtualnej platformy Azure (VNET) i podsieci hello usługi Azure RemoteApp. Jeśli znasz sieci wirtualnych platformy Azure, jest możliwość, która pomaga możesz toovirtualize sieci infrastruktury toohello chmury i toocreate hybrydowych rozwiązań z platformy Azure i zasobami lokalnymi. Więcej informacji na ten temat można znaleźć [tutaj](../virtual-network/virtual-networks-overview.md).
 
-Jeśli chcesz zdefiniować zasady zabezpieczeń dla ruchu (przychodzących i wychodzących) w Twojej sieci wirtualnej, w której wdrażana jest usługa Azure RemoteApp, zdecydowanie zaleca się utworzenie osobnej podsieci dla usługi Azure RemoteApp od pozostałej części wdrażanie na platformie Azure sieć wirtualna. Aby uzyskać więcej informacji na temat definiowania zasad zabezpieczeń w podsieci sieci wirtualnej platformy Azure, przeczytaj [co to jest grupa zabezpieczeń sieci (NSG)?](../virtual-network/virtual-networks-nsg.md).
+Jeśli chcesz toodefine zasad zabezpieczeń dla ruchu (przychodzących i wychodzących) w Twojej sieci wirtualnej, w której wdrażana jest usługa Azure RemoteApp, zdecydowanie zaleca się utworzenie osobnej podsieci dla usługi Azure RemoteApp z resztą hello wdrożeń w hello Azure sieć wirtualna. Aby uzyskać więcej informacji dotyczących sposobu toodefine zasady zabezpieczeń w sieci wirtualnej platformy Azure sieci podsieci, przeczytaj [co to jest grupa zabezpieczeń sieci (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ## <a name="types-of-azure-remoteapp-collections-with-azure-virtual-networks"></a>Typy kolekcji usługi Azure RemoteApp z sieci wirtualnych platformy Azure
-Poniższej grafice Pokaż dwie opcje inną kolekcję, jeśli chcesz korzystać z sieci wirtualnej.
+Hello poniższej grafice Pokaż Witaj dwie opcje innej kolekcji należy toouse sieci wirtualnej.
 
 ### <a name="azure-remoteapp-cloud-collection-with-vnet"></a>Azure kolekcji w chmurze usługi RemoteApp z sieci Wirtualnej
  ![Usługa Azure RemoteApp — kolekcji w chmurze z sieci Wirtualnej](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
-Reprezentuje kolekcję usługi Azure RemoteApp, gdy wszystkie zasoby, które sesji usługi RemoteApp hostów wymagają dostępu do są wdrażane na platformie Azure. Można je w tej samej sieci Wirtualnej jako sieci Wirtualnej usługi RemoteApp lub innej sieci Wirtualnej na platformie Azure.
+Reprezentuje kolekcję usługi Azure RemoteApp, gdzie wszystkie zasoby hello czy hello RemoteApp sesji hosty muszą tooaccess są wdrażane na platformie Azure. Mogą być w hello tej samej sieci Wirtualnej jako sieci Wirtualnej usługi RemoteApp hello lub innej sieci Wirtualnej na platformie Azure.
 
 ### <a name="azure-remoteapp-hybrid-collection-with-vnet"></a>Azure RemoteApp kolekcji hybrydowej z sieci Wirtualnej
 ![Usługa Azure RemoteApp — kolekcji hybrydowej z sieci Wirtualnej](./media/remoteapp-planvpn/ra-hybridvpn.png)
 
-Reprezentuje kolekcję usługi Azure RemoteApp, w których niektóre zasoby wymagające dostępu do hostów sesji usługi RemoteApp są wdrożone lokalnymi. Sieci Wirtualnej usługi RemoteApp jest połączony z siecią lokalną przy użyciu technologii hybrydowe platformy Azure, takich jak sieci VPN typu lokacja lokacja lub usługi Express Route.
+Reprezentuje kolekcję usługi Azure RemoteApp, gdzie niektórych zasobów hello czy hello RemoteApp sesji hosty muszą tooaccess są wdrożone lokalnymi. Witaj sieci Wirtualnej usługi RemoteApp jest połączonych toohello sieci lokalnej za pomocą technologii hybrydowe platformy Azure, takich jak sieci VPN typu lokacja lokacja lub usługi Express Route.
 
-## <a name="how-the-system-works"></a>Jak działa system
-W obszarze obejmuje usługi Azure RemoteApp wdraża maszyn wirtualnych platformy Azure (z przekazanego obrazu) do podsieci sieci wirtualnej, która została wybrana opcja podczas inicjowania obsługi. Jeśli zostanie wybrana opcja kolekcję hybrydową, spróbujemy rozpoznać nazwę FQDN kontrolera domeny wprowadzony w przepływie pracy inicjowania obsługi administracyjnej na serwerze DNS w sieci wirtualnej.  
-Jeśli łączysz się z istniejącą siecią wirtualną, upewnij się, że udostępnianie niezbędne porty sieciowe grupy zabezpieczeń w podsieci usługi Azure RemoteApp. 
+## <a name="how-hello-system-works"></a>Jak działa hello system
+W obszarze hello obejmuje usługę Azure RemoteApp wdraża podsieć sieci wirtualnej toohello maszyn wirtualnych platformy Azure (z przekazanego obraz), wybranych podczas inicjowania obsługi. Jeśli zostanie wybrana opcja kolekcję hybrydową, spróbujemy hello tooresolve nazwa FQDN kontrolera domeny hello wprowadzony w hello dostarczania przepływu pracy z powitania serwera DNS w sieci wirtualnej hello.  
+Jeśli łączysz się z istniejącą siecią wirtualną tooan, upewnij się, że porty niezbędne hello tooexpose w sieciowych grup zabezpieczeń w podsieci usługi Azure RemoteApp. 
 
-Zalecane jest użycie [podsieci wystarczająco duży dla usługi Azure RemoteApp](remoteapp-vnetsizing.md). Największy obsługiwany przez sieć wirtualna Azure jest /8 (przy użyciu definicje podsieci CIDR). Podsieć powinna być wystarczająco duży, aby uwzględnić wszystkie RemoteApp maszyny wirtualne Azure podczas skalowania w górę, gdy więcej użytkownicy uzyskują dostęp do aplikacji. 
+Zalecane jest użycie [podsieci wystarczająco duży dla usługi Azure RemoteApp](remoteapp-vnetsizing.md). Witaj największy obsługiwany przez sieć wirtualna Azure jest /8 (przy użyciu definicje podsieci CIDR). Podsieć powinna być wystarczająco duży tooaccommodate wszystkich hello Azure RemoteApp maszyn wirtualnych podczas skalowania w górę po więcej użytkownicy uzyskują dostęp do aplikacji hello. 
 
-Poniżej przedstawiono czynności, które należy włączyć w podsieci sieci wirtualnej: 
+Poniżej przedstawiono czynności hello potrzebujesz tooenable na podsieć sieci wirtualnej: 
 
-1. Ruch wychodzący z podsieci powinno mieć dostęp na zakres portów 10101 10175 do komunikowania się z jednego z wewnętrznych usług Azure RemoteApp.
-2. Ruch wychodzący powinno być dozwolone z podsieci do połączenia z magazynem Azure na porcie 443
-3. Jeśli masz usługi Active Directory hostowana na platformie Azure, upewnij się, że w żadnej maszyny Wirtualnej w podsieci sieci wirtualnej dla usługi Azure RemoteApp jest w stanie nawiązać połączenia z tym kontrolerze domeny. System DNS w sieci wirtualnej powinna być w stanie rozpoznać nazwę FQDN kontrolera domeny.
+1. Ruch wychodzący z podsieci hello powinno być dozwolone na toocommunicate 10101 10175 zakresu portów z jednym hello wewnętrzny usługi Azure RemoteApp.
+2. Ruch wychodzący powinno być dozwolone z tooAzure tooconnect Twojego podsieci magazynu na porcie 443
+3. Jeśli masz usługi Active Directory hostowana na platformie Azure, upewnij się, że w żadnej maszyny Wirtualnej w ramach hello podsieć sieci wirtualnej dla usługi Azure RemoteApp jest kontrolerem domeny toothat tooconnect stanie. Hello DNS w sieci wirtualnej hello powinny być możliwe tooresolve hello FQDN tego kontrolera domeny.
 
 ## <a name="virtual-network-with-forced-tunneling"></a>Sieci wirtualnej przy użyciu tunelowania wymuszonego
-[Wymuszone tunelowanie](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) jest teraz obsługiwane dla wszystkich nowych kolekcji usługi Azure RemoteApp. Obecnie nie obsługujemy migracji istniejącej kolekcji do obsługi wymuszonego tunelowania.  Konieczne będzie usunięcie wszystkich istniejących zbiorach przy użyciu sieci Wirtualnej, która łączysz się do usługi Azure RemoteApp i Utwórz nowe hasło, aby pobrać wymuszone tunelowanie, włączone na kolekcji. 
+[Wymuszone tunelowanie](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) jest teraz obsługiwane dla wszystkich nowych kolekcji usługi Azure RemoteApp. Obecnie nie obsługujemy hello migracji istniejącej toosupport kolekcji wymuszonego tunelowania.  Konieczne będzie toodelete wszystkich istniejących zbiorach przy użyciu hello sieci Wirtualnej, połączenie jest ustanawiane tooAzure RemoteApp, a następnie utworzyć nowe tooget jednego wymuszonego tunelowania włączony w kolekcji. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Utwórz internetowy równoważenia obciążenia w przypadku adresu IPv6 - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć internetowy modułu równoważenia obciążenia z protokołu IPv6 w usłudze Azure Resource Manager przy użyciu wiersza polecenia platformy Azure"
+title: "Moduł równoważenia obciążenia aaaCreate internetowy z IPv6 - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate Internet równoważenia obciążenia w przypadku adresu IPv6 za pomocą usługi Azure Resource Manager hello wiersza polecenia platformy Azure"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: efb4771800c42df544c3cc37d1d164045fdcaf3e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ff75ac90d74a74e3d0c27672b36fbd955a086a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Utwórz internetowy modułu równoważenia obciążenia z protokołu IPv6 w usłudze Azure Resource Manager przy użyciu wiersza polecenia platformy Azure
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-hello-azure-cli"></a>Tworzenie modułu równoważenia obciążenia z protokołu IPv6 w usłudze Azure Resource Manager przy użyciu interfejsu wiersza polecenia Azure hello internetowy
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](load-balancer-ipv6-internet-cli.md)
 > * [Szablon](load-balancer-ipv6-internet-template.md)
 
-Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Moduł równoważenia obciążenia zapewnia wysoką dostępność, dystrybuując ruch przychodzący w wystąpieniach usług o dobrej kondycji w usługach w chmurze lub na maszynach wirtualnych w zestawie modułu równoważenia obciążenia. Usługa Azure Load Balancer może także prezentować te usługi na wielu portach i/lub wielu adresach IP.
+Usługa Azure Load Balancer to moduł równoważenia obciążenia w warstwie 4 (TCP, UDP). Hello modułu równoważenia obciążenia zapewnia wysoką dostępność, przekazując przychodzący ruch między wystąpienie usługi działa prawidłowo usług w chmurze lub maszyn wirtualnych w zestawie usługi równoważenia obciążenia. Usługa Azure Load Balancer może także prezentować te usługi na wielu portach i/lub wielu adresach IP.
 
 ## <a name="example-deployment-scenario"></a>Przykładowy scenariusz wdrażania
 
-Na poniższym diagramie przedstawiono rozwiązania do równoważenia obciążenia jest wdrażane za pomocą szablonu przykład opisane w tym artykule.
+Witaj poniższym diagramie przedstawiono rozwiązania do równoważenia obciążenia hello wdrażane za pomocą szablonu przykład hello opisane w tym artykule.
 
 ![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
-W tym scenariuszu spowoduje utworzenie następujących zasobów platformy Azure:
+W tym scenariuszu utworzysz hello następujących zasobów platformy Azure:
 
 * dwóch maszyn wirtualnych (VM)
 * Interfejs sieci wirtualnej, dla każdej maszyny Wirtualnej przy użyciu adresów IPv4 i IPv6 przypisany
 * Moduł równoważenia obciążenia internetowy z protokołów IPv4 i IPv6 publicznego adresu IP
-* Zestaw dostępności w tym zawiera dwie maszyny wirtualne
-* dwie reguły równoważenia do mapowania publiczne adresy VIP prywatnej punkty końcowe obciążenia
+* toothat zestawu dostępności zawiera Witaj dwie maszyny wirtualne
+* dwa załadować równoważenia reguły toomap hello publiczne adresy VIP toohello prywatnej punkty końcowe
 
-## <a name="deploying-the-solution-using-the-azure-cli"></a>Wdrażanie rozwiązania za pomocą interfejsu wiersza polecenia Azure
+## <a name="deploying-hello-solution-using-hello-azure-cli"></a>Wdrażanie rozwiązania hello przy użyciu hello wiersza polecenia platformy Azure
 
-W poniższych krokach opisano, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia przy użyciu usługi Azure Resource Manager z interfejsem wiersza polecenia. Usługa Azure Resource Manager pozwala tworzyć i konfigurować każdy zasób osobno, a następnie łączyć je ze sobą w celu utworzenia kolejnego zasobu.
+Witaj następujące kroki pokazują, jak toocreate Internetem obciążenia przy użyciu usługi Azure Resource Manager z interfejsu wiersza polecenia usługi równoważenia. Usługi Azure Resource Manager każdy zasób jest tworzony i skonfigurować osobno, a następnie umieść razem toocreate zasobu.
 
-Aby wdrożyć usługę równoważenia obciążenia, możesz utworzyć i skonfigurować następujące obiekty:
+toodeploy modułu równoważenia obciążenia, możesz utworzyć i skonfigurować hello następujące obiekty:
 
 * Konfiguracja IP frontonu — publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* Pula adresów zaplecza — interfejsy sieciowe (NIC) maszyn wirtualnych odbierających ruch sieciowy z modułu równoważenia obciążenia.
-* Reguły równoważenia obciążenia — reguły mapowania portu publicznego modułu równoważenia obciążenia na port w puli adresów zaplecza.
-* Reguły NAT ruchu przychodzącego — reguły mapowania portu publicznego modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
-* Sondy — sondy kondycji używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
+* Pula adresów zaplecza — zawiera interfejsów sieciowych (NIC) dla ruchu sieciowego tooreceive hello maszyn wirtualnych z hello modułu równoważenia obciążenia.
+* Reguły równoważenia obciążenia — zawiera reguły mapowania port publiczny na tooport usługi równoważenia obciążenia hello hello puli adresów zaplecza.
+* Reguły NAT dla ruchu przychodzącego — zawiera reguły mapowania port publiczny na porcie programu tooa usługi równoważenia obciążenia w hello dla określonej maszyny wirtualnej w puli adresów zaplecza hello.
+* Sondy — zawiera dostępności toocheck badania używane kondycji wystąpień maszyn wirtualnych w puli adresów zaplecza hello.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support for Load Balancer](load-balancer-arm.md) (Obsługa usługi Azure Resource Manager dla modułu równoważenia obciążenia).
 
-## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Konfigurowanie środowiska interfejsu wiersza polecenia do użycia usługi Azure Resource Manager
+## <a name="set-up-your-cli-environment-toouse-azure-resource-manager"></a>Konfigurowanie sieci toouse środowiska interfejsu wiersza polecenia usługi Azure Resource Manager
 
-Na przykład Uruchamiamy narzędzi interfejsu wiersza polecenia w oknie poleceń programu PowerShell. Nie użyto polecenia cmdlet programu Azure PowerShell, ale używamy możliwości obsługi skryptów programu PowerShell w celu zwiększenia czytelności i ponownego użycia.
+Na przykład Uruchamiamy hello narzędzi interfejsu wiersza polecenia w oknie poleceń programu PowerShell. Nie użyto polecenia cmdlet programu Azure PowerShell hello, ale używamy czytelność tooimprove możliwości i ponowne użycie skryptów programu PowerShell w.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
-2. Uruchom **trybie azure config** polecenie, aby włączyć tryb Resource Manager.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) i wykonaj instrukcje hello zapasowej punktu toohello, gdzie należy wybrać konto platformy Azure i subskrypcji.
+2. Uruchom hello **trybie azure config** tryb Manager tooResource tooswitch polecenia.
 
     ```azurecli
     azure config mode arm
@@ -73,7 +73,7 @@ Na przykład Uruchamiamy narzędzi interfejsu wiersza polecenia w oknie poleceń
 
         info:    New mode is arm
 
-3. Logowanie do platformy Azure i uzyskać listę subskrypcji.
+3. Zaloguj się tooAzure i uzyskać listę subskrypcji.
 
     ```azurecli
     azure login
@@ -85,9 +85,9 @@ Na przykład Uruchamiamy narzędzi interfejsu wiersza polecenia w oknie poleceń
     azure account list
     ```
 
-    Wybierz subskrypcję, której chcesz użyć. Zanotuj identyfikator subskrypcji do następnego kroku.
+    Wybierz subskrypcję hello, który ma toouse. Zanotuj identyfikator subskrypcji hello hello następnego kroku.
 
-4. Ustawianie zmiennych środowiska PowerShell do użycia przy użyciu poleceń interfejsu wiersza polecenia.
+4. Ustawianie zmiennych środowiska PowerShell do użytku z hello polecenia interfejsu wiersza polecenia.
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -130,16 +130,16 @@ Na przykład Uruchamiamy narzędzi interfejsu wiersza polecenia w oknie poleceń
     $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
-## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Tworzenie publicznych adresów IP dla puli frontonu
+## <a name="create-public-ip-addresses-for-hello-front-end-pool"></a>Tworzenie publicznych adresów IP dla puli frontonu hello
 
-1. Ustawianie zmiennych środowiska PowerShell
+1. Ustawianie zmiennych środowiska PowerShell hello
 
     ```powershell
     $publicIpv4Name = "myIPv4Vip"
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Utwórz publiczny adres IP w puli adresów IP frontonu.
+2. Utwórz publiczny pulę adresów IP hello frontonu IP.
 
     ```azurecli
     $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
@@ -147,14 +147,14 @@ Na przykład Uruchamiamy narzędzi interfejsu wiersza polecenia w oknie poleceń
     ```
 
     > [!IMPORTANT]
-    > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako nazwy FQDN. To zmiana z klasycznym wdrożenia, którego używa usługa w chmurze nazwę FQDN modułu równoważenia obciążenia.
-    > W tym przykładzie nazwa FQDN to *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > Moduł równoważenia obciążenia Hello używa hello etykieta domeny publicznego adresu IP hello jako nazwy FQDN. Ta zmiana wdrożenie klasyczne, używający nazwa usługi w chmurze hello hello równoważenia obciążenia w pełni kwalifikowaną nazwę domeny.
+    > W tym przykładzie hello nazwy FQDN jest *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Tworzenie puli frontonu i zaplecza
 
-W tym przykładzie tworzy frontonu pula adresów IP, która odbiera przychodzącego ruchu sieciowego w ramach usługi równoważenia obciążenia i puli adresów IP zaplecza, gdzie puli frontonu wysyła ruch sieciowy ze zrównoważonym obciążeniem.
+W tym przykładzie tworzy hello frontonu puli adresów IP odbierająca hello przychodzącego ruchu sieciowego na powitania modułu równoważenia obciążenia i puli adresów IP zaplecza hello gdzie puli frontonu hello wysyła ruch sieciowy hello ze zrównoważonym obciążeniem.
 
-1. Ustawianie zmiennych środowiska PowerShell
+1. Ustawianie zmiennych środowiska PowerShell hello
 
     ```powershell
     $frontendV4Name = "FrontendVipIPv4"
@@ -163,7 +163,7 @@ W tym przykładzie tworzy frontonu pula adresów IP, która odbiera przychodząc
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Utwórz pulę adresów IP frontonu skojarzoną z publicznym adresem IP utworzonym w poprzednim kroku oraz moduł równoważenia obciążenia.
+2. Utwórz pulę IP frontonu skojarzenie publicznego adresu IP hello utworzone w poprzednim kroku hello i hello modułu równoważenia obciążenia.
 
     ```azurecli
     $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
@@ -172,18 +172,18 @@ W tym przykładzie tworzy frontonu pula adresów IP, która odbiera przychodząc
     $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
-## <a name="create-the-probe-nat-rules-and-lb-rules"></a>Tworzenie sondowania, reguł NAT oraz zasady równoważeniem obciążenia
+## <a name="create-hello-probe-nat-rules-and-lb-rules"></a>Tworzenie hello sondowania, reguł NAT oraz zasady równoważeniem obciążenia
 
-W tym przykładzie opisano tworzenie następujących elementów:
+W tym przykładzie jest tworzony hello następujące elementy:
 
-* zasada sondowania, aby sprawdzić połączenie z portem TCP 80 z
-* regułę NAT do tłumaczenia cały ruch przychodzący na porcie 3389 do portu 3389 protokołu RDP<sup>1</sup>
-* regułę NAT do tłumaczenia cały ruch przychodzący na porcie 3391 do portu 3389 protokołu RDP<sup>1</sup>
-* Reguła modułu równoważenia obciążenia do równoważenia całego ruchu przychodzącego do portu 80 na port 80 adresów w puli zaplecza.
+* Sonda toocheck reguły dla łączności tooTCP portu 80
+* translator NAT reguły tootranslate cały ruch przychodzący na porcie 3389 tooport 3389 protokołu RDP<sup>1</sup>
+* translator NAT reguły tootranslate cały ruch przychodzący na porcie 3391 tooport 3389 protokołu RDP<sup>1</sup>
+* toobalance reguły modułu równoważenia obciążenia cały ruch przychodzący na porcie 80 tooport 80 na powitania adresów w puli zaplecza hello.
 
-<sup>1</sup> Reguły NAT są powiązane z konkretnym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy przychodzące do portu 3389 są wysyłane do określonej maszyny wirtualnej i skojarzonych z reguły NAT portu. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
+<sup>1</sup> reguł NAT są skojarzone tooa wystąpienia określonej maszyny wirtualnej za hello równoważenia obciążenia. ruch sieciowy Hello przychodzące do portu 3389 jest wysyłane toohello określonej maszyny wirtualnej i skojarzonych z hello reguły NAT portu. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Oba protokoły nie może być przypisana toohello tego samego portu.
 
-1. Ustawianie zmiennych środowiska PowerShell
+1. Ustawianie zmiennych środowiska PowerShell hello
 
     ```powershell
     $probeV4V6Name = "ProbeForIPv4AndIPv6"
@@ -193,22 +193,22 @@ W tym przykładzie opisano tworzenie następujących elementów:
     $lbRule1V6Name = "LBRuleForIPv6-Port80"
     ```
 
-2. Utwórz sondy
+2. Utworzyć hello sondy
 
-    Poniższy przykład tworzy sondowaniem TCP, który umożliwia sprawdzenie połączenia zaplecza port TCP 80 co 15 s. Go spowoduje oznaczenie zasobów zaplecza niedostępne po dwóch kolejnych błędów.
+    Witaj poniższy przykład tworzy sondowaniem TCP sprawdzającą dla łączności tooback-end-port TCP 80 co 15 s. Go spowoduje oznaczenie zasobów zaplecza hello niedostępne po dwóch kolejnych błędów.
 
     ```azurecli
     $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
-3. Tworzenie reguły NAT ruchu przychodzącego zezwalających na połączenia RDP do zasobów wewnętrznych
+3. Tworzenie reguł ruchu przychodzącego translatora adresów Sieciowych, które połączeń protokołu RDP toohello zaplecza zasobów
 
     ```azurecli
     $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Tworzenie reguł, które przesyłają dane do różnych portów zaplecza w zależności od których serwer sieci Web odebrał żądanie usługi równoważenia obciążenia
+4. Tworzenie reguł, które przesyłają toodifferent wewnętrznych portów w zależności od tego, które frontonu odebrał żądanie hello modułu równoważenia obciążenia
 
     ```azurecli
     $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
@@ -224,7 +224,7 @@ W tym przykładzie opisano tworzenie następujących elementów:
     Oczekiwane dane wyjściowe:
 
         info:    Executing command network lb show
-        info:    Looking up the load balancer "myIPv4IPv6Lb"
+        info:    Looking up hello load balancer "myIPv4IPv6Lb"
         data:    Id                              : /subscriptions/########-####-####-####-############/resourceGroups/pscontosorg1southctrlus09152016/providers/Microsoft.Network/loadBalancers/myIPv4IPv6Lb
         data:    Name                            : myIPv4IPv6Lb
         data:    Type                            : Microsoft.Network/loadBalancers
@@ -263,9 +263,9 @@ W tym przykładzie opisano tworzenie następujących elementów:
 
 ## <a name="create-nics"></a>Tworzenie kart sieciowych
 
-Tworzenie kart sieciowych i kojarzyć je z reguł NAT, reguły modułu równoważenia obciążenia i sondy.
+Tworzenie kart sieciowych i skojarzyć je tooNAT reguły, reguły modułu równoważenia obciążenia i sondy.
 
-1. Ustawianie zmiennych środowiska PowerShell
+1. Ustawianie zmiennych środowiska PowerShell hello
 
     ```powershell
     $nic1Name = "myIPv4IPv6Nic1"
@@ -288,11 +288,11 @@ Tworzenie kart sieciowych i kojarzyć je z reguł NAT, reguły modułu równowa�
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Tworzenie zaplecza zasobów maszyny Wirtualnej i dołączyć poszczególne karty Sieciowe
+## <a name="create-hello-back-end-vm-resources-and-attach-each-nic"></a>Utwórz zasobów maszyny Wirtualnej hello zaplecza i Dołącz poszczególne karty Sieciowe
 
-Aby utworzyć maszyny wirtualne, musi mieć konto magazynu. W przypadku równoważenia obciążenia maszyn wirtualnych muszą być członkami zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [tworzenia maszyny Wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+toocreate maszyn wirtualnych, musisz mieć konto magazynu. W przypadku równoważenia obciążenia hello maszyny wirtualne muszą toobe członkami zestawu dostępności. Aby uzyskać więcej informacji na temat tworzenia maszyn wirtualnych, zobacz [tworzenia maszyny Wirtualnej platformy Azure przy użyciu programu PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
-1. Ustawianie zmiennych środowiska PowerShell
+1. Ustawianie zmiennych środowiska PowerShell hello
 
     ```powershell
     $storageAccountName = "ps08092016v6sa0"
@@ -311,23 +311,23 @@ Aby utworzyć maszyny wirtualne, musi mieć konto magazynu. W przypadku równowa
     ```
 
     > [!WARNING]
-    > W tym przykładzie używa nazwy użytkownika i hasła dla maszyn wirtualnych w postaci zwykłego tekstu. Odpowiednie należy uważać podczas przy użyciu poświadczeń niezabezpieczona. Aby uzyskać bardziej bezpieczne metody obsługi poświadczenia w programie PowerShell, zobacz [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) polecenia cmdlet.
+    > W tym przykładzie używane hello nazwy użytkownika i hasła dla maszyn wirtualnych hello w postaci zwykłego tekstu. Odpowiednie należy uważać podczas przy użyciu poświadczeń w hello Wyczyść. Aby bardziej bezpieczne metody obsługi poświadczenia w programie PowerShell, zobacz hello [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) polecenia cmdlet.
 
-2. Tworzenie zestawu dostępności i konto magazynu
+2. Tworzenie zestawu dostępności i konto magazynu hello
 
-    Podczas tworzenia maszyn wirtualnych, może użyć istniejącego konta magazynu. Poniższe polecenie tworzy nowe konto magazynu.
+    Po utworzeniu hello maszyn wirtualnych, może używać istniejącego konta magazynu. Witaj następujące polecenie tworzy nowe konto magazynu.
 
     ```azurecli
     $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
-    Następnie można utworzyć zestawu dostępności.
+    Następnie należy utworzyć hello zestawu dostępności.
 
     ```azurecli
     $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. Tworzenie maszyn wirtualnych z skojarzone kartami sieciowymi
+3. Tworzenie maszyn wirtualnych hello z kartami sieciowymi hello skojarzone
 
     ```azurecli
     $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension

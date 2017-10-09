@@ -1,6 +1,6 @@
 ---
 title: 'Krok 3: Tworzenie nowego eksperymentu uczenia maszynowego | Dokumentacja firmy Microsoft'
-description: "Krok 3 opracowanie wskazówki rozwiązanie predykcyjne: Tworzenie nowego eksperymentu uczenia w usłudze Azure Machine Learning Studio."
+description: "Krok 3 hello opracowanie wskazówki rozwiązanie predykcyjne: Tworzenie nowego eksperymentu uczenia w usłudze Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,123 +14,123 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4697d461a205c50c8d2aa6a3bd56697840cb30f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Przewodnik, krok 3. Tworzenie nowego eksperymentu usługi Azure Machine Learning
-Jest to trzeci krok wskazówki, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+To hello trzeci krok wskazówki hello [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Tworzenie obszaru roboczego usługi Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Przekazywanie istniejących danych](machine-learning-walkthrough-2-upload-data.md)
 3. **Tworzenie nowego eksperymentu**
-4. [Nauczanie i ocena modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Wdrażanie usługi sieci Web](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Dostęp do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
+4. [Nauczanie i Ewaluacja modeli hello](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Wdrażanie usługi sieci Web hello](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Witaj dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-Następnym krokiem w ramach tego przewodnika jest tworzenie eksperymentu w usłudze Machine Learning Studio, która używa zestawu danych, które możemy przekazać.  
+następnym krokiem Hello w ramach tego przewodnika jest toocreate eksperymentu w usłudze Machine Learning Studio używającej hello zestawu danych, które możemy przekazać.  
 
-1. W Studio, kliknij przycisk **+ nowy** w dolnej części okna.
+1. W Studio, kliknij przycisk **+ nowy** u dołu okna hello hello.
 2. Wybierz **EKSPERYMENTU**, a następnie wybierz pozycję "Pusty eksperyment". 
 
     ![Tworzenie nowego eksperymentu][0]
 
-2. Wybierz domyślną nazwę eksperymentu w górnej części obszaru roboczego i zmień jego nazwę, wpisując tekst opisowy.
+2. Wybierz hello domyślna nazwa u góry hello hello kanwy eksperymentu i zmień jego nazwę toosomething łatwy do rozpoznania.
 
     ![Zmień nazwę eksperymentu][5]
    
    > [!TIP]
-   > Dobrym rozwiązaniem, aby wypełnić jest **Podsumowanie** i **opis** do eksperymentu w **właściwości** okienka. Te właściwości zapewniają możliwość dokumentu eksperyment, dzięki czemu każdy, kto analizuje go później będzie zrozumiałe, cele i metodologii.
+   > Toofill dobrym rozwiązaniem jest **Podsumowanie** i **opis** do eksperymentu hello w hello **właściwości** okienka. Przyznanie tych właściwości hello szansy toodocument hello eksperymentu, aby każdy, kto analizuje go później będzie zrozumiałe, cele i metodologii.
    > 
    > ![Właściwości eksperymentu][6]
    > 
-3. Na palecie modułów z lewej strony obszaru roboczego eksperymentu, rozwiń węzeł **zapisane zestawów danych**.
-4. Znaleźć zestaw danych został utworzony w obszarze **Moje zestawów danych** i przeciągnij go do obszaru roboczego. Możesz również znaleźć zestaw danych, wprowadzając nazwę w **wyszukiwania** pole powyżej palety.  
+3. W hello modułu palety toohello lewej strony obszaru roboczego eksperymentu hello, rozwiń węzeł **zapisane zestawów danych**.
+4. Znajdź hello dataset utworzono w obszarze **Moje zestawów danych** i przeciągnij go na powitania kanwy. Możesz również znaleźć hello zestawu danych, wprowadzając nazwę hello w hello **wyszukiwania** pole powyżej hello palety.  
 
-    ![Dodaj zestaw danych do eksperymentu][7]
+    ![Dodaj hello dataset toohello eksperymentu][7]
 
-## <a name="prepare-the-data"></a>Przygotowanie danych
-Można wyświetlić pierwszych 100 wierszy danych i niektóre informacje statystyczne dla całego zestawu danych: kliknij port wyjściowy zestaw danych (małe koło u dołu) i wybierz **Visualize**.  
+## <a name="prepare-hello-data"></a>Przygotowanie danych hello
+Możesz wyświetlić hello pierwszych 100 wierszy danych hello i niektóre informacje statystyczne dla całego zestawu danych hello: kliknij port wyjściowy hello hello DataSet (hello małe kółko u dołu hello) i wybierz **Visualize**.  
 
-Ponieważ plik danych nie został dostarczony z nagłówków kolumn, Studio udostępnił ogólnego nagłówki (Col1, Col2, *itp.*). Dobrym nagłówki nie są niezbędne do tworzenia modelu, ale to na łatwiejsze do pracy z danymi w eksperymencie. Ponadto możemy po pewnym czasie publikowania tego modelu w usłudze sieci web, nagłówki zidentyfikować kolumny do użytkownika usługi.  
+Ponieważ hello plik danych nie został dostarczony z nagłówków kolumn, Studio udostępnił ogólnego nagłówki (Col1, Col2, *itp.*). Dobrym nagłówki nie są istotne toocreating modelu, ale ich stał się łatwiejsze toowork z danymi hello w eksperymencie hello. Gdy firma Microsoft ostatecznie opublikować ten model usługi sieci web, nagłówki hello pomóc w identyfikacji użytkownika toohello kolumn hello hello usługi.  
 
-Można dodać nagłówków kolumn za pomocą [edytowanie metadanych] [ edit-metadata] modułu.
-Możesz użyć [edytowanie metadanych] [ edit-metadata] modułu, aby zmienić metadane skojarzone z zestawu danych. W takim przypadku stosujemy go udostępnia więcej przyjazne nazwy dla nagłówków kolumn. 
+Można dodać nagłówków kolumn za pomocą hello [edytowanie metadanych] [ edit-metadata] modułu.
+Użyj hello [edytowanie metadanych] [ edit-metadata] modułu toochange metadane skojarzone z zestawu danych. W takim przypadku stosujemy go tooprovide więcej przyjazne nazwy dla nagłówków kolumn. 
 
-Aby użyć [edytowanie metadanych][edit-metadata], należy najpierw określić, które kolumny do zmodyfikowania (w tym przypadku wszystkie z nich.) Następnie określ akcję do wykonania na podstawie tych kolumn (w tym przypadku zmiana nagłówków kolumn.)
+toouse [edytowanie metadanych][edit-metadata], należy najpierw określić które toomodify kolumn (w tym przypadku wszystkie z nich.) Następnie określ hello toobe działania wykonywane na podstawie tych kolumn (w tym przypadku zmiana nagłówków kolumn.)
 
-1. Na palecie modułów, wpisz "metadanych" **wyszukiwania** pole. [Edytowanie metadanych] [ edit-metadata] pojawia się na liście modułów.
+1. W palecie modułów hello, wpisz "metadanych" w hello **wyszukiwania** pole. Witaj [edytowanie metadanych] [ edit-metadata] jest widoczna na liście modułu hello.
 
-2. Kliknij i przeciągnij [edytowanie metadanych] [ edit-metadata] modułu kanwę i upuść ją poniżej dodaliśmy wcześniej zestawu danych.
+2. Kliknij i przeciągnij hello [edytowanie metadanych] [ edit-metadata] modułu na powitania obszaru roboczego i upuść ją poniżej dataset hello dodane wcześniej.
 
-3. Zestaw danych, aby połączyć [edytowanie metadanych][edit-metadata]: kliknij port wyjściowy zestaw danych (małe koło w dolnej części zestawu danych), przeciągnij, aby port wejściowy z [edytowanie metadanych] [ edit-metadata] (małe koło w górnej części modułu) następnie zwolnij przycisk myszy. Zestaw danych i modułu pozostały połączone, nawet w przypadku przenoszenia jednej na kanwie.
+3. Połącz hello dataset toohello [edytowanie metadanych][edit-metadata]: kliknij port wyjściowy hello hello DataSet (hello małe kółko u dołu hello hello zestawu danych), przeciągnij toohello port wejściowy z [edytowanie metadanych ] [ edit-metadata] (hello małe koło u góry hello modułu hello), następnie zwolnij przycisk myszy hello. nawet w przypadku przenoszenia jednej na kanwie hello Hello zestawu danych i modułu pozostały połączone.
    
-   Eksperyment powinien teraz wyglądać mniej więcej tak:  
+   Hello eksperyment powinien teraz wyglądać mniej więcej tak:  
    
    ![Dodawanie metadanych edycji][1]
    
-   Czerwony wykrzyknik wskazuje, że firma Microsoft nie zostało to jeszcze ustawiony właściwości dla tego modułu. Robimy tego dalej.
+   Witaj czerwony wykrzyknik wskazuje, że firma Microsoft nie zostało to jeszcze ustawiony hello właściwości dla tego modułu. Robimy tego dalej.
    
    > [!TIP]
-   > Aby dodać komentarz do modułu, kliknij dwukrotnie moduł i wpisz tekst. Pozwoli to od razu sprawdzić rolę modułu w eksperymencie. W takim przypadku kliknij dwukrotnie [edytowanie metadanych] [ edit-metadata] moduł i wpisz komentarz "Dodaj nagłówki kolumn". Kliknij gdziekolwiek na kanwę, aby zamknąć okno tekstu. Aby wyświetlić komentarz, kliknij strzałkę w dół w module.
+   > Można dodać moduł tooa komentarza, klikając dwukrotnie pozycję modułu hello i wprowadzanie tekstu. Może to ułatwić jednym rzutem oka ocenić zadań jakie hello modułu w eksperymencie. W takim przypadku kliknij dwukrotnie hello [edytowanie metadanych] [ edit-metadata] moduł i wpisz hello komentarz "Dodaj nagłówki kolumn". Kliknij pole tekstowe hello tooclose kanwy hello gdziekolwiek. toodisplay hello komentarza, kliknij przycisk strzałki hello na powitania modułu.
    > 
    > ![Edytuj moduł metadanych z komentarzem dodane][8]
    > 
-4. Wybierz [edytowanie metadanych][edit-metadata], a następnie w **właściwości** kliknij w okienku po prawej stronie kanwy **Uruchom selektor kolumn**.
+4. Wybierz [edytowanie metadanych][edit-metadata]w hello **właściwości** kliknij okienko toohello prawo do kanwy hello **Uruchom selektor kolumn**.
 
-5. W **wybierz kolumny** okno dialogowe, wybierz wszystkie wiersze w **dostępne kolumny** i kliknij przycisk > Aby przenieść je na **wybrane kolumny**.
-   Okno dialogowe powinien wyglądać następująco:
+5. W hello **wybierz kolumny** okno dialogowe, wybierz wszystkie hello wierszy w **dostępne kolumny** i kliknij przycisk > toomove ich zbyt**wybrane kolumny**.
+   okno dialogowe Hello powinien wyglądać następująco:
 
    ![Selektor kolumn z wybrano wszystkich kolumn][2]
 
-6. Kliknij przycisk **OK** znacznik wyboru.
+6. Kliknij przycisk hello **OK** znacznik wyboru.
 
-7. W **właściwości** okienka, poszukaj **nowych nazw kolumn** parametru. W tym miejscu wprowadź listę nazw 21 kolumn w zestawie danych, oddzielonych przecinkami i kolejność kolumn. Można uzyskać nazwy kolumn w dokumentacji zestawu danych w witrynie sieci Web UCI, lub dla wygody można skopiować i wkleić poniżej:  
+7. Po powrocie do hello **właściwości** okienka, poszukaj hello **nowych nazw kolumn** parametru. W tym miejscu wprowadź listę nazw kolumn 21 hello w zestawie danych hello, oddzielonych przecinkami i kolejność kolumn. Nazwy kolumn hello można uzyskać z hello dataset dokumentacji w witrynie sieci Web hello UCI lub dla wygody można skopiować i wkleić hello następującej listy:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
-   W okienku właściwości wygląda następująco:
+   w okienku właściwości Hello wygląda następująco:
    
    ![Właściwości metadanych edycji][3]
 
 > [!TIP]
-> Jeśli chcesz sprawdzić nagłówki kolumn, należy uruchomić eksperyment (kliknij **Uruchom** poniżej obszaru roboczego eksperymentu). Po zakończeniu pracy (zielony znacznik wyboru jest wyświetlane na [edytowanie metadanych][edit-metadata]), kliknij port wyjściowy [edytowanie metadanych] [ edit-metadata] modułu, i wybierz **Visualize**. Dane wyjściowe każdy moduł jest widoczny w taki sam sposób, aby wyświetlić postęp danych za pośrednictwem eksperymentu.
+> Nagłówki kolumn hello tooverify, należy uruchomić eksperyment hello (kliknij **Uruchom** poniżej kanwy eksperymentu hello). Po zakończeniu pracy (zielony znacznik wyboru jest wyświetlane na [edytowanie metadanych][edit-metadata]), kliknij port wyjściowy hello hello [edytowanie metadanych] [ edit-metadata] Moduł, a następnie wybierz **Visualize**. Można wyświetlić dane wyjściowe hello każdy moduł w hello sam sposób tooview hello postęp hello danych za pośrednictwem hello eksperymentu.
 > 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Tworzenie szkolenia i testowanie zbiory danych
-Potrzebujemy niektórych danych do nauczenia modelu, a niektóre testowania go.
-Dlatego w następnym kroku eksperyment, możemy podzielić zestawu danych na dwa oddzielne zestawy danych: jeden dla uczenie modelu, a drugi do testowania go.
+Potrzebujemy niektórych danych tootrain hello modelu i niektóre tootest go.
+Dlatego w hello następnego kroku hello eksperymentu, możemy podzielić hello zestawu danych na dwa oddzielne zestawy danych: jeden dla uczenie modelu, a drugi do testowania go.
 
-Aby to zrobić, używamy [podziału danych] [ split] modułu.  
+toodo, używamy hello [podziału danych] [ split] modułu.  
 
-1. Znajdź [podziału danych] [ split] modułu, przeciągnij go do obszaru roboczego i połącz go z [edytowanie metadanych] [ edit-metadata] modułu.
+1. Znajdź hello [podziału danych] [ split] moduł, przeciągnij je na kanwie hello i podłącz go toohello [edytowanie metadanych] [ edit-metadata] modułu.
 
-2. Domyślnie współczynnik rozdzielania wynosi 0,5 i **podziału Randomized** ustawiono parametr. Oznacza, że losowe pół danych wyjściowych za pośrednictwem jednego portu [podziału danych] [ split] modułu i połowy przez innych. Te parametry można dostosować, jak również **Random seed** parametr, aby zmienić podziału między celów szkoleniowych i testów danych. Na przykład możemy pozostaw je jako — jest.
+2. Współczynnik rozdzielania hello jest domyślnie 0,5 i hello **podziału Randomized** ustawiono parametr. Oznacza, że losowe pół hello danych wyjściowych za pośrednictwem jednego portu hello [podziału danych] [ split] modułu i połowa za pomocą hello innych. Użytkownik może dostosować te parametry, a także hello **Random seed** parametru hello toochange podzielony między celów szkoleniowych i testów danych. Na przykład możemy pozostaw je jako — jest.
    
    > [!TIP]
-   > Właściwość **ułamek wierszy w pierwszym wyjściowy zestaw danych** Określa, ile danych jest wysyłany za pośrednictwem *po lewej stronie* output portu. Na przykład jeśli ustawisz stosunek 0,7 70% danych wówczas dane wyjściowe za pośrednictwem lewy port i 30% za pośrednictwem prawy port.  
+   > Witaj właściwości **ułamek wierszy w hello najpierw wyjściowy zestaw danych** Określa, ile danych hello przekazywane za pośrednictwem hello są *po lewej stronie* output portu. Na przykład jeśli ustawisz too0.7 stosunek hello, 70% hello danych są kierowane za pośrednictwem hello lewego portu i 30% za pośrednictwem hello prawy port.  
    > 
    > 
 
-3. Kliknij dwukrotnie [podziału danych] [ split] moduł i wpisz komentarz, "danych szkoleniowych/testowania podzielić 50%". 
+3. Kliknij dwukrotnie hello [podziału danych] [ split] modułu i wprowadź komentarz Witaj, "dane szkoleniowe/testowania podzielić 50%". 
 
-Możemy użyć danych wyjściowych z [podziału danych] [ split] modułu jednak firma Microsoft, takich jak, ale ta funkcja pozwala wybrać wykorzystywać dane po lewej stronie, ponieważ dane szkoleniowe i prawa testowania jako dane wyjściowe.  
+Możemy użyć hello elementy wyjściowe hello [podziału danych] [ split] modułu jednak firma Microsoft, takich jak, ale ta funkcja pozwala wybrać toouse hello po lewej stronie dane wyjściowe jako dane szkoleniowe i hello prawo testowania jako dane wyjściowe.  
 
-Jak wspomniano w [poprzedniego kroku](machine-learning-walkthrough-2-upload-data.md), misclassifying ryzyko kredytowe wysokiej jako niski koszt jest pięć razy wyższa niż koszt misclassifying niskie ryzyko kredytowe jako wysoki. Aby to uwzględniać, możemy wygenerować nowy zestaw danych, które odzwierciedla tej funkcji koszt. W nowy zestaw danych każdy przykład wysokiego ryzyka są replikowane pięć razy podczas każdego przykład niskiego ryzyka nie jest replikowany.   
+Jak wspomniano w hello [poprzedniego kroku](machine-learning-walkthrough-2-upload-data.md), misclassifying ryzyko kredytowe wysokiej jako niski koszt hello jest pięć razy wyższa niż koszt hello misclassifying niskie ryzyko kredytowe jako wysoki. tooaccount tego, firma Microsoft generuje nowy zestaw danych, które odzwierciedla tej funkcji koszt. W hello nowy zestaw danych każdy przykład wysokiego ryzyka są replikowane pięć razy, gdy nie jest replikowany każdy przykład niskiego ryzyka.   
 
 Możemy replikacja za pomocą kodu języka R:  
 
-1. Znajdź i przeciągnij [wykonanie skryptu języka R] [ execute-r-script] modułu na kanwie eksperymentu. 
+1. Znajdź i przeciągnij hello [wykonanie skryptu języka R] [ execute-r-script] modułu na kanwie eksperymentu hello. 
 
-2. Połącz lewy port wyjściowy [podziału danych] [ split] modułu do pierwszego portu wejściowego ("Dataset1") z [wykonanie skryptu języka R] [ execute-r-script] modułu.
+2. Połącz hello pozostałych portem wyjściowym hello [podziału danych] [ split] toohello modułu pierwsze dane wejściowe portu ("Dataset1") z hello [wykonanie skryptu języka R] [ execute-r-script] Moduł.
 
-3. Kliknij dwukrotnie [wykonanie skryptu języka R] [ execute-r-script] modułu, a następnie wprowadź komentarz, "Ustaw korekty kosztu".
+3. Kliknij dwukrotnie hello [wykonanie skryptu języka R] [ execute-r-script] modułu, a następnie wprowadź komentarz Witaj, "Ustaw korekty kosztu".
 
-4. W **właściwości** okienku usunąć domyślny tekst w **skrypt języka R** parametr, a następnie wprowadź ten skrypt:
+4. W hello **właściwości** okienku i Usuń hello domyślny tekst w hello **skrypt języka R** parametr, a następnie wprowadź ten skrypt:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -138,20 +138,20 @@ Możemy replikacja za pomocą kodu języka R:
        for (i in 1:5) data.set<-rbind(data.set,pos)
        maml.mapOutputPort("data.set")
 
-    ![Skrypt języka R w module wykonanie skryptu języka R][9]
+    ![Skrypt języka R w module wykonanie skryptu języka R hello][9]
 
-Konieczne tej samej operacji replikacji dla każdego produktu [podziału danych] [ split] modułu, aby dane szkolenia i testowania mieć takiego samego dostosowania kosztów. Najprostszym sposobem, w tym celu jest duplikując [wykonanie skryptu języka R] [ execute-r-script] modułu właśnie wprowadziliśmy i połączenia jej z drugiej output port [podziału danych] [ split] modułu.
+Potrzebujemy toodo tej samej operacji replikacji dla każdego danych wyjściowych hello [podziału danych] [ split] moduł, tak że hello celów szkoleniowych i testów danych ma takie same hello Koszt korekty. Witaj najprostszym toodo sposób jest duplikując hello [wykonanie skryptu języka R] [ execute-r-script] modułu właśnie wprowadziliśmy i połączenia jej toohello innych danych wyjściowych port hello [podziału danych] [ split] modułu.
 
-1. Kliknij prawym przyciskiem myszy [wykonanie skryptu języka R] [ execute-r-script] moduł i zaznacz **kopiowania**.
+1. Kliknij prawym przyciskiem myszy hello [wykonanie skryptu języka R] [ execute-r-script] modułu, a następnie wybierz **kopiowania**.
 
-2. Kliknij prawym przyciskiem myszy obszaru roboczego eksperymentu, a następnie wybierz **Wklej**.
+2. Kliknij prawym przyciskiem myszy hello roboczego eksperymentu, a następnie wybierz **Wklej**.
 
-3. Przeciągnij nowy moduł w określonej pozycji, a następnie połącz portem wyjściowym prawo [podziału danych] [ split] na pierwszy port wejściowy tego nowego modułu [wykonanie skryptu języka R] [ execute-r-script] modułu. 
+3. Przeciągnij hello nowy moduł w określonej pozycji, a następnie połącz port wyjściowy prawo hello hello [podziału danych] [ split] toohello modułu pierwsze dane wejściowe port to nowy [wykonanie skryptu języka R] [ execute-r-script] modułu. 
 
-4. W dolnej części obszaru roboczego, kliknij przycisk **Uruchom**. 
+4. U dołu hello hello kanwy, kliknij przycisk **Uruchom**. 
 
 > [!TIP]
-> Kopii modułu wykonania skryptu języka R zawiera sam skrypt jako oryginalnego modułu. Podczas kopiowania i wklejania modułu na kanwie kopię zachowuje wszystkie właściwości oryginału.  
+> Hello kopii modułu wykonania skryptu języka R hello zawiera hello sam skrypt jako hello oryginalnego modułu. Podczas kopiowania i wklejania modułu na kanwie hello kopiowania hello zachowuje wszystkie właściwości hello hello oryginalnego.  
 > 
 > 
 
@@ -161,7 +161,7 @@ Naszym doświadczeniu teraz wygląda następująco:
 
 Aby uzyskać więcej informacji na używanie skryptów języka R w eksperymentów, zobacz [rozszerzanie eksperymentu z R](machine-learning-extend-your-experiment-with-r.md).
 
-**Następnie: [pociągu i Ewaluacja modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
+**Następnie: [pociągu i ocena hello modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/machine-learning-walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/machine-learning-walkthrough-3-create-new-experiment/rename-experiment.png

@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu obiektów Blob platformy Azure (obiekt magazynu) w języku Python | Dokumentacja firmy Microsoft"
-description: "Przechowuj dane niestrukturalne w chmurze za pomocą Magazynu obiektów blob Azure."
+title: "toouse aaaHow magazynu obiektów Blob platformy Azure (obiekt magazynu) w języku Python | Dokumentacja firmy Microsoft"
+description: "Przechowuj dane niestrukturalne w chmurze hello z magazynu obiektów Blob platformy Azure (obiekt magazynu)."
 services: storage
 documentationcenter: python
 author: mmacy
@@ -14,34 +14,34 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: marsma
-ms.openlocfilehash: 1cab8407be6fc8932b68e50d0c301e8ea37ea3ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8f9ca93e52b030384e28a739d2f1c6b610be094a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-blob-storage-from-python"></a>Jak używać magazynu obiektów Blob platformy Azure w języku Python
+# <a name="how-toouse-azure-blob-storage-from-python"></a>Jak toouse magazynu obiektów Blob platformy Azure w języku Python
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Omówienie
-Magazyn obiektów blob Azure jest usługą służącą do przechowywania danych niestrukturalnych w chmurze w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również nazywany magazynem obiektów.
+Magazyn obiektów Blob Azure to usługa, która przechowywania danych niestrukturalnych w chmurze hello w postaci obiektów blob. Magazyn obiektów blob umożliwia przechowywanie dowolnego typu danych tekstowych lub binarnych, takich jak dokumenty, pliki multimedialne lub instalatory aplikacji. Magazyn obiektów blob jest również tooas określonego obiektu magazynu.
 
-W tym artykule opisano sposób wykonywania typowych scenariuszy przy użyciu magazynu obiektów Blob. Próbki są napisane w języku Python i użyj [Microsoft Azure magazynu SDK dla języka Python]. Omówione scenariusze obejmują przekazywanie, wyświetlanie, pobieranie i usuwanie obiektów blob.
+W tym artykule opisano, jak tooperform typowych scenariuszy przy użyciu magazynu obiektów Blob. Witaj przykłady są napisane w języku Python i używają hello [Microsoft Azure magazynu SDK dla języka Python]. omówione scenariusze Hello obejmują przekazywanie, wyświetlanie, pobieranie i usuwanie obiektów blob.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
-Utwórz na podstawie typu obiektu blob, które chcesz użyć, **BlockBlobService**, **AppendBlobService**, lub **PageBlobService** obiektu. Poniższy kod używa **BlockBlobService** obiektu. Dodaj następujący kod w górnej części każdego pliku Python, w którym chcesz uzyskania programowego dostępu do magazynu obiektów Blob Azure bloku.
+Na podstawie typu hello obiektu blob, na które chcesz toouse, Utwórz **BlockBlobService**, **AppendBlobService**, lub **PageBlobService** obiektu. Witaj poniższy kod używa **BlockBlobService** obiektu. Dodaj następujące hello górze hello dowolny plik Python, w którym chcesz tooprogrammatically dostępu do magazynu obiektów Blob Azure bloku.
 
 ```python
 from azure.storage.blob import BlockBlobService
 ```
 
-Poniższy kod tworzy **BlockBlobService** przy użyciu klucza nazwy i konta konta magazynu.  Zamień "myaccount" i "klucze" Nazwa konta i klucz.
+Witaj poniższy kod tworzy **BlockBlobService** obiektu przy użyciu hello magazynu konta nazwy i klucza konta.  Zamień "myaccount" i "klucze" Nazwa konta i klucz.
 
 ```python
 block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
@@ -49,33 +49,33 @@ block_blob_service = BlockBlobService(account_name='myaccount', account_key='myk
 
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-W poniższym przykładzie kodu, można użyć **BlockBlobService** obiekt, aby utworzyć kontener, jeśli nie istnieje.
+Poniższy przykład kodu hello, można **BlockBlobService** obiektu toocreate hello kontener, jeśli nie istnieje.
 
 ```python
 block_blob_service.create_container('mycontainer')
 ```
 
-Domyślnie nowy kontener jest prywatny, dlatego należy określić klucz dostępu do magazynu (tak samo jak wcześniej) aby pobierać obiekty BLOB z tego kontenera. Jeśli chcesz udostępnić wszystkim obiekty BLOB w kontenerze, można utworzyć kontenera i przekazać poziom dostępu publicznego, używając następującego kodu.
+Domyślnie nowy kontener hello jest prywatny, więc (tak samo jak wcześniej), należy określić klucz dostępu do magazynu obiektów blob toodownload z tego kontenera. Jeśli chcesz obiektów blob hello toomake w tooeveryone dostępne kontenera hello, można utworzyć kontenera hello i przekazać poziom dostępu publicznego hello przy użyciu następującego kodu hello.
 
 ```python
 from azure.storage.blob import PublicAccess
 block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
 ```
 
-Alternatywnie można modyfikować kontenera po utworzeniu go przy użyciu następującego kodu.
+Alternatywnie można modyfikować kontenera po utworzeniu go przy użyciu następującego kodu hello.
 
 ```python
 block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
 ```
 
-Po tej zmianie wszyscy użytkownicy Internetu mogą wyświetlać obiekty BLOB w kontenerze publicznym, ale tylko wtedy można zmodyfikować lub usunąć je.
+Po tej zmianie wszyscy użytkownicy hello Internetu mogą wyświetlać obiekty BLOB w kontenerze publicznym, ale tylko wtedy można zmodyfikować lub usunąć je.
 
 ## <a name="upload-a-blob-into-a-container"></a>Przekazywanie obiektu blob do kontenera
-Aby utworzyć blokowych obiektów blob i przekazywanie danych, użyj **utworzyć\_obiektów blob\_z\_ścieżki**, **utworzyć\_obiektów blob\_z\_strumienia**, **utworzyć\_obiektu blob\_z\_bajtów** lub **utworzyć\_obiektu blob\_z\_tekst** metody. Są one wysokiego poziomu metodach podziału niezbędne, gdy rozmiar danych przekroczy 64 MB.
+toocreate blokowych obiektów blob i przekazywania danych, użyj hello **utworzyć\_obiektu blob\_z\_ścieżki**, **utworzyć\_obiektu blob\_z\_strumienia**, **utworzyć\_obiektu blob\_z\_bajtów** lub **utworzyć\_obiektu blob\_z\_tekst** metody. Są one wysokiego poziomu metodach hello niezbędne podziału gdy rozmiar hello hello danych przekracza 64 MB.
 
-**Utwórz\_obiektu blob\_z\_ścieżki** wysyła zawartość pliku z określonej ścieżki i **utworzyć\_obiektu blob\_z\_strumienia** przekazuje zawartość z otwartego pliku/strumienia. **Utwórz\_obiektu blob\_z\_bajtów** przekazuje tablicę bajtów, i **utworzyć\_obiektu blob\_z\_tekst** przekazuje wartość określony tekst przy użyciu określonego kodowania (wartość domyślna to UTF-8).
+**Tworzenie\_obiektu blob\_z\_ścieżki** przekazywania hello zawartość pliku z hello określona ścieżka, i **utworzyć\_obiektu blob\_z\_strumienia** przekazywania hello zawartość z otwartego pliku/strumienia. **Utwórz\_obiektu blob\_z\_bajtów** przekazuje tablicę bajtów, i **utworzyć\_obiektu blob\_z\_tekst** przekazuje hello określony wartość tekstu przy użyciu hello określić kodowania (domyślne ustawienia tooUTF-8).
 
-Poniższy przykład przekazuje zawartość **sunset.png** pliku do **mojblob** obiektu blob.
+Witaj poniższy przykład przekazuje zawartość hello hello **sunset.png** pliku do hello **mojblob** obiektu blob.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -87,8 +87,8 @@ block_blob_service.create_blob_from_path(
             )
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
-Aby wyświetlić listę obiektów blob w kontenerze, należy użyć **listy\_obiekty BLOB** metody. Ta metoda zwraca generator. Poniższy kod wyjścia **nazwa** każdego obiektu blob w kontenerze do konsoli.
+## <a name="list-hello-blobs-in-a-container"></a>Lista hello BLOB w kontenerze
+toolist hello BLOB w kontenerze, użyj hello **listy\_obiekty BLOB** metody. Ta metoda zwraca generator. Witaj poniższy kod wyświetla hello **nazwa** każdego obiektu blob w kontenerze toohello konsoli.
 
 ```python
 generator = block_blob_service.list_blobs('mycontainer')
@@ -97,33 +97,33 @@ for blob in generator:
 ```
 
 ## <a name="download-blobs"></a>Pobieranie obiektów blob
-Podczas pobierania danych z obiektu blob, użyj **uzyskać\_obiektów blob\_do\_ścieżki**, **uzyskać\_obiektów blob\_do\_strumienia**, **uzyskać\_obiektu blob\_do\_bajtów**, lub **uzyskać\_obiektu blob\_do\_tekstu**. Są one wysokiego poziomu metodach podziału niezbędne, gdy rozmiar danych przekroczy 64 MB.
+toodownload danych z obiektu blob, użyj **uzyskać\_obiektu blob\_do\_ścieżki**, **uzyskać\_obiektu blob\_do\_strumienia**, **pobrać\_obiektu blob\_do\_bajtów**, lub **uzyskać\_obiektu blob\_do\_tekstu**. Są one wysokiego poziomu metodach hello niezbędne podziału gdy rozmiar hello hello danych przekracza 64 MB.
 
-W poniższym przykładzie pokazano, za pomocą **uzyskać\_obiektu blob\_do\_ścieżki** do pobrania zawartości **mojblob** obiektu blob i zapisze go do **sunset.png poza** pliku.
+Hello poniższym przykładzie pokazano przy użyciu **uzyskać\_obiektu blob\_do\_ścieżki** toodownload zawartość hello hello **mojblob** obiektu blob i zapisz go w toohello **sunset.png poza** pliku.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 ```
 
 ## <a name="delete-a-blob"></a>Usuwanie obiektu blob
-Na koniec można usunąć obiektu blob, należy wywołać **delete_blob**.
+Na koniec wywołania toodelete obiektu blob **delete_blob**.
 
 ```python
 block_blob_service.delete_blob('mycontainer', 'myblockblob')
 ```
 
-## <a name="writing-to-an-append-blob"></a>Zapisywanie do uzupełnialnego obiektu blob
-Uzupełnialny obiekt blob jest zoptymalizowany pod kątem operacji dołączania, takich jak rejestrowanie. Podobnie jak blokowy obiekt blob, uzupełnialny obiekt blob jest złożony z bloków, ale nowy blok dodany do uzupełnialnego obiektu blob jest zawsze dołączany na końcu obiektu blob. Nie można zaktualizować lub usunąć istniejącego bloku w uzupełnialnym obiekcie blob. Identyfikatory bloków w uzupełnialnym obiekcie blob nie są widoczne, jak w przypadku blokowego obiektu blob.
+## <a name="writing-tooan-append-blob"></a>Zapisywanie tooan Dołącz obiektów blob
+Uzupełnialny obiekt blob jest zoptymalizowany pod kątem operacji dołączania, takich jak rejestrowanie. Podobnie jak blokowy obiekt blob uzupełnialny obiekt blob jest złożony z bloków, ale po dodaniu nowego bloku tooan uzupełnialny obiekt blob jest zawsze toohello dołączany na końcu obiektu blob hello. Nie można zaktualizować lub usunąć istniejącego bloku w uzupełnialnym obiekcie blob. Witaj identyfikatory bloków w uzupełnialnym obiekcie blob nie są widoczne, jak w przypadku blokowego obiektu blob.
 
-Każdy blok w uzupełnialnym obiekcie blob może różnić się rozmiarem, który może wynosić maksymalnie 4 MB, a uzupełnialny obiekt blob może zawierać do 50 000 bloków. Z tego względu maksymalny rozmiar uzupełnialnego obiektu blob nieznacznie przekracza 195 GB (4 MB X 50 000 bloków).
+Każdy blok w uzupełnialnym obiekcie blob może być inny rozmiar się tooa maksymalnie 4 MB, a uzupełnialny obiekt blob może zawierać maksymalnie 50 000 bloków. Maksymalny rozmiar uzupełnialnego obiektu blob Hello w związku z tym jest nieco przekraczać 195 GB (4 MB X 50 000 bloków).
 
-W poniższym przykładzie utworzono nowy uzupełnialny obiekt blob i dołączono do niego określone dane, symulując prostą operację rejestrowania.
+w poniższym przykładzie Hello tworzy nowy uzupełnialny obiekt blob i dołącza tooit niektóre dane, symulując prostą operację rejestrowania.
 
 ```python
 from azure.storage.blob import AppendBlobService
 append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
 
-# The same containers can hold all types of blobs
+# hello same containers can hold all types of blobs
 append_blob_service.create_container('mycontainer')
 
 # Append blobs must be created before they are appended to
@@ -134,7 +134,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy usługi Blob Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
+Teraz, kiedy znasz już podstawy magazynu obiektów Blob hello, wykonaj te więcej toolearn łącza.
 
 * [Centrum deweloperów języka Python](https://azure.microsoft.com/develop/python/)
 * [Interfejs API REST usług Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)

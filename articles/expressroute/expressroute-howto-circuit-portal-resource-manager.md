@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie i modyfikowanie obwodu usługi ExpressRoute: portalu Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób tworzenia, obsługi administracyjnej, sprawdź, aktualizacji, usuwania i anulowanie zastrzeżenia obwodu usługi ExpressRoute."
+description: "W tym artykule opisano, jak toocreate, udostępnić, sprawdź aktualizacji, usuwania i anulowanie zastrzeżenia obwodu usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 200418aed6bdebace43a2f57cf532d1c8d13cb83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
@@ -30,131 +30,131 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >
 
-W tym artykule opisano sposób tworzenia obwodu usługi Azure ExpressRoute przy użyciu portalu Azure i modelu wdrażania usługi Azure Resource Manager. Poniższe kroki przedstawiają także sposób Sprawdź stan obwodu, zaktualizować lub usunąć i anulowanie zastrzeżenia go.
+W tym artykule opisano, jak toocreate obwodu Azure ExpressRoute przy użyciu hello Azure portal hello usługi Azure Resource Manager deployment modelu. Hello także następujące kroki opisano, jak toocheck hello stanu obwodu hello, zaktualizuj lub usuń i anulowanie zastrzeżenia go.
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-* Przegląd [wymagania wstępne](expressroute-prerequisites.md) i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
-* Upewnij się, że masz dostęp do [portalu Azure](https://portal.azure.com).
-* Upewnij się, że masz uprawnienia do tworzenia nowych zasobów sieciowych. Jeśli nie masz odpowiednich uprawnień, skontaktuj się z administratorem konta.
-* Możesz [wyświetlanie wideo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) przed rozpoczęciem, aby lepiej zrozumieć kroki.
+* Przejrzyj hello [wymagania wstępne](expressroute-prerequisites.md) i [przepływy pracy](expressroute-workflows.md) przed rozpoczęciem konfigurowania.
+* Upewnij się, że masz dostęp do toohello [portalu Azure](https://portal.azure.com).
+* Upewnij się, że masz uprawnienia toocreate nowych zasobów sieciowych. Jeśli nie masz odpowiednich uprawnień hello, skontaktuj się z administratorem konta.
+* Możesz [wyświetlanie wideo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) przed rozpoczęciem w kolejności toobetter zrozumieć kroki hello.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Tworzenie i przydzielanie obwodu usługi ExpressRoute
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Logowanie się do witryny Azure Portal
-Przejdź w przeglądarce do witryny [Azure Portal](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
+### <a name="1-sign-in-toohello-azure-portal"></a>1. Zaloguj się toohello portalu Azure
+W przeglądarce Przejdź toohello [portalu Azure](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 
 ### <a name="2-create-a-new-expressroute-circuit"></a>2. Utwórz nowy obwód usługi ExpressRoute
 > [!IMPORTANT]
-> Od momentu jego wygenerowaniu klucza usługi będą naliczane obwodu usługi ExpressRoute. Upewnij się, gdy dostawca łączności jest gotowy do udostępniania obwodu podczas wykonywania tej operacji.
+> Od momentu hello wygenerowaniu klucza usługi będą naliczane obwodu usługi ExpressRoute. Upewnij się, wykonać tę operację, gdy dostawca połączenia hello jest gotowy tooprovision hello obwodu.
 > 
 > 
 
-1. Można utworzyć obwodu usługi ExpressRoute, wybierając opcję, aby utworzyć nowy zasób. Kliknij przycisk **nowy** > **sieci** > **ExpressRoute**, jak pokazano na poniższej ilustracji:
+1. Można utworzyć obwodu usługi ExpressRoute, wybierając hello opcja toocreate nowy zasób. Kliknij przycisk **nowy** > **sieci** > **ExpressRoute**, jak pokazano w powitania po obrazu:
    
     ![Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. Po kliknięciu **ExpressRoute**, zobaczysz **obwodu ExpressRoute utworzyć** bloku. Po jest wypełnianie wartości w tym bloku, upewnij się, że podajesz prawidłowe jednostki SKU warstwy i pomiaru danych.
+2. Po kliknięciu **ExpressRoute**, zobaczysz hello **obwodu ExpressRoute utworzyć** bloku. Po jest wypełnianie hello wartości w tym bloku, upewnij się, możesz określić hello prawidłowe jednostki SKU warstwy i pomiaru danych.
    
-   * **Warstwa** Określa, czy włączone jest standardem ExpressRoute lub dodatek usługi ExpressRoute w warstwie premium. Można określić **standardowe** można pobrać wersji standard lub **Premium** dla dodatku premium.
-   * **Pomiaru danych** Określa typ rozliczeń. Można określić **Metered** planu dane naliczane i **nieograniczone** planu nieograniczone danych. Zmiana rozliczeń typu z **Metered** do **bez ograniczeń**, ale nie można zmienić typu z **bez ograniczeń** do **Metered**.
+   * **Warstwa** Określa, czy włączone jest standardem ExpressRoute lub dodatek usługi ExpressRoute w warstwie premium. Można określić **standardowe** tooget hello standardowy SKU lub **Premium** dla hello premium dodatku.
+   * **Pomiaru danych** Określa typ rozliczeń hello. Można określić **Metered** planu dane naliczane i **nieograniczone** planu nieograniczone danych. Zmiana typu rozliczeń hello z **Metered** za**nieograniczone**, ale nie można zmienić typu hello z **nieograniczone** za**Metered**.
      
-     ![Skonfiguruj warstwy jednostki SKU i pomiaru danych](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
+     ![Skonfiguruj hello SKU warstwy i pomiaru danych](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 > [!IMPORTANT]
-> Należy pamiętać, że wskazuje lokalizacji elementu równorzędnego [lokalizacji fizycznej](expressroute-locations.md) gdzie są komunikacji równorzędnej z firmą Microsoft. Jest to **nie** połączone z właściwością "Lokalizacja", która odwołuje się do lokalizacji geograficznej, w którym znajduje się dostawcy zasobów sieciowych Azure. Gdy nie są powiązane, jest dobrym rozwiązaniem, aby wybrać dostawcy zasobów sieciowych w lokalizacji geograficznej blisko lokalizacji elementu równorzędnego obwodu. 
+> Należy pamiętać, że hello lokalizacja komunikacji równorzędnej wskazuje hello [lokalizacji fizycznej](expressroute-locations.md) gdzie są komunikacji równorzędnej z firmą Microsoft. Jest to **nie** połączone za właściwość "Lokalizacja", która odwołuje się toohello lokalizacji geograficznej, gdzie znajduje się hello dostawcy zasobów sieciowych Azure. Gdy nie są powiązane, jest dobrym rozwiązaniem toochoose dostawcy zasobów sieciowych toohello geograficznie Zamknij lokalizacja komunikacji równorzędnej hello obwodu. 
 > 
 > 
 
-### <a name="3-view-the-circuits-and-properties"></a>3. Wyświetl obwody i właściwości
-**Wyświetlanie wszystkich obwodów**
+### <a name="3-view-hello-circuits-and-properties"></a>3. Widok hello obwody i właściwości
+**Wyświetlanie wszystkich obwodów hello**
 
-Można wyświetlić wszystkich obwodów, które zostały utworzone przez wybranie **wszystkie zasoby** w menu po lewej stronie.
+Można wyświetlić wszystkich obwodów hello, które zostały utworzone przez wybranie **wszystkie zasoby** w menu po lewej stronie powitania.
 
 ![Obwody widoku](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
-**Wyświetl właściwości**
+**Wyświetl właściwości hello**
 
-    You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+    You can view hello properties of hello circuit by selecting it. On this blade, note hello service key for hello circuit. You must copy hello circuit key for your circuit and pass it down toohello service provider toocomplete hello provisioning process. hello circuit key is specific tooyour circuit.
 
 ![Wyświetl właściwości](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Wyślij klucz usługi do dostawcą połączenia do inicjowania obsługi
-W tym bloku **stan dostawcy** zawiera informacje o bieżącym stanie inicjowania obsługi administracyjnej po stronie dostawcy usług. **Stan obwodu** zapewnia stanu po stronie firmy Microsoft. Aby uzyskać więcej informacji na temat obwodu inicjowania obsługi administracyjnej stanów zobacz [przepływy pracy](expressroute-workflows.md#expressroute-circuit-provisioning-states) artykułu.
+### <a name="4-send-hello-service-key-tooyour-connectivity-provider-for-provisioning"></a>4. Wyślij łączności hello usługodawcy tooyour klucza do inicjowania obsługi
+W tym bloku **stan dostawcy** zawiera informacje na temat hello bieżący stan inicjowania obsługi administracyjnej po stronie dostawcy usług hello. **Stan obwodu** zawiera stan hello na powitania po stronie firmy Microsoft. Aby uzyskać więcej informacji na temat obwodu inicjowania obsługi administracyjnej stanów Zobacz hello [przepływy pracy](expressroute-workflows.md#expressroute-circuit-provisioning-states) artykułu.
 
-Podczas tworzenia nowego obwodu ExpressRoute obwodu będą w następującym stanie:
+Podczas tworzenia nowego obwodu ExpressRoute obwodu hello będą powitania po stanu:
 
 Stan dostawcy: nie zainicjowano obsługę administracyjną<BR>
 Stan obwodu: włączone
 
 ![Zainicjuj proces inicjowania obsługi administracyjnej](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
-Obwodu zmieni się na następujący stan, gdy trwa jej włączanie dostawca połączenia:
+obwodu Hello ulegnie zmianie po stanu, gdy dostawca łączności hello jest w toku hello włączenie go dla Ciebie toohello:
 
 Stan dostawcy: Inicjowanie obsługi administracyjnej<BR>
 Stan obwodu: włączone
 
-Dla Ciebie można było używać obwodu usługi ExpressRoute musi być w następującym stanie:
+Możesz toobe stanie toouse obwodu usługi ExpressRoute musi być w powitania po stanu:
 
 Stan dostawcy: zainicjowano obsługę administracyjną<BR>
 Stan obwodu: włączone
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Okresowo sprawdzać stan i stan klucz obwodu
-Można wyświetlić właściwości obwodu, w którym są zainteresowani przez zaznaczenie go. Sprawdź **stan dostawcy** i upewnij się, że została przeniesiona do **obsługiwane administracyjnie** przed kontynuowaniem.
+### <a name="5-periodically-check-hello-status-and-hello-state-of-hello-circuit-key"></a>5. Okresowo sprawdzać stan hello i stan hello hello obwodu klucza
+Można wyświetlić właściwości hello obwodu hello są zainteresowani przez zaznaczenie go. Sprawdź hello **stan dostawcy** i upewnij się, że została przeniesiona za**obsługiwane administracyjnie** przed kontynuowaniem.
 
 ![Stan obwodu i dostawcy](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
 
 ### <a name="6-create-your-routing-configuration"></a>6. Tworzenie konfiguracji routingu
-Aby uzyskać instrukcje, zapoznaj się [obwodu ExpressRoute konfiguracji routingu](expressroute-howto-routing-portal-resource-manager.md) artykułu do tworzenia i modyfikowania obwodu komunikacji równorzędnych.
+Aby uzyskać instrukcje, zobacz toohello [obwodu ExpressRoute konfiguracji routingu](expressroute-howto-routing-portal-resource-manager.md) artykuł toocreate i modyfikowania obwodu komunikacji równorzędnych.
 
 > [!IMPORTANT]
-> Te instrukcje dotyczą tylko obwody, które zostały utworzone z dostawców usług, które oferują warstwy 2 łączności usługi. Jeśli używasz usługodawcy, który oferuje zarządzanych warstwy 3 usługi (zazwyczaj IP sieci VPN, takie jak MPLS), dostawca połączenia będzie Konfigurowanie i zarządzanie nimi routingu dla Ciebie.
+> Te instrukcje mają zastosowanie tylko toocircuits, które są tworzone za pomocą dostawcy usług, które oferują warstwy 2 łączność usługi. Jeśli używasz usługodawcy, który oferuje zarządzanych warstwy 3 usługi (zazwyczaj IP sieci VPN, takie jak MPLS), dostawca połączenia będzie Konfigurowanie i zarządzanie nimi routingu dla Ciebie.
 > 
 > 
 
-### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
-Następnie połączyć sieć wirtualną obwodu usługi ExpressRoute. Użyj [łączenia sieci wirtualne obwody usługi ExpressRoute](expressroute-howto-linkvnet-arm.md) artykuł podczas pracy z modelu wdrażania usługi Resource Manager.
+### <a name="7-link-a-virtual-network-tooan-expressroute-circuit"></a>7. Link sieci wirtualnej tooan obwodu usługi expressroute
+Następnie połącz tooyour sieci wirtualnej obwodu usługi expressroute. Użyj hello [połączenie wirtualnej sieci obwody tooExpressRoute](expressroute-howto-linkvnet-arm.md) artykuł podczas pracy z modelu wdrażania usługi Resource Manager hello.
 
-## <a name="getting-the-status-of-an-expressroute-circuit"></a>Pobieranie stanu obwodu usługi ExpressRoute
-Stan obwodu można wyświetlić, wybierając go. 
+## <a name="getting-hello-status-of-an-expressroute-circuit"></a>Pobieranie stanu hello obwodu usługi ExpressRoute
+Stan hello obwód można wyświetlić, wybierając go. 
 
 ![Stan obwodu usługi ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Modyfikowanie obwodu usługi ExpressRoute
 Można zmodyfikować niektórych właściwości obwodu usługi ExpressRoute, bez wywierania wpływu na łączność.
 
-Można wykonać następujące czynności bez przestojów:
+Możesz zrobić hello po bez przestojów:
 
 * Włącz lub Wyłącz dodatek premium usługi ExpressRoute dla obwodu usługi ExpressRoute.
-* Zwiększyć przepustowość obwodu ExpressRoute dostarczane na port jest dostępna pojemność. Należy pamiętać, że przepustowość obwodu zmiana wersji na starszą nie jest obsługiwany. 
-* Zmiana zliczania planu naliczane danych nieograniczone danych. Należy pamiętać, że zmiana zliczania planu z dane nieograniczone naliczane danych nie jest obsługiwana.
+* Hello zwiększyć przepustowość obwodu ExpressRoute pod warunkiem, że na porcie hello jest dostępna pojemność. Należy pamiętać, że zmiany na starszą wersję hello przepustowości obwodu nie jest obsługiwany. 
+* Zmień hello planu z danych naliczane tooUnlimited danych pomiaru. Należy pamiętać, zmiana planu zliczania hello z tooMetered nieograniczone danych, danych nie jest obsługiwane.
 * Można włączyć lub wyłączyć *operacje klasycznego*.
 
-Aby uzyskać więcej informacji na limity i ograniczenia dotyczą [ExpressRoute — często zadawane pytania](expressroute-faqs.md).
+Aby uzyskać więcej informacji na limity i ograniczenia, można znaleźć toohello [ExpressRoute — często zadawane pytania](expressroute-faqs.md).
 
-Aby zmodyfikować obwodu usługi ExpressRoute, wybierz polecenie **konfiguracji** jak pokazano na poniższej ilustracji.
+toomodify obwodu usługi ExpressRoute, wybierz polecenie hello **konfiguracji** pokazane na poniższej ilustracji hello.
 
 ![Modyfikowanie obwodu](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
 
-Można modyfikować przepustowości, jednostka SKU, modelu rozliczeń i zezwala na klasycznym operacji w ramach bloku konfiguracji.
+Można zmodyfikować hello przepustowości, jednostka SKU, modelu rozliczeń i zezwolić klasycznego operacji w obrębie bloku konfiguracji hello.
 
 > [!IMPORTANT]
-> Może być konieczne ponowne utworzenie obwodu usługi expressroute w przypadku niewystarczającego pojemności na istniejącego portu. Nie można uaktualnić obwodu, jeśli nie bez dodatkowej pojemności dostępnej w tej lokalizacji.
+> Konieczne może być obwodu ExpressRoute hello toorecreate na powitania istniejącego portu jest nieodpowiedni pojemności. Nie można uaktualnić obwodu hello, jeśli nie bez dodatkowej pojemności dostępnej w tej lokalizacji.
 >
-> Nie można zmniejszyć przepustowość obwodu usługi ExpressRoute bez zakłóceń. Zmiana wersji na starszą przepustowości wymaga anulowanie zastrzeżenia obwodu ExpressRoute, a następnie Udostępnij ponownie nowy obwód usługi ExpressRoute.
+> Nie można zmniejszyć hello przepustowości obwodu ExpressRoute bez zakłóceń. Obniżenie przepustowości wymaga obwodu ExpressRoute hello toodeprovision, a następnie Udostępnij ponownie nowy obwód usługi ExpressRoute.
 > 
-> Wyłączenie dodatku premium operacja może zakończyć się niepowodzeniem, jeśli używasz zasobów, które są większe niż co to jest dozwolone dla standardowych obwodu.
+> Wyłączenie dodatku premium operacja może zakończyć się niepowodzeniem, jeśli używasz zasobów, które są większe niż co to jest dozwolone dla obwodu standardowe hello.
 > 
 > 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Anulowania obsługi i usuwania obwodu usługi ExpressRoute
-Można usunąć obwodu usługi ExpressRoute, wybierając **usunąć** ikony. Pamiętaj o następujących kwestiach:
+Można usunąć obwodu usługi ExpressRoute, wybierając hello **usunąć** ikony. Należy uwzględnić następujące hello:
 
-* Należy odłączyć wszystkie sieci wirtualne z obwodem usługi ExpressRoute. Jeśli ta operacja nie powiedzie się, sprawdź, czy wszystkie sieci wirtualne są połączone z obwodem.
-* Jeśli dostawca usługi obwodu ExpressRoute stan inicjowania obsługi jest **inicjowania obsługi administracyjnej** lub **obsługiwane administracyjnie** należy skontaktować się z dostawcą usług na anulowanie zastrzeżenia obwód w bok. Firma Microsoft będzie zarezerwować zasobów i obciążać Cię do czasu dostawcy usług wykonuje anulowania obsługi obwodu i powiadomienia NAS.
-* Jeśli usługodawca została anulowana obwodu (ustawiono dostawcę usługi stan inicjowania obsługi **nieudostępniane**) następnie można usunąć obwodu. Spowoduje to zatrzymanie rozliczeń dla obwodu
+* Należy odłączyć wszystkie sieci wirtualne od hello obwodu usługi expressroute. Jeśli ta operacja nie powiedzie się, sprawdź, czy wszystkie sieci wirtualne są połączone toohello obwodu.
+* Jeśli stan inicjowania obsługi hello ExpressRoute obwodu usługi Dostawca jest **inicjowania obsługi administracyjnej** lub **obsługiwane administracyjnie** należy skontaktować się z obwodu hello toodeprovision dostawcy usług w bok. Firma Microsoft będzie kontynuować tooreserve zasobów i obciążać Cię do momentu dostawcy usług hello kończy obwodu hello anulowania obsługi i powiadamia nam.
+* Jeśli dostawcy usług hello została anulowana obwodu hello (stan inicjowania dostawcy usług hello ustawiono zbyt**nieudostępniane**) następnie można usunąć obwodu hello. Spowoduje to zatrzymanie rozliczeń dla obwodu hello
 
 ## <a name="next-steps"></a>Następne kroki
-Po utworzeniu obwodu, upewnij się, należy wykonać następujące czynności:
+Po utworzeniu obwodu, upewnij się, że hello następujące:
 
 * [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
-* [Link sieci wirtualnej do obwodu usługi ExpressRoute](expressroute-howto-linkvnet-arm.md)
+* [Łączenie z sieci wirtualnej tooyour obwodu usługi expressroute](expressroute-howto-linkvnet-arm.md)
 

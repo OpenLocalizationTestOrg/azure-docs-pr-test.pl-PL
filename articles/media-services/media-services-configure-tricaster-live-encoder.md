@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie kodera NewTek TriCaster wysłać strumień na żywo o pojedynczej szybkości transmisji bitów | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono sposób konfigurowania kodera na żywo Tricaster do wysłania do kanałów AMS, które są włączone dla kodowanie na żywo o pojedynczej szybkości transmisji."
+title: "aaaConfigure hello NewTek TriCaster koder toosend strumień na żywo o pojedynczej szybkości transmisji bitów | Dokumentacja firmy Microsoft"
+description: "W tym temacie przedstawiono sposób tooconfigure hello Tricaster live toosend kodera kanałami tooAMS strumienia pojedynczej szybkości transmisji bitów, obsługującymi kodowanie na żywo."
 services: media-services
 documentationcenter: 
 author: cenkdin
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57dcf62a6a76b04e69f147a738be78ccb3c3ecdc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj koder NewTek TriCaster, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów
+# <a name="use-hello-newtek-tricaster-encoder-toosend-a-single-bitrate-live-stream"></a>Użyj hello NewTek TriCaster koder toosend strumień na żywo o pojedynczej szybkości transmisji bitów
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental na żywo](media-services-configure-elemental-live-encoder.md)
@@ -29,53 +29,53 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-W tym temacie przedstawiono sposób konfigurowania [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) kodera na żywo do wysyłania strumienia pojedynczej szybkości transmisji bitów AMS kanałów, które są włączone kodowanie na żywo. Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+W tym temacie przedstawiono sposób tooconfigure hello [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) kanałami tooAMS strumienia pojedynczej szybkości transmisji bitów, obsługującymi kodowanie na żywo toosend kodera na żywo. Aby uzyskać więcej informacji, zobacz [Praca z kanałami, że włączono tooPerform Live kodowania za pomocą usługi Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-W tym samouczku przedstawiono sposób zarządzania usługi Azure Media Services (AMS) za pomocą narzędzia Azure Media Services Explorer (AMSE). To narzędzie jest uruchamiane tylko na komputerze z systemem Windows. Jeśli na Mac lub Linux, użyj portalu Azure do utworzenia [kanałów](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) i [programy](media-services-portal-creating-live-encoder-enabled-channel.md).
+Ten samouczek pokazuje, jak toomanage usługi Azure Media Services (AMS) za pomocą narzędzia Azure Media Services Explorer (AMSE). To narzędzie jest uruchamiane tylko na komputerze z systemem Windows. Mac lub Linux, za pomocą hello Azure portalu toocreate [kanałów](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) i [programy](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Korzystając Tricaster wysyłanie wkład do kanałów AMS, które są włączone kodowanie na żywo, może istnieć błędami występującymi audio/wideo w zdarzenia na żywo w przypadku określonych funkcji Tricaster, takie jak szybka Wycinanie między źródła danych lub przełączanie z typu. Zespołu AMS działa w rozwiązaniu tych problemów, do tego czasu, go jest nie zaleca się używania tych funkcji.
+> Podczas wysyłania w udziale za pomocą Tricaster źródła kanałami tooAMS, obsługującymi kodowanie na żywo, może istnieć błędami występującymi audio/wideo w zdarzenia na żywo w przypadku określonych funkcji Tricaster, takie jak szybka Wycinanie między źródła danych lub przełączanie z typu . Witaj AMS zespołu działa w rozwiązaniu tych problemów, do tego czasu jest zaleca toouse te funkcje.
 >
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Tworzenie konta usługi Azure Media Services](media-services-portal-create-account.md)
 * Upewnij się, brak punktu końcowego przesyłania strumieniowego uruchomiona. Aby uzyskać więcej informacji, zobacz [zarządzanie punktami końcowymi przesyłania strumieniowego w konta usługi Media Services](media-services-portal-manage-streaming-endpoints.md)
-* Zainstaluj najnowszą wersję pakietu [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) narzędzia.
-* Uruchom narzędzie i połącz się z kontem AMS.
+* Zainstaluj najnowszą wersję hello hello [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) narzędzia.
+* Uruchom narzędzie hello i Połącz konto tooyour AMS.
 
 ## <a name="tips"></a>Porady
 * Jeśli to możliwe, użyj połączenia internetowego hardwired.
-* Regułą podczas określania wymaganiach odnośnie do przepustowości jest dwukrotnie przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, może pomóc zmniejszyć skuteczność przeciążenie sieci.
+* Regułą podczas określania wymaganiach odnośnie do przepustowości jest hello toodouble przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, może pomóc zmniejszyć wpływ hello sieci przeciążona.
 * Gdy za pomocą oprogramowania na podstawie koderów, zamknij wszystkie zbędne programy.
 
 ## <a name="create-a-channel"></a>Tworzenie kanału
-1. W przy użyciu narzędzia AMSE, przejdź do **Live** karcie, a następnie kliknij prawym przyciskiem myszy w obszarze kanału. Wybierz **Utwórz kanał...** z menu.
+1. Narzędzie AMSE hello Przejdź toohello **Live** karcie, a następnie kliknij prawym przyciskiem myszy w obszarze kanału hello. Wybierz **Utwórz kanał...** z hello menu.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. Określ nazwę kanału pole opisu jest opcjonalne. W ustawieniach kanału, wybierz **standardowe** dla opcji Live Encoding z protokołem wprowadzania ustawioną **RTMP**. Możesz pozostawić wszystkie inne ustawienia, ponieważ jest.
+2. Określ nazwę kanału hello pole opisu jest opcjonalne. W ustawieniach kanału, wybierz **standardowe** dla hello opcji kodowanie na żywo z hello wprowadzania ustawiony protokół zbyt**RTMP**. Możesz pozostawić wszystkie inne ustawienia, ponieważ jest.
 
-    Upewnij się, że **teraz uruchomić nowy kanał** jest zaznaczone.
+    Upewnij się, że hello **Start hello nowy kanał teraz** jest zaznaczone.
 
 3. Kliknij przycisk **utworzyć kanał**.
 
    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
 > [!NOTE]
-> Kanał może trwać tyle samo co 20 minut, aby rozpocząć.
+> kanał Hello może zająć toostart 20 minut.
 >
 >
 
-Podczas uruchamiania kanału możesz [skonfigurować koder](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+Podczas uruchamiania kanału hello można [skonfigurować koder hello](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
 > Należy pamiętać, że rozliczanie zaczyna się jak kanału przechodzi do stanu gotowości. Aby uzyskać więcej informacji, zobacz [stanów kanału](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Konfigurowanie kodera NewTek TriCaster
-W tym samouczku są używane następujące ustawienia danych wyjściowych. Pozostałej części tej sekcji opisano kroki konfiguracji szczegółowo.
+## <a id=configure_tricaster_rtmp></a>Skonfiguruj hello NewTek TriCaster kodera
+W tym samouczek hello są używane następujące ustawienia danych wyjściowych. Hello pozostałej części tej sekcji opisano kroki konfiguracji szczegółowo.
 
 **Wideo**:
 
@@ -93,69 +93,69 @@ W tym samouczku są używane następujące ustawienia danych wyjściowych. Pozos
 
 ### <a name="configuration-steps"></a>Kroki konfiguracji
 1. Utwórz nową **NewTek TriCaster** projektu w zależności od tego, jakie wideo źródło danych wejściowych jest używany.
-2. Raz w ramach tego projektu należy znaleźć **strumienia** przycisk, a następnie kliknij koło zębate ikonę obok niej dostęp do menu konfiguracji strumienia.
+2. Raz w ramach tego projektu, Znajdź hello **strumienia** przycisk, a następnie kliknij przycisk hello koło zębate ikonę dalej tooit tooaccess hello strumienia menu konfiguracji.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. Po otwarciu menu, kliknij przycisk **nowy** pozycji połączenia. Po wyświetleniu monitu dla typu połączenia, wybierz **Adobe Flash**.
+3. Po otwarciu hello menu, kliknij przycisk **nowy** hello połączenia pozycji. Po wyświetleniu monitu dla typu połączenia hello, wybierz **Adobe Flash**.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
 4. Kliknij przycisk **OK**.
-5. Teraz można zaimportować profil FMLE, klikając strzałkę listy rozwijanej w obszarze **przesyłania strumieniowego profilu** i przechodząc do **Przeglądaj**.
+5. Teraz można zaimportować profil FMLE klikając hello strzałkę listy rozwijanej w obszarze **przesyłania strumieniowego profilu** i przechodząc zbyt**Przeglądaj**.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
-6. Przejdź do gdzie skonfigurowanego profilu FMLE został zapisany.
+6. Przejdź toowhere hello skonfigurowane FMLE profil został zapisany.
 7. Wybierz go, a następnie naciśnij klawisz **OK**.
 
-    Po przekazaniu profilu, przejdź do następnego kroku.
-8. Get kanału wejściowych adres URL, aby przypisać Tricaster **punktu końcowego protokołu RTMP**.
+    Po przekazaniu plików profilu hello kontynuować toohello następnego kroku.
+8. Pobierz hello kanał wejściowy adres URL w kolejności tooassign on toohello Tricaster **punktu końcowego protokołu RTMP**.
 
-    Przejdź z powrotem do przy użyciu narzędzia AMSE i sprawdzić stan ukończenia kanału. Gdy stan został zmieniony z **uruchamianie** do **systemem**, można uzyskać wejściowy adres URL.
+    Przejdź wstecz toohello narzędzie AMSE i sprawdzić stan ukończenia hello kanału. Po hello stan został zmieniony z **uruchamianie** za**systemem**, możesz uzyskać hello wejściowy adres URL.
 
-    Gdy kanał jest uruchomiona, kliknij prawym przyciskiem myszy nazwę kanału, przejdź do aktywowania przez **kopia danych wejściowych z adresu URL do Schowka** , a następnie wybierz **podstawowego adresu URL danych wejściowych**.  
+    Gdy kanał hello jest uruchomiona, kliknij prawym przyciskiem myszy nazwę kanału hello, przechodzenia toohover za pośrednictwem **tooclipboard kopia danych wejściowych URL** , a następnie wybierz **podstawowego adresu URL danych wejściowych**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
-9. Wklej te informacje w **lokalizacji** pole w obszarze **Flash Server** w projekcie Tricaster. Również przypisać nazwę strumienia w **Identyfikator strumienia** pola.
+9. Wklej te informacje w hello **lokalizacji** pole w obszarze **Flash Server** w ramach hello Tricaster projektu. Również przypisać nazwę strumienia w hello **Identyfikator strumienia** pola.
 
-    Jeśli informacje strumień został dodany do profilu FMLE, jego można również zaimportować do tej sekcji, klikając **importowanie ustawień**, przechodząc do zapisanego profilu FMLE i klikając pozycję **OK**. Odpowiednie pola Flash serwera należy wypełnić o informacje z FMLE.
+    Jeśli dodano informacje o strumienia toohello FMLE profilu, można również importować go toothis sekcji klikając **importowanie ustawień**, nawigacja profilu FMLE toohello zapisane i klikając pozycję **OK**. Hello odpowiednie pola Flash serwera należy wypełnić hello informacje z FMLE.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
-10. Gdy skończysz, kliknij przycisk **OK** w dolnej części ekranu. Po zakończeniu dane wejściowe audio i wideo w Tricaster rozpoczęcia przesyłania strumieniowego AMS, klikając **strumienia** przycisku.
+10. Gdy skończysz, kliknij przycisk **OK** u dołu hello hello ekranu. Po zakończeniu dane wejściowe audio i wideo w hello Tricaster rozpocząć przesyłanie strumieniowe tooAMS klikając hello **strumienia** przycisku.
 
      ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
 > [!IMPORTANT]
-> Przed kliknięciem przycisku **strumienia**, możesz **musi** upewnij się, że kanał jest gotowy.
-> Upewnij się również, nie należy pozostawiać kanału w stanie Gotowe bez wprowadzania wkład źródła danych przez czas dłuższy niż > 15 minut.
+> Przed kliknięciem przycisku **strumienia**, możesz **musi** upewnij się, że kanał hello jest gotowy.
+> Sprawdź także, czy nie tooleave hello kanału w stanie Gotowe bez wprowadzania wkład źródła danych przez czas dłuższy niż > 15 minut.
 >
 >
 
 ## <a name="test-playback"></a>Podczas odtwarzania testu
-Przejdź do przy użyciu narzędzia AMSE, a następnie kliknij prawym przyciskiem myszy kanału, który ma zostać przetestowana. Z menu, umieść kursor nad **odtwarzania podglądu** i wybierz **z usługi Azure Media Player**.  
+Przejdź narzędzie AMSE toohello, a następnie kliknij prawym przyciskiem myszy toobe kanału hello przetestowane. Z hello menu, umieść kursor nad **hello odtwarzania podglądu** i wybierz **z usługi Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
-Strumień jest widoczna w player, następnie koder został poprawnie skonfigurowany do nawiązania połączenia usługi AMS.
+Czy strumienia hello znajduje się w hello player, koder hello został tooAMS tooconnect poprawnie skonfigurowana.
 
-Jeśli błąd kanału należy zresetować i dostosowane ustawienia kodera. Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.  
+Jeśli błąd kanału hello należy toobe resetowania i koder zmienić ustawienia. Zobacz hello [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.  
 
 ## <a name="create-a-program"></a>Utwórz program
-1. Po potwierdzeniu kanału odtwarzania, tworzenia programu. W obszarze **Live** w przy użyciu narzędzia AMSE, kliknij prawym przyciskiem myszy w obszarze program i wybierz **utworzyć nowy Program**.  
+1. Po potwierdzeniu kanału odtwarzania, tworzenia programu. W obszarze hello **Live** narzędzia AMSE hello, kliknij prawym przyciskiem myszy w obszarze program hello i wybierz **utworzyć nowy Program**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Nazwa programu, a w razie potrzeby dostosuj **długość okna archiwum** (który domyślnie 4 godziny). Można także określić miejsce przechowywania lub pozostaw domyślnie.  
-3. Sprawdź **teraz uruchomić Program** pole.
+2. Nazwy hello program i w razie potrzeby dostosuj hello **długość okna archiwum** (domyślne ustawienia too4 godzin, w których). Można także określić miejsce przechowywania lub pozostaw domyślne hello.  
+3. Sprawdź hello **Start hello Program teraz** pole.
 4. Kliknij przycisk **utworzyć Program**.  
 
     >[!NOTE]
     >Tworzenie programu zajmuje mniej czasu niż tworzenie kanału.
         
-5. Po uruchomieniu programu potwierdzić odtwarzania przez kliknięcie prawym przyciskiem myszy program i przechodząc do **odtwarzania programach** , a następnie wybierając **z usługi Azure Media Player**.  
-6. Po potwierdzeniu, kliknij prawym przyciskiem myszy program ponownie i wybierz **skopiuj dane wyjściowe adres URL do Schowka** (lub pobrać tych informacji z **programu informacji i ustawień** opcji z menu).
+5. Po uruchomieniu hello program potwierdzić odtwarzania przez kliknięcie prawym przyciskiem myszy hello program i przechodząc zbyt**programach hello odtwarzania** , a następnie wybierając **z usługi Azure Media Player**.  
+6. Po potwierdzeniu, kliknij prawym przyciskiem myszy hello program ponownie i wybierz **skopiuj hello adresu URL danych wyjściowych tooClipboard** (lub pobrać te informacje z hello **programu informacji i ustawień** opcji z hello menu).
 
-Strumień jest teraz gotowy do osadzonego w odtwarzacza lub dystrybuowane do odbiorców w celu wyświetlenia na żywo.  
+strumień Hello jest teraz gotowy toobe osadzony w odtwarzacza lub odbiorcami tooan rozproszone na żywo wyświetlanie.  
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.
+Zobacz hello [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.
 
 ## <a name="next-step"></a>Następny krok
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.

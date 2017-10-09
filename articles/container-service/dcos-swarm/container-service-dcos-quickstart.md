@@ -1,5 +1,5 @@
 ---
-title: "Azure kontenera usługi Szybki Start — wdrażanie klastra DC/OS | Dokumentacja firmy Microsoft"
+title: "aaaAzure Szybki Start usługi kontenera - wdrożyć klaster DC/OS | Dokumentacja firmy Microsoft"
 description: "Azure kontenera usługi Szybki Start — wdrażanie klastra DC/OS"
 services: container-service
 documentationcenter: 
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a31170369de9bc1ddcddb97171281b0014af95f9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b961f15bd73deeafda5a3fc25ab53c839195219b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Wdrażanie klastra DC/OS
 
-DC/OS przewiduje uruchamianie nowoczesnych i konteneryzowanych aplikacji rozproszonej platformy. Z usługi kontenera platformy Azure inicjowania obsługi klastra DC/OS gotowy produkcji jest proste i szybkie. Szczegóły tego szybki start podstawowe kroki potrzebne do wdrożenia DC/OS klastra i uruchom podstawowe obciążenie.
+DC/OS przewiduje uruchamianie nowoczesnych i konteneryzowanych aplikacji rozproszonej platformy. Z usługi kontenera platformy Azure inicjowania obsługi klastra DC/OS gotowy produkcji jest proste i szybkie. To szybki start szczegóły hello podstawowe wymagane czynności toodeploy klastra DC/OS i wykonywania podstawowych obciążenia.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Dla tego samouczka wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Ten samouczek wymaga hello Azure CLI w wersji 2.0.4 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooupgrade, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure. 
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure 
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Zaloguj się za tooyour subskrypcji platformy Azure z hello [logowania az](/cli/azure/#login) poleceń i wykonaj hello wyświetlanymi instrukcjami.
 
 ```azurecli
 az login
@@ -41,9 +41,9 @@ az login
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -51,9 +51,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Tworzenie klastra DC/OS
 
-Tworzenie klastra DC/OS z [az acs utworzyć](/cli/azure/acs#create) polecenia.
+Tworzenie klastra DC/OS z hello [az acs utworzyć](/cli/azure/acs#create) polecenia.
 
-Poniższy przykład tworzy klaster DC/OS o nazwie *myDCOSCluster* i tworzy kluczy SSH, jeśli jeszcze nie istnieje. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
+Witaj poniższy przykład tworzy klaster DC/OS o nazwie *myDCOSCluster* i tworzy kluczy SSH, jeśli jeszcze nie istnieje. toouse określonego zestawu kluczy, należy użyć hello `--ssh-key-value` opcji.  
 
 ```azurecli
 az acs create \
@@ -63,39 +63,39 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Po kilku minutach polecenie zakończeniu i zwraca informacje o wdrożeniu.
+Po kilku minutach polecenia hello kończy i zwraca informacje na temat wdrażania hello.
 
-## <a name="connect-to-dcos-cluster"></a>Łączenie z klastrem DC/OS
+## <a name="connect-toodcos-cluster"></a>Połącz klaster tooDC/OS
 
-Po utworzeniu klastra DC/OS, może być dostęp za pośrednictwem tunelu SSH. Uruchom następujące polecenie, aby zwrócić publiczny adres IP wzorca DC/OS. Ten adres IP jest przechowywana w zmiennej i używane w następnym kroku.
+Po utworzeniu klastra DC/OS, może być dostęp za pośrednictwem tunelu SSH. Uruchom następujące polecenia tooreturn hello publicznego adresu IP wzorca DC/OS hello hello. Ten adres IP jest przechowywana w zmiennej i używane w hello następnego kroku.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Do tworzenia tunelu SSH, uruchom następujące polecenie, a następnie postępuj zgodnie z wyświetlanymi instrukcjami. Jeśli port 80 jest już w użyciu, polecenie nie powiedzie się. Aktualizacji portu tunelowane do jednego nie korzystać, takich jak `85:localhost:80`. 
+toocreate hello tunelu SSH, uruchom następujące polecenie hello i hello wyświetlanymi instrukcjami. Jeśli port 80 jest już w użyciu, hello polecenie kończy się niepowodzeniem. Aktualizacja hello tunelowane tooone portu nieużywany, takich jak `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-Można przetestować tunelu SSH przechodząc do `http://localhost`. Jeśli port innych czy 80 został użyty, Dostosuj lokalizacji do dopasowania. 
+Tunel SSH Hello mogą być testowane za przeglądanie za`http://localhost`. Jeśli port innych czy 80 został użyty, Dostosuj hello toomatch lokalizacji. 
 
-W przypadku tunelowania SSH została pomyślnie utworzona, jest zwracana portalu DC/OS.
+W przypadku tunelowania SSH hello została pomyślnie utworzona, jest zwracana hello DC/OS portalu.
 
 ![DCOS INTERFEJSU UŻYTKOWNIKA](./media/container-service-dcos-quickstart/dcos-ui.png)
 
 ## <a name="install-dcos-cli"></a>Instalowanie interfejsu wiersza polecenia DC/OS
 
-Interfejs wiersza polecenia DC/OS jest używany do zarządzania klastrem DC/OS z wiersza polecenia. Instalowanie przy użyciu interfejsu wiersza polecenia DC/OS [az dcos acs install-cli](/azure/acs/dcos#install-cli) polecenia. Jeśli używasz Azure CloudShell, interfejsu wiersza polecenia DC/OS jest już zainstalowana. 
+Interfejs wiersza polecenia DC/OS Hello jest używany toomanage klastra DC/OS z hello wiersza polecenia. Zainstaluj interfejs wiersza polecenia hello DC/OS jest przy użyciu hello [az dcos acs install-cli](/azure/acs/dcos#install-cli) polecenia. Jeśli używasz usługi Azure CloudShell hello interfejsu wiersza polecenia DC/OS jest już zainstalowana. 
 
-Jeśli używasz interfejsu wiersza polecenia Azure macOS lub Linux, może być konieczne uruchomienie polecenia z sudo.
+Jeśli używasz hello Azure CLI macOS lub Linux, może być konieczne toorun hello polecenie sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Interfejsu wiersza polecenia można było korzystać z klastrem, musi być skonfigurowana do używania tunelu SSH. Aby to zrobić, uruchom następujące polecenie, dostosowywania port, jeśli to konieczne.
+Przed hello interfejsu wiersza polecenia można używać z klastrem hello musi ona być tunelu SSH hello toouse skonfigurowany. toodo tak, uruchom hello następujące polecenia, dostosowywania hello portu, jeśli to konieczne.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -103,7 +103,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Uruchamianie aplikacji
 
-Domyślnie planowania mechanizm dla klastra usługi ACS DC/OS jest Marathon. Platformy Marathon umożliwia uruchamianie aplikacji i zarządzanie stanem aplikacji w klastrze DC/OS. Aby zaplanować aplikacji za pośrednictwem platformy Marathon, Utwórz plik o nazwie *marathon app.json*i skopiuj do niego następującą zawartość. 
+Domyślnie Hello planowania mechanizm dla klastra usługi ACS DC/OS jest Marathon. Marathon jest toostart używanych aplikacji i zarządzanie stanem hello aplikacji hello w klastrze DC/OS hello. tooschedule aplikacji za pośrednictwem platformy Marathon, Utwórz plik o nazwie *marathon app.json*, i hello kopiowania zawartości do niego. 
 
 ```json
 {
@@ -135,38 +135,38 @@ Domyślnie planowania mechanizm dla klastra usługi ACS DC/OS jest Marathon. Pla
 }
 ```
 
-Uruchom następujące polecenie, aby zaplanować aplikacji do uruchamiania w klastrze DC/OS.
+Uruchom następujące polecenie tooschedule hello aplikacji toorun w klastrze DC/OS hello hello.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Aby wyświetlić stan wdrożenia dla aplikacji, uruchom następujące polecenie.
+toosee hello stan wdrożenia dla aplikacji hello, uruchom następujące polecenie hello.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Gdy **oczekiwania** zmienia wartość kolumny z *True* do *False*, wdrażanie aplikacji zostało zakończone.
+Gdy hello **oczekiwania** zmienia wartość kolumny z *True* za*False*, wdrażanie aplikacji zostało zakończone.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Pobierz publiczny adres IP agentów klastra DC/OS.
+Pobierz publiczny adres IP hello agentów klastra DC/OS hello.
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Przeglądanie pod tym adresem zwraca domyślnej witryny NGINX.
+Przeglądanie adres toothis zwraca hello domyślnej NGINX witryny.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
 ## <a name="delete-dcos-cluster"></a>Usuń klaster DC/OS
 
-Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#delete) polecenia, aby usunąć grupę zasobów, klaster DC/OS i wszystkie powiązane zasoby.
+Gdy nie są już potrzebne, można użyć hello [usunięcie grupy az](/cli/azure/group#delete) polecenia grupy zasobów hello tooremove klastra DC/OS i wszystkie powiązane zasoby.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -174,7 +174,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybki start wdrożeniu klastra DC/OS i zostało uruchomione proste kontenera Docker w klastrze. Aby dowiedzieć się więcej na temat usługi kontenera platformy Azure, nadal samouczki ACS.
+W tym szybki start wdrożeniu klastra DC/OS i zostały uruchomione proste kontenera Docker na powitania klastra. toolearn więcej informacji na temat usługi kontenera platformy Azure, nadal samouczki toohello ACS.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie klastrem ACS DC/OS](container-service-dcos-manage-tutorial.md)

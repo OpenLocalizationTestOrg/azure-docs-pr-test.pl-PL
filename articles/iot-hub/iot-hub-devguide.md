@@ -1,6 +1,6 @@
 ---
-title: Przewodnik dewelopera Centrum IoT Azure | Dokumentacja firmy Microsoft
-description: "Przewodnik dewelopera usługi Azure IoT Hub omówiono punktów końcowych, zabezpieczeń, w rejestrze tożsamości, zarządzanie urządzeniami, bezpośrednie metod, twins urządzenia, przekazywania plików, zadań, Centrum IoT język zapytania, a wiadomości."
+title: Centrum IoT Azure w przewodniku aaaDeveloper | Dokumentacja firmy Microsoft
+description: "Przewodnik dewelopera usługi Azure IoT Hub Hello omówiono punktów końcowych, zabezpieczeń, hello rejestru tożsamości, zarządzanie urządzeniami, bezpośrednie metody, twins urządzenia, przekazywania plików, zadania, hello język zapytań Centrum IoT i wiadomości."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: adb9a12899e9040cd83d522c734448989636fe29
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d3f18399e4cef6f9c4850a5caeb170a2d091a35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Przewodnik dewelopera Centrum IoT Azure
 
@@ -29,31 +29,31 @@ Centrum IoT Azure oferuje:
 * Bezpieczna komunikacja przy użyciu poświadczeń zabezpieczeń urządzenia i kontrola dostępu.
 * Wiele opcji komunikacji hiperskali urządzenia do chmury i chmury do urządzenia.
 * Kolejność przechowywania informacji o stanie na urządzenie i metadanych.
-* Łatwe urządzenia łączność z bibliotekami urządzenia dla najbardziej popularnych języków i platform.
+* Łatwe urządzenia łączność z bibliotekami urządzenia dla hello najbardziej popularnych języków i platform.
 
-Ten przewodnik dewelopera Centrum IoT zawiera następujące artykuły:
+Ten przewodnik dewelopera Centrum IoT zawiera hello następujące artykuły:
 
 * [Wskazówki dotyczące komunikacji urządzenia do chmury] [ lnk-d2c-guidance] ułatwia wybór między wiadomości urządzenia do chmury, dwie urządzenia zgłoszonego właściwości i przekazywania pliku.
 * [Wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] ułatwia wybór między metody bezpośredniego, odpowiednie właściwości dwie urządzenia i komunikaty chmury do urządzenia.
-* [Urządzenia do chmury i wiadomości z Centrum IoT chmury do urządzenia] [ devguide-messaging] opisano funkcje obsługi wiadomości (urządzenia do chmury i chmury do urządzenia), które udostępnia Centrum IoT.
-  * [Wysyłanie komunikatów urządzenia do chmury do Centrum IoT][devguide-messages-d2c].
-  * [Przeczytaj komunikaty urządzenia do chmury z wbudowanym punktem końcowym][devguide-builtin].
+* [Urządzenia do chmury i wiadomości z Centrum IoT chmury do urządzenia] [ devguide-messaging] opisuje hello komunikatów funkcje (urządzenia do chmury i chmury do urządzenia) udostępnia Centrum IoT.
+  * [Wysyłanie wiadomości urządzenia do chmury tooIoT Centrum][devguide-messages-d2c].
+  * [Odczytywać wiadomości urządzenia do chmury z wbudowanym punktem końcowym hello][devguide-builtin].
   * [Użyj niestandardowe punkty końcowe i reguły routingu dla komunikatów urządzenia do chmury][devguide-custom].
   * [Wysyłanie wiadomości chmury do urządzenia z Centrum IoT][devguide-messages-c2d].
   * [Tworzenie i odczytywanie wiadomości Centrum IoT][devguide-format].
-* [Przekazywanie plików z urządzenia] [ devguide-upload] w tym artykule opisano, jak można przekazać pliki z urządzenia. Artykuł zawiera także informacje o tematów, takich jak powiadomienia, czy można wysyłać procesu przekazywania.
+* [Przekazywanie plików z urządzenia] [ devguide-upload] w tym artykule opisano, jak można przekazać pliki z urządzenia. Hello artykuł zawiera także informacje dotyczące hello się, że procesu przekazywania hello powiadomienia mogą wysyłać.
 * [Zarządzanie tożsamościami urządzenie w Centrum IoT] [ devguide-identities] opisuje jakie informacje o każdej Centrum IoT magazyny rejestru tożsamości i jak można uzyskać dostęp i zmodyfikować go.
-* [Kontrola dostępu do Centrum IoT] [ devguide-security] opisano model zabezpieczeń używany do udostępnienia funkcji Centrum IoT dla obu urządzeń i składniki w chmurze. Artykuł zawiera informacje dotyczące używania tokenów i certyfikaty X.509 i szczegóły uprawnień, które mogą udzielać dostępu.
-* [Umożliwia synchronizowanie stanu i konfiguracji urządzenia twins] [ devguide-device-twins] opisuje *dwie urządzenia* koncepcji i funkcji eksponuje takich jak synchronizowanie urządzenia z jego dwie urządzenia. Artykuł zawiera informacje na temat danych przechowywanych w dwie urządzenia.
-* [Wywoływanie metody bezpośrednio na urządzeniu] [ devguide-directmethods] informacje o cyklu życia metoda bezpośrednia informacji dotyczących sposobu wywoływania metod na urządzeniu z aplikacji zaplecza i obsługiwać metodę bezpośrednio na urządzeniu.
-* [Planowanie zadań na wielu urządzeniach] [ devguide-jobs] zawiera opis sposobu tworzenia harmonogramu zadań na wielu urządzeniach. Artykuł opisuje sposób przesyłania zadań, wykonujących zadania jako wykonywania metoda bezpośrednia aktualizacja urządzenia przy użyciu podwójnego urządzenia. On również opis zbadać stanu zadania.
-* [Odwołanie — wybierz protokół komunikacyjny] [ devguide-protocol] opisuje protokołów komunikacyjnych, że Centrum IoT do komunikacji urządzeń i obsługuje listę portów, które powinno być otwarte.
-* [Odwołanie — punkty końcowe Centrum IoT] [ devguide-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji obsługi i zarządzania. Artykuł opisuje również sposób możesz utworzyć dodatkowe punkty końcowe w Centrum IoT i jak użyć bramy pola, aby umożliwić łączność urządzeń z punktami końcowymi Centrum IoT w scenariuszach niestandardowe.
-* [Odwołanie - Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości] [ devguide-query] opisuje tego języka zapytania Centrum IoT, która umożliwia pobieranie informacji z Centrum temat zadań i twins urządzenia.
-* [Odwołanie - przydziały i ograniczenia przepustowości] [ devguide-quotas] podsumowuje przydziały w usłudze IoT Hub i zachowanie ograniczania przepustowości, można oczekiwać, aby zobaczyć, gdy przekracza limit przydziału.
-* [Odwołanie — cennik] [ devguide-pricing] zawiera ogólne informacje dotyczące różnych jednostki SKU i cenach dla Centrum IoT i szczegółowe informacje o sposobie różne funkcje Centrum IoT są mierzone jako wiadomości przez Centrum IoT.
-* [Odwołanie - urządzeń i usług zestawów SDK] [ devguide-sdks] zawiera zestawy SDK usługi Azure IoT służy do opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT. Artykuł zawiera linki do dokumentacji interfejsu API.
-* [Odwołanie — Obsługa MQTT Centrum IoT] [ devguide-mqtt] zawiera szczegółowe informacje o sposobie obsługi protokołu MQTT w Centrum IoT. Tym artykule opisano obsługę protokołu MQTT wbudowanych do zestawów SDK IoT Azure i zawiera informacje dotyczące korzystania z protokołu MQTT bezpośrednio.
+* [Kontrolowanie dostępu tooIoT Centrum] [ devguide-security] opisano hello zabezpieczeń modelu używanego toogrant tooIoT Centrum funkcje dostępu dla urządzenia i składniki w chmurze. Hello artykuł zawiera informacje dotyczące używania tokenów i certyfikaty X.509 i szczegóły hello uprawnień, które mogą udzielać dostępu.
+* [Stan toosynchronize twins urządzenia i konfiguracje] [ devguide-device-twins] opisuje hello *dwie urządzenia* koncepcji i hello funkcji eksponuje takich jak synchronizowanie urządzenia z urządzenia dwie. Witaj artykuł zawiera informacje na temat hello danych przechowywanych w dwie urządzenia.
+* [Wywoływanie metody bezpośrednio na urządzeniu] [ devguide-directmethods] opisuje hello cyklem życia metoda bezpośrednia informacji na temat sposobu metody tooinvoke na urządzeniu z zaplecza hello aplikacji i uchwytem metoda bezpośrednia na urządzeniu.
+* [Planowanie zadań na wielu urządzeniach] [ devguide-jobs] zawiera opis sposobu tworzenia harmonogramu zadań na wielu urządzeniach. Witaj artykule opisano sposób toosubmit zadań wykonywanie zadań wykonywania metoda bezpośrednia aktualizacja urządzenia przy użyciu podwójnego urządzenia. Opisuje również, jak tooquery hello stanu zadania.
+* [Odwołanie — wybierz protokół komunikacyjny] [ devguide-protocol] opisuje hello protokołów komunikacyjnych, że Centrum IoT do komunikacji urządzeń i obsługuje listy hello porty, które powinno być otwarte.
+* [Odwołanie — punkty końcowe Centrum IoT] [ devguide-endpoints] opisuje hello różnych punktów końcowych, które udostępnia każdego centrum IoT dla operacji obsługi i zarządzania. Witaj opisano również sposób możesz utworzyć dodatkowe punkty końcowe w Centrum IoT i w jaki sposób toouse pola bramy tooenable urządzeń łączności tooyour Centrum IoT punktów końcowych w scenariuszach niestandardowym.
+* [Odwołanie - Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości] [ devguide-query] opisuje tego języka zapytań Centrum IoT, umożliwiający tooretrieve informacje z Centrum zadań i twins urządzenia.
+* [Odwołanie - przydziały i ograniczenia przepustowości] [ devguide-quotas] podsumowuje przydziały hello w hello usługi IoT Hub i hello ograniczania zachowanie można oczekiwać, że toosee przekracza limit przydziału.
+* [Odwołanie — cennik] [ devguide-pricing] zawiera ogólne informacje dotyczące różnych jednostki SKU i cenach dla Centrum IoT i szczegółowe informacje o sposobie hello różne funkcje Centrum IoT są mierzone jako wiadomości przez Centrum IoT.
+* [Odwołanie - urządzeń i usług zestawów SDK] [ devguide-sdks] list hello Azure IoT SDK można użyć toodevelop aplikacji usług i urządzeń, które współdziałają z Centrum IoT. Artykuł Hello zawiera dokumentacja interfejsu API tooonline łącza.
+* [Odwołanie — Obsługa MQTT Centrum IoT] [ devguide-mqtt] zawiera szczegółowe informacje o sposobie obsługi protokołu MQTT hello w Centrum IoT. Hello artykule opisano obsługę hello wbudowanych toohello protokołu MQTT hello Azure IoT SDK i zawiera informacje dotyczące używania protokołu MQTT hello bezpośrednio.
 * [Słownik] [ devguide-glossary] listę typowe terminy związane z Centrum IoT.
 
 [devguide-messaging]: iot-hub-devguide-messaging.md

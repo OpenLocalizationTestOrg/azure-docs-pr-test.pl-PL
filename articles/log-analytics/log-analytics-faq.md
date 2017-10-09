@@ -1,6 +1,6 @@
 ---
-title: "Zaloguj się Analytics — często zadawane pytania | Dokumentacja firmy Microsoft"
-description: "Odpowiedzi na często zadawane pytania dotyczące usługi Analiza dzienników Azure."
+title: "aaaLog Analytics — często zadawane pytania | Dokumentacja firmy Microsoft"
+description: "Zadawane pytania dotyczące usługi Azure Log Analytics hello toofrequently odpowiedzi."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -14,156 +14,156 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 8ddea06b1a90e9b1599466ad4d1c3af7a6dc8ba9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 25931f521cbb6ec840184221c6c1a5794b3445f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-faq"></a>Log Analytics — często zadawane pytania
-Ta FAQ firmy Microsoft znajduje się lista często zadawane pytania dotyczące usługi Analiza dzienników w Microsoft Operations Management Suite (OMS). Jeśli masz dodatkowe pytania dotyczące analizy dzienników, przejdź do [forum dyskusyjne](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) i opublikuj swoje pytania. Po zadawane pytania możemy dodać ją do tego artykułu, aby można je znaleźć szybkie i łatwe.
+Ta FAQ firmy Microsoft znajduje się lista często zadawane pytania dotyczące usługi Analiza dzienników w Microsoft Operations Management Suite (OMS). Jeśli masz dodatkowe pytania dotyczące analizy dzienników Przejdź toohello [forum dyskusyjne](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) i opublikuj swoje pytania. Po zadawane pytania możemy dodać ją toothis artykuł, aby można je znaleźć szybkie i łatwe.
 
 ## <a name="general"></a>Ogólne
 
-### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Analiza dzienników używa tego samego agenta jako Centrum zabezpieczeń Azure?
+### <a name="q-does-log-analytics-use-hello-same-agent-as-azure-security-center"></a>Q. Analiza dzienników używa hello samego agenta jako Centrum zabezpieczeń Azure?
 
-A. W wczesne 2017 czerwca Centrum zabezpieczeń Azure rozpoczęło się przy użyciu programu Microsoft Monitoring Agent do gromadzenia i przechowywania danych. Aby dowiedzieć się więcej, zobacz [Azure Security Center platformy migracji — często zadawane pytania](../security-center/security-center-platform-migration-faq.md).
+A. W wczesne 2017 czerwca Centrum zabezpieczeń Azure rozpoczęło się przy użyciu programu Microsoft Monitoring Agent hello toocollect i magazynu danych. toolearn więcej, zobacz [Azure Security Center platformy migracji — często zadawane pytania](../security-center/security-center-platform-migration-faq.md).
 
-### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. Jakie są sprawdzane przez usługi AD i rozwiązań SQL do oceny?
+### <a name="q-what-checks-are-performed-by-hello-ad-and-sql-assessment-solutions"></a>Q. Jakie są sprawdzane przez hello AD i rozwiązań SQL do oceny?
 
-A. Następujące zapytanie zawiera opis sprawdza wszystkie aktualnie wykonywane:
+A. Witaj następujące zapytanie zawiera opis sprawdza wszystkie aktualnie wykonywane:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
 ```
 
-Wyniki można wyeksportować do programu Excel dla dalszego przeglądu.
+Witaj wyniki następnie można wyeksportowanego tooExcel dla dalszego przeglądu.
 
 ### <a name="q-why-do-i-see-something-different-than-oms-in-system-center-operations-manager-console"></a>Pytanie: Dlaczego coś innego niż zobacz *OMS* w konsoli programu System Center Operations Manager?
 
 Odpowiedź: w zależności od jakiego Update Rollup programu Operations Manager znajdują się na, mogą pojawić się węzeł dla *System Center Advisor*, *usługi Operational Insights*, lub *analizy dzienników*.
 
-Aktualizacja ciągu tekstowego *OMS* znajduje się w pakiecie administracyjnym, należy zaimportować ręcznie. Aby wyświetlić bieżący tekst i funkcje, postępuj zgodnie z instrukcjami w artykule najnowsze System Center Operations Manager aktualizacji pakiet zbiorczy KB i Odśwież konsolę.
+Witaj aktualizacji ciągu tekstowego zbyt*OMS* znajduje się w pakiecie administracyjnym, którą należy zaimportować ręcznie toobe. toosee hello bieżącego tekstu i funkcjonalność, wykonaj instrukcje hello na powitania najnowsze System Center Operations Manager aktualizacji pakiet zbiorczy KB artykułu i Odśwież hello konsoli.
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Pytanie: czy istnieje *lokalnymi* wersji Log Analytics?
 
-Odpowiedź: nie. Analiza dzienników przetwarzania i przechowywania dużych ilości danych. Usługa w chmurze analizy dzienników jest możliwość skalowania w górę w razie potrzeby i uniknięcia wpływu wydajności dla danego środowiska.
+Odpowiedź: nie. Analiza dzienników przetwarzania i przechowywania dużych ilości danych. Usługa w chmurze analizy dzienników jest możliwe tooscale w górę w razie potrzeby i uniknąć dowolnym środowisku tooyour wpływu na wydajność.
 
 Dodatkowe korzyści:
-- Microsoft uruchamia infrastruktury analizy dzienników, co pozwala zaoszczędzić koszty
+- Microsoft uruchamia hello analizy dzienników infrastruktury, co pozwala zaoszczędzić koszty
 - Regularne wdrożenie funkcją Aktualizacje i poprawki.
 
 ### <a name="q-how-do-i-troubleshoot-that-log-analytics-is-no-longer-collecting-data"></a>Q. Jak rozwiązywać analizy dzienników nie zbiera danych?
 
-A. Jeśli są na wolnych warstwy cenowej i zostały wysłane więcej niż 500 MB danych w ciągu dnia, gromadzenie danych zatrzymuje się do końca dnia. Osiągnięcia dziennego limitu jest typową przyczyną analizy dzienników zatrzymuje zbieranie danych lub dane są prawdopodobnie brakuje.
+A. Jeśli znajdują się na powitania bezpłatnej warstwy cenowej i zostały wysłane więcej niż 500 MB danych w ciągu dnia, gromadzenie danych zatrzymuje hello końca dnia hello. Osiągnięcia dziennego limitu hello jest typową przyczyną, który analizy dzienników zatrzymuje zbieranie danych lub dane są wyświetlane toobe Brak.
 
 Analiza dzienników tworzy zdarzenie typu *operacji* podczas zbierania danych uruchamiania i zatrzymywania. 
 
-W polu wyszukiwania, aby sprawdzić, czy osiągnięcia dziennego limitu i brakujące dane, należy uruchomić następujące zapytanie:`Type=Operation OperationCategory="Data Collection Status"`
+Uruchom hello następujące zapytanie w toocheck wyszukiwania osiągnięcia dziennego limitu hello, Brak danych:`Type=Operation OperationCategory="Data Collection Status"`
 
-Po zatrzymaniu zbierania danych *OperationStatus* jest **ostrzeżenie**. Podczas uruchamiania zbierania danych, *OperationStatus* jest **zakończyło się pomyślnie**. 
+Kiedy gromadzenie danych zatrzymuje, hello *OperationStatus* jest **ostrzeżenie**. Podczas zbierania danych uruchamiania, hello *OperationStatus* jest **zakończyło się pomyślnie**. 
 
-W poniższej tabeli opisano przyczyn, które zatrzymania zbierania danych i zalecaną akcję umożliwiającą wznowienie zbierania danych:
+Witaj poniższej tabeli opisano przyczyn, które zatrzymania zbierania danych i kolekcji danych tooresume zalecane działanie:
 
-| Zatrzymuje zbieranie danych z powodu                       | Wznowienie zbierania danych |
+| Zatrzymuje zbieranie danych z powodu                       | zbieranie danych tooresume |
 | -------------------------------------------------- | ----------------  |
-| Osiągnięty dzienny limit dane w warstwie bezpłatna<sup>1</sup>       | Zaczekaj do następnego dnia dla kolekcji do automatycznego ponownego uruchamiania lub<br> Zmień na płatną warstwy cenowej |
-| Subskrypcja platformy Azure jest w stanie wstrzymania ze względu na: <br> Bezpłatna wersja próbna została zakończona <br> Ważność Azure — dostęp próbny <br> Osiągnięto limit wydatków co miesiąc (na przykład na subskrypcję MSDN lub Visual Studio)                          | Konwertuj na płatną subskrypcję <br> Konwertuj na płatną subskrypcję <br> Usuń limit lub poczekaj na zresetowanie limitu |
+| Osiągnięty dzienny limit dane w warstwie bezpłatna<sup>1</sup>       | Zaczekaj na powitania dnia dla kolekcji tooautomatically ponownego uruchomienia komputera lub<br> Zmień tooa płatnej warstwy cenowej |
+| Subskrypcja platformy Azure jest w stanie wstrzymania ze względu na: <br> Bezpłatna wersja próbna została zakończona <br> Ważność Azure — dostęp próbny <br> Osiągnięto limit wydatków co miesiąc (na przykład na subskrypcję MSDN lub Visual Studio)                          | Konwertuj tooa płatnej subskrypcji <br> Konwertuj tooa płatnej subskrypcji <br> Usuń limit lub poczekaj na zresetowanie limitu |
 
-<sup>1</sup> czy obszaru roboczego znajduje się na warstwę cenową bezpłatna, jest ograniczona do wysyłania do usługi 500 MB danych na dzień. Po osiągnięciu dzienny limit gromadzenie danych zatrzymuje się do następnego dnia. Dane wysyłane podczas zatrzymania zbierania danych nie jest indeksowana i nie jest dostępny do wyszukiwania. Po wznowieniu pracy zbierania danych, przetwarzanie odbywa się tylko w przypadku nowych danych wysyłane. 
+<sup>1</sup> Jeśli obszar roboczy znajduje się na powitania warstwy cenowej bezpłatna, użytkownik musi tylko toosending 500 MB danych na dzień toohello usługi. Po osiągnięciu hello dzienny limit zbierania danych zatrzymuje się dopiero hello następnego dnia. Dane wysyłane podczas zatrzymania zbierania danych nie jest indeksowana i nie jest dostępny do wyszukiwania. Po wznowieniu pracy zbierania danych, przetwarzanie odbywa się tylko w przypadku nowych danych wysyłane. 
 
-Analiza dzienników używa czas UTC i uruchamia każdego dnia o północy czasu UTC. Jeśli obszar roboczy osiągnie limit dzienny, przetwarzania wznawia podczas pierwszej godziny następnego dnia UTC.
+Analiza dzienników używa czas UTC i uruchamia każdego dnia o północy czasu UTC. Jeśli roboczym hello osiągnie limit dzienny hello, przetwarzania wznawia podczas hello pierwszej godziny hello następnego dnia UTC.
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Jak można zostanie wyświetlone powiadomienie po zatrzymaniu zbierania danych?
 
-Odpowiedź: wykonaj kroki opisane w [Tworzenie reguły alertu](log-analytics-alerts-creating.md#create-an-alert-rule) zgłaszane po zatrzymaniu zbierania danych.
+Odpowiedź: Użyj hello opisane w [Tworzenie reguły alertu](log-analytics-alerts-creating.md#create-an-alert-rule) toobe powiadomienie po zatrzymaniu zbierania danych.
 
-Podczas tworzenia alertu dla po zatrzymaniu zbierania danych należy skonfigurować:
-- **Nazwa** do *zatrzymać zbieranie danych*
-- **Ważność** na *Ostrzeżenie*
-- **Zapytanie wyszukiwania** na `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Przedział czasu** do *2 godziny*.
-- **Częstotliwość alertów** na jedną godzinę, ponieważ dane użycia są aktualizowane tylko raz na godzinę.
-- **Generuj alert w oparciu o** na *Liczba wyników*
-- **Liczba wyników** na *Większa niż 0*
+Podczas tworzenia alertu hello momentu zatrzymania zbierania danych należy skonfigurować:
+- **Nazwa** zbyt*zatrzymać zbieranie danych*
+- **Ważność** zbyt*ostrzeżenie*
+- **Zapytania wyszukiwania** zbyt`Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
+- **Przedział czasu** za*2 godziny*.
+- **Alert częstotliwości** toobe jedną godzinę, ponieważ dane użycia hello aktualizację tylko raz na godzinę.
+- **Generuj alert, na podstawie** toobe *liczba wyników*
+- **Liczba wyników** toobe *większa niż 0*
 
-Wykonaj kroki opisane w sekcji dotyczącej [dodawania akcji do reguł alertów](log-analytics-alerts-actions.md) i skonfiguruj wiadomość e-mail, element webhook lub akcję runbook dla reguły alertu.
+Użyj hello procedury opisanej w [dodać reguły tooalert akcje](log-analytics-alerts-actions.md) konfigurowanie poczty e-mail, webhook lub runbook akcji hello reguły alertów.
 
 
 ## <a name="configuration"></a>Konfiguracja
-### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Czy można zmienić nazwę tabeli/blobcontainer używany do odczytu z diagnostyki Azure (WAD)?
+### <a name="q-can-i-change-hello-name-of-hello-tableblob-container-used-tooread-from-azure-diagnostics-wad"></a>Q. Można zmienić nazwę hello hello tabeli/obiektów blob kontenera używane tooread z diagnostyki Azure (WAD)?
 
-A. Nie, nie jest obecnie możliwa do odczytu z dowolnego tabel lub kontenerów w magazynie Azure.
+A. Nie, nie jest obecnie możliwe tooread z dowolnego tabel lub kontenerów w magazynie Azure.
 
-### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Adresy IP jest używana usługa Log Analytics? Jak zapewnić, że moje zapora zezwala na tylko ruch z usługą analizy dzienników
+### <a name="q-what-ip-addresses-does-hello-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-toohello-log-analytics-service"></a>Q. Adresy IP hello analizy dzienników użycia usługi? Jak zapewnić, że moje zapora zezwala na tylko ruch toohello analizy dzienników usługi?
 
-A. Usługi analizy dzienników jest oparty na platformie Azure. Adresy IP analizy dziennika znajdują się w [zakresów IP centrum danych Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
+A. Hello usługi analizy dzienników jest oparty na platformie Azure. Adresy IP analizy dziennika znajdują się w hello [zakresów IP centrum danych Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Podczas wdrożenia usługi zostały wprowadzone, zmieniać rzeczywiste adresów IP usługi analizy dzienników. Nazwy DNS, aby zezwolić za pośrednictwem zapory są udokumentowane w [skonfigurować ustawienia serwera proxy i zapory w analizy dzienników](log-analytics-proxy-firewall.md).
+Wdrożenia usługi zostały wprowadzone, zmienić hello rzeczywiste adresy IP hello usługi analizy dzienników. tooallow nazwy DNS Hello za pośrednictwem zapory są udokumentowane w [skonfigurować ustawienia serwera proxy i zapory w analizy dzienników](log-analytics-proxy-firewall.md).
 
-### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute można używać do nawiązywania połączenia z platformy Azure. Moje analizy dzienników ruchu używa połączenie ExpressRoute?
+### <a name="q-i-use-expressroute-for-connecting-tooazure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute można używać do łączenia tooAzure. Moje analizy dzienników ruchu używa połączenie ExpressRoute?
 
-A. Opisano różne rodzaje ruchu usługi ExpressRoute w [dokumentacja usługi ExpressRoute](../expressroute/expressroute-faqs.md#supported-services).
+A. różne rodzaje ruchu ExpressRoute Hello są opisane w hello [dokumentacja usługi ExpressRoute](../expressroute/expressroute-faqs.md#supported-services).
 
-Ruch do analizy dzienników korzysta z obwodem usługi ExpressRoute publicznej komunikacji równorzędnej.
+Ruch tooLog Analytics używa hello publicznej komunikacji równorzędnej ExpressRoute obwodu.
 
-### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. Czy istnieje prosty i łatwy sposób przenieść istniejący obszar roboczy analizy dzienników do innej subskrypcji Azure/obszaru roboczego analizy dzienników?
+### <a name="q-is-there-a-simple-and-easy-way-toomove-an-existing-log-analytics-workspace-tooanother-log-analytics-workspaceazure-subscription"></a>Q. Istnieje już toomove prosty i łatwy sposób istniejący obszar roboczy analizy dzienników tooanother subskrypcji Azure/obszaru roboczego analizy dzienników?
 
-A. `Move-AzureRmResource` Polecenie cmdlet pozwala przenoszeniu obszaru roboczego analizy dzienników, a konto usługi Automatyzacja z jedną subskrypcją platformy Azure. Aby uzyskać więcej informacji, zobacz [Move AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. Witaj `Move-AzureRmResource` polecenie cmdlet umożliwia przenoszenie obszaru roboczego analizy dzienników, a konto usługi Automatyzacja z jednego tooanother subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Move AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
-Ta zmiana może być również w portalu Azure.
+Ta zmiana może również w hello portalu Azure.
 
-Nie można przenieść dane z jednego obszaru roboczego analizy dzienników do innego lub zmień analizy dzienników danych przechowywanych w regionie.
+Nie można przenieść dane z jednego tooanother obszaru roboczego analizy dzienników, lub zmień region hello analizy dzienników dane są przechowywane w.
 
-### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>Pytanie: jak dodać analizy dzienników do programu System Center Operations Manager?
+### <a name="q-how-do-i-add-log-analytics-toosystem-center-operations-manager"></a>Pytanie: jak dodać dziennika analizy tooSystem Center Operations Manager?
 
-A: aktualizowanie do najnowszego pakietu zbiorczego aktualizacji i importowanie pakietów administracyjnych umożliwia łączenie programu Operations Manager do analizy dzienników.
+Odpowiedź: aktualizowanie toohello najnowszego pakietu zbiorczego aktualizacji i importowanie pakietów administracyjnych umożliwia tooconnect programu Operations Manager tooLog Analytics.
 
 >[!NOTE]
->Połączenie programu Operations Manager do analizy dzienników jest dostępna tylko dla programu System Center Operations Manager 2012 z dodatkiem SP1 i nowszych.
+>tooLog połączenie programu Operations Manager Hello Analytics jest dostępna tylko dla programu System Center Operations Manager 2012 z dodatkiem SP1 i nowszych.
 
-### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>Pytanie: jak można potwierdzić, że agent jest w stanie nawiązać połączenia z analizy dzienników?
+### <a name="q-how-can-i-confirm-that-an-agent-is-able-toocommunicate-with-log-analytics"></a>Pytanie: jak można potwierdzić, że agent jest możliwe toocommunicate z analizy dzienników?
 
-Odp.: aby upewnić się, że agent może komunikować się z usługą OMS, przejdź do: Panel sterowania, zabezpieczeń i ustawień, **programu Microsoft Monitoring Agent**.
+A: tooensure hello agent może komunikować się z OMS, przejdź do: Panel sterowania, zabezpieczeń i ustawień, **programu Microsoft Monitoring Agent**.
 
-W obszarze **Analiza dzienników Azure (OMS)** karcie, poszukaj zielony znacznik wyboru. Ikona zielony znacznik wyboru potwierdza, że agent jest w stanie komunikować się z usługą OMS.
+W obszarze hello **Analiza dzienników Azure (OMS)** karcie, poszukaj zielony znacznik wyboru. Ikona z zielonym znacznikiem wyboru potwierdza, że hello agent jest możliwe toocommunicate z hello usługę.
 
-Żółta ikona ostrzeżenia oznacza, że agent występują problemy dotyczące komunikacji z usługą OMS. Najczęściej zdarza się to usługa Microsoft Monitoring Agent została zatrzymana. Używają Menedżera kontroli usług, aby ponownie uruchomić usługę.
+Żółta ikona ostrzeżenia oznacza, że hello agent występują problemy dotyczące komunikacji z usługą OMS. Najczęściej zdarza się to hello usługi Microsoft Monitoring Agent została zatrzymana. Korzystanie z usługi kontroli Menedżer toorestart hello usługi.
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Pytanie: jak zatrzymać agenta komunikację z Log Analytics?
 
-A: w programie System Center Operations Manager, Usuń komputer z listy komputerów zarządzanych Advisor. Operations Manager zaktualizuje konfigurację agenta już raportu analizy dzienników. Dla agentów podłączone bezpośrednio do analizy dzienników, można je zatrzymać komunikację za pośrednictwem: Panel sterowania, zabezpieczeń i ustawień, **programu Microsoft Monitoring Agent**.
+A: w programie System Center Operations Manager, Usuń komputer hello z listy komputerów zarządzanych Advisor hello. Aktualizacje programu Operations Manager hello konfiguracji hello agenta toono dłużej raport tooLog Analytics. Dla agentów bezpośrednio połączonych tooLog Analytics, można zatrzymać ich komunikację za pośrednictwem: Panel sterowania, zabezpieczeń i ustawień, **programu Microsoft Monitoring Agent**.
 W obszarze **Analiza dzienników Azure (OMS)**, Usuń wszystkie obszary robocze wymienione.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Pytanie: Dlaczego otrzymuję błąd przy próbie przenoszeniu mojego obszaru roboczego z jedną subskrypcją platformy Azure?
+### <a name="q-why-am-i-getting-an-error-when-i-try-toomove-my-workspace-from-one-azure-subscription-tooanother"></a>Pytanie: Dlaczego otrzymuję błąd przy próbie toomove Mój obszar roboczy z jedną subskrypcją platformy Azure tooanother?
 
-A. Jeśli używasz portalu Azure, upewnij się, że wybrano tylko obszaru roboczego do przeprowadzenia migracji. Nie wybieraj rozwiązania — zostanie automatycznie przełączona po przesunięciu obszaru roboczego. 
+A. Jeśli używasz hello portalu Azure, upewnij się, że tylko hello obszaru roboczego został wybrany do przeniesienia hello. Nie wybieraj rozwiązania hello — zostanie automatycznie przełączona po przesunięciu hello obszaru roboczego. 
 
 Upewnij się, że masz uprawnienia w obu subskrypcji platformy Azure.
 
 ## <a name="agent-data"></a>Dane agenta
-### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Ilość danych można wysyłać agenta w celu analizy dzienników? Istnieje już maksymalna ilość danych klienta?
-A. Planu free Ustawia dzienny limit 500 MB na obszar roboczy. Plany warstwy standardowa i premium ma żadnego limitu ilości danych, który jest przekazywany. Usługa w chmurze, analizy dzienników zaprojektowano w celu automatycznego skalowania do uchwytu woluminu pochodzące z klientem — nawet jeśli jest ona terabajtów na dzień.
+### <a name="q-how-much-data-can-i-send-through-hello-agent-toolog-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Ilość danych może wysłać za pośrednictwem hello agenta tooLog Analytics? Istnieje już maksymalna ilość danych klienta?
+A. planu free Hello Ustawia dzienny limit 500 MB na obszar roboczy. Hello standardowa i premium planów nie nie limity, na powitania ilość danych, który jest przekazany. Jako usługa w chmurze jest przeznaczony Analytics dziennika skali tooautomatically objętości hello toohandle pochodzące z klientem — nawet jeśli jest ona terabajtów na dzień.
 
-Agent Log Analytics została zaprojektowana w celu upewnij się, że ma ona niewielkie rozmiary. Jednym z naszych klientów zapisano blog o testów, które są wykonane względem naszego agenta i jak wrażeniem były. Ilość danych w zależności od rozwiązania, które można włączyć. Możesz znaleźć szczegółowe informacje na temat ilość danych i rozpad przez rozwiązanie w [użycia](log-analytics-usage.md) strony.
+Hello analizy dzienników agenta została zaprojektowana tooensure ma mało miejsca. Jednym z naszych klientów zapisano blog o hello testów, które są wykonane względem naszego agenta i jak wrażeniem były. ilość danych Hello w zależności od rozwiązania hello, które można włączyć. Możesz znaleźć szczegółowe informacje na temat hello ilość danych i rozpad hello przez rozwiązanie w hello [użycia](log-analytics-usage.md) strony.
 
-Aby uzyskać więcej informacji można znaleźć [blogu klienta](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) o niewielki rozmiar agenta pakietu OMS.
+Aby uzyskać więcej informacji można znaleźć [blogu klienta](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) o hello niewielki rozmiar hello agenta pakietu OMS.
 
-### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Jaka przepustowość sieci jest używany przez program Microsoft Management Agent (MMA) podczas wysyłania danych do analizy dzienników?
+### <a name="q-how-much-network-bandwidth-is-used-by-hello-microsoft-management-agent-mma-when-sending-data-toolog-analytics"></a>Q. Jaka przepustowość sieci jest używany przez hello Microsoft Management Agent (MMA) podczas wysyłania danych tooLog Analytics?
 
-A. Przepustowość jest funkcja na ilość danych przesyłanych. Dane są kompresowane podczas ich przesyłania przez sieć.
+A. Przepustowość jest funkcja na powitania ilość danych przesyłanych. Dane są kompresowane podczas ich przesyłania przez sieć hello.
 
 ### <a name="q-how-much-data-is-sent-per-agent"></a>Q. Ilość danych są wysyłane na agenta?
 
-A. Zależy od ilości danych wysłanych w ciągu agenta:
+A. Witaj ilość danych przesyłanych na agenta jest zależna od:
 
-* Rozwiązania, które aktywowano
-* Liczba dzienników i liczniki wydajności są zbierane
-* Ilość danych w dziennikach
+* Hello rozwiązania, które aktywowano
+* Liczba Hello dzienniki i liczniki wydajności są zbierane
+* Witaj ilość danych w dziennikach hello
 
-Warstwa cenowa bezpłatna to dobry sposób na dołączyć kilka serwerów i ilość danych typowych miernika. Ogólne użycie jest wyświetlany na [użycia](log-analytics-usage.md) strony.
+Hello bezpłatnej warstwy cenowej jest tooonboard dobrze kilka serwerów i mierników hello typowych danych woluminu. Ogólne użycie jest wyświetlany na powitania [użycia](log-analytics-usage.md) strony.
 
-Dla komputerów, które można uruchomić agenta WireData Użyj następującego zapytania, aby zobaczyć, jak dużo danych jest wysyłane:
+Dla komputerów, które są możliwe toorun hello WireData agenta należy użyć hello toosee zapytania, ile dane są wysyłane następujące:
 
 ```
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
@@ -172,4 +172,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Wprowadzenie do analizy dzienników](log-analytics-get-started.md) Dowiedz się więcej na temat analizy dzienników i rozpocząć pracę w minutach.
+* [Wprowadzenie do analizy dzienników](log-analytics-get-started.md) toolearn więcej informacji na temat analizy dzienników i get do pracy w minutach.

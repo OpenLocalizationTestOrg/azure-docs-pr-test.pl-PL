@@ -1,5 +1,5 @@
 ---
-title: "Logowania z adresów IP związanych z podejrzanymi działaniami"
+title: "aaaSign ins z adresu IP, adresy związanych z podejrzanymi działaniami"
 description: "Raport, który zawiera znak w prób, wykonanych z adresów IP, w którym zaobserwowano podejrzanych działań."
 services: active-directory
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah; kenhoff
-ms.openlocfilehash: d4168f2a674a90237ff5fa1c51518a711a1c2897
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b959269eb792083af0a0795d319d9712cb4c5ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Logowania z adresów IP związanych z podejrzanymi działaniami
-Ten raport przedstawia logowania z adresów IP, w którym zostało wykryte podejrzane działania. Podejrzane działania w tym przypadku jest zdefiniowane jako wyjątkowo wysoki stopień niepowodzenia logowania do pomyślnego logowania, które mogą wskazywać, że adres IP jest używana do celów złośliwego.
+Ten raport przedstawia logowania z adresów IP, w którym zostało wykryte podejrzane działania. Podejrzane działania w tym przypadku jest zdefiniowany toobe wyjątkowo wysoki stopień logowania toosuccessful logowania, które mogą wskazywać, że adres IP jest używana do celów złośliwego nie powiodło się.
 
 ![Logowania z adresów IP związanych z podejrzanymi działaniami](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 

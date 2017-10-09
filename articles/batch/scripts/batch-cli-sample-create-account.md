@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI skrypt przykładowy — Tworzenie konta usługi partia zadań | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia — Utwórz konto wsadowe | Dokumentacja firmy Microsoft"
 description: "Azure CLI skrypt przykładowy — Tworzenie konta usługi partia zadań"
 services: batch
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 62b640eebbafdd1081822a638fd0720121ef067a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Tworzenie konta usługi partia zadań z wiersza polecenia platformy Azure
+# <a name="create-a-batch-account-with-hello-azure-cli"></a>Tworzenie konta usługi partia zadań z hello wiersza polecenia platformy Azure
 
-Ten skrypt tworzy konto partii zadań Azure i pokazuje, jak różne właściwości konta można zbadać i aktualizacji.
+Ten skrypt tworzy konto partii zadań Azure i przedstawia różne właściwości konta hello można zbadać i aktualizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zainstaluj interfejs wiersza polecenia platformy Azure przy użyciu instrukcji w [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), jeśli nie ma jeszcze zrobione.
+Zainstaluj hello wiersza polecenia platformy Azure przy użyciu hello instrukcjami hello [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), jeśli nie ma jeszcze zrobione.
 
 ## <a name="batch-account-sample-script"></a>Skrypt przykładowy konta
 
-Podczas tworzenia konta usługi partia zadań domyślnie jego węzły obliczeniowe są przypisywane wewnętrznie przez usługi partia zadań. Węzły obliczeniowe przydzielone podlegają przydziału rdzeni oddzielne i konta mogą być uwierzytelniane za pośrednictwem klucza wspólnego poświadczeń lub Azure Active Dirctory token.
+Podczas tworzenia konta usługi partia zadań domyślnie jego węzły obliczeniowe są przypisywane wewnętrznie przez hello usługa partia zadań. Węzły obliczeniowe przydzielone będzie limit przydziału rdzeni oddzielnych tooa podmiotu i hello konta mogą być uwierzytelniane za pośrednictwem klucza wspólnego poświadczeń lub Azure Active Dirctory token.
 
-[!code-azurecli[główne](../../../cli_scripts/batch/create-account/create-account.sh "Tworzenie konta")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>Przy użyciu skryptu próbki subskrypcji użytkownika konta usługi partia zadań
 
-Można również zdecydować się na ma partii utworzyć jego węzłów obliczeniowych w ramach własnej subskrypcji platformy Azure.
-Konta, które przydzielić obliczeniowe węzłów w ramach subskrypcji, musi zostać uwierzytelniony za pośrednictwem tokenu programu Azure Active Directory i węzły obliczeniowe przydzielone są zliczane limitu przydziału subskrypcji. Aby utworzyć konto w tym trybie, jeden Określ odwołanie magazynu kluczy podczas tworzenia konta.
+Można również włączyć toohave partii utworzyć jego węzłów obliczeniowych w ramach własnej subskrypcji platformy Azure.
+Konta, które przydzielić obliczeniowe węzłów w ramach subskrypcji, musi zostać uwierzytelniony za pośrednictwem tokenu programu Azure Active Directory i węzły obliczeniowe hello przydzielone są zliczane limitu przydziału subskrypcji. toocreate konto w tym trybie, co należy określić odwołanie Key Vault podczas tworzenia konta hello.
 
-[!code-azurecli[główne](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Utwórz konto, przy użyciu subskrypcji użytkownika")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu dowolnego z powyższych przykładowe skrypty, uruchom następujące polecenie, aby usunąć grupę zasobów i wszystkie powiązane zasoby (w tym konta wsadowego, konta usługi Azure Storage i Azure magazynów kluczy).
+Po uruchomieniu albo hello powyżej przykładowe skrypty, uruchom następujące polecenie tooremove hello grupy zasobów i wszystkie powiązane zasoby (w tym konta wsadowego, konta usługi Azure Storage i Azure magazynów kluczy).
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -51,23 +51,23 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń w celu utworzenia grupy zasobów konta usługi partia zadań i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji specyficzne dla polecenia.
+Ten skrypt używa hello następujące polecenia toocreate grupy zasobów konta usługi partia zadań i wszystkie powiązane zasoby. Każde polecenie w dokumentacji konkretnego toocommand łącza tabeli hello.
 
 | Polecenie | Uwagi |
 |---|---|
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie konta usługi partia zadań az](https://docs.microsoft.com/cli/azure/batch/account#create) | Tworzy konto usługi partia zadań.  |
-| [Ustaw konto wsadowe az](https://docs.microsoft.com/cli/azure/batch/account#set) | Aktualizuje właściwości konta usługi partia zadań.  |
-| [Pokaż konto wsadowe az](https://docs.microsoft.com/cli/azure/batch/account#show) | Pobiera szczegóły określonego konta usługi partia zadań.  |
-| [Lista kluczy konta zadań wsadowych az](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Pobiera klucze dostępu do określonego konta usługi partia zadań.  |
-| [AZ logowanie się na koncie usługi partia zadań](https://docs.microsoft.com/cli/azure/batch/account#login) | Uwierzytelnia określony konta usługi partia zadań dla dalszego interakcja interfejsu wiersza polecenia.  |
+| [Tworzenie konta usługi partia zadań az](https://docs.microsoft.com/cli/azure/batch/account#create) | Tworzy hello konta usługi partia zadań.  |
+| [Ustaw konto wsadowe az](https://docs.microsoft.com/cli/azure/batch/account#set) | Aktualizuje właściwości hello konta usługi partia zadań.  |
+| [Pokaż konto wsadowe az](https://docs.microsoft.com/cli/azure/batch/account#show) | Pobiera szczegóły hello określić konta usługi partia zadań.  |
+| [Lista kluczy konta zadań wsadowych az](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Pobiera klucze dostępu hello hello określić konta usługi partia zadań.  |
+| [AZ logowanie się na koncie usługi partia zadań](https://docs.microsoft.com/cli/azure/batch/account#login) | Uwierzytelnia określony hello partii konta dla dalszego interakcja interfejsu wiersza polecenia.  |
 | [Tworzenie konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account#create) | Tworzy konto magazynu. |
 | [Utwórz az keyvault](https://docs.microsoft.com/cli/azure/keyvault#create) | Tworzy magazyn kluczy. |
-| [keyvault az set-policy.](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Aktualizacja zasad zabezpieczeń określonego magazynu kluczy. |
+| [keyvault az set-policy.](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Zaktualizuj zasady zabezpieczeń hello hello określonego klucza magazynu. |
 | [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/group#delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów partii interfejsu wiersza polecenia można znaleźć w [dokumentacji interfejsu wiersza polecenia Azure partii](../batch-cli-samples.md).
+Dodatkowe przykłady skryptów partii interfejsu wiersza polecenia można znaleźć w hello [dokumentacji interfejsu wiersza polecenia Azure partii](../batch-cli-samples.md).

@@ -1,5 +1,5 @@
 ---
-title: "Zmień ustawienia ReliableDictionaryActorStateProvider w Azure mikrousług | Dokumentacja firmy Microsoft"
+title: "Ustawienia ReliableDictionaryActorStateProvider aaaChange w Azure mikrousług | Dokumentacja firmy Microsoft"
 description: "Informacje na temat konfigurowania stanowe uczestnikami typu ReliableDictionaryActorStateProvider sieć szkieletowa usług Azure."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: sumukhs
-ms.openlocfilehash: 2b5359412ebb4ea42f3e9c22db944aea9a666bb1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44c85a41c90a17669ba874401d7921c94e7be9ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Konfigurowanie Reliable Actors — ReliableDictionaryActorStateProvider
-Domyślna konfiguracja ReliableDictionaryActorStateProvider można modyfikować, zmieniając pliku settings.xml generowane w głównym pakietu programu Visual Studio w folderze konfiguracji dla określonego aktora.
+Domyślna konfiguracja hello ReliableDictionaryActorStateProvider można modyfikować, zmieniając pliku settings.xml hello wygenerowanych w głównym pakietu Visual Studio hello hello folderze konfiguracji dla określonego aktora hello.
 
-Środowisko uruchomieniowe usługi sieć szkieletowa usług Azure szuka nazwy sekcji wstępnie zdefiniowanych w pliku settings.xml i wykorzystuje wartości konfiguracji podczas tworzenia podstawowych składników środowiska wykonawczego.
+środowisko uruchomieniowe usługi sieć szkieletowa usług Azure Hello szuka nazwy sekcji wstępnie zdefiniowanych w pliku settings.xml hello i wykorzystuje wartości konfiguracji hello podczas tworzenia hello podstawowych składników środowiska wykonawczego.
 
 > [!NOTE]
-> Czy **nie** usunięcia lub zmodyfikowania nazwy sekcji następujące konfiguracje w pliku settings.xml, który jest generowany w rozwiązaniu Visual Studio.
+> Czy **nie** usunięcia lub zmodyfikowania nazwy sekcji hello hello następujące konfiguracje w pliku settings.xml hello wygenerowanego w hello rozwiązania Visual Studio.
 > 
 > 
 
-Istnieją ustawienia globalne, które mają wpływ na konfigurację ReliableDictionaryActorStateProvider.
+Istnieją ustawienia globalne, które mają wpływ na konfigurację hello ReliableDictionaryActorStateProvider.
 
 ## <a name="global-configuration"></a>Konfigurację globalną
-W manifeście klastra dla klastra, w sekcji KtlLogger określono jego konfigurację globalną. Go umożliwia skonfigurowanie lokalizacji udostępnionej dziennika i rozmiaru i limity pamięci globalnej używane przez rejestratora. Należy pamiętać, że zmiany w manifeście klastra mają wpływ na wszystkich usług, które używają ReliableDictionaryActorStateProvider i niezawodnych usług stanowych.
+konfigurację globalną Hello jest określona w manifeście klastra hello hello klastra w obszarze hello KtlLogger sekcji. Umożliwia konfiguracji hello udostępnionych dziennika lokalizacji i rozmiaru oraz hello globalne limity pamięci używane przez hello rejestratora. Należy pamiętać, wszystkich usług, które używają ReliableDictionaryActorStateProvider i niezawodne usługi stanowej wpływać na zmiany w manifeście klastra hello.
 
-Plik manifestu klastra to pojedynczy plik XML, który przechowuje ustawienia i konfiguracje, które są stosowane do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest.xml. Widać klastra dla klastra przy użyciu polecenia programu powershell Get-ServiceFabricClusterManifest manifestu.
+manifest klastra Hello jest pojedynczy plik XML, który przechowuje ustawienia i konfiguracje zastosować tooall węzły i usług w klastrze hello. Plik Hello jest zwykle nazywany ClusterManifest.xml. Widać hello manifestu klastra dla klastra przy użyciu polecenia programu powershell Get-ServiceFabricClusterManifest hello.
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobajtów |8388608 |Minimalna liczba KB przydzielić w trybie jądra dla puli pamięci buforu zapisu rejestratora. Tej puli pamięci jest używana do buforowania informacji o stanie przed zapisu na dysku. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobajtów |Bez ograniczeń |Maksymalny rozmiar, do którego rejestratora zapisu puli bufora pamięci można powiększać. |
-| SharedLogId |IDENTYFIKATOR GUID |"" |Określa unikatowy identyfikator GUID służących do identyfikowania domyślne udostępniony plik dziennika używanych przez wszystkie usługi niezawodnego we wszystkich węzłach w klastrze, które nie określają SharedLogId ich określonej konfiguracji usługi. Jeśli określono SharedLogId, to SharedLogPath należy również określić. |
-| SharedLogPath |W pełni kwalifikowana nazwa |"" |Określa pełną ścieżkę, w którym plik dziennika udostępniony używany przez wszystkie niezawodnej usługi na wszystkich węzłach w klastrze, które nie określają SharedLogPath ich określonej konfiguracji usługi. Jednak jeśli SharedLogPath jest określona, to SharedLogId należy również określić. |
-| SharedLogSizeInMB |Megabajtów |8192 |Określa liczbę MB miejsca na dysku przydzielić statycznie dla dziennika udostępniony. Wartość musi być 2048 lub większy. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobajtów |8388608 |Minimalna liczba tooallocate KB w trybie jądra dla rejestratora hello zapisu puli bufora pamięci. Tej puli pamięci jest używana do buforowania informacji o stanie przed zapisaniem toodisk. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobajtów |Bez ograniczeń |Maksymalny rozmiar toowhich hello rejestratora zapisu buforu pamięci puli mogą rosnąć. |
+| SharedLogId |IDENTYFIKATOR GUID |"" |Określa unikatowy toouse identyfikatora GUID do identyfikacji hello domyślny udostępniony plik dziennika używanych przez wszystkie usługi niezawodnego we wszystkich węzłach w klastrze hello, które nie określają hello SharedLogId ich określonej konfiguracji usługi. Jeśli określono SharedLogId, to SharedLogPath należy również określić. |
+| SharedLogPath |W pełni kwalifikowana nazwa |"" |Określa pełną ścieżkę hello którym hello udostępniony plik dziennika dla wszystkich usług niezawodnej we wszystkich węzłach w klastrze hello, które nie określają hello SharedLogPath ich określonej konfiguracji usługi. Jednak jeśli SharedLogPath jest określona, to SharedLogId należy również określić. |
+| SharedLogSizeInMB |Megabajtów |8192 |Określa liczbę hello MB miejsca na dysku toostatically przydzielić hello dziennika udostępniony. wartość Hello musi być 2048 lub większy. |
 
 ### <a name="sample-cluster-manifest-section"></a>Sekcja manifestu klastra próbki
 ```xml
@@ -58,22 +58,22 @@ Plik manifestu klastra to pojedynczy plik XML, który przechowuje ustawienia i k
 ```
 
 ### <a name="remarks"></a>Uwagi
-Rejestrator ma globalnej puli pamięci przydzielonej z pamięci niestronicowana jądra, która jest dostępna dla wszystkich usług niezawodnej w węźle do buforowania danych o stanie przed są zapisywane w dzienniku dedykowanych skojarzone z repliki niezawodnej usługi. Rozmiar puli jest kontrolowana przez ustawienia WriteBufferMemoryPoolMinimumInKB i WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB Określa początkowy rozmiar tej puli pamięci i rozmiar najniższy, do której może zmniejszyć rozmiar puli pamięci. WriteBufferMemoryPoolMaximumInKB jest najwyższym rozmiar, do której może zwiększyć się pula pamięci. Każda replika niezawodnej usługi, która jest otwarta może zwiększyć rozmiar puli pamięci o kwotę systemu ustalić maksymalnie WriteBufferMemoryPoolMaximumInKB. W przypadku żądanie więcej pamięci w puli pamięci niż jest dostępne, żądania dotyczące pamięci zostanie opóźnione aż do pamięci. W związku z tym jeśli puli pamięci buforu zapisu jest zbyt mały dla konkretnej konfiguracji następnie to spowodować obniżenie wydajności.
+Rejestrator Hello ma globalnej puli pamięci przydzielonej z pamięci jądra niestronicowana usługi niezawodnego tooall dostępne w węźle do buforowania danych o stanie przed zapisaniem toohello dziennika dedykowanego skojarzone z repliki usługi niezawodnego hello. rozmiar puli Hello jest kontrolowana przez ustawienia WriteBufferMemoryPoolMaximumInKB i hello WriteBufferMemoryPoolMinimumInKB. WriteBufferMemoryPoolMinimumInKB określa zarówno hello początkowy rozmiar tej puli pamięci i może zmniejszyć hello najniższy rozmiar toowhich hello puli pamięci. WriteBufferMemoryPoolMaximumInKB jest może przekroczyć hello najwyższy rozmiar toowhich hello puli pamięci. Każda replika niezawodnej usługi, która jest otwarta może zwiększyć rozmiar hello hello puli pamięci o kwotę systemu ustalić się tooWriteBufferMemoryPoolMaximumInKB. Jeśli istnieje więcej zapotrzebowanie na pamięć z hello puli pamięci niż jest dostępne, żądania dotyczące pamięci zostanie opóźnione aż do pamięci. W związku z tym jeśli puli pamięci buforu zapisu hello jest zbyt mały dla konkretnej konfiguracji następnie to spowodować obniżenie wydajności.
 
-Ustawienia SharedLogId i SharedLogPath zawsze są używane razem do definiowania identyfikator GUID i lokalizacja dziennika udostępniony domyślnego dla wszystkich węzłów w klastrze. Dziennika udostępniony domyślny jest używany dla wszystkich usług niezawodne, które nie określają ustawienia w pliku settings.xml dla określonej usługi. Aby uzyskać najlepszą wydajność udostępnione pliki dziennika należy umieścić na dyskach, które są używane wyłącznie do pliku dziennika udostępniony do zmniejszenia rywalizacji.
+Ustawienia SharedLogId i SharedLogPath Hello są zawsze używane razem toodefine hello identyfikator GUID i lokalizację domyślną hello udostępnionych dziennika dla wszystkich węzłów w klastrze hello. dziennika udostępniony domyślnego Hello jest używany dla wszystkich usług niezawodne, które nie określają ustawienia hello w pliku settings.xml hello hello określonej usługi. Aby uzyskać najlepszą wydajność udostępnionego pliki dziennika należy umieścić na dyskach, które są używane wyłącznie do rywalizacji tooreduce pliku dziennika hello udostępnionych.
 
-SharedLogSizeInMB określa ilość miejsca na dysku do przydzielenia dla dziennika udostępniony domyślne we wszystkich węzłach.  SharedLogId i SharedLogPath nie trzeba określać aby SharedLogSizeInMB należy określić.
+SharedLogSizeInMB określa hello toopreallocate miejsca na dysku dla dziennika udostępniony hello domyślne we wszystkich węzłach.  SharedLogId i SharedLogPath toobe określony w kolejności dla toobe SharedLogSizeInMB określony nie jest konieczne.
 
 ## <a name="replicator-security-configuration"></a>Konfiguracja zabezpieczeń replikatora
-Replikator konfiguracji zabezpieczeń służą do zabezpieczania kanał komunikacyjny używany podczas replikacji. Oznacza to, czy usługi nie widzi siebie nawzajem ruch związany z replikacją, zapewnienie, że dane, które jest zyskuje dużą dostępność również jest bezpieczne.
+Replikator konfiguracjach zabezpieczeń są używane toosecure kanał komunikacyjny hello, używaną podczas replikacji. Oznacza to, że usługi nie może wyświetlić siebie nawzajem ruch związany z replikacją, zapewnienie danych hello, wysoko dostępne jest także bezpiecznego.
 Domyślnie puste zabezpieczeń sekcji konfiguracji uniemożliwia zabezpieczeń replikacji.
 
 ### <a name="section-name"></a>Nazwa sekcji
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Konfiguracja replikatora
-Konfiguracje replikatora służą do skonfigurowania replikatora odpowiedzialną za tworzenie stanu dostawcy stanu aktora wysoce niezawodne replikacji i przechowywanie stanu lokalnie.
-Domyślna konfiguracja jest generowany przez szablon programu Visual Studio i powinny wystarczyć. Ta sekcja zawiera informacje o dodatkowych konfiguracjach, które są dostępne dostroić replikatora.
+Replikator konfiguracje są używane tooconfigure hello replikatora, odpowiedzialną za tworzenie stanu dostawcy stanu aktora hello wysoce niezawodne replikacji i przechowywanie stanu hello lokalnie.
+Konfiguracja domyślna Hello jest generowany przez hello szablonu Visual Studio i powinny wystarczyć. Ta sekcja zawiera informacje o dodatkowych konfiguracjach, które są dostępne tootune hello replikatora.
 
 ### <a name="section-name"></a>Nazwa sekcji
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -81,16 +81,16 @@ Domyślna konfiguracja jest generowany przez szablon programu Visual Studio i po
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Sekundy |0.015 |Okres, dla którego replikatora na dodatkowej czeka po otrzymaniu operacji przed wysłaniem z powrotem do podstawowej potwierdzenia. Inne potwierdzeń na wysłanie operacji przetwarzane w ramach tego interwału są wysyłane jako jedna odpowiedź. |
-| ReplicatorEndpoint |Nie dotyczy |Brak wartości domyślnej — wymagany parametr |Ustaw adres IP i port, który replikatora podstawowe i pomocnicze będzie używany do komunikowania się z innymi replikatorów w replice. To powinien odwoływać się do zasobu punkt końcowy protokołu TCP w manifeście usługi. Zapoznaj się [zasoby manifestu usługi](service-fabric-service-manifest-resources.md) Aby dowiedzieć się więcej o Definiowanie zasobów punktu końcowego manifestu usługi. |
+| BatchAcknowledgementInterval |Sekundy |0.015 |Czasie, dla których replikatora hello na dodatkowej czeka powitania po otrzymaniu operacji przed odsyła toohello potwierdzenia podstawowego. Inne toobe potwierdzeń, wysyłane do operacji przetwarzane w ramach tego interwału są wysyłane jako jedna odpowiedź. |
+| ReplicatorEndpoint |Nie dotyczy |Brak wartości domyślnej — wymagany parametr |Adres IP i port, który hello replikatora podstawowe i pomocnicze użyje toocommunicate z innych replikatorów hello zestawu replik. To powinien odwoływać się do zasobów punkt końcowy protokołu TCP w hello manifestu usługi. Odwołuje się zbyt[zasoby manifestu usługi](service-fabric-service-manifest-resources.md) tooread więcej informacji na temat definiowania zasobów punktu końcowego w manifeście usługi. |
 | MaxReplicationMessageSize |Bajty |50 MB |Maksymalny rozmiar danych replikacji, które mogą być przenoszone w pojedynczym komunikacie. |
-| MaxPrimaryReplicationQueueSize |Liczba operacji |8192 |Maksymalna liczba operacji w kolejce podstawowego. Operacja są zwalniane, gdy Replikator podstawowy otrzyma potwierdzenia od wszystkich dodatkowej replikatorów. Ta wartość musi być większa niż 64 i potęgą liczby 2. |
-| MaxSecondaryReplicationQueueSize |Liczba operacji |16384 |Maksymalna liczba operacji w kolejce dodatkowej. Operacja są zwalniane po dokonaniu jej stan wysokiej dostępności za pośrednictwem trwałości. Ta wartość musi być większa niż 64 i potęgą liczby 2. |
-| CheckpointThresholdInMB |MB |200 |Ilość miejsca pliku dziennika, po upływie którego stan jest w użyciu. |
-| MaxRecordSizeInKB |KB |1024 |Największy rozmiar rekordu, który replikatora może zapisywać w dzienniku. Ta wartość musi być wielokrotnością liczby 4 i większa niż 16. |
-| OptimizeLogForLowerDiskUsage |Wartość logiczna |Wartość true |W przypadku wartości true dziennika jest skonfigurowana tak, aby w pliku dziennika dedykowanego repliki jest tworzona przy użyciu pliku rozrzedzonego systemu plików NTFS. Zmniejsza to wykorzystanie miejsca rzeczywistego dysku dla pliku. Gdy ma wartość false, plik jest tworzony o stałej alokacji, które zapewniają najlepszą wydajność zapisu. |
-| SharedLogId |Identyfikator GUID |"" |Określa unikatowy identyfikator guid służących do identyfikowania pliku dziennika udostępniony używany z tej repliki. Zazwyczaj usług nie należy używać tego ustawienia. Jednak jeśli SharedLogId jest określona, to SharedLogPath należy również określić. |
-| SharedLogPath |W pełni kwalifikowana nazwa |"" |Określa pełną ścieżkę, w którym zostanie utworzony plik dziennika udostępniony dla tej repliki. Zazwyczaj usług nie należy używać tego ustawienia. Jednak jeśli SharedLogPath jest określona, to SharedLogId należy również określić. |
+| MaxPrimaryReplicationQueueSize |Liczba operacji |8192 |Maksymalna liczba operacji w kolejce głównej hello. Operacja są zwalniane, gdy Replikator głównej hello otrzyma potwierdzenia od wszystkich hello replikatorów dodatkowej. Ta wartość musi być większa niż 64 i potęgą liczby 2. |
+| MaxSecondaryReplicationQueueSize |Liczba operacji |16384 |Maksymalna liczba operacji w kolejce dodatkowej hello. Operacja są zwalniane po dokonaniu jej stan wysokiej dostępności za pośrednictwem trwałości. Ta wartość musi być większa niż 64 i potęgą liczby 2. |
+| CheckpointThresholdInMB |MB |200 |Ilość miejsca pliku dziennika, po upływie którego stan hello jest w użyciu. |
+| MaxRecordSizeInKB |KB |1024 |Największy rozmiar rekordu hello replikatora mogą zapisywać w dzienniku hello. Ta wartość musi być wielokrotnością liczby 4 i większa niż 16. |
+| OptimizeLogForLowerDiskUsage |Wartość logiczna |Wartość true |W przypadku wartości true hello dziennika jest skonfigurowana tak, aby hello repliki dedykowanych plik dziennika jest tworzony przy użyciu pliku rozrzedzonego systemu plików NTFS. Zmniejsza to użycie miejsca na dysku rzeczywiste hello hello pliku. W przypadku wartości FAŁSZ o stałej alokacji, które zapewniają najlepszą wydajność zapisu hello jest tworzony plik hello. |
+| SharedLogId |Identyfikator GUID |"" |Określa unikatowy identyfikator guid toouse identyfikowanie hello udostępniony plik dziennika używane z tej repliki. Zazwyczaj usług nie należy używać tego ustawienia. Jednak jeśli SharedLogId jest określona, to SharedLogPath należy również określić. |
+| SharedLogPath |W pełni kwalifikowana nazwa |"" |Określa pełną ścieżkę hello, której zostanie utworzona hello udostępniony plik dziennika dla tej repliki. Zazwyczaj usług nie należy używać tego ustawienia. Jednak jeśli SharedLogPath jest określona, to SharedLogId należy również określić. |
 
 ## <a name="sample-configuration-file"></a>Przykładowy plik konfiguracyjny
 ```xml
@@ -114,14 +114,14 @@ Domyślna konfiguracja jest generowany przez szablon programu Visual Studio i po
 ```
 
 ## <a name="remarks"></a>Uwagi
-Parametr BatchAcknowledgementInterval Określa opóźnienie replikacji. Wartość "0" powoduje najniższym opóźnieniu możliwe, kosztem przepływności (jak więcej komunikatów potwierdzenia musi być wysyłane i przetwarzane, zawierający mniejszą liczbę potwierdzeń).
-Im większa wartość BatchAcknowledgementInterval, tym wyższy ogólną przepustowość replikacji, kosztem większego opóźnienia operacji. Bezpośrednio przekłada się to opóźnienie zatwierdzeń transakcji.
+Parametr BatchAcknowledgementInterval Hello Określa opóźnienie replikacji. Wartość "0" powoduje hello można uzyskać najmniejsze możliwe opóźnienia, kosztem hello przepływności (jak więcej komunikatów potwierdzenia musi być wysyłane i przetwarzane, zawierający mniejszą liczbę potwierdzeń).
+Hello im większa wartość hello BatchAcknowledgementInterval, hello wyższej hello ogólne przepustowość replikacji na powitania kosztem większego opóźnienia operacji. Bezpośrednio przekłada opóźnienia toohello zatwierdzeń transakcji.
 
-Parametr CheckpointThresholdInMB określa ilość miejsca na dysku używanego przez replikatora do przechowywania informacji o stanie w pliku dziennika dedykowanego repliki. Zwiększanie tego do wartości większej niż domyślny może spowodować szybsze ponownej konfiguracji po dodaniu nowej repliki do zestawu. Jest to spowodowane transferu stanu częściowego, który odbywa się z powodu dostępności historii więcej operacji w dzienniku. To potencjalnie spowodować wydłużenie czasu odzyskiwania repliki, po awarii.
+Hello CheckpointThresholdInMB parametru formanty hello ilość miejsca na dysku, który hello replikatora można użyć informacji o stanie toostore w pliku dziennika dedykowanego hello repliki. Zwiększenie tej wartości wyższej tooa niż domyślne hello może skutkować szybsze ponownej konfiguracji po dodaniu nowej repliki toohello zestawu. Jest to powodu przeniesienia stanu częściowego toohello, który odbywa się ze względu na dostępność toohello historii więcej operacji w dzienniku hello. To potencjalnie spowodować wydłużenie czasu odzyskiwania hello replik, po awarii.
 
-Jeśli OptimizeForLowerDiskUsage jest ustawiona na wartość true, miejsce w pliku dziennika będą nadmiernie elastycznie tak, aby aktywnej repliki można przechowywać więcej informacji o stanie w swoich plików dziennika, gdy nieaktywnych replik użyje mniej miejsca na dysku. Pozwala na hosta replik więcej w węźle. Jeśli OptimizeForLowerDiskUsage jest ustawiona na wartość false, informacje o stanie są zapisywane w plikach dziennika szybciej.
+Jeśli ustawisz OptimizeForLowerDiskUsage tootrue miejsce w pliku dziennika będą nadmiernie elastycznie tak, aby aktywnej repliki można przechowywać więcej informacji o stanie w swoich plików dziennika, gdy nieaktywnych replik użyje mniej miejsca na dysku. Dzięki temu możliwe toohost więcej replik w węźle. Jeśli ustawisz OptimizeForLowerDiskUsage toofalse informacje o stanie hello są zapisywane pliki dziennika toohello szybciej.
 
-Ustawienie MaxRecordSizeInKB określa maksymalny rozmiar rekordu, które mogą być zapisywane w pliku dziennika przez replikatora. W większości przypadków domyślny rozmiar rekordu 1024 KB jest optymalna. Jednak jeśli usługa powoduje większe elementy danych jako część informacji o stanie, ta wartość może być konieczne zwiększenia. Brak małego korzyści w podejmowaniu MaxRecordSizeInKB mniejszych niż 1024, jak mniejsze rekordów tylko przestrzeń na mniejsze rekordu. Oczekuje się, że ta wartość musi można zmienić tylko w rzadkich przypadkach.
+Ustawienie MaxRecordSizeInKB Hello definiuje hello maksymalny rozmiar rekordu, które mogą być zapisywane w pliku dziennika hello przez replikatora hello. W większości przypadków hello domyślny rozmiar rekordu 1024 KB jest optymalna. Jednak jeśli usługa hello powoduje większych danych elementów toobe część informacji o stanie hello, ta wartość trzeba zwiększyć toobe. Brak małego korzyści w podejmowaniu MaxRecordSizeInKB mniejszych niż 1024, jako mniejsze rekordów, użyj tylko hello przestrzeń na powitania mniejszych rekordu. Oczekuje się, że ta wartość musi toobe zmienić tylko w rzadkich przypadkach.
 
-Ustawienia SharedLogId i SharedLogPath zawsze są używane razem aby używać oddzielnego dziennika udostępniony z domyślnego dziennika udostępniony dla węzła usługi. Dla zapewnienia optymalnej wydajności dowolną liczbę usług, jak to możliwe, należy określić tego samego udostępnionego dziennika. Udostępnione pliki dziennika powinna zostać umieszczona na dyskach, które są używane wyłącznie do pliku dziennika udostępniony do zmniejszenia rywalizacji przepływu head. Oczekuje się, że te wartości muszą można zmienić tylko w rzadkich przypadkach.
+Ustawienia SharedLogId i SharedLogPath Hello są zawsze używane razem toomake usługi użyj oddzielnych dziennika udostępniony z dziennika udostępniony domyślne hello hello węzła. Aby uzyskać najlepszą wydajność, dowolną liczbę usług, jak to możliwe, należy określić hello sam udostępnionych dziennika. Udostępnione pliki dziennika powinna zostać umieszczona na dyskach, które są używane wyłącznie do hello udostępnionego pliku dziennika tooreduce head przepływu rywalizacji. Oczekuje się, że te wartości musi toobe zmienić tylko w rzadkich przypadkach.
 

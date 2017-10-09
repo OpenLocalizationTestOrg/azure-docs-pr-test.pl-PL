@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązania branżowe Cortana Intelligence Gallery | Dokumentacja firmy Microsoft"
-description: "Odnajdywanie rozwiązania zgodne ze standardami w Cortana Intelligence Gallery."
+title: "rozwiązania aaaCortana branżowe Intelligence Gallery | Dokumentacja firmy Microsoft"
+description: "Odnajdywanie rozwiązania zgodne ze standardami w hello Cortana Intelligence Gallery."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 34fe6e3f29529a51a73a2f44f06e0cfe02f505ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc85190012121d072938008acfba5fff5595b507
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-industry-specific-solutions-in-the-cortana-intelligence-gallery"></a>Poznaj rozwiązania branżowe w Cortana Intelligence Gallery
+# <a name="discover-industry-specific-solutions-in-hello-cortana-intelligence-gallery"></a>Poznaj rozwiązania branżowe w hello Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Branżowe Cortana Intelligence rozwiązania
- **[Branżach](https://gallery.cortanaintelligence.com/industries)**  sekcji galerii zgromadzono różnych zasobów, które są specyficzne dla branży, takich jak
+ **[Branżach](https://gallery.cortanaintelligence.com/industries)**  sekcji hello galerii zgromadzono różnych zasobów, które są branżach toosuch określonych jako
 
 * [Detaliczne](https://gallery.cortanaintelligence-int.com/industries/retail) — Znajdź rozwiązania sprzedaży detalicznej, takie jak sprzedaż prognozowania, przewidywanie przenoszenie klienta i tworzenie modelami cenowymi.
 * [Produkcyjny](https://gallery.cortanaintelligence-int.com/industries/manufacturing) — Znajdź produkcyjny rozwiązań, takich jak przewidywanie konserwacji sprzętu i prognozowanie cen energii.
 * [Banków](https://gallery.cortanaintelligence-int.com/industries/banking) — Znajdź banków rozwiązań przykład przewidywanie środki ryzyka i monitorowanie w celu oszustwa online.
 * [Opieka zdrowotna](https://gallery.cortanaintelligence-int.com/industries/healthcare) — rozwiązania opieki zdrowotnej, takich jak wykrywanie choroby i prognozowanie readmissions szpital Twoich.
 
-Te zasoby obejmują eksperymentów, niestandardowe moduły interfejsów API, kolekcji i innych elementów galerii, które ułatwiają tworzenie rozwiązań specyficzne dla używanego w branży.
+Te zasoby obejmują eksperymentów, niestandardowe moduły interfejsów API, kolekcje i wszystkie inne elementy, które mogą ułatwić opracowanie rozwiązań określonych toohello branży, którym pracujesz w galerii.
 
 ## <a name="discover"></a>Wykrywanie
- Aby przejrzeć rozwiązania branżowe w galerii, otwórz [galerii](http://gallery.cortanaintelligence.com), wskaż przy użyciu myszy w **branżach** w górnej części strony głównej galerii, wybierz segment określonej gałęzi lub **Wyświetl wszystko** na stronie Przegląd wszystkich branżach.
+ toobrowse za pośrednictwem rozwiązania branżowe hello w galerii, otwórz hello hello [galerii](http://gallery.cortanaintelligence.com), wskaż przy użyciu myszy na **branżach** u góry strony głównej galerii hello hello, wybierz segment określonej gałęzi lub wybierz **Wyświetl wszystko** toosee Strona omówienia wszystkich branżach.
 
- Każdej stronie branży Wyświetla listę elementów galerii najpopularniejszych skojarzone z tym branżowych.
-Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie zasoby branżowe w galerii.
-Na tej stronie można przejrzeć wszystkie zasoby w galerii. Można również przeszukać wybierając kryteria filtrowania po lewej stronie i wprowadzanie terminy wyszukiwania w górnej.
+ Każdej stronie branży Wyświetla listę hello skojarzone z tym branży najbardziej popularnych elementów galerii.
+Kliknij przycisk **zobaczyć wszystkie** tooview hello wszystkich zasobów branżowe hello galerii.
+Na tej stronie można przeglądać wszystkie zasoby hello w hello galerii. Można także przeszukać wybierając kryteria filtrowania na powitania po lewej stronie powitania i wprowadzanie terminy wyszukiwania w hello top.
 
 ![Udostępnij ten element znajomych](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Dodaj komentarz własnych](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
- Kliknij dowolny element galerii, aby otworzyć stronę szczegółów elementu Aby uzyskać więcej informacji.
+ Kliknij przycisk strony szczegółów elementu żadnych galerii elementu tooopen hello, aby uzyskać więcej informacji.
 
-**[PRZEJDŹ DO GALERII >>](http://gallery.cortanaintelligence.com)**
+**[PODEJMIJ mnie toohello GALERII >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

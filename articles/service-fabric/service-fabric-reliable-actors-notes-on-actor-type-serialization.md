@@ -1,6 +1,6 @@
 ---
-title: "Niezawodne dodatkowej podmiotów aktora typu serializacji | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono podstawowe wymagania dotyczące Definiowanie klas możliwych do serializacji, które mogą służyć do definiowania stanów Reliable Actors sieci szkieletowej usług i interfejsów"
+title: "aaaReliable podmiotów uwagi o aktora wpisz serializacji | Dokumentacja firmy Microsoft"
+description: "W tym artykule omówiono podstawowe wymagania dotyczące definiowania klas możliwych do serializacji, które mogą być używane toodefine, Stany Reliable Actors sieci szkieletowej usług i interfejsów"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 4b48b893e5a3bf5620f00a336576efe1ad63def8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8584e7d90fe1c68af38983e71e5d0a7554689bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Uwagi dotyczące usługi sieci szkieletowej Reliable Actors typu serializacji
-Argumenty metod wszystkie typy wyników zadań zwracane przez każda metoda w interfejsie aktora, a obiekty przechowywane w Menedżerze stanu aktora musi być [serializacji kontraktu danych](https://msdn.microsoft.com/library/ms731923.aspx). Dotyczy to również argumenty metody zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md). (Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)
+argumenty Hello wszystkie metody, wynik typy zadań hello zwracane przez każda metoda w interfejsie aktora, a musi być obiekty przechowywane w Menedżerze stanu aktora [serializacji kontraktu danych](https://msdn.microsoft.com/library/ms731923.aspx). Dotyczy to również toohello argumenty metody hello zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md). (Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)
 
 ## <a name="custom-data-types"></a>Niestandardowe typy danych
-W tym przykładzie interfejsu aktora definiuje metodę, która zwraca niestandardowego typu danych o nazwie `VoicemailBox`:
+W tym przykładzie powitania po aktora interfejs definiuje metodę, która zwraca niestandardowego typu danych o nazwie `VoicemailBox`:
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -40,7 +40,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-Interfejs jest implementowany przez aktora, który używa Menedżera stanu do przechowywania `VoicemailBox` obiektu:
+Witaj interfejs jest implementowany przez aktora używającej hello stanu Menedżera toostore `VoicemailBox` obiektu:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -76,12 +76,12 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 
 ```
 
-W tym przykładzie `VoicemailBox` serializowany jest obiekt po:
+W tym przykładzie hello `VoicemailBox` serializowany jest obiekt po:
 
-* Obiekt przesyłane między wystąpieniem aktora i obiekt wywołujący.
-* Obiekt zostanie zapisany menedżera stanu, gdzie jest utrwalony na dysku i replikowany do innych węzłów.
+* Obiekt Hello przesyłane między wystąpieniem aktora i obiekt wywołujący.
+* Obiekt Hello jest zapisywany w hello menedżera stanu, gdy jest trwałe toodisk i tooother węzły replikowana.
 
-Platforma niezawodnego aktora korzysta z serializacji DataContract. W związku z tym obiektów danych niestandardowych i ich elementy Członkowskie musi być adnotowany przy **DataContract** i **DataMember** atrybuty odpowiednio.
+Platforma niezawodnego aktora Hello korzysta z serializacji DataContract. W związku z tym hello danych niestandardowych obiektów i ich elementy Członkowskie musi być adnotowany przy hello **DataContract** i **DataMember** atrybuty odpowiednio.
 
 ```csharp
 [DataContract]

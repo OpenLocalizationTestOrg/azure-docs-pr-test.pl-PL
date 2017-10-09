@@ -1,6 +1,6 @@
 ---
-title: "Utwórz alerty dla usług Azure - Azure portal | Dokumentacja firmy Microsoft"
-description: "Wyzwalacz wiadomości e-mail, powiadomienia, Wywołaj adresy URL witryny sieci Web (elementy webhook) lub automatyzacji po spełnieniu warunków, które określisz."
+title: "alerty aaaCreate dla usług Azure - Azure portal | Dokumentacja firmy Microsoft"
+description: "Gdy są spełnione warunki hello wyzwolenia wiadomości e-mail, powiadomienia, adresy URL witryny sieci Web wywołania (elementy webhook) lub automatyzacji."
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78d862d25255cda9fdfe347329e908a471c39846
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>W monitorze Azure tworzyć alerty metryki dla usługi Azure - Azure portal
 > [!div class="op_single_selector"]
@@ -29,19 +29,19 @@ ms.lasthandoff: 07/11/2017
 >
 
 ## <a name="overview"></a>Omówienie
-W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą portalu Azure.   
+W tym artykule opisano, jak tooset Azure metryki alerty za pomocą hello portalu Azure.   
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
 
-* **Wartości metryki** — uruchamia alert, gdy wartość określonej metryki przekracza próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala po spełnieniu warunku zostanie najpierw i następnie później podczas warunku jest już spełniane.    
-* **Zdarzenia dziennika aktywności** — alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy występuje określone zdarzenia. Aby dowiedzieć się więcej o alertach dziennika aktywności [kliknij tutaj](monitoring-activity-log-alerts.md)
+* **Wartości metryki** — Witaj alertu wyzwalacze, jeśli wartość hello określonej metryki przecina próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala kiedy najpierw zostanie spełniony warunek hello i następnie później podczas warunku jest już spełniane.    
+* **Zdarzenia dziennika aktywności** — alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy występuje określone zdarzenia. więcej informacji na temat alertów dotyczących działań w dzienniku toolearn [kliknij tutaj](monitoring-activity-log-alerts.md)
 
-Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności:
+Można skonfigurować hello metryki toodo alertów po, wyzwala:
 
-* wysyłanie powiadomień e-mail do administratora usługi i współadministratorzy
-* Wyślij wiadomość e-mail do dodatkowych wiadomości e-mail przez użytkownika.
+* Wyślij administratora usługi toohello powiadomienia e-mail i współadministratorzy
+* Wyślij wiadomość e-mail tooadditional wiadomości e-mail, które określisz.
 * Wywołanie elementu webhook
-* Uruchamia wykonywanie elementów runbook platformy Azure (tylko z portalu Azure)
+* Uruchamia wykonywanie elementów runbook platformy Azure (tylko z hello portalu Azure)
 
 Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za pomocą
 
@@ -50,44 +50,44 @@ Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Tworzenie reguły alertu na Metryka z portalu Azure
-1. W [portal](https://portal.azure.com/)zasobów planuje się monitorowanie Znajdź i zaznacz go.
+## <a name="create-an-alert-rule-on-a-metric-with-hello-azure-portal"></a>Tworzenie reguły alertu na Metryka z hello portalu Azure
+1. W hello [portal](https://portal.azure.com/)planuje się monitorowanie zasobów hello Znajdź i zaznacz go.
 
-2. Wybierz **alerty** lub **reguły alertów** w sekcji monitorowanie. Tekst i ikona mogą się nieco różnić dla różnych zasobów.  
+2. Wybierz **alerty** lub **reguły alertów** w sekcji monitorowanie hello. Ikona i tekst Hello mogą się nieco różnić dla różnych zasobów.  
 
     ![Monitorowanie](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Wybierz **Dodaj alert** poleceń i wypełnij pola.
+3. Wybierz hello **Dodaj alert** poleceń i wypełnij pola hello.
 
     ![Dodawanie alertu](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **Nazwa** alertu reguły, a następnie wybierz pozycję **opis**, który pokazuje również w wiadomości e-mail z powiadomieniem.
 
-5. Wybierz **Metryka** chcesz monitorować, a następnie wybierz pozycję **warunku** i **próg** wartość metryki. Również wybrana **okres** czas, przez który metryki reguły muszą zostać spełnione przed wyzwalaczy alertu. Tak na przykład jeśli używasz okres "PT5M" i alertu szuka procesora CPU przekracza 80%, alert jest wyzwalane po procesora CPU było stale powyżej 80% 5 minut. W momencie to pierwszy wyzwalacz, ponownie uruchamia to, gdy Procesora pozostaje poniżej 80% 5 minut. Pomiar Procesora występuje co minutę.   
+5. Wybierz hello **Metryka** toomonitor, a następnie wybierz **warunku** i **próg** wartość metryki hello. Również wybrana hello **okres** hello metryki czasu reguły muszą zostać spełnione przed hello wyzwalaczy alertu. Tak na przykład jeśli używasz okres hello "PT5M" i alertu szuka procesora CPU przekracza 80%, hello alert jest wyzwalane po hello procesora CPU było stale powyżej 80% 5 minut. W momencie hello pierwszy wyzwalacz, ponownie uruchamia to, gdy hello Procesora pozostaje poniżej 80% 5 minut. Hello pomiaru Procesora występuje co minutę.   
 
-6. Sprawdź **E-mail właścicieli...**  Jeśli chcesz, aby administratorzy i współadministratorzy w celu przesłania pocztą e-mail po zgłoszeniu alertu.
+6. Sprawdź **E-mail właścicieli...**  Jeśli chcesz, aby administratorzy i współadministratorzy toobe pocztą e-mail po hello uruchamiany alertu.
 
-7. Jeśli chcesz, dodatkowe wiadomości e-mail, aby otrzymać powiadomienie po zgłoszeniu alertu, dodaj je w **email(s) dodatkowe administratora** pola. Wiele wiadomości e-mail należy rozdzielić średnikami -  *email@contoso.com;email2@contoso.com*
+7. Jeśli chcesz, dodatkowe wiadomości e-mail tooreceive powiadomienie, gdy hello alertu, należy dodać je w hello **email(s) dodatkowe administratora** pola. Wiele wiadomości e-mail należy rozdzielić średnikami -  *email@contoso.com;email2@contoso.com*
 
-8. Umieść w prawidłowym identyfikatorem URI w **Webhook** jeśli ma ona wywoływana po zgłoszeniu alertu.
+8. Umieść w prawidłowym identyfikatorem URI w hello **Webhook** pole Jeśli ma ona wywoływana po hello uruchamiany alertu.
 
-9. Jeśli używasz usługi Automatyzacja Azure, możesz wybrać element Runbook do uruchomienia po zgłoszeniu alertu.
+9. Jeśli używasz usługi Automatyzacja Azure, możesz wybrać toobe elementu Runbook, uruchom po zgłoszeniu alertu hello.
 
-10. Wybierz **OK** po zakończeniu można utworzyć alertu.   
+10. Wybierz **OK** po done toocreate hello alertu.   
 
-W ciągu kilku minut alert jest aktywny i wyzwala w sposób opisany wcześniej.
+W ciągu kilku minut hello alert jest aktywny i wyzwala w sposób opisany wcześniej.
 
 ## <a name="managing-your-alerts"></a>Zarządzanie alertami
 Po utworzeniu alertu, zostanie ona wybrana oraz:
 
-* Wyświetl wykres przedstawiający próg metryki i rzeczywistymi wartościami z poprzedniego dnia.
+* Wyświetl wykres przedstawiający hello próg metryki i hello rzeczywistymi wartościami z hello poprzedniego dnia.
 * Edytuj lub usuń go.
-* **Wyłącz** lub **włączyć** go, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień dla tego alertu.
+* **Wyłącz** lub **włączyć** go, jeśli chcesz zatrzymać tootemporarily lub wznowić odbieranie powiadomień dla tego alertu.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Omówienie monitorowania Azure](monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
+* [Omówienie monitorowania Azure](monitoring-overview.md) tym hello typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](insights-webhooks-alerts.md).
 * Dowiedz się więcej o [konfigurowania alertów na zdarzenia dziennika aktywności](monitoring-activity-log-alerts.md).
 * Dowiedz się więcej o [elementów Runbook automatyzacji Azure](../automation/automation-starting-a-runbook.md).
 * Pobierz [Przegląd dzienników diagnostycznych](monitoring-overview-of-diagnostic-logs.md) i zbieranie szczegółowych metryki wysokiej częstotliwości w usłudze.
-* Pobierz [omówienie zbierania metryk](insights-how-to-customize-monitoring.md) się upewnić, że usługa jest dostępna i elastyczny.
+* Pobierz [omówienie zbierania metryk](insights-how-to-customize-monitoring.md) toomake się, że usługa jest dostępna i elastyczny.

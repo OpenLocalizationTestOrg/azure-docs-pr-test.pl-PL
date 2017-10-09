@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji sieci Web w usłudze Azure App Service przy użyciu zestawu Azure SDK dla języka Java"
-description: "Dowiedz się, jak utworzyć aplikację sieci Web w usłudze Azure App Service, programowo przy użyciu zestawu Azure SDK dla języka Java."
+title: "aaaCreate aplikacji sieci Web w usłudze Azure App Service przy użyciu hello Azure SDK dla języka Java"
+description: "Dowiedz się, jak toocreate aplikacji sieci Web w usłudze Azure App Service, programowo przy użyciu hello Azure SDK dla języka Java."
 tags: azure-classic-portal
 services: app-service-web
 documentationcenter: Java
@@ -15,70 +15,70 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: v-donntr
-ms.openlocfilehash: 08bb53de8cf437a5a2b1c3b38bce9f81b8349493
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42ba86b7fbb5668b3675198d0c5bb454525f706b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>Tworzenie aplikacji sieci Web w usłudze Azure App Service przy użyciu zestawu Azure SDK dla języka Java
-<!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
+# <a name="create-a-web-app-in-azure-app-service-using-hello-azure-sdk-for-java"></a>Tworzenie aplikacji sieci Web w usłudze Azure App Service przy użyciu hello Azure SDK dla języka Java
+<!-- Azure Active Directory workflow is not yet available on hello Azure Portal -->
 
 ## <a name="overview"></a>Omówienie
-W tym przewodniku przedstawiono sposób tworzenia zestawu Azure SDK dla aplikacji Java, która tworzy aplikację sieci Web w [usłudze Azure App Service][Azure App Service], następnie wdrożyć aplikację do niego. Składa się z dwóch części:
+W tym przewodniku przedstawiono sposób toocreate zestawu Azure SDK dla aplikacji Java, która tworzy aplikację sieci Web w [usłudze Azure App Service][Azure App Service], następnie wdrożyć tooit aplikacji. Składa się z dwóch części:
 
-* Część 1 demonstruje sposób tworzenia aplikacji Java, która tworzy aplikację sieci web.
-* Część 2 przedstawia sposób tworzenia prostego JSP "Hello World" aplikacji, a następnie użyj FTP klienta można wdrożyć kod w usłudze App Service.
+* Część 1 pokazuje, jak toobuild aplikacji Java tworzącą aplikacji sieci web.
+* Część 2 przedstawiono sposób toocreate proste JSP "Hello World" aplikacji, a następnie użyj FTP klienta toodeploy kodu tooApp usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 ### <a name="software-installations"></a>Instalacje oprogramowania
-AzureWebDemo kod aplikacji w tym artykule został napisany za pomocą usługi Azure zestawu Java SDK 0.7.0, które można zainstalować przy użyciu [Instalatora platformy sieci Web] [ Web Platform Installer] (WebPI). Ponadto upewnij się używać najnowszej wersji [zestawu narzędzi platformy Azure dla programu Eclipse][Azure Toolkit for Eclipse]. Po zainstalowaniu zestawu SDK, należy zaktualizować zależności w projekcie Eclipse, uruchamiając **zaktualizować indeksu** w **repozytoria Maven**, potem ponownie Dodaj najnowsza wersja każdego pakietu w  **Zależności** okna. Można sprawdzić wersji zainstalowanego oprogramowania w środowisku Eclipse, klikając **Pomoc > szczegółowe informacje dotyczące instalacji**; wymaga co najmniej następujące wersje:
+Hello AzureWebDemo kod aplikacji, w tym artykule został napisany za pomocą usługi Azure zestawu Java SDK 0.7.0, które można zainstalować przy użyciu hello [Instalatora platformy sieci Web] [ Web Platform Installer] (WebPI). Ponadto należy upewnić się, że najnowszej wersji hello toouse hello [zestawu narzędzi platformy Azure dla programu Eclipse][Azure Toolkit for Eclipse]. Po zainstalowaniu hello zestawu SDK, należy zaktualizować hello zależności w projekcie Eclipse, uruchamiając **zaktualizować indeksu** w **repozytoria Maven**, potem ponownie Dodaj hello najnowsza wersja każdego pakietu w hello  **Zależności** okna. Sprawdź hello wersji zainstalowanego oprogramowania w środowisku Eclipse, klikając **Pomoc > szczegółowe informacje dotyczące instalacji**; powinien mieć co najmniej hello następujące wersje:
 
 * Pakiet dla biblioteki Microsoft Azure dla języka Java 0.7.0.20150309
 * Środowisko Eclipse IDE for Java EE Developers 4.4.2.20150219
 
 ### <a name="create-and-configure-cloud-resources-in-azure"></a>Tworzenie i konfigurowanie zasobów w chmurze na platformie Azure
-Przed rozpoczęciem tej procedury, musisz mieć subskrypcję usługi Azure active i ustawić domyślne Active Directory (AD) na platformie Azure.
+Przed rozpoczęciem tej procedury należy toohave aktywną subskrypcją platformy Azure i skonfigurować domyślne Active Directory (AD) na platformie Azure.
 
 ### <a name="create-an-active-directory-ad-in-azure"></a>Tworzenie usługi Active Directory (AD) na platformie Azure
-W przypadku usługi Active Directory (AD) nie jest już ma w Twojej subskrypcji platformy Azure, zaloguj się do [klasycznego portalu Azure] [ Azure classic portal] z kontem Microsoft. Jeśli masz wiele subskrypcji, kliknij przycisk **subskrypcje** i wybierz domyślny katalog dla subskrypcji, którego chcesz użyć dla tego projektu. Następnie kliknij przycisk **Zastosuj** Aby przełączyć się do tego widoku subskrypcji.
+W przypadku usługi Active Directory (AD) nie jest już ma w Twojej subskrypcji platformy Azure, zaloguj się do hello [klasycznego portalu Azure] [ Azure classic portal] z kontem Microsoft. Jeśli masz wiele subskrypcji, kliknij przycisk **subskrypcje** i wybierz hello domyślnym katalogiem dla subskrypcji hello ma toouse dla tego projektu. Następnie kliknij przycisk **Zastosuj** Widok subskrypcji toothat tooswitch.
 
-1. Wybierz **usługi Active Directory** z menu po lewej stronie. **Kliknij przycisk Nowy > katalogu > Utwórz niestandardowy**.
+1. Wybierz **usługi Active Directory** hello menu po lewej stronie. **Kliknij przycisk Nowy > katalogu > Utwórz niestandardowy**.
 2. W **Dodaj katalog**, wybierz pozycję **Utwórz nowy katalog**.
 3. W **nazwa**, wprowadź nazwę katalogu.
-4. W **domeny**, wprowadź nazwę domeny. Jest to nazwy domeny podstawowe jest włączone domyślnie z katalogu; ma on postać `<domain_name>.onmicrosoft.com`. Można określić nazwę na podstawie nazwy katalogu lub innego własnej nazwy domeny. Później możesz dodać Twoja organizacja już korzysta z inną nazwą domeny.
+4. W **domeny**, wprowadź nazwę domeny. Jest to nazwy domeny podstawowe jest włączone domyślnie z katalogu; ma ona formularza hello `<domain_name>.onmicrosoft.com`. Można określić nazwę na podstawie nazwy katalogu hello lub innego własnej nazwy domeny. Później możesz dodać Twoja organizacja już korzysta z inną nazwą domeny.
 5. W **kraj lub region**, wybierz ustawienia regionalne.
 
 Aby uzyskać więcej informacji dotyczących usługi AD, zobacz [co to jest katalog usługi Azure AD][What is an Azure AD directory]?
 
 ### <a name="create-a-management-certificate-for-azure"></a>Utwórz certyfikat zarządzania platformy Azure
-Zestaw Azure SDK for Java korzysta z certyfikatów zarządzania do uwierzytelniania za pomocą subskrypcji platformy Azure. Są to certyfikaty X.509 v3, który używany do uwierzytelniania aplikacji klienckiej, która wykorzystuje interfejs API zarządzania usługami działać w imieniu właściciela subskrypcji do zarządzania zasobami subskrypcji.
+Hello Azure SDK dla języka Java używa zarządzania certyfikatami tooauthenticate z subskrypcji platformy Azure. Są to certyfikaty X.509 v3, że używasz tooauthenticate aplikacji klienckiej, która używa hello interfejs API zarządzania usługami tooact imieniu hello subskrypcji właściciela toomanage subskrypcji zasobów.
 
-Kod w tej procedurze używa certyfikatu z podpisem własnym do uwierzytelniania w usłudze Azure. Do wykonania tej procedury, należy utworzyć certyfikat i przekaż go do [klasycznego portalu Azure] [ Azure classic portal] wcześniej. Obejmuje to następujące czynności:
+Kod Hello w tej procedurze używa tooauthenticate certyfikatu z podpisem własnym z platformy Azure. Dla tej procedury należy toocreate certyfikatu i przekaż go toohello [klasycznego portalu Azure] [ Azure classic portal] wcześniej. Obejmuje to hello następujące kroki:
 
 * Generowanie pliku PFX reprezentujący Twój certyfikat klienta i zapisz ją lokalnie.
-* Wygeneruj certyfikat zarządzania (plik CER) z pliku PFX.
-* Przekaż plik CER do subskrypcji platformy Azure.
-* Konwertowanie pliku PFX JKS, ponieważ Java użyje tego formatu do uwierzytelniania za pomocą certyfikatów.
-* Napisać kod uwierzytelniania aplikacji, która odwołuje się do pliku lokalnego JKS.
+* Wygeneruj certyfikat zarządzania (plik CER) z pliku PFX hello.
+* Przekaż tooyour pliku CER hello subskrypcji platformy Azure.
+* Konwertowanie pliku PFX hello JKS, ponieważ Java używa tego tooauthenticate format za pomocą certyfikatów.
+* Napisać kod uwierzytelniania aplikacji hello, która odwołuje się lokalnego pliku JKS toohello.
 
-Po zakończeniu tej procedury, certyfikat CER będą znajdować się w Twojej subskrypcji platformy Azure i certyfikat JKS będą znajdować się na lokalnym dysku. Aby uzyskać więcej informacji o certyfikatach zarządzania, zobacz [tworzenie i przekazywanie certyfikatu zarządzania platformy Azure][Create and Upload a Management Certificate for Azure].
+Po zakończeniu tej procedury hello CER certyfikatu będzie znajdować się w ramach subskrypcji platformy Azure i hello JKS certyfikatu będzie znajdować się na dysku lokalnym. Aby uzyskać więcej informacji o certyfikatach zarządzania, zobacz [tworzenie i przekazywanie certyfikatu zarządzania platformy Azure][Create and Upload a Management Certificate for Azure].
 
 #### <a name="create-a-certificate"></a>Tworzenie certyfikatu
-Aby utworzyć własny certyfikat z podpisem własnym, otwórz konsolę polecenia w systemie operacyjnym i uruchom następujące polecenia.
+toocreate własny certyfikat z podpisem własnym, otwórz konsolę polecenia w systemie operacyjnym i uruchom następujące polecenia hello.
 
-> **Uwaga:** komputera, na którym uruchomiono polecenie muszą mieć zainstalowany zestaw JDK. Ponadto ścieżka do keytool zależy od lokalizacji, w którym chcesz zainstalować zestaw JDK. Aby uzyskać więcej informacji, zobacz [klucza i certyfikat zarządzania narzędzia (Narzędzie klucza)] [ Key and Certificate Management Tool (keytool)] w dokumentów online Java.
+> **Uwaga:** hello komputera, na którym uruchomiono to polecenie musi mieć hello JDK zainstalowane. Ponadto hello ścieżki toohello keytool zależy od hello lokalizacji, w którym chcesz zainstalować hello JDK. Aby uzyskać więcej informacji, zobacz [klucza i certyfikat zarządzania narzędzia (Narzędzie klucza)] [ Key and Certificate Management Tool (keytool)] w hello dokumentów online dotyczących Java.
 > 
 > 
 
-Aby utworzyć plik PFX:
+plik PFX hello toocreate:
 
     <java-install-dir>/bin/keytool -genkey -alias <keystore-id>
      -keystore <cert-store-dir>/<cert-file-name>.pfx -storepass <password>
      -validity 3650 -keyalg RSA -keysize 2048 -storetype pkcs12
      -dname "CN=Self Signed Certificate 20141118170652"
 
-Aby utworzyć plik .cer:
+plik .cer hello toocreate:
 
     <java-install-dir>/bin/keytool -export -alias <keystore-id>
      -storetype pkcs12 -keystore <cert-store-dir>/<cert-file-name>.pfx
@@ -86,37 +86,37 @@ Aby utworzyć plik .cer:
 
 Gdzie:
 
-* `<java-install-dir>`to ścieżka do katalogu, w którym zainstalowano Java.
-* `<keystore-id>`jest to identyfikator wpisu magazynu kluczy (na przykład `AzureRemoteAccess`).
-* `<cert-store-dir>`jest to ścieżka do katalogu, w którym mają być przechowywane certyfikaty (na przykład `C:/Certificates`).
-* `<cert-file-name>`to nazwa pliku certyfikatu (na przykład `AzureWebDemoCert`).
-* `<password>`to hasło, które chcesz chronić certyfikat; musi być co najmniej 6 znaków. Hasło nie można wprowadzić, chociaż nie jest to zalecane.
-* `<dname>`to nazwa wyróżniająca X.500 ma zostać skojarzony z aliasem i jest używany jako pola wystawcy i podmiotu certyfikatu z podpisem własnym.
+* `<java-install-dir>`jest hello ścieżka toohello katalog, w którym zainstalowano Java.
+* `<keystore-id>`Identyfikator wpisu magazynu kluczy hello jest (na przykład `AzureRemoteAccess`).
+* `<cert-store-dir>`jest hello ścieżka toohello katalog, w którym mają certyfikaty toostore (na przykład `C:/Certificates`).
+* `<cert-file-name>`jest nazwą hello hello pliku certyfikatu (na przykład `AzureWebDemoCert`).
+* `<password>`to hasło hello wybrania certyfikatu hello tooprotect; musi być co najmniej 6 znaków. Hasło nie można wprowadzić, chociaż nie jest to zalecane.
+* `<dname>`jest skojarzony z aliasem toobe nazwy wyróżniającej x 500 hello i jest używany jako Witaj wystawca i pola podmiot certyfikatu z podpisem własnym hello.
 
 Aby uzyskać więcej informacji, zobacz [tworzenie i przekazywanie certyfikatu zarządzania platformy Azure][Create and Upload a Management Certificate for Azure].
 
-#### <a name="upload-the-certificate"></a>Przekaż certyfikat
-Aby przekazać certyfikat z podpisem własnym na platformie Azure, przejdź do **ustawienia** w portalu klasycznym, a następnie kliknij przycisk **certyfikaty zarządzania** kartę. Kliknij przycisk **przekazać** w dolnej części strony i przejdź do lokalizacji pliku CER został utworzony.
+#### <a name="upload-hello-certificate"></a>Przekaż certyfikat hello
+tooupload tooAzure certyfikatu z podpisem własnym, przejdź toohello **ustawienia** strony w portalu klasycznym hello, a następnie kliknij przycisk hello **certyfikaty zarządzania** kartę. Kliknij przycisk **przekazać** u dołu hello hello strony i przejdź toohello lokalizację pliku CER hello został utworzony.
 
-#### <a name="convert-the-pfx-file-into-jks"></a>Konwertowanie pliku PFX JKS
-W wierszu polecenia systemu Windows (uruchomionego jako administrator), dysk cd do katalogu zawierającego certyfikaty i uruchom następujące polecenie, gdzie `<java-install-dir>` jest katalogiem zainstalowane Java na komputerze:
+#### <a name="convert-hello-pfx-file-into-jks"></a>Konwertowanie pliku PFX hello JKS
+Hello wiersza polecenia systemu Windows (uruchomionego jako administrator), dysk cd toohello katalog zawierający hello certyfikatów i uruchamiania hello następujące polecenie, gdzie `<java-install-dir>` jest katalogiem hello zainstalowane Java na komputerze:
 
     <java-install-dir>/bin/keytool.exe -importkeystore
      -srckeystore <cert-store-dir>/<cert-file-name>.pfx
      -destkeystore <cert-store-dir>/<cert-file-name>.jks
      -srcstoretype pkcs12 -deststoretype JKS
 
-1. Po wyświetleniu monitu wprowadź hasło magazynu kluczy docelowej. są to hasło dla pliku JKS.
-2. Po wyświetleniu monitu wprowadź hasło źródła magazynu kluczy. jest to hasło określone dla pliku PFX.
+1. Po wyświetleniu monitu wprowadź hasło magazynu kluczy docelowej hello; są to hasło hello hello JKS pliku.
+2. Po wyświetleniu monitu wprowadź hasło keystore źródła hello; to hasło hello hello pliku PFX.
 
-Dwa hasła nie mają być takie same. Hasło nie można wprowadzić, chociaż nie jest to zalecane.
+dwa hasła Hello nie mają toobe hello takie same. Hasło nie można wprowadzić, chociaż nie jest to zalecane.
 
 ## <a name="build-a-web-app-creation-application"></a>Tworzenie aplikacji do tworzenia aplikacji sieci Web
-### <a name="create-the-eclipse-workspace-and-maven-project"></a>Tworzenie obszaru roboczego Eclipse i projekt Maven
-W tej sekcji utworzysz obszaru roboczego i projekt Maven aplikacji tworzenia aplikacji sieci web, o nazwie AzureWebDemo.
+### <a name="create-hello-eclipse-workspace-and-maven-project"></a>Utwórz hello Eclipse obszaru roboczego i projekt Maven
+W tej sekcji utworzysz obszaru roboczego i projekt Maven hello aplikacji sieci web aplikacji tworzenia o nazwie AzureWebDemo.
 
 1. Utwórz nowy projekt Maven. Kliknij przycisk **Plik > Nowy > Projekt Maven**. W **nowy projekt Maven**, wybierz pozycję **Tworzenie prostego projektu** i **Użyj domyślnej lokalizacji obszaru roboczego**.
-2. Na drugiej stronie **nowy projekt Maven**, podaj następujące informacje:
+2. Na drugiej stronie powitania z **nowy projekt Maven**, określ następujące hello:
    
    * Identyfikator grupy:`com.<username>.azure.webdemo`
    * Identyfikator artefaktu: AzureWebDemo
@@ -125,37 +125,37 @@ W tej sekcji utworzysz obszaru roboczego i projekt Maven aplikacji tworzenia apl
    * Nazwa: AzureWebDemo
      
      Kliknij przycisk **Zakończ**.
-3. Otwórz plik pom.xml nowy projekt w Eksploratorze projektu. Wybierz **zależności** kartę. Jak jest to nowy projekt, wymieniono jeszcze żadnych pakietów.
-4. Otwórz widok repozytoria Maven. **Kliknij przycisk okna > Pokaż widok > Inne > Maven > repozytoria Maven** i kliknij przycisk **OK**. **Repozytoria Maven** widoku będą wyświetlane w dolnej części IDE.
-5. Otwórz **globalne repozytoria**, kliknij prawym przyciskiem myszy **centralnej** repozytorium, a następnie wybierz **Rebuild Index**.
+3. Otwórz plik pom.xml hello nowy projekt w Eksploratorze projektu. Wybierz hello **zależności** kartę. Jak jest to nowy projekt, wymieniono jeszcze żadnych pakietów.
+4. Wyświetl Otwórz hello Maven repozytoriów. **Kliknij przycisk okna > Pokaż widok > Inne > Maven > repozytoria Maven** i kliknij przycisk **OK**. Witaj **repozytoria Maven** widok będzie wyświetlany u dołu hello hello IDE.
+5. Otwórz **globalne repozytoria**, powitania kliknij prawym przyciskiem myszy **centralnej** repozytorium, a następnie wybierz **Rebuild Index**.
    
     ![][1]
    
-    Ten krok może potrwać kilka minut w zależności od prędkości połączenia. Jeśli spowoduje odbudowanie indeksu, powinny pojawić się pakietów Microsoft Azure w **centralnej** Maven repozytorium.
-6. W **zależności**, kliknij przycisk **Dodaj**. W **wprowadź identyfikator grupy...**  wprowadź `azure-management`. Wybierz pakiety do zarządzania podstawowej i zarządzania aplikacjami sieci Web usługi aplikacji:
+    Ten krok może potrwać kilka minut w zależności od prędkości hello połączenia. Podczas odtwarza hello indeksu, powinny być widoczne hello pakietów Microsoft Azure w hello **centralnej** Maven repozytorium.
+6. W **zależności**, kliknij przycisk **Dodaj**. W **wprowadź identyfikator grupy...**  wprowadź `azure-management`. Wybierz pakiety hello bmc i zarządzania aplikacjami sieci Web usługi aplikacji:
    
         com.microsoft.azure  azure-management
         com.microsoft.azure  azure-management-websites
    
-   > **Uwaga:** Jeśli aktualizujesz zależności po wydaniu nowej wersji, należy ponownie dodać wszystkich zależności na tej liście.
-   > Po kliknięciu **Dodaj** i wybierz poszczególne zależności wydaje się przy użyciu nowego numeru wersji w **zależności** listy.
+   > **Uwaga:** Jeśli aktualizujesz zależności powitania po wydaniu nowej wersji, należy toore — Dodaj wszystkie zależności hello na tej liście.
+   > Po kliknięciu **Dodaj** i wybierz poszczególne zależności, prawdopodobnie z hello nowego numeru wersji w hello **zależności** listy.
    > 
    > 
 
-Kliknij przycisk **OK**. Następnie Azure pakiety są wyświetlane w **zależności** listy.
+Kliknij przycisk **OK**. Witaj pakietów platformy Azure, a następnie wyświetlane w hello **zależności** listy.
 
-### <a name="writing-java-code-to-create-a-web-app-by-calling-the-azure-sdk"></a>Pisanie kodu języka Java do utworzenia aplikacji sieci Web przez wywołanie metody Azure SDK
-Następnie należy napisać kod, który wywołuje interfejsy API w zestawie SDK Azure dla języka Java można utworzyć aplikacji sieci web usługi aplikacji.
+### <a name="writing-java-code-toocreate-a-web-app-by-calling-hello-azure-sdk"></a>Pisanie kodu języka Java tooCreate aplikacji sieci Web przy hello wywoływania zestawu Azure SDK
+Następnie należy napisać kod hello, który wywołuje interfejsy API w hello Azure SDK dla języka Java toocreate hello aplikacji sieci web usługi aplikacji.
 
-1. Utwórz klasę języka Java, zawiera kod punktu wejścia głównego. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy węzeł projektu i wybierz **nowy > klasy**.
-2. W **Nowa Klasa Java**, nazwa klasy `WebCreator` i sprawdź **publiczne statyczne void main** wyboru. Wybór powinna wyglądać następująco:
+1. Tworzenie Java klasy toocontain hello główny wpis punktu kodu. W obszarze Eksplorator projektów kliknij prawym przyciskiem myszy węzeł projektu hello i wybierz **nowy > klasy**.
+2. W **Nowa Klasa Java**, nazwa klasy hello `WebCreator` i sprawdź hello **publiczne statyczne void main** wyboru. Opcje Hello powinna wyglądać następująco:
    
     ![][2]
-3. Kliknij przycisk **Zakończ**. Plik WebCreator.java pojawia się w obszarze Eksplorator projektów.
+3. Kliknij przycisk **Zakończ**. Plik WebCreator.java Hello jest widoczny w Eksploratorze projektu.
 
-### <a name="calling-the-azure-api-to-create-an-app-service-web-app"></a>Wywołanie interfejsu API Azure do utworzenia aplikacji sieci Web usługi aplikacji
+### <a name="calling-hello-azure-api-toocreate-an-app-service-web-app"></a>Wywoływanie tooCreate interfejsu API Azure hello aplikację usługi aplikacji sieci Web
 #### <a name="add-necessary-imports"></a>Dodaj niezbędne importów
-W WebCreator.java Dodaj następujące instrukcje importu; Importy te zapewniają dostęp do klas w bibliotekach zarządzania służący do konsumowania interfejsów API usługi Azure:
+W WebCreator.java Dodaj powitania po importów; Importy te zawierają tooclasses dostępu w hello biblioteki zarządzania służący do konsumowania interfejsów API usługi Azure:
 
     // General imports
     import java.net.URI;
@@ -180,10 +180,10 @@ W WebCreator.java Dodaj następujące instrukcje importu; Importy te zapewniają
     import com.microsoft.windowsazure.core.utils.KeyStoreType;
 
 
-#### <a name="define-the-main-entry-point-class"></a>W definicji klasy punktu wejścia głównego
-Ponieważ aplikacja AzureWebDemo ma na celu utworzyć aplikację usługi aplikacji sieci Web, nazw klasy głównym dla tej aplikacji `WebAppCreator`. Ta klasa zawiera kod punktu wejścia głównego, który wywołuje interfejs API zarządzania usługami Azure do utworzenia aplikacji sieci web.
+#### <a name="define-hello-main-entry-point-class"></a>Zdefiniuj hello główny wpis punktu klasy
+Ponieważ hello hello aplikacji AzureWebDemo służy toocreate aplikację usługi sieci Web aplikacji, nazwy klasy głównym hello dla tej aplikacji `WebAppCreator`. Ta klasa udostępnia hello główny wpis punktu kod, który wywołuje aplikacji hello toocreate hello interfejs API zarządzania usługami Azure w sieci web.
 
-Dodaj następujące definicje parametr przestrzeni sieci Web i aplikacji sieci web. Należy podać informacje identyfikator i certyfikat własne subskrypcji platformy Azure.
+Dodaj następujące definicje parametr przestrzeni sieci Web i aplikacji sieci web hello hello. Konieczne będzie tooprovide własnych informacji identyfikator i certyfikatu subskrypcji platformy Azure.
 
     public class WebAppCreator {
 
@@ -201,37 +201,37 @@ Dodaj następujące definicje parametr przestrzeni sieci Web i aplikacji sieci w
 
 Gdzie:
 
-* `<subscription-id>`jest identyfikator subskrypcji platformy Azure, w którym chcesz utworzyć zasobu.
-* `<certificate-store-path>`to ścieżka i nazwa pliku JKS w katalogu magazynu lokalnego certyfikatu. Na przykład `C:/Certificates/CertificateName.jks` dla systemu Linux i `C:\Certificates\CertificateName.jks` dla systemu Windows.
-* `<certificate-password>`jest to hasło określone podczas tworzenia certyfikatu JKS.
-* `webAppName`może być dowolna nazwa, którą wybierzesz; Ta procedura używa nazwy `WebDemoWebApp`. Pełna nazwa domeny jest `webAppName` z `domainName` dołączone, w tym przypadku pełną domenę jest `webdemowebapp.azurewebsites.net`.
+* `<subscription-id>`jest identyfikator subskrypcji platformy Azure hello, w której ma zostać toocreate hello zasobów.
+* `<certificate-store-path>`jest hello ścieżkę i nazwę pliku toohello JKS plik w katalogu magazynu lokalnego certyfikatu. Na przykład `C:/Certificates/CertificateName.jks` dla systemu Linux i `C:\Certificates\CertificateName.jks` dla systemu Windows.
+* `<certificate-password>`jest hello hasło podczas tworzenia certyfikatu JKS.
+* `webAppName`może być dowolna nazwa, którą wybierzesz; Ta procedura używa nazwy hello `WebDemoWebApp`. Witaj Pełna nazwa domeny jest hello `webAppName` z hello `domainName` dołączone, w tym przypadku pełną domenę hello jest `webdemowebapp.azurewebsites.net`.
 * `domainName`należy określić, jak pokazano powyżej.
-* `webSpaceName`musi mieć jedną z wartości zdefiniowanych w [WebSpaceNames] [ WebSpaceNames] klasy.
+* `webSpaceName`musi mieć jedną z wartości hello zdefiniowanych w hello [WebSpaceNames] [ WebSpaceNames] klasy.
 * `appServicePlanName`należy określić, jak pokazano powyżej.
 
-> **Uwaga:** zawsze uruchomić tę aplikację, należy zmienić wartość `webAppName` i `appServicePlanName` (lub usunąć aplikacji sieci web w portalu Azure) przed uruchomieniem aplikacji ponownie. W przeciwnym razie wykonanie zakończy się niepowodzeniem, ponieważ istnieje już tego samego zasobu na platformie Azure.
+> **Uwaga:** zawsze uruchomić tę aplikację, konieczne wartość hello toochange `webAppName` i `appServicePlanName` (lub usunąć aplikacji sieci web hello na powitania Azure Portal) przed uruchomieniem aplikacji hello ponownie. W przeciwnym razie wykonanie zakończy się niepowodzeniem, ponieważ hello sam zasób już istnieje na platformie Azure.
 > 
 > 
 
-#### <a name="define-the-web-creation-method"></a>Zdefiniuj metodę tworzenia sieci web
-Następnie określ metodę, aby utworzyć aplikację sieci web. Ta metoda `createWebApp`, określa parametry przestrzeni sieci Web i aplikacji sieci web. Również tworzy i konfiguruje klienta zarządzania aplikacji usługi sieci Web aplikacji, który jest zdefiniowany przez [WebSiteManagementClient] [ WebSiteManagementClient] obiektu. Klient zarządzania jest kluczem do tworzenia aplikacji sieci Web. Zapewnia usługi sieci web RESTful, które umożliwiają aplikacji do zarządzania aplikacjami sieci web (wykonywanie operacji, takich jak tworzenie, update i delete) przez wywołanie interfejsu API zarządzania usługami.
+#### <a name="define-hello-web-creation-method"></a>Zdefiniuj metodę tworzenia hello sieci web
+Następnie określ aplikację sieci web hello toocreate metody. Ta metoda `createWebApp`, określa parametry hello hello aplikacji sieci web i hello przestrzeni sieci Web. Również tworzy i konfiguruje hello aplikacji usługi sieci Web aplikacji zarządzania klienta, który jest zdefiniowany przez hello [WebSiteManagementClient] [ WebSiteManagementClient] obiektu. Klient zarządzania Hello jest klucza toocreating aplikacji sieci Web. Zapewnia usługi sieci web RESTful, które pozwalają aplikacji sieci web (wykonywanie operacji, takich jak tworzenie, update i delete) toomanage aplikacji przez wywołanie interfejsu API zarządzania usługami hello.
 
     private static void createWebApp() throws Exception {
 
-        // Specify configuration settings for the App Service management client.
+        // Specify configuration settings for hello App Service management client.
         Configuration config = ManagementConfiguration.configure(
             new URI(uri),
             subscriptionId,
-            keyStoreLocation,  // Path to the JKS file
-            keyStorePassword,  // Password for the JKS file
+            keyStoreLocation,  // Path toohello JKS file
+            keyStorePassword,  // Password for hello JKS file
             KeyStoreType.jks   // Flag that you are using a JKS keystore
         );
 
-        // Create the App Service Web Apps management client to call Azure APIs
-        // and pass it the App Service management configuration object.
+        // Create hello App Service Web Apps management client toocall Azure APIs
+        // and pass it hello App Service management configuration object.
         WebSiteManagementClient webAppManagementClient = WebSiteManagementService.create(config);
 
-        // Create an App Service plan for the web app with the specified parameters.
+        // Create an App Service plan for hello web app with hello specified parameters.
         WebHostingPlanCreateParameters appServicePlanParams = new WebHostingPlanCreateParameters();
         appServicePlanParams.setName(appServicePlanName);
         appServicePlanParams.setSKU(SkuOptions.Free);
@@ -244,7 +244,7 @@ Następnie określ metodę, aby utworzyć aplikację sieci web. Ta metoda `creat
         webSpaceDetails.setName(webSpaceName);
 
         // Set web app parameters.
-        // Note that the server farm name takes the Azure App Service plan name.
+        // Note that hello server farm name takes hello Azure App Service plan name.
         WebSiteCreateParameters webAppCreateParameters = new WebSiteCreateParameters();
         webAppCreateParameters.setName(webAppName);
         webAppCreateParameters.setServerFarm(appServicePlanName);
@@ -255,30 +255,30 @@ Następnie określ metodę, aby utworzyć aplikację sieci web. Ta metoda `creat
         usageMetric.setSiteMode(WebSiteMode.Basic);
         usageMetric.setComputeMode(WebSiteComputeMode.Shared);
 
-        // Define the web app object.
+        // Define hello web app object.
         ArrayList<String> fullWebAppName = new ArrayList<String>();
         fullWebAppName.add(webAppName + domainName);
         WebSite webApp = new WebSite();
         webApp.setHostNames(fullWebAppName);
 
-        // Create the web app.
+        // Create hello web app.
         WebSiteCreateResponse webAppCreateResponse = webAppManagementClient.getWebSitesOperations().create(webSpaceName, webAppCreateParameters);
 
-        // Output the HTTP status code of the response; 200 indicates the request succeeded; 4xx indicates failure.
+        // Output hello HTTP status code of hello response; 200 indicates hello request succeeded; 4xx indicates failure.
         System.out.println("----------");
         System.out.println("Web app created - HTTP response " + webAppCreateResponse.getStatusCode() + "\n");
 
-        // Output the name of the web app that this application created.
+        // Output hello name of hello web app that this application created.
         String shinyNewWebAppName = webAppCreateResponse.getWebSite().getName();
         System.out.println("----------\n");
         System.out.println("Name of web app created: " + shinyNewWebAppName + "\n");
         System.out.println("----------\n");
     }
 
-Kod stanu HTTP odpowiedzi wskazujący powodzenie lub niepowodzenie dane wyjściowe obejmują i w razie powodzenia dane wyjściowe obejmują nazwę utworzonej aplikacji sieci web.
+Kod Hello dane wyjściowe obejmują hello stanu HTTP odpowiedzi hello oznaczający powodzenie lub niepowodzenie, a jeśli to się powiedzie, dane wyjściowe obejmują nazwę hello hello utworzono aplikację sieci web.
 
-#### <a name="define-the-main-method"></a>Zdefiniuj metodę main()
-Podaj kod metody main(), który wywołuje createWebApp() do utworzenia aplikacji sieci web.
+#### <a name="define-hello-main-method"></a>Zdefiniuj metodę main() hello
+Podaj kod metody main() hello tej aplikacji sieci web wywołania createWebApp() toocreate hello.
 
 Na koniec wywołania `createWebApp` z `main`:
 
@@ -294,8 +294,8 @@ Na koniec wywołania `createWebApp` z `main`:
     }  // end of WebAppCreator class
 
 
-#### <a name="run-the-application-and-verify-web-app-creation"></a>Uruchom aplikację i sprawdzić, tworzenie aplikacji sieci web
-Aby sprawdzić, czy aplikacja działa, kliknij przycisk **Uruchom > Uruchom**. Po zakończeniu działania aplikacji powinny być widoczne następujące dane wyjściowe w konsoli programu Eclipse:
+#### <a name="run-hello-application-and-verify-web-app-creation"></a>Uruchamianie aplikacji hello i sprawdź tworzenie aplikacji sieci web
+tooverify działającą aplikację, kliknij przycisk **Uruchom > Uruchom**. Po zakończeniu działania aplikacji hello powinny być widoczne następujące dane wyjściowe w konsoli programu Eclipse hello hello:
 
     ----------
     Web app created - HTTP response 200
@@ -306,23 +306,23 @@ Aby sprawdzić, czy aplikacja działa, kliknij przycisk **Uruchom > Uruchom**. P
 
     ----------
 
-Zaloguj się do klasycznego portalu Azure i kliknij przycisk **aplikacje sieci Web**. W nowej aplikacji sieci web powinna zostać wyświetlona na liście aplikacji sieci Web w ciągu kilku minut.
+Zaloguj się do klasycznego portalu Azure hello i kliknij przycisk **aplikacje sieci Web**. Hello nowej aplikacji sieci web powinna zostać wyświetlona na liście aplikacji sieci Web hello w ciągu kilku minut.
 
-## <a name="deploying-an-application-to-the-web-app"></a>Wdrażanie aplikacji w aplikacji sieci Web
-Po uruchomiono AzureWebDemo i utworzyć nową aplikację sieci web, zaloguj się do klasycznego portalu kliknij **aplikacje sieci Web**i wybierz **WebDemoWebApp** w **aplikacje sieci Web** listy. Na stronie pulpitu nawigacyjnego aplikacji sieci web, kliknij przycisk **Przeglądaj** (lub kliknij adres URL, `webdemowebapp.azurewebsites.net`) można przejść do niego. Zostanie wyświetlona strona pusty symbol zastępczy, ponieważ żadna zawartość została opublikowana do aplikacji sieci web jeszcze.
+## <a name="deploying-an-application-toohello-web-app"></a>Wdrażanie aplikacji toohello aplikacji sieci Web
+Po uruchomiono AzureWebDemo i utworzyć hello nowej aplikacji sieci web, zaloguj się do klasycznego portalu hello kliknij **aplikacje sieci Web**i wybierz **WebDemoWebApp** w hello **aplikacje sieci Web** listy. Na stronie pulpitu nawigacyjnego aplikacji sieci web powitania kliknij **Przeglądaj** (lub kliknij adres URL hello, `webdemowebapp.azurewebsites.net`) toonavigate tooit. Zostanie wyświetlona strona pusty symbol zastępczy, ponieważ żadna zawartość jeszcze został toohello opublikowanej aplikacji sieci web.
 
-Następnie utworzysz aplikację "Hello World" i wdrażanie dla aplikacji sieci web.
+Następnie utworzysz aplikację "Hello World" i wdrożyć aplikację sieci web toohello.
 
 ### <a name="create-a-jsp-hello-world-application"></a>Utwórz aplikację JSP Hello World
-#### <a name="create-the-application"></a>Tworzenie aplikacji
-W celu zaprezentowania sposobu wdrażania aplikacji w sieci Web, Poniższa procedura pokazuje sposób tworzenia prostej aplikacji Java "Hello World" i przekaż go do aplikacji sieci Web usługi aplikacji utworzony w aplikacji.
+#### <a name="create-hello-application"></a>Tworzenie aplikacji hello
+W kolejności toodemonstrate jak toodeploy sieci web toohello aplikacji hello procedury przedstawiono toocreate prostą aplikację "Hello World" w języku Java i przekaż go toohello aplikację usługi sieci Web aplikacji utworzony w aplikacji.
 
-1. Kliknij przycisk **Plik > Nowy > Projekt sieci Web dynamiczne**. Nadaj jej nazwę `JSPHello`. Nie trzeba zmienić ustawienia w tym oknie dialogowym. Kliknij przycisk **Zakończ**.
+1. Kliknij przycisk **Plik > Nowy > Projekt sieci Web dynamiczne**. Nadaj jej nazwę `JSPHello`. Nie trzeba toochange inne ustawienia, w tym oknie dialogowym. Kliknij przycisk **Zakończ**.
    
     ![][3]
-2. W obszarze Eksplorator projektów rozwiń **JSPHello** projektu, kliknij prawym przyciskiem myszy **WebContent**, następnie kliknij przycisk **nowy > pliku JSP**. W oknie dialogowym Nowy plik JSP nazwę nowego pliku `index.jsp`. Kliknij przycisk **Dalej**.
-3. W **wybierz szablon JSP** zaznacz pozycję **New JSP File (html)** i kliknij przycisk **Zakończ**.
-4. W index.jsp, Dodaj następujący kod w `<head>` i `<body>` tagu sekcje:
+2. W obszarze Eksplorator projektów rozwiń hello **JSPHello** projektu, kliknij prawym przyciskiem myszy **WebContent**, następnie kliknij przycisk **nowy > pliku JSP**. W oknie dialogowym Nowy plik JSP hello hello nowego pliku o nazwie `index.jsp`. Kliknij przycisk **Dalej**.
+3. W hello **wybierz szablon JSP** zaznacz pozycję **New JSP File (html)** i kliknij przycisk **Zakończ**.
+4. W index.jsp, Dodaj hello następującego kodu w hello `<head>` i `<body>` tagu sekcje:
    
         <head>
           ...
@@ -330,82 +330,82 @@ W celu zaprezentowania sposobu wdrażania aplikacji w sieci Web, Poniższa proce
         </head>
    
         <body>
-          Hello, the time is <%= date %> 
+          Hello, hello time is <%= date %> 
         </body>
 
-#### <a name="run-the-hello-world-application-in-localhost"></a>Uruchamianie aplikacji Hello World w localhost
-Przed uruchomieniem tej aplikacji, musisz skonfigurować kilka właściwości.
+#### <a name="run-hello-hello-world-application-in-localhost"></a>Uruchamianie aplikacji Hello World hello w localhost
+Aby uruchomić tę aplikację, musisz tooconfigure kilka właściwości.
 
-1. Kliknij prawym przyciskiem myszy **JSPHello** projekt i wybierz **właściwości**.
-2. W **właściwości** okna dialogowego: Wybierz **ścieżka kompilacji języka Java**, wybierz pozycję **kolejność i eksportowanie** karcie wyboru **biblioteka systemu środowiska JRE**, następnie kliknij przycisk **Się** Aby przenieść go na początku listy.
+1. Kliknij prawym przyciskiem myszy hello **JSPHello** projekt i wybierz **właściwości**.
+2. W hello **właściwości** okna dialogowego: Wybierz **ścieżka kompilacji języka Java**, wybierz pozycję hello **kolejność i eksportowanie** karcie wyboru **biblioteka systemu środowiska JRE**, następnie kliknij przycisk **Się** toomove on toohello u góry listy hello.
    
     ![][4]
-3. Również w **właściwości** okna dialogowego: Wybierz **docelowe środowiska uruchomieniowe** i kliknij przycisk **nowy**.
-4. W **nowe środowisko uruchomieniowe serwera** okno dialogowe, wybierz serwer, takich jak **Apache Tomcat v7.0** i kliknij przycisk **dalej**. W **serwera Tomcat** okno dialogowe, zestaw **nazwa** do `Apache Tomcat v7.0`i ustaw **katalog instalacyjny serwera Tomcat** do katalogu, w którym zainstalowano wersję serwera Tomcat serwer, którego chcesz użyć.
+3. Również w hello **właściwości** okna dialogowego: Wybierz **docelowe środowiska uruchomieniowe** i kliknij przycisk **nowy**.
+4. W hello **nowe środowisko uruchomieniowe serwera** okno dialogowe, wybierz serwer, takich jak **Apache Tomcat v7.0** i kliknij przycisk **dalej**. W hello **serwera Tomcat** okno dialogowe, zestaw **nazwa** za`Apache Tomcat v7.0`i ustaw **katalog instalacyjny serwera Tomcat** toohello katalogu, w którym zainstalowano wersję hello Serwer Tomcat ma toouse.
    
     ![][5]
    
     Kliknij przycisk **Zakończ**.
-5. Następnie wróć do **docelowe środowiska uruchomieniowe** strony **właściwości** okna dialogowego. Wybierz **Apache Tomcat v7.0**, następnie kliknij przycisk **OK**.
+5. Następnie wróć toohello **docelowe środowiska uruchomieniowe** strony hello **właściwości** okna dialogowego. Wybierz **Apache Tomcat v7.0**, następnie kliknij przycisk **OK**.
    
     ![][6]
-6. W środowisku Eclipse **Uruchom** menu, kliknij przycisk **Uruchom**. W **Uruchom jako** okno dialogowe, wybierz opcję **Uruchom na serwerze**. W **Uruchom na serwerze** okno dialogowe, wybierz opcję **Tomcat v7.0 Server**:
+6. W hello Eclipse **Uruchom** menu, kliknij przycisk **Uruchom**. W hello **Uruchom jako** okno dialogowe, wybierz opcję **Uruchom na serwerze**. W hello **Uruchom na serwerze** okno dialogowe, wybierz opcję **Tomcat v7.0 Server**:
    
     ![][7]
    
     Kliknij przycisk **Zakończ**.
-7. Gdy aplikacja zostanie uruchomiona, powinny pojawić się **JSPHello** strony są wyświetlane w oknie localhost w środowisku Eclipse (`http://localhost:8080/JSPHello/`), wyświetlanie następujący komunikat:
+7. Gdy hello jest uruchamiana aplikacja, powinny pojawić się hello **JSPHello** strony są wyświetlane w oknie localhost w środowisku Eclipse (`http://localhost:8080/JSPHello/`), wyświetlania hello następujący komunikat:
    
-    `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
+    `Hello World, hello time is Tue Mar 24 23:21:10 GMT 2015`
 
-#### <a name="export-the-application-as-a-war"></a>Wyeksportować aplikację jako plik WAR
-Wyeksportuj pliki projektu sieci web jako plik archiwum (plik WAR) w sieci web tak, aby umożliwić jej wdrażanie aplikacji sieci web. Następujące pliki projektu sieci web znajdują się w folderze WebContent:
+#### <a name="export-hello-application-as-a-war"></a>Eksportowanie aplikacji hello jako plik WAR
+Pliki projektu sieci web hello należy wyeksportować w postaci pliku archiwum (plik WAR) sieci web, dzięki czemu można wdrożyć aplikację sieci web toohello. Witaj następujące pliki projektu sieci web znajdują się w folderze WebContent hello:
 
     META-INF
     WEB-INF
     index.jsp
 
-1. Kliknij prawym przyciskiem myszy WebContent folder i wybierz **wyeksportować**.
-2. W **eksportu wybierz** okna dialogowego, kliknij przycisk **sieci Web > WAR** pliku, a następnie kliknij przycisk **dalej**.
-3. W **wyeksportować plik WAR** okno dialogowe, wybierz katalog src w bieżącym projekcie i zawierać nazwę pliku WAR na końcu. Na przykład:
+1. Kliknij prawym przyciskiem myszy hello WebContent folder i wybierz **wyeksportować**.
+2. W hello **eksportu wybierz** okna dialogowego, kliknij przycisk **sieci Web > WAR** pliku, a następnie kliknij przycisk **dalej**.
+3. W hello **wyeksportować plik WAR** okno dialogowe, wybierz katalog src hello w bieżącym projekcie hello i zawierać nazwę pliku WAR hello na końcu hello hello. Na przykład:
    
     `<project-path>/JSPHello/src/JSPHello.war`
 
-Aby uzyskać więcej informacji na temat wdrażania WAR plików, zobacz [dodawania aplikacji Java do aplikacji sieci Web usługi aplikacji Azure](web-sites-java-add-app.md).
+Aby uzyskać więcej informacji na temat wdrażania WAR plików, zobacz [dodać tooAzure aplikacji Java aplikacji usługi sieci Web aplikacji](web-sites-java-add-app.md).
 
-### <a name="deploying-the-hello-world-application-using-ftp"></a>Wdrażanie aplikacji World Hello za pomocą protokołu FTP
-Wybierz klienta FTP innych firm, aby opublikować aplikację. W tej procedurze opisano dwie opcje: konsoli Kudu wbudowanych w środowisku Azure. i FileZilla, narzędzie popularnych o wygodny graficznego interfejsu użytkownika.
+### <a name="deploying-hello-hello-world-application-using-ftp"></a>Wdrażanie FTP przy użyciu aplikacji Hello World hello
+Wybierz aplikację hello toopublish klienta FTP innych firm. W tej procedurze opisano dwie opcje: hello Kudu konsoli wbudowanych w środowisku Azure. i FileZilla, narzędzie popularnych o wygodny graficznego interfejsu użytkownika.
 
-> **Uwaga:** zestawu narzędzi platformy Azure dla programu Eclipse obsługuje wdrażanie do kont magazynu i chmury usługi, ale nie obsługuje obecnie wdrożenia w aplikacji sieci web. Można wdrożyć do kont magazynu i usług przy użyciu projektu wdrożenia platformy Azure, zgodnie z opisem w chmurze [tworzenia aplikacji Hello World na platformie Azure w programie Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), ale nie do aplikacji sieci web. Użyj innych metod, takich jak FTP lub GitHub do transferu plików do aplikacji sieci web.
+> **Uwaga:** hello Azure zestawu narzędzi Eclipse obsługuje konta toostorage wdrożenia i chmury usługi, ale nie obsługuje obecnie wdrożenia tooweb aplikacji. Można wdrożyć toostorage konta i w chmurze usługi przy użyciu projektu wdrożenia platformy Azure, zgodnie z opisem w [tworzenia aplikacji Hello World na platformie Azure w programie Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), ale nie tooweb aplikacji. Użyj innych metod, takich jak FTP lub GitHub tootransfer plików tooyour aplikacji sieci web.
 > 
-> **Uwaga:** nie zaleca się używania protokołu FTP z wiersza polecenia systemu Windows (narzędzie wiersza polecenia FTP.EXE jest dostarczana z systemem Windows). Klienci FTP, którzy używają active FTP, takich jak FTP.EXE, często nie działać za pośrednictwem zapór. Aktywne FTP określa wewnętrzny adres sieci LAN, do którego serwer FTP prawdopodobnie nie będzie można połączyć.
+> **Uwaga:** nie zaleca się używania protokołu FTP w wierszu polecenia systemu Windows hello (hello narzędzia wiersza polecenia FTP.EXE dostarczanych z systemem Windows). Klienci FTP, używający active FTP, takich jak FTP.EXE, często nie toowork za pośrednictwem zapór. Active FTP określa wewnętrzny adres sieci LAN, serwer toowhich FTP prawdopodobnie nie powiedzie się tooconnect.
 > 
 > 
 
-Aby uzyskać więcej informacji na wdrożenia dla aplikacji sieci web usługi aplikacji za pomocą protokołu FTP zobacz następujące tematy:
+Aby uzyskać więcej informacji dotyczących wdrażania tooan aplikacji usługi sieci web app przy użyciu protokołu FTP Zobacz hello następujące tematy:
 
 * [Wdrażanie przy użyciu narzędzia FTP](web-sites-deploy.md)
 
 #### <a name="set-up-deployment-credentials"></a>Konfigurowanie poświadczeń wdrożenia
-Upewnij się, że została uruchomiona **AzureWebDemo** aplikacji w celu utworzenia aplikacji sieci web. Przenieś pliki do tej lokalizacji.
+Upewnij się, że zostało uruchomione hello **AzureWebDemo** toocreate aplikacji w aplikacji sieci web. Przenieś pliki toothis lokalizacji.
 
-1. Zaloguj się do klasycznego portalu i kliknij przycisk **aplikacje sieci Web**. Upewnij się, że **WebDemoWebApp** pojawią się na liście aplikacji sieci web i upewnij się, że jest uruchomiona. Kliknij przycisk **WebDemoWebApp** aby otworzyć jego **pulpitu nawigacyjnego** strony.
-2. Na **pulpitu nawigacyjnego** w obszarze **szybki przegląd**, kliknij przycisk **skonfigurować poświadczenia wdrażania** (Jeśli masz już poświadczenia wdrażania, odczytuje  **Resetowanie poświadczeń wdrażania**).
+1. Zaloguj się do klasycznego portalu hello i kliknij przycisk **aplikacje sieci Web**. Upewnij się, że **WebDemoWebApp** jest widoczna na liście hello aplikacji sieci web i upewnij się, że jest uruchomiona. Kliknij przycisk **WebDemoWebApp** tooopen jej **pulpitu nawigacyjnego** strony.
+2. Na powitania **pulpitu nawigacyjnego** w obszarze **szybki przegląd**, kliknij przycisk **skonfigurować poświadczenia wdrażania** (Jeśli masz już poświadczenia wdrażania, odczytuje  **Resetowanie poświadczeń wdrażania**).
    
-    Wdrożenie poświadczenia są skojarzone z kontem Microsoft. Należy określić nazwę użytkownika i hasło, które można wdrożyć przy użyciu usługi Git i FTP. Te poświadczenia można użyć do wdrożenia do wszystkich aplikacji sieci web w ramach wszystkich subskrypcji platformy Azure skojarzonych z Twoim kontem Microsoft. Podaj poświadczenia wdrożenia usługi Git i FTP, w oknie dialogowym i Zapisz nazwę użytkownika i hasło do użycia w przyszłości.
+    Wdrożenie poświadczenia są skojarzone z kontem Microsoft. Należy toospecify nazwę użytkownika i hasło, których można używać toodeploy przy użyciu usługi Git i FTP. Można użyć tych aplikacji sieci web tooany toodeploy poświadczenia w ramach wszystkich subskrypcji platformy Azure skojarzonych z Twoim kontem Microsoft. Podaj w dialogowym hello i rekordów hello nazwy użytkownika i hasła usługi Git i FTP poświadczenia wdrożenia do użycia w przyszłości.
 
 #### <a name="get-ftp-connection-information"></a>Uzyskiwanie informacji o połączeniu FTP
-Aby użyć FTP do wdrażania plików aplikacji do nowo utworzonej aplikacji sieci web, należy uzyskać informacje o połączeniu. Istnieją dwie metody uzyskiwania informacji o połączeniu. Jednym ze sposobów jest odwiedzać aplikacji sieci web **pulpitu nawigacyjnego** strony; inny sposób jest do pobrania w sieci web w aplikacji profilu publikowania. Profil publikowania jest plik XML, który zawiera informacje, takie jak hosta FTP poświadczenia nazwy i logowania dla aplikacji sieci web w usłudze Azure App Service. Do wdrożenia do wszystkich aplikacji sieci web w ramach wszystkich subskrypcji skojarzonych z konta platformy Azure, a nie tylko ten jeden, można użyć tej nazwy użytkownika i hasła.
+toouse FTP toodeploy aplikacji pliki toohello nowo utworzona aplikacja sieci web, należy tooobtain informacje o połączeniu. Istnieją dwa sposoby tooobtain informacje o połączeniu. Jednym ze sposobów jest toovisit hello aplikacji sieci web firmy **pulpitu nawigacyjnego** strony; hello inny sposób jest profil publikowania aplikacji toodownload hello sieci web. profil publikowania Hello jest plik XML, który zawiera informacje, takie jak hosta FTP poświadczenia nazwy i logowania dla aplikacji sieci web w usłudze Azure App Service. W ramach wszystkich subskrypcji skojarzonych z hello konto platformy Azure, nie tylko ten jeden, można użyć tej nazwy użytkownika i hasła toodeploy tooany aplikacji sieci web.
 
-Aby uzyskać informacje o połączeniu FTP w bloku aplikacja sieci web w [Azure Portal][Azure Portal]:
+informacje o połączeniu tooobtain FTP w bloku aplikacja sieci web hello w hello [Azure Portal][Azure Portal]:
 
-1. W obszarze **Essentials**, należy znaleźć i skopiować **nazwa hosta FTP**. Jest to podobne do identyfikatora URI `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
-2. W obszarze **Essentials**, należy znaleźć i skopiować **nazwy użytkownika serwera FTP/wdrożenia**. Będzie to mieć postać *webappname\deployment-username*, na przykład `WebDemoWebApp\deployer77`.
+1. W obszarze **Essentials**, znaleźć i skopiować hello **nazwa hosta FTP**. To jest identyfikator URI podobne zbyt`ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
+2. W obszarze **Essentials**, należy znaleźć i skopiować **nazwy użytkownika serwera FTP/wdrożenia**. Będzie to mieć formularza hello *webappname\deployment-username*, na przykład `WebDemoWebApp\deployer77`.
 
-Aby uzyskać informacje o połączeniu FTP z profil publikowania:
+profil publikowania informacji o połączeniu FTP tooobtain z hello:
 
-1. W bloku aplikacja sieci web kliknij **profilu publikowania Get**. Pobierze plik .publishsettings na dysk lokalny.
-2. Otwórz plik .publishsettings w edytorze XML lub edytorze tekstów i Znajdź `<publishProfile>` zawierający element `publishMethod="FTP"`. Jego wygląd powinien być podobne do poniższych:
+1. W bloku aplikacja sieci web powitania kliknij **profilu publikowania Get**. To spowoduje pobranie .publishsettings pliku tooyour dysk lokalny.
+2. Otwórz plik .publishsettings hello w edytorze XML lub edytorze tekstów i Znajdź hello `<publishProfile>` zawierający element `publishMethod="FTP"`. Go powinna wyglądać hello następujące czynności:
    
         <publishProfile
             profileName="WebDemoWebApp - FTP"
@@ -416,87 +416,87 @@ Aby uzyskać informacje o połączeniu FTP z profil publikowania:
             userPWD="<deployment-password>"
             ...
         </publishProfile>
-3. Należy pamiętać, że aplikacja sieci web `publishProfile` ustawienia mapy w celu ustawienia Menedżera lokacji FileZilla w następujący sposób:
+3. Należy pamiętać, że hello aplikacji sieci web `publishProfile` ustawienia mapowania toohello FileZilla lokacji Menedżera ustawień w następujący sposób:
 
-* `publishUrl`jest taka sama jak **nazwa hosta FTP**, wartość ustawiona w **hosta**.
-* `publishMethod="FTP"`oznacza, że ustawisz **protokołu** do **FTP - File Transfer Protocol**, i **szyfrowania** do **za pomocą zwykłego FTP**.
-* `userName`i `userPWD` są klucze rzeczywistej nazwy użytkownika i określone podczas resetowania poświadczenia wdrażania wartości hasła. `userName`jest taka sama jak **wdrożenia / FTP użytkownika**. Są one wykonywane na **użytkownika** i **hasło** w FileZilla.
-* `ftpPassiveMode="True"`oznacza, że witryna FTP używa pasywnym transferu FTP; Wybierz **pasywnym** na **ustawienia transferu** kartę.
+* `publishUrl`jest identyczny hello **nazwa hosta FTP**, hello wartość ustawiona w **hosta**.
+* `publishMethod="FTP"`oznacza, że ustawisz **protokołu** za**FTP - File Transfer Protocol**, i **szyfrowania** za**za pomocą zwykłego FTP**.
+* `userName`i `userPWD` są klucze hello rzeczywiste wartości nazwy użytkownika i hasła określonego podczas resetowania hello poświadczenia wdrożenia. `userName`jest identyczny hello **wdrożenia / FTP użytkownika**. Mapują zbyt**użytkownika** i **hasło** w FileZilla.
+* `ftpPassiveMode="True"`oznacza to, że korzysta z tej witryny hello FTP pasywnym transferu FTP; Wybierz **pasywnym** na powitania **ustawienia transferu** kartę.
 
-#### <a name="configure-the-web-app-to-host-a-java-application"></a>Konfigurowanie aplikacji sieci Web na potrzeby hostowania aplikacji języka Java
-Przed opublikowaniem aplikacji, musisz zmienić kilka ustawień konfiguracji, aby aplikacja sieci web mogą obsługiwać aplikacji Java.
+#### <a name="configure-hello-web-app-toohost-a-java-application"></a>Skonfiguruj hello toohost aplikacji sieci Web aplikacji Java
+Przed opublikowaniem aplikacji hello należy toochange kilka ustawień konfiguracji, aby hello aplikacji sieci web mogą obsługiwać aplikacji Java.
 
-1. W klasycznym portalu, przejdź do aplikacji sieci web **pulpitu nawigacyjnego** i kliknij przycisk **Konfiguruj**. Na **Konfiguruj** określ następujące ustawienia.
-2. W **wersję Java** wartość domyślna to **poza**; wybierz wersję Java celów aplikacji, na przykład 1.7.0_51. Po wykonaniu tej czynności również upewnij się, że **kontener sieci Web** jest ustawiona na wersję serwera Tomcat.
-3. W **dokumenty domyślne**, Dodaj index.jsp i przenieść ją do początku listy. (Domyślnego pliku dla aplikacji sieci web jest hostingstart.html).
+1. W klasycznym portalu hello, przejdź do pozycji aplikacji sieci web toohello **pulpitu nawigacyjnego** i kliknij przycisk **Konfiguruj**. Na powitania **Konfiguruj** Określ hello następujące ustawienia.
+2. W **wersję Java** hello domyślna to **poza**; wybierz wersję Java hello celów aplikacji, na przykład 1.7.0_51. Po wykonaniu tej czynności również upewnij się, że **kontener sieci Web** ustawiono tooa wersję serwera Tomcat.
+3. W **dokumenty domyślne**, Dodaj index.jsp i przesunięty toohello u góry listy hello. (hello domyślnego pliku dla aplikacji sieci web jest hostingstart.html).
 4. Kliknij pozycję **Zapisz**.
 
 #### <a name="publish-your-application-using-kudu"></a>Publikowanie aplikacji przy użyciu Kudu
-Jest jednym ze sposobów publikowania aplikacji do użycia konsoli debugowania aparatu Kudu wbudowanych w platformy Azure. Program kudu jest znany jako stabilny i spójny z aplikacji sieci Web usługi aplikacji i serwer Tomcat. Aby dostęp do konsoli dla aplikacji sieci web przechodząc do adresu URL mają następującą postać:
+Jednym ze sposobów toopublish aplikacji hello jest hello toouse Kudu debug console wbudowanych w platformy Azure. Program kudu jest znany toobe stabilny i spójny z aplikacji sieci Web usługi aplikacji i serwer Tomcat. Dostęp hello konsoli dla aplikacji sieci web hello przechodząc tooa adres URL hello następującej postaci:
 
 `https://<webappname>.scm.azurewebsites.net/DebugConsole`
 
-1. Do wykonania tej procedury konsoli Kudu znajduje się pod adresem URL; Przejdź do tej lokalizacji:
+1. Do wykonania tej procedury hello Kudu konsoli znajduje się pod adresem hello następującego adresu URL; Przeglądaj toothis lokalizacji:
    
     `https://webdemowebapp.scm.azurewebsites.net/DebugConsole`
-2. Wybierz z górnego menu **konsoli debugowania > CMD**.
-3. W wierszu polecenia konsoli przejdź do `/site/wwwroot` (lub kliknij przycisk `site`, następnie `wwwroot` w katalogu widoku w górnej części strony):
+2. Wybierz z górnego menu hello **konsoli debugowania > CMD**.
+3. W wierszu polecenia konsoli hello, przejdź zbyt`/site/wwwroot` (lub kliknij przycisk `site`, następnie `wwwroot` w widoku katalogu hello u góry strony hello hello):
    
     `cd /site/wwwroot`
-4. Po określeniu **wersję Java**, serwer Tomcat należy utworzyć katalogu webapps. W wierszu polecenia konsoli przejdź do katalogu webapps:
+4. Po określeniu **wersję Java**, serwer Tomcat należy utworzyć katalogu webapps. W wierszu polecenia konsoli hello Przejdź katalogu webapps toohello:
    
     `mkdir webapps`
    
     `cd webapps`
-5. Przeciągnij JSPHello.war z `<project-path>/JSPHello/src/` i upuść go w widoku katalogu Kudu w `/site/wwwroot/webapps`. Nie przeciągnij go do obszaru "Przeciągnij tutaj, aby przekazać i zip", ponieważ Tomcat będzie Rozpakuj go.
+5. Przeciągnij JSPHello.war z `<project-path>/JSPHello/src/` i upuść go w widoku katalogu Kudu hello w `/site/wwwroot/webapps`. Nie przeciągnij go toohello obszaru "Przeciągnij tutaj tooupload i zip", ponieważ Tomcat będzie Rozpakuj go.
    
    ![][8]
 
-W pierwszym JSPHello.war pojawia się w obszarze Katalog samodzielnie:
+W pierwszym JSPHello.war pojawia się w obszarze katalogu hello samodzielnie:
 
   ![][9]
 
-W krótkim czasie (prawdopodobnie mniej niż 5 minut) serwer Tomcat będzie Rozpakuj plik WAR do rozpakowanego katalogu JSPHello. Kliknij katalog główny, aby sprawdzić, czy index.jsp zostało rozpakowane i skopiować. Jeśli tak, przejdź do katalogu webapps, aby sprawdzić, czy rozpakowanego katalogu JSPHello została utworzona. Jeśli te elementy nie jest widoczny, poczekaj i powtórz.
+W krótkim czasie (prawdopodobnie mniej niż 5 minut) serwer Tomcat będzie Rozpakuj plik WAR hello w rozpakowanym katalogu JSPHello. Kliknij przycisk toosee katalogu głównego hello czy index.jsp zostało rozpakowane i skopiować. Jeśli tak, przejdź wstecz toohello webapps katalogu toosee czy hello rozpakowane JSPHello katalog został utworzony. Jeśli te elementy nie jest widoczny, poczekaj i powtórz.
 
   ![][10]
 
 #### <a name="publish-your-application-using-filezilla-optional"></a>Publikowanie aplikacji przy użyciu FileZilla (opcjonalnie)
-Innego narzędzia używanego do publikowania aplikacji jest FileZilla, popularnych klient FTP innych firm z wygodny graficznego interfejsu użytkownika. Można pobrać i zainstalować FileZilla z [http://filezilla-project.org/](http://filezilla-project.org/) Jeśli użytkownik nie ma jeszcze go. Aby uzyskać więcej informacji na temat używania klienta, zobacz [dokumentacji FileZilla](https://wiki.filezilla-project.org/Documentation) i ten wpis w blogu na [klienci FTP — część 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
+Kolejnym narzędziem za pomocą aplikacji hello toopublish jest FileZilla, popularnych klient FTP innych firm z wygodny graficznego interfejsu użytkownika. Można pobrać i zainstalować FileZilla z [http://filezilla-project.org/](http://filezilla-project.org/) Jeśli użytkownik nie ma jeszcze go. Aby uzyskać więcej informacji na temat używania powitania klienta, zobacz hello [dokumentacji FileZilla](https://wiki.filezilla-project.org/Documentation) i ten wpis w blogu na [klienci FTP — część 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
 
 1. W FileZilla, kliknij przycisk **Plik > Menedżer lokacji**.
-2. W **Menedżer lokacji** okna dialogowego, kliknij przycisk **nowej lokacji**. Nowa, pusta witryna FTP będą wyświetlane w **wybierz wpis** monitowania użytkownika o podanie nazwy. Do wykonania tej procedury, nadaj mu nazwę `AzureWebDemo-FTP`.
+2. W hello **Menedżer lokacji** okna dialogowego, kliknij przycisk **nowej lokacji**. Nowa, pusta witryna FTP będą wyświetlane w **wybierz wpis** monitem tooprovide nazwę. Do wykonania tej procedury, nadaj mu nazwę `AzureWebDemo-FTP`.
    
-    Na **ogólne** karcie, określ następujące ustawienia:
+    Na powitania **ogólne** karcie, określ hello następujące ustawienia:
    
-   * **Host:** Enter **nazwa hosta FTP** skopiowany z poziomu pulpitu nawigacyjnego.
-   * **Port:** (to pole pozostanie puste, jak to przeniesienie pasywny oraz określić port używany serwer.)
+   * **Host:** Enter hello **nazwa hosta FTP** skopiowany z hello pulpitu nawigacyjnego.
+   * **Port:** (to pole pozostanie puste, to jest pasywny przeniesienia i powitania serwera określają hello portu toouse.)
    * **Protokół:** protokół transferu plików FTP
    * **Szyfrowanie:** za pomocą zwykłego FTP
    * **Typ logowania:** normalny
-   * **Użytkownik:** wprowadzić rozmieszczenia / FTP użytkownika, które zostały skopiowane z poziomu pulpitu nawigacyjnego. Jest to pełna username FTP, która ma postać *webappname\username*.
-   * **Hasło:** wprowadź hasło określone podczas ustawiania poświadczeń wdrożenia.
+   * **Użytkownik:** hello Enter wdrożenia / FTP użytkownika, który został skopiowany z hello pulpitu nawigacyjnego. Jest to pełna username FTP hello, mającej formularza hello *webappname\username*.
+   * **Hasło:** wprowadź hasło hello określony podczas ustawiania poświadczeń wdrożenia hello.
      
-     Na **ustawienia transferu** wybierz opcję **pasywnym**.
-3. Kliknij przycisk **Połącz**. Jeśli powodzenia FileZilla na konsoli zostanie wyświetlony `Status: Connected` komunikat i problem `LIST` polecenie, aby wyświetlić listę zawartości katalogu.
-4. W **lokalnego** lokacji panelu, wybierz katalog źródłowy, w którym znajduje się plik JSPHello.war; ścieżka będzie podobny do następującego:
+     Na powitania **ustawienia transferu** wybierz opcję **pasywnym**.
+3. Kliknij przycisk **Połącz**. Jeśli powodzenia FileZilla na konsoli zostanie wyświetlony `Status: Connected` komunikat i problem `LIST` polecenia zawartość katalogu hello toolist.
+4. W hello **lokalnego** panelu lokacji hello wybierz katalog źródłowy w plik JSPHello.war hello, który znajduje się; ścieżka hello będzie podobne toohello następujące:
    
     `<project-path>/JSPHello/src/`
-5. W **zdalnego** lokacji panelu, wybierz folder docelowy. Zostanie wdrożona plik WAR do `webapps` katalog główny aplikacji sieci web. Przejdź do `/site/wwwroot`, kliknij prawym przyciskiem myszy `wwwroot`i wybierz **Utwórz katalog**. Nazwa katalogu `webapps` , a następnie wprowadź tego katalogu.
-6. Transfer JSPHello.war do `/site/wwwroot/webapps`. Wybierz JSPHello.war w **lokalnego** listy plików, kliknij prawym przyciskiem myszy na nim i wybierz **przekazać**. Powinny pojawić się ją na `/site/wwwroot/webapps`.
-7. Po skopiowaniu JSPHello.war do katalogu webapps serwera Tomcat zostanie automatycznie Rozpakuj (Rozpakuj) plików w pliku WAR. Mimo że serwer Tomcat rozpoczyna się rozpakowanie niemal natychmiast, może trwać bardzo długo czas (prawdopodobnie godz. dla plików, które mają być widoczne w klient FTP).
+5. W hello **zdalnego** panelu lokacji, hello wybierz folder docelowy. Zostanie wdrożona toohello pliku WAR hello `webapps` katalog główny aplikacji sieci web hello. Przejdź za`/site/wwwroot`, kliknij prawym przyciskiem myszy `wwwroot`i wybierz **Utwórz katalog**. Nazwa katalogu hello `webapps` , a następnie wprowadź tego katalogu.
+6. Transfer JSPHello.war zbyt`/site/wwwroot/webapps`. Wybierz JSPHello.war hello **lokalnego** listy plików, kliknij prawym przyciskiem myszy na nim i wybierz **przekazać**. Powinny pojawić się ją na `/site/wwwroot/webapps`.
+7. Po skopiowaniu katalogu webapps toohello JSPHello.war serwera Tomcat zostanie automatycznie Rozpakuj (Rozpakuj) hello plików w pliku WAR hello. Mimo że serwer Tomcat rozpoczyna się rozpakowanie niemal natychmiast, może trwać bardzo długo czas prawdopodobnie dla tooappear plików powitania klienta hello FTP.
 
-#### <a name="run-the-hello-world-application-on-the-web-app"></a>Uruchamianie aplikacji Hello World w aplikacji sieci Web
-1. Po przekazany plik WAR i zweryfikować, że serwer Tomcat utworzył rozpakowanego `JSPHello` katalogu, przejdź do `http://webdemowebapp.azurewebsites.net/JSPHello` do uruchomienia aplikacji.
+#### <a name="run-hello-hello-world-application-on-hello-web-app"></a>Uruchamianie aplikacji Hello World hello na powitania aplikacji sieci Web
+1. Po przekazany plik WAR hello i zweryfikować, że serwer Tomcat utworzył rozpakowanego `JSPHello` katalogu, Przeglądaj zbyt`http://webdemowebapp.azurewebsites.net/JSPHello` toorun hello aplikacji.
    
-   > **Uwaga:** kliknięcie **Przeglądaj** z klasycznego portalu można uzyskać domyślnej strony sieci Web, informujący o tym "tej aplikacji sieci web Java na podstawie został pomyślnie utworzony." Może być konieczne odświeżania strony sieci Web, aby wyświetlić dane wyjściowe aplikacji zamiast domyślnej strony sieci Web.
+   > **Uwaga:** kliknięcie **Przeglądaj** z hello klasyczny portal może spowodować, że hello domyślnej strony sieci Web, informujący o tym "tej aplikacji sieci web Java na podstawie został pomyślnie utworzony." W danych wyjściowych aplikacji hello tooview kolejności zamiast hello domyślnej strony sieci Web może być toorefresh hello strony sieci Web.
    > 
    > 
-2. Po uruchomieniu aplikacji, powinny być widoczne strony sieci web z następujących danych wyjściowych:
+2. Po uruchomieniu aplikacji hello powinna zostać wyświetlona strona sieci web z hello następujące dane wyjściowe:
    
-    `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
+    `Hello World, hello time is Tue Mar 24 23:21:10 GMT 2015`
 
 #### <a name="clean-up-azure-resources"></a>Oczyszczanie zasobów platformy Azure
-Ta procedura powoduje utworzenie aplikacji sieci web usługi aplikacji. Opłaty będą naliczane zasobu tak długo, jak istnieje. Jeśli nie chcesz nadal używać do testowania lub rozwoju aplikacji sieci web, należy rozważyć zatrzymanie lub usunięcie go. Aplikacja sieci web, który został zatrzymany nadal spowoduje naliczenie opłaty mały, ale w dowolnym momencie można uruchomić go ponownie. Usunięcie aplikacji sieci web spowoduje usunięcie wszystkich danych, które zostały przekazane do niej.
+Ta procedura powoduje utworzenie aplikacji sieci web usługi aplikacji. Opłaty będą naliczane dla zasobu hello tak długo, jak istnieje. Jeśli nie planujesz toocontinue przy użyciu hello aplikacji sieci web do testowania lub programowanie należy rozważyć zatrzymanie lub usunięcie go. Aplikacja sieci web, który został zatrzymany nadal spowoduje naliczenie opłaty mały, ale w dowolnym momencie można uruchomić go ponownie. Usunięcie aplikacji sieci web spowoduje usunięcie wszystkich danych, które zostały przekazane tooit.
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

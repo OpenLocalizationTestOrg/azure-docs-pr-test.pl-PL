@@ -1,6 +1,6 @@
 ---
-title: "Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji | Microsoft Docs"
-description: "Dowiedz się, jak przełączyć identyfikator dzierżawy magazynu kluczy po przeniesieniu subskrypcji do innej dzierżawy"
+title: "aaaChange hello magazynu kluczy identyfikator dzierżawcy po przenieść subskrypcję | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak identyfikator dzierżawcy hello tooswitch dla magazynu kluczy, gdy subskrypcja jest przenoszone tooa innej dzierżawy"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 2f007dd4f877b48003cddcefa5f4321049853361
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4d0607208c61c57959439d2d0bd8feade4141fee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji
-### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>Pytanie: Moja subskrypcja została przeniesiona z dzierżawy A do dzierżawy B. Jak zmienić identyfikator dzierżawy dla istniejącego magazynu kluczy i ustawić prawidłowe listy ACL dla nazw głównych w dzierżawie B?
-Po utworzeniu nowego magazynu kluczy w subskrypcji zostaje on automatycznie powiązany z domyślnym identyfikatorem dzierżawy usługi Azure Active Directory dla tej subskrypcji. Wszystkie wpisy zasad dostępu również zostają powiązane z tym identyfikatorem dzierżawy. Po przeniesieniu subskrypcji platformy Azure z dzierżawy A do dzierżawy B istniejące magazyny kluczy są niedostępne za pomocą nazw głównych (użytkowników i aplikacji) w dzierżawie B. Aby rozwiązać ten problem, należy:
+### <a name="q-my-subscription-was-moved-from-tenant-a-tootenant-b-how-do-i-change-hello-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>Pytanie: mojej subskrypcji został przeniesiony z dzierżawy A tootenant B. Jak zmienić identyfikator dzierżawcy hello Mój istniejący magazyn kluczy i ustawić odpowiednich list ACL dla podmiotów zabezpieczeń w dzierżawie B?
+Po utworzeniu nowego magazynu kluczy w subskrypcji jest identyfikator dzierżawy usługi Azure Active Directory automatycznie wiązanej toohello domyślny dla tej subskrypcji. Wszystkie wpisy zasady dostępu są również identyfikator wiązanej toothis dzierżawcy. Po przeniesieniu subskrypcji platformy Azure z dzierżawy tootenant B, magazynów są niedostępne dla istniejącego klucza hello podmiotów zabezpieczeń (Użytkownicy i aplikacje) w toofix dzierżawy B. ten problem, musisz:
 
-* zmienić identyfikator dzierżawy skojarzony ze wszystkimi istniejącymi magazynami kluczy w tej subskrypcji na dzierżawę B,
+* Zmień hello Identyfikatora dzierżawy skojarzonego z istniejącą wszystkich magazynów kluczy w tej subskrypcji tootenant B.
 * usunąć wszystkie istniejące wpisy zasad dostępu,
 * dodać nowe wpisy zasad dostępu skojarzone z dzierżawą B.
 
-Jeśli na przykład masz magazyn kluczy „myvault” w subskrypcji przeniesionej z dzierżawy a do dzierżawy B, oto jak zmienić identyfikator dzierżawy dla tego magazynu kluczy i usunąć stare zasady dostępu.
+Na przykład, jeśli masz magazynu kluczy "myvault" w ramach subskrypcji, która została przeniesiona z dzierżawy A tootenant B, tutaj w sposób toochange hello Identyfikatorem dzierżawy dla tego magazynu kluczy i Usuń stare zasad dostępu.
 
 <pre>
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
@@ -39,10 +39,10 @@ $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Ponieważ ten magazyn przed przeniesieniem był w dzierżawie A, pierwotna wartość właściwości **$vault.Properties.TenantId** to dzierżawa A, podczas gdy wartość właściwości **(Get-AzureRmContext).Tenant.TenantId** to dzierżawa B.
+Ponieważ ten magazyn został w dzierżawie A przed przesunięciem hello, hello oryginalna wartość **$vault. Properties.TenantId** a dzierżawy podczas **(Get-AzureRmContext). Tenant.TenantId** jest dzierżawy B.
 
-Po skojarzeniu magazynu z poprawnym identyfikatorem dzierżawy i usunięciu starych wpisów zasad dostępu ustaw nowe wpisy zasad dostępu za pomocą polecenia [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Magazyn jest skojarzony z Identyfikatorem dzierżawy poprawne hello i są usuwane stare wpisy zasad dostępu, ustaw nowy dostęp wpisy zasad z [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli masz pytania dotyczące usługi Azure Key Vault, odwiedź [forum usługi Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Jeśli masz pytania dotyczące usługi Azure Key Vault, odwiedź stronę hello [fora magazynu kluczy Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 

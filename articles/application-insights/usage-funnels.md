@@ -1,6 +1,6 @@
 ---
-title: "Lejki wgląd w aplikacji Azure"
-description: "Dowiedz się, jak można użyć Lejki, aby dowiedzieć się, jak klienci są interakcji z aplikacją."
+title: Application Insights Lejki aaaAzure
+description: "Dowiedz się, jak używasz toodiscover Lejki jak klienci są interakcji z aplikacją."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2a6125cf596570cfaee30bb3ff757916e90d7676
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Wykryj, jak klienci używają aplikacji z rozdzielaczy Application Insights
+# <a name="discover-how-customers-are-using-your-application-with-hello-application-insights-funnels"></a>Wykryj, jak klienci za pomocą aplikacji hello Lejki Insights aplikacji
 
-Opis klientów są największe znaczenie dla Twojej firmy. Jeśli aplikacja obejmuje kilka etapów, musisz wiedzieć, jeśli większość klientów postępu są przez cały proces lub są one zakończenia procesu w pewnym momencie. Przejście przez kilka czynności w aplikacji sieci web nazywa się "lejka". Rozdzielaczy Application Insights umożliwia uzyskać wgląd w użytkowników i monitor kursy wymiany krok po kroku. 
+Opis klientów są hello największe znaczenie tooyour działalności. Jeśli aplikacja obejmuje kilka etapów, konieczne będzie tooknow Jeśli większość klientów postępu są przez cały proces hello lub jeśli ich kończą się proces hello w pewnym momencie. postęp Hello na kolejnych czynności w aplikacji sieci web nazywa się "lejka". Możesz użyć hello Application Insights Lejki toogain wgląd w użytkowników i monitor kursy wymiany krok po kroku. 
 
-## <a name="get-started-with-the-funnels-blade"></a>Rozpoczynanie pracy z bloku Lejki
-Najprostszym sposobem, aby dowiedzieć się więcej o Lejki jest przeprowadzenie jednak przykładem. Poniższe ilustracje wykazanie, że kroki właściciele firm handlu elektronicznego zajmie się sposób interakcji klientów z aplikacją sieci web.  
+## <a name="get-started-with-hello-funnels-blade"></a>Rozpoczynanie pracy z bloku Lejki hello
+Hello Najprostszym sposobem toolearn o Lejki jest toowalk, jednak w przykładzie. Hello poniższych ilustracjach pokazują, że hello kroki właściciele firm handlu elektronicznego zajmie toolearn sposób interakcji klientów z aplikacją sieci web.  
 
 ### <a name="create-your-funnel"></a>Utwórz użytkownika lejka.
-Przed utworzeniem sieci lejka należy zdecydować się na pytanie, które chcesz odpowiedzieć. Można na przykład wiedzieć, ilu użytkowników Wyświetlanie przez stronę główną, kliknij na anonsu. W tym przykładzie właściciele firmy Fabrikam Fiber zapoznać się odsetek klientów, którzy tworzą zakupu po dodaniu elementów do ich koszyk w ciągu ostatniego miesiąca.
+Przed utworzeniem sieci lejka należy toodecide na pytanie hello ma tooanswer. Na przykład można tooknow ilu użytkowników Wyświetlanie przez stronę główną, kliknij na anonsu. W tym przykładzie hello właścicieli hello firmy Fabrikam Fiber mają tooknow hello odsetek klientów, którzy dokonać zakupu po dodaniu elementów tootheir koszyku podczas hello ostatniego miesiąca.
 
-Poniżej przedstawiono kroki, które podejmują tworzenia ich lejka.
+Poniżej przedstawiono kroki hello podejmują toocreate ich lejka.
 
-1. Kliknij przycisk Nowy blok lejki.
-1. Wybierz przedział czasu "Ostatni miesiąc" z **zakres czasu** listy rozwijanej. 
-1. Wybierz **stronę produktu** zdarzenia z **krok 1** listy rozwijanej. 
-1. Wybierz **Dodaj do koszyka** zdarzenia z **krok 2** listy rozwijanej.
-1. Wybierz **kliknij zakupu** zdarzenia z **kroku 3** listy rozwijanej.
-1. Dodaj nazwę do lejka i kliknij przycisk **zapisać**.
+1. Kliknij przycisk Nowy hello na powitania Lejki bloku.
+1. Wybierz przedział czasu hello "Ostatni miesiąc" z hello **zakres czasu** listy rozwijanej. 
+1. Wybierz hello **stronę produktu** zdarzenia z hello **krok 1** listy rozwijanej. 
+1. Wybierz hello **koszyka tooshopping Dodaj** zdarzenia z hello **krok 2** listy rozwijanej.
+1. Wybierz hello **kliknij zakupu** zdarzenia z hello **kroku 3** listy rozwijanej.
+1. Dodaj lejka toohello nazwę, a następnie kliknij przycisk **zapisać**.
 
-Poniższa ilustracja przedstawia się, że generuje Lejki bloku danych. W tym miejscu Fabrikam właścicieli widoczny w zeszłym tygodniu 22.7% dla klientów, którzy dodać element do ich koszyk ukończone zakupu. Można również sprawdzić 1% klientów kliknięty anonsu, aby odwiedzić stronę produktu i 20% klientów wylogowany po zakończeniu ich zakupu.
+Witaj poniższej ilustracji przedstawiono generuje hello danych hello Lejki bloku. Z tutaj hello właścicieli Fabrikam widoczny podczas hello ostatniego tygodnia, 22.7% dla klientów, którzy dodany element tootheir zakupy koszyka zakupu hello ukończone. Można również sprawdzić 1% klientom Witaj kliknięty anonsu, aby odwiedzić stronę produktu hello i 20% klientów wylogowany po zakończeniu ich zakupu.
 
 
 ![Blok Lejki z danymi](./media/app-insights-understand-usage-patterns/funnel1.png)

@@ -1,6 +1,6 @@
 ---
-title: "Link szablonów dla wdrożenia usługi Azure | Dokumentacja firmy Microsoft"
-description: "Informacje dotyczące używania szablonów połączonych w szablonie usługi Azure Resource Manager tworzenie rozwiązań moduły szablonu. Pokazuje, jak można przekazać wartości parametrów, określ plik parametrów i dynamicznie utworzone adresy URL."
+title: "Szablony aaaLink dla wdrożenia usługi Azure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toouse połączone szablonów w toocreate szablonu usługi Azure Resource Manager rozwiązania moduły szablonu. Pokazuje, jak toopass wartości parametrów, określ plik parametrów i tworzone dynamicznie adresów URL."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b935b1810db5ce894d009403cd4bb945cab34ba7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Korzystanie z szablonów połączonych w przypadku wdrażania zasobów platformy Azure
-Z jednego szablonu usługi Azure Resource Manager, można połączyć z innego szablonu, który umożliwia dekompozycji wdrożenia do zestawu z celem, szablony specyficzne dla celu. Tak jak w przypadku decomposing aplikację na kilku kod klasy, dekompozycji zapewnia korzyści w zakresie testowania, ponownemu i czytelność.  
+Z jednego szablonu usługi Azure Resource Manager, możesz połączyć tooanother szablonu, który pozwala toodecompose wdrożenia do zestawu docelowego, specyficzne dla celu szablonów. Tak jak w przypadku decomposing aplikację na kilku kod klasy, dekompozycji zapewnia korzyści w zakresie testowania, ponownemu i czytelność.  
 
-Można przekazać do połączonego szablonu parametry z głównym szablonu, a tych parametrów można bezpośrednio mapowania parametrów i zmiennych w szablonie wywoływania. Połączone szablonu można również przekazać do zmiennej dane wyjściowe do szablonu źródła włączenie wymiany danych dwukierunkowej między szablonami.
+Należy przekazać parametry szablonu połączonego tooa szablonu głównego, a te parametry można zamapować bezpośrednio, tooparameters lub zmiennych w hello wywoływania szablonu. Szablon połączonego Hello można również przekazać szablonu źródła zmiennej toohello wstecz dane wyjściowe, włączanie wymiany danych dwukierunkowej między szablonami.
 
-## <a name="linking-to-a-template"></a>Łączenie z szablonu
-Możesz utworzyć łącza między dwa szablony, dodając zasobu wdrożenia w szablonie głównym wskazujące połączonego szablonu. Możesz ustawić **templateLink** właściwości do identyfikatora URI połączonego szablonu. Można podać wartości parametrów szablonu połączone, bezpośrednio w szablonie lub w pliku parametrów. W poniższym przykładzie użyto **parametry** właściwości w celu określenia wartości parametru bezpośrednio.
+## <a name="linking-tooa-template"></a>Łączenie tooa szablonu
+Możesz utworzyć łącza między dwa szablony przez dodanie do zasobu wdrożenia w szablonie głównym hello toohello punktów połączonego szablonu. Ustaw hello **templateLink** toohello właściwość URI hello połączonego szablonu. Można podać wartości parametrów szablonu połączonego hello, bezpośrednio w szablonie lub w pliku parametrów. Witaj poniższym przykładzie użyto hello **parametry** toospecify właściwości bezpośrednio wartości parametru.
 
 ```json
 "resources": [ 
@@ -48,13 +48,13 @@ Możesz utworzyć łącza między dwa szablony, dodając zasobu wdrożenia w sza
 ] 
 ```
 
-Podobnie jak inne typy zasobów można ustawić zależności między połączonego szablonu i innych zasobów. W związku z tym inne zasoby potrzebują wartość wyjściowa szablonu połączone, można upewnij się, że połączonego szablonu jest wdrożyć przed ich. Lub, gdy szablon połączonego opiera się na inne zasoby, można upewnij się, że inne zasoby są wdrażane przed połączonego szablonu. Można pobrać wartości z połączonych szablonu przy użyciu następującej składni:
+Podobnie jak inne typy zasobów można ustawić zależności między hello połączonego szablonu i innych zasobów. W związku z tym inne zasoby potrzebują wartość wyjściowa szablonu połączonego hello, można upewnij się, że wdrożeniu szablonu połączonego hello przed ich. Lub, gdy szablon połączonego hello opiera się na inne zasoby, można upewnij się, że inne zasoby są wdrażane przed hello połączonego szablonu. Można pobrać wartości z połączonych szablonu z hello składni:
 
 ```json
 "[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
-Usługa Resource Manager musi mieć możliwość dostępu do połączonego szablonu. Nie można określić plik lokalny lub plik, który jest dostępny tylko w sieci lokalnej połączonego szablonu. Możesz udostępniać wartość identyfikatora URI, która zawiera jedną **http** lub **https**. Jedną z opcji jest umieszczenie szablonu połączonego na koncie magazynu i użyj identyfikatora URI dla tego elementu, tak jak pokazano w poniższym przykładzie:
+Hello usługi Resource Manager musi być możliwe tooaccess hello połączonego szablonu. Nie można określić plik lokalny lub plik, który jest dostępny tylko w sieci lokalnej hello połączonego szablonu. Możesz udostępniać wartość identyfikatora URI, która zawiera jedną **http** lub **https**. Jedną z opcji jest tooplace szablonu połączonego konta magazynu, i użyj hello identyfikatora URI dla tego elementu, takie jak pokazano na powitania poniższy przykład:
 
 ```json
 "templateLink": {
@@ -63,9 +63,9 @@ Usługa Resource Manager musi mieć możliwość dostępu do połączonego szabl
 }
 ```
 
-Mimo że połączonego szablonu musi być dostępny zewnętrznie, nie trzeba być ogólnie dostępne publicznie. Możesz dodać do szablonu na konto magazynu prywatnego, który jest dostępny tylko dla właściciela konta magazynu. Następnie można utworzyć token sygnatury dostępu Współdzielonego dostępu współdzielonego, aby umożliwić dostęp podczas wdrażania. Identyfikator URI dla połączonych szablonu należy dodać tokenu sygnatury dostępu Współdzielonego. Aby uzyskać instrukcje na temat ustawiania szablonu na koncie magazynu i generowania tokenu sygnatury dostępu Współdzielonego, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](resource-group-template-deploy.md) lub [wdrożenie zasobów z szablonami usługi Resource Manager i interfejsu wiersza polecenia Azure](resource-group-template-deploy-cli.md). 
+Mimo że hello połączonego szablonu musi być dostępny zewnętrznie, nie musi toobe publicznego toohello ogólnie dostępna. Można dodać konta magazynu prywatnego tooa szablonu, który jest właścicielem konta magazynu hello tooonly dostępny. Następnie można utworzyć dostępu tooenable tokenu sygnatury dostępu Współdzielonego dostępu współdzielonego podczas wdrażania. Możesz dodać tego SAS tokenu toohello URI hello połączonego szablonu. Aby uzyskać instrukcje na temat ustawiania szablonu na koncie magazynu i generowania tokenu sygnatury dostępu Współdzielonego, zobacz [wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](resource-group-template-deploy.md) lub [wdrożenie zasobów z szablonami usługi Resource Manager i interfejsu wiersza polecenia Azure](resource-group-template-deploy-cli.md). 
 
-W poniższym przykładzie przedstawiono szablonu nadrzędnego, który stanowi łącze do innego szablonu. Połączony jest uzyskiwany z tokenu sygnatury dostępu Współdzielonego, który jest przekazywana jako parametr.
+Witaj poniższy przykład przedstawia szablonu nadrzędnego szablonu tooanother łącza. Witaj połączony jest uzyskiwany z tokenu sygnatury dostępu Współdzielonego, który jest przekazywana jako parametr.
 
 ```json
 "parameters": {
@@ -87,14 +87,14 @@ W poniższym przykładzie przedstawiono szablonu nadrzędnego, który stanowi ł
 ],
 ```
 
-Nawet jeśli token jest przekazywany jako bezpieczny ciąg, identyfikator URI szablonu połączone, wraz z tokenem sygnatury dostępu Współdzielonego są rejestrowane w operacji wdrażania. W celu ograniczenia narażenia, ustawienia okresu ważności tokenu.
+Mimo że hello token jest przekazywany jako bezpieczny ciąg, hello URI szablonu połączonego hello, w tym hello tokenu sygnatury dostępu Współdzielonego, są rejestrowane w hello operacje wdrażania. narażenia toolimit, ustawienia okresu ważności tokenu hello.
 
-Menedżer zasobów obsługuje każdego połączonego szablonu jako osobne wdrożenia. W historii wdrożenia dla grupy zasobów zobacz temat oddzielnych wdrożeń nadrzędny i zagnieżdżone szablony.
+Menedżer zasobów obsługuje każdego połączonego szablonu jako osobne wdrożenia. W historii wdrożenia hello hello grupy zasobów można zobaczyć oddzielnych wdrożeń hello nadrzędny i zagnieżdżone szablony.
 
 ![historia wdrażania](./media/resource-group-linked-templates/linked-deployment-history.png)
 
-## <a name="linking-to-a-parameter-file"></a>Łączenie z pliku parametrów
-W następnym przykładzie użyto **parametersLink** właściwości, aby utworzyć link do pliku parametrów.
+## <a name="linking-tooa-parameter-file"></a>Łączenie pliku parametrów tooa
+Witaj następnym przykładzie użyto hello **parametersLink** pliku parametrów tooa toolink właściwości.
 
 ```json
 "resources": [ 
@@ -117,12 +117,12 @@ W następnym przykładzie użyto **parametersLink** właściwości, aby utworzy�
 ] 
 ```
 
-Wartość identyfikatora URI dla pliku połączonego parametru nie może być lokalny plik i musi zawierać albo **http** lub **https**. Można też maksymalnie dostęp za pośrednictwem tokenu sygnatury dostępu Współdzielonego pliku parametrów.
+Hello URI wartość hello parametru połączonego pliku nie może być lokalny plik i musi zawierać albo **http** lub **https**. plik parametrów Hello może być również ograniczony tooaccess za pośrednictwem tokenu sygnatury dostępu Współdzielonego.
 
-## <a name="using-variables-to-link-templates"></a>Użycie zmiennych połączenia szablonów
-W poprzednich przykładach pokazano zakodowanych wartości adresu URL dla łączy szablonu. Takie podejście może działać w przypadku prostego szablonu, ale nie działa w przypadku pracy z dużym zestawem moduły szablonów. Zamiast tego można utworzyć zmienną statyczną, przechowującym bazowy adres URL dla szablonu głównego, a następnie dynamicznie utworzyć adresów URL dla szablonów połączonych z tym podstawowego adresu URL. Zaletą tej metody jest można łatwo przenosić lub rozwidlania szablonu, ponieważ musisz zmienić zmienna statyczna w szablonie głównym. Główny szablon przekazuje prawidłowe identyfikatory URI w szablonie rozłożone.
+## <a name="using-variables-toolink-templates"></a>Za pomocą szablonów toolink zmiennych
+Witaj poprzednich przykładach pokazano zakodowanych wartości adresu URL dla hello szablon łączy. Takie podejście może działać w przypadku prostego szablonu, ale nie działa w przypadku pracy z dużym zestawem moduły szablonów. Zamiast tego można utworzyć zmienną statyczną, przechowującym bazowy adres URL dla szablonu głównego hello, a następnie dynamicznie utworzyć adresów URL dla szablonów hello połączone z tym podstawowego adresu URL. Możesz z łatwością przenoszenia lub rozwidlenia szablonu hello ponieważ wystarczy zmienna statyczna hello toochange w szablonie głównym hello jest Hello zaletą tej metody. Szablon głównego Hello przekazuje hello prawidłowe identyfikatory URI w całym hello rozłożone szablonu.
 
-Poniższy przykład przedstawia sposób Użyj podstawowego adresu URL, aby utworzyć dwa adresy URL dla szablonów połączonych (**sharedTemplateUrl** i **vmTemplate**). 
+Witaj poniższy przykład przedstawia sposób toouse podstawowej toocreate adres URL dwa adresy URL dla połączonych szablonów (**sharedTemplateUrl** i **vmTemplate**). 
 
 ```json
 "variables": {
@@ -132,7 +132,7 @@ Poniższy przykład przedstawia sposób Użyj podstawowego adresu URL, aby utwor
 }
 ```
 
-Można również użyć [deployment()](resource-group-template-functions-deployment.md#deployment) uzyskać podstawowy adres URL dla bieżącego szablonu i używać, aby uzyskać adres URL dla innych szablonów w tej samej lokalizacji. Ta metoda jest przydatna, jeśli zmieni się lokalizację szablonu (być może z powodu versioning) lub aby uniknąć twardego kodowania adresów URL w pliku szablonu. 
+Można również użyć [deployment()](resource-group-template-functions-deployment.md#deployment) tooget hello podstawowego adresu URL dla bieżącego szablonu hello i używać tego adresu URL hello tooget innych szablonów w hello tej samej lokalizacji. Ta metoda jest przydatna, jeśli zmieni się lokalizację szablonu (być może z powodu tooversioning) lub ma tooavoid twardych kodowania adresów URL w pliku szablonu hello. 
 
 ```json
 "variables": {
@@ -141,9 +141,9 @@ Można również użyć [deployment()](resource-group-template-functions-deploym
 ```
 
 ## <a name="complete-example"></a>Pełny przykład
-Następujące szablony przykład Pokaż uproszczony rozmieszczenie szablonów połączonych aby zilustrować niektóre pojęcia w tym artykule. Przyjęto założenie, że szablony zostały dodane do tego samego kontenera na koncie magazynu o dostępie wyłączone. Szablon połączonego przekazuje wartość z powrotem na główny szablonu w **generuje** sekcji.
+następujące szablony przykład Hello Pokaż tooillustrate szablonów połączonych w układzie uproszczony kilka pojęć hello w tym artykule. Zakłada się, że szablony hello dodano toohello tego samego kontenera na koncie magazynu o dostępie jest wyłączona. Szablon połączonego Hello przekazuje szablonie głównym wstecz toohello wartości w hello **generuje** sekcji.
 
-**Parent.json** plik zawiera:
+Witaj **parent.json** plik zawiera:
 
 ```json
 {
@@ -175,7 +175,7 @@ Następujące szablony przykład Pokaż uproszczony rozmieszczenie szablonów po
 }
 ```
 
-**Helloworld.json** plik zawiera:
+Witaj **helloworld.json** plik zawiera:
 
 ```json
 {
@@ -193,7 +193,7 @@ Następujące szablony przykład Pokaż uproszczony rozmieszczenie szablonów po
 }
 ```
 
-W programie PowerShell możesz uzyskać token dla kontenera i wdrażać szablonów:
+W programie PowerShell możesz uzyskać token dla kontenera hello i wdrażać hello szablonów:
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -202,7 +202,7 @@ $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-W programie Azure CLI 2.0 uzyskać token dla kontenera i wdrażanie szablonów z następującym kodem:
+W programie Azure CLI 2.0 uzyskać token dla kontenera hello i wdrażanie szablonów hello z hello następującego kodu:
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -226,6 +226,6 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej na temat definiowania kolejność wdrażania zasobów, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md)
-* Aby dowiedzieć się, jak zdefiniować jeden zasób, ale utworzenia wielu wystąpień, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md)
+* toolearn o hello określające kolejność wdrażania hello zasobów, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md)
+* toolearn toodefine jeden zasób, ale utworzenia wielu wystąpień, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md)
 

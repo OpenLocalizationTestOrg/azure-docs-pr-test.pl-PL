@@ -1,6 +1,6 @@
 ---
-title: "Wyniki testu dla funkcji Hyper-V replikacji między lokacjami z usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje o testowanie wydajnościowe na potrzeby lokalnej do lokalnej replikacji maszyn wirtualnych funkcji Hyper-V za pomocą usługi Azure Site Recovery."
+title: "wyniki aaaTest dla funkcji Hyper-V replikacji między lokacjami z usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera informacje o testowanie wydajnościowe na potrzeby replikacji lokalnej tooon lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b37542fc88e0af05e05cee78183983667618816
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Wyniki testu dla lokalnego do lokalnej replikacji funkcji Hyper-V za pomocą usługi Site Recovery
+# <a name="test-results-for-on-premises-tooon-premises-hyper-v-replication-with-site-recovery"></a>Wyniki testu dla replikacji funkcji Hyper-V lokalnej tooon lokalnych z usługą Site Recovery
 
-Microsoft Azure Site Recovery umożliwia organizowanie i zarządzać replikacją maszyn wirtualnych i serwerów fizycznych do platformy Azure lub dodatkowego centrum danych. W tym artykule przedstawiono wyniki testów wydajności, które robiliśmy podczas replikacji maszyn wirtualnych funkcji Hyper-V między dwiema lokalnymi centrami danych.
+Można użyć tooorchestrate Microsoft Azure Site Recovery i Zarządzanie replikacją maszyn wirtualnych i serwerów fizycznych tooAzure lub tooa dodatkowego centrum danych. Ten artykuł zawiera hello wyników testowania wydajności, które robiliśmy podczas replikacji maszyn wirtualnych funkcji Hyper-V między dwiema lokalnymi centrami danych.
 
 ## <a name="test-goals"></a>Cele testu
 
-Celem badania było zbadać, jak usługi Azure Site Recovery wykonuje podczas replikacji stanie stabilności. Stanie stabilności replikacji występuje, gdy maszyny wirtualne ukończenie replikacji początkowej oraz synchronizacji zmiany różnicowe. Należy do pomiaru wydajności przy użyciu stanie stabilności, ponieważ jest on stan pozostają większość maszyn wirtualnych, chyba że wystąpienia nieoczekiwanych awarii.
+Celem Hello testowania było tooexamine sposób wykonywania usługi Azure Site Recovery podczas replikacji stanie stabilności. Stanie stabilności replikacji występuje, gdy maszyny wirtualne ukończenie replikacji początkowej oraz synchronizacji zmiany różnicowe. Jest ważne toomeasure dane wydajności za pomocą stanie stabilności, ponieważ jest on stan hello pozostają większość maszyn wirtualnych, chyba że wystąpienia nieoczekiwanych awarii.
 
-Testowe wdrożenie obejmowały dwie lokacje lokalne na serwerze programu VMM w każdej lokacji. Tego wdrożenia testowego jest typowy head/oddział wdrożenia pakietu office, z centrali działający jako lokacja główna i oddział firmy jako lokacji dodatkowej lub odzyskiwania.
+testowe wdrożenie na powitania obejmowały dwie lokacje lokalne na serwerze programu VMM w każdej lokacji. Tego wdrożenia testowego jest typowy head/oddział wdrożenia pakietu office, z centrali działający jako hello lokacji głównej i hello oddziału jako hello lokacji dodatkowej lub odzyskiwania.
 
 ## <a name="what-we-did"></a>Firma Microsoft może
 
-Oto, co możemy w teście przeszedł:
+Oto, co możemy w teście hello przeszedł:
 
 1. Utworzone za pomocą programu VMM szablonów maszyn wirtualnych.
 2. Uruchomiono maszyny wirtualne i metryk wydajności bazowej przechwytywania niż 12 godzin.
 3. Utworzony chmury na serwerach VMM podstawowymi i odzyskiwania.
 4. Ochrona chmury skonfigurowany w usłudze Azure Site Recovery, łącznie z mapowaniem chmur źródła i odzyskiwania.
-5. Włączyć ochronę maszyn wirtualnych i zezwolić im na dokończenie replikacji początkowej.
+5. Włączyć ochronę maszyn wirtualnych i zezwolić im toocomplete replikacji początkowej.
 6. Oczekiwano kilku godzinach stabilizacji systemu.
 7. Przechwytywane metryki wydajności niż 12 godzin, zapewnienie pozostały wszystkich maszyn wirtualnych w nieoczekiwany stan replikacji dla tych 12 godzin.
-8. Zmierz różnica między metryki wydajności bazowej i metryk wydajności replikacji.
+8. Miara hello różnica między metryki wydajności bazowej hello i metryk wydajności replikacji hello.
 
 
 ## <a name="primary-server-performance"></a>Wydajność serwera podstawowego
 
-* Funkcji Hyper-V Replica asynchronicznie śledzi zmiany w pliku dziennika z narzut na przechowywanie minimalną na serwerze podstawowym.
-* Repliki funkcji Hyper-V korzysta z własnym zapewnienia pamięci podręcznej, aby zminimalizować liczbę IOPS nakładów pracy dla śledzenia. Przechowuje zapisuje VHDX w pamięci i opróżnia je w pliku dziennika, przed upływem terminu, dziennik jest wysyłane do witryny odzyskiwania. Dysk opróżniania odbywa się, jeśli zapisami osiągnęła limit wcześniej.
-* Wykres poniżej przedstawia stanie stabilności obciążenie IOPS dla replikacji. Widać, IOPS nakłady pracy związane z powodu replikacji jest około % 5, który jest bardzo mała.
+* Funkcja Hyper-V Replica asynchronicznie śledzi zmiany pliku dziennika tooa z narzut na przechowywanie minimalną na powitania serwera podstawowego.
+* Repliki funkcji Hyper-V korzysta z własnym zapewnienia pamięci pamięci podręcznej toominimize IOPS obciążenie śledzenia. Przechowuje toohello zapisy, VHDX w pamięci i opróżnianie ich do pliku dziennika hello przed hello czasu tego dziennika hello jest wysyłana toohello odzyskiwania lokacji. Dysk opróżniania odbywa się, jeśli zapisy hello osiągnęła limit wcześniej.
+* Wykres Hello poniżej przedstawia hello stanie stabilności IOPS obciążenie replikacji. Widać tego hello tooreplication nakłady pracy związane z powodu IOPS to około 5%, który jest bardzo mała.
 
 ![Podstawowy wyników](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744913.png)
 
-Repliki funkcji Hyper-V korzysta z pamięci na serwerze podstawowym, aby zoptymalizować wydajność dysku. Jak pokazano na wykresie, pamięć, narzut na wszystkich serwerach w klastrze podstawowego jest brzegowych. Pamięć narzut to wartości procentowej pamięci używana przez funkcję replikacji w porównaniu do całkowitej ilości pamięci zainstalowanych na serwerze funkcji Hyper-V.
+Ilość pamięci na powitania serwera podstawowego toooptimize dysku wydajności korzysta z funkcji Hyper-V Replica. Jak pokazano na powitania po wykresu, pamięć, narzut na wszystkich serwerach w klastrze głównej hello jest brzegowych. Narzut pamięć Hello jest hello w procentach ilością pamięci używanej przez replikacji w porównaniu toohello całkowita zainstalowana pamięć na powitania serwera funkcji Hyper-V.
 
 ![Podstawowy wyników](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
 
-Funkcja Hyper-V Replica ma minimalną obciążenia Procesora. Jak pokazano na wykresie, obciążenia związanego z replikacją jest z zakresu od 2 do 3%.
+Funkcja Hyper-V Replica ma minimalną obciążenia Procesora. Jak pokazano na wykresie hello, obciążenia związanego z replikacją jest w zakresie hello % 2 – 3.
 
 ![Podstawowy wyników](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
 ## <a name="secondary-recovery-server-performance"></a>Wydajność serwera pomocniczym (odzyskiwania)
 
-Repliki funkcji Hyper-V używa mała ilość pamięci na serwerze odzyskiwania w celu optymalizowania liczby operacji magazynu. Wykres zawiera podsumowanie użycia pamięci na serwerze odzyskiwania. Pamięć narzut to wartości procentowej pamięci używana przez funkcję replikacji w porównaniu do całkowitej ilości pamięci zainstalowanych na serwerze funkcji Hyper-V.
+Repliki funkcji Hyper-V korzysta z małej ilości pamięci hello odzyskiwania serwera toooptimize hello liczby operacji magazynu. Wykres Hello zawiera podsumowanie hello zużycie pamięci na powitania serwera odzyskiwania. Narzut pamięć Hello jest hello w procentach ilością pamięci używanej przez replikacji w porównaniu toohello całkowita zainstalowana pamięć na powitania serwera funkcji Hyper-V.
 
 ![Wyniki dodatkowej](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744916.png)
 
-Liczba operacji We/Wy w lokacji odzyskiwania jest funkcją liczbę operacji zapisu w lokacji głównej. Załóżmy przyjrzeć się całkowita liczba operacji We/Wy w lokacji odzyskiwania w porównaniu z całkowita liczba operacji We/Wy i zapisu w lokacji głównej. Wykresy pokazują, że łączną liczbę IOPS w lokacji odzyskiwania jest
+Hello liczby operacji We/Wy w lokacji odzyskiwania hello jest funkcją hello liczbę operacji zapisu na powitania lokacji głównej. Załóżmy Spójrz na powitania całkowita liczba operacji We/Wy na powitania odzyskiwania lokacji w porównaniu z hello całkowita liczba operacji We/Wy i operacje zapisu w lokacji głównej hello. Wykresy Hello Pokaż tym łączną hello jest IOPS na powitania odzyskiwania lokacji
 
-* Około 1,5 raza zapisu IOPS na serwerze podstawowym.
-* Około 37% całkowitej IOPS w lokacji głównej.
+* Witaj około 1,5 raza zapisu IOPS na powitania podstawowego.
+* 37% hello całkowity około IOPS hello lokacji głównej.
 
 ![Wyniki dodatkowej](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744917.png)
 
@@ -77,35 +77,35 @@ Liczba operacji We/Wy w lokacji odzyskiwania jest funkcją liczbę operacji zapi
 
 ## <a name="effect-on-network-utilization"></a>Wpływ na wykorzystanie sieci
 
-Średnia 275 Mb na sekundę przepustowości sieci zostało użyte między węzłami podstawowymi i odzyskiwania (z włączoną kompresją) względem istniejących przepustowości 5 Gb na sekundę.
+Średnio 275 Mb na sekundę przepustowość sieci zostało użyte między hello podstawowego i węzły odzyskiwania (z włączoną kompresją) względem istniejących przepustowości 5 Gb na sekundę.
 
 ![Wykorzystanie sieci wyników](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
 ## <a name="effect-on-vm-performance"></a>Wpływ na wydajność maszyny Wirtualnej
 
-Ważną kwestią jest jego wpływ na replikację w przypadku obciążeń produkcyjnych uruchomionych na maszynach wirtualnych. Jeśli w lokacji głównej można ją było właściwie jest przeznaczona do replikacji, brak nie powinny być ich wpływ na obciążenie. Lightweight funkcji Hyper-V Replica śledzenia mechanizm zapewnia nie dotyczy obciążeń uruchomionych na maszynach wirtualnych podczas replikacji stanie stabilności. Jest to zilustrowane na poniższych wykresach.
+Ważną kwestią jest wpływ hello replikację w przypadku obciążeń produkcyjnych uruchomionych na maszynach wirtualnych hello. Jeśli lokacja główna hello odpowiednio jest przeznaczona do replikacji, na powitania obciążeń nie powinny istnieć żadnych skutków. Lightweight funkcji Hyper-V Replica śledzenia mechanizm zapewnia nie dotyczy obciążeń uruchomionych na maszynach wirtualnych hello podczas replikacji stanie stabilności. Jest to zilustrowane w powitania po wykresy.
 
-Ten wykres pokazuje liczbę IOPS wykonywane przez różnych obciążeń przed maszynami wirtualnymi, po włączeniu replikacji. Można obserwować, czy nie ma żadnej różnicy między nimi.
+Ten wykres pokazuje liczbę IOPS wykonywane przez różnych obciążeń przed maszynami wirtualnymi, po włączeniu replikacji. Można obserwować, czy nie ma żadnej różnicy między hello dwa.
 
 ![Wyniki efekt repliki](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744920.png)
 
-Wykres ukazuje przepływności maszyn wirtualnych uruchomionych w różnych obciążeń przed i po włączeniu replikacji. Można obserwować, czy replikacja nie ma znaczący wpływu.
+Witaj Wykres ukazuje przepływności hello maszyn wirtualnych uruchomionych w różnych obciążeń przed i po włączeniu replikacji. Można obserwować, czy replikacja nie ma znaczący wpływu.
 
 ![Efekty repliki wyników](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z funkcji Hyper-V Replica skaluje się z co najmniej w czasie dużych klastra.  Usługa Azure Site Recovery zawiera proste wdrożenie, replikacji, zarządzania i monitorowania. Repliki funkcji Hyper-V udostępnia infrastrukturę niezbędne zakończona pomyślnie replikacja skalowania. Do planowania wdrożenia optymalne Sugerujemy, możesz pobrać [funkcji Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
+Witaj wyraźnie w wynikach usługi Azure Site Recovery, w połączeniu z funkcji Hyper-V Replica skaluje się z co najmniej w czasie dużych klastra.  Usługa Azure Site Recovery zawiera proste wdrożenie, replikacji, zarządzania i monitorowania. Repliki funkcji Hyper-V zapewnia infrastrukturę niezbędne hello zakończona pomyślnie replikacja skalowania. Do planowania wdrożenia optymalne Sugerujemy Pobierz hello [funkcji Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
 
 ## <a name="test-environment-details"></a>Szczegóły środowiska testowego
 
 ### <a name="primary-site"></a>Lokacja główna
 
-* Lokacja główna ma klastrze zawierającym pięć serwerów funkcji Hyper-V uruchomione maszyny wirtualne 470.
-* Maszyny wirtualne są uruchamiane różnych obciążeń i mieć włączone ochrony Azure Site Recovery.
-* Magazyn dla węzła klastra jest zapewniana przez sieć SAN iSCSI. Model — Hitachi HUS130.
+* lokacja główna Hello ma klastrze zawierającym pięć serwerów funkcji Hyper-V uruchomione maszyny wirtualne 470.
+* Hello maszyny wirtualne są uruchamiane różnych obciążeń i mieć włączone ochrony Azure Site Recovery.
+* Magazyn dla węzła klastra hello są udostępniane przez sieci SAN iSCSI. Model — Hitachi HUS130.
 * Każdy serwer klastra ma cztery karty sieciowe (NIC) z jedną GB.
-* Dwie karty sieciowe są podłączone do sieci prywatnej iSCSI i dwa są podłączone do sieci zewnętrznej przedsiębiorstwa. Jedną z sieci zewnętrznej jest zarezerwowana dla tylko na komunikację klastra.
+* Dwie karty sieciowe hello są sieci prywatnej iSCSI połączony tooan i są dwie sieci przedsiębiorstwa zewnętrznego podłączonego tooan. Jedną z sieci zewnętrznych hello jest zarezerwowana dla tylko na komunikację klastra.
 
 ![Podstawowe wymagania sprzętowe](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
@@ -116,8 +116,8 @@ Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z fu
 
 ### <a name="secondary-recovery-site"></a>Lokacja dodatkowa (odzyskiwania)
 
-* Lokacja dodatkowa ma klastra pracy awaryjnej sześciu węzłów.
-* Magazyn dla węzła klastra jest zapewniana przez sieć SAN iSCSI. Model — Hitachi HUS130.
+* Witaj lokacji dodatkowej ma klastra pracy awaryjnej sześciu węzłów.
+* Magazyn dla węzła klastra hello są udostępniane przez sieci SAN iSCSI. Model — Hitachi HUS130.
 
 ![Specyfikacja podstawowy sprzęt](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
@@ -131,8 +131,8 @@ Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z fu
 ### <a name="server-workloads"></a>Obciążenie serwera
 
 * Do celów testowych możemy pobrać obciążeń często używane w scenariuszach dla przedsiębiorstw klienta.
-* Używamy [IOMeter](http://www.iometer.org) z cech obciążenia podsumowane w tabeli na symulacyjnych.
-* Wszystkie profile IOMeter są ustawione na zapis losowych bajtów do symulowania najgorszych zapisu wzorce dla obciążeń.
+* Używamy [IOMeter](http://www.iometer.org) z cech obciążenia hello podsumowane w tabeli hello na symulacyjnych.
+* Wszystkie profile IOMeter są ustawiane toowrite losowych bajtów toosimulate najgorszych zapisu wzorce dla obciążeń.
 
 | Obciążenie | We/Wy rozmiar (KB) | % Dostępu | % Odczytu | Oczekujące operacje We/Wy | Wzorzec operacji We/Wy |
 | --- | --- | --- | --- | --- | --- |
@@ -144,9 +144,9 @@ Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z fu
 
 ### <a name="vm-configuration"></a>Konfiguracja maszyny Wirtualnej
 
-* 470 maszyny wirtualne w klastrze podstawowego.
+* 470 maszyn wirtualnych w klastrze głównej hello.
 * Wszystkie maszyny wirtualne z dysku VHDX.
-* Maszyny wirtualne z obciążeniami podsumowane w tabeli. Wszystkie zostały utworzone szablony programu VMM.
+* Maszyny wirtualne z obciążeniami podsumowane w tabeli hello. Wszystkie zostały utworzone szablony programu VMM.
 
 | Obciążenie | # Maszyny wirtualne | Minimalna ilość pamięci RAM (GB) | Maksymalna ilość pamięci RAM (GB) | Rozmiar dysku logicznego (GB) dla maszyny Wirtualnej | Maksymalna liczba IOPS |
 | --- | --- | --- | --- | --- | --- |
@@ -159,10 +159,10 @@ Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z fu
 
 ### <a name="site-recovery-settings"></a>Ustawienia odzyskiwania lokacji
 
-* Usługa Azure Site Recovery został skonfigurowany do środowiska lokalnego do ochrony lokalnej
-* Serwer VMM ma cztery skonfigurowaną chmurę, zawierającą serwery w klastrze funkcji Hyper-V i maszynami wirtualnymi.
+* Usługa Azure Site Recovery został skonfigurowany do ochrony lokalnego tooon lokalnej
+* Serwer VMM Hello ma cztery skonfigurowaną chmurę, zawierającą serwery klastra funkcji Hyper-V hello oraz ich maszyn wirtualnych.
 
-| Podstawowy chmury VMM | Chronione maszyny wirtualne w chmurze | Częstotliwość replikacji | Dodatkowe punkty odzyskiwania |
+| Podstawowy chmury VMM | Chronione maszyny wirtualne w chmurze hello | Częstotliwość replikacji | Dodatkowe punkty odzyskiwania |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15 minut. |Brak |
 | PrimaryCloudRpo30s |47 |30 sekund |Brak |
@@ -171,7 +171,7 @@ Wyraźnie wyniki wskazują, czy usługi Azure Site Recovery, w połączeniu z fu
 
 ### <a name="performance-metrics"></a>Metryki wydajności
 
-W tabeli przedstawiono metryki wydajności i liczniki, które zostały zmierzone w ramach wdrożenia.
+Tabela Hello zawiera podsumowanie hello metryki wydajności i liczniki, które zostały mierzony w hello wdrożenia.
 
 | Metryka | Licznik |
 | --- | --- |

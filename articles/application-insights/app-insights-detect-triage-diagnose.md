@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi Azure Application Insights dla DevOps | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać usługi Application Insights w środowisku Ops deweloperów."
+title: aaaOverview Azure Application Insights dla DevOps | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse usługi Application Insights w środowisku Ops deweloperów."
 author: CFreemanwa
 services: application-insights
 documentationcenter: 
@@ -13,101 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: bwren
-ms.openlocfilehash: 4f9578fd39b80496a8de060b6cae8f5612e03aa7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42139f4645e815f26378726f4716a9bfbdc78551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Omówienie usługi Application Insights dla opracowywania oprogramowania
 
-Z [usługi Application Insights](app-insights-overview.md), można szybko znaleźć się, jak aplikacja działa i jest używany w przypadku na żywo. W przypadku problemu go informuje o go, pomaga ocenić wpływ i pomaga ustalić przyczynę.
+Z [usługi Application Insights](app-insights-overview.md), można szybko znaleźć się, jak aplikacja działa i jest używany w przypadku na żywo. W przypadku problemu go informuje o go, pomaga ocenić wpływ hello i pozwalają określić przyczynę hello.
 
 Oto konta od zespołu rozwija aplikacji sieci web:
 
-* *"Kilku dni temu, wdrożyliśmy"drobna"poprawki. Firma Microsoft nie został uruchomiony przebiegu testowego szerokie, ale Niestety niektórych nieoczekiwane zmiany otrzymano scalone ładunek, co powoduje niezgodność między z przodu i zaplecza. Natychmiast uruchamiany naszych alert wzrósł wyjątki serwera, i zostały wprowadziliśmy świadome sytuacji. Kilka kliknięć optymalizacji w portalu usługi Application Insights dotarliśmy wystarczających informacji z callstacks wyjątek, aby zawęzić problem. Firma Microsoft niezwłocznie wycofana i ograniczone szkody. Application Insights wprowadził ta część devops cykl bardzo łatwe i możliwością."*
+* *"Kilku dni temu, wdrożyliśmy"drobna"poprawki. Firma Microsoft nie został uruchomiony przebiegu testowego szerokie, ale Niestety niektórych nieoczekiwane zmiany otrzymano scalone hello ładunek, co powoduje niezgodność między przodu hello i zaplecza. Natychmiast uruchamiany naszych alert wzrósł wyjątki serwera, i zostały wprowadziliśmy świadome sytuacji hello. Kilka kliknięć optymalizacji w portalu usługi Application Insights hello dotarliśmy wystarczających informacji z toonarrow callstacks wyjątek w dół hello problem. Firma Microsoft wycofana natychmiast i ograniczone hello uszkodzenia. Application Insights wprowadził ta część hello devops cykl bardzo łatwe i możliwością."*
 
-W tym artykule możemy wykonaj zespołu w banku firmy Fabrikam, który rozwija system banku online (OBS), aby zobaczyć, jak korzystają z usługi Application Insights szybkie odpowiadanie na klientów i aktualizacje.  
+W tym artykule możemy wykonaj zespołu w banku firmy Fabrikam, że osiąga hello online banków toosee systemu (OBS), jak używać usługi Application Insights tooquickly odpowiadają toocustomers i aktualizacje.  
 
-Zespół działa w cyklu opracowywania oprogramowania, przedstawione na poniższej ilustracji:
+Hello zespołu działa w cyklu opracowywania oprogramowania pokazana na następującej ilustracji hello:
 
 ![Cyklu opracowywania oprogramowania](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Wymagania dotyczące źródła danych do ich programowanie zaległości (Lista zadań). Funkcje te działają w skrócie przebiegów, które często dostarczają oprogramowania pracy — zwykle w postaci ulepszenia i rozszerzenia do istniejącej aplikacji. Aktywnej aplikacji jest często aktualizowana o nowe funkcje. Mimo że jest na żywo, zespół monitoruje wydajności i użycia za pomocą usługi Application Insights. Źródła danych APM do ich zaległości programowanie.
+Wymagania dotyczące źródła danych do ich programowanie zaległości (Lista zadań). Funkcje te działają w skrócie przebiegów, które często dostarczają oprogramowania pracy — zwykle w formie hello istniejącej aplikacji toohello ulepszenia i rozszerzenia. aktywnej aplikacji Hello jest często aktualizowana o nowe funkcje. Mimo że jest na żywo, zespołu hello monitoruje wydajności i użycia za pomocą hello usługi Application Insights. Źródła danych APM do ich zaległości programowanie.
 
-Zespół używa usługi Application Insights do aplikacji sieci web na żywo uważnie monitorować:
+zespół Hello używa usługi Application Insights toomonitor hello sieci web aplikacji ściśle dla:
 
-* Wydajność. Chcą, aby zrozumieć, jak czas reakcji zależy od liczby żądań; ile procesora CPU, sieci, dysku i inne zasoby są używane; i wąskich gardeł.
-* Błędy. Jeśli istnieją wyjątki lub nieudanych żądań, lub jeśli licznik wydajności nie jest poza zakresem doświadczenia, zespół musi znać szybko, aby potencjalnie akcji.
-* Użycie. Przypadku nową funkcję, zespół chce dowiedzieć się, w jakim jest używany i czy użytkownicy mają trudności z nim.
+* Wydajność. Mają one toounderstand jak czas reakcji zależy od liczby żądań; ile procesora CPU, sieci, dysku i inne zasoby są używane; i gdzie hello wąskich gardeł.
+* Błędy. Jeśli istnieją wyjątki żądań zakończonych niepowodzeniem lub jeśli licznik wydajności nie jest poza zakresem doświadczenia, hello tooknow potrzeb zespołu szybko, aby potencjalnie akcji.
+* Użycie. Przypadku nową funkcję, zespołu hello mają tooknow toowhat zakresu, który jest używany i czy użytkownicy mają trudności z nim.
 
-Ta funkcja pozwala skupić się na opinie część cyklu:
+Ta funkcja pozwala skupić się na hello opinii część cyklu hello:
 
 ![Wykryj klasyfikacji diagnozowanie](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Wykryj niską dostępności
-Marcela Markova jest starszy developer zespołu OBS i Trwa liderem monitorowania wydajności w trybie online. Użytkownik konfiguruje kilka [testów dostępności](app-insights-monitor-web-app-availability.md):
+Marcela Markova jest starszy developer hello OBS zespołu i Trwa liderem hello monitorowania wydajności w trybie online. Użytkownik konfiguruje kilka [testów dostępności](app-insights-monitor-web-app-availability.md):
 
-* Adres URL jednym testu dla strony głównej docelowej dla aplikacji, http://fabrikambank.com/onlinebanking/. Ustawia ona kryteria HTTP o kodzie 200 i tekst "Witaj!". W przypadku niepowodzenia tego testu jest poważny problem z siecią lub serwerów lub może być problem wdrażania. (Lub ktoś zmienił Zapraszamy! komunikat na stronie bez umożliwienie jej znanych).
-* Lepszy badanie wieloetapowych, loguje i pobiera bieżącego konta wyświetlania, sprawdzanie kilku szczegółów klucza na każdej stronie. Ten test sprawdza, czy działa łącze do bazy danych kont. Używa identyfikatora klienta fikcyjne: niektóre z nich, które są obsługiwane dla celów testowych.
+* Test adresu URL jednym hello strony głównej docelowej dla aplikacji hello http://fabrikambank.com/onlinebanking/. Ustawia ona kryteria HTTP o kodzie 200 i tekst "Witaj!". W przypadku niepowodzenia tego testu jest poważny problem ze hello sieć, serwery hello lub może być problem wdrażania. (Lub ktoś zmienił hello Zapraszamy! komunikat na stronie powitania bez umożliwienie jej znanych).
+* Lepszy badanie wieloetapowych, loguje i pobiera bieżącego konta wyświetlania, sprawdzanie kilku szczegółów klucza na każdej stronie. Ten test sprawdza, czy działa baza danych tego hello łączy toohello kont. Używa identyfikatora klienta fikcyjne: niektóre z nich, które są obsługiwane dla celów testowych.
 
-Te testy Konfigurowanie Marcela to pewność, że zespół będzie szybko wiedzieć o wszelkich awarii.  
+Te testy Konfigurowanie Marcela to pewność, że tego zespołu hello szybko dowiedzieć się o wszelkich awarii.  
 
-Błędy wyświetlane jako czerwone kropki na wykresie testu sieci web:
+Błędy wyświetlane jako czerwone kropki na wykresie testu sieci web hello:
 
-![Wyświetl testy sieci web, które zostały uruchomione w poprzednim okresie](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Wyświetlanie uruchomionych na powitania poprzedzający okres testów sieci web](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ale co ważniejsze, pocztą e-mail alert o niezgodności zespół deweloperów. W ten sposób wiedzą o tym przed niemal wszystkich klientów.
+Ale co ważniejsze, alert o niezgodności wysyłany pocztą e-mail toohello zespół deweloperów. W ten sposób wiedzą o tym przed hello niemal wszystkich klientów.
 
 ## <a name="monitor-performance"></a>Monitorowanie wydajności
-Na stronie Przegląd w usłudze Application Insights jest wykres przedstawiający różnych [kluczowe metryki](app-insights-web-monitor-performance.md).
+Na stronie Przegląd hello w usłudze Application Insights jest wykres przedstawiający różnych [kluczowe metryki](app-insights-web-monitor-performance.md).
 
 ![Różnych metryk](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Czas ładowania strony przeglądarki jest pochodną telemetrii wysyłane bezpośrednio ze stron sieci web. Czas odpowiedzi serwera, liczba żądań na serwerze i liczba żądań zakończonych niepowodzeniem są wszystkie mierzony na serwerze sieci web i wysyłane do usługi Application Insights z tego miejsca.
+Czas ładowania strony przeglądarki jest pochodną telemetrii wysyłane bezpośrednio ze stron sieci web. Czas odpowiedzi serwera, liczba żądań na serwerze i liczba nieudanych żądań są wszystkie mierzony w powitania serwera sieci web i wysyłane tooApplication szczegółowych informacji z tego miejsca.
 
-Marcela jest nieco związane z wykres odpowiedzi serwera. Ten wykres pokazuje średni czas od kiedy serwer odbiera żądanie HTTP z przeglądarki użytkownika i kiedy zwraca odpowiedź. Nie jest rzadko zobaczyć zmianę na tym wykresie, jak obciążenia w systemie. Ale w takim przypadku wydaje się być korelacja małych wzrostu liczby żądań, a big wzrośnie w czasie odpowiedzi. Który może wskazywać system działa tylko podczas pracy z maksymalną wydajnością.
+Marcela jest nieco związane z powitania serwera odpowiedzi wykresu. Ten wykres pokazuje średni czas powitania od kiedy hello serwer odbiera żądanie HTTP z przeglądarki użytkownika i kiedy zwraca odpowiedź hello. Jak obciążenia na powitania systemu nie jest toosee nietypowe zachowanie podczas zmiany na tym wykresie. Jednak w takim przypadku wydaje się, że toobe korelacja małych wzrostu hello liczba żądań, a big wzrośnie hello czas odpowiedzi. Który może wskazywać, że hello system działa tylko podczas pracy z maksymalną wydajnością.
 
-Użytkownik otwiera wykresy serwerów:
+Użytkownik otwiera hello wykresy serwerów:
 
 ![Różnych metryk](./media/app-insights-detect-triage-diagnose/06.png)
 
-Wydaje się nie logowania ograniczenia zasobów, dlatego może być nierówności na wykresach odpowiedzi serwera są po prostu zbieżność.
+Prawdopodobnie toobe nie znak ograniczenia zasobów, dlatego może być nierówności hello na wykresach odpowiedzi serwera hello są właśnie zbieżność.
 
-## <a name="set-alerts-to-meet-goals"></a>Ustaw alerty w celu spełnienia celów
-Niemniej jednak użytkownik chce śledzić na czas odpowiedzi. Komputery przechodzą zbyt duże, chce od razu wiedzieć o nim.
+## <a name="set-alerts-toomeet-goals"></a>Ustaw alerty toomeet cele
+Niemniej jednak użytkownik chcieliby tookeep oka na powitania czasy odpowiedzi. Jeśli komputery przechodzą zbyt duże, chce tooknow informacji na ten temat natychmiast.
 
 Dlatego użytkownik ustawia [alert](app-insights-metrics-explorer.md), dla większy niż próg typowy czas odpowiedzi. Dzięki temu jej pewność, że użytkownik będzie wiadomo o nim gdy czas reakcji wolno.
 
 ![Dodawanie bloku alertu](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Alerty można ustawić na różnych innych metryk. Na przykład można otrzymywać wiadomości e-mail, jeśli wzrośnie liczba wyjątków lub niski przechodzi ilość dostępnej pamięci lub brak szczytu w żądań klientów.
+Alerty można ustawić na różnych innych metryk. Na przykład można otrzymywać wiadomości e-mail, jeśli wzrośnie liczba wyjątków hello lub niski przechodzi hello dostępnej pamięci lub brak szczytu w żądań klientów.
 
 ## <a name="stay-informed-with-smart-detection-alerts"></a>Poinformują Cię o alerty o wykryciu inteligentne
-Następnego dnia alertów e-mail odbierane z usługi Application Insights. Jednak gdy użytkownik otwiera, użytkownik stwierdza, że nie jest ona ustawiona alert czas odpowiedzi. Zamiast tego informuje o tym jej czy został nagły wzrost nieudanych żądań — to znaczy żądań, które zwrócone kodów błędu 500 lub więcej.
+Następnego dnia alertów e-mail odbierane z usługi Application Insights. Jednak gdy użytkownik otwiera, użytkownik stwierdza, że nie jest alertu czasu odpowiedzi hello ona ustawiona. Zamiast tego informuje o tym jej czy został nagły wzrost nieudanych żądań — to znaczy żądań, które zwrócone kodów błędu 500 lub więcej.
 
-Żądań zakończonych niepowodzeniem są, gdzie użytkownicy jak już wspomniano błędu — zwykle po wyjątek w kodzie. Może być zobaczy komunikat informujący o tym "Niestety nie można teraz zaktualizować szczegóły". Lub na bezwzględne najgorszy Zakłopotanie, zrzut stosu jest wyświetlany na ekranie użytkownika, dzięki uprzejmości: serwer sieci web.
+Żądań zakończonych niepowodzeniem są, gdzie umieścić błąd — zwykle po wyjątek w kodzie hello użytkowników. Może być zobaczy komunikat informujący o tym "Niestety nie można teraz zaktualizować szczegóły". Lub bezwzględną najgorszy Zakłopotanie, zrzut stosu wydaje na ekranie powitania użytkownika dzięki uprzejmości: hello serwera sieci web.
 
-Ten alert jest zaskoczeniem, ponieważ czasu, gdy użytkownik przeglądał, liczba nieudanych żądań encouragingly niski. Mała liczba błędów jest w zajęty serwer.
+Ten alert jest zaskoczeniem, ponieważ hello czasu, gdy użytkownik przeglądał, hello nie powiodło się żądanie count była encouragingly niski. Mała liczba błędów jest toobe oczekiwane na serwerze zajęty.
 
-Również nieco zaskoczeniem dla jej ponieważ użytkownik nie ma do konfigurowania tego alertu. Usługa Application Insights obejmują wykrywanie inteligentne. Automatycznie go można dostosować do wzorca zwykle awarii aplikacji i "jest używany do" błędów na konkretnej stronie lub mocno obciążony lub z innych metryk. Alarm uruchamia tylko wtedy, gdy wzrost powyżej pochodzi mogą się spodziewać.
+Również nieco zaskoczeniem dla jej ponieważ użytkownik nie ma tooconfigure ten alert. Usługa Application Insights obejmują wykrywanie inteligentne. Automatycznie dostosowuje tooyour aplikacji zwykle awarii wzorzec, "jest używany do" błędy i na konkretnej stronie, lub wysokie obciążenie albo połączonego tooother metryki. Uruchamia hello alarm tylko wtedy, gdy wzrost powyżej jakie pochodzi tooexpect.
 
 ![proaktywna Diagnostyka poczty e-mail](./media/app-insights-detect-triage-diagnose/21.png)
 
-Jest to bardzo przydatne wiadomości e-mail. Go nie tylko podnieść alarmu. Robi zbyt wiele klasyfikacji i diagnostycznych pracy.
+Jest to bardzo przydatne wiadomości e-mail. Go nie tylko podnieść alarmu. Robi zbyt wiele hello klasyfikacji i diagnostycznych pracy.
 
-Przedstawia on dotyczy ilu użytkowników i strony sieci web lub operacji. Marcela można zdecydować, czy użytkownik musi pobrać całego zespołu pracujących na tym, jak szczegółowego fire lub czy można go zignorować dopiero w następnym tygodniu.
+Przedstawia on dotyczy ilu użytkowników i strony sieci web lub operacji. Marcela można zdecydować, czy potrzebuje tooget hello całego zespołu pracujących na tym, jak szczegółowego fire, lub czy można go zignorować dopiero w następnym tygodniu.
 
-Wiadomości e-mail zawiera także określonego wyjątek wystąpił czy — nawet więcej interesujące — że błędu jest skojarzony z niepowodzeniem wywołania określonej bazy danych. W tej sekcji wyjaśniono, dlaczego usterki nagle pojawił się nawet zespołu w Marcela ostatnio nie wdrożono żadnych aktualizacji.
+Hello poczty e-mail zawiera także określonego wyjątek wystąpił, czy - jeszcze bardziej interesującego — awarii hello jest skojarzony z określoną bazę danych tooa wywołania nie powiodło się. W tej sekcji wyjaśniono, dlaczego błędów hello nagle pojawił się nawet zespołu w Marcela ostatnio nie wdrożono żadnych aktualizacji.
 
-Marcella wysyła polecenie ping wiodące zespołu bazy danych na podstawie tej wiadomości e-mail. Użytkownik uzyskuje informacje o ich zwolnienie poprawki w ciągu ostatnich pół godziny; i Niestety, może być mogło być zmiany schematu pomocnicza...
+Wiodącymi hello polecenia ping Marcella hello zespołu bazy danych na podstawie tej wiadomości e-mail. Użytkownik uzyskuje informacje o ich zwolnienie poprawki w hello ostatnich pół godziny; i Niestety, może być mogło być zmiany schematu pomocnicza...
 
-Dlatego problemu znajduje się na sposobem jest ustalany, nawet przed badania dzienników i w ciągu 15 minut, jego wynikające. Jednak Marcela kliknie łącze, aby otworzyć usługę Application Insights. Użytkownik może uzyskać bazy danych nie powiodło się wywołanie w skojarzonej listy wywołania zależności i otwiera bezpośrednio na żądanie nie powiodło się.
+Dlatego hello problem znajduje się na toobeing sposób hello stałej, nawet przed badania dzienników i w ciągu 15 minut, jego wynikające. Jednak Marcela kliknie hello łącze tooopen usługi Application Insights. Użytkownik może uzyskać bazy danych nie powiodło się wywołanie hello skojarzone liście wywołania zależności i otwiera bezpośrednio na żądanie nie powiodło się.
 
 ![żądanie nie powiodło się](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Wykryj wyjątków
-Z niewielki instalacji [wyjątki](app-insights-asp-net-exceptions.md) zgłoszony do usługi Application Insights automatycznie. One również można przechwycić jawnie przez wstawianie wywołania do [funkcji TrackException()](app-insights-api-custom-events-metrics.md#trackexception) do kodu:  
+Z niewielki instalacji [wyjątki](app-insights-asp-net-exceptions.md) są automatycznie zgłoszony tooApplication szczegółowych informacji. One również można przechwycić jawnie przez zbyt Wstawianie wywołania[funkcji TrackException()](app-insights-api-custom-events-metrics.md#trackexception) hello kodu:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -123,14 +123,14 @@ Z niewielki instalacji [wyjątki](app-insights-asp-net-exceptions.md) zgłoszony
        var measurements = new Dictionary <string, double>
          {{"Users", currentGame.Users.Count}};
 
-       // Send the exception telemetry:
+       // Send hello exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
 
 
-Zespołu Fabrikam Bank powstał praktyka zawsze wysyłania danych telemetrycznych z powodu wyjątku, chyba że istnieje oczywiste odzyskiwania.  
+zespołu Fabrikam Bank Hello powstał praktyki hello zawsze wysyłania danych telemetrycznych z powodu wyjątku braku oczywista odzyskiwania.  
 
-W rzeczywistości jest szersze niż ich strategii: wysyłają dane telemetryczne w każdym przypadku, gdy klient jest sfrustrowani w ich potrzeb w celu czy lub nie odpowiada wyjątek w kodzie. Na przykład jeśli system zewnętrzny transferu między bank zwraca komunikat "nie można ukończyć tej transakcji" jakiegoś powodu operacyjne (nie błąd klienta) następnie śledzą tego zdarzenia.
+W rzeczywistości jest szersze niż ich strategii: wysyłają dane telemetryczne w każdej sytuacji, gdy powitania klienta są sfrustrowani, w jaki chcieli toodo, czy odpowiadający mu tooan wyjątek w kodzie hello, lub nie. Na przykład jeśli system zewnętrzny transferu między bank hello zwraca komunikat "nie można ukończyć tej transakcji" jakiegoś powodu operacyjne (nie odporności powitania klienta) następnie śledzą tego zdarzenia.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -142,93 +142,93 @@ W rzeczywistości jest szersze niż ich strategii: wysyłają dane telemetryczne
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException jest używane do zgłaszania wyjątkami, ponieważ wysyła kopię stosu. TrackEvent jest używane do zgłaszania inne zdarzenia. Możesz dołączyć wszystkie właściwości, które mogą być przydatne do rozpoznania.
+TrackException jest używane tooreport wyjątki, ponieważ wysyła kopię stosu hello. TrackEvent jest tooreport używane inne zdarzenia. Możesz dołączyć wszystkie właściwości, które mogą być przydatne do rozpoznania.
 
-Wyjątki i zdarzenia wyświetlane w [diagnostycznych wyszukiwania](app-insights-diagnostic-search.md) bloku. Aby przejść do szczegółów w je, aby wyświetlić dodatkowe właściwości i ślad stosu.
+Wyjątki i zdarzenia wyświetlane w hello [diagnostycznych wyszukiwania](app-insights-diagnostic-search.md) bloku. Można przejść do szczegółów w nich toosee hello dodatkowe właściwości i ślad stosu.
 
-![W wyszukiwaniu diagnostycznych za pomocą filtrów można wyświetlić określonego typu danych](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![W wyszukiwaniu diagnostycznych Użyj filtrów tooshow określonego typu danych](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Aktywne monitorowanie
-Marcela nie tylko znajdują się wokół oczekiwanie na alerty. Wkrótce po każdym ponownego wdrażania, klika przedstawia [czas reakcji](app-insights-web-monitor-performance.md) — zarówno rysunek ogólny, jak i tabeli najwolniejsze żądania, a także liczby wyjątków.  
+Marcela nie tylko znajdują się wokół oczekiwanie na alerty. Wkrótce po każdym ponownego wdrażania, klika przedstawia [czas reakcji](app-insights-web-monitor-performance.md) — zarówno hello ogólną rysunek i liczby tabeli hello najwolniejsze żądania, a także wyjątek.  
 
 ![Wykres czasu odpowiedzi i siatki czas odpowiedzi serwera.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Ona ocenić wpływ wydajności każdego wdrożenia zwykle porównanie każdej tydzień z ostatniego. W przypadku nagłego pogorszenia, klika który zgłasza z odpowiednimi deweloperów.
+Użytkownik ocenić wpływ na wydajność hello każdego wdrożenia zwykle porównanie każdej tydzień z hello ostatnio. W przypadku nagłego pogorszenia, klika który zgłasza z deweloperami odpowiednich hello.
 
 ## <a name="triage-issues"></a>Klasyfikacji problemów
-Klasyfikacja — ocenę ważności i zakres problem — jest to pierwszy etap po wykryciu. Należy nazywamy limit zespołu o północy? Lub może on pozostać aż do następnego wygodny przerwa w zaległości? Istnieją pewne ważne pytania w klasyfikacji.
+Klasyfikacja — ocenę ważności hello i zakres problem — jest pierwszym krokiem hello po wykryciu. Należy nazywamy limit zespołu hello o północy? Lub może on pozostać do hello dalej wygodny przerwa w hello zaległości? Istnieją pewne ważne pytania w klasyfikacji.
 
-Jak często jest wykonywane? Wykresy w bloku omówienie nadaj niektóre perspektywy problemu. Na przykład aplikacji firmy Fabrikam wygenerowanych cztery alerty testu sieci web co noc. Patrzeć na wykresie w nocy, zespół mogliby zobaczyć wystąpiły rzeczywiście niektórych punktów czerwony, chociaż większość nadal testy zostały zielony. Przechodzenia do wykresu dostępności szczegółów, jest jasne, czy zostały wszystkie te sporadyczne problemy z lokalizacji jeden test. Oczywiście była wpływające na tylko jedną trasę problem z siecią i najprawdopodobniej będzie wyczyść samej siebie.  
+Jak często jest wykonywane? Wykresy Hello w bloku omówienie hello nadaj pewien problem tooa perspektywy. Na przykład hello aplikacji firmy Fabrikam wygenerowanych cztery alerty testu sieci web co noc. Spojrzenie na wykresie hello w rano hello, zespołu hello mogliby zobaczyć wystąpiły w rzeczywistości niektóre czerwone kropki, jakby nadal większość hello testy zostały zielony. Przechodzenia do wykresu dostępności hello szczegółów, jest jasne, czy zostały wszystkie te sporadyczne problemy z lokalizacji jeden test. Oczywiście była wpływające na tylko jedną trasę problem z siecią i najprawdopodobniej będzie wyczyść samej siebie.  
 
-Z kolei znacznej i stabilna wzrostu na wykresie wyjątek razy liczby lub odpowiedzi jest oczywiście coś do awaryjne o.
+Z kolei znacznej i stabilnego wzrost wykres hello liczby wyjątków lub czas odpowiedzi to oczywiście element toopanic o.
 
-Działanie przydatne Klasyfikacja jest spróbuj ją samodzielnie. Jeśli napotkasz ten sam problem, wiadomo, że jest prawdziwe.
+Działanie przydatne Klasyfikacja jest spróbuj ją samodzielnie. Jeśli napotkasz hello sam problem, wiadomo, jest prawdziwe.
 
-Jaka część użytkowników dotyczy? Uzyskanie odpowiedzi nierównej dzielenia współczynnik awaryjności przez liczba sesji.
+Jaka część użytkowników dotyczy? tooobtain nierównej odpowiedzi, dzielenia współczynnik awaryjności hello przez hello liczba sesji.
 
 ![Wykresy sesji i żądań zakończonych niepowodzeniem](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-W przypadku odpowiedzi powolne porównać tabeli najwolniejsze odpowiada żądań z częstotliwością użycia każdej strony.
+W przypadku odpowiedzi powolne porównania tabeli hello najwolniejsze odpowiada żądań z hello użycia częstotliwość każdej strony.
 
-Jak ważna jest zablokowane scenariusz? Jeśli jest to problem funkcjonalności blokuje konkretnego scenariusza, czy ma znaczenie znacznie? Jeśli klienci nie mogą ich rachunków, jest to poważny; Jeśli nie mogą zmieniać swoje preferencje kolorów ekranu, może być go wykonać. Szczegóły zdarzenia lub wyjątek lub tożsamość powolne strony informuje o którym występują problemy dotyczące klientów.
+Jak ważna jest scenariusz hello zablokowane? Jeśli jest to problem funkcjonalności blokuje konkretnego scenariusza, czy ma znaczenie znacznie? Jeśli klienci nie mogą ich rachunków, jest to poważny; Jeśli nie mogą zmieniać swoje preferencje kolorów ekranu, może być go wykonać. Witaj szczegółów zdarzenia hello lub wyjątek lub tożsamości hello hello powolne strony, informuje, gdy występują problemy dotyczące klientów.
 
 ## <a name="diagnose-issues"></a>Diagnozowanie problemów
-Diagnostyka nie jest dość taki sam, jak debugowania. Przed rozpoczęciem śledzenia przez kod powinien mieć wstępne informacje o tym, dlaczego, gdzie i kiedy występuje problem.
+Diagnostyka nie jest dość hello jak w przypadku debugowania. Przed rozpoczęciem śledzenia hello kod powinien mieć wstępne informacje o tym, dlaczego, gdzie i kiedy występuje problem hello.
 
-**Gdy jest wykonywana?** Widok historycznych oferowany przez zdarzenia i metryki wykresy ułatwia służące do skorelowania efekty z możliwych przyczyn. Jeśli występują sporadyczne pików kursów czas lub wyjątku odpowiedzi, obejrzyj liczbę żądań: Jeśli pików go w tym samym czasie, a następnie prawdopodobnie problem z zasobów. Czy trzeba przypisać więcej procesorów ani pamięci? Czy jest zależność, która nie może zarządzać obciążenia?
+**Gdy jest wykonywana?**  hello widok historycznych podał wykresów zdarzenia i metryki hello umożliwia łatwe toocorrelate efekty z możliwych przyczyn. Jeśli występują sporadyczne pików kursów czas lub wyjątku odpowiedzi, obejrzyj liczbę żądań hello: jeśli jego pików na powitania sam czasu, a następnie prawdopodobnie problem z zasobów. Potrzebujesz tooassign więcej procesorów ani pamięci? Czy jest zależność, która nie może zarządzać hello obciążenia?
 
-**Jest to nam?**  Ma gwałtowny spadek wydajności danego typu żądania — na przykład jeśli odbiorca chce otrzymywać instrukcji konta -, istnieje możliwość może być zewnętrzny podsystemu zamiast aplikacji sieci web. W Eksploratorze metryk wybierz współczynnik awaryjności zależności i czas trwania zależności stawki i porównać ich historii w ciągu ostatnich kilku godzin lub dni z tym problemem, których zostało wykryte. Jeśli są korelowanie zmiany, zewnętrznych podsystemu może być stronę.  
+**Jest to nam?**  Ma gwałtowny spadek wydajności danego typu żądania — na przykład gdy hello odbiorca chce otrzymywać instrukcji konta -, istnieje możliwość może być zewnętrzny podsystemu zamiast aplikacji sieci web. W Eksploratorze metryk wybierz współczynnik awaryjności zależności hello i czas trwania zależności stawki i porównywanie ich historii hello poza kilka godzin lub dni w przypadku problemu hello zostało wykryte. Jeśli są korelowanie zmiany, zewnętrznych podsystemu może być tooblame.  
 
-![Wykresy zależności błędu i czas trwania wywołania zależności](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Wykresy zależności awarii i czas trwania wywołań toodependencies](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Niektóre problemy powolne zależności są problemy używanie funkcji geolokalizacji. Bank firmy Fabrikam używa maszyn wirtualnych platformy Azure i wykryte, że ma przypadkowo się one serwera sieci web i serwer kont w różnych krajach. Znacznej poprawy został przełączony w tryb przy użyciu funkcji migracji jeden z nich.
 
-**Do czego możemy?** Jeśli problem nie zostanie wyświetlone w zależności, a jeśli go nie zawsze istnieje, prawdopodobnie jest spowodowany przez ostatnich zmian. Historyczne perspektywy podał wykresów metryki i zdarzenia ułatwia służące do skorelowania nagłym zmiany z wdrożeniami. Który zawęża wyszukiwania dla problemu.
+**Do czego możemy?** Jeśli hello problem nie zostanie wyświetlone toobe w zależności, a jeśli go nie zawsze istnieje, prawdopodobnie jest spowodowany przez ostatnich zmian. Hello historycznych perspektywy podał hello wykresy metryk i zdarzeń umożliwia łatwe toocorrelate nagły zmiany z wdrożeniami. Który zawęża hello Wyszukaj hello problem.
 
-**Co się dzieje?** Niektóre problemy występują rzadko i może być trudne do śledzenia podczas testów w trybie offline. To wszystko, co można zrobić próba przechwytywania błędu, jeśli występuje on na żywo. Możesz sprawdzić zrzuty stosu w raportach wyjątku. Ponadto można napisać śledzenia wywołań, Twoje struktury rejestrowania ulubionych albo TrackTrace() lub funkcji TrackEvent().  
+**Co się dzieje?** Niektóre problemy występują rzadko i może być trudne tootrack dół testując w trybie offline. Wszystko, co można zrobić jest tootry toocapture hello błąd, jeśli występuje on na żywo. Możesz sprawdzić hello zrzuty stosu w raportach wyjątku. Ponadto można napisać śledzenia wywołań, Twoje struktury rejestrowania ulubionych albo TrackTrace() lub funkcji TrackEvent().  
 
-Firma Fabrikam miał problem tymczasowy w przypadku transferów między kontami, ale tylko w przypadku niektórych typów kont. Aby lepiej zrozumieć, co zostało dzieje, wstawiane one wywołania TrackTrace() w punktach klucza w kodzie dołączanie typu konta jako właściwość dla każdego wywołania. Który ułatwić filtrowanie tylko te dane śledzenia diagnostycznego wyszukiwania. Wartości parametrów jako właściwości i środki one również dołączone do śledzenia wywołań.
+Firma Fabrikam miał problem tymczasowy w przypadku transferów między kontami, ale tylko w przypadku niektórych typów kont. lepsze toounderstand została co dzieje, ich wstawione wywołania TrackTrace() w najważniejszych w kodzie hello dołączanie hello typu konta jako wywołanie tooeach właściwości. Który wprowadzone go łatwo toofilter się tylko te dane śledzenia w wyszukiwaniu diagnostycznych. Wartości parametrów one również dołączone jako właściwości i środki toohello śledzenie wywołań.
 
-## <a name="respond-to-discovered-issues"></a>Odpowiadanie na wykryte problemy
-Gdy już zdiagnozować problem, możesz wprowadzić planu, aby go rozwiązać. Może być należy wycofać zmiany lub może być tylko Przejdź dalej i rozwiąż problem. Po zakończeniu poprawkę usługi Application Insights informuje, czy powiodło się.  
+## <a name="respond-toodiscovered-issues"></a>Odpowiedź toodiscovered problemów
+Gdy po zdiagnozowaniu problemu hello, możesz wprowadzić toofix planu go. Może być konieczne tooroll ponownie zmiany lub może być można po prostu przejdź dalej i rozwiąż problem. Po zakończeniu poprawka hello usługi Application Insights informuje, czy powiodło się.  
 
-Zespół deweloperów Fabrikam Bank podjąć bardziej ustrukturyzowanymi podejście do pomiaru wydajności niż kiedyś przed ich użyciem usługi Application Insights.
+Zespół deweloperów Fabrikam Bank zająć więcej podejście tooperformance pomiaru niż kiedyś toobefore używały usługi Application Insights.
 
-* Na stronie przeglądu usługi Application Insights one Ustaw cele wydajności pod względem określonej miary.
-* Projekt miary wydajności do aplikacji od początku, takich jak metryki pomiaru postępu użytkownika za pośrednictwem "lejki."  
+* Na stronie przeglądu usługi Application Insights hello one wyznaczać cele pod względem określonej miary.
+* Projekt miary wydajności do aplikacji hello od początku hello, takich jak hello metryki pomiaru postępu użytkownika za pośrednictwem "lejki."  
 
 
 ## <a name="monitor-user-activity"></a>Monitorowanie aktywności użytkownika
-Gdy czas odpowiedzi jest stale prawidłowy i istnieje kilka wyjątków, zespół deweloperów można przejść do użyteczność. Ich można traktować temat poprawić komfort użytkowników oraz zachęcają więcej użytkowników w celach żądany.
+Gdy czas odpowiedzi jest stale prawidłowy i istnieje kilka wyjątków, zespół deweloperów hello może zająć toousability. Można traktować jak tooimprove hello użytkowników i sposób tooencourage więcej użytkowników tooachieve hello potrzeby celów.
 
-Usługa Application Insights można również co zrobić przez użytkowników z aplikacją. Po działa bez problemów, zespół chce wiedzieć, funkcji, które są najbardziej popularnych co użytkowników, takich jak lub mieć trudności z i jak często wracają. Która będzie ułatwiała ich priorytety nadchodzących pracy. I można zaplanować zmierzenie powodzenia każdej funkcji w ramach cyklu programowania. 
+Usługi Application Insights mogą być również używane toolearn, czy użytkownicy z aplikacją. Po uruchomieniu sprawnie, co użytkowników, takich jak lub mieć trudności z i jak często wracają zespołu hello chcieliby tooknow funkcji, które są najbardziej popularnych hello. Która będzie ułatwiała ich priorytety nadchodzących pracy. I ich zaplanować Powodzenie hello toomeasure każdej funkcji jako część hello programowanie cyklu. 
 
-Na przykład podróży typowy użytkownik za pośrednictwem witryny sieci web ma Wyczyść "lejka." Wielu klientów przyjrzeć się stawki różnego rodzaju pożyczki. Mniejsza liczba przejdź do wypełnienia formularza oferty. Tych, którzy pobrać oferty kilka Przejdź dalej i wyjmij pożyczki.
+Na przykład za pośrednictwem witryny sieci web hello podróży typowy użytkownik ma Wyczyść "lejka." Wielu klientów przyjrzeć się stawki hello różnego rodzaju pożyczki. Mniejsza liczba Przejdź toofill w postaci oferty hello. Tych, którzy pobrać oferty kilka Przejdź dalej i wyjmij hello pożyczki.
 
 ![Zlicza widoku strony](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Biorąc pod uwagę, gdy największej liczby klientów porzucić, firmy mogą pracować się, jak mogą uzyskać większą liczbę użytkowników za pomocą do dołu lejka. W niektórych przypadkach może być błąd środowiska (UX) użytkownika — na przykład przycisk 'Dalej' jest trudne do znalezienia lub zgodnie z instrukcjami nie są oczywiste. Bardziej prawdopodobne są bardziej znaczących powodów biznesowych do listy dokumentów: może być stawki pożyczki są zbyt duże.
+Biorąc pod uwagę, gdy hello największej liczby klientów porzucić, hello business można pracować się jak tooget więcej użytkowników za pomocą toohello dołu hello lejkowy. W niektórych przypadkach może być błąd środowiska (UX) użytkownika — na przykład przycisk 'Dalej' hello jest toofind twardym lub instrukcje hello nie są oczywiste. Bardziej prawdopodobne są bardziej znaczących powodów biznesowych do listy dokumentów: może być stawki pożyczki hello są zbyt duże.
 
-Niezależnie od przyczyny, dane pomaga zespołu wyglądają co robią użytkownicy. Kolejnych wywołań śledzenia mogą być wstawiane do pracy szczegółowe. Funkcji TrackEvent() może służyć do liczby wszystkie akcje użytkownika, z dokładniej kliknięć poszczególnych przycisku do znaczących osiągnięć, takich jak płatności poza pożyczki.
+Niezależnie od przyczyn hello danych hello pomaga zespołu hello wyglądają co robią użytkownicy. Więcej śledzenia wywołania mogą być wstawiane toowork szczegółowe. Funkcji TrackEvent() mogą być używane toocount wszystkie akcje użytkownika z hello dokładniej z klika przycisk poszczególnych, osiągnięć toosignificant, takich jak płatności poza pożyczki.
 
-Pobieranie umożliwia zespołu o informacje dotyczące działań użytkownika. Dzisiaj zawsze, gdy projekt nową funkcję, działają się, jak będzie uzyskują swoją opinię na temat jej użycia. Projekt śledzenia wywołań funkcji od początku. Używają opinii zwiększające funkcję w każdym cyklu programowania.
+zespół Hello otrzymuje toohaving używane informacje dotyczące działań użytkownika. Dzisiaj zawsze, gdy projekt nową funkcję, działają się, jak będzie uzyskują swoją opinię na temat jej użycia. Projekt śledzenia wywołań funkcji powitania od początku hello. One funkcja hello opinii tooimprove hello w każdym cyklu programowania.
 
 [Przeczytaj więcej na temat śledzenia użycia](app-insights-usage-overview.md).
 
-## <a name="apply-the-devops-cycle"></a>Zastosuj cyklu opracowywania oprogramowania
-Jest tak jak jedno użycie zespołu usługi Application Insights nie tylko w celu rozwiązywania problemów z poszczególnych, ale aby zwiększyć ich cyklu programistycznym. Mam nadzieję, że jej została podana sugestii dotyczących sposobu usługi Application Insights ułatwia zarządzanie aplikacjami wydajności w aplikacjach.
+## <a name="apply-hello-devops-cycle"></a>Zastosuj hello cyklu opracowywania oprogramowania
+To jest tak jak jedno użycie zespołu usługi Application Insights nie tylko toofix poszczególne problemy, ale tooimprove ich cyklu programistycznym. Mam nadzieję, że jej została podana sugestii dotyczących sposobu usługi Application Insights ułatwia zarządzanie aplikacjami wydajności w aplikacjach.
 
 ## <a name="video"></a>Połączenia wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Następne kroki
-Możesz rozpocząć pracę na kilka sposobów, w zależności od właściwości aplikacji. Wybierz, co dogodny:
+Możesz rozpocząć pracę na kilka sposobów, w zależności od właściwości hello aplikacji. Wybierz, co dogodny:
 
 * [Aplikacja sieci web ASP.NET](app-insights-asp-net.md)
 * [Aplikacja sieci web Java](app-insights-java-get-started.md)
 * [Aplikacja sieci web node.js](app-insights-nodejs.md)
 * Już wdrożone aplikacje hostowane na [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), lub [Azure](app-insights-azure.md).
-* [Strony sieci Web](app-insights-javascript.md) -jednej strony, aplikacji lub strony sieci web zwykłej — Użyj tej samodzielnie lub oprócz opcje serwera.
-* [Badania dostępności](app-insights-monitor-web-app-availability.md) do testowania aplikacji z publicznego Internetu.
+* [Strony sieci Web](app-insights-javascript.md) -jednej strony, aplikacji lub strony sieci web zwykłej — Użyj tej samodzielnie lub w tooany dodanie hello opcji serwera.
+* [Badania dostępności](app-insights-monitor-web-app-availability.md) tootest aplikacji z hello publicznej sieci internet.

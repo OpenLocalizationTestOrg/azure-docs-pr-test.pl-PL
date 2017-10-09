@@ -1,6 +1,6 @@
 ---
-title: "Dodaj odporność na uszkodzenia w przypadku działania kopiowania fabryki danych Azure przez pominięcie niezgodne wierszy | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dodać odporność na uszkodzenia w przypadku działania kopiowania fabryki danych Azure przez pominięcie niezgodne wierszy podczas kopiowania"
+title: "aaaAdd odporność na uszkodzenia w przypadku działania kopiowania fabryki danych Azure przez pominięcie niezgodne wierszy | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooadd odporność na uszkodzenia w przypadku działania kopiowania fabryki danych Azure przez pominięcie niezgodne wierszy podczas kopiowania"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
-ms.openlocfilehash: e2a108752259d5da3b401666c6bdbaad13b7ea90
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e7cf6117655910844b292d340674d8d631450a81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Dodaj odporność na uszkodzenia w przypadku działania kopiowania przez pominięcie niezgodne wierszy
 
-Fabryka danych Azure [działanie kopiowania](data-factory-data-movement-activities.md) oferuje obsługi niezgodne wierszy, gdy kopiowanie danych między źródłowy i odbiorczy magazynów danych na dwa sposoby:
+Fabryka danych Azure [działanie kopiowania](data-factory-data-movement-activities.md) oferuje dwa sposoby toohandle niezgodne wierszy podczas kopiowania danych między źródłowy i odbiorczy magazynów danych:
 
-- Możesz przerwać i niepowodzenie kopiowania działanie w przypadku niezgodnych danych napotkało (domyślnie).
-- Możesz skopiować wszystkie dane przez dodanie odporność na uszkodzenia i pomijanie niezgodne dane wierszy. Ponadto możesz zalogować się niezgodne wiersze magazynu obiektów Blob platformy Azure. Następnie można sprawdzić dziennik Dowiedz się przyczynę błędu, Usuń dane w źródle danych, a następnie ponów działanie kopiowania.
+- Możesz przerwać i niepowodzenie kopiowania hello działanie w przypadku niezgodnych danych napotkało (domyślnie).
+- Można kontynuować toocopy wszystkich danych hello odporności na uszkodzenia i pomijanie niezgodne dane wierszy. Ponadto możesz zalogować się niezgodny wierszy hello magazynu obiektów Blob platformy Azure. Można następnie zbadać hello dziennika toolearn hello Przyczyna niepowodzenia hello, Usuń dane hello na powitania źródła danych i spróbuj ponownie hello działanie kopiowania.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 Działanie kopiowania obsługuje trzy scenariusze wykrywanie, pomijanie i rejestrowanie danych niezgodne:
 
-- **Niezgodność między typem źródła danych i typ macierzysty ujścia**
+- **Niezgodność między hello źródłowego typu danych i typ macierzysty ujścia hello**
 
-    Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, która zawiera trzy **INT** kolumny o typie. Wiersze pliku CSV, które zawierają dane liczbowe, takie jak `123,456,789` są pomyślnie skopiowane do ujścia magazynu. Jednak wiersze zawierające wartości innych niż alfanumeryczne, takie jak `123,456,abc` zostały wykryte jako niezgodna ale są pomijane.
+    Na przykład: kopiowanie danych z pliku CSV w tooa magazynu obiektów Blob SQL bazy danych z definicji schematu, która zawiera trzy **INT** kolumny o typie. Witaj wierszy pliku CSV, które zawierają dane liczbowe, takich jak `123,456,789` została pomyślnie skopiowana toohello ujścia magazynu. Jednak hello wiersze zawierające wartości nieliczbowe, takich jak `123,456,abc` zostały wykryte jako niezgodna ale są pomijane.
 
-- **Niezgodność liczby kolumn między serwerem źródłowym a sink**
+- **Niezgodność hello liczby kolumn między hello źródłowy i odbiorczy hello**
 
-    Na przykład: kopiowanie danych z pliku CSV w magazynie obiektów Blob do bazy danych SQL z definicji schematu, który zawiera sześć kolumn. Wiersze pliku CSV, które zawierają sześć kolumn są została pomyślnie skopiowana do ujścia magazynu. Wiersze pliku CSV, które zawierają więcej lub mniej niż sześć kolumn są wykryte jako niezgodne, są pomijane.
+    Na przykład: kopiowanie danych z pliku CSV w tooa magazynu obiektów Blob SQL bazy danych z definicji schematu, który zawiera sześć kolumn. Witaj pliku CSV, który wierszy zawierających sześć kolumn została pomyślnie skopiowana toohello ujścia magazynu. wiersze pliku CSV Hello, które zawierają więcej lub mniej niż sześć kolumn są wykrywane niezgodne i są pomijane.
 
-- **Naruszenia dotyczącego klucza podstawowego podczas zapisywania relacyjnej bazy danych**
+- **Naruszenia dotyczącego klucza podstawowego podczas zapisywania tooa relacyjnej bazy danych**
 
-    Na przykład: kopiowanie danych z programu SQL server z bazą danych SQL. W bazie danych SQL zbiornika jest zdefiniowany klucz podstawowy, ale taki klucz podstawowy jest zdefiniowany w programie SQL server źródła. Zduplikowane wiersze, które istnieją w źródle nie można skopiować do ujścia. Działanie kopiowania kopiuje tylko pierwszy wiersz źródła danych do ujścia. Wiersze kolejnych źródła, które zawierają zduplikowane wartości klucza podstawowego są wykrywane niezgodne i są pomijane.
+    Na przykład: kopiowanie danych z bazy danych programu SQL server tooa SQL. W bazie danych SQL zbiornika hello jest zdefiniowany klucz podstawowy, ale żaden klucz podstawowy jest zdefiniowany w hello źródła programu SQL server. Hello zduplikowane wiersze, które istnieją w źródle hello nie może być zbiornika toohello skopiowane. Działanie kopiowania kopiuje tylko hello pierwszy wiersz hello źródła danych do zbiornika hello. Witaj źródła kolejnych wierszy, które zawierają hello zduplikowane wartości klucza podstawowego są wykrywane niezgodne i są pomijane.
 
 ## <a name="configuration"></a>Konfiguracja
-W poniższym przykładzie przedstawiono definicji JSON, aby skonfigurować pomijanie niezgodne wierszy w przypadku działania kopiowania:
+Witaj poniższym przykładzie przedstawiono tooconfigure definicji JSON, pomijanie hello niezgodne wierszy w przypadku działania kopiowania:
 
 ```json
 "typeProperties": {
@@ -63,22 +63,22 @@ W poniższym przykładzie przedstawiono definicji JSON, aby skonfigurować pomij
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Włącz pomijanie niezgodne wierszy podczas kopiowania lub nie. | True<br/>Wartość FAŁSZ (ustawienie domyślne) | Nie |
-| **redirectIncompatibleRowSettings** | Grupy właściwości, które można określić, kiedy mają być rejestrowane niezgodne wierszy. | &nbsp; | Nie |
-| **linkedServiceName** | Połączonej usługi magazynu Azure do przechowywania dziennika, który zawiera wiersze zostało pominięte. | Nazwa [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [element AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) połączonej usługi, która odwołuje się do wystąpienia magazynu, który ma być używany do przechowywania plików dziennika. | Nie |
-| **Ścieżka** | Ścieżka pliku dziennika, który zawiera wiersze zostało pominięte. | Określ ścieżki do magazynu obiektów Blob, który ma być używany do rejestrowania danych niezgodne. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener. | Nie |
+| **redirectIncompatibleRowSettings** | Grupy właściwości, które mogą być określone, kiedy mają niezgodne wierszy hello toolog. | &nbsp; | Nie |
+| **linkedServiceName** | Witaj połączonej usługi magazynu Azure toostore hello dziennika, który zawiera wiersze hello pominięte. | Nazwa Hello [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [element AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) połączonej usługi, która odwołuje się toohello magazynu wystąpienia, które mają plik dziennika hello toostore toouse. | Nie |
+| **Ścieżka** | Ścieżka Hello hello pliku dziennika, który zawiera hello pominięte wierszy. | Określ, które mają niezgodne dane hello toolog toouse ścieżki do magazynu obiektów Blob hello. Jeśli ścieżka nie zostanie określona, usługa hello tworzy kontener dla Ciebie. | Nie |
 
 ## <a name="monitoring"></a>Monitorowanie
-Po zakończeniu uruchamiania działania kopiowania, można wyświetlić Liczba pominiętych wierszy w sekcji monitorowania:
+Po zakończeniu uruchamiania działania kopiowania hello, można wyświetlić hello Liczba pominiętych wierszy w sekcji monitorowanie hello:
 
 ![Monitor pominięte niezgodne wierszy](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Jeśli konfigurujesz dziennika niezgodne wiersze, można znaleźć pliku dziennika na tej ścieżce: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` w pliku dziennika, możesz wyświetlać wiersze, które zostały pominięte i przyczynę niezgodności.
+Jeśli skonfigurujesz toolog hello niezgodne wiersze pliku dziennika hello na tej ścieżce można znaleźć: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` w pliku dziennika hello, można zobaczyć hello wierszy, które zostały pominięte i hello główną przyczynę hello niezgodności.
 
-Zarówno oryginalnych danych, jak i odpowiednie błąd są rejestrowane w pliku. Oto przykład zawartości pliku dziennika jest następujący:
+Zarówno hello oryginalnych danych, jak i odpowiednie błąd hello są rejestrowane w pliku hello. Oto przykład zawartości pliku dziennika hello jest następujący:
 ```
-data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' tootype 'DateTime'.,
+data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. hello duplicate key value is (data4).
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat działania kopiowania fabryki danych Azure, zobacz [przenoszenia danych za pomocą działania kopiowania](data-factory-data-movement-activities.md).
+toolearn więcej informacji na temat działania kopiowania fabryki danych Azure, zobacz [przenoszenia danych za pomocą działania kopiowania](data-factory-data-movement-activities.md).

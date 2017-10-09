@@ -1,6 +1,6 @@
 ---
-title: "Migrowanie kont automatyzacji i zasobów | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak przenieść konto usługi Automatyzacja w automatyzacji Azure oraz zasoby skojarzone z jedną subskrypcją."
+title: aaaMigrate konto automatyzacji i zasoby | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano, jak toomove automatyzacji konto usługi Automatyzacja Azure i powiązanych zasobów z tooanother jedną subskrypcję."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 201c9091cd2d78d7ea407c1e5fb27f366bb4fa8c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrowanie kont automatyzacji i zasobów
-Dla kont automatyzacji i jej zasobach skojarzone (tj. zasoby, elementy runbook, modułów, itp.), które zostały utworzone w portalu Azure i chcesz przeprowadzić migrację między grupami zasobów lub między jedną subskrypcję do innej, można wykonać to prosty sposób z [przenoszenia zasobów](../azure-resource-manager/resource-group-move-resources.md) funkcji dostępnej w portalu Azure. Jednak przed wykonaniem tej akcji, należy najpierw przejrzeć następujące [listę kontrolną przed przeniesieniem zasobów](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) , a ponadto na poniższej liście specyficzne dla automatyzacji.   
+Dla konta automatyzacji i jej zasobach skojarzone (tj. zasoby, elementy runbook, modułów, itp.), które zostały utworzone w portalu Azure hello i chcesz toomigrate od jednego zasobu grupy tooanother lub z jedną subskrypcją tooanother, można wykonać to prosty sposób z Witaj [przenoszenia zasobów](../azure-resource-manager/resource-group-move-resources.md) funkcja dostępna w hello portalu Azure. Jednak przed wykonaniem tej akcji, należy najpierw przejrzeć następujące hello [listę kontrolną przed przeniesieniem zasobów](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) i ponadto hello poniższej tooAutomation określonej listy.   
 
-1. Docelowej subskrypcji/grupy zasobów musi być w tym samym regionie co źródło.  To znaczy, konta automatyzacji nie można przenieść w regionach.
-2. Podczas przenoszenia zasobów (np. elementy runbook, zadania, itp.), zarówno grupy źródłowej i docelowej grupy są zablokowane na czas trwania operacji. Zapisu i usuwania działań są blokowane w grupach, dopiero po zakończeniu przenoszenia.  
-3. Wszystkie elementy runbook lub zmienne, które odwołują się do Identyfikatora zasobu lub subskrypcji z istniejącej subskrypcji zostanie muszą zostać zaktualizowane po zakończeniu migracji.   
+1. Witaj docelowej subskrypcji/grupy zasobów musi być w tym samym regionie co hello źródła.  To znaczy, konta automatyzacji nie można przenieść w regionach.
+2. Podczas przenoszenia zasobów (np. elementy runbook, zadania, itp.), zarówno hello źródłowej grupy, jak i grupy docelowej hello są zablokowane na czas trwania operacji hello hello. Zapisu i usuwania działań są zablokowane na powitania grup dopiero po zakończeniu przenoszenia hello.  
+3. Wszystkie elementy runbook lub zmienne, które odwołują się do Identyfikatora zasobu lub subskrypcji z istniejącej subskrypcji hello należy toobe zaktualizowane po zakończeniu migracji.   
 
 > [!NOTE]
 > Ta funkcja nie obsługuje przenoszenia zasobów automatyzacji klasycznego.
 >
 >
 
-## <a name="to-move-the-automation-account-using-the-portal"></a>Aby przenieść przy użyciu portalu konta automatyzacji
-1. Twoje konto usługi Automatyzacja kliknij **Przenieś** w górnej części bloku.<br> ![Przenieś opcji](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
-2. Na **przenoszenia zasobów** bloku, należy pamiętać, że stanowi zasobów związanych z zarówno konto automatyzacji, jak i z grup zasobów.  Wybierz **subskrypcji** i **grupy zasobów** z listy rozwijanej lub wybierz opcję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę nowej grupy zasobów w polu.  
-3. Przejrzyj i zaznacz pole wyboru, musisz potwierdzić *zrozumieć narzędzia i skrypty musi zostać zaktualizowany w celu użycia nowych identyfikatorów zasobów. po przeniesieniu zasobów* , a następnie kliknij przycisk **OK**.<br> ![Przenieś bloku zasobów](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
+## <a name="toomove-hello-automation-account-using-hello-portal"></a>Konto automatyzacji za pomocą portalu hello hello toomove
+1. Twoje konto usługi Automatyzacja kliknij **Przenieś** u góry bloku hello hello.<br> ![Przenieś opcji](media/automation-migrate-account-subscription/automation-menu-move.png)<br>
+2. Na powitania **przenoszenia zasobów** bloku, należy pamiętać, że Twoje konto usługi Automatyzacja i z grup zasobów stanowi tooboth powiązane zasoby.  Wybierz hello **subskrypcji** i **grupy zasobów** z list rozwijanych hello lub opcji wybierz hello **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę nowej grupy zasobów w Witaj pola.  
+3. Przejrzyj i wybierz hello wyboru tooacknowledge możesz *zrozumieć narzędzia i skrypty będą potrzeby toobe zaktualizowane toouse nowych identyfikatorów zasobów. po przeniesieniu zasobów* , a następnie kliknij przycisk **OK**.<br> ![Przenieś bloku zasobów](media/automation-migrate-account-subscription/automation-move-resources-blade.png)<br>   
 
-Ta akcja potrwa kilka minut.  W **powiadomienia**, zostaną wyświetlone ze stanem każda akcja ma miejsce — Weryfikacja, migracji, a następnie finally, gdy zostanie ukończona.     
+Ta akcja potrwa kilka minut toocomplete.  W **powiadomienia**, zostaną wyświetlone ze stanem każda akcja ma miejsce — Weryfikacja, migracji, a następnie finally, gdy zostanie ukończona.     
 
-## <a name="to-move-the-automation-account-using-powershell"></a>Aby przenieść konto automatyzacji za pomocą programu PowerShell
-Aby przenieść istniejące zasoby automatyzacji do innej grupy zasobów lub subskrypcji, należy użyć **Get-AzureRmResource** polecenia cmdlet można pobrać określonego konta automatyzacji, a następnie **AzureRmResource przenoszenia** polecenia cmdlet do wykonania czynności.
+## <a name="toomove-hello-automation-account-using-powershell"></a>toomove hello konta automatyzacji za pomocą programu PowerShell
+toomove istniejącej grupy zasobów tooanother zasobów automatyzacji lub subskrypcji, użyj hello **Get-AzureRmResource** polecenia cmdlet tooget hello określonego konta automatyzacji, a następnie **AzureRmResource przenoszenia** Przenieś hello tooperform polecenia cmdlet.
 
-Pierwszym przykładzie pokazano, jak można przenieść konto automatyzacji do nowej grupy zasobów.
+Hello pierwszym przykładzie pokazano, jak obiekt automatyzacji toomove konta tooa nową grupę zasobów.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup"
    ```
 
-Po wykonaniu powyższych przykładów kodu, pojawi się monit, aby sprawdzić, czy chcesz wykonać tę akcję.  Po kliknięciu **tak** i umożliwiają skryptu kontynuować, nie będziesz otrzymywać powiadomienia, podczas wykonywania migracji.  
+Po wykonaniu hello powyżej przykładowy kod będzie zostanie wyświetlony monit o tooverify ma tooperform tej akcji.  Po kliknięciu **tak** i umożliwić hello tooproceed skryptu, nie będziesz otrzymywać powiadomienia, podczas wykonywania migracji hello.  
 
-Aby przejść do nowej subskrypcji, zawierają wartość *DestinationSubscriptionId* parametru.
+Nowa subskrypcja tooa toomove zawierać wartość hello *DestinationSubscriptionId* parametru.
 
    ```
     $resource = Get-AzureRmResource -ResourceName "TestAutomationAccount" -ResourceGroupName "ResourceGroup01"
     Move-AzureRmResource -ResourceId $resource.ResourceId -DestinationResourceGroupName "NewResourceGroup" -DestinationSubscriptionId "SubscriptionId"
    ```
 
-Podobnie jak w poprzednim przykładzie, zostanie wyświetlony monit o potwierdzenie przeniesienie.  
+Podobnie jak w poprzednim przykładzie hello, będzie zostanie wyświetlony monit o tooconfirm hello przenoszenia.  
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać więcej informacji na temat przenoszenia zasobów do nowej grupy zasobów lub subskrypcji, zobacz [przenoszenia zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md)
-* Więcej informacji na temat kontroli dostępu opartej na rolach w usłudze Automatyzacja platformy Azure można znaleźć w temacie [Kontrola dostępu oparta na rolach w usłudze Automatyzacja platformy Azure](automation-role-based-access-control.md).
-* Aby dowiedzieć się więcej na temat poleceń cmdlet programu PowerShell do zarządzania subskrypcją, zobacz [przy użyciu programu Azure PowerShell z usługą Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* Aby dowiedzieć się więcej o funkcjach portalu do zarządzania subskrypcją, zobacz [przy użyciu portalu Azure do zarządzania zasobami](../azure-resource-manager/resource-group-portal.md).
+* Aby uzyskać więcej informacji na temat przenoszenia grupy zasobów toonew zasobów lub subskrypcji, zobacz [przenieść grupy zasobów toonew zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md)
+* Aby uzyskać więcej informacji na temat opartej na rolach kontroli dostępu w usłudze Automatyzacja Azure można znaleźć zbyt[kontroli dostępu opartej na rolach w automatyzacji Azure](automation-role-based-access-control.md).
+* Zobacz toolearn o poleceniach cmdlet programu PowerShell do zarządzania subskrypcją, [przy użyciu programu Azure PowerShell z usługą Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* Zobacz toolearn funkcje portalu do zarządzania subskrypcją, [przy użyciu zasobów toomanage Azure Portal hello](../azure-resource-manager/resource-group-portal.md).

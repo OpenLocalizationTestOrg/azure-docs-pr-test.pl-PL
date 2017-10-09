@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z SciQuest spędzają na katalog | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SciQuest spędzają na katalog."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i SciQuest spędzają na katalog."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,223 +14,223 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 47c46f1297054fd96b86c1d8c66e1a55ec151497
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Samouczek: Integracji Azure Active Directory z SciQuest spędzają na katalog
-Celem tego samouczka jest pokazanie sposobu integracji SciQuest spędzają na katalog w usłudze Azure Active Directory (Azure AD).  
-Integracja z usługą Azure AD SciQuest spędzają na katalog zapewnia następujące korzyści: 
+Celem Hello tego samouczka jest tooshow należy jak toointegrate SciQuest spędzają na katalog z usługą Azure Active Directory (Azure AD).  
+Integracja z usługą Azure AD SciQuest spędzają na katalog zawiera hello następujące korzyści: 
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do SciQuest spędzają na katalog 
-* Umożliwia użytkownikom automatycznie pobrać zalogowane SciQuest spędzają dyrektora (logowanie jednokrotne) z konta usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+* Można kontrolować w usłudze Azure AD, kto ma dostęp tooSciQuest Dyrektor wydatków 
+* Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSciQuest Dyrektor wydatków (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+* Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby skonfigurować integrację usługi Azure AD z SciQuest spędzają na katalog, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z SciQuest spędzają na katalog, należy hello następujące elementy:
 
 * Subskrypcję usługi Azure AD
 * Dyrektor spędzają SciQuest jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 > 
 > 
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 * Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 * Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie umożliwia testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+Celem Hello tego samouczka jest tooenable możesz tootest usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
+Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie SciQuest spędzają na katalog z galerii 
+1. Dodawanie SciQuest spędzają na katalog z galerii hello 
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-sciquest-spend-director-from-the-gallery"></a>Dodawanie SciQuest spędzają na katalog z galerii
-Aby skonfigurować integrację usługi Azure AD SciQuest spędzają na katalog, należy dodać SciQuest spędzają na katalog z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-sciquest-spend-director-from-hello-gallery"></a>Dodawanie SciQuest spędzają na katalog z galerii hello
+tooconfigure hello integracji SciQuest spędzają na katalog usługi Azure AD, należy tooadd SciQuest spędzają na katalog z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać SciQuest spędzają na katalog z galerii, wykonaj następujące czynności:**
+**tooadd SciQuest spędzają na katalog z galerii hello, wykonaj następujące kroki hello:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**. 
    
     ![Usługa Active Directory][1]
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Aplikacje][2]
 
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
    
     ![Aplikacje][3]
 
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
+5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
    
     ![Aplikacje][4]
 
-6. W polu wyszukiwania wpisz **sciQuest spędzają na katalog**.
+6. W polu wyszukiwania hello wpisz **sciQuest spędzają na katalog**.
    
     ![Aplikacje][5]
 
-7. W okienku wyników wybierz **SciQuest spędzają na katalog**, a następnie kliknij przycisk **Complete** można dodać aplikację.
+7. Wybierz w okienku wyników hello **SciQuest spędzają na katalog**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
    
     ![Aplikacje][6]
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-Jest celem tej sekcji opisano, jak skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SciQuest Dyrektor spędzają na podstawie użytkownika testowego, nazywany "Britta Simona".
+Celem Hello w tej sekcji jest tooshow jak tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z SciQuest Dyrektor spędzają na podstawie użytkownika testowego o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownika w SciQuest spędzają na katalog do użytkownika w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SciQuest spędzają na katalog.  
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w SciQuest spędzają na katalog.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow jest odpowiednikiem hello użytkownika w SciQuest spędzają na katalog tooan użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w SciQuest spędzają na katalog musi toobe ustanowione.  
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w SciQuest spędzają na katalog.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD pojedynczego rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego SciQuest spędzają na katalog](#creating-a-halogen-software-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta spędzają na katalog SciQuest, połączonej z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD pojedynczego rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego SciQuest spędzają na katalog](#creating-a-halogen-software-test-user)**  -toohave odpowiednikiem Simona Britta w spędzają na katalog SciQuest, że jego reprezentacja toohello połączonej usługi Azure AD.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-single-sign-on"></a>Konfigurowanie usługi Azure AD pojedynczej rejestracji jednokrotnej
-Celem tej sekcji jest można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu Azure i skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog aplikacji.
+Celem Hello w tej sekcji jest tooenable usługi Azure AD rejestracji jednokrotnej w hello klasycznego portalu Azure i tooconfigure rejestracji jednokrotnej w SciQuest spędzają na katalog aplikacji.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu Azure na **SciQuest spędzają na katalog** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne**  okno dialogowe.
+1. W hello klasycznego portalu Azure na powitania **SciQuest spędzają na katalog** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne**okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej][8]
 
-2. Na **jak chcesz użytkownikom zalogować się na SciQuest spędzają na katalog** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na powitania **jak ma toosign użytkowników na tooSciQuest Dyrektor wydatków** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Azure AD rejestracji jednokrotnej][9]
 
-3. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności: 
+3. Na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki: 
    
     ![Konfiguruj ustawienia aplikacji][10]
    
-     a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się SciQuest spędzają na katalog aplikacji przy użyciu następującego wzorca: *https://.* SciQuest.com/.**
+     a. W hello **na adres URL logowania** tekstowym, wpisz adres URL używany przez Twoje toosign użytkowników na tooyour SciQuest spędzają na katalog aplikacji przy użyciu następującego wzorca hello: *https://.* SciQuest.com/.**
    
-     b. W **adres URL odpowiedzi** pole tekstowe, należy wpisać taką samą wartość wpisana do **na adres URL logowania** pola tekstowego. 
+     b. W hello **adres URL odpowiedzi** pole tekstowe, typ hello takie same wartości zostały wpisane w hello **na adres URL logowania** pola tekstowego. 
    
      c. Kliknij przycisk **Dalej**.
 
-4. Na **skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych lokalnie na komputerze.
+4. Na powitania **skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych hello lokalnie na komputerze.
    
     ![Co to jest program Azure AD Connect][11]
 
-5. Skontaktuj się z pomocą SciQuest obsługuje Aby włączyć tę metodę uwierzytelniania przy użyciu metadanych pobranych powyżej.
+5. Skontaktuj się z SciQuest tooenable obsługi tej metody uwierzytelniania przy użyciu metadanych hello powyżej pobrane.
 
-6. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego. 
+6. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **Complete** tooclose hello **skonfigurować rejestrację jednokrotną** okna dialogowego. 
    
     ![Co to jest program Azure AD Connect][15]
 
-7. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+7. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego w hello klasycznego portalu Azure o nazwie Simona Britta.
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
    
     ![Co to jest program Azure AD Connect][100] 
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
+3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
    
     ![Co to jest program Azure AD Connect][101] 
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
+4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**. 
    
     ![Co to jest program Azure AD Connect][102] 
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
+5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki:
    
     ![Co to jest program Azure AD Connect][103] 
    
     a. Jako **typ użytkownika**, wybierz pozycję **nowy użytkownik w organizacji**.
    
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
+    b. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.
    
     c. Kliknij przycisk **Dalej**.
 
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
+6. Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki: 
    
     ![Co to jest program Azure AD Connect][104] 
    
-    a. W **imię** pole tekstowe, typ **Britta**.  
+    a. W hello **imię** pole tekstowe, typ **Britta**.  
    
-    b. W **nazwisko** txtbox, typ **Simona**.
+    b. W hello **nazwisko** txtbox, typ **Simona**.
    
-    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
+    c. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
    
-    d. W **roli** listy, wybierz **użytkownika**.
+    d. W hello **roli** listy, wybierz **użytkownika**.
    
     e. Kliknij przycisk **Dalej**.
 
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
    
     ![Co to jest program Azure AD Connect][105]  
 
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
+8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
    
     ![Co to jest program Azure AD Connect][106]   
    
-    a. Zanotuj wartość **nowe hasło**.
+    a. Zanotuj wartość hello hello **nowe hasło**.
    
     b. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="creating-a-sciquest-spend-director-test-user"></a>Tworzenie użytkownika testowego SciQuest spędzają na katalog
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w SciQuest spędzają na katalog.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w SciQuest spędzają na katalog.
 
-Należy skontaktować się z zespołem pomocy technicznej SciQuest spędzają na katalog i dostarczać szczegółowe informacje o Twoim koncie testu, aby został utworzony.
+Należy toocontact z zespołem pomocy technicznej SciQuest spędzają na katalog i podaj szczegóły hello o tooget konta użytkownika testu, on utworzony.
 
 Alternatywnie można też skorzystać w czasie inicjowania obsługi administracyjnej, pojedynczego logowania jednokrotnego funkcja, która jest obsługiwana przez SciQuest spędzają na katalog.  
-Po włączeniu w czasie inicjowania obsługi użytkowników są tworzone automatycznie przez SciQuest spędzają na katalog podczas jednego próba logowania jednokrotnego, jeśli nie istnieją. Ta funkcja eliminuje potrzebę ręcznie utworzyć użytkowników odpowiednikiem rejestracji jednokrotnej.
+Po włączeniu w czasie inicjowania obsługi użytkowników są tworzone automatycznie przez SciQuest spędzają na katalog podczas jednego próba logowania jednokrotnego, jeśli nie istnieją. Ta funkcja eliminuje konieczność hello toomanually tworzenie odpowiednikiem rejestracji jednokrotnej użytkowników.
 
-Można uzyskać w czasie inicjowania obsługi administracyjnej włączone, musisz skontaktować się z korzystania z zespołem pomocy technicznej SciQuest spędzają na katalog.
+tooget w czasie inicjowania obsługi administracyjnej włączone, ale trzeba toocontact jest zespołem pomocy technicznej SciQuest spędzają na katalog.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest włączenie Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu jej SciQuest spędzają na katalog.
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+Celem Hello w tej sekcji jest tooenabling toouse Simona Britta Azure rejestracji jednokrotnej, przyznając jej tooSciQuest dostępu Dyrektor wydatków.
 
 ![Co to jest program Azure AD Connect][200]
 
-**Aby przypisać Simona Britta SciQuest spędzają na katalog, wykonaj następujące czynności:**
+**tooassign tooSciQuest Simona Britta dyrektora wydatków, wykonaj hello następujące kroki:**
 
-1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
+1. Na hello Azure kliknij klasycznego portalu, widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Co to jest program Azure AD Connect][201]
 
-2. Na liście aplikacji zaznacz **SciQuest spędzają na katalog**.
+2. Z listy aplikacji hello wybierz **SciQuest spędzają na katalog**.
    
     ![Co to jest program Azure AD Connect][202]
 
-3. W menu u góry kliknij **użytkowników**.
+3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
    
     ![Co to jest program Azure AD Connect][203]
 
-4. Na liście użytkowników wybierz **Simona Britta**.
+4. Na liście hello użytkowników, wybierz **Simona Britta**.
    
     ![Co to jest program Azure AD Connect][204]
 
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
+5. W narzędzi hello na dole powitania kliknij **przypisać**.
    
     ![Co to jest program Azure AD Connect][205]
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
-Po kliknięciu kafelka SciQuest spędzają na katalog, w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane SciQuest spędzają na katalog aplikacji.
+Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.  
+Po kliknięciu kafelka SciQuest spędzają na katalog hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour SciQuest spędzają na katalog aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

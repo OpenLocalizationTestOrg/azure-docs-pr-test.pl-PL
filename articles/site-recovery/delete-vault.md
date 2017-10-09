@@ -1,6 +1,6 @@
 ---
-title: "Usuń magazyn usługi Site Recovery"
-description: "Dowiedz się, jak usunąć magazynie usługi Azure Site Recovery, oparta na scenariuszu odzyskiwania lokacji."
+title: "aaaDelete magazynu usługi Site Recovery"
+description: "Dowiedz się, jak toodelete magazynie usługi Azure Site Recovery na podstawie hello scenariuszu odzyskiwania lokacji."
 service: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b95b9defa0a037f7d7d3ef36b99bc7c53c751050
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 36db202d8b790bb5d31d1348fb72f51acb5d559c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="delete-a-site-recovery-vault"></a>Usuń magazyn usługi Site Recovery
-Zależności można uniemożliwić usunięcie magazynie usługi Azure Site Recovery. Akcje, które należy wykonać różnić w zależności od scenariusza usługi Site Recovery: VMware do platformy Azure, funkcji Hyper-V (z lub bez programu System Center Virtual Machine Manager) na platformie Azure oraz Azure Backup. Aby usunąć magazyn używany w usłudze Kopia zapasowa Azure, zobacz [usuwanie magazynu kopii zapasowych w usłudze Azure](../backup/backup-azure-delete-vault.md).
+Zależności można uniemożliwić usunięcie magazynie usługi Azure Site Recovery. Witaj akcji, które należy tootake różnić w zależności od scenariusza odzyskiwania lokacji hello: VMware tooAzure tooAzure funkcji Hyper-V (z lub bez programu System Center Virtual Machine Manager), a kopia zapasowa Azure. Zobacz toodelete magazynu używane w usłudze Kopia zapasowa Azure [usuwanie magazynu kopii zapasowych w usłudze Azure](../backup/backup-azure-delete-vault.md).
 
 >[!Important]
->Jeśli testowania produktu i nie są zainteresowane o utracie danych, należy użyć metody delete force szybko usunąć magazyn i jego zależności.
+>Jeśli testowany hello produktu i nie są zainteresowane o utracie danych, użyj hello życie delete — metoda toorapidly Usuń hello magazyn i jego zależności.
 
-> Polecenia programu PowerShell Usuwa całą zawartość magazynu i nie jest odwracalne.
+> Hello polecenia programu PowerShell Usuwa całą zawartość hello hello magazynu i nie jest odwracalne.
 
-## <a name="use-powershell-to-force-delete-the-vault"></a>Użyj programu PowerShell, aby wymusić usunięcie magazynu 
+## <a name="use-powershell-tooforce-delete-hello-vault"></a>Użyj programu PowerShell tooforce usunąć hello magazynu 
 
-Aby usunąć magazyn usługi Site Recovery, nawet jeśli istnieją elementy chronione, wykonaj następujące polecenia:
+hello toodelete magazynu usługi Site Recovery, nawet jeśli istnieją chronione elementy, użyj polecenia:
 
     Login-AzureRmAccount
 
@@ -42,37 +42,37 @@ Aby usunąć magazyn usługi Site Recovery, nawet jeśli istnieją elementy chro
 
 
 ## <a name="delete-a-site-recovery-vault"></a>Usuń magazyn usługi Site Recovery 
-Aby usunąć magazyn, wykonaj kroki zalecane dla danego scenariusza.
+Magazyn hello toodelete, hello wykonaj zalecane kroki dla danego scenariusza.
 
-### <a name="vmware-vms-to-azure"></a>Maszyny wirtualne VMware do platformy Azure
+### <a name="vmware-vms-tooazure"></a>Maszyny wirtualne VMware tooAzure
 
-1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki opisane w [Wyłącz ochronę VMware](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki hello w [Wyłącz ochronę VMware](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 
-2. Usuń wszystkie zasady replikacji, wykonując kroki opisane w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Usunąć wszystkie zasady replikacji, wykonując kroki hello w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
 
-3. Usuń odwołania do vCenter, wykonując kroki opisane w [usunąć vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+3. Usuwanie odwołań toovCenter przez hello następujące kroki w [usunąć vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
 
-4. Usuń serwer konfiguracji, wykonując kroki opisane w [zlikwidować serwer konfiguracji](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
+4. Usuń serwer konfiguracji hello wykonując kroki hello w [zlikwidować serwer konfiguracji](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
 
-5. Usuń magazyn.
+5. Usuń magazyn hello.
 
 
-### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Maszyny wirtualne funkcji Hyper-V (z programu Virtual Machine Manager) w systemie Azure
-1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki opisane w [Wyłącz ochronę dla maszyny Wirtualnej VMware lub serwerów fizycznych](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+### <a name="hyper-v-vms-with-virtual-machine-manager-tooazure"></a>TooAzure maszyn wirtualnych funkcji Hyper-V (z programu Virtual Machine Manager)
+1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki hello w [Wyłącz ochronę dla maszyny Wirtualnej VMware lub serwerów fizycznych](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 
-2. Usuń wszystkie zasady replikacji, wykonując kroki opisane w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Usunąć wszystkie zasady replikacji, wykonując kroki hello w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
 
-3.  Usuń odwołania do serwerów programu Virtual Machine Manager, wykonując kroki opisane w [wyrejestrować podłączony serwer VMM](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
+3.  Usuń odwołuje się do serwerów Machine Manager tooVirtual wykonując kroki hello w [wyrejestrować podłączony serwer VMM](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
 
-4.  Usuń magazyn.
+4.  Usuń magazyn hello.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Maszyny wirtualne funkcji Hyper-V (bez programu Virtual Machine Manager) w systemie Azure
-1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki opisane w [Wyłącz ochronę dla maszyny Wirtualnej VMware lub serwerów fizycznych](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+### <a name="hyper-v-vms-without-virtual-machine-manager-tooazure"></a>TooAzure maszyn wirtualnych funkcji Hyper-V (bez programu Virtual Machine Manager)
+1. Usuń wszystkie chronione maszyny wirtualne, wykonując kroki hello w [Wyłącz ochronę dla maszyny Wirtualnej VMware lub serwerów fizycznych](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 
-2. Usuń wszystkie zasady replikacji, wykonując kroki opisane w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Usunąć wszystkie zasady replikacji, wykonując kroki hello w [Usuń zasady replikacji](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
 
-3. Usuń odwołania do serwerów funkcji Hyper-V, wykonując kroki opisane w [wyrejestrować z hosta funkcji Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Usuń odwołuje się do serwerów tooHyper V wykonując kroki hello w [wyrejestrować z hosta funkcji Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
 
-4. Usunąć lokacji funkcji Hyper-V.
+4. Usuń lokację hello funkcji Hyper-V.
 
-5. Usuń magazyn.
+5. Usuń magazyn hello.

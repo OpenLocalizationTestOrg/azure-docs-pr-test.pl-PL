@@ -1,6 +1,6 @@
 ---
-title: Rozpoczynanie pracy z monitorem Azure | Dokumentacja firmy Microsoft
-description: "Rozpocznij korzystanie z usługi Azure Monitor, aby uzyskać wgląd w operacje dotyczące zasobów i podejmować działania oparte na danych."
+title: "aaaGet rozpoczęcia pracy z monitorem Azure | Dokumentacja firmy Microsoft"
+description: "Rozpocząć korzystanie z monitora Azure toogain wgląd w działania hello zasobów i podejmij działania oparte na danych."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
-ms.openlocfilehash: a4871cdee882fae8e43f84ce4f2fa0b4c0a8e1de
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 49e7105621a9e60c9fa14c4911c4fe45e0d197a6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Rozpoczynanie pracy z usługą Azure Monitor
-Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło monitorowania zasobów systemu Azure. Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk i dzienników pochodzących z zasobów na platformie Azure. Możesz pracować z tymi danymi przy użyciu bloku portalu Monitor, [poleceń cmdlet programu PowerShell usługi Monitor](insights-powershell-samples.md), [międzyplatformowego interfejsu wiersza polecenia](insights-cli-samples.md) lub [interfejsów API REST usługi Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Ten artykuł zawiera przewodnik po kilku głównych elementach usługi Azure Monitor obejmujący użycie portalu w celach demonstracyjnych.
+Azure Monitor to usługa platformy hello, która zapewnia jednego źródła do monitorowania zasobów platformy Azure. Z monitorem Azure można zwizualizować, zapytania, trasy, archiwizacji i podejmij akcję na powitania metryki i dzienników pochodzących z zasobami na platformie Azure. Możesz pracować z tych danych za pomocą bloku portalu Monitor hello, [poleceń cmdlet programu PowerShell Monitor](insights-powershell-samples.md), [interfejsu wiersza polecenia i Platform](insights-cli-samples.md), lub [interfejsów API REST Monitor Azure](https://msdn.microsoft.com/library/dn931943.aspx). W tym artykule firma Microsoft przeprowadzenie kilka kluczowych składników hello Azure monitora, za pomocą portalu hello do pokazania.
 
-1. W portalu przejdź do obszaru **Więcej usług** i znajdź opcję **Monitor**. Kliknij ikonę gwiazdki, aby dodać tę opcję do listy ulubionych i zapewnić jej dostępność bezpośrednio z lewego paska nawigacyjnego.
+1. W portalu hello Przejdź zbyt**więcej usług** i Znajdź hello **Monitor** opcji. Kliknij przycisk tooadd ikonę gwiazdki hello listy ulubionych tooyour tej opcji, aby zawsze jest łatwo dostępna z hello na pasku nawigacyjnym po lewej stronie.
    
-    ![Opcja Monitor na liście usług](./media/monitoring-get-started/monitor-more-services.png)
-2. Kliknij opcję **Monitor**, aby otworzyć blok **Monitor**. Ten blok gromadzi wszystkie ustawienia monitorowania i dane użytkownika w jednym skonsolidowanym widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
+    ![Monitorowanie na liście usług hello](./media/monitoring-get-started/monitor-more-services.png)
+2. Kliknij hello **Monitor** tooopen opcji zapasowej hello **Monitor** bloku. Ten blok gromadzi wszystkie ustawienia monitorowania i dane użytkownika w jednym skonsolidowanym widoku. Pierwszym otwarciu toohello **dziennik aktywności** sekcji.
    
     ![Nawigacja w bloku Monitor](./media/monitoring-get-started/monitor-blade-nav.png)
    
-    Usługa Azure Monitor obejmuje trzy podstawowe kategorie danych monitorowania: **dziennik aktywności**, **metryki** i **dzienniki diagnostyczne**.
-3. Kliknij opcję **Dziennik aktywności**, aby wyświetlić sekcję dziennika aktywności.
+    Azure Monitor ma trzy podstawowe kategorie danych monitorowania: hello **dziennik aktywności**, **metryki**, i **dzienników diagnostycznych**.
+3. Kliknij przycisk **dziennik aktywności** tooensure, który hello sekcji dziennika aktywności jest wyświetlany.
    
     ![Blok dziennika aktywności](./media/monitoring-get-started/monitor-act-log-blade.png)
    
-    [**Dziennik aktywności**](monitoring-overview-activity-logs.md) zawiera opis wszystkich operacji wykonywanych na zasobach objętych subskrypcją. Przy użyciu dziennika aktywności można określić zakres działań, autorów i czas dowolnych operacji tworzenia, aktualizowania lub usuwania dotyczących zasobów objętych subskrypcją. Dziennik aktywności zawiera na przykład informacje o tym, kiedy i przez kogo została zatrzymana aplikacja sieci Web. Zdarzenia dziennika aktywności są przechowywane na platformie i dostępne do badania przez 90 dni.
+    Witaj [ **dziennik aktywności** ](monitoring-overview-activity-logs.md) opisano wszystkie operacje wykonywane na zasobów w ramach subskrypcji. Przy użyciu hello dziennik aktywności, można określić hello ", co, kto i kiedy" dla dowolnego tworzenia, aktualizowania lub usuwania operacje na zasobach w ramach subskrypcji. Na przykład hello dziennik aktywności informuje, kiedy aplikacji sieci web została zatrzymana i który zatrzymania. Działania zdarzenia dziennika są przechowywane w hello platformy i tooquery dostępne przez 90 dni.
    
-    Można utworzyć i zapisać zapytania dla wspólnych filtrów, a następnie przypiąć najważniejsze zapytania do pulpitu nawigacyjnego portalu, dzięki czemu zawsze będzie wiadomo, czy wystąpiły zdarzenia spełniające kryteria użytkownika.
-4. Zastosuj filtr ograniczający widok do określonej grupy zasobów w ostatnim tygodniu, po czym kliknij pozycję **Zapisz**.
+    Możesz utworzyć i zapisać zapytania dotyczące typowych filtrów, a następnie numeru pin hello najważniejszych zapytań tooa pulpitu nawigacyjnego portalu, aby zawsze będzie wiadomo, czy wystąpiły zdarzenia, które spełniają kryteria.
+4. Filtrowanie hello widoku tooa wybranej grupy zasobów w ostatnim tygodniu hello, a następnie kliknij przycisk hello **zapisać** przycisku.
    
     ![Zapisywanie zapytania dotyczącego dziennika aktywności](./media/monitoring-get-started/monitor-act-log-save.png)
-5. Następnie kliknij przycisk **Przypnij**.
+5. Teraz, kliknij przycisk hello **numeru Pin** przycisku.
    
     ![Kliknięcie opcji Przypnij dla dziennika aktywności](./media/monitoring-get-started/monitor-act-log-pin.png)
    
-    Większość widoków w tym przewodniku można przypiąć do pulpitu nawigacyjnego. Pozwala to utworzyć pojedyncze źródło informacji dotyczących danych operacyjnych Twoich usług. 
-6. Wróć do pulpitu nawigacyjnego. Zapytanie (wraz z liczbą wyników) jest teraz wyświetlane na pulpicie nawigacyjnym. Jest to przydatne, jeśli chcesz szybko sprawdzić ważne akcje wykonane ostatnio w ramach subskrypcji, np. przypisanie nowej roli lub usunięcie maszyny wirtualnej.
+    Większość hello widoków, w tym przewodniku można przypiętych tooa pulpitu nawigacyjnego. Pozwala to utworzyć pojedyncze źródło informacji dotyczących danych operacyjnych Twoich usług. 
+6. Zwraca tooyour pulpitu nawigacyjnego. Możesz teraz przeglądać czy kwerendy hello (i liczbę wyników) są wyświetlane na pulpicie nawigacyjnym. Jest to przydatne, jeśli chcesz znaleźć tooquickly wszystkie akcje wysokiej jakości, które wystąpiły ostatnio w ramach subskrypcji, np. przypisanie nowej roli lub usunięcie maszyny wirtualnej.
    
-    ![Dziennik aktywności przypięty do pulpitu nawigacyjnego](./media/monitoring-get-started/monitor-act-log-db.png)
-7. Wróć do kafelka **Monitor** i kliknij sekcję **Metryki**. Najpierw należy wybrać zasób, korzystając z rozwijanej listy opcji filtrowania i wyboru w górnej części bloku.
+    ![Toodashboard przypięty dziennika aktywności](./media/monitoring-get-started/monitor-act-log-db.png)
+7. Zwraca toohello **Monitor** Kafelek, a następnie kliknij przycisk hello **metryki** sekcji. Należy najpierw tooselect zasobu filtrowania, a następnie wybierając polecenie za pomocą hello listy rozwijanej Opcje u góry bloku hello hello.
    
     ![Filtrowanie zasobu pod kątem metryk](./media/monitoring-get-started/monitor-met-filter.png)
    
     Wszystkie zasoby platformy Azure tworzą [**metryki**](monitoring-overview-metrics.md). Ten widok gromadzi wszystkie metryki na jednym ekranie, dzięki czemu można łatwo prześledzić działanie zasobów.
-8. Po wybraniu zasobu wszystkie dostępne metryki są wyświetlane po lewej stronie bloku. Można jednocześnie prezentować wiele metryk na wykresie, wybierając metryki i modyfikując zakres czasu i typ wykresu. Możesz również wyświetlić wszystkie alerty metryki ustawione dla danego zasobu.
+8. Po wybraniu zasobu na powitania po lewej stronie bloku hello są wyświetlane wszystkie dostępne metryki. Można jednocześnie wykresu wiele metryk, wybierając metryki i modyfikować hello wykres typu i zakres czasu. Możesz również wyświetlić wszystkie alerty metryki ustawione dla danego zasobu.
    
     ![Blok metryki](./media/monitoring-get-started/monitor-metric-blade.png)
    
@@ -62,40 +62,40 @@ Usługa Azure Monitor to usługa platformy, która zapewnia jedno źródło moni
    > Niektóre metryki są dostępne tylko po włączeniu dla zasobu usługi [Application Insights](../application-insights/app-insights-overview.md) i/lub Diagnostyki Azure dla systemu Windows bądź Linux.
    > 
    > 
-9. Jeśli wykres Ci odpowiada, możesz przypiąć go do pulpitu nawigacyjnego za pomocą przycisku **Przypnij**.
-10. Wróć do bloku **Monitor** i kliknij pozycję **Dzienniki diagnostyczne**.
+9. Jeśli są zadowalające z wykresu, możesz użyć hello **numeru Pin** toopin przycisk go tooyour pulpitu nawigacyjnego.
+10. Zwraca toohello **Monitor** bloku i kliknij przycisk **dzienniki diagnostyczne**.
     
     ![Blok dzienników diagnostycznych](./media/monitoring-get-started/monitor-diaglogs-blade.png)
     
-    [**Dzienniki diagnostyczne**](monitoring-overview-of-diagnostic-logs.md) to dzienniki tworzone *przez* zasób, które dostarczają dane o działaniu tego zasobu. Na przykład typami dzienników diagnostycznych są liczniki reguł grup zabezpieczeń sieci oraz dzienniki przepływu pracy aplikacji logiki. Te dzienniki mogą być przechowywane na koncie magazynu, przesyłane strumieniowo do usługi Event Hub i/lub wysyłane do usługi [Log Analytics](../log-analytics/log-analytics-overview.md). Usługa Log Analytics jest produktem firmy Microsoft służącym do analizy operacyjnej, który umożliwia zaawansowane wyszukiwanie oraz generowanie alertów.
+    [**Dzienniki diagnostyczne** ](monitoring-overview-of-diagnostic-logs.md) są dzienniki wysyłanego *przez* z zasobem, który zawierają dane dotyczące działania hello tego zasobu. Na przykład typami dzienników diagnostycznych są liczniki reguł grup zabezpieczeń sieci oraz dzienniki przepływu pracy aplikacji logiki. Te dzienniki mogą być przechowywane na koncie magazynu, przesyłanej strumieniowo tooan Centrum zdarzeń i/lub wysłany[analizy dzienników](../log-analytics/log-analytics-overview.md). Usługa Log Analytics jest produktem firmy Microsoft służącym do analizy operacyjnej, który umożliwia zaawansowane wyszukiwanie oraz generowanie alertów.
     
-    W portalu można wyświetlić i odfiltrować listę wszystkich zasobów objętych subskrypcją, aby ustalić, czy włączono dla nich tworzenie dzienników diagnostycznych.
-11. Kliknij zasób w bloku dzienników diagnostycznych. Jeśli dzienniki diagnostyczne są przechowywane na koncie magazynu, zostanie wyświetlona lista tworzonych co godzinę dzienników, które można bezpośrednio pobrać.
+    W portalu hello można przeglądać i Filtruj listę wszystkich zasobów w Twojej subskrypcji tooidentify, gdy mają włączone dzienników diagnostycznych.
+11. Kliknij zasób w bloku dzienników diagnostycznych hello. Jeśli dzienniki diagnostyczne są przechowywane na koncie magazynu, zostanie wyświetlona lista tworzonych co godzinę dzienników, które można bezpośrednio pobrać.
     
     ![Dzienniki diagnostyczne dla jednego zasobu](./media/monitoring-get-started/monitor-diaglogs-detail.png)
     
-    Możesz również kliknąć opcję **Ustawienia diagnostyczne**, która pozwala skonfigurować lub zmodyfikować ustawienia archiwizacji na koncie magazynu, przesyłania strumieniowego do usługi Event Hubs lub wysyłania do obszaru roboczego usługi Log Analytics.
+    Możesz również kliknąć **ustawień diagnostycznych**, która umożliwia tooset się lub zmodyfikować ustawienia dla konta magazynu tooa archiwizacji, przesyłanie strumieniowe koncentratory tooEvent lub wysyłanie tooa obszaru roboczego analizy dzienników.
     
     ![Włączanie dzienników diagnostycznych](./media/monitoring-get-started/monitor-diaglogs-enable.png)
     
-    Jeśli skonfigurowano wysyłanie dzienników diagnostycznych do usługi Log Analytics, można je przeszukiwać w sekcji **Wyszukiwanie w dziennikach** portalu.
-12. Przejdź do sekcji **Alerty** bloku Monitor.
+    Jeśli zdefiniowano tooLog dzienników diagnostycznych Analytics, możesz wyszukiwać ich w hello **wyszukiwania dziennika** sekcji hello portalu.
+12. Przejdź toohello **alerty** sekcji hello Monitor bloku.
     
     ![publiczny blok alertów](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    W tym miejscu można zarządzać wszystkimi [**alertami**](monitoring-overview-alerts.md) dotyczącymi zasobów platformy Azure. Dotyczy to również alerty dotyczące metryk, zdarzenia dziennika aktywności testów sieci web usługi Application Insights (lokalizacja) i proaktywna Diagnostyka usługi Application Insights. Alerty mogą powodować utworzenie wiadomości e-mail do wysłania lub wysłanie żądania POST protokołu HTTP na adres URL elementu webhook.
-13. Kliknij pozycję **Dodaj alert dotyczący metryki**, aby utworzyć alert.
+    W tym miejscu można zarządzać wszystkimi [**alertami**](monitoring-overview-alerts.md) dotyczącymi zasobów platformy Azure. Dotyczy to również alerty dotyczące metryk, zdarzenia dziennika aktywności testów sieci web usługi Application Insights (lokalizacja) i proaktywna Diagnostyka usługi Application Insights. Alerty można wyzwolić toobe wiadomości e-mail wysyłane lub adres URL elementu webhook tooa HTTP POST.
+13. Kliknij przycisk **Dodaj alert metryki** toocreate alertu.
     
     ![dodawanie alertu dotyczącego metryki](./media/monitoring-get-started/monitor-alerts-add.png)
     
-    Alert można następnie przypiąć do pulpitu nawigacyjnego, aby łatwiej śledzić jego stan w dowolnym momencie.
-14. Sekcja Monitor zawiera także linki do aplikacji usługi [Application Insights](../application-insights/app-insights-overview.md) oraz rozwiązań zarządzania usługi [Log Analytics](../log-analytics/log-analytics-overview.md). Te produkty firmy Microsoft są silnie zintegrowane z usługą Azure Monitor.
-15. Jeśli nie korzystasz z usług Application Insights ani Log Analytics, możliwe jest, że usługa Azure Monitor współpracuje z aktualnie używanymi przez Ciebie produktami do monitorowania, rejestrowania i tworzenia alertów. Zobacz pełną listę produktów oraz instrukcje dotyczące sposobów integracji na naszej [stronie partnerów](monitoring-partners.md).
+    Mogą być następnie numeru pin alertu tooyour tooeasily pulpitu nawigacyjnego zobacz jego stanu w dowolnym momencie.
+14. zbyt Hello sekcji Monitor łączy zawiera również[usługi Application Insights](../application-insights/app-insights-overview.md) aplikacji i [analizy dzienników](../log-analytics/log-analytics-overview.md) rozwiązania do zarządzania. Te produkty firmy Microsoft są silnie zintegrowane z usługą Azure Monitor.
+15. Jeśli nie korzystasz z usług Application Insights ani Log Analytics, możliwe jest, że usługa Azure Monitor współpracuje z aktualnie używanymi przez Ciebie produktami do monitorowania, rejestrowania i tworzenia alertów. Zobacz nasze [strony partnerów](monitoring-partners.md) pełną listę i instrukcje toointegrate.
 
-Wykonując poniższe kroki i przypinając odpowiednie kafelki do pulpitu nawigacyjnego, możesz tworzyć kompleksowe widoki aplikacji i infrastruktury, podobne do widoku poniżej:
+Poniższe kroki i przypinanie wszystkich pulpitu nawigacyjnego tooa odpowiednich fragmentów, można tworzyć kompleksowe widoki aplikacji i infrastruktury, takich jak ta:
 
 ![Pulpit nawigacyjny usługi Azure Monitor](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się z tematem [Omówienie usługi Azure Monitor](monitoring-overview.md)
+* Witaj odczytu [Monitor Omówienie usługi Azure](monitoring-overview.md)
 

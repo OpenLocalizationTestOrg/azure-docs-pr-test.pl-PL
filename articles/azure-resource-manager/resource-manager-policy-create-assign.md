@@ -1,6 +1,6 @@
 ---
-title: "Przypisz i zarządzanie zasadami zasobów platformy Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób stosowania zasad zasobów platformy Azure do subskrypcji i grup zasobów oraz sposób wyświetlania zasad zasobów."
+title: "aaaAssign zasad zasobów platformy Azure i zarządzanie nimi | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób tooapply grup zasobów platformy Azure zasad toosubscriptions i zasobów i w jaki sposób tooview zasad zasobów."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: b204cffa8fab0ad27a9f78a81c04f0a0225d95f5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b6999b43bbcc80d2fde9911352fd4352fa453443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Przypisz i zarządzanie zasadami zasobów
 
-Aby wdrożyć zasady, należy wykonać następujące kroki:
+tooimplement zasad, należy wykonać następujące kroki:
 
-1. Sprawdź definicje zasad (w tym wbudowane zasady dostarczany przez platformę Azure) aby zobaczyć, jeśli istnieje już w ramach subskrypcji, który spełnia wymagania.
+1. Sprawdź zasady toosee definicji (w tym wbudowane zasady dostarczany przez platformę Azure), jeśli istnieje już w ramach subskrypcji, który spełnia wymagania.
 2. Jeśli istnieje, należy pobrać jego nazwy.
-3. Jeśli nie istnieje, zdefiniuj reguły z JSON i dodaj go jako definicję zasad w ramach subskrypcji. Ten krok powoduje, że zasady dostępne do przypisania, ale nie ma zastosowania reguły do subskrypcji.
-4. Dla obu przypadkach należy przypisać zasady do zakresu (np. grupy zasobów lub subskrypcji). Obecnie są wymuszane reguły zasad.
+3. Jeśli nie istnieje, zdefiniuj hello reguły z JSON i dodaj go jako definicję zasad w ramach subskrypcji. Ten krok powoduje dostępne do przypisania hello zasad, ale nie ma zastosowania hello reguły tooyour subskrypcji.
+4. Dla obu przypadkach należy przypisać hello zakres tooa zasad (np. grupy zasobów lub subskrypcji). obecnie są wymuszane reguły Hello hello zasad.
 
-Ten artykuł skupia się na kroki, aby utworzyć definicję zasad i przypisać tej definicji do zakresu za pośrednictwem interfejsu API REST, programu PowerShell lub interfejsu wiersza polecenia Azure. Jeśli wolisz korzystać z portalu do przypisania zasad, zobacz [portal Azure Użyj przypisania zasad i zarządzania nimi zasobów](resource-manager-policy-portal.md). W tym artykule nie dotyczą składni do utworzenia definicji zasad. Informacje na temat zasad składni, zobacz [Przegląd zasad zasobów](resource-manager-policy.md).
+Ten artykuł koncentruje się na powitania kroki toocreate definicji zasad i przypisz tego zakresu tooa definicji za pośrednictwem interfejsu API REST, programu PowerShell lub wiersza polecenia platformy Azure. Jeśli wolisz toouse hello portalu tooassign zasad, zobacz [tooassign portalu Azure użycia zasad zasobów i zarządzanie nimi](resource-manager-policy-portal.md). W tym artykule nie skupić się na utworzenie definicji zasad hello składnię hello. Informacje na temat zasad składni, zobacz [Przegląd zasad zasobów](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>Interfejs API REST
 
 ### <a name="create-policy-definition"></a>Utwórz definicję zasad
 
-Możesz utworzyć zasady z [interfejsu API REST dla definicji zasad](/rest/api/resources/policydefinitions). Interfejs API REST umożliwia tworzenie i usuwanie definicji zasad oraz uzyskać informacje o istniejących definicji.
+Można utworzyć zasadę z hello [interfejsu API REST dla definicji zasad](/rest/api/resources/policydefinitions). Witaj interfejsu API REST umożliwia toocreate i Usuń definicje zasad i uzyskiwania informacji o istniejących definicji.
 
-Aby utworzyć definicję zasad, uruchom polecenie:
+Uruchom toocreate definicję zasad:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-Dołącz treści żądania, podobnie do poniższego przykładu:
+To żądanie treści toohello podobne, poniższy przykład:
 
 ```json
 {
@@ -52,14 +52,14 @@ Dołącz treści żądania, podobnie do poniższego przykładu:
       "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
+          "description": "hello list of locations that can be specified when deploying resources",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
       }
     },
     "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
@@ -77,22 +77,22 @@ Dołącz treści żądania, podobnie do poniższego przykładu:
 
 ### <a name="assign-policy"></a>Przypisz zasady
 
-Można stosować na żądany zakres za pośrednictwem definicji zasad [interfejsu API REST dla przypisania zasad](/rest/api/resources/policyassignments). Interfejs API REST umożliwia tworzenie i usuwanie przypisania zasad oraz uzyskać informacje na temat istniejące przypisania.
+Możesz zastosować hello definicji zasad w zakresie hello potrzeby za pośrednictwem hello [interfejsu API REST dla przypisania zasad](/rest/api/resources/policyassignments). Witaj interfejsu API REST umożliwia toocreate i usunąć przypisania zasad i uzyskiwania informacji o istniejące przypisania.
 
-Aby utworzyć przypisanie zasad, uruchom polecenie:
+toocreate przypisanie zasad, uruchom polecenie:
 
 ```HTTP
 PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 ```
 
-{Przypisania zasad} jest nazwą przypisania zasad.
+Witaj {przypisania zasad} jest nazwa hello hello przypisania zasad.
 
-Dołącz treści żądania, podobnie do poniższego przykładu:
+To żądanie treści toohello podobne, poniższy przykład:
 
 ```json
 {
   "properties":{
-    "displayName":"West US only policy assignment on the subscription ",
+    "displayName":"West US only policy assignment on hello subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
       "allowedLocations": { "value": ["northeurope", "westus"] }
@@ -104,16 +104,16 @@ Dołącz treści żądania, podobnie do poniższego przykładu:
 ```
 
 ### <a name="view-policy"></a>Wyświetl zasady
-Aby pobrać zasady, użyj [pobrać definicji zasad](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) operacji.
+tooget zasady, użyj hello [pobrać definicji zasad](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) operacji.
 
 ### <a name="get-aliases"></a>Pobierz aliasów
-Można pobrać aliasy za pośrednictwem interfejsu API REST:
+Można pobrać aliasy za pośrednictwem interfejsu API REST hello:
 
 ```HTTP
 GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 ```
 
-Poniższy przykład przedstawia definicję aliasu. Jak widać, alias definiuje ścieżek w różnych wersjach interfejsu API, nawet wtedy, gdy istnieje zmiana nazwy właściwości. 
+Witaj poniższy przykład przedstawia definicję aliasu. Jak widać, alias definiuje ścieżek w różnych wersjach interfejsu API, nawet wtedy, gdy istnieje zmiana nazwy właściwości. 
 
 ```json
 "aliases": [
@@ -140,16 +140,16 @@ Poniższy przykład przedstawia definicję aliasu. Jak widać, alias definiuje �
 
 ## <a name="powershell"></a>PowerShell
 
-Przed kontynuowaniem pracy z przykładami dla programu PowerShell, upewnij się, masz [zainstalowaną najnowszą wersję](/powershell/azure/install-azurerm-ps) programu Azure PowerShell. Parametry zasad zostały dodane w wersji 3.6.0. Jeśli masz starszą wersję przykłady zwrócony błąd wskazujący, że nie można odnaleźć parametru.
+Przed kontynuowaniem hello przykłady z programu PowerShell, upewnij się, masz [zainstalowana najnowsza wersja hello](/powershell/azure/install-azurerm-ps) programu Azure PowerShell. Parametry zasad zostały dodane w wersji 3.6.0. Jeśli masz starszą wersję przykłady hello zwracać nie można odnaleźć parametru hello wskazującego błąd.
 
 ### <a name="view-policy-definitions"></a>Wyświetlanie definicji zasad
-Aby wyświetlić wszystkie definicje zasad w ramach subskrypcji, użyj następującego polecenia:
+toosee wszystkie definicje zasad w ramach subskrypcji, hello Użyj następującego polecenia:
 
 ```powershell
 Get-AzureRmPolicyDefinition
 ```
 
-Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w następującym formacie:
+Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w hello następującego formatu:
 
 ```powershell
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -157,18 +157,18 @@ ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceType       : Microsoft.Authorization/policyDefinitions
 Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
-                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     restrict hello locations your organization can specify when deploying resources. Use tooenforce
                      your geo-compliance requirements.; parameters=; policyRule=}
 PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ```
 
-Przed przystąpieniem do tworzenia definicji zasad, obejrzyj wbudowanych zasad. Jeśli znajdziesz wbudowanych zasad, które ma zastosowanie ograniczeń, które są potrzebne, można pominąć tworzenie definicji zasad. Zamiast tego należy przypisać zasady wbudowanych żądany zakres.
+Przed kontynuowaniem toocreate definicji zasad Obejrzyj hello wbudowanych zasad. Jeśli znajdziesz wbudowanych zasad, które stosuje limity hello, które są potrzebne, można pominąć tworzenie definicji zasad. Przypisz hello wbudowanych zasad toohello żądany zakres.
 
 ### <a name="create-policy-definition"></a>Utwórz definicję zasad
-Można utworzyć definicji zasad przy użyciu opcji `New-AzureRmPolicyDefinition` polecenia cmdlet.
+Można utworzyć definicję zasad przy użyciu hello `New-AzureRmPolicyDefinition` polecenia cmdlet.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -193,15 +193,15 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 }'
 ```            
 
-Dane wyjściowe są przechowywane w `$definition` obiektu, który jest używany podczas przypisywania zasad. 
+dane wyjściowe Hello są przechowywane w `$definition` obiektu, który jest używany podczas przypisywania zasad. 
 
-Zamiast określania JSON jako parametru, musisz podać ścieżkę do pliku JSON zawierający reguły.
+Zamiast określania hello JSON jako parametru, musisz podać hello ścieżki tooa JSON zawierający hello reguły.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
-Poniższy przykład tworzy definicji zasad, które zawiera parametry:
+Witaj poniższy przykład tworzy definicji zasad, które zawiera parametry:
 
 ```powershell
 $policy = '{
@@ -228,26 +228,26 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "description": "hello list of locations that can be specified when deploying storage accounts.",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
     }
 }' 
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy toospecify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### <a name="assign-policy"></a>Przypisz zasady
 
-Zastosuj zasady na żądany zakres przy użyciu `New-AzureRmPolicyAssignment` polecenia cmdlet. W poniższym przykładzie przypisano zasady grupy zasobów.
+Zastosuj zasady hello w zakresie hello potrzeby przy użyciu hello `New-AzureRmPolicyAssignment` polecenia cmdlet. Poniższy przykład Hello przypisuje grupy zasobów tooa zasad hello.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Aby przypisać zasady, które wymaga parametrów, Utwórz i obiekt z tych wartości. W poniższym przykładzie pobiera zasady wbudowanych i przekazuje w wartości parametrów:
+tooassign zasadę, która wymaga parametrów, Utwórz i obiekt z tych wartości. Witaj poniższy przykład pobiera zasady wbudowanych i przekazuje wartości parametrów:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
@@ -259,14 +259,14 @@ New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -Poli
 
 ### <a name="view-policy-assignment"></a>Widok przypisania zasad
 
-Aby uzyskać przypisanie określonych zasad, należy użyć:
+Użyj tooget przypisaniu określonych zasad:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 (Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
-Aby wyświetlić reguły zasad dla definicji zasad, należy użyć:
+tooview hello reguła dla definicji zasad, użyj:
 
 ```powershell
 (Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
@@ -274,7 +274,7 @@ Aby wyświetlić reguły zasad dla definicji zasad, należy użyć:
 
 ### <a name="remove-policy-assignment"></a>Usuń przypisanie zasad 
 
-Aby usunąć przypisanie zasad, należy użyć:
+tooremove przypisanie zasad, należy użyć:
 
 ```powershell
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -283,17 +283,17 @@ Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscription
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 ### <a name="view-policy-definitions"></a>Wyświetlanie definicji zasad
-Aby wyświetlić wszystkie definicje zasad w ramach subskrypcji, użyj następującego polecenia:
+toosee wszystkie definicje zasad w ramach subskrypcji, hello Użyj następującego polecenia:
 
 ```azurecli
 az policy definition list
 ```
 
-Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w następującym formacie:
+Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasada jest zwracany w hello następującego formatu:
 
 ```azurecli
 {                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources. Use tooenforce your geo-compliance requirements.",                      
   "displayName": "Allowed locations",
   "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
   "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
@@ -312,14 +312,14 @@ Zwraca wszystkie definicje dostępnych zasad, w tym wbudowane zasad. Każda zasa
 }
 ```
 
-Przed przystąpieniem do tworzenia definicji zasad, obejrzyj wbudowanych zasad. Jeśli znajdziesz wbudowanych zasad, które ma zastosowanie ograniczeń, które są potrzebne, można pominąć tworzenie definicji zasad. Zamiast tego należy przypisać zasady wbudowanych żądany zakres.
+Przed kontynuowaniem toocreate definicji zasad Obejrzyj hello wbudowanych zasad. Jeśli znajdziesz wbudowanych zasad, które stosuje limity hello, które są potrzebne, można pominąć tworzenie definicji zasad. Przypisz hello wbudowanych zasad toohello żądany zakres.
 
 ### <a name="create-policy-definition"></a>Utwórz definicję zasad
 
-Możesz utworzyć definicję zasad przy użyciu wiersza polecenia platformy Azure przy użyciu polecenia definicji zasad.
+Możesz utworzyć definicję zasad przy użyciu wiersza polecenia platformy Azure przy użyciu hello zasad definicji polecenia.
 
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name coolAccessTier --description "Policy toospecify access tier." --rules '{
   "if": {
     "allOf": [
       {
@@ -346,7 +346,7 @@ az policy definition create --name coolAccessTier --description "Policy to speci
 
 ### <a name="assign-policy"></a>Przypisz zasady
 
-Możesz zastosować zasady do żądany zakres za pomocą polecenia przypisania zasad. W poniższym przykładzie przypisano zasady grupy zasobów.
+Za pomocą polecenia przypisania zasad hello można zastosować hello zasad toohello żądany zakres. Poniższy przykład Hello przypisuje grupę zasobów tooa zasad.
 
 ```azurecli
 az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -354,7 +354,7 @@ az policy assignment create --name coolAccessTierAssignment --policy coolAccessT
 
 ### <a name="view-policy-assignment"></a>Widok przypisania zasad
 
-Aby wyświetlić przypisanie zasad, należy podać nazwa przypisania zasad oraz zakres:
+tooview przypisanie zasad, podaj nazwa przypisania zasad hello i zakres hello:
 
 ```azurecli
 az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
@@ -362,12 +362,12 @@ az policy assignment show --name coolAccessTierAssignment --scope "/subscription
 
 ### <a name="remove-policy-assignment"></a>Usuń przypisanie zasad 
 
-Aby usunąć przypisanie zasad, należy użyć:
+tooremove przypisanie zasad, należy użyć:
 
 ```azurecli
 az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
+* Aby uzyskać wskazówki dotyczące użycia tooeffectively Menedżera zasobów przedsiębiorstwa Zarządzaj subskrypcjami, zobacz [szkieletu Azure enterprise — ładu przetestowanego subskrypcji](resource-manager-subscription-governance.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Zrozumienie Tworzenie definicji interfejsu użytkownika dla aplikacji zarządzanych platformy Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób tworzenia definicji interfejsu użytkownika dla aplikacji Azure"
+title: "aaaUnderstand Tworzenie definicji interfejsu użytkownika dla aplikacji zarządzanych platformy Azure | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób toocreate definicji interfejsu użytkownika dla aplikacji zarządzanych platformy Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 176b891538f85c5638a2321561c3d8bd377d245b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d53ddf438c24d5a6cb8dd53ca0b4694ab0462515
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-createuidefinition"></a>Wprowadzenie do korzystania z CreateUiDefinition
-Tym dokumencie przedstawiono podstawowe pojęcia CreateUiDefinition, który jest używany w portalu Azure do generowania interfejsu użytkownika do tworzenia zarządzanej aplikacji.
+Tym dokumencie przedstawiono podstawowe pojęcia hello CreateUiDefinition, używany przez interfejs użytkownika hello Azure toogenerate portalu hello służący do tworzenia aplikacji zarządzanych.
 
 ```json
 {
@@ -39,34 +39,34 @@ CreateUiDefinition zawsze zawiera trzy właściwości:
 
 * Program obsługi
 * Wersja
-* Parametry
+* parameters
 
-Dla zarządzanych aplikacji obsługi powinna zawsze być `Microsoft.Compute.MultiVm`, a najnowszą obsługiwaną wersję `0.1.2-preview`.
+Dla zarządzanych aplikacji obsługi powinna zawsze być `Microsoft.Compute.MultiVm`, a hello najnowsza wersja obsługiwana wersja to `0.1.2-preview`.
 
-Schemat właściwości parametrów zależy od kombinacja określona Obsługa i wersji. Dla zarządzanych aplikacji są obsługiwane właściwości `basics`, `steps`, i `outputs`. Zawiera właściwości podstawy i kroki _elementy_ — takich jak pola tekstowe i listę rozwijaną - mają być wyświetlane w portalu Azure. Właściwość wyniki służy do mapowania wartości określonych elementów danych wyjściowych do parametrów szablonu wdrożenia usługi Azure Resource Manager.
+Schemat Hello hello parametry właściwości zależy od kombinacji hello hello określona Obsługa i wersji. W przypadku zarządzanych aplikacji hello obsługiwane właściwości są `basics`, `steps`, i `outputs`. Witaj podstawy i kroki właściwości zawierają hello _elementy_ — takich jak pola tekstowe i listę rozwijaną - toobe wyświetlane w hello portalu Azure. dane wyjściowe Hello, wartości danych wyjściowych hello toomap używana jest właściwość hello określonych elementów toohello parametry szablonu wdrożenia usługi Azure Resource Manager hello.
 
-W tym `$schema` jest zalecane, ale opcjonalne. Jeśli określona wartość `version` musi być zgodna z wersją w `$schema` identyfikatora URI.
+W tym `$schema` jest zalecane, ale opcjonalne. Jeśli jest określony, wartość hello `version` musi odpowiadać wersji hello w hello `$schema` identyfikatora URI.
 
 ## <a name="basics"></a>Podstawy
-Krok podstawy zawsze jest to pierwszy etap kreatora generowane, gdy CreateUiDefinition analizuje portalu Azure. Oprócz wyświetlania elementów określonych w `basics`, portalu injects elementy użytkownicy wybiorą subskrypcji, grupy zasobów i lokalizacji dla wdrożenia. Ogólnie rzecz biorąc elementy, które kwerendy parametry dla całego wdrożenia, takie jak nazwa klastra lub administratora poświadczeń, należy go w tym kroku.
+krok podstawy Hello jest zawsze hello pierwszego kroku kreatora hello generowane, gdy CreateUiDefinition analizuje hello portalu Azure. Ponadto określone elementy hello toodisplaying w `basics`, hello portal injects elementy dla użytkowników toochoose hello subskrypcji, grupy zasobów i lokalizację hello wdrożenia. Ogólnie rzecz biorąc elementy, które zapytania dla całego wdrożenia parametry, takie jak hello nazwę klastra lub administratora poświadczeń, należy go w tym kroku.
 
-Jeśli element zachowanie zależy od subskrypcji, grupy zasobów lub lokalizacji użytkownika, tego elementu nie można użyć w podstawy. Na przykład **Microsoft.Compute.SizeSelector** jest zależny od subskrypcji i lokalizacji, aby określić listę dostępnych rozmiarów użytkownika. W związku z tym **Microsoft.Compute.SizeSelector** można używać tylko w krokach. Ogólnie rzecz biorąc, tylko elementy w **Microsoft.Common** przestrzeni nazw mogą być używane w podstawy. Mimo że niektóre elementy w innych przestrzeniach nazw (takich jak **Microsoft.Compute.Credentials**) które nie są zależne od kontekstu użytkownika, nadal jest dozwolone.
+Jeśli element zachowanie zależy od subskrypcji, grupy zasobów lub lokalizacji użytkownika hello, tego elementu nie można użyć w podstawy. Na przykład **Microsoft.Compute.SizeSelector** zależy od użytkownika hello subskrypcji i lokalizacji toodetermine hello listę dostępnych rozmiarów. W związku z tym **Microsoft.Compute.SizeSelector** można używać tylko w krokach. Ogólnie rzecz biorąc, tylko elementy w hello **Microsoft.Common** przestrzeni nazw mogą być używane w podstawy. Mimo że niektóre elementy w innych przestrzeniach nazw (takich jak **Microsoft.Compute.Credentials**) które nie są zależne od kontekstu użytkownika hello, nadal jest dozwolone.
 
 ## <a name="steps"></a>Kroki
-Właściwość czynności może zawierać zero lub więcej dodatkowych czynności w celu wyświetlenia po podstawy, z których każdy zawiera jeden lub więcej elementów. Rozważ dodanie czynności na roli lub warstwy aplikacji wdrażany. Na przykład dodać krok dla danych wejściowych dla węzłów głównych i krok dla węzłów procesu roboczego w klastrze.
+Właściwość kroki Hello może zawierać zero lub więcej toodisplay dodatkowe kroki po podstawy, z których każdy zawiera jeden lub więcej elementów. Rozważ dodanie czynności na roli lub warstwy aplikacji hello wdrażany. Na przykład dodać krok dla danych wejściowych dla węzłów głównych hello i krok dla hello węzłów procesu roboczego w klastrze.
 
 ## <a name="outputs"></a>dane wyjściowe
-Azure portal używa `outputs` właściwości, aby zamapować elementy z `basics` i `steps` parametrów szablonu wdrażania Menedżera zasobów Azure. Klucze tego słownika są nazwy parametrów szablonu, a wartości to właściwości obiektów danych wyjściowych z elementów.
+Witaj portalu Azure używa hello `outputs` elementy toomap właściwości z `basics` i `steps` toohello parametry szablonu wdrożenia usługi Azure Resource Manager hello. Hello klucze tego słownika hello nazwy parametrów szablonu hello są i wartości hello to właściwości obiektów danych wyjściowych powitania od hello odwołuje się do elementów.
 
 ## <a name="functions"></a>Funkcje
-Podobnie jak [szablonu funkcji](resource-group-template-functions.md) w usługi Azure Resource Manager (oba składni i funkcji), CreateUiDefinition zapewnia funkcje do pracy z wejściami i wyjściami elementów, jak również funkcje takie jak warunków.
+Podobnie za[szablonu funkcji](resource-group-template-functions.md) w usługi Azure Resource Manager (oba składni i funkcji), CreateUiDefinition zapewnia funkcje do pracy z wejściami i wyjściami elementów, jak również funkcje takie jak warunków.
 
 ## <a name="next-steps"></a>Następne kroki
-CreateUiDefinition sam ma prosty schematu. Rzeczywistą liczbę pochodzi z obsługiwane elementy i funkcje, które w następujących dokumentach opisano szczegółowo niezwykłych:
+CreateUiDefinition sam ma prosty schematu. głębokość rzeczywistych Hello go pochodzi z wszystkie hello obsługiwane elementy i funkcje, które hello następujące dokumenty opisano szczegółowo niezwykłych:
 
 - [Elementy](managed-application-createuidefinition-elements.md)
 - [Funkcje](managed-application-createuidefinition-functions.md)
 
 Bieżącego schematu JSON dla CreateUiDefinition jest dostępnych tutaj: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
 
-Nowszych wersji będą dostępne w tej samej lokalizacji. Zastąp `0.1.2-preview` część adresu URL i `version` wartość o identyfikatorze wersji mają być używane. Identyfikatory aktualnie obsługiwana wersja to `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, i `0.1.2-preview`.
+Nowszych wersji będą dostępne na powitania tej samej lokalizacji. Zastąp hello `0.1.2-preview` część adresu URL hello i hello `version` wartość o identyfikatorze wersji hello mają toouse. identyfikatory wersji Hello obecnie obsługiwane są `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, i `0.1.2-preview`.

@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C# | Dokumentacja firmy Microsoft"
-description: "Ten samouczek obejmuje zarządzanie danych referencyjnych do środowiska Azure czas serii Insights przy użyciu języka C#"
+title: "dane referencyjne aaaManage dla środowiska Azure czas serii Insights przy użyciu języka C# | Dokumentacja firmy Microsoft"
+description: "W tym samouczku opisano, jak toomanage danych referencyjnych do środowiska Azure czas serii Insights przy użyciu języka C#"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: d3afa81286227fa0cc270c5911a8dd5913eb7e6c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 77b85aa7f9a5dc46c132afa56c82df48f41577fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C#
 
-C# przykładzie pokazano, jak zarządzać danych referencyjnych do środowiska Azure czas serii Insights.
-Przed uruchomieniem próbki, upewnij się, że są wykonywane następujące czynności.
+C# przykładzie pokazano, jak toomanage odwoływał się do danych w środowisku Azure czas serii Insights.
+Przed próbki hello uruchomione upewnij się, że hello następujące kroki zostały zakończone.
 1. Utworzono odwołanie do zestawu danych, za pomocą [w tym artykule](time-series-insights-add-reference-data-set.md).
-2. Token dostępu używany podczas uruchamiania aplikacji są uzyskiwane przez interfejs API usługi Azure Active Directory. Token ten powinien zostać przekazany w `Authorization` nagłówku każdego żądania interfejsu API zapytania. Do konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md) artykułu.
-3. Wszystkie stałe zdefiniowane na początku próbki są poprawnie ustawione.
+2. token dostępu Hello używany podczas uruchamiania aplikacji hello jest zakupione w ramach hello interfejsu API usługi Azure Active Directory. Token ten powinien zostać przekazany w hello `Authorization` nagłówku każdego żądania interfejsu API zapytania. Do konfigurowania nieinterakcyjnych aplikacji, zobacz hello [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md) artykułu.
+3. Wszystkich stałych hello zdefiniowana na początku hello hello próbki są poprawnie ustawione.
 
 ## <a name="c-sample"></a>Przykład w języku C#
 
@@ -46,24 +46,24 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     public static class Program
     {
-        // SET the environment fqdn.
+        // SET hello environment fqdn.
         private static string EnvironmentFqdn = "#DUMMY#.env.timeseries.azure.com";
 
-        // SET the environment reference data set name used when creating it.
+        // SET hello environment reference data set name used when creating it.
         private static string EnvironmentReferenceDataSetName = "#DUMMY#";
 
         // For automated execution under application identity,
         // use application created in Active Directory.
-        // To create the application in AAD, follow the steps provided here:
+        // toocreate hello application in AAD, follow hello steps provided here:
         // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
-        // SET the application ID of application registered in your Azure Active Directory
+        // SET hello application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
 
-        // SET the application key of the application registered in your Azure Active Directory
+        // SET hello application key of hello application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
 
-        // SET the Azure Active Directory tenant.
+        // SET hello Azure Active Directory tenant.
         private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         private static async Task DemoReferenceDataAsync()
@@ -155,7 +155,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use hello link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} tooupdate hello values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -168,7 +168,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                     clientId: ApplicationClientId,
                     clientSecret: ApplicationClientSecret));
 
-            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Show interactive logon dialog tooacquire token on behalf of hello user.
             // Suitable for native apps, and not on server-side of a web application.
             //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
             //    resource: "https://api.timeseries.azure.com/",
@@ -234,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać pełną dokumentację interfejsu API, zobacz dokument [Interfejs API danych referencyjnych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+Aby hello pełną dokumentację interfejsu API, zobacz [odwołania API danych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) dokumentu.

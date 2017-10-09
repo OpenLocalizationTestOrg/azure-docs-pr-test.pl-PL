@@ -1,6 +1,6 @@
 ---
-title: "Azure rozliczeń interfejsów API Enterprise - arkusza cen | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat raportowania interfejsów API, które umożliwiają klientom Enterprise Azure programowo pobierać dane dotyczące zużycia."
+title: "aaaAzure rozliczeń Enterprise interfejsów API - arkusza cen | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat hello interfejsów API raportowania programowo włączyć dane dotyczące zużycia toopull klientów Enterprise Azure."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 2e7d6e883abe4cee13bc5f684baf2a1ea9c6c397
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4cfe694c63fba266d117054b046d9caacb3b7197
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---price-sheet"></a>Raportowanie interfejsów API dla klientów korporacyjnych — arkusz cen
 
-API arkusza cen udostępnia stawkę dla każdego licznika dla danego rejestracji i okresu rozliczeniowego.
+Hello API arkusza cen zapewnia hello stawkę dla każdego licznika dla hello rejestracji i okresu rozliczeniowego.
 
 ##<a name="request"></a>Żądanie
-Wspólne właściwości nagłówka, które mają zostać dodane zostały określone [tutaj](billing-enterprise-api.md). Jeśli nie określono okresie rozliczeniowym, zwracany jest danych dla bieżącego okresu rozliczeniowego.
+Wspólne właściwości nagłówka wymagające toobe dodawane są określone [tutaj](billing-enterprise-api.md). Jeśli nie określono okresie rozliczeniowym, dane dotyczące rozliczeń bieżącego hello okresu jest zwracany.
 
 |Metoda | Identyfikator URI żądania|
 |-|-|
@@ -34,7 +34,7 @@ Wspólne właściwości nagłówka, które mają zostać dodane zostały określ
 |POBIERZ|/billingPeriods/ https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} {billingPeriod} / arkusza cen|
 
 > [!Note]
-> Aby użyć wersji zapoznawczej interfejsu API, Zastąp v2 v1 w powyższy adres URL.
+> Wersja zapoznawcza hello toouse interfejsu API, Zamień v2 v1 w hello powyżej adresu URL.
 >
 
 ## <a name="response"></a>Odpowiedź
@@ -68,22 +68,22 @@ Wspólne właściwości nagłówka, które mają zostać dodane zostały określ
     
 
 > [!Note]
->Jeśli korzystasz z interfejsu API w wersji zapoznawczej, meterId pole nie jest dostępne.
+>Jeśli używasz hello interfejsu API w wersji zapoznawczej meterId pole nie jest dostępne.
 >
 
 **Definicje właściwości odpowiedzi**
 
 |Nazwa właściwości| Typ| Opis
 |-|-|-|
-|id| Ciąg| Unikatowy identyfikator, który reprezentuje konkretnego elementu arkusza cen (licznik przez okres rozliczeń)|
-|billingPeriodId| Ciąg| Unikatowy identyfikator, który reprezentuje określonym okresie rozliczeń|
-|meterId| Ciąg| Identyfikator licznika. Może on być zamapowany na meterId użycia.|
-|meterName| Ciąg| Nazwa licznika|
-|unitOfMeasure| Ciąg| Jednostka miary dla pomiaru usługi|
+|id| Ciąg| Witaj Unikatowy identyfikator, który reprezentuje konkretnego elementu arkusza cen (licznik przez okres rozliczeń)|
+|billingPeriodId| Ciąg| Witaj Unikatowy identyfikator, który reprezentuje określonym okresie rozliczeń|
+|meterId| Ciąg| Identyfikator Hello hello miernika. Może to być mapowane toohello meterId użycia.|
+|meterName| Ciąg| Nazwa licznika Hello|
+|unitOfMeasure| Ciąg| Witaj jednostka miary dla pomiaru hello usługi|
 |includedQuantity| Decimal| Ilość dostępnej |
-|numer części| Ciąg| Numer części skojarzone z licznika|
-|unitPrice| Decimal| Cenie jednostkowej dla licznika|
-|currencyCode| Ciąg| Kod waluty unitPrice|
+|numer części| Ciąg| numer części Hello skojarzone z hello licznika|
+|unitPrice| Decimal| Witaj cenie jednostkowej dla licznika hello|
+|currencyCode| Ciąg| Kod waluty Hello hello unitPrice|
 <br/>
 ## <a name="see-also"></a>Zobacz też
 

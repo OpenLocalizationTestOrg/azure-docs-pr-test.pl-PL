@@ -1,6 +1,6 @@
 ---
-title: "Za pomocą narzędzia importu/eksportu Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przygotować dyski twarde dla zadania importu, napraw zadania importu lub naprawy zadania eksportu za pomocą narzędzia importu/eksportu."
+title: "aaaUsing hello Azure narzędzie importu/eksportu | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse hello narzędzie importu/eksportu tooprepare dyski twarde dla zadania importu naprawy zadania importu lub naprawy zadania eksportu."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa2021e5a03281128e494e6e63f58bc6319aeb4c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-azure-importexport-tool"></a>Za pomocą narzędzia Azure Import/Eksport 
+# <a name="using-hello-azure-importexport-tool"></a>Przy użyciu hello Azure narzędzie importu/eksportu 
 
-Narzędzie importu/eksportu Azure (WAImportExport.exe) służy do tworzenia zadania i zarządzać nimi w usłudze Import/Eksport Azure umożliwia transfer dużych ilości danych do i z magazynu obiektów Blob Azure.
+Hello Azure narzędzie importu/eksportu (WAImportExport.exe) jest używane toocreate zadania i zarządzać nimi w przypadku usługi Import/Eksport Azure hello włączenie tootransfer dużych ilości danych do i z magazynu obiektów Blob Azure.
 
-Niniejsza dokumentacja jest do najnowszej wersji narzędzia importu/eksportu Azure. Aby dowiedzieć się, jak za pomocą narzędzia v1, zobacz [za pomocą narzędzia importu/eksportu Azure w wersji 1](storage-import-export-tool-how-to-v1.md).
+Niniejsza dokumentacja jest do najnowszej wersji hello hello Azure narzędzie importu/eksportu. Aby dowiedzieć się, jak za pomocą narzędzia v1 hello, zobacz [hello Using Azure narzędzie importu/eksportu v1](storage-import-export-tool-how-to-v1.md).
 
-W tych artykułach zostanie wyświetlony jak za pomocą narzędzia wykonaj następujące czynności:  
+W tych artykułach zobaczysz, jak toouse hello narzędzia toodo hello następujące:  
 
-- Instalowanie i Konfigurowanie narzędzia importu/eksportu.
-- Przygotuj dyskach twardych dla zadania, w którym importowanie danych z dysków do magazynu obiektów Blob Azure.
-- Sprawdź stan zadania kopiowania plików dzienników. 
+- Instalowanie i konfigurowanie hello narzędzie importu/eksportu.
+- Przygotuj dyskach twardych dla zadania, w którym Importuj dane z Twojego tooAzure dyski magazynu obiektów Blob.
+- Sprawdź stan hello zadania kopiowania plików dzienników. 
 - Napraw zadania importu. 
 - Napraw zadania eksportu. 
-- Rozwiązywanie problemów z narzędzie importu/eksportu Azure, w przypadku, gdy wystąpił problem podczas procesu. 
+- Rozwiązywanie problemów z hello Azure narzędzie importu/eksportu, w przypadku, gdy wystąpił problem podczas procesu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Trwa konfigurowanie narzędzia WAImportExport](storage-import-export-tool-setup.md)
+* [Trwa konfigurowanie narzędzia WAImportExport hello](storage-import-export-tool-setup.md)

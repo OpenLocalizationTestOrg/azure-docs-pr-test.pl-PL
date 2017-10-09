@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory audytu dokumentacja interfejsu API | Dokumentacja firmy Microsoft
-description: "Jak rozpocząć pracę z interfejsem API inspekcji usługi Azure Active Directory"
+title: "aaaAzure usługi Active Directory audytu dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Jak tooget pracę z hello interfejs API inspekcji usługi Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5f33b62ede9be445f35704739e328580dc454368
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory audytu dokumentacja interfejsu API
-Ten temat jest częścią zbiór tematów dotyczących usługi Azure Active Directory raportowania interfejsu API.  
-Raportowanie na platformie Azure AD zapewnia interfejs API, który umożliwia dostęp do danych inspekcji za pomocą kodu lub narzędzia pokrewne.
-Zakres tego tematu jest dostarczają informacje na temat **inspekcji interfejsu API**.
+Ten temat jest częścią zbiór tematów dotyczących usługi Azure Active Directory hello raportowania interfejsu API.  
+Raportowanie na platformie Azure AD zapewnia interfejs API, który umożliwia dane inspekcji tooaccess za pomocą kodu lub narzędzia pokrewne.
+Witaj zakres tego tematu jest tooprovide o informacje na temat hello **inspekcji interfejsu API**.
 
 Zobacz:
 
 * [Dzienniki inspekcji](active-directory-reporting-azure-portal.md#activity-reports) Aby uzyskać więcej informacji o pojęciach
 
-* [Wprowadzenie do usługi Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md) Aby uzyskać więcej informacji na temat raportowania interfejsu API.
+* [Wprowadzenie do korzystania z usługi Azure Active Directory interfejsu API raportowania hello](active-directory-reporting-api-getting-started.md) uzyskać więcej informacji o hello raportowania interfejsu API.
 
 
 W przypadku:
@@ -40,32 +40,32 @@ W przypadku:
 - Problemy, sprawdź [pliku biletu pomocy technicznej](active-directory-troubleshooting-support-howto.md) 
 
 
-## <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
-* Użytkownicy w roli administratora zabezpieczeń lub czytelnika zabezpieczeń
+## <a name="who-can-access-hello-data"></a>Kto ma dostęp do danych hello?
+* Użytkowników w roli administratora zabezpieczeń lub czytnika zabezpieczeń hello
 * Administratorzy globalni
-* Dowolną aplikację, która ma zezwolenie na dostęp do interfejsu API (autoryzacji aplikacji można skonfigurować tylko na podstawie uprawnienia administratora globalnego)
+* Żadnych aplikacji, który ma API hello tooaccess autoryzacji (autoryzacji aplikacji można skonfigurować tylko na podstawie uprawnienia administratora globalnego)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby uzyskać dostęp do tego raportu za pomocą interfejsu API raportowania, należy skonfigurować:
+W kolejności tooaccess to raportu za pomocą hello interfejsu API raportowania, musi mieć:
 
 * [Lepsze wersji lub Azure Active Directory bezpłatna](active-directory-editions.md)
-* Ukończono [wymagania wstępne dotyczące raportowania interfejsu API usługi Azure AD dostęp](active-directory-reporting-api-prerequisites.md). 
+* Ukończono hello [interfejsu API raportowania hello Azure AD tooaccess wymagania wstępne](active-directory-reporting-api-prerequisites.md). 
 
-## <a name="accessing-the-api"></a>Uzyskiwanie dostępu do interfejsu API
-Albo dostęp do tego interfejsu API za pomocą [Explorer wykres](https://graphexplorer2.cloudapp.net) albo programowo z użyciem, na przykład środowiska PowerShell. Aby PowerShell poprawnie interpretować składnia filtru OData używanym w wywołaniach AAD wykres REST, należy użyć backtick (alias: akcent) znaku "ucieczki" znaku $. Znak backtick służy jako [znak ucieczki dla środowiska PowerShell](https://technet.microsoft.com/library/hh847755.aspx), umożliwiając PowerShell literału interpretacja znak $, i uniknąć skomplikowana go jako nazwę zmiennej środowiska PowerShell (ie: $filter).
+## <a name="accessing-hello-api"></a>Uzyskiwanie dostępu do interfejsu API hello
+Ten interfejs API może albo dostęp za pośrednictwem hello [Explorer wykres](https://graphexplorer2.cloudapp.net) albo programowo z użyciem, na przykład środowiska PowerShell. W kolejności dla PowerShell toocorrectly zinterpretować składnia filtru OData hello używanym w wywołaniach REST Graph usługi AAD, należy użyć hello backtick (alias: akcent) znaków zbyt "" hello $ znak ucieczki. znak backtick Hello służy jako [znak ucieczki dla środowiska PowerShell](https://technet.microsoft.com/library/hh847755.aspx), umożliwiając PowerShell toodo literału Interpretacja znaku $ hello i uniknąć skomplikowana go jako nazwę zmiennej środowiska PowerShell (ie: $filter).
 
-Ten temat koncentruje się w Eksploratorze wykresu. Na przykład środowiska PowerShell, zobacz [skrypt programu PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
+Witaj w tym temacie koncentruje się na powitania Explorer wykresu. Na przykład środowiska PowerShell, zobacz [skrypt programu PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Punkt końcowy interfejsu API
-Aby dostęp do tego interfejsu API przy użyciu następującego identyfikatora URI:  
+Aby dostęp do tego interfejsu API przy użyciu hello następującego identyfikatora URI:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Nie ma żadnego limitu liczby rekordów zwróconych przez interfejs API inspekcji usługi Azure AD (przy użyciu podział na strony OData).
+Nie ma żadnego limitu na powitania liczbę rekordów zwróconych przez interfejs API inspekcji hello Azure AD (przy użyciu podział na strony OData).
 Do przechowywania ograniczenia dotyczące raportowania danych, zapoznaj się z [zasad przechowywania dotyczących okresu raportowania](active-directory-reporting-retention.md).
 
-To wywołanie zwraca dane w partiach. Każdej z partii może zawierać maksymalnie 1000 rekordów.  
-Aby uzyskać kolejną partię rekordów, użyj łącze do następnej. Pobierz informacje skiptoken z pierwszego zestawu zwróconych rekordów. Pomiń token zostanie na końcu wynik ustawiona.  
+To wywołanie zwraca dane hello w partiach. Każdej z partii może zawierać maksymalnie 1000 rekordów.  
+tooget hello następnej partii rekordów, użyj hello łącze do następnej. Pobierz informacje skiptoken hello z pierwszego zestawu hello zwróconych rekordów. token Pomiń Hello będzie na końcu hello hello zestawu wyników.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,26 +73,26 @@ Aby uzyskać kolejną partię rekordów, użyj łącze do następnej. Pobierz in
 
 
 ## <a name="supported-filters"></a>Filtry obsługiwane
-Liczba rekordów, które są zwracane przez interfejs API można zawęzić wywołaj w formularzu filtru.  
-Dla interfejsu API logowania związane z danych, obsługiwane są następujące filtry:
+Można zawęzić hello liczba rekordów, które są zwracane przez interfejs API wywołaj w formularzu filtru.  
+Dla interfejsu API logowania obsługiwane są powiązane dane, hello następujące filtry:
 
-* **$top =\<liczba rekordów, które ma zostać zwrócona\>**  — Aby ograniczyć liczbę zwróconych rekordów. Jest to kosztowna operacja. Nie należy używać tego filtru, aby zwrócić tysiące obiektów.     
-* **$filter =\<instrukcji filtru\>**  — Aby określić, na podstawie pól filtr obsługiwanych typu rekordów są dla Ciebie ważne
+* **$top =\<zwracana liczba rekordów toobe\>**  -toolimit hello liczba zwróconych rekordów. Jest to kosztowna operacja. Nie należy używać tego filtru, jeśli chcesz tooreturn tysięcy obiektów.     
+* **$filter =\<instrukcji filtru\>**  -toospecify na podstawie hello pól filtr obsługiwanych, typu hello rekordów są dla Ciebie ważne
 
 ## <a name="supported-filter-fields-and-operators"></a>Operatory i pól filtr obsługiwane
-Aby określić typ rekordów, które są dla Ciebie ważne, można utworzyć filtr instrukcję, która może zawierać jeden lub kombinację następujących pól Filtr:
+typu hello toospecify rekordy, które są dla Ciebie ważne, można utworzyć filtr instrukcję, która może zawierać jeden lub kombinację hello kolejnych pól Filtr:
 
 * [Daty](#activitydate) — określa datę lub zakres dat
-* [Kategoria](#category) — definiuje chcesz filtrować według kategorii.
-* [Element activityStatus](#activitystatus) — definiuje stan działania
-* [Właściwość activityType](#activitytype) — definiuje typ działania
-* [działanie](#activity) — definiuje działania w postaci ciągu  
-* [nazwisko/aktora](#actorname) — definiuje aktora w formie nazwy aktora
-* [aktora/objectid](#actorobjectid) — definiuje aktora w postaci aktora o identyfikatorze   
-* [aktora/nazwa upn](#actorupn) — definiuje aktora w postaci nazwy zasady aktora użytkownika (UPN) 
-* [Nazwadocelowego/](#targetname) — definiuje obiekt docelowy w formie nazwy aktora
-* [docelowy/objectid](#targetobjectid) — definiuje obiekt docelowy w formie identyfikatora obiektu docelowego  
-* [docelowy/nazwa upn](#targetupn) — definiuje aktora w postaci nazwy zasady aktora użytkownika (UPN)   
+* [Kategoria](#category) — definiuje hello kategorii ma być toofilter.
+* [Element activityStatus](#activitystatus) — definiuje hello stan działania
+* [Właściwość activityType](#activitytype) — definiuje typ hello działania
+* [działanie](#activity) — definiuje działania hello jako ciąg  
+* [nazwisko/aktora](#actorname) — definiuje hello aktora w formie nazwy hello aktora
+* [aktora/objectid](#actorobjectid) — definiuje hello aktora w postaci hello aktora o identyfikatorze   
+* [aktora/nazwa upn](#actorupn) — definiuje hello aktora w postaci nazwy zasady aktora hello użytkownika (UPN) 
+* [Nazwadocelowego/](#targetname) — definiuje hello docelowego w formie nazwy hello aktora
+* [docelowy/objectid](#targetobjectid) — definiuje hello docelowego w postaci ID elementu docelowego hello  
+* [docelowy/nazwa upn](#targetupn) — definiuje hello aktora w postaci nazwy zasady aktora hello użytkownika (UPN)   
 
 - - -
 ### <a name="activitydate"></a>Daty
@@ -213,7 +213,7 @@ Bez uwzględniania wielkości liter
 **Uwagi dotyczące**:
 
 * Bez uwzględniania wielkości liter
-* Konieczne jest dodanie pełną przestrzeń nazw podczas wykonywania zapytania Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
+* Podczas wykonywania zapytania Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity konieczne tooadd hello pełna w przestrzeni nazw
 
 - - -
 ### <a name="targetobjectid"></a>docelowy/objectId.
@@ -234,10 +234,10 @@ Bez uwzględniania wielkości liter
 **Uwagi dotyczące**:
 
 * Bez uwzględniania wielkości liter 
-* Konieczne jest dodanie pełną przestrzeń nazw podczas wykonywania zapytania Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
+* Podczas wykonywania zapytania Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity konieczne tooadd hello pełna w przestrzeni nazw
 
 - - -
 ## <a name="next-steps"></a>Następne kroki
-* Czy chcesz wyświetlić przykłady działań filtrowane systemu? Zapoznaj się z [przykłady inspekcji interfejsu API usługi Azure Active Directory](active-directory-reporting-api-audit-samples.md).
-* Czy chcesz dowiedzieć się więcej na temat raportowania interfejsu API usługi Azure AD? Zobacz [wprowadzenie do usługi Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
+* Czy chcesz toosee przykłady działań filtrowane systemu? Zapoznaj się z hello [przykłady inspekcji interfejsu API usługi Azure Active Directory](active-directory-reporting-api-audit-samples.md).
+* Czy chcesz, aby tooknow więcej informacji na temat interfejsu API raportowania hello Azure AD? Zobacz [wprowadzenie hello Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
 

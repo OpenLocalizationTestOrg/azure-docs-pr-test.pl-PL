@@ -1,6 +1,6 @@
 ---
-title: "Podłącz urządzenie za pomocą C na mbed | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób podłącz urządzenie do wstępnie pakiet IoT Azure zdalnego monitorowania rozwiązania przy użyciu Aplikacja napisana w języku C działającej na urządzeniu mbed."
+title: "aaaConnect urządzenia za pomocą C na mbed | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak tooconnect toohello urządzenia pakiet IoT Azure wstępnie zdalnego rozwiązanie monitorowania przy użyciu Aplikacja napisana w języku C działającej na urządzeniu mbed."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -16,70 +16,70 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef7b78f85a787f8fbe22c0e26aa34f0cd1685d58
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dcd1e74635e8dec678a59bff060a73f7cfabd124
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-mbed"></a>Podłącz urządzenie do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania (mbed)
+# <a name="connect-your-device-toohello-remote-monitoring-preconfigured-solution-mbed"></a>Połącz z toohello urządzenie zdalne monitorowanie wstępnie skonfigurowane rozwiązanie (mbed)
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
-W tym scenariuszu utworzysz urządzenie, które wysyła następujące dane telemetryczne do [wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego][lnk-what-are-preconfig-solutions]:
+W tym scenariuszu, Utwórz urządzenie, które wysyła powitania po monitorowania zdalnego toohello telemetrii [wstępnie skonfigurowane rozwiązanie][lnk-what-are-preconfig-solutions]:
 
 * Temperatura zewnętrzna
 * Temperatura wewnętrzna
 * Wilgotność
 
-Dla uproszczenia kod na urządzeniu generuje przykładowe wartości, ale zachęcamy do rozszerzenia przykładu przez podłączenie rzeczywistych czujników do urządzenia i wysyłanie rzeczywistych danych telemetrycznych.
+Dla uproszczenia kodu hello na urządzeniu hello generuje przykładowe wartości, ale firma Microsoft zachęca możesz tooextend hello próbki podłączania urządzenia tooyour rzeczywistych czujników i wysyła rzeczywistych danych telemetrycznych.
 
-Urządzenie potrafi także odpowiadać na metody wywołane z poziomu pulpitu nawigacyjnego rozwiązania i wartości żądanych właściwości ustawione na pulpicie nawigacyjnym rozwiązania.
+urządzenie Hello jest również toomethods toorespond można wywołać z poziomu pulpitu nawigacyjnego rozwiązania hello i potrzebne wartości właściwości ustawione na pulpicie nawigacyjnym rozwiązania hello.
 
-Do wykonania kroków tego samouczka jest potrzebne aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk-free-trial].
+toocomplete tego samouczka potrzebne aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 Przed przystąpieniem do pisania jakiegokolwiek kodu dla urządzenia musisz przeprowadzić aprowizację wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego i nowego niestandardowego urządzenia w ramach tego rozwiązania.
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprowizowanie wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego
-Urządzenie, które utworzysz w ramach tego samouczka, będzie wysyłać dane do wystąpienia wstępnie skonfigurowanego rozwiązania do [monitorowania zdalnego][lnk-remote-monitoring]. Jeśli jeszcze nie przeprowadzono aprowizacji wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego na Twoim koncie platformy Azure, wykonaj poniższe kroki:
+urządzenie Hello Utwórz w tym samouczku wysyła dane wystąpienia tooan hello [monitorowania zdalnego] [ lnk-remote-monitoring] wstępnie skonfigurowane rozwiązanie. Jeśli nie zostało już przydzielona hello zdalne monitorowanie wstępnie skonfigurowane rozwiązanie w konta platformy Azure, użyj hello następujące kroki:
 
-1. Na stronie <https://www.azureiotsuite.com/> kliknij pozycję **+**, aby utworzyć rozwiązanie.
-2. Kliknij pozycję **Wybierz** w panelu **Monitorowanie zdalne**, aby utworzyć rozwiązanie.
-3. Na stronie **Tworzenie rozwiązania do monitorowania zdalnego** w polu **Nazwa rozwiązania** wprowadź wybraną nazwę rozwiązania, w polu **Region** wybierz region, w którym chcesz przeprowadzić wdrożenie, a następnie wybierz subskrypcję platformy Azure, której chcesz użyć. Następnie kliknij pozycję **Utwórz rozwiązanie**.
-4. Zaczekaj na ukończenie procesu aprowizowania.
+1. Na powitania <https://www.azureiotsuite.com/> kliknij przycisk  **+**  toocreate rozwiązania.
+2. Kliknij przycisk **wybierz** na powitania **monitorowania zdalnego** panelu toocreate rozwiązania.
+3. Na powitania **utworzyć zdalnego rozwiązanie monitorujące** wprowadź **Nazwa rozwiązania** wybranych przez użytkownika, wybierz hello **Region** toodeploy do, a następnie wybierz hello Azure toouse toowant subskrypcji. Następnie kliknij pozycję **Utwórz rozwiązanie**.
+4. Poczekaj na zakończenie procesu udostępniania hello.
 
 > [!WARNING]
-> Wstępnie skonfigurowane rozwiązania korzystają z płatnych usług platformy Azure. Pamiętaj o usunięciu wstępnie skonfigurowanego rozwiązania ze swojej subskrypcji po zakończeniu pracy z nim, aby uniknąć wszelkich zbędnych opłat. Możesz całkowicie usunąć wstępnie skonfigurowane rozwiązanie ze swojej subskrypcji, odwiedzając stronę <https://www.azureiotsuite.com/>.
+> rozwiązania Hello wstępnie skonfigurowane za pomocą usług Azure rozliczeniowy. Pamiętaj, że tooremove hello wstępnie skonfigurowane rozwiązanie z subskrypcji, gdy wszystko będzie gotowe z nim tooavoid opłaty niepotrzebne. Wstępnie skonfigurowane rozwiązanie można całkowicie usunąć z subskrypcji, odwiedzając hello <https://www.azureiotsuite.com/> strony.
 > 
 > 
 
-Po zakończeniu procesu aprowizowania rozwiązania do monitorowania zdalnego kliknij pozycję **Uruchom**, aby otworzyć pulpit nawigacyjny rozwiązania w przeglądarce.
+Po zakończeniu hello inicjowania obsługi administracyjnej proces hello zdalnego rozwiązanie monitorujące, kliknij przycisk **uruchamianie** pulpit nawigacyjny rozwiązania hello tooopen w przeglądarce.
 
 ![Pulpit nawigacyjny rozwiązania][img-dashboard]
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Aprowizowanie urządzenia w ramach rozwiązania do monitorowania zdalnego
+### <a name="provision-your-device-in-hello-remote-monitoring-solution"></a>Zapewnij urządzenia w hello zdalne monitorowanie rozwiązania
 > [!NOTE]
-> Jeśli już przeprowadzono aprowizację urządzenia w ramach rozwiązania, możesz pominąć ten krok. Podczas tworzenia aplikacji klienckiej musisz znać poświadczenia urządzenia.
+> Jeśli już przeprowadzono aprowizację urządzenia w ramach rozwiązania, możesz pominąć ten krok. Należy tooknow hello urządzenia poświadczeń podczas tworzenia powitania klienta aplikacji.
 > 
 > 
 
-Aby urządzenie mogło nawiązać połączenie ze wstępnie skonfigurowanym rozwiązaniem, musi ono zidentyfikować się względem usługi IoT Hub za pomocą prawidłowych poświadczeń. Poświadczenia urządzenia możesz pobrać z pulpitu nawigacyjnego rozwiązania. W dalszej części tego samouczka podasz te poświadczenia urządzenia w Twojej aplikacji klienckiej.
+Jako rozwiązanie toohello wstępnie tooconnect urządzenia, jego musi identyfikacji tooIoT Centrum używając poprawnych poświadczeń. Pulpit nawigacyjny rozwiązania hello może pobrać poświadczenia urządzeń hello. Wprowadzono poświadczenia urządzeń hello w dalszej części tego samouczka aplikacji klienta.
 
-Aby dodać urządzenie do swojego rozwiązania do monitorowania zdalnego, wykonaj poniższe kroki na pulpicie nawigacyjnym rozwiązania:
+tooadd urządzenia tooyour zdalnego rozwiązanie monitorowania pełną hello następujące kroki na pulpicie nawigacyjnym rozwiązania hello:
 
-1. W lewym dolnym rogu pulpitu nawigacyjnego kliknij pozycję **Dodaj urządzenie**.
+1. W hello lewym dolnym rogu hello pulpitu nawigacyjnego, kliknij przycisk **dodać urządzenie**.
    
    ![Dodawanie urządzenia][1]
-2. W panelu **Urządzenie niestandardowe** kliknij pozycję **Dodaj nowe**.
+2. W hello **urządzenia niestandardowe** panelu, kliknij przycisk **Dodaj nowe**.
    
    ![Dodawanie urządzenia niestandardowego][2]
-3. Wybierz pozycję **Pozwól mi zdefiniować własny identyfikator urządzenia**. Wprowadź identyfikator urządzenia, na przykład **moje_urządzenie**, kliknij pozycję **Sprawdź identyfikator**, aby sprawdzić, czy dana nazwa nie jest już używana, a następnie kliknij pozycję **Utwórz**, aby przeprowadzić aprowizację urządzenia.
+3. Wybierz pozycję **Pozwól mi zdefiniować własny identyfikator urządzenia**. Wprowadź identyfikator urządzenia, takie jak **mydevice**, kliknij przycisk **Sprawdź identyfikator** tooverify tej nazwie nie jest już w użyciu, a następnie kliknij **Utwórz** tooprovision hello urządzenia.
    
    ![Dodawanie identyfikatora urządzenia][3]
-4. Zanotuj poświadczenia urządzenia (identyfikator urządzenia, nazwę hosta usługi IoT Hub i klucz urządzenia). Twoja aplikacja kliencka potrzebuje tych wartości, aby mogła nawiązać połączenie z rozwiązaniem do monitorowania zdalnego. Następnie kliknij przycisk **Gotowe**.
+4. Należy skonfigurować urządzenie hello Uwaga poświadczeń (identyfikator urządzenia, nazwy hosta Centrum IoT i klucz urządzenia). Aplikacja kliencka musi zdalne monitorowanie rozwiązania toohello tooconnect tych wartości. Następnie kliknij przycisk **Gotowe**.
    
     ![Wyświetlanie poświadczeń urządzenia][4]
-5. Wybierz urządzenie na liście urządzeń na pulpicie nawigacyjnym rozwiązania. Następnie w panelu **Szczegóły urządzenia** kliknij pozycję **Włącz urządzenie**. Stan Twojego urządzenia to teraz **Uruchomione**. Rozwiązanie do monitorowania zdalnego może teraz odbierać dane telemetryczne z Twojego urządzenia i wywoływać metody na tym urządzeniu.
+5. Wybierz urządzenie na liście urządzeń hello na pulpicie nawigacyjnym rozwiązania hello. Następnie w hello **szczegóły urządzenia** panelu, kliknij przycisk **Włącz urządzenie**. Witaj stan urządzenia jest teraz **systemem**. rozwiązanie monitorowania zdalnego Hello teraz może odbierać dane telemetryczne z urządzenia i wywołania metod na urządzeniu hello.
 
 [img-dashboard]: ./media/iot-suite-connecting-devices-mbed/dashboard.png
 [1]: ./media/iot-suite-connecting-devices-mbed/suite0.png
@@ -91,57 +91,57 @@ Aby dodać urządzenie do swojego rozwiązania do monitorowania zdalnego, wykona
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-## <a name="build-and-run-the-c-sample-solution"></a>Skompilować i uruchomić przykładowe rozwiązanie C
+## <a name="build-and-run-hello-c-sample-solution"></a>Tworzenie i uruchamianie hello C przykładowe rozwiązanie
 
-Poniższe instrukcje przedstawiają kroki wymagane do połączenia [włączone mbed FRDM K64F Freescale] [ lnk-mbed-home] urządzenia zdalnego rozwiązanie monitorowania.
+Witaj poniższe instrukcje przedstawiają kroki hello podłączania [włączone mbed FRDM K64F Freescale] [ lnk-mbed-home] toohello urządzenie zdalne monitorowanie rozwiązania.
 
-### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Podłącz urządzenie mbed do komputera w sieci i pulpitu
+### <a name="connect-hello-mbed-device-tooyour-network-and-desktop-machine"></a>Połącz hello mbed urządzenia tooyour sieci i komputerów
 
-1. Podłącz urządzenie mbed do sieci przy użyciu kabla Ethernet. Ten krok jest niezbędny, ponieważ przykładowej aplikacji wymaga dostępu do Internetu.
+1. Połącz hello mbed urządzenia tooyour sieci przy użyciu kabla Ethernet. Ten krok jest niezbędny, ponieważ hello przykładowej aplikacji wymaga dostępu do Internetu.
 
-1. Zobacz [wprowadzenie mbed] [ lnk-mbed-getstarted] Podłącz urządzenie mbed do komputera.
+1. Zobacz [wprowadzenie mbed] [ lnk-mbed-getstarted] tooconnect mbed urządzenia tooyour pulpitu komputera.
 
-1. Jeśli komputer pulpitu systemu Windows, zobacz [konfigurację komputera] [ lnk-mbed-pcconnect] do konfigurowania portu szeregowego dostęp do Twojego urządzenia mbed.
+1. Jeśli komputer pulpitu systemu Windows, zobacz [konfigurację komputera] [ lnk-mbed-pcconnect] tooconfigure portu szeregowego dostępu tooyour mbed urządzenia.
 
-### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Utwórz projekt mbed i zaimportować przykładowy kod
+### <a name="create-an-mbed-project-and-import-hello-sample-code"></a>Utwórz projekt mbed i zaimportować hello przykładowy kod
 
-Wykonaj następujące kroki, aby dodać do projektu mbed niektórych przykładowy kod. Możesz zaimportować zdalnego monitorowania projektu starter, a następnie zmień projektu do korzystania z protokołu MQTT zamiast protokołu AMQP. Obecnie należy użyć protokołu MQTT do używania funkcji zarządzania urządzeniami Centrum IoT.
+Wykonaj te kroki tooadd niektórych przykładowy kod tooan mbed projekt. Możesz zaimportować hello zdalnego monitorowania starter projektu, a następnie zmień hello projektu toouse hello protokołu MQTT zamiast hello protokołu AMQP. Obecnie należy toouse hello MQTT protokołu toouse hello funkcji zarządzania urządzeniami Centrum IoT.
 
-1. W przeglądarce sieci web, przejdź do mbed.org [deweloperskiej](https://developer.mbed.org/). Jeśli masz utworzonego konta, zobaczysz opcję, aby utworzyć konto (jest bezpłatna). W przeciwnym razie Zaloguj się przy użyciu poświadczeń konta. Następnie kliknij przycisk **kompilatora** w prawym górnym rogu strony. Ta akcja umożliwia do *obszaru roboczego* interfejsu.
+1. W przeglądarce sieci web przejdź toohello mbed.org [deweloperskiej](https://developer.mbed.org/). Jeśli masz utworzonego konta, zobaczysz opcję toocreate konta (jest bezpłatna). W przeciwnym razie Zaloguj się przy użyciu poświadczeń konta. Następnie kliknij przycisk **kompilatora** w hello prawym górnym rogu strony hello. Ta akcja powoduje toohello *obszaru roboczego* interfejsu.
 
-1. Upewnij się, że platforma sprzętowa, którego używasz, zostanie wyświetlona w prawym górnym rogu okna, lub kliknij ikonę w prawym rogu, aby wybrać platforma sprzętowa.
+1. Upewnij się, platforma sprzętowa hello używanego pojawia się w hello prawym górnym rogu okna hello, lub kliknij ikonę hello w tooselect prawym rogu hello platformy sprzętu.
 
-1. Kliknij przycisk **importu** w menu głównym. Następnie kliknij przycisk **kliknij tutaj, aby zaimportować z adresu URL**.
+1. Kliknij przycisk **importu** na powitania w menu głównym. Następnie kliknij przycisk **kliknij tutaj tooimport z adresu URL**.
    
-    ![Uruchom importowanie do obszaru roboczego mbed][6]
+    ![Uruchom workspace toombed importu][6]
 
-1. W oknie podręcznym wprowadź link do https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ kod przykładowy, a następnie kliknij przycisk **importu**.
+1. W oknie podręcznym hello, wprowadź łącze hello hello przykładowy kod https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/, a następnie kliknij przycisk **importu**.
    
-    ![Importuj przykładowy kod do obszaru roboczego mbed][7]
+    ![Importuj roboczym toombed kod przykładowy][7]
 
-1. W oknie kompilatora mbed widać, że importowanie tego projektu również importuje bibliotek różnych. Niektóre są dostarczane i obsługiwane przez zespół Azure IoT ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), a inne są dostępne w katalogu bibliotek mbed bibliotek innych firm.
+1. W oknie kompilatora mbed hello widać, że importowanie tego projektu również importuje bibliotek różnych. Niektóre są dostarczane i obsługiwane przez zespół Azure IoT hello ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), a inne są dostępne w katalogu bibliotek mbed hello bibliotek innych firm.
    
     ![Widok projektu mbed][8]
 
-1. W **obszaru roboczego programu**, kliknij prawym przyciskiem myszy **Centrum iothub\_amqp\_transportu** biblioteki, kliknij przycisk **usunąć**, a następnie kliknij przycisk **OK** o potwierdzenie.
+1. W hello **obszaru roboczego programu**, powitania kliknij prawym przyciskiem myszy **Centrum iothub\_amqp\_transportu** biblioteki, kliknij przycisk **usunąć**, a następnie kliknij przycisk **OK** tooconfirm.
 
-1. W **obszaru roboczego programu**, kliknij prawym przyciskiem myszy **azure\_amqp\_c** biblioteki, kliknij przycisk **usunąć**, a następnie kliknij przycisk **OK** o potwierdzenie.
+1. W hello **obszaru roboczego programu**, powitania kliknij prawym przyciskiem myszy **azure\_amqp\_c** biblioteki, kliknij przycisk **usunąć**, a następnie kliknij przycisk **OK**  tooconfirm.
 
-1. Kliknij prawym przyciskiem myszy **remote_monitoring** projektu w **obszaru roboczego programu**, wybierz pozycję **biblioteki importu**, a następnie wybierz pozycję **z adresu URL**.
+1. Powitania kliknij prawym przyciskiem myszy **remote_monitoring** projektu w hello **obszaru roboczego programu**, wybierz pozycję **biblioteki importu**, a następnie wybierz pozycję **z adresu URL**.
    
-    ![Import biblioteki do obszaru roboczego mbed Start][6]
+    ![Uruchom obszaru roboczego Biblioteka importu toombed][6]
 
-1. W oknie podręcznym wprowadź link do https://developer.mbed.org/users/AzureIoTClient/code/iothub biblioteki transportu MQTT\_mqtt\_transportu / kliknięcie **importu**.
+1. W oknie podręcznym hello, wprowadź łącze hello hello MQTT transportu biblioteki https://developer.mbed.org/users/AzureIoTClient/code/iothub\_mqtt\_transportu / kliknięcie **importu**.
    
-    ![Importuj biblioteki do obszaru roboczego mbed][12]
+    ![Importuj obszaru roboczego Biblioteka toombed][12]
 
-1. Powtórz poprzedni krok, aby dodać biblioteki MQTT z https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c /.
+1. Powtórz hello poprzedniego kroku tooadd hello MQTT biblioteki z https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c /.
 
-1. Obszar roboczy teraz wygląda następująco:
+1. Obszar roboczy teraz wygląda hello:
 
     ![Wyświetl obszar roboczy mbed][13]
 
-1. Otwórz zdalnego\_monitoring\remote_monitoring.c plików i Zastąp istniejące `#include` instrukcje następującym kodem:
+1. Otwórz hello zdalnego\_monitoring\remote_monitoring.c plików i Zastąp hello istniejących `#include` instrukcji z hello następującego kodu:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -157,15 +157,15 @@ Wykonaj następujące kroki, aby dodać do projektu mbed niektórych przykładow
     #include "certs.h"
     #endif // MBED_BUILD_TIMESTAMP
     ```
-1. Usuń wszystkie pozostałe kod w zdalnym\_monitoring\remote\_monitoring.c pliku.
+1. Usuń wszystkie hello pozostałych kodu w hello zdalnego\_monitoring\remote\_monitoring.c pliku.
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="build-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
+## <a name="build-and-run-hello-sample"></a>Tworzenie i uruchamianie przykładowych hello
 
-Dodaj kod, aby wywołać **zdalnego\_monitorowania\_Uruchom** funkcji, a następnie skompilować i uruchomić aplikację dla urządzeń.
+Dodaj kod tooinvoke hello **zdalnego\_monitorowania\_Uruchom** funkcji, a następnie skompilować i uruchomić aplikację dla urządzeń hello.
 
-1. Dodaj **głównego** funkcji z następujący kod na końcu zdalnego\_monitoring.c pliku do wywołania **zdalnego\_monitorowania\_Uruchom** funkcji:
+1. Dodaj **głównego** funkcji z następujący kod na końcu hello hello zdalnego\_monitoring.c pliku tooinvoke hello **zdalnego\_monitorowania\_Uruchom** funkcji:
    
     ```c
     int main()
@@ -175,17 +175,17 @@ Dodaj kod, aby wywołać **zdalnego\_monitorowania\_Uruchom** funkcji, a następ
     }
     ```
 
-1. Kliknij przycisk **skompilować** do tworzenia programu. Można bezpiecznie zignorować ostrzeżenia, ale jeśli kompilacja generuje błędy, usuń je przed kontynuowaniem.
+1. Kliknij przycisk **skompilować** toobuild hello program. Można bezpiecznie zignorować ostrzeżenia, ale jeśli kompilacji hello generuje błędy, usuń je przed kontynuowaniem.
 
-1. Jeśli kompilacja zakończy się pomyślnie, witryna kompilatora mbed generuje plik bin z nazwą projektu i pliki do pobrania na komputerze lokalnym. Skopiuj plik bin na urządzeniu. Zapisywanie pliku bin do urządzenia powoduje, że urządzenie, aby ponownie uruchomić, a następnie uruchom program zawarte w pliku bin. Można ręcznie uruchomić ponownie program w dowolnym momencie naciśnięcia przycisku resetowania urządzenia mbed.
+1. Jeśli hello kompilacja zakończy się pomyślnie, witryny sieci Web hello mbed kompilatora generuje plik bin o nazwie hello projektu i pobiera go tooyour komputera lokalnego. Kopiuj hello bin pliku toohello urządzenia. Zapisywanie hello bin pliku toohello urządzenia powoduje hello toorestart urządzenia i uruchom program hello zawarte w pliku bin hello. Można ręcznie uruchomić ponownie hello program w dowolnym momencie naciśnięcie przycisku resetowania hello na powitania mbed urządzenia.
 
-1. Nawiąż połączenie z urządzeniem przy użyciu aplikacji klienta SSH, takiego jak PuTTY. Można określić portu szeregowego, używanych przez urządzenia, sprawdzając Menedżera urządzeń z systemem Windows.
+1. Podłącz urządzenie toohello za pomocą aplikacji klienckiej SSH, takiego jak PuTTY. Można określić hello portu szeregowego, używanych przez urządzenia, sprawdzając Menedżera urządzeń z systemem Windows.
    
     ![][11]
 
-1. W programu PuTTY, kliknij przycisk **Serial** typu połączenia. Urządzenie łączy się zwykle przy transmisji 9600, dlatego należy wprowadzić 9600 w **szybkości** pole. Następnie kliknij przycisk **Otwórz**.
+1. W programu PuTTY, kliknij przycisk hello **Serial** typu połączenia. zwykle łączy urządzenie Hello na 9600 transmisji, dlatego należy wprowadzić 9600 w hello **szybkości** pole. Następnie kliknij przycisk **Otwórz**.
 
-1. Program rozpoczyna wykonywanie. Może zajść potrzeba zresetowania tablicy (naciśnij klawisze CTRL + Break lub naciśnij przycisk reset tablicy), jeśli program nie zostanie uruchomiony automatycznie po połączeniu.
+1. Hello program rozpoczyna wykonywanie. Jeśli hello program nie zostanie uruchomiony automatycznie po połączeniu, może być tooreset hello tablicy (naciśnij klawisze CTRL + Break lub tablicy hello naciśnij przycisk reset).
    
     ![][10]
 

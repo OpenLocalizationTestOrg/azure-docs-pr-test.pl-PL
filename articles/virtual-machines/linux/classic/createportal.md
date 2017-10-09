@@ -1,6 +1,6 @@
 ---
-title: Tworzenie niestandardowych maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak utworzyć niestandardowe maszyny wirtualnej systemu Linux przy użyciu portalu Azure przy użyciu klasycznego modelu wdrażania."
+title: aaaCreate niestandardowych maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate niestandardowych maszyny wirtualnej systemu Linux z hello przy użyciu portalu Azure hello klasycznego modelu wdrażania."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 385102662ef46d7eca51d6e5e10ed7aa77bb1a43
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7591d2bd1fc642a9092f5f77d068c76b9d6ce5f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>Utwórz niestandardowe maszynę wirtualną z systemem Linux
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby uzyskać informacje dotyczące tworzenia maszyny Wirtualnej systemu Linux przy użyciu modelu Resource Manager, zobacz [Utwórz Maszynę wirtualną systemu Linux na platformie Azure przy użyciu portalu](../quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Aby uzyskać informacje dotyczące tworzenia maszyny Wirtualnej systemu Linux przy użyciu hello Resource Manager modelu, zobacz [Utwórz Maszynę wirtualną systemu Linux na platformie Azure przy użyciu hello Portal](../quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 

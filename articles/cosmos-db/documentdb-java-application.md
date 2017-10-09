@@ -1,6 +1,6 @@
 ---
-title: "Samouczek tworzenia aplikacji w języku Java za pomocą usługi Azure Cosmos DB | Microsoft Docs"
-description: "W tym samouczku aplikacji sieci web Java pokazano, jak używać bazy danych rozwiązania Cosmos Azure i interfejsu API usługi DocumentDB do przechowywania i uzyskiwanie dostępu do danych z aplikacji w języku Java hostowanej przez usługę Azure Websites."
+title: "samouczek tworzenia aplikacji aaaJava przy użyciu bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
+description: "W tym samouczku aplikacji sieci web Java pokazano, jak toouse hello Azure DB rozwiązania Cosmos hello toostore interfejsu API usługi DocumentDB i uzyskać dostęp do danych z aplikacji w języku Java hostowanej przez usługę Azure Websites."
 keywords: Programowanie aplikacji, samouczek bazy danych, aplikacja Java, samouczek aplikacji sieci Web Java, DocumentDB, Azure, Microsoft Azure
 services: cosmos-db
 documentationcenter: java
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 292115b5603c6f05a5eab3492d4b3e2096b58ed2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e073de23beb0037ee1e37b48a69e8fe7cdc3fc1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Tworzenie aplikacji sieci web Java, przy użyciu bazy danych rozwiązania Cosmos Azure i interfejsu API usługi DocumentDB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-hello-documentdb-api"></a>Tworzenie aplikacji sieci web Java, przy użyciu bazy danych Azure rozwiązania Cosmos i hello interfejsu API usługi DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -30,88 +30,88 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-W tym samouczku aplikacji sieci web Java przedstawia sposób użycia [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) Usługa do przechowywania i uzyskać dostęp do danych z poziomu aplikacji Java hostowanej przez aplikacje sieci Web usługi aplikacji Azure. W tym artykule przedstawiono:
+W tym samouczku aplikacji sieci web Java przedstawiono sposób toouse hello [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) usługi toostore i danymi dostępu z poziomu aplikacji Java hostowanej przez aplikacje sieci Web usługi aplikacji Azure. W tym artykule przedstawiono:
 
-* Jak utworzyć prostą aplikację JavaServer stron (JSP) w programie Eclipse.
-* Jak pracować z usługą Azure Cosmos DB przy użyciu [zestawu SDK języka Java dla usługi Azure Cosmos DB](https://github.com/Azure/azure-documentdb-java).
+* Jak toobuild prostą aplikację JavaServer stron (JSP) w programie Eclipse.
+* Jak toowork z hello Azure DB rozwiązania Cosmos usługi przy użyciu hello [Azure rozwiązania Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do zarządzania zadaniami opartą na sieci Web, która pozwala na tworzenie, pobieranie i oznaczanie zadań jako ukończonych, jak pokazano na poniższej ilustracji. Każde z zadań z listy zadań do wykonania będzie przechowywane jako dokument JSON w usłudze Azure Cosmos DB.
+W tym samouczku aplikacji Java przedstawiono sposób aplikację do zarządzania zadaniami toocreate opartą na sieci web, możesz toocreate, pobieranie i oznacz zadań jako ukończonych, pokazane na powitania po obrazu. Wszystkie zadania hello na liście ToDo hello są przechowywane jako dokumenty JSON w usłudze Azure DB rozwiązania Cosmos.
 
 ![Aplikacja My ToDo List w języku Java](./media/documentdb-java-application/image1.png)
 
 > [!TIP]
-> Ten samouczek tworzenia aplikacji zakłada, że masz już pewne doświadczenie w korzystaniu z języka Java. Jeśli nie znasz języka Java lub [wstępnie wymaganych narzędzi](#Prerequisites), zalecamy pobranie kompletnego projektu [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) z usługi GitHub i skompilowanie go zgodnie z [instrukcjami znajdującymi się na końcu artykułu](#GetProject). Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.  
+> Ten samouczek tworzenia aplikacji zakłada, że masz już pewne doświadczenie w korzystaniu z języka Java. Nowe tooJava lub hello [wstępnie wymaganych narzędzi](#Prerequisites), zalecamy pobranie hello pełną [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projektu z usługi GitHub i skompilowanie go za pomocą [hello instrukcje na końcu hello to artykuł](#GetProject). Po jego skompilowaniu, można przejrzeć hello artykułu toogain wglądu na powitania kod w kontekście hello hello projektu.  
 > 
 > 
 
 ## <a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji sieci Web w języku Java
-Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
+Przed rozpoczęciem tego samouczka tworzenia aplikacji, musi mieć następujące hello:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
 
     LUB
 
-    Lokalna instalacja [emulatora usługi Azure Cosmos DB](local-emulator.md).
+    Lokalna instalacja hello [Azure rozwiązania Cosmos DB emulatora](local-emulator.md).
 * [Zestaw Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Środowisko Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Witryna sieci Web Azure ze środowiskiem uruchomieniowym Java (np. Tomcat lub Jetty) włączone.](../app-service-web/web-sites-java-get-started.md)
 
-Jeśli instalujesz te narzędzia po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji w artykule [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Samouczek: Instalacja środowiska TomCat7 i używanie go ze środowiskiem Eclipse) w sekcji Quick Start (Szybki start).
+Jeśli instalujesz te narzędzia dla powitania po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji hello hello Szybki Start część ich [samouczek: zainstalowanie TomCat7 i używanie go z Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artykułu.
 
 ## <a id="CreateDB"></a>Krok 1: Tworzenie konta bazy danych Azure rozwiązania Cosmos
-Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
+Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli już masz konto lub jeśli używasz hello Azure rozwiązania Cosmos DB emulatora w tym samouczku, można pominąć zbyt[krok 2: tworzenie aplikacji Java JSP hello](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
-Aby utworzyć aplikację JSP:
+## <a id="CreateJSP"></a>Krok 2: Tworzenie aplikacji Java JSP hello
+Witaj toocreate aplikację JSP:
 
-1. Zacznijmy od utworzenia projektu języka Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli nie widzisz polecenia **Dynamic Web Project** (Dynamiczny projekt sieci Web) na liście dostępnych projektów, wykonaj następujące czynności: w menu **File** (Plik) kliknij polecenie **New** (Nowy), kliknij polecenie **Project**... (Projekt...), rozwiń pozycję **Web** (Sieć Web), kliknij pozycję **Dynamic Web Project** (Dynamiczny projekt sieci Web) i kliknij przycisk **Next** (Dalej).
+1. Zacznijmy od utworzenia projektu języka Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli nie widzisz **dynamiczny projekt sieci Web** na liście dostępnych projektów, hello następujące: kliknij **pliku**, kliknij przycisk **nowy**, kliknij przycisk **projektu**..., rozwiń węzeł **Web**, kliknij przycisk **dynamiczny projekt sieci Web**i kliknij przycisk **dalej**.
    
     ![Tworzenie aplikacji Java JSP](./media/documentdb-java-application/image10.png)
-2. Wprowadź nazwę projektu w polu **Project name** (Nazwa projektu) i z menu rozwijanego **Target Runtime** (Docelowe środowisko uruchomieniowe) opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Finish** (Zakończ). Wybranie docelowego środowiska uruchomieniowego umożliwia uruchamianie projektu lokalnie za pośrednictwem środowiska Eclipse.
-3. W środowisku Eclipse w widoku Project Explorer (Eksplorator projektów) rozwiń projekt. Kliknij prawym przyciskiem myszy folder **WebContent**, kliknij polecenie **New** (Nowy), a następnie kliknij polecenie **JSP File** (Plik JSP).
-4. W oknie dialogowym **New JSP File** (Nowy plik JSP) nazwij plik **index.jsp**. Pozostaw folder **WebContent** jako folder nadrzędny, w sposób pokazany na poniższej ilustracji, a następnie kliknij przycisk **Next** (Dalej).
+2. Wprowadź nazwę projektu w hello **Nazwa projektu** pola w hello **docelowe środowisko uruchomieniowe** menu rozwijanego, opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Zakończ**. Wybranie docelowego środowiska uruchomieniowego włącza toorun możesz projektu lokalnie za pośrednictwem środowiska Eclipse.
+3. W środowisku Eclipse w widoku Project Explorer hello rozwiń projekt. Kliknij prawym przyciskiem myszy folder **WebContent**, kliknij polecenie **New** (Nowy), a następnie kliknij polecenie **JSP File** (Plik JSP).
+4. W hello **New JSP File** okno dialogowe, nazwa pliku hello **index.jsp**. Zachowaj folder nadrzędny hello **WebContent**, jak pokazano w hello następującej ilustracji, a następnie kliknij przycisk **dalej**.
    
     ![Tworzenie nowego pliku JSP — samouczek aplikacji sieci Web w języku Java](./media/documentdb-java-application/image11.png)
-5. W oknie dialogowym **Select JSP Template** (Wybierz szablon pliku JSP) na potrzeby tego samouczka wybierz szablon **New JSP File (html)**, a następnie kliknij przycisk **Finish** (Zakończ).
-6. Po otwarciu pliku index.jsp w środowisku Eclipse dodaj tekst do wyświetlenia **Hello World!** wewnątrz istniejącego elementu <body>. Zaktualizowana zawartość elementu <body> powinna wyglądać podobnie do następującego kodu:
+5. W hello **wybierz szablon JSP** okno dialogowe hello w celu tego samouczka wybierz **New JSP File (html)**, a następnie kliknij przycisk **Zakończ**.
+6. Po otwarciu pliku index.jsp hello w środowisku Eclipse Dodaj tekst toodisplay **Hello World!** w ramach istniejącego hello <body> elementu. Zaktualizowana <body> zawartość powinna wyglądać hello następującego kodu:
    
         <body>
             <% out.println("Hello World!"); %>
         </body>
-7. Zapisz plik index.jsp.
-8. Jeśli docelowe środowisko uruchomieniowe zostało ustawione w kroku 2, możesz kliknąć pozycję **Project** (Projekt), a następnie pozycję **Run** (Uruchom), aby uruchomić aplikację JSP lokalnie:
+7. Zapisz plik index.jsp hello.
+8. Jeśli ustawisz docelowe środowisko uruchomieniowe w kroku 2, możesz kliknąć **projektu** , a następnie **Uruchom** toorun aplikację JSP lokalnie:
    
     ![Witaj świecie – samouczek aplikacji w języku Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB
-Najprostszym sposobem pobrania zestawu SDK Java usługi DocumentDB i jego zależności jest skorzystanie z usługi [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Krok 3: Instalowanie hello zestawu SDK Java usługi DocumentDB
+Witaj Najprostszym sposobem toopull hello zestawu SDK Java usługi DocumentDB i jego zależności jest użycie [Apache Maven](http://maven.apache.org/).
 
-Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując następujące kroki:
+toodo, konieczne będzie tooconvert maven tooa projekt, wykonując następujące kroki hello:
 
-1. Kliknij prawym przyciskiem myszy projekt w widoku Project Explorer (Eksplorator projektów), kliknij polecenie **Configure** (Konfiguruj), kliknij pozycję **Convert to Maven Project** (Konwertuj na projekt Maven).
-2. W oknie **Create new POM** (Utwórz nowy plik POM) zaakceptuj wartości domyślne i kliknij przycisk **Finish** (Zakończ).
-3. W widoku **Project Explorer** (Eksplorator projektów) otwórz plik pom.xml.
-4. Na karcie **Dependencies** (Zależności) w okienku **Dependencies** (Zależności) kliknij pozycję **Add** (Dodaj).
-5. W oknie **Select Dependency** (Wybierz zależność) wykonaj następujące czynności:
+1. Kliknij prawym przyciskiem myszy projekt w hello Eksplorator projektów, kliknij przycisk **Konfiguruj**, kliknij przycisk **przekonwertować tooMaven projektu**.
+2. W hello **tworzenie nowych POM** okna, zaakceptuj ustawienia domyślne hello i kliknij przycisk **Zakończ**.
+3. W **Eksplorator projektów**, otwórz plik pom.xml hello.
+4. Na powitania **zależności** na karcie hello **zależności** okienku, kliknij przycisk **Dodaj**.
+5. W hello **wybierz zależności** oknie hello następujące:
    
-   * W **identyfikator grupy** wprowadź com.microsoft.azure.
-   * W **identyfikator artefaktu** wprowadź azure-documentdb.
-   * W **wersji** wprowadź 1.5.1.
+   * W hello **identyfikator grupy** wprowadź com.microsoft.azure.
+   * W hello **identyfikator artefaktu** wprowadź azure-documentdb.
+   * W hello **wersji** wprowadź 1.5.1.
      
    ![Instalacja zestawu SDK Java usługi DocumentDB](./media/documentdb-java-application/image13.png)
      
-   * Lub Dodaj kod XML zależności dla identyfikatora grupy i identyfikator artefaktu bezpośrednio do pliku pom.xml za pomocą edytora tekstu:
+   * Lub Dodaj zależności hello XML dla identyfikatora grupy i identyfikator artefaktu bezpośrednio toohello pom.xml za pomocą edytora tekstu:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Kliknij przycisk **OK** i Maven zostanie zainstalowany zestaw SDK Java usługi DocumentDB.
-7. Zapisz plik pom.xml.
+6. Kliknij przycisk **OK** i Maven zainstaluje hello zestawu SDK Java usługi DocumentDB.
+7. Zapisz plik pom.xml hello.
 
-## <a id="UseService"></a>Krok 4. Korzystanie z usługi Azure Cosmos DB w aplikacji Java
-1. Najpierw zdefiniujmy obiekt TodoItem w TodoItem.java:
+## <a id="UseService"></a>Krok 4: Przy użyciu usługi Azure DB rozwiązania Cosmos hello w aplikacji Java
+1. Najpierw zdefiniujmy obiekt TodoItem hello w TodoItem.java:
    
         @Data
         @Builder
@@ -122,8 +122,8 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
             private String name;
         }
    
-    W tym projekcie użyto [Projektu Lombok](http://projectlombok.org/), aby wygenerować konstruktor, metody pobierające, metody ustawiające i budowniczego. Można też ręcznie napisać ten kod lub wygenerować go za pomocą środowiska IDE.
-2. Aby wywołać usługę Azure Cosmos DB, trzeba utworzyć obiekt klasy **DocumentClient**. Ogólnie rzecz biorąc, lepiej jest użyć ponownie obiektu **DocumentClient** niż konstruować nowego klienta dla kolejnych żądań. Klienta można ponownie użyć, opakowując go w **DocumentClientFactory**. W DocumentClientFactory.java, należy wkleić wartości URI oraz PRIMARY KEY, zapisane do Schowka w [krok 1](#CreateDB). Zastąp [YOUR\_ENDPOINT\_HERE] wartością URI, a [YOUR\_KEY\_HERE] zastąp wartością PRIMARY KEY.
+    W tym projekcie użyto [projektu Lombok](http://projectlombok.org/) toogenerate hello konstruktora, metody pobierające, metody ustawiające i konstruktora. Możesz też ręcznie napisać ten kod lub ma wygenerowania hello IDE.
+2. usługi bazy danych Azure rozwiązania Cosmos hello tooinvoke, trzeba utworzyć wystąpienie nowego **DocumentClient**. Ogólnie rzecz biorąc, jest najlepszym hello tooreuse **DocumentClient** — zamiast niż konstruować nowego klienta dla kolejnych żądań. Powitania klienta można ponownie użyć, opakowując powitania klienta w **DocumentClientFactory**. W DocumentClientFactory.java, potrzebujesz toopaste hello URI oraz PRIMARY KEY wartości zapisane tooyour Schowka w [krok 1](#CreateDB). Zastąp [YOUR\_ENDPOINT\_HERE] wartością URI, a [YOUR\_KEY\_HERE] zastąp wartością PRIMARY KEY.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -134,45 +134,45 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. Teraz utwórzmy obiekt dostępu do danych (DAO, Data Access Object), aby uabstrakcyjnić utrwalanie zadań do wykonania w usłudze Azure Cosmos DB.
+3. Teraz Utwórzmy tooabstract obiekt DAO (Data Access), utrwalanie naszych tooAzure elementów ToDo DB rozwiązania Cosmos.
    
-    Aby zapisać zadania do wykonania w kolekcji, klient musi wiedzieć, w której bazie danych i kolekcji powinien je zachowywać (jak to jest wskazane przez linki do samego siebie). Ogólnie rzecz biorąc, najlepiej jest zapisać w pamięci podręcznej obiekty bazy danych i kolekcji, tam gdzie to jest możliwe, aby uniknąć dodatkowych połączeń do bazy danych.
+    W celu wykonania (ToDo) toosave tooa kolekcji należy powitania klienta tooknow które toopersist bazę danych i kolekcję zbyt (wskazywanej przez linki do samego siebie). Ogólnie rzecz biorąc, jest najlepszym toocache hello w bazie danych i kolekcji, jeśli to możliwe tooavoid dodatkowych połączeń toohello w bazie danych.
    
-    Poniższy kod ilustruje, w jaki sposób pobrać bazę danych i kolekcję, jeśli one istnieją, lub utworzyć nowe obiekty, jeśli nie istnieją:
+    Witaj poniższy kod ilustruje sposób tooretrieve bazę danych i kolekcji, jeśli istnieje, lub utworzyć nową, jeśli nie istnieje:
    
         public class DocDbDao implements TodoDao {
-            // The name of our database.
+            // hello name of our database.
             private static final String DATABASE_ID = "TodoDB";
    
-            // The name of our collection.
+            // hello name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The Azure Cosmos DB Client
+            // hello Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
-            // Cache for the database object, so we don't have to query for it to
+            // Cache for hello database object, so we don't have tooquery for it to
             // retrieve self links.
             private static Database databaseCache;
    
-            // Cache for the collection object, so we don't have to query for it to
+            // Cache for hello collection object, so we don't have tooquery for it to
             // retrieve self links.
             private static DocumentCollection collectionCache;
    
             private Database getTodoDatabase() {
                 if (databaseCache == null) {
-                    // Get the database if it exists
+                    // Get hello database if it exists
                     List<Database> databaseList = documentClient
                             .queryDatabases(
                                     "SELECT * FROM root r WHERE r.id='" + DATABASE_ID
                                             + "'", null).getQueryIterable().toList();
    
                     if (databaseList.size() > 0) {
-                        // Cache the database object so we won't have to query for it
-                        // later to retrieve the selfLink.
+                        // Cache hello database object so we won't have tooquery for it
+                        // later tooretrieve hello selfLink.
                         databaseCache = databaseList.get(0);
                     } else {
-                        // Create the database if it doesn't exist.
+                        // Create hello database if it doesn't exist.
                         try {
                             Database databaseDefinition = new Database();
                             databaseDefinition.setId(DATABASE_ID);
@@ -180,8 +180,8 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                             databaseCache = documentClient.createDatabase(
                                     databaseDefinition, null).getResource();
                         } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
+                            // TODO: Something has gone terribly wrong - hello app wasn't
+                            // able tooquery or create hello collection.
                             // Verify your connection, endpoint, and key.
                             e.printStackTrace();
                         }
@@ -193,7 +193,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    
             private DocumentCollection getTodoCollection() {
                 if (collectionCache == null) {
-                    // Get the collection if it exists.
+                    // Get hello collection if it exists.
                     List<DocumentCollection> collectionList = documentClient
                             .queryCollections(
                                     getTodoDatabase().getSelfLink(),
@@ -201,11 +201,11 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                                             + "'", null).getQueryIterable().toList();
    
                     if (collectionList.size() > 0) {
-                        // Cache the collection object so we won't have to query for it
-                        // later to retrieve the selfLink.
+                        // Cache hello collection object so we won't have tooquery for it
+                        // later tooretrieve hello selfLink.
                         collectionCache = collectionList.get(0);
                     } else {
-                        // Create the collection if it doesn't exist.
+                        // Create hello collection if it doesn't exist.
                         try {
                             DocumentCollection collectionDefinition = new DocumentCollection();
                             collectionDefinition.setId(COLLECTION_ID);
@@ -214,8 +214,8 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                                     getTodoDatabase().getSelfLink(),
                                     collectionDefinition, null).getResource();
                         } catch (DocumentClientException e) {
-                            // TODO: Something has gone terribly wrong - the app wasn't
-                            // able to query or create the collection.
+                            // TODO: Something has gone terribly wrong - hello app wasn't
+                            // able tooquery or create hello collection.
                             // Verify your connection, endpoint, and key.
                             e.printStackTrace();
                         }
@@ -225,22 +225,22 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                 return collectionCache;
             }
         }
-4. Następnym krokiem jest napisanie kodu, który zachowuje obiekty TodoItem w kolekcji. W tym przykładzie używamy narzędzia [Gson](https://code.google.com/p/google-gson/) do serializacji i deserializacji obiektów TodoItem typu Plain Old Java Objects (POJO) do dokumentów JSON.
+4. Witaj, następnym krokiem jest toowrite niektórych kodu toopersist hello TodoItems w kolekcji toohello. W tym przykładzie używamy [Gson](https://code.google.com/p/google-gson/) tooserialize i zdeserializować dokumenty tooJSON TodoItem zwykły stare Java obiekty (Pojo).
    
         // We'll use Gson for POJO <=> JSON serialization for this example.
         private static Gson gson = new Gson();
    
         @Override
         public TodoItem createTodoItem(TodoItem todoItem) {
-            // Serialize the TodoItem as a JSON Document.
+            // Serialize hello TodoItem as a JSON Document.
             Document todoItemDocument = new Document(gson.toJson(todoItem));
    
-            // Annotate the document as a TodoItem for retrieval (so that we can
-            // store multiple entity types in the collection).
+            // Annotate hello document as a TodoItem for retrieval (so that we can
+            // store multiple entity types in hello collection).
             todoItemDocument.set("entityType", "todoItem");
    
             try {
-                // Persist the document using the DocumentClient.
+                // Persist hello document using hello DocumentClient.
                 todoItemDocument = documentClient.createDocument(
                         getTodoCollection().getSelfLink(), todoItemDocument, null,
                         false).getResource();
@@ -251,10 +251,10 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Podobnie jak do baz danych i kolekcji usługi Azure Cosmos DB, również do dokumentów można odwoływać się za pomocą linków do samego siebie. Poniższa funkcja pomocnicza pozwala nam pobrać dokumenty przy użyciu innego atrybutu (np. „id”), zamiast linku do samego siebie:
+5. Podobnie jak do baz danych i kolekcji usługi Azure Cosmos DB, również do dokumentów można odwoływać się za pomocą linków do samego siebie. Witaj następujących pomocnika funkcja pozwala nam pobierania dokumentów przez inny atrybut (np. "id"), zamiast link do samego siebie:
    
         private Document getDocumentById(String id) {
-            // Retrieve the document using the DocumentClient.
+            // Retrieve hello document using hello DocumentClient.
             List<Document> documentList = documentClient
                     .queryDocuments(getTodoCollection().getSelfLink(),
                             "SELECT * FROM root r WHERE r.id='" + id + "'", null)
@@ -266,33 +266,33 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                 return null;
             }
         }
-6. Możemy użyć metody pomocniczej z kroku 5 do pobrania dokumentu TodoItem typu JSON przy użyciu atrybutu id, a następnie do deserializacji do obiektu typu POJO:
+6. Możemy użyć metody pomocniczej hello w kroku 5 tooretrieve dokumentu todoitem typu JSON przez identyfikator, a następnie do deserializacji tooa typu POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {
-            // Retrieve the document by id using our helper method.
+            // Retrieve hello document by id using our helper method.
             Document todoItemDocument = getDocumentById(id);
    
             if (todoItemDocument != null) {
-                // De-serialize the document in to a TodoItem.
+                // De-serialize hello document in tooa TodoItem.
                 return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
             } else {
                 return null;
             }
         }
-7. Możemy również użyć obiektu DocumentClient, aby uzyskać kolekcję lub listę obiektów TodoItem przy użyciu usługi DocumentDB SQL:
+7. Możemy również użyć hello DocumentClient tooget kolekcję lub listę obiektów Todoitem przy użyciu usługi DocumentDB SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {
             List<TodoItem> todoItems = new ArrayList<TodoItem>();
    
-            // Retrieve the TodoItem documents
+            // Retrieve hello TodoItem documents
             List<Document> documentList = documentClient
                     .queryDocuments(getTodoCollection().getSelfLink(),
                             "SELECT * FROM root r WHERE r.entityType = 'todoItem'",
                             null).getQueryIterable().toList();
    
-            // De-serialize the documents in to TodoItems.
+            // De-serialize hello documents in tooTodoItems.
             for (Document todoItemDocument : documentList) {
                 todoItems.add(gson.fromJson(todoItemDocument.toString(),
                         TodoItem.class));
@@ -300,21 +300,21 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    
             return todoItems;
         }
-8. Istnieje wiele sposobów, aby zaktualizować dokument za pomocą obiektu DocumentClient. W aplikacji zarządzającej listą zadań do wykonania chcemy mieć możliwość przełączania, czy zadanie zostało ukończone. Można to osiągnąć przez zaktualizowanie atrybutu „complete” w dokumencie:
+8. Istnieje wiele sposobów tooupdate dokument z hello DocumentClient. W aplikacji zarządzającej listą chcemy tootoggle stanie toobe czy zadanie zostało ukończone. Można to osiągnąć przez zaktualizowanie atrybutu "complete" hello w dokumencie hello:
    
         @Override
         public TodoItem updateTodoItem(String id, boolean isComplete) {
-            // Retrieve the document from the database
+            // Retrieve hello document from hello database
             Document todoItemDocument = getDocumentById(id);
    
-            // You can update the document as a JSON document directly.
-            // For more complex operations - you could de-serialize the document in
-            // to a POJO, update the POJO, and then re-serialize the POJO back in to
+            // You can update hello document as a JSON document directly.
+            // For more complex operations - you could de-serialize hello document in
+            // tooa POJO, update hello POJO, and then re-serialize hello POJO back in to
             // a document.
             todoItemDocument.set("complete", isComplete);
    
             try {
-                // Persist/replace the updated document.
+                // Persist/replace hello updated document.
                 todoItemDocument = documentClient.replaceDocument(todoItemDocument,
                         null).getResource();
             } catch (DocumentClientException e) {
@@ -324,17 +324,17 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-9. Wreszcie chcemy mieć możliwość usunięcia zadania do wykonania z naszej listy. W tym celu możemy użyć metody pomocniczej, którą napisaliśmy wcześniej, aby pobrać link do samego siebie, a następnie usunąć go za pomocą klienta:
+9. Wreszcie chcemy mieć hello możliwości toodelete czynność do wykonania z naszej listy. toodo, możemy użyć metody pomocnika hello napisaliśmy wcześniej tooretrieve hello link do samego siebie, a następnie powitania klienta toodelete go:
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // Azure Cosmos DB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers toodocuments by self link rather than id.
    
-            // Query for the document to retrieve the self link.
+            // Query for hello document tooretrieve hello self link.
             Document todoItemDocument = getDocumentById(id);
    
             try {
-                // Delete the document by self link.
+                // Delete hello document by self link.
                 documentClient.deleteDocument(todoItemDocument.getSelfLink(), null);
             } catch (DocumentClientException e) {
                 e.printStackTrace();
@@ -344,10 +344,10 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
             return true;
         }
 
-## <a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
-Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu użytkownika szybki i połączenie go z obiektem DAO.
+## <a id="Wire"></a>Krok 5: Dołączenie razem pozostałe hello hello projektu tworzenia aplikacji Java
+Teraz, gdy już zakończyliśmy hello fun bits - pozostało jest toobuild interfejs użytkownika szybki i połączenie go z zapasowej tooour DAO.
 
-1. Zacznijmy od utworzenia kontrolera do wywoływania obiektu DAO:
+1. Po pierwsze Zacznijmy od utworzenia toocall kontrolera DAO:
    
         public class TodoItemController {
             public static TodoItemController getInstance() {
@@ -389,8 +389,8 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
             }
         }
    
-    W bardziej złożonej aplikacji kontroler może zawierać skomplikowaną logikę biznesową nałożoną na obiekt DAO.
-2. Następnie utworzymy serwlet do rozsyłania żądań HTTP do kontrolera:
+    W przypadku bardziej złożonych aplikacji hello kontroler może zawierać skomplikowaną logikę biznesową na powitania DAO.
+2. Następnie utworzymy kontrolera toohello serwlet tooroute HTTP żądania:
    
         public class TodoServlet extends HttpServlet {
             // API Keys
@@ -452,7 +452,7 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
                 doGet(request, response);
             }
         }
-3. Potrzebujemy interfejsu użytkownika sieci web do wyświetlenia dla użytkownika. Napiszmy od nowa utworzony wcześniej plik index.jsp:
+3. Potrzebujemy użytkownika toohello toodisplay interfejs użytkownika sieci web. Napiszmy hello index.jsp utworzony wcześniej:
     ```html
         <html>
         <head>
@@ -464,7 +464,7 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
    
           <style>
-            /* Add padding to body for fixed nav bar */
+            /* Add padding toobody for fixed nav bar */
             body {
               padding-top: 50px;
             }
@@ -486,7 +486,7 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
    
             <hr/>
    
-            <!-- The ToDo List -->
+            <!-- hello ToDo List -->
             <div class = "todoList">
               <table class="table table-bordered table-striped" id="todoItems">
                 <thead>
@@ -534,18 +534,18 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
    
           </div>
    
-          <!-- Placed at the end of the document so the pages load faster -->
+          <!-- Placed at hello end of hello document so hello pages load faster -->
           <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
           <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
           <script src="assets/todo.js"></script>
         </body>
         </html>
     ```
-4. I na koniec fragmentów kodu JavaScript po stronie klienta powiązać interfejs użytkownika sieci web i serwlet razem:
+4. Na koniec, zapisywania i niektóre po stronie klienta JavaScript tootie hello interfejsem użytkownika, a hello serwlet razem:
    
         var todoApp = {
           /*
-           * API methods to call Java backend.
+           * API methods toocall Java backend.
            */
           apiEndpoint: "api",
    
@@ -625,7 +625,7 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
               $(this).text("Updating...");
               $(this).prop("disabled", true);
    
-              // Call api to update todo items.
+              // Call api tooupdate todo items.
               $.each(todoApp.ui_updateId(), function(index, value) {
                 todoApp.updateTodoItem(value.name, value.value);
                 $(value).remove();
@@ -699,7 +699,7 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
           },
    
           /*
-           * Install the TodoApp
+           * Install hello TodoApp
            */
           install: function() {
             todoApp.bindCreateButton();
@@ -713,47 +713,47 @@ Teraz, gdy już zakończyliśmy fun bits - pozostało jest tworzenie interfejsu 
         $(document).ready(function() {
           todoApp.install();
         });
-5. Fantastycznie! Teraz pozostało już tylko przetestować aplikację. Uruchom aplikację lokalnie, a następnie dodaj jakieś zadania do wykonania, wpisując nazwę zadania oraz jego kategorię i klikając przycisk **Add Task** (Dodaj zadanie).
-6. Gdy zadanie zostanie wyświetlone, można zaktualizować, czy jest ono ukończone, klikając pole wyboru, a następnie klikając przycisk **Update Tasks** (Zaktualizuj zadania).
+5. Fantastycznie! Teraz pozostało to aplikacja hello tootest. Uruchamianie aplikacji hello lokalnie, a następnie dodaj jakieś zadania do wykonania wypełnianie nazwa elementu hello i kategorii, a następnie klikając polecenie **Dodaj zadanie**.
+6. Gdy pojawi się element hello, możesz zaktualizować czy jest ono ukończone przełączanie hello wyboru, a następnie klikając polecenie **zadania aktualizacji**.
 
-## <a id="Deploy"></a>Krok 6: Wdrażanie aplikacji w języku Java do witryn sieci Web Azure
+## <a id="Deploy"></a>Krok 6: Wdrażanie programu Java application tooAzure witryn sieci Web
 Witryny sieci Web Azure sprawia, że wdrożenie aplikacji Java sprowadza wyeksportowania aplikacji jako plik WAR i przesłania go na serwer za pomocą kontroli źródła (np. Git) lub FTP.
 
-1. Aby wyeksportować aplikację jako plik WAR, kliknij prawym przyciskiem myszy projekt w **Eksplorator projektów**, kliknij przycisk **wyeksportować**, a następnie kliknij przycisk **pliku WAR**.
-2. W oknie **WAR Export** (Eksport pliku WAR) wykonaj następujące czynności:
+1. tooexport aplikacji jako plik WAR, kliknij prawym przyciskiem myszy projekt w **Eksplorator projektów**, kliknij przycisk **wyeksportować**, a następnie kliknij przycisk **pliku WAR**.
+2. W hello **wyeksportować plik WAR** oknie hello następujące:
    
-   * W polu Projekt sieci Web wprowadź tekst azure-documentdb-java-sample.
-   * W polu Miejsce docelowe wybierz miejsce zapisania pliku WAR.
+   * W polu Projekt sieci Web hello wprowadź azure-documentdb-java-sample.
+   * W polu miejsce docelowe hello wybierz plik WAR hello toosave docelowego.
    * Kliknij przycisk **Zakończ**.
-3. Teraz, gdy masz na plik WAR, możesz po prostu przekazać go do platformy Azure witryny sieci Web **webapps** katalogu. Aby uzyskać instrukcje dotyczące przekazywania pliku, zobacz [dodawania aplikacji Java do aplikacji sieci Web usługi aplikacji Azure](../app-service-web/web-sites-java-add-app.md).
+3. Teraz, gdy masz na plik WAR, możesz po prostu przekazać go tooyour witryny sieci Web Azure **webapps** katalogu. Aby uzyskać instrukcje dotyczące przekazywania pliku hello, zobacz [dodać tooAzure aplikacji Java aplikacji usługi sieci Web aplikacji](../app-service-web/web-sites-java-add-app.md).
    
-    Po przesłaniu pliku WAR do katalogu webapps środowisko uruchomieniowe wykryje, że plik został dodany, i załaduje go automatycznie.
-4. Aby wyświetlić Zakończono produktu, przejdź do http://YOUR\_LOKACJI\_NAME.azurewebsites.net/azure-java-sample/ i zacznij dodawać zadania!
+    Pliku WAR powitania po przekazane toohello katalogu webapps środowisko uruchomieniowe hello wykryje został dodany i załaduje go automatycznie.
+4. tooview Zakończono produktu, przejdź toohttp://YOUR\_LOKACJI\_NAME.azurewebsites.net/azure-java-sample/ i zacznij dodawać zadania!
 
-## <a id="GetProject"></a>Pobieranie projektu z usługi GitHub
-Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) w usłudze GitHub. Aby zaimportować projekt todo do środowiska Eclipse, upewnij się, że dysponujesz oprogramowaniem i zasobami wymienionymi w sekcji [Wymagania wstępne](#Prerequisites), a następnie wykonaj następujące czynności:
+## <a id="GetProject"></a>Pobierz hello projektu z usługi GitHub
+Wszystkie przykłady hello w tym samouczku są objęte hello [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projektu w witrynie GitHub. Projekt todo hello tooimport do środowiska Eclipse, upewnij się, masz hello oprogramowanie i zasobów wymienionych w hello [wymagania wstępne](#Prerequisites) sekcji, a następnie hello następujące:
 
-1. Zainstaluj [Projekt Lombok](http://projectlombok.org/). Lombok służy w projekcie do generowania konstruktorów, metod pobierających i ustawiających. Po pobraniu pliku lombok.jar kliknij go dwukrotnie, aby go zainstalować, lub zainstaluj go przy użyciu wiersza polecenia.
-2. Jeśli środowisko Eclipse jest otwarte, zamknij je i uruchom ponownie, aby załadować Lombok.
-3. W środowisku Eclipse w menu **File** (Plik) kliknij pozycję **Import** (Importuj).
-4. W okienku **Import** (Import), kliknij pozycję **Git** (Usługa Git), kliknij pozycję **Projects from Git** (Projekty z usługi Git), a następnie kliknij przycisk **Next** (Dalej).
-5. Na ekranie **Select Repository Source** (Wybierz źródło repozytorium) kliknij pozycję **Clone URI** (Klonuj URI).
-6. Na **źródło repozytorium Git** ekranu w **URI** wprowadź https://github.com/Azure-Samples/java-todo-app.git, a następnie kliknij przycisk **dalej**.
-7. Na ekranie **Branch Selection** (Wybór gałęzi) upewnij się, że jest wybrana gałąź **master**, a następnie kliknij przycisk **Next** (Dalej).
-8. Na ekranie **Local Destination** (Lokalne miejsce docelowe) kliknij przycisk **Browse** (Przeglądaj), aby wybrać folder, do którego można skopiować repozytorium, a następnie kliknij przycisk **Next** (Dalej).
-9. Na ekranie **Select a wizard to use for importing projects** (Wybór kreatora importującego projekty) upewnij się, że jest zaznaczona opcja **Import existing projects** (Importuj istniejące projekty), a następnie kliknij przycisk **Next** (Dalej).
-10. Na ekranie **Import Projects** (Import projektów) usuń zaznaczenie przy projekcie **DocumentDB**, a następnie kliknij przycisk **Finish** (Zakończ). Projekt DocumentDB zawiera Azure rozwiązania Cosmos DB Java SDK, który zostanie dodany jako zależność zamiast tego.
-11. W **Eksplorator projektów**, przejdź do azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java i Zastąp wartości HOST oraz MASTER_KEY URI oraz PRIMARY KEY dla użytkownika Azure DB rozwiązania Cosmos konta, a następnie zapisz plik. Aby uzyskać więcej informacji, zobacz [Krok 1. Tworzenie konta bazy danych Azure DB rozwiązania Cosmos](#CreateDB).
-12. W widoku **Project Explorer** (Eksplorator projektów) kliknij prawym przyciskiem myszy pozycję **azure-documentdb-java-sample**, kliknij pozycję **Build Path** (Ścieżka kompilacji), a następnie kliknij pozycję **Configure Build Path** (Konfiguruj ścieżkę kompilacji).
-13. Na ekranie **Java Build Path** (Ścieżka kompilacji języka Java) w oknie po prawej stronie wybierz kartę **Libraries** (Biblioteki), a następnie kliknij pozycję **Add External JARs** (Dodaj zewnętrzne pliki JAR). Przejdź do lokalizacji pliku lombok.jar, kliknij przycisk **Open** (Otwórz), a następnie kliknij przycisk **OK**.
-14. Użyj kroku 12, aby otworzyć ponownie okno **Properties** (Właściwości), a następnie w oknie po lewej stronie kliknij pozycję **Targeted Runtimes** (Docelowe środowiska uruchomieniowe).
-15. Na ekranie **Targeted Runtimes** (Docelowe środowiska uruchomieniowe) kliknij pozycję **New** (Nowy), wybierz pozycję **Apache Tomcat v7.0**, a następnie kliknij przycisk **OK**.
-16. Użyj kroku 12, aby otworzyć ponownie okno **Properties** (Właściwości), a następnie w oknie po lewej stronie kliknij pozycję **Project Facets** (Aspekty projektu).
-17. Na ekranie **Project Facets** (Aspekty projektu) wybierz pozycję **Dynamic Web Module** (Dynamiczny moduł sieci Web) oraz pozycję **Java**, a następnie kliknij pozycję **OK**.
-18. Na karcie **Servers** (Serwery) w dolnej części ekranu kliknij prawym przyciskiem myszy pozycję **Tomcat v7.0 Server at localhost**, a następnie kliknij pozycję **Add and Remove** (Dodaj i usuń).
-19. W oknie **Add and Remove** (Dodaj i usuń) przenieś pozycję **azure-documentdb-java-sample** w pole **Configured** (Skonfigurowane), a następnie kliknij przycisk **Finish** (Zakończ).
-20. W **serwerów** kliknij prawym przyciskiem myszy **Tomcat v7.0 Server at localhost**, a następnie kliknij przycisk **ponownego uruchomienia**.
-21. W przeglądarce przejdź do http://localhost:8080/azure-documentdb-java-sample/ i zacznij dodawać zadania do listy. Należy pamiętać, że jeśli zmieniono domyślne wartości portów, zmień 8080 na wybraną wartość.
-22. Aby wdrożyć projekt w witrynie sieci Web platformy Azure, zobacz [Krok 6. Wdrażanie aplikacji do witryny sieci Web Azure](#Deploy).
+1. Zainstaluj [Projekt Lombok](http://projectlombok.org/). Lombok jest używane toogenerate konstruktorów, metod pobierających i ustawiających w projekcie hello. Po pobraniu pliku lombok.jar hello, kliknij go dwukrotnie tooinstall go lub go zainstalować z wiersza polecenia hello.
+2. Jeśli środowisko Eclipse jest otwarte, zamknij ją i uruchom go ponownie tooload Lombok.
+3. W środowisku Eclipse na powitania **pliku** menu, kliknij przycisk **importu**.
+4. W hello **importu** okna, kliknij przycisk **Git**, kliknij przycisk **projekty z Git**, a następnie kliknij przycisk **dalej**.
+5. Na powitania **wybierz źródło repozytorium** kliknij **identyfikatora URI w klonowania**.
+6. Na powitania **źródło repozytorium Git** ekranie powitania **URI** wprowadź https://github.com/Azure-Samples/java-todo-app.git, a następnie kliknij przycisk **dalej**.
+7. Na powitania **wybór gałęzi** ekranu, upewnij się, że **wzorca** jest zaznaczone, a następnie kliknij przycisk **dalej**.
+8. Na powitania **lokalne miejsce docelowe** kliknij **Przeglądaj** tooselect folder, w którym mogą zostać skopiowane hello repozytorium, a następnie kliknij **dalej**.
+9. Na powitania **wybierz toouse Kreatora importowania projektów** ekranu, upewnij się, że **importowanie istniejących projektów** jest zaznaczone, a następnie kliknij przycisk **dalej**.
+10. Na powitania **Import projektów** ekranu, usuń zaznaczenie hello **DocumentDB** projektu, a następnie kliknij przycisk **Zakończ**. Projekt DocumentDB Hello zawiera hello Azure rozwiązania Cosmos DB Java SDK, który zostanie dodany jako zależność zamiast tego.
+11. W **Eksplorator projektów**, przejdź tooazure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java i Zastąp wartości HOST oraz MASTER_KEY hello hello URI oraz PRIMARY KEY dla Twoje konto bazy danych Azure rozwiązania Cosmos, a następnie zapisz plik hello. Aby uzyskać więcej informacji, zobacz [Krok 1. Tworzenie konta bazy danych Azure DB rozwiązania Cosmos](#CreateDB).
+12. W **Eksplorator projektów**, powitania kliknij prawym przyciskiem myszy **azure-documentdb-java-sample**, kliknij przycisk **ścieżkę kompilacji**, a następnie kliknij przycisk **Konfigurowanie kompilacji ścieżki**.
+13. Na powitania **ścieżka kompilacji języka Java** ekranu w okienku po prawej stronie powitania, wybierz hello **biblioteki** , a następnie kliknij pozycję **Dodaj zewnętrzne JARs**. Przejdź do lokalizacji pliku lombok.jar hello toohello, a następnie kliknij przycisk **Otwórz**, a następnie kliknij przycisk **OK**.
+14. Użyj kroku 12 tooopen hello **właściwości** okna ponownie, a następnie w okienku po lewej stronie powitania kliknij **docelowe środowiska uruchomieniowe**.
+15. Na powitania **docelowe środowiska uruchomieniowe** kliknij **nowy**, wybierz pozycję **Apache Tomcat v7.0**, a następnie kliknij przycisk **OK**.
+16. Użyj kroku 12 tooopen hello **właściwości** okna ponownie, a następnie w okienku po lewej stronie powitania kliknij **aspekty projektu**.
+17. Na powitania **aspekty projektu** ekranu wybierz **dynamiczny moduł sieci Web** i **Java**, a następnie kliknij przycisk **OK**.
+18. Na powitania **serwerów** u dołu ekranu hello powitania kliknij prawym przyciskiem myszy **Tomcat v7.0 Server at localhost** , a następnie kliknij przycisk **Dodawanie i usuwanie**.
+19. Na powitania **Dodawanie i usuwanie** okna, Przenieś **azure-documentdb-java-sample** toohello **skonfigurowana** , a następnie kliknij przycisk **Zakończ**.
+20. W hello **serwerów** kliknij prawym przyciskiem myszy **Tomcat v7.0 Server at localhost**, a następnie kliknij przycisk **ponownego uruchomienia**.
+21. W przeglądarce Przejdź toohttp://localhost:8080 / azure-documentdb-java-sample / i zacznij dodawać tooyour listy zadań. Należy pamiętać, że jeśli zmieniono domyślne wartości portów, Zmień wybraną wartość toohello 8080.
+22. toodeploy tooan Twojego projektu witryny sieci web platformy Azure, zobacz [krok 6. Wdrażanie programu tooAzure aplikacji witryny sieci Web](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png

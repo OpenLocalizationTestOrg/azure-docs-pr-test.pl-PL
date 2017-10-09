@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia platformy Azure: tworzenie bazy danych SQL | Microsoft Docs'
-description: "Dowiedz się, jak utworzyć serwer logiczny, regułę zapory na poziomie serwera i bazy danych usługi SQL Database przy użyciu interfejsu wiersza polecenia platformy Azure."
+description: "Dowiedz się, jak toocreate serwera logicznego SQL Database, regułę zapory poziomu serwera i baz danych przy użyciu hello wiersza polecenia platformy Azure."
 keywords: "samouczek usługi sql database, tworzenie bazy danych sql"
 services: sql-database
 documentationcenter: 
@@ -16,52 +16,52 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: a735f7e6aa65ac36dc4e5a49c5a9a834be43d71a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b1ffb17eabeb70a000ff0c997128832b07aa4fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Tworzenie pojedynczej bazy danych Azure SQL Database za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-single-azure-sql-database-using-hello-azure-cli"></a>Tworzenie przy użyciu interfejsu wiersza polecenia Azure hello pojedynczej bazy danych Azure SQL
 
-Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku znajdują się szczegółowe informacje dotyczące użycia interfejsu wiersza polecenia platformy Azure na potrzeby wdrażania bazy danych Azure SQL Database w [grupie zasobów Azure](../azure-resource-manager/resource-group-overview.md) na [serwerze logicznym Azure SQL Database](sql-database-features.md).
+Hello wiersza polecenia platformy Azure jest używana toocreate i zarządzania zasobami Azure z wiersza polecenia hello lub w skryptach. Ten przewodnik szczegółów przy użyciu hello Azure CLI toodeploy bazy danych Azure SQL w [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) w [serwera logicznego bazy danych SQL Azure](sql-database-features.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli chcesz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga działają hello Azure CLI w wersji 2.0.4 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Definiowanie zmiennych
 
-Zdefiniuj zmienne do wykorzystania w skryptach w tym przewodniku Szybki start.
+Zdefiniuj zmienne do użytku w skryptach hello w tym szybki start.
 
 ```azurecli-interactive
-# The data center and resource name for your resources
+# hello data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# hello logical server name: Use a random value or replace with your own value (do not capitalize)
 export servername = server-$RANDOM
 # Set an admin login and password for your database
 export adminlogin = ServerAdmin
 export password = ChangeYourAdminPassword1
-# The ip address range that you want to allow to access your DB
+# hello ip address range that you want tooallow tooaccess your DB
 export startip = "0.0.0.0"
 export endip = "0.0.0.0"
-# The database name
+# hello database name
 export databasename = mySampleDatabase
 ```
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westeurope`.
+Utwórz [grupy zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) przy użyciu hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Witaj poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w hello `westeurope` lokalizacji.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Tworzenie serwera logicznego
 
-Utwórz [serwer logiczny Azure SQL Database](sql-database-features.md) za pomocą polecenia [az sql server create](/cli/azure/sql/server#create). Serwer logiczny zawiera grupę baz danych zarządzanych jako grupa. Poniższy przykład obejmuje tworzenie serwera o losowo wybranej nazwie w grupie zasobów za pomocą identyfikatora logowania administratora o nazwie `ServerAdmin` i z hasłem `ChangeYourAdminPassword1`. Zastąp te wstępnie zdefiniowane wartości zgodnie z potrzebami.
+Utwórz [serwera logicznego bazy danych SQL Azure](sql-database-features.md) przy użyciu hello [az programu sql server Utwórz](/cli/azure/sql/server#create) polecenia. Serwer logiczny zawiera grupę baz danych zarządzanych jako grupa. Witaj poniższy przykład tworzy losowo nazwanym serwerze w grupie zasobów o nazwie identyfikator logowania administratora `ServerAdmin` oraz hasła `ChangeYourAdminPassword1`. Zastąp te wstępnie zdefiniowane wartości zgodnie z potrzebami.
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -70,7 +70,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurowanie reguły zapory serwera
 
-Utwórz [regułę zapory na poziomie serwera Azure SQL Database](sql-database-firewall-configure.md) za pomocą polecenia [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Reguła zapory na poziomie serwera umożliwia zewnętrznej aplikacji, takiej jak SQL Server Management Studio lub narzędzie SQLCMD, nawiązanie połączenia z bazą danych SQL za pośrednictwem zapory usługi SQL Database. W poniższym przykładzie zapora jest otwarta tylko dla innych zasobów platformy Azure. Aby włączyć łączność zewnętrzną, zmień adres IP na adres odpowiedni dla danego środowiska. Aby otworzyć wszystkie adresy IP, użyj wartości 0.0.0.0 jako początkowego adresu IP i wartości 255.255.255.255 jako adresu końcowego.  
+Utwórz [regułę zapory poziomu serwera bazy danych SQL Azure](sql-database-firewall-configure.md) przy użyciu hello [utworzyć zapory serwera sql az](/cli/azure/sql/server/firewall-rule#create) polecenia. Reguły zapory poziomu serwera umożliwia aplikacji zewnętrznych, takich jak SQL Server Management Studio lub hello SQLCMD narzędzie tooconnect tooa bazy danych SQL za pośrednictwem zapory usługi SQL Database hello. W hello poniższy przykład hello zapory jest otwarty tylko do innych zasobów platformy Azure. tooenable łączność zewnętrzną, zmiana hello adres tooan odpowiedniego adresu IP dla danego środowiska. tooopen wszystkie adresy IP, użyj 0.0.0.0 jako hello początkowy adres IP i 255.255.255.255 jako hello adres końcowy.  
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -78,12 +78,12 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 ```
 
 > [!NOTE]
-> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli zachodzi taka sytuacja, nie będzie można nawiązać połączenia z serwerem Azure SQL Database, chyba że dział IT otworzy port 1433.
+> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz tooconnect z sieci firmowej, ruch wychodzący przez port 1433 może nie być dozwolone przez zaporę w sieci. Jeśli tak, nie będzie serwera bazy danych SQL Azure tooyour stanie tooconnect, chyba że dział IT otwiera port 1433.
 >
 
-## <a name="create-a-database-in-the-server-with-sample-data"></a>Tworzenie na serwerze bazy danych z przykładowymi danymi
+## <a name="create-a-database-in-hello-server-with-sample-data"></a>Utwórz bazę danych na serwerze hello z przykładowymi danymi
 
-Utwórz bazę danych [o poziomie wydajności S0](sql-database-service-tiers.md) na serwerze za pomocą polecenia [az sql db create](/cli/azure/sql/db#create). Poniższy przykład tworzy bazę danych o nazwie `mySampleDatabase` i ładuje do niej przykładowe dane AdventureWorksLT. Zastąp te wstępnie zdefiniowane wartości zgodnie z potrzebami (inne przewodniki Szybki start w tej kolekcji bazują na wartościach z tego przewodnika).
+Utwórz bazę danych z [poziom wydajności S0](sql-database-service-tiers.md) w powitania serwera przy użyciu hello [tworzenie bazy danych sql az](/cli/azure/sql/db#create) polecenia. Witaj poniższy przykład tworzy bazę danych o nazwie `mySampleDatabase` i obciążeń hello AdventureWorksLT przykładowe dane do tej bazy danych. Zastąp te wstępnie zdefiniowane wartości zgodnie z potrzebami (inne Szybkie uruchamianie w tej kolekcji kompilacji na powitania wartości w tym szybki start).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -95,7 +95,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. 
 
 > [!TIP]
-> Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki start, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego szybkiego startu.
+> Jeśli planujesz toocontinue toowork z kolejnych Szybki Start, nie czyszczenie zasobów hello utworzone w tym szybki start. Jeśli nie planujesz toocontinue, użyj powitania po toodelete kroki wszystkie zasoby utworzone przez tego szybkiego startu w portalu Azure hello.
 >
 
 ```azurecli-interactive

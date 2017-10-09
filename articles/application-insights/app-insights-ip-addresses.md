@@ -1,5 +1,5 @@
 ---
-title: "Adresy IP używane przez usługę Application Insights | Dokumentacja firmy Microsoft"
+title: "adresy aaaIP używane przez usługi Application Insights | Dokumentacja firmy Microsoft"
 description: "Wyjątki zapory serwera wymagane przez usługę Application Insights"
 services: application-insights
 documentationcenter: .net
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
 ms.author: bwren
-ms.openlocfilehash: 3bb076c63223fc1567c6b7b25c1a513bbc81ed58
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2c101b8da2ba9594fbff607f4f7551cda80c3c25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ip-addresses-used-by-application-insights"></a>Adresy IP używane przez usługę Application Insights
-[Azure Application Insights](app-insights-overview.md) usługa używa liczba adresów IP. Może być konieczne, jeśli aplikacja, która monitorowanych znajduje się za zaporą informacje tych adresów.
+Witaj [Azure Application Insights](app-insights-overview.md) usługa używa liczba adresów IP. Może być potrzebny tooknow te adresy są monitorowania aplikacji hello znajduje się za zaporą.
 
 > [!NOTE]
-> Mimo że te adresy są statyczne, istnieje możliwość, że musimy zmienić je od czasu do czasu.
+> Mimo że te adresy są statyczne, jest to możliwe, że są wymagane toochange je z tootime czasu.
 > 
 > 
 
 ## <a name="outgoing-ports"></a>Porty wychodzące
-Należy otworzyć niektóre wychodzących porty zapory serwera umożliwia zestaw SDK usługi Application Insights lub Monitor stanu wysyłania danych do portalu:
+Należy tooopen niektórych portów wychodzących w hello tooallow zapory serwera zestawu SDK usługi Application Insights i/lub Monitor stanu toosend danych toohello portalu:
 
 | Przeznaczenie | ADRES URL | Adres IP | Porty |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Stan monitora konfiguracji — potrzebne tylko podczas wprowadzania zmian.
 | Dane dotyczące awarii |GATE.hockeyapp.NET |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Testy dostępności
-Jest to lista adresów, z którego [testów sieci web dostępności](app-insights-monitor-web-app-availability.md) są uruchamiane. Jeśli chcesz uruchamiać testy sieci web w aplikacji, ale serwer sieci web jest ograniczone do określonych klientów obsługujących, będzie mieć umożliwić ruch przychodzący z naszych dostępności serwerów testu.
+To jest lista hello adresów, z którego [testów sieci web dostępności](app-insights-monitor-web-app-availability.md) są uruchamiane. Jeśli chcesz toorun testy sieci web w aplikacji, ale serwer sieci web jest ograniczone tooserving określonych klientów, konieczne będzie toopermit ruch przychodzący z naszych serwerów testu dostępności, a następnie.
 
 Otwórz porty 80 (http) i 443 (https) dla ruchu przychodzącego z tych adresów (adresy IP są grupowane według lokalizacji):
 

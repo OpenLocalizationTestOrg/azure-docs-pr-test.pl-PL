@@ -1,6 +1,6 @@
 ---
-title: "Połączenie danych rozwiązania analizy dzienników | Dokumentacja firmy Microsoft"
-description: "Podczas transmisji danych jest skonsolidowanych danych sieci i wydajności z komputerów z agentami OMS, w tym programu Operations Manager oraz agenci połączone z systemem Windows. Dane sieciowe jest połączone z dane dziennika, aby ułatwić skorelować danych."
+title: "aaaWire dane rozwiązanie w Log Analytics | Dokumentacja firmy Microsoft"
+description: "Podczas transmisji danych jest skonsolidowanych danych sieci i wydajności z komputerów z agentami OMS, w tym programu Operations Manager oraz agenci połączone z systemem Windows. Dane sieci są łączone z toohelp danych z dziennika skorelować danych."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
-ms.openlocfilehash: eb8ae80f91b9ecad666ab7a2257d99e5669f5b88
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: adafdf98dfbda9d87759643a1a606a84eafd1348
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Podczas transmisji danych 2.0 (wersja zapoznawcza) rozwiązania analizy dzienników
 
 ![Podczas transmisji danych symbolu](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Podczas transmisji danych jest skonsolidowanych danych sieci i wydajności z komputerów z agentów OMS, w tym programu Operations Manager, połączony z systemem Windows i Linux agentów. Dane sieci są łączone z innymi danymi dziennika ułatwiają skorelować danych.
+Podczas transmisji danych jest skonsolidowanych danych sieci i wydajności z komputerów z agentów OMS, w tym programu Operations Manager, połączony z systemem Windows i Linux agentów. Dane sieci są łączone z Twojej innych toohelp danych dziennika skorelować danych.
 
-Oprócz agentów OMS rozwiązania podczas transmisji danych używa agentów Dependency firmy Microsoft, które można zainstalować na komputerach w infrastrukturze IT. Zależności agenci monitorują dane sieci wysyłane do i z komputerów dla sieci poziomy 2 – 3 [OSI model](https://en.wikipedia.org/wiki/OSI_model), włącznie z różnych protokołów i portów używanych. Dane są następnie wysyłane do analizy dzienników przy użyciu agentów.
+Ponadto agentów tooOMS hello udostępniający dane rozwiązanie korzysta z agentów Dependency firmy Microsoft, które można zainstalować na komputerach w infrastrukturze IT. Tooand dane przesyłane zależności agentów monitora sieci z komputerów w sieci poziomy hello w 2 – 3 [OSI model](https://en.wikipedia.org/wiki/OSI_model), w tym hello różnych protokoły i porty używane. Dane są następnie wysyłane tooLog Analytics przy użyciu agentów.
 
 > [!NOTE]
-> Nie można dodać poprzedniej wersji rozwiązania przesyłania danych do nowych obszarów roboczych. Jeśli masz w oryginalnym rozwiązaniu udostępniający dane włączone, można nadal z niego korzystać. Jednak aby używać podczas transmisji danych 2.0, należy najpierw usunąć oryginalną wersją.
+> Nie można dodać hello poprzedniej wersji hello udostępniający dane rozwiązanie toonew w obszarach roboczych. Jeśli masz hello oryginalnym rozwiązaniu udostępniający dane włączone, można kontynuować toouse go. Jednak toouse podczas transmisji danych 2.0, należy najpierw usunąć hello oryginalną wersją.
 
-Domyślnie analizy dzienników zbiera dane zarejestrowane dla Procesora, pamięci, dysku i sieci danych wydajności z liczników wbudowanego w systemie Windows. Sieci i innych zbieranie danych odbywa się w czasie rzeczywistym dla każdego agenta, włącznie z podsieci i protokoły poziomu aplikacji, używane przez komputer. Na stronie Ustawienia na karcie dzienniki, można dodać liczniki wydajności.
+Domyślnie analizy dzienników zbiera dane zarejestrowane dla Procesora, pamięci, dysku i sieci danych wydajności z liczników wbudowanego w systemie Windows. Sieci i innych zbieranie danych odbywa się w czasie rzeczywistym dla każdego agenta, włącznie z podsieci i używany przez komputer hello protokoły poziomu aplikacji. Na stronie Ustawienia hello na karcie dzienniki hello można dodać liczniki wydajności.
 
-Jeśli użyto [sFlow](http://www.sflow.org/) lub innego oprogramowania z [protokołu NetFlow firmy Cisco](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), statystyk i danych, zostanie wyświetlony podczas transmisji danych będzie znane.
+Jeśli użyto [sFlow](http://www.sflow.org/) lub innego oprogramowania z [protokołu NetFlow firmy Cisco](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), następnie hello statystyk i dane pochodzące z udostępniający dane zostaną tooyou znane.
 
-Typy wbudowane zapytania wyszukiwania dziennika, należą:
+Oto niektóre z hello typy wbudowane zapytań wyszukiwania dziennika:
 
 - Agenci udostępniający dane
 - Adres IP agentów udostępniających dane o komunikacji sieciowej
@@ -48,48 +48,48 @@ Typy wbudowane zapytania wyszukiwania dziennika, należą:
 - Komputer przetwarza sieciowej zainicjowały lub odebrały ruch
 - Ilość ruchu sieciowego dla procesu
 
-Podczas wyszukiwania przy użyciu udostępniający dane, można filtrować i grupy danych, aby wyświetlić informacje o najwyższym agentów i protokoły najwyższego. Lub kiedy można wyświetlić niektórych komputerów (adresów IP adresy MAC) przekazywane ze sobą, jak długo i ilość danych została wysłana — zasadniczo wyświetlić metadane dotyczące ruchu sieciowego, który jest na podstawie wyszukiwania.
+Podczas wyszukiwania przy użyciu udostępniający dane, można filtrować i grupy danych tooview informacji o hello top agentów i protokoły top. Lub kiedy można wyświetlić niektórych komputerów (adresów IP adresy MAC) przekazywane ze sobą, jak długo i ilość danych została wysłana — zasadniczo wyświetlić metadane dotyczące ruchu sieciowego, który jest na podstawie wyszukiwania.
 
-Jednak ponieważ wyświetlasz metadanych nie jest zawsze przydatne podczas rozwiązywania szczegółowe. Podczas transmisji danych analizy dzienników nie jest pełną przechwytywania danych w sieci. Tak nie ma ona do rozwiązywania problemów głębokość poziomie pakietów. Zaletą przy użyciu agenta, w porównaniu do innych metod kolekcji jest, że nie trzeba zainstalować urządzenia, skonfiguruj ponownie przełączników sieciowych lub przeprowadzić skomplikowane konfiguracje. Podczas transmisji danych jest po prostu agenta na podstawie — Zainstaluj agenta na komputerze i będzie monitorować ruch sieci. Inną zaletą jest to, jeśli chcesz monitorować obciążeń działających w chmurze dostawcy lub dostawcy usług hostingowych lub Microsoft Azure, gdy użytkownik nie posiada warstwy sieci szkieletowej.
+Jednak ponieważ wyświetlasz metadanych nie jest zawsze przydatne podczas rozwiązywania szczegółowe. Podczas transmisji danych analizy dzienników nie jest pełną przechwytywania danych w sieci. Tak nie ma ona do rozwiązywania problemów głębokość poziomie pakietów. Witaj zaletą hello agenta, metody kolekcji tooother w porównaniu, czy nie ma urządzeń tooinstall, skonfiguruj ponownie przełączników sieciowych lub przeprowadzić skomplikowane konfiguracje. Podczas transmisji danych jest po prostu agenta na podstawie — należy zainstalować na komputerze agenta hello i będzie monitorować ruch sieci. Inną zaletą jest w przypadku obciążeń toomonitor działających w chmurze dostawcy lub dostawcy usług hostingowych lub Microsoft Azure, gdzie hello użytkownika nie posiada hello warstwy sieci szkieletowej.
 
 ## <a name="connected-sources"></a>Połączone źródła
 
-Podczas transmisji danych dane są pobierane z Microsoft Dependency Agent. Agent zależności zależy od agenta pakietu OMS dla jego połączenia z analizy dzienników. To oznacza, że serwer musi mieć Agent pakietu OMS zainstalowany i skonfigurowany najpierw, a następnie zainstaluj agenta zależności. W poniższej tabeli opisano połączonych źródeł, które obsługuje rozwiązania przesyłania danych.
+Podczas transmisji danych dane są pobierane z hello Microsoft Dependency Agent. Hello Dependency Agent jest zależna od hello Agent pakietu OMS dla jego tooLog połączeń Analytics. To oznacza, że serwer musi mieć hello Agent pakietu OMS zainstalowany i skonfigurowany pierwszy, a następnie zainstaluj hello Dependency Agent. Witaj poniższej tabeli opisano źródeł hello połączone, które obsługuje hello udostępniający dane rozwiązanie.
 
 | **Źródło połączenia** | **Obsługiwane** | **Opis** |
 | --- | --- | --- |
-| Agenci dla systemu Windows | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> Oprócz [Agent pakietu OMS](log-analytics-windows-agents.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Agenci dla systemu Linux | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Linux agenta.<br><br> Oprócz [Agent pakietu OMS](log-analytics-linux-agents.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Grupa zarządzania programu System Center Operations Manager | Tak | Podczas transmisji danych analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Połączenie bezpośrednie z komputera agenta programu System Center Operations Manager do analizy dzienników jest wymagana. Dane są przesyłane dalej z grupy zarządzania do analizy dzienników. |
-| Konto magazynu Azure | Nie | Podczas transmisji danych zbiera dane z komputery agenta, więc nie ma żadnych danych z niego do zbierania z usługi Azure Storage. |
+| Agenci dla systemu Windows | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> W przypadku dodawania toohello [Agent pakietu OMS](log-analytics-windows-agents.md), agentów systemu Windows wymagają hello Microsoft Dependency Agent. Zobacz hello [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Agenci dla systemu Linux | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Linux agenta.<br><br> W przypadku dodawania toohello [Agent pakietu OMS](log-analytics-linux-agents.md), hello Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz hello [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Grupa zarządzania programu System Center Operations Manager | Tak | Podczas transmisji danych analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Połączenie bezpośrednie z tooLog komputera agenta programu System Center Operations Manager hello Analytics jest wymagana. Dane są przesyłane z tooLog grupy zarządzania hello Analytics. |
+| Konto magazynu Azure | Nie | Podczas transmisji danych zbiera dane z komputery agenta, więc nie ma żadnych danych z niego toocollect z usługi Magazyn Azure. |
 
-W systemie Windows Microsoft Monitoring Agent (MMA) jest używany zarówno przez System Center Operations Manager i analizy dzienników do zbierania i wysyłania danych. W zależności od kontekstu agent jest nazywany agenta programu System Center Operations Manager, Agent pakietu OMS, Agent analizy dziennika, MMA lub bezpośredniego agenta. System Center Operations Manager i Log Analytics zapewnia nieco inne wersje MMA. Te wersje strony każdy raport do programu System Center Operations Manager do analizy dzienników lub obie.
+W systemie Windows hello Microsoft Monitoring Agent (MMA) jest używany przez toogather zarówno System Center Operations Manager, jak i analizy dzienników i przesyłania danych. W zależności od kontekstu hello agenta hello jest nazywany hello agenta programu System Center Operations Manager, Agent pakietu OMS, Agent analizy dziennika, MMA lub bezpośredniego agenta. System Center Operations Manager i Log Analytics zapewnia nieco inne wersje hello MMA. Te wersje strony każdy raport tooSystem Center Operations Manager, tooLog analityka lub tooboth.
 
-W systemie Linux Agent pakietu OMS Linux zbiera i wysyłania danych do analizy dzienników. Na serwerach z agentami bezpośredniego OMS lub na serwerach, które są dołączone do analizy dzienników za pośrednictwem grup zarządzania programu System Center Operations Manager, można użyć podczas transmisji danych.
+W systemie Linux hello Agent pakietu OMS Linux zbiera i wysyła dane tooLog Analytics. Na serwerach z agentami bezpośredniego OMS lub na serwerach, które są dołączone tooLog Analytics za pomocą grup zarządzania programu System Center Operations Manager, można użyć podczas transmisji danych.
 
-W tym artykule odwołuje się do wszystkich agentów, czy Linux lub Windows, czy połączony z grupą zarządzania programu System Center Operations Manager lub bezpośrednio do analizy dzienników są określane jako _agent pakietu OMS_. Nazwa określonego wdrożenia agenta będą używane tylko wtedy, gdy jest wymagana dla kontekstu.
+W tym artykule odwołuje się do agentów tooall czy Linux lub Windows, czy grupa zarządzania programu System Center Operations Manager połączonych tooa lub bezpośrednio tooLog Analytics nazywamy hello _agent pakietu OMS_. Użyjemy hello nazwę określonego wdrożenia agenta hello tylko wtedy, gdy jest wymagana dla kontekstu.
 
-Agent zależności nie przesyła wszystkie dane, a nie wymaga zmian zapory lub porty. Dane udostępniający dane są zawsze przesyłane przez agenta pakietu OMS z analizą dzienników, albo bezpośrednio lub przy użyciu bramy OMS.
+Hello Dependency Agent nie przesyła wszystkie dane, a nie wymaga żadnych zmian toofirewalls lub porty. Hello dane udostępniający dane są zawsze przesyłane przez tooLog agent pakietu OMS hello Analytics, albo bezpośrednio lub za pomocą hello OMS bramy.
 
 ![diagram agenta](./media/log-analytics-wire-data/agents.png)
 
-Jeśli jesteś użytkownikiem programu System Center Operations Manager z grupą zarządzania podłączone do analizy dzienników:
+Jeśli jesteś użytkownikiem programu System Center Operations Manager z tooLog podłączone grupy zarządzania Analytics:
 
-- Dodatkowa konfiguracja nie jest wymagana, gdy agentów programu System Center Operations Manager można uzyskać dostęp do Internetu do nawiązania połączenia analizy dzienników.
-- Należy skonfigurować bramę OMS do pracy z programem System Center Operations Manager, gdy agentów programu System Center Operations Manager nie może uzyskać dostęp do analizy dzienników za pośrednictwem Internetu.
+- Dodatkowa konfiguracja nie jest wymagana, gdy agentów programu System Center Operations Manager można uzyskać dostęp do hello Internet tooconnect tooLog Analytics.
+- Gdy agentów programu System Center Operations Manager nie może uzyskać dostęp do analizy dzienników za pośrednictwem Internetu hello należy tooconfigure hello bramy OMS toowork z programem System Center Operations Manager.
 
-Jeśli używasz bezpośredniej agenta, należy skonfigurować agenta pakietu OMS do połączenia analizy dzienników lub bramy OMS. Możesz pobrać bramy OMS z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Jeśli używasz hello bezpośredniego agenta należy tooconfigure hello OMS samego agenta, tooLog tooconnect analityka lub tooyour OMS bramy. Witaj OMS bramy można pobrać z hello [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wymaga [szczegółowe dane i analiza](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) oferta rozwiązania.
-- Jeśli używasz poprzedniej wersji rozwiązania podczas transmisji danych, należy najpierw usunąć go. Jednak wszystkie dane zarejestrowane przez w oryginalnym rozwiązaniu udostępniający dane są nadal dostępne w podczas transmisji danych w wersji 2.0 i wyszukiwania dziennika.
-- Aby zainstalować lub odinstalować agenta zależności są wymagane uprawnienia administratora.
-- Musi być zainstalowany Agent zależności na komputerze z 64-bitowym systemie operacyjnym.
+- Wymaga hello [szczegółowe dane i analiza](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) oferta rozwiązania.
+- Jeśli używasz hello poprzedniej wersji hello udostępniający dane rozwiązanie, należy najpierw usunąć go. Jednak wszystkie dane zarejestrowane przez hello oryginalnym rozwiązaniu udostępniający dane są nadal dostępne w podczas transmisji danych w wersji 2.0 i wyszukiwania dziennika.
+- Uprawnienia administratora są wymagane tooinstall lub odinstalować hello Dependency Agent.
+- Witaj Dependency Agent musi zainstalowany na komputerze z 64-bitowym systemie operacyjnym.
 
 ### <a name="operating-systems"></a>Systemy operacyjne
 
-Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla agenta zależności. Podczas transmisji danych nie obsługuje architektury 32-bitowego dla dowolnego systemu operacyjnego.
+Witaj poniższe sekcje zawierają listę hello obsługiwane systemy operacyjne dla hello Dependency Agent. Podczas transmisji danych nie obsługuje architektury 32-bitowego dla dowolnego systemu operacyjnego.
 
 #### <a name="windows-server"></a>Windows Server
 
@@ -108,7 +108,7 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 #### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux i Oracle Linux (z RHEL jądra)
 
 - Obsługiwane są tylko domyślnej i wersjach jądra systemu Linux SMP.
-- Zwalnia jądra niestandardowe, takie jak rozszerzenia adresu fizycznego i Xen, nie są obsługiwane dla dowolnego dystrybucji systemu Linux. Na przykład system z ciąg wersji _2.6.16.21-0.8-xen_ nie jest obsługiwane.
+- Zwalnia jądra niestandardowe, takie jak rozszerzenia adresu fizycznego i Xen, nie są obsługiwane dla dowolnego dystrybucji systemu Linux. Na przykład system z wersji ciąg hello _2.6.16.21-0.8-xen_ nie jest obsługiwane.
 - Niestandardowe jądra, w tym ponownych kompilacji standardowe jądra, nie są obsługiwane.
 - CentOSPlus jądra nie jest obsługiwane.
 - Oracle podzielenie Enterprise jądra (UEK) zostało opisane w dalszej części tego artykułu.
@@ -195,50 +195,50 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 
 ## <a name="configuration"></a>Konfiguracja
 
-Wykonaj poniższe kroki, aby skonfigurować rozwiązanie udostępniający dane dla obszarów roboczych.
+Wykonaj następujące kroki tooconfigure hello udostępniający dane rozwiązanie dla obszarów roboczych hello.
 
-1. Włącz rozwiązania analizy dzienników działania z [witrynę Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) lub przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
-2. Na każdym komputerze, na którym chcesz pobrać dane, należy zainstalować agenta zależności. Dependency Agent można monitorować połączenia do natychmiastowego sąsiadów, więc nie trzeba agenta na każdym komputerze.
+1. Włącz rozwiązania analizy dziennika aktywności hello z hello [witrynę Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) lub za pomocą hello procesu opisanego w temacie [rozwiązań analizy dzienników dodać hello galerii rozwiązań](log-analytics-add-solutions.md).
+2. Zainstaluj hello Dependency Agent na każdym komputerze, na którym chcesz tooget dane. Witaj Dependency Agent można monitorować sąsiadów tooimmediate połączeń, więc nie trzeba agenta na każdym komputerze.
 
-### <a name="install-the-dependency-agent-on-windows"></a>Zainstaluj agenta zależności w systemie Windows
+### <a name="install-hello-dependency-agent-on-windows"></a>Zainstaluj hello Dependency Agent w systemie Windows
 
-Aby zainstalować lub odinstalować agenta wymagane są uprawnienia administratora.
+Uprawnienia administratora są wymagane tooinstall lub odinstaluj agenta hello.
 
-Dependency Agent jest zainstalowany na komputerach z systemem Windows za pośrednictwem InstallDependencyAgent Windows.exe. Po uruchomieniu tego pliku wykonywalnego bez żadnych opcji uruchamia kreatora, który można wykonać w celu zainstalowania interaktywnie.
+Witaj Dependency Agent jest zainstalowany na komputerach z systemem Windows za pośrednictwem InstallDependencyAgent Windows.exe. Po uruchomieniu tego pliku wykonywalnego bez żadnych opcji uruchamia kreatora, że możesz wykonać tooinstall interaktywnie.
 
-Aby zainstalować agenta zależności na każdy komputer z systemem Windows, wykonaj następujące kroki:
+Użyj następujących kroków tooinstall hello Dependency Agent na każdym komputerze z systemem Windows hello:
 
-1. Zainstaluj agenta pakietu OMS zgodnie z instrukcjami podanymi w [komputery Windows połączenia z usługą analizy dzienników na platformie Azure](log-analytics-windows-agents.md).
-2. Pobierz agenta systemu Windows przy użyciu łącza w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia: InstallDependencyAgent Windows.exe
-3. Użyj kreatora, aby zainstalować agenta.
-4. Jeśli Dependency Agent nie powiedzie się, sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. Agentów systemu Windows katalog dziennika jest %Programfiles%\Microsoft Agent\logs zależności.
+1. Zainstaluj hello Agent pakietu OMS za pomocą instrukcji hello na [toohello komputerów Windows połączenia usługi Analiza dzienników w usłudze Azure](log-analytics-windows-agents.md).
+2. Pobierz agenta systemu Windows hello za pomocą łącza hello hello w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia hello: InstallDependencyAgent Windows.exe
+3. Wykonaj hello kreatora tooinstall hello agenta.
+4. W przypadku niepowodzenia toostart hello Dependency Agent Sprawdź hello dzienniki, aby uzyskać szczegółowe informacje o błędzie. Na agentów systemu Windows hello katalog dziennika jest %Programfiles%\Microsoft Agent\logs zależności.
 
 #### <a name="windows-command-line"></a>Wiersz polecenia systemu Windows
 
-Opcje z poniższej tabeli służą do instalacji z wiersza polecenia. Aby wyświetlić listę flagi instalacji, należy uruchomić Instalatora przy użyciu /? Flaga w następujący sposób.
+Za pomocą opcji z powitania po tooinstall tabeli z wiersza polecenia. toosee listę flagi instalacji hello, uruchom Instalatora hello przy użyciu hello /? Flaga w następujący sposób.
 
 InstallDependencyAgent Windows.exe /?
 
 | **Flaga** | **Opis** |
 | --- | --- |
-| <code>/?</code> | Pobierz listę opcji wiersza polecenia. |
+| <code>/?</code> | Pobierz listę hello opcje wiersza polecenia. |
 | <code>/S</code> | Wykonaj instalację dyskretną bez monitowania użytkownika. |
 
-Pliki agenta zależności systemu Windows są umieszczane w C:\Program Files\Microsoft Dependency Agent domyślnie.
+Pliki dla agenta zależności Windows hello są umieszczane w C:\Program Files\Microsoft Dependency Agent domyślnie.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Zainstaluj agenta zależności w systemie Linux
+### <a name="install-hello-dependency-agent-on-linux"></a>Zainstaluj hello Dependency Agent w systemie Linux
 
-Dostęp do konta root jest wymagane do zainstalowania i skonfigurowania agenta.
+Dostęp do konta root jest wymagane tooinstall lub skonfigurować hello agenta.
 
-Dependency Agent jest zainstalowany na komputery z systemem Linux za pomocą Linux64.bin InstallDependencyAgent, skrypt powłoki z samowyodrębniający plikiem binarnym. Plik ten można uruchomić przy użyciu _sh_ lub Dodaj uprawnienia w samym pliku do wykonywania.
+Witaj Dependency Agent jest zainstalowany na komputery z systemem Linux za pomocą Linux64.bin InstallDependencyAgent, skrypt powłoki z samowyodrębniający plikiem binarnym. Plik hello można uruchomić przy użyciu _sh_ lub Dodaj sam plik toohello uprawnienia do wykonania.
 
-Aby zainstalować agenta zależności na każdym komputerze z systemem Linux, wykonaj następujące kroki:
+Użyj hello następujące kroki tooinstall hello Dependency Agent na każdym komputerze z systemem Linux:
 
-1. Zainstaluj agenta pakietu OMS zgodnie z instrukcjami podanymi w [zbierania danych i zarządzać nimi z komputerów z systemem Linux](log-analytics-agent-linux.md).
-2. Pobierz agenta systemu Linux zależności przy użyciu łącza w poprzedniej sekcji, a następnie zainstaluj go jako głównego za pomocą następującego polecenia: sh InstallDependencyAgent Linux64.bin
-3. Jeśli Dependency Agent nie powiedzie się, sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. Na agentów systemu Linux jest katalog dziennika: /var/opt/microsoft/dependency-agent/log.
+1. Zainstaluj hello Agent pakietu OMS za pomocą instrukcji hello na [zbierania danych i zarządzać nimi z komputerów z systemem Linux](log-analytics-agent-linux.md).
+2. Pobierz agenta systemu Linux zależności hello za pomocą łącza hello w poprzedniej sekcji hello, a następnie zainstaluj go jako głównego za pomocą następującego polecenia hello: sh InstallDependencyAgent Linux64.bin
+3. W przypadku niepowodzenia toostart hello Dependency Agent Sprawdź hello dzienniki, aby uzyskać szczegółowe informacje o błędzie. Na agentów systemu Linux jest katalog dziennika hello: /var/opt/microsoft/dependency-agent/log.
 
-Aby wyświetlić listę flagi instalacji, uruchom program instalacyjny z `-help` Flaga w następujący sposób.
+toosee listę flagi instalacji hello, uruchom program instalacyjny hello z hello `-help` Flaga w następujący sposób.
 
 ```
 InstallDependencyAgent-Linux64.bin -help
@@ -246,11 +246,11 @@ InstallDependencyAgent-Linux64.bin -help
 
 | **Flaga** | **Opis** |
 | --- | --- |
-| <code>-help</code> | Pobierz listę opcji wiersza polecenia. |
+| <code>-help</code> | Pobierz listę hello opcje wiersza polecenia. |
 | <code>-s</code> | Wykonaj instalację dyskretną bez monitowania użytkownika. |
-| <code>--check</code> | Sprawdź uprawnienia i systemu operacyjnego, ale nie należy instalować agenta. |
+| <code>--check</code> | Sprawdź uprawnienia i hello systemu operacyjnego, ale nie należy instalować hello agenta. |
 
-Pliki programu Agent zależności są umieszczane w następujących katalogów:
+Pliki hello Dependency Agent są umieszczane w hello następujące katalogi:
 
 | **Pliki** | **Lokalizacja** |
 | --- | --- |
@@ -262,7 +262,7 @@ Pliki programu Agent zależności są umieszczane w następujących katalogów:
 
 ### <a name="installation-script-examples"></a>Przykłady skryptów instalacji
 
-Aby łatwo wdrożyć agenta zależności na wiele serwerów na raz, pomaga za pomocą skryptu. W poniższych przykładach skrypt umożliwia pobranie i zainstalowanie agenta zależności w systemu Windows lub Linux.
+tooeasily wdrażanie hello Dependency Agent na wiele serwerów na raz, ale toouse skryptu. Można użyć następującego skryptu przykłady toodownload hello i zainstalować hello Dependency Agent w systemie Windows lub Linux.
 
 #### <a name="powershell-script-for-windows"></a>Skrypt programu PowerShell dla systemu Windows
 
@@ -286,7 +286,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 ### <a name="desired-state-configuration"></a>Konfiguracja żądanego stanu
 
-Aby wdrożyć Dependency Agent za pomocą konfiguracji żądanego stanu, można użyć modułu xPSDesiredStateConfiguration i kodu podobne do poniższych:
+Witaj toodeploy Dependency Agent za pomocą konfiguracji żądanego stanu można użyć modułu xPSDesiredStateConfiguration hello i kod, takie jak następujące hello:
 
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -299,7 +299,7 @@ Node $NodeName
 
 {
 
-    # Download and install the Dependency Agent
+    # Download and install hello Dependency Agent
 
     xRemoteFile DAPackage
 
@@ -338,19 +338,19 @@ Node $NodeName
 }
 
 ```
-### <a name="uninstall-the-dependency-agent"></a>Odinstaluj agenta zależności
+### <a name="uninstall-hello-dependency-agent"></a>Odinstaluj hello Dependency Agent
 
-Poniższe sekcje umożliwiają usuwania agenta zależności.
+Użyj hello następujące sekcje toohelp Usuń hello Dependency Agent.
 
-#### <a name="uninstall-the-dependency-agent-on-windows"></a>Odinstaluj agenta zależności w systemie Windows
+#### <a name="uninstall-hello-dependency-agent-on-windows"></a>Odinstaluj hello Dependency Agent w systemie Windows
 
-Administrator może odinstalować zależności agenta dla systemu Windows za pomocą Panelu sterowania.
+Administrator może odinstalować hello zależności agenta dla systemu Windows za pomocą Panelu sterowania.
 
-Administrator można również uruchomić %Programfiles%\Microsoft Agent\Uninstall.exe zależności można odinstalować agenta zależności.
+Administrator można również uruchomić %Programfiles%\Microsoft Agent\Uninstall.exe zależności toouninstall hello Dependency Agent.
 
-#### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstaluj agenta zależności w systemie Linux
+#### <a name="uninstall-hello-dependency-agent-on-linux"></a>Odinstaluj hello Dependency Agent w systemie Linux
 
-Aby całkowicie odinstalować agenta zależności z systemem Linux, należy usunąć sam agent i łącznika, który jest instalowany automatycznie przy użyciu agenta. Można odinstalować zarówno przy użyciu pojedynczego następujące polecenie:
+Odinstaluj toocompletely hello Dependency Agent z systemem Linux, należy usunąć samego agenta hello i hello łącznik, który jest automatycznie instalowany z hello agenta. Można je odinstalować, zarówno przy użyciu hello następującego polecenia:
 
 ```
 rpm -e dependency-agent dependency-agent-connector
@@ -358,99 +358,99 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
-Po aktywowaniu podczas transmisji danych w obszarze roboczym analizy dzienników pakietu administracyjnego 300 KB są wysyłane do wszystkich serwerów z systemem Windows w tym obszarze roboczym. Jeśli używasz programu System Center Operations Manager agentów w [podłączonej grupy zarządzania](log-analytics-om-agents.md), Monitor zależności pakietu administracyjnego wdrażania programu System Center Operations Manager. Jeżeli agenci są połączone bezpośrednio Log Analytics zapewnia pakietu administracyjnego.
+Po aktywowaniu podczas transmisji danych w obszarze roboczym analizy dzienników pakietu administracyjnego 300 KB są wysyłane tooall serwerów z systemem Windows hello w tym obszarze roboczym. Jeśli używasz programu System Center Operations Manager agentów w [podłączonej grupy zarządzania](log-analytics-om-agents.md), wdrożeniu hello monitora zależności pakietu administracyjnego programu System Center Operations Manager. Jeśli agenci hello są połączone bezpośrednio Log Analytics zapewnia hello pakietu administracyjnego.
 
-Pakiet administracyjny nosi nazwę Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Jest ona zapisywana w: %Programfiles%\Microsoft monitorowania Agent\Agent\Health usługi State\Management pakietów. To źródło danych, które korzysta z pakietu administracyjnego: % Program files%\Microsoft monitorowanie Agent\Agent\Health usługi State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Pakiet administracyjny Hello nosi nazwę Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Jest ona zapisywana w: %Programfiles%\Microsoft monitorowania Agent\Agent\Health usługi State\Management pakietów. źródło danych Hello, który korzysta z pakietu administracyjnego hello jest: % Program files%\Microsoft monitorowanie Agent\Agent\Health usługi State\Resources&lt;AutoGeneratedID&gt;\ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
-## <a name="using-the-solution"></a>Użycie rozwiązania
+## <a name="using-hello-solution"></a>Za pomocą rozwiązania hello
 
-**Instalowanie i konfigurowanie rozwiązania**
+**Instalowanie i konfigurowanie hello rozwiązania**
 
-Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiązania.
+Użyj powitania po tooinstall informacji i skonfiguruj hello rozwiązania.
 
-- Rozwiązanie udostępniający dane pobrania danych z komputerów z systemem Windows Server 2012 R2, Windows 8.1 i nowszych systemów operacyjnych.
-- Microsoft .NET Framework 4.0 lub nowszy jest wymagany na komputerach, na którym chcesz uzyskać udostępniający dane z.
-- Dodaj rozwiązanie przesyłania danych do obszaru roboczego analizy dzienników przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md). Nie są wymagane żadne dalsze czynności konfiguracyjne.
-- Aby wyświetlić udostępniający dane dla konkretnego rozwiązania, należy mieć rozwiązanie już dodana do obszaru roboczego.
+- Hello udostępniający dane rozwiązanie pobrania danych z komputerów z systemem Windows Server 2012 R2, Windows 8.1 i nowszych systemów operacyjnych.
+- Microsoft .NET Framework 4.0 lub nowszy jest wymagany na miejscu tooacquire udostępniający dane z komputerów.
+- Dodaj hello udostępniający dane rozwiązanie tooyour analizy dzienników roboczego przy użyciu hello procesu opisanego w temacie [rozwiązań analizy dzienników dodać hello galerii rozwiązań](log-analytics-add-solutions.md). Nie są wymagane żadne dalsze czynności konfiguracyjne.
+- Jeśli chcesz tooview udostępniający dane dla konkretnego rozwiązania należy toohave hello rozwiązanie już dodany tooyour obszaru roboczego.
 
-Po zostać zainstalowani agenci i zainstalować rozwiązania, w obszarze roboczym pojawi się Kafelek podczas transmisji danych 2.0.
+Po zostać zainstalowani agenci i zainstalowaniu hello rozwiązania, w obszarze roboczym pojawi się Kafelek hello podczas transmisji danych 2.0.
 
 > [!NOTE]
-> Obecnie do wyświetlenia podczas transmisji danych trzeba użyć portalu OMS. Nie można użyć portalu Azure do wyświetlania danych danych przesyłanych w sieci.
+> Obecnie musisz użyć hello OMS tooview portalu podczas transmisji danych. Nie można użyć hello tooview portalu Azure podczas transmisji danych.
 
 ![Podczas transmisji danych kafelków](./media/log-analytics-wire-data/wire-data-tile.png)
 
-## <a name="using-the-wire-data-20-solution"></a>Za pomocą rozwiązania podczas transmisji danych 2.0
+## <a name="using-hello-wire-data-20-solution"></a>Za pomocą rozwiązania hello podczas transmisji danych 2.0
 
-W portalu OMS kliknij **podczas transmisji danych 2.0** Kafelek, aby otworzyć pulpit nawigacyjny udostępniający dane. Pulpit nawigacyjny zawiera bloki w poniższej tabeli. Każdy blok zawiera maksymalnie 10 elementów spełniających kryteria tego bloku dla określonego zakresu i zakres czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy, klikając **zobaczyć wszystkie** w dolnej części bloku lub przez kliknięcie nagłówka bloku.
+W portalu OMS hello, kliknij przycisk hello **podczas transmisji danych 2.0** kafelka tooopen hello udostępniający dane z pulpitu nawigacyjnego. pulpit nawigacyjny Hello zawiera bloki hello hello w poniższej tabeli. Każdy blok wyświetla się too10 elementów pasujących do kryteriów w bloku hello określenia zakresu zakresu i czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy, klikając **zobaczyć wszystkie** u dołu hello bloku hello lub przez kliknięcie nagłówka bloku hello.
 
 | **Blok** | **Opis** |
 | --- | --- |
-| Agenci przechwytujący ruch sieciowy | Zawiera liczbę agentów, które są Przechwytywanie ruchu sieciowego i listę top 10 komputerów, które są Przechwytywanie ruchu. Kliknij liczbę do uruchamiania dziennika wyszukiwanie <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Kliknij komputer, na liście do uruchomienia zwracanie całkowita liczba bajtów przechwytywane wyszukiwanie dziennika. |
-| Lokalne podsieci | Pokazuje liczbę podsieci lokalne, które zostały odnalezione agentów.  Kliknij liczbę do uruchamiania dziennika wyszukiwanie <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> które wyświetla listę wszystkich podsieci z liczbę bajtów przesyłanych w ramach każdej z nich. Kliknij przycisk podsieci na liście, aby uruchomić wyszukiwanie dziennika zwracanie całkowita liczba bajtów wysłanych w tej podsieci. |
-| Protokoły poziomu aplikacji | Pokazuje liczbę protokoły poziomu aplikacji w użyciu, wykrywane przez agentów. Kliknij liczbę do uruchamiania dziennika wyszukiwanie <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Kliknij protokół, aby uruchomić wyszukiwanie dziennika zwracanie całkowita liczba bajtów wysłanych przy użyciu protokołu. |
+| Agenci przechwytujący ruch sieciowy | Pokazuje hello liczbę agentów, które są Przechwytywanie ruchu sieciowego i list hello top 10 komputerów, które są Przechwytywanie ruchu. Kliknij toorun numer hello dziennika wyszukiwanie <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Kliknij komputer w toorun listy hello zwracanie hello łączna liczba bajtów przechwytywane wyszukiwanie dziennika. |
+| Lokalne podsieci | Pokazuje liczbę hello podsieci lokalne, które zostały odnalezione agentów.  Kliknij toorun numer hello dziennika wyszukiwanie <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> które wyświetla listę wszystkich podsieci z hello liczbę bajtów przesyłanych w ramach każdej z nich. Kliknij przycisk podsieci hello toorun listy wyszukiwania dziennika zwracanie hello łączna liczba bajtów przesyłanych w ramach hello podsieci. |
+| Protokoły poziomu aplikacji | Pokazuje numer hello protokołów na poziomie aplikacji w użyciu, wykrywane przez agentów. Kliknij toorun numer hello dziennika wyszukiwanie <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Kliknij przycisk wyszukiwania dziennika, zwracając hello całkowita liczba bajtów wysłanych przy użyciu protokołu hello toorun protokołu. |
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Podczas transmisji danych z pulpitu nawigacyjnego](./media/log-analytics-wire-data/wire-data-dash.png)
 
-Można użyć **agenci przechwytujący ruch sieciowy** bloku, aby ustalić, jaka przepustowość sieci jest są używane przez komputery. Ten blok mogą pomóc w prosty sposób wyszukiwać _chattiest_ komputera w danym środowisku. Komputery te może być przeciążony działający nieprawidłowo lub przy użyciu więcej zasobów sieci niż zwykle.
+Można użyć hello **agenci przechwytujący ruch sieciowy** toodetermine bloku jaka przepustowość sieci jest są używane przez komputery. Ten blok pomoże Ci łatwo hello Znajdź _chattiest_ komputera w danym środowisku. Komputery te może być przeciążony działający nieprawidłowo lub przy użyciu więcej zasobów sieci niż zwykle.
 
 ![Przykład wyszukiwania dziennika](./media/log-analytics-wire-data/log-search-example01.png)
 
-Analogicznie, można użyć **podsieci lokalne** bloku, aby określić, ile ruch sieciowy jest przenoszenie za pomocą podsieci. Użytkownicy często definiować podsieci wokół najważniejsze obszary, w przypadku ich aplikacji. Ten blok oferuje zapewnia wgląd w tych obszarach.
+Analogicznie, można użyć hello **podsieci lokalne** toodetermine bloku ilość ruchu sieciowego jest przenoszona do podsieci. Użytkownicy często definiować podsieci wokół najważniejsze obszary, w przypadku ich aplikacji. Ten blok oferuje zapewnia wgląd w tych obszarach.
 
 ![Przykład wyszukiwania dziennika](./media/log-analytics-wire-data/log-search-example02.png)
 
-**Protokoły poziomu aplikacji** bloku przydaje się, dlatego warto wiedzieć, jakie protokoły są używane. Na przykład może spodziewać się SSH nie będzie używana w środowisku sieciowym. Wyświetlanie informacji o dostępnych w bloku można szybko potwierdzenia lub disprove Twoje oczekiwania.
+Witaj **protokoły poziomu aplikacji** bloku przydaje się, dlatego warto wiedzieć, jakie protokoły są używane. Na przykład może oczekiwać SSH toonot jest używany w danym środowisku sieciowym. Wyświetlanie informacji o dostępnych w bloku hello można szybko potwierdzenia lub disprove Twoje oczekiwania.
 
 ![Przykład wyszukiwania dziennika](./media/log-analytics-wire-data/log-search-example03.png)
 
-W tym przykładzie użytkownik może Wejdź do szczegóły SSH, aby wyświetlić komputery, które korzystają z protokołu SSH i inne szczegóły komunikacji.
+W tym przykładzie użytkownik może Wejdź do SSH szczegóły toosee komputery, które korzystają z protokołu SSH i inne szczegóły komunikacji.
 
 ![Pokaż wyniki wyszukiwania](./media/log-analytics-wire-data/ssh-details.png)
 
-Jest również warto wiedzieć, jeśli ruch w protokole jest zwiększenie lub zmniejszenie wraz z upływem czasu. Na przykład jeśli wzrasta ilość danych przesyłanych przez aplikację, która może być coś, co należy zwrócić uwagę, lub czy można znaleźć warte wymienienia.
+Jest również przydatne tooknow Jeśli ruchu protokołu jest zwiększenie lub zmniejszenie wraz z upływem czasu. Na przykład jeśli wzrasta hello ilość danych przesyłanych przez aplikację, która może być coś, co należy zwrócić uwagę, lub czy można znaleźć warte wymienienia.
 
 ## <a name="input-data"></a>Dane wejściowe
 
-Podczas transmisji danych zbiera metadane dotyczące ruchu sieciowego przy użyciu agentów, które zostało włączone. Każdy agent wysyła dane dotyczące co 15 s.
+Podczas transmisji danych zbiera metadane dotyczące ruchu sieciowego przy użyciu agentów hello, które mają włączone. Każdy agent wysyła dane dotyczące co 15 s.
 
 ## <a name="output-data"></a>dane wyjściowe
 
-Rekord o typie _WireData_ jest tworzony dla każdego typu danych wejściowych. Rejestruje WireData mają właściwości poniższą tabelą:
+Rekord o typie _WireData_ jest tworzony dla każdego typu danych wejściowych. Rejestruje WireData mają właściwości wyświetlane hello w poniższej tabeli:
 
 | Właściwość | Opis |
 |---|---|
 | Computer (Komputer) | Nazwa komputera, w których zebrano dane |
-| TimeGenerated | Czas rekordu |
-| LocalIP | Adres IP komputera lokalnego |
+| TimeGenerated | Czas hello rekordu |
+| LocalIP | Adres IP komputera lokalnego hello |
 | SessionState | Połączone lub rozłączone |
 | ReceivedBytes | Liczba bajtów odebranych |
-| ProtocolName | Nazwa używanego protokołu sieciowego |
+| ProtocolName | Nazwa hello protokół sieciowy używany |
 | Wersję adresu IP ustawioną | Wersji protokołu IP |
 | Kierunek | Przychodzący lub wychodzący |
 | MaliciousIP | Adres IP znanego złośliwego źródła |
 | Ważność | Ważność podejrzanych złośliwego oprogramowania |
-| RemoteIPCountry | Kraj zdalny adres IP |
-| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager |
+| RemoteIPCountry | Kraj hello zdalny adres IP |
+| ManagementGroupName | Nazwa grupy zarządzania programu Operations Manager hello |
 | SourceSystem | Źródło, gdzie zostały zebrane dane |
 | SessionStartTime | Czas rozpoczęcia sesji |
 | SessionEndTime | Godzina zakończenia sesji |
 | LocalSubnet | Podsieć, w których zebrano dane |
 | LocalPortNumber | Numer portu lokalnego |
-| RemoteIP | Zdalny adres IP używany przez komputer zdalny |
-| RemotePortNumber | Numer portu używany przez zdalny adres IP |
+| RemoteIP | Zdalny adres IP używany przez komputer zdalny hello |
+| RemotePortNumber | Numer portu używany przez hello zdalny adres IP |
 | Identyfikator sesji | Unikatowa wartość, która identyfikuje sesji komunikacji między dwoma adresami IP |
 | SentBytes | Liczba bajtów wysłanych |
 | TotalBytes | Całkowita liczba bajtów wysłanych podczas sesji |
 | ApplicationProtocol | Typ protokołu sieciowego używane   |
 | Identyfikator procesu | Identyfikator procesu systemu Windows |
-| Parametr | Ścieżka i nazwa pliku procesu |
+| Parametr | Ścieżka i nazwa pliku hello procesu |
 | RemoteIPLongitude | Wartości długości geograficznej IP |
 | RemoteIPLatitude | Wartość szerokości geograficznej IP |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyszukaj dzienniki](log-analytics-log-searches.md) Aby wyświetlić szczegółowe podczas transmisji danych wyszukiwanie rekordów.
+- [Wyszukaj dzienniki](log-analytics-log-searches.md) tooview szczegółowe podczas transmisji danych wyszukiwanie rekordów.

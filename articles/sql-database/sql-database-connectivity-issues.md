@@ -1,6 +1,6 @@
 ---
-title: "Napraw błąd połączenia SQL, błąd przejściowy | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak rozwiązywanie problemów, diagnozowanie i zapobieganie błąd połączenia SQL lub Błąd przejściowy w bazie danych SQL Azure. "
+title: "aaaFix błędem połączenia SQL błąd przejściowy | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tootroubleshoot, diagnozowanie i zapobieganie błąd połączenia SQL lub Błąd przejściowy w bazie danych SQL Azure. "
 keywords: "Połączenie SQL, ciąg połączenia, problemy z łącznością, błąd przejściowy, błąd połączenia"
 services: sql-database
 documentationcenter: 
@@ -16,60 +16,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: daleche
-ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d225e610b9e88170ab53ca16d615bd07220603cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Rozwiązywanie problemów, diagnozowanie i unikanie błędów połączenia SQL oraz błędów przejściowych w usłudze SQL Database
-W tym artykule opisano sposób zapobiec, rozwiązywanie problemów z zdiagnozować i ograniczyć błędów połączenia i błędom przejściowym, których aplikacja kliencka napotka przy interakcji z bazy danych SQL Azure. Dowiedz się, jak skonfigurować logiki ponawiania próby utworzenia parametrów połączenia i inne ustawienia połączenia.
+W tym artykule opisano, jak tooprevent, rozwiązywanie problemów, diagnozowanie i ograniczyć błędów połączenia i błędom przejściowym, których aplikacja kliencka napotka przy interakcji z bazy danych SQL Azure. Dowiedz się, jak tooconfigure Logika ponawiania próby utworzenia parametrów połączenia hello i inne ustawienia połączenia.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>Przejściowe błędy (błędów przejściowych)
-Błąd przejściowy — Ponadto błędu przejściowego - ma podstawową przyczyną, który wkrótce zostanie rozwiązany automatycznie. Okazjonalne przyczyną błędów przejściowych jest podczas systemu Azure szybko przenosi zasoby sprzętowe na lepsze równoważenie obciążenia różnych obciążeń. Większość tych zdarzeń ponowne konfigurowanie często Ukończono w mniej niż 60 sekund. Podczas tego zakresu czasu ponownej konfiguracji może mieć problemy z łącznością z bazą danych SQL Azure. Nawiązywanie połączenia z bazą danych SQL Azure aplikacje powinny zostać skompilowane oczekiwane w przypadku błędów przejściowych, ich obsługę dzięki implementacji w kodzie ich zamiast udostępniając je do użytkowników jako błędy aplikacji logiki ponawiania próby.
+Błąd przejściowy — Ponadto błędu przejściowego - ma podstawową przyczyną, który wkrótce zostanie rozwiązany automatycznie. Okazjonalne przyczyną błędów przejściowych jest podczas hello systemu Azure szybko przewiduje sprzętu zasobów toobetter równoważenia obciążenia różnych obciążeń. Większość tych zdarzeń ponowne konfigurowanie często Ukończono w mniej niż 60 sekund. Podczas tego zakresu czasu ponownej konfiguracji może mieć łączności wystawia tooAzure bazy danych SQL. Aplikacje łączenie tooAzure bazy danych SQL powinny być utworzone tooexpect tych błędów przejściowych dojścia ich zaimplementowanie ponów logikę w ich kodu zamiast udostępniając je toousers jako błędy aplikacji.
 
-Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błąd przejściowy przez throw z **SqlException**. **Numer** właściwości można porównać z listą błędów przejściowych u góry tego tematu: [kody błędów SQL dla aplikacji klienckich, baza danych SQL](sql-database-develop-error-messages.md).
+Jeśli program kliencki używa ADO.NET, program jest powiadamiany o błąd przejściowy hello przez throw hello z **SqlException**. Witaj **numer** właściwości można porównać z hello listę błędów przejściowych u góry hello tematu hello: [kody błędów SQL dla aplikacji klienckich, baza danych SQL](sql-database-develop-error-messages.md).
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
 ### <a name="connection-versus-command"></a>Połączenie i polecenia
-Będzie ponowić próbę nawiązania połączenia SQL lub ustanawiania go ponownie, w zależności od następujących czynności:
+Będzie ponowić próbę nawiązania połączenia SQL hello lub ustanawiania go ponownie, w zależności od następujących hello:
 
-* **Błąd przejściowy występuje podczas próby połączenia**: połączenie powinno być ponowione po opóźnienia przez kilka sekund.
-* **Błąd przejściowy występuje w ciągu polecenia zapytania SQL**: polecenie należy nie natychmiast wykonać ponownie. Zamiast tego z opóźnieniem, powinny być świeżo nawiązać połączenia. Następnie może zostać powtórzone polecenie.
+* **Błąd przejściowy występuje podczas próby połączenia**: hello połączenie powinno być ponowione po opóźnienia przez kilka sekund.
+* **Błąd przejściowy występuje w ciągu polecenia zapytania SQL**: hello polecenia należy nie natychmiast wykonać ponownie. Zamiast tego z opóźnieniem hello powinien świeżo ustanowić połączenia. Następnie można ponowić hello polecenia.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
 ### <a name="retry-logic-for-transient-errors"></a>Logika ponawiania próby dla błędów przejściowych
 Programy klienckie, które od czasu do czasu wystąpienia błędu przejściowego są bardziej niezawodne, jeśli zawierają one logiki ponawiania próby.
 
-Gdy program komunikuje się z bazą danych SQL Azure za pośrednictwem 3 oprogramowanie pośredniczące strony, zapytanie z dostawcą, czy oprogramowanie pośredniczące zawiera logiki ponawiania próby w przypadku błędów przejściowych.
+Gdy program komunikuje się z bazą danych SQL Azure za pośrednictwem 3 oprogramowanie pośredniczące strony, zapytanie z dostawcą hello, czy oprogramowanie pośredniczące hello zawiera logiki ponawiania próby w przypadku błędów przejściowych.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
 #### <a name="principles-for-retry"></a>Zasady ponawiania
-* Próba otwarcia połączenia należy wykonać ponownie, jeśli jest przejściowy błąd.
+* Jeśli błąd hello jest przejściowe, należy wykonać ponownie tooopen próba połączenia.
 * Instrukcję SQL SELECT, który zakończy się niepowodzeniem z powodu błędu przejściowego nie należy bezpośrednio wykonać ponownie.
   
-  * Zamiast tego należy ustanowić nowego połączenia, a następnie ponów wyboru.
-* Po instrukcji SQL UPDATE zakończy się niepowodzeniem z powodu błędu przejściowego, powinny można nawiązać połączenia świeże, zanim próba aktualizacji zostanie ponowiona.
+  * Zamiast tego należy ustanowić nowego połączenia, a następnie ponów hello wybierz.
+* Po instrukcji SQL UPDATE zakończy się niepowodzeniem z powodu błędu przejściowego, należy ustanowić połączenia świeże przed powitalne próba aktualizacji zostanie ponowiona.
   
-  * Logika ponawiania musi zapewnić, że ukończono transakcji całą bazę danych lub który cała transakcja zostanie wycofana.
+  * Logika ponawiania Hello musi zapewnić, że ukończyć transakcji całą bazę danych hello lub tym hello cała transakcja zostanie wycofana.
 
 #### <a name="other-considerations-for-retry"></a>Inne uwagi dotyczące ponownych prób
-* Pliku wsadowego zostanie automatycznie uruchomiony po godzinach pracy, a które zostanie zakończony przed rano, można przyznać pacjenta bardzo długo interwałów czasu między jego ponownych prób.
-* Program interfejsu użytkownika należy uwzględnić tendencje ludzi po zbyt długim czasie oczekiwania.
+* Pliku wsadowego zostanie automatycznie uruchomiony po godzinach pracy, a które zostanie zakończony przed rano, akceptowalny toovery pacjenta długo interwałów czasu między jego ponownych prób.
+* Program interfejsu użytkownika należy uwzględnić hello człowieka tendencję toogive się po zbyt długim czasie oczekiwania.
   
-  * Jednak rozwiązania nie może być aby ponowić próbę co kilka sekund, ponieważ te zasady mogą wypełniania system z żądaniami.
+  * Jednak hello rozwiązania nie może być tooretry co kilka sekund, ponieważ te zasady mogą wypełniania hello system z żądaniami.
 
 #### <a name="interval-increase-between-retries"></a>Zwiększ interwał między ponownymi próbami
-Firma Microsoft zaleca opóźnienie 5 sekund przed ponowną próbą wykonania Twojego pierwszego. Ponawianie próby opóźnieniem krótszy niż 5 sekund ryzyka przeciążając uda się rozpoznać usługi w chmurze. Każda kolejne próby opóźnienie powinien być zwiększany wykładniczo maksymalnie 60 sekund.
+Firma Microsoft zaleca opóźnienie 5 sekund przed ponowną próbą wykonania Twojego pierwszego. Ponawia próbę po krótszy niż 5 sekund opóźnienia ryzyko związane z usługą hello utrudnione w chmurze. Każda kolejne próby opóźnienie hello powinien być zwiększany wykładniczo, zapasowej tooa maksymalnie 60 sekund.
 
-Omówienie *okresu blokowania* dla klientów używających ADO.NET jest dostępna w [programu SQL Server połączenia buforowanie (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Omówienie hello *okresu blokowania* dla klientów używających ADO.NET jest dostępna w [programu SQL Server połączenia buforowanie (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
-Można również ustawić maksymalnej liczby ponownych prób zanim program własnym zakończy.
+Można także tooset maksymalnej liczby ponownych prób zanim hello program własnym zakończy.
 
 #### <a name="code-samples-with-retry-logic"></a>Przykłady kodu z logiki ponawiania próby
 Przykłady kodu z logiki ponawiania próby w różnych językach programowania, są dostępne pod adresem:
@@ -79,92 +79,92 @@ Przykłady kodu z logiki ponawiania próby w różnych językach programowania, 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
 #### <a name="test-your-retry-logic"></a>Logika ponawiania testu
-Aby przetestować Logika ponawiania, musi symulować lub spowodować błąd, nie można usunąć, gdy program jest nadal uruchomiona.
+tootest Logika ponawiania należy symulować lub spowodować błąd, nie można usunąć, gdy program jest nadal uruchomiona.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Testowanie przez odłączenie od sieci
-Jednym ze sposobów można przetestować Logika ponawiania jest odłączyć od sieci na komputerze klienckim, gdy program jest uruchomiony. Błąd będą:
+##### <a name="test-by-disconnecting-from-hello-network"></a>Testowanie przez odłączenie od sieci hello
+Jednym ze sposobów można przetestować Logika ponawiania jest toodisconnect sieciowej komputera klienckiego z hello hello program jest uruchomiona. Błąd Hello będą:
 
 * **SqlException.Number** = 11001
 * Komunikat o błędzie: "nie Nieznany host"
 
-W ramach pierwszej ponowienia próby program może Popraw błąd i spróbuj nawiązać.
+Jako część hello najpierw ponów próbę, program może poprawić błąd pisowni hello, a następnie spróbuj tooconnect.
 
-Aby to praktyczne, odłączeniu komputera od sieci przed rozpoczęciem pracy z programem. Następnie program rozpoznaje parametr czas, który powoduje, że program:
+toomake tym praktycznych, odłączeniu komputera od sieci hello przed rozpoczęciem pracy z programem. Następnie program rozpoznaje parametr czas, który powoduje, że hello program:
 
-1. Dodaj tymczasowo 11001 do swojej listy błędów można rozważyć jako przejściowy.
+1. Dodaj tymczasowo 11001 tooits listę błędów tooconsider jako przejściowy.
 2. Próba jego pierwszego połączenia w zwykły sposób.
-3. Po zostanie przechwycony błąd, należy usunąć 11001 z listy.
-4. Wyświetla komunikat informujący użytkownika o podłączenie komputera do sieci.
-   * Zatrzymać dalsze wykonywanie za pomocą **Console.ReadLine** metody lub okna dialogowego z przycisku OK. Użytkownik naciska klawisz Enter po komputera podłączony do sieci.
-5. Spróbuj ponownie połączyć, oczekiwano Powodzenie.
+3. Po hello jest zgłoszony błąd, Usuń z listy hello 11001.
+4. Wyświetlony komunikat informujący hello użytkownika tooplug hello komputera do sieci hello.
+   * Zatrzymać dalsze wykonywanie przy użyciu albo hello **Console.ReadLine** metody lub okna dialogowego z przycisku OK. Witaj naciśnięciu klawisza Enter hello po hello komputer jest podłączony do sieci hello.
+5. Spróbuj ponownie wykonać tooconnect, oczekiwano Powodzenie.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testowanie przez nazwę bazy danych. błędy podczas nawiązywania połączenia
-Program można celowo błędnie nazwy użytkownika przed pierwszą próbę połączenia. Błąd będą:
+##### <a name="test-by-misspelling-hello-database-name-when-connecting"></a>Testowanie według nazwy bazy danych hello błąd podczas nawiązywania połączenia
+Program można celowo błędnie hello nazwy użytkownika przed hello pierwszą próbę połączenia. Błąd Hello będą:
 
 * **SqlException.Number** = 18456
 * Komunikat o błędzie: "Logowanie użytkownika"WRONG_MyUserName"nie powiodło się."
 
-W ramach pierwszej ponowienia próby program może Popraw błąd i spróbuj nawiązać.
+Jako część hello najpierw ponów próbę, program może poprawić błąd pisowni hello, a następnie spróbuj tooconnect.
 
-Aby to praktyczne, program może rozpoznać parametru czas, który powoduje, że program:
+toomake tym praktycznych, program może rozpoznać parametru czas, który powoduje, że hello program:
 
-1. Dodaj tymczasowo 18456 do swojej listy błędów można rozważyć jako przejściowy.
-2. Celowo Dodaj "WRONG_" do nazwy użytkownika.
-3. Po zostanie przechwycony błąd, należy usunąć 18456 z listy.
-4. Usuń "WRONG_" z nazwą użytkownika.
-5. Spróbuj ponownie połączyć, oczekiwano Powodzenie.
+1. Dodaj tymczasowo 18456 tooits listę błędów tooconsider jako przejściowy.
+2. Celowo Dodaj nazwę użytkownika toohello "WRONG_".
+3. Po hello jest zgłoszony błąd, Usuń z listy hello 18456.
+4. Usuń "WRONG_" z hello nazwy użytkownika.
+5. Spróbuj ponownie wykonać tooconnect, oczekiwano Powodzenie.
 
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry .NET SqlConnection ponownych prób połączenia
-Jeśli program kliencki łączy się z bazą danych SQL Azure za pomocą klasy .NET Framework **System.Data.SqlClient.SqlConnection**, należy użyć .NET 4.6.1 lub nowszej (lub .NET Core), można wykorzystać jej funkcji ponów próbę połączenia. Szczegóły funkcji są [tutaj](http://go.microsoft.com/fwlink/?linkid=393996).
+Jeśli program kliencki łączy tootooAzure bazy danych SQL przy użyciu klasy .NET Framework hello **System.Data.SqlClient.SqlConnection**, należy użyć .NET 4.6.1 lub nowszej (lub .NET Core), można wykorzystać jej funkcji ponów próbę połączenia. Szczegóły funkcji hello są [tutaj](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
-2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+2015-11-30, FwLink 393996 points toodn632678.aspx, which links tooa downloadable .docx related tooSqlClient and SQL Server 2014.
 -->
 
 
-Podczas budowania [ciąg połączenia](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) dla Twojego **SqlConnection** obiektu, powinny koordynować wartości między następującymi parametrami:
+Podczas budowania hello [ciąg połączenia](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) dla Twojego **SqlConnection** obiektu, powinny koordynować wartości hello wśród hello następujące parametry:
 
 * ConnectRetryCount &nbsp; &nbsp; *(wartość domyślna to 1. Zakres to od 0 do 255).*
 * ConnectRetryInterval &nbsp; &nbsp; *(wartość domyślna to 1 sekundę. Zakres to od 1 do 60).*
 * Limit czasu połączenia &nbsp; &nbsp; *(wartość domyślna to 15 sekund. Zakres to od 0 do 2147483647)*
 
-W szczególności wybranej wartości upewnić następujące true równości:
+W szczególności wybranej wartości upewnić powitania po true równości:
 
 * Limit czasu połączenia = ConnectRetryCount * ConnectionRetryInterval
 
-Na przykład jeśli liczba = 3, interwał = 10 sekund, limit czasu równy tylko 29 sekund może nie dość przekazywać system wystarczająco dużo czasu, przez jego ponów 3 i końcowych na łączenie: 29 < 3 * 10.
+Na przykład, jeśli hello count = 3, interwał = 10 sekund, limit czasu równy tylko 29 sekund może nie dość przekazywać systemu hello wystarczająco dużo czasu, przez jego ponów 3 i końcowych na łączenie: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
 ### <a name="connection-versus-command"></a>Połączenie i polecenia
-**ConnectRetryCount** i **ConnectRetryInterval** let parametrów z **SqlConnection** obiektu spróbuj ponownie wykonać operację połączenia bez informuje lub bothering programu, takie jak zwracanie formantu do programu. Ponowne próby mogą wystąpić w następujących sytuacjach:
+Hello **ConnectRetryCount** i **ConnectRetryInterval** let parametrów z **SqlConnection** operację łączenia obiektu ponawiania hello bez informuje lub bothering Twojego Program, takich jak zwracanie program tooyour sterowania. ponowne próby Hello może wystąpić w hello następujące sytuacje:
 
 * Wywołanie metody mySqlConnection.Open
 * Wywołanie metody mySqlConnection.Execute
 
-Brak subtlety. Jeśli wystąpi błąd przejściowy podczas Twojej *zapytania* jest wykonywana, Twoje **SqlConnection** obiektu nie connect spróbuj wykonać operację ponownie, a go na pewno nie ponów próbę wykonania zapytania. Jednak **SqlConnection** bardzo szybko sprawdzić połączenie przed wysłaniem kwerendy do wykonania. Jeśli szybkie sprawdzenie wykryje problem z połączeniem **SqlConnection** ponawia operację połączenia. Jeśli próba powiedzie się, możesz zapytanie jest wysyłane do wykonania.
+Brak subtlety. Jeśli wystąpi błąd przejściowy podczas Twojej *zapytania* jest wykonywana, Twoje **SqlConnection** obiekt łączy z nie hello ponów próbę wykonania operacji, a następnie go na pewno nie ponów próbę wykonania kwerendy. Jednak **SqlConnection** bardzo szybko kontroli hello połączenie przed wysłaniem kwerendy do wykonania. Jeśli szybkie sprawdzenie hello wykryje problem z połączeniem **SqlConnection** operację łączenia hello ponownych prób. Jeśli ponawiania hello zakończy się powodzeniem, możesz zapytanie jest wysyłane do wykonania.
 
 #### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Czy ConnectRetryCount powinny być połączone z aplikacji logiki ponawiania próby?
-Załóżmy, że aplikacja ma Logika ponawiania niestandardowych niezawodny. Może on ponów operację connect 4 godziny. Jeśli dodasz **ConnectRetryInterval** i **ConnectRetryCount** = 3 do parametrów połączenia, spowoduje zwiększenie liczby ponownych prób do 4 * 3 = 12 ponownych prób. Może nie ma takich dużą liczbę ponownych prób.
+Załóżmy, że aplikacja ma Logika ponawiania niestandardowych niezawodny. Może być ponów hello operację łączenia 4 godziny. Jeśli dodasz **ConnectRetryInterval** i **ConnectRetryCount** = 3 tooyour parametrów połączenia, zwiększy too4 liczby ponownych prób hello * 3 = 12 ponownych prób. Może nie ma takich dużą liczbę ponownych prób.
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-azure-sql-database"></a>Połączenia z bazą danych Azure SQL
+## <a name="connections-tooazure-sql-database"></a>TooAzure połączenia bazy danych SQL
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Połączenia: Parametry
-Parametry połączenia wymagane do połączenia z bazą danych SQL Azure są nieco inne niż ciąg w celu nawiązania z programu Microsoft SQL Server. Możesz skopiować parametry połączenia bazy danych z [portalu Azure](https://portal.azure.com/).
+Parametry połączenia Hello niezbędną do połączenia tooAzure bazy danych SQL są nieco inne niż ciąg hello podłączania tooMicrosoft programu SQL Server. Możesz skopiować hello parametry połączenia bazy danych z hello [portalu Azure](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### <a name="connection-ip-address"></a>Połączenia: Adres IP
-Należy skonfigurować serwer bazy danych SQL, aby akceptował komunikację z adresu IP komputera, który obsługuje program kliencki. Można to zrobić, edytując ustawienia zapory za pośrednictwem [portalu Azure](https://portal.azure.com/).
+Należy skonfigurować hello bazy danych SQL tooaccept komunikacji z serwerem z adresu IP hello hello komputera, który hostuje program kliencki. Można to zrobić, edytując ustawienia zapory hello za pośrednictwem hello [portalu Azure](https://portal.azure.com/).
 
-Jeśli zapomnisz skonfigurować adres IP, program zakończy się niepowodzeniem, przydatną komunikat o błędzie stwierdzający niezbędne adresu IP.
+Jeśli zapomnisz adres IP hello tooconfigure programu zakończy się niepowodzeniem, przydatną komunikat o błędzie stwierdzający hello niezbędne adresu IP.
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
@@ -173,11 +173,11 @@ Aby uzyskać więcej informacji, zobacz: [porady: Konfigurowanie ustawień zapor
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### <a name="connection-ports"></a>Połączenia: porty
-Zwykle wystarczy upewnij się, że jest otwarty dla komunikacji wychodzącej, na komputerze hostującym program kliencki port 1433.
+Zazwyczaj konieczne tooensure, czy port 1433 jest otwarty dla komunikacji wychodzącej, na komputerze hello, hostującym program kliencki.
 
-Na przykład kiedy program kliencki znajduje się na komputerze z systemem Windows, zapory systemu Windows na hoście można otworzyć port 1433:
+Na przykład gdy program kliencki znajduje się na komputerze z systemem Windows, hello zapory systemu Windows na hoście hello pozwala tooopen portu 1433:
 
-1. Otwórz Panel sterowania
+1. Otwórz Panel sterowania hello
 2. &gt;Wszystkie elementy Panelu sterowania
 3. &gt;Zapora systemu Windows
 4. &gt;Ustawienia zaawansowane
@@ -192,16 +192,16 @@ Aby uzyskać informacje dotyczące cofiguration portów i adresów IP, zobacz: [
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### <a name="connection-adonet-461"></a>Połączenie: ADO.NET 4.6.1
-Jeśli program korzysta z klas ADO.NET, takich jak **System.Data.SqlClient.SqlConnection** nawiązywania połączenia z bazą danych SQL Azure, zalecane jest użycie .NET Framework w wersji 4.6.1 lub nowszej.
+Jeśli program korzysta z klas ADO.NET, takich jak **System.Data.SqlClient.SqlConnection** tooAzure tooconnect bazy danych SQL, firma Microsoft zaleca użycie .NET Framework w wersji 4.6.1 lub nowszej.
 
 ADO.NET 4.6.1:
 
-* Bazy danych SQL Azure jest większą niezawodność po otwarciu połączenia przy użyciu **SqlConnection.Open** metody. **Otwórz** metoda zawiera teraz najlepsze mechanizmów ponownych prób nakładu pracy w odpowiedzi na błędów przejściowych dla niektórych błędów w określonym przedziale czasu połączenia.
-* Obsługuje tworzenie puli połączeń. W tym skutecznej weryfikacji, który obiekt połączenia udostępnia program działa.
+* Bazy danych SQL Azure jest większą niezawodność po otwarciu połączenia przy użyciu hello **SqlConnection.Open** metody. Witaj **Otwórz** metoda zawiera teraz najlepsze nakładu ponawiania mechanizmy błędy tootransient odpowiedzi, niektóre błędy w określonym przedziale czasu połączenia hello.
+* Obsługuje tworzenie puli połączeń. Obejmuje to efektywne weryfikacji, który hello połączenia obiektu udostępnia program działa.
 
-Podczas korzystania z obiektu połączenia z puli połączeń, zaleca się, że program tymczasowo zamknąć połączenie, gdy nie jest od razu przy użyciu. Ponowne otwarcie połączenia nie jest kosztowna, sposób tworzenia nowego połączenia.
+Podczas korzystania z obiektu połączenia z puli połączeń, zaleca się, czy program tymczasowo zamknąć połączenie hello podczas nie bezpośrednio za pomocą. Ponowne otwarcie połączenia nie jest kosztowna hello sposób tworzenia nowego połączenia.
 
-Jeśli używasz ADO.NET 4.0 lub wcześniejszym, zaleca się uaktualnienie do najnowszej ADO.NET.
+Jeśli używasz ADO.NET 4.0 lub wcześniejszym, zaleca się uaktualnienie toohello najnowsze ADO.NET.
 
 * Począwszy od listopada 2015 r, możesz [Pobierz ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
@@ -211,7 +211,7 @@ Jeśli używasz ADO.NET 4.0 lub wcześniejszym, zaleca się uaktualnienie do naj
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostyka: Test sprawdzający, czy można połączyć z narzędzia
-Jeśli program nie może nawiązać połączenia z bazą danych SQL Azure, jedną opcję diagnostyczne jest próby nawiązania połączenia z programem narzędzia. W idealnym przypadku narzędzie czy połączenia przy użyciu tej samej bibliotece, używany przez program.
+Jeśli program nie działa prawidłowo tooAzure tooconnect bazy danych SQL, jedną opcję diagnostyczne jest tooconnect tootry za pomocą narzędzia programu. W idealnym przypadku narzędzie hello będzie łączyć się przy użyciu hello samej bibliotece, używany przez program.
 
 Na dowolnym komputerze z systemem Windows możesz spróbować tych narzędzi:
 
@@ -222,16 +222,16 @@ Po nawiązaniu połączenia, należy sprawdzić, czy działa krótkich zapytanie
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnostyka: Sprawdź otwartych portów
-Załóżmy, że podejrzewasz, że próby nawiązania połączenia kończy się niepowodzeniem z powodu problemów z portu. Na komputerze można uruchomić narzędzie, które raportów dotyczących konfiguracji portów.
+### <a name="diagnostics-check-hello-open-ports"></a>Diagnostyka: Sprawdź hello otwartych portów
+Załóżmy, że podejrzewasz, że kończy się niepowodzeniem prób nawiązania połączenia z powodu tooport problemy. Na komputerze można uruchomić narzędzie, które raportów dotyczących konfiguracji portów hello.
 
-W systemie Linux mogą być przydatne następujące narzędzia:
+Na powitania Linux mogą być przydatne następujące narzędzia:
 
 * `netstat -nap`
 * `nmap -sS -O 127.0.0.1`
-  * (Zmień wartość przykład na adres IP).
+  * (Zmienić hello przykładzie wartość toobe adresu IP).
 
-W systemie Windows [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) narzędzia mogą być pomocne. Oto przykład wykonywania, który zbadać sytuację portu na serwerze bazy danych SQL Azure i której zostało uruchomione na komputerze przenośnym:
+W systemie Windows hello [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) narzędzia mogą być pomocne. Oto wykonywania przykładzie, który proszeni hello sytuacji portu na serwerze bazy danych SQL Azure i której zostało uruchomione na komputerze przenośnym:
 
 ```
 [C:\Users\johndoe\]
@@ -240,8 +240,8 @@ W systemie Windows [PortQry.exe](http://www.microsoft.com/download/details.aspx?
 Querying target system called:
  johndoesvr9.database.windows.net
 
-Attempting to resolve name to IP address...
-Name resolved to 23.100.117.95
+Attempting tooresolve name tooIP address...
+Name resolved too23.100.117.95
 
 querying...
 TCP port 1433 (ms-sql-s service): LISTENING
@@ -256,11 +256,11 @@ TCP port 1433 (ms-sql-s service): LISTENING
 ### <a name="diagnostics-log-your-errors"></a>Diagnostycznego: Błędy dziennika
 Problem tymczasowy jest czasami najlepiej zdiagnozowany przez wykrywanie ogólne wzorca przez dni lub tygodnie.
 
-Klient może pomóc w diagnozy przez funkcję rejestrowania wszystkich błędów napotkaniu. Dzięki temu można skorelować wpisy dziennika z danymi błąd, który loguje się wewnętrznie bazy danych SQL Azure.
+Klient może pomóc w diagnozy przez funkcję rejestrowania wszystkich błędów napotkaniu. Może być możliwe toocorrelate wpisy dziennika hello z danymi błąd, który loguje się wewnętrznie bazy danych SQL Azure.
 
-6 biblioteki przedsiębiorstwa (EntLib60) oferuje klas zarządzanych .NET z rejestrowania:
+6 biblioteki przedsiębiorstwa (EntLib60) oferuje tooassist klas zarządzanych .NET z rejestrowaniem:
 
-* [5 — tak proste, jak objętych poza dziennika: za pomocą bloku rejestrowania aplikacji](http://msdn.microsoft.com/library/dn440731.aspx)
+* [5 — jako łatwe jako objęte poza dziennika: przy użyciu hello bloku rejestrowania aplikacji](http://msdn.microsoft.com/library/dn440731.aspx)
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -269,13 +269,13 @@ Poniżej przedstawiono niektóre instrukcji języka Transact-SQL SELECT tego zap
 
 | Zapytanie dziennika | Opis |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) widok zawiera informacje na temat poszczególnych zdarzeniami, w tym te, które mogą powodować przejściowe błędy lub awarie połączenia.<br/><br/>W idealnym przypadku można skorelować **godzina_rozpoczęcia** lub **end_time** wartości informująca, gdy program kliencki wystąpienia problemów.<br/><br/>**Porada:** należy połączyć **wzorca** bazy danych, aby uruchomić to. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) widoku oferuje zagregowanej liczby typów zdarzeń dla dodatkowych diagnostyczne.<br/><br/>**Porada:** należy połączyć **wzorca** bazy danych, aby uruchomić to. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Witaj [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) widok zawiera informacje na temat poszczególnych zdarzeniami, w tym te, które mogą powodować przejściowe błędy lub awarie połączenia.<br/><br/>W idealnym przypadku można skorelować hello **godzina_rozpoczęcia** lub **end_time** wartości informująca, gdy program kliencki wystąpienia problemów.<br/><br/>**Porada:** należy połączyć toohello **wzorca** toorun bazy danych to. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Witaj [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) widoku oferuje zagregowanej liczby typów zdarzeń dla dodatkowych diagnostyczne.<br/><br/>**Porada:** należy połączyć toohello **wzorca** toorun bazy danych to. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostyka: Wyszukaj problem zdarzenia w dzienniku bazy danych SQL
-Możesz wyszukać wpisy dotyczące problemu zdarzeń w dzienniku bazy danych SQL Azure. Spróbuj następujących instrukcji języka Transact-SQL SELECT **wzorca** bazy danych:
+### <a name="diagnostics-search-for-problem-events-in-hello-sql-database-log"></a>Diagnostyka: Wyszukaj problem zdarzeń w dzienniku bazy danych SQL hello
+Możesz wyszukać wpisy dotyczące problemu zdarzenia w dzienniku hello bazy danych SQL Azure. Spróbuj hello następującej instrukcji języka Transact-SQL SELECT w hello **wzorca** bazy danych:
 
 ```
 SELECT
@@ -304,7 +304,7 @@ ORDER BY
 
 
 #### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>Kilka wierszy zwrócony z sys.fn_xe_telemetry_blob_target_read_file
-Następnie jest jak może wyglądać zwróconego wiersza. Wartości null, często nie są wartości null w innych wierszy.
+Następnie jest jak może wyglądać zwróconego wiersza. wartości zerowe Hello pokazano często nie mają wartości null w innych wierszy.
 
 ```
 object_name                   timestamp                    error  state  is_success  database_name
@@ -316,25 +316,25 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Biblioteka Enterprise 6
-6 biblioteki przedsiębiorstwa (EntLib60) to platforma klas .NET ułatwiająca implementację niezawodne klientów usługi w chmurze, z których jeden jest usługą bazy danych SQL Azure. Możesz znaleźć przeznaczona do każdego obszaru, w którym można pomóc EntLib60 odwiedzając pierwszy tematy:
+6 biblioteki przedsiębiorstwa (EntLib60) to platforma klas .NET ułatwiająca implementację niezawodne klientów usługi w chmurze, z których jeden jest usługą bazy danych SQL Azure hello. Możesz znaleźć, obszar dedykowanych tooeach tematy, w którym EntLib60 może pomóc odwiedzając pierwszy:
 
 * [Biblioteka Enterprise 6 kwietnia 2013 r.](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
 Logika ponawiania do obsługi błędów przejściowych jest jeden obszar, w którym można pomóc EntLib60:
 
-* [4 - perseverance, klucz tajny wszystkie sukcesy: za pomocą bloku aplikacji obsługi błędu przejściowego](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
+* [4 - perseverance, klucz tajny wszystkie sukcesy: przy użyciu hello bloku aplikacji obsługi błędów przejściowych](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 > [!NOTE]
-> Kod źródłowy EntLib60 jest dostępna dla publicznego [Pobierz](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft nie planuje wprowadzić dodatkowe aktualizacje funkcji lub aktualizacje konserwacji EntLib.
+> Witaj EntLib60 kod źródłowy jest dostępny dla publicznego [Pobierz](http://go.microsoft.com/fwlink/p/?LinkID=290898). Firma Microsoft nie ma funkcji dalsze toomake planów aktualizacji lub konserwacji tooEntLib aktualizacji.
 > 
 > 
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Klasy EntLib60 dla błędów przejściowych i spróbuj ponownie
-Następujące klasy EntLib60 są szczególnie użyteczne w przypadku logiki ponawiania próby. Wszystkie te znajdują się w lub wchodzi w przestrzeni nazw **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
+następujące klasy EntLib60 Hello są szczególnie użyteczne w przypadku logiki ponawiania próby. Wszystkie te znajdują się w lub wchodzi w, hello przestrzeni nazw **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
-*W obszarze nazw **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
+*W obszarze nazw hello **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 * **RetryPolicy** — klasa
   
@@ -345,35 +345,35 @@ Następujące klasy EntLib60 są szczególnie użyteczne w przypadku logiki pona
   
   * **Parametr ExecuteCommand** — metoda
 
-W obszarze nazw **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
+W obszarze nazw hello **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
 * **AlwaysTransientErrorDetectionStrategy** — klasa
 * **NeverTransientErrorDetectionStrategy** — klasa
 
-Poniżej podano linki do informacji na temat EntLib60:
+Oto łącza tooinformation o EntLib60:
 
-* Bezpłatne [książki pobierania: przewodnik dewelopera do biblioteki Microsoft Enterprise, wydanie 2](http://www.microsoft.com/download/details.aspx?id=41145)
+* Bezpłatne [Pobierz książkę: tooMicrosoft przewodnik dewelopera biblioteki Enterprise wydanie 2](http://www.microsoft.com/download/details.aspx?id=41145)
 * Najlepsze rozwiązania: [ponów ogólne wskazówki](../best-practices-retry-general.md) ma znakomity szczegółowym omówieniem logiki ponawiania próby.
 * Pobieranie NuGet [Biblioteka Enterprise — Obsługa błędów przejściowych bloku aplikacji w wersji 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: Rejestrowanie bloku
-* Blok rejestrowania jest bardzo elastyczne i można skonfigurować rozwiązanie umożliwiający:
+### <a name="entlib60-hello-logging-block"></a>EntLib60: blok rejestrowania hello
+* Blok rejestrowania Hello jest bardzo elastyczne i można skonfigurować rozwiązanie umożliwiający:
   
   * Utwórz i wiadomości dziennika są przechowywane w różnych lokalizacjach.
   * Przeprowadzania kategoryzacji i filtrowania wiadomości.
   * Zbierz informacje kontekstowe, które jest rejestrowanie przydatne do debugowania i śledzenia, a także do przeprowadzania inspekcji i ogólnych wymagań.
-* Blok rejestrowania abstracts funkcji rejestrowania miejsce docelowe dziennika, aby kod aplikacji jest zgodny, niezależnie od lokalizacji i typ magazynu docelowego rejestrowania.
+* Witaj rejestrowania bloku streszczenia Witaj logowania funkcji z hello miejsce docelowe dziennika, aby kod aplikacji hello jest spójne, niezależnie od hello lokalizację i typ magazynu rejestrowania docelowego hello.
 
-Aby uzyskać więcej informacji, zobacz: [5 - jako łatwe jako objęte poza dziennika: za pomocą bloku rejestrowania aplikacji](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+Aby uzyskać więcej informacji, zobacz: [5 - jako łatwe jako objęte poza dziennika: przy użyciu rejestrowania bloku aplikacji hello](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### <a name="entlib60-istransient-method-source-code"></a>Kod źródłowy EntLib60 IsTransient — metoda
-Dalej z **SqlDatabaseTransientErrorDetectionStrategy** klasy, kodu źródłowego C# dla **IsTransient** metody. Kod źródłowy wyjaśnia, błędów, które zostały uznane za przejściowych i ponów próbę, począwszy od kwietnia 2013 warta.
+Dalej z hello **SqlDatabaseTransientErrorDetectionStrategy** klasa, jest kod źródłowy hello C# hello **IsTransient** metody. Kod źródłowy Hello wyjaśnia, błędów, które zostały uznane za przejściowy toobe i ponów próbę, począwszy od kwietnia 2013 warta.
 
-Wiele **//comment** wiersze zostały usunięte z tej kopii, aby wyróżnić czytelności.
+Wiele **//comment** wiersze zostały usunięte z tej kopii tooemphasize czytelności.
 
 ```
 public bool IsTransient(Exception ex)
@@ -383,21 +383,21 @@ public bool IsTransient(Exception ex)
     SqlException sqlException;
     if ((sqlException = ex as SqlException) != null)
     {
-      // Enumerate through all errors found in the exception.
+      // Enumerate through all errors found in hello exception.
       foreach (SqlError err in sqlException.Errors)
       {
         switch (err.Number)
         {
             // SQL Error Code: 40501
-            // The service is currently busy. Retry the request after 10 seconds.
-            // Code: (reason code to be decoded).
+            // hello service is currently busy. Retry hello request after 10 seconds.
+            // Code: (reason code toobe decoded).
           case ThrottlingCondition.ThrottlingErrorNumber:
-            // Decode the reason code from the error message to
-            // determine the grounds for throttling.
+            // Decode hello reason code from hello error message to
+            // determine hello grounds for throttling.
             var condition = ThrottlingCondition.FromError(err);
 
-            // Attach the decoded values as additional attributes to
-            // the original SQL exception.
+            // Attach hello decoded values as additional attributes to
+            // hello original SQL exception.
             sqlException.Data[condition.ThrottlingMode.GetType().Name] =
               condition.ThrottlingMode.ToString();
             sqlException.Data[condition.GetType().Name] = condition;
@@ -416,7 +416,7 @@ public bool IsTransient(Exception ex)
           case 233:
           case 64:
             // DBNETLIB Error Code: 20
-            // The instance of SQL Server you attempted to connect to
+            // hello instance of SQL Server you attempted tooconnect to
             // does not support encryption.
           case (int)ProcessNetLibErrorCode.EncryptionNotSupported:
             return true;
@@ -443,7 +443,7 @@ public bool IsTransient(Exception ex)
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Do rozwiązywania problemów inne typowe problemy z połączeniami bazy danych SQL Azure, odwiedź stronę [Rozwiązywanie problemów z połączeniem z bazą danych SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
+* Do rozwiązywania problemów inne typowe problemy z połączeniami bazy danych SQL Azure, odwiedź stronę [połączenia Rozwiązywanie problemów tooAzure bazy danych SQL](sql-database-troubleshoot-common-connection-issues.md).
 * [Połączenie z serwerem SQL buforowanie (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
-* [*Ponawianie próby* jest Apache 2.0 licencjonowane ogólnego przeznaczenia, ponawianie próby biblioteki napisany w **Python**, aby uprościć zadanie dodawania zachowanie ponownych prób do wszystko, co.](https://pypi.python.org/pypi/retrying)
+* [*Ponawianie próby* jest Apache 2.0 licencjonowane ogólnego przeznaczenia, ponawianie próby biblioteki napisany w **Python**, toosimplify hello zadania dodawania ponawiania toojust zachowanie dotyczące wszystkich elementów.](https://pypi.python.org/pypi/retrying)
 

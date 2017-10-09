@@ -1,6 +1,6 @@
 ---
-title: "Cele dotyczące wydajności i skalowalności magazynu platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o obiekty docelowe skalowalności i wydajności usługi Azure Storage, w tym pojemności, współczynnik żądań i przepustowości ruchu przychodzącego i wychodzącego dla obu kont magazynu standard i premium. Zrozumienie celów wydajności dla partycji w ramach każdej z usług Azure Storage."
+title: "aaaAzure cele dotyczące wydajności i skalowalności magazynu | Dokumentacja firmy Microsoft"
+description: "Dowiedz się więcej o hello elementy docelowe skalowalności i wydajności usługi Azure Storage, w tym pojemności, współczynnik żądań i przepustowości ruchu przychodzącego i wychodzącego dla obu kont magazynu standard i premium. Zrozumienie celów wydajności dla partycji w ramach każdej z usług Azure Storage hello."
 services: storage
 documentationcenter: na
 author: robinsh
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: robinsh
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7afe4366a02887b4e3d9781c26c8adda81adce95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Cele usługi Azure Storage dotyczące skalowalności i wydajności
 ## <a name="overview"></a>Omówienie
-W tym temacie opisano tematy dotyczące skalowalności i wydajności dla magazynu Microsoft Azure. Podsumowanie innych limitów Azure, zobacz [subskrypcji platformy Azure i ograniczenia usługi, przydziały i ograniczenia](../../azure-subscription-service-limits.md).
+W tym temacie opisano hello tematy dotyczące skalowalności i wydajności dla magazynu Microsoft Azure. Podsumowanie innych limitów Azure, zobacz [subskrypcji platformy Azure i ograniczenia usługi, przydziały i ograniczenia](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Wszystkie konta magazynu Uruchom na nową topologię siecią płaską i obsługuje obiekty docelowe skalowalności i wydajności, opisane poniżej, niezależnie od tego, kiedy zostały utworzone. Aby uzyskać więcej informacji na komputerze o architekturze siecią płaską usługi Azure Storage i skalowalność, zobacz [Microsoft Azure Storage: A wysoce dostępna usługa magazynu w chmurze with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Wszystkie konta magazynu Uruchom na powitania nową siecią płaską topologię i obsługuje cele wydajności i skalowalności hello opisane poniżej, niezależnie od tego, kiedy zostały utworzone. Aby uzyskać więcej informacji na powitania usługi Azure Storage siecią płaską architektury i skalowalność, zobacz [Microsoft Azure Storage: A wysoce dostępna usługa magazynu w chmurze with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 > [!IMPORTANT]
-> Obiekty docelowe skalowalności i wydajności wymienione w tym miejscu wysokiej klasy elementów docelowych, ale są osiągalne. Wszystkich przypadkach, współczynnik żądań i przepustowości magazynu konta zależy od rozmiaru obiekty przechowywane, wzorce dostępu do wykorzystania, i wykonuje polecenie Typ obciążenia aplikacji. Należy przetestować usługą w celu ustalenia, czy jego wydajność, spełnia wymagania. Jeśli to możliwe zapobiec nagłym wzrostów w polu szybkość ruchu i sprawdź, czy ruch jest dobrze rozproszone na partycje.
+> Witaj skalowalność i wydajność cele wymienione w tym miejscu wysokiej klasy elementów docelowych, ale są osiągalne. We wszystkich przypadkach, szybkość i przepustowości konta magazynu zależy od rozmiaru hello obiekty przechowywane, Żądanie hello hello wzorce dostępu do użycia oraz hello typ obciążenia, który wykonuje aplikacji. Można toodetermine Twojego usługi tootest się, czy jego wydajność, spełnia wymagania. Jeśli to możliwe zapobiec nagłym największego hello szybkość ruchu i sprawdź, czy ruch jest dobrze rozproszone na partycje.
 > 
-> Gdy aplikacja osiągnie limit co partycji może obsłużyć dla obciążenia, usługi Azure Storage zaczną zwracać kod błędu 503 (serwer jest zajęty) lub kod błędu 500 odpowiedzi (limit czasu operacji). W takim przypadku aplikacji należy używać zasad wykładniczego wycofywania dla ponownych prób. Wykładniczego wycofywania umożliwia obciążenia na partycji zmniejszają i ułatwić limit największego ruchu do tej partycji.
+> Gdy aplikacja osiągnie limit hello co partycji może obsłużyć dla obciążenia, usługi Azure Storage rozpocznie się kod błędu tooreturn 503 (serwer jest zajęty) lub kod błędu: 500 odpowiedzi (limit czasu operacji). W takim przypadku aplikacji hello należy używać zasad wykładniczego wycofywania dla ponownych prób. Hello wykładniczego wycofywania umożliwia obciążenia hello hello partycji toodecrease i tooease limit wzrostów w ruchu toothat partycji.
 > 
 > 
 
-Wymagania aplikacji przekracza wartości docelowe skalowalności konta jednego magazynu, można skompilować aplikację do korzystania z wielu kont magazynu i partycji obiektów danych przez tych kont magazynu. Zobacz [cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) informacje dotyczące cennika woluminów.
+Aplikacji hello musi przekroczyć hello wartości docelowe skalowalności konta magazynu jednego, można utworzyć wiele kont magazynu toouse Twojej aplikacji i partycji obiektów danych przez tych kont magazynu. Zobacz [cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) informacje dotyczące cennika woluminów.
 
 ## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Wartości docelowe skalowalności dla obiektów blob, kolejek, tabel i plików
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+<!-- conceptual info about disk limits -- applies toounmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Wartości docelowe skalowalności dysków maszyny wirtualnej
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -58,20 +58,20 @@ Zobacz [rozmiarów maszyn wirtualnych systemu Windows](../../virtual-machines/wi
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## <a name="partitions-in-azure-storage"></a>Partycje w magazynie Azure
-Każdy obiekt, który przechowuje dane, które są przechowywane w usłudze Azure Storage (obiekty BLOB, wiadomości, jednostki i plików) należy do partycji i jest identyfikowany przez klucz partycji. Partycja Określa, jak usługi Azure Storage obciążenia równoważy obiektów blob, wiadomości, jednostki i plików na serwerach, na potrzeby ruchu tych obiektów. Klucz partycji jest unikatowa i jest używana do lokalizowania obiektów blob, wiadomości lub jednostki.
+Każdy obiekt, który przechowuje dane, które są przechowywane w usłudze Azure Storage (obiekty BLOB, wiadomości, jednostki i plików) należy tooa partycji i jest identyfikowany przez klucz partycji. partycja Hello Określa, jak obciążenia usługi Azure Storage równoważy obiektów blob, wiadomości, jednostki i plików na serwerach toomeet hello ruchu potrzeb tych obiektów. Klucz partycji Hello jest unikatowy i jest używany toolocate obiektów blob, wiadomości lub jednostki.
 
-W tabeli [wartości docelowe skalowalności w przypadku kont magazynu standardowego](#standard-storage-accounts) wymieniono cele wydajności dla jednej partycji dla każdej usługi.
+Hello tabeli pokazano powyżej [wartości docelowe skalowalności w przypadku kont magazynu standardowego](#standard-storage-accounts) list hello cele wydajności dla jednej partycji dla każdej usługi.
 
-Partycje wpływać równoważenia obciążenia i skalowalności dla każdej z usług magazynu w następujący sposób:
+Partycje wpływać równoważenia obciążenia i skalowalności dla każdej z usług magazynu hello w hello następujące sposoby:
 
-* **Obiekty BLOB**: Klucz partycji dla obiekt blob jest nazwa konta, nazwa kontenera + nazwa obiektu blob. Oznacza to, że każdy obiekt blob może zawierać własnej partycji, jeśli obciążenie obiektu blob żąda jej. Obiekty BLOB mogą być rozproszone na wielu serwerach w celu skalowania w poziomie do nich dostęp, ale pojedynczego obiektu blob mogą być przekazywane tylko przez jeden serwer. Obiekty BLOB można grupować logicznie w kontenerów obiektów blob, jednak niektóre powodują nie partycjonowania efekty z grupy.
-* **Pliki**: Klucz partycji dla pliku jest kontem nazwa + pliku nazwa udziału. Oznacza to, że wszystkie pliki w udziale plików znajdują się również w jednej partycji.
-* **Komunikaty**: Klucz partycji dla wiadomości jest nazwa konta + Nazwa kolejki, tak aby wszystkie komunikaty z kolejki są pogrupowane w jednej partycji i są obsługiwane przez jeden serwer. Różnych kolejek mogą być przetwarzane przez różne serwery w celu zrównoważenia obciążenia dla, jednak może mieć wiele kolejki konta magazynu.
-* **Jednostki**: Klucz partycji jest jednostką konta Nazwa + Nazwa tabeli + partycji klucz, w którym klucz partycji to wartość wymaganego zdefiniowane przez użytkownika **PartitionKey** właściwości dla obiektu. Wszystkie jednostki z taką samą wartość klucza partycji są zgrupowane w tej samej partycji i są obsługiwane przez ten sam serwer partycji. Jest to należy zrozumieć projektowanie aplikacji. Aplikacja powinna równoważenie zalet skalowalność rozłożenie jednostek wiele partycji z zalet dostępu do danych grupowanie jednostki w jednej partycji.  
+* **Obiekty BLOB**: hello klucza partycji dla obiekt blob jest nazwa konta, nazwa kontenera + nazwa obiektu blob. Oznacza to, że każdy obiekt blob może zawierać własnej partycji, jeśli obciążenie hello blob żąda jej. Obiekty BLOB mogą być rozproszone na wielu serwerach w kolejności tooscale limit toothem dostępu, ale pojedynczego obiektu blob mogą być przekazywane tylko przez jeden serwer. Obiekty BLOB można grupować logicznie w kontenerów obiektów blob, jednak niektóre powodują nie partycjonowania efekty z grupy.
+* **Pliki**: hello klucza partycji dla pliku jest kontem nazwa + pliku nazwa udziału. Oznacza to, że wszystkie pliki w udziale plików znajdują się również w jednej partycji.
+* **Komunikaty**: hello klucza partycji dla wiadomości jest nazwa konta hello + Nazwa kolejki, więc wszystkie wiadomości w kolejce są pogrupowane w jednej partycji i są obsługiwane przez jeden serwer. Różnych kolejek mogą być przetwarzane przez różne serwery toobalance hello obciążenia dla, jednak może mieć wiele kolejki konta magazynu.
+* **Jednostki**: hello klucza partycji dla jednostki jest nazwa konta + Nazwa tabeli + klucza partycji, gdzie klucz partycji hello jest wartością hello hello wymagane użytkownika **PartitionKey** właściwości hello jednostki. Wszystkie jednostki z samą wartość klucza partycji są zgrupowane w hello sam partycji i są obsługiwane przez hello sam hello partycji serwera. Jest to ważne toounderstand punktu projektowanie aplikacji. Aplikacja powinna równoważenie zalet skalowalność hello rozłożenie jednostek wiele partycji z hello danych access zalety grupowanie jednostki w jednej partycji.  
 
-Zaletą do grupowania zestawu jednostek w tabeli w jednej partycji jest możliwa do wykonywania operacji wsadowych atomic między jednostkami w tej samej partycji, ponieważ istnieje partycja na jednym serwerze. W związku z tym jeśli chcesz wykonać operacji wsadowych na grupy jednostek, należy wziąć pod uwagę ich grupowanie z tym samym kluczem partycji. 
+Zaletą toogrouping zestawu jednostek w tabeli w jednej partycji jest możliwe tooperform operacji wsadowych atomic między jednostkami w hello sam partycji, ponieważ istnieje partycja na jednym serwerze. W związku z tym, jeśli chcesz tooperform operacji wsadowych na grupy jednostek, należy wziąć pod uwagę zgrupować je za pomocą hello tego samego klucza partycji. 
 
-Z drugiej strony, jednostek, które są w tej samej tabeli, ale ma różnych kluczach partycji mogą być o zrównoważonym obciążeniu na różnych serwerach, co umożliwia zwiększenie skalowalności.
+Na hello drugiej strony, jednostek, które znajdują się w hello sam tabeli, ale ma różnych kluczach partycji mogą być obsługiwane na różnych serwerach, dzięki czemu możliwe toohave większą skalowalność.
 
 Szczegółowe zalecenia dotyczące projektowania partycjonowania strategii dla tabel można znaleźć [tutaj](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

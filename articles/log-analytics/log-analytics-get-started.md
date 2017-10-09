@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do obszaru roboczego usługi Azure Log Analytics | Microsoft Docs"
+title: "aaaGet pracę z obszarem roboczym usługi Analiza dzienników Azure | Dokumentacja firmy Microsoft"
 description: "Pracę z obszarem roboczym usługi Log Analytics można rozpocząć w kilka minut."
 services: log-analytics
 documentationcenter: 
@@ -14,144 +14,144 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 442a9258a37ee79e8f0b45759ef24b5e3dae0130
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Wprowadzenie do obszaru roboczego usługi Log Analytics
 Możesz szybko rozpocząć pracę z usługą Azure Log Analytics, która pomaga oceniać analizę operacyjną zbieraną z infrastruktury IT. Dzięki informacjom zawartym w tym artykule można łatwo i *bezpłatnie* rozpocząć eksplorowanie i analizowanie zbieranych danych oraz wykonywanie na nich działań.
 
-Ten artykuł służy jako wprowadzenie do usługi Log Analytics — do tego celu zostanie użyty krótki samouczek, w którym opisano podstawowe wdrożenie na platformie Azure w celu umożliwienia korzystania z usługi. Logiczny kontener służący do przechowywania danych zarządzania na platformie Azure jest nazywany obszarem roboczym. Po przejrzeniu tych informacji i zakończeniu oceny możesz usunąć obszar roboczy dotyczący oceny. Ponieważ ten artykuł jest samouczkiem, nie zawiera on informacji dotyczących wymagań biznesowych i planowania ani wskazówek dotyczących architektury.
+W tym artykule służy jako tooLog wprowadzenie Analytics przy użyciu krótki toowalk samouczka możesz przy użyciu minimalnego wdrożenia na platformie Azure tak, aby uruchomić przy użyciu usługi hello. Witaj kontenerem logicznym przechowywania danych zarządzania na platformie Azure nosi nazwę obszaru roboczego. Po przejrzeniu tych informacji i zakończenia własnych oceny, należy usunąć hello oceny roboczym. Ponieważ ten artykuł jest samouczkiem, nie zawiera on informacji dotyczących wymagań biznesowych i planowania ani wskazówek dotyczących architektury.
 
 >[!NOTE]
->Jeśli używasz chmury platformy Microsoft Azure Government, zamiast tego użyj [dokumentacji dotyczącej monitorowania platformy Azure Government i zarządzania nią](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics).
+>Jeśli używasz hello chmury programu Microsoft Azure dla instytucji rządowych, użyj [monitorowania Azure dla instytucji rządowych + dokumentacja dotycząca zarządzania](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) zamiast tego.
 
-Oto krótki przegląd procesu umożliwiającego rozpoczęcie pracy:
+Poniżej przedstawiono krótki przegląd tooget proces wykorzystywany hello uruchomiona:
 
 ![diagram procesu](./media/log-analytics-get-started/onboard-oms.png)
 
 ## <a name="1-create-an-azure-account-and-sign-in"></a>1. Tworzenie konta platformy Azure i logowanie
 
-Jeśli nie masz jeszcze konta platformy Azure, należy utworzyć je, aby móc używać usługi Log Analytics. Możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/), które jest ważne przez 30 dni i umożliwia dostęp do dowolnej usługi Azure.
+Jeśli nie masz jeszcze konta platformy Azure, należy toouse jeden toocreate analizy dzienników. Możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/), które jest ważne przez 30 dni i umożliwia dostęp do dowolnej usługi Azure.
 
-### <a name="to-create-a-free-account-and-sign-in"></a>Aby utworzyć bezpłatne konto i zalogować się
-1. Postępuj zgodnie z instrukcjami znajdującymi się w artykule [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
-2. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się.
+### <a name="toocreate-a-free-account-and-sign-in"></a>toocreate bezpłatne konto i zaloguj się
+1. Postępuj zgodnie ze wskazówkami hello na [utworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/free/).
+2. Przejdź toohello [portalu Azure](https://portal.azure.com) i zaloguj się.
 
 ## <a name="2-create-a-workspace"></a>2. Tworzenie obszaru roboczego
 
-Następnym krokiem jest utworzenie obszaru roboczego.
+Witaj następnym krokiem jest toocreate obszaru roboczego.
 
-1. W witrynie Azure Portal wyszukaj listę usług w portalu Marketplace dla usługi *Log Analytics*, a następnie wybierz pozycję **Log Analytics**.  
-    ![Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
-2. Kliknij pozycję **Utwórz**, a następnie wybierz opcje dla następujących elementów:
+1. W portalu Azure hello, listy hello usług w hello Marketplace wyszukiwania dla *analizy dzienników*, a następnie wybierz **analizy dzienników**.  
+    ![Witryna Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
+2. Kliknij przycisk **Utwórz**, następnie wybierz opcje dla hello następujące elementy:
    * **Obszar roboczy pakietu OMS** — wpisz nazwę obszaru roboczego.
-   * **Subskrypcja** — Jeśli masz wiele subskrypcji, wybierz tę, którą chcesz skojarzyć z nowym obszarem roboczym.
+   * **Subskrypcja** — Jeśli masz wiele subskrypcji, wybierz hello z nich ma tooassociate z hello nowy obszar roboczy.
    * **Grupa zasobów**
    * **Lokalizacja**
    * **Warstwa cenowa**  
        ![szybkie tworzenie](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Kliknij przycisk **OK**, aby wyświetlić listę swoich obszarów roboczych.
-4. Wybierz obszar roboczy, aby wyświetlić jego szczegóły w witrynie Azure Portal.       
+3. Kliknij przycisk **OK** toosee listę obszarów roboczych.
+4. Wybierz toosee obszaru roboczego jego szczegóły hello portalu Azure.       
     ![szczegóły obszaru roboczego](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-upgrade-workspace-to-new-log-search"></a>3. Uaktualnianie obszaru roboczego w związku z nową funkcją przeszukiwania dzienników
-Został wydany nowy język zapytań usługi Log Analytics. Aby go wykorzystać, musisz przekonwertować swój obszar roboczy.  Jeśli region, w którym jest hostowany Twój obszar roboczy, został uaktualniony, zobaczysz fioletowy baner u góry obszaru roboczego z zaproszeniem do konwersji. Uaktualnienie jest całkowicie dobrowolne i nie wpływa na środowisko użytkownika związane z pracą z usługą Log Analytics i wszelkimi innymi dodanymi rozwiązaniami.  
+## <a name="3-upgrade-workspace-toonew-log-search"></a>Wyszukiwania dziennika toonew 3 uaktualnienia obszaru roboczego
+Została wydana nowy język zapytań usługi Analiza dzienników i w kolejności tootake korzystania z nich, należy tooconvert obszaru roboczego.  Jeśli region hello obszaru roboczego znajduje się w został uaktualniony, powinny pojawić się purpurowa transparent hello górze obszaru roboczego zaprasza Cię tooconvert. uaktualnienie Hello jest dobrowolne całkowicie i nie ma wpływu na środowiska pracy z analizy dzienników i rozwiązań dodane.  
 
-Aby uzyskać więcej informacji oraz poznać korzyści, uwagi i proces uaktualnienia, zobacz [Upgrading Azure Log Analytics to new log search (Uaktualnianie usługi Azure Log Analytics do nowej funkcji przeszukiwania dzienników)](log-analytics-log-search-upgrade.md).  
+Dalsze informacje toounderstand hello korzyści, zagadnień i tooupgrade procesu, zobacz [wyszukiwania dziennika toonew uaktualniania Azure Log Analytics](log-analytics-log-search-upgrade.md).  
 
 ## <a name="4-add-solutions-and-solution-offerings"></a>4. Dodawanie rozwiązań i ofert rozwiązań
 
 Następnie dodaj rozwiązania do zarządzania i ofert rozwiązań. Rozwiązania to zestawy reguł logiki, wizualizacji i gromadzenia danych zawierające metryki dotyczące określonego obszaru problemów. Oferta rozwiązań to pakiet rozwiązań do zarządzania.
 
-Dodawanie rozwiązań do obszaru roboczego umożliwia usłudze Log Analytics zbieranie różnych rodzajów danych z komputerów, które są połączone z obszarem roboczym przy użyciu agentów. Informacje dotyczące dodawania agentów zostaną przedstawione później.
+Dodanie obszaru roboczego tooyour rozwiązania pozwala toocollect analizy dzienników różne rodzaje danych z komputerów, które są połączone tooyour obszaru roboczego przy użyciu agentów. Informacje dotyczące dodawania agentów zostaną przedstawione później.
 
-### <a name="to-add-solutions-and-solution-offerings"></a>Aby dodać rozwiązania i oferty rozwiązań
+### <a name="tooadd-solutions-and-solution-offerings"></a>tooadd rozwiązań i ofert rozwiązania
 
-1. W witrynie Azure Portal kliknij pozycję **Nowe**, a następnie w polu **Wyszukaj w portalu Marketplace** wpisz **Activity Log Analytics** i naciśnij klawisz ENTER.
-2. W bloku Wszystko wybierz pozycję **Activity Log Analytics**, a następnie kliknij pozycję **Utwórz**.  
+1. W portalu Azure kliknij **nowy** , a następnie w hello **marketplace hello wyszukiwania** wpisz **analizy dzienników działania** , a następnie naciśnij klawisz ENTER.
+2. W hello wszystko bloku, wybierz opcję **analizy dzienników działania** , a następnie kliknij przycisk **Utwórz**.  
     ![Activity Log Analytics](./media/log-analytics-get-started/activity-log-analytics.png)  
-3. W bloku *nazwy rozwiązania do zarządzania* wybierz obszar roboczy, który chcesz skojarzyć z rozwiązaniem do zarządzania.
+3. W hello *Nazwa rozwiązania zarządzania* bloku, wybierz obszar roboczy, które mają tooassociate z rozwiązaniem do zarządzania hello.
 4. Kliknij przycisk **Utwórz**.  
     ![obszar roboczy rozwiązania](./media/log-analytics-get-started/solution-workspace.png)  
-5. Powtórz kroki 1–4, aby dodać:
-    - Ofertę usług **Security & Compliance** wraz z rozwiązaniem do oceny ochrony przed złośliwym oprogramowaniem oraz rozwiązaniem zabezpieczeń i inspekcji.
-    - Ofertę usług **Automation & Control** wraz z rozwiązaniem dotyczącym hybrydowego procesu roboczego oraz rozwiązaniami do śledzenia zmian i oceny aktualizacji systemu (nazywanym również rozwiązaniem do zarządzania aktualizacjami). Podczas dodawania oferty rozwiązań należy utworzyć konto usługi Automation.  
+5. Powtórz kroki od 1 do 4 tooadd:
+    - Witaj **zabezpieczeń i zgodności** oferty z rozwiązaniami hello bezpieczeństwa i ochrony przed złośliwym kodem, oceny i inspekcji usługi.
+    - Witaj **Automatyzacja i kontrola** oferty hello automatyzacji hybrydowy proces roboczy, śledzenia zmian i rozwiązań System oceny aktualizacji (nazywanych również zarządzania aktualizacjami) usługi. Po dodaniu hello rozwiązania oferty, należy utworzyć konto usługi Automatyzacja.  
         ![Konto usługi Automation](./media/log-analytics-get-started/automation-account.png)  
-6. Rozwiązania do zarządzania dodane do obszaru roboczego można wyświetlić, przechodząc do obszaru **Log Analytics** > **Subskrypcje** > ***nazwa obszaru roboczego*** > **Przegląd**. Zostaną wyświetlone kafelki dla dodanych rozwiązań do zarządzania.  
+6. Możesz wyświetlić rozwiązania do zarządzania hello dodanych roboczym tooyour przechodząc zbyt**analizy dzienników** > **subskrypcje** > ***nazwa obszaru roboczego***  >  **Omówienie**. Kafelki na potrzeby rozwiązania do zarządzania hello dodane przez użytkownika są wyświetlane.  
     >[!NOTE]
-    >Ponieważ z obszarem roboczymi nie zostali jeszcze połączeni żadni agenci, dla dodanych rozwiązań nie będą wyświetlane żadne dane.  
+    >Ponieważ firma Microsoft nie jeszcze łączyły dowolnym obszarze roboczym toohello agentów, nie ma żadnych danych hello rozwiązań, które zostały dodane.  
 
     ![kafelki rozwiązania bez danych](./media/log-analytics-get-started/solutions-no-data.png)
 
 ## <a name="4-create-a-vm-and-onboard-an-agent"></a>4. Tworzenie maszyny wirtualnej i dodawanie agenta
 
-Następnie należy utworzyć prostą maszynę wirtualną na platformie Azure. Po utworzeniu maszyny wirtualnej należy dodać agenta pakietu OMS w celu jego włączenia. Włączenie agenta spowoduje rozpoczęcie zbierania danych z maszyny wirtualnej i wysyłanie ich do usługi Log Analytics.
+Następnie należy utworzyć prostą maszynę wirtualną na platformie Azure. Po utworzeniu maszyny Wirtualnej, dołączyć hello OMS agenta tooenable go. Włączanie agent hello uruchamia zbieranie danych z hello maszyny Wirtualnej i wysyła dane tooLog Analytics.
 
-### <a name="to-create-a-virtual-machine"></a>Aby utworzyć maszynę wirtualną
+### <a name="toocreate-a-virtual-machine"></a>toocreate maszyny wirtualnej
 
-- Postępuj zgodnie z instrukcjami znajdującymi się w artykule [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w witrynie Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md), a następnie uruchom nową maszynę wirtualną.
+- Postępuj zgodnie ze wskazówkami hello na [tworzenie pierwszej maszyny wirtualnej systemu Windows w portalu Azure hello](../virtual-machines/virtual-machines-windows-hero-tutorial.md) i uruchomić hello nowej maszyny wirtualnej.
 
-### <a name="connect-the-virtual-machine-to-log-analytics"></a>Łączenie maszyny wirtualnej z usługą Log Analytics
+### <a name="connect-hello-virtual-machine-toolog-analytics"></a>Połącz tooLog maszyny wirtualnej hello analityka
 
-- Postępuj zgodnie z instrukcjami znajdującymi się w artykule [Connect Azure virtual machines to Log Analytics](log-analytics-azure-vm-extension.md) (Łączenie maszyn wirtualnych platformy Azure z usługą Log Analytics), aby połączyć maszynę wirtualną z usługą Log Analytics przy użyciu witryny Azure Portal.
+- Postępuj zgodnie ze wskazówkami hello na [tooLog maszyny wirtualne Azure połączyć Analytics](log-analytics-azure-vm-extension.md) tooconnect hello wirtualna tooLog Analytics przy użyciu hello portalu Azure.
 
 ## <a name="6-view-and-act-on-data"></a>6. Wyświetlanie danych i działanie na nich
 
-Wcześniej włączone zostało rozwiązanie Activity Log Analytics i oferty rozwiązań Security & Compliance oraz Automation & Control. Następnie można rozpocząć analizę danych zebranych przez te rozwiązania oraz wyników w wyszukiwaniach w dziennikach.
+Wcześniej włączony hello rozwiązania analizy dziennika aktywności i ofert usług zabezpieczeń i zgodności oraz Automatyzacja i kontrola hello. Następnie można rozpocząć analizę danych zebranych przez te rozwiązania oraz wyników w wyszukiwaniach w dziennikach.
 
-Na początku należy przyjrzeć się danym wyświetlanym w ramach rozwiązań. Następnie należy zapoznać się z wyszukiwaniami w dziennikach. Wyszukiwania w dziennikach umożliwiają łączenie i korelowanie danych dowolnej maszyny z wielu źródeł w danym środowisku. Aby uzyskać więcej informacji, zobacz [Log searches in Log Analytics (Przeszukiwanie dzienników w usłudze Log Analytics)](log-analytics-log-searches.md) lub, jeśli przekonwertowano obszar roboczy do nowego języka zapytań, zobacz [Understanding log searches in Log Analytics (Informacje o przeszukiwaniu dzienników w usłudze Log Analytics)](log-analytics-log-search-new.md). 
+toostart, znajduje się w danych wyświetlanych w ramach rozwiązania. Następnie należy zapoznać się z wyszukiwaniami w dziennikach. Dziennik wyszukiwania pozwalają toocombine i skorelowania danych dowolnego komputera z wielu źródeł w danym środowisku. Aby uzyskać więcej informacji, zobacz [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) lub jeśli można przekonwertować obszaru roboczego toohello nowego zapytania języka, zobacz [opis dziennika przeszukuje analizy dzienników](log-analytics-log-search-new.md). 
 
-### <a name="to-view-antimalware-data"></a>Aby wyświetlić dane oprogramowania chroniącego przed złośliwym kodem
+### <a name="tooview-antimalware-data"></a>tooview danych ochrony przed złośliwym oprogramowaniem
 
-1. W witrynie Azure Portal przejdź do obszaru **Log Analytics** > ***Twój obszar roboczy***.
-2. W bloku dla Twojego obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Przegląd**.  
+1. W portalu Azure hello kolejno zbyt**analizy dzienników** > ***obszaru roboczego***.
+2. W bloku hello obszaru roboczego w obszarze **ogólne**, kliknij przycisk **omówienie**.  
     ![Omówienie](./media/log-analytics-get-started/overview.png)
-3. Kliknij kafelek **Ocena oprogramowania chroniącego przed złośliwym kodem**. W tym przykładzie można zobaczyć, że usługa Windows Defender została zainstalowana na jednym komputerze, ale jej sygnatura jest nieaktualna.  
+3. Kliknij przycisk hello **oceny ochrony przed złośliwym kodem** kafelka. W tym przykładzie można zobaczyć, że usługa Windows Defender została zainstalowana na jednym komputerze, ale jej sygnatura jest nieaktualna.  
     ![Oprogramowanie chroniące przed złośliwym kodem](./media/log-analytics-get-started/solution-antimalware.png)
-4. Na potrzeby tego przykładu w obszarze **Stan ochrony** kliknij pozycję **Nieaktualna sygnatura**, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegółowe informacje dotyczące komputerów, które mają nieaktualne sygnatury. W tym przykładzie należy pamiętać, że komputer ma nazwę *getstarted*. Jeśli istnieją inne komputery z nieaktualnymi sygnaturami, również zostaną one wyświetlone w wynikach wyszukiwania w dzienniku.  
+4. Na przykład w obszarze **stanu ochrony**, kliknij przycisk **podpisu nieaktualny** tooopen wyszukiwania dziennika i wyświetlenia jej szczegółów hello komputerów, które mają podpisy nieaktualny. W tym przykładzie należy zwrócić uwagę nosi nazwę tego komputera hello *getstarted*. Jeśli więcej niż jeden komputer z nieaktualny podpisów, czy wszystkie pojawią się one w hello wyszukiwania dziennika wyników.  
     ![Oprogramowanie chroniące przed złośliwym kodem jest nieaktualne](./media/log-analytics-get-started/antimalware-search.png)
 
-### <a name="to-view-security-and-audit-data"></a>Aby wyświetlić dane dotyczące zabezpieczeń i inspekcji
+### <a name="tooview-security-and-audit-data"></a>tooview zabezpieczeń i kontroli danych
 
-1. W bloku dla Twojego obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Przegląd**.  
-2. Kliknij kafelek **Zabezpieczenia i inspekcja**. W tym przykładzie można zobaczyć, że występują dwa istotne problemy: na jednym komputerze brak jest krytycznych aktualizacji, a inny komputer nie ma wystarczającej ochrony.  
+1. W bloku hello obszaru roboczego w obszarze **ogólne**, kliknij przycisk **omówienie**.  
+2. Kliknij przycisk hello **zabezpieczeń i inspekcji** kafelka. W tym przykładzie można zobaczyć, że występują dwa istotne problemy: na jednym komputerze brak jest krytycznych aktualizacji, a inny komputer nie ma wystarczającej ochrony.  
     ![Zabezpieczenia i inspekcja](./media/log-analytics-get-started/security-audit.png)
-3. Na potrzeby tego przykładu w obszarze **Problemy godne uwagi** kliknij pozycję **Komputery bez krytycznych aktualizacji**, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegółowe informacje o komputerach, na których brak jest krytycznych aktualizacji. W tym przykładzie brak jest jednej aktualizacji krytycznej i 63 innych aktualizacji.  
+3. Na przykład w obszarze **godne uwagi problemy**, kliknij przycisk **komputerów brakuje aktualizacji krytycznych** tooopen wyszukiwania dziennika i Wyświetl szczegółowe informacje o komputerach brakuje aktualizacji krytycznych. W tym przykładzie brak jest jednej aktualizacji krytycznej i 63 innych aktualizacji.  
     ![Wyszukiwanie w dzienniku zabezpieczeń i inspekcji](./media/log-analytics-get-started/security-audit-log-search.png)
 
-### <a name="to-view-and-act-on-system-update-data"></a>Aby wyświetlić dane aktualizacji systemu i działać na nich
+### <a name="tooview-and-act-on-system-update-data"></a>tooview i ustawy o danych aktualizacji systemu
 
-1. W bloku dla Twojego obszaru roboczego w obszarze **Ogólne** kliknij pozycję **Przegląd**.  
-2. Kliknij kafelek **Ocena aktualizacji systemu**. W tym przykładzie można zobaczyć, że istnieje jeden komputer z systemem Windows o nazwie *getstarted* wymagający aktualizacji krytycznych i jeden komputer wymagający aktualizacji definicji.  
+1. W bloku hello obszaru roboczego w obszarze **ogólne**, kliknij przycisk **omówienie**.  
+2. Kliknij przycisk hello **oceny aktualizacji systemu** kafelka. W tym przykładzie można zobaczyć, że istnieje jeden komputer z systemem Windows o nazwie *getstarted* wymagający aktualizacji krytycznych i jeden komputer wymagający aktualizacji definicji.  
     ![Aktualizacje systemu](./media/log-analytics-get-started/system-updates.png)
-3. Na potrzeby tego przykładu w obszarze **Brakujące aktualizacje** kliknij pozycję **Aktualizacje krytyczne**, aby otworzyć wyszukiwanie w dzienniku i wyświetlić szczegółowe informacje o komputerach, na których brak jest krytycznych aktualizacji. W tym przykładzie brak jest jednej aktualizacji i istnieje jedna wymagana aktualizacja.  
+3. Na przykład w obszarze **brakujące aktualizacje**, kliknij przycisk **aktualizacje krytyczne** tooopen wyszukiwania dziennika i Wyświetl szczegółowe informacje o komputerach brakuje aktualizacji krytycznych. W tym przykładzie brak jest jednej aktualizacji i istnieje jedna wymagana aktualizacja.  
     ![Wyszukiwanie w dzienniku aktualizacji systemu](./media/log-analytics-get-started/system-updates-log-search.png)
-4. Przejdź do witryny sieci Web pakietu [Operations Management Suite](http://microsoft.com/oms) i zaloguj się przy użyciu konta platformy Azure. Należy zauważyć, że po zalogowaniu informacje o rozwiązaniu są podobne do tych, które można zobaczyć w witrynie Azure Portal.  
+4. Przejdź toohello [Operations Management Suite](http://microsoft.com/oms) witryny sieci Web i zaloguj się przy użyciu konta platformy Azure. Po zalogowaniu należy zauważyć, że informacje o rozwiązaniu hello jest podobne toowhat widać w hello portalu Azure.  
     ![Portal pakietu OMS](./media/log-analytics-get-started/oms-portal.png)
-5. Kliknij kafelek **Zarządzanie aktualizacjami**.
-6. Na pulpicie nawigacyjnym zarządzania aktualizacjami można zauważyć, że informacje o aktualizacji systemu są podobne do analogicznych informacji wyświetlanych w witrynie Azure Portal. Kafelek **Zarządzanie wdrożeniami aktualizacji** jest natomiast nowy. Kliknij kafelek **Zarządzanie wdrożeniami aktualizacji**.  
+5. Kliknij przycisk hello **zarządzania aktualizacjami** kafelka.
+6. Na pulpicie nawigacyjnym zarządzania zaktualizować hello należy zauważyć, że informacje o aktualizacjach systemu hello jest podobne informacje toohello System aktualizowanie, które przedstawiono w hello portalu Azure. Jednak hello **Zarządzanie wdrożenia aktualizacji** kafelka jest nowa. Kliknij przycisk hello **Zarządzanie wdrożenia aktualizacji** kafelka.  
     ![Kafelek Zarządzanie aktualizacjami](./media/log-analytics-get-started/update-management.png)
-7. Na stronie **Wdrożenia aktualizacji** kliknij pozycję **Dodaj**, aby utworzyć *przebieg aktualizacji*.  
+7. Na powitania **wdrożeń aktualizacji** kliknij przycisk **Dodaj** toocreate *przebieg aktualizacji*.  
     ![Wdrożenia aktualizacji](./media/log-analytics-get-started/update-management-update-deployments.png)
-8.  Na stronie **Nowe wdrożenie aktualizacji** wpisz nazwę wdrożenia aktualizacji, wybierz komputery do zaktualizowania (w tym przykładzie *getstarted*), wybierz harmonogram, a następnie kliknij pozycję **Zapisz**.  
+8.  Na powitania **nowe wdrożenie aktualizacji** strony, wpisz nazwę dla wdrożenia aktualizacji hello, wybierz tooupdate komputery (w tym przykładzie *getstarted*), wybierz harmonogram, a następnie kliknij przycisk **zapisać**.  
     ![Nowe wdrożenie](./media/log-analytics-get-started/new-deployment.png)  
-    Po zapisaniu wdrożenia aktualizacji zostanie wyświetlona zaplanowana aktualizacja.  
+    Po zapisaniu hello wdrożenia aktualizacji, zobacz hello zaplanowanych aktualizacji.  
     ![zaplanowana aktualizacja](./media/log-analytics-get-started/scheduled-update.png)  
-    Po zakończeniu przebiegu aktualizacji stan jest wyświetlany jako **Zakończony**.
+    Po ukończeniu przebiegu aktualizacji hello hello pokazuje stan **Zakończono**.
     ![zakończona aktualizacja](./media/log-analytics-get-started/completed-update.png)
-9. Po zakończeniu przebiegu aktualizacji można wyświetlić, czy przebieg został zakończony pomyślnie, czy nie. Można także wyświetlić szczegółowe informacje dotyczące zastosowanych aktualizacji.
+9. Po zakończeniu przebiegu aktualizacji hello można wyświetlić czy hello Uruchom zakończyła się powodzeniem i możliwość wyświetlania szczegółów dotyczących aktualizacji co w przypadku.
 
 ## <a name="after-evaluation"></a>Po dokonaniu oceny
 
-W tym samouczku pokazano, jak zainstalować agenta na maszynie wirtualnej i szybko rozpocząć pracę. Przedstawione w nim kroki były proste i można je było szybko wykonać. Jednak większość dużych organizacji i przedsiębiorstw ma złożone lokalne infrastruktury IT. Zbieranie danych z tych złożonych środowisk wymaga zatem dodatkowego planowania i nakładu pracy w porównaniu z tym, co zostało przedstawione w ramach tego samouczka. Przejrzyj informacje w poniższej sekcji Następne kroki, aby uzyskać linki do przydatnych artykułów.
+W tym samouczku pokazano, jak zainstalować agenta na maszynie wirtualnej i szybko rozpocząć pracę. wykonano kroki Hello były szybkie i proste. Jednak większość dużych organizacji i przedsiębiorstw ma złożone lokalne infrastruktury IT. Tak zbieranie danych z tych złożonych środowiskach ma dodatkowe planowanie i nakładu niż hello samouczka. Przejrzyj informacje hello w powitania po sekcji Następne kroki artykuły toohelpful łącza.
 
-Opcjonalnie można usunąć obszar roboczy utworzony za pomocą tego samouczka.
+Opcjonalnie można usunąć obszaru roboczego hello, które zostały utworzone z tego samouczka.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o łączeniu [agentów systemu Windows](log-analytics-windows-agents.md) z usługą Log Analytics.
-* Dowiedz się więcej o łączeniu [agentów programu Operations Manager](log-analytics-om-agents.md) z usługą Log Analytics.
-* [Dodaj rozwiązania Log Analytics z galerii rozwiązań](log-analytics-add-solutions.md), aby dodać funkcje i zebrać dane.
-* Zapoznaj się z [wyszukiwaniem w dziennikach](log-analytics-log-searches.md), aby wyświetlić szczegółowe informacje zebrane przez rozwiązania.
+* Dowiedz się więcej o nawiązywaniu połączeń [agentów systemu Windows](log-analytics-windows-agents.md) tooLog Analytics.
+* Dowiedz się więcej o nawiązywaniu połączeń [agenty programu Operations Manager](log-analytics-om-agents.md) tooLog Analytics.
+* [Dodawanie rozwiązania analizy dzienników z galerii rozwiązań hello](log-analytics-add-solutions.md) tooadd funkcjonalność i zbieranie danych.
+* Zapoznaj się z [dziennika wyszukiwania](log-analytics-log-searches.md) tooview szczegółowe informacje zebrane przez rozwiązania.

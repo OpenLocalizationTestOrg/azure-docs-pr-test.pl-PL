@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie profilami usługi Azure Traffic Manager | Microsoft Docs"
+title: "profile Menedżera ruchu Azure aaaManage | Dokumentacja firmy Microsoft"
 description: "Ten artykuł ułatwia tworzenie, wyłączanie, włączanie i usuwanie profilu usługi Azure Traffic Manager."
 services: traffic-manager
 documentationcenter: 
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0c6ab0c451581d039514a9de0b525b3937e45a85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Zarządzanie profilem usługi Azure Traffic Manager
 
-Profile usługi Traffic Manager wykorzystują metody routingu ruchu do sterowania dystrybucją ruchu do usług w chmurze lub punktów końcowych witryny sieci Web. W tym artykule opisano sposób tworzenia tych profili i zarządzania nimi.
+Profilów usługi Traffic Manager przy użyciu routingu ruchu metody toocontrol hello dystrybucji ruchu usługi w chmurze tooyour lub punktów końcowych witryny sieci Web. W tym artykule opisano sposób toocreate tych profilów i zarządzania nimi.
 
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
-Profil usługi Traffic Manager można utworzyć za pomocą witryny Azure Portal. Po utworzeniu profilu w witrynie Azure Portal można skonfigurować punkty końcowe, monitorowanie i inne ustawienia. Usługa Traffic Manager obsługuje maksymalnie 200 punktów końcowych dla profilu. Większość scenariuszy użycia wymaga jednak niewielkiej liczby punktów końcowych.
+Można utworzyć profilu usługi Traffic Manager przy użyciu hello portalu Azure. Po utworzeniu profilu, można skonfigurować w portalu Azure hello punkty końcowe, monitorowanie i inne ustawienia. Obsługuje punktów końcowych too200 dla profilu Menedżera ruchu. Większość scenariuszy użycia wymaga jednak niewielkiej liczby punktów końcowych.
 
-### <a name="to-create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
+### <a name="toocreate-a-traffic-manager-profile"></a>toocreate profilu Menedżera ruchu
 
-1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com). Jeśli jeszcze nie masz konta, możesz skorzystać z [bezpłatnej miesięcznej wersji próbnej](https://azure.microsoft.com/free/). 
-2. W menu **Centrum** kliknij pozycje **Nowy** > **Sieć** > **Zobacz wszystkie**, kliknij profil usługi **Traffic Manager**, aby otworzyć blok **Tworzenie profilu usługi Traffic Manager**, a następnie kliknij przycisk **Utwórz**.
-3. W bloku **Tworzenie profilu usługi Traffic Manager** podaj następujące informacje:
-    1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi być unikatowa w obrębie strefy trafficmanager.net. Na jej podstawie zostanie utworzona nazwa DNS <name>, trafficmanager.net służąca do uzyskiwania dostępu do profilu usługi Traffic Manager.
-    2. W obszarze **Metoda routingu** wybierz metodę routingu **Priorytet**.
-    3. W obszarze **Subskrypcja** wybierz subskrypcję, w ramach której ma zostać utworzony ten profil.
-    4. W obszarze **Grupy zasobów** utwórz nową grupę zasobów, w której zostanie umieszczony ten profil.
-    5. W obszarze **Lokalizacja grupy zasobów** wybierz lokalizację grupy zasobów. To ustawienie dotyczy lokalizacji grupy zasobów i nie ma wpływu na profil usługi Traffic Manager, który będzie wdrażany globalnie.
+1. W przeglądarce, zaloguj się toohello [portalu Azure](http://portal.azure.com). Jeśli jeszcze nie masz konta, możesz skorzystać z [bezpłatnej miesięcznej wersji próbnej](https://azure.microsoft.com/free/). 
+2. Na powitania **Centrum** menu, kliknij przycisk **nowy** > **sieci** > **zobaczyć wszystkie**, kliknij przycisk **ruchu Menedżer** hello tooopen profilu **profilu usługi Traffic Manager utwórz** bloku, następnie kliknij przycisk **Utwórz**.
+3. Na powitania **profilu usługi Traffic Manager utwórz** bloku ukończenia w następujący sposób:
+    1. W polu **Nazwa** podaj nazwę profilu. Ta nazwa musi toobe unikatowa w ramach strefy trafficmanager.net hello i powoduje nazwy DNS hello <name>, trafficmanager.net, która jest używana tooaccess profil Menedżera ruchu.
+    2. W **metody routingu**, wybierz pozycję hello **priorytet** metody routingu.
+    3. W **subskrypcji**, wybierz hello subskrypcję toocreate tego profilu, w obszarze
+    4. W **grupy zasobów**, Utwórz nowy tooplace grupy zasobów tego profilu.
+    5. W **lokalizacja grupy zasobów**, wybierz lokalizację hello hello grupy zasobów. To ustawienie dotyczy lokalizacji toohello hello grupy zasobów i nie ma wpływu na powitania profilu Menedżera ruchu, który będzie wdrażany globalnie.
     6. Kliknij przycisk **Utwórz**.
-    7. Po zakończeniu globalnego wdrażania profilu usługi Traffic Manager zostanie on wyświetlony w odpowiedniej grupie zasobów jako jeden z zasobów.
+    7. Po zakończeniu hello globalne wdrażania profilu usługi Traffic Manager znajduje się on w grupie zasobów odpowiednich jako jeden z zasobów hello.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Wyłączanie, włączanie lub usuwanie profilu
 
-Istniejący profil można wyłączyć, aby w usłudze Traffic Manager żądania użytkowników nie odwoływały się do skonfigurowanych punktów końcowych. Po wyłączeniu profilu usługi Traffic Manager profil i informacje w nim zawarte pozostają nienaruszone i można je edytować w interfejsie usługi Traffic Manager.  Działanie odwołań zostaje wznowione po ponownym włączeniu profilu. Po utworzeniu w witrynie Azure Portal profil usługi Traffic Manager zostanie automatycznie włączony. Jeśli zdecydujesz, że profil nie będzie już potrzebny, możesz go usunąć.
+Dzięki tym menedżera ruchu nie odwołuje się punkty końcowe skonfigurowane toohello żądań użytkownika, można wyłączyć istniejącego profilu. Po wyłączeniu profilu usługi Traffic Manager profilu hello hello informacje zawarte w profilu hello pozostaną nienaruszone i można edytować w interfejsie usługi Traffic Manager hello.  Odwołania wznowiona po ponownym włączeniu hello profilu. Po utworzeniu profilu usługi Traffic Manager w portalu Azure hello jest automatycznie włączone. Jeśli zdecydujesz, że profil nie będzie już potrzebny, możesz go usunąć.
 
-### <a name="to-disable-a-profile"></a>Aby wyłączyć profil
+### <a name="toodisable-a-profile"></a>toodisable profilu
 
-1. Jeśli używasz niestandardowej nazwy domeny, zmień rekord CNAME na internetowym serwerze DNS, tak aby nie odwoływał się on już do profilu usługi Traffic Manager.
-2. Ruch przestanie być kierowany do punktów końcowych za pomocą ustawień profilu usługi Traffic Manager.
-3. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com).
-2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**. W bloku Przegląd kliknij pozycję **Wyłącz**, a następnie potwierdź wyłączenie profilu usługi Traffic Manager.
+1. Jeśli korzystasz z niestandardowej nazwy domeny, należy zmienić rekord CNAME hello na internetowym serwerze DNS, które nie wskazuje tooyour profilu usługi Traffic Manager.
+2. Ruch przestanie być kierowany do punktów końcowych toohello za pomocą ustawień profilu usługi Traffic Manager hello.
+3. W przeglądarce, zaloguj się toohello [portalu Azure](http://portal.azure.com).
+2. Na pasku wyszukiwania portalu hello, wyszukaj hello **profilu usługi Traffic Manager** nazwę mają toomodify, a następnie kliknij profil Menedżera ruchu hello hello wyniki tego hello wyświetlane.
+3. W hello **profilu usługi Traffic Manager** bloku, kliknij przycisk **omówienie**, w bloku omówienie powitania kliknij **wyłączyć**i Potwierdź profil Menedżera ruchu hello toodisable.
 
-### <a name="to-enable-a-profile"></a>Aby włączyć profil
+### <a name="tooenable-a-profile"></a>tooenable profilu
 
-1. Z poziomu przeglądarki zaloguj się do witryny [Azure Portal](http://portal.azure.com).
-2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**, a następnie w bloku Przegląd kliknij pozycję **Włącz**.
-5. Jeśli używasz niestandardowej nazwy domeny, utwórz rekord zasobu CNAME na internetowym serwerze DNS, aby ustawić odwołanie do nazwy domeny profilu usługi Traffic Manager.
-6. Ruch zostanie ponownie skierowany do punktów końcowych.
+1. W przeglądarce, zaloguj się toohello [portalu Azure](http://portal.azure.com).
+2. Na pasku wyszukiwania portalu hello, wyszukaj hello **profilu usługi Traffic Manager** nazwę mają toomodify, a następnie kliknij profil Menedżera ruchu hello hello wyniki tego hello wyświetlane.
+3. W hello **profilu Menedżera ruchu** bloku, kliknij przycisk **omówienie**, a następnie w bloku omówienie powitania kliknij pozycję **włączyć**.
+5. Jeśli korzystasz z niestandardowej nazwy domeny, należy utworzyć rekord zasobu CNAME na nazwę domeny DNS w Internecie serwera toopoint toohello Twojego profilu Menedżera ruchu.
+6. Ruch ponownie jest bezpośrednie toohello punktów końcowych.
 
-### <a name="to-delete-a-profile"></a>Aby usunąć profil
+### <a name="toodelete-a-profile"></a>toodelete profilu
 
-1. Upewnij się, że rekord zasobu DNS na serwerze DNS w sieci Internet nie używa już rekordu zasobu CNAME, który wskazuje nazwę domeny profilu usługi Traffic Manager.
-2. Korzystając z paska wyszukiwania portalu, wyszukaj nazwę **profilu usługi Traffic Manager**, który chcesz zmodyfikować, a następnie kliknij profil usługi Traffic Manager w wyświetlonych wynikach wyszukiwania.
-3. W bloku **Profil usługi Traffic Manager** kliknij pozycję **Przegląd**. W bloku Przegląd kliknij pozycję **Usuń**, a następnie potwierdź usunięcie profilu usługi Traffic Manager.
+1. Upewnij się, że hello rekord zasobu DNS na internetowym serwerze DNS nie używa już rekordu zasobu CNAME, który wskazuje toohello nazwę domeny profilu usługi Traffic Manager.
+2. Na pasku wyszukiwania portalu hello, wyszukaj hello **profilu usługi Traffic Manager** nazwę mają toomodify, a następnie kliknij profil Menedżera ruchu hello hello wyniki tego hello wyświetlane.
+3. W hello **profilu usługi Traffic Manager** bloku, kliknij przycisk **omówienie**, w bloku omówienie powitania kliknij **usunąć**i Potwierdź profil Menedżera ruchu hello toodelete.
 
 ## <a name="next-steps"></a>Następne kroki
 

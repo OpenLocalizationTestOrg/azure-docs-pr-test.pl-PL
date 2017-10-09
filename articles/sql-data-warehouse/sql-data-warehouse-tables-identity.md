@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie kluczy dwuskładnikowego przy użyciu tożsamości | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie korzystania z tożsamości do tworzenia kluczy Surogat na tabelach."
+title: "klucze Surogat aaaCreate przy użyciu tożsamości | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse tożsamości toocreate Surogat kluczy w tabelach."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 06/13/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 3ab5d159e6eaeb830135fe134e108b0e4de4b7d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 502cdd2b510b229b2a19c1f78b11862a7386ae3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>Tworzenie kluczy dwuskładnikowego przy użyciu tożsamości
 > [!div class="op_single_selector"]
@@ -33,10 +33,10 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Do tworzenia kluczy Surogat na ich tabel, podczas projektowania modeli magazynu danych, takich jak wiele Modelarze danych. Właściwość IDENTITY można używać na osiągnięcie tego celu po prostu i efektywnie bez wpływu na wydajność obciążenia. 
+Wiele Modelarze danych, takich jak klucze Surogat toocreate na ich tabel podczas projektowania modeli magazynu danych. Umożliwia tooachieve właściwość IDENTITY hello w tym celu po prostu i efektywnie bez wpływu na wydajność obciążenia. 
 
 ## <a name="get-started-with-identity"></a>Rozpoczynanie pracy z tożsamości
-Można zdefiniować tabelę jako mający właściwość IDENTITY podczas tworzenia tabeli za pomocą składni, która jest podobna do następującej instrukcji:
+Można zdefiniować tabelę jako mający właściwość IDENTITY hello podczas tworzenia tabeli hello przy użyciu składni, która jest podobne toohello następującej instrukcji:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -50,15 +50,15 @@ WITH
 ;
 ```
 
-Następnie można użyć `INSERT..SELECT` do wypełnienia tabeli.
+Następnie można użyć `INSERT..SELECT` toopopulate hello tabeli.
 
 ## <a name="behavior"></a>Zachowanie
-Właściwość IDENTITY jest przeznaczona do skalują poza wszystkie dystrybucje w magazynie danych bez wpływu na wydajność obciążenia. W związku z tym implementacja tożsamości jest zorientowany osiągnięcie tych celów. W tej sekcji przedstawiono wszystkie szczegóły implementacji, aby ułatwić zrozumienie ich dokładniejszego.  
+Hello właściwość IDENTITY jest zaprojektowana tooscale się we wszystkich dystrybucje hello w magazynie danych hello bez wpływu na wydajność obciążenia. W związku z tym implementacja hello tożsamości jest zorientowany osiągnięcie tych celów. W tej sekcji przedstawiono wszystkie szczegóły hello z toohelp implementacji hello rozumiesz je w pełnym.  
 
 ### <a name="allocation-of-values"></a>Alokacja wartości
-Właściwość IDENTITY nie gwarantuje kolejność, w którym są przydzielane wartości Surogat, odzwierciedla zachowanie programu SQL Server i bazy danych SQL Azure. Jednak w usłudze Azure SQL Data Warehouse, braku gwarancji jest większa. 
+Witaj właściwość IDENTITY nie gwarantuje kolejności hello w których hello Surogat wartości są przydzielone, która odzwierciedla hello zachowanie programu SQL Server i bazy danych SQL Azure. Jednak w usłudze Azure SQL Data Warehouse, braku hello gwarancji jest większa. 
 
-Poniższy przykład jest ilustracji:
+Poniższy przykład Hello jest ilustracji:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -83,29 +83,29 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-Dwa wiersze w powyższym przykładzie jest dystrybucji 1. Pierwszy wiersz zawiera wartość dwuskładnikowego 1 w kolumnie `C1`, a drugi wiersz zawiera wartość zastępcza 61. Obie te wartości zostały wygenerowane przez właściwość tożsamości. Jednak alokacji wartości nie jest ciągły. To zachowanie jest celowe.
+Dwa wiersze w hello poprzedzających przykładzie, jest dystrybucji 1. Hello pierwszy wiersz zawiera wartość zastępcza hello 1 w kolumnie `C1`, a drugim wierszu hello ma wartość zastępcza hello 61. Obie te wartości zostały wygenerowane przez hello właściwość IDENTITY. Jednak alokacji hello hello wartości nie jest ciągły. To zachowanie jest celowe.
 
 ### <a name="skewed-data"></a>Spowodowałoby zafałszowanie danych 
-Zakres wartości dla typu danych są rozmieszczone równomiernie w obrębie dystrybucje. Jeśli tabela rozproszona odczuwa spowodowałoby zafałszowanie danych, dostępna na typ danych wartości z zakresu można wyczerpane przedwcześnie. Na przykład jeśli wszystkie dane kończy się w jednym dystrybucji, następnie efektywnie tabeli ma dostęp do tylko jednej szóstej wartości typu danych. Z tego powodu właściwość IDENTITY jest ograniczona do `INT` i `BIGINT` tylko typy danych.
+zakres wartości dla typu danych hello Hello są rozmieszczone równomiernie w obrębie hello dystrybucji. Jeśli tabela rozproszona odczuwa spowodowałoby zafałszowanie danych, następnie hello zakres wartości, które można wyczerpany przedwcześnie datatype toohello dostępne. Na przykład, jeśli wszystkie dane hello kończy się w jednym dystrybucji, następnie efektywnie hello tabela ma dostęp tooonly jednej szóstej hello wartości typu danych hello. Z tego powodu hello właściwość IDENTITY jest ograniczona zbyt`INT` i `BIGINT` tylko typy danych.
 
 ### <a name="selectinto"></a>WYBIERZ... DO
-Zaznaczenie istniejącej kolumny tożsamości do nowej tabeli nowej kolumny, która dziedziczy właściwości tożsamości, chyba że jest spełniony jeden z następujących warunków:
-- Instrukcja SELECT zawiera sprzężenia.
+Po wybraniu istniejące kolumny tożsamości do nowej tabeli hello nowa kolumna dziedziczy właściwość IDENTITY hello, chyba że jest spełniony jeden z hello następujące warunki:
+- Instrukcja SELECT Hello zawiera sprzężenia.
 - Wiele instrukcji "SELECT" są sprzęgane przy użyciu UNION.
-- Kolumna tożsamości jest wymieniona więcej niż jeden raz na liście wyboru.
-- Kolumna tożsamości jest częścią wyrażenia typu.
+- Kolumna tożsamości Hello jest wymieniona więcej niż jeden raz na liście wyboru hello.
+- Kolumna tożsamości Hello jest częścią wyrażenia.
     
-Jeśli jeden z tych warunków jest prawdziwy, kolumna jest tworzony NOT NULL zamiast dziedziczenia właściwości tożsamości.
+Jeśli jeden z tych warunków jest prawdziwy, kolumny hello jest tworzony NOT NULL zamiast dziedziczenia hello właściwość IDENTITY.
 
 ### <a name="create-table-as-select"></a>UTWÓRZ TABLE AS SELECT
-Tworzenie tabeli jako wybierz (CTAS) następuje tego samego zachowania programu SQL Server jest udokumentowany wybierz pozycję... DO. Jednak nie można określić właściwości tożsamości w definicji kolumny `CREATE TABLE` element instrukcji. Ponadto nie można używać funkcji IDENTITY w `SELECT` częścią CTAS. Aby wypełnić tabeli, należy użyć `CREATE TABLE` do definiowania tabeli, a następnie `INSERT..SELECT` aby wypełnić go.
+Sposób tworzenia tabeli jako wybierz (CTAS) hello takie samo zachowanie programu SQL Server, który opisano w wybierz... DO. Jednak nie można określić właściwości tożsamości w definicji kolumny hello hello `CREATE TABLE` element hello instrukcji. Można także nie można użyć funkcji IDENTITY hello w hello `SELECT` częścią hello CTAS. toopopulate tabeli, potrzebujesz toouse `CREATE TABLE` toodefine hello tabeli następuje `INSERT..SELECT` toopopulate go.
 
 ## <a name="explicitly-insert-values-into-an-identity-column"></a>Jawnie wstawić wartości w kolumnie tożsamości 
-Magazyn danych SQL obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składni. Ta składnia umożliwia jawnie wstawić wartości w kolumnie tożsamości.
+Magazyn danych SQL obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składni. Możesz użyć tej składni tooexplicitly Wstaw wartości w kolumnie tożsamości hello.
 
-Aby użyć wstępnie zdefiniowanych wartości ujemnych dla niektórych wierszy wymiarami, takich jak wiele Modelarze danych. Przykładem jest wiersza "Nieznany element członkowski" lub wartość -1. 
+Wiele Modelarze danych jak toouse ujemna wstępnie zdefiniowanych wartości dla niektórych wierszy wymiarami. Przykładem jest hello -1 lub "Nieznany element członkowski" wiersza. 
 
-Skrypt dalej pokazano, jak jawnie dodać ten wiersz za pomocą USTAWIĆ atrybut IDENTITY_INSERT:
+skrypt dalej Hello pokazuje, jak dodać ten wiersz tooexplicitly przy użyciu USTAWIONY atrybut IDENTITY_INSERT:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -126,12 +126,12 @@ FROM    dbo.T1
 
 ## <a name="load-data-into-a-table-with-identity"></a>Ładowanie danych do tabeli o tożsamości
 
-Obecność właściwości tożsamości implikacje niektórych kodu ładowania danych. W tej sekcji opisano niektóre z wzorców podstawowych ładowania danych do tabel za pomocą tożsamości. 
+obecność Hello hello właściwość IDENTITY ma niektórych kod ładowania danych tooyour skutki. W tej sekcji opisano niektóre z wzorców podstawowych ładowania danych do tabel za pomocą tożsamości. 
 
 ### <a name="load-data-with-polybase"></a>Ładowanie danych za pomocą usługi PolyBase
-Aby załadować dane do tabeli i generowanie klucza dwuskładnikowego przy użyciu tożsamości, należy utworzyć tabeli, a następnie użyć INSERT... Wybierz lub Wstaw... WARTOŚCI do wykonania obciążenia.
+tooload dane do tabeli i generowanie klucza dwuskładnikowego przy użyciu tożsamości, Utwórz tabelę hello, a następnie użyć INSERT... Wybierz lub Wstaw... WARTOŚCI tooperform hello obciążenia.
 
-Poniższy przykład prezentuje podstawowy wzorzec:
+Witaj poniższy przykład prezentuje hello podstawowy wzorzec:
  
 ```sql
 --CREATE TABLE with IDENTITY
@@ -145,7 +145,7 @@ WITH
 )
 ;
 
---Use INSERT..SELECT to populate the table from an external table
+--Use INSERT..SELECT toopopulate hello table from an external table
 INSERT INTO dbo.T1
 (C2)
 SELECT  C2
@@ -160,28 +160,28 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Nie jest możliwe użycie `CREATE TABLE AS SELECT` obecnie, podczas ładowania danych do tabeli z kolumną tożsamości.
+> Nie jest możliwe toouse `CREATE TABLE AS SELECT` obecnie, podczas ładowania danych do tabeli z kolumną tożsamości.
 > 
 
-Aby uzyskać więcej informacji na ładowanie danych przy użyciu narzędzia (BCP) programu kopiowania zbiorczego zobacz następujące artykuły:
+Aby uzyskać więcej informacji na ładowanie danych przy użyciu narzędzia (BCP) programu do kopiowania zbiorczego hello zobacz następujące artykuły hello:
 
 - [Obciążenia przy użyciu programu PolyBase][]
 - [Najlepsze rozwiązania w zakresie programu PolyBase][]
 
 ### <a name="load-data-with-bcp"></a>Ładowanie danych za pomocą narzędzia BCP
-BCP jest narzędziem wiersza polecenia, które umożliwia ładowanie danych do usługi SQL Data Warehouse. Jeden z jego parametrów (-E) steruje zachowaniem BCP podczas ładowania danych do tabeli z kolumną tożsamości. 
+BCP jest narzędziem wiersza polecenia, których można używać tooload danych do usługi SQL Data Warehouse. Jeden z jego parametrów (-E) kontrolki hello zachowanie BCP podczas ładowania danych do tabeli z kolumną tożsamości. 
 
-W przypadku -E wartości przechowywane w pliku wejściowym dla kolumny o tożsamości są zachowywane. Jeśli jest -E *nie* określone wartości w tej kolumnie są ignorowane. Jeśli w kolumnie tożsamości nie jest dołączony, dane są ładowane normalnego. Wartości są generowane zgodnie z zasadami inkrementacji i inicjatora właściwości.
+W przypadku -E hello wartości przechowywane w pliku wejściowym hello hello kolumny o tożsamości są zachowywane. Jeśli jest -E *nie* określone wartości hello w tej kolumnie są ignorowane. Jeśli nie dołączono hello kolumny tożsamości, dane hello są ładowane normalnego. wartości Hello są generowane, zgodnie z toohello inkrementacji i inicjatora zasad hello właściwości.
 
-Aby uzyskać więcej informacji na ładowanie danych przy użyciu narzędzia BCP zobacz następujące artykuły:
+Aby uzyskać więcej informacji na ładowanie danych przy użyciu narzędzia BCP Zobacz hello następujące artykuły:
 
 - [Obciążenia za pomocą narzędzia BCP][]
 - [Narzędzie BCP w witrynie MSDN][]
 
 ## <a name="catalog-views"></a>Widoków wykazu
-Magazyn danych SQL obsługuje `sys.identity_columns` widoku katalogu. W tym widoku można zidentyfikować kolumny, która ma właściwość IDENTITY.
+Magazyn danych SQL obsługuje hello `sys.identity_columns` widoku katalogu. Ten widok może być używane tooidentify kolumny, która ma właściwość IDENTITY hello.
 
-Aby lepiej zrozumieć schemat bazy danych, w tym przykładzie pokazano, jak zintegrować `sys.identity_columns` z innymi widokami katalog systemu:
+toohelp lepiej zrozumieć hello schematu bazy danych, w tym przykładzie pokazano sposób toointegrate `sys.identity_columns` z innymi widokami katalog systemu:
 
 ```sql
 SELECT  sm.name
@@ -202,12 +202,12 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Ograniczenia
-Właściwość IDENTITY nie można użyć w następujących scenariuszach:
-- Gdy typ danych kolumny nie jest INT lub BIGINT
-- Gdzie kolumna jest również dystrybucji kluczy
-- Gdy tabela jest tabeli zewnętrznej 
+Nie można użyć Hello właściwość IDENTITY w hello następujące scenariusze:
+- Gdzie hello kolumny danych nie jest typu INT lub BIGINT
+- Kiedy kolumny hello jest również hello dystrybucji kluczy
+- Gdy tabela hello jest tabeli zewnętrznej 
 
-Następujące funkcje pokrewne nie są obsługiwane w usłudze SQL Data Warehouse:
+następujące funkcje pokrewne Hello nie są obsługiwane w usłudze SQL Data Warehouse:
 
 - [IDENTITY()][]
 - [@@IDENTITY][]
@@ -219,22 +219,22 @@ Następujące funkcje pokrewne nie są obsługiwane w usłudze SQL Data Warehous
 
 ## <a name="tasks"></a>Zadania
 
-Ta sekcja zawiera niektóre przykładowy kod służący do wykonywania typowych zadań, podczas pracy z kolumn tożsamości.
+Ta sekcja zawiera niektóre przykładowy kod tooperform typowych zadań można użyć podczas pracy z kolumn tożsamości.
 
 > [!NOTE] 
-> Kolumna C1 jest tożsamość w następujące zadania.
+> Kolumna C1 jest hello tożsamości w hello wszystkie następujące zadania.
 > 
  
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Znajdź największa wartość przydzielonego dla tabeli
-Użyj `MAX()` funkcji, aby ustalić najwyższą wartość przydzielone dla tabeli rozproszonych:
+### <a name="find-hello-highest-allocated-value-for-a-table"></a>Znajdź wartość hello najwyższy przydzielone dla tabeli
+Użyj hello `MAX()` funkcji toodetermine hello najwyższą wartość przydzielone dla tabeli rozproszonych:
 
 ```sql
 SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Znajdź początkowej i wartości przyrostu dla właściwości tożsamości
-Widokach katalogów służy do odnajdywania inkrementacji i inicjatora konfiguracji wartości tożsamości dla tabeli za pomocą następującej kwerendy: 
+### <a name="find-hello-seed-and-increment-for-hello-identity-property"></a>Znaleźć hello początkowej i wartości przyrostu hello właściwość IDENTITY
+Możesz użyć hello katalogu widoków toodiscover hello tożsamości inkrementacji i inicjatora konfiguracji wartości dla tabeli za pomocą hello następujące zapytania: 
 
 ```sql
 SELECT  sm.name
@@ -254,7 +254,7 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat tworzenia tabel, zobacz [omówienie tabeli][Overview], [typów danych tabeli][Data Types], [dystrybucji tabeli] [ Distribute], [Indeksu tabeli][Index], [partycji tabeli][Partition], i [ Tabele tymczasowe][Temporary]. 
+* toolearn więcej informacji na temat tworzenia tabel, zobacz [omówienie tabeli][Overview], [typów danych tabeli][Data Types], [dystrybucji tabeli] [ Distribute], [Indeksu tabeli][Index], [partycji tabeli][Partition], i [ Tabele tymczasowe][Temporary]. 
 * Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania w zakresie usługi SQL Data Warehouse][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->

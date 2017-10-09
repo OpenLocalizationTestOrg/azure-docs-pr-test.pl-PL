@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązanie predykcyjne do oceny ryzyka kredytowego w usłudze Machine Learning | Microsoft Docs"
-description: "Szczegółowy przewodnik pokazujący sposób tworzenia rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning Studio."
+title: "rozwiązanie predykcyjne aaaA do ryzyka kredytowego w usłudze Machine Learning | Dokumentacja firmy Microsoft"
+description: "Szczegółowy przewodnik pokazujący sposób toocreate rozwiązania analizy predykcyjnej kredytu ocena ryzyka w usłudze Azure Machine Learning Studio."
 keywords: "ryzyko kredytowe, rozwiązanie analizy predykcyjnej, ocena ryzyka"
 services: machine-learning
 documentationcenter: 
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: e1af999b2fde8ffa2a0ffd1b88230f0aaab32b37
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00ed39081e6952b8d03b37a8285d8dc3ddff2cb4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Przewodnik: tworzenie rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning
 
-W tym przewodniku przedstawiono szczegółowo proces opracowywania rozwiązania do analizy predykcyjnej w usłudze Machine Learning Studio. Opracowaliśmy prosty model w usłudze Machine Learning Studio, a następnie wdrożyliśmy go w postaci usługi sieci Web Azure Machine Learning, w której model może tworzyć prognozy przy użyciu nowych danych. 
+W tym przewodniku traktujemy rozszerzonej przyjrzeć hello procesu tworzenia rozwiązania analizy predykcyjnej w usłudze Machine Learning Studio. Firma Microsoft opracowywanie prostego modelu w usłudze Machine Learning Studio, a następnie wdrożyć go jako usługi sieci web Azure Machine Learning, gdzie hello modelu można przewidzieć przy użyciu nowych danych. 
 
 W tym przewodniku przyjęto założenie, że co najmniej raz użyto wcześniej usługi Machine Learning Studio oraz że znasz niektóre pojęcia związane z uczeniem maszynowym. Nie zakładamy jednak, że jesteś ekspertem w którejkolwiek z tych dziedzin.
 
-Jeśli nigdy wcześniej nie używano usługi **Azure Machine Learning Studio**, możesz najpierw skorzystać z samouczka [Tworzenie pierwszego eksperymentu dotyczącego przetwarzania danych w usłudze Azure Machine Learning Studio](machine-learning-create-experiment.md). Ten samouczek przedstawia pracę z usługą Machine Learning Studio po raz pierwszy. Podstawowe informacje przedstawione w tym samouczku obejmują przeciąganie modułów i upuszczanie ich w obszarze eksperymentu, łączenie modułów ze sobą, uruchamianie eksperymentu oraz przeglądanie wyników. Inne narzędzie, które może być pomocne przy rozpoczynaniu pracy, to diagram zawierający omówienie możliwości usługi Machine Learning Studio. Możesz go pobrać i wydrukować tutaj: [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+Jeśli nie znasz **Azure Machine Learning Studio** przed może być toostart z samouczka hello [Utwórz pierwszy połączenie analiz danych eksperymentu w usłudze Azure Machine Learning Studio](machine-learning-create-experiment.md). Ten samouczek przedstawia Machine Learning Studio na powitania po raz pierwszy. Przedstawia on hello podstawy modułów jak toodrag i upuść na eksperymentu, je połączyć ze sobą, uruchom eksperyment hello i przyjrzyj się hello wyników. Kolejnym narzędziem, które mogą być pomocne w ramach wprowadzenia jest diagram, który zawiera omówienie funkcji hello usługi Machine Learning Studio. Możesz go pobrać i wydrukować tutaj: [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
  
-Jeśli uczenie maszynowe to dla Ciebie nowość, możesz skorzystać z serii pomocnych filmów wideo. Jest ona zatytułowana [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) (Analiza danych dla początkujących) i oferuje znakomite wprowadzenie do uczenia maszynowego przedstawione przy użyciu codziennego języka i pojęć.
+Jeśli nowe pole toohello ogólnie uczenia maszynowego, brak seria filmów, które mogą okazać się przydatne tooyou. Jest to [nauki danych dla początkujących](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) go umożliwiają wprowadzenie dużą learning toomachine, przy użyciu języka codzienne oraz pojęcia.
 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
  
 
-## <a name="the-problem"></a>Problem
+## <a name="hello-problem"></a>Witaj problem
 
-Załóżmy, że chcesz przewidzieć ryzyko kredytowe osoby na podstawie informacji przekazanych we wniosku kredytowym.  
+Załóżmy, że należy toopredict ryzyko kredytowe osoby na podstawie hello informacji przez ich nadać we wniosku kredytowym.  
 
-Ocenia ryzyka kredytowego to złożony problem, ale ułatwimy ją nieco dzięki informacjom podanym w tym przewodniku. Użyjemy jej jako przykładu sposobu tworzenia rozwiązania do analizy predykcyjnej przy użyciu usługi Microsoft Azure Machine Learning. W tym celu skorzystamy z usługi Azure Machine Learning Studio i usługi sieci Web Machine Learning.  
+Ocenia ryzyka kredytowego to złożony problem, ale ułatwimy ją nieco dzięki informacjom podanym w tym przewodniku. Użyjemy jej jako przykładu sposobu tworzenia rozwiązania do analizy predykcyjnej przy użyciu usługi Microsoft Azure Machine Learning. toodo, używamy Azure Machine Learning Studio i usługi sieci web usługi Machine Learning.  
 
-## <a name="the-solution"></a>Rozwiązanie
+## <a name="hello-solution"></a>Witaj rozwiązania
 
-Pracę z tym szczegółowym przewodnikiem rozpoczniemy od publicznie dostępnych danych ryzyka kredytowego oraz utworzenia i uczenia modelu predykcyjnego na podstawie tych danych. Następnie wdrożymy model jako usługę sieci Web, aby inne osoby mogły jej używać do oceny ryzyka kredytowego.
+Pracę z tym szczegółowym przewodnikiem rozpoczniemy od publicznie dostępnych danych ryzyka kredytowego oraz utworzenia i uczenia modelu predykcyjnego na podstawie tych danych. Następnie możemy wdrożyć hello model jako usługę sieci web dzięki mogą być używane przez inne osoby oceny ryzyka kredytowego.
 
-Aby utworzyć to rozwiązanie do oceny ryzyka kredytowego, wykonamy następujące kroki:  
+toocreate to rozwiązanie do oceny ryzyka kredytowej firma Microsoft, wykonaj następujące kroki:  
 
 1. [Tworzenie obszaru roboczego usługi Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Przekazywanie istniejących danych](machine-learning-walkthrough-2-upload-data.md)
 3. [Tworzenie eksperymentu](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Nauczanie i ocena modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Wdrażanie usługi sieci Web](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Uzyskiwanie dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
+4. [Nauczanie i Ewaluacja modeli hello](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Wdrażanie usługi sieci web hello](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Usługa sieci web hello dostępu](machine-learning-walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Funkcjonalną kopię eksperymentu opracowywanego w tym przewodniku można znaleźć w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Otwórz stronę **[Walkthrough — Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Przewodnik — przewidywanie ryzyka kredytowego) i kliknij przycisk **Open in Studio** (Otwórz w usłudze Studio), aby pobrać kopię eksperymentu do obszaru roboczego usługi Machine Learning Studio.
+> Kopia robocza hello eksperymentu, która opracowywania można znaleźć w tym przewodniku w hello [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Przejdź za**[wskazówki - prognozowania ryzyko kredytowe](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)**  i kliknij przycisk **Otwórz w Studio** toodownload kopię eksperymentu hello do obszaru roboczego usługi Machine Learning Studio.
 > 
-> Ten przewodnik jest oparty na uproszczonej wersji przykładowego eksperymentu [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Klasyfikacja binarna: przewidywanie ryzyka kredytowego) dostępnego również w witrynie [Gallery](http://gallery.cortanaintelligence.com/).
+> Ten przewodnik jest oparty na uproszczonej wersji hello przykładowych eksperymentów, [klasyfikacji binarnej: prognozowania ryzyko kredytowe](http://go.microsoft.com/fwlink/?LinkID=525270), są dostępne również w hello [galerii](http://gallery.cortanaintelligence.com/).

@@ -1,6 +1,6 @@
 ---
-title: "Krok 5: Wdrażanie usługi sieci web Machine Learning | Dokumentacja firmy Microsoft"
-description: "Krok 5 opracowanie wskazówki rozwiązanie predykcyjne: Wdrażanie eksperyment predykcyjny w usłudze Machine Learning Studio jako usługę sieci web."
+title: "Krok 5: Wdrażanie usługi sieci web uczenie maszynowe hello | Dokumentacja firmy Microsoft"
+description: "Krok 5 hello opracowanie wskazówki rozwiązanie predykcyjne: Wdrażanie eksperyment predykcyjny w usłudze Machine Learning Studio jako usługę sieci web."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,214 +14,214 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76391010972ed1450bbda8bfb2352c7b22b51ccc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Przewodnik, krok 5. Wdrażanie usługi sieci Web Azure Machine Learning
-Jest to krok piąty tego przewodnika, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-5-deploy-hello-azure-machine-learning-web-service"></a>Wskazówki krok 5: Wdrażanie usługi sieci web Azure Machine Learning hello
+Jest hello krok piątym powitania przewodnika, [tworzenie rozwiązania analizy predykcyjnej w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Tworzenie obszaru roboczego usługi Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Przekazywanie istniejących danych](machine-learning-walkthrough-2-upload-data.md)
 3. [Tworzenie nowego eksperymentu](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Nauczanie i ocena modeli](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. **Wdrażanie usługi sieci Web**
-6. [Uzyskiwanie dostępu do usługi sieci Web](machine-learning-walkthrough-6-access-web-service.md)
+4. [Nauczanie i Ewaluacja modeli hello](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. **Wdrażanie usługi sieci web hello**
+6. [Usługa sieci web hello dostępu](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-Udostępniania możliwość użycia modelu predykcyjnego, który opracowaliśmy w ramach tego przewodnika, możemy go wdrożyć jako usługę sieci web na platformie Azure.
+toogive innych toouse szansy hello model predykcyjny opracowaliśmy w ramach tego przewodnika, możemy wdrożyć go jako usługę sieci web na platformie Azure.
 
-Do tego momentu możemy były zmieniane uczenie modelu. Ale wdrożonej usługi nie będzie przeprowadzenie szkolenia — będzie można wygenerować nowy prognoz przez oceniania oparte na modelu danych wejściowych użytkownika. Dlatego chcemy są pewne przygotowania można przekonwertować tego doświadczenia z ***szkolenia*** eksperymentu do ***predykcyjnej*** eksperymentu. 
+Zapasowej punktu toothis możemy były zmieniane uczenie modelu. Ale hello wdrożona usługa ma już szkolenia toodo — będzie prognoz nowe toogenerate przez oceniania danych wejściowych użytkownika hello oparte na modelu. Dlatego chcemy toodo niektórych tooconvert przygotowania, to eksperymentować z ***szkolenia*** eksperymentu tooa ***predykcyjnej*** eksperymentu. 
 
 Jest to proces trzech etapów:  
 
-1. Usuń jeden z modeli
-2. Konwertuj *eksperyment uczenia* utworzyliśmy do *eksperyment predykcyjny*
-3. Wdrażanie eksperyment predykcyjny jako usługę sieci web
+1. Usuń jeden z modeli hello
+2. Konwertuj hello *eksperyment uczenia* utworzyliśmy do *eksperyment predykcyjny*
+3. Wdrażanie hello eksperyment predykcyjny jako usługę sieci web
 
-## <a name="remove-one-of-the-models"></a>Usuń jeden z modeli
+## <a name="remove-one-of-hello-models"></a>Usuń jeden z modeli hello
 
-Najpierw musimy nieco trim tego eksperymentu w dół. Obecnie istnieją dwa różne modele w eksperymencie, ale chcemy używać jednego modelu do nas wdrażania to jako usługę sieci web.  
+Najpierw należy tootrim tego eksperymentu w dół nieco. Obecnie istnieją dwa różne modele w eksperymencie hello, ale będą tylko jeden model toouse podczas możemy wdrożyć ją jako usługę sieci web.  
 
-Załóżmy, że decydujesz się, że boosted drzewa modelu działa lepiej niż SVM model. Dlatego najpierw musisz usunąć [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu i modułów, które były używane na potrzeby uczenia go. Warto najpierw utworzyć kopię eksperyment, klikając **Zapisz jako** w dolnej części obszaru roboczego eksperymentu.
+Załóżmy, że firma Microsoft decydujesz się tym hello boosted drzewa model działa lepiej niż hello SVM modelu. Dlatego hello pierwszy element toodo hello Usuń [maszyny wektorowa obsługa Two-Class] [ two-class-support-vector-machine] modułu i hello modułów, które były używane na potrzeby uczenia go. Może być toomake kopię eksperymentu hello najpierw klikając **Zapisz jako** u dołu hello hello eksperymentu kanwy.
 
-Musimy usunąć następujących modułów:  
+Potrzebujemy hello toodelete następujących modułów:  
 
 * [Obsługa Two-Class wektor maszyny][two-class-support-vector-machine]
-* [Uczenie modelu] [ train-model] i [Score Model] [ score-model] modułów, które zostały dołączone do niego
+* [Uczenie modelu] [ train-model] i [Score Model] [ score-model] modułów, które zostały połączone tooit
 * [Normalizuj danych] [ normalize-data] (oba)
-* [Ocena modelu] [ evaluate-model] (ponieważ jesteśmy zakończono ocenę modeli)
+* [Ocena modelu] [ evaluate-model] (ponieważ jesteśmy zakończono ocenę modeli hello)
 
-Wybierz każdego modułu i naciśnij klawisz Delete, lub kliknij prawym przyciskiem myszy moduł i zaznacz **usunąć**. 
+Wybierz każdego modułu i naciśnij klawisz Delete hello lub moduł powitania kliknij prawym przyciskiem myszy i wybierz **usunąć**. 
 
-![Usunięte modelu SVM][3a]
+![Usunięte hello SVM modelu][3a]
 
 Nasz model powinien teraz wyglądać mniej więcej tak:
 
-![Usunięte modelu SVM][3]
+![Usunięte hello SVM modelu][3]
 
-Teraz już wszystko gotowe do wdrożenia tego model przy użyciu [Two-Class Boosted drzewa decyzyjnego][two-class-boosted-decision-tree].
+Teraz jest gotowy toodeploy model to przy użyciu hello [Two-Class Boosted drzewa decyzyjnego][two-class-boosted-decision-tree].
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konwertuj eksperyment uczenia eksperyment predykcyjny
+## <a name="convert-hello-training-experiment-tooa-predictive-experiment"></a>Konwertuj eksperyment predykcyjny tooa hello szkolenia eksperymentu
 
-W celu przygotowania do wdrożenia tego modelu, musimy przekonwertować tej eksperyment uczenia eksperyment predykcyjny. Obejmuje to trzy kroki:
+tooget to modelu gotowe do wdrożenia, potrzebujemy tooconvert to szkolenia eksperyment predykcyjny tooa eksperymentu. Obejmuje to trzy kroki:
 
-1. Zapisz model możemy gdy udało się nauczyć, a następnie zastąp naszych modułów szkoleniowych
-2. TRIM eksperyment, aby usunąć modułów, które były potrzebne tylko w przypadku szkolenia
-3. Zdefiniuj którym usługa sieci web będzie akceptować dane wejściowe i gdzie generuje dane wyjściowe
+1. Zapisz model hello możemy gdy udało się nauczyć, a następnie zastąp naszych modułów szkoleniowych
+2. TRIM hello eksperymentu tooremove modułów, które były potrzebne tylko w przypadku szkolenia
+3. Zdefiniuj gdzie hello usługi sieci web będzie akceptować dane wejściowe i gdzie generuje dane wyjściowe hello
 
-Firma Microsoft może to zrobić ręcznie, ale na szczęście wszystkie trzy kroki można wykonać, klikając **ustawić usługę sieci Web** w dolnej części obszaru roboczego eksperymentu (i wybierając **predykcyjnej usługi sieci Web** opcja).
+Firma Microsoft może to zrobić ręcznie, ale na szczęście wszystkie trzy kroki można wykonać, klikając **ustawić usługę sieci Web** u dołu hello kanwy eksperymentu hello (i wybierając hello **predykcyjnej usługi sieci Web** Opcja).
 
 > [!TIP]
-> Jeśli chcesz bardziej szczegółowe informacje, na co się dzieje podczas konwertowania eksperyment uczenia eksperyment predykcyjny, zobacz [jak przygotować modelu do wdrożenia w usłudze Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Jeśli chcesz bardziej szczegółowe informacje na, co się stanie po przekonwertowaniu tooa eksperymentu uczenia predykcyjnej eksperymentu, zobacz [jak tooprepare modelu do wdrożenia w usłudze Azure Machine Learning Studio](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 Po kliknięciu **ustawić usługę sieci Web**, ma miejsce kilka rzeczy:
 
-* Trenowanego modelu jest konwertowana na jeden **Uczonego modelu** modułu i przechowywane na palecie modułów z lewej strony obszaru roboczego eksperymentu (można znaleźć go w **przeszkolone modele**)
+* Hello uczonego modelu jest przekonwertowanego tooa pojedynczego **Uczonego modelu** modułu i przechowywane w toohello palety modułu hello lewej hello kanwy eksperymentu (można znaleźć go w **przeszkolone modele**)
 * Moduły, które były używane do trenowania zostaną usunięte; w szczególności:
   * [Two-Class Boosted algorytm][two-class-boosted-decision-tree]
   * [Train Model][train-model]
   * [Podział danych][split]
-  * drugi [wykonanie skryptu języka R] [ execute-r-script] moduł, który był używany dla danych testowych
-* Zapisane trenowanego modelu jest dodawany do eksperymentu
-* **Usługi danych wejściowych w sieci Web** i **sieci Web usług** moduły są dodawane (te informacje pozwalają określić gdzie przechodzą w modelu danych użytkownika i jakie dane są zwracane podczas uzyskiwania dostępu do usługi sieci web)
+  * Witaj drugi [wykonanie skryptu języka R] [ execute-r-script] moduł, który był używany dla danych testowych
+* Hello zapisane uczonego modelu zostanie dodany do eksperymentu hello
+* **Usługi danych wejściowych w sieci Web** i **sieci Web usług** moduły są dodawane (te informacje pozwalają określić gdzie wprowadzić dane użytkownika hello hello modelu i jakie dane są zwracane podczas uzyskiwania dostępu do usługi sieci web hello)
 
 > [!NOTE]
-> Widać, że eksperyment został zapisany w dwóch częściach na kartach, które zostały dodane w górnej części obszaru roboczego eksperymentu. Oryginalny eksperyment uczenia się na karcie **eksperyment uczenia**, i nowo utworzony eksperyment predykcyjny podlega **eksperyment predykcyjny**. Eksperyment predykcyjny jest firma Microsoft będzie wdrożyć jako usługę sieci web.
+> Widać, że hello eksperyment został zapisany w dwóch częściach na kartach dodanych u góry hello kanwy eksperymentu hello. Witaj oryginalnego eksperyment uczenia jest karcie hello **eksperyment uczenia**, i podlega hello nowo utworzony eksperyment predykcyjny **eksperyment predykcyjny**. eksperyment predykcyjny Hello jest hello jedną, które firma Microsoft będzie wdrożyć jako usługę sieci web.
 
-Musimy wykonać jednego dodatkowego kroku z tego konkretnego eksperymentu.
-Dodaliśmy dwie [wykonanie skryptu języka R] [ execute-r-script] modułów, aby zapewnić funkcji wagę w odniesieniu do danych. Po prostu lewy, czego potrzeba do uczenie i testowanie, która jest więc firma Microsoft może zająć się tych modułów w ostatnim modelu.
-Usługa Machine Learning Studio usunąć jedną [wykonanie skryptu języka R] [ execute-r-script] modułu po jego usunięciu [podziału] [ split] modułu. Teraz możemy usunąć inny i połączyć [Edytor metadanych] [ metadata-editor] bezpośrednio do [Score Model][score-model].    
+Potrzebujemy tootake jednego dodatkowego kroku z tego konkretnego eksperymentu.
+Dodaliśmy dwie [wykonanie skryptu języka R] [ execute-r-script] tooprovide modułów wagi funkcji toohello danych. Po prostu lewy, czego potrzeba do uczenie i testowanie, który został, firma Microsoft może zająć się tych modułów w hello ostatecznego modelu.
+Usługa Machine Learning Studio usunąć jedną [wykonanie skryptu języka R] [ execute-r-script] modułu usunięcie hello [podziału] [ split] modułu. Teraz można usunąć hello innych i połącz [Edytor metadanych] [ metadata-editor] bezpośrednio za[Score Model][score-model].    
 
 Naszym doświadczeniu powinna wyglądać następująco:  
 
-![Ocenianie trenowanego modelu][4]  
+![Oceniania hello trenowanego modelu.][4]  
 
 > [!NOTE]
-> Możesz się zastanawiać, dlaczego możemy wywołało dataset danych karty kredytowej niemiecki UCI eksperyment predykcyjny. Usługa ma wynik danych użytkownika, nie oryginalnego zestawu danych, więc Dlaczego pozostaw oryginalnego zestawu danych w modelu?
+> Możesz się zastanawiać, dlaczego możemy left hello danych karty kredytowej niemiecki UCI dataset w eksperyment predykcyjny hello. Usługa Hello przechodzi tooscore hello danych użytkownika, nie hello oryginalnego zestawu danych, więc Dlaczego pozostaw hello oryginalnego zestawu danych w modelu hello?
 > 
-> Jest to wartość true, że usługa nie wymaga oryginalnych danych karty kredytowej. Jednak musi schematu dla danych, które obejmują takie informacje jak liczbę kolumn są i kolumny, które są liczbowych. Informacje o schemacie jest interpretować dane użytkownika. Firma Microsoft pozostawić te składniki, połączony, dzięki czemu oceniania moduł ma schemat zestawu danych, gdy usługa jest uruchomiona. Dane nie jest używana, tylko schemat.  
+> Jest PRAWDA, nie wymagają hello oryginalnych danych karty kredytowej hello usługi. Jednak musi hello schematu dla danych, które obejmują takie informacje jak liczbę kolumn są i kolumny, które są liczbowych. Informacje o schemacie jest konieczne toointerpret hello danych użytkownika. Firma Microsoft pozostawić te składniki, połączony, dzięki czemu hello oceniania moduł ma hello schemat zestawu danych podczas hello usługa jest uruchomiona. Witaj danych nie jest używana, tylko hello schematu.  
 > 
 > 
 
-Uruchom eksperyment raz ostatni (kliknij **Uruchom**.) Jeśli chcesz sprawdzić, czy model nadal działa, kliknij przycisk dane wyjściowe [Score Model] [ score-model] moduł i zaznacz **wyświetlanie wyników**. Widać, że oryginalne dane zostanie wyświetlona, wraz z wartości ryzyka środki ("oceniane etykiety") i oceniania wartość prawdopodobieństwa ("wynik prawdopodobieństwa".) 
+Uruchom eksperyment hello raz ostatni (kliknij **Uruchom**.) Nadal działa tooverify, który hello modelu, kliknij przycisk dane wyjściowe hello hello [Score Model] [ score-model] moduł i zaznacz **wyświetlanie wyników**. Widać, że oryginalne dane hello zostanie wyświetlona, wraz z hello środki ryzyka wartość ("oceniane etykiety") i hello oceniania wartość prawdopodobieństwa ("wynik prawdopodobieństwa".) 
 
-## <a name="deploy-the-web-service"></a>Wdrażanie usługi sieci Web
-Eksperyment można wdrożyć jako albo klasycznym usługi sieci web, lub Nowa usługa sieci web, która jest oparta na usłudze Azure Resource Manager.
+## <a name="deploy-hello-web-service"></a>Wdrażanie usługi sieci web hello
+Hello eksperymentu można wdrożyć jako albo klasycznym usługi sieci web, lub Nowa usługa sieci web, która jest oparta na usłudze Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Wdrożyć jako usługę sieci web klasycznego
-Aby wdrożyć usługę sieci web klasycznego pochodzące z naszych eksperyment, kliknij przycisk **wdrażanie usługi sieci Web** poniżej kanwy i wybierz **wdrażanie usługi sieci Web [klasyczny]**. Usługa Machine Learning Studio wdraża eksperymentu jako usługę sieci web i przejście do pulpitu nawigacyjnego dla tej usługi sieci web. Na tej stronie możesz powrócić do eksperymentu (**widoku migawki** lub **wyświetlić najnowszych**) i uruchamianie testu proste usługi sieci web (zobacz **przetestować usługę sieci web** poniżej). Istnieje również tutaj informacje dotyczące tworzenia aplikacji, które mogą uzyskiwać dostęp do usługi sieci web (omówiona w następnym kroku w tym przewodniku).
+Kliknij toodeploy pochodzące z naszych eksperymentu usługi sieci web Klasyczny **wdrażanie usługi sieci Web** poniżej hello obszar roboczy i wybierz **wdrażanie usługi sieci Web [klasyczny]**. Usługa Machine Learning Studio wdraża hello eksperymentu jako usługę sieci web i przejście pulpitu nawigacyjnego toohello dla tej usługi sieci web. Na tej stronie można zwrócić eksperymentu toohello (**widoku migawki** lub **wyświetlić najnowszych**) i uruchamianie testu prostego powitania usługi sieci web (zobacz **testowanie usługi sieci web hello** poniżej). Istnieje również tutaj informacje dotyczące tworzenia aplikacji, które mogą uzyskiwać dostęp do usługi sieci web hello (omówiona w następnym kroku hello tego przewodnika).
 
 ![Pulpit nawigacyjny usługi sieci Web][6]
 
-Usługę można skonfigurować, klikając **konfiguracji** kartę. W tym miejscu można zmodyfikować nazwy usługi (go została podana nazwa eksperymentu domyślnie) i nadaj mu opis. Możesz też udzielić większej liczby etykiet przyjazną dla danych wejściowych i wyjściowych.  
+Można skonfigurować usługę hello klikając hello **konfiguracji** kartę. W tym miejscu można zmodyfikować hello nazwy usługi (jest nazwę eksperymentu danego hello domyślnie) i nadaj mu opis. Możesz też udzielić większej liczby etykiet przyjazną dla hello danych wejściowych i wyjściowych.  
 
-![Konfiguruj usługę sieci web][5]  
+![Konfiguruj usługę sieci web hello][5]  
 
 ### <a name="deploy-as-a-new-web-service"></a>Wdrożyć jako nową usługę sieci web
 
 > [!NOTE] 
-> Aby wdrożyć nową usługę sieci web musi mieć wystarczające uprawnienia do subskrypcji, w której wdrażasz usługi sieci web. Aby uzyskać więcej informacji, zobacz [zarządzania usługi sieci web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+> toodeploy nową usługę sieci web, należy posiadać odpowiednie uprawnienia w hello toowhich subskrypcji, które wdrażasz hello usługi sieci web. Aby uzyskać więcej informacji, zobacz [zarządzania usługi sieci web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning hello](machine-learning-manage-new-webservice.md). 
 
-Aby wdrożyć nową usługę sieci web pochodzące z naszym doświadczeniu:
+toodeploy nową usługę sieci web pochodzące z naszym doświadczeniu:
 
-1. Kliknij przycisk **wdrażanie usługi sieci Web** poniżej kanwy i wybierz **wdrażanie usługi sieci Web [New]**. Usługa Machine Learning Studio przenosi do usług sieci web Azure Machine Learning **wdrażanie eksperymentu** strony.
+1. Kliknij przycisk **wdrażanie usługi sieci Web** poniżej hello obszar roboczy i wybierz **wdrażanie usługi sieci Web [New]**. Usługa Machine Learning Studio transfery usługi sieci web Azure Machine Learning toohello **wdrażanie eksperymentu** strony.
 
-2. Wprowadź nazwę usługi sieci web. 
+2. Wprowadź nazwę usługi sieci web hello. 
 
-3. Dla **planu cen**, można wybrać istniejącego planu cenowego, lub wybierz opcję "Utwórz nowy" i także nazwę nowego planu i wybierz opcję miesięczne planu. Plan domyślny warstw do planów dla regionu domyślnego i usługi sieci web jest wdrażany do tego regionu.
+3. Aby uzyskać **planu cen**, można wybrać planu cenowego istniejących lub wybierz opcję "Utwórz nowe" i podać hello nowego planu nazwę i wybierz hello miesięczne opcji plan. plan Hello się, że warstw domyślne plany toohello Twojego domyślnego regionu i usługi sieci web jest wdrożone toothat regionu.
 
 4. Kliknij przycisk **wdrażanie**.
 
-Po kilku minutach **szybkiego startu** zostanie otwarta strona dla usługi sieci web.
+Po kilku minutach hello **szybkiego startu** zostanie otwarta strona dla usługi sieci web.
 
-Usługę można skonfigurować, klikając **Konfiguruj** kartę. W tym miejscu można zmodyfikować usługi tytuł i nadaj mu opis. 
+Można skonfigurować usługę hello klikając hello **Konfiguruj** kartę. W tym miejscu można zmodyfikować usługi hello tytuł i nadaj mu opis. 
 
-Aby przetestować usługę sieci web, kliknij przycisk **Test** kartę (zobacz **przetestować usługę sieci web** poniżej). Aby uzyskać informacje dotyczące tworzenia aplikacji, które mogą uzyskiwać dostęp do usługi sieci web, kliknij przycisk **Consume** kartę (do następnego kroku w tym przewodniku zostaną umieszczone w bardziej szczegółowo).
-
-> [!TIP]
-> Należy zaktualizować usługę sieci web, po jej wdrożeniu. Na przykład, jeśli chcesz zmienić model, a następnie edytować eksperyment uczenia, dostosować parametry modelu i kliknij przycisk **wdrażanie usługi sieci Web**, wybierając żądane **wdrażanie usługi sieci Web [klasyczny]** lub **Wdrażanie usługi sieci Web [New]**. Wdrażając eksperyment ponownie, zastępuje usługę sieci web za pomocą zaktualizowanej modelu.  
-> 
-> 
-
-## <a name="test-the-web-service"></a>Testowanie usługi sieci web
-
-Podczas uzyskiwania dostępu do usługi sieci web dane użytkownika wprowadza za pośrednictwem **sieci Web dane wejściowe usługi** modułu, w którym są przekazywane do [Score Model] [ score-model] modułu i oceniane. Sposobu skonfigurowaliśmy eksperyment predykcyjny modelu oczekuje danych w tym samym formacie co oryginalnego zestawu danych ryzyko kredytowe.
-Wyniki są zwracane do użytkownika z usługi sieci web za pośrednictwem **sieci Web usług** modułu.
+tootest hello usługi sieci web, kliknij przycisk hello **testu** kartę (zobacz **testowanie usługi sieci web hello** poniżej). Informacje dotyczące tworzenia aplikacji, które mogą uzyskiwać dostęp do usługi sieci web hello, kliknij przycisk hello **Consume** kartę (hello następnego kroku w tym przewodniku zostaną umieszczone w bardziej szczegółowo).
 
 > [!TIP]
-> Sposób mamy eksperyment predykcyjny skonfigurowane, wynikiem całą [Score Model] [ score-model] modułu są zwracane. W tym wszystkie dane wejściowe oraz wartość ryzyko kredytowe i oceniania prawdopodobieństwa. Ale może inny zwracać — na przykład można zwrócić tylko wartość ryzyko kredytowe. Aby to zrobić, Wstaw [kolumny projektu] [ project-columns] modułu między [Score Model] [ score-model] i **sieci Web produktu**wyeliminować kolumny nie mają usługę sieci web do zwrócenia. 
+> Po jej wdrożeniu można aktualizować hello usługi sieci web. Na przykład, jeśli chcesz toochange modelu, następnie należy można edytować eksperyment uczenia hello, dostosować parametry modelu hello i kliknij przycisk **wdrażanie usługi sieci Web**, wybierając żądane **wdrażanie usługi sieci Web [klasyczny]** lub  **Wdrażanie usługi sieci Web [New]**. Wdrażając hello eksperyment ponownie, zastępuje hello usługi sieci web, teraz, używając zaktualizowanych modelu.  
 > 
 > 
 
-Można przetestować web klasycznym usługi w **Machine Learning Studio** lub **usługi sieci Web systemu Azure Machine Learning** portalu.
-Możesz przetestować nową sieć web service tylko w **usługi sieci Web usługi Machine Learning** portalu.
+## <a name="test-hello-web-service"></a>Usługa sieci web hello testu
+
+Podczas uzyskiwania dostępu do usługi sieci web hello dane użytkownika hello przechodzi przez hello **sieci Web dane wejściowe usługi** modułu, w którym przekazany toohello [Score Model] [ score-model] modułu i oceniane. sposób Hello skonfigurowaliśmy eksperyment predykcyjny hello, hello model oczekuje danych w hello takie same w formacie zestawu danych hello oryginalnego środki ryzyka.
+Hello są zwracane wyniki toohello użytkownika z hello usługi sieci web za pośrednictwem hello **sieci Web usług** modułu.
 
 > [!TIP]
-> Podczas testowania, w portalu usługi sieci Web systemu Azure Machine Learning, może mieć portalu tworzenie przykładowych danych, które służy do testowania usługi żądań i odpowiedzi. Na **Konfiguruj** wybierz przycisk Tak, aby uzyskać **przykładowych danych włączone?**. Po otwarciu karty żądań i odpowiedzi na **testu** strony portalu wypełnia przykładowe dane pobrane z oryginalnego zestawu danych ryzyko kredytowe.
+> sposób Hello mamy hello eksperyment predykcyjny skonfigurowane, hello całego wynikiem hello [Score Model] [ score-model] modułu są zwracane. W tym wszystkich danych wejściowych hello oraz wartość ryzyko kredytowe hello i hello oceniania prawdopodobieństwa. Ale może inny zwracać — na przykład można zwrócić tylko hello wartość ryzyko kredytowe. toodo, Wstaw [kolumny projektu] [ project-columns] modułu między [Score Model] [ score-model] i hello **sieci Web produktu** nie ma kolumn tooeliminate hello tooreturn usługi sieci web. 
+> 
+> 
+
+Można przetestować web klasycznym usługi w **Machine Learning Studio** lub hello **usługi sieci Web systemu Azure Machine Learning** portalu.
+Możesz przetestować nową usługę sieci web tylko w hello **usługi sieci Web usługi Machine Learning** portalu.
+
+> [!TIP]
+> Podczas testowania, w portalu usługi sieci Web systemu Azure Machine Learning hello, może mieć portalu hello Utwórz dane przykładowe służy tootest hello żądań i odpowiedzi usługi. Na powitania **Konfiguruj** wybierz przycisk Tak, aby uzyskać **przykładowych danych włączone?**. Po otwarciu karty hello żądań i odpowiedzi na powitania **testu** strony portalu hello wypełnia przykładowych danych z zestawu danych hello oryginalnego środki ryzyka.
 
 ### <a name="test-a-classic-web-service"></a>Testowanie usługi sieci web klasycznego
 
-Usługi sieci web klasycznego można przetestować w usłudze Machine Learning Studio lub w portalu usługi sieci Web usługi Machine Learning. 
+W usłudze Machine Learning Studio lub w portalu usługi sieci Web usługi Machine Learning hello można testować usługi sieci web klasycznego. 
 
 #### <a name="test-in-machine-learning-studio"></a>Testowanie w usłudze Machine Learning Studio
 
-1. Na **pulpitu NAWIGACYJNEGO** usługi sieci web kliknij pozycję **testu** przycisku w obszarze **domyślny punkt końcowy**. Okno dialogowe wyskakującej i monituje o dane wejściowe dla usługi. Są to te same kolumny, które znajdowały się w zestawie danych oryginalnego ryzyko kredytowe.  
+1. Na powitania **pulpitu NAWIGACYJNEGO** usługi sieci web powitania kliknij pozycję hello **testu** przycisku w obszarze **domyślny punkt końcowy**. Okno dialogowe wyskakującej i monituje o dane wejściowe hello hello usługi. Te są hello tej samej kolumny, które znajdowały się w zestawie danych hello oryginalnego środki ryzyka.  
 
 2. Wprowadź zestaw danych, a następnie kliknij przycisk **OK**. 
 
-#### <a name="test-in-the-machine-learning-web-services-portal"></a>Testowanie w portalu usługi sieci Web usługi Machine Learning
+#### <a name="test-in-hello-machine-learning-web-services-portal"></a>Testowanie w portalu usługi sieci Web usługi Machine Learning hello
 
-1. Na **pulpitu NAWIGACYJNEGO** usługi sieci web kliknij pozycję **Podgląd testów** łącze w obszarze **domyślny punkt końcowy**. Strona testowa w portalu usługi sieci Web systemu Azure Machine Learning punktu końcowego usługi sieci web otwiera i monituje o dane wejściowe dla usługi. Są to te same kolumny, które znajdowały się w zestawie danych oryginalnego ryzyko kredytowe.
+1. Na powitania **pulpitu NAWIGACYJNEGO** usługi sieci web powitania kliknij pozycję hello **Podgląd testów** łącze w obszarze **domyślny punkt końcowy**. Strona testowa Hello w portalu usługi sieci Web systemu Azure Machine Learning hello punktu końcowego usługi sieci web hello otwiera i monituje o dane wejściowe hello hello usługi. Te są hello tej samej kolumny, które znajdowały się w zestawie danych hello oryginalnego środki ryzyka.
 
 2. Kliknij przycisk **Test żądań i odpowiedzi**. 
 
 ### <a name="test-a-new-web-service"></a>Przetestować nową usługę sieci web
 
-Możesz przetestować nową usługę sieci web tylko w portalu usługi sieci Web usługi Machine Learning.
+Tylko w portalu usługi sieci Web usługi Machine Learning hello można przetestować nową usługę sieci web.
 
-1. W [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net/quickstart) portalu, kliknij przycisk **testu** w górnej części strony. **Testu** zostanie otwarta strona i można wprowadzić dane dotyczące usługi. Wyświetlane pól wejściowych odpowiada kolumn, które znajdowały się w zestawie danych oryginalnego ryzyko kredytowe. 
+1. W hello [usługi sieci Web systemu Azure Machine Learning](https://services.azureml.net/quickstart) portalu, kliknij przycisk **testu** u góry hello hello strony. Witaj **testu** zostanie otwarta strona i można wprowadzić dane dotyczące hello usługi. Hello pól wejściowych wyświetlane odpowiada toohello kolumn, które znajdowały się w zestawie danych hello oryginalnego środki ryzyka. 
 
 2. Wprowadź zestaw danych, a następnie kliknij przycisk **testu żądanie-odpowiedź**.
 
-Wyniki testu są wyświetlane po prawej stronie strony w kolumnie wyników. 
+Witaj wyniki testu hello są wyświetlane na hello prawej strony hello hello kolumny wyjściowej. 
 
 
-## <a name="manage-the-web-service"></a>Zarządzanie usługą sieci web
+## <a name="manage-hello-web-service"></a>Zarządzanie usługą sieci web hello
 
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Zarządzanie usługą sieci web klasycznego w klasycznym portalu Azure
+### <a name="manage-a-classic-web-service-in-hello-azure-classic-portal"></a>Zarządzanie usługą sieci web klasycznego w hello klasycznego portalu Azure
 
-Po wdrożeniu usługi sieci web klasycznego, można zarządzać nim z [klasycznego portalu Azure](https://manage.windowsazure.com).
+Po wdrożeniu usługi sieci web klasycznego, można było zarządzać nim z hello [klasycznego portalu Azure](https://manage.windowsazure.com).
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com)
-2. W panelu usługi Microsoft Azure, kliknij przycisk **UCZENIA MASZYNOWEGO**
+1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com)
+2. Witaj Panel usługi Microsoft Azure, kliknij przycisk **UCZENIA MASZYNOWEGO**
 3. Kliknij obszar roboczy
-4. Kliknij przycisk **usług sieci Web** kartę
-5. Kliknij usługę sieci web, którą utworzyliśmy
-6. Kliknij punkt końcowy "domyślne"
+4. Kliknij przycisk hello **usług sieci Web** kartę
+5. Kliknij opcję usługi sieci web hello utworzyliśmy
+6. Kliknij punkt końcowy "domyślne" hello
 
-W tym miejscu można wykonywać czynności takie, jak monitorować jak wykonywanie operacji usługi sieci web i ulepszeń wydajności upewnij, zmieniając liczby współbieżnych wywołań usługi może obsłużyć.
+W tym miejscu można wykonywać czynności, takie jak monitorowanie, jak robi hello usługi sieci web i upewnij ulepszeń wydajności przez zmianę liczby równoczesnych wywołań hello usługi może obsłużyć.
 
 Aby uzyskać więcej informacji, zobacz:
 
 * [Tworzenie punktów końcowych](machine-learning-create-endpoint.md)
 * [Skalowanie usługi sieci web](machine-learning-scaling-webservice.md)
 
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Zarządzanie Classic lub nową usługę sieci web w portalu usługi sieci Web systemu Azure Machine Learning
+### <a name="manage-a-classic-or-new-web-service-in-hello-azure-machine-learning-web-services-portal"></a>Zarządzanie Classic lub nową usługę sieci web w portalu usługi sieci Web systemu Azure Machine Learning hello
 
-Po wdrożeniu usługi sieci web, czy klasycznego lub nowe, można zarządzać nim z [usługi sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portalu.
+Po wdrożeniu usługi sieci web, czy klasycznego lub nowe, można było zarządzać nim z hello [usługi sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portalu.
 
-Aby monitorować wydajność usługi sieci web:
+wydajność hello toomonitor usługi sieci web:
 
-1. Zaloguj się do [usługi sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portalu
+1. Zaloguj się toohello [usługi sieci Web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portalu
 2. Kliknij przycisk **usług sieci Web**
 3. Kliknij opcję usługi sieci web
-4. Kliknij przycisk **pulpitu nawigacyjnego**
+4. Kliknij przycisk hello **pulpitu nawigacyjnego**
 
 - - -
-**Następnie: [dostęp do usługi sieci web](machine-learning-walkthrough-6-access-web-service.md)**
+**Następnie: [dostępu do usługi sieci web hello](machine-learning-walkthrough-6-access-web-service.md)**
 
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3a.png

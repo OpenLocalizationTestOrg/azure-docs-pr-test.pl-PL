@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usług Azure Active Directory Domain Services — samouczki | Microsoft Docs"
-description: "Dowiedz się, jak usługi Active Directory Domain Services umożliwiają przyłączanie maszyn wirtualnych platformy Azure do domeny bez stosowania kontrolerów domen i zarządzania nimi przy użyciu zasad grupy."
+title: "aaaAzure dokumentacji usług domeny Active Directory — samouczki | Dokumentacja firmy Microsoft"
+description: "Dowiedz się jak toouse usług domenowych w usłudze Active Directory toojoin wirtualnej Azure maszyny tooa domeny bez korzystania z kontrolerów domeny i zarządzać nimi przy użyciu zasad grupy."
 services: active-directory-ds
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5f1dcc57d92e1e950662c1f0cc1d00252e2fab50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="active-directory-domain-services-documentation"></a>Dokumentacja usług Active Directory Domain Services
 
-Dowiedz się, jak usługi Active Directory Domain Services umożliwiają przyłączanie maszyn wirtualnych platformy Azure do domeny bez stosowania kontrolerów domen. W samouczkach i innych dokumentach pokazano, jak zarządzać maszynami wirtualnymi za pomocą zasad grupy.
+Dowiedz się, jak toouse usług domenowych w usłudze Active Directory toojoin wirtualnej Azure maszyny tooa domeny bez korzystania z kontrolerów domeny. Samouczki i dokumentacji opisano sposób toomanage maszyn wirtualnych za pomocą grupy zasad.
 
 <ul class="panelContent cardsFTitle">
     <li>

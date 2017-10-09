@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji funkcji przy użyciu portalu Azure | Dokumentacja firmy Microsoft"
-description: "Utwórz nową aplikację funkcji w usłudze Azure App Service z portalu."
+title: aaaCreate aplikacji funkcji z hello portalu Azure | Dokumentacja firmy Microsoft
+description: "Tworzenie nowej aplikacji funkcji w usłudze Azure App Service przy użyciu portalu hello."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 85a88c537415cd6f2b6bc005cc18e3baaa29e9a4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c531fc71c798edf22e25a5f4b79c15413809dc86
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Tworzenie aplikacji funkcji z portalu Azure
+# <a name="create-a-function-app-from-hello-azure-portal"></a>Tworzenie aplikacji funkcji z hello portalu Azure
 
-Aplikacje platformy Azure funkcja używa infrastruktury usługi Azure App Service. W tym temacie przedstawiono sposób tworzenia aplikacji funkcji w portalu Azure. Aplikacja funkcji jest kontener, który obsługuje wykonywanie poszczególnych funkcji. Po utworzeniu aplikacji funkcji w usłudze App Service, plan hostingu aplikacji funkcji można korzystać ze wszystkich funkcji usługi App Service.
+Aplikacje platformy Azure funkcji używa hello infrastruktury usługi Azure App Service. W tym temacie opisano sposób toocreate aplikacji funkcji w hello portalu Azure. Aplikacja funkcji jest hello obsługujący wykonanie hello poszczególnych funkcji. Po utworzeniu aplikacji funkcji w hostingu planu usługi aplikacji hello aplikacji funkcji można korzystać ze wszystkich funkcji hello usługi App Service.
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
@@ -34,24 +34,24 @@ Podczas tworzenia aplikacji funkcji, podaj prawidłową **Nazwa aplikacji**, kt�
 
 Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery. Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. 
 
-Po utworzeniu aplikacji funkcji, można utworzyć pojedynczych funkcji w różnych językach jeden lub więcej. Tworzenie funkcji [przy użyciu portalu](functions-create-first-azure-function.md#create-function), [ciągłe wdrażanie](functions-continuous-deployment.md), lub [przekazywanie z FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+Po utworzeniu hello funkcji aplikacji, można utworzyć pojedynczych funkcji w różnych językach co najmniej jeden. Tworzenie funkcji [przy użyciu portalu hello](functions-create-first-azure-function.md#create-function), [ciągłe wdrażanie](functions-continuous-deployment.md), lub [przekazywanie z FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 
 ## <a name="service-plans"></a>Plany usługi
 
-Usługa Azure Functions oferuje dwa pakiety różnych usług: plan zużycia i plan usługi aplikacji. Plan zużycie automatycznie przydzieli moc obliczeniową, gdy kod jest uruchomiona, możliwość skalowania w poziomie jako niezbędne do obsługi obciążenia, a następnie skale — w gdy kodu nie jest uruchomiona. Plan usługi aplikacji umożliwia funkcja dostęp aplikacji do wszystkie urządzenia z usługi aplikacji. Musisz wybrać plan usługi po utworzeniu aplikacji funkcji, a obecnie nie można zmienić. Aby uzyskać więcej informacji, zobacz [wybierz usługi Azure Functions plan hostingu](functions-scale.md).
+Usługa Azure Functions oferuje dwa pakiety różnych usług: plan zużycia i plan usługi aplikacji. plan zużycie Hello automatycznie przydzieli moc obliczeniową, gdy kod działa, możliwość skalowania w poziomie jako niezbędne toohandle obciążenia, a następnie skali w kodu nie jest uruchomiona. plan usługi aplikacji Hello zapewnia funkcji urządzeniami hello tooall dostępu aplikacji usługi App Service. Musisz wybrać plan usługi po utworzeniu aplikacji funkcji, a obecnie nie można zmienić. Aby uzyskać więcej informacji, zobacz [wybierz usługi Azure Functions plan hostingu](functions-scale.md).
 
-Jeśli planujesz uruchamianie funkcji JavaScript na plan usługi aplikacji, należy wybrać plan o mniejszej liczby rdzeni. Aby uzyskać więcej informacji, zobacz [JavaScript — odwołanie do funkcji](functions-reference-node.md#choose-single-core-app-service-plans).
+Jeśli planujesz funkcji JavaScript toorun plan usługi aplikacji, należy wybrać plan o mniejszej liczby rdzeni. Aby uzyskać więcej informacji, zobacz hello [JavaScript — odwołanie do funkcji](functions-reference-node.md#choose-single-core-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Wymagania dotyczące konta magazynu
 
-Podczas tworzenia aplikacji funkcji w usłudze App Service, należy utworzyć lub połączyć konto usługi Azure Storage ogólnego przeznaczenia, które obsługuje magazynu obiektów Blob, kolejki i tabeli. Wewnętrznie funkcji używa magazynu dla operacji, takich jak zarządzanie wyzwalaczy i rejestrowanie wykonania funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel, takich jak konta magazynu tylko do obiektów blob, usługa Azure Premium Storage i kont magazynu ogólnego przeznaczenia z replikacją ZRS. Te konta są filtrowane z z bloku konto magazynu podczas tworzenia aplikacji funkcji.
+Podczas tworzenia aplikacji funkcji w usłudze App Service, należy utworzyć lub połączyć tooa ogólnego przeznaczenia konta usługi Magazyn Azure obsługującym magazynu obiektów Blob, kolejki i tabeli. Wewnętrznie funkcji używa magazynu dla operacji, takich jak zarządzanie wyzwalaczy i rejestrowanie wykonania funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel, takich jak konta magazynu tylko do obiektów blob, usługa Azure Premium Storage i kont magazynu ogólnego przeznaczenia z replikacją ZRS. Te konta są filtrowane z z hello bloku konto magazynu podczas tworzenia aplikacji funkcji.
 
 >[!NOTE]
->Korzystając z zużycie plan hostingu, plików konfiguracji kod i powiązania funkcji są przechowywane w magazyn plików Azure w ramach konta głównego magazynu. Podczas usuwania konta magazynu głównego ta zawartość zostanie usunięta i nie może zostać odzyskany.
+>Podczas korzystania z planu obsługi zużycia hello, plików konfiguracji kod i powiązanie funkcji są przechowywane w na koncie magazynu głównego hello usługi Magazyn plików Azure. Podczas usuwania konta magazynu głównego hello ta zawartość zostanie usunięta i nie może zostać odzyskany.
 
-Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [wprowadzenie do usług magazynu Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
+toolearn więcej informacji na temat typów kont magazynu, zobacz [wprowadzenie do usług magazynu Azure hello](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
 
 ## <a name="next-steps"></a>Następne kroki
 

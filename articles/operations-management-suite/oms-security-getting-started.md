@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite | Microsoft Docs"
-description: "Ten dokument ułatwia rozpoczęcie korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite w celu monitorowania chmury hybrydowej."
+title: "aaaGetting wprowadzenie Operations Management Suite zabezpieczeń i inspekcji rozwiązania | Dokumentacja firmy Microsoft"
+description: "Ten dokument ułatwia tooget zostanie uruchomiony z Operations Management Suite zabezpieczeń i inspekcji toomonitor możliwości rozwiązania chmury hybrydowej."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5cb3e5dbb3e60f9702a34c9413ddc1bf2b14b411
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Wprowadzenie do korzystania z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite
 Ten dokument pomaga szybko rozpocząć korzystanie z rozwiązania Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS), objaśniając działanie poszczególnych opcji.
 
 ## <a name="what-is-oms"></a>Co to jest pakiet OMS?
-Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Aby uzyskać więcej informacji na temat pakietu OMS, przeczytaj artykuł [Omówienie pakietu Operations Management Suite (OMS)](https://technet.microsoft.com/library/mt484091.aspx).
+Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę. Aby uzyskać więcej informacji na temat pakietu OMS, przeczytaj artykuł hello [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS
-Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia kompleksowy wgląd w stan zabezpieczeń IT organizacji za pomocą wbudowanych zapytań wyszukujących istotne problemy, które wymagają uwagi. Pulpit nawigacyjny **Zabezpieczenia i inspekcja** jest głównym ekranem prezentujące wszystkie funkcje pakietu OMS związane z bezpieczeństwem. Zawiera ogólne informacje o stanie zabezpieczeń komputerów. Daje również możliwość wyświetlenia wszystkich zdarzeń z ostatnich 24 godzin, 7 dni lub dowolnego innego przedziału czasu. Aby uzyskać dostęp do pulpitu nawigacyjnego **Zabezpieczenia i inspekcja**, wykonaj następujące kroki:
+Hello OMS zabezpieczeń i inspekcji rozwiązanie zapewnia kompleksowy wgląd w Twojej organizacji IT stan zabezpieczeń z wbudowaną zapytania dotyczące godne uwagi problemy wymagające uwagi. Witaj **zabezpieczeń i inspekcji** pulpit nawigacyjny jest hello ekranu głównego dla wszystkich powiązanych toosecurity w OMS. Zawiera ogólne wgląd w stan zabezpieczeń hello komputerów. Obejmuje on też hello możliwości tooview wszystkie zdarzenia z hello poza 24 godzin, 7 dni lub innych niestandardowych przedziale czasu. Witaj tooaccess **zabezpieczeń i inspekcji** pulpitu nawigacyjnego, wykonaj następujące kroki:
 
-1. Na głównym pulpicie nawigacyjnym pakietu **Microsoft Operations Management Suite** kliknij kafelek **Ustawienia** po lewej stronie.
-2. W bloku **Ustawienia**, w obszarze **Rozwiązania** kliknij opcję **Zabezpieczenia i inspekcja**.
-3. Zostanie wyświetlony pulpit nawigacyjny **Zabezpieczenia i inspekcja**:
+1. W hello **programu Microsoft Operations Management Suite** głównym pulpicie nawigacyjnym kliknij **ustawienia** kafelka w lewo hello.
+2. W hello **ustawienia** bloku, w obszarze **rozwiązań** kliknij **zabezpieczeń i inspekcji** opcji.
+3. Witaj **zabezpieczeń i inspekcji** zostanie wyświetlony pulpit nawigacyjny:
    
     ![Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Jeśli korzystasz z tego pulpitu nawigacyjnego po raz pierwszy i nie monitorujesz jeszcze żadnych urządzeń przy użyciu rozwiązania OMS, kafelki nie będą wypełnione danymi uzyskanymi od agenta. Po zainstalowaniu agenta może minąć trochę czasu, zanim dane pojawią się na pulpicie nawigacyjnym. W związku z tym początkowo niektóre informacje nie będą widoczne, dopóki nie zostaną przesłane do chmury.  W takiej sytuacji jest normalnym zjawiskiem, że niektóre kafelki nie zawierają wymiernych informacji. Artykuł [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) (Podłączanie komputerów z systemem Windows bezpośrednio do pakietu OMS) zawiera więcej informacji na temat sposobu instalowania agenta OMS w systemie Windows. Artykuł [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) (Podłączanie komputerów z systemem Linux do pakietu OMS) zawiera więcej informacji dotyczących wykonywania tego zadania w systemie Linux.
+Jeśli nie masz urządzenia monitorowane przez OMS uzyskujesz dostęp do tego pulpitu nawigacyjnego dla powitania po raz pierwszy, hello Kafelki nie zostaną wypełnione z danych uzyskanych od hello agenta. Po zainstalowaniu agenta hello, może upłynąć kilka toopopulate czas, w związku z tym początkowo Zobacz może brakować części danych, ponieważ są one nadal przekazywania toohello chmury.  W takim przypadku jest normalne toosee niektóre Kafelki bez wymierne informacji. Odczytu [połączyć komputery bezpośrednio tooOMS](https://technet.microsoft.com/library/mt484108.aspx) Aby uzyskać więcej informacji na temat agent pakietu OMS tooinstall w systemie Windows i [Linux połączyć komputery tooOMS](https://technet.microsoft.com/library/mt622052.aspx) Aby uzyskać więcej informacji na temat tooperform tego zadania w systemie Linux.
 
 > [!NOTE]
-> Agent zbiera informacje oparte na bieżących włączonych zdarzeniach, takie jak nazwa komputera, nazwa użytkownika i adres IP. Nie są jednak gromadzone żadne dokumenty bądź pliki, nazwy baz danych ani dane prywatne.   
+> Hello agent zbiera informacje hello oparte na powitania bieżącego zdarzeń, które są włączone, na przykład nazwa komputera, adresu IP i użytkownika nazwy. Nie są jednak gromadzone żadne dokumenty bądź pliki, nazwy baz danych ani dane prywatne.   
 > 
 > 
 
-Rozwiązania to zestawy reguł logiki, wizualizacji i gromadzenia danych opracowane w celu pokonywania kluczowych wyzwań klienta. Zabezpieczenia i inspekcja to jedno z takich rozwiązań — inne można dodać oddzielnie. Przeczytaj artykuł [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) (Dodawanie rozwiązań), aby uzyskać więcej informacji na temat dodawania nowego rozwiązania.
+Rozwiązania to zestawy reguł logiki, wizualizacji i gromadzenia danych opracowane w celu pokonywania kluczowych wyzwań klienta. Zabezpieczenia i inspekcja to jedno z takich rozwiązań — inne można dodać oddzielnie. Przeczytaj artykuł hello [dodać rozwiązania](https://technet.microsoft.com/library/mt674635.aspx) Aby uzyskać więcej informacji na temat tooadd nowego rozwiązania.
 
-Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS jest podzielony na cztery główne kategorie:
+pulpit nawigacyjny OMS zabezpieczeń i inspekcji Hello jest podzielone na cztery główne kategorie:
 
-* **Domeny zabezpieczeń**: w tym obszarze można bardziej szczegółowo przeglądać historię zabezpieczeń. Zapewnia on też dostęp do ocen złośliwego oprogramowania i aktualizacji, zabezpieczeń sieci, informacji o tożsamości i dostępie, komputerów ze zdarzeniami bezpieczeństwa, a także szybki dostęp do pulpitu nawigacyjnego Azure Security Center.
-* **Problemy godne uwagi**: ta opcja umożliwia szybkie ustalenie liczby aktywnych problemów i ich ważności.
-* **Wykrycia (podgląd)**: umożliwia określenie schematów ataku przez wizualizację alertów zabezpieczeń dotyczących poszczególnych zasobów.
-* **Analiza zagrożeń**: umożliwia określenie schematów ataku przez wizualizację całkowitej liczby serwerów z wychodzącym złośliwym ruchem IP, typu złośliwych zagrożeń oraz mapy pochodzenia tych adresów IP. 
-* **Typowe zapytania dotyczące zabezpieczeń**: ta opcja zawiera listę najbardziej typowych zapytań zabezpieczeń, których można używać do monitorowania środowiska. Po kliknięciu jednego z zapytań pojawia się blok **Wyszukiwanie** z wynikami tego zapytania.
+* **Domen zabezpieczeń**: w tym obszarze będą mogli toofurther Eksploruj rekordy zabezpieczeń w czasie, dostęp do oceny złośliwego oprogramowania, aktualizacji oceny, zabezpieczenia sieci, informacje o tożsamości i dostępu, komputery ze zdarzeniami zabezpieczeń oraz szybko pulpit nawigacyjny Centrum zabezpieczeń tooAzure dostępu.
+* **Godne uwagi problemy**: Ta opcja umożliwi tooquickly określenie hello liczby aktywnych problemów i hello ważności tych problemów.
+* **Wykryć (wersja zapoznawcza)**: włącza wzorców ataków tooidentify przez wizualizacja alerty zabezpieczeń, zgodnie z ich odbywać się z zasobami.
+* **Analizy zagrożeń**: włącza wzorców ataków tooidentify przez wizualizacja hello całkowita liczba serwery z wychodzącym ruchem złośliwego oprogramowania IP, typ złośliwe oprogramowanie hello i mapy, pokazujący, gdzie pochodzą z tych adresów IP. 
+* **Typowe zapytania zabezpieczeń**: Ta opcja zapewnia możesz listę najczęściej zabezpieczeń hello wysyła zapytanie do używania toomonitor środowiska. Po kliknięciu w jednym z tych zapytań zostanie otwarty hello **wyszukiwania** blok hello wyników dla tego zapytania.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji o sposobach zapewniania bezpieczeństwa danych przez pakiet OMS, przeczytaj artykuł How OMS secures your data (W jaki sposób pakiet OMS chroni dane?).
@@ -59,24 +59,24 @@ Pulpit nawigacyjny Zabezpieczenia i inspekcja w pakiecie OMS jest podzielony na 
 > 
 
 ## <a name="security-domains"></a>Domeny zabezpieczeń
-Podczas monitorowania zasobów ważna jest możliwość szybkiej oceny bieżącego stanu środowiska. Jednak warto również śledzić zdarzenia, które wystąpiły w przeszłości, a mogą prowadzić do lepszego zrozumienia tego, co dzieje się w środowisku w danym momencie. 
+Monitorowanie zasobów, jest ważne toobe tooquickly stanie dostępu hello bieżący stan środowiska. Jednak również jest ważne toobe tootrack stanie wstecz zdarzenia, które wystąpiły w ostatnich hello, który może prowadzić do lepszego zrozumienia tooa co dzieje się w danym środowisku, w niektórych punktu w czasie. 
 
 > [!NOTE]
-> Przechowywanie danych jest realizowane zgodnie z cennikiem pakietu OMS. Aby uzyskać więcej informacji, odwiedź stronę z informacjami o cenach pakietu [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx).
+> przechowywanie danych jest według planu cenowego toohello OMS. Aby uzyskać więcej informacji można znaleźć hello [programu Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) cennik.
 > 
 > 
 
-Scenariusze reagowania na zdarzenia i ich analizowania odniosą bezpośrednie korzyści z informacji dostępnych na kafelku **Rekordy zabezpieczeń w czasie**.
+Zdarzenia scenariusze postępowania odpowiedzi i dowodowe bezpośrednio będą korzystać z dostępnych w hello wyników hello **rekordy zabezpieczeń w czasie** kafelka.
 
 ![Rekordy zabezpieczeń w czasie](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Po kliknięciu tego kafelka pojawi się blok **Wyszukiwanie** przedstawiający wyniki zapytania **Zdarzenia zabezpieczeń** (Type=SecurityEvents) na podstawie danych z ostatnich siedmiu dni, jak pokazano poniżej:
+Po kliknięciu tego kafelka hello **wyszukiwania** zostanie otwarty blok przedstawiający wyniku zapytania dla **zdarzenia zabezpieczeń** (typ = SecurityEvents) z danymi na podstawie hello ostatnich siedmiu dni, jak pokazano poniżej:
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Rekordy zabezpieczeń w czasie](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-Wyniki wyszukiwania są podzielone na dwa okienka: okienko po lewej stronie zawiera zestawienie liczby znalezionych zdarzeń zabezpieczeń, komputerów, na których zostały one wykryte, liczby kont odnalezionych na tych komputerach oraz typów działań. Prawe okienko zawiera całkowitą liczbę wyników i chronologiczny widok zdarzeń zabezpieczeń z nazwą komputera i działaniem zdarzenia. Możesz również kliknąć opcję **Pokaż więcej**, aby wyświetlić więcej szczegółów na temat danego zdarzenia, takich jak dane dotyczące zdarzenia, identyfikator zdarzenia i źródło zdarzenia.
+wynik wyszukiwania Hello jest podzielony na dwa okienka: hello w okienku po lewej stronie umożliwia podział hello liczba zdarzeń zabezpieczeń, które zostały odnalezione komputery hello, w których znaleziono się tych zdarzeń, liczbę hello kont, które zostały odnalezione w tych komputerów i typy hello działania. Witaj w prawym okienku zapewnia hello całkowita liczba wyników i chronologicznej widoku zdarzeń zabezpieczeń hello aktywnością komputera hello nazwy i zdarzeń. Możesz również kliknąć **Pokaż więcej** tooview bardziej szczegółowe informacje dotyczące tego zdarzenia, takie jak dane zdarzeń hello, hello identyfikator zdarzenia i źródło zdarzenia hello.
 
 > [!NOTE]
 > Więcej informacji na temat zapytania wyszukiwania pakietu OMS zawiera artykuł [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx) (Wprowadzenie do wyszukiwania w pakiecie OMS).
@@ -84,23 +84,23 @@ Wyniki wyszukiwania są podzielone na dwa okienka: okienko po lewej stronie zawi
 > 
 
 ### <a name="antimalware-assessment"></a>Ocena oprogramowania chroniącego przed złośliwym kodem
-Ta opcja umożliwia szybką identyfikację komputerów z niedostateczną ochroną i komputerów, których zabezpieczenia zostały naruszone na skutek działania złośliwego kodu. Informacje o stanie oceny złośliwego oprogramowania i wykrytych zagrożeń na monitorowanych serwerach są odczytywane i przesyłane do usługi OMS w chmurze w celu przetworzenia. Serwery z wykrytymi zagrożeniami lub niedostateczną ochroną są widoczne na pulpicie nawigacyjnym oceny oprogramowania chroniącego przed złośliwym kodem, który jest dostępny po kliknięciu kafelka **Ocena oprogramowania chroniącego przed złośliwym kodem**. 
+Ta opcja umożliwia tooquickly można zidentyfikować komputery z niewystarczającą ochroną i komputerów, które są szkodzi wystąpieniem złośliwego oprogramowania. Oceny złośliwego oprogramowania, stanu i wykrytych zagrożeń na serwerach hello monitorowane są odczytywane, a następnie hello danych są wysyłane toohello usługę w chmurze hello do przetwarzania. Serwery z wykrytymi zagrożeniami i serwery z niewystarczającą ochroną są wyświetlane na powitania złośliwego oprogramowania oceny nawigacyjnym, która jest dostępna po kliknięciu hello **oceny ochrony przed złośliwym kodem** kafelka. 
 
 ![Ocena oprogramowania chroniącego przed złośliwym kodem](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-Podobnie jak w przypadku innych kafelków dynamicznych dostępnych na pulpicie nawigacyjnym pakietu OMS, po kliknięciu kafelka pojawia się blok **Wyszukiwanie** z wynikami zapytania. Jeśli klikniesz opcję **Brak zgłaszania** w obszarze **Stan ochrony**, zostanie wyświetlony wynik zapytania z jednym wpisem zawierającym nazwę i rangę komputera, jak widać poniżej:
+Podobnie jak wszystkie inne dostępne na pulpicie nawigacyjnym OMS, na żywo kafelka po kliknięciu go hello **wyszukiwania** zostanie otwarty blok zawierający hello wyniku zapytania. Dla tej opcji, po kliknięciu hello **Niezgłaszających** opcję w obszarze **stanu ochrony**, będzie miał hello wynik kwerendy, który zawiera ten pojedynczy wpis zawierający nazwę komputera hello i jego ranking jako pokazano poniżej:
 
 ![Wynik wyszukiwania](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> *Ranga* to wartość podsumowująca stan ochrony (włączona, wyłączona, zaktualizowana itp.) oraz znalezione zagrożenia. Taka liczba ułatwia agregację danych.
+> *Ranga* jest klasa, podając stan hello tooreflect ochrona powitalnych (, off, zaktualizować, itp.) i zagrożenia, które zostały znalezione. Jako numer agregacji toomake pomaga, o które.
 > 
 > 
 
-Gdy klikniesz nazwę komputera, pojawi się chronologiczny widok stanu ochrony danego komputera. Jest to bardzo przydatne w scenariuszach, w których należy ustalić, czy oprogramowanie chroniące przed złośliwym kodem było wcześniej zainstalowane, a w pewnym momencie zostało usunięte.   
+Kliknięcie w polu Nazwa komputera hello, konieczne będzie hello chronologicznej widok hello stanu ochrony dla tego komputera. Jest to przydatne w scenariuszach, w których należy toounderstand Jeśli wcześniej zainstalowano hello ochrony przed złośliwym oprogramowaniem i w pewnym momencie został usunięty.   
 
 ### <a name="update-assessment"></a>Ocena aktualizacji
-Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne problemy z zabezpieczeniami oraz stopnia krytyczności tych problemów dla danego środowiska. Rozwiązanie Zabezpieczenia i inspekcja w pakiecie OMS zapewnia tylko wizualizację tych aktualizacji. Rzeczywiste dane pochodzą z rozwiązania [Zarządzanie aktualizacjami](oms-solution-update-management.md), które jest oddzielnym modułem pakietu OMS. Oto przykład aktualizacji:
+Ta umożliwia opcja tooquickly możesz określić hello problemów z bezpieczeństwem toopotential ogólną zagrożeń i czy lub jak bardzo krytyczne te aktualizacje są w danym środowisku. OMS zabezpieczeń i inspekcji rozwiązania zapewniają tylko hello wizualizacji tych aktualizacji, hello rzeczywiste dane pochodzą z [rozwiązań do zarządzania aktualizacji](oms-solution-update-management.md), który jest inny moduł w OMS. Przykład Witaj aktualizacji w tym miejscu:
 
 ![Aktualizacje systemu](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
@@ -110,93 +110,93 @@ Ta opcja umożliwia szybkie ustalenie ogólnego narażenia na potencjalne proble
 > 
 
 ### <a name="identity-and-access"></a>Tożsamość i dostęp
-Tożsamość powinna być warstwą kontroli w przedsiębiorstwie. Ochrona tożsamości powinna stanowić najwyższy priorytet. W przeszłości organizacja była otoczona granicami pełniącymi rolę podstawowych stref obronnych. Obecnie jednak coraz więcej danych i aplikacji jest przenoszonych do chmury, przez co nową strefą ochronną staje się tożsamość. 
+Tożsamość powinna być kontroli hello płaszczyzny w przedsiębiorstwie, ochrona tożsamości powinna być sieci o najwyższym priorytecie. W przeszłości hello zostały strefy wokół organizacji i tych granicach zostały jednego podstawowego granice obrony hello, obecnie większej ilości danych i więcej aplikacji, przenoszenie chmury toohello tożsamości hello staje się hello obwodowej nowe. 
 
 > [!NOTE]
-> Obecnie dane gromadzone są tylko na podstawie danych logowania zdarzeń zabezpieczeń (zdarzenie o identyfikatorze 4624). W przyszłości uwzględniane będą też dane logowania usług Office 365 i Azure AD.
+> obecnie dane hello jest oparty tylko na dane logowania zdarzeń zabezpieczeń (zdarzenie ID 4624) w przyszłości logowania usługi Office 365 hello i danych usługi Azure AD będą również uwzględnione.
 > 
 > 
 
-Dzięki monitorowaniu działań związanych z tożsamością można podejmować prewencyjne działania przed wystąpieniem zdarzenia i reagować na próby ataku. Pulpit nawigacyjny **Tożsamość i dostęp** zawiera przegląd stanu tożsamości, w tym liczbę nieudanych prób logowania, konta użytkowników wykorzystywane podczas tych prób, konta zablokowane, konta, dla których zmieniono lub zresetowano hasło, a także liczbę kont aktualnie zalogowanych użytkowników. 
+Monitorowanie działań tożsamości będzie aktywne działania w stanie tootake przed zdarzenie ma miejsce lub akcje reaktywne toostop próba ataku. Witaj **tożsamościami i dostępem** pulpit nawigacyjny zawiera omówienie stanu Twojej tożsamości, w tym hello liczby nieudanych prób toolog na konto użytkownika hello, które były używane podczas prób nawiązania, te konta, które zostały zablokowane, konta ze zmienionymi lub zresetować hasło, a obecnie liczby kont, które są rejestrowane w. 
 
-Po kliknięciu kafelka **Tożsamość i dostęp** pojawi się następujący pulpit nawigacyjny:
+Po kliknięciu hello **tożsamościami i dostępem** kafelka zobaczysz powitania po pulpitu nawigacyjnego:
 
 ![Tożsamość i dostęp](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-Informacje zawarte na tym pulpicie nawigacyjnym mogą bezpośrednio pomóc w zidentyfikowaniu potencjalne podejrzanych działań. Widać na przykład 338 prób logowania jako **Administrator**, z których 100% zakończyło się niepowodzeniem. Może to być spowodowane atakiem siłowym na to konto. Po kliknięciu tego konta zostanie wyświetlonych więcej informacji, które mogą pomóc w ustaleniu zasobu docelowego tego potencjalnego ataku:
+Witaj informacje są dostępne na tym pulpicie nawigacyjnym natychmiast może pomóc tooidentify potencjalnych podejrzanych działań. Na przykład istnieją 338 toolog prób na jako **administratora** i 100% tych prób nie powiodła się. Może to być spowodowane atakiem siłowym na to konto. Po kliknięciu tego konta spowoduje uzyskać więcej informacji, które mogą pomóc zasobu docelowego hello toodetermine takiego ataku potencjalnych:
 
 ![Wyniki wyszukiwania](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-Raport szczegółowy zawiera ważne informacje dotyczące tego zdarzenia, w tym: komputer docelowy, typ logowania (w tym przypadku logowanie sieciowe), działanie (w tym przypadku zdarzenie o identyfikatorze 4625) oraz szczegółowy przebieg prób w czasie. 
+Witaj szczegółowy raport zawiera ważne informacje dotyczące tego zdarzenia, w tym: hello komputera docelowego, typ hello logowania (w tym przypadku logowania sieci), hello działania (w tym przypadku zdarzeniu 4625) i wszechstronne osi czasu każdej próby. 
 
 ### <a name="computers"></a>Komputery
-Ten kafelek umożliwia dostęp do wszystkich komputerów, na których istnieją aktywne zdarzenia zabezpieczeń. Po kliknięciu tego kafelka pojawia się lista komputerów ze zdarzeniami zabezpieczeń oraz liczba zdarzeń na każdym komputerze:
+Ten Kafelek mogą być używane tooaccess wszystkie komputery, których aktywnie zdarzeń zabezpieczeń. Kliknięcie tego kafelka zostanie wyświetlona lista hello komputerów za pomocą zdarzeń zabezpieczeń i hello liczba zdarzeń znajdujących się na każdym komputerze:
 
 ![Komputery](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-Można kontynuować badania, klikając wybrany komputer i przeglądając oznaczone zdarzenia zabezpieczeń.
+Można kontynuować badania klikając na każdym komputerze i przejrzyj hello zdarzenia zabezpieczeń, które zostały oznaczone.
 
 ### <a name="threat-intelligence"></a>Analiza zagrożeń
 
-Używając opcji Analiza zagrożeń dostępnej w rozwiązaniu Zabezpieczenia i inspekcja usługi OMS, administratorzy IT mogą identyfikować zagrożenia dla bezpieczeństwa środowiska, na przykład wykrywać, czy dany komputer jest częścią botnetu. Komputery mogą stać się węzłami w botnecie, gdy osoby atakujące bezprawnie zainstalują złośliwe oprogramowanie, które potajemnie łączy ten komputer z centrum sterowania. Może także identyfikować potencjalne zagrożenia pochodzące z tajnych kanałów komunikacji, takich jak darknet. Dowiedz się więcej na temat funkcji Analiza zagrożeń, czytając artykuł [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md).
+Przy użyciu opcji analizy zagrożeń hello dostępne w OMS zabezpieczeń i inspekcji, Administratorzy IT może zidentyfikować zagrożenia bezpieczeństwa hello środowisku, na przykład, ustalić, czy na określonym komputerze jest częścią botnet. Komputery mogą stać się węzły w sieć botnet wykorzystywana osobom atakującym instalowania nielegalnemu złośliwego oprogramowania, które potajemnie łączy z tego polecenia toohello komputera i kontroli. Może także identyfikować potencjalne zagrożenia pochodzące z tajnych kanałów komunikacji, takich jak darknet. Dowiedz się więcej o analizy zagrożeń, odczytując [toosecurity monitorowania i odpowiada alerty w programie Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](oms-security-responding-alerts.md) artykułu.
 
 W niektórych scenariuszach możesz zauważyć potencjalnie złośliwy adres IP, do którego uzyskano dostęp z jednego z monitorowanych komputerów:
 
 ![Mapa analizy zagrożeń](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
 
-Ten alert i inne w tej samej kategorii są generowane przez rozwiązanie OMS Security z wykorzystaniem [funkcji analizy zagrożeń firmy Microsoft](https://youtu.be/O4WtxgUrDc8). Dane funkcji analizy zagrożeń są gromadzone przez firmę Microsoft, a także kupowane od czołowych dostawców analizy zagrożeń. Te dane są często aktualizowane i adaptowane do szybko zmieniających się zagrożeń. Ze względu na ich charakter podczas [badania](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) alertu zabezpieczeń powinny być one łączone z innymi źródłami informacji o zabezpieczeniach. 
+Ten alert i innych użytkowników w tej samej kategorii Witaj, są generowane przez OMS zabezpieczeń dzięki wykorzystaniu [analizy zagrożeń Microsoft](https://youtu.be/O4WtxgUrDc8). Hello danych analizy zagrożeń jest zbieranych przez firmę Microsoft a także zakupione z wiodącymi dostawcami analizy zagrożeń. Te dane jest często aktualizowana i dostosowywane przenoszenie toofast zagrożeń. Powodu charakter tooits powinny być połączone z innych źródeł informacji o zabezpieczeniach podczas [badanie](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) alert zabezpieczeń. 
 
 ### <a name="baseline-assessment"></a>Ocena linii bazowej
 
 Firma Microsoft, wraz z instytucjami branżowymi i rządowymi na całym świecie, zdefiniowała konfigurację systemu Windows, która reprezentuje wdrożenia serwera o wysokim poziomie zabezpieczeń. Konfiguracja ta stanowi zestaw kluczy rejestru, ustawień zasad inspekcji i ustawień zasad zabezpieczeń wraz z zalecanymi przez firmę Microsoft wartościami tych ustawień. Ten zestaw reguł jest określany jako linia bazowa zabezpieczeń. Przeczytaj temat [Ocena linii bazowej w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-baseline.md), aby uzyskać więcej informacji na temat tej opcji.
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Ten kafelek jest po prostu skrótem do pulpitu nawigacyjnego Azure Security Center. Więcej informacji na temat tego rozwiązania zawiera artykuł [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](../security-center/security-center-get-started.md).
+Ten Kafelek jest zasadniczo pulpit nawigacyjny Centrum zabezpieczeń Azure tooaccess skrótów. Więcej informacji na temat tego rozwiązania zawiera artykuł [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](../security-center/security-center-get-started.md).
 
 ## <a name="notable-issues"></a>Problemy godne uwagi
-Głównym przeznaczeniem tej grupy opcji jest zapewnianie szybkiego wglądu w problemy występujące w danym środowisku oraz ich podział na problemy krytyczne, ostrzegawcze oraz informacyjne. Kafelek typu aktywnego problemu oferuje wizualizację tych problemów, ale nie podaje szczegółowych informacji. Służy do tego dolna część tego kafelka, na której widać nazwę problemu (NAZWA), liczbę obiektów, których dotyczy (LICZBA) i stopień ich ważności (WAŻNOŚĆ).
+głównym celem tej grupy Opcje Hello jest tooprovide szybki przegląd hello występujące problemy w danym środowisku Kategoryzacja krytyczny, ostrzeżenie i do celów informacyjnych. Witaj aktywne problemy typu kafelka jest wizualizacji tych problemów, ale go nie zezwala tooexplore więcej szczegółowych informacji o nich, które mają być toouse hello dolnej części tego kafelka, nazwie hello hello wydania (nazwa), ile obiekty mają tak się stało (licznik) i jak bardzo krytyczne jest (waga).
 
 ![Problemy godne uwagi](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Widać, że te problemy zostały już przedstawione w innych obszarach grupy **Domeny zabezpieczeń**, co podkreśla przeznaczenie tego widoku, jakim jest wizualizacja najważniejszych problemów w środowisku w jednym miejscu.
+Widać, że te problemy zostały opisane w różnych obszarach hello **domen zabezpieczeń** grupy, która umacnia hello celem tego widoku: wizualizacji hello najważniejszych zagadnień w środowisku z jednego miejsca.
 
 ## <a name="detections-preview"></a>Wykrycia (podgląd)
-Ta opcja służy przede wszystkim do szybkiego identyfikowania potencjalnych zagrożeń w środowisku oraz określania ich ważności.
+Witaj głównym celem tej opcji jest tooallow IT tooquickly zidentyfikować potencjalne zagrożenia środowiska tootheir przez i hello ważność tego zagrożenia.
 
 ![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Z tej opcji można również skorzystać podczas [analizy reakcji na zdarzenia](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) w celu przeprowadzenia oceny i uzyskania dalszych informacji o ataku.
+Ta opcja umożliwia również podczas [dochodzenia odpowiedzi na zdarzenia](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) tooperform hello oceny i Uzyskaj więcej informacji na temat atak powitania.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat reagowania na zdarzenia przy użyciu pakietu OMS, obejrzyj to wideo: [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Jak reagować na zdarzenia przy użyciu rozwiązania Azure Security Center i pakietu Microsoft Operations Management Suite).
+> Aby uzyskać więcej informacji na temat toouse OMS do reagowania na zdarzenia, obejrzyj ten film: [jak tooLeverage hello Centrum zabezpieczeń Azure i programu Microsoft Operations Management Suite dla reagowania na zdarzenia](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 > 
 > 
 
 ## <a name="threat-intelligence"></a>Analiza zagrożeń
-Nowa sekcja analizy zagrożeń w rozwiązaniu Zabezpieczenia i inspekcja umożliwia wizualizację możliwych schematów ataku na kilka sposobów: całkowita liczba serwerów z wychodzącym złośliwym ruchem IP, typ złośliwego kodu oraz mapa pochodzenia tych adresów IP. Mapa jest interaktywna: klikając adres IP, można uzyskać więcej informacji.
+Witaj nowych zagrożeń sekcja analizy rozwiązania zabezpieczeń i inspekcji hello wizualizuje wzorce możliwy atak powitania na kilka sposobów: hello łącznej liczby serwerów z wychodzącym ruchem złośliwego oprogramowania IP, hello typu złośliwe oprogramowanie i mapy, który wskazuje, gdzie tych adresów IP pochodzą z. Mogą współpracować z mapy hello i kliknij na powitania adresów IP, aby uzyskać więcej informacji.
 
-Żółte pinezki na mapie wskazują ruch przychodzący ze złośliwych adresów IP. Nie jest niczym niezwykłym, że serwery połączone z Internetem odbierają złośliwy ruch przychodzący, ale warto przeglądać te próby, aby upewnić się, że żadna z nich nie zakończyła się pomyślnie. Wskaźniki te są oparte na dziennikach usług IIS i zapory systemu Windows oraz danych WireData.  
+Żółty pinezki — na mapie hello wskazują ruch przychodzący z złośliwymi adresami IP. Nie jest rzadko dla serwerów, które są udostępniane toohello internet toosee złośliwy ruch przychodzący, ale firma Microsoft zaleca przejrzenie tych prób toomake się, że żaden z nich zakończyło się pomyślnie. Wskaźniki te są oparte na dziennikach usług IIS i zapory systemu Windows oraz danych WireData.  
 
 ![Analiza zagrożeń](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
 ## <a name="common-security-queries"></a>Typowe zapytania dotyczące zabezpieczeń
-Lista typowych zapytań dotyczących zabezpieczeń może ułatwiać szybki dostęp do informacji o zasobach i dostosowanie ich do wymagań danego środowiska. Typowe zapytania obejmują:
+Hello listę typowych kwerend zabezpieczeń może okazać się przydatne podczas możesz toorapidly dostępu do informacji o zasobie i dostosować go na podstawie potrzeb w danym środowisku. Typowe zapytania obejmują:
 
 * Wszystkie działania dotyczące zabezpieczeń
-* Działania dotyczące zabezpieczeń na komputerze „computer01.contoso.com” (zastąp własną nazwą komputera)
-* Działania dotyczące zabezpieczeń na komputerze „computer01.contoso.com” dla konta „Administrator” (zastąp własnymi nazwami komputera i konta)
+* Działania dotyczące zabezpieczeń na powitania komputera "computer01.contoso.com" (Zastąp własną nazwą komputera)
+* Działania dotyczące zabezpieczeń na powitania komputera "computer01.contoso.com" dla konta "Administrator" (Zastąp własnymi nazwami komputera i konta)
 * Działania logowania według komputera
 * Konta, przy użyciu których przerwano pracę oprogramowania firmy Microsoft chroniącego przed złośliwym kodem na dowolnym komputerze
-* Komputery, na których proces oprogramowania firmy Microsoft chroniącego przed złośliwym kodem został przerwany
+* Komputery, na których został przerwany hello proces ochrony przed złośliwym oprogramowaniem firmy Microsoft
 * Komputery, na których wykonano plik „hash.exe” (zastąp inną nazwą procesu)
 * Nazwy wszystkich wykonanych procesów
 * Działania logowania według konta
-* Konta, przy użyciu których wykonano zdalne logowanie do komputera „computer01.contoso.com” (zastąp własną nazwą komputera)
+* Konta, z których zdalne logowanie na powitania komputera "computer01.contoso.com" (Zastąp własną nazwą komputera)
 
 ## <a name="see-also"></a>Zobacz też
-Ten dokument przedstawia wprowadzenie do rozwiązania Zabezpieczenia i inspekcja w pakiecie OMS. Więcej informacji na temat zabezpieczeń w pakiecie OMS zawierają następujące artykuły:
+W tym dokumencie możesz zostały wprowadzone tooOMS rozwiązania zabezpieczeń i inspekcji. toolearn więcej informacji na temat zabezpieczeń OMS, zobacz następujące artykuły hello:
 
 * [Omówienie pakietu Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Monitorowanie alertów zabezpieczeń i reagowanie na nie w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-responding-alerts.md)
+* [Monitorowanie i alerty tooSecurity odpowiada Operations Management Suite zabezpieczeń i rozwiązanie inspekcji](oms-security-responding-alerts.md)
 * [Monitorowanie zasobów w rozwiązaniu Zabezpieczenia i inspekcja w pakiecie Operations Management Suite](oms-security-monitoring-resources.md)
 

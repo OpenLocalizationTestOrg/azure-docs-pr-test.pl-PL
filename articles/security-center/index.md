@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Security Center — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować monitorowanie zabezpieczeń i zarządzanie zasadami dla zasobów platformy Azure. Samouczki, dokumentacja interfejsu API REST i inne dokumenty."
+title: "aaaAzure dokumentacji Centrum zabezpieczeń — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset zarządzania monitorowania i zasady zabezpieczeń zasobów platformy Azure. Samouczki, dokumentacja interfejsu API REST i inne dokumenty."
 services: security-center
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b2bed6a128c7c767687871389f982d6155c6161d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-center-documentation"></a>Dokumentacja usługi Security Center
 
-Dowiedz się, jak używać usługi Security Center, aby uzyskać wgląd w zabezpieczenia zasobów platformy Azure i kontrolę nad nimi.  Samouczki, dokumentacja interfejsu API REST oraz inne dokumenty przedstawiające sposób konfigurowania monitorowania zabezpieczeń i zarządzania zasadami pod kątem współdziałania z szerokim ekosystemem rozwiązań zabezpieczeń.
+Dowiedz się, jak toouse Centrum zabezpieczeń tooget wgląd w i kontroli nad hello zabezpieczeń zasobów platformy Azure.  Samouczki, dokumentacji interfejsu API REST i dokumentacji przedstawia sposób tooset zarządzania monitorowania i zasady zabezpieczeń, który współpracuje z szerokim ekosystemem rozwiązań zabezpieczających.
 
 <ul class="panelContent cardsFTitle">
     <li>

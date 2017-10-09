@@ -1,6 +1,6 @@
 ---
-title: "Ograniczenia i znane problemy podczas importowania interfejsu API usługi Azure API Management | Dokumentacja firmy Microsoft"
-description: "Szczegóły znane problemy i ograniczenia dotyczące importowania do usługi Azure API Management przy użyciu interfejsu API otwarty, WSDL lub WADL formatów."
+title: Importuj aaaRestrictions i znane problemy w Azure API Management API | Dokumentacja firmy Microsoft
+description: "Szczegóły znane problemy i ograniczenia dotyczące importowania do formatu hello otwarty interfejs API, WSDL lub WADL zarządzanie interfejsami API Azure."
 services: api-management
 documentationcenter: 
 author: mattfarm
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bed5ace47de6ccbfbecba25ea6b69c5329de089
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Ograniczenia importu interfejsu API i znane problemy
 ## <a name="about-this-list"></a>Ta lista — informacje
-Czasie wszelkich starań, aby upewnić się, że importowanie interfejsu API usługi Azure API Management jest jako bezproblemowe i bezproblemowe jak to możliwe, firma Microsoft od czasu do czasu nakłada ograniczenia lub zidentyfikować problemy, które należy rozwiązać, aby można było pomyślnie zaimportować. W tym artykule opisano, zorganizowanych w formacie importu interfejsu API.
+Podczas wszelkich starań, staje się tooensure tego interfejsu API importowania do usługi Azure API Management jest jako bezproblemowe i bezproblemowe jak to możliwe, możemy od czasu do czasu nakładają ograniczenia lub zidentyfikować problemy wymagające naprawy, aby można było pomyślnie zaimportować toobe. W tym artykule opisano, zorganizowanych przez format importu hello hello interfejsu API.
 
 ## <a name="open-api"></a>Otwórz interfejs API/Swagger
-Ogólnie rzecz biorąc, w przypadku otrzymania błędy importowania dokument otwarty interfejs API, upewnij się, zweryfikowaniu jej — przy użyciu narzędzia Projektant nowego portalu Azure (projekt - Front End — Otwórz interfejs API specyfikacji Edytor), lub z 3rd strony narzędzia takie jak <a href="http://www.swagger.io">edytora programu Swagger</a>.
+Ogólnie rzecz biorąc, jeśli otrzymujesz błędy importowania dokument otwarty interfejs API, sprawdź, czy zweryfikowaniu jej — za pomocą projektanta hello w hello nowego portalu Azure (projekt - Front End — Otwórz Edytor rozszerzenia interfejsu API specyfikacji) lub z 3rd strony narzędzia takie jak <a href="http://www.swagger.io"> Edytora programu swagger</a>.
 
 * **Nazwa hosta** wymagamy atrybutu nazwy hosta.
 * **Podstawowa ścieżka** wymagamy atrybut ścieżki podstawowej.
 * **Schematy** wymagamy tablicy schematu. 
 
 ## <a name="wsdl"></a>WSDL
-Pliki WSDL są używane do generowania interfejsów API przekazywanego SOAP lub służyć jako zaplecza interfejsu API SOAP-REST.
+Pliki WSDL są używane toogenerate interfejsów API przekazywanego SOAP lub służyć jako hello zaplecza interfejsu API SOAP-REST.
 
-* **WSDL: import** interfejsów API przy użyciu tego atrybutu nie jest obecnie obsługiwana. Klienci, należy scalić importowanych elementów w jednym dokumencie.
+* **WSDL: import** interfejsów API przy użyciu tego atrybutu nie jest obecnie obsługiwana. Klienci, należy scalić hello zaimportowane elementy jeden dokument.
 * **Komunikaty z wielu części** nie są obecnie obsługiwane.
 * **WCF wsHttpBinding** usług SOAP utworzone za pomocą programu Windows Communication Foundation należy użyć klasy basicHttpBinding — wsHttpBinding nie jest obsługiwane.
 * **MTOM** usług przy użyciu mechanizmu MTOM <em>może</em> pracy. W tej chwili nie jest oferowany oficjalnego wsparcia.
-* **Rekursja** typy, które są zdefiniowane cyklicznie (np. Zobacz tablicę sami) nie są obsługiwane.
+* **Rekursja** typy, które są zdefiniowane cyklicznie (np. można znaleźć tablicy tooan swojej) nie są obsługiwane.
 
 ## <a name="wadl"></a>WADL
 Obecnie nie istnieją żadne znane problemy importu WADL.
@@ -77,6 +77,6 @@ Obecnie nie istnieją żadne znane problemy importu WADL.
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[How to cache operation results in Azure API Management]: api-management-howto-cache.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How toocreate and publish a product]: api-management-howto-add-products.md
+[How toocache operation results in Azure API Management]: api-management-howto-cache.md

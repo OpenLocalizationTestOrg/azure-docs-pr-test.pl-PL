@@ -1,5 +1,5 @@
 ---
-title: "Przykłady Azure CLI - Azure Functions | Dokumentacja firmy Microsoft"
+title: "aaaAzure próbki interfejsu wiersza polecenia — usługi Azure Functions | Dokumentacja firmy Microsoft"
 description: "Przykłady Azure CLI - Azure Functions"
 services: functions
 documentationcenter: functions
@@ -16,15 +16,15 @@ ms.workload: functions
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6830ab9ada50da99871592e2c0911ac9cb8f5797
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2041e710560a41f230a0ffc20dc89756c6b5c854
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples"></a>Przykłady Azure CLI
 
-Poniższa tabela zawiera linki do bash skryptów dla usługi Azure Functions, korzystające z wiersza polecenia platformy Azure.
+Witaj Poniższa tabela zawiera linki toobash skryptów dla usługi Azure Functions, używanego hello wiersza polecenia platformy Azure.
 
 | | |
 |-|-|
@@ -33,15 +33,15 @@ Poniższa tabela zawiera linki do bash skryptów dla usługi Azure Functions, ko
 | [Tworzenie aplikacji funkcji w planie usługi aplikacji](scripts/functions-cli-create-app-service-plan.md) | Tworzenie aplikacji funkcji w dedykowanym planu usługi aplikacji. |
 | | |
 |**Integracja**||
-| [Tworzenie aplikacji funkcji i Połącz z kontem magazynu](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Tworzenie aplikacji funkcji i podłącz go do konta magazynu. |
-| [Tworzenie aplikacji funkcji i nawiązać połączenie bazy danych Azure rozwiązania Cosmos](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Tworzenie aplikacji funkcji i podłącz go do bazy danych Azure rozwiązania Cosmos |
+| [Tworzenie aplikacji funkcji i Połącz konto magazynu tooa](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Tworzenie aplikacji funkcji i podłącz go tooa konta magazynu. |
+| [Tworzenie aplikacji funkcji i połącz tooan bazy danych Azure rozwiązania Cosmos](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Tworzenie aplikacji funkcji i podłącz go tooan bazy danych Azure rozwiązania Cosmos |
 | | |
 |**Konfigurowanie aplikacji**||
-| [Zamapować niestandardową domenę do aplikacji funkcji](scripts/functions-cli-configure-custom-domain.md) | Zdefiniuj niestandardową domenę na potrzeby funkcji.  |
-| [Powiąż certyfikat SSL do aplikacji funkcji](scripts/functions-cli-configure-ssl-certificate.md)  |  Przekaż certyfikaty SSL dla funkcji w domeny niestandardowej. |
+| [Mapa aplikacji funkcji tooa domeny niestandardowej](scripts/functions-cli-configure-custom-domain.md) | Zdefiniuj niestandardową domenę na potrzeby funkcji.  |
+| [Powiązania certyfikatu SSL tooa funkcji aplikacji](scripts/functions-cli-configure-ssl-certificate.md)  |  Przekaż certyfikaty SSL dla funkcji w domeny niestandardowej. |
 <!--
 
 |**Scale app**||
 
-|**Connect app to resources**||
+|**Connect app tooresources**||
 -->

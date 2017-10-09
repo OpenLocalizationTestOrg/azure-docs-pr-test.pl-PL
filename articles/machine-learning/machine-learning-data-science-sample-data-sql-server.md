@@ -1,5 +1,5 @@
 ---
-title: "Przykładowe dane w programie SQL Server na platformie Azure | Dokumentacja firmy Microsoft"
+title: aaaSample danych w programie SQL Server na platformie Azure | Dokumentacja firmy Microsoft
 description: "Przykładowe dane w programie SQL Server na platformie Azure"
 services: machine-learning
 documentationcenter: 
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 1bdcc7175dac325de1144d805e977264524b3fbc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc7f9529c771f6deb633775557e64a04b774f5b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="heading"></a>Przykładowe dane w programie SQL Server na platformie Azure
-Ten dokument zamieszczono przykładowe dane przechowywane w programie SQL Server na platformie Azure przy użyciu SQL lub języka programowania Python. Ponadto jak przenieść próbki danych do usługi Azure Machine Learning przez zapisanie go w pliku, przekazać go do obiektów blob platformy Azure i odczytywania go do usługi Azure Machine Learning Studio.
+Tym dokumencie przedstawiono sposób przechowywania danych toosample w programie SQL Server na platformie Azure przy użyciu SQL lub hello język programowania Python. Pokazuje też, jak toomove próbce danych do usługi Azure Machine Learning przez zapisanie go w pliku tooa, przekazać go tooan obiektów blob platformy Azure, a następnie odczytanie go do usługi Azure Machine Learning Studio.
 
-Używa języka Python próbkowania [pyodbc](https://code.google.com/p/pyodbc/) ODBC — Biblioteka nawiązać połączenia z programem SQL Server na platformie Azure i [Pandas](http://pandas.pydata.org/) biblioteki w celu pobierania próbek.
+próbkowanie Python Hello używa hello [pyodbc](https://code.google.com/p/pyodbc/) tooSQL tooconnect biblioteki ODBC serwera na platformie Azure i hello [Pandas](http://pandas.pydata.org/) biblioteki toodo hello próbkowania.
 
 > [!NOTE]
-> Przykładowy kod SQL w tym dokumencie przyjęto założenie, że dane są w programie SQL Server na platformie Azure. Jeśli nie jest, zapoznaj się [przenoszenie danych do programu SQL Server na platformie Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) tematu, aby uzyskać instrukcje dotyczące sposobu przenoszenia danych do programu SQL Server na platformie Azure.
+> Hello przykładowy SQL kod w tym dokumencie przyjęto założenie, że hello jest danych w programie SQL Server na platformie Azure. Jeśli nie jest dostępne, można znaleźć za[przenoszenia danych tooSQL Server na platformie Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) tematu, aby uzyskać instrukcje dotyczące toomove Twojego tooSQL danych serwera na platformie Azure.
 > 
 > 
 
-Następujące **menu** linki do tematów opisujących sposób przykładowe dane z różnych środowiskach magazynu. 
+następujące Hello **menu** łączy tootopics, które opisują sposób toosample danych z różnych środowiskach magazynu. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 **Dlaczego przykładowe dane?**
-Jeśli zestaw danych, które mają być analizowanie jest duży, zazwyczaj jest dobrym rozwiązaniem w dół przykładowych danych, aby zmniejszyć jego rozmiar mniejsze, ale reprezentatywny i łatwiejsze w zarządzaniu. To ułatwia zrozumienie danych, badanie i inżynieria funkcji. Swoją rolę w [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) jest umożliwienie szybkiego prototypy funkcji przetwarzania danych i modeli uczenia maszynowego.
+Jeśli planujesz tooanalyze dataset hello jest duży, zazwyczaj jest to dobrze hello toodown przykładowych danych tooreduce jego rozmiar tooa mniejsze, ale reprezentatywny i łatwiejsze w zarządzaniu. To ułatwia zrozumienie danych, badanie i inżynieria funkcji. Swoją rolę w hello [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) jest szybkie tworzenie prototypów tooenable hello przetwarzania danych funkcji i modeli uczenia maszynowego.
 
-To zadanie próbkowania jest krokiem w [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+To zadanie próbkowania jest etapem hello [zespołu danych nauki procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="SQL"></a>Przy użyciu programu SQL
-W tej sekcji opisano kilka metod, aby wykonać pobieranie próbek losowych z danymi w bazie danych przy użyciu programu SQL. Wybierz metodę, w oparciu o rozmiar danych i jego dystrybucji.
+W tej sekcji opisano kilka metod za pomocą tooperform SQL pobieranie próbek losowych hello danych w bazie danych hello. Wybierz metodę, w oparciu o rozmiar danych i jego dystrybucji.
 
-Dwa poniższe elementy pokazują, jak używać newid w programie SQL Server do wykonywania próbki. Wybór metody zależy od sposobu losowej próbki w celu (pk_id w poniższym przykładowym kodzie zakłada się, że klucz podstawowy generowane automatycznie).
+Poniższe elementy dwóch Hello pokazują, jak newid toouse w tooperform programu SQL Server hello próbkowania. Hello metody zależy od sposobu losowe hello próbki toobe (pk_id w hello przykładowy kod poniżej przyjęto toobe automatycznego generowania klucza podstawowego).
 
 1. Mniej rygorystyczne losowej próbki
    
@@ -53,7 +53,7 @@ Dwa poniższe elementy pokazują, jak używać newid w programie SQL Server do w
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample może być użyta do próbkowania także przedstawiona poniżej. Może to być lepszym rozwiązaniem, jeśli rozmiar danych jest duży (przy założeniu, że nie jest skorelowany danych na różnych stronach) i dla zapytania do wykonania w odpowiednim czasie.
+Tablesample może być użyta do próbkowania także przedstawiona poniżej. Może to być lepszym rozwiązaniem Jeśli rozmiar danych jest duży (przy założeniu, że nie jest skorelowany danych na różnych stronach) i toocomplete zapytania hello w odpowiednim czasie.
 
     SELECT *
     FROM <table_name> 
@@ -64,34 +64,34 @@ Tablesample może być użyta do próbkowania także przedstawiona poniżej. Mo�
 > 
 > 
 
-### <a name="sql-aml"></a>Nawiązywanie połączenia z usługi Azure Machine Learning
-Przykładowe zapytania powyżej można używać bezpośrednio w usłudze Azure Machine Learning [i zaimportuj dane] [ import-data] moduł dół przykładowe dane na bieżąco i przełączyć go do eksperymentu uczenia maszynowego Azure. Poniżej przedstawiono zrzut ekranu przy użyciu modułu czytnik do odczytu próbki danych:
+### <a name="sql-aml"></a>Łączenie tooAzure uczenia maszynowego
+Możesz bezpośrednio użyć hello przykładowe zapytania powyżej w hello Azure Machine Learning [i zaimportuj dane] [ import-data] modułu hello toodown przykładowe dane na powitania udać i przełączyć go do eksperymentu uczenia maszynowego Azure. Poniżej przedstawiono zrzut ekranu przy użyciu hello czytnika modułu tooread hello próbkowany danych:
 
 ![Czytnik sql][1]
 
-## <a name="python"></a>Przy użyciu języka programowania Python
-W tej sekcji przedstawiono przy użyciu [biblioteki pyodbc](https://code.google.com/p/pyodbc/) do ustanawiania połączenia ODBC w bazie danych programu SQL server w języku Python. Parametry połączenia bazy danych jest następujący: (zamiast servername, dbname, nazwę użytkownika i hasło z konfiguracją):
+## <a name="python"></a>Przy użyciu języka programowania Python hello
+W tej sekcji przedstawiono przy użyciu hello [biblioteki pyodbc](https://code.google.com/p/pyodbc/) tooestablish ODBC połączyć tooa bazy danych serwera SQL w języku Python. Parametry połączenia bazy danych Hello jest następująca: (zamiast servername, dbname, nazwę użytkownika i hasło z konfiguracją):
 
-    #Set up the SQL Azure connection
+    #Set up hello SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Pandas](http://pandas.pydata.org/) biblioteki w języku Python zawiera bogaty zestaw struktur danych i narzędzia do analizy danych do manipulowania danymi programowania Python. Poniższy kod odczytuje 0,1% próbkę danych z tabeli w bazie danych Azure SQL w danych Pandas:
+Witaj [Pandas](http://pandas.pydata.org/) biblioteki w języku Python zawiera bogaty zestaw struktur danych i narzędzia do analizy danych do manipulowania danymi programowania Python. Poniższy kod Hello odczytuje próbkę 0,1% hello danych z tabeli w bazie danych Azure SQL w danych Pandas:
 
     import pandas as pd
 
-    # Query database and load the returned results in pandas data frame
+    # Query database and load hello returned results in pandas data frame
     data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Teraz możesz pracować z próbki danych w ramce Pandas danych. 
+Teraz możesz pracować z danymi hello próbkowany hello Pandas danych ramki. 
 
-### <a name="python-aml"></a>Nawiązywanie połączenia z usługi Azure Machine Learning
-Następujący przykładowy kod umożliwia zapisują dane próbkowania w dół do pliku i przekaż go do obiektów blob platformy Azure. Dane w obiekcie blob mogą bezpośrednio odczytywać do eksperymentu Azure Machine Learning przy użyciu [i zaimportuj dane] [ import-data] modułu. Dostępne są następujące kroki: 
+### <a name="python-aml"></a>Łączenie tooAzure uczenia maszynowego
+Można użyć następującego przykładowego kodu toosave hello danych próbkowania w dół tooa pliku hello i przekaż go tooan obiektów blob platformy Azure. Hello dane w obiekcie blob hello może być bezpośrednio odczytane do eksperymentu Azure Machine Learning przy użyciu hello [i zaimportuj dane] [ import-data] modułu. Witaj obejmuje następujące czynności: 
 
-1. Zapis pandas ramki danych do pliku lokalnego
+1. Zapis hello pandas danych ramki tooa lokalnego pliku
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Przekazywanie pliku lokalnego do obiektów blob platformy Azure
+2. Przekazywanie pliku lokalnego tooAzure blob
    
         from azure.storage import BlobService
         import tables
@@ -112,12 +112,12 @@ Następujący przykładowy kod umożliwia zapisują dane próbkowania w dół do
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Odczytywanie danych z obiektów blob platformy Azure przy użyciu usługi Azure Machine Learning [i zaimportuj dane] [ import-data] modułu, jak pokazano poniżej Przechwyć ekranu:
+3. Odczytywanie danych z obiektów blob platformy Azure przy użyciu usługi Azure Machine Learning [i zaimportuj dane] [ import-data] modułu, jak pokazano poniżej Przechwyć ekranie powitania:
 
 ![Czytnik obiektów blob][2]
 
-## <a name="the-team-data-science-process-in-action-example"></a>Proces nauki danych zespołu w przykładzie akcji
-Przykład end-to-end wskazówki procesu nauki danych Team publicznego zestawu danych, przy użyciu zobacz [proces nauki danych zespołu w działaniu: przy użyciu programu SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+## <a name="hello-team-data-science-process-in-action-example"></a>Witaj proces nauki danych zespołu w przykładzie akcji
+Przykład wskazówki na trasie hello proces nauki danych Team publicznego zestawu danych, przy użyciu zobacz [proces nauki danych zespołu w działaniu: przy użyciu programu SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

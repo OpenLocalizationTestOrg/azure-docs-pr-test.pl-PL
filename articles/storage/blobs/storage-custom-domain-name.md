@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
-description: "Użyj portalu Azure, aby zamapować własną nazwę kanoniczną (CNAME) do punktu końcowego magazynu obiektów Blob na koncie magazynu Azure."
+title: "aaaConfigure niestandardowej nazwy domeny dla punktu końcowego magazynu obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
+description: "Użyj hello toomap portalu Azure własne końcowego magazynu obiektów Blob toohello nazwę kanoniczną (CNAME) dla konta usługi Azure Storage."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: marsma
-ms.openlocfilehash: 67a197ffa04d284e9251d7f79b36a86d03637fd9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bfee6d28039f389ba2e2ed6b28d43894b6e15469
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi Blob Storage
 
-Można skonfigurować niestandardową domenę na potrzeby uzyskiwania dostępu do danych obiektów blob na koncie magazynu Azure. Domyślny punkt końcowy dla magazynu obiektów Blob jest `<storage-account-name>.blob.core.windows.net`. Jeśli mapujesz niestandardowych domen i poddomen, takich jak **www.contoso.com** do punktu końcowego obiektu blob magazynu konta użytkowników można następnie uzyskać dostęp do danych obiektów blob na koncie magazynu przy użyciu tej domeny.
+Można skonfigurować niestandardową domenę na potrzeby uzyskiwania dostępu do danych obiektów blob na koncie magazynu Azure. Witaj domyślnego punktu końcowego magazynu obiektów Blob jest `<storage-account-name>.blob.core.windows.net`. Jeśli mapujesz niestandardowych domen i poddomen, takich jak **www.contoso.com** toohello punktu końcowego obiektu blob dla konta magazynu, użytkowników może uzyskać dostęp obiektu blob danych na koncie magazynu przy użyciu tej domeny.
 
 > [!IMPORTANT]
-> Usługa Azure Storage jeszcze natywnie obsługuje HTTPS z domen niestandardowych. Obecnie można [umożliwia dostęp do obiektów blob z domenami niestandardowymi za pośrednictwem protokołu HTTPS Azure CDN](storage-https-custom-domain-cdn.md).
+> Usługa Azure Storage jeszcze natywnie obsługuje HTTPS z domen niestandardowych. Obecnie można [użyć hello Azure CDN tooaccess blob z domenami niestandardowymi za pośrednictwem protokołu HTTPS](storage-https-custom-domain-cdn.md).
 >
 
-W poniższej tabeli przedstawiono kilka przykładowych adresy URL obiektu blob danych znajdujących się na koncie magazynu o nazwie **mojekontomagazynu**. Zarejestrowany domeny niestandardowej dla konta magazynu jest **www.contoso.com**:
+Witaj poniższej tabeli przedstawiono kilka przykładowych adresy URL obiektu blob danych znajdujących się na koncie magazynu o nazwie **mojekontomagazynu**. zarejestrowany Hello domeny niestandardowej dla konta magazynu hello jest **www.contoso.com**:
 
 | Typ zasobu | Domyślny adres URL | Adres URL domeny niestandardowej |
 | --- | --- | --- |
@@ -38,87 +38,87 @@ W poniższej tabeli przedstawiono kilka przykładowych adresy URL obiektu blob d
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Bezpośrednie a mapowanie pośredniczące domeny
 
-Istnieją dwa sposoby, aby wskazywała domenę niestandardową punktu końcowego konta magazynu obiektów blob: bezpośrednie CNAME mapping, a za pomocą *asverify* pośredniczące poddomeny.
+Istnieją dwa sposoby toopoint punktu końcowego obiektu blob toohello domeny niestandardowej dla konta magazynu: bezpośrednie CNAME mapping, a przy użyciu hello *asverify* pośredniczące poddomeny.
 
 ### <a name="direct-cname-mapping"></a>Bezpośrednie mapowanie CNAME
 
-Metoda pierwszy i najprostszym, jest do utworzenia rekordu nazwę kanoniczną (CNAME), który mapuje Twoje niestandardowe domen i poddomen bezpośrednio do punktu końcowego obiektu blob. Rekord CNAME jest funkcją systemu (nazw domen DNS) nazwa domeny, która mapuje domeny źródłowej do domeny docelowej. W takim przypadku domeny źródłowej jest własnych niestandardowych domen i poddomen, na przykład *www.contoso.com*. Domena docelowego jest punkt końcowy usługi Blob, na przykład *mystorageaccount.blob.core.windows.net*.
+Hello pierwszy i najprostszym, metoda jest toocreate rekordu nazwę kanoniczną (CNAME), który mapuje Twoje niestandardowe domen i poddomen bezpośrednio toohello obiektu blob punktu końcowego. Rekord CNAME jest funkcją systemu (nazw domen DNS) nazwa domeny, która mapuje domeny docelowej tooa domeny źródłowej. W takim przypadku domeny źródłowej hello jest własnych niestandardowych domen i poddomen, na przykład *www.contoso.com*. domena docelowego hello jest punktu końcowego usługi Blob, na przykład  *mystorageaccount.blob.Core.Windows.NET*.
 
-Metoda bezpośrednia jest objęte [zarejestrować niestandardową domenę](#register-a-custom-domain).
+Metoda bezpośrednia Hello jest objęte [zarejestrować niestandardową domenę](#register-a-custom-domain).
 
 ### <a name="intermediary-mapping-with-asverify"></a>Mapowanie pośredniczące *asverify*
 
-Druga metoda używa również rekordy CNAME, ale najpierw wykorzystuje specjalne poddomenę rozpoznawane przez platformę Azure, aby uniknąć przestoju: **asverify**.
+Druga metoda Hello używa również rekordy CNAME, ale najpierw wykorzystuje specjalne poddomeny rozpoznaje Azure tooavoid przestój: **asverify**.
 
-Proces mapowania domeny niestandardowej do punktu końcowego obiektu blob może spowodować przez krótki czas przestoju dla domeny podczas rejestrowania w [portalu Azure](https://portal.azure.com). Jeśli aktualnie obsługiwanych aplikacji przy użyciu umowy poziomu usług (SLA) wymaga przestojów domenę niestandardową, a następnie platformy Azure można użyć *asverify* poddomeny jako etap pośredni rejestracji. Ten krok pośredniego gwarantuje, że użytkownicy będą mogli uzyskać dostępu do domeny, podczas mapowania DNS ma miejsce.
+Proces mapowania punktu końcowego obiektu blob tooa domeny niestandardowej Hello może spowodować przez krótki czas przestoju dla domeny hello podczas rejestrowania jej w hello [portalu Azure](https://portal.azure.com). Jeśli aktualnie obsługiwanych aplikacji przy użyciu umowy poziomu usług (SLA) wymaga przestojów domenę niestandardową, a następnie można użyć hello Azure *asverify* poddomeny jako etap pośredni rejestracji. Ten krok pośredniego zapewnia użytkownikom są stanie tooaccess domeny, podczas gdy hello mapowanie DNS ma miejsce.
 
-Pośredniczące metoda została opisana w [zarejestrować domeny niestandardowej przy użyciu *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
+Metoda pośredniczące Hello jest objęte [zarejestrować niestandardową domenę przy użyciu hello *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Zarejestruj domeny niestandardowej
-Użyj tej procedury, aby zarejestrować domeny niestandardowej, jeśli nie pytań dotyczących trwa krótko niedostępne dla użytkowników domeny lub domeny niestandardowej nie jest obecnie hostuje aplikację.
+Korzystania z niestandardowej domeny tooregister tej procedury, jeśli nie pytań dotyczących domeny hello trwa krótko niedostępny tooyour użytkowników lub domeny niestandardowej nie jest obecnie hostuje aplikację.
 
-W przypadku domeny niestandardowej jest obecnie obsługi aplikacji, która nie może mieć żadnych przestojów, postępuj zgodnie z procedurą przedstawioną w [zarejestrować domeny niestandardowej przy użyciu *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
+W przypadku domeny niestandardowej jest obecnie obsługi aplikacji, która nie może mieć żadnych przestojów, wykonaj procedurę hello opisane w temacie [zarejestrować niestandardową domenę przy użyciu hello *asverify* poddomeny](#register-a-custom-domain-using-the-asverify-subdomain).
 
-Aby skonfigurować niestandardową nazwę domeny, należy utworzyć nowy rekord CNAME w systemie DNS. Rekord CNAME określa aliasu dla nazwy domeny. W takim przypadku mapuje adres domeny niestandardowej do punktu końcowego magazynu obiektów Blob dla konta magazynu.
+tooconfigure niestandardowej nazwy domeny, należy utworzyć nowy rekord CNAME w systemie DNS. rekord CNAME Hello określa aliasu dla nazwy domeny. W takim przypadku mapuje hello adres Twojej domeny niestandardowej toohello obiektu Blob magazynu punktu końcowego dla konta magazynu.
 
-Zazwyczaj można zarządzać ustawieniami DNS domeny w witrynie rejestratora domen. Każdy rejestrator ma podobne, lecz nieco inne metody określania rekord CNAME, ale koncepcja jest taka sama. Niektóre pakiety rejestracji domena podstawowa nie oferują konfiguracji DNS, może być konieczne uaktualnienie pakietu rejestracji domeny, aby można było utworzyć rekord CNAME.
+Zazwyczaj można zarządzać ustawieniami DNS domeny w witrynie rejestratora domen. Każdy rejestrator ma podobne, lecz nieco inne metody określania rekord CNAME, ale koncepcji hello jest hello takie same. Niektóre pakiety rejestracji podstawowe domeny nie oferują konfiguracji DNS może więc być konieczny tooupgrade pakietu rejestracji domeny można było utworzyć rekord CNAME hello.
 
-1. Przejdź do swojego konta magazynu w [portalu Azure](https://portal.azure.com).
-1. W obszarze **usługa BLOB** w bloku menu wybierz **domeny niestandardowe** otworzyć *domeny niestandardowe* bloku.
-1. Zaloguj się w witrynie rejestratora domen i przejdź do strony zarządzania DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
-1. Znajdź sekcję zarządzania rekordami CNAME. Może być konieczne przejdź do strony ustawień zaawansowanych i poszukaj słowa **CNAME**, **Alias**, lub **poddomen**.
-1. Utwórz nowy rekord CNAME i podaj alias poddomeny, takie jak **www** lub **zdjęć**. Następnie podaj nazwę hosta, który jest punkt końcowy usługi Blob, w formacie **mystorageaccount.blob.core.windows.net** (gdzie *mojekontomagazynu* jest nazwą konta magazynu). Nazwa hosta, aby użyć pojawia się w elemencie #1 *domeny niestandardowe* bloku w [portalu Azure](https://portal.azure.com).
-1. W polu tekstowym na *domeny niestandardowe* bloku w [portalu Azure](https://portal.azure.com), wprowadź nazwę domeny niestandardowej, łącznie z poddomeny. Na przykład, jeśli Twoja domena to **contoso.com** i aliasu poddomeny **www**, wprowadź **www.contoso.com**. Jeśli Twoje domeny podrzędnej jest **zdjęć**, wprowadź **photos.contoso.com**. Jest poddomeną *wymagane*.
-1. Wybierz **zapisać** na *domeny niestandardowe* bloku, aby zarejestrować domeny niestandardowej. Jeśli rejestracja zakończy się pomyślnie, zostanie wyświetlone powiadomienie portalu konta magazynu zostało pomyślnie zaktualizowane.
+1. Przejdź do konta magazynu tooyour w hello [portalu Azure](https://portal.azure.com).
+1. W obszarze **usługa BLOB** na powitania bloku menu, wybierz **domeny niestandardowe** tooopen hello *domeny niestandardowe* bloku.
+1. Zaloguj się na rejestratora domen tooyour witryny sieci Web i przejdź do strony toohello zarządzania DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
+1. Znajdź sekcję hello zarządzania CNAME. Może mieć toogo tooan Zaawansowane ustawienia strony i wyszukaj słowa hello **CNAME**, **Alias**, lub **poddomen**.
+1. Utwórz nowy rekord CNAME i podaj alias poddomeny, takie jak **www** lub **zdjęć**. Następnie podaj nazwę hosta, który jest punkt końcowy usługi Blob, w formacie hello **mystorageaccount.blob.core.windows.net** (gdzie *mojekontomagazynu* hello nazwa konta magazynu). toouse nazwy hosta Hello pojawia się w elemencie #1 hello *domeny niestandardowe* bloku w hello [portalu Azure](https://portal.azure.com).
+1. W polu tekstowym hello na powitania *domeny niestandardowe* bloku w hello [portalu Azure](https://portal.azure.com), wprowadź nazwę domeny niestandardowej, łącznie z poddomeny hello hello. Na przykład, jeśli Twoja domena to **contoso.com** i aliasu poddomeny **www**, wprowadź **www.contoso.com**. Jeśli Twoje domeny podrzędnej jest **zdjęć**, wprowadź **photos.contoso.com**. poddomeny hello jest *wymagane*.
+1. Wybierz **zapisać** na powitania *domeny niestandardowe* tooregister bloku domeny niestandardowej. Jeśli hello rejestracja zakończy się pomyślnie, zostanie wyświetlone powiadomienie portalu Twoje konto magazynu zostało pomyślnie zaktualizowane.
 
-Po Twoje nowy rekord CNAME zakończeniem propagacji przy użyciu systemu DNS, użytkownicy mogą wyświetlać dane obiektów blob przy użyciu domenę niestandardową, tak długo, jak długo mają odpowiednie uprawnienia.
+Po Twoje nowy rekord CNAME zakończeniem propagacji przy użyciu systemu DNS, użytkownicy mogą wyświetlać dane obiektów blob przy użyciu domenę niestandardową, tak długo, jak długo mają odpowiednie uprawnienia hello.
 
-## <a name="register-a-custom-domain-using-the-asverify-subdomain"></a>Zarejestruj domeny niestandardowej przy użyciu *asverify* poddomeny
-Ta procedura umożliwia rejestrowanie niestandardowe domeny w przypadku domeny niestandardowej jest obecnie obsługi aplikacji z umowy dotyczącej poziomu usług, które wymaga, aby nie istnieć bez przestojów. Przez utworzenie rekordu CNAME, który wskazuje z `asverify.<subdomain>.<customdomain>` do `asverify.<storageaccount>.blob.core.windows.net`, można wstępnie zarejestrować domeny z platformy Azure. Następnie możesz utworzyć drugi CNAME, który wskazuje z `<subdomain>.<customdomain>` do `<storageaccount>.blob.core.windows.net`, w którym ruch do domeny niestandardowej nastąpi przekierowanie do punktu końcowego obiektu blob.
+## <a name="register-a-custom-domain-using-hello-asverify-subdomain"></a>Zarejestruj niestandardową domenę przy użyciu hello *asverify* poddomeny
+Użyj tej procedury tooregister domeny niestandardowej w przypadku domeny niestandardowej jest obecnie obsługi aplikacji z umowy dotyczącej poziomu usług, które wymaga, aby nie istnieć bez przestojów. Przez utworzenie rekordu CNAME, który wskazuje z `asverify.<subdomain>.<customdomain>` zbyt`asverify.<storageaccount>.blob.core.windows.net`, można wstępnie zarejestrować domeny z platformy Azure. Następnie możesz utworzyć drugi CNAME, który wskazuje z `<subdomain>.<customdomain>` zbyt`<storageaccount>.blob.core.windows.net`, w takim przypadku domeny niestandardowej tooyour ruch będzie ukierunkowanej tooyour punkt końcowy blob.
 
-**Asverify** poddomeny jest specjalne poddomenę rozpoznawane przez platformę Azure. Przez dołączanie `asverify` do własnych poddomeny, należy zezwolić na działanie Azure, aby rozpoznać domeny niestandardowej bez modyfikowania rekordów DNS dla domeny. Podczas modyfikowania rekordów DNS dla domeny, zostanie on zamapowany do punktu końcowego obiektu blob bez przestojów.
+Witaj **asverify** poddomeny jest specjalne poddomenę rozpoznawane przez platformę Azure. Przez dołączanie `asverify` tooyour własnych poddomeny, należy zezwolić na działanie Azure toorecognize domeny niestandardowej bez modyfikowania hello rekordu DNS dla domeny hello. Po zmodyfikowaniu hello rekordu DNS dla domeny hello będzie punktu końcowego obiektu blob toohello mapowane bez przestojów.
 
-1. Przejdź do swojego konta magazynu w [portalu Azure](https://portal.azure.com).
-1. W obszarze **usługa BLOB** w bloku menu wybierz **domeny niestandardowe** otworzyć *domeny niestandardowe* bloku.
-1. Zaloguj się do witryny sieci Web dostawcy usługi DNS i przejdź do strony zarządzania DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
-1. Znajdź sekcję zarządzania rekordami CNAME. Może być konieczne przejdź do strony ustawień zaawansowanych i poszukaj słowa **CNAME**, **Alias**, lub **poddomen**.
-1. Utwórz nowy rekord CNAME i podaj alias poddomeny, która obejmuje *asverify* poddomeny. Na przykład **asverify.www** lub **asverify.photos**. Następnie podaj nazwę hosta, który jest punkt końcowy usługi Blob, w formacie **asverify.mystorageaccount.blob.core.windows.net** (gdzie **mojekontomagazynu** jest nazwą konta magazynu). Nazwa hosta, aby użyć pojawia się w elemencie #2 *domeny niestandardowe* bloku w [portalu Azure](https://portal.azure.com).
-1. W polu tekstowym na *domeny niestandardowe* bloku w [portalu Azure](https://portal.azure.com), wprowadź nazwę domeny niestandardowej, łącznie z poddomeny. Nie dołączaj *asverify*. Na przykład, jeśli Twoja domena to **contoso.com** i aliasu poddomeny **www**, wprowadź **www.contoso.com**. Jeśli Twoje domeny podrzędnej jest **zdjęć**, wprowadź **photos.contoso.com**. Poddomeny jest wymagana.
-1. Wybierz **Użyj pośredniej weryfikacji CNAME** wyboru.
-1. Wybierz **zapisać** na *domeny niestandardowe* bloku, aby zarejestrować domeny niestandardowej. Jeśli rejestracja zakończy się pomyślnie, zobaczysz portalu powiadomienie, że Twoje konto magazynu zostało pomyślnie zaktualizowane. W tym momencie domeny niestandardowej została zweryfikowana przez platformę Azure, ale nie ruch do Twojej domeny jest jeszcze rozsyłane do konta magazynu.
-1. Wróć do witryny sieci Web dostawcy usługi DNS i utwórz inny rekord CNAME mapujący z poddomeny na punkt końcowy usługi Blob. Na przykład określić poddomeny jako **www** lub **zdjęć** (bez *asverify*) i nazwy hosta jako **mystorageaccount.blob.core.windows.net** (gdzie **mojekontomagazynu** jest nazwą konta magazynu). W ramach tego kroku zakończeniu rejestracji domeny niestandardowej.
-1. Na koniec możesz usunąć rekord CNAME utworzonego zawierający **asverify** poddomeny, ponieważ było konieczne tylko jako etap pośredniczące.
+1. Przejdź do konta magazynu tooyour w hello [portalu Azure](https://portal.azure.com).
+1. W obszarze **usługa BLOB** na powitania bloku menu, wybierz **domeny niestandardowe** tooopen hello *domeny niestandardowe* bloku.
+1. Zaloguj się na dostawcy DNS tooyour witryny sieci Web i przejdź do strony toohello zarządzania DNS. Może ona być zlokalizowana w sekcjach, takich jak **Domain Name** (Nazwa domeny), **DNS** (System DNS) lub **Name Server Management** (Zarządzanie serwerem nazw).
+1. Znajdź sekcję hello zarządzania CNAME. Może mieć toogo tooan Zaawansowane ustawienia strony i wyszukaj słowa hello **CNAME**, **Alias**, lub **poddomen**.
+1. Utwórz nowy rekord CNAME i podaj alias poddomeny, która obejmuje hello *asverify* poddomeny. Na przykład **asverify.www** lub **asverify.photos**. Następnie podaj nazwę hosta, który jest punkt końcowy usługi Blob, w formacie hello **asverify.mystorageaccount.blob.core.windows.net** (gdzie **mojekontomagazynu** hello nazwa konta magazynu). toouse nazwy hosta Hello pojawia się w elemencie #2 hello *domeny niestandardowe* bloku w hello [portalu Azure](https://portal.azure.com).
+1. W polu tekstowym hello na powitania *domeny niestandardowe* bloku w hello [portalu Azure](https://portal.azure.com), wprowadź nazwę domeny niestandardowej, łącznie z poddomeny hello hello. Nie dołączaj *asverify*. Na przykład, jeśli Twoja domena to **contoso.com** i aliasu poddomeny **www**, wprowadź **www.contoso.com**. Jeśli Twoje domeny podrzędnej jest **zdjęć**, wprowadź **photos.contoso.com**. poddomeny hello jest wymagana.
+1. Wybierz hello **Użyj pośredniej weryfikacji CNAME** wyboru.
+1. Wybierz **zapisać** na powitania *domeny niestandardowe* tooregister bloku domeny niestandardowej. Jeśli rejestracja hello zakończy się pomyślnie, zobaczysz portalu powiadomienie, że Twoje konto magazynu zostało pomyślnie zaktualizowane. W tym momencie domeny niestandardowej została zweryfikowana przez platformę Azure, ale ruch tooyour domena nie jest jeszcze rozsyłane tooyour konta magazynu.
+1. Zwraca dostawcy DNS tooyour witryny sieci Web i utwórz inny rekord CNAME mapujący punktu końcowego usługi Blob tooyour poddomeny. Na przykład określić poddomeny hello jako **www** lub **zdjęć** (bez hello *asverify*), a hello hostname jako  **mystorageaccount.blob.Core.Windows.NET** (gdzie **mojekontomagazynu** hello nazwa konta magazynu). W ramach tego kroku rejestracji hello domeny niestandardowej jest ukończona.
+1. Na koniec możesz usunąć rekord CNAME hello utworzone zawierającego hello **asverify** poddomeny, ponieważ było konieczne tylko jako etap pośredniczące.
 
-Po Twoje nowy rekord CNAME zakończeniem propagacji przy użyciu systemu DNS, użytkownicy mogą wyświetlać dane obiektów blob przy użyciu domenę niestandardową, tak długo, jak długo mają odpowiednie uprawnienia.
+Po Twoje nowy rekord CNAME zakończeniem propagacji przy użyciu systemu DNS, użytkownicy mogą wyświetlać dane obiektów blob przy użyciu domenę niestandardową, tak długo, jak długo mają odpowiednie uprawnienia hello.
 
 ## <a name="test-your-custom-domain"></a>Testowanie domenę niestandardową
 
-Aby upewnić się, że domeny niestandardowej w rzeczywistości jest mapowany na punkt końcowy usługi Blob, należy utworzyć obiektu blob w kontenerze publicznym w ramach konta magazynu. Następnie w przeglądarce sieci web za pomocą identyfikatora URI w następującym formacie dostęp do obiektu blob:
+tooconfirm domeny niestandardowej jest w rzeczywistości zamapowany tooyour punkt końcowy usługi Blob, Utwórz obiekt blob w kontenerze publicznym w ramach konta magazynu. Następnie w przeglądarce sieci web w hello następującego formatu tooaccess hello blob korzystania z identyfikatora URI:
 
 `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Na przykład można na przykład następujący identyfikator URI do formularza sieci web w **myforms** kontenera w **photos.contoso.com** poddomeny niestandardowych:
+Na przykład może użyć następującego identyfikatora URI tooaccess formularza sieci web w hello hello **myforms** kontenera w hello **photos.contoso.com** poddomeny niestandardowych:
 
 `http://photos.contoso.com/myforms/applicationform.htm`
 
 ## <a name="deregister-a-custom-domain"></a>Wyrejestrowania domeny niestandardowej
 
-Do wyrejestrowania domeny niestandardowej dla punktu końcowego magazynu obiektów Blob, użyj jednej z następujących procedur.
+tooderegister domeny niestandardowej dla punktu końcowego magazynu obiektów Blob, użyj jednej z hello zgodnie z procedurami.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Wykonaj poniższe czynności w portalu Azure, aby usunąć ustawienia niestandardowe domeny:
+Wykonaj następujące hello w ustawieniu domena niestandardowa hello tooremove portalu Azure hello:
 
-1. Przejdź do swojego konta magazynu w [portalu Azure](https://portal.azure.com).
-1. W obszarze **usługa BLOB** w bloku menu wybierz **domeny niestandardowe** otworzyć *domeny niestandardowe* bloku.
-1. Czyszczenie zawartości pola tekstowego zawierającego niestandardową nazwę domeny.
-1. Wybierz ikonę **Zapisz**.
+1. Przejdź do konta magazynu tooyour w hello [portalu Azure](https://portal.azure.com).
+1. W obszarze **usługa BLOB** na powitania bloku menu, wybierz **domeny niestandardowe** tooopen hello *domeny niestandardowe* bloku.
+1. Wyczyść hello zawartości pola tekstowego hello zawierający niestandardową nazwę domeny.
+1. Wybierz hello **zapisać** przycisku.
 
-Domena niestandardowa została pomyślnie usunął, zobaczysz portalu powiadomienie, że Twoje konto magazynu zostało pomyślnie zaktualizowane.
+Domeny niestandardowe hello został pomyślnie usunięty, zobaczysz portalu powiadomienie, że Twoje konto magazynu zostało pomyślnie zaktualizowane.
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Użyj [aktualizacja konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account#update) CLI polecenia i określić ciąg pusty (`""`) dla `--custom-domain` wartość argumentu, aby usunąć rejestrację domeny niestandardowej.
+Użyj hello [aktualizacja konta magazynu az](https://docs.microsoft.com/cli/azure/storage/account#update) interfejsu wiersza polecenia polecenia i określić ciąg pusty (`""`) dla hello `--custom-domain` tooremove wartość argumentu rejestracja domeny niestandardowej.
 
 * Format polecenia:
 
@@ -140,7 +140,7 @@ Użyj [aktualizacja konta magazynu az](https://docs.microsoft.com/cli/azure/stor
 
 ### <a name="powershell"></a>PowerShell
 
-Użyj [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) polecenia cmdlet programu PowerShell i określ ciąg pusty (`""`) dla `-CustomDomainName` wartość argumentu, aby usunąć rejestrację domeny niestandardowej.
+Użyj hello [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) polecenia cmdlet programu PowerShell i określ pusty ciąg (`""`) dla hello `-CustomDomainName` tooremove wartość argumentu rejestracja domeny niestandardowej.
 
 * Format polecenia:
 
@@ -161,5 +161,5 @@ Użyj [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurerm
   ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Zamapować niestandardową domenę na punkt końcowy Azure sieci dostarczania zawartości (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
-* [Dostęp do obiektów blob z domenami niestandardowymi za pośrednictwem protokołu HTTPS przy użyciu usługi Azure CDN](storage-https-custom-domain-cdn.md)
+* [Mapowanie punktu końcowego Azure sieci dostarczania zawartości (CDN) tooan domeny niestandardowej](../../cdn/cdn-map-content-to-custom-domain.md)
+* [Używanie hello Azure CDN tooaccess blob z domenami niestandardowymi za pośrednictwem protokołu HTTPS](storage-https-custom-domain-cdn.md)

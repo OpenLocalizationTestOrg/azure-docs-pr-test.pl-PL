@@ -1,6 +1,6 @@
 ---
-title: "Dodaj logowanie do aplikacji systemu iOS przy użyciu punktu końcowego v2.0 usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "Jak utworzyć aplikację systemu iOS logujący się użytkownicy z obu osobistego konta Microsoft i kont służbowych przy użyciu bibliotek innych firm."
+title: "aaaAdd tooan logowania dla systemu iOS aplikacji przy użyciu hello punktu końcowego v2.0 usługi Azure AD | Dokumentacja firmy Microsoft"
+description: "Jak toobuild aplikację systemu iOS który loguje się użytkowników z obu osobistego konta Microsoft i kont służbowych przy użyciu bibliotek innych firm."
 services: active-directory
 documentationcenter: 
 author: brandwe
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a384062e6e4bd398a2b12318800728e627e05c32
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Dodaj logowanie do aplikacji systemu iOS przy użyciu biblioteki innych firm z interfejsu API programu Graph przy użyciu punktu końcowego v2.0
-Platforma Microsoft Identity korzysta z otwartych standardów, takich jak OAuth2 i OpenID Connect. Deweloperzy mogą używać dowolnej bibliotece potrzebnymi do integracji z naszych usług. Aby pomóc deweloperom korzystać z innych bibliotek platformy, możemy napisanych kilka wskazówki podobny do pokazują, jak skonfigurować biblioteki innych firm, aby nawiązać połączenia z platformą tożsamości Microsoft. Większość bibliotek, które implementują [specyfikację RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) można nawiązać połączenia z platformą tożsamości Microsoft.
+# <a name="add-sign-in-tooan-ios-app-using-a-third-party-library-with-graph-api-using-hello-v20-endpoint"></a>Dodawanie aplikacji dla systemu iOS tooan logowania przy użyciu biblioteki innych firm z interfejsu API programu Graph przy użyciu punktu końcowego v2.0 hello
+korzysta z platformą tożsamości Microsoft Hello Otwórz standardy, takie jak OAuth2 i OpenID Connect. Deweloperzy mogą używać dowolnej bibliotece mają toointegrate z naszych usług. Deweloperzy toohelp używać platformy z innych bibliotek, możemy napisanych kilka wskazówki, takich jak ta toodemonstrate jeden sposób platformą tożsamości Microsoft tooconnect toohello tooconfigure bibliotek innych firm. Większość bibliotek, które implementują [specyfikację RFC6749 OAuth2 hello](https://tools.ietf.org/html/rfc6749) mogą łączyć się z platformą tożsamości Microsoft toohello.
 
-Aplikacja, która tworzy tego przewodnika użytkownicy mogą zalogować się do organizacji i wyszukać innych użytkowników w organizacji za pomocą interfejsu API programu Graph.
+Aplikacja hello, która tworzy tego przewodnika użytkownicy mogą zarejestrować się w organizacji tootheir i następnie wyszukiwania dla innych użytkowników w organizacji przy użyciu hello interfejsu API programu Graph.
 
-Jeśli jesteś nowym użytkownikiem OAuth2 lub OpenID Connect, znacznie to przykładowa konfiguracja może nie mieć sensu do Ciebie. Zalecamy przeczytanie [protokołów v2.0 - przepływu kodu autoryzacji OAuth 2.0](active-directory-v2-protocols-oauth-code.md) w tle.
+Jeśli nowy tooOAuth2 lub OpenID Connect znacznie to przykładowa konfiguracja może nie mieć tooyou znaczeniu. Zalecamy przeczytanie [protokołów v2.0 - przepływu kodu autoryzacji OAuth 2.0](active-directory-v2-protocols-oauth-code.md) w tle.
 
 > [!NOTE]
-> Niektóre funkcje platformy, które mają wyrażenia OAuth2 lub OpenID Connect standardy, takie jak dostęp warunkowy i zarządzanie zasadami usługi Intune, trzeba użyć naszych Otwórz źródło bibliotek tożsamości usługi Microsoft Azure.
+> Funkcje platformy, które mają wyrażenia w hello OAuth2 lub standardy OpenID Connect, takie jak dostęp warunkowy i zarządzanie zasadami usługi Intune, wymagają możesz toouse naszych Otwórz źródło bibliotek tożsamości usługi Microsoft Azure.
 > 
 > 
 
-Punktu końcowego v2.0 nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji.
+punktu końcowego v2.0 Hello nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji.
 
 > [!NOTE]
-> Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> toodetermine, jeśli powinien używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download-code-from-github"></a>Pobierz kod z usługi GitHub
-Kod używany w tym samouczku jest przechowywany [ w serwisie GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  Aby z niego skorzystać, można [pobrać szkielet aplikacji w formie .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) lub sklonować szkielet:
+Kod Hello w tym samouczku jest przechowywany [w serwisie GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  toofollow wzdłuż, możesz [pobrać szkielet aplikacji hello jako .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) lub klonowania hello szkielet:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-Można także po prostu pobrać przykład i od razu rozpocząć:
+Możesz także po prostu pobrać przykładowy hello i od razu rozpocząć:
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
 ## <a name="register-an-app"></a>Rejestracja aplikacji
-Utwórz nową aplikację na [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), lub wykonaj szczegółowy opis kroków w [jak zarejestrować aplikację z punktem końcowym v2.0](active-directory-v2-app-registration.md).  Upewnij się, że:
+Utwórz nową aplikację na powitania [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), lub wykonaj hello szczegółowe kroki opisane w temacie [jak tooregister aplikacji z punktem końcowym v2.0 hello](active-directory-v2-app-registration.md).  Upewnij się, że:
 
-* Kopiuj **identyfikator aplikacji** przypisany do aplikacji, ponieważ będzie on potrzebny wkrótce.
-* Dodaj **Mobile** platformy aplikacji.
-* Kopiuj **identyfikator URI przekierowania** z portalu. Należy użyć wartości domyślnej `urn:ietf:wg:oauth:2.0:oob`.
+* Kopiuj hello **identyfikator aplikacji** wynika to z przypisaną tooyour aplikacji należy ją szybko.
+* Dodaj hello **Mobile** platformy aplikacji.
+* Kopiuj hello **identyfikator URI przekierowania** hello portalu. Należy użyć wartości domyślnej hello `urn:ietf:wg:oauth:2.0:oob`.
 
-## <a name="download-the-third-party-nxoauth2-library-and-create-a-workspace"></a>Pobierz biblioteki NXOAuth2 innych firm i tworzenie obszaru roboczego
-W ramach tego przewodnika skorzystasz OAuth2Client z serwisu GitHub, czyli OAuth2 biblioteki dla systemu Mac OS X i iOS (Cocoa i Cocoa touch). Ta biblioteka jest oparta na wersji 10 specyfikacji OAuth2. Ona profil aplikacji natywnej implementuje i obsługuje punktu końcowego autoryzacji użytkownika. Są to wszystkie zadania, które należy zintegrować z platformą tożsamości Microsoft.
+## <a name="download-hello-third-party-nxoauth2-library-and-create-a-workspace"></a>Pobierz hello innych firm NXOAuth2 biblioteki i tworzenie obszaru roboczego
+W ramach tego przewodnika skorzystasz hello OAuth2Client z serwisu GitHub, czyli OAuth2 biblioteki dla systemu Mac OS X i iOS (Cocoa i Cocoa touch). Ta biblioteka jest oparta na projekt 10 hello specyfikację OAuth2. Ona profilu natywnych aplikacji hello implementuje i obsługuje hello punktu końcowego autoryzacji użytkownika hello. Są to wszystko, co hello należy toointegrate z platformą tożsamości Microsoft hello.
 
-### <a name="add-the-library-to-your-project-by-using-cocoapods"></a>Dodaj bibliotekę do projektu przy użyciu programu CocoaPods
-CocoaPods to menedżer zależności dla projektów Xcode. Poprzednie kroki instalacji zarządza automatycznie.
+### <a name="add-hello-library-tooyour-project-by-using-cocoapods"></a>Dodaj projekt tooyour biblioteki hello przy użyciu programu CocoaPods
+CocoaPods to menedżer zależności dla projektów Xcode. Poprzednie kroki instalacji hello zarządza automatycznie.
 
 ```
 $ vi Podfile
 ```
-1. Dodaj następujący kod do tego pliku podfile:
+1. Dodaj następujące toothis podfile hello:
    
     ```
      platform :ios, '8.0'
@@ -80,7 +80,7 @@ $ vi Podfile
    
      end
     ```
-2. Załaduj podfile przy użyciu programu CocoaPods. Spowoduje to utworzenie nowego obszaru roboczego Xcode, który zostanie załadowany.
+2. Podfile hello obciążenia przy użyciu programu CocoaPods. Spowoduje to utworzenie nowego obszaru roboczego Xcode, który zostanie załadowany.
    
     ```
     $ pod install
@@ -88,24 +88,24 @@ $ vi Podfile
     $ open QuickStart.xcworkspace
     ```
 
-## <a name="explore-the-structure-of-the-project"></a>Eksploruj struktury projektu
-Skonfigurowano następującą strukturę dla naszych projektu w szkielecie:
+## <a name="explore-hello-structure-of-hello-project"></a>Eksploruj hello strukturę hello projektu
+następujące struktury Hello jest skonfigurowane dla naszych projektu w szkielet hello:
 
 * Widok wzorca wyszukiwania nazwy UPN
-* Widok szczegółów dla danych dotyczących wybranego użytkownika
-* Widok logowania, gdzie użytkownik może zalogować się do aplikacji do badania wykresu
+* Widok szczegółów hello danych o hello wybranego użytkownika.
+* Gdy użytkownik może zalogować się toohello aplikacji tooquery hello wykresu widoku logowania
 
-Firma Microsoft zostanie przeniesione do różnych plików w szkielecie dodać uwierzytelniania. Inne części kodu, na przykład kod visual nie odnoszą się do tożsamości, ale są udostępniane dla Ciebie.
+Firma Microsoft będzie Przenieś pliki toovarious hello szkielet tooadd uwierzytelnienia. Inne części kodu hello, na przykład kodu visual hello, nie odnoszą się tooidentity, ale są udostępniane dla Ciebie.
 
-## <a name="set-up-the-settingsplst-file-in-the-library"></a>Konfigurowanie pliku settings.plst w bibliotece
-* Otwórz projekt szybkiego startu `settings.plist` pliku. Zastąp wartości elementów w sekcji do wartości, które były używane w portalu Azure. Kod będzie odwoływać tych wartości, przy każdym użyciu biblioteki uwierzytelniania usługi Active Directory.
-  * `clientId` Jest identyfikator klienta aplikacji, który został skopiowany z portalu.
-  * `redirectUri` Jest adres URL przekierowania, czy dostarczono portalu.
+## <a name="set-up-hello-settingsplst-file-in-hello-library"></a>Konfigurowanie hello settings.plst pliku w bibliotece hello
+* W projekcie szybkiego startu hello Otwórz hello `settings.plist` pliku. Zastąp wartości hello elementów hello hello sekcji tooreflect hello wartości, używane w hello portalu Azure. Kod będzie odwoływać tych wartości, przy każdym użyciu hello biblioteki uwierzytelniania usługi Active Directory.
+  * Witaj `clientId` jest hello identyfikator klienta aplikacji, który został skopiowany z portalu hello.
+  * Witaj `redirectUri` jest adres URL przekierowania hello tego portalu hello podane.
 
-## <a name="set-up-the-nxoauth2client-library-in-your-loginviewcontroller"></a>Konfigurowanie biblioteki NXOAuth2Client w Twojej LoginViewController
-Biblioteka NXOAuth2Client wymaga niektórych wartości do. Po ukończeniu zadania służy nabytych przez niego token do wywołania interfejsu API programu Graph. Ponieważ `LoginView` zostanie wywołana dowolnej chwili, musimy uwierzytelniania, warto umieścić wartości konfiguracji do tego pliku.
+## <a name="set-up-hello-nxoauth2client-library-in-your-loginviewcontroller"></a>Konfigurowanie biblioteki NXOAuth2Client hello w Twojej LoginViewController
+Biblioteka NXOAuth2Client Hello wymaga niektórych tooget wartości ustawienia. Po wykonaniu tego zadania można użyć hello nabytych przez niego tokenu toocall hello interfejsu API programu Graph. Ponieważ `LoginView` zostanie wywołana w dowolnym momencie potrzebujemy tooauthenticate, warto tooput wartości konfiguracji w pliku toothat.
 
-* Dodajmy niektórych wartości na `LoginViewController.m` plik, aby ustawić kontekst uwierzytelniania i autoryzacji. Szczegółowe informacje o wartości należy wykonać kod.
+* Dodajmy toohello niektóre wartości `LoginViewController.m` pliku tooset hello kontekst uwierzytelniania i autoryzacji. Szczegółowe informacje o wartości hello wykonaj hello kodu.
   
     ```objc
     NSString *scopes = @"openid offline_access User.Read";
@@ -122,22 +122,22 @@ Biblioteka NXOAuth2Client wymaga niektórych wartości do. Po ukończeniu zadani
     NSURL *authcode;
     ```
 
-Oto szczegółowe informacje o kodzie.
+Oto szczegóły dotyczące hello kodu.
 
-Pierwszy ciąg jest przeznaczony dla `scopes`.  `User.Read` Wartość umożliwia odczytanie profilu podstawowego zalogowanego użytkownika.
+pierwszy ciąg Hello jest przeznaczony dla `scopes`.  Witaj `User.Read` wartość umożliwia tooread hello podstawowy profil hello zalogowany użytkownik.
 
-Dowiedz się więcej o wszystkie dostępne zakresy na [zakresy uprawnień Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
+Dowiedz się więcej o wszystkie dostępne zakresy hello na [zakresy uprawnień Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
-Aby uzyskać `authURL`, `loginURL`, `bhh`, i `tokenURL`, należy użyć wartości podane wcześniej. Użycie typu open source bibliotek tożsamości usługi Microsoft Azure, możemy rozwiń tych danych można za pomocą naszych punktu końcowego metadanych. Włożyliśmy dużo wysiłku w wyodrębnianie tych wartości.
+Aby uzyskać `authURL`, `loginURL`, `bhh`, i `tokenURL`, należy użyć wartości hello podane wcześniej. Użycie typu open source hello bibliotek tożsamości usługi Microsoft Azure, możemy rozwiń tych danych można za pomocą naszych punktu końcowego metadanych. Firma Microsoft wykonane hello Praca wyodrębniania te wartości dla Ciebie.
 
-Wartość `keychain` to kontener, którego biblioteka NXOAuth2Client używa do tworzenia łańcucha kluczy do przechowywania tokenów. Jeśli chcesz pobrać rejestracji jednokrotnej (SSO) w wielu aplikacjach, można określić tego samego łańcucha kluczy w każdej aplikacji i żądanie stosowania tego łańcucha kluczy w Twoje uprawnienia Xcode. Wyjaśnienie jest zawarte w dokumentacji firmy Apple.
+Witaj `keychain` wartość jest hello kontenera, w którym hello NXOAuth2Client biblioteki użyje toocreate toostore łańcucha kluczy tokenów. Jeśli chcesz tooget rejestracji jednokrotnej (SSO) w wielu aplikacjach, można określić hello tego samego łańcucha kluczy w każdej aplikacji i żądania hello stosowania tego łańcucha kluczy w Twoje uprawnienia Xcode. Wyjaśnienie jest zawarte w hello dokumentacji firmy Apple.
 
-Pozostała część te wartości są wymagane do korzystania z biblioteki oraz tworzenie miejsc do przenoszenia wartości w kontekście.
+Hello reszty te wartości są wymagane toouse hello biblioteki i utworzenie miejsc do toocarry wartości toohello kontekstu.
 
 ### <a name="create-a-url-cache"></a>Tworzenie pamięci podręcznej adres URL
-Wewnątrz `(void)viewDidLoad()`, który zawsze jest wywoływana po załadowaniu widoku, pamięć podręczną do użytku w naszym primes następujący kod.
+Wewnątrz `(void)viewDidLoad()`, który zawsze jest wywoływana po załadowaniu widoku hello, hello następujący kod primes pamięci podręcznej naszych do użytku.
 
-Dodaj następujący kod:
+Dodaj hello następującego kodu:
 
 ```objc
 - (void)viewDidLoad {
@@ -154,14 +154,14 @@ Dodaj następujący kod:
 ```
 
 ### <a name="create-a-webview-for-sign-in"></a>Tworzenie widoku sieci Web dla logowania
-Widok sieci Web można monit o podanie dodatkowych czynników, takich jak wiadomość SMS (jeśli jest skonfigurowane) lub zwrócić komunikaty o błędach do użytkownika. W tym miejscu zostanie ustawiona konfigurowanie widoku sieci Web, a następnie napisać kod, aby obsłużyć wywołania zwrotne, które nastąpi w widoku sieci Web z usług tożsamości.
+Widok sieci Web można Monituj użytkownika o hello na dodatkowych czynników, takich jak wiadomość SMS (jeśli jest skonfigurowane) lub zwraca błąd wiadomości toohello użytkownika. W tym miejscu należy skonfigurować hello widoku sieci Web, a następnie kontynuować hello zapisu kodu toohandle hello zwrotne, które nastąpi w hello widoku sieci Web z hello tożsamości usługi.
 
 ```objc
 -(void)requestOAuth2Access {
-    //to sign in to Microsoft APIs using OAuth2, we must show an embedded browser (UIWebView)
+    //toosign in tooMicrosoft APIs using OAuth2, we must show an embedded browser (UIWebView)
     [[NXOAuth2AccountStore sharedStore] requestAccessToAccountWithType:@"myGraphService"
                                    withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
-                                       //navigate to the URL returned by NXOAuth2Client
+                                       //navigate toohello URL returned by NXOAuth2Client
 
                                        NSURLRequest *r = [NSURLRequest requestWithURL:preparedURL];
                                        [self.loginView loadRequest:r];
@@ -169,13 +169,13 @@ Widok sieci Web można monit o podanie dodatkowych czynników, takich jak wiadom
 }
 ```
 
-### <a name="override-the-webview-methods-to-handle-authentication"></a>Przesłoń metody WebView na potrzeby obsługi uwierzytelniania
-Aby przekazać widoku sieci Web, co się dzieje, gdy użytkownik musi zalogować się, jak wspomniano wcześniej, można Wklej następujący kod.
+### <a name="override-hello-webview-methods-toohandle-authentication"></a>Zastąpienie hello WebView metody toohandle uwierzytelniania
+Witaj tootell widoku sieci Web, co się dzieje, gdy użytkownik będzie potrzebował toosign w jak wspomniano wcześniej, można wkleić hello następującego kodu.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
 
-    // We get the auth token from a redirect so we need to handle that in the webview.
+    // We get hello auth token from a redirect so we need toohandle that in hello webview.
 
     if (![NSThread isMainThread]) {
         [self performSelectorOnMainThread:@selector(resolveUsingUIWebView:) withObject:URL waitUntilDone:YES];
@@ -193,27 +193,27 @@ Aby przekazać widoku sieci Web, co się dzieje, gdy użytkownik musi zalogować
 
     NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL, (long)navigationType);
 
-    // The webview is where all the communication happens. Slightly complicated.
+    // hello webview is where all hello communication happens. Slightly complicated.
 
     myLoadedUrl = [webView.request mainDocumentURL];
     NSLog(@"***Loaded url: %@", myLoadedUrl);
 
-    //if the UIWebView is showing our authorization URL or consent URL, show the UIWebView control
+    //if hello UIWebView is showing our authorization URL or consent URL, show hello UIWebView control
     if ([request.URL.absoluteString rangeOfString:authURL options:NSCaseInsensitiveSearch].location != NSNotFound) {
         self.loginView.hidden = NO;
     } else if ([request.URL.absoluteString rangeOfString:loginURL options:NSCaseInsensitiveSearch].location != NSNotFound) {
-        //otherwise hide the UIWebView, we've left the authorization flow
+        //otherwise hide hello UIWebView, we've left hello authorization flow
         self.loginView.hidden = NO;
     } else if ([request.URL.absoluteString rangeOfString:bhh options:NSCaseInsensitiveSearch].location != NSNotFound) {
-        //otherwise hide the UIWebView, we've left the authorization flow
+        //otherwise hide hello UIWebView, we've left hello authorization flow
         self.loginView.hidden = YES;
         [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
     }
     else {
         self.loginView.hidden = NO;
-        //read the Location from the UIWebView, this is how Microsoft APIs is returning the
-        //authentication code and relation information. This is controlled by the redirect URL we chose to use from Microsoft APIs
-        //continue the OAuth2 flow
+        //read hello Location from hello UIWebView, this is how Microsoft APIs is returning the
+        //authentication code and relation information. This is controlled by hello redirect URL we chose toouse from Microsoft APIs
+        //continue hello OAuth2 flow
        // [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
     }
 
@@ -222,17 +222,17 @@ Aby przekazać widoku sieci Web, co się dzieje, gdy użytkownik musi zalogować
 }
 ```
 
-### <a name="write-code-to-handle-the-result-of-the-oauth2-request"></a>Napisz kod obsługujący wynik żądania OAuth2
-Następujący kod będzie obsługiwać redirectURL, która zwraca widok sieci Web. Jeśli uwierzytelnianie nie powiodło się, kod ponowi próbę. W tym samym czasie biblioteki zapewni błędu, który można wyświetlać w konsoli lub obsługi asynchronicznie.
+### <a name="write-code-toohandle-hello-result-of-hello-oauth2-request"></a>Pisanie kodu toohandle hello wynik hello OAuth2 żądania
+Witaj następujący kod będzie obsługiwać redirectURL hello, które zwraca hello widoku sieci Web. Jeśli uwierzytelnianie nie powiodło się, kod hello ponowi próbę. W tym samym czasie biblioteki hello zapewni hello błędu, który można wyświetlić w konsoli hello lub obsługi asynchronicznie.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
 
     AppData* data = [AppData getInstance];
 
-    //parse the response for success or failure
+    //parse hello response for success or failure
      if (accessResult)
-    //if success, complete the OAuth2 flow by handling the redirect URL and obtaining a token
+    //if success, complete hello OAuth2 flow by handling hello redirect URL and obtaining a token
      {
          [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
     } else {
@@ -242,8 +242,8 @@ Następujący kod będzie obsługiwać redirectURL, która zwraca widok sieci We
 }
 ```
 
-### <a name="set-up-the-oauth-context-called-account-store"></a>Skonfiguruj kontekst OAuth (nazywane konta magazynu)
-W tym miejscu możesz wywołać `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` magazynu udostępnionego konta dla każdej usługi, który ma dostęp do aplikacji. Typ konta jest ciąg, który jest używany jako identyfikator dla niektórych usługi. Ponieważ uzyskujesz dostęp do interfejsu API programu Graph, kod odwołuje się do niego jako `"myGraphService"`. Możesz skonfigurować obserwatora, który informuje użytkownika, gdy dowolne zmiany z tokenem. Po uzyskaniu tokenu powrocie użytkownika z powrotem do `masterView`.
+### <a name="set-up-hello-oauth-context-called-account-store"></a>Konfigurowanie hello kontekstu OAuth (nazywane konta magazynu)
+W tym miejscu możesz wywołać `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` hello udostępnionego konta magazynu dla każdej usługi, które mają tooaccess stanie toobe aplikacji hello. Typ konta Hello jest ciągiem, który służy jako identyfikator dla niektórych usług. Ponieważ uzyskujesz dostęp do interfejsu API programu Graph hello hello kod odnosi się tooit jako `"myGraphService"`. Możesz skonfigurować obserwatora, który informuje użytkownika, gdy dowolne zmiany z tokenem hello. Po uzyskaniu tokenu hello powrócić hello użytkownika wstecz toohello `masterView`.
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -288,16 +288,16 @@ W tym miejscu możesz wywołać `-[NXOAuth2AccountStore setClientID:secret:autho
 }
 ```
 
-## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Ustawianie widoku głównego można wyszukiwać i wyświetlać użytkowników z interfejsu API programu Graph
-Aplikacji Master-widok-kontroler (MVC), który wyświetla zwrócone dane w siatce wykracza poza zakres tego przewodnika, a wiele online samouczki wyjaśniają, jak utworzyć. Ten kod znajduje się w pliku szkielet. Jednak należy uwzględniać kilka czynności w aplikacji MVC:
+## <a name="set-up-hello-master-view-toosearch-and-display-hello-users-from-hello-graph-api"></a>Określanie hello toosearch widok wzorca i wyświetlanie użytkownikom hello hello interfejsu API programu Graph
+Aplikacji Master-widok-kontroler (MVC), który wyświetla hello zwróciła dane w siatce hello wykracza poza zakres tego przewodnika hello i wiele online samouczki wyjaśniają sposób toobuild jeden. Ten kod jest w pliku szkielet hello. Należy jednak toodeal z kilku czynności w aplikacji MVC:
 
-* ODCIĘTA, gdy użytkownik wpisze coś w polu wyszukiwania
-* Udostępniają obiektu danych do MasterView, więc można go wyświetlić wyniki w siatce
+* ODCIĘTA, gdy użytkownik wpisze coś w polu wyszukiwania hello
+* Udostępniać obiekt danych wstecz toohello MasterView, co umożliwia wyświetlanie wyników hello w siatce hello
 
 Robimy tych poniżej.
 
-### <a name="add-a-check-to-see-if-youre-logged-in"></a>Dodaj znacznik wyboru, aby zobaczyć, czy użytkownik jest zalogowany
-Aplikacja pojawia się tylko użytkownik nie jest zalogowany, więc sprawne działanie sprawdzić, czy istnieje już token w pamięci podręcznej. Jeśli nie, zostanie przekierowany do LoginView dla użytkownika do logowania. Jeśli odwołanie, jest użycie najlepszym sposobem na wykonywanie czynności po załadowaniu widoku `viewDidLoad()` metoda zapewniająca firmy Apple, NAS.
+### <a name="add-a-check-toosee-if-youre-logged-in"></a>Dodaj toosee wyboru, jeśli jest zalogowany
+Aplikacja Hello pojawia się tylko hello użytkownik nie jest zalogowany, jeśli istnieje już token w pamięci podręcznej hello jest toocheck inteligentne. Jeśli nie, nastąpi przekierowanie toohello LoginView dla toosign użytkownika hello w. Jeśli możesz odwołać hello najlepsze sposób toodo akcje po załadowaniu widoku jest toouse hello `viewDidLoad()` metoda zapewniająca firmy Apple, NAS.
 
 ```objc
 - (void)viewDidLoad {
@@ -317,8 +317,8 @@ Aplikacja pojawia się tylko użytkownik nie jest zalogowany, więc sprawne dzia
         }
 ```
 
-### <a name="update-the-table-view-when-data-is-received"></a>Aktualizowanie widoku tabeli po odebraniu danych
-Po powrocie z interfejsu API programu Graph danych należy do wyświetlania danych. Dla uproszczenia w tym miejscu jest cały kod, aby zaktualizować tabeli. Prawo wartości można wkleić tylko w kodzie umożliwiającego MVC.
+### <a name="update-hello-table-view-when-data-is-received"></a>Aktualizacja hello widoku tabeli po odebraniu danych
+Gdy hello interfejsu API programu Graph zwraca dane, należy toodisplay hello danych. Dla uproszczenia Oto wszystkich hello kodu tooupdate hello tabeli. W kodzie umożliwiającego MVC można wkleić tylko hello właściwych wartości.
 
 ```objc
 #pragma mark - Table View
@@ -344,7 +344,7 @@ Po powrocie z interfejsu API programu Graph danych należy do wyświetlania dany
      user = [upnArray objectAtIndex:indexPath.row];
 
 
-    // Configure the cell
+    // Configure hello cell
     cell.textLabel.text = user.name;
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 
@@ -353,8 +353,8 @@ Po powrocie z interfejsu API programu Graph danych należy do wyświetlania dany
 
 ```
 
-### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Umożliwiają wywołania interfejsu API programu Graph, gdy użytkownik wpisze w polu wyszukiwania
-Jeśli użytkownik wpisze wyszukiwania w polu, musisz shove który za pośrednictwem do interfejsu API programu Graph. `GraphAPICaller` Klasy, która będzie kompilowana w poniższym kodzie, oddziela funkcji wyszukiwania z prezentacji. Na razie Napiszmy kod, który źródła znaków wyszukiwania do interfejsu API programu Graph. Firma Microsoft w tym celu udostępnia metodę o nazwie `lookupInGraph`, który przyjmuje ciąg, który chcesz wyszukać.
+### <a name="provide-a-way-toocall-hello-graph-api-when-someone-types-in-hello-search-field"></a>Podaj hello toocall sposób interfejsu API programu Graph, gdy użytkownik wpisze w polu wyszukiwania hello
+Gdy użytkownik wpisze wyszukiwania w polu hello, należy tooshove który za pośrednictwem toohello interfejsu API programu Graph. Witaj `GraphAPICaller` klasy, która będzie kompilowana w hello następującego kodu, oddziela funkcji wyszukiwania hello hello prezentacji. Na razie Napiszmy kod hello źródła żadnych wyszukiwania znaków toohello interfejsu API programu Graph. Firma Microsoft w tym celu udostępnia metodę o nazwie `lookupInGraph`, który przyjmuje ciąg hello chcemy toosearch dla.
 
 ```objc
 
@@ -391,11 +391,11 @@ if (searchText.length > 0) {
 }
 ```
 
-## <a name="write-a-helper-class-to-access-the-graph-api"></a>Zapis klasę pomocy umożliwiającą dostęp do interfejsu API programu Graph
-Jest to podstawowy naszej aplikacji. Podczas gdy pozostałe został Wstawianie kodu we wzorcu MVC domyślnej od firmy Apple, w tym miejscu pisania kodu zapytania wykresu jako typy użytkowników, a następnie wróć tych danych. Oto kod i następuje szczegółowy opis.
+## <a name="write-a-helper-class-tooaccess-hello-graph-api"></a>Zapis pomocnika hello tooaccess klasy interfejsu API programu Graph
+Jest to core hello naszej aplikacji. Natomiast hello rest został Wstawianie kodu we wzorcu MVC domyślnego powitania od firmy Apple, w tym miejscu pisania kodu tooquery hello wykresu jako użytkownika hello typów, a następnie zwrócić te dane. Oto kod hello i następuje szczegółowy opis.
 
 ### <a name="create-a-new-objective-c-header-file"></a>Utwórz nowy plik nagłówka Objective C
-Nadaj nazwę plikowi `GraphAPICaller.h`i Dodaj następujący kod.
+Nazwa pliku hello `GraphAPICaller.h`i Dodaj hello następującego kodu.
 
 ```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
@@ -406,10 +406,10 @@ Nadaj nazwę plikowi `GraphAPICaller.h`i Dodaj następujący kod.
 @end
 ```
 
-Miejscu zobaczysz, że określona metoda przyjmuje ciągiem i zwraca completionBlock. Ta completionBlock jako użytkownik może mieć odgadnąć, spowoduje zaktualizowanie tabeli podając obiektu wypełnione danych w czasie rzeczywistym jako wyszukiwanie użytkowników.
+Miejscu zobaczysz, że określona metoda przyjmuje ciągiem i zwraca completionBlock. Ta completionBlock jako użytkownik może mieć odgadnąć, spowoduje zaktualizowanie tabeli hello podając obiektu wypełnione danych w czasie rzeczywistym jako hello wyszukiwanie użytkowników.
 
 ### <a name="create-a-new-objective-c-file"></a>Utwórz nowy plik języka Objective C
-Nadaj nazwę plikowi `GraphAPICaller.m`i dodaj następującą metodę.
+Nazwa pliku hello `GraphAPICaller.m`i dodaj następujące metody hello.
 
 ```objc
 +(void) searchUserList:(NSString*)searchString
@@ -436,16 +436,16 @@ Nadaj nazwę plikowi `GraphAPICaller.m`i dodaj następującą metodę.
                    // e.g., update a progress indicator
                }
                    responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error) {
-                       // Process the response
+                       // Process hello response
                        if (responseData) {
                            NSError *error;
                            NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
                            NSLog(@"Graph Response was: %@", dataReturned);
 
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                           // Don't be thrown off by the key name being "value". It really is the name of the
+                           // Don't be thrown off by hello key name being "value". It really is hello name of the
                            // first node. :-)
 
                            //each object is a key value pair
@@ -481,22 +481,22 @@ Nadaj nazwę plikowi `GraphAPICaller.m`i dodaj następującą metodę.
 
 Przejdźmy za pomocą tej metody szczegółowo.
 
-Podstawowe ten kod jest w `NXOAuth2Request`, metodę, która przyjmuje parametry, które zdefiniowano w pliku settings.plist.
+podstawowe Hello tego kodu jest hello `NXOAuth2Request`, metodę, która przyjmuje parametry hello, który zdefiniowano w pliku settings.plist hello.
 
-Pierwszym krokiem jest skonstruowanie prawo wywołania interfejsu API programu Graph. Ponieważ wywoływania `/users`, możesz określić, że przez dołączenie go do zasobu interfejsu API programu Graph wraz z wersją. Warto umieścić je w pliku ustawień zewnętrznych, ponieważ te można zmienić w miarę rozwoju środowisko interfejsu API.
+Witaj pierwszym krokiem jest tooconstruct hello prawo wywołania interfejsu API programu Graph. Ponieważ wywoływania `/users`, możesz określić, że dołączając zasobu interfejsu API programu Graph toohello wraz z hello wersji. Dobrym tooput znaczeniu je w pliku ustawień zewnętrznych, ponieważ te można zmienić w miarę rozwoju środowisko hello interfejsu API.
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
-Następnie należy określić parametry, które należy również udostępnić wywołania interfejsu API programu Graph. Jest *bardzo ważne* czy należy umieszczać parametrów w punkcie końcowym zasobu, ponieważ która zostaje wyczyszczona dla wszystkich znaków zgodnych-URI w czasie wykonywania. Cały kod zapytania należy określić w parametrach.
+Następnie należy parametry toospecify będzie również zawierał toohello wywołania interfejsu API programu Graph. Jest *bardzo ważne* nie umieszczenie parametrów hello w punkcie końcowym zasobów hello ponieważ która zostaje wyczyszczona dla wszystkich znaków zgodnych-URI w czasie wykonywania. W parametrach hello należy podać wszystkie kod zapytania.
 
 ```objc
 
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
-Można zauważyć wymaga `convertParamsToDictionary` metodę, która jeszcze nie zostać jeszcze zapisane. Umożliwia to teraz zrobić na końcu pliku:
+Można zauważyć wymaga `convertParamsToDictionary` metodę, która jeszcze nie zostać jeszcze zapisane. Umożliwia to teraz zrobić na końcu pliku hello hello:
 
 ```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
@@ -513,7 +513,7 @@ Można zauważyć wymaga `convertParamsToDictionary` metodę, która jeszcze nie
 }
 
 ```
-Następnie można użyć `NXOAuth2Request` metodę, aby odzyskać dane z interfejsu API w formacie JSON.
+Następnie można użyć hello `NXOAuth2Request` metody tooget dane z powrotem z hello interfejsu API w formacie JSON.
 
 ```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
@@ -525,23 +525,23 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
                    // e.g., update a progress indicator
                }
                    responseHandler:^(NSURLResponse *response, NSData *responseData, NSError *error) {
-                       // Process the response
+                       // Process hello response
                        if (responseData) {
                            NSError *error;
                            NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:nil];
                            NSLog(@"Graph Response was: %@", dataReturned);
 
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 ```
 
-Na koniec Przyjrzyjmy się jak zwrócić dane do MasterViewController. Dane zwraca serializowane i musi zostać deserializacji i załadowany w obiekcie, który MainViewController, jaką może wykorzystać. W tym celu ma szkielet `User.m/h` pliku, który tworzy obiekt użytkownika. Należy wypełnić tego obiektu użytkownika o informacje z wykresu.
+Na koniec Przyjrzyjmy się jak zwrócić hello danych toohello MasterViewController. dane Hello zwraca serializowane i musi toobe deserializacji i załadowany w obiekcie tego hello MainViewController, jaką może wykorzystać. W tym celu ma szkielet hello `User.m/h` pliku, który tworzy obiekt użytkownika. Należy wypełnić tego obiektu użytkownika o informacje z hello wykresu.
 
 ```objc
-                           // We can grab the top most JSON node to get our graph data.
+                           // We can grab hello top most JSON node tooget our graph data.
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 
-                           // Don't be thrown off by the key name being "value". It really is the name of the
+                           // Don't be thrown off by hello key name being "value". It really is hello name of the
                            // first node. :-)
 
                            //each object is a key value pair
@@ -564,9 +564,9 @@ Na koniec Przyjrzyjmy się jak zwrócić dane do MasterViewController. Dane zwra
 ```
 
 
-## <a name="run-the-sample"></a>Uruchom próbki
-Jeśli został użyty szkielet i stosować wraz z tym przewodnikiem teraz należy uruchomić aplikację. Uruchomić symulatora, a następnie kliknij przycisk **Zaloguj** korzystanie z aplikacji.
+## <a name="run-hello-sample"></a>Uruchom hello próbki
+Jeśli już używana szkielet hello lub po oraz wskazówki hello teraz należy uruchomić aplikację. Uruchom hello symulator i kliknij przycisk **Zaloguj** toouse hello aplikacji.
 
 ## <a name="get-security-updates-for-our-product"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
-Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę [Witryna TechCenter poświęcona zabezpieczeniom](https://technet.microsoft.com/security/dd252948) i subskrybowanie doradczych alertów zabezpieczeń.
+Firma Microsoft zachęca tooget powiadomień o występujących incydentach zabezpieczeń poprzez odwiedzenie hello [Witryna TechCenter poświęcona zabezpieczeniom](https://technet.microsoft.com/security/dd252948) i subskrypcji tooSecurity doradczych alertów.
 

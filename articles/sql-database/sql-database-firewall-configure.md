@@ -1,6 +1,6 @@
 ---
-title: "Reguły zapory bazy danych SQL Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania zapory bazy danych SQL do zarządzania dostępem za pomocą reguł zapory na poziomie serwera i bazy danych."
+title: "reguły zapory bazy danych SQL aaaAzure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooconfigure SQL bazy danych zapory dostęp toomanage reguły zapory poziomu serwera i poziom bazy danych."
 keywords: zapora bazy danych
 services: sql-database
 documentationcenter: 
@@ -17,109 +17,109 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a8cdf629d0d0e55421a5e9f9b894a21371be568
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Reguły zapory poziomu serwera i bazy danych na poziomie bazy danych SQL Azure 
 
-Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych dla platformy Azure i innych aplikacji internetowych. Aby chronić dane, zapora uniemożliwia wszelki dostęp do serwera bazy danych do momentu określenia komputerów, które mają uprawnienia. Zapora udziela dostępu do bazy danych na podstawie źródłowego adresu IP każdego żądania.
+Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych dla platformy Azure i innych aplikacji internetowych. toohelp chronić dane, zapór zapobiec wszystkich serwera bazy danych tooyour dostępu do chwili określenia komputery, które ma uprawnienia. Zapora Hello przyznaje toodatabases dostępu oparte na powitania pochodzące z adresu IP dla każdego żądania.
 
 ## <a name="overview"></a>Omówienie
 
-Początkowo cały dostęp języka Transact-SQL do serwera Azure SQL jest blokowany przez zaporę. Aby rozpocząć korzystanie z serwera Azure SQL, należy określić co najmniej jedną regułę zapory poziomu serwera, które umożliwiają dostęp do serwera Azure SQL. Użyj reguł zapory do określenia zakresu dozwolonych adresów IP pochodzących z Internetu oraz możliwości podejmowania przez aplikacje platformy Azure prób połączenia się z serwerem Azure SQL.
+Początkowo wszystkie języka Transact-SQL dostępu tooyour Azure SQL server jest blokowany przez zaporę hello. toobegin przy użyciu serwera Azure SQL, należy określić co najmniej jedną regułę zapory poziomu serwera umożliwiających dostęp tooyour Azure SQL server. Użyj toospecify reguły zapory hello, który adres IP od hello są dozwolone przez Internet, i czy aplikacjami platformy Azure może próbować tooconnect tooyour Azure SQL server.
 
-Aby selektywnie udzielić dostępu do tylko jednej z baz danych na serwerze Azure SQL, należy utworzyć regułę na poziomie bazy danych dla wymaganej bazy danych. Określ zakres adresów IP dla reguły zapory bazy danych, który wykracza poza zakres adresów IP określony w regule zapory na poziomie serwera, i upewnij się, że adres IP klienta znajduje się w zakresie określonym w regule na poziomie bazy danych.
+tooselectively Udziel dostępu toojust, jeden hello baz danych serwera Azure SQL, należy utworzyć regułę poziom bazy danych dla hello wymaganej bazy danych. Określ zakres adresów IP dla hello reguły zapory bazy danych, która wykracza poza hello określone w regule zapory poziomu serwera hello zakres adresów IP i upewnij się, że adres IP hello powitania klienta znajduje się w zakresie hello określone w regule bazy danych na poziomie hello.
 
-Próby połączenia z Internetu i platformy Azure muszą najpierw przejść przez zaporę, zanim dotrą do serwera Azure SQL lub usługi SQL Database, jak pokazano na poniższym diagramie:
+Próby nawiązania połączenia z hello Internet i Azure musi najpierw przejść przez zaporę Windows hello przed dotarciem serwera Azure SQL lub bazy danych SQL, pokazane na powitania po diagramu:
 
    ![Diagram opisujący konfigurację zapory.][1]
 
-* **Reguły zapory na poziomie serwera:** te reguły umożliwiają klientom dostęp do całego serwera Azure SQL, to znaczy do wszystkich baz danych na tym samym serwerze logicznym. Reguły te są przechowywane w **głównej** bazie danych. Reguły zapory na poziomie serwera można skonfigurować za pomocą portalu lub za pomocą instrukcji języka Transact-SQL. Aby utworzyć reguły zapory na poziomie serwera przy użyciu witryny Azure Portal lub programu PowerShell, musisz być właścicielem bądź współautorem subskrypcji. Aby utworzyć regułę zapory na poziomie serwera przy użyciu języka Transact-SQL, musisz połączyć się z wystąpieniem usługi SQL Database za pomocą identyfikatora logowania podmiotu zabezpieczeń na poziomie serwera lub jako administrator usługi Azure Active Directory (co oznacza, że reguła zapory na poziomie serwera musi zostać pierwotnie utworzona przez użytkownika mającego uprawnienia na poziomie platformy Azure).
-* **Reguły zapory poziomu bazy danych:** reguły te umożliwiają klientom dostęp do niektórych (bezpieczny) bazy danych, w tym samym serwerze logicznym. Można utworzyć zasady dla każdej bazy danych (w tym **wzorca** database0) i są przechowywane w poszczególnych bazach danych. Reguły zapory poziomu bazy danych może być skonfigurowany za pomocą instrukcji języka Transact-SQL lub tylko po skonfigurowaniu pierwszego zapory poziomu serwera. Jeśli zakres adresów IP określony w regule zapory na poziomie bazy danych znajduje się poza zakresem określonym w regule zapory na poziomie serwera, dostęp do bazy danych mogą uzyskać tylko ci klienci, którzy mają adresy IP z zakresu ustalonego na poziomie bazy danych. Dla bazy danych można określić maksymalnie 128 reguł zapory na poziomie bazy danych. Reguły zapory poziomu bazy danych dla baz danych master i użytkownika tylko można tworzyć i zarządzać nimi przy użyciu języka Transact-SQL. Aby uzyskać więcej informacji na temat konfigurowania reguł zapory na poziomie bazy danych, zobacz przykład później w tym artykuł i zobacz [sp_set_database_firewall_rule (baz danych SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
+* **Reguły zapory poziomu serwera:** reguły te umożliwiają klientom tooaccess cały serwer Azure SQL, oznacza to, że wszystkie hello bazy danych w ramach hello tym samym serwerze logicznym. Te reguły są przechowywane w hello **wzorca** bazy danych. Reguły zapory poziomu serwera można skonfigurować przy użyciu portalu hello lub za pomocą instrukcji języka Transact-SQL. reguły zapory poziomu serwera toocreate przy użyciu hello portalu Azure lub programu PowerShell, muszą być hello subskrypcji właścicielem lub współautorem subskrypcji. toocreate regułę zapory poziomu serwera przy użyciu języka Transact-SQL, należy połączyć toohello wystąpienie bazy danych SQL jako głównego identyfikatora logowania poziomu serwera hello lub administratora usługi Azure Active Directory hello, (co oznacza, że należy najpierw utworzyć regułę zapory poziomu serwera Użytkownik z uprawnieniami na poziomie usługi Azure).
+* **Reguły zapory poziomu bazy danych:** reguły te umożliwiają klientom tooaccess niektórych (bezpieczny) baz danych w ramach hello sam serwer logiczny. Można utworzyć zasady dla każdej bazy danych (w tym hello **wzorca** database0) i są przechowywane w poszczególnych bazach danych hello. Reguły zapory poziomu bazy danych można skonfigurować tylko za pomocą instrukcji języka Transact-SQL i dopiero po skonfigurowaniu hello pierwszy zapory poziomu serwera. Jeśli określisz hello reguły zapory poziomu bazy danych, która jest określone w regule zapory poziomu serwera hello zakres hello poza zakres adresów IP, tylko tych klientów, którzy mają hello bazy danych na poziomie zakresu adresów IP komputerowi dostęp hello bazy danych. Dla bazy danych można określić maksymalnie 128 reguł zapory na poziomie bazy danych. Reguły zapory poziomu bazy danych dla baz danych master i użytkownika tylko można tworzyć i zarządzać nimi przy użyciu języka Transact-SQL. Aby uzyskać więcej informacji na temat konfigurowania reguł zapory na poziomie bazy danych, zobacz przykład hello później w tym artykuł i zobacz [sp_set_database_firewall_rule (baz danych SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
-**Zalecenie:** firma Microsoft zaleca korzystanie z reguł zapory na poziomie bazy danych zawsze wtedy, gdy jest to możliwe, aby zwiększyć poziom bezpieczeństwa i uczynić bazę danych bardziej przenośną. Reguły zapory na poziomie serwera powinny być używane dla administratorów i w przypadku, gdy wiele baz danych ma takie same wymagania dotyczące dostępu, a użytkownik nie chce poświęcać czasu na oddzielne konfigurowanie każdej bazy danych.
+**Zalecenie:** firma Microsoft zaleca korzystanie z reguł zapory na poziomie bazy danych przy każdym możliwe tooenhance zabezpieczeń i toomake przenośną bazy danych. Przy użyciu reguły zapory poziomu serwera dla administratorów, a jeśli masz wiele baz danych, które mają hello te same wymagania dostępu, a nie ma czasu toospend indywidualnie skonfigurowanie każdej bazy danych.
 
 > [!Note]
-> Aby uzyskać informacje o przenośnych bazach danych w kontekście ciągłości działalności biznesowej, zobacz [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](sql-database-geo-replication-security-config.md).
+> Aby uzyskać informacje o przenośne baz danych w kontekście hello ciągłość prowadzenia działalności biznesowej, zobacz [wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](sql-database-geo-replication-security-config.md).
 >
 
-### <a name="connecting-from-the-internet"></a>Łączenie się z Internetu
+### <a name="connecting-from-hello-internet"></a>Łączenie z hello Internet
 
-Gdy komputer próbuje połączyć się z Internetu z serwerem bazy danych, zapora najpierw sprawdza źródłowy adres IP żądania i porównuje go z regułami zapory na poziomie bazy danych, której dotyczy żądanie:
+Gdy komputer próbuje tooconnect tooyour bazy danych serwera z hello Internet, zapory hello najpierw sprawdza hello pochodzące z adresu IP hello żądania dotyczącego hello reguły zapory poziomu bazy danych, hello bazy danych, który żąda połączenia hello:
 
-* Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie bazy danych, jest ustanawiane połączenie z bazą danych SQL Database zawierającą tę regułę.
-* Jeśli adres IP żądania nie należy do jednego z zakresów określonych w regułach zapory na poziomie bazy danych, sprawdzane są reguły zapory na poziomie serwera. Jeśli adres IP żądania należy do jednego z zakresów określonych w regułach zapory na poziomie serwera, ustanawiane jest połączenie. Reguły zapory na poziomie serwera mają zastosowanie do wszystkich baz danych SQL na serwerze SQL platformy Azure.  
-* Jeśli adres IP żądania nie jest w zakresie określony w żadnym z reguły zapory poziomu serwera lub na poziomie bazy danych, żądanie połączenia zakończy się niepowodzeniem.
+* Jeśli adres IP hello żądania hello jest w jednej z określonych w regułach zapory na poziomie bazy danych hello zakresach hello, toohello bazy danych SQL, która zawiera regułę hello zostanie ustanowione połączenie hello.
+* Jeśli adres IP hello hello żądania nie jest w jednym z zakresów hello określone w regule zapory na poziomie bazy danych hello, reguły zapory poziomu serwera hello są sprawdzane. Jeśli adres IP hello żądania hello jest w jednej z określonych w regułach zapory poziomu serwera hello zakresach hello, zostanie ustanowione połączenie hello. Reguły zapory poziomu serwera stosowanie tooall baz danych na serwerze Azure SQL hello.  
+* Jeśli adres IP hello hello żądania nie jest w hello zakresy określone w żadnym hello poziom bazy danych lub reguły zapory poziomu serwera hello żądanie połączenia zakończy się niepowodzeniem.
 
 > [!NOTE]
-> Aby uzyskać dostęp do usługi Azure SQL Database z komputera lokalnego, upewnij się, że zapora w sieci i na komputerze lokalnym zezwala na komunikację wychodzącą na porcie TCP 1433.
+> tooaccess bazy danych SQL Azure z komputera lokalnego, upewnij się, że hello zapory w sieci i komputera lokalnego umożliwia komunikację wychodzący na porcie TCP 1433.
 > 
 
 ### <a name="connecting-from-azure"></a>Łączenie z platformy Azure
-Aby umożliwić aplikacjom z platformy Azure łączenie się z serwerem Azure SQL, należy włączyć połączenia platformy Azure. Gdy aplikacja platformy Azure próbuje połączyć się z serwerem bazy danych, zapora sprawdza, czy połączenia platformy Azure są dozwolone. Ustawienie zapory z początkowym i końcowym adresem równym 0.0.0.0 wskazuje, że te połączenia są dozwolone. Jeśli próba połączenia nie jest dozwolona, żądanie nie dociera do serwera usługi Azure SQL Database.
+tooallow aplikacji Azure tooconnect tooyour serwera Azure SQL Azure połączenia musi być włączony. Po aplikacji z platformy Azure prób tooconnect tooyour bazy danych serwera, zapory hello sprawdza, czy są dozwolone połączenia platformy Azure. Zapora ustawienie początkową i końcową too0.0.0.0 taki sam adres wskazuje, że te połączenia są dozwolone. Niedozwolona próba połączenia hello hello żądania nie dochodzi powitania serwera bazy danych SQL Azure.
 
 > [!IMPORTANT]
-> Ta opcja konfiguruje zaporę w celu zezwalania na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
+> Ta opcja powoduje skonfigurowanie hello zapory tooallow wszystkich połączeń z Azure połączeń między innymi w subskrypcji hello innych klientów. Wybranie tej opcji upewnij się, że logowanie po tooonly dostępu ograniczyć uprawnienia użytkowników autoryzowanych użytkowników.
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Tworzenie i zarządzanie nimi reguł zapory
-Pierwsze ustawienie zapory na poziomie serwera można tworzyć przy użyciu [portalu Azure](https://portal.azure.com/) lub programowo przy użyciu [programu Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [interfejsu wiersza polecenia Azure](/cli/azure/sql/server/firewall-rule#create), lub [ Interfejs API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Kolejne reguły zapory na poziomie serwera mogą być tworzone i zarządzane przy użyciu tych metod oraz za pomocą języka Transact-SQL. 
+Pierwsze ustawienie zapory poziomu serwera Hello można tworzyć przy użyciu hello [portalu Azure](https://portal.azure.com/) lub programowo przy użyciu [programu Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [interfejsu wiersza polecenia Azure](/cli/azure/sql/server/firewall-rule#create), lub hello [Interfejsu API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Kolejne reguły zapory na poziomie serwera mogą być tworzone i zarządzane przy użyciu tych metod oraz za pomocą języka Transact-SQL. 
 
 > [!IMPORTANT]
 > Reguły zapory poziomu bazy danych można tworzyć tylko i zarządzane przy użyciu języka Transact-SQL. 
 >
 
-Aby poprawić wydajność, reguły zapory na poziomie serwera są tymczasowo przechowywane w pamięci podręcznej na poziomie bazy danych. Aby odświeżyć pamięć podręczną, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
+wydajność tooimprove, reguły są tymczasowo przechowywane na poziomie bazy danych hello zapory poziomu serwera. pamięć podręczna hello toorefresh, zobacz [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx). 
 
 > [!TIP]
-> Można użyć [SQL Database Auditing](sql-database-auditing.md) inspekcji zmian zapory poziomu serwera i poziom bazy danych.
+> Można użyć [SQL Database Auditing](sql-database-auditing.md) tooaudit zmiany zapory poziomu serwera i poziom bazy danych.
 >
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby skonfigurować regułę zapory poziomu serwera w portalu Azure, można albo przejść do strony Przegląd dla Twojej bazy danych Azure SQL lub strony Przegląd dla serwera logicznego bazy danych Azure.
+tooset regułę zapory poziomu serwera w portalu Azure hello albo możesz strony Przegląd toohello strony Przegląd bazy danych lub hello Azure SQL dla serwera logicznego bazy danych Azure.
 
 > [!TIP]
-> Samouczek, zobacz [tworzenie bazy danych przy użyciu portalu Azure](sql-database-get-started-portal.md).
+> Samouczek, zobacz [tworzenie bazy danych przy użyciu hello portalu Azure](sql-database-get-started-portal.md).
 >
 
 **Na stronie Przegląd bazy danych**
 
-1. Aby ustawić regułę zapory poziomu serwera na stronie Przegląd bazy danych, kliknij przycisk **ustawić Zapora serwera** na pasku narzędzi, jak pokazano na poniższej ilustracji: **ustawienia zapory** strony serwera bazy danych SQL zostanie otwarty.
+1. tooset reguły zapory poziomu serwera z hello strony Przegląd bazy danych, kliknij przycisk **ustawić Zapora serwera** na powitania narzędzi pokazane na powitania po obrazu: hello **ustawienia zapory** stronę hello SQL Otwiera serwera bazy danych.
 
       ![reguła zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-2. Kliknij przycisk **Dodaj adres IP klienta** na pasku narzędzi, aby dodać adres IP komputera obecnie używasz a następnie kliknij przycisk **zapisać**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
+2. Kliknij przycisk **Dodaj adres IP klienta** na powitania narzędzi tooadd hello adres IP komputera hello obecnie używasz a następnie kliknij przycisk **zapisać**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
 
       ![ustawianie reguły zapory serwera](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 **Na stronie Przegląd serwera**
 
-Zostanie otwarta strona Omówienie serwera, wyświetlając nazwę FQDN serwera (takich jak **mynewserver20170403.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji.
+Witaj strona przeglądu otwartym serwera przedstawiający hello w pełni kwalifikowana nazwa serwera (takich jak **mynewserver20170403.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji.
 
-1. Aby ustawić regułę poziomu serwera na stronie Przegląd serwera, kliknij przycisk **zapory** w menu po lewej stronie w obszarze Ustawienia, jak pokazano na poniższej ilustracji: 
+1. Kliknij tooset reguły poziom serwera, na stronie Omówienie serwera **zapory** w menu po lewej stronie powitania w obszarze Ustawienia, jak wynika powitania po obrazu: 
 
      ![Omówienie serwera logicznego](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
-2. Kliknij przycisk **Dodaj adres IP klienta** na pasku narzędzi, aby dodać adres IP komputera obecnie używasz a następnie kliknij przycisk **zapisać**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
+2. Kliknij przycisk **Dodaj adres IP klienta** na powitania narzędzi tooadd hello adres IP komputera hello obecnie używasz a następnie kliknij przycisk **zapisać**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera.
 
      ![ustawianie reguły zapory serwera](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
 
 ### <a name="transact-sql"></a>Język Transact-SQL
 | Widok wykazu lub procedura składowana | Poziom | Opis |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serwer |Wyświetla bieżące reguły zapory na poziomie serwera |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serwer |Wyświetla bieżące reguły zapory poziomu serwera hello |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serwer |Tworzy lub aktualizuje reguły zapory na poziomie serwera |
 | [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Serwer |Usuwa reguły zapory na poziomie serwera |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database (Baza danych) |Wyświetla bieżące reguły zapory na poziomie bazy danych |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database (Baza danych) |Tworzy lub aktualizuje reguły zapory na poziomie bazy danych |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Database (Baza danych) |Wyświetla hello bieżące reguły zapory poziomu bazy danych |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Database (Baza danych) |Tworzy lub aktualizuje hello reguły zapory poziomu bazy danych |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bazy danych |Usuwa reguły zapory na poziomie bazy danych |
 
 
-Poniższe przykłady przejrzyj istniejące zasady, Włącz zakres adresów IP na serwerze Contoso i usuwa regułę zapory:
+Witaj następujące przykłady Sprawdź hello istniejących reguł, Włącz zakres adresów IP na serwerze hello Contoso i usuwa regułę zapory:
    
 ```sql
 SELECT * FROM sys.firewall_rules ORDER BY name;
@@ -132,7 +132,7 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
    @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 ```
 
-Aby usunąć regułę zapory na poziomie serwera, wykonaj procedurę składowaną sp_delete_firewall_rule. Reguła o nazwie ContosoFirewallRule można znaleźć w następującym przykładzie:
+toodelete regułę zapory poziomu serwera wykonać hello sp_delete_firewall_rule przechowywane procedury. Witaj poniższy przykład powoduje usunięcie hello reguły o nazwie ContosoFirewallRule:
    
 ```sql
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
@@ -141,13 +141,13 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ### <a name="azure-powershell"></a>Azure PowerShell
 | Polecenie cmdlet | Poziom | Opis |
 | --- | --- | --- |
-| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |Serwer |Zwraca bieżące reguły zapory na poziomie serwera |
+| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |Serwer |Zwraca bieżące reguły zapory poziomu serwera hello |
 | [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |Serwer |Tworzy nową regułę zapory na poziomie serwera |
-| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Serwer |Aktualizuje właściwości istniejącej reguły zapory na poziomie serwera |
+| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Serwer |Aktualizuje właściwości hello istniejącej reguły zapory poziomu serwera |
 | [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Serwer |Usuwa reguły zapory na poziomie serwera |
 
 
-W poniższym przykładzie ustawiono regułę zapory poziomu serwera przy użyciu programu PowerShell:
+Poniższy przykład Hello Ustawia regułę zapory poziomu serwera przy użyciu programu PowerShell:
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
@@ -156,19 +156,19 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> Przykłady programu PowerShell w kontekście tego szybki start, zobacz [utworzyć DB - PowerShell](sql-database-get-started-powershell.md) i [utworzyć pojedynczą bazę danych i skonfigurować regułę zapory przy użyciu programu PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> Przykłady programu PowerShell w kontekście hello Szybki Start można znaleźć [utworzyć DB - PowerShell](sql-database-get-started-powershell.md) i [utworzyć pojedynczą bazę danych i skonfigurować regułę zapory przy użyciu programu PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 >
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 | Polecenie cmdlet | Poziom | Opis |
 | --- | --- | --- |
-| [Utwórz zapory serwera sql az](/cli/azure/sql/server/firewall-rule#create) | Tworzy regułę zapory zezwalają na dostęp do wszystkich baz danych na serwerze z wprowadzony zakres adresów IP.|
+| [Utwórz zapory serwera sql az](/cli/azure/sql/server/firewall-rule#create) | Tworzy zapory reguły tooallow dostępu tooall baz danych na serwerze hello z zakresu adresów IP hello wprowadzona.|
 | [Usuń zapory serwera sql az](/cli/azure/sql/server/firewall-rule#delete)| Usuwa regułę zapory.|
-| [Lista zapory serwera sql az](/cli/azure/sql/server/firewall-rule#list)| Wyświetla listę reguł zapory.|
-| [Pokaż reguły zapory serwera sql az](/cli/azure/sql/server/firewall-rule#show)| Przedstawia szczegóły reguły zapory.|
+| [Lista zapory serwera sql az](/cli/azure/sql/server/firewall-rule#list)| Wyświetla listę reguł zapory hello.|
+| [Pokaż reguły zapory serwera sql az](/cli/azure/sql/server/firewall-rule#show)| Wyświetla szczegóły hello reguły zapory.|
 | [AX aktualizacja reguły zapory programu sql server](/cli/azure/sql/server/firewall-rule#update)| Aktualizuje regułę zapory.
 
-W poniższym przykładzie ustawiono regułę zapory poziomu serwera przy użyciu wiersza polecenia platformy Azure: 
+Poniższy przykład Hello Ustawia regułę zapory poziomu serwera przy użyciu interfejsu wiersza polecenia Azure hello: 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
@@ -176,53 +176,53 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Przykład wiersza polecenia platformy Azure w ramach szybkiego startu, zobacz [utworzyć DDB - Azure CLI](sql-database-get-started-cli.md) i [utworzyć pojedynczą bazę danych i skonfigurować regułę zapory przy użyciu wiersza polecenia platformy Azure](scripts/sql-database-create-and-configure-database-cli.md)
+> Przykład wiersza polecenia platformy Azure w kontekście hello szybki start, zobacz [utworzyć DDB - Azure CLI](sql-database-get-started-cli.md) i [utworzyć pojedynczą bazę danych i skonfigurować regułę zapory przy użyciu hello wiersza polecenia platformy Azure](scripts/sql-database-create-and-configure-database-cli.md)
 >
 
 ### <a name="rest-api"></a>Interfejs API REST
 | Interfejs API | Poziom | Opis |
 | --- | --- | --- |
-| [List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx) (Lista reguł zapory) |Serwer |Wyświetla bieżące reguły zapory na poziomie serwera |
+| [List Firewall Rules](https://msdn.microsoft.com/library/azure/dn505715.aspx) (Lista reguł zapory) |Serwer |Wyświetla bieżące reguły zapory poziomu serwera hello |
 | [Create Firewall Rule](https://msdn.microsoft.com/library/azure/dn505712.aspx) (Tworzenie reguły zapory) |Serwer |Tworzy lub aktualizuje reguły zapory na poziomie serwera |
-| [Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx) (Ustawianie reguły zapory) |Serwer |Aktualizuje właściwości istniejącej reguły zapory na poziomie serwera |
+| [Set Firewall Rule](https://msdn.microsoft.com/library/azure/dn505707.aspx) (Ustawianie reguły zapory) |Serwer |Aktualizuje właściwości hello istniejącej reguły zapory poziomu serwera |
 | [Delete Firewall Rule](https://msdn.microsoft.com/library/azure/dn505706.aspx) (Usuwanie reguły zapory) |Serwer |Usuwa reguły zapory na poziomie serwera |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Reguły zapory poziomu serwera i regułę zapory poziomu bazy danych
 Q. Użytkownicy z jednej bazy danych należy całkowicie odizolowane od innej bazy danych?   
-  Jeśli tak, należy przyznać dostęp przy użyciu reguł zapory na poziomie bazy danych. Dzięki temu można uniknąć przy użyciu reguły zapory poziomu serwera, które zezwalają na dostęp przez zaporę do wszystkich baz danych, zmniejszenie głębokości dalszej.   
+  Jeśli tak, należy przyznać dostęp przy użyciu reguł zapory na poziomie bazy danych. Dzięki temu można uniknąć przy użyciu reguły zapory poziomu serwera, które zezwalają na dostęp przez zaporę Windows hello tooall baz danych, zmniejszenie głębokości hello dalszej.   
  
-Q. Czy użytkownicy o adresie IP mają dostęp do wszystkich baz danych?   
-  Aby zmniejszyć liczbę razy, należy skonfigurować reguły zapory, należy użyć reguły zapory poziomu serwera.   
+Q. Czy użytkownicy pod adresem IP hello muszą uzyskiwać dostęp do baz danych tooall?   
+  Użyj zapory poziomu serwera reguły tooreduce hello liczbę razy, należy skonfigurować reguły zapory.   
 
-Q. Osobie lub zespołowi Konfigurowanie reguł zapory tylko ma dostęp za pośrednictwem portalu Azure, programu PowerShell lub interfejsu API REST?   
+Q. Hello osobę lub zespół Konfigurowanie reguł zapory hello tylko ma dostęp za pośrednictwem portalu Azure, programu PowerShell, hello lub hello interfejsu API REST?   
   Należy użyć reguły zapory poziomu serwera. Reguły zapory poziomu bazy danych można skonfigurować tylko za pomocą języka Transact-SQL.  
 
-Q. Jest osobie lub zespołowi Konfigurowanie reguł zapory zabroniony z konieczności wysokiego poziomu uprawnień na poziomie bazy danych?   
-  Użyj reguł zapory na poziomie serwera. Konfigurowanie reguł zapory na poziomie bazy danych przy użyciu języka Transact-SQL, wymaga co najmniej `CONTROL DATABASE` uprawnienia na poziomie bazy danych.  
+Q. Jest hello osobę lub zespół Konfigurowanie reguł zapory hello zabroniony z konieczności wysokiego poziomu uprawnień na poziomie bazy danych hello?   
+  Użyj reguł zapory na poziomie serwera. Konfigurowanie reguł zapory na poziomie bazy danych przy użyciu języka Transact-SQL, wymaga co najmniej `CONTROL DATABASE` uprawnienia na poziomie bazy danych hello.  
 
-Q. Jest osobie lub zespołowi inspekcję reguły zapory i konfigurowanie centralne zarządzanie reguły zapory dla wielu (prawdopodobnie 100) baz danych?   
-  Tego wyboru zależy od środowiska i potrzeb użytkowników. Reguły zapory poziomu serwera może być łatwiejsze do skonfigurowania, ale skryptów można skonfigurować zasady na poziomie bazy danych. A nawet wtedy, gdy używasz reguły zapory poziomu serwera, może być konieczne inspekcji reguły zapory bazy danych, aby sprawdzić, czy użytkownicy z `CONTROL` uprawnień w bazie danych zostały utworzone reguły zapory poziomu bazy danych.   
+Q. Jest hello osobie lub zespołowi inspekcję hello reguły zapory, i konfigurowanie centralne zarządzanie reguły zapory dla wielu (prawdopodobnie 100) baz danych?   
+  Tego wyboru zależy od środowiska i potrzeb użytkowników. Reguły zapory poziomu serwera może być łatwiejsze tooconfigure, ale skryptów można skonfigurować reguły w hello poziom bazy danych. A nawet wtedy, gdy używasz reguły zapory poziomu serwera, może być potrzebny reguły zapory bazy danych tooaudit hello toosee użytkownikom `CONTROL` uprawnień w bazie danych hello zostały utworzone reguły zapory poziomu bazy danych.   
 
 Q. Czy można używać różnych obie reguły zapory poziomu serwera i poziom bazy danych?   
   Tak. W przypadku niektórych użytkowników, takich jak Administratorzy mogą wymagać reguły zapory poziomu serwera. Innych użytkowników, takich jak użytkownicy aplikacji bazy danych, może być konieczne reguły zapory poziomu bazy danych.   
 
-## <a name="troubleshooting-the-database-firewall"></a>Rozwiązywanie problemów z zaporą bazy danych
-Jeśli dostęp do usługi Microsoft Azure SQL Database nie działa zgodnie z oczekiwaniami, należy rozważyć następujące kwestie:
+## <a name="troubleshooting-hello-database-firewall"></a>Rozwiązywanie problemów dotyczących zapory bazy danych hello
+Należy wziąć pod uwagę następujące punkty, gdy toohello dostępu do usługi Microsoft Azure SQL Database nie działają zgodnie z oczekiwaniami hello:
 
-* **Konfiguracja lokalnej zapory:** aby komputer mógł uzyskać dostęp do usługi Azure SQL Database, może być konieczne utworzenie wyjątku zapory na komputerze dla portu TCP 1433. W przypadku nawiązywania połączeń wewnątrz granic chmury Azure może być konieczne otwarcie dodatkowych portów. Aby uzyskać więcej informacji, zobacz **bazy danych SQL: poza vs wewnątrz** sekcji [porty inne niż 1433 ADO.NET 4.5 i bazy danych SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-* **Translator adresów sieciowych (NAT):** z powodu translatora adresów sieciowych (NAT), adres IP używany przez komputer do połączenia z usługą Azure SQL Database może być inny niż adres IP wyświetlany w ustawieniach konfiguracji adresu IP komputera. Aby wyświetlić adres IP używany przez komputer do łączenia się z platformą Azure, zaloguj się do portalu i przejdź na kartę **Konfigurowanie** na serwerze, który hostuje bazę danych. W sekcji **Dozwolone adresy IP** wyświetlany jest **bieżący adres IP klienta**. Kliknij przycisk **Dodaj** do listy **Dozwolone adresy IP**, aby zezwolić temu komputerowi na dostęp do serwera.
-* **Zmiany na liście dozwolonych jeszcze nie zaczęły obowiązywać:** może wystąpić do pięciu minut opóźnienia, zanim zmiany konfiguracji zapory usługi Azure SQL Database zostaną zastosowane.
-* **Logowanie nie ma autoryzacji lub użyto nieprawidłowego hasła:** jeśli logowanie nie ma uprawnień na serwerze usługi Azure SQL Database lub użyte hasło jest nieprawidłowe, nastąpi odmowa połączenia z serwerem usługi Azure SQL Database. Utworzenie ustawień zapory zapewnia klientom jedynie możliwość próby nawiązania połączenia z serwerem, ale każdy klient musi podać niezbędne poświadczenia zabezpieczeń. Aby uzyskać więcej informacji na temat przygotowywania logowań, zobacz sekcję Zarządzanie bazami danych, logowaniami i użytkownikami w usłudze Azure SQL Database.
-* **Dynamiczny adres IP:** jeśli używane jest połączenie internetowe za pomocą dynamicznego adresowania IP i występują problemy z przejściem przez zaporę, można wypróbować jedno z poniższych rozwiązań:
+* **Konfiguracja zapory lokalnej:** zanim komputer może uzyskać dostęp do bazy danych SQL Azure, konieczne może toocreate wyjątek zapory na komputerze dla portu TCP 1433. Jeśli tworzysz połączeń wewnątrz granic chmury Azure hello, może być tooopen dodatkowych portów. Aby uzyskać więcej informacji, zobacz hello **bazy danych SQL: poza vs wewnątrz** sekcji [porty inne niż 1433 ADO.NET 4.5 i bazy danych SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
+* **Adres translatora adresów sieciowych:** tooNAT termin, hello adres IP używany przez Twoje tooAzure tooconnect komputera bazy danych SQL mogą różnić się od adresu IP hello wyświetlany w ustawieniach konfiguracji adresu IP komputera. tooview hello adres IP komputera przy użyciu tooconnect tooAzure, zaloguj się w portalu toohello i przejdź toohello **Konfiguruj** kartę na powitania serwera, który hostuje bazę danych. W obszarze hello **dozwolone adresy IP** sekcji, hello **bieżącego adresu IP klienta** jest wyświetlany. Kliknij przycisk **Dodaj** toohello **dozwolone adresy IP** tooallow serwera hello tooaccess tego komputera.
+* **Lista dozwolonych toohello zmiany nie zostały uwzględnione jeszcze:** może być jak opóźnienie 5 minutową zmienia toohello bazy danych SQL Azure zapory konfiguracji tootake efekt.
+* **nie ma uprawnień logowania Hello lub niepoprawne hasło było używane:** Jeśli nazwa logowania nie ma uprawnień na serwerze bazy danych SQL Azure hello lub hello hasło używane jest niepoprawny, serwera bazy danych SQL Azure toohello połączeń hello zostanie odrzucone. Tworzenie ustawień zapory tylko zapewnia klientom tooattempt możliwość łączenia serwera tooyour; Każdy klient musi podać poświadczenia zabezpieczeń wymaganymi hello. Aby uzyskać więcej informacji na temat przygotowywania logowań, zobacz sekcję Zarządzanie bazami danych, logowaniami i użytkownikami w usłudze Azure SQL Database.
+* **Dynamicznego adresu IP:** Jeśli masz kłopot przez zaporę Windows hello ma połączenia internetowego z dynamicznych adresów IP, można Wypróbuj jedną z następujących rozwiązań hello:
   
-  * Poproś usługodawcę internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich uzyskujących dostęp do serwera usługi Azure SQL Database, a następnie dodaj ten zakres adresów IP jako regułę zapory.
-  * Pobierz statyczne adresy IP dla komputerów klienckich, a następnie dodaj te adresy IP jako reguły zapory.
+  * Zapytaj dostawcę usługi internetowego (ISP) dla zakresu adresów IP hello przypisane tooyour komputerów klienckich serwera bazy danych SQL Azure hello tego dostępu, a następnie Dodaj zakres adresów IP hello jako regułę zapory.
+  * Pobierz statycznych adresów IP zamiast tego dla komputerów klienckich, a następnie dodaj adresy IP hello jako reguły zapory.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać szybki start dotyczące tworzenia bazy danych i regułę zapory poziomu serwera, zobacz [tworzenie bazy danych Azure SQL](sql-database-get-started-portal.md).
-- Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji innych firm lub aplikacji typu open source, zobacz [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Przykłady kodu umożliwiające szybki start dla klienta usługi SQL Database).
-- Informacje dotyczące dodatkowych portów, które mogą wymagać, aby otworzyć znajdują się w temacie **bazy danych SQL: poza vs wewnątrz** sekcji [porty inne niż 1433 ADO.NET 4.5 i bazy danych SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Aby uzyskać pomoc w bazie danych Azure SQL z tooan nawiązujący połączenie z typu open source lub aplikacje innych firm, [tooSQL bazy danych — przykłady kodu szybki start klienta](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Informacje dotyczące dodatkowych portów, że może być konieczne tooopen znajdują się w temacie hello **bazy danych SQL: poza vs wewnątrz** sekcji [porty inne niż 1433 ADO.NET 4.5 i bazy danych SQL](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Omówienie zabezpieczeń usługi Azure SQL Database, zobacz [zabezpieczania bazy danych](sql-database-security-overview.md)
 
 <!--Image references-->

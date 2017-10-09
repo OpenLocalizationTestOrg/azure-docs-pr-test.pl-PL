@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie testów chaos i pracy awaryjnej dla usługi Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Przy użyciu usługi Service Fabric chaos testu i pracy awaryjnej przetestować scenariusze wywołać błędów i sprawdź niezawodności usług."
+title: "aaaCreate chaos i pracy awaryjnej testów Azure mikrousług | Dokumentacja firmy Microsoft"
+description: "Za pomocą testu chaos sieci szkieletowej usług hello i pracy awaryjnej testowania scenariuszy tooinduce błędów i sprawdź niezawodności hello usług."
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1cac4f9e0e4a6c8416d5220d1537b5110decd1f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="testability-scenarios"></a>Scenariusze testowania
-Dużych systemach rozproszonych jak infrastruktury chmury jest z założenia gwarantowane. Sieć szkieletowa usług Azure zapewnia deweloperom możliwość zapisu do uruchamiania na szczycie infrastruktury niepewna. Aby można było zapisać wysokiej jakości usług, deweloperzy muszą móc wywoływać takie zawodnych infrastruktury do testowania stabilność swoich usług.
+Dużych systemach rozproszonych jak infrastruktury chmury jest z założenia gwarantowane. Azure sieci szkieletowej usług oferuje deweloperom hello możliwości toowrite usługi toorun na szczycie infrastruktury zawodne. W kolejności toowrite wysokiej jakości usług deweloperzy muszą tooinduce stanie toobe takie zawodnych infrastruktury tootest hello stabilność swoich usług.
 
-Usługi analizy błędów zapewnia deweloperom możliwość wywołać błędów działań do przetestowania usługi w razie awarii. Jednak docelowe błędów symulowane programy tylko do tej pory. Podejmowanie testowania, możesz skorzystać ze scenariuszy testu w sieci szkieletowej usług: chaos test i test pracy awaryjnej. Te scenariusze symulować ciągłego przeplotem błędów, zarówno bezpieczne i nieprawidłowego w całym klastrze przez dłuższy czas. Po skonfigurowaniu testu z szybkość i rodzaju błędów można było go uruchomić za pomocą interfejsów API języka C# lub programu PowerShell w celu generowania błędów w klastrze i usługi.
+Hello błędów Analysis Services zapewnia deweloperom hello możliwości tooinduce błędów akcje tootest usług w hello występowania błędów. Jednak docelowe błędów symulowane programy tylko do tej pory. Ponadto testowanie hello tootake hello scenariuszy testowania można używać w sieci szkieletowej usług: chaos test i test pracy awaryjnej. Te scenariusze symulować ciągłego przeplotem błędów, zarówno bezpieczne i nieprawidłowego w całym klastrze hello przez dłuższy czas. Po skonfigurowaniu testu z hello szybkość i rodzaju błędów można było go uruchomić za pomocą interfejsów API języka C# lub programu PowerShell, toogenerate błędów w klastrze hello i usługi.
 
 > [!WARNING]
-> ChaosTestScenario jest zastępowany przez Chaos bardziej elastyczne, oparta na usłudze. Zapoznaj się z nowego artykułu [kontrolowane Chaos](service-fabric-controlled-chaos.md) więcej szczegółów.
+> ChaosTestScenario jest zastępowany przez Chaos bardziej elastyczne, oparta na usłudze. Zobacz nowy artykuł toohello [kontrolowane Chaos](service-fabric-controlled-chaos.md) więcej szczegółów.
 > 
 > 
 
 ## <a name="chaos-test"></a>Chaos testu
-Scenariusz chaos generuje błędy w ramach całego klastra sieci szkieletowej usług. Scenariusz kompresuje błędów zwykle widoczny w miesięcy lub lat do kilku godzin. Kombinacja przeplotem błędów ze wskaźnikiem wysoką odporność znajduje sytuacjach wyjątkowych, które w przeciwnym razie zostaną pominięte. Prowadzi to do znacznej poprawy jakości kodu usługi.
+Scenariusz chaos Hello generuje błędy między hello całego klastra sieci szkieletowej usług. Scenariusz Hello kompresuje błędów zwykle widoczny w miesiącach lub latach tooa kilka godzin. Kombinacja Hello przeplotem błędów ze stawką wysoką odporność hello znajduje sytuacjach wyjątkowych, które w przeciwnym razie zostaną pominięte. Prowadzi to tooa znaczne ulepszenia w jakości kodu hello hello usługi.
 
-### <a name="faults-simulated-in-the-chaos-test"></a>Błędy w teście chaos
+### <a name="faults-simulated-in-hello-chaos-test"></a>Błędy w hello chaos testu
 * Uruchom ponownie węzeł
 * Ponowne uruchomienie wdrożonego pakietu kodu
 * Usuwanie repliki
@@ -41,20 +41,20 @@ Scenariusz chaos generuje błędy w ramach całego klastra sieci szkieletowej us
 * Przenieś repliki podstawowej (opcjonalnie)
 * Przenieś repliki pomocniczej (opcjonalnie)
 
-Chaos test uruchamia przejść przez wiele iteracji usterek i sprawdzanie poprawności klastra w określonym okresie czasu. Konfiguruje się czas dla klastra do utrwalania i Weryfikacja powiodła się. Scenariusz nie powiedzie się, gdy naciśniesz pojedynczego uszkodzenia w weryfikacji klastra.
+uruchomienia testów chaos Hello przejść przez wiele iteracji błędów i sprawdzanie poprawności klastra na powitania określony czas. konfiguruje się czas Hello hello toostabilize klastra i toosucceed sprawdzania poprawności. Scenariusz Hello nie powiedzie się, gdy naciśniesz pojedynczego uszkodzenia w weryfikacji klastra.
 
-Rozważmy na przykład uruchamiana przez godzinę z maksymalnie trzech równoczesnych błędów testu. Testu wywoływać błędy trzy, a następnie sprawdź stan klastra. Test zostanie iterację poprzedniego kroku, dopóki klastra staje się nieprawidłowy, lub przekazuje jedną godzinę. Jeśli klaster staje się nieprawidłowy, w dowolnym iteracji, tj. nie ustabilizowania w skonfigurowanym czasie, test zakończy się niepowodzeniem z powodu wyjątku. Ten wyjątek wskazuje, że coś niepowodzenia i wymaga dalszego badania.
+Rozważmy na przykład zestawu testu toorun przez godzinę z maksymalnie trzech równoczesnych błędów. Hello test wywołać trzy usterek i sprawdzania poprawności kondycji klastra hello. Hello testu będzie iterację hello w poprzednim kroku, dopóki hello klastra staje się nieprawidłowy, lub przekazuje jedną godzinę. Jeśli klaster hello staje się nieprawidłowy, w dowolnym iteracji, tj. nie ustabilizowania w skonfigurowanym czasie, hello test zakończy się niepowodzeniem z powodu wyjątku. Ten wyjątek wskazuje, że coś niepowodzenia i wymaga dalszego badania.
 
-W postaci bieżącego aparatu generowania błędów w teście chaos wywołuje tylko bezpiecznych błędów. Oznacza to, że w przypadku braku błędów zewnętrznych utraty kworum lub dane nigdy nie wystąpi.
+W postaci bieżącego aparatu generowania błędów hello w teście chaos hello wywołuje tylko bezpiecznych błędów. Oznacza to, że hello braku błędów zewnętrznych, utrata kworum lub dane nigdy nie wystąpi.
 
 ### <a name="important-configuration-options"></a>Opcje konfiguracji ważne
-* **TimeToRun**: całkowity czas uruchomienia testu przed zakończeniem pomyślnie. Test zakończenia wcześniej zamiast niepowodzenia weryfikacji.
-* **MaxClusterStabilizationTimeout**: maksymalna ilość czasu oczekiwania na klaster, aby stała się dobra przed niepowodzeniem testu. Testy wykonywane są czy klastra kondycja jest dobra, usługa kondycji jest OK uzyskuje się rozmiar docelowego zestawu replik partycji usługi i replik w stanie InBuild nie istnieje.
-* **MaxConcurrentFaults**: Maksymalna liczba jednoczesnych błędów powstaniu w każdej iteracji. Wyższa wartość, bardziej aktywnego testu, dlatego co zapewnia bardziej złożonych przechodzenia w tryb failover i kombinacje przejścia. Test gwarantuje, że w przypadku braku błędów zewnętrznych nie będzie kworum lub utraty danych, niezależnie od tego, jak wysoka jest w tej konfiguracji.
-* **EnableMoveReplicaFaults**: Włącza lub wyłącza usterek, które powodują przeniesienie repliki podstawowej lub dodatkowej. Te błędy są domyślnie wyłączone.
-* **WaitTimeBetweenIterations**: czas oczekiwania pomiędzy iteracjami po round usterek i odpowiednie sprawdzania poprawności.
+* **TimeToRun**: całkowity czas hello test zostanie uruchomiony przed zakończeniem pomyślnie. Hello test zakończyć wcześniej zamiast niepowodzenia weryfikacji.
+* **MaxClusterStabilizationTimeout**: maksymalna ilość czasu toowait dla toobecome klastra hello dobrej kondycji przed niepowodzeniem testu hello. Hello sprawdzenia wykonywane są czy klastra kondycja jest dobra, usługa kondycji jest OK hello rozmiar docelowego zestawu replik uzyskuje się hello usługi partycji i replik w stanie InBuild nie istnieje.
+* **MaxConcurrentFaults**: Maksymalna liczba jednoczesnych błędów powstaniu w każdej iteracji. Witaj większą liczbę hello, hello bardziej aktywnego testu hello, dlatego co zapewnia bardziej złożonych przechodzenia w tryb failover i kombinacje przejścia. Hello test gwarantuje, że w przypadku braku błędów zewnętrznych nie będzie kworum lub utraty danych, niezależnie od tego, jak wysoka jest w tej konfiguracji.
+* **EnableMoveReplicaFaults**: Włącza lub wyłącza hello błędów, które powodują przeniesienie hello hello repliki podstawowej lub dodatkowej. Te błędy są domyślnie wyłączone.
+* **WaitTimeBetweenIterations**: ilość toowait czas między poszczególnymi iteracjami po round usterek i odpowiednie sprawdzania poprawności.
 
-### <a name="how-to-run-the-chaos-test"></a>Jak uruchomić chaos test
+### <a name="how-toorun-hello-chaos-test"></a>Jak przetestować toorun hello chaos
 Przykład w języku C#
 
 ```csharp
@@ -101,7 +101,7 @@ class Test
         // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The chaos test scenario should run at least 60 minutes or until it fails.
+        // hello chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         ChaosTestScenarioParameters scenarioParameters = new ChaosTestScenarioParameters(
           maxClusterStabilizationTimeout,
@@ -115,7 +115,7 @@ class Test
         // Pause between concurrent actions for a random duration bound by this value.
         // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
 
-        // Create the scenario class and execute it asynchronously.
+        // Create hello scenario class and execute it asynchronously.
         ChaosTestScenario chaosScenario = new ChaosTestScenario(fabricClient, scenarioParameters);
 
         try
@@ -146,25 +146,25 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 
 ## <a name="failover-test"></a>Test pracy awaryjnej
-Scenariusz test pracy awaryjnej jest wersja chaos scenariusza testowego przeznaczonego dla partycji określonej usługi. Sprawdzenie wpływ trybu failover na partycji określonej usługi, pozostawiając nie dotyczy innych usług. Po skonfigurowaniu o innych parametrach i informacji o partycji docelowej jest uruchamiany jako narzędzie po stronie klienta, które korzysta z interfejsów API języka C# lub programu PowerShell do generowania błędów dla partycji usługi. Scenariusz iterację sekwencji symulowane usterek i weryfikacji usługi podczas wykonywania logiki biznesowej po stronie, zapewnienie obciążenia. Błąd podczas weryfikowania usługi wskazuje problem, który wymaga dalszego badania.
+Scenariusz test pracy awaryjnej Hello jest wersja hello chaos testu scenariusza, przeznaczonego dla partycji określonej usługi. Sprawdzenie hello wpływ trybu failover na partycji określonej usługi, pozostawiając hello inne usługi nie ma wpływu. Po skonfigurowaniu o innych parametrach i informacji o partycji docelowej hello jest uruchamiany jako narzędzie po stronie klienta, które używa interfejsów API języka C# lub środowiska PowerShell błędów toogenerate dla partycji usługi. Scenariusz Hello iterację sekwencji symulowane usterek i weryfikacja usług logiki biznesowej działać na powitania po stronie tooprovide obciążenia. Błąd podczas weryfikowania usługi wskazuje problem, który wymaga dalszego badania.
 
-### <a name="faults-simulated-in-the-failover-test"></a>Błędy w test pracy awaryjnej
-* Ponowne uruchomienie wdrożonego pakietu kodu gdzie jest hostowana partycji
+### <a name="faults-simulated-in-hello-failover-test"></a>Błędy w hello test pracy awaryjnej
+* Ponowne uruchomienie wdrożonego pakietu kodu gdzie jest hostowana hello partycji
 * Usuń podstawowe i pomocnicze repliki lub bezstanowych wystąpienia
 * Uruchom ponownie podstawowej repliki pomocniczej (Jeśli usługa utrwalonego)
 * Przenieś repliki podstawowej
 * Przenieś replikę pomocniczą
-* Uruchom ponownie partycji
+* Uruchom ponownie hello partycji
 
-Test pracy awaryjnej powoduje odporność wybrany, a następnie uruchomi sprawdzanie poprawności w usłudze, aby zapewnić jego stabilność. Test pracy awaryjnej wywołuje tylko jeden błąd w czasie, w przeciwieństwie do możliwości wiele błędów w teście chaos. Partycji usługi nie stabilizacji w ciągu skonfigurowanego limitu czasu po awarii każdego testu nie powiedzie się. Test wywołuje tylko bezpiecznych błędów. Oznacza to, że w przypadku braku błędów zewnętrznych, utrata danych lub kworum nie nastąpi.
+test pracy awaryjnej Hello powoduje odporność wybrany, a następnie uruchomi sprawdzania poprawności na powitania usługi tooensure jej stabilności. test pracy awaryjnej Hello wywołuje tylko jedną fault w czasie, nazwą toopossible wiele usterek hello chaos testu. Partycji usługi hello nie stabilizacji przed upływem limitu czasu hello skonfigurowany po każdej błędów hello testów kończy się niepowodzeniem. Hello test wywołuje tylko bezpiecznych błędów. Oznacza to, że w przypadku braku błędów zewnętrznych, utrata danych lub kworum nie nastąpi.
 
 ### <a name="important-configuration-options"></a>Opcje konfiguracji ważne
-* **Elementu PartitionSelector**: selektora obiekt, który określa partycji, który ma być celem.
-* **TimeToRun**: całkowity czas uruchomienia testu przed zakończeniem.
-* **MaxServiceStabilizationTimeout**: maksymalna ilość czasu oczekiwania na klaster, aby stała się dobra przed niepowodzeniem testu. Testy wykonywane są Określa, czy usługa kondycji jest OK rozmiar docelowego zestawu replik odbywa się dla wszystkich partycji i replik w stanie InBuild nie istnieje.
-* **WaitTimeBetweenFaults**: ilość czasu między każdym cyklu usterek i sprawdzania poprawności.
+* **Elementu PartitionSelector**: selektora obiekt, który określa hello partycji, która wymaga toobe docelowe.
+* **TimeToRun**: całkowity czas hello test zostanie uruchomiony przed zakończeniem.
+* **MaxServiceStabilizationTimeout**: maksymalna ilość czasu toowait dla toobecome klastra hello dobrej kondycji przed niepowodzeniem testu hello. Hello sprawdzenia wykonywane są Określa, czy usługa kondycji jest OK hello rozmiar docelowego zestawu replik odbywa się dla wszystkich partycji i replik w stanie InBuild nie istnieje.
+* **WaitTimeBetweenFaults**: ilość czasu toowait między każdym cyklu usterek i sprawdzania poprawności.
 
-### <a name="how-to-run-the-failover-test"></a>Jak uruchomić test trybu failover
+### <a name="how-toorun-hello-failover-test"></a>Jak przetestować tryb failover hello toorun
 **C#**
 
 ```csharp
@@ -211,7 +211,7 @@ class Test
         // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The chaos test scenario should run at least 60 minutes or until it fails.
+        // hello chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         FailoverTestScenarioParameters scenarioParameters = new FailoverTestScenarioParameters(
           randomPartitionSelector,
@@ -224,7 +224,7 @@ class Test
         // Pause between concurrent actions for a random duration bound by this value.
         // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
 
-        // Create the scenario class and execute it asynchronously.
+        // Create hello scenario class and execute it asynchronously.
         FailoverTestScenario failoverScenario = new FailoverTestScenario(fabricClient, scenarioParameters);
 
         try

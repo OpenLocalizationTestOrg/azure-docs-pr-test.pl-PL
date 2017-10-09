@@ -1,5 +1,5 @@
 ---
-title: "Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure | Microsoft Docs"
+title: aaaNetworking dla zestawy skalowania maszyny wirtualnej platformy Azure | Dokumentacja firmy Microsoft
 description: "Właściwości sieciowe konfiguracji dotyczące zestawów skalowania maszyn wirtualnych platformy Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ef3f0cfe648d2195c051a73987e654f0e15d13bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
-W przypadku wdrażania zestawu skalowania maszyn wirtualnych platformy Azure za pośrednictwem portalu, niektóre właściwości sieciowe są konfigurowane domyślnie, na przykład usługa Azure Load Balancer z regułami NAT dla ruchu przychodzącego. W tym artykule opisano, jak korzystać z niektórych bardziej zaawansowanych funkcji sieciowych konfigurowalnych za pomocą zestawów skalowania.
+Podczas wdrażania zestaw za pośrednictwem portalu hello skalowania maszyny wirtualnej platformy Azure, jest konfigurowanych domyślnie niektóre właściwości sieci, na przykład modułu równoważenia obciążenia Azure z reguły dla ruchu przychodzącego translatora adresów Sieciowych. W tym artykule opisano sposób ustawiania toouse niektóre hello bardziej zaawansowane funkcje sieciowe, które można skonfigurować skali.
 
-Wszystkie funkcje omówione w tym artykule można skonfigurować za pomocą szablonów usługi Azure Resource Manager. Dla wybranych funkcji dołączono też przykłady związane z interfejsem wiersza polecenia platformy Azure i programem PowerShell. Użyj interfejsu wiersza polecenia w wersji 2.10 i programu PowerShell 4.2.0 lub nowszego.
+Można skonfigurować wszystkie funkcje hello omówione w tym artykule przy użyciu szablonów usługi Azure Resource Manager. Dla wybranych funkcji dołączono też przykłady związane z interfejsem wiersza polecenia platformy Azure i programem PowerShell. Użyj interfejsu wiersza polecenia w wersji 2.10 i programu PowerShell 4.2.0 lub nowszego.
 
 ## <a name="accelerated-networking"></a>Accelerated Networking
-Usługa Azure [Accelerated Networking](../virtual-network/virtual-network-create-vm-accelerated-networking.md) zwiększa wydajność sieci, umożliwiając wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej. Aby korzystać z tej funkcji przyspieszania sieci wraz z zestawami skalowania, w ustawieniach networkInterfaceConfigurations zestawu skalowania ustaw dla właściwości enableAcceleratedNetworking wartość **true**. Na przykład:
+Azure [przyspieszony sieci](../virtual-network/virtual-network-create-vm-accelerated-networking.md) zwiększa wydajność sieci, umożliwiając maszyny wirtualnej tooa (SR-IOV) wirtualizacji we/wy pojedynczego elementu głównego. przyspieszony toouse sieć z zestawy skalowania, ustaw enableAcceleratedNetworking zbyt**true** w ustawieniach Networkinterfaceconfiguration zestawu skalowania. Na przykład:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -47,7 +47,7 @@ Usługa Azure [Accelerated Networking](../virtual-network/virtual-network-create
 ```
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Tworzenie zestawu skalowania odwołującego się do istniejącej usługi Azure Load Balancer
-Podczas tworzenia zestawu skalowania przy użyciu witryny Azure Portal w przypadku większości opcji konfiguracji jest tworzony nowy moduł równoważenia obciążenia. W przypadku utworzenia zestawu skalowania, który musi odwoływać się do istniejącego modułu równoważenia obciążenia, można to zrobić przy użyciu interfejsu wiersza polecenia. Następujący skrypt przykładowy tworzy moduł równoważenia obciążenia, a następnie tworzy zestaw skalowania, który się do niego odwołuje:
+Po utworzeniu zestawu skalowania za pomocą portalu Azure hello nowego modułu równoważenia obciążenia jest tworzony dla większości opcji konfiguracji. Jeśli utworzysz zestaw skali, którą należy tooreference istniejący moduł równoważenia obciążenia, można to zrobić przy użyciu interfejsu wiersza polecenia. powitania po przykładowy skrypt tworzy moduł równoważenia obciążenia, a następnie tworzy zestaw skali, który odwołuje się ona:
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
@@ -56,14 +56,14 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ## <a name="configurable-dns-settings"></a>Konfigurowalne ustawienia DNS
-Domyślnie zestawy skalowania przyjmują konkretne ustawienia DNS sieci VNET i podsieci, w których je utworzono. Można jednak skonfigurować ustawienia DNS zestawu skalowania bezpośrednio.
+Domyślnie zestawy skalowania przełączyć na powitania określonych ustawień DNS hello sieci Wirtualnej i podsieci, które zostały utworzone. Można jednak skonfigurować hello ustawień DNS na potrzeby skalowania ustawić bezpośrednio.
 ~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Tworzenie zestawu skalowania z konfigurowalnymi serwerami DNS
-Aby utworzyć zestaw skalowania z niestandardową konfiguracją DNS przy użyciu interfejsu wiersza polecenia w wersji 2.0, dodaj do polecenia **vmss create** argument **--dns-servers**, a po nim podaj oddzielane spacjami adresy IP serwerów. Na przykład:
+toocreate zestawu skalowania z niestandardowej konfiguracji DNS przy użyciu interfejsu wiersza polecenia 2.0, Dodaj hello **serwery dns —** argument toohello **vmss utworzyć** polecenia, a następnie miejsca oddzielone adresów ip serwerów. Na przykład:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Aby skonfigurować niestandardowe serwery DNS w szablonie platformy Azure, do sekcji networkInterfaceConfigurations zestawu skalowania dodaj właściwość dnsSettings. Na przykład:
+tooconfigure niestandardowych serwerów DNS w szablonu platformy Azure, Dodaj sekcji Networkinterfaceconfiguration zestawu skalowania toohello dnsSettings właściwości. Na przykład:
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -71,9 +71,9 @@ Aby skonfigurować niestandardowe serwery DNS w szablonie platformy Azure, do se
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Tworzenie zestawu skalowania z konfigurowalnymi nazwami domen maszyn wirtualnych
-Aby utworzyć zestaw skalowania z niestandardową nazwą DNS maszyn wirtualnych przy użyciu interfejsu wiersza polecenia w wersji 2.0, dodaj do polecenia **vmss create** argument **--vm-domain-name**, a po nim podaj ciąg reprezentujący nazwę domeny.
+toocreate zestawu skalowania z niestandardowej nazwy DNS dla maszyn wirtualnych przy użyciu interfejsu wiersza polecenia 2.0, Dodaj hello **nazwa domeny maszyny wirtualnej —** argument toohello **vmss utworzyć** polecenia następuje ciąg reprezentujący hello nazwy domeny.
 
-Aby ustawić nazwę domeny w szablonie platformy Azure, do sekcji **networkInterfaceConfigurations** zestawu skalowania dodaj właściwość **dnsSettings**. Na przykład:
+Dodaj nazwę domeny hello tooset w szablonu Azure **dnsSettings** zestaw skali toohello właściwości **Networkinterfaceconfiguration** sekcji. Na przykład:
 
 ```json
 "networkProfile": {
@@ -105,20 +105,20 @@ Aby ustawić nazwę domeny w szablonie platformy Azure, do sekcji **networkInter
 }
 ```
 
-Dane wyjściowe dla nazwy DNS pojedynczej maszyny wirtualnej będą miały następującą formę: 
+Hello danych wyjściowych dla poszczególnych maszyn wirtualnych nazwy dns, należy w hello następującej postaci: 
 ```
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Publiczny adres IPv4 dla każdej maszyny wirtualnej
-Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W przypadku większości scenariuszy najekonomiczniejszym i najbezpieczniejszym rozwiązaniem jest skojarzenie publicznego adresu IP z modułem równoważenia obciążenia lub konkretną maszyną wirtualną, która kieruje połączenia przychodzące do maszyn wirtualnych zestawu skalowania zgodnie z potrzebami (na przykład za pomocą reguł NAT dla ruchu przychodzącego).
+Ogólnie maszyny wirtualne zestawu skalowania platformy Azure nie muszą mieć własnych publicznych adresów IP. W przypadku większości scenariuszy jest bardziej ekonomiczne i bezpieczne tooassociate publicznego adresu IP adres tooa obciążenia równoważenia lub tooan poszczególnych maszyn wirtualnych (alias jumpbox), który kieruje przychodzących połączeń tooscale zestaw maszyn wirtualnych, zgodnie z potrzebami (na przykład za pomocą reguły NAT ruchu przychodzącego).
 
-Jednak w niektórych scenariuszach maszyny wirtualne zestawu skalowania muszą mieć własne publiczne adresy IP. Przykładem są gry — gdy konsola musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze obsługującą przetwarzanie symulacji świata fizycznego w grze. Innym przykładem jest sytuacja, w której maszyny wirtualne muszą nawiązywać ze sobą połączenia zewnętrzne między regionami w rozproszonej bazie danych.
+Jednak w niektórych scenariuszach wymagane zestawu skalowania maszyn wirtualnych toohave własnych publicznego adresu IP adresów. Przykładem jest gry, gdy konsola musi toomake bezpośrednie połączenie tooa chmury maszynę wirtualną, która wykonuje przetwarzanie gier fizycznych. Innym przykładem jest, gdy maszyny wirtualne muszą tooone połączeń zewnętrznych toomake innego w regionach w rozproszoną bazę danych.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Tworzenie zestawu skalowania z publicznym adresem IP dla każdej maszyny wirtualnej
-Aby utworzyć zestaw skalowania, w którym każdej maszynie wirtualnej zostanie przypisany publiczny adres IP, przy użyciu interfejsu wiersza polecenia w wersji 2.0, dodaj do polecenia **vmss create** parametr **--public-ip-per-vm**. 
+toocreate zestaw skali, który przypisuje publicznego adresu IP adres tooeach maszynę wirtualną z 2.0 interfejsu wiersza polecenia Dodaj hello **--publicznego adresu ip na wirtualna** toohello parametru **vmss utworzyć** polecenia. 
 
-Aby utworzyć zestaw skalowania przy użyciu szablonu platformy Azure, upewnij się, że interfejs API zasobu Microsoft.Compute/virtualMachineScaleSets ma wersję co najmniej **2017-03-30**, i dodaj właściwość JSON **publicIpAddressConfiguration** do sekcji ipConfigurations zestawu skalowania. Na przykład:
+toocreate skali ustawiane przy użyciu szablonu platformy Azure, upewnij się, że wersja hello interfejsu API hello Microsoft.Compute/virtualMachineScaleSets zasobów jest co najmniej **2017-03-30**i Dodaj **publicIpAddressConfiguration**JSON właściwości toohello zestawu skalowania maszyny wirtualnej sekcji elementów Ipconfiguration. Na przykład:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -130,22 +130,22 @@ Aby utworzyć zestaw skalowania przy użyciu szablonu platformy Azure, upewnij s
 ```
 Przykład szablonu: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
-### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Badanie publicznych adresów IP maszyn wirtualnych w zestawie skalowania
-Aby uzyskać listę publicznych adresów IP przypisanych do maszyn wirtualnych w zestawie skalowania przy użyciu interfejsu wiersza polecenia w wersji 2.0, użyj polecenia **az vmss list-instance-public-ips**.
+### <a name="querying-hello-public-ip-addresses-of-hello-virtual-machines-in-a-scale-set"></a>Podczas badania hello publiczny adres IP zestawu adresów hello maszyn wirtualnych w skali
+Witaj toolist publiczne adresy IP przypisane tooscale zestaw maszyn wirtualnych przy użyciu interfejsu wiersza polecenia 2.0, należy użyć hello **az vmss listy wystąpienie publicznego-adresy IP** polecenia.
 
-Aby uzyskać listę publicznych adresów IP zestawu skalowania przy użyciu programu PowerShell, użyj polecenia _Get-AzureRmPublicIpAddress_. Na przykład:
+zestaw skalowania toolist publicznych adresów IP przy użyciu programu PowerShell, użyj hello _Get-AzureRmPublicIpAddress_ polecenia. Na przykład:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-Publiczne adresy IP można także badać, odwołując się bezpośrednio do identyfikatora zasobu konfiguracji adresów IP. Na przykład:
+Można również zapytania hello publicznych adresów IP za pomocą odwołań do identyfikatora zasobu hello hello publiczny adres IP bezpośrednio. Na przykład:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Aby zbadać publiczne adresy IP przypisane do maszyn wirtualnych w zestawie skalowania, użyj witryny [Azure Resource Explorer](https://resources.azure.com) lub interfejsu Azure REST API w wersji co najmniej **2017-03-30**.
+Witaj tooquery publiczne adresy IP przypisane tooscale zestaw maszyn wirtualnych za pomocą hello [Eksploratora zasobów Azure](https://resources.azure.com), lub hello z wersją interfejsu API REST Azure **2017-03-30** lub nowszej.
 
-Aby sprawdzić publiczne adresy IP zestawu skalowania za pomocą witryny Resource Explorer, zajrzyj do sekcji **publicipaddresses** danego zestawu skalowania. Na przykład: https://resources.azure.com/subscriptions/_identyfikator_zasobu_/resourceGroups/_grupa_zasobów_/providers/Microsoft.Compute/virtualMachineScaleSets/_zestaw_skalowania_maszyn_wirtualnych_/publicipaddresses
+tooview publicznych adresów IP dla skalowania ustawić za pomocą Eksploratora zasobów hello przyjrzeć się hello **elementów publicipaddress** w zestawie skali sekcji. Na przykład: https://resources.azure.com/subscriptions/_identyfikator_zasobu_/resourceGroups/_grupa_zasobów_/providers/Microsoft.Compute/virtualMachineScaleSets/_zestaw_skalowania_maszyn_wirtualnych_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
@@ -190,10 +190,10 @@ Przykładowe dane wyjściowe:
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Wiele adresów IP dla każdej karty sieciowej
-Z każdą kartą sieciową dołączoną do maszyny wirtualnej w zestawie skalowania może być skojarzona co najmniej jedna konfiguracja adresu IP. Każdej konfiguracji jest przypisany jeden prywatny adres IP. Każda konfiguracja może mieć również skojarzony jeden zasób publicznego adresu IP. Aby zrozumieć, jak wiele adresów IP można przypisać do karty sieciowej i jak wielu publicznych adresów IP można używać w subskrypcji platformy Azure, zapoznaj się z [informacjami o limitach na platformie Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Każdej karty Sieciowej podłączony tooa maszyny Wirtualnej w zestawie skalowania może mieć co najmniej jednej konfiguracji IP skojarzone z nim. Każdej konfiguracji jest przypisany jeden prywatny adres IP. Każda konfiguracja może mieć również skojarzony jeden zasób publicznego adresu IP. toounderstand liczbę adresów IP można przypisać tooa karty Sieciowej, i jak wiele publicznych adresów IP można używać w subskrypcji platformy Azure można znaleźć za[limity Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Wiele kart sieciowych dla każdej maszyny wirtualnej
-Zależnie od rozmiaru maszyny wirtualnej każda z nich może mieć do 8 kart sieciowych. Maksymalna liczba kart sieciowych na maszynę jest podana w [artykule poświęconym rozmiarom maszyn wirtualnych](../virtual-machines/windows/sizes.md). Poniższej przedstawiono przykład profilu sieciowego zestawu skalowania z wieloma wpisami kart sieciowych oraz wieloma publicznymi adresami IP związanymi z poszczególnymi maszynami wirtualnymi:
+Użytkownik może zawierać maksymalnie too8 kart interfejsu sieciowego na maszynę wirtualną, w zależności od rozmiaru maszyny. Witaj maksymalną liczbę kart sieciowych na komputerze jest dostępna w hello [artykułu rozmiar maszyny Wirtualnej](../virtual-machines/windows/sizes.md). Witaj poniższy przykład jest wyświetlane wiele wpisów karty Sieciowej i wiele publicznych adresów IP na maszynę wirtualną w profilu sieci zestawu skali:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -266,7 +266,7 @@ Zależnie od rozmiaru maszyny wirtualnej każda z nich może mieć do 8 kart sie
 ```
 
 ## <a name="nsg-per-scale-set"></a>Sieciowa grupa zabezpieczeń dla zestawu skalowania
-Grupy zabezpieczeń sieci można stosować bezpośrednio do zestawu skalowania przez dodanie odwołania w sekcji konfiguracji interfejsu sieciowego we właściwościach maszyn wirtualnych zestawu skalowania.
+Sieciowe grupy zabezpieczeń można stosować bezpośrednio tooa zestaw skali, dodając sekcję konfiguracji interfejsu sieci toohello odwołanie skali hello Ustaw właściwości maszyny wirtualnej.
 
 Na przykład: 
 ```
@@ -306,4 +306,4 @@ Na przykład:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji o sieciach wirtualnych platformy Azure, zapoznaj się z [tą dokumentacją](../virtual-network/virtual-networks-overview.md).
+Aby uzyskać więcej informacji na temat sieci wirtualnych platformy Azure można znaleźć zbyt[tej dokumentacji](../virtual-network/virtual-networks-overview.md).

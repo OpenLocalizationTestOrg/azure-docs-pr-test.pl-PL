@@ -1,6 +1,6 @@
 ---
-title: "Ładowanie danych do usługi Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Dowiedz się typowe scenariusze dotyczące danych ładowania do usługi SQL Data Warehouse. Obejmują one przy użyciu programu PolyBase, magazynu obiektów blob platformy Azure, plików prostych i wysyłania dysku. Można także użyć narzędzi innych firm."
+title: "aaaLoad danych do usługi Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Dowiedz się hello typowe scenariusze dotyczące danych ładowania do usługi SQL Data Warehouse. Obejmują one przy użyciu programu PolyBase, magazynu obiektów blob platformy Azure, plików prostych i wysyłania dysku. Można także użyć narzędzi innych firm."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,121 +15,121 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: c4199a387f5cdbd477a5e348e48ba8e8b5900075
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d1a5063f484e9bd95f854e27a4baed512148aad0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-into-azure-sql-data-warehouse"></a>Ładowanie danych do usługi Azure SQL Data Warehouse
-Podsumowanie opcji scenariusza i zalecenia dotyczące ładowania danych do usługi SQL Data Warehouse.
+Podsumowanie opcji scenariusz hello i zalecenia dotyczące ładowania danych do usługi SQL Data Warehouse.
 
-Najtrudniejsze część podczas ładowania danych jest zwykle Przygotowanie danych obciążenia. Ładowanie upraszcza Azure przy użyciu magazynu obiektów blob platformy Azure jako magazynu danych wspólne dla wielu usług i fabryki danych Azure do organizowania przepływu danych i komunikacji między usługami Azure. Te procesy są zintegrowane z technologii PolyBase, który używa masowego przetwarzania równoległego (MPP) do ładowania danych równolegle z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse. 
+Najtrudniejsze części Hello podczas ładowania danych jest zwykle przygotowywania danych hello hello obciążenia. Azure upraszcza ładowania przy użyciu magazynu obiektów blob platformy Azure jako magazynu danych wspólne dla wielu usług hello i przy użyciu fabryki danych Azure hello tooorchestrate przepływu danych i komunikacji między usługami Azure. Te procesy są zintegrowane z technologii PolyBase, która korzysta z ogromną skalę równoległe przetwarzanie danych tooload (MPP) równolegle z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse. 
 
 Samouczki, które ładują przykładowe bazy danych, zobacz [załadować przykładowe bazy danych][Load sample databases].
 
 ## <a name="load-from-azure-blob-storage"></a>Ładowanie z magazynu obiektów blob platformy Azure
-Jest to najszybszy sposób importowania danych do usługi SQL Data Warehouse ładowanie danych z magazynu obiektów blob platformy Azure przy użyciu programu PolyBase. Program PolyBase używa projektu masowego przetwarzania równoległego (MPP) magazynu danych SQL do ładowania danych równolegle z magazynu obiektów blob platformy Azure. Aby użyć programu PolyBase, można użyć polecenia T-SQL lub potoku fabryki danych Azure.
+Witaj najszybszy sposób tooimport danych do usługi SQL Data Warehouse jest toouse PolyBase tooload danych z magazynu obiektów blob platformy Azure. PolyBase używa usługi SQL Data Warehouse na ogromną skalę równoległe przetwarzania (MPP) projektu tooload danych równolegle z magazynu obiektów blob platformy Azure. toouse PolyBase, można użyć polecenia T-SQL lub potoku fabryki danych Azure.
 
 ### <a name="1-use-polybase-and-t-sql"></a>1. Użyj programu PolyBase i T-SQL
 Podsumowanie procesu ładowania:
 
-1. Przenoszenie danych do magazynu obiektów blob platformy Azure lub usługi Azure Data Lake Store i zapisze go w plikach tekstowych.
-2. Skonfiguruj obiekty zewnętrzne w magazynie danych SQL, aby określić lokalizację i format danych
-3. Uruchom polecenie T-SQL, aby załadować dane jednocześnie do nowej tabeli bazy danych.
+1. Przeniesienie magazynu obiektów blob tooAzure danych lub w usłudze Azure Data Lake Store i zapisze go w plikach tekstowych.
+2. Skonfiguruj obiekty zewnętrznego w lokalizacji hello toodefine SQL Data Warehouse i format danych hello
+3. Równolegle danych hello tooload polecenia T-SQL do nowej tabeli bazy danych.
 
 <!-- 5. Schedule and run a loading job. --> 
 
-Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
+Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure — tooSQL Data Warehouse (PolyBase)][Load data from Azure blob storage tooSQL Data Warehouse (PolyBase)].
 
 ### <a name="2-use-azure-data-factory"></a>2. Używanie usługi Azure Data Factory
-W prostszy sposób Użyj programu PolyBase można utworzyć potok fabryki danych Azure, który używa programu PolyBase do ładowania danych z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse. Jest to szybkie do skonfigurowania, ponieważ nie ma potrzeby definiowania obiektów T-SQL. Jeśli potrzebujesz kwerendy danych zewnętrznych nie jest importowany, użyj T-SQL. 
+Dla prostszy sposób toouse PolyBase można utworzyć potok fabryki danych Azure, który używa danych tooload PolyBase z magazynu obiektów blob platformy Azure do usługi SQL Data Warehouse. Jest to szybkie tooconfigure, ponieważ nie ma potrzeby toodefine hello T-SQL obiektów. Jeśli potrzebujesz danych zewnętrznych hello tooquery nie jest importowany, użyj T-SQL. 
 
 Podsumowanie procesu ładowania:
 
-1. Przenoszenie danych do magazynu obiektów blob platformy Azure i zapisze go w plikach tekstowych. Fabryka danych Azure nie obsługuje obecnie łączności ADLS przy użyciu programu PolyBase).
-2. Utworzyć potok fabryki danych Azure pozyskiwanie danych. Opcja PolyBase.
-4. Planowanie i uruchamianie potoku.
+1. Przenieś usługi magazynu obiektów blob tooAzure danych i zapisze go w plikach tekstowych. Fabryka danych Azure nie obsługuje obecnie łączności ADLS przy użyciu programu PolyBase).
+2. Tworzenie fabryki danych Azure potoku tooingest hello danych. Opcja hello PolyBase.
+4. Planowanie i uruchamianie potoku hello.
 
-Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure SQL Data Warehouse (fabryka danych Azure)][Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)].
+Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure — tooSQL Data Warehouse (fabryka danych Azure)][Load data from Azure blob storage tooSQL Data Warehouse (Azure Data Factory)].
 
 ## <a name="load-from-sql-server"></a>Ładowanie z programu SQL Server
-Aby załadować dane z programu SQL Server do usługi SQL Data Warehouse można użyć Integration Services (SSIS), transfer plików prostych lub dysków dostawy do firmy Microsoft. Odczyt do zawiera podsumowanie różnic ładowania procesy i łącza do samouczki.
+dane tooload z tooSQL programu SQL Server Integration Services (SSIS), można użyć magazynu danych transferu plików prostych lub wysłać tooMicrosoft dysków. Poniżej toosee podsumowanie hello różnych ładowania tootutorials procesy i łącza.
 
-Aby zaplanować migracji danych z programu SQL Server do usługi SQL Data Warehouse, zobacz [Omówienie migracji][Migration overview]. 
+tooplan migracji danych z programu SQL Server tooSQL hurtowni danych, zobacz hello [Omówienie migracji][Migration overview]. 
 
 ### <a name="use-integration-services-ssis"></a>Użyj usług Integration Services (SSIS)
-Jeśli korzystasz już z pakietów Integration Services (SSIS) do załadowania do serwera SQL Server, należy zaktualizować pakiety używać programu SQL Server jako źródła i magazynu danych SQL jako miejsca docelowego. Jest to szybki i łatwy w celu i jest dobrym rozwiązaniem, jeśli nie chcesz migrować procesu ładowania, aby użyć danych już w chmurze. Zależności to obciążenie będzie przebiegać wolniej niż przy użyciu programu PolyBase, ponieważ ta SSIS nie przeprowadza obciążenia równolegle.
+Jeśli korzystasz już z tooload pakietów Integration Services (SSIS) do programu SQL Server, należy zaktualizować toouse Twojego pakiety programu SQL Server jako hello źródła i magazynu danych SQL jako miejsce docelowe hello. Jest to szybki i łatwy toodo i jest dobrym rozwiązaniem, jeśli nie chcesz toomigrate Twojego ładowania przetwarzania danych toouse już w chmurze hello. zależnościami Hello jest obciążenia hello będzie przebiegać wolniej niż przy użyciu programu PolyBase, ponieważ ta SSIS nie przeprowadza obciążenia hello równolegle.
 
 Podsumowanie procesu ładowania:
 
-1. Sprawdź, czy pakietu usług Integration Services, aby wskazywała wystąpienie serwera SQL dla źródła i bazy danych magazynu danych SQL dla miejsca docelowego.
-2. Migrację schematu SQL Data Warehouse, jeśli nie jest już.
-3. Zmień mapowanie w pakietach Użyj tylko typy danych, które są obsługiwane przez usługi SQL Data Warehouse.
-4. Planowanie i uruchamianie pakietu.
+1. Popraw wystąpienia programu SQL Server Integration Services pakietu toopoint toohello hello źródła i bazy danych magazynu danych SQL hello hello docelowym.
+2. Migrowanie tooSQL Twojego schematu magazynu danych, jeśli nie jest już.
+3. Zmień mapowanie hello w pakietach Użyj tylko typy danych hello, które są obsługiwane przez usługi SQL Data Warehouse.
+4. Planowanie i uruchamianie hello pakietu.
 
-Samouczek, zobacz [ładowanie danych z programu SQL Server do magazynu danych SQL Azure (SSIS)][Load data from SQL Server to Azure SQL Data Warehouse (SSIS)].
+Samouczek, zobacz [ładowanie danych z programu SQL Server tooAzure magazynu danych SQL (SSIS)][Load data from SQL Server tooAzure SQL Data Warehouse (SSIS)].
 
 ### <a name="use-azcopy-recommended-for--10-tb-data"></a>Przy użyciu programu AZCopy (zalecane dla < 10 TB danych)
-Jeśli rozmiar danych jest < 10 TB, można wyeksportować dane z programu SQL Server do plików prostych, skopiuj pliki do magazynu obiektów blob platformy Azure i następnie użyj programu PolyBase, aby załadować dane do magazynu danych SQL
+Jeśli rozmiar danych jest < 10 TB, można eksportować dane hello z pliki tooflat programu SQL Server, kopiowanie magazynu obiektów blob tooAzure pliki hello i następnie użyj programu PolyBase tooload hello danych do usługi SQL Data Warehouse
 
 Podsumowanie procesu ładowania:
 
-1. Użyj narzędzia wiersza polecenia bcp do eksportowania danych z programu SQL Server do plików prostych.
-2. Użyj narzędzia wiersza polecenia AZCopy do kopiowania danych z plików prostych do magazynu obiektów blob platformy Azure.
-3. Użyj programu PolyBase, aby załadować do usługi SQL Data Warehouse.
+1. Za pomocą danych tooexport narzędzia wiersza polecenia bcp hello plików tooflat programu SQL Server.
+2. Użyj hello AZCopy narzędzia wiersza polecenia toocopy danych z magazynu obiektów blob tooAzure plików prostych.
+3. Użyj programu PolyBase tooload do usługi SQL Data Warehouse.
 
-Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
+Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure — tooSQL Data Warehouse (PolyBase)][Load data from Azure blob storage tooSQL Data Warehouse (PolyBase)].
 
 ### <a name="use-bcp"></a>Użyj narzędzia bcp
-Jeśli masz niewielką ilość danych można użyć bcp, aby załadować bezpośrednio do usługi Azure SQL Data Warehouse.
+Jeśli masz niewielką ilość danych można użyć narzędzia bcp tooload bezpośrednio do usługi Azure SQL Data Warehouse.
 
 Podsumowanie procesu ładowania:
 
-1. Użyj narzędzia wiersza polecenia bcp do eksportowania danych z programu SQL Server do plików prostych.
-2. Użyj narzędzia bcp do ładowania danych z plików prostych bezpośrednio do usługi SQL Data Warehouse.
+1. Za pomocą danych tooexport narzędzia wiersza polecenia bcp hello plików tooflat programu SQL Server.
+2. Użyj narzędzia bcp tooload danych z płaski plików bezpośrednio tooSQL hurtowni danych.
 
-Samouczek, zobacz [ładowania danych z programu SQL Server do usługi Azure SQL Data Warehouse (bcp)][Load data from SQL Server to Azure SQL Data Warehouse (bcp)].
+Samouczek, zobacz [ładowanie danych z programu SQL Server tooAzure SQL Data Warehouse (bcp)][Load data from SQL Server tooAzure SQL Data Warehouse (bcp)].
 
 ### <a name="use-importexport-recommended-for--10-tb-data"></a>Użyj importu/eksportu (zalecane dla > 10 TB danych)
-Jeśli rozmiar danych jest > 10 TB i chcesz przenieść ją do platformy Azure, zalecane jest użycie naszych dysku wysyłania usługi [importu/eksportu][Import/Export]. 
+Jeśli rozmiar danych jest > 10 TB, toomove go tooAzure, firma Microsoft zaleca użycie naszych dysku wysyłania usługi [importu/eksportu][Import/Export]. 
 
 Podsumowanie procesu ładowania
 
-1. Użyj narzędzia wiersza polecenia bcp do eksportowania danych z programu SQL Server do plików prostych możliwej dysków.
-2. Należy najpierw wydać dysków do firmy Microsoft.
-3. Microsoft ładuje dane do magazynu danych SQL
+1. Za pomocą danych tooexport narzędzia wiersza polecenia bcp hello plików tooflat programu SQL Server na dyskach możliwej.
+2. Należy najpierw wydać hello tooMicrosoft dysków.
+3. Microsoft ładuje hello dane do magazynu danych SQL
 
 ## <a name="load-from-hdinsight"></a>Ładowanie z usługi HDInsight
-Magazyn danych SQL obsługuje ładowanie danych z usługi HDInsight przy użyciu programu PolyBase. Proces jest taki sam, jak podczas ładowania danych z magazynu obiektów Blob platformy Azure — przy użyciu programu PolyBase do nawiązania połączenia usługi HDInsight można załadować danych. 
+Magazyn danych SQL obsługuje ładowanie danych z usługi HDInsight przy użyciu programu PolyBase. proces Hello jest hello taki sam jak podczas ładowania danych z magazynu obiektów Blob Azure - przy użyciu programu PolyBase tooconnect tooHDInsight tooload danych. 
 
 ### <a name="1-use-polybase-and-t-sql"></a>1. Użyj programu PolyBase i T-SQL
 Podsumowanie procesu ładowania:
 
-1. Przenoszenie danych do usługi HDInsight i zapisze go w plikach tekstowych ORC lub Parquet format.
-2. Skonfiguruj obiekty zewnętrzne w magazynie danych SQL, aby określić lokalizację i format danych.
-3. Uruchom polecenie T-SQL, aby załadować dane jednocześnie do nowej tabeli bazy danych.
+1. Przenieś tooHDInsight Twoje dane i zapisze go w plikach tekstowych ORC lub Parquet format.
+2. Skonfiguruj obiekty zewnętrznego w lokalizacji hello toodefine SQL Data Warehouse i format danych hello.
+3. Równolegle danych hello tooload polecenia T-SQL do nowej tabeli bazy danych.
 
-Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
+Samouczek, zobacz [ładowanie danych z magazynu obiektów blob platformy Azure — tooSQL Data Warehouse (PolyBase)][Load data from Azure blob storage tooSQL Data Warehouse (PolyBase)].
 
 ## <a name="recommendations"></a>Zalecenia
-Wiele naszych partnerów ma ładowania rozwiązania. Aby dowiedzieć się więcej, zobacz listę naszych [rozwiązania partnerów][solution partners]. 
+Wiele naszych partnerów ma ładowania rozwiązania. toofind się więcej, zobacz listę naszych [rozwiązania partnerów][solution partners]. 
 
-Dane pochodzące ze źródłem danych nierelacyjnych i chcesz załadować go do magazynu danych SQL należy przekształcić w wiersze i kolumny, przed rozpoczęciem ładowania. Przekształcone dane nie mają być przechowywane w bazie danych, mogą być przechowywane w plikach tekstowych.
+Jeśli dane pochodzące ze źródłem danych nierelacyjnych i tooload go do danych SQL można magazynu należy tootransform go do wierszy i kolumn przed rozpoczęciem ładowania. Witaj przekształcone dane nie wymaga toobe przechowywane w bazie danych, mogą być przechowywane w plikach tekstowych.
 
-Tworzenie statystyk na nowo załadowanych danych. Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  Aby uzyskać najlepszą wydajność zapytań, ważne jest, aby utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu lub występują znaczne zmiany w danych.  Aby uzyskać więcej informacji, zobacz [statystyki][Statistics].
+Tworzenie statystyk na nowo załadowanych danych. Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  W kolejności tooget hello najlepszą wydajność zapytań należy najpierw załadować toocreate statystyki dla wszystkich kolumn wszystkich tabel po hello lub każdej istotnej zmianie występują w danych hello.  Aby uzyskać więcej informacji, zobacz [statystyki][Statistics].
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej porad programistycznych, zobacz [omówienie tworzenia][development overview].
+Aby uzyskać więcej porad programistycznych, zobacz hello [omówienie tworzenia][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
-[Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
-[Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
-[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
+[Load data from Azure blob storage tooSQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Load data from Azure blob storage tooSQL Data Warehouse (Azure Data Factory)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
+[Load data from SQL Server tooAzure SQL Data Warehouse (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Load data from SQL Server tooAzure SQL Data Warehouse (bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server tooAzure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
 [Load sample databases]: ./sql-data-warehouse-load-sample-databases.md
 [Migration overview]: ./sql-data-warehouse-overview-migrate.md

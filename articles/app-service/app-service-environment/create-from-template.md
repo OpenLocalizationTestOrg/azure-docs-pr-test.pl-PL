@@ -1,6 +1,6 @@
 ---
-title: "Utwórz środowisko usługi Azure App Service przy użyciu szablonu usługi Resource Manager"
-description: "Wyjaśniono, jak utworzyć środowisko zewnętrznego lub ILB usłudze Azure App Service przy użyciu szablonu usługi Resource Manager"
+title: "aaaCreate środowiska usługi aplikacji Azure przy użyciu szablonu usługi Resource Manager"
+description: "Wyjaśniono, jak toocreate środowisku zewnętrznego lub ILB usłudze Azure App Service przy użyciu szablonu usługi Resource Manager"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,74 +13,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e6b21086488352c1da914b4656ad1d216fd6de85
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c8aeedee675a6e931169b725ee916cc7fa8f762f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Utwórz ASE za pomocą szablonu usługi Azure Resource Manager
 
 ## <a name="overview"></a>Omówienie
-Środowiska usługi aplikacji Azure (ASEs) mogą być tworzone z Internetu dostępnym punkcie końcowym lub punkt końcowy wewnętrznego adresu w sieci wirtualnej platformy Azure (VNet). Podczas tworzenia z wewnętrzny punkt końcowy tego punktu końcowego jest udostępniane przez platformę Azure składnika o nazwie wewnętrznego modułu równoważenia obciążenia (ILB). ASE na wewnętrzny adres IP jest nazywany ASE ILB. ASE z publiczny punkt końcowy jest nazywany ASE zewnętrznych. 
+Środowiska usługi aplikacji Azure (ASEs) mogą być tworzone z Internetu dostępnym punkcie końcowym lub punkt końcowy wewnętrznego adresu w sieci wirtualnej platformy Azure (VNet). Podczas tworzenia z wewnętrzny punkt końcowy tego punktu końcowego jest udostępniane przez platformę Azure składnika o nazwie wewnętrznego modułu równoważenia obciążenia (ILB). Witaj ASE na wewnętrzny adres IP jest nazywany ASE ILB. Hello ASE z publiczny punkt końcowy jest nazywany ASE zewnętrznych. 
 
-ASE mogą być tworzone przy użyciu portalu Azure lub szablonu usługi Azure Resource Manager. W tym artykule przedstawiono kroki i składni konieczne utworzenie ASE zewnętrznych lub ILB ASE z szablonami usługi Resource Manager. Aby dowiedzieć się, jak utworzyć ASE w portalu Azure, zobacz [wprowadzić zewnętrznego ASE] [ MakeExternalASE] lub [upewnij ASE ILB][MakeILBASE].
+ASE mogą być tworzone przy użyciu portalu Azure hello lub szablonu usługi Azure Resource Manager. W tym artykule przedstawiono kroki hello i składni konieczne toocreate ASE zewnętrznych lub ILB ASE z szablonami usługi Resource Manager. toolearn toocreate ASE w hello portalu Azure, zobacz temat [wprowadzić zewnętrznego ASE] [ MakeExternalASE] lub [upewnij ASE ILB][MakeILBASE].
 
-Po utworzeniu ASE w portalu Azure, możesz utworzyć sieci wirtualnej w tym samym czasie, lub wybrać istniejących sieci wirtualnej do wdrożenia w. Po utworzeniu ASE z szablonu musi rozpoczynać się od: 
+Po utworzeniu ASE w hello portalu Azure, można utworzyć sieci wirtualnej na powitania sam czas lub wybierz istniejące wcześniej toodeploy sieci wirtualnej do. Po utworzeniu ASE z szablonu musi rozpoczynać się od: 
 
 * Menedżer zasobów sieci wirtualnej.
-* Podsieci w tej sieci wirtualnej. Firma Microsoft zaleca rozmiar podsieci ASE `/25` 128 adresy umożliwiających rozwój w przyszłości. Po utworzeniu ASE, nie można zmienić rozmiar.
-* Identyfikator zasobu z sieci wirtualnej. Te informacje można uzyskać z portalu Azure w obszarze właściwości sieci wirtualnej.
-* Subskrypcję, którą chcesz wdrożyć w.
-* Lokalizacja, którą chcesz wdrożyć w.
+* Podsieci w tej sieci wirtualnej. Firma Microsoft zaleca rozmiar podsieci ASE `/25` z przyszłego rozwoju tooaccomodate 128 adresów. Po utworzeniu hello ASE, nie można zmienić rozmiar hello.
+* Identyfikator zasobu Hello z sieci wirtualnej. Te informacje można uzyskać z hello portalu Azure w obszarze właściwości sieci wirtualnej.
+* Subskrypcja Hello interesujące toodeploy do.
+* Witaj lokalizację toodeploy do.
 
-Aby zautomatyzować tworzenie użytkownika ASE:
+tooautomate Twojego tworzenia ASE:
 
-1. Utwórz ASE na podstawie szablonu. Jeśli utworzysz zewnętrznych ASE zakończeniu po wykonaniu tego kroku. Jeśli tworzysz ASE ILB, istnieje kilka czynności wykonywane.
+1. Utwórz hello ASE na podstawie szablonu. Jeśli utworzysz zewnętrznych ASE zakończeniu po wykonaniu tego kroku. Jeśli tworzysz ASE ILB, istnieje kilka toodo więcej czynności.
 
 2. Po utworzeniu sieci ASE ILB przekazaniu pasujący domenę ILB ASE certyfikat SSL.
 
-3. Przekazany certyfikat SSL jest przypisany do ILB ASE jako swojego certyfikatu SSL "domyślny".  Ten certyfikat jest używany dla ruchu protokołu SSL do aplikacji w ILB ASE, jeśli korzystają z typowych domeny głównej, przypisane do ASE (na przykład https://someapp.mycustomrootcomain.com).
+3. Witaj przekazano certyfikat SSL jest przypisany toohello ILB ASE jako swojego certyfikatu SSL "domyślny".  Ten certyfikat służy do tooapps ruchu protokołu SSL na powitania ILB ASE przy korzystaniu z hello wspólnej główny domeny, która jest przypisany toohello ASE (na przykład https://someapp.mycustomrootcomain.com).
 
 
-## <a name="create-the-ase"></a>Utwórz ASE
+## <a name="create-hello-ase"></a>Utwórz hello ASE
 Szablon usługi Resource Manager, który pozwala ASE i jego pliku skojarzone z nimi parametry jest dostępna [w przykładzie] [ quickstartasev2create] w witrynie GitHub.
 
-Jeśli chcesz ASE ILB, użyj tych szablonu usługi Resource Manager [przykłady][quickstartilbasecreate]. One automatycznie dostosowują się do których przypadek użycia. Większość parametrów w *azuredeploy.parameters.json* plików są często używane do tworzenia ILB ASEs i ASEs zewnętrznych. Poniższa lista uwidacznia parametry specjalne uwagi lub są unikatowe, podczas tworzenia ASE ILB:
+Toomake ASE ILB, należy użyć tych szablonu usługi Resource Manager [przykłady][quickstartilbasecreate]. Przypadek użycia toothat ich obsługę. Większość parametrów hello na powitania *azuredeploy.parameters.json* plików są typowe tworzenia toohello ILB ASEs i ASEs zewnętrznych. Witaj poniżej uwidacznia parametry specjalne uwagi lub są unikatowe, podczas tworzenia ASE ILB:
 
-* *interalLoadBalancingMode*: W większości przypadków będzie powiązany zestaw to 3, co oznacza ruchu HTTP/HTTPS na porty 80/443 i kontroli/danych portów kanału nasłuch przez usługę FTP na ASE przydzielone ILB sieci wirtualnej wewnętrzny adres. Jeśli ta właściwość jest równa 2, tylko FTP związane z usługą portów (kanały zarówno kontroli, jak i dane) są powiązane z adresem ILB. Pozostaje ruchu HTTP/HTTPS na publiczny adres VIP.
-* *dnsSuffix*: ten parametr określa domyślnej domeny katalogu głównego jest przypisany do ASE. W publicznej wersji usługi Azure App Service, domyślnej domeny głównej dla wszystkich aplikacji w sieci web jest *azurewebsites.net*. Ponieważ ASE ILB jest wewnętrzna sieć wirtualna klienta, go nie ma sensu do korzystania z usługi publicznego domyślnego głównym domeny. Zamiast tego ASE ILB powinien mieć domyślnej domeny katalogu głównego, pasującą do użytku w wewnętrznej sieci wirtualnej firmy. Na przykład firma Contoso może użyć domyślną domeną katalogu głównego *wewnętrzny contoso.com* dla aplikacji, które mają być rozpoznawalna i dostępny tylko w ramach sieci wirtualnej firmy Contoso. 
-* *ipSslAddressCount*: Domyślnie ustawienie tego parametru na wartość 0 w *azuredeploy.json* pliku, ponieważ ILB ASEs mieć tylko jeden adres ILB. Nie ma żadnych jawnych adresów IP protokołu SSL dla ASE ILB. W związku z tym puli adresów IP protokołu SSL dla ASE ILB musi mieć ustawioną wartość zero. W przeciwnym razie wystąpi błąd inicjowania obsługi administracyjnej. 
+* *interalLoadBalancingMode*: W większości przypadków należy ustawić ten too3, czyli zarówno ruchu HTTP/HTTPS na porty 80/443 i portów kanału danych/sterowania hello nasłuch tooby usługi hello FTP na powitania ASE, będą powiązane tooan przydzielone ILB sieci wirtualnej wewnętrzny adres. Jeśli ta właściwość jest ustawiona too2, tylko hello FTP związane z usługą porty (kanały zarówno kontroli, jak i dane) są powiązane tooan ILB adresu. pozostaje Hello ruchu HTTP/HTTPS na powitania publicznego adresu VIP.
+* *dnsSuffix*: ten parametr określa hello domyślne główny domeny, która jest przypisany toohello ASE. W publicznej wersji hello Azure App Service, hello domyślna domena główna dla wszystkich aplikacji w sieci web to *azurewebsites.net*. Ponieważ ASE ILB wewnętrzny tooa klienta sieci wirtualnej, nie rozsądne znaczeniu toouse hello publicznej usługi domyślnej domeny katalogu głównego. Zamiast tego ASE ILB powinien mieć domyślnej domeny katalogu głównego, pasującą do użytku w wewnętrznej sieci wirtualnej firmy. Na przykład firma Contoso może użyć domyślną domeną katalogu głównego *wewnętrzny contoso.com* dla aplikacji, które są przeznaczone toobe rozpoznawany i dostępny tylko w ramach sieci wirtualnej firmy Contoso. 
+* *ipSslAddressCount*: ten parametr automatycznie domyślnie przyjmowana jest wartość 0 w hello tooa *azuredeploy.json* pliku, ponieważ ILB ASEs mieć tylko jeden adres ILB. Nie ma żadnych jawnych adresów IP protokołu SSL dla ASE ILB. W związku z tym hello puli adresów IP protokołu SSL dla ASE ILB musi być ustawiona toozero. W przeciwnym razie wystąpi błąd inicjowania obsługi administracyjnej. 
 
-Po *azuredeploy.parameters.json* plik zostanie wypełnione, Utwórz ASE przy użyciu programu PowerShell fragmentu kodu. Zmienianie ścieżki pliku do dopasowania lokalizacji pliku szablonu usługi Resource Manager na tym komputerze. Pamiętaj, aby podać własne wartości dla nazwy wdrożenia usługi Resource Manager i nazwę grupy zasobów:
+Po hello *azuredeploy.parameters.json* plik zostanie wypełnione, Utwórz hello ASE przy użyciu fragment kodu hello programu PowerShell. Zmiana hello ścieżki toomatch hello Menedżera zasobów pliku szablonu lokalizacji na komputerze. Należy pamiętać o toosupply własne wartości hello wdrożenia usługi Resource Manager i nazwy grupy zasobów hello:
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Trwa około godziny ASE ma zostać utworzony. Następnie ASE zostaną wyświetlone w portalu na liście ASEs subskrypcji, która wyzwoliła wdrożenia.
+Trwa około godziny na powitania ASE toobe utworzony. Następnie hello ASE zostaną wyświetlone w portalu hello hello liście ASEs hello subskrypcji, która wyzwoliła hello wdrożenia.
 
-## <a name="upload-and-configure-the-default-ssl-certificate"></a>Przekazać i skonfigurować certyfikat SSL "domyślny"
-Certyfikat SSL musi być skojarzony z ASE jako certyfikat SSL "domyślne", który jest używany do ustanawiania połączeń SSL do aplikacji. Jeśli ASE domyślny sufiks DNS jest *wewnętrzny contoso.com*, połączenie https://some-random-app.internal-contoso.com wymaga certyfikatu SSL, który jest prawidłowy dla **.internal contoso.com*. 
+## <a name="upload-and-configure-hello-default-ssl-certificate"></a>Przekazać i skonfigurować certyfikat SSL "domyślne" hello
+Certyfikat SSL musi być skojarzony z hello ASE jako certyfikat SSL "domyślne" hello jest tooapps połączenia SSL tooestablish używane. Jeśli hello ASE na domyślny sufiks DNS jest *wewnętrzny contoso.com*, toohttps://some-random-app.internal-contoso.com połączenie wymaga certyfikatu SSL, który jest prawidłowy dla **.internal contoso.com* . 
 
-Uzyskaj prawidłowy certyfikat SSL przy użyciu certyfikatu wewnętrznego urzędów, zakup certyfikatu od zewnętrznego wystawcy lub przy użyciu certyfikatu z podpisem własnym. Niezależnie od źródła certyfikatu protokołu SSL następujące atrybuty certyfikatu musi być prawidłowo skonfigurowane:
+Uzyskaj prawidłowy certyfikat SSL przy użyciu certyfikatu wewnętrznego urzędów, zakup certyfikatu od zewnętrznego wystawcy lub przy użyciu certyfikatu z podpisem własnym. Niezależnie od źródła hello hello certyfikatu SSL hello następujące atrybuty certyfikatu musi być prawidłowo skonfigurowane:
 
-* **Temat**: ten atrybut musi być równa **.your głównego domeny here.com*.
-* **Alternatywna nazwa podmiotu**: ten atrybut musi zawierać zarówno **.your głównego domeny here.com* i **.scm.your-głównego-domeny-here.com*. Połączenia SSL do witryny SCM/Kudu skojarzone z każdej aplikacji używać adresu w postaci *your-app-name.scm.your-root-domain-here.com*.
+* **Temat**: ten atrybut musi być ustawiony zbyt **.your głównego domeny here.com*.
+* **Alternatywna nazwa podmiotu**: ten atrybut musi zawierać zarówno **.your głównego domeny here.com* i **.scm.your-głównego-domeny-here.com*. Toohello połączenia SSL SCM/Kudu lokacji skojarzone z każdej aplikacji używać adresu formularza hello *your-app-name.scm.your-root-domain-here.com*.
 
-Przy użyciu prawidłowego certyfikatu SSL w ręcznie potrzebne są dwa dodatkowe czynności przygotowawczych. Konwertuj/Zapisz certyfikat jako plik pfx. Pamiętać, że plik PFX musi zawierać wszystkie pośrednie i certyfikaty główne. Zabezpiecz ją przy użyciu hasła.
+Przy użyciu prawidłowego certyfikatu SSL w ręcznie potrzebne są dwa dodatkowe czynności przygotowawczych. Konwertuj/Zapisz certyfikat SSL hello jako plik pfx. Należy pamiętać, ten plik PFX hello musi obejmować wszystkie pośrednie i certyfikaty główne. Zabezpiecz ją przy użyciu hasła.
 
-Plik PFX wymaga do przekonwertowania na ciąg w formacie base64, ponieważ certyfikat SSL jest przekazywany za pomocą szablonu usługi Resource Manager. Ponieważ szablonów Resource Manager są plikami tekstowymi, należy przekonwertować plik PFX do ciąg w formacie base64. W ten sposób może zostać dołączony jako parametr szablonu.
+plik PFX Hello wymaga toobe konwertowane na ciąg w formacie base64, ponieważ certyfikat SSL hello jest przekazywany za pomocą szablonu usługi Resource Manager. Ponieważ szablonów Resource Manager są plikami tekstowymi, plik PFX hello musi można przekonwertować na ciąg w formacie base64. W ten sposób może zostać dołączony jako parametr szablonu hello.
 
-Użyj następującego fragmentu kodu programu PowerShell do:
+Użyj następującego fragmentu kodu programu PowerShell hello:
 
 * Wygeneruj certyfikat z podpisem własnym.
-* Wyeksportuj certyfikat jako plik pfx.
-* Konwertowanie pliku .pfx na ciąg kodowany w formacie base64.
-* Zapisz ciąg kodowany w formacie base64 w oddzielnym pliku. 
+* Wyeksportuj certyfikat hello jako plik pfx.
+* Konwertowanie pliku PFX hello na ciąg kodowany w formacie base64.
+* Zapisz hello ciąg kodowany w formacie base64 tooa oddzielny plik. 
 
-Ten kod programu PowerShell dla kodowania base64 pochodzi z [blogu skrypty programu PowerShell][examplebase64encoding]:
+Ten kod programu PowerShell dla kodowania base64 został hello [blogu skrypty programu PowerShell][examplebase64encoding]:
 
         $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -94,16 +94,16 @@ Ten kod programu PowerShell dla kodowania base64 pochodzi z [blogu skrypty progr
         $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
         $fileContentEncoded | set-content ($fileName + ".b64")
 
-Po certyfikat SSL jest pomyślnie wygenerowany i konwertowana na ciąg kodowany w formacie base64, użyj szablonu usługi Resource Manager przykład [skonfigurować certyfikat SSL domyślne] [ quickstartconfiguressl] w witrynie GitHub. 
+Po hello certyfikat SSL został prawidłowo wygenerowany i przekonwertować na ciąg kodowany w formacie base64 tooa, użyj szablonu usługi Resource Manager przykład hello [certyfikat SSL domyślny hello Konfiguruj] [ quickstartconfiguressl] w witrynie GitHub. 
 
-Parametry w *azuredeploy.parameters.json* plików są wyświetlane tutaj:
+Witaj parametrów w hello *azuredeploy.parameters.json* plików są wyświetlane tutaj:
 
-* *appServiceEnvironmentName*: Nazwa ASE ILB skonfigurowany.
-* *existingAseLocation*: ciąg tekstowy zawierający wdrożonym ILB ASE region platformy Azure.  Na przykład: "Południowo-środkowe Stany".
-* *pfxBlobString*: ciąg kodowany w formacie based64 reprezentację pliku .pfx. Użyj fragment kodu pokazano wcześniej, a następnie skopiuj ciąg "exportedcert.pfx.b64". Wklej go jako wartość *pfxBlobString* atrybutu.
-* *hasło*: hasło używane do zabezpieczania pliku .pfx.
-* *certificateThumbprint*: Odcisk palca certyfikatu. Jeśli pobierania tej wartości ze środowiska PowerShell (na przykład *$certificate. Odcisk palca* z wcześniejszych fragment kodu), można użyć wartości, ponieważ jest. Jeśli wartość jest skopiować z okna dialogowego certyfikatu systemu Windows, pamiętaj, aby usuwają usunięciu spacji. *CertificateThumbprint* powinien wyglądać jak AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: identyfikator ciągu przyjazną wybranej przez użytkownika używane do identyfikowania certyfikatu. Nazwa jest używana jako część Unikatowy identyfikator menedżera zasobów *Microsoft.Web/certificates* jednostki, która reprezentuje certyfikatu SSL. Nazwa *musi* kończyć się sufiksem następujących: \_yourASENameHere_InternalLoadBalancingASE. Azure portal używa ten sufiks jako wskaźnik certyfikat służy do zabezpieczania ASE włączone ILB.
+* *appServiceEnvironmentName*: Nazwa hello hello ASE ILB skonfigurowany.
+* *existingAseLocation*: tekstem zawierającym ciąg hello region platformy Azure, w którym hello ILB ASE została wdrożona.  Na przykład: "Południowo-środkowe Stany".
+* *pfxBlobString*: hello ciąg kodowany w formacie based64 reprezentację hello pliku .pfx. Fragment kodu hello przedstawiona wcześniej przy użyciu, a następnie skopiuj ciąg hello zawartych w "exportedcert.pfx.b64". Wklej go jako wartość hello hello *pfxBlobString* atrybutu.
+* *hasło*: hello hasło używane toosecure hello pfx.
+* *certificateThumbprint*: hello odcisk palca certyfikatu. Jeśli pobierania tej wartości ze środowiska PowerShell (na przykład *$certificate. Odcisk palca* z hello wcześniejszych fragment kodu), można użyć wartości hello jest. Po skopiowaniu hello wartości w oknie dialogowym hello certyfikat systemu Windows należy pamiętać toostrip limit hello usunięciu spacji. Witaj *certificateThumbprint* powinien wyglądać jak AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateName*: identyfikator ciągu przyjazną wybranej przez użytkownika używane tooidentity hello certyfikatu. Nazwa Hello jest używana jako część hello unikatowego identyfikatora Menedżera zasobów dla hello *Microsoft.Web/certificates* jednostki, która reprezentuje hello certyfikatu SSL. Nazwa Hello *musi* kończyć hello następującego sufiksu: \_yourASENameHere_InternalLoadBalancingASE. Witaj portalu Azure używa ten sufiks wskaźnik hello certyfikat jest używany toosecure ASE włączone ILB.
 
 Przykład skróconej *azuredeploy.parameters.json* jest następujący:
 
@@ -132,27 +132,27 @@ Przykład skróconej *azuredeploy.parameters.json* jest następujący:
          }
     }
 
-Po *azuredeploy.parameters.json* plik zostanie wypełnione, skonfigurować domyślnego certyfikatu SSL za pomocą programu PowerShell fragmentu kodu. Zmienianie ścieżki pliku do dopasowania, gdy pliki szablonu usługi Resource Manager znajdują się na tym komputerze. Pamiętaj, aby podać własne wartości dla nazwy wdrożenia usługi Resource Manager i nazwę grupy zasobów:
+Po hello *azuredeploy.parameters.json* plik zostanie wypełnione, skonfigurować hello domyślnego certyfikatu SSL za pomocą fragmentu kodu hello programu PowerShell. Zmień toomatch ścieżki pliku hello lokalizację plików szablonu usługi Resource Manager hello na tym komputerze. Należy pamiętać o toosupply własne wartości hello wdrożenia usługi Resource Manager i nazwy grupy zasobów hello:
 
      $templatePath="PATH\azuredeploy.json"
      $parameterPath="PATH\azuredeploy.parameters.json"
 
      New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Trwa około 40 minut na ASE frontonu do zastosowania zmiany. Na przykład dla ASE o rozmiarze domyślnym wykorzystuje dwa końce frontonu, szablon zajmie około jednej godziny i 20 minut do wykonania. Szablon jest uruchomiona, nie można skalować ASE.  
+Trwa około 40 minut na ASE frontonu tooapply hello zmianę. Na przykład dla ASE o rozmiarze domyślnym wykorzystuje dwa końce frontonu, szablon hello ma około godzinę i 20 minut toocomplete. Szablon hello jest uruchomiona, nie można skalować hello ASE.  
 
-Po zakończeniu szablonu aplikacji w ILB ASE są dostępne za pośrednictwem protokołu HTTPS. Połączenia są zabezpieczone za pomocą domyślnego certyfikatu SSL. Domyślny certyfikat SSL służy do aplikacji w ILB ASE dotyczą przy użyciu kombinacji nazwy aplikacji oraz nazwa hosta domyślnego. Na przykład https://mycustomapp.internal-contoso.com używa domyślnego certyfikatu SSL dla **.internal contoso.com*.
+Po zakończeniu szablonu hello aplikacje na powitania ILB ASE są dostępne za pośrednictwem protokołu HTTPS. połączenia Hello są chronione przy użyciu hello domyślnego certyfikatu SSL. certyfikat SSL domyślny Hello jest używany podczas aplikacje na powitania ILB ASE dotyczą przy użyciu kombinacji nazwy aplikacji hello oraz hello domyślną nazwę hosta. Na przykład https://mycustomapp.internal-contoso.com używa hello domyślny certyfikat SSL na potrzeby **.internal contoso.com*.
 
-Jednak podobnie jak aplikacji uruchamianych w publicznej usługi wielodostępnym, deweloperzy mogą konfigurować nazwy hosta niestandardowego dla poszczególnych aplikacji. Może również skonfigurować unikatowe powiązania certyfikatu SNI SSL dla poszczególnych aplikacji.
+Jednak podobnie jak w aplikacji, które można uruchamiać na powitania publicznej usługi wielodostępnym, deweloperzy mogą konfigurować nazwy hosta niestandardowego dla poszczególnych aplikacji. Może również skonfigurować unikatowe powiązania certyfikatu SNI SSL dla poszczególnych aplikacji.
 
 ## <a name="app-service-environment-v1"></a>Środowisko usługi App Service — wersja 1 ##
-Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Oparto na ASEv2 powyższych informacji. W tej sekcji przedstawiono różnice między ASEv1 i ASEv2.
+Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Witaj poprzedzających informacji oparto na ASEv2. Ten przedstawia sekcji hello różnice między ASEv1 i ASEv2.
 
-ASEv1 zarządzania wszystkie zasoby ręcznie. Zawierającej interfejsy, pracowników i adresy IP używane dla opartych na protokole SSL. Zanim można skalować w poziomie planu usługi aplikacji, musisz skalowanie puli procesów roboczych, który chcesz udostępnić go.
+ASEv1 zarządzania wszystkie zasoby hello ręcznie. Zawierającej front kończy się hello, pracowników i adresy IP używane dla opartych na protokole SSL. Zanim można skalować w poziomie planu usługi aplikacji, musisz skalowanie w poziomie hello puli procesów roboczych, które mają toohost go.
 
-ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdego rdzenia przydzielone. Zawierającej rdzeni, używanych do interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
+ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdego rdzenia przydzielone. Zawierającej rdzeni, używanych do interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 hello domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jeden tooASEv1 korzyści jest, czy może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. toolearn więcej informacji na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
 
-Aby utworzyć ASEv1 przy użyciu szablonu usługi Resource Manager, zobacz [utworzyć przy użyciu szablonu usługi Resource Manager v1 ILB ASE][ILBASEv1Template].
+toocreate ASEv1 przy użyciu szablonu usługi Resource Manager, zobacz [utworzyć przy użyciu szablonu usługi Resource Manager v1 ILB ASE][ILBASEv1Template].
 
 
 <!--Links-->

@@ -1,5 +1,5 @@
 ---
-title: "Powiązanie funkcji tabeli zewnętrznej Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "powiązanie funkcji tabeli zewnętrznej aaaAzure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
 description: "Przy użyciu powiązań zewnętrznych tabeli w funkcji Azure"
 services: functions
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 716438e5ea490f6716999813112305499dbe61a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bf19d7d377232edc91087d5f4110602bb82c67ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Powiązanie funkcji tabeli zewnętrznej Azure (wersja zapoznawcza)
-W tym artykule przedstawiono sposób manipulować danymi tabelarycznego na dostawców w modelu SaaS (np. Sharepoint, Dynamics) w funkcji z powiązaniami wbudowanych. Środowisko Azure Functions obsługuje powiązań wejściowych i wyjściowych tabel zewnętrznych.
+W tym artykule przedstawiono sposób dane tabelaryczne toomanipulate na dostawców w modelu SaaS (np. Sharepoint, Dynamics) w funkcji z powiązaniami wbudowanych. Środowisko Azure Functions obsługuje powiązań wejściowych i wyjściowych tabel zewnętrznych.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>Połączenia interfejsu API
 
-Powiązania tabeli korzystać z połączeń zewnętrznych interfejsu API do uwierzytelniania za pomocą 3 SaaS dostawców. 
+Powiązania tabeli wykorzystać zewnętrznych tooauthenticate połączenia interfejsu API z 3 SaaS dostawców. 
 
-Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu API lub użyć istniejącego połączenia interfejsu API w tej samej grupie zasobów
+Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu API lub użyć istniejącego połączenia interfejsu API w hello tej samej grupie zasobów
 
 ### <a name="supported-api-connections-tables"></a>Połączeń obsługiwanych interfejsu API (tabeli) s
 
@@ -62,14 +62,14 @@ Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu
 1. Scenariusz `Experimental`  >  `ExternalTable-CSharp` szablonu > Utwórz nowy `External Table connection` 
  ![wybierz tabelę wejściowego szablonu](./media/functions-bindings-storage-table/create-template-table.jpg)
 1. Wybierz dostawcę SaaS > Wybierz/utworzyć połączenie ![SaaS skonfigurować połączenia](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Wybierz połączenie z interfejsem API > Utwórz funkcję ![Tworzenie tabeli w funkcji](./media/functions-bindings-storage-table/table-template-options.jpg)
+1. Wybierz połączenie z interfejsem API > Utwórz funkcję hello ![Tworzenie tabeli w funkcji](./media/functions-bindings-storage-table/table-template-options.jpg)
 1. Wybierz`Integrate` > `External Table`
-    1. Skonfiguruj połączenie z tabeli docelowej. Te ustawienia będą bardzo między dostawców w modelu SaaS. Są one konspektu poniżej w [ustawienia źródła danych](#datasourcesettings)
+    1. Skonfiguruj toouse połączenia hello tabeli docelowej. Te ustawienia będą bardzo między dostawców w modelu SaaS. Są one konspektu poniżej w [ustawienia źródła danych](#datasourcesettings)
 ![Konfigurowanie tabeli](./media/functions-bindings-storage-table/configure-API-connection.jpg)
 
 ## <a name="usage"></a>Sposób użycia
 
-W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię o nazwie "Skontaktuj się z". Kod wyświetla jednostkami kontaktowymi w tabeli i dzienniki imiona i nazwiska.
+W tym przykładzie łączy tooa tabeli o nazwie "Skontaktuj się z" z kolumnami Identyfikator, nazwisko i imię. Kod Hello listy jednostkami kontaktowymi hello w tabeli hello i dzienniki hello imiona i nazwiska.
 
 ### <a name="bindings"></a>Powiązania
 ```json
@@ -95,9 +95,9 @@ W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię
 ```
 `entityId`może być puste dla powiązania tabeli.
 
-`ConnectionAppSettingsKey`Określa ustawienie aplikacji, które są przechowywane w parametrach połączenia interfejsu API. Ustawienia aplikacji jest tworzona automatycznie podczas dodawania połączenia interfejsu API w integracji interfejsu użytkownika.
+`ConnectionAppSettingsKey`Określa ustawienie aplikacji hello zawierający parametry połączenia hello interfejsu API. Witaj ustawienia aplikacji jest tworzona automatycznie podczas dodawania interfejsu API połączenia w hello integracji interfejsu użytkownika.
 
-Łącznik tabelarycznych zawiera zestawy danych, a każdy zestaw danych zawiera tabele. Nazwa domyślnego zestawu danych to "domyślny". Poniżej wymieniono tytułów dla zestawu danych i tabeli w różnych dostawców SaaS:
+Łącznik tabelarycznych zawiera zestawy danych, a każdy zestaw danych zawiera tabele. Nazwa Hello hello domyślny zestaw danych to "domyślny". Poniżej wymieniono tytułów Hello zestawu danych i tabeli w różnych dostawców SaaS:
 
 |Łącznik|Zestaw danych|Tabela|
 |:-----|:---|:---| 
@@ -107,7 +107,7 @@ W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię
 |**Excel**|Plik programu Excel|Arkusza 
 
 <!--
-See the language-specific sample that copies the input file to the output file.
+See hello language-specific sample that copies hello input file toohello output file.
 
 * [C#](#incsharp)
 * [Node.js](#innodejs)
@@ -125,7 +125,7 @@ using System;
 using Microsoft.Azure.ApiHub;
 
 //Variable name must match column type
-//Variable type is dynamically bound to the incoming data
+//Variable type is dynamically bound toohello incoming data
 public class Contact
 {
     public string Id { get; set; }
@@ -135,7 +135,7 @@ public class Contact
 
 public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
 {
-    //Iterate over every value in the source table
+    //Iterate over every value in hello source table
     ContinuationToken continuationToken = null;
     do
     {   
@@ -172,7 +172,7 @@ module.exports = function(context) {
 
 ### <a name="sql-server"></a>Oprogramowanie SQL Server
 
-Skrypt do tworzenia i wypełniania tabeli Kontakt jest niższa. dataSetName jest "domyślny".
+Witaj toocreate skryptu i wypełniania tabeli Kontakt hello znajduje się poniżej. dataSetName jest "domyślny".
 
 ```sql
 CREATE TABLE Contact
@@ -192,7 +192,7 @@ GO
 ```
 
 ### <a name="google-sheets"></a>Arkusze Google
-W Google Docs, należy utworzyć arkusz kalkulacyjny w arkuszu o nazwie `Contact`. Łącznik nie można użyć Nazwa wyświetlana arkusza kalkulacyjnego. Potrzeb wewnętrzna nazwa (pogrubione) ma być używany jako dataSetName, na przykład: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  dodać nazwy kolumn `Id`, `LastName`, `FirstName` do pierwszego wiersza, następnie wypełnij dane na kolejne wiersze.
+W Google Docs, należy utworzyć arkusz kalkulacyjny w arkuszu o nazwie `Contact`. Łącznik Hello nie można użyć nazwy wyświetlanej arkusza kalkulacyjnego hello. Wewnętrzna nazwa Hello (pogrubione) wymaga toobe używane jako dataSetName, na przykład: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  dodać nazwy kolumn hello `Id`, `LastName`, `FirstName` toohello pierwszy wiersz, a następnie wypełnij dane na kolejne wiersze.
 
 ### <a name="salesforce"></a>SalesForce
 dataSetName jest "domyślny".

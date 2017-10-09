@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie domeny klastrów usługi HDInsight przy użyciu programu PowerShell - Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie instalowania i konfigurowania klastrów HDInsight przyłączonych do domeny za pomocą programu Azure PowerShell"
+title: "klastry HDInsight przyłączonych do domeny za pomocą programu PowerShell - Azure aaaConfigure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset Konfigurowanie i skonfigurować przyłączonych do domeny w usłudze hdinsight przy użyciu programu Azure PowerShell"
 services: hdinsight
 documentationcenter: 
 author: saurinsh
@@ -16,108 +16,108 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 49da3439513d1e51171f0f7f7f9c3d967d55cb7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Konfigurowanie klastrów HDInsight przyłączonych do domeny (wersja zapoznawcza) przy użyciu programu Azure PowerShell
-Dowiedz się, jak skonfigurować klaster Azure HDInsight z usługą Azure Active Directory (Azure AD) i [zakres Apache](http://hortonworks.com/apache/ranger/) przy użyciu programu Azure PowerShell. Skrypt programu Azure PowerShell znajduje się do konfiguracji szybsze i mniej błąd podatnych na błędy. HDInsight przyłączonych do domeny można skonfigurować tylko w klastrach opartych na systemie Linux. Aby uzyskać więcej informacji, zobacz [klastrów HDInsight przyłączonych do domeny wprowadź](hdinsight-domain-joined-introduction.md).
+Dowiedz się, jak klastra tooset zapasowej Azure HDInsight z usługą Azure Active Directory (Azure AD) i [zakres Apache](http://hortonworks.com/apache/ranger/) przy użyciu programu Azure PowerShell. Skrypt programu Azure PowerShell podano konfiguracji hello toomake szybsze i mniej podatna. HDInsight przyłączonych do domeny można skonfigurować tylko w klastrach opartych na systemie Linux. Aby uzyskać więcej informacji, zobacz [klastrów HDInsight przyłączonych do domeny wprowadź](hdinsight-domain-joined-introduction.md).
 
 > [!IMPORTANT]
 > Oozie nie jest włączona w usłudze HDInsight z przyłączonych do domeny.
 
-Typowej konfiguracji klastra domeny w usłudze HDInsight obejmuje następujące kroki:
+Typowej konfiguracji klastra domeny w usłudze HDInsight obejmuje hello następujące kroki:
 
 1. Utwórz sieć wirtualną platformy Azure classic usługi Azure AD.  
 2. Tworzenie i konfigurowanie usługi Azure AD i Azure AD DS.
-3. Dodaj Maszynę wirtualną do klasycznej sieci wirtualnej do tworzenia jednostki organizacyjnej. 
+3. Dodaj toohello wirtualna klasycznej sieci wirtualnej do tworzenia jednostki organizacyjnej. 
 4. Utwórz jednostkę organizacyjną dla usługi Azure AD DS.
-5. Tworzenie sieci wirtualnej usługi HDInsight w trybie zarządzania zasobów platformy Azure.
-6. Instalator stref DNS wstecznego Azure usług AD DS.
-7. Równorzędne dwie sieci wirtualne.
+5. Tworzenie sieci wirtualnej usługi HDInsight w trybie zarządzania hello zasobów platformy Azure.
+6. Instalator wstecznego stref hello Azure usług AD DS.
+7. Równorzędnej Witaj dwie sieci wirtualne.
 8. Tworzenie klastra usługi HDInsight.
 
-Skrypt programu PowerShell dostarczane wykonuje kroki od 3 do 7. Przejdź do kroku 1 i 2 ręcznie.  Jeśli nie chcesz używać programu Azure PowerShell, zobacz [klastrów HDInsight przyłączonych do domeny skonfiguruj](hdinsight-domain-joined-configure.md). 
+Witaj skryptu PowerShell wykonuje kroki od 3 do 7. Przejdź do kroku 1 i 2 ręcznie.  Jeśli wolisz toouse programu Azure PowerShell, zobacz [klastrów HDInsight przyłączonych do domeny skonfiguruj](hdinsight-domain-joined-configure.md). 
 
-Przykład topologii końcowego wygląda następująco:
+Przykład topologii końcowego hello wygląda następująco:
 
 ![Topologia HDInsight przyłączonych do domeny](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-Ponieważ aktualnie usługi Azure AD obsługuje tylko klasycznych sieci wirtualnych (sieci wirtualne) i opartych na systemie Linux klastrów usługi HDInsight obsługują tylko usługi Azure Resource Manager na podstawie sieci wirtualnych, integracja HDInsight usługi Azure AD wymaga dwóch sieci wirtualnych i komunikacji równorzędnej między nimi. Informacje porównanie między modelami dwa wdrożenia, zobacz [usługi Azure Resource Manager, a wdrożenie klasyczne: zrozumienie modele wdrażania i stan zasobów](../azure-resource-manager/resource-manager-deployment-model.md). Dwie sieci wirtualne musi należeć do tego samego regionu Azure usług AD DS.
+Ponieważ aktualnie usługi Azure AD obsługuje tylko klasycznych sieci wirtualnych (sieci wirtualne) i opartych na systemie Linux klastrów usługi HDInsight obsługują tylko usługi Azure Resource Manager na podstawie sieci wirtualnych, integracja HDInsight usługi Azure AD wymaga dwóch sieci wirtualnych i komunikacji równorzędnej między nimi. Uzyskać hello porównanie między hello dwa modele wdrażania, zobacz [usługi Azure Resource Manager, a wdrożenie klasyczne: zrozumienie modele wdrażania i stan zasobów hello](../azure-resource-manager/resource-manager-deployment-model.md). Witaj dwie sieci wirtualne muszą znajdować się w hello tego samego regionu hello Azure usług AD DS.
 
 > [!NOTE]
-> Ten samouczek zakłada, że nie masz usługi Azure AD. Jeśli masz, możesz pominąć części w kroku 2.
+> Ten samouczek zakłada, że nie masz usługi Azure AD. Jeśli masz, możesz pominąć części hello w kroku 2.
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Musi mieć następujące elementy do tego samouczka:
+Musi mieć następujące elementy toogo opisanych w tym samouczku hello:
 
 * Zapoznaj się z [usług domenowych Azure AD](https://azure.microsoft.com/services/active-directory-ds/) jej [cennik](https://azure.microsoft.com/pricing/details/active-directory-ds/) struktury.
-* Upewnij się, że Twoja subskrypcja jest białej dla tej publicznej wersji zapoznawczej. Możesz to zrobić, wysyłając wiadomość e-mail na adres hdipreview@microsoft.com z identyfikatorem subskrypcji
-* Certyfikat SSL, który jest podpisany przez urząd podpisywania dla domeny. Certyfikat jest wymagany przez skonfigurowanie bezpiecznego protokołu LDAP. Nie można używać certyfikatów z podpisem własnym.
+* Upewnij się, że Twoja subskrypcja jest białej dla tej publicznej wersji zapoznawczej. Możesz to zrobić, wysyłając wiadomość e-mail toohdipreview@microsoft.com z identyfikatorem subskrypcji
+* Certyfikat SSL, który jest podpisany przez urząd podpisywania dla domeny. Witaj certyfikat jest wymagany przez skonfigurowanie bezpiecznego protokołu LDAP. Nie można używać certyfikatów z podpisem własnym.
 * Azure PowerShell.  Zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Utwórz sieć wirtualną platformy Azure classic usługi Azure AD.
-Aby uzyskać instrukcje, zobacz [tutaj](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic).
+Witaj instrukcje, zobacz [tutaj](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic).
 
 ## <a name="create-and-configure-azure-ad-and-azure-ad-ds"></a>Tworzenie i konfigurowanie usługi Azure AD i Azure AD DS.
-Aby uzyskać instrukcje, zobacz [tutaj](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
+Witaj instrukcje, zobacz [tutaj](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
 
-## <a name="run-the-powershell-script"></a>Uruchom skrypt programu PowerShell
-Skrypt programu PowerShell można pobrać z [GitHub](https://github.com/hdinsight/DomainJoinedHDInsight). Wyodrębnij plik zip, a zapisaniem plików lokalnie.
+## <a name="run-hello-powershell-script"></a>Uruchom skrypt programu PowerShell hello
+Witaj skrypt programu PowerShell można pobrać z [GitHub](https://github.com/hdinsight/DomainJoinedHDInsight). Wyodrębnij plik zip hello i zapisywać pliki hello lokalnie.
 
-**Aby edytować skrypt programu PowerShell.**
+**Witaj tooedit skrypt programu PowerShell**
 
 1. Otwórz run.ps1 przy użyciu programu Windows PowerShell ISE lub edytorze tekstu.
-2. Należy wypełnić wartości dla następujących zmiennych:
+2. Należy wypełnić wartości hello hello następujące zmienne:
    
-   * **$SubscriptionName** — Nazwa subskrypcji platformy Azure, której chcesz utworzyć z klastrem usługi HDInsight. Utworzono już klasycznej sieci wirtualnej w ramach tej subskrypcji, a następnie zostanie tworzenie sieci wirtualnej platformy Azure Resource Manager dla klastra usługi HDInsight w ramach subskrypcji.
-   * **$ClassicVNetName** -klasycznej sieci wirtualnej, która zawiera Azure usług AD DS. Ta sieć wirtualna musi być w tej samej subskrypcji, które podano powyżej. Ta sieć wirtualna musi zostać utworzony przy użyciu portalu Azure, a nie przy użyciu klasycznego portalu. Jeśli zgodnie z instrukcjami w [przyłączonych do domeny skonfiguruj klastrów usługi HDInsight (wersja zapoznawcza)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic), nazwa domyślna to contosoaadvnet.
-   * **$ClassicResourceGroupName** — Nazwa grupy Menedżera zasobów dla klasycznego sieci wirtualnej, który został podany powyżej. Na przykład contosoaadrg. 
-   * **$ArmResourceGroupName** — nazwę grupy zasobów, w którym chcesz utworzyć klaster usługi HDInsight. Jako $ArmResourceGroupName, można użyć tej samej grupie zasobów.  Jeśli grupa zasobów nie istnieje, skrypt tworzy grupę zasobów.
-   * **$ArmVNetName** -Menedżera zasobów Nazwa sieci wirtualnej, w którym chcesz utworzyć klaster usługi HDInsight. Ta sieć wirtualna zostaną umieszczone w $ArmResourceGroupName.  Jeśli sieć wirtualna nie istnieje, zostanie utworzony przez skrypt programu PowerShell. Jeśli istnieje, należy do grupy zasobów, podane powyżej.
-   * **$AddressVnetAddressSpace** — przestrzeń adresową sieci dla Menedżera zasobów sieci wirtualnej. Upewnij się, że ta przestrzeń adresowa jest dostępny. Ta przestrzeń adresowa nie może nakładać się na przestrzeń adresową klasycznych sieci wirtualnych. Na przykład "10.1.0.0/16"
-   * **$ArmVnetSubnetName** -nazwę podsieci sieci wirtualnej Menedżera zasobów w ramach którego chcesz umieścić klastra usługi HDInsight maszyn wirtualnych. Jeżeli podsieć nie istnieje, zostanie utworzony przez skrypt programu PowerShell. Jeśli istnieje, należy go częścią sieci wirtualnej, które zapewniają powyżej.
-   * **$AddressSubnetAddressSpace** — zakres adresów sieciowych dla podsieci sieci wirtualnej Menedżera zasobów. Klaster usługi HDInsight, adresów IP maszyny Wirtualnej będzie z tego zakresu adresów w podsieci. Na przykład "10.1.0.0/24".
-   * **$ActiveDirectoryDomainName** — maszyn wirtualnych do klastra nazwę domeny usługi Azure AD chcesz przyłączyć usługi HDInsight. Na przykład "contoso.onmicrosoft.com"
-   * **$ClusterUsersGroups** — nazwa pospolita grup zabezpieczeń z usługi AD, które mają być synchronizowane z klastrem usługi HDInsight. Użytkownicy w tej grupie zabezpieczeń będzie można zalogować się do pulpitu nawigacyjnego klastra przy użyciu swoich poświadczeń domeny usługi active directory. Te grupy zabezpieczeń musi istnieć w usłudze active directory. Na przykład "hiveusers" lub "clusteroperatorusers".
-   * **$OrganizationalUnitName** -jednostki organizacyjnej w domenie, w którym chcesz umieścić usługi HDInsight klastra maszyny wirtualne i nazwy główne usług używane przez klaster. Skrypt programu PowerShell spowoduje utworzenie tej jednostki Organizacyjnej, jeśli nie istnieje. Na przykład "HDInsightOU".
-3. Zapisz zmiany.
+   * **$SubscriptionName** — Witaj nazwa hello subskrypcji platformy Azure, w którym ma toocreate z klastrem usługi HDInsight. Utworzono już klasycznej sieci wirtualnej w ramach tej subskrypcji, a następnie zostanie tworzenie sieci wirtualnej platformy Azure Resource Manager dla klastra usługi HDInsight hello w ramach subskrypcji.
+   * **$ClassicVNetName** -hello klasycznej sieci wirtualnej, która zawiera hello Azure usług AD DS. Ta sieć wirtualna musi być w hello tej samej subskrypcji, które podano powyżej. Ta sieć wirtualna musi zostać utworzony przy użyciu hello portalu Azure, a nie przy użyciu klasycznego portalu. Po wykonaniu instrukcji hello w [przyłączonych do domeny skonfiguruj klastrów usługi HDInsight (wersja zapoznawcza)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic), hello nazwa domyślna to contosoaadvnet.
+   * **$ClassicResourceGroupName** — Nazwa grupy Resource Manager hello hello klasycznej sieci wirtualnej, który został podany powyżej. Na przykład contosoaadrg. 
+   * **$ArmResourceGroupName** — Witaj Nazwa grupy zasobów w ramach których mają klastra usługi HDInsight hello toocreate. Witaj można użyć tej samej grupie zasobów co $ArmResourceGroupName.  Jeśli grupa zasobów hello nie istnieje, hello skrypt tworzy hello grupy zasobów.
+   * **$ArmVNetName** -hello Resource Manager wirtualnej nazwy sieciowej w ramach którego ma zostać klastra usługi HDInsight hello toocreate. Ta sieć wirtualna zostaną umieszczone w $ArmResourceGroupName.  Jeśli hello sieć wirtualna nie istnieje, zostanie utworzony hello skrypt programu PowerShell. Istnieje, powinien być częścią grupy zasobów hello podane powyżej.
+   * **$AddressVnetAddressSpace** — Witaj sieci przestrzeni adresowej dla sieci wirtualnej hello Menedżera zasobów. Upewnij się, że ta przestrzeń adresowa jest dostępny. Ta przestrzeń adresowa nie może nakładać się hello klasycznej sieci wirtualnej przestrzeni adresowej. Na przykład "10.1.0.0/16"
+   * **$ArmVnetSubnetName** -hello Resource Manager nazwę podsieci sieci wirtualnej w ramach którego ma zostać klastra usługi HDInsight hello tooplace maszyn wirtualnych. Jeśli hello podsieć nie istnieje, zostanie utworzony hello skrypt programu PowerShell. Jeśli istnieje, należy go częścią sieci wirtualnej hello podane powyżej.
+   * **$AddressSubnetAddressSpace** — Witaj sieci zakres adresów dla podsieci sieci wirtualnej hello Menedżera zasobów. Witaj klastra usługi HDInsight jest od ten zakres adresów podsieci adresów IP maszyny Wirtualnej. Na przykład "10.1.0.0/24".
+   * **$ActiveDirectoryDomainName** — nazwa domeny hello Azure AD, które mają toojoin hello HDInsight cluster maszyn wirtualnych do. Na przykład "contoso.onmicrosoft.com"
+   * **$ClusterUsersGroups** — nazwa pospolita hello hello grup zabezpieczeń usługi AD, które mają klastra usługi HDInsight toohello toosync. Użytkownicy Hello w ramach tej grupy zabezpieczeń będą mogli toolog na pulpicie nawigacyjnym klastra toohello przy użyciu swoich poświadczeń domeny usługi active directory. Te grupy zabezpieczeń musi istnieć w usłudze active directory hello. Na przykład "hiveusers" lub "clusteroperatorusers".
+   * **$OrganizationalUnitName** -hello jednostki organizacyjnej w domenie hello, w którym klaster usługi HDInsight hello tooplace maszyn wirtualnych i hello jednostki usługi używane przez klaster hello. Hello skrypt programu PowerShell spowoduje utworzenie tej jednostki Organizacyjnej, jeśli nie istnieje. Na przykład "HDInsightOU".
+3. Zapisz zmiany hello.
 
-**Aby uruchomić skrypt**
+**toorun hello skryptu**
 
 1. Uruchom **programu Windows PowerShell** jako administrator.
-2. Przejdź do folderu run.ps1. 
-3. Uruchom skrypt, wpisując nazwę pliku i naciśnij przycisk **ENTER**.  Wyskakującej 3 logowanie dialogów:
+2. Przeglądaj w folderze toohello run.ps1. 
+3. Uruchom skrypt hello, wpisując nazwę pliku hello i naciśnij przycisk **ENTER**.  Wyskakującej 3 logowanie dialogów:
    
-   1. **Zaloguj się do klasycznego portalu Azure** — wprowadź swoje poświadczenia, których używasz do logowania się do klasycznego portalu Azure. Utworzono musi usługi Azure AD i Azure AD DS przy użyciu tych poświadczeń.
-   2. **Zaloguj się do portalu usługi Azure Resource Manager** — wprowadź swoje poświadczenia, których można używać do logowania do portalu usługi Azure Resource Manager.
-   3. **Nazwa użytkownika domeny** — wprowadź poświadczenia nazwę użytkownika domeny, które mają być administratorem w klastrze usługi HDInsight. Jeśli utworzono usługi Azure AD od początku, należy je utworzyć tego użytkownika za pomocą tej dokumentacji. 
+   1. **Zaloguj się w portalu klasycznym tooAzure** — wprowadź swoje poświadczenia, których używasz toosign w portalu klasycznym tooAzure. Należy utworzyć hello Azure AD i Azure AD DS przy użyciu tych poświadczeń.
+   2. **Zaloguj się w portalu usługi Resource Manager tooAzure** — wprowadź swoje poświadczenia, których używasz toosign w portalu usługi Resource Manager tooAzure.
+   3. **Nazwa użytkownika domeny** — wprowadź poświadczenia hello hello nazw użytkowników, które mają toobe administratora w klastrze usługi HDInsight hello. Jeśli utworzono usługi Azure AD od początku, należy je utworzyć tego użytkownika za pomocą tej dokumentacji. 
       
       > [!IMPORTANT]
-      > Wprowadź nazwę użytkownika w następującym formacie: 
+      > Wprowadź nazwę użytkownika hello w następującym formacie: 
       > 
       > Nazwa_domeny (na przykład contoso.onmicrosoft.com\clusteradmin)
       > 
       > 
       
-      Ten użytkownik musi mieć uprawnienia 3: do przyłączania maszyny do podana domena usługi Active Directory; Aby utworzyć nazw głównych usług i obiekty komputera w jednostce organizacyjnej podana; i Dodaj wstecznego DNS serwera proxy reguły.
+      Ten użytkownik musi mieć uprawnienia 3: toohello maszyny toojoin podane domeny usługi Active Directory. nazwy główne usług toocreate i obiekty komputera w ramach hello udostępniane jednostka organizacyjna. i tooadd wstecznego DNS serwera proxy zasady.
 
-Podczas tworzenia strefy zwrotne DNS, skrypt wyświetli monit o wprowadzenie identyfikatora sieci. Ten identyfikator sieci musi być prefiks adresu sieci wirtualnej Menedżera zasobów. Na przykład jeśli przestrzeń adresowa podsieci sieci wirtualnej Menedżera zasobów jest 10.2.0.0/24, wprowadź 10.2.0.0/24 gdy narzędzie wyświetla monit o podanie identyfikatora sieci. 
+Podczas tworzenia stref wyszukiwania wstecznego DNS, hello skryptu spowoduje wyświetlenie monitu tooenter identyfikator sieciowy. Ten identyfikator sieci musi być prefiksem adresu hello Menedżera zasobów sieci wirtualnej. Na przykład jeśli przestrzeń adresowa podsieci sieci wirtualnej Menedżera zasobów jest 10.2.0.0/24, wprowadź 10.2.0.0/24 podczas hello narzędzie wyświetla monit o podanie identyfikatora hello sieci. 
 
 ## <a name="create-hdinsight-cluster"></a>Tworzenie klastra usługi HDInsight
-W tej sekcji, utworzyć klaster opartą na systemie Linux platformą Hadoop w usłudze HDInsight przy użyciu portalu Azure lub [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Inne metody tworzenia klastrów i opis ustawień, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Aby uzyskać więcej informacji na temat Tworzenie klastrów platformy Hadoop w usłudze HDInsight przy użyciu szablonu usługi Resource Manager, zobacz [klastrów utworzyć Hadoop w HDInsight przy użyciu szablonów usługi Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+W tej sekcji tworzenia klastra opartą na systemie Linux platformą Hadoop w usłudze HDInsight przy użyciu albo hello portalu Azure lub [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Inne metody tworzenia klastrów i opis ustawień hello, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Więcej informacji o używaniu toocreate szablonu usługi Resource Manager Hadoop klastrów w usłudze HDInsight, zobacz [klastrów utworzyć Hadoop w HDInsight przy użyciu szablonów usługi Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-**Aby utworzyć klaster HDInsight przyłączonych do domeny za pomocą portalu Azure**
+**klaster HDInsight przyłączonych do domeny za pomocą toocreate hello portalu Azure**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się na toohello [portalu Azure](https://portal.azure.com).
 2. Kliknij przycisk **nowy**, **analizy i analiza**, a następnie **HDInsight**.
-3. Z **klastra usługi HDInsight nowe** bloku, wprowadź lub wybierz następujące wartości:
+3. Z hello **klastra usługi HDInsight nowe** bloku, wprowadź lub wybierz hello następujące wartości:
    
-   * **Nazwa klastra**: Wprowadź nazwę nowego klastra dla klastra HDInsight przyłączonych do domeny.
+   * **Nazwa klastra**: Wprowadź nazwę nowego klastra hello przyłączonych do domeny klastra usługi HDInsight.
    * **Subskrypcja**: Wybierz subskrypcję platformy Azure używana do tworzenia tego klastra.
    * **Konfiguracja klastra**:
      
@@ -126,10 +126,10 @@ W tej sekcji, utworzyć klaster opartą na systemie Linux platformą Hadoop w us
      * **Wersja**: Hadoop 2.7.3 (HDI 3.5). HDInsight przyłączonych do domeny jest obsługiwana tylko w klastrze usługi HDInsight w wersji 3.5.
      * **Typ klastra**: PREMIUM
        
-       Kliknij przycisk **wybierz** Aby zapisać zmiany.
-   * **Poświadczenia**: Skonfiguruj poświadczenia dla użytkownika klastra i użytkownika SSH.
-   * **Źródło danych**: Utwórz nowe konto magazynu, lub użyj istniejącego konta magazynu jako domyślne konto magazynu dla klastra usługi HDInsight. Lokalizacja musi być taka sama jak dwie sieci wirtualne.  Lokalizacja jest również lokalizacji klastra usługi HDInsight.
-   * **Cennik**: Wybierz liczbę węzłów procesu roboczego w klastrze.
+       Kliknij przycisk **wybierz** toosave hello zmiany.
+   * **Poświadczenia**: Skonfiguruj hello poświadczenia dla użytkownika klastra hello i hello użytkownika SSH.
+   * **Źródło danych**: Tworzenie nowego konta magazynu lub użyj istniejącego konta magazynu, ponieważ hello domyślne konto magazynu dla klastra usługi HDInsight hello. lokalizacji Hello musi być hello taka sama, jak Witaj dwie sieci wirtualne.  Lokalizacja Hello jest również hello lokalizację hello klastra usługi HDInsight.
+   * **Cennik**: Wybierz hello liczbę węzłów procesu roboczego w klastrze.
    * **Zaawansowane konfiguracje**: 
      
      * **Sprzęganie domeny & podsieci/sieci wirtualnej**: 
@@ -137,57 +137,57 @@ W tej sekcji, utworzyć klaster opartą na systemie Linux platformą Hadoop w us
        * **Ustawienia domeny**: 
          
          * **Nazwa domeny**: contoso.onmicrosoft.com
-         * **Nazwa użytkownika domeny**: Wprowadź nazwę użytkownika domeny. Ta domena musi mieć następujące uprawnienia: dołączania komputerów do domeny i umieścić je w jednostce organizacyjnej skonfigurowane wcześniej; Tworzenie nazwy główne usług w jednostce organizacyjnej przez skonfigurowane wcześniej; Utworzenie wpisów DNS odwrotnej. Ten użytkownik domeny będzie staje się administratorem tego klastra usługi HDInsight przyłączonych do domeny.
-         * **Hasła domeny**: Wprowadź hasło użytkownika domeny.
-         * **Jednostka organizacyjna**: Wprowadź nazwę wyróżniającą jednostki organizacyjnej, który został wcześniej skonfigurowany. Na przykład: OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com
+         * **Nazwa użytkownika domeny**: Wprowadź nazwę użytkownika domeny. Ta domena musi mieć następujące uprawnienia hello: Dołącz do domeny toohello maszyn i umieścić je w jednostce organizacyjnej hello skonfigurowane wcześniej; Tworzenie nazwy główne usług w ramach jednostki organizacyjnej hello przez skonfigurowane wcześniej; Utworzenie wpisów DNS odwrotnej. Ten użytkownik domeny będzie hello administratora klastra usługi HDInsight to przyłączonych do domeny.
+         * **Hasła domeny**: Wprowadź hasło użytkownika domeny hello.
+         * **Jednostka organizacyjna**: Wprowadź nazwę wyróżniającą hello hello jednostki Organizacyjnej, który został wcześniej skonfigurowany. Na przykład: OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com
          * **Adres URL LDAPS**: ldaps://contoso.onmicrosoft.com:636
-         * **Grupy użytkowników dostępu**: Określ, grupa zabezpieczeń użytkowników, którzy wan do synchronizacji do klastra. Na przykład HiveUsers.
+         * **Grupy użytkowników dostępu**: Określ hello grupy zabezpieczeń użytkownicy, których ma toosync toohello klastra. Na przykład HiveUsers.
            
-           Kliknij przycisk **wybierz** Aby zapisać zmiany.
+           Kliknij przycisk **wybierz** toosave hello zmiany.
            
            ![Portal usługi HDInsight przyłączonych do domeny skonfiguruj ustawienia domeny](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
        * **Sieć wirtualna**: contosohdivnet
        * **Podsieci**: podsieć1
          
-         Kliknij przycisk **wybierz** Aby zapisać zmiany.        
-         Kliknij przycisk **wybierz** Aby zapisać zmiany.
-   * **Grupa zasobów**: Wybierz grupę zasobów, używane dla sieci wirtualnej HDInsight (contosohdirg).
+         Kliknij przycisk **wybierz** toosave hello zmiany.        
+         Kliknij przycisk **wybierz** toosave hello zmiany.
+   * **Grupa zasobów**: grupy zasobów wybierz hello używany dla hello HDInsight sieciami wirtualnymi (contosohdirg).
 4. Kliknij przycisk **Utwórz**.  
 
-Inną opcją w przypadku tworzenia klastra usługi HDInsight z przyłączonych do domeny jest szablon zarządzania zasobami Azure. W poniższej procedurze pokazano, jak:
+Inną opcją w przypadku tworzenia klastra usługi HDInsight z przyłączonych do domeny jest toouse zarządzania zasobami Azure szablonu. Witaj procedury przedstawiono sposób:
 
-**Aby utworzyć klaster HDInsight przyłączonych do domeny za pomocą szablonu zarządzanie zasobami**
+**toocreate przyłączonych do domeny klastra usługi HDInsight przy użyciu szablonu zarządzanie zasobami**
 
-1. Kliknij poniższy obraz, aby otworzyć szablon Menedżera zasobów w portalu Azure. Szablon usługi Resource Manager znajduje się w publicznym kontenerze obiektów blob. 
+1. Kliknij przycisk powitania po tooopen obrazu szablonu usługi Resource Manager w hello portalu Azure. Szablon usługi Resource Manager Hello znajduje się w publicznym kontenerze obiektów blob. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Z **parametry** bloku, wprowadź następujące wartości:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy tooAzure"></a>
+2. Z hello **parametry** bloku, wprowadź hello następujące wartości:
    
    * **Subskrypcja**: (Wybierz subskrypcję platformy Azure).
-   * **Grupa zasobów**: kliknij **Użyj istniejącego**, i określ tej samej grupie zasobów, które były używane.  Na przykład contosohdirg. 
+   * **Grupa zasobów**: kliknij **Użyj istniejącego**i określ hello tej samej grupie zasobów, które były używane.  Na przykład contosohdirg. 
    * **Lokalizacja**: Określ lokalizacja grupy zasobów.
-   * **Nazwa klastra**: wprowadź nazwę klastra usługi Hadoop, który utworzysz. Na przykład contosohdicluster.
-   * **Typ klastra**: Wybierz typ klastra.  Wartość domyślna to **hadoop**.
-   * **Lokalizacja**: Wybierz lokalizację dla klastra.  Domyślne konto magazynu używa tej samej lokalizacji.
-   * **Liczba węzłów procesu roboczego klastra**: Wybierz liczbę węzłów procesu roboczego.
-   * **Nazwa logowania i hasło klastra**: domyślna nazwa logowania to **admin**.
-   * **Nazwa użytkownika i hasło SSH**: domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić. 
+   * **Nazwa klastra**: Wprowadź nazwę klastra usługi Hadoop hello, która zostanie utworzona. Na przykład contosohdicluster.
+   * **Typ klastra**: Wybierz typ klastra.  Witaj, wartość domyślna to **hadoop**.
+   * **Lokalizacja**: Wybierz lokalizację dla hello klastra.  Witaj domyślne konto magazynu, używa hello tej samej lokalizacji.
+   * **Liczba węzłów procesu roboczego klastra**: Wybierz hello liczba węzłów procesu roboczego.
+   * **Nazwa logowania i hasło klastra**: hello domyślna nazwa logowania jest **admin**.
+   * **Nazwa użytkownika SSH i hasło**: hello domyślna nazwa użytkownika to **sshuser**.  Tę nazwę można zmienić. 
    * **Identyfikator sieci wirtualnej**: /subscriptions/&lt;identyfikator subskrypcji > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >
    * **Podsieci sieci wirtualnej**: /subscriptions/&lt;identyfikator subskrypcji > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >/podsieci/podsieć1
    * **Nazwa domeny**: contoso.onmicrosoft.com
    * **DN jednostkę organizacji**: jednostki Organizacyjnej = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com
    * **Grupa użytkowników klastra D Ns**: "\"CN HiveUsers, OU = AADDC użytkownicy, DC = =<DomainName>, DC = onmicrosoft, DC = com\""
    * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName**: (wprowadź nazwę użytkownika administratora domeny)
-   * **DomainAdminPassword**: (Wprowadź hasło użytkownika administratora domeny)
-   * **Akceptuję warunki i postanowienia, o których wspomniano**: (Sprawdź)
-   * **Przypnij do pulpitu nawigacyjnego**: (Sprawdź)
-3. Kliknij pozycję **Kup**. Zobaczysz nowy kafelek zatytułowany **Wdrażanie szablonu wdrożenia**. Utworzenie klastra trwa około 20 minut. Po utworzeniu klastra można kliknąć bloku klastra w portalu, aby go otworzyć.
+   * **DomainAdminUserName**: (wprowadź hello domeny nazwa użytkownika administratora)
+   * **DomainAdminPassword**: (Wprowadź hasło użytkownika Administrator domeny hello)
+   * **Zgadzam się toohello warunki i postanowienia, o których wspomniano**: (Sprawdź)
+   * **Numer PIN toodashboard**: (Sprawdź)
+3. Kliknij pozycję **Kup**. Zobaczysz nowy kafelek zatytułowany **Wdrażanie szablonu wdrożenia**. Trwa około 20 minut toocreate klastra. Po utworzeniu klastra hello, możesz kliknąć hello bloku klastra w portalu tooopen hello go.
 
-Po ukończeniu samouczka możesz usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane. Instrukcje dotyczące usuwania klastra znajdują się [klastrów zarządzania Hadoop w usłudze HDInsight przy użyciu portalu Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
+Po ukończeniu samouczka hello można toodelete hello klastra. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ hello opłaty za klaster hello są wielokrotnie większe niż hello opłaty za magazyn, warto gospodarczego toodelete klastrów, gdy nie są używane. Witaj instrukcje dotyczące usuwania klastra znajdują się [klastrów zarządzania Hadoop w usłudze HDInsight przy użyciu hello portalu Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby znaleźć informacje na temat konfigurowania zasad Hive i uruchamiania kwerend Hive, zobacz [Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight](hdinsight-domain-joined-run-hive.md).
-* Aby uzyskać przy użyciu protokołu SSH, aby połączyć się z klastrami HDInsight przyłączonych do domeny, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Uzyskać przy użyciu tooconnect SSH przyłączone tooDomain klastrów usługi HDInsight, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

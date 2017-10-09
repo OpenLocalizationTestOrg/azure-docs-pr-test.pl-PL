@@ -1,6 +1,6 @@
 ---
-title: Architektura pakietu Operations Management Suite (OMS) | Microsoft Docs
-description: "Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę.  W tym artykule opisano różne usługi w ramach pakietu OMS i umieszczono linki do szczegółowych treści na ich temat."
+title: aaaOperations architektura Management Suite (OMS) | Dokumentacja firmy Microsoft
+description: "Pakiet Microsoft Operations Management Suite (OMS) to oparte na chmurze rozwiązanie firmy Microsoft do zarządzania systemami IT, które ułatwia zarządzanie infrastrukturą lokalną i chmurową oraz jej ochronę.  W tym artykule identyfikuje hello różnych usług objęte OMS i linki tootheir szczegółowe zawartości."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa3227aa9c19219009ebe363b7fd2d6565cec59c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="oms-architecture"></a>Architektura pakietu OMS
-[Pakiet Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) to zbiór opartych na chmurze usług zarządzania środowiskami lokalnymi i chmurowymi.  W tym artykule opisano różne lokalne i chmurowe składniki pakietu OMS oraz podano ogólny opis ich architektury przetwarzania w chmurze.  Podano też linki do dokumentacji zawierającej dodatkowe szczegóły dotyczące każdej usługi.
+[Pakiet Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) to zbiór opartych na chmurze usług zarządzania środowiskami lokalnymi i chmurowymi.  W tym artykule opisano hello różnych lokalnych i chmurze składniki pakietu OMS i ich obliczeniowych Architektura wysokiego poziomu chmury.  Dla każdej usługi, aby uzyskać dodatkowe szczegóły można znaleźć toohello dokumentacji.
 
 ## <a name="log-analytics"></a>Log Analytics
-Wszystkie dane zebrane przez usługę [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) są przechowywane w repozytorium pakietu OMS, które jest hostowane na platformie Azure.  Dane zbierane w repozytorium pakietu OMS są generowane przez połączone źródła.  Obecnie istnieją trzy typy obsługiwanych połączonych źródeł.
+Wszystkie dane zebrane przez [analizy dzienników](https://azure.microsoft.com/documentation/services/log-analytics/) znajduje się w repozytorium OMS hello, która jest hostowana na platformie Azure.  Połączonych źródeł generować dane zbierane w repozytorium OMS hello.  Obecnie istnieją trzy typy obsługiwanych połączonych źródeł.
 
-* Agent zainstalowany na komputerze z systemem [Windows](../log-analytics/log-analytics-windows-agents.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md) podłączony bezpośrednio do pakietu OMS.
-* Grupa zarządzania programu System Center Operations Manager (SCOM) [połączona z usługą Log Analytics](../log-analytics/log-analytics-om-agents.md).  Agenci SCOM nadal komunikują się z serwerami zarządzania, które przekazują zdarzenia i dane dotyczące wydajności do usługi Log Analytics.
+* Agent zainstalowany na [Windows](../log-analytics/log-analytics-windows-agents.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md) komputer bezpośrednio połączony tooOMS.
+* Grupa zarządzania programu System Center Operations Manager (SCOM) [połączone tooLog Analytics](../log-analytics/log-analytics-om-agents.md) .  Agenci SCOM nadal toocommunicate z serwerami zarządzania, które przekazywania zdarzeń i wydajności danych tooLog Analytics.
 * [Konto usługi Azure Storage](../log-analytics/log-analytics-azure-storage.md), które zbiera dane usługi [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) z roli Proces roboczy, roli Sieć Web lub z maszyny wirtualnej na platformie Azure.
 
-Źródła danych definiują dane, które usługa Log Analytics zbiera z połączonych źródeł, takich jak dzienniki zdarzeń i liczniki wydajności.  Rozwiązania powodują dodanie funkcji do pakietu OMS i mogą być łatwo dodawane do obszaru roboczego z [Galerii rozwiązań pakietu OMS](../log-analytics/log-analytics-add-solutions.md).  Niektóre rozwiązania mogą wymagać bezpośredniego połączenia z usługą Log Analytics z agentów SCOM, podczas gdy inne mogą wymagać zainstalowania dodatkowego agenta.
+Źródła danych zdefiniować dane hello, która gromadzi analizy dzienników z połączonych źródeł, takich jak dzienniki zdarzeń i liczniki wydajności.  Rozwiązania dodać tooOMS funkcjonalność i można łatwo dodać tooyour obszaru roboczego z hello [galerii rozwiązań OMS](../log-analytics/log-analytics-add-solutions.md).  Niektóre rozwiązania może wymagać tooLog bezpośrednie połączenie Analytics z agentów programu SCOM, podczas gdy inne osoby mogą wymagać toobe dodatkowe agent zainstalowany.
 
-Usługa Log Analytics udostępnia oparty na sieci Web portal, który umożliwia zarządzanie zasobami pakietu OMS, dodawanie i konfigurowanie rozwiązań pakietu OMS oraz wyświetlanie i analizowanie danych w repozytorium pakietu OMS.
+Analiza dzienników ma portalu sieci web można korzystać z zasobów OMS toomanage, Dodaj i skonfigurowanie rozwiązania OMS i wyświetlanie i analizowanie danych w repozytorium OMS hello.
 
 ![Architektura wysokiego poziomu usługi Log Analytics](media/operations-management-suite-architecture/log-analytics.png)
 
 ## <a name="azure-automation"></a>Azure Automation
-[Elementy Runbook usługi Azure Automation](http://azure.microsoft.com/documentation/services/automation) są wykonywane w chmurze Azure i mogą uzyskiwać dostęp do zasobów znajdujących się na platformie Azure, w innych usługach w chmurze lub dostępnych w publicznym Internecie.  Można również przydzielić komputery lokalne w lokalnym centrum danych za pomocą [hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md) w taki sposób, aby elementy Runbook mogły uzyskać dostęp do zasobów lokalnych.
+[Elementy runbook automatyzacji Azure](http://azure.microsoft.com/documentation/services/automation) są wykonywane w hello chmury Azure i mają dostęp do zasobów, które znajdują się w innych usług w chmurze platformy Azure lub niedostępny z hello publicznej sieci Internet.  Można również przydzielić komputery lokalne w lokalnym centrum danych za pomocą [hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md) w taki sposób, aby elementy Runbook mogły uzyskać dostęp do zasobów lokalnych.
 
-[Konfiguracje DSC](../automation/automation-dsc-overview.md) przechowywane w usłudze Azure Automation mogą być stosowane bezpośrednio do maszyn wirtualnych platformy Azure.  Inne maszyny fizyczne i wirtualne mogą żądać dostępu do konfiguracji z serwera ściągania usługi Azure Automation DSC.
+[Konfiguracji DSC](../automation/automation-dsc-overview.md) przechowywane w automatyzacji Azure mogą być bezpośrednio zastosowane tooAzure maszyn wirtualnych.  Konfiguracje mogą żądać innych fizycznych i maszyn wirtualnych z serwera ściągania usługi Konfiguracja DSC automatyzacji Azure hello.
 
-Usługa Azure Automation obejmuje rozwiązanie pakietu OMS, które wyświetla statystyki i linki do uruchomienia witryny Azure Portal dla wszystkich operacji.
+Automatyzacja Azure ma rozwiązania OMS, która wyświetla statystyki i łączy hello toolaunch portalu Azure dla wszystkich operacji.
 
 ![Architektura wysokiego poziomu usługi Azure Automation](media/operations-management-suite-architecture/automation.png)
 
 ## <a name="azure-backup"></a>Azure Backup
-Chronione dane w usłudze [Azure Backup](http://azure.microsoft.com/documentation/services/backup) są przechowywane w magazynie kopii zapasowych, znajdującym się w określonym regionie geograficznym.  Dane są replikowane w obrębie tego samego regionu, a następnie, w zależności od typu magazynu, mogą być również replikowane do innego regionu w celu osiągnięcia dalszej nadmiarowości.
+Chronione dane w usłudze [Azure Backup](http://azure.microsoft.com/documentation/services/backup) są przechowywane w magazynie kopii zapasowych, znajdującym się w określonym regionie geograficznym.  Witaj, dane są replikowane w hello na tym samym regionie i, w zależności od typu hello magazynu, może być również region replikowanych tooanother dalsze nadmiarowości.
 
 Usługa Azure Backup ma trzy podstawowe scenariusze.
 
-* Komputer z systemem Windows z agentem usługi Azure Backup.  W tym scenariuszu z dowolnego serwera lub klienta systemu Windows można tworzyć kopie zapasowe plików i folderów bezpośrednio do magazynu kopii zapasowych Azure.  
-* System Center Data Protection Manager (DPM) lub serwer usługi Microsoft Azure Backup. W tym scenariuszu można wykorzystać program DPM lub serwer usługi Microsoft Azure Backup do tworzenia kopii zapasowych plików i folderów, a także obciążeń aplikacji, takich jak SQL i SharePoint, do lokalnego magazynu, a następnie do replikowania do magazynu kopii zapasowych Azure.
-* Rozszerzenia maszyny wirtualnej platformy Azure.  W tym scenariuszu można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure do magazynu kopii zapasowych Azure.
+* Komputer z systemem Windows z agentem usługi Azure Backup.  Dzięki temu można toobackup plików i folderów z systemu Windows server lub klienta bezpośrednio tooyour magazynu kopii zapasowych systemu Azure.  
+* System Center Data Protection Manager (DPM) lub serwer usługi Microsoft Azure Backup. Dzięki temu można tooleverage programu DPM lub serwera kopii zapasowej Microsoft Azure toobackup plików i folderów oprócz tooapplication obciążeń, takich jak SQL i SharePoint magazynu toolocal i następnie replikowania tooyour magazynu kopii zapasowych systemu Azure.
+* Rozszerzenia maszyny wirtualnej platformy Azure.  Dzięki temu toobackup maszyn wirtualnych platformy Azure tooyour magazynu kopii zapasowych systemu Azure.
 
-Usługa Azure Backup obejmuje rozwiązanie pakietu OMS, które wyświetla statystyki i linki do uruchomienia witryny Azure Portal dla wszystkich operacji.
+Kopia zapasowa Azure ma rozwiązania OMS, która wyświetla statystyki i łączy hello toolaunch portalu Azure dla wszystkich operacji.
 
 ![Architektura wysokiego poziomu usługi Azure Backup](media/operations-management-suite-architecture/backup.png)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
-Usługa [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) organizuje replikację, pracę w trybie failover i powrót po awarii maszyn wirtualnych i serwerów fizycznych. Dane replikacji są wymieniane między hostami funkcji Hyper-V, funkcjami hypervisor programu VMware i serwerami fizycznymi w podstawowych i dodatkowych centrach danych lub między centrum danych i magazynem Azure.  Usługa Site Recovery przechowuje metadane w magazynach znajdujących się w określonym regionie geograficznym świadczenia usługi Azure. Żadne replikowane dane nie są przechowywane w usłudze Site Recovery.
+Usługa [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) organizuje replikację, pracę w trybie failover i powrót po awarii maszyn wirtualnych i serwerów fizycznych. Dane replikacji są wymieniane między hostami funkcji Hyper-V, funkcjami hypervisor VMware i serwerów fizycznych w centrach danych podstawowych i pomocniczych lub między hello centrum danych i magazynu systemu Azure.  Usługa Site Recovery przechowuje metadane w magazynach znajdujących się w określonym regionie geograficznym świadczenia usługi Azure. Nie replikowane dane są przechowywane przez hello usługi Site Recovery.
 
 Usługa Azure Site Recovery ma trzy podstawowe scenariusze replikacji.
 
 **Replikacja maszyn wirtualnych funkcji Hyper-V**
 
-* Jeśli maszyny wirtualne funkcji Hyper-V są zarządzane w chmurach programu VMM, można replikować do dodatkowego centrum danych lub do magazynu Azure.  Replikacja do platformy Azure odbywa się za pośrednictwem bezpiecznego połączenia internetowego.  Replikacja do dodatkowego centrum danych odbywa się za pośrednictwem sieci LAN.
-* Jeśli maszyny wirtualne funkcji Hyper-V nie są zarządzane przez program VMM, można replikować tylko do magazynu Azure.  Replikacja do platformy Azure odbywa się za pośrednictwem bezpiecznego połączenia internetowego.
+* Jeśli maszyny wirtualne funkcji Hyper-V są zarządzane w chmurach programu VMM, można replikować tooa zapasowy Centrum lub tooAzure magazyn danych.  TooAzure replikacji jest za pośrednictwem bezpiecznego połączenia internetowego.  Replikacja tooa dodatkowego centrum danych znajduje się nad hello sieci LAN.
+* Jeśli maszyny wirtualne funkcji Hyper-V nie są zarządzane przez program VMM, można replikować tylko tooAzure magazynu.  TooAzure replikacji jest za pośrednictwem bezpiecznego połączenia internetowego.
 
 **Replikacja maszyn wirtualnych VMWare**
 
-* Maszyny wirtualne VMware można replikować do dodatkowego centrum danych z uruchomionym programem VMware lub do magazynu Azure.  Replikacja do platformy Azure może odbywać się przy użyciu sieci VPN typu „lokacja do lokacji”, usługi Azure ExpressRoute lub bezpiecznego połączenia internetowego. Replikacja do dodatkowego centrum danych odbywa się za pośrednictwem kanału danych InMage Scout.
+* Można replikować VMware maszyn wirtualnych tooa dodatkowego centrum danych z magazynu VMware lub tooAzure.  TooAzure replikacji może wystąpić w sieci VPN lokacja lokacja lub usługa Azure ExpressRoute lub za pośrednictwem bezpiecznego połączenia internetowego. Replikacja tooa dodatkowego centrum danych odbywa się za pośrednictwem hello InMage Scout kanału danych.
 
 **Replikacja serwerów fizycznych z systemami Windows i Linux** 
 
-* Serwery fizyczne można replikować do dodatkowego centrum danych lub magazynu Azure. Replikacja do platformy Azure może odbywać się przy użyciu sieci VPN typu „lokacja do lokacji”, usługi Azure ExpressRoute lub bezpiecznego połączenia internetowego. Replikacja do dodatkowego centrum danych odbywa się za pośrednictwem kanału danych InMage Scout.  Usługa Azure Site Recovery obejmuje rozwiązanie pakietu OMS, które wyświetla niektóre statystyki, ale dla wszystkich operacji wymagane jest użycie witryny Azure Portal.
+* Można replikować serwerów fizycznych tooa pomocniczego centrum danych lub tooAzure magazynu. TooAzure replikacji może wystąpić w sieci VPN lokacja lokacja lub usługa Azure ExpressRoute lub za pośrednictwem bezpiecznego połączenia internetowego. Replikacja tooa dodatkowego centrum danych odbywa się za pośrednictwem hello InMage Scout kanału danych.  Usługa Azure Site Recovery zawiera rozwiązanie OMS, która wyświetla statystykami, ale muszą używać hello portalu Azure, dla wszystkich operacji.
 
 ![Architektura wysokiego poziomu usługi Azure Site Recovery](media/operations-management-suite-architecture/site-recovery.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązanie elementów docelowych w OMS | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie docelowych jest funkcją w operacji pakietu zarządzania (OMS), który umożliwia ograniczenie rozwiązania do zarządzania do określonego zestawu agentów.  W tym artykule opisano sposób tworzenia konfiguracji zakresu i zastosować go do rozwiązania."
+title: "aaaSolution elementów docelowych w OMS | Dokumentacja firmy Microsoft"
+description: "Rozwiązanie docelowych jest funkcją w operacji pakietu zarządzania (OMS) umożliwiający toolimit zarządzania rozwiązań tooa określony zbiór agentów.  W tym artykule opisano sposób konfiguracji zakresu toocreate i zastosować je tooa rozwiązania."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f8c8109e0d9e282e18724bf8b673b10de8e498a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Użyj rozwiązania cel w Operations Management Suite (OMS) do rozwiązania do zarządzania zakresem do określonych agentów (wersja zapoznawcza)
-Po dodaniu rozwiązania do pakietu OMS jest automatycznie wdrażane domyślnie do wszystkich agentów systemu Windows i Linux podłączone do obszaru roboczego analizy dzienników.  Możesz zarządzać kosztów i ograniczyć ilość danych zebranych przez rozwiązanie ograniczając go z określonym zestawem agentów.  W tym artykule opisano sposób użycia **przeznaczonych dla rozwiązania** która to funkcja OMS, która pozwala zastosować zakres do rozwiązań.
+# <a name="use-solution-targeting-in-operations-management-suite-oms-tooscope-management-solutions-toospecific-agents-preview"></a>Za pomocą rozwiązania elementów docelowych w Operations Management Suite (OMS) agentów toospecific rozwiązań zarządzania tooscope (wersja zapoznawcza)
+Po dodaniu tooOMS rozwiązanie automatycznie jest wdrażana przez domyślny tooall systemu Windows i Linux agentów połączonych tooyour obszaru roboczego analizy dzienników.  Możesz toomanage Twojego kosztów i limit hello ilości danych zbieranych dla rozwiązania ograniczając tooa określonego zestawu agentów.  W tym artykule opisano sposób toouse **przeznaczonych dla rozwiązania** czyli funkcję OMS, która pozwala tooapply zakres tooyour rozwiązania.
 
-## <a name="how-to-target-a-solution"></a>Jak pod kątem rozwiązania
-Istnieją trzy kroki umożliwiające rozwiązanie elementów docelowych, zgodnie z opisem w poniższych sekcjach.  Należy pamiętać, że konieczne będzie zarówno w portalu OMS, jak i w portalu Azure do wykonania różnych kroków.
+## <a name="how-tootarget-a-solution"></a>Jak tootarget rozwiązania
+Istnieją trzy kroki tootargeting rozwiązanie zgodnie z opisem w hello następujące sekcje.  Należy pamiętać, że konieczne będzie zarówno portalu OMS hello i hello portalu Azure do wykonania różnych kroków w.
 
 
 ### <a name="1-create-a-computer-group"></a>1. Tworzenie grupy komputerów
-Określ komputery, które chcesz uwzględnić w zakresie tworząc [grupy komputerów](../log-analytics/log-analytics-computer-groups.md) w analizy dzienników.  Grupy komputerów można oparte na wyszukiwania dziennika lub zaimportowane z innych źródeł, takich jak grupy usługi Active Directory lub usług WSUS. Jako [opisanych poniżej](#solutions-and-agents-that-cant-be-targeted), tylko te komputery, które są podłączone bezpośrednio do analizy dzienników zostaną uwzględnione w zakresie.
+Określ komputery hello mają tooinclude w zakresie tworząc [grupy komputerów](../log-analytics/log-analytics-computer-groups.md) w analizy dzienników.  Grupa komputerów Hello można oparte na wyszukiwania dziennika lub zaimportowane z innych źródeł, takich jak usługa Active Directory lub grup usług WSUS. Jako [opisanych poniżej](#solutions-and-agents-that-cant-be-targeted), tylko do komputerów, które są bezpośrednio podłączone tooLog Analytics zostaną uwzględnione w zakresie hello.
 
-Raz masz utworzony w obszarze roboczym grupy komputerów, a następnie zostaną wykluczone w konfiguracji zakresu, który można zastosować do co najmniej jedno rozwiązanie.
+Po utworzeniu grupy komputerów hello utworzone w obszarze roboczym, następnie chcesz dołączyć go w konfiguracji zakresu, które mogą być zastosowane tooone lub więcej rozwiązań.
  
  
  ### <a name="2-create-a-scope-configuration"></a>2. Utwórz konfigurację zakresu
- A **konfigurację zakresu** zawiera jeden lub więcej grup komputerów i można zastosować do co najmniej jedno rozwiązanie. 
+ A **konfigurację zakresu** zawiera jeden lub więcej grup komputerów i mogą być zastosowane tooone lub więcej rozwiązań. 
  
- Utwórz konfigurację zakresu przy użyciu poniższej procedury.  
+ Utwórz konfigurację zakresu przy użyciu powitania po procesie.  
 
- 1. W portalu Azure, przejdź do **analizy dzienników** i wybierz obszar roboczy.
- 2. W obszarze roboczym właściwości **źródeł danych obszaru roboczego** wybierz **konfiguracji zakresu**.
- 3. Kliknij przycisk **Dodaj** Aby utworzyć nową konfigurację zakresu.
- 4. Wpisz **nazwa** konfigurację zakresu.
+ 1. W portalu Azure hello kolejno zbyt**analizy dzienników** i wybierz obszar roboczy.
+ 2. W obszarze roboczym hello hello właściwości **źródeł danych obszaru roboczego** wybierz **konfiguracji zakresu**.
+ 3. Kliknij przycisk **Dodaj** toocreate nową konfigurację zakresu.
+ 4. Wpisz **nazwa** hello zakresu konfiguracji.
  5. Kliknij przycisk **wybierz grupy komputerów**.
- 6. Wybierz grupy komputerów, które utworzono i opcjonalnie inne grupy, aby dodać do konfiguracji.  Kliknij pozycję **Wybierz**.  
- 6. Kliknij przycisk **OK** utworzyć konfigurację zakresu. 
+ 6. Wybierz grupy komputerów hello utworzony i opcjonalnie innych grup tooadd toohello konfiguracji.  Kliknij pozycję **Wybierz**.  
+ 6. Kliknij przycisk **OK** toocreate hello zakresu konfiguracji. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Zastosuj konfigurację zakresu do rozwiązania.
-Po utworzeniu konfiguracji zakresu, następnie można użyć jej do co najmniej jedno rozwiązanie.  Należy pamiętać, że podczas konfiguracji jednego zakresu, może być używany z kilku rozwiązań w zakresie, każde rozwiązanie można używać tylko jedną konfigurację zakresu.
+ ### <a name="3-apply-hello-scope-configuration-tooa-solution"></a>3. Zastosuj hello zakresu konfiguracji tooa rozwiązania.
+Po utworzeniu konfiguracji zakresu, a następnie można go zastosować tooone lub więcej rozwiązań.  Należy pamiętać, że podczas konfiguracji jednego zakresu, może być używany z kilku rozwiązań w zakresie, każde rozwiązanie można używać tylko jedną konfigurację zakresu.
 
-Zastosowanie konfiguracji zakresu przy użyciu poniższej procedury.  
+Zastosowanie konfiguracji zakresu przy użyciu powitania po procesie.  
 
- 1. W portalu Azure, przejdź do **analizy dzienników** i wybierz obszar roboczy.
- 2. W oknie właściwości obszaru roboczego wybierz **rozwiązań**.
- 3. Kliknij rozwiązanie, które chcesz zakresu.
- 4. We właściwościach rozwiązań w obszarze **źródeł danych obszaru roboczego** wybierz **przeznaczonych dla rozwiązania**.  Jeśli nie jest dostępna opcja następnie [tego rozwiązania nie może być celem](#solutions-and-agents-that-cant-be-targeted).
- 5. Kliknij przycisk **Dodaj konfigurację zakresu**.  Jeśli masz już konfiguracji stosowane do tego rozwiązania, a następnie ta opcja będzie niedostępna.  Należy usunąć istniejącą konfigurację przed dodaniem kolejnego.
- 6. Kliknij pozycję konfiguracja zakresu utworzony.
- 7. Obejrzyj **stan** konfiguracji, aby upewnić się, że widoczny jest **zakończyło się pomyślnie**.  Jeśli stan wskazuje na błąd, kliknij przycisk wielokropka z prawej strony konfigurację i wybierz **konfigurację zakresu edycji** do wprowadzania zmian.
+ 1. W portalu Azure hello kolejno zbyt**analizy dzienników** i wybierz obszar roboczy.
+ 2. We właściwościach hello hello obszaru roboczego wybierz **rozwiązań**.
+ 3. Kliknij na powitania rozwiązania mają tooscope.
+ 4. We właściwościach hello rozwiązania hello w obszarze **źródeł danych obszaru roboczego** wybierz **przeznaczonych dla rozwiązania**.  Jeśli nie jest dostępna opcja hello następnie [tego rozwiązania nie może być celem](#solutions-and-agents-that-cant-be-targeted).
+ 5. Kliknij przycisk **Dodaj konfigurację zakresu**.  Jeśli masz już rozwiązania toothis zastosowano konfigurację następnie ta opcja będzie niedostępna.  Należy usunąć istniejącą konfigurację hello przed dodaniem kolejnego.
+ 6. Kliknij pozycję konfiguracja zakresu hello utworzony.
+ 7. Obejrzyj hello **stan** z hello tooensure konfiguracji, która będzie wyświetlana **zakończyło się pomyślnie**.  Jeśli stan hello wskazuje błąd, kliknij przycisk hello elipsy toohello prawej hello konfigurację i wybierz **konfigurację zakresu edycji** toomake zmiany.
 
 ## <a name="solutions-and-agents-that-cant-be-targeted"></a>Rozwiązania i agenci, którzy nie mogą być celem
-Poniżej przedstawiono kryteria agentów i rozwiązań, które nie można używać z przeznaczonych dla rozwiązania.
+Poniżej przedstawiono kryteria hello agentów i rozwiązań, które nie można używać z przeznaczonych dla rozwiązania.
 
-- Celem rozwiązanie ma zastosowanie tylko do rozwiązania, które wdrożyć agentów.
-- Celem rozwiązanie ma zastosowanie tylko do rozwiązań firmy Microsoft.  Nie ma zastosowania do rozwiązania [utworzony przez siebie lub partnerów](operations-management-suite-solutions-creating.md).
-- Można odfiltrować tylko agentów, które łączą się bezpośrednio do analizy dzienników.  Rozwiązania zostaną automatycznie wdrożone do wszystkich agentów, które są częścią podłączonej grupy zarządzania programu Operations Manager, czy są one dołączone do konfiguracji zakresu.
+- Celem rozwiązanie ma zastosowanie tylko toosolutions, które wdrożyć tooagents.
+- Celem rozwiązanie ma zastosowanie tylko toosolutions obsługiwane przez firmę Microsoft.  Nie ma zastosowania toosolutions [utworzony przez siebie lub partnerów](operations-management-suite-solutions-creating.md).
+- Można odfiltrować tylko agenci, którzy łączą się bezpośrednio tooLog Analytics.  Rozwiązania zostaną automatycznie wdrożone tooany agentów, które są częścią podłączonej grupy zarządzania programu Operations Manager, czy są one dołączone do konfiguracji zakresu.
 
 ### <a name="exceptions"></a>Wyjątki
-Przeznaczonych dla rozwiązania nie można używać z następujących rozwiązań, nawet jeśli mieściły się podanych kryteriów.
+Przeznaczonych dla rozwiązania nie można używać z powitania po rozwiązań, nawet jeśli mieściły się hello podane kryteria.
 
 - Oceny kondycji agenta
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej na temat rozwiązania, które są dostępne do zainstalowania w danym środowisku, w tym rozwiązania do zarządzania [rozwiązań do zarządzania dodać Analiza dzienników Azure do swojego obszaru roboczego](../log-analytics/log-analytics-add-solutions.md).
+- Więcej informacji na temat rozwiązań do zarządzania hello rozwiązań, które są dostępne tooinstall w danym środowisku, w tym [obszar roboczy usługi Analiza dzienników Azure Dodaj management rozwiązań tooyour](../log-analytics/log-analytics-add-solutions.md).
 - Dowiedz się więcej o tworzeniu grup komputerów na [grup komputerów w analizy dzienników dziennika wyszukiwania](../log-analytics/log-analytics-computer-groups.md).

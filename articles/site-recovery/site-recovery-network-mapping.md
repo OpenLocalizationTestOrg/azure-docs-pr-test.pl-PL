@@ -1,6 +1,6 @@
 ---
-title: "Planowanie mapowania sieci dla replikacji maszyny Wirtualnej funkcji Hyper-V za pomocą usługi Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ustaw mapowanie sieci dla funkcji Hyper-V replikację maszyny wirtualnej z lokalnego centrum danych do platformy Azure lub lokacji dodatkowej."
+title: "Mapowanie sieci aaaPlan replikacji maszyny Wirtualnej funkcji Hyper-V z usługą Site Recovery | Dokumentacja firmy Microsoft"
+description: Ustaw mapowanie sieci do replikacji maszyny wirtualnej funkcji Hyper-V z lokalnego centrum danych tooAzure lub tooa lokacji dodatkowej.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,71 +14,71 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/23/2017
 ms.author: raynew
-ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86199b5840ea10fd33630bcc75d14340a49e01bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Mapowanie sieci planu dla replikacji maszyny Wirtualnej funkcji Hyper-V za pomocą usługi Site Recovery
 
 
 
-Ten artykuł pomaga zrozumieć i Planowanie sieci mapowania podczas replikacji maszyn wirtualnych funkcji Hyper-V do platformy Azure lub lokacji dodatkowej, przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md).
+Ten artykuł pomaga toounderstand i zaplanować sieci mapowania podczas replikacji maszyn wirtualnych funkcji Hyper-V tooAzure lub lokacji dodatkowej tooa, używając hello [usługi Azure Site Recovery](site-recovery-overview.md).
 
-Po zapoznaniu się z tym artykule post wszelkie komentarze u dołu w tym artykule i zadawaj pytania techniczne na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Po zapoznaniu się z tym artykule post wszelkie komentarze u dołu hello w tym artykule i zadawaj pytania techniczne na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="network-mapping-for-replication-to-azure"></a>Mapowanie sieci dla replikacji do platformy Azure
+## <a name="network-mapping-for-replication-tooazure"></a>Mapowanie sieci dla tooAzure replikacji
 
-Mapowanie sieci jest używany podczas replikowania maszyn wirtualnych funkcji Hyper-V (zarządzane w programie VMM) na platformie Azure. Sieci mapy mapowanie między sieciami maszyn wirtualnych na źródłowym serwerze programu VMM i docelowymi sieciami platformy Azure. Mapowanie wykonuje następujące czynności:
+Mapowanie sieci jest używany podczas replikowania tooAzure maszyn wirtualnych funkcji Hyper-V (zarządzane w programie VMM). Sieci mapy mapowanie między sieciami maszyn wirtualnych na źródłowym serwerze programu VMM i docelowymi sieciami platformy Azure. Mapowanie hello następujące:
 
-- **Połączenie sieciowe**— zapewnia czy replikowane maszyny wirtualne Azure są podłączone do mapowanej sieci. Wszystkie komputery, które w tryb failover w tej samej sieci może się ze sobą łączyć, nawet jeśli ich przejścia w tryb failover w planie odzyskiwania inny.
-- **Brama sieci**— Jeśli brama sieci jest skonfigurowana w docelowej sieci platformy Azure, maszyny wirtualne podłączyć do innych maszyn wirtualnych lokalnie.
-
-Należy pamiętać, że:
-
-- Źródłowej sieci maszyny Wirtualnej VMM są mapowane na sieć wirtualną platformy Azure.
-- Po przejściu w tryb failover maszyn wirtualnych platformy Azure w lokalizacji źródłowej sieci zostaną podłączone do sieci wirtualnej zamapowanego docelowego.
-- Nowe maszyny wirtualne dodawane do źródłowej sieci maszyny Wirtualnej są podłączone do mapowanej sieci platformy Azure, podczas replikacji.
-- Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę, jak podsieć, w której znajduje się źródłowa maszyna wirtualna, replika maszyny wirtualnej jest łączona z tą docelową podsiecią po przejściu do trybu failover.
-- Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna jest łączona z pierwszą podsiecią w sieci.
-
-
-## <a name="network-mapping-for-replication-to-a-secondary-datacenter"></a>Mapowanie sieci dla replikacji do dodatkowego centrum danych
-
-Mapowanie sieci jest używany podczas replikowania maszyn wirtualnych funkcji Hyper-V (zarządzane w System Center Virtual Machine Manager (VMM)) do dodatkowego centrum danych. Mapowanie sieci działa między sieciami maszyn wirtualnych na źródłowym serwerze programu VMM i sieci maszyn wirtualnych na docelowym serwerze VMM. Mapowanie wykonuje następujące czynności:
-
-- **Połączenie sieciowe**— łączy maszyn wirtualnych do odpowiedniej sieci po pracy awaryjnej. Maszyna wirtualna repliki zostaną podłączone do sieci docelowej, który jest zamapowany na Sieć źródłowa.
-- **Oferującą**— optymalnie umieszcza repliki maszyny wirtualne na serwerach hostów funkcji Hyper-V. Maszyny wirtualne repliki są umieszczane na hostach, które mogą uzyskiwać dostęp do mapowanej sieci maszyny Wirtualnej.
-- **Brak mapowania sieci**— Jeśli nie skonfigurujesz mapowania sieci, repliki maszyn wirtualnych nie będzie podłączona do sieci maszyn wirtualnych po pracy awaryjnej.
+- **Połączenie sieciowe**— zapewnia, że replikowanych maszyn wirtualnych platformy Azure są połączone toohello mapowanej sieci. Wszystkie komputery, które w tryb failover na powitania sam można połączeń sieciowych tooeach innych, nawet jeśli ich przejścia w tryb failover w planie odzyskiwania inny.
+- **Brama sieci**— Jeśli brama sieci jest skonfigurowana na powitania docelową sieć platformy Azure, maszyny wirtualne mogą łączyć z tooother lokalnych maszyn wirtualnych.
 
 Należy pamiętać, że:
 
-- Mapowanie sieci można skonfigurować między sieciami maszyn wirtualnych na dwóch serwerach VMM lub na jednym serwerze programu VMM, gdy dwie lokacje są zarządzane przez ten sam serwer.
-- Podczas mapowania jest poprawnie skonfigurowany i replikacja jest włączona, w lokalizacji głównej maszyny Wirtualnej zostaną podłączone do sieci i jej replika w lokalizacji docelowej zostaną podłączone do mapowanej sieci.
+- Należy mapować źródła tooan sieci maszyny Wirtualnej VMM sieci wirtualnej platformy Azure.
+- Po przełączeniu maszyn wirtualnych platformy Azure w hello Sieć źródłowa będzie sieci wirtualnej podłączonej toohello zamapowanego docelowego.
+- Dodano nowe maszyny wirtualne toohello źródłowej sieci maszyny Wirtualnej są połączone toohello mapowane sieć platformy Azure, podczas replikacji.
+- Jeśli hello Sieć docelowa ma wiele podsieci i jedna z tych podsieci ma hello znajduje się samą nazwę jak podsieć, w których hello źródłowej maszyny wirtualnej, a następnie maszyny wirtualnej repliki hello łączy toothat docelowej podsieci po pracy awaryjnej.
+- Jeśli nie ma żadnych docelowa podsieć o pasującej nazwie, maszyna wirtualna hello łączy toohello pierwszej podsieci w sieci hello.
+
+
+## <a name="network-mapping-for-replication-tooa-secondary-datacenter"></a>Mapowanie sieci dla replikacji tooa dodatkowego centrum danych
+
+Mapowanie sieci jest używany podczas replikowania maszyn wirtualnych funkcji Hyper-V (zarządzane w System Center Virtual Machine Manager (VMM)) tooa dodatkowego centrum danych. Mapowanie sieci działa między sieciami maszyn wirtualnych na źródłowym serwerze programu VMM i sieci maszyn wirtualnych na docelowym serwerze VMM. Mapowanie hello następujące:
+
+- **Połączenie sieciowe**— sieci tooappropriate łączy maszyn wirtualnych po pracy awaryjnej. Witaj repliki maszyny Wirtualnej będzie toohello połączonych sieci docelowej toohello mapowanej sieci źródła.
+- **Oferującą**— optymalnie miejsca hello maszyn wirtualnych replik na serwerach hostów funkcji Hyper-V. Maszyny wirtualne repliki są umieszczane na hostach, czy można hello dostępu mapowane sieci maszyny Wirtualnej.
+- **Brak mapowania sieci**— Jeśli nie skonfigurujesz mapowania sieci, repliki maszyn wirtualnych nie będzie tooany połączonych sieci maszyn wirtualnych po pracy awaryjnej.
+
+Należy pamiętać, że:
+
+- Mapowanie sieci można skonfigurować między sieciami maszyn wirtualnych na dwóch serwerach VMM, lub na jednym serwerze programu VMM, gdy dwie lokacje są zarządzane przez hello sam serwer.
+- W przypadku mapowania jest poprawnie skonfigurowany i replikacja jest włączona, maszyny Wirtualnej w lokalizacji głównej hello będzie tooa połączonych sieci i jej replika w lokalizacji docelowej hello zostaną podłączone tooits mapowane sieci.
 -
-- Jeśli sieci są skonfigurowane poprawnie w programie VMM po wybraniu opcji sieć maszyny Wirtualnej docelową podczas mapowania sieci, chmur programu VMM źródła, które używają źródłowej sieci maszyny Wirtualnej zostanie wyświetlony, wraz z dostępnych sieci maszyn wirtualnych w chmurach docelowych, które są używane do ochrony.
-- Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę jak podsieć, na którym znajduje się źródłowa maszyna wirtualna, następnie repliki maszyny wirtualnej zostanie podłączona do tej docelowej podsieci po pracy awaryjnej. Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna zostanie podłączona do pierwszej podsieci w sieci.
+- Jeśli sieci są skonfigurowane poprawnie w programie VMM po wybraniu opcji sieć maszyny Wirtualnej docelową podczas mapowania sieci, hello VMM źródła chmur używających hello źródłowej sieci maszyny Wirtualnej zostanie wyświetlony, wraz z sieci maszyn wirtualnych dostępnych hello na powitania docelowej chmury, które są używane do ochrona.
+- Jeśli hello Sieć docelowa ma wiele podsieci i jedna z tych podsieci ma tej samej nazwy jak hello podsieci, w których hello znajduje źródłowej maszyny wirtualnej, następnie hello hello maszyny wirtualnej repliki zostaną połączone toothat docelowej podsieci po pracy awaryjnej. Jeśli nie ma żadnych docelowa podsieć o pasującej nazwie, maszyna wirtualna hello będzie toohello połączonych pierwszej podsieci w sieci hello.
 
 
 
 ### <a name="example"></a>Przykład
 
-Oto przykład ilustrujący ten mechanizm. Spójrzmy organizacji z dwóch lokalizacji w Nowym Jorku i Chicago.
+Oto przykład tooillustrate ten mechanizm. Spójrzmy organizacji z dwóch lokalizacji w Nowym Jorku i Chicago.
 
 **Lokalizacja** | **Serwer VMM** | **Sieci maszyn wirtualnych** | **Mapowane na**
 ---|---|---|---
-Nowy Jork | Program VMM NowyJork| NowyJork VMNetwork1 | Mapowany do VMNetwork1 Chicago
+Nowy Jork | Program VMM NowyJork| NowyJork VMNetwork1 | Zmapowane Chicago tooVMNetwork1
  |  | NowyJork VMNetwork2 | Nie zostały zamapowane
-Chicago | Program VMM Chicago| VMNetwork1 Chicago | Mapowany do NowyJork VMNetwork1
+Chicago | Program VMM Chicago| VMNetwork1 Chicago | Zmapowane NowyJork tooVMNetwork1
  | | VMNetwork1 Chicago | Nie zostały zamapowane
 
 W tym przykładzie:
 
-- Po utworzeniu maszyny wirtualnej repliki dla żadnej maszyny wirtualnej, która jest połączona z VMNetwork1 NowyJork zostaną podłączone do VMNetwork1 Chicago.
-- Po utworzeniu maszyny wirtualnej repliki dla NowyJork VMNetwork2 lub VMNetwork2 Chicago nie zostanie połączona z żadną siecią.
+- Po utworzeniu maszyny wirtualnej repliki dla żadnej maszyny wirtualnej, który jest połączony NowyJork tooVMNetwork1 będą połączone Chicago tooVMNetwork1.
+- Po utworzeniu maszyny wirtualnej repliki dla NowyJork VMNetwork2 lub VMNetwork2 Chicago nie będzie tooany połączenia sieciowego.
 
-Oto, jak chmur programu VMM są zainstalowane w naszym przykładzie organizacji i sieci logiczne skojarzone z chmury.
+Oto, jak chmur programu VMM są zainstalowane w naszym przykładzie organizacji, a także hello sieci logiczne skojarzone z chmury hello.
 
 #### <a name="cloud-protection-settings"></a>Ustawienia ochrony chmury
 
@@ -99,7 +99,7 @@ Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
 
 #### <a name="target-network-settings"></a>Ustawienia sieci docelowej
 
-Na podstawie tych ustawień, gdy wybrana sieć docelowa maszyna wirtualna, w poniższej tabeli przedstawiono opcje, które będą dostępne.
+Na podstawie tych ustawień, gdy wybrana sieć wirtualna docelowa hello, hello w poniższej tabeli przedstawiono opcje hello, które będą dostępne.
 
 **Wybierz** | **Chronionej chmurze** | **Ochrona chmury** | **Sieć docelowa jest dostępna**
 ---|---|---|---
@@ -109,15 +109,15 @@ VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Niedostępne
  | GoldCloud1 | GoldCloud2 | Dostępna
 
 
-Jeśli sieć docelowa ma wiele podsieci i jedna z tych podsieci ma taką samą nazwę jak podsieć, na którym znajduje się źródłowa maszyna wirtualna, następnie repliki maszyny wirtualnej zostanie podłączona do tej docelowej podsieci po pracy awaryjnej. Jeśli nie istnieje docelowa podsieć o takiej samej nazwie, maszyna wirtualna zostanie podłączona do pierwszej podsieci w sieci.
+Jeśli hello Sieć docelowa ma wiele podsieci i jedna z tych podsieci ma tej samej nazwy jak hello podsieci, w których hello znajduje źródłowej maszyny wirtualnej, następnie hello hello maszyny wirtualnej repliki zostaną połączone toothat docelowej podsieci po pracy awaryjnej. Jeśli nie ma żadnych docelowa podsieć o pasującej nazwie, maszyna wirtualna hello będzie toohello połączonych pierwszej podsieci w sieci hello.
 
 
 #### <a name="failback-behavior"></a>Zachowanie w przypadku powrotu po awarii
 
-Aby zobaczyć, co się stanie w przypadku powrotu po awarii (replikacja odwrotna), załóżmy, że czy NowyJork VMNetwork1 jest zamapowana do VMNetwork1 Chicago, z następującymi ustawieniami.
+co się stanie w przypadku powrotu po awarii (replikacja odwrotna) hello toosee Załóżmy, że NowyJork VMNetwork1 jest mapowanych tooVMNetwork1-Chicago, z hello następujące ustawienia.
 
 
-**Maszyny wirtualne** | **Połączone z siecią maszyny Wirtualnej**
+**Maszyny wirtualne** | **TooVM połączonych sieci**
 ---|---
 VM1 | VMNetwork1 sieci
 Maszyny VM2 (repliki VM1) | VMNetwork1 Chicago
@@ -126,13 +126,13 @@ Przy użyciu tych ustawień umożliwia przeglądanie, co dzieje się w kilku mo�
 
 **Scenariusz** | **Wynik**
 ---|---
-Brak zmian właściwości sieci maszyny Wirtualnej 2 po pracy awaryjnej. | 1 maszyna wirtualna pozostaje połączony z siecią źródła.
+Brak zmian w hello właściwości sieci maszyny Wirtualnej 2 po pracy awaryjnej. | 1 maszyna wirtualna pozostaje Sieć źródłowa toohello połączonych.
 Właściwości sieci maszyny Wirtualnej 2 są zmieniane po pracy awaryjnej i jest odłączony. | 1 maszyna wirtualna jest odłączony.
-Właściwości sieci maszyny Wirtualnej 2 są zmieniane po pracy awaryjnej i jest połączona z VMNetwork2 Chicago. | Jeśli nie jest zamapowana VMNetwork2 Chicago, 1 maszyna wirtualna zostanie odłączony.
-Mapowanie sieci VMNetwork1 Chicago zostanie zmieniona. | 1 maszyna wirtualna zostanie podłączona do sieci, w obecnie mapowane do VMNetwork1 Chicago.
+Właściwości sieci maszyny Wirtualnej 2 są zmieniane po pracy awaryjnej i jest połączony Chicago tooVMNetwork2. | Jeśli nie jest zamapowana VMNetwork2 Chicago, 1 maszyna wirtualna zostanie odłączony.
+Mapowanie sieci VMNetwork1 Chicago zostanie zmieniona. | 1 maszyna wirtualna będzie toohello połączonych sieci obecnie mapowane tooVMNetwork1-Chicago.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [planowania infrastruktury sieciowej](site-recovery-network-design.md).
+Dowiedz się więcej o [planowania infrastruktury sieciowej hello](site-recovery-network-design.md).

@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Data Lake Analytics — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak przeprowadzać analizy danych big data za pomocą usługi Data Lake Analytics. W samouczkach pokazano, jak uruchomić analizę wsadową, w czasie rzeczywistym i interaktywną, oraz jak pisać zapytania U-SQL."
+title: "aaaAzure Data Lake Analytics dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak przeprowadzać analizy danych big data za pomocą usługi Data Lake Analytics. Samouczki wyjaśniają, jak toorun partii, w czasie rzeczywistym i analiza interaktywne i w jaki sposób toowrite U-SQL zapytań."
 services: data-lake-analytics
 author: saveenr
 manager: saveenr
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 050965185c0c4b2d6880b74592e640be85678c06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 515ad4c2a9023e970f1da05785bf3583d37cfccf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-analytics-documentation"></a>Dokumentacja usługi Data Lake Analytics
 
-Dowiedz się, jak przy użyciu usługi Data Lake Analytics uruchamiać zadania analizy danych big data skalowane dla wielkich zestawów danych. W samouczkach i innej dokumentacji pokazano, jak tworzyć zadania analizy wsadowej, w czasie rzeczywistym i interaktywnej i zarządzać nimi, oraz jak pisać zapytania w języku U-SQL.
+Dowiedz się, jak toouse analizy danych big data toorun usługi Data Lake Analytics zadania zestawów danych toomassive tej skali. Samouczki i dokumentacji przedstawia sposób toocreate partii, w czasie rzeczywistym i zadania usługi analiza interakcyjne i jak hello tooquery przy użyciu języka U-SQL oraz zarządzania nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>

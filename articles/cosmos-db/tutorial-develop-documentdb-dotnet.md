@@ -1,6 +1,6 @@
 ---
-title: "Azure rozwiązania Cosmos bazy danych: Tworzenie za pomocą usługi DocumentDB interfejsu API programu .NET | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tworzyć aplikacje za pomocą interfejsu API usługi DocumentDB DB rozwiązania Cosmos Azure przy użyciu platformy .NET"
+title: "Azure DB rozwiązania Cosmos: Opracowywania hello interfejs API .NET usługi DocumentDB | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toodevelop z interfejsem API usługi DocumentDB DB rozwiązania Cosmos Azure przy użyciu platformy .NET"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,19 +16,19 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0d3d17afa782054c8fdf3cbac421e5a5d0a6800c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Tworzenie za pomocą interfejsu API usługi DocumentDB w .NET
+# <a name="azure-cosmosdb-develop-with-hello-documentdb-api-in-net"></a>Azure CosmosDB: Opracowywania hello interfejsu API usługi DocumentDB w .NET
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten samouczek pokazuje, jak utworzyć konto bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure, a następnie utwórz bazą danych dokumentów i kolekcji z [klucza partycji](documentdb-partition-data.md#partition-keys) przy użyciu [interfejsu API platformy .NET usługi DocumentDB](documentdb-introduction.md). Definiując klucza partycji podczas tworzenia kolekcji, aplikacja jest przygotowana do łatwego skalowania wraz z rozwojem danych. 
+Ten samouczek pokazuje, jak toocreate konta bazy danych rozwiązania Cosmos Azure przy użyciu hello portalu Azure, a następnie utwórz bazą danych dokumentów i kolekcji z [klucza partycji](documentdb-partition-data.md#partition-keys) przy użyciu hello [interfejsu API platformy .NET usługi DocumentDB](documentdb-introduction.md). Definiując klucza partycji podczas tworzenia kolekcji, aplikacja jest przygotowana tooscale wysiłku, wraz z rozwojem danych. 
 
-Ten samouczek obejmuje następujące zadania za pomocą [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md):
+Ten samouczek obejmuje hello następujące zadania za pomocą hello [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Cosmos DB
@@ -41,20 +41,20 @@ Ten samouczek obejmuje następujące zadania za pomocą [interfejsu API platform
 > * Usuwanie bazy danych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Upewnij się, że masz:
+Upewnij się, że masz następujące hello:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/). 
-    * Alternatywnie można użyć [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) w tym samouczku, jeśli chcesz użyć lokalnego środowiska, które emuluje usługi Azure DocumentDB do celów programistycznych.
+    * Alternatywnie można użyć hello [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) w tym samouczku, jeśli chcesz toouse środowisko lokalne, które emuluje hello usługi Azure DocumentDB do celów programistycznych.
 * Program [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
-Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.
+Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w hello portalu Azure.
 
 > [!TIP]
-> * Masz już konto bazy danych rozwiązania Cosmos Azure? Jeśli tak, przejdź do [konfigurowanie rozwiązania Visual Studio](#SetupVS)
-> * Czy miał konto usługi Azure DocumentDB? Jeśli tak, Twoje konto jest kontem bazy danych Azure rozwiązania Cosmos i możesz przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS).  
-> * Jeśli używasz emulatora usługi Azure rozwiązania Cosmos bazy danych, wykonaj kroki opisane w temacie [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) skonfigurować emulatora i przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS). 
+> * Masz już konto bazy danych rozwiązania Cosmos Azure? Jeśli tak, przejść od razu zbyt[konfigurowanie rozwiązania Visual Studio](#SetupVS)
+> * Czy miał konto usługi Azure DocumentDB? Jeśli tak, Twoje konto jest kontem bazy danych Azure rozwiązania Cosmos i możesz przejść od razu zbyt[konfigurowanie rozwiązania Visual Studio](#SetupVS).  
+> * Jeśli używasz hello Azure rozwiązania Cosmos DB emulatora, należy wykonać czynności hello na [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) toosetup hello emulatora i przejść od razu zbyt[konfigurowanie rozwiązania Visual Studio](#SetupVS). 
 >
 >
 
@@ -62,26 +62,26 @@ Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.
 
 ## <a id="SetupVS"></a>Konfigurowanie rozwiązania programu Visual Studio
 1. Otwórz program **Visual Studio** na komputerze.
-2. W menu **Plik** wybierz polecenie **Nowy**, a następnie wybierz pozycję **Projekt**.
-3. W **nowy projekt** okno dialogowe, wybierz opcję **szablony** / **Visual C#** / **aplikacji konsoli (.NET Framework)** , nazwę projektu, a następnie kliknij przycisk **OK**.
-   ![Zrzut ekranu przedstawiający okno Nowy projekt](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-new-project-2.png)
+2. Na powitania **pliku** menu, wybierz opcję **nowy**, a następnie wybierz pozycję **projektu**.
+3. W hello **nowy projekt** okno dialogowe, wybierz opcję **szablony** / **Visual C#** / **aplikacji konsoli (.NET Framework)**, nazwy projektu, a następnie kliknij przycisk **OK**.
+   ![Zrzut ekranu okna nowy projekt hello](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-new-project-2.png)
 
-4. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w ramach rozwiązania Visual Studio, a następnie kliknij pozycję **Zarządzaj pakietami NuGet...**
+4. W hello **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy nową aplikację konsolową, która znajduje się w obrębie rozwiązania Visual Studio, a następnie kliknij przycisk **Zarządzaj pakietami NuGet...**
     
-    ![Zrzut ekranu przedstawiający menu projektu kliknięte prawym przyciskiem myszy](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
-5. W **NuGet** , kliknij pozycję **Przeglądaj**i wpisz **documentdb** w polu wyszukiwania.
+    ![Zrzut ekranu przedstawiający hello prawo kliknięto element Menu hello projektu](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
+5. W hello **NuGet** , kliknij pozycję **Przeglądaj**i wpisz **documentdb** hello pola wyszukiwania.
 <!---stopped here--->
-6. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB** i kliknij przycisk **Zainstaluj**.
-   Identyfikator pakietu dla biblioteki klienta usługi Azure rozwiązania Cosmos bazy danych jest [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![Zrzut ekranu przedstawiający NuGet Menu do znajdowania zestawu SDK klienta usługi Azure rozwiązania Cosmos bazy danych](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
+6. W wynikach hello znaleźć **Microsoft.Azure.DocumentDB** i kliknij przycisk **zainstalować**.
+   Identyfikator pakietu Hello hello biblioteki klienta usługi Azure rozwiązania Cosmos bazy danych jest [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
+   ![Zrzut ekranu przedstawiający hello NuGet Menu do znajdowania zestawu SDK klienta usługi Azure rozwiązania Cosmos bazy danych](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
-    Jeśli zostanie wyświetlony komunikat dotyczący przejrzenia zmian wprowadzonych w rozwiązaniu, kliknij przycisk **OK**. Jeśli wyświetlany jest komunikat o akceptacji licencji, kliknij pozycję **Akceptuję**.
+    Jeśli zostanie wyświetlony komunikat o przegląd zmian toohello rozwiązania, kliknij przycisk **OK**. Jeśli wyświetlany jest komunikat o akceptacji licencji, kliknij pozycję **Akceptuję**.
 
-## <a id="Connect"></a>Dodaj odwołania do projektu
-Pozostałe kroki w tym samouczku Podaj wstawki kodu interfejsu API usługi DocumentDB, które są wymagane do tworzenia i aktualizacji bazy danych Azure rozwiązania Cosmos zasobów w projekcie.
+## <a id="Connect"></a>Dodawanie odwołań do projektu tooyour
+Witaj pozostałych czynnościach w ramach tego samouczka Podaj hello interfejsu API usługi DocumentDB kodu wstawki wymaganych toocreate i aktualizacji bazy danych Azure rozwiązania Cosmos zasobów w projekcie.
 
-Najpierw dodaj te odwołania do aplikacji.
-<!---These aren't added by default when you install the pkg?--->
+Najpierw dodaj te odwołania tooyour aplikacji.
+<!---These aren't added by default when you install hello pkg?--->
 
 ```csharp
 using System.Net;
@@ -100,17 +100,17 @@ private const string PrimaryKey = "<your primary key>";
 private DocumentClient client;
 ```
 
-Następnie, head z powrotem do [portalu Azure](https://portal.azure.com) można pobrać adresu URL punktu końcowego, a klucz podstawowy. Adres URL punktu końcowego i klucz podstawowy są niezbędne, aby aplikacja wiedziała, z jakim elementem ma się połączyć, oraz aby usługa Azure Cosmos DB ufała połączeniu aplikacji.
+Następnie, head ponownie toohello [portalu Azure](https://portal.azure.com) tooretrieve Twojego adresu URL punktu końcowego i klucz podstawowy. adres URL punktu końcowego Hello i klucza podstawowego są niezbędne do Twojej aplikacji toounderstand gdzie tooconnect na oraz bazy danych Azure rozwiązania Cosmos tootrust połączeniu aplikacji.
 
-W portalu Azure, przejdź do swojego konta bazy danych rozwiązania Cosmos platformy Azure, kliknij przycisk **klucze**, a następnie kliknij przycisk **odczytu i zapisu kluczy**.
+W hello portalu Azure, przejdź do konta bazy danych Azure rozwiązania Cosmos tooyour, kliknij przycisk **klucze**, a następnie kliknij przycisk **odczytu i zapisu kluczy**.
 
-Skopiuj identyfikator URI z portalu i wklej go za pośrednictwem `<your endpoint URL>` w pliku program.cs. Następnie skopiuj podstawowy klucz z portalu i wklej go za pośrednictwem `<your primary key>`. Należy usunąć `<` i `>` z własnymi wartościami.
+Skopiuj hello identyfikatora URI z portalu hello i wklej go za pośrednictwem `<your endpoint URL>` w pliku program.cs hello. Następnie kopiowania hello klucza podstawowego z portalu hello i wklej go za pośrednictwem `<your primary key>`. Należy się hello tooremove `<` i `>` z własnymi wartościami.
 
-![Zrzut ekranu przedstawiający portal Azure używany przez samouczek NoSQL do tworzenia aplikacji konsolowej C#. Przedstawia konto bazy danych Azure rozwiązania Cosmos z KLUCZE wyróżnionym w bloku konta usługi Azure DB rozwiązania Cosmos i wartości URI oraz PRIMARY KEY wyróżnionym w bloku klucze](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
+![Zrzut ekranu przedstawiający hello Azure portal używany przez toocreate samouczka NoSQL hello aplikacji konsolowej C#. Pokazuje konta bazy danych Azure rozwiązania Cosmos, z hello KLUCZE wyróżnionym w bloku konta usługi Azure DB rozwiązania Cosmos hello i hello identyfikatora URI i wartości klucza podstawowego wyróżnionym w bloku klucze hello](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
-## <a id="instantiate"></a>Utwórz wystąpienie obiektu DocumentClient
+## <a id="instantiate"></a>Utwórz wystąpienie hello DocumentClient
 
-Teraz, Utwórz nowe wystąpienie klasy **DocumentClient**.
+Teraz, Utwórz nowe wystąpienie klasy hello **DocumentClient**.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -118,33 +118,33 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Tworzenie bazy danych
 
-Następnie należy utworzyć bazy danych Azure rozwiązania Cosmos [bazy danych](documentdb-resources.md#databases) za pomocą [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody  **DocumentClient** klasę z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md). Baza danych jest kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
+Następnie należy utworzyć bazy danych Azure rozwiązania Cosmos [bazy danych](documentdb-resources.md#databases) przy użyciu hello [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody hello  **DocumentClient** klasy z hello [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md). Baza danych jest hello kontenerem logicznym magazynu dokumentów JSON podzielonym na partycje w kolekcjach.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## <a name="decide-on-a-partition-key"></a>Podejmowanie decyzji o klucza partycji 
 
-Kolekcje są kontenerami do przechowywania dokumentów. Zasoby logiczne i można je [obejmować co najmniej jednej partycji fizycznej](partition-data.md). A [klucza partycji](documentdb-partition-data.md) jest właściwość (lub ścieżki) w dokumencie, które jest używane do rozpowszechniania danych między serwerami lub partycji. Wszystkie dokumenty z tym samym kluczem partycji są przechowywane w tej samej partycji. 
+Kolekcje są kontenerami do przechowywania dokumentów. Zasoby logiczne i można je [obejmować co najmniej jednej partycji fizycznej](partition-data.md). A [klucza partycji](documentdb-partition-data.md) jest właściwość (lub ścieżki) w dokumencie, które jest używane toodistribute danych między serwerami hello lub partycji. Wszystkie dokumenty z hello tego samego klucza partycji są przechowywane w hello tej samej partycji. 
 
-Określanie klucza partycji jest ważne decyzja podejmowana przed utworzeniem kolekcji. Klucze partycji są właściwości (lub ścieżki) w dokumentach używane przez bazy danych Azure rozwiązania Cosmos w dystrybucji danych między wieloma serwerami lub partycji. Rozwiązania cosmos DB skróty wartość klucza partycji i używa skrótu wynik w celu określenia partycji, w której ma zostać zapisany dokument. Wszystkie dokumenty z tym samym kluczem partycji są przechowywane w tej samej partycji, a klucze partycji nie można zmienić po utworzeniu kolekcji. 
+Określania klucza partycji jest toomake bardzo ważne, aby utworzyć kolekcję. Klucze partycji są właściwości (lub ścieżki) w dokumencie, które mogą być używane przez toodistribute bazy danych Azure rozwiązania Cosmos danych między wieloma serwerami lub partycji. Rozwiązania cosmos DB skróty hello wartość klucza partycji i używa hello mieszany wynik toodetermine hello partycji w toostore hello dokumentów. Wszystkie dokumenty z hello tego samego klucza partycji są przechowywane w hello tej samej partycji, a klucze partycji nie można zmienić po utworzeniu kolekcji. 
 
-W tym samouczku, chcemy się wartość klucza partycji `/deviceId` tak, aby wszystkie dane na jednym urządzeniu są przechowywane w jednej partycji. Chcesz wybrać klucza partycji, który ma wiele wartości, z których każdy są używane na temat taką samą częstotliwością do upewnij się, że rozwiązania Cosmos DB może równoważyć obciążenie danych rozwoju lub osiągnięcia pełnej przepływności kolekcji. 
+W tym samouczku zamierzamy klucza partycji hello tooset zbyt`/deviceId` tak że hello wszystkie dane hello na jednym urządzeniu są przechowywane w jednej partycji. Ma toochoose klucza partycji, który ma wiele wartości, które są używane w o hello tooensure częstotliwości tego samego rozwiązania Cosmos DB może równoważyć obciążenie danych rozwoju lub osiągnięcia pełnej przepływności hello hello kolekcji. 
 
-Aby uzyskać więcej informacji na temat partycjonowania, zobacz [partycji i skali w usłudze Azure DB rozwiązania Cosmos?](partition-data.md) 
+Aby uzyskać więcej informacji na temat partycjonowania, zobacz [jak toopartition i skali w usłudze Azure DB rozwiązania Cosmos?](partition-data.md) 
 
 ## <a id="CreateColl"></a>Tworzenie kolekcji 
 
-Teraz, wiemy naszych klucza partycji `/deviceId`, umożliwia tworzenie [kolekcji](documentdb-resources.md#collections) za pomocą [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) metody lub [CreateDocumentCollectionIfNotExistsAsync ](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) metody **DocumentClient** klasy. Kolekcja jest kontenerem dokumentów JSON i wszelkie skojarzonej logiki aplikacji JavaScript. 
+Teraz, wiemy naszych klucza partycji `/deviceId`, umożliwia tworzenie [kolekcji](documentdb-resources.md#collections) przy użyciu hello [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) metody lub [ CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) metody hello **DocumentClient** klasy. Kolekcja jest kontenerem dokumentów JSON i wszelkie skojarzonej logiki aplikacji JavaScript. 
 
 > [!WARNING]
-> Tworzenie kolekcji ma cenę, jak są rezerwacji przepustowości dla aplikacji do komunikowania się z bazy danych Azure rozwiązania Cosmos. Aby uzyskać więcej informacji, odwiedź stronę naszych [stronie dotyczącej cen](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Tworzenie kolekcji ma cenę, jak są rezerwacji przepustowości dla toocommunicate aplikacji hello Azure DB rozwiązania Cosmos. Aby uzyskać więcej informacji, odwiedź stronę naszych [stronie dotyczącej cen](https://azure.microsoft.com/pricing/details/cosmos-db/)
 > 
 > 
 
 ```csharp
-// Collection for device telemetry. Here the JSON property deviceId is used  
-// as the partition key to spread across partitions. Configured for 2500 RU/s  
+// Collection for device telemetry. Here hello JSON property deviceId is used  
+// as hello partition key toospread across partitions. Configured for 2500 RU/s  
 // throughput and an indexing policy that supports sorting against any  
 // number or string property. .
 DocumentCollection myCollection = new DocumentCollection();
@@ -157,10 +157,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Ta metoda powoduje, że wywołanie bazy danych Azure rozwiązania Cosmos i przepisy usługi liczba partycji na podstawie przepływności żądanego interfejsu API REST. Można zmienić przepływność kolekcji, ponieważ wydajność potrzebuje rozwija przy użyciu zestawu SDK lub [portalu Azure](set-throughput.md).
+To sprawia, że metoda interfejsu API REST wywołać tooAzure DB rozwiązania Cosmos i hello liczba partycji na podstawie przepływności żądanego hello przepisów dotyczących usług. W razie rozwoju, przy użyciu zestawu SDK hello lub hello potrzeb wydajność można zmienić hello przepływność kolekcji [portalu Azure](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Tworzenie dokumentów JSON
-Teraz można wstawić niektórych dokumentów JSON do bazy danych Azure rozwiązania Cosmos. [Dokument](documentdb-resources.md#documents) można utworzyć za pomocą metody [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) klasy **DocumentClient**. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Ta klasa przykładowe zawiera urządzenia odczytywania i wywołanie CreateDocumentAsync Wstaw nowe urządzenie odczytu do kolekcji.
+Teraz można wstawić niektórych dokumentów JSON do bazy danych Azure rozwiązania Cosmos. A [dokumentu](documentdb-resources.md#documents) można tworzyć przy użyciu hello [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) metody hello **DocumentClient** klasy. Dokumenty są zawartością JSON zdefiniowaną przez użytkownika (dowolną). Ta klasa próbki zawiera odczytu urządzenia i tooinsert tooCreateDocumentAsync wywołania nowe urządzenie odczytu do kolekcji.
 
 ```csharp
 public class DeviceReading
@@ -185,8 +185,8 @@ public class DeviceReading
     public double MetricValue;
   }
 
-// Create a document. Here the partition key is extracted 
-// as "XMS-0001" based on the collection definition
+// Create a document. Here hello partition key is extracted 
+// as "XMS-0001" based on hello collection definition
 await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "coll"),
     new DeviceReading
@@ -201,10 +201,10 @@ await client.CreateDocumentAsync(
 ```
 ## <a name="read-data"></a>Odczyt danych
 
-Załóżmy odczytu dokumentu przez klucz partycji i identyfikator przy użyciu metody ReadDocumentAsync. Należy pamiętać, że odczyty obejmują wartość PartitionKey (odpowiadający `x-ms-documentdb-partitionkey` nagłówek żądania w interfejsie API REST).
+Załóżmy odczytu dokumentu hello przez klucz partycji i identyfikator przy użyciu metody ReadDocumentAsync hello. Należy pamiętać, że odczyty hello zawierają wartość PartitionKey (odpowiedniego toohello `x-ms-documentdb-partitionkey` nagłówek żądania w hello interfejsu API REST).
 
 ```csharp
-// Read document. Needs the partition key and the Id to be specified
+// Read document. Needs hello partition key and hello Id toobe specified
 Document result = await client.ReadDocumentAsync(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
@@ -214,10 +214,10 @@ DeviceReading reading = (DeviceReading)(dynamic)result;
 
 ## <a name="update-data"></a>Aktualizowanie danych
 
-Teraz załóżmy zaktualizować niektóre dane przy użyciu metody ReplaceDocumentAsync.
+Teraz załóżmy zaktualizować niektóre dane przy użyciu metody ReplaceDocumentAsync hello.
 
 ```csharp
-// Update the document. Partition key is not required, again extracted from the document
+// Update hello document. Partition key is not required, again extracted from hello document
 reading.MetricValue = 104;
 reading.ReadingTime = DateTime.UtcNow;
 
@@ -228,17 +228,17 @@ await client.ReplaceDocumentAsync(
 
 ## <a name="delete-data"></a>Usuwanie danych
 
-Umożliwia teraz usunąć przy użyciu metody DeleteDocumentAsync dokumentu przez klucz partycji i identyfikator.
+Umożliwia teraz usunąć przy użyciu metody DeleteDocumentAsync hello dokumentu przez klucz partycji i identyfikator.
 
 ```csharp
-// Delete a document. The partition key is required.
+// Delete a document. hello partition key is required.
 await client.DeleteDocumentAsync(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
 ## <a name="query-partitioned-collections"></a>Zapytanie względem kolekcji podzielone na partycje
 
-Kwerendy danych w kolekcjach podzielonym na partycje, bazy danych Azure rozwiązania Cosmos automatycznie rozsyła kwerendy do partycji odpowiadający wartości klucza partycji podana w filtrze (jeśli istnieją). Na przykład to zapytanie jest kierowany do właśnie partycji zawierającej klucz partycji "XMS 0001".
+Automatycznie kwerendy danych w kolekcjach podzielonym na partycje, bazy danych Azure rozwiązania Cosmos trasy hello partycji toohello zapytań odpowiadającą wartości klucza partycji toohello określony w filtrze hello (jeśli istnieją). Na przykład to zapytanie jest kierowany toojust hello partycji zawierającego hello klucza partycji "XMS 0001".
 
 ```csharp
 // Query using partition key
@@ -247,7 +247,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-Następujące zapytanie nie ma filtr klucza partycji (DeviceId) i jest rozwiniętym do wszystkich partycji, w którym jest przeprowadzana z partycji indeksu. Należy pamiętać, że trzeba określić EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` w interfejsie API REST) ma zestaw SDK, aby wykonać zapytania na partycje.
+Witaj następujące zapytanie nie ma filtr klucza partycji hello (DeviceId) i jest rozwiniętym tooall partycji, którym jest wykonywany przed hello partycjonowania indeksu. Należy pamiętać, że program toospecify hello EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` w hello interfejsu API REST) toohave hello SDK tooexecute zapytania na partycje.
 
 ```csharp
 // Query across partition keys
@@ -258,7 +258,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Równoległego wykonywania zapytań
-Zestawów DocumentDB SDK DB rozwiązania Cosmos Azure 1.9.0 i powyżej opcje wykonywania zapytania równoległe pomocy technicznej, które umożliwiają wykonywanie zapytań o małych opóźnieniach dotyczących kolekcji partycjonowanych nawet wtedy, gdy konieczne jest touch dużą liczbę partycji. Na przykład następujące zapytanie jest skonfigurowany do uruchomienia równoległego na partycje.
+Hello Azure rozwiązania Cosmos bazy danych DocumentDB SDK 1.9.0 i powyżej Obsługa opcje wykonywania zapytania równoległe, umożliwiających tooperform małe opóźnienia zapytanie względem kolekcji partycjonowanych, nawet wtedy, gdy potrzebna jest tootouch dużą liczbę partycji. Na przykład hello następującego zapytania jest skonfigurowany toorun równolegle na partycje.
 
 ```csharp
 // Cross-partition Order By queries
@@ -269,15 +269,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-Możesz zarządzać równoległego wykonywania zapytań przez dostrajanie następujące parametry:
+Możesz zarządzać równoległego wykonywania zapytań przez dostrajanie hello następujące parametry:
 
-* Przez ustawienie `MaxDegreeOfParallelism`, można kontrolować stopień równoległości tj., maksymalną liczbę równoczesnych połączeń sieciowych do partycji w kolekcji. Jeśli ustawisz to-1, stopień równoległości jest zarządzany przez zestaw SDK. Jeśli `MaxDegreeOfParallelism` nie jest określony lub ustawiona na 0, co jest to wartość domyślna, będzie jednego połączenia sieciowego z partycjami kolekcji.
-* Przez ustawienie `MaxBufferedItemCount`, można kompromis wykorzystanie pamięci zapytania opóźnienia i po stronie klienta. Jeśli ten parametr lub ustaw tę wartość-1, liczba elementów buforowane podczas równoległego wykonywania zapytań jest zarządzany przez zestaw SDK.
+* Przez ustawienie `MaxDegreeOfParallelism`, można kontrolować hello stopień równoległości, tj. Data hello maksymalną liczbę kolekcji sieci równoczesnych połączeń toohello partycji. Jeśli ustawisz to zbyt-1, hello stopień równoległości jest zarządzana przez hello zestawu SDK. Jeśli hello `MaxDegreeOfParallelism` nie jest określony lub ustaw too0, która jest wartością domyślną hello, będzie partycje jednej sieci połączenia toohello kolekcji.
+* Przez ustawienie `MaxBufferedItemCount`, można kompromis wykorzystanie pamięci zapytania opóźnienia i po stronie klienta. Jeśli ten parametr lub ustaw tę wartość za 1 hello liczbę elementów buforowane podczas równoległego wykonywania zapytań jest zarządzana przez hello zestawu SDK.
 
-Podana takim samym stanie kolekcji, zapytań równoległych zwróci wyniki w tej samej kolejności jak wykonanie szeregowego. Podczas wykonywania kwerendy między partycji zawierającej, sortowanie (ORDER BY i/lub góry), zestaw SDK usługi DocumentDB wystawia zapytania równolegle na partycje i scala częściowo sortowane wyniki w po stronie klienta, aby wygenerować globalnie uporządkowanych wyników.
+Podane hello niezmienionym hello kolekcji, równoległe zapytania zostanie zwracają wyniki w hello kolejność takie same jak wykonanie szeregowego. Podczas wykonywania kwerendy między partycji zawierającej, sortowanie (ORDER BY i/lub góry), hello zestawu SDK usługi DocumentDB wystawia hello zapytania równolegle na partycje i scala częściowo sortowane wyniki w tooproduce po stronie klienta hello globalnie uporządkowanych wyników.
 
 ## <a name="execute-stored-procedures"></a>Wykonanie procedury składowane
-Ponadto można wykonywać transakcje atomic względem dokumentów mających taki sam identyfikator urządzenia, np. Jeśli wartości zagregowanych lub najnowszy stan urządzeń w jednym dokumencie jest obsługa przez dodanie poniższego kodu do projektu.
+Ponadto można wykonywać transakcje atomic względem dokumentów za pomocą hello tego samego Identyfikatora urządzenia, np. Jeśli jest utrzymanie agreguje lub hello najnowszy stan urządzeń w jednym dokumencie przez dodanie hello następującego projektu tooyour kodu.
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -286,18 +286,18 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
 
-I to już wszystko! to są głównymi składnikami aplikacji bazy danych rozwiązania Cosmos platformy Azure, która używa klucza partycji wydajne skalowanie dystrybucji danych na partycji.  
+I to już wszystko! są to hello głównymi składnikami aplikacji bazy danych Azure rozwiązania Cosmos, która używa dystrybucji danych skali tooefficiently klucza partycji na partycje.  
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz nadal korzystać z tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego samouczka w portalu Azure następujące czynności:
+Jeśli nie ma toocontinue toouse tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego samouczka w hello portalu Azure z hello następujące kroki:
 
-1. Z menu po lewej stronie w portalu Azure kliknij **grup zasobów** a następnie kliknij przycisk unikatową nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. Z menu po lewej stronie powitania w hello portalu Azure, kliknij przycisk **grup zasobów** a następnie kliknij przycisk hello unikatową nazwę zasobu hello został utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toodelete zasobów hello w polu tekstowym hello, a następnie kliknij **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wykonaniu następujących czynności: 
+W tym samouczku wykonaniu hello następujące czynności: 
 
 > [!div class="checklist"]
 > * Utworzone konto bazy danych Azure rozwiązania Cosmos
@@ -309,7 +309,7 @@ W tym samouczku wykonaniu następujących czynności:
 > * Usunąć dokumentu
 > * Usunięte z bazy danych
 
-Można teraz przejść do następnego samouczek i zaimportuj dane dodatkowe do swojego konta DB rozwiązania Cosmos. 
+Można teraz kontynuować toohello następny samouczek i zaimportować konto bazy danych rozwiązania Cosmos tooyour dodatkowe dane. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)

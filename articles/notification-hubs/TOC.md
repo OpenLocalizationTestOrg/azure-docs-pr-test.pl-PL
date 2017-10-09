@@ -17,14 +17,14 @@
 ### [Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Programowanie
-### [Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [Wyślij tooAndroid powiadomień wypychanych przy użyciu usługi GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Wypychanie powiadomień z zastosowaniem wirtualnego grodzenia na podstawie danych przestrzennych usługi Bing](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Wypychanie do określonych użytkowników
+### Użytkownicy toospecific wypychania
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [Rejestrowanie bieżącego użytkownika za pomocą programu ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+#### [Rejestr hello bieżącego użytkownika za pomocą programu ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Wysyłanie powiadomień na różne platformy](notification-hubs-aspnet-cross-platform-notification.md)
 ### Praca z zestawami SDK serwera
 #### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)

@@ -1,7 +1,7 @@
 ---
-title: "Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager | Microsoft Docs"
-description: "W tym dokumencie omówiono procedurę wdrożenia usług AD FS na platformie Azure w celu zapewnienia wysokiej dostępności."
-keywords: "Usługi AD FS z menedżerem ruchu Azure, usługi AD FS z usługą Azure Traffic Manager, geograficznie, wiele centrów danych, geograficzne centra danych, geograficznie rozproszone centra danych, wdrażanie usług AD FS na platformie Azure, azure AD FS, usługi azure ad fs, wdrażania usług AD FS, wdrażanie adfs azure, azure adfs, wdrażanie adfs w azure, wdrażanie AD FS w azure, adfs azure, wprowadzenie do usługi AD FS, Azure, AD FS na platformie Azure, iaas, ADFS, przenoszenie adfs do azure"
+title: "aaaHigh dostępności geograficznej między AD FS wdrożenia na platformie Azure z usługą Azure Traffic Manager | Dokumentacja firmy Microsoft"
+description: "W tym dokumencie przedstawiono sposób toodeploy usług AD FS w systemie Azure dla o wysokiej dostępności."
+keywords: "Usługi AD fs z usługi Azure traffic manager, usługi AD FS z usługi Azure Traffic Manager, geograficzne, wielu centrów danych, geograficzny centrów danych, wielu geograficzny centrów danych, wdrażanie usług AD FS w systemie azure, wdrażania usług AD FS azure, azure AD FS i usługi azure ad fs, wdrażania usług AD FS, wdrażanie usług ad fs usługi AD FS w systemie azure, Wdrażanie usług AD FS w systemie azure, wdrażanie usług AD FS w azure, azure AD FS, wprowadzenie tooAD FS, Azure, usługi AD FS w systemie Azure iaas, usługi AD FS, Przenieś tooazure usług AD FS"
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5838d749cdc5c8aabbe62b255d568525da747ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Wdrażanie geograficznie rozproszonych usług AD FS o wysokiej dostępności na platformie Azure przy użyciu usługi Azure Traffic Manager
-Artykuł [Wdrożenie usług AD FS na platformie Azure](active-directory-aadconnect-azure-adfs.md) zawiera instrukcje krok po kroku dotyczące wdrażania prostej infrastruktury usług AD FS dla organizacji na platformie Azure. W tym artykule opisano następne kroki tworzenia geograficznie rozproszonego wdrożenia usług AD FS na platformie Azure przy użyciu usługi [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Usługa Azure Traffic Manager pomaga przy tworzeniu geograficznie rozproszonej infrastruktury usług AD FS o wysokiej dostępności i wydajności dla organizacji poprzez korzystanie z wielu dostępnych metod routingu dopasowanych do zróżnicowanych potrzeb infrastruktury.
+[Wdrażanie usług AD FS w systemie Azure](active-directory-aadconnect-azure-adfs.md) zawiera wskazówki krok po kroku jako toohow można wdrożyć prosty infrastruktury usług AD FS w organizacji na platformie Azure. W tym artykule przedstawiono kolejne kroki hello toocreate cross geograficznego wdrażania usług AD FS za pomocą usługi Azure [usługi Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Usługi Azure Traffic Manager ułatwia tworzenie geograficznie rozpowszechniania wysokiej dostępności i wysokiej wydajności infrastruktury usług AD FS w organizacji przez użycie zakresu metod routingu różnych dostępnych toosuit wymaga od hello infrastruktury.
 
 Geograficznie rozproszona infrastruktura usług AD FS o wysokiej dostępności umożliwia wykonywanie następujących czynności:
 
-* **Eliminacja pojedynczego punktu awarii:** Dzięki możliwości usługi Azure Traffic Manager do pracy w trybie failover można uzyskać infrastrukturę usług AD FS o wysokiej dostępności nawet w przypadku awarii jednego z centrów danych w danej części świata
-* **Zwiększona wydajność:** Do utworzenia infrastruktury usług AD FS o wysokiej wydajności, która może ułatwić użytkownikom szybsze uwierzytelnianie, możesz użyć wdrożenia sugerowanego w tym artykule. 
+* **Eliminacja pojedynczego punktu awarii:** z możliwości trybu failover z usługi Azure Traffic Manager, można osiągnąć wysokiej dostępności infrastruktury usług AD FS, nawet w przypadku awarii jednego z centrów danych hello w części Witaj świecie
+* **Większa wydajność:** można użyć hello sugerowane wdrożenia w tym artykule tooprovide infrastruktury usług AD FS wysokiej wydajności, które mogą ułatwić użytkownikom szybciej uwierzytelniania. 
 
 ## <a name="design-principles"></a>Zasady projektowania
 ![Ogólny projekt](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
-Podstawowe zasady projektowania będą takie same jak w zasadach projektowania w artykule Wdrożenie usług AD FS na platformie Azure. Na powyższym diagramie przedstawiono proste rozszerzenie podstawowego wdrożenia do innego regionu geograficznego. Poniżej wymieniono kilka kwestii, które należy wziąć pod uwagę podczas rozszerzania wdrożenia do innego regionu geograficznego
+zasady projektowania podstawowe Hello będzie taka sama, jak wymienionych w zasadach projektowania w artykule hello wdrożenia usług AD FS w systemie Azure. diagram Hello powyżej pokazuje rozszerzenie prostego powitania regionu geograficznego tooanother podstawowego wdrożenia. Poniżej przedstawiono niektóre tooconsider punktów podczas rozszerzania regionu geograficznego toonew wdrożenia
 
-* **Sieć wirtualna:** Należy utworzyć nową sieć wirtualną w regionie geograficznym, w którym chcesz wdrożyć dodatkową infrastrukturę usług AD FS. Na powyższym diagramie sieci Geo1 VNET i Geo2 VNET są widoczne jako dwie sieci wirtualne w każdym z regionów geograficznych.
-* **Kontrolery domeny i serwery usługi AD FS w nowej geograficznej sieci wirtualnej:** Zaleca się wdrożenie kontrolerów domeny w nowym regionie geograficznym, aby serwery usługi AD FS w nowym regionie nie musiały kontaktować się z kontrolerem domeny w innej odległej sieci w celu ukończenia uwierzytelniania — spowoduje to wzrost wydajności.
-* **Konta magazynu:** Konta magazynu są skojarzone z regionem. Ponieważ maszyny będą wdrażane w nowym regionie geograficznym, będzie konieczne utworzenie nowych kont magazynu do użytku w tym regionie.  
-* **Grupy zabezpieczeń sieci:** Ponieważ są one kontami magazynu, grup zabezpieczeń sieci utworzonych w danym regionie nie można używać w innym regionie geograficznym. W związku z tym należy utworzyć w nowym regionie geograficznym nowe grupy zabezpieczeń sieci dla podsieci INT i DMZ podobne do tych w pierwszym regionie geograficznym.
-* **Etykiety DNS dla publicznych adresów IP:** Usługa Azure Traffic Manager może odwoływać się do punktów końcowych TYLKO za pośrednictwem etykiet DNS. W związku z tym należy utworzyć etykiety DNS dla publicznych adresów IP zewnętrznych modułów równoważenia obciążenia.
-* **Usługa Azure Traffic Manager:** Usługa Microsoft Azure Traffic Manager umożliwia kontrolowanie dystrybucji ruchu użytkowników do punktów końcowych usługi uruchomionych w różnych centrach danych na całym świecie. Usługa Azure Traffic Manager działa na poziomie usługi DNS. Przy użyciu odpowiedzi usługi DNS kieruje ona ruch użytkowników końcowych do punktów końcowych rozproszonych po całym świecie. Klienci następnie łączą się z tymi punktami końcowymi bezpośrednio. Dzięki różnym opcjom routingu, takim jak Wydajność, Ważona i Priorytet, możesz łatwo wybrać opcję odpowiednią do potrzeb Twojej organizacji. 
-* **Łączność typu sieć wirtualna-sieć wirtualna między dwoma regionami:** Łączność między samymi sieciami wirtualnymi nie jest potrzebna. Ponieważ każda sieć wirtualna ma dostęp do kontrolerów domeny oraz zawiera w sobie serwer usług AD FS i serwer proxy aplikacji sieci Web, mogą one pracować bez łączności z sieciami wirtualnymi w innych regionach. 
+* **Sieć wirtualna:** należy utworzyć nową sieć wirtualną w regionie geograficznym hello ma toodeploy dodatkowe AD FS infrastruktury. W powyższym diagramie hello jest wyświetlana Geo1 sieci Wirtualnej i sieci Wirtualnej Geo2 jako Witaj dwie sieci wirtualne w każdym regionie geograficznym.
+* **Kontrolery domeny i serwery usług AD FS w nowej sieci Wirtualnej geograficzne:** zalecane jest toodeploy kontrolerów domeny w nowej regionu geograficznego hello tak, aby serwery usług AD FS hello w regionie nowe hello nie mają toocontact kontrolera domeny w innym zakresie usunięta w ramach optymalizacji sieci toocomplete uwierzytelniania i tym samym poprawę wydajności hello.
+* **Konta magazynu:** Konta magazynu są skojarzone z regionem. Ponieważ wdrażania maszyn w nowych regionu geograficznego, konieczne będzie toocreate toobe używany w regionie hello nowego konta magazynu.  
+* **Grupy zabezpieczeń sieci:** Ponieważ są one kontami magazynu, grup zabezpieczeń sieci utworzonych w danym regionie nie można używać w innym regionie geograficznym. W związku z tym należy toocreate nowej sieci zabezpieczeń grupy podobne toothose w regionie geograficznym pierwszy hello INT i strefą DMZ podsieci w regionie geograficznym nowe hello.
+* **Etykiety DNS dla publicznych adresów IP:** usługi Azure Traffic Manager można znaleźć tooendpoints tylko za pomocą etykiety DNS. W związku z tym jest wymagana toocreate etykiety DNS dla publicznych adresów IP hello zewnętrznej usługi równoważenia obciążenia.
+* **Menedżer ruchu Azure:** Menedżera ruchu Microsoft Azure umożliwia rozpowszechnianie hello toocontrol użytkownika ruchu tooyour punktów końcowych usługi uruchomione w różnych centrach danych wokół hello world. Menedżer ruchu Azure działa na powitania poziom DNS. Używa ona DNS odpowiedzi toodirect użytkownika końcowego ruchu rozproszonych tooglobally punktów końcowych. Następnie łączyć klienci punkty końcowe toothose bezpośrednio. Przy użyciu różnych opcji routingu wydajności, ważone i priorytet można łatwo wybrać opcję routingu hello najlepiej dostosowane do potrzeb organizacji. 
+* **V net tooV net łączność między dwóch regionach:** nie ma potrzeby toohave łączności między sieciami wirtualnymi hello samej siebie. Ponieważ każdej sieci wirtualnej ma dostęp do kontrolerów toodomain oraz serwera usług AD FS i WAP w sobie, mogą one działać bez żadnych połączenia między sieciami wirtualnymi hello w różnych regionach. 
 
-## <a name="steps-to-integrate-azure-traffic-manager"></a>Kroki dotyczące integrowania usługi Azure Traffic Manager
-### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Wdrażanie usług AD FS w nowym regionie geograficznym
-Postępuj zgodnie z krokami i wskazówkami opisanymi w artykule [Wdrożenie usług AD FS na platformie Azure](active-directory-aadconnect-azure-adfs.md), aby wdrożyć tę samą topologię w nowym regionie geograficznym.
+## <a name="steps-toointegrate-azure-traffic-manager"></a>Kroki toointegrate usługi Azure Traffic Manager
+### <a name="deploy-ad-fs-in-hello-new-geographical-region"></a>Wdrażanie usług AD FS w regionie geograficznym nowe hello
+Wykonaj kroki hello i wskazówkami w [wdrożenia usług AD FS w systemie Azure](active-directory-aadconnect-azure-adfs.md) toodeploy hello samej topologii w regionie geograficznym nowe hello.
 
-### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>Etykiety DNS dla publicznych adresów IP modułów równoważenia obciążenia dostępnych z Internetu (publicznych)
-Jak wspomniano powyżej, usługa Azure Traffic Manager może odwoływać się tylko do etykiet DNS jako punktów końcowych, dlatego należy pamiętać o utworzeniu etykiet DNS dla publicznego adresu IP zewnętrznych modułów równoważenia obciążenia. Poniższy zrzut ekranu przedstawia sposób konfiguracji etykiety DNS dla publicznego adresu IP. 
+### <a name="dns-labels-for-public-ip-addresses-of-hello-internet-facing-public-load-balancers"></a>Etykiety DNS dla publicznych adresów IP hello ukierunkowane Internet równoważenia obciążenia (publiczne)
+Jak wspomniano powyżej, hello Azure Traffic Manager można odwoływać się tylko tooDNS etykiety jako punktów końcowych i dlatego jest ważne toocreate etykiety DNS dla publicznych adresów IP hello zewnętrznej usługi równoważenia obciążenia. Poniżej zrzut ekranu pokazuje, jak można skonfigurować etykiety DNS dla publicznego adresu IP hello. 
 
 ![Etykieta DNS](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
 ### <a name="deploying-azure-traffic-manager"></a>Wdrażanie usługi Azure Traffic Manager
-Wykonaj poniższe kroki, aby utworzyć profil usługi Traffic Manager. Aby uzyskać więcej informacji, możesz również zapoznać się z artykułem [Zarządzanie profilem usługi Azure Traffic Manager](../traffic-manager/traffic-manager-manage-profiles.md).
+Wykonaj kroki hello poniżej toocreate profilu Menedżera ruchu. Aby uzyskać więcej informacji, można także skorzystać zbyt[Zarządzanie profilem usługi Azure Traffic Manager](../traffic-manager/traffic-manager-manage-profiles.md).
 
-1. **Tworzenie profilu usługi Traffic Manager:** Nadaj profilowi usługi Traffic Manager unikatową nazwę. Ta nazwa profilu jest częścią nazwy DNS i działa jako prefiks dla etykiety nazwy domeny usługi Traffic Manager. Nazwa lub prefiks są dodawane do domeny .trafficmanager.net w celu utworzenia etykiety DNS dla usługi Traffic Manager. Na poniższym zrzucie ekranu prefiks DNS usługi Traffic Manager to mysts, w związku z czym etykieta DNS będzie brzmieć mysts.trafficmanager.net. 
+1. **Tworzenie profilu usługi Traffic Manager:** Nadaj profilowi usługi Traffic Manager unikatową nazwę. Ta nazwa profilu hello jest częścią nazwy DNS hello i działa jako prefiksu dla etykiety nazwy domeny usługi Traffic Manager hello. Nazwa Hello / prefiks jest dodane toocreate too.trafficmanager.net etykietę DNS dla Menedżera ruchu. Poniższy zrzut ekranu Hello pokazuje Menedżera ruchu hello ustawiany jak mysts i wynikowy Etykieta DNS zostanie mysts.trafficmanager.net prefiks DNS. 
    
     ![Tworzenie profilu usługi Traffic Manager](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/trafficmanager01.png)
 2. **Metoda routingu ruchu:** W usłudze Traffic Manager są dostępne trzy opcje routingu:
@@ -63,50 +63,50 @@ Wykonaj poniższe kroki, aby utworzyć profil usługi Traffic Manager. Aby uzysk
    * Wydajność
    * Ważona
      
-     **Wydajność** to zalecana opcja umożliwiająca uzyskanie infrastruktury usług AD FS o wysokiej dynamice. Można jednak wybrać dowolną metodę routingu najlepiej dopasowaną do potrzeb wdrożenia. Wybrana opcja routingu nie ma wpływu na funkcje usług AD FS. Zobacz [Metody routingu ruchu w usłudze Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md), aby uzyskać więcej informacji. Na przykładowym zrzucie ekranu powyżej wybrano metodę **Wydajność**.
-3. **Konfigurowanie punktów końcowych:** Na stronie usługi Traffic Manager kliknij punkty końcowe i wybierz pozycję Dodaj. Spowoduje to otwarcie strony Dodawanie punktu końcowego podobnej do tej widocznej na poniższym zrzucie ekranu
+     **Wydajność** hello zaleca się opcja tooachieve szybkiego AD FS infrastruktury. Można jednak wybrać dowolną metodę routingu najlepiej dopasowaną do potrzeb wdrożenia. Witaj AD FS funkcji nie ma wpływu na powitania wybraną opcją routingu. Zobacz [Metody routingu ruchu w usłudze Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md), aby uzyskać więcej informacji. Witaj zrzut ekranu przykładu powyżej, które zawiera hello **wydajności** wybranej metody.
+3. **Skonfiguruj punkty końcowe:** na stronie Menedżera ruchu powitania kliknij punkty końcowe i wybierz pozycję Dodaj. Spowoduje to otwarcie Dodaj punkt końcowy strony podobne toohello Poniższy zrzut ekranu
    
    ![Konfigurowanie punktów końcowych](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
    
-   Aby wprowadzić inne dane wejściowe, zapoznaj się z poniższymi wytycznymi:
+   W przypadku hello różnych komponentów, wykonaj poniższe wytyczne hello:
    
-   **Typ:** Wybierz pozycję Punkt końcowy platformy Azure, ponieważ zostanie wskazany publiczny adres IP platformy Azure.
+   **Typ:** wybierz punktu końcowego platformy Azure, jak firma Microsoft będzie wskazywać tooan Azure publicznego adresu IP.
    
-   **Nazwa:** Utwórz nazwę, którą chcesz skojarzyć z punktem końcowym. To nie jest nazwa DNS i nie ma żadnego wpływu na rekordy DNS.
+   **Nazwa:** utworzyć nazwę, które mają tooassociate z punktem końcowym hello. To nie jest nazwą DNS hello i nie ma żadnego wpływu na rekordy DNS.
    
-   **Typ zasobu docelowego:** Wybierz pozycję Publiczny adres IP jako wartość tej właściwości. 
+   **Docelowy typ zasobu:** wybierz publiczny adres IP jako właściwość toothis wartość hello. 
    
-   **Zasób docelowy:** Możesz wybrać spośród różnych etykiet DNS dostępnych w subskrypcji. Wybierz etykietę DNS odpowiadającą konfigurowanemu punktowi końcowemu.
+   **Zasób docelowy:** zapewni toochoose opcji z innej etykiety DNS hello masz dostępnych w ramach Twojej subskrypcji. Wybierz hello odpowiedniego punktu końcowego toohello konfigurowanej etykiety DNS.
    
-   Dodaj punkt końcowy dla każdego regionu geograficznego, do którego usługa Azure Traffic Manager ma kierować ruch.
-   Aby uzyskać więcej informacji oraz szczegółowy opis kroków dotyczących dodawania/konfigurowania punktów końcowych w usłudze Traffic Manager, zobacz [Dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych](../traffic-manager/traffic-manager-endpoints.md)
-4. **Konfigurowanie sondy:** Na stronie usługi Traffic Manager kliknij pozycję Konfiguracja. Na stronie konfiguracji należy zmienić ustawienia monitora, aby sondował protokół HTTP, port 80 i ścieżkę względną /adfs/probe
+   Dodaj punkt końcowy dla każdego regionu geograficznego, interesujące hello Azure Traffic Manager tooroute ruchu.
+   Aby uzyskać więcej informacji oraz szczegółowe kroki dotyczące tooadd / skonfiguruj punkty końcowe w Menedżerze ruchu, zapoznaj się zbyt[Dodawanie, wyłączanie, włączanie lub usuwanie punktów końcowych](../traffic-manager/traffic-manager-endpoints.md)
+4. **Skonfiguruj sondowania:** na stronie Menedżera ruchu powitania kliknij w konfiguracji. Na stronie konfiguracji hello potrzebna toochange hello monitor ustawienia tooprobe HTTP portu 80 oraz /adfs/probe ścieżki względnej
    
     ![Konfigurowanie sondy](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
    
    > [!NOTE]
-   > **Upewnij się, że po zakończeniu konfiguracji punkty końcowe są w stanie ONLINE**. Jeśli wszystkie punkty końcowe są w stanie obniżonej wydajności, usługa Azure Traffic Manager podejmie próbę kierowania ruchem, zakładając, że diagnostyka jest nieprawidłowa, a wszystkie punkty końcowe są dostępne.
+   > **Upewnij się, że hello stan punktów końcowych hello jest ONLINE po zakończeniu konfiguracji hello**. Jeśli wszystkie punkty końcowe są w stanie "obniżeniem", usługi Azure Traffic Manager wykona najlepsze próba tooroute hello ruchu sieciowego przy założeniu, że hello diagnostyki jest nieprawidłowy, a wszystkie punkty końcowe są dostępne.
    > 
    > 
-5. **Modyfikowanie rekordów DNS dla usługi Azure Traffic Manager:** Usługą federacyjną powinien być rekord CNAME nazwy DNS usługi Azure Traffic Manager. Utwórz rekord CNAME w publicznych rekordach DNS, aby osoba próbująca połączyć się z usługą federacyjną połączyła się z usługą Azure Traffic Manager.
+5. **Modyfikowanie rekordów DNS dla usługi Azure Traffic Manager:** usługi federacyjnej powinna być nazwą DNS Menedżera ruchu Azure toohello CNAME. Utwórz rekord CNAME w hello publicznych rekordów DNS tak, aby rzeczywiście kto próbuje usługi federacyjnej hello tooreach osiągnie hello Azure Traffic Manager.
    
-    Aby na przykład wskazać usługę federacyjną fs.fabidentity.com usłudze Traffic Manager, należy zaktualizować rekord zasobu DNS w następujący sposób:
+    Na przykład toopoint hello federacyjnych usługi fs.fabidentity.com toohello Menedżera ruchu, będzie potrzebny tooupdate Twojego hello toobe rekordów zasobów DNS po:
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-sign-in"></a>Testowanie routingu i logowania za pomocą usług AD FS
+## <a name="test-hello-routing-and-ad-fs-sign-in"></a>Testowanie hello routingu i logowania usług AD FS
 ### <a name="routing-test"></a>Test routingu
-Aby wykonać bardzo prosty test routingu, spróbuj wysłać polecenie ping do nazwy DNS usługi federacyjnej z maszyny w każdym z regionów geograficznych. W zależności od wybranej metody routingu punkt końcowy, do którego wysłano polecenie ping, zostanie odzwierciedlony w wyświetlaczu ping. Jeśli na przykład wybrano metodę Wydajność, zostanie nawiązane połączenie z punktem końcowym znajdującym się najbliżej regionu klienta. Poniżej znajduje się migawka dwóch poleceń ping z maszyn w dwóch różnych regionach, jedna w regionie Azja Wschodnia i jedna w regionie Zachodnie stany USA. 
+Bardzo podstawowy test routingu hello byłoby tootry ping hello nazwa usługi federacyjnej DNS na komputerze w każdym regionie geograficznym. W zależności od wybranej metody routingu hello hello punktu końcowego, który faktycznie pakiety usługi ping zostaną odzwierciedlone w hello ping wyświetlania. Na przykład w przypadku wybrania wydajności hello routingu, następnie końcowy hello najbliżej toohello region powitania klienta zostanie podjęta. Poniżej znajdują się hello migawkę dwa polecenia ping z dwóch komputerów klienckich w innym regionie, co w regionie EastAsia i jeden w zachodnie stany USA. 
 
 ![Test routingu](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
 ### <a name="ad-fs-sign-in-test"></a>Test logowania za pomocą usług AD FS
-Najprostszym sposobem przetestowania działania usług AD FS jest użycie strony IdpInitiatedSignon.aspx. Przede wszystkim trzeba ją włączyć we właściwościach usług AD FS. Wykonaj poniższe kroki, aby zweryfikować konfigurację usług AD FS.
+Hello Najprostszym sposobem tootest usług AD FS jest przy użyciu hello IdpInitiatedSignon.aspx strony. W kolejności toobe toodo możliwe, że jest wymagane tooenable hello IdpInitiatedSignOn właściwości hello usług AD FS. Wykonaj kroki hello poniżej tooverify konfigurację usług AD FS
 
-1. Aby włączyć tę stronę, uruchom poniższe polecenie cmdlet na serwerze usług AD FS przy użyciu programu PowerShell. 
+1. Uruchom hello poniżej polecenia cmdlet na powitania AD FS serwera przy użyciu programu PowerShell, tooset go tooenabled. 
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. Przy użyciu dowolnej maszyny zewnętrznej otwórz stronę https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
-3. Powinna pojawić się poniższa strona usług AD FS:
+3. Powinna zostać wyświetlona strona hello usług AD FS, takich jak poniżej:
    
     ![Test usług AD FS — żądanie uwierzytelnienia](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
    

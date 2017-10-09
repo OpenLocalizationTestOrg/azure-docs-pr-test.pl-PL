@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI skrypt przykładowy — Tworzenie pamięci podręcznej Azure Redis | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia — Tworzenie pamięci podręcznej Redis Azure | Dokumentacja firmy Microsoft"
 description: "Azure CLI skrypt przykładowy — Tworzenie pamięci podręcznej Azure Redis"
 services: redis-cache
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: c6b153d80de4cbf2bec1bc70d67be7befa0c5ec3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 85b007a426fbd4752034ec8663835963d140dd75
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-redis-cache"></a>Tworzenie usługi Azure Redis Cache
 
-W tym scenariuszu należy informacje o sposobie tworzenia pamięci podręcznej Redis Azure.
+W tym scenariuszu możesz dowiedzieć się, jak toocreate Azure pamięci podręcznej Redis.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli[główne](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "pamięć podręczna Redis Azure")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów i pamięci podręcznej redis. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia toocreate grupy zasobów i pamięci podręcznej redis. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -45,6 +45,6 @@ Ten skrypt używa następujących poleceń do utworzenia grupy zasobów i pamię
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów w pamięci podręcznej Redis Azure CLI znajdują się w [dokumentacji pamięć podręczna Redis Azure](../cli-samples.md).
+Dodatkowe przykłady skryptów interfejsu wiersza polecenia pamięci podręcznej Redis Azure można znaleźć w hello [dokumentacji pamięć podręczna Redis Azure](../cli-samples.md).

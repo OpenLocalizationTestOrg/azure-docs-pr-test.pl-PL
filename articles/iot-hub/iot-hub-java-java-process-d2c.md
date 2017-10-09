@@ -1,6 +1,6 @@
 ---
-title: "Przetwarzanie wiadomości urządzenia do chmury Azure IoT Hub (Java) | Dokumentacja firmy Microsoft"
-description: "Jak komunikaty do przetwarzania komunikatów urządzenia do chmury Centrum IoT przy użyciu reguł routingu oraz niestandardowe punkty końcowe wysłania wiadomości do innych usług zaplecza."
+title: "aaaProcess wiadomości urządzenia do chmury Azure IoT Hub (Java) | Dokumentacja firmy Microsoft"
+description: "Jak tooprocess Centrum IoT wiadomości urządzenia do chmury przy użyciu reguł routingu oraz niestandardowe punkty końcowe toodispatch komunikatów tooother usług zaplecza."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 084e84e721ca4297c4d7d6cb06a43b0bed9bce85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Przetwarzanie wiadomości urządzenia do chmury Centrum IoT (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Centrum IoT Azure jest w pełni zarządzaną usługę, która zapewnia niezawodne i bezpieczną komunikację dwukierunkową między milionów urządzeń i rozwiązanie zaplecza. Innych samouczków ([Rozpoczynanie pracy z Centrum IoT] i [wysyłać chmury do urządzenia z Centrum IoT][lnk-c2d]) opisano, jak korzystać z podstawowego urządzenia do chmury i chmury do urządzenia Obsługa wiadomości funkcji Centrum IoT.
+Centrum IoT Azure jest w pełni zarządzaną usługę, która zapewnia niezawodne i bezpieczną komunikację dwukierunkową między milionów urządzeń i rozwiązanie zaplecza. Innych samouczków ([Rozpoczynanie pracy z Centrum IoT] i [wysyłać chmury do urządzenia z Centrum IoT][lnk-c2d]) pokazują, jak toouse hello podstawowe urządzenia do chmury i chmury do urządzenia Obsługa wiadomości funkcji Centrum IoT.
 
-W tym samouczku opiera się na kodzie pokazanym w [Rozpoczynanie pracy z Centrum IoT] samouczek oraz przedstawiono sposób do rozsyłania wiadomości przetwarzania komunikatów urządzenia do chmury w sposób skalowalny. Samouczek przedstawia sposób przetwarzania komunikatów, które wymagają natychmiastowego działania z zaplecza rozwiązania. Na przykład urządzenie może wysłać komunikat alarmu, które wyzwala Wstawianie biletu do systemu CRM. Z kolei wiadomości punktu danych źródła danych po prostu do aparatu analizy. Na przykład dane telemetryczne temperatury z urządzenia, które mają być przechowywane w celu późniejszej analizy jest komunikat punktu danych.
+W tym samouczku opiera się na powitania kodu pokazano hello [Rozpoczynanie pracy z Centrum IoT] samouczek i pokazuje, jak toouse wiadomości routingu wiadomości urządzenia do chmury tooprocess w sposób skalowalny. Samouczek Hello przedstawiono, jak komunikaty tooprocess, które wymagają natychmiastowego działania z rozwiązania hello wewnętrzna baza danych. Na przykład urządzenie może wysłać komunikat alarmu, które wyzwala Wstawianie biletu do systemu CRM. Z kolei wiadomości punktu danych źródła danych po prostu do aparatu analizy. Na przykład dane telemetryczne temperatury z urządzenia, które jest przechowywane w celu późniejszej analizy toobe jest komunikat punktu danych.
 
-Na końcu tego samouczka możesz uruchomić trzech aplikacji Java w konsoli:
+Na końcu hello tego samouczka możesz uruchomić trzech aplikacji Java w konsoli:
 
-* **Symulowane urządzenie**, zmodyfikowanej wersji aplikacji utworzonych w [Rozpoczynanie pracy z Centrum IoT] samouczek, wysyła komunikaty urządzenia do chmury punktu danych co sekundę i interaktywne urządzenia do chmury wiadomości co 10 sekund . Ta aplikacja korzysta z protokołu AMQP do komunikowania się z Centrum IoT.
-* **Odczyt — d2c — liczba komunikatów** Wyświetla telemetrii wysyłane przez aplikację na urządzeniu.
-* **Odczyt krytyczne kolejki** usuwania kolejki krytycznych wiadomości z kolejki usługi Service Bus dołączony do Centrum IoT.
+* **Symulowane urządzenie**, zmodyfikowanej wersji aplikacji hello utworzone w hello [Rozpoczynanie pracy z Centrum IoT] samouczek, wysyła komunikaty urządzenia do chmury punktu danych co sekundę i interaktywne urządzenia do chmury wiadomości co 10 Liczba sekund. Ta aplikacja używa toocommunicate protokołu AMQP hello z Centrum IoT.
+* **Odczyt — d2c — liczba komunikatów** wyświetla dane telemetryczne hello wysyłane przez aplikację na urządzeniu.
+* **Odczyt krytyczne kolejki** usuwania kolejki krytycznych wiadomości powitania od toohello dołączony kolejki usługi Service Bus hello Centrum IoT.
 
 > [!NOTE]
-> Centrum IoT obsługuje zestawu SDK dla wielu platform urządzeń i języków, w tym C, Java i JavaScript. Aby uzyskać instrukcje dotyczące sposobu Zamień w tym samouczku urządzenie fizyczne urządzenia oraz sposób podłączania urządzeń do Centrum IoT, zobacz [Azure IoT Developer Center].
+> Centrum IoT obsługuje zestawu SDK dla wielu platform urządzeń i języków, w tym C, Java i JavaScript. Aby uzyskać instrukcje dotyczące sposobu tooreplace hello urządzenia w ramach tego samouczka z urządzenia fizycznego i tooconnect tooan urządzenia IoT Hub, zobacz temat hello [Azure IoT Developer Center].
 
-Do wykonania kroków tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka należy hello następujące:
 
-* Pełną wersję pracy [Rozpoczynanie pracy z Centrum IoT] samouczka.
-* Najnowszy zestaw [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Pełną wersję pracy hello [Rozpoczynanie pracy z Centrum IoT] samouczka.
+* Witaj najnowszych [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto] [lnk bezpłatnych wersji próbnych] w zaledwie kilka minut.)
 
 Powinien mieć niektóre podstawową wiedzę na temat [usługi Azure Storage] i [Azure Service Bus].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Wysyłanie wiadomości interaktywne z aplikacji przez urządzenia
-W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczynanie pracy z Centrum IoT] samouczek czasami wysłać wiadomości, które wymagają natychmiastowego przetwarzania.
+W tej sekcji możesz zmodyfikować aplikację urządzenia hello utworzony w hello [Rozpoczynanie pracy z Centrum IoT] toooccasionally samouczka Wyślij wiadomości, które wymagają natychmiastowego przetwarzania.
 
-1. Użyj edytora tekstów, aby otworzyć plik simulated-device\src\main\java\com\mycompany\app\App.java. Ten plik zawiera kod **symulowane urządzenie** aplikacji utworzony w [Rozpoczynanie pracy z Centrum IoT] samouczka.
+1. Przy użyciu pliku simulated-device\src\main\java\com\mycompany\app\App.java hello tooopen edytora tekstu. Ten plik zawiera kod hello hello **symulowane urządzenie** aplikacji utworzony w hello [Rozpoczynanie pracy z Centrum IoT] samouczka.
 
-2. Zastąp **MessageSender** klasy następującym kodem:
+2. Zastąp hello **MessageSender** klasy z hello następującego kodu:
 
     ```java
     private static class MessageSender implements Runnable {
@@ -99,53 +99,53 @@ W tej sekcji możesz zmodyfikować aplikację urządzenia, utworzony w [Rozpoczy
     }
     ```
    
-    Ta metoda losowo dodaje właściwość `"level": "critical"` dla komunikatów wysyłanych przez urządzenia, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza aplikacji. Aplikacji przekazuje informacje we właściwościach komunikatu zamiast, w treści wiadomości, więc tego Centrum IoT może kierować wiadomości do miejsca docelowego właściwy komunikat.
+    Ta metoda losowo dodaje właściwość hello `"level": "critical"` toomessages wysyłane przez urządzenie hello, która symuluje komunikat, który wymaga natychmiastowego działania przez zaplecza aplikacji hello. Aplikacja Hello przekazuje informacje w oknie dialogowym właściwości wiadomość hello zamiast, w treści wiadomości powitania, dzięki tym Centrum IoT można kierować docelowy prawidłowego komunikatu toohello wiadomość hello.
    
    > [!NOTE]
-   > Można użyć właściwości wiadomości do przesyłania wiadomości dla różnych scenariuszy, w tym chłodni ścieżką podczas przetwarzania, oprócz tu przykładzie aktywnej ścieżki.
+   > Można użyć komunikatów właściwości tooroute komunikatów dla różnych scenariuszy, w tym przetwarzanie dodatkowo toohello aktywnej ścieżki przykładzie chłodni path.
 
-2. Zapisz i zamknij plik simulated-device\src\main\java\com\mycompany\app\App.java.
+2. Zapisz i zamknij plik simulated-device\src\main\java\com\mycompany\app\App.java hello.
 
     > [!NOTE]
-    > Dla uproszczenia w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN np. [obsługi błędów przejściowych].
+    > Dla zapewnienia hello prostotę w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania wykładniczego wycofywania, zgodnie z sugestią podaną w artykuł w witrynie MSDN hello np. [obsługi błędów przejściowych].
 
-3. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
+3. Witaj toobuild **symulowane urządzenie** aplikacji za pomocą programu Maven, wykonaj następujące polecenie w wierszu polecenia hello w folderze symulowane urządzenie hello hello:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Dodaj kolejki do IoT hub i tras wiadomości do niego
+## <a name="add-a-queue-tooyour-iot-hub-and-route-messages-tooit"></a>Dodaj kolejki tooyour IoT hub i tras wiadomości tooit
 
-W tej sekcji Tworzenie kolejki usługi Service Bus, połącz go z Centrum IoT i skonfigurować do wysyłania wiadomości do kolejki na podstawie obecności właściwość w komunikacie Centrum IoT. Aby uzyskać więcej informacji o sposobie przetwarzania komunikatów z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java].
+W tej sekcji Tworzenie kolejki usługi Service Bus, podłącz go tooyour Centrum IoT i skonfigurować IoT Centrum toosend wiadomości toohello kolejki na podstawie obecności hello właściwości na wiadomość powitania. Aby uzyskać więcej informacji o sposobie tooprocess komunikaty z kolejek usługi Service Bus, zobacz [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java].
 
-1. Tworzenie kolejki usługi Service Bus, zgodnie z opisem w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java]. Zanotuj nazwę przestrzeni nazw i kolejki.
+1. Tworzenie kolejki usługi Service Bus, zgodnie z opisem w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java]. Zanotuj nazwę przestrzeni nazw i kolejki hello.
 
-2. W portalu Azure Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
+2. Witaj w portalu Azure, Otwórz Centrum IoT i kliknij przycisk **punkty końcowe**.
 
     ![Punkty końcowe Centrum IoT][30]
 
-3. W **punkty końcowe** bloku, kliknij przycisk **Dodaj** u góry, aby dodać kolejki do Centrum IoT. Nazwa punktu końcowego **CriticalQueue** i umożliwia wybranie listach rozwijanych **kolejki usługi Service Bus**, przestrzeń nazw magistrali usług, w której znajduje się kolejki i nazwy kolejki. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać** u dołu.
+3. W hello **punkty końcowe** bloku, kliknij przycisk **Dodaj** na hello top tooadd Centrum IoT tooyour kolejki. Punkt końcowy hello nazwa **CriticalQueue** i użyj hello listach rozwijanych tooselect **kolejki usługi Service Bus**hello przestrzeń nazw magistrali usług, w której znajduje się kolejki i hello nazwę kolejki. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać** u dołu hello.
 
     ![Dodawanie punktu końcowego][31]
 
-4. Teraz kliknij **tras** w Centrum IoT. Kliknij przycisk **Dodaj** w górnej części bloku, aby utworzyć regułę routingu kieruje komunikaty do kolejki właśnie został dodany. Wybierz **DeviceTelemetry** jako źródło danych. Wprowadź `level="critical"` jako warunek i wybierz polecenie kolejki właśnie został dodany jako punkt końcowy niestandardowych jako routingu końcowy reguły. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać** u dołu.
+4. Teraz kliknij **tras** w Centrum IoT. Kliknij przycisk **Dodaj** u góry hello toocreate bloku hello reguły routingu kieruje komunikaty toohello kolejki można tylko dodać. Wybierz **DeviceTelemetry** hello źródłem danych. Wprowadź `level="critical"` hello warunkiem i wybierz polecenie kolejki hello właśnie został dodany jako punkt końcowy niestandardowych jako hello punkt końcowy reguły routingu. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać** u dołu hello.
 
     ![Dodawanie trasy][32]
 
-    Upewnij się, że rezerwowy trasy ma ustawioną wartość **ON**. To ustawienie jest domyślną konfigurację Centrum IoT.
+    Upewnij się, że trasy rezerwowy hello ustawiono zbyt**ON**. To ustawienie jest hello domyślną konfigurację Centrum IoT.
 
     ![Trasy rezerwowej][33]
 
-## <a name="optional-read-from-the-queue-endpoint"></a>(Opcjonalnie) Odczyt z kolejki punktu końcowego
+## <a name="optional-read-from-hello-queue-endpoint"></a>(Opcjonalnie) Odczyt z hello punkt końcowy z kolejki
 
-Można opcjonalnie odczytywać wiadomości z kolejki punktu końcowego, postępując zgodnie z instrukcjami w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java]. Nazwa aplikacji **odczytu krytycznych kolejki**.
+Możesz opcjonalnie przeczytać wiadomości powitania z punkt końcowy kolejki hello, wykonując następujące instrukcje hello w [Rozpoczynanie pracy z kolejkami][lnk-sb-queues-java]. Nazwa aplikacji hello **odczytu krytycznych kolejki**.
 
-## <a name="run-the-applications"></a>Uruchamianie aplikacji
+## <a name="run-hello-applications"></a>Uruchamianie aplikacji hello
 
-Teraz można przystąpić do uruchomienia trzech aplikacji.
+Teraz wszystko jest gotowe toorun hello trzech aplikacji.
 
-1. Aby uruchomić **odczytu — d2c — liczba komunikatów** aplikacji, w wierszu polecenia lub powłoki przejdź do folderu d2c odczytu i uruchom następujące polecenie:
+1. Witaj toorun **odczytu — d2c — liczba komunikatów** aplikacji, w wierszu polecenia lub powłoki przejdź do folderu d2c odczytu toohello i wykonywanie hello następujące polecenie:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -153,7 +153,7 @@ Teraz można przystąpić do uruchomienia trzech aplikacji.
 
    ![Uruchom odczytu — d2c — liczba komunikatów][readd2c]
 
-2. Aby uruchomić **odczytu krytycznych kolejki** aplikacji, w wierszu polecenia lub powłoki przejdź do folderu odczytu krytycznych kolejki i uruchom następujące polecenie:
+2. Witaj toorun **odczytu krytycznych kolejki** aplikacji, w wierszu polecenia lub powłoki przejdź do folderu odczytu krytycznych kolejki toohello i wykonywanie hello następujące polecenie:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -161,7 +161,7 @@ Teraz można przystąpić do uruchomienia trzech aplikacji.
    
    ![Uruchom odczytu — krytyczne — liczba komunikatów][readqueue]
 
-3. Aby uruchomić **symulowane urządzenie** aplikacji, w wierszu polecenia lub powłoki przejdź do folderu symulowane urządzenie i uruchom następujące polecenie:
+3. Witaj toorun **symulowane urządzenie** aplikacji, w wierszu polecenia lub powłoki Przejdź toohello folderu symulowane urządzenie i wykonaj hello następujące polecenie:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -171,15 +171,15 @@ Teraz można przystąpić do uruchomienia trzech aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób niezawodny sposób wysyłania wiadomości urządzenia do chmury przy użyciu funkcji routing komunikatów z Centrum IoT.
+W tym samouczku przedstawiono sposób tooreliably wysyłania wiadomości urządzenia do chmury przy użyciu funkcji routingu wiadomość hello Centrum IoT.
 
-[Sposób wysyłania wiadomości chmury do urządzenia z Centrum IoT] [ lnk-c2d] przedstawiono sposób wysyłania komunikatów do urządzeń z Twojej zaplecza rozwiązania.
+Witaj [jak komunikaty toosend chmury do urządzenia z Centrum IoT] [ lnk-c2d] pokazuje, jak toosend wiadomości tooyour przez urządzenia z zaplecza rozwiązania.
 
-Aby zapoznać się przykładem kompletnych rozwiązań end-to-end korzystających z Centrum IoT, zobacz [pakiet IoT Azure][lnk-suite].
+Przykłady toosee kompletnych rozwiązań end-to-end korzystających z Centrum IoT, zobacz [pakiet IoT Azure][lnk-suite].
 
-Aby dowiedzieć się więcej na temat tworzenia rozwiązań z Centrum IoT, zobacz [Centrum IoT — przewodnik dewelopera].
+toolearn więcej informacji na temat tworzenia rozwiązań z Centrum IoT, zobacz hello [Centrum IoT — przewodnik dewelopera].
 
-Aby dowiedzieć się więcej na temat w Centrum IoT rozsyłania wiadomości, zobacz [wysyłania i odbierania wiadomości z Centrum IoT][lnk-devguide-messaging].
+Zobacz toolearn więcej informacji na temat routing komunikatów w Centrum IoT [wysyłania i odbierania wiadomości z Centrum IoT][lnk-devguide-messaging].
 
 <!-- Images. -->
 <!-- TODO: UPDATE PICTURES -->

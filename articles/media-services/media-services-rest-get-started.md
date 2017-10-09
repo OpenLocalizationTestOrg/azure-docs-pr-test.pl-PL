@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do dostarczania zawartości na żądanie przy użyciu REST | Dokumentacja firmy Microsoft"
-description: "Ten samouczek przedstawia kroki wdrażania aplikacji dostarczania zawartości na żądanie przy użyciu interfejsu API REST usługi Azure Media Services."
+title: "wprowadzenie do dostarczania zawartości na żądanie przy użyciu REST aaaGet | Dokumentacja firmy Microsoft"
+description: "Ten samouczek przedstawia kroki hello wdrażania aplikacji dostarczania zawartości na żądanie przy użyciu interfejsu API REST usługi Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: f304f7671465862123f64c8b0f9af95a7c828cc2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f270ed59e9ae9745e8403ec6e19d5c3533fc82b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Wprowadzenie do dostarczania zawartości na żądanie za pomocą usługi REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Ta opcja szybkiego startu przeprowadzi Cię przez kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu interfejsów API REST usługi Azure Media Services (AMS).
+Ta opcja szybkiego startu przeprowadzi Cię przez kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu interfejsów API REST usługi Azure Media Services (AMS) hello.
 
-Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najczęściej występujące obiekty i zadania programowania wymagane w celu projektowania usług Media Services. Po zakończeniu samouczka będziesz umieć przesłać strumieniowo lub pobrać progresywnie przykładowy plik multimedialny, który został wcześniej przekazany, zakodowany oraz pobrany.
+Samouczek Hello wprowadza hello podstawowy przepływ pracy usług Media Services i hello najczęściej obiekty i zadania programowania wymagane do tworzenia usługi Media Services. Po ukończeniu hello samouczka hello będzie toostream może być lub pobrać progresywnie przykładowy plik nośnika, który przekazany, zakodowany i pobierane.
 
-Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia aplikacji VoD w modelu Media Services OData.
+Witaj poniższej ilustracji przedstawiono niektóre obiekty hello najczęściej używane podczas tworzenia aplikacji VoD hello Media Services OData modelu.
 
-Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
+Kliknij przycisk tooview obraz powitania pełny jego rozmiar.  
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Następujące wymagania wstępne są wymagane do uruchomienia, programowania z użyciem usługi Media Services z interfejsów API REST.
+Witaj następujące wymagania wstępne są wymagane toostart programowania z użyciem usługi Media Services z interfejsów API REST.
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
-* Opis sposobu tworzenia z interfejsu API REST usługi multimediów. Aby uzyskać więcej informacji, zobacz [omówienie interfejsu API REST usług Media](media-services-rest-how-to-use.md).
+* Konto usługi Media Services. Zobacz toocreate konto usługi Media Services [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
+* Opis sposobu toodevelop z interfejsu API REST usługi multimediów. Aby uzyskać więcej informacji, zobacz [omówienie interfejsu API REST usług Media](media-services-rest-how-to-use.md).
 * Aplikacja, który może wysyłać żądań i odpowiedzi HTTP. W tym samouczku używana [Fiddler](http://www.telerik.com/download/fiddler).
 
-Następujące zadania są wyświetlane w tym Szybki Start.
+Witaj następujące zadania są wyświetlane w tego przewodnika Szybki Start.
 
-1. Uruchamianie punktów końcowych przesyłania strumieniowego (przy użyciu witryny Azure Portal).
-2. Podłącz do konta usługi Media Services z interfejsu API REST.
+1. Początek (przy użyciu portalu Azure hello) punktu końcowego przesyłania strumieniowego.
+2. Konto usługi Media Services toohello Uzyskuj dostęp do interfejsu API REST.
 3. Tworzenie nowego elementu zawartości i przekazywanie pliku wideo z interfejsu API REST.
-4. Kodowanie pliku źródłowego do zestawu plików MP4 o adaptacyjnej szybkości bitowej z interfejsu API REST.
-5. Publikowanie elementu zawartości i get przesyłania strumieniowego i pobierania progresywnego adresy URL z interfejsu API REST.
+4. Koduj plik źródłowy hello do zestawu plików MP4 o adaptacyjnej szybkości bitowej z interfejsu API REST.
+5. Publikowanie zawartości hello i get przesyłania strumieniowego i pobierania progresywnego adresy URL z interfejsu API REST.
 6. Odtwarzanie zawartości.
 
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać hello tym samym identyfikatorze zasad, jeśli używasz zawsze hello sam dni / dostęp uprawnień, na przykład zasady dla lokalizatorów, które są przeznaczone tooremain w miejscu przez długi czas (zasady — przekazywanie). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
 
 Aby uzyskać szczegółowe informacje na temat jednostek AMS REST używaną w tym temacie, zobacz [dokumentacja interfejsu API REST usługi Azure Media Services](/rest/api/media/services/azure-media-services-rest-api-reference). Zobacz też [pojęcia dotyczące usługi Azure Media Services](media-services-concepts.md).
 
 >[!NOTE]
 >Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ustawić określonych pól nagłówka i wartości w Twoich żądań HTTP. Aby uzyskać więcej informacji, zobacz [ustawień dla rozwoju interfejsu API REST usługi Media](media-services-rest-how-to-use.md).
 
-## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Uruchamianie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
+## <a name="start-streaming-endpoints-using-hello-azure-portal"></a>Uruchom przy użyciu portalu Azure hello punkty końcowe przesyłania strumieniowego
 
-Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach przesyłania strumieniowego obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
-
->[!NOTE]
->Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
-
-Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące czynności:
-
-1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
-2. W oknie Ustawienia kliknij pozycję Punkty końcowe przesyłania strumieniowego.
-3. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
-
-    Zostanie wyświetlone okno SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO.
-
-4. Kliknij ikonę Uruchom.
-5. Kliknij przycisk Zapisz, aby zapisać zmiany.
-
-## <a id="connect"></a>Połącz się kontem usługi Media Services z interfejsu API REST
-
-Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Podczas pracy w usłudze Azure Media Services jednym z hello najbardziej typowych scenariuszy jest dostarczanie plików wideo przy użyciu przesyłania strumieniowego adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, co pozwala toodeliver adaptacyjnej szybkości bitowej MP4 zakodowane zawartości w formatach transmisji strumieniowej obsługiwanych przez usługi Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, bez konieczności toostore wstępnie umieszczone wersje każdego z tych formatach.
 
 >[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
+>Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu.
 
-Na przykład jeśli po próby nawiązania połączenia, masz następujące czynności:
+toostart hello punktu końcowego przesyłania strumieniowego, hello następujące:
+
+1. Zaloguj się w hello [portalu Azure](https://portal.azure.com/).
+2. W oknie Ustawienia powitania kliknij punkty końcowe przesyłania strumieniowego.
+3. Kliknij przycisk domyślny hello punktu końcowego przesyłania strumieniowego.
+
+    zostanie wyświetlone okno Szczegóły punktu KOŃCOWEGO przesyłania STRUMIENIOWEGO domyślne Hello.
+
+4. Kliknij ikonę Start hello.
+5. Kliknij przycisk toosave przycisk Zapisz hello zmiany.
+
+## <a id="connect"></a>Konto usługi Media Services toohello Uzyskuj dostęp do interfejsu API REST
+
+Aby uzyskać informacje dotyczące tooconnect toohello AMS interfejsu API, zobacz temat [hello dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Po pomyślnym połączeniu toohttps://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Należy wykonać kolejne wywołania toohello nowy identyfikator URI.
+
+Na przykład jeśli po wypróbowaniu tooconnect, masz następujące hello:
 
     HTTP/1.1 301 Moved Permanently
     Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-Należy zadać kolejnych wywołań interfejsu API https://wamsbayclus001rest-hs.cloudapp.net/api/.
+Należy zadać programu późniejsze toohttps://wamsbayclus001rest-hs.cloudapp.net/api/ wywołania interfejsu API.
 
 ## <a id="upload"></a>Tworzenie nowego elementu zawartości i przekazywanie pliku wideo z interfejsu API REST
 
-Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. **Zasobów** może zawierać wideo, audio, obrazy, kolekcje miniatur, tekst ścieżek i napisów plików (oraz metadane dotyczące tych plików.)  Po przekazaniu plików do zawartości, zawartość jest bezpiecznie przechowywana w chmurze na potrzeby dalszego przetwarzania i przesyłania strumieniowego.
+Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu zawartości. Witaj **zasobów** może zawierać wideo, audio, obrazy, kolekcje miniatur, tekst ścieżek i napisów plików (i hello metadane dotyczące tych plików.)  Po hello pliki są przekazywane do hello zawartości, zawartość jest bezpiecznie przechowywana w chmurze powitania dla dalszego przetwarzania i przesyłania strumieniowego.
 
-Jedna z wartości, które należy podać podczas tworzenia zasobu jest opcji tworzenia elementów zawartości. **Opcje** właściwość jest wartością wyliczenia, które opisano dostępne opcje szyfrowania, które można utworzyć zasobu z. Nieprawidłowa wartość jest jedną z wartości z listy poniżej, a nie kombinację wartości z tej listy:
+Jedna z wartości hello ma tooprovide, podczas tworzenia zasobu jest opcji tworzenia elementów zawartości. Witaj **opcje** właściwość jest wartością wyliczenia, który opisuje opcje szyfrowania hello, które można utworzyć zasobu z. Nieprawidłowa wartość jest jedną z wartości hello z listy hello poniżej nie kombinację wartości z tej listy:
 
 * **Brak** = **0** — szyfrowanie nie jest stosowane. Korzystając z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
-    Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
-* **StorageEncrypted** = **1** — zawartości lokalnie, przy użyciu standardu AES 256-bitowego szyfruje i przekazuje go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
+    Jeśli planujesz toodeliver MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
+* **StorageEncrypted** = **1** — szyfruje zawartości lokalnie, przy użyciu standardu AES 256-bitowego, a następnie przekazanie jej tooAzure magazynu, w którym są przechowywane szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie bez szyfrowania i umieszczana w poprzednich tooencoding systemu szyfrowania plików i opcjonalnie ponownie szyfrowane przed toouploading zwrotnym w formie nowego elementu zawartości wyjściowej. Witaj pierwotnym zastosowaniem szyfrowania magazynu jest toosecure Twojego wysokiej jakości multimedialnych plików wejściowych z silne szyfrowanie przechowywanych na dysku.
 * **CommonEncryptionProtected** = **2** — ta opcja umożliwia przekazanie zawartości, który został już szyfrowane i chronione za pomocą wspólnego szyfrowania lub technologii PlayReady DRM (na przykład, Smooth Streaming chronione przy użyciu technologii PlayReady DRM).
-* **EnvelopeEncryptionProtected** = **4** — Użyj tej opcji, Jeśli przesyłasz HLS zaszyfrowanych z użyciem standardu AES. Należy zakodowane pliki i szyfrowane przez Transform Manager.
+* **EnvelopeEncryptionProtected** = **4** — Użyj tej opcji, Jeśli przesyłasz HLS zaszyfrowanych z użyciem standardu AES. pliki Hello musi zostały zakodowane i zaszyfrowane przez Transform Manager.
 
 ### <a name="create-an-asset"></a>Utwórz zasób
-Zasób jest kontenerem dla wielu typów lub zestawów obiektów w usłudze Media Services: wideo, audio, obrazy, kolekcje miniatur, ścieżek tekstu i pliki napisów. W interfejsie API REST tworzenie zasobu wymaga wysłanie żądania POST do usługi Media Services i umieszczenie wszelkie informacje o zawartości w treści żądania.
+Zasób jest kontenerem dla wielu typów lub zestawów obiektów w usłudze Media Services: wideo, audio, obrazy, kolekcje miniatur, ścieżek tekstu i pliki napisów. W hello interfejsu API REST, tworzenie zasobu wymaga wysyłania POST wysyłanie żądań usług tooMedia i umieszczenie wszelkie informacje o zawartości w treści żądania hello.
 
-Poniższy przykład pokazuje, jak utworzyć element zawartości.
+powitania po przykładzie pokazano, jak toocreate zasób.
 
 **Żądania HTTP**
 
@@ -126,7 +126,7 @@ Poniższy przykład pokazuje, jak utworzyć element zawartości.
 
 **Odpowiedź HTTP**
 
-Jeśli to się powiedzie, jest zwracany następujące czynności:
+W przypadku powodzenia zwrócono hello następujące czynności:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -157,9 +157,9 @@ Jeśli to się powiedzie, jest zwracany następujące czynności:
     }
 
 ### <a name="create-an-assetfile"></a>Utwórz AssetFile
-[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) jednostki reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów blob. Plik zasobów zawsze jest skojarzony z zasobem i zasobów może zawierać jeden lub wiele AssetFiles. Zadanie Media Encoder usługi nie powiedzie się, jeśli obiekt pliku zasobu nie jest skojarzony z pliku cyfrowego w kontenerze obiektów blob.
+Witaj [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) jednostki reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów blob. Plik zasobów zawsze jest skojarzony z zasobem i zasobów może zawierać jeden lub wiele AssetFiles. Witaj Media Encoder usług zadanie nie powiedzie się, jeśli obiekt pliku zasobu nie jest skojarzony z pliku cyfrowego w kontenerze obiektów blob.
 
-Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, użyj **scalania** żądania HTTP, aby zaktualizować informacje o pliku nośnika AssetFile (jak pokazano w dalszej części tematu).
+Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, użyj hello **scalania** żądania HTTP tooupdate hello AssetFile informacje o pliku nośnika (jak pokazano w dalszej części tematu hello).
 
 **Żądania HTTP**
 
@@ -218,10 +218,10 @@ Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, użyj **sca
     }
 
 
-### <a name="creating-the-accesspolicy-with-write-permission"></a>Tworzenie AccessPolicy z uprawnieniami do zapisu
-Przed przekazaniem żadnych plików do magazynu obiektów blob, należy ustawić dostęp zasad prawa do zapisu do elementu zawartości. W tym celu po żądania HTTP AccessPolicies zestawem jednostek. Zdefiniuj wartość DurationInMinutes po utworzeniu lub pojawi się komunikat o błędzie 500 wewnętrzny serwer w odpowiedzi. Aby uzyskać więcej informacji o AccessPolicies, zobacz [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+### <a name="creating-hello-accesspolicy-with-write-permission"></a>Tworzenie hello AccessPolicy z uprawnieniami do zapisu
+Przed przekazaniem żadnych plików do magazynu obiektów blob, należy ustawić dostępu hello zasad praw do pisania tooan zasobów. Ustaw toodo, który po toohello żądania HTTP AccessPolicies jednostki. Zdefiniuj wartość DurationInMinutes po utworzeniu lub pojawi się komunikat o błędzie 500 wewnętrzny serwer w odpowiedzi. Aby uzyskać więcej informacji o AccessPolicies, zobacz [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
-Poniższy przykład przedstawia sposób tworzenia AccessPolicy:
+powitania po przykładzie pokazano, jak toocreate AccessPolicy:
 
 **Żądania HTTP**
 
@@ -240,7 +240,7 @@ Poniższy przykład przedstawia sposób tworzenia AccessPolicy:
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -266,23 +266,23 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
        "Permissions":2
     }
 
-### <a name="get-the-upload-url"></a>Pobierz adres URL przesyłania
+### <a name="get-hello-upload-url"></a>Pobierz hello przekazać adres URL
 
-Aby uzyskać adres URL przesyłania rzeczywistej, tworzenie lokalizatora SAS. Lokalizatory zdefiniuj czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy mają dostęp do plików w zasób. Możesz utworzyć wiele jednostek lokalizatora dla danego pary AccessPolicy i zasobów do obsługi żądań klientów różnych i potrzeb. Wartość StartTime oraz wartość DurationInMinutes AccessPolicy każdego z tych lokalizatorów używa do określenia czasu, można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizatora](https://docs.microsoft.com/rest/api/media/operations/locator).
+tooreceive hello przekazywania rzeczywisty adres URL, tworzenie lokalizatora SAS. Lokalizatory zdefiniuj hello czas rozpoczęcia i typ punktu końcowego połączenia dla klientów, którzy mają tooaccess plików zasobów. Można utworzyć wiele jednostek lokalizatora dla danego AccessPolicy i zasobów pary toohandle innego klienta żądań i potrzeb. Każda z tych lokalizatorów używa wartości StartTime hello plus wartość DurationInMinutes hello hello AccessPolicy toodetermine hello długość czasu, można użyć adresu URL. Aby uzyskać więcej informacji, zobacz [lokalizatora](https://docs.microsoft.com/rest/api/media/operations/locator).
 
-Adres URL SAS ma następujący format:
+Adres URL SAS ma hello następującego formatu:
 
     {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
 Zagadnienia do rozważenia:
 
 * Nie może mieć więcej niż pięć lokalizatorów unikatowy skojarzone z danym zawartości w tym samym czasie. Aby uzyskać więcej informacji zobacz lokalizatora.
-* Jeśli chcesz przekazać pliki natychmiast, należy ustawić wartość StartTime do pięciu minut przed bieżącym czasem. Jest to spowodowane mogą istnieć zegara pochylenia między komputer klienta i usługi Media Services. Ponadto wartość StartTime musi być w następującym formacie daty/godziny: RRRR-MM-ddtgg (na przykład "2014-05-23T17:53:50Z").    
-* Może być 30 40 sekund opóźnienia po utworzeniu lokalizatora, gdy jest ona dostępna do użycia. Ten problem dotyczy zarówno adres URL SAS, jak i lokalizatorów pochodzenia.
+* Tooupload plików natychmiast, należy należy ustawić Twojej StartTime wartość toofive minut przed hello bieżącego czasu. Jest to spowodowane mogą istnieć zegara pochylenia między komputer klienta i usługi Media Services. Ponadto wartość StartTime musi być w powitania po formacie daty/godziny: RRRR-MM-ddtgg (na przykład "2014-05-23T17:53:50Z").    
+* Może być 30 40 sekund opóźnienia po utworzeniu lokalizatora toowhen nie jest dostępny do użycia. Ten problem dotyczy tooboth adres URL SAS oraz Lokalizatory pochodzenia.
 
 Aby uzyskać więcej informacji na temat sygnatury dostępu Współdzielonego Zobacz lokalizatorów [to](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogu.
 
-Poniższy przykład pokazuje, jak utworzyć Lokalizator adres URL SAS, zgodnie z definicją we właściwości typu w treści żądania ("1" dla lokalizatora SAS) i "2" dla lokalizatora pochodzenia na żądanie. **Ścieżki** właściwości zwróconej zawiera adres URL, który należy użyć, aby przesłać plik.
+Witaj poniższy przykład pokazuje, jak toocreate lokalizatora adres URL SAS, zgodnie z definicją hello właściwości typu w treści żądania hello ("1" dla lokalizatora SAS) i "2" dla lokalizatora pochodzenia na żądanie. Witaj **ścieżki** właściwości zwróconej zawiera adres URL hello, że należy używać tooupload Twojego pliku.
 
 **Żądania HTTP**
 
@@ -307,7 +307,7 @@ Poniższy przykład pokazuje, jak utworzyć Lokalizator adres URL SAS, zgodnie z
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -338,17 +338,17 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
     }
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>Przekazywanie pliku do kontenera magazynu obiektów blob
-Po utworzeniu AccessPolicy, a także ustawić rzeczywisty plik jest przekazywany do kontenera magazynu obiektów blob platformy Azure przy użyciu interfejsów API REST usługi Magazyn Azure. Należy przekazać pliki jako blokowych obiektów blob. Stronicowe obiekty BLOB nie są obsługiwane przez usługi Azure Media Services.  
+Po utworzeniu hello AccessPolicy i lokalizatora zestawu rzeczywisty plik hello jest kontenera magazynu obiektów blob platformy Azure tooan przekazane za pomocą hello interfejsów API REST magazynu Azure. Należy przekazać pliki hello jako blokowych obiektów blob. Stronicowe obiekty BLOB nie są obsługiwane przez usługi Azure Media Services.  
 
 > [!NOTE]
-> Należy dodać nazwę pliku dla pliku, który chcesz przekazać do Lokalizator **ścieżki** wartość odebrana w poprzedniej sekcji. Na przykład https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Należy dodać nazwę pliku hello pliku hello ma toohello tooupload lokalizatora **ścieżki** odebrana w poprzedniej sekcji hello wartość. Na przykład https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
 Aby uzyskać więcej informacji na temat pracy z obiektami blob magazynu Azure, zobacz [interfejsu API REST usługi Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-### <a name="update-the-assetfile"></a>Aktualizacja AssetFile
-Teraz, przekazywanego pliku, zaktualizuj informacje FileAsset rozmiarze (i innych). Na przykład:
+### <a name="update-hello-assetfile"></a>Aktualizacja hello AssetFile
+Teraz, przekazywanego pliku, zaktualizuj hello FileAsset rozmiarze (i innych) informacje. Na przykład:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -371,12 +371,12 @@ Teraz, przekazywanego pliku, zaktualizuj informacje FileAsset rozmiarze (i innyc
 
 **Odpowiedź HTTP**
 
-Jeśli to się powiedzie, jest zwracany następujące czynności:
+W przypadku powodzenia zwrócono hello następujące czynności:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a name="delete-the-locator-and-accesspolicy"></a>Usuń lokalizator i AccessPolicy
+## <a name="delete-hello-locator-and-accesspolicy"></a>Usuń hello lokalizatora i AccessPolicy
 **Żądania HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -391,7 +391,7 @@ Jeśli to się powiedzie, jest zwracany następujące czynności:
 
 **Odpowiedź HTTP**
 
-Jeśli to się powiedzie, jest zwracany następujące czynności:
+W przypadku powodzenia zwrócono hello następujące czynności:
 
     HTTP/1.1 204 No Content
     ...
@@ -409,23 +409,23 @@ Jeśli to się powiedzie, jest zwracany następujące czynności:
 
 **Odpowiedź HTTP**
 
-Jeśli to się powiedzie, jest zwracany następujące czynności:
+W przypadku powodzenia zwrócono hello następujące czynności:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
+## <a id="encode"></a>Kodowanie pliku źródłowego hello do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
 
-Po wprowadzania, które mogą być kodowane zasoby w usłudze Media Services nośnika, poddane transmultipleksacji, oznaczone znakiem wodnym i tak dalej przed dostarczeniem do klientów. Te działania są zaplanowane i uruchamiane w wielu wystąpieniach ról w tle, aby zapewnić wysoką wydajność oraz dostępność. Te działania są nazywane zadaniami i każde zadanie składa się z niepodzielnych zadań, które wykonują rzeczywistą pracę w pliku zasobów (Aby uzyskać więcej informacji, zobacz [zadania](/rest/api/media/services/job), [zadań](/rest/api/media/services/task) opisy).
+Po wprowadzania, które mogą być kodowane zasoby w usłudze Media Services nośnika, poddane transmultipleksacji, oznaczone znakiem wodnym i tak dalej przed przekazaniem tooclients. Te działania są zaplanowane i uruchomienia wielu tła roli wystąpień tooensure wysokiej wydajności i dostępności. Te działania są nazywane zadaniami i każde zadanie składa się z niepodzielnych zadań, które hello rzeczywistą pracę w pliku trwałego hello (Aby uzyskać więcej informacji, zobacz [zadania](/rest/api/media/services/job), [zadań](/rest/api/media/services/task) opisy).
 
-Jak wspomniano wcześniej, podczas pracy z usługi Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie klientom usługi przesyłania strumieniowego adaptacyjną szybkością transmisji bitów. Usługi Media Services można dynamicznie pakiet zestawu plików MP4 do jednego z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Jak wspomniano wcześniej, podczas pracy z Azure Media Services jednym z najbardziej typowych scenariuszy hello jest dostarczanie przesyłania strumieniowego klientów tooyour adaptacyjną szybkością transmisji bitów. Usługi Media Services można dynamicznie pakietu do jednego z następujących formatów hello zestaw plików MP4 z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
-Poniższej sekcji pokazano, jak utworzyć zadanie, które zawiera jedno zadanie kodowania. Zadanie określa transkodowanie pliku mezzanine do zestawu z adaptacyjną szybkością transmisji bitów MP4s przy użyciu **Media Encoder Standard**. W sekcji przedstawiono również monitorowanie przetwarzanie postęp zadań. Po zakończeniu zadania użytkownik będzie mógł utworzyć lokalizatory, które są niezbędne do uzyskania dostępu do zasobów.
+powitania po sekcji pokazano, jak toocreate zadanie, które zawiera jeden kodowania zadań. Witaj zadanie Określa plik mezzanine hello tootranscode do zestawu z adaptacyjną szybkością transmisji bitów MP4s przy użyciu **Media Encoder Standard**. Hello sekcji przedstawiono również sposób toomonitor hello postęp zadania przetwarzania. Po zakończeniu zadania hello będzie lokalizatorów można toocreate, będącymi aktywami tooyour dostępu tooget potrzebne.
 
 ### <a name="get-a-media-processor"></a>Pobierz procesor multimediów
-W usłudze Media Services procesor multimediów jest składnikiem, który obsługuje przetwarzania specyficznego dla zadania, takie jak kodowanie, Konwersja formatu zawartości multimedialnej szyfrowania lub odszyfrowywania. Zadania kodowania przedstawiono w tym samouczku firma Microsoft będzie używany Media Encoder Standard.
+W usłudze Media Services procesor multimediów jest składnikiem, który obsługuje przetwarzania specyficznego dla zadania, takie jak kodowanie, Konwersja formatu zawartości multimedialnej szyfrowania lub odszyfrowywania. Dla hello kodowania zadań przedstawiona w tym samouczku zamierzamy hello toouse Media Encoder Standard.
 
-Poniższy kod żądania identyfikator kodera.
+Witaj poniższy kod identyfikatora żądania hello kodera.
 
 **Żądania HTTP**
 
@@ -469,9 +469,9 @@ Poniższy kod żądania identyfikator kodera.
     }
 
 ### <a name="create-a-job"></a>Tworzenie zadania
-Każde zadanie może mieć jedno lub więcej zadań, w zależności od typu przetwarzania, które chcesz wykonać. Za pomocą interfejsu API REST, można utworzyć zadania i ich zadania pokrewne w jeden z dwóch sposobów: zadania mogą być zdefiniowano w tekście za pośrednictwem właściwości nawigacji zadania na jednostkach zadania, lub przetwarzania wsadowego OData. SDK usługi Media Services używa przetwarzania wsadowego. Aby zwiększyć czytelność, przykładowe kody w tym temacie, zadania są zdefiniowano w tekście. Informacje dotyczące przetwarzania wsadowego znajdują się w temacie [przetwarzanie wsadowe Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Każde zadanie może zawierać jeden lub więcej zadań, w zależności od typu hello przetwarzania, które mają tooaccomplish. Za pośrednictwem interfejsu API REST hello, można tworzyć zadania i ich zadania pokrewne w jeden z dwóch sposobów: zadania mogą być zdefiniowano w tekście za pośrednictwem właściwości nawigacji zadania hello na jednostkach zadania, lub przetwarzania wsadowego OData. Witaj SDK usługi Media Services używa przetwarzania wsadowego. Aby zwiększyć czytelność hello hello przykładów kodu w tym temacie, zadania są zdefiniowano w tekście. Informacje dotyczące przetwarzania wsadowego znajdują się w temacie [przetwarzanie wsadowe Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Poniższy przykład przedstawia sposób tworzenia i opublikuj zadanie o zadań zdefiniowana kodowanie wideo w określonej rozdzielczości i jakości. W poniższej sekcji dokumentacji zawiera listę wszystkich [zadań predefiniowane](http://msdn.microsoft.com/library/mt269960) obsługiwanych przez procesor Media Encoder Standard.  
+Hello poniższy przykład przedstawia toocreate i post zadania jednego zadania konfiguracji tooencode wideo w określonej rozdzielczości i jakości. powitania po sekcji dokumentacji zawiera listę hello wszystkich hello [zadań predefiniowane](http://msdn.microsoft.com/library/mt269960) obsługiwane przez procesor Media Encoder Standard hello.  
 
 **Żądania HTTP**
 
@@ -507,7 +507,7 @@ Poniższy przykład przedstawia sposób tworzenia i opublikuj zadanie o zadań z
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -567,35 +567,35 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
     }
 
 
-Istnieje kilka ważnych rzeczy do uwzględnienia w dowolnym żądaniu zadania:
+Istnieje kilka ważnych rzeczy toonote w dowolnym żądaniu zadania:
 
-* Aby określić ilość danych wejściowych lub wyjściowych zasoby, które są używane przez zadanie taskbody — właściwości należy użyć literału XML. Temat zadania zawiera definicję schematu XML dla pliku XML.
-* W definicji taskbody — wartość każdego wewnętrzny <inputAsset> i <outputAsset> musi być ustawiona jako JobInputAsset(value) lub JobOutputAsset(value).
+* Taskbody — właściwości należy użyć literału XML toodefine hello liczba danych wejściowych lub zasoby danych wyjściowych, które są używane przez hello zadań. temat zadania Hello zawiera hello definicji schematu XML dla hello XML.
+* W definicji taskbody — Witaj, wartość każdego wewnętrzny <inputAsset> i <outputAsset> musi być ustawiona jako JobInputAsset(value) lub JobOutputAsset(value).
 * Zadanie może mieć wielu zasobów danych wyjściowych. Jako dane wyjściowe zadania w ramach zadania jeden JobOutputAsset(x) można można użyć tylko raz.
 * JobInputAsset lub JobOutputAsset można określić jako zasób wprowadzania zadania.
 * Zadania musi nie tworzą cyklu.
-* Parametru wartości, który jest przekazywany do JobInputAsset lub JobOutputAsset reprezentuje wartość indeksu dla elementu zawartości. Rzeczywiste zasoby są definiowane w InputMediaAssets i OutputMediaAssets właściwości nawigacji w definicji zadania jednostki.
+* Parametr wartości Hello przekazujesz tooJobInputAsset lub JobOutputAsset reprezentuje hello wartość indeksu dla zasobu. Witaj rzeczywiste zasoby są definiowane w hello InputMediaAssets i OutputMediaAssets właściwości nawigacji na powitania definicji zadania jednostki.
 
 > [!NOTE]
-> Ponieważ usługi Media Services jest oparty na OData v3, poszczególne zasoby w kolekcji właściwości nawigacji InputMediaAssets i OutputMediaAssets istnieją odwołania za pośrednictwem "__metadata: identyfikator uri" pary nazwa wartość.
+> Ponieważ usługi Media Services jest oparty na OData v3, hello poszczególne zasoby w InputMediaAssets i kolekcje właściwości nawigacji OutputMediaAssets są przywoływane przez "__metadata: identyfikator uri" pary nazwa wartość.
 >
 >
 
-* Mapuje InputMediaAssets na jeden lub więcej zasobów, które zostały utworzone w usłudze Media Services. OutputMediaAssets są tworzone przez system. Nie odwołują się do istniejącego zasobu.
-* Może być nazwany OutputMediaAssets za pomocą atrybutu assetName. Jeśli ten atrybut nie jest obecny, a następnie nazwę OutputMediaAsset to niezależnie od tekst wewnętrzny wartość <outputAsset> element jest z sufiksem Nazwa zadania wartość lub wartość identyfikatora zadania (w przypadku, gdy nie jest zdefiniowana właściwość Name). Na przykład jeśli ustawisz wartość assetName dotyczące nazwy "Test", następnie właściwość OutputMediaAsset Name może być równa "Test". Jednak jeśli nie ustawiona wartość assetName, ale ustawiona na nazwę zadania na "NewJob", nazwa OutputMediaAsset będzie "_NewJob JobOutputAsset (wartość)".
+* InputMediaAssets mapuje tooone lub więcej zasobów, które zostały utworzone w usłudze Media Services. OutputMediaAssets są tworzone przez hello system. Nie odwołują się do istniejącego zasobu.
+* Może być nazwany OutputMediaAssets przy użyciu atrybutu assetName hello. Jeśli ten atrybut nie jest obecny, a następnie nazwę hello hello OutputMediaAsset jest niezależnie od wartości tekst wewnętrzny hello hello <outputAsset> element jest z sufiksem hello Nazwa zadania wartość lub wartość identyfikatora zadania hello (w przypadku hello, w których właściwość Name hello nie jest zdefiniowana). Na przykład jeśli zostanie ustawiona wartość assetName zbyt "Test", a następnie hello nazwa OutputMediaAsset można ustawić właściwości zbyt "Sample". Jednak jeśli nie ustawiona wartość assetName, ale ustawiona nazwa zadania hello zbyt "NewJob", a następnie hello nazwa OutputMediaAsset się "_NewJob JobOutputAsset (wartość)".
 
-    Poniższy przykład przedstawia sposób ustawiania atrybutu assetName:
+    Witaj poniższy przykład pokazuje, jak tooset hello assetName atrybutu:
 
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
-* Aby włączyć tworzenie łańcuchów zadań:
+* Tworzenie łańcuchów tooenable zadań:
 
   * Zadanie musi mieć co najmniej dwa zadania
-  * Musi istnieć co najmniej jedno zadanie, którego dane wejściowe są dane wyjściowe inne zadanie w zadaniu.
+  * Musi istnieć co najmniej jedno zadanie, którego danych wejściowych jest inne zadanie w zadaniu hello dane wyjściowe.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie zadania kodowania za pomocą interfejsu API REST usług Media](media-services-rest-encode-asset.md).
+Aby uzyskać więcej informacji, zobacz [Tworzenie zadania kodowania z hello interfejsu API REST usług Media](media-services-rest-encode-asset.md).
 
 ### <a name="monitor-processing-progress"></a>Monitor przetwarzania postępu
-Można pobrać stanu zadania za pomocą właściwości stanu, jak pokazano w poniższym przykładzie.
+Stan zadania hello można pobrać za pomocą właściwości stanu hello, jak pokazano w hello poniższy przykład.
 
 **Żądania HTTP**
 
@@ -612,7 +612,7 @@ Można pobrać stanu zadania za pomocą właściwości stanu, jak pokazano w pon
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -630,9 +630,9 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
 
 
 ### <a name="cancel-a-job"></a>Anulowanie zadania
-Usługa Media Services umożliwia anulowanie uruchomionych zadań przy użyciu funkcji CancelJob. To wywołanie zwraca błąd 400 kodu przy próbie anulowania zadania, jeśli jego stan zostanie anulowane, anulowanie, błąd lub zakończona.
+Usługa Media Services umożliwia toocancel uruchomionych zadań za pomocą funkcji CancelJob hello. To wywołanie zwraca kod błędu 400, Jeśli spróbujesz toocancel zadania po anulowaniu jej stan, anulowanie, błąd lub zakończona.
 
-Poniższy przykład przedstawia sposób wywołania CancelJob.
+powitania po przykładzie pokazano, jak toocall CancelJob.
 
 **Żądania HTTP**
 
@@ -649,12 +649,12 @@ Poniższy przykład przedstawia sposób wywołania CancelJob.
 W przypadku powodzenia kodu 204 odpowiedź jest zwracana z treści wiadomości.
 
 > [!NOTE]
-> Należy zakodować adres URL identyfikatora zadania (zazwyczaj nb:jid:UUID: somevalue) podczas przekazywania go jako parametr do CancelJob.
+> Należy zakodować adresu URL hello identyfikator zadania (zazwyczaj nb:jid:UUID: somevalue) podczas przekazywania go jako tooCancelJob parametru.
 >
 >
 
-### <a name="get-the-output-asset"></a>Pobierz elementu zawartości wyjściowej
-Poniższy kod przedstawia sposób żądania elementu zawartości wyjściowej identyfikatora.
+### <a name="get-hello-output-asset"></a>Pobierz zawartości wyjściowej hello
+Witaj poniższy kod przedstawia sposób toorequest hello output zasobów identyfikatora.
 
 **Żądania HTTP**
 
@@ -703,42 +703,42 @@ Poniższy kod przedstawia sposób żądania elementu zawartości wyjściowej ide
 
 
 
-## <a id="publish_get_urls"></a>Publikowanie elementu zawartości i get przesyłania strumieniowego i pobierania progresywnego adresy URL z interfejsu API REST
+## <a id="publish_get_urls"></a>Publikowanie zawartości hello i get przesyłania strumieniowego i pobierania progresywnego adresy URL z interfejsu API REST
 
-Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw opublikować, tworząc lokalizator. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do strumieniowego przesyłania plików multimedialnych (na przykład w formacie MPEG DASH, HLS i Smooth Streaming) oraz lokalizatory sygnatury dostępu współdzielonego (SAS) używane do pobierania plików multimedialnych. Aby uzyskać więcej informacji na temat sygnatury dostępu Współdzielonego Zobacz lokalizatorów [to](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogu.
+toostream lub pobierania zawartości, należy najpierw należy zbyt opublikować, przez utworzenie lokalizatora. Lokalizatory zapewniają toofiles dostępu do zawartych w hello zasobów. Usługa Media Services obsługuje dwa typy lokalizatorów: OnDemandOrigin lokalizatory nośniki używane toostream (na przykład MPEG DASH, HLS lub Smooth Streaming) i lokalizatorów podpis dostępu (SAS) używane toodownload plików multimedialnych. Aby uzyskać więcej informacji na temat sygnatury dostępu Współdzielonego Zobacz lokalizatorów [to](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogu.
 
-Po utworzeniu lokalizatorów można tworzyć adresy URL, które są używane do przesyłania strumieniowego lub pobierania plików.
+Po utworzeniu lokalizatorów hello można tworzyć adresy URL hello, które są używane toostream lub pobierania plików.
 
 >[!NOTE]
->Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
+>Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu.
 
-Adres URL dla protokołu Smooth Streaming ma następujący format:
+Adres URL dla protokołu Smooth Streaming ma hello następującego formatu:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Adres URL dla protokołu HLS ma następujący format:
+Adres URL dla protokołu HLS ma hello następującego formatu:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Adres URL dla protokołu MPEG DASH ma następujący format:
+Adres URL przesyłania strumieniowego MPEG DASH ma hello następującego formatu:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
-Adres URL SAS używany do pobierania plików ma następujący format:
+Pliki toodownload adres URL SAS używany ma hello następującego formatu:
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
-W tej sekcji przedstawiono sposób wykonywania następujących zadań konieczne "Publikuj" zasobów.  
+W tej sekcji przedstawiono, jak tooperform hello następujące zadania niezbędne zbyt "Publikuj" zasobów.  
 
-* Tworzenie AccessPolicy z uprawnieniem do odczytu
+* Tworzenie hello AccessPolicy z uprawnieniem do odczytu
 * Tworzenie adres URL SAS dla pobierania zawartości
 * Tworzenie źródłowy adres URL przesyłania strumieniowego zawartości
 
-### <a name="creating-the-accesspolicy-with-read-permission"></a>Tworzenie AccessPolicy z uprawnieniem do odczytu
-Przed pobraniem lub przesyłania strumieniowego zawartości nośnika, zdefiniuj AccessPolicy z uprawnienia do odczytu i utworzyć odpowiednie jednostki lokalizatora, która określa typ mechanizm dostarczania, które chcesz włączyć dla klientów. Aby uzyskać więcej informacji na dostępne właściwości, zobacz [właściwości jednostki AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+### <a name="creating-hello-accesspolicy-with-read-permission"></a>Tworzenie hello AccessPolicy z uprawnieniem do odczytu
+Przed pobraniem lub przesyłania strumieniowego zawartości nośnika, należy najpierw zdefiniować AccessPolicy z uprawnienia do odczytu i utworzyć hello odpowiednie lokalizatora jednostki, która określa typ hello mechanizm dostarczania ma tooenable dla klientów. Aby uzyskać więcej informacji o dostępnych właściwości hello, zobacz [właściwości jednostki AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
-Poniższy przykład przedstawia sposób określania AccessPolicy uzyskać uprawnienia do odczytu dla danego elementu zawartości.
+Witaj poniższy przykład pokazuje, jak toospecify hello AccessPolicy dla uprawnień odczytu dla danego elementu zawartości.
 
     POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -753,15 +753,15 @@ Poniższy przykład przedstawia sposób określania AccessPolicy uzyskać uprawn
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-W przypadku powodzenia zostanie zwrócony kod 201 sukces, opisujący jednostki AccessPolicy, który został utworzony. Następnie należy użyć identyfikatora AccessPolicy wraz z identyfikatorem zasobu z zawartości, który zawiera plik, który chcesz dostarczyć (np. zawartości wyjściowej) można utworzyć jednostki lokalizatora.
+W przypadku powodzenia zostanie zwrócony kod 201 sukces, opisujący hello AccessPolicy jednostki, która zostanie utworzona. Następnie należy użyć hello identyfikator AccessPolicy wraz z hello identyfikator zasobu hello zawartości, który zawiera plik hello ma jednostki lokalizatora hello toocreate toodeliver (na przykład zasób dane wyjściowe).
 
 > [!NOTE]
-> Ten podstawowy przepływ pracy jest taka sama jak przekazywanie pliku podczas wprowadzania zasobów (zgodnie z opisem został wcześniej w tym temacie). Ponadto takich jak przekazywanie plików, jeśli użytkownik (lub klientów) muszą uzyskać dostęp do plików natychmiast, ustaw wartość StartTime pięć minut przed bieżącym czasem. Ta akcja jest niezbędne, ponieważ może istnieć zegara pochylenia między klientem a Media Services. Wartość StartTime musi być w następującym formacie daty/godziny: RRRR-MM-ddtgg (na przykład "2014-05-23T17:53:50Z").
+> Ten podstawowy przepływ pracy jest hello taki sam jak przekazywanie pliku podczas wprowadzania zasobów (zgodnie z opisem został wcześniej w tym temacie). Również takich jak przekazywanie plików, jeśli użytkownik (lub klientów) należy tooaccess plików natychmiast, należy ustawić Twojej StartTime wartość toofive minut przed hello bieżący czas. Ta akcja jest niezbędne, ponieważ może istnieć zegara pochylenia między powitania klienta i usługi Media Services. Hello wartości StartTime musi należeć do powitania po formacie daty/godziny: RRRR-MM-ddtgg (na przykład "2014-05-23T17:53:50Z").
 >
 >
 
 ### <a name="creating-a-sas-url-for-downloading-content"></a>Tworzenie adres URL SAS dla pobierania zawartości
-Poniższy kod przedstawia sposób uzyskać adres URL, który może służyć do pobrania plik nośnika utworzony i przekazać wcześniej. AccessPolicy zapoznał zestaw uprawnień i ścieżka lokalizatora odwołuje się do adresu URL pobierania sygnatury dostępu Współdzielonego.
+Hello następującego kodu pokazuje sposób tooget adres URL, które mogą być używane toodownload plik nośnika utworzony i przekazać wcześniej. Witaj AccessPolicy zapoznał zestaw uprawnień i hello lokalizatora ścieżki odwołuje się adres URL pobierania SAS tooa.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -776,7 +776,7 @@ Poniższy kod przedstawia sposób uzyskać adres URL, który może służyć do 
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -819,24 +819,24 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
     }
 
 
-Zwrócona **ścieżki** właściwość zawiera adres URL SAS.
+Witaj zwrócił **ścieżki** właściwość zawiera hello adres URL SAS.
 
 > [!NOTE]
-> Pobrania zawartości szyfrowany w magazynie, musisz ręcznie go odszyfrować przed renderowaniem go lub użyj MediaProcessor odszyfrowywania magazynu w ramach zadania przetwarzania przetworzonych plików w Wyczyść, aby OutputAsset wyjściowych, a następnie pobrać danego. Aby uzyskać więcej informacji na temat przetwarzania Zobacz Tworzenie zadania kodowania za pomocą interfejsu API REST usługi multimediów. Ponadto nie można zaktualizować lokalizatorów adres URL SAS, po ich utworzeniu. Na przykład nie można ponownie użyć tego samego lokalizatora z zaktualizowanej wartości StartTime. Jest to spowodowane sposobu tworzenia adresów URL SAS. Jeśli chcesz uzyskać dostępu do zasobów do pobrania, po upływie lokalizatora musi utworzyć nową z nowej wartości StartTime.
+> Czy pobierać zawartość magazynu zaszyfrowane, musisz ręcznie go odszyfrować przed renderowaniem go lub użyj hello MediaProcessor odszyfrowywania magazynu w toooutput zadań przetwarzania przetwarzane pliki w hello wyczyść tooan OutputAsset, a następnie pobrać z tego zasobu. Aby uzyskać więcej informacji na temat przetwarzania Zobacz Tworzenie zadania kodowania z hello interfejsu API REST usług Media. Ponadto nie można zaktualizować lokalizatorów adres URL SAS, po ich utworzeniu. Na przykład nie można ponownie użyć tej samej lokalizacji z zaktualizowanej wartości StartTime hello. Jest to spowodowane hello sposobu tworzenia adresów URL SAS. Chcesz tooaccess zasób do pobrania, po upływie lokalizatora, musi utworzyć nową z nowego czas rozpoczęcia.
 >
 >
 
 ### <a name="download-files"></a>Pobieranie plików
-Po utworzeniu AccessPolicy i ustawić lokalizatora, możesz pobrać plików za pomocą interfejsów API REST usługi Magazyn Azure.  
+Po utworzeniu hello AccessPolicy i lokalizatora zestawu, możesz pobrać plików za pomocą hello interfejsów API REST magazynu Azure.  
 
 > [!NOTE]
-> Należy dodać nazwę pliku dla pliku, który chcesz pobrać na lokalizatorze **ścieżki** wartość odebrana w poprzedniej sekcji. Na przykład https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Należy dodać nazwę pliku hello pliku hello ma toohello toodownload lokalizatora **ścieżki** odebrana w poprzedniej sekcji hello wartość. Na przykład https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
 Aby uzyskać więcej informacji na temat pracy z obiektami blob magazynu Azure, zobacz [interfejsu API REST usługi Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-W wyniku zadania kodowania wykonano wcześniejszych (kodowanie na zestaw MP4 z adaptacyjną) masz wiele plików MP4, które można pobrać progresywnie. Na przykład:    
+W wyniku hello kodowanie zadanie, które wcześniej wykonywanej (kodowanie na zestaw MP4 z adaptacyjną) masz wiele plików MP4, które można pobrać progresywnie. Na przykład:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -856,7 +856,7 @@ W wyniku zadania kodowania wykonano wcześniejszych (kodowanie na zestaw MP4 z a
 
 
 ### <a name="creating-a-streaming-url-for-streaming-content"></a>Tworzenie adresu URL przesyłania strumieniowego przesyłania strumieniowego zawartości
-Poniższy kod przedstawia sposób tworzenia Lokalizator przesyłania strumieniowego adresu URL:
+Witaj następującego kodu pokazuje sposób toocreate Lokalizator przesyłania strumieniowego adresu URL:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -871,7 +871,7 @@ Poniższy kod przedstawia sposób tworzenia Lokalizator przesyłania strumieniow
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
-W przypadku powodzenia następującą odpowiedź jest zwracana:
+W przypadku powodzenia powitania po odpowiedzi jest zwracany:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -913,23 +913,23 @@ W przypadku powodzenia następującą odpowiedź jest zwracana:
        }
     }
 
-Do przesyłania strumieniowego Smooth Streaming źródłowy adres URL w odtwarzaczu multimedialnym przesyłania strumieniowego, można dołączyć ścieżki właściwości o nazwie Smooth Streaming pliku, a następnie manifestu "/ manifest".
+toostream adres URL źródła Smooth Streaming w odtwarzaczu multimedialnym przesyłania strumieniowego, można dołączyć hello ścieżki właściwości o nazwie hello hello Smooth Streaming pliku, a następnie manifestu "/ manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
-Aby przesyłać strumieniowo HLS, Dołącz (format = m3u8-aapl) po "/ manifest".
+toostream HLS, Dołącz (format = m3u8-aapl) po hello "/ manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-Do przesyłania strumieniowego MPEG DASH, Dołącz (format = mpd-time-csf) po "/ manifest".
+toostream MPEG DASH, Dołącz (format = mpd-time-csf) po hello "/ manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
 ## <a id="play"></a>Odtwarzanie zawartości
-Do przesyłania strumieniowego zawartości wideo użyj [odtwarzacza usługi Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+toostream wideo, możesz użyć [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (na przykład programu Internet Explorer, Chrome, Safari).
+tootest progresywnego pobierania, wklej adres URL do przeglądarki (na przykład programu Internet Explorer, Chrome, Safari).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Następne kroki: ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

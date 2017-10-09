@@ -1,6 +1,6 @@
 ---
-title: Uruchom elementy runbook na procesu roboczego Runbook hybrydowego automatyzacji Azure | Dokumentacja firmy Microsoft
-description: "Ten artykuł zawiera informacje dotyczące wykonywania elementów runbook na komputerach w lokalnym centrum danych lub dostawcy chmury z rolą hybrydowy proces roboczy elementu Runbook."
+title: elementy runbook aaaRun na Azure procesu roboczego Runbook automatyzacji hybrydowe | Dokumentacja firmy Microsoft
+description: "Ten artykuł zawiera informacje dotyczące wykonywania elementów runbook na komputerach w lokalnym centrum danych lub dostawcy chmury z rolą hybrydowy proces roboczy elementu Runbook hello."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: 993bc3ea480a329541ca4ae825189cdb5a2b4a8b
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 51961e02603e5690edd11e577594ad2ddea489a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Uruchomione elementy runbook na hybrydowy proces roboczy elementu Runbook 
-Nie ma różnic w strukturze elementów runbook, które są uruchamiane w automatyzacji Azure oraz te, które uruchamiane na hybrydowy proces roboczy elementu Runbook. Elementy Runbook korzystające z każdym najprawdopodobniej różnią się znacznie jednak ponieważ elementy runbook, elementów docelowych hybrydowy proces roboczy elementu Runbook, zwykle zarządzać zasobami na komputerze lokalnym lub w odniesieniu do zasobów w środowisku lokalnym, w których jest wdrożona, gdy elementy runbook automatyzacji Azure zazwyczaj zarządzać zasobami w chmurze Azure.
+Nie ma różnic w strukturze hello elementów runbook, które są uruchamiane w automatyzacji Azure oraz te, które uruchamiane na hybrydowy proces roboczy elementu Runbook. Elementy Runbook korzystające z każdym najprawdopodobniej różnią się znacznie jednak ponieważ elementy runbook, zwykle przeznaczonych dla hybrydowego procesu roboczego elementu Runbook zarządzanie zasobami na komputerze lokalnym hello sam lub względem zasobów w środowisku lokalnym hello, których jest wdrożona, podczas elementów runbook w automatyzacji Azure zazwyczaj zarządzać zasobami w hello chmury Azure.
 
-Można edytować element runbook dla hybrydowego procesu roboczego Runbook automatyzacji Azure, ale mogą mieć trudności, Jeśli spróbujesz testu elementu runbook w edytorze.  Moduły programu PowerShell, które uzyskują dostęp do zasobów lokalnych może nie być zainstalowana w Twoim środowisku usługi Automatyzacja Azure w takim przypadku, testu nie powiedzie się.  Po zainstalowaniu wymaganych modułów, następnie element runbook zostanie uruchomiony, ale nie będzie możliwy dostęp do zasobów lokalnych do ukończenia testowej.
+Można edytować element runbook dla hybrydowego procesu roboczego Runbook automatyzacji Azure, ale mogą mieć trudności, Jeśli spróbujesz tootest hello runbook w edytorze hello.  Moduły PowerShell Hello, które uzyskują dostęp do zasobów lokalnych hello może nie być zainstalowana w Twoim środowisku usługi Automatyzacja Azure w takim przypadku, hello testu nie powiedzie się.  Po zainstalowaniu hello wymagane moduły, a następnie hello element runbook zostanie uruchomiony, ale nie będą mogli tooaccess zasoby lokalne do ukończenia testu.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Uruchamianie elementu runbook na hybrydowy proces roboczy elementu Runbook
-[Uruchamianie elementu Runbook automatyzacji Azure](automation-starting-a-runbook.md) opisano różne metody uruchamiania elementu runbook.  Dodaje hybrydowy proces roboczy elementu Runbook **RunOn** opcja, w którym można określić nazwę grupy hybrydowego procesu roboczego elementu Runbook.  Jeśli zostanie określona grupa, element runbook jest pobierane i wykonywane przez pracowników w tej grupie.  Jeśli ta opcja nie jest określona, następnie jest uruchamiany w automatyzacji Azure normalnie.
+[Uruchamianie elementu Runbook automatyzacji Azure](automation-starting-a-runbook.md) opisano różne metody uruchamiania elementu runbook.  Dodaje hybrydowy proces roboczy elementu Runbook **RunOn** opcja, w którym można określić nazwę hello grupy hybrydowego procesu roboczego elementu Runbook.  Jeśli określono grupę hello runbook jest pobierane i wykonywane przez pracowników hello w tej grupie.  Jeśli ta opcja nie jest określona, następnie jest uruchamiany w automatyzacji Azure normalnie.
 
-Po uruchomieniu elementu runbook w portalu Azure, jest wyświetlana **Uruchom na** opcja, w którym można wybrać **Azure** lub **hybrydowy proces roboczy**.  W przypadku wybrania **hybrydowy proces roboczy**, a następnie z listy rozwijanej można wybrać grupy.
+Po uruchomieniu elementu runbook w portalu Azure hello prezentowany **Uruchom na** opcja, w którym można wybrać **Azure** lub **hybrydowy proces roboczy**.  W przypadku wybrania **hybrydowy proces roboczy**, hello grupy można wybrać z listy rozwijanej.
 
-Użyj **RunOn** parametru.  Następujące polecenie służy do uruchomienia elementu runbook o nazwie Test-Runbook na hybrydowego grupy procesów roboczych elementu Runbook o nazwie MyHybridGroup przy użyciu programu Windows PowerShell.
+Użyj hello **RunOn** parametru.  Możesz użyć hello następujące polecenia toostart elementu runbook o nazwie Test-Runbook na hybrydowego grupy procesów roboczych elementu Runbook o nazwie MyHybridGroup przy użyciu programu Windows PowerShell.
 
     Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 > [!NOTE]
-> **RunOn** parametr został dodany do **Start AzureAutomationRunbook** polecenia cmdlet w wersji od 0.9.1 Microsoft Azure PowerShell.  Należy [Pobierz najnowszą wersję](https://azure.microsoft.com/downloads/) Jeśli masz wcześniejszą zainstalowane.  Musisz zainstalować tę wersję stacji roboczej, na którym jest uruchamiany element runbook z programu Windows PowerShell.  Nie należy go zainstalować na komputerze pracownika, chyba że użytkownik zamierza uruchamiania elementów runbook z tego komputera.  Obecnie nie można uruchomić elementu runbook na hybrydowy proces roboczy elementu Runbook z innego elementu runbook, ponieważ wymagałoby to najnowsza wersja programu Azure Powershell do zainstalowania na Twoim koncie automatyzacji.  Najnowsza wersja jest automatycznie aktualizowana w automatyzacji Azure i automatycznie przesuwana pracownikom wkrótce.
+> Witaj **RunOn** parametru dodano toohello **Start AzureAutomationRunbook** polecenia cmdlet w wersji od 0.9.1 Microsoft Azure PowerShell.  Należy [pobrać najnowszą wersję hello](https://azure.microsoft.com/downloads/) Jeśli masz wcześniejszą zainstalowane.  Wystarczy tooinstall tej wersji stacji roboczej, na którym jest uruchamiany hello elementu runbook z programu Windows PowerShell.  Nie trzeba tooinstall go na komputerze pracownika hello o ile nie mają elementów runbook toostart z tego komputera.  Obecnie nie można uruchomić elementu runbook na hybrydowy proces roboczy elementu Runbook z innego elementu runbook, ponieważ wymagałoby to hello najnowszą wersję programu Azure Powershell toobe zainstalowane na Twoim koncie automatyzacji.  najnowszą wersję Hello jest automatycznie aktualizowana w automatyzacji Azure i automatycznie wkrótce przesuwana toohello pracowników.
 >
 >
 
 ## <a name="runbook-permissions"></a>Uprawnienia elementów Runbook
-Elementów Runbook uruchomionych na hybrydowy proces roboczy elementu Runbook nie można użyć tej samej metody, która jest zwykle używana do elementów runbook uwierzytelniania do zasobów platformy Azure, ponieważ uzyskują dostęp do zasobów poza platformą Azure.  Element runbook można ustalić uwierzytelniania do zasobów lokalnych, lub można określić konto Uruchom jako, aby zapewnić kontekstu użytkownika dla wszystkich elementów runbook.
+Elementów Runbook uruchomionych na hybrydowy proces roboczy elementu Runbook nie można Użyj hello sama metoda, która jest zazwyczaj używana w przypadku elementów runbook uwierzytelniania tooAzure zasobów, ponieważ uzyskują dostęp do zasobów poza platformą Azure.  Hello runbook albo zapewniają własnym uwierzytelnianiem toolocal zasobów lub można określić tooprovide konta RunAs kontekstu użytkownika dla wszystkich elementów runbook.
 
 ### <a name="runbook-authentication"></a>Uwierzytelnianie elementu Runbook
-Domyślnie elementy runbook zostanie uruchomiony w kontekście konta systemu lokalnego na komputerze lokalnym, użytkownik musi podać własne uwierzytelniania do zasobów, które będą miały dostęp.  
+Domyślnie elementów runbook zostanie uruchomiony w kontekście hello hello lokalnego konta systemowego na powitania na komputerze lokalnym, więc użytkownik musi podać własne tooresources uwierzytelniania, który będzie miał dostęp.  
 
-Można użyć [poświadczeń](http://msdn.microsoft.com/library/dn940015.aspx) i [certyfikatu](http://msdn.microsoft.com/library/dn940013.aspx) zasoby w elemencie runbook za pomocą poleceń cmdlet, które pozwalają określić poświadczenia, można uwierzytelniać do różnych zasobów.  Poniższy przykład przedstawia części elementu runbook, który powoduje ponowne uruchomienie komputera.  Pobiera poświadczenia z zasobu poświadczeń i nazwę komputera z zasób zmiennej, a następnie używa tych wartości w poleceniu cmdlet Restart-Computer.
+Można użyć [poświadczeń](http://msdn.microsoft.com/library/dn940015.aspx) i [certyfikatu](http://msdn.microsoft.com/library/dn940013.aspx) zasoby w elemencie runbook za pomocą poleceń cmdlet, które pozwalają toospecify poświadczeń, można uwierzytelniać toodifferent zasobów.  Witaj poniższy przykład przedstawia części elementu runbook, który powoduje ponowne uruchomienie komputera.  Pobiera poświadczenia na podstawie nazwy zasobów i hello poświadczeń komputera hello z zasób zmiennej, a następnie używa tych wartości w poleceniu cmdlet Restart-Computer hello.
 
     $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
     $Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
 
     Restart-Computer -ComputerName $Computer -Credential $Cred
 
-Można też skorzystać [InlineScript](automation-powershell-workflow.md#inlinescript), co pozwala uruchamiać bloków kodu na innym komputerze przy użyciu poświadczeń, określony przez [typowy parametr PSCredential](http://technet.microsoft.com/library/jj129719.aspx).
+Można też skorzystać [InlineScript](automation-powershell-workflow.md#inlinescript), co pozwala toorun bloków kodu na innym komputerze z poświadczeń określonych przez hello [typowy parametr PSCredential](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="runas-account"></a>Konto Uruchom jako
-Zamiast zapewnienia uwierzytelniania do zasobów lokalnych elementów runbook, można określić **RunAs** konto do grupy hybrydowych procesów roboczych.  Należy określić [zasób poświadczeń](automation-credentials.md) mający dostęp do zasobów lokalnych i wszystkich elementów runbook działać w ramach tych poświadczeń, podczas uruchamiania na hybrydowy proces roboczy elementu Runbook w grupie.  
+Zamiast zapewnienia uwierzytelniania ich własnych zasobów toolocal elementów runbook, można określić **RunAs** konto do grupy hybrydowych procesów roboczych.  Należy określić [zasób poświadczeń](automation-credentials.md) mający dostęp do zasobów toolocal i wszystkich elementów runbook działać w ramach tych poświadczeń, podczas uruchamiania na hybrydowy proces roboczy elementu Runbook w grupie hello.  
 
-Nazwa użytkownika dla poświadczenia musi być w jednym z następujących formatów:
+Nazwa użytkownika Hello poświadczenia hello musi być w jednym z następujących formatów hello:
 
 * domena azwa_użytkownika
 * username@domain
-* Nazwa użytkownika (dla kont lokalnych dla komputera lokalnego)
+* Nazwa użytkownika (dla kont lokalnych toohello na komputerze lokalnym)
 
-Aby określić konto Uruchom jako dla grupy hybrydowych procesów roboczych, użyj poniższej procedury:
+Użyj hello następujące procedury toospecify konto Uruchom jako dla grupy hybrydowych procesów roboczych:
 
-1. Utwórz [zasób poświadczeń](automation-credentials.md) z dostępem do zasobów lokalnych.
-2. Otwórz konto usługi Automatyzacja w portalu Azure.
-3. Wybierz **hybrydowego procesu roboczego grupy** Kafelek, a następnie wybierz grupę.
+1. Utwórz [zasób poświadczeń](automation-credentials.md) z zasobami toolocal dostępu.
+2. Otwórz konto automatyzacji hello w hello portalu Azure.
+3. Wybierz hello **hybrydowego procesu roboczego grupy** Kafelek, a następnie wybierz grupę hello.
 4. Wybierz **wszystkie ustawienia** , a następnie **ustawienia grupy hybrydowego procesu roboczego**.
-5. Zmień **Uruchom jako** z **domyślne** do **niestandardowy**.
-6. Wybierz poświadczenie, a następnie kliknij przycisk **zapisać**.
+5. Zmień **Uruchom jako** z **domyślne** za**niestandardowy**.
+6. Wybierz poświadczenie hello i kliknij przycisk **zapisać**.
 
 ### <a name="automation-run-as-account"></a>Konto Uruchom jako automatyzacji
-W ramach procesu kompilacji automatycznego wdrażania zasobów na platformie Azure mogą wymagać dostępu do lokalnego systemów do obsługi zadań lub zestaw kroków w sekwencji wdrożenia.  Do obsługi uwierzytelniania przy użyciu konta Uruchom jako platformy Azure, należy zainstalować certyfikat konta Uruchom jako.  
+Jako część procesu kompilacji automatycznego wdrażania zasobów na platformie Azure może wymagać dostępu tooon lokalnych systemów toosupport zadań lub zestaw kroków w sekwencji wdrożenia.  toosupport uwierzytelnianie na platformie Azure przy użyciu konta Uruchom jako hello, należy tooinstall hello Uruchom jako certyfikat konta.  
 
-Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorker eksportu*, umożliwia wyeksportowanie certyfikatu uruchom jako z konta usługi Automatyzacja Azure i pliki do pobrania i zaimportowanie go do magazynu certyfikatów komputera lokalnego na hybrydowy proces roboczy podłączony do tego samego konta.  Po ukończeniu tego kroku sprawdza to, czy Proces roboczy może pomyślnie wykonać uwierzytelnienia na platformie Azure przy użyciu konta Uruchom jako.
+Witaj, po runbook programu PowerShell *RunAsCertificateToHybridWorker eksportu*, eksportuje hello Uruchom jako certyfikat z konta usługi Automatyzacja Azure i pliki do pobrania i importuje go do magazynu certyfikatów komputera lokalnego hello na Hybrydowy proces roboczy podłączony toohello tego samego konta.  Po ukończeniu tego kroku sprawdza to, czy Proces roboczy hello można pomyślnie uwierzytelnić tooAzure hello konta Uruchom jako.
 
     <#PSScriptInfo
     .VERSION 1.0
@@ -95,12 +95,12 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
 
     <#  
     .SYNOPSIS  
-    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
+    Exports hello Run As certificate from an Azure Automation account tooa hybrid worker in that account. 
   
     .DESCRIPTION  
-    This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
-    Run this runbook in the hybrid worker where you want the certificate installed.
-    This allows the use of the AzureRunAsConnection to authenticate to Azure and manage Azure resources from runbooks running in the hybrid worker.
+    This runbook exports hello Run As certificate from an Azure Automation account tooa hybrid worker in that account.
+    Run this runbook in hello hybrid worker where you want hello certificate installed.
+    This allows hello use of hello AzureRunAsConnection tooauthenticate tooAzure and manage Azure resources from runbooks running in hello hybrid worker.
 
     .EXAMPLE
     .\Export-RunAsCertificateToHybridWorker
@@ -112,19 +112,19 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
+    # Set hello password used for this certificate
     $Password = "YourStrongPasswordForTheCert"
 
     # Stop on errors
     $ErrorActionPreference = 'stop'
 
-    # Get the management certificate that will be used to make calls into Azure Service Management resources
+    # Get hello management certificate that will be used toomake calls into Azure Service Management resources
     $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
        
-    # location to store temporary certificate in the Automation service host
+    # location toostore temporary certificate in hello Automation service host
     $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
    
-    # Save the certificate
+    # Save hello certificate
     $Cert = $RunAsCert.Export("pfx",$Password)
     Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
 
@@ -132,7 +132,7 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
-    # Test that authentication to Azure Resource Manager is working
+    # Test that authentication tooAzure Resource Manager is working
     $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
     
     Add-AzureRmAccount `
@@ -143,18 +143,18 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
 
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
-    # List automation accounts to confirm Azure Resource Manager calls are working
+    # List automation accounts tooconfirm Azure Resource Manager calls are working
     Get-AzureRmAutomationAccount | Select AutomationAccountName
 
-Zapisz *RunAsCertificateToHybridWorker eksportu* runbook na komputerze z `.ps1` rozszerzenia.  Zaimportuj go do Twojego konta automatyzacji i edytować element runbook, zmiana wartości zmiennej `$Password` z własnego hasła.  Publikowanie, a następnie uruchom korzystających z uwierzytelniania przy użyciu konta Uruchom jako elementy runbook, które grupy hybrydowego procesu roboczego elementu runbook.  Strumień zadań zgłasza próba zaimportowania certyfikatu w magazynie komputera lokalnego i jest zgodny z wielu wierszy w zależności od liczby kont automatyzacji są zdefiniowane w ramach subskrypcji i jeśli uwierzytelnianie zakończy się pomyślnie.  
+Zapisz hello *RunAsCertificateToHybridWorker eksportu* runbook tooyour komputera z `.ps1` rozszerzenia.  Zaimportuj go do Twojego konta automatyzacji i edytować runbook hello, zmiana hello wartość zmiennej hello `$Password` z własnego hasła.  Publikowanie, a następnie uruchom element runbook hello przeznaczonych dla grupy hybrydowego procesu roboczego hello Uruchom i uwierzytelniania przy użyciu konta Uruchom jako hello elementów runbook.  Hello zadania strumienia raporty hello próba tooimport hello certyfikat do magazynu komputer lokalny hello i jest zgodny z wielu wierszy w zależności od liczby kont automatyzacji są zdefiniowane w ramach subskrypcji i jeśli uwierzytelnianie zakończy się pomyślnie.  
 
 ## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Rozwiązywanie problemów z elementów runbook na hybrydowy proces roboczy elementu Runbook
-Dzienniki są przechowywane lokalnie na każdym hybrydowy proces roboczy na C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Hybrydowy proces roboczy rejestruje także błędów i zdarzeń w dzienniku zdarzeń systemu Windows w obszarze **aplikacji i usług Logs\Microsoft-SMA\Operational**.  Zdarzenia związane z elementami runbook wykonywane w procesie roboczym są zapisywane w **aplikacji i usług Logs\Microsoft-Automation\Operational**.  **Microsoft SMA** dziennika zawiera wiele więcej zdarzeń związanych z zadania elementu runbook do elementu roboczego i przetwarzania elementu runbook.  Gdy **automatyzacji Microsoft** dziennika zdarzeń nie ma wiele zdarzeń ze szczegółami pomoc w rozwiązywaniu problemów z wykonanie elementu runbook, można znaleźć co najmniej wyniki zadania elementu runbook.  
+Dzienniki są przechowywane lokalnie na każdym hybrydowy proces roboczy na C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Hybrydowy proces roboczy rejestruje także błędów i zdarzeń w dzienniku zdarzeń systemu Windows hello w obszarze **aplikacji i usług Logs\Microsoft-SMA\Operational**.  Zdarzenia związane z toorunbooks wykonana w wątku roboczym hello są zapisywane zbyt**aplikacji i usług Logs\Microsoft-Automation\Operational**.  Witaj **Microsoft SMA** dziennika zawiera wiele więcej zdarzeń powiązanych toohello runbook zadania wciśnięcia toohello procesu roboczego hello przetwarzanie i elementu hello runbook.  Podczas hello **automatyzacji Microsoft** dziennika zdarzeń nie ma wiele zdarzeń przy użyciu szczegółów z hello rozwiązywania problemów z wykonanie elementu runbook, znajduje się co najmniej wyniki hello hello zadanie elementu runbook.  
 
-[Runbook dane wyjściowe i komunikaty](automation-runbook-output-and-messages.md) są wysyłane do usługi Automatyzacja Azure z hybrydowych procesów roboczych, podobnie jak zadania elementów runbook działają w chmurze.  Można również włączyć pełne i postępu strumienie tak samo jak dla innych elementów runbook.  
+[Element Runbook dane wyjściowe i komunikaty](automation-runbook-output-and-messages.md) są wysyłane tooAzure automatyzacji z hybrydowych procesów roboczych tylko, takich jak zadania elementu runbook są uruchamiane w chmurze hello.  Można również włączyć hello pełne i strumieni postępu hello sam sposób jak dla innych elementów runbook.  
 
-Jeśli elementy runbook nie są pomyślnie wykonywane zadanie podsumowania przedstawia stan **zawieszone**, przejrzyj artykuł dotyczący rozwiązywania problemów [hybrydowy proces roboczy elementu Runbook: kończy zadanie elementu runbook o stanie Suspended](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
+Jeśli elementy runbook nie są pomyślnie wykonywane i hello zadanie podsumowania przedstawia stan **zawieszone**, zapoznaj się z tematem hello Rozwiązywanie problemów z artykułu [hybrydowy proces roboczy elementu Runbook: kończy zadanie elementu runbook ze stanem Zawieszone](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej na temat różnych metod, które mogą służyć do uruchamiania elementu runbook, zobacz [uruchamianie elementu Runbook automatyzacji Azure](automation-starting-a-runbook.md).  
-* Aby poznać różne procedury dotyczące pracy z elementami runbook programu PowerShell i przepływ pracy programu PowerShell w automatyzacji Azure za pomocą edytor tekstowy, zobacz [edytowanie elementu Runbook automatyzacji Azure](automation-edit-textual-runbook.md)
+* Zobacz toolearn więcej informacji na temat różnych metod hello, które mogą być używane toostart elementu runbook [uruchamianie elementu Runbook automatyzacji Azure](automation-starting-a-runbook.md).  
+* Zobacz toounderstand hello różne procedury do pracy z programu PowerShell i przepływ pracy programu PowerShell elementów runbook w automatyzacji Azure za pomocą hello edytor tekstowy, [edytowanie elementu Runbook automatyzacji Azure](automation-edit-textual-runbook.md)

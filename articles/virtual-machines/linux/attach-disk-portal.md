@@ -1,6 +1,6 @@
 ---
-title: "Dołączenie dysku danych do maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
-description: "Jak można dołączyć danych do nowego lub istniejącego dysku do maszyny Wirtualnej systemu Linux, w portalu Azure przy użyciu modelu wdrażania Menedżera zasobów."
+title: aaaAttach tooa dysku danych maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft
+description: "Jak tooattach danych nowego lub istniejącego dysku tooa maszyny Wirtualnej systemu Linux w hello przy użyciu portalu Azure hello modelu wdrażania usługi Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-ms.openlocfilehash: 1599ee241c3d9fb3623ebd89ae30f2795cae1930
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 069c3c6f5e71a8c495342e6d0c6f3d92c4ed5053
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Jak można dołączyć dysku danych do maszyny Wirtualnej systemu Linux, w portalu Azure
-W tym artykule przedstawiono sposób dołączyć istniejących i nowych dysków do maszyny wirtualnej systemu Linux za pośrednictwem portalu Azure. Możesz również [dołączenie dysku danych do maszyny Wirtualnej systemu Windows w portalu Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Można użyć Azure dysków zarządzane lub niezarządzane dysków. Dyski zarządzane są obsługiwane przez platformę Azure i nie wymagają wszystkie lub lokalizację do przechowywania ich. Niezarządzane dyski wymagają konta magazynu i mają pewne [przydziały i ograniczenia, które są stosowane](../../azure-subscription-service-limits.md#storage-limits). Aby uzyskać więcej informacji o dyskach Azure Managed Disks, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).
+# <a name="how-tooattach-a-data-disk-tooa-linux-vm-in-hello-azure-portal"></a>Jak tooattach danych na dysku tooa maszyny Wirtualnej systemu Linux w hello portalu Azure
+W tym artykule opisano, jak tooattach istniejących i nowych dysków maszyny wirtualnej systemu Linux tooa za pośrednictwem hello portalu Azure. Możesz również [dołączyć tooa dysku danych maszyny Wirtualnej systemu Windows w portalu Azure hello](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Możesz wybrać toouse albo Azure dysków zarządzanych lub niezarządzanych dysków. Zarządzane dyski są obsługiwane przez hello platformy Azure i nie wymagają żadnych toostore przygotowania lub lokalizacji je. Niezarządzane dyski wymagają konta magazynu i mają pewne [przydziały i ograniczenia, które są stosowane](../../azure-subscription-service-limits.md#storage-limits). Aby uzyskać więcej informacji o dyskach Azure Managed Disks, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).
 
-Przed dołączeniem dysków do maszyny Wirtualnej, przejrzyj następujące wskazówki:
+Przed dołączeniem tooyour dysków maszyny Wirtualnej, przejrzyj te wskazówki:
 
-* Rozmiar maszyny wirtualnej Określa, ile można dołączać dysków z danymi. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Aby użyć magazyn w warstwie Premium, należy serii DS lub GS-series maszyny wirtualnej. Można użyć zarówno Premium i standardowa dysków z tych maszyn wirtualnych. Magazyn w warstwie Premium jest dostępna w pewnych regionach. Aby uzyskać więcej informacji, zobacz [magazyn w warstwie Premium: magazyn o wysokiej wydajności dla obciążeń maszyny wirtualnej Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Dysków dołączonych do maszyn wirtualnych są faktycznie pliki VHD przechowywane na platformie Azure. Aby uzyskać więcej informacji, zobacz [o dyskach i wirtualne dyski twarde dla maszyn wirtualnych](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Hello rozmiar maszyny wirtualnej hello Określa, ile można dołączać dysków z danymi. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Magazyn w warstwie Premium toouse, należy serii DS lub GS-series maszyny wirtualnej. Można użyć zarówno Premium i standardowa dysków z tych maszyn wirtualnych. Magazyn w warstwie Premium jest dostępna w pewnych regionach. Aby uzyskać więcej informacji, zobacz [magazyn w warstwie Premium: magazyn o wysokiej wydajności dla obciążeń maszyny wirtualnej Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Maszyny toovirtual dołączone dyski są faktycznie pliki VHD przechowywane na platformie Azure. Aby uzyskać więcej informacji, zobacz [o dyskach i wirtualne dyski twarde dla maszyn wirtualnych](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="find-the-virtual-machine"></a>Znaleźć maszyny wirtualnej
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu Centrum kliknij pozycję **Virtual Machines**.
-3. Wybierz maszynę wirtualną z listy.
-4. Do wirtualnej maszyny bloku, w **Essentials**, kliknij przycisk **dysków**.
+## <a name="find-hello-virtual-machine"></a>Znajdź hello maszyny wirtualnej
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com/).
+2. W menu Centrum powitania kliknij **maszyn wirtualnych**.
+3. Wybierz maszynę wirtualną hello z listy hello.
+4. toohello wirtualnej maszyny bloku, w **Essentials**, kliknij przycisk **dysków**.
    
     ![Otwórz ustawienia dysku](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -45,57 +45,57 @@ Kontynuuj przez następujące instrukcje dotyczące dołączania albo [dysków z
 
 ### <a name="attach-a-new-disk"></a>Dołączanie nowego dysku
 
-1. Na **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
-2. Kliknij menu rozwijane dla **nazwa** i wybierz **Tworzenie dysku**:
+1. Na powitania **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
+2. Kliknij menu rozwijanego hello **nazwa** i wybierz **Tworzenie dysku**:
 
     ![Utwórz Azure dysków zarządzanych](./media/attach-disk-portal/create-new-md.png)
 
-3. Wprowadź nazwę dysku zarządzanego. Przejrzyj ustawienia domyślne, należy zaktualizować odpowiednio do potrzeb, a następnie kliknij **Utwórz**.
+3. Wprowadź nazwę dysku zarządzanego. Przejrzyj ustawienia domyślne hello, zaktualizuj odpowiednio do potrzeb, a następnie kliknij **Utwórz**.
    
    ![Przejrzyj ustawienia dysku](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. Kliknij przycisk **zapisać** do tworzenia dysków zarządzanych i aktualizowania konfiguracji maszyny Wirtualnej:
+4. Kliknij przycisk **zapisać** toocreate hello zarządzane dysku i aktualizacji konfiguracji maszyny Wirtualnej hello:
 
    ![Zapisz nowy dysk zarządzane Azure](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Po Azure utworzy dysk i dołącza go do maszyny wirtualnej, nowy dysk ma na liście ustawień dysku maszyny wirtualnej w obszarze **dysków z danymi**. Dyski zarządzane są zasobem najwyższego poziomu dysku pojawia się w katalogu głównym grupy zasobów:
+5. Po Azure tworzy dysk hello i dołącza go toohello maszyny wirtualnej, hello nowego dysku jest wymieniony w ustawienia dysku maszyny wirtualnej hello w obszarze **dysków z danymi**. Dyski zarządzane są zasobem najwyższego poziomu, hello dysk zostanie wyświetlony w głównym hello hello grupy zasobów:
 
    ![Dysku platformy Azure zarządzanych w grupie zasobów](./media/attach-disk-portal/view-md-resource-group.png)
 
 ### <a name="attach-an-existing-disk"></a>Dołączanie istniejącego dysku
-1. Na **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
-2. Kliknij menu rozwijane dla **nazwa** Aby wyświetlić listę istniejących dysków zarządzanych dostępny dla Twojej subskrypcji platformy Azure. Wybierz zarządzane dysku, aby dołączyć:
+1. Na powitania **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
+2. Kliknij menu rozwijanego hello **nazwa** tooview listę istniejących zarządzane tooyour dostępne dyski subskrypcji platformy Azure. Wybierz hello zarządzane tooattach dysku:
 
    ![Dołączanie istniejącego dysku zarządzanego Azure](./media/attach-disk-portal/select-existing-md.png)
 
-3. Kliknij przycisk **zapisać** dołączyć istniejącego dysku zarządzanego i zaktualizować konfiguracji maszyny Wirtualnej:
+3. Kliknij przycisk **zapisać** istniejących hello tooattach zarządzane dysku i aktualizacji konfiguracji maszyny Wirtualnej hello:
    
    ![Zapisanie aktualizacji dysku zarządzanego Azure](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Po Azure dołącza dysk do maszyny wirtualnej, jest wymienione w ustawieniach dysku maszyny wirtualnej w obszarze **dysków z danymi**.
+4. Po Azure dołącza hello maszyny wirtualnej toohello dysku, znajduje się w ustawieniach dysku maszyny wirtualnej hello w obszarze **dysków z danymi**.
 
 ## <a name="use-unmanaged-disks"></a>Niezarządzane dysków
 
 ### <a name="attach-a-new-disk"></a>Dołączanie nowego dysku
 
-1. Na **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
-2. Przejrzyj ustawienia domyślne, należy zaktualizować odpowiednio do potrzeb, a następnie kliknij **OK**.
+1. Na powitania **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
+2. Przejrzyj ustawienia domyślne hello, zaktualizuj odpowiednio do potrzeb, a następnie kliknij **OK**.
    
    ![Przejrzyj ustawienia dysku](./media/attach-disk-portal/attach-new.png)
-3. Po Azure utworzy dysk i dołącza go do maszyny wirtualnej, nowy dysk ma na liście ustawień dysku maszyny wirtualnej w obszarze **dysków z danymi**.
+3. Po Azure tworzy dysk hello i dołącza go toohello maszyny wirtualnej, hello nowego dysku jest wymieniony w ustawienia dysku maszyny wirtualnej hello w obszarze **dysków z danymi**.
 
 ### <a name="attach-an-existing-disk"></a>Dołączanie istniejącego dysku
-1. Na **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
+1. Na powitania **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
 2. W obszarze **dołączyć istniejącego dysku**, kliknij przycisk **pliku VHD**.
    
    ![Dołączanie istniejącego dysku](./media/attach-disk-portal/attach-existing.png)
-3. W obszarze **kont magazynu**, wybierz konto i kontener, który zawiera plik VHD.
+3. W obszarze **kont magazynu**, wybierz konto hello i kontener, który zawiera plik VHD hello.
    
    ![Znajdź lokalizację wirtualnego dysku twardego](./media/attach-disk-portal/find-storage-container.png)
-4. Wybierz plik VHD.
-5. W obszarze **dołączyć istniejącego dysku**, po prostu wybrany plik jest wyświetlana w obszarze **pliku VHD**. Kliknij przycisk **OK**.
-6. Po Azure dołącza dysk do maszyny wirtualnej, jest wymienione w ustawieniach dysku maszyny wirtualnej w obszarze **dysków z danymi**.
+4. Wybierz plik VHD hello.
+5. W obszarze **dołączyć istniejącego dysku**, po prostu wybrany plik hello jest wyświetlana w obszarze **pliku VHD**. Kliknij przycisk **OK**.
+6. Po Azure dołącza hello maszyny wirtualnej toohello dysku, znajduje się w ustawieniach dysku maszyny wirtualnej hello w obszarze **dysków z danymi**.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Po dodaniu dysku, należy przygotować go do użycia. Aby uzyskać więcej informacji, zobacz [porady: inicjowanie nowy dysk danych w systemie Linux](add-disk.md).
+Po dodaniu dysku hello należy tooprepare go do użycia. Aby uzyskać więcej informacji, zobacz [porady: inicjowanie nowy dysk danych w systemie Linux](add-disk.md).

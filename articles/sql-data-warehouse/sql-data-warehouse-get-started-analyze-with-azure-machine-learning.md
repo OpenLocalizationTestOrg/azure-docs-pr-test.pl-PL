@@ -1,6 +1,6 @@
 ---
-title: "Analizowanie danych przy użyciu usługi Azure Machine Learning | Microsoft Docs"
-description: "Używając usługi Azure Machine Learning, można utworzyć predykcyjny model uczenia maszynowego korzystający z danych przechowywanych w usłudze Azure SQL Data Warehouse."
+title: "aaaAnalyze danych za pomocą usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
+description: "Użyj usługi Azure Machine Learning toobuild predykcyjnej maszyny uczenie modelu, w oparciu o dane przechowywane w magazynie danych SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 03/02/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 3197948e32fe5c95b111fe5495a0e5f85966a24b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 337a2cd77aaad4467683827c56e5015b262b2554
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -31,26 +31,26 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Ten samouczek przedstawia sposób tworzenia predykcyjnego modelu uczenia maszynowego przy użyciu usługi Azure Machine Learning korzystającej z danych przechowywanych w usłudze Azure SQL Data Warehouse. W szczególności ten samouczek omawia tworzenie ukierunkowanej kampanii marketingowej dla sklepu rowerowego Adventure Works przez prognozowanie prawdopodobieństwa zakupu roweru przez klienta.
+W tym samouczku używa usługi Azure Machine Learning toobuild predykcyjnej maszyny, uczenie modelu, w oparciu o dane przechowywane w magazynie danych SQL Azure. W szczególności to z kolei ukierunkowaną kampanię marketingową dla firmy Adventure Works, sklep roweru hello, przez Jeśli klient jest prawdopodobnie toobuy roweru lub nie.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do wykonania kroków opisanych w tym samouczku potrzebne są:
+toostep opisanych w tym samouczku, potrzebne są:
 
-* Baza danych usługi SQL Data Warehouse. ze wstępnie załadowanymi danymi z bazy danych AdventureWorksDW. Aby dowiedzieć się, jak załadować dane przykładowe, zobacz [Tworzenie magazynu danych SQL Data Warehouse][Create a SQL Data Warehouse]. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][load sample data manually].
+* Baza danych usługi SQL Data Warehouse. ze wstępnie załadowanymi danymi z bazy danych AdventureWorksDW. tooprovision tego, zobacz [Tworzenie usługi SQL Data Warehouse] [ Create a SQL Data Warehouse] i wybierz polecenie tooload hello przykładowych danych. Jeśli masz już magazyn danych, ale bez przykładowych danych, możesz [ręcznie załadować przykładowe dane][load sample data manually].
 
-## <a name="1-get-the-data"></a>1. Pobieranie danych
-Dane znajdują się w widoku dbo.vTargetMail w bazie danych AdventureWorksDW. Aby odczytać te dane:
+## <a name="1-get-hello-data"></a>1. Pobierz dane hello
+dane Hello jest hello widoku dbo.vTargetMail w bazie danych AdventureWorksDW hello. tooread te dane:
 
 1. Zaloguj się do programu [Azure Machine Learning Studio][Azure Machine Learning studio] i kliknij eksperymenty.
 2. Kliknij przycisk **+ NOWE** i wybierz pozycję **Blank Experiment** (Pusty eksperyment).
 3. Wprowadź nazwę swojego eksperymentu: Targeted Marketing (Marketing docelowy).
-4. Przeciągnij moduł **Reader** (Czytnik) z okienka modułów do kanwy.
-5. Określ szczegóły bazy danych usługi SQL Data Warehouse w okienku Properties (Właściwości).
-6. Określ **zapytanie** do bazy danych, aby odczytać potrzebne dane.
+4. Przeciągnij hello **czytnika** modułu na podstawie hello okienka modułów do kanwy hello.
+5. Określ szczegóły hello bazy danych magazynu danych SQL w okienku Properties hello.
+6. Określ bazę danych hello **zapytania** tooread hello dane.
 
 ```sql
 SELECT [CustomerKey]
@@ -72,60 +72,60 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Aby uruchomić eksperyment, kliknij pozycję **Run** (Uruchom) na kanwie eksperymentu.
-![Uruchamianie eksperymentu][1]
+Uruchom eksperyment hello, klikając **Uruchom** w obszarze hello kanwy eksperymentu.
+![Uruchom eksperyment hello][1]
 
-Po pomyślnym wykonaniu eksperymentu kliknij port wyjściowy na dole modułu Reader (Czytnik) i wybierz opcję **Visualize** (Wizualizacja), aby wyświetlić zaimportowane danych.
+Po zakończeniu eksperymentu hello pomyślnie wykonywane kliknij port wyjściowy hello u dołu hello moduł czytnika hello i wybierz **wizualizacja** toosee hello zaimportowała dane.
 ![Wyświetlanie zaimportowanych danych][3]
 
-## <a name="2-clean-the-data"></a>2. Czyszczenie danych
-Aby wyczyścić dane, usuń kilka kolumn, które nie są istotne dla modelu. W tym celu:
+## <a name="2-clean-hello-data"></a>2. Wyczyść hello danych
+dane hello tooclean, usunąć niektóre kolumny, które nie są istotne dla modelu hello. toodo to:
 
-1. Przeciągnij moduł **Project Columns** (Kolumny projektu) na kanwę.
-2. Kliknij pozycję **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości), aby wskazać kolumny do usunięcia.
+1. Przeciągnij hello **kolumny projektu** modułu na kanwie hello.
+2. Kliknij przycisk **Uruchom selektor kolumn** w okienku toospecify właściwości hello, które kolumny mają toodrop.
    ![Kolumny projektu][4]
 3. Wyklucz dwie kolumny: CustomerAlternateKey i GeographyKey.
    ![Usuwanie zbędnych kolumn][5]
 
-## <a name="3-build-the-model"></a>3. Tworzenie modelu
-Podzielimy dane w proporcji 80–20: 80% do trenowania tworzenia modelu uczenia maszynowego i 20% do testowania modelu. Użyjemy algorytmów „dwuklasowych” do rozwiązania tego problemu klasyfikacji binarnej.
+## <a name="3-build-hello-model"></a>3. Tworzenie modelu hello
+Podzielimy dane hello proporcji 80 – 20: 80% tootrain modelu uczenia maszynowego i 20% tootest hello modelu. Firma Microsoft będzie wprowadzać użyj algorytmów "Dwuklasowych" hello, w przypadku tego problemu klasyfikacji binarnej.
 
-1. Przeciągnij moduł **Split** (Podział) na kanwę.
-2. Wprowadź wartość 0,8 w polu Fraction of rows in the first output dataset (Ułamek wierszy w pierwszym zestawie danych wyjściowych) w okienku Properties (Właściwości).
+1. Przeciągnij hello **podziału** modułu na kanwie hello.
+2. Wprowadź wartość 0,8 w ułamek wierszy w hello pierwszy wyjściowy zestaw danych w okienku Properties hello.
    ![Podział danych na zestaw szkoleniowy i zestaw testowy][6]
-3. Przeciągnij moduł **Two-Class Boosted Decision Tree** (Dwuklasowe wzmocnione drzewo decyzyjne) na kanwę.
-4. Przeciągnij moduł **Train Model** (Model szkoleniowy) na kanwę i określ dane wejściowe. Następnie kliknij przycisk **Launch column selector** (Uruchom selektor kolumn) w okienku Properties (Właściwości).
+3. Przeciągnij hello **Two-Class Boosted drzewa decyzyjnego** modułu na kanwie hello.
+4. Przeciągnij hello **Train Model** modułu do hello obszaru roboczego i określ hello danych wejściowych. Następnie kliknij przycisk **Uruchom selektor kolumn** w okienku Properties hello.
    * Pierwsze dane wejściowe: algorytm uczenia maszynowego.
-   * Drugie dane wejściowe: dane do szkolenia w zakresie algorytmu.
-     ![Łączenie modułu Train Model (Model szkoleniowy)][7]
-5. Wybierz kolumnę **BikeBuyer** (Nabywca roweru) jako kolumnę do prognozowania.
-   ![Wybór kolumny do prognozowania][8]
+   * Drugie dane wejściowe: algorytm hello tootrain danych na.
+     ![Łączenie modułu Train Model hello][7]
+5. Wybierz hello **BikeBuyer** kolumny hello toopredict kolumny.
+   ![Wybierz kolumny toopredict][8]
 
-## <a name="4-score-the-model"></a>4. Ocena modelu
-Teraz przetestujemy działanie modelu na danych testowych. Porównamy wybrany algorytm z innym algorytmem, aby zobaczyć, który działa lepiej.
+## <a name="4-score-hello-model"></a>4. Wynik hello modelu
+Zostanie teraz przetestować sposób wykonywania hello modelu na danych testowych. Porównamy algorytm hello z toosee innego algorytmu, który działa lepiej.
 
-1. Przeciągnij moduł **Score model** (Model klasyfikacyjny) na kanwę.
-    Pierwsze dane wejściowe: model szkoleniowy Drugie dane wejściowe: dane testowe ![Klasyfikacja modelu][9]
-2. Przeciągnij moduł **Two-Class Bayes Point Machine** (Dwuklasowa maszyna punktu Bayesa) do kanwy eksperymentu. Porównamy działanie tego algorytmu z algorytmem Two-Class Boosted Decision Tree (Dwuklasowe wzmocnione drzewo decyzyjne).
-3. Skopiuj i wklej moduły Train Model (Model szkoleniowy) i Score Model (Model klasyfikacyjny) do kanwy.
-4. Przeciągnij moduł **Evaluate Model** (Ocena modelu) do kanwy, aby porównać oba algorytmy.
-5. Kliknij przycisk **Run** (Uruchom), aby uruchomić eksperyment
-   ![Uruchamianie eksperymentu][10]
-6. Kliknij port wyjściowy w dolnej części modułu Evaluate Model (Ocena modelu), a następnie kliknij pozycję Visualize (Wizualizacja).
+1. Przeciągnij **Score Model** modułu na kanwie hello.
+    Pierwsze dane wejściowe: Uczony model drugie dane wejściowe: dane testowe ![Score hello model][9]
+2. Przeciągnij hello **maszyna punktu Bayesa Two-Class** do kanwy eksperymentu hello. Porównamy, jak ten algorytm wykonuje porównania toohello Two-Class Boosted drzewa decyzyjnego.
+3. Kopiuj i Wklej hello moduły Train Model i Score Model hello kanwy.
+4. Przeciągnij hello **Evaluate Model** modułu algorytmów hello kanwy toocompare hello dwa.
+5. **Uruchom** hello eksperymentu.
+   ![Uruchom eksperyment hello][10]
+6. Kliknij port wyjściowy hello u dołu hello hello modułu Evaluate Model, a następnie kliknij pozycję Visualize.
    ![Wizualizacja wyników oceny][11]
 
-Podane metryki obejmują krzywą ROC, diagram precision-recall oraz krzywą wzrostu. Na podstawie tych metryk możemy stwierdzić, że pierwszy model działa lepiej niż drugi. Aby przyjrzeć się prognozom pierwszego modelu, kliknij port wyjściowy modułu Score Model (Model klasyfikacyjny) i kliknij pozycję Visualize (Wizualizacja).
+podane metryki Hello są hello krzywą ROC, diagram precision-recall i podnieś krzywą. Na podstawie tych metryk, możemy stwierdzić, tym hello pierwszy model działa lepiej niż drugi hello. toolook na powitania co hello pierwszego modelu, kliknij port wyjściowy hello Score Model i kliknij pozycję Visualize.
 ![Wizualizacja wyników klasyfikacji][12]
 
-Zostaną wyświetlone dwie kolumny dodane do zestawu danych testowych.
+Zobaczysz, że dwie kolumny dodane tooyour zestawu danych testowych.
 
-* Scored Probabilities (Sklasyfikowane prawdopodobieństwo): prawdopodobieństwo, że klient jest nabywcą roweru.
-* Scored Labels (Sklasyfikowane etykiety): klasyfikacja dokonana przez model — nabywca roweru (1) lub nie (0). Ustawiony próg prawdopodobieństwa etykietowania wynosi 50% i można go dostosować.
+* Scored Probabilities: hello prawdopodobieństwo, że klient jest nabywcą roweru.
+* Scored etykiety: hello klasyfikacja dokonana przez hello model — nabywca roweru (1) czy nie (0). Próg prawdopodobieństwa etykietowania ustawiono too50% i można go dostosować.
 
-Porównując wartości w kolumnach BikeBuyer (Nabywca roweru) (rzeczywiste) oraz Scored Labels (Sklasyfikowane etykiety) (prognozowane), można określić prawidłowość działania modelu. W kolejnych krokach można użyć tego modelu w celu tworzenia prognoz dotyczących nowych klientów i opublikować ten model jako usługę sieci Web lub zapisać wyniki z powrotem w bazie danych usługi SQL Data Warehouse.
+Porównywanie kolumny hello BikeBuyer (rzeczywiste) z etykietami oceniane hello (Prognozowane), widać, jak wykonał hello modelu. W kolejnych krokach można użyć tego modelu toomake prognoz dotyczących nowych klientów i opublikować ten model jako usługę sieci web lub zapisać wyniki wstecz tooSQL hurtowni danych.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure][Introduction to Machine Learning on Azure].
+toolearn więcej informacji na temat tworzenia predykcyjnych modeli, uczenia maszynowego można znaleźć zbyt[tooMachine wprowadzenie Learning na platformie Azure][Introduction tooMachine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -144,6 +144,6 @@ Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynoweg
 
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction tooMachine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

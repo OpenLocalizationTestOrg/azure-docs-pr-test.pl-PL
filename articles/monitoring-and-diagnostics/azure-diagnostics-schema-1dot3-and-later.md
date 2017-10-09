@@ -1,6 +1,6 @@
 ---
-title: Rozszerzenie diagnostyki Azure 1.3 i nowszym schemat konfiguracji | Dokumentacja firmy Microsoft
-description: "Wersja schematu 1.3 i nowszym diagnostyki Azure dostarczana jako część 2.4 zestawu SDK programu Microsoft Azure i później."
+title: "Schemat konfiguracji 1.3 i późniejsze rozszerzenia diagnostyki aaaAzure | Dokumentacja firmy Microsoft"
+description: "Wersja schematu 1.3 i nowszym diagnostyki Azure dostarczana jako część programu hello Microsoft Azure SDK 2.4 lub nowszy."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 0d814825fb08452238a254ccd30bde230380c74c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bd15d3a79ea818fcb3235854717e58d5da36518e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 diagnostyki Azure i nowszym schemat konfiguracji
 > [!NOTE]
-> Rozszerzenie Azure Diagnostics jest składnik służący do zbierania liczników wydajności i innych danych statystycznych z:
+> Hello rozszerzenie Azure Diagnostics jest składnik hello używany toocollect liczniki wydajności i innych danych statystycznych z:
 > - Azure Virtual Machines 
 > - Zestawy skali maszyn wirtualnych
 > - Service Fabric 
@@ -31,15 +31,15 @@ ms.lasthandoff: 07/11/2017
 > 
 > Ta strona jest tylko istotne, jeśli używasz tych usług.
 
-Ta strona jest nieprawidłowa dla wersji 1.3 i nowsze (Azure SDK 2.4 i nowszych). Nowsze sekcji konfiguracji są oznaczone jako do wyświetlenia, w jakiej wersji zostały dodane.  
+Ta strona jest nieprawidłowa dla wersji 1.3 i nowsze (Azure SDK 2.4 i nowszych). Nowsze sekcji konfiguracji są tooshow komentarze, w jakiej wersji zostały one dodane.  
 
-Plik konfiguracji opisanych tutaj służy do ustawienia konfiguracji diagnostyczne podczas uruchamiania Monitora diagnostyki.  
+Plik konfiguracyjny Hello opisane w tym miejscu jest tooset używanych ustawień diagnostycznych konfiguracji rozpoczyna monitorowanie hello diagnostyki.  
 
-Rozszerzenie jest używany w połączeniu z innymi produktami firmy Microsoft diagnostyki, takich jak Azure monitora, usługi Application Insights i analizy dzienników.
+rozszerzenie Hello jest używany w połączeniu z innymi produktami firmy Microsoft diagnostyki, takich jak Azure monitora, usługi Application Insights i analizy dzienników.
 
 
 
-Pobierz definicję schematu pliku konfiguracji publicznego, wykonując następujące polecenie programu PowerShell:  
+Pobierz definicję schematu pliku konfiguracji publicznego hello, wykonując następujące polecenia programu PowerShell hello:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
@@ -47,8 +47,8 @@ Pobierz definicję schematu pliku konfiguracji publicznego, wykonując następuj
 
 Aby uzyskać więcej informacji o korzystaniu z diagnostyki Azure, zobacz [rozszerzenia diagnostyki Azure](azure-diagnostics.md).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Przykładowy plik konfiguracji diagnostyki  
- W poniższym przykładzie przedstawiono plik konfiguracji typowych diagnostyki:  
+## <a name="example-of-hello-diagnostics-configuration-file"></a>Przykładowy plik konfiguracji diagnostyki hello  
+ Hello poniższy przykład przedstawia plik diagnostyki typowych konfiguracji:  
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
@@ -158,9 +158,9 @@ Aby uzyskać więcej informacji o korzystaniu z diagnostyki Azure, zobacz [rozsz
 
 ```  
 
-Wartość równoważna JSON poprzedniego pliku konfiguracyjnego XML. 
+Odpowiednik JSON hello poprzedniego pliku konfiguracyjnego XML. 
 
-PublicConfig i PrivateConfig są rozdzielone, ponieważ w większości przypadków użycia json, są przekazywane jako różne zmienne. Tych przypadkach obejmują szablony Menedżera zasobów, zestawu skalowania maszyn wirtualnych programu PowerShell i programu Visual Studio. 
+Hello PublicConfig i PrivateConfig są rozdzielone, ponieważ w większości przypadków użycia json, są przekazywane jako różne zmienne. Tych przypadkach obejmują szablony Menedżera zasobów, zestawu skalowania maszyn wirtualnych programu PowerShell i programu Visual Studio. 
 
 ```json
 "PublicConfig" {
@@ -363,10 +363,10 @@ PublicConfig i PrivateConfig są rozdzielone, ponieważ w większości przypadk�
 ```
 
 ## <a name="reading-this-page"></a>Odczytywanie tej strony  
- Tagi po około znajdują się w kolejności przedstawionej w poprzednim przykładzie.  Jeśli widzisz pełny opis, których można oczekiwać, wyszukaj strony elementu lub atrybutu.  
+ Hello tagi po są mniej więcej w kolejności przedstawionej w hello poprzedzających przykład.  Jeśli widzisz pełny opis, których można oczekiwać, wyszukaj strony hello hello elementu lub atrybutu.  
 
 ## <a name="common-attribute-types"></a>Popularne typy atrybutów  
- **scheduledTransferPeriod** atrybutu pojawia się w kilku elementów. Jest odstęp między zaplanowanego transferu do magazynu zaokrąglona w górę do najbliższej minutę. Wartość jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** atrybutu pojawia się w kilku elementów. Jest hello odstęp między toostorage zaplanowane transferów zaokrąglona w górę toohello najbliższej minutę. wartość Hello jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration Element  
@@ -374,34 +374,34 @@ PublicConfig i PrivateConfig są rozdzielone, ponieważ w większości przypadk�
 
 Dodany w wersji 1.3.  
 
-Element najwyższego poziomu w pliku konfiguracji diagnostyki.  
+element najwyższego poziomu Hello pliku konfiguracyjnego hello diagnostyki.  
 
-**Atrybut** xmlns — przestrzeń nazw XML dla pliku konfiguracji diagnostyki jest:  
+**Atrybut** xmlns — Witaj przestrzeni nazw XML dla pliku konfiguracji diagnostyki hello jest:  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**PublicConfig**|Wymagane. Zobacz opis w innym miejscu na tej stronie.|  
+|**PublicConfig**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
 |**PrivateConfig**|Opcjonalny. Zobacz opis w innym miejscu na tej stronie.|  
 |**IsEnabled**|Wartość logiczna. Zobacz opis w innym miejscu na tej stronie.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
  *Drzewa: PublicConfig - DiagnosticsConfiguration - katalogu głównego*
 
- Zawiera opis konfiguracji diagnostyki publicznego.  
+ W tym artykule opisano hello diagnostyki publicznego konfiguracji.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**WadCfg**|Wymagane. Zobacz opis w innym miejscu na tej stronie.|  
-|**Konto magazynu**|Nazwa konta magazynu Azure do przechowywania danych. Można także określić jako parametr podczas wykonywania polecenia cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**StorageType**|Może być *tabeli*, *obiektu Blob*, lub *TableAndBlob*. Tabela jest domyślny. Po wybraniu TableAndBlob danych diagnostycznych są zapisywane dwukrotnie — raz dla każdego typu.|  
-|**LocalResourceDirectory**|Katalog na maszynie wirtualnej, na którym Agent monitorowania przechowuje dane zdarzenia. Jeśli nie, ustawić, jest używany domyślny katalog:<br /><br /> Dla roli proces roboczy/sieci web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Atrybuty wymagane są:<br /><br /> - **ścieżka** -katalogu w systemie mają być używane przez diagnostyki Azure.<br /><br /> - **expandEnvironment** — Określa, czy zmienne środowiskowe są rozwijane w nazwie ścieżki.|  
+|**WadCfg**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
+|**Konto magazynu**|Nazwa Hello danych konta usługi Azure Storage hello hello toostore w. Można także określić jako parametr podczas wykonywania polecenia cmdlet hello AzureServiceDiagnosticsExtension zestawu.|  
+|**StorageType**|Może być *tabeli*, *obiektu Blob*, lub *TableAndBlob*. Tabela jest domyślny. Po wybraniu TableAndBlob danych diagnostycznych są zapisywane dwukrotnie — raz tooeach typu.|  
+|**LocalResourceDirectory**|katalog Hello na maszynie wirtualnej hello której hello agenta monitorowania przechowuje dane zdarzenia. Jeśli nie ustawiono, używane jest hello domyślny katalog:<br /><br /> Dla roli proces roboczy/sieci web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Atrybuty wymagane są:<br /><br /> - **ścieżka** — Witaj katalogu na powitania toobe systemu używany przez diagnostyki Azure.<br /><br /> - **expandEnvironment** — Określa, czy w nazwie ścieżki hello są rozwinięte zmiennych środowiskowych.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG katalogu głównego*
  
- Identyfikuje i konfiguruje dane telemetryczne, które mają być zbierane.  
+ Identyfikuje i konfiguruje toobe danych telemetrycznych hello zbierane.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element 
@@ -411,15 +411,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atrybuty|Opis|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Maksymalna ilość miejsca na dysku lokalnym, które mogą być używane przez różne rodzaje danych diagnostycznych zebranych przez diagnostyki Azure. Ustawienie domyślne to 5120 MB.<br />
-|**useProxyServer** | Skonfiguruj diagnostyki Azure, aby użyć ustawienia serwera proxy zgodnie z ustawieniami w ustawieniach programu Internet Explorer.|  
+| **overallQuotaInMB** | Maksymalna ilość miejsca na dysku lokalnym, które może być zużyte przez hello Hello różnego typu dane diagnostyczne zebrane przez diagnostyki Azure. Witaj domyślne ustawienie to 5120 MB.<br />
+|**useProxyServer** | Skonfiguruj ustawienia serwera proxy hello toouse diagnostyki Azure zgodnie z ustawieniami w ustawieniach programu Internet Explorer.|  
 
 <br /> <br />
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**Zrzutów awaryjnych**|Zobacz opis w innym miejscu na tej stronie.|  
-|**DiagnosticInfrastructureLogs**|Włącz zbieranie dzienników generowanych przez diagnostyki Azure. Dzienniki diagnostyczne infrastruktury są przydatne podczas rozwiązywania problemów Diagnostyka system. Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** — konfiguruje poziom ważności minimalna dzienników zbierane.<br /><br /> - **scheduledTransferPeriod** — interwał transferu zaplanowane do magazynu zaokrąglona w górę do najbliższej minutę. Wartość jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Włącz zbieranie dzienników generowanych przez diagnostyki Azure. dzienniki diagnostyczne infrastruktury Hello są przydatne podczas rozwiązywania problemów sam system diagnostyki hello. Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** — konfiguruje hello minimalny poziom ważności dzienników hello zbierane.<br /><br /> - **scheduledTransferPeriod** — interwał powitania między toostorage zaplanowane transferów zaokrąglona w górę toohello najbliższej minutę. wartość Hello jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**Katalogi**|Zobacz opis w innym miejscu na tej stronie.|  
 |**EtwProviders**|Zobacz opis w innym miejscu na tej stronie.|  
 |**Metryki**|Zobacz opis w innym miejscu na tej stronie.|  
@@ -432,30 +432,30 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>Element zrzutów awaryjnych  
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - zrzutów awaryjnych w katalogu głównego*
  
- Włącz zbieranie zrzutów awaryjnych.  
+ Włącz kolekcję hello zrzuty awaryjne.  
 
 |Atrybuty|Opis|  
 |----------------|-----------------|  
-|**Właściwość containerName**|Opcjonalny. Nazwa kontenera obiektów blob na koncie magazynu Azure używanego do przechowywania zrzuty awaryjne.|  
-|**crashDumpType**|Opcjonalny.  Konfiguruje diagnostyki Azure do zbieranie zrzutów mini lub pełnej awarii.|  
-|**directoryQuotaPercentage**|Opcjonalny.  Określa procent **overallQuotaInMB** mają zostać zarezerwowane dla zrzuty awaryjne na maszynie Wirtualnej.|  
+|**Właściwość containerName**|Opcjonalny. zrzuty awaryjne toostore używana nazwa Hello hello kontenera obiektów blob w toobe konta użytkownika usługi Azure Storage.|  
+|**crashDumpType**|Opcjonalny.  Konfiguruje zrzuty awaryjne mini lub pełnego toocollect diagnostyki Azure.|  
+|**directoryQuotaPercentage**|Opcjonalny.  Umożliwia skonfigurowanie wartości procentowej hello **overallQuotaInMB** toobe zarezerwowane zrzuty awaryjne na powitania maszyny Wirtualnej.|  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Wymagane. Definiuje wartości konfiguracji dla każdego procesu.<br /><br /> Następujący atrybut jest również wymagany:<br /><br /> **Parametr** — nazwa procesu ma diagnostyki Azure, aby zbierać zrzutu awaryjnego dla.|  
+|**CrashDumpConfiguration**|Wymagany. Definiuje wartości konfiguracji dla każdego procesu.<br /><br /> wymagane jest również Hello następującego atrybutu:<br /><br /> **Parametr** — Witaj nazwa procesu hello ma toocollect diagnostyki Azure dla zrzutu awaryjnego.|  
 
 ## <a name="directories-element"></a>Element katalogów 
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - katalogów katalogu głównego*
 
- Umożliwia zbieranie zawartości katalogu, dzienniki żądań dostępu do usług IIS nie powiodło się i/lub dzienniki programu IIS.  
+ Umożliwia hello kolekcji hello zawartości katalogu, usługi IIS nie powiodło się, dzienniki żądania dostępu i/lub dzienniki programu IIS.  
 
  Opcjonalne **scheduledTransferPeriod** atrybutu. Zawiera wyjaśnienie wcześniej.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**IISLogs**|W tym ten element w konfiguracji umożliwia zbieranie dzienników usług IIS:<br /><br /> **Właściwość containerName** — nazwa kontenera obiektów blob na koncie magazynu Azure używanego do przechowywania dzienników usług IIS.|   
-|**FailedRequestLogs**|W tym ten element w konfiguracji umożliwia zbieranie dzienników dotyczące żądań zakończonych niepowodzeniem do witryny usług IIS lub aplikacji. Należy też włączyć śledzenie opcje w obszarze **systemu. Serwer sieci Web** w **Web.config**.|  
-|**Źródła danych**|Lista katalogi do monitorowania.| 
+|**IISLogs**|W tym ten element w konfiguracji hello umożliwia hello zbieranie dzienników usług IIS:<br /><br /> **Właściwość containerName** — dzienniki programu IIS hello toostore używana nazwa hello hello kontenera obiektów blob w toobe konta użytkownika usługi Azure Storage.|   
+|**FailedRequestLogs**|W tym ten element w konfiguracji hello umożliwia zbieranie dzienników dotyczące żądań zakończonych niepowodzeniem tooan IIS witryny lub aplikacji. Należy też włączyć śledzenie opcje w obszarze **systemu. Serwer sieci Web** w **Web.config**.|  
+|**Źródła danych**|Lista katalogów toomonitor.| 
 
 
 
@@ -463,11 +463,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>Element źródeł danych  
  *Drzewa: Źródła danych PublicConfig - WadCFG - DiagnosticMonitorConfiguration - katalogów - głównego - DiagnosticsConfiguration-*
 
- Lista katalogi do monitorowania.  
+ Lista katalogów toomonitor.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Wymagane. Wymagany atrybut:<br /><br /> **Właściwość containerName** — nazwa kontenera obiektów blob w magazynie Azure konta, które ma być używany do przechowywania plików dziennika.|  
+|**DirectoryConfiguration**|Wymagany. Wymagany atrybut:<br /><br /> **Właściwość containerName** — Witaj nazwa hello kontenera obiektów blob na koncie magazynu Azure, w tym toobe używane pliki dziennika hello toostore.|  
 
 
 
@@ -476,12 +476,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - katalogów - DataSources — DirectoryConfiguration katalogu głównego*
 
- Może zawierać **bezwzględną** lub **LocalResource** elementu, ale nie oba.  
+ Mogą one obejmować albo hello **bezwzględną** lub **LocalResource** elementu, ale nie oba.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**Bezwzględne**|Ścieżka bezwzględna do katalogu, do monitorowania. Wymagane są następujące atrybuty:<br /><br /> - **Ścieżka** -ścieżka bezwzględna do katalogu, do monitorowania.<br /><br /> - **expandEnvironment** — Określa, czy są rozwinięte zmiennych środowiskowych w ścieżce.|  
-|**LocalResource**|Ścieżka względna zasobu lokalnego do monitorowania. Atrybuty wymagane są:<br /><br /> - **Nazwa** -zasób lokalny, zawierająca katalogi do monitorowania<br /><br /> - **relativePath** -ścieżka względna nazwa zawierająca katalogi do monitorowania|  
+|**Bezwzględne**|Witaj toomonitor katalogu toohello ścieżkę bezwzględną. Witaj następujące atrybuty są wymagane:<br /><br /> - **Ścieżka** — Witaj toomonitor katalogu toohello ścieżkę bezwzględną.<br /><br /> - **expandEnvironment** — Określa, czy są rozwinięte zmiennych środowiskowych w ścieżce.|  
+|**LocalResource**|Witaj toomonitor zasobu lokalnego tooa względną ścieżkę. Atrybuty wymagane są:<br /><br /> - **Nazwa** — Witaj zasób lokalny, który zawiera toomonitor katalogu hello<br /><br /> - **relativePath** — Witaj tooName względną ścieżkę zawierającą hello toomonitor katalogu|  
 
 
 
@@ -492,8 +492,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfiguruje zbierania zdarzeń generowanych przez [EventSource — klasa](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Wymagany atrybut:<br /><br /> **Dostawca** — Nazwa klasy zdarzenia EventSource.<br /><br /> Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** -minimalny poziom ważności na transfer do konta magazynu.<br /><br /> - **scheduledTransferPeriod** — interwał transferu zaplanowane do magazynu zaokrąglona w górę do najbliższej minutę. Wartość jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Wymagany atrybut:<br /><br /> **Dostawca** — identyfikator GUID dostawcy zdarzeń<br /><br /> Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** -minimalny poziom ważności na transfer do konta magazynu.<br /><br /> - **scheduledTransferPeriod** — interwał transferu zaplanowane do magazynu zaokrąglona w górę do najbliższej minutę. Wartość jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfiguruje zbierania zdarzeń generowanych przez [EventSource — klasa](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Wymagany atrybut:<br /><br /> **Dostawca** — Nazwa klasy hello hello EventSource zdarzenia.<br /><br /> Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** — Witaj konta magazynu tooyour tootransfer poziomu ważności minimalnej.<br /><br /> - **scheduledTransferPeriod** — interwał powitania między toostorage zaplanowane transferów zaokrąglona w górę toohello najbliższej minutę. wartość Hello jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Wymagany atrybut:<br /><br /> **Dostawca** — Witaj GUID hello Dostawca zdarzeń<br /><br /> Opcjonalne atrybuty:<br /><br /> - **scheduledTransferLogLevelFilter** — Witaj konta magazynu tooyour tootransfer poziomu ważności minimalnej.<br /><br /> - **scheduledTransferPeriod** — interwał powitania między toostorage zaplanowane transferów zaokrąglona w górę toohello najbliższej minutę. wartość Hello jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 
 
@@ -504,8 +504,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Atrybut opcjonalny:<br/><br/> **eventDestination** — Nazwa tabeli do przechowywania zdarzeń|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Atrybut opcjonalny:<br /><br /> **eventDestination** — Nazwa tabeli do przechowywania zdarzeń|  
+|**DefaultEvents**|Atrybut opcjonalny:<br/><br/> **eventDestination** — Witaj nazwa hello tabeli toostore hello zdarzeń w|  
+|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator hello hello zdarzenia.<br /><br /> Atrybut opcjonalny:<br /><br /> **eventDestination** — Witaj nazwa hello tabeli toostore hello zdarzeń w|  
 
 
 
@@ -514,28 +514,28 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Atrybut opcjonalny:<br /><br /> **eventDestination** — Nazwa tabeli do przechowywania zdarzeń|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Atrybut opcjonalny:<br /><br /> **eventDestination** — Nazwa tabeli do przechowywania zdarzeń|  
+|**DefaultEvents**|Atrybut opcjonalny:<br /><br /> **eventDestination** — Witaj nazwa hello tabeli toostore hello zdarzeń w|  
+|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator hello hello zdarzenia.<br /><br /> Atrybut opcjonalny:<br /><br /> **eventDestination** — Witaj nazwa hello tabeli toostore hello zdarzeń w|  
 
 
 
 ## <a name="metrics-element"></a>Element metryk  
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - metryki katalogu głównego*
 
- Umożliwia generowanie tabeli licznika wydajności, która jest zoptymalizowana pod kątem szybkiego zapytania. Każdego licznika wydajności, który jest zdefiniowany w **liczniki wydajności** elementu są przechowywane w tabeli metryki oprócz tabeli licznika wydajności.  
+ Umożliwia toogenerate tabeli licznika wydajności, która jest zoptymalizowana pod kątem szybkiego zapytania. Każdego licznika wydajności, który jest zdefiniowany w hello **liczniki wydajności** elementu są przechowywane w tabeli metryki hello tabeli dodanie toohello licznika wydajności.  
 
- **ResourceId** atrybut jest wymagany.  Identyfikator zasobu wdrażasz diagnostyki Azure do maszyny wirtualnej. Pobierz **resourceID** z [portalu Azure](https://portal.azure.com). Wybierz **Przeglądaj** -> **grup zasobów** -> **< nazwa\>**. Kliknij przycisk **właściwości** Kafelek i skopiuj wartości z **identyfikator** pola.  
+ Witaj **resourceId** atrybut jest wymagany.  Identyfikator zasobu Hello hello wdrażasz diagnostyki Azure do maszyny wirtualnej. Pobierz hello **resourceID** z hello [portalu Azure](https://portal.azure.com). Wybierz **Przeglądaj** -> **grup zasobów** -> **< nazwa\>**. Kliknij przycisk hello **właściwości** Kafelek i skopiuj wartość hello z hello **identyfikator** pola.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Wymagany atrybut:<br /><br /> **scheduledTransferPeriod** — interwał transferu zaplanowane do magazynu zaokrąglona w górę do najbliższej minutę. Wartość jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Wymagany atrybut:<br /><br /> **scheduledTransferPeriod** — interwał powitania między toostorage zaplanowane transferów zaokrąglona w górę toohello najbliższej minutę. wartość Hello jest [XML "Typ danych Duration."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 
 
 ## <a name="performancecounters-element"></a>PerformanceCounters — Element  
  *Drzewa: DiagnosticMonitorConfiguration PublicConfig - WadCFG - głównego - DiagnosticsConfiguration - - liczniki wydajności*
 
- Umożliwia zbieranie liczników wydajności.  
+ Umożliwia zbieranie hello liczników wydajności.  
 
  Atrybut opcjonalny:  
 
@@ -543,7 +543,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Wymagane są następujące atrybuty:<br /><br /> - **counterSpecifier** — Nazwa licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. Aby uzyskać listę liczników wydajności na hoście, uruchom polecenie `typeperf`.<br /><br /> - **sampleRate** -częstotliwość próbkowania licznika.<br /><br /> Atrybut opcjonalny:<br /><br /> **Jednostka** — jednostka miary licznika.|  
+|**PerformanceCounterConfiguration**|Witaj następujące atrybuty są wymagane:<br /><br /> - **counterSpecifier** — Witaj nazwa hello licznika wydajności. Na przykład `\Processor(_Total)\% Processor Time`. tooget listę wydajności liczniki na hoście, uruchom polecenie hello `typeperf`.<br /><br /> - **sampleRate** -częstotliwość hello licznika powinny być pobrane.<br /><br /> Atrybut opcjonalny:<br /><br /> **Jednostka** -hello jednostka miary hello licznika.|  
 
 
 
@@ -551,13 +551,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog katalogu głównego*
  
- Umożliwia zbieranie dzienników zdarzeń systemu Windows.  
+ Umożliwia zbieranie hello dzienniki zdarzeń systemu Windows.  
 
  Opcjonalne **scheduledTransferPeriod** atrybutu. Zawiera wyjaśnienie wcześniej.  
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**Źródło danych**|Dzienniki zdarzeń systemu Windows do zbierania. Wymagany atrybut:<br /><br /> **Nazwa** — Kwerenda XPath opisujące zdarzeń systemu windows, które mają być zbierane. Na przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> W celu gromadzenia wszystkich zdarzeń, określ "*"|  
+|**Źródło danych**|Witaj toocollect dzienniki zdarzeń systemu Windows. Wymagany atrybut:<br /><br /> **Nazwa** -Kwerenda XPath hello opisujące toobe zdarzeń systemu windows hello zbierane. Na przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Określ wszystkie zdarzenia toocollect "*"|  
 
 
 
@@ -567,14 +567,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Przedstawia w wersji 1.0, 1.1. Brak w 1.2. Dodane ponownie w 1.3.  
 
- Definiuje konfigurację buforu podstawowe dzienników Azure.  
+ Definiuje konfigurację buforu hello podstawowe dzienników Azure.  
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
-|**scheduledTransferLogLevelFilterr**|**ciąg**|Opcjonalny. Określa minimalny poziom ważności wpisy dziennika, które są przenoszone. Wartość domyślna to **niezdefiniowane**, który przesyła wszystkie dzienniki. Inne możliwe wartości (w kolejności od najbardziej do najmniej informacji) to **pełne**, **informacji**, **ostrzeżenie**, **błąd**i **Krytyczne**.|  
-|**scheduledTransferPeriod**|**czas trwania**|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
-|**wychwytywanie** dodane w wersji 1.5|**ciąg**|Opcjonalny. Wskazuje lokalizację odbioru można również wysyłać dane diagnostyczne. Na przykład usługi Application Insights.|  
+|**bufferQuotaInMB**|**unsignedInt**|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
+|**scheduledTransferLogLevelFilterr**|**ciąg**|Opcjonalny. Określa hello minimalny poziom ważności wpisy dziennika, które są przenoszone. Witaj, wartość domyślna to **niezdefiniowane**, który przesyła wszystkie dzienniki. Inne możliwe wartości (w kolejności większość informacji tooleast) to **pełne**, **informacji**, **ostrzeżenie**, **błąd**i **Krytyczne**.|  
+|**scheduledTransferPeriod**|**czas trwania**|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**wychwytywanie** dodane w wersji 1.5|**ciąg**|Opcjonalny. Punkty tooa zbiornika lokalizacji tooalso Wyślij dane diagnostyczne. Na przykład usługi Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Drzewa: - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources katalogu głównego*
@@ -583,12 +583,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Nazwa elementu|Opis|  
 |------------------|-----------------|  
-|**Statystyka**|Informuje system, aby zebrać statystykę dla kontenerów Docker|  
+|**Statystyka**|Informuje hello system toocollect Statystyka kontenery Docker|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig Element  
  *Drzewa: SinksConfig PublicConfig - WadCFG - głównego - DiagnosticsConfiguration-*
 
- Lista lokalizacji wysyłanie danych diagnostycznych i konfiguracji skojarzone z tych lokalizacjach.  
+ Lista lokalizacji toosend diagnostyki danych tooand hello konfiguracji skojarzone z tych lokalizacjach.  
 
 |Nazwa elementu|Opis|  
 |------------------|-----------------|  
@@ -599,15 +599,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Dodane w wersji 1.5.  
 
- Określa lokalizacje do wysyłania danych diagnostycznych. Na przykład usługa Application Insights.  
+ Definiuje danych diagnostycznych toosend dla lokalizacji. Na przykład hello usługa Application Insights.  
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**Nazwa**|Ciąg|Ciąg identyfikujący sinkname.|  
+|**Nazwa**|Ciąg|Ciąg identyfikacyjny hello sinkname.|  
 
 |Element|Typ|Opis|  
 |-------------|----------|-----------------|  
-|**Usługa Application Insights**|Ciąg|Używana tylko wtedy, gdy wysyłanie danych do usługi Application Insights. Zawiera klucz instrumentacji dla aktywnego konta usługi Application Insights, czy masz dostęp do.|  
+|**Usługa Application Insights**|Ciąg|Używana tylko w przypadku wysyłania danych tooApplication szczegółowych informacji. Zawierają hello klucza instrumentacji dla aktywnego konta usługi Application Insights, czy masz dostęp do.|  
 |**Kanały**|Ciąg|Po jednej dla każdego dodatkowego filtrowania strumienia, który|  
 
 ## <a name="channels-element"></a>Element kanałów  
@@ -626,12 +626,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Dodane w wersji 1.5.  
 
- Określa lokalizacje do wysyłania danych diagnostycznych. Na przykład usługa Application Insights.  
+ Definiuje danych diagnostycznych toosend dla lokalizacji. Na przykład hello usługa Application Insights.  
 
 |Atrybuty|Typ|Opis|  
 |----------------|----------|-----------------|  
-|**logLevel**|**ciąg**|Określa minimalny poziom ważności wpisy dziennika, które są przenoszone. Wartość domyślna to **niezdefiniowane**, który przesyła wszystkie dzienniki. Inne możliwe wartości (w kolejności od najbardziej do najmniej informacji) to **pełne**, **informacji**, **ostrzeżenie**, **błąd**i **Krytyczne**.|  
-|**Nazwa**|**ciąg**|Unikatowa nazwa kanału do odwoływania się do|  
+|**logLevel**|**ciąg**|Określa hello minimalny poziom ważności wpisy dziennika, które są przenoszone. Witaj, wartość domyślna to **niezdefiniowane**, który przesyła wszystkie dzienniki. Inne możliwe wartości (w kolejności większość informacji tooleast) to **pełne**, **informacji**, **ostrzeżenie**, **błąd**i **Krytyczne**.|  
+|**Nazwa**|**ciąg**|Unikatowa nazwa hello toorefer kanału do|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element 
@@ -641,14 +641,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Optional (Opcjonalność)  
 
- Przechowuje prywatne informacje szczegółowe konta magazynu (nazwa, klucz i końcowy). Te informacje są wysyłane do maszyny wirtualnej, ale nie można pobrać z niego.  
+ Przechowuje prywatne informacje szczegółowe hello hello konta magazynu (nazwa, klucz i końcowy). Te informacje są wysyłane toohello maszyny wirtualnej, ale nie można pobrać z niego.  
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**Konto magazynu**|Konta magazynu do użycia. Następujące atrybuty są wymagane<br /><br /> - **Nazwa** — nazwa konta magazynu.<br /><br /> - **klucz** — klucz do konta magazynu.<br /><br /> - **punkt końcowy** — punkt końcowy do uzyskania dostępu do konta magazynu. <br /><br /> -**sasToken** (dodany 1.8.1)-tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu można określić w prywatnej konfiguracji. Podany klucz konta magazynu jest ignorowana. <br />Wymagania dotyczące tokenu sygnatury dostępu Współdzielonego: <br />— Obsługuje tylko tokenu sygnatury dostępu Współdzielonego konta <br />- *b*, *t* typów usług są wymagane. <br /> - **, *c*, *u*, *w* uprawnienia są wymagane. <br /> - *c*, *o* typów zasobów są wymagane. <br /> — Obsługuje tylko protokół HTTPS <br /> -Start i czas wygaśnięcia musi być prawidłowy.|  
+|**Konto magazynu**|Witaj toouse konta magazynu. Witaj następujące atrybuty są wymagane<br /><br /> - **Nazwa** — Witaj nazwa konta magazynu hello.<br /><br /> - **klucz** — Witaj klucza toohello konta magazynu.<br /><br /> - **punkt końcowy** -tooaccess punktu końcowego hello hello konta magazynu. <br /><br /> -**sasToken** (1.8.1)-tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu można określić w pliku konfiguracyjnym prywatnego hello dodane. Podany klucz konta magazynu hello jest ignorowana. <br />Wymagania dotyczące hello tokenu sygnatury dostępu Współdzielonego: <br />— Obsługuje tylko tokenu sygnatury dostępu Współdzielonego konta <br />- *b*, *t* typów usług są wymagane. <br /> - **, *c*, *u*, *w* uprawnienia są wymagane. <br /> - *c*, *o* typów zasobów są wymagane. <br /> — Obsługuje tylko protokół HTTPS hello <br /> -Start i czas wygaśnięcia musi być prawidłowy.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled Element  
  *Drzewa: IsEnabled - DiagnosticsConfiguration - katalogu głównego*
 
- Wartość logiczna. Użyj `true` umożliwiające diagnostyki lub `false` wyłączyć diagnostyki.
+ Wartość logiczna. Użyj `true` tooenable hello diagnostyki lub `false` toodisable hello diagnostyki.

@@ -1,6 +1,6 @@
 ---
-title: "Jak używać Blitline obrazu przetwarzania - Azure funkcji Przewodnik"
-description: "Dowiedz się, jak używać usługi Blitline przetwarzania obrazów w aplikacji Azure."
+title: "aaaHow toouse Blitline przetwarzania obrazu — Przewodnik po funkcji Azure"
+description: "Dowiedz się, jak toouse hello Blitline usługi tooprocess obrazów w aplikacji Azure."
 services: 
 documentationcenter: .net
 author: blitline-dev
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
 ms.author: support@blitline.com
-ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 328fd177e25f45f29f8ad8e142d02b46017a858e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Jak używać Blitline z platformy Azure i usługi Azure Storage
-W tym przewodniku objaśnia sposób uzyskiwać dostęp do usług Blitline i przesyłanie zadań do Blitline.
+# <a name="how-toouse-blitline-with-azure-and-azure-storage"></a>Jak toouse Blitline z platformy Azure i magazynem Azure
+W tym przewodniku objaśniają jak tooaccess Blitline usług i jak toosubmit zadania tooBlitline.
 
 ## <a name="what-is-blitline"></a>Co to jest Blitline?
-Blitline to usługa, która zapewnia przetwarzania obrazu poziomu przedsiębiorstwa w ułamku cen, który może kosztować kompilacji samodzielnie przetwarzania obraz oparte na chmurze.
+Blitline to obraz oparte na chmurze usługa, która zapewnia przetwarzania obrazu poziomu przedsiębiorstwa w ułamku hello ceny czy koszt toobuild przetwarzania go samodzielnie.
 
-Fakt jest, że przetwarzania obrazów przeprowadzono wielokrotnie, zwykle ponownie skompilowany od podstaw z myślą o każdym witryny sieci Web. Zdajemy sobie sprawę, to ponieważ już budujemy ich milionów razy zbyt. Jeden dzień, który zdecydowaliśmy się, że prawdopodobnie nadszedł czas, tak jak go dla wszystkich użytkowników. Wiemy, jak to zrobić, to szybkie i wydajne i zapisania wszyscy pracy w tym samym czasie.
+fakt Hello jest, że przetwarzania obrazów przeprowadzono wielokrotnie, zwykle ponownie skompilowany od hello podstaw z myślą o każdym witryny sieci Web. Zdajemy sobie sprawę, to ponieważ już budujemy ich milionów razy zbyt. Jeden dzień, który zdecydowaliśmy się, że prawdopodobnie nadszedł czas, tak jak go dla wszystkich użytkowników. Wiemy, jak toodo on toodo on szybkiego i efektywnego i Zapisz wszyscy działać w hello czasu.
 
 Aby uzyskać więcej informacji, zobacz [http://www.blitline.com](http://www.blitline.com).
 
 ## <a name="what-blitline-is-not"></a>Co Blitline nie...
-Wyjaśnienie, co jest przydatne w przypadku Blitline, często jest łatwiej zidentyfikować co Blitline, które nie są przed przeniesieniem do przodu.
+tooclarify co Blitline jest przydatne dla jest często łatwiejsze tooidentify co Blitline, które nie są przed przeniesieniem do przodu.
 
-* Blitline nie ma elementów widget HTML do przekazywania obrazów. Obrazy dostępne musi mieć publiczną lub z ograniczonymi uprawnieniami dostępne dla Blitline nawiązać połączenie.
+* Blitline nie ma obrazów tooupload elementy widget HTML. Obrazy dostępne musi mieć publiczną lub z ograniczonymi uprawnieniami dostępne dla Blitline tooreach.
 * Blitline nie działa na żywo przetwarzania obrazu, takich jak Aviary.com
-* Blitline nie akceptuje przekazywania obrazów, nie można wypchnąć obrazów do Blitline bezpośrednio. Należy wypychanie ich do usługi Azure Storage lub innych miejsc obsługuje Blitline, a następnie informują Blitline, skąd można je pobrać.
+* Blitline nie akceptuje przekazywania obrazów, nie można wypchnąć tooBlitline Twojego obrazy bezpośrednio. Należy wypchniesz tooAzure magazynu lub innych miejsc, który obsługuje Blitline i następnie poinformuj Blitline gdzie toogo uzyskać je.
 * Blitline jest równoległemu i nie wykonuje żadnych przetwarzania synchronicznego. Co oznacza Podaj nam postback_url i możemy pomagają stwierdzić, gdy firma Microsoft gotowe przetwarzania.
 
 ## <a name="create-a-blitline-account"></a>Utwórz konto Blitline
 [!INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
-## <a name="how-to-create-a-blitline-job"></a>Jak utworzyć zadanie Blitline
-Blitline używa JSON w celu zdefiniowania akcje, które ma być wykonywana na obrazie. Ten kod JSON składa się z kilku prostych pól.
+## <a name="how-toocreate-a-blitline-job"></a>Jak toocreate zadania Blitline
+Blitline używa JSON toodefine hello akcje, które mają tootake na obrazie. Ten kod JSON składa się z kilku prostych pól.
 
-Najprostszy przykład następująco:
+Najprostsza przykład Witaj wygląda następująco:
 
         json : '{
        "application_id": "MY_APP_ID",
@@ -56,17 +56,17 @@ Najprostszy przykład następująco:
        } ]
     }'
 
-W tym miejscu mamy JSON, który zajmie obrazu "src" "... boys.jpeg", a następnie zmień rozmiar obrazu do 240 x 140.
+W tym miejscu mamy JSON, który zajmie obrazu "src" "... boys.jpeg", a następnie zmień rozmiar tego obrazu too240x140.
 
-Identyfikator aplikacji jest element znajduje się w sieci **informacje o połączeniu** lub **ZARZĄDZAJ** kartę na platformie Azure. Jest identyfikatora tajny, który umożliwia uruchamianie zadań na Blitline.
+Identyfikator aplikacji Hello to element znajduje się w sieci **informacje o połączeniu** lub **ZARZĄDZAJ** kartę na platformie Azure. Jest identyfikatorem tajny umożliwiająca zadania toorun na Blitline.
 
-Parametr "Zapisz" identyfikuje informacji o którym chcesz umieścić obraz po możemy zostały przetworzone go. W tym przypadku trivial możemy jeszcze zdefiniowana. Jeśli lokalizacja nie jest zdefiniowany Blitline zapisze ją lokalnie (i tymczasowo) w lokalizacji unikatowy chmury. Będzie można pobrać lokalizacji z zwrócony przez Blitline po wprowadzeniu Blitline JSON. Identyfikator "obrazu" jest wymagana i jest zwracane po do identyfikowania tego określonego zapisać obrazu.
+Witaj przycisk Zapisz, parametr identyfikuje informacji o miejscu tooput obraz powitania po możemy zostały przetworzone go. W tym przypadku trivial możemy jeszcze zdefiniowana. Jeśli lokalizacja nie jest zdefiniowany Blitline zapisze ją lokalnie (i tymczasowo) w lokalizacji unikatowy chmury. Będzie możliwe tooget, który lokalizacji z hello JSON zwrócony przez Blitline po wprowadzeniu hello Blitline. Identyfikator "obrazu" Hello jest wymagana i zwracany jest tooyou tooidentify zapisać tego określonego obrazu.
 
-Więcej informacji można znaleźć o *funkcje* obsługujemy tutaj: <http://www.blitline.com/docs/functions>
+Można znaleźć więcej informacji na temat hello *funkcje* obsługujemy tutaj: <http://www.blitline.com/docs/functions>
 
-Możesz również znaleźć dokumentację dotyczącą Opcje zadania tutaj: <http://www.blitline.com/docs/api>
+Możesz również znaleźć dokumentację dotyczącą hello Opcje zadania tutaj: <http://www.blitline.com/docs/api>
 
-Po określeniu, czy kod JSON jest wszystko co należy zrobić **POST** go do`http://api.blitline.com/job`
+Po określeniu, czy kod JSON toodo wystarczy **POST** on zbyt`http://api.blitline.com/job`
 
 Otrzymasz wstecz JSON, który wygląda następująco:
 
@@ -82,10 +82,10 @@ Otrzymasz wstecz JSON, który wygląda następująco:
     }
 
 
-Oznacza to, Blitline odebrał żądanie, ma umieszcza je w kolejce przetwarzania i po zakończeniu obrazu będzie dostępna w: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_aplikacji\_identyfikator / CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Oznacza to, Blitline odebrał żądanie, ma umieszcza je w kolejce przetwarzania i po zakończeniu hello obrazu będzie dostępna w: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_aplikacji\_ID /CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a name="how-to-save-an-image-to-your-azure-storage-account"></a>Jak zapisać obrazu do konta magazynu Azure
-Jeśli masz konto usługi Azure Storage, mogą być Blitline wypchnąć przetworzonych obrazów do Twojej kontenera platformy Azure. Dodając "azure_destination" należy zdefiniować lokalizacji i uprawnienia do Blitline do.
+## <a name="how-toosave-an-image-tooyour-azure-storage-account"></a>Jak toosave tooyour obraz konta magazynu Azure
+Jeśli masz konto usługi Azure Storage, mogą być Blitline wypychania hello przetwarzania obrazów do Twojej kontenera platformy Azure. Dodając "azure_destination" należy zdefiniować hello lokalizacji i uprawnienia do toopush Blitline do.
 
 Oto przykład:
 
@@ -105,20 +105,20 @@ Oto przykład:
        }'
 
 
-Wypełniając CAPITALIZED wartości własnymi, mogą przesyłać dane JSON do http://api.blitline.com/job i obraz "src" zostanie przetworzyć filtru rozmycia i następnie przypisany do usługi Azure docelowego.
+Wypełniając hello CAPITALIZED wartości własnymi, można przesłać ten toohttp://api.blitline.com/job JSON i hello obrazu "src" będą przetwarzane z filtru rozmycia i następnie wypychana tooyou docelowej platformy Azure.
 
 ### <a name="please-note"></a>Uwaga:
-Sygnatury dostępu Współdzielonego musi zawierać cały adres url SAS, łącznie z nazwą pliku, plik docelowy.
+Witaj SAS musi zawierać hello cały adres url SAS, włączając hello nazwa pliku docelowego hello.
 
 Przykład:
 
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-Możesz przeczytać najnowszych wersji dokumentów usługi Azure Storage w Blitline [tutaj](http://www.blitline.com/docs/azure_storage).
+Możesz przeczytać hello najnowszych wersji dokumentów usługi Azure Storage w Blitline [tutaj](http://www.blitline.com/docs/azure_storage).
 
 ## <a name="next-steps"></a>Następne kroki
-Odwiedź stronę blitline.com, aby uzyskać informacje dotyczące wszystkich naszych innych funkcji:
+Odwiedź tooread blitline.com o wszystkich naszych innych funkcji:
 
 * Dokumentacja interfejsu API punktu końcowego Blitline <http://www.blitline.com/docs/api>
 * Funkcje interfejsu API Blitline <http://www.blitline.com/docs/functions>

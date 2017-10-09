@@ -1,6 +1,6 @@
 ---
-title: Tworzenie pierwszej funkcji z poziomu witryny Azure Portal | Microsoft Docs
-description: "Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure do wykonywania bezserwerowego przy użyciu witryny Azure Portal."
+title: aaaCreate pierwszej funkcji z hello portalu Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toocreate platformy Azure pierwsze działać przez wykonanie niekorzystającą hello portalu Azure."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,59 +16,59 @@ ms.workload: na
 ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3ec1f278f21d89782137625aff200f07f15fd9fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84283d7d4bc6015061946af4589f9a70ae61f36b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
+# <a name="create-your-first-function-in-hello-azure-portal"></a>Tworzenie pierwszej funkcji w hello portalu Azure
 
-Usługa Azure Functions umożliwia wykonywanie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. W tym temacie opisano tworzenie funkcji „hello world” w witrynie Azure Portal przy użyciu usługi Functions.
+Środowisko Azure Functions umożliwia wykonywanie kodu w środowisku bez serwera bez konieczności toofirst tworzenie maszyny Wirtualnej lub opublikować aplikację sieci web. W tym temacie Dowiedz się, jak toouse funkcjonuje toocreate funkcję "hello world" hello portalu Azure.
 
-![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Tworzenie aplikacji funkcji w hello portalu Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
 
 ## <a name="create-a-function-app"></a>Tworzenie aplikacji funkcji
 
-Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi. 
+Funkcja aplikacji toohost hello wykonywanie funkcji są wymagane. Aplikacja funkcji umożliwia grupowanie funkcji jako jednostki logicznej, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
+Następnie należy utworzyć funkcji w hello nowej funkcji aplikacji.
 
 ## <a name="create-function"></a>Tworzenie funkcji wyzwalanej przez protokół HTTP
 
-1. Rozwiń nową aplikację funkcji, a następnie kliknij przycisk **+** obok pozycji **Funkcje**.
+1. Rozwiń węzeł nowej aplikacji funkcji, a następnie kliknij przycisk hello  **+**  obok przycisku zbyt**funkcji**.
 
-2.  Na stronie **Szybkie rozpoczynanie pracy** wybierz pozycję **Element webhook i interfejs API**, **wybierz język** funkcji i kliknij pozycję **Utwórz tę funkcję**. 
+2.  W hello **szybkie rozpoczęcie pracy** wybierz pozycję **element WebHook i interfejs API**, **wybierz język** Twojego funkcji, a następnie kliknij przycisk **tworzenia tej funkcji** . 
    
-    ![Szybkie rozpoczynanie pracy z usługą Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Funkcji szybkiego startu w hello portalu Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Funkcja zostanie utworzona w wybranym języku i przy użyciu szablonu funkcji wyzwalanej przez protokół HTTP. Możesz uruchomić nową funkcję, wysyłając żądanie HTTP.
+Funkcja jest tworzony w wybrany język przy użyciu szablonu hello funkcji HTTP wyzwolone. Możesz uruchomić hello nową funkcję, wysyłając żądania HTTP.
 
-## <a name="test-the-function"></a>Testowanie funkcji
+## <a name="test-hello-function"></a>Funkcja hello testu
 
 1. W nowej funkcji kliknij przycisk **</> Pobierz adres URL funkcji**, wybierz pozycję **domyślne (klawisz funkcji)**, a następnie kliknij przycisk **Kopiuj**. 
 
-    ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Skopiuj adres URL funkcji hello z hello portalu Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Wklej adres URL funkcji do paska adresu przeglądarki. Dołącz ciąg zapytania `&name=<yourname>` do tego adresu URL i naciśnij klawisz `Enter` na klawiaturze, aby wykonać żądanie. Poniżej przedstawiono przykład odpowiedzi zwróconej przez funkcję w przeglądarce Edge:
+2. Wklej adres URL funkcji hello w pasku adresu przeglądarki. Dołącz ciągu zapytania hello `&name=<yourname>` toothis hello adresu URL i naciśnij klawisz `Enter` klucza na żądanie hello tooexecute klawiatury. Witaj poniżej znajduje się przykład hello odpowiedź zwrócona przez funkcję hello w przeglądarce Edge hello:
 
-    ![Odpowiedź funkcji wyświetlona w przeglądarce.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    ![Funkcja odpowiedzi w przeglądarce hello.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    Adres URL żądania zawiera klucz, który domyślnie jest wymagany do uzyskania dostępu do funkcji za pośrednictwem protokołu HTTP.   
+    adres URL zawiera klucz, który jest wymagany, domyślnie tooaccess żądania Hello funkcji za pośrednictwem protokołu HTTP.   
 
-3. Gdy funkcja działa, informacje o śledzeniu są zapisywane w dziennikach. Aby wyświetlić dane wyjściowe śledzenia z poprzedniego wykonania, wróć do funkcji w portalu i kliknij strzałkę w górę w dolnej części ekranu, aby rozwinąć pozycję **Dzienniki**. 
+3. Po uruchomieniu funkcji informacje śledzenia są zapisywane toohello dzienniki. wyniki śledzenia hello toosee hello poprzednie wykonanie powróć tooyour funkcji w portalu hello i kliknij przycisk hello Strzałka u dołu hello tooexpand ekranie powitania w górę **dzienniki**. 
 
-   ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Funkcje logowania podglądu hello portalu Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

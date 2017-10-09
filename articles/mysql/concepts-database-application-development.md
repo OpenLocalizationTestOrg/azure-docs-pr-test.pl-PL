@@ -1,6 +1,6 @@
 ---
-title: "Omówienie tworzenia aplikacji bazy danych dla bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
-description: "Wprowadza zagadnienia dotyczące projektowania, które dewelopera należy stosować podczas pisania kodu aplikacji do łączenia z bazą danych Azure dla programu MySQL"
+title: "Omówienie tworzenia aplikacji aaaDatabase bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
+description: "Wprowadza zagadnienia dotyczące projektowania, które dewelopera należy stosować podczas pisania aplikacji kod tooconnect tooAzure bazy danych dla programu MySQL"
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,26 +9,26 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 350dd775e172120d806d1193877a34d94f4d3f6a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f08df605eba21b4ba4b43565c0a7ded95779a171
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Omówienie tworzenia aplikacji dla bazy danych Azure dla programu MySQL 
-W tym artykule omówiono zagadnienia dotyczące projektowania, które dewelopera należy stosować podczas pisania kodu aplikacji do łączenia z bazą danych Azure dla programu MySQL 
+W tym artykule omówiono zagadnienia dotyczące projektowania, które dewelopera należy stosować podczas pisania aplikacji kod tooconnect tooAzure bazy danych dla programu MySQL 
 
 > [!TIP]
-> Samouczek pokazuje, jak utworzyć serwer, utworzenie zapory na serwerze, wyświetlić właściwości serwera, Utwórz bazę danych, Połącz i zapytań przy użyciu narzędzia workbench i mysql.exe, zobacz [projektowania pierwszą bazę danych MySQL na platformie Azure](tutorial-design-database-using-portal.md)
+> Samouczek przedstawiający sposób toocreate serwera, utworzenie zapory na serwerze, wyświetlić właściwości serwera, Utwórz bazę danych, Połącz i zapytań przy użyciu narzędzia workbench i mysql.exe, można zobaczyć [projektowania pierwszą bazę danych MySQL na platformie Azure](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Język i platforma
-Dostępne są przykłady kodu dla różnych języków programowania i platform programistycznych. Można znaleźć łącza do przykładów kodu w: [bibliotek łączności używane do łączenia z bazą danych Azure dla programu MySQL](concepts-connection-libraries.md)
+Dostępne są przykłady kodu dla różnych języków programowania i platform programistycznych. Można skorzystać z łączy toohello przykłady kodu w: [bibliotek łączności używane tooAzure tooconnect bazy danych dla programu MySQL](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Narzędzia
-Wersja ciągu identyfikacyjnego MySQL, zgodne z MySQL popularnych narzędzi do zarządzania takich jak narzędzia Workbench lub MySQL, takich jak mysql.exe, korzysta z bazy danych platformy Azure dla programu MySQL [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)i inne. Do interakcji z usługą baza danych, można użyć portalu Azure, interfejsu wiersza polecenia Azure i interfejsów API REST.
+Bazy danych platformy Azure dla programu MySQL używa hello MySQL community wersji, zgodnej z programem MySQL popularnych narzędzi do zarządzania takich jak narzędzia Workbench lub MySQL, takich jak mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)i inne. Można również używać hello portalu Azure, interfejsu wiersza polecenia Azure i toointeract interfejsów API REST z hello bazy danych usługi.
 
 ## <a name="resource-limitations"></a>Ograniczenia zasobów
-Baza danych MySQL Azure zarządza zasoby dostępne dla serwera przy użyciu dwóch różnych mechanizmów: 
+Baza danych MySQL Azure zarządza serwer tooa dostępne zasoby hello przy użyciu dwóch różnych mechanizmów: 
 - Zarządzanie zasobami 
 - Wymuszanie ograniczeń.
 
@@ -39,12 +39,12 @@ Baza danych MySQL Azure zawiera zasoby dotyczące ograniczanie dostępu, ochrona
 Baza danych MySQL Azure obsługuje uwierzytelnianie serwera użytkowników i nazwy logowania.
 
 ## <a name="resiliency"></a>Odporność
-Po wystąpieniu błędu przejściowego podczas łączenia z bazą danych MySQL, ponów wywołanie kodu. Firma Microsoft zaleca, użyj logiki ponawiania wycofania logiki, więc, że nie przeciąży bazy danych SQL z wielu klientów jednocześnie ponawianie próby.
+Po wystąpieniu błędu przejściowego podczas łączenia tooMySQL bazy danych, kod powinien ponów wywołanie hello. Firma Microsoft zaleca użycie logiki ponawiania hello wycofania logiki, tak, że nie przeciąży hello bazy danych SQL z wielu klientów jednocześnie ponawianie próby.
 
-- Przykłady kodu: Logika ponawiania próby przykłady kodu, które ilustrują temacie Przykłady w języku wybranym w: [bibliotek łączności używane do łączenia z bazą danych Azure dla programu MySQL](concepts-connection-libraries.md)
+- Przykłady kodu: Logika ponawiania próby przykłady kodu, które ilustrują temacie Przykłady dla języka hello wybranym w: [bibliotek łączności używane tooAzure tooconnect bazy danych dla programu MySQL](concepts-connection-libraries.md)
 
 ## <a name="managing-connections"></a>Zarządzanie połączeniami
-Połączenia bazy danych są ograniczone zasobów, dlatego zalecamy użycie za pośrednictwem połączenia podczas uzyskiwania dostępu do bazy danych MySQL osiągnąć większą wydajność.
-- Dostęp do bazy danych przy użyciu puli połączeń lub połączeń trwałych.
-- Dostęp do bazy danych przy użyciu krótkich połączenia życia. 
-- Użyj logiki ponawiania próby w aplikacji w punkcie próba połączenia, aby wykryć błędy z powodu równoczesnych połączeń osiągnięto maksymalną dozwoloną. W Logika ponawiania ustawić krótkie opóźnienie i poczekaj losowy czas przed prób dodatkowego połączenia.
+Połączenia bazy danych są ograniczone zasobu, tak więc zaleca się użycie za pośrednictwem połączenia podczas uzyskiwania dostępu do bazy danych MySQL tooachieve lepszą wydajność.
+- Hello dostępu do bazy danych przy użyciu puli połączeń lub połączeń trwałych.
+- Hello dostępu do bazy danych przy użyciu krótkich połączenia życia. 
+- Logika ponawiania użycia w aplikacji w punkcie hello hello próba połączenia, błędy toocatch powodu połączeń tooconcurrent osiągnięto hello maksymalna dozwolona liczba. W hello Logika ponawiania próby, ustawić krótkie opóźnienie i poczekaj losowy czas przed hello prób dodatkowego połączenia.

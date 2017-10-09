@@ -1,6 +1,6 @@
 ---
-title: "Jak używać magazynu tabel Azure języka Python | Dokumentacja firmy Microsoft"
-description: "Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL."
+title: toouse aaaHow magazynu tabel Azure z Python | Dokumentacja firmy Microsoft
+description: "Przechowywanie danych strukturalnych w chmurze hello przy użyciu magazynu tabel Azure, Magazyn danych NoSQL."
 services: storage
 documentationcenter: python
 author: mmacy
@@ -14,38 +14,38 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: marsma
-ms.openlocfilehash: c310a52182bbc3cf44ed4dc6a04e97aa59200a64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fd0e1b05cc12618f348eaf2d85d0dce5ac32702a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-table-storage-in-python"></a>Jak używać magazynu tabel w języku Python
+# <a name="how-toouse-table-storage-in-python"></a>Jak toouse magazynu tabel w języku Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-W tym przewodniku opisano sposób wykonywania typowych scenariuszy magazynu tabel Azure przy użyciu języka Python [Microsoft Azure magazynu SDK dla języka Python](https://github.com/Azure/azure-storage-python). Omówione scenariusze obejmują tworzenie i usuwania tabeli, wstawianie i badania jednostek.
+Ten przewodnik przedstawia, jak hello tooperform tabel Azure magazynu scenariuszach w języku Python za pomocą [Microsoft Azure magazynu SDK dla języka Python](https://github.com/Azure/azure-storage-python). omówione scenariusze Hello obejmują tworzenia i usuwania tabeli, wstawianie i badania jednostek.
 
-Podczas pracy nad scenariusze w tym samouczku, możesz odwoływać się do [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
+Podczas pracy nad hello scenariusze w tym samouczku, warto zapoznać się z toorefer toohello [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="install-the-azure-storage-sdk-for-python"></a>Zainstalować magazynu Azure SDK dla języka Python
+## <a name="install-hello-azure-storage-sdk-for-python"></a>Zainstaluj hello zestawu SDK usługi Magazyn Azure dla języka Python
 
-Po utworzeniu konta magazynu, następnym krokiem jest zainstalowanie [Microsoft Azure magazynu SDK dla języka Python](https://github.com/Azure/azure-storage-python). Aby uzyskać więcej informacji na temat instalowania zestawu SDK, zapoznaj się [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) pliku w zestawie SDK magazynu dla repozytorium Python w witrynie GitHub.
+Po utworzeniu konta magazynu, następnym krokiem jest tooinstall hello [Microsoft Azure magazynu SDK dla języka Python](https://github.com/Azure/azure-storage-python). Aby uzyskać więcej informacji na temat instalowania hello zestawu SDK, zobacz toohello [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) pliku w hello zestawu SDK usługi Magazyn dla języka Python repozytorium w witrynie GitHub.
 
 ## <a name="create-a-table"></a>Tworzenie tabeli
 
-Aby pracować z usługi Azure tabel w języku Python, należy zaimportować [TableService] [ py_TableService] modułu. Ponieważ będzie działać z jednostek tabeli, należy również [jednostki] [ py_Entity] klasy. Dodaj ten kod u góry pliku Python do zaimportowania zarówno:
+toowork z hello usługi Azure tabel w języku Python, należy zaimportować hello [TableService] [ py_TableService] modułu. Ponieważ będzie działać z jednostek tabeli, należy również hello [jednostki] [ py_Entity] klasy. Dodaj ten kod na górze hello programu Python pliku tooimport zarówno:
 
 ```python
 from azure.storage.table import TableService, Entity
 ```
 
-Utwórz [TableService] [ py_TableService] obiektu, przekazując klucz konta magazynu nazwy i konta. Zastąp `myaccount` i `mykey` z nazwą konta i klucz i wywołanie [create_table] [ py_create_table] do utworzenia tabeli w usłudze Azure Storage.
+Utwórz [TableService] [ py_TableService] obiektu, przekazując klucz konta magazynu nazwy i konta. Zastąp `myaccount` i `mykey` z nazwą konta i klucz i wywołanie [create_table] [ py_create_table] toocreate hello tabeli w usłudze Azure Storage.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -53,48 +53,48 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 table_service.create_table('tasktable')
 ```
 
-## <a name="add-an-entity-to-a-table"></a>Dodawanie jednostki do tabeli
+## <a name="add-an-entity-tooa-table"></a>Dodaj tabelę tooa jednostki
 
-Aby dodać jednostkę, najpierw utwórz obiekt, który reprezentuje jednostki, a następnie przekaż obiekt do [TableService][py_TableService].[ insert_entity] [ py_insert_entity] metody. Obiekt jednostki można słownika lub typu obiektu [jednostki][py_Entity]i definiuje użytkownika jednostki nazwy i wartości właściwości. Każdy podmiot musi zawierać wymaganych [PartitionKey i RowKey](#partitionkey-and-rowkey) właściwości, oprócz innych właściwości, należy zdefiniować dla jednostki.
+tooadd jednostki, należy najpierw utworzyć obiekt, który reprezentuje jednostki, następnie przebiegu hello obiektu toohello [TableService][py_TableService].[ insert_entity] [ py_insert_entity] metody. Obiekt jednostki Hello może być słownika lub typu obiektu [jednostki][py_Entity]i definiuje użytkownika jednostki nazwy i wartości właściwości. Każdy podmiot musi zawierać hello wymagane [PartitionKey i RowKey](#partitionkey-and-rowkey) właściwości, w tooany dodanie innych właściwości można zdefiniować hello jednostki.
 
-Ten przykład tworzy obiekt słownik reprezentujący jednostkę, następnie przekazuje ją do [insert_entity] [ py_insert_entity] metody, aby dodać go do tabeli:
+Ten przykład tworzy obiekt słownika następnie reprezentujący jednostkę, przekazuje on toohello [insert_entity] [ py_insert_entity] tooadd metody go toohello tabeli:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the trash', 'priority' : 200}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out hello trash', 'priority' : 200}
 table_service.insert_entity('tasktable', task)
 ```
 
-Ten przykład tworzy [jednostki] [ py_Entity] obiekt, a następnie przekazuje go do [insert_entity] [ py_insert_entity] metody, aby dodać go do tabeli:
+Ten przykład tworzy [jednostki] [ py_Entity] obiekt, a następnie przechodzi on toohello [insert_entity] [ py_insert_entity] tooadd — metoda go toohello tabeli:
 
 ```python
 task = Entity()
 task.PartitionKey = 'tasksSeattle'
 task.RowKey = '002'
-task.description = 'Wash the car'
+task.description = 'Wash hello car'
 task.priority = 100
 table_service.insert_entity('tasktable', task)
 ```
 
 ### <a name="partitionkey-and-rowkey"></a>PartitionKey i RowKey
 
-Należy określić zarówno **PartitionKey** i **RowKey** właściwości dla każdej jednostki. Jak razem są unikatowe identyfikatory jednostki, tworzą one klucza podstawowego jednostki. Można badać przy użyciu następujących wartości szybciej, niż można zapytania innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
+Należy określić zarówno **PartitionKey** i **RowKey** właściwości dla każdej jednostki. Jak razem są unikatowe identyfikatory hello jednostki, tworzą one hello klucza podstawowego jednostki. Można badać przy użyciu następujących wartości szybciej, niż można zapytania innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
 
-Używane przez usługę tabeli **PartitionKey** do inteligentnie rozpowszechniają jednostek tabeli węzłów magazynu. Jednostki, które mają taki sam **PartitionKey** są przechowywane w tym samym węźle. **RowKey** jest unikatowy identyfikator w partycji, należy do jednostki.
+Witaj używa usługi tabeli **PartitionKey** toointelligently rozpowszechniają jednostek tabeli węzłów magazynu. Tekst hello obiektów, które mają takie same **PartitionKey** są przechowywane na powitania tym samym węźle. **RowKey** jest unikatowy identyfikator hello hello jednostek w partycji hello należy.
 
 ## <a name="update-an-entity"></a>Aktualizuj jednostkę
 
-Aby zaktualizować wszystkie wartości właściwości jednostki, należy wywołać [update_entity] [ py_update_entity] metody. W tym przykładzie pokazano, jak zastąpić istniejącą jednostkę zaktualizowanej wersji:
+tooupdate wszystkich wartości właściwości jednostki, wywołaj hello [update_entity] [ py_update_entity] metody. W tym przykładzie pokazano sposób tooreplace istniejącej jednostki zaktualizowaną wersją:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out hello garbage', 'priority' : 250}
 table_service.update_entity('tasktable', task)
 ```
 
-Jeśli jednostka, która jest aktualizowana już nie istnieje, następnie operacji aktualizacji zakończy się niepowodzeniem. Jeśli chcesz przechowywać jednostki tego, czy istnieje lub nie, użyj [insert_or_replace_entity][py_insert_or_replace_entity]. W poniższym przykładzie pierwsze wywołanie spowoduje zastąpienie istniejącej jednostki. Drugie wywołanie będzie wstawić nową jednostkę, ponieważ brak jednostki z określonym PartitionKey i RowKey nie istnieje w tabeli.
+Jeśli hello jednostki, która jest aktualizowana już nie istnieje, nie będą hello operacji aktualizacji. Toostore jednostki czy istnieje lub nie, należy użyć [insert_or_replace_entity][py_insert_or_replace_entity]. W hello poniższy przykład pierwsze wywołanie hello spowoduje zastąpienie istniejącej jednostki hello. drugie wywołanie Hello powoduje wstawienie nowego obiektu, ponieważ nie jednostki o hello określone PartitionKey i RowKey istnieje w tabeli hello.
 
 ```python
-# Replace the entity created earlier
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
+# Replace hello entity created earlier
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out hello garbage again', 'priority' : 250}
 table_service.insert_or_replace_entity('tasktable', task)
 
 # Insert a new entity
@@ -103,11 +103,11 @@ table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
-> [Update_entity] [ py_update_entity] metoda zastępuje wszystkie właściwości i wartości istniejącej jednostki, która umożliwia także usunąć właściwości z istniejącej jednostki. Można użyć [merge_entity] [ py_merge_entity] metody do zaktualizowania istniejącej jednostki z wartościami właściwości nowe lub zmodyfikowane bez całkowicie zastępowania jednostki.
+> Witaj [update_entity] [ py_update_entity] metoda zastępuje wszystkie właściwości i wartości istniejącej jednostki, które można również użyć właściwości tooremove z istniejącej jednostki. Można użyć hello [merge_entity] [ py_merge_entity] tooupdate metody istniejącej jednostki z wartościami właściwości nowe lub zmodyfikowane bez całkowicie zastępowania hello jednostki.
 
 ## <a name="modify-multiple-entities"></a>Modyfikowanie wiele jednostek
 
-W celu zapewnienia atomic przetwarzania żądania przez usługę tabeli, możesz przesłać wiele operacji ze sobą w partii. Najpierw użyj [TableBatch] [ py_TableBatch] klasy, aby dodać wiele operacji do pojedynczej partii. Następnie wywołaj [TableService][py_TableService].[ commit_batch] [ py_commit_batch] przesłać operacje w niepodzielną operację. Wszystkie jednostki można zmodyfikować w partii musi należeć do tej samej partycji.
+tooensure hello atomic przetwarzania żądania przez usługę tabeli hello, mogą przesyłać wiele operacji ze sobą w partii. Najpierw użyj hello [TableBatch] [ py_TableBatch] klasy tooadd wiele operacji tooa pojedyncza partia. Następnie wywołaj [TableService][py_TableService].[ commit_batch] [ py_commit_batch] toosubmit hello operacje w niepodzielną operację. Wszystkie toobe jednostek zmodyfikowane w partii musi należeć do hello tej samej partycji.
 
 W tym przykładzie dodaje dwie jednostki w partii:
 
@@ -115,17 +115,17 @@ W tym przykładzie dodaje dwie jednostki w partii:
 from azure.storage.table import TableBatch
 batch = TableBatch()
 task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
-task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
+task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean hello bathroom', 'priority' : 100}
 batch.insert_entity(task004)
 batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
 ```
 
-Partie można również przy użyciu składni Menedżera kontekstu:
+Partie można również ze składnią Menedżera kontekstu hello:
 
 ```python
 task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006', 'description' : 'Go grocery shopping', 'priority' : 400}
-task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean the bathroom', 'priority' : 100}
+task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean hello bathroom', 'priority' : 100}
 
 with table_service.batch('tasktable') as batch:
     batch.insert_entity(task006)
@@ -134,7 +134,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>Zapytanie dla jednostki
 
-Aby wyszukać jednostkę w tabeli, należy przekazać jego PartitionKey i RowKey do [TableService][py_TableService].[ get_entity] [ py_get_entity] metody.
+tooquery dla jednostki w tabeli, Przekaż jego toohello PartitionKey i RowKey [TableService][py_TableService].[ get_entity] [ py_get_entity] metody.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -144,7 +144,7 @@ print(task.priority)
 
 ## <a name="query-a-set-of-entities"></a>Zapytanie zestawu jednostek
 
-Można wyszukać zestawu jednostek, podając ciąg filtru z **filtru** parametru. W tym przykładzie znajduje wszystkie zadania w Seattle, stosując filtr na PartitionKey:
+Można zapytania dla zestawu jednostek, podając ciąg filtru z hello **filtru** parametru. W tym przykładzie znajduje wszystkie zadania w Seattle, stosując filtr na PartitionKey:
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
@@ -155,12 +155,12 @@ for task in tasks:
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
 
-Można również ograniczyć, właściwości, które są zwracane dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcji*, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj **wybierz** parametru i przekazać nazwy właściwości, które jest zwracana do klienta.
+Można również ograniczyć, właściwości, które są zwracane dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcji*, redukuje przepustowość i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj hello **wybierz** parametru i przekazać hello nazwy właściwości hello mają zwrócił toohello klienta.
 
-Zapytanie w poniższym kodzie zwraca tylko opisy jednostek w tabeli.
+Zapytanie Hello w hello następującego kodu zwraca tylko hello opisy jednostek w tabeli hello.
 
 > [!NOTE]
-> Poniższy fragment działa tylko w usłudze Azure Storage. Nie jest obsługiwana przez emulator magazynu.
+> powitania po fragment działa tylko wobec hello Azure Storage. Nie jest obsługiwana przez emulator magazynu hello.
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
@@ -170,7 +170,7 @@ for task in tasks:
 
 ## <a name="delete-an-entity"></a>Usuwanie jednostki
 
-Usuwanie jednostki przez przekazanie jej PartitionKey i RowKey do [delete_entity] [ py_delete_entity] metody.
+Usuwanie jednostki przez przekazanie jej toohello PartitionKey i RowKey [delete_entity] [ py_delete_entity] metody.
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -178,7 +178,7 @@ table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 
 ## <a name="delete-a-table"></a>Usuwanie tabeli
 
-Jeśli nie są już potrzebne tabeli lub dowolnej jednostki w niej wywołanie [delete_table] [ py_delete_table] metodę, aby trwale usunąć tabelę z usługi Azure Storage.
+Jeśli nie są już potrzebne tabeli ani żadnych jednostek hello w niej wywołanie hello [delete_table] [ py_delete_table] toopermanently metody Usuń tabelę hello z usługi Magazyn Azure.
 
 ```python
 table_service.delete_table('tasktable')

@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Leksykonie na podstawie analizy wskaźniki nastrojów klientów - Azure | Dokumentacja firmy Microsoft"
+title: "AAA(deprecated) leksykonie na podstawie wskaźniki nastrojów klientów analiza - Azure | Dokumentacja firmy Microsoft"
 description: "(przestarzałe) Leksykonie na podstawie analizy wskaźniki nastrojów klientów"
 services: machine-learning
 documentationcenter: 
@@ -16,40 +16,40 @@ ms.date: 01/06/2017
 ms.author: pengxia
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 7bc80a1e1067296528eca1a843ea30b0c27af616
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 1ed7e19441c6a8ad270a0c0f567b4aea588a583e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-lexicon-based-sentiment-analysis"></a>(przestarzałe) Leksykonie na podstawie analizy wskaźniki nastrojów klientów
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 Jak można mierzenia opinie użytkowników i stanowisk kierunku marek lub tematów w trybie online sieci społecznościowych, takich jak Facebook ogłoszenia tweetów, recenzje itp.? Wskaźniki nastrojów klientów analizy zapewnia metodę analizowania takie pytania.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Zazwyczaj są dwie metody analizy wskaźniki nastrojów klientów. Jedna używa algorytmu uczenia nadzorowanego, a drugi może być traktowana jako uczenie nienadzorowane. Algorytm uczenia nadzorowanego zazwyczaj opiera się model klasyfikacji na dużych Boże adnotacjami. Dokładność zależy głównie jakości adnotacji i zwykle Szkolenie potrwa długo. Oprócz, gdy Trwa stosowanie algorytmu do innej domeny, wynik zazwyczaj nie jest dobra. W porównaniu do nadzorowane nauki, na podstawie leksykonie używa uczenie nienadzorowane słownika wskaźniki nastrojów klientów, które nie wymagają przechowywania Boże dużej ilości danych i szkolenia — które sprawia, że cały proces znacznie szybsze. 
+Zazwyczaj są dwie metody analizy wskaźniki nastrojów klientów. Jedna używa algorytmu uczenia nadzorowanego i hello innych może być traktowana jako learning nienadzorowanych. Algorytm uczenia nadzorowanego zazwyczaj opiera się model klasyfikacji na dużych Boże adnotacjami. Dokładność głównie opiera się na powitania jakości adnotacji hello i zwykle proces szkolenia hello potrwa długo. Oprócz, gdy Trwa stosowanie hello algorytmu tooanother domeny, wynik hello zazwyczaj nie jest dobrym. W porównaniu learning toosupervised, leksykonie na podstawie uczenie nienadzorowane używa słownika wskaźniki nastrojów klientów, które nie wymagają przechowywania Boże dużej ilości danych i szkolenia — co staje się znacznie szybciej hello całego procesu. 
 
-Nasze [usługi](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) jest oparty na leksykonie subiektywnej oceny MPQA (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), które jest jednym z leksykonów najczęściej używane subiektywnej oceny. Brak 5097 ujemna 2533 dodatnią wyrażenia w MPQA. I wszystkie te słowa, które są przypisane jako bieguna silne lub słabe. Całe Boże podlega GNU General Public License. Usługi sieci web można zastosować do dowolnego krótkie zdania, takie jak tweetów i ogłoszeń usługi Facebook. 
+Nasze [usługi](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis) jest zbudowany na powitania leksykonie subiektywnej oceny MPQA (http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/), które jest jednym z leksykonów subiektywnej oceny hello najczęściej używane. Brak 5097 ujemna 2533 dodatnią wyrażenia w MPQA. I wszystkie te słowa, które są przypisane jako bieguna silne lub słabe. Boże całego Hello podlega GNU General Public License. Usługa sieci web Hello może być tooany zastosowane krótkie zdania, takie jak tweetów i ogłoszeń Facebook. 
 
-> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługi sieci web może następnie opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w całym świecie bez ustawień infrastruktury przez autora usługi sieci web.
+> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. usługi sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w Witaj świecie bez ustawień infrastruktury przez autora hello hello usługi sieci web.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
-Dane wejściowe mogą być tekstem, ale usługi sieci web lepiej współpracuje z krótkim zdań. Wynik jest wartością liczbową z przedziału od -1 do 1. Dowolna wartość poniżej 0 oznacza, że wskaźniki nastrojów klientów tekstu jest ujemna Jeśli dodatnią powyżej 0. Wartość bezwzględna wyniku określa siłę skojarzone wskaźniki nastrojów klientów. 
+dane wejściowe Hello może być dowolny tekst, ale usługi sieci web hello lepiej współpracuje z krótkim zdań. dane wyjściowe Hello jest liczbą z zakresu od -1 do 1. Dowolna wartość poniżej 0 oznacza, że hello wskaźniki nastrojów klientów tekstu hello jest ujemna Jeśli dodatnią powyżej 0. wartość bezwzględna Hello wyniku hello określa siłę hello hello skojarzone wskaźniki nastrojów klientów. 
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/)).
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
     public class ScoreResult
@@ -81,20 +81,20 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 
-Dane wejściowe są "Obecnie jest dobrym dzień". Dane wyjściowe są "1", który wskazuje dodatnią wskaźniki nastrojów klientów skojarzonych z wejściowych zdanie. 
+dane wejściowe Hello jest "Obecnie jest dobrym dzień". dane wyjściowe Hello jest "1", który wskazuje dodatnią wskaźniki nastrojów klientów skojarzonych z zdania wejściowych hello. 
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
-Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona. Na poniższym rysunku przedstawiono przepływ eksperymentu analizy na podstawie leksykonie wskaźniki nastrojów klientów. Plik "sent_dict.csv" jest leksykonie subiektywnej oceny MPQA i jest ustawiony jako jedno z wejść z [wykonanie skryptu języka R][execute-r-script]. Inny danych wejściowych jest próbkowany przeglądu z zestawu danych przeglądu Amazon dla testu, w którym możemy wykonać wybór, zmiana nazwy kolumny i podziałem operacji. Używamy pakietu skrót do przechowywania leksykonie subiektywnej oceny w pamięci i przyspieszyć proces wyników obliczeń. Cały tekst zostanie stokenizowanego przez pakiet "tm" i w porównaniu z programu word w słowniku wskaźniki nastrojów klientów. Na koniec wynikiem będzie obliczana przez dodanie wagę każdego wyrazu subiektywne w tekście. 
+Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona. na poniższej ilustracji Hello przedstawia hello przepływ eksperymentu analizy na podstawie leksykonie wskaźniki nastrojów klientów. Plik "sent_dict.csv" Hello jest hello MPQA subiektywnej oceny leksykonie i jest ustawiony jako jedno z wejść hello z [wykonanie skryptu języka R][execute-r-script]. Inny danych wejściowych jest próbkowany przeglądu z zestawu danych przeglądu Amazon powitania dla testu, w którym możemy wykonać wybór, zmiana nazwy kolumny i podziałem operacji. Wykorzystywane leksykonie subiektywnej oceny hello toostore skrót pakietu w pamięci hello i przyspieszyć proces obliczeń wynik hello. Hello całego tekstu zostanie stokenizowanego przez pakiet "tm" i w porównaniu z word hello hello słownika wskaźniki nastrojów klientów. Na koniec wynikiem będzie obliczana przez dodanie wagi hello każdego wyrazu subiektywne w tekście hello. 
 
 ### <a name="experiment-flow"></a>Przepływ eksperymentu:
 ![Przepływ eksperymentu][2]
 
 #### <a name="module-1"></a>Moduł 1:
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
 
@@ -145,16 +145,16 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     # Sample operation
     data.set <- data.frame(result)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("data.set")
 
 
 
 ## <a name="limitations"></a>Ograniczenia
-Z perspektywy algorytm analizy na podstawie leksykonie wskaźniki nastrojów klientów jest narzędzie analizy ogólne wskaźniki nastrojów klientów, które mogą nie działać lepiej niż metody klasyfikacji dla określonych pól. Problem negacji nie jest również uwzględnione. Firma Microsoft kodowania negacji kilka wyrazów w naszym programu, ale lepiej jest za pomocą słownika negacji i niektóre reguły kompilacji. Usługa sieci web dokonuje lepiej na krótka i prosta zdań, takich jak tweetów i ogłoszeń Facebook, niż zdań długich i złożonych, takie jak recenzje Amazon. 
+Z perspektywy algorytm analizy na podstawie leksykonie wskaźniki nastrojów klientów jest narzędzie analizy ogólne wskaźniki nastrojów klientów, które mogą nie działać lepiej niż hello metody klasyfikacji dla określonych pól. problem negacji Hello nie jest również uwzględnione. Firma Microsoft kodowania negacji kilka wyrazów w naszym programu, ale lepiej jest za pomocą słownika negacji i niektóre reguły kompilacji. usługi sieci web Hello dokonuje lepiej na krótka i prosta zdań, takich jak tweetów i ogłoszeń Facebook niż zdań długich i złożonych, takie jak recenzje Amazon. 
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png

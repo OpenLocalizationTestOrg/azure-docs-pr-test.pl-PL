@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczęcie pracy z usługą Azure Key Vault | Microsoft Docs"
-description: "Ten samouczek ułatwi Ci rozpoczęcie pracy usługą Azure Key Vault w celu utworzenia wzmocnionego kontenera na platformie Azure do przechowywania kluczy kryptograficznych i kluczy tajnych na platformie Azure oraz zarządzania nimi."
+title: "aaaGet wprowadzenie do usługi Azure Key Vault | Dokumentacja firmy Microsoft"
+description: "Użyj tego samouczka toohelp otrzymasz wprowadzenie do usługi Azure Key Vault toocreate wzmocnionego kontenera na platformie Azure, toostore i zarządzanie nimi kluczy kryptograficznych i kluczy tajnych na platformie Azure."
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.openlocfilehash: 0299d931c5bf21775b68069afaa106279270226a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 865853b778dec5fca5c7db0d060627554c0a9cb3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>Rozpoczynanie pracy z usługą Azure Key Vault
-Usługa Azure Key Vault jest dostępna w większości regionów. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+Usługa Azure Key Vault jest dostępna w większości regionów. Aby uzyskać więcej informacji, zobacz hello [cennik usługi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Wprowadzenie
-Ten samouczek ułatwi Ci rozpoczęcie pracy z usługą Azure Key Vault w celu utworzenia wzmocnionego kontenera (magazynu) na platformie Azure do przechowywania kluczy kryptograficznych i kluczy tajnych na platformie Azure oraz zarządzania nimi. Przeprowadzi Cię on przez proces tworzenia magazynu przy użyciu programu Azure PowerShell. Magazyn zawiera klucz lub hasło, którego możesz używać w aplikacji Azure. Następnie pokaże Ci, w jaki sposób aplikacja może użyć tego klucza lub hasła.
+Użyj tego samouczka toohelp otrzymasz wprowadzenie do usługi Azure Key Vault toocreate wzmocnionego kontenera (magazynu) na platformie Azure, toostore i zarządzanie nimi kluczy kryptograficznych i kluczy tajnych na platformie Azure. Przeprowadza użytkownika przez proces hello przy użyciu programu Azure PowerShell toocreate magazynu, który zawiera klucz lub hasło, które następnie można za pomocą aplikacji Azure. Następnie pokaże Ci, w jaki sposób aplikacja może użyć tego klucza lub hasła.
 
-**Szacowany czas trwania:** 20 minut
+**Szacowany czas toocomplete:** 20 minut
 
 > [!NOTE]
-> Ten samouczek nie zawiera instrukcji dotyczących sposobu pisania aplikacji platformy Azure, ale jeden z kroków zawiera instrukcję dotyczącą sposobu zezwalania aplikacji na używanie klucza lub klucza tajnego w magazynie kluczy.
+> Ten samouczek nie zawiera instrukcje dotyczące sposobu hello toowrite aplikacji Azure, która zawiera jeden z kroków hello, czyli jak tooauthorize toouse aplikacji klucza lub klucza tajnego klucza hello magazynu.
 >
 > W tym samouczku jest używany program Azure PowerShell. Instrukcje dotyczące wieloplatformowego interfejsu wiersza polecenia znajdują się w [tym równoważnym samouczku](key-vault-manage-with-cli2.md).
 >
@@ -38,45 +38,45 @@ Ten samouczek ułatwi Ci rozpoczęcie pracy z usługą Azure Key Vault w celu ut
 Aby uzyskać ogólne informacje na temat usługi Azure Key Vault, zobacz [Co to jest usługa Azure Key Vault?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Do ukończenia tego samouczka niezbędne są następujące elementy:
+toocomplete tego samouczka, musi mieć następujące hello:
 
-* Subskrypcja platformy Microsoft Azure. Jeśli jej nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
-* Program Azure PowerShell, **minimalna wersja 1.1.0**. Aby zainstalować program Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [Sposób instalowania i konfigurowania programu Azure PowerShell](/powershell/azure/overview). Jeśli masz już zainstalowany program Azure PowerShell, ale nie wiesz, z jakiej wersji korzystasz, w konsoli programu Azure PowerShell wpisz polecenie `(Get-Module azure -ListAvailable).Version`. Jeśli masz zainstalowany program Azure PowerShell w wersji od 0.9.1 do 0.9.8, nadal możesz korzystać tego samouczka z niewielkimi zmianami. Na przykład musisz użyć polecenia `Switch-AzureMode AzureResourceManager`. Do tego niektóre polecenia usługi Azure Key Vault uległy zmianie. Aby uzyskać listę poleceń cmdlet usługi Key Vault dla wersji od 0.9.1 do 0.9.8, zobacz [Polecenia cmdlet usługi Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
-* Aplikacja, która zostanie skonfigurowana w celu używania klucza lub hasła utworzonego w tym samouczku. Przykładowa aplikacja jest dostępna w [Centrum pobierania Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Aby uzyskać instrukcje, zobacz załączony plik Readme.
+* TooMicrosoft subskrypcji Azure. Jeśli jej nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
+* Program Azure PowerShell, **minimalna wersja 1.1.0**. tooinstall programu Azure PowerShell i skojarzyć go z subskrypcją platformy Azure, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). Jeśli jest już zainstalowany program Azure PowerShell, a nie znasz wersji hello z konsoli programu Azure PowerShell hello, wpisz `(Get-Module azure -ListAvailable).Version`. Jeśli masz zainstalowany program Azure PowerShell w wersji od 0.9.1 do 0.9.8, nadal możesz korzystać tego samouczka z niewielkimi zmianami. Na przykład, należy użyć hello `Switch-AzureMode AzureResourceManager` polecenia i niektórych poleceń usługi Azure Key Vault hello zostały zmienione. Aby uzyskać listę hello poleceń cmdlet usługi Key Vault dla wersji od 0.9.1 do 0.9.8, zobacz [polecenia cmdlet usługi Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
+* Aplikacja, która będzie skonfigurowany toouse hello klucza lub hasła utworzonego w ramach tego samouczka. Przykładowa aplikacja jest dostępna z hello [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Aby uzyskać instrukcje Zobacz hello towarzyszący plik Readme.
 
-Ten samouczek jest przeznaczony dla początkujących użytkowników programu Azure PowerShell, ale przyjęto założenie, że rozumiesz podstawowe pojęcia, takie jak moduły, polecenia cmdlet i sesje. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do programu Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+Ten samouczek jest przeznaczony dla początkujących użytkowników programu Azure PowerShell, ale przyjęto założenie, że rozumiesz podstawowe pojęcia hello, takie jak moduły, polecenia cmdlet i sesje. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do programu Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
-Aby uzyskać szczegółowe informacje na temat każdego polecenia cmdlet, które pojawi się w tym samouczku, użyj polecenia cmdlet **Get-Help**.
+tooget szczegółową pomoc dla każdego polecenia cmdlet, które pojawi się w tym samouczku, użyj hello **Get-Help** polecenia cmdlet.
 
     Get-Help <cmdlet-name> -Detailed
 
-Na przykład aby uzyskać pomoc dotyczącą polecenia cmdlet **Login-AzureRmAccount**, wpisz:
+Na przykład tooget pomocy hello **Login-AzureRmAccount** polecenia cmdlet, wpisz:
 
     Get-Help Login-AzureRmAccount -Detailed
 
-Aby zapoznać się z usługą Azure Resource Manager w programie Azure PowerShell, możesz przeczytać następujące samouczki:
+Możesz przeczytać następujące samouczki tooget zapoznać się z usługą Azure Resource Manager w programie Azure PowerShell hello:
 
-* [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
+* [Jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
 * [Używanie programu Azure PowerShell z usługą Resource Manager](../powershell-azure-resource-manager.md)
 
-## <a id="connect"></a>Nawiązywanie połączenia z subskrypcjami
-Uruchom sesję programu PowerShell Azure i zaloguj się na konto platformy Azure przy użyciu następującego polecenia:  
+## <a id="connect"></a>Połącz tooyour subskrypcji
+Uruchom sesję programu PowerShell Azure i zaloguj się tooyour konto platformy Azure za pomocą następującego polecenia hello:  
 
     Login-AzureRmAccount
 
-Pamiętaj, że jeśli używasz konkretnego wystąpienia platformy Azure, na przykład Azure dla instytucji rządowych, użyj parametru środowiska za pomocą tego polecenia. Na przykład: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+Należy pamiętać, że jeśli używasz konkretnego wystąpienia platformy Azure, na przykład Azure dla instytucji rządowych, użyj hello - parametru środowiska za pomocą tego polecenia. Na przykład: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
-W podręcznym oknie przeglądarki wprowadź nazwę użytkownika i hasło dla konta platformy Azure. Program Azure PowerShell pobierze wszystkie subskrypcje, które są skojarzone z tym kontem, i domyślnie użyje pierwszej.
+W oknie wyskakującym przeglądarki hello wprowadź nazwę użytkownika konta platformy Azure i hasło. Program Azure PowerShell pobiera wszystkie subskrypcje hello, które są skojarzone z tym kontem i domyślnie, używa hello pierwsza z nich.
 
-Jeśli masz wiele subskrypcji i chcesz określić, która ma być używana przez usługę Azure Key Vault, wpisz następujące polecenie, aby zobaczyć subskrypcje przypisane do konta:
+Jeśli masz wiele subskrypcji i chcesz toospecify określonych toouse jeden dla usługi Azure Key Vault, wpisz powitania po toosee hello subskrypcje dla swojego konta:
 
     Get-AzureRmSubscription
 
-Aby określić subskrypcję, która ma być używana, wpisz polecenie:
+Następnie toospecify hello subskrypcji toouse, wpisz:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat konfigurowania programu Azure PowerShell, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="resource"></a>Tworzenie nowej grupy zasobów
 Podczas korzystania z usługi Azure Resource Manager wszystkie powiązane zasoby są tworzone wewnątrz grupy zasobów. W tym samouczku utworzysz nową grupę zasobów o nazwie **ContosoResourceGroup**:
@@ -85,133 +85,133 @@ Podczas korzystania z usługi Azure Resource Manager wszystkie powiązane zasoby
 
 
 ## <a id="vault"></a>Tworzenie magazynu kluczy
-Użyj polecenia cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault), aby utworzyć magazyn kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **nazwa grupy zasobów**, **nazwa magazynu kluczy** oraz **lokalizacja geograficzna**.
+Użyj hello [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) toocreate polecenia cmdlet magazynu kluczy. To polecenie cmdlet ma trzy obowiązkowe parametry: **Nazwa grupy zasobów**, **nazwa magazynu kluczy**i hello **lokalizacji geograficznej**.
 
-Na przykład jeśli chcesz użyć nazwy magazynu **ContosoKeyVault**, grupy zasobów **ContosoResourceGroup** i lokalizacji **East Asia**, wpisz:
+Na przykład, jeśli używasz nazwy magazynu hello **ContosoKeyVault**, nazwę grupy zasobów hello **ContosoResourceGroup**i lokalizację hello **Azja Wschodnia**, typ:
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-Dane wyjściowe polecenia cmdlet pokazują właściwości magazynu kluczy, który właśnie został utworzony. Dwie najważniejsze właściwości to:
+Hello wyjściem tego polecenia cmdlet pokazują właściwości magazynu kluczy hello nowo utworzony. Witaj dwie najważniejsze właściwości to:
 
-* **Nazwa magazynu**: w tym przykładzie jest to **ContosoKeyVault**. Ta nazwa będzie używana do innych poleceń cmdlet usługi Key Vault.
-* **Identyfikator URI magazynu**: w tym przykładzie jest to https://contosokeyvault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Nazwa magazynu**: W przykładzie hello jest **ContosoKeyVault**. Ta nazwa będzie używana do innych poleceń cmdlet usługi Key Vault.
+* **Identyfikator URI magazynu**: W przykładzie hello jest to https://contosokeyvault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
-Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Nikt inny nie jest do tego upoważniony.
+Konto platformy Azure jest teraz autoryzowanych tooperform żadnych operacji dla tego klucza magazynu. Nikt inny nie jest do tego upoważniony.
 
 > [!NOTE]
-> Jeśli podczas próby utworzenia nowego magazynu kluczy zostanie wyświetlony błąd **Subskrypcja nie jest zarejestrowana w celu używania przestrzeni nazw „Microsoft.KeyVault”**, uruchom polecenie `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`, a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz temat [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+> Jeśli zostanie wyświetlony błąd hello **hello subskrypcja nie jest zarejestrowany toouse przestrzeni nazw "Microsoft.KeyVault"** podczas toocreate nowego magazynu kluczy, uruchom `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` , a następnie uruchom ponownie polecenie New-AzureRmKeyVault. Aby uzyskać więcej informacji, zobacz temat [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
 >
 >
 
-## <a id="add"></a>Dodawanie klucza lub klucza tajnego do magazynu kluczy
-Jeśli chcesz, aby usługa Azure Key Vault utworzyła klucz chroniony oprogramowaniem, użyj polecenia cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) i wpisz następujące polecenie:
+## <a id="add"></a>Dodawanie klucza lub magazynu kluczy tajnych toohello
+Usługa Azure Key Vault toocreate klucza chronionego przez oprogramowanie dla Ciebie, należy użyć hello [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) polecenia cmdlet i wpisz następujące hello:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
-Jeśli jednak masz istniejący klucz chroniony oprogramowaniem w pliku PFX zapisanym na dysku C:\, w pliku o nazwie softkey.pfx, który chcesz przekazać do usługi Azure Key Vault, wpisz następujące polecenie, aby ustawić wartość zmiennej **securepfxpwd** na hasło **123** dla pliku PFX:
+Jednak jeśli masz istniejący klucz chroniony oprogramowaniem. Tooyour zapisać plik PFX C:\ na dysku w pliku o nazwie softkey.pfx, które mają tooAzure tooupload Key Vault hello typu następującej zmiennej hello tooset **securepfxpwd** na hasło **123** dla hello. Plik PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
-Następnie wpisz następujące polecenie, aby zaimportować klucz z pliku PFX, który chroni klucz w usłudze Key Vault przy użyciu oprogramowania:
+Następnie wpisz powitania po klucz hello tooimport z hello. Plik PFX, który chroni klucz hello przez oprogramowanie w usłudze Key Vault hello:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Teraz możesz odwoływać się do klucza, który został utworzony lub przekazany do usługi Azure Key Vault, za pomocą jego identyfikatora URI. Użyj adresu **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, aby zawsze uzyskać bieżącą wersję, oraz adresu **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**, aby uzyskać tę konkretną wersję.  
+Teraz możesz odwoływać ten klucz został utworzony lub przekazany tooAzure Key Vault, za pomocą jego identyfikatora URI. Użyj **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** tooalways uzyskać hello bieżącą wersję oraz **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/ cgacf4f763ar42ffb0a1gca546aygd87** tooget tę konkretną wersję.  
 
-Aby wyświetlić identyfikator URI dla tego klucza, wpisz polecenie:
+Witaj toodisplay identyfikatora URI dla tego klucza, wpisz:
 
     $Key.key.kid
 
-Aby dodać do magazynu klucz tajny, który jest hasłem o nazwie SQLPassword i ma wartość Pa$$w0rd w usłudze Azure Key Vault, najpierw przekonwertuj wartość Pa$$w0rd na bezpieczny ciąg, wpisując następujące polecenie:
+tooadd magazynu toohello tajny, który jest hasłem o nazwie SQLPassword i ma wartość Pa$ $w0rd tooAzure Key Vault hello, najpierw przekonwertuj wartość Pa$ $w0rd tooa bezpieczny ciąg hello, wpisując następujące hello:
 
     $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 
-Następnie wpisz następujące polecenie:
+Następnie wpisz następujące hello:
 
     $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Teraz możesz odwoływać się do hasła dodanego do usługi Azure Key Vault za pomocą jego identyfikatora URI. Użyj adresu **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, aby zawsze uzyskać bieżącą wersję, oraz adresu **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**, aby uzyskać tę konkretną wersję.
+Teraz możesz odwoływać się to hasło, dodać tooAzure Key Vault, za pomocą jego identyfikatora URI. Użyj **https://ContosoVault.vault.azure.net/secrets/SQLPassword** tooalways uzyskać hello bieżącą wersję oraz **https://ContosoVault.vault.azure.net/secrets/SQLPassword/ 90018dbb96a84117a0d2847ef8e7189d** tooget tę konkretną wersję.
 
-Aby wyświetlić identyfikator URI dla tego klucza tajnego, wpisz polecenie:
+Witaj toodisplay identyfikatora URI dla tego klucza tajnego, wpisz:
 
     $secret.Id
 
-Możesz teraz wyświetlić utworzony klucz lub klucz tajny:
+Teraz wyświetlić hello klucz lub klucz tajny, który został właśnie utworzony:
 
-* Aby wyświetlić klucz, wpisz polecenie: `Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'`
-* Aby wyświetlić klucz tajny, wpisz polecenie: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`
+* tooview Twojego klucza, wpisz:`Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'`
+* tooview tajne, typu:`Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`
 
-Teraz magazyn kluczy oraz klucz lub klucz tajny jest gotowy do użycia przez aplikacje. Musisz zezwolić aplikacjom na korzystanie z nich.  
+Teraz Twojego magazynu kluczy oraz klucz lub klucz tajny jest gotowy do toouse aplikacji. Musisz zezwolić aplikacji toouse je.  
 
 ## <a id="register"></a>Rejestrowanie aplikacji w usłudze Azure Active Directory
-Ten krok będzie zazwyczaj wykonywany przez programistę na innym komputerze. Nie jest to krok specyficzny dla usługi Azure Key Vault, ale został tu zawarty, aby informacje były kompletne.
+Ten krok będzie zazwyczaj wykonywany przez programistę na innym komputerze. Nie jest określonym tooAzure Key Vault, ale został tu zawarty, aby informacje były kompletne.
 
 > [!IMPORTANT]
-> Aby ukończyć samouczek, Twoje konto, magazyn i aplikacja, która zostanie zarejestrowana w tym kroku, muszą należeć do tego samego katalogu Azure.
+> toocomplete hello samouczek, Twoje konto, Magazyn hello i aplikacji hello, która zarejestruje się w tym kroku musi być w hello tego samego katalogu Azure.
 >
 >
 
-Aplikacje używające magazynu kluczy muszą zostać uwierzytelnione przy użyciu tokenu z usługi Azure Active Directory. Aby to zrobić, właściciel aplikacji musi najpierw zarejestrować ją w usłudze Azure Active Directory. Na koniec rejestracji właściciel aplikacji otrzymuje następujące wartości:
+Aplikacje używające magazynu kluczy muszą zostać uwierzytelnione przy użyciu tokenu z usługi Azure Active Directory. toodo hello, właściciel aplikacji hello aplikacji hello najpierw należy zarejestrować w usłudze Azure Active Directory. Na powitania koniec rejestracji właściciel aplikacji hello pobiera hello następujące wartości:
 
-* **Identyfikator aplikacji** (znany także jako Identyfikator klienta) oraz **klucz uwierzytelniania** (znany także jako wspólny klucz tajny). Aby uzyskać token, aplikacja musi przedstawić obie wartości usłudze Azure Active Directory. Sposób konfiguracji aplikacji w tym celu zależy od aplikacji. W przypadku przykładowej aplikacji usługi Key Vault właściciel aplikacji ustawia te wartości w pliku app.config.
+* **Identyfikator aplikacji** (znanej także jako identyfikator klienta) i **klucz uwierzytelniania** (znanej także jako hello wspólny klucz tajny). Witaj, aplikacja musi przedstawić obie te wartości tooAzure usługi Active Directory, tooget tokenu. Jak aplikacja hello jest skonfigurowany toodo, który zależy od aplikacji hello. Dla usługi Key Vault Przykładowa aplikacja hello hello właściciel aplikacji ustawia te wartości w pliku app.config hello.
 
-Aby zarejestrować aplikację w usłudze Azure Active Directory:
+Aplikacja hello tooregister w usłudze Azure Active Directory:
 
-1. Zaloguj się do klasycznego portalu Azure.
-2. Po lewej stronie kliknij pozycję **Usługa Active Directory**, a następnie wybierz katalog, w którym chcesz zarejestrować aplikację. <br> <br> **Uwaga:** musisz wybrać ten sam katalog, który zawiera subskrypcję platformy Azure użytą do utworzenia magazynu kluczy. Jeśli nie wiesz, który to katalog, kliknij pozycję **Ustawienia**, zidentyfikuj subskrypcję, za pomocą której został utworzony magazyn kluczy, i zanotuj nazwę katalogu wyświetloną w ostatniej kolumnie.
-3. Kliknij pozycję **APLIKACJE**. Jeśli żadna aplikacja nie została dodana do katalogu, strona zawiera tylko link **Dodaj aplikację**. Kliknij link lub alternatywnie kliknij przycisk **DODAJ** znajdujący się na pasku poleceń.
-4. W kreatorze **DODAWANIE APLIKACJI** na stronie **Co chcesz zrobić?** kliknij pozycję **Dodawanie aplikacji opracowywanej przez moją organizację**.
-5. Na stronie **Powiedz nam o swojej aplikacji** określ nazwę swojej aplikacji, a następnie wybierz pozycję **APLIKACJA SIECI WEB I/LUB INTERFEJS API SIECI WEB** (opcja domyślna). Kliknij ikonę **Dalej**.
-6. Na stronie **Właściwości aplikacji** określ **ADRES URL LOGOWANIA** i **IDENTYFIKATOR URI APLIKACJI** dla swojej aplikacji sieci Web. Jeśli aplikacja nie ma tych wartości, możesz je wymyślić na potrzeby tego kroku (na przykład możesz wpisać adres http://test1.contoso.com w obu polach). Nie ma znaczenia, czy takie witryny istnieją. Ważne jest, aby każda aplikacja w katalogu miała inny identyfikator URI aplikacji. Katalog używa tego ciągu do identyfikowania Twojej aplikacji.
-7. Kliknij ikonę **Zakończ**, aby zapisać zmiany w kreatorze.
-8. Na stronie **Szybki start** kliknij pozycję **KONFIGURUJ**.
-9. Przewiń do sekcji **Klucze**, wybierz czas trwania, a następnie kliknij przycisk **ZAPISZ**. Strona zostanie odświeżona i pojawi się na niej wartość klucza. Musisz skonfigurować aplikację przy użyciu tej wartości klucza i wartości **IDENTYFIKATOR KLIENTA**. (Instrukcje dotyczące tej konfiguracji są specyficzne dla aplikacji).
-10. Skopiuj wartość identyfikatora klienta z tej strony. Użyjesz jej w następnym kroku w celu ustawienia uprawnień dotyczących magazynu.
+1. Zaloguj się toohello klasycznego portalu Azure.
+2. Powitania po lewej stronie, kliknij przycisk **usługi Active Directory**, a następnie wybierz katalog hello, w którym będzie rejestrować aplikacji. <br> <br> **Uwaga:** należy wybrać hello tym samym katalogu, który zawiera hello subskrypcji platformy Azure, z którym zostanie utworzony magazyn kluczy. Jeśli nie znasz katalog ten jest, kliknij przycisk **ustawienia**zidentyfikować hello subskrypcji, z którym zostanie utworzony magazyn kluczy i w ostatniej kolumnie hello wyświetlana nazwa hello Uwaga hello katalogu.
+3. Kliknij pozycję **APLIKACJE**. Jeśli nie aplikacja nie została dodana tooyour katalogu, tej stronie są wyświetlane tylko hello **Dodaj aplikację** łącza. Kliknij łącze hello lub Alternatywnie możesz kliknąć **dodać** na powitania paska poleceń.
+4. W hello **Dodawanie aplikacji** kreatora, na powitania **co chcesz toodo?** kliknij przycisk **Dodaj aplikację moją organizację**.
+5. Na powitania **Powiedz nam o aplikacji** strony, określ nazwę aplikacji, a następnie wybierz **interfejsu API sieci WEB i/lub aplikacji sieci WEB** (hello domyślną). Kliknij przycisk hello **dalej** ikony.
+6. Na powitania **właściwości aplikacji** Określ hello **adres URL logowania** i **identyfikator URI aplikacji** dla aplikacji sieci web. Jeśli aplikacja nie ma tych wartości, możesz je wymyślić na potrzeby tego kroku (na przykład możesz wpisać adres http://test1.contoso.com w obu polach). Nie ma znaczenia, czy takie witryny istnieją. Ważne jest, aplikacja hello identyfikator URI dla każdej aplikacji jest różne dla każdej aplikacji w katalogu. katalog Hello używa tego ciągu tooidentify aplikacji.
+7. Kliknij przycisk hello **Complete** toosave ikona zmiany w Kreatorze hello.
+8. Na powitania **Szybki Start** kliknij przycisk **Konfiguruj**.
+9. Przewiń toohello **klucze** sekcji, wybierz czas trwania hello, a następnie kliknij przycisk **ZAPISAĆ**. Strona Hello odświeżona i pojawi się wartość klucza. Należy skonfigurować aplikację za pomocą wartości klucza i hello **identyfikator klienta** wartość. (Instrukcje dotyczące tej konfiguracji są specyficzne dla aplikacji).
+10. Skopiuj wartość Identyfikatora powitania klienta z tej strony, który będzie używany w hello następny krok tooset uprawnień dotyczących magazynu.
 
-## <a id="authorize"></a>Zezwalanie aplikacji na używanie klucza lub klucza tajnego
-Aby przyznać aplikacji dostęp do klucza lub klucza tajnego w magazynie, użyj polecenia cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+## <a id="authorize"></a>Autoryzowanie hello aplikacji toouse hello klucza lub klucza tajnego
+Witaj tooaccess aplikacji hello tooauthorize klucza lub klucza tajnego w magazynie hello, użyj [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) polecenia cmdlet.
 
-Na przykład jeśli nazwa Twojego magazynu to **ContosoKeyVault**, a identyfikator klienta aplikacji, której chcesz przyznać dostęp, to 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed i chcesz zezwolić aplikacji na odszyfrowywanie oraz logowanie przy użyciu kluczy w magazynie, uruchom następujące polecenie:
+Na przykład, jeśli nazwa Twojego magazynu to **ContosoKeyVault** i tooauthorize ma identyfikator klienta 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed i ma toodecrypt aplikacji hello tooauthorize i zaloguj się za pomocą kluczy w aplikacji hello magazynie, uruchom następujące hello:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 
-Jeśli chcesz zezwolić tej samej aplikacji na odczyt kluczy tajnych w magazynie, uruchom następujące polecenie:
+Jeśli chcesz tooauthorize tego samego hasła tooread aplikacji w magazynie, uruchom następujące hello:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a id="HSM"></a>Użycie sprzętowego modułu zabezpieczeń (HSM, hardware security module)
-W celu zapewnienia dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w sprzętowych modułach zabezpieczeń (HSM), które nigdy nie opuszczają granicy modułów HSM. Moduły HSM są zweryfikowane w trybie FIPS 140-2 poziom 2. Jeżeli te wymagania nie odnoszą się do Ciebie, pomiń tę sekcję i przejdź do sekcji [Usuwanie magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych](#delete).
+## <a id="HSM"></a>Jeśli chcesz, aby toouse sprzętowego modułu zabezpieczeń (HSM)
+Dla dodatkowego bezpieczeństwa możesz zaimportować lub wygenerować klucze w sprzętowych modułów zabezpieczeń (HSM), które nigdy nie opuszczają granicy modułów HSM hello. Witaj sprzętowych modułów zabezpieczeń są FIPS 140-2 poziom 2 zweryfikowany. Jeśli te wymagania nie odnoszą się tooyou, Pomiń tę sekcję i przejdź zbyt[usunąć hello magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych](#delete).
 
-Aby utworzyć te klucze chronione modułem HSM, należy użyć [usługi Azure Key Vault w warstwie Premium do obsługi kluczy chronionych modułem HSM](https://azure.microsoft.com/pricing/free-trial/). Ponadto warto zauważyć, że funkcja ta nie jest dostępna dla chińskiej wersji platformy Azure.
+toocreate klucze chronionego przez moduł HSM, należy użyć hello [klucze chronione przez moduł HSM toosupport warstwy usługi Premium magazynu kluczy Azure](https://azure.microsoft.com/pricing/free-trial/). Ponadto warto zauważyć, że funkcja ta nie jest dostępna dla chińskiej wersji platformy Azure.
 
-Po utworzeniu magazynu kluczy dodaj parametr **- SKU**:
+Po utworzeniu magazynu kluczy hello dodać hello **- SKU** parametru:
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
-Do tego magazynu kluczy możesz dodać klucze chronione oprogramowaniem (jak pokazano wcześniej) oraz klucze chronione modułem HSM. Aby utworzyć klucz chroniony modułem HSM, ustaw parametr **-Destination** w opcji „HSM”:
+Możesz dodać klucze chronione oprogramowaniem (jak pokazano wcześniej) i magazynu kluczy toothis klucze chronione przez moduł HSM. toocreate klucza chronionego przez moduł HSM, ustaw hello **-docelowy** too'HSM parametru ":
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
-Następujące polecenie służy do importowania klucza z pliku PFX znajdującego się na Twoim komputerze. To polecenie importuje klucz do modułu HSM w usłudze Key Vault:
+Można użyć następującego polecenia tooimport hello klucza z. Plik PFX na tym komputerze. To polecenie importuje klucz hello do sprzętowych modułów zabezpieczeń w usłudze Key Vault hello:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
-Następne polecenie importuje pakiet „Wprowadź własny klucz” (BYOK, bring your own key). Ten scenariusz umożliwia wygenerowanie własnego klucza w lokalnym module HSM i przeniesienie go do modułów HSM w usłudze Key Vault bez opuszczania przez klucz granic modułu HSM:
+Witaj następne polecenie importuje "bring your own key" (BYOK) pakietu. Ten scenariusz umożliwia generowanie klucza w lokalnym module HSM i przeniesienie go tooHSMs w hello usługi Key Vault bez opuszczania hello granic modułu HSM klucz hello:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Aby uzyskać szczegółowe instrukcje na temat generowania pakietu BYOK, zobacz artykuł [Generowanie i przenoszenie kluczy chronionych modułem HSM dla usługi Azure Key Vault](key-vault-hsm-protected-keys.md).
+Aby uzyskać szczegółowe instrukcje dotyczące toogenerate pakietu BYOK, zobacz [jak toogenerate i przenoszenie kluczy chronionych HSM dla usługi Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## <a id="delete"></a>Usuwanie magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych
-Jeśli magazyn kluczy oraz zawarte w nim klucze i klucze tajne nie są już potrzebne, możesz je usunąć przy pomocy polecenia cmdlet [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault):
+## <a id="delete"></a>Usuń hello magazynu kluczy oraz skojarzonych kluczy i kluczy tajnych
+Jeśli nie są już potrzebne hello magazynu kluczy oraz klucz hello lub klucz tajny, który zawiera, można usunąć magazynu kluczy hello za pomocą hello [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) polecenia cmdlet:
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
-Możesz także usunąć całą grupę zasobów platformy Azure zawierającą magazyn kluczy oraz inne zasoby, które zostały dodane do tej grupy:
+Lub usunięciem całej grupy zasobów platformy Azure, w tym magazynie kluczy hello i inne zasoby, które zostały dodane do tej grupy:
 
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
@@ -220,16 +220,16 @@ Możesz także usunąć całą grupę zasobów platformy Azure zawierającą mag
 Inne polecenia, które mogą być przydatne do zarządzania usługą Azure Key Vault:
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: To polecenie wyświetla tabelaryczny widok wszystkich kluczy i wybranych właściwości.
-* `$Keys[0]`: To polecenie wyświetla pełną listę właściwości dla określonego klucza
+* `$Keys[0]`: To polecenie wyświetla pełną listę właściwości dla określonego klucza hello
 * `Get-AzureKeyVaultSecret`: To polecenie wyświetla tabelaryczny widok wszystkich nazw kluczy tajnych i wybranych właściwości.
-* `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Przykładowy sposób usunięcia określonego klucza.
-* `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Przykładowy sposób usunięcia określonego klucza tajnego.
+* `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Przykład jak tooremove określonego klucza.
+* `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Przykład jak tooremove określonego klucza tajnego.
 
 ## <a id="next"></a>Następne kroki
 Aby zapoznać się z kolejnym samouczkiem, w którym jest używana usługa Azure Key Vault w aplikacji sieci Web, zobacz artykuł [Użycie usługi Azure Key Vault z aplikacji sieci Web](key-vault-use-from-web-application.md).
 
-Aby zobaczyć sposób użycia Twojego magazynu kluczy, zobacz artykuł [Rejestrowanie usługi Azure Key Vault](key-vault-logging.md).
+toosee Twojego magazynu kluczy jest używany, zobacz [rejestrowanie usługi Azure Key Vault](key-vault-logging.md).
 
-Aby zapoznać się z listą najnowszych poleceń cmdlet programu Azure PowerShell dla usługi Azure Key Vault, zobacz artykuł [Polecenia cmdlet w usłudze Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
+Aby uzyskać listę hello najnowsze Azure poleceń cmdlet programu PowerShell dla usługi Azure Key Vault, zobacz [polecenia cmdlet usługi Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
-Odwołania dotyczące programowania znajdują się w [przewodniku dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).
+Odwołania dotyczące programowania, zobacz [hello przewodnik dewelopera usługi Azure Key Vault](key-vault-developers-guide.md).

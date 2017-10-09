@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Funkcja prognozowania - ETS + STL - Azure | Dokumentacja firmy Microsoft"
+title: AAA(deprecated) Prognozowanie - ETS + STL - Azure | Dokumentacja firmy Microsoft
 description: "(przestarzałe) Funkcja prognozowania - ETS + STL"
 services: machine-learning
 documentationcenter: 
@@ -16,38 +16,38 @@ ms.date: 01/06/2017
 ms.author: yijichen
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: a575af931a41b7a55eb2102f3553640a16099146
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 550d423898d46564936fdcfbf05b7c88d2e292c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-forecasting---ets--stl"></a>(przestarzałe) Funkcja prognozowania - ETS + STL
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implementuje modele okresach Trend rozkładu (STL) i wykładniczej Wygładzanie (ETS) do tworzenia prognoz na podstawie historycznych danych przez użytkownika. Żądanie dla określonego produktu zwiększy tego roku? Można I przewidywanie Moje sprzedaży produktów w sezonie świąt tak, aby efektywnie można zaplanować Mój spis? Modeli prognozowania są w stanie rozwiązać takie pytania. Podana historycznych danych, te modele Sprawdź, czy ukryty trendów i sezonowości do przewidywania przyszłych trendów. 
+To [usługi sieci web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implementuje prognoz tooproduce modeli okresach Trend rozkładu (STL) i wykładniczej Wygładzanie (ETS) na podstawie hello danych historycznych podane przez użytkownika hello. Zostanie hello żądanie zwiększanie określonym produktem tego roku? Można I przewidywanie Moje sprzedaży produktu hello sezonu świąt tak, aby efektywnie można zaplanować Mój spis? Modeli prognozowania są stanie tooaddress takie pytania. Podane hello poza danych, te modele Sprawdź, czy ukryty trendów i sezonowości toopredict przyszłych trendów. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługi sieci web może następnie opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w całym świecie bez ustawień infrastruktury przez autora usługi sieci web.  
+> Ta usługa sieci web może być używana przez użytkowników — potencjalnie za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. usługi sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń w Witaj świecie bez ustawień infrastruktury przez autora hello hello usługi sieci web.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
-Ta usługa akceptuje 4 argumenty i oblicza prognozy.
-Argumenty wejściowe są:
+Ta usługa akceptuje 4 argumenty i oblicza hello prognozy.
+argumenty wejściowe Hello są:
 
-* Częstotliwość — wskazuje częstotliwość nieprzetworzone dane (codziennie/co tydzień/co miesiąc/co kwartał/co rok).
+* Częstotliwość — wskazuje częstotliwość hello hello nieprzetworzone dane (codziennie/co tydzień/co miesiąc/co kwartał/co rok).
 * Zakres - przyszłości prognozy przedziale czasu.
-* Data — Dodawanie nowych danych serii czas po raz.
-* Wartość — Dodawanie nowych wartości czasu serii danych.
+* Data — Dodawanie nowych szeregów czasowych hello danych po raz.
+* Wartość — dodatek hello wartości danych w nowej serii czasu.
 
-Dane wyjściowe usługi są wartościami wyliczanymi prognozy.
+dane wyjściowe Hello usługi hello jest hello obliczany prognozowania wartości.
 
 Przykładowe dane wejściowe może być: 
 
@@ -56,11 +56,11 @@ Przykładowe dane wejściowe może być:
 * Data — 15/1/2012 15-2/2012; 3/15/2012; 4 15/2012; 15-5/2012; 6/15/2012; 7, 15/2012; 8 / 15 2012 9, 15/2012 10/15/2012; 11 15/2012; 12/15/2012; 1/15/2013 2013-2/15; 2013-3/15; 2013-4/15; 2013-5/15; 6/15/2013; 2013-7/15; 8 / 15/2013 2013-9/15; 10/15/2013; 11/15/2013; 12/15/2013; 2014-1-15, 2014-2-15, 2014-3-15; 2014-4-15; 2014-5-15; 2014-6-15; 2014-7-15, 8 / 2014-15; 2014-9-15
 * Wartość — 3.479; 3.68; 3.832; 3.941; 3.797; 3.586; 3.508; 3.731; 3.915; 3.844; 3.634; 3.549; 3.557; 3.785; 3.782; 3.601; 3.544; 3.556; 3.65; 3.709; 3.682; 3.511; 3.429 3.51; 3.523; 3.525; 3.626; 3.695; 3.711; 3.711; 3.693; 3.571; 3.509
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx)).
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładową aplikację jest [tutaj](http://microsoftazuremachinelearning.azurewebsites.net/StlEtsForecasting.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
     public class Input
@@ -93,17 +93,17 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
-Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona. Przekazany ze schematem wstępnie zdefiniowanych danych przykładowych danych wejściowych. Połączony z danymi schemat jest [wykonanie skryptu języka R] [ execute-r-script] moduł, generująca STL i ETS modeli prognozowania za pomocą "stl", "ets" i "prognozy" działa z R. 
+Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utworzona. Przekazany ze schematem wstępnie zdefiniowanych danych przykładowych danych wejściowych. Schemat danych połączonych toohello jest [wykonanie skryptu języka R] [ execute-r-script] moduł, generująca STL i ETS modeli prognozowania za pomocą "stl", "ets" i "prognozy" działa z R. 
 
 ### <a name="experiment-flow"></a>Przepływ eksperymentu:
 ![Przepływ eksperymentu][2]
 
 #### <a name="module-1"></a>Moduł 1:
-    # Add in the CSV file with the data in the format shown below 
+    # Add in hello CSV file with hello data in hello format shown below 
 ![Dane przykładowe][3]    
 
 #### <a name="module-2"></a>Moduł 2:
@@ -134,10 +134,10 @@ Za pomocą w usłudze Azure Machine Learning nowy pusty eksperyment została utw
     maml.mapOutputPort("data.forecast");
 
 ## <a name="limitations"></a>Ograniczenia
-To jest bardzo prosty przykład ETS + STL prognozowania. Jak wynika z przykładowy kod powyżej, nie błąd Przechwytywanie jest zaimplementowana, a usługa przyjęto założenie, że wszystkie zmienne są ciągłe/dodatnie wartości i częstotliwości powinna być liczbą całkowitą większą niż 1. Długość wektorów wartość daty i powinna być taka sama i szeregu czasowego musi być większa niż 2 * częstotliwości. Zmienna daty należy stosować się do formatu ' mm/dd/rrrr'.
+To jest bardzo prosty przykład ETS + STL prognozowania. Jak wynika z powyższych hello przykładowy kod, nie błąd Przechwytywanie jest zaimplementowana, a usługa hello przyjęto założenie, że wszystkie zmienne hello są ciągłe/dodatnie wartości i częstotliwość hello musi być liczbą całkowitą większą niż 1. Hello długość wektorów hello wartość daty i powinny być takie same hello i hello hello szeregu czasowego musi być większa niż 2 * częstotliwości. Zmienna daty Hello przestrzegać toohello format "mm/dd/rrrr'.
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img1.png
 [2]: ./media/machine-learning-r-csharp-retail-demand-forecasting/retail-img2.png

@@ -1,6 +1,6 @@
 ---
-title: "Debugowanie mikrousług Azure w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak monitorowanie i diagnozowanie usługi napisane przy użyciu usługi sieć szkieletowa usług Microsoft Azure na maszynie lokalnej."
+title: "aaaDebug mikrousług Azure w systemie Linux | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomonitor i diagnozowania usług napisane przy użyciu usługi sieć szkieletowa usług Microsoft Azure na maszynie lokalnej."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 4bc73f581f4855ebc724df19dd56fab8bf103854
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bee47bbabcf6b84ff2da14079e026529e36a198b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorowanie i diagnozowanie usług w Instalatorze programowanie komputera lokalnego
 
@@ -29,16 +29,16 @@ ms.lasthandoff: 08/18/2017
 >
 >
 
-Monitorowanie, wykrywanie, diagnozowanie i rozwiązywanie problemów z umożliwiają usług kontynuować przy minimalnym przerw w działaniu środowiska użytkownika. Monitorowania i diagnostyki są szczególnie ważne w środowisku produkcyjnym wdrożony rzeczywisty. Przyjmowanie podobne modelu podczas tworzenia usługi gwarantuje, że diagnostycznych potoku działa w przypadku przenoszenia do środowiska produkcyjnego. Sieć szkieletowa usług ułatwia deweloperom usługa implementuje diagnostyki bezproblemowo działającej na konfiguracje pojedynczego komputera lokalnego rozwoju i w konfiguracji klastra produkcyjnego rzeczywistych.
+Monitorowanie, wykrywanie, diagnozowanie i rozwiązywanie problemów z umożliwiają toocontinue usług z minimalnym przerw w działaniu toohello użytkowników. Monitorowania i diagnostyki są szczególnie ważne w środowisku produkcyjnym wdrożony rzeczywisty. Przyjmowanie podobne modelu podczas tworzenia usług gwarantuje, że tego potoku diagnostycznych hello działa podczas przenoszenia tooa środowiska produkcyjnego. Sieć szkieletowa usług ułatwia diagnostyki tooimplement deweloperów usługi może bezproblemowo współpracować na konfiguracje pojedynczego komputera lokalnego rozwoju i w konfiguracji klastra produkcyjnego rzeczywistych.
 
 
 ## <a name="debugging-service-fabric-java-applications"></a>Debugowanie aplikacji Java sieci szkieletowej usług
 
-W przypadku aplikacji Java [wiele platform rejestrowania](http://en.wikipedia.org/wiki/Java_logging_framework) są dostępne. Ponieważ `java.util.logging` jest domyślną opcją ze środowiska JRE, jest również używana dla [przykładów kodu w witrynie github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Następujące dyskusji wyjaśniono sposób konfigurowania `java.util.logging` framework.
+W przypadku aplikacji Java [wiele platform rejestrowania](http://en.wikipedia.org/wiki/Java_logging_framework) są dostępne. Ponieważ `java.util.logging` jest opcja domyślna hello z hello środowiska JRE, jest również używana dla hello [przykładów kodu w witrynie github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  Hello następujące dyskusji wyjaśniono, jak tooconfigure hello `java.util.logging` framework.
 
-Przy użyciu java.util.logging można przekierować Dzienniki aplikacji do pamięci, strumienie wyjściowe, pliki konsoli lub gniazda. Dla każdej z tych opcji są już udostępniane w ramach obsługi domyślne. Można utworzyć `app.properties` pliku, aby skonfigurować obsługę plików dla aplikacji przekierować wszystkie dzienniki do pliku lokalnego.
+Przy użyciu aplikacji można przekierowywać java.util.logging rejestruje toomemory, strumienie wyjściowe, pliki konsoli lub gniazda. Dla każdej z tych opcji są już udostępniane w ramach hello obsługi domyślne. Można utworzyć `app.properties` obsługi plików hello tooconfigure pliku dla twojej aplikacji tooredirect wszystkie dzienniki tooa pliku lokalnego.
 
-Poniższy fragment kodu zawiera przykładową konfigurację:
+Witaj następującego fragmentu kodu zawiera przykładową konfigurację:
 
 ```java
 handlers = java.util.logging.FileHandler
@@ -50,34 +50,34 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
 ```
 
-Folder wskazywana przez `app.properties` plik musi istnieć. Po `app.properties` plik jest tworzony, musisz także zmodyfikować skrypt punktu wejścia `entrypoint.sh` w `<applicationfolder>/<servicePkg>/Code/` folderu można ustawić właściwości `java.util.logging.config.file` do `app.propertes` pliku. Wpis powinien wyglądać w następujący fragment kodu:
+Witaj Witaj tooby wskazywany folder `app.properties` plik musi istnieć. Po hello `app.properties` plik jest tworzony, należy tooalso zmodyfikować skrypt punktu wejścia `entrypoint.sh` w hello `<applicationfolder>/<servicePkg>/Code/` folderu tooset hello właściwości `java.util.logging.config.file` zbyt`app.propertes` pliku. wpis Hello powinna wyglądać powitania po fragment kodu:
 
 ```sh
-java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
+java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path tooapp.properties> -jar <service name>.jar
 ```
 
 
-Ta konfiguracja powoduje dzienniki są zbierane w sposób obracania w `/tmp/servicefabric/logs/`. W takim przypadku plik dziennika ma nazwę mysfapp%u.%g.log gdzie:
-* **%u** to unikatowy numer, aby rozwiązać konflikty między równoczesnych procesów Java.
-* **%g** jest to liczba generacji, aby odróżnić obracanie dzienniki.
+Ta konfiguracja powoduje dzienniki są zbierane w sposób obracania w `/tmp/servicefabric/logs/`. w takim przypadku Hello plik dziennika ma nazwę mysfapp%u.%g.log gdzie:
+* **%u** jest unikatowy tooresolve numer konfliktów między równoczesnych procesów Java.
+* **%g** jest hello generowania numerów toodistinguish między obracanie dzienników.
 
-Domyślnie jeśli jawnie jest skonfigurowany bez obsługi, program obsługi konsoli jest zarejestrowany. Jeden Wyświetl dzienniki SYSLOG w obszarze /var/log/syslog.
+Domyślnie jeśli jawnie jest skonfigurowany bez obsługi, program obsługi konsoli hello jest zarejestrowany. Jeden hello dzienniki można wyświetlać w syslog w obszarze /var/log/syslog.
 
-Aby uzyskać więcej informacji, zobacz [przykładów kodu w witrynie github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
+Aby uzyskać więcej informacji, zobacz hello [przykładów kodu w witrynie github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Debugowanie aplikacji usługi sieci szkieletowej C#
 
 
-Wiele platform są dostępne dla śledzenia środowisko CoreCLR aplikacji w systemie Linux. Aby uzyskać więcej informacji, zobacz [GitHub: rejestrowanie](http:/github.com/aspnet/logging).  Ponieważ EventSource jest znane deweloperom korzystającym z języka C#, "w tym artykule wykorzystano źródła zdarzeń śledzenia w środowisko CoreCLR próbek w systemie Linux.
+Wiele platform są dostępne dla śledzenia środowisko CoreCLR aplikacji w systemie Linux. Aby uzyskać więcej informacji, zobacz [GitHub: rejestrowanie](http:/github.com/aspnet/logging).  Ponieważ EventSource znanych tooC # deweloperów "w tym artykule wykorzystano źródła zdarzeń śledzenia w środowisko CoreCLR próbek w systemie Linux.
 
-Pierwszym krokiem jest uwzględnienie System.Diagnostics.Tracing, dzięki czemu może zapisać dzienników pamięci, strumienie wyjściowe lub pliki konsoli.  Przy użyciu źródła zdarzeń logowania, należy dodać następującego projektu do pliku project.json:
+pierwszym krokiem Hello jest tooinclude System.Diagnostics.Tracing, aby mogły zapisywać Twoje toomemory dzienniki, strumienie wyjściowe lub pliki konsoli.  Do rejestrowania przy użyciu elementu EventSource, Dodaj powitania po project.json tooyour projektu:
 
 ```
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 
-Niestandardowe odbiornika danych służy do nasłuchiwania zdarzeń usługi, a następnie odpowiednio przekierować je do plików śledzenia. Poniższy fragment kodu przedstawia przykładowe zastosowanie rejestrowania przy użyciu źródła zdarzeń i niestandardowych odbiornika zdarzeń:
+Można użyć niestandardowych toolisten odbiornika zdarzeń dla zdarzenia usługi hello i następnie odpowiednio przekierować je tootrace plików. Witaj poniższy fragment kodu przedstawia przykładowe zastosowanie rejestrowania przy użyciu źródła zdarzeń i niestandardowych odbiornika zdarzeń:
 
 
 ```csharp
@@ -96,7 +96,7 @@ Niestandardowe odbiornika danych służy do nasłuchiwania zdarzeń usługi, a n
             }
         }
 
-        // TBD: Need to add method for sample event.
+        // TBD: Need tooadd method for sample event.
 
 }
 
@@ -130,16 +130,16 @@ Niestandardowe odbiornika danych służy do nasłuchiwania zdarzeń usługi, a n
 ```
 
 
-Poprzedni fragment danych wyjściowych dzienników do pliku w `/tmp/MyServiceLog.txt`. Ta nazwa pliku musi odpowiednio aktualizacji. W przypadku, gdy chcesz przekierowywać dzienniki, aby konsoli, użyj następującego fragmentu kodu w klasie odbiornika zdarzeń niestandardowych:
+Hello poprzedniego fragment danych wyjściowych pliku tooa dzienniki hello w `/tmp/MyServiceLog.txt`. Ta nazwa pliku musi toobe odpowiednio aktualizowane. W przypadku, gdy chcesz tooredirect hello dzienniki tooconsole, użyj hello następującego fragmentu kodu w klasie odbiornika zdarzeń niestandardowych:
 
 ```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Przykłady w [przykłady dotyczące języka C#](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) Użyj EventSource i niestandardowych odbiornika zdarzeń do dziennika zdarzeń do pliku.
+Witaj próbek w [przykłady dotyczące języka C#](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) EventSource i niestandardowego pliku tooa zdarzenia toolog odbiornika danych.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
-Ten sam kod śledzenia dodany do aplikacji współdziała również z diagnostyki aplikacji w klastrze platformy Azure. Zapoznaj się z tych artykułach, omówiono w nim różne opcje dla narzędzi, które opisano, jak je skonfigurować.
-* [Jak zebrać dzienniki Diagnostyka Azure](service-fabric-diagnostics-how-to-setup-lad.md)
+Witaj sam kod śledzenia dodane tooyour aplikacji współdziała również z hello diagnostyki aplikacji w klastrze platformy Azure. Wyewidencjonowanie te artykuły omówiono w nim różne opcje narzędzia hello hello i opisujących sposób tooset je.
+* [Sposób rejestrowania toocollect Diagnostyka Azure](service-fabric-diagnostics-how-to-setup-lad.md)

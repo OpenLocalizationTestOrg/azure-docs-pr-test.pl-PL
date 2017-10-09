@@ -1,6 +1,6 @@
 ---
-title: "Zapisane wyszukiwania i alertów w rozwiązaniach pakietu OMS | Dokumentacja firmy Microsoft"
-description: "Rozwiązania w OMS zazwyczaj uwzględnia zapisane wyszukiwania w analizy dzienników do analizowania danych zebranych przez rozwiązanie.  Mogą również definiować alertów umożliwiających powiadamianie użytkownika lub automatyczne wykonywanie akcji w odpowiedzi na problem krytyczny.  W tym artykule opisano sposób definiowania analizy dzienników zapisane wyszukiwania i alertów w szablonu usługi ARM, aby mogły one zostać uwzględnione w rozwiązaniach do zarządzania."
+title: "aaaSaved wyszukiwania i alertów w rozwiązaniach pakietu OMS | Dokumentacja firmy Microsoft"
+description: "W analizy dzienników tooanalyze danych zbieranych przez rozwiązanie hello rozwiązań w OMS zazwyczaj uwzględnia zapisane wyszukiwania.  Mogą również definiować alerty toonotify hello użytkownika lub automatyczne wykonywanie akcji w problem krytyczny tooa odpowiedzi.  W tym artykule opisano, jak toodefine analizy dzienników zapisane wyszukiwania i alertów w szablonu usługi ARM, aby mogły one zostać uwzględnione w rozwiązaniach do zarządzania."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,39 +14,39 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93d7c5bbf061473833ca6c0a8e4d8e10d923f3ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Dodawanie analizy dzienników zapisane wyszukiwania i alerty OMS rozwiązania do zarządzania (wersja zapoznawcza)
+# <a name="adding-log-analytics-saved-searches-and-alerts-toooms-management-solution-preview"></a>Dodawanie analizy dzienników zapisane wyszukiwania i alerty tooOMS rozwiązania do zarządzania (wersja zapoznawcza)
 
 > [!NOTE]
-> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.   
+> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej jest toochange podmiotu.   
 
 
-[Rozwiązania do zarządzania w OMS](operations-management-suite-solutions.md) zazwyczaj uwzględnia [zapisane wyszukiwania](../log-analytics/log-analytics-log-searches.md) w analizy dzienników do analizowania danych zebranych przez rozwiązanie.  Mogą również określić [alerty](../log-analytics/log-analytics-alerts.md) powiadamia użytkownika lub automatyczne wykonywanie akcji w odpowiedzi na problem krytyczny.  W tym artykule opisano sposób definiowania analizy dzienników zapisane wyszukiwania i alertów w [szablonu zarządzanie zasobami](../resource-manager-template-walkthrough.md) aby mogły one zostać uwzględnione w [rozwiązań do zarządzania](operations-management-suite-solutions-creating.md).
+[Rozwiązania do zarządzania w OMS](operations-management-suite-solutions.md) zazwyczaj uwzględnia [zapisane wyszukiwania](../log-analytics/log-analytics-log-searches.md) analizy dzienników tooanalyze danych zbieranych przez hello rozwiązania.  Mogą również określić [alerty](../log-analytics/log-analytics-alerts.md) toonotify hello użytkownika lub automatyczne wykonywanie akcji w problem krytyczny tooa odpowiedzi.  W tym artykule opisano, jak toodefine analizy dzienników zapisane wyszukiwania i alertach w [szablonu zarządzanie zasobami](../resource-manager-template-walkthrough.md) aby mogły one zostać uwzględnione w [rozwiązań do zarządzania](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Przykłady w tym artykule, użyj parametrów i zmiennych, które są wymagane ani wspólne dla rozwiązań do zarządzania i opisano w [tworzenia rozwiązań do zarządzania w Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
+> cześć przykłady w tym artykule Użyj parametry i zmienne, które są albo toomanagement wymagane lub typowych rozwiązań i opisane w [tworzenia rozwiązań do zarządzania w Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule przyjęto założenie, że znasz już jak [tworzenie rozwiązania do zarządzania](operations-management-suite-solutions-creating.md) i struktura [szablon ARM](../resource-group-authoring-templates.md) i plik rozwiązania.
+W tym artykule przyjęto założenie, że znasz już jak zbyt[tworzenie rozwiązania do zarządzania](operations-management-suite-solutions-creating.md) i struktura hello [szablon ARM](../resource-group-authoring-templates.md) i plik rozwiązania.
 
 
 ## <a name="log-analytics-workspace"></a>Obszar roboczy analizy dzienników
-Wszystkie zasoby w analizy dzienników znajdują się w [obszaru roboczego](../log-analytics/log-analytics-manage-access.md).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account) obszaru roboczego nie jest zawarty w rozwiązaniu do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, nie będą instalacji rozwiązania.
+Wszystkie zasoby w analizy dzienników znajdują się w [obszaru roboczego](../log-analytics/log-analytics-manage-access.md).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account) hello obszaru roboczego nie jest zawarty w rozwiązaniu do zarządzania hello, ale musi istnieć przed zainstalowaniem hello rozwiązania.  Jeśli nie jest dostępna, następnie hello rozwiązania instalacja zakończy się niepowodzeniem.
 
-Nazwa obszaru roboczego jest nazwy każdego zasobu analizy dzienników.  Ma to rozwiązanie z **obszaru roboczego** parametru, jak w poniższym przykładzie savedsearch zasobu.
+Nazwa Hello obszaru roboczego hello jest nazwa hello każdego zasobu analizy dzienników.  Odbywa się w rozwiązaniu hello hello **obszaru roboczego** parametru jak hello poniższy przykład savedsearch zasobu.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 
 ## <a name="saved-searches"></a>Zapisane wyszukiwania
-Obejmują [zapisane wyszukiwania](../log-analytics/log-analytics-log-searches.md) w rozwiązaniu, aby umożliwić użytkownikom zapytania danych zbieranych przez rozwiązania.  Zapisane wyszukiwania zostanie wyświetlony w obszarze **ulubione** w portalu OMS i **zapisane wyszukiwania** w portalu Azure.  Zapisane wyszukiwanie jest również wymagany dla każdego alertu.   
+Obejmują [zapisane wyszukiwania](../log-analytics/log-analytics-log-searches.md) rozwiązania tooallow użytkowników tooquery danych zbieranych przez rozwiązania.  Zapisane wyszukiwania zostanie wyświetlony w obszarze **ulubione** w portalu OMS hello i **zapisane wyszukiwania** w hello portalu Azure.  Zapisane wyszukiwanie jest również wymagany dla każdego alertu.   
 
-[Analiza dzienników zapisane wyszukiwanie](../log-analytics/log-analytics-log-searches.md) zasobów mieć typu `Microsoft.OperationalInsights/workspaces/savedSearches` i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+[Analiza dzienników zapisanego wyszukiwania](../log-analytics/log-analytics-log-searches.md) zasobów mieć typu `Microsoft.OperationalInsights/workspaces/savedSearches` i mieć hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -65,33 +65,33 @@ Obejmują [zapisane wyszukiwania](../log-analytics/log-analytics-log-searches.md
 
 
 
-Każdej z właściwości zapisanego kryterium wyszukiwania są opisane w poniższej tabeli. 
+Każdej z właściwości hello zapisanego kryterium wyszukiwania są opisane w hello w poniższej tabeli. 
 
 | Właściwość | Opis |
 |:--- |:--- |
-| category | Kategoria dla zapisanego wyszukiwania.  Żadnych zapisanych wyszukiwań, w tym samym rozwiązaniu często muszą współdzielić jednej kategorii, więc są pogrupowane w konsoli. |
-| Nazwa wyświetlana | Nazwa do wyświetlenia dla zapisanego wyszukiwania w portalu. |
-| query | Zapytanie do uruchomienia. |
+| category | Kategoria Hello hello zapisanego kryterium wyszukiwania.  Dowolne zapisane wyszukiwania w powitalne tego samego rozwiązania często muszą współdzielić jednej kategorii, są pogrupowane w hello konsoli. |
+| Nazwa wyświetlana | Nazwa toodisplay dla hello zapisane wyszukiwanie w portalu hello. |
+| query | Toorun zapytania. |
 
 > [!NOTE]
-> Może być konieczne użycie znaki specjalne w zapytaniu, jeśli zawiera znaki, które mogą być interpretowane jako JSON.  Na przykład, jeśli zapytanie zostało **OperationName:"Microsoft.Compute/virtualMachines/write typu: AzureActivity"**, mają być zapisywane w pliku rozwiązania jako **OperationName typu: AzureActivity:\"Microsoft.Compute/virtualMachines/write\"**.
+> Znaki specjalne toouse w zapytaniu hello może być konieczne, jeśli zawiera znaki, które mogą być interpretowane jako JSON.  Na przykład, jeśli zapytanie zostało **OperationName:"Microsoft.Compute/virtualMachines/write typu: AzureActivity"**, mają być zapisywane w pliku rozwiązania hello jako **OperationName typu: AzureActivity:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alerty
-[Rejestrowania alertów Analytics](../log-analytics/log-analytics-alerts.md) są tworzone przez reguły alertów, które uruchomić zapisane wyszukiwanie w regularnych odstępach czasu.  Jeśli wyniki zapytania dopasowania określone kryteria, tworzony jest rekord alertów i są uruchamiane co najmniej jednej akcji.  
+[Rejestrowania alertów Analytics](../log-analytics/log-analytics-alerts.md) są tworzone przez reguły alertów, które uruchomić zapisane wyszukiwanie w regularnych odstępach czasu.  Jeśli hello wyników zapytania hello spełniających określone kryteria, tworzony jest rekord alertów i są uruchamiane co najmniej jednej akcji.  
 
-Reguły alertów w rozwiązaniu do zarządzania składają się z następujących trzech różnych zasobów.
+Reguły alertów w rozwiązaniu do zarządzania składają się z hello następujące trzy różne zasoby.
 
-- **Zapisane wyszukiwanie.**  Definiuje wyszukiwania dziennika, które będą uruchamiane.  Wiele reguł alertów można udostępniać pojedynczy zapisanego kryterium wyszukiwania.
-- **Harmonogram.**  Określa, jak często wyszukiwania dziennika zostanie uruchomiony.  Każdej reguły alertu będzie mieć tylko jeden harmonogram.
-- **Akcja alertu.**  Każdej reguły alertu będzie mieć jeden zasób akcji z typem **Alert** definiuje szczegóły alertu, takie jak kryteria utworzenia rekordu alertów i ważność alertu.  Zasób akcji zostanie opcjonalnie określić odpowiedź poczty i elementu runbook.
-- **Akcja elementu Webhook (opcjonalnie).**  Reguła alertu wywoła elementu webhook, a następnie go wymaga dodatkowych czynności zasobu o typie **Webhook**.    
+- **Zapisane wyszukiwanie.**  Definiuje hello dziennik wyszukiwania, które będą uruchamiane.  Wiele reguł alertów można udostępniać pojedynczy zapisanego kryterium wyszukiwania.
+- **Harmonogram.**  Określa, jak często hello wyszukiwania dziennika zostanie uruchomiony.  Każdej reguły alertu będzie mieć tylko jeden harmonogram.
+- **Akcja alertu.**  Każdej reguły alertu będzie mieć jeden zasób akcji z typem **Alert** definiuje hello szczegóły alertu hello, takich jak kryteria hello rekord alertu zostanie utworzony po hello ważność alertu.  zasób akcji Hello opcjonalnie definiują odpowiedzi poczty i elementu runbook.
+- **Akcja elementu Webhook (opcjonalnie).**  Reguła alertu hello wywoła elementu webhook, a następnie go wymaga dodatkowych czynności zasobu o typie **Webhook**.    
 
-Zapisane wyszukiwania zasobów opisanych powyżej.  Inne zasoby są opisane poniżej.
+Zapisane wyszukiwania zasobów opisanych powyżej.  Witaj inne zasoby są opisane poniżej.
 
 
 ### <a name="schedule-resource"></a>Zasób harmonogramu
 
-Zapisane wyszukiwanie może mieć co najmniej jeden harmonogram z każdym harmonogramem reprezentujący oddzielne reguły alertu. Harmonogram Określa, jak często wyszukiwanie jest uruchamiania i przedział czasu, przez który dane są pobierane.  Planowanie zasobów mieć typu `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` i ma następującą strukturę. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+Zapisane wyszukiwanie może mieć co najmniej jeden harmonogram z każdym harmonogramem reprezentujący oddzielne reguły alertu. Hello harmonogram Określa częstotliwość hello wyszukiwania jest uruchamiany i hello interwał czasu, przez które hello dane są pobierane.  Planowanie zasobów mieć typu `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` i mieć hello następujące struktury. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
 
     {
@@ -111,27 +111,27 @@ Zapisane wyszukiwanie może mieć co najmniej jeden harmonogram z każdym harmon
 
 
 
-W poniższej tabeli opisano właściwości planowania zasobów.
+w hello w poniższej tabeli opisano Hello właściwości harmonogramu zasobów.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| włączone       | Tak | Określa, czy alert jest włączony podczas jego tworzenia. |
-| Interwał      | Tak | Częstotliwość wykonywania kwerendy w minutach. |
-| QueryTimeSpan | Tak | Długość czasu w minutach, przez który ocena wyników. |
+| włączone       | Tak | Określa, czy hello alert jest włączony podczas jego tworzenia. |
+| interval      | Tak | Jak często hello zapytania jest uruchamiany w minutach. |
+| QueryTimeSpan | Tak | Długość czasu w minutach, przez które wyniki tooevaluate. |
 
-Zasób harmonogramu powinien są zależne od zapisanego wyszukiwania, aby przed harmonogram jest tworzona.
+zasób harmonogramu Hello powinien zależą od hello zapisanego wyszukiwania, dzięki czemu jest tworzona przed hello harmonogramu.
 
 
 ### <a name="actions"></a>Akcje
-Istnieją dwa typy akcji zasobu określonego przez **typu** właściwości.  Harmonogram wymaga jednego **Alert** akcji, który definiuje szczegóły reguły alertów i jakie akcje są pobierane, gdy tworzony jest alert.  Mogą również obejmować **Webhook** akcji, o ile elementu webhook powinna być wywoływana w alercie.  
+Istnieją dwa typy akcji zasobu określonego przez hello **typu** właściwości.  Harmonogram wymaga jednego **Alert** akcji, który definiuje szczegóły hello hello reguły alertów i jakie akcje są pobierane, gdy alert jest tworzony.  Mogą również obejmować **Webhook** akcji, o ile elementu webhook powinna być wywoływana z hello alertu.  
 
 Zasoby akcji mieć typu `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 #### <a name="alert-actions"></a>Akcje alertów
 
-Każdy harmonogram będzie mieć jeden **alertu** akcji.  Określa szczegóły alertu, i opcjonalnie działań powiadomień i korygowania.  Powiadomienie o wysyła wiadomość e-mail do co najmniej jeden adres.  Korygowanie uruchamia element runbook automatyzacji Azure, aby podjąć próbę rozwiązania problemu.
+Każdy harmonogram będzie mieć jeden **alertu** akcji.  Określa szczegóły hello hello alert, oraz opcjonalnie powiadomień i korygowania akcji.  Powiadomienie o wysyła tooone poczty e-mail lub więcej adresów.  Korygowanie uruchamia element runbook w automatyzacji Azure tooattempt tooremediate hello wykrył problem.
 
-Akcje alertu ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+Akcje alertu ma hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
 
 
@@ -170,23 +170,23 @@ Akcje alertu ma następującą strukturę.  W tym wspólnych zmiennych i paramet
         }
     }
 
-W poniższych tabelach opisano właściwości zasobów akcji alertu.
+Hello właściwości zasobów akcji alertu są opisane w następujących tabel hello.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Typ | Tak | Typ akcji.  Są to **Alert** dla akcje alertu. |
-| Nazwa | Tak | Nazwa wyświetlana alertu.  Jest to nazwa, która jest wyświetlana w konsoli dla reguł alertów. |
-| Opis | Nie | Opcjonalny opis alertu. |
-| Ważność | Tak | Ważność alertu rekordu z następujących wartości:<br><br> **Krytyczne**<br>**Ostrzeżenie**<br>**Informacyjny** |
+| Typ | Tak | Typ akcji hello.  Są to **Alert** dla akcje alertu. |
+| Nazwa | Tak | Nazwa wyświetlana hello alertu.  Jest to nazwa hello, która jest wyświetlana w konsoli hello hello reguły alertów. |
+| Opis | Nie | Opcjonalny opis hello alertu. |
+| Ważność | Tak | Ważność alertu rekordu hello z hello następujące wartości:<br><br> **Krytyczne**<br>**Ostrzeżenie**<br>**Informacyjny** |
 
 
 ##### <a name="threshold"></a>Próg
-Ta sekcja jest wymagana.  Definiuje właściwości dla wartości progowej alertu.
+Ta sekcja jest wymagana.  Definiuje właściwości hello hello próg alertu.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Operator | Tak | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
-| Wartość | Tak | Wartość do porównywania wyników. |
+| Operator | Tak | Operator porównania hello z hello następujące wartości:<br><br>**gt = większe<br>lt = mniej niż** |
+| Wartość | Tak | Witaj wartość toocompare hello wyniki. |
 
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
@@ -197,41 +197,41 @@ Ta sekcja jest opcjonalna.  Uwzględnij czynnik dla alertu metryki pomiaru.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| TriggerCondition | Tak | Określa, czy próg całkowitą liczbę naruszeń lub kolejnych naruszenia z następujących wartości:<br><br>**Całkowita liczba<br>kolejnych** |
-| Operator | Tak | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
-| Wartość | Tak | Liczba przypadków, które muszą zostać spełnione kryteria wyzwolenia alertu. |
+| TriggerCondition | Tak | Określa, czy próg hello całkowitą liczbę naruszeń lub kolejnych naruszenia z hello następujące wartości:<br><br>**Całkowita liczba<br>kolejnych** |
+| Operator | Tak | Operator porównania hello z hello następujące wartości:<br><br>**gt = większe<br>lt = mniej niż** |
+| Wartość | Tak | Liczba hello razy kryteria hello musi być niespełnienia tootrigger hello alertu. |
 
 ##### <a name="throttling"></a>Ograniczanie przepływności
-Ta sekcja jest opcjonalna.  W tej sekcji należy uwzględnić, jeśli chcesz pominąć alertów z tej samej reguły dla niektórych ilość czasu, po utworzeniu alertu.
+Ta sekcja jest opcjonalna.  W tej sekcji należy uwzględnić, jeśli chcesz otrzymywać alerty toosuppress z hello same reguły dla niektórych ilość czasu, po utworzeniu alertu.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| DurationInMinutes | Tak, jeśli ograniczanie dołączony — element | Liczba minut do pomijania alertów po utworzeniu z tego samego alertu. |
+| DurationInMinutes | Tak, jeśli ograniczanie dołączony — element | Liczba minut toosuppress alertów po jednej z hello tworzone tego samego alertu. |
 
 ##### <a name="emailnotification"></a>EmailNotification
- Ta sekcja jest opcjonalna Dołącz go, jeżeli alert do wysyłania wiadomości e-mail do co najmniej jednego adresata.
+ Ta sekcja jest opcjonalny Dołącz go, jeśli chcesz hello tooone poczty toosend alertu lub więcej adresatów.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Adresaci | Tak | Rozdzielana przecinkami lista adresów e-mail, aby wysłać powiadomienie, gdy jest tworzony alert, takich jak w poniższym przykładzie.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Temat | Tak | Wiersz tematu wiadomości e-mail. |
+| Adresaci | Tak | Rozdzielany przecinkami lista e-mail adresów toosend powiadomień, podczas tworzenia alertu takich jak w hello poniższy przykład.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Temat | Tak | Wiersz tematu wiadomości powitania. |
 | Załącznika | Nie | Załączniki nie są obecnie obsługiwane.  Jeśli ten element jest włączone, należy go **Brak**. |
 
 
 ##### <a name="remediation"></a>Korygowania
-Ta sekcja jest opcjonalna Dołącz ją, jeśli chcesz, aby element runbook można uruchomić w odpowiedzi na alert. |
+Ta sekcja jest opcjonalna Dołącz ją, jeśli chcesz, aby toostart elementu runbook, w odpowiedzi toohello alertu. |
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| RunbookName | Tak | Nazwa elementu runbook, aby rozpocząć. |
-| WebhookUri | Tak | Identyfikator URI elementu webhook dla elementu runbook. |
-| Wygaśnięcia | Nie | Data i godzina wygaśnięcia korygowania. |
+| RunbookName | Tak | Nazwa hello toostart elementu runbook. |
+| WebhookUri | Tak | Identyfikator URI elementu webhook hello hello elementu runbook. |
+| Wygaśnięcia | Nie | Data i godzina hello korygowania wygasa. |
 
 #### <a name="webhook-actions"></a>Akcje elementu Webhook
 
-Akcje elementu Webhook uruchomienia procesu podczas wywoływania adresu URL i opcjonalnie podając ładunku do wysłania. Są one podobne do akcji korygowania, z wyjątkiem są przeznaczone dla elementów webhook, które może wywołać procesy inne niż elementy runbook automatyzacji Azure. Zawierają także dodatkowe opcja podania ładunku mają zostać dostarczone do zdalnego procesu.
+Akcje elementu Webhook uruchomienia procesu podczas wywoływania adresu URL i opcjonalnie podając toobe ładunku, wysyłane. Są one podobne akcje tooRemediation, z wyjątkiem są przeznaczone dla elementów webhook, które może wywołać procesów innych niż element runbook usługi Automatyzacja Azure. Zapewniają także hello dodatkowa opcja udostępniania procesu zdalnego toohello toobe dostarczyć ładunku.
 
-Jeśli alert będzie wywoływać elementu webhook, a następnie konieczne będzie zasób akcji z typem **Webhook** oprócz **Alert** zasób akcji.  
+Jeśli alert będzie wywoływać elementu webhook, a następnie konieczne będzie zasób akcji z typem **Webhook** w toohello dodanie **Alert** zasób akcji.  
 
     {
       "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
@@ -249,28 +249,28 @@ Jeśli alert będzie wywoływać elementu webhook, a następnie konieczne będzi
       }
     }
 
-Właściwości elementu Webhook akcji zasoby są opisane w poniższych tabelach.
+Hello właściwości elementu Webhook akcji zasobów są opisane w następujących tabel hello.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| type | Tak | Typ akcji.  Są to **Webhook** dla Akcje elementu webhook. |
-| name | Tak | Nazwa wyświetlana dla akcji.  Nie jest on wyświetlany w konsoli. |
-| wehookUri | Tak | Identyfikator URI dla elementu webhook. |
-| CustomPayload | Nie | Niestandardowy ładunek do wysłania do elementu webhook. Format będzie zależeć od tego, czego oczekuje elementu webhook. |
+| type | Tak | Typ akcji hello.  Są to **Webhook** dla Akcje elementu webhook. |
+| name | Tak | Nazwa wyświetlana hello akcji.  Nie jest on wyświetlany w konsoli hello. |
+| wehookUri | Tak | Identyfikator URI dla elementu webhook hello. |
+| CustomPayload | Nie | Niestandardowy ładunek toobe wysyłane toohello elementu webhook. Hello format będzie zależeć od elementu webhook jakie hello jest oczekiwany. |
 
 
 
 
 ## <a name="sample"></a>Przykład
 
-Poniżej przedstawiono przykładowe rozwiązanie obejmujące obejmuje następujące zasoby:
+Poniżej przedstawiono przykładowe rozwiązanie obejmujące obejmuje hello następujące zasoby:
 
 - Zapisane wyszukiwanie
 - Harmonogram
 - Akcji alertu
 - Akcja elementu Webhook
 
-W przykładzie użyto [parametry standardowego rozwiązania](operations-management-suite-solutions-solution-file.md#parameters) zmiennych, które służy zwykle do rozwiązania, w przeciwieństwie do wartości hardcoding w definicji zasobu.
+Witaj używa próbki [parametry standardowego rozwiązania](operations-management-suite-solutions-solution-file.md#parameters) zmiennych, które służy zwykle do rozwiązania jako przeciwieństwie wartości toohardcoding w definicjach zasobów hello.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -309,7 +309,7 @@ W przykładzie użyto [parametry standardowego rozwiązania](operations-manageme
           "recipients": {
             "type": "string",
             "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of recipients for hello email alert separated by semicolon"
             }
           }
         },
@@ -477,7 +477,7 @@ W przykładzie użyto [parametry standardowego rozwiązania](operations-manageme
     }
 
 
-Następujący plik parametrów zawiera przykłady wartości dla tego rozwiązania.
+Hello następującego pliku parametrów zawiera przykłady wartości dla tego rozwiązania.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -506,6 +506,6 @@ Następujący plik parametrów zawiera przykłady wartości dla tego rozwiązani
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dodawanie widoków](operations-management-suite-solutions-resources-views.md) do rozwiązania do zarządzania.
-* [Dodaj element runbook usługi Automatyzacja i innych zasobów](operations-management-suite-solutions-resources-automation.md) do rozwiązania do zarządzania.
+* [Dodawanie widoków](operations-management-suite-solutions-resources-views.md) tooyour rozwiązania do zarządzania.
+* [Dodaj element runbook usługi Automatyzacja i innych zasobów](operations-management-suite-solutions-resources-automation.md) tooyour rozwiązania do zarządzania.
 

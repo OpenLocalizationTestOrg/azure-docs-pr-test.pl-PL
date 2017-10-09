@@ -1,6 +1,6 @@
 ---
-title: Skonfiguruj SSHD na maszynach wirtualnych Azure Linux | Dokumentacja firmy Microsoft
-description: "Skonfiguruj SSHD do najlepszych rozwiązań dotyczących zabezpieczeń i blokady SSH do maszyn wirtualnych systemu Linux platformy Azure."
+title: aaaConfigure SSHD na maszynach wirtualnych systemu Linux platformy Azure | Dokumentacja firmy Microsoft
+description: "Skonfiguruj SSHD najlepszych rozwiązań dotyczących zabezpieczeń i toolockdown SSH tooAzure maszyn wirtualnych systemu Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: v-livech
-ms.openlocfilehash: 0195c385b00ab92b2b92ce8ff00983a0d91bf3a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c2361be7199a24b129c06acfc899dd32f6e1d6fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-sshd-on-azure-linux-vms"></a>Skonfiguruj SSHD na maszynach wirtualnych systemu Linux platformy Azure
 
-W tym artykule opisano, jak do blokowania SSH serwera w systemie Linux, aby zapewnić najlepsze rozwiązania w zakresie zabezpieczeń, a także aby przyspieszyć proces logowania SSH przy użyciu protokołu SSH kluczy zamiast hasła.  Do kontynuowania blokady SSHD zamierzamy można wyłączyć użytkownika głównego mogli się zalogować, ograniczyć użytkowników, którzy mogą zalogować się za pomocą listy zatwierdzonych grup, wyłączenie protokołu SSH w wersji 1, minimalna bitowego klucza i Konfigurowanie automatycznego wylogowaniu bezczynnych użytkowników.  Wymagania dotyczące tego artykułu: konto platformy Azure ([Pobierz bezpłatną wersję próbną](https://azure.microsoft.com/pricing/free-trial/)) i [SSH publiczne i prywatne pliki klucza](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+W tym artykule opisano, jak toolockdown hello serwera SSH w systemie Linux, tooprovide najlepsze rozwiązania w zakresie zabezpieczeń, a także toospeed proces logowania SSH hello przy użyciu kluczy SSH zamiast hasła.  blokady toofurther SSHD zamierzamy toodisable hello głównego użytkownika przed toologin można ograniczyć hello użytkowników, którzy mogą toologin za pośrednictwem listy zatwierdzonych grupy wyłączenie protokołu SSH w wersji 1, minimalna bitowego klucza i Konfigurowanie automatycznego wylogowaniu bezczynnych użytkowników.  wymagania Hello w tym artykule są: konto platformy Azure ([Pobierz bezpłatną wersję próbną](https://azure.microsoft.com/pricing/free-trial/)) i [SSH publiczne i prywatne pliki klucza](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
-Konfigurowanie `/etc/ssh/sshd_config` z następującymi ustawieniami:
+Konfigurowanie `/etc/ssh/sshd_config` z hello następujące ustawienia:
 
 ### <a name="disable-password-logins"></a>Wyłącz hasło logowania
 
@@ -35,7 +35,7 @@ Konfigurowanie `/etc/ssh/sshd_config` z następującymi ustawieniami:
 PasswordAuthentication no
 ```
 
-### <a name="disable-login-by-the-root-user"></a>Wyłącz logowanie przez użytkownika głównego
+### <a name="disable-login-by-hello-root-user"></a>Wyłącz logowanie przez użytkownika głównego hello
 
 ```bash
 PermitRootLogin no
@@ -74,23 +74,23 @@ ClientAliveCountMax 0
 
 ## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
 
-SSHD to SSH serwer, który działa na Maszynie wirtualnej systemu Linux.  SSH jest klienta z systemem Windows z powłoki na Twoje MacBook stacji roboczej systemu Linux lub Bash.  SSH jest również protokół używany do zabezpieczania i szyfrowania komunikacji między tą stacją roboczą a maszyny Wirtualnej systemu Linux wprowadzania SSH także sieci VPN (wirtualna sieć prywatna).
+SSHD jest hello SSH serwera, który jest uruchamiany na powitania maszyny Wirtualnej systemu Linux.  SSH jest klienta z systemem Windows z powłoki na Twoje MacBook stacji roboczej systemu Linux lub Bash.  SSH jest również protokół hello używane toosecure i szyfrowania komunikacji hello między stacji roboczej i hello maszyny Wirtualnej systemu Linux wprowadzania SSH także sieci VPN (wirtualna sieć prywatna).
 
-W tym artykule jest bardzo ważne jedno logowanie do maszyny Wirtualnej systemu Linux otwarte dla całego przewodnika.  Po nawiązaniu połączenia SSH pozostaje jako otwartą sesję tak długo, jak okno nie jest zamknięty.  Posiadanie jednego terminala do zalogowania się zezwala na zmiany wprowadzone do usługi SSHD bez są zablokowane Jeśli podziału zostaną zmienione.  Jeśli maszyny Wirtualnej systemu Linux przerwane konfiguracji SSHD pobrać zablokowane, platforma Azure oferuje możliwość resetowania przerwane konfiguracji SSHD o [rozszerzenia dostępu do maszyny Wirtualnej Azure](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+W tym artykule jest bardzo ważne tookeep jedno logowanie tooyour maszyny Wirtualnej systemu Linux Otwórz dla całego przewodnika hello.  Po nawiązaniu połączenia SSH pozostaje jako otwartą sesję tak długo, jak hello okno nie jest zamknięty.  Posiadanie jednego terminala zalogowany, umożliwia toohello toobe wprowadzone zmiany SSHD service bez są zablokowane, jeśli wprowadzono zmianę podziału.  Jeśli maszyny Wirtualnej systemu Linux przerwane konfiguracji SSHD pobrać zablokowane, platforma Azure oferuje tooreset możliwości hello przerwane konfiguracji SSHD z hello [rozszerzenia dostępu do maszyny Wirtualnej Azure](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Z tego powodu otworzyć dwóch terminale i SSH do maszyny Wirtualnej systemu Linux z obu z nich.  Firma Microsoft przy użyciu terminala pierwszy wprowadź zmiany w pliku konfiguracji SSHDs i ponownie uruchomić usługę SSHD.  Firma Microsoft przy użyciu terminala drugi do testowania te zmiany po ponownym uruchomieniu usługi.  Ponieważ firma Microsoft wyłączania hasła SSH i zależne ściśle kluczy SSH, jeśli klucze SSH nie są prawidłowe, a następnie zamknij połączenie z maszyną wirtualną, maszyna wirtualna zostanie trwale zablokowane i nie będzie można do niego zalogować się do niego wymaganiem go do usunięty i utworzony ponownie.
+Z tego powodu otworzyć dwóch terminale i toohello SSH maszyny Wirtualnej systemu Linux z obu z nich.  Firma Microsoft może Użyj hello pierwszy terminali toomake hello zmiany tooSSHDs pliku konfiguracji, a następnie ponownie uruchom usługę SSHD hello.  Używamy hello drugi tootest terminali te zmiany po ponownym uruchomieniu usługi hello.  Ponieważ firma Microsoft wyłączania hasła SSH i zależne ściśle kluczy SSH, jeśli klucze SSH nie są prawidłowe i zamknąć hello połączenia toohello maszyny Wirtualnej, hello maszyny Wirtualnej zostanie trwale zablokowane i nie będzie możliwe toologin tooit wymaganiem go toobe usunięty i utworzony ponownie.
 
 ## <a name="disable-password-logins"></a>Wyłącz hasło logowania
 
-Jest najszybszym sposobem na zapewnienie maszyny Wirtualnej systemu Linux można wyłączyć hasło logowania.  Po włączeniu hasła logowania robotów przeszukiwania sieci web zostanie natychmiast start próby siłowych odgadnąć hasło dla maszyny Wirtualnej systemu Linux przy użyciu protokołu SSH.  Całkowite wyłączenie hasło logowania, umożliwia serwerowi SSH Ignoruj wszystkie próby logowania hasła.
+Witaj najszybszy sposób toosecure maszyny Wirtualnej systemu Linux jest toodisable hasło logowania.  Po włączeniu hasła logowania robotów przeszukiwania hello sieci web natychmiast rozpocznie się próba toobrute wymusić wynik hello hasła dla maszyny Wirtualnej systemu Linux przy użyciu protokołu SSH.  Wyłączenie całkowicie hasło logowania, włącza hello SSH serwera tooignore wszystkich prób logowania hasła.
 
 ```bash
 PasswordAuthentication no
 ```
 
-## <a name="disable-login-by-the-root-user"></a>Wyłącz logowanie przez użytkownika głównego
+## <a name="disable-login-by-hello-root-user"></a>Wyłącz logowanie przez użytkownika głównego hello
 
-Następujące najlepsze rozwiązania w systemie Linux, `root` użytkownika nigdy nie powinny być rejestrowane w za pośrednictwem protokołu SSH lub przy użyciu `sudo su`.  Wszystkie polecenia wymagające uprawnień na poziomie głównym powinna być uruchamiana zawsze za pośrednictwem `sudo` polecenia, które rejestruje wszystkie akcje dla przyszłych inspekcji.  Wyłączanie `root` użytkownikom możliwość logowania za pośrednictwem SSH jest zabezpieczeń najlepsze rozwiązania w zakresie krokiem, który zapewnia tylko autoryzowani użytkownicy będą mogli SSH.
+Następujące najlepsze rozwiązania w systemie Linux, hello `root` użytkownika nigdy nie powinny być rejestrowane w za pośrednictwem protokołu SSH lub przy użyciu `sudo su`.  Wszystkie polecenia wymagające uprawnień na poziomie głównym powinna być uruchamiana zawsze za pośrednictwem hello `sudo` polecenia, które rejestruje wszystkie akcje dla przyszłych inspekcji.  Wyłączanie hello `root` użytkownikom możliwość logowania za pośrednictwem SSH jest zabezpieczeń najlepsze rozwiązania w zakresie krokiem, który zapewnia tooSSH mogą tylko autoryzowani użytkownicy.
 
 ```bash
 PermitRootLogin no
@@ -98,7 +98,7 @@ PermitRootLogin no
 
 ## <a name="allowed-groups-list"></a>Dozwolona lista grup
 
-SSH udostępnia metody ograniczyć użytkowników i grupy, który ma być dozwolony lub niedozwolony logowanie za pomocą protokołu SSH.  Ta funkcja używa list na zatwierdzenie lub odrzucenie logowania konkretnych użytkowników i grup.  Ustawienie grupy koło `AllowGroups` listy ogranicza zatwierdzonych logowania za pomocą protokołu SSH tylko konta użytkowników, które znajdują się w grupie kółka.
+SSH udostępnia metody ograniczyć użytkowników i grupy, który ma być dozwolony lub niedozwolony logowanie za pomocą protokołu SSH.  Ta funkcja korzysta z list tooapprove lub uniemożliwić logowanie konkretnych użytkowników i grup.  Ustawienie hello kółka grupy toohello `AllowGroups` listy ogranicza zatwierdzonych logowania za pośrednictwem SSH toojust użytkownika konta, które znajdują się w grupie kółka hello.
 
 ```bash
 AllowGroups wheel
@@ -106,7 +106,7 @@ AllowGroups wheel
 
 ## <a name="allowed-users-list"></a>Lista dozwolonych użytkowników
 
-Ograniczenie logowania SSH do użytkowników po prostu jest bardziej szczegółowe sposobem wykonywać takie same zadanie, które `AllowGroups` jest.  
+Ograniczenie dostępu użytkowników toojust logowania SSH jest bardziej szczegółowe sposób tooaccomplish hello sam zadanie, które `AllowGroups` jest.  
 
 ```bash
 AllowUsers ahmet ralph
@@ -114,7 +114,7 @@ AllowUsers ahmet ralph
 
 ## <a name="disable-ssh-protocol-version-1"></a>Wyłączanie protokołu SSH w wersji 1
 
-Protokół SSH w wersji 1 jest niebezpieczne i powinny być wyłączone.  Protokół SSH w wersji 2 jest bieżącej wersji, która zapewnia bezpieczny sposób SSH na serwerze.  Wyłączanie protokołu SSH w wersji 1 nie zezwala na wszystkich klientów SSH, które próbują nawiązać połączenie z serwerem SSH, przy użyciu protokołu SSH w wersji 1.  Połączeń SSH tylko w wersji 2 są dozwolone w celu negocjowania połączenia z serwerem SSH.
+Protokół SSH w wersji 1 jest niebezpieczne i powinny być wyłączone.  Protokołu SSH w wersji 2 jest hello bieżącej wersji, która udostępnia serwer tooyour tooSSH bezpieczny sposób.  Wyłączanie protokołu SSH w wersji 1 nie zezwala na wszystkich klientów SSH, które próbujesz tooestablish połączenie z serwerem SSH hello przy użyciu protokołu SSH w wersji 1.  Tylko połączeń SSH w wersji 2 są dozwolone toonegotiate połączenia z serwerem SSH hello.
 
 ```bash
 Protocol 2
@@ -122,7 +122,7 @@ Protocol 2
 
 ## <a name="minimum-key-bits"></a>Minimalna bitów klucza
 
-Następujące najlepsze rozwiązania w zakresie zabezpieczeń hasło logowania SSH są wyłączone, a tylko klucze SSH mogą służyć do uwierzytelniania z serwerem SSH.  Te klucze SSH mogą być tworzone przy użyciu różne długości klucza, liczony w bitach.  Najlepsze praktyki stanów to minimalne dopuszczalne siłę klucza klucze o długości 2048 bitów.  Klucze mniej niż 2048 bitów teoretycznie może być uszkodzony.  Ustawienie `ServerKeyBits` do `2048` umożliwia połączeń przy użyciu kluczy 2048 bitów lub większej i odmowy połączeń mniej niż 2048 bitów.
+Następujące najlepsze rozwiązania w zakresie zabezpieczeń hasło logowania SSH są wyłączone i tylko klucze SSH mogą toobe używanych tooauthenticate z serwerem SSH hello.  Te klucze SSH mogą być tworzone przy użyciu różne długości klucza, liczony w bitach.  Najlepsze praktyki stanów czy hello minimalną siłę klucza dopuszczalne klucze o długości 2048 bitów.  Klucze mniej niż 2048 bitów teoretycznie może być uszkodzony.  Ustawienie hello `ServerKeyBits` zbyt`2048` umożliwia połączeń przy użyciu kluczy 2048 bitów lub większej i odmowy połączeń mniej niż 2048 bitów.
 
 ```bash
 ServerKeyBits 2048
@@ -130,7 +130,7 @@ ServerKeyBits 2048
 
 ## <a name="disconnect-idle-users"></a>Odłącz bezczynnych użytkowników
 
-SSH ma możliwość odłączyć użytkowników, którzy mają otwarte połączenia, które po okresie bezczynności przez ponad Ustaw okres czasu w sekundach.  Utrzymywanie otwartych sesji do tych użytkowników, którzy są aktywni ogranicza ryzyko maszyny Wirtualnej systemu Linux.
+SSH ma hello możliwości toodisconnect użytkowników, którzy mają otwarte połączenia, które po okresie bezczynności przez ponad Ustaw okres czasu w sekundach.  Utrzymywanie otwartych sesji tooonly tych użytkowników, którzy są limity active narażenia hello hello maszyny Wirtualnej systemu Linux.
 
 ```bash
 ClientAliveInterval 300
@@ -139,7 +139,7 @@ ClientAliveCountMax 0
 
 ## <a name="restart-sshd"></a>Uruchom ponownie SSHD
 
-Aby włączyć ustawienia w `/etc/ssh/sshd_config` ponownie uruchomić proces SSHD, co spowoduje ponowne uruchomienie serwera SSH.  Okno terminalu, używaną do ponownego uruchomienia serwera SSH pozostają otwarte, bez utraty otwartych sesji SSH.  Aby przetestować nowy SSH ustawienia serwera za pomocą drugiego okno terminalu lub kartę.  Używanie osobnych terminal do testowania połączenia SSH umożliwia Przejdź wstecz i wprowadzenia dodatkowych zmian `/etc/ssh/sshd_config` w pierwszym terminalu bez jest zablokowane przez istotne zmiany SSHD.  
+Ustawienia hello tooenable w `/etc/ssh/sshd_config` ponownie uruchomić proces SSHD hello, co spowoduje ponowne uruchomienie hello serwer SSH.  Okno terminalu Hello w przypadku używania serwera SSH hello toorestart pozostają otwarte, bez utraty hello otwartych sesji SSH.  tootest hello nowych ustawień serwera SSH za pomocą drugiego okno terminalu lub kartę.  Użycie hello oddzielnych tootest terminali połączenia SSH umożliwia toogo Wstecz i Utwórz dodatkowe zmiany toohello `/etc/ssh/sshd_config` w pierwszym terminal hello bez jest zablokowane przez istotne zmiany SSHD.  
 
 ### <a name="on-redhat-centos-and-fedora"></a>Redhat, Centos i Fedora
 
@@ -155,7 +155,7 @@ service ssh restart
 
 ## <a name="reset-sshd-using-azure-reset-access"></a>Resetuj SSHD przy użyciu resetowania Azure — dostęp
 
-Jeśli użytkownik jest zablokowany z istotne zmiany w konfiguracji SSHD służy rozszerzenia dostępu do maszyny Wirtualnej platformy Azure do zresetowania konfiguracji SSHD do oryginalnej konfiguracji.
+Jeśli użytkownik jest zablokowany z najważniejszych zmian toohello SSHD konfiguracji można użyć hello rozszerzenia dostępu do maszyny Wirtualnej Azure tooreset hello SSHD konfiguracji wstecz toohello oryginalnej konfiguracji.
 
 Wszystkie nazwy przykład zastąpić własnymi.
 
@@ -168,16 +168,16 @@ azure vm reset-access \
 
 ## <a name="install-fail2ban"></a>Zainstaluj Fail2ban
 
-Zdecydowanie zaleca się zainstalować i skonfigurować aplikacji typu open source Fail2ban, która blokuje kolejnych nieudanych prób logowania do maszyny Wirtualnej systemu Linux za pomocą protokołu SSH za pomocą siłowych.  Fail2ban dzienniki powtarzane nieudane próby logowania za pomocą protokołu SSH, a następnie tworzy reguły zapory, aby zablokować adres IP, który prób pochodzą z.
+Zalecane jest tooinstall i Instalator hello typu open source aplikacja Fail2ban, które bloki powtarzane próby toologin tooyour maszyny Wirtualnej systemu Linux za pomocą protokołu SSH za pomocą siłowych.  Dzienniki Fail2ban powtarzany nie powiodło się toologin prób za pomocą protokołu SSH, a następnie tworzy reguły zapory adres IP hello tooblock prób hello pochodzą z.
 
 * [Strona główna Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu i zablokowane serwer SSH na maszynie Wirtualnej systemu Linux czy dodatkowe zabezpieczenia najlepsze rozwiązania, możesz skorzystać z.  
+Po skonfigurowaniu i zablokowane hello SSH serwera na maszynie Wirtualnej systemu Linux czy dodatkowe zabezpieczenia najlepsze rozwiązania, możesz skorzystać z.  
 
-* [Zarządzanie użytkownikami, SSH i wyboru lub napraw dyski na maszynach wirtualnych systemu Linux platformy Azure przy użyciu rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Zarządzanie użytkownikami, SSH i wyboru lub naprawy dysków na maszynach wirtualnych systemu Linux platformy Azure przy użyciu hello rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Szyfrowanie dysków na Maszynę wirtualną systemu Linux przy użyciu wiersza polecenia platformy Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Szyfrowanie dysków na Maszynę wirtualną systemu Linux przy użyciu hello wiersza polecenia platformy Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 * [Dostęp i większe bezpieczeństwo w szablonach usługi Azure Resource Manager](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

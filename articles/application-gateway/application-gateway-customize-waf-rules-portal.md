@@ -1,6 +1,6 @@
 ---
-title: "Dostosowywanie reguły zapory aplikacji sieci web w brama usługi aplikacji Azure — portalu Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera informacje na temat sposobu dostosowywania sieci web reguły zapory aplikacji w polu Brama aplikacji w portalu Azure."
+title: "reguły zapory aplikacji sieci web aaaCustomize bramę aplikacji Azure — portalu Azure | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera informacje dotyczące sposobu reguły zapory aplikacji sieci web toocustomize w bramy aplikacji z hello portalu Azure."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -15,38 +15,38 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 36a999279e0370b9f803e12257856a56753b23a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Dostosowywanie reguły zapory aplikacji sieci web za pośrednictwem portalu Azure
+# <a name="customize-web-application-firewall-rules-through-hello-azure-portal"></a>Dostosowywanie reguły zapory aplikacji sieci web za pośrednictwem hello portalu Azure
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Brama aplikacji w usłudze Azure zapory aplikacji sieci web (WAF) zapewnia ochronę dla aplikacji sieci web. Te zabezpieczenia są dostarczane przez Otwórz sieci Web aplikacji zabezpieczeń projektu (OWASP) podstawowe reguły Ustaw (CRS). Niektóre zasady mogą spowodować fałszywych alarmów i zablokowanie ruchu prawdziwe. Z tego powodu bramy aplikacji oferuje możliwość dostosowywania grup reguł i zasad. Aby uzyskać więcej informacji na określonej reguły grup i reguł, zobacz [listy grup reguł CRS zapory aplikacji sieci web i reguł](application-gateway-crs-rulegroups-rules.md).
+Zapora aplikacji sieci web Hello Azure Application Gateway (WAF) zapewnia ochronę dla aplikacji sieci web. Te zabezpieczenia są dostarczane przez hello Otwórz sieci Web aplikacji zabezpieczeń projektu (OWASP) podstawowe reguły Ustaw (CRS). Niektóre zasady mogą spowodować fałszywych alarmów i zablokowanie ruchu prawdziwe. Z tego powodu Application Gateway udostępnia hello możliwości toocustomize zasady grupy i zasady. Aby uzyskać więcej informacji na powitania określonej reguły grup i reguł, zobacz [listy grup reguł CRS zapory aplikacji sieci web i reguł](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
-> Jeśli bramy aplikacji nie używa warstwy zapory aplikacji sieci Web, opcja uaktualnienia brama aplikacji w warstwie zapory aplikacji sieci Web zostanie wyświetlony w okienku po prawej stronie. 
+> Bramy aplikacji nie używa hello warstwy zapory aplikacji sieci Web, w okienku po prawej stronie powitania pojawia się hello opcja tooupgrade hello aplikacji bramy toohello zapory aplikacji sieci Web warstwy. 
 
 ![Włączanie zapory aplikacji sieci Web][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>Widok grup reguł i zasad
 
-**Aby wyświetlić grupy reguł i zasad**
-   1. Przejdź na bramie aplikacji, a następnie wybierz **zapory aplikacji sieci Web**.  
+**grupy reguł tooview i reguł**
+   1. Przeglądaj toohello aplikacji bramy, a następnie wybierz **zapory aplikacji sieci Web**.  
    2. Wybierz **reguły zaawansowanej konfiguracji**.  
-   Ten widok przedstawia tabeli na stronie grupy reguł podaną w zestawie reguł wybrany. Zaznaczono wszystkie pola wyboru reguły.
+   Ten widok przedstawia tabeli na stronie powitania wszystkich grup reguł hello wyposażone hello wybrany zestaw reguł. Zaznaczono wszystkie pola wyboru hello reguły.
 
 ![Konfigurowanie reguł wyłączone][1]
 
-## <a name="search-for-rules-to-disable"></a>Wyszukaj regułę do wyłączenia
+## <a name="search-for-rules-toodisable"></a>Wyszukaj zasady toodisable
 
-**Aplikacja, ustawienia zapory w sieci Web** bloku umożliwia filtrowanie reguł za pomocą funkcji wyszukiwania tekstu. Wynik wyświetla tylko grupy reguł i reguł, które zawierają tekst, który wyszukiwany.
+Witaj **aplikacja, ustawienia zapory w sieci Web** bloku zapewnia możliwość hello toofilter hello reguł za pomocą funkcji wyszukiwania tekstu. wynik Hello wyświetla tylko grupy reguł hello i reguł, które zawierają hello wyszukiwany tekst.
 
 ![Wyszukaj zasady][2]
 
@@ -54,17 +54,17 @@ Brama aplikacji w usłudze Azure zapory aplikacji sieci web (WAF) zapewnia ochro
 
 Gdy sieci są wyłączenie reguł, można wyłączyć reguły całej grupy lub określone zasady w co najmniej jedną grupę reguł. 
 
-**Aby wyłączyć grupy reguł lub określone zasady**
+**grupy reguł toodisable lub określone zasady**
 
-   1. Wyszukiwanie reguły lub grupy reguł, które mają zostać wyłączone.
-   2. Usuń zaznaczenie pola wyboru dla reguł, które mają zostać wyłączone. 
+   1. Wyszukiwanie hello reguły lub grupy reguł, które mają toodisable.
+   2. Usuń zaznaczenie pól wyboru hello hello zasady, które mają toodisable. 
    2. Wybierz pozycję **Zapisz**. 
 
 ![Zapisz zmiany][3]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu reguł wyłączonych można poznać sposoby wyświetlania dzienników zapory aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [diagnostyki bramy aplikacji](application-gateway-diagnostics.md#diagnostic-logging).
+Po skonfigurowaniu reguł wyłączone, możesz dowiedzieć się jak tooview dzienniki zapory aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [diagnostyki bramy aplikacji](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

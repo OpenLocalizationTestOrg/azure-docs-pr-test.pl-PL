@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Budowanie aplikacji za pomocą oprogramowania Node.js i interfejsu API usługi DocumentDB | Microsoft Docs"
-description: "Przykładowy kod platformy Node.js, którego można użyć do nawiązywania połączenia z interfejsem API usługi DocumentDB usługi Azure Cosmos DB i do wykonywania w niej zapytań"
+title: "Azure rozwiązania Cosmos bazy danych: Tworzenie aplikacji za pomocą języka Node.js i hello interfejsu API usługi DocumentDB | Dokumentacja firmy Microsoft"
+description: "Przedstawia przykładowy kod Node.js, można użyć zapytania tooand tooconnect hello interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -15,21 +15,21 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 287d860c7d6f788f05a397b238ef0f841c3c30ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Budowanie aplikacji interfejsu API usługi DocumentDB za pomocą oprogramowania Node.js i witryny Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-hello-azure-portal"></a>Azure DB rozwiązania Cosmos: Tworzenie aplikacji interfejsu API usługi DocumentDB za pomocą języka Node.js i hello portalu Azure
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych dokumentów i kolekcji przy użyciu witryny Azure Portal. Następnie za pomocą [interfejsu API usługi DocumentDB oprogramowania Node.js](documentdb-sdk-node.md) zbudujesz i uruchomisz aplikację konsoli.
+To szybki start pokazano, jak toocreate konta bazy danych Azure rozwiązania Cosmos, bazą danych dokumentów i przy użyciu kolekcji hello portalu Azure. Następnie skompilować i uruchomić aplikację konsoli oparty na powitania [interfejsu API środowiska Node.js usługi DocumentDB](documentdb-sdk-node.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Przed uruchomieniem tego przykładu muszą być spełnione następujące wymagania wstępne:
+* Przed uruchomieniem tego przykładu, musi mieć hello następujące wymagania wstępne:
     * [Node.js](https://nodejs.org/en/) w wersji 0.10.29 lub nowszej
     * [Git](http://git-scm.com/)
 
@@ -43,23 +43,23 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
+## <a name="clone-hello-sample-application"></a>Klonowanie hello przykładowej aplikacji
 
-Teraz sklonujemy aplikację interfejsu API usługi DocumentDB z repozytorium github, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz załóżmy aplikacji w klonowania interfejs API usługi DocumentDB z serwisu github, Ustaw ciąg połączenia hello i uruchom go. Zobacz, jak łatwo jest toowork z danymi programowo. 
 
-1. Otwórz okno terminalu usługi Git, na przykład git bash, i za pomocą polecenia `CD` przejdź do katalogu roboczego.  
+1. Otwórz okno terminala git, np. git bash, i `CD` tooa katalog roboczy.  
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+2. Hello uruchom następujące polecenie tooclone hello próbki repozytorium. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Przeglądanie kodu
+## <a name="review-hello-code"></a>Przejrzyj hello kodu
 
-Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Gdy otworzysz plik `app.js`, zobaczysz, że następujące wiersze kodu tworzą zasoby usługi Azure Cosmos DB. 
+Upewnijmy szybki przegląd działania wykonywane w aplikacji hello. Otwórz hello `app.js` plików i można znaleźć, te wiersze kodu utworzyć hello zasobów bazy danych Azure rozwiązania Cosmos. 
 
-* Inicjowanie obiektu `documentClient`.
+* Witaj `documentClient` został zainicjowany.
 
     ```nodejs
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -113,43 +113,43 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Gdy otworzysz
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
+Teraz przejdź wstecz toohello Azure tooget portalu użytkownika informacje o parametrach połączenia i skopiuj go do aplikacji hello.
 
-1. W witrynie [Azure Portal](http://portal.azure.com/), korzystając ze swojego konta usługi Azure Cosmos DB, kliknij na lewym panelu nawigacyjnym pozycję **Klucze**, a następnie pozycję **Klucze odczytu i zapisu**. W następnym kroku, korzystając z przycisków kopiowania dostępnych po prawej stronie ekranu, skopiujesz identyfikator URI i klucz podstawowy do pliku `config.js`.
+1. W hello [portalu Azure](http://portal.azure.com/), w Azure rozwiązania Cosmos DB konta, na powitania lewy pasek nawigacyjny kliknij **klucze**, a następnie kliknij przycisk **odczytu i zapisu kluczy**. Użyjesz przyciski Kopia hello na powitania po prawej stronie powitania toocopy ekranie powitania identyfikatora URI oraz Primary Key do hello `config.js` pliku w następnym kroku hello.
 
-    ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, blok Klucze](./media/create-documentdb-dotnet/keys.png)
+    ![Wyświetlanie i kopiowanie klucza dostępu w hello portalu Azure, w bloku klucze](./media/create-documentdb-dotnet/keys.png)
 
-2. Otwórz plik `config.js`. 
+2. W otwartych hello `config.js` pliku. 
 
-3. Skopiuj wartość identyfikatora URI z portalu (przy użyciu przycisku kopiowania) i przypisz ją do klucza endpoint w pliku `config.js`. 
+3. Skopiuj wartość identyfikatora URI z portalu hello (przy użyciu przycisku Kopiuj hello) i przydzielić mu hello wartością klucza punktu końcowego hello `config.js`. 
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 
-4. Następnie skopiuj wartość klucza podstawowego z portalu i przypisz ją do klucza `config.primaryKey` w pliku `config.js`. Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
+4. Skopiuj wartość klucza podstawowego z portalu hello i stał się hello wartość hello `config.primaryKey` w `config.js`. Użytkownik zaktualizował teraz aplikacji z wszystkie informacje hello musi toocommunicate z bazy danych Azure rozwiązania Cosmos. 
 
     `config.primaryKey "FILLME"`
     
-## <a name="run-the-app"></a>Uruchomienie aplikacji
-1. Uruchom polecenie `npm install` w terminalu, aby zainstalować wymagane moduły npm.
+## <a name="run-hello-app"></a>Uruchamianie aplikacji hello
+1. Uruchom `npm install` w terminalu tooinstall wymagane moduły npm
 
-2. Uruchom polecenie `node app.js` w terminalu, aby uruchomić aplikację Node.
+2. Uruchom `node app.js` w terminalu toostart aplikacji węzła.
 
-Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie. 
+Teraz można wrócić do poprzedniej strony tooData Explorer i zobacz zapytania, modyfikowania i pracy z tym nowych danych. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Przejrzyj umowy SLA w hello portalu Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start:
+Jeśli nie będzie toocontinue toouse tej aplikacji, należy usunąć wszystkie zasoby utworzone przez tego przewodnika Szybki Start w hello portalu Azure z hello następujące kroki:
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. Z menu po lewej stronie powitania w hello portalu Azure, kliknij przycisk **grup zasobów** a następnie kliknij nazwę hello zasobu hello został utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toodelete zasobów hello w polu tekstowym hello, a następnie kliknij **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
+W tym szybkiego startu kiedy znasz już jak utworzyć kolekcję za pomocą Eksploratora danych hello toocreate konto bazy danych Azure rozwiązania Cosmos i uruchamianie aplikacji. Teraz można importować konto bazy danych rozwiązania Cosmos tooyour dodatkowe dane. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych do usługi Azure Cosmos DB](import-data.md)

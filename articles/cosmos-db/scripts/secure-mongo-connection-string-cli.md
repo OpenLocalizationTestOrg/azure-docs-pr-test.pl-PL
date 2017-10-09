@@ -1,5 +1,5 @@
 ---
-title: "Azure DB rozwiązania Cosmos Azure Get skryptu interfejsu wiersza polecenia ciąg połączenia dla aplikacji bazy danych MongoDB | Dokumentacja firmy Microsoft"
+title: "Parametry połączenia bazy danych o rozwiązania Cosmos interfejsu wiersza polecenia Get skryptu Azure dla aplikacji bazy danych MongoDB aaaAzure | Dokumentacja firmy Microsoft"
 description: "Przykładowym skrypcie interfejsu wiersza polecenia platformy Azure — parametry połączenia bazy danych rozwiązania Cosmos Azure Get dla aplikacji bazy danych MongoDB"
 services: cosmos-db
 documentationcenter: cosmosdb
@@ -16,27 +16,27 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 916c92cab39306352fdf9dff0e0685fd61832d16
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9b0a4bf020039c9bf9554b4199a279622c15a15d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Pobierz ciąg połączenia bazy danych rozwiązania Cosmos Azure dla aplikacji bazy danych MongoDB przy użyciu wiersza polecenia platformy Azure
+# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-hello-azure-cli"></a>Pobierz ciąg połączenia bazy danych Azure rozwiązania Cosmos dla aplikacji bazy danych MongoDB przy użyciu hello wiersza polecenia platformy Azure
 
-W tym przykładzie pobiera parametry połączenia bazy danych rozwiązania Cosmos Azure dla aplikacji bazy danych MongoDB przy użyciu wiersza polecenia platformy Azure. 
+W tym przykładzie pobiera parametry połączenia bazy danych Azure rozwiązania Cosmos dla aplikacji bazy danych MongoDB przy użyciu hello wiersza polecenia platformy Azure. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym temacie wymaga, że uruchamiasz hello Azure CLI w wersji 2.0 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli-interactive[główne](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "ciąg połączenia Get rozwiązania Cosmos bazy danych platformy Azure dla aplikacji bazy danych MongoDB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Get Azure Cosmos DB connection string for MongoDB apps")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Po uruchomieniu przykładowy skrypt następującego polecenia można usunąć grupy zasobów i wszystkie zasoby skojarzone z nim.
+Po uruchomieniu przykładowym skrypcie hello hello następujące polecenie może być grupa zasobów hello tooremove używane i wszystkie zasoby skojarzone z nim.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,17 +44,17 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
 | [AZ cosmosdb aktualizacji](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Aktualizuje konto bazy danych Azure rozwiązania Cosmos. |
-| [AZ cosmosdb listą--parametry połączenia](https://docs.microsoft.com/cli/azure/cosmosdb#list-connection-strings) | Pobiera parametry połączenia dla konta.|
+| [AZ cosmosdb listą--parametry połączenia](https://docs.microsoft.com/cli/azure/cosmosdb#list-connection-strings) | Pobiera parametry połączenia hello hello konta.|
 | [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/group#delete) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia platformy Azure rozwiązania Cosmos bazy danych można znaleźć w [dokumentacji interfejsu wiersza polecenia Azure rozwiązania Cosmos DB](../cli-samples.md).
+Dodatkowe przykłady skryptów wiersza polecenia platformy Azure rozwiązania Cosmos bazy danych można znaleźć w hello [dokumentacji interfejsu wiersza polecenia Azure rozwiązania Cosmos DB](../cli-samples.md).

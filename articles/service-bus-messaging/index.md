@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-title: "Dokumentacja dotycząca komunikatów usługi Service Bus"
-description: "Dowiedz się, jak skonfigurować obsługę komunikatów łączących aplikacje i usługi w środowiskach lokalnych i chmurowych."
-ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+title: "aaaService magistrali komunikatów dokumentacji"
+description: "Dowiedz się jak tooset zapasowej wiadomości, który łączy aplikacji i usług między lokalnymi i środowisk w chmurze."
+ms.openlocfilehash: ea8c58b6e954cc0d53c3eed1f761b1d1e3984e66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Dokumentacja dotycząca komunikatów usługi Service Bus
-Usługa komunikatów umożliwia niezawodne dostarczanie informacji jako mechanizm komunikacji obsługiwany przez brokera lub mechanizm komunikacji innej firmy.
+usługę wiadomości powitania zawiera dostarczania informacji niezawodny jako mechanizm komunikacji obsługiwanych przez brokera lub innych firm.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,7 +59,7 @@ Usługa komunikatów umożliwia niezawodne dostarczanie informacji jako mechaniz
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tworzenie przestrzeni nazw za pomocą portalu</h3>
+                        <h3>Tworzenie przestrzeni nazw przy użyciu portalu hello</h3>
                     </div>
                 </div>
             </div>

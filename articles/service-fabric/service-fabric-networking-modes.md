@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie sieci tryby usługi kontenera platformy Azure Service Fabric | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można skonfigurować różne tryby sieci, które obsługuje sieć szkieletowa usług Azure."
+title: "aaaConfigure sieci tryby usługi kontenera platformy Azure Service Fabric | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosetup hello różne tryby sieciowych tej sieci szkieletowej usług Azure obsługuje."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f792f9604a5d6e62551ed92c1049d6e2b4216417
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5c5dd4c590c7698a947503cbe8ef66ff7d6b503a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Tryby sieci kontenera sieci szkieletowej usług
 
-Domyślny tryb sieci oferowanych w klastrze usługi sieć szkieletowa usług dla usługi kontenera jest `nat` trybu sieci. Z `nat` sieci trybie mających więcej niż jedna usługa kontenery nasłuchiwanie wyniki do tego samego portu błędy wdrożenia. Uruchomione kilka usług tego nasłuchiwania na tym samym porcie, obsługuje sieci szkieletowej usług `open` trybu sieciowego (w wersji 5.7 lub nowszej). Z `open` sieci trybu każdej usługi kontenera pobiera przypisywany dynamicznie adres IP wewnętrznie stosowanie wielu usług do nasłuchiwania do tego samego portu.   
+Witaj domyślny tryb sieci oferowany hello sieci szkieletowej usług hello jest klaster usługi kontenera `nat` trybu sieci. Z hello `nat` sieci trybu mających więcej niż jeden toohello nasłuchiwania usługi kontenerów sam portu powoduje błędy wdrożenia. Do uruchamiania kilka usług, które nasłuchują na powitania tego samego portu, Service Fabric obsługuje hello `open` trybu sieciowego (w wersji 5.7 lub nowszej). Z hello `open` sieci trybu każdej usługi kontenera pobiera przypisywany dynamicznie adres IP wewnętrznie stosowanie wielu usług toolisten toohello tego samego portu.   
 
-W związku z tym z pojedynczego typu usługi z punktem końcowym statyczne zdefiniowane w manifeście usługi, nowych usług mogą być tworzone i usunąć bez błędów wdrażania przy użyciu `open` trybu sieci. Podobnie, co może używać tego samego `docker-compose.yml` plik z portu statycznego mapowania do tworzenia wielu usług.
+W związku z tym z pojedynczego typu usługi z punktem końcowym statyczne zdefiniowane w manifeście usługi hello, nowych usług mogą być tworzone i usunąć bez błędów wdrażania przy użyciu hello `open` trybu sieci. Podobnie, można użyć jednego hello sam `docker-compose.yml` plik z portu statycznego mapowania do tworzenia wielu usług.
 
-Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zalecane od czasu zmiany adresu IP, gdy Usługa uruchamia się ponownie lub przenoszone do innego węzła. Należy używać tylko **Usługa nazewnictwa sieci szkieletowej** lub **usługi DNS** dla potrzeb odnajdywania usług. 
+Przy użyciu hello przypisywane dynamicznie usług toodiscover IP nie jest zalecane od czasu zmiany adresu IP powitania po usługi hello ponownie uruchamia lub przenosi tooanother węzła. Używaj tylko hello **Usługa nazewnictwa sieci szkieletowej** lub hello **usługi DNS** dla potrzeb odnajdywania usług. 
 
 
 > [!WARNING]
-> Tylko łącznie 4096 adresy IP są dozwolone dla sieci wirtualnej na platformie Azure. W związku z tym sumę liczby węzłów i numer wystąpienia usługi kontenera (z `open` sieci) nie może przekroczyć 4096 w ramach sieci wirtualnej. W przypadku takich scenariuszy wysokiej gęstości `nat` zalecany jest tryb sieci.
+> Tylko łącznie 4096 adresy IP są dozwolone dla sieci wirtualnej na platformie Azure. W związku z tym hello Suma hello liczbę węzłów i hello liczbę wystąpień usługi kontenera (z `open` sieci) nie może przekroczyć 4096 w ramach sieci wirtualnej. W przypadku takich scenariuszy wysokiej gęstości hello `nat` zalecany jest tryb sieci.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Konfigurowanie trybu otwartego sieci
 
-1. Konfigurowanie szablonów usługi Azure Resource Manager przez włączenie usługi DNS i dostawca IP w obszarze `fabricSettings`. 
+1. Konfigurowanie szablonów usługi Azure Resource Manager hello przez włączenie usługi DNS i hello dostawca IP w obszarze `fabricSettings`. 
 
     ```json
     "fabricSettings": [
@@ -78,7 +78,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
             ],
     ```
 
-2. Konfigurowanie sekcji profilu sieciowego umożliwiają wielu adresów IP, które mają być skonfigurowane na każdym węźle klastra. Poniższy przykład powoduje ustawienie pięć adresów IP na węzeł (w związku z tym można masz pięć wystąpień usługi nasłuchiwanie portów w każdym węźle) dla klastra usługi sieć szkieletowa usług systemu Windows.
+2. Skonfiguruj adresy IP wielu toobe skonfigurowany w każdym węźle klastra hello hello sieci profilu sekcji tooallow. Witaj poniższy przykład konfiguruje pięć adresów IP na węzeł (w związku z tym program może nasłuchiwać portu toohello w każdym węźle pięciu wystąpień usługi) dla klastra usługi sieć szkieletowa usług systemu Windows.
 
     ```json
     "variables": {
@@ -175,7 +175,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
               }
     ```
 
-    W przypadku klastrów systemu Linux dodatkową konfigurację publicznego adresu IP jest dodawany do umożliwiają nawiązywanie połączeń wychodzących. Poniższy fragment konfiguruje pięć adresów IP w każdym węźle klastra z systemem Linux:
+    W przypadku klastrów systemu Linux dodatkową konfigurację publicznego adresu IP jest dodawana tooallow łączność wychodząca. Witaj poniższy fragment konfiguruje pięć adresów IP w każdym węźle klastra z systemem Linux:
 
     ```json
     "networkProfile": {
@@ -292,14 +292,14 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
               }
     ```
 
-3. Tylko klastrów systemu Windows należy skonfigurować reguły NSG otwierania portu UDP i 53 sieci wirtualnej z następującymi wartościami:
+3. Dla systemu Windows, klastry, skonfigurowane grupy NSG zasada otwierania portu UDP i 53 hello sieci wirtualnej z hello następujące wartości:
 
    | Priorytet |    Nazwa    |    Element źródłowy      |  Element docelowy   |   Usługa    | Akcja |
    |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Zezwalaj  |
 
 
-4. Określ tryb sieci w manifeście aplikacji dla każdej usługi `<NetworkConfig NetworkType="open">`.  Tryb `open` powoduje Usługa pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie przyjmowana do podstawowego `nat` tryb. W związku z tym w poniższym przykładzie manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` można każdego nasłuchiwania do tego samego portu (obie te usługi są nasłuchiwanie `Endpoint1`).
+4. Określ tryb sieci hello w manifeście aplikacji hello dla każdej usługi `<NetworkConfig NetworkType="open">`.  Tryb Hello `open` powoduje usługi hello pobierania dedykowany adres IP. Jeśli tryb nie jest określony, domyślnie przyjmowana toohello podstawowe `nat` tryb. W związku z tym w hello poniższy przykład manifestu `NodeContainerServicePackage1` i `NodeContainerServicePackage2` można każdego toohello nasłuchiwania tego samego portu (obie te usługi są nasłuchiwanie `Endpoint1`).
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -329,7 +329,7 @@ Za pomocą IP dynamicznie przypisywanych do odnajdywania usługi nie jest zaleca
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. W związku z tym niektóre usługi mogą mieć na `open` tryb i niektóre na `nat` trybu sieci. Gdy usługa jest skonfigurowana z `nat`, port jest nasłuchiwanie muszą być unikatowe. Mieszanie tryby sieci dla różnych usług nie jest obsługiwana w systemie Linux klastrów. 
+Można mieszać i dopasowywać różne tryby sieciowych w usługach w ramach aplikacji w klastrze systemu Windows. W związku z tym niektóre usługi mogą mieć na `open` tryb i niektóre na `nat` trybu sieci. Gdy usługa jest skonfigurowana z `nat`, port hello jest nasłuchiwania toomust być unikatowe. Mieszanie tryby sieci dla różnych usług nie jest obsługiwana w systemie Linux klastrów. 
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -337,5 +337,5 @@ W tym artykule przedstawiono dotyczące tryby oferowane przez sieć szkieletowa 
 
 * [Model aplikacji sieci szkieletowej usług](service-fabric-application-model.md)
 * [Zasoby manifestu usługi sieci szkieletowej usług](service-fabric-application-model.md)
-* [Wdrażanie kontenera systemu Windows w sieci szkieletowej usług w systemie Windows Server 2016](service-fabric-get-started-containers.md)
-* [Wdrażanie kontenera Docker sieci szkieletowej usług w systemie Linux](service-fabric-get-started-containers-linux.md)
+* [Wdrażanie systemu Windows tooService kontenera sieci szkieletowej w systemie Windows Server 2016](service-fabric-get-started-containers.md)
+* [Wdrażanie tooService kontenera Docker sieci szkieletowej w systemie Linux](service-fabric-get-started-containers-linux.md)

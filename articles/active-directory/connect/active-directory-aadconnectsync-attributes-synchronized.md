@@ -1,6 +1,6 @@
 ---
 title: "Atrybuty są synchronizowane przy użyciu usługi Azure AD Connect | Dokumentacja firmy Microsoft"
-description: "Wyświetla listę atrybutów, które są synchronizowane z usługą Azure Active Directory."
+description: "Atrybuty hello list, które są synchronizowane tooAzure usługi Active Directory."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 85878cbccf76e9f6faf523b89218d058fd24904b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2fe5b944a7fc832f245631416c265fb82eedeb15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane z usługą Azure Active Directory
-Ten temat zawiera listę atrybutów, które są synchronizowane przez synchronizacja programu Azure AD Connect.  
-Atrybuty są pogrupowane według pokrewne usługi Azure AD aplikacji.
+# <a name="azure-ad-connect-sync-attributes-synchronized-tooazure-active-directory"></a>Synchronizacja programu Azure AD Connect: atrybuty synchronizowane tooAzure usługi Active Directory
+W tym temacie wymieniono hello atrybuty, które są synchronizowane przez synchronizacja programu Azure AD Connect.  
+Hello atrybuty są pogrupowane według hello powiązanych aplikacji usługi Azure AD.
 
-## <a name="attributes-to-synchronize"></a>Atrybuty do synchronizacji
-Często zadawane pytania jest *co to jest lista minimalnych atrybutów do synchronizacji*. Domyślnym i zalecanym podejściem jest zachowanie domyślne atrybuty, można utworzyć pełne usługi GAL (globalna lista adresów) w chmurze i pobrać wszystkich funkcji w zadaniami usługi Office 365. W niektórych przypadkach są niektóre atrybuty, które Twojej organizacji mają być synchronizowane z chmurą zawierać te atrybuty poufnych lub wrażliwych danych osobowych () danych osobowych, takich jak w tym przykładzie:  
+## <a name="attributes-toosynchronize"></a>Atrybuty toosynchronize
+Często zadawane pytania jest *co to jest lista hello toosynchronize atrybuty minimalnej*. Witaj domyślnym i zalecanym podejściem jest tookeep hello domyślne atrybuty, pełne usługi GAL (globalna lista adresów) może być skonstruowany w hello chmury i tooget wszystkich funkcji w zadaniami usługi Office 365. W niektórych przypadkach są niektóre atrybuty, że organizacji nie być zsynchronizowane toohello chmury zawierać te atrybuty poufnych lub dane osobowe () danych osobowych, takich jak w tym przykładzie:  
 ![Złe atrybuty](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfikować te atrybuty, które może zawierać wrażliwe lub dane osobowe danych i nie można zsynchronizować. Usuń zaznaczenie opcji te atrybuty podczas instalacji, używając [filtrowanie atrybutów i aplikacji usługi Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+W takim przypadku rozpoczynać hello listę atrybutów, w tym temacie i zidentyfikować te atrybuty, które może zawierać wrażliwe lub dane osobowe danych i nie można zsynchronizować. Usuń zaznaczenie opcji te atrybuty podczas instalacji, używając [filtrowanie atrybutów i aplikacji usługi Azure AD](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
-> W przypadku zaznaczenia atrybuty, należy należy zachować ostrożność i tylko Anuluj wybór tych atrybutów absolutnie nie można zsynchronizować. Inne atrybuty unselecting może mieć negatywny wpływ na funkcje.
+> W przypadku zaznaczenia atrybuty, należy należy zachować ostrożność i tylko Anuluj wybór tych atrybutów toosynchronize absolutnie nie jest możliwe. Inne atrybuty unselecting może mieć negatywny wpływ na funkcje.
 >
 >
 
@@ -41,11 +41,11 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | AccountEnabled |X |Określa, czy konto jest włączone. |
 | Nazwa pospolita |X | |
 | Nazwa wyświetlana |X | |
-| objectSID |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
-| pwdLastSet |X |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
-| sourceAnchor |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
-| usageLocation |X |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| objectSID |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
+| pwdLastSet |X |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| sourceAnchor |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
+| usageLocation |X |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 
 ## <a name="exchange-online"></a>Exchange Online
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
@@ -60,7 +60,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | Firmy |X |X | | |
 | CountryCode |X |X | | |
 | Dział |X |X | | |
-| Opis elementu |X |X |X | |
+| description |X |X |X | |
 | Nazwa wyświetlana |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -141,7 +141,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
 | msOrg IsOrganizational | | |X | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -151,12 +151,12 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | KodPocztowy |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | Securityenabled musi | | |X |Pochodne groupType |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
 | St |X |X | | |
 | Adres |X |X | | |
 | targetAddress |X |X | | |
@@ -165,9 +165,9 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | thumbnailphoto |X |X | | |
 | Tytuł |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
 | userCertificate |X |X | | |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
@@ -182,7 +182,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | Firmy |X |X | | |
 | CountryCode |X |X | | |
 | Dział |X |X | | |
-| Opis elementu |X |X |X | |
+| description |X |X |X | |
 | Nazwa wyświetlana |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -220,7 +220,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointLinkedBy |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
@@ -234,12 +234,12 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | postOfficeBox |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | Securityenabled musi | | |X |Pochodne groupType |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
 | St |X |X | | |
 | Adres |X |X | | |
 | targetAddress |X |X | | |
@@ -249,8 +249,8 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | Tytuł |X |X | | |
 | unauthOrig |X |X |X | |
 | adres URL |X |X | | |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online"></a>Lync Online
@@ -262,7 +262,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | Firmy |X |X | | |
 | Dział |X |X | | |
-| Opis elementu |X |X |X | |
+| description |X |X |X | |
 | Nazwa wyświetlana |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | Imię |X |X | | |
@@ -283,40 +283,40 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | msRTCSIP-OwnerUrn |X | | | |
 | msRTCSIP-PrimaryUserAddress |X |X | | |
 | msRTCSIP-UserEnabled |X |X | | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | KodPocztowy |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | Securityenabled musi | | |X |Pochodne groupType |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
 | St |X |X | | |
 | Adres |X |X | | |
 | TelephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | Tytuł |X |X | | |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Usługa Azure RMS
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | AccountEnabled |X | | |Określa, czy konto jest włączone. |
-| Nazwa pospolita |X | |X |Typowe nazwy ani aliasu. W większości przypadków prefiks wartość [poczty]. |
-| Nazwa wyświetlana |X |X |X |Ciąg, który reprezentuje nazwę często są wyświetlane jako przyjaznej nazwy (imię nazwisko). |
+| Nazwa pospolita |X | |X |Typowe nazwy ani aliasu. W większości przypadków hello prefiks wartość [poczty]. |
+| Nazwa wyświetlana |X |X |X |Ciąg, który reprezentuje nazwę hello często są wyświetlane jako hello przyjazną nazwisko (imię). |
 | Poczty |X |X |X |pełny adres e-mail. |
 | Element członkowski | | |X | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
-| proxyAddresses |X |X |X |tych właściwości. Używane przez usługę Azure AD. Zawiera wszystkie adresy pomocniczego poczty e-mail dla użytkownika. |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
+| proxyAddresses |X |X |X |tych właściwości. Używane przez usługę Azure AD. Zawiera wszystkie adresy e-mail dodatkowej hello użytkownika. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. |
 | Securityenabled musi | | |X |Pochodne groupType. |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Ta nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Ta nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 
 ## <a name="intune"></a>Usługi Intune
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
@@ -324,18 +324,18 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | AccountEnabled |X | | |Określa, czy konto jest włączone. |
 | C |X |X | | |
 | Nazwa pospolita |X | |X | |
-| Opis elementu |X |X |X | |
+| description |X |X |X | |
 | Nazwa wyświetlana |X |X |X | |
 | Poczty |X |X |X | |
 | mailnickname |X |X |X | |
 | Element członkowski | | |X | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | Securityenabled musi | | |X |Pochodne groupType |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
@@ -346,7 +346,7 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | co |X |X | | |
 | Firmy |X |X | | |
 | CountryCode |X |X | | |
-| Opis elementu |X |X |X | |
+| description |X |X |X | |
 | Nazwa wyświetlana |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | Imię |X |X | | |
@@ -355,28 +355,28 @@ W takim przypadku zaczynać się na liście atrybutów w tym temacie i zidentyfi
 | Menedżer |X |X | | |
 | Element członkowski | | |X | |
 | Telefon komórkowy |X |X | | |
-| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | |X |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | physicalDeliveryOfficeName |X |X | | |
 | KodPocztowy |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | Securityenabled musi | | |X |Pochodne groupType |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
 | St |X |X | | |
 | Adres |X |X | | |
 | TelephoneNumber |X |X | | |
 | Tytuł |X |X | | |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 
 ## <a name="3rd-party-applications"></a>aplikacje firm 3
-Ta grupa jest zestaw atrybutów używane jako atrybuty minimalne wymagane dla ogólnego obciążenia lub aplikacji. Można użyć, dla obciążenia niewymienionych w innej sekcji lub aplikacji firmy Microsoft. Jawnie służy do wykonania poniższych czynności:
+Ta grupa jest zestaw atrybutów używany jako hello atrybuty minimalne wymagane dla ogólnego obciążenia lub aplikacji. Można użyć, dla obciążenia niewymienionych w innej sekcji lub aplikacji firmy Microsoft. Jawnie służy do następujących hello:
 
 * Yammer (używane tylko użytkownika)
 * [Oferowane przez zasoby hybrydowego między firmami (B2B) całej organizacji współpracy scenariuszy, takich jak SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
 
-Ta grupa jest zestaw atrybutów, które mogą być używane, jeśli katalog usługi Azure AD nie jest używana do obsługi usługi Office 365, Dynamics lub usługi Intune. Ma niewielki zestaw Podstawowe atrybuty.
+Ta grupa jest zestaw atrybutów, które mogą być używane, jeśli katalog usługi Azure AD hello jest używany toosupport usługi Office 365, Dynamics lub usługi Intune. Ma niewielki zestaw Podstawowe atrybuty.
 
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
@@ -388,16 +388,16 @@ Ta grupa jest zestaw atrybutów, które mogą być używane, jeśli katalog usł
 | Zarządzane | | |X | |
 | mailNickName |X |X |X | |
 | Element członkowski | | |X | |
-| objectSID |X | | |tych właściwości. Identyfikator użytkownika AD służy do utrzymywania synchronizacji między Azure AD i usługi AD. |
+| objectSID |X | | |tych właściwości. Identyfikator użytkownika AD używane toomaintain synchronizacji między Azure AD i usługi AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |tych właściwości. Używane do ustalenia, kiedy unieważnienie już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
+| pwdLastSet |X | | |tych właściwości. Używane tooknow tooinvalidate już wystawionych tokenów. Używana przez synchronizacji haseł i federacji. |
 | SN |X |X | | |
-| sourceAnchor |X |X |X |tych właściwości. Niezmienne identyfikator, aby utrzymać relację między DODAJE i Azure AD. |
-| usageLocation |X | | |tych właściwości. Kraju użytkownika. Używany do przypisywania licencji. |
-| userPrincipalName |X | | |Nazwa UPN jest identyfikator logowania dla użytkownika. W większości przypadków taki sam jak [poczty] wartości. |
+| sourceAnchor |X |X |X |tych właściwości. Identyfikator niezmienne toomaintain relacja między DODAJE i Azure AD. |
+| usageLocation |X | | |tych właściwości. kraj Hello użytkownika. Używany do przypisywania licencji. |
+| userPrincipalName |X | | |Nazwa UPN jest hello Identyfikatora logowania dla użytkownika hello. W większości przypadków hello taka sama jak wartość [poczty]. |
 
 ## <a name="windows-10"></a>Windows 10
-Windows 10 przyłączonych do domeny computer(device) synchronizuje niektóre atrybuty do usługi Azure AD. Aby uzyskać więcej informacji na temat scenariuszy, zobacz [łączenie urządzeń przyłączonych do domeny do usługi Azure AD dla systemu Windows 10 napotyka](../active-directory-azureadjoin-devices-group-policy.md). Te atrybuty zawsze synchronizacji i Windows 10 nie będzie wyświetlane w aplikacji, które możesz usunąć zaznaczenie. Windows 10 przyłączonych do domeny komputera jest identyfikowany przez o userCertificate atrybutu wypełnione.
+Windows 10 przyłączonych do domeny computer(device) synchronizuje tooAzure niektóre atrybuty AD. Aby uzyskać więcej informacji na temat scenariuszy hello, zobacz [połączyć tooAzure urządzeń przyłączonych do domeny AD dla systemu Windows 10 napotyka](../active-directory-azureadjoin-devices-group-policy.md). Te atrybuty zawsze synchronizacji i Windows 10 nie będzie wyświetlane w aplikacji, które możesz usunąć zaznaczenie. Windows 10 przyłączonych do domeny komputera jest identyfikowany przez o userCertificate atrybutu hello wypełnione.
 
 | Nazwa atrybutu | Urządzenie | Komentarz |
 | --- |:---:| --- |
@@ -411,7 +411,7 @@ Windows 10 przyłączonych do domeny computer(device) synchronizuje niektóre at
 | operatingSystemVersion |X |Skrót deviceOSVersion. |
 | userCertificate |X | |
 
-Te atrybuty **użytkownika** są oprócz wybrano inne aplikacje.  
+Te atrybuty **użytkownika** dodatkowo toohello inne aplikacje nie są wybrane.  
 
 | Nazwa atrybutu | Użytkownik | Komentarz |
 | --- |:---:| --- |
@@ -419,22 +419,22 @@ Te atrybuty **użytkownika** są oprócz wybrano inne aplikacje.
 | domainNetBios |X |Skrót netBiosName. Na przykład CONTOSO. |
 
 ## <a name="exchange-hybrid-writeback"></a>Zapisywanie zwrotne hybrydowego programu Exchange
-Te atrybuty są zapisywane z usługi Azure AD do lokalnej usługi Active Directory po wybraniu umożliwiające **hybrydowym programu Exchange**. W zależności od używanej wersji programu Exchange mogą być synchronizowani mniej atrybutów.
+Te atrybuty są zapisywane z usługi Azure AD tooon lokalnej usługi Active Directory po wybraniu tooenable **hybrydowym programu Exchange**. W zależności od używanej wersji programu Exchange mogą być synchronizowani mniej atrybutów.
 
 | Nazwa atrybutu | Użytkownik | Kontakt | Grupa | Komentarz |
 | --- |:---:|:---:|:---:| --- |
 | atrybut msDS-identyfikatora ExternalDirectoryObjectID |X | | |Pochodną cloudAnchor w usłudze Azure AD. Ten atrybut jest nowa w programie Exchange 2016 i Windows Server 2016 AD. |
-| msExchArchiveStatus |X | | |Archiwum online: Umożliwia klientom archiwum poczty. |
+| msExchArchiveStatus |X | | |Archiwum online: Umożliwia klientom tooarchive poczty. |
 | msExchBlockedSendersHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
 | msExchSafeRecipientsHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
 | msExchSafeSendersHash |X | | |Filtrowanie: Zapisuje ponownie filtrowania lokalne i dane online nadawcy bezpieczne i zablokowane od klientów. |
-| msExchUCVoiceMailSettings |X | | |Włącz Unified Messaging (UM) — Poczta głosowa Online: używany przez program Microsoft Lync Server integracji w celu wskazania Lync Server lokalnie czy użytkownik ma poczty głosowej w usługach online. |
-| msExchUserHoldPolicies |X | | |Postępowań blokady: Usługi w chmurze umożliwia ustalenie użytkowników, którzy są w ramach postępowań przechowywania. |
-| proxyAddresses |X |X |X |Tylko x500 dodaje się adres w usłudze Exchange Online. |
-| publicDelegates |X | | |Umożliwia pocztowa usługi Exchange Online otrzymać SendOnBehalfTo prawa do użytkowników z lokalnej skrzynek pocztowych programu Exchange. Wymaga usługi Azure AD Connect kompilacji 1.1.552.0 lub po. |
+| msExchUCVoiceMailSettings |X | | |Włącz Unified Messaging (UM) — Poczta głosowa Online: używane przez program Microsoft Lync Server integracji tooindicate tooLync serwera lokalnego, które użytkownik hello ma poczty głosowej w usługach online. |
+| msExchUserHoldPolicies |X | | |Wstrzymanie postępowań: Umożliwia toodetermine usługi chmury, której użytkownicy są w ramach postępowań przechowywania. |
+| proxyAddresses |X |X |X |Dodaje się tylko hello x500 adres w usłudze Exchange Online. |
+| publicDelegates |X | | |Umożliwia usłudze Exchange Online toobe skrzynki pocztowej, którym przyznano toousers prawa SendOnBehalfTo z lokalnymi skrzynek pocztowych programu Exchange. Wymaga usługi Azure AD Connect kompilacji 1.1.552.0 lub po. |
 
 ## <a name="exchange-mail-public-folder"></a>Folder publiczny poczty programu Exchange
-Te atrybuty są synchronizowane z lokalnej usługi Active Directory do usługi Azure AD po wybraniu opcji Włącz **folderu publicznego poczty programu Exchange**.
+Te atrybuty są synchronizowane z lokalnej usługi Active Directory tooAzure AD po wybraniu tooenable **folderu publicznego poczty programu Exchange**.
 
 | Nazwa atrybutu | PublicFolder | Komentarz |
 | --- | :---:| --- |
@@ -446,7 +446,7 @@ Te atrybuty są synchronizowane z lokalnej usługi Active Directory do usługi A
 | targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Zapisywanie zwrotne urządzeń
-Obiekty urządzeń są tworzone w usłudze Active Directory. Te obiekty mogą być urządzeń przyłączonych do usługi Azure AD lub komputerów przyłączonych do domeny systemu Windows 10.
+Obiekty urządzeń są tworzone w usłudze Active Directory. Obiekty te mogą znajdować się, że urządzenia przyłączone tooAzure AD lub komputerów przyłączonych do domeny systemu Windows 10.
 
 | Nazwa atrybutu | Urządzenie | Komentarz |
 | --- |:---:| --- |
@@ -466,10 +466,10 @@ Obiekty urządzeń są tworzone w usłudze Active Directory. Te obiekty mogą by
 | atrybut msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>Uwagi
-* Używając alternatywnego Identyfikatora lokalnej atrybut userPrincipalName jest zsynchronizowany z onPremisesUserPrincipalName atrybutów usługi Azure AD. Atrybutu alternatywnego Identyfikatora, na przykład poczty, jest zsynchronizowany z usługi Azure AD atrybut userPrincipalName.
-* Na liście powyżej, typ obiektu **użytkownika** mają zastosowanie również do typu obiektu **iNetOrgPerson**.
+* Podczas korzystanie z alternatywnego Identyfikatora hello lokalnymi atrybut userPrincipalName jest synchronizowany z hello Azure AD atrybutu onPremisesUserPrincipalName. Witaj atrybutu alternatywnego Identyfikatora, na przykład poczty, jest zsynchronizowany z hello Azure AD atrybut userPrincipalName.
+* W przypadku list hello powyżej hello typ obiektu **użytkownika** ma również zastosowanie typu obiektu toohello **iNetOrgPerson**.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
+Dowiedz się więcej o hello [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

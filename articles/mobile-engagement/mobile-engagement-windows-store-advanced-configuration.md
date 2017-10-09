@@ -1,5 +1,5 @@
 ---
-title: Zaawansowana konfiguracja naboru uniwersalnych aplikacji systemu Windows SDK
+title: aaaAdvanced konfiguracji dla zestawu Windows Universal aplikacji Engagement SDK
 description: "Zaawansowane opcje konfiguracji dla usługi Azure Mobile Engagement z uniwersalnych aplikacji systemu Windows"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23bd05012bc25d438d8d4985a112280bed0292b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Zaawansowana konfiguracja naboru uniwersalnych aplikacji systemu Windows SDK
 > [!div class="op_single_selector"]
@@ -29,27 +29,27 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-W tej procedurze opisano sposób konfigurowania różnych opcji konfiguracji dla usługi Azure Mobile Engagement aplikacji systemu Android.
+W tej procedurze opisano sposób tooconfigure różnych opcji konfiguracji dla usługi Azure Mobile Engagement aplikacji systemu Android.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 ### <a name="disable-automatic-crash-reporting"></a>Wyłącz automatyczne zgłaszanie awarii
-Możesz wyłączyć automatyczne awarii, funkcję zaangażowania raportowania. Następnie gdy wystąpi nieobsługiwany wyjątek, Engagement nie działa.
+Możesz wyłączyć hello awarii automatyczne funkcję zaangażowania raportowania. Następnie gdy wystąpi nieobsługiwany wyjątek, Engagement nie działa.
 
 > [!WARNING]
-> Jeśli wyłączyć tę funkcję, a następnie w przypadku wystąpienia awarii nieobsługiwany w aplikacji zaangażowania nie wysyła awarii **i** nie zamknięcia sesji i zadania.
+> Jeśli wyłączyć tę funkcję, a następnie w przypadku wystąpienia awarii nieobsługiwany w aplikacji zaangażowania nie wysyła awarii hello **i** nie zamknięcia sesji hello i zadania.
 > 
 > 
 
-Aby wyłączyć automatyczne zgłaszanie awarii, Dostosuj konfigurację, w zależności od sposobu należy zadeklarować jako:
+toodisable awarii automatycznego raportowania, Dostosuj konfigurację, w zależności od sposób hello należy zadeklarować jako:
 
 #### <a name="from-engagementconfigurationxml-file"></a>Z `EngagementConfiguration.xml` pliku
-Ustaw awarii raport `false` między `<reportCrash>` i `</reportCrash>` tagów.
+Raport z ustawiania awaria zbyt`false` między `<reportCrash>` i `</reportCrash>` tagów.
 
 #### <a name="from-engagementconfiguration-object-at-run-time"></a>Z `EngagementConfiguration` obiektu w czasie wykonywania
-Ustaw awarii raportu przy użyciu obiektu EngagementConfiguration wartość false.
+Ustaw przy użyciu obiektu EngagementConfiguration toofalse awarii raportu.
 
         /* Engagement configuration. */
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -59,18 +59,18 @@ Ustaw awarii raportu przy użyciu obiektu EngagementConfiguration wartość fals
         engagementConfiguration.Agent.ReportCrash = false;
 
 ### <a name="disable-real-time-reporting"></a>Wyłącz raportowanie w czasie rzeczywistym
-Domyślnie raporty usługi Engagement rejestruje się w czasie rzeczywistym. Jeśli aplikacja zgłasza często dzienniki, lepiej jest buforu dzienniki i raportuj je w całości na podstawie czasu regularne. Jest on nazywany "Tryb szybki".
+Domyślnie raporty usługi Engagement hello rejestruje się w czasie rzeczywistym. Jeśli aplikacja zgłasza często dzienników, jest lepsze toobuffer hello dzienniki i tooreport ich jednocześnie na regularne czasowo. Jest on nazywany "Tryb szybki".
 
-Aby to zrobić, należy wywołać metodę:
+toodo należy wywołać metodę hello:
 
         EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-Argument jest wartością w **milisekund**. Zawsze, gdy chcesz ponownie uaktywnić rejestrowania w czasie rzeczywistym, wywołaj metodę bez parametrów, lub wartość 0.
+Hello argument jest wartością w **milisekund**. Gdy użytkownicy rejestrowania w czasie rzeczywistym hello tooreactivate należy wywołać metodę hello bez parametrów lub z wartością hello 0.
 
-Tryb serii nieco zwiększa czas pracy baterii, ale ma wpływ na monitorowanie usługi Engagement: wszystkie czas trwania sesji i zadań są zaokrąglane do serii wartość progową (w związku z tym sesji i zadania krótsze niż próg serii może nie być widoczna). Firma Microsoft zaleca używanie próg w serii się niż 30000 (30s). Zapisane dzienniki są ograniczone do 300 elementów. W przypadku wysyłania jest za długa, może spowodować utratę niektórych dzienników.
+Tryb serii nieco zwiększa hello czas pracy baterii, ale ma wpływ na powitania monitora usługi Engagement: wszystkie czas trwania sesji i zadań są zaokrąglone toohello serii próg (w związku z tym sesji i zadania krótsze niż próg serii hello może nie być widoczna). Firma Microsoft zaleca używanie próg w serii się niż 30000 (30s). Zapisane dzienniki są ograniczone too300 elementów. W przypadku wysyłania jest za długa, może spowodować utratę niektórych dzienników.
 
 > [!WARNING]
-> Próg serii nie można skonfigurować do okresu mniej niż 1 sekunda. Jeśli tak zrobisz, zestawu SDK zawiera śledzenia z powodu błędu i automatycznie przywraca wartość domyślna to zero sekund. Spowoduje to zainicjowanie zestaw SDK, aby zgłosić dzienniki w czasie rzeczywistym.
+> Próg serii Hello nie może być tooa skonfigurowanego okresu mniej niż drugi. Jeśli tak zrobisz, hello zestaw SDK zawiera śledzenia z powodu błędu hello i automatycznie resetuje wartość domyślna to toohello zero sekund. Ta wyzwalaczy hello SDK tooreport hello zaloguje się w czasie rzeczywistym.
 > 
 > 
 

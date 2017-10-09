@@ -1,6 +1,6 @@
 ---
-title: "Dodaj bramę sieci wirtualnej do sieci wirtualnej dla usługi ExpressRoute: Portal: Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono dodawania bramy sieci wirtualnej do już utworzonego sieci wirtualnej Menedżera zasobów dla usługi ExpressRoute."
+title: "Dodawanie sieci wirtualnej tooa bramy sieci wirtualnej dla usługi ExpressRoute: Portal: Azure | Dokumentacja firmy Microsoft"
+description: "Ten artykuł przeprowadzi Cię przez procedurę dodawania tooan bramy sieci wirtualnej, już utworzona sieć wirtualna Menedżera zasobów dla usługi ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e922af1f3676eeebc569b57c3ae3a22d4e0b395
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Konfigurowanie bramy sieci wirtualnej dla usługi przy użyciu portalu Azure
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-hello-azure-portal"></a>W przypadku połączeń ExpressRoute przy użyciu portalu Azure hello należy skonfigurować bramę sieci wirtualnej
 > [!div class="op_single_selector"]
 > * [Resource Manager — witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager — program PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-W tym artykule przedstawiono kroki, aby dodać bramę sieci wirtualnej istniejące sieci wirtualnej. W tym artykule przedstawiono kroki umożliwiające dodawanie, zmienianie rozmiaru i usunąć bramę sieci wirtualnej (VNet) dla istniejącej sieci wirtualnej. Kroki dla tej konfiguracji są przeznaczone dla sieci wirtualnych, które zostały utworzone przy użyciu modelu wdrażania usługi Resource Manager, który będzie używany w konfiguracji usługi ExpressRoute. Aby uzyskać więcej informacji na temat bram sieci wirtualnej i ustawień konfiguracji bramy ExpressRoute, zobacz [temat bram sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+W tym artykule przedstawiono hello kroki tooadd bramy sieci wirtualnej istniejące sieci wirtualnej. W tym artykule przedstawiono tooadd kroki hello, zmienianie rozmiaru i usunąć bramę sieci wirtualnej (VNet) dla istniejącej sieci wirtualnej. Witaj czynności dla tej konfiguracji są przeznaczone dla sieci wirtualnych, które zostały utworzone przy użyciu modelu wdrażania usługi Resource Manager hello, który będzie używany w konfiguracji usługi ExpressRoute. Aby uzyskać więcej informacji na temat bram sieci wirtualnej i ustawień konfiguracji bramy ExpressRoute, zobacz [temat bram sieci wirtualnej dla usługi ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Przed rozpoczęciem
 
-Kroki dla tego zadania użyć sieci wirtualnej na podstawie wartości na poniższej liście odwołania konfiguracji. W naszym przykładzie kroki możemy Użyj tej listy. Możesz skopiować listę i użyj go jako odwołanie, zastąpionymi wartościami z własnego.
+kroki Hello do tego celu zadań sieci wirtualnej na podstawie hello wartości w powitania po konfiguracji na liście odwołania. W naszym przykładzie kroki możemy Użyj tej listy. Skopiuj toouse listy hello jako odwołanie, zastępując wartości hello własne.
 
 **Lista odwołań konfiguracji**
 
@@ -54,36 +54,36 @@ Kroki dla tego zadania użyć sieci wirtualnej na podstawie wartości na poniżs
 
 Możesz wyświetlić [wideo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) te kroki przed rozpoczęciem konfiguracji.
 
-## <a name="create-the-gateway-subnet"></a>Tworzenie podsieci bramy
+## <a name="create-hello-gateway-subnet"></a>Utwórz podsieć bramy hello
 
-1. W [portalu](http://portal.azure.com) przejdź do sieci wirtualnej usługi Resource Manager, dla której chcesz utworzyć bramę sieci wirtualnej.
-2. W sekcji **Ustawienia** bloku sieci wirtualnej kliknij pozycję **Podsieci**, aby rozwinąć blok Podsieci.
-3. W bloku **Podsieci** kliknij pozycję **+Podsieć bramy**, aby otworzyć blok **Dodaj podsieć**. 
+1. W hello [portal](http://portal.azure.com), przejdź do Menedżera zasobów sieci wirtualnej toohello, dla której ma zostać toocreate bramy sieci wirtualnej.
+2. W hello **ustawienia** sekcji z bloku sieci wirtualnej, kliknij przycisk **podsieci** tooexpand hello podsieci blok podsieci.
+3. Na powitania **podsieci** bloku, kliknij przycisk **+ podsieci bramy** tooopen hello **Dodaj podsieć** bloku. 
    
-    ![Dodawanie podsieci bramy](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Dodawanie podsieci bramy")
+    ![Dodaj podsieć bramy hello](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Dodaj podsieć bramy hello")
 
 
-4. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Ta wartość jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj automatycznie wypełnione wartości w polu **Zakres adresów** do wymagań konfiguracji. Zaleca się utworzenie podsieci bramy z /27 lub większy (/ 26, / 25, itp.). Następnie kliknij przycisk **OK** Aby zapisać wartości i Utwórz podsieć bramy.
+4. Witaj **nazwa** dla podsieci jest automatycznie wypełniane hello wartość "GatewaySubnet". Ta wartość jest wymagana w kolejności dla podsieci hello Azure toorecognize jako hello podsieci bramy. Dostosuj hello automatycznie wypełnianej **zakres adresów** wartości toomatch wymagań dotyczących konfiguracji. Zaleca się utworzenie podsieci bramy z /27 lub większy (/ 26, / 25, itp.). Następnie kliknij przycisk **OK** toosave hello wartości i utworzyć hello podsieci bramy.
 
-    ![Dodawanie podsieci](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Dodawanie podsieci")
+    ![Dodawanie podsieci hello](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Dodawanie hello podsieci")
 
-## <a name="create-the-virtual-network-gateway"></a>Tworzenie bramy sieci wirtualnej
+## <a name="create-hello-virtual-network-gateway"></a>Utwórz bramę sieci wirtualnej hello
 
-1. W portalu po lewej stronie kliknij pozycję **+** i wpisz „brama sieci wirtualnej” w polu wyszukiwania. Znajdź pozycję **Brama sieci wirtualnej** w wynikach wyszukiwania i kliknij tę pozycję. U dołu bloku **Brama sieci wirtualnej** kliknij pozycję **Utwórz**. Spowoduje to otwarcie bloku **Tworzenie bramy sieci wirtualnej**.
-2. W bloku **Tworzenie bramy sieci wirtualnej** wypełnij wartości dla swojej bramy sieci wirtualnej.
+1. W portalu powitania po lewej stronie powitania kliknij  **+**  i wpisz "Brama sieci wirtualnej" w wyszukiwaniu. Zlokalizuj **Brama sieci wirtualnej** wyszukiwania hello wróć i kliknij pozycję hello. Na powitania **Brama sieci wirtualnej** bloku, kliknij przycisk **Utwórz** u dołu hello hello bloku. Spowoduje to otwarcie hello **Utwórz bramę sieci wirtualnej** bloku.
+2. Na powitania **Utwórz bramę sieci wirtualnej** bloku, wypełnij hello wartości dla bramy sieci wirtualnej.
 
     ![Pola bloku Tworzenie bramy sieci wirtualnej](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Pola bloku Tworzenie bramy sieci wirtualnej")
-3. **Nazwa**: Nadaj nazwę bramie. Nie chodzi o nazwę podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
+3. **Nazwa**: Nadaj nazwę bramie. To jest nie hello taki sam jak nazewnictwa podsieci bramy. Jego imię i nazwisko hello hello bramy obiektu, którego jest tworzony.
 4. **Typ bramy**: Wybierz **ExpressRoute**.
-5. **Jednostka SKU**: Wybierz jednostkę SKU bramy z listy rozwijanej.
-6. **Lokalizacja**: Dostosuj wartość w polu **Lokalizacja**, aby wskazywała lokalizację sieci wirtualnej. Jeśli lokalizacja nie wskazuje regionu, w którym znajduje się Twoja sieć wirtualna, sieć ta nie jest widoczna na liście rozwijanej „Wybierz sieć wirtualną”.
-7. Wybierz sieć wirtualną, do której chcesz dodać bramę. Kliknij polecenie **Sieć wirtualna**, aby otworzyć blok **Wybieranie sieci wirtualnej**. Wybierz sieć wirtualną. Jeśli sieć wirtualna nie jest widoczna, upewnij się, że wartość w polu **Lokalizacja** wskazuje region, w którym znajduje się sieć wirtualna.
-9. Wybierz publiczny adres IP. Kliknij polecenie **Publiczny adres IP**, aby otworzyć blok **Wybieranie publicznego adresu IP**. Następnie kliknij przycisk **Utwórz nowy**, aby otworzyć **blok Tworzenie bramy sieci lokalnej**. Wprowadź nazwę dla publicznego adresu IP. W bloku zostanie utworzony obiekt publicznego adresu IP, do którego publiczny adres IP zostanie dynamicznie przypisany. Kliknij przycisk **OK**, aby zapisać zmiany w tym bloku.
-10. **Subskrypcja**: Sprawdź, czy wybrano poprawną subskrypcję.
-11. **Grupa zasobów**: To ustawienie jest określane przez wybraną sieć wirtualną.
-12. Nie zmieniaj ustawienia **Lokalizacja** po określeniu poprzednich ustawień.
-13. Sprawdź poprawność ustawień. Jeśli chcesz, aby brama była wyświetlana na pulpicie nawigacyjnym, możesz wybrać opcję **Przypnij do pulpitu nawigacyjnego** znajdującą się u dołu bloku.
-14. Kliknij przycisk **Utwórz**, aby rozpocząć tworzenie bramy. Ustawienia zostaną zweryfikowane i brama zostanie wdrożona. Tworzenie bramy sieci wirtualnej może potrwać do 45 minut.
+5. **Jednostka SKU**: jednostka SKU bramy hello wybierz z listy rozwijanej hello.
+6. **Lokalizacja**: Dopasuj hello **lokalizacji** pola toopoint toohello lokalizacji, gdzie znajduje się sieci wirtualnej. Jeśli lokalizacja hello nie wskazuje region toohello, gdzie znajduje się sieci wirtualnej, hello sieci wirtualnej nie jest wyświetlane w listy rozwijanej "Wybierz sieć wirtualną" hello.
+7. Wybierz hello toowhich sieci wirtualnej ma tooadd tej bramy. Kliknij przycisk **sieci wirtualnej** tooopen hello **wybierz sieć wirtualną** bloku. Wybierz hello sieci wirtualnej. Jeśli nie widzisz sieci wirtualnej, upewnij się, że hello **lokalizacji** pola wskazuje toohello regionu, w którym znajduje się sieci wirtualnej.
+9. Wybierz publiczny adres IP. Kliknij przycisk **publicznego adresu IP** tooopen hello **wybierz publiczny adres IP** bloku. Kliknij przycisk **+ Utwórz nowe** tooopen hello **Utwórz blok publiczny adres IP**. Wprowadź nazwę dla publicznego adresu IP. Ten blok tworzy publiczny toowhich do obiektu adres IP, który publicznego adresu IP będą przypisywane dynamicznie. Kliknij przycisk **OK** toosave Twojego bloku toothis zmiany.
+10. **Subskrypcja**: Sprawdź, że hello poprawne wybrać subskrypcję.
+11. **Grupa zasobów**: to ustawienie jest określane przez hello wybranej sieci wirtualnej.
+12. Nie dopasowuj hello **lokalizacji** po określeniu hello poprzednie ustawienia.
+13. Sprawdź ustawienia hello. Jeśli chcesz, aby Twoje tooappear bramy na pulpicie nawigacyjnym hello, możesz wybrać **toodashboard numeru Pin** u dołu hello hello bloku.
+14. Kliknij przycisk **Utwórz** toobegin tworzenie hello bramy. są weryfikowane Hello ustawień i wdraża hello bramy. Tworzenie bramy sieci wirtualnej może potrwać too45 toocomplete minut.
 
 ## <a name="next-steps"></a>Następne kroki
-Po utworzeniu bramy sieci wirtualnej sieci wirtualnej można połączyć z obwodem usługi ExpressRoute. Zobacz [połączyć sieć wirtualną z obwodem usługi ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).
+Po utworzeniu bramy sieci wirtualnej hello możesz połączyć tooan Twojej sieci wirtualnej obwodu usługi expressroute. Zobacz [połączyć sieć wirtualną tooan obwodu ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).

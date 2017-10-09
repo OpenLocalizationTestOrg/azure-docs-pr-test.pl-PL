@@ -1,6 +1,6 @@
 ---
-title: "Implementowanie trybu failover przesyłania strumieniowego w usłudze Azure Media Services | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono sposób wdrożenia przesyłania strumieniowego scenariusza trybu failover."
+title: "tryb failover aaaImplement przesyłania strumieniowego w usłudze Azure Media Services | Dokumentacja firmy Microsoft"
+description: "W tym temacie przedstawiono sposób tooimplement scenariusz transmisji strumieniowej trybu failover."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ade0bace57f35ab3ed855d3a98f743e08da4f324
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementowanie trybu failover przesyłania strumieniowego w usłudze Azure Media Services
 
-W tym przewodniku pokazano, jak kopiowanie zawartości (BLOB) z jednego środka trwałego do innego w celu obsługi nadmiarowości na potrzeby przesyłania strumieniowego na żądanie. Ten scenariusz jest przydatne, jeśli chcesz skonfigurować Azure Content Delivery Network do trybu failover między dwoma centrami danych, w przypadku wystąpienia awarii w centrum danych z jednego. W tym przewodniku zastosowano zestawu SDK usługi Azure Media Services, interfejsu API REST usługi Azure Media Services i zestawu SDK usługi Magazyn Azure, aby zademonstrować następujące zadania:
+W tym przewodniku pokazano, jak toocopy zawartości (BLOB) z jeden zasób do drugiego w kolejności toohandle nadmiarowość na potrzeby przesyłania strumieniowego na żądanie. Ten scenariusz jest przydatne w przypadku tooset zapasowej Azure Content Delivery Network toofail za pośrednictwem między dwoma centrami danych, w przypadku przestoju w jednym centrum danych. W tym przewodniku używa hello Azure Media Services SDK, hello interfejsu API REST Azure Media Services i hello toodemonstrate zestawu SDK usługi Magazyn Azure hello następujące zadania:
 
 1. Konfigurowanie konta usługi Media Services w "A. centrum danych"
 2. Przekaż plik mezzanine do zawartości źródłowej.
-3. Przekodowanie elementu zawartości do wielu bitów szybkość MP4 pliki. 
-4. Utwórz Lokalizator sygnatury dostępu współdzielonego tylko do odczytu. Jest to zasób źródła, aby mieć dostęp do odczytu do kontenera na koncie magazynu skojarzonej z zawartości źródłowej.
-5. Pobierz nazwę kontenera źródłowy zasób z lokalizatora sygnatury dostępu współdzielonego tylko do odczytu utworzony w poprzednim kroku. Jest to konieczne do kopiowania obiektów blob między kontami magazynu (szczegółowo w dalszej części tematu).
-6. Utwórz Lokalizator źródła dla zawartości, który został utworzony przez zadania kodowania. 
+3. Kodowanie hello zasobów do wielu bitów szybkość MP4 pliki. 
+4. Utwórz Lokalizator sygnatury dostępu współdzielonego tylko do odczytu. Jest to hello źródła zasobów toohave dostęp do odczytu toohello kontenera na koncie magazynu hello skojarzony z hello źródła zawartości.
+5. Pobierz nazwę kontenera hello hello źródłowy zasób z lokalizatora sygnatury dostępu współdzielonego tylko do odczytu hello utworzony w poprzednim kroku hello. Jest to konieczne do kopiowania obiektów blob między kontami magazynu (szczegółowo w dalszej części tematu hello).
+6. Utwórz Lokalizator źródła dla zawartości hello, który został utworzony przez hello kodowania zadań. 
 
-Następnie, do obsługi trybu failover:
+Następnie w tryb failover hello toohandle:
 
 1. Konfigurowanie konta usługi Media Services w "B. centrum danych"
-2. Utwórz pusty docelowego elementu zawartości w celu konta usługi Media Services.
-3. Utwórz Lokalizator podpisu dostępu do zapisu udostępnionych. Jest to docelowego pustego elementu zawartości ma dostęp do zapisu do kontenera w docelowe konto magazynu, który jest skojarzony z zasobów docelowych.
-4. Użyj zestawu SDK usługi Magazyn Azure, aby skopiować obiektów blob (pliki zasobów) między konta magazynu źródłowego w "A centrum danych" i docelowe konto magazynu w "B. centrum danych" Te konta magazynu są skojarzone z zasoby zainteresowań.
-5. Kojarzenie obiektów blob (pliki zasobów), które zostały skopiowane do kontenera obiektów blob docelowego z zasobów docelowych. 
-6. Utwórz Lokalizator źródła dla zasobów w "B centrum danych" i podaj identyfikator lokalizatora, który został wygenerowany dla zasobów w "A. centrum danych"
+2. Utwórz pusty docelowego elementu zawartości w celu hello konta usługi Media Services.
+3. Utwórz Lokalizator podpisu dostępu do zapisu udostępnionych. Jest to hello pusty zasobów toohave zapisu toohello kontenera docelowego w hello docelowe konto magazynu skojarzonej z hello docelowego elementu zawartości.
+4. Użyj hello zestawu SDK usługi Magazyn Azure toocopy z obiektów blob (pliki zasobów) między konta magazynu źródłowego hello w "A centrum danych" i hello docelowe konto magazynu w "B. centrum danych" Te konta magazynu są skojarzone z zasobów hello zainteresowań.
+5. Kojarzenie obiektów blob (pliki zasobów), które zostały skopiowane toohello kontenera obiektów blob docelowych z hello docelowego elementu zawartości. 
+6. Utworzyć Lokalizator źródła dla trwałego hello w "B centrum danych" i podaj identyfikator lokalizatora hello, który został wygenerowany dla zasobów hello w "A. centrum danych"
 
-Zapewnia to adresy URL przesyłania strumieniowego gdzie ścieżek względnych adresów URL są takie same (tylko podstawowy adres URL jest inny). 
+Dzięki temu hello adresy URL przesyłania strumieniowego skutkującej hello ścieżek względnych adresów URL hello hello takie same (tylko hello podstawowy adres URL jest inny). 
 
-Następnie aby obsługiwać żadnych przestojów, można utworzyć sieci dostarczania zawartości na podstawie tych lokalizatorów pochodzenia. 
+Następnie toohandle żadnych przestojów, można utworzyć sieci dostarczania zawartości na podstawie tych lokalizatorów pochodzenia. 
 
-Następujące kwestie:
+Zastosuj Hello następujące zagadnienia:
 
-* Bieżąca wersja zestawu SDK usługi Media Services nie obsługuje programowo generowania informacji IAssetFile skojarzyć zasób z plikami zasobów. Aby to zrobić, w zamian użyj interfejsu API REST CreateFileInfos Media Services. 
-* Zasoby szyfrowany w magazynie (AssetCreationOptions.StorageEncrypted) nie są obsługiwane dla replikacji (ponieważ klucz szyfrowania jest inna w oba konta usługi Media Services). 
-* Jeśli chcesz skorzystać z dynamicznego tworzenia pakietów, upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz przesyłać strumieniowo zawartość jest w **systemem** stanu.
+* Witaj bieżącej wersji zestawu SDK usługi Media Services nie obsługuje programowo generowania informacji IAssetFile skojarzyć zasób z plikami zasobów. Zamiast tego należy użyć toodo interfejsu API REST usług Media CreateFileInfos hello to. 
+* Zasoby szyfrowany w magazynie (AssetCreationOptions.StorageEncrypted) nie są obsługiwane dla replikacji (ponieważ klucz szyfrowania hello jest inna w oba konta usługi Media Services). 
+* Jeśli chcesz tootake korzyści z dynamicznego tworzenia pakietów, upewnij się hello punktu końcowego przesyłania strumieniowego z którego mają zostać toostream zawartości jest hello **systemem** stanu.
 
 > [!NOTE]
-> Należy rozważyć użycie usługi Media Services [narzędzie replikatora](http://replicator.codeplex.com/) jako alternatywę do wykonania pracy awaryjnej przesyłania strumieniowego scenariusz ręcznie. To narzędzie umożliwia replikowanie zasoby na dwa konta usługi Media Services.
+> Należy rozważyć użycie usług Media hello [narzędzie replikatora](http://replicator.codeplex.com/) jako alternatywne tooimplementing a ręcznie przesyłania strumieniowego scenariusza trybu failover. To narzędzie umożliwia tooreplicate zasobów przez dwa konta usługi Media Services.
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Dwa konta usługi Media Services w nowej lub istniejącej subskrypcji platformy Azure. Zobacz [konto usług sposobu tworzenia nośnika](media-services-portal-create-account.md).
+* Dwa konta usługi Media Services w nowej lub istniejącej subskrypcji platformy Azure. Zobacz [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
 * System operacyjny: Windows 7, Windows 2008 R2 lub Windows 8.
 * Program .NET framework 4.5 ani programu .NET Framework 4.
 * Visual Studio 2010 z dodatkiem SP1 lub nowszej wersji (Professional, Premium, Ultimate lub Express).
@@ -64,11 +64,11 @@ Następujące kwestie:
 ## <a name="set-up-your-project"></a>Konfigurowanie projektu
 W tej sekcji Tworzenie i konfigurowanie projektu aplikacji Konsolowej C#.
 
-1. Utwórz nowe rozwiązanie, które zawiera projekt aplikacji Konsolowej C# za pomocą programu Visual Studio. Wprowadź **HandleRedundancyForOnDemandStreaming** nazwę, a następnie kliknij przycisk **OK**.
-2. Utwórz **SupportFiles** folderu na tym samym poziomie co **HandleRedundancyForOnDemandStreaming.csproj** pliku projektu. W obszarze **SupportFiles** folderu, Utwórz **OutputFiles** i **MP4Files** folderów. Skopiuj plik MP4 pliku do **MP4Files** folderu. (W tym przykładzie **BigBuckBunny.mp4** plik jest używany.) 
-3. Użyj **Nuget** można dodać odwołania do bibliotek DLL związane z usługą Media Services. W **Menu główne usługi Visual Studio**, wybierz pozycję **narzędzia** > **Menedżer pakietów biblioteki** > **Konsola Menedżera pakietów**. W oknie konsoli wpisz **windowsazure.mediaservices Install-Package**, i naciśnij klawisz Enter.
+1. Za pomocą programu Visual Studio toocreate nowe rozwiązanie zawierający hello projekt aplikacji Konsolowej C#. Wprowadź **HandleRedundancyForOnDemandStreaming** hello nazwę, a następnie kliknij przycisk **OK**.
+2. Utwórz hello **SupportFiles** folderu na powitania sam poziom jako hello **HandleRedundancyForOnDemandStreaming.csproj** pliku projektu. W obszarze hello **SupportFiles** folderu, Utwórz hello **OutputFiles** i **MP4Files** folderów. Skopiuj plik MP4 plik do hello **MP4Files** folderu. (W tym przykładzie hello **BigBuckBunny.mp4** plik jest używany.) 
+3. Użyj **Nuget** tooMedia usług związanych z tooadd tooDLLs odwołania. W **Menu główne usługi Visual Studio**, wybierz pozycję **narzędzia** > **Menedżer pakietów biblioteki** > **Konsola Menedżera pakietów**. W oknie konsoli hello wpisz **windowsazure.mediaservices Install-Package**, i naciśnij klawisz Enter.
 4. Dodaj inne odwołania, które są wymagane dla tego projektu: System.Configuration System.Runtime.Serialization i System.Web.
-5. Zastąp **przy użyciu** instrukcji, które zostały dodane do **Programs.cs** pliku domyślnie z następujące pozycje:
+5. Zastąp **przy użyciu** instrukcji, które zostały dodane toohello **Programs.cs** pliku domyślnie z hello następującej grupy:
    
         using System;
         using System.Configuration;
@@ -87,7 +87,7 @@ W tej sekcji Tworzenie i konfigurowanie projektu aplikacji Konsolowej C#.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Dodaj **appSettings** sekcji do **.config** plików i aktualizacji wartości są oparte na usługi Media Services i magazynu kluczy i nazwa wartości. 
+6. Dodaj hello **appSettings** toohello sekcji **.config** plików i Aktualizuj hello wartości są oparte na usługi Media Services i Magazyn wartości klucza i nazwę. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,11 +101,11 @@ W tej sekcji Tworzenie i konfigurowanie projektu aplikacji Konsolowej C#.
         </appSettings>
 
 ## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Dodaj kod, który obsługuje nadmiarowości na potrzeby przesyłania strumieniowego na żądanie
-W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
+W tej sekcji utworzysz hello możliwości toohandle nadmiarowości.
 
-1. Dodaj następujące pola poziomie klasy do klasy Program.
+1. Dodaj hello następujące klasy Program toohello klasy na poziomie pola.
        
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
         private static readonly string MediaServicesAccountKeySource = ConfigurationManager.AppSettings["MediaServicesAccountKeySource"];
         private static readonly string StorageNameSource = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameSource"];
@@ -116,21 +116,21 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
         private static readonly string StorageNameTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameTarget"];
         private static readonly string StorageKeyTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeyTarget"];
         
-        // Base support files path.  Update this field to point to the base path  
-        // for the local support files folder that you create. 
+        // Base support files path.  Update this field toopoint toohello base path  
+        // for hello local support files folder that you create. 
         private static readonly string SupportFiles = Path.GetFullPath(@"../..\SupportFiles");
         
-        // Paths to support files (within the above base path). 
+        // Paths toosupport files (within hello above base path). 
         private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\BigBuckBunny.mp4");
         private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
         
-        // Class-level field used to keep a reference to the service context.
+        // Class-level field used tookeep a reference toohello service context.
         static private CloudMediaContext _contextSource = null;
         static private CloudMediaContext _contextTarget = null;
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-2. Zastąp następujące definicji metody Main domyślnej. Poniżej przedstawiono definicji metod, które są nazywane z głównym.
+2. Zastąp definicję metody Main domyślne hello powitania po jednym. Poniżej przedstawiono definicji metod, które są nazywane z głównym.
         
         static void Main(string[] args)
         {
@@ -155,46 +155,46 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
             if (job.State != JobState.Error)
             {
                 IAsset sourceOutputAsset = job.OutputMediaAssets[0];
-                // Get the locator for Smooth Streaming
+                // Get hello locator for Smooth Streaming
                 var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
         
                 Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
                 
-                // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
+                // 1.Create a read-only SAS locator for hello source asset toohave read access toohello container in hello source Storage account (associated with hello source Media Services account)
                 var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
         
-                // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
+                // 2.Get hello container name of hello source asset from hello read-only SAS locator created in hello previous step
                 string containerName = (new Uri(readSasLocator.Path)).Segments[1];
         
-                // 3.Create a target empty asset in the target Media Services account
+                // 3.Create a target empty asset in hello target Media Services account
                 var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
         
-                // 4.Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account (associated with the target Media Services account)
+                // 4.Create a write SAS locator for hello target empty asset toohave write access toohello container in hello target Storage account (associated with hello target Media Services account)
                 ILocator writeSasLocator = CreateSasWriteLocator(_contextTarget, targetAsset);
         
                 // Get asset container name.
                 string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
         
-                // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
+                // 5.Copy hello blobs in hello source container (source asset) toohello target container (target empty asset)
                 CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
         
-                // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
-                //      This API call is not supported in the current Media Services SDK for .NET. 
+                // 6.Use hello CreateFileInfos Media Services REST API tooautomatically generate all hello IAssetFile’s for hello target asset. 
+                //      This API call is not supported in hello current Media Services SDK for .NET. 
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
-                // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                // Check if hello AssetFiles are now  associated with hello asset.
+                Console.WriteLine("Asset files assocated with hello {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);
                 }
         
-                // 7.Copy the Origin locator of the source asset to the target asset by using the same Id
+                // 7.Copy hello Origin locator of hello source asset toohello target asset by using hello same Id
                 var replicatedLocatorPath = CreateOriginLocatorWithRest(_contextTarget,
                             MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget,
                             sourceOriginLocator.Id, targetAsset.Id);
         
-                // Create a full URL to the manifest file. Use this for playback
+                // Create a full URL toohello manifest file. Use this for playback
                 // in streaming media clients. 
                 string originalUrlForClientStreaming = sourceOriginLocator.Path + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
         
@@ -208,10 +208,10 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                 writeSasLocator.Delete();
         }
 
-3. Następujące definicje metody są wywoływane z głównego.
+3. Hello następujące metody definicje są nazywane z głównym.
 
     >[!NOTE]
-    >Istnieje limit 1 000 000 zasad dla różnych zasad usługi Media Services (na przykład dla lokalizatora zasad lub ContentKeyAuthorizationPolicy). Należy używać tego samego Identyfikatora zasad są zawsze korzystania z tego samego dni i uprawnień dostępu. Na przykład użyć tego samego Identyfikatora dla zasad dla lokalizatorów, które powinny pozostać w miejscu przez długi czas (— przekazywanie zasady). Aby uzyskać więcej informacji, zobacz [w tym temacie](media-services-dotnet-manage-entities.md#limit-access-policies).
+    >Istnieje limit 1 000 000 zasad dla różnych zasad usługi Media Services (na przykład dla lokalizatora zasad lub ContentKeyAuthorizationPolicy). Należy używać hello hello tego samego Identyfikatora zasad są zawsze korzystania z tego samego dni i dostępu uprawnienia. Na przykład użyć hello sam identyfikator zasady dla lokalizatorów, które są przeznaczone tooremain w miejscu przez długi czas (zasady — przekazywanie). Aby uzyskać więcej informacji, zobacz [w tym temacie](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
@@ -242,49 +242,49 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
             // Declare a new job.
             IJob job = context.Jobs.Create("My encoding job");
    
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName(context,
                                                     "Media Encoder Standard");
    
-            // Create a task with the encoding details, using a string preset.
+            // Create a task with hello encoding details, using a string preset.
             // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
    
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is in the clear (unencrypted). 
+            // means hello output asset is in hello clear (unencrypted). 
             var outputAssetName = "OutputAsset_" + Guid.NewGuid();
             task.OutputAssets.AddNew(outputAssetName,
                 AssetCreationOptions.None);
    
-            // Use the following event handler to check job progress.  
+            // Use hello following event handler toocheck job progress.  
             job.StateChanged += new
                     EventHandler<JobStateChangedEventArgs>(StateChanged);
    
-            // Launch the job.
+            // Launch hello job.
             job.Submit();
    
             // Optionally log job details. This displays basic job details
-            // to the console and saves them to a JobDetails-{JobId}.txt file 
+            // toohello console and saves them tooa JobDetails-{JobId}.txt file 
             // in your output folder.
             LogJobDetails(context, job.Id);
    
-            // Check job execution and wait for job to finish. 
+            // Check job execution and wait for job toofinish. 
             Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
             progressJobTask.Wait();
    
             // Get an updated job reference.
             job = GetJob(context, job.Id);
    
-            // Since we the output asset contains a set of Smooth Streaming files,
-            // set the .ism file to be the primary file
+            // Since we hello output asset contains a set of Smooth Streaming files,
+            // set hello .ism file toobe hello primary file
             if (job.State != JobState.Error)
                 SetPrimaryFile(job.OutputMediaAssets[0]);
    
@@ -293,8 +293,8 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
    
         public static ILocator GetStreamingOriginLocator(CloudMediaContext context, IAsset assetToStream)
         {
-            // Get a reference to the streaming manifest file from the  
-            // collection of files in the asset. 
+            // Get a reference toohello streaming manifest file from hello  
+            // collection of files in hello asset. 
             IAssetFile manifestFile = GetPrimaryFile(assetToStream);
    
             // Create a 30-day readonly access policy. 
@@ -304,13 +304,13 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                 TimeSpan.FromDays(30),
                 AccessPermissions.Read);
    
-            // Create a locator to the streaming content on an origin. 
+            // Create a locator toohello streaming content on an origin. 
             ILocator originLocator = context.Locators.CreateLocator(LocatorType.OnDemandOrigin,
                 assetToStream,
                 policy,
                 DateTime.UtcNow.AddMinutes(-5));
    
-            // Return the locator. 
+            // Return hello locator. 
             return originLocator;
         }
    
@@ -418,7 +418,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                         .ToArray();
 
             if (ismAssetFiles.Count() != 1)
-                throw new ArgumentException("The asset should have only one, .ism file");
+                throw new ArgumentException("hello asset should have only one, .ism file");
 
             ismAssetFiles.First().IsPrimary = true;
             ismAssetFiles.First().Update();
@@ -431,7 +431,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                     where f.Name.EndsWith(".ism")
                     select f;
 
-            // Cast the reference to a true IAssetFile type. 
+            // Cast hello reference tooa true IAssetFile type. 
             IAssetFile manifestFile = theManifest.First();
 
             return manifestFile;
@@ -459,9 +459,9 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
 
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
-                // Specify the expiration time for the signature.
+                // Specify hello expiration time for hello signature.
                 SharedAccessExpiryTime = DateTime.Now.AddDays(1),
-                // Specify the permissions granted by the signature.
+                // Specify hello permissions granted by hello signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
 
@@ -473,16 +473,16 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
-                    // In Azure Media Services, the files are stored as block blobs. 
+                    // In Azure Media Services, hello files are stored as block blobs. 
                     // Page blobs are not supported by Azure Media Services.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
                     while (true)
                     {
-                        // The StartCopyFromBlob is an async operation, 
-                        // so we want to check if the copy operation is completed before proceeding. 
-                        // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
+                        // hello StartCopyFromBlob is an async operation, 
+                        // so we want toocheck if hello copy operation is completed before proceeding. 
+                        // toodo that, we call FetchAttributes on hello blob and check hello CopyStatus. 
                         destinationBlob.FetchAttributes();
                         if (destinationBlob.CopyState.Status != CopyStatus.Pending)
                         {
@@ -552,7 +552,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
             StringBuilder builder = new StringBuilder();
             IJob job = GetJob(context, jobId);
 
-            builder.AppendLine("\nThe job stopped due to cancellation or an error.");
+            builder.AppendLine("\nThe job stopped due toocancellation or an error.");
             builder.AppendLine("***************************");
             builder.AppendLine("Job ID: " + job.Id);
             builder.AppendLine("Job Name: " + job.Name);
@@ -573,7 +573,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                 }
             }
             builder.AppendLine("***************************\n");
-            // Write the output to a local file and to the console. The template 
+            // Write hello output tooa local file and toohello console. hello template 
             // for an error output file is:  JobStop-{JobId}.txt
             string outputFile = OutputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
             WriteToFile(outputFile, builder.ToString());
@@ -589,7 +589,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
             builder.AppendLine("Job Name: " + job.Name);
             builder.AppendLine("Job submitted (client UTC time): " + DateTime.UtcNow.ToString());
 
-            // Write the output to a local file and to the console. The template 
+            // Write hello output tooa local file and toohello console. hello template 
             // for an error output file is:  JobDetails-{JobId}.txt
             string outputFile = OutputFilesFolder + @"\JobDetails-" + JobIdAsFileName(job.Id) + ".txt";
             WriteToFile(outputFile, builder.ToString());
@@ -603,7 +603,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
             return jobID.Replace(":", "_");
         }
 
-        // Write method output to the output files folder.
+        // Write method output toohello output files folder.
         private static void WriteToFile(string outFilePath, string fileContent)
         {
             StreamWriter sr = File.CreateText(outFilePath);
@@ -613,14 +613,14 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
 
         private static IJob GetJob(CloudMediaContext context, string jobId)
         {
-            // Use a Linq select query to get an updated 
+            // Use a Linq select query tooget an updated 
             // reference by Id. 
             var jobInstance =
                 from j in context.Jobs
                 where j.Id == jobId
                 select j;
 
-            // Return the job reference as an Ijob. 
+            // Return hello job reference as an Ijob. 
             IJob job = jobInstance.FirstOrDefault();
 
             return job;
@@ -628,13 +628,13 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
 
         private static IAsset GetAsset(CloudMediaContext context, string assetId)
         {
-            // Use a LINQ Select query to get an asset.
+            // Use a LINQ Select query tooget an asset.
             var assetInstance =
                 from a in context.Assets
                 where a.Id == assetId
                 select a;
 
-            // Reference the asset as an IAsset.
+            // Reference hello asset as an IAsset.
             IAsset asset = assetInstance.FirstOrDefault();
 
             return asset;
@@ -667,8 +667,8 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
 
         public static void DeleteAccessPolicy(CloudMediaContext context, string existingPolicyId)
         {
-            // To delete a specific access policy, get a reference to the policy.  
-            // based on the policy Id passed to the method.
+            // toodelete a specific access policy, get a reference toohello policy.  
+            // based on hello policy Id passed toohello method.
             var policyInstance =
                     from p in context.AccessPolicies
                     where p.Id == existingPolicyId
@@ -681,7 +681,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
         }
 
         //////////////////////////////////////////////////////
-        /// The following methods use REST calls.
+        /// hello following methods use REST calls.
         //////////////////////////////////////////////////////
 
         public static string GetAcsBearerToken(string clientId, string clientSecret, string scope, string accessControlServiceUri)
@@ -797,7 +797,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                 switch (response.StatusCode)
                 {
                     case HttpStatusCode.MovedPermanently:
-                        //Recurse once with the mediaServicesApiServerUri redirect Location:
+                        //Recurse once with hello mediaServicesApiServerUri redirect Location:
                         if (autoRedirect)
                         {
                             redirectedMediaServicesApiServerUri = response.Headers["Location"];
@@ -809,7 +809,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
                         }
                         else
                         {
-                            Console.WriteLine("Redirection to {0} failed.",
+                            Console.WriteLine("Redirection too{0} failed.",
                                 mediaServicesApiServerUri);
                             return null;
                         }
@@ -940,7 +940,7 @@ W tej sekcji utworzysz zdolności do obsługi nadmiarowości.
         }
 
 ## <a name="next-steps"></a>Następne kroki
-Menedżer ruchu umożliwia teraz przekierowanie żądań między dwoma centrami danych, a w związku z tym tryb failover w przypadku awarii dowolnego.
+Można teraz używać żądania tooroute Menedżera ruchu między dwoma centrami danych hello i w związku z tym tryb failover w przypadku awarii dowolnego.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

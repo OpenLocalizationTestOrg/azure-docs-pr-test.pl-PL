@@ -29,8 +29,8 @@
 
 ## Programowanie
 ### [Wersje interfejsu API](search-api-versions.md)
-### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
-### [Uaktualnianie interfejsu API REST](search-api-migration.md)
+### [Uaktualnij hello zestawu SDK](search-dotnet-sdk-migration.md)
+### [Uaktualnij hello interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
 ### [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=search)
@@ -50,7 +50,7 @@
 ### [Indeksator usługi Azure Cosmos DB](search-howto-index-documentdb.md)
 ### [Indeksowanie obiektów blob CSV](search-howto-index-csv-blobs.md)
 ### [Indeksowanie obiektów blob JSON](search-howto-index-json-blobs.md)
-### [Konfigurowanie połączeń indeksatora z programem SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Skonfiguruj indeksator tooSQL połączenia serwera na maszynie Wirtualnej Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapowania pól w indeksatorach](search-indexer-field-mappings.md)
 ##  Wyszukiwanie
 ### [Jak działa wyszukiwanie pełnotekstowe](search-lucene-query-architecture.md)

@@ -1,6 +1,6 @@
 ---
-title: "Konserwacji predykcyjnej dla aerospace z platformy Azure — architektura Cortana Intelligence rozwiązania | Dokumentacja firmy Microsoft"
-description: "Diagram architektury szablonu Microsoft Cortana analizy rozwiązania dla konserwacji predykcyjnej aerospace, narzędzia, transportu"
+title: "Obsługa aaaPredictive aerospace z platformy Azure — architektura Cortana Intelligence rozwiązania | Dokumentacja firmy Microsoft"
+description: "Diagram architektury hello szablon rozwiązania programu Microsoft Cortana Intelligence do konserwacji predykcyjnej aerospace, narzędzia, transportu"
 services: cortana-analytics
 documentationcenter: 
 author: garyericson
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 3c7b8238ee1d28deca9845462808252636f0d68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 642abedbe2751ec4720d5d64f92354a3dd2821e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="architecture-of-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Architektura szablonu Cortana analizy rozwiązania dla konserwacji predykcyjnej aerospace i innych firm
-Poniższy diagram zawiera omówienie architektury [Cortana Intelligence rozwiązania szablonu dla konserwacji predykcyjnej](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
+# <a name="architecture-of-hello-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Architektura hello szablon rozwiązania Cortana Intelligence do konserwacji predykcyjnej aerospace i innych firm
+Poniższy diagram Hello zawiera omówienie architektury hello [Cortana Intelligence rozwiązania szablonu dla konserwacji predykcyjnej](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
-Możesz pobrać wersję pełnym rozmiarze diagram tutaj: [diagram architektury: szablon rozwiązania do konserwacji predykcyjnej](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Możesz pobrać wersję pełnym rozmiarze hello diagram tutaj: [diagram architektury: szablon rozwiązania do konserwacji predykcyjnej](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 ![Diagram architektury Microsoft Cortana Intelligence rozwiązania szablonu dla konserwacji predykcyjnej][image]
 

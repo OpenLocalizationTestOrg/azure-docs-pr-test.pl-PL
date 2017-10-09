@@ -1,6 +1,6 @@
 ---
-title: "Przykładowy skrypt programu PowerShell Azure - migawki eksportu/kopiowania jako dysk VHD do konta magazynu w innym regionie | Dokumentacja firmy Microsoft"
-description: "Przykładowy skrypt programu PowerShell Azure - migawki eksportu/kopiowania jako dysk VHD do konta magazynu w tym samym regionie innym"
+title: "aaaAzure przykładowym skrypcie programu PowerShell - migawki eksportu/kopiowania co konto magazynu tooa wirtualnego dysku twardego w innym regionie | Dokumentacja firmy Microsoft"
+description: "Przykładowy skrypt programu PowerShell Azure - migawki eksportu/kopiowania co konto magazynu tooa wirtualnego dysku twardego w tym samym regionie innym"
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 80f83f4b66165ddd2bdd0edca2be5d026cb11a9b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3b3e38c6b06bfa1e117f4e913dfc09443a795196
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Eksport/kopiowania zarządzane migawki jako dysk VHD do konta magazynu w innym regionie przy użyciu programu PowerShell
+# <a name="exportcopy-managed-snapshots-as-vhd-tooa-storage-account-in-different-region-with-powershell"></a>Eksport/kopiowania zarządzane migawki co konto magazynu tooa wirtualnego dysku twardego w innym regionie przy użyciu programu PowerShell
 
-Ten skrypt eksportuje zarządzanych migawki na konto magazynu w innym regionie. Najpierw generuje identyfikator URI sygnatury dostępu Współdzielonego migawki, a następnie używa, aby skopiować go do konta magazynu w innym regionie. Użyj tego skryptu do obsługi kopii zapasowych dysków zarządzanych w innym regionie odzyskiwania po awarii.  
+Ten skrypt eksportuje migawki zarządzanego konta magazynu tooa w innym regionie. Najpierw generuje hello identyfikatora URI połączenia SAS hello migawki, a następnie używa go po toocopy go tooa konta magazynu w innym regionie. Użyj tej kopii zapasowej toomaintain skryptu dysków zarządzanych w innym regionie odzyskiwania po awarii.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -31,18 +31,18 @@ Ten skrypt eksportuje zarządzanych migawki na konto magazynu w innym regionie. 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/storage/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "migawki kopiowania")]
+[!code-powershell[main](../../../powershell_scripts/storage/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń, można wygenerować identyfikatora URI sygnatury dostępu Współdzielonego dla zarządzanych migawki i kopiuje migawki na konto magazynu przy użyciu identyfikatora URI połączenia SAS. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń toogenerate identyfikator URI sygnatury dostępu Współdzielonego dla zarządzanych hello migawki i kopii migawki tooa konto magazynu przy użyciu identyfikatora URI połączenia SAS. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Udziel AzureRmSnapshotAccess](/powershell/module/azurerm.compute/New-AzureRmDisk) | Generuje identyfikator URI sygnatury dostępu Współdzielonego dla migawki, która jest używana, aby skopiować go do konta magazynu. |
-| [Nowe AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Tworzy kontekst konta magazynu przy użyciu nazwy konta i klucz. Tego kontekstu może służyć do wykonywania operacji odczytu/zapisu na koncie magazynu. |
-| [Start AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopiuje podstawowy dysk VHD migawki na konto magazynu |
+| [Udziel AzureRmSnapshotAccess](/powershell/module/azurerm.compute/New-AzureRmDisk) | Generuje identyfikator URI sygnatury dostępu Współdzielonego dla migawki, która jest używana toocopy on tooa konta magazynu. |
+| [Nowe AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Tworzy kontekst konta magazynu przy użyciu hello nazwę konta i klucz. Tego kontekstu może być używane tooperform operacji odczytu/zapisu na powitania konta magazynu. |
+| [Start AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopie hello podstawowy dysk VHD konta magazynu tooa migawki |
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -50,6 +50,6 @@ Ten skrypt używa następujących poleceń, można wygenerować identyfikatora U
 
 [Utwórz maszynę wirtualną z dyskiem zarządzanym](./../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na powitania modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 
-Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../virtual-machines/windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w hello [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../virtual-machines/windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

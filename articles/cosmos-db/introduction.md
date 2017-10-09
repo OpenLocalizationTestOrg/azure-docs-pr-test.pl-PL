@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do usługi Azure Cosmos DB | Dokumentacja firmy Microsoft"
+title: "tooAzure aaaIntroduction DB rozwiązania Cosmos | Dokumentacja firmy Microsoft"
 description: "Zapoznaj się z informacjami na temat usługi Azure Cosmos DB. Ta dostępna w skali światowej, wielomodelowa baza danych zapewnia małe opóźnienia, elastyczną skalowalność i wysoką dostępność."
 services: cosmos-db
 author: mimig1
@@ -15,32 +15,32 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f2acbe99f425b2f07a62bbbb4324aa48f1037481
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
+# <a name="welcome-tooazure-cosmos-db"></a>Zapraszamy tooAzure DB rozwiązania Cosmos
 
-Azure Cosmos DB to dostępna w skali światowej, wielomodelowa baza danych firmy Microsoft. Usługa Azure Cosmos DB umożliwia elastyczne i niezależne skalowanie przepływności i przestrzeni dyskowej dla dowolnej liczby regionów geograficznych platformy Azure za pomocą jednego kliknięcia przycisku. W odróżnieniu od wszelkich innych usług baz danych, oferuje ona gwarancje dotyczące przepływności, opóźnienia, dostępności i spójności dzięki kompleksowym [umowom dotyczącym poziomu usług](https://aka.ms/acdbsla) (SLA, Service Level Agreement).
+Azure Cosmos DB to dostępna w skali światowej, wielomodelowa baza danych firmy Microsoft. Witaj kliknięcie przycisku bazy danych Azure rozwiązania Cosmos pozwala tooelastically i niezależnie skali przepływność i Magazyn przez dowolną liczbę regionów geograficznych platformy Azure. W odróżnieniu od wszelkich innych usług baz danych, oferuje ona gwarancje dotyczące przepływności, opóźnienia, dostępności i spójności dzięki kompleksowym [umowom dotyczącym poziomu usług](https://aka.ms/acdbsla) (SLA, Service Level Agreement).
 
 ![Azure Cosmos DB to dostępna w skali światowej usługa bazy danych firmy Microsoft z elastycznym skalowaniem, gwarantowanymi małymi opóźnieniami, pięcioma modelami spójności oraz kompleksowymi, gwarantowanymi umowami SLA](./media/introduction/azure-cosmos-db.png)
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Rozwiązania, które korzystają z zalet usługi Azure Cosmos DB
 
-Wszystkie [aplikacje internetowe, IoT i mobilne oraz gry](use-cases.md) wymagające obsługi ogromnych ilości operacji odczytu i zapisuje w skali [globalnej](distribute-data-globally.md) z krótkim czasem odpowiedzi dla różnych danych będą korzystać z zalet związanych z [gwarantowaną](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dostępnością, wysoką przepływnością, małymi opóźnieniami i możliwościami dostosowania spójności, które są zapewniane przez usługę Azure Cosmos DB.
+Wszelkie [w sieci web, mobilnych, gier i aplikacji IoT](use-cases.md) wymagające toohandle olbrzymich ilości odczyty i zapisy na [globalne](distribute-data-globally.md) skalować wraz z czasem odpowiedzi niski dla różnych danych będą korzystać z usługi Azure rozwiązania Cosmos DB [gwarantowane](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dostępności, wysokiej przepływności, małych opóźnień i dostosowywalne spójności.
 
 ## <a name="key-capabilities"></a>Najważniejsze możliwości
-Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia następujące możliwości ułatwiające tworzenie skalowalnych i szybko reagujących aplikacji:
+Jako usługa globalnie rozproszoną bazę danych bazy danych rozwiązania Cosmos Azure zapewnia następujące możliwości toohelp kompilacji skalowalne, wysoko reakcji aplikacji hello:
 
 * **Gotowa do użytku dystrybucja globalna**
-    * Możesz [dystrybuować dane](distribute-data-globally.md) w dowolnej liczbie [regionów platformy Azure](https://azure.microsoft.com/regions/) [jednym kliknięciem przycisku](tutorial-global-distribution-documentdb.md). Umożliwia to używanie Twoich danych tam, gdzie znajdują się użytkownicy, co zapewnia najniższe możliwe opóźnienie Twoim klientom. 
-    * Za pomocą międzyregionalnych interfejsów API usługi Azure Cosmos DB aplikacja zawsze posiada informacje o tym, gdzie znajduje się najbliższy region, co pozwala wysyłać żądania do najbliższego centrum danych. Wszystko to jest możliwe bez potrzeby wprowadzania zmian konfiguracji — należy ustawić jedynie region zapisu i dowolną liczbę regionów odczytu, a pozostałe operacje będą obsługiwane za Ciebie.
+    * Możesz [dystrybucji danych](distribute-data-globally.md) tooany liczbę [regiony platformy Azure](https://azure.microsoft.com/regions/), z hello [kliknij przycisku](tutorial-global-distribution-documentdb.md). Dzięki temu można tooput dane, których użytkownicy zapewnienie hello można uzyskać najmniejsze opóźnienia możliwe tooyour klientów. 
+    * Za pomocą usługi Azure rozwiązania Cosmos DB wielu interfejsów API aplikacji hello zawsze wie, gdzie hello najbliższy region jest i będzie wysyłać żądań toohello najbliższego centrum danych. Wszystko to jest możliwe bez zmian konfiguracji, należy ustawić regionu zapisu i odczytywać wiele regionów, a hello rest jest już obsługiwane.
 
 * **Wiele modeli danych i popularnych interfejsów API na potrzeby uzyskiwania dostępu do danych i wykonywania względem nich zapytań**
-    * Model danych oparty na technologii atom-rekord-sekwencja (ARS, atom-record-sequence), na podstawie którego zbudowana jest usługi Azure Cosmos DB, natywnie obsługuje wiele modeli danych, między innymi te oparte na dokumentach, grafach, parach klucz-wartość i kolumnach.
-    * Interfejsy API dla następujących modeli danych są obsługiwane przez zestawy SDK dostępne w wielu językach:
+    * Hello atom rekordu sekwencji (ARS) na podstawie danych modelu, który bazy danych Azure rozwiązania Cosmos jest natywnie oparty na obsługuje wiele modeli danych, w tym między innymi toodocument, wykres klucz wartość, tabeli i kolumnowy danych modeli.
+    * Interfejsy API do powitania po modelach danych są obsługiwane przez zestaw SDK jest dostępny w wielu językach:
         * [Interfejs API usługi DocumentDB](documentdb-introduction.md)
         * [Interfejs API usługi MongoDB](mongodb-introduction.md)
         * [Interfejs API tabel](table-introduction.md)
@@ -49,19 +49,19 @@ Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia n
 
 * **Elastycznie skalowana przepływność i przestrzeń dyskowa na żądanie, na całym świecie**
     * Łatwe skalowanie przepływności bazy danych z [sekundową](request-units.md) dokładnością i możliwość jej zmiany w dowolnym momencie. 
-    * Skalowanie rozmiaru magazynu w sposób [przejrzysty i automatyczny](partition-data.md) w celu obsługi wymagań dotyczących rozmiaru teraz i w każdym innym momencie.
+    * Skaluj rozmiar magazynu [przezroczyste i automatycznie](partition-data.md) toohandle wymagań rozmiar teraz i nieskończona.
 
 * **Tworzenie szybko reagujących aplikacji o kluczowym znaczeniu**
-    * Usługa Azure Cosmos DB gwarantuje klientom całościowe małe opóźnienia na poziomie 99 percentyla. 
-    * Dla typowego elementu o wielkości 1 KB usługa Cosmos DB gwarantuje całościowe opóźnienie operacji odczytu poniżej 10 ms oraz indeksowanego zapisu poniżej 15 ms na poziomie 99 percentyla w obrębie tego samego regionu świadczenia usługi Azure. Średnie opóźnienia są znacznie niższe (poniżej 5 ms).
+    * Azure DB rozwiązania Cosmos gwarantuje end-to-end małych opóźnieniach na powitania 99-ty percentyl tooits klientów. 
+    * Typowe 1 KB elementu, DB rozwiązania Cosmos gwarantuje czas oczekiwania na trasie odczytów poniżej 10 ms i indeksowane zapisy na powitania 99-ty percentyl, w obszarze 15 ms poziomu hello sam region platformy Azure. opóźnienia środkowej Hello są znacznie niższe (w obszarze 5 ms).
 
 * **Zapewnienie dostępności na poziomie „zawsze włączona”**
     * Dostępność na poziomie 99,99% w obrębie jednego regionu.
-    * Możliwość wdrażania w dowolnej liczbie [regionów świadczenia usługi Azure](https://azure.microsoft.com/regions), aby uzyskać większą dostępność.
+    * Wdrażanie tooany liczbę [regiony platformy Azure](https://azure.microsoft.com/regions) potrzeby wyższej dostępności.
     * [Symulowanie awarii](regional-failover.md) co najmniej jednego regionu z gwarancją, że nie nastąpi utrata żadnych danych. 
 
-* **Tworzenie aplikacji dystrybuowanych globalnie w odpowiedni sposób**
-    * Pięć [modeli spójności](consistency-levels.md) zapewnia silną spójność, podobną do spójności SQL, oraz spójność ostateczną, podobną do spójności NoSQL (i wszystko pomiędzy nimi). 
+* **Pisanie aplikacji rozproszonych globalnie hello prawym przyciskiem myszy sposób**
+    * Pięć [modeli spójności](consistency-levels.md) modele umożliwiają liczne silna spójność przypominającego SQL wszystkie hello sposób tooNoSQL przypominającej spójność ostateczna, a każdy element między. 
   
 * **Gwarancja zwrotu pieniędzy**
     * Szybkie dostarczanie danych lub zwrot pieniędzy. 
@@ -69,15 +69,15 @@ Jako dostępna w skali światowej usługa bazy danych Azure Cosmos DB zapewnia n
 
 * **Brak potrzeby zarządzania schematami i indeksami bazy danych**
     * Nie musisz już martwić się o synchronizowanie indeksów i schematu bazy danych ze schematem aplikacji. U nas nie ma schematów. 
-    * Aparat bazy danych usługi Azure Cosmos DB jest w pełni niezależny od schematów — automatycznie indeksuje wszystkie dane, które pozyska, bez wymagania żadnych schematów ani indeksów, a także umożliwia wykonywanie błyskawicznych zapytań. 
+    * Aparat bazy danych Azure DB rozwiązania Cosmos pełni schematu niezwiązane z żadnym — automatycznie indeksuje wszystkie dane hello go wysyła strumień bez żadnego schematu lub indeksy i służy błyskawicznie szybkie zapytania. 
 
 * **Niski koszt posiadania**
-    * Od pięciu do dziesięciu razy [bardziej ekonomicznie](https://aka.ms/cosmos-db-tco-paper) niż w przypadku rozwiązania niezarządzanego.
+    * Pięć razy tooten [bardziej ekonomiczne](https://aka.ms/cosmos-db-tco-paper) niż rozwiązania niezarządzanego.
     * Trzy razy taniej niż w przypadku usługi DynamoDB.
 
 ## <a name="capability-comparison"></a>Porównanie możliwości
 
-Usługa Azure Cosmos DB zapewnia najlepsze możliwości relacyjnych i nierelacyjnych baz danych.
+Azure DB rozwiązania Cosmos oferuje najlepsze możliwości hello baz danych relacyjnych i nierelacyjnych.
 
 | Możliwości | Relacyjne bazy danych   | Nierelacyjne bazy danych (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Naprawianie zadania eksportu Import/Eksport Azure - v1 | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak naprawić zadanie eksportu, który został utworzony i uruchamiany za pomocą usługi Import/Eksport Azure."
+title: zadanie eksportu Import/Eksport Azure - v1 aaaRepairing | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toorepair zadanie eksportu, która została utworzona, a następnie uruchomić przy użyciu hello Import/Eksport Azure usługi."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 30ca0f8d06cb1927c19e66035ff485db0fc09e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96c674fc7c697c37882fb2980c340303896ac6c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="repairing-an-export-job"></a>Naprawianie zadania eksportu
-Po zakończeniu zadania eksportu, możesz uruchomić narzędzie importu/eksportu pakietu Microsoft Azure lokalnej do:  
+Po zakończeniu zadania eksportu, możesz uruchomić narzędzie importu/eksportu pakietu Microsoft Azure lokalne powitania:  
   
-1.  Pobierz wszystkie pliki, które usługi Import/Eksport Azure nie mógł wyeksportować.  
+1.  Pobierz wszystkie pliki, że usługa Import/Eksport Azure hello nie tooexport.  
   
-2.  Sprawdź, czy zostały poprawnie wyeksportowane pliki na dysku.  
+2.  Sprawdź, czy hello plików na dysku hello zostały poprawnie wyeksportowane.  
   
-Musisz mieć połączenie z magazynem Azure, aby używać tej funkcji.  
+Musi mieć łączność tooAzure magazynu toouse tej funkcji.  
   
-Polecenie naprawy zadania importu jest **RepairExport**.
+polecenie Hello naprawy zadania importu jest **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>Parametry RepairExport
 
-Można określić następujące parametry z **RepairExport**:  
+Witaj następujące parametry można określić z **RepairExport**:  
   
 |Parametr|Opis|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Wymagane. Ścieżka do pliku naprawy, który śledzi postęp naprawy i umożliwia wznowienie naprawę przerwania. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po uruchomieniu naprawy dla danego dysku zostaną spełnione w ścieżce do pliku naprawy, które jeszcze nie istnieje. Aby wznowić naprawę przerwania, należy przekazać nazwę istniejącego pliku naprawy. Zawsze należy określać plik naprawy odpowiadający dysk docelowy.|  
-|**/ logdir: < LogDirectory\>**|Opcjonalny. Katalog dziennika. Plików pełnego dziennika zostanie zapisany do tego katalogu. Jeśli katalog dziennika nie jest określony, bieżący katalog będzie używany jako katalog dziennika.|  
-|**/ d: < TargetDirectory\>**|Wymagane. Katalog do sprawdzania poprawności i napraw. Zazwyczaj jest to katalog główny dysku eksportu, ale może też być sieciowego udziału plików zawierający kopię wyeksportowane pliki.|  
-|**/BK: < BitLockerKey\>**|Opcjonalny. Należy określić klucza funkcji BitLocker, jeśli chcesz użyć narzędzia, aby odblokować zaszyfrowany, gdzie znajdują się wyeksportowane pliki.|  
-|**/SN: < StorageAccountName\>**|Wymagane. Nazwa konta magazynu dla zadania eksportu.|  
-|**/SK: < StorageAccountKey\>**|**Wymagane** tylko wtedy, gdy nie określono kontenera sygnatury dostępu Współdzielonego. Klucz konta dla konta magazynu dla zadania eksportu.|  
-|**/csas: < ContainerSas\>**|**Wymagane** tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS do uzyskiwania dostępu do obiektów blob skojarzony z zadaniem eksportu.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Wymagane. Ścieżka do pliku dziennika kopii dysku. Plik jest generowany przez usługę Windows Azure importu/eksportu i można pobrać z magazynu obiektów blob, skojarzone z zadaniem. Kopiuj plik dziennika zawiera informacje dotyczące obiektów blob nie powiodło się lub pliki, które mają zostać naprawione.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Windows Azure importu/eksportu i przechowywane na dysku eksportu, a opcjonalnie w obiekcie blob na koncie magazynu skojarzone z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostaną zweryfikowane wartości skrótu MD5 zawarte w tym pliku. Wszystkie pliki, które są określane uszkodzone zostanie pobrany i ulegną do katalogów docelowych.|  
+|**/ r: < RepairFile\>**|Wymagany. Plik naprawy toohello ścieżki, który śledzi postęp hello naprawy hello i pozwala tooresume naprawę przerwania. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po uruchomieniu naprawy dla danego dysku przechodzą w hello ścieżki tooa naprawy pliku, które jeszcze nie istnieje. tooresume naprawę przerwania, należy przekazać w nazwie hello istniejącego pliku naprawy. zawsze należy określać Hello naprawy pliku odpowiedniego toohello dysk docelowy.|  
+|**/ logdir: < LogDirectory\>**|Opcjonalny. Katalog dziennika Hello. Pełne pliki dziennika zostaną zapisane toothis katalogu. Jeśli katalog dziennika nie jest określony, bieżący katalog hello będzie używany jako katalog dziennika hello.|  
+|**/ d: < TargetDirectory\>**|Wymagany. Witaj toovalidate katalogu i naprawy. Zazwyczaj jest to katalog główny hello hello eksportu dysku, ale może też być sieciowego udziału plików zawierający kopię hello wyeksportowane pliki.|  
+|**/BK: < BitLockerKey\>**|Opcjonalny. Należy określić hello klucza funkcji BitLocker, jeśli chcesz, aby toounlock narzędzie hello są szyfrowane, gdy hello wyeksportowane pliki przechowywane.|  
+|**/SN: < StorageAccountName\>**|Wymagany. zadanie eksportowania Hello nazwę konta magazynu hello hello.|  
+|**/SK: < StorageAccountKey\>**|**Wymagane** tylko wtedy, gdy nie określono kontenera sygnatury dostępu Współdzielonego. zadanie eksportowania Hello klucz konta usługi dla konta magazynu hello hello.|  
+|**/csas: < ContainerSas\>**|**Wymagane** tylko wtedy, gdy nie określono klucza konta magazynu hello. kontener Hello SAS do uzyskiwania dostępu do obiektów blob hello skojarzone z zadaniem eksportu hello.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Wymagany. Witaj ścieżki toohello dysku kopii pliku dziennika. Plik Hello jest generowany przez hello usługi Import/Eksport systemu Windows Azure i można pobrać z magazynu obiektów blob hello skojarzone z zadaniem hello. Witaj Kopiuj plik dziennika zawiera informacje dotyczące obiektów blob nie powiodło się lub pliki, które są toobe naprawić.|  
+|**/ ManifestFile: < DriveManifestFile\>**|Opcjonalny. Witaj dysk ścieżki toohello eksportu pliku manifestu. Ten plik jest generowany przez usługę Windows Azure importu/eksportu hello i przechowywane na dysku eksportu hello i opcjonalnie w obiekcie blob na koncie magazynu hello skojarzone z zadaniem hello.<br /><br /> Witaj zawartości hello plików na dysku eksportu hello zostaną zweryfikowane wartości skrótu MD5 hello zawarte w tym pliku. Wszystkie pliki, które są określone toobe uszkodzony będzie toohello pobrane i ponownie zapisane docelowy katalogów.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Aby rozwiązać eksportowanie nie powiodło się w trybie RepairExport  
-Narzędzie importu/eksportu Azure służy do pobierania plików, których nie można wyeksportować. Kopiuj plik dziennika będzie zawierać listę plików, których nie można wyeksportować.  
+## <a name="using-repairexport-mode-toocorrect-failed-exports"></a>Przy użyciu RepairExport toocorrect trybu nie powiodło się eksportowanie  
+Można użyć hello Azure narzędzie importu/eksportu toodownload pliki, których nie powiodła się tooexport. plik dziennika kopii Hello będzie zawierać listę plików, których nie powiodła się tooexport.  
   
-Przyczyny niepowodzeń eksportu obejmują następujące możliwości:  
+Hello przyczyny niepowodzeń eksportu: hello następujące możliwości:  
   
 -   Uszkodzone dyski  
   
--   Klucz konta magazynu została zmieniona w trakcie procesu transferu  
+-   klucz konta magazynu Hello została zmieniona w trakcie procesu transferu hello  
   
-Aby uruchomić narzędzie **RepairExport** trybie, należy najpierw połączyć dysk zawierający wyeksportowane pliki na komputerze. Następnie uruchom narzędzie importu/eksportu Azure, podając ścieżkę do tego dysku z `/d` parametru. Należy również określić ścieżkę do pliku dziennika kopii dysku pobranego. W poniższym przykładzie wiersza polecenia, poniżej uruchamiane narzędzie, aby naprawić wszystkie pliki, które nie można wyeksportować:  
+Narzędzie hello toorun w **RepairExport** trybie, należy najpierw tooconnect hello dysku zawierającego hello wyeksportowane pliki tooyour komputera. Następnie należy uruchomić narzędzie importu/eksportu Azure, określenie hello ścieżki toothat dysku z hello hello `/d` parametru. Należy również toospecify hello ścieżki toohello dysku kopii dziennika pobranego pliku. Hello poniżej poniższy przykład wiersz polecenia uruchamia hello narzędzia toorepair wszystkie pliki, których nie powiodła się tooexport:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Poniżej znajduje się przykład kopii pliku dziennika, który zawiera ten jeden blok w obiekcie blob nie można wyeksportować:  
+Witaj poniżej znajduje się przykład kopii pliku dziennika, który zawiera ten jeden blok w hello tooexport obiektu blob nie powiodło się:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -81,20 +81,20 @@ Poniżej znajduje się przykład kopii pliku dziennika, który zawiera ten jeden
 </DriveLog>  
 ```  
   
-Kopiuj plik dziennika wskazuje, że wystąpił błąd podczas usługi Import/Eksport systemu Windows Azure została pobierania jedną bloków blob do pliku na dysku eksportu. Inne składniki pliku pobrane pomyślnie, a długość pliku została poprawnie ustawiona. W takim przypadku narzędzie będzie Otwórz plik na dysku, Pobierz bloku z konta magazynu i zapisz je w zakresie pliku, zaczynając od przesunięcia 65536 o długości 65536.  
+plik dziennika kopii Hello wskazuje, wystąpił błąd podczas pobierania został hello usługi Import/Eksport systemu Windows Azure, jednego pliku toohello bloków hello blob na powitania eksportu dysku. Witaj inne składniki pliku hello pobrana pomyślnie, a długość pliku hello została poprawnie ustawiona. W takim przypadku narzędzie hello będzie Otwórz plik hello na powitania dysku, Pobierz bloku hello z konta magazynu hello i Zapisz toohello pliku zakresu, zaczynając od przesunięcia 65536 o długości 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Aby sprawdzić poprawność zawartości dysku przy użyciu RepairExport  
-Można również użyć Import/Eksport Azure z **RepairExport** opcję, aby sprawdzić poprawność zawartości na dysku są poprawne. Plik manifestu na każdym dysku eksportu zawiera MD5s zawartość dysku.  
+## <a name="using-repairexport-toovalidate-drive-contents"></a>Przy użyciu zawartości dysku toovalidate RepairExport  
+Import/Eksport Azure można również używać z hello **RepairExport** opcji toovalidate hello zawartości na dysku hello są poprawne. Plik manifestu Hello na każdym dysku eksportu zawiera MD5s hello zawartość hello dysku.  
   
-Usługa Import/Eksport Azure można także zapisać pliki manifestu do konta magazynu podczas procesu eksportowania. Lokalizacja pliku manifestu jest dostępna za pośrednictwem [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operacji po ukończeniu zadania. Zobacz [usługi Import/Eksport Format pliku manifestu](storage-import-export-file-format-metadata-and-properties.md) Aby uzyskać więcej informacji o formacie pliku manifestu dysku.  
+Witaj usługi Import/Eksport Azure można także zapisać pliki manifestu hello tooa konta magazynu podczas procesu eksportowania hello. Witaj lokalizację plików manifestu hello jest dostępny za pośrednictwem hello [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operacji po ukończeniu zadania hello. Zobacz [usługi Import/Eksport Format pliku manifestu](storage-import-export-file-format-metadata-and-properties.md) Aby uzyskać więcej informacji o formacie hello dysku pliku manifestu.  
   
-Poniższy przykład pokazuje, jak uruchomić narzędzie importu/eksportu Azure z **/ManifestFile** i **/CopyLogFile** parametry:  
+Witaj poniższy przykład przedstawia sposób toorun hello Azure narzędzie importu/eksportu z hello **/ManifestFile** i **/CopyLogFile** parametry:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Poniżej przedstawiono przykładowy plik manifestu:  
+Witaj poniżej znajduje się przykład pliku manifestu:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -131,7 +131,7 @@ Poniżej przedstawiono przykładowy plik manifestu:
 </DriveManifest>  
 ``` 
   
-Po zakończeniu procesu naprawy, narzędzie zapoznaj się z artykułem każdego pliku, do którego odwołuje się plik manifestu i zweryfikować integralność plików z wartości skrótu MD5. Dla manifest powyżej przechodzą przez następujące składniki.  
+Po zakończenia procesu naprawy hello narzędzie hello zapoznaj się z artykułem każdego pliku, do którego odwołuje się plik manifestu hello i Sprawdź integralność pliku hello skrótów hello MD5. Dla manifest hello powyżej przechodzą przez hello następujące składniki.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -153,12 +153,12 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Dowolny składnik Niepowodzenie weryfikacji zostanie pobrana przez narzędzie i ponownie zapisać do tego samego pliku na dysku.  
+Dowolny składnik Niepowodzenie weryfikacji hello zostanie pobrana przez narzędzie hello i ulegną toohello tego samego pliku na dysku hello.  
   
 ## <a name="next-steps"></a>Następne kroki
  
-* [Trwa konfigurowanie narzędzia Azure Import/Eksport](storage-import-export-tool-setup-v1.md)   
+* [Definiowanie hello Azure narzędzie importu/eksportu](storage-import-export-tool-setup-v1.md)   
 * [Przygotowywanie dysków twardych do zadania importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Naprawianie zadania importu](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Rozwiązywanie problemów z narzędziem Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+* [Rozwiązywanie problemów z hello Azure narzędzie importu/eksportu](storage-import-export-tool-troubleshooting-v1.md)

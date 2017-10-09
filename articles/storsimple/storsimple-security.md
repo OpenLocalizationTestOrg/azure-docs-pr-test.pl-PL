@@ -1,6 +1,6 @@
 ---
-title: Zabezpieczenia serii StorSimple 8000 | Dokumentacja firmy Microsoft
-description: "Opisuje funkcje zabezpieczeń i prywatności, które zapewniają ochronę usługi StorSimple, urządzenia i danych lokalnie i w chmurze."
+title: "aaaStorSimple 8000 serii zabezpieczeń | Dokumentacja firmy Microsoft"
+description: "Opisuje hello funkcje zabezpieczeń i prywatności chroniących usługi StorSimple, urządzenia i danych lokalnie i w chmurze hello."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,246 +14,246 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
-ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9e6c8b3371b4039549972cf507052312ed7cdaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple zabezpieczeń i ochrony danych
 ## <a name="overview"></a>Omówienie
-Zabezpieczeń jest głównym problemem dla każdego, kto wdraża to nowa technologia, szczególnie w przypadku technologii jest używany z danych poufnych lub zastrzeżonych. Jak można ocenić różnych technologii, należy wziąć pod uwagę zwiększone ryzyko i koszty związane z ochroną danych. Microsoft Azure StorSimple zapewnia zabezpieczeń i prywatności rozwiązania do ochrony danych w celu zapewnienia: 
+Zabezpieczeń jest głównym problemem dla każdego, kto wdraża to nowa technologia, szczególnie w przypadku technologii hello jest używany z danych poufnych lub zastrzeżonych. Jak można ocenić różnych technologii, należy wziąć pod uwagę zwiększone ryzyko i koszty związane z ochroną danych. Microsoft Azure StorSimple zawiera zabezpieczeń i prywatności rozwiązania ochrony danych, pomagając tooensure: 
 
 * **Poufność** — tylko do autoryzowanych jednostek można wyświetlić danych. 
 * **Integralność** — tylko autoryzowani jednostki można zmodyfikować lub usunąć dane.
 
-Rozwiązanie Microsoft Azure StorSimple składa się z czterech głównych składników, które współdziałają ze sobą:
+Witaj rozwiązania Microsoft Azure StorSimple składa się z czterech głównych składników, które współdziałają ze sobą:
 
-* **Usługę Menedżer StorSimple hostowana na platformie Microsoft Azure** — usługę zarządzania, która służy do konfigurowania i obsługi administracyjnej urządzeniu StorSimple.
-* **Urządzenia StorSimple** — urządzenia fizycznego zainstalowany w centrum danych. Wszystkie hosty i klientów, które generują dane nawiąż połączenie z urządzeniem StorSimple, urządzenie i zarządza danych przenosi je do chmury Azure jako odpowiednie.
-* **Klienci/hosty są połączone z urządzeniem** — klientów w infrastrukturze, które łączą się z urządzeniem StorSimple i generować dane, które wymagają ochrony.
-* **Magazyn w chmurze** — lokalizacji w chmurze Azure, w którym są przechowywane dane.
+* **Usługę Menedżer StorSimple hostowana na platformie Microsoft Azure** — użycie tooconfigure i świadczenia usługi zarządzania hello hello urządzenia StorSimple.
+* **Urządzenia StorSimple** — urządzenia fizycznego zainstalowany w centrum danych. Wszystkie hosty i klientów, które generują dane Podłącz urządzenie StorSimple toohello, a urządzenie hello zarządza danymi hello i przenosi ją toohello chmury Azure jako odpowiednie.
+* **Klienci/hosty podłączone urządzenie toohello** — Witaj klientów w infrastrukturze łączących toohello urządzenia StorSimple i generować dane do potrzeb toobe chronione.
+* **Magazyn w chmurze** — Witaj lokalizacji w hello chmury Azure, w którym są przechowywane dane.
 
-W poniższych sekcjach opisano funkcje zabezpieczeń StorSimple, pomagających w ochronie każdego z tych składników oraz danych przechowywanych w nich. Zawiera także listę pytania, na które może być o zabezpieczeniach Microsoft Azure StorSimple i odpowiednich odpowiedzi.
+Witaj poniższych sekcjach opisano funkcje zabezpieczeń StorSimple hello pomagających w ochronie każdego z tych składników oraz hello danych przechowywanych w nich. Zawiera także listę pytania, na które może być o zabezpieczeniach Microsoft Azure StorSimple i hello odpowiednich odpowiedzi.
 
 ## <a name="storsimple-manager-service-protection"></a>Ochrona usługi Menedżer StorSimple
-Usługę Menedżer StorSimple jest hostowana na platformie Microsoft Azure i używane do zarządzania wszystkimi urządzeniami StorSimple, które organizacja ma kupowane usługi zarządzania. Można uzyskać dostępu do usługi Menedżer StorSimple przy użyciu poświadczeń w organizacji do logowania się do klasycznego portalu Azure za pośrednictwem przeglądarki sieci web. 
+Hello usługi Menedżer StorSimple jest usługą zarządzania hostowana na platformie Microsoft Azure i użyć toomanage wszystkie urządzenia StorSimple, które organizacja został uzyskany. Można uzyskać dostępu do hello usługi Menedżer StorSimple przy użyciu programu toolog poświadczeń w organizacji na toohello klasycznego portalu Azure za pośrednictwem przeglądarki sieci web. 
 
-Dostęp do usługi Menedżer StorSimple wymaga, aby Twoja organizacja ma subskrypcję platformy Azure, która obejmuje StorSimple. Subskrypcja podlega funkcje, które są dostępne w klasycznym portalu Azure. Jeśli Twoja organizacja nie ma subskrypcji platformy Azure i chcesz dowiedzieć się więcej o nich, zobacz [tworzenia konta platformy Azure jako organizacja](../active-directory/sign-up-organization.md). 
+Toohello dostępu usługi Menedżer StorSimple wymaga, że Twoja organizacja ma subskrypcję platformy Azure, która obejmuje StorSimple. Subskrypcja podlega hello funkcje, które są dostępne w hello klasycznego portalu Azure. Jeśli Twoja organizacja nie ma subskrypcji platformy Azure i mają więcej informacji na temat ich toolearn, zobacz [tworzenia konta platformy Azure jako organizacja](../active-directory/sign-up-organization.md). 
 
-Ponieważ usługa Menedżer StorSimple jest obsługiwana na platformie Azure, jest chroniona przez funkcje zabezpieczeń platformy Azure. Aby uzyskać więcej informacji na temat funkcji zabezpieczeń udostępniane przez Microsoft Azure, przejdź do [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+Ponieważ hello usługi Menedżer StorSimple jest hostowana na platformie Azure, jest chroniona przez hello funkcje zabezpieczeń platformy Azure. Aby uzyskać więcej informacji na temat funkcji zabezpieczeń hello udostępniane przez Microsoft Azure, przejdź toohello [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
 ## <a name="storsimple-device-protection"></a>Ochrona urządzenia StorSimple
-Urządzenia StorSimple jest lokalnym urządzeniem magazynującym hybrydowych, zawierający dysków półprzewodnikowych (SSD) i dysków twardych (HDD), wraz z nadmiarowe kontrolery i funkcji automatycznej pracy awaryjnej. Kontrolery zarządzania magazynem, dodając funkcje warstw, umieszczania aktualnie używane (lub gorących) danych w magazynie lokalnym (w StorSimple urządzenia lub lokalnych serwerów), podczas przenoszenia rzadziej używanych danych do chmury.
+urządzenia StorSimple Hello jest lokalnego urządzenia magazynu hybrydowego zawierający dysków półprzewodnikowych (SSD) i dysków twardych (HDD), wraz z nadmiarowe kontrolery i funkcji automatycznej pracy awaryjnej. Witaj kontrolerów zarządzania magazynem warstwy, umieszczania aktualnie używane (lub gorących) danych w magazynie lokalnym (w hello urządzenia StorSimple lub serwerów lokalnych), podczas przenoszenia toohello rzadziej używanych danych w chmurze.
 
-Wyłącznie autoryzowanych urządzeń mogą przyłączać usługi Menedżer StorSimple, utworzony w ramach subskrypcji platformy Azure StorSimple. Aby autoryzować urządzenia, należy zarejestrować go w usłudze Menedżer StorSimple zapewniając klucz rejestracji usługi. Klucz rejestracji usługi jest 128-bitowego losowy klucz wygenerowany w klasycznym portalu Azure. 
+Tylko autoryzowane StorSimple, urządzenia będą mogły hello toojoin usługi Menedżer StorSimple, utworzony w ramach subskrypcji platformy Azure. tooauthorize urządzenie musi być zarejestrowany z hello usługi Menedżer StorSimple, zapewniając klucz rejestracji usługi hello. klucz rejestracji usługi Hello jest 128-bitowego losowy klucz wygenerowany w hello klasycznego portalu Azure. 
 
 ![klucz rejestracji usługi](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Aby dowiedzieć się, jak uzyskać klucz rejestracji usługi, przejdź do [krok 2: pobieranie klucza rejestracji usługi](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
+toolearn jak uzyskać Przejdź klucza, rejestracji usługi zbyt[krok 2: Pobierz klucz rejestracji usługi hello](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-Klucz rejestracji usługi jest długa klucz, który zawiera znaki 100 +. Można skopiować klucz i zapisać go w pliku tekstowym w bezpiecznej lokalizacji, dzięki czemu można go używać do autoryzowania dodatkowych urządzeń w razie potrzeby. Jeśli klucz rejestracji usługi nie zostały utracone po zarejestrowaniu pierwszego urządzenia, można wygenerować nowy klucz w usłudze Menedżer StorSimple. Nie wpłynie to na operację istniejących urządzeń. 
+klucz rejestracji usługi Hello jest długa klucz, który zawiera znaki 100 +. Można skopiować klucza hello i zapisać go w pliku tekstowym w bezpiecznej lokalizacji, dzięki czemu można używać go tooauthorize dodatkowych urządzeń w razie potrzeby. Jeśli klucz rejestracji usługi hello zostaną utracone po zarejestrowaniu pierwszego urządzenia, możesz wygenerować nowy klucz na podstawie hello usługi Menedżer StorSimple. Nie wpłynie to na operację hello istniejących urządzeń. 
 
-Po zarejestrowaniu urządzenia korzysta tokenów do komunikowania się z Microsoft Azure. Po rejestracji urządzenie nie jest używany klucz rejestracji usługi.
+Po zarejestrowaniu urządzenia za pomocą tokenów toocommunicate i Microsoft Azure. klucz rejestracji usługi Hello nie jest używany po rejestracji urządzeń.
 
 > [!NOTE]
-> Zaleca się ponowne generowanie klucza rejestracji usługi po każdym użyciu.
+> Zaleca się ponowne generowanie klucza rejestracji usługi powitania po każdym użyciu.
 > 
 > 
 
 ## <a name="protect-your-storsimple-solution-via-passwords"></a>Ochrona rozwiązania StorSimple przy użyciu hasła
-Hasła są istotnym elementem zabezpieczenia komputera i są często używane w rozwiązaniu StorSimple pomaga zapewnić, że dane są dostępne tylko autoryzowanym użytkownikom. StorSimple można skonfigurować następujące hasła:
+Hasła są istotnym elementem zabezpieczenia komputera i są często używane w rozwiązaniu StorSimple hello toohelp upewnij się, że dane są tooauthorized dostępny tylko dla użytkowników. StorSimple umożliwia hello tooconfigure następującego hasła:
 
 * Hasło administratora urządzenia StorSimple
 * Żądanie hasła Inicjator i obiekt docelowy protokołu uwierzytelniania Handshake (CHAP)
 * Hasło programu StorSimple Snapshot Manager
 
-### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Program Windows PowerShell dla StorSimple i hasło administratora urządzenia StorSimple
-Program Windows PowerShell dla StorSimple jest interfejsu wiersza polecenia, który służy do zarządzania urządzeniem StorSimple. Program Windows PowerShell dla StorSimple zawiera funkcje, które umożliwiają zarejestrować urządzenie, skonfiguruj interfejs sieciowy na urządzeniu, zainstalować niektórych typów aktualizacji, rozwiązywania problemów z urządzeniem, uzyskując dostęp do sesji pomocy technicznej i zmienić stan urządzenia. Nawiązując połączenie z konsolą szeregową urządzenia lub przy użyciu komunikacji zdalnej programu Windows PowerShell miały dostęp do programu Windows PowerShell dla StorSimple.
+### <a name="windows-powershell-for-storsimple-and-hello-storsimple-device-administrator-password"></a>Program Windows PowerShell dla StorSimple i hello hasło administratora urządzenia StorSimple
+Program Windows PowerShell dla urządzenia StorSimple jest interfejsu wiersza polecenia, których można używać urządzeń StorSimple hello toomanage. Program Windows PowerShell dla StorSimple zawiera funkcje, które pozwalają tooregister urządzenia, skonfiguruj interfejs sieciowy hello na urządzeniu zainstalować niektórych typów aktualizacji, rozwiązywania problemów z urządzeniem, uzyskując dostęp do sesji pomocy technicznej hello i zmienić stan urządzenia hello . Przy komunikacji zdalnej programu Windows PowerShell lub konsoli szeregowej toohello połączenia na urządzeniu hello miały dostęp do programu Windows PowerShell dla StorSimple.
 
-Usługi zdalne środowiska PowerShell może odbywać się za pośrednictwem protokołu HTTP lub HTTPS. Po włączeniu zdalnego zarządzania za pośrednictwem protokołu HTTPS, należy pobrać certyfikat zdalnego zarządzania z urządzenia i zainstalować ją na kliencie zdalnym. Aby uzyskać więcej informacji dotyczących komunikacji zdalnej programu PowerShell, przejdź do [połączenia zdalne z urządzeniem StorSimple](storsimple-remote-connect.md).
+Usługi zdalne środowiska PowerShell może odbywać się za pośrednictwem protokołu HTTP lub HTTPS. Po włączeniu zdalnego zarządzania za pośrednictwem protokołu HTTPS, konieczne będzie toodownload hello zdalne zarządzanie certyfikatu z urządzenia hello i zainstalować ją na powitania klienta zdalnego. Aby uzyskać więcej informacji na temat komunikacji zdalnej programu PowerShell Przejdź zbyt[połączyć się zdalnie urządzenia StorSimple tooyour](storsimple-remote-connect.md).
 
-Nawiąż połączenie z urządzeniem przy użyciu programu Windows PowerShell dla StorSimple, należy podać hasło administratora urządzenia do logowania się do urządzenia.
+Po użyciu programu Windows PowerShell dla StorSimple tooconnect toohello urządzenia, konieczne będzie tooprovide toolog hasło administratora urządzenia hello na urządzeniu toohello.
 
 ![Hasło administratora urządzenia](./media/storsimple-security/DeviceAdminPW.png)
 
-Pamiętać o następujących rozwiązań:
+Zachowaj hello następujące najlepsze rozwiązania pod uwagę:
 
-* Zdalne zarządzanie jest domyślnie wyłączona. Aby je włączyć, można użyć usługi Menedżer StorSimple. Ze względów bezpieczeństwa dostępu zdalnego powinna być włączona tylko w tym okresie, które są rzeczywiście potrzebne.
-* Jeśli zmienisz hasło, należy powiadomić wszystkich użytkowników dostępu zdalnego tak, aby nie będą występować utracie Nieoczekiwana łączności.
-* Usługę Menedżer StorSimple, nie można pobrać istniejące hasła: można tylko zresetować je. Firma Microsoft zaleca przechowywania wszystkie hasła w bezpiecznym miejscu, dzięki czemu nie trzeba zresetować hasło, jeśli jest zapomnienia hasła. Jeśli potrzebujesz zresetować hasło, należy powiadomić wszystkich użytkowników, zanim je zresetować. 
+* Zdalne zarządzanie jest domyślnie wyłączona. Można użyć tooenable usługi Menedżer StorSimple hello go. Ze względów bezpieczeństwa dostępu zdalnego powinna być włączona tylko podczas hello okres czasu, który będzie to wymagane.
+* Jeśli zmienisz hasło hello można toonotify się, że wszyscy użytkownicy dostępu zdalnego tak, aby nie będą występować utracie Nieoczekiwana łączności.
+* Witaj usługi Menedżer StorSimple, nie można pobrać istniejące hasła: można tylko zresetować je. Firma Microsoft zaleca przechowywać wszystkie hasła w bezpiecznym miejscu, dzięki czemu nie trzeba tooreset hasła zapomnienia jest. Jeśli potrzebujesz tooreset hasła można toonotify się, że wszyscy użytkownicy przed je zresetować. 
 
-Można uzyskać dostępu do interfejsu programu Windows PowerShell za pomocą połączenia szeregowego na urządzeniu. Możesz również do niego dostęp zdalnie przy użyciu protokołu HTTP lub HTTPS, która zapewnia dodatkowe zabezpieczenia. HTTPS zapewnia wyższy poziom zabezpieczeń niż seryjny lub połączenia HTTP. Jednak do używania protokołu HTTPS, należy najpierw zainstalować certyfikat na komputerze klienckim, który będą uzyskiwać dostęp do urządzenia. Certyfikat dostępu zdalnego można pobrać ze strony konfiguracji urządzenia w usłudze Menedżer StorSimple. W przypadku utraty certyfikatu na potrzeby dostępu zdalnego, musisz pobrać nowy certyfikat i propagację go do wszystkich klientów, które są autoryzowane do używania zdalnego zarządzania.
+Za pomocą połączenia szeregowego toohello urządzenia można uzyskać dostępu do hello interfejsu programu Windows PowerShell. Możesz również do niego dostęp zdalnie przy użyciu protokołu HTTP lub HTTPS, która zapewnia dodatkowe zabezpieczenia. HTTPS zapewnia wyższy poziom zabezpieczeń niż seryjny lub połączenia HTTP. Jednak toouse HTTPS, należy najpierw zainstalować certyfikat na komputerze klienckim hello dostępnym hello urządzenia. Certyfikat dostępu zdalnego hello można pobrać ze strony konfiguracji urządzenia hello w hello usługi Menedżer StorSimple. W przypadku utraty hello certyfikatu do dostępu zdalnego należy pobrać nowy certyfikat i Propaguj go tooall klientów, które są autoryzowane toouse zdalne zarządzanie.
 
 ### <a name="challenge-handshake-authentication-protocol-chap-initiator-and-target-passwords"></a>Żądanie hasła Inicjator i obiekt docelowy protokołu uwierzytelniania Handshake (CHAP)
-Protokół CHAP jest schemat uwierzytelniania używany przez urządzenie StorSimple do sprawdzania tożsamości klientów zdalnych. Weryfikacja jest oparta na wspólne hasło. Protokół CHAP, może być jednokierunkowe (jednokierunkowe) lub wzajemne (dwukierunkowe). Za pomocą jednokierunkowego protokołu CHAP element docelowy (urządzenia StorSimple) uwierzytelnia inicjatora (hosta). Wzajemnego lub wstecznego protokołu CHAP wymaga, aby obiekt docelowy uwierzytelniania inicjatora, a następnie inicjatora uwierzytelniania obiektu docelowego. Twoje StorSimple można skonfigurować do używania każdej z metod.
+Protokół CHAP jest schemat uwierzytelniania używany przez hello tożsamości hello toovalidate urządzenia StorSimple z klientów zdalnych. Weryfikacja Hello jest oparta na wspólne hasło. Protokół CHAP, może być jednokierunkowe (jednokierunkowe) lub wzajemne (dwukierunkowe). Za pomocą jednokierunkowego protokołu CHAP hello docelowego (hello urządzenia StorSimple) uwierzytelnia inicjatora (hosta). Wzajemnego lub wstecznego protokołu CHAP wymaga hello docelowy uwierzytelniania inicjatora hello i następnie inicjatora hello uwierzytelniania hello docelowej. Twoje StorSimple może być skonfigurowany toouse każdej z metod.
 
-Konfigurowanie protokołu CHAP, należy pamiętać o następujących:
+Konfigurowanie protokołu CHAP, należy pamiętać o następujących hello:
 
-* Nazwa użytkownika protokołu CHAP musi zawierać mniej niż 233 znaków.
-* Hasło protokołu CHAP musi należeć do zakresu od 12 do 16 znaków. Podjęto próbę dłużej nazwę użytkownika lub hasło spowoduje niepowodzenie uwierzytelniania na hoście systemu Windows.
-* Nie można użyć tego samego hasła dla inicjatora protokołu CHAP i obiektu docelowego protokołu CHAP.
-* Po ustawieniu hasła, można zmienić, ale nie można pobrać. Jeśli hasło zostało zmienione, należy powiadomić wszystkich użytkowników dostępu zdalnego tak, aby pomyślnie umożliwić im połączenie z urządzeniem StorSimple.
+* Nazwa użytkownika protokołu CHAP Hello musi zawierać mniej niż 233 znaków.
+* Hasło protokołu CHAP Hello musi należeć do zakresu od 12 do 16 znaków. Próba toouse dłużej nazwa użytkownika lub hasło spowoduje niepowodzenie uwierzytelniania na hoście Windows hello.
+* Nie można użyć hello tego samego hasła dla hello inicjatora protokołu CHAP i hello obiektu docelowego protokołu CHAP.
+* Po ustawieniu hasła hello, można zmienić, ale nie można pobrać. Zmiana hasła hello być toonotify się, że wszyscy użytkownicy dostępu zdalnego tak, aby pomyślnie umożliwić im połączenie toohello urządzenia StorSimple.
 
-Aby uzyskać więcej informacji na temat protokołu CHAP i skonfigurować go do rozwiązania StorSimple, przejdź do [Konfigurowanie protokołu CHAP dla urządzenia StorSimple](storsimple-configure-chap.md).
+Aby uzyskać więcej informacji na temat protokołu CHAP i jak tooconfigure go do rozwiązania StorSimple Przejdź zbyt[Konfigurowanie protokołu CHAP dla urządzenia StorSimple](storsimple-configure-chap.md).
 
 ### <a name="storsimple-snapshot-manager-password"></a>Hasło programu StorSimple Snapshot Manager
-StorSimple Snapshot Manager jest przystawką Microsoft Management Console (MMC), używaną grup woluminu i usługi kopiowania woluminów systemu Windows w tle do generowania kopie zapasowe spójnych z aplikacją. Ponadto można użyć programu StorSimple Snapshot Manager do tworzenia harmonogramów kopii zapasowych oraz klonowania lub Przywracanie woluminów.
+StorSimple Snapshot Manager jest przystawki Microsoft Management Console (MMC), która używa grup woluminu i kopii zapasowych spójnych z aplikacją toogenerate usługi kopiowania woluminów w tle Windows hello. Ponadto można użyć programu StorSimple Snapshot Manager toocreate harmonogramy tworzenia kopii zapasowej i w klonowania lub Przywracanie woluminów.
 
-Podczas konfigurowania na urządzeniu StorSimple Snapshot Manager korzystać, trzeba będzie podać hasło programu StorSimple Snapshot Manager. To hasło jest najpierw ustawić w programie Windows PowerShell dla StorSimple podczas rejestracji. Można również ustawić hasło i zmieniła się z usługi Menedżer StorSimple. To hasło służy do uwierzytelniania urządzeń z StorSimple Snapshot Manager.
+Po skonfigurowaniu toouse urządzenia StorSimple Snapshot Manager będzie hasło programu StorSimple Snapshot Manager hello tooprovide wymagane. To hasło jest najpierw ustawić w programie Windows PowerShell dla StorSimple podczas rejestracji. można również ustawić hasło Hello i zmieniła się z hello usługi Menedżer StorSimple. To hasło służy do uwierzytelniania urządzenia hello z StorSimple Snapshot Manager.
 
 ![Hasło programu StorSimple Snapshot Manager](./media/storsimple-security/SnapshotMgrPassword.png)
 
-Hasło programu StorSimple Snapshot Manager musi być 14 do 15 znaków i może zawierać 3 lub więcej z kombinacji wielkie litery, małe litery, liczbowego i znaki specjalne. Po ustawieniu hasło programu StorSimple Snapshot Manager można zmienić, ale nie można pobrać. Jeśli zmienisz hasło, należy powiadomić wszystkich użytkowników zdalnych.
+hasło programu StorSimple Snapshot Manager Hello musi być 14 too15 znaków i może zawierać 3 lub więcej z kombinacji wielkie litery, małe litery, liczbowego i znaki specjalne. Po ustawieniu hello hasło programu StorSimple Snapshot Manager można zmienić, ale nie można pobrać. Jeśli zmienisz hasło hello można się toonotify wszystkich użytkowników zdalnych.
 
-Aby uzyskać więcej informacji na temat programu StorSimple Snapshot Manager przejdź do [co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+Aby uzyskać więcej informacji na temat programu StorSimple Snapshot Manager Przejdź zbyt[co to jest StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="password-best-practices"></a>Najlepsze rozwiązania w zakresie hasła
-Firma Microsoft zaleca, skorzystaj z poniższych wskazówek w celu zapewnienia, że haseł usługi StorSimple silne i dobrze chroniony:
+Zalecane jest użycie hello następujące wytyczne toohelp zapewniać haseł usługi StorSimple silne i dobrze chroniony:
 
-* Zmień hasła co trzy miesiące. Zmiana hasła jest wymuszana co roku.
-* Należy używać silnych haseł. Aby uzyskać więcej informacji, przejdź do [tworzyć silniejsze hasła i chronić je](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
-* Zawsze używaj różnych haseł dla dostępu do różnych mechanizmów; Każdy z haseł, które określisz powinna być unikatowa.
-* Nie udostępniaj hasła każdemu użytkownikowi, który nie ma uprawnień dostępu do tego urządzenia StorSimple.
-* Nie Czytaj o hasło przed innymi lub wskazówki na format hasła.
-* Jeśli podejrzewasz, że naruszono konto lub hasło, należy zgłosić zdarzenie, aby dział bezpieczeństwa informacji.
+* Zmień hasła co trzy miesiące. Zmienianie haseł hello jest wymuszana co roku.
+* Należy używać silnych haseł. Aby uzyskać więcej informacji, przejdź zbyt[tworzyć silniejsze hasła i chronić je](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Zawsze używaj różnych haseł dla dostępu do różnych mechanizmów; Każdy hello haseł, które określisz powinna być unikatowa.
+* Nie udostępniaj nikomu nie będącego urządzenia StorSimple hello tooaccess autoryzowanych hasła.
+* Nie Czytaj o hasło przed innymi lub wskazówki na powitania format hasła.
+* Jeśli podejrzewasz, że naruszono konto lub hasło, zgłoś dział bezpieczeństwa informacji tooyour zdarzenia hello.
 * Traktuj wszystkie hasła jako poufne, poufne informacje. 
 
 ## <a name="storsimple-data-protection"></a>Ochrona danych StorSimple
-W tej sekcji opisano funkcje zabezpieczeń StorSimple ochrony danych przesyłanych i przechowywanych danych.
+W tej sekcji opisano funkcje zabezpieczeń StorSimple hello ochrony danych przesyłanych i przechowywanych danych.
 
-Jak opisano w innych częściach, hasła są używane do autoryzacji i uwierzytelnianie użytkowników, zanim uzyskają dostęp do rozwiązania StorSimple. Kolejnym zagadnieniem zabezpieczeń jest ochrona danych przed nieautoryzowanymi użytkownikami, gdy są przesyłane między systemami magazynowania, a podczas są przechowywane. W poniższych sekcjach opisano funkcje ochrony danych, które są dostarczane z StorSimple.
+Zgodnie z opisem w innych częściach, są używane tooauthorize i uwierzytelnia użytkowników przed uzyskaniem dostępu tooyour StorSimple rozwiązania hasła. Kolejnym zagadnieniem zabezpieczeń jest ochrona danych przed nieautoryzowanymi użytkownikami, gdy są przesyłane między systemami magazynowania, a podczas są przechowywane. Witaj poniższych sekcjach opisano funkcje ochrony danych hello wyposażone StorSimple.
 
 > [!NOTE]
-> Funkcja deduplikacji udostępnia dodatkową ochronę danych przechowywanych na urządzeniu StorSimple i magazynu Microsoft Azure. Gdy dane jest deduplikowany, obiekty danych są przechowywane oddzielnie od metadane używane do mapowania i uzyskiwać do nich dostęp: nie jest dostępny kontekst poziom przechowywania odtworzenie danych na podstawie struktury woluminu, system plików lub nazwę pliku.
+> Funkcja deduplikacji udostępnia dodatkową ochronę danych przechowywanych na urządzeniu StorSimple hello i magazynu Microsoft Azure. Gdy dane jest deduplikowany, obiekty danych hello są przechowywane oddzielnie od toomap metadane używane hello i uzyskiwać do nich dostęp: nie ma żadnych danych hello tooreconstruct dostępne kontekstu poziom przechowywania na podstawie struktury woluminu, system plików lub nazwę pliku.
 > 
 > 
 
-## <a name="protect-data-flowing-through-the-service"></a>Ochrona danych przepływających przez usługę
-Jest podstawowym celem usługi Menedżer StorSimple do zarządzania i konfigurowania urządzenia StorSimple. Usługi Menedżer StorSimple działa na platformie Microsoft Azure. Użyj klasycznego portalu Azure do wprowadzania danych konfiguracji urządzenia, a następnie Microsoft Azure używa usługi Menedżer StorSimple do wysyłania danych do urządzenia. StorSimple korzysta z systemu par kluczy asymetrycznych w celu zapewnienia, że naruszenia zabezpieczeń usługi Azure nie spowoduje naruszenie przechowywanych informacji. 
+## <a name="protect-data-flowing-through-hello-service"></a>Ochrona danych przepływających przez hello usługi
+głównym celem hello usługi Menedżer StorSimple Hello jest toomanage i skonfiguruj hello urządzenia StorSimple. Hello usługi Menedżer StorSimple działa na platformie Microsoft Azure. Użyj hello Azure classic portal tooenter danych o konfiguracji urządzenia, a następnie używa usługi Menedżer StorSimple hello toosend urządzenie toohello danych hello w Microsoft Azure. Informacje są przechowywane w używa StorSimple system toohelp pary kluczy asymetrycznych upewnij się, że do naruszenia nie spowoduje naruszenie hello usługi Azure. 
 
 ![Szyfrowanie danych w locie](./media/storsimple-security/DataEncryption.png)
 
-System klucza asymetrycznego pomaga chronić dane przepływającego za pośrednictwem usługi:
+system klucza asymetrycznego Hello chroni hello danych za pośrednictwem usługi hello w następujący sposób:
 
-1. Certyfikat szyfrowania danych, który używa publicznego i prywatnego klucza asymetrycznego pary jest generowany na urządzeniu i jest używany do ochrony danych. Klucze są generowane, gdy pierwszy urządzenie jest zarejestrowane. 
-2. Klucze certyfikatu szyfrowania danych zostaną wyeksportowane do pliku wymiany informacji osobistych (pfx), który jest chroniony przez klucz szyfrowania danych usługi, który jest silnego klucza 128-bitowego, losowo generowany przez pierwszego urządzenia podczas rejestracji.
-3. Klucz publiczny certyfikatu jest bezpiecznie udostępnione usługi Menedżer StorSimple, a klucz prywatny jest powiązana z urządzenia.
-4. Data rozpoczęcia pracy są szyfrowane przy użyciu publicznego klucza i odszyfrowane przy użyciu klucza prywatnego przechowywanych na urządzeniu, zapewniając, że usługa Azure nie może odszyfrować dane przepływające na urządzeniu.
+1. Certyfikat szyfrowania danych, który używa publicznego i prywatnego para kluczy asymetrycznych jest generowany na urządzeniu hello i używanych tooprotect hello danych. klucze Hello są generowane, gdy hello pierwsze urządzenie jest zarejestrowane. 
+2. Klucze certyfikatu szyfrowania danych Hello zostaną wyeksportowane do pliku wymiany informacji osobistych (pfx), który jest chroniony przez klucz szyfrowania danych usługi hello, czyli silnego klucza 128-bitowego, losowo generowany przez hello pierwszego urządzenia podczas rejestracji.
+3. Hello klucz publiczny certyfikatu hello staje się bezpiecznie toohello dostępne usługi Menedżer StorSimple, a klucz prywatny hello pozostaje hello urządzenia.
+4. Dane, które wprowadzanie usługi hello jest szyfrowana przy użyciu hello klucza publicznego ani odszyfrować przy użyciu klucza prywatnego hello przechowywane na urządzeniu hello, zapewnienie, że hello usługi Azure odszyfrowywać hello dane przepływające toohello urządzenia.
 
-Klucz szyfrowania danych usługi jest generowany tylko pierwszego urządzenia zarejestrowane w usłudze. Wszystkie kolejne urządzenia, które są zarejestrowane w usłudze muszą używać tego samego klucza szyfrowania danych usługi. 
+klucz szyfrowania danych usługi Hello jest generowany na powitania pierwszego urządzenia zarejestrowane w usłudze hello. Wszystkie kolejne urządzenia, które są zarejestrowane w usłudze hello należy użyć hello tego samego klucza szyfrowania danych usługi. 
 
 > [!IMPORTANT]
-> Jest bardzo ważne, aby utworzyć kopię klucza szyfrowania danych usługi i zapisz go w bezpiecznym miejscu. Kopię klucza szyfrowania danych usługi powinny być przechowywane w taki sposób, mogą uzyskiwać przez osobę upoważnioną i mogą być łatwo przekazywane administratora urządzenia.
+> Jest bardzo ważne toomake kopię klucza szyfrowania danych usługi hello i zapisz go w bezpiecznej lokalizacji. Kopię klucza szyfrowania danych usługi hello powinny być przechowywane w taki sposób, mogą uzyskiwać przez osobę upoważnioną i mogą być łatwo przekazanych toohello administratora urządzenia.
 > 
-> W przypadku utraty klucza szyfrowania danych usługi pomocy technicznej firmy Microsoft pomoże Ci aby go uzyskać, pod warunkiem, że masz co najmniej jedno urządzenie w stanie online. Firma Microsoft zaleca zmianę klucza szyfrowania danych usługi po jej pobraniu. Aby uzyskać instrukcje, przejdź do [zmienić klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> W przypadku utraty klucza szyfrowania danych usługi hello działu pomocy technicznej firmy Microsoft pomoże Ci tooretrieve udostępniane, czy masz co najmniej jedno urządzenie w stanie online. Firma Microsoft zaleca zmianę klucza szyfrowania danych usługi powitania po jej pobraniu. Aby uzyskać instrukcje, przejdź zbyt[klucza szyfrowania danych usługi hello zmiany](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > 
 > 
 
-Można zmienić klucza szyfrowania danych usługi i odpowiedni certyfikat szyfrowania danych, wybierając **klucza szyfrowania danych usługi zmiany** opcji na pulpicie nawigacyjnym usługi. Aby upewnić się, że bezpieczeństwo danych nie zostanie naruszony, należy użyć urządzenia fizycznego StorSimple można zmienić klucza szyfrowania danych usługi. Zmiana kluczy szyfrowania wymaga, aby wszystkie urządzenia można zaktualizować za pomocą nowego klucza. Dlatego zaleca się zmiany klucza, gdy wszystkie urządzenia są w trybie online. Jeśli urządzenia są w trybie offline, można zmienić ich kluczy w innym czasie. Urządzenia z kluczami nieaktualne nadal będzie można wykonywać kopie zapasowe, ale nie będzie mógł przywrócić dane, dopóki nie zostanie zaktualizowana klucza. Aby uzyskać więcej informacji, przejdź do [pulpit nawigacyjny usługi Menedżer StorSimple](storsimple-service-dashboard.md).
+Można zmienić klucza szyfrowania danych usługi hello i hello odpowiedni certyfikat szyfrowania danych, wybierając hello **klucza szyfrowania danych usługi zmiany** opcji na powitania pulpit nawigacyjny usługi. tooensure, że bezpieczeństwo danych nie zostanie naruszony, należy użyć fizycznego StorSimple urządzenia toochange hello klucza szyfrowania danych usługi. Zmiana kluczy szyfrowania hello wymaga, aby wszystkie urządzenia zostać zaktualizowana przy użyciu nowego klucza hello. Dlatego zaleca się zmienić klucz hello, gdy wszystkie urządzenia są w trybie online. Jeśli urządzenia są w trybie offline, można zmienić ich kluczy w innym czasie. urządzenia Hello z kluczami nieaktualne będą nadal mogli toorun kopii zapasowych, ale nie będą mogli toorestore danych do czasu zaktualizowania hello klucza. Aby uzyskać więcej informacji, przejdź zbyt[nawigacyjnym usługi Menedżer StorSimple hello użyj](storsimple-service-dashboard.md).
 
-Klucz szyfrowania danych usługi i certyfikat szyfrowania danych nie wygasa. Jednak zaleca się, że zmienić klucza szyfrowania danych usługi co roku, aby zapobiec złamania klucza.
+klucz szyfrowania danych usługi Hello i certyfikat szyfrowania danych hello nie wygasa. Jednak zaleca się zmieniania szyfrowania danych usługi hello klucza rocznie toohelp zapobiec złamania klucza.
 
 ## <a name="protect-data-at-rest"></a>Ochrona danych w stanie spoczynku
-Urządzenia StorSimple zarządza danymi przez zapisanie jej w warstwach lokalnie i w chmurze, w zależności od częstotliwości użytkowania. Wszystkie maszyny hosta, które są połączone z urządzeniem wysyłać dane do urządzenia, które przenosi dane w chmurze, zależnie od potrzeb. Dane są przesyłane z urządzenia do chmury bezpiecznie za pośrednictwem Internetu. Każde urządzenie ma jeden obiekt docelowy iSCSI, która udostępnia wszystkie udostępnione woluminy na tym urządzeniu. Wszystkie dane są szyfrowane przed wysłaniem do magazynu w chmurze. 
+urządzenia StorSimple Hello zarządza danymi przez zapisanie jej w warstwach lokalnie i w chmurze hello, w zależności od częstotliwości użytkowania. Wszystkie hosta maszyny, które są połączone toohello urządzenia wysyłania danych toohello urządzenia, które przenosi dane toohello chmury, zależnie od potrzeb. Dane są przesyłane z chmury toohello urządzenia hello bezpiecznie za pośrednictwem hello Internet. Każde urządzenie ma jeden obiekt docelowy iSCSI, która udostępnia wszystkie udostępnione woluminy na tym urządzeniu. Wszystkie dane są szyfrowane przed wysłaniem toocloud magazynu. 
 
 ![klucz szyfrowania magazynu w chmurze](./media/storsimple-security/CloudStorageEncryption.png)
 
-Do zapewnienia bezpieczeństwa i integralności danych przeniesiona do chmury, StorSimple można zdefiniować klucze szyfrowania magazynu w chmurze w następujący sposób:
+toohelp zapewnić bezpieczeństwo hello i integralność danych przenieść toohello chmury, StorSimple umożliwia klucze szyfrowania magazynu chmury toodefine w następujący sposób:
 
-* Klucz szyfrowania magazynu w chmurze można określić podczas tworzenia kontenera woluminów. Klucz nie może być zmodyfikowanie lub dodanie później. 
-* Wszystkie woluminy w kontenerze woluminów udostępnianie tego samego klucza szyfrowania. Jeśli chcesz inny formularz szyfrowania dla określonego woluminu, zaleca się utworzenie nowego kontenera woluminów do tego woluminu hosta.
-* Po wprowadzeniu klucz szyfrowania magazynu w chmurze w usłudze Menedżer StorSimple, klucz jest zaszyfrowany przy użyciu publicznej części klucza szyfrowania danych usługi, a następnie wysyłane do urządzenia.
-* Klucz szyfrowania magazynu w chmurze nie są przechowywane w dowolnym miejscu w usłudze, wiadomo, tylko urządzenia.
-* Określenie klucz szyfrowania magazynu w chmurze jest opcjonalne. Możesz wysłać dane, które zostały zaszyfrowane na hoście, na urządzeniu.
+* Klucz szyfrowania magazynu w chmurze hello można określić podczas tworzenia kontenera woluminów. Hello klucza nie może być zmodyfikowanie lub dodanie później. 
+* Wszystkie woluminy w udziale kontenera woluminu hello tego samego klucza szyfrowania. Jeśli chcesz inny formularz szyfrowania dla określonego woluminu, zaleca się utworzenie nowego toohost kontenera woluminów tego woluminu.
+* Po wprowadzeniu hello klucz szyfrowania magazynu w chmurze w hello usługi Menedżer StorSimple klucza hello są szyfrowane przy użyciu hello publicznej części klucza szyfrowania danych usługi hello, a następnie wyślij toohello urządzenia.
+* klucz szyfrowania magazynu w chmurze Hello nie jest przechowywany w dowolnym miejscu w usłudze hello i jest znany tylko toohello urządzenia.
+* Określenie klucz szyfrowania magazynu w chmurze jest opcjonalne. Możesz wysłać dane, które zostały zaszyfrowane na powitania hosta toohello urządzenia.
 
 ### <a name="additional-security-best-practices"></a>Dodatkowe najlepsze rozwiązania
-* Podziel ruchu: wyizolować z sieci SAN iSCSI z ruchu danych w sieci lokalnej firmy wdrażania całkowicie rozdzielonych sieci i przy użyciu sieci VLAN, których fizycznych izolacji nie jest opcją. Sieć dedykowanych dla magazynu iSCSI zagwarantuje bezpieczeństwa i wydajności danych biznesowych o znaczeniu krytycznym. Mieszanie ruchu magazynu i użytkownika w firmowej sieci LAN nie jest zalecana i może zwiększyć czas oczekiwania i powodować awarie sieci.
-* Na stronie zabezpieczenia sieci po stronie hosta należy użyć interfejsów sieciowych, które obsługują protokół TCP/IP Offload Engine (TOE). TOE zmniejsza obciążenie procesora CPU przez przetwarzanie TCP na karcie sieciowej.
+* Podziel ruchu: wyizolować z sieci SAN iSCSI z ruchu danych w sieci lokalnej firmy wdrażania całkowicie rozdzielonych sieci i przy użyciu sieci VLAN, których fizycznych izolacji nie jest opcją. Sieć dedykowanych dla magazynu iSCSI zagwarantuje hello bezpieczeństwa i wydajności danych biznesowych o znaczeniu krytycznym. Mieszanie ruchu magazynu i użytkownika w firmowej sieci LAN nie jest zalecana i może zwiększyć czas oczekiwania i powodować awarie sieci.
+* Na stronie zabezpieczenia sieci po stronie hosta należy użyć interfejsów sieciowych, które obsługują protokół TCP/IP Offload Engine (TOE). TOE zmniejsza obciążenie procesora CPU przez przetwarzanie TCP hello karty sieciowej.
 
 ## <a name="protect-data-via-storage-accounts"></a>Ochrona danych za pomocą kont magazynu
-Każda subskrypcja Microsoft Azure można utworzyć co najmniej jedno konto magazynu. (Konto magazynu zapewnia unikatową przestrzeń nazw do pracy z danych przechowywanych w chmurze Azure). Dostęp do konta magazynu jest kontrolowany przez klucze dostępu i subskrypcji skojarzonych z tym kontem magazynu. 
+Każda subskrypcja Microsoft Azure można utworzyć co najmniej jedno konto magazynu. (Konto magazynu zapewnia unikatową przestrzeń nazw do pracy z danymi przechowywanymi w hello chmury Azure). Konto magazynu tooa dostęp jest kontrolowany przez klucze dostępu i subskrypcji hello skojarzonych z tym kontem magazynu. 
 
-Podczas tworzenia konta magazynu Microsoft Azure generuje dwa klucze dostępu 512-bitowe magazynu, z których jeden jest używany do uwierzytelniania, gdy urządzenie StorSimple uzyskuje dostęp do konta magazynu. Należy pamiętać, że jest używany tylko jeden z tych kluczy. Inne klucza jest przechowywana w rezerwy, umożliwiając okresowo zmieniać klucze. Obracanie klucze, uaktywnić klucza pomocniczego, a następnie usuń klucz podstawowy. Następnie można utworzyć nowego klucza do użycia podczas następnego obrotu. (Ze względów bezpieczeństwa wiele centrów danych wymagają rotacją kluczy). 
+Podczas tworzenia konta magazynu Microsoft Azure generuje dwa klucze dostępu 512-bitowe magazynu, z których jeden jest używany do uwierzytelniania, gdy urządzenie StorSimple hello uzyskuje dostęp do konta magazynu hello. Należy pamiętać, że jest używany tylko jeden z tych kluczy. Witaj innego klucza jest przechowywana w rezerwy, dzięki czemu możesz toorotate hello klucze okresowo. klucze toorotate należy hello klucza pomocniczego aktywne, a następnie klucz podstawowy hello delete. Następnie można utworzyć nowego klucza do użycia podczas hello następny obrót. (Ze względów bezpieczeństwa wiele centrów danych wymagają rotacją kluczy). 
 
 Firma Microsoft zaleca, należy wykonać następujące najlepsze rozwiązania dotyczące obrotu klucza:
 
-* Należy obrócić klucze konta magazynu regularnie w celu zapewnienia, że Twoje konto magazynu nie jest używane przez nieautoryzowanych użytkowników.
-* Okresowo administratora platformy Azure, należy zmienić lub ponownie wygenerować klucz podstawowy lub pomocniczy przy użyciu sekcji magazynu w klasycznym portalu Azure na bezpośredni dostęp do konta magazynu.
+* Należy obrócić klucze konta magazynu regularnie toohelp upewnij się, że Twoje konto magazynu nie jest używane przez nieautoryzowanych użytkowników.
+* Okresowo administratora platformy Azure, należy zmienić lub ponownie wygenerować klucz podstawowy lub pomocniczy hello przy użyciu sekcji magazynu hello hello konta magazynu systemu Azure classic portal toodirectly dostępu hello.
 
 ## <a name="protect-data-via-encryption"></a>Ochrona danych za pomocą szyfrowania
-StorSimple używa następujących algorytmów szyfrowania, aby chronić dane przechowywane w lub podróży między składnikami rozwiązania StorSimple.
+StorSimple używa hello algorytmów szyfrowania, które tooprotect dane przechowywane w następujących lub podróży między składnikami hello rozwiązania StorSimple.
 
 | Algorytm | Długość klucza | Komentarze protokołów/aplikacji |
 | --- | --- | --- |
-| RSA |2048 |RSA PKCS 1-1.5 służy do szyfrowania danych konfiguracji, które są wysyłane do urządzenia w klasycznym portalu Azure: na przykład poświadczenia, konfiguracji urządzenia StorSimple, konta magazynu i klucze szyfrowania magazynu w chmurze. |
-| AES |256 |AES z CBC służy do szyfrowania publicznej części klucza szyfrowania danych usługi przed wysłaniem do klasycznego portalu Azure z urządzenia StorSimple. Jest on również używane przez urządzenia StorSimple do szyfrowania danych przed wysłaniem danych do konta magazynu w chmurze. |
+| RSA |2048 |1.5 RSA PKCS 1 jest używany przez hello Azure tooencrypt portalu klasycznego konfiguracji dane są przesyłane urządzenia toohello: na przykład poświadczenia, konfiguracji urządzenia StorSimple, konta magazynu i klucze szyfrowania magazynu w chmurze. |
+| AES |256 |AES z CBC jest używane tooencrypt hello publicznej części klucza szyfrowania danych usługi hello przed ich wysłaniem z urządzenia StorSimple hello toohello klasycznego portalu Azure. Jest on również używany przez dane tooencrypt urządzenia StorSimple hello przed wysłaniem danych hello toohello konta magazynu w chmurze. |
 
 ## <a name="storsimple-virtual-device-security"></a>Zabezpieczenia urządzenia wirtualnego StorSimple
 [!INCLUDE [storsimple virtual device security](../../includes/storsimple-virtual-device-security.md)]
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
-Poniżej przedstawiono niektóre pytania i odpowiedzi dotyczące zabezpieczeń i Microsoft Azure StorSimple.
+Witaj poniżej przedstawiono niektóre pytania i odpowiedzi dotyczące zabezpieczeń i Microsoft Azure StorSimple.
 
 **Pytanie:** Moje usługi zostanie naruszony. Jakie powinny być następne kroki należy wykonać?
 
-**Odpowiedź:** natychmiast należy zmienić klucza szyfrowania danych usługi i klucze konta magazynu dla konta magazynu, który jest używany dla danych warstw. Aby uzyskać instrukcje przejdź do: 
+**Odpowiedź:** natychmiast należy zmienić klucza szyfrowania danych usługi hello i hello klucze konta magazynu dla konta magazynu hello, który jest używany dla danych warstw. Aby uzyskać instrukcje przejdź do: 
 
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Klucz szyfrowania danych usługi hello zmiany](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 * [Rotacją kluczy kont magazynu](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**Pytanie:** mam nowe urządzenie StorSimple, który żąda klucz rejestracji usługi. Jak pobrać go
+**Pytanie:** mam nowe urządzenie StorSimple, który żąda klucz rejestracji usługi hello. Jak pobrać go
 
-**Odpowiedź:** ten klucz został utworzony podczas tworzenia usługi Menedżer StorSimple. Gdy używasz usługi Menedżer StorSimple do nawiązania połączenia z urządzeniem służy strona szybki start usługi do wyświetlania lub ponownie wygenerować klucz rejestracji usługi. Generowanie klucza rejestracji usługi nie wpłynie na istniejące zarejestrowanych urządzeń. Aby uzyskać instrukcje przejdź do:
+**Odpowiedź:** ten klucz został utworzony przy pierwszym tworzeniu hello usługi Menedżer StorSimple. Gdy używasz hello — urządzenie toohello tooconnect usługi Menedżer StorSimple, można użyć tooview strony szybki start usługi hello lub klucz rejestracji usługi regenerate hello. Generowanie klucza rejestracji usługi nie wpłynie na hello istniejących zarejestrowanych urządzeń. Aby uzyskać instrukcje przejdź do:
 
-* [Wyświetl lub ponownie wygenerować klucz rejestracji usługi](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
+* [Wyświetl lub ponownie wygenerować klucz rejestracji usługi hello](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **Pytanie:** utratą mój klucz szyfrowania danych usługi. Co mam zrobić?
 
-**Odpowiedź:** skontaktuj się z pomocą techniczną firmy Microsoft. Można logowania się do sesji pomocy technicznej na urządzeniu i pomoc można pobrać klucza (zakładając, że co najmniej jedno urządzenie jest w trybie online). Natychmiast po uzyskaniu klucza szyfrowania danych usługi należy zmienić, aby upewnić się, że nowy klucz jest znany tylko dla Ciebie. Aby uzyskać instrukcje przejdź do:
+**Odpowiedź:** skontaktuj się z pomocą techniczną firmy Microsoft. Możliwości zalogowania się tooa sesji pomocy technicznej na urządzeniu i pomocy pobrać klucz hello (zakładając, że co najmniej jedno urządzenie jest w trybie online). Natychmiast po uzyskaniu klucza szyfrowania danych usługi hello, należy ją zmienić tooensure tego nowego klucza hello jest znany tylko tooyou. Aby uzyskać instrukcje przejdź do:
 
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Klucz szyfrowania danych usługi hello zmiany](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
-**Pytanie:** autoryzowany urządzenie na potrzeby usługi zmiany klucza szyfrowania danych, ale nie zostały uruchomione proces zmiany klucza. Co mam zrobić?
+**Pytanie:** autoryzowany urządzenie na potrzeby usługi zmiany klucza szyfrowania danych, ale nie można uruchomić procesu zmiany klucza hello. Co mam zrobić?
 
-**Odpowiedź:** jeśli upłynął limit czasu, konieczne będzie ponownie autoryzować urządzenie pod kątem zmian klucza szyfrowania danych usługi i ponowne uruchomienie procesu.
+**Odpowiedź:** Jeśli wygasł okres limitu czasu hello, należy tooreauthorize hello urządzenia do zmiany klucza szyfrowania danych usługi hello a ponowne uruchomienie procesu hello.
 
-**Pytanie:** klucza szyfrowania danych usługi zostały zmienione, ale I nie może zaktualizować inne urządzenia w ciągu 4 godzin. Należy ponownie uruchomić ponownie?
+**Pytanie:** klucza szyfrowania danych usługi hello zostały zmienione, ale nie mógł I tooupdate hello innych urządzeniach w ciągu 4 godzin. Czy mam toostart ponownie?
 
-**Odpowiedź:** 4-godzinnego okresu jest tylko do inicjowania zmiany. Po rozpoczęciu procesu aktualizacji na urządzeniu StorSimple na autoryzowanych Autoryzacja jest prawidłowa, dopóki wszystkie urządzenia są aktualizowane.
+**Odpowiedź:** hello jest 4-godzinnego okresu, tylko w przypadku inicjowania hello zmiany. Po rozpoczęciu procesu aktualizacji hello na powitania autoryzacji urządzenia StorSimple, autoryzacji hello jest prawidłowy, dopóki wszystkie urządzenia są aktualizowane.
 
-**Pytanie:** administratora nasze StorSimple odejścia z firmy. Co mam zrobić?
+**Pytanie:** administratora nasze StorSimple opuścił hello firmy. Co mam zrobić?
 
-**Odpowiedź:** zmiany i resetowania haseł, których dostęp do urządzenia StorSimple i zmianę szyfrowania danych usługi klucza, aby upewnić się, że nowe informacje jest nieznany nieautoryzowany personel. Aby uzyskać instrukcje przejdź do:
+**Odpowiedź:** zmiany i resetowania hasła, które umożliwia urządzeniu StorSimple toohello dostępu i zmienić hello usługi danych szyfrowania klucza tooensure hello nowych informacji nie jest znany personelu toounauthorized hello. Aby uzyskać instrukcje przejdź do:
 
-* [Zmienianie haseł storsimple przy użyciu usługi Menedżer StorSimple](storsimple-change-passwords.md)
-* [Zmiana klucza szyfrowania danych usługi](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Użyj toochange usługi Menedżer StorSimple hello hasła storsimple](storsimple-change-passwords.md)
+* [Klucz szyfrowania danych usługi hello zmiany](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 * [Konfigurowanie protokołu CHAP dla urządzenia StorSimple](storsimple-configure-chap.md)
 
-**Pytanie:** chcę podać hasło programu StorSimple Snapshot Manager do hosta, który nawiązuje połączenie z urządzenia StorSimple, ale hasło nie jest dostępna. Co można zrobić?
+**Pytanie:** Chcę tooprovide hello StorSimple Snapshot Manager hasła tooa hosta, który nawiązuje połączenie toohello urządzenia StorSimple, ale hello hasło nie jest dostępne. Co można zrobić?
 
-**Odpowiedź:** jeśli pamiętasz hasła, należy utworzyć nowy. Następnie należy informuje wszystkich istniejących użytkowników, że hasło zostało zmienione i powinien zaktualizowania ich klientom na używanie nowego hasła. Aby uzyskać instrukcje przejdź do:
+**Odpowiedź:** jeśli pamiętasz hasła hello, należy utworzyć nowy. Następnie upewnij się, że tooinform wszystkich istniejących użytkowników, którzy hello hasło zostało zmienione i powinien zaktualizowania ich toouse klientom Witaj nowe hasło. Aby uzyskać instrukcje przejdź do:
 
-* [Zmień hasło programu StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+* [Zmień hasło programu StorSimple Snapshot Manager hello](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
 * [Uwierzytelniania urządzenia](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**Pytanie:** certyfikatu na potrzeby dostępu zdalnego do programu Windows PowerShell dla urządzenia StorSimple został zmieniony na urządzeniu. Jak zaktualizować moich klientów dostępu zdalnego?
+**Pytanie:** hello certyfikat dla dostępu zdalnego toohello środowiska Windows PowerShell dla urządzenia StorSimple na urządzeniu hello został zmieniony. Jak zaktualizować moich klientów dostępu zdalnego?
 
-**Odpowiedź:** pobrania nowego certyfikatu z usługi Menedżer StorSimple, a następnie podaj go do zainstalowania w magazynie certyfikatów klientów dostępu zdalnego. Aby uzyskać instrukcje przejdź do:
+**Odpowiedź:** pobrać hello nowego certyfikatu z hello usługi Menedżer StorSimple, a następnie podaj go toobe zainstalowany w magazynie certyfikatów hello klientów dostępu zdalnego. Aby uzyskać instrukcje przejdź do:
 
 * [Polecenia cmdlet Import certyfikatu](https://technet.microsoft.com/library/hh848630.aspx)
 
-**Pytanie:** dane chronione w przypadku złamania zabezpieczeń usługi Menedżer StorSimple?
+**Pytanie:** dane chronione w przypadku złamania zabezpieczeń hello usługi Menedżer StorSimple?
 
-**Odpowiedź:** danych konfiguracji usługi są zawsze szyfrowane kluczem publicznym, podczas wyświetlania w przeglądarce sieci web. Ponieważ usługa nie ma dostępu do klucza prywatnego, usługa nie będzie mógł wyświetlić wszystkich danych. W przypadku naruszenia zabezpieczeń usługi Menedżer StorSimple nie ma żadnego wpływu, ponieważ nie kluczy przechowywanych w usłudze Menedżer StorSimple.
+**Odpowiedź:** danych konfiguracji usługi są zawsze szyfrowane kluczem publicznym, podczas wyświetlania w przeglądarce sieci web. Ponieważ usługa hello nie ma klucza prywatnego toohello dostępu, hello usługi nie będą się mogli toosee żadnych danych. W przypadku naruszenia zabezpieczeń hello usługi Menedżer StorSimple nie ma żadnego wpływu, ponieważ nie kluczy przechowywanych w hello usługi Menedżer StorSimple.
 
-**Pytanie:** Jeśli ktoś uzyska dostęp do certyfikatu szyfrowania danych, danych może stwarzać zagrożenie?
+**Pytanie:** Jeśli ktoś uzyska certyfikat szyfrowania danych toohello dostępu, dane może stwarzać zagrożenie?
 
-**Odpowiedź:** Microsoft Azure przechowuje klucz szyfrowania danych klienta (pfx) w postaci zaszyfrowanej. Ponieważ jest zaszyfrowany plik PFX, a usługa StorSimple nie ma klucza szyfrowania danych usługi do odszyfrowywania pliku PFX, po prostu uzyskiwanie dostępu do pliku .pfx nie uwidoczni żadnych kluczy tajnych.
+**Odpowiedź:** Microsoft Azure przechowuje klucz szyfrowania danych powitania klienta (pfx) w postaci zaszyfrowanej. Ponieważ plik .pfx hello jest zaszyfrowany i hello usługi StorSimple nie ma pliku PFX hello toodecrypt klucza szyfrowania hello usługi danych, po prostu pobieranie pliku PFX toohello dostępu będzie uwidacznia żadnych kluczy tajnych.
 
 **Pytanie:** co się stanie w przypadku jednostki rządowe zapyta firmy Microsoft dla danych?
 
-**Odpowiedź:** , dlatego wszystkie dane są szyfrowane na usługi i klucz prywatny jest przechowywany z urządzeniem, jednostki rządowe musi uzyskać klienta danych. 
+**Odpowiedź:** , dlatego wszystkie hello dane są szyfrowane na powitania usługi i hello klucz prywatny jest przechowywany z urządzeniem hello hello rządowych jednostki musi uzyskać powitania klienta hello danych. 
 
 ## <a name="next-steps"></a>Następne kroki
 [Wdrażanie urządzenia StorSimple](storsimple-deployment-walkthrough.md).

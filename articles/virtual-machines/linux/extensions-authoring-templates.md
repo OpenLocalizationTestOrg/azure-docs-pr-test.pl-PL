@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie szablonów z rozszerzeniami maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
+title: Szablony aaaAuthoring rozszerzenia maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft
 description: "Więcej informacji na temat tworzenia szablonów usługi Azure Resource Manager z rozszerzeniami dla maszyn wirtualnych systemu Linux"
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 8b017306474670bf8dde1440128e16ec35146f24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b797e442d8706956bbc06c5be611a2b0119055d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authoring-azure-resource-manager-templates-with-linux-vm-extensions"></a>Tworzenie szablonów usługi Azure Resource Manager z rozszerzeniami maszyny Wirtualnej systemu Linux
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
-Z wiersza polecenia platformy Azure uruchom następujące polecenie:
+Z wiersza polecenia platformy Azure uruchom następujące polecenie hello:
 
       Azure VM extension list
 
-To polecenie zwraca nazwę wydawcy, nazwa rozszerzenia i wersji, jak następujące:
+To polecenie zwraca hello nazwę wydawcy, nazwa rozszerzenia i wersji w następujący:
 
       Publisher                   : Microsoft.Azure.Extensions  
       ExtensionName               : DockerExtension
       Version                     : 1.0
 
-Te trzy właściwości są mapowane na "publisher", "type" i "typeHandlerVersion" odpowiednio w powyższym fragment szablonu.
+Te trzy właściwości mapy zbyt "publisher", "type" i "typeHandlerVersion" odpowiednio w hello powyżej fragment szablonu.
 
 > [!NOTE]
-> Zalecane jest zawsze używać najnowszej wersji rozszerzenia, aby korzystać z najnowszych funkcji.
+> Zawsze jest zalecane toouse hello najnowsze rozszerzenia wersji tooget hello najbardziej zaktualizowane funkcje.
 > 
 > 
 
-## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identyfikowanie schematu dla parametrów konfiguracji rozszerzenia
-Następnym krokiem z tworzenia szablonu rozszerzenia jest do identyfikowania format zapewniające parametry konfiguracji. Każde rozszerzenie obsługuje własny zestaw parametrów.
+## <a name="identifying-hello-schema-for-hello-extension-configuration-parameters"></a>Identyfikowanie hello schematu dla parametrów konfiguracji rozszerzenia hello
+następnym krokiem Hello z tworzenia szablonu rozszerzenia jest format hello tooidentify zapewniające parametry konfiguracji. Każde rozszerzenie obsługuje własny zestaw parametrów.
 
-Aby przyjrzeć się przykładowych konfiguracji rozszerzeń systemu Linux, kliknij przycisk można znaleźć w dokumentacji [przykłady eExtensions Linux](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+toolook w przykładowych konfiguracji rozszerzeń systemu Linux kliknij można znaleźć w dokumentacji hello [przykłady eExtensions Linux](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zapoznaj się z następujących czynności, aby uzyskać szablon pełni ukończone z rozszerzeń maszyny Wirtualnej.
+Zobacz toohello po tooget szablon pełni ukończone z rozszerzeń maszyny Wirtualnej.
 
 [Niestandardowe rozszerzenie skryptu na maszynie Wirtualnej systemu Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-Po utworzeniu szablonu, można wdrożyć przy użyciu wiersza polecenia platformy Azure.
+Po utworzeniu szablonu hello, można wdrożyć przy użyciu hello wiersza polecenia platformy Azure.
 

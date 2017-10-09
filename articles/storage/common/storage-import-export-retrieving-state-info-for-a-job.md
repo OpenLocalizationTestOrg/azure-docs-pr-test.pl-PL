@@ -1,6 +1,6 @@
 ---
-title: Trwa pobieranie informacji o stanie zadania Import/Eksport Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak uzyskać informacji o stanie zadań usługi Import/Eksport Microsoft Azure."
+title: informacje o stanie aaaRetrieving dla zadania importu/eksportu Azure | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooobtain podać informacje dotyczące zadań usługi Import/Eksport Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cbc35660519573d92f641924ac0025c9e577d69b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Trwa pobieranie informacji o stanie dla zadania importu/eksportu
-Możesz wywołać [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_Get) operację pobierania informacji o importowanie i eksportowanie zadań. Zwracane informacje obejmują:
+Możesz wywołać program hello [pobrania zadania](/rest/api/storageimportexport/jobs#Jobs_Get) operacji tooretrieve informacji o importowanie i eksportowanie zadań. Witaj zwracane są następujące informacje:
 
--   Bieżący stan zadania.
+-   bieżący stan Hello hello zadania.
 
--   Przybliżona wartość procentowa, czy każde zadanie zostało zakończone.
+-   Procent przybliżonej Hello czy każde zadanie zostało zakończone.
 
--   Bieżący stan każdego dysku.
+-   Witaj bieżący stan każdego dysku.
 
 -   Identyfikatory URI obiektów blob zawierający dzienniki błędów i pełne rejestrowanie informacji (jeśli jest włączona).
 
-W poniższych sekcjach opisano informacje zwracane przez `Get Job` operacji.
+Witaj poniższe sekcje zawierają opis hello informacje zwracane przez hello `Get Job` operacji.
 
 ## <a name="job-states"></a>Stany zadania
-Tabeli i na poniższym diagramie stanu opisują stany zadania przechodzi przez podczas cyklu życia. Bieżący stan zadania można ustalić wywołując `Get Job` operacji.
+Tabela Hello i Poniższy diagram stanu hello opisują hello stanów, które zadania przechodzi przez podczas cyklu życia. bieżący stan zadania hello Hello można ustalić przez wywołanie hello `Get Job` operacji.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
 
-W poniższej tabeli opisano każdy stan zadania mogą przechodzić przez.
+Witaj poniższej tabeli opisano każdy stan zadania mogą przechodzić przez.
 
 |Stan zadania|Opis|
 |---------------|-----------------|
-|`Creating`|Po wywołaj operację Put zadania, tworzone jest zadanie i jego stan jest ustawiony `Creating`. W trakcie zadania `Creating` stanu usługi Import/Eksport przyjęto założenie, dyski nie zostały wysłane do centrum danych. Zadania mogą pozostać w `Creating` stanu przez maksymalnie dwa tygodnie, po których zostanie on automatycznie usunięty przez usługę.<br /><br /> Jeśli wywołanie operacji aktualizacji właściwości zadania w trakcie zadania `Creating` stanu zadania pozostaje w `Creating` stanie i interwał limitu czasu jest resetowany do dwóch tygodni.|
-|`Shipping`|Po wysyłasz do pakietu, należy wywołać operację aktualizacji właściwości zadania aktualizacji stan zadania `Shipping`. Stan wysyłania można ustawić tylko wtedy, gdy `DeliveryPackage` (operator pocztowy i numer identyfikacyjny) i `ReturnAddress` skonfigurowane właściwości zadania.<br /><br /> Zadanie pozostanie w stanie wysyłania przez maksymalnie dwa tygodnie. Jeśli upłynie dwa tygodnie, a dyski nie zostały odebrane, otrzymasz powiadomienie operatory usługi Import/Eksport.|
-|`Received`|Po otrzymaniu wszystkich dysków w centrum danych, stan zadania zostanie ustawiona do stanie Received.|
-|`Transferring`|Po dyski zostały odebrane w centrum danych i co najmniej jeden dysk rozpoczął przetwarzanie, stan zadania zostanie ustawiona do `Transferring` stanu. Zobacz `Drive States` sekcji poniżej, aby uzyskać szczegółowe informacje.|
-|`Packaging`|Po zakończeniu wszystkich dysków przetwarzania, zadanie zostanie umieszczona w `Packaging` stan do momentu dyski są wysyłane z powrotem do klienta.|
-|`Completed`|Po wszystkie dyski zostały wysłane do klienta, jeśli zadanie zostało ukończone bez błędów, następnie zadanie jest równa `Completed` stanu. Zadania zostaną automatycznie usunięte po 90 dniach w `Completed` stanu.|
-|`Closed`|Po wszystkie dyski zostały wysłane do klienta, jeśli pojawiły się błędy podczas przetwarzania zadania, następnie zadanie jest równa `Closed` stanu. Zadania zostaną automatycznie usunięte po 90 dniach w `Closed` stanu.|
+|`Creating`|Po wywołaj operację Put zadania hello, tworzone jest zadanie i jego stan jest ustawiony za`Creating`. Podczas zadania hello w hello `Creating` stanu hello usługi Import/Eksport zakłada hello dyski nie zostały jeszcze wysłane toohello centrum danych. Zadania mogą pozostawać na powitania `Creating` stanu dla się tootwo tygodni, po których zostanie on automatycznie usunięty przez usługę hello.<br /><br /> Jeśli wywołanie operacji właściwości zadania aktualizacji hello podczas zadania hello w hello `Creating` stanu zadania hello pozostaje w hello `Creating` stanu i hello limitu czasu interwał jest resetowania tootwo tygodni.|
+|`Shipping`|Po wysyłasz do pakietu, należy wywołać hello właściwości zadania aktualizacji operację aktualizacji hello stanu zadania hello zbyt`Shipping`. Hello stanu wysyłania można ustawić tylko wtedy, gdy hello `DeliveryPackage` (operator pocztowy i numer identyfikacyjny) i hello `ReturnAddress` skonfigurowane dla zadania hello właściwości.<br /><br /> zadania Hello pozostanie w hello stan wysyłki się tootwo tygodni. Jeśli dwa tygodnie zakończonych powodzeniem i hello dyski nie zostały odebrane, Operatorzy usługi Import/Eksport hello otrzymasz powiadomienie.|
+|`Received`|Po wszystkie dyski zostały odebrane w centrum danych hello, stan zadania hello zostanie ustawiona toohello stanie Received.|
+|`Transferring`|Po hello dyski zostały odebrane w centrum danych hello i co najmniej jeden dysk rozpoczął przetwarzanie, stan zadania hello zostanie ustawiona toohello `Transferring` stanu. Zobacz hello `Drive States` sekcji poniżej, aby uzyskać szczegółowe informacje.|
+|`Packaging`|Po zakończeniu wszystkich dysków przetwarzania, hello zadania zostaną umieszczone w hello `Packaging` stan do momentu hello dyski są wysłane toohello wstecz klienta.|
+|`Completed`|Po wszystkie dyski zostały wysłane toohello wstecz klienta, jeśli hello zadanie zostało ukończone bez błędów, następnie zadania hello zostanie ustawiona toohello `Completed` stanu. Witaj zadania zostaną automatycznie usunięte po 90 dniach w hello `Completed` stanu.|
+|`Closed`|Po wszystkie dyski zostały wysłane toohello wstecz klienta, jeśli pojawiły się błędy podczas przetwarzania hello hello zadania, następnie zadania hello zostanie ustawiona toohello `Closed` stanu. Witaj zadania zostaną automatycznie usunięte po 90 dniach w hello `Closed` stanu.|
 
-Można anulować zadania tylko w określonych stanach. Anulowano zadanie pomija krok kopiowania danych, ale w przeciwnym razie wynika z tego samego przejścia stanów jako zadanie nie zostało anulowane.
+Można anulować zadania tylko w określonych stanach. Anulowano zadanie pomija krok kopiowania danych hello, ale w przeciwnym razie wynika hello sam stan przejścia jako zadanie nie zostało anulowane.
 
-W poniższej tabeli opisano błędy, które mogą wystąpić dla każdego stanu zadania, a także wpływ na zadania po wystąpieniu błędu.
+Witaj poniższej tabeli opisano błędy, które mogą wystąpić na każdy stan zadania, a także hello wpływ na zadania powitania po wystąpieniu błędu.
 
 |Stan zadania|Wydarzenie|Rozdzielczość / następne kroki|
 |---------------|-----------|------------------------------|
-|`Creating or Undefined`|Odebrano jeden lub więcej dysków dla zadania, ale zadanie nie ma na liście `Shipping` stanu lub nie istnieje rekord zadania w usłudze.|Zespół operacyjny usługi Import/Eksport podejmie próbę skontaktowania się z klientem można utworzyć ani zaktualizować zadania niezbędne informacje umożliwiające przejście zadania.<br /><br /> Jeśli zespołu operacji nie można nawiązać połączenia klienta w ciągu dwóch tygodni, zespół operacyjny podejmie próbę zwracać dyski.<br /><br /> W przypadku, gdy nie może być zwracany dysków i nie można nawiązać połączenia klienta, dyski zostaną bezpiecznie zniszczone w ciągu 90 dni.<br /><br /> Należy pamiętać, że zadania nie można przetworzyć do momentu jego stan zostanie zaktualizowany do `Shipping`.|
-|`Shipping`|Nie odebrano pakiet dla zadania przez ponad dwa tygodnie.|Zespół operacyjny wyświetli powiadomienie klienta brakuje pakietu. W oparciu o odpowiedzi klienta, zespół operacyjny będzie wydłużyć okres oczekiwania na odebranie pakiet albo anulować zadanie.<br /><br /> W przypadku, gdy klient nie może nawiązać połączenia z lub nie odpowie w ciągu 30 dni, zespół operacyjny zainicjuje akcji, aby przenieść zadania z `Shipping` stanu bezpośrednio do `Closed` stanu.|
-|`Completed/Closed`|Dyski nigdy osiągnięty adres zwrotny lub zostały uszkodzone wydania (dotyczy tylko zadania eksportu).|Jeśli nie osiągną adres zwrotny, klienta należy najpierw wywołaj operację pobrania zadania lub sprawdzenia stanu zadania w portalu, aby upewnić się, że dyski zostały wysłane. Jeśli dyski zostały wysłane, klienta kontaktowej dostawcy wysyłki i spróbuj zlokalizować dyski.<br /><br /> Jeśli dyski są uszkodzone podczas transportu, klienta możesz zażądać inne zadanie eksportu lub pobieranie brakujących obiektów blob.|
-|`Transferring/Packaging`|Zadanie ma nieprawidłowe lub brakujące adres zwrotny.|Zespół operacyjny będzie dotrzeć do osoby kontaktowej dla zadania, aby uzyskać poprawny adres.<br /><br /> W przypadku, gdy klient jest nieosiągalny, dyski zostaną bezpiecznie zniszczone w ciągu 90 dni.|
-|`Creating / Shipping/ Transferring`|Dysk, który nie ma na liście dysków do zaimportowania jest uwzględniony w pakiecie wysyłki.|Dodatkowych dysków nie będą przetwarzane i zostanie zwrócony do klienta po zakończeniu zadania.|
+|`Creating or Undefined`|Odebrano jeden lub więcej dysków dla zadania, ale hello zadania nie jest hello `Shipping` stanu lub nie istnieje rekord hello zadania w usłudze hello.|zespół operacyjny usługi Import/Eksport Hello będzie podejmować toocontact powitania klienta toocreate lub zaktualizować zadania hello z zadaniem hello toomove informacje niezbędne do przodu.<br /><br /> Jeśli zespół operacyjny hello toocontact powitania klienta w ciągu dwóch tygodni, zespół operacyjny hello podejmie tooreturn hello dysków.<br /><br /> W hello zdarzenia, które nie może być zwracany hello dysków i powitania klienta nie można nawiązać połączenia dyski hello będą bezpiecznie zniszczone w ciągu 90 dni.<br /><br /> Należy pamiętać, że zadania nie można przetworzyć do momentu jego stan jest aktualizowany za`Shipping`.|
+|`Shipping`|Nie odebrano pakiet Hello zadania przez ponad dwa tygodnie.|zespół operacyjny Hello powiadomi powitania klienta hello brakuje pakietu. Oparte na powitania klienta odpowiedzi, zespół operacyjny hello będzie Rozszerz hello interwał toowait dla tooarrive pakietu hello albo anulować zadanie hello.<br /><br /> W przypadku hello powitania klienta nie można skontaktować się z lub nie odpowie w ciągu 30 dni, zespół operacyjny hello zainicjuje zadanie hello toomove akcji z hello `Shipping` stanu bezpośrednio toohello `Closed` stanu.|
+|`Completed/Closed`|dyski Hello nigdy nie osiągnięto adres zwrotny hello lub zostały uszkodzone wydania (dotyczy tylko tooan zadanie eksportu).|Jeśli hello nie osiągną adres zwrotny hello, powitania klienta powinien pierwsza operacja pobrania zadania hello wywołania lub sprawdzania stanu zadania hello w hello portalu tooensure tego hello, które zostały wydane dysków. Jeśli hello dyski zostały wysłane, powitania klienta powinien skontaktuj się z hello wysyłanie tootry dostawcy i Znajdź hello dysków.<br /><br /> Jeśli stacje hello są uszkodzone podczas transportu, powitania klienta może być toorequest inne zadanie eksportu lub brak obiekty BLOB hello pobierania.|
+|`Transferring/Packaging`|Zadanie ma nieprawidłowe lub brakujące adres zwrotny.|zespół operacyjny Hello będzie dotrzeć toohello osoby kontaktowej dla hello zadania tooobtain hello poprawny adres.<br /><br /> W przypadku powitania klienta hello jest nieosiągalny, hello dysków będą bezpiecznie zniszczone w ciągu 90 dni.|
+|`Creating / Shipping/ Transferring`|Dysk, który nie ma listy hello toobe dysków zaimportowane znajduje się w hello wysyłania pakietu.|Witaj dodatkowych dysków nie będą przetwarzane i zostanie zwrócony toohello klienta po zakończeniu zadania hello.|
 
 ## <a name="drive-states"></a>Stany stacji
-Tabeli i na poniższym diagramie opisują cyklu życia poszczególnych dyskach, ponieważ przechodzi ona za pomocą zadania importu lub eksportu. Możesz pobrać bieżący stan dysku przez wywołanie metody `Get Job` operacji i zapoznanie się `State` elementu `DriveList` właściwości.
+Hello tabeli i diagramu hello poniżej opisano hello cyklu życia poszczególnych dyskach, jako jego przejścia za pomocą zadania importu lub eksportu. Możesz pobrać bieżący stan dysku hello hello wywoływania `Get Job` hello operacji i zapoznanie się `State` element hello `DriveList` właściwości.
 
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")
 
-W poniższej tabeli opisano każdy stan może przekazywać dysku.
+Witaj poniższej tabeli opisano każdy stan może przekazywać dysku.
 
 |Stan stacji|Opis|
 |-----------------|-----------------|
-|`Specified`|Dla zadania importu po utworzeniu zadania z operacją Put zadania stanu początkowego dla dysku jest `Specified` stanu. Dla zadania eksportu, ponieważ dysk nie zostanie wskazany po utworzeniu zadania dysk początkowy stan jest `Received` stanu.|
-|`Received`|Dysk przechodzi do `Received` stanu, gdy operator usługi Import/eksport został przetworzony dysków, które zostały odebrane od firmy wysyłania dla zadania importu. Dla zadania eksportu jest dysk początkowy stan `Received` stanu.|
-|`NeverReceived`|Dysk zostanie przeniesione do `NeverReceived` stanu po odebraniu pakietu dla zadania, ale pakiet nie zawiera dysku. Dysku można również przenosić w tym stanie, jeśli został dwa tygodnie od momentu usługa odebrała informacji dotyczących wysyłki, ale pakiet nie ma jeszcze dotarły centrum danych.|
-|`Transferring`|Dysk zostanie przeniesione do `Transferring` stan, kiedy usługa zaczyna się na przesyłanie danych z dysku do systemu Windows Azure Storage.|
-|`Completed`|Dysk zostanie przeniesione do `Completed` stan, kiedy usługa pomyślnie przekazywane wszystkie dane bez błędów.|
-|`CompletedMoreInfo`|Dysk zostanie przeniesione do `CompletedMoreInfo` stanu, gdy usługa napotkał problemy podczas kopiowania danych z lub na dysku. Informacje mogą obejmować błędy, ostrzeżenia lub komunikaty informacyjne o zastępowaniu obiektów blob.|
-|`ShippedBack`|Dysk zostanie przeniesione do `ShippedBack` stan, gdy zostały wydane z tyłu centrum danych na adres zwrotny.|
+|`Specified`|Dla zadania importu po utworzeniu zadania hello z hello operacji Put zadania hello stan początkowy dla dysku jest hello `Specified` stanu. Dla zadania eksportu, ponieważ dysk nie zostanie wskazany po utworzeniu zadania hello hello dysk początkowy stan jest hello `Received` stanu.|
+|`Received`|dysk Hello przejścia toohello `Received` stanu, gdy hello operatora usługi Import/eksport został przetworzony hello dysków, które zostały odebrane z hello wysyłania firmy dla zadania importu. Dla zadania eksportu hello dysk początkowy stan jest hello `Received` stanu.|
+|`NeverReceived`|dysk Hello przeniesie toohello `NeverReceived` stanu podczas hello dociera do pakietu dla zadania, ale hello pakiet nie zawiera hello dysku. Dysk można również przenosić w tym stanie, jeśli został dwa tygodnie od momentu hello usługa odebrała hello wysyłanie informacji, ale pakiet hello ma nie dotarły jeszcze w centrum danych hello.|
+|`Transferring`|Dysk zostanie przesunięty toohello `Transferring` stanu, gdy hello Usługa rozpoczyna tootransfer danych z tooWindows dysku hello Azure Storage.|
+|`Completed`|Dysk zostanie przesunięty toohello `Completed` stan, kiedy usługa hello pomyślnie przekazywane dane hello bez błędów.|
+|`CompletedMoreInfo`|Dysk zostanie przesunięty toohello `CompletedMoreInfo` stanu toohello dysków lub gdy hello napotkała problemy podczas kopiowania danych z. informacje Hello mogą zawierać błędy, ostrzeżenia lub komunikaty informacyjne o zastępowaniu obiektów blob.|
+|`ShippedBack`|dysk Hello przeniesie toohello `ShippedBack` stan, gdy została wysłana z adres zwrotny toohello wstecz centrum danych hello.|
 
-W poniższej tabeli opisano stanów awarii dysku i akcje wykonywane dla każdego stanu.
+Witaj poniższej tabeli opisano stanów awarii dysku hello i hello akcje wykonywane dla każdego stanu.
 
 |Stan stacji|Wydarzenie|Rozdzielczość / następny krok|
 |-----------------|-----------|-----------------------------|
-|`NeverReceived`|Dysk, który jest oznaczony jako `NeverReceived` (ponieważ nie została odebrana jako część zadania wydania) dociera do innego wydania.|Zespół operacyjny przeniesie stacji `Received` stanu.|
-|`N/A`|Dysk, który nie jest częścią wszystkie zadania dociera do centrum danych w ramach innego zadania.|Dysk zostanie oznaczona jako dodatkowy dysk i zostanie zwrócony do klienta po zakończeniu zadania skojarzone z oryginalnego pakietu.|
+|`NeverReceived`|Dysk, który jest oznaczony jako `NeverReceived` (ponieważ nie została odebrana jako część zadania hello wydania) dociera do innego wydania.|zespół operacyjny Hello przeniesie hello dysku toohello `Received` stanu.|
+|`N/A`|Dysk, który nie jest częścią wszystkie zadania dociera hello centrum danych w ramach innego zadania.|dysk Hello zostaną oznaczone jako dodatkowy dysk i zostanie zwrócony toohello klienta po zakończeniu zadania hello skojarzonego z pakietem oryginalnego hello.|
 
 ## <a name="faulted-states"></a>Stany błędnej
-Gdy zadanie lub dysk nie powiodło się w trakcie cyklu życia oczekiwanego w normalny, zadania lub dysku zostaną przeniesione do `Faulted` stanu. W tym momencie zespół operacyjny skontaktuje się z klienta poczty e-mail lub telefonu. Po usunięciu problemu błędnej zadania lub dysku zostaną wykonane poza `Faulted` stanu i przenoszenia w odpowiednim stanie.
+W przypadku awarii tooprogress normalnie za pośrednictwem oczekiwanego cyklu życia zadania lub dysk zadania hello lub dysku zostaną przeniesione do `Faulted` stanu. W tym momencie zespół operacyjny hello skontaktuje się z powitania klienta poczty e-mail lub telefonu. Po usunięciu problemu hello hello błędny zadania lub dysku zostaną wykonane poza hello `Faulted` stanu i przeniesiony do hello odpowiednie stanu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przy użyciu interfejsu API REST usługi Import/Eksport](storage-import-export-using-the-rest-api.md)
+* [Przy użyciu interfejsu API REST usługi Import/Eksport hello](storage-import-export-using-the-rest-api.md)

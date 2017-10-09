@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji PublicIpAddressCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Network.PublicIpAddressCombo interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji PublicIpAddressCombo elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Network.PublicIpAddressCombo interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ba689005c0eccda0a57bf628de4b5197886a950
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Element Microsoft.Network.PublicIpAddressCombo interfejsu użytkownika
 Grupa służy do wybierania nowego lub istniejącego publicznego adresu IP. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
@@ -25,9 +25,9 @@ Grupa służy do wybierania nowego lub istniejącego publicznego adresu IP. Uży
 ## <a name="ui-sample"></a>Przykład interfejsu użytkownika
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Jeśli użytkownik wybierze opcję "Brak" publicznego adresu IP, pole tekstowe etykieta nazwy domeny jest ukryty.
-- Jeśli użytkownik wybierze istniejącego publicznego adresu IP, pole tekstowe etykieta nazwy domeny jest wyłączone. Wartość jest etykieta nazwy domeny wybranego adresu IP.
-- Aktualizacje sufiks (na przykład westus.cloudapp.azure.com) nazwa domeny automatycznie na podstawie wybranej lokalizacji.
+- Jeśli użytkownik hello wybiera 'Brak' publicznego adresu IP, pole tekstowe etykieta nazwy domeny hello jest ukryty.
+- Jeśli użytkownik hello wybiera istniejącego publicznego adresu IP, pole tekstowe etykieta nazwy domeny hello jest wyłączone. Jego wartość wynosi hello etykieta nazwy domeny adresu IP hello wybrane.
+- Witaj aktualizacje sufiks (na przykład westus.cloudapp.azure.com) nazwa domeny automatycznie na podstawie hello wybrane lokalizacji.
 
 ## <a name="schema"></a>Schemat
 ```json
@@ -61,20 +61,20 @@ Grupa służy do wybierania nowego lub istniejącego publicznego adresu IP. Uży
 ```
 
 ## <a name="remarks"></a>Uwagi
-- Jeśli `constraints.required.domainNameLabel` ustawiono **true**, użytkownik musi podać etykieta nazwy domeny, podczas tworzenia nowego publicznego adresu IP. Istniejącego publicznego adresu IP, adresy bez etykiety nie są dostępne do wyboru.
-- Jeśli `options.hideNone` ustawiono **true**, następnie wybrać opcję **Brak** publicznego adresu IP adres jest ukryty. Wartość domyślna to **false**.
-- Jeśli `options.hideDomainNameLabel` ustawiono **true**, a następnie w polu tekstowym dla etykiety nazwy domeny jest ukryty. Wartość domyślna to **false**.
-- Jeśli `options.hideExisting` ma wartość true, a następnie użytkownik nie będzie mógł wybrać istniejącego publicznego adresu IP. Wartość domyślna to **false**.
+- Jeśli `constraints.required.domainNameLabel` ustawiono zbyt**true**, hello użytkownik musi podać etykieta nazwy domeny, podczas tworzenia nowego publicznego adresu IP. Istniejącego publicznego adresu IP, adresy bez etykiety nie są dostępne do wyboru.
+- Jeśli `options.hideNone` ustawiono zbyt**true**, następnie hello tooselect opcji **Brak** hello publicznego adresu IP adres jest ukryty. Witaj, wartość domyślna to **false**.
+- Jeśli `options.hideDomainNameLabel` ustawiono zbyt**true**, a następnie ukryte pole tekstowe hello etykieta nazwy domeny. Witaj, wartość domyślna to **false**.
+- Jeśli `options.hideExisting` ma wartość true, a następnie hello użytkownik nie jest możliwe toochoose istniejącego publicznego adresu IP. Witaj, wartość domyślna to **false**.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
-Jeśli użytkownik wybierze żadnego publicznego adresu IP, oczekiwano następujące dane wyjściowe:
+Jeśli użytkownik hello wybiera żadnego publicznego adresu IP, hello następujące dane wyjściowe Oczekiwano:
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Jeśli użytkownik wybierze nowy lub istniejący adres IP, oczekiwano następujące dane wyjściowe:
+Jeśli użytkownik hello wybiera nowy lub istniejący adres IP, hello następujące dane wyjściowe Oczekiwano:
 ```json
 {
   "name": "ip01",
@@ -87,6 +87,6 @@ Jeśli użytkownik wybierze nowy lub istniejący adres IP, oczekiwano następuj�
 - Gdy `options.hideDomainNameLabel` jest określony, `domainNameLabel` jest niezadeklarowany.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

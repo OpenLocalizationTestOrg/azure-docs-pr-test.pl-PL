@@ -1,6 +1,6 @@
 ---
-title: "Pobierz zestaw Azure SDK dla języka PHP"
-description: "Dowiedz się, jak pobrać i zainstalować zestaw Azure SDK for PHP."
+title: Witaj aaaDownload zestaw Azure SDK for PHP
+description: "Dowiedz się, jak toodownload i zainstaluj hello zestawu Azure SDK dla języka PHP."
 documentationcenter: php
 services: app-service\web
 author: allclark
@@ -14,41 +14,41 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
-ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 94f56fc4f91bb175c08b9f7a43cb221c827694a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="download-the-azure-sdk-for-php"></a>Pobierz zestaw Azure SDK dla języka PHP
+# <a name="download-hello-azure-sdk-for-php"></a>Pobierz hello Azure SDK dla języka PHP
 ## <a name="overview"></a>Omówienie
-Zestaw Azure SDK for PHP zawiera składniki, które umożliwiają tworzenie, wdrażanie i zarządzanie aplikacji PHP dla systemu Azure. W szczególności zestaw Azure SDK for PHP obejmuje następujące funkcje:
+zestaw Azure SDK for PHP Hello obejmuje składniki, które pozwalają toodevelop, wdrażania i zarządzania aplikacji PHP dla systemu Azure. W szczególności hello zestaw Azure SDK for PHP zawiera następujące hello:
 
-* **PHP bibliotek klienta platformy Azure**. Te biblioteki klas zapewniają interfejs do uzyskiwania dostępu do funkcji platformy Azure, takich jak dane usługi zarządzania i usługi w chmurze.  
-* **Interfejs wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)**. Jest to zestaw poleceń służących do wdrażania i zarządzania usługami Azure, takich jak witryny sieci Web Azure i maszyn wirtualnych platformy Azure. Praca wiersza polecenia platformy Azure na dowolnej platformie, w tym Mac, Linux i Windows.
+* **Witaj bibliotek klienckich PHP na platformie Azure**. Te biblioteki klas zapewniają interfejs do uzyskiwania dostępu do funkcji platformy Azure, takich jak dane usługi zarządzania i usługi w chmurze.  
+* **Witaj interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)**. Jest to zestaw poleceń służących do wdrażania i zarządzania usługami Azure, takich jak witryny sieci Web Azure i maszyn wirtualnych platformy Azure. Praca z wiersza polecenia platformy Azure na dowolnej platformie, w tym Mac, Linux i Windows Hello.
 * **Program Azure PowerShell (tylko system Windows)**. Jest to zestaw poleceń cmdlet programu PowerShell dotyczące wdrażania i zarządzania usługami Azure, takich jak usługi w chmurze i maszyn wirtualnych.
-* **Emulatory Azure (tylko system Windows)**. Emulatory obliczeniowych i przestrzeni dyskowej są emulatory lokalne usługi w chmurze i usług zarządzania danych, dzięki którym można przetestować aplikację lokalnie. Emulatory Azure uruchamianie tylko w systemie Windows.
+* **Hello (tylko system Windows) Azure emulatory**. emulatory Hello obliczeniowych i przestrzeni dyskowej są emulatory lokalne usługi w chmurze i usług zarządzania danych, które pozwalają tootest aplikacji lokalnie. emulatory Azure Hello uruchamianie tylko w systemie Windows.
 
-W poniższych rozdziałach opisano, jak pobrać i zainstalować składniki opisane powyżej.
+w poniższych rozdziałach Hello opisano, jak toodownload i zainstaluj hello składniki opisane powyżej.
 
-Instrukcje w tym temacie założono, że istnieje [PHP] [ install-php] zainstalowane.
+Witaj instrukcje w tym temacie założono, że istnieje [PHP] [ install-php] zainstalowane.
 
 > [!NOTE]
-> Musi mieć PHP 5.5 lub nowszego, aby użyć bibliotek klienckich PHP na platformie Azure.
+> Musi mieć PHP 5.5 lub wyższej toouse hello PHP bibliotek klienta platformy Azure.
 > 
 > 
 
 ## <a name="php-client-libraries-for-azure"></a>Biblioteki klienckie języka PHP dla systemu Azure
-PHP bibliotek klienta platformy Azure zapewniają interfejs do uzyskiwania dostępu do funkcji platformy Azure, takich jak dane usługi zarządzania i usługami z dowolnego systemu operacyjnego w chmurze. Te biblioteki można zainstalować za pomocą Composer.
+Witaj PHP klienta biblioteki dla platformy Azure zapewniają interfejs do uzyskiwania dostępu do funkcji platformy Azure, takich jak dane usługi zarządzania i usługami w chmurze, z dowolnego systemu operacyjnego. Te biblioteki można zainstalować za pomocą hello Composer.
 
-Aby uzyskać informacje o sposobie używania bibliotek klienckich PHP na platformie Azure, zobacz [jak używać usługi Blob][blob-service], [sposobu korzystania z usługi tabel] [ table-service]i [jak używać usługi kolejki][queue-service].
+Informacje, jak toouse hello PHP bibliotek klienta platformy Azure, zobacz [jak tooUse hello usługa Blob][blob-service], [jak tooUse hello usługi tabel] [ table-service] i [jak tooUse hello usługi kolejki][queue-service].
 
 ### <a name="install-via-composer"></a>Zainstaluj za pośrednictwem Composer
 1. [Zainstaluj usługę Git][install-git].
 
-    > [AZURE.NOTE] W systemie Windows należy również dodać Git pliku wykonywalnego do Twojej zmiennej środowiskowej PATH.
+    > [AZURE.NOTE] W systemie Windows należy również zmiennej środowiskowej ŚCIEŻKA pliku wykonywalnego tooyour tooadd hello Git.
 
-1. Utwórz plik o nazwie **composer.json** w folderze głównym projektu i Dodaj do niej następujący kod:
+1. Utwórz plik o nazwie **composer.json** w hello katalogu głównym projektu i dodać powitania po tooit kodu:
    
         {
             "require": {
@@ -61,17 +61,17 @@ Aby uzyskać informacje o sposobie używania bibliotek klienckich PHP na platfor
         php composer.phar install
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Program Azure PowerShell i emulatory Azure
-Program Azure PowerShell jest zestawem poleceń cmdlet programu PowerShell dotyczące wdrażania i zarządzania usługami Azure (takie jak usługi w chmurze i maszyn wirtualnych). Emulatory Azure są emulatory usługi w chmurze i usług zarządzania danych, dzięki którym można przetestować aplikację lokalnie. Te składniki są obsługiwane tylko w systemie Windows.
+Program Azure PowerShell jest zestawem poleceń cmdlet programu PowerShell dotyczące wdrażania i zarządzania usługami Azure (takie jak usługi w chmurze i maszyn wirtualnych). emulatory Azure Hello są emulatory usługi w chmurze i usług zarządzania danych, które pozwalają tootest aplikacji lokalnie. Te składniki są obsługiwane tylko w systemie Windows.
 
-Zalecanym sposobem instalowania programu Azure PowerShell i emulatory Azure jest użycie [Instalatora platformy sieci Web firmy Microsoft][download-wpi]. Należy pamiętać, że użytkownik można również zainstalować inne składniki programowanie, takich jak PHP, SQL Server, Drivers firmy Microsoft dla programu SQL Server dla PHP i programu WebMatrix.
+Witaj tooinstall zalecany sposób programu Azure PowerShell i hello Azure emulatory jest toouse hello [Instalatora platformy sieci Web firmy Microsoft][download-wpi]. Należy pamiętać, że można także tooinstall inne składniki programowanie, takich jak PHP, SQL Server, hello Drivers firmy Microsoft dla programu SQL Server dla PHP i programu WebMatrix.
 
-Aby uzyskać informacje o sposobie używania programu Azure PowerShell, zobacz [jak używać programu Azure PowerShell][powershell-tools].
+Aby uzyskać informacje na temat toouse programu Azure PowerShell, zobacz [jak tooUse programu Azure PowerShell][powershell-tools].
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Azure CLI jest zestaw poleceń służących do wdrażania i zarządzania usługami Azure, takich jak witryny sieci Web Azure i maszyn wirtualnych platformy Azure. Aby uzyskać informacje o instalowaniu interfejsu wiersza polecenia Azure, zobacz [instalowanie interfejsu wiersza polecenia Azure](cli-install-nodejs.md).
+Hello Azure CLI jest zestaw poleceń służących do wdrażania i zarządzania usługami Azure, takich jak witryny sieci Web Azure i maszyn wirtualnych platformy Azure. Aby uzyskać informacje o instalowaniu interfejsu wiersza polecenia Azure, zobacz [hello instalowanie interfejsu wiersza polecenia Azure](cli-install-nodejs.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz [Centrum deweloperów języka PHP](/develop/php/).
+Aby uzyskać więcej informacji, zobacz hello [Centrum deweloperów języka PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

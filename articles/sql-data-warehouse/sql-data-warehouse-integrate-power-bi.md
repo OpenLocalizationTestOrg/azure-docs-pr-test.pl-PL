@@ -1,5 +1,5 @@
 ---
-title: "Użyj usługi Power BI z usługą Magazyn danych SQL | Dokumentacja firmy Microsoft"
+title: "aaaUse usługi Power BI z usługą Magazyn danych SQL | Dokumentacja firmy Microsoft"
 description: "Porady dotyczące korzystania z usługi Power BI z usługą Magazyn danych SQL Azure związane z opracowywaniem rozwiązań."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,45 +15,45 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3a347493d07af6824a561567f05894cfe3c0471
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Użyj usługi Power BI z usługą Magazyn danych SQL
-Jako z bazy danych SQL Azure SQL danych magazynu bezpośrednie połączenie umożliwia użytkownikom korzystać z zaawansowanych przekazywanie logicznej obok możliwości analityczne usługi Power BI.  Za pomocą bezpośrednich Connect zapytania są wysyłane do usługi Azure SQL Data Warehouse w czasie rzeczywistym Ci poznać platformę danych.  Połączone, skali usługi SQL Data Warehouse umożliwia użytkownikom tworzenie dynamicznych raportów w minutach przed terabajtów danych.  Ponadto wprowadzenie przycisku Otwórz w usłudze Power BI umożliwia użytkownikom bezpośrednio z usługi Power BI bez zbierania informacji z innych części Azure ich SQL Data Warehouse.
+Podobnie jak w przypadku bazy danych SQL Azure SQL danych magazynu bezpośrednie połączenie umożliwia tooleverage użytkownika zaawansowanych przekazywanie logicznej obok hello możliwości analityczne usługi Power BI.  Za pomocą bezpośrednich Connect zapytania są wysyłane wstecz tooyour Azure SQL Data Warehouse w czasie rzeczywistym Ci poznać platformę hello danych.  To, połączone z hello skali usługi SQL Data Warehouse umożliwia użytkownikom toocreate dynamicznych raportów w minutach przed terabajtów danych.  Ponadto wprowadzenie hello hello Otwórz w przycisk usługi Power BI umożliwia użytkownikom toodirectly Połącz usługi Power BI tootheir SQL Data Warehouse bez zbierania informacji z innych części Azure.
 
 Podczas używania połączenia bezpośredniego należy Uwaga:
 
-* Określ nazwę FQDN serwera podczas łączenia z (Aby uzyskać więcej informacji zobacz poniżej)
-* Upewnij się, że reguły zapory dla bazy danych są skonfigurowane do "Zezwalaj na dostęp do usług platformy Azure".
-* Wszystkie akcje, takich jak wybierając kolumnę lub Dodawanie filtru bezpośrednio wysyła kwerendy do magazynu danych
-* Kafelki są odświeżane co około 15 minut (odświeżania nie są wymagane do zaplanowania)
+* Określ nazwę FQDN serwera hello podczas łączenia z (Aby uzyskać więcej informacji zobacz poniżej)
+* Upewnij się, reguły zapory dla bazy danych hello są skonfigurowane za "Zezwalaj na dostęp tooAzure usługi".
+* Wszystkie akcje, takich jak wybierając kolumnę lub Dodawanie filtru bezpośrednio zwrócą hello magazynu danych
+* Kafelki są odświeżane co około 15 minut (w przypadku odświeżania toobe zaplanowane nie są konieczne)
 * Funkcja pytania i odpowiedzi nie jest dostępna dla bezpośrednie łączenie zestawów danych
 * Zmiany schematu nie są odczytywane automatycznie
 * Wszystkie zapytania bezpośredniego połączenia limit czasu będzie 2 minuty
 
-Te ograniczenia i uwagi może zmienić będziemy kontynuować proces ulepszania procesy. Czynności, aby podłączyć szczegóły są przedstawione poniżej.  
+Te ograniczenia i uwagi może zmienić w dalszym ciągu tooimprove hello środowiska. tooconnect kroki Hello są szczegółowo opisane poniżej.  
 
-## <a name="using-the-open-in-power-bi-button"></a>Przy użyciu przycisku "Otwórz w usłudze Power BI"
-Najprostszym sposobem przenoszenia między magazyn danych SQL i usługi Power BI jest otwarty w usłudze Power BI przycisku. Ten przycisk pozwala na łatwe rozpocząć tworzenie nowych pulpitów nawigacyjnych w usłudze Power BI.  
+## <a name="using-hello-open-in-power-bi-button"></a>Przy użyciu przycisku "Otwórz w usłudze Power BI" hello
+Witaj najprostszy sposób toomove między magazyn danych SQL i usługi Power BI jest hello Otwórz w usłudze Power BI przycisku. Ten przycisk pozwala tooseamlessly rozpocząć tworzenie nowych pulpitów nawigacyjnych w usłudze Power BI.  
 
-1. Aby rozpocząć przejdź do Twojego wystąpienia usługi SQL Data Warehouse w klasycznym portalu Azure.
-2. Kliknij przycisk „Otwórz w usłudze Power BI”.
-3. Jeśli nie możemy zalogować Cię bezpośrednio lub jeśli nie masz konta usługi Power BI, należy się zalogować.  
-4. Nastąpi przekierowanie do strony połączenie SQL Data Warehouse przy użyciu informacji z usługą SQL Data Warehouse wstępnie wypełnione.
-5. Po wprowadzeniu poświadczeń można będzie pełni połączony z usługą SQL Data Warehouse.
+1. Rozpoczęto tooget Przejdź tooyour wystąpienie usługi SQL Data Warehouse w hello klasycznego portalu Azure.
+2. Kliknij przycisk "Otwórz w usłudze Power BI" hello.
+3. Jeśli nie jesteśmy w stanie toosign w bezpośrednio, lub jeśli nie masz konta usługi Power BI, konieczne będzie toosign w.  
+4. Pojawi się, że wstępne wypełnianie toohello strona połączenia SQL Data Warehouse, hello informacje z usługą SQL Data Warehouse.
+5. Po wprowadzeniu poświadczeń będzie tooyour pełni podłączonej usługi SQL Data Warehouse.
 
-## <a name="connecting-through-the-power-bi-portal"></a>Łączenie za pośrednictwem portalu usługi Power BI
-Oprócz przy użyciu przycisku Otwórz w usłudze Power BI, użytkownicy mogą również łączyć się ich SQL Data Warehouse za pośrednictwem portalu Power BI.
+## <a name="connecting-through-hello-power-bi-portal"></a>Łączenie za pośrednictwem portalu usługi Power BI hello
+W dodatku toousing hello Otwórz w usłudze Power BI przycisku użytkownicy mogą łączyć tootheir SQL Data Warehouse za pośrednictwem hello Power BI portalu.
 
-1. Kliknij przycisk "Pobierz dane" u dołu okienka nawigacji.
+1. Kliknij przycisk "Pobierz dane" u dołu okienka nawigacji hello hello.
 2. Wybierz "Bazy danych".
-3. Raz na stronie baz danych, wybierz "Azure SQL Data Warehouse", a następnie kliknij przycisk "Połącz".
-4. Wprowadź informacje niezbędne połączenia.  Nazwa serwera, a nazwa bazy danych można znaleźć w portalu Azure.
-5. Zostanie skierowany do strony głównej usługi Power BI, a po nawiązaniu połączenia z nowego wpisu w obszarze "Zestaw danych" pojawi się nazwą wystąpienia.  
-6. Możesz kliknąć na nowy zestaw danych, aby poznać wszystkie tabele i widoki w bazie danych. Wybierając kolumnę będzie wysyłać zapytanie do źródła, dynamicznego tworzenia wizualny. Te elementy wizualne można zapisane w nowy raport i ponownie przypięty do pulpitu nawigacyjnego.
+3. Raz na stronie powitania, baz danych, wybierz "Azure SQL Data Warehouse", a następnie kliknij przycisk "Połącz".
+4. Wprowadź informacje niezbędne połączenia hello.  Nazwa serwera, a nazwa bazy danych znajdują się w hello portalu Azure.
+5. Nastąpi przekierowanie ponownie się, że nazwa hello wystąpienia zostanie wyświetlona strona głównego toohello usługi Power Bi i po nawiązaniu połączenia z nowego wpisu w obszarze "Zestaw danych".  
+6. Możesz kliknąć hello nowy zestaw danych tooexplore wszystkie hello tabele i widoki w bazie danych. Wybierając kolumnę wyśle źródła wstecz toohello kwerendy, dynamicznego tworzenia wizualny. Te elementy wizualne mogą być zapisywane w nowy raport i ponownie przypięty tooyour pulpitu nawigacyjnego.
 
 <!--Image references-->
 

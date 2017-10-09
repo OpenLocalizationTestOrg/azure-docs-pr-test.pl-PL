@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z PagerDuty | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i PagerDuty."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i PagerDuty."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bf5263ce4d8fbc231029c101f167f4b55a921e60
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c3cfbedac3bf075e2d8cd833d5de7ca0bc9468b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Samouczek: Integracji Azure Active Directory z PagerDuty
 
-Z tego samouczka dowiesz się integrowanie PagerDuty z usługi Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate PagerDuty w usłudze Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD PagerDuty zapewnia następujące korzyści:
+Integracja z usługą Azure AD PagerDuty zapewnia hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do PagerDuty
-- Umożliwia użytkownikom automatycznie pobrać zalogowane do PagerDuty (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooPagerDuty
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooPagerDuty (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z PagerDuty, potrzebne są następujące elementy:
+tooconfigure integracji z usługą Azure AD z PagerDuty należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - PagerDuty logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie PagerDuty z galerii
+1. Dodawanie PagerDuty z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-pagerduty-from-the-gallery"></a>Dodawanie PagerDuty z galerii
-Aby skonfigurować integrację usługi Azure AD PagerDuty, należy dodać PagerDuty z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-pagerduty-from-hello-gallery"></a>Dodawanie PagerDuty z galerii hello
+tooconfigure hello integracji PagerDuty do usługi Azure AD, należy tooadd PagerDuty z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać PagerDuty z galerii, wykonaj następujące czynności:**
+**tooadd PagerDuty z galerii hello, wykonaj następujące kroki hello:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
-    ![Przycisk usługi Azure Active Directory][1]
+    ![przycisk usługi Azure Active Directory Hello][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa][2]
+    ![Blok aplikacje przedsiębiorstwa Hello][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
-    ![Nowy przycisk aplikacji][3]
+    ![Nowy przycisk aplikacji Hello][3]
 
-4. W polu wyszukiwania wpisz **PagerDuty**, wybierz pozycję **PagerDuty** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+4. W polu wyszukiwania hello wpisz **PagerDuty**, wybierz pozycję **PagerDuty** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
@@ -78,58 +78,58 @@ Aby skonfigurować integrację usługi Azure AD PagerDuty, należy dodać PagerD
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z PagerDuty w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w PagerDuty jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w PagerDuty musi się.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w PagerDuty jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w PagerDuty musi toobe ustanowione.
 
-W PagerDuty, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
+W PagerDuty, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z PagerDuty, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z PagerDuty, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego PagerDuty](#create-a-pagerduty-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta PagerDuty połączonego z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego PagerDuty](#create-a-pagerduty-test-user)**  -toohave odpowiednikiem Simona Britta w PagerDuty, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji PagerDuty.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji PagerDuty.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z PagerDuty, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z PagerDuty, wykonaj następujące kroki hello:**
 
-1. W portalu Azure na **PagerDuty** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **PagerDuty** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
-3. Na **PagerDuty domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **PagerDuty domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Adresy URL i domeny PagerDuty pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<tenant-name>.pagerduty.com`
+    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<tenant-name>.pagerduty.com`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<tenant-name>.pagerduty.com`
+    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<tenant-name>.pagerduty.com`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta PagerDuty](https://www.pagerduty.com/support/) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta PagerDuty](https://www.pagerduty.com/support/) tooget tych wartości. 
 
-4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-pagerduty-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji PagerDuty** , kliknij przycisk **skonfigurować PagerDuty** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji PagerDuty** kliknij **skonfigurować PagerDuty** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfiguracja PagerDuty](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_configure.png) 
 
 7. W oknie przeglądarki innej witryny sieci web Zaloguj się do witryny firmy Pagerduty jako administrator.
 
-8. W menu u góry kliknij **ustawienia konta**.
+8. W menu hello na górze hello, kliknij przycisk **ustawienia konta**.
    
     ![Ustawienia konta](./media/active-directory-saas-pagerduty-tutorial/ic778535.png "ustawienia konta")
 
@@ -137,111 +137,111 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
    
     ![Logowanie jednokrotne](./media/active-directory-saas-pagerduty-tutorial/ic778536.png "logowanie jednokrotne")
 
-10. Na **włączyć logowanie jednokrotne (SSO)** wykonaj następujące czynności:
+10. Na powitania **włączyć logowanie jednokrotne (SSO)** wykonaj hello następujące kroki:
    
     ![Włącz rejestrację jednokrotną](./media/active-directory-saas-pagerduty-tutorial/ic778537.png "Włącz rejestrację jednokrotną")
    
-    a. Otwórz base-64 zakodowany certyfikat pobrany z portalu Azure w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu X.509** pole tekstowe
+    a. Otwórz base-64 zakodowany certyfikat pobrany z portalu Azure w programie Notatnik hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **certyfikatu X.509** pole tekstowe
   
-    b. W **adres URL logowania** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    b. W hello **adres URL logowania** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
   
-    c. W **adresu URL wylogowania** pole tekstowe, Wklej **Sign-Out URL** którego została skopiowana z portalu Azure.
+    c. W hello **adresu URL wylogowania** pole tekstowe, Wklej **Sign-Out URL** którego została skopiowana z portalu Azure.
  
     d. Wybierz **włączyć pojedynczego logowania jednokrotnego**.
  
     e. Kliknij przycisk **zapisać zmiany**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
-    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_01.png) 
+    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
-    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_02.png) 
+    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
-    ![Przycisk Dodaj](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_03.png) 
+    ![przycisk Dodaj Hello](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
-    ![Okno dialogowe użytkownika](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_04.png) 
+    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-pagerduty-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-pagerduty-test-user"></a>Tworzenie użytkownika testowego PagerDuty
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do PagerDuty, musi być przygotowana do PagerDuty.  
-W przypadku PagerDuty Inicjowanie obsługi to zadanie ręczne.
+toolog użytkowników tooenable usługi Azure AD w tooPagerDuty, muszą mieć przydzielone do PagerDuty.  
+W przypadku hello PagerDuty Inicjowanie obsługi to zadanie ręczne.
 
 >[!NOTE]
->Możesz użyć innych Pagerduty użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Pagerduty do świadczenia usługi Azure Active Directory kont użytkowników.
+>Możesz użyć innych Pagerduty użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision Pagerduty usługi Azure Active Directory kont użytkowników.
 
-**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
+**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
 
-1. Zaloguj się do Twojego **Pagerduty** dzierżawy.
+1. Zaloguj się za tooyour **Pagerduty** dzierżawy.
 
-2. W menu u góry kliknij **użytkowników**.
+2. W menu hello na górze hello, kliknij przycisk **użytkowników**.
 
 3. Kliknij przycisk **dodawania użytkowników**.
    
     ![Dodawanie użytkowników](./media/active-directory-saas-pagerduty-tutorial/ic778539.png "Dodawanie użytkowników")
 
-4.  Na **zaprosić zespołu** okna dialogowego, wykonaj następujące czynności:
+4.  Na powitania **zaprosić zespołu** okna dialogowego, wykonaj następujące kroki hello:
    
     ![Zaproś zespołu](./media/active-directory-saas-pagerduty-tutorial/ic778540.png "zaprosić Twojego zespołu")
 
-    a. Typ **pierwszy i nazwisko** użytkownika, takich jak **Simona Britta**. 
+    a. Typ hello **pierwszy i nazwisko** użytkownika, takich jak **Simona Britta**. 
    
     b. Wprowadź **E-mail** adres użytkownika, takich jak  **brittasimon@contoso.com** .
    
     c. Kliknij przycisk **Dodaj**, a następnie kliknij przycisk **wysyłania zaprasza**.
    
     >[!NOTE]
-    >Wszystkie dodane użytkownicy otrzymają zaproszenie, aby utworzyć konto PagerDuty.
+    >Wszystkie dodano użytkownicy otrzymają zaproszenie toocreate konta PagerDuty.
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu PagerDuty.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooPagerDuty.
 
-![Przypisanie roli użytkownika][200]
+![Przypisanie roli użytkownika hello][200]
 
-**Aby przypisać Simona Britta PagerDuty, wykonaj następujące czynności:**
+**tooassign tooPagerDuty Simona Britta wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **PagerDuty**.
+2. Z listy aplikacji hello wybierz **PagerDuty**.
 
-    ![Łącze PagerDuty na liście aplikacji](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_app.png) 
+    ![łącze PagerDuty Hello na liście aplikacji hello](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
-    ![Łącze "Użytkownicy i grupy"][202]
+    ![łącze "Użytkownicy i grupy" Hello][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![W okienku Dodaj przydziału][203]
+    ![Okienko Dodaj przypisania Hello][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -249,15 +249,15 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
 
-Po kliknięciu kafelka PagerDuty w Panelyou dostępu należy pobrać automatycznie zalogowane PagerDuty aplikacji.
+Po kliknięciu kafelka PagerDuty hello w hello Panelyou dostępu należy uzyskać automatycznie zalogowane tooyour PagerDuty aplikacji.
 
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

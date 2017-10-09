@@ -1,6 +1,6 @@
 ---
-title: Centrum IoT Azure skalowanie | Dokumentacja firmy Microsoft
-description: "Jak skalować Centrum IoT do obsługi sieci przepływności przewidywanego wiadomości. Zawiera podsumowanie obsługiwana przepływność dla każdej warstwy i opcje dotyczące dzielenia na fragmenty."
+title: Skalowanie Centrum IoT aaaAzure | Dokumentacja firmy Microsoft
+description: "Jak tooscale Twojego toosupport Centrum IoT z przepływności przewidywanego wiadomości. Zawiera podsumowanie hello obsługiwana przepływność dla każdej warstwy i opcje dotyczące dzielenia na fragmenty."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -15,44 +15,44 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cb263103da05b10c24aab71d81c43eb25987565
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3b8bf6c44631c65b34b69752d9043c21db24bb01
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Skalować rozwiązania IoT hub
-Centrum IoT Azure może obsługiwać do milionów równocześnie połączonych urządzeń. Aby uzyskać więcej informacji, zobacz [Centrum IoT cennik][lnk-pricing]. Każda jednostka Centrum IoT umożliwia pewną liczbę wiadomości codzienne.
+Centrum IoT Azure może obsługiwać tooa milionów jednocześnie podłączonego urządzenia. Aby uzyskać więcej informacji, zobacz [Centrum IoT cennik][lnk-pricing]. Każda jednostka Centrum IoT umożliwia pewną liczbę wiadomości codzienne.
 
-Aby prawidłowo skalować rozwiązania, należy wziąć pod uwagę określonego korzystanie z Centrum IoT. W szczególności należy wziąć pod uwagę przepustowość wymagana szczytu w ramach następujących kategorii działań:
+tooproperly skalować rozwiązania należy wziąć pod uwagę określonego korzystanie z Centrum IoT. W szczególności należy wziąć pod uwagę przepływności szczytu hello wymagane hello następujące kategorie działań:
 
 * Komunikaty z urządzenia do chmury
 * Komunikaty chmury do urządzenia
 * Operacje rejestru tożsamości
 
-Oprócz tych informacji przepływności, zobacz [Centrum IoT przydziały i limity] [ IoT Hub quotas and throttles] i odpowiednio zaprojektować rozwiązanie.
+W dodatkowych toothis przepływności informacji, zobacz [Centrum IoT przydziały i limity] [ IoT Hub quotas and throttles] i odpowiednio zaprojektować rozwiązanie.
 
 ## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Przepustowość urządzenia do chmury i chmury do urządzenia wiadomości
-Najlepszym sposobem rozmiaru rozwiązania IoT Hub jest do oceny ruchu na podstawie jednostkę.
+Hello najlepsze sposób toosize rozwiązania IoT Hub jest tooevaluate hello ruchu na podstawie jednostkę.
 
 Urządzenia do chmury wiadomości zgodna z tymi wytycznymi długoterminowa przepustowość.
 
 | Warstwa | Długoterminowa przepustowość | Wskaźnik wysyłania stałej |
 | --- | --- | --- |
-| S1 |Maksymalnie 1111 KB na minutę na jednostkę<br/>(1,5 GB/dzień/jednostka) |Średnia 278 komunikatów na minutę na jednostkę<br/>(400 000 komunikatów/dzień na jednostkę) |
-| S2 |Maksymalnie 16 MB na minutę na jednostkę<br/>(22.8 GB/dzień/jednostka) |Średnia 4,167 komunikatów na minutę na jednostkę<br/>(6 mln wiadomości/dzień na jednostkę) |
-| S3 |Maksymalnie 814 MB na minutę na jednostkę<br/>(1144.4 GB/dzień/jednostka) |Średnia 208,333 komunikatów na minutę na jednostkę<br/>(300 milionów wiadomości/dzień na jednostkę) |
+| S1 |Zapasowej too1111 KB na minutę na jednostkę<br/>(1,5 GB/dzień/jednostka) |Średnia 278 komunikatów na minutę na jednostkę<br/>(400 000 komunikatów/dzień na jednostkę) |
+| S2 |Zapasowej too16 MB na minutę na jednostkę<br/>(22.8 GB/dzień/jednostka) |Średnia 4,167 komunikatów na minutę na jednostkę<br/>(6 mln wiadomości/dzień na jednostkę) |
+| S3 |Zapasowej too814 MB na minutę na jednostkę<br/>(1144.4 GB/dzień/jednostka) |Średnia 208,333 komunikatów na minutę na jednostkę<br/>(300 milionów wiadomości/dzień na jednostkę) |
 
 ## <a name="identity-registry-operation-throughput"></a>Przepływność operacji rejestru tożsamości
-Operacje rejestru tożsamości Centrum IoT nie powinna być czasu wykonywania operacji, ponieważ przede wszystkim dotyczące inicjowania obsługi urządzeń.
+Operacje rejestru tożsamości Centrum IoT nie powinni toobe czasu wykonywania operacji, ponieważ są one przede wszystkim pokrewne toodevice inicjowania obsługi administracyjnej.
 
 Dla określonego serii numerów wydajności, zobacz [Centrum IoT przydziały i limity][IoT Hub quotas and throttles].
 
 ## <a name="sharding"></a>Dzielenia na fragmenty
-Podczas jednego centrum IoT można skalować do milionów urządzeń, czasami rozwiązanie wymaga charakterystyk wydajności właściwe, które nie może zagwarantować pojedynczego Centrum IoT. W takim przypadku zaleca się partycji urządzenia do wielu centra IoT. Centra IoT wielu smooth seria ruchu i uzyskiwanie wymagana przepustowość lub szybkości działania, które są wymagane.
+Podczas jednego centrum IoT można skalować toomillions urządzenia, czasami rozwiązanie wymaga charakterystyk wydajności zależnych, które pojedynczego Centrum IoT nie może zagwarantować. W takim przypadku zaleca się partycji urządzenia do wielu centra IoT. Centra IoT wielu smooth seria ruchu i uzyskiwanie przepustowość wymagana hello lub szybkości działania, które są wymagane.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dokładniej analizować możliwości Centrum IoT, zobacz:
+toofurther Poznaj możliwości hello Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
 * [Symuluje urządzenia Azure IoT krawędzi][lnk-iotedge]

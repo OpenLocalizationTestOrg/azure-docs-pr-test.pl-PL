@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji Node.js usługi Azure Cosmos DB za pomocą interfejsu API programu Graph | Microsoft Docs"
-description: "Przykładowy kod Node.js, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań"
+title: "aaaBuild aplikacji Node.js DB rozwiązania Cosmos Azure przy użyciu interfejsu API programu Graph | Dokumentacja firmy Microsoft"
+description: "Przedstawia przykładowy kod Node.js, można użyć tooconnect tooand zapytania bazy danych Azure rozwiązania Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -15,25 +15,25 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
-ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1445755842bc4e4a84ca2b2f789aadde8467e190
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Tworzenie aplikacji Node.js za pomocą interfejsu API programu Graph
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure DB rozwiązania Cosmos jest hello globalnie rozproszone wielu modelu bazy danych usługi firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucza i wartości i wykres baz danych, które korzystają z dystrybucji globalne hello i możliwości skalowanie w poziomie na podstawowe hello Azure DB rozwiązania Cosmos. 
 
-Ten artykuł Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB dla interfejsu API programu Graph (wersja zapoznawcza), bazy danych i grafu przy użyciu witryny Azure Portal. Następnie przy użyciu sterownika open source [Node.js Gremlin](https://www.npmjs.com/package/gremlin-secure) zostanie utworzona i uruchomiona aplikacja konsoli.  
+W tym artykule szybki start przedstawiono, jak toocreate bazy danych Azure rozwiązania Cosmos konta dla interfejsu API programu Graph (wersja zapoznawcza), bazy danych i wykres przy użyciu hello portalu Azure. Następnie skompilować i uruchomić aplikację konsoli przy użyciu hello open source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) sterownika.  
 
 > [!NOTE]
-> Moduł npm `gremlin-secure` to zmodyfikowana wersja modułu `gremlin` z obsługą SSL i SASL wymaganych do łączenia się z bazą danych Azure Cosmos DB. Kod źródłowy jest dostępny w usłudze [GitHub](https://github.com/CosmosDB/gremlin-javascript).
+> Moduł npm Hello `gremlin-secure` jest zmodyfikowanej wersji `gremlin` modułu, z obsługą protokołu SSL i SASL wymagane do nawiązywania połączenia z bazy danych Azure rozwiązania Cosmos. Kod źródłowy jest dostępny w usłudze [GitHub](https://github.com/CosmosDB/gremlin-javascript).
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed uruchomieniem tego przykładu muszą być spełnione następujące wymagania wstępne:
+Przed uruchomieniem tego przykładu, musi mieć hello następujące wymagania wstępne:
 * [Node.js](https://nodejs.org/en/) w wersji 0.10.29 lub nowszej
 * [Git](http://git-scm.com/)
 
@@ -47,25 +47,25 @@ Przed uruchomieniem tego przykładu muszą być spełnione następujące wymagan
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
+## <a name="clone-hello-sample-application"></a>Klonowanie hello przykładowej aplikacji
 
-Teraz sklonujemy aplikację interfejsu API programu Graph z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz załóżmy aplikacji w klonowania interfejs API programu Graph z serwisu GitHub, Ustaw ciąg połączenia hello i uruchom go. Zobaczysz, jak łatwo jest toowork z danymi programowo. 
 
-1. Otwórz okno terminala usługi Git, na przykład Git Bash, i za pomocą polecenia `cd` przejdź do katalogu roboczego.  
+1. Otwórz okno terminala Git, np. Git Bash i zmień (za pośrednictwem `cd` polecenie) tooa katalog roboczy.  
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. 
+2. Hello uruchom następujące polecenie tooclone hello próbki repozytorium. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
     ```
 
-3. Otwórz plik rozwiązania w programie Visual Studio. 
+3. Otwórz plik rozwiązania hello w programie Visual Studio. 
 
-## <a name="review-the-code"></a>Przeglądanie kodu
+## <a name="review-hello-code"></a>Przejrzyj hello kodu
 
-Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik `app.js`, w którym znajdziesz następujące wiersze kodu. 
+Upewnijmy szybki przegląd działania wykonywane w aplikacji hello. Otwórz hello `app.js` pliku, a znajdziesz hello następujące wiersze kodu. 
 
-* Tworzenie klienta języka Gremlin.
+* Klient Gremlin Hello jest tworzony.
 
     ```nodejs
     const client = Gremlin.createClient(
@@ -79,9 +79,9 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
         });
     ```
 
-  Wszystkie konfiguracje są w pliku `config.js`, który będziemy edytować w następnej sekcji.
+  Witaj konfiguracje są w `config.js`, które możemy edytować w hello następujących sekcji.
 
-* Seria kroków języka Gremlin jest wykonywana przy użyciu metody `client.execute`.
+* Serie kroków Gremlin są wykonywane z hello `client.execute` metody.
 
     ```nodejs
     console.log('Running Count'); 
@@ -94,32 +94,32 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-1. Otwórz plik config.js. 
+1. Otwórz hello pliku config.js. 
 
-2. W pliku Config.js przypisz kluczowi config.endpoint wartość **Identyfikator URI Gremlin** ze strony **Przegląd** w witrynie Azure Portal. 
+2. Config.js, wypełnij hello config.endpoint klucza z hello **Gremlin URI** wartość z zakresu od hello **omówienie** strony hello portalu Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-    ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, blok Klucze](./media/create-graph-nodejs/gremlin-uri.png)
+    ![Wyświetlanie i kopiowanie klucza dostępu w hello portalu Azure, w bloku klucze](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Jeśli wartość **Identyfikator URI Gremlin** jest pusta, na stronie **Klucze** w portalu możesz wygenerować tę wartość przy użyciu pozycji **Identyfikator URI** wartości, usuwając ciąg https:// i zmieniając dokumenty na grafy.
+   Jeśli hello **Gremlin URI** wartość jest pusta, możesz wygenerować wartość hello na podstawie hello **klucze** strony w portalu hello, za pomocą hello **URI** wartości, usuwania https:// i zmiana toographs dokumentów.
 
-   Punkt końcowy Gremlin musi być samą nazwą hosta, bez protokołu/numeru portu, czyli powinien mieć postać `mygraphdb.graphs.azure.com` (a nie `https://mygraphdb.graphs.azure.com` lub `mygraphdb.graphs.azure.com:433`).
+   punkt końcowy Gremlin Hello musi być tylko nazwy hosta hello bez numeru portu protokołu/hello, tak samo, jak `mygraphdb.graphs.azure.com` (nie `https://mygraphdb.graphs.azure.com` lub `mygraphdb.graphs.azure.com:433`).
 
-3. W pliku config.js przypisz elementowi config.primaryKey wartość z pola **Klucz podstawowy** na stronie **Klucze** w witrynie Azure Portal. 
+3. Wypełnij w config.js, wartość config.primaryKey hello się przy użyciu hello **klucza podstawowego** wartość z zakresu od hello **klucze** strony hello portalu Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Blok Klucze w witrynie Azure Portal](./media/create-graph-nodejs/keys.png)
+   ![Witaj bloku klucze portalu Azure](./media/create-graph-nodejs/keys.png)
 
-4. Wprowadź nazwę bazy danych i nazwę grafu (kontenera) dla wartości parametrów config.database i config.collection. 
+4. Wprowadź nazwę bazy danych hello i wykres (kontener) nazwę wartości hello config.database i config.collection. 
 
 Oto przykład wypełnionego pliku config.js:
 
 ```nodejs
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must not have HTTPS or hello port number
 config.endpoint = "testgraphacct.graphs.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
@@ -128,38 +128,38 @@ config.collection = "Persons"
 module.exports = config;
 ```
 
-## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
+## <a name="run-hello-console-app"></a>Uruchamianie aplikacji konsoli hello
 
-1. Otwórz okno terminala i za pomocą polecenia `cd` przejdź do katalogu instalacyjnego pliku package.json uwzględnionego w projekcie.  
+1. Otwórz okno terminala i zmień (za pośrednictwem `cd` polecenie) katalog instalacyjny toohello dla pliku package.json hello, który znajduje się w projekcie hello.  
 
-2. Uruchom polecenie `npm install`, aby zainstalować wymagane moduły npm, w tym `gremlin-secure`.
+2. Uruchom `npm install` tooinstall hello wymagane moduły npm, w tym `gremlin-secure`.
 
-3. Uruchom polecenie `node app.js` w terminalu, aby uruchomić aplikację Node.
+3. Uruchom `node app.js` w terminalu toostart aplikacji węzła.
 
 ## <a name="browse-with-data-explorer"></a>Przeglądanie w Eksploratorze danych
 
-Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby wyświetlać nowe dane grafu, wykonywać o nie zapytania, modyfikować je i pracować z nimi.
+Teraz można wrócić do poprzedniej strony tooData Explorer w hello tooview portalu Azure, zapytania, modyfikowania i pracować z nowych danych wykresu.
 
-W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy**. Rozwiń bazę danych, a następnie kolekcję i kliknij pozycję **Graf**.
+W Eksploratorze danych hello nowej bazy danych jest wyświetlana w hello **wykresy** okienka. Rozwiń bazę danych hello, następuje hello kolekcji, a następnie kliknij przycisk **wykresu**.
 
-Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf**, gdy klikniesz przycisk **Zastosuj filtr**.
+Hello dane generowane przez hello Przykładowa aplikacja jest wyświetlana w okienku dalej hello w hello **wykres** karcie po kliknięciu **Zastosuj filtr**.
 
-Spróbuj uzupełnić wartość `g.V()` ciągiem `.has('firstName', 'Thomas')`, aby przetestować filtr. Pamiętaj, że w wartości jest uwzględniana wielkość liter.
+Spróbuj Kończenie `g.V()` z `.has('firstName', 'Thomas')` tootest hello filtru. Należy pamiętać, że wartość hello jest uwzględniana wielkość liter.
 
-## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Przejrzyj umowy SLA w hello portalu Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-your-resources"></a>Czyszczenie zasobów
 
-Jeśli nie planujesz dalszego korzystania z tej aplikacji, usuń wszystkie zasoby utworzone zgodnie z tym artykułem, wykonując następujące czynności: 
+Jeśli nie planujesz toocontinue za pomocą tej aplikacji, należy usunąć wszystkie zasoby, które zostały utworzone w tym artykule, wykonując następujące hello: 
 
-1. W menu nawigacji po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. W portalu Azure, w menu nawigacji po lewej stronie powitania powitania kliknij **grup zasobów**, a następnie kliknij nazwę hello hello zasobu, który został utworzony. 
+2. Na stronie grupy zasobów, kliknij przycisk **usunąć**, wpisz nazwę hello toobe zasobów hello usunięte, a następnie kliknij przycisk **usunąć**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia grafu za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
+W tym artykule kiedy znasz już jak toocreate konto bazy danych Azure rozwiązania Cosmos utworzyć wykres za pomocą Eksploratora danych i uruchom aplikację. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Wykonywanie zapytań przy użyciu języka Gremlin](tutorial-query-graph.md)

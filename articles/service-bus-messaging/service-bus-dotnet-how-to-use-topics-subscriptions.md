@@ -1,5 +1,5 @@
 ---
-title: "Rozpoczynanie pracy z tematami i subskrypcjami usługi Azure Service Bus | Microsoft Docs"
+title: "aaaGet pracę z tematów i subskrypcji Azure Service Bus | Dokumentacja firmy Microsoft"
 description: "Napisz aplikację konsolową w języku C#, która korzysta z tematów i subskrypcji komunikatów usługi Service Bus."
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/30/2017
 ms.author: sethm
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 619d602599d97ecff2ded0681a383b19f1a8b7ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Wprowadzenie do tematów usługi Service Bus
 
@@ -26,74 +26,74 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
 
-Ten samouczek obejmuje następujące kroki:
+Ten samouczek obejmuje hello następujące kroki:
 
-1. Utworzenie przestrzeni nazw usługi Service Bus za pomocą usługi Azure Portal.
-2. Utworzenie tematu usługi Service Bus przy użyciu witryny Azure Portal.
-3. Utworzenie subskrypcji tego tematu usługi Service Bus przy użyciu witryny Azure Portal.
-4. Napisanie aplikacji konsolowej służącej do wysyłania komunikatu do tematu.
-5. Napisanie aplikacji konsolowej służącej do odbierania tego komunikatu z subskrypcji.
+1. Tworzenie przestrzeni nazw usługi Service Bus, przy użyciu hello portalu Azure.
+2. Tworzenie tematu usługi Service Bus, przy użyciu hello portalu Azure.
+3. Utwórz temat toothat subskrypcji usługi Service Bus, przy użyciu hello portalu Azure.
+4. Zapis temat toohello wiadomość toosend aplikacji konsoli.
+5. Zapis tooreceive aplikacji konsoli tę wiadomość hello subskrypcji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2017.
+1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). Przykłady Hello w tym samouczku Użyj Visual Studio 2017 r.
 2. Subskrypcja platformy Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
+## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Tworzenie przestrzeni nazw przy użyciu hello portalu Azure
 
-Jeśli przestrzeń nazw obsługi komunikatów usługi Service Bus została już utworzona, przejdź do sekcji [Tworzenie tematu przy użyciu witryny Azure Portal](#2-create-a-topic-using-the-azure-portal).
+Jeśli utworzono już przestrzeń nazw usługi magistrali komunikatów, przejście toohello [utworzyć temat przy użyciu portalu Azure hello](#2-create-a-topic-using-the-azure-portal) sekcji.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Tworzenie tematu przy użyciu witryny Azure Portal
+## <a name="2-create-a-topic-using-hello-azure-portal"></a>2. Tworzenie tematu przy użyciu hello portalu Azure
 
-1. Zaloguj się w witrynie [Azure Portal][azure-portal].
-2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług**).
-3. Kliknij przestrzeń nazw, w której chcesz utworzyć temat. Zostanie wyświetlony blok Przegląd przestrzeni nazw:
+1. Zaloguj się na toohello [portalu Azure][azure-portal].
+2. W okienku nawigacji po lewej stronie powitania hello portalu kliknij **usługi Service Bus** (Jeśli nie widzisz **usługi Service Bus**, kliknij przycisk **więcej usług**).
+3. Kliknij przestrzeń nazw hello, w którym chcesz toocreate hello tematu. zostanie wyświetlony blok Omówienie przestrzeni nazw Hello:
    
     ![Tworzenie tematu][createtopic1]
-4. W bloku **Przestrzeń nazw usługi Service Bus** kliknij pozycję **Tematy**, a następnie kliknij przycisk **Dodaj temat**.
+4. W hello **przestrzeni nazw usługi Service Bus** bloku, kliknij przycisk **tematy**, następnie kliknij przycisk **tematu Dodaj**.
    
     ![Wybieranie tematów][createtopic2]
-5. Wprowadź nazwę tematu i usuń zaznaczenie opcji **Włącz partycjonowanie**. Pozostaw inne opcje z wartościami domyślnymi.
+5. Wprowadź nazwę dla tematu hello i usuń zaznaczenie pola wyboru hello **włączyć partycjonowania** opcji. Pozostaw hello inne opcje z wartościami domyślnymi.
    
     ![Wybieranie nowych kolejek][createtopic3]
-6. W dolnej części bloku kliknij pozycję **Utwórz**.
+6. U dołu hello hello bloku, kliknij przycisk **Utwórz**.
 
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Tworzenie subskrypcji tematu
+## <a name="3-create-a-subscription-toohello-topic"></a>3. Tworzenie tematu toohello subskrypcji
 
-1. W okienku zasobów portalu kliknij przestrzeń nazw utworzoną w kroku 1, a następnie kliknij nazwę tematu utworzonego w kroku 2.
-2. W górnej części okienka Przegląd kliknij znak plus obok pozycji **Subskrypcja**, aby dodać subskrypcję do tego tematu.
+1. W okienku portalu zasobów hello kliknij hello przestrzeni nazw, który został utworzony w kroku 1, a następnie kliknij nazwę hello temat, który został utworzony w kroku 2.
+2. Hello początku hello okienku przeglądu, kliknij hello plus obok Zaloguj za**subskrypcji** tooadd temat toothis subskrypcji.
 
     ![Tworzenie subskrypcji][createtopic4]
 
-3. Wprowadź nazwę subskrypcji. Pozostaw inne opcje z wartościami domyślnymi.
+3. Wprowadź nazwę hello subskrypcji. Pozostaw hello inne opcje z wartościami domyślnymi.
 
-## <a name="4-send-messages-to-the-topic"></a>4. Wysyłanie komunikatów do tematu
+## <a name="4-send-messages-toohello-topic"></a>4. Wysyłanie wiadomości toohello tematu
 
-Aby wysyłać komunikaty do tematu, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
+toosend wiadomości toohello tematu, możemy zapisać aplikacji konsolowej C# za pomocą programu Visual Studio.
 
 ### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
 Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET Framework)**.
 
-### <a name="add-the-service-bus-nuget-package"></a>Dodawanie pakietu NuGet usługi Service Bus
+### <a name="add-hello-service-bus-nuget-package"></a>Dodaj pakiet NuGet usługi Service Bus hello
 
-1. Kliknij prawym przyciskiem myszy nowo utworzony projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
-2. Kliknij kartę **Przeglądaj**, wyszukaj ciąg **Microsoft Azure Service Bus**, a następnie wybierz element **WindowsAzure.ServiceBus**. Kliknij przycisk **Zainstaluj**, aby ukończyć instalację, a następnie zamknij to okno dialogowe.
+1. Kliknij prawym przyciskiem myszy hello nowo utworzonego projektu i wybierz **Zarządzaj pakietami NuGet**.
+2. Kliknij hello **Przeglądaj** karcie, wyszukaj **Microsoft Azure Service Bus**, a następnie wybierz hello **WindowsAzure.ServiceBus** elementu. Kliknij przycisk **zainstalować** toocomplete hello instalacji, a następnie zamknij to okno dialogowe.
    
     ![Wybieranie pakietu NuGet][nuget-pkg]
 
-### <a name="write-some-code-to-send-a-message-to-the-topic"></a>Pisanie kodu służącego do wysyłania komunikatów do tematu
+### <a name="write-some-code-toosend-a-message-toohello-topic"></a>Zapis niektórych toosend kodu temat toohello wiadomość
 
-1. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
+1. Dodaj następujące hello `using` toohello instrukcji na początku pliku Program.cs hello.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Dodaj następujący kod do metody `Main`: Ustaw jako zmienną `connectionString` parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw jako zmienną `topicName` nazwę tematu użytą podczas tworzenia tematu.
+2. Dodaj hello następującego kodu toohello `Main` metody. Zestaw hello `connectionString` połączenia toohello zmiennej ciągu uzyskane podczas tworzenia hello przestrzeni nazw i ustawić `topicName` nazwa toohello, który został użyty podczas tworzenia tematu hello.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -107,7 +107,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
 
     client.Send(message);
 
-    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
     Console.ReadLine();
     ```
    
@@ -138,25 +138,25 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
 
                 client.Send(message);
 
-                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
                 Console.ReadLine();
             }
         }
     }
     ```
-3. Uruchom program i sprawdź witrynę Azure Portal: kliknij nazwę swojego tematu w bloku **Przegląd** przestrzeni nazw. Zostanie wyświetlony blok **Podstawowe elementy** tematu. W subskrypcjach wyświetlanych w dolnej części bloku wartość pola **Liczba komunikatów** dla każdej subskrypcji powinna teraz wynosić 1. Przy każdym uruchomieniu aplikacji nadawcy bez pobierania komunikatów (zgodnie z opisem w następnej sekcji) ta wartość zwiększa się o 1. Należy również zauważyć, że bieżący rozmiar tematu zwiększa wartość **Bieżące** w bloku **Podstawowe elementy** za każdym razem, kiedy aplikacja dodaje komunikat do tematu/subskrypcji.
+3. Uruchom hello program i sprawdź hello portalu Azure: kliknij nazwę hello tematu w przestrzeni nazw hello **omówienie** bloku. temat Hello **Essentials** bloku jest wyświetlany. W subskrypcji hello wymienione na dole bloku hello hello, zwróć uwagę, że hello **liczba komunikatów** wartość dla każdej subskrypcji teraz powinna wynosić 1. Każdym uruchomieniu aplikacji nadawcy hello bez pobierania wiadomości powitania (zgodnie z opisem w następnej sekcji hello), wartość ta zwiększa się o 1. Należy również zauważyć, bieżący rozmiar hello tego hello tematu zwiększa hello **bieżącego** wartości na powitania **Essentials** bloku zawsze aplikacji hello dodaje toohello komunikat tematu/subskrypcji.
    
       ![Rozmiar komunikatu][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Odbieranie komunikatów z subskrypcji
+## <a name="5-receive-messages-from-hello-subscription"></a>5. Odbieranie komunikatów z subskrypcji hello
 
-1. Aby odbierać komunikat (lub komunikaty) wysłane w poprzednim kroku, utwórz nową aplikację konsolową i dodaj odwołanie do pakietu NuGet usługi Service Bus, podobnie jak w przypadku poprzedniej aplikacji nadawcy.
-2. Dodaj następującą instrukcję `using` na początku pliku Program.cs.
+1. wiadomość hello tooreceive lub wysłanych wiadomości tak, Utwórz nową aplikację konsoli, a następnie dodaj pakiet NuGet usługi Service Bus toohello odwołania, podobne toohello poprzedniej aplikacji nadawcy.
+2. Dodaj następujące hello `using` toohello instrukcji na początku pliku Program.cs hello.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Dodaj następujący kod do metody `Main`: Ustaw jako zmienną `connectionString` parametry połączenia, które zostały uzyskane podczas tworzenia przestrzeni nazw, a następnie ustaw jako zmienną `topicName` nazwę tematu użytą podczas tworzenia tematu.
+3. Dodaj hello następującego kodu toohello `Main` metody. Zestaw hello `connectionString` połączenia toohello zmiennej ciągu uzyskane podczas tworzenia hello przestrzeni nazw i ustawić `topicName` nazwa toohello, który został użyty podczas tworzenia tematu hello.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -170,7 +170,7 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
-    Console.WriteLine("Press ENTER to exit program");
+    Console.WriteLine("Press ENTER tooexit program");
     Console.ReadLine();
     ```
    
@@ -197,13 +197,13 @@ Uruchom program Visual Studio i utwórz nowy projekt **Aplikacja konsoli (.NET F
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
 
-          Console.WriteLine("Press ENTER to exit program");   
+          Console.WriteLine("Press ENTER tooexit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Uruchom program i ponownie sprawdź portal. Zauważ, że wartości **Liczba komunikatów** i **Bieżące** powinny teraz wynosić 0.
+4. Uruchom hello program i ponownie sprawdzić hello portalu. Zwróć uwagę, że hello **liczba komunikatów** i **bieżącego** wartości są teraz 0.
    
     ![Długość tematu][topic-message-receive]
 
@@ -211,7 +211,7 @@ Gratulacje! Zostały utworzone temat i subskrypcja, wysłano komunikat i odebran
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z naszym [repozytorium GitHub zawierającym przykłady](https://github.com/Azure/azure-service-bus/tree/master/samples), które pokazują niektóre bardziej zaawansowane funkcje obsługi komunikatów usługi Service Bus.
+Zapoznaj się z naszym [repozytorium GitHub i przykłady](https://github.com/Azure/azure-service-bus/tree/master/samples) który przedstawiono niektóre hello bardziej zaawansowane funkcje komunikatów usługi Service Bus.
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Integracja zestawu SDK zaangażowania uniwersalnych aplikacji systemu Windows"
-description: "Integrowanie usługi Azure Mobile Engagement z uniwersalnych aplikacji systemu Windows"
+title: "aaaWindows uniwersalnych integracji zestawu SDK usługi Engagement aplikacji"
+description: "Jak tooIntegrate usługi Azure Mobile Engagement z uniwersalnych aplikacji systemu Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 18543798099c233dbe55cc387ba0216e369c8596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Integracja zestawu SDK zaangażowania uniwersalnych aplikacji systemu Windows
 > [!div class="op_single_selector"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-W tej procedurze opisano Najprostszym sposobem, aby aktywować usługi Engagement analizy i monitorowania aplikacji uniwersalnych systemu Windows.
+W tej procedurze opisano analizy i monitorowania aplikacji uniwersalnych systemu Windows hello najprostszy sposób tooactivate usługi Engagement.
 
-Poniższe kroki są wystarczająco aktywować raport dzienniki wymagane do obliczenia wszystkich statystyki dotyczące użytkowników, sesji, działania, awarii (Crash) i Technicals. Raport dzienniki wymagane do obliczenia innych danych statystycznych, takich jak zdarzenia i błędy zadań musi zostać wykonane ręcznie przy użyciu interfejsu API usługi Engagement (zobacz [sposobu korzystania z zaawansowanych Mobile Engagement znakowanie interfejsu API w aplikacji uniwersalnych systemu Windows](mobile-engagement-windows-store-use-engagement-api.md) od tych statystyki są aplikacji zależnej.
+wymaga wystarczającej ilości raportu hello tooactivate dzienników toocompute wszystkie statystyki dotyczące użytkowników, sesji, działania, awarii (Crash) i Technicals to Hello następujące kroki. Raport Hello dzienników potrzebne toocompute innych danych statystycznych jak zadań, błędy i zdarzenia musi zostać wykonane ręcznie przy użyciu hello zaangażowania interfejsu API (zobacz [jak toouse hello zaawansowane znakowanie interfejsu API w aplikacji uniwersalnych systemu Windows usługi Mobile Engagement](mobile-engagement-windows-store-use-engagement-api.md) od te statystyki są aplikacji zależnej.
 
 ## <a name="supported-versions"></a>Obsługiwane wersje
-Tylko Mobile Engagement SDK dla uniwersalnych aplikacji systemu Windows mogą być zintegrowane środowisko wykonawcze systemu Windows i aplikacji platformy uniwersalnej systemu Windows:
+tylko Hello Mobile Engagement SDK dla uniwersalnych aplikacji systemu Windows mogą być zintegrowane środowisko wykonawcze systemu Windows i aplikacji platformy uniwersalnej systemu Windows:
 
 * Windows 8
 * Windows 8.1
@@ -42,63 +42,63 @@ Tylko Mobile Engagement SDK dla uniwersalnych aplikacji systemu Windows mogą by
 * Windows 10 (wersje desktop i mobile rodzin)
 
 > [!NOTE]
-> Jeśli przeznaczona dla systemu Windows Phone Silverlight, zapoznaj się [procedura integracji systemu Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
+> Jeśli przeznaczona dla systemu Windows Phone Silverlight można znaleźć toohello [procedura integracji systemu Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md).
 > 
 > 
 
-## <a name="install-the-mobile-engagement-universal-apps-sdk"></a>Zainstaluj zestaw SDK usługi Mobile Engagement uniwersalnych aplikacji
+## <a name="install-hello-mobile-engagement-universal-apps-sdk"></a>Zainstaluj hello Mobile Engagement uniwersalny zestaw SDK aplikacji
 ### <a name="all-platforms"></a>Wszystkie platformy
-Mobile Engagement SDK dla aplikacji uniwersalnej systemu Windows jest dostępna jako pakietu Nuget, nazywany *MicrosoftAzure.MobileEngagement*. Można ją zainstalować z Visual Studio Menedżera pakietów Nuget.
+Witaj Mobile Engagement SDK dla aplikacji uniwersalnej systemu Windows jest dostępna jako pakietu Nuget, nazywany *MicrosoftAzure.MobileEngagement*. Można go zainstalować z hello Menedżera pakietów Nuget programu Visual Studio.
 
 ### <a name="windows-8x-and-windows-phone-81"></a>Windows 8.x i Windows Phone 8.1
-NuGet automatycznie wdraża zasobów zestawu SDK w `Resources` folder w katalogu głównym projektu aplikacji.
+NuGet automatycznie wdraża hello zasobów zestawu SDK w hello `Resources` folder w katalogu głównym projektu aplikacji hello.
 
 ### <a name="windows-10-universal-windows-platform-applications"></a>Aplikacji platformy uniwersalnej systemu Windows 10 systemu Windows
-NuGet nie automatycznie wdrażać zasobów zestawu SDK w jeszcze aplikacji platformy uniwersalnej systemu Windows. Należy to zrobić ręcznie do momentu powraca wdrażania zasobów w NuGet:
+NuGet nie automatycznie wdrażać hello zasobów zestawu SDK w jeszcze aplikacji platformy uniwersalnej systemu Windows. Masz toodo powraca go ręcznie do wdrażania zasobów w NuGet:
 
 1. Otwieranie Eksploratora plików w sieci.
-2. Przejdź do następującej lokalizacji (**x.x.x** jest wersją w przypadku instalowania usługi Engagement): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\*  *x.x.x**\\content\win81*
-3. Przeciągnij i upuść **zasobów** folder w Eksploratorze plików w katalogu głównym projektu programu Visual Studio.
-4. W programie Visual Studio wybierz projektu i Aktywuj **Pokaż wszystkie pliki** ikonę nad **Eksploratora rozwiązań**.
-5. Niektóre pliki nie znajdują się w projekcie. Aby zaimportować je jednocześnie kliknij prawym przyciskiem myszy **zasobów** folderu, **wykluczyć z projektu** innego kliknij prawym przyciskiem myszy, a następnie **zasobów** folderu, **uwzględnione w Projekt** ponownie uwzględnienie całego folderu. Wszystkie pliki z **zasobów** folderze znajdują się teraz w projekcie.
+2. Przejdź toohello następującej lokalizacji (**x.x.x** jest wersja hello w przypadku instalowania usługi Engagement): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\*  *x.x.x**\\content\win81*
+3. Przeciąganie i upuszczanie hello **zasobów** folderu z katalogu głównego toohello Eksploratora plików hello projektu w programie Visual Studio.
+4. W programie Visual Studio wybierz projektu i Aktywuj hello **Pokaż wszystkie pliki** ikony na powitania **Eksploratora rozwiązań**.
+5. Niektóre pliki nie znajdują się w projekcie hello. tooimport je jednocześnie kliknij prawym przyciskiem myszy hello **zasobów** folderu, **wykluczyć z projektu** , a następnie innego kliknij prawym przyciskiem myszy hello **zasobów** folderu, **dołączania w projekcie** toore-zawierają hello cały folder. Wszystkie pliki z hello **zasobów** folderze znajdują się teraz w projekcie.
 
-## <a name="add-the-capabilities"></a>Dodawanie funkcji
-Engagement SDK wymaga prawidłowego funkcjonowania niektórych możliwości zestaw Windows SDK.
+## <a name="add-hello-capabilities"></a>Dodawanie funkcji hello
+Witaj Engagement SDK musi niektóre możliwości hello zestaw Windows SDK w kolejności toowork poprawnie.
 
-Otwórz z `Package.appxmanifest` plików i pamiętaj, że następujące funkcje są deklarowane jako:
+Otwórz z `Package.appxmanifest` plików i pamiętaj, że hello następujące funkcje są deklarowane jako:
 
 * `Internet (Client)`
 
-## <a name="initialize-the-engagement-sdk"></a>Inicjowanie usługi Engagement SDK
+## <a name="initialize-hello-engagement-sdk"></a>Inicjowanie hello Engagement SDK
 ### <a name="engagement-configuration"></a>Konfiguracja usługi Engagement
-Konfiguracja zaangażowania jest scentralizowana w `Resources\EngagementConfiguration.xml` pliku projektu.
+konfiguracji usługi Engagement Hello jest scentralizowana w hello `Resources\EngagementConfiguration.xml` pliku projektu.
 
-Edytuj ten plik, aby określić:
+Edytuj toospecify tego pliku:
 
 * Parametry połączenia aplikacji między tagami `<connectionString>` i `<\connectionString>`.
 
-Jeśli chcesz określić je w czasie wykonywania, należy wywołać metodę następujące przed zainicjowaniem agenta usługi Engagement:
+Jeśli chcesz, aby toospecify go w czasie wykonywania zamiast tego możesz wywołać program hello następujące metody przed zainicjowaniem agenta zaangażowania hello:
 
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-          /* Set the Engagement connection string. */
+          /* Set hello Engagement connection string. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-Ciąg połączenia dla aplikacji jest wyświetlany w klasycznym portalu Azure.
+Parametry połączenia Hello aplikacji jest wyświetlany na powitania klasycznego portalu Azure.
 
 ### <a name="engagement-initialization"></a>Inicjowania usługi Engagement
-Podczas tworzenia nowego projektu `App.xaml.cs` plik został wygenerowany. Ta klasa dziedziczy `Application` i zawiera wiele metod ważne. Będzie można również używany do inicjowania usługi Engagement SDK.
+Podczas tworzenia nowego projektu `App.xaml.cs` plik został wygenerowany. Ta klasa dziedziczy `Application` i zawiera wiele metod ważne. Konieczne będzie również używany tooinitialize hello Engagement SDK.
 
-Modyfikowanie `App.xaml.cs`:
+Modyfikowanie hello `App.xaml.cs`:
 
-* Dodaj do Twojej `using` instrukcji:
+* Dodaj tooyour `using` instrukcji:
   
       using Microsoft.Azure.Engagement;
-* Zdefiniuj metodę udostępniania inicjowania usługi Engagement raz dla wszystkich wywołań:
+* Zdefiniuj inicjowania usługi Engagement — metoda tooshare hello raz dla wszystkich wywołań:
   
       private void InitEngagement(IActivatedEventArgs e)
       {
@@ -108,13 +108,13 @@ Modyfikowanie `App.xaml.cs`:
   
         EngagementAgent.Instance.Init(e, engagementConfiguration);
       }
-* Wywołanie `InitEngagement` w `OnLaunched` metody:
+* Wywołanie `InitEngagement` w hello `OnLaunched` metody:
   
       protected override void OnLaunched(LaunchActivatedEventArgs e)
       {
         InitEngagement(e);
       }
-* Gdy aplikacja jest uruchamiana za pomocą schematu niestandardowego, inna aplikacja lub wiersza polecenia, a następnie `OnActivated` metoda jest wywoływana. Należy również inicjowania usługi Engagement SDK, po aktywowaniu aplikacji. Aby to zrobić, należy zastąpić `OnActivated` metody:
+* Gdy aplikacja jest uruchamiana za pomocą schematu niestandardowego, innego wiersza polecenia aplikacji lub hello następnie hello `OnActivated` metoda jest wywoływana. Należy również hello tooinitiate Engagement SDK po aktywowaniu aplikacji. tak, Zastąp toodo `OnActivated` metody:
   
       protected override void OnActivated(IActivatedEventArgs args)
       {
@@ -122,20 +122,20 @@ Modyfikowanie `App.xaml.cs`:
       }
 
 > [!IMPORTANT]
-> Firma Microsoft zdecydowanie zniechęcić można dodać inicjowania usługi Engagement w innym miejscu aplikacji.
+> Firma Microsoft zdecydowanie zniechęcić możesz tooadd hello zaangażowania inicjowania w innym miejscu aplikacji.
 > 
 > 
 
 ## <a name="basic-reporting"></a>Podstawowym raportowaniem
 ### <a name="recommended-method-overload-your-page-classes"></a>Zalecana metoda: przeciążenia sieci `Page` klas
-Aby aktywować raportu wszystkie dzienniki wymagane przez zaangażowania można obliczyć użytkowników, sesji, działania, awarii (Crash) i statystyki technicznych, możesz po prostu wprowadzić wszystkie Twoje `Page` klasy podrzędne dziedziczą `EngagementPage` klasy.
+W raporcie hello tooactivate kolejności wszystkich dzienników hello wymagane przez zaangażowania toocompute użytkowników, sesji, działania, awarii (Crash) i statystyki technicznych, możesz po prostu wprowadzić wszystkie Twoje `Page` klasy podrzędne dziedziczą hello `EngagementPage` klasy.
 
-Oto przykład tego, jak to zrobić w strony aplikacji. Możesz to zrobić to samo dla wszystkich stron w aplikacji.
+Oto przykład tego, jak toodo to strony aplikacji. Możesz zrobić hello samo dla wszystkich stron w aplikacji.
 
 #### <a name="c-source-file"></a>Plik źródłowy języka C#
 Zmodyfikuj stronę `.xaml.cs` pliku:
 
-* Dodaj do Twojej `using` instrukcji:
+* Dodaj tooyour `using` instrukcji:
   
       using Microsoft.Azure.Engagement;
 * Zastąp `Page` z `EngagementPage`:
@@ -163,14 +163,14 @@ Zmodyfikuj stronę `.xaml.cs` pliku:
         }
 
 > [!IMPORTANT]
-> Jeśli strona zastępuje metodę `OnNavigatedTo`, nie zapomnij wywołać metody `base.OnNavigatedTo(e)`. W przeciwnym razie działanie nie zostanie zgłoszone (element `EngagementPage` wywołuje metodę `StartActivity` wewnątrz jego metody `OnNavigatedTo`).
+> Jeśli strona zastępuje hello `OnNavigatedTo` metody, należy się toocall `base.OnNavigatedTo(e)`. W przeciwnym razie działanie hello nie będą raportowane (hello `EngagementPage` wywołania `StartActivity` wewnątrz jego `OnNavigatedTo` metody).
 > 
 > 
 
 #### <a name="xaml-file"></a>Plik XAML
 Zmodyfikuj stronę `.xaml` pliku:
 
-* Dodaj deklaracje przestrzeni nazw:
+* Dodaj deklaracje przestrzeni nazw tooyour:
   
       xmlns:engagement="using:Microsoft.Azure.Engagement"
 * Zastąp `Page` z `engagement:EngagementPage`:
@@ -190,33 +190,33 @@ Zmodyfikuj stronę `.xaml` pliku:
             ...
         </engagement:EngagementPage >
 
-#### <a name="override-the-default-behaviour"></a>Zastąpienie zachowania domyślnego
-Domyślnie nazwa klasy strony został zgłoszony jako nazwę działania, bez dodatkowych. Jeśli klasa korzysta z sufiksem "Page", Engagement spowoduje również usunięcie.
+#### <a name="override-hello-default-behaviour"></a>Zastąpienie zachowania domyślnego hello
+Domyślnie nazwa klasy hello strony hello został zgłoszony jako nazwę działania hello, bez dodatkowych. Jeśli klasa hello korzysta z sufiksem "Page" hello, Engagement spowoduje również usunięcie.
 
-Jeśli chcesz zastąpić domyślne zachowanie dla nazwy, po prostu dodaj to w kodzie:
+Jeśli chcesz toooverride hello domyślne zachowanie dla nazwy hello, po prostu dodaj ten kod tooyour:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override string GetEngagementPageName()
         {
           /* your code */
           return "new name";
         }
 
-Jeśli chcesz zgłosić niektóre dodatkowe informacje o Twoich działaniach, możesz dodać to w kodzie:
+Jeśli chcesz tooreport niektóre dodatkowe informacje o Twoich działaniach, można dodać ten kod tooyour:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override Dictionary<object,object> GetEngagementPageExtra()
         {
           /* your code */
           return extra;
         }
 
-Te metody są wywoływane z poziomu `OnNavigatedTo` metody na stronie.
+Te metody są wywoływane z wewnątrz hello `OnNavigatedTo` metody na stronie.
 
 ### <a name="alternate-method-call-startactivity-manually"></a>Alternatywna metoda: wywołanie `StartActivity()` ręcznie
-Jeśli nie możesz lub nie było przeciążyć Twojej `Page` klas, zamiast tego można uruchomić działań przez wywołanie metody `EngagementAgent` metody bezpośrednio.
+Jeśli nie możesz lub nie ma toooverload Twojego `Page` klas, zamiast tego można uruchomić działań przez wywołanie metody `EngagementAgent` metody bezpośrednio.
 
-Firma Microsoft zaleca, aby wywołać `StartActivity` wewnątrz sieci `OnNavigatedTo` metody na stronie.
+Firma Microsoft zaleca toocall `StartActivity` wewnątrz sieci `OnNavigatedTo` metody na stronie.
 
             protected override void OnNavigatedTo(NavigationEventArgs e)
             {
@@ -227,31 +227,31 @@ Firma Microsoft zaleca, aby wywołać `StartActivity` wewnątrz sieci `OnNavigat
 > [!IMPORTANT]
 > Upewnij się, że prawidłowo zakończyć sesję.
 > 
-> Uniwersalny zestaw SDK systemu Windows automatycznie wywołuje `EndActivity` metody, gdy aplikacja zostanie zamknięta. W związku z tym jest **wysokiej** zaleca, aby wywołać `StartActivity` metody zmianie aktywności użytkownika i **nigdy** wywołać `EndActivity` metody, ta metoda wysyła do serwera usługi Engagement który bieżący użytkownik ma pozostawić aplikacji, to zostanie ma wpływ na wszystkie dzienniki aplikacji.
+> Witaj uniwersalnego zestawu SDK automatycznie wywołuje hello `EndActivity` metody, gdy aplikacja hello jest zamknięty. W związku z tym jest **wysokiej** zalecane toocall hello `StartActivity` metody zmianie działania hello hello użytkownika i zbyt**nigdy** hello wywołania `EndActivity` metoda, ta metoda wysyła tooEngagement serwer, że bieżący użytkownik aplikacji hello pozostaw, spowoduje to ma wpływ na wszystkie dzienniki aplikacji.
 > 
 > 
 
 ## <a name="advanced-reporting"></a>Zaawansowane raportowanie
-Opcjonalnie, może zajść potrzeba raport aplikacji określonych zdarzeń, błędów i zadań, w tym celu należy użyć innych metod znalezione w `EngagementAgent` klasy. Interfejsu API usługi Engagement pozwala na korzystanie ze wszystkich zaawansowanych możliwości usługi Engagement.
+Opcjonalnie możesz tooreport aplikacji określonych zdarzeń, błędów i zadań, toodo tak, użyj hello innych metod znalezione w hello `EngagementAgent` klasy. Witaj interfejsu API usługi Engagement umożliwia toouse wszystkie funkcje zaawansowane usługi Engagement.
 
-Aby uzyskać więcej informacji, zobacz [sposobu korzystania z zaawansowanych Mobile Engagement znakowanie interfejsu API w aplikacji uniwersalnych systemu Windows](mobile-engagement-windows-store-use-engagement-api.md).
+Aby uzyskać więcej informacji, zobacz [jak toouse hello zaawansowane znakowanie interfejsu API w aplikacji uniwersalnych systemu Windows usługi Mobile Engagement](mobile-engagement-windows-store-use-engagement-api.md).
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 ### <a name="disable-automatic-crash-reporting"></a>Wyłącz automatyczne zgłaszanie awarii
-Możesz wyłączyć automatyczne awarii, funkcję zaangażowania raportowania. Następnie, gdy wystąpi nieobsługiwany wyjątek, Engagement nie będzie wykonywać żadnych czynności.
+Możesz wyłączyć hello awarii automatyczne funkcję zaangażowania raportowania. Następnie, gdy wystąpi nieobsługiwany wyjątek, Engagement nie będzie wykonywać żadnych czynności.
 
 > [!WARNING]
-> Jeśli chcesz wyłączyć tę funkcję, należy pamiętać, że po awarii nieobsługiwany nastąpi w aplikacji, Engagement nie będą wysyłały awarii **i** nie spowoduje zamknięcia sesji i zadania.
+> Jeśli planujesz toodisable tej funkcji, należy pamiętać, że po awarii nieobsługiwany nastąpi w aplikacji, Engagement nie będą wysyłały awarii hello **i** nie spowoduje zamknięcia sesji hello i zadania.
 > 
 > 
 
-Aby wyłączyć automatyczne zgłaszanie awarii, wystarczy dostosować konfigurację, w zależności od sposobu należy zadeklarować jako:
+toodisable awarii automatycznego raportowania, po prostu Dostosuj konfigurację w zależności od sposób hello należy zadeklarować jako:
 
 #### <a name="from-engagementconfigurationxml-file"></a>Z `EngagementConfiguration.xml` pliku
-Ustaw awarii raport `false` między `<reportCrash>` i `</reportCrash>` tagów.
+Raport z ustawiania awaria zbyt`false` między `<reportCrash>` i `</reportCrash>` tagów.
 
 #### <a name="from-engagementconfiguration-object-at-run-time"></a>Z `EngagementConfiguration` obiektu w czasie wykonywania
-Ustaw awarii raportu przy użyciu obiektu EngagementConfiguration wartość false.
+Ustaw przy użyciu obiektu EngagementConfiguration toofalse awarii raportu.
 
         /* Engagement configuration. */
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -261,18 +261,18 @@ Ustaw awarii raportu przy użyciu obiektu EngagementConfiguration wartość fals
         engagementConfiguration.Agent.ReportCrash = false;
 
 ### <a name="burst-mode"></a>Tryb serii
-Domyślnie raporty usługi Engagement rejestruje się w czasie rzeczywistym. Jeśli aplikacja zgłasza dzienniki bardzo często, lepiej jest buforu dzienniki i raportuj je w całości na regularne podstawy czasu (jest to nazywane "tryb serii").
+Domyślnie raporty usługi Engagement hello rejestruje się w czasie rzeczywistym. Jeśli aplikacja zgłasza dzienniki bardzo często, jest lepsze toobuffer hello dzienniki i tooreport ich jednocześnie na regularne podstawy czasu (jest to nazywane hello "tryb serii").
 
-Aby to zrobić, należy wywołać metodę:
+toodo należy wywołać metodę hello:
 
         EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-Argument jest wartością w **milisekund**. W dowolnym momencie Jeśli chcesz ponownie uaktywnić rejestrowania w czasie rzeczywistym, po prostu Wywołaj metodę bez parametrów lub z wartością 0.
+Hello argument jest wartością w **milisekund**. W dowolnym momencie rejestrowania w czasie rzeczywistym hello tooreactivate należy po prostu Wywołaj metodę hello bez parametrów lub z wartością hello 0.
 
-Tryb serii nieco zwiększyć czas pracy baterii, ale ma wpływ na monitorowanie usługi Engagement: wszystkie czas trwania sesji i zadania zostanie zaokrąglony próg serii (w związku z tym sesji i zadania krótsze niż próg serii może nie być widoczna). Zaleca się przy użyciu progu w serii się niż 30000 (30s). Masz wiedzieć, który zapisano dzienniki są ograniczone do 300 elementów. W przypadku wysyłania jest zbyt długa może spowodować utratę niektórych dzienników.
+Witaj tryb serii wydłużyć baterii hello życia ale ma wpływ na powitania Monitor zaangażowania: wszystkie czas trwania zadania i sesje będą zaokrąglone toohello serii próg (w związku z tym sesji i zadania krótsze niż próg serii hello może nie być widoczna). Jest zalecana toouse próg w serii się niż 30000 (30s). Masz toobe wiedzieć, które zapisane dzienniki są ograniczone too300 elementów. W przypadku wysyłania jest zbyt długa może spowodować utratę niektórych dzienników.
 
 > [!WARNING]
-> Próg serii nie można skonfigurować do okresu mniejsza od wartości 1. Jeśli użytkownik spróbuje to zrobić, zestaw SDK wyświetli śledzenia z powodu błędu i będzie automatycznie resetować wartość domyślna, czyli 0s. Spowoduje to wyzwolenie zestaw SDK, aby zgłosić dzienniki w czasie rzeczywistym.
+> Próg serii Hello nie można skonfigurować okres tooa mniejsza od wartości 1. Jeśli spróbujesz toodo tak, hello zestawu SDK będą Pokaż śledzenia z powodu błędu hello i automatycznie resetować toohello wartość domyślna, czyli 0s. To spowoduje wyzwolenie hello SDK tooreport hello dzienniki w czasie rzeczywistym.
 > 
 > 
 

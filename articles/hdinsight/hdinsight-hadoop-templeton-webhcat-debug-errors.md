@@ -1,6 +1,6 @@
 ---
-title: "Zrozumienia i rozwiązania błędów WebHCat w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak do około typowe błędy zwrócone przez WebHCat w usłudze HDInsight oraz sposobów ich rozwiązywania."
+title: "aaaUnderstand i usuń błędy WebHCat w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooabout typowe błędy zwrócone przez WebHCat w usłudze HDInsight i jak tooresolve je."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,41 +16,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 6d8162e0d64ec9fc42690392b7c822593c0c2767
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0071a1e9ed448ae146b93c8f4f518e31b95d27c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Zrozumienia i rozwiązania błędów, odbierane z usługi WebHCat w usłudze HDInsight
 
-Więcej informacji na temat błędów podczas przy użyciu usługi WebHCat w usłudze HDInsight i sposobu ich rozwiązania. WebHCat jest używana wewnętrznie przez klienta narzędzi, takich jak Azure PowerShell i narzędzi Data Lake Tools dla programu Visual Studio.
+Więcej informacji na temat błędów przy użyciu usługi WebHCat w usłudze HDInsight i jak tooresolve je. WebHCat jest używana wewnętrznie przez narzędzia po stronie klienta, takich jak Azure PowerShell i hello narzędzi Data Lake Tools dla programu Visual Studio.
 
 ## <a name="what-is-webhcat"></a>Co to jest WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) to interfejs API REST dla [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tabeli i magazynu warstwa zarządzania dla platformy Hadoop. WebHCat jest domyślnie włączone w klastrach HDInsight i jest używany przez różnych narzędzi do przesyłania zadań, Pobierz stan zadania, itp., bez potrzeby logowania do klastra.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) to interfejs API REST dla [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tabeli i magazynu warstwa zarządzania dla platformy Hadoop. WebHCat jest domyślnie włączone w klastrach HDInsight i jest używany przez różne zadania toosubmit narzędzia, Pobierz stan zadania, itp., bez konieczności logowania się w klastrze toohello.
 
 ## <a name="modifying-configuration"></a>Modyfikowanie konfiguracji
 
 > [!IMPORTANT]
-> Występuje kilka błędów wymienione w niniejszym dokumencie, ponieważ została przekroczona maksymalna skonfigurowana. Podczas kroku rozpoznawania uwagi, można zmienić wartości, należy użyć jednej z poniższych Aby dokonać zmiany:
+> Występuje kilka błędów hello wymienione w niniejszym dokumencie, ponieważ została przekroczona maksymalna skonfigurowana. Podczas kroku rozpoznawania hello uwagi, można zmienić wartości, należy użyć jednego hello tooperform hello zmiany:
 
-* Dla **Windows** klastrów: Aby skonfigurować wartość podczas tworzenia klastra, użyj akcji skryptu. Aby uzyskać więcej informacji, zobacz [tworzenie akcji skryptów](hdinsight-hadoop-script-actions.md).
+* Dla **Windows** klastrów: Użyj wartości hello tooconfigure akcji skryptu podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [tworzenie akcji skryptów](hdinsight-hadoop-script-actions.md).
 
-* Dla **Linux** klastrów: Użyj Ambari (sieć web lub interfejsu API REST), aby zmodyfikować wartość. Aby uzyskać więcej informacji, zobacz [Zarządzanie HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md)
+* Aby uzyskać **Linux** klastrów: wartość hello toomodify Ambari Użyj (sieć web lub interfejsu API REST). Aby uzyskać więcej informacji, zobacz [Zarządzanie HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md)
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 ### <a name="default-configuration"></a>Domyślna konfiguracja
 
-W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć wydajność usługi WebHCat lub powodować błędy:
+W przypadku przekroczenia hello następujące wartości domyślne, możesz obniżyć wydajność usługi WebHCat, lub powodować błędy:
 
 | Ustawienie | Wyniki działania | Wartość domyślna |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.Maximum — aplikacje][maximum-applications] |Maksymalna liczba zadań, które mogą być jednocześnie aktywne (oczekiwanie lub uruchomiona) |10 000 |
-| [templeton.EXEC.max procs][max-procs] |Maksymalna liczba żądań, które mogą być przekazywane jednocześnie |20 |
-| [mapreduce.jobhistory.max wieku ms][max-age-ms] |Liczba dni, które Historia zadania są zachowywane. |7 dni |
+| [yarn.Scheduler.Capacity.Maximum — aplikacje][maximum-applications] |Maksymalna liczba zadań, które mogą być jednocześnie aktywne Hello (oczekiwanie lub uruchomiona) |10 000 |
+| [templeton.EXEC.max procs][max-procs] |Maksymalna liczba żądań, które mogą być przekazywane jednocześnie Hello |20 |
+| [mapreduce.jobhistory.max wieku ms][max-age-ms] |Witaj liczbę dni, które Historia zadania są zachowywane. |7 dni |
 
 ## <a name="too-many-requests"></a>Zbyt wiele żądań
 
@@ -58,7 +58,7 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Przekroczono maksymalną równoczesnych żądań obsłużonych przez WebHCat na minutę (domyślnie 20) |Zmniejsz obciążenie w taki sposób, aby upewnić się, że nie przesłać więcej niż maksymalna liczba jednoczesnych żądań lub zwiększ limit równoczesnych żądań przez zmodyfikowanie `templeton.exec.max-procs`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
+| Przekroczono hello maksymalną równoczesnych żądań obsłużonych przez WebHCat na minutę (domyślnie 20) |Zmniejsz Twojej tooensure obciążenia, czy nie przesyłać więcej niż hello maksymalną liczbę jednoczesnych żądań lub zwiększ limit równoczesnych żądań hello przez zmodyfikowanie `templeton.exec.max-procs`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Serwer jest niedostępny
 
@@ -66,7 +66,7 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Ten kod stanu zazwyczaj występuje w trybie failover między HeadNode podstawowe i pomocnicze dla klastra |Poczekaj 2 minuty, a następnie spróbuj ponownie wykonać operację |
+| Ten kod stanu zazwyczaj występuje w trybie failover między hello podstawowe i pomocnicze HeadNode hello klastra |Poczekaj 2 minuty, a następnie ponów próbę wykonania operacji hello |
 
 ## <a name="bad-request-content-could-not-find-job"></a>Nieprawidłowe żądanie zawartości: nie można odnaleźć zadania
 
@@ -74,9 +74,9 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Szczegóły zadania zostały wyczyszczone w historii zadań czyszcząca |Domyślny okres przechowywania historii zadań wynosi 7 dni. Domyślny okres przechowywania można zmienić, modyfikując `mapreduce.jobhistory.max-age-ms`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
-| Zadania został zamknięty z powodu pracy awaryjnej |Spróbuj ponownie przesyłanie zadań do dwóch minut |
-| Nieprawidłowy identyfikator zadania został użyty. |Sprawdź, czy identyfikator zadania jest prawidłowa |
+| Szczegóły zadania zostały wyczyszczone w historii zadań hello czyszcząca |Witaj domyślnego okresu przechowywania historii zadań wynosi 7 dni. Witaj domyślnego okresu przechowywania można zmienić, modyfikując `mapreduce.jobhistory.max-age-ms`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
+| Zadanie ukończenia pracy awaryjnej tooa został zatrzymany |Spróbuj ponownie przesyłanie zadań do zapasowej tootwo minut |
+| Nieprawidłowy identyfikator zadania został użyty. |Sprawdź, czy identyfikator zadania hello jest prawidłowa |
 
 ## <a name="bad-gateway"></a>Zły bramy
 
@@ -84,10 +84,10 @@ W przypadku przekroczenia następujące wartości domyślne, możesz obniżyć w
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Wewnętrzny wyrzucanie elementów bezużytecznych jest wykonywana w ramach procesu usługi WebHCat |Poczekaj na wyrzucanie elementów bezużytecznych Zakończ lub ponownego uruchomienia usługi WebHCat |
-| Upłynął limit czasu oczekiwania na odpowiedź z usługi ResourceManager. Ten błąd może wystąpić, gdy liczba aktywnych aplikacji skonfigurowane maksimum (domyślnie 10 000) |Poczekaj, aż aktualnie uruchomionych zadań do wykonania lub zwiększ limit równoczesnych zadań, modyfikując `yarn.scheduler.capacity.maximum-applications`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) sekcji. |
-| Podjęto próbę pobrania wszystkich zadań za pomocą [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) wywołania podczas `Fields` ma ustawioną wartość`*` |Nie pobierają *wszystkie* szczegóły zadania. Zamiast tego użyj `jobid` można pobrać szczegółów zadań większe tylko niektórych identyfikator zadania. Nie używaj`Fields` |
-| Usługi WebHCat nie działa w trybie failover HeadNode |Poczekaj 2 minuty, a następnie spróbuj ponownie wykonać operację |
+| Wewnętrzny wyrzucanie elementów bezużytecznych ma miejsce w hello procesu usługi WebHCat |Poczekaj, aż odzyskiwanie kolekcji toofinish lub ponowne uruchomienie usługi WebHCat hello |
+| Upłynął limit czasu oczekiwania na odpowiedź z hello ResourceManager usługi. Ten błąd może wystąpić, gdy hello liczba aktywnych aplikacji hello skonfigurowany maksymalny (domyślnie 10 000) |Poczekaj, aż aktualnie uruchomione zadania toocomplete lub zwiększ limit równoczesnych zadań hello modyfikując `yarn.scheduler.capacity.maximum-applications`. Aby uzyskać więcej informacji, zobacz hello [modyfikowanie konfiguracji](#modifying-configuration) sekcji. |
+| Próba tooretrieve wszystkie zadania za pomocą hello [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) wywołania podczas `Fields` ustawiono zbyt`*` |Nie pobierają *wszystkie* szczegóły zadania. Zamiast tego użyj `jobid` tooretrieve szczegóły zadania tylko większe niektórych identyfikator zadania. Nie używaj`Fields` |
+| Witaj usługi WebHCat nie działa w trybie failover HeadNode |Poczekaj dwóch minut i ponów próbę wykonania operacji hello |
 | Istnieje więcej niż 500 oczekujące zadania przesłane za pośrednictwem usługi WebHCat |Poczekaj, aż obecnie oczekujące zadania zostały ukończone przed przesłaniem więcej zadań |
 
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html

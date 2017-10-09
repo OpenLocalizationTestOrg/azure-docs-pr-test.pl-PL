@@ -1,6 +1,6 @@
 ---
-title: "Użyj magazynu obiektów blob dla usług IIS i tabeli magazynu dla zdarzeń w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Analiza dzienników mogą odczytać w dziennikach usług platformy Azure, które zapisać diagnostyki magazynu tabel lub dzienniki programu IIS zapisywane do magazynu obiektów blob."
+title: "Magazyn obiektów blob aaaUse dla usług IIS i tabeli magazynu dla zdarzeń w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Analiza dzienników mogą odczytywać hello dzienników dla usług Azure, które zapisać tootable magazynu diagnostyki lub zapisywane magazynu tooblob dzienniki programu IIS."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ff3de04dc8cb6729c1443372ec31a0e8dc47f273
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Użyj magazynu obiektów blob platformy Azure dla usług IIS i Azure magazyn tabel zdarzeń o analizy dzienników
 
-Analiza dzienników można przeczytać w dziennikach następujących usług, które zapisać diagnostyki magazynu tabel lub dzienniki programu IIS zapisywane do magazynu obiektów blob:
+Analiza dzienników można przeczytać hello dzienniki hello następujące usługi, które zapisu diagnostyki tootable dzienniki magazynu lub IIS napisane tooblob magazynu:
 
 * Sieć szkieletowa usług klastrów (wersja zapoznawcza)
 * Maszyny wirtualne
@@ -31,11 +31,11 @@ Analiza dzienników można przeczytać w dziennikach następujących usług, kt�
 
 Analiza dzienników można zbierać dane dla tych zasobów, należy włączyć diagnostyki Azure.
 
-Po włączeniu diagnostyki, mogą korzystać z portalu Azure lub programu PowerShell skonfiguruj analizy dzienników do zbierania dzienników.
+Po włączeniu diagnostyki, można użyć hello portalu Azure lub programu PowerShell skonfiguruj dzienniki hello toocollect analizy dzienników.
 
-Diagnostyka Azure to rozszerzenie Azure, która umożliwia zbieranie danych diagnostycznych z rolą proces roboczy, roli sieci web lub maszynę wirtualną działającą na platformie Azure. Dane są przechowywane na koncie magazynu Azure i następnie mogą zostać zebrane przez analizy dzienników.
+Diagnostyka Azure to rozszerzenie Azure umożliwiającą toocollect danych diagnostycznych z rolą proces roboczy, roli sieci web lub maszynę wirtualną działającą na platformie Azure. Witaj dane są przechowywane na koncie magazynu Azure i następnie mogą zostać zebrane przez analizy dzienników.
 
-Dzienniki analizy dzienników do zbierania tych dzienników diagnostyki Azure, konieczne jest w następujących lokalizacjach:
+Dla analizy dzienników toocollect tych dzienników diagnostyki Azure dzienniki hello należy hello następujących lokalizacji:
 
 | Typ dziennika | Typ zasobu | Lokalizacja |
 | --- | --- | --- |
@@ -52,38 +52,38 @@ Dzienniki analizy dzienników do zbierania tych dzienników diagnostyki Azure, k
 >
 >
 
-Dla maszyn wirtualnych, istnieje możliwość zainstalowania [analizy dzienników agenta](log-analytics-azure-vm-extension.md) do maszyny wirtualnej, aby włączyć dodatkowe informacje szczegółowe. Oprócz możliwości analizować dzienniki zdarzeń i dzienniki programu IIS, można wykonywać dodatkowe analizy, w tym śledzenia zmian konfiguracji, SQL do oceny i oceny aktualizacji.
+W przypadku maszyn wirtualnych ma hello opcji instalacji hello [analizy dzienników agenta](log-analytics-azure-vm-extension.md) w szczegółowe dane dodatkowe tooenable maszyny wirtualnej. Ponadto w dziennikach zdarzeń i dzienniki programu IIS stanie tooanalyze toobeing, można wykonywać dodatkowe analizy, w tym śledzenia zmian konfiguracji, SQL do oceny i oceny aktualizacji.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Włącz diagnostykę Azure na maszynie wirtualnej dla dziennika zdarzeń i IIS zbierania dzienników
-Poniższa procedura umożliwia włączanie diagnostyki Azure na maszynie wirtualnej do dziennika zdarzeń i IIS zbierania dzienników przy użyciu portalu Microsoft Azure.
+Hello użyj następującej procedury tooenable diagnostycznych platformy Azure na maszynie wirtualnej dziennika zdarzeń i IIS dziennika kolekcji za pomocą portalu Microsoft Azure hello.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Aby włączyć diagnostyki Azure na maszynie wirtualnej z portalu Azure
-1. Zainstaluj agenta maszyny Wirtualnej, podczas tworzenia maszyny wirtualnej. Jeśli maszyna wirtualna już istnieje, sprawdź, czy Agent maszyny Wirtualnej jest już zainstalowany.
+### <a name="tooenable-azure-diagnostics-in-a-virtual-machine-with-hello-azure-portal"></a>tooenable diagnostycznych platformy Azure na maszynie wirtualnej z hello portalu Azure
+1. Podczas tworzenia maszyny wirtualnej, należy zainstalować hello agenta maszyny Wirtualnej. Jeśli maszyna wirtualna hello już istnieje, sprawdź hello, że Agent maszyny Wirtualnej jest już zainstalowana.
 
-   * W portalu Azure, przejdź do maszyny wirtualnej, wybierz opcję **konfiguracji opcjonalnej**, następnie **diagnostyki** i ustaw **stan** do **na**.
+   * W portalu Azure hello Przejdź toohello maszyny wirtualnej, wybierz **konfiguracji opcjonalnej**, następnie **diagnostyki** i ustaw **stan** zbyt**na**.
 
-     Po zakończeniu maszyna wirtualna ma rozszerzenie Azure Diagnostics zainstalowany i uruchomiony. To rozszerzenie jest odpowiedzialny za zbierania danych diagnostycznych.
-2. Aby włączyć monitorowanie i skonfigurować rejestrowanie zdarzeń w istniejącej maszyny Wirtualnej. Można włączyć diagnostyki na poziomie maszyny Wirtualnej. Włącz diagnostykę, a następnie skonfiguruj rejestrowanie zdarzeń, wykonaj następujące czynności:
+     Po zakończeniu hello maszyny Wirtualnej ma rozszerzenie Azure Diagnostics hello zainstalowany i uruchomiony. To rozszerzenie jest odpowiedzialny za zbierania danych diagnostycznych.
+2. Aby włączyć monitorowanie i skonfigurować rejestrowanie zdarzeń w istniejącej maszyny Wirtualnej. Można włączyć diagnostyki na powitania poziom maszyny Wirtualnej. Diagnostyka tooenable, a następnie skonfiguruj rejestrowanie zdarzeń, wykonaj następujące kroki hello:
 
-   1. Wybierz maszynę Wirtualną.
+   1. Wybierz hello maszyny Wirtualnej.
    2. Kliknij przycisk **monitorowania**.
    3. Kliknij przycisk **diagnostyki**.
-   4. Ustaw **stan** do **ON**.
-   5. Wybierz każdego dziennika diagnostyki, które mają być zbierane.
+   4. Zestaw hello **stan** za**ON**.
+   5. Wybierz każdego dziennika diagnostyki, które mają toocollect.
    6. Kliknij przycisk **OK**.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Włącz diagnostykę Azure w roli sieci Web dla usług IIS dziennika i zdarzenie kolekcji
-Zapoznaj się [jak do włączenia diagnostyki w usłudze w chmurze](../cloud-services/cloud-services-dotnet-diagnostics.md) ogólne instrukcje na temat włączania diagnostyki Azure. Poniższe instrukcje te informacje i dostosować go do użytku z analizy dzienników.
+Odwołuje się zbyt[jak tooEnable diagnostyki w usłudze w chmurze](../cloud-services/cloud-services-dotnet-diagnostics.md) ogólne instrukcje na temat włączania diagnostyki Azure. Poniższe instrukcje Hello te informacje i dostosować go do użytku z analizy dzienników.
 
 Diagnostyka Azure włączone:
 
-* Dzienniki programu IIS są przechowywane domyślnie przenoszone w odstępach czasu transferu scheduledTransferPeriod danych dziennika.
+* Dzienniki programu IIS są przechowywane domyślnie przenoszone w odstępach czasu transferu scheduledTransferPeriod hello danych dziennika.
 * Dzienniki zdarzeń systemu Windows nie są przesyłane domyślnie.
 
-### <a name="to-enable-diagnostics"></a>Aby włączyć diagnostyki
-Aby włączyć dzienniki zdarzeń systemu Windows lub zmienić scheduledTransferPeriod, skonfiguruj diagnostyki Azure za pomocą pliku konfiguracji XML (diagnostics.wadcfg), jak pokazano w [krok 4: Tworzenie pliku konfiguracji diagnostyki i zainstaluj rozszerzenie](../cloud-services/cloud-services-dotnet-diagnostics.md)
+### <a name="tooenable-diagnostics"></a>Diagnostyka tooenable
+tooenable dzienniki zdarzeń systemu Windows lub toochange hello scheduledTransferPeriod, skonfiguruj diagnostyki Azure za pomocą pliku konfiguracji XML hello (diagnostics.wadcfg), jak pokazano w [krok 4: Tworzenie pliku konfiguracji diagnostyki i instalacja hello rozszerzenia](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-Przykładowy plik konfiguracji zbiera dzienniki programu IIS i wszystkich zdarzeń w dziennikach aplikacji i systemu:
+Witaj następujący przykładowy plik konfiguracji zbiera dzienniki programu IIS i wszystkie zdarzenia z aplikacji hello i dzienniki systemu:
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -93,7 +93,7 @@ Przykładowy plik konfiguracji zbiera dzienniki programu IIS i wszystkich zdarze
 
       <Directories bufferQuotaInMB="0"
          scheduledTransferPeriod="PT10M">  
-        <!-- IISLogs are only relevant to Web roles -->
+        <!-- IISLogs are only relevant tooWeb roles -->
         <IISLogs container="wad-iis" directoryQuotaInMB="0" />
       </Directories>
 
@@ -107,7 +107,7 @@ Przykładowy plik konfiguracji zbiera dzienniki programu IIS i wszystkich zdarze
     </DiagnosticMonitorConfiguration>
 ```
 
-Upewnij się, że Twoje appSettings określa konta magazynu, jak w poniższym przykładzie:
+Upewnij się, że Twoje appSettings określa konta magazynu, tak jak hello poniższy przykład:
 
 ```
     <ConfigurationSettings>
@@ -115,60 +115,60 @@ Upewnij się, że Twoje appSettings określa konta magazynu, jak w poniższym pr
     </ConfigurationSettings>
 ```
 
-**AccountName** i **AccountKey** wartości znajdują się w portalu Azure na pulpicie nawigacyjnym konta magazynu, w obszarze Zarządzanie kluczami dostępu. Protokół ciągu połączenia musi być **https**.
+Witaj **AccountName** i **AccountKey** wartości znajdują się w hello portalu Azure w hello konta pulpitu nawigacyjnego magazynu, w obszarze Zarządzanie kluczami dostępu. Protokół Hello hello ciągu połączenia musi być **https**.
 
-Po zaktualizowanej konfiguracji diagnostyczne jest stosowany do usługi w chmurze i zapisuje diagnostyki do magazynu Azure, następnie możesz przystąpić do konfigurowania analizy dzienników.
+Po zastosowaniu zaktualizowanej konfiguracji diagnostycznych hello tooyour usługi w chmurze i zapisuje tooAzure diagnostyki magazynu, wówczas są gotowe tooconfigure analizy dzienników.
 
-## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Zbieranie dzienników z usługi Azure Storage za pomocą portalu Azure
-Azure portal umożliwiają skonfigurowanie analizy dzienników do zbierania dzienników dla następujących usług platformy Azure:
+## <a name="use-hello-azure-portal-toocollect-logs-from-azure-storage"></a>Użyj dzienników toocollect portalu Azure hello z usługi Azure Storage
+Witaj tooconfigure portalu Azure Log Analytics toocollect hello dzienniki służącego do powitania po usług Azure:
 
 * Klastrów sieci szkieletowej usług
 * Maszyny wirtualne
 * Role sieć Web/proces roboczy.
 
-W portalu Azure przejdź do obszaru roboczego analizy dzienników i wykonywać następujące zadania:
+W hello portalu Azure przejdź do obszaru roboczego analizy dzienników tooyour i wykonaj hello następujące zadania:
 
 1. Kliknij przycisk *dzienników kont magazynu*
-2. Kliknij przycisk *Dodaj* zadań
-3. Wybierz konto magazynu, który zawiera dzienników diagnostycznych
+2. Kliknij przycisk hello *Dodaj* zadań
+3. Wybierz konto magazynu hello zawierający hello dzienników diagnostycznych
    * To konto może być konto magazynu classic lub konta magazynu usługi Azure Resource Manager
-4. Wybierz typ danych, które mają być zbierane w dziennikach
-   * Dostępne są następujące dzienniki programu IIS; Zdarzenia; SYSLOG (Linux); Dzienniki zdarzeń systemu Windows; Zdarzenia sieci szkieletowej usług
-5. Wartość źródła jest wypełniane automatycznie na podstawie typu danych i nie można jej zmienić
-6. Kliknij przycisk OK, aby zapisać konfigurację
+4. Wybierz hello ma toocollect dzienniki dla typu danych
+   * Wybór Hello jest dzienniki programu IIS; Zdarzenia; SYSLOG (Linux); Dzienniki zdarzeń systemu Windows; Zdarzenia sieci szkieletowej usług
+5. wartość Hello źródła jest automatycznie wypełniane oparte na powitania typ danych i nie można zmienić
+6. Kliknij przycisk OK toosave hello konfiguracji
 
-Powtórz kroki od 2 do 6 dla dodatkowych kont magazynu i typy danych, które mają analizy dzienników do zbierania.
+Powtórz kroki od 2 do 6 dla dodatkowego magazynu kont i typy danych, które mają toocollect analizy dzienników.
 
-W ciągu 30 minut będą mogli wyświetlić dane z konta magazynu w analizy dzienników. Wyświetlany tylko dane, które są zapisywane w pamięci masowej, po zastosowaniu konfiguracji. Analiza dzienników nie odczytywać dane istniejące konta magazynu.
+W ciągu 30 minut jesteś stanie toosee dane z konta magazynu hello w analizy dzienników. Wyświetlany tylko dane zapisane toostorage po zastosowaniu hello konfiguracji. Analiza dzienników nie odczytywać dane istniejące hello hello konta magazynu.
 
 > [!NOTE]
-> Nie można zweryfikować portalu, czy źródło istnieje na koncie magazynu lub jeśli nowe dane zostają zapisane.
+> Hello portal nie można zweryfikować tego hello źródło istnieje na koncie magazynu hello, lub jeśli nowe dane zostają zapisane.
 >
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Włącz diagnostykę Azure na maszynie wirtualnej dziennika zdarzeń i IIS dziennika kolekcję przy użyciu programu PowerShell
-Wykonaj kroki w [Konfigurowanie analizy dzienników do indeksu usługi Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) odczytywać diagnostycznych platformy Azure, które są zapisywane w magazynie tabel przy użyciu programu PowerShell.
+Użyj hello czynnościach w ramach [tooindex Konfigurowanie analizy dzienników diagnostycznych platformy Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) toouse tooread programu PowerShell z diagnostyki Azure są zapisywane tootable magazynu.
 
-Przy użyciu programu Azure PowerShell można bardziej precyzyjnie określić zdarzenia, które są zapisywane do magazynu Azure.
+Przy użyciu programu Azure PowerShell można bardziej precyzyjnie określić hello zdarzenia, które są zapisywane tooAzure magazynu.
 Aby uzyskać więcej informacji, zobacz [Włączanie diagnostyki w maszynach wirtualnych platformy Azure](../virtual-machines-dotnet-diagnostics.md).
 
-Można włączyć i zaktualizować diagnostyki Azure za pomocą następujący skrypt programu PowerShell.
+Można włączyć i zaktualizować diagnostyki Azure za pomocą hello następującego skryptu programu PowerShell.
 Ten skrypt można również używać z konfiguracji rejestrowania niestandardowego.
-Zmodyfikuj skrypt można ustawić konta magazynu, nazwę usługi i nazwy maszyny wirtualnej.
-Skrypt używa poleceń cmdlet klasycznej maszyn wirtualnych.
+Modyfikowanie konta magazynu hello hello skryptu tooset, nazwę usługi i nazwy maszyny wirtualnej.
+skrypt Hello używa poleceń cmdlet klasycznej maszyn wirtualnych.
 
-Przejrzyj następującym przykładowym skrypcie, skopiuj go, w razie potrzeby, Zapisz próbki jako plik skryptu programu PowerShell, a następnie uruchom skrypt.
+Przejrzyj powitania po przykładowym skrypcie, skopiuj go, w razie potrzeby, Zapisz przykładowy hello jako plik skryptu programu PowerShell, a następnie uruchom skrypt hello.
 
 ```
-    #Connect to Azure
+    #Connect tooAzure
     Add-AzureAccount
 
-    # settings to change:
+    # settings toochange:
     $wad_storage_account_name = "myStorageAccount"
     $service_name = "myService"
     $vm_name = "myVM"
 
-    #Construct Azure Diagnostics public config and convert to config format
+    #Construct Azure Diagnostics public config and convert tooconfig format
 
     # Collect just system error events:
     $wad_xml_config = "<WadCfg><DiagnosticMonitorConfiguration><WindowsEventLog scheduledTransferPeriod=""PT1M""><DataSource name=""System!* "" /></WindowsEventLog></DiagnosticMonitorConfiguration></WadCfg>"
@@ -185,7 +185,7 @@ Przejrzyj następującym przykładowym skrypcie, skopiuj go, w razie potrzeby, Z
 
     $wad_extension_name = "IaaSDiagnostics"
     $wad_publisher = "Microsoft.Azure.Diagnostics"
-    $wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of the extension
+    $wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of hello extension
 
     (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
@@ -193,5 +193,5 @@ Przejrzyj następującym przykładowym skrypcie, skopiuj go, w razie potrzeby, Z
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zbieranie dzienników i metryki dla usługi Azure](log-analytics-azure-storage.md) obsługiwanych usług platformy Azure.
-* [Włącz rozwiązań](log-analytics-add-solutions.md) zapewnienie wglądu w dane.
-* [Użyj zapytań wyszukiwania](log-analytics-log-searches.md) do analizowania danych.
+* [Włącz rozwiązań](log-analytics-add-solutions.md) tooprovide wgląd w dane hello.
+* [Użyj zapytań wyszukiwania](log-analytics-log-searches.md) tooanalyze hello danych.

@@ -1,6 +1,6 @@
 ---
-title: "Nawiązywanie połączeń z usługą Azure Database for PostgreSQL z poziomu środowiska Node.js | Microsoft Docs"
-description: "Ten przewodnik Szybki start zawiera przykładowy kod Node.js, którego można używać do nawiązywania połączeń z danymi usługi Azure Database for PostgreSQL i wykonywania zapytań względem nich."
+title: "Połącz tooAzure bazy danych dla PostgreSQL w oprogramowaniu Node.js | Dokumentacja firmy Microsoft"
+description: "Ta opcja szybkiego startu zawiera przykładowy kod Node.js można użyć tooconnect i wyszukiwać dane z bazy danych Azure PostgreSQL."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: f6c98833c73b70bcf1f8ca53596a34f09807b276
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9b269d72068ecc24bcf3fb447a2efeda512c698c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą środowiska Node.js
-Ta opcja szybkiego startu pokazano, jak nawiązać połączenia z bazą danych Azure dla przy użyciu PostgreSQL [Node.js](https://nodejs.org/). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Node.js, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
+# <a name="azure-database-for-postgresql-use-nodejs-tooconnect-and-query-data"></a>Bazy danych platformy Azure dla PostgreSQL: Node.js Użyj tooconnect i zapytań danych.
+Ta opcja szybkiego startu przedstawia sposób tooconnect tooan Azure bazy danych przy użyciu PostgreSQL [Node.js](https://nodejs.org/). Widoczny jest sposób toouse tooquery instrukcji SQL, wstawiania, aktualizowania i usuwania danych w bazie danych hello. Hello krokach w tym artykule przyjęto założenie, że znasz tworzenie przy użyciu środowiska Node.js i czy są nowe tooworking z bazą danych Azure dla PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
+Ta opcja szybkiego startu używa zasobów hello utworzone w jednym z tych wskazówek jako punktu wyjścia:
 - [Tworzenie bazy danych — portal](quickstart-create-server-database-portal.md)
 - [Tworzenie bazy danych — interfejs wiersza polecenia](quickstart-create-server-database-azure-cli.md)
 
@@ -31,34 +31,34 @@ Należy również:
 ## <a name="install-pg-client"></a>Instalowanie klienta pg
 Zainstaluj [pg](https://www.npmjs.com/package/pg), który jest klientem PostgreSQL dla środowiska Node.js.
 
-W tym celu uruchom narzędzie Node Package Manager (npm) dla języka JavaScript z poziomu wiersza polecenia, aby zainstalować klienta pg.
+toodo tak, uruchom Menedżera pakietów hello węzła (npm) dla języka JavaScript z wiersza polecenia tooinstall hello pg klienta.
 ```bash
 npm install pg
 ```
 
-Zweryfikuj instalację, wyświetlając listę zainstalowanych pakietów.
+Sprawdź listę zainstalowanych pakietów hello hello instalacji.
 ```bash
 npm list
 ```
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
+Pobierz PostgreSQL hello połączenia potrzebnych tooconnect toohello bazy danych Azure. Należy hello serwera w pełni kwalifikowaną nazwę i poświadczenia logowania.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** i wyszukiwania na serwerze, który został właśnie utworzony.
-3. Kliknij nazwę serwera.
-4. Wybierz stronę serwera **Przegląd**. Zanotuj wartości **Nazwa serwera** i **Identyfikator logowania administratora serwera**.
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+2. Z menu po lewej stronie powitania w portalu Azure, kliknij przycisk **wszystkie zasoby** i wyszukaj powitania serwera został utworzony.
+3. Kliknij nazwę serwera hello.
+4. Wybierz powitania serwera **omówienie** strony. Zanotuj hello **nazwy serwera** i **nazwę logowania administratora serwera**.
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/connect-nodejs/1-connection-string.png)
-5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
+5. Jeśli użytkownik zapomni swoje informacje logowania serwera, przejdź toohello **omówienie** strony nazwę logowania administratora serwera hello tooview i w razie potrzeby zresetowania hasła hello.
 
-## <a name="running-the-javascript-code-in-nodejs"></a>Uruchamianie kodu JavaScript w środowisku Node.js
-Środowisko Node.js można uruchomić w wierszu polecenia powłoki bash lub systemu Windows, wpisując polecenie `node`, a następnie uruchomić przykładowy kod JavaScript przez skopiowanie i wklejenie go w wierszu polecenia. Alternatywnie można zapisać kod JavaScript w pliku tekstowym, a następnie uruchomić polecenie `node filename.js` z nazwą pliku jako parametrem uruchamiania.
+## <a name="running-hello-javascript-code-in-nodejs"></a>Wykonywanie kodu JavaScript hello w środowisku Node.js
+Może uruchomić Node.js z hello bash powłoki windows wiersza polecenia lub wpisując `node`, interaktywne uruchamianie hello przykładowy kod JavaScript przez kopiowanie i wklejanie w wierszu hello. Alternatywnie możesz zapisać do pliku tekstowego, a następnie uruchom kod JavaScript hello `node filename.js` z nazwą pliku hello jako toorun parametru go.
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
-Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL.
-Obiekt [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) służy do połączenia interfejsem z serwerem programu PostgreSQL. Funkcja [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) służy do nawiązywania połączenia z serwerem. Funkcja [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) służy do wykonywania zapytania SQL względem bazy danych PostgreSQL. 
+Użyj hello następujący kod tooconnect i załadować hello danych przy użyciu **CREATE TABLE** i **INSERT INTO** instrukcji SQL.
+Witaj [pg. Klient](https://github.com/brianc/node-postgres/wiki/Client) toointerface używane z serwerem PostgreSQL hello jest obiekt. Witaj [pg. Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) funkcja jest używana tooestablish hello połączenia toohello serwera. Witaj [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) funkcji jest używane tooexecute hello zapytanie SQL bazy danych PostgreSQL. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych.
+Zamień hello hosta, dbname użytkownika i hasło Parametry wartości hello określone podczas tworzenia powitania serwera i bazy danych.
 
 ```javascript
 const pg = require('pg');
@@ -107,9 +107,9 @@ function queryDatabase() {
 ```
 
 ## <a name="read-data"></a>Odczyt danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. Obiekt [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) służy do połączenia interfejsem z serwerem programu PostgreSQL. Funkcja [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) służy do nawiązywania połączenia z serwerem. Funkcja [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) służy do wykonywania zapytania SQL względem bazy danych PostgreSQL. 
+Użyj hello następujący kod tooconnect i odczytu hello danych przy użyciu **wybierz** instrukcji SQL. Witaj [pg. Klient](https://github.com/brianc/node-postgres/wiki/Client) toointerface używane z serwerem PostgreSQL hello jest obiekt. Witaj [pg. Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) funkcja jest używana tooestablish hello połączenia toohello serwera. Witaj [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) funkcji jest używane tooexecute hello zapytanie SQL bazy danych PostgreSQL. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zamień hello hosta, dbname użytkownika i hasło Parametry wartości hello określone podczas tworzenia powitania serwera i bazy danych. 
 
 ```javascript
 const pg = require('pg');
@@ -134,7 +134,7 @@ client.connect(err => {
 
 function queryDatabase() {
   
-    console.log(`Running query to PostgreSQL server: ${config.host}`);
+    console.log(`Running query tooPostgreSQL server: ${config.host}`);
 
     const query = 'SELECT * FROM inventory;';
 
@@ -155,9 +155,9 @@ function queryDatabase() {
 ```
 
 ## <a name="update-data"></a>Aktualizowanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **UPDATE** języka SQL. Obiekt [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) służy do połączenia interfejsem z serwerem programu PostgreSQL. Funkcja [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) służy do nawiązywania połączenia z serwerem. Funkcja [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) służy do wykonywania zapytania SQL względem bazy danych PostgreSQL. 
+Użyj hello następujący kod tooconnect i odczytu hello danych przy użyciu **aktualizacji** instrukcji SQL. Witaj [pg. Klient](https://github.com/brianc/node-postgres/wiki/Client) toointerface używane z serwerem PostgreSQL hello jest obiekt. Witaj [pg. Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) funkcja jest używana tooestablish hello połączenia toohello serwera. Witaj [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) funkcji jest używane tooexecute hello zapytanie SQL bazy danych PostgreSQL. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zamień hello hosta, dbname użytkownika i hasło Parametry wartości hello określone podczas tworzenia powitania serwera i bazy danych. 
 
 ```javascript
 const pg = require('pg');
@@ -202,9 +202,9 @@ function queryDatabase() {
 ```
 
 ## <a name="delete-data"></a>Usuwanie danych
-Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. Obiekt [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) służy do połączenia interfejsem z serwerem programu PostgreSQL. Funkcja [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) służy do nawiązywania połączenia z serwerem. Funkcja [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) służy do wykonywania zapytania SQL względem bazy danych PostgreSQL. 
+Użyj hello następujący kod tooconnect i odczytu hello danych przy użyciu **usunąć** instrukcji SQL. Witaj [pg. Klient](https://github.com/brianc/node-postgres/wiki/Client) toointerface używane z serwerem PostgreSQL hello jest obiekt. Witaj [pg. Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) funkcja jest używana tooestablish hello połączenia toohello serwera. Witaj [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) funkcji jest używane tooexecute hello zapytanie SQL bazy danych PostgreSQL. 
 
-Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
+Zamień hello hosta, dbname użytkownika i hasło Parametry wartości hello określone podczas tworzenia powitania serwera i bazy danych. 
 
 ```javascript
 const pg = require('pg');

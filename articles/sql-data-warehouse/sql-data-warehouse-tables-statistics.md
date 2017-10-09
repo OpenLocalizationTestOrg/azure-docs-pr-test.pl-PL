@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie statystyk dotyczących tabel w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "statystyki aaaManaging w tabelach w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: "Wprowadzenie do korzystania z statystyk dotyczących tabel w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c9521dc47891f68d124e77a53e2e15d03275caaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Zarządzanie statystyk dotyczących tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,37 +33,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Im bardziej zna danych usługi SQL Data Warehouse, tym szybciej można wykonywać zapytań dotyczących danych.  Metodą Poinformuj SQL Data Warehouse o danych, jest zbieranie statystyk dotyczących danych.  Uzyskanie statystyki do danych jest jednym z najbardziej ważnych rzeczy, które można wykonać w celu zoptymalizowania zapytań.  Statystyki pomocy utworzyć plan optymalny dla zapytań usługi SQL Data Warehouse.  Jest to spowodowane Optymalizator zapytań SQL Data Warehouse jest Optymalizator na podstawie.  To, że porównuje koszt różne plany zapytań i następnie wybiera plan o najniższej cenie, należy również plan, który zostanie wykonany najszybsze.
+Hello więcej SQL Data Warehouse zna danych, hello szybciej go można wykonywać zapytania względem danych.  sposób Hello Poinformuj SQL Data Warehouse o danych, jest zbieranie statystyk dotyczących danych.  Uzyskanie statystyki do danych jest jednym z hello najważniejsze czynności można wykonać toooptimize zapytań.  Statystyki pomocy SQL Data Warehouse, Utwórz plan optymalny powitania dla zapytań.  Jest to spowodowane Optymalizator na podstawie zapytania SQL Data Warehouse hello Optymalizator jest koszt.  To, że porównuje koszt hello różnych planów zapytania i następnie wybiera planu hello o najniższej cenie hello, która powinna być również hello plan, który zostanie wykonany hello najszybszym.
 
-Statystykę można tworzyć w jednej kolumnie, wiele kolumn lub indeksu tabeli.  Statystyki są przechowywane w histogram, który przechwytuje zakresu i wybieralność wartości.  Jest to szczególne znaczenie podczas Optymalizator należy ocenić sprzężenia, GROUP BY, HAVING i klauzulach WHERE w zapytaniu.  Na przykład, jeśli Optymalizator szacuje, że data filtrowania kwerendy zwróci 1 wiersz, mogą wybrać, bardzo inny plan niż w przypadku jego szacuje, że ich daty należy wybrano będzie zwracać 1 milion wierszy.  Podczas tworzenia statystyk jest bardzo ważne, równie ważne jest, że statystyki *dokładnie* odzwierciedlały bieżący stan tabeli.  Aktualne statystyki zapewnia, że dobry plan jest wybierany przez optymalizator.  Utworzonych przez optymalizator planów są tylko dobrą statystyk na podstawie danych.
+Statystykę można tworzyć w jednej kolumnie, wiele kolumn lub indeksu tabeli.  Statystyki są przechowywane w histogram, który przechwytuje hello zakresu i wybieralność wartości.  To jest znaczący Optymalizator hello musi tooevaluate sprzężenia, GROUP BY, HAVING i klauzulach WHERE w zapytaniu.  Na przykład, jeśli Optymalizator hello szacuje, że data hello filtrowania kwerendy zwróci 1 wiersz, mogą wybrać, bardzo inny plan niż wtedy, gdy jego szacuje, że ich daty należy wybrano będzie zwracać 1 milion wierszy.  Podczas tworzenia statystyk jest bardzo ważne, równie ważne jest, że statystyki *dokładnie* odzwierciedlały bieżący stan hello hello tabeli.  Aktualne statystyki zapewnia, że dobry plan jest wybierany przez optymalizator hello.  utworzone przez optymalizator hello planów Hello są tylko dobrą hello statystyk na podstawie danych.
 
-Proces tworzenia i zaktualizowanie statystyk jest obecnie ręczny proces, ale jest bardzo prosty zrobić.  Jest to w przeciwieństwie do programu SQL Server, które automatycznie utworzy i aktualizuje statystyki dotyczące pojedynczego kolumn i indeksów.  Korzystając z poniższych informacji, można znacznie automatyzują zarządzanie statystyk na podstawie danych. 
+Witaj proces tworzenia i zaktualizowanie statystyk jest obecnie ręczny proces, ale jest bardzo prosty toodo.  Jest to w przeciwieństwie do programu SQL Server, które automatycznie utworzy i aktualizuje statystyki dotyczące pojedynczego kolumn i indeksów.  Korzystając z poniższych informacji hello, można znacznie zautomatyzowanie zarządzania hello hello statystyk na podstawie danych. 
 
 ## <a name="getting-started-with-statistics"></a>Wprowadzenie do statystyki
- Tworzenie statystyk próbki w każdej kolumnie jest łatwe Rozpoczynanie pracy z statystyk.  Ponieważ jest równie ważne zapewnić aktualność statystyk, tradycyjne podejście może być aktualizowanie statystyk codziennie lub po każdej obciążenia. Zawsze istnieje możliwość wypracowania kompromisu pomiędzy wydajnością a kosztami tworzenia i aktualizowania statystyk.  Jeśli okaże się, że utrzymywanie wszystkich statystyk trwa zbyt długo, można spróbować wybrać tylko niektóre kolumny, dla których mają być prowadzone statystyki, lub wybrać kolumny, które wymagają częstego aktualizowania.  Na przykład można zaktualizować kolumn dat codziennie, jak mogą być dodawane nowe wartości, a nie po każdym załadowaniu. Ponownie, uzyska najlepiej wykorzystać przez uzyskanie statystyki do kolumn uczestniczących w sprzężenia, GROUP BY, HAVING i klauzulach WHERE.  Jeśli masz tabelę z dużą liczbą kolumn, które są używane tylko w klauzuli SELECT, statystyki dla tych kolumn nie może pomóc i wydatków nieco więcej starań, aby zidentyfikować kolumny, których pomoże statystyk, można skrócić czas do obsługi statystyk.
+ Tworzenie statystyk próbki w każdej kolumnie jest tooget łatwy sposób pracy z statystyk.  Ponieważ jest równie ważne tookeep statystyki aktualne, tradycyjne podejście może być tooupdate statystyk codziennie lub po każdej obciążenia. Zawsze są kompromis między wydajnością i hello koszt toocreate i aktualizację statystyk.  Jeśli okaże się, że trwa zbyt długo toomaintain wszystkich statystyk, możesz się, że toobe tootry więcej selektywnie, które kolumny mają statystyk lub kolumny, które wymagają częstego aktualizowania.  Na przykład można kolumn dat tooupdate codziennie, jak mogą być dodawane nowe wartości, a nie po każdym załadowaniu. Ponownie zostanie uzyskasz hello największe korzyści przez uzyskanie statystyki do kolumn uczestniczących w sprzężenia, GROUP BY, HAVING i klauzulach WHERE.  Jeśli tabela jest z wielu kolumn, które są używane tylko w hello SELECT — klauzula, statystyki dla tych kolumn nie może pomóc, i wydatków nieco więcej tooidentify nakładu tylko kolumny hello gdzie pomoże statystyki może zmniejszyć toomaintain czasu hello statystyk .
 
 ## <a name="multi-column-statistics"></a>Statystyki wielokolumnowego
-Oprócz tworzenia statystyk dla pojedynczego kolumn, może się okazać, zapytań zyskają statystyki wielokolumnowych.  Statystyka wielokolumnowego jest statystyki tworzone na liście kolumn.  Obejmują one statystyki jednej kolumny w pierwszej kolumnie na liście, a także niektóre informacje o powiązaniu między kolumny o nazwie gęstości.  Na przykład jeśli masz tabeli, w której jest przyłączany do innego dwie kolumny, może się okazać, że usługi SQL Data Warehouse lepiej można zoptymalizować planu, jeśli sam relacji między kolumnami.   Statystyki wielokolumnowego może poprawiać wydajność zapytań dla niektórych operacji, takich jak złożonych sprzężeń i group by.
+Ponadto toocreating statystyk dotyczących jednej kolumny, może się okazać zapytań zyskają statystyki wielokolumnowych.  Statystyka wielokolumnowego jest statystyki tworzone na liście kolumn.  Obejmują one statystyki jednej kolumny w pierwszej kolumnie hello hello na liście, a także niektóre informacje o powiązaniu między kolumny o nazwie gęstości.  Na przykład jeśli masz tabelę, której jest przyłączany tooanother dwie kolumny, może się okazać, że usługi SQL Data Warehouse lepiej zoptymalizować planu hello jeśli sam hello relacji między kolumnami.   Statystyki wielokolumnowego może poprawiać wydajność zapytań dla niektórych operacji, takich jak złożonych sprzężeń i group by.
 
 ## <a name="updating-statistics"></a>Zaktualizowanie statystyk
-Zaktualizowanie statystyk jest ważnym elementem procedury zarządzania z bazy danych.  Zmiany danych w bazie danych dystrybucji statystyki muszą zostać zaktualizowane.  Nieaktualne statystyki doprowadzi do nieoptymalnych kwerendy wydajności.
+Zaktualizowanie statystyk jest ważnym elementem procedury zarządzania z bazy danych.  Po zmianie hello rozkład danych w bazie danych hello statystyki muszą toobe aktualizacji.  Nieaktualne statystyki doprowadzi toosub optymalnego działania zapytań.
 
-Jeden najlepszym rozwiązaniem jest aktualizację statystyk dotyczących kolumn dat każdego dnia, gdy zostaną dodane nowe daty.  Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne. Z drugiej strony statystyki dotyczące kraju kolumny w tabeli klienta może nigdy nie muszą zostać zaktualizowane, jak rozkład wartości zwykle nie ulega zmianie. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden kraj, należy przenieść dane z nowego kraju dane z różnych krajach przechowywane, następnie ostatecznie należy aktualizować statystyki w kolumnie kraju.
+Jeden najlepszym rozwiązaniem jest tooupdate statystyk dotyczących kolumn dat każdego dnia po dodaniu nowego daty.  Każdy czas nowe wiersze są ładowane do magazynu danych hello, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany hello danych dystrybucji i utworzyć statystyki hello nieaktualne. Z drugiej strony statystyki dotyczące kraju kolumny w tabeli klienta nigdy nie może być konieczne toobe aktualizacji, jak dystrybucji hello wartości zwykle nie ulega zmianie. Zakładając, że dystrybucji hello jest stałe między klientami, dodawanie nowych wierszy toohello tabeli zmian nie będzie toochange hello danych dystrybucji. Jednak jeśli magazyn danych zawiera tylko jeden kraj, należy przenieść dane z nowego kraju dane z różnych krajach przechowywane, zdecydowanie należy tooupdate statystyk w kolumnie kraju hello.
 
-Jednym z pierwszym pytań podczas rozwiązywania problemów z kwerendy jest "Są aktualne statystyki?"
+Jeden hello pierwszy tooask pytania podczas rozwiązywania problemów z kwerendy jest "są statystyki hello aktualne?"
 
-To pytanie nie jest taki, który należy odpowiedzieć przy wiek danych. Obiekt aktualne statystyki może być bardzo stare, jeśli nie ma w niej żadnych istotnych zmian w danych źródłowych. Jeśli liczba wierszy zmienił znacząco lub istotne zmiany w dystrybucji wartości dla danej kolumny *następnie* nadszedł czas, aby zaktualizować statystyk.  
+To pytanie nie jest taki, który należy odpowiedzieć przy hello wiek danych hello. Obiekt się dane statystyczne toodate może być bardzo stare, jeśli nie było żadnych toohello istotnej zmiany podstawowego danych. Gdy hello liczbę wierszy zmieniły się znacznie lub istotne zmiany w dystrybucji hello wartości dla danej kolumny *następnie* jest statystyki tooupdate czasu.  
 
 Odwołania **programu SQL Server** (nie SQL Data Warehouse) automatycznie aktualizuje statystyk w takich sytuacjach:
 
-* Jeśli masz żadnych wierszy w tabeli, podczas dodawania wierszy, otrzymasz automatycznych aktualizacji statystyk
-* Po dodaniu więcej niż 500 wierszy do tabeli, począwszy od mniej niż 500 wierszy (np. na początku masz 499 i następnie dodać 500 wierszy w sumie 999 wierszy), zostanie wyświetlony aktualizacji automatycznych 
-* Po wyświetleniu ponad 500 wierszy, należy dodać 500 dodatkowe wiersze + 20% rozmiar tabeli przed zobaczysz automatycznych aktualizacji na statystyki
+* Jeśli masz żadnych wierszy w tabeli hello podczas dodawania wierszy, otrzymasz automatycznych aktualizacji statystyk
+* Po dodaniu więcej niż 500 wierszy tabeli tooa, począwszy od mniej niż 500 wierszy (np. na początku masz 499 i następnie dodać 500 wierszy tooa całkowitej liczby wierszy 999), zostanie wyświetlony aktualizacji automatycznych 
+* Po wyświetleniu ponad 500 wierszy trzeba będzie tooadd 500 dodatkowe wiersze + 20% hello rozmiar tabeli hello zanim zobaczysz automatycznych aktualizacji na powitania statystyki
 
-Ponieważ nie ma żadnych DMV, aby określić, czy dane w tabeli zmienił się od czasu ostatniego statystyk czasu zostały zaktualizowane, wiedząc, wieku statystyk może umożliwić z część obrazu.  Następujące zapytanie służy do określenia czasu ostatniego statystyk w przypadku, gdy zaktualizowane w każdej tabeli.  
+Ponieważ nie istnieje żadne toodetermine DMV, jeśli dane w tabeli hello uległy zmianie od czasu ostatniego statystyk czasu hello zostały zaktualizowane, wiedząc, wieku hello statystyk może umożliwić z częścią obraz powitania.  Można użyć następującego zapytania toodetermine hello ostatniego statystyk hello gdzie zaktualizowane w każdej tabeli.  
 
 > [!NOTE]
-> Należy pamiętać o tym, w przypadku istotnych zmian dystrybucja wartości dla danej kolumny, należy zaktualizować statystyk niezależnie od tego czasu, gdy są one zostały zaktualizowane.  
+> Należy pamiętać o tym, w przypadku istotnych zmiany w dystrybucji hello wartości dla danej kolumny, należy zaktualizować statystyk niezależnie od hello czasu, gdy są one zostały zaktualizowane.  
 > 
 > 
 
@@ -94,35 +94,35 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Kolumn dat w magazynie danych, na przykład zwykle wymagają częstego aktualizacji statystyk. Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne.  Z drugiej strony statystyk dotyczących płci kolumny w tabeli klienta nigdy nie może być konieczne do zaktualizowania. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden płci i nowe wyniki wymaganie w wielu płci ostatecznie należy aktualizować statystyki w kolumnie płci.
+Kolumn dat w magazynie danych, na przykład zwykle wymagają częstego aktualizacji statystyk. Każdy czas nowe wiersze są ładowane do magazynu danych hello, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany hello danych dystrybucji i utworzyć statystyki hello nieaktualne.  Z drugiej strony statystyk dotyczących płci kolumny w tabeli klienta nigdy nie może być konieczne toobe aktualizacji. Zakładając, że dystrybucji hello jest stałe między klientami, dodawanie nowych wierszy toohello tabeli zmian nie będzie toochange hello danych dystrybucji. Jednak jeśli magazyn danych zawiera tylko jeden płci i nowe wyniki wymaganie w wielu płci ostatecznie należy tooupdate statystyk na powitania płci kolumny.
 
 Aby uzyskać dokładniejsze objaśnienie, zobacz [statystyki] [ Statistics] w witrynie MSDN.
 
 ## <a name="implementing-statistics-management"></a>Implementowanie zarządzania statystyki
-Często jest dobrym pomysłem jest rozszerzenie procesu, aby upewnić się, że statystyki są aktualizowane na końcu obciążenia ładowania danych. Ładowanie danych jest tabel najczęściej zmiany ich rozmiaru i/lub ich rozkład wartości. W związku z tym jest to logiczne miejsca do wykonania niektórych procesów zarządzania.
+Często jest tooextend dobrze koniec obciążenia hello hello ładowania tooensure procesu, który statystyki są aktualizowane w danych. Ładowanie danych Hello jest tabel najczęściej zmiany ich rozmiaru i/lub ich rozkład wartości. W związku z tym jest to tooimplement logicznego miejsca niektóre procesy zarządzania.
 
-Niektóre wytyczne są podane poniżej w celu zaktualizowania statystyk podczas procesu obciążenia:
+Niektóre wytyczne są podane poniżej w celu zaktualizowania statystyk podczas procesu obciążenia hello:
 
-* Sprawdź, czy każdy załadowanej tabeli ma co najmniej jeden obiekt statystyki aktualizacji. Spowoduje to zaktualizowanie informacje o rozmiarze (liczba wierszy i liczba stron) tabel w ramach aktualizacji statystyk.
+* Sprawdź, czy każdy załadowanej tabeli ma co najmniej jeden obiekt statystyki aktualizacji. Witaj tej aktualizacji tabel informacje o rozmiarze (liczba wierszy i liczba stron) jako część hello Statystyka aktualizacji.
 * Skupić się na kolumn uczestniczących w klauzuli sprzężenia, GROUP BY, ORDER BY i DISTINCT
-* Może być konieczna aktualizacja "rosnącej klucza" kolumn, takie jak transakcji więcej często wartości te nie zostaną uwzględnione w postaci histogramu statystyki daty.
+* Może być konieczna aktualizacja "rosnącej klucza" kolumn, takie jak transakcji więcej często wartości te nie zostaną uwzględnione w histogram statystyki hello daty.
 * Należy rozważyć aktualizowanie kolumn dystrybucji statycznych często.
 * Należy pamiętać, że każdy obiekt Statystyka jest aktualizowany w serii. Po prostu implementacja `UPDATE STATISTICS <TABLE_NAME>` może nie być idealne — szczególnie w przypadku szerokie tabele z dużą liczbą obiektów statystyk.
 
 > [!NOTE]
-> Więcej informacji na temat [rosnącej klucza] można znaleźć w dokumencie modelu szacowania kardynalności programu SQL Server 2014.
+> Więcej informacji na temat [rosnącej klucza] można znaleźć w dokumencie modelu szacowania kardynalności toohello programu SQL Server 2014.
 > 
 > 
 
 Aby uzyskać dokładniejsze objaśnienie, zobacz [szacowania kardynalności] [ Cardinality Estimation] w witrynie MSDN.
 
 ## <a name="examples-create-statistics"></a>Przykłady: Tworzenie statystyk
-Poniższe przykłady pokazują, jak tworzenie statystyk na użytek różnych opcji. Opcje używane dla każdej kolumny są zależne od właściwości danych i jak kolumna będzie używane w zapytaniach.
+Następujące przykłady przedstawiają sposób toouse różne opcje tworzenia statystyk. Opcje Hello Użyj dla każdej kolumny są zależne od właściwości hello danych i jak hello kolumny będą używane w zapytaniach.
 
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Tworzenie statystyk pojedynczej kolumny z opcji domyślnych
-Aby utworzyć statystyki dla kolumny, wystarczy podać nazwę obiektu statystyk i nazwę kolumny.
+statystyki toocreate od kolumny, wystarczy podać nazwę dla obiekt statystyki hello i nazwę hello hello kolumny.
 
-Ta składnia wykorzystuje wszystkie domyślne opcje. Domyślnie 20 procent tabeli przykłady SQL Data Warehouse, podczas tworzenia statystyk.
+Ta składnia wykorzystuje wszystkie hello domyślne opcje. Domyślnie usługa SQL Data Warehouse przykłady 20 procent tabeli hello podczas tworzenia statystyk.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -135,9 +135,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
 ### <a name="b-create-single-column-statistics-by-examining-every-row"></a>B. Tworzenie statystyk pojedynczej kolumny, sprawdzając każdego wiersza
-Domyślna częstotliwość próbkowania równy 20% jest wystarczające w większości sytuacji. Można jednak dostosować częstotliwość próbkowania.
+częstotliwość próbkowania domyślne Hello równy 20% jest wystarczające w większości sytuacji. Można jednak dostosować częstotliwość próbkowania hello.
 
-Do próbkowania pełne tabeli, należy użyć następującej składni:
+Pełna hello toosample tabeli, należy użyć następującej składni:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
@@ -149,56 +149,56 @@ Na przykład:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### <a name="c-create-single-column-statistics-by-specifying-the-sample-size"></a>C. Tworzenie statystyk pojedynczej kolumny, określając rozmiar próbki
-Alternatywnie można określić rozmiar próbki w procentach:
+### <a name="c-create-single-column-statistics-by-specifying-hello-sample-size"></a>C. Tworzenie statystyk pojedynczej kolumny, określając hello próbkowania
+Alternatywnie można określić rozmiar próbki hello w procentach:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### <a name="d-create-single-column-statistics-on-only-some-of-the-rows"></a>D. Tworzenie statystyk pojedynczej kolumny dla niektórych wierszy
-Inną opcją, można utworzyć statystyki w części wiersze w tabeli. Jest to filtrowane statystyki.
+### <a name="d-create-single-column-statistics-on-only-some-of-hello-rows"></a>D. Tworzenie statystyk pojedynczej kolumny dla niektórych wierszy hello
+Inną opcją, można utworzyć statystyki w części hello wierszy w tabeli. Jest to filtrowane statystyki.
 
-Można na przykład użyć statystykę filtrowaną, planując zapytania określonej partycji tabeli partycjonowanej duże. Tworzenie statystyk na tylko wartości partycji, prawidłowość statystyki będzie poprawić, a w związku z tym poprawiać wydajność zapytań.
+Można na przykład użyć statystykę filtrowaną, planując tooquery określonej partycji tabeli partycjonowanej duże. Tworzenie statystyk na powitania tylko wartości partycji, dokładność hello statystyk hello będzie poprawić, a poprawić wydajność zapytań, w związku z tym.
 
-Ten przykład tworzy statystyki zakresu wartości. Wartości można łatwo ustawione w taki sposób, aby odpowiadały zakres wartości w partycji.
+Ten przykład tworzy statystyki zakresu wartości. wartości Hello, może być zdefiniowana w partycji toomatch hello zakres wartości.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
-> Optymalizator zapytań należy rozważyć użycie statystykę filtrowaną, gdy wybiera plan zapytania rozproszonego zapytanie musi mieścić się w definicji obiektu statystyk. W poprzednim przykładzie, kwerendy gdzie należy określić wartości col1 między 2000101 i 20001231 klauzuli.
+> Dla hello tooconsider Optymalizator zapytań przy użyciu statystykę filtrowaną, gdy wybiera hello planu zapytania rozproszone hello zapytania musi mieścić się w definicji hello hello statystyki obiektu. Przy użyciu hello poprzedni przykład, hello kwerendy których klauzula wymaga wartości col1 toospecify między 2000101 i 20001231.
 > 
 > 
 
-### <a name="e-create-single-column-statistics-with-all-the-options"></a>E. Tworzenie statystyk pojedynczej kolumny przy użyciu opcji
-Opcje można oczywiście łączyć ze sobą. Poniższy przykład tworzy obiekt statystykę filtrowaną z niestandardowych próbkowania:
+### <a name="e-create-single-column-statistics-with-all-hello-options"></a>E. Tworzenie statystyk pojedynczej kolumny z wszystkimi opcjami hello
+Opcje hello można oczywiście łączyć ze sobą. w poniższym przykładzie Hello tworzy obiekt statystykę filtrowaną z niestandardowych próbkowania:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Aby uzyskać pełną dokumentację, zobacz [instrukcji CREATE STATISTICS] [ CREATE STATISTICS] w witrynie MSDN.
+Aby hello pełne informacje, zobacz [instrukcji CREATE STATISTICS] [ CREATE STATISTICS] w witrynie MSDN.
 
 ### <a name="f-create-multi-column-statistics"></a>F. Tworzenie statystyk wielokolumnowego
-Tworzenie statystyk wielokolumnowego, po prostu użyć poprzednich przykładach, lecz określ większą liczbę kolumn.
+toocreate statystyki wielokolumnowego, po prostu użyć hello poprzednich przykładach, ale Określ większą liczbę kolumn.
 
 > [!NOTE]
-> Histogram, który jest używany do oszacować liczbę wierszy w wyniku zapytania, jest dostępna tylko dla pierwszej kolumny na liście definicji obiektu statystyk.
+> Witaj histogram, który jest używany tooestimate liczbę wierszy w wyniku zapytania hello, jest dostępny tylko dla pierwszej kolumny hello definicji obiektu statystyki hello na liście.
 > 
 > 
 
-W tym przykładzie histogram znajduje się na *produktu\_kategorii*. Statystyki między kolumny są obliczane na *produktu\_kategorii* i *produktu\_sub_c\ategory*:
+W tym przykładzie hello histogram znajduje się na *produktu\_kategorii*. Statystyki między kolumny są obliczane na *produktu\_kategorii* i *produktu\_sub_c\ategory*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ korelacji między *produktu\_kategorii* i *produktu\_sub\_kategorii*, stat wielokolumnowego mogą być przydatne, jeśli te kolumny są dostępne. w tym samym czasie.
+Ponieważ korelacji między *produktu\_kategorii* i *produktu\_sub\_kategorii*, stat wielokolumnowego mogą być przydatne, jeśli te kolumny są dostępne. na powitania tym samym czasie.
 
-### <a name="g-create-statistics-on-all-the-columns-in-a-table"></a>G. Tworzenie statystyk dla wszystkich kolumn w tabeli
-Jednym ze sposobów tworzenia statystyk ma problemy polecenia CREATE STATISTICS po utworzeniu tabeli.
+### <a name="g-create-statistics-on-all-hello-columns-in-a-table"></a>G. Tworzenie statystyk dotyczących wszystkich hello kolumn w tabeli
+Statystyki jednokierunkowej toocreate jest tooissues polecenia CREATE STATISTICS po utworzeniu tabeli hello.
 
 ```sql
 CREATE TABLE dbo.table1
@@ -218,10 +218,10 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. Użyj procedury składowanej utworzyć statystyki dla wszystkich kolumn w bazie danych
-Magazyn danych SQL nie ma systemowej procedury składowanej odpowiednikiem [] [sp_create_stats] w programie SQL Server. Tę procedurę składowaną tworzy obiekt statystyki jednej kolumny w każdej kolumnie bazy danych, który nie ma jeszcze statystyk.
+### <a name="h-use-a-stored-procedure-toocreate-statistics-on-all-columns-in-a-database"></a>H. Użyj statystyki toocreate procedury składowanej dla wszystkich kolumn w bazie danych
+Magazyn danych SQL nie ma odpowiednika procedury składowanej systemu zbyt [] [sp_create_stats] w programie SQL Server. Tę procedurę składowaną tworzy obiekt statystyki jednej kolumny w każdej kolumnie hello bazy danych, który nie ma jeszcze statystyk.
 
-Pomoże to wprowadzenie do projektu bazy danych. Możesz dostosować go do własnych potrzeb.
+Pomoże to wprowadzenie do projektu bazy danych. Możesz wolnego tooadapt go wymaga tooyour.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -304,20 +304,20 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Aby utworzyć statystyki dla wszystkich kolumn w tabeli z tej procedury, po prostu wywołania tej procedury.
+toocreate statystyki dla wszystkich kolumn w tabeli hello tę procedurę, po prostu wywoływanie procedury hello.
 
 ```sql
 prc_sqldw_create_stats;
 ```
 
 ## <a name="examples-update-statistics"></a>Przykłady: Aktualizuj statystyki
-Aby zaktualizować statystyk, można:
+statystyki tooupdate, można:
 
-1. Zaktualizuj jeden obiekt statystyk. Określ nazwę obiektu statystyk, które chcesz zaktualizować.
-2. Zaktualizuj wszystkie obiekty statystyki dla tabeli. Określ nazwę tabeli zamiast jeden obiekt poszczególnych statystyk.
+1. Zaktualizuj jeden obiekt statystyk. Określ nazwę hello hello statystyki obiekt ma tooupdate.
+2. Zaktualizuj wszystkie obiekty statystyki dla tabeli. Określ nazwę hello tabeli hello zamiast jeden obiekt poszczególnych statystyk.
 
 ### <a name="a-update-one-specific-statistics-object"></a>A. Zaktualizuj jeden obiekt poszczególnych statystyk
-Aby zaktualizować obiekt poszczególnych statystyk, należy użyć następującej składni:
+Użyj następującej składni tooupdate obiektu poszczególnych statystyk hello:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
@@ -329,10 +329,10 @@ Na przykład:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Aktualizacja poszczególnych statystyk obiektów, można zminimalizować czas i zasoby wymagane do zarządzania statystyk. Wymaga to rozwagą, jednak, aby wybrać najlepsze obiekty statystyki aktualizacji.
+Aktualizacja poszczególnych statystyk obiektów, można zminimalizować hello statystyki toomanage wymagany czas i zasoby. Wymaga to niektóre traktować, jednak toochoose hello najważniejsze dane statystyczne obiektów tooupdate.
 
 ### <a name="b-update-all-statistics-on-a-table"></a>B. Aktualizuj wszystkie statystyki dla tabeli
-Oznacza to prosta metoda aktualizowania wszystkich obiektów statystyk tabeli.
+Oznacza to prosta metoda aktualizowania wszystkich obiektów statystyki hello na tabelę.
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -344,19 +344,19 @@ Na przykład:
 UPDATE STATISTICS dbo.table1;
 ```
 
-Ta instrukcja jest łatwy w użyciu. Pamiętaj tylko to aktualizuje wszystkie statystyki w tabeli i dlatego może wykonywać więcej pracy, niż jest to konieczne. Jeśli wydajność nie stanowi to problemu, ostatecznie to najprostszy i najbardziej kompleksowe sposób gwarantuje, że dane statystyczne są aktualne.
+Ta instrukcja jest łatwe toouse. Pamiętaj tylko to aktualizuje wszystkie statystyki na powitania tabeli i dlatego może wykonać więcej pracy, niż jest to konieczne. Jeśli wydajność hello nie stanowi to problemu, jest ostatecznie hello najprostszym i najbardziej kompleksowe sposób tooguarantee statystyki są aktualne.
 
 > [!NOTE]
-> Podczas aktualizowania wszystkich statystyk dotyczących tabeli, SQL Data Warehouse nie skanowanie w celu przykładowej tabeli dla poszczególnych statystyk. Jeśli tabela jest duży, ma wiele kolumn i ilość danych statystycznych, może być bardziej wydajne, można zaktualizować poszczególnych statystyki, w zależności od potrzeb.
+> Podczas aktualizowania wszystkich statystyk dotyczących tabeli, SQL Data Warehouse nie skanowania tabeli hello toosample dla poszczególnych statystyk. Jeśli tabela hello jest duży, ma wiele kolumn i ilość danych statystycznych, może być bardziej efektywne statystyki poszczególnych tooupdate zależności od potrzeb.
 > 
 > 
 
-Dla implementacji `UPDATE STATISTICS` procedury można znaleźć pod adresem [tabel tymczasowych] [ Temporary] artykułu. Metody wdrażania różni się nieznacznie się `CREATE STATISTICS` powyższą procedurę, ale wynik końcowy jest taki sam.
+Dla implementacji `UPDATE STATISTICS` procedury można znaleźć pod adresem hello [tabel tymczasowych] [ Temporary] artykułu. Witaj implementacji metody jest nieco inne toohello `CREATE STATISTICS` powyższą procedurę, ale wynik końcowy hello jest hello takie same.
 
-Dla pełnej składni, zobacz [Update Statistics] [ Update Statistics] w witrynie MSDN.
+Aby hello pełnej składni, zobacz [Update Statistics] [ Update Statistics] w witrynie MSDN.
 
 ## <a name="statistics-metadata"></a>Statystyki metadanych
-Istnieje kilka widok systemu i funkcje, które umożliwia znalezienie informacji na temat statystyk. Na przykład widać, jeśli obiekt statystyki może być nieaktualne za pomocą funkcji daty Statystyka wyświetlać podczas statystyki ostatnio zostały utworzone lub zaktualizowane.
+Istnieje kilka widok systemu i funkcje, których można używać toofind informacji na temat statystyk. Na przykład widać, jeśli obiekt statystyki może być nieaktualne przy użyciu hello Data Statystyka funkcja toosee, gdy statystyki ostatnio zostały utworzone lub zaktualizowane.
 
 ### <a name="catalog-views-for-statistics"></a>Widoków wykazu statystyk
 Widoki te systemu zawierają informacje o statystyki:
@@ -364,10 +364,10 @@ Widoki te systemu zawierają informacje o statystyki:
 | Przeglądanie katalogu | Opis |
 |:--- |:--- |
 | [sys.Columns][sys.columns] |Jeden wiersz dla każdej kolumny. |
-| [sys.Objects][sys.objects] |Jeden wiersz dla każdego obiektu w bazie danych. |
-| [sys.schemas][sys.schemas] |Jeden wiersz dla każdego schematu w bazie danych. |
+| [sys.Objects][sys.objects] |Jeden wiersz dla każdego obiektu w bazie danych hello. |
+| [sys.schemas][sys.schemas] |Jeden wiersz dla każdego schematu hello bazy danych. |
 | [sys.stats][sys.stats] |Jeden wiersz dla każdego obiektu statystyk. |
-| [sys.stats_columns][sys.stats_columns] |Jeden wiersz dla każdej kolumny w obiekcie statystyk. Łącza do sys.columns. |
+| [sys.stats_columns][sys.stats_columns] |Jeden wiersz dla każdej kolumny w obiekcie statystyki hello. Połączone ponownie toosys.columns. |
 | [Widok sys.Tables][sys.tables] |Jeden wiersz dla każdej tabeli (w tym tabel zewnętrznych). |
 | [sys.table_types][sys.table_types] |Jeden wiersz dla każdego typu danych. |
 
@@ -376,11 +376,11 @@ Funkcje systemu są przydatne w przypadku pracy z statystyki:
 
 | System — funkcja | Opis |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Data ostatniej aktualizacji obiektu statystyk. |
-| [POLECENIE DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Zawiera podsumowanie poziomu i szczegółowe informacje o rozkład wartości rozumieniu obiektu statystyk. |
+| [STATS_DATE][STATS_DATE] |Obiekt statystyki hello Data ostatniej aktualizacji. |
+| [POLECENIE DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Zawiera podsumowanie poziomu i szczegółowe informacje o dystrybucji hello wartości rozumieniu hello statystyki obiektu. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Łączenie statystyk kolumny i funkcji w jednym widoku
-Ten widok zapewnia kolumn, które dotyczą statystyk i wyniki z funkcji [] [STATS_DATE()] razem.
+Ten widok udostępnia kolumn ze sobą powiązane toostatistics i wyników z funkcji [] hello [STATS_DATE()].
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -419,13 +419,13 @@ AND     st.[user_created] = 1
 ```
 
 ## <a name="dbcc-showstatistics-examples"></a>Przykłady DBCC SHOW_STATISTICS()
-Polecenie DBCC SHOW_STATISTICS() zawiera dane przechowywane w obiekcie statystyk. Te dane składa się z trzech części.
+DBCC SHOW_STATISTICS() zawiera dane hello przechowywane w obiekcie statystyki. Te dane składa się z trzech części.
 
 1. Nagłówek
 2. Wektor gęstość
 3. Histogram
 
-Metadane nagłówka o statystyki. Histogram przedstawia rozkład wartości z pierwszej kolumny klucza obiektu statystyk. Wektor gęstość mierzy korelacji między kolumny. SQLDW oblicza szacowania kardynalności o dane w obiekcie statystyk.
+Witaj nagłówka metadane dotyczące hello statystyk. Hello histogram Wyświetla dystrybucji hello wartości w pierwszej kolumnie hello hello statystyki obiektu klucza. Wektor gęstość Hello mierzy korelacji między kolumny. SQLDW oblicza szacowania kardynalności o dowolne dane hello hello statystyki obiektu.
 
 ### <a name="show-header-density-and-histogram"></a>Pokaż nagłówka, gęstości i histogramu
 Ten prosty przykład przedstawia wszystkich trzech części obiektu statystyk.
@@ -441,7 +441,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
 ### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Pokaż co najmniej jeden części DBCC SHOW_STATISTICS();
-Jeśli interesuje Cię tylko wyświetlanie określonych części, użyj `WITH` klauzuli i określ części, które chcesz wyświetlić:
+Jeśli interesuje Cię tylko wyświetlanie określonych części, użyj hello `WITH` klauzuli i określić, które części mają toosee:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
@@ -454,18 +454,18 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## <a name="dbcc-showstatistics-differences"></a>Polecenie DBCC SHOW_STATISTICS() różnic
-DBCC SHOW_STATISTICS() bardziej ściśle jest zaimplementowana w usłudze SQL Data Warehouse w porównaniu z programem SQL Server.
+Polecenie DBCC SHOW_STATISTICS() bardziej ściśle jest zaimplementowana w tooSQL porównaniu magazynu danych programu SQL Server.
 
 1. Nieudokumentowanej funkcje nie są obsługiwane.
 2. Nie można użyć Stats_stream
 3. Nie można dołączyć wyniki konkretne podzestawy danych statystyki np. (STAT_HEADER sprzężenia DENSITY_VECTOR)
 4. Nie można ustawić NO_INFOMSGS dla pomijania wiadomości
 5. Nie można użyć nazwy statystyki nawiasy kwadratowe
-6. Nie można użyć nazwy kolumn, aby zidentyfikować obiekty statystyki
+6. Nie można użyć kolumny nazw tooidentify statystyki obiektów
 7. Błąd niestandardowy 2767 nie jest obsługiwana.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji, zobacz [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] w witrynie MSDN.  Aby dowiedzieć się więcej, zobacz artykuły w [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Indeksowania tabeli][Index], [partycjonowania tabeli] [ Partition] i [Tabel tymczasowych][Temporary].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].  
+Aby uzyskać więcej informacji, zobacz [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] w witrynie MSDN.  toolearn więcej, zobacz artykuły hello na [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Indeksowania tabeli][Index], [partycjonowania tabeli] [ Partition] i [ Tabele tymczasowe][Temporary].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 

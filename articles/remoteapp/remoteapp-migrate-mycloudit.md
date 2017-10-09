@@ -1,6 +1,6 @@
 ---
-title: "Zmień rozliczenia dotyczące usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zatrzymać są rozliczane usługi Azure RemoteApp."
+title: "aaaChange hello rozliczenia dotyczące usługi Azure RemoteApp | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toostop są rozliczane usługi Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,68 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 32fc673eeef01e80c73375bf264206beea8cfbe5
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: fe3841a88978ec56829932621489e75d5dd7e673
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-from-azure-remoteapp-to-mycloudit"></a>Migracja z usługi Azure RemoteApp do MyCloudIT 
+# <a name="migrate-from-azure-remoteapp-toomycloudit"></a>Migrowanie z usługi Azure RemoteApp tooMyCloudIT 
 
-**Aktualnie używasz usługi Microsoft Azure RemoteApp?** : MyCloudIT wbudowane automatyczne narzędzie do migracji z kolekcji usługi Azure RemoteApp (ARA) do platformy zarządzania MyCloudIT pracując nadal na Microsoft Azure.
+**Aktualnie używasz usługi Microsoft Azure RemoteApp?** : MyCloudIT wbudowane toomigrate automatyczne narzędzie Azure RemoteApp (ARA) kolekcji toohello MyCloudIT platformy do zarządzania, pozostawiając toorun w systemie Microsoft Azure.
 
-**Korzystanie z portalu usługi Azure Resource Manager**: zakończone migracji na platformie MyCloudIT umożliwia natychmiastowy dostęp do nowego portalu usługi Azure Resource Manager platformy Azure. Ten portal zawiera nowe funkcje i innowacje oferowane przez Microsoft Azure, łącznie z dostępem do rozmiarów maszyn wirtualnych w celu zapewnienia wdrożenia korzysta z wbudowanej obsługi wymagania firmy.
+**Korzystać z portalu usługi Azure Resource Manager hello**: zakończone migracji na platformie MyCloudIT hello umożliwia natychmiastowy dostęp tooAzure nowego portalu usługi Azure Resource Manager. Ten portal zawiera wszystkie nowe możliwości hello i innowacje oferowane przez Microsoft Azure, tym tooensure rozmiary maszyny tooVirtual dostępu wdrożenia jest zbudowany toosupport hello wymagania firmy.
 
-**Test równolegle zapewnić odpowiednie rozwiązanie dla potrzeb**: narzędzie migracji MyCloudIT korzysta z wbudowanej zainicjowania procesu migracji i równoległych czasu użytkowników ARA nadal używać ARA testu.  Użytkownicy pozostanie w ARA do migracji i testowania są spełnione.  Narzędzie do migracji korzysta z wbudowanej obsługi typowych kolekcji ARA.  Jeśli uważasz, że masz unikatowy, niestandardowym scenariusz, skontaktuj się z nami pod adresem [ sales@conexlink.com ](mailto:sales@conexlink.com) , firma Microsoft udostępnia dopasowane planu z migracji.
+**Testu w równoległych tooensure hello odpowiednie rozwiązanie dla potrzeb**: narzędzie migracji MyCloudIT hello jest wbudowany proces migracji hello tooinitiate i równoległych czasu użytkowników ARA kontynuować toouse ARA testu.  Użytkownicy pozostanie w ARA do migracji i testowania są spełnione.  Narzędzie migracji Hello jest wbudowana toohandle hello typowe ARA kolekcji.  Jeśli uważasz, że masz unikatowy, niestandardowym scenariusz, skontaktuj się z nami pod adresem [ sales@conexlink.com ](mailto:sales@conexlink.com) , firma Microsoft może zapewnić tooassist dopasowane planu migracji.
 
-**Funkcje pulpitu jako usługa**: należy pamiętać, że MyCloudIT nie tylko oferuje możliwości usługi RemoteApp jest przyzwyczajony do, ale oferujemy również pełny pulpit jako A — Usługa możliwości kosztów samej miesięcznie bez żadnych minimalna użytkownika wymagania.
+**Funkcje pulpitu jako usługa**: należy pamiętać, że MyCloudIT nie tylko zapewnia zazwyczaj używany do funkcji Połączenia programów RemoteApp hello, ale oferujemy również pełny pulpit jako A — Usługa możliwości hello sam koszt miesięcznie bez żadnych minimalna użytkownika wymagania.
 
 ## <a name="what-we-will-do-for-you"></a>Wykonamy dla Ciebie
 
-MyCloudIT automatyzuje migracji szablonu usługi Azure RemoteApp z portalu klasycznego Azure subskrypcji do portalu Azure Resource Manager subskrypcji z naszego narzędzia automatycznej migracji.  
+MyCloudIT automatyzuje migracji hello szablonu usługi Azure RemoteApp z hello klasycznego portalu Azure z Twojej subskrypcji toohello Portal Azure Resource Manager subskrypcji z naszego narzędzia automatycznej migracji.  
 
 > [!NOTE]
-> Szablon usługi Azure RemoteApp muszą pozostać w tym samym regionie Azure jako oryginalnego wdrożenia usługi Azure RemoteApp.  Jeśli potrzebujesz zmienić regiony platformy Azure lub subskrypcji platformy Azure, podczas migracji, skontaktuj się z nami Aby uzyskać dodatkowe wskazówki na [ sales@conexlink.com ](mailto:sales@conexlink.com).
+> Hello Azure RemoteApp, szablon musi pozostać w hello tego samego regionu Azure oryginalnego wdrożenia usługi Azure RemoteApp.  Jeśli potrzebujesz podczas migracji hello toochange regiony platformy Azure lub subskrypcji platformy Azure, skontaktuj się z nami Aby uzyskać dodatkowe wskazówki na [ sales@conexlink.com ](mailto:sales@conexlink.com).
 
-Przeczytaj poniższe informacje, aby uzyskać szczegółowe informacje na temat procesu automatycznej migracji za pomocą narzędzia migracji MyCloudIT:
+Przeczytaj poniższe informacje, aby uzyskać szczegółowe informacje o hello zautomatyzowanego procesu migracji z hello MyCloudIT narzędzia migracji:
 
-1. Narzędzie do migracji skanuje subskrypcjach bieżącej dla wszystkich istniejących wdrożeń ARA.  
-2. Wybierz jedną kolekcję ARA migracji naraz.  Jeśli masz wiele kolekcji, należy uruchomić narzędzie naszym wielokrotnie.
-3. Istnieje możliwość kopiowania dysków profilu użytkownika (UPD) do nowego wdrożenia, możesz pobrać starszych danych, lub ręcznie mapowania sieci UPD nowego wdrożenia. Jeśli chcesz skopiować z UPD możemy zapisać UPD i obejmują plik tekstowy, który mapuje nazwę UPD nazwy poszczególnych użytkowników.  UPD zostaną skopiowane do udziału na serwerze RDSMGMT `F:\Shares\LegacyUPD` i mają być widoczne za pośrednictwem udziału `\\RDSmgmt\LegacyUPD`. 
-4. Migracja wymaga bieżącego wdrożenia ARA bez przestojów.  Jednak jeśli zmian do UPD (z ARA) po kopii, te zmiany nie zostaną odzwierciedlone w UPD przechowywane w portalu usługi Azure Resource Manager. 
-5. Jeśli masz dodatkowe maszyny wirtualne, takie jak kontrolerów domeny i serwerów plików w klasycznej sieci wirtualnej platformy Azure będzie nawiązanie wirtualne sieci równorzędne — między istniejących klasycznego Azure sieci wirtualnej i nową sieć wirtualną, utworzymy dla Ciebie, nowy zasób platformy Azure Menedżer portalu.
-6. Nasze zautomatyzowane rozwiązanie tylko ustanowią sieci równorzędne — między istniejących klasycznego Azure sieci wirtualnej i nową sieć wirtualną w przypadku istniejącego wdrożenia ARA wdrożenia hybrydowego; to znaczy, są uwierzytelniani z systemu Windows Server Active Directory kontrolera domeny w istniejącej sieci wirtualnej klasycznego. Nie możemy ustanowić wirtualne sieci równorzędne — kolekcji, ale wymagają wirtualne sieci równorzędne —, skontaktuj się z nami jako [ sales@conexlink.com ](mailto:sales@conexlink.com) i będzie wszystkiego skonfigurować wirtualne sieci równorzędne — bez ponoszenia dodatkowych kosztów.
-7. Nasze zautomatyzowane rozwiązanie zapewni konfigurację usługi Azure DNS zostanie zaktualizowany przy użyciu nowych ustawień sieci wirtualnej, aby upewnić się, że nowe wdrożenia może nawiązać połączenie z istniejącego kontrolera domeny w klasycznej sieci wirtualnej.
-8. Nasze zautomatyzowane rozwiązanie będzie Sprawdź, czy nie konflikty adresów IP jak możemy utworzyć tej nowej sieci wirtualnej i ustanowienia sieci wirtualnej komunikacji równorzędnej dla wdrożenia, których istniejącego serwera systemu Windows Server Active Directory.
-9. Jeśli używane są tylko usługi Azure AD do uwierzytelniania, MyCloudIT utworzy nowej domenie systemu Windows Server Active Directory i Azure AD Connect umożliwia synchronizowanie użytkowników z istniejącym wystąpieniem usługi Azure AD i nowej domeny systemu Windows Server Active katalogu utworzone przez MyCloudIT.
-10. Jeśli używasz systemu Windows Server domeny usługi Active Directory do uwierzytelniania użytkowników ARA, naszych zautomatyzowane rozwiązanie połączy nowego wdrożenia MyCloudIT do istniejącego systemu Windows Server Active Directory kontrolera domeny za pośrednictwem sieci wirtualnej komunikacji równorzędnej.
-11. Jeśli używasz usługi Azure Active Directory Domain Services uwierzytelniania został migracji można, ale skontaktuj się z nami, można utworzyć plan niestandardowy migracji dla Ciebie.  Wyślij wiadomość e-mail na adres [ sales@conexlink.com ](mailto:sales@conexlink.com). 
-12. Po potwierdzeniu kolekcji do migracji, zaczekaj i zwalnia podczas naszych zautomatyzowane rozwiązanie migruje ARA kolekcji, a dyski profilu użytkownika (opcjonalnie) do nowego MyCloudIT, zmiennych rozwiązania aplikacji zdalnych.
-13. Po zakończeniu wdrażania, firma Microsoft ponownie opublikować te same aplikacje, które zostały opublikowane w ARA i po wdrożeniu będzie można opublikować dodatkowe aplikacje.
+1. Narzędzie migracji Hello skanuje subskrypcjach bieżącej dla wszystkich istniejących wdrożeń ARA.  
+2. Wybierz jeden toomigrate kolekcji ARA naraz.  Jeśli masz wiele kolekcji, należy uruchomić narzędzie naszym wielokrotnie.
+3. Masz hello opcja toocopy hello dyski profilu użytkownika (UPD) tooyour nowe wdrożenie, możesz pobrać starszych danych, lub ręcznie zmapuj UPD toohello nowego wdrożenia. Jeśli wybierzesz toocopy Twojego UPD, możemy zapisać UPD hello i obejmują plik tekstowy, który mapuje nazwę hello UPD nazwa tooeach użytkowników.  Hello UPD zostaną skopiowane tooa udziału na serwerze RDSMGMT hello `F:\Shares\LegacyUPD` i mają być widoczne za pośrednictwem udziału hello `\\RDSmgmt\LegacyUPD`. 
+4. Migracja wymaga bieżącego wdrożenia ARA bez przestojów.  Jednak jeśli po kopiowania hello zmian toohello UPD (z ARA), te zmiany nie zostaną odzwierciedlone w UPD hello przechowywane w portalu usługi Azure Resource Manager hello. 
+5. Jeśli masz dodatkowe maszyny wirtualne, takie jak kontrolerów domeny i serwerów plików w klasycznej sieci wirtualnej platformy Azure będzie nawiązanie komunikacji równorzędnej między istniejących klasycznego Azure sieci wirtualnej sieci wirtualnej, hello nową sieć wirtualną utworzymy dla Ciebie w hello nowego zasobu platformy Azure Menedżer portalu.
+6. Nasze zautomatyzowane rozwiązanie tylko ustanowi wirtualne sieci równorzędne — od istniejących klasycznego Azure sieci wirtualnej i hello nową sieć wirtualną w przypadku istniejącego wdrożenia ARA wdrożenia hybrydowego; to znaczy, są uwierzytelniani z serwera Active Directory kontrolera domeny systemu Windows w hello istniejących klasycznej sieci wirtualnej. Nie możemy ustanowić wirtualne sieci równorzędne — kolekcji, ale wymagają wirtualne sieci równorzędne —, skontaktuj się z nami jako [ sales@conexlink.com ](mailto:sales@conexlink.com) i będzie tooconfigure wszystkiego sieci wirtualnej komunikacji równorzędnej bez ponoszenia dodatkowych kosztów.
+7. Nasze zautomatyzowane rozwiązanie zapewnia konfigurację usługi Azure DNS są aktualizowane za pomocą hello nowej sieci wirtualnej ustawienia tooensure nowego wdrożenia można połączyć tooyour istniejącego kontrolera domeny w hello klasycznej sieci wirtualnej.
+8. Nasze zautomatyzowane rozwiązanie będzie Sprawdź, czy nie konflikty adresów IP jak możemy utworzyć tej nowej sieci wirtualnej i ustanowienia hello sieci wirtualnej komunikacji równorzędnej dla wdrożenia, których istniejącego serwera systemu Windows Server Active Directory.
+9. Jeśli używane są tylko usługi Azure AD do uwierzytelniania, MyCloudIT utworzy nowy domenie systemu Windows Server Active Directory i Azure AD Connect toosynchronize użytkownicy między hello istniejącego wystąpienia usługi Azure AD i hello utworzenia nowego systemu Windows Server domeny usługi Active Directory przez MyCloudIT.
+10. Jeśli używasz systemu Windows Server domeny usługi Active Directory tooauthenticate ARA użytkowników naszego zautomatyzowane rozwiązanie będzie łączyć nowego tooyour w wdrożenia MyCloudIT istniejących systemu Windows Server Active Directory kontrolera domeny za pośrednictwem sieci wirtualnej komunikacji równorzędnej.
+11. Jeśli używasz usługi Azure Active Directory Domain Services uwierzytelniania został migracji można, ale skontaktuj się z nami, można utworzyć plan niestandardowy migracji dla Ciebie.  Wyślij wiadomość e-mail zbyt[sales@conexlink.com](mailto:sales@conexlink.com). 
+12. Po migracji toobe kolekcji hello jest potwierdzone, zaczekaj i zwalnia podczas naszych zautomatyzowane rozwiązanie migruje ARA kolekcji, a nowe rozwiązanie aplikacji zdalnych MyCloudIT zmiennych dyski profilu użytkownika toohello (opcjonalnie).
+13. Po zakończeniu wdrażania hello firma Microsoft będzie ponownie opublikować hello tych samych aplikacji, które zostały opublikowane w ARA i po wdrożeniu, będziesz w stanie toopublish dodatkowe aplikacje.
 
 ## <a name="post-migration-benefits"></a>Po migracji korzyści
 
-1. Udostępniamy konsoli zarządzania, który umożliwia zarządzanie pełnego cyklu życia wdrożenia aplikacji zdalnych.
-2. Będzie można zarządzać maszyn wirtualnych z portalu.  Rozpocznij / Zatrzymaj, a następnie zmień rozmiar poszczególnych maszyn wirtualnych w razie potrzeby.
-3. Konsola zarządzania umożliwia tworzenie i zarządzanie nimi użytkowników / grupy z portalu zarządzania.
-4. Konsola zarządzania zapewnia możliwość synchronizowania użytkowników z usługą Office 365, aby utworzyć tego samego środowiska logowania.
-5. Konsola zarządzania zapewnia możliwość tworzenia dodatkowych RemoteApp i pulpitu kolekcji bez kosztów zduplikowanego użytkownika lub wymagania minimalne użytkownika. 
-6. Konsola zarządzania zapewnia możliwość publikowania nowej aplikacji aplikacji zdalnych.
-7. Konsola zarządzania umożliwia zaplanowanie uruchamiania i wyłączania wdrożenia aplikacji zdalnych, czy rozwiązania potrzebne tylko w określonych godzinach.
-8. Konsola zarządzania umożliwia automatyzację instalacji i konfiguracji agenta usługi Kopia zapasowa Azure, co zapewnia historii przechowywania dokumentów dla danych klienta.
-9. Konsola zarządzania udostępnia metryki wydajności wdrożenia.  Zapewnia możliwość identyfikacji dowolnego wąskich gardeł wydajności bez instalowania narzędzi do zarządzania wyższą wydajność.
-10. Jeśli masz wiele hostów sesji, można włączyć automatyczne skalowanie tylko sesji, w której działają hostów, które muszą być uruchomione.
-11. MyCloudIT zapewnia dostęp do serwera bramy RDWeb za pośrednictwem MyCloudIT nazwy domeny.  Firma Microsoft udostępnia również możliwość ponownego mapowania adres URL, który niestandardowy adres URL dla użytkownika końcowego znakowania.
+1. Udostępniamy konsoli zarządzania hello umożliwiający toomanage hello pełnego cyklu życia wdrożenia aplikacji zdalnych.
+2. Będzie możliwe toomanage sieci wirtualnej maszyny z portalu.  Rozpocznij / Zatrzymaj, a następnie zmień rozmiar poszczególnych maszyn wirtualnych w razie potrzeby.
+3. Konsola zarządzania Hello zapewnia hello toocreate możliwości i zarządzanie użytkownikami / grupy z portalu zarządzania.
+4. Konsola zarządzania Hello oferuje hello możliwości toosynchronize użytkowników z usługi Office 365 toocreate tego samego środowiska logowania.
+5. Witaj Konsola zarządzania zapewnia toocreate możliwości hello dodatkowe RemoteApp i pulpitu kolekcji bez kosztów zduplikowanego użytkownika lub użytkownika minimalne wymagania. 
+6. Konsola zarządzania Hello oferuje możliwości hello toopublish nowych aplikacji zdalnych aplikacji.
+7. Konsola zarządzania Hello zapewnia hello możliwości tooschedule hello uruchamiania i wyłączania wdrożenia aplikacji zdalnych czy rozwiązania potrzebne tylko w określonych godzinach.
+8. Konsola zarządzania Hello oferuje hello możliwości tooautomate hello instalacji i konfiguracji agenta usługi Kopia zapasowa Azure hello, co zapewnia historii przechowywania dokumentów dla danych klienta.
+9. Konsola zarządzania Hello zapewnia dostęp do metryk tooperformance wdrożenia.  Dzięki temu hello żadnych wąskich gardeł wydajności tooidentify możliwości bez instalowania narzędzi do zarządzania wyższą wydajność.
+10. Jeśli masz wiele hostów sesji będzie automatycznie stanie tooenable skalowanie tak tylko sesji hello hostów, które muszą toobe uruchomione są uruchomione.
+11. MyCloudIT udostępnia serwer bramy RDWeb toohello dostęp za pośrednictwem MyCloudIT nazwy domeny.  Firma Microsoft udostępnia również hello możliwości mapy toore hello adresu URL tooa niestandardowy adres URL dla użytkownika końcowego znakowania.
 
 ## <a name="prerequisites-for-migration"></a>Wymagania wstępne dotyczące migracji
 
-1. Musi mieć dostęp do subskrypcji Azure, która obsługuje bieżącego rozwiązania Azure RemoteApp.
-2. W ramach subskrypcji migracji szablonu, a także Utwórz / Modyfikuj nowego wdrożenia MyCloudIT należy przyznać naszego portalu uprawnienia.
-3. Należy pamiętać, że z powodu ograniczenia w usłudze Azure RemoteApp, każda kolekcja tylko mogą być migrowane trzy razy.  Jeśli chcesz przeprowadzić migrację kolekcji więcej niż trzy razy, możesz podnieść biletu na platformie Azure, aby zwiększyć liczbę sieci eksportu, lub skontaktuj się z nami i firma Microsoft pomoże w żądaniu ARA, aby zwiększyć liczbę eksportu.
+1. Musi mieć dostęp toohello subskrypcji Azure, która obsługuje bieżącego rozwiązania Azure RemoteApp.
+2. Musi udzielić naszego portalu uprawnień w ramach Twojej subskrypcji toomigrate szablonu, a toocreate / modify nowego wdrożenia MyCloudIT.
+3. Należy pamiętać, że ze względu na ograniczenia tooa w usłudze Azure RemoteApp, każda kolekcja tylko można przeprowadzić trzy razy.  Należy toomigrate kolekcji więcej niż trzy razy, możesz podnieść tooincrease tooAzure biletu liczba eksportu, lub skontaktuj się z nami i firma Microsoft pomoże hello ARA żądania tooincrease hello eksportu count.
 
 ## <a name="mycloudit-billing"></a>MyCloudIT rozliczeń
 
-Można znaleźć pod adresem [MyCloudIT ceny rozwiązań RemoteApp](https://mcitdocuments.blob.core.windows.net/terms/MyCloudIT_Pricing_Overview.pdf) (PDF) Aby uzyskać informacje dotyczące prognozowania i zarządzanie nimi koszty ogólne Azure.
+Można znaleźć pod adresem [MyCloudIT ceny rozwiązań RemoteApp](https://mcitdocuments.blob.core.windows.net/terms/MyCloudIT_Pricing_Overview.pdf) (PDF) Aby uzyskać informacje na temat toopredict i zarządzanie nimi koszty ogólne Azure.
 
-Jeśli nadal masz pytania, skontaktuj się z nami pod adresem [ sales@conexlink.com ](mailto:sales@conexlink.com) lub Obejrzyj prezentację pełne [narzędzie migracji usługi Azure RemoteApp - MyCloudIT](https://www.youtube.com/watch?v=YQ_1F-JeeLM&t=482s). 
+Jeśli nadal masz pytania, skontaktuj się z nami pod adresem [ sales@conexlink.com ](mailto:sales@conexlink.com) lub Obejrzyj prezentację pełne hello [narzędzie migracji usługi Azure RemoteApp - MyCloudIT](https://www.youtube.com/watch?v=YQ_1F-JeeLM&t=482s). 
 

@@ -1,6 +1,6 @@
 ---
-title: "Włącz program Microsoft Windows Hello dla firm w Twojej organizacji | Dokumentacja firmy Microsoft"
-description: "Instrukcje dotyczące wdrażania do włączenia Microsoft Passport w Twojej organizacji."
+title: aaaEnable Microsoft Windows Hello dla firm w Twojej organizacji | Dokumentacja firmy Microsoft
+description: "Tooenable instrukcje wdrożenia Microsoft Passport w Twojej organizacji."
 services: active-directory
 documentationcenter: 
 keywords: "Skonfiguruj Microsoft Passport, Microsoft Windows Hello dla firm wdrożenia"
@@ -15,72 +15,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6041f5916f606752bc55844b1b2d0a423b913cd3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Włącz program Microsoft Windows Hello dla firm w Twojej organizacji
-Po [łączenie urządzeń przyłączonych do domeny systemu Windows 10 w usłudze Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), wykonaj następujące czynności, aby włączyć program Microsoft Windows Hello dla firm w Twojej organizacji:
+Po [łączenie urządzeń przyłączonych do domeny systemu Windows 10 w usłudze Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), hello następujących tooenable Microsoft Windows Hello dla firm w Twojej organizacji:
 
 1. Wdrażanie programu System Center Configuration Manager  
 2. Skonfiguruj ustawienia zasad
-3. Konfigurowanie profilu certyfikatu  
+3. Skonfiguruj profil certyfikatu hello  
 
 ## <a name="deploy-system-center-configuration-manager"></a>Wdrażanie programu System Center Configuration Manager
-Aby wdrożyć certyfikaty użytkowników oparte na Windows Hello dla firm kluczy, potrzebne są następujące elementy:
+toodeploy certyfikaty użytkowników oparte na Windows Hello dla firm kluczy, potrzebne są następujące hello:
 
-* **System Center Configuration Manager Current Branch** — należy zainstalować wersję 1606 lub większą. Aby uzyskać więcej informacji, zobacz [dokumentacji programu System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) i [blogu zespołu programu System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
-* **Infrastruktury kluczy publicznych (PKI)** — Aby włączyć program Microsoft Windows Hello dla firm przy użyciu certyfikatów użytkowników wymaga infrastruktury kluczy publicznych w miejscu. Jeśli nie istnieje lub nie chcesz jej używać w przypadku certyfikatów użytkownika, można wdrożyć nowego kontrolera domeny systemu Windows Server 2016 kompilacji 10551 (lub lepszy) zainstalowany. Wykonaj kroki, aby [Instalowanie repliki kontrolera domeny w istniejącej domenie](https://technet.microsoft.com/library/jj574134.aspx) lub [zainstalować nowy las usługi Active Directory, tworząc nowe środowisko](https://technet.microsoft.com/library/jj574166). (Obrazów ISO są dostępne do pobrania na [wymiana nośników Signiant](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+* **System Center Configuration Manager Current Branch** — wymagana wersja tooinstall 1606 lub większą. Aby uzyskać więcej informacji, zobacz hello [dokumentacji programu System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) i [blogu zespołu programu System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+* **Infrastruktury kluczy publicznych (PKI)** -tooenable Microsoft Windows Hello dla firm przy użyciu certyfikatów użytkowników, musi mieć infrastruktury kluczy publicznych w miejscu. Jeśli nie istnieje lub nie chcesz, aby toouse go certyfikatów użytkownika można wdrożyć nowego kontrolera domeny z systemu Windows Server 2016 kompilacji 10551 (lub lepszy) zainstalowany. Wykonaj kroki hello zbyt[Instalowanie repliki kontrolera domeny w istniejącej domenie](https://technet.microsoft.com/library/jj574134.aspx) lub zbyt[zainstalować nowy las usługi Active Directory, tworząc nowe środowisko](https://technet.microsoft.com/library/jj574166). (hello obrazów ISO są dostępne do pobrania na [wymiana nośników Signiant](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## <a name="configure-policy-settings"></a>Skonfiguruj ustawienia zasad
-Aby skonfigurować program Microsoft Windows Hello dla firm ustawień zasad, masz dwie opcje:
+Witaj tooconfigure Microsoft Windows Hello dla firm ustawień zasad, dostępne są dwie opcje:
 
 * Zasady grupy w usłudze Active Directory 
-* System Center Configuration Manager 
+* Witaj System Center Configuration Manager 
 
-W oknie Zasady grupy w usłudze Active Directory jest to zalecana metoda skonfigurować program Microsoft Windows Hello dla firm ustawień zasad. 
+W oknie Zasady grupy w usłudze Active Directory jest hello zalecana metoda tooconfigure Microsoft Windows Hello dla firm ustawień zasad. 
 
-Za pomocą programu System Center Configuration Manager jest preferowaną metodą, gdy również używać do wdrażania certyfikatów. Ten scenariusz.
+Za pomocą programu System Center Configuration Manager jest hello preferowana metoda, gdy można również stosować toodeploy certyfikatów. Ten scenariusz.
 
-* Zapewnia zgodność z nowszej scenariusze wdrażania
-* Wymaga po stronie klienta systemu Windows 10 w wersji 1607 lub lepszej.
+* Zapewnia zgodność z hello nowszej scenariusze wdrażania
+* Wymaga na powitania systemu Windows 10 w wersji 1607 lub lepszą po stronie klienta.
 
 ### <a name="configure-microsoft-windows-hello-for-business-via-group-policy-in-active-directory"></a>Konfigurowanie programu Microsoft Windows Hello dla firm za pomocą zasad grupy w usłudze Active Directory
 **Kroki**:
 
-1. Otwórz Menedżera serwera, a następnie przejdź do **narzędzia** > **Zarządzanie zasadami grupy**.
-2. W przystawce Zarządzanie zasadami grupy przejdź do węzeł domeny, która odnosi się do domeny, w której chcesz włączyć usługi Azure AD Join.
+1. Otwórz Menedżera serwera i nawigować zbyt**narzędzia** > **Zarządzanie zasadami grupy**.
+2. W przystawce Zarządzanie zasadami grupy przejdź toohello węzeł domeny, który odpowiada toohello domeny, w której ma zostać tooenable Azure AD Join.
 3. Kliknij prawym przyciskiem myszy **obiektów zasad grupy**i wybierz **nowy**. Nadaj nazwę, na przykład włączyć usługi Windows Hello dla firm z obiektu zasad grupy. Kliknij przycisk **OK**.
 4. Kliknij prawym przyciskiem myszy nowy obiekt zasad grupy, a następnie wybierz **Edytuj**.
-5. Przejdź do **Konfiguracja komputera** > **zasady** > **Szablony administracyjne** > **systemu Windows Składniki** > **Windows Hello dla firm**.
+5. Przejdź za**Konfiguracja komputera** > **zasady** > **Szablony administracyjne** > **systemu Windows Składniki** > **Windows Hello dla firm**.
 6. Kliknij prawym przyciskiem myszy **włączenia usługi Windows Hello dla firm**, a następnie wybierz **Edytuj**.
-7. Wybierz **włączone** przycisk opcji, a następnie kliknij przycisk **Zastosuj**. Kliknij przycisk **OK**.
-8. Teraz możesz połączyć obiekt zasad grupy do wybranej lokalizacji. Aby włączyć te zasady dla wszystkich urządzeń z systemem Windows 10 przyłączonych do domeny w swojej organizacji, należy połączyć zasad grupy do domeny. Na przykład:
+7. Wybierz hello **włączone** przycisk opcji, a następnie kliknij przycisk **Zastosuj**. Kliknij przycisk **OK**.
+8. Teraz możesz połączyć hello obiektu zasad grupy tooa wybranej lokalizacji. tooenable te zasady dla wszystkich urządzeń hello przyłączonych do domeny systemu Windows 10 w organizacji link hello zasad grupy toohello domeny. Na przykład:
    * Określonej jednostki organizacyjnej (OU) usługi Active Directory, gdzie będą umieszczane komputery przyłączone do domeny systemu Windows 10
    * Grupy zabezpieczeń, która zawiera przyłączonych do domeny komputerów z systemem Windows 10, które będą automatycznie rejestrowane w usłudze Azure AD
 
 ### <a name="configure-windows-hello-for-business-using-system-center-configuration-manager"></a>Konfigurowanie usługi Windows Hello dla firm przy użyciu programu System Center Configuration Manager
 **Kroki**:
 
-1. Otwórz **System Center Configuration Manager**, a następnie przejdź do **zasoby i zgodność > Ustawienia zgodności > dostęp do zasobów firmy > Windows Hello dla firm profile**.
+1. Otwórz hello **System Center Configuration Manager**, a następnie przejdź zbyt**zasoby i zgodność > Ustawienia zgodności > dostęp do zasobów firmy > Windows Hello dla firm profilów**.
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/01.png)
-2. Na pasku narzędzi u góry kliknij **tworzenia usługi Windows Hello dla firm profilu**.
+2. Witaj pasku narzędzi u góry hello, kliknij przycisk **utworzyć Windows Hello dla firm profilu**.
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/02.png)
-3. Na **ogólne** okna dialogowego, wykonaj następujące czynności:
+3. Na powitania **ogólne** okna dialogowego, wykonaj następujące kroki hello:
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/03.png)
    
-    a. W **nazwa** tekstowym, wpisz nazwę profilu, na przykład **Mój profil WHfB**.
+    a. W hello **nazwa** tekstowym, wpisz nazwę profilu, na przykład **Mój profil WHfB**.
    
     b. Kliknij przycisk **Dalej**.
-4. Na **obsługiwane platformy** okno dialogowe, wybierz platformy, które będą udostępniane z tym usługi Windows Hello dla firm, a następnie kliknij przycisk **dalej**.
+4. Na powitania **obsługiwane platformy** okno dialogowe, wybierz hello platformy, które będą udostępniane z tym Windows Hello dla firm, a następnie kliknij przycisk **dalej**.
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/04.png)
-5. Na **ustawienia** okna dialogowego, wykonaj następujące czynności:
+5. Na powitania **ustawienia** okna dialogowego, wykonaj następujące kroki hello:
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/05.png)
    
@@ -91,25 +91,25 @@ Za pomocą programu System Center Configuration Manager jest preferowaną metod�
     c. Jako **metodę uwierzytelniania**, wybierz pozycję **opartego na certyfikatach**.
    
     d. Kliknij przycisk **Dalej**.
-6. Na **Podsumowanie** okna dialogowego, kliknij przycisk **dalej**.
-7. Na **zakończenia** okna dialogowego, kliknij przycisk **Zamknij**.
-8. Na pasku narzędzi u góry kliknij **Wdróż**.
+6. Na powitania **Podsumowanie** okna dialogowego, kliknij przycisk **dalej**.
+7. Na powitania **zakończenia** okna dialogowego, kliknij przycisk **Zamknij**.
+8. Witaj pasku narzędzi u góry hello, kliknij przycisk **Wdróż**.
    
     ![Konfigurowanie systemu Windows Hello dla firm](./media/active-directory-azureadjoin-passport-deployment/06.png)
 
-## <a name="configure-the-certificate-profile"></a>Konfigurowanie profilu certyfikatu
-Jeśli używasz uwierzytelniania opartego na certyfikatach dla uwierzytelniania lokalnego, należy skonfigurować i wdrożyć profil certyfikatu. To zadanie wymaga skonfigurowania serwera usługi NDES i roli lokacji punktu rejestracji certyfikatu w System Center Configuration Manager. Aby uzyskać więcej informacji, zobacz [wymagania wstępne dotyczące profilów certyfikatów w programie Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
+## <a name="configure-hello-certificate-profile"></a>Skonfiguruj profil certyfikatu hello
+Jeśli używasz uwierzytelniania opartego na certyfikatach dla uwierzytelniania lokalnego, należy tooconfigure i wdróż profil certyfikatu. To zadanie wymaga tooset serwera usługi NDES i roli lokacji punktu rejestracji certyfikatu w hello System Center Configuration Manager. Aby uzyskać więcej informacji, zobacz hello [wymagania wstępne dotyczące profilów certyfikatów w programie Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
 
-1. Otwórz **System Center Configuration Manager**, a następnie przejdź do **zasoby i zgodność > Ustawienia zgodności > dostęp do zasobów firmy > Profile certyfikatów**.
+1. Otwórz hello **System Center Configuration Manager**, a następnie przejdź za**zasoby i zgodność > Ustawienia zgodności > dostęp do zasobów firmy > profilów certyfikatów**.
 2. Wybierz szablon, który zawiera karty inteligentnej logowania rozszerzonego użycia klucza (EKU).
 
-Na **rejestracja SCEP** strony profilu certyfikatu, musisz wybrać **Zainstaluj w usłudze Passport for Work w przeciwnym razie Zgłoś błąd** jako **dostawcy magazynu kluczy**.
+Na powitania **rejestracja SCEP** strony hello profilu certyfikatu, dlatego należy toochoose **zainstalować tooPassport dla pracy w przeciwnym razie błąd** jako hello **dostawcy magazynu kluczy**.
 
 ## <a name="next-steps"></a>Następne kroki
-* [System Windows 10 dla przedsiębiorstw: sposoby używania urządzenia do pracy](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Rozszerzanie możliwości chmury dla urządzeń z systemem Windows 10 za pomocą usługi Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [System Windows 10 dla przedsiębiorstw hello: sposoby toouse urządzenia do pracy](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Rozszerzanie chmury możliwości tooWindows 10 urządzeniami za pomocą usługi Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Uwierzytelnianie tożsamości bez hasła przy użyciu Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Dowiedz się więcej na temat scenariuszy użycia funkcji Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Łączenie urządzeń przyłączonych do domeny z usługą Azure AD w celu korzystania z możliwości systemu Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Łączenie urządzeń przyłączonych do domeny tooAzure AD dla systemu Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Konfigurowanie funkcji Azure AD Join](active-directory-azureadjoin-setup.md)
 

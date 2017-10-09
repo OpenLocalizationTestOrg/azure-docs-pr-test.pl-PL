@@ -1,6 +1,6 @@
 ---
-title: "Wyświetl topologii obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób zapytania topologii sieci przy użyciu programu PowerShell."
+title: "Topologia obserwatora sieciowego Azure aaaView — PowerShell | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób toouse PowerShell tooquery topologii sieci."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e01a7a6a2ea6127ab725f04649cec47b9d9422
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bc0ecf5baa81a68be53f55c74f362a7bc97116f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-network-watcher-topology-with-powershell"></a>Wyświetl topologii obserwatora sieciowego przy użyciu programu PowerShell
 
@@ -28,37 +28,37 @@ ms.lasthandoff: 07/11/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-topology-cli.md)
 > - [Interfejs API REST](network-watcher-topology-rest.md)
 
-Funkcja topologii sieci obserwatora zapewnia wizualną reprezentację zasobów sieciowych w ramach subskrypcji. W portalu tej wizualizacji są prezentowane automatycznie. Informacje dotyczące widoku topologii w portalu można pobrać za pomocą programu PowerShell.
-Dzięki temu informacje topologii bardziej elastyczne, dane mogą być używane przez inne narzędzia do tworzenia wizualizacji.
+Funkcja topologii Hello obserwatora sieciowego zapewnia wizualną reprezentację hello zasobów sieciowych w ramach subskrypcji. W portalu hello tej wizualizacji przedstawiono tooyou automatycznie. informacje Hello za hello widoku topologii w portalu hello mogą zostać pobrane za pomocą programu PowerShell.
+Dzięki temu informacji dotyczących topologii hello bardziej elastyczne, hello danych mogą być używane przez inne narzędzia toobuild limit hello wizualizacji.
 
-W obszarze dwie relacje w modelu połączenia.
+w obszarze dwie relacje w modelu Hello połączenia.
 
 - **Zawieranie** — przykład: sieć wirtualna zawiera podsieć zawiera karty Sieciowej
 - **Skojarzone** — przykład: karta sieciowa jest skojarzona z maszyną Wirtualną
 
-Poniżej znajduje się właściwości, które są zwracane podczas wykonywania zapytania interfejsu API REST topologii.
+Witaj poniżej znajduje się właściwości, które są zwracane, gdy zapytanie hello interfejsu API REST topologii.
 
-* **Nazwa** — Nazwa zasobu
-* **Identyfikator** — identyfikator uri zasobu.
-* **Lokalizacja** — lokalizacji, w której istnieje zasób.
-* **skojarzenia** -listę skojarzeń odwołuje się do obiektu.
-    * **Nazwa** — Nazwa zasobu, do którego istnieje odwołanie.
-    * **resourceId** — element resourceId jest identyfikatorem uri zasobu, do którego odwołuje się powiązanie.
-    * **Obiekt associationType** — ta wartość odwołuje się do relacji między obiekt podrzędny i obiektu nadrzędnego. Prawidłowe wartości to **zawiera** lub **skojarzone**.
+* **Nazwa** — Witaj Nazwa zasobu hello
+* **Identyfikator** — Witaj identyfikatora uri zasobu hello.
+* **Lokalizacja** — Witaj lokalizacji, w której istnieje zasób hello.
+* **skojarzenia** — lista toohello skojarzenia odwołuje się do obiektu.
+    * **Nazwa** — nazwa hello hello odwołuje się do zasobu.
+    * **resourceId** -hello resourceId jest identyfikatorem uri hello hello zasobu, do którego odwołuje się powiązanie hello.
+    * **Obiekt associationType** -hello relacja między hello obiektu podrzędnego i nadrzędnego hello odwołuje się do tej wartości. Prawidłowe wartości to **zawiera** lub **skojarzone**.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu, należy użyć `Get-AzureRmNetworkWatcherTopology` polecenia cmdlet można pobrać informacji o topologii. Istnieje również artykuł na temat [pobrać topologii sieci z interfejsu API REST](network-watcher-topology-rest.md).
+W tym scenariuszu, należy użyć hello `Get-AzureRmNetworkWatcherTopology` informacje topologii hello tooretrieve polecenia cmdlet. Istnieje również artykuł na temat zbyt[pobrać topologii sieci z interfejsu API REST](network-watcher-topology-rest.md).
 
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego.
+W tym scenariuszu przyjęto zostały już wykonane kroki hello [utworzyć obserwatora sieciowego](network-watcher-create.md) toocreate obserwatora sieciowego.
 
 ## <a name="scenario"></a>Scenariusz
 
-Scenariusz omówione w tym artykule pobiera odpowiedź topologii dla określonej grupy zasobów.
+Scenariusz Hello omówione w tym artykule pobiera odpowiedź hello topologii dla określonej grupy zasobów.
 
 ## <a name="retrieve-network-watcher"></a>Pobrać obserwatora sieciowego
 
-Pierwszym krokiem jest pobrać wystąpienia obserwatora sieciowego. `$networkWatcher` Zmienna jest przekazywana do `Get-AzureRmNetworkWatcherTopology` polecenia cmdlet.
+pierwszym krokiem Hello jest tooretrieve hello obserwatora sieciowego wystąpienia. Witaj `$networkWatcher` zmienna jest przekazywana toohello `Get-AzureRmNetworkWatcherTopology` polecenia cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
@@ -67,7 +67,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="retrieve-topology"></a>Pobrać topologii
 
-`Get-AzureRmNetworkWatcherTopology` Polecenie cmdlet pobiera topologii dla określonej grupy zasobów.
+Witaj `Get-AzureRmNetworkWatcherTopology` polecenie cmdlet pobiera hello topologii dla określonej grupy zasobów.
 
 ```powershell
 Get-AzureRmNetworkWatcherTopology -NetworkWatcher $networkWatcher -TargetResourceGroupName testrg
@@ -75,7 +75,7 @@ Get-AzureRmNetworkWatcherTopology -NetworkWatcher $networkWatcher -TargetResourc
 
 ## <a name="results"></a>Wyniki
 
-Wyniki zwrócone ma właściwości name "zasoby", które zawiera treści odpowiedzi json dla `Get-AzureRmNetworkWatcherTopology` polecenia cmdlet.  Odpowiedź zawiera zasoby w grupie zabezpieczeń sieci i ich powiązania (to znaczy zawiera, skojarzone).
+Witaj wyników zwróconych ma właściwości name "zasoby", które zawiera treść odpowiedzi json hello hello `Get-AzureRmNetworkWatcherTopology` polecenia cmdlet.  odpowiedź Hello zawiera zasoby hello w hello sieciowej grupy zabezpieczeń i ich powiązania (to znaczy zawiera, skojarzone).
 
 ```json
 Id              : 00000000-0000-0000-0000-000000000000
@@ -135,6 +135,6 @@ Resources       : [
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak wizualizacji NSG dzienników przepływu z usługi Power BI, odwiedzając [wizualizacji NSG przepływa dzienników przy użyciu usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Dowiedz się, jak toovisualize Twojego przepływu NSG dzienniki przy użyciu usługi Power BI odwiedzając [wizualizacji NSG przepływa dzienników przy użyciu usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 

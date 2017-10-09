@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure (model klasyczny) | Microsoft Docs"
-description: "Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia w klasycznym modelu wdrażania przy użyciu interfejsu wiersza polecenia Azure"
+title: "aaaCreate wewnętrzne załadować równoważenia - klasycznego wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak hello toocreate usługi równoważenia obciążenia wewnętrznego przy użyciu wiersza polecenia platformy Azure w hello klasycznego modelu wdrażania"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef29dfda5f7a75a411bbabe8b688a31c6bf81113
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Wprowadzenie do tworzenia wewnętrznego modułu równoważenia obciążenia (w modelu klasycznym) przy użyciu interfejsu wiersza polecenia Azure
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-hello-azure-cli"></a>Rozpoczynanie pracy tworzenia wewnętrznego modułu równoważenia obciążenia (klasyczne) przy użyciu hello wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
 > * [Usługi w chmurze](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).  Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](load-balancer-get-started-ilb-arm-cli.md).
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md).  W tym artykule omówiono przy użyciu hello klasycznego modelu wdrażania. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Dowiedz się, jak za[wykonaj te czynności przy użyciu modelu Resource Manager hello](load-balancer-get-started-ilb-arm-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Tworzenie zestawu wewnętrznego modułu równoważenia obciążenia dla maszyn wirtualnych
+## <a name="toocreate-an-internal-load-balancer-set-for-virtual-machines"></a>toocreate wewnętrznego modułu równoważenia obciążenia dla maszyn wirtualnych
 
-Aby utworzyć zestaw wewnętrznego modułu równoważenia obciążenia, a także serwery, które będą przesyłać do niego ruch, wykonaj następujące czynności:
+toocreate wewnętrznego modułu równoważenia obciążenia ustaw i hello serwerów, które będzie wysyłać ich tooit ruchu, należy wykonać następujące hello:
 
-1. Utwórz wystąpienie wewnętrznego równoważenia obciążenia, które będzie punktem końcowym przychodzącego ruchu sieciowego, aby obciążenie było zrównoważone między serwerami w zestawie o zrównoważonym obciążeniu.
-2. Dodaj punkty końcowe odpowiadające maszynom wirtualnym, które będą otrzymywać ruch przychodzący.
-3. Skonfiguruj serwery wysyłające ruch, którego obciążenie ma zostać zrównoważone, aby wysyłały ruch na wirtualny adres IP (VIP) wystąpienia wewnętrznego równoważenia obciążenia.
+1. Utwórz wystąpienie wewnętrzne Równoważenie obciążenia sieciowego, który będzie hello punkt końcowy przychodzącego ruchu toobe równoważone między serwerami hello zestawu z równoważeniem obciążenia.
+2. Dodawanie punktów końcowych odpowiadającego toohello maszyn wirtualnych, które będzie otrzymywał hello ruchu przychodzącego.
+3. Konfigurowanie serwerów hello, które będą wysyłane się, że hello ruchu toobe o zrównoważonym obciążeniu toosend ich ruchu toohello wirtualny adres IP (VIP) wystąpienia hello wewnętrzne Równoważenie obciążenia sieciowego.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Szczegółowy opis tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia
 
-W tym przewodniku opisano sposób tworzenia wewnętrznego modułu równoważenia obciążenia w oparciu o powyższy scenariusz.
+Ten przewodnik zawiera jak toocreate wewnętrznego modułu równoważenia obciążenia na podstawie scenariusza hello powyżej.
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
-2. Uruchom polecenie **azure config mode**, aby przełączyć tryb na klasyczny, jak pokazano poniżej.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) i wykonaj instrukcje hello zapasowej punktu toohello, gdzie należy wybrać konto platformy Azure i subskrypcji.
+2. Uruchom hello **trybie azure config** polecenia tooswitch tooclassic tryb, jak pokazano poniżej.
 
     ```azurecli
     azure config mode asm
@@ -60,11 +60,11 @@ W tym przewodniku opisano sposób tworzenia wewnętrznego modułu równoważenia
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Tworzenie punktu końcowego i zestawu modułu równoważenia obciążenia
 
-Na potrzeby scenariusza przyjmuje się, że utworzono maszyny wirtualne „DB1” i „DB2” w usłudze w chmurze o nazwie „mytestcloud”. Obie maszyny wirtualne korzystają z sieci wirtualnej o nazwie „testvnet” z podsiecią o nazwie „subnet-1”.
+Hello scenariusz zakłada hello maszyn wirtualnych "DB1" i "Bazy danych DB2" w usłudze w chmurze o nazwie "mytestcloud". Obie maszyny wirtualne korzystają z sieci wirtualnej o nazwie „testvnet” z podsiecią o nazwie „subnet-1”.
 
 W tym przewodniku opisano sposób tworzenia zestawu wewnętrznego modułu równoważenia obciążenia przy użyciu portu 1433 jako portu publicznego i lokalnego.
 
-Jest to typowy scenariusz, w którym na zapleczu występują maszyny wirtualne SQL korzystające z wewnętrznego modułu równoważenia obciążenia, aby zagwarantować, że serwery bazy danych nie będą dostępne bezpośrednio przez publiczny adres IP.
+To jest typowy scenariusz, w którym masz SQL maszyn wirtualnych na powitania zaplecza przy użyciu serwerów baz danych hello tooguarantee obciążenia wewnętrznego modułu równoważenia nie będą widoczne, bezpośrednio za pomocą publicznego adresu IP.
 
 ### <a name="step-1"></a>Krok 1
 
@@ -76,9 +76,9 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 Użyj polecenia `azure service internal-load-balancer --help`, aby uzyskać więcej informacji.
 
-Możesz sprawdzić właściwości wewnętrznego modułu równoważenia obciążenia za pomocą polecenia `azure service internal-load-balancer list` *nazwa usługi w chmurze*.
+Możesz sprawdzić właściwości usługi równoważenia obciążenia wewnętrznego hello za pomocą polecenia hello `azure service internal-load-balancer list` *nazwa usługi w chmurze*.
 
-Przykładowe dane wyjściowe:
+W tym miejscu następujący przykład danych wyjściowych hello:
 
     azure service internal-load-balancer list my-testcloud
     info:    Executing command service internal-load-balancer list
@@ -91,7 +91,7 @@ Przykładowe dane wyjściowe:
 
 ### <a name="step-2"></a>Krok 2
 
-Konfiguracja zestawu wewnętrznego modułu równoważenia obciążenia zachodzi podczas dodawania pierwszego punktu końcowego. W tym kroku punkt końcowy, maszyna wirtualna i port sondy zostaną skojarzone z zestawem wewnętrznego modułu równoważenia obciążenia.
+Możesz skonfigurować hello wewnętrznego modułu równoważenia obciążenia ustawić po dodaniu hello pierwszym punktem końcowym. Skojarzysz hello punktu końcowego, maszyny wirtualnej i badania portu toohello wewnętrznego modułu równoważenia obciążenia w tym kroku.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -99,13 +99,13 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>Krok 3
 
-Sprawdź konfigurację modułu równoważenia obciążenia za pomocą polecenia `azure vm show` *nazwa maszyny wirtualnej*
+Sprawdzić z konfiguracji usługi równoważenia obciążenia hello `azure vm show` *nazwę maszyny wirtualnej*
 
 ```azurecli
 azure vm show DB1
 ```
 
-Dane wyjściowe to:
+Witaj dane wyjściowe będą mieć:
 
     azure vm show DB1
     info:    Executing command vm show
@@ -156,7 +156,7 @@ Dane wyjściowe to:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Tworzenie punktu końcowego pulpitu zdalnego maszyny wirtualnej
 
-Możesz utworzyć punkt końcowy pulpitu zdalnego w celu przesyłania ruchu sieciowego z portu publicznego do lokalnego dla danej maszyny wirtualnej za pomocą polecenia `azure vm endpoint create`.
+Ruch sieciowy tooforward zdalny punkt końcowy pulpitu można utworzyć na podstawie port publiczny port lokalny tooa dla określonej maszyny wirtualnej przy użyciu `azure vm endpoint create`.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -164,9 +164,9 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Usuwanie maszyny wirtualnej z modułu równoważenia obciążenia
 
-Możesz usunąć maszynę wirtualną z zestawu wewnętrznego modułu równoważenia obciążenia przez usunięcie skojarzonego punktu końcowego. Po usunięciu punktu końcowego maszyna wirtualna nie będzie należeć do zestawu modułu równoważenia obciążenia.
+Możesz usunąć maszynę wirtualną z wewnętrznego modułu równoważenia obciążenia ustawione przez usuwanie punktu końcowego hello skojarzone. Po usunięciu punktu końcowego hello hello maszyny wirtualnej nie należą już zestaw modułów równoważenia obciążenia toohello.
 
-Korzystając z powyższego przykładu, możesz usunąć punkt końcowy utworzony dla maszyny wirtualnej „DB1” z wewnętrznego modułu równoważenia obciążenia „ilbset” za pomocą polecenia `azure vm endpoint delete`.
+Za pomocą powyższego przykładu hello, można usunąć punktu końcowego hello utworzone dla maszyny wirtualnej "DB1" z wewnętrznego modułu równoważenia obciążenia "ilbset" za pomocą polecenia hello `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433

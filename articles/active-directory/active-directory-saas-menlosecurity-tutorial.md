@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Azure Active Directory integracji z zabezpieczeniami Menlo | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Menlo zabezpieczeń."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Menlo zabezpieczeń."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 193d12eedf31f4f08e1d141936d6e918c36a2109
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Samouczek: Azure Active Directory integracji z zabezpieczeniami Menlo
 
-Z tego samouczka dowiesz się integrowanie Menlo zabezpieczeń w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka, dowiesz się, jak toointegrate Menlo zabezpieczeń w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie Menlo zabezpieczeń z usługą Azure AD zapewnia następujące korzyści:
+Integracja z usługą Azure AD Menlo zabezpieczeń zawiera hello następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do Menlo zabezpieczeń
-- Umożliwia użytkownikom automatycznie pobrać zalogowane zabezpieczeń Menlo (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMenlo zabezpieczeń
+- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMenlo zabezpieczeń (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz. [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz. [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z zabezpieczeniami Menlo, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z zabezpieczeniami Menlo należy hello następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Zabezpieczenia Menlo jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie zabezpieczeń Menlo z galerii
+1. Dodawanie zabezpieczeń Menlo z galerii hello
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-menlo-security-from-the-gallery"></a>Dodawanie zabezpieczeń Menlo z galerii
-Aby skonfigurować integrację Menlo zabezpieczeń w usłudze Azure Active Directory, należy dodać Menlo zabezpieczeń z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-menlo-security-from-hello-gallery"></a>Dodawanie zabezpieczeń Menlo z galerii hello
+tooconfigure hello integrację Menlo zabezpieczeń w usłudze Azure Active Directory, należy tooadd Menlo zabezpieczeń z hello galerii tooyour listę zarządzanych aplikacji SaaS.
 
-**Aby dodać Menlo zabezpieczeń z galerii, wykonaj następujące czynności:**
+**tooadd Menlo zabezpieczeń z galerii hello wykonaj hello następujące kroki:**
 
-1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
+1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
+2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania wpisz **zabezpieczeń Menlo**.
+4. W polu wyszukiwania hello wpisz **zabezpieczeń Menlo**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_search.png)
 
-5. W panelu wyników wybierz **zabezpieczeń Menlo**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+5. W panelu wyników hello, wybierz **zabezpieczeń Menlo**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Menlo zabezpieczenia oparte na użytkownika testowego o nazwie "Britta Simona".
 
-Do rejestracji jednokrotnej do pracy usługi Azure AD musi ustalić użytkownika odpowiednika w Menlo zabezpieczeń do użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi zabezpieczeń Menlo musi określone.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow hello użytkownika odpowiednikiem zabezpieczeń Menlo jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi zabezpieczeń Menlo musi toobe ustanowione.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** Menlo zabezpieczeń.
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** Menlo zabezpieczeń.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zabezpieczeniami Menlo, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z zabezpieczeniami Menlo, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zabezpieczeń Menlo](#creating-a-menlo-security-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Menlo zabezpieczeń, które jest połączone z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego zabezpieczeń Menlo](#creating-a-menlo-security-test-user)**  -toohave odpowiednikiem Simona Britta Menlo zabezpieczeń, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Menlo zabezpieczeń.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Menlo zabezpieczeń.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Menlo zabezpieczeń, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z Menlo zabezpieczeń, wykonaj hello następujące kroki:**
 
-1. W portalu Azure na **zabezpieczeń Menlo** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na powitania hello **zabezpieczeń Menlo** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_samlbase.png)
 
-3. Na **Menlo zabezpieczeń domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na powitania **Menlo zabezpieczeń domeny i adres URL** sekcji, wykonaj następujące kroki hello:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.menlosecurity.com/account/login`
+    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<subdomain>.menlosecurity.com/account/login`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
+    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
     > [!NOTE] 
-    > Wartości te nie są rzeczywistych. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta zabezpieczeń Menlo](https://www.menlosecurity.com/menlo-contact) uzyskać te wartości. 
+    > Wartości te nie są hello prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta zabezpieczeń Menlo](https://www.menlosecurity.com/menlo-contact) tooget tych wartości. 
  
-4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_certificate.png) 
 
@@ -125,86 +125,86 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji zabezpieczeń Menlo** , kliknij przycisk **Konfigurowanie zabezpieczeń Menlo** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML identyfikator jednostki**, i **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na powitania **konfiguracji zabezpieczeń Menlo** kliknij **Konfigurowanie zabezpieczeń Menlo** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML identyfikator jednostki**, i **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_configure.png) 
 
-7. Aby skonfigurować logowanie jednokrotne w **zabezpieczeń Menlo** strona, zaloguj się do **Menlo zabezpieczeń** witryny sieci Web jako administrator.
+7. tooconfigure rejestracji jednokrotnej w **zabezpieczeń Menlo** strona, logowania toohello **zabezpieczeń Menlo** witryny sieci Web jako administrator.
 
-8. W obszarze **ustawienia** przejdź do **uwierzytelniania** i wykonywanie następujących czynności:
+8. W obszarze **ustawienia** Przejdź zbyt**uwierzytelniania** i wykonywanie następujących czynności:
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/menlo_user_setup.png)
 
-    a. Zaznacz pole wyboru **Włącz uwierzytelnianie użytkowników przy użyciu SAML**.
+    a. Zaznacz pole wyboru hello **Włącz uwierzytelnianie użytkowników przy użyciu SAML**.
 
-    b. Wybierz **dostęp do zewnętrznych** do **tak**.
+    b. Wybierz **Zezwalaj dostępu zewnętrznego** za**tak**.
 
     c. W obszarze **SAML dostawcy**, wybierz pozycję **usługi Azure Active Directory**.
 
-    d. **SAML 2.0 Endpoint** : Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    d. **SAML 2.0 Endpoint** : hello Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
 
-    e. **Identyfikator usługi (Wystawca)** : Wklej **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
+    e. **Identyfikator usługi (Wystawca)** : hello Wklej **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
 
-    f. **Certyfikat X.509** : Otwórz **certyfikatu (Base64)** pobrany z portalu Azure w programie Notatnik i wklej go w tym polu.
+    f. **Certyfikat X.509** : Otwórz hello **certyfikatu (Base64)** pobrane z hello portalu Azure w programie Notatnik i wklej go w tym polu.
 
-    g. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
+    g. Kliknij przycisk **zapisać** toosave hello ustawienia.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/create_aaduser_01.png) 
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/create_aaduser_02.png) 
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/create_aaduser_03.png) 
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-menlosecurity-tutorial/create_aaduser_04.png) 
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-menlo-security-test-user"></a>Tworzenie użytkownika testowego Menlo zabezpieczeń
  
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta Menlo zabezpieczeń. Praca z [zespołem pomocy technicznej klienta zabezpieczeń Menlo](https://www.menlosecurity.com/menlo-contact) Aby dodać użytkowników do platformy Menlo zabezpieczeń. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta Menlo zabezpieczeń. Praca z [zespołem pomocy technicznej klienta zabezpieczeń Menlo](https://www.menlosecurity.com/menlo-contact) tooadd hello użytkowników hello Menlo zabezpieczeń platformy. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Menlo zabezpieczeń.
+W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMenlo zabezpieczeń.
 
 ![Przypisz użytkownika][200] 
 
-**Aby przypisać Simona Britta Menlo zabezpieczeń, wykonaj następujące czynności:**
+**tooassign tooMenlo Simona Britta zabezpieczeń, wykonaj hello następujące kroki:**
 
-1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **zabezpieczeń Menlo**.
+2. Z listy aplikacji hello wybierz **zabezpieczeń Menlo**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_app.png) 
 
-3. W menu po lewej stronie kliknij **użytkowników i grup**.
+3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -212,7 +212,7 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -222,11 +222,11 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego.
 
-Otwórz okno przeglądarki w trybie "Sesję InPrivate" lub "Incognito" Aby wyzwolić nowego uwierzytelniania.  W programie Internet Explorer użyj klawiszy Ctrl + Shift + P.  W przeglądarce Chrome użyj klawiszy Ctrl + Shift + N.  W oknie przeglądania prywatne przejdź do chronionych zasobów i wykonywać logowania usługi Azure AD.  Po pomyślnym logowaniu nastąpi przekierowanie do żądanej witryny w sesji izolacji.
+Otwórz okno przeglądarki w "Sesję InPrivate" lub "Incognito" Tryb tootrigger nowego uwierzytelniania.  W programie Internet Explorer użyj klawiszy Ctrl + Shift + P.  W przeglądarce Chrome użyj klawiszy Ctrl + Shift + N.  W oknie przeglądania prywatnej hello przeglądanie tooa chronionych zasobów i przeprowadzanie logowania usługi Azure AD.  Po pomyślnym logowaniu będzie żądanej witryny toohello podjęte w sesji izolacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

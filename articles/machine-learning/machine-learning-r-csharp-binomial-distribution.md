@@ -1,5 +1,5 @@
 ---
-title: "(przestarzałe) Pakiet dwumianowy - Azure | Dokumentacja firmy Microsoft"
+title: "AAA(deprecated) Suite dwumianowy — Azure | Dokumentacja firmy Microsoft"
 description: "(przestarzałe) Pakiet dwumianowy"
 services: machine-learning
 documentationcenter: 
@@ -16,67 +16,67 @@ ms.date: 01/06/2017
 ms.author: ireiter
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 6f0a6d06e7401c8360a92a707a0552f41ff3657c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 6f94436cd19abeb518d179f340c8d4f43fcf4520
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-binomial-distribution-suite"></a>(przestarzałe) Pakiet dwumianowy
 
 > [!NOTE]
-> Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
+> Witaj Microsoft DataMarket została wycofana i ten interfejs API jest przestarzały. 
 > 
-> Możesz znaleźć wiele eksperymenty przykład przydatne i interfejsów API w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji o galerii, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Możesz znaleźć wiele interfejsów API i przydatne przykład eksperymenty w hello [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Aby uzyskać więcej informacji na temat hello galerii, zobacz [udziału i odnajdywania zasobów w hello Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Pakiet dwumianowy to zestaw usług sieci web przykładowej ([Generator dwumianowy](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Kalkulator prawdopodobieństwo](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Kalkulator kwantyl](https://datamarket.azure.com/dataset/aml_labs/bdq5)) ułatwiające podczas generowania i dotyczącą dwumianowy dystrybucji. Usługi pozwalają generowania sekwencję dwumianowy o dowolnej długości obliczanie quantiles z podanej prawdopodobieństwo i obliczanie prawdopodobieństwa z danym kwantyl. Emituje każdej z usług innej dane wyjściowe na podstawie wybranej usługi (zobacz opis poniżej). Pakiet dwumianowy opiera się na qbinom funkcje R, rbinom i pbinom, które są zawarte w pakiecie Statystyka R. 
+Hello dwumianowy Suite to zestaw usług sieci web przykładowej ([Generator dwumianowy](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Kalkulator prawdopodobieństwo](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Kalkulator kwantyl](https://datamarket.azure.com/dataset/aml_labs/bdq5)) ułatwiające podczas generowania i dotyczącą dwumianowy dystrybucji. Hello usługi obsługują generowanie sekwencji dwumianowy o dowolnej długości obliczanie quantiles z podanej prawdopodobieństwo i obliczanie prawdopodobieństwa z danym kwantyl. Każdej z usług hello emituje różne dane wyjściowe na podstawie hello wybrane usługi (zobacz opis poniżej). Hello Suite dwumianowy opiera się na hello R funkcji qbinom rbinom i pbinom, które są zawarte w pakiecie Statystyka R hello. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Te usługi sieci web może być używana przez użytkowników — potencjalnie bezpośrednio w portalu marketplace, za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale celem usługi sieci web jest również służyć jako przykład sposobu użycia usługi Azure Machine Learning do tworzenia usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Następnie usługa sieci web mogą być publikowane w portalu Azure Marketplace i używane przez użytkowników i urządzeń na całym świecie — nie konfigurowania infrastruktury przez autora usługi sieci web jest wymagana.
+> Te usługi sieci web może być używana przez użytkowników — potencjalnie bezpośrednio na rynek hello, za pomocą aplikacji mobilnej, za pośrednictwem witryny sieci Web lub nawet na komputerze lokalnym, na przykład. Ale hello hello usługi sieci web służy również tooserve, na przykład jak usługi Azure Machine Learning można toocreate używanych usług sieci web na podstawie kodu języka R. Przy użyciu kilku wierszy kodu języka R i kliknięcia przycisku w usłudze Azure Machine Learning Studio eksperyment można tworzyć z kodem R i opublikowane jako usługę sieci web. Usługa sieci web Hello można następnie toohello opublikowane w portalu Azure Marketplace oraz używane przez użytkowników i urządzeń w Witaj świecie – nie infrastruktury Konfiguracja przez autora hello hello usługi sieci web jest wymagana.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Użycie usługi sieci web
-Pakiet dwumianowy obejmują następujące usługi 3.
+Witaj Suite dwumianowy obejmuje powitania po 3 usługi.
 
 ### <a name="binomial-distribution-quantile-calculator"></a>Kalkulator kwantyl dwumianowy
-Ta usługa akceptuje 4 argumenty rozkładu normalnego i oblicza kwantyl skojarzone.
-Argumenty wejściowe są:
+Ta usługa akceptuje 4 argumenty rozkładu normalnego i oblicza kwantyl hello skojarzone.
+argumenty wejściowe Hello są:
 
 * p - pojedynczego zagregowane prawdopodobieństwo wielu prób.  
-* rozmiar — liczba prób.
-* PRAWDPD - prawdopodobieństwo sukcesu w wersji próbnej.
-* Strona - L stronie niższe rozkładu U dla górna część dystrybucji. 
+* rozmiar — Witaj liczba prób.
+* PRAWDPD - hello prawdopodobieństwo sukcesu w wersji próbnej.
+* Strona - L dla strony niższe hello rozkładu hello U dla hello górna hello dystrybucji. 
 
-Dane wyjściowe usługi jest kwantyl obliczeniowych, który jest skojarzony z danym prawdopodobieństwa.
+dane wyjściowe Hello hello usługi jest kwantyl hello obliczane, który jest skojarzony z hello podane prawdopodobieństwa.
 
 ### <a name="binomial-distribution-probability-calculator"></a>Kalkulator prawdopodobieństwo dwumianowy
-Ta usługa akceptuje 4 argumenty dwumianowy i oblicza prawdopodobieństwo skojarzone.
-Argumenty wejściowe są:
+Ta usługa akceptuje 4 argumenty dwumianowy i oblicza prawdopodobieństwo hello skojarzone.
+argumenty wejściowe Hello są:
 
 * q - pojedynczego kwantyl zdarzenia z dwumianowy. 
-* rozmiar — liczba prób.
-* PRAWDPD - prawdopodobieństwo sukcesu w wersji próbnej.
-* Strona - L stronie niższe rozkładu U dla górna część dystrybucji lub E równą jeden numer sukcesy.
+* rozmiar — Witaj liczba prób.
+* PRAWDPD - hello prawdopodobieństwo sukcesu w wersji próbnej.
+* Strona - L-hello dolnej strony hello dystrybucji, U dla hello górna dystrybucji hello lub E tooa równy jeden liczbę sukcesów.
 
-Dane wyjściowe usługi jest obliczeniowej prawdopodobieństwo, że jest skojarzony z danym kwantyl.
+dane wyjściowe Hello hello usługi jest prawdopodobieństwo hello obliczana jest skojarzona z hello podane kwantyl.
 
 ### <a name="binomial-distribution-generator"></a>Generator dwumianowy
-Ta usługa akceptuje 3 argumenty dwumianowy i generuje sekwencję losowych liczb, które są dystrybuowane binomially. W ramach żądania do niej należy podać następujące argumenty:
+Ta usługa akceptuje 3 argumenty dwumianowy i generuje sekwencję losowych liczb, które są dystrybuowane binomially. Witaj następujących argumentów należy podawać tooit w ramach żądania hello:
 
 * n - liczba uwag. 
 * rozmiar — liczba prób.
 * PRAWDPD - prawdopodobieństwo sukcesu.
 
-Dane wyjściowe usługi jest sekwencją n długość z dwumianowy, oparto na argumentach rozmiaru i PRAWDPD.
+dane wyjściowe Hello usługi hello jest sekwencją n długość z dwumianowy, oparte na powitania rozmiaru i PRAWDPD argumentów.
 
-> Ta usługa hostowana w portalu Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
+> Ta usługa hostowana na hello Azure Marketplace jest usługi OData; te można wywoływać za pomocą metody POST lub GET. 
 > 
 > 
 
-Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykładowe aplikacje są w tym miejscu: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Kalkulator prawdopodobieństwo](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Kalkulator kwantyl](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
+Istnieje wiele sposobów używania usługi hello w zautomatyzowany sposób (przykładowe aplikacje są w tym miejscu: [Generator](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [Kalkulator prawdopodobieństwo](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Kalkulator kwantyl](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Rozpoczynanie korzystania z usług sieci web kod C#:
 ### <a name="binomial-distribution-quantile-calculator"></a>Kalkulator kwantyl dwumianowy
@@ -174,7 +174,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
 
 ## <a name="creation-of-web-service"></a>Tworzenie usługi sieci web
-> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu doświadczenia utworzony kod przykład i usługi sieci web dla każdego z modułów w ramach eksperymentu.
+> Ta usługa sieci web został utworzony przy użyciu usługi Azure Machine Learning. Bezpłatna wersja próbna, a także wprowadzające filmy wideo dotyczące tworzenia eksperymenty i [publikowania usług sieci web](machine-learning-publish-a-machine-learning-web-service.md), można znaleźć pod adresem [azure.com/ml](http://azure.com/ml). Poniżej przedstawiono zrzut ekranu hello eksperymentu, utworzona hello kod przykład i usługi sieci web dla każdego z modułów hello w ramach eksperymentu hello.
 > 
 > 
 
@@ -184,7 +184,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 #### <a name="module-1"></a>Moduł 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 #### <a name="module-2"></a>Moduł 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
@@ -220,7 +220,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
     output = as.data.frame(quantile)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 
@@ -230,7 +230,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 #### <a name="module-1"></a>Moduł 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 
 #### <a name="module-2"></a>Moduł 2:
@@ -256,7 +256,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
     output = as.data.frame(prob)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="binomial-distribution-generator"></a>Generator dwumianowy
@@ -265,7 +265,7 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 #### <a name="module-1"></a>Moduł 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 #### <a name="module-2"></a>Moduł 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
@@ -274,14 +274,14 @@ Istnieje wiele sposobów używania usługi w zautomatyzowany sposób (przykłado
 
     output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ## <a name="limitations"></a>Ograniczenia
-Są to bardzo proste przykłady otaczającego dwumianowy. Jak wynika z przykładowy kod powyżej, małego Przechwytywanie błędu jest zaimplementowana.
+Są to bardzo proste przykłady otaczającego hello dwumianowy. Jak wynika z powyższych hello przykładowy kod, małego Przechwytywanie błędu jest zaimplementowana.
 
 ## <a name="faq"></a>Często zadawane pytania
-Często zadawane pytania dotyczące wykorzystania usługi sieci web i publikowanie w portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
+Często zadawane pytania dotyczące wykorzystania hello usługi sieci web lub toohello publikowania portalu Azure Marketplace, zobacz [tutaj](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
 

@@ -1,6 +1,6 @@
 ---
-title: "Przenoszenie danych z tabeli sieci Web przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu przenoszenia danych z tabeli na stronie sieci Web przy użyciu fabryki danych Azure."
+title: "aaaMove danych z tabeli sieci Web przy użyciu fabryki danych Azure | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat sposobu toomove danych z tabeli w sieci Web stronę przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.openlocfilehash: 9e006bc7289fa0239f1650ac6ad43dd159e3c7e0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e52216305583ebbe71ed896522f361bb22f01278
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła tabeli sieci Web przy użyciu fabryki danych Azure
-Ten artykuł przedstawia sposób użycia działanie kopiowania w fabryce danych Azure do przenoszenia danych z tabeli na stronie sieci Web w magazynie danych obsługiwanych ujścia. W tym artykule opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólne omówienie przepływu danych działanie kopiowania i listę magazynów danych są obsługiwane jako źródła/sink.
+W tym artykule opisano, jak toouse hello działanie kopiowania danych toomove fabryki danych Azure z tabeli w tooa strony sieci Web obsługiwane ujścia magazynu danych. W tym artykule opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólne omówienie przepływu danych kopię działania i hello listy magazynów danych są obsługiwane jako źródła/sink.
 
-Fabryka danych aktualnie obsługuje tylko przenoszenia danych z tabeli sieci Web do innych magazynów danych, ale nie przenoszenia danych z innych danych są przechowywane w tabeli docelowej lokalizacji sieci Web.
+Fabryka danych aktualnie obsługuje tylko przechowuje przenoszenia danych z danych tooother tabeli sieci Web, ale nie przenoszenia danych z innych danych przechowuje tooa Web tabeli docelowej.
 
 > [!IMPORTANT]
-> Ten łącznik sieci Web obsługuje obecnie tylko wyodrębnianie zawartości tabeli ze strony HTML. Aby pobrać dane z punktu końcowego protokołu HTTP/s, użyj [łącznika HTTP](data-factory-http-connector.md) zamiast tego.
+> Ten łącznik sieci Web obsługuje obecnie tylko wyodrębnianie zawartości tabeli ze strony HTML. Użyj tooretrieve danych z punktu końcowego protokołu HTTP/s [łącznika HTTP](data-factory-http-connector.md) zamiast tego.
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działania kopiowania, który przenosi dane z magazynu lokalnego Cassandra danych przy użyciu różnych narzędzi/interfejsów API. 
 
-- Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych. 
-- Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
+- Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello. 
+- Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania. 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych:
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello:
 
-1. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych.
-2. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych.
+2. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. 
 3. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które są używane do skopiowania danych z tabeli sieci web, zobacz [przykład JSON: kopiowanie danych z tabeli sieci Web do obiektów Blob platformy Azure](#json-example-copy-data-from-web-table-to-azure-blob) sekcji tego artykułu. 
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych z tabeli sieci web, zobacz [przykład JSON: kopiowanie danych z sieci Web tooAzure tabeli obiektów Blob](#json-example-copy-data-from-web-table-to-azure-blob) sekcji tego artykułu. 
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej do tabeli sieci Web:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane toodefine fabryki danych jednostek tooa określonej sieci Web tabeli:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Poniższa tabela zawiera opis elementów JSON specyficzne dla połączonej usługi sieci Web.
+Hello w poniższej tabeli przedstawiono opis usługi określonego tooWeb połączone elementy JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **sieci Web** |Tak |
-| Url |Adres URL źródła w sieci Web |Tak |
+| type |musi mieć ustawioną właściwość type Hello: **sieci Web** |Tak |
+| Url |Adres URL źródła toohello w sieci Web |Tak |
 | Typ authenticationType |Anonimowe. |Tak |
 
 ### <a name="using-anonymous-authentication"></a>Przy użyciu uwierzytelniania anonimowego
@@ -71,15 +71,15 @@ Poniższa tabela zawiera opis elementów JSON specyficzne dla połączonej usłu
 ```
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
 
-**TypeProperties** sekcja jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. TypeProperties sekcja dla zestawu danych typu **tabeli WebTable** ma następujące właściwości
+Witaj **typeProperties** sekcja zawiera informacje o lokalizacji hello hello danych w magazynie danych hello i różni się dla każdego typu zestawu danych. Witaj typeProperties sekcja dla zestawu danych typu **tabeli WebTable** ma następujące właściwości hello
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Typ zestawu danych. należy wybrać opcję **tabeli WebTable** |Tak |
-| Ścieżka |Względny adres URL do zasobu, który zawiera tabelę. |Nie. Jeśli ścieżka nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. |
-| Indeks |Indeks tabeli w zasobie. Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji, aby instrukcje dotyczące pobierania indeksu tabeli na stronie HTML. |Tak |
+| type |Typ hello zestawu danych. musi być ustawiona zbyt**tabeli WebTable** |Tak |
+| Ścieżka |Względny adres URL toohello zasób zawiera tabelę hello. |Nie. Jeśli ścieżka nie jest określona, tylko hello adresu URL określonego w definicji usługi połączone hello jest używany. |
+| Indeks |Indeks Hello hello tabeli w zasobie hello. Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji kroki toogetting indeksu tabeli na stronie HTML. |Tak |
 
 **Przykład:**
 
@@ -103,15 +103,15 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 ```
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
 
-Właściwości, które są dostępne w sekcji typeProperties działania różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości, które są dostępne w sekcji typeProperties hello działania hello różnić się z każdym typem działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
-Obecnie, gdy źródła w przypadku działania kopiowania jest typu **WebSource**, są obsługiwane żadne dodatkowe właściwości.
+Obecnie, gdy hello źródła w przypadku działania kopiowania jest typu **WebSource**, są obsługiwane żadne dodatkowe właściwości.
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Przykład JSON: kopiowanie danych z tabeli sieci Web do obiektów Blob platformy Azure
-Poniższy przykład przedstawia:
+## <a name="json-example-copy-data-from-web-table-tooazure-blob"></a>Przykład JSON: kopiowanie danych z sieci Web tooAzure tabeli obiektów Blob
+następujące przykładowe pokazuje Hello:
 
 1. Połączonej usługi typu [Web](#linked-service-properties).
 2. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -119,11 +119,11 @@ Poniższy przykład przedstawia:
 4. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. A [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [WebSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Przykład kopiuje dane z tabeli sieci Web do obiektów blob platformy Azure co godzinę. Właściwości JSON używane w te przykłady są opisane w sekcjach poniżej próbek.
+przykład Witaj kopiuje dane z sieci Web tooan tabeli obiektów blob platformy Azure co godzinę. właściwości JSON Hello używane w te przykłady są opisane w sekcjach poniżej hello próbek.
 
-Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do obiektów blob platformy Azure. Jednak dane mogą być kopiowane bezpośrednio do wychwytywanie w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu za pomocą działania kopiowania w fabryce danych Azure.
+następujące przykładowe Hello pokazuje, jak obiekt blob danych toocopy z tooan tabeli sieci Web Azure. Jednak dane mogą być kopiowane bezpośrednio tooany hello wychwytywanie hello podane w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu przy użyciu hello działanie kopiowania w fabryce danych Azure.
 
-**Sieci Web połączonej usługi** w tym przykładzie korzysta z usługi sieci Web połączone przy użyciu uwierzytelniania anonimowego. Zobacz [sieci Web połączonej usługi](#linked-service-properties) sekcji dla różnych typów uwierzytelniania, można użyć.
+**Sieci Web połączonej usługi** w tym przykładzie używa hello sieci Web połączonej usługi przy użyciu uwierzytelniania anonimowego. Zobacz [sieci Web połączonej usługi](#linked-service-properties) sekcji dla różnych typów uwierzytelniania, można użyć.
 
 ```json
 {
@@ -154,10 +154,10 @@ Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do
 }
 ```
 
-**Wejściowy zestaw danych tabeli WebTable** ustawienie **zewnętrznych** do **true** usługi fabryka danych informuje, czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w danych fabryka.
+**Wejściowy zestaw danych tabeli WebTable** ustawienie **zewnętrznych** za**true** informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w hello Fabryka danych.
 
 > [!NOTE]
-> Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji, aby instrukcje dotyczące pobierania indeksu tabeli na stronie HTML.  
+> Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji kroki toogetting indeksu tabeli na stronie HTML.  
 >
 >
 
@@ -183,7 +183,7 @@ Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do
 
 **Azure Blob wyjściowy zestaw danych**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1).
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1).
 
 ```json
 {
@@ -209,9 +209,9 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **W potoku z działanie kopiowania**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wejściowe i wyjściowe zestawy danych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **WebSource** i **zbiornika** ustawiono typ **BlobSink**.
+Witaj potoku zawiera działanie kopiowania, który jest skonfigurowany toouse hello wejściowych i wyjściowych zestawów danych i jest toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**WebSource** i **zbiornika** typu ustawiono zbyt**BlobSink**.
 
-Zobacz [właściwości typu WebSource](#copy-activity-type-properties) listę obsługiwanych przez WebSource właściwości.
+Zobacz [właściwości typu WebSource](#copy-activity-type-properties) hello listę obsługiwanych przez hello WebSource właściwości.
 
 ```json
 {  
@@ -223,7 +223,7 @@ Zobacz [właściwości typu WebSource](#copy-activity-type-properties) listę ob
     "activities":[  
       {
         "name": "WebTableToAzureBlob",
-        "description": "Copy from a Web table to an Azure blob",
+        "description": "Copy from a Web table tooan Azure blob",
         "type": "Copy",
         "inputs": [
           {
@@ -260,32 +260,32 @@ Zobacz [właściwości typu WebSource](#copy-activity-type-properties) listę ob
 ```
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>Pobierz indeksu tabeli na stronie HTML
-1. Uruchom **Excel 2016** i przejdź do **danych** kartę.  
-2. Kliknij przycisk **nowe zapytanie** na pasku narzędzi, wskaż polecenie **z innych źródeł** i kliknij przycisk **z sieci Web**.
+1. Uruchom **Excel 2016** i przełączanie toohello **danych** kartę.  
+2. Kliknij przycisk **nowe zapytanie** na powitania narzędzi za punkt**z innych źródeł** i kliknij przycisk **z sieci Web**.
 
     ![Power Query menu](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. W **z sieci Web** okna dialogowego wprowadź **adres URL** można skorzystać w połączonej usłudze JSON (na przykład: https://en.wikipedia.org/wiki/) oraz ścieżkę należy określić dla zestawu danych (na przykład: AFI % 27s_ 100_Years... 100_Movies) i kliknij przycisk **OK**.
+3. W hello **z sieci Web** okna dialogowego wprowadź **adres URL** można skorzystać w połączonej usłudze JSON (na przykład: https://en.wikipedia.org/wiki/) oraz ścieżkę należy określić dla zestawu danych hello (na przykład: AFI % 27s_100_Years... 100_Movies) i kliknij przycisk **OK**.
 
     ![Z okna dialogowego sieci Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
     Adres URL używany w tym przykładzie: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Jeśli widzisz **zawartości sieci Web Access** oknie dialogowym Wybierz prawa **adres URL**, **uwierzytelniania**i kliknij przycisk **Connect**.
+4. Jeśli widzisz **zawartości sieci Web Access** okno dialogowe, wybierz hello prawo **adres URL**, **uwierzytelniania**i kliknij przycisk **Connect**.
 
    ![Okno dialogowe zawartości sieci Web Access](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5. Kliknij przycisk **tabeli** elementu w widoku drzewa, aby wyświetlić zawartość z tabeli, a następnie kliknij przycisk **Edytuj** znajdujący się u dołu.  
+5. Kliknij przycisk **tabeli** elementu hello drzewa widoku toosee zawartości z hello tabeli, a następnie kliknij przycisk **Edytuj** u dołu hello.  
 
    ![Nawigator okna dialogowego](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
-6. W **edytora zapytań** okna, kliknij przycisk **Zaawansowany edytor** przycisk na pasku narzędzi.
+6. W hello **edytora zapytań** okna, kliknij przycisk **Zaawansowany edytor** przycisk na powitania narzędzi.
 
     ![Przycisk Zaawansowane Edytora](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
-7. W oknie dialogowym Zaawansowany edytor numer obok "Source" jest indeksem.
+7. Okno dialogowe Zaawansowany edytor hello, hello numer obok "Source" jest za hello indeksu.
 
     ![Zaawansowany edytor - indeksu](./media/data-factory-web-table-connector/AdvancedEditor-Index.png)
 
-Jeśli korzystasz z programu Excel 2013, użyj [Microsoft Power Query dla programu Excel](https://www.microsoft.com/download/details.aspx?id=39379) można uzyskać indeksu. Zobacz [Connect do strony sieci web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) artykułu, aby uzyskać szczegółowe informacje. Te kroki są podobne, jeśli używasz [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+Jeśli korzystasz z programu Excel 2013, użyj [Microsoft Power Query dla programu Excel](https://www.microsoft.com/download/details.aspx?id=39379) tooget hello indeksu. Zobacz [strony sieci web tooa Połącz](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) artykułu, aby uzyskać szczegółowe informacje. Witaj kroki są podobne, jeśli używasz [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
 > [!NOTE]
-> Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+> toomap kolumny źródłowej toocolumns zestawu danych z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby.
+Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize go.

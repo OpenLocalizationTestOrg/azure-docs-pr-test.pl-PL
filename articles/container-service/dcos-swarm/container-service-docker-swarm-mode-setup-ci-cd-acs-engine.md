@@ -1,6 +1,6 @@
 ---
-title: "CI/CD z aparatem usługi kontenera platformy Azure i tryb Swarm | Dokumentacja firmy Microsoft"
-description: "Użyć aparat usługi kontenera platformy Azure z Docker Swarm tryb rejestru kontenera Azure i Visual Studio Team Services w celu dostarczenia stale aplikacji .NET Core wielu kontenera"
+title: "aaaCI/CD z aparatem usługi kontenera Azure i tryb Swarm | Dokumentacja firmy Microsoft"
+description: "Aparat usługi kontenera Azure za pomocą toodeliver stale aplikacji .NET Core wielu kontenera Docker Swarm tryb rejestru kontenera Azure i Visual Studio Team Services"
 services: container-service
 documentationcenter: " "
 author: diegomrtnzg
@@ -15,57 +15,57 @@ ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 040522c452f7ea0ce3c92f2fe57b1c141b97e380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pełny potok CI/CD do wdrażania aplikacji usługi kontenera w usłudze kontenera platformy Azure z aparatem ACS i Docker Swarm trybie przy użyciu programu Visual Studio Team Services
+# <a name="full-cicd-pipeline-toodeploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pełna CI/CD toodeploy potoku aplikacji usługi kontenera w usłudze kontenera platformy Azure z aparatem ACS i Docker Swarm trybie przy użyciu programu Visual Studio Team Services
 
-*Ten artykuł jest oparty na [CI pełnej/CD potoku do wdrażania aplikacji usługi kontenera w usłudze kontenera platformy Azure przy użyciu rozwiązania Docker Swarm przy użyciu programu Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md) dokumentacji*
+*Ten artykuł jest oparty na [CI pełnej/CD potoku toodeploy aplikacji usługi kontenera w usłudze kontenera platformy Azure przy użyciu rozwiązania Docker Swarm przy użyciu programu Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md) dokumentacji*
 
-Dzisiaj jedną z największych wyzwań podczas tworzenia nowoczesnych aplikacji w chmurze jest możliwość ciągłego dostarczania tych aplikacji. W tym artykule dowiesz się implementowania pełnej ciągłej integracji i wdrażania (CI/CD) potoku przy użyciu: 
+Dzisiaj jeden z hello największych wyzwań po opracowywanie nowoczesnych aplikacji w chmurze hello jest możliwe toodeliver te aplikacje stale. W tym artykule dowiesz się, jak tooimplement pełnej ciągłej integracji i wdrażania (CI/CD) potoku, przy użyciu: 
 * Aparat usługi kontenera platformy Azure z Docker Swarm trybem
 * Azure Container Registry
 * Visual Studio Team Services
 
-Ten artykuł jest oparty na prostej aplikacji, dostępnych na [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), rozwinięte z platformy ASP.NET Core. Aplikacja składa się z czterech różnych usług: trzy sieci web, interfejsów API i frontonu sieci web co:
+Ten artykuł jest oparty na prostej aplikacji, dostępnych na [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), rozwinięte z platformy ASP.NET Core. Aplikacja Hello składa się z czterech różnych usług: trzy sieci web, interfejsów API i frontonu sieci web co:
 
 ![MyShop przykładowej aplikacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
-Celem jest stale świadczenia tej aplikacji w klastrze Docker Swarm tryb, za pomocą programu Visual Studio Team Services. Poniższa ilustracja szczegóły tego potoku ciągłego dostarczania:
+cel Hello jest toodeliver tej aplikacji stale w klastrze Docker Swarm tryb, za pomocą programu Visual Studio Team Services. następujące Hello rysunek szczegóły tego potoku ciągłego dostarczania:
 
 ![MyShop przykładowej aplikacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
 
-Poniżej przedstawiono krótki opis kroków:
+Poniżej przedstawiono krótki opis kroków hello:
 
-1. Zmiany kodu zostały zastosowane w repozytorium kodu źródłowego (tutaj GitHub) 
+1. Zmiany kodu są repozytorium kodu źródłowego zatwierdzone toohello (tutaj GitHub) 
 2. GitHub uaktywnia kompilację w Visual Studio Team Services 
-3. Visual Studio Team Services pobiera najnowsza wersja źródła i tworzy wszystkie obrazy, które tworzą aplikacji 
-4. Visual Studio Team Services wypychanie każdego obrazu do rejestru Docker utworzone za pomocą usługi Azure kontenera rejestru 
+3. Visual Studio Team Services pobiera najnowsza wersja źródła hello hello i tworzy wszystkie obrazy hello tworzące aplikacji hello 
+4. Visual Studio Team Services wypchnięcia każdego obrazu tooa Docker rejestru utworzone za pomocą usługi Azure kontenera rejestru hello 
 5. Visual Studio Team Services wyzwala nową wersją 
-6. Wersja uruchamia niektóre polecenia przy użyciu protokołu SSH w węźle głównym klastra usługi kontenera platformy Azure 
-7. Tryb docker Swarm w klastrze pobiera najnowsza wersja obrazów 
-8. Wdrożenie nowej wersji aplikacji za pomocą Docker stosu 
+6. Niektóre polecenia przy użyciu protokołu SSH w węźle głównym klastra usługi kontenera platformy Azure hello uruchamia Hello zlecenia 
+7. Tryb docker Swarm w klastrze hello ściąga hello najnowszej wersji hello obrazów 
+8. nową wersję aplikacji hello Hello jest wdrażane za pomocą Docker stosu 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tego samouczka, należy wykonać następujące zadania:
+Przed rozpoczęciem tego samouczka potrzebne hello toocomplete następujące zadania:
 
 - [Tworzenie klastra trybu Swarm usługi kontenera platformy Azure z aparatem ACS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
-- [Połączenie z klastrem Swarm w usłudze Azure Container Service](../container-service-connect.md)
+- [Połącz z klastrem Swarm hello usługi kontenera platformy Azure](../container-service-connect.md)
 - [Tworzenie rejestru kontenera platformy Azure](../../container-registry/container-registry-get-started-portal.md)
 - [Utworzony projekt konta i zespołu Visual Studio Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
-- [Rozwidlenia repozytorium GitHub z kontem usługi GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
+- [Rozwidlania tooyour repozytorium GitHub hello konto GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> Koordynator rozwiązania Docker Swarm w usłudze Azure Container Service korzysta ze starszego autonomicznego rozwiązania Swarm. Obecnie zintegrowany [tryb Swarm](https://docs.docker.com/engine/swarm/) (na platformie Docker 1.12 lub nowszej) nie jest obsługiwanym koordynatorem w usłudze Azure Container Service. Z tego powodu używamy [aparat ACS](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), przyczyniły się społeczności [szablon szybkiego startu](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), lub rozwiązania Docker w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com).
+> Witaj orchestrator Docker Swarm usługi kontenera platformy Azure używa starszej wersji autonomicznej Swarm. Obecnie zintegrowane hello [tryb Swarm](https://docs.docker.com/engine/swarm/) (w Docker 1.12 lub nowszej) nie jest obsługiwane orchestrator w usłudze kontenera platformy Azure. Z tego powodu używamy [aparat ACS](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), przyczyniły się społeczności [szablon szybkiego startu](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), lub rozwiązania Docker w hello [portalu Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
 ## <a name="step-1-configure-your-visual-studio-team-services-account"></a>Krok 1: Skonfiguruj konto usługi Visual Studio Team Services 
 
-W tej sekcji należy skonfigurować konto w Visual Studio Team Services. Kliknij, aby skonfigurować punkty końcowe usługi VSTS, projektu Visual Studio Team Services **ustawienia** ikonę na pasku narzędzi, a następnie wybierz **usług**.
+W tej sekcji należy skonfigurować konto w Visual Studio Team Services. tooconfigure VSTS usługi punktów końcowych, projektu Visual Studio Team Services, kliknij przycisk hello **ustawienia** ikonę w hello narzędzi i wybierz **usług**.
 
 ![Punkt końcowy usługi otwarte](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
@@ -73,8 +73,8 @@ W tej sekcji należy skonfigurować konto w Visual Studio Team Services. Kliknij
 
 Skonfiguruj połączenie między projektu programu VSTS i konta platformy Azure.
 
-1. Po lewej stronie, kliknij przycisk **nowy punkt końcowy usługi** > **usługi Azure Resource Manager**.
-2. Aby autoryzować VSTS do pracy z konta platformy Azure, wybierz użytkownika **subskrypcji** i kliknij przycisk **OK**.
+1. Powitania po lewej stronie, kliknij przycisk **nowy punkt końcowy usługi** > **usługi Azure Resource Manager**.
+2. tooauthorize toowork programu VSTS z Twoim kontem platformy Azure, wybierz użytkownika **subskrypcji** i kliknij przycisk **OK**.
 
     ![Visual Studio Team Services — autoryzować Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
 
@@ -82,54 +82,54 @@ Skonfiguruj połączenie między projektu programu VSTS i konta platformy Azure.
 
 Skonfiguruj połączenie między projektu programu VSTS oraz konto GitHub.
 
-1. Po lewej stronie, kliknij przycisk **nowy punkt końcowy usługi** > **GitHub**.
-2. Aby autoryzować VSTS do pracy z Twoim kontem usługi GitHub, kliknij przycisk **autoryzacji** i postępuj zgodnie z procedurą w otwartym oknie.
+1. Powitania po lewej stronie, kliknij przycisk **nowy punkt końcowy usługi** > **GitHub**.
+2. Kliknij tooauthorize toowork programu VSTS z Twoim kontem usługi GitHub **autoryzacji** i wykonaj procedurę hello w otwartym oknie hello.
 
     ![Visual Studio Team Services — autoryzować GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
-### <a name="connect-vsts-to-your-azure-container-service-cluster"></a>VSTS nawiązać połączenia z klastrem usługi kontenera platformy Azure
+### <a name="connect-vsts-tooyour-azure-container-service-cluster"></a>Łączenie programu VSTS tooyour klastra usługi kontenera Azure
 
-Ostatni kroki przed pobraniem z potokiem CI/CD są do konfigurowania połączeń zewnętrznych z klastrem Docker Swarm w usłudze Azure. 
+kroki ostatniego Hello przed przejściem do potoku CI/CD hello są tooconfigure połączeń zewnętrznych tooyour Docker Swarm klastra na platformie Azure. 
 
-1. Aby klaster Docker Swarm Dodawanie punktu końcowego typu **SSH**. Następnie wprowadź informacje o połączeniu SSH klastra Swarm (węzeł główny).
+1. Klaster Docker Swarm hello Dodawanie punktu końcowego typu **SSH**. Następnie wprowadź informacje o połączeniu SSH hello klastra Swarm (węzeł główny).
 
     ![Visual Studio Team Services — SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-ssh.png)
 
-Całą konfigurację odbywa się teraz. W następnych krokach utworzysz potok CI/CD, który tworzy i wdraża aplikację w klastrze Docker Swarm. 
+Cała konfiguracja hello odbywa się teraz. W następnych krokach hello możesz utworzyć hello CI/CD potok, który tworzy i wdraża klaster Docker Swarm toohello aplikacji hello. 
 
-## <a name="step-2-create-the-build-definition"></a>Krok 2: Tworzenie definicji kompilacji
+## <a name="step-2-create-hello-build-definition"></a>Krok 2: Tworzenie definicji kompilacji hello
 
-W tym kroku skonfigurować definicję kompilacji projektu programu VSTS i zdefiniuj przepływu pracy kompilacji dla obrazów kontenera
+W tym kroku skonfigurować definicję kompilacji projektu programu VSTS i zdefiniuj hello przepływu pracy kompilacji dla obrazów kontenera
 
 ### <a name="initial-definition-setup"></a>Definicja początkowej instalacji
 
-1. Aby utworzyć definicję kompilacji, nawiązać połączenia z projektu programu Visual Studio Team Services, a następnie kliknij przycisk **kompilacji i wydania**. W **definicje kompilacji** kliknij **+ nowy**. 
+1. tooyour projektu Visual Studio Team Services i kliknij przycisk Połącz toocreate definicję kompilacji **kompilacji i wydania**. W hello **definicje kompilacji** kliknij **+ nowy**. 
 
     ![Visual Studio Team Services — nowej definicji kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
 
-2. Wybierz **pusta procesu**.
+2. Wybierz hello **pusta procesu**.
 
     ![Definicja kompilacji programu Visual Studio Team Services — nowy pusty](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Następnie kliknij przycisk **zmienne** karcie i Utwórz dwa nowe zmienne: **RegistryURL** i **AgentURL**. Wklej wartości rejestru i DNS agentów klastra.
+4. Następnie kliknij przycisk hello **zmienne** karcie i Utwórz dwa nowe zmienne: **RegistryURL** i **AgentURL**. Wklej hello wartości rejestru i DNS agentów klastra.
 
     ![Visual Studio Team Services — Konfiguracja zmienne kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. Na **definicji kompilacji** Otwórz **wyzwalaczy** i skonfiguruj kompilację do korzystania z rozwidlenie projektu MyShop utworzonego w wymaganiach wstępnych ciągłej integracji. Następnie wybierz opcję **partii zmian**. Upewnij się, że wybrano *docker linux* jako **gałęzi specyfikacji**.
+5. Na powitania **definicji kompilacji** strony, otwórz hello **wyzwalaczy** i skonfiguruj hello kompilacji toouse ciągłej integracji z rozwidlenia hello hello MyShop projektu, który został utworzony w hello wymagania wstępne. Następnie wybierz opcję **partii zmian**. Upewnij się, że wybrano *docker linux* jako hello **gałęzi specyfikacji**.
 
     ![Visual Studio Team Services — Konfiguracja repozytorium kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
 
-6. Na koniec kliknij **opcje** i skonfiguruj domyślną agenta w kolejce **Podgląd Linux hostowanych**.
+6. Na koniec kliknij hello **opcje** i skonfiguruj hello domyślnej agenta kolejki zbyt**Podgląd Linux hostowanych**.
 
     ![Visual Studio Team Services — konfiguracja agenta hosta](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
 
-### <a name="define-the-build-workflow"></a>Zdefiniuj przepływu pracy kompilacji
-Następne kroki zdefiniuj przepływu pracy kompilacji. Najpierw należy skonfigurować źródła kodu. Aby wykonać to zadanie, zaznacz **GitHub** i **repozytorium** i **gałęzi** (docker linux).
+### <a name="define-hello-build-workflow"></a>Zdefiniuj hello przepływu pracy kompilacji
+Następne kroki Hello zdefiniuj hello przepływu pracy kompilacji. Najpierw należy tooconfigure hello źródła hello kodu. toodo go, wybierz opcję **GitHub** i **repozytorium** i **gałęzi** (docker linux).
 
 ![Konfigurowanie programu Visual Studio Team Services — kodu źródłowego](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-Istnieje pięć obrazów kontenera do kompilacji dla *MyShop* aplikacji. Obraz jest utworzony przy użyciu plik Dockerfile znajdujący się w folderze projektu:
+Istnieje pięć toobuild obrazów kontener dla hello *MyShop* aplikacji. Obraz jest utworzony przy użyciu powitalne plik Dockerfile znajdujących się w folderach projektu hello:
 
 * ProductsApi
 * Serwer proxy
@@ -137,121 +137,121 @@ Istnieje pięć obrazów kontenera do kompilacji dla *MyShop* aplikacji. Obraz j
 * RecommandationsApi
 * Sklepu
 
-Należy dwa kroki Docker dla każdego obrazu: jeden do tworzenia obrazu i jeden do dystrybuowania obrazu w rejestrze kontenera platformy Azure. 
+Należy dwa kroki Docker dla każdego obrazu, jeden obraz powitania toobuild i jeden obraz powitania toopush hello rejestru kontenera platformy Azure. 
 
-1. Aby dodać krok w przepływie pracy kompilacji, kliknij przycisk **+ Dodaj krok kompilacji** i wybierz **Docker**.
+1. tooadd etapem hello przepływu pracy kompilacji, kliknij przycisk **+ Dodaj krok kompilacji** i wybierz **Docker**.
 
     ![Visual Studio Team Services — dodać kroki procesu kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
 
-2. Dla każdego obrazu, należy skonfigurować jeden krok, który używa `docker build` polecenia.
+2. Dla każdego obrazu, należy skonfigurować jeden krok, który używa hello `docker build` polecenia.
 
     ![Visual Studio Team Services — Docker kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    Dla operacji kompilacji, wybierz rejestru kontenera platformy Azure, **kompilacji obrazu** akcji, a plik Dockerfile, który definiuje każdego obrazu. Ustaw **katalog roboczy** jako katalog główny plik Dockerfile, zdefiniuj **nazwa obrazu**i wybierz **zawierają najnowsze tagu**.
+    Na powitania utworzyć operację, wybierz rejestru kontenera platformy Azure, hello **kompilacji obrazu** akcji i hello plik Dockerfile, który definiuje każdego obrazu. Zestaw hello **katalog roboczy** jako katalog główny plik Dockerfile hello, zdefiniuj hello **nazwa obrazu**i wybierz **zawierają najnowsze tagu**.
     
-    Nazwa obrazu musi być w następującym formacie: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Zastąp **[nazwa]** o nazwie obrazu:
+    Nazwa obrazu Hello ma toobe w następującym formacie: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Zastąp **[nazwa]** o nazwie obrazu hello:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
     - ```recommendations-api```
     - ```shopfront```
 
-3. Dla każdego obrazu, skonfiguruj drugi krok, który używa `docker push` polecenia.
+3. Dla każdego obrazu, skonfiguruj drugi krok, który używa hello `docker push` polecenia.
 
     ![Visual Studio Team Services — Docker Push](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Dla operacji wypychania, wybierz rejestru kontenera platformy Azure, **Push obrazu** akcji, wprowadź **nazwa obrazu** wbudowane w poprzednim kroku, a następnie wybierz **zawierają najnowsze Tag**.
+    Dla operacji wypychania hello, wybierz rejestru kontenera platformy Azure, hello **Push obrazu** akcji, wprowadź hello **nazwa obrazu** wbudowane w poprzednim kroku hello i wybierz **zawierają najnowsze Tag** .
 
-4. Po skonfigurowaniu kroków kompilacji i wypychania dla każdego z pięciu obrazów, należy dodać trzy kolejne kroki w przepływie pracy kompilacji.
+4. Po skonfigurowaniu hello kompilacji i push kroki dla każdego z pięciu obrazów hello, Dodaj trzy kroki więcej w hello kompilacji przepływu pracy.
 
    ![Visual Studio Team Services — Dodaj zadania wiersza polecenia](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Zadania wiersza polecenia, który używa skryptów bash w celu zastąpienia *RegistryURL* wystąpienie w plik docker-compose.yml ze zmienną RegistryURL. 
+      1. Zadania wiersza polecenia, które używa hello tooreplace skryptu bash *RegistryURL* wystąpienie w plik docker-compose.yml hello hello RegistryURL zmienną. 
     
           ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
           ![Visual Studio Team Services — plik Redaguj aktualizacji z adresem URL rejestru](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Zadania wiersza polecenia, który używa skryptów bash w celu zastąpienia *AgentURL* wystąpienie w plik docker-compose.yml ze zmienną AgentURL.
+      2. Zadania wiersza polecenia, które używa hello tooreplace skryptu bash *AgentURL* wystąpienie w plik docker-compose.yml hello hello AgentURL zmienną.
   
           ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Zadanie porzuca zaktualizowany plik Redaguj jako artefaktów kompilacji dzięki mogą być używane w wersji. Zobacz następujący ekran, aby uzyskać szczegółowe informacje.
+     3. Zadanie porzuca hello aktualizowana tworzenia pliku jako artefaktów kompilacji dzięki mogą być używane w hello wersji. Zobacz powitania po ekranie, aby uzyskać szczegółowe informacje.
 
          ![Visual Studio Team Services — Opublikuj artefaktów](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
          ![Usługi Visual Studio Team - publikowania tworzenia pliku](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
-5. Kliknij przycisk **Zapisz & kolejka** do testowania definicję kompilacji.
+5. Kliknij przycisk **Zapisz & kolejka** tootest definicję kompilacji.
 
    ![Visual Studio Team Services — zapisywanie i kolejki](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
    ![Visual Studio Team Services — nowej kolejki](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
-6. Jeśli **kompilacji** jest poprawna, masz wyświetlony następujący ekran:
+6. Jeśli hello **kompilacji** jest poprawna, masz toosee ten ekran:
 
   ![Visual Studio Team Services — kompilacja powiodła się](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-definition"></a>Krok 3: Tworzenie definicji wersji
+## <a name="step-3-create-hello-release-definition"></a>Krok 3: Tworzenie definicji wersji hello
 
-Visual Studio Team Services umożliwia [zarządzania wersjami w środowiskach](https://www.visualstudio.com/team-services/release-management/). Można włączyć ciągłego wdrażania upewnić się, że aplikacja jest wdrożony na Twoje różnych środowiskach (np. dev, test produkcji wstępnej i produkcji) w sposób. Można utworzyć środowisko, które reprezentuje klastra tryb Azure kontenera usługi Docker Swarm.
+Visual Studio Team Services służy za[zarządzania wersjami w środowiskach](https://www.visualstudio.com/team-services/release-management/). Można włączyć się, że aplikacja jest wdrożony na Twoje różnych środowiskach (np. dev, test produkcji wstępnej i produkcji) w sposób toomake ciągłego wdrażania. Można utworzyć środowisko, które reprezentuje klastra tryb Azure kontenera usługi Docker Swarm.
 
-![Visual Studio Team Services — w wersji usług ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
+![Visual Studio Team Services — tooACS zlecenia](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
 ### <a name="initial-release-setup"></a>Początkowa wersja Instalatora
 
-1. Do tworzenia definicji wersji, kliknij przycisk **wersje** > **+ zlecenia**
+1. toocreate definicji wersji, kliknij przycisk **wersje** > **+ zlecenia**
 
-2. Kliknij, aby skonfigurować źródła artefaktu **artefakty** > **połączenia źródła artefaktu**. W tym miejscu połączyć tej nowej wersji definicji kompilacji, który został zdefiniowany w poprzednim kroku. Po wykonaniu tej plik docker-compose.yml jest dostępna w procesie wersji.
+2. tooconfigure hello artefaktu źródłowego, kliknij przycisk **artefakty** > **połączenia źródła artefaktu**. W tym miejscu łącze nowej wersji definicji toohello kompilacji zdefiniowanego w poprzednim kroku hello. Po wykonaniu tej plik docker-compose.yml hello jest dostępna w procesie zlecenia hello.
 
     ![Visual Studio Team Services - wersja artefaktów](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. Kliknij, aby skonfigurować wyzwalacz wersji **wyzwalaczy** i wybierz **ciągłe wdrażanie**. W tym samym źródle artefaktu, należy ustawić wyzwalacz. To ustawienie zapewnia, że rozpoczyna się nowej wersji, gdy kompilacja zakończy się pomyślnie.
+3. wyzwalacz wersji hello tooconfigure, kliknij przycisk **wyzwalaczy** i wybierz **ciągłe wdrażanie**. Zestaw wyzwalacza hello na powitania tego samego źródła artefaktu. To ustawienie zapewnia, że rozpoczyna się nowej wersji, gdy hello kompilacja zostaje ukończona pomyślnie.
 
     ![Visual Studio Team Services — wyzwalaczy zlecenia](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
-4. Kliknij, aby skonfigurować zmienne wersji **zmienne** i wybierz **+ zmiennej** utworzyć trzy nowe zmienne z użyciem informacji rejestru: **docker.username**, **docker.password**, i **docker.registry**. Wklej wartości rejestru i DNS agentów klastra.
+4. zmienne wersji hello tooconfigure, kliknij przycisk **zmienne** i wybierz **+ zmiennej** toocreate trzy nowe zmienne z użyciem informacji hello rejestru hello: **docker.username**, **docker.password**, i **docker.registry**. Wklej hello wartości rejestru i DNS agentów klastra.
 
     ![Visual Studio Team Services — Konfiguracja repozytorium kompilacji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > Jak pokazano na poprzednich ekranu, kliknij przycisk **blokady** checkbox w docker.password. To ustawienie jest ważne ograniczyć hasło.
+    > Jak pokazano na poprzednich ekranie powitania, kliknij przycisk hello **blokady** checkbox w docker.password. To ustawienie jest ważne toorestrict hello hasła.
     >
 
-### <a name="define-the-release-workflow"></a>Definiowanie wersji przepływu pracy
+### <a name="define-hello-release-workflow"></a>Zdefiniuj hello wersji w przepływie pracy
 
-Wersja przepływ pracy składa się z dwóch zadań, które można dodać.
+przepływ pracy wersji Hello składa się z dwóch zadań, które można dodać.
 
-1. Skonfigurować zadania bezpiecznie skopiować plik Redaguj *wdrażanie* folder w rozwiązaniu Docker Swarm węzła głównego, przy użyciu połączenia SSH został wcześniej skonfigurowany. Zobacz następujący ekran, aby uzyskać szczegółowe informacje.
+1. Konfigurowanie zadań toosecurely kopiowania hello utworzenie pliku tooa *wdrażania* folderu na powitania Docker Swarm węzła głównego, przy użyciu połączenia SSH hello został wcześniej skonfigurowany. Zobacz powitania po ekranie, aby uzyskać szczegółowe informacje.
     
     Folder źródłowy:```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio Team Services - wersja punkt połączenia usługi](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Skonfiguruj drugi zadań do wykonania polecenia bash, aby uruchomić `docker` i `docker stack deploy` poleceń w węźle głównym. Zobacz następujący ekran, aby uzyskać szczegółowe informacje.
+2. Skonfiguruj drugi tooexecute zadań toorun polecenia bash `docker` i `docker stack deploy` poleceń na powitania węzła głównego. Zobacz powitania po ekranie, aby uzyskać szczegółowe informacje.
 
     ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
 
     ![Visual Studio Team Services — Bash zlecenia](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
-    Polecenie wykonane na wzorcu używa interfejsu wiersza polecenia Docker i interfejsu wiersza polecenia rozwiązania Docker Compose do wykonywania następujących zadań:
+    polecenie Hello wykonane na wzorcu hello używa hello interfejsu wiersza polecenia Docker i hello toodo rozwiązania Docker Compose CLI hello następujące zadania:
 
-    - Zaloguj się do rejestru kontenera platformy Azure (używa trzech zmiennych kompilacji, które są zdefiniowane w **zmienne** kartę)
-    - Zdefiniuj **DOCKER_HOST** zmienną do pracy z punktu końcowego Swarm (: 2375)
-    - Przejdź do *wdrażanie* folderu, który został utworzony przez poprzednie zadanie kopiowania bezpiecznego i który zawiera plik docker-compose.yml 
-    - Wykonanie `docker stack deploy` poleceń ściągnięcia nowych obrazów i utworzyć kontenerów.
+    - Zaloguj się w rejestrze kontenera platformy Azure toohello (używa trzech zmiennych kompilacji, które są zdefiniowane w hello **zmienne** kartę)
+    - Zdefiniuj hello **DOCKER_HOST** toowork zmiennej z punktu końcowego Swarm hello (: 2375)
+    - Przejdź toohello *wdrażanie* folderu, który został utworzony przez hello poprzedzających zadanie kopiowania bezpiecznego i który zawiera plik docker-compose.yml hello 
+    - Wykonanie `docker stack deploy` poleceń ściągnięcia nowych obrazów hello i utworzyć hello kontenerów.
 
     >[!IMPORTANT]
-    > Jak pokazano na poprzednich ekranu, pozostaw **zakończyć się niepowodzeniem ze strumienia STDERR** niezaznaczone pole wyboru. To ustawienie umożliwia firmie Microsoft w celu ukończenia procesu wersji ze względu na `docker-compose` wyświetla komunikaty diagnostyczne, takie jak kontenery są zatrzymywanie lub usuwane, dane wyjściowe błędów. Jeśli pole wyboru Visual Studio Team Services raporty błędów, które wystąpiły podczas wersji, nawet jeśli wszystko przebiegnie poprawnie.
+    > Jak pokazano na poprzednich ekranie powitania, pozostaw hello **zakończyć się niepowodzeniem ze strumienia STDERR** niezaznaczone pole wyboru. To ustawienie pozwala nam procesu publikacji hello toocomplete powodu zbyt`docker-compose` wyświetla komunikaty diagnostyczne, takie jak kontenery są zatrzymywanie lub usuwany na powitania błędów w danych wyjściowych. Po zaznaczeniu pola wyboru hello Visual Studio Team Services raporty błędów, które wystąpiły podczas wersji hello, nawet jeśli wszystko przebiegnie poprawnie.
     >
 3. Zapisz ten nowej definicji wersji.
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Krok 4: Testowanie potoku CI/CD
+## <a name="step-4-test-hello-cicd-pipeline"></a>Krok 4: Testowanie hello CI/CD potoku
 
-Teraz, po zakończeniu konfiguracji, nadszedł czas na test ten nowy potok CI/CD. Najprostszym sposobem, aby ją przetestować jest zaktualizuj kod źródłowy i zatwierdzić zmiany do repozytorium GitHub. Kilka sekund po naciśnięciu kodu, zobaczysz nowej kompilacji uruchomionych w Visual Studio Team Services. Po pomyślnym ukończeniu nowej wersji wyzwoleniu i wdrożeniu nowej wersji aplikacji w klastrze usługi kontenera platformy Azure.
+Teraz, po zakończeniu konfiguracji hello, jest czas tootest nowy potok CI/CD. Hello Najprostszym sposobem tootest jest tooupdate hello źródła kodu i zatwierdzania hello zmienia się w repozytorium GitHub. Kilka sekund po wypchnąć kod hello, zobaczysz nowej kompilacji uruchomionych w Visual Studio Team Services. Po pomyślnym ukończeniu nowej wersji wyzwoleniu i wdrożyć hello nowej wersji aplikacji hello na powitania klastra usługi kontenera platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat CI/CD z Visual Studio Team Services, zobacz [kompilacji programu VSTS omówienie](https://www.visualstudio.com/docs/build/overview).
-* Aby uzyskać więcej informacji na temat aparatu ACS, zobacz [repozytorium GitHub aparat ACS](https://github.com/Azure/acs-engine).
-* Aby uzyskać więcej informacji o trybie Docker Swarm, zobacz [Docker Swarm Omówienie trybu](https://docs.docker.com/engine/swarm/).
+* Aby uzyskać więcej informacji na temat CI/CD z Visual Studio Team Services, zobacz hello [kompilacji programu VSTS omówienie](https://www.visualstudio.com/docs/build/overview).
+* Aby uzyskać więcej informacji na temat aparatu ACS, zobacz hello [repozytorium GitHub aparat ACS](https://github.com/Azure/acs-engine).
+* Aby uzyskać więcej informacji o trybie Docker Swarm, zobacz hello [Docker Swarm Omówienie trybu](https://docs.docker.com/engine/swarm/).

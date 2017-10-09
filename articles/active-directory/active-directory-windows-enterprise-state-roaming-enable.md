@@ -1,8 +1,8 @@
 ---
-title: "Włącz Roaming stanu przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Często zadawane pytania dotyczące ustawień roamingu stanu przedsiębiorstwa na urządzeniach z systemem Windows. Roamingu stanu przedsiębiorstwa udostępnia użytkownikom środowisko unified na ich urządzeniach z systemem Windows i skraca czas potrzebny na konfigurowanie nowego urządzenia."
+title: "aaaEnable roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Często zadawane pytania dotyczące ustawień roamingu stanu przedsiębiorstwa na urządzeniach z systemem Windows. Roamingu stanu przedsiębiorstwa udostępnia użytkownikom środowisko unified na ich urządzeniach z systemem Windows i skraca czas hello potrzebne do skonfigurowania nowego urządzenia."
 services: active-directory
-keywords: "roaming, chmury systemu windows, jak włączyć roamingu stanu przedsiębiorstwa stanu przedsiębiorstwa"
+keywords: "roaming, chmury systemu windows, jak stanu przedsiębiorstwa tooenable roamingu stanu przedsiębiorstwa"
 documentationcenter: 
 author: tanning
 manager: femila
@@ -15,59 +15,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 77d75f4a647e44f27cd9ba8db5286f1456c3ac66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c69a9cfa8055f418a3b81c62939885d5bec8a6f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Włączanie roamingu stanu przedsiębiorstwa w usłudze Azure Active Directory
-Roamingu stanu przedsiębiorstwa jest dostępne dla każdej organizacji z subskrypcją Premium usługi Azure Active Directory (Azure AD). Aby uzyskać więcej informacji na temat sposobu uzyskania subskrypcji usługi Azure AD, zobacz [stronę produktu usługi Azure AD](https://azure.microsoft.com/services/active-directory).
+Roamingu stanu przedsiębiorstwa jest dostępne tooany organizacji z subskrypcją Premium usługi Azure Active Directory (Azure AD). Aby uzyskać więcej informacji na temat tooget subskrypcji usługi Azure AD, zobacz hello [stronę produktu usługi Azure AD](https://azure.microsoft.com/services/active-directory).
 
-Po włączeniu roamingu stanu przedsiębiorstwa, organizacja będzie automatycznie otrzymać licencji dla subskrypcji bezpłatnych, ograniczonej do usługi Azure Rights Management. Bezpłatna subskrypcja jest ograniczona do szyfrowania i odszyfrowywania ustawienia przedsiębiorstwa i dane aplikacji synchronizowane przez usługę roamingu stanu przedsiębiorstwa; musi mieć płatną subskrypcję, aby użyć pełnego zestawu funkcji usługi Azure Rights Management.
+Po włączeniu roamingu stanu przedsiębiorstwa, organizacja będzie automatycznie otrzymać licencji dla subskrypcji bezpłatnych, ograniczonej tooAzure Rights Management. Ta bezpłatna subskrypcja jest ograniczona tooencrypting i odszyfrowywania ustawienia przedsiębiorstwa i dane aplikacji synchronizowane przez hello roamingu stanu przedsiębiorstwa usługi; Musisz mieć subskrypcję płatną toouse hello pełnego zestawu funkcji usługi Azure Rights Management.
 
-Po uzyskaniu subskrypcji usługi Azure AD Premium, wykonaj następujące kroki, aby włączyć roamingu stanu przedsiębiorstwa:
+Po uzyskaniu subskrypcji usługi Azure AD Premium, wykonaj te kroki tooenable, roamingu stanu przedsiębiorstwa:
 
-1. Zaloguj się do klasycznego portalu Azure.
-2. Po lewej stronie, wybierz **usługi ACTIVE DIRECTORY**, a następnie wybierz katalog, dla którego chcesz włączyć roamingu stanu przedsiębiorstwa.
+1. Toohello logowania klasycznego portalu Azure.
+2. Po lewej stronie powitania, wybierz **usługi ACTIVE DIRECTORY**, a następnie wybierz katalog hello, dla której ma zostać tooenable roamingu stanu przedsiębiorstwa.
    ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming.png)
-3. Przejdź do **Konfiguruj** na górnym pasku.
+3. Przejdź toohello **Konfiguruj** kartę w górnej części hello.
    ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-configure.png)
-4. Przewiń w dół strony i wybierz **użytkownicy mogą SYNCHRONIZOWAĆ ustawienia i dane aplikacji przedsiębiorstwa**, a następnie kliknij przycisk **ZAPISAĆ**.
+4. Przewiń w dół strony hello i wybierz **użytkownicy mogą SYNCHRONIZOWAĆ ustawienia i dane aplikacji przedsiębiorstwa**, a następnie kliknij przycisk **ZAPISAĆ**.
    ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-select-all-sync-settings.png)
 
-Urządzenia Windows 10 są przekazywane ustawień w usłudze roamingu stanu przedsiębiorstwa urządzenie musi uwierzytelnić przy użyciu tożsamości usługi Azure AD. W przypadku urządzeń, które dołączyły do usługi Azure AD tożsamość usługi Azure AD jest podstawowy identyfikator logowania użytkownika, więc dodatkowa konfiguracja nie jest wymagane. W przypadku urządzeń korzystających z usługi Active Directory w tradycyjnych, lokalnie, administrator IT musi [łączenie urządzeń przyłączonych do domeny do usługi Azure AD dla systemu Windows 10 napotyka](active-directory-azureadjoin-devices-group-policy.md).
+Dla systemu Windows 10 ustawień tooroam urządzenia z hello roamingu stanu przedsiębiorstwa usługi urządzenia hello musi uwierzytelnić przy użyciu tożsamości usługi Azure AD. W przypadku urządzeń, które są przyłączone do tooAzure AD głównej logowania użytkownika hello jest tożsamości hello Azure AD, dlatego dodatkowa konfiguracja nie jest wymagane. Dla urządzeń, które korzysta z katalogu Active tradycyjnych, lokalnie hello administrator IT musi [połączyć hello tooAzure urządzeń przyłączonych do domeny AD dla systemu Windows 10 napotyka](active-directory-azureadjoin-devices-group-policy.md).
 
 ## <a name="sync-data-storage"></a>Synchronizacji magazynu danych
-Roamingu stanu przedsiębiorstwa danych znajduje się w co najmniej jednej [regiony platformy Azure](https://azure.microsoft.com/regions/) najlepiej jest wyrównywany o wartości kraj/region w wystąpieniu usługi Azure Active Directory. Dane roamingu stanu przedsiębiorstwa jest podzielona na partycje oparte na trzech głównych regionach geograficznych: Ameryce Północnej, regionie oraz APAC. Roamingu stanu przedsiębiorstwa danych dla dzierżawy znajduje się lokalnie z region geograficzny, a nie są replikowane w regionach.  Na przykład klienci, którzy mają ich kraj/region ma wartość jednego z krajów EMEA, takich jak "Francja" lub "Zambii" będzie mieć swoje dane hostowanych w jedną lub regionów platformy Azure w Europie.  Klienci, którzy ustaw wartość ich kraj/region w usłudze Azure AD do jednego z krajów Ameryki Północnej, takie jak "Stanów Zjednoczonych" lub "Kanada" będzie mieć swoje dane przechowywane w co najmniej jeden regiony platformy Azure w Stanach Zjednoczonych.  Klienci, którzy ustaw wartość ich kraj/region w usłudze Azure AD do jednego z innych krajów APAC, takie jak "Australia" lub "Nowa Zelandia" będzie mieć swoje dane hostowanej w co najmniej jednej regiony platformy Azure w Azji.  Ameryki Południowej innych krajów i Antarktyka danych będzie obsługiwana w co najmniej jeden regiony platformy Azure w Stanach Zjednoczonych.  Wartość kraju/regionu jest ustawiony jako część procesu tworzenia katalogu usługi Azure AD i nie można zmodyfikować później. 
+Roamingu stanu przedsiębiorstwa danych znajduje się w co najmniej jednej [regiony platformy Azure](https://azure.microsoft.com/regions/) czy najlepiej wyrównana z hello kraj/region wartość ustawiona w hello wystąpienia usługi Azure Active Directory. Dane roamingu stanu przedsiębiorstwa jest podzielona na partycje oparte na trzech głównych regionach geograficznych: Ameryce Północnej, regionie oraz APAC. Roamingu stanu przedsiębiorstwa danych dla dzierżawcy hello jest lokalnie znajdują się w tym regionie geograficznym hello i nie są replikowane w regionach.  Na przykład klienci, którzy mają ich tooone zestaw wartości kraj/region EMEA krajów, takie jak "Francja" lub "Zambii" będzie mieć swoje dane hostowanej w jednym lub hello regiony platformy Azure w Europie.  Klienci, którzy ustaw wartość ich kraj/region w usłudze Azure AD tooone krajów Ameryka Północna, takie jak "Stanów Zjednoczonych" lub "Kanada" będzie mieć swoje dane hostowanej w co najmniej jednej hello regiony platformy Azure w ramach hello Stanów Zjednoczonych.  Klienci, którzy ustaw wartość ich kraj/region w usłudze Azure AD tooone APAC krajów, takie jak "Australia" lub "Nowa Zelandia" będzie mieć swoje dane hostowanej w co najmniej jednej hello regiony platformy Azure w Azji.  Ameryki Południowej innych krajów i Antarktyka danych będzie obsługiwana w co najmniej jeden regiony platformy Azure w ramach hello Stanów Zjednoczonych.  wartość kraj/region Hello jest ustawiony jako część hello procesu tworzenia katalogu usługi Azure AD i nie można zmodyfikować później. 
 
 Aby uzyskać więcej informacji na temat lokalizacji magazynu danych, założyć zgłoszenie [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="manage-enterprise-state-roaming"></a>Zarządzanie roamingu stanu przedsiębiorstwa
-Administratorzy globalni usługi Azure AD można włączyć i wyłączyć roamingu stanu przedsiębiorstwa w klasycznym portalu Azure.
+Administratorzy globalni usługi Azure AD można włączyć i wyłączyć roamingu stanu przedsiębiorstwa w hello klasycznego portalu Azure.
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-manage.png)
 
-Administratorzy globalni mogą ograniczyć synchronizacja ustawień w określonych grupach zabezpieczeń.
+Administratorzy globalni mogą ograniczyć grup zabezpieczeń toospecific synchronizacji ustawień.
 
-Administratorzy globalni można również wyświetlić raport o stanie synchronizacji urządzenia użytkownika, wybierając określonego użytkownika w wystąpieniu usługi Active Directory **użytkowników** liście i klikając **urządzeń** kartę i wybraniu widoku **urządzeń Synchronizowanie ustawień i danych aplikacji przedsiębiorstwa**.
+Administratorzy globalni można również wyświetlić raport o stanie synchronizacji urządzenia użytkownika, wybierając określonego użytkownika w wystąpieniu usługi Active Directory hello **użytkowników** liście i klikając **urządzeń** kartę i wybraniu widoku **Urządzeń Synchronizowanie ustawień i danych aplikacji przedsiębiorstwa**.
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-device-sync-settings.png)
 
 ## <a name="data-retention"></a>Przechowywanie danych
-Danych synchronizowane na platformie Azure przy użyciu roamingu stanu przedsiębiorstwa zostaną zachowane przez czas nieokreślony, chyba że wykonywana jest operacja usuwania ręcznie lub w danych zostanie uznane za przestarzałe. 
+TooAzure zsynchronizowane dane za pośrednictwem roamingu stanu przedsiębiorstwa zostaną zachowane przez czas nieokreślony, chyba że wykonywana jest operacja usuwania ręczne lub danych hello zagrożona jest określone toobe starych. 
 
-**Jawne usuwanie:** dane są usuwane, gdy administrator Azure Usuwa użytkownika lub katalogu lub administrator jawnie żąda danych ma zostać usunięty.
+**Jawne usuwanie:** hello dane są usuwane, gdy administrator Azure Usuwa użytkownika lub katalogu lub administrator żąda jawnie, czy dane są usuwane toobe.
 
-* **Usunięcie użytkownika**: po usunięciu użytkownika w usłudze Azure AD, konto użytkownika mobilnego danych zostanie oznaczona do usunięcia i zostanie usunięta między 90 na 180 dni. 
-* **Usuwanie katalogu**: usunięcie całego katalogu w usłudze Azure AD jest natychmiastowego działania. Wszystkie dane ustawienia skojarzone z których katalogu zostanie oznaczona do usunięcia i zostanie usunięty między 90 na 180 dni. 
-* **Na żądanie usunięcia**: Jeśli administrator usługi Azure AD chce ręcznie usunąć dane i ustawienia danych określonego użytkownika, administrator może założyć zgłoszenie [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/). 
+* **Usunięcie użytkownika**: po usunięciu użytkownika w usłudze Azure AD, konto użytkownika hello roaming danych zostanie oznaczona do usunięcia i zostanie usunięta między 90 dni too180. 
+* **Usuwanie katalogu**: usunięcie całego katalogu w usłudze Azure AD jest natychmiastowego działania. Wszystkie dane ustawienia hello skojarzone z których katalogu zostanie oznaczona do usunięcia i zostanie usunięty między 90 dni too180. 
+* **Na żądanie usunięcia**: hello Azure AD administrator chce toomanually usunięcia danych określonego użytkownika lub danych ustawień, Witaj, Administratorze można założyć zgłoszenie [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/). 
 
-**Usuwanie danych starych**: dane, które nie była używana dla jednego roku ("okres przechowywania") będzie traktowana jako przestarzały i mogą zostać usunięte z platformy Azure. Okres przechowywania może ulec zmianie, ale nie będzie mniejsza niż 90 dni. Stare dane mogą być określonych aplikacji systemu Windows/ustawienia lub wszystkich ustawień dla użytkownika. Na przykład:
+**Usuwanie danych starych**: dane, które nie była używana dla jednego roku ("Witaj okres przechowywania") będzie traktowana jako przestarzały i mogą zostać usunięte z platformy Azure. okres przechowywania Hello jest toochange podmiotu, ale nie będzie mniejsza niż 90 dni. Witaj stare dane mogą być określonych aplikacji systemu Windows/ustawienia lub wszystkich ustawień dla użytkownika. Na przykład:
 
-* Jeśli kolekcja określone ustawienia dostępu do żadnych urządzeń (np. aplikacja zostanie usunięty z urządzenia lub grupy ustawień, takich jak "Motywu" jest wyłączona dla wszystkich urządzeń użytkownika), a następnie tej kolekcji zostanie nieodświeżone po upływie okresu przechowywania i mogą zostać usunięte. 
-* Jeśli użytkownik wyłączył ustawienia synchronizacji na wszystkich swoich urządzeniach, następnie żadne dane ustawienia jest niedostępny i wszystkich danych ustawień dla tego użytkownika zostanie nieodświeżone i mogą zostać usunięte po upływie okresu przechowywania. 
-* Jeśli administrator katalogu usługi Azure AD wyłącza roamingu stanu przedsiębiorstwa dla całego katalogu, a następnie wszyscy użytkownicy w tym katalogu zostanie zatrzymana, ustawienia synchronizacji, a wszystkie dane ustawienia dla wszystkich użytkowników będzie nieodświeżone i mogą zostać usunięte po upływie okresu przechowywania. 
+* Jeśli kolekcja określone ustawienia dostępu do żadnych urządzeń (np. aplikacja zostanie usunięty z urządzenia hello lub grupy ustawień, takich jak "Motywu" jest wyłączona dla wszystkich urządzeń użytkownika), a następnie tej kolekcji zostanie nieodświeżone po upływie okresu przechowywania hello i może być usunięte. 
+* Jeśli użytkownik wyłączył ustawienia synchronizacji na wszystkich swoich urządzeniach, następnie Brak hello ustawienia danych jest niedostępny i wszystkich hello ustawienia danych dla tego użytkownika zostanie nieodświeżone i mogą zostać usunięte po upływie okresu przechowywania hello. 
+* Jeśli katalog usługi Azure AD Witaj, Administratorze wyłącza roamingu stanu przedsiębiorstwa na powitania cały katalog, następnie wszyscy użytkownicy w tym katalogu zostanie zatrzymana, ustawienia synchronizacji, a wszystkie dane ustawienia dla wszystkich użytkowników będzie nieodświeżone i mogą zostać usunięte po upływie okresu przechowywania hello. 
 
-**Odzyskiwanie danych usunięte**: nie konfiguruje się z zasadami przechowywania danych. Gdy dane zostaną trwale usunięte, nie będzie możliwe do odzyskania. Jest jednak należy pamiętać, że dane ustawień tylko zostaną usunięte z platformy Azure, a nie na urządzeniu użytkownika końcowego. Dowolne urządzenie później połączenie z usługą roamingu stanu przedsiębiorstwa, ustawienia ponownie zostaną zsynchronizowane i przechowywane na platformie Azure.
+**Odzyskiwanie danych usunięte**: zasady przechowywania danych hello nie jest konfigurowalne. Po hello dane zostaną trwale usunięte, nie będzie możliwe do odzyskania. Jednak ważne jest toonote, który hello danych ustawień zostaną usunięte tylko z platformy Azure, nie hello urządzeniu użytkownika końcowego. Dowolne urządzenie połączenie dalszej toohello roamingu stanu przedsiębiorstwa usługi, ustawienia hello ponownie zostaną zsynchronizowane i przechowywane na platformie Azure.
 
 ## <a name="related-topics"></a>Powiązane tematy
 * [Opis roamingu stanu przedsiębiorstwa](active-directory-windows-enterprise-state-roaming-overview.md)

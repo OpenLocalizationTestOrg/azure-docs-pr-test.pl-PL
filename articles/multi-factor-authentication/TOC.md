@@ -1,11 +1,11 @@
 # Omówienie
 ## [Co to jest usługa Multi-Factor Authentication platformy Azure?](multi-factor-authentication.md)
 ## [Jak to działa](multi-factor-authentication-how-it-works.md)
-## [Jak uzyskać usługę Azure MFA](multi-factor-authentication-versions-plans.md)
+## [Jak tooget usługi Azure MFA](multi-factor-authentication-versions-plans.md)
 
 # Rozpoczęcie pracy
-## [Wybieranie miejsca wdrożenia](multi-factor-authentication-get-started.md)
-## [Usługa MFA w chmurze](multi-factor-authentication-get-started-cloud.md)
+## [Wybierz miejsce toodeploy](multi-factor-authentication-get-started.md)
+## [Uwierzytelniania MFA w chmurze hello](multi-factor-authentication-get-started-cloud.md)
 ## [Lokalna usługa MFA](multi-factor-authentication-get-started-server.md)
 ## [Usługa MFA dla użytkowników usługi O365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Najlepsze rozwiązania dotyczące zabezpieczeń](multi-factor-authentication-security-best-practices.md)
@@ -18,7 +18,7 @@
 #### [Advanced configuration for NPS extension (Konfiguracja zaawansowana rozszerzenia serwera NPS)](nps-extension-advanced-configuration.md)
 ### [Tworzenie dostawcy uwierzytelniania](multi-factor-authentication-get-started-auth-provider.md)
 ### Wdrażanie lokalnego uwierzytelniania wieloskładnikowego
-#### [Instalowanie portalu użytkowników](multi-factor-authentication-get-started-portal.md)
+#### [Zainstaluj portal użytkowników hello](multi-factor-authentication-get-started-portal.md)
 #### [Zaawansowane konfiguracje sieci VPN](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Usługa sieci Web aplikacji mobilnej](multi-factor-authentication-get-started-server-webservice.md)
 #### [Konfigurowanie wysokiej dostępności](mfa-server-high-availability.md)

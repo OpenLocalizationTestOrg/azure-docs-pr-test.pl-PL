@@ -1,6 +1,6 @@
 ---
-title: Schemat Media Encoder Standard | Dokumentacja firmy Microsoft
-description: "Temat zawiera omówienie Media Encoder Standard schematu."
+title: Schemat Encoder Standard aaaMedia | Dokumentacja firmy Microsoft
+description: "Witaj temat zawiera omówienie hello Media Encoder Standard schematu."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 82bad27b9546f75557ac691ff148b46990647632
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat Media Encoder Standard
-W tym temacie opisano niektóre elementy i typy schematu XML, na którym [ustawienia standardu Media Encoder Standard](media-services-mes-presets-overview.md) opierają się. Temat zawiera opis elementów i ich prawidłowe wartości. Pełny schemat zostanie opublikowany w późniejszym terminie.  
+W tym temacie opisano niektóre elementy hello i typy hello schematu XML, na którym [ustawienia standardu Media Encoder Standard](media-services-mes-presets-overview.md) opierają się. Witaj temat zawiera opis elementów i ich prawidłowe wartości. pełny schemat Hello zostaną opublikowane w późniejszym terminie.  
 
 ## <a name="Preset"></a>Ustawienia domyślne (element główny)
 Definiuje ustawienie kodowania.  
@@ -29,16 +29,16 @@ Definiuje ustawienie kodowania.
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Kodowanie** |[Kodowanie](media-services-mes-schema.md#Encoding) |Element główny wskazuje, czy źródeł danych wejściowych do zakodowania. |
+| **Kodowanie** |[Kodowanie](media-services-mes-schema.md#Encoding) |Element główny wskazuje, że źródeł dla wejścia hello toobe zakodowany. |
 | **Dane wyjściowe** |[Dane wyjściowe](media-services-mes-schema.md#Output) |Kolekcja plików żądanego wyniku. |
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Wersja**<br/><br/> Wymagane |**xs:decimal** |Wersja wstępnie zdefiniowane. Występują następujące ograniczenia: wartość xs:fractionDigits = wartość "1" i xs:minInclusive = "1" na przykład **wersja = "1.0"**. |
+| **Wersja**<br/><br/> Wymagane |**xs:decimal** |Witaj wstępnie wersji. Witaj, obowiązują następujące ograniczenia: wartość xs:fractionDigits = wartość "1" i xs:minInclusive = "1" na przykład **wersja = "1.0"**. |
 
 ## <a name="Encoding"></a>Kodowanie
-Zawiera sekwencję następujące elementy.  
+Zawiera sekwencję hello następujące elementy.  
 
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
@@ -54,20 +54,20 @@ Zawiera sekwencję następujące elementy.
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs = "0" |**xs:Boolean** |Aktualnie obsługiwana jest tylko jeden przebieg kodowania. |
-| **KeyFrameInterval**<br/><br/> minOccurs = "0"<br/><br/> **domyślne = "00: 00:02"** |**xs: Time** |Określa stały odstęp między ramki IDR w jednostkach czasu w sekundach. Również nazywane GOP czas trwania. Zobacz **SceneChangeDetection** (poniżej) do kontrolowania, czy koder można różni się od tej wartości. |
-| **SceneChangeDetection**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "false" |**xs:Boolean** |Jeśli ustawiono wartość true, koder podejmuje próbę wykrycia zmianę sceny w wideo i wstawia ramkę IDR. |
-| **Złożoność**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Zrównoważony" |**xs:String** |Formanty równowagę między kodowania jakości szybkość i wideo. Może być jedną z następujących wartości: **szybkości**, **zrównoważony**, lub **jakości**<br/><br/> Wartość domyślna: **zrównoważonym** |
+| **KeyFrameInterval**<br/><br/> minOccurs = "0"<br/><br/> **domyślne = "00: 00:02"** |**xs: Time** |Określa hello stały odstęp między ramki IDR w jednostkach czasu w sekundach. Nazywana także tooas hello GOP duration. Zobacz **SceneChangeDetection** (patrz poniżej) do kontrolowania, czy hello kodera można różni się od tej wartości. |
+| **SceneChangeDetection**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "false" |**xs:Boolean** |Jeśli zestaw tootrue, prób kodera sceny toodetect Zmień hello wideo i wstawia IDR ramkę. |
+| **Złożoność**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Zrównoważony" |**xs:String** |Formanty hello kompromis między kodowania jakości szybkość i wideo. Może być jednym z hello następujące wartości: **szybkości**, **zrównoważony**, lub **jakości**<br/><br/> Wartość domyślna: **zrównoważonym** |
 | **SyncMode**<br/><br/> minOccurs = "0" | |Funkcja mają być widoczne w przyszłych wersjach. |
 | **H264Layers**<br/><br/> minOccurs = "0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Kolekcja warstw wideo danych wyjściowych. |
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Warunek** |**xs:String** | Dane wejściowe nie ma karty wideo, można wymusić kodera, aby wstawić monochromatyczny Ścieżka wideo. W tym celu należy użyć warunku = "InsertBlackIfNoVideoBottomLayerOnly" (Aby wstawić wideo na wyłącznie najniższa szybkość transmisji bitów) lub warunek = "InsertBlackIfNoVideo" (Aby wstawić wideo output szybkości transmisji bitów). Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) temat.|
+| **Warunek** |**xs:String** | Podczas wprowadzania hello nie ma karty wideo, może być tooforce hello koder tooinsert monochromatyczny Ścieżka wideo. toodo, który użyć warunku = "InsertBlackIfNoVideoBottomLayerOnly" (tooinsert wideo na wyłącznie hello najniższa szybkość transmisji bitów) lub warunek = "InsertBlackIfNoVideo" (tooinsert wideo na wszystkie dane wyjściowe szybkości transmisji bitów). Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) temat.|
 
 ## <a name="H264Layers"></a>H264Layers
 
-Domyślnie w przypadku wysłania danych wejściowych do kodera, który zawiera tylko audio i wideo nie elementu zawartości wyjściowej będzie zawierać pliki z tylko danych audio. Niektóre odtwarzacze nie można obsłużyć tych strumieni wyjściowych. Można użyć H264Video **InsertBlackIfNoVideo** atrybutu ustawienie, aby wymusić kodera, aby dodać ścieżki wideo do danych wyjściowych w tym scenariuszu. Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) temat.
+Domyślnie w przypadku wysłania koder toohello wejściowego, który zawiera tylko audio i wideo nie zawartości wyjściowej hello będzie zawierać pliki z tylko danych audio. Niektóre odtwarzacze może nie być możliwe toohandle takich danych wyjściowych strumieni. Można użyć hello H264Video **InsertBlackIfNoVideo** atrybutu ustawienie tooforce hello koder tooadd wyjściowego toohello Ścieżka wideo w tym scenariuszu. Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) temat.
               
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
@@ -76,56 +76,56 @@ Domyślnie w przypadku wysłania danych wejściowych do kodera, który zawiera t
 
 ## <a name="H264Layer"></a>H264Layer
 > [!NOTE]
-> Limity wideo są oparte na wartości opisanych w [poziomy H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) tabeli.  
+> Limity wideo są oparte na wartości hello opisanych w hello [poziomy H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) tabeli.  
 > 
 > 
 
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Auto" |**xs:String** |Może być jedną z następujących **xs:string** wartości: **automatycznie**, **linii bazowej**, **Main**, **wysokiej**. |
+| **Profil**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Auto" |**xs:String** |Może być jedną z następujących hello **xs:string** wartości: **automatycznie**, **linii bazowej**, **Main**, **wysokiej**. |
 | **Poziom**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Auto" |**xs:String** | |
-| **Szybkość transmisji bitów**<br/><br/> minOccurs = "0" |**xs:int** |Szybkość transmisji bitów używany dla tej warstwy wideo określonej w KB/s. |
-| **MaxBitrate**<br/><br/> minOccurs = "0" |**xs:int** |Maksymalna szybkość transmisji bitów używany dla tej warstwy wideo określonej w KB/s. |
-| **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "00: 00:05" |**xs: Time** |Długość buforu wideo. |
-| **Szerokość**<br/><br/> minOccurs = "0" |**xs:int** |Szerokość ramki wyjście wideo w pikselach.<br/><br/> Należy pamiętać, że obecnie, należy określić zarówno szerokość i wysokość. Szerokość i wysokość muszą być liczby parzyste. |
-| **Wysokość**<br/><br/> minOccurs = "0" |**xs:int** |Wysokość ramki wyjście wideo w pikselach.<br/><br/> Należy pamiętać, że obecnie, należy określić zarówno szerokość i wysokość. Szerokość i wysokość muszą być liczby parzyste.|
+| **Szybkość transmisji bitów**<br/><br/> minOccurs = "0" |**xs:int** |używany dla tej warstwy wideo określonej w KB/s Hello szybkości transmisji bitów. |
+| **MaxBitrate**<br/><br/> minOccurs = "0" |**xs:int** |Witaj maksymalną szybkość transmisji bitów używany dla tej warstwy wideo określonej w KB/s. |
+| **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "00: 00:05" |**xs: Time** |Długość buforu wideo hello. |
+| **Szerokość**<br/><br/> minOccurs = "0" |**xs:int** |Szerokość hello wyjście wideo ramki, w pikselach.<br/><br/> Należy pamiętać, że obecnie, należy określić zarówno szerokość i wysokość. Witaj szerokość i wysokość muszą toobe liczby parzyste. |
+| **Wysokość**<br/><br/> minOccurs = "0" |**xs:int** |Wysokość hello wyjście wideo ramki, w pikselach.<br/><br/> Należy pamiętać, że obecnie, należy określić zarówno szerokość i wysokość. Witaj szerokość i wysokość muszą toobe liczby parzyste.|
 | **BFrames**<br/><br/> minOccurs = "0" |**xs:int** |Liczba ramek B między ramki odwołania. |
 | **ReferenceFrames**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "3" |**xs:int** |Liczba ramek odwołania w GOP. |
-| **EntropyMode**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Cabac" |**xs:String** |Może być jedną z następujących wartości: **Cabac** i **Cavlc**. |
-| **Szybkość klatek**<br/><br/> minOccurs = "0" |Liczba wymierna |Określa szybkość odtwarzania wideo danych wyjściowych. Użyj domyślnej "0/1", aby poinformować kodera, użyj tego samego szybkość klatek jako wejściowego pliku wideo. Dozwolone wartości powinny być wspólne szybkości odtwarzania wideo, jak pokazano poniżej. Jednak wszystkie prawidłowe wymierna jest dozwolone. Na przykład 1/1 byłoby 1 kl. / s i jest prawidłowy.<br/><br/> -12/1 (12 kl. / s)<br/><br/> -15/1 (15 kl. / s)<br/><br/> -24/1 (24 kl. / s)<br/><br/> 24000/1001 (23.976 kl. / s)<br/><br/> -25/1 (25 kl. / s)<br/><br/>  -30/1 (30 kl. / s)<br/><br/> 30000/1001 (29,97 kl. / s) <br/> <br/>**Uwaga** w przypadku tworzenia niestandardowych ustawienie wstępne kodowania wielu szybkości transmisji bitów, następnie wszystkie warstwy ustawienie **musi** używać tej samej wartości szybkość klatek.|
+| **EntropyMode**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "Cabac" |**xs:String** |Może być jednym z hello następujące wartości: **Cabac** i **Cavlc**. |
+| **Szybkość klatek**<br/><br/> minOccurs = "0" |Liczba wymierna |Określa szybkość klatek hello danych wyjściowych hello wideo. Użyj domyślnej "0/1" toolet hello kodera Użyj hello samej ramce szybkości jako danych wejściowych hello wideo. Dozwolone wartości są oczekiwanego toobe wspólnej szybkości odtwarzania wideo, jak pokazano poniżej. Jednak wszystkie prawidłowe wymierna jest dozwolone. Na przykład 1/1 byłoby 1 kl. / s i jest prawidłowy.<br/><br/> -12/1 (12 kl. / s)<br/><br/> -15/1 (15 kl. / s)<br/><br/> -24/1 (24 kl. / s)<br/><br/> 24000/1001 (23.976 kl. / s)<br/><br/> -25/1 (25 kl. / s)<br/><br/>  -30/1 (30 kl. / s)<br/><br/> 30000/1001 (29,97 kl. / s) <br/> <br/>**Uwaga** w przypadku tworzenia niestandardowego ustawienie wstępne kodowania wielu szybkości transmisji bitów, następnie wszystkie warstwy hello ustawienia wstępnego **musi** Użyj hello takie same wartości szybkość klatek.|
 | **AdaptiveBFrame**<br/><br/> minOccurs = "0" |**xs:Boolean** |Kopiowanie z kodera multimediów Azure |
 | **Wycinków**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "0" |**xs:int** |Określa liczbę wycinków ramki jest podzielony na. Zaleca się używanie domyślnego. |
 
 ## <a name="AACAudio"></a>AACAudio
- Zawiera sekwencję następujące elementy i grupy.  
+ Zawiera sekwencję hello następujące elementy i grupy.  
 
  Aby uzyskać więcej informacji na temat AAC, zobacz [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "AACLC" |**xs:String** |Może być jedną z następujących wartości: **AACLC**, **HEAACV1**, lub **HEAACV2**. |
+| **Profil**<br/><br/> minOccurs = "0"<br/><br/> domyślne = "AACLC" |**xs:String** |Może być jednym z hello następujące wartości: **AACLC**, **HEAACV1**, lub **HEAACV2**. |
 
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Warunek** |**xs:String** |Aby wymusić kodera, aby utworzyć element zawartości zawierający dyskretnej ścieżki audio, gdy dane wejściowe nie zawierają żadnych audio, określ wartość "InsertSilenceIfNoAudio".<br/><br/> Domyślnie w przypadku wysłania danych wejściowych do kodera, który zawiera tylko wideo i audio nie następnie elementu zawartości wyjściowej będzie zawierać pliki, które zawierają dane tylko wideo. Niektóre odtwarzacze nie można obsłużyć tych strumieni wyjściowych. To ustawienie umożliwia wymuszenie kodera, aby dodać dyskretnej ścieżki audio danych wyjściowych w tym scenariuszu. |
+| **Warunek** |**xs:String** |tooforce hello koder tooproduce element zawartości zawierający dyskretnej ścieżki audio, gdy dane wejściowe nie zawierają żadnych audio, określ wartość "InsertSilenceIfNoAudio" hello.<br/><br/> Domyślnie w przypadku wysłania koder toohello wejściowego, który zawiera tylko wideo i audio nie następnie zawartości wyjściowej hello będzie zawierać pliki, które zawierają dane tylko wideo. Niektóre odtwarzacze może nie być możliwe toohandle takich danych wyjściowych strumieni. W tym scenariuszu, można użyć tego ustawienia tooforce hello koder tooadd wyjściowego toohello dyskretnej ścieżki audio. |
 
 ### <a name="groups"></a>Grupy
 | Dokumentacja | Opis |
 | --- | --- |
-| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis [AudioGroup](media-services-mes-schema.md#AudioGroup) wiedzieć odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis [AudioGroup](media-services-mes-schema.md#AudioGroup) tooknow hello odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
 
 ## <a name="AudioGroup"></a>AudioGroup
-Aby uzyskać szczegóły, jakie wartości są prawidłowe dla każdego profilu zobacz poniższą tabelą "Szczegóły kodera-dekodera Audio".  
+Aby uzyskać szczegóły, jakie wartości są prawidłowe dla każdego profilu zobacz poniższą tabelą "Szczegóły kodera-dekodera Audio" hello.  
 
 ### <a name="elements"></a>Elementy
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Kanały**<br/><br/> minOccurs = "0" |**xs:int** |Liczba kanałów audio zakodowany. Poniżej przedstawiono prawidłowe opcje: 1, 2, 5, 6, 8.<br/><br/> Domyślne: 2. |
-| **SamplingRate**<br/><br/> minOccurs = "0" |**xs:int** |Częstotliwość próbkowania audio, określona w Hz. |
-| **Szybkość transmisji bitów**<br/><br/> minOccurs = "0" |**xs:int** |Szybkość transmisji bitów używany podczas kodowania audio, określonej w KB/s. |
+| **Kanały**<br/><br/> minOccurs = "0" |**xs:int** |Witaj liczba kanałów audio zakodowane. Witaj poniżej przedstawiono prawidłowe opcje: 1, 2, 5, 6, 8.<br/><br/> Domyślne: 2. |
+| **SamplingRate**<br/><br/> minOccurs = "0" |**xs:int** |częstotliwość próbkowania audio Hello, określona w Hz. |
+| **Szybkość transmisji bitów**<br/><br/> minOccurs = "0" |**xs:int** |używane podczas kodowania hello audio określonej w KB/s Hello szybkości transmisji bitów. |
 
 ### <a name="audio-codec-details"></a>Szczegóły kodera-dekodera audio
 Kodera-dekodera audio|Szczegóły  
@@ -139,25 +139,25 @@ Kodera-dekodera audio|Szczegóły
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Czas rozpoczęcia** |**DURATION** |Określa czas rozpoczęcia prezentacji. Wartość StartTime musi być zgodna bezwzględną znacznikami czasu wejściowy plik wideo. Na przykład, jeśli pierwszej ramki wejściowy plik wideo ma sygnaturę 12:00:10.000, następnie wartość StartTime powinna być co najmniej 12:00:10.000 lub nowszej. |
-| **Czas trwania** |**DURATION** |Określa czas prezentacji (na przykład wygląd nakładka wideo). |
+| **Czas rozpoczęcia** |**DURATION** |Określa czas rozpoczęcia hello prezentacji. wartość StartTime Hello musi toomatch hello bezwzględną znacznikami czasu hello wejściowy plik wideo. Na przykład, jeśli hello pierwszej ramki hello wejściowy plik wideo ma sygnaturę 12:00:10.000, a następnie wartość StartTime powinna być co najmniej 12:00:10.000 lub nowszej. |
+| **Czas trwania** |**DURATION** |Określa czas trwania hello prezentacji (na przykład wygląd nakładka wideo hello). |
 
 ## <a name="Output"></a>Dane wyjściowe
 ### <a name="attributes"></a>Atrybuty
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Nazwa pliku** |**xs:String** |Nazwa pliku wyjściowego.<br/><br/> Makra opisane w poniższej tabeli można użyć do tworzenia nazwy pliku wyjściowego. Na przykład:<br/><br/> **"Wyjście": [{"FileName": "{nazwę bazową}*{rozpoznawania}*plik MP4 {szybkości transmisji bitów}", "Format": {"Type": "MP4Format"}}] ** |
+| **Nazwa pliku** |**xs:String** |Nazwa Hello hello pliku wyjściowego.<br/><br/> Można użyć makra opisanego w hello następujące nazwy plików wyjściowych hello toobuild tabeli. Na przykład:<br/><br/> **"Wyjście": [{"FileName": "{nazwę bazową}*{rozpoznawania}*plik MP4 {szybkości transmisji bitów}", "Format": {"Type": "MP4Format"}}] ** |
 
 ### <a name="macros"></a>Makra
 | Makra | Opis |
 | --- | --- |
-| **{Nazwę bazową}** |Jeśli przeprowadzasz kodowanie VoD {nazwę bazową} jest pierwsze 32 znaki właściwości AssetFile.Name podstawowego pliku zasobów wejściowych.<br/><br/> Jeśli zasób wejściowy jest archiwum na żywo, {nazwę bazową} jest pobierany z atrybutów trackName w manifeście serwera. Jeśli przesyłasz subclip zadania przy użyciu TopBitrate, podobnie jak w: "< VideoStream\>TopBitrate < / VideoStream\>", plik wyjściowy zawiera wideo, a następnie nazwę {bazową} jest pierwsze 32 znaki trackName warstwy wideo z najwyższą szybkości transmisji bitów.<br/><br/> Jeśli zamiast tego są przesyłania zadania subclip przy użyciu wszystkich wejściowych szybkości transmisji bitów, takich jak "< VideoStream\>* < / VideoStream\>", plik wyjściowy zawiera wideo, a następnie {nazwę bazową} jest pierwsze 32 znaki trackName programu odpowiednia warstwa wideo. |
-| **{Koder-dekoder}** |Mapowany do "H264" wideo i "AAC" dla audio. |
-| **{Szybkości transmisji bitów}** |Docelowy wideo szybkość transmisji bitów, jeśli plik wyjściowy zawiera wideo i audio lub szybkości transmisji bitów audio docelowych, jeśli plik wyjściowy zawiera tylko audio. Wartość używana jest szybkości transmisji bitów w KB/s. |
-| **{Kanału}** |Liczba kanałów audio, jeśli plik zawiera audio. |
-| **{Szerokość}** |Szerokość wideo, w pikselach, w pliku wyjściowym, jeśli plik zawiera wideo. |
-| **{Wysokość}** |Wysokość wideo, w pikselach, w pliku wyjściowym, jeśli plik zawiera wideo. |
-| **{Rozszerzenia}** |Dziedziczy właściwości "Type" dla pliku wyjściowego. Nazwa pliku wyjściowego będzie mieć rozszerzenie, które jest jednym z: "mp4", "ts", "jpg", "png" lub "bmp". |
+| **{Nazwę bazową}** |Jeśli przeprowadzasz kodowanie VoD hello {nazwę bazową} jest hello najpierw 32 znaków hello AssetFile.Name właściwości pliku podstawowego hello w hello zasobów wejściowych.<br/><br/> Jeśli zasobów wejściowych hello jest archiwum na żywo, następnie hello {nazwę bazową} jest pochodną hello trackName atrybutów w manifeście serwera hello. Jeśli przesyłasz subclip zadania przy użyciu hello TopBitrate, podobnie jak w: "< VideoStream\>TopBitrate < / VideoStream\>", plik wyjściowy hello zawiera wideo, a następnie hello {nazwę bazową} jest hello pierwsze 32 znaki trackName hello z hello warstwę wideo z hello najwyższej szybkości transmisji bitów.<br/><br/> Jeśli zamiast tego są przesyłania zadania subclip przy użyciu wszystkich szybkości wprowadzania transmisji hello bitów, takich jak "< VideoStream\>* < / VideoStream\>", plik wyjściowy hello zawiera wideo, a następnie {nazwę bazową} hello jest najpierw 32 znaków hello trackName programu Witaj odpowiednia warstwa wideo. |
+| **{Koder-dekoder}** |Mapuje zbyt "H264" wideo i "AAC" dla audio. |
+| **{Szybkości transmisji bitów}** |Witaj docelowego wideo szybkości transmisji bitów zawiera hello pliku wyjściowego audio i wideo lub audio transmisji bitów docelowej, jeśli plik wyjściowy hello zawiera tylko audio. wartość Hello używana jest hello szybkości transmisji bitów w KB/s. |
+| **{Kanału}** |Liczba kanałów audio, jeśli plik hello zawiera audio. |
+| **{Szerokość}** |Szerokość hello wideo, w pikselach, w pliku wyjściowym hello, jeśli plik hello zawiera wideo. |
+| **{Wysokość}** |Wysokość hello wideo, w pikselach, w pliku wyjściowym hello, jeśli plik hello zawiera wideo. |
+| **{Rozszerzenia}** |Dziedziczy hello właściwości "Type" dla pliku wyjściowego hello. Nazwa pliku wyjściowego Hello będzie mieć rozszerzenie, które jest jednym z: "mp4", "ts", "jpg", "png" lub "bmp". |
 | **{Index}** |Obowiązkowe dla miniatur. Powinien mieć tylko występuje jeden raz. |
 
 ## <a name="Video"></a>Wideo (typ złożony dziedziczy koder-dekoder)
@@ -167,20 +167,20 @@ Kodera-dekodera audio|Szczegóły
 | **Rozpocznij** |**xs:String** | |
 | **Krok** |**xs:String** | |
 | **Zakres** |**xs:String** | |
-| **PreserveResolutionAfterRotation** |**xs:Boolean** |Aby uzyskać szczegółowe informacje, zobacz następującą sekcję: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
+| **PreserveResolutionAfterRotation** |**xs:Boolean** |Aby szczegółowe informacje, zobacz hello następujących sekcji: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
-Zaleca się użyć flagi PreserveResolutionAfterRotation w połączeniu z wartościami rozpoznawania wyrażony w procentach (Width = "100%", wysokość = "100%").  
+Zalecane jest toouse hello PreserveResolutionAfterRotation flagi w połączeniu z wartościami rozpoznawania wyrażony w procentach (Width = "100%", wysokość = "100%").  
 
-Domyślnie ustawienia (szerokość, wysokość) rozdzielczości Koduj w predefiniowane Media Encoder Standard (rynkowej) są przeznaczone do plików wideo za pomocą 0 stopni. Na przykład jeśli wejściowy plik wideo jest 1280 x 720 z zero stopni, następnie ustawień domyślnych Sprawdź, czy dane wyjściowe ma taką samą rozdzielczość. Obraz poniżej jest widoczny.  
+Domyślnie program hello kodowania ustawień rozpoznawania (szerokość, wysokość) w hello predefiniowane Media Encoder Standard (rynkowej) są przeznaczone dla plików wideo za pomocą 0 stopni. Na przykład, jeśli wejściowy plik wideo jest 1280 x 720 z zero stopni, następnie hello domyślne ustawienia sprawdź, czy dane wyjściowe hello ma hello tego samego rozwiązania. Obraz poniżej jest widoczny.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Jednakże oznacza to, że jeśli wejściowy plik wideo została przechwycona z obrotu różna od zera (np.) na smartfonie lub tablecie przechowywanych w pionie), następnie rynkowej domyślnie zastosować te ustawienia rozpoznawania Koduj (szerokość, wysokość) do wejściowego pliku wideo, a następnie kompensacji obrót. Zobacz na przykład na ilustracji poniżej. Ustawienie używa Width = "100%", wysokość = "100%", który rynkowej interpretowane jako wymagające dane wyjściowe do 1280 pikseli szerokości i wysokości 720 pikseli. Po obracanie wideo, ją następnie zmniejsza obraz pasuje do tego okna, co może prowadzić do obszarów pillar-box po lewej i prawej stronie.  
+Jednakże oznacza to, że jeśli wejściowy plik wideo hello została przechwycona z obrotu różna od zera (np.) na smartfonie lub tablecie przechowywanych w pionie), następnie rynkowej domyślnie zastosuje hello kodowania rozpoznawania toohello ustawienia (szerokość, wysokość) danych wejściowych wideo, a następnie kompensacji hello obrotu. Na przykład zobacz hello obraz poniżej. Hello ustawienie wstępne używa Width = "100%", wysokość = "100%", który rynkowej interpretowane jako wymagające hello dane wyjściowe toobe 1280 pikseli szerokości i wysokości 720 pikseli. Po obracanie hello wideo, ją następnie zmniejsza toofit obraz powitania w danym przedziale wiodące obszarów toopillar pole na powitania lewy i prawy.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Jeśli powyższe nie jest zamierzone zachowanie, a następnie umożliwia użycie flagi PreserveResolutionAfterRotation i ustaw ją na wartość "prawda" (wartość domyślna to "false"). Dlatego jeśli ustawienia ma szerokość = "100%", wysokość = "100%" PreserveResolutionAfterRotation ustawioną wartość "prawda", wejściowy plik wideo, czyli 1280 pikseli szerokości i wysokości o 90 stopni 720 pikseli zostanie utworzenie danych wyjściowych z zero stopni, ale 720 pikseli szerokości i 1280 wysokości pikseli. Zobacz na ilustracji poniżej.  
+Jeśli hello powyżej nie jest konieczne hello zachowanie, a następnie umożliwia użycie hello flagi PreserveResolutionAfterRotation i ustaw dla niej zbyt "prawda" (wartość domyślna to "false"). Dlatego jeśli Twoje wstępnie zdefiniowane ma szerokość = "100%", wysokość = "100%" i ustaw zbyt "prawda", wejściowy plik wideo, czyli 1280 pikseli szerokości i wysokości o 90 stopni 720 pikseli zostanie utworzenie danych wyjściowych z zero stopni, ale 720 pikseli szerokości i 1280 PreserveResolutionAfterRotation wysokości pikseli. Obraz powitania poniżej jest widoczny.  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

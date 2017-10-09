@@ -1,6 +1,6 @@
 ---
-title: "Zasobów usługi Automatyzacja Azure w rozwiązaniach pakietu OMS | Dokumentacja firmy Microsoft"
-description: "Rozwiązania w OMS zazwyczaj uwzględnia elementy runbook automatyzacji Azure można zautomatyzować procesy, takie jak zbierania i przetwarzania danych monitorowania.  W tym artykule opisano, jak dołączyć elementy runbook i ich powiązane zasoby w rozwiązaniu."
+title: "aaaAzure automatyzacji zasobów w rozwiązaniach pakietu OMS | Dokumentacja firmy Microsoft"
+description: "Rozwiązania w OMS zazwyczaj uwzględnia elementów runbook w automatyzacji Azure tooautomate procesy, takie jak zbierania i przetwarzania danych monitorowania.  W tym artykule opisano sposób tooinclude elementów runbook i ich powiązane zasoby w rozwiązaniu."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,42 +15,42 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82a156f89bf77ce25e52e5e4596261ec07a24dae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Dodawanie zasobów usługi Automatyzacja Azure OMS rozwiązania do zarządzania (wersja zapoznawcza)
+# <a name="adding-azure-automation-resources-tooan-oms-management-solution-preview"></a>Dodawanie usługi Automatyzacja Azure zasobów tooan OMS rozwiązania do zarządzania (wersja zapoznawcza)
 > [!NOTE]
-> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej może ulec zmianie.   
+> To jest wstępna dokumentacji do tworzenia rozwiązań do zarządzania w OMS, które są obecnie w wersji zapoznawczej. Żadnego schematu opisanych poniżej jest toochange podmiotu.   
 
 
-[Rozwiązania do zarządzania w OMS](operations-management-suite-solutions.md) zazwyczaj uwzględnia elementy runbook automatyzacji Azure można zautomatyzować procesy, takie jak zbierania i przetwarzania danych monitorowania.  Oprócz elementów runbook kont automatyzacji zawiera zasoby, takie jak zmienne i harmonogramy, obsługujących elementy runbook używane w rozwiązaniu.  W tym artykule opisano, jak dołączyć elementy runbook i ich powiązane zasoby w rozwiązaniu.
+[Rozwiązania do zarządzania w OMS](operations-management-suite-solutions.md) zazwyczaj uwzględnia elementów runbook w automatyzacji Azure tooautomate procesy, takie jak zbierania i przetwarzania danych monitorowania.  Ponadto toorunbooks, kont automatyzacji zawiera zasoby, takie jak zmienne i harmonogramy obsługuje hello elementów runbook używane w rozwiązaniu hello.  W tym artykule opisano sposób tooinclude elementów runbook i ich powiązane zasoby w rozwiązaniu.
 
 > [!NOTE]
-> Przykłady w tym artykule, użyj parametrów i zmiennych, które są wymagane ani wspólne dla rozwiązań do zarządzania i opisano w [tworzenia rozwiązań do zarządzania w Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
+> cześć przykłady w tym artykule Użyj parametry i zmienne, które są albo toomanagement wymagane lub typowych rozwiązań i opisane w [tworzenia rozwiązań do zarządzania w Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule przyjęto założenie, że znasz już następujące informacje.
+W tym artykule przyjęto założenie, że znasz już hello następujących informacji.
 
-- Jak [tworzenie rozwiązania do zarządzania](operations-management-suite-solutions-creating.md).
-- Struktura [plik rozwiązania](operations-management-suite-solutions-solution-file.md).
-- Jak [Tworzenie szablonów usługi Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- Jak zbyt[tworzenie rozwiązania do zarządzania](operations-management-suite-solutions-creating.md).
+- Witaj struktury [plik rozwiązania](operations-management-suite-solutions-solution-file.md).
+- Jak zbyt[Tworzenie szablonów usługi Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Konto usługi Automation
-Wszystkie zasoby w automatyzacji Azure są zawarte w [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account) konta automatyzacji nie jest zawarty w rozwiązaniu do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, nie będą instalacji rozwiązania.
+Wszystkie zasoby w automatyzacji Azure są zawarte w [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview).  Zgodnie z opisem w [OMS obszaru roboczego i konto automatyzacji](operations-management-suite-solutions.md#oms-workspace-and-automation-account) hello konta automatyzacji nie jest zawarty w rozwiązaniu do zarządzania hello, ale musi istnieć przed zainstalowaniem hello rozwiązania.  Jeśli nie jest dostępna, następnie hello rozwiązania instalacja zakończy się niepowodzeniem.
 
-Nazwa każdego zasobu automatyzacji zawiera nazwę swojego konta automatyzacji.  Jest to rozwiązanie z **accountName** parametru, jak w poniższym przykładzie zasobu elementu runbook.
+Nazwa Hello każdego zasobu automatyzacji zawiera nazwę hello jego konta automatyzacji.  Odbywa się w rozwiązaniu hello hello **accountName** parametru jak hello poniższy przykład zasobu elementu runbook.
 
     "name": "[concat(parameters('accountName'), '/MyRunbook'))]"
 
 
 ## <a name="runbooks"></a>Elementy Runbook
-Należy uwzględnić wszystkie elementy runbook, dzięki czemu są tworzone po zainstalowaniu rozwiązania już używana przez rozwiązania w pliku rozwiązania.  Treść elementu runbook w szablonie nie mogą zawierać jednak, należy opublikować element runbook do lokalizacji publicznej, gdzie jest dostępny przez dowolnego użytkownika instalowanie rozwiązania.
+Należy uwzględnić wszystkie elementy runbook używana przez rozwiązania hello w pliku rozwiązania hello, dzięki czemu są tworzone po zainstalowaniu hello rozwiązania.  Hello treści elementu runbook hello hello szablonu nie może zawierać jednak, należy opublikować hello runbook tooa lokalizacji publicznej gdzie jest dostępny przez dowolnego użytkownika instalowanie rozwiązania.
 
-[Element runbook automatyzacji Azure](../automation/automation-runbook-types.md) zasoby mają typ **Microsoft.Automation/automationAccounts/runbooks** i ma następującą strukturę. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+[Element runbook automatyzacji Azure](../automation/automation-runbook-types.md) zasoby mają typ **Microsoft.Automation/automationAccounts/runbooks** i mieć hello następujące struktury. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
         "name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -73,21 +73,21 @@ Należy uwzględnić wszystkie elementy runbook, dzięki czemu są tworzone po z
     }
 
 
-W poniższej tabeli opisano właściwości dla elementów runbook.
+w hello w poniższej tabeli opisano Hello właściwości dla elementów runbook.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| runbookType |Określa typy elementu runbook. <br><br> Skrypt — skrypt programu PowerShell <br>PowerShell — przepływ pracy programu PowerShell <br> GraphPowerShell - runbook skryptu PowerShell graficznego <br> GraphPowerShellWorkflow - PowerShell graficzny element runbook przepływu pracy |
-| logProgress |Określa, czy [rekordy postępu](../automation/automation-runbook-output-and-messages.md) ma być generowany dla elementu runbook. |
-| logVerbose |Określa, czy [rekordów pełnych](../automation/automation-runbook-output-and-messages.md) ma być generowany dla elementu runbook. |
-| Opis elementu |Opcjonalny opis dla elementu runbook. |
-| publishContentLink |Określa zawartość elementu runbook. <br><br>Identyfikator URI - identyfikator Uri zawartości elementu runbook.  Są to plik .ps1 dla elementów runbook programu PowerShell i skryptów, a plik wyeksportowany element runbook graficzny element runbook wykresu.  <br> Wersja — wersji elementu runbook do własnych śledzenia. |
+| runbookType |Określa typy hello hello elementu runbook. <br><br> Skrypt — skrypt programu PowerShell <br>PowerShell — przepływ pracy programu PowerShell <br> GraphPowerShell - runbook skryptu PowerShell graficznego <br> GraphPowerShellWorkflow - PowerShell graficzny element runbook przepływu pracy |
+| logProgress |Określa, czy [rekordy postępu](../automation/automation-runbook-output-and-messages.md) ma być generowany dla hello elementu runbook. |
+| logVerbose |Określa, czy [rekordów pełnych](../automation/automation-runbook-output-and-messages.md) ma być generowany dla hello elementu runbook. |
+| description |Opcjonalny opis hello elementu runbook. |
+| publishContentLink |Określa hello zawartość elementu hello runbook. <br><br>Identyfikator URI - Uri toohello zawartość elementu hello runbook.  Są to plik .ps1 dla elementów runbook programu PowerShell i skryptów, a plik wyeksportowany element runbook graficzny element runbook wykresu.  <br> Wersja — wersji elementu runbook hello własne śledzenia. |
 
 
 ## <a name="automation-jobs"></a>Automatyzacja zadań
-Po uruchomieniu elementu runbook w automatyzacji Azure tworzy zadanie usługi Automatyzacja.  Można dodać zasobu Zadanie usługi Automatyzacja do rozwiązania, aby automatycznie uruchomić element runbook po zainstalowaniu rozwiązania do zarządzania.  Ta metoda jest zwykle używana do uruchamiania elementów runbook, które są używane do początkowej konfiguracji rozwiązania.  Aby uruchomić element runbook w regularnych odstępach czasu, należy utworzyć [harmonogram](#schedules) i [harmonogram zadań](#job-schedules)
+Po uruchomieniu elementu runbook w automatyzacji Azure tworzy zadanie usługi Automatyzacja.  Możesz dodać automatyzacji zadań zasobów tooyour rozwiązania tooautomatically start element runbook po zainstalowaniu hello rozwiązania do zarządzania.  Ta metoda jest najczęściej używanymi toostart elementy runbook, które służą do konfiguracji początkowej hello rozwiązania.  Utwórz toostart elementu runbook w regularnych odstępach czasu, [harmonogram](#schedules) i [harmonogram zadań](#job-schedules)
 
-Zasoby zadanie ma typ **Microsoft.Automation/automationAccounts/jobs** i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+Zasoby zadanie ma typ **Microsoft.Automation/automationAccounts/jobs** i mieć hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', parameters('Runbook').JobGuid)]",
@@ -109,20 +109,20 @@ Zasoby zadanie ma typ **Microsoft.Automation/automationAccounts/jobs** i ma nast
       }
     }
 
-Właściwości automatyzacji zadań są opisane w poniższej tabeli.
+w hello w poniższej tabeli opisano właściwości Hello automatyzacji zadań.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Element runbook |Jedna nazwa jednostki o nazwie elementu runbook, aby rozpocząć. |
-| Parametry |Jednostki dla każdej wartości parametru wymagane przez element runbook. |
+| Element runbook |Jedna nazwa jednostki o nazwie hello hello toostart elementu runbook. |
+| parameters |Jednostki dla każdej wartości parametru wymagane przez element runbook hello. |
 
-Zadanie zawiera nazwę elementu runbook i wartości parametrów do wysłania do elementu runbook.  Zadanie powinno [są zależne od](operations-management-suite-solutions-solution-file.md#resources) elementu runbook, który jest uruchamiany od elementu runbook musi zostać utworzone przed zadania.  Jeśli masz wiele elementów runbook, który ma być uruchamiany przez zadanie, które są zależne od innych zadań, które powinny być uruchamiane w pierwszy można zdefiniować ich kolejność.
+Witaj zadania obejmują hello nazwy elementu runbook i wszelkie toobe wartości parametru wysyłane toohello elementu runbook.  zadanie Hello powinien [są zależne od](operations-management-suite-solutions-solution-file.md#resources) hello elementu runbook, który jest uruchamiany od elementu runbook hello musi zostać utworzone przed hello zadania.  Jeśli masz wiele elementów runbook, który ma być uruchamiany przez zadanie, które są zależne od innych zadań, które powinny być uruchamiane w pierwszy można zdefiniować ich kolejność.
 
-Nazwa zasobu zadania musi zawierać identyfikator GUID, który zazwyczaj jest przypisywany przez parametr.  Więcej o parametrach identyfikatora GUID w [tworzenie rozwiązań w Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
+Nazwa zasobu zadania Hello musi zawierać identyfikator GUID, który zazwyczaj jest przypisywany przez parametr.  Więcej o parametrach identyfikatora GUID w [tworzenie rozwiązań w Operations Management Suite (OMS)](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Certyfikaty
-[Certyfikaty automatyzacji Azure](../automation/automation-certificates.md) typu **Microsoft.Automation/automationAccounts/certificates** i ma następującą strukturę. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+[Certyfikaty automatyzacji Azure](../automation/automation-certificates.md) typu **Microsoft.Automation/automationAccounts/certificates** i mieć hello następujące struktury. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -140,17 +140,17 @@ Nazwa zasobu zadania musi zawierać identyfikator GUID, który zazwyczaj jest pr
 
 
 
-W poniższej tabeli opisano właściwości zasobów certyfikatów.
+w hello w poniższej tabeli opisano Hello właściwości zasobów certyfikatów.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| base64Value |Wartość Base-64 dla certyfikatu. |
-| Odcisk palca |Odcisk palca certyfikatu. |
+| base64Value |Wartość Base-64 hello certyfikatu. |
+| Odcisk palca |Odcisk palca certyfikatu hello. |
 
 
 
 ## <a name="credentials"></a>Poświadczenia
-[Poświadczenia usługi Automatyzacja Azure](../automation/automation-credentials.md) typu **Microsoft.Automation/automationAccounts/credentials** i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+[Poświadczenia usługi Automatyzacja Azure](../automation/automation-credentials.md) typu **Microsoft.Automation/automationAccounts/credentials** i mieć hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
 
     {
@@ -167,16 +167,16 @@ W poniższej tabeli opisano właściwości zasobów certyfikatów.
       }
     }
 
-W poniższej tabeli opisano właściwości zasobów poświadczeń.
+w hello w poniższej tabeli opisano Hello właściwości zasobów poświadczeń.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa użytkownika |Nazwa użytkownika dla poświadczenia. |
-| hasło |Hasło dla poświadczeń. |
+| Nazwa użytkownika |Nazwa użytkownika dla hello poświadczenia. |
+| hasło |Hasło dla poświadczeń hello. |
 
 
 ## <a name="schedules"></a>Harmonogramy
-[Harmonogramy automatyzacji Azure](../automation/automation-schedules.md) typu **Microsoft.Automation/automationAccounts/schedules** i ma następującą strukturę. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+[Harmonogramy automatyzacji Azure](../automation/automation-schedules.md) typu **Microsoft.Automation/automationAccounts/schedules** i mieć hello hello następujące struktury. W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -195,26 +195,26 @@ W poniższej tabeli opisano właściwości zasobów poświadczeń.
       }
     }
 
-W poniższej tabeli opisano właściwości planowania zasobów.
+w hello w poniższej tabeli opisano Hello właściwości harmonogramu zasobów.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Opis elementu |Opcjonalny opis dla harmonogramu. |
-| startTime |Określa czas rozpoczęcia harmonogramu jako obiekt typu DateTime. Jeśli można przekonwertować na prawidłowy element DateTime można podać ciąg. |
-| IsEnabled |Określa, czy jest włączony harmonogram. |
-| Interwał |Typ interwału harmonogramu.<br><br>dzień<br>godz. |
-| częstotliwość |Częstotliwość, z jaką harmonogram powinny wyzwalać w liczbie dni lub godzin. |
+| description |Opcjonalny opis hello harmonogramu. |
+| startTime |Określa czas rozpoczęcia harmonogramu hello jako obiekt typu DateTime. Jeśli może zostać przekonwertowany tooa można podać ciąg prawidłowy element DateTime. |
+| IsEnabled |Określa, czy harmonogram hello jest włączone. |
+| interval |Typ Hello Interwał harmonogramu hello.<br><br>dzień<br>godz. |
+| frequency |Witaj harmonogram częstotliwości powinna wyzwalać w liczbie dni lub godzin. |
 
-Harmonogramy musi mieć godzinę rozpoczęcia o wartości większej niż bieżący czas.  Nie można podać tę wartość za pomocą zmiennych, ponieważ czy nie ma możliwości wiedzy, kiedy przechodzi do zainstalowania.
+Harmonogramy musi mieć godzinę rozpoczęcia o wartości większej niż hello bieżącego czasu.  Nie można podać tę wartość za pomocą zmiennych, ponieważ czy nie ma możliwości wiedzy, gdy jest zainstalowany toobe będzie.
 
-Za pomocą harmonogramu zasobów w rozwiązaniu, należy użyć jednej z następujących dwóch strategii.
+Użyj jednej z powitania po dwóch strategii, korzystając z harmonogramu zasobów w rozwiązaniu.
 
-- Czas rozpoczęcia harmonogramu, należy użyć parametru.  To pojawi się monit podanie wartości podczas instalacji rozwiązania.  Jeśli masz wiele harmonogramów można używać wartości jeden parametr dla więcej niż jeden z nich.
-- Tworzenie harmonogramów przy użyciu elementu runbook, który rozpoczyna się, gdy rozwiązanie jest zainstalowane.  Spowoduje to usunięcie wymaganie użytkownika, aby określić godzinę, ale nie może zawierać harmonogram w rozwiązaniu, dlatego zostanie usunięta po usunięciu rozwiązania.
+- Użyj parametru hello czas rozpoczęcia harmonogramu hello.  Monit hello użytkownika tooprovide wartość przy instalacji hello rozwiązania.  Jeśli masz wiele harmonogramów można używać wartości jeden parametr dla więcej niż jeden z nich.
+- Utwórz harmonogramy hello przy użyciu elementu runbook, który rozpoczyna się, gdy rozwiązanie hello jest zainstalowane.  Spowoduje to usunięcie hello wymaganie toospecify użytkownika hello raz, ale nie może zawierać harmonogram hello w rozwiązaniu, dlatego zostanie usunięta po usunięciu hello rozwiązania.
 
 
 ### <a name="job-schedules"></a>Harmonogramy zadań
-Zadania planowania zasobów powiązania elementu runbook z harmonogramem.  Mają one typu **Microsoft.Automation/automationAccounts/jobSchedules** i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów. 
+Zadania planowania zasobów powiązania elementu runbook z harmonogramem.  Mają one typu **Microsoft.Automation/automationAccounts/jobSchedules** i mieć hello hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
@@ -238,17 +238,17 @@ Zadania planowania zasobów powiązania elementu runbook z harmonogramem.  Mają
     }
 
 
-W poniższej tabeli opisano właściwości harmonogramy zadań.
+w hello w poniższej tabeli opisano właściwości Hello harmonogramy zadań.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa harmonogramu |Pojedynczy **nazwa** jednostki o nazwę harmonogramu. |
-| Nazwa elementu Runbook  |Pojedynczy **nazwa** jednostki o nazwie elementu runbook.  |
+| Nazwa harmonogramu |Pojedynczy **nazwa** jednostki o nazwie hello hello harmonogramu. |
+| Nazwa elementu Runbook  |Pojedynczy **nazwa** jednostki o nazwie hello hello elementu runbook.  |
 
 
 
 ## <a name="variables"></a>Zmienne
-[Zmienne automatyzacji Azure](../automation/automation-variables.md) typu **Microsoft.Automation/automationAccounts/variables** i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów.
+[Zmienne automatyzacji Azure](../automation/automation-variables.md) typu **Microsoft.Automation/automationAccounts/variables** i mieć hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -265,31 +265,31 @@ W poniższej tabeli opisano właściwości harmonogramy zadań.
       }
     }
 
-W poniższej tabeli opisano właściwości dla zmiennej zasobów.
+w hello w poniższej tabeli opisano Hello właściwości zasobów zmiennej.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Opis elementu | Opcjonalny opis dla zmiennej. |
-| isEncrypted | Określa, czy ma być szyfrowana zmienna. |
-| type | Ta właściwość obecnie nie ma znaczenia.  Typ danych zmiennej będzie określana przez wartość początkowa. |
-| wartość | Wartość zmiennej. |
+| description | Opcjonalny opis hello zmiennej. |
+| isEncrypted | Określa, czy ma być szyfrowana zmienna hello. |
+| type | Ta właściwość obecnie nie ma znaczenia.  Typ danych zmiennej hello Hello będzie określana przez wartość początkowa hello. |
+| wartość | Wartość zmiennej hello. |
 
 > [!NOTE]
-> **Typu** właściwości obecnie nie ma wpływu na zmiennej tworzona.  Typ danych zmiennej będzie określana przez wartość.  
+> Witaj **typu** właściwości obecnie nie ma wpływu na powitania zmiennej tworzona.  Typ danych zmiennej hello Hello będzie określana przez wartość hello.  
 
-Jeśli ustawisz wartość początkowa zmiennej musi być skonfigurowany jako prawidłowy typ danych.  Poniższa tabela zawiera różne typy danych dopuszczalny i ich składni.  Należy pamiętać, że wartości w formacie JSON powinny zawsze być ujęte w cudzysłów z znaków specjalnych w cudzysłowy.  Na przykład wartość ciągu zostałaby określona przez stawiać cudzysłów wokół ciąg (przy użyciu znaku ucieczki (\\)) podczas zostałaby określona wartość liczbową z jednego zestawu znaków cudzysłowu.
+Jeśli ustawisz hello początkowej wartości zmiennej hello musi być skonfigurowany jako hello prawidłowy typ danych.  Witaj w poniższej tabeli zawiera hello różne typy danych dopuszczalny i ich składni.  Należy pamiętać, że wartości w formacie JSON są oczekiwane tooalways być ujęte w cudzysłów z znaków specjalnych w cudzysłowy hello.  Na przykład wartość ciągu zostałaby określona przez stawiać cudzysłów wokół ciąg hello (przy użyciu znaku ucieczki hello (\\)) podczas zostałaby określona wartość liczbową z jednego zestawu znaków cudzysłowu.
 
-| Typ danych | Opis | Przykład | Jest rozpoznawana jako |
+| Typ danych | Opis | Przykład | Usuwa zbyt|
 |:--|:--|:--|:--|
 | Ciąg   | Wartość należy ująć w cudzysłów.  | "\"Hello world\"" | "Hello world" |
 | numeryczne  | Wartość liczbowa z apostrofy.| "64" | 64 |
 | Wartość logiczna  | **wartość true,** lub **false** w cudzysłowy.  Należy pamiętać, że ta wartość musi być litera. | wartość "prawda" | Wartość true |
-| Data i godzina | Serializacji wartości typu date.<br>Polecenia cmdlet ConvertTo-Json w programie PowerShell służy do generowania wartości dla określonej daty.<br>Przykład: get data "2017-5/24 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Data i godzina | Serializacji wartości typu date.<br>Tej wartości można użyć polecenia cmdlet ConvertTo-Json hello w toogenerate środowiska PowerShell dla określonej daty.<br>Przykład: get data "2017-5/24 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduły
-Rozwiązania do zarządzania, nie trzeba definiować [modułów globalnych](../automation/automation-integration-modules.md) używany przez elementy runbook, ponieważ zawsze będzie dostępna na Twoim koncie automatyzacji.  Należy uwzględnić zasobów dla innych modułu używany przez elementy runbook.
+Rozwiązania do zarządzania nie jest konieczne toodefine [modułów globalnych](../automation/automation-integration-modules.md) używany przez elementy runbook, ponieważ zawsze będzie dostępna na Twoim koncie automatyzacji.  Trzeba tooinclude zasobów dla innych modułu używany przez elementy runbook.
 
-[Moduły integracji](../automation/automation-integration-modules.md) typu **Microsoft.Automation/automationAccounts/modules** i ma następującą strukturę.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów.
+[Moduły integracji](../automation/automation-integration-modules.md) typu **Microsoft.Automation/automationAccounts/modules** i mieć hello następujące struktury.  W tym wspólnych zmiennych i parametrów, aby mogli skopiuj i wklej następujący fragment kodu w pliku rozwiązania i Zmień nazwy parametrów hello.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -305,35 +305,35 @@ Rozwiązania do zarządzania, nie trzeba definiować [modułów globalnych](../a
     }
 
 
-W poniższej tabeli opisano właściwości zasobów modułu.
+w hello w poniższej tabeli opisano Hello właściwości zasobów modułu.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| contentLink |Określa zawartość modułu. <br><br>Identyfikator URI - identyfikator Uri zawartości modułu.  Są to plik .ps1 dla elementów runbook programu PowerShell i skryptów, a plik wyeksportowany element runbook graficzny element runbook wykresu.  <br> Wersja - modułu dla własnego śledzenia. |
+| contentLink |Określa zawartość hello hello modułu. <br><br>Identyfikator URI - identyfikator Uri zawartości toohello hello modułu.  Są to plik .ps1 dla elementów runbook programu PowerShell i skryptów, a plik wyeksportowany element runbook graficzny element runbook wykresu.  <br> Wersja — wersja modułu hello własne śledzenia. |
 
-Element runbook należy są zależne od zasobów modułu, aby upewnić się, że został utworzony przed elementu runbook.
+Hello runbook powinien zależą od hello modułu zasobów tooensure utworzony przed hello elementu runbook.
 
 ### <a name="updating-modules"></a>Aktualizowanie modułów
-Aktualizacji rozwiązanie do zarządzania, które zawiera element runbook, który używa harmonogram, a nowa wersja rozwiązań ma nowy moduł używany przez ten element runbook, element runbook może używać starej wersji modułu.  Powinny obejmować następujące elementy runbook w rozwiązaniu i utworzyć zadanie, aby uruchomić je przed wszystkie inne elementy runbook.  Daje to pewność, że wszystkie moduły są aktualizowane, kiedy wymagana przed elementy runbook zostały załadowane.
+Aktualizacji rozwiązanie do zarządzania, które zawiera element runbook, który używa harmonogram, a nowej wersji hello rozwiązań ma nowy moduł używany przez ten element runbook, hello runbook może używać hello starą wersję hello modułu.  Należy uwzględnić następujące elementy runbook w rozwiązaniu hello i utworzyć toorun zadania je przed wszystkie inne elementy runbook.  Daje to pewność, że wszystkie moduły są aktualizowane jako wymagany przed powitalne elementy runbook są ładowane.
 
-* [Aktualizacja ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) sprawdzi wszystkie moduły używane przez elementy runbook w rozwiązaniu do najnowszej wersji.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) zostanie ponownie zarejestrować wszystkie zasoby harmonogram, aby upewnić się, że elementy runbook powiązane z nimi przy użyciu najnowszych modułów.
+* [Aktualizacja ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) sprawdzi wszystkie moduły hello używany przez elementy runbook w rozwiązaniu hello najnowszej wersji.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) zostanie ponownie zarejestrować wszystkie hello harmonogramu zasobów tooensure, że hello elementy runbook połączone toothem z modułami najnowsze hello użycia.
 
 
 
 
 ## <a name="sample"></a>Przykład
-Poniżej przedstawiono przykładowe rozwiązanie obejmujące obejmuje następujące zasoby:
+Poniżej przedstawiono przykładowe rozwiązanie obejmujące obejmuje hello następujące zasoby:
 
 - Element Runbook.  To jest przykładowy element runbook, przechowywane w publicznych repozytorium GitHub.
-- Zadanie usługi Automatyzacja, który uruchomi element runbook, gdy rozwiązanie jest zainstalowane.
-- Harmonogram i harmonogram uruchamiania elementu runbook w regularnych odstępach czasu.
+- Zadanie usługi Automatyzacja rozpoczynającej się od elementu runbook hello rozwiązania hello jest zainstalowany.
+- Harmonogram i zadania harmonogramu toostart hello runbook w regularnych odstępach czasu.
 - Certyfikat.
 - Poświadczenie.
 - Zmienna.
-- Moduł.  Jest to [modułu OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) do zapisywania danych do analizy dzienników. 
+- Moduł.  Jest to hello [modułu OMSIngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) do zapisywania danych tooLog Analytics. 
 
-W przykładzie użyto [parametry standardowego rozwiązania](operations-management-suite-solutions-solution-file.md#parameters) zmiennych, które służy zwykle do rozwiązania, w przeciwieństwie do wartości hardcoding w definicji zasobu.
+Witaj używa próbki [parametry standardowego rozwiązania](operations-management-suite-solutions-solution-file.md#parameters) zmiennych, które służy zwykle do rozwiązania jako przeciwieństwie wartości toohardcoding w definicjach zasobów hello.
 
 
     {
@@ -409,14 +409,14 @@ W przykładzie użyto [parametry standardowego rozwiązania](operations-manageme
         "scheduleLinkGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the schedule link to runbook.",
+            "description": "GUID for hello schedule link toorunbook.",
             "control": "guid"
           }
         },
         "runbookJobGuid": {
           "type": "string",
           "metadata": {
-            "description": "GUID for the runbook job.",
+            "description": "GUID for hello runbook job.",
             "control": "guid"
           }
         }
@@ -650,4 +650,4 @@ W przykładzie użyto [parametry standardowego rozwiązania](operations-manageme
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dodaj widok do rozwiązania](operations-management-suite-solutions-resources-views.md) do wizualizacji zebranych danych.
+* [Dodaj rozwiązanie tooyour widoku](operations-management-suite-solutions-resources-views.md) toovisualize zbieranych danych.

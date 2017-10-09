@@ -1,6 +1,6 @@
 ---
-title: "Włącz publiczny dostęp do odczytu do kontenerów i obiektów blob w magazynie obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak udostępnić kontenerów i obiektów blob dla dostępu anonimowego i sposób programowy dostęp."
+title: "aaaEnable publiczny dostęp do odczytu do kontenerów i obiektów blob w magazynie obiektów Blob platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomake kontenerów i obiektów blob jest dostępna dla dostępu anonimowego i w jaki sposób tooaccess je programowo."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: marsma
-ms.openlocfilehash: 8d4f4c7c208baf0db6155eb78a53e37c4ec1e023
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: dd8ffdb39a66aa06f65ad3cdd4315d47c117f059
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob
-Można włączyć anonimowego, publiczny dostęp do odczytu do kontenera i jego obiektów blob w magazynie obiektów Blob Azure. W ten sposób można przyznać dostęp tylko do odczytu do tych zasobów, bez udostępniania swój klucz konta usługi i bez konieczności sygnatury dostępu współdzielonego (SAS).
+# <a name="manage-anonymous-read-access-toocontainers-and-blobs"></a>Zarządzanie toocontainers anonimowy dostęp do odczytu i obiektów blob
+Można włączyć anonimowego, publiczny dostęp do odczytu tooa kontenera i jego obiektów blob w magazynie obiektów Blob Azure. W ten sposób można przyznać dostęp tylko do odczytu zasobów toothese bez udostępniania swój klucz konta usługi i bez konieczności sygnatury dostępu współdzielonego (SAS).
 
-Najlepiej w scenariuszach, w którym ma niektórych obiektów blob zawsze być dostępna dla anonimowy dostęp do odczytu jest publiczny dostęp do odczytu. Aby uzyskać bardziej precyzyjną kontrolę można utworzyć sygnatury dostępu współdzielonego. Sygnatury dostępu współdzielonego umożliwiają stosowanie ograniczony dostęp przy użyciu różnych uprawnień w określonym przedziale czasu. Aby uzyskać więcej informacji o tworzeniu udostępnionych sygnatur dostępu, zobacz [używanie udostępnionych sygnatur dostępu (SAS) w usłudze Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Najlepiej w scenariuszach, w miejsce niektórych obiektów blob tooalways można anonimowy dostęp do odczytu jest publiczny dostęp do odczytu. Aby uzyskać bardziej precyzyjną kontrolę można utworzyć sygnatury dostępu współdzielonego. Sygnatury dostępu współdzielonego umożliwiają tooprovide ograniczony dostęp przy użyciu różnych uprawnień w określonym przedziale czasu. Aby uzyskać więcej informacji o tworzeniu udostępnionych sygnatur dostępu, zobacz [używanie udostępnionych sygnatur dostępu (SAS) w usłudze Azure Storage](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Udzielanie uprawnień użytkownikom anonimowym do kontenerów i obiektów blob
-Domyślnie kontener i wszystkie obiekty BLOB w nim mogą być używane tylko przez właściciela konta magazynu. Aby udostępnić użytkownikom anonimowym uprawnienia odczytu do kontenera i jego obiektów blob, można ustawić uprawnień kontenera, aby zezwolić na publiczny dostęp. Użytkownicy anonimowi mogą odczytywać obiekty BLOB w kontenerze publicznie bez uwierzytelniania żądania.
+## <a name="grant-anonymous-users-permissions-toocontainers-and-blobs"></a>Udziel toocontainers uprawnień użytkowników anonimowych, jak i obiektów blob
+Domyślnie kontener i wszystkie obiekty BLOB w nim mogą być używane tylko przez właściciela hello hello konta magazynu. toogive anonimowym użytkownikom uprawnienia do odczytu tooa kontenera i jego obiektów blob, można ustawić dostępu publicznego tooallow hello kontenera uprawnienia. Użytkownicy anonimowi mogą odczytywać obiekty BLOB w kontenerze publicznie bez uwierzytelniania hello żądania.
 
-Kontener można skonfigurować następujące uprawnienia:
+Można skonfigurować kontener hello następujących uprawnień:
 
-* **Dostęp do odczytu żadnego elementu publicznego public:** kontenera i jego obiektów blob są dostępne tylko przez właściciela konta magazynu. Jest to wartość domyślna dla wszystkich nowych kontenerów.
-* **Dostęp do obiektów blob tylko odczytu publicznego:** obiekty BLOB w kontenerze może zostać odczytany przez żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Anonimowe klientów nie można wyliczyć obiektów blob w kontenerze.
-* **Pełne publiczny dostęp do odczytu:** wszystkie dane obiektów blob i kontener może zostać odczytany przez żądania od użytkowników anonimowych. Klientów można wyliczyć obiektów blob w kontenerze przez żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu.
+* **Dostęp do odczytu żadnego elementu publicznego public:** hello kontenera i jego obiektów blob są dostępne tylko przez właściciela konta magazynu hello. Jest to domyślna powitania dla wszystkich nowych kontenerów.
+* **Dostęp do obiektów blob tylko odczytu publicznego:** obiekty BLOB w kontenerze hello może zostać odczytany przez żądania od użytkowników anonimowych, ale nie są dostępne dane kontenera. Anonimowe klientów nie można wyliczyć obiektów blob hello w kontenerze hello.
+* **Pełne publiczny dostęp do odczytu:** wszystkie dane obiektów blob i kontener może zostać odczytany przez żądania od użytkowników anonimowych. Klientów można wyliczyć obiektów blob w kontenerze hello przez żądania od użytkowników anonimowych, ale nie można wyliczyć kontenery w ramach konta magazynu hello.
 
-Następujące służy do ustawiania uprawnień kontenera:
+Można użyć następujących uprawnień kontenera tooset hello:
 
 * [Witryna Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#how-to-manage-azure-blobs)
 * [Interfejs wiersza polecenia platformy Azure 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* Programowo za pomocą jednej z bibliotek klienckich magazynu lub interfejsu API REST
+* Programowo za pomocą jednej z bibliotek klienckich magazynu hello lub hello interfejsu API REST
 
-### <a name="set-container-permissions-in-the-azure-portal"></a>Ustaw uprawnienia kontenera w portalu Azure
-Aby ustawić uprawnienia do kontenera w [portalu Azure](https://portal.azure.com), wykonaj następujące kroki:
+### <a name="set-container-permissions-in-hello-azure-portal"></a>Ustaw uprawnienia kontenera w hello portalu Azure
+tooset uprawnień kontenera w hello [portalu Azure](https://portal.azure.com), wykonaj następujące kroki:
 
-1. Otwórz z **konta magazynu** bloku w portalu. Można znaleźć konta magazynu, wybierając **kont magazynu** w bloku portalu menu głównego.
-1. W obszarze **usługa BLOB** w bloku menu wybierz **kontenery**.
-1. Kliknij prawym przyciskiem myszy w wierszu kontenera lub wybierz przycisk wielokropka, aby otworzyć kontenera **menu kontekstowe**.
-1. Wybierz **zasady dostępu** w menu kontekstowym.
-1. Wybierz **dostęp typu** z menu rozwijanego.
+1. Otwórz z **konta magazynu** bloku w portalu hello. Można znaleźć konta magazynu, wybierając **kont magazynu** w bloku portalu menu głównego hello.
+1. W obszarze **usługa BLOB** na powitania bloku menu, wybierz **kontenery**.
+1. Kliknij prawym przyciskiem myszy na wiersz kontenera hello lub wybierz hello wielokropka tooopen hello kontenera **menu kontekstowe**.
+1. Wybierz **zasady dostępu** w menu kontekstowym hello.
+1. Wybierz **dostęp typu** z hello menu rozwijanym.
 
     ![Okno dialogowe metadanych kontenera Edycja](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="set-container-permissions-with-net"></a>Ustawianie uprawnień kontenera z platformą .NET
-Aby ustawić uprawnienia do kontenera przy użyciu języka C# i biblioteki klienta usługi Storage dla platformy .NET, najpierw pobrać kontenera istniejące uprawnienia, wywołując **GetPermissions** metody. Następnie ustaw **PublicAccess** właściwość **BlobContainerPermissions** obiektu, który jest zwracany przez **GetPermissions** metody. Na koniec wywołania **ustawiania** metody zaktualizowano uprawnienia.
+tooset uprawnienia do kontenera przy użyciu języka C# i hello biblioteki klienta usługi Storage dla platformy .NET, najpierw pobrać kontenera hello istniejące uprawnienia przez wywołanie hello **GetPermissions** metody. Następnie zestaw hello **PublicAccess** właściwość hello **BlobContainerPermissions** obiektu, który jest zwracany przez hello **GetPermissions** metody. Na koniec wywołania hello **ustawiania** metody z hello zaktualizowano uprawnienia.
 
-Poniższy przykład ustawia kontenera uprawnienia do pełnej publiczny dostęp do odczytu. Uprawnienia do publiczny dostęp do odczytu obiektów blob jedynie ustawia **PublicAccess** właściwości **BlobContainerPublicAccessType.Blob**. Aby usunąć wszystkie uprawnienia dla użytkowników anonimowych, ustaw dla właściwości **BlobContainerPublicAccessType.Off**.
+Poniższy przykład Hello ustawia uprawnienia kontenera hello toofull publiczny dostęp do odczytu. dostęp do odczytu tooset toopublic uprawnienia dla obiektów blob, należy ustawić hello **PublicAccess** właściwości zbyt**BlobContainerPublicAccessType.Blob**. Ustaw wszystkie uprawnienia dla użytkowników anonimowych tooremove zbyt hello właściwości**BlobContainerPublicAccessType.Off**.
 
 ```csharp
 public static void SetPublicContainerPermissions(CloudBlobContainer container)
@@ -67,21 +67,21 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Dostęp do kontenerów i obiektów blob anonimowo
-Klient, który uzyskuje dostęp do kontenerów i obiektów blob anonimowo można użyć konstruktorów, które nie wymagają poświadczeń. W poniższych przykładach pokazano na kilka różnych sposobów odwołanie do obiektu Blob usługi zasobów anonimowo.
+Klient, który uzyskuje dostęp do kontenerów i obiektów blob anonimowo można użyć konstruktorów, które nie wymagają poświadczeń. Następujące przykłady Hello Pokaż na kilka różnych sposobów zasoby usługi Blob tooreference anonimowo.
 
 ### <a name="create-an-anonymous-client-object"></a>Tworzenie obiektu anonimowego klienta
-Można utworzyć nowy obiekt klienta usługi dla dostępu anonimowego, podając konto punkt końcowy usługi Blob. Jednak również musi znać nazwę kontenera na tym koncie, który jest dostępny dla dostępu anonimowego.
+Można utworzyć nowy obiekt klienta usługi dla dostępu anonimowego, podając punkt końcowy usługi Blob hello hello konta. Należy jednak znać nazwę hello kontenera na tym koncie, który jest dostępny dla dostępu anonimowego.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob service endpoint.
+    // Create hello client object using hello Blob service endpoint.
     CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read hello container's properties. Note this is only possible when hello container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -89,15 +89,15 @@ public static void CreateAnonymousBlobClient()
 ```
 
 ### <a name="reference-a-container-anonymously"></a>Odwołanie kontenera anonimowego
-Jeśli adres URL do kontenera, który jest dostępny anonimowo, można go bezpośrednio odwoływać kontenera.
+Jeśli masz hello adres URL tooa kontener, który jest dostępny anonimowo umożliwia kontenera hello tooreference bezpośrednio.
 
 ```csharp
 public static void ListBlobsAnonymously()
 {
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
 
-    // List blobs in the container.
+    // List blobs in hello container.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -106,7 +106,7 @@ public static void ListBlobsAnonymously()
 ```
 
 ### <a name="reference-a-blob-anonymously"></a>Odwołanie obiektu blob anonimowo
-Jeśli adres URL obiektu blob, który jest dostępny dla dostępu anonimowego, może odwoływać się bezpośrednio przy użyciu tego adresu URL obiektu blob:
+Jeśli masz hello adresu URL tooa blob, który jest dostępny dla dostępu anonimowego, możesz odwoływać się do obiektu blob hello bezpośrednio przy użyciu tego adresu URL:
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -116,8 +116,8 @@ public static void DownloadBlobAnonymously()
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>Funkcje dostępne dla użytkowników anonimowych
-Poniższej tabeli operacje może zostać wywołana przez użytkowników anonimowych ustawianą ACL kontenera umożliwiających dostęp do publicznego.
+## <a name="features-available-tooanonymous-users"></a>Funkcje dostępne tooanonymous użytkowników
+Witaj w poniższej tabeli przedstawiono operacje może zostać wywołana przez anonimowych użytkowników, gdy ACL kontenera ustawiono tooallow dostępu publicznego.
 
 | Operacji REST | Uprawnienie o pełnej publiczny dostęp do odczytu | Uprawnienie o publiczny dostęp do odczytu obiektów blob tylko |
 | --- | --- | --- |
@@ -150,6 +150,6 @@ Poniższej tabeli operacje może zostać wywołana przez użytkowników anonimow
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uwierzytelnianie dla usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Uwierzytelnianie dla hello usług magazynu Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Przy użyciu sygnatury dostępu współdzielonego (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Delegowanie dostępu za pomocą sygnatury dostępu współdzielonego](https://msdn.microsoft.com/library/azure/ee395415.aspx)

@@ -1,5 +1,5 @@
 ---
-title: Experiments Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
+title: experiments aaaCortana Intelligence Gallery | Dokumentacja firmy Microsoft
 description: "Odnajdywanie i udostępniać eksperymenty w Cortana Intelligence Gallery."
 services: machine-learning
 documentationcenter: 
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e1f784eff02cacd680d631a843e6384697d0ae6e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 55994846e277061bbb3febb759e0c68ad6cee7e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Odnajdywanie eksperymenty w Cortana Intelligence Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Eksperymentów w usłudze Machine Learning Studio
-Galeria zawiera szeroką gamę [eksperymenty](https://gallery.cortanaintelligence.com/experiments) zostały opracowane w [Azure Machine Learning Studio](https://studio.azureml.net). Zakres eksperymentów z szybkiego eksperymenty Weryfikacja koncepcji, które pokazują określonej maszyny uczenia chcemy pełni rozwinięte rozwiązań problemów learning złożonych maszyny.
+Witaj galerii zawiera szeroką gamę [eksperymenty](https://gallery.cortanaintelligence.com/experiments) zostały opracowane w [Azure Machine Learning Studio](https://studio.azureml.net). Zakres eksperymentów z szybkiego eksperymenty Weryfikacja koncepcji, które pokazują określonej maszyny uczenia technika, toofully opracowany rozwiązań problemów learning złożonych maszyny.
 
 > [!NOTE]
-> ***Eksperymentu*** jest kanwy w usłudze Machine Learning Studio używanego w celu utworzenia modelu analizy predykcyjnej. Łączenie danych z różnych modułów analitycznych do tworzenia modelu. Można spróbuj różnych pomysły, czy działa w wersji próbnej i ostatecznie wdrożyć model jako usługę sieci web na platformie Azure. Na przykład sposobu tworzenia podstawowych eksperymentu zobacz [samouczek dotyczący uczenia maszynowego: Tworzenie pierwszego eksperymentu w usłudze Azure Machine Learning Studio](machine-learning-create-experiment.md). Na pełniejsze Przewodnik tworzenia rozwiązania analizy predykcyjnej, zobacz [wskazówki: tworzenie rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
+> ***Eksperymentu*** jest kanwy w usłudze Machine Learning Studio służy tooconstruct modelu analizy predykcyjnej. Utworzony hello model przez połączenie danych z różnych modułów analitycznych. Można spróbuj różnych pomysły, czy działa w wersji próbnej i ostatecznie wdrożyć model jako usługę sieci web na platformie Azure. Na przykład jak toocreate podstawowe eksperymentu, zobacz [samouczek dotyczący uczenia maszynowego: Tworzenie pierwszego eksperymentu w usłudze Azure Machine Learning Studio](machine-learning-create-experiment.md). Aby uzyskać bardziej szczegółowe wskazówki jak toocreate rozwiązania analizy predykcyjnej, zobacz [wskazówki: tworzenie rozwiązania analizy predykcyjnej w celu oceny ryzyka kredytowego w usłudze Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 >
 >
 
 ## <a name="discover"></a>Wykrywanie
-Aby przeglądać eksperymenty [w galerii](http://gallery.cortanaintelligence.com), w górnej części strony głównej galerii, wybierz **eksperymenty**.
+eksperymenty toobrowse [w galerii hello](http://gallery.cortanaintelligence.com), strony głównej u góry hello hello galerii, wybierz **eksperymenty**.
 
- **[Eksperymenty](https://gallery.cortanaintelligence.com/experiments)**  zostanie wyświetlona lista ostatnio dodany i popularne eksperymenty. Aby zobaczyć wszystkie eksperymenty, zaznacz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych eksperymentu, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+Witaj  **[eksperymenty](https://gallery.cortanaintelligence.com/experiments)**  zostanie wyświetlona lista ostatnio dodany i popularne eksperymenty. Wybierz wszystkie eksperymenty toosee hello **zobaczyć wszystkie** przycisku. toosearch dla określonych eksperymentu, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w hello **wyszukiwania** pole u góry hello hello galerii strony.
 
-Możesz uzyskać więcej informacji na temat eksperyment na stronie szczegółów eksperymentu. Aby otworzyć stronę szczegółów eksperymentu, wybierz eksperymentu. W eksperymencie szczegóły strony w **komentarze** sekcji, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące eksperymentu. Możesz nawet udostępniać eksperyment znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów doświadczenia z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
+Możesz uzyskać więcej informacji na temat eksperyment na stronie szczegółów eksperymentu hello. Strona, wybierz hello eksperymentu szczegółów tooopen eksperymentu. W eksperymencie szczegółów, w obszarze hello **komentarze** sekcji, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące eksperymentów hello. Możesz nawet udostępniać eksperymentu hello znajomych lub współpracowników w serwisie Twitter i LinkedIn. Również można poczty strony szczegółów eksperymentu toohello łącza o tooinvite strony hello tooview innych użytkowników.
 
 ![Udostępnij ten element znajomych](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Dodaj komentarz własnych](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Do pobrania
-Do swojego obszaru roboczego usługi Machine Learning Studio, możesz pobrać kopię każdego doświadczenia w galerii. Następnie można zmodyfikować kopii programu do tworzenia własnych rozwiązań.
+Istnieje możliwość pobrania kopii każdego doświadczenia w hello galerii tooyour Machine Learning Studio w obszarze roboczym. Następnie można zmodyfikować toocreate Twojego kopiowania własnych rozwiązań.
 
-Cortana Intelligence Gallery oferuje można importować kopię eksperyment na dwa sposoby:
+Cortana Intelligence Gallery udostępnia dwa sposoby tooimport kopię eksperymentu:
 
-* **Z poziomu galerii**. Jeśli znajdziesz eksperymentu w galerii, możesz pobrać kopię, a następnie otwórz go w obszarze roboczym Machine Learning Studio.
-* **Za pomocą uczenia maszynowego Studio**. W usłudze Machine Learning Studio służy każdego doświadczenia w galerii jako szablon, aby utworzyć nowy eksperyment.
+* **Z galerii hello**. Jeśli eksperymentu, które chcesz znaleźć się w hello galerii, możesz pobrać kopię, a następnie otwórz go w obszarze roboczym Machine Learning Studio.
+* **Za pomocą uczenia maszynowego Studio**. W usłudze Machine Learning Studio można użyć każdego doświadczenia w hello galerii jako szablonu toocreate nowy eksperyment.
 
-### <a name="from-the-gallery"></a>Z galerii
+### <a name="from-hello-gallery"></a>Z hello galerii
 
-1. W galerii Otwórz stronę szczegółów eksperymentu.
+1. Otwórz stronę szczegółów eksperymentu hello w hello galerii.
 2. Wybierz **Otwórz w Studio**.
 
-    ![Otwórz doświadczenia z galerii](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
+    ![Otwórz doświadczenia z hello galerii](media/machine-learning-gallery-experiments/open-experiment-from-gallery.png)
 
-Po wybraniu **Otwórz w Studio**, otwiera eksperymentu w obszarze roboczym Machine Learning Studio. (Jeśli jeszcze nie zalogowano Cię do usługi Machine Learning Studio, zostanie wyświetlony monit pierwsze logowanie przy użyciu konta Microsoft.)
+Po wybraniu **Otwórz w Studio**, otwiera hello eksperymentu w obszarze roboczym Machine Learning Studio. (Jeśli użytkownik nie jest jeszcze zarejestrowany w tooMachine Learning Studio, zostanie wyświetlony monit toofirst logowania za pomocą konta Microsoft.)
 
 ### <a name="from-within-machine-learning-studio"></a>Za pomocą uczenia maszynowego Studio
 
 1. W usłudze Machine Learning Studio, wybierz **nowy**.
-2. Wybierz **eksperymentu**. Wybierz z listy eksperymenty w galerii lub znaleźć eksperyment określonego za pomocą **wyszukiwania** pole.
-3. Wskaż myszy eksperymentu, a następnie wybierz **Otwórz w Studio**. (Aby wyświetlić informacje o eksperyment, wybierz **Wyświetl w galerii**. Powoduje to przejście do strony szczegółów eksperymentu w galerii.)
+2. Wybierz **eksperymentu**. Wybierz z listy eksperymenty w galerii lub znaleźć eksperyment określonego za pomocą hello **wyszukiwania** pole.
+3. Wskaż myszy eksperymentu, a następnie wybierz **Otwórz w Studio**. (Wybierz toosee informacji na temat eksperymentu hello **Wyświetl w galerii**. Zostanie wyświetlone strony szczegółów toohello eksperymentu w galerii hello.)
 
     ![Otwórz galerię Poeksperymentuj z wewnątrz usługi Machine Learning Studio](media/machine-learning-gallery-experiments/open-experiment-from-studio.png)
 
@@ -72,20 +72,20 @@ Można dostosować, iteracji i wdrożyć pobrany eksperymentu, podobnie jak inne
 ![Eksperymentu otwarty w Studio](media/machine-learning-gallery-experiments/experiment-open-in-studio.png)
 
 ## <a name="contribute"></a>Współtworzenia
-Po zalogowaniu się do galerii staje się członkami społeczności galerii. Jest członkiem społeczności może przyczynić się własne eksperymentów, aby inni użytkownicy mogą korzystać z rozwiązań, które zostały odnalezione.
+Po zarejestrowaniu się w galerii toohello, staje się członkiem hello społeczności galerii. Jest członkiem społeczności hello aby inni użytkownicy mogą korzystać z rozwiązań hello, które zostały odnalezione może przyczynić się własne eksperymentów.
 
-### <a name="publish-your-experiment-to-the-gallery"></a>Publikowanie eksperymentu w galerii
+### <a name="publish-your-experiment-toohello-gallery"></a>Publikowanie galerii toohello eksperymentu
 
-1. Zaloguj się do usługi Machine Learning Studio za pomocą konta Microsoft.
+1. Zaloguj się w tooMachine Learning Studio za pomocą konta Microsoft.
 2. Tworzenie eksperymentu, a następnie ją uruchom.
-3. Jeśli wszystko jest gotowe do publikowania eksperymentu w galerii, na liście poniżej obszaru roboczego eksperymentu Akcje wybierz **publikowania do galerii**.
+3. Jeśli wszystko jest gotowe toopublish eksperymentu w hello galerii, hello liście akcji poniżej hello roboczego eksperymentu, wybierz **publikowania tooGallery**.
 
-    ![Wybierz pozycję "Publikuj do galerii"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
-4. Na **opis eksperymentu** wprowadź tytuł i tagów. Należy opisowy tytuł i tagów. Wyróżnij metod, które zostanie użyte lub rozwiązywanie rzeczywistych problemów. Na przykład eksperymentu opisowy tytuł "klasyfikacji binarnej: Twitter analizy wskaźniki nastrojów klientów."
+    ![Wybierz pozycję "Publikuj tooGallery"](media/machine-learning-gallery-experiments/publish-experiment-to-gallery.png)
+4. Na powitania **opis eksperymentu** wprowadź tytuł i tagów. Należy opisowy tytuł hello i tagów. Zaznacz hello metod, które zostanie użyte lub hello rzeczywistych problemu są rozwiązywania. Na przykład eksperymentu opisowy tytuł "klasyfikacji binarnej: Twitter analizy wskaźniki nastrojów klientów."
 
     ![Wprowadź tytuł i tagi do publikowania](media/machine-learning-gallery-experiments/experiment-description.png)
-5. W **podsumowania** wprowadź podsumowanie eksperymentu. Zwięźle opisz eksperyment rozwiązuje problemu i jak złożoną.
-6. W **szczegółowy opis** pozycję opisano kroki wykonane w każdej części eksperymentu. Niektóre tematy przydatne do uwzględnienia są:
+5. W hello **podsumowania** wprowadź podsumowanie eksperymentu. Zwięźle opisz hello problem hello eksperymentu rozwiązuje i jak złożoną.
+6. W hello **szczegółowy opis** pozycję opisano kroki hello miało w każdej części eksperymentu. Niektóre tematy przydatne tooinclude są:
    * Zrzut ekranu wykres eksperymentu
    * Wyjaśnienie i źródeł danych
    * Przetwarzanie danych
@@ -93,44 +93,44 @@ Po zalogowaniu się do galerii staje się członkami społeczności galerii. Jes
    * Opis modelu
    * Wyniki i ocena wydajności modelu
 
-   Można użyć języka znaczników markdown sformatować opis. Aby zobaczyć, jak będzie wyglądać wpisy na stronie z opisem eksperymentu eksperyment został opublikowany, zaznacz **Podgląd**.
+   Można użyć języka znaczników markdown tooformat opisu. Wybierz toosee wygląd wpisy na stronie opisu eksperymentu hello po opublikowaniu eksperymentu hello **Podgląd**.
 
-   ![Wybierz opcję "Wersji zapoznawczej", aby zobaczyć, jak będzie wyglądać tekst](media/machine-learning-gallery-experiments/preview-markdown-text.png)
+   ![Wybierz opcję "W wersji zapoznawczej" toosee wyglądu tekstu](media/machine-learning-gallery-experiments/preview-markdown-text.png)
 
    > [!TIP]
-   > Pola tekstowe podana edycji markdown i Podgląd są niewielkie. Zaleca się, że zapisu dokumentacji eksperymentu w edytorze języka znaczników markdown, skopiuj go, a następnie wklej ukończone dokumentacji w polu tekstowym w galerii. Po opublikowaniu eksperymentu, użytkownik może wprowadzić poprawki przy użyciu standardowych narzędzi sieci web tego markdown używany do edycji i podglądu.
+   > Witaj pola tekstowe, pod warunkiem markdown edycji i Podgląd są niewielkie. Zaleca się, że zapisu dokumentacji eksperymentu w edytorze języka znaczników markdown, skopiuj go, a następnie wklej ukończyć powitalnych dokumentacji w polu tekstowym hello w hello galerii. Po opublikowaniu eksperymentu, użytkownik może wprowadzić poprawki przy użyciu standardowych narzędzi sieci web tego markdown używany do edycji i podglądu.
 
-7. Na **wybór obrazu** wybierz obraz miniatury swojego eksperymentu. Obraz miniatury wyświetlany u góry strony szczegółów eksperymentu, w kafelku eksperymentu. Inni użytkownicy zobaczą obraz miniatury przeglądających galerię. Przekaż obraz z komputera lub Wybierz podstawowy obraz w galerii.
+7. Na powitania **wybór obrazu** wybierz obraz miniatury swojego eksperymentu. Obraz miniatury Hello pojawia się u góry hello strony szczegółów eksperymentu hello i hello kafelku eksperymentu. Inni użytkownicy zobaczą obraz miniatury hello przeglądających galerię hello. Przekaż obraz z komputera lub wybierz obraz podstawowy z hello galerii.
     </br>
-    ![Przekazywanie lub wybrać obraz w galerii](media/machine-learning-gallery-experiments/select-gallery-image.png)
-8. Na **ustawienia** w obszarze **widoczność**, określ, czy do publikowania zawartości publicznie (**publicznego**) lub jest ona dostępna tylko dla osób, które mają łącze do strony ( **Nieznajdujące się na liście**).
+    ![Przekazywanie lub wybierz obraz powitania galerii](media/machine-learning-gallery-experiments/select-gallery-image.png)
+8. Na powitania **ustawienia** w obszarze **widoczność**, wybierz czy toopublish zawartości publicznie (**publicznego**) lub toohave on dostępny tylko toopeople, który łącza Strona toohello (**Unlisted**).
 
-    ![Wybierz, czy chcesz opublikować publicznie lub jako nieznajdujące się na liście](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
+    ![Wybierz czy toopublish publicznie lub jako nieznajdujące się na liście](media/machine-learning-gallery-experiments/choose-public-or-unlisted.png)
 
     <!-- -->
 
    > [!TIP]
-   > Jeśli chcesz upewnij się, że w dokumentacji poprawne przed udostępnieniem publicznie, należy najpierw opublikować eksperymentu jako **Unlisted**. Później, możesz zmienić ustawienie widoczności do **publicznego** na stronie szczegółów eksperymentu.
+   > Chcąc toomake się z dokumentacją poprawne przed udostępnieniem publicznie, należy najpierw opublikować hello eksperymentu jako **Unlisted**. Później, możesz zmienić ustawienie widoczności dla hello zbyt**publicznego** na stronie szczegółów eksperymentu hello.
    >
    >
-9. Aby opublikować eksperymentu w galerii, wybierz **OK** znacznik wyboru.
+9. toopublish hello eksperymentu toohello galerii, wybierz hello **OK** znacznik wyboru.
 
-    ![Wybierz znacznik wyboru OK, aby opublikować eksperymentu](media/machine-learning-gallery-experiments/ok-checkmark.png)
+    ![Wybierz hello OK znacznik wyboru toopublish hello eksperymentu](media/machine-learning-gallery-experiments/ok-checkmark.png)
 
-Aby uzyskać wskazówki dotyczące sposobu publikowania eksperyment galerii wysokiej jakości, zobacz [porady dotyczące dokumentowania i publikowania eksperymentu](#tips-for-documenting-and-publishing-your-experiment).
+Aby uzyskać wskazówki dotyczące sposobu eksperymentu galerii toopublish wysokiej jakości, zobacz [porady dotyczące dokumentowania i publikowania eksperymentu](#tips-for-documenting-and-publishing-your-experiment).
 
 To wszystko — wszystko gotowe.
 
-Można teraz wyświetlić eksperymentu w galerii i udostępnić link. Jeśli publikowany eksperymentu przy użyciu **publicznego** widoczność ustawienie eksperyment zostaną wyświetlone w przeglądania i wyników wyszukiwania w galerii. Można edytować dokumentacji eksperymentu na stronie szczegółów eksperymentu zawsze, gdy użytkownik jest zalogowany do galerii.
+Można teraz wyświetlić eksperymentu w hello galerii i udostępnić hello link. Jeśli publikowany eksperymentu przy użyciu hello **publicznego** ustawienie widoczności hello eksperymentu pokazuje się w wynikach przeglądania i wyszukiwania w hello galerii. Można edytować dokumentacji eksperymentu na stronie szczegółów eksperymentu hello zawsze, gdy użytkownik jest zalogowany toohello galerii.
 
-Aby wyświetlić listę Twój wkład, wybierz obraz w prawym górnym rogu dowolnej strony w galerii. Następnie wybierz nazwę użytkownika, aby otworzyć strony swojego konta.
+Lista hello toosee Twój wkład wybierz obrazu w hello prawym górnym rogu dowolnej strony w galerii. Wybierz użytkownika tooopen nazwy strony swojego konta.
 
 ![Wybierz nazwę swojego konta](media/machine-learning-gallery-experiments/click-account-name.png)
 
 ### <a name="update-your-experiment"></a>Zaktualizuj eksperymentu
-Jeśli chcesz, możesz wprowadzić zmiany do przepływu pracy (modułów, parametry i tak dalej) w eksperymencie opublikowany w galerii. W usłudze Machine Learning Studio wprowadź wszelkie zmiany, które chcesz dokonać eksperymentu, a następnie opublikować ponownie. Opublikowane eksperymentu zostaną zaktualizowane o wprowadzone zmiany.
+Jeśli chcesz, możesz wprowadzić zmiany toohello przepływu (modułów, parametry i tak dalej) w eksperymencie opublikowania toohello galerii. W usłudze Machine Learning Studio wprowadź wszelkie zmiany, które chcesz toomake toohello eksperymentu i ponownie opublikować. Opublikowane eksperymentu zostaną zaktualizowane o wprowadzone zmiany.
 
-Dla eksperymentu bezpośrednio w galerii, można zmienić dowolne z poniższych informacji:
+Można zmienić jedną z następujących informacji dla eksperymentu bezpośrednio w galerii hello hello:
 
 * Nazwę eksperymentu
 * Podsumowanie lub opisu
@@ -138,54 +138,54 @@ Dla eksperymentu bezpośrednio w galerii, można zmienić dowolne z poniższych 
 * Image (Obraz)
 * Ustawienie widoczności (**publicznego** lub **Unlisted**)
 
-Można również usunąć doświadczenia z galerii.
+Można również usunąć hello doświadczenia z hello galerii.
 
-Możesz wprowadzić te zmiany lub usunąć eksperymentu, na stronie szczegółów eksperymentu lub ze strony profilu w galerii.
+Możesz wprowadzić te zmiany lub usunąć eksperymentu hello ze strony szczegółów eksperymentu hello lub ze strony profilu w hello galerii.
 
 
-#### <a name="from-the-experiment-details-page"></a>Na stronie szczegółów eksperymentu
-Na stronie szczegółów eksperymentu, aby zmienić szczegóły eksperymentu, wybierz **Edytuj**.
+#### <a name="from-hello-experiment-details-page"></a>Z hello eksperymentu strony szczegółów
+Na stronie szczegółów eksperymentu hello, wybierz toochange hello szczegóły swojego eksperymentu **Edytuj**.
 
-![Wybierz pozycję Edytuj, aby edytować eksperymentu](media/machine-learning-gallery-experiments/edit-button.png)
+![Wybierz pozycję Edytuj tooedit eksperymentu](media/machine-learning-gallery-experiments/edit-button.png)
 
-Na stronie Szczegóły przejdzie do trybu edycji. Aby wprowadzić zmiany, wybierz **Edytuj** obok nazwy eksperymentu, podsumowanie lub znaczników. Po zakończeniu wprowadzania zmiany wybierz **gotowe**.
+Strona szczegółów Hello przejdzie do trybu edycji. Wybierz zmiany toomake **Edytuj** dalej toohello eksperymentu nazwy, podsumowanie lub tagi. Po zakończeniu wprowadzania zmiany wybierz **gotowe**.
 
-![Wybierz pozycję "Edytuj", aby edytować szczegóły, a następnie wybierz pozycję "Gotowe", po zakończeniu](media/machine-learning-gallery-experiments/edit-details-page.png)
+![Wybierz pozycję "Edytuj" Szczegóły tooedit i wybierz "Gotowe", po zakończeniu operacji](media/machine-learning-gallery-experiments/edit-details-page.png)
 
-Aby zmienić ustawienia widoczności dla eksperyment (**publicznego** lub **Unlisted**), lub aby usunąć doświadczenia z galerii, wybierz **ustawienia** ikony.
+ustawienia widoczności hello toochange eksperymentu hello (**publicznego** lub **Unlisted**), lub hello toodelete Poeksperymentuj z galerii, wybierz hello hello **ustawienia** ikony.
 
-![Wybierz pozycję "Ustawienia", aby zmienić widoczność lub usunąć eksperymentu](media/machine-learning-gallery-experiments/settings-button.png)
+![Wybierz pozycję "Ustawienia" toochange widoczność lub toodelete hello eksperymentu](media/machine-learning-gallery-experiments/settings-button.png)
 
 #### <a name="from-your-profile-page"></a>Ze strony profilu
-Na stronie profilu wybierz strzałkę w dół do eksperymentu, a następnie wybierz **Edytuj**. Powoduje to przejście do strony szczegółów swojego eksperymentu w trybie edycji. Po zakończeniu wprowadzania zmiany wybierz **gotowe**.
+Na stronie profilu wybierz hello dół dla hello eksperymentu, a następnie wybierz **Edytuj**. Zostanie wyświetlone strony szczegółów toohello swojego eksperymentu w trybie edycji. Po zakończeniu wprowadzania zmiany wybierz **gotowe**.
 
-Aby usunąć doświadczenia z galerii, wybierz **usunąć**.
+toodelete hello doświadczenia z hello galerii, wybierz **usunąć**.
 
 ![Wybierz opcję "Edytuj" lub "Delete"](media/machine-learning-gallery-experiments/edit-delete-buttons.png)
 
 ### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Porady dotyczące dokumentowania i publikowania eksperymentu
-* Można założyć, że czytelnik ma wystąpić nauki poprzednich danych, ale może być przydatne do używania prostego języka. Wyjaśnień szczegółowo, jeśli to możliwe.
-* Pakietu Cortana Intelligence Suite jest stosunkowo nowe. Nie wszystkie czytników znają jak z niego korzystać. Podaj wystarczającej ilości informacji i krok wyjaśnienia, aby ułatwić Przejdź eksperymentu.
-* Elementy wizualne mogą być przydatne dla czytników interpretowania i korzystać z dokumentacją eksperymentu poprawnie. Elementy wizualne obejmują wykresów eksperymentów i zrzuty ekranu danych. Aby uzyskać więcej informacji o sposobie obejmują obrazy w dokumentacji eksperymentu, zobacz [przykłady i wskazówki dotyczące publikowania kolekcji](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
-* Jeśli dołączysz zestawu danych w eksperymencie (to znaczy nie importowany zestawu danych za pośrednictwem modułu importu danych), zestaw danych jest częścią eksperymentu i został opublikowany w galerii. Upewnij się, że zestaw danych, który można opublikować warunki, które umożliwiają udostępnianie i pobieranie wszystkim osobom licencjonowania. Galeria udziały są objęte Azure [warunki użytkowania](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+* Można założyć, że hello czytnik ma wystąpić nauki poprzednich danych, ale może być przydatne toouse prostego języka. Wyjaśnień szczegółowo, jeśli to możliwe.
+* Pakietu Cortana Intelligence Suite jest stosunkowo nowe. Nie wszystkie czytników zapoznali się z jak toouse go. Podaj wystarczającej ilości informacji i czytników toohelp wyjaśnienia krok po kroku dotyczące Przejdź eksperymentu.
+* Elementy wizualne mogą okazać się przydatne przy toointerpret czytników i użyj dokumentacji eksperymentu poprawnie. Elementy wizualne obejmują wykresów eksperymentów i zrzuty ekranu danych. Aby uzyskać więcej informacji dotyczących sposobu tooinclude obrazy w dokumentacji eksperymentu, zobacz hello [przykłady i wskazówki dotyczące publikowania kolekcji](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
+* Jeśli dołączysz zestawu danych w eksperymencie (to znaczy nie importowany hello dataset za pomocą modułu importu danych hello), zestaw danych hello jest częścią eksperymentu i został opublikowany w galerii hello. Upewnij się, że ten zestaw danych hello publikowanych ma licencjonowania warunki, które umożliwiają udostępnianie i pobieranie wszystkim osobom. Galeria udziały są objęte hello Azure [warunki użytkowania](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
-**Jakie są wymagania dotyczące przesyłania lub edytowanie obrazu dla moim eksperymencie?**
+**Jakie są wymagania hello do przesyłania lub edytowania obrazu moim eksperymencie?**
 
-Obrazy przesyłane z eksperymencie są używane do tworzenia kafelka eksperymentu dla Ciebie. Zaleca się obrazy mniejszy niż 500 KB aspect ratio 3:2 i rozdzielczością 960 &#215; 640.
+Obrazy przesyłane z eksperymencie są używane toocreate kafelka eksperymentu dla Ciebie. Zaleca się obrazy mniejszy niż 500 KB aspect ratio 3:2 i rozdzielczością 960 &#215; 640.
 
-**Co się dzieje z zestawu danych używanych w eksperymencie? Jest zestaw danych także opublikowany w galerii?**
+**Co się stanie toohello zestawu danych, używane w eksperymencie hello? Jest zestaw danych hello także opublikowany w galerii hello?**
 
-Zestaw danych jest częścią eksperymentu, jest on zaimportowany przez moduł importowanie danych w zestawie danych jest opublikowany w galerii w ramach eksperymentu. Upewnij się, że zestaw danych, która publikować z eksperymentu ma odpowiednie postanowień licencyjnych. Postanowienia licencyjne powinna zezwalać na każdy do udziału, a następnie Pobierz dane.
+Zestaw danych jest częścią eksperymentu, jest on zaimportowany za pomocą modułu importu danych hello hello zestawu danych jest opublikowany w hello galerii w ramach eksperymentu. Upewnij się, że tego zestawu danych hello publikowanie za pomocą eksperymentu ma hello odpowiednich postanowień licencyjnych. Witaj umowy licencyjnej powinna zezwalać na każdy tooshare i pobierania danych hello.
 
-**Masz eksperymentu, która używa modułu importowanie danych do pobierania danych z usługi Azure HDInsight lub SQL Server. Używa moich poświadczeń do pobierania danych. Można opublikować tego rodzaju eksperymentu? Jak można mieć pewność, nie będzie można udostępniać moje poświadczenia?**
+**Masz eksperymentu, która używa danych toopull modułu i zaimportuj dane z usługi Azure HDInsight lub SQL Server. Używa danych hello tooretrieve poświadczeń. Można opublikować tego rodzaju eksperymentu? Jak można mieć pewność, nie będzie można udostępniać moje poświadczenia?**
 
-Obecnie nie można opublikować eksperymentu, który korzysta z poświadczeń w galerii.
+Obecnie nie można opublikować eksperymentu, który korzysta z poświadczeń w hello galerii.
 
 **Jak wprowadzić wiele tagów?**
 
-Po wprowadzeniu tag, aby wprowadzić innego tagu, naciśnij klawisz Tab.
+Po wprowadzeniu tagu tooenter innego tagu, naciśnij klawisz Tab hello.
 
-**[Przejdź do galerii](http://gallery.cortanaintelligence.com)**
+**[Przejdź do galerii toohello](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

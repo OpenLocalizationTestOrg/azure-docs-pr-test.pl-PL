@@ -1,6 +1,6 @@
 ---
-title: "Opcje chmury do urządzenia usługi Azure IoT Hub | Dokumentacja firmy Microsoft"
-description: "Przewodnik dewelopera — wskazówki dotyczące kiedy należy używać metody bezpośredniego, odpowiednie właściwości urządzenia dwie lub wiadomości chmury do urządzenia komunikacji chmury do urządzenia."
+title: "Opcje aaaAzure chmury urządzenia IoT Hub | Dokumentacja firmy Microsoft"
+description: "Przewodnik dewelopera — wskazówki dotyczące po toouse bezpośrednie metody, właściwości żądaną dwie urządzenia lub wiadomości chmury do urządzenia komunikacji chmury do urządzenia."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.openlocfilehash: e6cd4880c9bfcc670bd116d3dd8e5245d70f85cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb95445054fa2711e34fc1d928c3665e0246c81c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Wskazówki dotyczące komunikacji chmury do urządzenia
-Centrum IoT zawiera trzy opcje udostępniać funkcje do aplikacji wewnętrznych aplikacji dla urządzeń:
+Centrum IoT zawiera trzy opcje dla urządzeń aplikacji tooexpose funkcji tooa zaplecza aplikacji:
 
-* [Bezpośrednie metody] [ lnk-methods] komunikacji, które wymagają natychmiastowego potwierdzenie wyników. Bezpośrednie metody są często używane dla sterowania interaktywnego urządzeń, takich jak włączenie wentylatora.
-* [Dwie na potrzeby właściwości] [ lnk-twins] dla polecenia długotrwałe przeznaczony do poddane urządzenia określony żądany stan. Na przykład ustawić interwał wysyłania danych telemetrycznych do 30 minut.
-* [Komunikaty chmury do urządzenia] [ lnk-c2d] jednokierunkowe powiadomień do aplikacji urządzenia.
+* [Bezpośrednie metody] [ lnk-methods] komunikacji, które wymagają natychmiastowego potwierdzenie hello wyniku. Bezpośrednie metody są często używane dla sterowania interaktywnego urządzeń, takich jak włączenie wentylatora.
+* [Dwie na potrzeby właściwości] [ lnk-twins] dla polecenia długotrwałe, które tooput hello urządzenia do niektórych żądany stan. Na przykład ustawić hello telemetrii wysyłania interwał too30 minut.
+* [Komunikaty chmury do urządzenia] [ lnk-c2d] dla aplikacji urządzenia toohello jednokierunkowe powiadomienia.
 
-Oto szczegółowe porównanie różnych opcji komunikacji chmury do urządzenia.
+Oto szczegółowe porównanie hello różnych opcji komunikacji chmury do urządzenia.
 
 |  | Metody bezpośrednie | Dwie na potrzeby właściwości | Komunikaty chmury do urządzenia |
 | ---- | ------- | ---------- | ---- |
-| Scenariusz | Polecenia, które wymagają natychmiastowego potwierdzenia, jak włączenie wentylatora. | Przeznaczony do wprowadzone urządzenia do niektórych żądanego stanu polecenia długotrwałe. Na przykład ustawić interwał wysyłania danych telemetrycznych do 30 minut. | Jednokierunkowe powiadomienia do aplikacji urządzenia. |
-| Przepływ danych | Dwukierunkowe. Aplikacji urządzenia mogą odpowiadać od razu do metody. Zaplecze rozwiązania odbiera wyniku kontekstowej na żądanie. | Jednokierunkowe. Aplikacja urządzenie odbiera powiadomienie o zmianie właściwości. | Jednokierunkowe. Aplikacja urządzenie odbiera wiadomości
-| Trwałość | Odłączone urządzenia nie będą wykorzystywane. Zaplecza rozwiązania jest powiadamiany o to, że urządzenie nie jest połączony. | Wartości właściwości są zachowywane w dwie urządzenia. Urządzenie będzie go odczytać w następnym ponowne nawiązanie połączenia. Wartości właściwości są pobieranie z [język zapytań Centrum IoT][lnk-query]. | Komunikaty mogą być przechowywane przez Centrum IoT do 48 godzin. |
+| Scenariusz | Polecenia, które wymagają natychmiastowego potwierdzenia, jak włączenie wentylatora. | Polecenia długotrwałe przeznaczony tooput hello urządzenia do niektórych żądanego stanu. Na przykład ustawić hello telemetrii wysyłania interwał too30 minut. | Aplikacja urządzenia toohello jednokierunkowe powiadomienia. |
+| Przepływ danych | Dwukierunkowe. Hello aplikacji urządzenia mogą odpowiadać metoda toohello od razu. zaplecza rozwiązania Hello odbiera wyniku hello kontekstowej toohello żądania. | Jednokierunkowe. aplikacji urządzenia Hello otrzyma powiadomienie o hello zmiany właściwości. | Jednokierunkowe. Witaj urządzenia aplikacja odbiera wiadomości powitania
+| Trwałość | Odłączone urządzenia nie będą wykorzystywane. zaplecza rozwiązania Hello zostanie powiadomiony, że urządzenie hello nie jest podłączony. | Wartości właściwości są zachowywane w Witaj dwie urządzenia. Urządzenie będzie go odczytać w następnym ponowne nawiązanie połączenia. Wartości właściwości są pobieranie z hello [język zapytań Centrum IoT][lnk-query]. | Komunikaty mogą być przechowywane przez Centrum IoT na górę too48 godzin. |
 | Obiekty docelowe | Za pomocą jednego urządzenia **deviceId**, lub wielu urządzeń przy użyciu [zadania][lnk-jobs]. | Za pomocą jednego urządzenia **deviceId**, lub wielu urządzeń przy użyciu [zadania][lnk-jobs]. | Pojedyncze urządzenie przez **deviceId**. |
-| Rozmiar | Do 8 KB żądań i odpowiedzi 8KB. | Maksymalna żądany rozmiar właściwości to 8 KB. | Komunikaty do 64 KB. |
+| Rozmiar | Too8KB żądań i odpowiedzi 8KB. | Maksymalna żądany rozmiar właściwości to 8 KB. | Zapasowych too64KB wiadomości. |
 | częstotliwość | Wysoki. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Średnia liczba godzin. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. | Niski. Aby uzyskać więcej informacji, zobacz [ogranicza Centrum IoT][lnk-quotas]. |
 | Protokół | Obecnie dostępne tylko w przypadku używania MQTT. | Obecnie dostępne tylko w przypadku używania MQTT. | Dostępna dla wszystkich protokołów. Urządzenie musi wykonać sondowanie przy użyciu protokołu HTTP. |
 
-Dowiedz się, jak używać bezpośrednich metod, odpowiednie właściwości i komunikaty chmury do urządzenia w następujące samouczki:
+Dowiedz się, jak toouse bezpośrednie metody, właściwości żądaną i komunikaty chmury do urządzenia w hello następujące samouczki:
 
 * [Użyj metody bezpośredniego][lnk-methods-tutorial], bezpośrednie metod;
-* [Konfigurowanie urządzeń za pomocą właściwości żądanego][lnk-twin-properties]dla dwie urządzenia na potrzeby właściwości; 
+* [Używanie urządzeń tooconfigure odpowiednie właściwości][lnk-twin-properties]dla dwie urządzenia na potrzeby właściwości; 
 * [Wysyłanie komunikatów chmury do urządzenia][lnk-c2d-tutorial], komunikaty chmury do urządzenia.
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

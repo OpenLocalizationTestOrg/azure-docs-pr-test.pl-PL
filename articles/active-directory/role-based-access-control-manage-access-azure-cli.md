@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie kontrolą dostępu na podstawie ról (RBAC) przy użyciu interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie zarządzania opartego na rolach kontrola dostępu (RBAC) przy użyciu interfejsu wiersza polecenia platformy Azure za pomocą listę ról i akcje ról i przypisywania ról do zakresów subskrypcji i aplikacji."
+title: "aaaManage opartej na rolach kontrola dostępu (RBAC) przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomanage opartej na rolach kontrola dostępu (RBAC) przy użyciu wiersza polecenia Azure hello interfejsu listę ról i roli akcje i przypisywanie ról toohello zakresy subskrypcji i aplikacji."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,33 +14,33 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: ad644de6d23950e699d99042d27381336626caab
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 438418e5f6ee9b98908c9c264d516eb722a4e26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Zarządzanie oparte na rolach kontrola dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="manage-role-based-access-control-with-hello-azure-command-line-interface"></a>Zarządzanie oparte na rolach kontrola dostępu przy użyciu hello interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 
 
-Kontrola dostępu oparta na rolach (RBAC) w portalu Azure i interfejsu API usługi Azure Resource Manager umożliwia zarządzanie dostępem do Twojej subskrypcji i zasobów na poziomie szczegółowych. W przypadku tej funkcji mogą udzielać dostępu dla użytkowników, grupy lub podmiotów zabezpieczeń usługi Active Directory, przypisując niektóre role do ich w określonym zakresie.
+Kontrola dostępu oparta na rolach (RBAC) służy w hello portalu Azure i interfejsu API usługi Azure Resource Manager toomanage dostępu tooyour subskrypcji i zasobów na poziomie szczegółowych. W przypadku tej funkcji mogą udzielać dostępu dla użytkowników, grupy lub podmiotów zabezpieczeń usługi Active Directory, przypisując toothem niektórych ról w określonym zakresie.
 
-Zanim użyjesz Azure interfejsu wiersza polecenia (CLI) do zarządzania RBAC, musi mieć następujące wymagania wstępne:
+Przed użyciem hello Azure interfejsu wiersza polecenia (CLI) toomanage RBAC, musi mieć hello następujące wymagania wstępne:
 
-* Azure CLI w wersji 0.8.8 lub nowszej. Aby zainstalować najnowszą wersję i skojarzyć go z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md).
-* Usługa Azure Resource Manager w interfejsu wiersza polecenia platformy Azure. Przejdź do [przy użyciu wiersza polecenia platformy Azure przy użyciu Menedżera zasobów](../xplat-cli-azure-resource-manager.md) więcej szczegółów.
+* Azure CLI w wersji 0.8.8 lub nowszej. tooinstall hello najnowszej wersji i powiąż go z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md).
+* Usługa Azure Resource Manager w interfejsu wiersza polecenia platformy Azure. Przejdź za[hello Using Azure CLI z hello Resource Manager](../xplat-cli-azure-resource-manager.md) więcej szczegółów.
 
 ## <a name="list-roles"></a>Lista ról
 ### <a name="list-all-available-roles"></a>Wyświetl listę wszystkich dostępnych ról
-Aby wyświetlić listę wszystkich dostępnych ról, należy użyć:
+toolist wszystkie dostępne role, należy użyć:
 
         azure role list
 
-W poniższym przykładzie przedstawiono listę *wszystkie dostępne role*.
+Witaj poniższy przykład przedstawia listę hello *wszystkie dostępne role*.
 
 ```
 azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
@@ -49,11 +49,11 @@ azure role list --json | jq '.[] | {"roleName":.properties.roleName, "descriptio
 ![Zrzut ekranu wiersza polecenia — Lista roli azure - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ### <a name="list-actions-of-a-role"></a>Akcje listy roli
-Aby wyświetlić listę akcji roli, należy użyć:
+Akcje hello toolist roli, należy użyć:
 
     azure role show "<role name>"
 
-W poniższym przykładzie przedstawiono akcje *współautora* i *Współautor·maszyny·wirtualnej* ról.
+Hello poniższy przykład przedstawia hello akcje hello *współautora* i *Współautor·maszyny·wirtualnej* ról.
 
 ```
 azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
@@ -65,11 +65,11 @@ azure role show "virtual machine contributor" --json | jq '.[] | .properties.per
 
 ## <a name="list-access"></a>Dostęp do listy
 ### <a name="list-role-assignments-effective-on-a-resource-group"></a>Lista przypisań ról skuteczne w grupie zasobów
-Aby wyświetlić listę przypisań ról, które istnieją w grupie zasobów, należy użyć:
+przypisania ról hello toolist, które istnieją w grupie zasobów, użyj:
 
     azure role assignment list --resource-group <resource group name>
 
-W poniższym przykładzie przedstawiono przypisań ról w *pharma sprzedaży projecforcast* grupy.
+Witaj poniższy przykład przedstawia przypisań ról hello w hello *pharma sprzedaży projecforcast* grupy.
 
 ```
 azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -78,15 +78,15 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 ![Zrzut ekranu wiersza polecenia — Lista przypisywanie roli azure przez grupę - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ### <a name="list-role-assignments-for-a-user"></a>Lista przypisań ról dla użytkownika
-Aby wyświetlić listę przypisań ról określonego użytkownika i przydziałów, które są przypisane do grupy użytkowników, należy użyć:
+przypisania ról hello toolist dla określonego użytkownika i hello przypisań grup tooa użytkowników, należy użyć:
 
     azure role assignment list --signInName <user email>
 
-Możesz też sprawdzić przypisań ról, które są dziedziczone z grupy, modyfikując polecenia:
+Możesz też sprawdzić przypisań ról, które są dziedziczone z grupy, modyfikując hello polecenia:
 
     azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-W poniższym przykładzie przedstawiono przypisań ról, które są przypisywane do  *sameert@aaddemo.com*  użytkownika. W tym role, które są przypisywane bezpośrednio do użytkownika i role, które są dziedziczone z grupy.
+Witaj poniższy przykład przedstawia hello przypisań ról, którym udzielono toohello  *sameert@aaddemo.com*  użytkownika. W tym role, które są przypisywane bezpośrednio toohello użytkowników i role, które są dziedziczone z grupy.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -97,89 +97,89 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![Zrzut ekranu wiersza polecenia — Lista przypisywanie roli azure przez użytkownika - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
 ## <a name="grant-access"></a>Udzielanie dostępu
-Aby udzielić dostępu po zidentyfikowaniu rolę, którą chcesz przypisać, należy użyć:
+toogrant dostępu po zidentyfikowaniu hello roli, które mają tooassign za pomocą:
 
     azure role assignment create
 
-### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>Przypisz rolę do grupy w zakresie subskrypcji
-Aby przypisać rolę do grupy w zakresie subskrypcji, należy użyć:
+### <a name="assign-a-role-toogroup-at-hello-subscription-scope"></a>Przypisz toogroup roli, w zakresie subskrypcji hello
+tooassign grupy tooa ról w zakresie subskrypcji hello, użyj:
 
     azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
-W poniższym przykładzie przypisano *czytnika* rolę *zespołu Christine Koch* w *subskrypcji* zakresu.
+Witaj w poniższym przykładzie przypisano hello *czytnika* roli zbyt*zespołu Christine Koch* na powitania *subskrypcji* zakresu.
 
 ![Wiersz poleceń Azure RBAC — przypisanie roli azure utworzyć grupy — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Przypisywanie roli do aplikacji w zakresie subskrypcji
-Aby przypisać rolę do aplikacji w zakresie subskrypcji, należy użyć:
+### <a name="assign-a-role-tooan-application-at-hello-subscription-scope"></a>Przypisz aplikację tooan rola w zakresie subskrypcji hello
+tooassign aplikacją tooan rola w zakresie subskrypcji hello, użyj:
 
     azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
-Poniższy przykład przyznaje *współautora* rolę *usługi Azure AD* aplikacji w wybranej subskrypcji.
+Witaj w przykładzie poniżej zezwolenie hello *współautora* tooan roli *usługi Azure AD* wybrać aplikację na powitania subskrypcji.
 
  ![Wiersz poleceń Azure RBAC — przypisanie roli azure utworzyć przez aplikację](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Przypisywanie roli użytkownika w zakresie grupy zasobów
-Aby przypisać rolę do użytkownika w zakresie grupy zasobów, należy użyć:
+### <a name="assign-a-role-tooa-user-at-hello-resource-group-scope"></a>Przypisywanie roli użytkownika tooa w zakresie grupy zasobów hello
+tooassign tooa roli użytkownika w zakresie hello do grupy zasobów, użyj:
 
     azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
-Poniższy przykład przyznaje *współautora maszyny wirtualnej* rolę  *samert@aaddemo.com*  użytkownika na *Pharma-sprzedaży-ProjectForcast* zakres grupy zasobów.
+Witaj poniższy przykład przyznaje hello *współautora maszyny wirtualnej* roli zbyt *samert@aaddemo.com*  użytkownika na powitania *Pharma-sprzedaży-ProjectForcast* zakres grupy zasobów.
 
 ![Wiersz poleceń Azure RBAC — przypisanie roli azure utworzyć przez użytkownika — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Przypisywanie roli do grupy w zakresie zasobów
-Aby przypisać rolę do grupy w zakresie zasobów, należy użyć:
+### <a name="assign-a-role-tooa-group-at-hello-resource-scope"></a>Przypisz grupę tooa rola w zakresie zasobów hello
+tooassign grupy tooa ról w zakresie zasobów hello, użyj:
 
     azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
-Poniższy przykład przyznaje *współautora maszyny wirtualnej* rolę *usługi Azure AD* na *podsieci*.
+Witaj w przykładzie poniżej zezwolenie hello *współautora maszyny wirtualnej* tooan roli *usługi Azure AD* na *podsieci*.
 
 ![Wiersz poleceń Azure RBAC — przypisanie roli azure utworzyć grupy — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
 ## <a name="remove-access"></a>Usuń dostęp
-Aby usunąć przypisanie roli, należy użyć:
+Użyj tooremove przypisania roli:
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
+    azure role assignment delete --objectId <object id toofrom which tooremove role> --roleName "<role name>"
 
-Poniższy przykład umożliwia usunięcie *Współautor·maszyny·wirtualnej* przypisania roli z  *sammert@aaddemo.com*  użytkownika na *Pharma-sprzedaży-ProjectForcast* zasobów Grupa.
-Przykład następnie usuwa przypisanie roli z grupy dla tej subskrypcji.
+Hello poniższy przykład umożliwia usunięcie hello *Współautor·maszyny·wirtualnej* przypisania roli z hello  *sammert@aaddemo.com*  użytkownika na powitania *Pharma-sprzedaży-ProjectForcast* grupy zasobów.
+przykład Witaj następnie usuwa przypisanie roli hello grupy na powitania subskrypcji.
 
 ![Zrzut ekranu wiersza polecenia - usunięcia przypisania roli azure - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## <a name="create-a-custom-role"></a>Tworzenie niestandardowej roli zabezpieczeń
-Aby utworzyć niestandardową rolę, należy użyć:
+toocreate niestandardowej roli zabezpieczeń, należy użyć:
 
     azure role create --inputfile <file path>
 
-W poniższym przykładzie tworzona rola niestandardowa o nazwie *Operator maszyny wirtualnej*. Tę rolę niestandardową nieograniczony dostęp do wszystkich operacji odczytu z *Microsoft.Compute*, *Microsoft.Storage*, i *Microsoft.Network* dostawców zasobów i udziela dostępu do Uruchom ponowne uruchomienie i monitorowania maszyn wirtualnych. Tę rolę niestandardową można w dwóch subskrypcji. W tym przykładzie używany jest plik JSON jako danych wejściowych.
+Witaj poniższy przykład powoduje utworzenie niestandardowej roli zabezpieczeń o nazwie *Operator maszyny wirtualnej*. Tę rolę niestandardową przyznaje tooall dostęp do odczytu dla operacji *Microsoft.Compute*, *Microsoft.Storage*, i *Microsoft.Network* dostęp do dostawcy i przyznaje zasobów toostart, ponownie uruchomić i monitorować maszyn wirtualnych. Tę rolę niestandardową można w dwóch subskrypcji. W tym przykładzie używany jest plik JSON jako danych wejściowych.
 
 ![JSON - niestandardową definicję roli — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
 ![Tworzenie roli azure wiersza poleceń Azure RBAC - — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Modyfikowanie niestandardowej roli zabezpieczeń
-Aby zmodyfikować rolę niestandardową, należy najpierw użyć `azure role show` polecenie, aby pobrać definicji roli. Po drugie wprowadź żądane zmiany w pliku definicji roli. Na koniec użyj `azure role set` można zapisać definicji roli zmodyfikowane.
+toomodify niestandardowej roli zabezpieczeń, należy najpierw użyć hello `azure role show` polecenia tooretrieve definicji roli. Po drugie upewnij się plik definicji roli hello żądane zmiany toohello. Na koniec użyj `azure role set` toosave hello zmodyfikował definicję roli.
 
     azure role set --inputfile <file path>
 
-W poniższym przykładzie dodano *Microsoft.Insights/diagnosticSettings/* operacji **akcje**oraz uzyskać subskrypcję platformy Azure **AssignableScopes** z Rola niestandardowa Operator maszyny wirtualnej.
+Witaj poniższy przykład umożliwia dodanie hello *Microsoft.Insights/diagnosticSettings/* toohello operacji **akcje**i toohello subskrypcji platformy Azure **AssignableScopes**roli niestandardowych hello Operator maszyny wirtualnej.
 
 ![JSON - zmodyfikować niestandardową definicję roli — zrzut ekranu](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
 ![Zrzut ekranu wiersza polecenia - azure roli set - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Usunięcia niestandardowej roli zabezpieczeń
-Aby usunąć rolę niestandardową, należy najpierw użyć `azure role show` polecenie w celu ustalenia **identyfikator** roli. Następnie należy użyć `azure role delete` polecenie, aby usunąć rolę, określając **identyfikator**.
+toodelete niestandardowej roli zabezpieczeń, należy najpierw użyć hello `azure role show` hello toodetermine polecenia **identyfikator** hello roli. Następnie należy użyć hello `azure role delete` roli hello toodelete polecenie, określając hello **identyfikator**.
 
-Poniższy przykład umożliwia usunięcie *Operator maszyny wirtualnej* niestandardowej roli zabezpieczeń.
+Witaj poniższy przykład umożliwia usunięcie hello *Operator maszyny wirtualnej* niestandardowej roli zabezpieczeń.
 
 ![Zrzut ekranu wiersza polecenia - usunięcia roli azure - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
 
 ## <a name="list-custom-roles"></a>Lista ról niestandardowych
-Aby wyświetlić listę ról, które są dostępne do przypisania w zakresie, należy użyć `azure role list` polecenia.
+toolist hello ról, które są dostępne do przypisania w zakresie, użyj hello `azure role list` polecenia.
 
-Polecenie wyświetla listę wszystkich ról, które są dostępne do przypisania w wybranej subskrypcji.
+Witaj następujące polecenie wyświetla listę wszystkich ról, które są dostępne do przypisania w ramach subskrypcji hello wybrane.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
@@ -187,7 +187,7 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 
 ![Zrzut ekranu wiersza polecenia — Lista roli azure - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
-W poniższym przykładzie *Operator maszyny wirtualnej* rola niestandardowa nie jest dostępna w *Production4* subskrypcji, ponieważ nie ma subskrypcji **AssignableScopes** roli.
+W hello poniższy przykład, hello *Operator maszyny wirtualnej* rola niestandardowa nie jest dostępna w hello *Production4* subskrypcji, ponieważ nie ma subskrypcji hello  **AssignableScopes** hello roli.
 
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'

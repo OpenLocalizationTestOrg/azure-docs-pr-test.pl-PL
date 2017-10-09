@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie prywatnego rejestru platformy Docker — witryna Azure Portal | Microsoft Doc"
-description: "Rozpoczynanie pracy z tworzeniem prywatnych rejestrów kontenerów platformy Docker za pomocą witryny Azure Portal i zarządzaniem nimi"
+title: prywatne aaaCreate Docker rejestru - portalu Azure | Dokumentacja firmy Microsoft
+description: "Rozpocząć tworzenie i zarządzanie nimi prywatnej rejestrów kontenera Docker z hello portalu Azure"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,55 +17,55 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 40f3ce44fea26e5fbeca865c9da6df55c2df9511
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Tworzenie prywatnego rejestru kontenerów platformy Docker za pomocą witryny Azure Portal
-Użyj witryny Azure Portal, aby utworzyć rejestr kontenerów i zarządzać jego ustawieniami. Tworzenie rejestrów kontenerów i zarządzanie nimi jest także możliwe przy użyciu [poleceń interfejsu wiersza polecenia platformy Azure w wersji 2.0](container-registry-get-started-azure-cli.md), programu [Azure PowerShell](container-registry-get-started-powershell.md) lub programowo przy użyciu [interfejsu API REST](https://go.microsoft.com/fwlink/p/?linkid=834376) usługi Container Registry.
+# <a name="create-a-private-docker-container-registry-using-hello-azure-portal"></a>Utwórz prywatne rejestru kontenera Docker przy użyciu hello portalu Azure
+Użyj hello Azure toocreate portalu rejestru kontenera i zarządzać ustawieniami. Można również utworzyć i zarządzać nimi za pomocą hello rejestrów kontenera [poleceń Azure CLI 2.0](container-registry-get-started-azure-cli.md), [programu Azure PowerShell](container-registry-get-started-powershell.md) lub programowo hello rejestru kontenera [interfejsu API REST](https://go.microsoft.com/fwlink/p/?linkid=834376).
 
-Podstawy oraz pojęcia zostały przedstawione w części [omówienie](container-registry-intro.md).
+Tło i pojęcia dla [hello omówienie](container-registry-intro.md).
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
-1. W witrynie [Azure Portal](https://portal.azure.com) kliknij pozycję **+ Nowy**.
-2. W portalu Marketplace wyszukaj hasło **Azure Container Registry**.
+1. W hello [portalu Azure](https://portal.azure.com), kliknij przycisk **+ nowy**.
+2. Marketplace hello wyszukiwania dla **rejestru kontenera platformy Azure**.
 3. Wybierz pozycję **Azure Container Registry**, której wydawcą jest firma **Microsoft**.
     ![Usługa Container Registry w portalu Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Kliknij przycisk **Utwórz**. Zostanie wyświetlony blok usługi **Azure Container Registry**.
+4. Kliknij przycisk **Utwórz**. Witaj **rejestru kontenera Azure** zostanie wyświetlony blok.
 
     ![Ustawienia usługi Container Registry](./media/container-registry-get-started-portal/container-registry-settings.png)
-5. W bloku usługi **Azure Container Registry** wprowadź następujące informacje. Po zakończeniu kliknij przycisk **Utwórz**.
+5. W hello **rejestru kontenera Azure** bloku, wprowadź hello następujących informacji. Po zakończeniu kliknij przycisk **Utwórz**.
 
-    a. **Nazwa rejestru**: globalnie unikatowa nazwa domeny najwyższego poziomu dla określonego rejestru. W tym przykładzie nazwa rejestru to *myRegistry01*, ale zastąp ją własną unikatową nazwą. Nazwa może zawierać tylko litery i cyfry.
+    a. **Nazwa rejestru**: globalnie unikatowa nazwa domeny najwyższego poziomu dla określonego rejestru. W tym przykładzie nazwa rejestru hello jest *myRegistry01*, ale podstawić własną unikatową nazwę. Nazwa Hello może zawierać tylko litery i cyfry.
 
-    b. **Grupa zasobów**: wybierz istniejącą [grupę zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) lub wprowadź nazwę nowej grupy zasobów.
+    b. **Grupa zasobów**: Wybierz istniejący [grupy zasobów](../azure-resource-manager/resource-group-overview.md#resource-groups) lub nazwa typu hello nowej.
 
-    c. **Lokalizacja**: wybierz taką lokalizację centrum danych Azure, gdzie usługa jest [dostępna](https://azure.microsoft.com/regions/services/), na przykład **Południowo-środkowe stany USA**.
+    c. **Lokalizacja**: Wybierz lokalizację centrum danych Azure, gdzie usługa hello jest [dostępne](https://azure.microsoft.com/regions/services/), takich jak **południowo-środkowe stany**.
 
-    d. **Administrator**: jeśli chcesz, umożliw administratorowi dostęp do rejestru. Po utworzeniu rejestru można zmienić to ustawienie.
+    d. **Administrator**: należy włączyć rejestru hello tooaccess użytkownika Administrator. Można zmienić to ustawienie po utworzeniu hello rejestru.
 
       > [!IMPORTANT]
-      > Oprócz zapewniania dostępu za pośrednictwem konta administratora rejestry kontenerów obsługują uwierzytelnianie wspierane przez nazwy główne usług w usłudze Azure Active Directory. Więcej informacji i zagadnień do rozważenia znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenerów).
+      > Ponadto tooproviding uzyskiwać dostęp do konta administratora, rejestrów kontenera obsługę uwierzytelniania kopii podmiotów zabezpieczeń usługi Azure Active Directory. Więcej informacji i zagadnień do rozważenia znajduje się w temacie [Authenticate with a container registry](container-registry-authentication.md) (Uwierzytelnianie za pomocą rejestru kontenerów).
       >
 
-    e. **Konto magazynu**: użyj ustawienia domyślnego, aby utworzyć [konto magazynu](../storage/common/storage-introduction.md), lub wybierz istniejące konto magazynu w tej samej lokalizacji. Usługa Premium Storage nie jest obecnie obsługiwana.
+    e. **Konto magazynu**: Użyj hello domyślne ustawienie toocreate [konta magazynu](../storage/common/storage-introduction.md), lub wybierz istniejące konto magazynu w hello tej samej lokalizacji. Usługa Premium Storage nie jest obecnie obsługiwana.
 
 ## <a name="manage-registry-settings"></a>Zarządzanie ustawieniami rejestru
-Po utworzeniu rejestru znajdź ustawienia rejestru, uruchamiając blok **Rejestry kontenerów** w portalu. Ustawienia mogą być konieczne na przykład w celu zalogowania się do rejestru lub włączenia albo wyłączenia administratora.
+Po utworzeniu hello rejestru, Znajdź hello ustawień rejestru należy uruchomić na powitania **rejestrów kontenera** bloku w portalu hello. Na przykład może być konieczne hello toolog ustawień w rejestrze tooyour lub może być tooenable lub wyłączyć hello administrator.
 
-1. W bloku **Rejestry kontenerów** kliknij nazwę swojego rejestru.
+1. Na powitania **rejestrów kontenera** bloku, kliknij nazwę hello rejestru.
 
     ![Blok rejestru kontenerów](./media/container-registry-get-started-portal/container-registry-blade.png)
-2. Aby zarządzać ustawieniami dostępu, kliknij pozycję **Klucz dostępu**.
+2. toomanage ustawień dostępu, kliknij przycisk **klucz dostępu**.
 
     ![Dostęp do rejestru kontenerów](./media/container-registry-get-started-portal/container-registry-access.png)
-3. Zwróć uwagę na następujące ustawienia:
+3. Należy zwrócić uwagę hello następujące ustawienia:
 
-   * **Serwer logowania** — w pełni kwalifikowana nazwa służąca do logowania do rejestru. W tym przykładzie jest to `myregistry01.azurecr.io`.
-   * **Administrator** — przełącznik umożliwiający włączenie lub wyłączenie konta administratora w rejestrze.
-   * **Nazwa użytkownika** oraz **Hasło** — poświadczenia konta administratora (jeśli włączono) służące do logowania do rejestru. Opcjonalnie można ponownie wygenerować hasła. Tworzone są dwa hasła, co umożliwia utrzymanie połączeń z rejestrem za pomocą jednego hasła, gdy ponownie generowane jest drugie hasło. Aby zamiast tego przeprowadzić uwierzytelnianie za pomocą nazwy głównej usługi, zobacz [Authenticate with a private Docker container registry](container-registry-authentication.md) (Uwierzytelnianie przy użyciu prywatnego rejestru kontenerów platformy Docker).
+   * **Serwer logowania** -hello w pełni kwalifikowanej nazwy użyj toolog w rejestrze toohello. W tym przykładzie jest to `myregistry01.azurecr.io`.
+   * **Administrator** — Przełącz tooenable lub wyłączenie konta administratora hello rejestru.
+   * **Nazwa użytkownika** i **hasło** — Witaj poświadczeń konta administratora hello (jeśli jest włączona) toolog można użyć w rejestrze toohello. Opcjonalnie można ponownie wygenerować hello hasła. Dwa hasła są tworzone, dzięki czemu można zachować rejestru toohello połączenia za pomocą jednego hasła podczas ponownego generowania hello inne hasło. Zamiast tego zobacz tooauthenticate z nazwy głównej usługi [uwierzytelniony przez prywatne rejestru kontenera Docker](container-registry-authentication.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md) (Wypychanie pierwszego obrazu za pomocą interfejsu wiersza polecenia platformy Docker)
+* [Pierwszy obraz przy użyciu interfejsu wiersza polecenia Docker hello push](container-registry-get-started-docker-cli.md)

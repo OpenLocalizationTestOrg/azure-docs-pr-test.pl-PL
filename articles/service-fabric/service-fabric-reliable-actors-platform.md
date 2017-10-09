@@ -1,6 +1,6 @@
 ---
-title: "Reliable Actors w sieci szkieletowej usług | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób Reliable Actors są warstwowy na niezawodne usługi i korzystać z funkcji platformy sieć szkieletowa usług."
+title: "aaaReliable złośliwych użytkowników w sieci szkieletowej usług | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób Reliable Actors są warstwowego na niezawodne usługi i korzystać z funkcji hello hello platformy Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: vturecek
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ecffb54139f1171c7839b77fed0be60950881198
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Jak elementy Reliable Actors korzystają z platformy usługi Service Fabric
-W tym artykule opisano, jak Reliable Actors działają na platformie Azure Service Fabric. Wywołuje Reliable Actors uruchomienia w ramach obsługiwanej w implementacji usługi stanowej niezawodnej *usługi aktora*. Usługa aktora zawiera składniki niezbędne do zarządzania cyklem życia i komunikat podczas wysyłania do sieci złośliwych użytkowników:
+# <a name="how-reliable-actors-use-hello-service-fabric-platform"></a>Jak używać platformy Service Fabric hello w Reliable Actors
+W tym artykule opisano, jak Reliable Actors działają na platformie Azure Service Fabric hello. Reliable Actors uruchomienia w ramach obsługiwanej w implementacji stanowe niezawodnej usługi o nazwie hello *usługi aktora*. Usługa aktora Hello zawiera wszystkie hello składniki niezbędne toomanage hello w cyklu życia i komunikat podczas wysyłania do sieci złośliwych użytkowników:
 
-* Środowisko uruchomieniowe aktora zarządza cykl życia, wyrzucanie elementów bezużytecznych i wymusza jednowątkowe dostęp.
-* Odbiornik komunikacji zdalnej usługi aktora akceptuje wywołań złośliwych użytkowników dostępu zdalnego i wysyła je do dyspozytora rozesłać do wystąpienia odpowiednie aktora.
-* Dostawca stanu aktora opakowuje dostawców stanu (na przykład dostawcy stanu niezawodnej kolekcje) i udostępnia adapter dla zarządzania stanem aktora.
+* Hello aktora środowiska uruchomieniowego umożliwia zarządzanie cyklem, wyrzucanie elementów bezużytecznych i wymusza jednowątkowe dostęp.
+* Odbiornik komunikacji zdalnej usługi aktora akceptuje tooactors połączeń dostępu zdalnego i wysyła je tooa dyspozytora tooroute toohello aktora odpowiednie wystąpienie.
+* Hello dostawcy stanu aktora opakowuje dostawców stanu (na przykład dostawcy stanu niezawodnej kolekcje hello) i udostępnia adapter dla zarządzania stanem aktora.
 
-Te składniki tworzą razem framework niezawodnego aktora.
+Te składniki współpracują formularza hello niezawodnego aktora framework.
 
 ## <a name="service-layering"></a>Tworzenie warstw usługi
-Ponieważ sama usługa aktora jest niezawodnej usługi, wszystkie [model aplikacji](service-fabric-application-model.md), cykl życia, [pakowania](service-fabric-package-apps.md), [wdrożenia](service-fabric-deploy-remove-applications.md), uaktualnianie i skalowanie pojęcia niezawodne usługi Zastosuj ten sam sposób, aby usługi aktora. 
+Ponieważ sama usługa aktora hello jest niezawodnej usługi, wszystkie hello [model aplikacji](service-fabric-application-model.md), cykl życia, [pakowania](service-fabric-package-apps.md), [wdrożenia](service-fabric-deploy-remove-applications.md), uaktualniania i skalowanie pojęcia związane z Niezawodne usługi zastosować hello tej samej usługi tooactor sposób. 
 
 ![Tworzenie warstw usługi aktora][1]
 
-Na powyższym diagramie przedstawiono związek między struktur aplikacji usługi Service Fabric i kod użytkownika. Niebieski elementy reprezentują usługi niezawodnej struktury aplikacji, orange reprezentuje framework niezawodnego aktora i zielony reprezentuje kod użytkownika.
+Witaj wcześniejszym diagramie przedstawiono hello relacje struktur aplikacji hello sieci szkieletowej usług i kod użytkownika. Niebieski elementy reprezentują struktury aplikacji hello niezawodne usługi framework niezawodnego aktora hello reprezentuje kolor pomarańczowy i zielony reprezentuje kod użytkownika.
 
-W usługach niezawodnej usługi dziedziczy `StatefulService` klasy. Ta klasa jest pochodną `StatefulServiceBase` (lub `StatelessService` usług bezstanowych). W Reliable Actors możesz użyć usługi aktora. Usługa aktora jest różne implementacje `StatefulServiceBase` klasy, która implementuje wzorca aktora, gdzie uruchomić sieci złośliwych użytkowników. Ponieważ sama usługa aktora jest po prostu implementacją `StatefulServiceBase`, można napisać własne usługi, która pochodzi z `ActorService` i implementuje funkcje na poziomie usługi tak samo jak w przypadku dziedziczenia `StatefulService`, takich jak:
+W usługach niezawodnej usługi dziedziczy hello `StatefulService` klasy. Ta klasa jest pochodną `StatefulServiceBase` (lub `StatelessService` usług bezstanowych). W Reliable Actors należy użyć hello usługi aktora. Usługa aktora Hello jest inną implementację hello `StatefulServiceBase` klasy tego wzorca aktora hello implementuje gdzie uruchomić sieci złośliwych użytkowników. Ponieważ właśnie implementacja jest sama usługa aktora hello `StatefulServiceBase`, można napisać własne usługi, która pochodzi z `ActorService` i funkcje na poziomie usługi wdrożenie hello sam sposób jak w przypadku dziedziczenia `StatefulService`, takich jak:
 
 * Usługa tworzenia kopii zapasowej i przywracania.
 * Udostępnione funkcji dla wszystkich podmiotów, na przykład wyłącznika.
-* Zdalne wywoływanie procedur w samej usługi aktora i na każdym poszczególnych aktora.
+* Zdalne wywoływanie procedur w samej usługi aktora hello i na każdym poszczególnych aktora.
 
 > [!NOTE]
 > Stanowe usług nie są obecnie obsługiwane w języku Java/Linux.
 
-### <a name="using-the-actor-service"></a>Przy użyciu usługi aktora
-Wystąpienia aktora mają dostęp do usługi aktora, w którym jest uruchomiony. Za pośrednictwem usługi aktora wystąpień aktora programowo może uzyskać kontekstu usługi. Kontekst usługi zawiera identyfikator partycji, nazwę usługi, nazwa aplikacji i inne informacje specyficzne dla platformy Service Fabric:
+### <a name="using-hello-actor-service"></a>Przy użyciu usługi aktora hello
+Wystąpienia aktora mają dostęp toohello aktora usługi, w którym jest uruchomiony. Za pośrednictwem usługi aktora hello wystąpień aktora programowo można uzyskać hello usługi kontekstu. Kontekst usługi Hello ma identyfikator partycji: hello, nazwę usługi, nazwa aplikacji i inne informacje specyficzne dla platformy Service Fabric:
 
 ```csharp
 Task MyActorMethod()
@@ -68,7 +68,7 @@ CompletableFuture<?> MyActorMethod()
 ```
 
 
-Podobnie jak wszystkie niezawodnej usługi usługi aktora musi być zarejestrowany w środowisku uruchomieniowym usługi sieć szkieletowa typ usługi. Dla usługi aktora do uruchomienia wystąpień z aktorem danego typu aktora musi być zarejestrowany w usłudze aktora. `ActorRuntime` Metoda rejestracji wykonuje tej pracy dla osób. Ogólnie rzecz biorąc można zarejestrować tylko danego typu aktora i usługi aktora z ustawieniami domyślnymi niejawnie będą używane:
+Podobnie jak wszystkie niezawodnej usługi usługi aktora hello musi być zarejestrowany w środowisku uruchomieniowym usługi sieć szkieletowa hello typ usługi. Dla usługi aktora hello toorun swoich wystąpień aktora, danego typu aktora również musi być zarejestrowane w usłudze aktora hello. Witaj `ActorRuntime` metoda rejestracji wykonuje tej pracy dla osób. W przypadku najprostszym hello można zarejestrować tylko danego typu aktora i usługi aktora hello z ustawieniami domyślnymi niejawnie będą używane:
 
 ```csharp
 static class Program
@@ -82,7 +82,7 @@ static class Program
 }
 ```
 
-Alternatywnie można użyć wyrażenia lambda udostępniane przez metodę rejestracji do utworzenia usługi aktora samodzielnie. Można następnie skonfigurować usługi aktora i utworzenia jawnie swoich wystąpień aktora, w którym można wstrzyknięcia zależności do Twojej aktora za pośrednictwem jej konstruktora:
+Alternatywnie można użyć wyrażenia lambda udostępniane przez usługa aktora hello tooconstruct hello rejestracji — metoda. Można następnie skonfigurować usługi aktora hello i utworzenia jawnie swoich wystąpień aktora, w którym można wstrzyknięcia zależności tooyour aktora za pośrednictwem jej konstruktora:
 
 ```csharp
 static class Program
@@ -113,10 +113,10 @@ static class Program
 ```
 
 ### <a name="actor-service-methods"></a>Metody usługi aktora
-Implementuje usługi aktora `IActorService` (C#) lub `ActorService` (języka Java), który z kolei implementuje `IService` (C#) lub `Service` (Java). Jest to interfejs używany przez niezawodnych usług zdalnych, co pozwala na metody usług zdalnych wywołań procedur. Zawiera metody poziomu usług, które może zostać wywołana zdalnie za pomocą usług zdalnych.
+Witaj implementuje usługi aktora `IActorService` (C#) lub `ActorService` (języka Java), który z kolei implementuje `IService` (C#) lub `Service` (Java). Jest to interfejs hello używany łącząc niezawodne usługi, co pozwala na metody usług zdalnych wywołań procedur. Zawiera metody poziomu usług, które może zostać wywołana zdalnie za pomocą usług zdalnych.
 
 #### <a name="enumerating-actors"></a>Wyliczanie złośliwych użytkowników
-Usługa aktora umożliwia klientowi wyliczyć metadane dotyczące osób, które obsługuje usługę. Ponieważ usługa aktora jest partycjonowany usługi stanowej, wyliczenie jest wykonywane dla każdej partycji. Ponieważ każda partycja może zawierać wiele osób, wyliczenia jest zwracana jako zestaw wyników stronicowania. Strony są zwracane przez zapoznaniem wszystkich stron. Poniższy przykład przedstawia sposób tworzenia listy wszystkich podmiotów active w jednej partycji usługi aktora:
+Usługa aktora Hello umożliwia klientowi tooenumerate metadane dotyczące hello uczestników, obsługujące usługi hello. Ponieważ usługa aktora hello jest partycjonowany usługi stanowej, wyliczenie jest wykonywane dla każdej partycji. Ponieważ każda partycja może zawierać wiele osób, wyliczenie hello jest zwracana jako zestaw wyników stronicowania. strony Hello są zwracane przez zapoznaniem wszystkich stron. powitania po przykładzie pokazano, jak toocreate listę wszystkich podmiotów active w jednej partycji usługi aktora:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -160,7 +160,7 @@ while (continuationToken != null);
 ```
 
 #### <a name="deleting-actors"></a>Usuwanie złośliwych użytkowników
-Usługa aktora udostępnia również funkcję usuwania złośliwych użytkowników:
+Usługa aktora Hello udostępnia również funkcję usuwania złośliwych użytkowników:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -179,10 +179,10 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-Aby uzyskać więcej informacji na temat usuwania złośliwych użytkowników i ich stan, zobacz [dokumentacji cyklu życia aktora](service-fabric-reliable-actors-lifecycle.md).
+Aby uzyskać więcej informacji na temat usuwania złośliwych użytkowników i ich stan, zobacz hello [dokumentacji cyklu życia aktora](service-fabric-reliable-actors-lifecycle.md).
 
 ### <a name="custom-actor-service"></a>Usługa aktora niestandardowych
-Za pomocą aktora lambda rejestracji, możesz zarejestrować własnej usługi aktora niestandardowej, która pochodzi z `ActorService` (C#) i `FabricActorService` (Java). W tej usłudze aktora niestandardowych można zaimplementować własnej funkcji poziomu usług pisząc klasy usługi, która dziedziczy `ActorService` (C#) lub `FabricActorService` (Java). Usługi aktora niestandardowych dziedziczy wszystkie funkcje środowiska uruchomieniowego aktora z `ActorService` (C#) lub `FabricActorService` (Java) i może służyć do wykonania metody usługi.
+Za pomocą hello aktora rejestracji lambda, możesz zarejestrować własnej usługi aktora niestandardowej, która pochodzi z `ActorService` (C#) i `FabricActorService` (Java). W tej usłudze aktora niestandardowych można zaimplementować własnej funkcji poziomu usług pisząc klasy usługi, która dziedziczy `ActorService` (C#) lub `FabricActorService` (Java). Usługi aktora niestandardowych dziedziczy wszystkie funkcje środowiska uruchomieniowego aktora hello z `ActorService` (C#) lub `FabricActorService` (Java) i mogą być używane tooimplement metody usługi.
 
 ```csharp
 class MyActorService : ActorService
@@ -230,7 +230,7 @@ public class Program
 ```
 
 #### <a name="implementing-actor-backup-and-restore"></a>Implementowanie aktora kopii zapasowej i przywracania
- W poniższym przykładzie usługi aktora niestandardowych opisuje metodę kopii zapasowych danych aktora dzięki wykorzystaniu odbiornika usługi zdalne znajduje się już w `ActorService`:
+ W hello poniższy przykład, usługa aktora niestandardowych hello przedstawia tooback metody zapasowych aktora dzięki wykorzystaniu odbiornika usługi zdalne hello znajduje się już w `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -253,7 +253,7 @@ class MyActorService : ActorService, IMyActorService
     {
         try
         {
-           // store the contents of backupInfo.Directory
+           // store hello contents of backupInfo.Directory
            return true;
         }
         finally
@@ -285,7 +285,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
     {
         try
         {
-           // store the contents of backupInfo.Directory
+           // store hello contents of backupInfo.Directory
            return true;
         }
         finally
@@ -307,7 +307,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 ```
 
 
-W tym przykładzie `IMyActorService` jest umowa komunikacji zdalnej, która implementuje `IService` (C#) i `Service` (języka Java), a następnie jest implementowany przez `MyActorService`. Dodanie tego kontraktu usługi zdalne metod na `IMyActorService` są teraz dostępne do klienta przez utworzenie zdalnym obiektem pośredniczącym za pośrednictwem `ActorServiceProxy`:
+W tym przykładzie `IMyActorService` jest umowa komunikacji zdalnej, która implementuje `IService` (C#) i `Service` (języka Java), a następnie jest implementowany przez `MyActorService`. Dodanie tego kontraktu usługi zdalne metod na `IMyActorService` , są teraz dostępne tooa klienta przez utworzenie zdalnym obiektem pośredniczącym za pośrednictwem `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -323,31 +323,31 @@ myActorServiceProxy.backupActorsAsync();
 ```
 
 ## <a name="application-model"></a>Model aplikacji
-Usługi aktora są niezawodne usługi, więc model aplikacji jest taka sama. Jednak narzędzi kompilacji framework aktora Generowanie niektórych plików modelu aplikacji za Ciebie.
+Usługi aktora są niezawodne usługi, model aplikacji hello jest hello takie same. Jednak narzędzi kompilacji framework aktora hello wygenerować niektórych plików modelu aplikacji hello dla Ciebie.
 
 ### <a name="service-manifest"></a>Manifest usługi
-Narzędzia kompilacji framework aktora automatycznie generować zawartość pliku ServiceManifest.xml usługi aktora. Ten plik zawiera:
+narzędzia kompilacji framework aktora Hello automatycznie generować hello zawartość pliku ServiceManifest.xml usługi aktora. Ten plik zawiera:
 
-* Typ usługi aktora. Nazwa typu jest generowany na podstawie nazwy projektu z aktora. Na podstawie trwałości atrybutu na Twoje aktora, HasPersistedState zostanie również ustawiona flaga odpowiednio.
+* Typ usługi aktora. Nazwa typu Hello jest generowany na podstawie nazwy projektu z aktora. Na podstawie hello trwałości atrybutu na Twoje aktora, hello flagi HasPersistedState zostanie również ustawiona odpowiednio.
 * Pakiet kodu.
 * Pakiet konfiguracji.
 * Zasoby i punktów końcowych.
 
 ### <a name="application-manifest"></a>Manifest aplikacji
-Narzędzia kompilacji framework aktora automatyczne tworzenie definicji domyślnej usługi dla usługi aktora. Narzędzia kompilacji wypełniania właściwości usługi domyślne:
+narzędzia kompilacji framework aktora Hello automatyczne tworzenie definicji domyślnej usługi dla usługi aktora. narzędzia kompilacji Hello wypełniania właściwości usługi domyślne hello:
 
-* Liczba zestawu replik jest określana przez atrybut trwałości na Twoje aktora. Zawsze, gdy atrybut trwałości na Twoje aktora została zmieniona, liczba zestawu replik w definicji domyślnej usługi zostanie zresetowany odpowiednio.
-* Schemat partycji i zakres są ustawione na jednolitych Int64 z pełnego zakresu klucza Int64.
+* Liczba zestawu replik jest określana przez atrybut trwałości hello aktora sieci. Każdy atrybut trwałości hello czas na Twoje aktora zostanie zmieniona, hello repliki zestawu w definicji usługi domyślne hello zostanie zresetowany odpowiednio.
+* Schemat partycji i zakres są ustawione tooUniform Int64 z pełnego zakresu klucza hello Int64.
 
 ## <a name="service-fabric-partition-concepts-for-actors"></a>Pojęcia dotyczące partycji usługi sieć szkieletowa osób
 Usługi aktora są podzielone na partycje usługi stanowej. Każda partycja usługi aktora zawiera zestaw złośliwych użytkowników. Partycji usługi są automatycznie dystrybuowane za pośrednictwem wiele węzłów w sieci szkieletowej usług. W związku z tym rozpowszechnianych wystąpień aktora.
 
 ![Aktora partycjonowania i dystrybucji][5]
 
-Niezawodne usługi mogą być tworzone z różnych partycji, systemów i zakresami kluczy partycji. Usługa aktora wykorzystuje schemat partycjonowania Int64 z pełnego zakresu klucza Int64 do mapowania złośliwych użytkowników do partycji.
+Niezawodne usługi mogą być tworzone z różnych partycji, systemów i zakresami kluczy partycji. Usługa aktora Hello używa schemat partycjonowania Int64 hello z hello pełne Int64 zakresem kluczy toomap toopartitions złośliwych użytkowników.
 
 ### <a name="actor-id"></a>Identyfikator aktora
-Każdy aktora utworzony w usłudze ma unikatowy identyfikator skojarzony z nim reprezentowany przez `ActorId` klasy. `ActorId`to wartość Identyfikatora nieprzezroczyste, która może służyć do dystrybucji uniform podmiotów między partycji usługi przez Generowanie losowe identyfikatory:
+Każdy aktora utworzony w usłudze hello ma unikatowy identyfikator skojarzony z nim reprezentowany przez hello `ActorId` klasy. `ActorId`to wartość Identyfikatora nieprzezroczyste, która może służyć do dystrybucji uniform podmiotów między partycji usługi hello generując losowe identyfikatory:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -357,7 +357,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Każdy `ActorId` jest wartość skrótu do postaci liczby Int64. Jest to, dlaczego usługa aktora musi używać schemat partycjonowania Int64 z pełnego zakresu klucza Int64. Jednak można używać niestandardowej wartości Identyfikatora dla `ActorID`, w tym identyfikatory GUID/UUID, ciągi i Int64s.
+Każdy `ActorId` jest skrótem tooan Int64. Jest to, dlaczego usługa aktora hello musi używać schemat partycjonowania Int64 z pełnego zakresu klucza hello Int64. Jednak można używać niestandardowej wartości Identyfikatora dla `ActorID`, w tym identyfikatory GUID/UUID, ciągi i Int64s.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -370,7 +370,7 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-Podczas korzystania z identyfikatorów GUID/UUID i ciągi, wartości są wartość skrótu do postaci liczby Int64. Jednak gdy możesz jest jawnie dostarczanie Int64 do `ActorId`, Int64 przypisze bezpośrednio do partycji bez dalszego wyznaczania wartości skrótu. Można użyć tej metody do partycji, których podmioty są umieszczane w kontroli.
+Podczas korzystania z identyfikatorów GUID/UUID i ciągi, wartości hello są skrótem tooan Int64. Jednak gdy możesz jest jawnie dostarczanie tooan Int64 `ActorId`, hello Int64 przypisze bezpośrednio tooa partycji bez dalszego wyznaczania wartości skrótu. Możesz użyć tego toocontrol techniki, które podmioty hello partycji są umieszczane w.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)

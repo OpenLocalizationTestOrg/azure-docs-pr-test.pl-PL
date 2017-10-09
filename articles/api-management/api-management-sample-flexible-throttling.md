@@ -1,6 +1,6 @@
 ---
-title: "Zaawansowane żądanie ograniczania z usługą Azure API Management"
-description: "Dowiedz się, jak utworzyć i zastosować wskaźnik, ograniczając zasad z usługą Azure API Management i elastyczny przydział."
+title: "żądanie aaaAdvanced ograniczania z usługą Azure API Management"
+description: "Dowiedz się, jak toocreate i stosować elastyczny przydział i szybkość ograniczenia zasad z usługą Azure API Management."
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 35375e599891a9443a91c4c3a8657e8c9c48c7b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac87f83118a37bd587fddf044e5c2d6fc2af9031
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane żądanie ograniczania z usługą Azure API Management
-Możliwość ograniczania żądań przychodzących jest kluczową rolę usługi Azure API Management. Albo kontrolując współczynnika żądań lub całkowita liczba żądań/transferu danych, zarządzanie interfejsami API umożliwia dostawcom usług interfejsu API ochrony ich interfejsów API z nadużyć i utworzyć wartości dla różnych warstw produktu interfejsu API.
+Trwa toothrottle stanie przychodzących żądań jest kluczową rolę usługi Azure API Management. Przekazywane przez kontrolowanie hello współczynnika żądań lub hello całkowita liczba żądań/danych, umożliwia zarządzanie interfejsami API tooprotect dostawcy interfejsu API ich interfejsów API z nadużyć i utworzyć wartości dla różnych warstw produktu interfejsu API.
 
 ## <a name="product-based-throttling"></a>Ograniczanie produktu w oparciu
-Data, szybkość ograniczenie możliwości zostały ograniczone do ograniczone do określonej subskrypcji produktu (zasadniczo klucza), zdefiniowane w portalu zarządzania interfejsu API wydawcy. Jest to przydatne w przypadku dostawcy interfejsu API w celu zastosowania ograniczeń na deweloperów, którzy utworzyli konto do użycia interfejsu API, jednak nie pomaga, na przykład w ograniczania indywidualnych użytkowników końcowych interfejsu API. Jest to możliwe, że dla pojedynczego użytkownika dewelopera aplikacji, aby korzystać z całego przydziału, a następnie uniemożliwić dewelopera innych klientów do korzystania z aplikacji. Ponadto wielu klientów, którzy mogą generować dużą liczbę żądań może ograniczyć dostęp do okazjonalne użytkowników.
+toodate, szybkość hello ograniczanie możliwości ma została ograniczona toobeing zakres tooa konkretnego produktu subskrypcji (zasadniczo klucza), zdefiniowane w hello API Management portal wydawcy. Jest to przydatne hello interfejsu API dostawcy tooapply limitów na powitania deweloperów, którzy utworzyli konto toouse ich interfejsu API, jednak nie pomaga, na przykład w ograniczania indywidualnych użytkowników końcowych z hello interfejsu API. Jest to możliwe, że dla pojedynczego użytkownika tooconsume aplikacji hello developer hello całego przydziału a następnie uniemożliwić innych klientów hello Deweloper aplikacji hello toouse stanie. Ponadto wielu klientów, którzy mogą generować dużą liczbę żądań może ograniczyć dostępu toooccasional użytkowników.
 
 ## <a name="custom-key-based-throttling"></a>Klucz niestandardowy na podstawie ograniczania przepustowości
-Nowy [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) udostępniają znacznie bardziej elastyczne rozwiązania do kontroli ruchu. Te nowe zasady umożliwiają definiowanie wyrażenia, aby zidentyfikować klucze, które będą używane do śledzenia użycia ruchu. To działania easiest przedstawiono przykład. 
+Hello nowe [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) udostępniają formantu tootraffic znacznie bardziej elastyczne rozwiązania. Te nowe zasady pozwalają toodefine wyrażenia tooidentify hello klucze, które będą używane tootrack ruchu użycia. działa to sposób Hello easiest przedstawiono przykład. 
 
 ## <a name="ip-address-throttling"></a>Ograniczenia adresów IP
-Następujące zasady ograniczyć adresów IP jednego klienta do wywołania tylko 10 co minutę, łączna liczba wywołań 1 000 000 i 10 000 kilobajtów przepustowości miesięcznie. 
+Hello następujące zasady ograniczyć pojedynczy tooonly adres IP klienta 10 wywołuje co minutę, w sumie 1 000 000 wywołań i 10 000 kilobajtów przepustowości miesięcznie. 
 
 ```xml
 <rate-limit-by-key  calls="10"
@@ -43,7 +43,7 @@ Następujące zasady ograniczyć adresów IP jednego klienta do wywołania tylko
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-Jeśli wszyscy klienci w Internecie używany unikatowy adres IP, może to być efektywnym sposobem ograniczenia użycia przez użytkownika. Jednak jest bardzo prawdopodobne, że wielu użytkowników będzie udostępnianie jeden publiczny adres IP z powodu ich dostęp do Internetu za pośrednictwem urządzenia translatora adresów Sieciowych. Mimo to dla interfejsów API, który umożliwia nieuwierzytelnione dostępu `IpAddress` może być najlepszym rozwiązaniem.
+Jeśli wszyscy klienci na powitania Internet używany unikatowy adres IP, może to być efektywnym sposobem ograniczenia użycia przez użytkownika. Jednak jest bardzo prawdopodobne, że wielu użytkowników będzie udostępnianie jeden publiczny adres IP powodu toothem podczas uzyskiwania dostępu do hello Internet za pośrednictwem urządzenia translatora adresów Sieciowych. Mimo to dla interfejsów API, które umożliwia dostęp nieuwierzytelniony hello `IpAddress` może być hello najlepszym rozwiązaniem.
 
 ## <a name="user-identity-throttling"></a>Ograniczenie tożsamości użytkownika
 Jeśli użytkownik jest uwierzytelniony, ograniczenie klucza mogą być generowane na podstawie informacji, który unikatowo identyfikuje, który użytkownik.
@@ -54,13 +54,13 @@ Jeśli użytkownik jest uwierzytelniony, ograniczenie klucza mogą być generowa
     counter-key="@(context.Request.Headers.GetValueOrDefault("Authorization","").AsJwt()?.Subject)" />
 ```
 
-W tym przykładzie mamy extract nagłówek autoryzacji, przekonwertuj je na `JWT` obiektu i Użyj podmiotu tokenu do identyfikacji użytkownika i używać go jako szybkość ograniczenie klucza. Jeśli tożsamości użytkownika jest przechowywany w `JWT` zgodnie z jednego z innych oświadczeń następnie czy można użyć wartości w jego miejscu.
+W tym przykładzie mamy wyodrębnić hello nagłówek autoryzacji, należy konwertować go za`JWT` obiekt i Użyj tematu hello hello tokenu tooidentify hello użytkownika i używać go jako szybkość hello ograniczenie klucza. Jeśli hello tożsamości użytkownika jest przechowywany w hello `JWT` zgodnie z jedną hello innych oświadczeń następnie czy można użyć wartości w jego miejscu.
 
 ## <a name="combined-policies"></a>Łączna zasad
-Mimo że nowe zasady ograniczania przepustowości zapewniają większą kontrolę niż istniejące zasady ograniczania przepustowości, występuje nadal łączenie możliwości obu wartości. Ograniczanie przez klucz produktu subskrypcji ([Limit szybkości wywołanie przez subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [przydział użycia zestawu subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) to dobry sposób, aby umożliwić monetizing interfejsu API, pobierając oparte na poziomy użycia. Skuteczniejszą kontrolę o możliwość ograniczania przez użytkownika jest uzupełniające i uniemożliwia pogorszenia jakości związku środowisko innego zachowanie jednego użytkownika. 
+Mimo że hello ograniczania nowe zasady zapewniają większą kontrolę niż hello istniejące zasady ograniczania przepustowości, występuje nadal łączenie możliwości obu wartości. Ograniczanie przez klucz produktu subskrypcji ([Limit szybkości wywołanie przez subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) i [przydział użycia zestawu subskrypcji](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota)) to dobry sposób tooenable monetizing interfejsu API, pobierając oparte na poziomy użycia. Witaj skuteczniejszą kontrolę ich stanie toothrottle przez użytkownika uzupełnia i zapobiega zachowanie jednego użytkownika pogorszenia jakości związku środowisko hello innego. 
 
 ## <a name="client-driven-throttling"></a>Klient zmiennych ograniczania przepustowości
-Po klucz ograniczania przepustowości jest definiowana za pomocą [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx), wówczas jest dostawcy interfejsu API, który jest wybranie jak zakres to ograniczenie. Jednak dewelopera mogą chcieć kontrolować sposób ich limit szybkości własnych klientów. To może zostać włączona przez dostawcę interfejsu API dzięki zastosowaniu niestandardowy nagłówek umożliwia dewelopera aplikacji klienckiej do komunikowania się klucz interfejsu API.
+Gdy hello ograniczania klucza jest definiowana za pomocą [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx), wówczas jest dostawcy hello interfejsu API, który jest wybór sposobu ograniczania hello ma zakres. Jednak może być deweloperem toocontrol jak szybkości ograniczyć własnych klientów. Może zostać włączona przez dostawcę interfejsu API hello dzięki zastosowaniu niestandardowy nagłówek tooallow hello dewelopera klienta aplikacji toocommunicate hello klucza toohello interfejsu API.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -68,16 +68,16 @@ Po klucz ograniczania przepustowości jest definiowana za pomocą [wyrażenie za
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-Dzięki temu aplikacja kliencka dewelopera wybierz, jak chcą, aby utworzyć szybkość ograniczenie klucza. Z niewielki ingenuity deweloperowi klienta można utworzyć własne warstwy stawki przydzielając zestawy kluczy dla użytkowników i obracanie użycia klucza.
+Dzięki temu deweloper powitania klienta aplikacji toochoose jak chcą szybkość hello toocreate ograniczenie klucza. Z niewielki ingenuity deweloperowi klienta można utworzyć własne warstwy stawki przydzielając zestawy kluczy toousers i obracanie hello użycia klucza.
 
 ## <a name="summary"></a>Podsumowanie
-Zarządzanie interfejsami API Azure zapewnia szybkość i oferty ograniczania do ochrony i Dodaj wartość do usług interfejsu API. Nowe zasady ograniczania przepustowości przy użyciu niestandardowych reguł zakresu pozwalają skuteczniejszą kontrolę nad tych zasad, aby umożliwić klientom tworzenie jeszcze bardziej poprawić jakość aplikacji. Przykłady w tym artykule przedstawiają sposób używania tych nowych zasad przez współczynnik produkcyjnym ograniczanie klucze z adresów IP klientów, tożsamość użytkownika i wartości klientów wygenerowany. Istnieją jednak wiele innych części komunikat, który może zostać użyty, takich jak agent użytkownika, adres URL ścieżki fragmenty, rozmiar wiadomości.
+Zarządzanie interfejsami API Azure zapewnia szybkość i oferty ograniczania tooboth ochrony i Dodaj wartości tooyour interfejsu API usługi. Ograniczanie nowych zasad za pomocą reguł niestandardowych zakresu Hello zezwala na system można bardziej precyzyjną kontrolę nad tooenable tych zasad aplikacji jeszcze bardziej poprawić jakość toobuild klientów. Przykłady Hello w tym artykule przedstawiają hello stosowania tych nowych zasad przez współczynnik produkcyjnym ograniczanie klucze z adresów IP klientów, tożsamość użytkownika i wartości klientów wygenerowany. Istnieje jednak wiele innych części wiadomości powitania, które mogą zostać użyte, takich jak agent użytkownika, adres URL ścieżki fragmenty, rozmiar wiadomości.
 
 ## <a name="next-steps"></a>Następne kroki
-Daj nam swoją opinię w wątku usługi Disqus dla tego tematu. Jest bardzo otrzymywać informacje o innych potencjalnych wartości kluczy, które zostały logicznej wybór w swoim scenariuszu.
+Daj nam swoją opinię w wątku Disqus hello tego tematu. Jest bardzo toohear o innych potencjalnych wartości kluczy, które zostały logicznej wybór w swoim scenariuszu.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Obejrzyj film poglądowy dotyczący tych zasad
-Aby uzyskać więcej informacji na temat [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) zasady omówione w tym artykule, obserwuj poniższego klipu wideo.
+Aby uzyskać więcej informacji na temat hello [szybkość limit przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) i [limitu przydziału przez klucz](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) zasady omówione w tym artykule, obserwuj powitania po wideo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Advanced-Request-Throttling-with-Azure-API-Management/player]
 > 

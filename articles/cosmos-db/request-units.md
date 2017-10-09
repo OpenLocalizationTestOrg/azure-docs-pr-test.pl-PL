@@ -1,6 +1,6 @@
 ---
-title: "Jednostek żądania & Szacowanie przepływności - DB rozwiązania Cosmos Azure | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu zrozumieć, określ i oszacować wymagania dotyczące jednostki żądania w usłudze Azure DB rozwiązania Cosmos."
+title: "aaaRequest jednostki i planowania przepływności - DB rozwiązania Cosmos Azure | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie toounderstand, określ i oszacować wymagania dotyczące jednostki żądania w usłudze Azure DB rozwiązania Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 13c4e7aeb6222fa14ef982e238716e15a0159fd5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Żądanie jednostki w Azure rozwiązania Cosmos bazy danych
 Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner). Dowiedz się więcej w [Szacowanie przepustowość sieci musi](request-units.md#estimating-throughput-needs).
@@ -26,41 +26,41 @@ Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](h
 ![Kalkulator przepływności][5]
 
 ## <a name="introduction"></a>Wprowadzenie
-[Azure DB rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) jest globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Z bazy danych rozwiązania Cosmos platformy Azure nie trzeba wynajmować maszyn wirtualnych, wdrażania oprogramowania lub monitora bazy danych. Azure DB rozwiązania Cosmos jest obsługiwane i stale monitorowane przez górny pracownicy firmy Microsoft do dostarczania światowej klasy ochrony dostępności, wydajności i danych. Są dostępne dane przy użyciu interfejsów API wybranych jako [SQL usługi DocumentDB](documentdb-sql-query.md) (dokument) bazy danych MongoDB (dokument), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (klucz wartość) i [Gremlin](https://tinkerpop.apache.org/gremlin.html) (wykres) znajdują się w obsługiwane. Waluta Azure DB rozwiązania Cosmos jest jednostka żądań (RU). Z RUs nie należy do zarezerwowania możliwości odczytu/zapisu lub udostępnić Procesora, pamięci i IOPS.
+[Azure DB rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) jest globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Z bazy danych rozwiązania Cosmos platformy Azure nie toorent z maszyn wirtualnych, wdrażania oprogramowania lub monitora bazy danych. Azure DB rozwiązania Cosmos jest obsługiwane i stale monitorowane przez program Microsoft inżynierów najwyższego toodeliver światowej klasy dostępności, wydajności i danych ochrony. Są dostępne dane przy użyciu interfejsów API wybranych jako [SQL usługi DocumentDB](documentdb-sql-query.md) (dokument) bazy danych MongoDB (dokument), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (klucz wartość) i [Gremlin](https://tinkerpop.apache.org/gremlin.html) (wykres) znajdują się w obsługiwane. Waluta Hello Azure DB rozwiązania Cosmos jest hello jednostek żądań (RU). RUs nie wymaga możliwości odczytu/zapisu tooreserve lub udostępnić Procesora, pamięci i IOPS.
 
-Azure DB rozwiązania Cosmos obsługuje kilka interfejsów API z różnych operacji — od prostych odczytuje i zapisuje wykres złożonych zapytań. Ponieważ nie wszystkie żądania są takie same, są przypisane znormalizowane ilość **jednostek żądania** na podstawie ilości obliczeń wymaganych do obsłużenia żądania. Liczba jednostek żądania dla operacji jest deterministyczna, a można śledzić liczbę jednostek żądania używane przez żadnych operacji w usłudze Azure DB rozwiązania Cosmos za pośrednictwem nagłówka odpowiedzi. 
+Azure DB rozwiązania Cosmos obsługuje kilka interfejsów API z różnych operacji — od prostych odczytuje i zapisuje toocomplex zapytania wykresu. Ponieważ nie wszystkie żądania są takie same, są przypisane znormalizowane ilość **jednostek żądania** na podstawie kwoty hello obliczenia wymagane tooserve hello żądania. Liczba Hello jednostek żądania dla operacji jest deterministyczna, a można śledzić hello liczby jednostek żądania używane przez żadnych operacji w usłudze Azure DB rozwiązania Cosmos za pośrednictwem nagłówka odpowiedzi. 
 
-Zapewnienie przewidywalnej wydajności, należy zarezerwować przepływności w jednostkach 100 RU/sekundę. 
+tooprovide przewidywalną wydajność, należy tooreserve przepływności w jednostkach 100 RU/sekundę. 
 
-Po przeczytaniu tego artykułu, będziesz mieć możliwość odpowiedzieć na następujące pytania:  
+Po przeczytaniu tego artykułu, będziesz w stanie tooanswer hello następujące pytania:  
 
 * Co to są jednostek żądania i żądania opłat?
 * Jak określić żądanie pojemność jednostki dla kolekcji?
 * Jak oszacować musi jednostki żądania Moja aplikacja
 * Co się stanie, jeśli I przekracza pojemność jednostki żądania dla kolekcji?
 
-Bazy danych Azure rozwiązania Cosmos jest wiele modeli bazy danych, to należy pamiętać, że odnoszą się do kolekcji/dokumentu do dokumentu interfejsu API, wykres/węzła Graph API i tabeli na jednostkę tabeli interfejsu API. Przepływność tego dokumentu, firma Microsoft będzie generalize koncepcji element/kontenera.
+Bazy danych Azure rozwiązania Cosmos jest wiele modeli bazy danych, jest ważne toonote, że dokument interfejsu API, wykres/węzła Graph API i tabeli na jednostkę tabeli interfejsu API odnoszą się tooa kolekcji lub dokumentu. Przepływność tego dokumentu, firma Microsoft będzie generalize pojęcia toohello kontenera/elementu.
 
 ## <a name="request-units-and-request-charges"></a>Jednostek żądania i żądania opłat
-Azure DB rozwiązania Cosmos zapewnia szybkie, przewidywalną wydajność przez *rezerwowania* zasobów do zaspokojenia musi przepływność aplikacji.  Ponieważ aplikacja obciążenia i dostęp do zmiany wzorce wraz z upływem czasu, bazy danych Azure rozwiązania Cosmos umożliwia łatwe zwiększyć lub zmniejszyć ilość zarezerwowaną przepływnością dostępne dla aplikacji.
+Azure DB rozwiązania Cosmos zapewnia szybkie, przewidywalną wydajność przez *rezerwowania* musi przepływność aplikacji toosatisfy zasobów.  Ponieważ aplikacji obciążenia oraz dostęp wzorce zmian w czasie, bazy danych Azure rozwiązania Cosmos pozwala zwiększyć tooeasily lub zmniejszyć ilość hello zarezerwowaną przepływnością tooyour dostępnych aplikacji.
 
-Z bazy danych Azure rozwiązania Cosmos zarezerwowaną przepływnością jest określane w przeliczeniu na jednostki żądania przetwarzania na sekundę. Można potraktować jednostki żądania jako walutę przepływności, zgodnie z którymi możesz *zarezerwować* ilość gwarantowane żądania jednostki dostępne dla aplikacji na podstawie sekundowym.  Każdej operacji w usłudze Azure DB rozwiązania Cosmos — zapisywanie dokumentu, wykonywania zapytania, aktualizowanie dokumentu — korzysta z Procesora, pamięci i IOPS.  Oznacza to, że każda operacja wiąże się z *żądań bezpłatnie*, który jest wyrażona w *jednostek żądania*.  Opis czynników, które będzie mieć wpływ na koszty jednostki żądania, oraz wymagania dotyczące przepływności aplikacji, umożliwia uruchamianie aplikacji jako koszt skutecznie, jak to możliwe. Eksplorator zapytań jest również cudowne narzędzie do testowania podstawowej zapytania.
+Z bazy danych Azure rozwiązania Cosmos zarezerwowaną przepływnością jest określane w przeliczeniu na jednostki żądania przetwarzania na sekundę. Można potraktować jednostki żądania jako walutę przepływności, zgodnie z którymi możesz *zarezerwować* ilość gwarantowane jednostki żądania tooyour dostępnych aplikacji na podstawie sekundowym.  Każdej operacji w usłudze Azure DB rozwiązania Cosmos — zapisywanie dokumentu, wykonywania zapytania, aktualizowanie dokumentu — korzysta z Procesora, pamięci i IOPS.  Oznacza to, że każda operacja wiąże się z *żądań bezpłatnie*, który jest wyrażona w *jednostek żądania*.  Opis czynników hello, to wpływ na koszty jednostki żądania, oraz wymagania dotyczące przepływności aplikacji, umożliwia toorun możesz aplikacji jako koszt skutecznie, jak to możliwe. Eksplorator zapytań Hello jest również podstawowa cudowne narzędzie tootest hello zapytania.
 
-Zalecamy rozpoczęcie pracy od obejrzenia poniższego klipu wideo, w którym Aravind Ramachandran wyjaśniono jednostek żądania i przewidywalną wydajność bazy danych Azure rozwiązania Cosmos.
+Zalecamy rozpoczęcie pracy od obejrzenia powitania po wideo, w którym Aravind Ramachandran wyjaśniono jednostek żądania i przewidywalną wydajność bazy danych Azure rozwiązania Cosmos.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
 > 
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Określanie pojemność jednostki żądania w usłudze Azure DB rozwiązania Cosmos
-Przy uruchamianiu nową kolekcję, tabeli lub wykres, określ liczbę jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Na podstawie udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela fizycznej partycji do obsługi kolekcji i podziałów/rebalances danych na partycji jako ich przyrostu.
+Przy uruchamianiu nową kolekcję, tabeli lub wykres, określ numer hello jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Oparte na powitania udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela toohost partycji fizycznej kolekcji i podziałów/rebalances danych na partycji jako ich przyrostu.
 
-Azure DB rozwiązania Cosmos wymaga klucza partycji, należy określić, gdy kolekcja jest inicjowana z 2500 jednostek żądania lub nowszej. Klucz partycji jest wymagany również skalować przepływność kolekcji poza 2500 jednostki żądania w przyszłości. W związku z tym zdecydowanie zaleca się konfigurowanie [klucza partycji](partition-data.md) podczas tworzenia kontenera niezależnie od programu początkowej przepływności. Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucza partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości), dzięki czemu żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
+Azure DB rozwiązania Cosmos wymaga toobe klucza partycji określone, gdy kolekcja jest inicjowana z 2500 jednostek żądania lub nowszej. Klucz partycji jest również wymagany tooscale przepływność kolekcji poza 2500 jednostki żądania w przyszłości hello. W związku z tym zdecydowanie zaleca się tooconfigure [klucza partycji](partition-data.md) podczas tworzenia kontenera niezależnie od programu początkowej przepływności. Ponieważ dane mogą mieć toobe podzielić na wiele partycji, jest konieczne toopick klucza partycji, który ma dużej kardynalności (100 toomillions unikatowe wartości), dzięki czemu żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
 
 > [!NOTE]
-> Klucz partycji to logiczne granic, a nie jeden fizyczny. W związku z tym nie należy ograniczyć liczbę wartości klucza partycji distinct. W rzeczywistości jest lepiej użyć więcej różne wartości klucza partycji niż mniej, jako bazy danych rozwiązania Cosmos Azure ma więcej opcje równoważenia obciążenia.
+> Klucz partycji to logiczne granic, a nie jeden fizyczny. W związku z tym nie trzeba toolimit hello liczba wartości kluczy partycji distinct. W rzeczywistości jest znacznie lepszą toohave partycji wartości klucza niż mniej, jako bazy danych rozwiązania Cosmos Azure ma więcej opcje równoważenia obciążenia.
 
-Oto fragment kodu dotyczący tworzenia kolekcji z 3000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
+Oto fragment kodu dotyczący tworzenia kolekcji z 3000 żądania jednostek na drugi przy użyciu hello zestawu .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -73,46 +73,46 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure DB rozwiązania Cosmos działa modelu rezerwacji przepływności. Oznacza to, że są rozliczane ilości przepływności *zastrzeżone*, niezależnie od tego, jaka część tego przepływności jest aktywnie *używane*. Aplikacją na obciążenia, danych i użycia zmiany wzorce, można łatwo skalowania ilość zastrzeżone RUs za pomocą zestawów SDK lub przy użyciu [Azure Portal](https://portal.azure.com).
+Azure DB rozwiązania Cosmos działa modelu rezerwacji przepływności. Oznacza to, że są rozliczane hello ilość przepustowości *zastrzeżone*, niezależnie od tego, jaka część tego przepływności jest aktywnie *używane*. Jako aplikacji obciążenia, danych i stosowania wzorców zmiany możesz łatwo skalować w górę i w dół hello ilość zastrzeżone RUs za pomocą zestawów SDK lub przy użyciu hello [Azure Portal](https://portal.azure.com).
 
-Każda kolekcja/tabeli/wykresu są mapowane na `Offer` zasobów w usłudze Azure DB rozwiązania Cosmos mającej metadane dotyczące udostępnionej przepływności. Możesz zmienić przydzielone przepływności wyszukiwania odpowiadający jej zasób oferta dla kontenera, a następnie zaktualizowaniem go przy użyciu nowej wartości przepływności. Oto fragment kodu do zmiany przepływność kolekcji do 5000 jednostek żądania na drugi przy użyciu zestawu .NET SDK:
+Każda kolekcja/tabeli/wykresu są mapowane tooan `Offer` zasobów w usłudze Azure DB rozwiązania Cosmos mającej metadane dotyczące hello udostępnionej przepływności. Możesz zmienić przepływności hello przydzielone wyszukiwania hello odpowiadający jej zasób oferta dla kontenera, a następnie Uaktualnianie hello nową wartość przepływności. Oto fragment kodu do zmiany hello przepływność too5 kolekcji, 000 jednostek żądań na drugi przy użyciu hello zestawu .NET SDK:
 
 ```csharp
-// Fetch the resource to be updated
+// Fetch hello resource toobe updated
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
                 .SingleOrDefault();
 
-// Set the throughput to 5000 request units per second
+// Set hello throughput too5000 request units per second
 offer = new OfferV2(offer, 5000);
 
-// Now persist these changes to the database by replacing the original resource
+// Now persist these changes toohello database by replacing hello original resource
 await client.ReplaceOfferAsync(offer);
 ```
 
-Jeśli zmienisz przepływność jest bez zakłócania dostępności z kontenera. Zazwyczaj nowe zarezerwowaną przepływnością obowiązuje w ciągu kilku sekund na stosowanie nowych przepływności.
+Jeśli zmienisz przepływności hello jest wpływ dostępności toohello Twojego kontenera. Zazwyczaj nowe zarezerwowaną przepływnością hello obowiązuje w ciągu kilku sekund na aplikacji hello przepływności nowe.
 
 ## <a name="request-unit-considerations"></a>Zagadnienia dotyczące jednostki żądania
-Szacowanie liczby jednostek żądania do zarezerwowania dla Twojej bazy danych Azure rozwiązania Cosmos kontenera, należy wziąć pod uwagę następujące zmienne:
+Podczas oceny hello liczba tooreserve jednostki żądania dla Twojej bazy danych Azure rozwiązania Cosmos kontenera, jest ważne tootake hello następujące zmienne pod uwagę:
 
-* **Rozmiar elementu**. Jak rozmiarze jednostki używane do odczytu lub zapisu danych zwiększa.
-* **Liczba właściwości elementu**. Przyjmuje indeksowania domyślne wszystkich właściwości, jednostki używane do zapisywania dokumentu/węzła/ntity zwiększa się wraz ze wzrostem liczby właściwości.
-* **Spójność danych**. Gdy za pomocą poziomów spójności danych silne lub ograniczonych nieaktualności, dodatkowych jednostek zostaną użyte do odczytu elementów.
-* **Właściwości indeksowanych**. Zasady indeksu na każdego kontenera określa właściwości, które są indeksowane domyślnie. Można ograniczyć zużycie jednostki Twoje żądanie, przez ograniczenie liczby właściwości indeksowanych lub włączenie indeksowanie z opóźnieniem.
-* **Indeksowanie dokumentów**. Domyślnie każdy element jest automatycznie indeksowane będą korzystać mniejszej liczby jednostek żądania, jeśli wybierzesz nie może zindeksować niektórych elementów.
-* **Zapytanie wzorce**. Złożoność kwerendy wpływa na liczbę jednostek żądania są używane dla operacji. Liczba predykatów, rodzaj predykaty, projekcje liczbę funkcji UDF i rozmiaru zestawu danych źródła wszystkich wpływ kosztów operacji zapytania.
-* **Użycie skryptu**.  Podobnie jak w przypadku zapytań, procedury składowane i wyzwalaczy wykorzystywać jednostki żądania, zależnie od stopnia złożoności wykonywania operacji. Podczas opracowywania aplikacji, sprawdź, czy nagłówek opłat żądania, aby lepiej zrozumieć, jak każdej operacji zajmuje pojemność jednostki żądania.
+* **Rozmiar elementu**. Rozmiar zwiększa tooread jednostki używane hello lub zwiększa zapis hello danych.
+* **Liczba właściwości elementu**. Zakładając, że domyślna indeksowania wszystkich właściwości, hello toowrite zużywanych jednostek, które dokumentu/węzła/ntity zwiększa się wraz ze wzrostem liczby właściwości hello.
+* **Spójność danych**. Po za pomocą poziomów spójności danych silne lub ograniczonych nieaktualności, dodatkowych jednostek będzie wykorzystanych tooread elementów.
+* **Właściwości indeksowanych**. Zasady indeksu na każdego kontenera określa właściwości, które są indeksowane domyślnie. Można ograniczyć zużycie jednostki Twoje żądanie, przez ograniczanie liczby hello właściwości indeksowanych lub włączenie indeksowanie z opóźnieniem.
+* **Indeksowanie dokumentów**. Domyślnie każdy element jest indeksowany automatycznie będą korzystać mniejszej liczby jednostek żądania, jeśli wybierzesz nie tooindex niektórych elementów.
+* **Zapytanie wzorce**. złożoność Hello zapytania ma wpływ na liczbę jednostek żądania są używane dla operacji. Hello liczba predykatów, rodzaj predykaty hello, projekcje, liczba funkcji UDF i hello rozmiaru zestawu danych źródła hello wszystkie wpływ koszt hello zapytania operacji.
+* **Użycie skryptu**.  Podobnie jak w przypadku zapytań, procedury składowane i wyzwalaczy wykorzystywać oparte na powitania złożoność operacjom hello jednostki żądania. Podczas opracowywania aplikacji hello żądań bezpłatnie sprawdzić toobetter nagłówka zrozumieć, jak każdej operacji zajmuje pojemność jednostki żądania.
 
 ## <a name="estimating-throughput-needs"></a>Planowania potrzeb w zakresie przepustowości
-Jednostka żądania jest znormalizowane miara kosztu przetwarzania żądania. Jednostka pojedyncze żądanie reprezentuje możliwości przetwarzania wymagane do odczytu (za pośrednictwem łączy własnych lub identyfikator) pojedynczego 1KB elementu składające się z 10 unikatowe wartości (z wyjątkiem właściwości systemu). Żądanie utworzenia (Wstaw), Zamień lub Usuń ten sam element będą korzystać z dodatkowych zadań przetwarzania przez usługę i tym samym więcej jednostek żądania.   
+Jednostka żądania jest znormalizowane miara kosztu przetwarzania żądania. Jednostka pojedyncze żądanie reprezentuje tooread wymaganą wydajność przetwarzania hello (za pośrednictwem łączy własnych lub identyfikator) pojedynczego 1KB elementu składające się z 10 unikatowe wartości (z wyjątkiem właściwości systemu). Żądanie toocreate (Wstaw), Zamień lub usuń hello sam element zajmie więcej przetwarzania z usługi hello i tym samym więcej jednostek żądania.   
 
 > [!NOTE]
-> Linia bazowa jednostka żądania 1 do 1KB elementu odpowiada proste GET przez łącze własne lub identyfikator elementu.
+> linii bazowej Hello jednostki 1 żądanie dla 1KB elementu odpowiada tooa proste UZYSKAĆ łącze własne lub identyfikator elementu hello.
 > 
 > 
 
-Na przykład, w tym miejscu jest tabelę, która zawiera liczbę jednostek żądania udzielenia na trzy rozmiary innego elementu (1KB, 4KB do 64KB) i na dwa różne poziomy wydajności (odczyty 500 na sekundę 100 zapisy na sekundę i 500 odczyty/sekundę + 500 zapisy na sekundę). Spójność danych skonfigurowano na sesji, a zasady indeksowania został ustawiony na None.
+Na przykład, w tym miejscu jest tabelę, która pokazuje, ile żądań tooprovision jednostki na trzy rozmiary innego elementu (1KB, 4KB do 64KB) i na dwa różne poziomy wydajności (odczyty 500 na sekundę 100 zapisy na sekundę i 500 odczyty/sekundę + 500 zapisy na sekundę). spójność danych Hello został skonfigurowany na sesji i hello indeksowania zasad ustawiono tooNone.
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -161,64 +161,64 @@ Na przykład, w tym miejscu jest tabelę, która zawiera liczbę jednostek żąd
     </tbody>
 </table>
 
-### <a name="use-the-request-unit-calculator"></a>Użycie kalkulatora jednostki żądania
-Aby ułatwić klientom poprawnie dostroić ich ocen przepływności, jest opartego na sieci web [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner) aby oszacować wymagania dotyczące jednostki żądania dla operacji typowych, w tym:
+### <a name="use-hello-request-unit-calculator"></a>Użycie kalkulatora jednostki żądania hello
+Klienci toohelp poprawnie dostroić ich ocen przepływności, jest opartego na sieci web [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner) wymagań hello szacowania toohelp jednostki żądania dla operacji typowych, w tym:
 
 * Element tworzy (zapisy)
 * Odczytuje element
 * Usuwa element
 * Element aktualizacji
 
-Narzędzie obejmuje również obsługę Szacowanie oparte na elementach próbki, podane wymagania dotyczące przechowywania danych.
+Narzędzie Hello obejmuje również obsługę Szacowanie oparte na powitania przykładowych elementów podane wymagania dotyczące przechowywania danych.
 
-Za pomocą narzędzia jest prosty:
+Za pomocą narzędzia hello jest prosty:
 
 1. Należy przekazać co najmniej jeden element reprezentatywny.
    
-    ![Przekaż elementów do Kalkulatora jednostki żądania][2]
-2. Aby oszacować wymagania dotyczące magazynu danych, wprowadź całkowitą liczbę elementów, które chcesz przechowywać.
-3. Wprowadź liczbę elementów, które tworzenia, odczytu, aktualizacji i usuwania działań, które wymagają (na podstawie na sekundę). Aby oszacować opłat jednostki żądania operacji aktualizowania elementu, Przekaż kopię elementu próbki z kroku 1 zawiera pole typowe aktualizacje.  Na przykład aktualizacji elementu zmodyfikowania zwykle dwie właściwości o nazwie lastLogin i userVisits, następnie po prostu skopiuj element przykładowych, zaktualizuj wartości dla tych dwóch właściwości i przekaż skopiowany element.
+    ![Przekaż Kalkulator jednostki żądania toohello elementów][2]
+2. wymagania dotyczące magazynu danych tooestimate, wprowadź hello łączna liczba elementów spodziewasz się toostore.
+3. Wprowadź hello liczba elementów tworzenia, odczytu, aktualizacji i usuwania działań, które wymagają (na podstawie na sekundę). opłaty za jednostki żądania hello tooestimate elementu operacji aktualizacji, Przekaż kopię hello próbka z kroku 1 zawiera pole typowe aktualizacje.  Na przykład jeśli element aktualizacje zwykle zmodyfikować dwie właściwości o nazwie lastLogin i userVisits, a następnie po prostu skopiuj element przykładowych hello, zaktualizuj hello wartości tych dwóch właściwości i przekaż hello skopiowany element.
    
-    ![Wprowadź wymagania dotyczące przepływności w Kalkulator jednostki żądania][3]
-4. Kliknij przycisk Oblicz i przejrzeć wyniki.
+    ![Wprowadź wymagania dotyczące przepływności w Kalkulator jednostki żądania hello][3]
+4. Kliknij przycisk Oblicz i wyniki hello sprawdzić.
    
     ![Wyniki Kalkulator jednostki żądania][4]
 
 > [!NOTE]
-> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i liczby właściwości indeksowanych, Przekaż przykładowe każdego *typu* z typowych elementu do narzędzia i obliczyć wyniki.
+> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i hello liczbę właściwości indeksowanych, Przekaż przykładowe każdego *typu* z toohello elementu typowe narzędzia, a następnie obliczyć hello wyników.
 > 
 > 
 
-### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Użyj nagłówka odpowiedzi opłat żądania bazy danych Azure rozwiązania Cosmos
-Każdy odpowiedź z usługi Azure DB rozwiązania Cosmos zawiera niestandardowy nagłówek (`x-ms-request-charge`) zawiera jednostki żądania używane dla żądania. Ten nagłówek jest również dostępny za pośrednictwem Azure DB rozwiązania Cosmos z zestawów SDK. W zestawie SDK .NET RequestCharge jest właściwością obiektu ResourceResponse.  Dla zapytań Eksploratora zapytań bazy danych Azure rozwiązania Cosmos w portalu Azure informacje żądania opłaty dotyczące wykonywane zapytania.
+### <a name="use-hello-azure-cosmos-db-request-charge-response-header"></a>Użyj nagłówka odpowiedzi opłat hello Azure DB rozwiązania Cosmos żądania
+Każdy odpowiedź z hello Azure DB rozwiązania Cosmos usługi zawiera niestandardowy nagłówek (`x-ms-request-charge`) zawiera jednostki żądania hello używane dla hello żądania. Ten nagłówek jest również dostępny za pośrednictwem hello Azure rozwiązania Cosmos DB SDK. W hello zestawu .NET SDK RequestCharge jest właściwością obiektu ResourceResponse hello.  Dla zapytań hello Eksploratora zapytań DB rozwiązania Cosmos Azure w portalu Azure hello informacje żądania opłaty dotyczące wykonywane zapytania.
 
-![Badanie RU opłat w Eksploratorze zapytania][1]
+![Badanie RU opłat w hello Eksploratora zapytań][1]
 
-Pamiętając o tym jednej metody w oszacowania zarezerwowaną przepływnością wymagane przez aplikację jest rejestrowanie skojarzone z systemem typowymi operacjami względem elementu reprezentatywny używanych przez aplikację, a następnie Szacowanie opłata jednostki żądania Liczba operacji przewidujesz wykonywania każdej sekundy.  Pamiętaj mierzyć i obejmują typowe zapytania i również użycie skryptu bazy danych Azure rozwiązania Cosmos.
+Pamiętając o tym, jedną z metod szacowania hello ilość zarezerwowaną przepływnością wymagane przez aplikację jest toorecord hello żądania jednostki opłat związanych z prowadzeniem typowymi operacjami względem elementu reprezentatywny używanych przez aplikację, a następnie Szacowanie hello liczba operacji przewidywania wykonywania każdej sekundy.  Można się toomeasure i obejmują typowe zapytania i również użycie skryptu bazy danych Azure rozwiązania Cosmos.
 
 > [!NOTE]
-> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i liczby właściwości indeksowanych rejestrowania opłata jednostki żądanie dotyczy operacji związanych z każdym *typu* typowe elementu.
+> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i hello liczbę właściwości indeksowanych rejestrowania hello odpowiednich operacji żądania jednostki opłat związanych z każdym *typu* typowe elementu.
 > 
 > 
 
 Na przykład:
 
-1. Zarejestruj opłata jednostki żądania tworzenia (Wstawianie) typowe elementu. 
-2. Rekord opłata jednostki żądanie odczytu typowe elementu.
-3. Rekord opłata jednostki żądania aktualizowania typowych elementu.
-4. Rekord opłata jednostki żądania elementu typowe, typowe zapytań.
-5. Zarejestruj opłata jednostki żądania żadnych niestandardowych skryptów (procedury składowane, wyzwalacze, funkcje zdefiniowane przez użytkownika) wykorzystywana przez aplikację
-6. Oblicz jednostki żądania wymagane podane szacowaną liczbę operacji, które planujesz do uruchomienia w ciągu sekundy.
+1. Zarejestruj hello żądania jednostkę opłatą tworzenia (Wstawianie) typowe elementu. 
+2. Opłata jednostki żądania rekordów hello odczytywania typowe elementu.
+3. Opłata jednostki żądania rekordów hello aktualizowania typowych elementu.
+4. Opłata jednostki żądania hello rekordów zapytań typowe, wspólnego elementu.
+5. Witaj rekordów żądania jednostki opłat skrypty niestandardowe (procedury składowane, wyzwalacze, funkcje zdefiniowane przez użytkownika) wykorzystywane przez aplikacji hello
+6. Oblicz hello żądania wymaganych jednostek podanych hello szacowana liczba operacji przewidujesz toorun każdej sekundy.
 
 ### <a id="GetLastRequestStatistics"></a>Za pomocą interfejsu API dla bazy danych MongoDB w GetLastRequestStatistics polecenia
-Interfejs API bazy danych mongodb obsługuje polecenia niestandardowych, *getLastRequestStatistics*, pobierania opłat żądania dla określonej operacji.
+Interfejs API bazy danych mongodb obsługuje polecenia niestandardowych, *getLastRequestStatistics*, pobierania hello opłat żądania dla określonej operacji.
 
-Na przykład w powłokę Mongo, należy wykonać chcesz zweryfikować opłata żądania dla operacji.
+Na przykład w hello powłokę Mongo, wykonaj operację hello, którą chcesz tooverify hello żądania opłata za.
 ```
 > db.sample.find()
 ```
 
-Następnie wykonaj polecenie *getLastRequestStatistics*.
+Następnie wykonaj polecenie hello *getLastRequestStatistics*.
 ```
 > db.runCommand({getLastRequestStatistics: 1})
 {
@@ -230,20 +230,20 @@ Następnie wykonaj polecenie *getLastRequestStatistics*.
 }
 ```
 
-Pamiętając o tym jednej metody w oszacowania zarezerwowaną przepływnością wymagane przez aplikację jest rejestrowanie skojarzone z systemem typowymi operacjami względem elementu reprezentatywny używanych przez aplikację, a następnie Szacowanie opłata jednostki żądania Liczba operacji przewidujesz wykonywania każdej sekundy.
+Pamiętając o tym, jedną z metod szacowania hello ilość zarezerwowaną przepływnością wymagane przez aplikację jest toorecord hello żądania jednostki opłat związanych z prowadzeniem typowymi operacjami względem elementu reprezentatywny używanych przez aplikację, a następnie Szacowanie hello liczba operacji przewidywania wykonywania każdej sekundy.
 
 > [!NOTE]
-> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i liczby właściwości indeksowanych rejestrowania opłata jednostki żądanie dotyczy operacji związanych z każdym *typu* typowe elementu.
+> Jeśli masz typów elementów, które różnią się znacznie pod względem rozmiaru i hello liczbę właściwości indeksowanych rejestrowania hello odpowiednich operacji żądania jednostki opłat związanych z każdym *typu* typowe elementu.
 > 
 > 
 
 ## <a name="use-api-for-mongodbs-portal-metrics"></a>Za pomocą interfejsu API dla bazy danych MongoDB w portalu metryki
-Najprostszym sposobem, aby uzyskać dobrą szacowania żądania opłat jednostki do interfejsu API jest korzystanie z bazy danych MongoDB [portalu Azure](https://portal.azure.com) metryki. Z *liczba żądań* i *opłat żądania* wykresy, możesz uzyskać oszacowanie liczbę jednostek żądania, każdy zajmuje operacji i liczbę jednostek żądania zużywają względem siebie.
+Witaj najprostszym tooget sposób dobrej szacowania jednostki żądania opłaty do interfejsu API dla bazy danych MongoDB jest toouse hello [portalu Azure](https://portal.azure.com) metryki. Z hello *liczba żądań* i *opłat żądania* wykresy, można uzyskać oszacowanie liczbę jednostek żądania każdej operacji jest wykorzystywanie i liczbę jednostek żądania zużywają tooone względną innej.
 
 ![Interfejs API dla metryki portalu bazy danych MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>W przykładzie szacowania jednostki żądania
-Należy wziąć pod uwagę następujące dokumentu ~ 1KB:
+Należy wziąć pod uwagę powitania po ~ 1KB dokumentu:
 
 ```json
 {
@@ -296,11 +296,11 @@ Należy wziąć pod uwagę następujące dokumentu ~ 1KB:
 ```
 
 > [!NOTE]
-> Dokumenty są zminimalizowany w usłudze Azure DB rozwiązania Cosmos, więc system obliczeniowe rozmiar dokumentu powyżej jest nieco mniej niż 1 KB.
+> Dokumenty są zminimalizowany w usłudze Azure DB rozwiązania Cosmos, więc hello system obliczeniowe rozmiar dokumentu hello powyżej jest nieco mniej niż 1 KB.
 > 
 > 
 
-W poniższej tabeli przedstawiono przybliżone żądania jednostki związanych z typowymi operacjami na tym elemencie (opłata jednostki żądania przybliżonej przy założeniu, że poziomu spójności konta jest ustawiona na "Sesja" i że wszystkie elementy są automatycznie indeksowane):
+Witaj poniższej tabeli przedstawiono przybliżone żądania jednostki związanych z typowymi operacjami na tym elemencie (opłat jednostki żądania przybliżonej hello zakłada poziomu spójności konta hello ustawiono zbyt "Sesja" i że wszystkie elementy są automatycznie indeksowane):
 
 | Operacja | Opłata jednostki żądania |
 | --- | --- |
@@ -308,7 +308,7 @@ W poniższej tabeli przedstawiono przybliżone żądania jednostki związanych z
 | Odczytu elementu |~ 1 RU |
 | Element zapytania według identyfikatora |~2.5 RU |
 
-Ponadto w poniższej tabeli zamieszczono przybliżonej żądania jednostki opłat za typowe zapytania używane w aplikacji:
+Ponadto w poniższej tabeli zamieszczono przybliżonej żądania jednostki opłat za typowe zapytania używane w aplikacji hello:
 
 | Zapytanie | Opłata jednostki żądania | Liczba zwróconych elementów |
 | --- | --- | --- |
@@ -318,11 +318,11 @@ Ponadto w poniższej tabeli zamieszczono przybliżonej żądania jednostki opła
 | Zaznacz górny żywności 10 w grupie żywności |~ 10 RU |10 |
 
 > [!NOTE]
-> Opłat RU się różnić w zależności od liczby elementów zwróconych.
+> Opłaty RU różnić w zależności od hello liczbę zwracanych elementów.
 > 
 > 
 
-Dzięki tym informacjom możemy oszacować wymagania RU dla tej aplikacji liczby operacji i zapytań Oczekujemy na sekundę:
+Dzięki tym informacjom możemy oszacować hello RU wymagania dla tej aplikacji, podanych hello liczby operacji i zapytań Oczekujemy na sekundę:
 
 | Operacja/zapytania | Szacowaną liczbę na sekundę | Wymagane RUs |
 | --- | --- | --- |
@@ -332,31 +332,31 @@ Dzięki tym informacjom możemy oszacować wymagania RU dla tej aplikacji liczby
 | Wybierz grupy żywności |10 |700 |
 | Wybierz 10 pierwszych |15 |Łącznie 150 |
 
-W takim przypadku oczekujemy wymaganie średniej przepływności 1,275 RU/s.  Zaokrąglenie do najbliższej 100, firma Microsoft może udostępnić 1300 RU/s dla kolekcji tej aplikacji.
+W takim przypadku oczekujemy wymaganie średniej przepływności 1,275 RU/s.  Zaokrąglania toohello najbliższej 100, firma Microsoft może udostępnić 1300 RU/s dla kolekcji tej aplikacji.
 
 ## <a id="RequestRateTooLarge"></a>Przekraczanie limitów zarezerwowaną przepływnością w usłudze Azure DB rozwiązania Cosmos
-Odwołaj, że zużycie jednostka żądania jest oceniana jako szybkość na sekundę, jeśli budżetu jest pusta. Dla aplikacji, które przekroczyć współczynnika jednostki żądania elastycznie kontenera żądań do tej kolekcji zostanie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy serwer będzie preemptively zakończyć żądania z RequestRateTooLargeException (kod stanu HTTP 429) i powrócić nagłówka x-ms ponawiania — po ms wskazująca czas (w milisekundach), które użytkownik musi czekać przed ponowną próbą wykonania żądanie.
+Odwołaj, że zużycie jednostka żądania jest oceniana jako szybkość na sekundę, jeśli budżetu hello jest pusta. Dla aplikacji, które przekraczają hello elastycznie jednostki częstość kontenera, żądania kolekcji toothat będzie ograniczony, dopóki hello spada poniżej poziomu hello zastrzeżone. W przypadku przepustnicy powitania serwera preemptively zakończy się Żądanie hello RequestRateTooLargeException (kod stanu HTTP 429) i zwracany hello nagłówka x-ms ponawiania — po ms wskazujący, że hello ilość czasu, w milisekundach hello użytkownik musi zaczekać na Interwał ponawiania hello żądanie.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-Jeśli używasz zestawu SDK klienta usługi .NET i LINQ zapytania, a następnie w większości przypadków, nie trzeba uwzględniać tego wyjątku, zgodnie z bieżącą wersją programu .NET SDK klienta niejawnie przechwytuje tej odpowiedzi szanuje określony serwer ponownych prób po nagłówka i ponawia żądanie. Następna ponowna próba powiedzie się, chyba że Twoje konto jest uzyskiwany jednocześnie przez wielu klientów.
+Jeśli używasz hello zestawu SDK klienta usługi .NET i LINQ zapytania, a następnie w większości przypadków hello nigdy nie masz toodeal z tym wyjątkiem, zgodnie z bieżącą wersję hello hello zestawu SDK klienta .NET niejawnie przechwytuje tej odpowiedzi względem hello określony serwer ponownych prób po nagłówka i Żądanie hello ponownych prób. Hello Następna ponowna próba powiedzie się, chyba że Twoje konto jest uzyskiwany jednocześnie przez wielu klientów.
 
-Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby żądań domyślne zachowanie ponownych prób nie mogą być niewystarczające, a klient zgłosi DocumentClientException z kodem stanu 429 do aplikacji. W przypadkach, takich jak ta można rozważyć Obsługa zachowanie ponownych prób i logikę w aplikacji Błąd procedury obsługi lub zwiększenie zarezerwowaną przepływnością kontenera.
+Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby żądań hello, hello domyślne zachowanie ponawiania mogą być niewystarczające i powitania klienta zgłosi DocumentClientException z aplikacją toohello 429 kodu stanu. W przypadkach, takich jak ta można rozważyć Obsługa zachowanie ponownych prób i logikę w aplikacji Błąd procedury obsługi lub zwiększenie hello zarezerwowaną przepływnością hello kontenera.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a>Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API, bazy danych mongodb
-Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API dla bazy danych MongoDB automatycznie ponowi próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
+Aplikacje, które przekraczają hello elastycznie jednostek żądania dla kolekcji będzie ograniczony, dopóki hello spada poniżej poziomu hello zastrzeżone. W przypadku przepustnicy zaplecza hello preemptively zakończy się hello żądania z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API dla bazy danych MongoDB automatycznie ponowi próbę zapasowej razy too10 przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie hello zarezerwowaną przepływnością dla kolekcji hello](set-throughput.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej na temat zarezerwowaną przepływnością z bazami danych bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:
+toolearn więcej informacji na temat zarezerwowaną przepływnością z bazami danych bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:
 
 * [Cennik platformy Azure DB rozwiązania Cosmos](https://azure.microsoft.com/pricing/details/cosmos-db/)
 * [Partycjonowanie danych w usłudze Azure DB rozwiązania Cosmos](partition-data.md)
 
-Aby dowiedzieć się więcej na temat bazy danych rozwiązania Cosmos Azure, zobacz Azure DB rozwiązania Cosmos [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/). 
+toolearn więcej informacji na temat bazy danych rozwiązania Cosmos platformy Azure, zobacz hello Azure DB rozwiązania Cosmos [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/). 
 
-Aby rozpocząć testowanie z bazy danych Azure rozwiązania Cosmos wydajności i skalowania, zobacz [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md).
+Zobacz tooget wprowadzenie testowanie Azure DB rozwiązania Cosmos, wydajności i skalowania [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md).
 
 [1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png

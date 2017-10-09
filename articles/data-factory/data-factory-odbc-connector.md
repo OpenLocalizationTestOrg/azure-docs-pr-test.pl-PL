@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie danych z baz danych ODBC | Dokumentacja firmy Microsoft
-description: "Więcej informacji na temat sposobu przenoszenia danych z baz danych ODBC przy użyciu fabryki danych Azure."
+title: aaaMove danych z baz danych ODBC | Dokumentacja firmy Microsoft
+description: "Więcej informacji na temat sposobu toomove danych ze źródła danych ODBC są przechowywane przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 269d9802ca4a6a16dbf9021929fe21104cb431f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bf96e71da449313b6144bb194205c572d2ca2030
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Przenieś magazyny danych ODBC z danych przy użyciu fabryki danych Azure
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przenoszenia danych z lokalnego magazynu danych ODBC. Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania.
+W tym artykule opisano, jak przechowywać toouse hello działanie kopiowania danych toomove fabryki danych Azure z lokalnymi danymi ODBC. Opiera się na powitania [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z hello działanie kopiowania.
 
-Wszystkie obsługiwanych ujścia magazynu danych można skopiować danych z magazynu danych ODBC. Lista magazynów danych obsługiwane jako wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko dane przenoszenie, z magazynu danych ODBC do innych magazynów danych, ale nie do przenoszenia danych z innych magazynów danych z magazynem danych ODBC. 
+Można skopiować danych z magazynu ODBC danych magazynu tooany obsługiwane ujścia danych. Lista danych obsługiwane magazyny wychwytywanie przez działanie kopiowania hello, zobacz hello [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. Fabryka danych aktualnie obsługuje tylko przeniesienie tooother magazyny danych magazynu danych ze źródła danych ODBC, ale nie do przenoszenia danych z magazynu magazynów danych ODBC tooan innych danych. 
 
 ## <a name="enabling-connectivity"></a>Włączenie łączności
-Usługi fabryka danych obsługuje połączenia ze źródłami ODBC lokalnymi przy użyciu bramy zarządzania danymi. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu, aby dowiedzieć się więcej na temat bramy zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy. Użyj bramy w celu połączenia z magazynem danych ODBC, nawet jeśli jest obsługiwany w maszynie Wirtualnej platformy Azure IaaS.
+Usługi fabryka danych obsługuje połączenia lokalnego tooon ODBC — źródła przy użyciu hello brama zarządzania danymi. Zobacz [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) toolearn artykuł o brama zarządzania danymi i instrukcje krok po kroku dotyczące konfigurowania bramy hello. Użyj magazynu danych ODBC tooan hello bramy tooconnect, nawet jeśli jest obsługiwany w maszynie Wirtualnej platformy Azure IaaS.
 
-Bramę można zainstalować na tym samym komputerze lokalnym lub maszynie Wirtualnej platformy Azure do przechowywania danych ODBC. Jednak zaleca się zainstalowanie bramy na oddzielnym komputerze/Azure IaaS maszyny Wirtualnej, aby uniknąć rywalizacji i lepszą wydajność. Po zainstalowaniu bramy na osobnym komputerze maszynie powinno być możliwe dostęp do komputera z magazynem danych ODBC.
+Możesz zainstalować bramę hello na powitania lokalnego tego samego komputera lub maszyny Wirtualnej platformy Azure jako magazynu danych ODBC hello hello. Jednak zaleca się instalowania bramy hello na oddzielnych maszyny/Azure IaaS maszyny Wirtualnej rywalizacji tooavoid i w celu zapewnienia lepszej wydajności. Po zainstalowaniu bramy hello na osobnym komputerze hello maszyny powinny być możliwe tooaccess hello maszyny z magazynem danych ODBC hello.
 
-Oprócz brama zarządzania danymi należy również zainstalować sterownika ODBC dla magazynu danych na komputerze bramy.
+Oprócz hello brama zarządzania danymi należy również sterownika ODBC hello tooinstall hello magazynu danych na komputerze bramy hello.
 
 > [!NOTE]
 > Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.
@@ -38,32 +38,32 @@ Oprócz brama zarządzania danymi należy również zainstalować sterownika ODB
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działania kopiowania, który przenosi dane z magazynu danych ODBC, za pomocą różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora kopiowania danych.
+Witaj Najprostszym sposobem toocreate potoku jest toouse hello **kreatora kopiowania**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) szybkie przewodnik dotyczący tworzenia potoku za pomocą Kreatora dane Kopiuj hello.
 
-Umożliwia także następujące narzędzia do tworzenia potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager**, **interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
+Można również użyć hello następujące narzędzia toocreate potoku: **portalu Azure**, **programu Visual Studio**, **programu Azure PowerShell**, **szablonu usługi Azure Resource Manager** , **Interfejs API .NET**, i **interfejsu API REST**. Zobacz [samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) dla toocreate instrukcje krok po kroku potoku z działaniem kopiowania. 
 
-Czy można użyć narzędzia i interfejsy API, należy wykonać następujące kroki, aby utworzyć potok, który przenosi dane z magazynu danych źródła do ujścia magazynu danych: 
+Czy za pomocą narzędzia hello lub interfejsów API, należy wykonać następujące kroki toocreate potok, który przenosi się, że magazyn danych ze źródła danych magazynu danych zbiornika tooa hello: 
 
-1. Utwórz **połączone usługi** Aby połączyć dane wejściowe i wyjściowe są przechowywane w fabryce danych.
-2. Utwórz **zestawów danych** do reprezentowania danych wejściowych i wyjściowych operacji kopiowania. 
+1. Utwórz **połączone usługi** toolink usługi fabryka danych tooyour magazynów danych wejściowych i wyjściowych.
+2. Utwórz **zestawów danych** toorepresent wejściowe i wyjściowe dane hello operacji kopiowania. 
 3. Utwórz **potoku** aktywnością kopiowania zestawu danych jako dane wejściowe i zestawu danych jako dane wyjściowe. 
 
-Korzystając z kreatora, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoki) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować tych jednostek fabryki danych w formacie JSON.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które są używane do kopiowania danych z magazynu danych ODBC, zobacz [przykład JSON: magazynu kopii danych ze źródła danych ODBC do obiektów Blob platformy Azure](#json-example-copy-data-from-odbc-data-store-to-azure-blob) sekcji tego artykułu. 
+Korzystając z Kreatora hello, definicje JSON do tych jednostek fabryki danych (połączone usługi, zestawy danych i potoku hello) są tworzone automatycznie dla Ciebie. Korzystając z narzędzi/API (z wyjątkiem interfejs API .NET), należy zdefiniować za pomocą formatu JSON hello tych jednostek fabryki danych.  Dla przykładu z definicji JSON dla jednostek fabryki danych, które są używane toocopy danych z magazynu danych ODBC, zobacz [przykład JSON: tooAzure obiektu Blob magazynu kopii danych ze źródła danych ODBC](#json-example-copy-data-from-odbc-data-store-to-azure-blob) sekcji tego artykułu. 
 
-Poniższe sekcje zawierają szczegółowe informacje o właściwości JSON, które są używane do definiowania jednostek fabryki danych określonej do magazynu danych ODBC:
+Witaj następujące sekcje zawierają szczegółowe informacje o właściwości JSON, które są magazynu danych określonego tooODBC jednostek fabryki danych używanych toodefine:
 
 ## <a name="linked-service-properties"></a>Połączona usługa właściwości
-Poniższa tabela zawiera opis specyficzne dla ODBC elementy JSON połączonej usługi.
+Hello w poniższej tabeli przedstawiono opis usługi określonego tooODBC połączone elementy JSON.
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesOdbc** |Tak |
-| Parametry połączenia |Poświadczenie dostępu z systemem innym niż część ciąg połączenia i opcjonalnie zaszyfrowane poświadczenia. Przykłady w poniższych sekcjach. |Tak |
-| poświadczenia |Dostęp do poświadczeń część ciągu połączenia określonego w formacie wartości właściwości sterownika. Przykład: "Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>; ". |Nie |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia się z magazynem danych ODBC. Możliwe wartości to: anonimowych, jak i podstawowych. |Tak |
+| type |musi mieć ustawioną właściwość type Hello: **OnPremisesOdbc** |Tak |
+| Parametry połączenia |poświadczenie zaszyfrowana Hello poświadczeń innych niż dostępu część hello ciąg połączenia i opcjonalne. Przykłady w hello następujące sekcje. |Tak |
+| poświadczenia |Hello dostępu do poświadczeń część hello parametrów połączenia określonego w formacie wartość właściwości sterownika. Przykład: "Uid =<user ID>; Pwd =<password>; RefreshToken =<secret refresh token>; ". |Nie |
+| Typ authenticationType |Typ uwierzytelniania używany Magazyn danych ODBC toohello tooconnect. Możliwe wartości to: anonimowych, jak i podstawowych. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. |Nie |
-| hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Nie |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych do połączenia z magazynem danych ODBC. |Tak |
+| hasło |Określ hasło dla konta użytkownika hello określone dla hello nazwy użytkownika. |Nie |
+| gatewayName |Nazwa bramy hello hello usługi fabryka danych należy używać magazynu danych ODBC toohello tooconnect. |Tak |
 
 ### <a name="using-basic-authentication"></a>Przy użyciu uwierzytelniania podstawowego
 
@@ -85,7 +85,7 @@ Poniższa tabela zawiera opis specyficzne dla ODBC elementy JSON połączonej us
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Przy użyciu poświadczeń zaszyfrowanych przy użyciu uwierzytelniania podstawowego
-Można szyfrować poświadczeń przy użyciu [AzureRMDataFactoryEncryptValue nowy](https://msdn.microsoft.com/library/mt603802.aspx) polecenia cmdlet (w wersji 1.0 programu Azure PowerShell) lub [AzureDataFactoryEncryptValue nowy](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 lub starszej wersji programu Azure PowerShell).  
+Można szyfrować poświadczeń hello przy użyciu hello [AzureRMDataFactoryEncryptValue nowy](https://msdn.microsoft.com/library/mt603802.aspx) polecenia cmdlet (w wersji 1.0 programu Azure PowerShell) lub [AzureDataFactoryEncryptValue nowy](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 lub starszej wersji hello Program Azure PowerShell).  
 
 ```json
 {
@@ -124,30 +124,30 @@ Można szyfrować poświadczeń przy użyciu [AzureRMDataFactoryEncryptValue now
 
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
+Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz hello [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
 
-**TypeProperties** sekcja jest różne dla każdego typu zestawu danych i zawiera informacje o lokalizacji danych w magazynie danych. TypeProperties sekcja dla zestawu danych typu **RelationalTable** (w tym zestawie danych ODBC) ma następujące właściwości
+Witaj **typeProperties** sekcja zawiera informacje o lokalizacji hello hello danych w magazynie danych hello i różni się dla każdego typu zestawu danych. Witaj typeProperties sekcja dla zestawu danych typu **RelationalTable** (w tym zestawie danych ODBC) ma następujące właściwości hello
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli w magazynie danych ODBC. |Tak |
+| tableName |Nazwa tabeli hello w magazynie danych ODBC hello. |Tak |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
+Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz hello [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
 
-Właściwości dostępne w **typeProperties** sekcji działania z drugiej strony zależą od każdego typu działania. Dla działania kopiowania różnią się w zależności od typów źródeł i sink.
+Właściwości dostępne w hello **typeProperties** sekcji aktywności hello na powitania drugiej zależą od każdego typu działania. Dla działania kopiowania różnią się w zależności od typów hello źródeł i sink.
 
-W przypadku działania kopiowania, gdy źródłem jest typu **RelationalSource** (która obejmuje ODBC), w sekcji typeProperties dostępne są następujące właściwości:
+W przypadku działania kopiowania, gdy źródłem jest typu **RelationalSource** (która obejmuje ODBC), hello następujące właściwości są dostępne w sekcji typeProperties:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Tak |
+| query |Użyj hello zapytanie niestandardowe tooread danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Tak |
 
 
-## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Przykład JSON: magazynu kopii danych ze źródła danych ODBC do obiektów Blob platformy Azure
-W poniższym przykładzie przedstawiono definicje JSON, których można utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Widoczny jest sposób kopiowania danych ze źródła danych ODBC do magazynu obiektów Blob Azure. Jednak można skopiować danych do dowolnego wychwytywanie podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.
+## <a name="json-example-copy-data-from-odbc-data-store-tooazure-blob"></a>Przykład JSON: tooAzure obiektu Blob magazynu kopii danych ze źródła danych ODBC
+W poniższym przykładzie przedstawiono definicje JSON przy użyciu można toocreate potoku [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Pokazuje, jak dane toocopy z ODBC źródła tooan magazynu obiektów Blob Azure. Jednak dane mogą być tooany skopiowanych z wychwytywanie hello podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) przy użyciu hello działanie kopiowania w fabryce danych Azure.
 
-Przykład zawiera następujące obiekty fabryki danych:
+przykład Witaj ma hello następujące obiekty fabryki danych:
 
 1. Połączonej usługi typu [OnPremisesOdbc](#linked-service-properties).
 2. Połączonej usługi typu [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -155,11 +155,11 @@ Przykład zawiera następujące obiekty fabryki danych:
 4. Dane wyjściowe [dataset](data-factory-create-datasets.md) typu [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. A [potoku](data-factory-create-pipelines.md) z działaniem kopii, która używa [RelationalSource](#copy-activity-properties) i [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Przykład kopiuje dane z wyniku kwerendy w magazynie danych ODBC do obiektu blob co godzinę. Właściwości JSON używane w te przykłady są opisane w sekcjach poniżej próbek.
+przykład Witaj kopiuje dane z wyniku kwerendy w obiekcie blob tooa magazynu danych ODBC, co godzinę. właściwości JSON Hello używane w te przykłady są opisane w sekcjach poniżej hello próbek.
 
-Pierwszym krokiem należy skonfigurować bramę zarządzania danymi. Instrukcje znajdują się w [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
+Pierwszym krokiem należy skonfigurować bramę zarządzania danymi hello. Witaj instrukcje znajdują się w hello [przenoszenie danych między lokalizacji lokalnej i w chmurze](data-factory-move-data-between-onprem-and-cloud.md) artykułu.
 
-**ODBC połączona usługa** w tym przykładzie użyto uwierzytelniania podstawowego. Zobacz [ODBC połączona usługa](#linked-service-properties) sekcji dla różnych typów uwierzytelniania, można użyć.
+**ODBC połączona usługa** w tym przykładzie używa hello uwierzytelnianie podstawowe. Zobacz [ODBC połączona usługa](#linked-service-properties) sekcji dla różnych typów uwierzytelniania, można użyć.
 
 ```json
 {
@@ -195,9 +195,9 @@ Pierwszym krokiem należy skonfigurować bramę zarządzania danymi. Instrukcje 
 
 **Wejściowy zestaw danych ODBC**
 
-Przykładzie przyjęto założenie, utworzono tabelę "MyTable" w bazie danych ODBC i zawiera kolumnę o nazwie "timestampcolumn" dla czasu serii danych.
+przykład Witaj przyjęto założenie, utworzono tabelę "MyTable" w bazie danych ODBC i zawiera kolumnę o nazwie "timestampcolumn" dla czasu serii danych.
 
-Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw danych jest zewnętrzne do fabryki danych i nie jest generowany przez działanie w fabryce danych.
+Ustawienie "external": "prawda" informuje hello usługi fabryka danych tego elementu dataset hello zewnętrznych toohello fabryki danych i nie jest generowany przez działanie w fabryce danych hello.
 
 ```json
 {
@@ -225,7 +225,7 @@ Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw dany
 
 **Azure Blob wyjściowy zestaw danych**
 
-Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
+Dane są zapisywane tooa nowych obiektów blob, co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu Hello hello obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia hello hello wycinek, który jest przetwarzana. Ścieżka folderu Hello używa rok, miesiąc, dzień i godziny części hello czas rozpoczęcia.
 
 ```json
 {
@@ -286,7 +286,7 @@ Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godzin
 
 **Działanie kopiowania w potoku ze źródłem ODBC (RelationalSource) i ujście obiektów Blob (BlobSink)**
 
-Potok zawiera działanie kopiowania, który jest skonfigurowany do używania tych zestawów danych wejściowych i wyjściowych i jest zaplanowane co godzinę. W definicji JSON potoku **źródła** ustawiono typ **RelationalSource** i **zbiornika** ustawiono typ **BlobSink**. Określony dla zapytania SQL **zapytania** właściwości wybiera dane w ostatniej godziny do skopiowania.
+potok Hello zawiera działanie kopiowania który jest skonfigurowany toouse te zestawy danych wejściowych i wyjściowych i toorun zaplanowane co godzinę. W potoku hello definicji JSON, hello **źródła** typu ustawiono zbyt**RelationalSource** i **zbiornika** typu ustawiono zbyt**BlobSink**. Zapytanie SQL Hello określone dla hello **zapytania** właściwości zaznacza danych hello hello poza toocopy godzinę.
 
 ```json
 {
@@ -334,21 +334,21 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania tyc
 }
 ```
 ### <a name="type-mapping-for-odbc"></a>Mapowanie typu dla ODBC
-Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, automatyczne konwersje z typów źródła do zbiornika typy z następujących rozwinięcie wykonuje działania kopiowania:
+Jak wspomniano w hello [działań przepływu danych](data-factory-data-movement-activities.md) wykonuje działanie kopiowania artykułu, automatyczne konwersje z typów toosink typy źródła z powitania po rozwinięcie:
 
-1. Konwertowanie typów natywnych źródła na typ architektury .NET
-2. Konwertowanie na typ macierzysty ujścia typ architektury .NET
+1. Konwertować z typu too.NET typów natywnych źródła
+2. Konwertować z typu sink toonative typu .NET
 
-Podczas przenoszenia danych z baz danych ODBC, typy danych ODBC są mapowane do typów .NET, jak wspomniano w [mapowanie typu danych ODBC](https://msdn.microsoft.com/library/cc668763.aspx) tematu.
+Podczas przenoszenia danych z baz danych ODBC, typy danych ODBC są typami too.NET zamapowane, jak wspomniano w hello [mapowanie typu danych ODBC](https://msdn.microsoft.com/library/cc668763.aspx) tematu.
 
-## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
-Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Mapowanie kolumny toosink źródłowe
+toolearn o mapowanie kolumn w źródłowej toocolumns zestawu danych w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Odczyt powtarzalny ze źródłami relacyjnymi
-Podczas kopiowania danych z danych relacyjnych przechowuje, należy pamiętać, aby uniknąć niezamierzone wyniki powtarzalności. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. Podczas wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że te same dane jest do odczytu niezależnie od tego, ile razy wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Podczas kopiowania danych z baz danych relacyjnych, zachowania powtarzalności w uwadze tooavoid niezamierzone wyników. Fabryka danych Azure możesz ponownie ręcznie wycinek. Można również skonfigurować zasady ponawiania dla zestawu danych, aby wycinek jest uruchamiany ponownie, gdy wystąpi błąd. W przypadku wycinek zostanie uruchomiona ponownie w obu przypadkach, należy się upewnić, że hello tych samych danych toomake jest do odczytu niezależnie od tego, jak często wycinek jest uruchamiany. Zobacz [Repeatable odczytywać źródłami relacyjnymi](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="ge-historian-store"></a>GE historyk magazynu
-Tworzenie usługi ODBC połączone, aby połączyć [historyk Proficy GE (teraz GE historyk)](http://www.geautomation.com/products/proficy-historian) magazynu danych do fabryki danych Azure, jak pokazano w poniższym przykładzie:
+Utwórz ODBC połączone usługi toolink [historyk Proficy GE (teraz GE historyk)](http://www.geautomation.com/products/proficy-historian) fabryki danych Azure tooan magazynu danych, jak pokazano w hello poniższy przykład:
 
 ```json
 {
@@ -358,7 +358,7 @@ Tworzenie usługi ODBC połączone, aby połączyć [historyk Proficy GE (teraz 
         "type": "OnPremisesOdbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
+            "connectionString": "DSN=<name of hello GE Historian store>",
             "gatewayName": "<gateway name>",
             "authenticationType": "Basic",
             "userName": "<user name>",
@@ -368,24 +368,24 @@ Tworzenie usługi ODBC połączone, aby połączyć [historyk Proficy GE (teraz 
 }
 ```
 
-Instalowanie bramy zarządzania danymi na maszynie lokalnej i zarejestruj bramę przy użyciu portalu. Przy użyciu sterownika ODBC dla historyk GE brama zainstalowanej na komputerze lokalnym do nawiązania połączenia z magazynem danych historyk GE. W związku z tym należy zainstalować sterownik, jeśli nie jest już zainstalowany na komputerze bramy. Zobacz [włączenie łączności](#enabling-connectivity) sekcji, aby uzyskać szczegółowe informacje.
+Instalowanie bramy zarządzania danymi na maszynie lokalnej i zarejestruj bramę hello hello Portal. bramy Hello zainstalowanej na komputerze lokalnym używa sterownika ODBC hello GE historyk tooconnect toohello historyk GE magazynu danych. W związku z tym należy zainstalować sterownik hello, jeśli nie jest już zainstalowany na komputerze bramy hello. Zobacz [włączenie łączności](#enabling-connectivity) sekcji, aby uzyskać szczegółowe informacje.
 
-Przed użyciem magazynu historyk GE w rozwiązaniu fabryki danych, należy sprawdzić, czy brama łączy się magazynu danych przy użyciu instrukcji w następnej sekcji.
+Przed użyciem hello historyk GE przechowywania w rozwiązaniu fabryki danych, należy sprawdzić, czy brama hello łączy toohello magazynu danych przy użyciu instrukcji w następnej sekcji hello.
 
-Przeczytaj artykuł od samego początku, aby uzyskać szczegółowy przegląd przy użyciu danych ODBC są przechowywane jako źródło danych magazynów w operacji kopiowania.  
+Przeczytaj artykuł powitania od początku hello szczegółowe omówienie używania danych ODBC są przechowywane jako źródło danych magazynów w operacji kopiowania.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Rozwiązywanie problemów z połączeniem
-Aby rozwiązać problemy z połączeniem, użyj **diagnostyki** karcie **Menedżera konfiguracji bramy zarządzania danymi**.
+problemy z połączeniem tootroubleshoot, użyj hello **diagnostyki** karcie **Menedżera konfiguracji bramy zarządzania danymi**.
 
-1. Uruchom **Menedżera konfiguracji bramy zarządzania danymi**. Możesz uruchomić "C:\Program Files\Microsoft danych zarządzania Gateway\1.0\Shared\ConfigManager.exe" bezpośrednio (lub) wyszukiwania dla **bramy** można znaleźć link do **brama zarządzania danymi firmy Microsoft** aplikacji, jak pokazano na poniższej ilustracji.
+1. Uruchom **Menedżera konfiguracji bramy zarządzania danymi**. Możesz uruchomić "C:\Program Files\Microsoft danych zarządzania Gateway\1.0\Shared\ConfigManager.exe" bezpośrednio (lub) wyszukiwania dla **bramy** toofind łącze zbyt**brama zarządzania danymi firmy Microsoft** Aplikacja, jak pokazano w powitania po obrazu.
 
     ![Brama wyszukiwania](./media/data-factory-odbc-connector/search-gateway.png)
-2. Przełącz się do **diagnostyki** kartę.
+2. Przełącz toohello **diagnostyki** kartę.
 
     ![Diagnostyki bramy](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
-3. Wybierz **typu** danych magazynu (połączonej usługi).
-4. Określ **uwierzytelniania** , a następnie wprowadź **poświadczenia** (lub) wprowadź **ciąg połączenia** używany do nawiązania połączenia z magazynem danych.
-5. Kliknij przycisk **połączenie testowe** do testowania połączenia z magazynem danych.
+3. Wybierz hello **typu** danych magazynu (połączonej usługi).
+4. Określ **uwierzytelniania** , a następnie wprowadź **poświadczenia** (lub) wprowadź **ciąg połączenia** to magazyn danych toohello tooconnect używane.
+5. Kliknij przycisk **połączenie testowe** magazynu danych toohello tootest hello połączenia.
 
 ## <a name="performance-and-tuning"></a>Wydajność i dostrajania
-Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i zoptymalizować ją na różne sposoby.
+Zobacz [wydajności działania kopiowania & dostrajanie przewodnik](data-factory-copy-activity-performance.md) toolearn o kluczu czynniki tego wydajność wpływ przenoszenia danych (działanie kopiowania) w usłudze fabryka danych Azure i różne sposoby toooptimize go.

@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie usługi Zarządzanie interfejsami API przy użyciu narzędzia Git - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zapisać i skonfigurować konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git."
+title: "aaaConfigure usługi Zarządzanie interfejsami API przy użyciu narzędzia Git - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toosave i skonfigurować konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,179 +14,179 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef7d4c18f2ea3f5c9b86403349a83aef240f979b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Zapisz i konfigurowaniu konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git
+# <a name="how-toosave-and-configure-your-api-management-service-configuration-using-git"></a>Jak toosave i skonfigurować konfiguracji usługi Zarządzanie interfejsami API przy użyciu narzędzia Git
 > 
 > 
 
-Każde wystąpienie usługi Zarządzanie interfejsami API utrzymuje bazę danych konfiguracji, który zawiera informacje o konfiguracji i metadanych dla wystąpienia usługi. Można zmodyfikować wystąpienie usługi przez zmianę ustawień w portalu wydawcy, za pomocą polecenia cmdlet programu PowerShell lub wywołania interfejsu API REST. Oprócz tych metod można również zarządzać konfiguracji wystąpienia usługi przy użyciu narzędzia Git, takie jak włączanie scenariusze zarządzania usługi:
+Każde wystąpienie usługi Zarządzanie interfejsami API utrzymuje bazę danych konfiguracji, który zawiera informacje o konfiguracji hello i metadanych dla wystąpienia usługi hello. Można wprowadzać zmiany wystąpienie usługi toohello przez zmianę ustawień w portalu wydawcy hello, za pomocą polecenia cmdlet programu PowerShell lub wywołania interfejsu API REST. Ponadto toothese metod, można również zarządzać konfiguracji wystąpienia usługi przy użyciu narzędzia Git, takie jak włączanie scenariusze zarządzania usługi:
 
 * Przechowywanie wersji konfiguracji — Pobierz i przechowywać różne wersje konfiguracji usługi
-* Zbiorcze zmiany konfiguracji — wprowadzić zmiany w wielu części konfiguracji usługi w lokalnym repozytorium i integracji zmian z powrotem na serwer z jednej operacji
-* Znane Git łańcuch narzędzi i przepływ pracy - Użyj narzędzia Git i przepływy pracy, które znasz już
+* Zbiorcze zmiany konfiguracji — zmiany toomultiple części konfiguracji usługi w lokalnym repozytorium i integracji serwera zapasowego toohello zmiany hello z jednej operacji
+* Znanego łańcuch narzędzi Git i przepływ pracy - Użyj narzędzia Git hello i przepływów pracy, które znasz już
 
-Na poniższym diagramie przedstawiono przegląd różnych sposobów, aby skonfigurować wystąpienie usługi Zarządzanie interfejsami API.
+powitania po diagram zawiera omówienie tooconfigure różne sposoby hello wystąpienia usługi Zarządzanie interfejsami API.
 
 ![Skonfiguruj Git][api-management-git-configure]
 
-Po wprowadzeniu zmian w usłudze przy użyciu portalu wydawcy, poleceń cmdlet programu PowerShell lub interfejsu API REST zarządzania z usługi konfiguracji bazy danych przy użyciu `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano po prawej stronie diagramu. W lewej części diagram ilustruje, jak można zarządzać przy użyciu narzędzia Git konfiguracji usługi i repozytorium Git dla usługi znajduje się w `https://{name}.scm.azure-api.net`.
+Podczas wprowadzania zmian usługi tooyour przy użyciu portalu wydawcy hello, poleceń cmdlet programu PowerShell lub interfejsu API REST hello zarządza bazą danych konfiguracji usługi za pomocą hello `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano na powitania po prawej stronie powitania diagramu. Hello lewej hello diagram ilustruje sposób zarządzania konfiguracji usługi przy użyciu narzędzia Git i repozytorium Git dla usługi znajduje się w `https://{name}.scm.azure-api.net`.
 
-Poniższe kroki zawierają omówienie zarządzania wystąpienia usługi Zarządzanie interfejsami API przy użyciu narzędzia Git.
+Witaj, wykonaj czynności udostępnia przegląd zarządzania wystąpienia usługi Zarządzanie interfejsami API przy użyciu narzędzia Git.
 
 1. Konfiguracja Git dostępu w usłudze
-2. Zapisz bazę danych konfiguracji usługi do repozytorium Git
-3. Klonowanie repozytorium Git na komputerze lokalnym
-4. Pobierać najnowsze repozytorium do komputera lokalnego i zatwierdzania i wypychania zmian z powrotem do Twojego repozytorium
-5. Wdrażanie zmiany z Twojego repozytorium do bazy danych konfiguracji usługi
+2. Zapisz repozytorium Git tooyour bazy danych konfiguracji usługi
+3. Klonowanie maszyny lokalnej tooyour repozytorium Git hello
+4. Pobierać najnowsze repozytorium hello dół tooyour komputera lokalnego i zatwierdzania i wypychania repozytorium wstecz tooyour zmiany
+5. Wdrażanie hello zmiany z Twojego repozytorium do bazy danych konfiguracji usługi
 
-W tym artykule opisano, jak włączyć i umożliwia zarządzanie konfiguracji usługi Git i zawiera odwołanie do plików i folderów w repozytorium Git.
+W tym artykule opisano sposób tooenable znajdują się informacje na powitania pliki i foldery w repozytorium Git hello i użyj Git toomanage konfiguracji usługi.
 
 ## <a name="access-git-configuration-in-your-service"></a>Konfiguracja Git dostępu w usłudze
-Można szybko wyświetlić stan konfiguracji Git, wyświetlając Git ikonę w prawym górnym rogu portalu wydawcy. W tym przykładzie komunikatu o stanie wskazuje, że że istnieją niezapisane zmiany do repozytorium. Jest to spowodowane bazy danych konfiguracji usługi API Management nie został jeszcze zapisany do repozytorium.
+Wyświetlając ikonę Git hello w hello prawym górnym rogu portalu wydawcy hello można szybko wyświetlić stan hello konfiguracji Git. W tym przykładzie hello komunikatu o stanie wskazuje, że istnieją niezapisane zmiany toohello repozytorium. Jest to spowodowane hello bazy danych konfiguracji usługi API Management nie został jeszcze zapisany toohello repozytorium.
 
 ![Stan Git][api-management-git-icon-enable]
 
-Aby wyświetlić i skonfigurować ustawienia konfiguracji Git, możesz kliknąć ikonę Git, lub kliknij przycisk **zabezpieczeń** menu i przejdź do **repozytorium konfiguracji** kartę.
+tooview i skonfigurować ustawienia konfiguracji Git, możesz kliknąć ikonę Git hello, lub kliknij hello **zabezpieczeń** menu i przejdź toohello **repozytorium konfiguracji** kartę.
 
 ![Włącz GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Wszystkie klucze tajne, które nie są zdefiniowane jako właściwości będą przechowywane w repozytorium i pozostanie w jego historii dopóki Wyłącz i ponownie włączyć dostęp Git. Właściwości zapewniają bezpiecznym miejscu, aby zarządzać stałych wartości ciągów, tym klucze tajne, we wszystkich Konfiguracja interfejsu API i zasad, więc nie trzeba przechowywać je bezpośrednio w instrukcjach użytkownika zasady. Aby uzyskać więcej informacji, zobacz [sposób użycia właściwości w ramach zasad usługi Azure API Management](api-management-howto-properties.md).
+> Wszystkie klucze tajne, które nie są zdefiniowane jako właściwości będą przechowywane w repozytorium hello i pozostanie w jego historii dopóki Wyłącz i ponownie włączyć dostęp Git. Właściwości zapewniają toomanage bezpiecznym miejscu stałych wartości ciągów, tym klucze tajne, we wszystkich Konfiguracja interfejsu API i zasady, dzięki czemu nie trzeba toostore bezpośrednio w deklaracji z zasad. Aby uzyskać więcej informacji, zobacz [jak właściwości toouse w ramach zasad usługi Azure API Management](api-management-howto-properties.md).
 > 
 > 
 
-Aby uzyskać informacje na włączanie lub wyłączanie dostępu Git przy użyciu interfejsu API REST, zobacz [Włączanie lub wyłączanie dostępu Git przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Aby uzyskać informacji na temat włączania lub wyłączania dostępu Git przy użyciu hello interfejsu API REST, zobacz [Włączanie lub wyłączanie dostępu Git przy użyciu interfejsu API REST hello](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
-## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Aby zapisać konfigurację usługi do repozytorium Git
-Pierwszym krokiem przed klonowanie repozytorium jest zapisanie bieżącego stanu konfiguracji usługi do repozytorium. Kliknij przycisk **Zapisz konfigurację do repozytorium**.
+## <a name="toosave-hello-service-configuration-toohello-git-repository"></a>repozytorium Git toohello toosave hello usługi konfiguracji
+pierwszym krokiem Hello przed klonowanie repozytorium hello jest toosave hello bieżący stan hello usługi konfiguracji toohello repozytorium. Kliknij przycisk **Zapisz konfigurację toorepository**.
 
 ![Zapisywanie konfiguracji][api-management-save-configuration]
 
-Wprowadź żądane zmiany na ekranie potwierdzenia i kliknij przycisk **Ok** do zapisania.
+Żądane zmiany na ekranie potwierdzenia hello, a następnie kliknij przycisk **Ok** toosave.
 
 ![Zapisywanie konfiguracji][api-management-save-configuration-confirm]
 
-Po kilku chwilach konfiguracji jest zapisywana i wyświetlany jest stan konfiguracji repozytorium, w tym datę i godzinę ostatniej zmiany konfiguracji i ostatniej synchronizacji konfiguracji usługi i repozytorium.
+Po kilku chwilach konfiguracji hello jest zapisywana i wyświetlany jest stan konfiguracji hello hello repozytorium, w tym hello Data i godzina ostatniej zmiany konfiguracji hello i hello ostatniej synchronizacji konfiguracji usługi hello hello repozytorium.
 
 ![Stan konfiguracji][api-management-configuration-status]
 
-Po zapisaniu konfiguracji do repozytorium można sklonować.
+Po zapisaniu repozytorium toohello hello konfiguracji mogą być klonowane.
 
-Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [migawki za pomocą interfejsu API REST konfiguracji zatwierdzania](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Informacje na wykonanie tej operacji przy użyciu hello interfejsu API REST, zobacz [konfiguracji zatwierdzania migawki za pomocą interfejsu API REST hello](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
 
-## <a name="to-clone-the-repository-to-your-local-machine"></a>Klonowanie repozytorium na komputerze lokalnym
-Klonowanie repozytorium, musisz adres URL repozytorium, nazwę użytkownika i hasła. Nazwa użytkownika i adres URL są wyświetlane w górnej części **repozytorium konfiguracji** kartę.
+## <a name="tooclone-hello-repository-tooyour-local-machine"></a>komputer lokalny tooyour tooclone hello repozytorium
+tooclone repozytorium należy hello adresu URL tooyour repozytorium, nazwę użytkownika i hasła. Witaj nazwę użytkownika i adres URL są wyświetlane u góry hello hello **repozytorium konfiguracji** kartę.
 
 ![Klonowania Git][api-management-configuration-git-clone]
 
-Hasło jest generowane w dolnej części **repozytorium konfiguracji** kartę.
+Witaj hasło jest generowane u dołu hello hello **repozytorium konfiguracji** kartę.
 
 ![Generowanie hasła][api-management-generate-password]
 
-Aby wygenerować hasła, najpierw upewnij się, że **wygaśnięcia** jest ustawiona na odpowiednią datę i godzinę wygaśnięcia, a następnie kliknij przycisk **Generuj Token**.
+toogenerate hasła, najpierw upewnij się, że hello **wygaśnięcia** ustawić toohello potrzeby datę i godzinę wygaśnięcia, a następnie kliknij przycisk **Generuj Token**.
 
 ![Hasło][api-management-password]
 
 > [!IMPORTANT]
-> Zanotuj to hasło. Gdy opuścisz tę stronę hasło nie zostanie ponownie wyświetlone.
+> Zanotuj to hasło. Po wyjściu to hasło hello strona nie zostanie ponownie wyświetlone.
 > 
 > 
 
-W poniższych przykładach użyto narzędzia Git Bash z [Git dla systemu Windows](http://www.git-scm.com/downloads) , ale można użyć dowolnego narzędzia Git, które znasz.
+Następujące przykłady użycia hello Git Bash Hello narzędzia z [Git dla systemu Windows](http://www.git-scm.com/downloads) , ale można użyć dowolnego narzędzia Git, które znasz.
 
-Otwórz narzędzie Git w odpowiedni folder i uruchom następujące polecenie, aby Klonuj repozytorium git na komputerze lokalnym za pomocą polecenia udostępnionych przez portal wydawcy.
+Otwórz narzędzie Git w folderze żądaną hello i uruchom hello następujące polecenia tooclone hello git repozytorium tooyour komputera lokalnego, za pomocą polecenia hello udostępnionych przez portal wydawcy hello.
 
 ```
 git clone https://bugbashdev4.scm.azure-api.net/
 ```
 
-Podaj nazwę użytkownika i hasło po wyświetleniu monitu.
+Podaj hello nazwę użytkownika i hasło po wyświetleniu monitu.
 
-Jeśli wystąpią błędy, spróbuj zmodyfikować Twoje `git clone` polecenie, aby uwzględnić nazwę użytkownika i hasło, jak pokazano w poniższym przykładzie.
+Jeśli wystąpią błędy, spróbuj zmodyfikować Twoje `git clone` polecenia tooinclude hello użytkownika nazwę i hasło, jak pokazano w hello poniższy przykład.
 
 ```
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Jeśli to zawiera błąd, spróbuj kodowania hasła część polecenia URL. To jeden szybko, w tym celu otwórz program Visual Studio i wydać następujące polecenie w **oknie bezpośrednim**. Aby otworzyć **oknie bezpośrednim**, otwórz dowolnego rozwiązania lub projektu w programie Visual Studio (lub Utwórz nową aplikację konsoli puste) i wybierz polecenie **Windows**, **Immediate** z **Debugowania** menu.
+Jeśli to zawiera błąd, spróbuj kodowania hello hasła część polecenia hello URL. Jeden toodo szybko to tooopen programu Visual Studio, a problem hello następujące polecenie w hello **oknie bezpośrednim**. tooopen hello **oknie bezpośrednim**, otwórz dowolnego rozwiązania lub projektu w programie Visual Studio (lub Utwórz nową aplikację konsoli puste) i wybierz polecenie **Windows**, **Immediate** z Witaj **debugowania** menu.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from publisher portal")
 ```
 
-Użyj zaszyfrowanych haseł wraz z lokalizacji nazwy i repozytorium użytkownika do skonstruowania polecenia git.
+Użyj hasła hello zakodowany oraz użytkownika nazwę i repozytorium lokalizacji tooconstruct hello git polecenia.
 
 ```
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Gdy jest sklonować repozytorium można przeglądać i pracę z nią w lokalnym systemie plików. Aby uzyskać więcej informacji, zobacz [plików i folderów odniesienia lokalnego repozytorium Git struktury](#file-and-folder-structure-reference-of-local-git-repository).
+Gdy jest sklonować repozytorium hello można przeglądać i pracę z nią w lokalnym systemie plików. Aby uzyskać więcej informacji, zobacz [plików i folderów odniesienia lokalnego repozytorium Git struktury](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Aby zaktualizować lokalnym repozytorium z najnowszą konfiguracją wystąpienia usługi
-Jeśli wprowadzasz zmiany do Twojego wystąpienia usługi Zarządzanie interfejsami API w portalu wydawcy lub przy użyciu interfejsu API REST, należy zapisać te zmiany do repozytorium przed zaktualizowaniem lokalnym repozytorium o najnowsze zmiany. Aby to zrobić, kliknij przycisk **Zapisz konfigurację do repozytorium** na **repozytorium konfiguracji** karcie w portalu wydawcy, a następnie należy wydać następujące polecenie w lokalnym repozytorium.
+## <a name="tooupdate-your-local-repository-with-hello-most-current-service-instance-configuration"></a>tooupdate repozytorium lokalne powitania najbardziej bieżącej konfiguracji wystąpienia usługi
+Jeśli wystąpienie usługi Zarządzanie interfejsami API tooyour zmian w portalu wydawcy hello lub przy użyciu interfejsu API REST hello, musisz zapisać te zmiany toohello repozytorium przed zaktualizowaniem lokalnym repozytorium z hello najnowsze zmiany. toodo tego, kliknij **Zapisz konfigurację toorepository** na powitania **repozytorium konfiguracji** karcie w portalu wydawcy hello, a następnie wystawiania hello następujące polecenie w lokalnym repozytorium.
 
 ```
 git pull
 ```
 
-Przed uruchomieniem `git pull` upewnij się, że znajdujesz się w folderze lokalnym repozytorium. Jeśli właśnie został ukończony `git clone` polecenia, a następnie należy zmienić katalogu do Twojego repozytorium, uruchamiając polecenie podobnie do poniższego.
+Przed uruchomieniem `git pull` upewnij się, że są w folderze hello dla lokalnego repozytorium. Jeśli został ukończony hello `git clone` polecenia, a następnie należy zmienić hello katalogu tooyour repozytorium, uruchamiając polecenie, takie jak następujące hello.
 
 ```
 cd bugbashdev4.scm.azure-api.net/
 ```
 
-## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Aby wypchnąć zmiany z z lokalnego repozytorium do repozytorium serwera
-Aby wypchnąć zmiany z lokalnym repozytorium do repozytorium serwera, należy zatwierdzić zmiany i wypychanie ich do repozytorium serwera. Aby zatwierdzić zmiany, Otwórz narzędzie polecenia Git, przełącz się do katalogu lokalnego repozytorium i wydawać następujące polecenia.
+## <a name="toopush-changes-from-your-local-repo-toohello-server-repo"></a>zmiany toopush Twojego repozytorium lokalnego repozytorium toohello serwera
+toopush zmiany z repozytorium lokalnego repozytorium toohello serwera, należy zatwierdzić zmiany, a następnie Wypchnij je toohello serwera repozytorium. toocommit zmiany, otwórz Git narzędzia polecenia przełącznika toohello katalogu lokalnego repozytorium, a problem hello następujące polecenia.
 
 ```
 git add --all
 git commit -m "Description of your changes"
 ```
 
-Aby wypchnąć wszystkie zatwierdzenia na serwerze, uruchom następujące polecenie.
+zatwierdza wszystkie hello toohello serwera Uruchom toopush hello następujące polecenia.
 
 ```
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Aby wdrożyć zmian konfiguracji usługi do wystąpienia usługi Zarządzanie interfejsami API
-Po lokalne zmiany są zatwierdzone i do repozytorium serwera, można je wdrożyć do Twojego wystąpienia usługi Zarządzanie interfejsami API.
+## <a name="toodeploy-any-service-configuration-changes-toohello-api-management-service-instance"></a>toodeploy wszystkie wystąpienia usługi konfiguracji zmiany toohello zarządzanie interfejsami API usługi
+Po zatwierdzeniu zmiany lokalne repozytorium serwera toohello zatwierdzonej i wypychanie, można je wdrożyć wystąpienie usługi Zarządzanie interfejsami API tooyour.
 
 ![Wdrażanie][api-management-configuration-deploy]
 
-Aby uzyskać informacje na wykonanie tej operacji przy użyciu interfejsu API REST, zobacz [wdrażanie Git zmiany w konfiguracji bazy danych przy użyciu interfejsu API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Informacje na wykonanie tej operacji przy użyciu hello interfejsu API REST, zobacz [wdrażanie Git zmienia tooconfiguration bazy danych przy użyciu interfejsu API REST hello](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Odwołanie struktury plików i folderów z lokalnego repozytorium Git
-Pliki i foldery w repozytorium git lokalne zawierają informacje o konfiguracji dotyczące wystąpienia usługi.
+Hello pliki i foldery w repozytorium git lokalne powitania zawierają hello informacji konfiguracyjnych dotyczących hello wystąpienie usługi.
 
 | Element | Opis |
 | --- | --- |
-| Folder główny zarządzanie interfejsami api |Zawiera konfigurację najwyższego poziomu dla wystąpienia usługi |
-| interfejsy API folderu |Zawiera konfigurację interfejsów API w wystąpieniu usługi |
-| folder grupy |Zawiera konfigurację grup w wystąpieniu usługi |
-| folder zasady |Zawiera zasady w wystąpieniu usługi |
-| portalStyles folder |Zawiera konfigurację Dostosowywanie portalu deweloperów w wystąpieniu usługi |
-| folder produktów |Zawiera konfigurację produktów w wystąpieniu usługi |
-| folder szablonów |Zawiera konfigurację szablony wiadomości e-mail w wystąpieniu usługi |
+| Folder główny zarządzanie interfejsami api |Zawiera konfigurację najwyższego poziomu hello wystąpienia usługi |
+| interfejsy API folderu |Zawiera konfigurację hello hello interfejsów API w wystąpieniu usługi hello |
+| folder grupy |Zawiera konfigurację hello hello grup w wystąpieniu usługi hello |
+| folder zasady |Zawiera zasady hello w wystąpieniu usługi hello |
+| portalStyles folder |Zawiera konfigurację hello Dostosowywanie portalu deweloperów hello w wystąpieniu usługi hello |
+| folder produktów |Zawiera konfigurację hello hello produktów w wystąpieniu usługi hello |
+| folder szablonów |Zawiera konfigurację hello hello szablonów wiadomości e-mail w wystąpieniu usługi hello |
 
-Każdego folderu może zawierać jeden lub więcej plików, a w niektórych przypadkach jeden lub więcej folderów, na przykład folderu dla każdego interfejsu API, produktu lub grupy. Pliki w tych folderach są specyficzne dla typu jednostki opisanego przez nazwę folderu.
+Każdego folderu może zawierać jeden lub więcej plików, a w niektórych przypadkach jeden lub więcej folderów, na przykład folderu dla każdego interfejsu API, produktu lub grupy. Hello pliki w tych folderach są specyficzne dla typu jednostki hello opisanego przez hello nazwę folderu.
 
 | Typ pliku | Przeznaczenie |
 | --- | --- |
-| JSON |Informacje o konfiguracji dotyczące odpowiednich jednostek |
-| HTML |Opisy jednostek, często są wyświetlane w portalu dla deweloperów |
+| JSON |Informacje o konfiguracji dotyczące hello odpowiednich jednostek |
+| HTML |Opisy jednostek hello, często są wyświetlane w portalu dla deweloperów hello |
 | xml |Instrukcje zasad |
 | CSS |Arkusze stylów do dostosowania portalu dla deweloperów |
 
-Te pliki można tworzyć, usunąć, edytować i zarządzane w lokalnym systemie plików i wdrożeniu zmian z powrotem do wystąpienia usługi Zarządzanie interfejsami API.
+Tych plików można można utworzyć, usunąć edytować i zarządzane w lokalnym systemie plików, a zmiany hello wdrożone wstecz toohello wystąpienia usługi Zarządzanie interfejsami API.
 
 > [!NOTE]
-> Następujące jednostek nie są zawarte w repozytorium Git i nie można skonfigurować przy użyciu narzędzia Git.
+> Witaj następujące jednostek nie są zawarte w repozytorium Git hello i nie można skonfigurować przy użyciu narzędzia Git.
 > 
 > * Użytkownicy
 > * Subskrypcje
@@ -196,7 +196,7 @@ Te pliki można tworzyć, usunąć, edytować i zarządzane w lokalnym systemie 
 > 
 
 ### <a name="root-api-management-folder"></a>Folder główny zarządzanie interfejsami api
-Katalog główny `api-management` folder zawiera `configuration.json` plik zawierający informacje najwyższego poziomu o wystąpienie usługi o następującym formacie.
+główny Hello `api-management` folder zawiera `configuration.json` plik zawierający informacje najwyższego poziomu o wystąpienie usługi hello w hello zgodny z formatem.
 
 ```json
 {
@@ -214,20 +214,20 @@ Katalog główny `api-management` folder zawiera `configuration.json` plik zawie
 }
 ```
 
-Pierwsze cztery ustawienia (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, i `UserRegistrationTermsConsentRequired`) mapowania na następujące ustawienia na **tożsamości** karcie **zabezpieczeń** sekcji.
+Witaj pierwsze cztery ustawienia (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`, i `UserRegistrationTermsConsentRequired`) mapy toohello następujące ustawienia na powitania **tożsamości** kartę w hello **zabezpieczeń** sekcji.
 
-| Ustawienia tożsamości | Mapuje |
+| Ustawienia tożsamości | Mapuje zbyt|
 | --- | --- |
-| RegistrationEnabled |**Przekieruj do strony logowania użytkowników anonimowych** wyboru |
+| RegistrationEnabled |**Przekierować użytkowników anonimowych toosign w stronę** wyboru |
 | UserRegistrationTerms |**Warunki użytkowania w rejestracji użytkownika** pole tekstowe |
 | UserRegistrationTermsEnabled |**Pokaż warunki użytkowania na stronie rejestracja** wyboru |
 | UserRegistrationTermsConsentRequired |**Wymagaj zgody** wyboru |
 
 ![Ustawienia tożsamości][api-management-identity-settings]
 
-Następnie czterech ustawień (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, i `DelegationValidationKey`) mapowania na następujące ustawienia na **delegowania** karcie **zabezpieczeń** sekcji.
+Witaj obok czterech ustawień (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, i `DelegationValidationKey`) mapy toohello następujące ustawienia na powitania **delegowania** kartę w hello **zabezpieczeń** sekcji.
 
-| Ustawienie delegowania | Mapuje |
+| Ustawienie delegowania | Mapuje zbyt|
 | --- | --- |
 | DelegationEnabled |**Delegat logowania & zapisywania** wyboru |
 | DelegationUrl |**Adres URL punktu końcowego delegowania** pole tekstowe |
@@ -236,56 +236,56 @@ Następnie czterech ustawień (`DelegationEnabled`, `DelegationUrl`, `DelegatedS
 
 ![Ustawienia delegowania][api-management-delegation-settings]
 
-Ustawienie ostatecznego `$ref-policy`, mapy do pliku instrukcje globalne zasady dla wystąpienia usługi.
+Witaj końcowego ustawienie `$ref-policy`, mapy pliku instrukcje globalne zasady toohello hello wystąpienia usługi.
 
 ### <a name="apis-folder"></a>interfejsy API folderu
-`apis` Folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi, który zawiera następujące elementy.
+Witaj `apis` folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi hello zawierającą hello następujące elementy.
 
-* `apis\<api name>\configuration.json`-to jest Konfiguracja interfejsu API i zawiera informacje dotyczące operacji i adres URL usługi wewnętrznej bazy danych. Jest to te same informacje, który będzie zwracany w przypadku wywołania [pobrania określonego interfejsu API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) z `export=true` w `application/json` format.
-* `apis\<api name>\api.description.html`-to jest opis interfejsu API i odpowiada `description` właściwość [jednostki interfejsu API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`— Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis jednej operacji w interfejsie API, który mapuje na `description` właściwość [operacji jednostki](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) w interfejsie API REST.
+* `apis\<api name>\configuration.json`-to jest Konfiguracja hello hello interfejsu API i zawiera informacje o operacji hello i adres URL usługi zaplecza hello. Jest to hello informacje, które będzie zwracany, jeśli zostały toocall [pobrania określonego interfejsu API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) z `export=true` w `application/json` format.
+* `apis\<api name>\api.description.html`-to jest opis hello hello interfejsu API i odpowiada toohello `description` właściwości hello [jednostki interfejsu API](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
+* `apis\<api name>\operations\`— Ten folder zawiera `<operation name>.description.html` plików, które mapują toohello operacje w hello interfejsu API. Każdy plik zawiera opis hello jednej operacji w hello interfejsu API, który mapuje toohello `description` właściwości hello [operacji jednostki](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) w hello interfejsu API REST.
 
 ### <a name="groups-folder"></a>folder grupy
-`groups` Folder zawiera folder dla każdej grupy zdefiniowane w wystąpieniu usługi.
+Witaj `groups` folder zawiera folder dla każdej grupy zdefiniowanej w hello wystąpienie usługi.
 
-* `groups\<group name>\configuration.json`— jest to konfiguracja dla grupy. Jest to te same informacje, który będzie zwracany w przypadku wywołania [Pobierz określoną grupę](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operacji.
-* `groups\<group name>\description.html`-to jest opis grupy i odpowiada `description` właściwość [grupy jednostki](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json`-to jest Konfiguracja hello hello grupy. Jest to hello informacje, które będzie zwracany, jeśli zostały toocall hello [pobrać określonej grupy](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) operacji.
+* `groups\<group name>\description.html`-to jest hello opis grupy hello i odpowiada toohello `description` właściwości hello [grupy jednostki](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>folder zasady
-`policies` Folder zawiera deklaracji zasad dla swojego wystąpienia usługi.
+Witaj `policies` folder zawiera hello zasad instrukcje dla swojego wystąpienia usługi.
 
 * `policies\global.xml`-zawiera zasady zdefiniowane w zakresie globalnym wystąpienia usługi.
 * `policies\apis\<api name>\`— Jeśli masz wszystkie zasady zdefiniowane w zakresie interfejsu API są zawarte w tym folderze.
-* `policies\apis\<api name>\<operation name>\`folder — Jeśli masz wszystkie zasady zdefiniowane w zakresie operacji są zawarte w tym folderze `<operation name>.xml` plików, które mapują do deklaracji zasad dla każdej operacji.
-* `policies\products\`— Jeśli masz wszystkie zasady zdefiniowane w zakresie produktu są zawarte w tym folderze, który zawiera `<product name>.xml` plików, które mapują do deklaracji zasad dla każdego produktu.
+* `policies\apis\<api name>\<operation name>\`folder — Jeśli masz wszystkie zasady zdefiniowane w zakresie operacji są zawarte w tym folderze `<operation name>.xml` plików, które mapują toohello deklaracji zasad dla każdej operacji.
+* `policies\products\`— Jeśli masz wszystkie zasady zdefiniowane w zakresie produktu są zawarte w tym folderze, który zawiera `<product name>.xml` plików, które mapują toohello deklaracji zasad dla każdego produktu.
 
 ### <a name="portalstyles-folder"></a>portalStyles folder
-`portalStyles` Folder zawiera konfigurację i styl arkusze Dostosowywanie portalu deweloperów dla wystąpienia usługi.
+Witaj `portalStyles` folder zawiera konfigurację i styl arkusze Dostosowywanie portalu deweloperów hello wystąpienia usługi.
 
-* `portalStyles\configuration.json`-zawiera nazwy arkuszy stylów używany przez portalu dla deweloperów
-* `portalStyles\<style name>.css`-każdego `<style name>.css` plik zawiera style portalu dla deweloperów (`Preview.css` i `Production.css` domyślnie).
+* `portalStyles\configuration.json`-zawiera nazwy hello arkuszy stylów hello używane przez hello portalu dla deweloperów
+* `portalStyles\<style name>.css`-każdego `<style name>.css` plik zawiera style portalu dla deweloperów hello (`Preview.css` i `Production.css` domyślnie).
 
 ### <a name="products-folder"></a>folder produktów
-`products` Folder zawiera folder dla każdego produktu z definicją w wystąpieniu usługi.
+Witaj `products` folder zawiera folder dla każdego produktu zdefiniowane w hello wystąpienie usługi.
 
-* `products\<product name>\configuration.json`— jest to konfiguracja produktu. Jest to te same informacje, który będzie zwracany w przypadku wywołania [pobrania określonego produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operacji.
-* `products\<product name>\product.description.html`-to jest opis produktu i odpowiada `description` właściwość [jednostki produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) w interfejsie API REST.
+* `products\<product name>\configuration.json`-to jest Konfiguracja hello hello produktu. Jest to hello informacje, które będzie zwracany, jeśli zostały toocall hello [pobrania określonego produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operacji.
+* `products\<product name>\product.description.html`-to jest opis hello hello produktu i odpowiada toohello `description` właściwości hello [jednostki produktu](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) w hello interfejsu API REST.
 
 ### <a name="templates"></a>szablonów
-`templates` Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
+Witaj `templates` folder zawiera konfigurację hello [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) hello wystąpienia usługi.
 
-* `<template name>\configuration.json`-to jest konfiguracja dla szablonu wiadomości e-mail.
-* `<template name>\body.html`-to jest treść szablon wiadomości e-mail.
+* `<template name>\configuration.json`-to jest Konfiguracja hello hello szablonu wiadomości e-mail.
+* `<template name>\body.html`-to jest treść hello hello szablon wiadomości e-mail.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać informacje na inne sposoby zarządzania wystąpienia usługi zobacz:
+Aby uzyskać informacje o innych sposobów toomanage wystąpienia usługi, zobacz:
 
-* Zarządzanie wystąpienia usługi za pomocą następujących poleceń cmdlet programu PowerShell
+* Zarządzanie za pomocą następującego polecenia cmdlet programu PowerShell hello wystąpienia usługi
   * [Wdrożenie usługi dokumentacji poleceń cmdlet programu PowerShell](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Zarządzanie usługami dokumentacji poleceń cmdlet programu PowerShell](https://msdn.microsoft.com/library/azure/mt613507.aspx)
-* Zarządzaj w portalu wydawcy wystąpienia usługi
+* Zarządzaj w portalu wydawcy hello wystąpienia usługi
   * [Zarządzanie pierwszym interfejsem API](api-management-get-started.md)
-* Zarządzanie za pomocą interfejsu API REST wystąpienia usługi
+* Zarządzanie za pomocą interfejsu API REST hello wystąpienia usługi
   * [Dokumentacja interfejsu API REST zarządzania interfejsu API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
 ## <a name="watch-a-video-overview"></a>Obejrzyj film wideo

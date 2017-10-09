@@ -1,6 +1,6 @@
 ---
-title: "Indeksowanie magazynu tabel Azure z usługi Azure Search | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak indeksowanie danych przechowywanych w magazynie tabel platformy Azure z usługi Azure Search"
+title: "aaaIndexing magazynu tabel Azure z usługi Azure Search | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooindex dane przechowywane w magazynie tabel platformy Azure z usługi Azure Search"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: abb01a4d807cede310246b34775d8059fceb4456
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Magazyn tabel Azure indeksu z usługi Azure Search
-W tym artykule pokazano, jak używać usługi Azure Search do indeksowania danych przechowywanych w magazynie tabel platformy Azure.
+W tym artykule opisano, jak toouse usługi Azure Search tooindex danych przechowywanych w magazynie tabel Azure.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Konfigurowanie indeksowania magazynu tabel Azure
 
@@ -31,26 +31,26 @@ Można skonfigurować indeksator magazynu tabel Azure przy użyciu tych zasobów
 * Usługa Azure Search [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Usługa Azure Search [zestawu .NET SDK](https://aka.ms/search-sdk)
 
-W tym miejscu przedstawiony przepływ przy użyciu interfejsu API REST. 
+W tym miejscu przedstawiony przepływu hello przy użyciu hello interfejsu API REST. 
 
 ### <a name="step-1-create-a-datasource"></a>Krok 1: Utworzenie źródła danych
 
-Źródło danych określa, które dane do indeksu, uzyskać poświadczeń potrzebnych do dostępu do danych i zasady, które umożliwiają wyszukiwanie Azure, aby wydajnie zidentyfikować zmiany danych.
+Źródło danych określa, które tooindex danych hello poświadczeń potrzebnych tooaccess hello danych i zasady hello, umożliwiających wyszukiwanie Azure tooefficiently identyfikować zmiany danych hello.
 
-Dla tabeli indeksowania, źródło danych musi mieć następujące właściwości:
+Dla tabeli indeksowania, hello datasource musi mieć hello następujące właściwości:
 
-- **Nazwa** jest unikatowa nazwa źródła danych w ramach usługi wyszukiwania.
+- **Nazwa** jest hello unikatową nazwę źródła danych hello w ramach usługi wyszukiwania.
 - **Typ** musi być `azuretable`.
-- **poświadczenia** parametr zawiera parametry połączenia konta magazynu. Zobacz [Określ poświadczenia](#Credentials) sekcji, aby uzyskać szczegółowe informacje.
-- **kontener** ustawia nazwę tabeli i opcjonalnie zapytania.
-    - Określ nazwę tabeli, używając `name` parametru.
-    - Opcjonalnie określ zapytania przy użyciu `query` parametru. 
+- **poświadczenia** parametr zawiera parametry połączenia konta magazynu hello. Zobacz hello [Określ poświadczenia](#Credentials) sekcji, aby uzyskać szczegółowe informacje.
+- **kontener** hello ustawia nazwę tabeli i opcjonalnie zapytania.
+    - Określ nazwę tabeli hello przy użyciu hello `name` parametru.
+    - Opcjonalnie określ zapytania przy użyciu hello `query` parametru. 
 
 > [!IMPORTANT] 
-> Jeśli to możliwe, użyj filtru na PartitionKey w celu poprawy wydajności. Inne zapytania wykonuje skanowanie pełne tabeli, co spowoduje niską wydajność dużych tabel. Zobacz [zagadnienia dotyczące wydajności](#Performance) sekcji.
+> Jeśli to możliwe, użyj filtru na PartitionKey w celu poprawy wydajności. Inne zapytania wykonuje skanowanie pełne tabeli, co spowoduje niską wydajność dużych tabel. Zobacz hello [zagadnienia dotyczące wydajności](#Performance) sekcji.
 
 
-Aby utworzyć źródło danych:
+toocreate źródła danych:
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -63,26 +63,26 @@ Aby utworzyć źródło danych:
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [utworzyć źródło danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Aby uzyskać więcej informacji na powitania Utwórz źródło danych interfejsu API, zobacz [utworzyć źródło danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### <a name="ways-to-specify-credentials"></a>Można określać poświadczeń ####
+#### <a name="ways-toospecify-credentials"></a>Sposoby toospecify poświadczeń ####
 
-Można podać poświadczenia dla tabeli w jeden z następujących sposobów: 
+Możesz podać poświadczenia hello hello tabeli w jeden z następujących sposobów: 
 
-- **Parametry połączenia konta magazynu pełny dostęp**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` parametry połączenia można pobrać z portalu Azure, przechodząc do **bloku konto magazynu** > **ustawienia**  >  **Klucze** (dla kont magazynu classic) lub **ustawienia** > **klucze dostępu** (w przypadku magazynu usługi Azure Resource Manager konta).
-- **Konto magazynu udostępnionego ciąg połączenia podpisu dostępu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` sygnatury dostępu współdzielonego powinny mieć listy i uprawnienia do odczytu z kontenerów (tabele w tym przypadku) i obiektów (wiersze tabeli).
--  **Sygnatury dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` sygnatury dostępu współdzielonego powinni mieć uprawnienia zapytania (odczyt) w tabeli.
+- **Parametry połączenia konta magazynu pełny dostęp**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` można uzyskać hello parametry połączenia z hello portalu Azure będzie toohello **bloku konto magazynu** > **ustawienia**   >  **Klucze** (dla kont magazynu classic) lub **ustawienia** > **klucze dostępu** (dla zasobów Azure Menedżer kont magazynu).
+- **Konto magazynu udostępnionego ciąg połączenia podpisu dostępu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<hello signature>&spr=https&se=<hello validity end time>&srt=co&ss=t&sp=rl` sygnatury dostępu współdzielonego hello powinny mieć hello listę i uprawnienia do odczytu z kontenerów (tabele w tym przypadku) i obiektów (wiersze tabeli).
+-  **Sygnatury dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<hello signature>&se=<hello validity end time>&sp=r` sygnatury dostępu współdzielonego hello powinni mieć uprawnienia zapytania (odczyt) w tabeli hello.
 
 Aby uzyskać więcej informacji w magazynie udostępnionym sygnatur dostępu, zobacz [używanie sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Jeśli używasz poświadczeń sygnatury dostępu współdzielonego, konieczne będzie okresowo aktualizowany poświadczenia źródła danych za pomocą podpisów odnowionego, aby zapobiec ich wygaśnięciem. Po wygaśnięciu poświadczeń sygnatury dostępu współdzielonego, indeksatora nie powiedzie się z komunikatem o błędzie podobny do "Poświadczenia dostarczone w parametrach połączenia są nieprawidłowe lub wygasły."  
+> Korzystając z poświadczeń sygnatury dostępu współdzielonego, konieczne będzie poświadczenia źródła danych hello tooupdate okresowo z tooprevent odnowionego podpisów ich wygaśnięciem. Po wygaśnięciu poświadczeń sygnatury dostępu współdzielonego, indeksatora hello zakończy się niepowodzeniem z komunikatem o błędzie podobny zbyt "poświadczenia dostarczone w parametrach połączenia hello są nieprawidłowe lub wygasły."  
 
 ### <a name="step-2-create-an-index"></a>Krok 2: Tworzenie indeksu
-Indeks określa pola w dokumencie, atrybuty i wystąpić inne konstrukcje, które kształtu wyszukiwania.
+Indeks Hello określa hello pola w dokumencie atrybuty hello oraz innych konstrukcji środowiska wyszukiwania hello kształtu.
 
-Aby utworzyć indeks:
+toocreate indeksu:
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
@@ -99,9 +99,9 @@ Aby utworzyć indeks:
 Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Krok 3: Utwórz indeksator
-Indeksator łączy źródła danych z indeksem wyszukiwania docelowych i zapewnia harmonogramu do automatyzowania odświeżania danych. 
+Indeksator połączenie źródła danych z indeksem wyszukiwania docelowych i udostępnia zaplanowanym odświeżaniu danych hello tooautomate. 
 
-Po utworzeniu indeks i źródło danych, możesz przystąpić do tworzenia indeksatora:
+Po utworzeniu hello indeks i źródło danych, wszystko jest gotowe toocreate hello indeksatora:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -114,27 +114,27 @@ Po utworzeniu indeks i źródło danych, możesz przystąpić do tworzenia indek
       "schedule" : { "interval" : "PT2H" }
     }
 
-Ten indeksator jest uruchamiane co dwie godziny. (Interwał harmonogramu jest ustawiony na "PT2H"). Aby uruchomić indeksatora co 30 minut, należy ustawić interwał o "PT30M". Najkrótszy obsługiwany interwał to pięć minut. Harmonogram jest opcjonalna. Pominięcie indeksatora działa tylko wtedy, gdy po jego utworzeniu. Można jednak uruchomić indeksatora na żądanie w dowolnym momencie.   
+Ten indeksator jest uruchamiane co dwie godziny. (hello Interwał harmonogramu jest ustawiona zbyt "PT2H".) toorun indeksatora co 30 minut, ustawić interwał powitania także "PT30M". Witaj najkrótszy obsługiwany interwał to pięć minut. Harmonogram Hello jest opcjonalna. Pominięcie indeksatora działa tylko wtedy, gdy po jego utworzeniu. Można jednak uruchomić indeksatora na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na tworzenie interfejsu API indeksatora, zobacz [Utwórz indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na powitania Utwórz indeksator interfejsu API, zobacz [Utwórz indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="deal-with-different-field-names"></a>Postępowania w przypadku nazwy innego pola
-Czasami nazwy pól w indeksie istniejących różnią się od nazwy właściwości w tabeli. Pole — mapowanie służy do mapowania nazw właściwości z tabeli do nazwy pól w indeksie wyszukiwania. Aby dowiedzieć się więcej na temat mapowań pól, zobacz [mapowań pól indeksator usługi Azure Search zestawiania różnice między źródeł danych i wyszukiwania indeksów](search-indexer-field-mappings.md).
+Czasami hello nazwy pól w indeksie istniejących różnią się od nazwy właściwości hello w tabeli. Pole nazwy właściwości hello toomap mapowania z nazw pól toohello tabeli hello można użyć w indeksie wyszukiwania. toolearn więcej informacji na temat mapowania pól, zobacz [mapowań pól indeksator usługi Azure Search zestawiania hello różnice między źródeł danych i wyszukiwania indeksów](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Obsługa kluczy dokumentu
-W usłudze Azure Search klucz dokumentu unikatowo identyfikuje dokumentu. Każdy indeks musi mieć dokładnie jedno pole klucza typu `Edm.String`. Pole klucza jest wymagana dla każdego dokumentu, który jest dodawany do indeksu. (W rzeczywistości jest to jedyne pole wymagane.)
+W usłudze Azure Search klucz dokumentu hello unikatowo identyfikuje dokumentu. Każdy indeks musi mieć dokładnie jedno pole klucza typu `Edm.String`. pole klucza Hello jest wymagane dla każdego dokumentu, który jest dodawany toohello indeksu. (W rzeczywistości jego hello tylko wymagane pola.)
 
-Ponieważ wiersze tabeli klucza złożonego, usługi Azure Search generuje syntetycznych pole o nazwie `Key` jest złączeniem klucza i wiersza wartości kluczy partycji. Na przykład, jeśli wiersz PartitionKey jest `PK1` i RowKey `RK1`, a następnie `Key` jest wartość pola `PK1RK1`.
+Ponieważ wiersze tabeli klucza złożonego, usługi Azure Search generuje syntetycznych pole o nazwie `Key` jest złączeniem klucza i wiersza wartości kluczy partycji. Na przykład, jeśli wiersz PartitionKey jest `PK1` i RowKey `RK1`, następnie hello `Key` jest wartość pola `PK1RK1`.
 
 > [!NOTE]
-> `Key` Wartość może zawierać znaków, które są nieprawidłowe w dokumencie kluczy, takich jak łączniki. Nieprawidłowe znaki mogą dotyczyć przy użyciu `base64Encode` [funkcja mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction). Jeśli to zrobisz, należy również użyć kodowanie Base64 bezpieczny adres URL podczas przekazywania dokumentów kluczy w interfejsie API wywołuje takie jak wyszukiwanie.
+> Witaj `Key` wartość może zawierać znaków, które są nieprawidłowe w dokumencie kluczy, takich jak łączniki. Nieprawidłowe znaki mogą dotyczyć przy użyciu hello `base64Encode` [funkcja mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction). Jeśli to zrobisz, pamiętaj tooalso użycie bezpiecznego adresu URL w formacie Base64 kodowania podczas przekazywania dokumentów kluczy w interfejsie API wywołuje takie jak wyszukiwanie.
 >
 >
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Przyrostowe wykrywania indeksowanie i usuwaniem.
-Podczas konfigurowania uruchamiane zgodnie z harmonogramem indeksatora tabeli reindexes go tylko nowe lub zaktualizowane wierszy, zgodnie z wiersza `Timestamp` wartość. Nie trzeba określać zasady wykrywania zmian. Indeksowanie przyrostowe jest włączona automatycznie.
+Po skonfigurowaniu toorun indeksatora tabeli, zgodnie z harmonogramem reindexes go tylko nowe lub zaktualizowane wierszy, zgodnie z wiersza `Timestamp` wartość. Nie masz toospecify zasady wykrywania zmian. Indeksowanie przyrostowe jest włączona automatycznie.
 
-Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, używając strategii usuwania nietrwałego. Zamiast usuwać wiersza, Dodaj właściwości, aby wskazać, że został usunięty i skonfigurować zasady usuwania nietrwałego wykrywania w elemencie datasource. Na przykład następujące zasady uzna, że wiersz został usunięty, jeśli wiersz zawiera właściwości `IsDeleted` z wartością `"true"`:
+tooindicate to pewność, że dokumenty muszą zostać usunięte z indeksu hello, możesz użyć strategii usuwania nietrwałego. Zamiast usuwać wiersza, Dodaj tooindicate właściwości, który został usunięty i skonfigurować zasady usuwania nietrwałego wykrywania na powitania źródła danych. Na przykład następujące zasady hello uzna, że wiersz został usunięty, jeśli hello wiersz zawiera właściwości `IsDeleted` z wartością hello `"true"`:
 
     PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -151,20 +151,20 @@ Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, używa
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Domyślnie usługi Azure Search korzysta następujący filtr zapytania: `Timestamp >= HighWaterMarkValue`. Ponieważ na tabelach platformy Azure nie ma pomocniczy indeks `Timestamp` pola tego typu zapytań wymaga skanowania pełnego tabeli i dlatego jest wolny dla dużych tabel.
+Domyślnie usługi Azure Search korzysta powitania po Filtr kwerendy: `Timestamp >= HighWaterMarkValue`. Ponieważ na powitania w tabelach platformy Azure nie ma pomocniczy indeks `Timestamp` pola tego typu zapytań wymaga skanowania pełnego tabeli i dlatego jest wolny dla dużych tabel.
 
 
 Poniżej przedstawiono dwa możliwe podejścia do zwiększania wydajności indeksowania tabeli. Obie metody zależy od używania partycji tabeli: 
 
-- Jeśli dane mogą być partycjonowane naturalnie do kilku zakresów partycji, Utwórz źródło danych i odpowiedniego indeksatora dla każdego zakresu partycji. Każdego indeksatora ma teraz przetworzyć tylko określonej partycji zakres, co zapewnia lepszą wydajność kwerend. Jeśli dane, które muszą zostać pomyślnie zindeksowane ma niewielkiej liczby partycji stały, jeszcze bardziej poprawić jakość: każdego indeksatora jest tylko skanowanie partycji. Na przykład, aby utworzyć źródło danych do przetwarzania zakres partycji z kluczami z `000` do `100`, użyj zapytania następująco: 
+- Jeśli dane mogą być partycjonowane naturalnie do kilku zakresów partycji, Utwórz źródło danych i odpowiedniego indeksatora dla każdego zakresu partycji. Każdy indeksator ma tooprocess tylko określonej partycji zakres, co zapewnia lepszą wydajność kwerend. Jeśli dane hello musi toobe indeksowane ma niewielkiej liczby partycji stały, jeszcze bardziej poprawić jakość: każdego indeksatora jest tylko skanowanie partycji. Na przykład toocreate źródła danych do przetwarzania zakres partycji z kluczy z `000` zbyt`100`, użyj zapytania następująco: 
     ```
     "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
     ```
 
-- Jeśli dane jest podzielona na partycje według czasu (na przykład możesz utworzyć nową partycję, każdego dnia lub tygodnia), należy wziąć pod uwagę następujące podejście: 
-    - Za pomocą kwerendy w postaci: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Monitorować postęp indeksatora za pomocą [uzyskać indeksatora API stanu](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)i co pewien czas zaktualizować `<TimeStamp>` warunek kwerendy na podstawie najnowszych pomyślne-znacznik limitu górnego wartości. 
-    - Z tej metody Jeśli chcesz wyzwolić pełną indeksowanie, należy zresetować zapytania źródła danych oprócz zresetować indeksatora. 
+- Jeśli dane jest podzielona na partycje według czasu (na przykład możesz utworzyć nową partycję, każdego dnia lub tygodnia), należy wziąć pod uwagę następujące podejście hello: 
+    - Kwerenda formularza hello: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+    - Monitorować postęp indeksatora za pomocą [uzyskać indeksatora API stanu](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)i co pewien czas zaktualizować hello `<TimeStamp>` warunku zapytania hello na podstawie hello najnowszych pomyślne-znacznik limitu górnego wartości. 
+    - Z tej metody należy tootrigger pełną indeksowanie, należy najpierw tooreset hello źródła danych zapytania w dodanie tooresetting hello indeksatora. 
 
 
 ## <a name="help-us-make-azure-search-better"></a>Pomóż nam udoskonalić usługę Azure Search

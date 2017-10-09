@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Storage — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak korzystać z usługi Azure Storage — obiektów Blob, kolejek, tabel, plików oraz magazynu dyskowego maszyny wirtualnej w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "aaaAzure dokumentacji magazynu — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse usługi Azure Storage — magazynu obiektów Blob, tabeli, kolejki, plików i dysku maszyny wirtualnej w chmurze hello. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: storage
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: af6bc7cc4245208d2dc92a9b248aa4686cf42272
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7155feb190c8c769eb9c8f8712cca939708d57b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-documentation"></a>Dokumentacja usługi Storage
 
-Dowiedz się, jak korzystać z usługi Azure Storage — trwałej, dostępnej i skalowalnej usługi magazynu w chmurze. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania obiektów Blob, kolejek, tabel, plików i magazynu dyskowego maszyny wirtualnej oraz zarządzania tymi elementami.
+Dowiedz się, jak toouse usługi Azure Storage, magazynem w chmurze usługi, która jest trwały, dostępna i skalowalna. Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób tooset Konfigurowanie i zarządzanie nim magazynu obiektów Blob, tabeli, kolejki, plików i dysku maszyny wirtualnej.
 
 <ul class="panelContent cardsFTitle">
     <li>

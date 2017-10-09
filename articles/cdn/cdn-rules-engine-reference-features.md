@@ -1,5 +1,5 @@
 ---
-title: "Zasady usługi Azure CDN aparat funkcji | Dokumentacja firmy Microsoft"
+title: "Funkcje aparatu reguł aaaAzure CDN | Dokumentacja firmy Microsoft"
 description: "Dokumentacja referencyjna dla usługi Azure CDN zasady warunków dopasowania aparatu i funkcje."
 services: cdn
 documentationcenter: 
@@ -14,80 +14,80 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c10b8ef58e3d209b12fbb0ac2173e1ca51ff7538
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
-Ten temat zawiera szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
+Ten temat zawiera szczegółowe opisy dostępnych funkcji powitania dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
 
-Trzeci część reguły jest funkcja. Funkcja definiuje typ akcji, które zostaną zastosowane do typu żądanie poprzez z zestawem warunków dopasowania.
+Hello trzeci część reguły jest funkcja hello. Funkcja definiuje typ hello akcji, który ma być stosowany toohello typ żądania identyfikowane przez zestaw warunków dopasowania.
 
 ## <a name="access"></a>Dostęp
 
-Te funkcje są przeznaczone do kontrolowania dostępu do zawartości.
+Te funkcje są zaprojektowane toocontrol toocontent dostępu.
 
 
 Nazwa | Przeznaczenie
 -----|--------
 Odmowa dostępu | Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
-Token uwierzytelniania | Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
-Kod odmowa tokenu uwierzytelniania | Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
+Token uwierzytelniania | Określa, czy tokenów uwierzytelniania będzie stosowane tooa żądania.
+Kod odmowa tokenu uwierzytelniania | Określa typ hello odpowiedź zwracana użytkownika tooa Jeśli żądanie zostanie odrzucone powodu uwierzytelniania opartego na tooToken.
 Token uwierzytelniania Ignoruj wielkość liter adresu URL | Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL będzie uwzględniana wielkość liter.
-Parametr tokenu uwierzytelniania | Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
+Parametr tokenu uwierzytelniania | Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie hello powinny zostać zmienione.
 
 ### <a name="deny-access"></a>Odmowa dostępu
 **Cel**: Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
 
 Wartość | wynik
 ------|-------
-Enabled (Włączony)| Powoduje, że wszystkie żądania, które spełniają kryteria dopasowywania procesów odrzucona z odpowiedź 403 Zabroniony.
-Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie do serwera pochodzenia, aby ustalić typ odpowiedzi, który zostanie zwrócony.
+Enabled (Włączony)| Powoduje, że wszystkie żądania, które spełniają hello pasującego toobe kryteria odrzucane odpowiedź 403 Zabroniony.
+Disabled (Wyłączony)| Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to tooallow powitania serwera toodetermine hello typ źródła odpowiedzi, który zostanie zwrócony.
 
 **Domyślne zachowanie**: wyłączone
 
 > [!TIP]
-   > Jedno możliwe użycie tej funkcji jest aby skojarzyć ją z warunkiem dopasowania nagłówek żądania, aby zablokować dostęp do odwołań HTTP, korzystających z wbudowanym łącza do zawartości.
+   > Jedno możliwe użycie tej funkcji jest tooassociate go przy użyciu nagłówka żądania odpowiada warunku tooblock dostępu tooHTTP odwołań, korzystających z wbudowanym łącza tooyour zawartości.
 
 ### <a name="token-auth"></a>Token uwierzytelniania
-**Cel:** Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
+**Cel:** Określa, czy tokenów uwierzytelniania będzie stosowane tooa żądania.
 
-Włączenie uwierzytelniania opartego na tokenie tylko żądania, które zapewniają zaszyfrowany token i są zgodne z wymogami określone przez token będą honorowane.
+Włączenie uwierzytelniania opartego na tokenie tylko żądania, które zapewniają zaszyfrowany token i wykonania toohello wymagania określone przez token będą honorowane.
 
-Klucz szyfrowania używany do szyfrowania i odszyfrowywania tokenów wartości jest określana przez klucz podstawowy i opcje tworzenia kopii zapasowej klucza na stronie tokenu uwierzytelniania. Należy pamiętać, że klucze szyfrowania są specyficzne dla platformy.
+Hello klucza szyfrowania, które będą używane wartości tooencrypt i odszyfrowywania tokenu jest określana przez klucz podstawowy i opcje tworzenia kopii zapasowej klucza na stronie tokenu uwierzytelniania. Należy pamiętać, że klucze szyfrowania są specyficzne dla platformy.
 
 Wartość | wynik
 ------|---------
-Enabled (Włączony) | Chroni żądanej zawartości przy użyciu uwierzytelniania opartego na tokenie. Tylko żądania od klientów, podaj prawidłowy token, które spełniają jej wymagań dotyczących będą honorowane. Transakcje FTP są wykluczone z uwierzytelniania opartego na tokenie.
-Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem jest umożliwienie konfiguracji uwierzytelniania opartego na tokenie, aby ustalić, czy żądanie zostanie zabezpieczone.
+Enabled (Włączony) | Chroni hello żądanej zawartości przy użyciu uwierzytelniania opartego na tokenie. Tylko żądania od klientów, podaj prawidłowy token, które spełniają jej wymagań dotyczących będą honorowane. Transakcje FTP są wykluczone z uwierzytelniania opartego na tokenie.
+Disabled (Wyłączony)| Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie jest tooallow Twojego toodetermine konfiguracji uwierzytelniania opartego na tokenie, czy żądanie będzie zabezpieczony.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="token-auth-denial-code"></a>Kod odmowa tokenu uwierzytelniania
-**Cel:** Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
+**Cel:** Określa typ hello odpowiedź zwracana użytkownika tooa Jeśli żądanie zostanie odrzucone powodu uwierzytelniania opartego na tooToken.
 
-Kody odpowiedzi dostępne są wymienione poniżej.
+Kody odpowiedzi dostępne Hello są wymienione poniżej.
 
 Kod odpowiedzi|Nazwa odpowiedzi|Opis
 ----------------|-----------|--------
-301|Trwale przeniesiona|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
-302|Znaleziono|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji. Ten kod stanu jest branży standardową metodą wykonania przekierowania.
-307|Przekierowanie tymczasowe|Ten kod stanu przekierowania nieautoryzowanym użytkownikom na adres URL określony w nagłówku lokalizacji.
-401|Brak autoryzacji|Łączenie z nagłówka WWW-Authenticate odpowiedzi ten kod stanu umożliwia Monituj użytkownika do uwierzytelniania.
-403|Dostęp zabroniony|Jest to standardowy 403 Zabroniony komunikat o stanie nieautoryzowany użytkownik zostanie wyświetlony podczas próby dostępu do chronionej zawartości.
-404|Nie można odnaleźć pliku|Ten kod stanu wskazuje, że klient HTTP był w stanie komunikować się z serwerem, ale nie można odnaleźć żądanej zawartości.
+301|Trwale przeniesiona|Ten kod stanu przekierowania określony w nagłówku lokalizacji URL toohello nieautoryzowanych użytkowników.
+302|Znaleziono|Ten kod stanu przekierowania określony w nagłówku lokalizacji URL toohello nieautoryzowanych użytkowników. Ten kod stanu jest hello standardowa metoda wykonywania przekierowania.
+307|Przekierowanie tymczasowe|Ten kod stanu przekierowania określony w nagłówku lokalizacji URL toohello nieautoryzowanych użytkowników.
+401|Brak autoryzacji|Łączenie z nagłówka WWW-Authenticate odpowiedzi ten kod stanu umożliwia tooprompt użytkownika do uwierzytelniania.
+403|Dostęp zabroniony|Jest to standardowe 403 Zabroniony stan wiadomości powitania nieautoryzowany użytkownik zostanie wyświetlony, gdy w trakcie tooaccess zawartości chronionej.
+404|Nie można odnaleźć pliku|Ten kod stanu wskazuje, że klient HTTP hello był stanie toocommunicate z serwerem hello, ale hello zażądał nie odnaleziono zawartości.
 
 #### <a name="url-redirection"></a>Adres URL przekierowania
 
-Ta funkcja obsługuje adres URL przekierowania do adresu URL zdefiniowane przez użytkownika, gdy jest on skonfigurowany do zwrócenia 3xx kod stanu. Ten adres URL zdefiniowany przez użytkownika, można określić, wykonując następujące czynności:
+Ta funkcja obsługuje URL zdefiniowane przez użytkownika adresu URL przekierowania tooa, gdy jest skonfigurowany tooreturn 3xx kod stanu. Ten adres URL zdefiniowany przez użytkownika, można określić, wykonując następujące kroki hello:
 
-1. Wybierz kod odpowiedzi 3xx dla funkcji kodu odmowa tokenu uwierzytelniania.
+1. Wybierz kod odpowiedzi 3xx hello Token uwierzytelniania odmowa kodu funkcji.
 2. Wybierz "Lokalizacja" z opcją opcjonalna nazwa nagłówka.
-3. Ustaw opcję opcjonalna wartość nagłówka do żądanego adresu URL.
+3. Ustaw adres URL żądanego toohello opcji opcjonalna wartość nagłówka.
 
-Jeśli adres URL nie jest zdefiniowany dla kodu stanu 3xx, strony standardowe odpowiedzi dla kodu stanu 3xx będzie zwrócił dla użytkownika.
+Jeśli adres URL nie jest zdefiniowany dla kodu stanu 3xx, następnie hello strony standardowe odpowiedzi dla kodu stanu 3xx zostanie zwrócony toohello użytkownika.
 
 Adres URL przekierowania dotyczy tylko 3xx kody odpowiedzi.
 
@@ -95,20 +95,20 @@ Opcja opcjonalna wartość nagłówka obsługuje znaki alfanumeryczne, znaki cud
 
 #### <a name="authentication"></a>Authentication
 
-Ta funkcja obsługuje możliwość dołączyć nagłówka WWW-Authenticate wysyłanej do nieautoryzowanego żądania dla zawartości chronionej przez uwierzytelniania opartego na tokenie. Jeśli nagłówka WWW-Authenticate została ustawiona na "basic" w konfiguracji, nieautoryzowany użytkownik zostanie monit o poświadczenia konta.
+Ta funkcja obsługuje nagłówka WWW-Authenticate tooinclude możliwości hello wysyłanej tooan nieautoryzowanego żądania dla zawartości chronionej przez uwierzytelniania opartego na tokenie. Jeżeli nagłówek WWW-Authenticate ustawiono zbyt "basic" w konfiguracji, następnie hello nieautoryzowany użytkownik pojawi się monit o poświadczenia konta.
 
-Powyższej konfiguracji można osiągnąć, wykonując następujące czynności:
+Witaj powyżej konfiguracji można osiągnąć, wykonując następujące kroki hello:
 
-1. Wybierz "401" jako kod odpowiedzi dla funkcji kodu odmowa tokenu uwierzytelniania.
+1. Wybierz "401" jako kod odpowiedzi hello hello Token uwierzytelniania odmowa kodu funkcji.
 2. Wybierz "WWW-Authenticate" z opcją opcjonalna nazwa nagłówka.
-3. Ustaw opcję opcjonalna wartość nagłówka "podstawowy".
+3. Ustaw opcję opcjonalna wartość nagłówka zbyt "podstawowa."
 
 Nagłówek WWW-Authenticate dotyczy tylko kodów odpowiedzi 401.
 
 ### <a name="token-auth-ignore-url-case"></a>Token uwierzytelniania Ignoruj wielkość liter adresu URL
 **Cel:** Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL będzie uwzględniana wielkość liter.
 
-Parametry wpływ tej funkcji są:
+Parametry Hello wpływ tej funkcji są:
 
 - ec_url_allow
 - ec_ref_allow
@@ -118,90 +118,90 @@ Prawidłowe wartości to:
 
 Wartość|wynik
 ---|----
-Enabled (Włączony)|Powoduje, że nasze serwer graniczny ignorowanie wielkości liter podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
+Enabled (Włączony)|Powoduje, że nasze serwer graniczny przypadku tooignore podczas porównywania adresów URL dla uwierzytelniania opartego na tokenie parametrów.
+Disabled (Wyłączony)|Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to dla adresu URL porównań toobe tokenu uwierzytelniania z uwzględnieniem wielkości liter.
 
 **Domyślne zachowanie:** wyłączone.
  
 ### <a name="token-auth-parameter"></a>Parametr tokenu uwierzytelniania
-**Cel:** Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
+**Cel:** Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie hello powinny zostać zmienione.
 
 Informacje o kluczu:
 
-- Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą których można określić token.
-- Nie można ustawić opcji wartość "ec_token."
-- Upewnij się, że nazwa zdefiniowana w opcji tylko wartości 
+- Opcja wartość definiuje hello Nazwa parametru ciągu kwerendy za pośrednictwem której można określić token.
+- Nie można ustawić opcji wartość zbyt "ec_token."
+- Upewnij się, tę nazwę hello zdefiniowane w opcji tylko wartości 
 - zawiera nieprawidłowy adres URL znaki.
 
 Wartość|wynik
 ----|----
-Enabled (Włączony)|Opcja wartość Określa nazwę parametru ciągu zapytania, za pomocą którego można zdefiniować tokenów.
-Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
+Enabled (Włączony)|Opcja wartość definiuje hello Nazwa parametru ciągu kwerendy za pośrednictwem której można zdefiniować tokenów.
+Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania hello.
 
-**Domyślne zachowanie:** wyłączone. Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
+**Domyślne zachowanie:** wyłączone. Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania hello.
 
 ## <a name="caching"></a>Buforowanie
 
-Te funkcje są przeznaczone do dostosowania, kiedy i jak zawartość jest buforowana.
+Te funkcje są zaprojektowane toocustomize sposób zawartość jest buforowana i.
 
 Nazwa | Przeznaczenie
 -----|--------
 Parametry przepustowości | Określa, czy przepustowości parametrów (tj. ec_rate i ec_prebuf) będzie aktywny.
-Ograniczanie przepustowości | Ogranicza przepustowość dla odpowiedzi dostarczonych przez nasze serwery krawędzi.
-Pomiń pamięć podręczną | Określa, czy żądania mogą korzystać z naszych technologię buforowania.
-Traktowanie nagłówek Cache-Control | Kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
-Ciąg zapytania klucz pamięci podręcznej | Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
-Napisz ponownie klucz pamięci podręcznej | Ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
+Ograniczanie przepustowości | Ogranicza przepustowość hello odpowiedź hello udostępniane przez serwery krawędzi.
+Pomiń pamięć podręczną | Określa, czy hello żądania mogą korzystać z naszych technologię buforowania.
+Traktowanie nagłówek Cache-Control | Formanty hello generowania nagłówków Cache-Control przez serwer graniczny hello włączeniu funkcji zewnętrznych Max-Age.
+Ciąg zapytania klucz pamięci podręcznej | Określa, czy klucz pamięci podręcznej hello zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
+Napisz ponownie klucz pamięci podręcznej | Ponownie zapisuje klucz pamięci podręcznej hello skojarzone z żądaniem.
 Zakończenie wypełnienie pamięci podręcznej | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na serwer graniczny.
-Kompresuj typów plików | Definiuje formatów plików, które będą kompresowane na serwerze.
-Max-Age wewnętrzny domyślne | Określa domyślny interwał maksymalny wiek serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-Wygasa traktowania nagłówka | Kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
-Max-Age zewnętrznych | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi.
-Wymuszanie wewnętrznych Max-Age. | Określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-Obsługa H.264 (pobierania progresywnego HTTP) | Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
-Honoruj No-Cache żądania | Określa, czy klient HTTP żądań pamięci podręcznej nie zostaną przekazane do serwera pochodzenia.
+Kompresuj typów plików | Definiuje hello formatów plików, które zostanie skompresowany na powitania serwera.
+Max-Age wewnętrzny domyślne | Określa hello domyślny interwał maksymalny wiek ponowna Walidacja buforu serwera tooorigin serwer krawędzi.
+Wygasa traktowania nagłówka | Formanty hello generowania Expires headers przez serwer graniczny, gdy funkcji zewnętrznych Max-Age hello jest aktywny.
+Max-Age zewnętrznych | Określa interwał maksymalny wiek hello przeglądarki tooedge serwera pamięci podręcznej ponownego sprawdzania poprawności.
+Wymuszanie wewnętrznych Max-Age. | Określa interwał maksymalny wiek hello ponowna Walidacja buforu serwera tooorigin serwer krawędzi.
+Obsługa H.264 (pobierania progresywnego HTTP) | Określa typy hello H.264 formaty plików, które mogą być używane toostream zawartości.
+Honoruj No-Cache żądania | Określa, czy klient HTTP żądań pamięci podręcznej nie zostanie przekazany toohello serwera źródłowego.
 Ignoruj pochodzenia No-Cache | Określa, czy naszych CDN zignoruje niektórych dyrektyw z serwera pochodzenia.
-Ignoruj Unsatisfiable zakresów | Określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje kod stanu żądany zakres nie niewłaściwego 416.
-Wewnętrzny odświeżona maksymalna | Określa, jak długo późniejsza niż godzina wygaśnięcia normalne, który zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
+Ignoruj Unsatisfiable zakresów | Określa odpowiedź hello, która zostanie zwrócona tooclients po żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
+Wewnętrzny odświeżona maksymalna | Określa, jak długo minął czas wygaśnięcia normalne hello zasobów pamięci podręcznej może być obsługiwana z serwer graniczny po serwer graniczny hello toorevalidate hello buforowanych zasobów z serwera źródłowego hello.
 Udostępnianie częściowe pamięci podręcznej | Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
 Prevalidate zawartości w pamięci podręcznej | Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
 Odśwież Zero bajtów pamięci podręcznej plików | Określa sposób obsługi żądania klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
-Kody stanu Buforowalnej zestawu | Definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
-Stałe dostarczanie zawartości w przypadku błędu | Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
-Nieaktualne podczas Revalidate | Zwiększa wydajność, umożliwiając nasze serwery krawędzi do obsługi starych klienta do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
-Komentarz | Funkcja komentarz umożliwia Uwaga do dodania w regule.
+Kody stanu Buforowalnej zestawu | Definiuje zestaw hello kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
+Stałe dostarczanie zawartości w przypadku błędu | Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub zleconą hello podczas pobierania zawartości z serwera źródłowego powitania klienta.
+Nieaktualne podczas Revalidate | Zwiększa wydajność, zezwalając na naszych serwerach krawędzi tooserve nieodświeżeni klienci toohello. strona żądająca podczas ponownego sprawdzania poprawności ma miejsce.
+Komentarz | Funkcja komentarz Hello umożliwia toobe Uwaga, dodane w regule.
 
 ###<a name="bandwidth-parameters"></a>Parametry przepustowości
 **Cel:** Określa, czy przepustowości parametrów (tj. ec_rate i ec_prebuf) będzie aktywny.
 
-Parametry ograniczania przepustowości określają, czy szybkość transferu danych dla żądania klienta będzie ograniczony do niestandardowych szybkości.
+Parametry ograniczania przepustowości określają, czy hello szybkość transferu danych dla żądania klienta będzie ograniczona tooa szybkość niestandardowych.
 
 Wartość|wynik
 --|--
-Enabled (Włączony)|Umożliwia serwerom krawędzi naszych honoruje żądań ograniczania przepustowości.
-Disabled (Wyłączony)|Powoduje, że nasze serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość zostanie obsłużona zwykle (tzn. bez ograniczania przepustowości).
+Enabled (Włączony)|Umożliwia nasze serwery krawędzi toohonor przepustowości żądania.
+Disabled (Wyłączony)|Powoduje, że serwery krawędzi tooignore parametry ograniczenia przepustowości. Witaj zażądał zawartość będzie zazwyczaj podawana (tzn. bez ograniczania przepustowości).
 
 **Domyślne zachowanie:** włączone.
 
 ###<a name="bandwidth-throttling"></a>Ograniczanie przepustowości
-**Cel:** ogranicza przepustowość dla odpowiedzi dostarczonych przez nasze serwery krawędzi.
+**Cel:** limity hello przepustowości dla odpowiedzi hello udostępniane przez serwery krawędzi.
 
-Obie z poniższych opcji, należy zdefiniować Aby poprawnie skonfigurować ograniczanie przepustowości.
+Zarówno hello następujące opcje musi być zdefiniowany tooproperly Konfigurowanie ograniczania przepustowości.
 
 Opcja|Opis
 --|--
-KB na sekundę|Ustaw tę opcję, aby maksymalnej przepustowości (Kb na sekundę), które mogą być używane w celu dostarczenia odpowiedzi.
-Prebuf sekund|Ustaw tę opcję, aby liczbę sekund oczekiwania nasze serwery krawędzi do ograniczania przepustowości. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
+KB na sekundę|Ustaw to opcja toohello maksymalnej przepustowości (Kb na sekundę), które mogą być używane toodeliver hello odpowiedzi.
+Prebuf sekund|Ustaw opcję tego toohello liczbę sekund oczekiwania nasze serwery krawędzi do ograniczania przepustowości. Celem Hello przepustowości nieograniczony okres ten jest tooprevent Windows media player z występują przestojów lub problemów z powodu ograniczania toobandwidth buforowania.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="bypass-cache"></a>Pomiń pamięć podręczną
-**Cel:** Określa, czy żądania mogą korzystać z naszych technologię buforowania.
+**Cel:** Określa, czy hello żądania mogą korzystać z naszych technologię buforowania.
 
 Wartość|wynik
 --|--
-Enabled (Włączony)|Powoduje, że wszystkie żądania przejść do serwera pochodzenia nawet, jeśli zawartość wcześniej była buforowana na serwerach krawędzi.
-Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej zasobów zgodnie z zasadami pamięci podręcznej określonych w jego nagłówków odpowiedzi.
+Enabled (Włączony)|Powoduje, że wszystkie żądania toofall za pośrednictwem serwera pochodzenia toohello, nawet jeśli zawartość hello wcześniej była buforowana na serwerach krawędzi.
+Disabled (Wyłączony)|Powoduje, że serwery krawędzi toocache zasobów zgodnie z toohello pamięci podręcznej zasad zdefiniowanych w jego nagłówków odpowiedzi.
 
 **Domyślne zachowanie:**
 
@@ -212,16 +212,16 @@ Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej z
 --->
 
 ###<a name="cache-control-header-treatment"></a>Traktowanie nagłówka kontroli pamięci podręcznej
-**Cel:** kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja maksymalny wiek zewnętrznych jest aktywna.
+**Cel:** kontroluje Generowanie hello nagłówków Cache-Control przez serwer graniczny hello, gdy funkcja maksymalny wiek zewnętrznych jest aktywna.
 
-Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w tej samej instrukcji zewnętrznych maksymalny wiek i funkcji do przetwarzania nagłówek Cache-Control.
+Witaj najprostszym tooachieve sposób takiej konfiguracji jest hello tooplace zewnętrznych Max-Age hello traktowania nagłówek Cache-Control funkcji i w tej samej instrukcji hello.
 
 Wartość|wynik
 --|--
-Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Cache-Control, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie generuje nagłówek Cache-Control, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Cache-Control.
-Jeśli brakuje dodać|Jeśli z serwera pochodzenia nie odebrano nagłówek Cache-Control, ta opcja dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Cache-Control.
-Remove| Tej opcji zapewnia, że nagłówek Cache-Control nie jest dołączony do odpowiedzi nagłówek. Jeśli już zostało przypisane nagłówek Cache-Control, a następnie go zostanie usunięta z nagłówka odpowiedzi.
+Zastąp|Gwarantuje, że ten hello następujące akcje będą miały miejsce:<br/> -Zastępuje nagłówek Cache-Control generowane przez powitania serwera źródłowego. <br/>-Dodaje nagłówek Cache-Control utworzonego przez hello odpowiedzi toohello funkcji zewnętrznych Max-Age.
+Przekazuj|Gwarantuje, że nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age hello nigdy nie został dodany toohello odpowiedzi. <br/> Jeśli serwer pochodzenia hello generuje nagłówek Cache-Control, przekaże toohello przez użytkownika końcowego. <br/> Jeśli serwer pochodzenia hello nie generuje nagłówek Cache-Control, a następnie ta opcja może toonot nagłówka odpowiedzi hello Przyczyna zawierać nagłówek Cache-Control.
+Jeśli brakuje dodać|Jeśli z serwera źródłowego hello nie odebrano nagłówek Cache-Control, ta opcja dodaje nagłówek Cache-Control utworzonej przez funkcję zewnętrznych Max-Age hello. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Cache-Control.
+Remove| Tej opcji zapewnia, że nagłówek Cache-Control nie jest dołączony do odpowiedzi nagłówek hello. Jeśli przypisano już nagłówek Cache-Control, następnie go będzie być usunięte z hello nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastąpić.
 
@@ -231,22 +231,22 @@ Remove| Tej opcji zapewnia, że nagłówek Cache-Control nie jest dołączony do
 Informacje o kluczu:
 
 - Określ co najmniej jeden nazwy parametru ciągu zapytania. Nazwy parametrów powinny być rozdzielane z jednego miejsca.
-- Ta funkcja określa, czy zostaną uwzględnione lub wykluczone z klucza pamięci podręcznej parametrów ciągu zapytania. Dodatkowe informacje dla każdego z poniższych opcji.
+- Ta funkcja określa, czy zostaną uwzględnione lub wykluczone z klucz pamięci podręcznej hello parametrów ciągu zapytania. Dodatkowe informacje dla każdego z poniższych opcji.
 
 Typ|Opis
 --|--
- Obejmują|  Wskazuje, że każdy określony parametr powinny być uwzględnione w klucz pamięci podręcznej. Unikatowy klucz pamięci podręcznej zostanie wygenerowany dla każdego żądania, który zawiera unikatową wartość dla parametru ciągu zapytania, zdefiniowane w tej funkcji. 
- Uwzględnij wszystkie  |Wskazuje, czy unikatowy klucz pamięci podręcznej zostaną utworzone dla każdego żądania do zasobu, który zawiera ciąg zapytania unikatowy. Ten typ konfiguracji nie jest zwykle zalecane, ponieważ może dojść do niewielki procent trafień w pamięci podręcznej. To spowoduje to zwiększenie obciążenia na serwerze źródłowym, ponieważ jej do obsługi żądań więcej. Ta konfiguracja jest duplikatem zachowanie buforowania, nazywany "Unikatowy pamięci podręcznej" na stronie buforowanie ciągu zapytania. 
- Wyklucz | Wskazuje, że określony parametry zostaną wykluczone z klucza pamięci podręcznej. Wszystkie pozostałe parametry ciągu zapytania będą uwzględniane w klucz pamięci podręcznej. 
- Wyklucz wszystkie  |Wskazuje, że wszystkie parametry ciągu zapytania zostaną wykluczone z klucza pamięci podręcznej. Ta konfiguracja jest duplikatem domyślne zachowanie, nazywanego "standard-cache" na stronie buforowanie ciągu zapytania buforowania. 
+ Obejmują|  Wskazuje, że każdy określony parametr powinien być uwzględniany w klucz pamięci podręcznej hello. Unikatowy klucz pamięci podręcznej zostanie wygenerowany dla każdego żądania, który zawiera unikatową wartość dla parametru ciągu zapytania, zdefiniowane w tej funkcji. 
+ Uwzględnij wszystkie  |Wskazuje, że dla każdego żądania zawartości tooan, który zawiera ciąg zapytania unikatowy zostanie utworzona Unikatowy klucz pamięci podręcznej. Ten typ konfiguracji nie jest zwykle zalecane, ponieważ może spowodować tooa niewielki procent trafień w pamięci podręcznej. Zwiększy hello obciążenia na serwerze źródłowym hello, ponieważ jej tooserve więcej żądań. Ta konfiguracja jest duplikatem hello buforowanie znana jako "Unikatowy pamięci podręcznej" na stronie buforowanie ciągu zapytania. 
+ Wyklucz | Wskazuje, że hello tylko określony, parametrów, które zostaną wykluczone z klucz pamięci podręcznej hello. Wszystkie pozostałe parametry ciągu zapytania będą uwzględniane w klucz pamięci podręcznej hello. 
+ Wyklucz wszystkie  |Wskazuje, że wszystkie parametry ciągu zapytania zostaną wykluczone z klucz pamięci podręcznej hello. Ta konfiguracja jest duplikatem domyślne hello buforowanie, nazywanego "pamięci podręcznej standard" na stronie buforowanie ciągu zapytania. 
 
-Power aparatu reguł HTTP umożliwia dostosowanie sposobu, w którym zaimplementowana jest buforowanie ciągu zapytania. Na przykład można określić zapytania ciąg buforowanie tylko wykonanie w określonych lokalizacjach lub typów plików.
+power Hello aparatu reguł HTTP umożliwia toocustomize hello sposób, w którym buforowania ciągu kwerendy jest zaimplementowana. Na przykład można określić zapytania ciąg buforowanie tylko wykonanie w określonych lokalizacjach lub typów plików.
 
-Jeśli chcesz zduplikować buforowanie znana jako "no-cache" na stronie buforowanie ciągu zapytania ciągów zapytań, następnie należy utworzyć regułę, która zawiera warunek dopasowanie symbolu wieloznacznego zapytanie adresu URL i funkcja pomijania pamięci podręcznej. Warunek dopasowanie symbolu wieloznacznego zapytania adres URL powinien mieć ustawioną znak gwiazdki (*).
+Jeśli chcesz ciągu zapytania hello tooduplicate buforowanie znana jako "no-cache" na stronie buforowanie ciągu zapytania, wymagana będzie toocreate regułę, która zawiera warunek dopasowanie symbolu wieloznacznego zapytanie adresu URL i funkcja pomijania pamięci podręcznej. Hello warunku dopasowanie symbolu wieloznacznego zapytania adres URL powinien mieć wartość tooan gwiazdki (*).
 
 #### <a name="sample-scenarios"></a>Przykładowe scenariusze
 
-Poniżej znajduje się przykład użycia dla tej funkcji. Poniżej podano przykładowe żądanie i klucza pamięci podręcznej domyślne.
+Poniżej znajduje się przykład użycia dla tej funkcji. Przykładowe żądanie i hello domyślny klucz pamięci podręcznej są podane poniżej.
 
 - **Przykładowe żądanie:** http://wpc.0001.&lt; Domeny&gt;/800001/Origin/folder/asset.htm?sessionid=1234 i język = EN & userid = 01
 - **Domyślny klucz pamięci podręcznej:** /800001/Origin/folder/asset.htm
@@ -258,7 +258,7 @@ Przykładowa konfiguracja:
 - **Typ:** obejmują
 - **Parametry:** języka
 
-Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru pamięci podręcznej — klucza:
+Ten typ konfiguracji powoduje wygenerowanie hello następującego parametru ciągu zapytania pamięci podręcznej klucza:
 
     /800001/Origin/folder/asset.htm?language=EN
 
@@ -268,7 +268,7 @@ Przykładowa konfiguracja:
 
 - **Typ:** obejmują wszystkie
 
-Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru pamięci podręcznej — klucza:
+Ten typ konfiguracji powoduje wygenerowanie hello następującego parametru ciągu zapytania pamięci podręcznej klucza:
 
     /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 
@@ -279,7 +279,7 @@ Przykładowa konfiguracja:
 - **Typ:** wykluczenia
 - **Parametry:** sessionid userid
 
-Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru pamięci podręcznej — klucza:
+Ten typ konfiguracji powoduje wygenerowanie hello następującego parametru ciągu zapytania pamięci podręcznej klucza:
 
     /800001/Origin/folder/asset.htm?language=EN
 
@@ -289,47 +289,47 @@ Przykładowa konfiguracja:
 
 - **Typ:** wykluczyć wszystkie
 
-Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru pamięci podręcznej — klucza:
+Ten typ konfiguracji powoduje wygenerowanie hello następującego parametru ciągu zapytania pamięci podręcznej klucza:
 
     /800001/Origin/folder/asset.htm
 
 ###<a name="cache-key-rewrite"></a>Napisz ponownie klucz pamięci podręcznej
-**Cel:** ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
+**Cel:** ponownego hello klucz pamięci podręcznej skojarzonej z żądaniem.
 
-Klucz pamięci podręcznej jest ścieżką względną identyfikujący zasób na potrzeby buforowania. Innymi słowy nasze serwery będą sprawdzać dostępności buforowanej wersji zasobów zgodnie z jego ścieżki zgodnie z definicją w jej klucz pamięci podręcznej.
+Klucz pamięci podręcznej jest ścieżką względną hello, identyfikujący zasób do celów hello buforowania. Innymi słowy nasze serwery będą sprawdzać dostępności buforowanej wersji zasobów zgodnie z tooits ścieżki zgodnie z definicją w jej klucz pamięci podręcznej.
 
-Tej funkcji można skonfigurować, definiując obu z następujących opcji:
+Tej funkcji można skonfigurować, definiując zarówno hello następujące opcje:
 
 Opcja|Opis
 --|--
-Oryginalna ścieżka| Zdefiniuj ścieżkę względną do typów żądań, których klucz pamięci podręcznej zostanie ponownie zapisać. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego.
-Nowa ścieżka|Zdefiniuj ścieżkę względną nowy klucz pamięci podręcznej. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego. Ta ścieżka względna można dynamicznie utworzyć przy użyciu protokołu HTTP, zmiennych
-**Domyślne zachowanie:** klucz pamięci podręcznej żądania jest określana przez identyfikator URI żądania.
+Oryginalna ścieżka| Definiowanie typów toohello ścieżki względnej hello żądań, których klucz pamięci podręcznej zostanie ponownie zapisać. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego.
+Nowa ścieżka|Zdefiniuj ścieżkę względną hello nowy klucz pamięci podręcznej hello. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego. Ta ścieżka względna można dynamicznie utworzyć przy użyciu hello zmiennych HTTP
+**Domyślne zachowanie:** klucz pamięci podręcznej żądania jest określana przez identyfikator URI żądania hello.
 
 ###<a name="complete-cache-fill"></a>Zakończenie wypełnienie pamięci podręcznej
 **Cel:** Określa, co się dzieje, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe, na serwerze granicznym.
 
-Chybienia pamięci podręcznej częściowe opisuje stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrana do serwer graniczny. W przypadku zasobów są tylko częściowo buforowane na serwerze granicznym, następnie następnego żądania dla tego zasobu zostanie przekazany ponownie do serwera pochodzenia.
+Chybienia pamięci podręcznej częściowe opisuje hello stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrany tooan serwer graniczny. Jeśli zasób jest tylko częściowo buforowane na serwerze granicznym, następnie hello następnego żądania dla tego zasobu zostaną przekazane ponownie toohello serwera źródłowego.
 <!---
-This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+This feature is not available for hello ADN platform. hello typical traffic on this platform consists of relatively small assets. hello size of hello assets served through these platforms helps mitigate hello effects of partial cache misses, since hello next request will typically result in hello asset being cached on that POP.
 --->
-Chybienia pamięci podręcznej częściowe zazwyczaj występuje po użytkownik porzuca pobieranie lub trwałych żądanych wyłącznie przy użyciu żądania range HTTP. Ta funkcja jest najbardziej przydatna dla dużych zasobów, których użytkownicy nie będą zazwyczaj pobierane je z początku do końca (np. pliki wideo). W związku z tym ta funkcja jest włączona domyślnie na platformie dużych HTTP. Jest ona wyłączona w innych platform.
+Chybienia pamięci podręcznej częściowe zazwyczaj występuje po użytkownik porzuca pobieranie lub trwałych żądanych wyłącznie przy użyciu żądania range HTTP. Ta funkcja jest najbardziej przydatny w przypadku dużych zasobów, których użytkownicy nie zwykle pobierze je z toofinish start (np. pliki wideo). W związku z tym ta funkcja jest włączona domyślnie na powitania dużych HTTP platformy. Jest ona wyłączona w innych platform.
 
-Zalecane jest pozostawienie konfigurację domyślną dla dużych HTTP platformy, ponieważ spowoduje zmniejszenie obciążenia klientów serwera pochodzenia i zwiększenia szybkości, w którym klienci pobierania zawartości.
+Zalecane jest tooleave hello domyślną konfigurację hello dużych HTTP platformy, ponieważ będzie zmniejszyć obciążenie powitania klienta serwera pochodzenia i zwiększyć szybkość hello, w którym klienci pobierania zawartości.
 
-Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone, ta funkcja nie może być skojarzony z następujących warunków dopasowania: Cname krawędzi, literału nagłówka żądania wieloznaczny nagłówek żądania, adres URL zapytania literału i adres URL zapytania z symboli wieloznacznych.
+Ze względu na sposób toohello, w których pamięci podręcznej ustawienia są śledzone, ta funkcja nie może być skojarzony z hello następujące warunki dopasowania: Cname krawędzi, literału nagłówka żądania wieloznaczny nagłówek żądania, adres URL zapytania literału i adres URL zapytania z symboli wieloznacznych.
 
 Wartość|wynik
 --|--
-Enabled (Włączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest wymuszenie serwer graniczny, aby zainicjować pobieranie w tle zasobu z serwera pochodzenia. Po upływie którego będzie elementu zawartości w lokalnej pamięci podręcznej serwera granicznego.
-Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w tle dla elementu zawartości. Oznacza to, że serwer graniczny żądania do serwera pochodzenia klienta spowoduje, że przy następnym żądaniu dla tego zasobu z tego regionu.
+Enabled (Włączony)|Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to tooforce hello krawędzi serwera tooinitiate pobieranie w tle trwałego hello z serwera źródłowego hello. Po upływie którego hello zasobów będą znajdować się w lokalnej pamięci podręcznej serwera granicznego hello.
+Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w tle dla hello zasobów. Oznacza to, że to żądanie dalej hello tego zasobu z tego regionu spowoduje, że toorequest serwer krawędzi go z serwera źródłowego powitania klienta.
 
 **Domyślne zachowanie:** włączone.
 
 ###<a name="compress-file-types"></a>Kompresuj typów plików
-**Cel:** definiuje formatów plików, które będą kompresowane na serwerze.
+**Cel:** definiuje hello formatów plików, które zostanie skompresowany na powitania serwera.
 
-Format pliku można określić za pomocą jego typ nośnika Internetu (tj., Content-Type). Typ nośnika Internet jest metadanych niezależne od platformy, które umożliwia nasze serwery zidentyfikować format pliku określonego zasobu. Listę typowych nośnika Internet podano poniżej.
+Format pliku można określić za pomocą jego typ nośnika Internetu (tj., Content-Type). Typ nośnika Internet jest metadanych niezależne od platformy, które umożliwia naszych serwerów tooidentify hello format pliku określonego zasobu. Listę typowych nośnika Internet podano poniżej.
 
 Typ nośnika Internet|Opis
 --|--
@@ -344,23 +344,23 @@ Informacje o kluczu:
 - Ta funkcja będzie Kompresuj tylko zasoby, którego rozmiar jest mniejszy niż 1 MB. Większe zasoby nie zostanie skompresowany przez serwery.
 - Niektórych typów zawartości, takich jak obrazy, wideo i audio nośnika zasobów (np. JPG, MP3, MP4, itp.), są już kompresowane. Dodatkowe kompresję dla tych typów zasobów nie będzie znacznie zmniejsza rozmiar pliku. W związku z tym zaleca się, że nie należy włączać kompresję dla tych typów zasobów.
 - Symbole wieloznaczne, takie jak gwiazdek, nie są obsługiwane.
-- Przed dodaniem tej funkcji do reguły, upewnij się ustawić opcję kompresji wyłączone na stronie kompresji dla platformy, do której zostanie zastosowana ta reguła.
+- Przed dodaniem tej funkcji tooa reguły, upewnij się, że tooset opcję kompresji wyłączone na stronie kompresji hello toowhich platformy, które zostanie zastosowana ta reguła.
 
 ###<a name="default-internal-max-age"></a>Max-Age wewnętrzny domyślne
-**Cel:** określa maksymalny wiek domyślny interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny sprawdzi, czy buforowanych zasobów zgodny zasobów przechowywanych na serwerze źródłowym.
+**Cel:** określa hello domyślny maksymalny wiek interwał ponowna Walidacja buforu serwera tooorigin serwer krawędzi. Innymi słowy hello ilość czasu, jaki upłynie przed serwer graniczny sprawdzi, czy buforowanych zasobów zgodny hello zasobów przechowywanych na powitania serwera źródłowego.
 
 Informacje o kluczu:
 
 - Ta akcja ma miejsce tylko dla odpowiedzi z serwera pochodzenia, które nie zostały przypisane oznaczenie maksymalny wiek w nagłówek Cache-Control lub Expires.
 - Ta akcja nie zostanie przeprowadzone zasobów, które nie są uważane za buforowalnej.
-- Ta akcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez Cache-Control lub Expires nagłówki wysyłany do przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
-- Wyniki tej akcji nie mają zauważalne wpływ na nagłówki odpowiedzi i zwraca zawartość z serwerów krawędzi dla zawartości, ale może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z serwerów krawędzi do serwera pochodzenia.
+- Ta akcja nie ma wpływu na revalidations pamięci podręcznej serwera tooedge przeglądarki. Tego rodzaju revalidations są określane przez Cache-Control lub Expires headers wysłanych toohello przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
+- wyniki Hello tej akcji nie mają zauważalne wpływ na powitania nagłówki odpowiedzi i zawartości hello zwrócony z serwerów krawędzi dla zawartości, ale może mieć wpływ na powitania ilość ruchu ponowna Walidacja wysłanych z serwera źródłowego tooyour serwerów krawędzi.
 - Konfigurowanie tej funkcji przez:
-    - Wybieranie kod stanu, dla którego można zastosować domyślnego wewnętrzny max wieku.
-    - Określanie wartość całkowitą, a następnie wybierając jednostkę czasu żądaną (tj., sekund, minuty, godziny itd.). Ta wartość Określa domyślny interwał maksymalny wiek wewnętrznego.
+    - Wybieranie hello kod stanu, dla którego można zastosować domyślnego wewnętrzny max wieku.
+    - Określanie wartość całkowitą, a następnie wybierając hello jednostki żądany czas (tj., sekund, minuty, godziny itd.). Ta wartość Określa domyślny hello wewnętrzny interwał maksymalny wiek.
 
-- Ustawienie jednostkę czasu na wartość "Off" zostanie przypisany domyślny wewnętrzny maksymalny wiek interwał 7 dni dla żądań, które nie zostały przypisane oznaczenie maksymalny wiek w ich nagłówek Cache-Control lub Expires.
-- Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
+- Jednostka czasu hello ustawienie zbyt "Off" zostanie przypisany domyślny wewnętrzny maksymalny wiek interwał 7 dni dla żądań, które nie zostały przypisane oznaczenie maksymalny wiek w ich Cache-Control lub Expires nagłówka.
+- Ze względu na sposób toohello, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z hello następujące warunki dopasowania: 
     - Krawędzi 
     - CNAME
     - Literał nagłówka żądania
@@ -372,47 +372,47 @@ Informacje o kluczu:
 **Wartość domyślna:** 7 dni
 
 ###<a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
-**Cel:** kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
+**Cel:** kontroluje Generowanie hello Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
 
-Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrznych maksymalny wiek i funkcje wygasa traktowania nagłówka w tej samej instrukcji.
+Witaj najprostszym tooachieve sposób takiej konfiguracji jest hello tooplace zewnętrznych Max-Age hello wygasa traktowania nagłówka funkcji i w tej samej instrukcji hello.
 
 Wartość|wynik
 --|--
-Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/>-Zastępuje nagłówek Expires generowane przez serwer pochodzenia.<br/>-Dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
-Jeśli brakuje dodać| Jeśli nie odebrano nagłówek Expires z serwera pochodzenia, ta opcja dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Expires.
-Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nagłówek. Jeśli już przypisano nagłówek Expires, następnie go będzie być usunięte z nagłówka odpowiedzi.
+Zastąp|Gwarantuje, że ten hello następujące akcje będą miały miejsce:<br/>-Zastępuje generowane przez serwer pochodzenia hello nagłówek Expires.<br/>-Dodaje nagłówek Expires utworzonego przez hello zewnętrznych Max-Age funkcji toohello odpowiedzi.
+Przekazuj|Sprawia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age hello nigdy nie są dodawane toohello odpowiedzi. <br/> Jeśli serwer pochodzenia hello generuje nagłówek Expires, przekaże toohello przez użytkownika końcowego. <br/>Jeśli serwer pochodzenia hello nie generuje nagłówek Expires, a następnie ta opcja może toonot nagłówka odpowiedzi hello Przyczyna zawierać nagłówek Expires.
+Jeśli brakuje dodać| Jeśli nie odebrano nagłówek Expires z serwera źródłowego hello, ta opcja dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age hello. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Expires.
+Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nagłówek hello. Jeśli już przypisano nagłówek Expires, następnie go będzie być usunięte z hello nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastępowania
 
 ###<a name="external-max-age"></a>Max-Age zewnętrznych
-**Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi. Innymi słowy nowej wersji zasób z serwer graniczny sprawdzić ilość czasu, jaki upłynie przed przeglądarki.
+**Cel:** hello określa maksymalny wiek interwał ponownego sprawdzania poprawności przeglądarki tooedge serwera pamięci podręcznej. Innymi słowy hello ilość czasu, jaki upłynie przed przeglądarką można sprawdzić nowej wersji zasób z serwer graniczny.
 
-Włączenie tej funkcji spowoduje wygenerowanie pamięci podręcznej — kontroli: max-wieku i wygasa nagłówków z naszych serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
+Włączenie tej funkcji spowoduje wygenerowanie pamięci podręcznej-kontrolki: max-wieku i wygasa nagłówków z naszych serwerów krawędzi i wysyłać je toohello HTTP klienta. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez powitania serwera źródłowego. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka mogą być używane tooalter to zachowanie.
 
 Informacje o kluczu:
 
-- Ta akcja nie wpływa na serwer graniczny do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane na podstawie nagłówków pamięci podręcznej-formant/Expires otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
-- Tej funkcji można skonfigurować, określając wartość całkowitą i wybierając jednostkę czasu żądaną (tj., sekund, minuty, godziny itd.).
-- Ustawienie tej funkcji na wartość ujemna powoduje nasze serwery krawędzi wysłać pamięci podręcznej-Control: no-pamięci podręcznej i czas wygaśnięcia ustawioną w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na możliwość nasze serwery krawędzi buforować odpowiedzi z serwera pochodzenia.
-- Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. Nagłówki Expires-formant/pamięci podręcznej w pamięci podręcznej z odpowiedzią serwera pochodzenia mają być przekazywane do przeglądarki.
+- Ta akcja nie ma wpływu na krawędzi serwera tooorigin serwera pamięci podręcznej revalidations. Tego rodzaju revalidations są określane na podstawie nagłówków pamięci podręcznej-formant/Expires otrzymanego z serwera źródłowego hello i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
+- Tej funkcji można skonfigurować, określając wartość całkowitą i wybierając jednostkę czasu żądaną hello (tj., sekund, minuty, godziny itd.).
+- Ustawienie wartości ujemnej tooa funkcji powoduje, że nasze toosend serwerów krawędzi pamięci podręcznej-Control: no-pamięci podręcznej i czas wygaśnięcia ustawioną w hello przeszłości z każdą przeglądarkę toohello odpowiedzi. Mimo że klient HTTP nie będzie buforować odpowiedź hello, to ustawienie nie będzie miało wpływ na nasze serwery krawędzi możliwości toocache hello odpowiedzi z serwera źródłowego hello.
+- Jednostka czasu hello ustawienie zbyt "Off" spowoduje wyłączenie tej funkcji. Nagłówki Expires-formant/pamięci podręcznej w pamięci podręcznej z odpowiedzią powitania serwera pochodzenia hello będzie przekazywał toohello przeglądarki.
 
 **Domyślne zachowanie:** wyłączone
 
 ###<a name="force-internal-max-age"></a>Wymuszanie wewnętrznych Max-Age.
-**Cel:** określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny można sprawdzić, czy zasób pamięci podręcznej odpowiada zasobów przechowywanych na serwerze źródłowym.
+**Cel:** hello określa maksymalny wiek interwał ponowna Walidacja buforu serwera tooorigin serwer krawędzi. Innymi słowy hello ilość czasu, jaki upłynie przed serwer graniczny można sprawdzić, czy buforowanych zasobów zgodny hello zasobów przechowywanych na powitania serwera źródłowego.
 
 Informacje o kluczu:
 
-- Ta funkcja spowoduje zastąpienie interwału maksymalny wiek zdefiniowanej w Cache-Control lub Expires nagłówki wygenerowane z serwera pochodzenia.
-- Ta funkcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez Cache-Control lub Expires headers wysyłany do przeglądarki.
-- Ta funkcja nie ma efektu zauważalne w odpowiedzi dostarczonych przez serwer graniczny do zleceniodawcy. Jednak może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z naszych serwerów krawędzi, z serwerem źródłowym.
+- Ta funkcja spowoduje zastąpienie interwału maksymalny wiek powitania zdefiniowanej w Cache-Control lub Expires nagłówki wygenerowane z serwera pochodzenia.
+- Ta funkcja nie ma wpływu na revalidations pamięci podręcznej serwera tooedge przeglądarki. Tego rodzaju revalidations są określane przez Cache-Control lub Expires headers wysłanych toohello przeglądarki.
+- Ta funkcja nie ma widocznych wpływ na powitania odpowiedzi dostarczonych przez żądający toohello serwer krawędzi. Jednak może mieć wpływ na powitania ilość ruchu ponowna Walidacja wysłanych z serwera pochodzenia toohello serwerów krawędzi.
 - Konfigurowanie tej funkcji przez:
-    - Wybieranie kod stanu, dla których zostaną zastosowane wewnętrzny wieku max.
-    - Określanie całkowitą i wybierając jednostkę czasu żądaną (tj., sekund, minuty, godziny itd.). Ta wartość Określa interwał maksymalny wiek żądania.
+    - Wybieranie hello kod stanu, dla których zostaną zastosowane wewnętrzny wieku max.
+    - Określanie całkowitą i wybierając hello jednostki żądany czas (tj., sekund, minuty, godziny itd.). Ta wartość Określa interwał maksymalny wiek hello żądania.
 
-- Ustawienie jednostkę czasu na wartość "Off" powoduje wyłączenie tej funkcji. Wewnętrzny interwał maksymalny wiek nie zostanie przypisana do żądanych zasobów. Jeśli oryginalny nagłówek nie zawiera instrukcji buforowania, zasobu będą buforowane zgodnie z ustawieniem active w funkcji domyślne wewnętrzny Max-Age.
-- Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
+- Jednostka czasu hello ustawienie zbyt "Off" powoduje wyłączenie tej funkcji. Wewnętrzny interwał maksymalny wiek nie zostaną przypisane toorequested zasoby. Jeśli oryginalny nagłówek hello nie zawiera instrukcji buforowania, następnie hello zasobów będą buforowane zgodnie z toohello aktywne ustawienie w funkcji domyślne wewnętrzny Max-Age.
+- Ze względu na sposób toohello, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z hello następujące warunki dopasowania: 
     - Krawędzi 
     - CNAME
     - Literał nagłówka żądania
@@ -424,33 +424,33 @@ Informacje o kluczu:
 **Domyślne zachowanie:** wyłączone
 
 ###<a name="h264-support-http-progressive-download"></a>Obsługa H.264 (pobierania progresywnego HTTP)
-**Cel:** Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
+**Cel:** Określa typy hello H.264 formaty plików, które mogą być używane toostream zawartości.
 
 Informacje o kluczu:
 
-- Zdefiniuj zestaw dozwolonych rozszerzenia nazw plików H.264 rozdzielonych spacjami w opcji rozszerzenia plików. Opcja rozszerzenia pliku zastępują domyślne zachowanie. Obsługa MP4 i F4V pomocy technicznej przez dołączenie te rozszerzenia nazw plików, ustawiając tę opcję. 
-- Upewnij się uwzględnić okres podczas określania każde rozszerzenie nazwy pliku (np. plik MP4 .f4v).
+- Zdefiniuj zestaw dozwolonych rozszerzenia nazw plików H.264 rozdzielonych spacjami w opcji rozszerzenia plików. Opcja rozszerzenia pliku spowoduje zastąpienie hello domyślne zachowanie. Obsługa MP4 i F4V pomocy technicznej przez dołączenie te rozszerzenia nazw plików, ustawiając tę opcję. 
+- Upewnij się, że tooinclude okres, podczas określania każde rozszerzenie nazwy pliku (np. plik MP4 .f4v).
 
 **Domyślne zachowanie:** pobierania progresywnego HTTP obsługuje nośników MP4 i F4V domyślnie.
 
 ###<a name="honor-no-cache-request"></a>Honoruj nie-cache żądania
-**Cel:** Określa, czy klient HTTP przez nie pamięci podręcznej żądań zostaną przekazane do serwera pochodzenia.
+**Cel:** Określa, czy klient HTTP żądań pamięci podręcznej nie zostanie przekazany toohello serwera źródłowego.
 
-Żądania pamięci podręcznej nie występuje, gdy klient HTTP wysyła pamięci podręcznej-Control: no-pamięci podręcznej i/lub Pragma:no — pamięci podręcznej nagłówka w żądaniu HTTP.
+Żądanie pamięci podręcznej nie występuje podczas hello HTTP, klient wysyła pamięci podręcznej-kontrolki: nie-pamięci podręcznej i/lub Pragma:no-pamięci podręcznej nagłówka w żądaniu hello HTTP.
 
 Wartość|wynik
 --|--
-Enabled (Włączony)|Umożliwia żądania klienta HTTP pamięci podręcznej nie mają być przekazywane do serwera pochodzenia i serwera pochodzenia zwróci nagłówki odpowiedzi i treści przez serwer graniczny do klienta HTTP.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest aby zapobiec żądań pamięci podręcznej nie są przekazywane do serwera pochodzenia.
+Enabled (Włączony)|Umożliwia pamięci podręcznej klienta HTTP nie żąda serwera pochodzenia przekazywane toohello toobe i serwera pochodzenia hello zwróci hello nagłówki odpowiedzi i treści hello przez serwer graniczny hello wstecz toohello HTTP klienta.
+Disabled (Wyłączony)|Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to żądań pamięci podręcznej nie tooprevent przekazywanie toohello serwera źródłowego.
 
-Dla całego ruchu w środowisku produkcyjnym zaleca pozostaw tę funkcję w stanie domyślnym wyłączone. W przeciwnym razie pochodzenia serwery będą nie można włączyć osłony od użytkowników końcowych, którzy mogą przypadkowo wyzwalać wiele żądań pamięci podręcznej nie podczas odświeżania strony sieci web lub z wielu odtwarzacze multimedialne popularnych, które są zakodowane na wysyłaj nagłówek nie pamięci podręcznej z każdym żądaniem wideo. Niemniej jednak ta funkcja może być przydatne do zastosowania do niektórych nieprodukcyjnych przemieszczania lub testowania katalogów, aby umożliwić nowej zawartości na żądanie pobrania z serwera pochodzenia.
+Dla całego ruchu w środowisku produkcyjnym, jest zdecydowanie zalecane tooleave tę funkcję w stanie domyślnym wyłączone. W przeciwnym razie nie będzie można włączyć osłony serwerów pochodzenie od użytkowników końcowych, którzy mogą przypadkowo wyzwalać wiele żądań pamięci podręcznej nie podczas odświeżania strony sieci web lub z hello wiele odtwarzacze multimedialne popularnych, które są ustalone toosend nagłówka buforu nie każde żądanie wideo. Niemniej jednak ta funkcja może być przydatna tooapply toocertain nieprodukcyjnych przemieszczania lub testowanie katalogów, w kolejności tooallow świeże zawartości toobe pobierane na żądanie z serwera źródłowego hello.
 
-Stan pamięci podręcznej, która będzie zgłaszana dla żądania, który może być przekazywane do serwera pochodzenia z powodu ta funkcja jest TCP_Client_Refresh_Miss. Raport stany pamięci podręcznej, który jest dostępny w podstawowej modułu raportowania, informacje statystyczne według stanu pamięci podręcznej. Dzięki temu można śledzić liczbę i odsetek żądań, które są przesyłane do serwera pochodzenia z powodu tej funkcji.
+stan pamięci podręcznej Hello zgłoszenia żądania jest dozwolone serwera pochodzenia tooan toobe przekazywane powodu funkcji toothis jest TCP_Client_Refresh_Miss. Raport stany pamięci podręcznej, który jest dostępny w moduł raportowania Core hello, informacje statystyczne według stanu pamięci podręcznej. Dzięki temu można tootrack hello liczbę i odsetek żądań, które są przesyłane dalej do serwera pochodzenia tooan powodu toothis funkcji.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="ignore-origin-no-cache"></a>Ignoruj pochodzenia no-cache
-**Cel:** Określa, czy naszych CDN zignoruje następujące dyrektywy udostępniane przez serwer pochodzenia:
+**Cel:** Określa, czy naszych CDN zignoruje hello dyrektywy udostępniane przez serwer źródła po:
 
 - Cache-Control: prywatne
 - Cache-Control: no-store
@@ -459,10 +459,10 @@ Stan pamięci podręcznej, która będzie zgłaszana dla żądania, który może
 
 Informacje o kluczu:
 
-- Tej funkcji można skonfigurować, definiując rozdzieloną spacjami listę kodów stanu, dla których zostaną zignorowane powyżej dyrektywy.
-- Zestaw kodów stanu prawidłowy dla tej funkcji: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
-- Wyłączyć tę funkcję, ustawiając wartość pustą.
-- Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
+- Tej funkcji można skonfigurować, definiując rozdzieloną spacjami listę kodów stanu, dla których hello powyżej dyrektywy zostaną zignorowane.
+- Witaj zestaw kodów nieprawidłowy stan dla tej funkcji są: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
+- Wyłączyć tę funkcję, ustawiając tooa pustej wartości.
+- Ze względu na sposób toohello, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z hello następujące warunki dopasowania: 
     - Krawędzi 
     - CNAME
     - Literał nagłówka żądania
@@ -471,39 +471,39 @@ Informacje o kluczu:
     - Adres URL zapytania literału
     - Adres URL zapytania z symboli wieloznacznych
 
-**Domyślne zachowanie:** domyślne zachowanie to uwzględnić dyrektywy powyżej.
+**Domyślne zachowanie:** domyślne zachowanie to hello toohonor powyżej dyrektywy.
 
 ###<a name="ignore-unsatisfiable-ranges"></a>Ignoruj Unsatisfiable zakresów 
-**Cel:** określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
+**Cel:** określa hello odpowiedzi, która zostanie zwrócona tooclients po żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
 
-Domyślnie ten kod stanu jest zwracany podczas żądania zakresu bajtów nie mogą być spełnione przez serwer graniczny i nie określono pola nagłówka żądania If-Range.
+Domyślnie ten kod stanu jest zwracany podczas hello określone żądania zakresu bajtów nie mogą być spełnione przez serwer graniczny i nie określono pola nagłówka żądania If-Range.
 
 Wartość|wynik
 -|-
-Enabled (Włączony)|Nasze serwery krawędzi zapobiega odpowiada na żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczyć żądanych zasobów i zwrócić 200 OK do klienta.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest uwzględnić 416 żądany zakres nie niewłaściwego kod stanu.
+Enabled (Włączony)|Zapobiega nasze serwery krawędzi z odpowiada tooan żądania nieprawidłowy zakres bajtów z 416 żądany zakres nie niewłaściwego kodem stanu. Zamiast tego serwery dostarczania hello żądanych zasobów i zwrócić 200 OK na powitania klienta.
+Disabled (Wyłączony)|Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to toohonor 416 żądany zakres nie niewłaściwego kod stanu.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="internal-max-stale"></a>Wewnętrzny odświeżona maksymalna
-**Cel:** kontroli, jak długo późniejsza niż godzina wygaśnięcia normalne, zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
+**Cel:** Określa, jak długo ostatnich czas normalne wygaśnięcie hello zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny hello jest hello toorevalidate buforowanych zasobów z serwera źródłowego hello.
 
-Zwykle po upływie czasu maksymalny wiek zasobów, serwer graniczny wyśle żądanie ponownego sprawdzania poprawności do serwera pochodzenia. Ze źródła — wersja serwera zostanie następnie odpowiedź z obu 304 niezmodyfikowane umożliwiają serwer graniczny świeża dzierżawy w pamięci podręcznej zasobów lub z 200 OK zapewnienie serwer graniczny zaktualizowaną wersję elementu zawartości pamięci podręcznej.
+Zwykle po upływie czasu maksymalny wiek zasobów, serwer graniczny hello wyśle serwer pochodzenia toohello żądanie ponownego sprawdzania poprawności. Witaj serwera pochodzenia następnie odpowie albo 304 niezmodyfikowane umożliwiają serwer graniczny hello świeże dzierżawy na powitania buforowanych zasobów lub z 200 OK aby zapewnić serwer graniczny hello zaktualizowaną wersję hello zasobów pamięci podręcznej.
 
-Jeśli serwer graniczny nie może nawiązać połączenia z serwerem pochodzenia Podczas próby ponowna Walidacja, tej funkcji wewnętrznej odświeżona Max kontroluje, czy i jak długo Edge serwera mogą nadal służyć zasobów obecnie przestarzały.
+Jeśli serwer graniczny hello jest tooestablish połączenia z serwerem pochodzenia hello podczas próby ponowna Walidacja, ta funkcja wewnętrzny odświeżona Max Określa, czy i jak długo hello serwer graniczny mogą nadal tooserve hello teraz przestarzały zasobów.
 
-Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max elementu zawartości, nie, jeśli nie powiodło się ponowna Walidacja występuje. Dlatego maksymalny okres, w którym mogą być przekazywane zasób bez pomyślnego ponownego sprawdzania poprawności jest określone przez kombinację maksymalny wiek plus odświeżona maksymalny czas. Na przykład, jeśli zasób był buforowany 9:00 z maksymalny wiek 30 min i max przestarzały 15 minut, następnie ponowna Walidacja nie powiodło się próba 9:44 spowodowałoby użytkownika końcowego odbieranie starych zasobów pamięci podręcznej, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 spowodowałoby użytkownika końcowego odbieranie 504 upływu limitu czasu bramy.
+Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max hello zasobów, nie sytuacji hello ponownego sprawdzania poprawności nie powiodło się. W związku z tym hello maksymalny okres, w którym mogą być przekazywane zasób bez ponownego sprawdzania poprawności pomyślne to hello czas określone przez kombinację hello maksymalny wiek plus odświeżona max. Na przykład jeśli zasób był buforowany 9:00, maksymalny wiek 30 minut i max przestarzały 15 minut, a następnie spróbuj nie powiodło się ponownego sprawdzania poprawności na 9:44 dadzą w wyniku przez użytkownika końcowego odbierania hello starych buforowanych zasobów, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 dadzą w wyniku użytkownik końcowy Hello odbieranie 504 Limit czasu bramy.
 
-Wartości skonfigurowane dla tej funkcji są zastępowane przez pamięć podręczną-kontrolki: musi — Sprawdź poprawność ponownie, lub buforować —: serwer proxy kontroli-ponownie sprawdź poprawność nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie mógł ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek elementu zawartości, to serwer graniczny zwróci 504 Limit czasu bramy.
+Wartości skonfigurowane dla tej funkcji są zastępowane przez pamięć podręczną-kontrolki: musi — Sprawdź poprawność ponownie, lub buforować —: serwer proxy kontroli-ponownie sprawdź poprawność nagłówki otrzymanego z serwera źródłowego hello. Jeśli jest jedną z tych nagłówków otrzymany z serwera pochodzenia hello, gdy zasób jest początkowo buforowany, następnie hello serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku gdy serwer graniczny hello toorevalidate z pochodzenia hello Jeśli wygasł interwał maksymalny wiek hello zasobów, to serwer graniczny hello zwróci 504 Limit czasu bramy.
 
 Informacje o kluczu:
 
 - Konfigurowanie tej funkcji przez:
-    - Wybieranie kod stanu, dla których zostaną zastosowane odświeżona max.
-    - Określanie wartość całkowitą, a następnie wybierając jednostkę czasu żądaną (tj., sekund, minuty, godziny itd.). Ta wartość określa wewnętrzny max odświeżona które zostaną zastosowane.
+    - Wybieranie hello kod stanu, dla których zostaną zastosowane odświeżona max.
+    - Określanie wartość całkowitą, a następnie wybierając hello jednostki żądany czas (tj., sekund, minuty, godziny itd.). Ta wartość określa hello wewnętrzny max odświeżona które zostaną zastosowane.
 
-- Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. Zasobów pamięci podręcznej nie zostanie obsłużona poza jego czas wygaśnięcia normalnego.
-- Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
+- Jednostka czasu hello ustawienie zbyt "Off" spowoduje wyłączenie tej funkcji. Zasobów pamięci podręcznej nie zostanie obsłużona poza jego czas wygaśnięcia normalnego.
+- Ze względu na sposób toohello, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z hello następujące warunki dopasowania: 
     - Krawędzi 
     - CNAME
     - Literał nagłówka żądania
@@ -517,25 +517,25 @@ Informacje o kluczu:
 ###<a name="partial-cache-sharing"></a>Udostępnianie częściowe pamięci podręcznej
 **Cel:** Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
 
-Ta częściowa pamięć podręczna może następnie służyć do spełnienia nowych żądań dla tej zawartości do momentu żądanej zawartości jest w pełni pamięci podręcznej.
+Częściowe pamięci podręcznej będzie wtedy toofulfill używane nowe żądania dla tej zawartości do momentu hello żądanie zawartości jest w pełni pamięci podręcznej.
 
 Wartość|wynik
 -|-
 Enabled (Włączony)|Żądania mogą generować częściowo buforowaną zawartość.
-Disabled (Wyłączony)|Żądania można generować tylko pełni buforowanej wersji żądanej zawartości.
+Disabled (Wyłączony)|Żądania można generować tylko pełni buforowane wersji hello żądanej zawartości.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="prevalidate-cached-content"></a>Prevalidate zawartości w pamięci podręcznej
 **Cel:** Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
 
-Zdefiniuj czas przed wygaśnięciem TTL żądanej zawartości, w którym będzie kwalifikuje się do wcześniejszego ponownego sprawdzania poprawności.
+Zdefiniuj okres hello toohello przed wygaśnięciem hello żądany czas wygaśnięcia zawartości, w którym będzie kwalifikuje się do wcześniejszego ponownego sprawdzania poprawności.
 
 Informacje o kluczu:
 
-- Wybieranie "Off" jako jednostka czasu wymaga ponownego sprawdzania poprawności została wykonana po zawartości pamięci podręcznej TTL utracił ważność. Nie należy określać czas i zostaną zignorowane.
+- Wybór "Off" jako jednostka czasu hello wymaga ponownego sprawdzania poprawności tootake miejsce, po upływie TTL hello w pamięci podręcznej zawartości. Nie należy określać czas i zostaną zignorowane.
 
-**Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce tylko, po upływie czas wygaśnięcia zawartości pamięci podręcznej.
+**Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce jedynie po hello wygasł czas wygaśnięcia zawartości pamięci podręcznej.
 
 ###<a name="refresh-zero-byte-cache-files"></a>Odśwież Zero bajtów pamięci podręcznej plików
 **Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
@@ -544,93 +544,93 @@ Prawidłowe wartości to:
 
 Wartość|wynik
 --|--
-Enabled (Włączony)|Powoduje, że nasze serwer graniczny ponownie pobrać element zawartości z serwera pochodzenia.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest do obsługi się zasoby prawidłowy pamięci podręcznej na żądanie.
-Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi są wysyłane do serwerów krawędzi. Tych typów odpowiedzi, zazwyczaj są buforowane przez serwery krawędzi. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
+Enabled (Włączony)|Powoduje, że nasze krawędzi serwera pobierania toore hello zasobów z serwera źródłowego hello.
+Disabled (Wyłączony)|Przywraca hello domyślne zachowanie. Witaj domyślne zachowanie to tooserve się zasoby prawidłowy pamięci podręcznej na żądanie.
+Ta funkcja nie jest wymagany do buforowania poprawne i dostarczania zawartości, ale może służyć jako obejście tego problemu. Na przykład dynamiczne generatory zawartości na serwerach pochodzenia przypadkowo może spowodować 0 bajtów odpowiedzi wysyłane toohello serwery krawędzi. Tych typów odpowiedzi, zazwyczaj są buforowane przez serwery krawędzi. Jeśli wiesz, że odpowiedź 0-bajtowych nigdy nie jest prawidłowa odpowiedź 
 
-takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów jest obsługiwane dla klientów.
+takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów obsługiwanej tooyour klientów.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="set-cacheable-status-codes"></a>Kody stanu Buforowalnej zestawu
-**Cel:** definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
+**Cel:** definiuje zestaw hello kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
 
 Domyślnie buforowanie jest włączona tylko 200 OK odpowiedzi.
 
-Zdefiniuj zestaw rozdzielonych spacjami kodów żądany stan.
+Zdefiniuj zestaw hello potrzeby kodów stanu rozdzielonych spacjami.
 
 Informacje o kluczu:
 
 - Włącz również funkcję Ignoruj pochodzenia No-Cache. Jeśli ta funkcja nie jest włączona, następnie odpowiedzi z systemem innym niż 200 OK może nie można buforować.
-- Zestaw kodów stanu prawidłowy dla tej funkcji: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
-- Nie można użyć tej funkcji można wyłączyć buforowanie odpowiedzi, które generują kod 200 OK stanu.
+- Witaj zestaw kodów nieprawidłowy stan dla tej funkcji są: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 i 505.
+- Ta funkcja nie może być używane toodisable buforowanie odpowiedzi, które generują kod 200 OK stanu.
 
 **Domyślne zachowanie:** buforowanie jest włączona tylko w przypadku odpowiedzi generujących kod 200 OK stanu.
 ###<a name="stale-content-delivery-on-error"></a>Stałe dostarczanie zawartości w przypadku błędu
 **Cel:** 
 
-Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia klienta.
+Określa, czy ważność zawartości w pamięci podręcznej zostanie dostarczona, gdy wystąpi błąd podczas ponownego sprawdzania poprawności pamięci podręcznej lub zleconą hello podczas pobierania zawartości z serwera źródłowego powitania klienta.
 
 Wartość|wynik
 -|-
-Enabled (Włączony)|Zawartość zostanie obsłużona do zleceniodawcy, gdy wystąpi błąd podczas łączenia się z serwerem pochodzenia.
-Disabled (Wyłączony)|Błąd na serwerze źródłowym zostaną przekazane do zleceniodawcy.
+Enabled (Włączony)|Zawartość zostanie obsłużona żądający toohello podczas serwer pochodzenia tooan połączenia po wystąpieniu błędu.
+Disabled (Wyłączony)|Błąd serwera pochodzenia Hello zostaną przekazane toohello żądającego.
 
 **Domyślne zachowanie:** wyłączone
 
 ###<a name="stale-while-revalidate"></a>Nieaktualne podczas Revalidate
-**Cel:** zwiększa wydajność, zezwalając nasze serwery krawędzi do obsługi zawartość do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
+**Cel:** zwiększa wydajność, zezwalając na naszych serwerach krawędzi tooserve starych toohello zawartości. strona żądająca podczas ponownego sprawdzania poprawności ma miejsce.
 
 Informacje o kluczu:
 
-- Zachowanie tej funkcji zależy od jednostki wybrana wartość czasu.
-    - **Jednostka czasu:** określ długość czasu, a następnie wybierz jednostki czasu (np. sekundy, minuty, godziny itp.) umożliwia starych dostarczania zawartości. Ten typ Instalatora umożliwia CDN rozszerzenie czas, który może zostać zawartości przed wymaganiem weryfikacji według następującego wzoru:**TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
-    - **OFF:** wybierz pozycję "wyłączone" Aby wymagać ponownego sprawdzania poprawności, zanim żądanie dla może zostać wyświetlona zawartość.
+- zachowanie Hello tej funkcji zależy zgodnie z toohello wybrana wartość czasu jednostki.
+    - **Jednostka czasu:** określ długość czasu, a następnie wybierz czas jednostki (np. sekundy, minuty, godziny itp.) tooallow starych dostarczania zawartości. Ten typ Instalatora umożliwia hello CDN tooextend hello długość czasu, który może zostać zawartości przed wymaganiem weryfikacji zgodnie z toohello następującej formuły:**TTL** + **opcję czas starych podczas Sprawdź poprawność ponownie** 
+    - **OFF:** wybierz "Off" ponowna Walidacja toorequire przed żądanie może zostać wyświetlona zawartość.
         - Nie określaj długość czasu, ponieważ nie ma zastosowania i zostaną zignorowane.
 
-**Domyślne zachowanie:** Off. Ponowna Walidacja musi odbywać się przed żądanej zawartości mogą być udostępniane.
+**Domyślne zachowanie:** Off. Ponowna Walidacja musi odbywać się przed hello zażądał zawartości mogą być udostępniane.
 
 ###<a name="comment"></a>Komentarz
-**Cel:** umożliwia Uwaga do dodania w regule.
+**Cel:** umożliwia toobe Uwaga, dodane w regule.
 
-Jedno użycie tej funkcji jest zawierają dodatkowe informacje o ogólnego przeznaczenia, reguły lub dlaczego określonego zgodne z warunkiem lub funkcja została dodana do reguły.
+Jedno użycie tej funkcji jest tooprovide dodatkowe informacje na temat hello ogólnego przeznaczenia, reguły lub dlaczego zgodne z określonego warunku lub funkcja została dodana reguła toohello.
 
 Informacje o kluczu:
 
 - Można określić maksymalnie 150 znaków.
-- Upewnij się, że tylko znaki alfanumeryczne.
-- Ta funkcja nie ma wpływu na zachowanie reguły. Go jedynie ma zapewnić obszaru, w którym można podać informacje do przyszłego wykorzystania lub które mogą ułatwić podczas rozwiązywania problemów reguły.
+- Upewnij się, że tooonly korzystać ze znaków alfanumerycznych.
+- Ta funkcja nie ma wpływu na zachowanie hello hello reguły. Tylko ten tooprovide obszaru, w którym należy podać informacje do przyszłego wykorzystania lub które mogą pomóc podczas rozwiązywania problemów reguły hello.
  
 ## <a name="headers"></a>Nagłówki
 
-Te funkcje zostały zaprojektowane tak, aby dodać, zmodyfikować lub usunąć nagłówków z żądania lub odpowiedzi.
+Te funkcje są zaprojektowane tooadd, modyfikowanie lub usuwanie nagłówków z hello żądania lub odpowiedzi.
 
 Nazwa | Przeznaczenie
 -----|--------
-Nagłówek odpowiedzi wieku | Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
-Debugowanie nagłówki odpowiedzi pamięci podręcznej | Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
+Nagłówek odpowiedzi wieku | Określa, czy nagłówek odpowiedzi wieku mają być uwzględnieni w odpowiedzi hello wysłanych toohello żądający.
+Debugowanie nagłówki odpowiedzi pamięci podręcznej | Określa, czy odpowiedź może obejmować hello nagłówka odpowiedzi we-X-Debug, który zawiera informacje na temat hello zasady pamięci podręcznej dla żądanego zasobu hello.
 Modyfikowanie nagłówek żądania klienta | Zastępowanie, dołącza lub usuwa nagłówek z żądania.
 Modyfikowanie nagłówka odpowiedzi klienta | Zastępowanie, dołącza lub usuwa nagłówek z odpowiedzi.
-Wartość niestandardowego nagłówka adresu IP klienta | Zezwala na adres IP klienta mają zostać dodane do żądania jako nagłówek żądania niestandardowych.
+Wartość niestandardowego nagłówka adresu IP klienta | Umożliwia hello adres IP klienta hello toobe żądania toohello dodany jako nagłówek żądania niestandardowych.
 
 ###<a name="age-response-header"></a>Nagłówek odpowiedzi wieku
-**Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
+**Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w żądający toohello odpowiedzi wysłanych hello.
 Wartość|wynik
 --|--
-Enabled (Włączony) | Nagłówek odpowiedzi wieku będą uwzględniane w odpowiedzi wysyłane do zleceniodawcy.
-Disabled (Wyłączony) | Nagłówek odpowiedzi wieku zostaną wykluczone z odpowiedzi wysyłane do zleceniodawcy.
+Enabled (Włączony) | Nagłówek odpowiedzi wieku Hello zostaną uwzględnione w odpowiedzi hello wysłanych toohello żądający.
+Disabled (Wyłączony) | Nagłówek odpowiedzi wieku Hello zostaną wykluczone z hello odpowiedzi wysłanych toohello żądającego.
 
 **Domyślne zachowanie**: wyłączone.
 
 ###<a name="debug-cache-response-headers"></a>Debugowanie nagłówki odpowiedzi pamięci podręcznej
-**Cel:** Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
+**Cel:** Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje na temat hello zasady pamięci podręcznej dla hello żądanego zasobu.
 
-Debugowanie odpowiedzi pamięci podręcznej, który nagłówki mają być uwzględnieni w odpowiedzi, gdy są spełnione oba poniższe:
+Debugowanie odpowiedzi pamięci podręcznej, który nagłówki mają być uwzględnieni w odpowiedzi hello, gdy są spełnione oba poniższe hello:
 
-- Funkcja debugowania nagłówki odpowiedzi pamięci podręcznej został włączony na odpowiednie żądania.
-- Żądanie powyżej definiuje zestaw debugowania nagłówki odpowiedzi pamięci podręcznej, które zostaną uwzględnione w odpowiedzi.
+- Witaj debugowania funkcji nagłówki odpowiedzi pamięci podręcznej został włączony na powitania odpowiednie żądania.
+- Witaj powyżej żądania definiuje zestaw hello debugowania nagłówki odpowiedzi pamięci podręcznej, które zostaną uwzględnione w odpowiedzi hello.
 
-Debugowanie nagłówki może wystąpić przy tym następujący nagłówek i odpowiednie dyrektywy w żądaniu odpowiedzi pamięci podręcznej:
+Debugowanie odpowiedzi pamięci podręcznej nagłówki może wystąpić przy tym powitania po nagłówka i hello żądaną dyrektywy w żądaniu hello:
 
 X-WE Debug: _Directive1_,_Directive2_,_DirectiveN_
 
@@ -641,36 +641,36 @@ WE-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 Wartość|wynik
 -|-
 Enabled (Włączony)|Żądania dla strony nagłówki odpowiedzi pamięci podręcznej debugowania będzie zwracać odpowiedzi, który zawiera nagłówek X-WE-Debug.
-Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z odpowiedzi.
+Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z hello odpowiedzi.
 
 **Domyślne zachowanie:** wyłączone.
 
 ###<a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
 **Cel:** każdego żądania zawiera zestaw [nagłówki żądań]() opisują go. Ta funkcja może być:
 
-- Dołącz lub zastąpić wartość przypisana do nagłówka żądania. Jeśli określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane do żądania.
-- Usuń nagłówek żądania z żądania.
+- Dołącz lub zastąpienie wartości hello przypisane tooa nagłówek żądania. Jeśli hello określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane toohello żądania.
+- Usuń nagłówek żądania z hello żądania.
 
-Żądania, które są przekazywane do serwera pochodzenia, zostaną one zastosowane zmiany wprowadzone przez tę funkcję.
+Żądania, które są przekazywane do serwera pochodzenia tooan zostaną one zastosowane hello zmiany wprowadzone przez tę funkcję.
 
-W nagłówku żądania można wykonać jedną z następujących czynności:
+W nagłówku żądania można wykonać jedną z hello następujące akcje:
 
 Opcja|Opis|Przykład
 -|-|-
-Append|Określona wartość zostanie dodana toend istniejącą wartość nagłówka żądania.|**Wartość nagłówka (klient) żądania:**wartość1 <br/> **Żądanie wartość nagłówka (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka żądania:** Value1Value2
-Zastąp|Wartość nagłówka żądania zostanie ustawiona na określoną wartość.|**Wartość nagłówka (klient) żądania:**wartość1 <br/>**Żądanie wartość nagłówka (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka żądania:** wartość2 <br/>
-Usuwanie|Usuwa określonego nagłówka żądania.|**Wartość nagłówka (klient) żądania:**wartość1 <br/> **Zmodyfikuj konfigurację nagłówek żądania klienta:** usunąć w nagłówku żądania. <br/>**Wynik:** określonego nagłówka żądania nie zostaną przekazane do serwera pochodzenia.
+Append|Witaj określono wartość zostanie dodana toend hello istniejącą wartość nagłówka żądania.|**Wartość nagłówka (klient) żądania:**wartość1 <br/> **Żądanie wartość nagłówka (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka żądania:** Value1Value2
+Zastąp|Żądanie hello wartość nagłówka będą toohello zestaw określona wartość.|**Wartość nagłówka (klient) żądania:**wartość1 <br/>**Żądanie wartość nagłówka (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka żądania:** wartość2 <br/>
+Usuwanie|Usuwa hello określonego nagłówka żądania.|**Wartość nagłówka (klient) żądania:**wartość1 <br/> **Zmodyfikuj konfigurację nagłówek żądania klienta:** w nagłówku żądania hello Delete. <br/>**Wynik:** hello określony nagłówek żądania nie zostaną przekazane toohello serwera źródłowego.
 
 Informacje o kluczu:
 
-- Upewnij się, że wartość określona w opcji Nazwa jest dokładnym odpowiednikiem nagłówka odpowiednie żądania.
-- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian nazwy nagłówka Cache-Control może służyć do identyfikowania:
+- Upewnij się, że hello wartość określoną w opcji Nazwa jest dokładnego dopasowania dla nagłówka żądania żądaną hello.
+- Case nie jest brana pod uwagę hello w celu zidentyfikowania nagłówka. Na przykład żadnego hello następujące zmiany nazwy nagłówka Cache-Control mogą być używane tooidentify go:
     - Kontrola pamięci podręcznej
     - CACHE-CONTROL
     - cachE-Control
-- Upewnij się używał tylko znaki alfanumeryczne, łączniki lub podkreślenia podczas określania nazwy nagłówka.
-- Usuwanie nagłówka będą zapobiegać jej przekazywane do serwera pochodzenia przez serwery krawędzi.
-- Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
+- Upewnij się, że tooonly Użyj znaki alfanumeryczne, łączniki i podkreślenia, określając nazwę nagłówka.
+- Usuwanie nagłówka będą zapobiegać jej są przekazywane do serwera pochodzenia tooan przez serwery krawędzi.
+- Witaj następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - przekazany
     - Host
     - za pomocą
@@ -681,28 +681,28 @@ Informacje o kluczu:
 ###<a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
 Każda odpowiedź zawiera zbiór [nagłówki odpowiedzi]() opisują go. Ta funkcja może być:
 
-- Dołącz lub zastąpić wartość przypisana do nagłówka odpowiedzi. Jeśli określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane do odpowiedzi.
-- Usuń nagłówek odpowiedzi z odpowiedzi.
+- Dołącz lub zastąpienie wartości hello przypisane tooa nagłówka odpowiedzi. Jeśli hello określonego nagłówka żądania nie istnieje, następnie ta funkcja zostanie dodane toohello odpowiedzi.
+- Usuń nagłówek odpowiedzi z hello odpowiedzi.
 
 Domyślnie wartości nagłówka odpowiedzi są definiowane przez serwer pochodzenia i serwery krawędzi.
 
-W nagłówku odpowiedzi można wykonać jedną z następujących czynności:
+Nagłówka odpowiedzi można wykonać jedną z hello następujące akcje:
 
 Opcja|Opis|Przykład
 -|-|-
-Append|Określona wartość zostanie dodana toend istniejącą wartość nagłówka żądania.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/> **Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** Value1Value2
-Zastąp|Wartość nagłówka żądania zostanie ustawiona na określoną wartość.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/>**Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** wartość2 <br/>
-Usuwanie|Usuwa określonego nagłówka żądania.|**Wartość nagłówka (klient) żądania:** wartość1 <br/> **Zmodyfikuj konfigurację nagłówka żądania klienta:** usunąć zagrożona nagłówka odpowiedzi. <br/>**Wynik:** określonego nagłówka odpowiedzi nie zostaną przekazane do zleceniodawcy.
+Append|Witaj określono wartość zostanie dodana toend hello istniejącą wartość nagłówka żądania.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/> **Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** Value1Value2
+Zastąp|Żądanie hello wartość nagłówka będą toohello zestaw określona wartość.|**Wartość nagłówka odpowiedzi (klient):**wartość1 <br/>**Wartość nagłówka odpowiedzi (aparat reguł HTTP):** wartość2 <br/>**Nowa wartość nagłówka odpowiedzi:** wartość2 <br/>
+Usuwanie|Usuwa hello określonego nagłówka żądania.|**Wartość nagłówka (klient) żądania:** wartość1 <br/> **Zmodyfikuj konfigurację nagłówka żądania klienta:** zagrożona nagłówka odpowiedzi hello Delete. <br/>**Wynik:** hello określony nagłówek odpowiedzi nie zostaną przekazane toohello żądającego.
 
 Informacje o kluczu:
 
-- Upewnij się, że wartość określona w opcji Nazwa jest dokładnym odpowiednikiem nagłówka pożądaną odpowiedź. 
-- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian nazwy nagłówka Cache-Control może służyć do identyfikowania:
+- Upewnij się, że hello wartość określoną w opcji Nazwa jest dokładnego dopasowania dla nagłówka odpowiedzi żądaną hello. 
+- Case nie jest brana pod uwagę hello w celu zidentyfikowania nagłówka. Na przykład żadnego hello następujące zmiany nazwy nagłówka Cache-Control mogą być używane tooidentify go:
     - Kontrola pamięci podręcznej
     - CACHE-CONTROL
     - cachE-Control
-- Usuwanie nagłówka będą zapobiegać jej przesyłane dalej do zleceniodawcy.
-- Następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
+- Usuwanie nagłówka będą zapobiegać jej przesyłane dalej toohello żądającego.
+- Witaj następujące nagłówki są zarezerwowane i nie można modyfikować za pomocą tej funkcji:
     - Zaakceptuj kodowania
     - okres ważności
     - połączenie
@@ -720,13 +720,13 @@ Informacje o kluczu:
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
 ###<a name="set-client-ip-custom-header"></a>Wartość niestandardowego nagłówka adresu IP klienta
-**Cel:** dodaje niestandardowy nagłówek, który identyfikuje klienta za pomocą adresu IP na żądanie.
+**Cel:** dodaje niestandardowy nagłówek, który identyfikuje klienta hello przez żądanie toohello adresów IP.
 
-Opcja nazwy nagłówka definiuje nazwę nagłówka żądania niestandardowe przechowywania adres IP klienta.
+Opcja nazwy nagłówka definiuje nazwę hello nagłówek żądania niestandardowe hello przechowywania adresu IP powitania klienta.
 
-Ta funkcja umożliwia klienta adresy serwera źródłowego, aby dowiedzieć się, IP klienta za pośrednictwem nagłówków żądań niestandardowych. Jeśli żądanie jest podawana z pamięci podręcznej, serwer pochodzenia nie wyświetli się informacja o adres IP klienta. W związku z tym zaleca się, że można użyć tej funkcji w sieci ADN lub zasobów, które nie będą buforowane.
+Ta funkcja umożliwia klienta toofind serwera pochodzenia się adresy IP klientów za pośrednictwem nagłówków żądań niestandardowych. Jeśli Żądanie hello jest obsługiwana z pamięci podręcznej, serwer pochodzenia hello nie wyświetli się informacja powitania klienta adresu IP. W związku z tym zaleca się, że można użyć tej funkcji w sieci ADN lub zasobów, które nie będą buforowane.
 
-Upewnij się, że nazwa określonego nagłówka nie pasuje do żadnego z następujących czynności:
+Upewnij się, że nie pasuje do żadnego z następujących hello tę nazwę określony nagłówek hello:
 
 - Nazwy nagłówków żądań standardowych. Lista nazw standardowy nagłówek znajdują się w [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nazwy nagłówków zastrzeżone:
@@ -740,21 +740,21 @@ Upewnij się, że nazwa określonego nagłówka nie pasuje do żadnego z następ
  
 ## <a name="logs"></a>Dzienniki
 
-Te funkcje są przeznaczone do dostosowania dane przechowywane w plikach dziennika raw.
+Funkcje te są przechowywane w plikach dziennika pierwotnych danych hello toocustomize zaprojektowane.
 
 Nazwa | Przeznaczenie
 -----|--------
-Pole niestandardowe dziennika 1 | Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
-Ciąg zapytania dziennika | Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
+Pole niestandardowe dziennika 1 | Określa hello format i hello zawartość, która zostanie przypisana toohello logu niestandardowego pola w nowego pliku dziennika.
+Ciąg zapytania dziennika | Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL hello w dziennikach dostępu.
 
 ###<a name="custom-log-field-1"></a>Pole niestandardowe dziennika 1
-**Cel:** Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
+**Cel:** określa hello format i hello zawartość, która zostanie przypisana toohello logu niestandardowego pola w nowego pliku dziennika.
 
-Głównym celem za to pole niestandardowe jest pozwala określić, które żądania i wartości nagłówka odpowiedzi będą przechowywane w plikach dziennika.
+głównym celem Hello za to pole niestandardowe jest tooallow toodetermine żądań i odpowiedzi nagłówka wartości, które będą przechowywane w plikach dziennika.
 
-Domyślnie pole dziennik niestandardowy jest nazywany "x-ec_custom-1." Jednak można dostosować nazwę tego pola z [strony pierwotnych ustawień dziennika]().
+Domyślnie pole dziennik niestandardowy hello jest nazywany "x-ec_custom-1." Jednak można dostosować nazwę hello to pole z [strony pierwotnych ustawień dziennika]().
 
-Formatowanie, że należy używać do określania nagłówki żądań i odpowiedzi jest zdefiniowana poniżej.
+formatowanie, że należy używać nagłówki żądań i odpowiedzi toospecify Hello jest zdefiniowana poniżej.
 
 Header — typ|Format|Przykłady
 -|-|-
@@ -764,98 +764,98 @@ Nagłówek odpowiedzi|%{[ResponseHeader]()}[o]()| O % {wieku} <br/> O % {content
 Informacje o kluczu:
 
 - Pola niestandardowe dziennika może zawierać dowolną kombinację pola nagłówka i zwykły tekst.
-- Prawidłowe znaki dla tego pola są następujące: alfanumeryczne (tj. 0-9, a-z, a A-Z), łączniki, dwukropki średnikami, apostrofów, przecinkami, kropki, podkreślenia, znaku równości, nawiasy, nawiasy i spacje. Symbol procentu i nawiasy klamrowe są dozwolone tylko po używany do określenia pola nagłówka.
-- Pisownia dla każdego pola określony nagłówek musi odpowiadać nazwie nagłówka odpowiednie żądanie/odpowiedź.
-- Jeśli chcesz określić wiele nagłówków, następnie zalecane jest używane separator w celu wskazania każdy nagłówek. Na przykład można użyć skrótu każdy nagłówek. Poniżej znajduje się przykład składni.
+- Prawidłowe znaki dla tego pola obejmują następujące hello: alfanumeryczne (tj. 0-9, a-z, a A-Z), łączniki, dwukropki średnikami, apostrofów, przecinkami, kropki, podkreślenia, znaku równości, nawiasy, nawiasy i spacje. Witaj symbol procentu i nawiasów klamrowych jest dozwolony tylko w przypadku używane toospecify pola nagłówka.
+- Hello pisowni dla każdego pola określony nagłówek musi być zgodna nazwa nagłówka hello żądaną żądanie/odpowiedź.
+- Jeśli chcesz toospecify wiele nagłówków, to jest zalecane używanie tooindicate separatora każdy nagłówek. Na przykład można użyć skrótu każdy nagłówek. Poniżej znajduje się przykład składni.
     - AE: % {zaakceptować kodowania} i odpowiedź: % {autoryzacji} i IERZ: % {Content-Type} o 
 
 **Wartość domyślna:** -
 
 ###<a name="log-query-string"></a>Ciąg zapytania dziennika
-**Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
+**Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL hello w dziennikach dostępu.
 
 Wartość|wynik
 -|-
-Enabled (Włączony)|Umożliwia przechowywanie ciągów zapytania podczas rejestrowania w dzienniku dostępu do adresów URL. Jeśli adres URL zawiera ciąg zapytania, następnie ta opcja nie będzie miało wpływu.
-Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest zignorowanie ciągi zapytań podczas rejestrowania w dzienniku dostępu do adresów URL.
+Enabled (Włączony)|Umożliwia hello magazynu ciągów zapytań, podczas rejestrowania w dzienniku dostępu do adresów URL. Jeśli adres URL zawiera ciąg zapytania, następnie ta opcja nie będzie miało wpływu.
+Disabled (Wyłączony)|Przywraca hello domyślne zachowanie. zachowanie domyślne Hello jest tooignore ciągi zapytań podczas rejestrowania w dzienniku dostępu do adresów URL.
 
 **Domyślne zachowanie:** wyłączone.
 
 <!---
 ## Optimize
 
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
+These features determine whether a request will undergo hello optimizations provided by Edge Optimizer.
 
 Name | Purpose
 -----|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
+Edge Optimizer | Determines whether Edge Optimizer can be applied tooa request.
+Edge Optimizer – Instantiate Configuration | Instantiates or activates hello Edge Optimizer configuration associated with a site.
 
 ###Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
+**Purpose:** Determines whether Edge Optimizer can be applied tooa request.
 
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
+If this feature has been enabled, then hello following criteria must also be met before hello request will be processed by Edge Optimizer:
 
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
+- hello requested content must use an edge CNAME URL.
+- hello edge CNAME referenced in hello URL must correspond tooa site whose configuration has been activated in a rule.
 
-This feature requires the ADN platform and the Edge Optimizer feature.
+This feature requires the ADN platform and hello Edge Optimizer feature.
 
 Value|Result
 -|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
+Enabled|Indicates that hello request is eligible for Edge Optimizer processing.
+Disabled|Restores hello default behavior. hello default behavior is toodeliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
  
 
 ###Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
+**Purpose:** Instantiates or activates hello Edge Optimizer configuration associated with a site.
 
-This feature requires the ADN platform and the Edge Optimizer feature.
+This feature requires the ADN platform and hello Edge Optimizer feature.
 
 Key information:
 
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
+- Instantiation of a site configuration is required before requests toohello corresponding edge CNAME can be processed by Edge Optimizer.
+- This instantiation only needs toobe performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until hello Edge Optimizer – Instantiate Configuration feature that references it is removed from hello rule.
+- hello instantiation of a site configuration does not mean that all requests toohello corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
 
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
+If hello desired site does not appear in hello list, then you should edit its configuration and verify that the Active option has been marked.
 
 **Default Behavior:** Site configurations are inactive by default.
 --->
 
 ## <a name="origin"></a>Origin
 
-Te funkcje zostały zaprojektowane do kontrolowania sposobu CDN komunikuje się z serwerem pochodzenia.
+Te funkcje są zaprojektowane toocontrol jak hello CDN komunikuje się z serwera pochodzenia.
 
 Nazwa | Przeznaczenie
 -----|--------
-Maksymalna liczba żądań Keep-Alive | Określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
-Serwer proxy specjalnych nagłówków | Definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
+Maksymalna liczba żądań Keep-Alive | Definiuje hello maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
+Serwer proxy specjalnych nagłówków | Definiuje zestaw hello nagłówków żądania specyficzne dla usługi CDN, które zostaną przekazane z serwera pochodzenia tooan serwer krawędzi.
 
 
 ###<a name="maximum-keep-alive-requests"></a>Maksymalna liczba żądań Keep-Alive
-**Cel:** określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
+**Cel:** definiuje hello maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
 
-Maksymalna liczba żądań niskiej wartości jest zalecane i może spowodować obniżenie wydajności.
+Ustawienie hello maksymalną liczbę żądań tooa niskiej wartości jest zalecane i może spowodować obniżenie wydajności.
 
 Informacje o kluczu:
 
 - Tę wartość można określić jako liczbą całkowitą.
-- Nie należy dołączać kropki i przecinki w określonej wartości.
+- Nie dołączaj kropki i przecinki w hello określona wartość.
 
 **Wartość domyślna:** 10000 żądań
 
 ###<a name="proxy-special-headers"></a>Serwer proxy specjalnych nagłówków
-**Cel:** definiuje zestaw [nagłówki żądania specyficzne dla usługi CDN]() który są przesyłane dalej z serwer graniczny do serwera pochodzenia.
+**Cel:** definiuje zestaw hello [nagłówki żądania specyficzne dla usługi CDN]() zostaną natychmiast przekazane z serwera pochodzenia tooan serwer krawędzi.
 
 Informacje o kluczu:
 
-- Każdy nagłówek żądania specyficzne dla usługi CDN zdefiniowany w tej funkcji zostanie przekazany do serwera pochodzenia.
-- Nagłówek żądania specyficzne dla usługi CDN uniemożliwić są przekazywane do serwera pochodzenia przez usunięcie go z tej listy.
+- Każdy nagłówek żądania specyficzne dla usługi CDN zdefiniowany w tej funkcji zostanie przekazany tooan serwera źródłowego.
+- Nagłówek żądania specyficzne dla usługi CDN uniemożliwić są przekazywane serwera pochodzenia tooan przez usunięcie go z tej listy.
 
-**Domyślne zachowanie:** wszystkie [nagłówki żądania specyficzne dla usługi CDN]() zostaną przekazane do serwera pochodzenia.
+**Domyślne zachowanie:** wszystkie [nagłówki żądania specyficzne dla usługi CDN]() zostaną przekazane toohello serwera źródłowego.
 
 ## <a name="specialty"></a>Specjalne
 
@@ -863,30 +863,30 @@ Funkcje te zapewniają zaawansowane funkcje, które mają być używane tylko pr
 
 Nazwa | Przeznaczenie
 -----|--------
-Metody HTTP buforowalnej | Określa zestaw dodatkowych metod HTTP, które mogą być buforowane w naszej sieci.
-Rozmiar treści żądania buforowalnej | Określa próg do określenia, czy odpowiedź POST mogą być buforowane.
+Metody HTTP buforowalnej | Określa zbiór hello dodatkowe metody HTTP, które mogą być buforowane w naszej sieci.
+Rozmiar treści żądania buforowalnej | Określa próg hello do określenia, czy odpowiedź POST mogą być buforowane.
 
 ###<a name="cacheable-http-methods"></a>Metody HTTP buforowalnej
-**Cel:** określa zestaw dodatkowych metod HTTP, które mogą być buforowane w naszej sieci.
+**Cel:** określa zestaw hello dodatkowe metody HTTP, które mogą być buforowane w naszej sieci.
 
 Informacje o kluczu:
 
-- Ta funkcja przyjęto założenie, że zawsze mają być buforowane odpowiedzi GET. W związku z tym metodę GET HTTP nie należy włączyć podczas ustawiania tej funkcji.
-- Ta funkcja obsługuje tylko metodę POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji: POST 
-- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb będą buforowane. Użyj funkcji Buforowalnej rozmiar treści żądania, aby ustawić żądania maksymalny rozmiar treści.
+- Ta funkcja przyjęto założenie, że zawsze mają być buforowane odpowiedzi GET. W związku z tym nie powinny być dołączone hello metodę GET HTTP, ustawiając tę funkcję.
+- Ta funkcja obsługuje tylko hello Metoda POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji: POST 
+- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb będą buforowane. Buforowalnej funkcja rozmiar treści żądania umożliwia ustawienie rozmiaru treści żądania maksymalną hello.
 
 **Domyślne zachowanie:** tylko GET odpowiedzi będą buforowane.
 
 ###<a name="cacheable-request-body-size"></a>Rozmiar treści żądania buforowalnej
 
-**Cel:** określa próg do określenia, czy odpowiedź POST mogą być buforowane.
+**Cel:** definiuje hello próg do określenia, czy odpowiedź POST mogą być buforowane.
 
 Wartość progu jest określana przez określania rozmiaru treści żądania maksymalna. Żądań zawierających większą treści żądania nie będą buforowane.
 
 Informacje o kluczu:
 
-- Ta funkcja ma zastosowanie tylko w przypadku, gdy odpowiedzi POST kwalifikują się do buforowania. Funkcja Buforowalnej HTTP metod Aby włączyć buforowanie żądania POST.
-- Treść żądania jest brana pod uwagę dla:
+- Ta funkcja ma zastosowanie tylko w przypadku, gdy odpowiedzi POST kwalifikują się do buforowania. Użyj hello Buforowalnej funkcji metod HTTP, aby włączyć buforowanie żądania POST.
+- Treść żądania Hello jest brana pod uwagę dla:
     - wartości x--www-form-urlencoded
     - Zapewnienie Unikatowy klucz pamięci podręcznej
 - Definiowanie dużego żądania maksymalny rozmiar treści może mieć wpływ na wydajność dostarczania danych.
@@ -897,20 +897,20 @@ Informacje o kluczu:
  
 ## <a name="url"></a>ADRES URL
 
-Te funkcje umożliwiają żądanie jest przekierowywane lub ulegną do innego adresu URL.
+Te funkcje umożliwiają toobe żądania przekierowany lub ulegną tooa inny adres URL.
 
 Nazwa | Przeznaczenie
 -----|--------
-Wykonaj przekierowania | Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
-Adres URL przekierowania | Przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
-Ponowne zapisywanie adresów URL  | Ponownie zapisuje adresu URL żądania.
+Wykonaj przekierowania | Określa, czy żądanie nie może być hostname przekierowanego toohello zdefiniowane w nagłówku lokalizacji hello zwróconych przez serwer pochodzenia klienta.
+Adres URL przekierowania | Przekierowuje żądania za pośrednictwem hello nagłówek lokalizacji.
+Ponowne zapisywanie adresów URL  | Ponownie zapisuje hello adresu URL żądania.
 
 ###<a name="follow-redirects"></a>Wykonaj przekierowania
-**Cel:** Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
+**Cel:** Określa, czy żądanie nie może być hostname przekierowanego toohello zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta.
 
 Informacje o kluczu:
 
-- Tylko można przekierować żądania do krawędzi rekordów CNAME, które odpowiadają tej samej platformy.
+- Żądania mogą być tylko przekierowanego tooedge rekordów CNAME, które odpowiadają toohello tej samej platformy.
 
 Wartość|wynik
 -|-
@@ -921,27 +921,27 @@ Disabled (Wyłączony)|Nie będzie można przekierować żądania.
 ###<a name="url-redirect"></a>Adres URL przekierowania
 **Cel:** przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
 
-Konfiguracja ta funkcja wymaga ustawienia następujących opcji:
+Witaj konfiguracji tej funkcji wymaga ustawienia hello następujące opcje:
 
 Opcja|Opis
 -|-
-Kod|Wybierz kod odpowiedzi, który zostanie zwrócony do zleceniodawcy.
-Wzorzec & źródła| Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ żądania, które mogą zostać przekierowane. Nastąpi przekierowanie tylko żądania, którego adres URL spełnia oba następujące kryteria: <br/> <br/> **Źródło:** (lub punktu dostępu do zawartości) wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" i nazwa punktu końcowego. <br/> **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżki, która rozpoczyna się bezpośrednio po poprzednio wybranego dostępu do zawartości punktu (zobacz powyżej). <br/> -Upewnij się, że kryteria identyfikatora URI żądania (np. źródła & wzorzec) zdefiniowanych powyżej nie koliduje to z warunkom dopasowania zdefiniowane dla tej funkcji. <br/> -Upewnij się, że do określenia wzorca. Przy użyciu pustej wartości jako wzorzec tylko odpowiada żądań do folderu głównego serwera wybranego źródła (np. http://cdn.mydomain.com/).
-Element docelowy| Zdefiniuj adres URL, do którego zostanie przekierowany żądań powyżej. <br/> Dynamicznie utworzyć przy użyciu tego adresu URL: <br/> -Wzorzec wyrażenia regularnego <br/>-Zmienne HTTP <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. <br/> 
-Zdecydowanie zaleca się używania bezwzględnego adresu URL. Użycie względny adres URL może przekierować CDN adresy URL do nieprawidłowej ścieżki.
+Kod|Wybierz kod odpowiedzi hello zwracana toohello żądającego.
+Wzorzec & źródła| Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ hello żądań, które mogą zostać przekierowane. Nastąpi przekierowanie tylko żądania, którego adres URL spełnia zarówno hello następujące kryteria: <br/> <br/> **Źródło:** (lub punktu dostępu do zawartości) wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" hello i nazwa punktu końcowego. <br/> **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżką, która rozpoczyna się bezpośrednio po hello poprzednio zaznaczony punkt dostępu do zawartości (zobacz powyżej). <br/> -Upewnij się, że kryteria hello żądanie identyfikatora URI (np. źródła & wzorzec) zdefiniowanych powyżej nie koliduje to z warunkom dopasowania zdefiniowane dla tej funkcji. <br/> — Upewnić się, że toospecify wzorca. Przy użyciu pustej wartości jako wzorzec hello tylko będzie pasował do folderu głównego toohello żądań hello pochodzenia wybranego serwera (np. http://cdn.mydomain.com/).
+Element docelowy| Zdefiniuj adres URL hello hello toowhich powyżej żądania nastąpi przekierowanie. <br/> Dynamicznie utworzyć przy użyciu tego adresu URL: <br/> -Wzorzec wyrażenia regularnego <br/>-Zmienne HTTP <br/> Zastąp wartości hello przechwytywane we wzorcu źródła hello do wzorca docelowego hello przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności hello, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość hello przechwycone we wzorcu źródła hello, podczas gdy hello druga wartość reprezentuje $2. <br/> 
+Jest zdecydowanie zalecane toouse bezwzględnego adresu URL. Użycie Hello względny adres URL może przekierować adresy URL CDN tooan nieprawidłową ścieżkę.
 
 **Przykładowy scenariusz**
 
-W tym przykładzie przedstawiono sposób przekierowania krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures
+W tym przykładzie przedstawiono sposób tooredirect krawędzi URL CNAME, który jest rozpoznawany jako toothis bazowy adres URL usługi CDN: http://marketing.azureedge.net/brochures
 
-Kwalifikowanie żądania nastąpi przekierowanie do tej krawędzi podstawowy adres URL CNAME: http://cdn.mydomain.com/resources
+Kwalifikowanie żądań, zostanie przekierowany toothis krawędzi podstawowy adres URL CNAME: http://cdn.mydomain.com/resources
 
-Ten adres URL przekierowania można osiągnąć za pomocą następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Ten adres URL przekierowania można osiągnąć za pomocą hello następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Kwestie kluczowe:**
 
-- Żądanie definiuje funkcję adres URL przekierowania adresów URL, które zostanie przekierowany. W rezultacie dopasowanie dodatkowe warunki nie są wymagane. Mimo że warunek dopasowania został zdefiniowany jako "Always", zostanie przekierowany tylko żądania, które wskazują folder "broszury" na "marketing" pochodzenia klienta. 
-- Wszystkie żądania zgodne, zostanie przekierowany do granicy, zdefiniowanych w opcji docelowy adres URL CNAME. 
+- Funkcja Przekierowywanie adresu URL Hello definiuje hello adresów URL, które zostanie przekierowany żądań. W rezultacie dopasowanie dodatkowe warunki nie są wymagane. Mimo że warunek dopasowania hello został zdefiniowany jako "Always", tylko żądania tego punktu toohello "broszury" nastąpi przekierowanie folderu na powitania "marketing" pochodzenia klienta. 
+- Wszystkie żądania pasujące będzie krawędzi toohello przekierowany adres URL CNAME zdefiniowany w opcji docelowej. 
     - Przykładowy scenariusz #1: 
         - Przykładowe żądanie (adres URL usługi CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
         - Adres URL żądania (po przekierowania): http://cdn.mydomain.com/resources/widgets.pdf  
@@ -951,48 +951,48 @@ Ten adres URL przekierowania można osiągnąć za pomocą następującej konfig
     - Przykładowy scenariusz #3: 
         - Przykładowe żądanie (krawędzi CNAME adres URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - Adres URL żądania (po przekierowania): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- Zmienna żądania schematu (% {schemat}) była wykorzystywana w opcji docelowej. Dzięki temu, że schemat żądania nie jest zmieniany po przekierowaniu.
-- Segmenty adresu URL, które są przechwytywane żądania są dołączane do nowego adresu URL za pośrednictwem "$1."
+- Zmienna żądania schematu (% {schemat}) Hello został wykorzystywana w opcji docelowej. Dzięki temu to Żądanie hello systemu pozostaje niezmieniona po przekierowaniu.
+- segmenty adresu URL Hello przechwyconych z żądania hello jest dołączany toohello nowego adresu URL za pośrednictwem "$1."
  
 ###<a name="url-rewrite"></a>Ponowne zapisywanie adresów URL
-**Cel:** ponownie zapisuje adresu URL żądania.
+**Cel:** ponownie zapisuje hello adresu URL żądania.
 
 Informacje o kluczu:
 
-- Konfiguracja ta funkcja wymaga ustawienia następujących opcji:
+- Witaj konfiguracji tej funkcji wymaga ustawienia hello następujące opcje:
 
 Opcja|Opis
 -|-
- Wzorzec & źródła | Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ żądania, które mogą być napisany od nowa. Zostanie ponownego napisania tylko żądania, którego adres URL spełnia oba następujące kryteria: <br/>     - **Źródło (lub punktu dostępu do zawartości):** wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" i nazwa punktu końcowego. <br/> - **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżki, która rozpoczyna się bezpośrednio po poprzednio wybranego dostępu do zawartości punktu (zobacz powyżej). <br/> Upewnij się, że żądanie identyfikatora URI kryteria (np. źródła & wzorzec) zdefiniowanych powyżej nie koliduje to z jednego z warunków dopasowania zdefiniowane dla tej funkcji. Upewnij się określić wzorca. Przy użyciu pustej wartości jako wzorzec tylko odpowiada żądań do folderu głównego serwera wybranego źródła (np. http://cdn.mydomain.com/). 
- Element docelowy  |Określ względny adres URL, do którego powyżej żądania będą ulegną przez: <br/>    1. Wybieranie punktu dostępu do zawartości, który identyfikuje serwer pochodzenia. <br/>    2. Definiowanie za pomocą ścieżki względnej: <br/>        -Wzorzec wyrażenia regularnego <br/>        -Zmienne HTTP <br/> <br/> Zastąp wartości przechwytywane we wzorcu źródła do wzorca docelowego przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość przechwycone we wzorcu źródła, podczas gdy druga wartość reprezentuje $2. 
- Ta funkcja umożliwia ponowne zapisywanie adresów URL bez wykonywania przekierowania tradycyjnych naszych serwerów krawędzi. Oznacza to, osoby żądającej otrzyma ten sam kod odpowiedzi tak, jakby zażąda ponownie zapisane adresu URL.
+ Wzorzec & źródła | Te ustawienia definiują wzorzec identyfikatora URI żądania, który identyfikuje typ hello żądań, które mogą być napisany od nowa. Zostanie ponownego napisania tylko żądania, którego adres URL spełnia zarówno hello następujące kryteria: <br/>     - **Źródło (lub punktu dostępu do zawartości):** wybierz ścieżkę względną, którą identyfikuje serwer pochodzenia. Jest to sekcja "/XXXX/" hello i nazwa punktu końcowego. <br/> - **Źródło (wzorzec):** wzorca, który identyfikuje żądania za pomocą ścieżki względnej musi być zdefiniowany. Ten wzorzec wyrażenia regularnego musi definiować ścieżką, która rozpoczyna się bezpośrednio po hello poprzednio zaznaczony punkt dostępu do zawartości (zobacz powyżej). <br/> Upewnij się, że hello żądanie identyfikatora URI kryteria (np. źródła & wzorzec) zdefiniowanych powyżej nie koliduje to z hello dopasowania warunki zdefiniowane dla tej funkcji. Upewnij się, że toospecify wzorca. Przy użyciu pustej wartości jako wzorzec hello tylko będzie pasował do folderu głównego toohello żądań hello pochodzenia wybranego serwera (np. http://cdn.mydomain.com/). 
+ Element docelowy  |Zdefiniuj względny adres URL hello hello toowhich powyżej żądania będą ulegną przez: <br/>    1. Wybieranie punktu dostępu do zawartości, który identyfikuje serwer pochodzenia. <br/>    2. Definiowanie za pomocą ścieżki względnej: <br/>        -Wzorzec wyrażenia regularnego <br/>        -Zmienne HTTP <br/> <br/> Zastąp wartości hello przechwytywane we wzorcu źródła hello do wzorca docelowego hello przy użyciu $ _n_  gdzie  _n_  identyfikuje wartość według kolejności hello, w którym została przechwycona. Na przykład $1 reprezentuje pierwszą wartość hello przechwycone we wzorcu źródła hello, podczas gdy hello druga wartość reprezentuje $2. 
+ Ta funkcja umożliwia nasze serwery krawędzi toorewrite hello URL bez wykonywania tradycyjnych przekierowania. Oznacza to, że tej osoby żądającej hello otrzymają hello odpowiedzi tego samego kodu tak, jakby zażąda hello ulegną adresu URL.
 
 **Przykładowy scenariusz 1**
 
-W tym przykładzie przedstawiono sposób przekierowania krawędzi URL CNAME, który jest rozpoznawany jako ten podstawowy adres URL usługi CDN: http://marketing.azureedge.net/brochures/
+W tym przykładzie przedstawiono sposób tooredirect krawędzi URL CNAME, który jest rozpoznawany jako toothis bazowy adres URL usługi CDN: http://marketing.azureedge.net/brochures/
 
-Kwalifikowanie żądania nastąpi przekierowanie do tej krawędzi podstawowy adres URL CNAME: http://MyOrigin.azureedge.net/resources/
+Kwalifikowanie żądań, zostanie przekierowany toothis krawędzi podstawowy adres URL CNAME: http://MyOrigin.azureedge.net/resources/
 
-Ten adres URL przekierowania można osiągnąć za pomocą następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Ten adres URL przekierowania można osiągnąć za pomocą hello następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Przykładowy scenariusz 2**
 
-W tym przykładzie zostanie przedstawiony sposób przekierowania krawędzi adresu URL CNAME z wielkimi literami na małe litery, za pomocą wyrażeń regularnych.
+W tym przykładzie przedstawiono sposób tooredirect krawędzi CNAME URL z wielkich toolowercase za pomocą wyrażeń regularnych.
 
-Ten adres URL przekierowania można osiągnąć za pomocą następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Ten adres URL przekierowania można osiągnąć za pomocą hello następującej konfiguracji:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Kwestie kluczowe:**
 
-- Funkcja ponowne zapisywanie adresów URL definiuje żądania adresów URL, które będą napisany od nowa. W rezultacie dopasowanie dodatkowe warunki nie są wymagane. Mimo że warunek dopasowania został zdefiniowany jako "Always", tylko żądania, które wskazują folder "broszury" na "marketing" pochodzenia klienta zostanie napisany od nowa.
+- Funkcja ponowne zapisywanie adresów URL Hello definiuje hello żądania adresów URL, które będą napisany od nowa. W rezultacie dopasowanie dodatkowe warunki nie są wymagane. Mimo że warunek dopasowania hello został zdefiniowany jako "Always", tylko żądania tego punktu toohello "broszury" folderu na powitania "marketing" pochodzenia klienta zostanie ponownie zapisać.
 
-- Segmenty adresu URL, które są przechwytywane żądania są dołączane do nowego adresu URL za pośrednictwem "$1."
+- segmenty adresu URL Hello przechwyconych z żądania hello jest dołączany toohello nowego adresu URL za pośrednictwem "$1."
 
 
 
 ###<a name="compatibility"></a>Zgodność
 
-Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, aby można było zastosować na żądanie. Aby uniknąć konfigurowania kryteriów powodujących konflikt, ta funkcja jest niezgodny z następujące warunki dopasowania:
+Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, aby można było stosowane tooa żądania. W kolejności tooprevent ustawienie powodujące konflikt kryteriów dopasowania, ta funkcja jest niezgodny z hello następujące warunki dopasowania:
 
 - JAKO liczba
 - Źródła usługi CDN
@@ -1015,5 +1015,5 @@ Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, 
 * [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)
 * [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
 * [Warunki uzgadniania aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
-* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)
+* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł hello](cdn-rules-engine.md)
 * [Omówienie usługi Azure CDN](cdn-overview.md)

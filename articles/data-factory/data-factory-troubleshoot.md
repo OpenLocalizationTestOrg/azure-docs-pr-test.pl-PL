@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z fabryki danych Azure"
-description: "Dowiedz się, jak rozwiązać problemy z przy użyciu fabryki danych Azure."
+title: problemy z aaaTroubleshoot fabryki danych Azure
+description: "Dowiedz się, jak tootroubleshoot problemy związane z przy użyciu fabryki danych Azure."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
-ms.openlocfilehash: 953a2703db7c8991f580a7c963d6cbd94265c213
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: cf65bcf3e1c3f061d3ac1dbf32e99cc7b014f9dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory
-Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku problemów przy użyciu fabryki danych Azure. W tym artykule nie są wyświetlane wszystkie możliwe problemy podczas korzystania z usługi, ale obejmuje pewne problemy i ogólne porady dotyczące rozwiązywania problemów.   
+Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku problemów przy użyciu fabryki danych Azure. W tym artykule nie wyświetlają hello ewentualne problemy w przypadku używania usługi hello, ale obejmuje pewne problemy i ogólne porady dotyczące rozwiązywania problemów.   
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Błąd: subskrypcja nie jest zarejestrowana do korzystania z przestrzeni nazw „Microsoft.DataFactory”
-Wyświetlenie tego błędu oznacza, że dostawca zasobów usługi Azure Data Factory nie został zarejestrowany na maszynie. Wykonaj następujące czynności:
+### <a name="error-hello-subscription-is-not-registered-toouse-namespace-microsoftdatafactory"></a>Błąd: hello subskrypcji nie jest zarejestrowany toouse przestrzeni nazw "Microsoft.DataFactory"
+Jeśli ten błąd jest wyświetlany, dostawcy zasobów usługi fabryka danych Azure hello nie zarejestrowano na tym komputerze. Witaj, po:
 
 1. Uruchom program Azure PowerShell.
-2. Zaloguj się do konta platformy Azure przy użyciu następującego polecenia.
+2. Zaloguj się za tooyour konto platformy Azure przy użyciu następującego polecenia hello.
 
     ```powershell
     Login-AzureRmAccount
     ```
-3. Uruchom następujące polecenie, aby zarejestrować dostawcę usługi fabryka danych Azure.
+3. Uruchom następujące polecenie tooregister hello fabryki danych Azure dostawcy hello.
 
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Nieautoryzowanego błąd podczas uruchamiania polecenia cmdlet usługi fabryka danych
-Przypuszczalnie nie używasz prawidłowego konta lub subskrypcji platformy Azure w programie Azure PowerShell. Użyj następujących poleceń cmdlet, aby wybrać odpowiednie konto i subskrypcję platformy Azure do stosowania w programie Azure PowerShell.
+Prawdopodobnie nie jest używany prawo hello konto platformy Azure lub subskrypcji z hello Azure PowerShell. Witaj Użyj następującego polecenia cmdlet tooselect hello prawo Azure toouse konto i Subskrypcja z hello Azure PowerShell.
 
-1. Login-AzureRmAccount - Użyj Identyfikatora prawo użytkownika i hasła
-2. Get-AzureRmSubscription - wyświetlić wszystkie subskrypcje dla konta.
-3. SELECT-AzureRmSubscription &lt;Nazwa subskrypcji&gt; — Wybierz subskrypcję, do prawej. Użyj tego samego umożliwiające tworzenie fabryki danych w portalu Azure.
+1. Login-AzureRmAccount - Użyj hello prawo użytkownika Identyfikatora i hasła
+2. Get-AzureRmSubscription — Witaj wszystkie subskrypcje dla konta hello widoku.
+3. SELECT-AzureRmSubscription &lt;Nazwa subskrypcji&gt; — Wybierz subskrypcję prawym hello. Użyj hello taki sam Użyj toocreate fabryki danych na powitania portalu Azure.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: Nie można uruchomić instalacji Express danych zarządzania bramy z portalu Azure
-Instalacja ekspresowa bramy zarządzania danymi wymaga przeglądarki Internet Explorer lub przeglądarki zgodnej z technologią Microsoft ClickOnce. Jeśli uruchomienie instalacji ekspresowej nie powiedzie się, wykonaj jedną z poniższych czynności:
+### <a name="problem-fail-toolaunch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: Niepowodzenie toolaunch Express ustawienia danych zarządzania bramy z portalu Azure
+Ustawienia ekspresowe Hello hello brama zarządzania danymi wymaga programu Internet Explorer lub przeglądarki sieci web zgodne Microsoft ClickOnce. W przypadku niepowodzenia toostart hello Express instalacji wykonaj jedną z następujących hello:
 
 * Użyj programu Internet Explorer lub przeglądarki sieci web zgodne Microsoft ClickOnce.
 
-    Jeśli używasz przeglądarki Chrome, przejdź do [sklepu internetowego Chrome](https://chrome.google.com/webstore/), wyszukaj słowo kluczowe „ClickOnce”, wybierz jedno z rozszerzeń ClickOnce i je zainstaluj.
+    Jeśli używasz programu Chrome, przejdź toohello [sklepu Chrome web store](https://chrome.google.com/webstore/), wyszukaj ze słowem kluczowym "ClickOnce", wybierz jedno z rozszerzeń ClickOnce hello i zainstaluj go.
 
-    Wykonaj te same czynności dla przeglądarki Firefox (Instalowanie dodatku). Kliknij przycisk Otwórz menu na pasku narzędzi (trzy poziome linie w prawym górnym rogu), kliknij pozycję Dodatki, wyszukaj słowo kluczowe „ClickOnce”, wybierz jedno z rozszerzeń ClickOnce i je zainstaluj.
-* Użyj **Podręcznika instalacji** łącza wyświetlany na tym samym bloku w portalu. Takie podejście umożliwia Pobierz plik instalacyjny i uruchomić go ręcznie. Po pomyślnej instalacji, zostanie wyświetlone okno dialogowe konfiguracji bramy zarządzania danymi. Skopiuj **klucz** z ekranu portalu i użyj go w menedżerze konfiguracji, aby ręcznie zarejestrować bramę w usłudze.  
+    Witaj tego samego dla przeglądarki Firefox (Instalowanie dodatku). Kliknij przycisk Otwórz Menu na pasku narzędzi hello (trzy poziome linie w hello prawym górnym rogu), kliknij pozycję Dodatki wyszukiwania ze słowem kluczowym "ClickOnce", wybierz jedno z rozszerzeń ClickOnce hello i zainstaluj go.
+* Użyj hello **Podręcznika instalacji** łącza wyświetlany na powitania tego samego bloku w portalu hello. Użyj tego podejścia toodownload instalacji pliku i uruchomić go ręcznie. Po instalacji hello zakończy się pomyślnie, wyświetlona okno dialogowe hello konfiguracji bramy zarządzania danymi. Kopiuj hello **klucza** z hello ekranu portalu i użycie go w hello configuration manager toomanually rejestrowanie bramy hello za pomocą usługi hello.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problem: Nie można nawiązać połączenia z lokalnego serwera SQL
-Uruchom **Menedżera konfiguracji bramy zarządzania danymi** na komputerze bramy i użyj **Rozwiązywanie problemów** kartę, aby przetestować połączenie z programem SQL Server na maszynie bramy. Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.   
+### <a name="problem-fail-tooconnect-tooon-premises-sql-server"></a>Problem: Niepowodzenie tooconnect tooon lokalnego programu SQL Server
+Uruchom **Menedżera konfiguracji bramy zarządzania danymi** hello maszyna bramy i użyj hello **Rozwiązywanie problemów** karcie tootest hello tooSQL połączenia serwera z hello bramy maszyny. Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) porady dotyczące rozwiązywania problemów z bramy/połączenia problemy związane z.   
 
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problem: Wycinki danych wejściowych znajdują się w Oczekiwanie na kiedykolwiek stanu
-Wycinki może być w **oczekiwania** stanu z różnych przyczyn. Typowe przyczyny jest to, że **zewnętrznych** nie ustawiono właściwości **true**. Wszelkie zestawu danych, który jest tworzony poza zakresem fabryki danych Azure powinien być oznaczony przez **zewnętrznych** właściwości. Ta właściwość wskazuje, że danych jest zewnętrzne i nie kopii zapasowej przez dowolnego potoki w fabryce danych. Wycinki danych są oznaczane jako **Gotowy**, gdy dane staną się dostępne w odpowiednim magazynie.
+wycinki Hello może być w **oczekiwania** stanu ukończenia toovarious powodów. Typowe przyczyny hello jest tym hello **zewnętrznych** nie ustawiono właściwości zbyt**true**. Wszelkie zestawu danych, który jest także hello poza zakresem fabryki danych Azure powinien być oznaczony przez **zewnętrznych** właściwości. Ta właściwość wskazuje, że hello danych jest zewnętrzne i nie kopii zapasowej przez dowolnego potoki w hello fabryki danych. wycinków danych Hello są oznaczone jako **gotowe** po hello dane są dostępne w magazynie odpowiednich hello.
 
-Zobacz poniższy przykład wykorzystania właściwości **external**. Opcjonalnie można określić **externalData*** podczas ustawiania zewnętrznych na wartość true.
+Zobacz poniższy przykład użycia hello hello hello **zewnętrznych** właściwości. Opcjonalnie można określić **externalData*** podczas ustawiania zewnętrznych tootrue.
 
 Zobacz [zestawów danych](data-factory-create-datasets.md) artykułu, aby uzyskać więcej informacji o tej właściwości.
 
@@ -92,34 +92,34 @@ Zobacz [zestawów danych](data-factory-create-datasets.md) artykułu, aby uzyska
 }
 ```
 
-Aby rozwiązać ten problem, dodaj właściwość **external** i opcjonalną sekcję **externalData** do definicji JSON tabeli wejściowej i utwórz tabelę ponownie.
+tooresolve hello błąd, należy dodać hello **zewnętrznych** właściwości i opcjonalnie hello **externalData** sekcji toohello JSON definicję tabeli wejściowej hello i Utwórz ponownie hello tabeli.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problem: Operacja kopiowania hybrydowego kończy się niepowodzeniem.
-Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) kroki rozwiązywania problemów z kopiowaniem do/z lokalnymi danymi z magazynu przy użyciu bramy zarządzania danymi.
+Zobacz [rozwiązywania problemów bramy](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) dla kroki problemy tootroubleshoot z kopiowanie do/z lokalnymi danymi magazynu przy użyciu hello brama zarządzania danymi.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problem: HDInsight na żądanie obsługi kończy się niepowodzeniem
-Korzystając z połączonej usługi typu HDInsightOnDemand, należy określić linkedServiceName, wskazujące do magazynu obiektów Blob Azure. Usługa Data Factory korzysta z tego magazynu do przechowywania dzienników i plików pomocniczych dla klastra HDInsight na żądanie.  Czasami inicjowanie obsługi klastra HDInsight na żądanie kończy się niepowodzeniem z następującym błędem:
+Korzystając z połączonej usługi typu HDInsightOnDemand, należy toospecify linkedServiceName, który wskazuje tooan magazynu obiektów Blob Azure. Usługi fabryka danych używa tego magazynu toostore dzienników i pliki pomocnicze dla klastra usługi HDInsight na żądanie.  Czasami udostępnianie klastra usługi HDInsight na żądanie kończy się niepowodzeniem z hello następujący błąd:
 
 ```
-Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+Failed toocreate cluster. Exception: Unable toocomplete hello cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 ```
 
-Błąd ten wskazuje zazwyczaj, że lokalizacja konta magazynu określona w parametrze linkedServiceName znajduje się w innej lokalizacji centrum danych niż lokalizacja, w której następuje inicjowanie obsługi HDInsight. Przykład: Jeśli fabrykę danych zachodnie stany USA i Magazyn Azure to w wschodnie stany USA, udostępniania na żądanie kończy się niepowodzeniem w zachodnie stany USA.
+Błąd ten zwykle wskazuje, że nie jest hello hello Lokalizacja konta magazynu hello określone w hello linkedServiceName centrum danych tej samej lokalizacji, w którym wykonywane hello HDInsight inicjowania obsługi administracyjnej. Przykład: Jeśli fabrykę danych zachodnie stany USA i hello Azure storage jest wschodnie stany USA, hello niepowodzenia inicjowania obsługi administracyjnej na żądanie w zachodnie stany USA.
 
-Ponadto występuje druga właściwość JSON o nazwie additionalLinkedServiceNames, w której można określić dodatkowe konta magazynu dla usługi HDInsight na żądanie. Te dodatkowe połączone konta magazynu musi należeć do tej samej lokalizacji co klaster usługi HDInsight lub jego wykonanie nie powiodło się ten sam błąd.
+Ponadto występuje druga właściwość JSON o nazwie additionalLinkedServiceNames, w której można określić dodatkowe konta magazynu dla usługi HDInsight na żądanie. Te dodatkowe połączone konta magazynu musi należeć do hello tej samej lokalizacji co klaster usługi HDInsight hello, lub zakończy się niepowodzeniem z hello tego samego błędu.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problem: Niestandardowe działania .NET nie powiedzie się.
 Zobacz [debugowania potoku z działań niestandardowych](data-factory-use-custom-activities.md#troubleshoot-failures) szczegółowy opis kroków.
 
-## <a name="use-azure-portal-to-troubleshoot"></a>Rozwiązywanie problemów za pomocą portalu Azure
+## <a name="use-azure-portal-tootroubleshoot"></a>Użyj tootroubleshoot portalu Azure
 ### <a name="using-portal-blades"></a>Za pomocą portalu bloków
 Zobacz [potoku Monitor](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) czynności.
 
 ### <a name="using-monitor-and-manage-app"></a>Korzystanie z aplikacji Monitorowanie i zarządzanie
 Zobacz [monitorowanie i zarządzanie nimi przy użyciu monitora i zarządzanie aplikacjami potoki fabryki danych](data-factory-monitor-manage-app.md) szczegółowe informacje.
 
-## <a name="use-azure-powershell-to-troubleshoot"></a>Rozwiązywanie problemów przy użyciu programu Azure PowerShell
-### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Rozwiązywanie problemów z błędem przy użyciu programu Azure PowerShell
+## <a name="use-azure-powershell-tootroubleshoot"></a>Użyj tootroubleshoot programu Azure PowerShell
+### <a name="use-azure-powershell-tootroubleshoot-an-error"></a>Użyj programu Azure PowerShell tootroubleshoot błąd
 Zobacz [fabryki danych monitora potoków przy użyciu programu Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) szczegółowe informacje.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

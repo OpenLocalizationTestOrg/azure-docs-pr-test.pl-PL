@@ -1,5 +1,5 @@
 ---
-title: "Metryki Monitor Azure - obsługiwanych metryki na typ zasobu | Dokumentacja firmy Microsoft"
+title: "Monitor metryki - obsługiwanych metryki na typ zasobu aaaAzure | Dokumentacja firmy Microsoft"
 description: "Lista dostępnych dla każdego typu zasobu z monitorem Azure metryk."
 author: johnkemnetz
 manager: orenr
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/05/2017
 ms.author: johnkem
-ms.openlocfilehash: 4cd72c8193d66f164d9afa53af4b5203369b32dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 66834238a1a4fcd7db1464cc023c18ee2563517a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z monitorem Azure
-Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy je w portalu, dostępu do nich za pośrednictwem interfejsu API REST lub zapytań je przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Poniżej przedstawiono pełną listę wszystkich metryki obecnie z potoku metryki Azure monitora.
+Azure Monitor zapewnia kilka sposobów toointeract metryk, takich jak wykresy je w portalu hello, dostępu do nich za pośrednictwem interfejsu API REST hello lub zapytań je przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Poniżej przedstawiono pełną listę wszystkich metryki obecnie z potoku metryki Azure monitora.
 
 > [!NOTE]
-> Inne metryki mogą być dostępne w portalu lub przy użyciu starszej wersji interfejsów API. Ta lista zawiera tylko publicznej wersji zapoznawczej metryk dostępnych za pośrednictwem publicznej wersji zapoznawczej skonsolidowanych potoku metryki Azure Monitor.
+> Inne metryki mogą być dostępne w portalu hello lub przy użyciu starszej wersji interfejsów API. Ta lista zawiera tylko publicznej wersji zapoznawczej metryk dostępnych za pośrednictwem publicznej wersji zapoznawczej hello hello skonsolidowane monitorowanie Azure metryki potoku.
 >
 >
 
@@ -38,40 +38,40 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |SuccessfullConnectionsPerSec|Udane połączenia na sekundę|CountPerSecond|Średnia|Szybkość zakończeń udane połączenie.|
 |TotalConnectionFailures|Całkowita liczba awarii|Licznik|Średnia|Całkowita liczba nieudanych prób połączenia.|
 |CurrentUserSessions|Bieżące sesje użytkowników|Licznik|Średnia|Bieżąca liczba ustanowionych sesji użytkownika.|
-|QueryPoolBusyThreads|Zapytanie z puli wątków zajęty|Licznik|Średnia|Liczba zajętych wątków w puli wątków zapytania.|
-|CommandPoolJobQueueLength|Długość kolejki zadań puli polecenia|Licznik|Średnia|Liczba zadań w kolejce polecenia puli wątków.|
-|ProcessingPoolJobQueueLength|Długość kolejki zadań przetwarzania w puli|Licznik|Średnia|Liczba zadań z systemem innym niż — I/O kolejki puli wątków przetwarzania.|
+|QueryPoolBusyThreads|Zapytanie z puli wątków zajęty|Licznik|Średnia|Liczba wątków zajęty w puli wątków hello zapytania.|
+|CommandPoolJobQueueLength|Długość kolejki zadań puli polecenia|Licznik|Średnia|Liczba zadań w kolejce hello puli wątków hello polecenia.|
+|ProcessingPoolJobQueueLength|Długość kolejki zadań przetwarzania w puli|Licznik|Średnia|Liczba innych niż — I/O zadań w kolejce hello hello przetwarzania puli wątków.|
 |CurrentConnections|Połączenia: Bieżąca liczba połączeń|Licznik|Średnia|Bieżąca liczba połączeń klienta.|
-|CleanerCurrentPrice|Pamięci: Czyszczący bieżąca cena|Licznik|Średnia|Bieżąca cena pamięci $/ byte/godzina znormalizowane do 1000.|
-|CleanerMemoryShrinkable|Pamięci: Zmniejszania pamięci czyszczący|Bajty|Średnia|Ilość pamięci w bajtach, mogą ulec czyszcząca przeczyszczanie w tle.|
-|CleanerMemoryNonshrinkable|Pamięci: Czyszczący nonshrinkable pamięci|Bajty|Średnia|Ilość pamięci w bajtach, nie może ulec czyszcząca przeczyszczanie w tle.|
-|MemoryUsage|Pamięci: Użycie pamięci|Bajty|Średnia|Użycie pamięci przez proces serwera jako używaną przy obliczaniu czyszczący cena pamięci. Taki sam jak licznika Process\PrivateBytes powiększony o rozmiar danych mapowanych na pamięć, ignorując wszystkie pamięci, która została zamapowana lub przydzielone przez aparat analizy w pamięci xVelocity (VertiPaq) przekracza Limit pamięci silnik xVelocity.|
+|CleanerCurrentPrice|Pamięci: Czyszczący bieżąca cena|Licznik|Średnia|Bieżąca cena pamięć, czas $/ bajtami, too1000 znormalizowaną.|
+|CleanerMemoryShrinkable|Pamięci: Zmniejszania pamięci czyszczący|Bajty|Średnia|Ilość pamięci w bajtach toopurging podmiotu przez tła hello oczyszczarki.|
+|CleanerMemoryNonshrinkable|Pamięci: Czyszczący nonshrinkable pamięci|Bajty|Średnia|Ilość pamięci w bajtach nie podmiotu toopurging przez tła hello oczyszczarki.|
+|MemoryUsage|Pamięci: Użycie pamięci|Bajty|Średnia|Użycie pamięci przez proces serwera hello jako używaną przy obliczaniu czyszczący cena pamięci. Równa toocounter Process\PrivateBytes plus hello rozmiar danych mapowanych na pamięć, ignorowanie żadnych pamięci, która została zamapowana lub przydzielone przez aparat analizy w pamięci xVelocity hello (VertiPaq) poza aparat xVelocity hello Limit pamięci.|
 |MemoryLimitHard|Pamięci: Twarde Limit pamięci|Bajty|Średnia|Limit pamięci twardym z pliku konfiguracji.|
 |MemoryLimitHigh|Pamięć: Wysoki Limit pamięci|Bajty|Średnia|Limit pamięci wysokiej z pliku konfiguracji.|
 |MemoryLimitLow|Pamięci: Niski Limit pamięci|Bajty|Średnia|Limit pamięci z pliku konfiguracji.|
 |MemoryLimitVertiPaq|Pamięci: VertiPaq Limit pamięci|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|
 |Przydział|Pamięć: limit przydziału|Bajty|Średnia|Limit przydziału pamięci, w bajtach. Limit przydziału pamięci jest nazywana rezerwacji pamięci grant lub pamięci.|
 |QuotaBlocked|Pamięci: Zablokowane przydziału|Licznik|Średnia|Bieżąca liczba żądań przydziału, które są zablokowane, dopóki nie są zwalniane innych przydziałów pamięci.|
-|VertiPaqNonpaged|Pamięci: Niestronicowana VertiPaq|Bajty|Średnia|Zablokowane bajtów pamięci zestawu do użycia przez aparat w pamięci roboczego.|
+|VertiPaqNonpaged|Pamięci: Niestronicowana VertiPaq|Bajty|Średnia|Bajtów pamięci zablokowany w zestawie roboczym hello do użytku przez hello w pamięci aparatu.|
 |VertiPaqPaged|Pamięci: Stronicowanej VertiPaq|Bajty|Średnia|Liczba bajtów stronicowanej pamięci dla danych w pamięci.|
 |RowsReadPerSec|Przetwarzanie: Wiersze do odczytu na sekundę|CountPerSecond|Średnia|Liczba wierszy odczytywać wszystkie relacyjnych baz danych.|
 |RowsConvertedPerSec|Przetwarzanie: Wierszy przekonwertowane na sekundę|CountPerSecond|Średnia|Liczba wierszy przekonwertować podczas przetwarzania.|
 |RowsWrittenPerSec|Przetwarzanie: Wierszy, zapisany na sekundę|CountPerSecond|Średnia|Liczba wierszy, zapisany podczas przetwarzania.|
-|CommandPoolBusyThreads|Wątki: Polecenie zajęty z puli wątków|Licznik|Średnia|Liczba zajętych wątków w puli wątków polecenia.|
-|CommandPoolIdleThreads|Wątków: Polecenie puli wątków bezczynności|Licznik|Średnia|Liczba bezczynności wątków w puli wątków polecenia.|
-|LongParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków Long|Licznik|Średnia|Liczba zajętych wątków w puli wątków długo analizy.|
-|LongParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków Long|Licznik|Średnia|Liczba bezczynności wątków w puli wątków długo analizy.|
-|LongParsingJobQueueLength|Wątki: Czas analizowania długość kolejki zadań|Licznik|Średnia|Liczba zadań w kolejce długo analizy puli wątków.|
-|ProcessingPoolBusyIOJobThreads|Wątki: Przetwarzania puli wątków zajęty zadania we/wy|Licznik|Średnia|Liczba wątków uruchomionych zadań we/wy w puli wątków przetwarzania.|
-|ProcessingPoolBusyNonIOThreads|Wątków: Zajęty z puli wątków nie I/O przetwarzania|Licznik|Średnia|Liczba wątków uruchomionych zadań nie I/O w puli wątków przetwarzania.|
-|ProcessingPoolIOJobQueueLength|Wątki: Przetwarzanie puli długość kolejki zadania we/wy|Licznik|Średnia|Liczba operacji We/Wy zadań w kolejce puli wątków przetwarzania.|
-|ProcessingPoolIdleIOJobThreads|Wątki: Przetwarzania puli wątków bezczynności zadania we/wy|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w puli wątków przetwarzania.|
-|ProcessingPoolIdleNonIOThreads|Wątki: Przetwarzanie bezczynności z puli wątków nie I/E|Licznik|Średnia|Liczba bezczynności wątków w puli wątków przetwarzania dedykowane dla zadań innych niż — I/O.|
-|QueryPoolIdleThreads|Wątków: Wątki bezczynności puli zapytania|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w puli wątków przetwarzania.|
-|QueryPoolJobQueueLength|Wątków: Lengt kolejki zadań puli zapytania|Licznik|Średnia|Liczba zadań w kolejce zapytań puli wątków.|
-|ShortParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków krótkiej|Licznik|Średnia|Liczba wątków zajęty w krótkim analizy puli wątków.|
-|ShortParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków krótkiej|Licznik|Średnia|Liczba wątków bezczynności w krótkim analizy puli wątków.|
-|ShortParsingJobQueueLength|Wątków: Podczas analizowania długość kolejki zadań krótkiej|Licznik|Średnia|Liczba zadań w kolejce krótkich analizy puli wątków.|
+|CommandPoolBusyThreads|Wątki: Polecenie zajęty z puli wątków|Licznik|Średnia|Liczba zajętych wątków w puli wątków polecenia hello.|
+|CommandPoolIdleThreads|Wątków: Polecenie puli wątków bezczynności|Licznik|Średnia|Liczba bezczynności wątków w puli wątków hello polecenia.|
+|LongParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków Long|Licznik|Średnia|Liczba wątków zajęty w hello długo analizowania puli wątków.|
+|LongParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków Long|Licznik|Średnia|Liczba wątków bezczynności w hello długo analizowania puli wątków.|
+|LongParsingJobQueueLength|Wątki: Czas analizowania długość kolejki zadań|Licznik|Średnia|Liczba zadań w kolejce hello hello długo analizowania puli wątków.|
+|ProcessingPoolBusyIOJobThreads|Wątki: Przetwarzania puli wątków zajęty zadania we/wy|Licznik|Średnia|Liczba wątków uruchomionych zadań we/wy w hello przetwarzania puli wątków.|
+|ProcessingPoolBusyNonIOThreads|Wątków: Zajęty z puli wątków nie I/O przetwarzania|Licznik|Średnia|Liczba wątków uruchomionych zadań nie I/O w hello przetwarzania puli wątków.|
+|ProcessingPoolIOJobQueueLength|Wątki: Przetwarzanie puli długość kolejki zadania we/wy|Licznik|Średnia|Liczba operacji We/Wy zadań w kolejce hello hello przetwarzania puli wątków.|
+|ProcessingPoolIdleIOJobThreads|Wątki: Przetwarzania puli wątków bezczynności zadania we/wy|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w hello przetwarzania puli wątków.|
+|ProcessingPoolIdleNonIOThreads|Wątki: Przetwarzanie bezczynności z puli wątków nie I/E|Licznik|Średnia|Liczba bezczynności wątków w puli wątków przetwarzania hello dedykowane toonon-I/O zadania.|
+|QueryPoolIdleThreads|Wątków: Wątki bezczynności puli zapytania|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w hello przetwarzania puli wątków.|
+|QueryPoolJobQueueLength|Wątków: Lengt kolejki zadań puli zapytania|Licznik|Średnia|Liczba zadań w kolejce hello hello zapytania w puli wątków.|
+|ShortParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków krótkiej|Licznik|Średnia|Liczba wątków zajęty w hello krótkich analizowania puli wątków.|
+|ShortParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków krótkiej|Licznik|Średnia|Liczba wątków bezczynności w hello krótkich analizowania puli wątków.|
+|ShortParsingJobQueueLength|Wątków: Podczas analizowania długość kolejki zadań krótkiej|Licznik|Średnia|Liczba zadań w kolejce hello hello krótkich analizowania puli wątków.|
 |memory_thrashing_metric|Wykonywania niepotrzebnych replik pamięci|Procent|Średnia|Średnia pamięci wykonywania niepotrzebnych replik.|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
@@ -88,20 +88,20 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|CoreCount|Dedykowany liczby rdzeni|Licznik|Łącznie|Całkowita liczba rdzeni dedykowanego konta usługi partia zadań|
-|TotalNodeCount|Liczba dedykowanych węzłów|Licznik|Łącznie|Całkowita liczba dedykowanych węzłów w ramach konta usługi partia zadań|
-|LowPriorityCoreCount|Liczby rdzeni LowPriority|Licznik|Łącznie|Całkowita liczba rdzeni niskiego priorytetu konta usługi partia zadań|
-|TotalLowPriorityNodeCount|Liczba węzłów o niskim priorytecie|Licznik|Łącznie|Całkowita liczba węzłów niskiego priorytetu w ramach konta usługi partia zadań|
+|CoreCount|Dedykowany liczby rdzeni|Licznik|Łącznie|Łączna liczba dedykowanych rdzeni hello konta usługi partia zadań|
+|TotalNodeCount|Liczba dedykowanych węzłów|Licznik|Łącznie|Całkowita liczba dedykowanych węzłów hello konta usługi partia zadań|
+|LowPriorityCoreCount|Liczby rdzeni LowPriority|Licznik|Łącznie|Całkowita liczba rdzeni niskiego priorytetu hello konta usługi partia zadań|
+|TotalLowPriorityNodeCount|Liczba węzłów o niskim priorytecie|Licznik|Łącznie|Całkowita liczba węzłów niskiego priorytetu w hello konta usługi partia zadań|
 |CreatingNodeCount|Tworzenie liczba węzłów|Licznik|Łącznie|Liczba węzłów tworzona|
 |StartingNodeCount|Początkowa liczba węzłów|Licznik|Łącznie|Liczba węzłów uruchamiania|
-|WaitingForStartTaskNodeCount|Liczba węzłów zadań Start oczekiwania|Licznik|Łącznie|Liczba węzłów oczekiwanie na zakończenie zadania Start|
-|StartTaskFailedNodeCount|Zadania uruchamiania nie powiodło się liczba węzłów|Licznik|Łącznie|Liczba węzłów, gdzie uruchomić zadanie nie powiodło się|
+|WaitingForStartTaskNodeCount|Liczba węzłów zadań Start oczekiwania|Licznik|Łącznie|Liczba węzłów oczekiwanie na powitania Rozpocznij zadanie toocomplete|
+|StartTaskFailedNodeCount|Zadania uruchamiania nie powiodło się liczba węzłów|Licznik|Łącznie|Liczba węzłów, gdzie hello Rozpocznij zadanie nie powiodło się|
 |IdleNodeCount|Liczba węzłów w stanie bezczynności|Licznik|Łącznie|Liczba węzłów bezczynności|
 |OfflineNodeCount|Liczba węzłów w trybie offline|Licznik|Łącznie|Liczba węzłów w trybie offline|
 |RebootingNodeCount|Liczba węzłów ponowny rozruch|Licznik|Łącznie|Liczba ponowny rozruch węzłów|
 |ReimagingNodeCount|Liczba węzłów ponownej instalacji systemu|Licznik|Łącznie|Liczba węzłów, ponownej instalacji systemu|
 |RunningNodeCount|Liczba węzłów|Licznik|Łącznie|Liczba uruchomionych węzłach|
-|LeavingPoolNodeCount|Pozostawienie liczba węzłów w puli|Licznik|Łącznie|Liczba węzłów, pozostawiając puli|
+|LeavingPoolNodeCount|Pozostawienie liczba węzłów w puli|Licznik|Łącznie|Liczba węzłów, pozostawiając hello puli|
 |UnusableNodeCount|Nie można użyć liczba węzłów|Licznik|Łącznie|Liczba węzłów bezużyteczne|
 |PreemptedNodeCount|Wywłaszczone liczba węzłów|Licznik|Łącznie|Liczba węzłów przeniesiona|
 |TaskStartEvent|Zadanie rozpoczęcia zdarzenia|Licznik|Łącznie|Całkowita liczba zadań, które zostały uruchomione|
@@ -301,11 +301,11 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Wartość procentowa obliczeniowe przydzielone jednostki, które są obecnie używane przez maszyny wirtualne|
-|Sieci w|Sieci w|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|
-|Sieci limit|Sieci limit|Bajty|Łącznie|Liczba bajtów na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|
+|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Procent Hello obliczeniowe przydzielone jednostki, które są obecnie używane przez hello maszyny wirtualne|
+|Sieci w|Sieci w|Bajty|Łącznie|Witaj liczba bajtów odebranych na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch przychodzący)|
+|Sieci limit|Sieci limit|Bajty|Łącznie|Witaj liczbę bajtów na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch wychodzący)|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Całkowita liczba bajtów do odczytu z dysku podczas okresu monitorowania|
-|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisywanych na dysku podczas okresu monitorowania|
+|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisanych toodisk podczas okresu monitorowania|
 |Dysk operacje odczytu/s|Dysk operacje odczytu/s|CountPerSecond|Średnia|Czas odczytu dyskowego IOPS|
 |Operacje zapisu dysku/s|Operacje zapisu dysku/s|CountPerSecond|Średnia|Zapisu dyskowego IOPS|
 
@@ -313,11 +313,11 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Wartość procentowa obliczeniowe przydzielone jednostki, które są obecnie używane przez maszyny wirtualne|
-|Sieci w|Sieci w|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|
-|Sieci limit|Sieci limit|Bajty|Łącznie|Liczba bajtów na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|
+|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Procent Hello obliczeniowe przydzielone jednostki, które są obecnie używane przez hello maszyny wirtualne|
+|Sieci w|Sieci w|Bajty|Łącznie|Witaj liczba bajtów odebranych na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch przychodzący)|
+|Sieci limit|Sieci limit|Bajty|Łącznie|Witaj liczbę bajtów na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch wychodzący)|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Całkowita liczba bajtów do odczytu z dysku podczas okresu monitorowania|
-|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisywanych na dysku podczas okresu monitorowania|
+|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisanych toodisk podczas okresu monitorowania|
 |Dysk operacje odczytu/s|Dysk operacje odczytu/s|CountPerSecond|Średnia|Czas odczytu dyskowego IOPS|
 |Operacje zapisu dysku/s|Operacje zapisu dysku/s|CountPerSecond|Średnia|Zapisu dyskowego IOPS|
 
@@ -325,11 +325,11 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Wartość procentowa obliczeniowe przydzielone jednostki, które są obecnie używane przez maszyny wirtualne|
-|Sieci w|Sieci w|Bajty|Łącznie|Liczba bajtów odebranych na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch przychodzący)|
-|Sieci limit|Sieci limit|Bajty|Łącznie|Liczba bajtów na wszystkich interfejsach sieciowych przez maszyny wirtualne (ruch wychodzący)|
+|Procent procesora CPU|Procent procesora CPU|Procent|Średnia|Procent Hello obliczeniowe przydzielone jednostki, które są obecnie używane przez hello maszyny wirtualne|
+|Sieci w|Sieci w|Bajty|Łącznie|Witaj liczba bajtów odebranych na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch przychodzący)|
+|Sieci limit|Sieci limit|Bajty|Łącznie|Witaj liczbę bajtów na wszystkich interfejsach sieciowych przez hello maszyn wirtualnych (ruch wychodzący)|
 |Bajty odczytu dysku|Bajty odczytu dysku|Bajty|Łącznie|Całkowita liczba bajtów do odczytu z dysku podczas okresu monitorowania|
-|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisywanych na dysku podczas okresu monitorowania|
+|Bajty zapisu dysku|Bajty zapisu dysku|Bajty|Łącznie|Całkowita liczba bajtów zapisanych toodisk podczas okresu monitorowania|
 |Dysk operacje odczytu/s|Dysk operacje odczytu/s|CountPerSecond|Średnia|Czas odczytu dyskowego IOPS|
 |Operacje zapisu dysku/s|Operacje zapisu dysku/s|CountPerSecond|Średnia|Zapisu dyskowego IOPS|
 
@@ -407,58 +407,58 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Próby wysłania wiadomości telemetrii|Licznik|Łącznie|Liczba komunikatów telemetrii urządzenia do chmury próby wysłania do Centrum IoT|
-|d2c.telemetry.ingress.SUCCESS|Wysłane wiadomości telemetrii|Licznik|Łącznie|Liczba komunikatów telemetrii urządzenia do chmury pomyślnie wysłane do Centrum IoT|
-|c2d.Commands.egress.COMPLETE.SUCCESS|Polecenia zakończona|Licznik|Łącznie|Liczba poleceń chmury do urządzenia, które zakończyło się powodzeniem, urządzenia|
-|c2d.Commands.egress.Abandon.SUCCESS|Porzucone poleceń|Licznik|Łącznie|Liczba poleceń chmury do urządzenia porzucone przez urządzenie|
-|c2d.Commands.egress.Reject.SUCCESS|Polecenia odrzucone|Licznik|Łącznie|Liczba odrzuconych przez urządzenie poleceń chmury do urządzenia|
-|devices.totalDevices|Łączna liczba urządzeń|Licznik|Łącznie|Liczba urządzeń zarejestrowanych do Centrum IoT|
-|devices.connectedDevices.allProtocol|Połączonych urządzeń|Licznik|Łącznie|Liczba urządzeń połączonych z Centrum IoT|
-|d2c.telemetry.egress.SUCCESS|Dostarczane wiadomości telemetrii|Licznik|Łącznie|Liczba komunikatów pomyślnie zostały zapisane do punktów końcowych (łącznie)|
-|d2c.telemetry.egress.dropped|Porzucone komunikaty|Licznik|Łącznie|Liczba wiadomości porzuconych z powodu braku punktu końcowego dostarczania|
-|d2c.telemetry.egress.orphaned|Oddzielone wiadomości|Licznik|Łącznie|Aktualna liczba wiadomości nie zgodnych żadnych tras, łącznie z rezerwowego trasy|
-|d2c.telemetry.egress.invalid|Nieprawidłowy wiadomości|Licznik|Łącznie|Aktualna liczba wiadomości nie są dostarczane z powodu niezgodności z punktu końcowego|
-|d2c.telemetry.egress.Fallback|Wiadomości pasujące rezerwowy warunku|Licznik|Łącznie|Liczba komunikatów zapisanych do rezerwowego punktu końcowego|
-|d2c.endpoints.egress.eventHubs|Komunikaty dostarczone do Centrum zdarzeń punkty końcowe|Licznik|Łącznie|Liczba wiadomości zostały pomyślnie zapisane punkty końcowe Centrum zdarzeń|
-|d2c.endpoints.latency.eventHubs|Opóźnienie komunikat dla punktów końcowych Centrum zdarzeń|w milisekundach|Średnia|Średnie opóźnienie między komunikat przychodzący z Centrum IoT i komunikat przychodzący do punktu końcowego Centrum zdarzeń, w milisekundach|
-|d2c.endpoints.egress.serviceBusQueues|Komunikaty dostarczone do punktów końcowych z kolejką usługi Service Bus|Licznik|Łącznie|Liczba wiadomości kolejką usługi Service Bus punkty końcowe zostały pomyślnie zapisane|
-|d2c.endpoints.latency.serviceBusQueues|Czas oczekiwania na wiadomość dla punktów końcowych z kolejką usługi Service Bus|w milisekundach|Średnia|Średnie opóźnienie między komunikat przychodzący z Centrum IoT i komunikat przychodzący do punktu końcowego kolejką usługi Service Bus, w milisekundach|
-|d2c.endpoints.egress.serviceBusTopics|Komunikaty dostarczone do punktów końcowych temat magistrali usług|Licznik|Łącznie|Liczba wiadomości zostały pomyślnie zapisane punkty końcowe temat magistrali usług|
-|d2c.endpoints.latency.serviceBusTopics|Opóźnienie komunikat dla punktów końcowych temat magistrali usług|w milisekundach|Średnia|Średnie opóźnienie między komunikat przychodzący z Centrum IoT i komunikat przychodzący do punktu końcowego Service Bus tematu w milisekundach|
-|d2c.endpoints.egress.builtIn.events|Wiadomość dostarczona do wbudowanej punktu końcowego (wiadomości/zdarzeń)|Licznik|Łącznie|Liczba komunikatów wbudowanym punktem końcowym (wiadomości/zdarzeń) zostały pomyślnie zapisane|
-|d2c.endpoints.latency.builtIn.events|Czas oczekiwania wiadomości na wbudowanym punktem końcowym (wiadomości/zdarzeń)|w milisekundach|Średnia|Średnie opóźnienie między komunikat przychodzący z Centrum IoT i transfer danych przychodzących wiadomości na wbudowanym punktem końcowym (wiadomości/zdarzeń), w milisekundach |
-|d2c.Twin.Read.SUCCESS|Pomyślne dwie odczytuje z urządzeń|Licznik|Łącznie|Liczba wszystkich pomyślnych odczyty dwie inicjowanych przez urządzenie.|
-|d2c.Twin.Read.failure|Nie powiodło się dwie odczyty z urządzeń|Licznik|Łącznie|Liczba wszystkich nie odczyty dwie inicjowanych przez urządzenie.|
-|d2c.Twin.Read.size|Rozmiar odpowiedzi odczytów dwie z urządzeń|Bajty|Średnia|Średnia, min i max z wszystkie udane, inicjowanych przez urządzenie dwie odczytów.|
-|d2c.Twin.Update.SUCCESS|Pomyślne dwie aktualizacje z urządzeń|Licznik|Łącznie|Liczba wszystkich pomyślnych aktualizacji dwie inicjowanych przez urządzenie.|
-|d2c.Twin.Update.failure|Nie powiodło się dwie aktualizacje z urządzeń|Licznik|Łącznie|Liczba wszystkich nie aktualizacje dwie inicjowanych przez urządzenie.|
-|d2c.Twin.Update.size|Rozmiar aktualizacji dwie z urządzeń|Bajty|Średnia|Średnia, minimum i maksymalny rozmiar wszystkich pomyślnych, inicjowanych przez urządzenie dwie aktualizacji.|
-|c2d.Methods.SUCCESS|Pomyślne bezpośrednie wywołania metod|Licznik|Łącznie|Liczba wszystkich pomyślnych wywołań metody bezpośredniego.|
-|c2d.Methods.failure|Nie powiodło się bezpośrednie wywołania metod|Licznik|Łącznie|Liczba wszystkich nie wywołania metody bezpośredniego.|
-|c2d.Methods.requestSize|Rozmiar żądania bezpośrednie wywołania metod|Bajty|Średnia|Średnia, min i max wszystkich pomyślnych żądań metoda bezpośrednia.|
-|c2d.Methods.responseSize|Rozmiar odpowiedzi bezpośrednie wywołania metod|Bajty|Średnia|Średnia, minimum i maksimum wszystkie udane metoda bezpośrednia odpowiedzi.|
-|c2d.Twin.Read.SUCCESS|Pomyślne dwie odczytuje z zaplecza|Licznik|Łącznie|Liczba wszystkich pomyślnie zainicjował zakończenia wstecz dwie odczytuje.|
-|c2d.Twin.Read.failure|Nie powiodło się dwie odczytuje z zaplecza|Licznik|Łącznie|Liczba wszystkich nie odczyty wstecz zakończenia inicjowane przez dwie.|
-|c2d.Twin.Read.size|Rozmiar odpowiedzi odczytów dwie z wewnętrznego|Bajty|Średnia|Średnia, min i max z wszystkie udane, Wstecz zakończenia inicjowane przez dwie odczytów.|
-|c2d.Twin.Update.SUCCESS|Pomyślne dwie aktualizacje z wewnętrznego|Licznik|Łącznie|Liczba wszystkich pomyślnych aktualizacji inicjowane zakończenia wstecz dwie.|
-|c2d.Twin.Update.failure|Nie powiodło się dwie aktualizacje z wewnętrznego|Licznik|Łącznie|Liczba wszystkich nie powiodło się wstecz zakończenia inicjowane przez dwie aktualizacje.|
-|c2d.Twin.Update.size|Rozmiar aktualizacji dwie z wewnętrznego|Bajty|Średnia|Średnia, minimum i maksymalny rozmiar wszystkich pomyślnych, Wstecz zakończenia inicjowane przez dwie aktualizacji.|
-|twinQueries.success|Dwie pomyślne zapytania|Licznik|Łącznie|Liczba wszystkich zapytań dwie powiodło się.|
-|twinQueries.failure|Nie powiodło się dwie zapytań|Licznik|Łącznie|Liczba wszystkich zapytań dwie nie powiodło się.|
-|twinQueries.resultSize|Rozmiar wyników zapytania dwie|Bajty|Średnia|Średnia, minimum i maksymalny rozmiar wyników wszystkich zapytań dwie powiodło się.|
-|jobs.createTwinUpdateJob.success|Pomyślne utworzenie kont dwie aktualizacji zadań|Licznik|Łącznie|Liczba wszystkich pomyślnym utworzeniu zadania aktualizacji dwie.|
-|jobs.createTwinUpdateJob.failure|Nie powiodło się tworzenie dwie aktualizacji zadań|Licznik|Łącznie|Liczba wszystkich nie powiodło się tworzenie zadań aktualizacji dwie.|
-|jobs.createDirectMethodJob.success|Pomyślne tworzenia zadań wywołania — metoda|Licznik|Łącznie|Liczba wszystkich pomyślnym utworzeniu zadania wywołania metody bezpośredniego.|
-|jobs.createDirectMethodJob.failure|Nie powiodło się tworzenie zadań wywołania — metoda|Licznik|Łącznie|Liczba wszystkich nie powiodło się tworzenie zadań wywołania metody bezpośredniego.|
-|jobs.listJobs.success|Pomyślnych wywołań do listy zadań|Licznik|Łącznie|Liczba wszystkich pomyślnych wywołań do listy zadań.|
-|jobs.listJobs.failure|Nie powiodło się wywołania do listy zadań|Licznik|Łącznie|Liczba zakończonych niepowodzeniem wywołania do listy zadań.|
-|jobs.cancelJob.success|Anulowane zadania powiodło się|Licznik|Łącznie|Liczba wszystkich pomyślnych wywołań, aby anulować zadanie.|
-|jobs.cancelJob.failure|Anulowanie zadania nie powiodło się|Licznik|Łącznie|Liczba wszystkich wywołań nie powiodło się, aby anulować zadanie.|
-|jobs.queryJobs.success|Pomyślnie wykonane zadanie zapytań|Licznik|Łącznie|Liczba wszystkich pomyślnych wywołań do zadań zapytania.|
-|jobs.queryJobs.failure|Nie powiodło się zadanie odpytuje|Licznik|Łącznie|Liczba wszystkie wywołania zakończone niepowodzeniem zadania zapytania.|
-|Jobs.Completed|Zadania ukończone|Licznik|Łącznie|Liczba wszystkich zakończonych zadań.|
-|Jobs.failed|Zadania zakończone niepowodzeniem|Licznik|Łącznie|Liczba wszystkie zadania zakończone niepowodzeniem.|
-|d2c.telemetry.ingress.sendThrottle|Liczba błędów ograniczania przepustowości|Licznik|Łącznie|Ogranicza liczbę błędów ograniczania przepustowości z powodu przepływności urządzenia|
+|d2c.telemetry.ingress.allProtocol|Próby wysłania wiadomości telemetrii|Licznik|Łącznie|Liczba toobe próba telemetrii urządzenia do chmury wiadomości wysłanych tooyour Centrum IoT|
+|d2c.telemetry.ingress.SUCCESS|Wysłane wiadomości telemetrii|Licznik|Łącznie|Liczba komunikatów telemetrii urządzenia do chmury wysłana pomyślnie tooyour Centrum IoT|
+|c2d.Commands.egress.COMPLETE.SUCCESS|Polecenia zakończona|Licznik|Łącznie|Liczba poleceń chmury do urządzenia zakończyło się powodzeniem, hello urządzenia|
+|c2d.Commands.egress.Abandon.SUCCESS|Porzucone poleceń|Licznik|Łącznie|Porzucone przez urządzenie hello polecenia chmury do urządzenia|
+|c2d.Commands.egress.Reject.SUCCESS|Polecenia odrzucone|Licznik|Łącznie|Liczba odrzuconych przez urządzenie hello poleceń chmury do urządzenia|
+|devices.totalDevices|Łączna liczba urządzeń|Licznik|Łącznie|Liczba urządzeń zarejestrowanych w Centrum IoT tooyour|
+|devices.connectedDevices.allProtocol|Połączonych urządzeń|Licznik|Łącznie|Liczba urządzeń podłączonych tooyour Centrum IoT|
+|d2c.telemetry.egress.SUCCESS|Dostarczane wiadomości telemetrii|Licznik|Łącznie|Liczba komunikatów pomyślnie zostały napisane tooendpoints (łącznie)|
+|d2c.telemetry.egress.dropped|Porzucone komunikaty|Licznik|Łącznie|Liczba wiadomości porzuconych z powodu braku punktu końcowego dostarczania hello|
+|d2c.telemetry.egress.orphaned|Oddzielone wiadomości|Licznik|Łącznie|Hello liczba wiadomości nie zgodnych tras, wszelkie tym hello rezerwowy trasy|
+|d2c.telemetry.egress.invalid|Nieprawidłowy wiadomości|Licznik|Łącznie|Witaj liczba wiadomości nie dostarczyć powodu tooincompatibility z punktem końcowym hello|
+|d2c.telemetry.egress.Fallback|Wiadomości pasujące rezerwowy warunku|Licznik|Łącznie|Liczba komunikatów zapisanych toohello rezerwowego punktu końcowego|
+|d2c.endpoints.egress.eventHubs|Komunikaty dostarczone tooEvent punkty końcowe Centrum|Licznik|Łącznie|Liczba wiadomości zostały pomyślnie napisane tooEvent punkty końcowe Centrum|
+|d2c.endpoints.latency.eventHubs|Opóźnienie komunikat dla punktów końcowych Centrum zdarzeń|w milisekundach|Średnia|Witaj średnie opóźnienie między centrum IoT toohello ruch przychodzący komunikat i komunikat przychodzący do punktu końcowego Centrum zdarzeń, w milisekundach|
+|d2c.endpoints.egress.serviceBusQueues|Komunikaty dostarczone tooService kolejki magistrali punkty końcowe|Licznik|Łącznie|Liczba punktów końcowych kolejki magistrali tooService zapisany pomyślnie zostały wiadomości|
+|d2c.endpoints.latency.serviceBusQueues|Czas oczekiwania na wiadomość dla punktów końcowych z kolejką usługi Service Bus|w milisekundach|Średnia|Witaj średnie opóźnienie między centrum IoT toohello ruch przychodzący komunikat i komunikat przychodzący do punktu końcowego kolejką usługi Service Bus, w milisekundach|
+|d2c.endpoints.egress.serviceBusTopics|Komunikaty dostarczone tooService tematu Bus punkty końcowe|Licznik|Łącznie|Liczba wiadomości były punkty końcowe tematu Bus tooService pomyślnie zapisany|
+|d2c.endpoints.latency.serviceBusTopics|Opóźnienie komunikat dla punktów końcowych temat magistrali usług|w milisekundach|Średnia|Witaj średnie opóźnienie między centrum IoT toohello ruch przychodzący komunikat i komunikat przychodzący do punktu końcowego Service Bus tematu w milisekundach|
+|d2c.endpoints.egress.builtIn.events|Komunikaty dostarczone toohello wbudowanym punktem końcowym (wiadomości/zdarzeń)|Licznik|Łącznie|Liczba wiadomości zostały pomyślnie napisane toohello wbudowanym punktem końcowym (wiadomości/zdarzeń)|
+|d2c.endpoints.latency.builtIn.events|Opóźnienie wiadomość hello wbudowanym punktem końcowym (wiadomości/zdarzeń)|w milisekundach|Średnia|Witaj średnie opóźnienie między centrum IoT toohello ruch przychodzący komunikat i transfer danych przychodzących wiadomości do hello wbudowanym punktem końcowym (wiadomości/zdarzeń), w milisekundach |
+|d2c.Twin.Read.SUCCESS|Pomyślne dwie odczytuje z urządzeń|Licznik|Łącznie|odczytuje Hello liczba wszystkie udane dwie inicjowanych przez urządzenie.|
+|d2c.Twin.Read.failure|Nie powiodło się dwie odczyty z urządzeń|Licznik|Łącznie|Witaj liczbę wszystkich nie odczyty dwie inicjowanych przez urządzenie.|
+|d2c.Twin.Read.size|Rozmiar odpowiedzi odczytów dwie z urządzeń|Bajty|Średnia|Hello średnia, minimum i maksimum dla wszystkich pomyślnych inicjowanych przez urządzenie dwie odczytów.|
+|d2c.Twin.Update.SUCCESS|Pomyślne dwie aktualizacje z urządzeń|Licznik|Łącznie|Liczba Hello wszystkie udane aktualizacji dwie inicjowanych przez urządzenie.|
+|d2c.Twin.Update.failure|Nie powiodło się dwie aktualizacje z urządzeń|Licznik|Łącznie|Hello liczbę wszystkich nieudanych aktualizacji dwie inicjowanych przez urządzenie.|
+|d2c.Twin.Update.size|Rozmiar aktualizacji dwie z urządzeń|Bajty|Średnia|Hello średnia, minimum i maksymalny rozmiar wszystkich pomyślnych inicjowanych przez urządzenie dwie aktualizacji.|
+|c2d.Methods.SUCCESS|Pomyślne bezpośrednie wywołania metod|Licznik|Łącznie|Liczba Hello wszystkich pomyślnych wywołań metody bezpośredniego.|
+|c2d.Methods.failure|Nie powiodło się bezpośrednie wywołania metod|Licznik|Łącznie|Witaj liczbę wszystkich nie wywołania metody bezpośredniego.|
+|c2d.Methods.requestSize|Rozmiar żądania bezpośrednie wywołania metod|Bajty|Średnia|Średnia Hello, min i max wszystkich pomyślnych żądań metoda bezpośrednia.|
+|c2d.Methods.responseSize|Rozmiar odpowiedzi bezpośrednie wywołania metod|Bajty|Średnia|Średnia Hello, min i max wszystkich odpowiedzi metoda bezpośrednia powiodło się.|
+|c2d.Twin.Read.SUCCESS|Pomyślne dwie odczytuje z zaplecza|Licznik|Łącznie|odczytuje Hello liczba wszystkie udane dwie inicjowane zakończenia Wstecz.|
+|c2d.Twin.Read.failure|Nie powiodło się dwie odczytuje z zaplecza|Licznik|Łącznie|Odczyty wstecz zakończenia inicjowane przez dwie Hello liczbę wszystkich, nie powiodło się.|
+|c2d.Twin.Read.size|Rozmiar odpowiedzi odczytów dwie z wewnętrznego|Bajty|Średnia|Hello średnia, minimum i maksimum o wszystkie udane wstecz zakończenia inicjowane przez dwie odczytów.|
+|c2d.Twin.Update.SUCCESS|Pomyślne dwie aktualizacje z wewnętrznego|Licznik|Łącznie|Liczba Hello wszystkie udane aktualizacji inicjowane zakończenia wstecz dwie.|
+|c2d.Twin.Update.failure|Nie powiodło się dwie aktualizacje z wewnętrznego|Licznik|Łącznie|Hello liczbę wszystkich nie powiodło się wstecz zakończenia inicjowane przez dwie aktualizacji.|
+|c2d.Twin.Update.size|Rozmiar aktualizacji dwie z wewnętrznego|Bajty|Średnia|Hello średnia, minimum i maksymalny rozmiar wszystkich pomyślnych wstecz zakończenia inicjowane przez dwie aktualizacji.|
+|twinQueries.success|Dwie pomyślne zapytania|Licznik|Łącznie|Liczba Hello wszystkie zapytania dwie powiodło się.|
+|twinQueries.failure|Nie powiodło się dwie zapytań|Licznik|Łącznie|Liczba Hello wszystkie zapytania dwie nie powiodło się.|
+|twinQueries.resultSize|Rozmiar wyników zapytania dwie|Bajty|Średnia|Średnia Hello, min i max hello wynik rozmiaru wszystkich zapytań dwie powiodło się.|
+|jobs.createTwinUpdateJob.success|Pomyślne utworzenie kont dwie aktualizacji zadań|Licznik|Łącznie|Liczba Hello wszystkich pomyślnym utworzeniu zadania aktualizacji dwie.|
+|jobs.createTwinUpdateJob.failure|Nie powiodło się tworzenie dwie aktualizacji zadań|Licznik|Łącznie|Liczba Hello wszystkie nie powiodło się tworzenie zadań aktualizacji dwie.|
+|jobs.createDirectMethodJob.success|Pomyślne tworzenia zadań wywołania — metoda|Licznik|Łącznie|Liczba Hello wszystkich pomyślnym utworzeniu zadania wywołania metody bezpośredniego.|
+|jobs.createDirectMethodJob.failure|Nie powiodło się tworzenie zadań wywołania — metoda|Licznik|Łącznie|Liczba Hello wszystkie nie powiodło się tworzenie zadań wywołania metody bezpośredniego.|
+|jobs.listJobs.success|Zadania toolist pomyślnych wywołań|Licznik|Łącznie|Liczba Hello wszystkie zadania toolist pomyślnych wywołań.|
+|jobs.listJobs.failure|Wywołania zakończone błędem toolist zadania|Licznik|Łącznie|Liczba Hello wszystkie zadania toolist wywołania nie powiodło się.|
+|jobs.cancelJob.success|Anulowane zadania powiodło się|Licznik|Łącznie|Hello liczba wszystkich pomyślnych wywołań toocancel zadania.|
+|jobs.cancelJob.failure|Anulowanie zadania nie powiodło się|Licznik|Łącznie|Liczba Hello wszystkie wywołania zakończone błędem toocancel zadania.|
+|jobs.queryJobs.success|Pomyślnie wykonane zadanie zapytań|Licznik|Łącznie|Liczba Hello wszystkie zadania tooquery pomyślnych wywołań.|
+|jobs.queryJobs.failure|Nie powiodło się zadanie odpytuje|Licznik|Łącznie|Liczba Hello wszystkie zadania tooquery wywołania nie powiodło się.|
+|Jobs.Completed|Zadania ukończone|Licznik|Łącznie|Liczba Hello wszystkie zadania zakończone.|
+|Jobs.failed|Zadania zakończone niepowodzeniem|Licznik|Łącznie|Liczba Hello wszystkie zadania zakończone niepowodzeniem.|
+|d2c.telemetry.ingress.sendThrottle|Liczba błędów ograniczania przepustowości|Licznik|Łącznie|Liczba błędów ograniczania przepustowości powodu toodevice limity przepustowości|
 |dailyMessageQuotaUsed|Całkowita liczba komunikatów używany|Licznik|Średnia|Liczba całkowita liczba komunikatów używany w tej chwili|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
@@ -531,12 +531,12 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|Registration.all|Operacja rejestracji|Licznik|Łącznie|Liczba wszystkich operacji pomyślną rejestrację (tworzenie zapytań aktualizacji i usunięć). |
-|Registration.Create|Operacje tworzenia rejestracji|Licznik|Łącznie|Liczba wszystkich przypadków pomyślną rejestrację.|
-|Registration.Update|Operacje aktualizacji rejestracji|Licznik|Łącznie|Liczba wszystkich aktualizacji pomyślną rejestrację.|
-|Registration.Get|Operacje odczytu rejestracji|Licznik|Łącznie|Liczba wszystkich zapytań pomyślną rejestrację.|
-|Registration.delete|Operacje usuwania rejestracji|Licznik|Łącznie|Liczba wszystkich usunięć pomyślną rejestrację.|
-|przychodzące|Przychodzące komunikaty|Licznik|Łącznie|Liczba wszystkich powiodło się wysyłanie wywołań interfejsu API. |
+|Registration.all|Operacja rejestracji|Licznik|Łącznie|Liczba Hello wszystkich operacji pomyślną rejestrację (tworzenie zapytań aktualizacji i usunięć). |
+|Registration.Create|Operacje tworzenia rejestracji|Licznik|Łącznie|Liczba Hello wszystkich przypadków pomyślną rejestrację.|
+|Registration.Update|Operacje aktualizacji rejestracji|Licznik|Łącznie|Liczba Hello wszystkie aktualizacje pomyślną rejestrację.|
+|Registration.Get|Operacje odczytu rejestracji|Licznik|Łącznie|Liczba Hello wszystkie zapytania pomyślną rejestrację.|
+|Registration.delete|Operacje usuwania rejestracji|Licznik|Łącznie|Liczba Hello wszystkie operacje usuwania pomyślną rejestrację.|
+|przychodzące|Przychodzące komunikaty|Licznik|Łącznie|Hello liczba wszystkie udane wysyłanie wywołań interfejsu API. |
 |Incoming.scheduled|Powiadomienia wypychane zaplanowane wysyłane|Licznik|Łącznie|Powiadomienia wypychane zaplanowane anulowane|
 |Incoming.scheduled.Cancel|Powiadomienia wypychane zaplanowane anulowane|Licznik|Łącznie|Powiadomienia wypychane zaplanowane anulowane|
 |scheduled.Pending|Oczekujące powiadomienia według harmonogramu|Licznik|Łącznie|Oczekujące powiadomienia według harmonogramu|
@@ -545,52 +545,52 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |Installation.UPSERT|Utwórz lub zaktualizuj operacje instalacji|Licznik|Łącznie|Utwórz lub zaktualizuj operacje instalacji|
 |Installation.Patch|Operacje instalacji poprawki|Licznik|Łącznie|Operacje instalacji poprawki|
 |Installation.delete|Usuwanie operacji instalacji|Licznik|Łącznie|Usuwanie operacji instalacji|
-|Outgoing.allpns.SUCCESS|Powiadomienia o pomyślnym|Licznik|Łącznie|Liczba wszystkich powiadomień powiodło się.|
-|Outgoing.allpns.invalidpayload|Błędy ładunku|Licznik|Łącznie|Liczba wypchnięć, których nie powiodła się, ponieważ systemu powiadomień platformy zwrócił błąd zły ładunku.|
-|Outgoing.allpns.pnserror|Zewnętrzne powiadomienia błędów systemu|Licznik|Łącznie|Liczba wypchnięć, których nie powiodła się, ponieważ wystąpił problem podczas komunikacji z systemem powiadomień platformy (z wykluczeniem problemom z uwierzytelnianiem).|
-|Outgoing.allpns.channelerror|Błędy kanału|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ kanał był nieprawidłowy nie są skojarzone z aplikacją prawidłowe ograniczenie lub wygasła.|
-|Outgoing.allpns.badorexpiredchannel|Błędy nieprawidłowych lub wygasłych kanałów|Licznik|Łącznie|Liczba wypycha zakończonych niepowodzeniem z powodu wygasły lub nieprawidłowy kanał/token/registrationId w rejestracji.|
-|Outgoing.wns.SUCCESS|Pomyślne powiadomień WNS|Licznik|Łącznie|Liczba wszystkich powiadomień powiodło się.|
-|Outgoing.wns.invalidcredentials|Błędy autoryzacji WNS (nieprawidłowe poświadczenia)|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ system powiadomień platformy nie zaakceptowała podanych poświadczeń lub poświadczenia są blokowane. (Windows Live nie rozpoznaje poświadczeń).|
-|Outgoing.wns.badchannel|Błąd kanału zły WNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ChannelURI w rejestracji nie został rozpoznany (stanu usługi WNS: nie znaleziono 404).|
-|Outgoing.wns.expiredchannel|Błąd kanału wygasł WNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ wygasł ChannelURI (stan usługi WNS: 410 Gone).|
-|Outgoing.wns.throttled|WNS ograniczany powiadomienia|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ usługi WNS jest ograniczanie tej aplikacji (stan usługi WNS: 406 nie do przyjęcia).|
+|Outgoing.allpns.SUCCESS|Powiadomienia o pomyślnym|Licznik|Łącznie|Liczba Hello wszystkie powiadomienia powiodło się.|
+|Outgoing.allpns.invalidpayload|Błędy ładunku|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ hello systemu powiadomień platformy zwrócił błąd zły ładunku.|
+|Outgoing.allpns.pnserror|Zewnętrzne powiadomienia błędów systemu|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ wystąpił problem podczas komunikacji z hello systemu powiadomień platformy (z wykluczeniem problemom z uwierzytelnianiem).|
+|Outgoing.allpns.channelerror|Błędy kanału|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello kanału nie są skojarzone z hello poprawne aplikacji ograniczenie lub ważność był nieprawidłowy.|
+|Outgoing.allpns.badorexpiredchannel|Błędy nieprawidłowych lub wygasłych kanałów|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem z powodu hello kanału/token/registrationId w rejestracji hello wygasły lub nieprawidłowy.|
+|Outgoing.wns.SUCCESS|Pomyślne powiadomień WNS|Licznik|Łącznie|Liczba Hello wszystkie powiadomienia powiodło się.|
+|Outgoing.wns.invalidcredentials|Błędy autoryzacji WNS (nieprawidłowe poświadczenia)|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello systemu powiadomień platformy nie akceptuje hello pod warunkiem, że poświadczenia lub poświadczenia hello są zablokowane. (Windows Live nie rozpoznaje poświadczeń hello).|
+|Outgoing.wns.badchannel|Błąd kanału zły WNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ nie został rozpoznany hello ChannelURI w rejestracji hello (stan usługi WNS: 404 Nie znaleziono).|
+|Outgoing.wns.expiredchannel|Błąd kanału wygasł WNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ hello ChannelURI wygasł (stan usługi WNS: 410 Gone).|
+|Outgoing.wns.throttled|WNS ograniczany powiadomienia|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ usługi WNS jest ograniczanie tej aplikacji (stan usługi WNS: 406 nie do przyjęcia).|
 |Outgoing.wns.tokenproviderunreachable|Błędy autoryzacji WNS (nieosiągalne)|Licznik|Łącznie|Windows Live jest nieosiągalny.|
-|Outgoing.wns.invalidtoken|Błędy autoryzacji WNS (nieprawidłowy Token)|Licznik|Łącznie|Token dostarczony do usługi WNS jest nieprawidłowy (stan usługi WNS: 401 nieautoryzowane).|
-|Outgoing.wns.wrongtoken|Błędy autoryzacji WNS (nieprawidłowy Token)|Licznik|Łącznie|Dostarczony do WNS token jest prawidłowy, ale dla innej aplikacji (stan usługi WNS: 403 Zabroniony). Może to nastąpić, jeśli ChannelURI w rejestracji jest skojarzony z innej aplikacji. Sprawdź, czy aplikacja kliencka jest skojarzony z tą samą aplikacją, którego poświadczenia znajdują się w Centrum powiadomień.|
-|Outgoing.wns.invalidnotificationformat|Format nieprawidłowy powiadomień WNS|Licznik|Łącznie|Format powiadomienia jest nieprawidłowy (stan usługi WNS: 400). Należy pamiętać, że usługi WNS nie odrzucić wszystkie ładunki nieprawidłowy.|
-|Outgoing.wns.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi WNS|Licznik|Łącznie|Ładunek powiadomienia jest za duży (stan usługi WNS: 413).|
-|Outgoing.wns.channelthrottled|Ograniczenie kanału usługi WNS|Licznik|Łącznie|Powiadomienia został porzucony, ponieważ jest ograniczany ChannelURI w rejestracji (nagłówek odpowiedzi usługi WNS: X-WNS-NotificationStatus:channelThrottled).|
-|Outgoing.wns.channeldisconnected|Kanał WNS odłączona|Licznik|Łącznie|Powiadomienia został porzucony, ponieważ jest ograniczany ChannelURI w rejestracji (nagłówek odpowiedzi usługi WNS: DeviceConnectionStatus-X-WNS: odłączony).|
-|Outgoing.wns.dropped|Powiadomienia porzucone WNS|Licznik|Łącznie|Powiadomienia został porzucony, ponieważ jest ograniczany ChannelURI w rejestracji (X-WNS-NotificationStatus: porzucone, ale nie X-WNS-DeviceConnectionStatus: odłączony).|
+|Outgoing.wns.invalidtoken|Błędy autoryzacji WNS (nieprawidłowy Token)|Licznik|Łącznie|Witaj podany token tooWNS jest nieprawidłowy (stan usługi WNS: 401 nieautoryzowane).|
+|Outgoing.wns.wrongtoken|Błędy autoryzacji WNS (nieprawidłowy Token)|Licznik|Łącznie|Witaj tokenu, pod warunkiem tooWNS jest prawidłowy, ale dla innej aplikacji (stan usługi WNS: 403 Zabroniony). Może to nastąpić, jeśli hello ChannelURI w hello rejestracji jest skojarzony z innej aplikacji. Sprawdź, aplikacja klienta hello jest skojarzony z hello tej samej aplikacji, którego poświadczenia znajdują się w Centrum powiadomień hello.|
+|Outgoing.wns.invalidnotificationformat|Format nieprawidłowy powiadomień WNS|Licznik|Łącznie|format Hello hello powiadomienia jest nieprawidłowy (stan usługi WNS: 400). Należy pamiętać, że usługi WNS nie odrzucić wszystkie ładunki nieprawidłowy.|
+|Outgoing.wns.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi WNS|Licznik|Łącznie|ładunek powiadomienia Hello jest za duży (stan usługi WNS: 413).|
+|Outgoing.wns.channelthrottled|Ograniczenie kanału usługi WNS|Licznik|Łącznie|Hello powiadomień został porzucony, ponieważ jest ograniczany hello ChannelURI w rejestracji hello (nagłówek odpowiedzi usługi WNS: X-WNS-NotificationStatus:channelThrottled).|
+|Outgoing.wns.channeldisconnected|Kanał WNS odłączona|Licznik|Łącznie|powiadomienia Hello został porzucony, ponieważ hello ChannelURI w rejestracji hello jest ograniczany (nagłówek odpowiedzi usługi WNS: DeviceConnectionStatus-X-WNS: odłączony).|
+|Outgoing.wns.dropped|Powiadomienia porzucone WNS|Licznik|Łącznie|powiadomienia Hello został porzucony, ponieważ hello ChannelURI w rejestracji hello jest ograniczany (X-WNS-NotificationStatus: porzucone, ale nie X-WNS-DeviceConnectionStatus: odłączony).|
 |Outgoing.wns.pnserror|Błędy WNS|Licznik|Łącznie|Powiadomienie nie są dostarczane z powodu błędów komunikacji z usługą WNS.|
 |Outgoing.wns.authenticationerror|Błędy uwierzytelniania usługi WNS|Licznik|Łącznie|Powiadomienie nie są dostarczane z powodu błędów komunikacji z usługi Windows Live nieprawidłowych poświadczeń lub nieprawidłowy token.|
-|Outgoing.apns.SUCCESS|Powiadomienia o pomyślnym APNS|Licznik|Łącznie|Liczba wszystkich powiadomień powiodło się.|
-|Outgoing.apns.invalidcredentials|Błędy autoryzacji APNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ system powiadomień platformy nie zaakceptowała podanych poświadczeń lub poświadczenia są blokowane.|
-|Outgoing.apns.badchannel|Błąd kanału zły APNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ token jest nieprawidłowy (kod stanu APNS: 8).|
-|Outgoing.apns.expiredchannel|APNS wygasł błąd kanału|Licznik|Łącznie|Liczba token, który został unieważniony przez kanał opinii APNS.|
-|Outgoing.apns.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi APNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ładunku jest zbyt duży (kod stanu APNS: 7).|
-|Outgoing.apns.pnserror|Błędy APNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem z powodu błędów komunikacji z usługą APNS.|
-|Outgoing.gcm.SUCCESS|Pomyślne powiadomienia usługi GCM|Licznik|Łącznie|Liczba wszystkich powiadomień powiodło się.|
-|Outgoing.gcm.invalidcredentials|Błędy autoryzacji GCM (nieprawidłowe poświadczenia)|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ system powiadomień platformy nie zaakceptowała podanych poświadczeń lub poświadczenia są blokowane.|
-|Outgoing.gcm.badchannel|Błąd usługi GCM zły kanału|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ registrationId w rejestracji nie został rozpoznany. (wynik GCM: nieprawidłowy rejestracji).|
-|Outgoing.gcm.expiredchannel|Błąd kanału wygasł usługi GCM|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ wygasła registrationId w rejestracji (usługi GCM wynik: NotRegistered).|
-|Outgoing.gcm.throttled|GCM ograniczany powiadomienia|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ GCM ograniczany tej aplikacji (kod stanu usługi GCM: 501 599 lub wynik: niedostępny).|
-|Outgoing.gcm.invalidnotificationformat|Format nieprawidłowy powiadomienia usługi GCM|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ładunku nie został poprawnie sformatowany. (wynik GCM: InvalidDataKey lub InvalidTtl).|
-|Outgoing.gcm.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi GCM|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ładunku jest zbyt duży (wynik GCM: MessageTooBig).|
-|Outgoing.gcm.wrongchannel|Błąd usługi GCM niewłaściwego kanału|Licznik|Łącznie|Liczba wypchnięć, których nie powiodła się, ponieważ nie jest skojarzony z bieżącej aplikacji registrationId w rejestracji (usługi GCM wynik: InvalidPackageName).|
-|Outgoing.gcm.pnserror|Błędy usługi GCM|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem z powodu błędów komunikacji z usługą GCM.|
-|Outgoing.gcm.authenticationerror|Błędy uwierzytelniania usługi GCM|Licznik|Łącznie|Liczba wypchnięć, których nie powiodła się, ponieważ system powiadomień platformy nie akceptuje poświadczeń dostarczonych poświadczeń jest zablokowany lub SenderId nie została poprawnie skonfigurowana w aplikacji (wynik GCM: MismatchedSenderId).|
-|Outgoing.mpns.SUCCESS|Powiadomienia o pomyślnym usługi MPNS|Licznik|Łącznie|Liczba wszystkich powiadomień powiodło się.|
-|Outgoing.mpns.invalidcredentials|Nieprawidłowe poświadczenia usługi MPNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ system powiadomień platformy nie zaakceptowała podanych poświadczeń lub poświadczenia są blokowane.|
-|Outgoing.mpns.badchannel|Błąd kanału zły usługi MPNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ChannelURI w rejestracji nie został rozpoznany (stan usługi MPNS: nie znaleziono 404).|
-|Outgoing.mpns.throttled|Usługi MPNS ograniczany powiadomienia|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ usługi MPNS jest ograniczanie tej aplikacji (WNS MPNS: 406 nie do przyjęcia).|
-|Outgoing.mpns.invalidnotificationformat|Format nieprawidłowy powiadomienia usługi MPNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ ładunek powiadomienia był za duży.|
-|Outgoing.mpns.channeldisconnected|Odłączony kanału usługi MPNS|Licznik|Łącznie|Liczba wypchnięcia, które zakończyły się niepowodzeniem, ponieważ ChannelURI w rejestracji została rozłączona (stan usługi MPNS: nie można odnaleźć 412).|
-|Outgoing.mpns.dropped|Usługi MPNS porzucony powiadomienia|Licznik|Łącznie|Liczba wypchnięć, które zostały porzucone przez usługi MPNS (nagłówek odpowiedzi usługi MPNS: X NotificationStatus: Kolejka zapełniona lub Suppressed).|
-|Outgoing.mpns.pnserror|Błędy usługi MPNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem z powodu błędów komunikacji z usługi MPNS.|
-|Outgoing.mpns.authenticationerror|Błędy uwierzytelniania usługi MPNS|Licznik|Łącznie|Liczba wypycha, które zakończyły się niepowodzeniem, ponieważ system powiadomień platformy nie zaakceptowała podanych poświadczeń lub poświadczenia są blokowane.|
-|notificationhub.pushes|Wszystkie wychodzące powiadomienia|Licznik|Łącznie|Wszystkie wychodzące powiadomienia w Centrum powiadomień|
+|Outgoing.apns.SUCCESS|Powiadomienia o pomyślnym APNS|Licznik|Łącznie|Liczba Hello wszystkie powiadomienia powiodło się.|
+|Outgoing.apns.invalidcredentials|Błędy autoryzacji APNS|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello systemu powiadomień platformy nie akceptuje hello pod warunkiem, że poświadczenia lub poświadczenia hello są zablokowane.|
+|Outgoing.apns.badchannel|Błąd kanału zły APNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ hello token jest nieprawidłowy (kod stanu APNS: 8).|
+|Outgoing.apns.expiredchannel|APNS wygasł błąd kanału|Licznik|Łącznie|Liczba Hello token, który został unieważniony przez hello APNS opinii kanału.|
+|Outgoing.apns.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi APNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ jest zbyt duży ładunek hello (kod stanu APNS: 7).|
+|Outgoing.apns.pnserror|Błędy APNS|Licznik|Łącznie|Liczba Hello wypycha błąd z powodu błędów komunikacji z usługą APNS.|
+|Outgoing.gcm.SUCCESS|Pomyślne powiadomienia usługi GCM|Licznik|Łącznie|Liczba Hello wszystkie powiadomienia powiodło się.|
+|Outgoing.gcm.invalidcredentials|Błędy autoryzacji GCM (nieprawidłowe poświadczenia)|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello systemu powiadomień platformy nie akceptuje hello pod warunkiem, że poświadczenia lub poświadczenia hello są zablokowane.|
+|Outgoing.gcm.badchannel|Błąd usługi GCM zły kanału|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ nie został rozpoznany registrationId hello w rejestracji hello (wynik GCM: nieprawidłowy rejestracji).|
+|Outgoing.gcm.expiredchannel|Błąd kanału wygasł usługi GCM|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ wygasła registrationId hello w rejestracji hello (wynik GCM: NotRegistered).|
+|Outgoing.gcm.throttled|GCM ograniczany powiadomienia|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ usługi GCM ograniczany tej aplikacji (kod stanu usługi GCM: 501 599 lub wynik: niedostępny).|
+|Outgoing.gcm.invalidnotificationformat|Format nieprawidłowy powiadomienia usługi GCM|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ ładunku hello nie został poprawnie sformatowany. (wynik GCM: InvalidDataKey lub InvalidTtl).|
+|Outgoing.gcm.invalidnotificationsize|Błąd nieprawidłowego rozmiaru powiadomienia usługi GCM|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ jest zbyt duży ładunek hello (wynik GCM: MessageTooBig).|
+|Outgoing.gcm.wrongchannel|Błąd usługi GCM niewłaściwego kanału|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ nie jest registrationId hello w rejestracji hello skojarzone toohello bieżącej aplikacji (wynik GCM: InvalidPackageName).|
+|Outgoing.gcm.pnserror|Błędy usługi GCM|Licznik|Łącznie|Liczba Hello wypycha błąd z powodu błędów komunikacji z usługą GCM.|
+|Outgoing.gcm.authenticationerror|Błędy uwierzytelniania usługi GCM|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ hello systemu powiadomień platformy nie zaakceptowała hello podane poświadczenia hello poświadczenia są zablokowane lub hello SenderId nie jest poprawnie skonfigurowany w aplikacji hello (wynik GCM: MismatchedSenderId).|
+|Outgoing.mpns.SUCCESS|Powiadomienia o pomyślnym usługi MPNS|Licznik|Łącznie|Liczba Hello wszystkie powiadomienia powiodło się.|
+|Outgoing.mpns.invalidcredentials|Nieprawidłowe poświadczenia usługi MPNS|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello systemu powiadomień platformy nie akceptuje hello pod warunkiem, że poświadczenia lub poświadczenia hello są zablokowane.|
+|Outgoing.mpns.badchannel|Błąd kanału zły usługi MPNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ nie został rozpoznany hello ChannelURI w rejestracji hello (stan usługi MPNS: 404 Nie znaleziono).|
+|Outgoing.mpns.throttled|Usługi MPNS ograniczany powiadomienia|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ usługi MPNS jest ograniczanie tej aplikacji (WNS MPNS: 406 nie do przyjęcia).|
+|Outgoing.mpns.invalidnotificationformat|Format nieprawidłowy powiadomienia usługi MPNS|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ ładunek hello hello powiadomienia był za duży.|
+|Outgoing.mpns.channeldisconnected|Odłączony kanału usługi MPNS|Licznik|Łącznie|Witaj liczba wypchnięć, których nie powiodła się, ponieważ została rozłączona hello ChannelURI hello rejestracji w (stan usługi MPNS: nie można odnaleźć 412).|
+|Outgoing.mpns.dropped|Usługi MPNS porzucony powiadomienia|Licznik|Łącznie|Witaj liczba wypchnięć, które zostały porzucone przez usługi MPNS (nagłówek odpowiedzi usługi MPNS: X NotificationStatus: Kolejka zapełniona lub Suppressed).|
+|Outgoing.mpns.pnserror|Błędy usługi MPNS|Licznik|Łącznie|Liczba Hello wypycha błąd z powodu błędów komunikacji z usługi MPNS.|
+|Outgoing.mpns.authenticationerror|Błędy uwierzytelniania usługi MPNS|Licznik|Łącznie|Liczba Hello wypycha zakończonych niepowodzeniem, ponieważ hello systemu powiadomień platformy nie akceptuje hello pod warunkiem, że poświadczenia lub poświadczenia hello są zablokowane.|
+|notificationhub.pushes|Wszystkie wychodzące powiadomienia|Licznik|Łącznie|Wszystkie wychodzące powiadomienia hello Centrum powiadomień|
 |Incoming.all.Requests|Wszystkie żądania przychodzące|Licznik|Łącznie|Całkowita liczba żądań przychodzących do Centrum powiadomień|
 |Incoming.all.failedrequests|Wszystkich przychodzących żądań zakończonych niepowodzeniem|Licznik|Łącznie|Całkowita liczba nieudanych żądań przychodzących dla Centrum powiadomień|
 
@@ -604,49 +604,49 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |SuccessfullConnectionsPerSec|Udane połączenia na sekundę|CountPerSecond|Średnia|Szybkość zakończeń udane połączenie.|
 |TotalConnectionFailures|Całkowita liczba awarii|Licznik|Średnia|Całkowita liczba nieudanych prób połączenia.|
 |CurrentUserSessions|Bieżące sesje użytkowników|Licznik|Średnia|Bieżąca liczba ustanowionych sesji użytkownika.|
-|QueryPoolBusyThreads|Zapytanie z puli wątków zajęty|Licznik|Średnia|Liczba zajętych wątków w puli wątków zapytania.|
-|CommandPoolJobQueueLength|Długość kolejki zadań puli polecenia|Licznik|Średnia|Liczba zadań w kolejce polecenia puli wątków.|
-|ProcessingPoolJobQueueLength|Długość kolejki zadań przetwarzania w puli|Licznik|Średnia|Liczba zadań z systemem innym niż — I/O kolejki puli wątków przetwarzania.|
+|QueryPoolBusyThreads|Zapytanie z puli wątków zajęty|Licznik|Średnia|Liczba wątków zajęty w puli wątków hello zapytania.|
+|CommandPoolJobQueueLength|Długość kolejki zadań puli polecenia|Licznik|Średnia|Liczba zadań w kolejce hello puli wątków hello polecenia.|
+|ProcessingPoolJobQueueLength|Długość kolejki zadań przetwarzania w puli|Licznik|Średnia|Liczba innych niż — I/O zadań w kolejce hello hello przetwarzania puli wątków.|
 |CurrentConnections|Połączenia: Bieżąca liczba połączeń|Licznik|Średnia|Bieżąca liczba połączeń klienta.|
-|CleanerCurrentPrice|Pamięci: Czyszczący bieżąca cena|Licznik|Średnia|Bieżąca cena pamięci $/ byte/godzina znormalizowane do 1000.|
-|CleanerMemoryShrinkable|Pamięci: Zmniejszania pamięci czyszczący|Bajty|Średnia|Ilość pamięci w bajtach, mogą ulec czyszcząca przeczyszczanie w tle.|
-|CleanerMemoryNonshrinkable|Pamięci: Czyszczący nonshrinkable pamięci|Bajty|Średnia|Ilość pamięci w bajtach, nie może ulec czyszcząca przeczyszczanie w tle.|
-|MemoryUsage|Pamięci: Użycie pamięci|Bajty|Średnia|Użycie pamięci przez proces serwera jako używaną przy obliczaniu czyszczący cena pamięci. Taki sam jak licznika Process\PrivateBytes powiększony o rozmiar danych mapowanych na pamięć, ignorując wszystkie pamięci, która została zamapowana lub przydzielone przez aparat analizy w pamięci xVelocity (VertiPaq) przekracza Limit pamięci silnik xVelocity.|
+|CleanerCurrentPrice|Pamięci: Czyszczący bieżąca cena|Licznik|Średnia|Bieżąca cena pamięć, czas $/ bajtami, too1000 znormalizowaną.|
+|CleanerMemoryShrinkable|Pamięci: Zmniejszania pamięci czyszczący|Bajty|Średnia|Ilość pamięci w bajtach toopurging podmiotu przez tła hello oczyszczarki.|
+|CleanerMemoryNonshrinkable|Pamięci: Czyszczący nonshrinkable pamięci|Bajty|Średnia|Ilość pamięci w bajtach nie podmiotu toopurging przez tła hello oczyszczarki.|
+|MemoryUsage|Pamięci: Użycie pamięci|Bajty|Średnia|Użycie pamięci przez proces serwera hello jako używaną przy obliczaniu czyszczący cena pamięci. Równa toocounter Process\PrivateBytes plus hello rozmiar danych mapowanych na pamięć, ignorowanie żadnych pamięci, która została zamapowana lub przydzielone przez aparat analizy w pamięci xVelocity hello (VertiPaq) poza aparat xVelocity hello Limit pamięci.|
 |MemoryLimitHard|Pamięci: Twarde Limit pamięci|Bajty|Średnia|Limit pamięci twardym z pliku konfiguracji.|
 |MemoryLimitHigh|Pamięć: Wysoki Limit pamięci|Bajty|Średnia|Limit pamięci wysokiej z pliku konfiguracji.|
 |MemoryLimitLow|Pamięci: Niski Limit pamięci|Bajty|Średnia|Limit pamięci z pliku konfiguracji.|
 |MemoryLimitVertiPaq|Pamięci: VertiPaq Limit pamięci|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|
 |Przydział|Pamięć: limit przydziału|Bajty|Średnia|Limit przydziału pamięci, w bajtach. Limit przydziału pamięci jest nazywana rezerwacji pamięci grant lub pamięci.|
 |QuotaBlocked|Pamięci: Zablokowane przydziału|Licznik|Średnia|Bieżąca liczba żądań przydziału, które są zablokowane, dopóki nie są zwalniane innych przydziałów pamięci.|
-|VertiPaqNonpaged|Pamięci: Niestronicowana VertiPaq|Bajty|Średnia|Zablokowane bajtów pamięci zestawu do użycia przez aparat w pamięci roboczego.|
+|VertiPaqNonpaged|Pamięci: Niestronicowana VertiPaq|Bajty|Średnia|Bajtów pamięci zablokowany w zestawie roboczym hello do użytku przez hello w pamięci aparatu.|
 |VertiPaqPaged|Pamięci: Stronicowanej VertiPaq|Bajty|Średnia|Liczba bajtów stronicowanej pamięci dla danych w pamięci.|
 |RowsReadPerSec|Przetwarzanie: Wiersze do odczytu na sekundę|CountPerSecond|Średnia|Liczba wierszy odczytywać wszystkie relacyjnych baz danych.|
 |RowsConvertedPerSec|Przetwarzanie: Wierszy przekonwertowane na sekundę|CountPerSecond|Średnia|Liczba wierszy przekonwertować podczas przetwarzania.|
 |RowsWrittenPerSec|Przetwarzanie: Wierszy, zapisany na sekundę|CountPerSecond|Średnia|Liczba wierszy, zapisany podczas przetwarzania.|
-|CommandPoolBusyThreads|Wątki: Polecenie zajęty z puli wątków|Licznik|Średnia|Liczba zajętych wątków w puli wątków polecenia.|
-|CommandPoolIdleThreads|Wątków: Polecenie puli wątków bezczynności|Licznik|Średnia|Liczba bezczynności wątków w puli wątków polecenia.|
-|LongParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków Long|Licznik|Średnia|Liczba zajętych wątków w puli wątków długo analizy.|
-|LongParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków Long|Licznik|Średnia|Liczba bezczynności wątków w puli wątków długo analizy.|
-|LongParsingJobQueueLength|Wątki: Czas analizowania długość kolejki zadań|Licznik|Średnia|Liczba zadań w kolejce długo analizy puli wątków.|
-|ProcessingPoolBusyIOJobThreads|Wątki: Przetwarzania puli wątków zajęty zadania we/wy|Licznik|Średnia|Liczba wątków uruchomionych zadań we/wy w puli wątków przetwarzania.|
-|ProcessingPoolBusyNonIOThreads|Wątków: Zajęty z puli wątków nie I/O przetwarzania|Licznik|Średnia|Liczba wątków uruchomionych zadań nie I/O w puli wątków przetwarzania.|
-|ProcessingPoolIOJobQueueLength|Wątki: Przetwarzanie puli długość kolejki zadania we/wy|Licznik|Średnia|Liczba operacji We/Wy zadań w kolejce puli wątków przetwarzania.|
-|ProcessingPoolIdleIOJobThreads|Wątki: Przetwarzania puli wątków bezczynności zadania we/wy|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w puli wątków przetwarzania.|
-|ProcessingPoolIdleNonIOThreads|Wątki: Przetwarzanie bezczynności z puli wątków nie I/E|Licznik|Średnia|Liczba bezczynności wątków w puli wątków przetwarzania dedykowane dla zadań innych niż — I/O.|
-|QueryPoolIdleThreads|Wątków: Wątki bezczynności puli zapytania|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w puli wątków przetwarzania.|
-|QueryPoolJobQueueLength|Wątków: Lengt kolejki zadań puli zapytania|Licznik|Średnia|Liczba zadań w kolejce zapytań puli wątków.|
-|ShortParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków krótkiej|Licznik|Średnia|Liczba wątków zajęty w krótkim analizy puli wątków.|
-|ShortParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków krótkiej|Licznik|Średnia|Liczba wątków bezczynności w krótkim analizy puli wątków.|
-|ShortParsingJobQueueLength|Wątków: Podczas analizowania długość kolejki zadań krótkiej|Licznik|Średnia|Liczba zadań w kolejce krótkich analizy puli wątków.|
+|CommandPoolBusyThreads|Wątki: Polecenie zajęty z puli wątków|Licznik|Średnia|Liczba zajętych wątków w puli wątków polecenia hello.|
+|CommandPoolIdleThreads|Wątków: Polecenie puli wątków bezczynności|Licznik|Średnia|Liczba bezczynności wątków w puli wątków hello polecenia.|
+|LongParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków Long|Licznik|Średnia|Liczba wątków zajęty w hello długo analizowania puli wątków.|
+|LongParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków Long|Licznik|Średnia|Liczba wątków bezczynności w hello długo analizowania puli wątków.|
+|LongParsingJobQueueLength|Wątki: Czas analizowania długość kolejki zadań|Licznik|Średnia|Liczba zadań w kolejce hello hello długo analizowania puli wątków.|
+|ProcessingPoolBusyIOJobThreads|Wątki: Przetwarzania puli wątków zajęty zadania we/wy|Licznik|Średnia|Liczba wątków uruchomionych zadań we/wy w hello przetwarzania puli wątków.|
+|ProcessingPoolBusyNonIOThreads|Wątków: Zajęty z puli wątków nie I/O przetwarzania|Licznik|Średnia|Liczba wątków uruchomionych zadań nie I/O w hello przetwarzania puli wątków.|
+|ProcessingPoolIOJobQueueLength|Wątki: Przetwarzanie puli długość kolejki zadania we/wy|Licznik|Średnia|Liczba operacji We/Wy zadań w kolejce hello hello przetwarzania puli wątków.|
+|ProcessingPoolIdleIOJobThreads|Wątki: Przetwarzania puli wątków bezczynności zadania we/wy|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w hello przetwarzania puli wątków.|
+|ProcessingPoolIdleNonIOThreads|Wątki: Przetwarzanie bezczynności z puli wątków nie I/E|Licznik|Średnia|Liczba bezczynności wątków w puli wątków przetwarzania hello dedykowane toonon-I/O zadania.|
+|QueryPoolIdleThreads|Wątków: Wątki bezczynności puli zapytania|Licznik|Średnia|Liczba wątków bezczynności zadań we/wy w hello przetwarzania puli wątków.|
+|QueryPoolJobQueueLength|Wątków: Lengt kolejki zadań puli zapytania|Licznik|Średnia|Liczba zadań w kolejce hello hello zapytania w puli wątków.|
+|ShortParsingBusyThreads|Wątków: Podczas analizowania zajęty wątków krótkiej|Licznik|Średnia|Liczba wątków zajęty w hello krótkich analizowania puli wątków.|
+|ShortParsingIdleThreads|Wątków: Podczas analizowania bezczynności wątków krótkiej|Licznik|Średnia|Liczba wątków bezczynności w hello krótkich analizowania puli wątków.|
+|ShortParsingJobQueueLength|Wątków: Podczas analizowania długość kolejki zadań krótkiej|Licznik|Średnia|Liczba zadań w kolejce hello hello krótkich analizowania puli wątków.|
 |memory_thrashing_metric|Wykonywania niepotrzebnych replik pamięci|Procent|Średnia|Średnia pamięci wykonywania niepotrzebnych replik.|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|
 |---|---|---|---|---|
-|SearchLatency|Czas oczekiwania wyszukiwania|Sekundy|Średnia|Opóźnienie średni wyszukiwania dla usługi wyszukiwania|
-|SearchQueriesPerSecond|Zapytania wyszukiwania na sekundę|CountPerSecond|Średnia|Zapytania wyszukiwania na sekundę dla usługi wyszukiwania|
-|ThrottledSearchQueriesPercentage|Procent zapytania wyszukiwania z ograniczeniem przepustowości|Procent|Średnia|Procent zapytania wyszukiwania, które zostały ograniczany usługi wyszukiwania|
+|SearchLatency|Czas oczekiwania wyszukiwania|Sekundy|Średnia|Średnia wyszukiwania opóźnienia hello usługi wyszukiwania|
+|SearchQueriesPerSecond|Zapytania wyszukiwania na sekundę|CountPerSecond|Średnia|Zapytania wyszukiwania na sekundę hello usługi wyszukiwania|
+|ThrottledSearchQueriesPercentage|Procent zapytania wyszukiwania z ograniczeniem przepustowości|Procent|Średnia|Procent zapytania wyszukiwania, które zostały ograniczany hello usługi wyszukiwania|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -797,4 +797,4 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj informacje o metryki w monitorze Azure](monitoring-overview-metrics.md)
 * [Utwórz alerty na metryk](insights-receive-alert-notifications.md)
-* [Eksportuj metryk do magazynu, Centrum zdarzeń lub analizy dzienników](monitoring-overview-of-diagnostic-logs.md)
+* [Eksportuj toostorage metryki Centrum zdarzeń i analizy dzienników](monitoring-overview-of-diagnostic-logs.md)

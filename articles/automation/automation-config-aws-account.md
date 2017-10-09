@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie uwierzytelniania w usłudze Amazon Web Services | Microsoft Docs"
-description: "W tym artykule opisano sposób tworzenia i sprawdzania poprawności poświadczeń w usłudze AWS dla elementów Runbook w usłudze Azure Automation zarządzającej zasobami usługi AWS."
+title: "aaaConfigure uwierzytelniania za pomocą usług Amazon Web Services | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób toocreate i sprawdzanie poprawności poświadczeń usług AWS dla elementów runbook w automatyzacji Azure zarządzanie zasobami usług AWS."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 81e5e5d56a7e6149409e11aca2e5fdf28d6a7134
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1e312df2422d9da3cd3331fe01aeaa3a43c8b9d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Uwierzytelnianie elementów Runbook w usłudze Amazon Web Services
 Typowe zadania dotyczące zasobów w usłudze Amazon Web Services (AWS) można zautomatyzować za pomocą elementów Runbook usługi Azure Automation.  Wiele zadań w usłudze AWS można zautomatyzować przy użyciu elementów Runbook usługi Automation, podobnie jak za pomocą zasobów platformy Azure.  Wymagane są jedynie dwa elementy:
 
-* Subskrypcja AWS i zestaw poświadczeń.  W szczególności klucz dostępu AWS i klucz tajny.  Więcej informacji można znaleźć w artykule [Using AWS Credentials](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html) (Korzystanie z poświadczeń usługi AWS).
-* Subskrypcja platformy Azure i konto w usłudze Automation.  Więcej informacji na temat konfigurowania konta usługi Azure Automation można znaleźć w artykule [Authenticate runbooks with an Azure Run As account](automation-sec-configure-azure-runas-account.md) (Uwierzytelnianie elementów Runbook za pomocą konta platformy Azure Uruchom jako).  
+* Subskrypcja AWS i zestaw poświadczeń.  W szczególności klucz dostępu AWS i klucz tajny.  Aby uzyskać więcej informacji, przejrzyj artykuł hello [przy użyciu poświadczeń usług AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
+* Subskrypcja platformy Azure i konto w usłudze Automation.  Aby uzyskać więcej informacji na temat konfigurowania konta usługi Automatyzacja Azure, przejrzyj artykuł hello [skonfigurować Azure konta Uruchom jako](automation-sec-configure-azure-runas-account.md).  
 
-Aby wykonać uwierzytelnienie w usłudze AWS, należy określić zestaw poświadczeń usługi AWS do uwierzytelniania elementów Runbook uruchamianych z poziomu usługi Azure Automation. Jeśli masz już konto w usłudze Automation i chcesz go użyć do uwierzytelnienia w usłudze AWS, możesz wykonać kroki opisane w poniższej sekcji.  Jeśli chcesz mieć specjalne konto dla elementów Runbook odwołujących się do zasobów AWS, najpierw utwórz nowe [konto usługi Automation](automation-offering-get-started.md) (pomiń opcję tworzenia nazwy głównej usługi), a następnie wykonaj poniższe kroki.
+tooauthenticate z usług AWS, należy określić zestaw usług AWS poświadczenia tooauthenticate elementy runbook uruchomione usługi Automatyzacja Azure. Jeśli masz już konto usługi Automatyzacja tworzone, i chcesz toouse tego tooauthenticate z usług AWS, może wykonać kroki hello w hello następujących sekcji.  Jeśli chcesz toodedicated konta dla elementów runbook dotyczących usług AWS zasobów, należy najpierw utworzyć nową [konto automatyzacji](automation-offering-get-started.md) (Pomiń hello opcja toocreate nazwy głównej usługi), a następnie wykonaj poniższe kroki hello.
 
 ## <a name="configure-automation-account"></a>Skonfiguruj konto usługi Automation
-Aby usługa Azure Automation mogła się komunikować z usługą AWS, musisz najpierw pobrać poświadczenia usługi AWS i przechowywać je jako zasoby w usłudze Azure Automation.  Wykonaj następujące czynności opisane w dokumencie usługi AWS [Zarządzanie kluczami dostępu konta usługi AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html), aby utworzyć klucz dostępu i skopiować **identyfikator klucza dostępu** i **tajny klucz dostępu** (ewentualnie pobierz plik klucza, aby go bezpiecznie przechować w innym miejscu).
+Dla usługi Automatyzacja Azure toocommunicate z usług AWS należy najpierw tooretrieve poświadczeń usług AWS i zapisać je jako zasoby w automatyzacji Azure.  Wykonaj hello, wykonaj czynności opisane w dokumencie usług AWS hello [Zarządzanie klucze dostępu dla konta usług AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) toocreate hello klucz dostępu i skopiuj **identyfikator klucza dostępu** i **klucz tajny klucz dostępu** (opcjonalnie pobrać toostore Twojego pliku klucza go w bezpiecznym miejscu).
 
-Po utworzeniu i skopiowaniu kluczy zabezpieczeń usługi AWS musisz utworzyć zasób poświadczeń przy użyciu konta usługi Azure Automation, aby bezpiecznie je przechowywać i odwoływać się do nich z poziomu elementów Runbook.  Wykonaj kroki opisane w sekcji **To create a new credential** (Tworzenie nowego poświadczenia) artykułu [Credential assets in Azure Automation](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) (Zasoby poświadczeń w usłudze Azure Automation), a następnie wprowadź następujące informacje:
+Po utworzeniu i skopiować klucze zabezpieczeń usług AWS należy toocreate zasobu poświadczeń z toosecurely konto usługi Automatyzacja Azure przechowywać je i odwoływać je z elementy runbook.  Wykonaj kroki hello w sekcji hello **toocreate nowe poświadczenie** w hello [poświadczeń zasoby w automatyzacji Azure](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) artykuł, a następnie wprowadź hello następujących informacji:
 
-1. W polu **Nazwa** wprowadź **AWScred** lub wartość odpowiadającą Twoim standardom nazewnictwa.  
-2. W polu **Nazwa użytkownika** wpisz swój **identyfikator dostępu** oraz **tajny klucz dostępu** w polach **Hasło** i **Potwierdź hasło**.   
+1. W hello **nazwa** wprowadź **AWScred** lub odpowiednią wartość następujące standardy nazewnictwa.  
+2. W hello **nazwy użytkownika** wpisz Twojej **identyfikator dostępu** i **klucz tajny klucz dostępu** w hello **hasło** i **Potwierdź hasło** pole.   
 
 ## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się z artykułem [Automating deployment of a VM in Amazon Web Services](automation-scenario-aws-deployment.md) (Zautomatyzowane wdrażanie maszyn wirtualnych w usłudze Amazon Web Services), aby dowiedzieć się, jak utworzyć elementy Runbook w celu automatyzacji zadań w usłudze AWS.
+* Artykuł rozwiązania hello monitującymi [automatyzacji wdrażania maszyny Wirtualnej w ramach usług Amazon Web Services](automation-scenario-aws-deployment.md) toolearn jak toocreate tooautomate elementów runbook zadania w programie usług AWS.
 

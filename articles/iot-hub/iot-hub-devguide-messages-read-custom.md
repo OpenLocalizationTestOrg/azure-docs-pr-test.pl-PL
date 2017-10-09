@@ -1,6 +1,6 @@
 ---
-title: "Zrozumienie niestandardowe punkty końcowe Centrum IoT Azure | Dokumentacja firmy Microsoft"
-description: "Przewodnik dewelopera — korzystanie z reguł routingu do kierowania wiadomości urządzenia do chmury do niestandardowe punkty końcowe."
+title: "niestandardowe punkty końcowe Centrum IoT Azure aaaUnderstand | Dokumentacja firmy Microsoft"
+description: "Przewodnik dewelopera — przy użyciu routingu reguł tooroute punktów końcowych z toocustom wiadomości urządzenia do chmury."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: daa9cfb35d0853e316bbf469b034d4dadbd4e85d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Urządzenia do chmury wiadomości wysyłanych tras wiadomości i niestandardowe punkty końcowe
 
-Centrum IoT umożliwia trasy [wiadomości urządzenia do chmury] [ lnk-device-to-cloud] do punktów końcowych usługi połączonej Centrum IoT na podstawie właściwości komunikatu. Reguły routingu zapewniają elastyczność do wysyłania wiadomości, których potrzebują przejścia bez konieczności stosowania dodatkowych usług do przetwarzania komunikatów lub napisać dodatkowy kod. Reguł routingu, które można skonfigurować ma następujące właściwości:
+Centrum IoT umożliwia tooroute [wiadomości urządzenia do chmury] [ lnk-device-to-cloud] tooIoT Centrum połączonej usługi punktów końcowych na podstawie komunikatu właściwości. Routing zapewnia reguły hello toosend elastyczność wiadomości, których potrzebują toogo bez hello muszą wiadomości tooprocess dodatkowych usług lub toowrite dodatkowy kod. Reguł routingu, które można skonfigurować ma hello następujące właściwości:
 
 | Właściwość      | Opis |
 | ------------- | ----------- |
-| **Nazwa**      | Unikatowa nazwa identyfikuje reguły. |
-| **Źródło**    | Pochodzenie strumień danych, które będą używane. Na przykład telemetrii urządzenia. |
-| **Warunek** | Wyrażenia zapytania dla reguły routingu, która jest uruchamiana nagłówki i treści wiadomości i używany w celu określenia, czy jest ono dopasowania dla punktu końcowego. Aby uzyskać więcej informacji na temat tworzenia warunku trasy, zobacz [odwołanie - zapytania języka twins urządzenia i zadania][lnk-devguide-query-language]. |
-| **Punkt końcowy**  | Nazwa punktu końcowego, w którym Centrum IoT wysyła komunikaty, które są zgodne z warunkiem. Punkty końcowe musi należeć do tego samego regionu Centrum IoT, w przeciwnym razie może być wymagana dla regionu między zapisów. |
+| **Nazwa**      | Witaj unikatową nazwę identyfikującą hello reguły. |
+| **Źródło**    | Witaj pochodzenia danych hello strumienia toobe reagować. Na przykład telemetrii urządzenia. |
+| **Warunek** | wyrażenia zapytania Hello hello reguły routingu, które jest wykonywane na nagłówki i treści wiadomości powitania i czy jest dopasowanie dla punktu końcowego hello są używane toodetermine. Aby uzyskać więcej informacji na temat tworzenia warunku trasy, zobacz hello [odwołanie - zapytania języka twins urządzenia i zadania][lnk-devguide-query-language]. |
+| **Punkt końcowy**  | Nazwa Hello hello punktu końcowego, gdy Centrum IoT wysyła wiadomości spełniających warunek hello. Punkty końcowe powinna mieć hello tego samego regionu Centrum IoT hello, w przeciwnym razie może być wymagana dla regionu między zapisuje. |
 
-Pojedynczy komunikat może zgodne z warunkiem na wielu reguł routingu, w których przypadku Centrum IoT dostarcza wiadomość do punktu końcowego skojarzone z każdą regułę dopasowany. Centrum IoT automatycznie deduplicates dostarczanie komunikatów, jeśli komunikat odpowiada wielu reguł mające tego samego miejsca docelowego, jest ona tylko zapisywana do tego miejsca docelowego raz.
+Pojedynczy komunikat może odpowiadać warunek hello na wielu reguł routingu, w których przypadku Centrum IoT zapewnia endpoint toohello wiadomość hello skojarzone z każdą regułę dopasowany. Centrum IoT automatycznie deduplicates dostarczanie komunikatów, jeśli komunikat odpowiada wielu reguł mające hello tego samego miejsca docelowego, jest ona tylko zapisywana docelowego toothat raz.
 
-Centrum IoT ma wartość domyślną [wbudowanym punktem końcowym][lnk-built-in]. Można tworzyć niestandardowe punkty końcowe do wyznaczania tras wiadomościom przez połączenie innych usług w Twojej subskrypcji do koncentratora. Centrum IoT obecnie obsługuje centra zdarzeń, kolejki usługi Service Bus i tematów usługi Service Bus jako niestandardowe punkty końcowe.
+Centrum IoT ma wartość domyślną [wbudowanym punktem końcowym][lnk-built-in]. Można utworzyć tooby wiadomości tooroute niestandardowe punkty końcowe łączenie innych usług w Centrum toohello subskrypcji. Centrum IoT obecnie obsługuje centra zdarzeń, kolejki usługi Service Bus i tematów usługi Service Bus jako niestandardowe punkty końcowe.
 
 > [!WARNING]
 > Usługa Service Bus kolejek i tematów z **sesji** lub **wykrywania duplikatów** włączone nie są obsługiwane jako niestandardowe punkty końcowe.
@@ -49,9 +49,9 @@ Aby uzyskać więcej informacji na temat odczytu z niestandardowe punkty końcow
 
 Aby uzyskać więcej informacji na temat punkty końcowe Centrum IoT, zobacz [punkty końcowe Centrum IoT][lnk-devguide-endpoints].
 
-Aby uzyskać więcej informacji na temat języka zapytań, służy do definiowania reguł routingu, zobacz [Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości][lnk-devguide-query-language].
+Aby uzyskać więcej informacji o język zapytań hello używania toodefine reguły routingu, zobacz [Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości][lnk-devguide-query-language].
 
-[Centrum IoT procesu wiadomości urządzenia do chmury, za pomocą trasy] [ lnk-d2c-tutorial] samouczek pokazuje, jak używać reguł routingu oraz niestandardowe punkty końcowe.
+Witaj [Centrum IoT procesu wiadomości urządzenia do chmury, za pomocą trasy] [ lnk-d2c-tutorial] samouczek pokazuje, jak zasady routingu toouse i niestandardowe punkty końcowe.
 
 [lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md

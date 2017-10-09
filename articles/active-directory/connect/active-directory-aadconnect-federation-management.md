@@ -1,5 +1,5 @@
 ---
-title: "Dostosowywanie z programem Azure AD Connect i zarządzania w usłudze Active Directory Federation Services | Dokumentacja firmy Microsoft"
+title: "aaaActive Directory Federation Services zarządzania i dostosowywania z programem Azure AD Connect | Dokumentacja firmy Microsoft"
 description: "Zarządzanie usługami AD FS z usługi Azure AD Connect i dostosowywania AD FS logowania użytkowników z usługi Azure AD Connect i programu PowerShell."
 keywords: "Usługi AD FS, usługi AD FS, usługi AD FS zarządzania AAD Connect, Connect, logowania, usługi AD FS dostosowanie, napraw federacyjnej relacji zaufania, usługi O365, jednostki uzależnionej"
 services: active-directory
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 361a2bfd6d7a6993dbe773d6ea039ad1afc6346a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Zarządzanie i dostosowania usług federacyjnych Active Directory przy użyciu usługi Azure AD Connect
-W tym artykule opisano sposób zarządzania i dostosowywania Active Directory Federation Services (AD FS) przy użyciu połączenia usługi Azure Active Directory (Azure AD). Zawiera również innych typowych zadań usług AD FS, które może być konieczne przeprowadzenie pełnej konfiguracji farmy usług AD FS.
+W tym artykule opisano sposób toomanage i dostosować Active Directory Federation Services (AD FS) przy użyciu połączenia usługi Azure Active Directory (Azure AD). Zawiera również innych typowych zadań usług AD FS, że może być konieczne toodo do ukończenia konfiguracji farmy usług AD FS.
 
 | Temat | Co obejmuje |
 |:--- |:--- |
 | **Zarządzanie usługami AD FS** | |
-| [Napraw zaufania](#repairthetrust) |Jak naprawić relacja zaufania federacji z usługą Office 365. |
+| [Napraw hello zaufania](#repairthetrust) |Jak toorepair hello federacyjnego zaufania z usługą Office 365. |
 | [Utworzenie federacji z usługą Azure AD przy użyciu alternatywnego Identyfikatora logowania](#alternateid) | Konfigurowanie Federacji przy użyciu alternatywnego Identyfikatora logowania  |
-| [Dodawanie serwera usług AD FS](#addadfsserver) |Jak rozszerzyć farmy usług AD FS jest dodatkowy serwer usług AD FS. |
-| [Dodaj serwer Proxy aplikacji sieci Web usług AD FS](#addwapserver) |Jak rozszerzyć farmy usług AD FS jest dodatkowy serwer Proxy aplikacji sieci Web (WAP). |
-| [Dodawanie domeny federacyjnej](#addfeddomain) |Jak dodać domeny federacyjnej. |
-| [Aktualizuj certyfikat protokołu SSL](active-directory-aadconnectfed-ssl-update.md)| Jak zaktualizować certyfikat SSL do farmy usług AD FS. |
+| [Dodawanie serwera usług AD FS](#addadfsserver) |Jak tooexpand usług AD FS farmy dodatkowy serwer usług AD FS. |
+| [Dodaj serwer Proxy aplikacji sieci Web usług AD FS](#addwapserver) |Jak tooexpand usług AD FS farmy dodatkowy serwer Proxy aplikacji sieci Web (WAP). |
+| [Dodawanie domeny federacyjnej](#addfeddomain) |Jak tooadd domeny federacyjnej. |
+| [Certyfikat SSL hello aktualizacji](active-directory-aadconnectfed-ssl-update.md)| Jak tooupdate hello SSL certyfikatów dla farmy usług AD FS. |
 | **Dostosowywanie usług AD FS** | |
-| [Dodać logo firmy lub ilustracji](#customlogo) |Sposób dostosowania strony w logowania usług AD FS, z firmowego logo i ilustracja. |
-| [Dodaj opis logowania](#addsignindescription) |Jak dodać opis do strony logowania. |
-| [Modyfikowanie reguł oświadczeń usług AD FS](#modclaims) |Jak zmodyfikować oświadczenia usług AD FS dla różnych scenariuszach federacji. |
+| [Dodać logo firmy lub ilustracji](#customlogo) |Sposób logowania usług AD FS toocustomize strony z firmowego logo i ilustracja. |
+| [Dodaj opis logowania](#addsignindescription) |Jak opis strony tooadd logowania. |
+| [Modyfikowanie reguł oświadczeń usług AD FS](#modclaims) |Jak toomodify usług AD FS oświadczeń dla różnych scenariuszy federacji. |
 
 ## <a name="manage-ad-fs"></a>Zarządzanie usługami AD FS
-Różne zadania związane z FS AD można wykonać w programie Azure AD Connect z użytkownika minimalnej interwencji przy użyciu Kreatora programu Azure AD Connect. Po zakończeniu instalowania Azure AD Connect za pomocą kreatora można uruchomić kreatora ponownie w celu wykonywania dodatkowych zadań.
+Za pomocą kreatora Połącz hello Azure AD, można wykonywać różne AD FS dotyczące zadania w programie Azure AD Connect z użytkownika minimalnej interwencji. Po zakończeniu instalowania usługi Azure AD Connect uruchomiony Kreator hello hello kreatora można uruchomić ponownie tooperform dodatkowe zadania.
 
-## Napraw zaufania<a name=repairthetrust></a>
-Azure AD Connect umożliwia Sprawdź bieżącą kondycję usług AD FS i usługi Azure AD ufa i podjąć odpowiednie działania naprawić relacji zaufania. Wykonaj następujące kroki, aby naprawić usługi Azure AD i zaufania usług AD FS.
+## Napraw hello zaufania<a name=repairthetrust></a>
+Można użyć usługi Azure AD Connect toocheck hello bieżącą kondycję hello usług AD FS i zaufania usługi Azure AD i podjąć odpowiednie działania toorepair hello zaufania. Wykonaj te kroki toorepair Azure AD i usług AD FS zaufania.
 
-1. Wybierz **AAD naprawy i zaufania usług AD FS** z listy dodatkowe zadania.
+1. Wybierz **AAD naprawy i zaufania usług AD FS** z listy hello dodatkowe zadania.
    ![Napraw AAD i usług AD FS zaufania](media/active-directory-aadconnect-federation-management/RepairADTrust1.PNG)
 
-2. Na **nawiązywanie połączenia z usługą Azure AD** , podaj poświadczenia administratora globalnego dla usługi Azure AD i kliknij przycisk **dalej**.
-   ![Łączenie z usługą Azure AD](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
+2. Na powitania **połączyć tooAzure AD** , podaj poświadczenia administratora globalnego dla usługi Azure AD i kliknij przycisk **dalej**.
+   ![Połącz tooAzure AD](media/active-directory-aadconnect-federation-management/RepairADTrust2.PNG)
 
-3. Na **poświadczeń dostępu zdalnego** strony, wprowadź poświadczenia administratora domeny.
+3. Na powitania **poświadczeń dostępu zdalnego** wprowadź poświadczenia hello hello administratora domeny.
 
    ![Poświadczenia dostępu zdalnego](media/active-directory-aadconnect-federation-management/RepairADTrust3.PNG)
 
@@ -58,178 +58,178 @@ Azure AD Connect umożliwia Sprawdź bieżącą kondycję usług AD FS i usługi
 
     ![Stan certyfikatów](media/active-directory-aadconnect-federation-management/RepairADTrust4.PNG)
 
-    **Wszystko gotowe do skonfigurowania** znajduje się lista akcji, które zostanie wykonane do naprawy relacji zaufania.
+    Witaj **tooconfigure gotowe** strony pokazuje hello listę działań, które będą wykonywane toorepair hello zaufania.
 
-    ![Wszystko gotowe do skonfigurowania](media/active-directory-aadconnect-federation-management/RepairADTrust5.PNG)
+    ![Gotowe tooconfigure](media/active-directory-aadconnect-federation-management/RepairADTrust5.PNG)
 
-4. Kliknij przycisk **zainstalować** naprawić relacji zaufania.
+4. Kliknij przycisk **zainstalować** toorepair hello zaufania.
 
 > [!NOTE]
 > Azure AD Connect może tylko naprawy lub ustawy o certyfikaty z podpisem własnym. Azure AD Connect nie może naprawić certyfikatów innych firm.
 
 ## Utworzenie federacji z usługą Azure AD przy użyciu AlternateID<a name=alternateid></a>
-Zaleca się, że Name(UPN) podmiot zabezpieczeń użytkownika lokalnie i w chmurze główna nazwa użytkownika pozostają na takie same. Jeśli korzysta z lokalną nazwą UPN domeny bez obsługi routingu (np. Contoso.local) lub nie można zmienić z powodu zależności aplikacji lokalnych, zaleca się konfigurowanie alternatywnego identyfikatora. Alternatywnego Identyfikatora logowania umożliwia skonfigurowanie środowiska logowania z której użytkownicy mogą logować się przy użyciu atrybutu innego niż ich nazwy UPN, taki jak adres e-mail. Wybór dla główna nazwa użytkownika usługi Azure AD Connect Domyślnie atrybut userPrincipalName w usłudze Active Directory. Jeśli możesz wybrać inny atrybut główna nazwa użytkownika i Federacji przy użyciu usług AD FS, następnie Azure AD Connect konfiguracji usług AD FS dla alternatywny identyfikator. Poniżej przedstawiono przykład wybranie innego atrybutu główna nazwa użytkownika:
+Zaleca się, że hello lokalnego Name(UPN) głównej nazwy użytkownika i chmury hello główna nazwa użytkownika są przechowywane hello takie same. Jeśli hello UPN lokalnymi używa nierutowalny domeny (np. Contoso.local) lub nie można zmienić powodu toolocal zależności aplikacji, zaleca się konfigurowanie alternatywnego identyfikatora. Alternatywnego Identyfikatora logowania umożliwia tooconfigure Obsługa logowania w którym użytkownicy mogą logować się przy użyciu atrybutu innego niż ich nazwy UPN, taki jak adres e-mail. Wybór Hello do głównej nazwy użytkownika w atrybut userPrincipalName toohello domyślne Azure AD Connect w usłudze Active Directory. Jeśli możesz wybrać inny atrybut główna nazwa użytkownika i Federacji przy użyciu usług AD FS, następnie Azure AD Connect konfiguracji usług AD FS dla alternatywny identyfikator. Poniżej przedstawiono przykład wybranie innego atrybutu główna nazwa użytkownika:
 
 ![Alternatywny identyfikator atrybutu zaznaczenia](media/active-directory-aadconnect-federation-management/attributeselection.png)
 
 Konfigurowanie alternatywnego Identyfikatora logowania dla usług AD FS składa się z dwóch głównych czynności:
-1. **Konfigurowanie odpowiedniego zestawu wystawiania oświadczeń**: reguły wystawiania oświadczeń w usłudze Azure AD uzależnionej zaufania są modyfikacji w celu użycia wybranego atrybutu UserPrincipalName jako alternatywnego Identyfikatora użytkownika.
-2. **Włącz alternatywnego Identyfikatora logowania w konfiguracji usług AD FS**: Zaktualizowano konfigurację usług AD FS, aby usługi AD FS można wyszukiwać użytkowników w lasach odpowiednie przy użyciu alternatywnego identyfikatora. Ta konfiguracja jest obsługiwana dla usług AD FS w systemie Windows Server 2012 R2 (z KB2919355) lub nowszym. Jeśli serwery usług AD FS 2012 R2, Azure AD Connect sprawdza obecność wymagane KB. Jeśli nie wykryto KB, będzie wyświetlane ostrzeżenie po zakończeniu konfiguracji, jak pokazano poniżej:
+1. **Skonfiguruj hello prawidłowego zestawu wystawiania oświadczeń**: hello wystawiania oświadczeń reguły w jednostce uzależnionej hello Azure AD zaufania, są atrybutu UserPrincipalName hello wybrane toouse zmodyfikowane, jak hello alternatywny identyfikator użytkownika hello.
+2. **Włącz alternatywnego Identyfikatora logowania w konfiguracji usług AD FS hello**: hello AD FS konfiguracji zostaną zmienione tak, aby usługi AD FS można wyszukiwać użytkowników w lasach odpowiednie hello przy użyciu hello alternatywnego identyfikatora. Ta konfiguracja jest obsługiwana dla usług AD FS w systemie Windows Server 2012 R2 (z KB2919355) lub nowszym. Jeśli serwery usług hello AD FS 2012 R2, Azure AD Connect sprawdza obecność hello hello wymagane KB. Jeśli hello KB nie zostanie wykryta, ostrzeżenie będzie wyświetlana po zakończeniu konfiguracji, jak pokazano poniżej:
 
     ![Ostrzeżenie dotyczące Brak KB na 2012 R2](media/active-directory-aadconnect-federation-management/kbwarning.png)
 
-    Aby rozwiązać konfiguracji w przypadku brakujących KB, należy zainstalować wymagane [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) , a następnie napraw za pomocą zaufania [napraw AAD i AD FS zaufania](#repairthetrust).
+    toorectify hello konfiguracji w przypadku brakujących KB, zainstaluj hello wymagane [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) , a następnie napraw hello zaufania przy użyciu [napraw AAD i AD FS zaufania](#repairthetrust).
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na alternateID i kroki, aby ręcznie skonfigurować odczytu [Konfigurowanie alternatywnego Identyfikatora logowania](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
+> Aby uzyskać więcej informacji na toomanually alternateID i kroki konfigurowania, odczytać [Konfigurowanie alternatywnego Identyfikatora logowania](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
 ## Dodawanie serwera usług AD FS<a name=addadfsserver></a>
 
 > [!NOTE]
-> Aby dodać serwer usług AD FS, Azure AD Connect wymaga certyfikatu PFX. W związku z tym tę operację mogą wykonać tylko w przypadku skonfigurowania farmy usług AD FS przy użyciu usługi Azure AD Connect.
+> Serwer tooadd usług AD FS, Azure AD Connect wymaga hello certyfikat PFX. W związku z tym tę operację mogą wykonać tylko wtedy, gdy hello AD FS farmy jest konfigurowana przy użyciu usługi Azure AD Connect.
 
 1. Wybierz **wdrażanie dodatkowego serwera federacyjnego**i kliknij przycisk **dalej**.
 
    ![Serwer federacyjny dodatkowe](media/active-directory-aadconnect-federation-management/AddNewADFSServer1.PNG)
 
-2. Na **nawiązywanie połączenia z usługą Azure AD** strony, wprowadź swoje poświadczenia administratora globalnego dla usługi Azure AD, a następnie kliknij przycisk **dalej**.
+2. Na powitania **połączyć tooAzure AD** strony, wprowadź swoje poświadczenia administratora globalnego dla usługi Azure AD, a następnie kliknij przycisk **dalej**.
 
-   ![Łączenie z usługą Azure AD](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
+   ![Połącz tooAzure AD](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
-3. Podaj poświadczenia administratora domeny.
+3. Podaj poświadczenia administratora domeny hello.
 
    ![Podane poświadczenia administratora domeny](media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
 
-4. Azure AD Connect pytanie o hasło pliku PFX podany podczas konfigurowania nowej farmie serwerów usług AD FS z programem Azure AD Connect. Kliknij przycisk **wprowadź hasło** o podanie hasła dla pliku PFX.
+4. Azure AD Connect pytanie o hasło hello hello pliku PFX, podane podczas konfigurowania nowej farmie serwerów usług AD FS z programem Azure AD Connect. Kliknij przycisk **wprowadź hasło** tooprovide hello hasło dla pliku PFX hello.
 
    ![Hasło certyfikatu](media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
     ![Określ certyfikat SSL](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 
-5. Na **serwery usług AD FS** strony, wprowadź nazwę serwera lub adres IP ma zostać dodany do farmy usług AD FS.
+5. Na powitania **serwery usług AD FS** wpisz nazwę serwera hello lub dodać toobe adres IP toohello AD FS farmy.
 
    ![Serwery usług AD FS](media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
 
-6. Kliknij przycisk **dalej**i przejść ostatecznych **Konfiguruj** strony. Po zakończeniu Azure AD Connect Dodawanie serwerów do farmy usług AD FS, użytkownik otrzyma opcję, aby sprawdzić łączność.
+6. Kliknij przycisk **dalej**i wykonaj hello końcowego **Konfiguruj** strony. Po zakończeniu Azure AD Connect Dodawanie hello serwerów toohello AD FS farmy, będziesz mieć możliwość hello opcja tooverify hello łączności.
 
-   ![Wszystko gotowe do skonfigurowania](media/active-directory-aadconnect-federation-management/AddNewADFSServer7.PNG)
+   ![Gotowe tooconfigure](media/active-directory-aadconnect-federation-management/AddNewADFSServer7.PNG)
 
     ![Zakończenie instalacji](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
 ## Dodaj serwer AD FS WAP<a name=addwapserver></a>
 
 > [!NOTE]
-> Aby dodać serwer proxy, Azure AD Connect wymaga certyfikatu PFX. W związku z tym można wykonać tylko tej operacji po skonfigurowaniu farmy usług AD FS przy użyciu usługi Azure AD Connect.
+> tooadd serwerowi proxy aplikacji Azure AD Connect wymaga hello certyfikat PFX. W związku z tym można wykonać tylko tej operacji po skonfigurowaniu hello AD FS farmy przy użyciu usługi Azure AD Connect.
 
-1. Wybierz **wdrażanie Proxy aplikacji sieci Web** z listy dostępnych zadań.
+1. Wybierz **wdrażanie Proxy aplikacji sieci Web** z hello listę dostępnych zadań.
 
    ![Wdrożenie serwera Proxy aplikacji sieci Web](media/active-directory-aadconnect-federation-management/WapServer1.PNG)
 
-2. Podaj poświadczenia administratora globalnego usługi Azure.
+2. Podaj poświadczenia administratora globalnego usługi Azure hello.
 
-   ![Łączenie z usługą Azure AD](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
+   ![Połącz tooAzure AD](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
 
-3. Na **certyfikat SSL określ** Podaj hasło dla pliku PFX podany podczas konfigurowania farmy usług AD FS z programem Azure AD Connect.
+3. Na powitania **certyfikat SSL określ** Podaj hello hasło dla pliku PFX hello podane podczas konfigurowania farmy usług hello AD FS z programem Azure AD Connect.
    ![Hasło certyfikatu](media/active-directory-aadconnect-federation-management/WapServer3.PNG)
 
     ![Określ certyfikat SSL](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
 
-4. Dodaj serwer, który ma zostać dodany jako serwer proxy. Ponieważ serwerowi proxy aplikacji nie może być przyłączony do domeny, Kreator zapyta o podanie poświadczeń administracyjnych dodawany serwer.
+4. Dodaj powitania serwera toobe dodany jako serwer proxy. Ponieważ hello serwerowi proxy mogą nie być toohello przyłączone do domeny, Kreator hello poprosi o dodawany serwer toohello poświadczenia administracyjne.
 
    ![Poświadczenia administracyjne serwera](media/active-directory-aadconnect-federation-management/WapServer5.PNG)
 
-5. Na **poświadczeń zaufania serwera Proxy** Podaj poświadczenia administracyjne, aby skonfigurować serwer proxy zaufania i uzyskać dostęp serwer główny w farmie usług AD FS.
+5. Na powitania **poświadczeń zaufania serwera Proxy** Podaj poświadczenia administracyjne tooconfigure hello proxy zaufania i dostępu do serwera podstawowego hello w farmie hello usług AD FS.
 
    ![Poświadczenia zaufania serwera proxy](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 
-6. Na **wszystko gotowe do skonfigurowania** strony, Kreator z listą akcje, które będą wykonywane.
+6. Na powitania **tooconfigure gotowe** strony, Kreator hello listą hello akcje, które będą wykonywane.
 
-   ![Wszystko gotowe do skonfigurowania](media/active-directory-aadconnect-federation-management/WapServer7.PNG)
+   ![Gotowe tooconfigure](media/active-directory-aadconnect-federation-management/WapServer7.PNG)
 
-7. Kliknij przycisk **zainstalować** aby zakończyć konfigurację. Po zakończeniu konfiguracji kreatora udostępnia opcję, aby sprawdzić łączność z serwerami. Kliknij przycisk **Sprawdź** Aby sprawdzić łączność.
+7. Kliknij przycisk **zainstalować** toofinish hello konfiguracji. Po ukończeniu konfiguracji hello hello kreatora daje hello tooverify opcji hello łączności toohello serwerów. Kliknij przycisk **Sprawdź** toocheck łączności.
 
    ![Zakończenie instalacji](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
 ## Dodawanie domeny federacyjnej<a name=addfeddomain></a>
 
-To proste dodać domenę federacyjną z usługą Azure AD za pomocą usługi Azure AD Connect. Azure AD Connect dodaje domeny na potrzeby federowania i modyfikuje reguł oświadczeń w celu odzwierciedlenia wystawca poprawnie, jeśli masz wiele domen federacyjnych z usługą Azure AD.
+Jest łatwy tooadd toobe domeny Sfederowanych z usługą Azure AD za pomocą usługi Azure AD Connect. Azure AD Connect dodaje hello domeny dla Federacji i modyfikuje oświadczenia hello toocorrectly reguły odzwierciedlają hello wystawcy, jeśli masz wiele domen federacyjnych z usługą Azure AD.
 
-1. Aby dodać domenę federacyjną, wybierz zadanie **Dodawanie kolejnej domeny usługi Azure AD**.
+1. tooadd domeny federacyjnej, wybierz hello zadań **Dodawanie kolejnej domeny usługi Azure AD**.
 
    ![Dodatkowe domeny usługi Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain1.PNG)
 
-2. Na następnej stronie kreatora należy podać poświadczenia administratora globalnego dla usługi Azure AD.
+2. Na następnej stronie powitania hello kreatora należy podać poświadczenia administratora globalnego powitania dla usługi Azure AD.
 
-   ![Łączenie z usługą Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
+   ![Połącz tooAzure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
 
-3. Na **poświadczeń dostępu zdalnego** Podaj poświadczenia administratora domeny.
+3. Na powitania **poświadczeń dostępu zdalnego** Podaj poświadczenia administratora domeny hello.
 
    ![Poświadczenia dostępu zdalnego](media/active-directory-aadconnect-federation-management/additionaldomain3.PNG)
 
-4. Na następnej stronie kreatora zawiera listę domen usługi Azure AD, które można było wykonać Federację z katalogu lokalnego. Wybierz domenę z listy.
+4. Na następnej stronie powitania Kreatora hello zawiera listę domen usługi Azure AD, które można było wykonać Federację lokalnego katalogu z. Wybierz domenę hello z listy hello.
 
    ![Domenowych Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Po wybraniu domeny Kreator udostępnia odpowiednie informacje o dalsze akcje, które podejmie kreatora i ich wpływ na konfigurację. W niektórych przypadkach w przypadku wybrania domeny, która nie jest jeszcze zweryfikowana w usłudze Azure AD, Kreator dostarcza informacje ułatwiające zweryfikować domenę. Zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-add-domain.md) więcej szczegółów.
+    Po wybraniu domeny hello kreatora hello zawiera odpowiednie informacje o dalsze akcje, które hello Kreator będzie trwać i hello wpływ hello konfiguracji. W niektórych przypadkach w przypadku wybrania domeny, która jeszcze nie jest zweryfikowana w usłudze Azure AD, Kreator hello zapewnia informacje toohelp sprawdzisz hello domeny. Zobacz [tooAzure nazwa Twojej niestandardową domenę usługi Active Directory dodać](../active-directory-add-domain.md) więcej szczegółów.
 
-5. Kliknij przycisk **Dalej**. **Wszystko gotowe do skonfigurowania** strona zawiera listę działań, które wykona Azure AD Connect. Kliknij przycisk **zainstalować** aby zakończyć konfigurację.
+5. Kliknij przycisk **Dalej**. Witaj **tooconfigure gotowe** strony hello Lista akcji, które wykona Azure AD Connect. Kliknij przycisk **zainstalować** toofinish hello konfiguracji.
 
-   ![Wszystko gotowe do skonfigurowania](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+   ![Gotowe tooconfigure](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
 
 > [!NOTE]
-> Musi być synchronizowany użytkowników dodanych domeny federacyjnej, zanim będą mogli logować się do usługi Azure AD.
+> Użytkownicy z hello dodać musi być synchronizowany domeny federacyjnej, zanim będą oni mogli toologin tooAzure AD.
 
 ## <a name="ad-fs-customization"></a>Dostosowania usług AD FS
-Poniższe sekcje zawierają szczegółowe informacje o niektórych typowych zadań, które należy wykonać podczas dostosowywania strony logowania usług AD FS.
+Witaj poniższe sekcje zawierają szczegółowe informacje o niektórych typowych zadań hello może mieć tooperform podczas dostosowywania strony logowania usług AD FS.
 
 ## Dodać logo firmy lub ilustracji<a name=customlogo></a>
-Aby zmienić logo firmy, który jest wyświetlany na **logowania** strony, należy użyć następującego polecenia cmdlet programu Windows PowerShell i składni.
+toochange hello logo firmy hello, który jest wyświetlany na powitania **logowania** strony, należy użyć następującego polecenia cmdlet programu Windows PowerShell i składni hello.
 
 > [!NOTE]
-> Zalecane wymiary logo to 260 x 35 przy rozdzielczości 96 dpi w pliku o rozmiarze nie większym niż 10 KB.
+> Witaj zalecane wymiary hello logo to 260 x 35 przy rozdzielczości 96 dpi w pliku o rozmiarze nie większym niż 10 KB.
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
-> *TargetName* parametr jest wymagany. Motyw domyślny publikowany z usługami AD FS nosi nazwę domyślny.
+> Witaj *TargetName* parametr jest wymagany. Witaj motyw domyślny publikowany z usługami AD FS nosi nazwę domyślny.
 
 ## Dodaj opis logowania<a name=addsignindescription></a>
-Aby dodać opis do strony logowania **strony logowania**, użyj następującego polecenia cmdlet programu Windows PowerShell i składni.
+tooadd toohello opisu strony logowania **strony logowania**, użyj następującego polecenia cmdlet programu Windows PowerShell i składni hello.
 
-    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
+    Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in tooContoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
 ## Modyfikowanie reguł oświadczeń usług AD FS<a name=modclaims></a>
-Usługi AD FS obsługuje język sformatowanego oświadczenia, którego można używać do tworzenia niestandardowych reguł oświadczeń. Aby uzyskać więcej informacji, zobacz [rola języka reguł oświadczeń](https://technet.microsoft.com/library/dd807118.aspx).
+Usługi AD FS obsługują język sformatowanego oświadczeń można użyć toocreate niestandardowych reguł oświadczeń. Aby uzyskać więcej informacji, zobacz [hello roli hello języka reguł oświadczeń](https://technet.microsoft.com/library/dd807118.aspx).
 
-W poniższych sekcjach opisano, jak można zapisać reguły niestandardowe dla niektórych scenariuszy, które odnoszą się do usługi Azure AD i federacji usług AD FS.
+Witaj poniższych sekcjach opisano sposób można zapisać reguły niestandardowe dla niektórych scenariuszy, które są powiązane tooAzure AD i federacji usług AD FS.
 
-### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>Warunkowe na wartość jest obecny w atrybucie niezmienialnego Identyfikatora
-Azure AD Connect umożliwia określenie atrybutu ma być używany jako zakotwiczenie źródła, gdy obiekty są synchronizowane z usługą Azure AD. Jeśli wartość atrybutu niestandardowego nie jest pusta, można wystawić oświadczenie niezmienne identyfikator.
+### <a name="immutable-id-conditional-on-a-value-being-present-in-hello-attribute"></a>Warunkowe na wartość jest obecny w atrybucie hello niezmienialnego Identyfikatora
+Azure AD Connect umożliwia określenie toobe atrybutu używany jako zakotwiczenie źródła, gdy obiekty są synchronizowane tooAzure AD. Jeśli wartość hello w atrybucie niestandardowym hello nie jest pusta, można tooissue niezmienne oświadczenie Identyfikatora.
 
-Na przykład możesz wybrać pozycję **ms-ds-consistencyguid** jako atrybut zakotwiczenia źródła i problem **nazwę ImmutableID** jako **consistencyguid-ms-ds** w przypadku, gdy atrybut ma wartość na nim. Jeśli nie ma żadnej wartości tego atrybutu, **objectGuid** jako niezmienialny identyfikatora. Można utworzyć zestaw reguł oświadczeń, zgodnie z opisem w poniższej sekcji.
+Na przykład możesz wybrać pozycję **ms-ds-consistencyguid** jako atrybut hello zakotwiczenie źródła hello oraz wydawania **nazwę ImmutableID** jako **consistencyguid-ms-ds** w przypadku hello atrybut ma wartość na nim. Jeśli nie ma żadnej wartości dla atrybutu hello, **objectGuid** jako hello niezmienne identyfikatora. Zgodnie z opisem w następujących sekcji hello można konstruować hello zestaw niestandardowych reguł oświadczeń.
 
 **Reguła 1: Atrybuty zapytania**
 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
-W tej regule, w przypadku badania wartości **ms-ds-consistencyguid** i **objectGuid** dla użytkownika z usługi Active Directory. Zmień nazwę magazynu do magazynu odpowiednie nazwy we wdrożeniu usług AD FS. Zmień typ oświadczenia do odpowiedniego oświadczeń również typ federacyjnym, zgodnie z definicją **objectGuid** i **consistencyguid-ms-ds**.
+W tej regule, w przypadku badania wartości hello **ms-ds-consistencyguid** i **objectGuid** hello użytkownika z usługi Active Directory. Zmień nazwę odpowiedniego sklepu hello magazynu Nazwa tooan we wdrożeniu usług AD FS. Również zmienić hello oświadczeń tooa oświadczeń prawidłowego typu dla federacyjnym, zgodnie z definicją **objectGuid** i **consistencyguid-ms-ds**.
 
-Ponadto za pomocą **dodać** i nie **problem**, unikać dodawania problemu wychodzących dla obiektu, a można użyć wartości jako wartości pośrednich. Po ustaleniu wartość, która ma być używana jako niezmienialny identyfikatora wystawia oświadczenia w regule nowsze
+Ponadto za pomocą **dodać** i nie **problem**, unikać dodawania wychodzących problemem w przypadku jednostki hello i użyć hello wartości jako wartości pośrednich. Będzie wystawiać oświadczenia hello w regule nowsze po ustaleniu które toouse wartość jako hello niezmienne identyfikatora.
 
-**Reguła 2: Sprawdź, czy consistencyguid-ms-ds istnieje dla użytkownika**
+**Reguła 2: Sprawdź, czy consistencyguid-ms-ds istnieje hello użytkownika**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Ta zasada definiuje tymczasowe flagę o nazwie **idflag** który ustawiono **useguid** w przypadku nie **consistencyguid-ms-ds** wypełnione dla użytkownika. Logiki tego jest fakt, że usługi AD FS nie zezwala na puste oświadczeń. Dlatego po dodaniu http://contoso.com/ws/2016/02/identity/claims/objectguid oświadczeń i http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid w reguła 1 na końcu **msdsconsistencyguid** oświadczeń tylko, jeśli wartość jest wypełniana dla użytkownika. Jeśli go nie jest wypełnione, będzie mieć wartość pustą i odrzuca pochodzące od razu będzie widział usług AD FS. Wszystkie obiekty będą mieć **objectGuid**, więc roszczenie zawsze będą dostępne po wykonaniu reguła 1.
+Ta zasada definiuje tymczasowe flagę o nazwie **idflag** który ustawiono zbyt**useguid** w przypadku nie **consistencyguid-ms-ds** wypełnione hello użytkownika. Witaj logiki to jest hello fakt, że usługi AD FS nie zezwala na puste oświadczeń. Dlatego po dodaniu http://contoso.com/ws/2016/02/identity/claims/objectguid oświadczeń i http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid w reguła 1 na końcu **msdsconsistencyguid** oświadczenia tylko wtedy, gdy wartość Hello jest wypełniana hello użytkownika. Jeśli go nie jest wypełnione, będzie mieć wartość pustą i odrzuca pochodzące od razu będzie widział usług AD FS. Wszystkie obiekty będą mieć **objectGuid**, więc roszczenie zawsze będą dostępne po wykonaniu reguła 1.
 
 **Reguła 3: Wystawiać ms-ds-consistencyguid jako niezmienialnego Identyfikatora, jeśli jest obecny**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
-To jest niejawnie **Exist** Sprawdź. Jeśli istnieje wartość oświadczenia, następnie wystawia, które jako niezmienialny identyfikatora. W poprzednim przykładzie użyto **nameidentifier** oświadczeń. Należy zmienić to typ oświadczenia właściwe dla niezmienialnego Identyfikatora w danym środowisku.
+To jest niejawnie **Exist** Sprawdź. Jeśli istnieje wartość hello hello oświadczenia, następnie wystawiania, która jako niezmienialny hello identyfikator. Witaj poprzednim przykładzie użyto hello **nameidentifier** oświadczeń. Będziesz mieć toochange tego typu oświadczenia właściwe toohello dla Identyfikatora niezmienne hello w danym środowisku.
 
 **Reguła 4: Jeśli consistencyGuid-ms-ds nie jest obecny Wystaw objectGuid jako niezmienialnego Identyfikatora**
 
@@ -237,15 +237,15 @@ To jest niejawnie **Exist** Sprawdź. Jeśli istnieje wartość oświadczenia, n
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
 
-W tej regule, sprawdzamy po prostu flagę tymczasowego **idflag**. Określenie, czy wystawiać oświadczenia na podstawie jego wartości.
+W tej regule, sprawdzamy po prostu flagę tymczasowego hello **idflag**. Zdecyduj, czy oparta na oświadczeniach hello tooissue na jego wartość.
 
 > [!NOTE]
-> Ważne jest sekwencji tych zasad.
+> ważne jest sekwencji Hello tych zasad.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Usługa rejestracji Jednokrotnej z poddomeny nazwy UPN
-Można dodać więcej niż jedną domenę federacyjną za pomocą usługi Azure AD Connect, zgodnie z opisem w [Dodaj nową domenę federacyjną](active-directory-aadconnect-federation-management.md#addfeddomain). Należy zmodyfikować oświadczenia użytkownika (UPN) Nazwa główna tak, aby identyfikator wystawcy odnosi się do domeny głównej, a nie domeny podrzędnej, ponieważ domeny głównej federacyjnych obejmuje również podrzędnych.
+Możesz dodać więcej niż jeden toobe domeny federacyjnej przy użyciu usługi Azure AD Connect, zgodnie z opisem w [Dodaj nową domenę federacyjną](active-directory-aadconnect-federation-management.md#addfeddomain). Należy zmodyfikować oświadczenia głównej nazwy (UPN) użytkownika hello tak, aby hello identyfikator wystawcy odpowiada domeny głównej toohello i nie hello poddomen, ponieważ hello federacyjnych główny domeny obejmuje również hello podrzędnych.
 
-Domyślnie reguły oświadczenia dla Identyfikatora wystawcy jest ustawiony jako:
+Domyślnie reguł oświadczeń hello wystawcy Identyfikatora jest ustawiony jako:
 
     c:[Type
     == “http://schemas.xmlsoap.org/claims/UPN“]
@@ -254,7 +254,7 @@ Domyślnie reguły oświadczenia dla Identyfikatora wystawcy jest ustawiony jako
 
 ![Oświadczenie Identyfikatora wystawcy domyślne](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
 
-Domyślna reguła po prostu przyjmuje sufiks głównej nazwy użytkownika i używa go w oświadczenie Identyfikatora wystawcy. Na przykład Jan jest użytkownikiem w sub.contoso.com i contoso.com jest Sfederowane przy użyciu usługi Azure AD. Jan wprowadza john@sub.contoso.com jako nazwy użytkownika podczas logowania do usługi Azure AD. Domyślna reguła oświadczeń identyfikator wystawcy w usługach AD FS obsługuje go w następujący sposób:
+Hello domyślną regułę po prostu przyjmuje hello sufiks głównej nazwy użytkownika i używa go w Witaj wystawca identyfikator oświadczenia. Na przykład Jan jest użytkownikiem w sub.contoso.com i contoso.com jest Sfederowane przy użyciu usługi Azure AD. Jan wprowadza john@sub.contoso.com jako hello nazwy użytkownika podczas logowania tooAzure AD. Hello domyślne wystawcy identyfikator reguły oświadczeń w usługach AD FS obsługuje on powitania po sposób:
 
     c:[Type
     == “http://schemas.xmlsoap.org/claims/UPN“]
@@ -263,7 +263,7 @@ Domyślna reguła po prostu przyjmuje sufiks głównej nazwy użytkownika i uży
 
 **Wartość oświadczenia:** http://sub.contoso.com/adfs/services/trust/
 
-Aby w wartości oświadczenia wystawcy tylko domeny głównej, zmień reguły oświadczenia zgodne z następującymi:
+toohave tylko hello domenie głównej Witaj wystawca wartości oświadczenia, hello oświadczeń reguła toomatch hello następujące zmiany:
 
     c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
 

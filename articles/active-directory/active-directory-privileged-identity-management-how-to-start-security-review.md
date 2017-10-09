@@ -1,6 +1,6 @@
 ---
-title: "Jak rozpocząć Przegląd dostępu | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć Przegląd dostępu uprzywilejowanego tożsamości z aplikacji Azure Privileged Identity Management."
+title: "toostart aaaHow Przegląd dostępu | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate dostępu Przejrzyj dla uprzywilejowanymi tożsamościami przy hello aplikacji Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,69 +15,69 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2b516e2f05aa883c5e37f5864e5ee8a2b37d3a46
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24feac307f77c69b5d68d6ae0623dbcb52416b01
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Jak rozpocząć Przegląd dostępu w usłudze Azure AD Privileged Identity Management
-Przypisania ról nieodświeżone "", gdy użytkownicy mają uprzywilejowany dostęp, które nie wymagają już. W celu zmniejszenia ryzyka związanego z tych przypisań ról starych, ról uprzywilejowanych powinni regularnie sprawdzić ról, którym przyznano użytkowników. W tym dokumencie opisano kroki dotyczące uruchomienia Przegląd dostępu w usłudze Azure AD Privileged Identity Management (PIM).
+# <a name="how-toostart-an-access-review-in-azure-ad-privileged-identity-management"></a>Jak toostart dostępu Przejrzyj w usłudze Azure AD Privileged Identity Management
+Przypisania ról nieodświeżone "", gdy użytkownicy mają uprzywilejowany dostęp, które nie wymagają już. W kolejności tooreduce hello ryzyka związanego z tych przypisań ról starych ról uprzywilejowanych powinni regularnie sprawdzić hello ról, które użytkownicy mają prawo. W tym dokumencie opisano kroki hello uruchamiania Przegląd dostępu w usłudze Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Rozpocząć Przegląd dostępu
 > [!NOTE]
-> Jeśli nie dodano aplikacji PIM do pulpitu nawigacyjnego w portalu Azure, zobacz kroki w [wprowadzenie do korzystania z usługi Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
+> Jeśli nie dodano hello pulpit nawigacyjny tooyour aplikacji dla usługi PIM w hello portalu Azure, zobacz kroki hello w [wprowadzenie do korzystania z usługi Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 > 
 > 
 
-Na stronie głównej aplikacji PIM istnieją trzy sposoby uruchamiania Przegląd dostępu:
+Z usługi PIM hello aplikacji strony głównej istnieją trzy sposoby toostart Przegląd dostępu:
 
 * **Dostęp do przeglądu** > **Dodaj**
 * **Role** > **przeglądu** przycisku
-* Wybierz określoną rolę, należy sprawdzić na liście ról > **przeglądu** przycisku
+* Wybierz hello konkretnej roli toobe usunięci z listy ról hello > **przeglądu** przycisku
 
-Po kliknięciu **Przejrzyj** przycisku **rozpocząć Przegląd dostępu** zostanie wyświetlony blok. W tym bloku użytkownik chce skonfigurować przeglądu przy użyciu nazwy i limit czasu, wybierz rolę, aby przejrzeć i zdecydować, kto będzie wykonywać przeglądu.
+Po kliknięciu hello **Przejrzyj** przycisk hello **rozpocząć Przegląd dostępu** zostanie wyświetlony blok. W tym bloku jest będzie tooconfigure hello recenzowania o nazwie i limit czasu, wybraniu tooreview roli i zdecydować, kto będzie wykonywać hello przeglądu.
 
 ![Przegląd dostępu — zrzut ekranu Start][1]
 
-### <a name="configure-the-review"></a>Skonfiguruj przeglądu
-Aby utworzyć Przegląd dostępu, należy nadaj jej nazwę i ustawiania datę początkową i końcową.
+### <a name="configure-hello-review"></a>Skonfiguruj hello przeglądu
+Przejrzyj dostępu toocreate należy tooname go i Ustaw daty początkową i końcową.
 
 ![Skonfiguruj przeglądu — zrzut ekranu][2]
 
-Należy długość przeglądu wystarczająco długo, użytkowników ją zakończyć. Jeśli zakończy się wcześniejsza od daty zakończenia, można zawsze zatrzymać przeglądu wcześniej.
+Należy hello długość hello Przejrzyj wystarczająco długi dla toocomplete użytkowników. Jeśli zakończy się wcześniejsza niż data zakończenia hello, można zawsze zatrzymać przeglądu hello wcześniej.
 
-### <a name="choose-a-role-to-review"></a>Wybierz rolę do przeglądu
-Każdego przeglądu koncentruje się na tylko jedną rolę. Chyba, że przegląd dostępu został uruchomiony z bloku konkretnej roli, należy wybrać rolę teraz.
+### <a name="choose-a-role-tooreview"></a>Wybierz tooreview roli
+Każdego przeglądu koncentruje się na tylko jedną rolę. Jeśli nie został uruchomiony Przegląd dostępu hello bloku konkretnej roli, należy toochoose roli teraz.
 
-1. Przejdź do **Przejrzyj członkostwo roli**
+1. Przejdź do zbyt**Przejrzyj członkostwo roli**
    
     ![Przejrzyj członkostwo roli — zrzut ekranu][3]
-2. Wybierz jedną rolę z listy.
+2. Wybierz jedną rolę z listy hello.
 
-### <a name="decide-who-will-perform-the-review"></a>Zdecyduj, który przeprowadzi przeglądu
-Dostępne są trzy opcje umożliwiające wykonywanie przeglądu. Przegląd można przypisać do innej osoby, aby zakończyć, możesz zrobić to samodzielnie lub może mieć każdy użytkownik, Przejrzyj swoje własne dostępu.
+### <a name="decide-who-will-perform-hello-review"></a>Zdecyduj, który przeprowadzi hello przeglądu
+Dostępne są trzy opcje umożliwiające wykonywanie przeglądu. Można przypisać toosomeone przeglądu hello else toocomplete, możesz zrobić to samodzielnie lub może mieć każdy użytkownik, Przejrzyj swoje własne dostępu.
 
-1. Przejdź do **wybierz osób dokonujących przeglądu**
+1. Przejdź do zbyt**wybierz osób dokonujących przeglądu**
    
     ![Wybierz osoby dokonujące przeglądu — zrzut ekranu][4]
-2. Wybierz jedną z opcji:
+2. Wybierz jedną z opcji hello:
    
-   * **Wybierz osoby dokonującej przeglądu**: Użyj tej opcji, jeśli nie wiesz, który musi mieć dostęp. Po wybraniu tej opcji można przypisać do właściciela zasobów lub menedżera grupy do ukończenia przeglądu.
-   * **ME**: przydatne, jeśli chcesz obejrzeć, jak program access sprawdza pracy lub aby przejrzeć w imieniu osoby, które nie.
-   * **Elementy członkowskie, zapoznaj się**: Użyj tej opcji, aby przejrzeć swoje własne przypisań ról użytkowników.
+   * **Wybierz osoby dokonującej przeglądu**: Użyj tej opcji, jeśli nie wiesz, który musi mieć dostęp. Po wybraniu tej opcji można przypisać właściciela zasobów tooa przeglądu hello lub toocomplete menedżera grupy.
+   * **ME**: przydatne w przypadku toopreview jak dostępu przegląda pracy lub w imieniu osoby, które nie mają tooreview.
+   * **Elementy członkowskie, zapoznaj się**: za pomocą przeglądu użytkowników hello toohave opcji własnych przypisań ról.
 
-### <a name="start-the-review"></a>Uruchom przeglądu
-Na koniec masz opcję, aby wymagać podania użytkowników przyczynę Jeśli udzielają dostępu. Jeśli chcesz dodać opis przeglądu, a następnie wybierz **Start**.
+### <a name="start-hello-review"></a>Rozpocząć Przegląd hello
+Na koniec należy toorequire opcji hello użytkowników podać przyczynę, jeśli udzielają dostępu. Jeśli chcesz dodać opis hello przeglądu, a następnie wybierz **Start**.
 
-Upewnij się, że poinformować użytkowników, wiadomo, że jest przegląd dostępu oczekiwanie na ich i wyświetlić je [jak przeprowadzić przegląd dostępu](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Upewnij się, że poinformować użytkowników, wiadomo, że jest przegląd dostępu oczekiwanie na ich i wyświetlić je [jak tooperform dostępu Przejrzyj](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-## <a name="manage-the-access-review"></a>Zarządzanie Przegląd dostępu
-Postęp można śledzić w recenzentów zakończenia ich przeglądami na pulpicie nawigacyjnym usługi Azure AD PIM w sekcji przeglądami dostęp. Brak praw dostępu zostaną zmienione w katalogu do [zakończeniu przeglądu](active-directory-privileged-identity-management-how-to-complete-review.md).
+## <a name="manage-hello-access-review"></a>Zarządzanie hello Przegląd dostępu
+Możesz śledzić postępy hello w recenzentów hello zakończenia ich oceny w hello Azure AD PIM pulpitu nawigacyjnego, w hello dostępu przegląda sekcji. Brak praw dostępu zostaną zmienione w katalogu hello do [zakończeniu Przejrzyj hello](active-directory-privileged-identity-management-how-to-complete-review.md).
 
-Aż do okresu przeglądu Przypomnij użytkowników przeprowadzenie ich przeglądu, lub Zatrzymaj przeglądu wcześniej w sekcji przeglądami dostępu.
+Okresu przeglądu hello toocomplete użytkownicy mogą Przypomnij ich przeglądu, lub przejrzyj hello stop wczesne przed dostępem hello przegląda sekcji.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="pim-table-of-contents"></a>PIM spis treści
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

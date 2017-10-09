@@ -1,5 +1,5 @@
 ---
-title: Azure AD w wersji 2 JS SPA instrukcje konfiguracji | Dokumentacja firmy Microsoft
+title: Instalator SPA JS z przewodnikiem v2 aaaAzure AD | Dokumentacja firmy Microsoft
 description: "Jak aplikacje JavaScript SPA można wywołać interfejsu API, które wymagają tokenów dostępu przez punkt końcowy w wersji 2 usługi Azure Active Directory"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 26354e03a44ddbd8340b805e4898eda8c2e25f2f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f9a892990d3d0b4bf9fa9ab1d01ca80478ab32e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [1. Introduction](active-directory-singlepageapp-javascriptspa-introduction.md)]
 [!INCLUDE [2. Setup](active-directory-singlepageapp-javascriptspa-setup.md)]

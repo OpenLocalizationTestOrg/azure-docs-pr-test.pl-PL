@@ -1,6 +1,6 @@
 ---
-title: "Powiązania tabeli magazynu funkcji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Zrozumienie, jak używać usługi Azure Storage powiązania w usługi Azure Functions."
+title: "powiązania tabeli magazynu funkcji aaaAzure | Dokumentacja firmy Microsoft"
+description: "Zrozumienie sposobu toouse powiązań usługi Azure Storage w funkcji platformy Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,32 +16,32 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90c2a73329139d4ab3504bc0e2c90370133158bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure powiązania tabeli w funkcji magazynu
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-W tym artykule opisano sposób konfigurowania i powiązania tabeli usługi Azure Storage kodu w usługi Azure Functions. Azure Functions obsługuje wejściowa i wyjściowa powiązań dla tabel usługi Azure Storage.
+W tym artykule opisano, jak tabela powiązania usługi Azure Functions tooconfigure i kodu usługi Azure Storage. Azure Functions obsługuje wejściowa i wyjściowa powiązań dla tabel usługi Azure Storage.
 
-Powiązanie tabeli magazynu obsługuje następujące scenariusze:
+Powiązanie tabeli magazynu Hello obsługuje hello następujące scenariusze:
 
-* **Przeczytaj pojedynczy wiersz w funkcji języka C# lub Node.js** — skonfiguruj `partitionKey` i `rowKey`. `filter` i `take` właściwości nie są używane w tym scenariuszu.
-* **Odczytuje wiele wierszy w funkcji języka C#** — środowisko uruchomieniowe Functions zapewnia `IQueryable<T>` obiekt powiązany z tabelą. Typ `T` musi pochodzić od `TableEntity` , lub zaimplementuj `ITableEntity`. `partitionKey`, `rowKey`, `filter`, I `take` właściwości nie są używane w tym scenariuszu; można użyć `IQueryable` obiekt do dowolnego filtrowanie wymagane. 
-* **Odczytuje wiele wierszy w funkcji węzła** — skonfiguruj `filter` i `take` właściwości. Nie należy ustawiać `partitionKey` lub `rowKey`.
-* **Zapis co najmniej jeden wiersz w funkcji języka C#** — środowisko uruchomieniowe Functions zapewnia `ICollector<T>` lub `IAsyncCollector<T>` powiązany z tabelą, gdzie `T` Określa schemat jednostek, które chcesz dodać. Zwykle, wpisz `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. `partitionKey`, `rowKey`, `filter`, I `take` właściwości nie są używane w tym scenariuszu.
+* **Przeczytaj pojedynczy wiersz w funkcji języka C# lub Node.js** — skonfiguruj `partitionKey` i `rowKey`. Witaj `filter` i `take` właściwości nie są używane w tym scenariuszu.
+* **Odczytuje wiele wierszy w funkcji języka C#** -udostępnia środowisko uruchomieniowe Functions hello `IQueryable<T>` obiekt powiązany toohello tabeli. Typ `T` musi pochodzić od `TableEntity` , lub zaimplementuj `ITableEntity`. Witaj `partitionKey`, `rowKey`, `filter`, i `take` właściwości nie są używane w tym scenariuszu; można użyć hello `IQueryable` obiekt toodo żadnego filtrowania wymagane. 
+* **Odczytuje wiele wierszy w funkcji węzła** — skonfiguruj hello `filter` i `take` właściwości. Nie należy ustawiać `partitionKey` lub `rowKey`.
+* **Wpisz jeden lub więcej wierszy w funkcji języka C#** — udostępnia środowisko uruchomieniowe Functions hello `ICollector<T>` lub `IAsyncCollector<T>` toohello powiązanej tabeli, gdzie `T` Określa schemat hello jednostek hello ma tooadd. Zwykle, wpisz `T` pochodzi z `TableEntity` lub implementuje `ITableEntity`, ale nie ma. Witaj `partitionKey`, `rowKey`, `filter`, i `take` właściwości nie są używane w tym scenariuszu.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="input"></a>
 
 ## <a name="storage-table-input-binding"></a>Powiązania wejściowego tabeli magazynu
-Powiązania wejściowego tabeli magazynu Azure umożliwia korzystanie z tabeli magazynu w funkcji. 
+Witaj powiązania wejściowego tabeli magazynu Azure umożliwia toouse tabeli w funkcji magazynu. 
 
-Dane wejściowe funkcji tabeli magazynu używa następujących obiektów JSON w `bindings` tablicy function.json:
+Hello funkcji tooa wejściowej tabeli magazynu używa hello następujące obiekty JSON w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -49,28 +49,28 @@ Dane wejściowe funkcji tabeli magazynu używa następujących obiektów JSON w 
     "type": "table",
     "direction": "in",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "partitionKey": "<PartitionKey of table entity tooread - see below>",
+    "rowKey": "<RowKey of table entity tooread - see below>",
+    "take": "<Maximum number of entities tooread in Node.js - optional>",
     "filter": "<OData filter expression for table input in Node.js - optional>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Pamiętaj o następujących kwestiach: 
+Należy uwzględnić następujące hello: 
 
-* Użyj `partitionKey` i `rowKey` ze sobą w celu odczytu pojedynczej jednostki. Te właściwości są opcjonalne. 
-* `connection`musi zawierać nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure, standardowego edytora w **integracji** kartę konfiguruje to ustawienie aplikacji do tworzenia magazynu konta lub wybiera istniejący. Możesz również [konfigurowania tej aplikacji ręcznie ustawienie](functions-how-to-use-azure-function-app-settings.md#settings).  
+* Użyj `partitionKey` i `rowKey` razem tooread pojedynczej jednostki. Te właściwości są opcjonalne. 
+* `connection`musi zawierać nazwę hello ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure hello, hello standardowego edytora w hello **integracji** kartę konfiguruje to ustawienie aplikacji do tworzenia magazynu konta lub wybiera istniejący. Możesz również [konfigurowania tej aplikacji ręcznie ustawienie](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
 ## <a name="input-usage"></a>Użycie wejściowych
-W języku C# funkcji, można powiązać tabeli wejściowej (lub jednostek) przy użyciu nazwanego parametru w podpisu funkcji tak samo, jak `<T> <name>`.
-Gdzie `T` jest typ danych chcesz danych do deserializacji i `paramName` jest nazwa określona w [wejściowych powiązania](#input). W przypadku funkcji Node.js dostępu tabeli wejściowej (lub jednostek) przy użyciu `context.bindings.<name>`.
+W języku C# funkcji, możesz powiązać toohello wejściowej tabeli (lub jednostek) przy użyciu nazwanego parametru w podpisu funkcji tak samo, jak `<T> <name>`.
+Gdzie `T` jest typ danych hello, które mają toodeserialize hello dane, i `paramName` jest nazwą hello określone w hello [wejściowych powiązania](#input). W przypadku funkcji Node.js dostępu hello wejściowej tabeli (lub jednostek) przy użyciu `context.bindings.<name>`.
 
-Może być zdeserializowany danych wejściowych w funkcjach Node.js lub C#. Zdeserializowana obiekty mają `RowKey` i `PartitionKey` właściwości.
+dane wejściowe Hello może być zdeserializowany w funkcjach Node.js lub C#. obiekty Hello rozszeregować mają `RowKey` i `PartitionKey` właściwości.
 
-W języku C# funkcji można również wiązać z dowolnej z następujących typów, a środowisko uruchomieniowe Functions podejmie próbę deserializacji danych tabeli za pomocą tego typu:
+W języku C# funkcje może także powiązać tooany hello następujące typy i funkcje hello środowiska uruchomieniowego podejmie próbę deserializacji zbyt hello tabeli danych przy użyciu tego typu:
 
 * Dowolnego typu, który implementuje`ITableEntity`
 * `IQueryable<T>`
@@ -78,8 +78,8 @@ W języku C# funkcji można również wiązać z dowolnej z następujących typ�
 <a name="inputsample"></a>
 
 ## <a name="input-sample"></a>Przykładowe wejściowych
-Powinien mieć następujące function.json, używający wyzwalacz kolejki można odczytać wiersza pojedynczej tabeli. Określa JSON `PartitionKey`  
- `RowKey`. `"rowKey": "{queueTrigger}"`Wskazuje, czy klucz wiersza pochodzą z ciągu kolejki wiadomości.
+Powinien mieć powitania po function.json, używający kolejki wyzwalacza tooread wiersza pojedynczej tabeli. Witaj JSON Określa `PartitionKey`  
+ `RowKey`. `"rowKey": "{queueTrigger}"`Wskazuje, że ten klucz wiersza hello pochodzi z hello kolejki wiadomości ciąg.
 
 ```json
 {
@@ -105,7 +105,7 @@ Powinien mieć następujące function.json, używający wyzwalacz kolejki można
 }
 ```
 
-Zobacz próbka specyficzny dla języka, która odczytuje jednostki pojedynczej tabeli.
+Zobacz hello próbka specyficzny dla języka, która odczytuje jednostki pojedynczej tabeli.
 
 * [C#](#inputcsharp)
 * [F#](#inputfsharp)
@@ -159,9 +159,9 @@ module.exports = function (context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="storage-table-output-binding"></a>Tabela magazynu powiązania wyjściowego
-Dane wyjściowe tabeli magazynu Azure umożliwia powiązanie, możesz zapisać jednostek magazynu tabeli w funkcji. 
+Powiązanie umożliwia toowrite jednostek tooa magazynu tabeli w funkcji wyjściowe Hello tabeli magazynu Azure. 
 
-Tabela magazynu danych wyjściowych dla funkcji używa następujących obiektów JSON w `bindings` tablicy function.json:
+Witaj magazynu w tabeli danych wyjściowych dla funkcji używa hello następujące obiekty JSON w hello `bindings` tablicy function.json:
 
 ```json
 {
@@ -169,33 +169,33 @@ Tabela magazynu danych wyjściowych dla funkcji używa następujących obiektów
     "type": "table",
     "direction": "out",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
+    "partitionKey": "<PartitionKey of table entity toowrite - see below>",
+    "rowKey": "<RowKey of table entity toowrite - see below>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Pamiętaj o następujących kwestiach: 
+Należy uwzględnić następujące hello: 
 
-* Użyj `partitionKey` i `rowKey` ze sobą w celu zapisania pojedynczej jednostki. Te właściwości są opcjonalne. Można również określić `PartitionKey` i `RowKey` podczas tworzenia obiektów jednostek w kodzie funkcji.
-* `connection`musi zawierać nazwę ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure, standardowego edytora w **integracji** kartę konfiguruje to ustawienie aplikacji do tworzenia magazynu konta lub wybiera istniejący. Możesz również [konfigurowania tej aplikacji ręcznie ustawienie](functions-how-to-use-azure-function-app-settings.md#settings). 
+* Użyj `partitionKey` i `rowKey` razem toowrite pojedynczej jednostki. Te właściwości są opcjonalne. Można również określić `PartitionKey` i `RowKey` podczas tworzenia hello obiektów jednostek w kodzie funkcji.
+* `connection`musi zawierać nazwę hello ustawienia aplikacji, która zawiera parametry połączenia magazynu. W portalu Azure hello, hello standardowego edytora w hello **integracji** kartę konfiguruje to ustawienie aplikacji do tworzenia magazynu konta lub wybiera istniejący. Możesz również [konfigurowania tej aplikacji ręcznie ustawienie](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Użycie danych wyjściowych
-W języku C# funkcji, należy powiązać z tabeli danych wyjściowych przy użyciu nazwanego `out` parametru w podpisu funkcji, takich jak `out <T> <name>`, gdzie `T` jest mają do serializowania danych do typów danych i `paramName` jest nazwa określona w [powiązania wyjściowego](#output). W przypadku funkcji Node.js dostępu tabeli wyjściowe `context.bindings.<name>`.
+W języku C# funkcji, powiązania toohello w tabeli danych wyjściowych za pomocą hello o nazwie `out` parametru w podpisu funkcji, takich jak `out <T> <name>`, gdzie `T` jest typ danych hello, które mają tooserialize hello dane, i `paramName` jest hello wybraną nazwę określony w hello [powiązania wyjściowego](#output). W przypadku funkcji Node.js dostępu tabeli hello wyjściowe `context.bindings.<name>`.
 
-Może serializować obiektów w funkcjach Node.js lub C#. W języku C# funkcji można powiązać następujących typów:
+Może serializować obiektów w funkcjach Node.js lub C#. W języku C# funkcji można także powiązać toohello następujące typy:
 
 * Dowolnego typu, który implementuje`ITableEntity`
-* `ICollector<T>`(do wyjściowego wiele jednostek. Zobacz [próbki](#outcsharp).)
+* `ICollector<T>`(toooutput wiele jednostek. Zobacz [próbki](#outcsharp).)
 * `IAsyncCollector<T>`(wersja async `ICollector<T>`)
-* `CloudTable`(przy użyciu zestawu SDK usługi Magazyn Azure. Zobacz [próbki](#readmulti).)
+* `CloudTable`(przy użyciu hello zestawu SDK usługi Magazyn Azure. Zobacz [próbki](#readmulti).)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Przykładowe dane wyjściowe
-Następujące *function.json* i *run.csx* przykład przedstawia sposób zapisania wiele jednostek tabeli.
+następujące Hello *function.json* i *run.csx* przykładzie pokazano sposób toowrite wiele jednostek tabeli.
 
 ```json
 {
@@ -217,7 +217,7 @@ Następujące *function.json* i *run.csx* przykład przedstawia sposób zapisani
 }
 ```
 
-Zobacz próbka specyficzny dla języka, która tworzy wiele jednostek tabeli.
+Zobacz hello przykład specyficzny dla języka, który tworzy wiele jednostek tabeli.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -262,7 +262,7 @@ type Person = {
 }
 
 let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
-    for i = 1 to 10 do
+    for i = 1 too10 do
         log.Info(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
@@ -293,7 +293,7 @@ module.exports = function (context) {
 <a name="readmulti"></a>
 
 ## <a name="sample-read-multiple-table-entities-in-c"></a>Przykład: Odczytu wiele jednostek tabeli w języku C#  #
-Następujące *function.json* i przykładowy kod w języku C# odczytuje jednostek dla klucza partycji, który jest określony w komunikacie kolejki.
+następujące Hello *function.json* i jednostek dla klucza partycji, który jest określony w komunikacie kolejki hello odczytuje przykładowego kodu w języku C#.
 
 ```json
 {
@@ -317,7 +317,7 @@ Następujące *function.json* i przykładowy kod w języku C# odczytuje jednoste
 }
 ```
 
-Kod C# dodaje odwołanie do zestawu SDK usługi Magazyn Azure, aby typ jednostki mogą dziedziczyć po `TableEntity`.
+Hello kod w języku C# dodaje toohello odwołanie do zestawu SDK usługi Magazyn Azure, aby typ jednostki hello może pochodzić od `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"

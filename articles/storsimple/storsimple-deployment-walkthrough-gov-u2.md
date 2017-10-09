@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie urządzenia StorSimple w portalu dla instytucji rządowych | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano kroki i najlepsze rozwiązania dotyczące wdrażania usługi w portalu Azure dla instytucji rządowych i urządzeń StorSimple Update 2."
+title: "aaaDeploy urządzenia StorSimple w portalu dla instytucji rządowych | Dokumentacja firmy Microsoft"
+description: "Opisuje hello kroki i najlepsze rozwiązania dotyczące wdrażania urządzeń hello StorSimple Update 2 i usług w portalu Azure dla instytucji rządowych hello."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2016
 ms.author: v-sharos
-ms.openlocfilehash: 0b22dcdfc0432533b286e70d130bfe2ee2db92b2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 68104988595341a49a87d78c4a9b1d2675759c27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal-update-2"></a>Wdrażanie lokalnego urządzenia StorSimple w portalu dla instytucji rządowych (Update 2)
+# <a name="deploy-your-on-premises-storsimple-device-in-hello-government-portal-update-2"></a>Wdrażanie lokalnego urządzenia StorSimple w hello Portal dla instytucji rządowych (Update 2)
 [!INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## <a name="overview"></a>Omówienie
-Witamy w procesie wdrażania urządzenia Microsoft Azure StorSimple. Te samouczki wdrażania dotyczą serii 8000 StorSimple oprogramowaniem Update 2 w portalu Azure dla instytucji rządowych. Tej serii samouczków uwzględniono listę kontrolną, listę wymagania wstępne dotyczące konfiguracji oraz szczegółowe opisy kroków konfiguracji dla urządzenia StorSimple.
+Zapraszamy wdrożenia urządzenia Azure StorSimple tooMicrosoft. Te samouczki wdrażania zastosować toohello z serii StorSimple 8000 uruchamiania 2 aktualizacji oprogramowania w portalu Azure dla instytucji rządowych hello. Tej serii samouczków uwzględniono listę kontrolną, listę wymagania wstępne dotyczące konfiguracji oraz szczegółowe opisy kroków konfiguracji dla urządzenia StorSimple.
 
-Informacje podane w tych samouczkach mają zastosowanie po zapoznaniu się ze środkami ostrożności i dopiero wówczas, gdy urządzenie StorSimple zostało rozpakowane i zamontowane w stojaku oraz podłączono do niego kable. Jeśli nadal trzeba wykonać te zadania, należy rozpocząć od sprawdzenia [środków ostrożności](storsimple-safety.md). Wykonaj instrukcje dotyczące rozpakowania określonego urządzenia, zamontowania go w stojaku oraz podłączania do niego kabli.
+Hello informacje w tych samouczkach założono, że zostały sprawdzone hello środki ostrożności i rozpakowane, wówczas i kablem urządzenia StorSimple. Jeśli nadal potrzebujesz tooperform tych zadań, należy rozpocząć od sprawdzenia hello [środki ostrożności](storsimple-safety.md). Wykonaj instrukcje dotyczące urządzenia hello toounpack, instalacji w stojaku i Podłączanie kabli do urządzenia.
 
 * [Rozpakowywanie, montowanie w stojaku i podłączanie kabli do urządzenia 8100](storsimple-8100-hardware-installation.md)
 * [Rozpakowywanie, montowanie w stojaku i podłączanie kabli do urządzenia 8600](storsimple-8600-hardware-installation.md)
 
-Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przed rozpoczęciem warto przejrzeć listę kontrolną dotyczącą konfiguracji. Proces wdrażania i konfiguracji może potrwać pewien czas.
+Konieczne będzie administratora uprawnień toocomplete hello procesu instalacji i konfiguracji. Firma Microsoft zaleca przejrzenie listy kontrolnej konfiguracji hello przed rozpoczęciem. Hello wdrażania i konfiguracji może potrwać kilka toocomplete czas.
 
 > [!NOTE]
-> Informacje na temat wdrażania urządzenia StorSimple opublikowane w witrynie platformy Microsoft Azure w sieci Web dotyczą tylko urządzeń z serii StorSimple 8000. Aby uzyskać pełne informacje dotyczące urządzeń z serii 7000, przejdź do strony [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Informacje dotyczące wdrażania urządzeń z serii 7000 można znaleźć w [przewodniku Szybki start do systemu StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> Witaj StorSimple informacje na temat wdrażania publikowane w witrynie sieci Web Microsoft Azure hello stosuje tooStorSimple 8000 serii tylko urządzenia. Aby uzyskać pełne informacje dotyczące urządzeń z serii hello 7000, przejdź do: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Informacje dotyczące wdrażania urządzeń z serii 7000, zobacz hello [StorSimple systemu Przewodnik Szybki Start](http://onlinehelp.storsimple.com/111_Appliance/).
 > 
 > 
 
 ## <a name="deployment-steps"></a>Kroki wdrażania
-Wykonaj wymagane kroki, aby skonfigurować urządzenie StorSimple i połączyć je z usługą Menedżer StorSimple. Oprócz kroków wymaganych istnieją opcjonalne kroki i procedury, które należy wykonać podczas wdrażania. W szczegółowych instrukcjach dotyczących wdrażania wskazano, w którym momencie należy wykonać poszczególne kroki opcjonalne.
+Wykonaj te czynności tooconfigure urządzenia StorSimple i podłącz go tooyour usługi Menedżer StorSimple. Ponadto toohello wymagane kroki, są opcjonalne kroki i procedury, że może być konieczne toocomplete podczas wdrażania hello. instrukcje krok po kroku wdrażania Hello sygnalizującego, kiedy należy wykonać poszczególne kroki opcjonalne.
 
 | Krok | Opis |
 | --- | --- |
-| **WYMAGANIA WSTĘPNE** |Te czynności należy wykonać w ramach przygotowań do przyszłego wdrożenia. |
-| [Lista kontrolna dotycząca konfiguracji wdrożenia](#deployment-configuration-checklist) |Ta lista kontrolna umożliwia zbieranie i rejestrowanie informacji przed wdrożeniem i w jego trakcie. |
-| [Wymagania wstępne dotyczące wdrożenia](#deployment-prerequisites) |Te zweryfikować, że środowisko jest gotowe do wdrożenia. |
+| **WYMAGANIA WSTĘPNE** |Te należy wykonać w ramach przygotowań do przyszłego wdrożenia hello toobe. |
+| [Lista kontrolna dotycząca konfiguracji wdrożenia](#deployment-configuration-checklist) |Użyj tej listy kontrolnej toogather i rejestrowanie informacji przed tooand podczas wdrażania hello. |
+| [Wymagania wstępne dotyczące wdrożenia](#deployment-prerequisites) |Te zweryfikować tego hello środowisko jest gotowe do wdrożenia. |
 |  | |
-| **WDROŻENIE KROK PO KROKU** |Te kroki są wymagane do wdrożenia urządzenia StorSimple w środowisku produkcyjnym. |
+| **WDROŻENIE KROK PO KROKU** |Te kroki są wymagane toodeploy urządzenia StorSimple w środowisku produkcyjnym. |
 | [Krok 1. Tworzenie nowej usługi](#step-1-create-a-new-service) |Skonfiguruj magazyn i zarządzanie chmurą dla danego urządzenia StorSimple. *Jeśli masz istniejącą usługę dla innych urządzeń StorSimple, pomiń ten krok*. |
-| [Krok 2. Pobieranie klucza rejestracji usługi](#step-2-get-the-service-registration-key) |Użyj tego klucza do zarejestrowania i podłącz urządzenie StorSimple przy użyciu usługi zarządzania. |
-| [Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Połącz urządzenie z siecią i zarejestruj je przy użyciu platformy Azure, aby ukończyć instalację za pomocą usługi zarządzania. |
-| [Krok 4: Przeprowadzenie minimalnej konfiguracji urządzenia](#step-4-complete-minimum-device-setup) </br>Opcjonalnie: aktualizacja urządzenia StorSimple. |Skorzystaj z usługi zarządzania, aby skonfigurować urządzenie i umożliwić przechowywanie w nim danych. |
-| [Krok 5. Tworzenie kontenera woluminów](#step-5-create-a-volume-container) |Utwórz kontener, aby umożliwić inicjowanie obsługi woluminów. Kontener woluminów obejmuje ustawienia konta magazynu, przepustowości i szyfrowania wszystkich woluminów, które zawiera. |
-| [Krok 6. Tworzenie woluminu](#step-6-create-a-volume) |Zainicjuj obsługę woluminów magazynu na urządzeniu StorSimple na potrzeby serwerów. |
-| [Krok 7. Instalowanie, inicjowanie i formatowanie woluminu](#step-7-mount-initialize-and-format-a-volume) </br>Opcjonalnie: konfigurowanie wielościeżkowego wejścia/wyjścia (MPIO) |Połącz serwery z magazynem iSCSI udostępnianym przez urządzenie. Opcjonalnie skonfigurować wielościeżkowe wejście/wyjście, aby upewnić się, że serwery tolerują błędy linków, sieci i interfejsu. |
-| [Krok 8. Tworzenie kopii zapasowej](#step-8-take-a-backup) |Skonfiguruj zasady tworzenia kopii zapasowej, aby chronić dane. |
+| [Krok 2: Pobieranie klucza rejestracji usługi hello](#step-2-get-the-service-registration-key) |Użyj tego klucza tooregister i połączyć z usługą zarządzania hello urządzenia StorSimple. |
+| [Krok 3: Konfigurowanie i rejestrowanie urządzenia hello za pomocą programu Windows PowerShell dla urządzenia StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Połącz hello urządzenia tooyour sieci i zarejestrowanie go za pomocą Instalatora hello Azure toocomplete przy użyciu usługi zarządzania hello. |
+| [Krok 4: Przeprowadzenie hello minimalnej konfiguracji urządzenia](#step-4-complete-minimum-device-setup) </br>Opcjonalnie: aktualizacja urządzenia StorSimple. |Użyj hello zarządzania usługi toocomplete hello ustawienia urządzenia i Włącz tooprovide magazynu. |
+| [Krok 5. Tworzenie kontenera woluminów](#step-5-create-a-volume-container) |Tworzenie kontenera woluminów tooprovision. Kontener woluminów obejmuje konta magazynu, przepustowości i ustawienia szyfrowania wszystkich woluminów hello zawarte w niej. |
+| [Krok 6. Tworzenie woluminu](#step-6-create-a-volume) |Zainicjuj obsługę woluminów magazynu na powitania urządzeniu StorSimple dla serwerów. |
+| [Krok 7. Instalowanie, inicjowanie i formatowanie woluminu](#step-7-mount-initialize-and-format-a-volume) </br>Opcjonalnie: konfigurowanie wielościeżkowego wejścia/wyjścia (MPIO) |Połącz podany przez urządzenie hello magazynu iSCSI toohello serwerów. Opcjonalnie skonfigurować wielościeżkowe wejście/wyjście tooensure, że serwery tolerują błędy linków, sieci i interfejsu. |
+| [Krok 8. Tworzenie kopii zapasowej](#step-8-take-a-backup) |Konfigurowanie sieci tooprotect zasad tworzenia kopii zapasowej danych |
 |  | |
-| **INNE PROCEDURY** |Te procedury mogą okazać się potrzebne podczas wdrażania rozwiązania. |
-| [Konfigurowanie nowego konta magazynu dla usługi](#configure-a-new-storage-account-for-the-service) | |
-| [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console) | |
+| **INNE PROCEDURY** |Procedury toothese toorefer może być konieczne podczas wdrażania rozwiązania. |
+| [Konfigurowanie nowego konta magazynu dla usługi hello](#configure-a-new-storage-account-for-the-service) | |
+| [Użyj konsoli szeregowej urządzenia toohello tooconnect programu PuTTY](#use-putty-to-connect-to-the-device-serial-console) | |
 | [Wyszukiwanie i stosowanie aktualizacji](#scan-for-and-apply-updates) | |
-| [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host) | |
+| [Pobierz hello IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host) | |
 | [Ręczne tworzenie kopii zapasowej](#create-a-manual-backup) | |
 | [Konfigurowanie wielościeżkowego wejścia/wyjścia](#configure-mpio) | |
 
 ## <a name="deployment-configuration-checklist"></a>Lista kontrolna dotycząca konfiguracji wdrożenia
-Przed przystąpieniem do wdrażania urządzenia StorSimple, należy zebrać informacje w celu skonfigurowania oprogramowania na urządzeniu. Wcześniejsze przygotowanie niektórych z tych informacji usprawni proces wdrażania urządzenia StorSimple w środowisku użytkownika. Pobierz i ta lista kontrolna umożliwia notowanie szczegółów konfiguracji podczas wdrażania urządzenia.  
+Przed przystąpieniem do wdrażania urządzenia StorSimple, konieczne będzie toocollect informacji tooconfigure hello oprogramowania na urządzeniu. Niektóre z tych informacji wcześniejsze przygotowanie usprawni hello proces wdrażania urządzenia StorSimple hello w danym środowisku. Pobranie i użycie szczegóły konfiguracji ta lista kontrolna toonote hello, podczas wdrażania urządzenia.  
 
 [Pobieranie listy kontrolnej dotyczącej konfiguracji wdrożenia urządzenia StorSimple](http://www.microsoft.com/download/details.aspx?id=49159)  
 
 ## <a name="deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia
-Poniższe sekcje zawierają opis wymagań wstępnych dotyczących konfiguracji usługi Menedżer StorSimple oraz urządzenia StorSimple.
+Hello następujące sekcje opisano wymagania wstępne dotyczące hello konfiguracji dla usługi Menedżer StorSimple oraz urządzenia StorSimple.
 
-### <a name="for-the-storsimple-manager-service"></a>Usługa Menedżer StorSimple
+### <a name="for-hello-storsimple-manager-service"></a>Dla hello usługi Menedżer StorSimple
 Przed rozpoczęciem upewnij się, że:
 
 * Masz konto Microsoft z poświadczeniami dostępu.
 * Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
-* Subskrypcja platformy Microsoft Azure dla usługi Menedżer StorSimple została włączona. Subskrypcję należy zakupić w ramach umowy [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
-* Masz dostęp do oprogramowania służącego do emulacji terminala, takiego jak PuTTY.
+* Subskrypcja platformy Microsoft Azure jest włączona dla hello usługi Menedżer StorSimple. Subskrypcję należy zakupić w ramach hello [umowy Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+* Masz dostęp do oprogramowania do emulacji tooterminal takiego jak PuTTY.
 
-### <a name="for-the-device-in-the-datacenter"></a>Urządzenie w centrum danych
-Przed skonfigurowaniem urządzenia upewnij się, że:
+### <a name="for-hello-device-in-hello-datacenter"></a>Dla urządzenia hello w centrum danych hello
+Przed skonfigurowaniem urządzenia hello, upewnij się, że:
 
 * Urządzenie zostało całkowicie rozpakowane, zamontowane w stojaku i podłączono wszystkie kable umożliwiające dostęp do zasilania, sieci oraz dostęp szeregowy, zgodnie z opisem w części:
   
   * [Rozpakowywanie, montowanie w stojaku i podłączanie kabli do urządzenia 8100](storsimple-8100-hardware-installation.md)
   * [Rozpakowywanie, montowanie w stojaku i podłączanie kabli do urządzenia 8600](storsimple-8600-hardware-installation.md)
 
-### <a name="for-the-network-in-the-datacenter"></a>Sieć w centrum danych
+### <a name="for-hello-network-in-hello-datacenter"></a>Witaj sieci w centrum danych hello
 Przed rozpoczęciem upewnij się, że:
 
-* Porty w zaporze centrum danych zostały otwarte w celu zezwolenia na ruch związany z interfejsem iSCSI i chmurą, zgodnie z opisem w temacie [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) (Wymagania dotyczące pracy w sieci dla urządzenia StorSimple).
+* Witaj portów w zaporze centrum danych są otwarte tooallow dla ruchu iSCSI i chmury zgodnie z opisem w [wymagania dotyczące sieci dla urządzenia StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 ## <a name="step-by-step-deployment"></a>Wdrożenie krok po kroku
-Poniższe instrukcje krok po kroku dotyczą wdrażania urządzenia StorSimple w centrum danych.
+Użyj hello następujące instrukcje krok po kroku toodeploy urządzenia StorSimple w centrum danych hello.
 
 ## <a name="step-1-create-a-new-service"></a>Krok 1. Tworzenie nowej usługi
-Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj poniższe kroki, aby utworzyć nowe wystąpienie usługi Menedżer StorSimple.
+Usługa Menedżer StorSimple umożliwia zarządzanie wieloma urządzeniami StorSimple. Wykonaj następujące kroki toocreate nowe wystąpienie usługi Menedżer StorSimple hello hello.
 
 [!INCLUDE [storsimple-create-new-service-gov](../../includes/storsimple-create-new-service-gov.md)]
 
 > [!IMPORTANT]
-> Jeśli nie włączono automatycznego tworzenia konta magazynu przy użyciu usługi, po pomyślnym utworzeniu usługi musisz utworzyć co najmniej jedno konto magazynu. To konto magazynu będzie używane podczas tworzenia kontenera woluminu.
+> Jeśli nie włączono hello automatyczne tworzenie konta magazynu z usługą, konieczne będzie toocreate co najmniej jedno konto magazynu, po pomyślnym utworzeniu usługi. To konto magazynu będzie używane podczas tworzenia kontenera woluminu.
 > 
-> * Jeśli nie utworzono automatycznie konta magazynu, przejdź do kroku [Konfigurowanie nowego konta magazynu dla usługi](#configure-a-new-storage-account-for-the-service) w celu uzyskania szczegółowych informacji.
-> * Jeśli włączono automatyczne tworzenie konta magazynu, przejdź do części [Krok 2. Pobieranie klucza rejestracji usługi](#step-2-get-the-service-registration-key).
+> * Jeśli nie utworzono automatycznie konta magazynu, należy przejść za[Konfigurowanie nowego konta magazynu dla usługi hello](#configure-a-new-storage-account-for-the-service) szczegółowe informacje.
+> * Jeśli włączono automatyczne tworzenie konta magazynu hello Przejdź zbyt[krok 2: Pobierz klucz rejestracji usługi hello](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>Krok 2. Pobieranie klucza rejestracji usługi
-Po skonfigurowaniu i uruchomieniu usługi Menedżer StorSimple musisz pobrać klucz rejestracji usługi. Ten klucz służy do rejestrowania i połączyć się z usługą urządzenia StorSimple.
+## <a name="step-2-get-hello-service-registration-key"></a>Krok 2: Pobieranie klucza rejestracji usługi hello
+Po skonfigurowaniu i uruchomieniu usługi Menedżer StorSimple hello należy klucz rejestracji usługi hello tooget. Ten klucz jest używany tooregister i połączyć z usługą toohello urządzenia StorSimple.
 
-Wykonaj poniższe kroki w portalu dla instytucji rządowych.
+Wykonaj następujące kroki w hello Portal dla instytucji rządowych hello.
 
 [!INCLUDE [storsimple-get-service-registration-key-gov](../../includes/storsimple-get-service-registration-key-gov.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Krok 3. Konfigurowanie i rejestrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
-Użyj programu Windows PowerShell dla urządzenia StorSimple do przeprowadzenia konfiguracji początkowej urządzenia StorSimple, jak opisano w poniższej procedurze. Do wykonania tego kroku niezbędne jest użycie oprogramowania do emulacji terminala. Aby uzyskać więcej informacji, zobacz część [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console).
+## <a name="step-3-configure-and-register-hello-device-through-windows-powershell-for-storsimple"></a>Krok 3: Konfigurowanie i rejestrowanie urządzenia hello za pomocą programu Windows PowerShell dla urządzenia StorSimple
+Użyj programu Windows PowerShell dla StorSimple toocomplete hello początkowej konfiguracji urządzenia StorSimple, zgodnie z objaśnieniem w hello procedury. Konieczne będzie toouse emulacji terminala oprogramowania toocomplete ten krok. Aby uzyskać więcej informacji, zobacz [konsolą szeregową urządzenia przy użyciu programu PuTTY tooconnect toohello](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov-u2.md)]
 
 ## <a name="step-4-complete-minimum-device-setup"></a>Krok 4. Przeprowadzenie minimalnej konfiguracji urządzenia
-Do przeprowadzenia minimalnej konfiguracji urządzenia StorSimple konieczne jest:
+Hello urządzenia minimalnej konfiguracji urządzenia StorSimple konieczne jest:
 
-* Skonfigurowanie pomocniczego serwera DNS.
+* Konfigurowanie hello pomocniczy serwer DNS.
 * Włączenie usługi iSCSI na co najmniej jednym interfejsie sieciowym.
-* Przypisanie stałych adresów IP do obu kontrolerów.
+* Przypisanie stałych adresów IP kontrolerów hello tooboth.
 
-Wykonaj poniższe kroki w portalu dla instytucji rządowych przeprowadzić minimalną konfigurację urządzenia.
+Wykonaj następujące kroki w hello Portal dla instytucji rządowych toocomplete hello minimalnej konfiguracji urządzenia hello.
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
 ## <a name="step-5-create-a-volume-container"></a>Krok 5. Tworzenie kontenera woluminów
-Kontener woluminów obejmuje ustawienia konta magazynu, przepustowości i szyfrowania wszystkich woluminów, które zawiera. Kontener woluminów należy utworzyć przed zainicjowaniem woluminów na urządzeniu StorSimple.
+Kontener woluminów obejmuje konta magazynu, przepustowości i ustawienia szyfrowania wszystkich woluminów hello zawarte w niej. Toocreate kontener woluminów należy przed zainicjowaniem woluminów na urządzeniu StorSimple.
 
-Wykonaj poniższe kroki w portalu dla instytucji rządowych, aby utworzyć kontener woluminów.
+Wykonaj następujące kroki w toocreate Portal dla instytucji rządowych hello kontener woluminów hello.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## <a name="step-6-create-a-volume"></a>Krok 6. Tworzenie woluminu
-Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magazynu w urządzeniu StorSimple dla serwerów. Wykonaj poniższe kroki w portalu dla instytucji rządowych, aby utworzyć wolumin.
+Po utworzeniu kontenera woluminów można udostępnić wolumin magazynu na urządzeniu StorSimple hello serwerów. Wykonaj następujące kroki w toocreate Portal dla instytucji rządowych hello woluminu hello.
 
 > [!IMPORTANT]
 > Azure StorSimple można tworzyć tylko woluminy alokowane elastycznie.  Nie można utworzyć w pełni lub częściowo inicjowanych woluminów w systemie Azure StorSimple.
@@ -154,69 +154,69 @@ Po utworzeniu kontenera woluminów możesz zainicjować obsługę woluminu magaz
 Na hoście z systemem Windows Server, należy wykonać następujące kroki.
 
 > [!IMPORTANT]
-> * W celu zapewnienia dużej dostępności rozwiązania StorSimple warto przed skonfigurowaniem usługi iSCSI skonfigurować wielościeżkowe wejście/wyjście (MPIO) na serwerach hosta (opcjonalnie). Dzięki skonfigurowaniu wielościeżkowego wejścia/wyjścia (MPIO) na serwerach hosta można mieć pewność, że serwery tolerują błędy linków, sieci lub interfejsu.
-> * Instrukcje dotyczące instalowania i konfigurowania usługi iSCSI i wielościeżkowego wejścia/wyjścia (MPIO) na hoście systemu Windows Server można znaleźć w temacie [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md) (Konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple). Informacje te dotyczą również kroków opisujących instalowanie, inicjowanie i formatowanie woluminów StorSimple.
-> * Instrukcje dotyczące instalowania i konfigurowania usługi iSCSI i wielościeżkowego wejścia/wyjścia (MPIO) na hoście systemu Linux można znaleźć w temacie [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-on-linux.md) (Konfigurowanie wielościeżkowego wejścia/wyjścia dla hosta z systemem Linux urządzenia StorSimple).
+> * Witaj wysokiej dostępności rozwiązania StorSimple zaleca się konfigurowanie wielościeżkowego wejścia/wyjścia na iSCSI wcześniejsze tooconfiguring serwerów (opcjonalnie) z hosta. Konfiguracja wielościeżkowego wejścia/wyjścia na serwerach hostów zapewni, że hello serwery będą tolerować, łącza, sieci lub interfejsu.
+> * Instrukcje iSCSI i wielościeżkowego wejścia/wyjścia instalacji i konfiguracji na hoście systemu Windows Server, przejdź zbyt[konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple](storsimple-configure-mpio-windows-server.md). Te będą również zawierają hello kroki toomount, inicjowanie i formatowanie woluminów StorSimple.
+> * Instrukcje iSCSI i wielościeżkowego wejścia/wyjścia instalacji i konfiguracji na hoście z systemem Linux, przejdź zbyt[konfigurowanie wielościeżkowego wejścia/wyjścia dla hosta z systemem StorSimple Linux](storsimple-configure-mpio-on-linux.md)
 > 
 > 
 
-Jeśli nie chcesz konfigurować wielościeżkowego wejścia/wyjścia (MPIO), wykonaj poniższe kroki, aby zainstalować, zainicjować i sformatować woluminy StorSimple na hoście systemu Windows Server.
+Jeśli zdecydować tooconfigure wielościeżkowego wejścia/wyjścia, wykonać następujące kroki toomount hello, zainicjować i sformatować woluminy StorSimple na hoście systemu Windows Server.
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Krok 8. Tworzenie kopii zapasowej
 Kopie zapasowe oferują ochronę woluminów w określonym momencie i udoskonalają możliwości odzyskiwania przy równoczesnym zminimalizowaniu czasów przywracania. W urządzeniu StorSimple można wykonywać dwa typy kopii zapasowych: migawki lokalne i migawki w chmurze. Kopie obu typów można tworzyć jako **zaplanowane** lub **ręczne**.
 
-Wykonaj poniższe kroki w portalu dla instytucji rządowych, aby utworzyć zaplanowaną kopię zapasową.
+Wykonaj następujące kroki w toocreate Portal dla instytucji rządowych hello zaplanowanego tworzenia kopii zapasowej hello.
 
 [!INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
-Kopię zapasową można utworzyć ręcznie w dowolnym momencie. Informacje na temat procedur można znaleźć w części [Ręczne tworzenie kopii zapasowej](#create-a-manual-backup).
+Kopię zapasową można utworzyć ręcznie w dowolnym momencie. Procedur można przejść za[ręczne tworzenie kopii zapasowej](#create-a-manual-backup).
 
-## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurowanie nowego konta magazynu dla usługi
-Jest to krok opcjonalny, który należy wykonać tylko, jeśli nie włączono automatycznego tworzenia konta magazynu przy użyciu usługi. Do utworzenia kontenera woluminów StorSimple wymagane jest konto magazynu platformy Microsoft Azure.
+## <a name="configure-a-new-storage-account-for-hello-service"></a>Konfigurowanie nowego konta magazynu dla usługi hello
+Jest to krok opcjonalny tooperform konieczne tylko wtedy, gdy nie włączono hello automatyczne tworzenie konta magazynu z usługą. Konto magazynu Microsoft Azure jest wymagany toocreate kontenera woluminów StorSimple.
 
-Instrukcje krok po kroku dotyczące tworzenia konta usługi Azure Storage w innym regionie można znaleźć w temacie [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) (Informacje o kontach usługi Azure Storage).
+Jeśli potrzebujesz konta magazynu Azure w innym regionie toocreate, zobacz [o kontach magazynu Azure](../storage/common/storage-create-storage-account.md) instrukcje krok po kroku.
 
-Wykonaj poniższe kroki w portalu dla instytucji rządowych na **usługi Menedżer StorSimple** strony.
+Wykonaj następujące kroki w hello Portal dla instytucji rządowych na powitania hello **usługi Menedżer StorSimple** strony.
 
 [!INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
-## <a name="use-putty-to-connect-to-the-device-serial-console"></a>Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY
-Aby nawiązać połączenie z programem Windows PowerShell dla urządzenia StorSimple, należy użyć oprogramowania do emulacji terminala, takiego jak PuTTY. Programu PuTTY można używać w przypadku uzyskiwania dostępu do urządzenia bezpośrednio za pośrednictwem konsoli szeregowej lub przez otwarcie sesji telnet z komputera zdalnego.
+## <a name="use-putty-tooconnect-toohello-device-serial-console"></a>Użyj konsoli szeregowej urządzenia toohello tooconnect programu PuTTY
+tooWindows tooconnect programu PowerShell dla StorSimple, należy toouse oprogramowania emulacji terminala, takiego jak PuTTY. Programu PuTTY można używać, gdy uzyskujesz dostęp do urządzenia hello bezpośrednio za pośrednictwem konsoli szeregowej hello lub przez otwarcie sesji telnet z komputera zdalnego.
 
-[!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
+[!INCLUDE [Use PuTTY tooconnect toohello device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Wyszukiwanie aktualizacji i ich stosowanie
-Aktualizowanie urządzenia może potrwać kilka godzin. Wykonaj poniższe kroki w celu wyszukania aktualizacji i zastosowania ich na urządzeniu.
+Aktualizowanie urządzenia może potrwać kilka godzin. Powitania po tooscan kroki do wykonania i stosowania aktualizacji na urządzeniu.
 
-<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need toodisable Data 2 and Data 3 network interfaces before installing hello update. Go too**Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after hello device is updated.-->
 
-#### <a name="to-update-your-device"></a>Aby zaktualizować urządzenie
-1. Na stronie **Szybki start** urządzenia kliknij pozycję **Urządzenia**. Wybierz urządzenie fizyczne, kliknij pozycję **Obsługa**, a następnie kliknij pozycję **Wyszukaj aktualizacje**.  
-2. Zostanie utworzone zadanie wyszukiwania dostępnych aktualizacji. Jeśli aktualizacje są dostępne, pozycja **Wyszukaj aktualizacje** zmieni się na **Zainstaluj aktualizacje**. Kliknij pozycję **Zainstaluj aktualizacje**.
-3. Zostanie utworzone zadanie aktualizacji. Aby monitorować stan aktualizacji, przejdź do pozycji **Zadania**.
+#### <a name="tooupdate-your-device"></a>tooupdate urządzenia
+1. Na urządzeniu hello **Szybki Start** kliknij przycisk **urządzeń**. Wybierz urządzenie fizyczne hello, kliknij przycisk **konserwacji** , a następnie kliknij przycisk **Wyszukaj aktualizacje**.  
+2. Utworzono tooscan zadania dostępne aktualizacje. Jeśli aktualizacje są dostępne, hello **Wyszukaj aktualizacje** zmiany zbyt**Zainstaluj aktualizacje**. Kliknij pozycję **Zainstaluj aktualizacje**.
+3. Zostanie utworzone zadanie aktualizacji. Monitorowanie stanu hello aktualizacji przechodząc zbyt**zadania**.
    
    > [!NOTE]
-   > Po uruchomieniu zadania aktualizacji stan zostanie od razu wyświetlony na poziomie 50 procent. Stan zmieni się na 100% dopiero po zakończeniu zadania aktualizacji. Zmiana stanu procesu aktualizacji w czasie rzeczywistym nie jest wyświetlana.
+   > Po uruchomieniu zadania aktualizacji hello natychmiast wyświetla stan hello 50 procentach. Stan Hello zmienia too100 procent dopiero po zakończeniu zadania aktualizacji hello. Brak stanu nie jest w czasie rzeczywistym hello procesu aktualizacji.
    > 
    > 
-4. Po pomyślnym zaktualizowaniu urządzenia włącz interfejsy sieciowe Dane 2 i Dane 3, jeśli zostały wcześniej wyłączone.
+4. Po pomyślnym zaktualizowaniu urządzenia hello, Włącz interfejsy sieciowe dane 2 i dane 3, jeśli zostały one wyłączone.
 
-## <a name="get-the-iqn-of-a-windows-server-host"></a>Pobieranie nazwy IQN hosta z systemem Windows Server
-Wykonaj poniższe kroki, aby pobrać kwalifikowaną nazwę iSCSI (IQN) hosta z systemem Windows, na którym uruchomiono system Windows Server® 2012.
+## <a name="get-hello-iqn-of-a-windows-server-host"></a>Pobierz hello IQN hosta z systemem Windows Server
+Wykonaj następujące kroki tooget hello iSCSI hello kwalifikowana nazwa (IQN) hosta z systemem Windows z systemem Windows Server® 2012.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
 ## <a name="create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
-Wykonaj poniższe kroki w portalu dla instytucji rządowych, aby na żądanie ręcznie utworzyć kopię zapasową pojedynczego woluminu w urządzeniu StorSimple.
+Wykonaj następujące kroki w hello Portal dla instytucji rządowych toocreate na żądanie ręczne kopię zapasową pojedynczego woluminu w urządzeniu StorSimple hello.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup-gov.md)]
 
 ## <a name="configure-mpio"></a>Konfigurowanie wielościeżkowego wejścia/wyjścia (MPIO)
-Wielościeżkowe wejście/wyjście (MPIO) jest funkcją opcjonalną i nie jest instalowane domyślnie w systemie Windows Server. Powinno być instalowane jako funkcja za pomocą Menedżera serwera. Instrukcje dotyczące instalowania wielościeżkowego wejścia/wyjścia można znaleźć w temacie [Konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple](storsimple-configure-mpio-windows-server.md).
+Wielościeżkowe wejście/wyjście (MPIO) jest funkcją opcjonalną i nie jest instalowane domyślnie w systemie Windows Server. Powinno być instalowane jako funkcja za pomocą Menedżera serwera. Instrukcje instalacji wielościeżkowego wejścia/wyjścia, przejdź zbyt[konfigurowanie wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Instrukcje dotyczące instalowania wielościeżkowego wejścia/wyjścia (MPIO) dotyczące urządzenia StorSimple podłączonego do hosta z systemem Linux można znaleźć w temacie [Konfigurowanie wielościeżkowego wejścia/wyjścia dla hosta z systemem Linux](storsimple-configure-mpio-on-linux.md).
+Instrukcje instalacji wielościeżkowego wejścia/wyjścia dla urządzenia StorSimple podłączonego tooa hosta systemu Linux, przejdź zbyt[konfigurowanie wielościeżkowego wejścia/wyjścia dla hosta z systemem Linux](storsimple-configure-mpio-on-linux.md).
 
 > [!NOTE]
 > Wielościeżkowe wejście/wyjście nie jest obsługiwana na urządzeniu wirtualnym StorSimple na platformie Azure.
@@ -225,5 +225,5 @@ Instrukcje dotyczące instalowania wielościeżkowego wejścia/wyjścia (MPIO) d
 
 ## <a name="next-steps"></a>Następne kroki
 * Skonfiguruj [urządzenie wirtualne](storsimple-virtual-device-u2.md).
-* Użyj [usługi StorSimple Manager](storsimple-manager-service-administration.md) do zarządzania urządzeniem StorSimple.
+* Użyj hello [usługi Menedżer StorSimple](storsimple-manager-service-administration.md) toomanage urządzenia StorSimple.
 

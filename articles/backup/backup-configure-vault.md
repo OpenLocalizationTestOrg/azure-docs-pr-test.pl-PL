@@ -1,6 +1,6 @@
 ---
-title: "Użyj agenta usługi Kopia zapasowa Azure do utworzenia kopii zapasowej plików i folderów | Dokumentacja firmy Microsoft"
-description: "Agent usługi Kopia zapasowa Microsoft Azure umożliwia tworzenie kopii zapasowej plików systemu Windows i folderów na platformie Azure. Tworzenie magazynu usług odzyskiwania, zainstalować agenta kopii zapasowej Definiowanie zasad tworzenia kopii zapasowej i uruchom tworzenie początkowej kopii zapasowej plików i folderów."
+title: "tooback agenta usługi Kopia zapasowa Azure aaaUse zapasowe plików i folderów | Dokumentacja firmy Microsoft"
+description: "Użyj tooback agenta usługi Kopia zapasowa Microsoft Azure hello się tooAzure plików i folderów systemu Windows. Tworzenie magazynu usług odzyskiwania, zainstalować agenta kopii zapasowej hello Definiowanie zasad tworzenia kopii zapasowej hello i uruchomić hello początkowa kopia zapasowa na powitania pliki i foldery."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -15,173 +15,173 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: be203c24841971872b5c6e7cf260a2fa5c58ac47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Tworzenie kopii zapasowych systemu Windows Server lub Client na platformie Azure przy użyciu modelu wdrażania używającego usługi Resource Manager
+# <a name="back-up-a-windows-server-or-client-tooazure-using-hello-resource-manager-deployment-model"></a>Tworzenie kopii zapasowej systemu Windows Server lub klienta tooAzure, przy użyciu modelu wdrażania usługi Resource Manager hello
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](backup-configure-vault.md)
 > * [Portal klasyczny](backup-configure-vault-classic.md)
 >
 >
 
-W tym artykule opisano sposób wykonywania kopii zapasowej systemu Windows Server (lub klienta systemu Windows) plików i folderów na platformie Azure za pomocą usługi Kopia zapasowa Azure przy użyciu modelu wdrażania Menedżera zasobów.
+W tym artykule opisano, jak pliki i foldery tooAzure tooback systemu Windows Server (lub klienta systemu Windows) z usługi Kopia zapasowa Azure przy użyciu hello modelu wdrażania usługi Resource Manager.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Kroki procesu tworzenia kopii zapasowej](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
-Aby utworzyć kopię zapasową serwera lub klienta na platformie Azure, potrzebne jest konto platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut.
+tooback serwera lub klienta tooAzure, potrzebne jest konto platformy Azure. Jeśli nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/free/) w zaledwie kilka minut.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu Usług odzyskiwania
-Magazyn usług odzyskiwania jest jednostka, która przechowuje wszystkie kopie zapasowe i punkty odzyskiwania, tworzonych w czasie. Magazyn usług odzyskiwania zawiera również zasady tworzenia kopii zapasowej stosowane do chronionych plików i folderów. Podczas tworzenia magazynu usług odzyskiwania, należy również wybierz opcję nadmiarowość odpowiedniego magazynu.
+Magazyn usług odzyskiwania jest jednostka, która przechowuje wszystkie hello kopie zapasowe i punkty odzyskiwania, tworzonych w czasie. Magazyn usług odzyskiwania Hello zawiera także hello zasad tworzenia kopii zapasowych stosowane toohello chronione pliki i foldery. Podczas tworzenia magazynu usług odzyskiwania należy również wybrać opcji nadmiarowość magazynu odpowiednie hello.
 
-### <a name="to-create-a-recovery-services-vault"></a>Aby utworzyć magazyn usługi Recovery Services
-1. Jeśli nie zostało to wcześniej zrobione, zaloguj się witryny [Azure Portal](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
-2. W menu Centrum kliknij pozycję **Więcej usług**, na liście zasobów wpisz łańcuch **Recovery Services**, a następnie kliknij pozycję **Magazyny usługi Recovery Services**.
+### <a name="toocreate-a-recovery-services-vault"></a>toocreate magazynu usług odzyskiwania
+1. Jeśli jeszcze tego nie zrobiono, zaloguj się w toohello [Azure Portal](https://portal.azure.com/) przy użyciu subskrypcji platformy Azure.
+2. W menu Centrum powitania kliknij **więcej usług** i hello listy zasobów, wpisz **usług odzyskiwania** i kliknij przycisk **Magazyny usług odzyskiwania**.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
-    Jeśli w ramach subskrypcji istnieją magazyny usług odzyskiwania, zostaną one wyświetlone.
+    Jeśli występują Magazyny usług odzyskiwania w ramach subskrypcji hello, magazynów hello są wyświetlane.
 
-3. W menu **Magazyny usługi Recovery Services** kliknij pozycję **Dodaj**.
+3. Na powitania **Magazyny usług odzyskiwania** menu, kliknij przycisk **Dodaj**.
 
     ![Tworzenie magazynu Usług odzyskiwania — krok 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Zostanie otwarty blok magazynu Usług odzyskiwania i pojawi się monit o podanie wartości w polach **Nazwa**, **Subskrypcja**, **Grupa zasobów** i **Lokalizacja**.
+    Usługi odzyskiwania Hello zostanie otwarty blok magazyn monitem tooprovide **nazwa**, **subskrypcji**, **grupy zasobów**, i **lokalizacji**.
 
     ![Tworzenie magazynu usługi Recovery Services — krok 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. Nazwa musi być unikalna w tej subskrypcji platformy Azure. Wpisz nazwę o długości od 2 do 50 znaków. Musi ona rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
+4. Aby uzyskać **nazwa**, wprowadź przyjazną nazwę tooidentify hello magazynu. Nazwa Hello musi toobe unikatowy dla hello subskrypcji platformy Azure. Wpisz nazwę o długości od 2 do 50 znaków. Musi ona rozpoczynać się od litery i może zawierać tylko litery, cyfry i łączniki.
 
-5. W sekcji **Subskrypcja** użyj menu rozwijanego, aby wybrać subskrypcję platformy Azure. Jeśli używasz tylko jednej subskrypcji, zostanie ona wyświetlona i możesz przejść do następnego kroku. Jeśli nie masz pewności, której subskrypcji użyć, wybierz domyślną (lub sugerowaną). Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto organizacji jest skojarzone z wieloma subskrypcjami platformy Azure.
+5. W hello **subskrypcji** Użyj hello menu rozwijanego toochoose hello subskrypcji platformy Azure. Jeśli używasz tylko jedną subskrypcję, wyświetlonym subskrypcji i toohello następny krok można pominąć. Jeśli nie masz pewności, który toouse subskrypcji, użyj domyślnej hello (lub sugerowane) subskrypcji. Większa liczba opcji do wyboru jest dostępna tylko w przypadku, gdy konto organizacji jest skojarzone z wieloma subskrypcjami platformy Azure.
 
-6. W sekcji **Grupa zasobów**:
+6. W hello **grupy zasobów** sekcji:
 
-    * wybierz pozycję **Utwórz nową**, jeśli chcesz utworzyć nową grupę zasobów.
+    * Wybierz **Utwórz nowy** Jeśli chcesz toocreate nową grupę zasobów.
     Lub
-    * wybierz pozycję **Użyj istniejącej** i kliknij menu rozwijane, aby wyświetlić listę dostępnych grup zasobów.
+    * Wybierz **Użyj istniejącego** i kliknij przycisk hello menu rozwijanego toosee hello listę dostępnych grup zasobów.
 
-  Pełne informacje na temat grup zasobów można znaleźć w temacie [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+  Aby uzyskać pełne informacje na temat grup zasobów, zobacz hello [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-7. Kliknij pozycję **Lokalizacja**, aby wybrać region geograficzny magazynu. Ten wybór określa region geograficzny, do którego wysyłane są dane kopii zapasowej.
+7. Kliknij przycisk **lokalizacji** tooselect hello region geograficzny magazynu hello. Ten wybór Określa region geograficzny hello wysyłania danych kopii zapasowych.
 
-8. W dolnej części bloku magazynu usług Recovery Services kliknij pozycję **Utwórz**.
+8. U dołu hello blok magazyn usług odzyskiwania hello, kliknij przycisk **Utwórz**.
 
-  Utworzenie magazynu usług Recovery Services może potrwać kilka minut. Monitoruj powiadomienia o stanie wyświetlane w prawej górnej części obszaru portalu. Po utworzeniu magazynu pojawi się on na liście magazynów Usług odzyskiwania. Jeśli po kilku minutach nie widzisz swojego magazynu, kliknij pozycję **Odśwież**.
+  Może upłynąć kilka minut hello toobe utworzony magazyn usług odzyskiwania. Monitor stanu hello powiadomienia w górnym obszarze po prawej stronie powitania hello portalu. Po utworzeniu magazynu zostanie wyświetlony hello listę magazynów usług odzyskiwania. Jeśli po kilku minutach nie widzisz swojego magazynu, kliknij pozycję **Odśwież**.
 
   ![Klikanie pozycji Odśwież](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
-  Po wyświetleniu magazynu na liście magazynów usług Recovery Services możesz rozpocząć ustawianie nadmiarowości przechowywania.
+  Przeanalizowanie magazynu na liście hello magazynów usług odzyskiwania jest nadmiarowość magazynu hello tooset gotowe.
 
 
 ### <a name="set-storage-redundancy"></a>Nadmiarowość magazynu zestawu
 Podczas tworzenia magazynu usługi Recovery Services określany jest sposób replikowania magazynu.
 
-1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn.
+1. Z hello **Magazyny usług odzyskiwania** bloku, kliknij przycisk Nowy magazyn hello.
 
-    ![Wybieranie nowego magazynu z listy magazynów usług Recovery Services](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Wybierz nowy magazyn hello z listy hello magazynu usług odzyskiwania](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Wybranie magazynu spowoduje zwężenie bloku **Magazyn usług Recovery Services** oraz otwarcie bloków Ustawienia (*o nazwie magazynu wskazanego w górnej części*) i szczegółów magazynu.
+    Po wybraniu magazynu hello hello **magazyn usług odzyskiwania i** narrows bloku oraz blok ustawień hello (*mającego nazwę hello magazynu hello u góry hello*) i hello magazynu szczegóły blok otwarte.
 
-    ![Wyświetlanie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Widok konfiguracji magazynu hello nowy magazyn](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
 
-2. W bloku ustawień nowego magazynu użyj pionowego suwaka, aby przewinąć w dół do sekcji Zarządzanie, a następnie kliknij pozycję **Infrastruktura zapasowa**.
+2. W bloku ustawienia hello nowy magazyn, użyj tooscroll pionowy slajdów hello dół toohello sekcji Zarządzaj, a następnie kliknij przycisk **infrastruktura kopii zapasowej**.
 
-  Zostanie otwarty blok Infrastruktura zapasowa.
+  zostanie otwarty blok infrastruktura kopii zapasowej Hello.
 
-3. W bloku Infrastruktura zapasowa kliknij pozycję **Konfiguracja kopii zapasowej** w celu otwarcia bloku **Konfiguracja kopii zapasowej**.
+3. W bloku infrastruktura kopii zapasowej powitania kliknij **konfiguracji kopii zapasowej** tooopen hello **konfiguracji kopii zapasowej** bloku.
 
-  ![Ustawianie konfiguracji przechowywania dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Ustaw hello konfigurację magazynu dla nowego magazynu](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 
-4. Wybierz odpowiednią opcję replikacji dla magazynu.
+4. Wybierz hello odpowiednią opcję replikacji dla magazynu.
 
   ![Opcje konfiguracji usługi Storage](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, kontynuuj korzystanie z magazynu **geograficznie nadmiarowego**. Jeśli nie używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, wybierz pozycję **Lokalnie nadmiarowy**, co zmniejszy koszty magazynów platformy Azure. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
+  Domyślnie magazyn jest nadmiarowy geograficznie. Jeśli używasz platformy Azure jako punktu końcowego podstawowego magazynu kopii zapasowych nadal toouse **geograficznie nadmiarowego**. Jeśli nie używasz Azure jako punktu końcowego podstawowego magazynu kopii zapasowych, należy wybrać **lokalnie nadmiarowego**, co zmniejsza koszty usługi Azure storage hello. Więcej informacji o opcjach magazynu [geograficznie nadmiarowego](../storage/common/storage-redundancy.md#geo-redundant-storage) i [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage) można znaleźć w tym [omówieniu nadmiarowości magazynu](../storage/common/storage-redundancy.md).
 
-Teraz, po utworzeniu magazynu należy przygotować infrastrukturę do tworzenia kopii zapasowej plików i folderów pobieranie i instalowanie agenta usług odzyskiwania Microsoft Azure, pobierając poświadczenia magazynu i następnie użyciu tych poświadczeń można zarejestrować agenta z Magazyn.
+Teraz, po utworzeniu magazynu, pobieranie i instalowanie agenta usług odzyskiwania Microsoft Azure hello, pobierając poświadczenia magazynu i przy użyciu tych poświadczeń tooregister hello agenta z przygotowanie tooback Twojego infrastruktury zapasowe plików i folderów Magazyn Hello.
 
-## <a name="configure-the-vault"></a>Konfigurowanie magazynu
+## <a name="configure-hello-vault"></a>Konfigurowanie magazynu hello
 
-1. W bloku Magazyn usługi Recovery Services (dla właśnie utworzonego magazynu) w sekcji Wprowadzenie kliknij pozycję **Kopia zapasowa**, a następnie w bloku **Wprowadzenie do kopii zapasowej** wybierz pozycję **Cel kopii zapasowej**.
+1. Na hello bloku magazyn usług odzyskiwania (dla hello właśnie utworzony magazyn), w sekcji wprowadzenie hello, kliknij przycisk **kopii zapasowej**, następnie na powitania **wprowadzenie do korzystania z kopii zapasowej** bloku, wybierz  **Celem tworzenia kopii zapasowej**.
 
   ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  Zostanie otwarty blok **Cel kopii zapasowej**. Jeśli wcześniej skonfigurowano Magazyn usług odzyskiwania, a następnie **cel kopii zapasowej** kliknięcie powoduje otwarcie bloków **kopii zapasowej** na usług odzyskiwania magazynu bloku.
+  Witaj **cel kopii zapasowej** zostanie otwarty blok. Jeśli wcześniej skonfigurowano hello magazyn usług odzyskiwania i następnie hello **cel kopii zapasowej** kliknięcie powoduje otwarcie bloków **kopii zapasowej** na powitania usług odzyskiwania magazynu bloku.
 
   ![Otwieranie bloku celu kopii zapasowej](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. Z menu **Gdzie działa Twoje obciążenie?** wybierz pozycję **Lokalnie**.
+2. Z hello **gdzie działa Twoje obciążenie?** menu rozwijanego wybierz **lokalnymi**.
 
   Pozycję **Lokalnie** trzeba wybrać, ponieważ Twój serwer lub komputer z systemem Windows jest maszyną fizyczną spoza platformy Azure.
 
-3. Z menu **Dla jakich elementów chcesz utworzyć kopię zapasową?** wybierz pozycję **Pliki i foldery**, a następnie kliknij przycisk **OK**.
+3. Z hello **co chcesz toobackup?** menu, wybierz opcję **pliki i foldery**i kliknij przycisk **OK**.
 
   ![Konfigurowanie plików i folderów](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-  Po kliknięciu przycisku OK obok pozycji **Cel kopii zapasowej** pojawi się znacznik wyboru i zostanie otwarty blok **Przygotowywanie infrastruktury**.
+  Po kliknięciu przycisku OK znacznik wyboru pojawia się dalej zbyt**cel kopii zapasowej**i hello **przygotowanie infrastruktury** zostanie otwarty blok.
 
   ![Cel kopii zapasowej został skonfigurowany, następnym krokiem jest przygotowanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. W bloku **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz agenta dla systemu Windows Server lub klienta systemu Windows**.
+4. Na powitania **przygotowanie infrastruktury** bloku, kliknij przycisk **Pobierz agenta dla systemu Windows Server lub klienta systemu Windows**.
 
   ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-  Jeśli używasz systemu Windows Server Essential, wybierz opcję pobrania agenta dla systemu Windows Server Essential. Zostanie wyświetlone menu rozwijane z monitem o uruchomienie lub zapisanie pliku MARSAgentInstaller.exe.
+  Jeśli używasz systemu Windows Server podstawowych, a następnie wybierz pozycję toodownload hello agenta dla systemu Windows Server podstawowych. Menu podręczne monit toorun lub zapisać MARSAgentInstaller.exe.
 
   ![Okno dialogowe MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. W menu rozwijanym pobierania kliknij pozycję **Zapisz**.
+5. W menu podręcznym pobierania hello, kliknij przycisk **zapisać**.
 
-  Domyślnie plik **MARSagentinstaller.exe** jest zapisywany w folderze Pobrane. Po ukończeniu pobierania pojawi się okno podręczne z pytaniem, czy chcesz uruchomić Instalatora, czy otworzyć folder.
+  Domyślnie program hello **MARSagentinstaller.exe** plik jest zapisywany w folderze pobrane tooyour. Po zakończeniu działania Instalatora hello, pojawi się okno podręczne, jeśli Instalator hello toorun lub Otwórz hello folder.
 
   ![Przygotowywanie infrastruktury](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-  Nie musisz jeszcze instalować agenta. Agenta możesz zainstalować po pobraniu poświadczeń magazynu.
+  Nie należy jeszcze tooinstall hello agenta. Można zainstalować agenta hello pobrane hello poświadczenia magazynu.
 
-6. W bloku **Przygotowywanie infrastruktury** kliknij pozycję **Pobierz**.
+6. Na powitania **przygotowanie infrastruktury** bloku, kliknij przycisk **Pobierz**.
 
   ![Pobieranie poświadczeń magazynu](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-  Poświadczenia magazynu zostaną pobrane do folderu Pobrane. Po zakończeniu pobierania poświadczeń magazynu zobaczysz okno podręczne z pytaniem, czy chcesz otworzyć poświadczenia, czy je zapisać. Kliknij pozycję **Zapisz**. Jeśli przypadkowo klikniesz pozycję **Otwórz**, zaczekaj, aż działanie okna dialogowego, które spróbuje otworzyć poświadczenia magazynu, zakończy się niepowodzeniem. Poświadczeń magazynu nie da się otworzyć. Przejdź do następnego kroku. Poświadczenia magazynu znajdują się w folderze Pobrane.   
+  poświadczenia magazynu Hello Pobierz tooyour folderze pobrane. Po poświadczenia magazynu hello zakończyć pobieranie, zostanie wyświetlony okno podręczne, jeśli chcesz tooopen lub Zapisz hello poświadczenia. Kliknij pozycję **Zapisz**. Jeśli przypadkowo kliknij **Otwórz**, let okno dialogowe hello prób poświadczenia magazynu hello tooopen, zakończyć się niepowodzeniem. Nie można otworzyć hello poświadczenia magazynu. Kontynuować toohello następnego kroku. poświadczenia magazynu Hello znajdują się w folderze pobrane hello.   
 
   ![Zakończenie pobierania poświadczeń magazynu](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
-## <a name="install-and-register-the-agent"></a>Instalowanie i rejestrowanie agenta
+## <a name="install-and-register-hello-agent"></a>Zainstaluj i zarejestruj hello agenta
 
 > [!NOTE]
-> Opcja włączania kopii zapasowych za pośrednictwem witryny Azure Portal jest jeszcze niedostępna. Do tworzenia kopii zapasowej plików i folderów należy używać agenta usług Microsoft Azure Recovery Services.
+> Włączenie kopii zapasowej za pomocą portalu Azure hello nie jest jeszcze dostępna. Użyj tooback agenta usług odzyskiwania Microsoft Azure hello zapasową plików i folderów.
 >
 
-1. Zlokalizuj i kliknij dwukrotnie plik **MARSagentinstaller.exe** w folderze Pobrane (lub innej lokalizacji).
+1. Zlokalizuj i kliknij dwukrotnie hello **MARSagentinstaller.exe** z hello pobieranie folderu (lub innej lokalizacji).
 
-  Instalator wyświetli serię komunikatów w miarę wypakowywania, instalowania i rejestrowania agenta usługi Recovery Services.
+  Instalator Hello zapewnia szereg wiadomości, ponieważ wyodrębnia on, instaluje i rejestruje hello agenta usług odzyskiwania.
 
   ![Uruchamianie Instalatora agenta usługi Recovery Services — poświadczenia](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Wykonaj kroki kreatora instalacji agenta usługi Microsoft Azure Recovery Services. Aby zakończyć pracę kreatora, wykonaj następujące czynności:
+2. Ukończyć powitalnych Kreatora instalacji agenta usług odzyskiwania Microsoft Azure. Kreator hello toocomplete, musisz:
 
-  * Wybierz lokalizację folderu instalacji i folderu pamięci podręcznej.
-  * Podaj informacje o serwerze proxy, jeśli korzystasz z niego do łączenia się z Internetem.
+  * Wybierz lokalizację dla folderu instalacji i pamięci podręcznej hello.
+  * Podaj informacje o serwerze proxy, jeśli używasz toohello tooconnect serwera proxy internet.
   * Podaj swoją nazwę użytkownika i hasło, jeśli korzystasz z uwierzytelnionego serwera proxy.
-  * Udostępnianie pobranych poświadczeń magazynu
-  * Zapisz hasło szyfrowania w bezpiecznej lokalizacji.
+  * Podaj poświadczenia magazynu pobrane hello
+  * Zapisz hasło szyfrowania hello w bezpiecznej lokalizacji.
 
   > [!NOTE]
-  > Jeśli utracisz lub zapomnisz hasło, firma Microsoft nie będzie mogła pomóc w odzyskaniu danych kopii zapasowej. Zapisz plik w bezpiecznej lokalizacji. Jest ono wymagane do przywrócenia kopii zapasowej.
+  > Jeśli użytkownik zapomni hasła hello, Microsoft nie może odzyskać hello dane kopii zapasowej. Zapisz plik hello w bezpiecznej lokalizacji. Jest wymagane toorestore kopii zapasowej.
   >
   >
 
-Agent jest teraz zainstalowany, a maszyna zarejestrowana w magazynie. Wszystko jest gotowe do skonfigurowania kopii zapasowej i zaplanowania jej tworzenia.
+Hello agent jest teraz zainstalowany i komputera jest zarejestrowaną toohello magazynu. Wszystko gotowe tooconfigure i Planowanie tworzenia kopii zapasowej.
 
 ## <a name="network-and-connectivity-requirements"></a>Wymagania dotyczące sieci i łączności
 
-Machine/serwera proxy został ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze/serwera proxy są skonfigurowane i umożliwiają następujące adresy URL: <br>
+Machine/serwera proxy został ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze hello/serwera proxy są hello tooallow skonfigurowane następujące adresy URL: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
@@ -189,81 +189,81 @@ Machine/serwera proxy został ograniczony dostęp do Internetu, upewnij się, ż
     5. *.windows.ne
 
 
-## <a name="create-the-backup-policy"></a>Tworzenie zasad kopii zapasowych
-Zasady tworzenia kopii zapasowej jest określają harmonogram punktów odzyskiwania są pobierane i czas, punkty odzyskiwania są zachowywane. Użyj agenta kopii zapasowej Microsoft Azure, aby utworzyć zasady tworzenia kopii zapasowej plików i folderów.
+## <a name="create-hello-backup-policy"></a>Tworzenie zasad tworzenia kopii zapasowej hello
+Hello zasad tworzenia kopii zapasowej jest harmonogram hello, gdy punkty odzyskiwania są pobierane i hello czas hello punkty odzyskiwania zostaną zachowane. Przy użyciu zasad tworzenia kopii zapasowej hello kopia zapasowa Microsoft Azure agenta toocreate hello pliki i foldery.
 
-### <a name="to-create-a-backup-schedule"></a>Aby utworzyć harmonogram tworzenia kopii zapasowych
-1. Otwórz agenta usługi Kopia zapasowa Microsoft Azure. Aby go znaleźć, wyszukaj na maszynie łańcuch **Microsoft Azure Backup**.
+### <a name="toocreate-a-backup-schedule"></a>toocreate harmonogram tworzenia kopii zapasowych
+1. Otwórz hello agenta usługi Kopia zapasowa Microsoft Azure. Aby go znaleźć, wyszukaj na maszynie łańcuch **Microsoft Azure Backup**.
 
-    ![Uruchamianie agenta usługi Kopia zapasowa Azure](./media/backup-configure-vault/snap-in-search.png)
-2. W agencie kopii zapasowej **akcje** okienku, kliknij przycisk **harmonogram tworzenia kopii zapasowych** można uruchomić Kreatora harmonogramu kopii zapasowej.
+    ![Uruchamianie agenta usługi Kopia zapasowa Azure hello](./media/backup-configure-vault/snap-in-search.png)
+2. W agencie kopii zapasowej hello **akcje** okienku, kliknij przycisk **harmonogram tworzenia kopii zapasowych** hello toolaunch Kreatora harmonogramu kopii zapasowej.
 
     ![Planowanie tworzenia kopii zapasowej systemu Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. Na **wprowadzenie** strony Kreatora harmonogramu kopii zapasowej, kliknij przycisk **dalej**.
-4. Na **Wybieranie elementów do wykonania kopii zapasowej** kliknij przycisk **Dodaj elementy**.
+3. Na powitania **wprowadzenie** strony hello Kreatora harmonogramu kopii zapasowej, kliknij przycisk **dalej**.
+4. Na powitania **tooBackup wybierz elementy** kliknij przycisk **Dodaj elementy**.
 
-  Zostanie otwarte okno dialogowe Wybieranie elementów.
+  zostanie otwarte okno dialogowe Wybieranie elementów Hello.
 
-5. Wybierz pliki i foldery, które chcesz chronić, a następnie kliknij przycisk **OK**.
-6. W **Wybieranie elementów do wykonania kopii zapasowej** kliknij przycisk **dalej**.
-7. Na **Określanie harmonogramu tworzenia kopii zapasowej** , określ harmonogram tworzenia kopii zapasowych i kliknij przycisk **dalej**.
+5. Wybierz hello pliki i foldery mają tooprotect, a następnie kliknij przycisk **OK**.
+6. W hello **tooBackup wybierz elementy** kliknij przycisk **dalej**.
+7. Na powitania **Określanie harmonogramu tworzenia kopii zapasowej** Określ harmonogram tworzenia kopii zapasowych hello i kliknij przycisk **dalej**.
 
     Można zaplanować tworzenie kopii zapasowych codziennie (maksymalnie trzy razy) lub co tydzień.
 
     ![Elementy związane z tworzeniem kopii zapasowej systemu Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Aby uzyskać więcej informacji o sposobie określania harmonogramu tworzenia kopii zapasowych, zobacz artykuł [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md) (Użycie usługi Azure Backup do zastąpienia infrastruktury taśm).
+   > Aby uzyskać więcej informacji o sposobie toospecify hello harmonogram tworzenia kopii zapasowych, zobacz artykuł hello [tooreplace kopia zapasowa Azure użycie infrastruktury taśmy](backup-azure-backup-cloud-as-tape.md).
    >
    >
 
-8. Na **Wybieranie zasady przechowywania** wybierz zasady przechowywania określonego dla kopii zapasowej i kliknij przycisk **dalej**.
+8. Na powitania **Wybieranie zasady przechowywania** , wybierz hello zasad przechowywania określonych powitania dla kopii zapasowej hello i kliknij przycisk **dalej**.
 
-    Zasady przechowywania określają czas trwania, którego kopia zapasowa jest przechowywana. Zamiast określać wspólne zasady dla wszystkich punktów kopii zapasowej, można określić różne zasady przechowywania w zależności od momentu tworzenia kopii zapasowej. Możliwe jest modyfikowanie, zgodnie z potrzebami, zasad przechowywania codziennych, cotygodniowych, comiesięcznych i corocznych kopii zapasowych.
-9. Na stronie Wybieranie typu początkowej kopii zapasowej wybierz typ początkowej kopii zapasowej. Pozostaw zaznaczoną opcję **Automatycznie przez sieć**, a następnie kliknij przycisk **Dalej**.
+    zasady przechowywania Hello określa hello okres czasu, który hello kopia zapasowa jest przechowywana. Zamiast określać "wspólne zasady" dla wszystkich punktów kopii zapasowej, można określić różne zasady przechowywania na podstawie hello tworzenia kopii zapasowej. Można zmodyfikować toomeet zasady przechowywania codziennie, co tydzień, miesięcznych i rocznych hello potrzeb.
+9. Na stronie Wybieranie typu początkowej kopii zapasowej hello wybierz typ początkowej kopii zapasowej hello. Pozostaw opcję hello **automatycznie przez sieć hello** zaznaczone, a następnie kliknij przycisk **dalej**.
 
-    Kopie zapasowe można tworzyć automatycznie za pośrednictwem sieci lub w trybie offline. W dalszej części tego artykułu opisano proces automatycznego tworzenia kopii zapasowych. Jeśli chcesz tworzyć kopie zapasowe w trybie offline, zapoznaj się z artykułem [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Przepływ pracy tworzenia kopii zapasowej w trybie offline w usłudze Azure Backup), aby uzyskać dodatkowe informacje.
-10. Przejrzyj informacje na stronie Potwierdzenie, a następnie kliknij przycisk **Zakończ**.
-11. Po ukończeniu harmonogramu tworzenia kopii zapasowej przez kreatora kliknij przycisk **Zamknij**.
+    Można tworzyć kopie zapasowe automatycznie przez sieć hello, lub w trybie offline, można tworzyć kopie zapasowe. Witaj dalszej części tego artykułu opisano proces hello automatycznego tworzenia kopii zapasowych. Jeśli wolisz toodo kopię zapasową offline, przejrzyj artykuł hello [w trybie Offline kopii zapasowej przepływu pracy w usłudze Kopia zapasowa Azure](backup-azure-backup-import-export.md) Aby uzyskać dodatkowe informacje.
+10. Na stronie potwierdzenia hello, przejrzyj informacje hello, a następnie kliknij przycisk **Zakończ**.
+11. Po zakończeniu pracy Kreatora hello tworzenie hello harmonogram tworzenia kopii zapasowych, kliknij przycisk **Zamknij**.
 
 ### <a name="enable-network-throttling"></a>Włącz ograniczanie przepustowości sieci
-Agent usługi Kopia zapasowa Microsoft Azure udostępnia ograniczanie przepustowości sieci. Ograniczanie kontrolek z wykorzystaniem przepustowości sieci podczas transferu danych. Ten formant może być przydatne, jeśli chcesz utworzyć kopię zapasową danych podczas godziny pracy, ale nie chcesz procesu tworzenia kopii zapasowej z innych ruch internetowy. Ograniczenie ma zastosowanie do kopii zapasowej i przywracania działań.
+agent usługi Kopia zapasowa Microsoft Azure Hello zapewnia ograniczanie przepustowości sieci. Ograniczanie kontrolek z wykorzystaniem przepustowości sieci podczas transferu danych. Ten formant może być przydatne, gdy konieczne tooback zapasową danych poza godzinami pracy, ale nie chcesz hello toointerfere procesu tworzenia kopii zapasowej z innych ruch internetowy. Ograniczanie stosuje tooback zapasowej i przywracanie działania.
 
 > [!NOTE]
-> Ograniczanie przepustowości sieci nie jest dostępne w systemu Windows Server 2008 R2 z dodatkiem SP1, Windows Server 2008 z dodatkiem SP2 lub Windows 7 (dodatków service pack). Funkcji ograniczania sieci kopia zapasowa Azure angażujący jakości usług (QoS) w lokalnym systemie operacyjnym. Jeśli kopia zapasowa Azure może chronić tych systemów operacyjnych, wersji QoS dostępne na tych platformach nie działa z ograniczanie przepustowości sieci usługi Kopia zapasowa Azure. Ograniczanie przepustowości sieci można używać na wszystkich innych [obsługiwanych systemów operacyjnych](backup-azure-backup-faq.md).
+> Ograniczanie przepustowości sieci nie jest dostępne w systemu Windows Server 2008 R2 z dodatkiem SP1, Windows Server 2008 z dodatkiem SP2 lub Windows 7 (dodatków service pack). funkcji ograniczania sieci kopia zapasowa Azure Hello angażujący jakości usług (QoS) w systemie operacyjnym lokalne powitania. Jeśli kopia zapasowa Azure może chronić tych systemów operacyjnych, wersji hello QoS dostępne na tych platformach nie działa z ograniczanie przepustowości sieci usługi Kopia zapasowa Azure. Ograniczanie przepustowości sieci można używać na wszystkich innych [obsługiwanych systemów operacyjnych](backup-azure-backup-faq.md).
 >
 >
 
-**Aby włączyć ograniczenie przepustowości sieci**
+**Ograniczanie przepustowości sieci tooenable**
 
-1. W agencie programu Kopia zapasowa Microsoft Azure, kliknij przycisk **Zmień właściwości**.
+1. W agencie kopia zapasowa Microsoft Azure hello, kliknij przycisk **Zmień właściwości**.
 
     ![Zmień właściwości](./media/backup-configure-vault/change-properties.png)
-2. Na **ograniczania** wybierz opcję **włączyć użycia przepustowości połączenia internetowego do operacji tworzenia kopii zapasowej** pole wyboru.
+2. Na powitania **ograniczania** kartę, zaznacz hello **włączyć użycia przepustowości połączenia internetowego do operacji tworzenia kopii zapasowej** pole wyboru.
 
     ![Ograniczanie przepustowości sieci](./media/backup-configure-vault/throttling-dialog.png)
-3. Po włączeniu ograniczenia przepustowości, należy określić dozwolony przepustowości dla transferu danych kopii zapasowej podczas **godzin pracy** i **godziny wolne**.
+3. Po włączeniu ograniczenia przepustowości, określ hello dozwolone przepustowości dla transferu danych kopii zapasowej podczas **godzin pracy** i **godziny wolne**.
 
-    Wartości przepustowości rozpocząć 512 kilobitów na sekundę (KB/s) i można przejść do 1,023 MB na sekundę (MB/s). Można również wyznaczyć rozpoczęcia i zakończenia **godzin pracy**, i dni tygodnia są uważane dniach. Godziny poza wyznaczonych są traktowane jako godzin pracy z systemem innym niż godziny pracy.
+    wartości przepustowości Hello rozpocząć 512 kilobitów na sekundę (KB/s) i można przejść w górę too1, 023 MB na sekundę (MB/s). Można również wyznaczyć hello rozpoczęcia i zakończenia **godzin pracy**, i dni tygodnia hello są uważane dniach. Godziny poza wyznaczonych są traktowane jako godzin pracy z systemem innym niż godziny pracy.
 4. Kliknij przycisk **OK**.
 
-### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Aby utworzyć kopię zapasową plików i folderów po raz pierwszy
-1. W agenta kopii zapasowej, kliknij przycisk **wykonaj kopię zapasową teraz** aby zakończyć początkowe umieszczanie za pośrednictwem sieci.
+### <a name="tooback-up-files-and-folders-for-hello-first-time"></a>tooback zapasowe plików i folderów na powitania po raz pierwszy
+1. W hello agenta kopii zapasowej, kliknij przycisk **wykonaj kopię zapasową teraz** hello toocomplete początkowe umieszczanie za pośrednictwem sieci hello.
 
     ![Natychmiastowe tworzenie kopii zapasowej systemu Windows Server](./media/backup-configure-vault/backup-now.png)
-2. Na stronie Potwierdzenie przejrzyj ustawienia, które zostaną użyte przez Kreatora natychmiastowego tworzenia kopii zapasowej do utworzenia kopii zapasowej maszyny. Następnie kliknij pozycję **Utwórz kopię zapasową**.
-3. Kliknij przycisk **Zamknij**, aby zamknąć kreatora. Jeśli zrobisz to przed zakończeniem procesu tworzenia kopii zapasowej, kreator będzie nadal działał w tle.
+2. Na stronie potwierdzenia hello Przejrzyj hello ustawień, które Witaj ponownie teraz Kreatora konfigurowania użyje tooback hello maszyny. Następnie kliknij pozycję **Utwórz kopię zapasową**.
+3. Kliknij przycisk **Zamknij** tooclose hello kreatora. Jeśli zrobisz to przed zakończeniem procesu tworzenia kopii zapasowej hello, Kreator hello nadal toorun w tle hello.
 
-Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup zostanie wyświetlony stan **Ukończono zadanie**.
+Po zakończeniu tworzenia początkowej kopii zapasowej hello hello **zadanie zostało ukończone** stan zostanie wyświetlony w konsoli usługi Backup hello.
 
 ![Początkowa replikacja została zakończona](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>Pytania?
-Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
+Jeśli masz pytania lub w przypadku dowolnej funkcji, które chcesz toosee uwzględnione, [Prześlij nam opinię](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać dodatkowe informacje na temat tworzenia kopii zapasowych maszyn wirtualnych lub innych obciążeń zobacz:
 
 * Teraz, gdy utworzono kopię zapasową plików i folderów, możesz [zarządzać swoimi magazynami i serwerami](backup-azure-manage-windows-server.md).
-* Jeśli chcesz przywrócić kopię zapasową, w tym artykule znajdziesz informacje dotyczące [przywracania plików na maszynę z systemem Windows](backup-azure-restore-windows-server.md).
+* Toorestore kopii zapasowej, należy użyć w tym artykule zbyt[przywrócenia plików tooa systemu Windows maszyny](backup-azure-restore-windows-server.md).

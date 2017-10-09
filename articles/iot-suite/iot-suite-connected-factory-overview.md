@@ -1,6 +1,6 @@
 ---
-title: "Omówienie połączonej fabryki Pakietu Azure IoT | Microsoft Docs"
-description: "Opis wstępnie skonfigurowanego rozwiązania połączonej fabryki Pakietu Azure IoT."
+title: "aaaAzure pakiet IoT połączone fabryki omówienie | Dokumentacja firmy Microsoft"
+description: "Opis hello pakiet IoT Azure połączone fabryki wstępnie skonfigurowane rozwiązanie."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,263 +15,263 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 929b5ed41ef7d82c9b4480d02aa3f0db38931919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Wprowadzenie do wstępnie skonfigurowanego rozwiązania połączonej fabryki
+# <a name="get-started-with-hello-connected-factory-preconfigured-solution"></a>Rozpoczynanie pracy z hello połączone fabryki wstępnie skonfigurowane rozwiązanie
 
-[Wstępnie skonfigurowane rozwiązania][lnk-preconfigured-solutions] Pakietu IoT Azure obejmują wiele usług Azure IoT, co pozwala dostarczać kompleksowe rozwiązania, które umożliwiają implementowanie typowych scenariuszy biznesowych IoT. Wstępnie skonfigurowane rozwiązanie *połączonej fabryki* łączy i monitoruje urządzenia przemysłowe. To rozwiązanie może służyć do analizowania strumienia danych z urządzeń i zwiększania produktywności operacyjnej oraz rentowności.
+Pakiet Azure IoT [wstępnie rozwiązań] [ lnk-preconfigured-solutions] łączenie wielu Azure IoT usług toodeliver end-to-end rozwiązania, które implementuje typowych scenariuszy biznesowych IoT. Witaj *połączonych fabryki* wstępnie skonfigurowane rozwiązanie łączy monitorów tooand przemysłowych urządzeń. Możesz użyć hello rozwiązania tooanalyze hello strumienia danych z urządzenia i wydajności operacyjnej toodrive i rentowność.
 
-W tym samouczku przedstawiono sposób aprowizowania wstępnie skonfigurowanego rozwiązania połączonej fabryki. Dostępny jest również opis podstawowych funkcji wstępnie skonfigurowanego rozwiązania. Dostęp do wielu z tych funkcji można uzyskać z *pulpitu nawigacyjnego* rozwiązania, który jest wdrażany jako część wstępnie skonfigurowanego rozwiązania:
+W tym samouczku przedstawiono sposób tooprovision hello połączenia fabryki wstępnie skonfigurowane rozwiązanie. On również przeprowadzi Cię przez hello podstawowych funkcji hello wstępnie skonfigurowane rozwiązanie. Dostępne wiele z tych funkcji z rozwiązania hello *pulpitu nawigacyjnego* która wdraża jako część rozwiązania hello wstępnie skonfigurowane:
 
 ![Pulpit nawigacyjny wstępnie skonfigurowanego rozwiązania połączonej fabryki][img-cf-home]
 
-Do wykonania kroków tego samouczka jest potrzebna aktywna subskrypcja platformy Azure.
+toocomplete tego samouczka należy aktywną subskrypcją platformy Azure.
 
 > [!NOTE]
 > Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure][lnk_free_trial].
 > 
 > 
 
-## <a name="provision-the-solution"></a>Aprowizacja rozwiązania
+## <a name="provision-hello-solution"></a>Zainicjuj obsługę hello rozwiązania
 
-1. Zaloguj się w witrynie azureiotsuite.com przy użyciu poświadczeń konta platformy Azure i kliknij pozycję „**+**”, aby utworzyć rozwiązanie.
-2. Kliknij pozycję **Wybierz** na kafelku **Połączona fabryka**.
+1. Zaloguj się przy użyciu poświadczeń konta Azure tooazureiotsuite.com, a następnie kliknij przycisk "**+**" toocreate rozwiązania.
+2. Kliknij przycisk **wybierz** na powitania **połączonych fabryki** kafelka.
 3. W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania dla połączonej fabryki.
-4. W polach **Subskrypcja** i **Region** wybierz wartości, których chcesz użyć do aprowizacji rozwiązania.
-5. Kliknij pozycję **Utwórz rozwiązanie**, aby rozpocząć proces aprowizowania. Zwykle trwa on kilka minut.
+4. Wybierz hello **subskrypcji** i **Region** toouse tooprovision hello rozwiązanie.
+5. Kliknij przycisk **Utwórz rozwiązanie** hello toobegin w procesie inicjowania obsługi. Ten proces zwykle trwa kilka minut toorun.
 
-### <a name="while-you-wait-for-the-provisioning-process-to-complete"></a>Podczas oczekiwania na ukończenie procesu aprowizacji
+### <a name="while-you-wait-for-hello-provisioning-process-toocomplete"></a>Podczas oczekiwania na powitania inicjowania obsługi administracyjnej toocomplete procesu
 
-1. Kliknij kafelek swojego rozwiązania zawierający informację o stanie **aprowizacji**.
-2. Zwróć uwagę na informację o **stanach aprowizacji** podczas wdrażania usług Azure w Twojej subskrypcji platformy Azure.
-3. Po ukończeniu aprowizowania stan zmieni się na wartość **Gotowe**.
-4. Kliknij kafelek, aby wyświetlić szczegóły rozwiązania w prawym okienku.
+1. Kliknij Kafelek hello rozwiązania z **inicjowania obsługi administracyjnej** stanu.
+2. Powiadomienie hello **inicjowania obsługi administracyjnej stanów** podczas wdrażania usług platformy Azure w ramach subskrypcji platformy Azure.
+3. Po ukończeniu inicjowania obsługi administracyjnej hello zmiany stanu zbyt**gotowe**.
+4. Kliknij przycisk hello kafelka toosee hello szczegóły rozwiązania w okienku po prawej stronie powitania.
 
 > [!NOTE]
-> Jeśli podczas wdrażania wstępnie skonfigurowanego rozwiązania pojawią się problemy, zapoznaj się z tematami [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions] i [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md). Jeśli problemy będą się powtarzać, utwórz żądanie pomocy w [portalu][lnk-portal].
+> Jeśli wystąpią problemy dotyczące wdrażania rozwiązania hello wstępnie skonfigurowane, przejrzyj [uprawnienia w witrynie azureiotsuite.com hello] [ lnk-permissions] i hello [połączone fabryki — często zadawane pytania](iot-suite-faq-cf.md). Jeśli hello problemy będą się powtarzać, Utwórz biletu usługi na powitania [portal][lnk-portal].
 
-Czy istnieją jakieś szczegóły dotyczące Twojego rozwiązania, które nie są wyświetlane, a Twoim zdaniem powinny być widoczne? Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).
+Czy istnieją szczegółowe informacje można oczekiwać toosee, które nie są wyświetlane dla rozwiązania? Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
-Podczas wdrażania wstępnie skonfigurowanego rozwiązania połączonej fabryki jest ono wstępnie wypełniane zasobami, które umożliwiają wykonanie kroków opisanych w typowym scenariuszu przemysłowym. W tym scenariuszu kilka fabryk połączonych z rozwiązaniem raportuje wartości danych wymagane do obliczenia ogólnej wydajności sprzętu (OEE) oraz kluczowych wskaźników wydajności (KPI). W poniższych sekcjach opisano sposób wykonania następujących czynności:
+Podczas wdrażania hello połączone fabryki wstępnie skonfigurowane rozwiązanie, jest on wstępnie wypełnione zasobów umożliwiających toostep za pośrednictwem typowy scenariusz przemysłowych. W tym scenariuszu kilka fabryki połączony raport rozwiązania toohello hello danych wartości wymagane toocompute ogólnej wydajności sprzętu (OEE) oraz kluczowych wskaźników wydajności (KPI). Hello następnych sekcjach opisano sposób do:
 
 * Monitorowanie fabryki, linii produkcyjnych, ogólnej wydajności stacji i wartości kluczowych wskaźników wydajności.
-* Analizowanie danych telemetrycznych generowanych przez te urządzenia za pomocą usługi Azure Time Series Insights.
-* Reagowanie na alerty i rozwiązywanie problemów.
+* Analizowanie danych telemetrycznych hello wygenerowane z tych urządzeń przy użyciu usługi Azure czas serii Insights
+* Działania dotyczące problemów toofix alertów
 
-Kluczową cechą tego scenariusza jest to, że te wszystkie akcje można wykonać zdalnie z poziomu pulpitu nawigacyjnego rozwiązania. Nie jest konieczny fizyczny dostęp do urządzeń.
+Kluczowy element w tym scenariuszu jest, że te akcje można wykonać zdalnie z poziomu pulpitu nawigacyjnego hello rozwiązania. Nie trzeba urządzeń toohello fizyczny dostęp.
 
-## <a name="view-the-solution-dashboard"></a>Wyświetlanie pulpitu nawigacyjnego
+## <a name="view-hello-solution-dashboard"></a>Pulpit nawigacyjny rozwiązania hello widoku
 
-Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Jest to hierarchiczna reprezentacja globalnej konfiguracji fabryki. Można na przykład wyświetlić ogólną wydajność sprzętu oraz kluczowe wskaźniki wydajności, opublikować nowe węzły na potrzeby telemetrii i reagować na alerty.
+pulpit nawigacyjny rozwiązania Hello umożliwia toomanage hello wdrożyć rozwiązanie. Jest to hierarchiczna reprezentacja globalnej konfiguracji fabryki. Można na przykład wyświetlić ogólną wydajność sprzętu oraz kluczowe wskaźniki wydajności, opublikować nowe węzły na potrzeby telemetrii i reagować na alerty.
 
-1. Jeśli aprowizacja została ukończona, a na kafelku wstępnie skonfigurowanego rozwiązania jest wyświetlany stan **Gotowe**, wybierz pozycję **Uruchom**, aby otworzyć portal rozwiązania połączonej fabryki na nowej karcie.
+1. Po ukończeniu inicjowania obsługi administracyjnej hello i wskazuje hello Kafelek wstępnie skonfigurowane rozwiązanie **gotowe**, wybierz **uruchamianie** tooopen portalem rozwiązania połączonych fabryki na nowej karcie.
 
-    ![Uruchamianie wstępnie skonfigurowanego rozwiązania][img-launch-solution]
+    ![Uruchamianie hello wstępnie skonfigurowane rozwiązanie][img-launch-solution]
 
-1. Domyślnie w portalu rozwiązania jest wyświetlany *pulpit nawigacyjny*. Korzystając z menu znajdującego się w lewej części strony, można przejść do innych obszarów portalu.
+1. Domyślnie hello rozwiązanie portalu pokazuje hello *pulpitu nawigacyjnego*. obszary tooother toonavigate hello portalu, użyj hello menu na powitania po lewej stronie powitania strony.
 
     ![Pulpit nawigacyjny wstępnie skonfigurowanego rozwiązania połączonej fabryki][cf-img-menu]
 
-Pulpit nawigacyjny udostępnia następujące informacje:
+pulpit nawigacyjny Hello Wyświetla hello następujących informacji:
 
-* Panel **Lista fabryk**, który przedstawia stan, lokalizację i bieżącą konfigurację produkcji w rozwiązaniu. Przy pierwszym uruchomieniu rozwiązania dostępnych jest kilka symulowanych urządzeń. Symulacja linii produkcyjnej składa się z trzech prawdziwych serwerów OPC UA na każdą linię produkcyjną, które wykonują symulowane zadania i udostępniają dane. Aby uzyskać więcej informacji na temat OPC UA, zobacz [Connected factory FAQ (Połączona fabryka — często zadawane pytania)](iot-suite-faq-cf.md).
-* **Mapę** zawierającą lokalizację każdego urządzenia połączonego z rozwiązaniem. Rozwiązanie może korzystać z interfejsu API usługi Mapy Bing do wykreślania informacji na mapie. Jeśli subskrypcja obejmuje interfejs API usługi Mapy Bing w wersji Enterprise, ta funkcja jest używana automatycznie. W przeciwnym razie zobacz [Często zadawane pytania][lnk-faq], aby dowiedzieć się, jak utworzyć dynamiczną mapę.
+* A **listy fabryki** panelu, pokazujący stan hello, lokalizacji i bieżącej konfiguracji produkcji hello rozwiązania. Przy pierwszym uruchomieniu rozwiązania hello, istnieje wiele urządzeń symulowane. Symulacja wiersza produkcyjnym Hello składa się z trzech rzeczywistych OPC UA serwerom na linii produkcyjnej symulowane zadań i udostępnianie danych. Aby uzyskać więcej informacji na temat OPC UA Zobacz hello [połączone fabryki — często zadawane pytania](iot-suite-faq-cf.md).
+* A **mapy** czy lokalizacji hello Wyświetla wszystkie urządzenia podłączone toohello rozwiązania. rozwiązanie Hello można użyć informacji tooplot interfejsu API map Bing hello na mapie hello. Jeśli subskrypcja obejmuje interfejs API usługi Mapy Bing w wersji Enterprise, ta funkcja jest używana automatycznie. Jeśli nie, zobacz hello [— często zadawane pytania] [ lnk-faq] toolearn jak toomake hello dynamicznie mapy.
 * Panel **Alerty**, na którym są wyświetlane alerty generowane, gdy wartość telemetrii lub ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności przekroczy określony próg.
-* Panel **Ogólna wydajność sprzętu**, na którym są pokazane wartości ogólnej wydajności sprzętu dla całego przedsiębiorstwa lub przeglądanej fabryki/linii produkcyjnej/stacji. Ta wartość jest agregowana od widoku stacji do poziomu przedsiębiorstwa. Dane ogólnej wydajności sprzętu i jej składowe elementy można dokładniej analizować.
-* Panel **Kluczowe wskaźniki wydajności**, na którym jest wyświetlana liczba wyprodukowanych jednostek i ilość zużytej energii w całym przedsiębiorstwie lub w przeglądanej fabryce/linii produkcyjnej/stacji. Te wartości są agregowane od widoku stacji do poziomu przedsiębiorstwa.
+* **Ogólnej wydajności sprzętu** panelu, które pokazuje hello OEE wartości dla całego przedsiębiorstwa hello lub hello fabryki/produkcji wiersza/stacji można jest wyświetlana. Ta wartość jest agregowana poziomu hello stacji widoku toohello przedsiębiorstwa. Rysunek OEE Hello i jej elementów składowych można analizować dalej.
+* **Kluczowe wskaźniki wydajności** panelu, który wyświetla hello liczbę jednostek wyprodukowanych i energii używane przez hello całego przedsiębiorstwa lub wiersza fabryki/produkcyjnego hello stacji można jest wyświetlana. Wartości te są agregowane z poziomu stacji widoku toohello przedsiębiorstwa.
 
 ## <a name="view-factories"></a>Wyświetlanie fabryk
 
-Na panelu *Fabryki* jest wyświetlana lokalizacja geograficzna wszystkich fabryk w rozwiązaniu, ich stan i bieżąca konfiguracja produkcji. Z listy lokalizacji można przejść do innych poziomów w hierarchii rozwiązania. Wiersze listy są hiperlinkami umożliwiającymi wyświetlenie szczegółowych informacji dotyczących linii produkcyjnych w lokalizacji. Możliwe jest również przejście do szczegółów linii produkcyjnej i w dół do widoku poziomu stacji. Do listy można także zastosować filtr.
+Witaj *fabryki* panelu pokazuje hello lokalizację geograficzną wszystkich fabryki hello w hello rozwiązania, stanu i bieżącej konfiguracji produkcji. Z listy lokalizacje hello można przejść toohello innych poziomów w hierarchii rozwiązania hello. Wiersze Hello liście hello są hiperłącza, które łącze Szczegóły hello produkcji wiersze w tej lokalizacji. Następnie jest możliwe toodrill do hello szczegóły wiersza produkcyjnym i w dół widok poziomu toohello stacji. Można także zastosować dla listy toohello filtrów.
 
 ![Fabryki we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-factories] 
 
-1. Na **panelu Fabryki** jest wyświetlana lista fabryk dla tego rozwiązania.
+1. Witaj **panelu fabryki** pokazuje hello listy fabryki dla tego rozwiązania.
 
-2. Na liście początkowo jest widocznych 6 fabryk utworzonych w procesie aprowizacji. Do rozwiązania można dodać dodatkowe symulowane i fizyczne urządzenia.
+2. Lista fabryki Hello początkowo zawiera sześć fabryki utworzone przez hello w procesie inicjowania obsługi. Można dodać dodatkowych urządzeń fizycznych i symulowane toohello rozwiązania.
 
-3. Aby wyświetlić szczegóły fabryki, kliknij wiersz na liście fabryk.
+3. Szczegóły hello tooview fabryki, kliknij wiersz hello hello fabryki liście.
 
-4. Aby wyświetlić szczegóły linii produkcyjnej, kliknij wiersz na liście.
+4. tooview hello szczegóły wiersza produkcyjnym, kliknij wiersz hello hello na liście.
 
-5. Aby wyświetlić opublikowane węzły OPC UA stacji z linii produkcyjnej, kliknij wiersz na liście.
+5. tooview hello opublikowane węzłów OPC UA stacji na linii produkcyjnej hello, kliknij wiersz hello liście hello.
 
-6. Aby wyświetlić szczegóły dotyczące określonego węzła w stacji, kliknij wiersz na liście. Ta akcja uruchamia panel kontekstowy z wizualizacjami usługi Time Series Insights. Kliknięcie takiego wykresu umożliwia przeprowadzenie dalszej analizy w środowisku eksploratora usługi Time Series Insights.
+6. Szczegóły tooview w określonym węźle w stacji hello, kliknij wiersz hello hello na liście. Ta akcja spowoduje uruchomienie hello kontekstu panel z wizualizacji Insights serii czasu. Kliknij te wykresy toodo dalszej analizy w środowisku explorer Insights serii czasu hello.
 
 ## <a name="view-map"></a>Wyświetlanie mapy
 
-Jeśli Twoja subskrypcja ma dostęp do interfejsu API usługi Mapy Bing, na mapie *Fabryki* są wyświetlane lokalizacje geograficzne i status wszystkich fabryk w rozwiązaniu. Aby przejść do szczegółów lokalizacji, kliknij lokalizacje wyświetlane na mapie.
+Jeśli subskrypcja obejmuje toohello dostępu do interfejsu API map Bing, hello *fabryki* Mapa pokazuje hello lokalizacji geograficznej i stan fabryk hello w hello rozwiązania. toodrill hello lokalizacji uzyskać szczegółowe informacje, kliknij przycisk Lokalizacje hello wyświetlone na mapie hello.
 
 ![Mapa we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-map]
 
 ## <a name="view-alerts"></a>Wyświetlanie alertów
 
-Na panelu **Alert** są wyświetlane alerty wygenerowane z powodu wystąpienia wartości zgłoszonej lub wartości obliczonej ogólnej wydajności sprzętu bądź kluczowego wskaźnika wydajności, która przekroczyła skonfigurowaną wartość progową. Na tym panelu pojawiają się alerty dotyczące każdego poziomu hierarchii: od poziomu stacji do widoku globalnego. Alerty zawierają opis alertu, datę, godzinę, lokalizację i liczbę wystąpień. Korzystając z danych usługi Time Series Insights, można uzyskać wgląd w dane, które spowodowały wystąpienie alertu. Dane usługi Time Series Insights są wizualizowane w alertach, gdy ma to uzasadnienie. Jeśli jesteś administratorem, możesz wykonywać domyślne akcje na alertach, takie jak:
+Witaj **alertu** panelu przedstawia alerty generowane ze względu tooa podać wartość lub obliczoną wartość OEE/KPI przekroczeniu skonfigurowanego progu. Panel ten przedstawia alerty na każdym poziomie hierarchii hello, w widoku globalnego toohello hello stacji widoku poziomu. alerty Hello zawierają opis alertu hello, datę, czas, lokalizacji i liczby wystąpień. Aby uzyskać wgląd w dane toohello, który spowodował alert hello przy użyciu hello czasu Insights serii danych. Hello Insights serii czas, który wizualizacji danych w hello alerty, jeśli to możliwe. Jeśli jesteś administratorem, można wykonać akcje domyślne hello alertów, takie jak:
 
-* Zamknięcie alertu.
-* Potwierdzenie alertu.
+* Witaj Zamknij alert.
+* Wiadomości powitania alertu.
 
-Opcjonalnie możesz wykonać bardziej złożone akcje. Na przykład dla węzła OPC UA Ciśnienie zestawu można wykonać następujące akcje:
+Opcjonalnie możesz wykonać bardziej złożone akcje. Na przykład dla hello wykorzystania OPC UA węzła hello zestawu możesz:
 
 * Wyświetlenie dodatkowych informacji na stronie internetowej w nowym oknie przeglądarki.
-* Wyeliminowanie przyczyny alertu za pomocą wywołania metody OPC UA na urządzeniu.
-* Pominięcie dostępności domyślnych akcji.
+* Ograniczenia hello Przyczyna alertu hello przez wywołanie metody OPC UA hello urządzenia.
+* Pomiń hello dostępność hello domyślne akcje.
 
     ![Alerty we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-alerts]
 
 > [!NOTE]
-> Te alerty są generowane na podstawie reguł określonych w pliku konfiguracyjnym we wstępnie skonfigurowanym rozwiązaniu. Te reguły mogą generować alerty, gdy wartości ogólnej wydajności sprzętu lub kluczowego wskaźnika wydajności bądź wartości węzła OPC UA przekraczają skonfigurowany dla nich próg.
+> Te alerty są generowane przez zasady, które są określone w pliku konfiguracji w hello wstępnie skonfigurowane rozwiązanie. Te reguły mogą generować alerty, gdy hello OEE lub wartości wskaźnika KPI lub wartości węzła UA OPC są powyżej ich skonfigurowany próg.
 
-1. Na **panelu Alerty** są wyświetlane alerty wygenerowane w tym rozwiązaniu.
+1. Witaj **panelu alerty** pokazuje hello alertów wygenerowanych w tym rozwiązaniu.
 
-2. Aby wyświetlić szczegóły alertu, kliknij jego nazwę na panelu alertów.
+2. tooview hello szczegóły alertu, kliknij alert hello hello alerty panelu.
 
-3. W celu przeprowadzenia dalszej analizy danych alertu kliknij wykres na panelu alertu, aby otworzyć środowiska eksploratora usługi Time Series Insights.
+3. toofurther analizować dane alertów hello, kliknij wykres hello hello alertu panelu tooopen hello czasu serii Insights explorer środowiska.
 
-4. Aby rozwiązać alert, na panelu alertów jest dostępnych kilka akcji. Wybierz odpowiednią opcję i kliknij przycisk polecenia wykonania akcji.
+4. tooaddress hello alertu, kilka akcje są dostępne w panelu alertu hello. Wybierz odpowiednią opcję powitania dla Ciebie, a następnie kliknij przycisk hello wykonania akcji przycisku polecenia.
 
 ## <a name="view-overall-equipment-efficiency"></a>Wyświetlanie ogólnej wydajności sprzętu
 
-Ogólna wydajność sprzętu (OEE) pozwala ocenić wydajność procesu produkcyjnego przy użyciu kluczowych parametrów operacyjnych powiązanych z produkcją. Ogólna wydajność sprzętu to standardowy pomiar branżowy obliczany przez pomnożenie współczynników dostępności, wydajności i jakości: OEE = dostępność x wydajność x jakość.
+Stawki OEE hello wydajności proces produkcji hello przy użyciu klucza parametry operacyjne dotyczące produkcji. OEE jest branżowy standard miary obliczane przez pomnożenie hello dostępności szybkości, współczynnik wydajności i jakości szybkość: OEE = dostępności x jakości wydajności x.
 
 ![Ogólna wydajność sprzętu we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-oee]
 
-1. Aby wyświetlić ogólną wydajność sprzętu na dowolnym poziomie hierarchii, przejdź do wymaganego widoku. Ogólna wydajność sprzętu dla tego widoku będzie wyświetlana na panelu razem ze wszystkimi elementami składowymi procentowej wartości OEE.
+1. tooview OEE dla dowolnego poziomu w hierarchii hello Przejdź toohello określony widok, które są wymagane. Witaj OEE w tym widoku są wyświetlane w panelu hello wraz z każdego z elementów hello, wchodzące w skład hello OEE procent.
 
-2. W celu dalszej analizy ogólnej wydajności sprzętu na dowolnym poziomie w danych hierarchii, kliknij pozycję dotyczącą wartości procentowej dla ogólnej wydajności sprzętu, dostępności, wydajności lub jakości. Zostanie wyświetlony panel kontekstowy zawierający wizualizacje usługi Time Series Insights z danymi z ostatniej godziny, ostatnich 24 godzin i ostatnich 7 dni.
+2. toofurther analizowanie hello OEE na dowolnym poziomie hello hierarchii danych, kliknij przycisk hello OEE, dostępności, wydajności i jakości procent. Kontekst pojawia się okno z informacjami dotyczącymi serii czasu zasilanego wizualizacje, które zawiera dane ze hello w ciągu ostatniej godziny, ostatnich 24 godzinach i ostatnich 7 dni.
 
     ![Wizualizacje usługi TSI we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-tsi-visualization]
 
-3. Aby dalej analizować dane alertów, kliknij wykres na panelu alertu. Spowoduje to otwarcie środowiska eksploratora usługi Time Series Insights.
+3. toofurther analizować dane alertów hello, kliknij wykres hello w panelu alertu hello. Ta akcja powoduje otwarcie hello czasu serii Insights explorer środowiska.
 
     ![Eksplorator usługi TSI we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Wyświetlanie kluczowych wskaźników wydajności
 
-Rozwiązanie zapewnia dwa kluczowe wskaźniki wydajności: *liczba jednostek na godzinę* i *zużycie energii w kWh*.
+Witaj rozwiązanie zapewnia dwie kluczowe wskaźniki wydajności, *jednostek na godzinę* i *zużycia energii w kWh*.
 
 ![Kluczowy wskaźnik wydajności we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-kpi]
 
-1. Aby wyświetlić liczbę jednostek na godzinę lub ilość zużytej energii na dowolnym poziomie hierarchii, przejdź do wymaganego widoku. Liczba jednostek na godzinę i ilość zużytej energii zostaną wyświetlone na panelu.
+1. jednostki tooview na godzinę lub energii użytej do dowolnego poziomu hierarchii hello Przejdź toohello określony widok, które są wymagane. jednostki Hello na godzinę i energii używane wyświetlania hello panelu.
 
-2. Aby przeprowadzić dalszą analizę liczby jednostek na godzinę lub ilości zużytej energii na dowolnym poziomie w ramach hierarchii, kliknij miernik na panelu **Kluczowe wskaźniki wydajności**. Zostanie wyświetlony panel kontekstowy zawierający wizualizacje usługi Time Series Insights umożliwiające przeglądanie danych z ostatniej godziny, ostatnich 24 godzin i ostatnich 7 dni.
+2. jednostki tooanalyze na godzinę lub energii użytej do dowolnego poziomu hierarchii hello co więcej, kliknij przycisk miernika hello w hello **kluczowych wskaźników wydajności** panelu. Pojawia się, że okno kontekstu z wizualizacjami Insights serii czasu zasilane umożliwiając tooview danych z hello ostatniej godziny hello w ostatnich 24 godzinach i w ciągu ostatnich 7 dni.
 
 ## <a name="scenario-review"></a>Przegląd scenariusza
 
-W tym scenariuszu na pulpicie nawigacyjnym były monitorowane wartości ogólnej wydajności sprzętu i kluczowych wskaźników wydajności fabryk. Następnie użyto usługi Time Series Insights w celu udostępnienia większej ilości informacji ułatwiających dalsze badanie danych telemetrycznych ogólnej wydajności sprzętu i kluczowych wskaźników wydajności pomagających w wykrywaniu nieprawidłowości. Użyto również panelu alertów do wyświetlenia problemów dotyczących fabryk i skorzystano z dostępnych akcji w celu rozwiązania alertu.
+W tym scenariuszu można monitorować fabryki OEE i wskaźników KPI wartości, na pulpicie nawigacyjnym hello. Następnie użyto tooprovide Insights serii czasu więcej informacji toohelp Przejdź dalej do hello dane telemetryczne dla toohelp OEE i wskaźników KPI z wykrywania anomalii. Problemy tooview alertu panelu hello również używać razem z fabryki i użyto hello Akcje dostępne tooyou tooresolve hello alertu.
 
 ## <a name="other-features"></a>Pozostałe funkcje
 
-W poniższych sekcjach opisano niektóre dodatkowe funkcje rozwiązania połączonej fabryki, które nie zostały opisane w poprzednim scenariuszu.
+Hello w następujących sekcjach opisano niektóre dodatkowe funkcje, które nie zostały opisane w poprzednim scenariuszu hello hello połączone fabryki rozwiązania.
 
 ## <a name="apply-filters"></a>Stosowanie filtrów
 
-1. Kliknij **cudzysłów ostrokątny**, aby wyświetlić listę dostępnych filtrów na panelu lokalizacji fabryk lub panelu alertów.
+1. Kliknij przycisk hello **cudzysłów ostrokątny** toodisplay listę dostępnych filtrów w panelu lokalizacje fabryki hello lub hello alerty panelu.
 
-2. Poniżej przedstawiono panel filtrów. 
+2. panel Filtry Hello jest wyświetlany dla Ciebie. 
 
     ![Filtry we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-alert-filter]
 
-3. Wybierz wymagany filtr. Możesz również wpisać dowolny tekst w polach filtrów.
+3. Wybierz filtr hello, która jest wymagana. Możliwe jest również możliwe tootype niezależnych do pól filtr hello.
 
-4. Wybrany filtr zostanie zastosowany. Stan filtru jest również wyświetlany na pulpicie nawigacyjnym za pomocą lejka w tabelach fabryk i alertów.
+4. Filtr Hello jest następnie stosowany dla Ciebie. Stan filtru Hello jest także pokazany na pulpicie nawigacyjnym hello za pośrednictwem lejka, która wyświetla w hello fabryk i alerty tabel.
 
     ![Filtry we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-alert-filter-funnel]
 
     > [!NOTE]
-    > Aktywny filtr nie ma wpływu na wyświetlanie wartości ogólnej wydajności sprzętu i kluczowych wskaźników wydajności. Filtrowana jest tylko zawartość listy.
+    > Filtra aktywnego nie ma wpływu na powitania wyświetlane wartości OEE i kluczowego wskaźnika wydajności, tylko filtry hello wyświetlanie zawartości.
 
-5. Aby usunąć filtr, kliknij ikonę lejka, a następnie kliknij filtr na panelu kontekstowym filtru. W tabelach fabryk i alertów zostanie wyświetlony tekst **Wszystkie**.
+5. tooclear filtra, kliknij lejka hello i kliknij filtr w panelu kontekstu filtr hello. Witaj tekst **wszystkie** jest wyświetlana w hello fabryk i alerty tabel.
 
 ## <a name="browse-an-opc-ua-server"></a>Przeglądanie serwera OPC UA
 
-Podczas wdrażania wstępnie skonfigurowanego rozwiązania następuje automatyczna aprowizacja symulowanych serwerów OPC UA, które można przeglądać za pomocą przeglądarki rozwiązania. Są to *symulowane serwery OPC UA*. Symulowane serwery ułatwiają eksperymentowanie ze wstępnie skonfigurowanym rozwiązaniem bez konieczności wdrażania prawdziwych serwerów fizycznych. Jeśli chcesz połączyć prawdziwy serwer OPC UA z rozwiązaniem, zobacz samouczek [Connect your OPC UA device to the connected factory preconfigured solution][lnk-connect-cf] (Łączenie urządzenia OPC UA ze wstępnie skonfigurowanym rozwiązaniem połączonej fabryki).
+Podczas wdrażania hello wstępnie skonfigurowane rozwiązanie automatycznie udostępnić symulowane serwerów OPC UA, które można przeglądać za pomocą przeglądarki rozwiązania hello. Są to *symulowane serwery OPC UA*. Serwery symulowane ułatwiają dla Ciebie tooexperiment z rozwiązaniem hello wstępnie bez hello potrzeby toodeploy prawdziwe, fizycznych serwerów. Tooconnect rzeczywiste rozwiązania toohello OPC UA serwera, zobacz hello [łączenie rozwiązania fabryki wstępnie toohello podłączone urządzenie OPC UA] [ lnk-connect-cf] samouczka.
 
-1. Kliknij **ikonę fabryki** na pasku nawigacyjnym pulpitu nawigacyjnego.
+1. Kliknij hello **ikona fabryki** na pasku nawigacyjnym hello pulpitu nawigacyjnego.
 
     ![Przeglądarka serwerów we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-server-browser]
 
-2. Wybierz jeden z serwerów ze wstępnie skonfigurowanej listy. Ta lista zawiera serwery wdrożone we wstępnie skonfigurowanym rozwiązaniu.
+2. Wybierz jeden z serwerów hello hello wstępnie skonfigurowanej listy. Ta lista zawiera serwery hello, które są wdrażane dla Ciebie w hello wstępnie skonfigurowane rozwiązanie.
 
     ![Wybieranie serwerów we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-server-choice]
 
-3. Kliknij przycisk **Połącz**. Zostanie wyświetlone okno dialogowe zabezpieczeń. W tej symulacji można bezpiecznie kliknąć pozycję **Kontynuuj**.
+3. Kliknij przycisk **Połącz**. Zostanie wyświetlone okno dialogowe zabezpieczeń. Na symulacyjnych hello jest bezpieczne tooclick **Kontynuuj**
 
-4. Aby rozwinąć dowolny węzeł w drzewie serwerów, kliknij go. Węzły, które publikują dane telemetryczne, mają obok swoich nazw znaczniki.
+4. tooexpand dowolny z węzłów hello powitania serwera drzewa, kliknij go. Węzły, które publikują dane telemetryczne, mają obok swoich nazw znaczniki.
 
     ![Drzewo serwerów we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-server-tree]
 
-5. Kliknij element prawym przyciskiem myszy, aby odczytać, zapisać, opublikować lub wywołać ten węzeł. Dostępne akcje zależą od uprawnień posiadanych przez użytkownika i atrybutów węzła. Wybranie opcji odczytu powoduje wyświetlenie panelu kontekstowego z wartością konkretnego węzła. Wybranie opcji zapisu powoduje wyświetlenie panelu kontekstowego, w którym można wprowadzić nową wartość. Wybranie opcji wywołania powoduje wyświetlenie węzła i umożliwia wprowadzenie parametrów wywołania.
+5. Kliknij prawym przyciskiem myszy element tooread, zapisu, publikować lub wywołać tego węzła. tooyou dostępne akcje Hello są zależne od swoje uprawnienia i atrybuty hello hello węzła. Hello odczytać toodisplays opcji panelu kontekstu pokazujący wartość hello hello określonego węzła. Witaj zapisu opcja wyświetla panel kontekstu, gdzie można wprowadzić nową wartość. Opcja wywołania Hello wyświetlany jest węzeł wprowadzane parametry hello hello wywołania.
 
 ## <a name="publish-a-node"></a>Publikowanie węzła
 
-Podczas przeglądania *symulowanego serwera OPC UA* można również opublikować nowe węzły. W rozwiązaniu można przeanalizować dane telemetryczne z tych węzłów. Te *symulowane serwery OPC UA* ułatwiają eksperymentowanie ze wstępnie skonfigurowanym rozwiązaniem bez konieczności wdrażania prawdziwych urządzeń fizycznych.
+Po przejściu *symulowane serwera OPC UA*, można także toopublish nowe węzły. Można analizować dane telemetryczne hello z tych węzłów w rozwiązaniu hello. Te *symulowane serwerów OPC UA* był łatwo tooexperiment z rozwiązaniem hello wstępnie bez wdrażania rzeczywistego urządzenia fizycznego.
 
-1. W drzewie przeglądarki serwerów OPC UA przejdź do węzła, który chcesz opublikować.
+1. Przeglądaj tooa węzła w hello OPC UA serwera przeglądarki drzewa, że chcesz toopublish.
 
-2. Kliknij węzeł prawym przyciskiem myszy.
+2. Kliknij prawym przyciskiem myszy węzeł hello.
 
 3. Wybierz polecenie **Publikuj**.
 
     ![Publikowanie węzła przez połączoną fabrykę][cf-img-publish-node]
 
-4. Wyświetlony panel kontekstowy informuje, że publikowanie zakończyło się pomyślnie. Węzeł pojawi się w widoku poziomu stacji z umieszczonym obok znacznikiem.
+4. Pojawia się okno kontekstu informuje, że hello publikowania zakończyła się pomyślnie. węzeł Hello jest wyświetlany w widoku poziomu stacji hello znacznik wyboru obok siebie.
 
     ![Pomyślne publikowanie we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Sterowanie i kontrola
 
-Połączona fabryka umożliwia sterowanie urządzeniami przemysłowymi i kontrolowanie ich bezpośrednio z chmury. Tej funkcji można używać do odpowiadania na alerty generowane przez urządzenie. Można na przykład wysłać polecenie do urządzenia z chmury. Dostępne polecenia można znaleźć w węźle **StationCommands** w drzewie przeglądarki serwerów OPC UA. W tym scenariuszu otwierasz zawór bezpieczeństwa na stanowisku montażowym linii produkcyjnej w Monachium. Aby móc skorzystać z funkcji sterowania i kontroli, musisz mieć rolę **administratora** we wdrożeniu wstępnie skonfigurowanego rozwiązania.
+Fabryka połączonych Hello umożliwia poleceń i kontroli urządzeń branży bezpośrednio z chmury hello. Możesz użyć tej funkcji tooalerts toorespond, który jest generowany przez urządzenie hello. Na przykład może wysyłać polecenia toohello urządzenia ze hello chmury. Można znaleźć hello dostępnych poleceń w hello **StationCommands** węzła w hello OPC UA serwerów przeglądarki drzewa. W tym scenariuszu możesz otworzyć zawór wersji wykorzystania na stacji zestawu hello wiersza produkcyjnym we Wrocławiu. Funkcje polecenia i kontroli toouse hello, musisz być w hello **administratora** rolę hello wstępnie wdrażania rozwiązania.
 
-1. W drzewie przeglądarki serwerów OPC UA przejdź do węzła **StationCommands**.
+1. Przeglądaj toohello **StationCommands** węzła w hello OPC UA serwera przeglądarki drzewa.
 
-2. Wybierz polecenie, którego chcesz użyć.
+2. Wybierz polecenie hello, że chcesz użycia.
 
-3. Kliknij węzeł prawym przyciskiem myszy.
+3. Kliknij prawym przyciskiem myszy węzeł hello.
 
 4. Wybierz polecenie **Wywołaj**.
 
     ![Polecenie wywoływania we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-call-command]
 
-5. Zostanie wyświetlony panel kontekstowy z informacjami o metodzie, która ma zostać wywołana, i szczegółami parametru, jeśli ma to zastosowanie.
+5. Panel kontekstu pojawia się informacją, którego metoda zamierzasz toocall i dotyczy żadnych szczegółów parametru.
 
 6. Wybierz polecenie **Wywołaj**.
 
     ![Kontekst wywołania we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-call-context]
 
-7. Panel kontekstowy zostanie zaktualizowany o informacje o powodzeniu wywołania metody. Powodzenie wywołania metody można sprawdzić, odczytując zaktualizowaną w wyniku wywołania wartość węzła ciśnienia.
+7. panel kontekstu Hello jest zaktualizowane tooinform że hello wywołania metody, które zakończyło się pomyślnie. Możesz sprawdzić hello wywołanie zakończyło się pomyślnie, odczytując wartości hello hello wykorzystania węzła, który zaktualizowany w wyniku wywołania hello.
 
     ![Powodzenie wywołania we wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][cf-img-call-success]
 
 
-## <a name="behind-the-scenes"></a>Za kulisami
+## <a name="behind-hello-scenes"></a>Tle hello
 
-Podczas wdrażania wstępnie skonfigurowanego rozwiązania jest tworzonych wiele zasobów w ramach wybranej subskrypcji platformy Azure. Można je wyświetlić w witrynie Azure [Portal][lnk-portal]. W procesie wdrażania jest tworzona **grupa zasobów** o nazwie odpowiadającej nazwie wstępnie skonfigurowanego rozwiązania:
+Podczas wdrażania wstępnie skonfigurowanych rozwiązań procesu wdrażania hello tworzy wiele zasobów w hello subskrypcji platformy Azure, które wybrano. Te zasoby można wyświetlić w hello Azure [portal][lnk-portal]. Utworzenie procesu wdrażania Hello **grupy zasobów** o nazwie na podstawie nazwy hello wybierz wstępnie skonfigurowanego rozwiązania:
 
-![Wstępnie skonfigurowane rozwiązanie w portalu Azure][img-cf-portal]
+![Wstępnie skonfigurowane rozwiązanie w hello portalu Azure][img-cf-portal]
 
-Aby wyświetlić ustawienia danego zasobu, wybierz go z listy w grupie zasobów.
+Można wyświetlać ustawienia hello każdego zasobu, wybierając ją z listy hello zasobów w grupie zasobów hello.
 
-Można również wyświetlić kod źródłowy wstępnie skonfigurowanego rozwiązania. Kod źródłowy wstępnie skonfigurowanego rozwiązania połączonej fabryki znajduje się w repozytorium GitHub [azure-iot-connected-factory][lnk-cfgithub]:
+Można również wyświetlić kod źródłowy hello hello wstępnie skonfigurowane rozwiązanie. Hello połączonych fabryki wstępnie skonfigurowane rozwiązanie kod źródłowy jest w hello [azure iot — połączony fabryka] [ lnk-cfgithub] repozytorium GitHub:
 
-Gdy wszystko będzie gotowe, możesz usunąć wstępnie skonfigurowane rozwiązanie z subskrypcji platformy Azure w witrynie [azureiotsuite.com][lnk-azureiotsuite]. Ta witryna umożliwia łatwe usunięcie wszystkich zasobów, które zostały aprowizowane po utworzeniu wstępnie skonfigurowanego rozwiązania.
+Gdy wszystko będzie gotowe, możesz usunąć hello wstępnie skonfigurowane rozwiązanie z subskrypcją platformy Azure na powitania [azureiotsuite.com] [ lnk-azureiotsuite] lokacji. Ta witryna umożliwia delete tooeasily hello wszystkie zasoby, które zostały udostępnione po utworzeniu hello wstępnie skonfigurowane rozwiązanie.
 
 > [!NOTE]
-> Aby mieć pewność, że zostaną usunięte wszystkie elementy powiązane ze wstępnie skonfigurowanym rozwiązaniem, usuń rozwiązanie w witrynie [azureiotsuite.com][lnk-azureiotsuite]. Nie należy usuwać grupy zasobów w portalu.
+> tooensure Usuń wszystkie powiązane toohello wstępnie skonfigurowane rozwiązanie, usuń go na powitania [azureiotsuite.com] [ lnk-azureiotsuite] lokacji. Nie należy usuwać hello grupy zasobów w portalu hello.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy zostało wdrożone wstępnie skonfigurowane rozwiązanie, które działa, możesz kontynuować poznawanie Pakietu IoT, czytając następujące artykuły:
+Teraz, po wdrożeniu rozwiązania pracy wstępnie skonfigurowane, można nadal wprowadzenie pakiet IoT odczytując hello następujące artykuły:
 
 * [Przewodnik po wstępnie skonfigurowanym rozwiązaniu połączonej fabryki][lnk-rm-walkthrough]
-* [Łączenie urządzenia ze wstępnie skonfigurowanym rozwiązaniem połączonej fabryki][lnk-connect-cf]
-* [Uprawnienia w witrynie azureiotsuite.com][lnk-permissions]
+* [Łączenie rozwiązania połączonych fabryki wstępnie toohello urządzenia][lnk-connect-cf]
+* [Uprawnienia w witrynie azureiotsuite.com hello][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
 [img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png

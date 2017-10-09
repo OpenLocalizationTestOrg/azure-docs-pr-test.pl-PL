@@ -1,6 +1,6 @@
 ---
 title: Plik testowy Sipi | Dokumentacja firmy Microsoft
-description: "Plik testu Aby sprawdzić ReadyForTest zależności"
+description: "Testowanie plików toocheck ReadyForTest zależności"
 services: active-directory-b2c
 documentationcenter: 
 author: Sipi
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: Sipi
-ms.openlocfilehash: 871d58818dcbaee5f7a5f07c19e2297ec6459a6f
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: afd3dc94dfb30926b316256fb06a768a391004f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sipi-test-file"></a>Plik testowy Sipi
 
-Ten samouczek szybkiego startu pomaga zarejestrować aplikację w dzierżawie usługi Microsoft Azure Active Directory (Azure AD) B2C w ciągu kilku minut. Kiedy skończysz, Twoja aplikacja będzie zarejestrowana do użycia w dzierżawie usługi Azure B2C.
+Ten samouczek szybkiego startu pomaga zarejestrować aplikację w dzierżawie usługi Microsoft Azure Active Directory (Azure AD) B2C w ciągu kilku minut. Po zakończeniu aplikacji są rejestrowane w dzierżawie powitalnych Azure B2C.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby utworzyć aplikację, która akceptuje tworzenie kont i logowanie użytkowników, musisz najpierw zarejestrować aplikację w dzierżawie usługi Azure Active Directory B2C. Aby utworzyć własną dzierżawę, wykonaj kroki opisane w temacie [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
+toobuild aplikację, która akceptuje konsumenta rejestracji i logowania, należy najpierw aplikacji hello tooregister z dzierżawy usługi Azure Active Directory B2C. Utworzyć własną dzierżawę za pomocą hello czynności opisane w temacie [tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
 
-Aplikacje utworzone w bloku Azure AD B2C w witrynie Azure Portal muszą być zarządzane z tej samej lokalizacji. Jeśli edytujesz aplikacje B2C przy użyciu programu PowerShell lub innego portalu, stają się one nieobsługiwane i przestają działać w usłudze Azure AD B2C. Szczegóły możesz znaleźć w sekcji [Uszkodzone aplikacje](#faulted-apps). 
+Musi być zarządzane aplikacje utworzone za pomocą bloku hello Azure AD B2C w portalu Azure hello z hello tej samej lokalizacji. Po zmodyfikowaniu aplikacji B2C hello przy użyciu programu PowerShell lub innego portalu stają się nieobsługiwane i nie działają usługi Azure AD B2C. Zobacz szczegóły w hello [wystąpił błąd aplikacji](#faulted-apps) sekcji. 
 
-## <a name="navigate-to-b2c-settings"></a>Przechodzenie do ustawień usługi B2C
+## <a name="navigate-toob2c-settings"></a>Przejdź do ustawień tooB2C
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) jako administrator globalny dzierżawy usługi B2C. 
+Zaloguj się za toohello [portalu Azure](https://portal.azure.com/) jako Administrator globalny dzierżawy hello B2C hello. 
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-Wybierz następne kroki na podstawie rejestrowanego typu aplikacji:
+Wybierz następne kroki na podstawie typu aplikacji hello, rejestrowany:

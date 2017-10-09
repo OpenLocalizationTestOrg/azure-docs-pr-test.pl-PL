@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie usługi równoważenia obciążenia dla bazy danych SQL zawsze na | Dokumentacja firmy Microsoft"
-description: "Konfigurowanie równoważenia obciążenia do pracy z SQL zawsze na i sposób korzystania z programu powershell do utworzenia modułu równoważenia obciążenia dla wdrożenia SQL"
+title: "dla bazy danych SQL zawsze włączone, usługi równoważenia obciążenia aaaConfigure | Dokumentacja firmy Microsoft"
+description: "Skonfiguruj toowork usługi równoważenia obciążenia z na zawsze SQL i jak Implementacja SQL hello usługę równoważenia obciążenia tooleverage toocreate programu powershell"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac6200b18f725dadee2555b80055327d379417d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-load-balancer-for-sql-always-on"></a>Konfigurowanie usługi równoważenia obciążenia dla bazy danych SQL zawsze na
 
-Obecnie można uruchomić z ILB grup dostępności AlwaysOn programu SQL Server. Grupa dostępności jest rozwiązania najważniejszych programu SQL Server, aby uzyskać wysoką dostępność i odzyskiwanie po awarii. Odbiornik grupy dostępności pozwala klienta aplikacjom bezproblemowo połączyć się repliką podstawową, niezależnie od liczby replik w konfiguracji.
+Obecnie można uruchomić z ILB grup dostępności AlwaysOn programu SQL Server. Grupa dostępności jest rozwiązania najważniejszych programu SQL Server, aby uzyskać wysoką dostępność i odzyskiwanie po awarii. Witaj odbiornika grupy dostępności zezwala aplikacjom klienckim tooseamlessly połączyć toohello repliki podstawowej, niezależnie od hello liczby replik hello w konfiguracji hello.
 
-Nazwa odbiornika (DNS) jest mapowany na adres IP z równoważeniem obciążenia i modułowi równoważenia obciążenia Azure kieruje ruch przychodzący do serwera podstawowego zestawu replik.
+Hello nazwa odbiornika (DNS) jest adresem IP zamapowanych tooa równoważeniem obciążenia i modułowi równoważenia obciążenia Azure kieruje hello przychodzącego ruchu tooonly hello podstawowy serwer hello zestawu replik.
 
-Obsługa ILB można użyć dla punktów końcowych AlwaysOn programu SQL Server (odbiornika). Teraz kontrolują dostępność odbiornika i wybrać adres IP usługi równoważenia obciążenia z określonej podsieci w sieci wirtualnej (VNet).
+Obsługa ILB można użyć dla punktów końcowych AlwaysOn programu SQL Server (odbiornika). Teraz kontrolują dostępność hello odbiornika hello i można wybrać adres IP z równoważeniem obciążenia hello określonej podsieci w sieci wirtualnej (VNet).
 
-Za pomocą ILB na obiektu nasłuchującego punktu końcowego serwera SQL (np. serwera = tcp:ListenerName, 1433; baza danych = DatabaseName) jest dostępny tylko dla:
+Przy użyciu ILB na powitania odbiornika, hello punkt końcowy serwera SQL (np. serwera = tcp:ListenerName, 1433; baza danych = DatabaseName) jest dostępny tylko dla:
 
-* Usług i maszyn wirtualnych w tej samej sieci wirtualnej
+* Usług i maszyn wirtualnych w tej samej sieci wirtualnej hello
 * Usług i maszyn wirtualnych z sieci połączonych lokalnie
 * Usług i maszyn wirtualnych z połączonych sieci wirtualnych
 
@@ -37,9 +37,9 @@ Za pomocą ILB na obiektu nasłuchującego punktu końcowego serwera SQL (np. se
 
 Rysunek 1 — skonfigurowana z modułem równoważenia obciążenia internetowy funkcji SQL AlwaysOn
 
-## <a name="add-internal-load-balancer-to-the-service"></a>Dodawanie wewnętrznego modułu równoważenia obciążenia z usługą
+## <a name="add-internal-load-balancer-toohello-service"></a>Dodawanie usługi toohello wewnętrzny moduł równoważenia obciążenia
 
-1. W poniższym przykładzie mamy konfiguruje sieci wirtualnej, która zawiera podsieć o nazwie "Podsieć 1":
+1. Poniższy przykład hello możemy konfigurowania w sieci wirtualnej, która zawiera podsieć o nazwie "Podsieć 1":
 
     ```powershell
     Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
@@ -53,7 +53,7 @@ Rysunek 1 — skonfigurowana z modułem równoważenia obciążenia internetowy 
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-    W powyższym przykładzie masz 2 maszyny Wirtualnej o nazwie "sqlsvc1" i "sqlsvc2" działa w chmurze usługi "Sqlsvc". Po utworzeniu ILB z `DirectServerReturn` przełącznika, można dodać punktów końcowych ze zrównoważonym obciążeniem do ILB, aby umożliwić SQL skonfigurować odbiorników dla grupy dostępności.
+    W powyższym przykładzie hello, masz 2 maszyny Wirtualnej o nazwie "sqlsvc1" i "sqlsvc2" działa w chmurze hello usługi "Sqlsvc". Po utworzeniu hello ILB z `DirectServerReturn` przełącznika, możesz dodać punktów końcowych ze zrównoważonym toohello ILB tooallow SQL tooconfigure hello odbiorników dla grup dostępności hello obciążenia.
 
 Aby uzyskać więcej informacji o funkcji SQL AlwaysOn, zobacz [skonfigurować wewnętrzny moduł równoważenia obciążenia dla grupy dostępności AlwaysOn w usłudze Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 

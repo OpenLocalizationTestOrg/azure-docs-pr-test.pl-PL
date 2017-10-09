@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Azure Active Directory integracji z pakietem BPM Questetra | Dokumentacja firmy Microsoft'
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Questetra BPM Suite."
+description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Questetra BPM Suite."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,262 +14,262 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 7ae75446c9d19ce15a82caa9604658a528ab9941
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4907e3b5751cd79f994fbd2ebcb7faec4eac34e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Samouczek: Azure Active Directory integracji z pakietem BPM Questetra
-Celem tego samouczka jest pokazanie sposobu integracji Questetra BPM pakietu z usługi Azure Active Directory (Azure AD).  
-Integracja z usługą Azure AD Questetra BPM Suite zapewnia następujące korzyści: 
+Celem Hello tego samouczka jest tooshow należy jak toointegrate Suite BPM Questetra w usłudze Azure Active Directory (Azure AD).  
+Integracja z usługą Azure AD Questetra BPM Suite udostępnia hello następujące korzyści: 
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do zestawu BPM Questetra 
-* Umożliwia użytkownikom automatycznie pobrać zalogowane Questetra BPM pakietu (logowanie jednokrotne) z konta usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+* Można kontrolować w usłudze Azure AD, kto ma dostęp tooQuestetra BPM Suite 
+* Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooQuestetra Suite BPM (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+* Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure
 
-Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby skonfigurować integrację usługi Azure AD z pakietem BPM Questetra, potrzebne są następujące elementy:
+tooconfigure integracji usługi Azure AD z pakietem BPM Questetra należy hello następujące elementy:
 
 * Subskrypcję usługi Azure AD
 * [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
+> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
 > 
 > 
 
-Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
+tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 
 * Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 * Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie umożliwia testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
-Scenariusz opisany w tym samouczku składa się z trzech głównych bloków konstrukcyjnych:
+Celem Hello tego samouczka jest tooenable możesz tootest usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
+Scenariusz Hello opisane w tym samouczku składa się z trzech głównych bloków konstrukcyjnych:
 
-1. Dodawanie pakietu BPM Questetra z galerii 
+1. Dodawanie pakietu BPM Questetra z galerii hello 
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-questetra-bpm-suite-from-the-gallery"></a>Dodawanie pakietu BPM Questetra z galerii
-Aby skonfigurować integrację usługi Azure AD Questetra BPM pakietu, należy dodać pakiet BPM Questetra z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-questetra-bpm-suite-from-hello-gallery"></a>Dodawanie pakietu BPM Questetra z galerii hello
+tooconfigure hello integracji pakietu BPM Questetra do usługi Azure AD, należy tooadd Questetra BPM pakiet z listy tooyour galerii hello zarządzanych aplikacji SaaS.
 
-**Aby dodać pakiet BPM Questetra z galerii, wykonaj następujące czynności:**
+**tooadd Questetra BPM pakiet z galerii hello wykonaj hello następujące kroki:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**. 
    
     ![Usługa Active Directory][1]
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Aplikacje][2]
 
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
    
     ![Aplikacje][3]
 
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
+5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
    
     ![Aplikacje][4]
 
-6. W polu wyszukiwania wpisz **Questetra BPM Suite**.
+6. W polu wyszukiwania hello wpisz **Questetra BPM Suite**.
    
     ![Aplikacje][5]
 
-7. W okienku wyników wybierz **Questetra BPM Suite**, a następnie kliknij przycisk **Complete** można dodać aplikację.
+7. W okienku wyników hello, wybierz **Questetra BPM Suite**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-Jest celem tej sekcji opisano, jak skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra w oparciu o nazwie "Britta Simona" użytkownika testowego.
+Celem Hello w tej sekcji jest tooshow użytkownika jak tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra na podstawie użytkownika testowego o nazwie "Britta Simona".
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownikowi pakietu BPM Questetra użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi pakietu BPM Questetra musi określone.  
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** Questetra BPM pakietu.
+Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow jest odpowiednikiem hello użytkownika w pakiet BPM Questetra tooan użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi pakietu BPM Questetra musi toobe ustanowione.  
+Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** pakietu BPM Questetra.
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra, należy wykonać poniższe bloki konstrukcyjne:
+tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra, należy po bloków konstrukcyjnych hello toocomplete:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zestawu BPM Questetra](#creating-a-questetra-bpm-suite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Questetra BPM pakiet, który jest połączony z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego zestawu BPM Questetra](#creating-a-questetra-bpm-suite-test-user)**  -toohave odpowiednikiem Simona Britta pakietu BPM Questetra, że jego reprezentacja toohello połączonej usługi Azure AD.
+4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-Celem tej sekcji jest można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu Azure i skonfigurować logowanie jednokrotne w Questetra BPM pakietu aplikacji.
+Celem Hello w tej sekcji jest tooenable usługi Azure AD rejestracji jednokrotnej w hello klasycznego portalu Azure i tooconfigure rejestracji jednokrotnej w Questetra BPM pakietu aplikacji.
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra, wykonaj następujące czynności:**
+**tooconfigure usługi Azure AD rejestracji jednokrotnej z pakietem BPM Questetra, wykonaj następujące kroki hello:**
 
-1. W klasycznym portalu Azure na **Questetra BPM Suite** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
+1. W hello klasycznego portalu Azure na powitania **Questetra BPM Suite** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne**  okno dialogowe.
    
     ![Konfigurowanie rejestracji jednokrotnej][8]
 
-2. Na **jak chcesz użytkownikom zalogować się do zestawu BPM Questetra** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na powitania **jak ma toosign użytkowników na tooQuestetra BPM Suite** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Azure AD rejestracji jednokrotnej][9]
 
 3. W oknie przeglądarki innej witryny sieci web, zaloguj się do Twojego **Questetra BPM Suite** witryny firmy jako administrator.
 
-4. W menu u góry kliknij **ustawienia systemu**. 
+4. W menu hello na górze hello, kliknij przycisk **ustawienia systemu**. 
    
     ![Azure AD rejestracji jednokrotnej][10]
 
-5. Aby otworzyć **SingleSignOnSAML** kliknij przycisk **logowania jednokrotnego (SAML)**. 
+5. Witaj tooopen **SingleSignOnSAML** kliknij przycisk **logowania jednokrotnego (SAML)**. 
    
     ![Azure AD rejestracji jednokrotnej][11]
 
-6. W klasycznym portalu Azure na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności: 
+6. W hello klasycznego portalu Azure na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki: 
    
     ![Konfiguruj ustawienia aplikacji][13]
    
-    a. W przypadku **Questetra BPM Suite** witryna firmy, w sekcji informacji SP kopii **adres URL usługi ACS**i wklej go do **na adres URL logowania** pola tekstowego.
+    a. W przypadku **Questetra BPM Suite** witryna firmy, w sekcji informacji SP hello, hello kopiowania **adres URL usługi ACS**, a następnie wklej go do hello **na adres URL logowania** pola tekstowego.
    
-    b. W przypadku **Questetra BPM pakiet** witryna firmy, w sekcji informacji SP kopii **identyfikator jednostki**, a następnie wklej go do **adres URL wystawcy** pole tekstowe.
+    b. W przypadku **Questetra BPM Suite** witryna firmy, w sekcji informacji SP hello, hello kopiowania **identyfikator jednostki**i wklej go do hello **adres URL wystawcy** pola tekstowego.
    
-    c. W przypadku **Questetra BPM Suite** witryna firmy, w sekcji informacji SP kopii **adres URL usługi ACS**i wklej go do **adres URL odpowiedzi służący** pola tekstowego.
+    c. W przypadku **Questetra BPM Suite** witryna firmy, w sekcji informacji SP hello, hello kopii **adres URL usługi ACS**, a następnie wklej go do hello **adres URL odpowiedzi** pole tekstowe.
    
     d. Kliknij przycisk **Dalej**.
 
-7. Na **skonfigurować logowanie jednokrotne w pakiet BPM Questetra** kliknij przycisk **pobierania certyfikatu**, a następnie zapisz plik certyfikatu lokalnie na komputerze.
+7. Na powitania **skonfigurować logowanie jednokrotne w pakiet BPM Questetra** kliknij przycisk **pobierania certyfikatu**, a następnie zapisz plik certyfikatu hello lokalnie na komputerze.
    
     ![Konfigurowanie rejestracji jednokrotnej][14]
 
-8. W przypadku **Questetra BPM Suite** firmy, witryny, należy wykonać następujące czynności: 
+8. W przypadku **Questetra BPM Suite** firmy, witryny, wykonaj następujące kroki hello: 
    
     ![Konfigurowanie rejestracji jednokrotnej][15]
    
     a. Wybierz **Włącz rejestrację jednokrotną**.
    
-    b. W klasycznym portalu Azure, skopiuj **adres URL wystawcy** wartość, a następnie wklej ją do **identyfikator jednostki** pola tekstowego.
+    b. Na powitania klasycznego portalu Azure, skopiuj hello **adres URL wystawcy** wartość, a następnie wklej go do hello **identyfikator jednostki** pola tekstowego.
    
-    c. W klasycznym portalu Azure, skopiuj **pojedynczy znak na adres URL usługi** wartość, a następnie wklej ją do **adres URL logowania strony** pola tekstowego.
+    c. Na powitania klasycznego portalu Azure, skopiuj hello **pojedynczy znak na adres URL usługi** wartość, a następnie wklej go do hello **adres URL logowania strony** pola tekstowego.
    
-    d. W klasycznym portalu Azure, skopiuj **pojedynczy adres URL usługi Sign-Out** wartość, a następnie wklej ją do **adres URL strony wylogowania** pola tekstowego.
+    d. Na powitania klasycznego portalu Azure, skopiuj hello **pojedynczy adres URL usługi Sign-Out** wartość, a następnie wklej go do hello **adres URL strony wylogowania** pola tekstowego.
    
-    e. W **NameID format** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: emailAddress**.
+    e. W hello **NameID format** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: emailAddress**.
 
     f. Utwórz plik zakodowany base-64 z pobranego certyfikatu. 
 
     >[!TIP] 
-    >Aby uzyskać więcej informacji, zobacz [sposób konwertowania binarne certyfikatu do pliku tekstowego](http://youtu.be/PlgrzUZ-Y1o).
+    >Aby uzyskać więcej informacji, zobacz [jak tooconvert pliku binarnego certyfikatu do pliku tekstowego](http://youtu.be/PlgrzUZ-Y1o).
 
-    g. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu weryfikacji** pola tekstowego. 
+    g. Otwórz certyfikatu zakodowanego base-64 w Notatniku, hello kopiowania zawartości go do Schowka, a następnie wklej go do hello **certyfikatu weryfikacji** pola tekstowego. 
 
     h. Kliknij pozycję **Zapisz**.
 
-1. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**. 
+1. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **dalej**. 
    
     ![Co to jest program Azure AD Connect][17]
 
-2. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+2. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
    
     ![Co to jest program Azure AD Connect][18]
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.
+Celem Hello w tej sekcji jest toocreate użytkownika testowego w hello klasycznego portalu Azure o nazwie Simona Britta.
 
-**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
+**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD][100] 
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
+3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD][101] 
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
+4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**. 
    
     ![Tworzenie użytkownika testowego usługi Azure AD][102] 
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
+5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki:
    
     ![Tworzenie użytkownika testowego usługi Azure AD][103]
    
     a. Jako **typ użytkownika**, wybierz pozycję **nowy użytkownik w organizacji**.
    
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
+    b. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.
    
     c. Kliknij przycisk Dalej.
 
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
+6. Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki: 
    
     ![Tworzenie użytkownika testowego usługi Azure AD][104] 
    
-    a. W **imię** pole tekstowe, typ **Britta**. 
+    a. W hello **imię** pole tekstowe, typ **Britta**. 
    
-    b. W **nazwisko** pole tekstowe, typ **Simona**.
+    b. W hello **nazwisko** pole tekstowe, typ **Simona**.
    
-    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
+    c. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
    
-    d. W **roli** listy, wybierz **użytkownika**.
+    d. W hello **roli** listy, wybierz **użytkownika**.
    
     e. Kliknij przycisk **Dalej**.
 
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD][105]  
 
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
+8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
    
     ![Tworzenie użytkownika testowego usługi Azure AD][106]   
    
-    a. Zanotuj wartość **nowe hasło**.
+    a. Zanotuj wartość hello hello **nowe hasło**.
    
     b. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="creating-a-questetra-bpm-suite-test-user"></a>Tworzenie użytkownika testowego Questetra BPM Suite
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta Questetra BPM pakietu.
+Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta Questetra BPM pakietu.
 
-**Aby utworzyć użytkownika o nazwie Simona Britta pakietu BPM Questetra, wykonaj następujące kroki:**
+**Użytkownik o nazwie Simona Britta pakietu BPM Questetra toocreate wykonaj hello następujące kroki:**
 
-1. Logowanie do witryny firmy Questetra BPM Suite jako administrator.
-2. Przejdź do **ustawienia systemu > listy użytkowników > Nowy użytkownik**. 
-3. W oknie dialogowym Nowy użytkownik wykonaj następujące czynności: 
+1. Logowania jednokrotnego tooyour Questetra BPM Suite witryna firmy jako administrator.
+2. Przejdź za**ustawienia systemu > listy użytkowników > Nowy użytkownik**. 
+3. W oknie dialogowym Nowy użytkownik hello wykonaj następujące kroki hello: 
    
     ![Tworzenie użytkownika testowego][300] 
    
-    a. W **nazwa** tekstowym, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
+    a. W hello **nazwa** tekstowym, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
    
-    b. W **E-mail** tekstowym, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
+    b. W hello **E-mail** tekstowym, wpisz nazwę użytkownika w Britta w usłudze Azure AD.
    
-    c. W **hasło** tekstowym, wpisz hasło.
+    c. W hello **hasło** tekstowym, wpisz hasło.
 
 4. Kliknij przycisk **Dodaj nowego użytkownika**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest włączenie Simona Britta na udostępnienie jej do zestawu BPM Questetra za pomocą usługi Azure rejestracji jednokrotnej.
+### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+Celem Hello w tej sekcji jest tooenabling toouse Simona Britta Azure rejestracji jednokrotnej, przyznając jej tooQuestetra dostępu BPM Suite.
 
 ![Co to jest program Azure AD Connect][200]
 
-**Aby przypisać Simona Britta Questetra BPM pakietu, wykonaj następujące czynności:**
+**tooassign tooQuestetra Simona Britta BPM Suite wykonaj hello następujące kroki:**
 
-1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
+1. Na hello Azure kliknij klasycznego portalu, widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
    
     ![Co to jest program Azure AD Connect][201]
-2. Na liście aplikacji zaznacz **Questetra BPM Suite**.
+2. Z listy aplikacji hello wybierz **Questetra BPM Suite**.
    
     ![Co to jest program Azure AD Connect][205]
-3. W menu u góry kliknij **użytkowników**.
+3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
    
     ![Co to jest program Azure AD Connect][202]
-4. Na liście użytkowników wybierz **Simona Britta**.
+4. Na liście hello użytkowników, wybierz **Simona Britta**.
    
     ![Co to jest program Azure AD Connect][203]
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
+5. W narzędzi hello na dole powitania kliknij **przypisać**.
    
     ![Co to jest program Azure AD Connect][204]
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
-Po kliknięciu kafelka Questetra BPM Suite w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane Questetra BPM pakiet aplikacji.
+Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.  
+Po kliknięciu kafelka Questetra BPM Suite hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Questetra BPM pakietu aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

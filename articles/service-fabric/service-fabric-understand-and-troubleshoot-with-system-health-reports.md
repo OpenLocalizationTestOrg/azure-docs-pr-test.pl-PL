@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów z raportów o kondycji systemu | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano raportów kondycji wysyłane przez składniki sieci szkieletowej usług Azure i ich użycia dla klastra rozwiązywaniu problemów lub problemów aplikacji."
+title: "aaaTroubleshoot z raportów o kondycji systemu | Dokumentacja firmy Microsoft"
+description: "Opis raportów o kondycji hello wysyłane przez składniki sieci szkieletowej usług Azure i ich użycia dla klastra rozwiązywaniu problemów lub problemów aplikacji."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c77a6cdd0440ce5d354cd8760f40151f674a3529
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
-Azure Service Fabric składniki raport poza pole na wszystkich jednostek w klastrze. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemu. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
+# <a name="use-system-health-reports-tootroubleshoot"></a>Użyj tootroubleshoot Raporty kondycji systemu
+Azure Service Fabric raportu składników fabrycznej hello na wszystkich jednostek w klastrze hello. Witaj [magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie hello systemu raportów. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
 
 > [!NOTE]
-> Aby zapoznać się z kondycją pojęcia, Dowiedz się więcej na [model kondycji sieci szkieletowej usług](service-fabric-health-introduction.md).
+> Pojęcia dotyczące kondycji toounderstand Dowiedz się więcej o [model kondycji sieci szkieletowej usług](service-fabric-health-introduction.md).
 > 
 > 
 
-Raporty kondycji systemu zapewniają wgląd w klastrze i funkcjonalność aplikacji i flagi błędów za pomocą kondycji. Dla aplikacji i usług systemowych raportów kondycji Sprawdź, czy jednostki są zaimplementowane i są działa prawidłowo z punktu widzenia sieci szkieletowej usług. Raporty nie zawierają żadnych monitorowanie kondycji logiki biznesowej usługi lub wykrywania zawieszone procesy. Usługi użytkownik może uzupełnić dane kondycji z użyciem informacji specyficznych ich logiki.
-
-> [!NOTE]
-> Watchdogs raportów o kondycji są widoczne tylko *po* składników systemu Tworzenie jednostki. Po usunięciu jednostki magazynu kondycji automatycznie usuwa wszystkie raporty kondycji skojarzonych z nim. To samo dotyczy po utworzeniu nowego wystąpienia obiektu (na przykład nowe wystąpienie usługi stanowej utrwalonego repliki jest tworzona). Wszystkie raporty skojarzone z wystąpieniem stare usunąć i wyczyścić ze sklepu.
-> 
-> 
-
-Składnik systemu raporty są identyfikowane przez źródło, w którym rozpoczyna się od "**systemu.**" prefiks. Watchdogs nie można użyć tego samego prefiksu dla ich źródła, jak raporty z nieprawidłowe parametry są odrzucane.
-Oto niektóre raporty systemu, aby zrozumieć wywołujących je i jak skorygować możliwe problemy, które reprezentują.
+Raporty kondycji systemu zapewniają wgląd w klastrze i funkcjonalność aplikacji i flagi błędów za pomocą kondycji. Dla aplikacji i usług systemowych raportów kondycji Sprawdź, czy jednostki są zaimplementowane i są działa prawidłowo z hello perspektywy sieci szkieletowej usług. Raporty Hello nie zawierają żadnych monitorowanie kondycji hello logiki biznesowej usługi hello lub wykrywania zawieszone procesy. Usługi użytkownik może uzupełnić hello dane kondycji z logiką tootheir określonych informacji.
 
 > [!NOTE]
-> Sieć szkieletowa usług w dalszym ciągu Dodaj raporty warunków odsetek zwiększających wgląd w działania wykonywane w klastrze i aplikacji. Istniejące raporty mogą być również dołączane więcej szczegółów, aby ułatwić rozwiązanie problemu szybciej.
+> Watchdogs raportów o kondycji są widoczne tylko *po* składników systemu hello Tworzenie jednostki. Po usunięciu jednostki magazynu kondycji hello automatycznie usuwa wszystkie raporty kondycji skojarzonych z nim. Witaj dotyczy po utworzeniu nowego wystąpienia obiektu hello (na przykład nowe wystąpienie usługi stanowej utrwalonego repliki jest tworzona). Wszystkie raporty skojarzone z wystąpieniem starego hello usunąć i wyczyścić sklepie hello.
+> 
+> 
+
+Witaj raporty składnik systemu są identyfikowane przez źródło hello, w którym rozpoczyna się od hello "**systemu.**" prefiks. Watchdogs nie można użyć hello sam prefiks dla ich źródła, jak raporty z nieprawidłowe parametry są odrzucane.
+Załóżmy przyjrzeć się niektóre systemu raporty toounderstand wywołujących je i jak toocorrect hello możliwe problemy reprezentują.
+
+> [!NOTE]
+> Sieć szkieletowa usług nadal tooadd raporty dotyczące warunków odsetek zwiększających wgląd w działania wykonywane w klastrze hello i aplikacji. Może również zostać poprawione istniejących raportów z bardziej szczegółowymi informacjami toohelp hello Rozwiązywanie problemów z szybciej.
 > 
 > 
 
 ## <a name="cluster-system-health-reports"></a>Klaster systemowych raportów kondycji
-Jednostki kondycji klastra jest tworzony automatycznie w magazynie kondycji. Jeśli wszystko działa prawidłowo, nie ma raportu system.
+jednostki kondycji klastra Hello jest tworzony automatycznie w magazynie kondycji hello. Jeśli wszystko działa prawidłowo, nie ma raportu system.
 
 ### <a name="neighborhood-loss"></a>Utrata otoczenie
-**System.Federation** zgłasza błąd, jeśli wykryje utraty otoczenia. Raport jest w poszczególnych węzłach, a identyfikator węzła jest uwzględniony w nazwie właściwości. Jeden otoczenie jest zgubiony w kręgu całej sieci szkieletowej usług, zwykle można spodziewać się dwa zdarzenia (obie strony raportu gap). W przypadku utraty więcej klubów ma więcej zdarzeń.
+**System.Federation** zgłasza błąd, jeśli wykryje utraty otoczenia. Raport Hello jest w poszczególnych węzłach, a identyfikator węzła hello jest uwzględniony w nazwie właściwości hello. Jeden otoczenie jest zgubiony hello całej sieci szkieletowej usług pierścienia, zwykle można spodziewać się dwa zdarzenia (obie strony raportu przerwę hello). W przypadku utraty więcej klubów ma więcej zdarzeń.
 
-Raport określa limit czasu globalnego dzierżawy jako czas wygaśnięcia. Raport jest ponowne wysłanie co pół czas TTL, jak długo warunek pozostaje aktywna. Zdarzenie zostanie automatycznie usunięta po jego wygaśnięciu. Usuń, gdy wygasłe zachowanie gwarantuje, że raportu są czyszczone z magazynu kondycji poprawnie, nawet, jeśli węzeł raportowania jest wyłączony.
+Raport Hello określa limit czasu operacji hello globalnego dzierżawy jako czas hello toolive. Raport Hello jest ponowne wysłanie co pół czas TTL hello tak długo, jak warunek hello pozostaje aktywna. Zdarzenie Hello zostanie automatycznie usunięta po jego wygaśnięciu. Usuń, gdy wygasłe zachowanie gwarantuje, że raport hello są czyszczone z magazynu kondycji hello poprawnie, nawet, jeśli węzeł raportowania hello jest wyłączony.
 
 * **SourceId**: System.Federation
 * **Właściwość**: rozpoczyna się od **otoczenie** i zawiera informacje na węzeł
-* **Następne kroki**: Sprawdź, dlaczego otoczenie zostaną utracone (na przykład sprawdzić komunikację między węzłami klastra).
+* **Następne kroki**: Sprawdź, dlaczego otoczenie hello jest utracone (na przykład wyboru hello komunikacji między węzłami klastra).
 
 ## <a name="node-system-health-reports"></a>Węzeł systemowych raportów kondycji
-**System.FM**, który reprezentuje usługę Menedżer trybu Failover jest urzędu, który zarządza informacjami o węzłach klastra. Każdy węzeł powinien mieć jeden raport z System.FM przedstawiający jego stanu. Jednostek node są usuwane po usunięciu stanu węzła (zobacz [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
+**System.FM**, który reprezentuje hello usługi Menedżera trybu Failover, jest urzędu hello, który zarządza informacjami o węzłach klastra. Każdy węzeł powinien mieć jeden raport z System.FM przedstawiający jego stanu. jednostek node Hello są usuwane po usunięciu stan węzła hello (zobacz [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Węzeł w górę lub w dół
-System.FM raportów jako OK, gdy węzeł dołączy pierścień (jest uruchomiona). Zgłasza błąd, gdy węzeł odjazdem pierścienia (działa, albo do uaktualnienia lub po prostu ponieważ nie powiodła się). Hierarchia kondycji utworzony przez magazynu kondycji podejmuje działania na jednostkach wdrożonej w korelacji z System.FM węzła Raporty. Traktuje węzła nadrzędnego wirtualnego wszystkich wdrożonych jednostek. Jednostek wdrożonych w tym węźle dostępnych za pośrednictwem zapytania, jeśli węzeł został zgłoszony jako czas przez System.FM z tego samego wystąpienia jako wystąpienie skojarzone z jednostkami. Gdy System.FM zgłasza, że węzeł nie działa lub ponownego uruchomienia (nowe wystąpienie), magazynu kondycji automatycznie oczyszcza wdrożonej jednostek, które może istnieć tylko na dół węzła lub poprzednie wystąpienie węzła.
+System.FM raportów jako OK, gdy węzeł hello dołącza pierścień hello (jest uruchomiona). Zgłasza błąd, gdy węzeł hello odjazdem pierścień hello (działa, albo do uaktualnienia lub po prostu ponieważ nie powiodła się). utworzony przez magazynu kondycji hello hierarchii kondycji Hello podejmuje działania na jednostkach wdrożonej w korelacji z raportów węzłów System.FM. Traktuje hello węzła nadrzędnego wirtualnego wszystkich wdrożonych jednostek. jednostek Hello wdrożone w tym węźle dostępnych za pośrednictwem zapytania, jeśli węzeł hello jest zgłaszana jako się przez System.FM, z hello takie same wystąpienia jako wystąpienie hello skojarzone z jednostek hello. Gdy System.FM zgłasza tego węzła hello jest wyłączony lub ponownego uruchomienia (nowe wystąpienie), magazynu kondycji hello automatycznie oczyszcza hello wdrożone jednostek, które może istnieć tylko na powitania węzeł w dół lub poprzednie wystąpienie hello hello węzła.
 
 * **SourceId**: System.FM
 * **Właściwość**: stan
-* **Następne kroki**: Jeśli węzeł nie działa w przypadku uaktualnienia, powinna ona przywrócona po został uaktualniony. W takim przypadku stan kondycji powinna przejdź do OK. Jeśli węzeł nie wróć lub go nie powiedzie się, problem wymaga więcej dochodzenia.
+* **Następne kroki**: Jeśli hello węzeł w dół do uaktualnienia, powinna ona przywrócona po został uaktualniony. W takim przypadku stan kondycji hello powinien przełącznika tooOK Wstecz. Jeśli węzeł hello nie wróć lub go nie powiedzie się, hello problem musi więcej dochodzenia.
 
-W poniższym przykładzie przedstawiono System.FM zdarzenia o stanie kondycji OK dla węzła w:
+Witaj poniższy przykład przedstawia hello System.FM zdarzeń o stanie kondycji OK dla węzła:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
@@ -88,30 +88,30 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Wygaśnięcie certyfikatu
-**System.FabricNode** zgłosi ostrzeżenie, gdy zbliża się ważności certyfikatów używanych przez węzeł. Występują trzy certyfikaty w każdym węźle: **Certificate_cluster**, **Certificate_server**, i **Certificate_default_client**. Jeśli czas wygaśnięcia jest co najmniej dwa tygodnie, stan kondycji raportu jest OK. Jeśli czas wygaśnięcia jest w ciągu dwóch tygodni, jego typ jest ostrzeżenie. TTL te zdarzenia jest nieskończone, i usuwane, gdy węzeł opuści klastra.
+**System.FabricNode** zgłosi ostrzeżenie, gdy zbliża się ważności certyfikatów używanych przez węzeł hello. Występują trzy certyfikaty w każdym węźle: **Certificate_cluster**, **Certificate_server**, i **Certificate_default_client**. Po wygaśnięciu hello jest co najmniej dwa tygodnie, stan kondycji raportów hello jest OK. W przypadku wygaśnięcia hello w ciągu dwóch tygodni, typ raportu hello jest ostrzeżenie. TTL te zdarzenia jest nieskończone, i usuwane, gdy węzeł opuści hello klastra.
 
 * **SourceId**: System.FabricNode
-* **Właściwość**: rozpoczyna się od **certyfikatu** i zawiera więcej informacji na temat typ certyfikatu
-* **Następne kroki**: zaktualizować certyfikaty, jeśli są one wkrótce wygasną.
+* **Właściwość**: rozpoczyna się od **certyfikatu** i zawiera więcej informacji na temat hello typ certyfikatu
+* **Następne kroki**: Aktualizuj certyfikaty, hello, jeśli są one wkrótce wygasną.
 
 ### <a name="load-capacity-violation"></a>Naruszenie pojemności obciążenia
-Usługa równoważenia obciążenia sieci szkieletowej zgłosi ostrzeżenie po wykryciu naruszenie pojemności węzła.
+Witaj modułu równoważenia obciążenia sieci szkieletowej usług zgłosi ostrzeżenie po wykryciu naruszenie pojemności węzła.
 
 * **SourceId**: System.PLB
 * **Właściwość**: rozpoczyna się od **pojemności**
-* **Następne kroki**: Sprawdź podane metryki i wyświetlić w węźle pojemność bieżąca.
+* **Następne kroki**: Sprawdź podany obecna pojemność hello metryki i widoku w węźle hello.
 
 ## <a name="application-system-health-reports"></a>Aplikacja systemowych raportów kondycji
-**System.CM**, który reprezentuje usługę Menedżer klastra jest urzędu, który zarządza informacjami o aplikacji.
+**System.CM**, który reprezentuje hello Menedżera klastra usługi, jest urzędu hello, który zarządza informacjami o aplikacji.
 
 ### <a name="state"></a>Stan
-System.CM raportów, jako OK gdy aplikacji została utworzona lub zaktualizowana. Informuje magazynu kondycji po usunięciu aplikacji, dzięki czemu może zostać usunięty z magazynu.
+System.CM raporty jako OK aplikacji hello został utworzony lub zaktualizowany. Informuje magazynu kondycji powitania po usunięciu aplikacji hello, dzięki czemu może zostać usunięty z magazynu.
 
 * **SourceId**: System.CM
 * **Właściwość**: stan
-* **Następne kroki**: Jeśli aplikacja została utworzona lub aktualizowane, powinny zawierać raport o kondycji Menedżera klastra. W przeciwnym razie sprawdź stan aplikacji, wysyłając zapytanie (na przykład polecenia cmdlet programu PowerShell **Get ServiceFabricApplication - ApplicationName *applicationName***).
+* **Następne kroki**: Jeśli aplikacji hello została utworzona lub zaktualizowana, powinny zawierać hello raport o kondycji Menedżera klastra. W przeciwnym razie sprawdź stan hello aplikacji hello wysyłając kwerendy (na przykład Witaj polecenia cmdlet programu PowerShell **Get ServiceFabricApplication - ApplicationName *applicationName***).
 
-W poniższym przykładzie przedstawiono zdarzenia stanu na **fabric: / WordCount** aplikacji:
+Witaj poniższy przykład przedstawia zdarzenia stanu hello na powitania **fabric: / WordCount** aplikacji:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -135,15 +135,15 @@ HealthEvents                    :
 ```
 
 ## <a name="service-system-health-reports"></a>Usługa systemowych raportów kondycji
-**System.FM**, który reprezentuje usługę Menedżer trybu Failover jest urzędu, który zarządza informacjami o usługach.
+**System.FM**, który reprezentuje hello usługi Menedżera trybu Failover, jest urzędu hello, który zarządza informacjami o usługach.
 
 ### <a name="state"></a>Stan
-System.FM raporty jako OK po utworzeniu usługi. Usuwa obiekt z magazynu kondycji po usunięciu usługi.
+System.FM raporty jako OK po utworzeniu hello usługi. Usuwa hello jednostki z magazynu kondycji powitania po usunięciu hello usługi.
 
 * **SourceId**: System.FM
 * **Właściwość**: stan
 
-W poniższym przykładzie przedstawiono zdarzenia stanu usługi **fabric: / WordCount/WordCountWebService**:
+Witaj poniższy przykład przedstawia zdarzenia stanu hello w usłudze hello **fabric: / WordCount/WordCountWebService**:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
@@ -170,27 +170,27 @@ HealthEvents          :
 ```
 
 ### <a name="service-correlation-error"></a>Błąd korelacji usługi
-**System.PLB** zgłasza błąd, jeśli wykryje, czy uaktualnianie usługi mają zostać skorelowane z inną usługą tworzy łańcuch koligacji. Raport jest wyczyszczone po pomyślnej aktualizacji.
+**System.PLB** zgłasza błąd, jeśli wykryje, że aktualizacja toobe usługi, skorelowane z innej usługi tworzy łańcuch koligacji. Raport Hello jest wyczyszczone po pomyślnej aktualizacji.
 
 * **SourceId**: System.PLB
 * **Właściwość**: ServiceDescription
-* **Następne kroki**: Sprawdź opisy skorelowane usług.
+* **Następne kroki**: hello wyboru skorelowane opisy usług.
 
 ## <a name="partition-system-health-reports"></a>Partycja systemowych raportów kondycji
-**System.FM**, reprezentuje usługą Failover Manager service jest urzędu, który zarządza informacjami o partycji usługi.
+**System.FM**, który reprezentuje hello usługi Menedżera trybu Failover, jest urzędu hello, który zarządza informacjami o partycji usługi.
 
 ### <a name="state"></a>Stan
-System.FM raportów, jako OK, gdy partycja został utworzony i działa prawidłowo. Usuwa obiekt z magazynu kondycji po usunięciu partycji.
+System.FM raportów, jako OK gdy partycji hello został utworzony i działa prawidłowo. Usuwa hello jednostki z magazynu kondycji powitania po usunięciu hello partycji.
 
-W przypadku partycji mniej niż liczba minimalna repliki, zgłasza błąd. Jeśli partycja nie jest mniej niż liczba minimalna repliki, ale jest mniejsza od liczby replik docelowej, zgłosi ostrzeżenie. W przypadku partycji w wyniku utraty kworum, System.FM zgłasza błąd.
+W przypadku partycji hello poniżej hello repliki minimalna liczba, zgłasza błąd. Jeśli hello partycja nie jest mniej hello repliki minimalna liczba, ale jest on poniżej hello docelowa liczba replik, zgłosi ostrzeżenie. W przypadku partycji hello w wyniku utraty kworum, System.FM zgłasza błąd.
 
-Innych ważnych wydarzeń, zawierać ostrzeżenie podczas ponownej konfiguracji trwa dłużej, niż oczekiwano, a jeśli Kompilacja trwa dłużej, niż oczekiwano. Przewidywany czas dla kompilacji i ponownej konfiguracji są konfigurowane na podstawie scenariuszy usługi. Na przykład jeśli usługa ma terabajt stanu, takie jak bazy danych SQL, Kompilacja trwa dłużej niż usługi z małej ilości stanu.
+Innych ważnych wydarzeń, zawierać ostrzeżenie podczas ponownej konfiguracji hello trwa dłużej, niż oczekiwano i podczas kompilacji hello trwa dłużej, niż oczekiwano. czasy Hello oczekiwano hello kompilacji i ponownej konfiguracji są konfigurowane w oparciu o scenariuszach usługi. Na przykład jeśli usługa ma terabajt stanu, takie jak bazy danych SQL, kompilacji hello trwa dłużej niż usługi z małej ilości stanu.
 
 * **SourceId**: System.FM
 * **Właściwość**: stan
-* **Następne kroki**: Jeśli kondycja nie jest OK, istnieje możliwość, że niektóre repliki nie zostały utworzone, otwarte lub poziom jest podwyższany do podstawowej lub pomocniczej poprawnie. W wielu przypadkach główną przyczyną jest to błąd usługi w implementacji open lub zmiany roli.
+* **Następne kroki**: Jeśli stan kondycji hello nie jest OK, jest to możliwe, że niektóre repliki nie zostały utworzone, otwarty lub awansowana tooprimary lub pomocniczej poprawnie. W wielu przypadkach hello główną przyczyną jest to błąd usługi w hello open lub implementacji zmiany roli.
 
-W poniższym przykładzie przedstawiono partycji dobrej kondycji:
+Witaj poniższy przykład przedstawia partycji dobrej kondycji:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
@@ -212,7 +212,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-Poniższy przykład przedstawia kondycję partycji, która znajduje się poniżej docelowej liczby replik. Następnym krokiem jest, aby uzyskać opis partycji, który przedstawia sposób skonfigurowania: **MinReplicaSetSize** trzy i **TargetReplicaSetSize** wynosi siedem. Następnie Pobierz liczbę węzłów w klastrze: pięć. Dlatego w tym przypadku dwóch replik nie można umieścić, ponieważ docelowy liczba replik jest wyższa niż liczba dostępnych węzłów.
+Witaj poniższy przykład przedstawia kondycję hello partycji, która znajduje się poniżej docelowej liczby replik. Witaj następnym krokiem jest tooget hello partycji opis, który pokazuje, jak skonfigurowano: **MinReplicaSetSize** trzy i **TargetReplicaSetSize** wynosi siedem. Następnie Uzyskaj hello liczby węzłów w klastrze hello: pięć. Dlatego w tym przypadku dwóch replik nie można umieścić, ponieważ liczba replik w docelowym hello jest wyższy niż hello liczby dostępnych węzłów.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -252,8 +252,8 @@ HealthEvents          :
                         SentAt                : 7/14/2017 4:58:13 PM
                         ReceivedAt            : 7/14/2017 4:58:14 PM
                         TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        Secondary replica could not be placed due to the following constraints and properties:  
+                        Description           : hello Load Balancer was unable toofind a placement for one or more of hello Service's Replicas:
+                        Secondary replica could not be placed due toohello following constraints and properties:  
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
@@ -291,21 +291,21 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ```
 
 ### <a name="replica-constraint-violation"></a>Naruszenie ograniczenia repliki
-**System.PLB** zgłosi ostrzeżenie, jeśli wykryje naruszenie ograniczenia repliki i nie można umieścić wszystkich replik partycji. Szczegóły raportu Pokaż których ograniczeń i właściwości zapobiec umieszczania repliki.
+**System.PLB** zgłosi ostrzeżenie, jeśli wykryje naruszenie ograniczenia repliki i nie można umieścić wszystkich replik partycji. wyświetlone szczegóły raportu Hello których ograniczeń i właściwości zapobiec hello repliki umieszczania.
 
 * **SourceId**: System.PLB
 * **Właściwość**: rozpoczyna się od **ReplicaConstraintViolation**
 
 ## <a name="replica-system-health-reports"></a>Repliki systemowych raportów kondycji
-**System.RA**, reprezentuje składnika agenta rekonfiguracji, jest serwerem autorytatywnym dla stanu repliki.
+**System.RA**, reprezentuje składnika agenta rekonfiguracji hello, jest źródłem hello hello stanu repliki.
 
 ### <a name="state"></a>Stan
-**System.RA** raporty OK po utworzeniu repliki.
+**System.RA** raporty OK po utworzeniu repliki hello.
 
 * **SourceId**: System.RA
 * **Właściwość**: stan
 
-W poniższym przykładzie przedstawiono repliki dobrej kondycji:
+Witaj poniższy przykład przedstawia repliki dobrej kondycji:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -328,22 +328,22 @@ HealthEvents          :
 ```
 
 ### <a name="replica-open-status"></a>Otwórz stanu repliki
-Opis tego raportu o kondycji zawiera czas rozpoczęcia (Coordinated Universal Time), gdy wywołano wywołanie interfejsu API.
+Opis Hello raport o kondycji zawiera czas rozpoczęcia hello (Coordinated Universal Time) podczas wywołania hello interfejsu API.
 
-**System.RA** zgłosi ostrzeżenie, jeśli replika Otwórz trwa dłużej niż skonfigurowanego okresu (domyślne: 30 minut). Jeśli interfejs API ma wpływ na dostępność usługi, raport, zgłaszany jest znacznie szybciej (można skonfigurować interwał, z domyślną 30 sekund). Czas obejmuje czas poświęcony na Otwórz replikatora i Otwórz usługę. Po zakończeniu Otwórz właściwość zmienia się na OK.
+**System.RA** zgłosi ostrzeżenie, jeśli repliki hello Otwórz trwa dłużej niż okres hello skonfigurowane (domyślne: 30 minut). Jeśli hello interfejsu API ma wpływ na dostępność usługi, raport hello zgłaszany jest znacznie szybciej (można skonfigurować interwał, z domyślną 30 sekund). czas Hello obejmuje czas hello replikatora hello Otwórz i Otwórz usługę hello. kończy Hello tooOK zmiany właściwości hello otwarcia.
 
 * **SourceId**: System.RA
 * **Właściwość**: **ReplicaOpenStatus**
-* **Następne kroki**: Jeśli stan kondycji nie jest OK, sprawdź, dlaczego Otwórz repliki trwa dłużej, niż oczekiwano.
+* **Następne kroki**: Jeśli stan kondycji hello nie jest OK, sprawdź, dlaczego repliki hello Otwórz trwa dłużej, niż oczekiwano.
 
 ### <a name="slow-service-api-call"></a>Wywołanie interfejsu API usługi powolne
-**System.RAP** i **System.Replicator** raportować ostrzeżenie w przypadku wywołania do kodu użytkownika usługi trwa dłużej niż w skonfigurowanym czasie. To ostrzeżenie zostanie wyczyszczona po zakończeniu wywołania.
+**System.RAP** i **System.Replicator** raport ostrzeżenie, jeśli kod wywołania toohello użytkownika usługi trwa dłużej niż hello skonfigurowane. Ostrzeżenie Hello są czyszczone po zakończeniu wywołania hello.
 
 * **SourceId**: System.RAP lub System.Replicator
-* **Właściwość**: Nazwa powolne interfejsu API. Opis zawiera więcej informacji na temat interfejsu API został oczekujące czas.
-* **Następne kroki**: Sprawdź, dlaczego wywołanie trwa dłużej, niż oczekiwano.
+* **Właściwość**: Nazwa hello hello powolne interfejsu API. Opis Hello zawiera szczegółowe informacje o hello czasu hello interfejsu API został oczekujące.
+* **Następne kroki**: Sprawdź, dlaczego wywołania hello trwa dłużej, niż oczekiwano.
 
-Poniższy przykład przedstawia partycji w wyniku utraty kworum i kroki dochodzenia gotowe, aby dowiedzieć się, dlaczego. Jednej z replik ma ostrzegawczy stan kondycji, aby uzyskać jego kondycji. Przedstawia on, że operacja usługi trwa dłużej, niż oczekiwano zdarzenie zgłaszane przez System.RAP. Po otrzymaniu tych informacji, następnym krokiem jest przyjrzeć się kodu usługi i badanie istnieje. Dla tego przypadku **RunAsync** implementacji usługi stanowej zgłasza nieobsługiwany wyjątek. Repliki są odzyskiwanie, więc nie widać żadnych replik w stanie ostrzeżenia. Możesz ponowić próbę pobierania stanu kondycji i wyszukaj różnice w identyfikatorze repliki. W niektórych przypadkach ponowne próby pozwoli uzyskać wskazówki.
+Hello poniższy przykład przedstawia partycja utraciła kworum i hello dochodzenia czynności wykonywane toofigure się, dlaczego. Jeden z replik hello ma ostrzegawczy stan kondycji, aby uzyskać jego kondycji. Pokazuje, że operacja usługi hello trwa dłużej, niż oczekiwano zdarzenie zgłaszane przez System.RAP. Po otrzymaniu tych informacji hello następnym krokiem jest toolook na powitania kodu usługi i zbadaj istnieje. Dla tego przypadku hello **RunAsync** implementacji usługi stanowej hello zgłasza nieobsługiwany wyjątek. repliki Hello są odzyskiwanie, więc nie widać żadnych replik w stanie ostrzeżenia hello. Można ponowić próbę pobierania stanu kondycji hello i wyszukaj różnice w identyfikatorze hello repliki. W niektórych przypadkach prób hello pozwalają uzyskać wskazówki.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics
@@ -437,7 +437,7 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/24/2015 7:00:59 PM
 ```
 
-Po uruchomieniu błędnej aplikacji w debugerze okna zdarzeń diagnostycznych Pokaż wyjątek z RunAsync:
+Po uruchomieniu hello błędnej aplikacji w debugerze hello windows zdarzeń diagnostycznych hello Pokaż hello wyjątek z RunAsync:
 
 ![Visual Studio 2015 zdarzeń diagnostycznych: niepowodzenie RunAsync w sieci szkieletowej: / HelloWorldStatefulApplication.][1]
 
@@ -447,26 +447,26 @@ Visual Studio 2015 zdarzeń diagnostycznych: niepowodzenie RunAsync w **fabric: 
 
 
 ### <a name="replication-queue-full"></a>Kolejka replikacji jest pełna
-**System.Replicator** zgłosi ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym kolejki replikacji zazwyczaj zapełni, ponieważ co najmniej jeden replikach pomocniczych są przetwarzane wolno potwierdzić operacji. Na serwerze pomocniczym zwykle dzieje się tak, gdy usługa jest powolne zastosować operacji. To ostrzeżenie zostanie wyczyszczona po kolejki nie jest już pełna.
+**System.Replicator** zgłosi ostrzeżenie, gdy kolejka replikacji hello jest pełna. Na głównej hello kolejki replikacji zazwyczaj zapełni ponieważ co najmniej jeden replikach pomocniczych operacji tooacknowledge powolne. Na powitania dodatkowej to zazwyczaj miejsce, gdy usługa hello jest powolne tooapply hello operacji. Ostrzeżenie Hello są czyszczone po hello kolejki nie jest już pełna.
 
 * **SourceId**: System.Replicator
-* **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**w zależności od roli repliki
+* **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**w zależności od roli repliki hello
 
 ### <a name="slow-naming-operations"></a>Powolne operacje nazewnictwa
 **System.NamingService** raportów kondycji na jego repliką podstawową, gdy operacja nazewnictwa trwa dłużej niż dopuszczalne. Przykłady operacji nazewnictwa [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) lub [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Więcej metod można znaleźć w obszarze klienta fabricclient z rolą, na przykład w obszarze [usługi metod zarządzania](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) lub [metod zarządzania właściwości](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> Usługa nazewnictwa rozpoznawania nazw usługi do lokalizacji w klastrze i umożliwia użytkownikom zarządzanie nazwy usługi i właściwości. Jest to sieć szkieletowa usług na partycje utrwalone usługi. Reprezentuje jedną z partycji Authority Owner zawierający metadane dotyczące wszystkich nazw usługi Service Fabric i usług. Nazwy sieci szkieletowej usług są mapowane do różnych partycji o nazwie właściciela partycji, dlatego usługa jest rozszerzalny. Przeczytaj więcej na temat [Naming service](service-fabric-architecture.md).
+> Hello Naming service jest rozpoznawany jako lokalizacja tooa nazwy usługi w klastrze hello i umożliwia użytkownikom toomanage usługi nazwy i właściwości. Jest to sieć szkieletowa usług na partycje utrwalone usługi. Reprezentuje jedną z partycji hello hello Authority Owner zawierający metadane dotyczące wszystkich nazw usługi Service Fabric i usług. nazwy sieci szkieletowej usług Hello są mapowane toodifferent partycji, o nazwie właściciela partycji, dlatego usługa hello jest rozszerzony. Przeczytaj więcej na temat [Naming service](service-fabric-architecture.md).
 > 
 > 
 
-Podczas operacji nazewnictwa trwa dłużej, niż oczekiwano, operacja oflagowane z raportem ostrzeżenie na *repliki podstawowej partycji usługi nazewnictwa, która służy operacji*. Jeśli operacja zakończy się pomyślnie, ostrzeżenie jest wyczyszczone. Po zakończeniu operacji z powodu błędu, raport o kondycji zawiera szczegóły dotyczące błędu.
+Podczas operacji nazewnictwa trwa dłużej, niż oczekiwano, operacja hello oflagowane z raportem ostrzeżenie na powitania *replikę podstawową hello partycji usługi nazw, która służy operacji hello*. Jeśli operacja hello zakończy się pomyślnie, hello ostrzeżenie jest wyczyszczone. Jeśli hello zakończeniu operacji z powodu błędu hello raport o kondycji zawiera szczegółowe informacje o błędzie hello.
 
 * **SourceId**: System.NamingService
-* **Właściwość**: rozpoczyna się od prefiksu **Duration_** i identyfikuje wolne działanie i nazwa sieci szkieletowej usług, dla którego jest stosowana operacji. Na przykład jeśli Tworzenie usługi w sieci szkieletowej name: / MyApp/Moja_usługa trwa zbyt długo, ta właściwość jest Duration_AOCreateService.fabric:/MyApp/MyService. AO wskazuje rolą partycji nazewnictwa dla tej nazwy i operację.
-* **Następne kroki**: Sprawdź, dlaczego nazewnictwa kończy się niepowodzeniem. Każda operacja mogą mieć różnych przyczyn. Na przykład usunąć usługi mogą zostać zatrzymane w węźle, ponieważ host aplikacji przechowuje awarii w węźle z powodu błędu użytkownika w kodzie usługi.
+* **Właściwość**: rozpoczyna się od prefiksu **Duration_** i identyfikuje hello wolne działanie i nazwę sieci szkieletowej usług hello, w których hello operacji są stosowane. Na przykład jeśli Tworzenie usługi w sieci szkieletowej name: / MyApp/Moja_usługa trwa zbyt długo, właściwość hello jest Duration_AOCreateService.fabric:/MyApp/MyService. AO rola toohello punktów hello nazw partycji dla tej nazwy i operację.
+* **Następne kroki**: niepowodzenia hello nazewnictwa operacji wyboru. Każda operacja mogą mieć różnych przyczyn. Na przykład usunąć usługi mogą zostać zatrzymane w węźle, ponieważ host aplikacji hello śledzi awarii w węźle powodu usterki użytkownika tooa hello kodem usługi.
 
-Poniższy przykład przedstawia tworzenie operacji usługi. Operacja trwało dłużej niż skonfigurowany czas trwania. AO ponawia próbę i wysyła pracy na nie. NIE ukończono z limitem czasu ostatniej operacji. W takim przypadku samej repliki jest kluczem podstawowym AO i żadnych ról.
+Witaj poniższy przykład przedstawia operację tworzenia usługi. Operacja Hello trwało dłużej niż czas trwania hello skonfigurowane. AO ponawia próbę i wysyła tooNO pracy. NIE ukończono hello ostatniej operacji limitu czasu. W takim przypadku hello tej samej repliki jest kluczem podstawowym hello AO i żadnych ról.
 
 ```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
@@ -495,7 +495,7 @@ HealthEvents          :
                         SentAt                : 4/29/2016 8:39:12 PM
                         ReceivedAt            : 4/29/2016 8:39:38 PM
                         TTL                   : 00:05:00
-                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        Description           : hello AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
@@ -507,23 +507,23 @@ HealthEvents          :
                         SentAt                : 4/29/2016 8:41:05 PM
                         ReceivedAt            : 4/29/2016 8:41:08 PM
                         TTL                   : 00:00:15
-                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        Description           : hello NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication systemowych raportów kondycji
-**System.Hosting** urzędu na wdrożonym jednostek.
+**System.Hosting** urzędu hello na wdrożonym jednostek.
 
 ### <a name="activation"></a>aktywacji
-System.Hosting raportów, jako OK gdy aplikacji został pomyślnie uaktywniony na węźle. W przeciwnym razie go zgłasza błąd.
+System.Hosting raportów, jako OK gdy aplikacji został pomyślnie uaktywniony na powitania węzła. W przeciwnym razie go zgłasza błąd.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: aktywacji, łącznie z wersją wdrożenia
-* **Następne kroki**: Jeśli aplikacja jest zła, zbadać, dlaczego aktywacja nie powiodła się.
+* **Właściwość**: aktywacji wersji wdrożenia hello
+* **Następne kroki**: Jeśli aplikacja hello jest zła, sprawdź, dlaczego hello aktywacja nie powiodła się.
 
-W poniższym przykładzie przedstawiono pomyślnej aktywacji:
+Witaj poniższy przykład przedstawia pomyślnej aktywacji:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
@@ -545,42 +545,42 @@ HealthEvents                       :
                                      SentAt                : 7/14/2017 4:55:08 PM
                                      ReceivedAt            : 7/14/2017 4:55:14 PM
                                      TTL                   : Infinite
-                                     Description           : The application was activated successfully.
+                                     Description           : hello application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Do pobrania
-**System.Hosting** zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
+**System.Hosting** zgłasza błąd, jeśli pobieranie pakietu aplikacji hello nie powiedzie się.
 
 * **SourceId**: System.Hosting
 * **Właściwość**:  **pobrać:*RolloutVersion***
-* **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
+* **Następne kroki**: Sprawdź, dlaczego hello pobieranie nie powiodło się w węźle hello.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage systemowych raportów kondycji
-**System.Hosting** urzędu na wdrożonym jednostek.
+**System.Hosting** urzędu hello na wdrożonym jednostek.
 
 ### <a name="service-package-activation"></a>Aktywowanie pakietu usługi
-System.Hosting raporty jako OK, jeżeli usługa aktywacji pakietu w węźle zakończy się pomyślnie. W przeciwnym razie go zgłasza błąd.
+Jako OK System.Hosting raporty, jeśli aktywowanie pakietu usługi hello w węźle hello zakończy się pomyślnie. W przeciwnym razie go zgłasza błąd.
 
 * **SourceId**: System.Hosting
 * **Właściwość**: aktywacji
-* **Następne kroki**: Sprawdź, dlaczego aktywacja nie powiodła się.
+* **Następne kroki**: Sprawdź, dlaczego hello aktywacja nie powiodła się.
 
 ### <a name="code-package-activation"></a>Aktywowanie pakietu kodu
-**System.Hosting** raporty jako OK dla każdego pakietu kodu, jeśli aktywacja zakończy się pomyślnie. W przypadku niepowodzenia aktywacji zgłosi ostrzeżenie zgodnie z konfiguracją. Jeśli **elementu CodePackage** nie może aktywować lub kończy się z powodu błędu większy niż skonfigurowany **CodePackageHealthErrorThreshold**, hosting zgłasza błąd. Jeśli pakiet usługi zawiera wiele pakietów kodu, aktywacji raport jest generowany dla każdego z nich.
+**System.Hosting** raporty jako OK dla każdego pakietu kodu, jeśli aktywacja hello zakończy się pomyślnie. W przypadku niepowodzenia aktywacji hello zgłosi ostrzeżenie zgodnie z konfiguracją. Jeśli **elementu CodePackage** nie powiedzie się tooactivate lub kończy się z powodu błędu większy niż skonfigurowany hello **CodePackageHealthErrorThreshold**, hosting zgłasza błąd. Jeśli pakiet usługi zawiera wiele pakietów kodu, aktywacji raport jest generowany dla każdego z nich.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: używa prefiksu **CodePackageActivation** i zawiera nazwę pakietu kodu i punktu wejścia jako  **CodePackageActivation:*CodePackageName* :*SetupEntryPoint/EntryPoint*** (na przykład **CodePackageActivation:Code:SetupEntryPoint**)
+* **Właściwość**: prefiks hello używa **CodePackageActivation** i zawiera nazwę hello hello pakietu kodu i punktu wejścia hello jako  **CodePackageActivation:* CodePackageName*:*SetupEntryPoint/EntryPoint*** (na przykład **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### <a name="service-type-registration"></a>Rejestracja typu usługi
-**System.Hosting** zgłasza jako OK, jeśli typ usługi został pomyślnie zarejestrowany. Zgłasza błąd, jeśli rejestracja nie została wykonana w czasie (zgodnie z konfiguracją przy użyciu **ServiceTypeRegistrationTimeout**). Jeśli środowisko uruchomieniowe jest zamknięty, typ usługi jest zarejestrowany z węzła i hostingu zgłosi ostrzeżenie.
+**System.Hosting** zgłasza jako OK, jeśli typ usługi hello został pomyślnie zarejestrowany. Zgłasza błąd, jeśli hello rejestracja nie została wykonana w czasie (zgodnie z konfiguracją przy użyciu **ServiceTypeRegistrationTimeout**). Jeśli środowisko uruchomieniowe hello są zamknięte, typ usługi hello jest zarejestrowany z węzła hello i hostingu zgłosi ostrzeżenie.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: używa prefiksu **ServiceTypeRegistration** i zawiera nazwę typu usługi (na przykład **ServiceTypeRegistration:FileStoreServiceType**)
+* **Właściwość**: prefiks hello używa **ServiceTypeRegistration** i zawiera nazwę typu usługi hello (na przykład **ServiceTypeRegistration:FileStoreServiceType**)
 
-W poniższym przykładzie przedstawiono pakietu wdrożonej usługi w dobrej kondycji:
+Witaj poniższy przykład przedstawia pakietu dobrej kondycji wdrożonej usługi:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
@@ -599,7 +599,7 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The ServicePackage was activated successfully.
+                             Description           : hello ServicePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -611,7 +611,7 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The CodePackage was activated successfully.
+                             Description           : hello CodePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -623,30 +623,30 @@ HealthEvents               :
                              SentAt                : 7/14/2017 4:55:08 PM
                              ReceivedAt            : 7/14/2017 4:55:14 PM
                              TTL                   : Infinite
-                             Description           : The ServiceType was registered successfully.
+                             Description           : hello ServiceType was registered successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Do pobrania
-**System.Hosting** zgłasza błąd, jeśli pobieranie pakietu usługi nie powiedzie się.
+**System.Hosting** zgłasza błąd, jeśli pobieranie pakietu hello usługi nie powiedzie się.
 
 * **SourceId**: System.Hosting
 * **Właściwość**:  **pobrać:*RolloutVersion***
-* **Następne kroki**: Sprawdź, dlaczego pobieranie nie powiodło się w węźle.
+* **Następne kroki**: Sprawdź, dlaczego hello pobieranie nie powiodło się w węźle hello.
 
 ### <a name="upgrade-validation"></a>Weryfikacja uaktualnienia
-**System.Hosting** zgłasza błąd w przypadku niepowodzenia weryfikacji podczas uaktualniania lub Jeśli uaktualnienie nie powiedzie się w węźle.
+**System.Hosting** zgłasza błąd w przypadku niepowodzenia weryfikacji podczas uaktualniania hello lub hello uaktualnienie nie powiedzie się w węźle hello.
 
 * **SourceId**: System.Hosting
-* **Właściwość**: używa prefiksu **FabricUpgradeValidation** i zawiera uaktualniania wersji
-* **Opis elementu**: wskazuje wystąpił błąd
+* **Właściwość**: prefiks hello używa **FabricUpgradeValidation** i zawiera hello uaktualniania wersji
+* **Opis elementu**: Napotkano błąd toohello punktów
 
 ## <a name="next-steps"></a>Następne kroki
 [Wyświetl raporty dotyczące kondycji sieci szkieletowej usług](service-fabric-view-entities-aggregated-health.md)
 
-[Jak zgłosić i Sprawdź kondycję usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Jak tooreport i zaznacz pole wyboru usługi kondycji](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Monitorowanie i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

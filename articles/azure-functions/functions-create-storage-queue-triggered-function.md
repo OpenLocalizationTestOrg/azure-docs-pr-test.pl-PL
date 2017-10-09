@@ -1,6 +1,6 @@
 ---
-title: Tworzenie funkcji na platformie Azure wyzwalanej przez komunikaty kolejki | Microsoft Docs
-description: "Utwórz za pomocą usługi Azure Functions funkcję niewymagającą użycia serwera wywoływaną za pomocą komunikatów przesyłanych do kolejki usługi Azure Storage."
+title: "Funkcja w systemie Azure wyzwalane przez wiadomości w kolejce aaaCreate | Dokumentacja firmy Microsoft"
+description: "Użyj usługi Azure Functions toocreate niekorzystającą funkcji, który jest wywoływany przez komunikaty przesłać tooan kolejki magazynu Azure."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 92a03154bf5a8945e2de9606afd138803c76fafe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e9501ed336b502eaeee3fa62ec4ae085c76de0ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Queue Storage
 
-Dowiedz się, jak utworzyć funkcję wyzwalaną w momencie przesłania komunikatów do kolejki usługi Azure Storage.
+Dowiedz się, jak toocreate funkcji wyzwalane, gdy wiadomości są przesyłane tooan kolejki magazynu Azure.
 
-![Wyświetlanie komunikatu w dziennikach.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
+![Przeglądanie wiadomości w dziennikach hello.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Pobrać i zainstalować program [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+- Pobierz i zainstaluj hello [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/).
 
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -42,65 +42,65 @@ Dowiedz się, jak utworzyć funkcję wyzwalaną w momencie przesłania komunikat
 
 ![Pomyślnie utworzona aplikacja funkcji.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
+Następnie należy utworzyć funkcji w hello nowej funkcji aplikacji.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-queue-triggered-function"></a>Tworzenie funkcji wyzwalanej przez kolejkę
 
-1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
+1. Rozwiń węzeł funkcji aplikacji, a następnie kliknij przycisk hello  **+**  obok przycisku zbyt**funkcji**. Jeśli hello pierwszej funkcji w funkcji aplikacji, wybierz **Niestandardowa funkcja**. Spowoduje to wyświetlenie hello pełny zestaw szablonów funkcji.
 
-    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+    ![Funkcje strony szybkiego startu w hello portalu Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Wybierz szablon **QueueTrigger** dla żądanego języka i użyj ustawień określonych w tabeli.
+2. Wybierz hello **QueueTrigger** szablonu żądany język i użyj hello ustawień określonych w tabeli hello.
 
-    ![Tworzenie funkcji wyzwalanej przez kolejkę magazynu.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Tworzenie funkcji wyzwalane kolejki magazynu hello.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
     
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Nazwa kolejki**   | myqueue-items    | Nazwa kolejki, z którą zostanie nawiązane połączenie na koncie magazynu. |
-    | **Połączenie konta magazynu** | AzureWebJobStorage | Możesz skorzystać z połączenia konta magazynu już używanego przez aplikację funkcji lub utworzyć nowe.  |
+    | **Nazwa kolejki**   | myqueue-items    | Nazwa hello kolejki tooconnect tooin Twojego konta magazynu. |
+    | **Połączenie konta magazynu** | AzureWebJobStorage | Użyj połączenia konta magazynu hello już używana przez aplikację funkcji lub Utwórz nową.  |
     | **Nazwa funkcji** | Unikatowa w obrębie aplikacji funkcji | Nazwa funkcji wyzwalanej przez kolejkę. |
 
-3. Kliknij przycisk **Utwórz**, aby utworzyć funkcję.
+3. Kliknij przycisk **Utwórz** toocreate funkcji.
 
-Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz kolejkę magazynu **myqueue-items**.
+Następnie połączyć konto magazynu Azure tooyour i utworzyć hello **elementów Moja_kolejka** kolejki magazynu.
 
-## <a name="create-the-queue"></a>Tworzenie kolejki
+## <a name="create-hello-queue"></a>Utwórz kolejkę hello
 
-1. W funkcji kliknij pozycję **Integracja**, rozwiń pozycję **Dokumentacja** i skopiuj wartości pól **Nazwa konta** oraz **Klucz konta**. Te poświadczenia służą do nawiązywania połączenia z kontem magazynu. Jeśli już nawiązano połączenie z kontem magazynu, przejdź do kroku 4.
+1. W funkcji kliknij pozycję **Integracja**, rozwiń pozycję **Dokumentacja** i skopiuj wartości pól **Nazwa konta** oraz **Klucz konta**. Używasz konta magazynu te poświadczenia tooconnect toohello. Jeśli nawiązano już połączenie konta magazynu, Pomiń toostep 4.
 
-    ![Uzyskiwanie poświadczeń połączenia konta magazynu.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![Uzyskaj konto magazynu hello poświadczeń dla połączenia.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
 
-1. Uruchom narzędzie [Microsoft Azure Storage Explorer](http://storageexplorer.com/), kliknij ikonę połączenia po lewej stronie, wybierz pozycję **Użyj klucza i nazwy konta magazynu** i kliknij przycisk **Dalej**.
+1. Uruchom hello [Eksploratora usługi Microsoft Azure Storage](http://storageexplorer.com/) narzędzia, kliknij przycisk hello połączenia powitania po lewej stronie, wybierz **użyć nazwy konta magazynu i klucza**i kliknij przycisk **dalej**.
 
-    ![Uruchamianie narzędzia Storage Account Explorer.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    ![Uruchom narzędzie Eksploratora usługi Storage konta hello.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
-1. Wprowadź wartości **Nazwa konta** i **Klucz konta** z kroku 1, kliknij przycisk **Dalej**, a następnie przycisk **Połącz**.
+1. Wprowadź hello **nazwa konta** i **klucz konta** z kroku 1, kliknij przycisk **dalej** , a następnie **Connect**.
 
-    ![Wprowadzanie poświadczeń magazynu i nawiązywanie połączenia.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
+    ![Wprowadź poświadczenia magazynu hello i połącz.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Rozwiń dołączone konto magazynu, kliknij prawym przyciskiem myszy pozycję **Queues** (Kolejki), kliknij polecenie **Create queue** (Utwórz kolejkę), wpisz nazwę `myqueue-items`, a następnie naciśnij klawisz Enter.
+1. Rozwiń hello dołączony konta magazynu, kliknij prawym przyciskiem myszy **kolejek**, kliknij przycisk **Tworzenie kolejki**, typ `myqueue-items`, a następnie naciśnij klawisz enter.
 
     ![Tworzenie kolejki magazynu.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
-Teraz, gdy masz już kolejkę magazynu, możesz przetestować funkcję, dodając komunikat do kolejki.
+Teraz, gdy masz kolejki magazynu można przetestować funkcji hello przez dodanie toohello kolejki komunikatów.
 
-## <a name="test-the-function"></a>Testowanie funkcji
+## <a name="test-hello-function"></a>Funkcja hello testu
 
-1. Wróć do witryny Azure Portal, przejdź do swoich funkcji, rozwiń pozycję **Dzienniki** w dolnej części strony i upewnij się, że strumieniowe przesyłanie dzienników nie jest wstrzymane.
+1. W portalu Azure hello, funkcja tooyour przeglądania rozwiń hello **dzienniki** u dołu strony hello i upewnij się, że hello przesyłania strumieniowego tego dziennika nie jest wstrzymana.
 
 1. W programie Storage Explorer rozwiń swoje konto magazynu, wybierz kolejno pozycje **Queues** (Kolejki) i **myqueue-items**, a następnie kliknij pozycję **Add message** (Dodaj komunikat).
 
-    ![Dodawanie komunikatu do kolejki.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
+    ![Dodaj toohello kolejki komunikatów.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
 1. Wpisz komunikat „Hello World!” w polu **Message text** (Tekst komunikatu) i kliknij przycisk **OK**.
 
-1. Poczekaj kilka sekund, a następnie wróć do dzienników funkcji i sprawdź, czy nowy komunikat został odczytany z kolejki.
+1. Zaczekaj kilka sekund, a następnie wróć tooyour dzienniki funkcji i sprawdź, czy tej nowej wiadomości powitania został odczytany z kolejki hello.
 
-    ![Wyświetlanie komunikatu w dziennikach.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+    ![Przeglądanie wiadomości w dziennikach hello.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
-1. Wróć do programu Storage Explorer, kliknij pozycję **Refresh** (Odśwież) i sprawdź, czy komunikat został przetworzony i nie ma go już w kolejce.
+1. W Eksploratorze magazynu kliknij **Odśwież** i sprawdź, że wiadomość hello został przetworzony i nie jest już w kolejce hello.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -108,7 +108,7 @@ Teraz, gdy masz już kolejkę magazynu, możesz przetestować funkcję, dodając
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utworzono funkcję, która jest uruchamiana w momencie dodania komunikatu do kolejki magazynu.
+Utworzono funkcję, która jest uruchamiana, gdy wiadomość zostanie dodany tooa magazynu kolejki.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

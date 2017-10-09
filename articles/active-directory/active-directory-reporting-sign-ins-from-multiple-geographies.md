@@ -1,6 +1,6 @@
 ---
-title: Logowania z wielu lokalizacji geograficznych
-description: "Raport, który wskazuje użytkowników, którego dwa logowania wydawały się następować z różnych regionów, a czas między logowaniami dodatki uniemożliwia użytkownikowi ma przemieścić między tymi lokalizacjami."
+title: aaaSign ins z wielu lokalizacji geograficznych
+description: "Raport, który wskazuje, którego dwa logowania użytkowników pojawił się toooriginate w różnych regionach i hello czas między hello znak, który dodatki uniemożliwia toohave użytkownika hello przemieścić między tymi lokalizacjami."
 services: active-directory
 documentationcenter: 
 author: SSalahAhmed
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f7c2e9589558476f36f6ae319f807f151b6144e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-multiple-geographies"></a>Logowania z wielu lokalizacji geograficznych
-Ten raport zawiera pomyślnego logowania z użytkownikiem, gdzie dwa logowania wydawały się następować z różnych regionów, a czas między sesje logowania uniemożliwia użytkownik zdążył przemieścić się między tymi lokalizacjami. Możliwe przyczyny:
+Ten raport zawiera pomyślnego logowania z użytkownikiem, gdzie dwukrotnego zalogowania pojawił się toooriginate z różnych regionów, a hello czas między logowania hello uniemożliwia toohave użytkownika hello przemieścić się między tymi lokalizacjami. Możliwe przyczyny:
 
 * Użytkownik udostępnia komuś swoje hasło z innymi użytkownikami
-* Użytkownik korzysta z pulpitu zdalnego w celu uruchomienia przeglądarki sieci web dla logowania
-* Haker zalogował się na konto użytkownika z innego kraju
+* Użytkownik korzysta z toolaunch pulpitu zdalnego przeglądarki sieci web logowania
+* Haker zalogował się toohello konto użytkownika z innego kraju
 * Użytkownik korzysta z sieci VPN lub serwer proxy
-* Użytkownik jest zalogowany przy użyciu wielu urządzeń w tym samym czasie, takie jak pulpit i na telefon komórkowy i adres IP telefonu komórkowego jest rzadko używana.
+* Użytkownik jest zalogowany w przy użyciu wielu urządzeń na powitania sam czasie, takie jak pulpit i na telefon komórkowy i hello IP adres telefon komórkowy hello jest rzadko używana.
 
-Wyniki z tego raportu zostanie wyświetlona pomyślnego logowania zdarzenia, oraz czas między sesje logowania, regionów, w którym sesje logowania wydawały się następować z i podróży szacowany czas między tymi lokalizacjami. Podczas podróży, wyświetlane jest tylko szacowana i może różnić się od czasu rzeczywistego podróży między lokacjami.
+Hello zdarzeń pomyślnego logowania, wraz z hello czas między hello logowania, hello regionów, gdzie logowania hello pojawił się toooriginate z, a hello szacowany czas podróży między tymi lokalizacjami, zostaną wyświetlone wyniki z tego raportu. czas podróży Hello wyświetlane jest tylko szacowana i może różnić się od czasu rzeczywistego podróży hello między lokalizacjami hello.
 
 ![Logowania z wielu lokalizacji geograficznych](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 

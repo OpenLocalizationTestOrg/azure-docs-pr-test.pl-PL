@@ -1,6 +1,6 @@
 ---
-title: "Włączanie metryk magazynu w portalu Azure | Dokumentacja firmy Microsoft"
-description: "Jak włączyć metryki magazynu dla usługi obiektów Blob, kolejki, tabel i plików"
+title: metryki magazynu aaaEnabling w hello portalu Azure | Dokumentacja firmy Microsoft
+description: "Jak metryki magazynu tooenable hello usług obiektów Blob, kolejki, tabel i plików"
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,68 +14,68 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-ms.openlocfilehash: 4d6065597a41372ea6d320ab318b0c71d6a48b2a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c990371e08a6586d935b0535149eabd4960cfaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enabling-storage-metrics-and-viewing-metrics-data"></a>Włączanie metryk magazynu i wyświetlanie danych metryk
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## <a name="overview"></a>Omówienie
-Metryki magazynu jest domyślnie włączona, podczas tworzenia nowego konta magazynu. Można skonfigurować monitorowanie za pomocą [klasycznego portalu Azure](https://manage.windowsazure.com), środowiska Windows PowerShell lub programistycznie za pośrednictwem interfejsu API magazynu.
+Metryki magazynu jest domyślnie włączona, podczas tworzenia nowego konta magazynu. Można skonfigurować monitorowanie za pomocą obu hello [klasycznego portalu Azure](https://manage.windowsazure.com), środowiska Windows PowerShell lub programistycznie za pośrednictwem interfejsu API magazynu.
 
-Po włączeniu metryki magazynu, musisz wybrać okres przechowywania danych: tego okresu określa, jak długo magazynu usługi śledzi metryki i opłat dla miejsca trzeba je przechowywać. Zwykle należy używać krótszy okres przechowywania dla metryki minuty niż co godzinę metryki ze względu na dodatkowe miejsce znaczące wymagane dla metryki minuty. Okres przechowywania należy wybrać w taki sposób, że masz wystarczającą ilość czasu do analizowania danych i pobierania wszystkie metryki, które chcesz zachować dla celów raportowania analizy offline lub. Należy pamiętać, że opłaty będą również naliczane pobierania danych metryki z konta magazynu.
+Po włączeniu metryki magazynu, musisz wybrać okres przechowywania danych hello: tego okresu określa, jak długo magazynu hello usługi śledzi hello metryki i opłat za hello miejsce wymagane toostore je. Zwykle należy używać krótszy okres przechowywania dla metryki minuty niż metryki co godzinę z powodu hello znaczących dodatkowe miejsce wymagane dla metryki minuty. Okres przechowywania należy wybrać w taki sposób, że mają wystarczającą ilość czasu tooanalyze hello danych i Pobierz wszystkie metryki mają tookeep dla celów raportowania analizy offline lub. Należy pamiętać, że opłaty będą również naliczane pobierania danych metryki z konta magazynu.
 
-## <a name="how-to-enable-storage-metrics-using-the-azure-classic-portal"></a>Jak włączyć metryki magazynu przy użyciu klasycznego portalu Azure
-W [klasycznego portalu Azure](https://manage.windowsazure.com), użyj strony konfiguracji konta magazynu do formantu metryki magazynu. Do monitorowania, można ustawić poziomu i okres przechowywania w dniach dla każdego z obiektów blob, tabel i kolejek. W każdym przypadku poziom jest jedną z następujących czynności:
+## <a name="how-tooenable-storage-metrics-using-hello-azure-classic-portal"></a>Jak przy użyciu metryk Storage tooenable hello klasycznego portalu Azure
+W hello [klasycznego portalu Azure](https://manage.windowsazure.com), użyj hello strony konfiguracji dla toocontrol konta magazynu metryki magazynu. Do monitorowania, można ustawić poziomu i okres przechowywania w dniach dla każdego z obiektów blob, tabel i kolejek. W każdym przypadku poziom hello jest jedną z następujących hello:
 
 * OFF — Nie zebrano żadnych metryki.
-* Minimalnie — Podstawowy zestaw metryk, takich jak wejście/wyjście, dostępności, opóźnienia i procent powodzenia, które są agregowane dla obiekt Blob, tabel i kolejek usługi zbiera metryki magazynu.
-* Verbose — Pełny zestaw miar, który zawiera te same metryki dla każdej operacji interfejsu API, oprócz metryki poziomu usługi magazynu zbiera metryki magazynu. Pełne metryki Włącz analizę bliżej problemów występujących podczas działania aplikacji.
+* Minimalnie — Podstawowy zestaw metryk, takich jak wejście/wyjście, dostępności, opóźnienia i procent powodzenia, które są agregowane dla usług obiektów Blob, tabel i kolejek hello zbiera metryki magazynu.
+* Verbose — Zbiera metryki magazynu cały zestaw miar, który zawiera hello same metryki dla każdej operacji interfejsu API magazynu, oprócz toohello poziomu usług metryki. Pełne metryki Włącz analizę bliżej problemów występujących podczas działania aplikacji.
 
-Należy pamiętać, że klasyczny Portal Azure nie obecnie obsługuje skonfigurowania minuty metryki na koncie magazynu; należy włączyć metryki minuty przy użyciu programu PowerShell lub programowo.
+Należy pamiętać, że hello klasycznego portalu Azure nie obecnie obsługuje tooconfigure minuty metryki na koncie magazynu; należy włączyć metryki minuty przy użyciu programu PowerShell lub programowo.
 
-## <a name="how-to-enable-storage-metrics-using-powershell"></a>Jak włączyć metryki magazynu przy użyciu programu PowerShell
-PowerShell na komputerze lokalnym służy do konfigurowania metryki magazynu na koncie magazynu przy użyciu polecenia cmdlet programu Azure PowerShell Get-AzureStorageServiceMetricsProperty pobrać bieżące ustawienia i polecenia cmdlet Set-AzureStorageServiceMetricsProperty do zmiany bieżących ustawień.
+## <a name="how-tooenable-storage-metrics-using-powershell"></a>Jak tooenable metryki magazynu przy użyciu programu PowerShell
+W systemie PowerShell tooconfigure Twojego komputera lokalnego magazynu metryki na koncie magazynu przy użyciu hello Azure PowerShell polecenia cmdlet Get-AzureStorageServiceMetricsProperty tooretrieve hello bieżące ustawienia i hello polecenia cmdlet Zestaw AzureStorageServiceMetricsProperty toochange hello bieżące ustawienia.
 
-Polecenia cmdlet, określające metryki magazynu używają następujące parametry:
+polecenia cmdlet Hello, określające metryki magazynu używają hello następujące parametry:
 
 * MetricsType możliwe wartości to godziny i minuty.
 * Typ ServiceType możliwe wartości to obiektów Blob, kolejki i tabeli.
-* MetricsLevel możliwe wartości to None (równoważne Off w klasycznym portalu Azure), usługa (odpowiednik minimalnego w klasycznym portalu Azure) i ServiceAndApi (odpowiednik pełne w klasycznym portalu Azure).
+* MetricsLevel możliwe wartości to None (równoważne tooOff w hello klasycznego portalu Azure), usługa (równoważne tooMinimal w hello klasycznego portalu Azure) i ServiceAndApi (równoważne tooVerbose w hello klasycznego portalu Azure).
 
-Na przykład następujące polecenie zmienia się na minutę metryki dla usługi obiektów blob na koncie magazynu domyślne przechowywania ustawionej do pięciu dni:
+Na przykład hello następujące polecenie zmienia na minutę metryki dla usługi blob hello w domyślne konto magazynu z okresu przechowywania hello ustawić toofive dni:
 
 ```powershell
 Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5
 ```
-Polecenie pobiera bieżący co godzinę metryki poziomu i przechowywania dni usługi obiektów blob na koncie magazynu domyślne:
+Witaj następujące polecenie pobiera hello bieżącego co godzinę metryki poziomu i przechowywania dni hello usługi obiektów blob na koncie magazynu domyślne:
 
 ```powershell
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
-Aby uzyskać informacje o sposobie konfigurowania poleceń cmdlet programu Azure PowerShell do pracy z subskrypcją platformy Azure i jak wybrać domyślne konto magazynu do użycia, zobacz: [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Aby dowiedzieć się jak tooconfigure hello Azure PowerShell polecenia cmdlet toowork z subskrypcją platformy Azure oraz jak tooselect hello magazynu domyślnego konta toouse, zobacz: [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-## <a name="how-to-enable-storage-metrics-programmatically"></a>Jak programowo włączyć metryki magazynu
-Poniższy fragment kodu C# pokazano, jak włączyć rejestrowanie dla usługi obiektów Blob za pomocą biblioteki klienta usługi storage dla platformy .NET i metryki:
+## <a name="how-tooenable-storage-metrics-programmatically"></a>Jak tooenable metryki magazynu programowo
+powitania po fragment kodu C# pokazano, jak metryki tooenable i rejestrowanie przy użyciu usługi Blob hello hello biblioteki klienta usługi storage dla platformy .NET:
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-// Create service client for credentialed access to the Blob service.
+// Create service client for credentialed access toohello Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Enable Storage Analytics logging and set retention policy to 10 days. 
+// Enable Storage Analytics logging and set retention policy too10 days. 
 ServiceProperties properties = new ServiceProperties();
 properties.Logging.LoggingOperations = LoggingOperations.All;
 properties.Logging.RetentionDays = 10;
 properties.Logging.Version = "1.0";
 
-// Configure service properties for metrics. Both metrics and logging must be set at the same time.
+// Configure service properties for metrics. Both metrics and logging must be set at hello same time.
 properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
 properties.HourMetrics.RetentionDays = 10;
 properties.HourMetrics.Version = "1.0";
@@ -84,22 +84,22 @@ properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
 properties.MinuteMetrics.RetentionDays = 10;
 properties.MinuteMetrics.Version = "1.0";
 
-// Set the default service version to be used for anonymous requests.
+// Set hello default service version toobe used for anonymous requests.
 properties.DefaultServiceVersion = "2015-04-05";
 
-// Set the service properties.
+// Set hello service properties.
 blobClient.SetServiceProperties(properties);
 ```
 
 ## <a name="viewing-storage-metrics"></a>Wyświetlanie metryki magazynu
-Po skonfigurowaniu magazynu metryk do monitorowania konta magazynu, rejestruje metryki w zestawie dobrze znanego tabel na koncie magazynu. Strona monitorowania dla konta magazynu w klasycznym portalu Azure służy do wyświetlania metryki co godzinę, staną się one dostępne na wykresie. Na tej stronie w klasycznym portalu Azure możesz:
+Po skonfigurowaniu magazynu metryki toomonitor Twojego konta magazynu, rejestruje metryki hello w zestawie dobrze znanego tabel na koncie magazynu. Strona Monitor hello służy dla konta magazynu w hello metryki co godzinę hello tooview klasycznego portalu Azure udostępnianymi na wykresie. Na tej stronie powitania klasycznego portalu Azure możesz:
 
-* Wybierz metryk, które do wykreślenia wykresu (wybór dostępne metryki zależy od tego, czy została wybrana opcja pełne lub minimalnym monitorowania tej usługi na stronie konfiguracji).
-* Wybierz przedział czasu dla metryki wyświetlane na wykresie.
-* Wybierz skalę bezwzględnym lub względnym w stosunku do wykreślenia metryki.
-* Konfigurowanie alertów e-mail w celu powiadamiania o określonej metryki osiąga określoną wartość.
+* Wybierz tooplot metryk, które na wykresie hello (wybór hello dostępne metryki zależy od tego, czy została wybrana opcja pełne lub minimalnym monitorowania usługi hello na stronie Konfiguruj hello).
+* Wybierz zakres czasu hello hello metryki wyświetlane na wykresie hello.
+* Wybierz toouse metryki hello tooplot skali bezwzględny lub względny.
+* Konfigurowanie poczty e-mail alertów toonotify podczas określonej metryki osiąga określoną wartość.
 
-Jeśli chcesz pobrać metryk do długoterminowego przechowywania lub do analizowania je lokalnie, należy za pomocą narzędzia lub napisanie kodu, przeczytaj tabel. Należy pobrać minuty metryki dla analizy. Tabele nie są wyświetlane, jeśli lista wszystkich tabel na koncie magazynu, ale można go wywołać bezpośrednio przez nazwę. Wiele firm Przeglądanie magazynu narzędzi potrafią zidentyfikować te tabele i można wyświetlać je bezpośrednio (zobacz wpis w blogu [eksploratory usługi Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listę dostępnych narzędzi).
+Jeśli chcesz toodownload hello metryki dla magazynu długoterminowego lub tooanalyze je lokalnie, będzie konieczne toouse narzędzia lub pisania kodu tooread hello tabel. Należy pobrać hello minuty metryki dla analizy. tabele Hello nie jest wyświetlana lista wszystkich tabel hello na koncie magazynu, ale można go wywołać bezpośrednio przez nazwę. Wiele firm Przeglądanie magazynu narzędzi potrafią zidentyfikować te tabele i pozwala tooview je bezpośrednio (zobacz hello blogu [eksploratory usługi Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listę dostępnych narzędzi).
 
 ### <a name="hourly-metrics"></a>Metryki co godzinę
 * $MetricsHourPrimaryTransactionsBlob
@@ -114,7 +114,7 @@ Jeśli chcesz pobrać metryk do długoterminowego przechowywania lub do analizow
 ### <a name="capacity"></a>Pojemność
 * $MetricsCapacityBlob
 
-Dla tych tabel w można znaleźć szczegółowe informacje dotyczące schematów [schemat tabeli metryki analityka magazynu](https://msdn.microsoft.com/library/azure/hh343264.aspx). Poniższe wiersze próbki Pokaż tylko podzbiór dostępnych kolumn, ale zilustrować niektóre ważne funkcje sposób metryki magazynu zapisuje te metryki:
+Dla tych tabel w można znaleźć szczegółowe informacje dotyczące schematów hello [schemat tabeli metryki analityka magazynu](https://msdn.microsoft.com/library/azure/hh343264.aspx). Poniższe wiersze próbki Hello Pokaż tylko podzestaw kolumn hello jest dostępne, ale zilustrować niektóre ważne funkcje sposób hello metryki magazynu zapisuje te metryki:
 
 | PartitionKey | RowKey | Znacznik czasu | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Dostępność | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
@@ -123,41 +123,41 @@ Dla tych tabel w można znaleźć szczegółowe informacje dotyczące schematów
 | 20140522T1100 |Użytkownik; QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
 | 20140522T1100 |Użytkownik; UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-W przykładowe dane metryk minuty klucza partycji jest używany czas rozdzielczością minuty. Klucz wiersza określa typ informacji przechowywanych w wierszu i składa się z dwóch części informacji, typ dostępu i typ żądania:
+W przykładowe dane metryk minuty klucza partycji hello używany czas hello rozdzielczością minuty. klucz wiersza Hello identyfikuje hello typ informacji przechowywanych w wierszu hello i składa się z dwóch części informacji, typ dostępu hello i typ żądania hello:
 
-* Typ dostępu jest użytkownika lub systemu, której użytkownik odwołuje się do wszystkich żądań użytkowników z usługą Magazyn, a system odwołuje się do żądań wysyłanych przez analityka magazynu.
-* Typ żądania jest wszystkie w takim przypadku on jest wiersz podsumowania albo identyfikuje określonego interfejsu API, takich jak QueryEntity lub UpdateEntity.
+* Typ dostępu Hello jest użytkownika lub systemu, gdzie usługa Magazyn toohello żądań użytkownika tooall odwołuje się użytkownika, a system odwołuje się toorequests przez analityka magazynu.
+* Typ żądania Hello jest w takim przypadku jest to wiersz podsumowania, lub identyfikuje hello określonego interfejsu API, takich jak QueryEntity lub UpdateEntity.
 
-Przykładowe dane powyżej wyświetlane są wszystkie rekordy na minutę (rozpoczyna się od 11:00:00), tak liczba żądań QueryEntities oraz liczbę QueryEntity żądań i liczby UpdateEntity żądań, Dodaj do 7, który jest sumą wyświetlany w wierszu użytkownika: All. Podobnie, mogą dziedziczyć średnie opóźnienie end-to-end 104.4286 wiersza użytkownika: All, obliczając ((143.8 * 5) + 3 + 9) / 7.
+rekordy danych przykładowych Hello powyżej pokazuje wszystkie hello na minutę (rozpoczyna się od 11:00:00), tak hello liczba żądań QueryEntities plus hello liczba żądań QueryEntity plus hello liczba żądań UpdateEntity sumują tooseven, który jest hello całkowita wyświetlany na Witaj użytkownika: wierszy. Podobnie, mogą pochodzić hello średnie opóźnienie end-to-end 104.4286 w wierszu użytkownika: All hello obliczając ((143.8 * 5) + 3 + 9) / 7.
 
-Należy rozważyć Konfigurowanie alertów w klasycznym portalu Azure na stronie monitora, tak aby metryki magazynu można automatycznie powiadamia użytkownika o wszelkich ważne zmiany zachowania usługi magazynu. Jeśli używasz narzędzia Eksploratora magazynu można pobrać te dane metryk w formacie rozdzielanym, można użyć programu Microsoft Excel do analizowania danych. Zobacz wpis w blogu [eksploratory usługi Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listę narzędzi Eksploratora dostępny magazyn.
+Konfigurowanie alertów w hello klasycznego portalu Azure na stronie Monitor hello należy rozważyć, aby metryki magazynu można automatycznie powiadamia użytkownika o wszelkich ważne zmiany w zachowaniu hello usług magazynu. Jeśli używasz toodownload narzędzie Eksploratora magazynu te dane metryk w formacie rozdzielanym, można użyć programu Microsoft Excel tooanalyze hello danych. Zobacz hello blogu [eksploratory usługi Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) listę narzędzi Eksploratora dostępny magazyn.
 
 ## <a name="accessing-metrics-data-programmatically"></a>Uzyskiwanie dostępu do danych metryki programowo
-Poniżej przedstawiono przykładowy C# kod, który uzyskuje dostęp do minuty metryki dla zakresu minut i wyświetla wyniki w oknie konsoli. Korzysta z biblioteki usługi Azure Storage wersji 4, który zawiera klasę CloudAnalyticsClient, który ułatwia uzyskiwanie dostępu do tabel metryki w magazynie.
+Hello poniżej zawiera przykładowe C# kod, który uzyskuje dostęp do hello minuty metryki dla zakresu minut i wyświetla wyniki hello w okna konsoli. Używa ona hello biblioteki usługi Azure Storage w wersji 4 zawierającą hello CloudAnalyticsClient klasy, które upraszcza podczas uzyskiwania dostępu do tabel metryki hello w magazynie.
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)
 {
-    // Convert the dates to the format used in the PartitionKey
+    // Convert hello dates toohello format used in hello PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
 
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
-        Console.WriteLine("Minute Metrics for Service {0} from {1} to {2} UTC", service, start, end);
+        Console.WriteLine("Minute Metrics for Service {0} from {1} too{2} UTC", service, start, end);
         var metricsQuery = analyticsClient.CreateMinuteMetricsQuery(service, StorageLocation.Primary);
         var t = analyticsClient.GetMinuteMetricsTable(service);
         var opContext = new OperationContext();
         var query =
           from entity in metricsQuery
-          // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
-          // because they are calculated fields in the MetricsEntity class.
-          // The PartitionKey identifies the DataTime of the metrics.
+          // Note, you can't filter using hello entity properties Time, AccessType, or TransactionType
+          // because they are calculated fields in hello MetricsEntity class.
+          // hello PartitionKey identifies hello DataTime of hello metrics.
           where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
         select entity;
 
-        // Filter on "user" transactions after fetching the metrics from Table Storage.
+        // Filter on "user" transactions after fetching hello metrics from Table Storage.
         // (StartsWith is not supported using LINQ with Azure table storage)
         var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
         var resultString = results.Aggregate(new StringBuilder(), (builder, metrics) => builder.AppendLine(MetricsString(metrics, opContext))).ToString();
@@ -178,15 +178,15 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 ```
 
 ## <a name="what-charges-do-you-incur-when-you-enable-storage-metrics"></a>Jakie opłat ponosisz po włączeniu metryki magazynu?
-Zapisu ze stawkami standardowymi mające zastosowanie do wszystkich operacji magazynowania Azure naliczane są opłaty żądania utworzenia jednostek tabeli dla metryki.
+Zapis jednostek tabeli toocreate żądania dla metryki są naliczane według hello stawki standardowe tooall dotyczy usługi Azure Storage operacji.
 
-Żądania odczytu i usuwania przez klienta do danych metryki są również rozliczeniowy stawkami standardowymi. Jeśli zostały skonfigurowane zasady przechowywania danych, nie są naliczane gdy magazyn Azure usuwa stare dane metryk. Jeśli usuniesz dane analityczne, Twoje konto jest pobierana dla operacji delete.
+Żądania odczytu i usuwania danych toometrics klienta są również rozliczeniowy stawkami standardowymi. Jeśli zostały skonfigurowane zasady przechowywania danych, nie są naliczane gdy magazyn Azure usuwa stare dane metryk. Jeśli usuniesz dane analityczne, Twoje konto jest pobierana dla operacji delete hello.
 
-Używane przez metryki tabel jest również rozliczeniowy: następujące umożliwia oszacowania ilości wydajności używany do przechowywania danych metryki:
+pojemność Hello używane przez hello metryki tabel jest również rozliczeniowy: można użyć powitania po tooestimate hello ilość wydajności używany do przechowywania danych metryki:
 
-* Jeśli co godzinę usługa korzysta z każdego interfejsu API w każdej usługi, następnie 148KB danych jest przechowywana co godzinę w tabelach transakcji metryk po włączeniu zarówno usługi, jak i interfejs API na poziomie podsumowania.
-* Jeśli co godzinę usługa korzysta z każdego interfejsu API w każdej usługi, następnie 12KB danych jest przechowywana co godzinę w tabelach transakcji metryk po włączeniu tylko poziom usługi podsumowania.
-* Tabela pojemności dla obiektów blob ma dwa wiersze dodane każdego dnia (zakładając, że użytkownik wybrał w dzienników): oznacza to, że codziennie rozmiar tej tabeli zwiększa o około 300 bajtów.
+* Jeśli co godzinę usługa korzysta z każdego interfejsu API w każdej usługi, następnie 148KB danych jest przechowywana co godzinę w tabelach transakcji metryki powitania po włączeniu zarówno usługi, jak i interfejs API na poziomie podsumowania.
+* Jeśli co godzinę usługa korzysta z każdego interfejsu API w każdej usługi, następnie 12KB danych jest przechowywana co godzinę w tabelach transakcji metryki hello włączenie tylko poziom usługi podsumowania.
+* Witaj pojemności tabeli obiektów blob ma dwa wiersze dodane każdego dnia (zakładając, że użytkownik wybrał w dzienników): oznacza to, że każdy dzień hello rozmiar tej tabeli zwiększa się tooapproximately 300 bajtów.
 
 ## <a name="next-steps"></a>Następne kroki:
 [Włączanie analityka magazynu, rejestrowania i uzyskiwanie dostępu do danych dziennika](https://msdn.microsoft.com/library/dn782840.aspx)

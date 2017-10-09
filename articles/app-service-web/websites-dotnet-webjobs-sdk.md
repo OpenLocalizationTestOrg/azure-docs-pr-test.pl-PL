@@ -1,6 +1,6 @@
 ---
-title: "Co to jest zestaw SDK usługi Azure WebJobs"
-description: "Wprowadzenie do zestawu SDK zadań Webjob Azure. Opis zestawu SDK, typowe scenariusze jest przydatne w przypadku i przykłady kodu."
+title: aaaWhat jest hello Azure WebJobs SDK
+description: "Toohello wprowadzenie Azure WebJobs SDK. Opisano, jakie hello jest zestaw SDK, typowe scenariusze, które jest przydatne w przypadku oraz przykłady kodu."
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8eb05b7cbfb4505f2e94c5b8e6d367ec63a2f033
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: efac7a75c3b68a6a6601fb298f2ccac9bd71709d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-is-the-azure-webjobs-sdk"></a>Co to jest zestaw SDK usługi Azure WebJobs
+# <a name="what-is-hello-azure-webjobs-sdk"></a>Co to jest hello Azure WebJobs SDK
 ## <a id="overview"></a>Omówienie
-W tym artykule opisano, co to jest zestaw SDK zadań Webjob, recenzje niektórych typowych scenariuszy jest przydatne w przypadku i zawiera omówienie sposobu ich używania w kodzie.
+W tym artykule opisano, co hello zestaw SDK zadań Webjob jest, recenzje niektórych typowych scenariuszy jest przydatne w przypadku i zawiera omówienie sposobu ich używania w kodzie.
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-[Zadania Webjob](websites-webjobs-resources.md) to funkcja usługi Azure App Service umożliwia uruchamianie programu lub skryptu w tym samym kontekście jako aplikacji sieci web, aplikacji mobilnej lub aplikacji interfejsu API. Celem [zestaw SDK zadań Webjob](websites-webjobs-resources.md) jest uprościć kod zapisu typowych zadań, które mogą wykonywać zadanie WebJob, takich jak przetwarzania obrazu, przetwarzanie kolejki, agregacja danych RSS, plików obsługi i wysyłania wiadomości e-mail. Zestaw SDK zadań Webjob ma wbudowane funkcje do pracy z usługą Azure Storage i usługi Service Bus, planowanie zadań i obsługa błędów i wielu innych typowych scenariuszy. Ponadto zostało zaprojektowane do być rozszerzalne. [To zestaw SDK zadań Webjob typu open source](https://github.com/Azure/azure-webjobs-sdk/)i ma [repozytorium typu open source dla rozszerzeń](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+[Zadania Webjob](websites-webjobs-resources.md) to funkcja usługi Azure App Service pozwala toorun programu lub skryptu w hello tego samego kontekstu jako aplikacji sieci web, aplikacji mobilnej lub aplikacji interfejsu API. Witaj celem hello [zestaw SDK zadań Webjob](websites-webjobs-resources.md) jest kod hello toosimplify zapisu typowych zadań, które mogą wykonywać zadanie WebJob, takich jak przetwarzania obrazu, przetwarzanie kolejki, agregacja danych RSS, plików obsługi i wysyłania wiadomości e-mail. zestaw SDK zadań Webjob Hello ma wbudowane funkcje do pracy z usługą Azure Storage i usługi Service Bus, planowanie zadań i obsługa błędów i wielu innych typowych scenariuszy. Ponadto zaprojektowano toobe rozszerzonego. Witaj [to zestaw SDK zadań Webjob typu open source](https://github.com/Azure/azure-webjobs-sdk/)i ma [repozytorium typu open source dla rozszerzeń](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
-Zestaw SDK zadań Webjob obejmuje następujące składniki:
+zestaw SDK zadań Webjob Hello obejmuje hello następujące składniki:
 
-* **Pakiety NuGet**. Pakiety NuGet, które można dodać do projektu aplikacji Konsolowej programu Visual Studio Podaj platforma, która używa Twój kod przez dekoracji metody z atrybutami zestaw SDK zadań Webjob.
-* **Pulpit nawigacyjny**. Część zestawu SDK zadań Webjob znajduje się w usłudze Azure App Service i udostępnia rozbudowane monitorowanie i informacji diagnostycznych dla programów, które korzystają z pakietu NuGet. Nie trzeba napisać kod, aby korzystać z tych funkcji monitorowania i diagnostyki.
+* **Pakiety NuGet**. Pakiety NuGet, czy dodać projekt aplikacji konsoli w usłudze Visual Studio tooa Podaj platforma, która używa Twój kod przez dekoracji metody z atrybutami zestaw SDK zadań Webjob.
+* **Pulpit nawigacyjny**. Część hello zestaw SDK zadań Webjob znajduje się w usłudze Azure App Service i udostępnia rozbudowane monitorowanie i informacji diagnostycznych dla programów, które używają hello pakietów NuGet. Nie masz toouse kodu toowrite te funkcje monitorowania i diagnostyki.
 
 ## <a id="scenarios"></a>Scenariusze
-Poniżej przedstawiono niektóre typowe scenariusze, które można łatwiej obsługiwać przy użyciu zestawu SDK zadań Webjob Azure:
+Poniżej przedstawiono niektóre typowe scenariusze, które można łatwiej obsługiwać z hello Azure WebJobs SDK:
 
-* Obraz przetwarzania lub innych zadań użycie Procesora CPU. Typową funkcją witryn sieci Web jest przekazywanie obrazów lub plików wideo. Często ma być manipulować zawartością po przekazaniu, ale nie chcesz użytkownik Zaczekaj, aż można to zrobić.
-* Przetwarzanie kolejki. Typowa dla frontonu sieci web do komunikowania się z usługą wewnętrznej bazy danych ma używać kolejek. Jeśli witryna sieci Web musi pracować, wypycha wiadomości do kolejki. Usługi zaplecza ściąga wiadomości z kolejki i wykonuje pracę. Możesz użyć kolejki przetwarzania obrazów: na przykład po użytkownik przekazuje liczba plików, umieść nazwy plików w kolejki komunikatów w celu pobrania przez wewnętrznej bazy danych do przetwarzania. Lub można zwiększyć elastyczność lokacji za pomocą kolejek. Na przykład zamiast zapisywania bezpośrednio do bazy danych SQL, napisz do kolejki, poinformuj użytkownika, którego wszystko będzie gotowe, i umożliwić wewnętrznej bazy danych usługi dojścia dużymi opóźnieniami relacyjna baza danych działa. Na przykład kolejki przetwarzania z procesem obrazu zobacz [WebJobs SDK Wprowadzenie — samouczek](websites-dotnet-webjobs-sdk-get-started.md).
-* Agregacja danych RSS. Jeśli witryna jest przechowywana lista źródeł danych RSS, można ściągnąć we wszystkich artykułów ze źródeł danych w tle.
-* Plik konserwacji, takich jak agregowanie lub czyszczenie plików dziennika.  Konieczne może być tworzona przez kilka witryn lub dla oddzielnego okresów, które mają zostać połączone w celu uruchomienia zadania analizy na ich pliki dziennika. Możesz też zaplanować zadanie co tydzień, aby wyczyścić stare pliki dziennika.
-* Transfer danych przychodzących w tabelach platformy Azure. Może być przechowywane pliki i obiekty BLOB i chcesz je przeanalizować i przechowuje dane w tabelach. Funkcja wejściowych można zapisywania wiele wierszy (miliony w niektórych przypadkach) i zestaw SDK zadań Webjob pozwala łatwo zaimplementować tę funkcję. Zestaw SDK zawiera również monitorowanie w czasie rzeczywistym wskaźniki postępu, takie jak liczba wierszy w tabeli.
-* Inne długotrwałych zadań, które mają być uruchamiane w wątku w tle, takie jak [wysyłania wiadomości e-mail](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
-* Zadania, które mają być uruchamiane zgodnie z harmonogramem, takich jak wykonywanie operacji tworzenia kopii zapasowych każdej nocy.
+* Obraz przetwarzania lub innych zadań użycie Procesora CPU. Typową funkcją witryn sieci Web jest hello możliwości tooupload obrazów lub plików wideo. Często ma toomanipulate hello zawartości po przekazaniu, ale nie mają toomake hello użytkownika oczekiwania, podczas gdy można to zrobić.
+* Przetwarzanie kolejki. Typowa dla toocommunicate frontonu sieci web, przy użyciu usługi wewnętrznej bazy danych jest toouse kolejek. Gdy hello witryny sieci Web musi pracować tooget, wypycha wiadomości do kolejki. Usługi zaplecza ściąga wiadomości z kolejki hello i hello pracy. Możesz użyć kolejki przetwarzania obrazów: na przykład po hello użytkownik prześle liczba plików, umieść hello nazwy plików w toobe komunikat kolejki, pobrana przez hello wewnętrznej bazy danych do przetwarzania. Można także użyć czasu odpowiedzi witryny tooimprove kolejek. Na przykład zamiast zapisywania bezpośrednio tooa bazy danych SQL, zapis tooa kolejki, poinformuj użytkownika hello wszystko gotowe i umożliwić hello wewnętrznej bazy danych usługi dojścia dużymi opóźnieniami relacyjna baza danych działa. Na przykład kolejki przetwarzania z procesem obrazu Zobacz hello [WebJobs SDK Wprowadzenie — samouczek](websites-dotnet-webjobs-sdk-get-started.md).
+* Agregacja danych RSS. Jeśli witryna jest przechowywana lista źródeł danych RSS, można ściągnąć we wszystkich artykułów hello ze źródeł danych hello w tle.
+* Plik konserwacji, takich jak agregowanie lub czyszczenie plików dziennika.  Może być tworzona przez kilka witryn lub dla oddzielnego pliki dziennika okresów, które mają być toocombine w kolejności toorun zadania analizy na nich. Można też tooschedule zadań toorun co tydzień tooclean starych plików dziennika.
+* Transfer danych przychodzących w tabelach platformy Azure. Mogą być przechowywane pliki i obiekty BLOB i chcesz tooparse je i hello dane są przechowywane w tabelach. Funkcja wejściowych Hello można zapisywania wiele wierszy (miliony w niektórych przypadkach) i hello zestaw SDK zadań Webjob ułatwia możliwe tooimplement ta funkcja łatwe. Witaj zestaw SDK zawiera również monitorowanie w czasie rzeczywistym wskaźniki postępu, takich jak hello liczba wierszy w tabeli hello.
+* Inne długotrwałych zadań, które mają toorun w wątku w tle, takie jak [wysyłania wiadomości e-mail](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
+* Wszystkie zadania, które mają toorun zgodnie z harmonogramem, takich jak wykonywanie operacji tworzenia kopii zapasowych każdej nocy.
 
-W wielu z tych scenariuszy można skalować aplikacji sieci web, do uruchamiania na wielu maszyn wirtualnych, które będą działać jednocześnie wiele zadań Webjob. W niektórych przypadkach może to spowodować tych samych danych przetwarzana wiele razy, ale nie jest problem podczas korzystania z wbudowanych kolejek, obiektów blob i wyzwalaczy usługi Service Bus zestawu SDK zadań Webjob. Zestaw SDK gwarantuje, że funkcje będą przetwarzane tylko raz dla każdego komunikatu lub obiektu blob.
+W wielu z tych scenariuszy można tooscale toorun aplikacji sieci web, na wiele maszyn wirtualnych, które będą działać jednocześnie wiele zadań Webjob. W niektórych scenariuszach, może to spowodować hello sam danych przetwarzana wiele razy, ale nie stanowi to problemu podczas korzystania z wbudowanych kolejki hello, obiektów blob i wyzwalaczy usługi Service Bus hello zestaw SDK zadań Webjob. Hello SDK gwarantuje, że funkcje będą przetwarzane tylko raz dla każdego komunikatu lub obiektu blob.
 
-Zestaw SDK zadań Webjob ułatwia także do obsługi błędu typowe scenariusze obsługi. Alerty można skonfigurować do wysyłania powiadomień, gdy operacja zakończy się niepowodzeniem i przekroczeń limitu czasu oczekiwania można ustawić tak, aby funkcja została anulowana automatycznie, jeśli nie zakończy się przed upływem określonego limitu czasu.
+Witaj zestaw SDK zadań Webjob ułatwia też łatwo toohandle typowe scenariusze obsługi błędów. Można skonfigurować alerty toosend powiadomienia po funkcji nie powiedzie się i przekroczeń limitu czasu oczekiwania można ustawić tak, aby funkcja została anulowana automatycznie, jeśli nie zakończy się przed upływem określonego limitu czasu.
 
 ## <a id="code"></a>Przykłady kodu
-Kod obsługi typowych zadań, które współpracują z usługą Azure Storage jest proste. W aplikacji konsoli `Main` metody tworzenia `JobHost` obiekt, który koordynuje wywołań do metod pisania. Zestaw SDK zadań Webjob framework wie, kiedy do wywołania metody, i jakie wartości parametrów do użycia na podstawie zestawu SDK zadań Webjob atrybutów używanego w nich. Zestaw SDK udostępnia *wyzwalaczy* które określają, jakie warunki spowodować, że funkcja wywoływana, i *integratorów* określające, jak uzyskać informacji do i z parametrów metody.
+Kod Hello obsługi typowych zadań, które współpracują z usługą Azure Storage jest proste. W aplikacji konsoli `Main` metody tworzenia `JobHost` toomethods pisania wywołuje obiekt, który koordynuje hello. Hello framework zestaw SDK zadań Webjob wie, gdy toocall metody i jakie parametru wartości toouse oparte na powitania zestaw SDK zadań Webjob atrybutów, można użyć w nich. Witaj zestaw SDK zawiera *wyzwalaczy* które określają, jakie warunki spowodować hello toobe funkcja wywoływana, i *integratorów* określające, jak tooget informacji do i z parametrów metody.
 
-Na przykład [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) atrybutu powoduje, że funkcja wywoływana, gdy wiadomość zostanie odebrana w kolejce, a jeśli wiadomość jest w formacie JSON dla tablicy bajtów lub typ niestandardowy, wiadomości automatycznie zdeserializowany. [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) atrybutu wyzwala proces zawsze, gdy nowy obiekt blob jest tworzony na koncie magazynu Azure.
+Na przykład Witaj [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) atrybut powoduje toobe funkcja wywoływana, gdy wiadomość zostanie odebrana w kolejce, a jeśli hello wiadomość jest w formacie JSON dla tablicy bajtów lub typ niestandardowy, wiadomość hello automatycznie zdeserializowany. Witaj [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) atrybutu wyzwala proces zawsze, gdy nowy obiekt blob jest tworzony na koncie magazynu Azure.
 
 Oto prosty program, który sonduje kolejkę i utworzenie obiektu blob dla każdego Odebrano komunikat z kolejki:
 
@@ -67,22 +67,22 @@ Oto prosty program, który sonduje kolejkę i utworzenie obiektu blob dla każde
             writer.WriteLine(inputText);
         }
 
-`JobHost` Obiektu to kontener dla zestawu funkcji tła. `JobHost` Obiekt monitoruje funkcje Obserwujący zdarzeń wyzwalających i wykonuje funkcje po wystąpieniu zdarzenia wyzwalacza. Należy wywołać `JobHost` metodę, aby wskazać, czy Proces kontenera do uruchomienia na bieżącym wątku lub wątku w tle. W tym przykładzie `RunAndBlock` metody uruchamia proces stale w bieżącym wątku.
+Witaj `JobHost` obiektu to kontener dla zestawu funkcji tła. Witaj `JobHost` hello monitorów obiektu funkcje, obserwuje zdarzenia, które mogą powodować je i wykonuje funkcje powitania po wystąpieniu zdarzenia wyzwalacza. Należy wywołać `JobHost` tooindicate metody czy toorun procesu kontenera hello na hello bieżącego wątku lub wątku w tle. Przykład Witaj Witaj `RunAndBlock` metody uruchamia proces hello stale na powitania bieżącego wątku.
 
-Ponieważ `ProcessQueueMessage` metoda w tym przykładzie ma `QueueTrigger` atrybutu wyzwalacza dla tej funkcji jest odebranie nowej kolejki wiadomości. `JobHost` Obiekt oczekuje na nowe komunikaty w kolejce na określonej kolejki ("webjobsqueue" w tym przykładzie) i kiedy zostanie odnaleziony, wywołuje `ProcessQueueMessage`. 
+Ponieważ hello `ProcessQueueMessage` metoda w tym przykładzie ma `QueueTrigger` atrybutu hello wyzwalacza dla tej funkcji jest odbioru hello nowego komunikatu w kolejce. Witaj `JobHost` obiekt oczekuje na nowe komunikaty w kolejce na powitania określonej kolejki ("webjobsqueue" w tym przykładzie) i kiedy zostanie odnaleziony, wywołuje `ProcessQueueMessage`. 
 
-`QueueTrigger` Atrybut wiązania `inputText` wartość komunikat z kolejki. I `Blob` atrybut wiązania `TextWriter` obiektu do obiektu blob o nazwie "element blobname" w kontenerze o nazwie "containername".  
+Witaj `QueueTrigger` atrybutu wiąże hello `inputText` wartość parametru toohello hello kolejki wiadomości. I hello `Blob` atrybut wiązania `TextWriter` obiektu blob tooa o nazwie "element blobname" w kontenerze o nazwie "containername".  
 
         public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
             [Blob("containername/blobname")]TextWriter writer)
 
-Funkcja następnie korzysta z tych parametrów można zapisać wartości komunikatu w kolejce do obiektu blob:
+Funkcja Hello używa następnie te parametry toowrite hello wartość hello kolejki wiadomości toohello blob:
 
         writer.WriteLine(inputText);
 
-Wyzwalacz i integratora funkcje zestawu SDK zadań Webjob znacznego uproszczenia trzeba napisać kod. Niskiego poziomu kod wymagany do przetwarzania kolejek, obiektów blob lub plików lub zainicjować zaplanowanych zadań odbywa się automatycznie przez platformę, zestaw SDK zadań Webjob. Na przykład platformę tworzy kolejek, dla których nie istnieje jeszcze, otwiera kolejkę, odczyty kolejki komunikatów, usuwa kolejka komunikatów podczas przetwarzania ukończenia, tworzy kontenerów obiektów blob, które nie istnieją, ale zapisuje obiekty BLOB i tak dalej.
+Funkcje wyzwalacza i integratora Hello hello zestaw SDK zadań Webjob znacznego uproszczenia kodu hello masz toowrite. Witaj niskiego poziomu kod wymagany tooprocess kolejek, obiektów blob, lub plików lub tooinitiate zaplanowane zadania, odbywa się automatycznie przez hello framework zestaw SDK zadań Webjob. Na przykład hello framework tworzy kolejki, które jeszcze nie istnieje, zostanie otwarta hello kolejki, odczyty kolejki komunikatów, usuwa kolejka komunikatów podczas przetwarzania ukończenia, tworzy kontenerów obiektów blob, które nie istnieją, ale zapisuje tooblobs i tak dalej.
 
-Poniższy przykładowy kod przedstawia różne Wyzwalacze w jednym zadań WebJob: `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, i `ErrorTrigger`. 
+Witaj Poniższy przykładowy kod przedstawia różne Wyzwalacze w jednym zadania WebJob: `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, i `ErrorTrigger`. 
 
 ```
     public class Functions
@@ -120,11 +120,11 @@ Poniższy przykładowy kod przedstawia różne Wyzwalacze w jednym zadań WebJob
         public static void ErrorMonitor(
         [ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
         [SendGrid(
-            To = "admin@emailaddress.com",
+            too= "admin@emailaddress.com",
             Subject = "Error!")]
          SendGridMessage message)
         {
-            // log last 5 detailed errors to the Dashboard
+            // log last 5 detailed errors toohello Dashboard
             log.WriteLine(filter.GetDetailedMessage(5));
             message.Text = filter.GetDetailedMessage(1);
         }
@@ -132,7 +132,7 @@ Poniższy przykładowy kod przedstawia różne Wyzwalacze w jednym zadań WebJob
 ```
 
 ## <a id="schedule"></a>Planowanie
-`TimerTrigger` Atrybut pozwala na uruchamianie zgodnie z harmonogramem funkcji wyzwalacza. Można zaplanować zadanie WebJob jako całość przy użyciu platformy Azure lub harmonogram pojedynczych funkcji zadanie WebJob przy użyciu zestawu SDK zadań Webjob `TimerTrigger`. Oto przykładowy kod.
+Witaj `TimerTrigger` atrybutu zapewnia hello możliwości tootrigger funkcje toorun zgodnie z harmonogramem. Można zaplanować zadanie WebJob, jak zestaw SDK zadań Webjob hello całego za pomocą funkcji poszczególnych Azure lub harmonogram zadania WebJob, używając `TimerTrigger`. Oto przykładowy kod.
 
 ```
 public class Functions
@@ -145,27 +145,27 @@ public class Functions
 }
 ```
 
-Aby uzyskać więcej przykładowy kod, zobacz [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) w repozytorium azure-zadań webjob sdk rozszerzeń w witrynie GitHub.com.
+Aby uzyskać więcej przykładowy kod, zobacz [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) w repozytorium azure-zadań webjob sdk rozszerzenia hello w witrynie GitHub.com.
 
 ## <a name="extensibility"></a>Rozszerzalność
-Nie masz ograniczone do wbudowanej funkcji — zestaw SDK zadań Webjob umożliwia pisanie niestandardowych wyzwalaczy i integratorów.  Na przykład można napisać wyzwalacze zdarzeń pamięci podręcznej i okresowo harmonogramów. [Repozytorium typu open source](https://github.com/Azure/azure-webjobs-sdk-extensions) zawiera [szczegółowy przewodnik na zestaw SDK zadań Webjob rozszerzalności](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) i przykładowy kod i ułatwiają rozpoczęcie pracy zapisywania swoje własne wyzwalacze i integratorów.
+W przypadku innymi toobuilt w funkcji--hello zestaw SDK zadań Webjob pozwala toowrite wyzwalaczy niestandardowych i integratorów.  Na przykład można napisać wyzwalacze zdarzeń pamięci podręcznej i okresowo harmonogramów. [Repozytorium typu open source](https://github.com/Azure/azure-webjobs-sdk-extensions) zawiera [szczegółowy przewodnik na zestaw SDK zadań Webjob rozszerzalności](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) i przykładowy kod toohelp rozpoczęcie zapisywania swoje własne wyzwalacze i integratorów.
 
-## <a id="workerrole"></a>Przy użyciu zestawu SDK zadań Webjob poza zadań Webjob
-Program, który korzysta z zestawu SDK zadań Webjob to standardowa aplikacja konsoli i mogą uruchamiane w dowolnym miejscu — nie ma do uruchamiania jako zadanie WebJob. Program można przetestować lokalnie na komputerze deweloperskim, a w środowisku produkcyjnym można uruchomić w roli procesu roboczego usługi w chmurze lub usługa systemu Windows, jeśli wolisz jeden z tych środowisk. 
+## <a id="workerrole"></a>Przy użyciu hello zestaw SDK zadań Webjob poza zadań Webjob
+Program, który używa hello hello zestaw SDK zadań Webjob to standardowa aplikacja konsoli i można uruchomić w dowolnym miejscu — nie ma toorun jako zadanie WebJob. Hello program można przetestować lokalnie na komputerze deweloperskim i w środowisku produkcyjnym, można uruchamiać go w roli procesu roboczego usługi w chmurze lub usługa Windows Jeśli wolisz jeden z tych środowisk. 
 
-Jednak pulpit nawigacyjny jest dostępny tylko jako rozszerzenie dla aplikacji sieci web w usłudze Azure App Service. Jeśli chcesz uruchomić poza zadanie WebJob i nadal korzystać z pulpitu nawigacyjnego, można skonfigurować aplikacji sieci web, aby użyć tego samego konta magazynu odnoszący się do ciągu połączenia pulpitu nawigacyjnego zestawu SDK zadań Webjob i aplikacji sieci web pulpitu nawigacyjnego zadań Webjob następnie będą wyświetlane dane o wykonanie funkcji z programu, który jest uruchomiona w innym miejscu. Przejść do pulpitu nawigacyjnego za pomocą adresu URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Aby uzyskać więcej informacji, zobacz [pobierania pulpitu nawigacyjnego dla wdrożenia lokalnego przy użyciu zestawu SDK zadań Webjob](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), ale należy pamiętać, że wpis w blogu zawiera stara nazwa ciągu połączenia. 
+Jednak hello pulpit nawigacyjny jest dostępny tylko jako rozszerzenie dla aplikacji sieci web w usłudze Azure App Service. Jeśli mają toorun poza zadanie WebJob i nadal używać hello pulpitu nawigacyjnego, można skonfigurować sieci web toouse aplikacji hello tego samego konta magazynu, że parametry połączenia pulpitu nawigacyjnego zestawu SDK zadań Webjob odwołuje się do i pulpitu nawigacyjnego zadań Webjob, aplikacja sieci web, następnie spowodują wyświetlenie danych dotyczących funkcji wykonanie programu, który jest uruchomiona w innym miejscu. Toohello pulpitu nawigacyjnego można uzyskać za pomocą hello adresu URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. Aby uzyskać więcej informacji, zobacz [pobierania pulpitu nawigacyjnego lokalnego środowiska deweloperskiego przy użyciu zestawu SDK zadań Webjob hello](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), ale należy pamiętać, że wpis w blogu hello zawiera stara nazwa ciągu połączenia. 
 
 ## <a id="nostorage"></a>Funkcje pulpitu nawigacyjnego
-Zestaw SDK zadań Webjob ma wiele zalet, nawet jeśli nie jest używany zestaw SDK zadań Webjob Wyzwalacze lub integratorów:
+zestaw SDK zadań Webjob Hello ma wiele zalet, nawet wtedy, gdy nie jest używany zestaw SDK zadań Webjob Wyzwalacze lub integratorów:
 
-* Można wywołać funkcji z poziomu pulpitu nawigacyjnego.
-* Można powtarzania funkcji z poziomu pulpitu nawigacyjnego.
-* Dzienniki można wyświetlać na pulpicie nawigacyjnym, połączony do określonego zadania WebJob (Dzienniki aplikacji napisane przy użyciu Console.Out, Console.Error, śledzenia, itp.) lub połączony wywołania określonej funkcji, które powstały (Dzienniki napisane przy użyciu `TextWriter` obiekt przekazujący jako parametru funkcji zestawu SDK). 
+* Można wywołać funkcji z hello pulpitu nawigacyjnego.
+* Można powtarzania funkcji z hello pulpitu nawigacyjnego.
+* Dzienniki można wyświetlać w hello pulpitu nawigacyjnego, połączone toohello określonego zadania WebJob (Dzienniki aplikacji napisane przy użyciu Console.Out, Console.Error, śledzenia, itp.) lub połączone toohello wywołania określonej funkcji, które powstały (Dzienniki napisane przy użyciu `TextWriter` obiekt tego zestawu SDK przekazuje funkcja toohello jako parametr powitalne). 
 
-Aby uzyskać więcej informacji, zobacz [jak ręcznie wywołanie funkcji](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) i [jak zapisywanie dzienników](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
+Aby uzyskać więcej informacji, zobacz [jak toomanually wywołanie funkcji](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) i [sposób rejestrowania toowrite](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
 ## <a id="nextsteps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat zestawu SDK zadań Webjob, zobacz [zasobów zalecane zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Aby uzyskać więcej informacji na temat hello zestaw SDK zadań Webjob, zobacz [zasobów zalecane zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-Informacje o najnowszych ulepszeń do zestawu SDK zadań Webjob, zobacz [wersji](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
+Informacje o hello najnowsze ulepszenia toohello zestaw SDK zadań Webjob, zobacz hello [wersji](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
 

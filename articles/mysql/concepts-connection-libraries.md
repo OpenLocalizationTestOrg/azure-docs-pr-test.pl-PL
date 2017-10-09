@@ -1,6 +1,6 @@
 ---
-title: "Biblioteki połączeń dla bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft"
-description: "W tym artykule wymieniono każdej biblioteki lub sterownik programów klienckich można używany do łączenia z bazą danych Azure dla programu MySQL."
+title: biblioteki aaaConnection bazy danych Azure dla programu MySQL | Dokumentacja firmy Microsoft
+description: "W tym artykule wymieniono każdego biblioteki lub sterownik programów klienckich można używać podczas łączenia tooAzure bazy danych dla programu MySQL."
 services: mysql
 author: mswutao
 ms.author: wutao
@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ff439274ec5865d7713dec18d53e7e44f5886457
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Biblioteki połączeń dla bazy danych Azure dla programu MySQL
-Ten temat zawiera listę poszczególnych biblioteki lub sterownik programów klienckich można używany do łączenia z bazą danych Azure dla programu MySQL.
+Ten temat zawiera listę poszczególnych biblioteki lub sterownik programów klienckich można używać podczas łączenia tooAzure bazy danych dla programu MySQL.
 
 ## <a name="client-interfaces"></a>Interfejsy klienta
 MySQL zapewnia łączność sterownik standardowe bazy danych dotyczące korzystania z aplikacji i narzędzi, które są zgodne ze standardami branżowymi ODBC i JDBC MySQL. Każdy system, który współdziała z ODBC i JDBC można użyć MySQL.

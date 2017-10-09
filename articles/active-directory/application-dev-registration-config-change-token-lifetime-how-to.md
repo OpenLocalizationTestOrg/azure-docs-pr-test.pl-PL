@@ -1,6 +1,6 @@
 ---
-title: "Jak zmienić okres istnienia tokenu domyślnie rozwinięte niestandardowych aplikacji | Dokumentacja firmy Microsoft"
-description: "Jak aktualizować zasady okres istnienia tokenu aplikacji, które tworzysz usługi Azure AD"
+title: "Domyślnie okres istnienia tokenu hello toochange aaaHow dla aplikacji utworzonych niestandardowych | Dokumentacja firmy Microsoft"
+description: "Jak tooupdate okres istnienia tokenu zasad aplikacji, które tworzysz usługi Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6e1aa1f2a7c33c1f55c5fb619c618ad43cd96273
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Jak zmienić domyślne okres istnienia tokenu dla aplikacji utworzonych niestandardowych
+# <a name="how-toochange-hello-token-lifetime-defaults-for-a-custom-developed-application"></a>Jak okres istnienia tokenu hello toochange ustawienia domyślne dla aplikacji utworzonych niestandardowych
 
-Azure AD Premium umożliwia deweloperom aplikacji i administratorów dzierżawy, aby skonfigurować okres istnienia tokenów wystawionych dla klientów z systemem innym niż poufne. Okres istnienia tokenu zasady są skonfigurowane na poziomie dzierżawy lub zasobów, do której uzyskuje dostęp.
+Azure AD Premium umożliwia deweloperom aplikacji i dzierżawca Administratorzy tooconfigure hello okres istnienia tokenów wystawionych dla klientów z systemem innym niż poufne. Okres istnienia tokenu zasady są skonfigurowane na poziomie dzierżawy lub hello zasobów, do której uzyskuje dostęp.
 
- * Aby skonfigurować zasady okres istnienia tokenu, należy pobrać [modułu Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+ * tooset zasad okres istnienia tokenu należy toodownload hello [modułu Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
- * Uruchom **Connect AzureAD-Potwierdź** polecenia.
+ * Uruchom hello **Connect AzureAD-Potwierdź** polecenia.
 
- * Oto przykład zasad, która ustawia token odświeżania pojedynczy czynnik maksymalny wiek. Tworzenie zasad:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+ * Oto przykład zasad, która ustawia token odświeżania pojedynczy czynnik maksymalny wiek hello. Utwórz zasadę hello:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Wyewidencjonowanie [okres istnienia tokenu Konfigurowanie](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) dokumentu, aby dowiedzieć się, jak utworzyć inne niestandardowe.
+ * Wyewidencjonowanie hello [okres istnienia tokenu Konfigurowanie](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) jak dokument toolearn toocreate inne niestandardowe.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie okres istnienia tokenu](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>

@@ -1,6 +1,6 @@
 ---
-title: "Raporty dotyczące logowań w portalu usługi Azure Active Directory | Microsoft Docs"
-description: "Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory"
+title: "działanie aaaSign raportów w portalu usługi Azure Active Directory hello | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie działanie toosign raportów w portalu usługi Azure Active Directory hello"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,47 +15,47 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 49590d625a08d7dc189a629b89bab2261c2b4780
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
+# <a name="sign-in-activity-reports-in-hello-azure-active-directory-portal"></a>Raporty aktywności logowania w portalu usługi Azure Active Directory hello
 
-Dzięki raportom usługi Azure Active Directory (Azure AD) w witrynie [Azure Portal](https://portal.azure.com) możesz uzyskać wszystkie informacje, które pomogą ustalić, jak działa środowisko.
+Z usługi Azure Active Directory (Azure AD) raportowania w programie hello [portalu Azure](https://portal.azure.com), można uzyskać informacji hello należy toodetermine jak robi środowiska.
 
-Architektura raportowania w usłudze Azure Active Directory obejmuje następujące składniki:
+Hello raportowania architektury w usłudze Azure Active Directory obejmuje hello następujące składniki:
 
 - **Działanie** 
-    - **Działania związane z logowaniem** — informacje na temat użycia zarządzanych aplikacji i działania użytkownika związane z logowaniem
+    - **Działania logowania** — informacje na temat użycia hello zarządzanych aplikacji i aktywności logowania użytkowników
     - **Dzienniki inspekcji** — informacje o aktywności systemu obejmujące zarządzanie użytkownikami i grupami oraz zarządzane aplikacje i działania dotyczące katalogu.
 - **Bezpieczeństwo** 
-    - **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. Aby uzyskać więcej informacji, zobacz Ryzykowne logowania.
+    - **Ryzykowne logowania** -ryzykowne logowanie jest wskaźnik prób logowania, które mogły zostać wykonane przez osobę, która nie jest właścicielem uzasadnionych hello konta użytkownika. Aby uzyskać więcej informacji, zobacz Ryzykowne logowania.
     - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. Aby uzyskać więcej informacji, zobacz Użytkownicy oflagowani w związku z ryzykiem.
 
-Ten temat zawiera przegląd działań dotyczących logowania.
+Ten temat zawiera omówienie hello logowania działań.
 
 ## <a name="pre-requisite"></a>Wymagania wstępne
 
-### <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
-* Użytkownicy w roli administratora zabezpieczeń lub czytelnika zabezpieczeń
+### <a name="who-can-access-hello-data"></a>Kto ma dostęp do danych hello?
+* Użytkowników w roli administratora zabezpieczeń lub czytnika zabezpieczeń hello
 * Administratorzy globalni
 * Dowolny użytkownik (inny niż administrator) może uzyskać dostęp do danych na temat własnych logowań 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do informacji dotyczących logowania?
-* Dzierżawca musi mieć skojarzoną licencję usługi Azure AD w wersji Premium, aby wyświetlić pełny raport o wszystkich operacjach logowania
+### <a name="what-azure-ad-license-do-you-need-tooaccess-sign-in-activity"></a>Jakie licencji usługi Azure AD potrzebujesz tooaccess logowania działania?
+* Dzierżawy musi mieć licencję programu Azure AD Premium, skojarzone z nim toosee hello nawet wszystkich działań logowania raportu
 
 
 ## <a name="signs-in-activities"></a>Działania związane z logowaniem
 
-Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
+Informacje hello dostarczone przez użytkownika hello logowania raportu można znaleźć tooquestions odpowiedzi, takich jak:
 
-* Co to jest wzorzec logowania użytkownika?
+* Co to jest hello logowania wzorzec użytkownika?
 * Ilu użytkowników zalogowało się w ciągu tygodnia?
-* Jaki jest stan tych logowań?
+* Co to jest hello stan tych logowania?
 
-Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozycja **Logowania** w sekcji Działania usługi **Azure Active**.
+Pierwszy wpis punktu tooall logowania działań dane są **logowania** w sekcji działania hello **usługi Azure Active**.
 
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/61.png "Działania związane z logowaniem")
@@ -63,29 +63,29 @@ Pierwszym punktem wejścia do wszystkich danych dotyczących logowania jest pozy
 
 Dziennik inspekcji zawiera domyślny widok listy, który pokazuje:
 
-- powiązanego użytkownika;
-- aplikację, do której zalogował się użytkownik;
-- stan logowania;
-- czas logowania.
+- Witaj użytkownikowi
+- Użytkownik hello aplikacji Hello jest zalogowany do
+- Witaj stan logowania
+- czas logowania Hello
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/41.png "Działania związane z logowaniem")
 
-Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
+Można dostosować widok listy hello klikając **kolumn** hello w pasku narzędzi.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/19.png "Działania związane z logowaniem")
 
-Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są już wyświetlane.
+To pozwala toodisplay dodatkowe pola lub usuń pola, które są już wyświetlane.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/42.png "Działania związane z logowaniem")
 
-Klikając pozycję w widoku listy, możesz uzyskać wszystkie szczegóły na jej temat.
+Po kliknięciu elementu w widoku listy hello, otrzymasz wszystkich dostępnych informacji o nim.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/43.png "Działania związane z logowaniem")
 
 
 ## <a name="filtering-sign-in-activities"></a>Filtrowanie działań związanych z logowaniem
 
-Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dane logowania przy użyciu następujących pól:
+toonarrow dół hello zgłoszone poziom tooa danych czy działa dla Ciebie, dane można filtrować hello logowania przy użyciu hello następujące pola:
 
 - Przedział czasu
 - Użytkownik
@@ -96,7 +96,7 @@ Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dan
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/44.png "Działania związane z logowaniem")
 
 
-Filtr **Przedział czasu** umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.  
+Witaj **interwał czasu** filtru umożliwia tooyou toodefine przedział czasu dla hello zwróciła dane.  
 Możliwe wartości:
 
 - 1 miesiąc
@@ -106,13 +106,13 @@ Możliwe wartości:
 
 Po wybraniu niestandardowego przedziału czasu możesz skonfigurować godzinę rozpoczęcia i zakończenia.
 
-Filtr **Użytkownik** umożliwia określenie nazwy lub głównej nazwy użytkownika (UPN, user principal name) dla żądanego użytkownika.
+Witaj **użytkownika** filtru pozwala toospecify hello nazwy lub hello główna nazwa użytkownika (UPN) użytkownika hello są dla Ciebie ważne.
 
-Filtr **Aplikacja** umożliwia określenie nazwy żądanej aplikacji.
+Witaj **aplikacji** filtr włącza nazwa hello toospecify aplikacji hello są dla Ciebie ważne.
 
-Filtr **Klient** umożliwia określenie informacji dotyczących żądanego urządzenia.
+Witaj **klienta** filtr włącza toospecify informacji na temat urządzeń hello są dla Ciebie ważne.
 
-Filtr **Stan logowania** umożliwia wybranie jednego z następujących filtrów:
+Witaj **stan logowania** filtr włącza tooselect hello następującego filtru:
 
 - Wszystkie
 - Powodzenie
@@ -121,7 +121,7 @@ Filtr **Stan logowania** umożliwia wybranie jednego z następujących filtrów:
 
 ## <a name="sign-in-activities-shortcuts"></a>Skróty działań związanych z logowaniem
 
-Poza usługą Azure Active Directory witryna Azure Portal zapewnia dwa dodatkowe punkty wejścia do danych dotyczących działań związanych z logowaniem:
+Ponadto tooAzure usługi Active Directory, hello portalu Azure zapewnia dwa danych działania toosign w punkty wejścia dodatkowe:
 
 - Użytkownicy i grupy
 - Aplikacje dla przedsiębiorstw
@@ -129,35 +129,35 @@ Poza usługą Azure Active Directory witryna Azure Portal zapewnia dwa dodatkowe
 
 ### <a name="users-and-groups-sign-ins-activities"></a>Działania związane z logowaniem użytkowników i grup
 
-Dzięki informacjom zawartym w raporcie logowania użytkownika można uzyskać odpowiedzi na pytania, takie jak:
+Informacje hello dostarczone przez użytkownika hello logowania raportu można znaleźć tooquestions odpowiedzi, takich jak:
 
-- Co to jest wzorzec logowania użytkownika?
+- Co to jest hello logowania wzorzec użytkownika?
 - Ilu użytkowników zalogowało się w ciągu tygodnia?
-- Jaki jest stan tych logowań?
+- Co to jest hello stan tych logowania?
 
 
 
-Punktem wyjścia do tych danych jest wykres logowania użytkownika znajdujący się w sekcji **Przegląd** w obszarze **Użytkownicy i grupy**.
+Dane toothis punktu wejścia jest wykres logowania użytkownika hello w hello **omówienie** w obszarze **użytkowników i grup**.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/45.png "Działania związane z logowaniem")
 
-Wykres logowania użytkownika przedstawia tygodniowe agregacje logowań dla wszystkich użytkowników w danym okresie czasu. Domyślny okres to 30 dni.
+Witaj użytkownika logowania wykres przedstawia tygodniowy agregacji znaku dodatków dla wszystkich użytkowników w danym okresie. Domyślna Hello hello okres to 30 dni.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/46.png "Działania związane z logowaniem")
 
-Po kliknięciu dnia na wykresie logowania zostanie wyświetlona szczegółowa lista działań związanych z logowaniem dla tego dnia.
+Po kliknięciu w dniu wykresie hello logowania otrzymasz szczegółową listę hello logowania działań w tym dniu.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/41.png "Działania związane z logowaniem")
 
-Każdy wiersz na liście działań związanych z logowaniem zapewnia szczegółowe informacje o wybranym logowaniu, takie jak:
+Każdy wiersz w oferuje listę działań logowania hello hello szczegółowe informacje na temat hello wybrane logowania takich jak:
 
 * Kto się zalogował?
-* Jaka była nazwa główna użytkownika?
-* Do której aplikacji się logowano?
-* Jaki jest adres IP komputera, z którego się logowano?
-* Jaki był stan logowania?
+* Jaka była hello powiązane UPN?
+* Jakie aplikacja została docelowy hello logowania hello?
+* Co to jest hello adres IP logowania hello?
+* Jaki był stan hello logowania hello?
 
-Opcja **Logowania** umożliwia pełny przegląd logowań wszystkich użytkowników.
+Witaj **logowania** opcja umożliwia pełny przegląd sesje logowania użytkownika.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/51.png "Działania związane z logowaniem")
 
@@ -168,29 +168,29 @@ Opcja **Logowania** umożliwia pełny przegląd logowań wszystkich użytkownik�
 Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można uzyskać odpowiedzi na pytania, takie jak:
 
 * Kto korzysta z aplikacji?
-* Jakie są 3 najczęściej używane aplikacje w organizacji?
+* Co to jest pierwsze 3 aplikacji hello w organizacji?
 * Ostatnio została wdrożona aplikacja. W jaki sposób działa?
 
-Punktem wyjścia do tych danych są 3 najczęściej używane aplikacje w organizacji uwzględnione w raporcie z ostatnich 30 dni znajdującym się w sekcji **Przegląd** w obszarze **Aplikacje dla przedsiębiorstw**.
+Dane toothis punktu wejścia jest pierwsze 3 aplikacji hello w Twojej organizacji w raporcie ostatnich 30 dni hello w hello **omówienie** w obszarze **aplikacje dla przedsiębiorstw**.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/64.png "Działania związane z logowaniem")
 
-Wykres użycia aplikacji przedstawia tygodniowe agregacje logowań 3 najczęściej używanych aplikacji w danym czasie. Domyślny okres to 30 dni.
+Hello aplikacji użycia wykresu co tydzień agregacji logowania dla aplikacji 3 pierwszych w danym okresie. Domyślna Hello hello okres to 30 dni.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/47.png "Działania związane z logowaniem")
 
-Jeśli chcesz, możesz ustawić fokus na konkretnej aplikacji.
+Jeśli chcesz, można ustawić fokusu hello na określonej aplikacji.
 
 
 ![Raportowanie](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Raportowanie")
 
-Po kliknięciu dnia na wykresie użycia aplikacji zostanie wyświetlona szczegółowa lista działań związanych z logowaniem.
+Po kliknięciu w dniu wykresie użycia aplikacji hello otrzymasz szczegółową listę hello logowania działań.
 
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/48.png "Działania związane z logowaniem")
 
 
-Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
+Witaj **logowania** opcja umożliwia pełny przegląd wszystkich aplikacji tooyour zdarzenia logowania.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins/49.png "Działania związane z logowaniem")
 
@@ -198,5 +198,5 @@ Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz dowiedzieć się więcej na temat kodów błędów działań związanych z logowaniem, zobacz [Kody błędów w raportach działań związanych z logowaniem w portalu usługi Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
+Więcej informacji na temat aktywności logowania kody błędów tooknow, zobacz hello [logowania kody błędów raportu działania w portalu usługi Azure Active Directory hello](active-directory-reporting-activity-sign-ins-errors.md).
 

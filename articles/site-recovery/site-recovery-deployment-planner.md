@@ -1,6 +1,6 @@
 ---
-title: "Planista wdrożenia usługi Azure Site Recovery dla oprogramowania VMware na platformie Azure | Microsoft Docs"
-description: "Jest to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery."
+title: "Planowanie wdrożenia usługi Site Recovery aaaAzure dla VMware do platformy Azure | Dokumentacja firmy Microsoft"
+description: "Jest to hello — Podręcznik użytkownika planowania wdrożenia usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,157 +14,157 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a8c13cd47850575769e0186528807bc525bdeec7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planista wdrożenia usługi Azure Site Recovery
-Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
+W tym artykule jest Podręcznik użytkownika Azure lokacji odzyskiwania wdrożenia Planistę hello wdrożeń produkcyjnych VMware do platformy Azure.
 
 ## <a name="overview"></a>Omówienie
 
-Zanim zaczniesz chronić maszyny wirtualne oprogramowania VMware za pomocą usługi Site Recovery, przydziel odpowiednią przepustowość zgodnie z częstotliwością dziennych zmian danych, aby osiągnąć założony cel punktu odzyskiwania. Pamiętaj o lokalnym wdrożeniu odpowiedniej liczby serwerów konfiguracji i serwerów przetwarzania.
+Przed rozpoczęciem ochrony dowolnego maszynach wirtualnych VMware (VM) przy użyciu usługi Site Recovery, Przydziel wystarczającą przepustowość, oparte na dziennych zmian danych szybkość, toomeet Twojego cel punktu odzyskiwania odpowiednią (RPO). Można się toodeploy hello prawo liczba konfiguracji serwerów i procesu serwerów lokalnych.
 
-Musisz także utworzyć właściwą liczbę kont magazynów platformy Azure odpowiedniego typu. Możesz utworzyć konta magazynu w warstwie Standardowa lub Premium, biorąc pod uwagę wzrost w zakresie źródłowych serwerów produkcyjnych z powodu zwiększania użycia w czasie. Wybierz typ magazynu dla maszyny wirtualnej w oparciu o charakterystyki obciążenia (np. operacje we/wy odczytu/zapisu na sekundę (IOPS) lub współczynnik zmian danych) oraz limity usługi Site Recovery.
+Należy również toocreate hello odpowiedniego typu i numer docelowej kontami magazynu Azure. Możesz utworzyć konta magazynu w warstwie Standardowa lub Premium, biorąc pod uwagę wzrost w zakresie źródłowych serwerów produkcyjnych z powodu zwiększania użycia w czasie. Wybierz typ magazynu hello na maszynie Wirtualnej, na podstawie charakterystyk obciążenia (na przykład operacje odczytu/zapisu We/Wy na sekundę [IOPS] lub przenoszenie danych) i ogranicza usługi Site Recovery.
 
-Planista wdrożenia usługi Site Recovery w publicznej wersji zapoznawczej to narzędzie wiersza polecenia dostępne obecnie tylko na potrzeby replikacji z oprogramowania VMware na platformę Azure. To narzędzie pozwala zdalnie profilować maszyny wirtualne oprogramowania VMware (bez żadnego wpływu na środowisko produkcyjne), aby poznać wymagania dotyczące przepustowości i magazynu Azure Storage dla udanej replikacji oraz testu pracy w trybie failover. Narzędzie możesz uruchomić bez instalowania składników usługi Site Recovery w środowisku lokalnym. Jednak w celu uzyskania dokładnych wyników osiągniętej przepływności zaleca się uruchomienie planisty na serwerze z systemem Windows Server spełniającym minimalne wymagania dotyczące serwera konfiguracji usługi Site Recovery, który trzeba będzie wdrożyć na początku procesu wdrażania w środowisku produkcyjnym.
+Hello Site Recovery wdrożenia planistę publicznej wersji zapoznawczej jest narzędziem wiersza polecenia, który jest obecnie dostępny tylko w przypadku scenariusza VMware do platformy Azure hello. Można zdalnie profilu za pomocą tego narzędzia (z produkcji wpływu jakiejkolwiek) toounderstand hello przepustowości i wymagania dotyczące usługi Azure Storage dla pomyślna replikacja maszyny wirtualne VMware i testowanie trybu failover. Narzędzie hello można uruchomić bez konieczności instalowania dowolnej usługi Site Recovery składniki lokalnymi. Jednak tooget dokładne osiągnąć przepływności, zaleca się uruchomienie hello planner w systemie Windows Server, który spełnia minimalne wymagania powitania serwera konfiguracji usługi Site Recovery hello czy ostatecznie musisz toodeploy jako jedną z pierwszych kroków hello w przypadku wdrożenia produkcyjnego.
 
-Narzędzie udostępnia następujące szczegóły:
+Narzędzie Hello zapewnia hello poniższe informacje:
 
 **Ocena zgodności**
 
 * Ocena uprawnień maszyny wirtualnej na podstawie liczby dysków, rozmiaru dysku, liczby operacji we/wy na sekundę, współczynnika zmian i typu rozruchu (EFI/BIOS)
-* Szacowana przepustowość sieci wymagana na potrzeby replikacji przyrostowej
+* Szacowany Hello przepustowość sieci, które są wymagane dla replikacji różnicowej
 
 **Zapotrzebowanie na przepustowość sieci w porównaniu z oceną celu punktu odzyskiwania**
 
-* Szacowana przepustowość sieci wymagana na potrzeby replikacji przyrostowej
-* Przepływność, którą usługa Site Recovery może uzyskać między środowiskiem lokalnym i platformą Azure
-* Liczba maszyn wirtualnych do przetworzenia wsadowego na podstawie szacowanej przepustowości wymagana do ukończenia replikacji początkowej w określonym czasie
+* Szacowany Hello przepustowość sieci, które są wymagane dla replikacji różnicowej
+* Przepływność Hello, który Usługa Site Recovery można pobrać z lokalnego tooAzure
+* Liczba Hello toobatch maszyn wirtualnych, oparte na powitania szacowany toocomplete przepustowości replikacji początkowej w określonym czasie
 
 **Wymagania dotyczące infrastruktury platformy Azure**
 
-* Wymagania dotyczące typu magazynu (konta w warstwie Standardowa lub Premium) dla poszczególnych maszyn wirtualnych
-* Łączna liczba kont magazynu w warstwie Standardowa i Premium do skonfigurowania na potrzeby replikacji
+* Witaj wymaga typu (konto magazynu standard lub premium) dla każdej maszyny Wirtualnej
+* Całkowita liczba toobe konta magazynu standard i premium skonfigurowanej na potrzeby replikacji Hello
 * Propozycje nazw kont magazynu oparte na wskazówkach usługi Azure Storage
-* Rozmieszczanie konta magazynu dla wszystkich maszyn wirtualnych
-* Liczba rdzeni platformy Azure do skonfigurowania przed rozpoczęciem pracy w trybie failover lub testu pracy w trybie failover w ramach subskrypcji
-* Zalecany rozmiar poszczególnych maszyn wirtualnych platformy Azure
+* Witaj umieszczania konta magazynu dla wszystkich maszyn wirtualnych
+* Liczba Hello Azure rdzeni toobe przed test trybu failover lub pracy awaryjnej na powitania subskrypcji
+* Hello zalecane maszyny Wirtualnej Azure rozmiar dla każdego lokalnej maszyny Wirtualnej
 
 **Wymagania dotyczące infrastruktury lokalnej**
-* Wymagana liczba serwerów konfiguracji i serwerów przetwarzania do wdrożenia w środowisku lokalnym
+* Witaj wymagane liczby serwerów konfiguracji i procesu toobe serwerów wdrożonych lokalnie
 
 >[!IMPORTANT]
 >
->Ponieważ obciążenie będzie prawdopodobnie zwiększać się wraz z upływem czasu, wszystkie poprzednie obliczenia narzędzia są wykonywane przy założeniu 30-procentowego współczynnika wzrostu wartości charakterystyk obciążenia i przy użyciu wartości 95. percentyla wszystkich metry profilowania (operacje we/wy odczytu/zapisu na sekundę, współczynnik zmian danych itd.). Oba te elementy (współczynnik wzrostu i obliczenie wartości percentyla) można konfigurować. Więcej informacji na temat współczynnika wzrostu można znaleźć w sekcji „Zagadnienia związane ze współczynnikiem wzrostu”. Więcej informacji na temat wartości percentyla można znaleźć w sekcji „Wartość percentyla użyta w obliczeniach”.
+>Ponieważ obciążenie jest prawdopodobnie tooincrease wraz z upływem czasu, wszystkie hello poprzedniego narzędzia obliczenia są wykonywane przy założeniu współczynnik wzrostu 30 procent cech obciążenia i przy użyciu 95 wartość percentylu hello wszystkie metryki profilowania (churn — IOPS, odczytu/zapisu i dlatego określonymi). Oba te elementy (współczynnik wzrostu i obliczenie wartości percentyla) można konfigurować. toolearn więcej informacji o wskaźnik wzrostu zawiera sekcja "zagadnienia dotyczące współczynnik wzrostu" hello. toolearn więcej informacji na temat wartość percentylu w sekcji Witaj "Wartość percentylu używany do obliczania hello".
 >
 
 ## <a name="requirements"></a>Wymagania
-Narzędzie obejmuje dwa główne etapy — profilowanie i generowanie raportu. Jest też dostępny trzeci etap umożliwiający obliczanie tylko przepływności. Wymagania dotyczące serwera, z którego inicjowane jest profilowanie i pomiar przepływności, zostały przedstawione w poniższej tabeli:
+Narzędzie Hello ma dwa główne etapy: profilowania i generowanie raportów. Istnieje również trzecia opcja toocalculate przepustowości tylko. Hello wymagania dotyczące serwera hello, z których hello jest inicjowane profilowania i przepływność miary są prezentowane w hello w poniższej tabeli:
 
 | Wymaganie dotyczące serwera | Opis|
 |---|---|
-|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Microsoft Windows Server 2012 R2<br>(w idealnej sytuacji spełniający co najmniej [zalecenia dotyczące rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet Microsoft Visual C++ Redistributable dla programu Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Dostęp do platformy Azure przez Internet z tego serwera</li><li>Konto magazynu Azure</li><li>Dostęp administratora na serwerze</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>Ustawienia poziomu statystyk programu VMware vCenter powinny być na poziomie 2 lub wyższym</li><li>Zezwalaj na port 443: planista wdrożenia usługi ASR używa tego portu do nawiązywania połączenia z serwerem vCenter/hostem ESXi</ul></ul>|
+|Profilowanie i pomiar przepływności| <ul><li>System operacyjny: Microsoft Windows Server 2012 R2<br>(co najmniej najlepiej pasujące hello [rozmiaru zalecenia dotyczące serwera konfiguracji hello](https://aka.ms/asr-v2a-on-prem-components))</li><li>Konfiguracja maszyny: 8 wirtualnych procesorów CPU, 16 GB pamięci RAM, dysk twardy o rozmiarze 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Pakiet Microsoft Visual C++ Redistributable dla programu Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>TooAzure dostęp do Internetu z tego serwera</li><li>Konto magazynu Azure</li><li>Dostęp administratora na powitania serwera</li><li>Minimalnie 100 GB wolnego miejsca na dysku (przy założeniu 1000 maszyn wirtualnych z średnio trzema dyskami na każdej z nich i profilowanych przez 30 dni)</li><li>VMware vCenter statystyki poziomu ustawień powinna być ustawiona, too2 lub wysokiego poziomu</li><li>Zezwalaj na porcie 443: funkcja automatycznego odzyskiwania systemu wdrożenia Planistę używa tego portu tooconnect toovCenter/hoście ESXi</ul></ul>|
 | Generowanie raportu | Dowolny komputer z systemem Windows lub Windows Server i programem Microsoft Excel 2013 lub nowszym |
-| Uprawnienia użytkowników | Uprawnienia tylko do odczytu dla konta użytkownika używanego do uzyskiwania dostępu do serwera VMware vCenter/hosta VMware vSphere ESXi podczas profilowania |
+| Uprawnienia użytkowników | Uprawnienia tylko do odczytu dla konta użytkownika hello, który został użyty tooaccess hello VMware vCenter server/vSphere VMware ESXi host podczas profilowania |
 
 > [!NOTE]
 >
->Narzędzie może profilować tylko maszyny wirtualne z dyskami VMDK i RDM. Nie pozwala ono profilować maszyn wirtualnych z dyskami iSCSI ani NFS. Usługa Site Recovery obsługuje dyski iSCSI i NFS w przypadku serwerów VMware, ponieważ planista wdrożenia nie znajduje się na gościu i profiluje tylko przy użyciu liczników wydajności programu vCenter, jednak narzędzie nie ma wglądu w te typy dysków.
+>Narzędzie Hello można profilu tylko maszyny wirtualne z dyskami VMDK i model RDM. Nie pozwala ono profilować maszyn wirtualnych z dyskami iSCSI ani NFS. Usługa Site Recovery obsługuje iSCSI i dysków systemu plików NFS serwerów VMware, ale ponieważ hello wdrożenia planistę nie znajduje się w hello gościa i jego profili tylko przy użyciu liczników wydajności vCenter, narzędzie hello nie ma wgląd w tych typów dysku.
 >
 
-## <a name="download-and-extract-the-public-preview"></a>Pobieranie i wyodrębnianie publicznej wersji zapoznawczej
-1. Pobierz najnowszą wersję [planisty wdrożenia usługi Site Recovery w ramach publicznej wersji zapoznawczej](https://aka.ms/asr-deployment-planner).  
-Narzędzie jest spakowane w folderze ZIP. Bieżąca wersja narzędzia obsługuje tylko replikację z oprogramowania VMware do platformy Azure.
+## <a name="download-and-extract-hello-public-preview"></a>Pobierać i wyodrębniać hello publicznej wersji zapoznawczej
+1. Pobieranie najnowszej wersji hello hello [publicznej wersji zapoznawczej usługi Site Recovery wdrożenia planistę](https://aka.ms/asr-deployment-planner).  
+Narzędzie Hello jest spakowany w folderze pliku zip. Bieżąca wersja narzędzia hello Hello scenariuszu tylko hello VMware do platformy Azure.
 
-2. Skopiuj folder ZIP na serwer z systemem Windows, z którego chcesz uruchomić narzędzie.  
-Narzędzie można uruchomić z systemu Windows Server 2012 R2, jeśli serwer ma dostęp do sieci umożliwiający połączenie z serwerem vCenter/hostem vSphere ESXi przechowującym maszyny wirtualne do profilowania. Zalecamy jednak uruchamianie narzędzia na serwerze, którego konfiguracja sprzętowa spełnia [wytyczne dotyczące określania rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components). Jeśli wdrożono już lokalnie składniki usługi Site Recovery, uruchom narzędzie na serwerze konfiguracji.
+2. Skopiuj z którego mają zostać toorun hello narzędzia hello .zip folderu toohello systemu Windows server.  
+Jeśli na serwerze hello sieci dostępu tooconnect toohello vCenter server/ESXi hostem vSphere przechowujący toobe maszyn wirtualnych hello profilowane, można uruchomić narzędzie hello z systemu Windows Server 2012 R2. Jednak zaleca się uruchomienie narzędzia hello na serwerze, na których konfiguracja sprzętu spełnia hello [wskazówek dotyczących rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components). Jeśli wdrożono już usługi Site Recovery składniki lokalnie, należy uruchomić narzędzie hello z powitania serwera konfiguracji.
 
- Na serwerze, na którym uruchamiasz narzędzie, zalecamy korzystanie z takiej samej konfiguracji sprzętu jak serwer konfiguracji (z wbudowanym serwerem przetwarzania). Dzięki takiej konfiguracji masz pewność, że osiągnięta przepływność zgłaszana przez narzędzie jest zgodna z rzeczywistą przepływnością, którą usługa Site Recovery może osiągnąć podczas replikacji. Obliczanie przepływności zależy od dostępnej przepustowości sieci na serwerze i konfiguracji sprzętu (procesor CPU, magazyn itd.) serwera. Jeśli uruchamiasz narzędzie z innego serwera, obliczana jest przepływność z tego serwera na platformę Microsoft Azure. Ponadto ponieważ konfiguracja sprzętu serwera może różnić się od konfiguracji serwera konfiguracji, dane osiągniętej przepływności zgłaszanej przez narzędzie mogą być niedokładne.
+ Zaleca się, że masz hello tą samą konfiguracją sprzętową jako serwer konfiguracji hello, (mającej serwera przetwarzania w wbudowane) na serwerze hello, w którym należy uruchomić narzędzie hello. Taka konfiguracja zapewnia tego przepływności hello osiągnąć tego hello narzędzie raporty dopasowań hello rzeczywiste przepływność, którą Site Recovery można osiągnąć podczas replikacji. Obliczanie przepływności Hello zależy od dostępnej przepustowości sieci na powitania serwera i konfiguracji sprzętu (procesora CPU, pamięci masowej i tak dalej) powitania serwera. Po uruchomieniu narzędzia hello z innym serwerem przepływności hello jest obliczana na podstawie tego tooMicrosoft serwera Azure. Ponadto ponieważ konfiguracja sprzętu hello powitania serwera może się różnić od hello konfiguracji serwera, hello osiągnięte przepływność, którą hello narzędzie raporty mogą być niedokładne.
 
-3. Wyodrębnij folder ZIP.  
-Folder zawiera wiele plików i podfolderów. Plik wykonywalny nosi nazwę ASRDeploymentPlanner.exe i znajduje się w folderze nadrzędnym.
+3. Wyodrębnij hello folderu zip.  
+Hello folder zawiera wiele plików i podfolderów. plik wykonywalny Hello jest ASRDeploymentPlanner.exe w hello folderu nadrzędnego.
 
     Przykład:  
-    Skopiuj plik ZIP na dysk E:\ i wyodrębnij go.
+    Skopiuj tooE pliku zip hello: \ dysków i wyodrębnij go.
    E:\ASR Deployment Planner-Preview_v1.2.zip
 
     E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Możliwości
-Narzędzie wiersza polecenia (ASRDeploymentPlanner.exe) możesz uruchomić w jednym z trzech następujących trybów:
+Narzędzie wiersza polecenia hello (ASRDeploymentPlanner.exe) można uruchomić w jednym z następujących trzech trybów hello:
 
 1. Profilowanie  
 2. Generowanie raportu
 3. Uzyskiwanie informacji o przepływności
 
-Najpierw uruchom narzędzie w trybie profilowania, aby zebrać informacje na temat współczynnika zmian danych i operacji we/wy na sekundę maszyny wirtualnej. Następnie uruchom narzędzie w celu wygenerowania raportu, aby uzyskać wymagania dotyczące przepustowości i magazynu.
+Najpierw należy uruchomić narzędzie hello profilowania postęp dokonany w trybie toogather wirtualna danych i IOPS. Następnie przeprowadź hello narzędzia toogenerate hello raport toofind hello przepustowości i magazynu wymagania dotyczące sieci.
 
 ## <a name="profiling"></a>Profilowanie
-W trybie profilowania narzędzie planisty wdrożenia łączy się z serwerem vCenter/hostem vSphere ESXi w celu zebrania danych wydajności maszyny wirtualnej.
+W trybie profilowania narzędzi planowania wdrożenia hello łączy toohello vCenter server/vSphere ESXi hosta toocollect danych dotyczących wydajności hello maszyny Wirtualnej.
 
-* Profilowanie nie wpływa na wydajność produkcyjnych maszyn wirtualnych, ponieważ nie nawiązujesz z nimi bezpośredniego połączenia. Wszystkie dane wydajności są zbierane z serwera vCenter/hosta vSphere ESXi.
-* Aby upewnić się, że profilowanie ma niewielki wpływ na wydajność serwera, co 15 minut narzędzie przesyła zapytanie na serwer vCenter/do hosta vSphere ESXi. Interwał zapytań nie ma wpływu na dokładność profilowania, ponieważ narzędzie zapisuje dane liczników wydajności z każdej minuty.
+* Profilowanie nie wpływa na wydajność hello produkcji hello maszyn wirtualnych, ponieważ nie połączenie bezpośrednie jest nawiązywane toothem. Wszystkie dane dotyczące wydajności są zbierane z hello vCenter server/ESXi hostem vSphere.
+* tooensure, że istnieje niewielki wpływ na powitania serwera z powodu profilowania hello narzędzia kwerendy hello vCenter server/ESXi hostem vSphere co 15 minut. Ten interwał kwerendy obniżają dokładności profilowania, ponieważ narzędzie hello przechowuje dane licznika wydajności co minutę.
 
-### <a name="create-a-list-of-vms-to-profile"></a>Tworzenie listy maszyn wirtualnych do profilowania
-Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. Wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi można uzyskać za pomocą poniższych poleceń programu VMware vSphere PowerCLI, wykonując kroki poniższej procedury. Alternatywnie można wyświetlić w pliku listę przyjaznych nazw lub adresów IP maszyn wirtualnych, które chcesz profilować ręcznie.
+### <a name="create-a-list-of-vms-tooprofile"></a>Utwórz listę tooprofile maszyny wirtualne
+Najpierw należy listę toobe maszyn wirtualnych hello profilowaniu. Wszystkie nazwy hello maszyn wirtualnych na hoście ESXi vCenter server/vSphere można uzyskać przy użyciu hello VMware vSphere PowerCLI poleceń w hello procedury. Alternatywnie można wyświetlić w pliku hello przyjaznych nazw lub adresów IP hello maszyn wirtualnych, które mają tooprofile ręcznie.
 
-1. Zaloguj się do maszyny wirtualnej z zainstalowanym programem VMware vSphere PowerCLI.
-2. Otwórz konsolę programu VMware vSphere PowerCLI.
-3. Upewnij się, że zasady wykonywania skryptu zostały włączone. Jeśli zostały wyłączone, uruchom konsolę programu VMware vSphere PowerCLI w trybie administratora, a następnie włącz zasady, uruchamiając następujące polecenie:
+1. Zaloguj się toohello wirtualna tego VMware vSphere PowerCLI jest zainstalowana w.
+2. Otwórz program hello VMware vSphere PowerCLI.
+3. Upewnij się, że zasady wykonywania hello jest włączona obsługa hello skryptu. Jeśli jest ono wyłączone, uruchom hello VMware vSphere PowerCLI konsolę w trybie administratora, a następnie włącz ją, uruchamiając następujące polecenie hello:
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Może być konieczne uruchomienie poniższego polecenia, jeśli element Connect-VIServer nie został rozpoznany jako nazwa polecenia cmdlet.
+4. Możesz hello toorun optionly potrzeby następujące polecenia, jeżeli Connect VIServer nie został rozpoznany jako hello nazwę polecenia cmdlet.
  
             Add-PSSnapin VMware.VimAutomation.Core 
 
-5. Aby pobrać wszystkie nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi i zapisać listę w pliku TXT, uruchom dwa poniższe polecenia.
+5. tooget nazwy hello wszystkich maszyn wirtualnych w programie vCenter server/vSphere ESXi hosta i przechowywania listy hello pliku txt, uruchom hello dwa polecenia wymienione w tym miejscu.
 Zamień wartości &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; i &lsaquo;outputfile.txt&rsaquo; na własne wartości.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-6. Otwórz plik wyjściowy w Notatniku, a następnie skopiuj nazwy wszystkich maszyn wirtualnych do profilowania do innego pliku (np. ProfileVMList.txt) tak, aby w każdym wierszu znajdowała się jedna nazwa maszyny wirtualnej. Ten plik jest używany jako źródło danych wejściowych dla parametru *-VMListFile* narzędzia wiersza polecenia.
+6. Otwórz w Notatniku plik wyjściowy hello, a następnie skopiuj hello nazwy wszystkich maszyn wirtualnych, które mają tooprofile tooanother pliku (na przykład ProfileVMList.txt), co nazwa maszyny Wirtualnej w jednym wierszu. Ten plik jest używany jako wejściowych toohello *- VMListFile* parametru hello narzędzia wiersza polecenia.
 
-    ![Lista nazw maszyn wirtualnej w planiście wdrożenia](./media/site-recovery-deployment-planner/profile-vm-list.png)
+    ![Lista nazw maszyn wirtualnych w hello wdrożenia planistę](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
 ### <a name="start-profiling"></a>Rozpoczynanie profilowania
-Po utworzeniu listy maszyn wirtualnych do profilowania można uruchomić narzędzie w trybie profilowania. Poniżej przedstawiono listę obowiązkowych i opcjonalnych parametrów narzędzia w trybie profilowania.
+Po utworzeniu listy hello profilowane toobe maszyn wirtualnych, można uruchomić narzędzie hello w trybie profilowania. W tym miejscu jest lista hello obowiązkowe i opcjonalne parametry toorun narzędzie hello w trybie profilowania.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 | Nazwa parametru | Opis |
 |---|---|
 | -Operation | StartProfiling |
-| -Server | W pełni kwalifikowana nazwa domeny lub adres IP serwera vCenter/hosta vSphere ESXi, którego maszyny wirtualne mają być profilowane.|
-| -User | Nazwa użytkownika łączącego się z serwerem vCenter/hostem vSphere ESXi. Użytkownik musi mieć minimalnie uprawnienia tylko do odczytu.|
-| -VMListFile | Plik zawierający listę maszyn wirtualnych do profilowania. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę/jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwa maszyny wirtualnej określona w pliku powinna być taka sama jak nazwa maszyny wirtualnej na serwerze vCenter/hoście vSphere ESXi.<br>Na przykład plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>maszyna_wirtualna_A</li><li>10.150.29.110</li><li>maszyna_wirtualna_B</li><ul> |
-| -NoOfDaysToProfile | Czas trwania profilowania w dniach. Zalecamy przeprowadzanie profilowania przez więcej niż 15 dni, aby umożliwić zaobserwowanie wzorca obciążenia w środowisku względem danego okresu i użycie go do udostępnienia dokładnego zalecenia. |
-| -Directory | (Opcjonalnie) Ścieżka UNC (Universal Naming Convention) lub ścieżka katalogu lokalnego, w której są przechowywane dane profilowania wygenerowane podczas profilowania. Jeśli nazwa katalogu nie zostanie podana, jako katalog domyślny zostanie użyty katalog o nazwie „ProfiledData” w bieżącej ścieżce. |
-| -Password | (Opcjonalnie) Hasło do użycia podczas nawiązywania połączenia z serwerem vCenter/hostem vSphere ESXi. Jeśli nie określisz go teraz, monit o podanie hasła zostanie wyświetlony podczas wykonywania polecenia.|
-| -StorageAccountName | (Opcjonalnie) Nazwa konta magazynu używana do wyszukiwania osiągalnej przepływności na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu obliczenia przepływności.|
-| -StorageAccountKey | (Opcjonalnie) Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
-| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj tego parametru, jeśli Twoim docelowym regionem świadczenia usługi Azure są chmury wersji platformy Azure dla administracji USA lub chińska wersja platformy Azure. |
+| -Server | Witaj w pełni kwalifikowaną nazwę domeny lub adres IP hello vCenter server/ESXi hostem vSphere którego maszyny wirtualne są toobe profilowaniu.|
+| -User | Witaj użytkownika nazwa tooconnect toohello vCenter server/ESXi hostem vSphere. Witaj, użytkownik musi toohave dostęp tylko do odczytu, co najmniej.|
+| -VMListFile | Plik Hello, który zawiera listę hello profilowane toobe maszyn wirtualnych. Ścieżka pliku Hello może być bezwzględny lub względny. Witaj plik powinien zawierać jeden adres IP/Nazwa maszyny Wirtualnej w jednym wierszu. Nazwa maszyny wirtualnej określona w pliku hello powinien hello w taki sam jak nazwa maszyny Wirtualnej hello na powitania vCenter server/ESXi hostem vSphere.<br>Na przykład plik hello VMList.txt zawiera hello następujące maszyny wirtualne:<ul><li>maszyna_wirtualna_A</li><li>10.150.29.110</li><li>maszyna_wirtualna_B</li><ul> |
+| -NoOfDaysToProfile | Uruchom Hello liczbę dni, dla których profilowania jest toobe. Zaleca się uruchamiania profilowania przez ponad 15 dni tooensure, który hello wzorzec obciążenia w danym środowisku za pośrednictwem hello określony okres zaobserwowano i używać tooprovide dokładne zalecenia. |
+| -Directory | (Opcjonalnie) hello UNC universal naming convention () lub dane generowane podczas profilowania profilowania toostore ścieżkę katalogu lokalnego. Jeśli nie podano nazwę katalogu, o nazwie "ProfiledData" hello, ścieżka bieżącego katalogu hello będzie używany jako hello domyślny katalog. |
+| -Password | (Opcjonalnie) hello hasło toouse tooconnect toohello vCenter server/ESXi hostem vSphere. Jeśli nie określisz teraz, pojawi się monit dla niego po wykonaniu polecenia hello.|
+| -StorageAccountName | Nazwy konta magazynu hello (opcjonalnie), która jest używana toofind hello przepływności osiągalne do replikacji danych z lokalnego tooAzure. Narzędzie Hello przekazywania testu danych toothis konta toocalculate przepływności.|
+| -StorageAccountKey | Klucz konta magazynu (opcjonalnie) hello używanego konta magazynu hello tooaccess. Przejdź toohello portalu Azure > kont magazynu ><*nazwy konta magazynu*>> Ustawienia > klucze dostępu > klucz1 (lub podstawowy klucz dostępu dla konta magazynu klasycznego). |
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru hello, gdy urządzenie docelowe region platformy Azure jest chmury Azure instytucji rządowych Stanów Zjednoczonych lub chińskiej wersji platformy Azure. |
 
 
-Zalecamy, aby maszyny wirtualne były profilowane przez co najmniej 15 do 30 dni. Podczas profilowania jest uruchomiony proces ASRDeploymentPlanner.exe. Czas profilowania w narzędziu jest określany w dniach. Jeśli chcesz przeprowadzić profilowanie w ciągu kilku godzin lub minut w celu szybkiego przetestowania narzędzia w publicznej wersji zapoznawczej, musisz przekonwertować wartość czasu na równoważność liczby dni. Aby na przykład profilowanie trwało 30 minut, musisz wprowadzić wartość 30/(60*24) = 0,021 dnia. Minimalny dozwolony czas profilowania to 30 minut.
+Firma Microsoft zaleca profil maszyn wirtualnych dla co najmniej 15 dni too30. Podczas profilowania okres hello ASRDeploymentPlanner.exe kontynuowanie działania. Narzędzie Hello przyjmuje profilowania czasu danych wejściowych w dniach. Jeśli chcesz tooprofile przez kilka godzin lub minut szybkiego testu narzędzia hello w publicznej wersji zapoznawczej hello, konieczne będzie tooconvert hello czas na równoważne miary hello dni. Na przykład tooprofile przez 30 minut, hello dane wejściowe muszą być 30/(60*24) = 0.021 dni. Witaj minimalne dozwolone profilowania czasu wynosi 30 minut.
 
-Podczas profilowania można przekazać nazwę i klucz konta magazynu w celu znalezienia osiągalnej przepływności usługi Site Recovery podczas replikacji z serwera konfiguracji lub serwera przetwarzania na platformę Azure. Jeśli nazwa i klucz konta magazynu nie zostaną przekazane podczas profilowania, narzędzie nie obliczy osiągalnej przepływności.
+Podczas profilowania, nazwę konta magazynu i klucza toofind hello przepływność, którą Site Recovery można uzyskać w czasie hello replikacji z serwera konfiguracji hello lub proces serwera tooAzure można przekazać opcjonalnie. Jeśli hello nazwę konta magazynu i klucz nie zostaną przekazane podczas profilowania, narzędzie hello nie oblicza osiągalna przepływność.
 
-Możesz uruchomić wiele wystąpień narzędzia dla różnych zestawów maszyn wirtualnych. Upewnij się, że nazwy maszyn wirtualnych nie powtarzają się w żadnym zestawie profilowania. Jeśli na przykład profilowano dziesięć maszyn wirtualnych (MW1–MW10) i po kilku dniach chcesz przeprowadzić profilowanie kolejnych pięciu maszyn wirtualnych (MW11–MW15), możesz uruchomić narzędzie z poziomu innej konsoli wiersza polecenia dla drugiego zestawu maszyn wirtualnych (MW11–MW15). Upewnij się, że drugi zestaw maszyn wirtualnych nie zawiera żadnych nazw maszyn wirtualnych z pierwszego wystąpienia profilowania, lub użyj innego katalogu wyjściowego dla drugiego przebiegu. Jeśli dwa wystąpienia narzędzia są używane na potrzeby profilowania tych samych maszyn wirtualnych i korzystają z tego samego katalogu wyjściowego, zostanie wygenerowany niepoprawny raport.
+Można uruchomić wiele wystąpień narzędzia powitania dla różnych zestawów maszyn wirtualnych. Upewnij się, że hello nazw maszyn wirtualnych nie są powtarzane w żadnym hello profilowania zestawów. Na przykład, jeśli mają profilowane dziesięć maszyn wirtualnych (VM1 za pośrednictwem VM10), a po upływie kilku dni ma tooprofile innego pięciu maszyn wirtualnych (VM11 za pośrednictwem VM15), można uruchomić narzędzie hello z innej konsoli wiersza polecenia dla hello drugi zestaw maszyn wirtualnych (VM11 za pośrednictwem VM15). Upewnij się, że hello drugi zestaw maszyn wirtualnych nie ma żadnych nazw maszyn wirtualnych z pierwszego wystąpienia profilowania hello lub użyć katalogu inny wynik dla hello drugi Uruchom. Jeśli dwa wystąpienia narzędzia hello są używane do profilowania hello tej samej maszyny wirtualne i użycie hello tego samego katalogu wyjściowego, hello wygenerowany raport będzie nieprawidłowa.
 
-Konfiguracja maszyn wirtualnych jest przechwytywana raz na początku operacji profilowania i zapisywana w pliku o nazwie VMDetailList.xml. Te informacje są używane podczas generowania raportu. Żadne zmiany konfiguracji maszyny wirtualnej (np. zwiększenie liczby rdzeni, dysków lub kart sieciowych) wprowadzone od początku do końca okresu profilowania nie są przechwytywane. Jeśli konfiguracja profilowanej maszyny wirtualnej zmieniła się w trakcie profilowania w publicznej wersji zapoznawczej, poniżej przedstawiono obejście pozwalające uzyskać najnowsze szczegóły maszyny wirtualnej podczas generowania raportu:
+Konfiguracje maszyny Wirtualnej są przechwytywane raz na początku hello hello profilowanie operacji i przechowywane w pliku o nazwie VMDetailList.xml. Te informacje są używane podczas generowania raportu hello. Zmiany w konfiguracji maszyny Wirtualnej (na przykład zwiększonej liczby rdzeni, dyski lub kart sieciowych) z hello początku toohello zakończenia profilowania nie są przechwytywane. Jeśli PROFILOWANEGO konfiguracji maszyny Wirtualnej została zmieniona w trakcie hello profilowania w publicznej wersji zapoznawczej hello, w tym miejscu jest hello obejście tooget najnowsze maszyny Wirtualnej szczegóły podczas generowania raportu hello:
 
-* Utworzenie kopii zapasowej pliku VMdetailList.xml i usunięcie pliku z jego bieżącej lokalizacji.
-* Przekazanie argumentów -User i -Password podczas generowania raportu.
+* Wykonaj kopię zapasową VMdetailList.xml i usunąć hello pliku z jego bieżącej lokalizacji.
+* Argument jest przekazywany - i - hasło użytkownika w czasie generowania raportu hello.
 
-Polecenie profilowania powoduje wygenerowanie kilku plików w katalogu profilowania. Nie usuwaj żadnych plików, ponieważ wpływa to na proces generowania raportów.
+Witaj profilowania polecenie generuje kilka plików w hello profilowania katalogu. Nie usuwaj żadnych plików hello, ponieważ wykonanie tej wpływa na sposób generowania raportów.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Przykład 1: profilowanie maszyn wirtualnych przez 30 dni i znajdowanie przepływności między środowiskiem lokalnym i platformą Azure
+#### <a name="example-1-profile-vms-for-30-days-and-find-hello-throughput-from-on-premises-tooazure"></a>Przykład 1: Profil VMs 30 dni i Znajdź hello przepływności z lokalnymi tooAzure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -175,63 +175,63 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Przykład 3: profilowanie maszyn wirtualnych przez 1 godzinę w celu szybkiego przetestowania narzędzia
+#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-hello-tool"></a>Przykład 3: Profil z maszyn wirtualnych 1 godziny szybkiego testu narzędzia hello
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
 
 >[!NOTE]
 >
->* Jeśli serwer z działającym narzędziem został ponownie uruchomiony lub uległ awarii albo jeśli zamknięto narzędzie za pomocą klawiszy Ctrl+C, profilowane dane zostaną zachowane. Może jednak brakować profilowanych danych z ostatnich 15 minut. W takiej sytuacji uruchom narzędzie jeszcze raz w trybie profilowania po ponownym uruchomieniu serwera.
->* Jeśli przekazano nazwę i klucz konta magazynu, narzędzie mierzy przepływność na ostatnim etapie profilowania. Jeśli narzędzie zostanie zamknięte przed ukończeniem profilowania, przepływność nie zostanie obliczona. Aby znaleźć przepływność przed wygenerowaniem raportu, można uruchomić operację GetThroughput w konsoli wiersza polecenia. W przeciwnym razie wygenerowany raport nie będzie zawierać informacji o przepływności.
+>* Jeśli serwer hello narzędzia hello jest uruchomiona na ponownego rozruchu lub wystąpiła awaria, lub Jeśli zamkniesz hello narzędzie przy użyciu klawiszy Ctrl + C, hello profilowane danych są zachowywane. Istnieje jednak prawdopodobieństwo Brak hello ostatnich 15 minut PROFILOWANEGO danych. W wystąpieniu należy ponownie uruchomić narzędzie hello w trybie profilowania po uruchomieniu powitania serwera.
+>* Gdy hello nazwę konta magazynu i klucz są przekazywane, hello narzędzia środki hello przepływności w ostatnim kroku hello profilowania. Jeśli narzędzie hello jest zamknięta przed zakończeniem profilowania, hello przepływności nie jest obliczana. toofind hello przepływności przed wygenerowaniem hello raportu, można uruchomić operacji GetThroughput hello z wiersza polecenia konsoli hello. W przeciwnym razie hello wygenerowany raport nie będzie zawierać informacje o przepływności hello.
 
 
 ## <a name="generate-a-report"></a>Generowanie raportu
-Narzędzie generuje plik programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu zawierające podsumowanie wszystkich zaleceń dotyczące wdrożenia. Raport nosi nazwę DeploymentPlannerReport_<*unikatowy_identyfikator_numeryczny*>.xlsm i jest umieszczany w wybranym katalogu.
+Narzędzie Hello generuje pliku programu Microsoft Excel z włączoną obsługą makr (plik XLSM) jako dane wyjściowe raportu hello, który znajduje się podsumowanie wszystkich hello zalecenia dotyczące wdrożenia. Raport Hello nosi nazwę DeploymentPlannerReport_ <*Unikatowy identyfikator liczbowy*> określić xlsm i hello umieszczonych w katalogu.
 
-Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania raportu. Poniższa tabela zawiera listę obowiązkowych i opcjonalnych parametrów narzędzia uruchamianego w trybie generowania raportu.
+Po zakończeniu profilowania hello narzędzie można uruchomić w trybie generowania raportów. w poniższej tabeli Hello zawiera listę toorun parametry obowiązkowe i opcjonalne narzędzie w trybie generowania raportu.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
 |Nazwa parametru | Opis |
 |-|-|
 | -Operation | GenerateReport |
-| -Server |  W pełni kwalifikowana nazwa domeny lub adres IP serwera vCenter/vSphere (nazwa lub adres IP muszą być takie same jak użyte podczas profilowania) z profilowanymi maszynami wirtualnymi, dla których ma zostać wygenerowany raport. Pamiętaj, że jeśli podczas profilowania użyto serwera vCenter, nie można użyć serwera vSphere podczas generowania raportu i odwrotnie.|
-| -VMListFile | Plik zawierający listę profilowanych maszyn wirtualnych, dla których będzie generowany raport. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę lub jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwy maszyn wirtualnych określone w pliku powinny być takie same jak nazwy maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi i zgodne z nazwami użytymi podczas profilowania.|
-| -Directory | (Opcjonalnie) Ścieżka UNC lub ścieżka katalogu lokalnego, w której są przechowywane profilowane dane (pliki wygenerowane podczas profilowania). Te dane są wymagane do wygenerowania raportu. Jeśli nie określisz nazwy, zostanie użyty katalog „ProfiledData”. |
-| -GoalToCompleteIR | (Opcjonalnie) Czas w godzinach, w którym musi zostać ukończona replikacja początkowa profilowanych maszyn wirtualnych. Wygenerowany raport zawiera liczbę maszyn wirtualnych, dla których można ukończyć replikację początkową w określonym czasie. Wartość domyślna to 72 godziny. |
-| -User | (Opcjonalnie) Nazwa użytkownika do użycia podczas nawiązywania połączenia z serwerem vCenter/vSphere. Nazwa jest używana do pobierania najnowszych informacji o konfiguracji maszyn wirtualnych, takich jak liczba dysków, liczba rdzeni czy liczba kart sieciowych, do zastosowania w raporcie. Jeśli nie podasz nazwy, zostaną użyte informacje o konfiguracji zebrane na początku profilowania. |
-| -Password | (Opcjonalnie) Hasło do użycia podczas nawiązywania połączenia z serwerem vCenter/hostem vSphere ESXi. Jeśli nie określisz hasła jako parametru, później zostanie wyświetlony monit o podanie hasła podczas wykonywania polecenia. |
-| -DesiredRPO | (Opcjonalnie) Żądany cel punktu odzyskiwania w minutach. Wartość domyślna to 15 minut.|
-| -Bandwidth | Przepustowość w Mb/s. Parametr służący do obliczania celu punktu odzyskiwania, który można osiągnąć dla określonej przepustowości. |
-| -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). Oprócz parametru *StartDate* należy także określić parametr *EndDate*. W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
-| -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. Oprócz parametru *EndDate* należy także określić parametr *StartDate*. W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
-| -GrowthFactor | (Opcjonalnie) Współczynnik wzrostu wyrażony jako wartość procentowa. Wartość domyślna to 30 procent. |
-| -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana z uwzględnieniem tego, czy na potrzeby pracy w trybie failover/testu pracy w trybie failover jest używany dysk zarządzany, czy niezarządzany. |
+| -Server |  powitania serwera vCenter/vSphere w pełni kwalifikowana nazwa domeny lub adresu IP (Użyj hello sama nazwa lub adres IP, który jest używany w czasie hello profilowania) gdzie hello profilowane maszyn wirtualnych, których raport jest generowany toobe znajdują się. Należy pamiętać, że jeśli serwer vCenter jest używana w momencie hello profilowania, nie można użyć programu vSphere do generowania raportów i na odwrót.|
+| -VMListFile | Witaj pliku, który zawiera listy hello PROFILOWANEGO maszyn wirtualnych, które hello raportu jest toobe wygenerowany dla. Ścieżka pliku Hello może być bezwzględny lub względny. Plik Hello powinien zawierać jedną nazwę maszyny Wirtualnej lub adres IP w każdym wierszu. Witaj nazw maszyn wirtualnych, które są określone w pliku hello powinien hello w taki sam jak hello nazw maszyn wirtualnych na powitania vCenter server/ESXi hostem vSphere i dopasowania, w której był używany podczas profilowania.|
+| -Directory | (Opcjonalnie) hello UNC lub ścieżki katalogu lokalnego, w którym hello profilowane danych (pliki generowane podczas profilowania) są przechowywane. Te dane są wymagane do generowania raportów hello. Jeśli nie określisz nazwy, zostanie użyty katalog „ProfiledData”. |
+| -GoalToCompleteIR | (Opcjonalnie) hello liczbę godzin, w których hello replikacji początkowej hello profilowane maszyn wirtualnych musi toobe ukończone. Witaj wygenerowany raport zawiera hello liczbę maszyn wirtualnych, dla których można ukończyć początkowej replikacji w hello określony czas. Domyślnie Hello jest 72 godzin. |
+| -User | (Opcjonalnie) hello użytkownika toouse tooconnect toohello vCenter/vSphere serwer nazw. Nazwa Hello jest używany toofetch hello najnowsze informacje o konfiguracji hello maszyn wirtualnych, takie jak hello liczba dysków, liczby rdzeni i liczba kart sieciowych, toouse w raporcie hello. Jeśli nie podano nazwy hello, zebrane na początku hello hello profilowania kickoff informacje o konfiguracji hello jest używany. |
+| -Password | (Opcjonalnie) hello hasło toouse tooconnect toohello vCenter server/ESXi hostem vSphere. Jeśli hasło hello nie jest określony jako parametru, pojawi się monit dla niego później podczas wykonywania polecenia hello. |
+| -DesiredRPO | (Opcjonalnie) hello żądany cel punktu odzyskiwania, w minutach. Witaj domyślna to 15 minut.|
+| -Bandwidth | Przepustowość w Mb/s. Witaj parametru toouse toocalculate Witaj cel punktu odzyskiwania, który może zostać osiągnięty dla hello określić przepustowość. |
+| -StartDate | (Opcjonalnie) hello Data i godzina rozpoczęcia w formacie MM-DD-YYYY:HH:MM (w formacie 24-godzinnym). Oprócz parametru *StartDate* należy także określić parametr *EndDate*. Jeśli określona jest datą rozpoczęcia hello raport jest generowany dla hello profilowane dane zbierane między datą rozpoczęcia i datą zakończenia. |
+| -EndDate | (Opcjonalnie) hello Data i godzina zakończenia w formacie MM-DD-YYYY:HH:MM (w formacie 24-godzinnym). Oprócz parametru *EndDate* należy także określić parametr *StartDate*. W przypadku EndDate hello raport jest generowany dla hello profilowane dane zbierane między datą rozpoczęcia i datą zakończenia. |
+| -GrowthFactor | Współczynnik wzrostu hello (opcjonalnie), wyrażone jako procent. Witaj domyślna to 30 procent. |
+| -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba Hello maszyn wirtualnych, które można umieścić pod uwagę pojedynczy magazyn jest obliczana biorąc pod uwagę, czy trybu Failover i testowania pracy w trybie failover maszyny wirtualnej jest wykonywana na dysków zarządzanych zamiast niezarządzane dysku. |
 
-#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Przykład 1: generowanie raportu przy użyciu wartości domyślnych, gdy profilowane dane znajdują się na dysku lokalnym
+#### <a name="example-1-generate-a-report-with-default-values-when-hello-profiled-data-is-on-hello-local-drive"></a>Przykład 1: Generowanie raportu z wartościami domyślnymi, gdy hello profilowane danych znajduje się na dysku lokalnym hello
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Przykład 2: generowanie raportu, gdy profilowane dane znajdują się na serwerze zdalnym
-Użytkownik musi mieć uprawnienia odczytu/zapisu w katalogu zdalnym.
+#### <a name="example-2-generate-a-report-when-hello-profiled-data-is-on-a-remote-server"></a>Przykład 2: Generowanie raportu po hello profilowane danych na serwerze zdalnym
+Powinien mieć dostęp do odczytu/zapisu na powitania katalog zdalny.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Przykład 3: generowanie raportu przy użyciu określonej przepustowości i celu ukończenia replikacji początkowej w określonym czasie
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-toocomplete-ir-within-specified-time"></a>Przykład 3: Generowanie raportu z określonym przepustowość i celem toocomplete IR w określonym czasie
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Przykład 4: generowanie raportu przy użyciu współczynnika wzrostu 5 procent zamiast domyślnego współczynnika 30 procent
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-hello-default-30-percent"></a>Przykład 4: Generowanie raportu współczynnik wzrostu 5 procent zamiast hello domyślne 30 procent
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Przykład 5: generowanie raportu przy użyciu podzestawu profilowanych danych
-Załóżmy, że masz profilowane dane z 30 dni i chcesz wygenerować raport tylko z 20 dni.
+Na przykład w ciągu 30 dni danych profilowanych i mają toogenerate raportu tylko 20 dni.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
@@ -241,12 +241,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-## <a name="percentile-value-used-for-the-calculation"></a>Wartość percentyla używana do obliczenia
-**Jaka domyślna wartość percentyla metryk wydajności zebranych podczas profilowania jest używana przez narzędzie podczas generowania raportu?**
+## <a name="percentile-value-used-for-hello-calculation"></a>Wartość percentylu używany do obliczania hello
+**Jakie domyślna wartość percentylu hello metryki wydajności zebrane podczas profilowania ma hello narzędzia do użycia podczas generowania raportu?**
 
-Domyślnie narzędzie używa wartości 95. percentyla operacji we/wy odczytu i zapisu na sekundę, operacji we/wy zapisu na sekundę i współczynnika zmian danych zebranych podczas profilowania wszystkich maszyn wirtualnych. Dzięki tej metryce masz pewność, że ewentualna szczytowa wartość 100. percentyla, która może wystąpić na maszynach wirtualnych z powodu tymczasowych zdarzeń, nie będzie używana do określania wymagań dotyczących docelowego konta magazynu ani przepustowości źródłowej. Zdarzenie tymczasowe to na przykład uruchamiane raz dziennie zadanie tworzenia kopii zapasowej, działanie polegające na okresowym indeksowaniu bazy danych lub generowaniu raportu analitycznego albo inne podobne, krótkotrwałe zdarzenia występujące w danym momencie czasowym.
+Hello narzędzia domyślne toohello 95. percentyl wartości odczytu/zapisu IOPS, zapisać IOPS i tworzeniem danych, które są zbierane podczas profilowania wszystkich hello maszyn wirtualnych. Ta metryka zapewnia kolekcji percentyl 100 tego hello napotkać maszyn wirtualnych ze względu na tymczasowy zdarzenia jest docelowy wymagania konto magazynu i przepustowości źródła toodetermine nie jest używany. Zdarzenie tymczasowe to na przykład uruchamiane raz dziennie zadanie tworzenia kopii zapasowej, działanie polegające na okresowym indeksowaniu bazy danych lub generowaniu raportu analitycznego albo inne podobne, krótkotrwałe zdarzenia występujące w danym momencie czasowym.
 
-Korzystanie z wartości 95. percentyla oddaje rzeczywistą charakterystykę obciążenia i zapewnia najlepszą wydajność, gdy te obciążenia działają na platformie Azure. Nie przewidujemy konieczności zmiany tej wartości numerycznej. Jeśli nie zmieniasz wartości (np. na 90. percentyl), możesz zaktualizować plik konfiguracji *ASRDeploymentPlanner.exe.config* w folderze domyślnym i zapisać go w celu wygenerowania nowego raportu dotyczącego istniejących profilowanych danych.
+Przy użyciu 95. percentyl wartości oferuje prawdziwy obraz właściwości rzeczywiste obciążenie który umożliwia hello najlepszą wydajność uruchomionej hello obciążeń na platformie Azure. Nie przewidujemy, że będzie potrzebny toochange ten numer. W przypadku zmiany wartości hello (toohello 90-procentowy, na przykład), można zaktualizować pliku konfiguracji hello *ASRDeploymentPlanner.exe.config* w hello domyślny folder i zapisać ją toogenerate nowego raportu na powitania istniejącej profilowaniu dane.
 ```
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
@@ -256,17 +256,17 @@ Korzystanie z wartości 95. percentyla oddaje rzeczywistą charakterystykę obci
 ## <a name="growth-factor-considerations"></a>Zagadnienia związane ze współczynnikiem wzrostu
 **Dlaczego podczas planowania wdrożenia warto wziąć pod uwagę współczynnik wzrostu?**
 
-Uwzględnianie wzrostu w charakterystyce obciążenia jest niezwykle ważne przy zakładaniu potencjalnego wzrostu użycia wraz z upływem czasu. W przypadku zmiany charakterystyki po włączeniu ochrony nie ma możliwości przełączenia do innego konta magazynu w celu zapewnienia ochrony bez wyłączenia i ponownego włączenia ochrony.
+Jest krytyczne tooaccount na wzrost cech obciążenia przy założeniu możliwy wzrost użycia wraz z upływem czasu. Po ochrony znajduje się w miejscu, zmiana właściwości Twoje obciążenie, nie można przełączyć bez wyłączenie i ponowne włączenie ochrony hello tooa innego konta magazynu do ochrony.
 
-Załóżmy na przykład, że dzisiaj maszyna wirtualna mieści się na standardowym koncie replikacji magazynu. W ciągu następnych trzech miesięcy prawdopodobnie wystąpią następujące zmiany:
+Załóżmy na przykład, że dzisiaj maszyna wirtualna mieści się na standardowym koncie replikacji magazynu. Witaj trzy kolejne miesiące kilka zmian są prawdopodobnie toooccur:
 
-* Wzrośnie liczba użytkowników aplikacji uruchamianej na maszynie wirtualnej.
-* Zwiększony wynikowy współczynnik zmiany danych na maszynie wirtualnej będzie wymagać przeniesienia jej do magazynu w warstwie Premium, aby replikacja w usłudze Site Recovery przebiegała wystarczająco szybko.
-* W konsekwencji trzeba będzie wyłączyć i ponownie włączyć ochronę konta magazynu w warstwie Premium.
+* zwiększy Hello liczby użytkowników hello aplikację, która działa na powitania maszyny Wirtualnej.
+* Wynikowa przenoszenie zwiększona Hello na powitania maszyny Wirtualnej wymaga hello wirtualna toogo toopremium magazynu, dzięki czemu można bieżąco replikacji usługi Site Recovery.
+* W rezultacie będzie mieć toodisable i ponownie włączyć konto magazynu premium tooa ochrony.
 
-Zdecydowanie zalecamy zaplanowanie wzrostu podczas planowania wdrożenia i jeśli wartość domyślna to 30 procent. Ty najlepiej znasz wzorzec użycia swoich aplikacji i projekcje wzrostu, możesz więc odpowiednio zmienić tę wartość podczas generowania raportu. Ponadto możesz wygenerować wiele raportów dla różnych współczynników wzrostu i tych samych profilowanych danych oraz określić, które zalecenia dotyczące docelowego konta magazynu i przepustowości źródłowej będą dla Ciebie optymalne.
+Zdecydowanie zaleca się zaplanowanie wzrostu podczas planowania wdrożenia i gdy hello wartość domyślna to 30 procent. Ekspert hello znajdują się na projekcje Twojej aplikacji w sposób użycia wzorca i wzrost i tę liczbę można zmienić odpowiednio podczas generowania raportu. Ponadto możesz generować raporty, wiele z różnych czynników wzrostu z hello sam profilowane danych i ustalić, jakie zalecenia przepustowości docelowym, jak magazyn i źródła Najlepsza.
 
-Wygenerowany raport programu Microsoft Excel zawiera następujące informacje:
+Raport programu Excel Hello wygenerowany zawiera hello następujących informacji:
 
 * [Dane wejściowe](site-recovery-deployment-planner.md#input)
 * [Zalecenia](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
@@ -279,24 +279,24 @@ Wygenerowany raport programu Microsoft Excel zawiera następujące informacje:
 
 ## <a name="get-throughput"></a>Uzyskiwanie informacji o przepływności
 
-Aby oszacować przepływność osiągalną dla usługi Site Recovery podczas replikacji między środowiskiem lokalnym i platformą Azure, uruchom narzędzie w trybie uzyskiwania informacji o przepływności (GetThroughput). Narzędzie oblicza przepływność z serwera, na którym uruchomiono to narzędzie. W idealnej sytuacji ten serwer jest oparty na przewodniku dotyczącym zmian rozmiaru serwera konfiguracji. Jeśli wdrożono już lokalnie składniki infrastruktury usługi Site Recovery, uruchom narzędzie na serwerze konfiguracji.
+Przepływność hello tooestimate usługi Site Recovery można uzyskać z lokalnymi tooAzure podczas replikacji, uruchom narzędzie hello w trybie GetThroughput. Narzędzie Hello oblicza się, że przepływność hello z serwera hello hello narzędzie działa. Najlepiej, jeśli ten serwer jest oparta na powitania serwera zmiany rozmiaru w podręczniku konfiguracji. Jeśli usługi Site Recovery składniki lokalnej infrastruktury zostały już wdrożone, należy uruchomić narzędzie hello na powitania serwera konfiguracji.
 
-Otwórz konsolę wiersza polecenia i przejdź do folderu narzędzia do planowania wdrożenia usługi Site Recovery. Uruchom program ASRDeploymentPlanner.exe z poniższymi parametrami.
+Otwórz konsolę wiersza polecenia i przejdź do folderu Narzędzia do planowania wdrażania usługi Site Recovery toohello. Uruchom program ASRDeploymentPlanner.exe z poniższymi parametrami.
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
 |Nazwa parametru | Opis |
 |-|-|
 | -Operation | GetThroughput |
-| -Directory | (Opcjonalnie) Ścieżka UNC lub ścieżka katalogu lokalnego, w której są przechowywane profilowane dane (pliki wygenerowane podczas profilowania). Te dane są wymagane do wygenerowania raportu. Jeśli nie określono nazwy katalogu, jest używany katalog „ProfiledData”. |
-| -StorageAccountName | Nazwa konta magazynu używana w celu znalezienia użytej przepustowości na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu określenia użytej przepustowości. |
-| -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
-| -VMListFile | Plik zawierający listę maszyn wirtualnych, które mają być profilowane, na potrzeby obliczenia użytej przepustowości. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę/jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwy maszyn wirtualnych określone w pliku powinny być takie same jak nazw maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi.<br>Na przykład plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj tego parametru, jeśli Twoim docelowym regionem świadczenia usługi Azure są chmury wersji platformy Azure dla administracji USA lub chińska wersja platformy Azure. |
+| -Directory | (Opcjonalnie) hello UNC lub ścieżki katalogu lokalnego, w którym hello profilowane danych (pliki generowane podczas profilowania) są przechowywane. Te dane są wymagane do generowania raportów hello. Jeśli nie określono nazwy katalogu, jest używany katalog „ProfiledData”. |
+| -StorageAccountName | Nazwa konta magazynu Hello został użyty hello przepustowości toofind do replikacji danych z lokalnego tooAzure. Witaj narzędzie przekazywania testu danych toothis magazynu konta toofind hello przepustowości. |
+| -StorageAccountKey | klucz konta magazynu Hello, który został użyty konta magazynu hello tooaccess. Przejdź toohello portalu Azure > kont magazynu ><*nazwy konta magazynu*>> Ustawienia > klucze dostępu > klucz1 (lub podstawowy klucz dostępu dla konta magazynu klasycznego). |
+| -VMListFile | Plik Hello, który zawiera listę hello profilowane dla obliczania hello przepustowości toobe maszyn wirtualnych. Ścieżka pliku Hello może być bezwzględny lub względny. Witaj plik powinien zawierać jeden adres IP/Nazwa maszyny Wirtualnej w jednym wierszu. nazwy maszyny Wirtualnej Hello określone w pliku hello powinien hello w taki sam jak hello nazw maszyn wirtualnych na powitania vCenter server/ESXi hostem vSphere.<br>Na przykład plik hello VMList.txt zawiera hello następujące maszyny wirtualne:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru hello, gdy urządzenie docelowe region platformy Azure jest chmury Azure instytucji rządowych Stanów Zjednoczonych lub chińskiej wersji platformy Azure. |
 
-Narzędzie tworzy kilka plików asrvhdfile<#>.vhd (gdzie znak „#” to liczba plików) o rozmiarze 64 MB w określonym katalogu. Narzędzie przekazuje te pliki na konto magazynu w celu znalezienia informacji o przepływności. Po zmierzeniu przepływności narzędzie usuwa wszystkie pliki z konta magazynu i serwera lokalnego. Jeśli działanie narzędzia zostanie z jakiegokolwiek powodu przerwane podczas obliczania przepływności, nie usunie ono plików z magazynu ani z serwera lokalnego. Trzeba będzie usunąć je ręcznie.
+Narzędzie Hello tworzy kilka asrvhdfile 64 MB VHD # <> plików (gdzie "#" jest hello liczbę plików) na powitania określonego katalogu. Narzędzie Hello przekazuje hello pliki toohello konta toofind hello przepływności. Po przepływność hello jest mierzona, narzędzie hello usuwa wszystkie pliki hello z konta magazynu hello i powitania serwera lokalnego. Narzędzie hello jest przerwane przyczyn jest obliczenie przepływności, nie powoduje usunięcia hello pliki z magazynu hello lub powitania serwera lokalnego. Toodelete, należy je ręcznie.
 
-Przepływność jest mierzona w określonym momencie i jest maksymalną przepływnością osiągalną dla usługi Site Recovery podczas replikacji, jeśli wszystkie pozostałe czynniki pozostają bez zmian. Jeśli na przykład aplikacja zacznie używać większej przepustowości w tej samej sieci, rzeczywista przepływność będzie się zmieniać podczas replikacji. Jeśli używasz polecenia GetThroughput na serwerze konfiguracji, narzędzie nie uwzględnia chronionych maszyn wirtualnych ani replikacji w toku. Wynik pomiaru przepływności jest inny, jeśli operacja GetThroughput została uruchomiona przy wysokim współczynniku zmian danych chronionych maszyn wirtualnych. Zalecamy uruchomienie narzędzia w różnych momentach podczas profilowania, aby sprawdzić osiągalne poziomy przepływności w różnym czasie. Raport narzędzia zawiera ostatnio zmierzoną przepływność.
+Witaj przepływności jest mierzony w określonym punkcie w czasie i jest hello maksymalną przepływność, którą można osiągnąć usługi Site Recovery, podczas replikacji, pod warunkiem że będą inne czynniki hello takie same. Na przykład, jeśli zaczyna żadnej aplikacji korzystanie z większej przepustowości w tej samej sieci, przepływności rzeczywiste hello zmienia się podczas replikacji powitalne. Hello polecenia GetThroughput korzystający z konfiguracji serwera, narzędzia hello nie rozpoznaje żadnych chronionych maszyn wirtualnych i trwającej replikacji. Hello wynik przepływność mierzoną hello jest inny, jeśli hello GetThroughput operacji jest uruchamiany, gdy hello chronione maszyny wirtualne mają wysokie danych churn —. Zaleca się uruchomienie hello narzędzia w różnych punktach w czasie podczas profilowania toounderstand przepływności, jakie można osiągnąć poziomy w różnym czasie. W raporcie hello hello narzędzie wyświetla hello ostatniego zmierzona przepustowość.
 
 ### <a name="example"></a>Przykład
 ```
@@ -305,98 +305,98 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 >[!NOTE]
 >
-> Uruchom narzędzie na serwerze z magazynem i procesorem CPU o takiej samej charakterystyce jak serwer konfiguracji.
+> Uruchom narzędzie hello na serwerze, który ma hello tego samego magazynu i procesora CPU właściwości powitania serwera konfiguracji.
 >
-> W przypadku replikacji ustaw zalecaną przepustowość tak, aby spełniała wymagania celu punktu odzyskiwania przez 100 procent czasu. Jeśli nie widzisz wzrostu osiągniętej przepływności zgłoszonej przez narzędzie po ustawieniu odpowiedniej przepustowości, sprawdź następujące kwestie:
+> W przypadku replikacji hello zestaw zalecane przepustowości toomeet hello RPO 100 procent czasu hello. Po ustawieniu przepustowości prawo hello, jeśli nie widzisz podnieść przepustowość hello osiągnięte zgłoszone przez narzędzie hello hello następujące:
 >
->  1. Ustal, czy w sieci jest używana technologia QoS (Quality of Service) ograniczająca przepływność usługi Site Recovery.
+>  1. Toodetermine należy sprawdzić, czy istnieje żadnej sieci jakości usług (QoS), który jest ograniczanie przepływności usługi Site Recovery.
 >
->  2. Ustal, czy magazyn usługi Site Recovery znajduje się w najbliższym obsługiwanym fizycznym regionie platformy Microsoft Azure, aby zminimalizować opóźnienie sieci.
+>  2. Toodetermine należy sprawdzić, czy magazyn usługi Site Recovery jest hello najbliższej fizycznie obsługiwanych opóźnienia sieci toominimize region Microsoft Azure.
 >
->  3. Sprawdź charakterystyki magazynu lokalnego, aby ustalić, czy można ulepszyć sprzęt (np. zastąpić dysk twardy dyskiem SSD).
+>  3. Toodetermine właściwości z lokalnego magazynu należy sprawdzić, czy można zwiększyć hello sprzętu (na przykład dysk twardy tooSSD).
 >
->  4. Zmień ustawienia usługi Site Recovery na serwerze przetwarzania, aby [zwiększyć przepustowość sieci na potrzeby replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+>  4. Zmienianie ustawień usługi Site Recovery hello w serwera przetwarzania hello zbyt[zwiększyć ilość hello przepustowości sieci używanej w ramach replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
 ## <a name="recommendations-with-desired-rpo-as-input"></a>Zalecenia dotyczące danych wejściowych w postaci żądanego celu punktu odzyskiwania
 
 ### <a name="profiled-data"></a>Profilowane dane
 
-![Widok profilowanych danych w planiście wdrożenia](./media/site-recovery-deployment-planner/profiled-data-period.png)
+![Widok danych profilowane Hello hello wdrożenia planistę](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
-**Okres profilowanych danych**: okres, podczas którego działało profilowanie. Domyślnie narzędzie uwzględnia w obliczeniu wszystkie profilowane dane, o ile nie jest generowany raport za okres wyznaczony przy użyciu opcji StartDate i EndDate podczas generowania raportu.
+**Okres danych profilowanych**: hello okres, podczas którego hello profilowanie zostało uruchomione. Domyślnie narzędzie hello obejmuje wszystkie dane PROFILOWANEGO obliczania hello, chyba że generuje raport hello w danym okresie, używając opcji datą rozpoczęcia i datą zakończenia podczas generowania raportu.
 
-**Nazwa serwera**: nazwa lub adres IP hosta VMware vCenter lub ESXi, dla którego jest generowany raport dotyczący maszyn wirtualnych.
+**Nazwa serwera**: hello nazwę lub adres IP hello VMware vCenter lub hosta ESXi jest generowany raport którego maszyn wirtualnych.
 
-**Żądany cel punktu odzyskiwania**: cel punktu odzyskiwania dla danego wdrożenia. Domyślnie wymagana przepustowość sieci jest obliczana dla wartości celu punktu odzyskiwania równych 15, 30 i 60 minut. Odpowiednie wartości są aktualizowane w arkuszu zgodnie z wybraną wartością. W przypadku użycia parametru *DesiredRPOinMin* podczas generowania raportu ta wartość jest wyświetlana w obszarze wyniku żądanego celu punktu odzyskiwania.
+**Żądany cel punktu odzyskiwania**: hello cel punktu odzyskiwania dla danego wdrożenia. Domyślnie program hello wymagana przepustowość sieci jest obliczana dla wartości RPO 15, 30 i 60 minut. Na podstawie hello zaznaczenia, wartości hello, których to dotyczy zostaną zaktualizowane na powitania arkusza. Jeśli używasz hello *DesiredRPOinMin* parametr podczas generowania raportu hello, wartości podane w hello wynik żądany cel punktu odzyskiwania.
 
 ### <a name="profiling-overview"></a>Omówienie profilowania
 
-![Wyniki profilowania w planiście wdrożenia](./media/site-recovery-deployment-planner/profiling-overview.png)
+![Profilowanie powoduje hello wdrożenia planistę](./media/site-recovery-deployment-planner/profiling-overview.png)
 
-**Łączna liczba profilowanych maszyn wirtualnych**: całkowita liczba maszyn wirtualnych, których profilowane dane są dostępne. Jeśli parametr VMListFile zawiera nazwy nieprofilowanych maszyn wirtualnych, te maszyny wirtualne nie zostaną uwzględnione podczas generowania raportów i zostaną wykluczone z łącznej liczby profilowanych maszyn wirtualnych.
+**Łączna liczba maszyn wirtualnych profilowane**: hello całkowitą liczbę maszyn wirtualnych, których PROFILOWANEGO dane są dostępne. Jeśli hello VMListFile ma nazw żadnych maszyn wirtualnych, które nie zostały profilowane, te maszyny wirtualne nie są wliczane hello generowania raportu i są wykluczone z liczby całkowitej maszyn wirtualnych PROFILOWANEGO hello.
 
-**Zgodne maszyny wirtualne**: liczba maszyn wirtualnych, które mogą być chronione na platformie Azure przy użyciu usługi Site Recovery. Jest to łączna liczba zgodnych maszyn wirtualnych, dla których są obliczane: wymagana przepustowość sieci, liczba kont magazynu, liczba rdzeni platformy Azure oraz liczba serwerów konfiguracji i dodatkowych serwerów przetwarzania. Szczegóły wszystkich maszyn wirtualnych są dostępne w sekcji „Zgodne maszyny wirtualne”.
+**Maszyny wirtualne zgodne**: hello liczbę maszyn wirtualnych, które mogą być chronione tooAzure przy użyciu usługi Site Recovery. Jest hello całkowitą liczbę zgodne maszyn wirtualnych, dla których hello są obliczane wymagana przepustowość sieci, liczba kont magazynu, liczba rdzeni Azure i liczby serwerów konfiguracji oraz dodatkowych procesów serwerów. Szczegóły Hello co zgodne maszyny wirtualnej są dostępne w sekcji "Zgodny maszyn wirtualnych" hello.
 
-**Niezgodne maszyny wirtualne**: liczba profilowanych maszyn wirtualnych, które nie są zgodne na potrzeby ochrony za pomocą usługi Site Recovery. Przyczyny niezgodności wymieniono w sekcji „Niezgodne maszyny wirtualne”. Jeśli plik VMListFile zawiera nazwy maszyn wirtualnych, które nie były profilowane, te maszyny wirtualne są wykluczane z liczby niezgodnych maszyn wirtualnych. Dla tych maszyn wirtualnych jest wyświetlany tekst „Nie znaleziono danych” na końcu sekcji „Niezgodne maszyny wirtualne”.
+**Maszyny wirtualne niezgodne**: hello liczbę profilowanych maszyn wirtualnych, które są niezgodne dla ochrony z usługą Site Recovery. powód niezgodności Hello są wymienione w sekcji "Niezgodny maszyn wirtualnych" hello. Jeśli hello VMListFile ma nazw żadnych maszyn wirtualnych, które nie zostały profilowane, te maszyny wirtualne są wykluczone z hello niezgodne liczby maszyn wirtualnych. Te maszyny wirtualne są wyświetlane jako "Nie można odnaleźć danych" na końcu sekcji hello "niezgodny maszyn wirtualnych" hello.
 
-**Żądany cel punktu odzyskiwania**: żądany cel punktu odzyskiwania w minutach. Raport jest generowany dla trzech wartości celu punktu odzyskiwania: 15 (ustawienie domyślne), 30 i 60 minut. Zalecenie dotyczące przepustowości w raporcie zmienia się zgodnie z pozycją wybraną z listy rozwijanej żądanego celu punktu odzyskiwania w prawym górnym rogu arkusza. Jeśli raport został wygenerowany przy użyciu parametru *-DesiredRPO* z wartością niestandardową, ta wartość będzie wyświetlana jako domyślna na liście rozwijanej żądanego celu punktu odzyskiwania.
+**Żądany cel punktu odzyskiwania**: żądany cel punktu odzyskiwania w minutach. Witaj raport jest generowany dla trzech wartości RPO: 15 (ustawienie domyślne), 30 i 60 minut. zalecenie przepustowości Hello w raporcie hello jest zmieniony w zależności od wybraną z listy hello rozwijanej żądany cel punktu odzyskiwania w prawym górnym hello hello arkusza. Jeśli raport hello zostały wygenerowane za pomocą hello *- DesiredRPO* parametr przy użyciu niestandardowej wartości, to Niestandardowa wartość będą widoczne jako domyślny hello liście hello rozwijanej żądany cel punktu odzyskiwania.
 
 ### <a name="required-network-bandwidth-mbps"></a>Wymagana przepustowość sieci (Mb/s)
 
-![Wymagana przepustowość sieci w planiście wdrożenia](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
+![Przepustowość wymagana sieć w hello wdrożenia planistę](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
-**Aby osiągnąć cel punktu odzyskiwania przez 100 procent czasu:** zalecana przepustowość (w Mb/s) do przydzielenia, która umożliwia spełnienie żądanego celu punktu odzyskiwania przez 100 procent czasu. Taka przepustowość musi zostać przeznaczona na stałą replikację przyrostową wszystkich zgodnych maszyn wirtualnych, aby uniknąć naruszeń celu punktu odzyskiwania.
+**toomeet RPO 100 procent czasu hello:** hello zalecane przepustowości w MB/s toobe przydzielone toomeet Twojego żądany cel punktu odzyskiwania 100 procent czasu hello. Ta ilość przepustowości, musi być dedykowany replikacji różnicowej stabilnego wszystkie zgodne tooavoid maszyn wirtualnych naruszenie cel punktu odzyskiwania.
 
-**Aby osiągnąć cel punktu odzyskiwania przez 90 procent czasu**: jeśli z powodów związanych z cenami połączeń szerokopasmowych lub innych nie możesz ustawić przepustowości wymaganej do osiągnięcia żądanego celu punktu odzyskiwania przez 100 procent czasu, możesz wybrać mniejszą przepustowość umożliwiającą osiągnięcie żądanego celu punktu odzyskiwania przez 90 procent czasu. Aby umożliwić poznanie skutków ustawienia mniejszej przepustowości, w raporcie przedstawiono analizę warunkową liczby i czasu trwania naruszeń celu punktu odzyskiwania.
+**toomeet RPO 90 procent czasu hello**: z powodu cennik połączenia szerokopasmowego lub z innego powodu, jeśli nie można ustawić hello przepustowości potrzebne toomeet Twojego żądany cel punktu odzyskiwania 100 procent czasu hello można wypełnić toogo o mniejszej przepustowości sieci, ustawienia użytkownika żądany cel punktu odzyskiwania 90 procent czasu hello. skutki hello toounderstand ustawienia tej mniejszej przepustowości sieci, hello raport zawiera analizy warunkowej na powitania liczby i czasu trwania tooexpect naruszeń cel punktu odzyskiwania.
 
-**Osiągnięta przepływność:** przepływność między serwerem, na którym uruchomiono polecenie GetThroughput, i regionem platformy Microsoft Azure, w którym znajduje się konto magazynu. Ta wartość przepływności wskazuje przybliżony poziom, który można osiągnąć podczas ochrony zgodnych maszyn wirtualnych za pomocą usługi Site Recovery, jeśli charakterystyka magazynu i sieci serwera konfiguracji/serwera przetwarzania pozostają takie same jak w przypadku serwera, na którym uruchomiono narzędzie.
+**Przepływność osiągnięte:** przepływności hello z hello serwera, na którym uruchomiono hello GetThroughput polecenia toohello Microsoft Azure region, gdzie znajduje się hello konta magazynu. Liczba przepływności wskazuje poziom hello szacowany, który można uzyskać w przypadku ochrony powitalne hello zgodne maszyn wirtualnych przy użyciu usługi Site Recovery, pod warunkiem, że serwer konfiguracji lub właściwości serwera procesów magazynu i sieci pozostają takie same jak Serwer Hello, z którego uruchomiono narzędzie hello.
 
-W przypadku replikacji należy ustawić zalecaną przepustowość tak, aby spełniała wymagania celu punktu odzyskiwania przez 100 procent czasu. Jeśli nie widzisz wzrostu osiągniętej przepływności zgłoszonej przez narzędzie po ustawieniu przepustowości, sprawdź następujące kwestie:
+W przypadku replikacji należy ustawić hello zalecane przepustowości toomeet hello RPO 100 procent czasu hello. Po ustawieniu przepustowości hello, jeśli widzisz zwiększenia przepływności hello osiągnięte zgłoszonej przez narzędzie hello, wykonaj następujące hello:
 
-1. Ustal, czy w sieci jest używana technologia QoS (Quality of Service) ograniczająca przepływność usługi Site Recovery.
+1. Toosee należy sprawdzić, czy istnieje żadnej sieci jakości usług (QoS), który jest ograniczanie przepływności usługi Site Recovery.
 
-2. Ustal, czy magazyn usługi Site Recovery znajduje się w najbliższym obsługiwanym fizycznym regionie platformy Microsoft Azure, aby zminimalizować opóźnienie sieci.
+2. Toosee należy sprawdzić, czy magazyn usługi Site Recovery jest hello najbliższej fizycznie obsługiwanych opóźnienia sieci toominimize region Microsoft Azure.
 
-3. Sprawdź charakterystyki magazynu lokalnego, aby ustalić, czy można ulepszyć sprzęt (np. zastąpić dysk twardy dyskiem SSD).
+3. Toodetermine właściwości z lokalnego magazynu należy sprawdzić, czy można zwiększyć hello sprzętu (na przykład dysk twardy tooSSD).
 
-4. Zmień ustawienia usługi Site Recovery na serwerze przetwarzania, aby [zwiększyć przepustowość sieci na potrzeby replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+4. Zmienianie ustawień usługi Site Recovery hello w serwera przetwarzania hello zbyt[zwiększyć hello ilość przepustowości używanej w ramach replikacji](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 
-Jeśli narzędzie zostało uruchomione na serwerze konfiguracji lub serwerze przetwarzania, który ma już chronione maszyny wirtualne, należy uruchomić narzędzie kilka razy. Wartość osiągniętej przepływności zmienia się w zależności od wielkości współczynnika zmian przetwarzanego w danym momencie.
+Jeśli używasz narzędzia hello na serwerze konfiguracji lub serwer przetwarzania, który już zawiera chronione maszyny wirtualne, należy uruchomić narzędzie hello kilka razy. Witaj osiągnąć przepływności zmiany w zależności od hello ilość danych churn przetwarzane w danym momencie.
 
 W przypadku wszystkich wdrożeń usługi Site Recovery w przedsiębiorstwach zalecamy użycie usługi [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Wymagane konta magazynu
-Ten wykres przedstawia łączną liczbę kont magazynu (w warstwach Standardowa i Premium) wymaganych do ochrony wszystkich zgodnych maszyn wirtualnych. Aby dowiedzieć się, którego konta magazynu używać dla poszczególnych maszyn wirtualnych, zobacz sekcję „Rozmieszczenie maszyny wirtualnej względem magazynu”.
+powitania po wykresu pokazuje kont hello łączna liczba magazynu (warstwy standardowa i premium), które są wszystkie wymagane tooprotect hello zgodne maszyn wirtualnych. toolearn składowania konta toouse dla każdej maszyny Wirtualnej, zobacz sekcję "umieszczania magazynu maszyny Wirtualnej" hello.
 
-![Wymagane konta magazynu w planiście wdrożenia](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
+![Kont magazynu wymagana w hello wdrożenia planistę](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
 ### <a name="required-number-of-azure-cores"></a>Wymagana liczba rdzeni platformy Azure
-Wynik to łączna liczba rdzeni do skonfigurowania przed rozpoczęciem pracy w trybie failover lub testem pracy w trybie failover dla wszystkich zgodnych maszyn wirtualnych. Jeśli liczba rdzeni w ramach subskrypcji jest zbyt mała, usługa Site Recovery nie może utworzyć maszyn wirtualnych w czasie pracy w trybie failover lub testu pracy w trybie failover.
+Ten wynik jest hello całkowita liczba rdzeni toobe ustawień przed rozpoczęciem pracy awaryjnej lub test pracy awaryjnej wszystkich hello zgodne maszyn wirtualnych. Jeśli rdzeni za mało dostępnych w subskrypcji hello, odzyskiwania lokacji nie powiedzie się toocreate maszyn wirtualnych w momencie hello testowania trybu failover lub pracy awaryjnej.
 
-![Wymagana liczba rdzeni platformy Azure w planiście wdrożenia](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
+![Wymagana liczba rdzeni Azure hello wdrożenia planistę](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Wymagana infrastruktura lokalna
-Ta wartość to łączna liczba serwerów konfiguracji i dodatkowych serwerów przetwarzania do skonfigurowania w celu zapewnienia ochrony wszystkich zgodnych maszyn wirtualnych. W zależności od obsługiwanych [zaleceń dotyczących rozmiaru serwera konfiguracji](https://aka.ms/asr-v2a-on-prem-components) narzędzie może zalecić dodatkowe serwery. Zalecenie to opiera się na większej z następujących wartości: dziennego współczynnika zmian lub maksymalnej liczby chronionych maszyn wirtualnych (przy założeniu średnio trzech dysków na maszynę wirtualną) zależnie od tego, który z tych limitów zostanie osiągnięty jako pierwszy na serwerze konfiguracji lub dodatkowym serwerze przetwarzania. Szczegółowe informacje o łącznym dziennym współczynniku zmian oraz łącznej liczbie chronionych dysków znajdują się w sekcji „Dane wejściowe”.
+Liczba ta jest hello całkowita liczba serwerów konfiguracji oraz dodatkowych procesów toobe serwery skonfigurowane, które będą wystarczające tooprotect hello wszystkie zgodne maszyn wirtualnych. W zależności od hello obsługiwane [rozmiaru zalecenia dotyczące serwera konfiguracji hello](https://aka.ms/asr-v2a-on-prem-components), narzędzie hello może zalecić dodatkowych serwerów. zalecenie Hello jest oparta na powitania większych hello postęp dokonany w ciągu jednego dnia lub hello maksymalna liczba chronionych maszyn wirtualnych (przy założeniu średnią z trzech dysków dla maszyny Wirtualnej), nastąpi trafienie pierwszy na serwerze konfiguracji hello lub hello dodatkowych procesów. Szczegóły hello łącznej wielkości fragmentów dziennie oraz liczba chronionych dysków można znaleźć w sekcji "Dane wejściowe" hello.
 
-![Wymagana infrastruktura lokalna w planiście wdrożenia](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
+![Infrastruktura lokalna wymagane w hello wdrożenia planistę](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
 ### <a name="what-if-analysis"></a>Analiza warunkowa
-Ta analiza przedstawia liczbę naruszeń, które mogą wystąpić podczas profilowania w przypadku ustawienia mniejszej przepustowości umożliwiającej osiągnięcie żądanego celu punktu odzyskiwania tylko przez 90 procent czasu. W danym dniu może wystąpić co najmniej jedno naruszenie. Wykres przedstawia szczyt celu punktu odzyskiwania w danym dniu.
-Na podstawie tej analizy można zdecydować, czy liczba naruszeń celu punktu odzyskiwania we wszystkich dniach i szczytowa wartość celu punktu odzyskiwania na dzień jest dopuszczalna przy określonej mniejszej przepustowości. Jeśli tak, można przydzielić mniejszą przepustowość na potrzeby replikacji. W przeciwnym razie przydziel większą przepustowość zgodnie z propozycją, aby osiągnąć żądany cel punktu odzyskiwania przez 100 procent czasu.
+Analiza przedstawia liczbę naruszeń mogłyby wystąpić w trakcie hello profilowania podczas ustawiania okresu mniejszej przepustowości sieci dla toobe RPO hello potrzeby spełnienia tylko 90 procent czasu hello. W danym dniu może wystąpić co najmniej jedno naruszenie. Witaj wykres przedstawia szczytu hello RPO hello dnia.
+Oparte na tej analizy, można zdecydować, czy hello liczba naruszeń cel punktu odzyskiwania we wszystkich dni i szczytowego RPO trafień na dzień jest akceptowalne z hello określonym mniejszej przepustowości sieci. W przypadku przyjęcia, możesz przydzielić hello mniejszej przepustowości replikacji else przydzielić hello większej przepustowości, ponieważ hello sugerowane toomeet żądany cel punktu odzyskiwania 100 procent czasu hello.
 
-![Analiza warunkowa w planiście wdrożenia](./media/site-recovery-deployment-planner/what-if-analysis.png)
+![Analizy warunkowej w hello wdrożenia planistę](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
 ### <a name="recommended-vm-batch-size-for-initial-replication"></a>Zalecany rozmiar partii maszyn wirtualnych na potrzeby replikacji początkowej
-W tej sekcji zalecamy liczbę maszyn wirtualnych, które mogą być chronione równolegle w celu ukończenia replikacji początkowej w ciągu 72 godzin przy proponowanej wydajności, aby spełniać wymagania celu punktu odzyskiwania przez 100 procent ustawianego czasu. Tę wartość można konfigurować. Aby zmienić ją podczas generowania raportu, użyj parametru *GoalToCompleteIR*.
+W tej sekcji zaleca się, że hello liczbę maszyn wirtualnych, które mogą być chronione w równoległych toocomplete hello początkowej replikacji w ramach 72 godziny z hello sugerowane się, że przepustowość toomeet żądany cel punktu odzyskiwania 100 procent wyznaczonym hello. Tę wartość można konfigurować. toochange go w czasie generowania raportu, użyj hello *GoalToCompleteIR* parametru.
 
-Wykres w tym miejscu przedstawia zakres wartości przepustowości i obliczony rozmiar partii maszyn wirtualnych umożliwiające ukończenie replikacji początkowej w ciągu 72 godzin na podstawie wykrytego średniego rozmiaru wszystkich zgodnych maszyn wirtualnych.
+Hello tutaj wykres przedstawia zakres wartości przepustowości i obliczeniowego maszyny Wirtualnej partii rozmiar liczba toocomplete replikacji początkowej w 72 godziny, na podstawie średniej hello wykryto maszyny Wirtualnej rozmiar we wszystkich hello zgodne maszyn wirtualnych.
 
-W publicznej wersji zapoznawczej raport nie zawiera informacji o tym, które maszyny wirtualne mają być uwzględniane w partii. Możesz użyć rozmiaru dysku widocznego w sekcji „Zgodne maszyny wirtualne”, aby znaleźć rozmiar każdej maszyny wirtualnej i wybrać maszyny wirtualne dla partii albo na podstawie charakterystyki znanych obciążeń. Czas ukończenia replikacji początkowej zmienia się proporcjonalnie do rzeczywistego rozmiaru dysku maszyny wirtualnej, używanego miejsca na dysku i dostępnej przepływności sieci.
+W publicznej wersji zapoznawczej hello hello raportu nie określa, które maszyn wirtualnych powinny być uwzględnione w partii. Można użyć rozmiar dysku hello pokazano hello "zgodny maszyn wirtualnych" części toofind rozmiar każdej maszyny Wirtualnej i zaznacz je w partii, lub wybrać hello maszyn wirtualnych na podstawie obciążenia znanych charakterystyk. czas ukończenia Hello zmian replikacji początkowej hello proporcjonalnie, oparte na powitania rzeczywisty rozmiar dysku maszyny Wirtualnej, używane miejsce na dysku i przepustowości dostępnej sieci.
 
 ![Zalecany rozmiar partii zadań maszyny wirtualnej](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Używane wartości współczynnika wzrostu i percentyla
-W tej sekcji w dolnej części arkusza pokazano wartość percentyla używaną przez wszystkie liczniki wydajności profilowanych maszyn wirtualnych (domyślnie jest używany 95. percentyl) i współczynnik wzrostu (wartość domyślna to 30 procent) używany we wszystkich obliczeniach.
+W tej sekcji u dołu hello hello arkusza wartość percentylu hello pokazuje używane dla wszystkich liczników wydajności hello hello profilowane maszyn wirtualnych (wartość domyślna to 95. percentyl), a współczynnik wzrostu hello (wartość domyślna to 30 procent) używany w obliczeniach hello wszystkie.
 
 ![Używane wartości współczynnika wzrostu i percentyla](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
@@ -404,129 +404,129 @@ W tej sekcji w dolnej części arkusza pokazano wartość percentyla używaną p
 
 ![Zalecenia dotyczące danych wejściowych w postaci dostępnej przepustowości](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
-Może wystąpić sytuacja, w której nie można ustawić przepustowości większej niż x Mb/s na potrzeby replikacji usługi Site Recovery. Narzędzie umożliwia wprowadzenie dostępnej przepustowości (za pomocą parametru -Bandwidth podczas generowania raportu) i uzyskać osiągalny cel punktu odzyskiwania w minutach. Osiągalna wartość celu punktu odzyskiwania pozwala zdecydować, czy trzeba ustawić dodatkową przepustowość, czy rozwiązanie odzyskiwania po awarii może używać tego celu punktu odzyskiwania.
+Może wystąpić sytuacja, w której nie można ustawić przepustowości większej niż x Mb/s na potrzeby replikacji usługi Site Recovery. Narzędzie Hello umożliwia tooinput dostępną przepustowość (przy użyciu hello — parametr przepustowości podczas generowania raportu) i get hello osiągalne cel punktu odzyskiwania w minutach. Z tym osiągalne wartość RPO można zdecydować, czy należy tooset się dodatkowe ograniczenie użycia przepustowości lub są OK z konieczności rozwiązanie odzyskiwania po awarii, ten cel punktu odzyskiwania.
 
 ![Osiągalny cel punktu odzyskiwania dla przepustowości wynoszącej 500 Mb/s](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
 ## <a name="input"></a>Dane wejściowe
-Arkusz danych wejściowych zawiera omówienie profilowanego środowiska VMware.
+Arkusz danych wejściowych Hello zawiera omówienie hello profilowane środowisku VMware.
 
-![Omówienie profilowanego środowiska VMware](./media/site-recovery-deployment-planner/Input.png)
+![Omówienie hello profilowane środowiska VMware](./media/site-recovery-deployment-planner/Input.png)
 
-**Data rozpoczęcia** i **Data zakończenia**: daty rozpoczęcia i zakończenia profilowania danych na potrzeby generowania raportu. Domyślnie data rozpoczęcia to data rozpoczęcia profilowania, a data zakończenia to data zatrzymania profilowania. Mogą to być wartości „StartDate” i „EndDate”, jeśli raport jest generowany przy użyciu tych parametrów.
+**Data rozpoczęcia** i **Data zakończenia**: hello daty rozpoczęcia i zakończenia hello brany pod uwagę podczas generowania raportu danych profilowania. Domyślnie, Data rozpoczęcia hello jest data hello podczas profilowania uruchamiania i Data zakończenia hello jest data hello momentu zatrzymania profilowania. Może to być wartości "EndDate" i "Data_rozpoczęcia" hello, jeśli hello raport jest generowany z tych parametrów.
 
-**Łączna liczba dni profilowania**: całkowita liczba dni profilowania od daty rozpoczęcia do daty zakończenia, dla których jest generowany raport.
+**Liczba dni profilowania**: hello całkowitej liczby dni profilowania między hello daty rozpoczęcia i zakończenia dla których hello jest generowany raport.
 
-**Liczba zgodnych maszyn wirtualnych**: łączna liczba zgodnych maszyn wirtualnych, dla których są obliczane wymagana przepustowość sieci oraz wymagana liczba kont magazynu, rdzeni platformy Microsoft Azure oraz serwerów konfiguracji i dodatkowych serwerów przetwarzania.
+**Liczba maszyn wirtualnych zgodne**: hello łączna liczba zgodne maszyn wirtualnych, dla których hello wymagana przepustowość sieci, wymaganej liczby magazynu kont, rdzeni Microsoft Azure, serwery konfiguracji oraz dodatkowych procesów serwery są obliczone.
 
-**Łączna liczba dysków na wszystkich zgodnych maszynach wirtualnych**: liczba używana jako dane wejściowe do określania liczby serwerów konfiguracji i dodatkowych serwerów przetwarzania do użycia we wdrożeniu.
+**Całkowita liczba dysków dla wszystkich maszyn wirtualnych zgodne**: hello liczba, która jest używana jako jeden hello danych wejściowych toodecide hello liczby serwerów konfiguracji oraz dodatkowych procesów toobe serwerów używanych we wdrożeniu hello.
 
-**Średnia liczba dysków na zgodną maszynę wirtualną**: średnia liczba dysków obliczana dla wszystkich zgodnych maszyn wirtualnych.
+**Średnia liczba dysków na kompatybilnej maszynie wirtualnej**: hello średnią liczbę dysków obliczane na wszystkich maszynach wirtualnych zgodne.
 
-**Średni rozmiar dysku (GB)**: średni rozmiar dysku obliczany dla wszystkich zgodnych maszyn wirtualnych.
+**Średni rozmiar dysku (GB)**: hello przeciętna ilość obliczyć na wszystkich maszynach wirtualnych zgodne.
 
-**Żądany cel punktu odzyskiwania (w minutach)**: domyślny cel punktu odzyskiwania lub przekazana wartość parametru „DesiredRPO” podczas generowania raportu, które umożliwiają oszacowanie wymaganej przepustowości.
+**Żądany cel punktu odzyskiwania (w minutach)**: albo hello domyślną wartość punktu odzyskiwania cel lub hello przekazana dla parametru "DesiredRPO" hello w momencie hello tooestimate generowania raportu wymagane przepustowości.
 
-**Żądana przepustowość (Mb/s)**: przekazana wartość parametru „Bandwidth” podczas generowania raportu umożliwiająca oszacowanie osiągalnego celu punktu odzyskiwania.
+**Wymaganą przepustowość (MB/s)**: hello wartość przekazanego do parametru "Przepustowości" hello w momencie hello tooestimate generowania raportu osiągalne cel punktu odzyskiwania.
 
-**Zaobserwowany dzienny typowy współczynnik zmian danych (GB)**: średni współczynnik zmian danych zaobserwowany we wszystkie dni profilowania. Jest on używany jako dane wejściowe do określania liczby serwerów konfiguracji i dodatkowych serwerów przetwarzania do użycia we wdrożeniu.
+**Przenoszenie obserwowanych typowych danych dziennie (GB)**: przenoszenie uśrednianie danych hello zaobserwowane we wszystkich profilowania dni. Numer ten jest używany jako jeden hello wejść toodecide hello liczba konfiguracji serwerów i toobe serwery dodatkowych procesów używanych we wdrożeniu hello.
 
 
 ## <a name="vm-storage-placement"></a>Rozmieszczenie maszyny wirtualnej względem magazynu
 
 ![Rozmieszczenie maszyny wirtualnej względem magazynu](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
-**Typ magazynu dysków**: konto magazynu w warstwie Standardowa lub Premium używane do replikacji wszystkich odpowiednich maszyn wirtualnych wymienionych w kolumnie **Maszyny wirtualne do rozmieszczenia**.
+**Typ magazynu dysku**: albo standard lub premium konta magazynu, który jest używany tooreplicate wszystkie hello VMs odpowiedniej wspomnianego hello **tooPlace maszyn wirtualnych** kolumny.
 
-**Sugerowany prefiks**: proponowany 3-znakowy prefiks, którego można użyć w nazwie konta magazynu. Możesz użyć własnego prefiksu, ale propozycja narzędzia będzie zgodna z [konwencją nazewnictwa partycji dla kont magazynu](https://aka.ms/storage-performance-checklist).
+**Sugerowana prefiks**: hello sugerowane trzy znaki prefiks, który może służyć do nazw hello konta magazynu. Można użyć własnych prefiksu, ale narzędzie hello sugestię następuje hello [partycji konwencję nazewnictwa dla kont magazynu](https://aka.ms/storage-performance-checklist).
 
-**Sugerowana nazwa konta**: nazwa konta magazynu po uwzględnieniu proponowanego prefiksu. Zastąp nazwę w nawiasach kątowych (< i >) niestandardowymi danymi wejściowymi.
+**Sugerowana nazwa konta**: Nazwa konta magazynu hello po umieszczeniu hello sugerowane prefiks. Zamień nazwę hello w hello nawiasu ostrego (< i >) z niestandardowe dane wejściowe.
 
-**Konto magazynu dzienników**: wszystkie dzienniki replikacji są przechowywane na standardowym koncie magazynu. W przypadku maszyn wirtualnych replikowanych do konta magazynu w warstwie Premium skonfiguruj dodatkowe konto magazynu w warstwie Standardowa na potrzeby magazynu dzienników. Jedno konto magazynu dzienników w warstwie Standardowa może być używane przez wiele kont magazynu replikacji w warstwie Premium. Maszyny wirtualne replikowane do kont magazynu w warstwie Standardowa używają tego samego konta magazynu dla dzienników.
+**Konto magazynu dziennika**: wszystkie dzienniki replikacji hello są przechowywane na koncie magazynu w warstwie standardowa. Dla maszyn wirtualnych, które są replikowane tooa konta magazynu w warstwie premium, skonfiguruj dodatkowe konto magazynu do przechowywania dziennika. Jedno konto magazynu dzienników w warstwie Standardowa może być używane przez wiele kont magazynu replikacji w warstwie Premium. Maszyny wirtualne, które są replikowane toostandard magazynu kont hello tego samego konta magazynu dla dzienników.
 
-**Sugerowana nazwa konta dzienników**: nazwa konta dzienników magazynu po uwzględnieniu proponowanego prefiksu. Zastąp nazwę w nawiasach kątowych (< i >) niestandardowymi danymi wejściowymi.
+**Sugerowana nazwa konta dziennika**: Nazwa konta dziennika magazynu po umieszczeniu hello sugerowane prefiks. Zamień nazwę hello w hello nawiasu ostrego (< i >) z niestandardowe dane wejściowe.
 
-**Podsumowanie rozmieszczania**: podsumowanie łącznego obciążenia maszyn wirtualnych na koncie magazynu podczas replikacji i pracy w trybie failover lub testu pracy w trybie failover. Obejmuje ono łączną liczbę maszyn wirtualnych mapowanych na konto magazynu, łączną liczbę operacji we/wy odczytu i zapisu na sekundę dla wszystkich maszyn wirtualnych umieszczanych na tym koncie magazynu, łączną liczbę operacji we/wy zapisu na sekundę (replikacja), łączny skonfigurowany rozmiar wszystkich dysków oraz łączną liczbę dysków.
+**Podsumowanie umieszczania**: Podsumowanie hello całkowity obciążenia maszyn wirtualnych na koncie magazynu hello w czasie hello replikacji i testowania trybu failover lub pracy awaryjnej. Obejmuje on hello łączna liczba maszyn wirtualnych zamapowanych toohello konta magazynu, całkowita odczytu/zapisu zapisu IOPS na wszystkich maszynach wirtualnych, które znajdują się na tym koncie magazynu, całkowita (replikacja) IOPS, rozmiar całkowitą instalacji dla wszystkich dysków i całkowitej liczby dysków.
 
-**Maszyny wirtualne do rozmieszczenia**: lista wszystkich maszyn wirtualnych, które powinny zostać umieszczone na danym koncie magazynu w celu uzyskania optymalnej wydajności i użycia.
+**Maszyny wirtualne tooPlace**: lista wszystkich hello maszyn wirtualnych, które powinny być umieszczane na powitania podane konto magazynu dla uzyskania optymalnej wydajności i użycia.
 
 ## <a name="compatible-vms"></a>Zgodne maszyny wirtualne
 ![Arkusz kalkulacyjny programu Excel zawierający zgodne maszyny wirtualne](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**Nazwa maszyny wirtualnej**: nazwa lub adres IP maszyny wirtualnej używany w pliku VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski (VMDK) dołączone do maszyn wirtualnych. Aby wyróżnić maszyny wirtualne vCenter o zduplikowanych nazwach lub adresach IP, nazwy zawierają nazwę hosta ESXi. Wymieniony host ESXi to host, na którym umieszczono maszynę wirtualną odnaleziono w trakcie okresu profilowania.
+**Nazwa maszyny Wirtualnej**: hello nazwę maszyny Wirtualnej lub adres IP, który jest używany w hello VMListFile po wygenerowaniu raportu. Ta kolumna zawiera także dysków hello (VMDKs), które są dołączone toohello maszyn wirtualnych. toodistinguish vCenter maszyny wirtualne z zduplikowanych nazw lub adresów IP, nazwy hello zawierają nazwę hosta ESXi hello. Hello wymienionych hosta ESXi jest hello jedną hello maszyna wirtualna została rozmieszczenia gdy narzędzie hello wykryte podczas hello profilowania okresu.
 
-**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak**\*. Wartość **Tak**\* jest przeznaczona dla wystąpień, w których maszyna wirtualna odpowiada usłudze [Azure Premium Storage](https://aka.ms/premium-storage-workload). Tutaj profilowany dysk o dużym współczynniku zmian lub dużej liczbie operacji we/wy należy do kategorii P20 lub P30, ale z powodu swojego rozmiaru jest mapowany w dół do kategorii P10 lub P20. Decyzja o tym, do którego typu dysku magazynu Premium będzie mapowany dysk, jest podejmowana na podstawie jego rozmiaru na poziomie konta magazynu. Na przykład:
+**Zgodność maszyny wirtualnej**: wartości to **Tak** i **Tak**\*. **Tak** \* dla wystąpień, w których hello maszyna wirtualna jest rozwiązaniem dla [Azure Premium Storage](https://aka.ms/premium-storage-workload). W tym miejscu hello profilowane wysokiej zmian lub dysku IOPS mieści się w kategorii P30 lub hello P20, ale hello rozmiar dysku hello powoduje toobe mapować w dół tooa P10 lub P20. Konto magazynu Hello decyduje, który dysk magazynu premium wpisz toomap dysku, na podstawie jego rozmiaru. Na przykład:
 * Mniej niż 128 GB — P10.
-* 128 GB do 512 GB — P20.
-* 512 GB do 1024 GB — P30.
-* 1025 GB do 2048 GB — P40.
-* 2049 GB do 4095 GB — P50.
+* 128 GB too512 GB jest P20.
+* 512 GB too1024 GB jest P30.
+* 1025 GB too2048 GB jest P40.
+* 2049 GB too4095 GB jest P50.
 
-Jeśli charakterystyki obciążenia dysku powodują umieszczenie go w kategorii P20 lub P30, ale z powodu rozmiaru jest mapowany w dół do niższego typu magazynu Premium, narzędzie oznacza daną maszynę wirtualną jako **Tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
+Jeśli cechy obciążenia hello dysku umieść ją w hello P20 lub P30 kategorii, ale rozmiar hello mapuje go w dół typ dysku magazynu premium tooa niższe, narzędzie hello oznacza tej maszyny Wirtualnej jako **tak**\*. Narzędzie Hello zaleca również, że albo toofit rozmiar dysku źródłowego hello na powitania zalecane typ dysku magazynu premium lub zmiana hello docelowego dysku typu po pracy w trybie failover.
 
 **Typ magazynu**: dostępne typy magazynu to Standardowa i Premium.
 
-**Sugerowany prefiks**: 3-znakowy prefiks konta magazynu.
+**Sugerowana prefiks**: hello konta magazynu trzy znaki prefiksu.
 
-**Konto magazynu**: nazwa uwzględniająca proponowany prefiks konta magazynu.
+**Konto magazynu**: hello nazwę, która używa hello prefiksu sugerowane konta magazynu.
 
-**Operacje we/wy odczytu i zapisu na sekundę (ze współczynnikiem wzrostu)**: liczba operacji we/wy odczytu i zapisu na sekundę dla szczytowego obciążenia na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączna liczba operacji we/wy odczytu i zapisu maszyny wirtualnej nie zawsze jest sumą operacji we/wy odczytu i zapisu z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowa liczba operacji we/wy odczytu i zapisu maszyny wirtualnej to wartość szczytowa sumy operacji we/wy odczytu i zapisu poszczególnych dysków z każdej minuty okresu profilowania.
+**IOPS odczyt/zapis (o wskaźnik wzrostu)**: hello szczytowego obciążenia odczytu/zapisu IOPS na powitania dysku (wartość domyślna to 95. percentyl), w tym hello przyszłych współczynnik wzrostu (wartość domyślna to 30 procent). Należy pamiętać, że hello całkowita odczytu/zapisu IOPS maszyny wirtualnej nie zawsze hello sumę hello wirtualna poszczególnych dysków odczytu/zapisu IOPS, ponieważ hello szczytu odczytu/zapisu IOPS hello maszyny Wirtualnej jest hello piku hello sumę jego poszczególnych dysków odczytu/zapisu IOPS podczas co minutę hello okres profilowania.
 
-**Współczynnik zmian danych w Mb/s (ze współczynnikiem wzrostu)**: szczytowy współczynnik zmian danych na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączny współczynnik zmian danych maszyny wirtualnej nie zawsze jest sumą współczynników zmian danych z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowy współczynnik zmian danych maszyny wirtualnej to wartość szczytowa sumy współczynników zmian poszczególnych dysków z każdej minuty okresu profilowania.
+**Danych churn — w MB/s (o wskaźnik wzrostu)**: hello szczytowa przenoszenie szybkość na powitania dysku (wartość domyślna to 95. percentyl), w tym hello przyszłych współczynnik wzrostu (wartość domyślna to 30 procent). Należy pamiętać, że hello przenoszenie wszystkich danych z hello maszyny Wirtualnej nie jest zawsze hello sumę tworzeniem danych hello wirtualna poszczególnych dysków, ponieważ tworzeniem danych szczytu hello z hello maszyny Wirtualnej jest szczytu hello hello sumy przenoszenie jego poszczególnych dysków podczas co minutę hello profilowania okresu.
 
-**Rozmiar maszyny wirtualnej platformy Azure**: idealnie zamapowany rozmiar maszyny wirtualnej usług Azure Cloud Services dla tej lokalnej maszyny wirtualnej. Mapowanie jest oparte na wielkości pamięci, liczbie dysków/rdzeni/kart sieciowych oraz liczbie operacji we/wy zapisu i odczytu lokalnej maszyny wirtualnej. Zawsze zalecany jest najmniejszy rozmiar maszyny wirtualnej platformy Azure zgodny ze wszystkimi charakterystykami lokalnej maszyny wirtualnej.
+**Rozmiar maszyny Wirtualnej Azure**: hello idealne zmapowane rozmiar maszyny wirtualnej usługi w chmurze Azure dla to lokalnej maszyny Wirtualnej. Mapowanie Hello jest oparty na pamięci VM lokalne powitania, liczbę dysków rdzeni/kart sieciowych i odczytu/zapisu IOPS. zalecenie Hello jest zawsze hello najniższy Azure rozmiar maszyny Wirtualnej odpowiadający wszystkie właściwości maszyny Wirtualnej lokalne powitania.
 
-**Liczba dysków**: łączna liczba dysków (VMDK) maszyny wirtualnej.
+**Liczba dysków**: hello całkowitej liczby dysków maszyny wirtualnej (VMDKs) na powitania maszyny Wirtualnej.
 
-**Rozmiar dysku (GB)**: łączny skonfigurowany rozmiar wszystkich dysków maszyny wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
+**Rozmiar (GB) dysku**: hello ustawiony łączny rozmiar wszystkich dysków hello maszyny Wirtualnej. Narzędzie Hello zawiera również hello rozmiar dysku dla poszczególnych dysków hello w hello maszyny Wirtualnej.
 
-**Rdzenie**: liczba rdzeni procesora CPU maszyny wirtualnej.
+**Rdzenie**: hello liczba Procesora rdzenie na powitania maszyny Wirtualnej.
 
-**Pamięć (MB)**: pamięć RAM maszyny wirtualnej.
+**Pamięć (MB)**: hello pamięci RAM na powitania maszyny Wirtualnej.
 
-**Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
+**Karty sieciowe**: hello liczbę kart sieciowych na powitania maszyny Wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
+**Rozruch typu**: jest typu rozruchowego hello maszyny Wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne hello typu rozruchowego EFI są wyświetlane w arkuszu niezgodne maszyn wirtualnych.
 
-**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
+**Typ systemu operacyjnego**: hello jest typ systemu operacyjnego hello maszyny Wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
 ## <a name="incompatible-vms"></a>Niezgodne maszyny wirtualne
 
 ![Arkusz kalkulacyjny programu Excel zawierający niezgodne maszyny wirtualne](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**Nazwa maszyny wirtualnej**: nazwa lub adres IP maszyny wirtualnej używany w pliku VMListFile podczas generowania raportu. Ta kolumna obejmuje też dyski VMDK dołączone do maszyn wirtualnych. Aby wyróżnić maszyny wirtualne vCenter o zduplikowanych nazwach lub adresach IP, nazwy zawierają nazwę hosta ESXi. Wymieniony host ESXi to host, na którym umieszczono maszynę wirtualną odnaleziono w trakcie okresu profilowania.
+**Nazwa maszyny Wirtualnej**: hello nazwę maszyny Wirtualnej lub adres IP, który jest używany w hello VMListFile po wygenerowaniu raportu. Ta kolumna zawiera również VMDKs hello, które są dołączone toohello maszyn wirtualnych. toodistinguish vCenter maszyny wirtualne z zduplikowanych nazw lub adresów IP, nazwy hello zawierają nazwę hosta ESXi hello. Hello wymienionych hosta ESXi jest hello jedną hello maszyna wirtualna została rozmieszczenia gdy narzędzie hello wykryte podczas hello profilowania okresu.
 
-**Zgodność maszyny wirtualnej**: wskazuje, dlaczego dana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Site Recovery. Niezgodność każdego dysku na podstawie opublikowanych [limitów magazynów](https://aka.ms/azure-storage-scalbility-performance) może wynikać z dowolnej spośród następujących przyczyn:
+**Maszyna wirtualna zgodności**: wskazuje, dlaczego hello podanej maszyny Wirtualnej jest niezgodna do użycia z usługą Site Recovery. Witaj przyczyn opisane dla każdego niezgodne dysku hello maszyny Wirtualnej i, na podstawie na opublikowane [limity magazynu](https://aka.ms/azure-storage-scalbility-performance), możesz użyć dowolnej z następujących hello:
 
 * Rozmiar dysku jest większy niż 4095 GB. Usługa Azure Storage obecnie nie obsługuje dysków danych większych niż 4095 GB.
 * Rozmiar dysku systemu operacyjnego jest większy niż 2048 GB. Usługa Azure Storage obecnie nie obsługuje dysków systemów operacyjnych większych niż 2048 GB.
 * Typ rozruchu to EFI. Obecnie usługa Azure Site Recovery obsługuje tylko maszyny wirtualne o typie rozruchu BIOS.
 
-* Łączny rozmiar maszyny wirtualnej (suma replikacji i testu pracy w trybie failover) przekracza obsługiwany limit rozmiaru konta magazynu (35 TB). Ta niezgodność występuje przeważnie, jeśli wartość charakterystyki wydajności pojedynczego dysku maszyny wirtualnej przekracza maksymalny obsługiwany limit standardowego magazynu platformy Azure lub usługi Site Recovery. Takie wystąpienie powoduje przeniesienie do strefy magazynów Premium Storage. Jednak maksymalny obsługiwany rozmiar konta magazynu Premium Storage jest równy 35 TB i jedna chroniona maszyna wirtualna nie może być chroniona na wielu kontach magazynu. Zauważ również, że przeprowadzenie testu pracy w trybie failover na chronionej maszynie wirtualnej powoduje również uruchomienie go na koncie magazynu z trwającą replikacją. W takiej sytuacji skonfiguruj podwojony rozmiar dysku na potrzeby równoległej kontynuacji replikacji i pomyślnie przeprowadzonego testu pracy w trybie failover.
+* Całkowity rozmiar maszyny Wirtualnej (replikacji + TFO) przekracza limit rozmiaru hello obsługiwane konta magazynu (35 TB). Ta niezgodność zwykle występuje, gdy jednego dysku hello maszyna wirtualna ma charakterystyki, przekraczającą hello maksymalną obsługiwaną Azure lub usługi Site Recovery wartością dla magazynu w warstwie standardowa. Takie wystąpienie wypycha hello maszyny Wirtualnej do strefy magazynu premium hello. Jednak hello maksymalny obsługiwany rozmiar konto magazynu w warstwie premium jest 35 TB i jeden chronione maszyny Wirtualnej nie może być chroniony przez wiele kont magazynu. Należy również zauważyć, że podczas testowania trybu failover jest wykonywane na chronionej maszynie Wirtualnej, działa w hello tego samego konta magazynu, w którym postępuje replikacji. W tym wystąpieniu ustawienie 2 x hello rozmiar dysku hello tooprogress replikacji i testowania trybu failover toosucceed równolegle.
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 5000 operacji na dysk.
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę maszyny wirtualnej wynoszący 80 000 operacji na dysk.
-* Średni współczynnik zmian danych przekracza obsługiwany limit współczynnika zmian danych usługi Site Recovery wynoszący 10 MB/s dla średniego rozmiaru operacji we/wy na dysku.
-* Łączny współczynnik zmian danych dla wszystkich dysków na maszynie wirtualnej przekracza maksymalny obsługiwany limit współczynnika zmian danych usługi Site Recovery wynoszący 54 MB/s na maszynę wirtualną.
-* Średnia liczba operacji we/wy zapisu na sekundę przekracza obsługiwany limit operacji we/wy na sekundę usługi Site Recovery wynoszący 840 operacji na dysk.
-* Obliczony magazyn migawek przekracza obsługiwany limit magazynu migawek wynoszący 10 TB.
+* Przenoszenie uśrednianie danych przekracza obsługiwany limit przenoszenia danych usługi Site Recovery 10 MB/s dla średni rozmiar operacji We/Wy dysku hello.
+* Przenoszenie wszystkich danych na wszystkich dyskach na powitania maszyny Wirtualnej przekracza hello maksymalny obsługiwany limit przenoszenie danych usługi Site Recovery 54 Mb/s dla maszyny Wirtualnej.
+* Średnia zapisu skuteczne IOPS przekracza limit IOPS odzyskiwania lokacji hello obsługiwane 840 dla dysku.
+* Migawki obliczeniowej magazynu przekracza limit pamięci masowej migawki hello obsługiwane 10 TB.
 
-**Operacje we/wy odczytu i zapisu na sekundę (ze współczynnikiem wzrostu)**: liczba operacji we/wy na sekundę dla szczytowego obciążenia na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączna liczba operacji we/wy odczytu i zapisu maszyny wirtualnej nie zawsze jest sumą operacji we/wy odczytu i zapisu z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowa liczba operacji we/wy odczytu i zapisu maszyny wirtualnej to wartość szczytowa sumy operacji we/wy odczytu i zapisu poszczególnych dysków z każdej minuty okresu profilowania.
+**IOPS odczyt/zapis (o wskaźnik wzrostu)**: hello szczytowego obciążenia IOPS na powitania dysku (wartość domyślna to 95. percentyl), w tym hello przyszłych współczynnik wzrostu (wartość domyślna to 30 procent). Należy pamiętać, że hello całkowita odczytu/zapisu IOPS hello maszyny Wirtualnej nie zawsze hello sumę hello wirtualna poszczególnych dysków odczytu/zapisu IOPS, ponieważ hello szczytu odczytu/zapisu IOPS hello maszyny Wirtualnej jest hello piku hello sumę jego poszczególnych dysków odczytu/zapisu IOPS podczas co minutę hello okres profilowania.
 
-**Współczynnik zmian danych w Mb/s (ze współczynnikiem wzrostu)**: szczytowy współczynnik zmian danych na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączny współczynnik zmian danych maszyny wirtualnej nie zawsze jest sumą współczynników zmian danych z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowy współczynnik zmian danych maszyny wirtualnej to wartość szczytowa sumy współczynników zmian poszczególnych dysków z każdej minuty okresu profilowania.
+**Danych churn — w MB/s (o wskaźnik wzrostu)**: hello szczytowa przenoszenie szybkość na dysku hello (domyślna 95. percentyl) tym hello przyszłych współczynnik wzrostu (domyślna 30 procent). Należy pamiętać, że hello przenoszenie wszystkich danych z hello maszyny Wirtualnej nie jest zawsze hello sumę tworzeniem danych hello wirtualna poszczególnych dysków, ponieważ tworzeniem danych szczytu hello z hello maszyny Wirtualnej jest szczytu hello hello sumy przenoszenie jego poszczególnych dysków podczas co minutę hello profilowania okresu.
 
-**Liczba dysków**: łączna liczba dysków VMDK maszyny wirtualnej.
+**Liczba dysków**: hello łączna liczba VMDKs na powitania maszyny Wirtualnej.
 
-**Rozmiar dysku (GB)**: łączny skonfigurowany rozmiar wszystkich dysków maszyny wirtualnej. W narzędziu jest też wyświetlany rozmiar poszczególnych dysków maszyny wirtualnej.
+**Rozmiar (GB) dysku**: hello ustawiony łączny rozmiar wszystkich dysków hello maszyny Wirtualnej. Narzędzie Hello zawiera również hello rozmiar dysku dla poszczególnych dysków hello w hello maszyny Wirtualnej.
 
-**Rdzenie**: liczba rdzeni procesora CPU maszyny wirtualnej.
+**Rdzenie**: hello liczba Procesora rdzenie na powitania maszyny Wirtualnej.
 
-**Pamięć (MB)**: wielkość pamięci RAM maszyny wirtualnej.
+**Pamięć (MB)**: hello ilość pamięci RAM na powitania maszyny Wirtualnej.
 
-**Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
+**Karty sieciowe**: hello liczbę kart sieciowych na powitania maszyny Wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
+**Rozruch typu**: jest typu rozruchowego hello maszyny Wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne hello typu rozruchowego EFI są wyświetlane w arkuszu niezgodne maszyn wirtualnych.
 
-**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
+**Typ systemu operacyjnego**: hello jest typ systemu operacyjnego hello maszyny Wirtualnej. Dozwolone wartości to Windows, Linux i inny.
 
 
 ## <a name="site-recovery-limits"></a>Limity usługi Site Recovery
@@ -540,28 +540,28 @@ Dysk Premium P10 | 32 KB lub większy | 8 MB/s | 672 GB na dysk
 Dysk Premium P20 lub P30 | 8 KB  | 5 MB/s | 421 GB na dysk
 Dysk Premium P20 lub P30 | 16 KB lub większy |10 MB/s | 842 GB na dysk
 
-Są to średnie wartości przy założeniu 30-procentowego nakładania się operacji we/wy. Usługa Site Recovery może obsługiwać większą przepływność na podstawie zakresu nakładania się na siebie, większego rozmiaru operacji zapisu i rzeczywistego zachowania związanego z obciążeniem operacji we/wy. Poprzednie liczby zakładają typowe zaległości wynoszące około pięć minut. Oznacza to, że przekazane dane są przetwarzane i punkt odzyskiwania jest tworzony w ciągu pięciu minut.
+Są to średnie wartości przy założeniu 30-procentowego nakładania się operacji we/wy. Usługa Site Recovery może obsługiwać większą przepływność na podstawie zakresu nakładania się na siebie, większego rozmiaru operacji zapisu i rzeczywistego zachowania związanego z obciążeniem operacji we/wy. Witaj poprzednich numerów założono typowe zaległości około pięciu minut. Oznacza to, że przekazane dane są przetwarzane i punkt odzyskiwania jest tworzony w ciągu pięciu minut.
 
-Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności.
+Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy wykonanie szeroką gamę testowania przy użyciu obraz testowy tryb failover tooget hello true wydajności aplikacji.
 
-## <a name="updating-the-deployment-planner"></a>Aktualizowanie planisty wdrożenia
-Aby zaktualizować planistę wdrożenia, wykonaj następujące czynności:
+## <a name="updating-hello-deployment-planner"></a>Aktualizowanie hello wdrożenia planistę
+Planowanie wdrożenia hello tooupdate, hello następujące:
 
-1. Pobierz najnowszą wersję [planisty wdrożenia usługi Azure Site Recovery](https://aka.ms/asr-deployment-planner).
+1. Pobieranie najnowszej wersji hello hello [planowania wdrożenia usługi Azure Site Recovery](https://aka.ms/asr-deployment-planner).
 
-2. Skopiuj folder ZIP na serwer, na którym chcesz go uruchomić.
+2. Kopiuj hello .zip folderu tooa serwera, które mają toorun go.
 
-3. Wyodrębnij folder ZIP.
+3. Wyodrębnij hello folderu zip.
 
-4. Wykonaj jedną z następujących czynności:
- * Jeśli najnowsza wersja nie zawiera poprawki profilowania i profilowanie jest już w toku w bieżącej wersji planisty, kontynuuj profilowanie.
- * Jeśli najnowsza wersja zawiera poprawkę profilowania, zalecamy zatrzymanie profilowania w bieżącej wersji, a następnie jego ponowne uruchomienie w nowej wersji.
+4. Wykonaj jedną z następujących hello:
+ * Profilowanie jest już w toku na bieżącą wersję hello planner hello najnowszą wersję nie zawiera profilowania poprawkę, nadal hello profilowania.
+ * Jeśli hello najnowszej wersji zawierają profilowania poprawkę, zaleca się zatrzymanie profilowania na bieżącą wersję, a następnie ponownie uruchom profilowanie hello hello nowej wersji.
 
   >[!NOTE]
   >
-  >W przypadku uruchamiania profilowania w nowej wersji przekaż taką samą ścieżkę katalogu wyjściowego, aby narzędzie dołączało dane profilu do istniejących plików. Do wygenerowania raportu zostanie użyty kompletny zestaw profilowanych danych. Jeśli przekażesz inny katalog danych wyjściowych, zostaną utworzone nowe pliki, a stare profilowane dane nie będą używane podczas generowania raportu.
+  >Po uruchomieniu profilowanie z hello nowej wersji, hello przebiegu sam wyjściowy ścieżki katalogu, dzięki czemu hello narzędzia dołącza dane profilu na hello istniejące pliki. Pełny zestaw danych profilowanych zostanie użyty toogenerate hello raport. Jeśli przekazujesz katalogu różne wyniki, są tworzone nowe pliki i starego profilowane danych nie jest używany toogenerate hello raportu.
   >
-  >Każdy nowy planista wdrożenia jest aktualizacją zbiorczą pliku ZIP. Nie musisz kopiować najnowszych plików do poprzedniego folderu. Można utworzyć nowy folder i użyć go.
+  >Każdego nowego wdrożenia planistę jest zbiorcza aktualizacja hello pliku zip. Nie trzeba toocopy hello najnowsze pliki toohello poprzedniego folderu. Można utworzyć nowy folder i użyć go.
 
 
 ## <a name="version-history"></a>Historia wersji
@@ -571,7 +571,7 @@ Aktualizacja: 19 lipca 2017 r.
 
 Dodano następującą nową funkcję:
 
-* Dodano obsługę dużych dysków (powyżej 1 TB) na potrzeby generowania raportów. Teraz można użyć planisty wdrożenia, aby zaplanować replikację maszyn wirtualnych z dyskami o rozmiarze większym niż 1 TB (maksymalnie 4095 GB).
+* Dodano obsługę dużych dysków (powyżej 1 TB) na potrzeby generowania raportów. Teraz można użyć wdrożenia planistę tooplan replikację dla maszyn wirtualnych, które mają dysku o rozmiarze przekraczającym 1 TB (maksymalnie 4095 GB).
 Dowiedz się więcej na temat [obsługi dużych dysków w usłudze Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
 
 
@@ -580,7 +580,7 @@ Aktualizacja: 9 maja 2017 r.
 
 Dodano następującą nową funkcję:
 
-* Dodano obsługę dysku zarządzanego na potrzeby generowania raportów. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana na podstawie tego, czy dla pracy w trybie failover/testu pracy w trybie failover wybrano dysk zarządzany.        
+* Dodano obsługę dysku zarządzanego na potrzeby generowania raportów. Witaj liczbę maszyn wirtualnych można umieścić tooa pojedynczy magazyn konto jest obliczeniowa na podstawie, jeśli zarządzany dysk został wybrany do trybu Failover i testowanie trybu failover.        
 
 
 ### <a name="12"></a>1.2
@@ -588,26 +588,26 @@ Zaktualizowano: 7 kwietnia 2017 r.
 
 Dodano następujące poprawki:
 
-* Dodano test typu rozruchu (BIOS lub EFI) dla każdej maszyny wirtualnej, aby określić, czy maszyna wirtualna jest zgodna, czy niezgodna z funkcją ochrony.
-* Dodano informacje o systemie operacyjnym dla każdej maszyny wirtualnej na arkuszach zgodnych maszyn wirtualnych i niezgodnych maszyn wirtualnych.
-* Operacja GetThroughput jest teraz obsługiwana w regionach świadczenia usługi Microsoft Azure Administracja USA i Chiny.
+* Dodano rozruchu typu wyboru (BIOS lub EFI) dla każdego toodetermine maszyny wirtualnej, jeśli maszyna wirtualna hello jest zgodne lub niezgodne dla ochrona powitalnych.
+* Dodano systemu operacyjnego wpisz informacje dla każdej maszyny wirtualnej w hello zgodne maszyn wirtualnych i arkuszy niezgodne maszyn wirtualnych.
+* Witaj GetThroughput operacji jest teraz obsługiwany w regionach hello instytucji rządowych Stanów Zjednoczonych i Chin Microsoft Azure.
 * Dodano kilka testów wymagań wstępnych dla serwerów vCenter i ESXi.
-* Po skonfigurowaniu ustawień regionalnych jako inne niż angielskie generowany był nieprawidłowy raport.
+* Wygenerowano pobierania niepoprawne raportu, gdy ustawienia regionalne jest ustawiona toonon w języku angielskim.
 
 
 ### <a name="11"></a>1.1
 Aktualizacja: 9 marca 2017 r.
 
-Rozwiązano następujące problemy:
+Stałe hello następujące problemy:
 
-* Narzędzie nie może profilować maszyn wirtualnych, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi.
-* Kopiowanie i wyszukiwanie zostało wyłączone dla arkuszy zgodnych maszyn wirtualnych i niezgodnych maszyn wirtualnych.
+* Narzędzie Hello nie może profilu maszyn wirtualnych, jeśli hello vCenter zawiera dwa lub więcej maszyn wirtualnych o hello tej samej nazwy lub adresu IP na różnych hostach ESXi.
+* Kopiuj i wyszukiwania jest wyłączona dla arkuszy hello maszyny wirtualne zgodne i niezgodne maszyn wirtualnych.
 
 ### <a name="10"></a>1.0
 Aktualizacja: 23 lutego 2017 r.
 
-Planista wdrożenia usługi Azure Site Recovery w publicznej wersji zapoznawczej 1.0 ma następujące znane problemy (które zostaną rozwiązane w przyszłych aktualizacjach):
+Azure w lokacji odzyskiwania wdrożenia Planistę publicznej wersji zapoznawczej 1.0 ma hello następujące znane problemy (toobe rozwiązane w kolejnych aktualizacji):
 
-* Narzędzie działa tylko w przypadku replikacji z oprogramowania VMware na platformę Azure. Nie działa w przypadku wdrożeń funkcji Hyper-V na platformie Azure. W przypadku wdrożeń funkcji Hyper-V na platformie Azure użyj [narzędzia planisty wydajności funkcji Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-* Operacja GetThroughput nie jest obsługiwana w regionach świadczenia usługi Microsoft Azure Administracja USA i Chiny.
-* Narzędzie nie może profilować maszyn wirtualnych, jeśli serwer vCenter ma co najmniej dwie maszyny wirtualne o tej samej nazwie lub adresie IP na różnych hostach ESXi. W tej wersji narzędzie pomija profilowanie w przypadku zduplikowanych nazw lub adresów IP w parametrze VMListFile. Obejście polega na profilowaniu maszyn wirtualnych przy użyciu hosta ESXi zamiast serwera vCenter. Musisz uruchomić jedno wystąpienie każdego hosta ESXi.
+* Narzędzie Hello działa tylko w przypadku scenariuszy VMware do platformy Azure nie we wdrożeniach funkcji Hyper-V-do-platformy Azure. W scenariuszach funkcji Hyper-V-do-platformy Azure, użyj hello [planisty wydajności funkcji Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
+* Witaj GetThroughput operacji nie jest obsługiwana w regionach hello instytucji rządowych Stanów Zjednoczonych i platformy Microsoft Azure w Chinach.
+* Narzędzie Hello nie może profilu maszyn wirtualnych, jeśli serwer vCenter hello ma dwa lub więcej maszyn wirtualnych o hello tej samej nazwy lub adresu IP na różnych hostach ESXi. W tej wersji narzędzia hello pomija profilowania zduplikowanych nazw maszyn wirtualnych lub adresów IP w hello VMListFile. Obejście Hello jest hello tooprofile maszyn wirtualnych przy użyciu hosta ESXi zamiast hello vCenter server. Musisz uruchomić jedno wystąpienie każdego hosta ESXi.

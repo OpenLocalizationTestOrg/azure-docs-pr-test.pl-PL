@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory automatycznej rejestracji urządzeń — często zadawane pytania | Dokumentacja firmy Microsoft"
+title: "aaaAzure usługi Active Directory automatycznej rejestracji urządzeń — często zadawane pytania | Dokumentacja firmy Microsoft"
 description: "Automatycznej rejestracji urządzeń z usługi Azure Active Directory — często zadawane pytania."
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 29751239ae2a26cd7b07ddd0d8a8e706d4056b68
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ba7f113fd3bc310def001a1f44d938b0be71dba8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-automatic-device-registration-faq"></a>Często zadawane pytania dotyczące automatycznej rejestracji urządzeń w usłudze Azure Active Directory
 
-**Pytanie: czy mogę ostatnio zarejestrowane urządzenia. Dlaczego nie widzę urządzenia w obszarze Moje informacje użytkownika w portalu Azure?**
+**Pytanie: czy mogę ostatnio zarejestrowany hello urządzenia. Dlaczego nie widzę hello urządzenia w obszarze Moje informacje użytkownika w portalu Azure hello?**
 
-**Odpowiedź:** urządzeń z systemem Windows 10, które są przyłączone do domeny z automatycznej rejestracji urządzeń nie są wyświetlane w obszarze informacje o użytkowniku.
-Należy użyć programu PowerShell, aby wyświetlić wszystkie urządzenia. 
+**Odpowiedź:** urządzeń z systemem Windows 10, które są przyłączone do domeny z automatycznej rejestracji urządzeń nie są wyświetlane w obszarze hello informacje o użytkowniku.
+Należy toouse PowerShell toosee wszystkie urządzenia. 
 
-Informacje o użytkowniku należą następujące urządzenia:
+Tylko hello następujące urządzenia są wyświetlane w obszarze informacje o użytkowniku hello:
 
 - Wszystkich urządzeń osobistych, które nie są przyłączone do przedsiębiorstwa 
 - Wszystkie z systemem innym niż Windows 10 / Windows Server 2016 
@@ -35,38 +35,38 @@ Informacje o użytkowniku należą następujące urządzenia:
 
 ---
 
-**Pytanie: Dlaczego nie można wyświetlić wszystkich urządzeń zarejestrowanych w usłudze Azure Active Directory w portalu Azure?** 
+**Pytanie: Dlaczego nie można wyświetlić wszystkie urządzenia hello zarejestrowane w usłudze Azure Active Directory w portalu Azure hello?** 
 
-**Odpowiedź:** obecnie nie istnieje sposób, aby zobaczyć wszystkie zarejestrowane urządzenia w portalu Azure. Przy użyciu programu Azure PowerShell można znaleźć wszystkie urządzenia. Aby uzyskać więcej informacji, zobacz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) polecenia cmdlet.
+**Odpowiedź:** nie istnieje aktualnie nie toosee sposób wszystkich zarejestrowanych urządzeń w hello portalu Azure. Można użyć programu Azure PowerShell toofind wszystkie urządzenia. Aby uzyskać więcej informacji, zobacz hello [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) polecenia cmdlet.
 
 --- 
 
-**Pytanie: jak sprawdzić, co to jest stan rejestracji urządzenia klienta?**
+**Pytanie: jak sprawdzić, jakie stan rejestracji urządzenia hello powitania klienta jest?**
 
-**Odpowiedź:** zależy od stanu rejestracji urządzenia:
+**Odpowiedź:** zależy od stanu rejestracji urządzenia hello:
 
-- Co to jest urządzenia
+- Jakie urządzenia hello jest
 - Jak został zarejestrowany 
-- Wszystkie szczegóły z nim związane. 
+- Szczegółowe informacje dotyczące tooit. 
  
 
 ---
 
-**Pytanie: Dlaczego jest to urządzenie I został usunięty w portalu Azure lub nadal przy użyciu programu Windows PowerShell wymienione w zarejestrowany?**
+**Pytanie: Dlaczego jest to urządzenie I usunięto w hello Azure portalu lub przy użyciu programu Windows PowerShell nadal wymieniony jako zarejestrowane?**
 
-**Odpowiedź:** to jest celowe. Urządzenie nie ma dostępu do zasobów w chmurze. Jeśli chcesz usunąć urządzenie i ponownie zarejestrować akcji ręcznej musi być podejmowane na urządzeniu. 
+**Odpowiedź:** to jest celowe. Witaj urządzenie nie będzie miał tooresources dostęp w chmurze hello. Jeśli mają tooremove hello urządzenia i zarejestrować go ponownie, akcji ręcznej musi być toobe wykonywaną na urządzeniu hello. 
 
 Dla systemu Windows 10 i Windows Server 2016, które są lokalne AD przyłączonych do domeny:
 
-1.  Otwórz wiersz polecenia jako administrator.
+1.  Witaj Otwórz wiersz polecenia jako administrator.
 
 2.  Typ`dsregcmd.exe /debug /leave`
 
-3.  Wyloguj się i zaloguj się do wyzwolenia zaplanowane zadanie, które ponownie zarejestrowanie urządzenia. 
+3.  Wyloguj się i zaloguj się tootrigger hello zaplanowane zadanie, które rejestruje urządzenie hello ponownie. 
 
 Dla innych platform systemu Windows, które znajdują się na obszarze AD przyłączonych do domeny:
 
-1.  Otwórz wiersz polecenia jako administrator.
+1.  Witaj Otwórz wiersz polecenia jako administrator.
 2.  Wpisz polecenie `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Wpisz polecenie `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
@@ -76,78 +76,78 @@ Dla innych platform systemu Windows, które znajdują się na obszarze AD przył
 
 **ODP.:**
 
--   Dla systemu Windows 10 i Windows Server 2016 jeśli są one kolejnych nieudanych prób Odłączanie i dołączyć ponownie do tego samego urządzenia mogą istnieć zduplikowane wpisy. 
+-   Dla systemu Windows 10 i Windows Server 2016, jeśli są toounjoin kolejnych nieudanych prób i ponownie Dołącz hello tego samego urządzenia, może być w niej zduplikowanych pozycji. 
 
--   Jeśli używasz konta Dodaj firmowego lub szkolnego każdego użytkownika systemu windows, który używa konta Dodaj firmowego lub szkolnego utworzy nowy rekord urządzenia z tę samą nazwę urządzenia.
+-   Jeśli używasz konta Dodaj firmowego lub szkolnego każdego użytkownika systemu windows, który używa konta Dodaj firmowego lub szkolnego utworzy nowy rekord urządzenia hello tę samą nazwę urządzenia.
 
--   Inne platformy systemu Windows, które znajdują się na obszarze AD przyłączonych do domeny za pomocą automatycznej rejestracji utworzy nowy rekord urządzenia o takiej samej nazwie urządzeń dla każdego użytkownika domeny, który loguje się do urządzenia. 
+-   Inne platformy systemu Windows, które znajdują się na obszarze AD przyłączonych do domeny za pomocą automatycznej rejestracji utworzy nowy rekord urządzenia z hello tę samą nazwę urządzenia dla każdego użytkownika domeny, który loguje się do hello urządzenia. 
 
--   Maszyny AADJ została wyczyszczona, ponowna instalacja i ponownie połączony z tej samej nazwie, zostaną wyświetlone jako inny rekord z tą samą nazwą urządzenia.
+-   AADJ maszynę, która została wyczyszczona, ponowna instalacja i ponownie połączony z hello takie same nazwy, będzie wyświetlany jako inny rekord z hello tę samą nazwę urządzenia.
 
 ---
 
-**Pytanie: Dlaczego użytkownik nadal dostęp do zasobów z urządzenia, które można wyłączyć w portalu Azure?**
+**Pytanie: Dlaczego użytkownik nadal dostęp do zasobów z urządzenia I zostały wyłączone w portalu Azure hello?**
 
-**Odpowiedź:** może potrwać do godziny dla odwołania do zastosowania.
+**Odpowiedź:** może potrwać godzinę tooan toobe odwołania, stosowane.
 
 >[!Note] 
->Dla urządzeń utracone zaleca się czyszczenie urządzenia, aby upewnić się, że użytkownicy nie mogą uzyskać dostęp do urządzenia. Aby uzyskać więcej informacji, zobacz [rejestrowanie urządzeń do zarządzania w usłudze Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Utracone urządzeń zaleca się czyszczenie hello urządzenia tooensure, że użytkownicy nie mają dostępu hello urządzenia. Aby uzyskać więcej informacji, zobacz [rejestrowanie urządzeń do zarządzania w usłudze Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **Pytanie: Dlaczego Moi użytkownicy widzą "Nie można pobrać istnieje w tym miejscu"?**
 
-**Odpowiedź:** Jeśli został skonfigurowany, niektóre zasady dostępu warunkowego będą musieli stanu określonego urządzenia, a urządzenie nie spełnia kryteriów, użytkownicy są blokowane, a ten komunikat zostanie wyświetlony. Oszacowanie reguł i upewnij się, że urządzenie jest w stanie spełnia kryteria, aby uniknąć występowania tego komunikatu.
+**Odpowiedź:** hello urządzenie nie spełnia kryteriów hello skonfigurowano niektórych toorequire zasady dostępu warunkowego stanu określonego urządzenia, użytkownicy są blokowane, a ten komunikat zostanie wyświetlony. Sprawdź oszacowanie reguł hello i upewnij się, czy urządzenie hello jest możliwe toomeet hello kryteria tooavoid tego komunikatu.
 
 ---
 
 
-**Pytanie: Zobacz rekordem urządzenia w obszarze informacje o użytkowniku w portalu Azure i można zobaczyć stan zarejestrowany na kliencie. Czy prawidłowo skonfigurować do korzystania z dostępu warunkowego?**
+**Pytanie: Zobacz hello rekordem urządzenia w obszarze hello informacje o użytkowniku w portalu Azure hello i widoczny stan hello zarejestrowany na powitania klienta. Czy prawidłowo skonfigurować do korzystania z dostępu warunkowego?**
 
-**Odpowiedź:** rekord urządzenia (deviceID) i stan w portalu Azure należy zgodny klient i spełniać żadnych kryteriów oceny dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestracji urządzeń usługi Azure Active Directory](active-directory-device-registration.md).
+**Odpowiedź:** hello rekord urządzenia (deviceID) i stan na powitania portalu Azure musi odpowiada powitania klienta i spełniać wszystkie kryteria oceny dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestracji urządzeń usługi Azure Active Directory](active-directory-device-registration.md).
 
 ---
 
-**Pytanie: Dlaczego uzyskać komunikat "Nazwa użytkownika lub hasło jest niepoprawne" dla urządzenia, które tylko po dołączeniu do usługi Azure AD?**
+**Pytanie: Dlaczego jest wyświetlany jest komunikat "Nazwa użytkownika lub hasło jest niepoprawne" urządzenia I po prostu dołączeniu tooAzure AD?**
 
 **Odpowiedź:** są typowe przyczyny tego scenariusza:
 
 - Poświadczenia użytkownika nie są już prawidłowe.
 
-- Komputer nie może nawiązać połączenia z usługą Azure Active Directory. Sprawdź, czy wszystkie problemy z połączeniem sieciowym.
+- Ten komputer jest toocommunicate w usłudze Azure Active Directory. Sprawdź, czy wszystkie problemy z połączeniem sieciowym.
 
-- Azure AD Join wymagania wstępne nie zostały spełnione. Upewnij się, że zostały wykonane kroki [rozszerzanie funkcji chmury na urządzeniach z systemem Windows 10 za pomocą usługi Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
+- Hello Azure AD Join wymagania wstępne nie zostały spełnione. Upewnij się, że zostały wykonane kroki hello [rozszerzanie możliwości tooWindows 10 urządzeniami za pomocą usługi Azure Active Directory Join chmury](active-directory-azureadjoin-overview.md).  
 
-- Logowania federacyjnego wymaga serwerze federacyjnym w celu obsługi aktywny punkt końcowy protokołu WS-Trust. 
+- Logowania federacyjnego wymaga programu toosupport serwera federacyjnego aktywny punkt końcowy protokołu WS-Trust. 
 
 ---
 
-**Pytanie: Dlaczego zobacz "Oops... Wystąpił błąd!" okna dialogowego podczas próby dołączenia komputera?**
+**Pytanie: Dlaczego Zobacz hello "Oops... Wystąpił błąd!" okna dialogowego podczas próby dołączenia komputera?**
 
 **Odpowiedź:** jest to wynik konfigurowania rejestracji usługi Azure Active Directory z usługą Intune. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zarządzania urządzeniami z systemem Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
-**Pytanie: Dlaczego moja próby dołączenia komputera nie chociaż uzyskane informacje o błędzie?**
+**Pytanie: Dlaczego moja toojoin próba komputer się nie powieść, mimo że uzyskane informacje o błędzie?**
 
-**Odpowiedź:** prawdopodobną przyczyną jest to, że użytkownik jest zalogowany do urządzenia przy użyciu wbudowanego konta administratora. Utwórz konto lokalne różnych przed przy użyciu usługi Azure Active Directory Join, aby ukończyć instalację. 
-
----
-
-**Pytanie: gdzie można znaleźć instrukcje do instalacji automatycznej rejestracji urządzeń?**
-
-**Odpowiedź:** szczegółowe instrukcje, zobacz [Konfigurowanie automatycznej rejestracji urządzeń z systemem Windows przyłączonych do domeny w usłudze Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+**Odpowiedź:** prawdopodobną przyczyną jest hello jest on zalogowany w toohello urządzenia przy użyciu hello wbudowanego konta administratora. Przed rozpoczęciem korzystania z usługi Azure Active Directory Join toocomplete hello Instalator, Utwórz innego konta lokalnego. 
 
 ---
 
-**Pytanie: gdzie mogę znaleźć, rozwiązywanie problemów z informacji o automatycznej rejestracji urządzeń?**
+**Pytanie: gdzie można znaleźć instrukcje instalacji hello automatycznej rejestracji urządzeń?**
+
+**A:** szczegółowe instrukcje, zobacz [jak tooconfigure automatycznej rejestracji systemu Windows przyłączone do domeny urządzenia w usłudze Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
+**Pytanie: gdzie mogę znaleźć, rozwiązywanie problemów z informacji o hello automatycznej rejestracji urządzeń?**
 
 **Odpowiedź:** informacje dotyczące rozwiązywania problemów, zobacz:
 
-- [Rozwiązywanie problemów z automatyczną rejestrację domeny komputery przyłączone do usługi Azure AD — Windows 10 i Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Rozwiązywanie problemów z automatyczną rejestrację domeny przyłączone tooAzure komputery AD — Windows 10 i Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
 
-- [Rozwiązywanie problemów z automatyczną rejestrację domeny komputery przyłączone do usługi Azure AD dla klientów niższego poziomu z systemem Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Rozwiązywanie problemów z automatyczną rejestrację domeny przyłączone tooAzure komputery AD dla klientów niższego poziomu z systemem Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

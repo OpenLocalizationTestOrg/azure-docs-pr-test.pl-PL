@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android"
-description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji platformy Unity wdrażanych na urządzeniach z systemem iOS."
+title: "aaaGet Started with Azure Mobile Engagement Unity Android wdrożenia"
+description: "Dowiedz się, jak toouse usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami Wypychanymi dla aplikacji platformy Unity wdrażanych tooiOS urządzeń."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
@@ -14,73 +14,73 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c4d34691daeb7544b11c2d6895b2474af0f902b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Wprowadzenie do usługi Azure Mobile Engagement na potrzeby wdrożenia aplikacji platformy Unity na urządzeniu z systemem Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-W tym temacie pokazano, w jaki sposób za pomocą usługi Azure Mobile Engagement można określić sposób użycia aplikacji oraz wysyłać powiadomienia wypychane do segmentowanych użytkowników aplikacji platformy Unity podczas wdrażania w urządzeniu z systemem Android.
-W tym samouczku jako punkt startowy został użyty klasyczny samouczek Roll a Ball dla platformy Unity. Należy postępować zgodnie z krokami w tym [samouczku](mobile-engagement-unity-roll-a-ball.md) przed kontynuowaniem integracji usługi Mobile Engagement, która została przedstawiona w samouczku poniżej. 
+W tym temacie opisano sposób toounderstand usługi Azure Mobile Engagement toouse użycia aplikacji oraz jak toosend wypychanie powiadomień toosegmented użytkowników aplikacji platformy Unity podczas wdrażania tooan urządzenia z systemem Android.
+Ten samouczek używa hello klasycznego Przywróć Unity samouczek piłka jako punkt początkowy hello. Należy wykonać kroki hello na tym [samouczek](mobile-engagement-unity-roll-a-ball.md) przed kontynuowaniem hello integracji usługi Mobile Engagement, która została przedstawiona w samouczku hello poniżej. 
 
-Dla tego samouczka wymagane są następujące elementy:
+Ten samouczek wymaga następujących hello:
 
 * [Edytor platformy Unity](http://unity3d.com/get-unity)
 * [Zestaw SDK platformy Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk)
 * Zestaw SDK systemu Google Android
 
 > [!NOTE]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> toocomplete tego samouczka, musi mieć aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 > 
 > 
 
 ## <a id="setup-azme"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji systemu Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
-### <a name="import-the-unity-package"></a>Importowanie pakietu Unity
-1. Pobierz [pakiet Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk) i zapisz go na komputerze lokalnym. 
-2. Wybierz pozycję **Assets -> Import Package -> Custom Package** (Zasoby -> Importuj pakiet -> Pakiet niestandardowy), a następnie wybierz pakiet, który został pobrany w kroku powyżej. 
+## <a id="connecting-app"></a>Połączenie z zapleczem usługi Mobile Engagement toohello aplikacji
+### <a name="import-hello-unity-package"></a>Importowanie pakietu Unity hello
+1. Pobierz hello [pakiet Unity usługi Mobile Engagement](https://aka.ms/azmeunitysdk) i zapisz go tooyour komputera lokalnego. 
+2. Przejdź za**zasoby -> Importuj pakiet -> Pakiet niestandardowy** i wybierz hello pakietu pobranego w hello powyżej kroku. 
    
     ![][70] 
 3. Upewnij się, że są zaznaczone wszystkie pliki, a następnie kliknij przycisk **Import** (Importuj). 
    
     ![][71] 
-4. Gdy import zakończy się pomyślnie, w projekcie będą widoczne zaimportowane pliki zestawu SDK.  
+4. Gdy Import zakończy się pomyślnie, zobaczysz hello zaimportowane pliki zestawu SDK w projekcie.  
    
     ![][72] 
 
-### <a name="update-the-engagementconfiguration"></a>Aktualizowanie pliku skryptu EngagementConfiguration
-1. Otwórz pliku skryptu **EngagementConfiguration** z folderu zestawu SDK, a następnie zaktualizuj zmienną **ANDROID\_CONNECTION\_STRING** parametrami połączenia uzyskanymi wcześniej z witryny Azure Portal.  
+### <a name="update-hello-engagementconfiguration"></a>Aktualizacja hello EngagementConfiguration
+1. Otwórz hello **EngagementConfiguration** pliku skryptu z zestawu SDK hello hello folderu i zaktualizuj **ANDROID\_połączenia\_ciąg** parametrami połączenia hello uzyskanymi wcześniej z hello portalu Azure.  
    
     ![][73]
-2. Zapisz plik. 
-3. Wykonaj polecenie **File -> Engagement -> Generate Android Manifest** (Plik -> Engagement -> Generowanie manifestu systemu Android). Jest to wtyczka dodana przez zestaw SDK usługi Mobile Engagement i kliknięcie jej spowoduje automatyczne zaktualizowanie ustawień projektu. 
+2. Zapisz plik hello 
+3. Wykonaj polecenie **File -> Engagement -> Generate Android Manifest** (Plik -> Engagement -> Generowanie manifestu systemu Android). Jest to hello wtyczka dodana przez zestaw SDK usługi Mobile Engagement hello i kliknięcie jej automatycznie spowoduje zaktualizowanie ustawień projektu. 
    
     ![][74]
 
 > [!IMPORTANT]
-> Upewnij się, że to polecenie będzie wykonywane za każdym razem, gdy plik **EngagementConfiguration** zostanie zaktualizowany — w przeciwnym razie zmiany nie zostaną odzwierciedlone w aplikacji. 
+> Upewnij się, że tooexecute to za każdym razem, gdy hello **EngagementConfiguration** pliku, w przeciwnym razie zmiany nie zostaną odzwierciedlone w aplikacji hello. 
 > 
 > 
 
-### <a name="configure-the-app-for-basic-tracking"></a>Konfigurowanie aplikacji na potrzeby śledzenia podstawowego
-1. Otwórz do edycji skrypt **PlayerController** dołączony do obiektu Player. 
-2. Dodaj następującą instrukcję using:
+### <a name="configure-hello-app-for-basic-tracking"></a>Konfigurowanie aplikacji hello na potrzeby śledzenia podstawowego
+1. Otwórz hello **PlayerController** skrypt dołączony obiektu Player toohello. 
+2. Dodaj następujące hello instrukcję using:
    
         using Microsoft.Azure.Engagement.Unity;
-3. Dodaj następujący kod do metody `Start()`:
+3. Dodaj następujące toohello hello `Start()` — metoda
    
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### <a name="deploy-and-run-the-app"></a>Wdrażanie i uruchamianie aplikacji
-Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij się, że na komputerze jest zainstalowany zestaw SDK systemu Android. 
+### <a name="deploy-and-run-hello-app"></a>Wdrażanie i uruchamianie aplikacji hello
+Upewnij się, że zestaw SDK systemu Android zainstalowane na komputerze przed podjęciem próby wykonania toodeploy to urządzenie tooyour aplikacji platformy Unity. 
 
-1. Podłącz urządzenie z systemem Android do swojego komputera. 
+1. Podłącz urządzenie z systemem Android tooyour maszynę. 
 2. Wybierz pozycję **File -> Build Settings** (Plik -> Ustawienia kompilacji). 
    
     ![][40]
@@ -95,8 +95,8 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 5. Na koniec kliknij pozycję **Build And Run** (Kompiluj i uruchom).
    
     ![][54]
-6. Może pojawić się monit o podanie nazwy folderu do przechowywania pakietu systemu Android. 
-7. Jeśli wszystko odbędzie się poprawnie, pakiet zostanie wdrożony na podłączonym urządzeniu i na telefonie będzie widoczna Twoja gra na platformie Unity. 
+6. Może być zadawane tooprovide folderu nazwa toostore hello pakietu systemu Android. 
+7. Jeśli wszystko odbędzie poprawnie, pakiet hello zostaną wdrożone tooyour połączone urządzenia i powinien być widoczny gry środowiska Unity w telefonie! 
 
 ## <a id="monitor"></a>Łączenie aplikacji z funkcją monitorowania w czasie rzeczywistym
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
@@ -104,21 +104,21 @@ Przed próbą wdrożenia tej aplikacji platformy Unity na urządzeniu upewnij si
 ## <a id="integrate-push"></a>Włączanie powiadomień wypychanych i funkcji komunikatów w aplikacji
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### <a name="update-the-engagementconfiguration"></a>Aktualizowanie pliku skryptu EngagementConfiguration
-1. Otwórz plik skryptu **EngagementConfiguration** z folderu zestawu SDK i zaktualizuj zmienną **ANDROID\_GOOGLE\_NUMBER** **numerem projektu Google** uzyskanym wcześniej z portalu Google Cloud Developer. Jest to wartość ciągu, więc upewnij się, że została ujęta w cudzysłów. 
+### <a name="update-hello-engagementconfiguration"></a>Aktualizacja hello EngagementConfiguration
+1. Otwórz hello **EngagementConfiguration** pliku skryptu z zestawu SDK hello hello folderu i zaktualizuj **ANDROID\_GOOGLE\_numer** z hello **projektu Google Numer** uzyskanymi wcześniej z portalu Google Cloud Developer hello. Jest to ciąg wartości, dlatego upewnij się, że tooenclose ją w podwójny cudzysłów. 
    
     ![][75]
-2. Zapisz plik. 
-3. Wykonaj polecenie **File -> Engagement -> Generate Android Manifest** (Plik -> Engagement -> Generowanie manifestu systemu Android). Jest to wtyczka dodana przez zestaw SDK usługi Mobile Engagement i kliknięcie jej spowoduje automatyczne zaktualizowanie ustawień projektu. 
+2. Zapisz plik hello. 
+3. Wykonaj polecenie **File -> Engagement -> Generate Android Manifest** (Plik -> Engagement -> Generowanie manifestu systemu Android). Jest to hello wtyczka dodana przez zestaw SDK usługi Mobile Engagement hello i kliknięcie jej automatycznie spowoduje zaktualizowanie ustawień projektu. 
    
     ![][74]
 
-### <a name="configure-the-app-to-receive-notifications"></a>Konfigurowanie aplikacji na potrzeby otrzymywania powiadomień
-1. Otwórz do edycji skrypt **PlayerController** dołączony do obiektu Player. 
-2. Dodaj następujący kod do metody `Start()`:
+### <a name="configure-hello-app-tooreceive-notifications"></a>Konfigurowanie powiadomień tooreceive aplikacji hello
+1. Otwórz hello **PlayerController** skrypt dołączony obiektu Player toohello. 
+2. Dodaj następujące toohello hello `Start()` — metoda
    
         EngagementReachAgent.Initialize();
-3. Teraz, gdy aplikacja jest zaktualizowana, wdróż i uruchom aplikację na urządzeniu zgodnie z poniższymi instrukcjami. 
+3. Teraz, gdy hello aplikacja jest zaktualizowana, wdrażanie i uruchamianie aplikacji hello na urządzeniu na powitania poniższymi instrukcjami. 
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 

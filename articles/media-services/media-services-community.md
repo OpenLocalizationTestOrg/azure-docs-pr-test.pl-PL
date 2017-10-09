@@ -1,5 +1,5 @@
 ---
-title: "Omówienie społeczności usługi Azure Media Services | Dokumentacja firmy Microsoft"
+title: "aaaAzure omówienie społeczności usług Media | Dokumentacja firmy Microsoft"
 description: "Ta strona społeczności Azure Media Services (AMS) opisano różne sposoby, możesz pobrać aktualizacje o AMS, zobacz nowe pliki wideo i podkasty, zadawać pytania i przekazać opinię. "
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 97329ef099752506af6ec6947a88a00c35d141a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-media-services-community"></a>Społeczność usługi Azure Media Services
 Ta strona społeczności Azure Media Services (AMS) opisano różne sposoby, możesz pobrać aktualizacje o AMS, wyświetlić nowe pliki wideo i podkasty, zadawać pytania i przekazać opinię.   
@@ -37,10 +37,10 @@ Ta strona społeczności Azure Media Services (AMS) opisano różne sposoby, mo�
 
 ## <a name="discussion"></a>Omówienie
 ### <a name="twitter"></a>Twitter
-Użyj [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter dojścia do wykonaj AMS wiadomości i aktualizacji w serwisie Twitter. Można użyć [ @AzureSupport ](https://twitter.com/azuresupport) twitter dojścia do żądania pomocy technicznej w serwisie Twitter.  
+Użyj hello [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter dojście toofollow hello AMS wiadomości i aktualizacji w serwisie Twitter. Można użyć hello [ @AzureSupport ](https://twitter.com/azuresupport) twitter Obsługa toorequest dojście w serwisie Twitter.  
 
 ### <a name="online-forums"></a>Fora online
-Fora następujące można zadać pytania dotyczące bieżącego produktów i funkcji.
+Witaj następujące fora można zadać pytania dotyczące bieżącego produktów i funkcji.
 
 Obecnie MSDN jest podstawowym forum AMS.
 
@@ -48,10 +48,10 @@ Obecnie MSDN jest podstawowym forum AMS.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="contact-the-team"></a>Skontaktuj się z zespołem
+## <a name="contact-hello-team"></a>Skontaktuj się z pomocą hello zespołu
 Azure Media Services podstawowemu adresowi e-mail to:  **mediaservices@microsoft.com** .
 
-W poniższej tabeli wymieniono e-mail zespołów sub funkcji:
+Witaj w poniższej tabeli wymieniono e-mail zespołów sub funkcji:
 
 | Funkcja | Adres e-mail |
 | --- | --- |

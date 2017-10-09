@@ -1,6 +1,6 @@
 ---
-title: Klasyfikacja danych na platformie Azure | Dokumentacja firmy Microsoft
-description: "Ten artykuł zawiera wprowadzenie do podstawowe informacje dotyczące klasyfikacji danych i zaznacza jego wartość, w szczególności w kontekście chmury obliczeniowych oraz przy użyciu programu Microsoft Azure"
+title: aaaData klasyfikacji dla platformy Azure | Dokumentacja firmy Microsoft
+description: "Ten artykuł zawiera toohello wprowadzenie podstawowe informacje dotyczące klasyfikacji danych i zaznacza jego wartość, w szczególności w kontekście hello chmury obliczeniowych oraz przy użyciu programu Microsoft Azure"
 services: security
 documentationcenter: na
 author: YuriDio
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2017
 ms.author: yurid
-ms.openlocfilehash: e5d8841c47f91b27131fcf5066bfd3805b5670f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 726da2482beab3bf7b0ac33510f2b523d5074df8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-classification-for-azure"></a>Klasyfikacja danych na platformie Azure
-Ten artykuł zawiera wprowadzenie do podstawowe informacje dotyczące klasyfikacji danych i zaznacza jego wartość, w szczególności w kontekście chmury obliczeniowych oraz przy użyciu programu Microsoft Azure. 
+Ten artykuł zawiera toohello wprowadzenie podstawowe informacje dotyczące klasyfikacji danych i zaznacza jego wartość, w szczególności w kontekście hello chmury obliczeniowych oraz przy użyciu programu Microsoft Azure. 
 
 ## <a name="data-classification-fundamentals"></a>Podstawowe informacje dotyczące klasyfikacji danych
 Klasyfikacja danych powiodło się w organizacji wymaga szerokiego świadomości potrzeb organizacji i dokładne zrozumienie, w którym znajdują się zasobów danych.  
@@ -34,72 +34,72 @@ Istnieją dane w jednym z trzech stanów podstawowe:
 * W procesie 
 * W drodze 
 
-Wszystkie trzy stany wymagają unikatowych rozwiązań technicznych do klasyfikacji danych, ale zastosowanych zasad klasyfikacji danych powinna być taka sama dla każdego. Dane, które jest sklasyfikowany jako poufny musi pozostać poufne, gdy komputer znajduje się w stanie spoczynku, w procesie i podczas przesyłania. 
+Wszystkie trzy stany wymagają unikatowych rozwiązań technicznych do klasyfikacji danych, ale hello zastosowanych zasad klasyfikacji danych powinny być hello takie same dla każdego. Dane, które jest sklasyfikowany jako poufny musi toostay poufne podczas magazynowane, w procesie i podczas przesyłania. 
 
-Dane można także strukturalnych lub bez struktury. Procesy typowe klasyfikacji danych strukturalnych w baz danych i arkuszy kalkulacyjnych są mniej złożony i czasochłonny do zarządzania niż danych niestrukturalnych, takich jak dokumenty, kod źródłowy i poczty e-mail. 
+Dane można także strukturalnych lub bez struktury. Znaleziono w bazach danych strukturalnych procesów klasyfikacji typowe dla hello i arkusze kalkulacyjne są mniej złożony i czasochłonny toomanage niż danych niestrukturalnych, takich jak dokumenty, kod źródłowy i poczty e-mail. 
 
 > [!TIP]
 > Aby uzyskać więcej informacji na temat funkcji platformy Azure i najlepsze rozwiązania dotyczące szyfrowania danych przeczytaj [najlepsze rozwiązania szyfrowania danych Azure](azure-security-data-encryption-best-practices.md)
 > 
 > 
 
-Ogólnie rzecz biorąc, organizacje będą mieć więcej danych niestrukturalnych niż dane strukturalne. Niezależnie od tego, czy danych strukturalnych lub bez struktury ważne jest zarządzanie wrażliwości danych. W przypadku prawidłowego wdrożenia pomaga klasyfikacji danych, upewnij się, że poufne dane, które zasoby są zarządzane za pomocą nadzoru większa niż zasobów danych, które są uważane za publiczne lub wolnego do dystrybucji. 
+Ogólnie rzecz biorąc, organizacje będą mieć więcej danych niestrukturalnych niż dane strukturalne. Niezależnie od tego, czy danych strukturalnych lub bez struktury jest ważne w przypadku należy toomanage danych czułości. W przypadku prawidłowego wdrożenia klasyfikacji danych pomaga zapewnić, że poufne dane, które zasoby są zarządzane za pomocą nadzoru większa niż zasobów danych, które są uważane za publiczne lub wolnego toodistribute. 
 
-### <a name="controlling-access-to-data"></a>Kontrolowanie dostępu do danych
-Uwierzytelnianie i autoryzacja są często pomylić ze sobą i ich role błędnie interpretowane. W rzeczywistości są zupełnie różne, jak pokazano na poniższej ilustracji.  
+### <a name="controlling-access-toodata"></a>Kontrolowanie dostępu toodata
+Uwierzytelnianie i autoryzacja są często pomylić ze sobą i ich role błędnie interpretowane. W rzeczywistości są zupełnie różne, jak pokazano w powitania po rysunku.  
 
 ![Dostęp do danych i kontrola](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
 
 ### <a name="authentication"></a>Authentication
-Uwierzytelnianie zazwyczaj składa się z co najmniej dwie części: nazwa użytkownika lub Identyfikatora użytkownika do identyfikacji użytkownika i token, takich jak hasło, aby upewnić się, że poświadczenie nazwy użytkownika jest prawidłowy. Proces nie zapewnia uwierzytelniony użytkownik z dostępem do dowolnego towarów lub usług. sprawdza, czy użytkownik jest kto mówią, że są one.   
+Uwierzytelnianie zazwyczaj składa się z co najmniej dwie części: nazwa użytkownika lub użytkownika identyfikator tooidentify użytkownika oraz token, takie jak hasła, tooconfirm, który hello poświadczenie nazwy użytkownika jest prawidłowy. proces Hello nie zapewnia hello uwierzytelnionego użytkownika, dostęp do elementów tooany lub usług. sprawdzi, czy ten użytkownik hello jest kto mówią, że są one.   
 
 > [!TIP]
-> [Usługa Azure Active Directory](../active-directory/active-directory-whatis.md) zapewnia usługi tożsamości opartej na chmurze, które umożliwiają uwierzytelniania i autoryzacji użytkowników. 
+> [Usługa Azure Active Directory](../active-directory/active-directory-whatis.md) zapewnia usługi tożsamości opartej na chmurze, które pozwalają tooauthenticate i autoryzacji użytkowników. 
 > 
 > 
 
 ### <a name="authorization"></a>Autoryzacja
-Autoryzacja jest to proces udostępniania uwierzytelnionego użytkownika umożliwia dostęp do aplikacji, zestaw danych, pliku danych lub innego obiektu. Przypisywanie użytkowników uwierzytelnionych prawa do używania, modyfikowanie lub usuwanie elementów, które mogą uzyskiwać dostęp do wymaga uwagi do klasyfikacji danych. 
+Autoryzacja jest hello proces udostępniania tooaccess możliwości hello uwierzytelnionego użytkownika aplikacji, zestaw danych, pliku danych lub innego obiektu. Przypisywanie toouse prawa hello uwierzytelnionych użytkowników, modyfikowanie lub usuwanie elementów, które mogą uzyskiwać dostęp do wymaga uwagi toodata klasyfikacji. 
 
-Implementacja mechanizmu sprawdzania poprawności potrzeb poszczególnym użytkownikom dostęp do plików i informacji oparty na kombinacji roli, zasady zabezpieczeń i zasad ryzyka zagadnienia wymaga pomyślnej autoryzacji. Na przykład dane z określonych aplikacji (LOB)-biznesowych nie może być konieczne dostęp do wszystkich pracowników, a tylko mały podzbiór pracowników prawdopodobnie będzie potrzebny dostęp do plików zasobów ludzkich (HR). Ale organizacjom kontroli kto ma dostęp do danych, jak również jako warunkami i sposobami, efektywną systemu do uwierzytelniania użytkowników należy spełnić. 
+Implementacja mechanizmu toovalidate poszczególnych użytkowników potrzebuje tooaccess pliki i informacje w zależności od kombinację roli, zasady zabezpieczeń i zagadnienia dotyczące zasad ryzyka wymaga pomyślnej autoryzacji. Na przykład dane z określonych aplikacji (LOB)-biznesowych może nie być konieczne toobe dostępne dla wszystkich pracowników, a tylko mały podzbiór pracownicy będą prawdopodobnie muszą uzyskiwać dostęp do plików zasobów (HR) toohuman. Jednak dla organizacji toocontrol kto ma dostęp do danych, jak również jako warunkami i sposobami, efektywną systemu do uwierzytelniania użytkowników należy spełnić. 
 
 > [!TIP]
-> w systemie Microsoft Azure upewnij się, że wykorzystanie based kontroli dostępu (RBAC) można udzielić tylko takiego dostępu, użytkownicy muszą wykonać swoje zadania. Odczyt [zarządzanie dostępem do zasobów usługi Azure Active Directory za pomocą przypisań ról](../active-directory/role-based-access-control-configure.md) Aby uzyskać więcej informacji. 
+> platformie Microsoft Azure upewnij się, że tooleverage based kontroli dostępu (RBAC) toogrant tylko hello takiego dostępu czy użytkownicy muszą tooperform swoich zadań. Odczyt [Użyj roli przypisania toomanage dostępu tooyour usługi Azure Active Directory zasobów](../active-directory/role-based-access-control-configure.md) Aby uzyskać więcej informacji. 
 > 
 > 
 
 ### <a name="roles-and-responsibilities-in-cloud-computing"></a>Role i obowiązki w chmury obliczeniowej
-Mimo że dostawców w chmurze może ułatwić zarządzanie ryzykiem, klienci muszą upewnij się, że zarządzanie klasyfikacją danych i wymuszania jest poprawnie zaimplementowana aby zapewnić odpowiedni poziom usług zarządzania danych.  
+Mimo że dostawców w chmurze może ułatwić zarządzanie ryzykiem, klienci muszą tooensure tego Zarządzanie klasyfikacją danych i wymuszania jest poprawnie zaimplementowana tooprovide hello odpowiedni poziom usług zarządzania danych.  
 
-Obowiązki klasyfikacji danych różni się zależnie od modelem usługi chmury, które jest już na miejscu, jak pokazano na poniższej ilustracji. Trzy modele usług chmury podstawowej są infrastruktura jako usługa (IaaS), platformy jako usługa (PaaS), a oprogramowanie jako usługa (SaaS). Implementacja mechanizmów klasyfikacji danych również różni się zależnie od zależność od oraz oczekiwań dostawcy chmury. 
+Klasyfikacji danych, które różnią się obowiązki w oparciu modelem usługi chmury, które jest już na miejscu, jak pokazano w powitania po rysunku. trzy modele usług chmury podstawowej Hello są infrastruktura jako usługa (IaaS), platformy jako usługa (PaaS), a oprogramowanie jako usługa (SaaS). Implementacja mechanizmów klasyfikacji danych również różni się zależnie od zależy od hello i oczekiwań hello dostawcy usług w chmurze. 
 
 ![Role](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
 
-Chociaż jest odpowiedzialny za klasyfikowania danych, dostawców w chmurze powinny być napisane zobowiązań dotyczących sposobu będzie bezpieczny i zadbać o zachowanie poufności danych klienta przechowywanych w chmurze.  
+Chociaż jest odpowiedzialny za klasyfikowania danych, dostawców w chmurze powinny być napisane zobowiązań dotyczących sposobu będzie bezpieczny i zadbać o zachowanie poufności hello powitania klienta danych przechowywanych w chmurze.  
 
-* **Dostawcy IaaS** wymagania są ograniczone do zapewnienia, że środowisko wirtualne mogą obsługiwać funkcje klasyfikacji danych i wymagań dotyczących zgodności klienta. Dostawcy IaaS ma mniejszy roli w klasyfikacji danych, ponieważ tylko wymagają upewnić się, że dane klienta adresów wymagań dotyczących zgodności. Jednak dostawców musi nadal upewnij się, że ich środowisk wirtualnych adresów wymagania dotyczące klasyfikacji danych oprócz zabezpieczanie centrów danych.
-* **Dostawców PaaS** obowiązki mogą być mieszane, ponieważ platforma mogą być używane w warstwowego podejścia do zapewnienia bezpieczeństwa dla narzędzia klasyfikacji. PaaS dostawcy mogą być odpowiedzialne za uwierzytelnianie i prawdopodobnie niektórych reguł autoryzacji i podać zabezpieczeń oraz funkcje klasyfikacji danych do ich warstwy aplikacji. Znacznie jak dostawcy IaaS dostawcy PaaS konieczne upewnij się, że jego platforma jest zgodna z żadnych wymagań dotyczących klasyfikacji odpowiednie dane.
-* **Dostawców w modelu SaaS** często są traktowane jako część łańcucha autoryzacji i trzeba będzie upewnij się, że danych przechowywanych w aplikacji SaaS mogą być kontrolowane przez typ klasyfikacji. Aplikacji SaaS można aplikacji biznesowych, a ich potrzeb charakter służyć do uwierzytelniania i autoryzacji dane, które są używane i przechowywane. 
+* **Dostawcy IaaS** wymagania są ograniczone tooensuring, który hello środowisko wirtualne mogą obsługiwać funkcje klasyfikacji danych i wymagań dotyczących zgodności klienta. Dostawcy IaaS ma mniejszy roli w klasyfikacji danych, ponieważ potrzebna jest tylko tooensure, że dane klienta adresów wymagań dotyczących zgodności. Jednak dostawców musi nadal upewnij się, że ich środowisk wirtualnych adresów wymagania dotyczące klasyfikacji danych w toosecuring dodanie centrów danych.
+* **Dostawców PaaS** obowiązki mogą być mieszane, ponieważ platforma hello mogą być używane w zabezpieczeń tooprovide warstwowego podejścia narzędzia klasyfikacji. PaaS dostawcy mogą być odpowiedzialne za uwierzytelnianie i prawdopodobnie niektórych reguł autoryzacji i podać zabezpieczeń i warstwy aplikacji tootheir funkcji klasyfikacji danych. Znacznie jak dostawcy IaaS dostawcy PaaS muszą tooensure, która ich platforma jest zgodna z żadnych wymagań dotyczących klasyfikacji odpowiednie dane.
+* **Dostawców w modelu SaaS** często są traktowane jako część łańcucha autoryzacji i będzie konieczne tooensure, który hello danych przechowywanych w aplikacji SaaS hello mogą być kontrolowane przez typ klasyfikacji. Aplikacji SaaS mogą służyć do aplikacji biznesowych, a z natury muszą tooprovide hello tooauthenticate oznacza i autoryzować dane, które są używane i przechowywane. 
 
 ## <a name="classification-process"></a>Proces klasyfikacji
-Organizacje, które zrozumieć potrzeby klasyfikacji danych i chcesz ją wdrożyć stają przed podstawowe żądanie: czego zacząć?
+Organizacje, które rozumieją hello potrzebne do klasyfikacji danych i ma on dostęp podstawowego żądania tooimplement: gdzie toobegin?
 
-Skuteczne i proste sposobem zaimplementować klasyfikacji danych jest używania wyboru planu wykonania, działania modelu z [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). Poniższa ilustracja wykresy zadań, które są wymagane, aby pomyślnie wdrożyć klasyfikacji danych, w tym modelu.  
+Jednym ze sposobów skuteczne i proste klasyfikacji danych tooimplement jest toouse hello planu, należy wyboru, USTAWA modelu z [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). następujące Hello rysunek wykresy hello zadania, które są wymagane toosuccessfully klasyfikacji danych implementuje w tym modelu.  
 
-1. **PLANOWANIE**. Zidentyfikuj niejawnego danych, aby wdrożyć program klasyfikacji i utworzyć profile ochrony zasobów danych. 
-2. **CZY**. Po uzgodnionych zasad klasyfikacji danych wdrożyć program i implementować technologie wymuszania, zgodnie z potrzebami dla poufnych danych.  
-3. **SPRAWDŹ**. Sprawdź i zweryfikować raporty, aby upewnić się, że narzędzia i metody używane są skutecznie adresowania zasady klasyfikacji. 
-4. **DZIAŁANIE**. Sprawdź stan dostępu do danych i przejrzyj pliki i dane, które wymagają zmiany przy użyciu metodologii podziału i poprawką przyjęcie zmiany oraz do adresu nowych zagrożeń.  
+1. **PLANOWANIE**. Identyfikowanie zasobów danych, program klasyfikacji danych niejawnego toodeploy hello i utworzyć profile ochrony. 
+2. **CZY**. Po uzgodnionych zasad klasyfikacji danych wdrożyć hello program i implementować technologie wymuszania, zgodnie z potrzebami dla poufnych danych.  
+3. **SPRAWDŹ**. Sprawdź i zweryfikować raporty tooensure, które skutecznie adresowania hello narzędzia i stosowane metody hello zasady klasyfikacji. 
+4. **DZIAŁANIE**. Sprawdź stan hello dostępu do danych i przejrzyj pliki i dane, które wymagają poprawek za pomocą przeklasyfikowania i zmiany tooadopt metodologii poprawki i nowe zagrożenia tooaddress.  
 
 ![Planowanie,, sprawdź, działania](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
 
 ### <a name="select-a-terminology-model-that-addresses-your-needs"></a>Wybierz model terminologii, którego dotyczy potrzeb
-Istnieje kilka typów procesów klasyfikacji danych, w tym procesów ręcznych, oparte na lokalizacji procesom klasyfikacji danych na podstawie lokalizacji użytkownika lub komputera, na podstawie aplikacji procesy, takie jak Klasyfikacja specyficzny dla bazy danych i automatyczne procesy używane przez różne technologie, niektóre z nich są opisane w sekcji "Zabezpieczania poufnych danych" w dalszej części tego artykułu.  
+Istnieje kilka typów procesów klasyfikacji danych, w tym procesów ręcznych, oparte na lokalizacji procesom klasyfikacji danych na podstawie lokalizacji użytkownika lub komputera, na podstawie aplikacji procesy, takie jak Klasyfikacja specyficzny dla bazy danych i automatyczne procesy używane przez różne technologie, niektóre z nich są opisane w sekcji "Zabezpieczania poufnych danych" hello w dalszej części tego artykułu.  
 
-W tym artykule przedstawiono dwa modele uogólniony terminologii oparte na powszechnie używane i wzięty pod uwagę branży modeli. Te modele terminologii, które zapewnia trzy poziomy czułości klasyfikacji, przedstawiono w poniższej tabeli.  
+W tym artykule przedstawiono dwa modele uogólniony terminologii oparte na powszechnie używane i wzięty pod uwagę branży modeli. Te modele terminologii, które zapewnia trzy poziomy czułości klasyfikacji, są wyświetlane w hello w poniższej tabeli.  
 
 > [!NOTE]
-> Podczas klasyfikowania plik lub zasób, który łączy dane, które zwykle może być klasyfikowane na różnych poziomach, najwyższy poziom klasyfikacji obecny należy określić ogólną klasyfikacji. Na przykład plik zawierający dane poufne i ograniczeniami powinny być klasyfikowane jako ograniczone.  
+> Podczas klasyfikowania plik lub zasób, że łączy, które należy określić dane, które zwykle może być klasyfikowane na różnych poziomach, hello najwyższy poziom klasyfikacji występuje hello ogólnej klasyfikacji. Na przykład plik zawierający dane poufne i ograniczeniami powinny być klasyfikowane jako ograniczone.  
 > 
 > 
 
@@ -110,7 +110,7 @@ W tym artykule przedstawiono dwa modele uogólniony terminologii oparte na powsz
 | Niska |Publiczne |Bez ograniczeń |
 
 #### <a name="confidential-restricted"></a>Poufne (ograniczony)
-Informacje, które zostanie sklasyfikowany jako poufny lub zastrzeżony zawiera dane, które może być krytycznego do osób lub organizacji, jeśli utracone lub mają naruszone zabezpieczenia. Takie informacje często znajduje się na zasadzie "trzeba znać" i mogą być następujące: 
+Informacje, które zostanie sklasyfikowany jako poufny lub zastrzeżony zawiera dane, które mogą być tooone krytycznego więcej osób lub organizacji, jeśli naruszone lub utraty. Takie informacje często znajduje się na zasadzie "potrzeby tooknow" i mogą być następujące: 
 
 * Dane osobowe, w tym dane osobowe Social Security lub numery identyfikacyjne national, numery passport, numery kart kredytowych, sterownika numerów licencji, medyczne rekordów i numery identyfikatorów zasad ubezpieczenia zdrowotnego.  
 * Dokumentów finansowych, w tym finansowych lub numery kont takich jak sprawdzanie inwestycji konta. 
@@ -123,16 +123,16 @@ Dane, które jest sklasyfikowany jako poufny często ma przepisami i wymagań do
 #### <a name="for-internal-use-only-sensitive"></a>Do użytku wewnętrznego tylko (liter)
 Informacje, które jest klasyfikowany jako średnia czułości zawiera pliki i dane, które nie miałoby poważny wpływ na poszczególne i/lub organizacji, w przypadku utraty lub zniszczenia. Takie informacje mogą być następujące: 
 
-* Wiadomości e-mail, z których większość można usunąć lub rozproszonych bez powodowania kryzysu (bez skrzynek pocztowych lub adres e-mail osoby, które są identyfikowane w klasyfikacji poufne).  
+* Wiadomości e-mail, z których większość można usunąć lub rozproszonych bez powodowania kryzysu (bez skrzynek pocztowych lub adres e-mail osoby, które są identyfikowane w klasyfikacji poufne hello).  
 * Dokumenty i pliki, które nie zawierają dane poufne.
 
-Ogólnie rzecz biorąc ta klasyfikacja obejmuje wszystkie elementy, które nie są poufne. Ta klasyfikacja może zawierać większości danych biznesowych, ponieważ większość plików, które są zarządzane lub są używane bieżące mogą być klasyfikowane jako poufne. Z wyjątkiem danych jest upubliczniona lub poufne wszystkie dane w obrębie organizacji firm mogą być klasyfikowane jako poufne domyślnie. 
+Ogólnie rzecz biorąc ta klasyfikacja obejmuje wszystkie elementy, które nie są poufne. Ta klasyfikacja może zawierać większości danych biznesowych, ponieważ większość plików, które są zarządzane lub są używane bieżące mogą być klasyfikowane jako poufne. Z wyjątkiem hello danych, który jest opublikowany lub poufne wszystkie dane w obrębie organizacji firm mogą być klasyfikowane jako poufne domyślnie. 
 
 #### <a name="public-unrestricted"></a>Public (bez ograniczeń)
-Informacje, które jest klasyfikowany jako publiczną, zawiera dane i pliki, które nie są krytyczne dla operacji lub potrzeb biznesowych. Ta klasyfikacja może również zawierać dane, które celowo został zwolniony publicznego ich wykorzystania, takich jak materiały marketingowe lub naciśnij klawisz anonsów. Ponadto ta klasyfikacja może zawierać dane, takie jak wiadomości-śmieci e-mail przechowywane przez usługę poczty e-mail. 
+Informacje, które jest klasyfikowany jako publiczną, zawiera dane i pliki, które nie są krytyczne toobusiness musi lub operacji. Ta klasyfikacja może także zawierać dane, który został celowo wydanych toohello publicznej do użytku, takich jak marketingu anonsów materiałów lub naciśnij klawisz. Ponadto ta klasyfikacja może zawierać dane, takie jak wiadomości-śmieci e-mail przechowywane przez usługę poczty e-mail. 
 
 ### <a name="define-data-ownership"></a>Zdefiniuj własność danych
-Należy ustanowić wyczyść custodial łańcucha własności dla wszystkich zasobów danych. Poniższa tabela zawiera dane różnych własność ról w zakresie klasyfikacji danych i ich odpowiednich praw.  
+Jest ważne tooestablish wyczyść custodial łańcucha własności dla wszystkich zasobów danych. Hello Poniższa tabela zawiera dane różnych własność ról w wysiłków klasyfikacji danych oraz ich odpowiednich praw.  
 
 | **Rola** | **Tworzenie** | **Zmodyfikuj lub usuń** | **Delegat** | **Odczyt** | **Archiwizacji i przywracania** |
 | --- | --- | --- | --- | --- | --- |
@@ -148,107 +148,107 @@ Należy ustanowić wyczyść custodial łańcucha własności dla wszystkich zas
 > 
 > 
 
-**Właściciel zasobu danych** jest oryginalne twórca danych, który można delegować prawa własności i przypisać nadzorcą jest. Po utworzeniu pliku właściciel powinno być możliwe do przypisywania klasyfikacji, co oznacza, że mają one odpowiedzialność, aby zrozumieć, co powinna być sklasyfikowany jako poufny na podstawie zasad organizacji. Wszystkie dane właściciela zasobów danych mogą być klasyfikowane automatycznie podobnie jak w przypadku tylko użytku wewnętrznego (wielkość liter), chyba że są one odpowiedzialne za będący właścicielem lub tworzenie typów danych poufnych (ograniczony). Często właściciela roli ulegnie zmianie po klasyfikowania danych. Na przykład właściciel może utworzyć bazę danych informacji niejawnych i zrzeka się praw do niejawnego danych.  
+Witaj **właściciel zasobu danych** jest hello oryginalnego twórca hello danych, który można delegować prawa własności i przypisać nadzorcą jest. Podczas tworzenia pliku właściciela hello powinny być możliwe tooassign klasyfikacji, co oznacza, że mają one toounderstand odpowiedzialność niezbędne toobe sklasyfikowanych jako poufne na podstawie używanych w organizacji zasad. Wszystkie dane właściciela zasobów danych mogą być klasyfikowane automatycznie podobnie jak w przypadku tylko użytku wewnętrznego (wielkość liter), chyba że są one odpowiedzialne za będący właścicielem lub tworzenie typów danych poufnych (ograniczony). Często rolę właściciela hello zmieni się po klasyfikowania danych hello. Na przykład właściciela hello może utworzyć bazę danych informacji niejawnych i zrzeka się ich niejawnego danych toohello praw.  
 
 > [!NOTE]
-> Właściciele zawartości danych często używają usług, urządzeń i nośników, niektóre z nich osobiste i niektóre z nich należy do organizacji. Zasady wyczyść organizacji pozwala zagwarantować, że użycie urządzeń przenośnych i urządzeń inteligentnych jest zgodnie z wytycznymi klasyfikacji danych.  
+> Właściciele zawartości danych często używają usług, urządzeń i nośników, niektóre z nich osobistych, a niektóre z nich należy toohello organizacji. Zasady wyczyść organizacji pozwala zagwarantować, że użycie urządzeń przenośnych i urządzeń inteligentnych jest zgodnie z wytycznymi klasyfikacji danych.  
 > 
 > 
 
-**Niejawnego zasobów danych** jest przypisywany przez właściciela zasobów (lub ich delegata) do zarządzania zasobów zgodnie z umowy z właściciel zasobu lub zgodnie z wymaganiami odpowiednich zasad. W idealnym przypadku roli niejawnego można zaimplementować w systemie automatycznych. Niejawnego zasobów gwarantuje, że kontroli dostępu konieczne jest dostępny i jest odpowiedzialny za zarządzanie i ochrony zasobów, aby ich szczególną uwagę. Obowiązki niejawnego zasobów mogą obejmować:  
+Witaj **niejawnego zasobów danych** jest przypisywany przez właściciela zasobów hello (lub ich delegata) toomanage hello zasobów zgodnie z tooagreements hello właściciel zasobu lub zgodnie z wymaganiami odpowiednich zasad. W idealnym przypadku hello niejawnego roli może być wdrożonych w automatyczny system. Niejawnego zasobów temu kontroli dostępu konieczne jest dostępny i jest odpowiedzialny za zarządzanie i ochrony zasobów delegowane opieki tootheir. obowiązki Hello hello niejawnego zasobów mogą obejmować:  
 
-* Ochrona zasobów zgodnie z kierunku właściciel zasobu lub porozumieniu właściciel zasobu 
+* Ochrona zasobów hello zgodnie z kierunku właściciel zasobu hello lub porozumieniu hello właściciel zasobu 
 * Zapewnienie, że spełnione są zasady klasyfikacji 
-* Informuje o dostępności właścicieli zasobów o wszelkich zmianach w ustalonym formantów i/lub procedur ochrony przed tych wprowadzonych zmian 
-* Raportowanie do właściciela zasobów o zmiany lub usuwania obowiązki niejawnego zasobów 
-* **Administratora** reprezentuje użytkownika, który jest odpowiedzialny za zapewnienie, że integralność została zachowana, ale nie są właściciela zasobów danych, niejawnego lub użytkownika. W rzeczywistości wiele ról administratora dostępne usługi zarządzania kontenera danych bez uzyskiwania dostępu do danych. Rola administratora obejmuje kopii zapasowej i przywracanie danych, Obsługa rekordów zasobów i wybieranie, pobieranie i obsługę urządzenia i magazynu domu zasoby. 
-* Użytkownik zasobów zawiera każdego, kto uzyskuje dostęp do danych lub pliku. Przypisywanie dostępu jest często delegowane przez właściciela do niejawnego zasobów.  
+* Informowanie właścicieli zasobów wszelkich zmian tooagreed — od formantów i/lub wprowadzonych zmian toothose poprzednich procedur ochrony 
+* Właściciel zasobu usługi raportowania toohello o usunięcie tooor zmiany hello zasobów niejawnego obowiązki 
+* **Administratora** reprezentuje użytkownika, który jest odpowiedzialny za zapewnienie, że integralność została zachowana, ale nie są właściciela zasobów danych, niejawnego lub użytkownika. W rzeczywistości wiele ról administratora dostępne usługi zarządzania kontenera danych bez potrzeby dostępu do danych toohello. Rola administrator Hello obejmuje kopii zapasowej i przywracania danych hello, obsługa rekordy zasobów hello, i wybieranie, nabywania i używania hello urządzenia i magazynu tego DOM hello zasoby. 
+* Witaj zasobów użytkownika obejmuje każdy, kto uzyskuje dostęp toodata lub pliku. Przypisywanie dostępu jest często delegowane przez hello właściciela toohello zasobów niejawnego.  
 
 ### <a name="implementation"></a>Wdrażanie
-Zagadnienia dotyczące zarządzania dotyczą wszystkich metod klasyfikacji. Te zagadnienia konieczne zawierają szczegółowe informacje o tym, kto, co, gdzie, kiedy i dlaczego zasobu danych będzie można używany, dostęp do, zmienić lub usunąć. Wszystkie zarządzanie zasobami musi odbywać się zrozumieniu jak organizacji widoków jego ryzyka, ale proste metodologii mogą być stosowane zgodnie z definicją w procesie klasyfikacji danych. Dodatkowe zagadnienia dotyczące klasyfikacji danych obejmują wprowadzenie nowych aplikacji oraz narzędzia i zarządzanie zmianami po metodzie klasyfikacji.  
+Zagadnienia dotyczące zarządzania zastosować tooall metodologii klasyfikacji. Powyższe zagadnienia, musisz szczegółów tooinclude o tym, kto, co, gdzie, kiedy i dlaczego zasobu danych będzie można używany, dostęp do, zmienić lub usunąć. Wszystkie zarządzanie zasobami musi odbywać się zrozumieniu jak organizacji widoków jego ryzyka, ale proste metodologii mogą być stosowane zgodnie z definicją w procesie klasyfikacji danych hello. Dodatkowe zagadnienia dotyczące klasyfikacji danych obejmują hello wprowadzenie nowych aplikacji oraz narzędzia i zarządzanie zmianami po metodzie klasyfikacji.  
 
 ### <a name="reclassification"></a>Podziału
-Przeklasyfikowania lub zmiana klasyfikacji stanu trwałego danych należy wykonać, gdy użytkownik lub system Określa zmienił profilu znaczenie lub powoduje ryzyko zasobów danych. Tej pracy jest ważne w celu zapewnienia, że stan klasyfikacji jest nadal aktualne i prawidłowe. Większość zawartości, która nie jest sklasyfikowany ręcznie można automatycznie klasyfikowane lub na podstawie użycia niejawnego danych lub właściciela danych. 
+Przeklasyfikowania lub zmiana hello klasyfikacji stanu trwałego danych musi toobe wykonane, gdy użytkownik lub system określa ważność tego zasobu danych hello lub zmieniono profilu ryzyka. Tej pracy są istotne dla zapewnienia, że stan klasyfikacji hello nadal bieżącego toobe i prawidłowe. Większość zawartości, która nie jest sklasyfikowany ręcznie można automatycznie klasyfikowane lub na podstawie użycia niejawnego danych lub właściciela danych. 
 
 ### <a name="manual-data-reclassification"></a>Podział danych ręczne
-Najlepiej tej pracy będzie upewnij się, aby uzyskać szczegółowe informacje o zmianie przechwycenie i inspekcji. Najbardziej prawdopodobnym powodem dla ręcznego podziału jest powody czułości lub przechowywane w formacie papieru lub wymaganie, aby przejrzeć dane, które pierwotnie został nieprawidłowo klasyfikowana rekordów. Ponieważ w tym dokumencie uwzględnia klasyfikacji danych i przenoszenie danych do chmury, działania ręcznego podziału wymagają uwagi na podstawie przypadku i przeglądu zarządzania ryzykiem będzie idealne do wymagań dotyczących klasyfikacji adres. Ogólnie rzecz biorąc, nakładu pracy będzie należy wziąć pod uwagę zasad organizacji dotyczących co musi być klasyfikowane, domyślnym stanem klasyfikacji (wszystkie dane i jest wielkość liter, ale nie do poufnych plików) i podejmij wyjątki dla danych o wysokim ryzyku. 
+W idealnym przypadku tej pracy będzie zapewnia hello szczegóły są przechwycenie i inspekcji. najbardziej prawdopodobną przyczyną Hello ręcznego podziału jest powody czułości lub przechowywane w formacie papieru lub dane tooreview wymagania, które pierwotnie został nieprawidłowo klasyfikowana rekordów. Ponieważ w tym dokumencie uwzględnia klasyfikacji danych i toohello przenoszenie danych w chmurze, wymagają uwagi w przypadku przez działania ręcznego podziału, a przeglądu zarządzania ryzykiem będzie idealne tooaddress wymagań dotyczących klasyfikacji. Ogólnie rzecz biorąc nakładu pracy będzie należy wziąć pod uwagę zasady organizacji hello o niezbędne toobe sklasyfikowane, hello domyślny stan klasyfikacji (wszystkich danych i jest wielkość liter, ale nie do poufnych plików) i zająć wyjątki dla danych o wysokim ryzyku. 
 
 ### <a name="automatic-data-reclassification"></a>Podział danych
-Podział danych używa tej samej zasady jako ręczna klasyfikacja. Wyjątkiem jest to, że automatycznego rozwiązania można zapewnić, a następnie i stosowane zgodnie z potrzebami reguły. Klasyfikacja danych może odbywać się w ramach zasady wymuszania klasyfikacji danych, które można wymusić, gdy dane są przechowywane w użyciu i podczas przesyłania przy użyciu technologii autoryzacji.
+Podział danych używa hello sam ogólne reguły jako ręcznej klasyfikacji. wyjątek Hello jest, że automatycznego rozwiązania można zapewnić, a następnie i stosowane zgodnie z potrzebami reguły. Klasyfikacja danych może odbywać się w ramach zasady wymuszania klasyfikacji danych, które można wymusić, gdy dane są przechowywane w użyciu i podczas przesyłania przy użyciu technologii autoryzacji.
 
 * Na podstawie aplikacji. Przy użyciu określonych aplikacji domyślnie ustawia poziomu klasyfikacji. Na przykład dane z oprogramowanie (CRM) zarządzania relacjami z klientami, HR i narzędzia zarządzania rekordami kondycji jest poufne domyślnie. 
-* Na podstawie lokalizacji. Lokalizacja danych może ułatwić identyfikację wrażliwości danych. Na przykład dane przechowywane przez HR lub działu finansowego jest bardziej prawdopodobną charakteru poufnego.  
+* Na podstawie lokalizacji. Lokalizacja danych może ułatwić identyfikację wrażliwości danych. Na przykład dane przechowywane przez HR lub działu finansowego jest bardziej prawdopodobne toobe charakteru poufnego.  
 
 ### <a name="data-retention-recovery-and-disposal"></a>Przechowywanie danych, odzyskiwania i usuwania
-Odzyskiwanie danych i usuwania, takie jak podział danych jest ważnym aspektem zarządzania zasobów danych. Zasady odzyskiwania danych i usuwania czy określone przez zasady przechowywania danych i wymuszane w taki sam sposób jak podziału danych; nakładu pracy może być wykonane przez role niejawnego i administratora jako wspólne zadania.  
+Odzyskiwanie danych i usuwania, takie jak podział danych jest ważnym aspektem zarządzania zasobów danych. Witaj zasady odzyskiwania danych i usuwania byłoby zdefiniowane przez zasady przechowywania danych i wykonywane w hello sam sposób jak podziału danych; nakładu pracy może być wykonane przez hello niejawnego i administrator ról jako wspólne zadania.  
 
-Brak zasad przechowywania danych może oznaczać utrata danych lub niedopełnienie wymagania prawne i prawnych. Większość organizacji, które nie mają zasady przechowywania danych jasno określone zazwyczaj są używane domyślne zasady przechowywania "Zachowaj wszystko". Jednak zasady przechowywania ma dodatkowe zagrożenia w scenariuszach usługi w chmurze. 
+Błąd toohave zasady przechowywania danych może oznaczać utratę lub awarię toocomply danych z wymogami przepisów i prawnych odnajdywania. Większość organizacji, które nie mają zasady przechowywania danych jasno określone zwykle toouse domyślnych zasad przechowywania "Zachowaj wszystko". Jednak zasady przechowywania ma dodatkowe zagrożenia w scenariuszach usługi w chmurze. 
 
-Na przykład zasady przechowywania danych dla dostawcy usług w chmurze jest uznawana za podobnie jak w przypadku "czas trwania subskrypcji" (tak długo, jak usługa ma być stosowany do przechowywania danych). Umowę płatności do przechowywania nie może kierować zasady firmowe i przepisami przechowywania. Definiowanie zasad dotyczących poufnych danych można upewnij się, że dane są przechowywane i usunięte w oparciu o najlepsze rozwiązania. Ponadto można tworzyć zasady archiwizacji do formalnego zrozumienia, jakie dane powinny zostać usunięte z i kiedy. 
+Na przykład zasady przechowywania danych dla dostawcy usług w chmurze jest uznawana za podobnie jak w przypadku "hello obowiązywania subskrypcji hello" (tak długo, jak usługa hello jest płatnej dla hello dane zostaną zachowane). Umowę płatności do przechowywania nie może kierować zasady firmowe i przepisami przechowywania. Definiowanie zasad dotyczących poufnych danych można upewnij się, że dane są przechowywane i usunięte w oparciu o najlepsze rozwiązania. Ponadto można tworzyć zasady archiwizacji tooformalize zrozumienia, jakie dane powinny zostać usunięte z i kiedy. 
 
-Zasady przechowywania danych należy spełnić wymaganych przepisami i wymagania dotyczące zgodności, a także wymagania dotyczące przechowywania prawne firmy. Niejawne danych może powodować pytania dotyczące czas przechowywania i wyjątków dla danych, które były przechowywane u dostawcy; takie pytania są bardziej prawdopodobne w przypadku danych, który nie został poprawnie sklasyfikowany. 
+Zasady przechowywania danych należy spełnić hello wymagane przepisami i wymagania dotyczące zgodności, a także wymagania dotyczące przechowywania prawne firmy. Niejawne danych może powodować pytania dotyczące czas przechowywania i wyjątków dla danych, które były przechowywane u dostawcy; takie pytania są bardziej prawdopodobne w przypadku danych, który nie został poprawnie sklasyfikowany. 
 
 > [!TIP]
-> więcej informacji na temat zasad przechowywania danych platformy Azure i inne odczytując [umowę subskrypcji Online firmy Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/)
+> więcej informacji na temat zasad przechowywania danych platformy Azure i inne odczytując hello [umowę subskrypcji Online firmy Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/)
 > 
 > 
 
 ## <a name="protecting-confidential-data"></a>Ochrona poufnych danych.
-Po sklasyfikowaniu danych Znajdowanie i wdrażanie sposoby ochrony danych poufnych staje się integralną częścią każdej strategii wdrażania ochrony danych. Ochrona poufnych danych wymaga dodatkowych uwagę na sposób przechowywania danych i przekazywane w konwencjonalnej architektury, jak również w chmurze. 
+Po sklasyfikowaniu danych Znajdowanie i implementacja metody tooprotect poufnych danych staje się integralną częścią każdej strategii wdrażania ochrony danych. Ochrona poufnych danych wymaga uwagi dodatkowe toohow dane są przechowywane i przekazywane w konwencjonalnych architektury także jak hello chmury. 
 
-Ta sekcja zawiera podstawowe informacje dotyczące niektórych technologii, których można zautomatyzować wymuszania starań, aby chronić dane, które zostało sklasyfikowane jako poufne. 
+Ta sekcja zawiera podstawowe informacje o niektóre technologie, które można zautomatyzować wysiłków wymuszania toohelp ochrony danych, które zostało sklasyfikowane jako poufne. 
 
-Jak pokazano na poniższej ilustracji, można wdrożyć tych technologii jako lokalnymi lub rozwiązań w chmurze — lub w sposób hybrydowe z niektórych ich wdrożonych lokalnie, a niektóre w chmurze. (Niektóre technologii, takich jak szyfrowania i zarządzania prawami rozszerzać urządzeniach użytkownika.)  
+Jako hello po rysunek pokazuje, można wdrożyć tych technologii jako lokalnymi lub rozwiązań w chmurze — lub w sposób hybrydowe z niektórych ich wdrożonych lokalnie, a niektóre w chmurze hello. (Niektóre technologii, takich jak szyfrowania i zarządzania prawami również rozszerzyć toouser urządzenia).  
 
 ![Technologie](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### <a name="rights-management-software"></a>Oprogramowanie do zarządzania prawami
-Jedno rozwiązanie w celu zapobieżenia utracie danych jest oprogramowanie do zarządzania prawami. W przeciwieństwie do metod, które próbują przerwać przepływu informacji w punkcie wyjścia w organizacji oprogramowanie do zarządzania prawami działa na poziomach głębokości w ramach technologii magazynowania danych. Dokumenty są szyfrowane i kontrolować, kto ich odszyfrować używa kontroli dostępu, które są zdefiniowane w rozwiązania kontrolki uwierzytelniania, takie jak usługi katalogowej.  
+Jedno rozwiązanie w celu zapobieżenia utracie danych jest oprogramowanie do zarządzania prawami. W przeciwieństwie do metod próbujące toointerrupt hello przepływ informacji w punkty wyjścia w organizacji oprogramowanie do zarządzania prawami działa na poziomach głębokości w ramach technologii magazynowania danych. Dokumenty są szyfrowane i kontrolować, kto ich odszyfrować używa kontroli dostępu, które są zdefiniowane w rozwiązania kontrolki uwierzytelniania, takie jak usługi katalogowej.  
 
 > [!TIP]
-> usługi Azure Rights Management (Azure RMS) można użyć jako rozwiązanie do ochrony informacji do ochrony danych w różnych scenariuszach. Odczyt [co to jest usługa Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) Aby uzyskać więcej informacji o tym rozwiązaniu platformy Azure.
+> można użyć usługi Azure Rights Management (Azure RMS) jako hello danych tooprotect rozwiązanie ochrony informacji w różnych scenariuszach. Odczyt [co to jest usługa Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) Aby uzyskać więcej informacji o tym rozwiązaniu platformy Azure.
 > 
 > 
 
-Oto niektóre zalety oprogramowania do zarządzania prawami: 
+Zalety hello oprogramowanie do zarządzania prawami między innymi: 
 
 * Chronionym poufne informacje. Użytkownicy mogą chronić swoje dane bezpośrednio przy użyciu aplikacji z obsługą zarządzania prawami. Nie są wymagane żadne dodatkowe czynności — tworzenie dokumentów, wysyłania wiadomości e-mail oraz publikowania danych oferują środowisko ochrony spójności danych. 
-* Ochrona porusza się z danymi. Klienci zachowuje kontrolę nad kto ma dostęp do swoich danych w chmurze, istniejącej infrastruktury IT, lub na pulpicie użytkownika. Organizacje mogą wybrać szyfrować dane i ograniczenie dostępu zgodnie z ich wymaganiami biznesowymi. 
-* Domyślne zasady ochrony informacji. Administratorzy i użytkownicy mogą używać zasad standardowe przypadku wielu typowych scenariuszy biznesowych, takich jak "Firmy poufne — tylko do odczytu" i "Nie przekazuj." Bogaty zestaw użycia prawa są obsługiwane, takich jak odczytu, kopiowania, drukowania, zapisywania, edytowania i do przodu, aby umożliwić elastyczność podczas definiowania niestandardowe prawa użytkowania. 
+* Ochrona porusza się z danymi hello. Klienci zachowuje kontrolę nad kto ma dostęp do danych tootheir, zarówno w chmurze hello, istniejącej infrastruktury IT, lub na pulpicie użytkownika hello. Organizacje mogą wybierz tooencrypt swoje dane i ograniczanie dostępu zgodnie z wymaganiami biznesowymi tootheir. 
+* Domyślne zasady ochrony informacji. Administratorzy i użytkownicy mogą używać zasad standardowe przypadku wielu typowych scenariuszy biznesowych, takich jak "Firmy poufne — tylko do odczytu" i "Nie przekazuj." Bogaty zestaw praw użytkowania są obsługiwane, takich jak odczytu, kopiowania, drukowania, zapisywania, edytowania i do przodu tooallow elastyczność podczas definiowania niestandardowe prawa użytkowania. 
 
 > [!TIP]
-> chronić dane w usłudze Azure Storage za pomocą [szyfrowanie usługi Magazyn Azure](../storage/storage-service-encryption.md) dla przechowywanych danych. Można również użyć [szyfrowania dysków Azure](azure-security-disk-encryption.md) w celu ochrony danych znajdujących się na dyski wirtualne użyte maszyn wirtualnych platformy Azure.
+> chronić dane w usłudze Azure Storage za pomocą [szyfrowanie usługi Magazyn Azure](../storage/storage-service-encryption.md) dla przechowywanych danych. Można również użyć [szyfrowania dysków Azure](azure-security-disk-encryption.md) toohelp ochrony danych znajdujących się na dyski wirtualne użyte maszyn wirtualnych platformy Azure.
 > 
 > 
 
 ### <a name="encryption-gateways"></a>Bramy szyfrowania
-Bramy szyfrowania działają w ich własnych warstwy do świadczenia usług szyfrowania przez przekierowanie dostęp do danych opartych na chmurze. Ta metoda nie należy mylić z tym wirtualnej sieci prywatnej (VPN). Celem bramy szyfrowania jest przezroczyste warstwy do rozwiązań w chmurze.   
+Bramy szyfrowania działanie w swoich własnych usług szyfrowania tooprovide warstwy, przekierowanie wszystkich danych na podstawie toocloud dostępu. Ta metoda nie należy mylić z tym wirtualnej sieci prywatnej (VPN). Bramy szyfrowania są zaprojektowane tooprovide przezroczyste warstwy toocloud rozwiązań.   
 
-Bramy szyfrowania zapewniają sposób zarządzania i zabezpieczonych danych, które zostało sklasyfikowane jako poufne przez szyfrowanie danych podczas przesyłania, a także dane przechowywane.  
+Bramy szyfrowania zapewnić toomanage oznacza i zabezpieczonych danych, które zostało sklasyfikowane jako poufne hello przesyłanych danych, a także magazynowane dane są szyfrowane.  
 
-Bramy szyfrowania są umieszczane w przepływ danych między urządzeniami użytkownika i danych aplikacji Centrum w celu świadczenia usług szyfrowania i odszyfrowywania. Tych rozwiązań, takich jak sieci VPN, znajdują się głównie rozwiązań lokalnych. Są one przeznaczone do zapewnić kontrolę nad kluczami szyfrowania, który pomaga zmniejszyć ryzyko wprowadzania danych i klucz Zarządzanie za pomocą jednego dostawcę innych firm. Takich rozwiązań są zaprojektowane, podobnie jak szyfrowanie, aby zapewnić bezproblemowe działanie i w przezroczysty sposób między użytkownikami i usługi. 
+Bramy szyfrowania są umieszczane w hello przepływ danych między urządzeniami użytkowników oraz usług szyfrowania i odszyfrowywania tooprovide w centrach danych aplikacji. Tych rozwiązań, takich jak sieci VPN, znajdują się głównie rozwiązań lokalnych. Są one zaprojektowane tooprovide innych firm kontrolę nad kluczami szyfrowania, który pomaga ograniczyć ryzyko związane z hello umieszczenia zarówno hello danych i zarządzania kluczami z jednego dostawcę. W przypadku takich rozwiązań są zaprojektowane, podobnie jak szyfrowanie, toowork bezproblemowo i w przezroczysty sposób między użytkownikami i hello usługi. 
 
 > [!TIP]
-> Usługa Azure ExpressRoute umożliwia rozszerzanie sieci lokalnej w chmurze firmy Microsoft za pośrednictwem dedykowanego połączenia prywatne. Odczyt [opis techniczny ExpressRoute](../expressroute/expressroute-introduction.md) uzyskać więcej informacji dotyczących tej funkcji. Opcje dla innego między lokalnym łączność między siecią lokalną i [Azure to VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+> można użyć tooextend Azure ExpressRoute sieci lokalnych do chmury Microsoft hello przez dedykowane połączenie prywatne. Odczyt [opis techniczny ExpressRoute](../expressroute/expressroute-introduction.md) uzyskać więcej informacji dotyczących tej funkcji. Opcje dla innego między lokalnym łączność między siecią lokalną i [Azure to VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 > 
 > 
 
 ### <a name="data-loss-prevention"></a>Zapobieganie utracie danych
-Ważną kwestią jest utrata danych (nazywane czasami wycieku danych) i zapobiegania utracie danych zewnętrznych za pomocą wewnętrznych złośliwe i przypadkowe jest podstawowym w przypadku wielu organizacji.  
+Ważną kwestią jest utrata danych (czasami określonego tooas wycieku danych), a hello zapobiegania utracie danych zewnętrznych za pomocą wewnętrznych złośliwe i przypadkowe jest podstawowym w przypadku wielu organizacji.  
 
-Technologie zapobiegania (DLP) utraty danych pozwala zagwarantować rozwiązania, takie jak usługi poczty e-mail nie wysyłaj danych, które zostało sklasyfikowane jako poufne. Organizacje mogą korzystać z funkcji DLP w istniejących produktów w celu zapobieżenia utracie danych. Takie funkcje za pomocą zasad, które można łatwo utworzyć od podstaw lub za pomocą szablonu dostarczana przez dostawcę oprogramowania.  
+Technologie zapobiegania (DLP) utraty danych pozwala zagwarantować rozwiązania, takie jak usługi poczty e-mail nie wysyłaj danych, które zostało sklasyfikowane jako poufne. Organizacje mogą korzystać z funkcji DLP w istniejących produktów toohelp zapobiec utracie danych. Takie funkcje za pomocą zasad, które można łatwo utworzyć od podstaw lub za pomocą szablonu dostarczana przez dostawcę oprogramowania hello.  
 
-Technologie DLP może wykonywać szczegółowa analiza zawartości poprzez dopasowanie słów kluczowych, dopasowanie słowników, ocenę wyrażeń regularnych i ocena innej zawartości, aby wykryć zawartość, która narusza zasady DLP organizacyjne. Na przykład DLP może zapobiec utracie następujące typy danych: 
+Technologie DLP może wykonywać szczegółowa analiza zawartości poprzez dopasowanie słów kluczowych, dopasowanie słowników, ocenę wyrażeń regularnych i innej zawartości toodetect badanie zawartości, która narusza zasady organizacyjne DLP. Na przykład DLP może zapobiec utracie hello hello następujące typy danych: 
 
 * Ubezpieczenia społecznego i numery identyfikacyjne national 
 * Informacje dotyczące bankowości 
 * Numer karty kredytowej  
 * Adresy IP 
 
-Niektóre technologie DLP zapewniają również możliwość zastępowania konfiguracji DLP (na przykład, jeśli organizacja musi się do przesyłania informacji numer ubezpieczenia społecznego procesor Lista płac). Ponadto istnieje możliwość skonfiguruj DLP, dzięki czemu użytkownicy będą powiadamiani, zanim one nawet próbę wysłania poufne informacje, które nie powinny być przekazywane. 
+Niektóre technologie DLP udostępniają hello możliwości toooverride hello DLP konfigurację (na przykład, jeśli organizacja musi tootransmit numer ubezpieczenia społecznego informacji tooa Lista płac procesora). Ponadto jest możliwe tooconfigure DLP tak, aby użytkownicy są powiadamiani, przed próbą nawet toosend poufne informacje, które nie powinny być przekazywane. 
 
 > [!TIP]
-> Aby chronić dokumenty skorzystać z możliwości Office 365 DLP. Odczyt [kontrole zgodności usługi Office 365: zapobieganie utracie danych](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) Aby uzyskać więcej informacji.
+> można użyć dokumentów pakietu Office 365 DLP tooprotect możliwości. Odczyt [kontrole zgodności usługi Office 365: zapobieganie utracie danych](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) Aby uzyskać więcej informacji.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI przykładowym skrypcie - skalowanie klastra usługi ACS | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia - skalować klastra usługi ACS | Dokumentacja firmy Microsoft"
 description: "Azure CLI przykładowym skrypcie - skalowanie klastra usługi ACS"
 services: container-service
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 1e07518fc2ca67476d9ef64bb22d75f848a37e43
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Skalowanie klastra usługi kontenera platformy Azure
 
@@ -38,7 +38,7 @@ az acs scale --resource-group myResourceGroup --name myK8SCluster --new-agent-co
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
+Hello uruchom następujące polecenie, grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każdy element w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia toocreate hello wdrożenia. Każdy element w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -54,7 +54,7 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każdy 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Dodatkowe przykłady skryptów wiersza polecenia usługi kontenera platformy Azure można znaleźć w [dokumentacji usługi kontenera platformy Azure](../cli-samples.md).
+Dodatkowe przykłady skryptów wiersza polecenia usługi kontenera platformy Azure można znaleźć w hello [dokumentacji usługi kontenera platformy Azure](../cli-samples.md).
 

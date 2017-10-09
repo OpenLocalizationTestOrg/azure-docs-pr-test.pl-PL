@@ -1,5 +1,5 @@
 ---
-title: "Zagadnienia dotyczące zabezpieczeń dla serwera Proxy aplikacji usługi Azure AD | Dokumentacja firmy Microsoft"
+title: "aaaSecurity zagadnienia dotyczące serwera Proxy aplikacji usługi Azure AD | Dokumentacja firmy Microsoft"
 description: "Obejmuje zagadnienia dotyczące zabezpieczeń dla przy użyciu serwera Proxy aplikacji usługi Azure AD"
 services: active-directory
 documentationcenter: 
@@ -15,51 +15,51 @@ ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ebd14b9d1fc8f4629c5916e5a910595727d935d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Zagadnienia dotyczące zabezpieczeń w celu uzyskania dostępu do aplikacji zdalnie z serwera Proxy aplikacji usługi Azure AD
 
 W tym artykule opisano, jak serwer Proxy usługi Azure Active Directory aplikacji udostępnia usługa bezpiecznego publikowania i zdalny dostęp do aplikacji.
 
-Na poniższym diagramie przedstawiono sposób usługi Azure AD zapewnia bezpieczny dostęp zdalny do aplikacji lokalnych.
+powitania po diagramie przedstawiono sposób usługi Azure AD umożliwia aplikacji lokalnych tooyour bezpieczny dostęp zdalny.
 
  ![Diagram bezpieczny dostęp zdalny za pośrednictwem serwera Proxy aplikacji usługi Azure AD](./media/application-proxy-security-considerations/secure-remote-access.png)
 
 ## <a name="security-benefits"></a>Korzyści w zakresie zabezpieczeń
 
-Serwer Proxy aplikacji usługi Azure AD zapewnia następujące korzyści zabezpieczeń:
+Serwer Proxy aplikacji usługi Azure AD oferują hello następujące korzyści w zakresie zabezpieczeń:
 
 ### <a name="authenticated-access"></a>Uwierzytelniony dostęp 
 
-Jeśli chcesz użyć usługi Azure Active Directory wstępnego uwierzytelniania, następnie tylko uwierzytelnionego połączenia można uzyskać dostęp do sieci.
+Jeśli toouse usługi Azure Active Directory wstępnego uwierzytelniania, następnie tylko uwierzytelnionego połączenia można uzyskać dostęp do sieci.
 
-Serwer Proxy aplikacji usługi Azure AD zależy od usługi Azure AD usługi tokenu zabezpieczającego (STS) do wszystkich uwierzytelniania.  Wstępnego uwierzytelniania, ze swej natury blokuje znaczących anonimowe ataki, ponieważ tylko uwierzytelnionych tożsamości można uzyskać dostępu do aplikacji zaplecza.
+Serwer Proxy aplikacji usługi Azure AD zależy od hello Azure AD usługi tokenu zabezpieczającego (STS) do wszystkich uwierzytelniania.  Wstępnego uwierzytelniania, ze swej natury blokuje znaczących anonimowe ataki, ponieważ tylko uwierzytelnionych tożsamości można uzyskać dostępu do aplikacji zaplecza hello.
 
 Jeśli wybierzesz Passthrough jako metody uwierzytelniania wstępnego nie pobieraj takich korzyści. 
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
 
-Bardziej zaawansowane funkcje kontroli zasad należy zastosować przed ustanowiono połączenia z siecią.
+Zastosowanie bardziej zaawansowane funkcje kontroli zasad przed tooyour sieciowe są wyznaczane połączenia.
 
-Z [dostępu warunkowego](active-directory-conditional-access-azuread-connected-apps.md), można definiować ograniczenia, w jaki ruch jest dozwolony dostęp do Twojej aplikacji zaplecza. Można utworzyć zasady, które ograniczają logowania na podstawie lokalizacji, siły uwierzytelniania i profil użytkownika ryzyka.
+Z [dostępu warunkowego](active-directory-conditional-access-azuread-connected-apps.md), można zdefiniować ograniczenia w jaki ruch jest dozwolony tooaccess aplikacji zaplecza. Można utworzyć zasady, które ograniczają logowania na podstawie lokalizacji, siły uwierzytelniania i profil użytkownika ryzyka.
 
-Dostęp warunkowy umożliwia również konfigurowanie zasad uwierzytelniania wieloskładnikowego, dodawanie dodatkową warstwę zabezpieczeń do użytkownika uwierzytelnienia użytkownika. 
+Umożliwia także zasady dostępu warunkowego tooconfigure uwierzytelnianie wieloskładnikowe, dodając kolejną warstwę zabezpieczeń tooyour użytkownika uwierzytelnienia. 
 
 ### <a name="traffic-termination"></a>Zakończenie ruchu
 
-Cały ruch zakończeniem w chmurze.
+Cały ruch zakończeniem w chmurze hello.
 
-Ponieważ serwer Proxy aplikacji usługi Azure AD jest wstecznego serwera proxy, cały ruch do zaplecza aplikacji jest kończona na usługę. Sesja może pobrać przywróciła tylko na serwerze zaplecza, co oznacza, że serwerów zaplecza nie są widoczne dla ruchu HTTP na bezpośrednie. Ta konfiguracja oznacza lepszej ochrony przed atakami ukierunkowanymi.
+Ponieważ serwera Proxy aplikacji usługi Azure AD jest wstecznego serwera proxy, wszystkie aplikacje tooback-end ruchu jest kończona na powitania usługi. Witaj sesji można pobrać przywróciła tylko z serwerem zaplecza hello, co oznacza, że serwery zaplecza nie są widoczne ruchu toodirect HTTP. Ta konfiguracja oznacza lepszej ochrony przed atakami ukierunkowanymi.
 
 ### <a name="all-access-is-outbound"></a>Dostęp jest wychodzący 
 
-Nie trzeba otworzyć połączenia przychodzące do sieci firmowej.
+Nie trzeba tooopen sieci firmowej toohello połączeń przychodzących.
 
-Łączniki serwera Proxy aplikacji należy używać tylko na połączenia wychodzące do usługi serwera Proxy aplikacji usługi Azure AD, co oznacza, że nie istnieje potrzeba aby otworzyć porty zapory dla połączeń przychodzących. Serwery proxy tradycyjnych wymagane sieci obwodowej (znanej także jako *DMZ*, *strefą zdemilitaryzowaną*, lub *podsiecią ekranowaną*) i zezwolenie na dostęp do nieuwierzytelnione połączenia na brzegu sieci. Ten scenariusz wymaga wiele dodatkowych inwestycji w produktach zapory aplikacji sieci web do analizowania ruchu i oferują ochronę dodanie do środowiska. Przy użyciu serwera Proxy aplikacji nie wymagają sieci obwodowej, ponieważ wszystkie połączenia są wychodzących i odbywać za pośrednictwem bezpiecznego kanału.
+Łączniki serwera Proxy aplikacji należy używać tylko połączeń wychodzących toohello usługi Azure AD serwera Proxy aplikacji usługi, co oznacza, że nie jest konieczne tooopen portów zapory dla połączeń przychodzących. Serwery proxy tradycyjnych wymagane sieci obwodowej (znanej także jako *DMZ*, *strefą zdemilitaryzowaną*, lub *podsiecią ekranowaną*) i dozwolone toounauthenticated dostępu połączenia na krawędzi sieci hello. Ten scenariusz wymaga wiele dodatkowych inwestycji w aplikacji sieci web zapory ruchu tooanalyze produktów, a oferują dodanie ochrony toohello środowiska. Przy użyciu serwera Proxy aplikacji nie wymagają sieci obwodowej, ponieważ wszystkie połączenia są wychodzących i odbywać za pośrednictwem bezpiecznego kanału.
 
 Aby uzyskać więcej informacji na temat łączników, zobacz [łączniki serwera Proxy aplikacji usługi AD zrozumieć Azure](application-proxy-understand-connectors.md).
 
@@ -67,109 +67,109 @@ Aby uzyskać więcej informacji na temat łączników, zobacz [łączniki serwer
 
 Pobierz najnowocześniejsze zabezpieczenia.
 
-Ponieważ jest częścią usługi Azure Active Directory, mogą korzystać z serwera Proxy aplikacji [Azure AD Identity Protection](active-directory-identityprotection.md), machine learning-driven analizy i danych z programu Microsoft Security Response Center i jednostki. Razem możemy aktywne identyfikowanie złamany kont i zapewniają ochronę w czasie rzeczywistym z logowania o wysokim ryzyku. Firma Microsoft uwzględniać wiele czynników, takich jak dostęp z zainfekowanych urządzeń przez nadanie sieci i lokalizacje nietypowe i prawdopodobne.
+Ponieważ jest częścią usługi Azure Active Directory, mogą korzystać z serwera Proxy aplikacji [Azure AD Identity Protection](active-directory-identityprotection.md), machine learning-driven analizy i danych z hello Microsoft Security Response Center i jednostki. Razem możemy aktywne identyfikowanie złamany kont i zapewniają ochronę w czasie rzeczywistym z logowania o wysokim ryzyku. Firma Microsoft uwzględniać wiele czynników, takich jak dostęp z zainfekowanych urządzeń przez nadanie sieci i lokalizacje nietypowe i prawdopodobne.
 
 Wiele z tych raportów i zdarzenia są już dostępne za pośrednictwem interfejsu API dla integracji z informacji o zabezpieczeniach i systemami zarządzania (SIEM) zdarzenia.
 
 ### <a name="remote-access-as-a-service"></a>Dostęp zdalny w trybie usługi
 
-Nie trzeba martwić się o zachowaniu i stosowanie poprawek serwerów lokalnych.
+Nie masz tooworry o zachowaniu i stosowanie poprawek serwerów lokalnych.
 
-Konta nadal atakowany oprogramowania dla dużej liczby ataków. Serwer Proxy aplikacji usługi Azure AD jest usługi Internet skalowania, która jest właścicielem firmy Microsoft, dzięki czemu zawsze uzyskać najnowsze poprawki zabezpieczeń i aktualizacje.
+Konta nadal atakowany oprogramowania dla dużej liczby ataków. Serwer Proxy aplikacji usługi Azure AD jest usługi Internet skalowania, która jest właścicielem firmy Microsoft, dzięki czemu zawsze uzyskać hello najnowsze poprawki zabezpieczeń i aktualizacje.
 
-Aby zwiększyć bezpieczeństwo aplikacji opublikowanych przez serwer Proxy aplikacji usługi Azure AD, firma Microsoft zablokować robotów przez przeszukiwarkę sieci web do indeksowania i archiwizowania aplikacji. Zawsze robota przez przeszukiwarkę sieci web próbuje pobrać ustawienia robota opublikowanej aplikacji, serwer Proxy aplikacji odpowiedzi z plikiem robots.txt, która obejmuje `User-agent: * Disallow: /`.
+tooimprove hello zabezpieczeń aplikacji opublikowanych przez serwer Proxy aplikacji usługi Azure AD, możemy zablokować robotów przez przeszukiwarkę sieci web do indeksowania i archiwizowania aplikacji. Zawsze robota przez przeszukiwarkę sieci web próbuje pobrać ustawienia robota opublikowanej aplikacji, serwer Proxy aplikacji odpowiedzi z plikiem robots.txt, która obejmuje `User-agent: * Disallow: /`.
 
-## <a name="under-the-hood"></a>Kulisy
+## <a name="under-hello-hood"></a>Pod maską hello
 
 Serwer Proxy aplikacji usługi Azure AD składa się z dwóch części:
 
-* Usługa oparta na chmurze: ta usługa działa na platformie Azure i jest, w których są wykonane połączeń zewnętrznych klienta/użytkownika.
-* [Łącznik lokalnego](application-proxy-understand-connectors.md): składnik lokalnego łącznika nasłuchuje żądań z serwera Proxy aplikacji usługi Azure AD połączenia usługi i dojść do wewnętrznych aplikacji. 
+* Witaj w usłudze w chmurze: ta usługa działa na platformie Azure i jest, gdzie powitania klienta/użytkownika zewnętrznego połączenia są nawiązywane.
+* [Witaj łącznika lokalnego](application-proxy-understand-connectors.md): składnik lokalnego łącznika hello nasłuchuje żądań z usługi Serwer Proxy aplikacji hello Azure AD i obsługuje połączenia toohello wewnętrznych aplikacji. 
 
-Przepływ między łącznika i usługę serwera Proxy aplikacji jest ustanawiane po:
+Przepływ między hello łącznika i usługę serwera Proxy aplikacji hello jest ustanawiane po:
 
-* Najpierw skonfigurowano łącznik.
-* Łącznik pobiera informacje o konfiguracji z serwera Proxy aplikacji usługi.
+* Łącznik Hello jest najpierw skonfigurować.
+* Łącznik Hello pobiera informacje o konfiguracji na powitania serwera Proxy aplikacji usługi.
 * Użytkownik uzyskuje dostęp do opublikowanej aplikacji.
 
 >[!NOTE]
->Cała komunikacja odbywa się za pośrednictwem protokołu SSL, a pochodzą zawsze na łącznika serwera Proxy aplikacji usługi. Usługa jest tylko ruchu wychodzącego.
+>Cała komunikacja odbywa się za pośrednictwem protokołu SSL, a pochodzą zawsze na powitania toohello łącznika serwera Proxy aplikacji usługi. Usługa Hello jest tylko ruchu wychodzącego.
 
-Łącznik korzysta z certyfikatu klienta do uwierzytelniania serwera Proxy aplikacji usługi dla prawie wszystkich wywołań. Jedynym wyjątkiem od tego procesu jest kroku konfiguracji początkowej, gdy zostanie nawiązane certyfikatu klienta.
+Łącznik Hello używa toohello tooauthenticate certyfikatu klienta usługi Serwer Proxy aplikacji dla prawie wszystkich połączeń. Hello tylko wyjątek toothis proces jest hello kroku konfiguracji początkowej, której certyfikat klienta na powitania zostanie nawiązane.
 
-### <a name="installing-the-connector"></a>Instalowanie łącznika
+### <a name="installing-hello-connector"></a>Instalowanie łącznika hello
 
-Jeśli najpierw skonfigurowano łącznik następujące zdarzenia przepływu miejsce:
+Jeśli najpierw skonfigurowano łącznik hello hello następujących zdarzeń przepływu miejsce:
 
-1. Rejestracja łącznika z usługą odbywa się w ramach instalacji łącznika. Użytkownicy są monitowani o wprowadzenie poświadczeń administratora usługi Azure AD. Token z tego uwierzytelnienia zostanie przedstawiony w usłudze usługi serwera Proxy aplikacji usługi Azure AD.
-2. Usługa Serwer Proxy aplikacji oblicza tokenu. Gwarantuje, że użytkownik jest administratorem przedsiębiorstwa w ramach dzierżawy, który token został wystawiony dla. Jeśli użytkownik nie jest administratorem, proces zostanie zakończony.
-3. Łącznik generuje żądanie certyfikatu klienta i przekazuje je, wraz z token do serwera Proxy aplikacji usługi. Usługa z kolei weryfikuje token i podpisuje żądanie certyfikatu klienta.
-4. Łącznik korzysta z certyfikatu klienta dla przyszłych komunikacji z usługą serwera Proxy aplikacji.
-5. Łącznik wykonuje początkowej ściągania danych konfiguracji systemu przez usługę za pomocą swojego certyfikatu klienta, a jest teraz gotowa do sporządzenia żądania.
+1. Usługa toohello rejestracji łącznika Hello odbywa się w ramach instalacji hello hello łącznika. Użytkownicy są tooenter zostanie wyświetlony monit o ich poświadczeń administratora usługi Azure AD. Token z tego uwierzytelnienia zostanie przedstawiony toohello usługi serwera Proxy aplikacji usługi Azure AD.
+2. powitania serwera Proxy aplikacji usługi oblicza hello tokenu. Zapewnia hello użytkownik jest administratorem firmy, w ramach dzierżawy hello, który hello token został wystawiony dla. Jeśli użytkownik hello nie jest administratorem, hello proces zostanie zakończony.
+3. Łącznik Hello generuje żądanie certyfikatu klienta i przekazuje je, wraz z tokenu, toohello powitania serwera Proxy aplikacji usługi. Usługa Hello z kolei weryfikuje hello token i podpisuje żądanie certyfikatu powitania klienta.
+4. Łącznik Hello korzysta z certyfikatu klienta hello przyszłych komunikacji z powitania serwera Proxy aplikacji usługi.
+5. Łącznik Hello wykonuje początkowej ściągania danych konfiguracji systemu hello z hello usługi za pomocą swojego certyfikatu klienta, a jest teraz gotowy tootake żądań.
 
-### <a name="updating-the-configuration-settings"></a>Aktualizowanie ustawień konfiguracji
+### <a name="updating-hello-configuration-settings"></a>Aktualizowanie ustawień konfiguracji hello
 
-Zawsze, gdy usługa serwera Proxy aplikacji aktualizuje ustawienia konfiguracji, następujące zdarzenia przepływu miejsce:
+Zawsze, gdy usługa serwera Proxy aplikacji hello aktualizuje ustawienia konfiguracji hello, hello następujących zdarzeń przepływu miejsce:
 
-1. Łącznik nawiązuje połączenie z punktem końcowym konfiguracji w ramach usługi Serwer Proxy aplikacji za pomocą swojego certyfikatu klienta.
-2. Po sprawdzeniu poprawności certyfikatu klienta usługi Serwer Proxy aplikacji zwraca dane konfiguracji łącznika (na przykład łącznik grupą, których łącznik powinien być częścią).
-3. Jeśli bieżący certyfikat jest więcej niż 180 dni, łącznik generuje żądania nowego certyfikatu, które skutecznie aktualizuje certyfikat klienta na 180 dni.
+1. Łącznik Hello łączy punktu końcowego konfiguracji toohello w powitania serwera Proxy aplikacji usługi za pomocą swojego certyfikatu klienta.
+2. Po zweryfikowaniu certyfikat klienta na powitania powitania serwera Proxy aplikacji usługi zwraca łącznik toohello danych konfiguracji (na przykład grupy łącznika hello hello łącznik powinien być częścią).
+3. Jeśli bieżący certyfikat hello jest więcej niż 180 dni, łącznik hello generuje żądania nowego certyfikatu, które skutecznie aktualizuje certyfikat klienta na powitania raz na 180 dni.
 
 ### <a name="accessing-published-applications"></a>Uzyskiwanie dostępu do opublikowanych aplikacji
 
-Gdy użytkownicy uzyskują dostęp do opublikowanej aplikacji, następujące zdarzenia miejsce między usługą Serwer Proxy aplikacji i łącznika serwera Proxy aplikacji:
+Gdy użytkownicy uzyskują dostęp do opublikowanej aplikacji, hello następujące zdarzenia miejsce między usługą Serwer Proxy aplikacji hello i łącznika serwera Proxy aplikacji hello:
 
-1. [Usługa uwierzytelnia użytkownika dla aplikacji](#the-service-checks-the-configuration-settings-for-the-app)
-2. [Usługa umieszcza żądania w kolejce łącznika](#The-service-places-a-request-in-the-connector-queue)
-3. [Łącznik przetworzy żądanie z kolejki](#the-connector-receives-the-request-from-the-queue)
-4. [Łącznik czeka na odpowiedź](#the-connector-waits-for-a-response)
-5. [Usługa strumieni danych do użytkownika](#the-service-streams-data-to-the-user)
+1. [Usługa Hello uwierzytelnia użytkownika hello aplikacji hello](#the-service-checks-the-configuration-settings-for-the-app)
+2. [Usługa Hello umieszcza żądania w kolejce łącznika hello](#The-service-places-a-request-in-the-connector-queue)
+3. [Łącznik przetworzy żądanie hello z kolejki hello](#the-connector-receives-the-request-from-the-queue)
+4. [Łącznik Hello czeka na odpowiedź](#the-connector-waits-for-a-response)
+5. [Witaj usługi strumieni danych toohello użytkownika](#the-service-streams-data-to-the-user)
 
-Aby dowiedzieć się więcej na temat co ma miejsce w każdej z tych kroków, Zachowaj odczytu.
-
-
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. Usługa uwierzytelnia użytkownika dla aplikacji
-
-Jeśli skonfigurowano aplikację do używania Passthrough jako metody uwierzytelniania wstępnego, są pomijane kroki opisane w tej sekcji.
-
-Po skonfigurowaniu aplikacji preauthenticate z usługą Azure AD, użytkownicy są przekierowywani do usługi STS Azure AD do uwierzytelniania i przeprowadzać następujące kroki:
-
-1. Serwer Proxy aplikacji sprawdza, czy wszystkie wymagania dotyczące zasad dostępu warunkowego dla określonej aplikacji. Ten krok zapewnia, że użytkownik został przypisany do aplikacji. Jeśli wymagana jest weryfikacja dwuetapowa, sekwencji uwierzytelniania monitu o drugiej metody uwierzytelniania.
-
-2. Po upływie wszystkie testy, programu Azure AD STS wystawia podpisany token aplikacji i przekierowuje użytkownika z powrotem do serwera Proxy aplikacji usługi.
-
-3. Serwer Proxy aplikacji sprawdza, czy token został wystawiony dla Popraw aplikacji. Inne kontrole wykonuje również, takich jak sprawdzeniu, czy token został podpisany przez usługę Azure AD i jest nadal w oknie prawidłowe.
-
-4. Ustawia serwera Proxy aplikacji wystąpił pliku cookie uwierzytelniania szyfrowanego, aby wskazać, że do uwierzytelniania do aplikacji. Plik cookie zawiera znacznik czasu wygaśnięcia, oparty na token z usługi Azure AD i innych danych, takie jak nazwa użytkownika, na podstawie uwierzytelniania. Plik cookie jest zaszyfrowany przy użyciu klucza prywatnego znany tylko usługi Serwer Proxy aplikacji.
-
-5. Serwer Proxy aplikacji przekierowuje użytkownika do pierwotnie żądanego adresu URL.
-
-W przypadku niepowodzenia dowolnej części kroki wstępnego uwierzytelniania użytkownika, żądanie zostanie odrzucone i użytkownika jest wyświetlany komunikat informujący o źródła problemu.
+Zachowaj odczytu toolearn więcej informacji na temat co ma miejsce w każdej z tych kroków.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Usługa umieszcza żądania w kolejce łącznika
+#### <a name="1-hello-service-authenticates-hello-user-for-hello-app"></a>1. Witaj usługa uwierzytelnia użytkownika hello aplikacji hello
 
-Łączniki nie zamykaj wychodzące połączenie z usługą serwera Proxy aplikacji. Gdy nadejdzie żądanie, usługa kolejkuje żądanie na jednym z otwartych połączeń dla łącznika do pobrania.
+Jeśli toouse aplikacji hello Passthrough jest skonfigurowany jako metody uwierzytelniania wstępnego, są pomijane kroki hello w tej sekcji.
 
-Żądanie zawiera elementy z aplikacji, takich jak nagłówki żądania, danych z zaszyfrowanego pliku cookie użytkownika, dzięki czemu żądania i identyfikator żądania. Mimo że wysłaniu danych z zaszyfrowanego pliku cookie z żądaniem nie jest samego pliku cookie uwierzytelniania.
+Jeśli toopreauthenticate aplikacji hello jest skonfigurowany z usługą Azure AD, użytkownicy są przekierowane toohello tooauthenticate STS usługi Azure AD i hello następujące kroki została wykonana:
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Łącznik przetworzy żądanie z kolejki. 
+1. Serwer Proxy aplikacji sprawdza, czy wszystkie wymagania dotyczące zasad dostępu warunkowego dla określonej aplikacji hello. Ten krok zapewnia, że użytkownik hello przypisano toohello aplikacji. Jeśli wymagana jest weryfikacja dwuetapowa, hello uwierzytelniania sekwencji monituje użytkownika hello drugiej metody uwierzytelniania.
 
-Na podstawie żądania, serwer Proxy aplikacji wykonuje jeden z następujących czynności:
+2. Po upływie wszystkie testy, hello Zabezpieczającego usług Azure AD wystawia token podpisanej aplikacji hello i przekierowuje hello toohello wstecz użytkownika serwera Proxy aplikacji usługi.
 
-* Jeśli żądanie jest prostą operacją (na przykład, Brak danych w treści, ponieważ jest z RESTful *UZYSKAĆ* żądania), łącznik nawiązuje połączenie wewnętrzne zasobu docelowego i czeka na odpowiedź.
+3. Serwer Proxy aplikacji sprawdza, czy hello token został wystawiony toocorrect hello aplikacji. Wykonuje także inne kontrole, takich jak zapewnienie, że hello token został podpisany przez usługę Azure AD i że jest nadal okna hello prawidłowe.
 
-* Jeśli żądanie ma danych skojarzonych z nim w treści (na przykład RESTful *POST* operacji), łącznik nawiązuje wychodzące połączenie przy użyciu certyfikatu klienta do wystąpienia serwera Proxy aplikacji. Powoduje to połączenie żądania danych i Otwórz połączenie do zasobów wewnętrznych. Po otrzymaniu żądania z łącznika usługi Serwer Proxy aplikacji rozpoczyna się akceptowanie zawartości od użytkownika i przekazuje dane do łącznika. Łącznik, z kolei przesyła dane do zasobów wewnętrznych.
+4. Serwer Proxy aplikacji ustawia tooindicate pliku cookie uwierzytelniania szyfrowanego wystąpienia aplikacji toohello uwierzytelniania. Hello pliku cookie zawiera znacznik czasu wygaśnięcia, oparty na powitania token z usługi Azure AD i innych danych, takie jak nazwa użytkownika hello hello uwierzytelniania jest oparta na. Witaj plik cookie jest zaszyfrowany przy użyciu klucza prywatnego znane toohello serwera Proxy aplikacji usługi.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. Łącznik czeka na odpowiedź.
+5. Aplikacji serwera Proxy przekierowania hello użytkownika wstecz toohello pierwotnie żądanego adresu URL.
 
-Po zakończeniu żądań i przekazywanie całej zawartości wewnętrznej łącznik czeka na odpowiedź.
+W przypadku niepowodzenia dowolną część hello kroki wstępnego uwierzytelniania użytkownika hello żądanie zostanie odrzucone i użytkownika hello jest wyświetlany komunikat informujący o hello źródłem problemu hello.
 
-Po otrzymaniu odpowiedzi łącznika sprawia, że wychodzące połączenie z usługą serwera Proxy aplikacji, aby powrócić szczegółów nagłówka i rozpocząć przesyłanie strumieniowe danych zwrotnych.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Usługa strumieni danych do użytkownika. 
+#### <a name="2-hello-service-places-a-request-in-hello-connector-queue"></a>2. hello usługi umieszcza żądania w kolejce łącznika hello
 
-Przetwarza aplikacji może występować w tym miejscu. Jeśli skonfigurowano serwer Proxy aplikacji do tłumaczenia nagłówków lub adresy URL w aplikacji, przetwarzanie odbywa się zgodnie z potrzebami w tym kroku.
+Łączniki Zachowaj toohello otwarte połączenia wychodzącego serwera Proxy aplikacji usługi. Gdy nadejdzie żądanie, usługi hello kolejkuje Żądanie hello na jednym z hello otwarte połączenia dla toopick łącznika hello w górę.
+
+Żądanie hello zawiera elementy z aplikacji hello, takich jak nagłówki żądania hello, dane z pliku cookie hello zaszyfrowane, hello użytkownika hello żądanie i co hello żądań identyfikatora. Mimo że danych z zaszyfrowanego pliku cookie hello są wysyłane z żądaniem hello, nie jest hello uwierzytelniania samego pliku cookie.
+
+#### <a name="3-hello-connector-processes-hello-request-from-hello-queue"></a>3. hello łącznika przetwarza żądanie hello z hello kolejki. 
+
+Na podstawie hello żądania, serwer Proxy aplikacji wykonuje jeden z hello następujące akcje:
+
+* Jeśli Żądanie hello jest prostą operacją (na przykład, Brak danych w treści hello, ponieważ jest z RESTful *UZYSKAĆ* żądania), łącznik hello sprawia, że połączenie toohello wewnętrzny zasób docelowy i czeka na odpowiedź.
+
+* Jeśli Żądanie hello ma danych skojarzonych z nim w treści hello (na przykład RESTful *POST* operacji), łącznik hello ustanawia wychodzące połączenie przy użyciu powitania klienta certyfikatu toohello serwera Proxy aplikacji wystąpienia. Sprawia, że te dane hello toorequest połączenia, a otworzyć zasobu wewnętrznego toohello połączenia. Po otrzymaniu żądania hello z hello łącznika usługi Serwer Proxy aplikacji hello zaczyna akceptować zawartości z hello użytkownika i przekazuje łącznik toohello danych. Łącznik Hello przekazuje z kolei hello zasobu wewnętrznego toohello danych.
+
+#### <a name="4-hello-connector-waits-for-a-response"></a>4. łącznik hello czeka na odpowiedź.
+
+Po hello żądań i przekazywanie toohello całą zawartość kopii end została ukończona, łącznik hello czeka na odpowiedź.
+
+Po otrzymaniu odpowiedzi łącznika hello sprawia, że usługi serwera Proxy aplikacji toohello wychodzące połączenie, tooreturn hello szczegółów nagłówka i rozpocząć przesyłanie strumieniowe hello zwracanych danych.
+
+#### <a name="5-hello-service-streams-data-toohello-user"></a>5. użytkownik toohello hello usługi strumieni danych. 
+
+Przetwarza aplikacji hello może występować w tym miejscu. Jeśli skonfigurowano serwer Proxy aplikacji tootranslate nagłówków i adresy URL w aplikacji, przetwarzanie odbywa się zgodnie z potrzebami w tym kroku.
 
 
 ## <a name="next-steps"></a>Następne kroki

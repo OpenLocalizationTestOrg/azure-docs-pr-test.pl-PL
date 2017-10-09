@@ -1,6 +1,6 @@
 ---
-title: Co to jest Azure Analysis Services? | Microsoft Docs
-description: "Dowiedz się więcej o usługach Analysis Services na platformie Azure."
+title: "usług Azure Analysis Services jest aaaWhat | Dokumentacja firmy Microsoft"
+description: "Pobierz hello szerszej usług Analysis Services na platformie Azure."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,115 +15,115 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 48830a86f47a8ddc7770e6c44dd56c29927fe582
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Usługi Azure Analysis Services udostępniają funkcje modelowania danych klasy korporacyjnej w chmurze. Jest to w pełni zarządzane rozwiązanie „platforma jako usługa” (PaaS), zintegrowane z usługami platformy danych Azure. 
+Azure Analysis Services zawiera modelowania w chmurze hello danych korporacyjnej. Jest to w pełni zarządzane rozwiązanie „platforma jako usługa” (PaaS), zintegrowane z usługami platformy danych Azure. 
 
-Usługi Analysis Services umożliwiają mieszanie i łączenie danych z wielu źródeł, definiowanie metryk oraz zabezpieczanie danych w jednym zaufanym modelu danych semantycznych. Model danych umożliwia użytkownikom łatwiejsze i szybsze przeglądanie dużych ilości danych przy użyciu aplikacji klienckich, takich jak Power BI, Excel, Reporting Services, aplikacje innych firm i aplikacje niestandardowe.
+Usługi Analysis Services umożliwiają mieszanie i łączenie danych z wielu źródeł, definiowanie metryk oraz zabezpieczanie danych w jednym zaufanym modelu danych semantycznych. model danych Hello umożliwia łatwiejsze i szybsze dla Twojego toobrowse użytkowników olbrzymich ilości danych z aplikacji klienta, takich jak usługi Power BI, Excel, usługi Reporting Services, aplikacje innych firm i niestandardowych.
 
 ![Źródła danych](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-Zapoznaj się z [tym wideo](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4), aby dowiedzieć się, jak usługa Azure Analysis Services wpasowuje się w ogólne możliwości analizy biznesowej oferowane przez firmę Microsoft, i jak można skorzystać na przeniesieniu modeli danych do chmury.
+Zapoznaj się z [ten film](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) toolearn sposobu wpasowania Microsoft Azure Analysis Services na ogólne możliwości analizy Biznesowej i jak można korzystać z pobierania modeli danych w chmurze hello.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Powstałe na bazie usług SQL Server Analysis Services
-Usługi Azure Analysis Services są zgodne z wieloma wspaniałymi funkcjami, które już istnieją w usługach SQL Server Analysis Services Enterprise Edition. Usługi Azure Analysis Services obsługują modele tabelaryczne na [poziomach zgodności](analysis-services-compat-level.md) 1200 i 1400. Obsługiwane są partycje, zabezpieczenia na poziomie wierszy, relacje dwukierunkowe i przekształcenia. Tryby W pamięci i DirectQuery oznaczają błyskawiczne przetwarzanie zapytań względem ogromnych, złożonych zestawów danych.
+Usługi Azure Analysis Services są zgodne z wieloma wspaniałymi funkcjami, które już istnieją w usługach SQL Server Analysis Services Enterprise Edition. Azure Analysis Services obsługuje modeli tabelarycznych przy hello 1200 i 1400 [poziomy zgodności](analysis-services-compat-level.md). Obsługiwane są partycje, zabezpieczenia na poziomie wierszy, relacje dwukierunkowe i przekształcenia. Tryby W pamięci i DirectQuery oznaczają błyskawiczne przetwarzanie zapytań względem ogromnych, złożonych zestawów danych.
 
-Modele tabelaryczne oferują szybkie tworzenie rozwiązań i są wysoce dostosowywalne. Dla deweloperów modele tabelaryczne mają usługę TOM (Tabular Object Model) do opisywania obiektów modeli. Usługa TOM jest dostępna w pakiecie JSON za pośrednictwem języka [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) oraz języka definicji danych AMO w przestrzeni nazw [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
+Modele tabelaryczne oferują szybkie tworzenie rozwiązań i są wysoce dostosowywalne. Dla deweloperów modeli tabelarycznych obejmują hello tabelaryczny Model obiektów (niestandardowy) toodescribe modelu obiektów. TOMASZ jest widoczna w formacie JSON za pośrednictwem hello [tabelaryczny Model skryptów języka (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) i hello AMO języka definicji danych za pośrednictwem hello [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) przestrzeni nazw.
 
 ## <a name="better-with-azure"></a>Lepiej korzystać z platformy Azure
-Usługi Azure Analysis Services można zintegrować z wieloma usługami platformy Azure, umożliwiając tworzenie wyrafinowanych rozwiązań analitycznych. Integracja z usługą [Azure Active Directory](../active-directory/active-directory-whatis.md) zapewnia bezpieczny i oparty na rolach dostęp do kluczowych danych. Jest możliwa integracja z potokami usługi [Azure Data Factory](../data-factory/data-factory-introduction.md) przez uwzględnienie działania ładującego dane do modelu. Istnieje możliwość prostego organizowania modeli za pomocą usług [Azure Automation](../automation/automation-intro.md) i [Azure Functions](../azure-functions/functions-overview.md) oraz niestandardowego kodu.
+Azure Analysis Services integruje się z wielu usług Azure, umożliwiając toobuild zaawansowane opcje rozwiązań analitycznych. Integracja z [usługi Azure Active Directory](../active-directory/active-directory-whatis.md) zapewnia bezpieczny dostęp opartej na rolach tooyour najważniejszych danych. Integracja z [fabryki danych Azure](../data-factory/data-factory-introduction.md) potoki, umieszczając w niej działania, który ładuje dane do modelu hello. Istnieje możliwość prostego organizowania modeli za pomocą usług [Azure Automation](../automation/automation-intro.md) i [Azure Functions](../azure-functions/functions-overview.md) oraz niestandardowego kodu.
 
 ## <a name="get-up-and-running-quickly"></a>Szybkie rozpoczęcie pracy
 W witrynie Azure Portal [serwer można utworzyć](analysis-services-create-server.md) w ciągu kilku minut. [Szablony](../azure-resource-manager/resource-manager-create-first-template.md) usługi Azure Resource Manager i program PowerShell pozwalają natomiast aprowizować serwery za pomocą szablonu deklaratywnego. Pojedynczy szablon pozwala wdrożyć wiele usług wraz z innymi składnikami platformy Azure, takimi jak konta magazynu i usługa Azure Functions. 
 
-Gdy już serwer zostanie utworzony, można utworzyć model tabelaryczny bezpośrednio w witrynie Azure Portal. Dzięki nowej [funkcji projektanta internetowego](analysis-services-create-model-portal.md) (wersja zapoznawcza) możesz połączyć się z usługą Azure SQL Database albo źródłem danych usługi Azure SQL Data Warehouse lub zaimportować plik pbix programu Power BI Desktop. Relacje między tabelami są tworzone automatycznie, a następnie można utworzyć miary lub edytować plik model.bim w formacie json bezpośrednio z przeglądarki.
+Gdy już serwer zostanie utworzony, można utworzyć model tabelaryczny bezpośrednio w witrynie Azure Portal. Z nowego hello (wersja zapoznawcza) [projektanta funkcję Web](analysis-services-create-model-portal.md), można połączyć tooan usługi Azure SQL Database, źródła danych magazynu danych SQL Azure, lub importowanie pliku pbix Power BI Desktop. Relacje między tabelami są tworzone automatycznie, a następnie można utworzyć miary lub edytować plik model.bim hello w formacie json prawo z przeglądarki.
 
-## <a name="scale-to-your-needs"></a>Skalowanie zgodnie z potrzebami
-Usługi Azure Analysis Services są dostępne w warstwach Deweloper, Podstawowa i Standardowa. W każdej warstwie cena planu zależy od mocy przetwarzania, jednostek QPU i rozmiaru pamięci. Plan w ramach warstwy wybiera się podczas tworzenia serwera. W ramach tej samej warstwy można zmieniać plany w górę lub w dół albo przejść na wyższą warstwę, ale nie można przejść z warstwy wyższej na niższą.
+## <a name="scale-tooyour-needs"></a>Skala tooyour potrzeb
+Usługi Azure Analysis Services są dostępne w warstwach Deweloper, Podstawowa i Standardowa. W każdej warstwie koszty planu różnią się zgodnie z rozmiar tooprocessing zasilania, QPUs i pamięci. Plan w ramach warstwy wybiera się podczas tworzenia serwera. Plany można zmienić w w dół w ramach hello same warstwy lub uaktualnienia tooa wyższego poziomu, ale nie można obniżyć z wyższego poziomu niższe tooa warstwy.
 
-Serwer można skalować w górę, skalować w dół lub wstrzymywać. Można do tego użyć witryny Azure Portal lub, aby mieć pełną kontrolę na bieżąco, użyć programu PowerShell. Płaci się wyłącznie za użyte zasoby. Aby dowiedzieć się więcej na temat różnych planów i warstw oraz skorzystać z kalkulatora cen w celu wybrania właściwego planu dla siebie, zobacz [cennik usługi Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Serwer można skalować w górę, skalować w dół lub wstrzymywać. Użyj hello portalu Azure lub mają pełną kontrolę na bieżąco za pomocą programu PowerShell. Płaci się wyłącznie za użyte zasoby. toolearn więcej informacji na temat różnych planów hello i warstwy i użyj hello Kalkulator toodetermine hello prawo planu cenowego, zobacz [cennik usługi Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="keep-your-data-close"></a>Przechowywanie danych w zasięgu ręki
-Serwery usług Azure Analysis Services można tworzyć w następujących [regionach platformy Azure](https://azure.microsoft.com/regions/):
+Serwery usług Analysis Services Azure mogą być tworzone w następujących hello [regiony platformy Azure](https://azure.microsoft.com/regions/):
 
 | Ameryki | Europa | Azja i Pacyfik |
 |----------|--------|--------------|
 |  Brazylia Południowa<br> Kanada Środkowa<br> Wschodnie stany USA 2<br> Środkowo-północne stany USA<br> Środkowo-południowe stany USA<br> Środkowo-zachodnie stany USA<br> Zachodnie stany USA | Europa Północna<br> Południowe Zjednoczone Królestwo<br> Europa Zachodnia |   Australia Południowo-Wschodnia<br> Japonia Wschodnia<br> Azja Południowo-Wschodnia<br> Indie Zachodnie  |
 
-Przez cały czas dodawane są nowe regiony, więc ta lista może być niepełna. Lokalizację wybiera się przy tworzeniu serwera za pomocą witryny Azure Portal lub szablonów usługi Azure Resource Manager. Aby uzyskać najlepszą wydajność, wybierz lokalizację najbliższą względem Twojej największej bazy użytkowników. Zagwarantuj [wysoką dostępność](analysis-services-bcdr.md), wdrażając swoje modele na serwerach nadmiarowych w wielu regionach.
+Nowe regiony są dodawane cały czas hello, więc tej listy mogą być niekompletne. Lokalizację wybiera się przy tworzeniu serwera za pomocą witryny Azure Portal lub szablonów usługi Azure Resource Manager. Witaj tooget najlepszych wydajności, wybierz lokalizację najbliżej największy bazy użytkowników. Zagwarantuj [wysoką dostępność](analysis-services-bcdr.md), wdrażając swoje modele na serwerach nadmiarowych w wielu regionach.
 
 ## <a name="migrate-your-existing-tabular-models"></a>Migrowanie istniejących modeli tabelarycznych
-Jeśli masz już istniejące lokalne rozwiązania z modelami usług SQL Server Analysis Services, możesz przeprowadzić migrację do usług Azure Analysis Services bez znaczących zmian. Aby przeprowadzić migrację, możesz skorzystać z narzędzi SSDT do wdrożenia modelu na serwerze. Możesz też w programie SSMS użyć funkcji tworzenia i przywracania kopii zapasowych albo języka TMSL.
+Jeśli masz już istniejącą lokalnymi rozwiązaniami modelu usług SQL Server Analysis Services, należy przeprowadzić migrację usług Analysis Services tooAzure bez znaczących zmian. toomigrate, można użyć narzędzia SSDT toodeploy serwera tooyour modelu. Możesz też w programie SSMS użyć funkcji tworzenia i przywracania kopii zapasowych albo języka TMSL.
 
-Jeśli masz lokalne źródła danych, musisz zainstalować i skonfigurować [lokalną bramę danych](analysis-services-gateway.md). Jeśli masz już skonfigurowane role i ich członków, role podlegają migracji, ale ich członków musisz dodać ponownie przy użyciu programu SSMS lub PowerShell.
+Jeśli masz lokalnych źródeł danych, należy tooinstall i skonfigurować [bramy danych lokalnych](analysis-services-gateway.md). Jeśli masz ról i członkowie roli już skonfigurowany migracji ról, ale masz tooreadd członków roli przy użyciu narzędzia SSMS lub programu PowerShell.
 
-## <a name="connect-to-popular-data-sources"></a>Łączenie z popularnymi źródłami danych
-Usługi Azure Analysis Services obsługują [połączenia z lokalnymi źródłami danych](analysis-services-datasource.md) w organizacji i źródłami danych w chmurze. Połącz dane z lokalnych źródeł danych i źródeł danych w chmurze, aby uzyskać rozwiązanie hybrydowe. 
+## <a name="connect-toopopular-data-sources"></a>Połącz toopopular źródła danych
+Azure Analysis Services obsługuje [łączenie źródeł toodata](analysis-services-datasource.md) lokalne w Twojej organizacji i w chmurze hello. Połącz dane z lokalnych źródeł danych i źródeł danych w chmurze, aby uzyskać rozwiązanie hybrydowe. 
 
-Nowe modele tabelaryczne 1400 używają nowoczesnej funkcji Get Data w narzędziach SSDT, bazując na formułowym języku zapytań M. Dzięki funkcji Get Data dostępnych jest więcej funkcji przekształceń danych i obsługi mashupów oraz możliwość tworzenia i edytowania własnych, zaawansowanych zapytań języka formuł M. Na przykład dzięki modelom tabelarycznym 1400 można tworzyć modele w oparciu o pliki danych w usłudze Azure Blob Storage.
+Nowe modele tabelaryczne 1400 funkcja hello nowoczesnych Pobierz dane programu SSDT, opierając się na powitania M formuły zapytania. Z Pobierz dane mają więcej transformacji danych i funkcji zestawu połączonych danych i hello możliwości toocreate i edytować własnych zaawansowanych zapytań formuły języka M. Na przykład dzięki modelom tabelarycznym 1400 można tworzyć modele w oparciu o pliki danych w usłudze Azure Blob Storage.
 
-## <a name="use-the-tools-you-already-know"></a>Korzystaj z narzędzi, które już znasz
+## <a name="use-hello-tools-you-already-know"></a>Narzędzia hello znanych
 
 ![Narzędzia programistyczne BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
 #### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Narzędzia SQL Server Data Tools (SSDT) dla Visual Studio
-Twórz i wdrażaj modele za pomocą bezpłatnych narzędzi [SQL Server Data Tools (SSDT) dla Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Narzędzia SSDT obejmują szablony projektów usług Analysis Services, które pozwalają szybko rozpocząć pracę. Narzędzia SSDT teraz obejmują nowoczesną funkcję Get Data do obsługi zapytań do źródeł danych oraz mashupów dla tabelarycznych modeli 1400. Jeśli znasz już funkcję Get Data w programach Power BI Desktop i Excel 2016, wiesz już, jak łatwo tworzy się wysoce dostosowywalne zapytania do źródeł danych.
+Tworzenie i wdrażanie modeli z hello wolnego [programu SQL Server Data Tools (SSDT) dla programu Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Narzędzia SSDT obejmują szablony projektów usług Analysis Services, które pozwalają szybko rozpocząć pracę. Program SSDT teraz obejmuje hello nowoczesnych pobieranie danych źródła danych zapytań i mashup funkcjonalności dla modeli tabelarycznych 1400. Jeśli znasz pobieranie danych w programie Power BI Desktop i Excel 2016, już wiesz, jak łatwo jest toocreate wysoce dostosowane kwerend źródła danych.
 
 #### <a name="sql-server-management-studio"></a>Sql Server Management Studio
-Zarządzaj serwerami i bazami danych modeli przy użyciu [programu SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Łącz się ze swoimi serwerami w chmurze. Uruchamiaj skrypty TMSL bezpośrednio z okna zapytań XMLA i automatyzuj zadania za pomocą skryptów TMSL. Nowe funkcje i możliwości pojawiają się bardzo szybko — program SSMS jest aktualizowany co miesiąc.
+Zarządzaj serwerami i bazami danych modeli przy użyciu [programu SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Połącz serwery tooyour w chmurze hello. Uruchamianie skryptów TMSL bezpośrednio z okna zapytania XMLA hello i automatyzowania zadań za pomocą skryptów TMSL. Nowe funkcje i możliwości pojawiają się bardzo szybko — program SSMS jest aktualizowany co miesiąc.
 
 #### <a name="powershell"></a>PowerShell
-Zadania zarządzania zasobami serwerowymi, takie jak tworzenie serwerów, zawieszanie lub wznawianie operacji serwerowych czy zmienianie poziomu (warstwy) serwera korzystają z poleceń cmdlet usługi Azure Resource Manager (AzureRM). Inne zadania do zarządzania bazami danych, takie jak dodawanie lub usuwanie członków ról, przetwarzanie czy uruchamianie skryptów TMSL używają poleceń cmdlet w module SqlServer. Usługa AzureRM i moduły SQLServer są dostępne w [galerii programu PowerShell](https://www.powershellgallery.com/).
+Zadania zarządzania serwerem zasobów takich jak tworzenie serwerów, wstrzymywania lub wznawiania operacji serwera lub zmiana hello poziomu usług (warstwy), użyj polecenia cmdlet usługi Azure Resource Manager (AzureRM). Innych zadań związanych z zarządzaniem baz danych, takich jak dodawanie lub usuwanie członków roli przetwarzania lub uruchamiania skryptów TMSL za pomocą poleceń cmdlet w hello SqlServer module. Zarówno AzureRM i SQLServer moduły są dostępne w hello [galerii programu PowerShell](https://www.powershellgallery.com/).
 
 
 ## <a name="your-data-is-secure"></a>Twoje dane są bezpieczne
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-secure.png)
 
 #### <a name="authentication"></a>Uwierzytelnianie
-Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwane przez [usługi Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Podczas próby logowania do bazy danych usług Azure Analysis Services użytkownicy używają tożsamości konta organizacji z dostępem do bazy danych, z którą chcą uzyskać połączenie. Te tożsamości użytkowników muszą być elementami członkowskimi domyślnej usługi Azure Active Directory dla subskrypcji, w których znajduje się serwer usług Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
+Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwane przez [usługi Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Podczas próby toolog w bazie danych z usług Azure Analysis Services tooan, użyj użytkowników tożsamość konta organizacji z bazy danych programu access toohello próbujesz tooaccess. Te tożsamości użytkowników muszą być elementami członkowskimi domyślne hello Azure Active Directory dla subskrypcji hello, gdzie znajduje się serwer usług Azure Analysis Services hello. toolearn więcej, zobacz [uprawnienia do uwierzytelniania i użytkownik](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Bezpieczeństwo danych
-Usługi Azure Analysis Services używają magazynu obiektów Blob Azure jako trwałego magazynu przechowania danych i metadanych dla baz danych usług Analysis Services. Pliki danych w ramach obiektu Blob są szyfrowane za pomocą szyfrowania po stronie serwera (SSE) Azure Blob. W trybie zapytania bezpośredniego przechowywane są tylko metadane. Dostęp do danych rzeczywistych ze źródła danych następuje podczas przeszukiwania.
+Azure Analysis Services używa magazynu toopersist magazynu obiektów Blob platformy Azure i metadanych dla baz danych usług Analysis Services. Pliki danych w ramach obiektu Blob są szyfrowane za pomocą szyfrowania po stronie serwera (SSE) Azure Blob. W trybie zapytania bezpośredniego przechowywane są tylko metadane. rzeczywiste dane Hello jest dostępny ze źródła danych hello podczas przeszukiwania.
 
 #### <a name="on-premises-data-sources"></a>Lokalne źródła danych
-Bezpieczny dostęp do danych przechowywanych lokalnie w organizacji jest osiągany przez instalację i skonfigurowanie [lokalnej bramy danych](analysis-services-gateway.md). Bramy zapewniają dostęp do danych w trybach zapytania bezpośredniego i dostępu w pamięci. Po nawiązaniu połączenia pomiędzy modelem usług Azure Analysis Services a źródłem danych lokalnych jest tworzone zapytanie wraz z zaszyfrowanymi poświadczeniami dla źródła danych lokalnych. Usługa bramy w chmurze analizuje zapytanie i wypycha je na magistralę Azure Service Bus. Brama lokalna sonduje magistralę Azure Service Bus, poszukując żądań oczekujących. Następnie brama pobiera zapytanie, odszyfrowuje poświadczenia i nawiązuje połączenie ze źródłem danych w celu wykonania zapytania. Wyniki są wysyłane ze źródła danych do bramy, a następnie do bazy danych usług Azure Analysis Services.
+Bezpieczny dostęp toodata przechowywanych lokalnie w organizacji jest to osiągane przez zainstalowanie i skonfigurowanie [bramy danych lokalnych](analysis-services-gateway.md). Bram zapewnienia toodata dostępu zapytania bezpośredniego i tryby w pamięci. Zapytanie modelu usług Azure Analysis Services łączy tooan lokalnego źródła danych, zostanie utworzona wraz z hello zaszyfrowane poświadczenia dla źródła danych lokalne powitania. Witaj usługi bramy w chmurze analizuje zapytania hello i wypchnięcia tooan żądania hello Azure Service Bus. Brama lokalna Hello sonduje hello Azure Service Bus dla żądań oczekujących. następnie bramy Hello pobiera hello zapytania, odszyfrowuje hello poświadczeń i łączy toohello źródła danych do wykonania. wyniki Hello są następnie wysyłane z hello źródła danych, Utwórz kopię toohello bramy i następnie w toohello Azure Analysis Services bazy danych.
 
-Usługi Azure Analysis Services są objęte [warunkami dotyczącymi usług online firmy Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) i [zasadami zachowania poufności informacji w witrynie Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
-Aby dowiedzieć się więcej na temat zabezpieczeń platformy Azure, zobacz witrynę 	[Centrum Zaufania Microsoft](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+Azure Analysis Services podlega hello [warunki dotyczące usług Online firmy Microsoft](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) i hello [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+toolearn więcej informacji na temat zabezpieczeń platformy Azure, zobacz hello [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
-## <a name="supports-the-latest-client-tools"></a>Obsługuje najnowsze narzędzia klienckie
+## <a name="supports-hello-latest-client-tools"></a>Obsługuje hello najnowsze narzędzia klienta
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-clients.png)
 
 Nowoczesne narzędzia do eksploracji i wizualizacji danych, takie jak Power BI, Excel czy narzędzia innych firm, udostępniają użytkownikom wysoce interakcyjny i rozbudowany wizualnie wgląd w dane modelu.
 
-Do łączenia się z serwerami Analysis Services klienci używają [bibliotek klienta](analysis-services-data-providers.md) MSOLAP, AMO lub ADOMD. Aplikacje klienckie firmy Microsoft, takie jak Power BI Desktop i Excel, instalują wszystkie trzy biblioteki klienta. Należy jednak pamiętać, że zależnie od wersji lub częstotliwości aktualizacji, biblioteki klienta mogą nie być w najnowszej wersji wymaganej przez usługi Azure Analysis Services. To samo dotyczy aplikacji niestandardowych lub innych interfejsów, takich jak AsCmd, TOM czy ADOMD.NET. Te aplikacje zwykle wymagają ręcznej instalacji bibliotek jako części pakietu.
+Klienci używają MSOLAP, AMO lub ADOMD [bibliotek klienckich](analysis-services-data-providers.md) serwerów usług tooAnalysis tooconnect. Aplikacje klienckie firmy Microsoft, takie jak Power BI Desktop i Excel, instalują wszystkie trzy biblioteki klienta. Ale należy pamiętać, w zależności od wersji hello lub częstotliwość aktualizacji bibliotek klienta nie może być najnowsze wersje hello wymagane przez usług Azure Analysis Services. Witaj dotyczy toocustom aplikacji lub innych interfejsów, takich jak AsCmd, TOMASZ, ADOMD.NET. Te aplikacje zwykle wymagają ręcznej instalacji hello biblioteki jako część pakietu.
 
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
 
 #### <a name="documentation"></a>Dokumentacja
-Usługi Azure Analysis Services są łatwe w konfiguracji i zarządzaniu. Tutaj możesz znaleźć wszystkie informacje potrzebne do tworzenia usług serwera i zarządzania nimi. Tworzenie modelu danych w celu jego wdrożenia na serwerze w znacznym stopniu przypomina tworzenie modelu przeznaczonego do wdrożenia na serwerze lokalnym. W witrynie [usług Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) jest dostępna szeroka gama artykułów dotyczących koncepcji, procedur, szkoleń i samouczków.
+Azure Analysis Services jest proste tooset się i toomanage. Wszystkie informacje hello należy toocreate i zarządzania usługami serwera w tym miejscu można znaleźć. Podczas tworzenia serwera tooyour toodeploy modelu danych, jej ma znacznie hello sam podobnie jak w przypadku tworzenia modelu danych, wdrażanie tooan na serwerze lokalnym. W witrynie [usług Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) jest dostępna szeroka gama artykułów dotyczących koncepcji, procedur, szkoleń i samouczków.
 
 #### <a name="videos"></a>Filmy wideo
 Zapoznaj się z pomocnymi wideo, odwiedzając dział [usług Azure Analysis Services w witrynie Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
 #### <a name="blogs"></a>Blogi
-Wszystko zmienia się tak szybko. Najnowsze informacje zawsze można uzyskać w [blogu zespołu usług Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) i [blogu Azure](https://azure.microsoft.com/blog/).
+Wszystko zmienia się tak szybko. Możesz zawsze uzyskać najnowsze informacje o hello na powitania [blogu zespołu usług Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) i [Azure blog](https://azure.microsoft.com/blog/).
 
 #### <a name="community"></a>Społeczność
-Społeczność użytkowników usług Analysis Services jest bardzo aktywna. Dołącz do konwersacji na [forum usług Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
+Społeczność użytkowników usług Analysis Services jest bardzo aktywna. Dołącz do konwersacji hello [forum usług Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
 ## <a name="feedback"></a>Opinia
-Masz sugestie lub propozycje nowych funkcji? Zostaw swoje komentarze w witrynie [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
+Masz sugestie lub propozycje nowych funkcji? Należy się tooleave komentarze na [Azure Analysis Services opinii](https://aka.ms/azureanalysisservicesfeedback).
 
-Masz sugestie dotyczące dokumentacji? Możesz dodać komentarz przy użyciu funkcji Livefyre dostępnej w dolnej części każdego artykułu.
+Masz sugestie dotyczące dokumentacji hello? Można dodawać komentarze przy użyciu Livefyre u dołu hello każdego artykułu.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy wiesz więcej na temat usług Azure Analysis Services, nadszedł czas na rozpoczęcie pracy. Dowiedz się, jak [utworzyć serwer](analysis-services-create-server.md) na platformie Azure. Gdy serwer będzie gotowy, przejdź [samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md), aby dowiedzieć się, jak utworzyć w pełni funkcjonalny model tabelaryczny i wdrożyć go na swoim serwerze.
+Teraz, aby dowiedzieć się więcej na temat usług Azure Analysis Services, nadszedł czas tooget uruchomiona. Dowiedz się, jak za[utworzyć serwer](analysis-services-create-server.md) na platformie Azure. Gdy serwer jest gotowy, kroków hello [samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md) toolearn jak toocreate funkcjonalnej modelu tabelarycznego i wdróż je tooyour serwera.

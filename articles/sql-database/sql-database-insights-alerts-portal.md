@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie alertów bazy danych SQL za pomocą portalu Azure | Dokumentacja firmy Microsoft"
-description: "Użyj portalu Azure, aby utworzyć alerty bazy danych SQL, które mogą wyzwalać powiadomienia lub automatyzacji po spełnieniu warunków, które określisz."
+title: alerty bazy danych SQL Azure portalu toocreate aaaUse | Dokumentacja firmy Microsoft
+description: "Użyj hello toocreate portalu Azure SQL Database alerty, które może wyzwolić powiadomienia lub automatyzacji po spełnieniu warunków hello, które określisz."
 author: aamalvea
 manager: jhubbard
 editor: 
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: bfbaa71dc5716fbbc23d04bbd62210193c990e8e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e494b130a26c4cdf42445cb49648fce9bf4d300
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utwórz alerty dla bazy danych SQL Azure i magazynem danych za pomocą portalu Azure
+# <a name="use-azure-portal-toocreate-alerts-for-azure-sql-database-and-data-warehouse"></a>Używać alertów toocreate portalu Azure do usługi Azure SQL Database oraz magazynu danych
 
 ## <a name="overview"></a>Omówienie
-W tym artykule przedstawiono sposób konfigurowania alertów bazy danych SQL Azure i magazynem danych przy użyciu portalu Azure. Ten artykuł zawiera również najlepsze rozwiązania dotyczące ustawiania alertu okresów.    
+W tym artykule opisano, jak tooset alerty bazy danych SQL Azure i magazynem danych przy użyciu hello portalu Azure. Ten artykuł zawiera również najlepsze rozwiązania dotyczące ustawiania alertu okresów.    
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
 
-* **Wartości metryki** — uruchamia alert, gdy wartość określonej metryki przekracza próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala po spełnieniu warunku zostanie najpierw i następnie później podczas warunku jest już spełniane.    
+* **Wartości metryki** — Witaj alertu wyzwalacze, jeśli wartość hello określonej metryki przecina próg przypisać w żadnym kierunku. Oznacza to, że oba wyzwala kiedy najpierw zostanie spełniony warunek hello i następnie później podczas warunku jest już spełniane.    
 * **Zdarzenia dziennika aktywności** -alert może wyzwolić na *co* zdarzenia lub tylko wtedy, gdy wystąpić określona liczba zdarzeń.
 
-Możesz skonfigurować alert o konieczności wyzwala, wykonaj następujące czynności:
+Można skonfigurować alertów toodo powitania po wyzwala:
 
-* wysyłanie powiadomień e-mail do administratora usługi i współadministratorzy
-* Wyślij wiadomość e-mail do dodatkowych wiadomości e-mail przez użytkownika.
+* Wyślij administratora usługi toohello powiadomienia e-mail i współadministratorzy
+* Wyślij wiadomość e-mail tooadditional wiadomości e-mail, które określisz.
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alertów
@@ -44,36 +44,36 @@ Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alert�
 * [Interfejs wiersza polecenia (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Tworzenie reguły alertu na Metryka z portalu Azure
-1. W [portal](https://portal.azure.com/)zasobów planuje się monitorowanie Znajdź i zaznacz go.
+## <a name="create-an-alert-rule-on-a-metric-with-hello-azure-portal"></a>Tworzenie reguły alertu na Metryka z hello portalu Azure
+1. W hello [portal](https://portal.azure.com/)planuje się monitorowanie zasobów hello Znajdź i zaznacz go.
 2. Ten krok jest różne dla bazy danych SQL i pul elastycznych w porównaniu z magazynu danych SQL: 
 
-   - **Bazy danych SQL i elastyczne pule tylko**: Wybierz **alerty** lub **reguły alertów** w sekcji monitorowanie. Tekst i ikona mogą się nieco różnić dla różnych zasobów.  
+   - **Bazy danych SQL i elastyczne pule tylko**: Wybierz **alerty** lub **reguły alertów** w sekcji monitorowanie hello. Ikona i tekst Hello mogą się nieco różnić dla różnych zasobów.  
    
      ![Monitorowanie](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
-   - **TYLKO z magazynu danych SQL**: Wybierz **monitorowanie** w sekcji typowych zadań. Kliknij przycisk **użycia DWU** wykresu.
+   - **TYLKO z magazynu danych SQL**: Wybierz **monitorowanie** w obszarze hello sekcji typowych zadań. Kliknij przycisk hello **użycia DWU** wykresu.
 
      ![TYPOWE ZADANIA](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
 
-3. Wybierz **Dodaj alert** poleceń i wypełnij pola.
+3. Wybierz hello **Dodaj alert** poleceń i wypełnij pola hello.
    
     ![Dodawanie alertu](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Nazwa** alertu reguły, a następnie wybierz pozycję **opis**, który pokazuje również w wiadomości e-mail z powiadomieniem.
-5. Wybierz **Metryka** chcesz monitorować, a następnie wybierz pozycję **warunku** i **próg** wartość metryki. Również wybrana **okres** czas, przez który metryki reguły muszą zostać spełnione przed wyzwalaczy alertu. Tak na przykład jeśli używasz okres "PT5M" i alertu szuka procesora CPU przekracza 80%, alert jest wyzwalane po procesora CPU było stale powyżej 80% 5 minut. W momencie to pierwszy wyzwalacz, ponownie uruchamia to, gdy Procesora pozostaje poniżej 80% 5 minut. Pomiar Procesora występuje co minutę.   
-6. Sprawdź **E-mail właścicieli...**  Jeśli chcesz, aby administratorzy i współadministratorzy w celu przesłania pocztą e-mail po zgłoszeniu alertu.
-7. Jeśli chcesz, dodatkowe wiadomości e-mail, aby otrzymać powiadomienie po zgłoszeniu alertu, dodaj je w **email(s) dodatkowe administratora** pola. Wiele wiadomości e-mail należy rozdzielić średnikami -  *email@contoso.com;email2@contoso.com*
-8. Umieść w prawidłowym identyfikatorem URI w **Webhook** jeśli ma ona wywoływana po zgłoszeniu alertu.
-9. Wybierz **OK** po zakończeniu można utworzyć alertu.   
+5. Wybierz hello **Metryka** toomonitor, a następnie wybierz **warunku** i **próg** wartość metryki hello. Również wybrana hello **okres** hello metryki czasu reguły muszą zostać spełnione przed hello wyzwalaczy alertu. Tak na przykład jeśli używasz okres hello "PT5M" i alertu szuka procesora CPU przekracza 80%, hello alert jest wyzwalane po hello procesora CPU było stale powyżej 80% 5 minut. W momencie hello pierwszy wyzwalacz, ponownie uruchamia to, gdy hello Procesora pozostaje poniżej 80% 5 minut. Hello pomiaru Procesora występuje co minutę.   
+6. Sprawdź **E-mail właścicieli...**  Jeśli chcesz, aby administratorzy i współadministratorzy toobe pocztą e-mail po hello uruchamiany alertu.
+7. Jeśli chcesz, dodatkowe wiadomości e-mail tooreceive powiadomienie, gdy hello alertu, należy dodać je w hello **email(s) dodatkowe administratora** pola. Wiele wiadomości e-mail należy rozdzielić średnikami -  *email@contoso.com;email2@contoso.com*
+8. Umieść w prawidłowym identyfikatorem URI w hello **Webhook** pole Jeśli ma ona wywoływana po hello uruchamiany alertu.
+9. Wybierz **OK** po done toocreate hello alertu.   
 
-W ciągu kilku minut alert jest aktywny i wyzwala w sposób opisany wcześniej.
+W ciągu kilku minut hello alert jest aktywny i wyzwala w sposób opisany wcześniej.
 
 ## <a name="managing-your-alerts"></a>Zarządzanie alertami
 Po utworzeniu alertu, zostanie ona wybrana oraz:
 
-* Wyświetl wykres przedstawiający próg metryki i rzeczywistymi wartościami z poprzedniego dnia.
+* Wyświetl wykres przedstawiający hello próg metryki i hello rzeczywistymi wartościami z hello poprzedniego dnia.
 * Edytuj lub usuń go.
-* **Wyłącz** lub **włączyć** go, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień dla tego alertu.
+* **Wyłącz** lub **włączyć** go, jeśli chcesz zatrzymać tootemporarily lub wznowić odbieranie powiadomień dla tego alertu.
 
 
 ## <a name="sql-database-alert-values"></a>Wartości alertu bazy danych SQL
@@ -113,7 +113,7 @@ Po utworzeniu alertu, zostanie ona wybrana oraz:
 | Magazyn danych SQL | connection_successful | Udane połączenia | Łącznie | 10 minut |
 | Magazyn danych SQL | connection_failed | Połączenia nie powiodło się | Łącznie | 10 minut |
 | Magazyn danych SQL | blocked_by_firewall | Blokowane przez zaporę | Łącznie | 10 minut |
-| Magazyn danych SQL | service_level_objective | Cel poziomu usługi bazy danych | Łącznie | 10 minut |
+| Magazyn danych SQL | service_level_objective | Cel poziomu usługi hello bazy danych | Łącznie | 10 minut |
 | Magazyn danych SQL | dwu_limit | Jednostka dwu limit | Maksymalna | 10 minut |
 | Magazyn danych SQL | dwu_consumption_percent | Procent jednostka DWU | Średnia | 10 minut |
 | Magazyn danych SQL | dwu_used | Jednostka DWU używane | Średnia | 10 minut |
@@ -121,7 +121,7 @@ Po utworzeniu alertu, zostanie ona wybrana oraz:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Omówienie monitorowania Azure](../monitoring-and-diagnostics/monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
+* [Omówienie monitorowania Azure](../monitoring-and-diagnostics/monitoring-overview.md) tym hello typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Pobierz [Przegląd dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) i zbieranie szczegółowych metryki wysokiej częstotliwości w usłudze.
-* Pobierz [omówienie zbierania metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) się upewnić, że usługa jest dostępna i elastyczny.
+* Pobierz [omówienie zbierania metryk](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) toomake się, że usługa jest dostępna i elastyczny.

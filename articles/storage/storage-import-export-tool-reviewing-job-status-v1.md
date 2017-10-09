@@ -1,6 +1,6 @@
 ---
-title: "Przeglądanie stanu zadania Import/Eksport Azure - v1 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak pliki dziennika utworzone po sprzed uruchomienia zadania importu lub eksportu, aby wyświetlić stan zadania importu/eksportu."
+title: Stan zadania Import/Eksport Azure - v1 aaaReviewing | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak pliki dziennika hello toouse utworzony podczas hello importu lub eksportu zadania był uruchamiany toosee hello stan zadania importu/eksportu hello."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.openlocfilehash: 621e41df127fded6ec6fe1f71e86cb8630965a70
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 378bc9a7ef6bfe65209413c8c4134f313a2c0d79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Przeglądanie Import/Eksport Azure stan zadania kopiowania plików dzienników
-Kiedy usługa Import/Eksport Microsoft Azure przetwarza dyski skojarzone z zadaniem importu lub eksportu, zapisuje kopiowania plików dziennika do konta magazynu do lub z którego są importowania lub eksportowania obiektów blob. Plik dziennika zawiera szczegółowe informacje dotyczące każdego pliku, który został zaimportowany ani eksportowane. Zwracany jest adres URL do każdego pliku dziennika kopii po wykonaniu kwerendy stanu zadanie zostało ukończone; zobacz [pobrania zadania](/rest/api/storageservices/Get-Job3) Aby uzyskać więcej informacji.  
+Kiedy hello usługi Import/Eksport Microsoft Azure przetwarza dyski skojarzone z zadaniem importu lub eksportu, zapisuje kopii dziennika pliki toohello magazynu konta tooor z którego są importowania lub eksportowania obiektów blob. plik dziennika Hello zawiera szczegółowe informacje dotyczące każdego pliku, który został zaimportowany ani eksportowane. plik dziennika kopii tooeach adres URL Hello jest zwracany, jeśli można zbadać stanu hello zadanie zostało ukończone; zobacz [pobrania zadania](/rest/api/storageservices/Get-Job3) Aby uzyskać więcej informacji.  
 
 ## <a name="example-urls"></a>Adresy URL
 
-Adresy URL do kopiowania plików dziennika dla zadania importu z dwóch dysków są następujące:  
+adresy URL do kopiowania plików dziennika dla zadania importu z dwóch dysków są następujące Hello:  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM35C2V_20130921-034307-902_error.xml`  
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- Zobacz [usługi Import/Eksport Format pliku dziennika](storage-import-export-file-format-log.md) formatu kopiowaniu dzienników i z pełną listą kodów stanu.  
+ Zobacz [usługi Import/Eksport Format pliku dziennika](storage-import-export-file-format-log.md) formatu hello kopiowaniu dzienników i hello pełną listę kodów stanu.  
   
 ## <a name="next-steps"></a>Następne kroki
  
- * [Trwa konfigurowanie narzędzia Azure Import/Eksport](storage-import-export-tool-setup-v1.md)   
+ * [Definiowanie hello Azure narzędzie importu/eksportu](storage-import-export-tool-setup-v1.md)   
  * [Przygotowywanie dysków twardych do zadania importu](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Naprawianie zadania importu](storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [Naprawianie zadania eksportu](storage-import-export-tool-repairing-an-export-job-v1.md)   
- * [Rozwiązywanie problemów z narzędziem Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
+ * [Rozwiązywanie problemów z hello Azure narzędzie importu/eksportu](storage-import-export-tool-troubleshooting-v1.md)

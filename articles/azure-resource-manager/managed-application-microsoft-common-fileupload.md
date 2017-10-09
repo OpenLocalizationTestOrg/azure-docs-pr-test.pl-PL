@@ -1,6 +1,6 @@
 ---
-title: "Azure zarządzanych aplikacji przekazywaniem plików elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
-description: "Opis elementu Microsoft.Common.FileUpload interfejsu użytkownika dla aplikacji Azure"
+title: "aaaAzure zarządzanych aplikacji przekazywaniem plików elementu interfejsu użytkownika | Dokumentacja firmy Microsoft"
+description: "Opisuje hello elementu Microsoft.Common.FileUpload interfejsu użytkownika dla aplikacji Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 217e9e63eb7cd198f70cee42b418867df9f1f993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7af5bec992e3f120afb1bdf56d8b4c19a8e5e834
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Element Microsoft.Common.FileUpload interfejsu użytkownika
-Formant, który umożliwia użytkownikowi określenie co najmniej jeden plik do przekazania. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
+Formant, który umożliwia toospecify użytkownika jednego lub więcej plików tooupload. Użyj tego elementu po [tworzenie aplikacji zarządzanych Azure](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Przykład interfejsu użytkownika
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -47,21 +47,21 @@ Formant, który umożliwia użytkownikowi określenie co najmniej jeden plik do 
 ```
 
 ## <a name="remarks"></a>Uwagi
-- `constraints.accept`Określa typy plików, które są wyświetlane w oknie dialogowym pliku przeglądarki. Zobacz [specyfikacji HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) dla dozwolone wartości. Wartość domyślna to **null**.
-- Jeśli `options.multiple` ustawiono **true**, użytkownik może wybrać więcej niż jednego pliku w oknie dialogowym pliku przeglądarki. Wartość domyślna to **false**.
-- Ten element obsługuje przekazywanie plików w dwóch trybach, w oparciu o wartości `options.uploadMode`. Jeśli **pliku** jest określony, dane wyjściowe zawierają zawartość pliku jako obiekt blob. Jeśli **adres url** jest określona, plik jest przekazywany do tymczasowej lokalizacji, a dane wyjściowe zawierają adresu URL obiektu blob. Tymczasowe obiekty BLOB zostaną usunięte po 24 godzinach. Wartość domyślna to **pliku**.
-- Wartość `options.openMode` określa sposób odczytać pliku. Jeśli plik powinien być zwykłego tekstu, określ **tekst**; w przeciwnym razie, określ **binarne**. Wartość domyślna to **tekstu**.
-- Jeśli `options.uploadMode` ma ustawioną wartość **pliku** i `options.openMode` ustawiono **binarne**, dane wyjściowe są algorytmem Base64.
-- `options.encoding`Określa kodowanie używane podczas odczytu pliku. Wartość domyślna to **UTF-8**i jest używany tylko wtedy, gdy `options.openMode` ustawiono **tekstu**.
+- `constraints.accept`Określa hello typy plików, które są wyświetlane w oknie dialogowym pliku hello przeglądarki. Zobacz hello [specyfikacji HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept) dla dozwolone wartości. Witaj, wartość domyślna to **null**.
+- Jeśli `options.multiple` ustawiono zbyt**true**, hello użytkownik może tooselect więcej niż jeden plik w przeglądarce hello okna dialogowego pliku. Witaj, wartość domyślna to **false**.
+- Ten element obsługuje przekazywanie plików w dwóch trybach na podstawie wartości hello `options.uploadMode`. Jeśli **pliku** jest określony, dane wyjściowe hello zawierają hello zawartość pliku hello jako obiektu blob. Jeśli **adres url** jest określony, program hello plik jest przekazany tooa tymczasowej lokalizacji, a hello dane wyjściowe zawierają hello adres URL obiektu blob hello. Tymczasowe obiekty BLOB zostaną usunięte po 24 godzinach. Witaj, wartość domyślna to **pliku**.
+- Witaj wartość `options.openMode` Określa, jak plik hello jest do odczytu. Jeśli plik hello jest oczekiwany toobe zwykłego tekstu, określ **tekst**; w przeciwnym razie, określ **binarne**. Witaj, wartość domyślna to **tekstu**.
+- Jeśli `options.uploadMode` ustawiono zbyt**pliku** i `options.openMode` ustawiono zbyt**binarne**, dane wyjściowe hello jest zakodowany w formacie base64.
+- `options.encoding`Określa kodowanie toouse hello podczas odczytywania pliku hello. Witaj, wartość domyślna to **UTF-8**i jest używany tylko wtedy, gdy `options.openMode` ustawiono zbyt**tekstu**.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
-Jeśli options.uploadMode jest plikiem options.multiple ma wartość false, następnie dane wyjściowe zawierają zawartość pliku jako ciągu JSON:
+Jeśli options.uploadMode jest plikiem options.multiple ma wartość false, następnie dane wyjściowe zawierają hello zawartość pliku hello jako ciągu JSON:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Jeśli options.multiple ma wartość true and'options.uploadMode pliku, wówczas dane wyjściowe zawierają zawartość plików w postaci tablicy JSON:
+Jeśli options.multiple ma wartość true and'options.uploadMode pliku, wówczas dane wyjściowe zawierają hello zawartość plików hello jako tablica JSON:
 
 ```json
 [
@@ -87,10 +87,10 @@ Jeśli adres url jest options.uploadMode options.multiple ma wartość true, nas
 ]
 ```
 
-Podczas testowania CreateUiDefinition, niektóre przeglądarki (np. Google Chrome) obciąć adresy URL wygenerowanym przez dany element Microsoft.Common.FileUpload w konsoli przeglądarki. Konieczne może być kliknij prawym przyciskiem myszy poszczególnych łączy do skopiowania pełne adresy URL.
+Podczas testowania CreateUiDefinition, niektóre przeglądarki (np. Google Chrome) obciąć wygenerowanym przez element Microsoft.Common.FileUpload hello w konsoli przeglądarki hello adresów URL. Może być konieczne kliknięcie tooright poszczególnych łączy toocopy hello pełne adresy URL.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
-* Aby obejrzeć wprowadzenie do tworzenia definicji interfejsu użytkownika, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Wprowadzenie toomanaged aplikacji, zobacz [zarządzanej aplikacji Azure — omówienie](managed-application-overview.md).
+* Definicje interfejsu użytkownika toocreating wprowadzenie, zobacz [wprowadzenie CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Opis właściwości wspólnych elementów interfejsu użytkownika, zobacz [elementy CreateUiDefinition](managed-application-createuidefinition-elements.md).

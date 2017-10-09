@@ -1,6 +1,6 @@
 ---
-title: "Analizowanie zabezpieczeń sieci z widokiem grupy obserwatorów zabezpieczeń Azure sieci - interfejsu API REST | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób analizowania zabezpieczeń maszyn wirtualnych z widokiem grupy zabezpieczeń przy użyciu programu PowerShell."
+title: "zabezpieczenia sieci aaaAnalyze z widokiem grupy obserwatorów zabezpieczeń Azure sieci — interfejs API REST | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, jak toouse tooanalyze programu PowerShell, a wirtualnych maszyn zabezpieczeń z widokiem grupy zabezpieczeń."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: afced52b3ae6f3b7f400364f5ec7d049aa166590
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0858a64a9454816e05f06dadb9536ad0c755e90e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analizowanie zabezpieczeń maszyny wirtualnej z widoku grupy zabezpieczeń przy użyciu interfejsu API REST
 
@@ -28,17 +28,17 @@ ms.lasthandoff: 07/11/2017
 > - [Interfejs wiersza polecenia 2.0](network-watcher-security-group-view-cli.md)
 > - [Interfejs API REST](network-watcher-security-group-view-rest.md)
 
-Widok grupy zabezpieczeń zwraca reguły zabezpieczeń sieci skonfigurowane i skuteczne, które są stosowane do maszyny wirtualnej. Ta funkcja jest przydatna do inspekcji i diagnostyki sieciowych grup zabezpieczeń i reguł, które są skonfigurowane na maszynie Wirtualnej dla zapewnienia ruchu jest poprawnie dozwolony lub niedozwolony. W tym artykule firma Microsoft opisano, jak pobrać zasady zabezpieczeń skuteczne i zastosowane do maszyny wirtualnej przy użyciu interfejsu API REST
+Widok grupy zabezpieczeń zwraca reguły zabezpieczeń sieci skonfigurowane i skuteczne, które są stosowane tooa maszyny wirtualnej. Ta funkcja jest przydatna tooaudit i diagnozowanie grup zabezpieczeń sieci i reguł, które są skonfigurowane na ruch tooensure maszyn wirtualnych są poprawnie dozwolony lub niedozwolony. W tym artykule zostanie przedstawiony zostanie sposób tooretrieve hello skuteczne i zastosowane reguł tooa maszyny wirtualnej za pomocą interfejsu API REST
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym scenariuszu można wywołać interfejsu API Rest obserwatora sieciowego można pobrać widoku grupy zabezpieczeń dla maszyny wirtualnej. ARMclient służy do wywołania interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
+W tym scenariuszu należy wywołać widok grupy zabezpieczeń tooget hello hello interfejsu API Rest obserwatorów sieci dla maszyny wirtualnej. ARMclient jest używane toocall: hello interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego. Scenariusz również założono, że grupa zasobów o prawidłową maszynę wirtualną istnieje ma być używany.
+W tym scenariuszu przyjęto zostały już wykonane kroki hello [utworzyć obserwatora sieciowego](network-watcher-create.md) toocreate obserwatora sieciowego. Scenariusz Hello również założono, że grupa zasobów o prawidłową maszynę wirtualną istnieje toobe używane.
 
 ## <a name="scenario"></a>Scenariusz
 
-Scenariusz omówione w tym artykule pobiera reguły zabezpieczeń skuteczne i zastosowane dla podanej maszyny wirtualnej.
+Scenariusz Hello omówione w tym artykule pobiera hello reguły zabezpieczeń skuteczne i zastosowane dla podanej maszyny wirtualnej.
 
 ## <a name="log-in-with-armclient"></a>Zaloguj się za pomocą ARMClient
 
@@ -48,10 +48,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Pobieranie maszyny wirtualnej
 
-Uruchom następujący skrypt, aby zwrócić wirtualnego machineThe następujący kod wymaga zmiennych:
+Uruchom hello następującego skryptu tooreturn wirtualnego machineThe następującego kodu wymaga zmiennych:
 
-- **Identyfikator subskrypcji** — identyfikator subskrypcji można również pobrać z **Get-AzureRMSubscription** polecenia cmdlet.
-- **resourceGroupName** — Nazwa grupy zasobów, która zawiera maszyny wirtualne.
+- **Identyfikator subskrypcji** -hello identyfikator subskrypcji można również pobrać z hello **Get-AzureRMSubscription** polecenia cmdlet.
+- **resourceGroupName** — Witaj Nazwa grupy zasobów, która zawiera maszyny wirtualne.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -60,7 +60,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Informacje potrzebne jest **identyfikator** w obszarze typu `Microsoft.Compute/virtualMachines` w odpowiedzi, jak pokazano w poniższym przykładzie:
+Witaj potrzebna jest hello **identyfikator** typu hello `Microsoft.Compute/virtualMachines` w odpowiedzi, jak pokazano w hello poniższy przykład:
 
 ```json
 ...,
@@ -92,7 +92,7 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 
 ## <a name="get-security-group-view-for-virtual-machine"></a>Pobierz widok grupy zabezpieczeń dla maszyny wirtualnej
 
-Poniższy przykład żądań widok grupy zabezpieczeń docelowej maszyny wirtualnej. Wyniki z tego przykładu może służyć do porównania zasad i zdefiniowanych przez inicjowanie do wyszukania odejście konfiguracji zabezpieczeń.
+Poniższy przykład Hello żądań widok grupy zabezpieczeń hello docelowej maszyny wirtualnej. wyniki Hello w tym przykładzie może być używane toocompare toohello reguł i zdefiniowanych przez hello utworzenia toolook dla odejście konfiguracji zabezpieczeń.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -109,9 +109,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="view-the-response"></a>Widok odpowiedzi
+## <a name="view-hello-response"></a>Wyświetl hello odpowiedź
 
-Poniższy przykład jest odpowiedź zwrócona z poprzedniego polecenia. Wyniki Pokaż wszystkie reguły zabezpieczeń skuteczne i zastosowane na maszynie wirtualnej podziale grupy **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, i **EffectiveSecurityRules**.
+następujące przykładowe Hello jest hello odpowiedź zwrócona z hello poprzedzających polecenia. Witaj w wynikach wszystkich reguł zabezpieczeń skuteczne i zastosowane hello na maszynie wirtualnej hello podziale grupy **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, i  **EffectiveSecurityRules**.
 
 ```json
 
@@ -181,6 +181,6 @@ Poniższy przykład jest odpowiedź zwrócona z poprzedniego polecenia. Wyniki P
 
 ## <a name="next-steps"></a>Następne kroki
 
-Odwiedź stronę [inspekcji sieci zabezpieczeń grupy (NSG) z obserwatora sieciowego](network-watcher-security-group-view-powershell.md) sposób automatyzacji sprawdzania poprawności grup zabezpieczeń sieci.
+Odwiedź stronę [inspekcji sieci zabezpieczeń grupy (NSG) z obserwatora sieciowego](network-watcher-security-group-view-powershell.md) toolearn sposób weryfikacji tooautomate grup zabezpieczeń sieci.
 
 

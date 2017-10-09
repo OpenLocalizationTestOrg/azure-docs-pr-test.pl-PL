@@ -1,6 +1,6 @@
 ---
-title: "Błąd podczas obsługi w ramach zasad usługi Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak reagować na błędy, które mogą wystąpić podczas przetwarzania żądań w usłudze Azure API Management."
+title: "Obsługa w ramach zasad usługi Azure API Management aaaError | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toorespond tooerror warunki, które mogą wystąpić podczas hello przetwarzania żądań w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2fb403cc7454227083dc34d41a6f5f3a5876b1e7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 002c65f21e763fd644da61b6a11685ffd97488c7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasad interfejsu API zarządzania
-Zarządzanie interfejsami API Azure umożliwia wydawców odpowiedzieć na błędy, które mogą wystąpić podczas przetwarzania żądania do serwera proxy, udostępniając `ProxyError` obiektu. `ProxyError` Obiekt jest dostępny za pośrednictwem [kontekstu. LastError](api-management-policy-expressions.md#ContextVariables) właściwości i mogą być używane przez zasady w `on-error` sekcji zasad. W tym temacie znajdują się informacje na błąd możliwości obsługi w programie Azure API Management.  
+Zarządzanie interfejsami API Azure umożliwia wydawców toorespond tooerror warunki, które mogą wystąpić podczas przetwarzania żądania toohello proxy hello zapewniając `ProxyError` obiektu. Witaj `ProxyError` obiekt jest dostępny za pośrednictwem hello [kontekstu. LastError](api-management-policy-expressions.md#ContextVariables) właściwości i mogą być używane przez zasady w hello `on-error` sekcji zasad. Ten temat zawiera odwołanie błędu hello możliwości obsługi w programie Azure API Management.  
   
 ## <a name="error-handling-in-api-management"></a>Obsługa błędów w zarządzanie interfejsami API  
- Zasady w usłudze Azure API Management są podzielone na `inbound`, `backend`, `outbound`, i `on-error` sekcjach przedstawiono, jak pokazano w poniższym przykładzie.  
+ Zasady w usłudze Azure API Management są podzielone na `inbound`, `backend`, `outbound`, i `on-error` sekcjach przedstawiono, jak pokazano w hello poniższy przykład.  
   
 ```xml  
 <policies>  
   <inbound>  
-    <!-- statements to be applied to the request go here -->  
+    <!-- statements toobe applied toohello request go here -->  
   </inbound>  
   <backend>  
-    <!-- statements to be applied before the request is   
-         forwarded to the backend service go here -->  
+    <!-- statements toobe applied before hello request is   
+         forwarded toohello backend service go here -->  
     </backend>  
     <outbound>  
-      <!-- statements to be applied to the response go here -->  
+      <!-- statements toobe applied toohello response go here -->  
     </outbound>  
     <on-error>  
-        <!-- statements to be applied if there is an error   
+        <!-- statements toobe applied if there is an error   
              condition go here -->  
   </on-error>  
 </policies>  
 ```  
   
- Podczas przetwarzania żądania wbudowanych kroków wdrożeniowych wraz z żadnych zasad, które znajdują się w zakresie dla żądania. Jeśli wystąpi błąd, przetwarzania natychmiast przechodzi do `on-error` sekcji zasad. `on-error` Sekcji zasad może być używany w żadnych zakresu i wydawców interfejsu API można skonfigurować niestandardowe zachowanie, takie jak rejestrowanie błąd do usługi event hubs lub Utwórz nową odpowiedź, aby powrócić do obiektu wywołującego.  
+ Podczas przetwarzania żądania hello, wbudowanych kroków wdrożeniowych wraz z żadnych zasad, które znajdują się w zakresie hello żądania. Jeśli wystąpi błąd, przetwarzania natychmiast przechodzi toohello `on-error` sekcji zasad. Witaj `on-error` sekcji zasad może być używany w żadnych zakresu i wydawców interfejsu API można skonfigurować zachowanie niestandardowych, takich jak rejestrowanie koncentratory tooevent błąd hello lub tworzenia nowych wywołującego toohello tooreturn odpowiedzi.  
   
 > [!NOTE]
->  `on-error` Sekcji nie jest obecny w zasady domyślne. Aby dodać `on-error` sekcji do zasady, przejdź do żądanego zasad w edytorze zasad i dodaj go. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasad w usłudze API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
+>  Witaj `on-error` sekcji nie jest obecny w zasady domyślne. Witaj tooadd `on-error` sekcji tooa zasad, przeglądanie toohello potrzeby zasad w edytorze zasad hello i dodać go. Aby uzyskać więcej informacji o konfigurowaniu zasad, zobacz [zasad w usłudze API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
 >   
 >  W przypadku nie `on-error` sekcji wywołań będą otrzymywać wiadomości odpowiedzi HTTP 400 lub 500 Jeśli wystąpi błąd.  
   
 ### <a name="policies-allowed-in-on-error"></a>Zasady dozwolone na błąd  
- Następujące zasady mogą być używane w `on-error` sekcji zasad.  
+ Witaj następujące zasady mogą być używane w hello `on-error` sekcji zasad.  
   
 -   [Wybierz pozycję](api-management-advanced-policies.md#choose)  
   
@@ -80,50 +80,50 @@ Zarządzanie interfejsami API Azure umożliwia wydawców odpowiedzieć na błęd
 -   [XML do formatu json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
- Jeśli wystąpi błąd i formant przechodzi do `on-error` błąd sekcji zasady, są przechowywane w [kontekstu. LastError](api-management-policy-expressions.md#ContextVariables) właściwości, które są dostępne dla zasad w `on-error` sekcji i ma następujące właściwości.  
+ Gdy wystąpi błąd i kontroli w tę łódź toohello `on-error` sekcji zasad błąd hello są przechowywane w [kontekstu. LastError](api-management-policy-expressions.md#ContextVariables) właściwość, która jest możliwy przy użyciu zasad w hello `on-error` sekcji i ma następujące właściwości hello.  
   
 |Nazwa|Typ|Opis|Wymagane|  
 |----------|----------|-----------------|--------------|  
-|Element źródłowy|Ciąg|Określa nazwę elementu, na którym wystąpił błąd. Może być zasad lub nazwa kroku wbudowanej potoku.|Tak|  
+|Element źródłowy|Ciąg|Element hello nazwy którym wystąpił błąd hello. Może być zasad lub nazwa kroku wbudowanej potoku.|Tak|  
 |Przyczyna|Ciąg|Kod błędu przyjaznych dla komputera, który może służyć do obsługi błędów.|Nie|  
 |Komunikat|Ciąg|Opis błędu zrozumiałą dla użytkownika.|Tak|  
-|Zakres|Ciąg|Nazwa zakresu, w którym wystąpił błąd i może być "globalne", "product", "interfejsu api" lub "operacji"|Nie|  
+|Zakres|Ciąg|Nazwa zakresu hello, gdzie wystąpił błąd hello i może być "globalne", "product", "interfejsu api" lub "operacji"|Nie|  
 |Sekcja|Ciąg|Nazwa sekcji, w którym wystąpił błąd i może wynosić "ruchu przychodzącego", "zaplecze", "wychodzący" lub "on error".|Nie|  
 |Ścieżka|Ciąg|Określa zagnieżdżonych zasad, np. "Wybierz [3] / po [2]".|Nie|  
-|PolicyId|Ciąg|Wartość `id` atrybut, jeśli określony przez klienta i w zasadach, w którym wystąpił błąd|Nie|  
+|PolicyId|Ciąg|Wartość hello `id` atrybut, jeśli określony przez powitania klienta i zasad hello, w którym wystąpił błąd|Nie|  
   
 > [!NOTE]
->  Wszystkie zasady mają opcjonalny `id` atrybut, który można dodać do elementu głównego zasad. Jeśli ten atrybut jest obecny w zasadach, gdy wystąpi błąd, można pobrać wartości atrybutu za pomocą `context.LastError.PolicyId` właściwości.  
+>  Wszystkie zasady mają opcjonalny `id` atrybut, który można dodać elementu głównego toohello hello zasad. Jeśli ten atrybut jest obecny w zasadach, gdy wystąpi błąd, można pobrać wartości hello hello atrybutu przy użyciu hello `context.LastError.PolicyId` właściwości.  
   
 ## <a name="predefined-errors-for-built-in-steps"></a>Wstępnie zdefiniowane błędów dla wbudowanych kroków  
- Następujące błędy są wstępnie zdefiniowane warunki błędów, które mogą wystąpić podczas obliczania kroki przetwarzania wbudowanych.  
+ Witaj następujące błędy są wstępnie zdefiniowane warunki błędów, które mogą wystąpić podczas obliczania hello przetwarzania wbudowanych kroków.  
   
 |Element źródłowy|Warunek|Przyczyna|Komunikat|  
 |------------|---------------|------------|-------------|  
-|konfiguracja|Identyfikator URI nie pasuje do operacji lub interfejsu Api|OperationNotFound|Nie można dopasować przychodzące żądanie operacji.|  
-|Autoryzacji|Nie podano klucza subskrypcji|SubscriptionKeyNotFound|Odmowa z powodu braku subskrypcji klucz dostępu. Upewnij się uwzględnić subskrypcji klucza w przypadku wysyłania żądań do tego interfejsu API.|  
-|Autoryzacji|Wartość klucza subskrypcji jest nieprawidłowy|SubscriptionKeyInvalid|Odmowa z powodu subskrypcji nieprawidłowy klucz dostępu. Upewnij się zapewnić prawidłowy klucz dla aktywnych subskrypcji.|  
+|konfiguracja|Identyfikator URI nie odpowiada, operacji lub tooany interfejsu Api|OperationNotFound|Toomatch przychodzącego żądania tooan operacji.|  
+|Autoryzacji|Nie podano klucza subskrypcji|SubscriptionKeyNotFound|Odmowa powodu toomissing subskrypcji klucz dostępu. Upewnij się, że klucz subskrypcji tooinclude podczas wprowadzania toothis żądania interfejsu API.|  
+|Autoryzacji|Wartość klucza subskrypcji jest nieprawidłowy|SubscriptionKeyInvalid|Odmowa powodu tooinvalid subskrypcji klucz dostępu. Upewnij się, że tooprovide prawidłowy klucz dla subskrypcji usługi active.|  
   
 ## <a name="predefined-errors-for-policies"></a>Błędy wstępnie zdefiniowane zasady  
- Następujące błędy są wstępnie zdefiniowane warunki błędów, które mogą wystąpić podczas oceny zasad.  
+ Witaj następujące błędy są wstępnie zdefiniowane warunki błędów, które mogą wystąpić podczas oceny zasad.  
   
 |Element źródłowy|Warunek|Przyczyna|Komunikat|  
 |------------|---------------|------------|-------------|  
 |limit szybkości|Przekroczono limit szybkości|RateLimitExceeded|Przekroczono limit szybkości|  
 |limit przydziału|Przekroczono przydział|QuotaExceeded|Poza limitem woluminu wywołania. Przydział zostanie uzupełniona w xx:xx:xx. - lub - limit przydziału przepustowości. Przydział zostanie uzupełniona w xx:xx:xx.|  
 |Format jsonp|Nieprawidłowa wartość parametru wywołania zwrotnego (zawiera nieprawidłowe znaki)|CallbackParameterInvalid|Wartość parametru wywołania zwrotnego {-nazwy parametru wywołania zwrotnego-} nie jest prawidłowym identyfikatorem języka JavaScript.|  
-|Filtr IP|Nie można przeanalizować IP wywołującego z żądania|FailedToParseCallerIP|Nie można ustalić adres IP dla obiekt wywołujący. Odmowa dostępu.|  
+|Filtr IP|IP wywołującego tooparse nie powiodło się z żądania|FailedToParseCallerIP|Nie powiodło się adres IP tooestablish hello obiektu wywołującego. Odmowa dostępu.|  
 |Filtr IP|Obiekt wywołujący IP nie ma na liście listy dozwolonych|CallerIpNotAllowed|Adres IP wywołującego {adres ip} nie jest dozwolone. Odmowa dostępu.|  
 |Filtr IP|Obiekt wywołujący adres IP należy do listy zablokowanych|CallerIpBlocked|Adres IP wywołującego jest zablokowany. Odmowa dostępu.|  
-|Sprawdź — nagłówek|Brak wymaganego nagłówka nie przedstawione lub wartość|HeaderNotFound|Nie znaleziono nagłówka {Nazwa nagłówka} w żądaniu. Odmowa dostępu.|  
+|Sprawdź — nagłówek|Brak wymaganego nagłówka nie przedstawione lub wartość|HeaderNotFound|Nie znaleziono nagłówka {Nazwa nagłówka} w żądaniu hello. Odmowa dostępu.|  
 |Sprawdź — nagłówek|Brak wymaganego nagłówka nie przedstawione lub wartość|HeaderValueNotAllowed|Wartość nagłówka {Nazwa nagłówka} z {wartość nagłówka} nie jest dozwolona. Odmowa dostępu.|  
-|Sprawdź poprawność jwt|W żądaniu brakuje tokenu Jwt|TokenNotFound|Nie można odnaleźć w żądaniu JWT. Odmowa dostępu.|  
+|Sprawdź poprawność jwt|W żądaniu brakuje tokenu Jwt|TokenNotFound|Nie można odnaleźć w żądaniu hello JWT. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Nie można sprawdzić poprawności podpisu|TokenSignatureInvalid|< wiadomości z biblioteki jwt\>. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Nieprawidłowi odbiorcy|TokenAudienceNotAllowed|< wiadomości z biblioteki jwt\>. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Nieprawidłowy wystawca|TokenIssuerNotAllowed|< wiadomości z biblioteki jwt\>. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Token wygasł|TokenExpired|< wiadomości z biblioteki jwt\>. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Klucz podpisu nie został rozwiązany przez identyfikator|TokenSignatureKeyNotFound|< wiadomości z biblioteki jwt\>. Odmowa dostępu.|  
-|Sprawdź poprawność jwt|Token brakuje wymaganego oświadczeń|TokenClaimNotFound|JWT token brakuje następujących oświadczeń: < c1\>, < c2\>,... Odmowa dostępu.|  
+|Sprawdź poprawność jwt|Token brakuje wymaganego oświadczeń|TokenClaimNotFound|Brak tokenu JWT powitania po oświadczeń: < c1\>, < c2\>,... Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Niezgodność wartości oświadczeń|TokenClaimValueNotAllowed|Wartość oświadczenia {Nazwa oświadczenia} {wartość oświadczenia} nie jest dozwolona. Odmowa dostępu.|  
 |Sprawdź poprawność jwt|Inne błędy sprawdzania poprawności|JwtInvalid|< wiadomości z biblioteki jwt\>|
 

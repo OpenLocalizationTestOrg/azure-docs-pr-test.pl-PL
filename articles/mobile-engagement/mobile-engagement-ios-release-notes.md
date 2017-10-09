@@ -1,5 +1,5 @@
 ---
-title: Azure Mobile Engagement iOS SDK informacje o wersji | Dokumentacja firmy Microsoft
+title: aaaAzure Mobile Engagement iOS SDK informacje o wersji | Dokumentacja firmy Microsoft
 description: "Najnowsze aktualizacje i procedury dla systemu iOS SDK dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ae29d200ebb1784357b29edbd1f66b71df0778cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Informacje o wersji usługi Azure Mobile Engagement iOS SDK
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/03/2017
 * Identyfikatory stałych wyczyszczone w tle.
 * Stałe ostrzeżenia na 9 XCode o interfejsach API nie jest wywoływana w kolejki głównej.
 * Stała sond Reach przeciek pamięci.
-* Obsługę systemu iOS usunąć 6.X. Począwszy od tej wersji cel wdrożenia aplikacji musi mieć co najmniej system iOS 7.
+* Obsługę systemu iOS usunąć 6.X. Począwszy od ten cel wdrożenia hello wersji aplikacji musi mieć co najmniej system iOS 7.
 
 ## <a name="401-12132016"></a>4.0.1 (12/13/2016)
 * Ulepszona dostarczania dziennika w tle.
@@ -39,19 +39,19 @@ ms.lasthandoff: 08/03/2017
 * Stałe agregacji między dzienniki techniczne i inne dzienniki.
 
 ## <a name="323-06072016"></a>3.2.3 (06/07/2016)
-* Stałe usterki, gdzie dostarczanie opinii nie został zgłoszony podczas aplikacji znajduje się w tle.
-* Zoptymalizowanych pod kątem wysyłania dzienników technicznych.
+* Gdzie dostarczanie opinii nie został zgłoszony, gdy aplikacja jest w tle hello usterki hello stałym.
+* Zoptymalizowane hello wysyłania dzienników technicznych.
 
 ## <a name="322-04072016"></a>3.2.2 (04/07/2016)
-* Usunięte usterki w anulowania żądania HTTP, która czasami prowadzi do awarii.
+* Usunięte usterki w anulowania żądania HTTP, która czasami prowadzi toocrash.
 
 ## <a name="321-12112015"></a>3.2.1 (12/11/2015)
-* Stałe opóźnienie wyzwolenia nowe wystąpienie aplikacji przez powiadomienie z linków bezpośrednich
+* Opóźnienie hello stałej, gdy nowe wystąpienie aplikacji jest wyzwalana przez powiadomienie dotyczące linków bezpośrednich
 
 ## <a name="320-10082015"></a>3.2.0 (10/08/2015)
-* Włączone kodu bitowego w zestawie SDK, aby pracować z **Xcode 7**.
-* Usunięte usterki związane z powiadomienia w aplikacji.
-* Wprowadzone bardziej niezawodna w przypadku niskim poziomie naładowania baterii i inne scenariusze, takie powiadomienia w aplikacji.
+* Włączone kodu bitowego w toomake SDK hello działać z **Xcode 7**.
+* Usunięte usterki powiązanych aplikacji tooin powiadomienia.
+* Wprowadzone powiadomienia w aplikacji hello bardziej niezawodna w przypadku niskim poziomie naładowania baterii i innych takich scenariuszy.
 * Usunąć dodatkowe konsoli dzienniki generowane przez 3 biblioteki strony.
 
 ## <a name="310-08262015"></a>3.1.0 (08/26/2015)
@@ -59,21 +59,21 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="300-06192015"></a>3.0.0 (06/19/2015)
 * Usługa Mobile Engagement używa cichych powiadomień wypychanych.
-* Obsługę systemu iOS usunąć 4.X. Począwszy od tej wersji cel wdrożenia aplikacji musi mieć co najmniej iOS 6.
+* Obsługę systemu iOS usunąć 4.X. Począwszy od ten cel wdrożenia hello wersji aplikacji musi mieć co najmniej iOS 6.
 
 ## <a name="220-05212015"></a>2.2.0 (05/21/2015)
-* Identyfikator urządzenia usługi Mobile Engagement dla urządzeń < iOS 6 teraz opiera się na identyfikator GUID generowany podczas instalacji.
+* Identyfikator urządzenia usługi Mobile Engagement Hello urządzeń < iOS 6 teraz opiera się na identyfikator GUID generowany podczas instalacji.
 
 ## <a name="210-04242015"></a>2.1.0 (04/24/2015)
 * Dodano Swift zgodności.
-* Po kliknięciu przycisku na powiadomienie, akcji, którą adres URL jest teraz wykonywane prawo po otwarciu aplikacji.
+* Po kliknięciu przycisku na powiadomienie, akcji hello adres URL jest teraz wykonywane prawo po otwarciu aplikacji hello.
 * Dodano brakujący plik nagłówka w pakiecie SDK.
-* Rozwiązano problem, gdy osoby zgłaszającej awarii usługi Mobile Engagement został wyłączony.
+* Rozwiązano problem przy wyłączonej osoby zgłaszającej awarii usługi Mobile Engagement hello.
 
 ## <a name="200-02172015"></a>2.0.0 (02/17/2015)
 * Początkowa wersja usługi Azure Mobile Engagement
 * Konfiguracja appId/sdkKey zastępuje konfigurację ciągu połączenia.
-* Usunięto interfejs API do wysyłania i odbierania wiadomości XMPP dowolnego z dowolnego XMPP jednostek.
-* Usunięto interfejs API do wysyłania i odbierania wiadomości między urządzeniami.
+* Usunięte toosend interfejsu API i odbieranie komunikatów XMPP dowolnego z dowolnego XMPP jednostek.
+* Usunięte toosend interfejsu API i odbierania wiadomości między urządzeniami.
 * Ulepszenia zabezpieczeń.
 * Śledzenie SmartAd usunięte.

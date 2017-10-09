@@ -1,6 +1,6 @@
 ---
-title: "Sprawdź ruchu z przepływem IP obserwatora sieci platformy Azure Sprawdź — REST | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób sprawdzania, jeśli ruch do i z maszyny wirtualnej jest dozwolona lub odmowa"
+title: "Sprawdź aaaVerify ruchu z przepływem IP obserwatora sieci platformy Azure - REST | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób toocheck Jeśli tooor ruch z maszyny wirtualnej jest dozwolony lub niedozwolony"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 956db0d326db597c6c402a9e8d4a5522c47c02d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Sprawdź, czy ruch jest dozwolony lub odrzucany z przepływem IP Sprawdź składnik Azure obserwatora sieciowego
 
@@ -30,17 +30,17 @@ ms.lasthandoff: 07/11/2017
 > - [Interfejs API Azure REST](network-watcher-check-ip-flow-verify-rest.md)
 
 
-Sprawdź przepływ IP jest funkcją obserwatora sieciowego, który pozwala sprawdzić, jeśli ruch jest dozwolony na lub z maszyny wirtualnej. Sprawdzanie poprawności może zostać uruchomione dla ruchu przychodzącego lub wychodzącego. Ten scenariusz przydaje się pobrać bieżący stan tego, czy maszyny wirtualne mogą komunikować się z zasobu zewnętrznego i wewnętrznej bazy danych. Sprawdź przepływ IP pozwala sprawdzić, czy reguł sieciowej grupy zabezpieczeń (NSG) są prawidłowo skonfigurowane i rozwiązywania problemów z przepływów, które są blokowane przez reguły NSG. Inną przyczyną przy użyciu protokołu IP przepływu Sprawdź jest zapewnienie ruchu, który ma być zablokowana jest prawidłowo blokowane przez grupy NSG.
+Sprawdź przepływ IP jest funkcją obserwatora sieciowego, który umożliwia tooverify Jeśli ruch jest dozwolony tooor z maszyny wirtualnej. Sprawdzanie poprawności Hello mogą być uruchamiane dla ruchu przychodzącego lub wychodzącego. Ten scenariusz jest przydatne tooget bieżący stan czy maszynę wirtualną można rozmawiać tooan zasobu zewnętrznego i wewnętrznej bazy danych. Sprawdź przepływ IP można tooverify używane w regułach grupy zabezpieczeń sieci (NSG) są prawidłowo skonfigurowane i rozwiązywania problemów z przepływów, które są blokowane przez reguły NSG. Inną przyczyną przy użyciu protokołu IP przepływu Sprawdź tooensure ruchu, które mają zablokowany jest prawidłowo blokowane przez hello NSG.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-ARMclient służy do wywołania interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient jest używane toocall: hello interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego.
+W tym scenariuszu przyjęto zostały już wykonane kroki hello [utworzyć obserwatora sieciowego](network-watcher-create.md) toocreate obserwatora sieciowego.
 
 ## <a name="scenario"></a>Scenariusz
 
-W tym scenariuszu przepływu IP Sprawdź, czy można zweryfikować, jeśli maszyny wirtualnej mogą komunikować się z innego komputera za pośrednictwem portu 443. Jeśli ruch jest niedozwolone, zwraca zasady zabezpieczeń, która odrzuciła ten ruch. Aby dowiedzieć się więcej o przepływie IP upewnij się, odwiedź stronę [przepływu IP Sprawdź — omówienie](network-watcher-ip-flow-verify-overview.md)
+W tym scenariuszu tooverify Sprawdź przepływ IP Jeśli maszynę wirtualną można rozmawiać tooanother komputera za pośrednictwem portu 443. Ruch hello jest niedozwolone, zwraca hello reguły zabezpieczeń, która odrzuciła ten ruch. toolearn więcej informacji na temat przepływu IP upewnij się, odwiedź stronę [przepływu IP Sprawdź — omówienie](network-watcher-ip-flow-verify-overview.md)
 
 W tym scenariuszu należy:
 
@@ -56,10 +56,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Pobieranie maszyny wirtualnej
 
-Uruchom następujący skrypt, aby wrócić do maszyny wirtualnej. Poniższy kod wymaga wartości zmiennych:
+Uruchom maszynę wirtualną powitania po tooreturn skryptu. Witaj następujący kod wymaga wartości zmiennych hello:
 
-* **Identyfikator subskrypcji** — identyfikator do użycia subskrypcji.
-* **resourceGroupName** — Nazwa grupy zasobów, która zawiera maszyny wirtualne.
+* **Identyfikator subskrypcji** — Witaj toouse identyfikator subskrypcji.
+* **resourceGroupName** — Witaj Nazwa grupy zasobów, która zawiera maszyny wirtualne.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -68,7 +68,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Informacje potrzebne jest identyfikatorem, w obszarze typu `Microsoft.Compute/virtualMachines`. Wyniki powinny być podobne do poniższego przykładu kodu:
+Witaj informacje potrzebne jest hello identyfikator typu hello `Microsoft.Compute/virtualMachines`. Hello wyniki powinny być podobne toohello po przykładowym kodzie:
 
 ```json
 ...,
@@ -100,15 +100,15 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 
 ## <a name="call-ip-flow-verify"></a>Wywołanie IP przepływu Sprawdź
 
-Poniższy przykład tworzy żądanie, aby zweryfikować ruchu dla określonej maszyny wirtualnej. Odpowiedź zwraca, jeśli ruch jest dozwolony lub jeśli ruch jest niedozwolone. Jeśli ruch odmówiono ona również zwraca jakie reguła blokuje ruch.
+Witaj poniższy przykład tworzy żądanie tooverify hello ruchu dla określonej maszyny wirtualnej. odpowiedź Hello zwraca czy hello ruch jest dozwolony, czy ruch hello jest zabroniony. Jeśli ruch odmówiono ona również zwraca jakie bloków reguł hello ruchu.
 
 > [!NOTE]
-> Sprawdź przepływ IP wymaga, aby zasobu maszyny Wirtualnej jest przydzielona.
+> Sprawdź przepływ IP wymaga, aby hello zasobu maszyny Wirtualnej jest przydzielona.
 
-Ten skrypt wymaga zasobów identyfikator maszyny wirtualnej i karty interfejsu sieciowego na maszynie wirtualnej. Wartości te są dostarczane przez poprzednie dane wyjściowe.
+skrypt Hello wymaga zasobów hello identyfikator maszyny wirtualnej i karty interfejsu sieciowego na maszynie wirtualnej hello. Wartości te są dostarczane przez hello poprzedzających danych wyjściowych.
 
 > [!Important]
-> Dla wszystkich wywołań REST obserwatora sieciowego Nazwa grupy zasobów w identyfikatorze URI żądania jest ten, który zawiera wystąpienie obserwatora sieciowego, nie zasoby, które są wykonywane czynności diagnostyczne, na.
+> Dla wszystkich pozostałych obserwatora sieciowego wywołania hello Nazwa grupy zasobów w żądaniu hello hello taką, która zawiera nie zasoby hello czynności diagnostyczne hello są wykonywane na powitania wystąpienia obserwatora sieciowego, to identyfikator URI.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -141,9 +141,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/ipFlowVerify?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="understanding-the-results"></a>Opis wyników
+## <a name="understanding-hello-results"></a>Opis wyników hello
 
-Odpowiedź, wracając informuje, czy ruch jest dozwolony lub niedozwolony. Odpowiedź wygląda jedną z poniższych przykładach:
+odpowiedź Hello, wracając informuje, czy ruch hello jest dozwolony lub niedozwolony. odpowiedź Hello wygląda jedną hello następujące przykłady:
 
 **Dozwolone**
 
@@ -165,7 +165,7 @@ Odpowiedź, wracając informuje, czy ruch jest dozwolony lub niedozwolony. Odpow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) Aby dowiedzieć się więcej na temat grup zabezpieczeń sieci.
+Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) toolearn więcej informacji na temat grup zabezpieczeń sieci.
 
 
 

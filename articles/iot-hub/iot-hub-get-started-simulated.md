@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy łączyć symulowanego urządzenia Azure IoT Hub | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć symulowane urządzenia IoT i podłącz je do Centrum IoT Azure. Urządzenia można wysyłać dane telemetryczne Centrum IoT i Centrum Iot można monitorować i zarządzania urządzeniami."
+title: "Wprowadzenie łączenie tooAzure symulowanego urządzenia IoT Hub | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate symulowane urządzenia IoT, a następnie łącząc je tooAzure Centrum IoT. Urządzenia można wysyłać dane telemetryczne tooIoT Centrum Centrum Iot można monitorować i zarządzania urządzeniami."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
-ms.openlocfilehash: 436b3057509a831837159e814490959a2d7455a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9b76477d12c853abd93aa96043417a013daaef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Centrum IoT Azure Rozpoczynanie pracy z samouczkami symulowanego urządzenia
 
-Te samouczki przedstawiono Azure IoT Hub i zestawy SDK urządzenia. Samouczków opisano typowe scenariusze IoT, aby zademonstrować możliwości Centrum IoT. Samouczków przedstawiono również sposób łączenia Centrum IoT z innymi usługami platformy Azure i narzędzia umożliwiające tworzenie bardziej zaawansowanych rozwiązania IoT. Samouczki wymienione w poniższej tabeli pokazano, jak utworzyć symulowane urządzenia IoT.
+Te samouczki wprowadzenie tooAzure Centrum IoT i urządzeniami hello zestawów SDK. Samouczki Hello obejmują typowe IoT scenariusze toodemonstrate hello funkcji Centrum IoT. Witaj samouczki również ilustrują sposób toocombine Centrum IoT z platformy Azure, innych usług i narzędzi toobuild bardziej wydajne rozwiązania IoT. Samouczki Hello wymienione w poniższej tabeli hello pokazują, jak toocreate symulowane urządzenia IoT.
 
 | Język programowania |
 |----------------------|
@@ -31,7 +31,7 @@ Te samouczki przedstawiono Azure IoT Hub i zestawy SDK urządzenia. Samouczków 
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-Ponadto można użyć brama brzegowa IoT umożliwia symulowane urządzeniom na łączenie z Centrum IoT.
+Ponadto można użyć krawędzi IoT bramy tooenable symulowane urządzeń tooconnect tooyour Centrum IoT.
 
 | Język programowania | Platforma           |
 |----------------------|------------------- |

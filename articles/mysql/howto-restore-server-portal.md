@@ -1,6 +1,6 @@
 ---
-title: Przywracanie serwera w bazie danych systemu Azure dla programu MySQL | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano sposób przywracania serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure."
+title: tooRestore aaaHow serwera w bazie danych Azure dla programu MySQL | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano sposób toorestore serwera w bazie danych Azure poświęcone MySQL hello portalu Azure."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,46 +9,46 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 8c06dce534b628a602127fd02b152c8e04e02cc4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b990d5b37c5d4924de9571192b923e3c81094ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Jak wykonywanie kopii zapasowych i przywracania serwera w bazie danych Azure dla programu MySQL przy użyciu portalu Azure
+# <a name="how-toobackup-and-restore-a-server-in-azure-database-for-mysql-using-hello-azure-portal"></a>Jak tooBackup i przywracania serwera w bazie danych Azure poświęcone MySQL hello portalu Azure
 
 ## <a name="backup-happens-automatically"></a>Kopia zapasowa jest wykonywana automatycznie
-Korzystając z bazy danych platformy Azure dla programu MySQL, usługa bazy danych automatycznie sprawia, że usługa Kopia zapasowa co 5 minut. 
+Korzystając z bazy danych platformy Azure dla programu MySQL, hello bazy danych usługi automatycznie tworzy kopię zapasową usługi hello co 5 minut. 
 
-Kopie zapasowe są dostępne przez 7 dni, korzystając z warstwy podstawowej i 35 dni po użyciu warstwy standardowa. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla warstwy usługi MySQL](concepts-service-tiers.md)
+kopie zapasowe Hello są dostępne przez 7 dni, korzystając z warstwy podstawowej i 35 dni po użyciu warstwy standardowa. Aby uzyskać więcej informacji, zobacz [bazą danych Azure dla warstwy usługi MySQL](concepts-service-tiers.md)
 
-Tej funkcji automatycznego tworzenia kopii zapasowej można przywrócić serwer i wszystkie jej baz danych do nowego serwera do wcześniejszego punktu w stanu.
+Tej funkcji automatycznego tworzenia kopii zapasowej można przywrócić powitania serwera i wszystkich jego baz danych do nowego serwera tooan wcześniej punktu w czasie.
 
-## <a name="restore-in-the-azure-portal"></a>Przywracanie w portalu Azure
-Bazy danych platformy Azure dla programu MySQL służy do przywrócenia serwera do punktu w czasie, a do z uprawnieniami do nowego serwera. Aby odzyskać dane, można użyć tego nowego serwera. 
+## <a name="restore-in-hello-azure-portal"></a>Przywracanie w hello portalu Azure
+Bazy danych platformy Azure dla programu MySQL pozwala toorestore powitania serwera zapasowego tooa punktu w czasie, do nowej kopii tooa powitania serwera. Ten nowy toorecover serwera można użyć danych. 
 
-Na przykład jeśli przypadkowo tabeli w południe dzisiaj, można przywrócenie na czas bezpośrednio przed południe i pobieranie Brak tabeli i danych z tej kopii nowego serwera.
+Na przykład jeśli tabela została przypadkowo porzucony w południe dzisiaj, można przywrócenie czasu toohello tuż przed południe i pobrać hello Brak tabeli i danych z tej nowej kopii powitania serwera.
 
-Poniższe kroki przywrócenie serwera próbki do punktu w czasie:
+Witaj następujące kroki hello przykładowy serwer tooa punkt przywracania w czasie:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/)
+1. Zaloguj się na powitania [portalu Azure](https://portal.azure.com/)
 
-2. Zlokalizuj bazy danych Azure, aby serwer MySQL. W okienku po lewej stronie wybierz **wszystkie zasoby**, następnie wybierz serwer z listy.
+2. Zlokalizuj bazy danych Azure, aby serwer MySQL. Wybierz w okienku po lewej stronie powitania **wszystkie zasoby**, następnie wybierz serwer z listy hello.
 
-3.  W górnej części bloku Omówienie serwera, kliknij przycisk **przywrócić** na pasku narzędzi. Zostanie otwarty blok przywracania.
+3.  U góry hello powitania serwera omówienie bloku, kliknij przycisk **przywrócić** na powitania narzędzi. zostanie otwarty blok przywracania Hello.
 ![Kliknij przycisk przywracania](./media/howto-restore-server-portal/click-restore-button.png)
 
-4. Wypełnij formularz przywracania wymagane informacje:
+4. Wypełnij formularz przywracania hello hello wymagane informacje:
 
-- **(UTC) punkt przywracania**: za pomocą selektora daty i czasu selektora, wybierz w momencie przywrócić. Określona godzina jest w formacie UTC, więc prawdopodobnie trzeba przekonwertować czasu lokalnego w formacie UTC.
-- **Przywracanie do nowego serwera**: Podaj nową nazwę serwera do istniejącego serwera do przywrócenia.
-- **Lokalizacja**: wybór obszaru automatycznie wypełnia obszaru serwera źródłowego i nie można zmienić.
-- **Warstwa cenowa**: wybór warstwy cenowej automatycznie wypełnia tej samej warstwie cenowej co serwer źródłowy i nie można ich tutaj zmienić. 
+- **(UTC) punkt przywracania**: za pomocą selektora czasu i hello wyboru daty, wybierz toorestore punktu w czasie, aby. określona godzina Hello jest w formacie UTC, warto prawdopodobnie tooconvert hello lokalnego czasu w formacie UTC.
+- **Przywracanie serwera toonew**: Podaj nazwę toorestore hello istniejącego serwera do nowego serwera.
+- **Lokalizacja**: wybór obszaru hello automatycznie wypełnia hello źródłowego serwera regionu i nie można zmienić.
+- **Warstwa cenowa**: hello cennik wybór warstwy automatycznie wypełnia hello takie same ceny warstwy jako powitania serwera źródłowego i nie można ich tutaj zmienić. 
 ![Przywracanie PITR](./media/howto-restore-server-portal/pitr-restore.png)
 
-5. Kliknij przycisk **OK** do przywrócenia serwera, aby wykonać przywracanie do punktu w czasie. 
+5. Kliknij przycisk **OK** toorestore powitania serwera toorestore tooa punktu w czasie. 
 
-6. Po zakończeniu przywracania, zlokalizuj nowy serwer, który został utworzony w celu sprawdzenia, czy zostały przywrócone baz danych, zgodnie z oczekiwaniami.
+6. Po zakończeniu przywracania hello zlokalizować hello nowy serwer, który został utworzony powitalne tooverify baz danych zostały przywrócone zgodnie z oczekiwaniami.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Biblioteki połączeń dla bazy danych Azure dla programu MySQL](concepts-connection-libraries.md)

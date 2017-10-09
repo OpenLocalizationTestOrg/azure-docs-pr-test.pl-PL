@@ -42,7 +42,7 @@
 ## Konfigurowanie
 ### Azure
 #### [Profiler](app-insights-profiler.md)
-#### [Włączanie profilera](enable-profiler-cloud-services.md)
+#### [Włącz hello profilera](enable-profiler-cloud-services.md)
 #### [Diagnostyka](app-insights-azure-diagnostics.md)
 #### [Wersje zapoznawcze](app-insights-previews.md)
 
@@ -130,7 +130,7 @@
 ## Eksportowanie
 ### [Eksport ciągły](app-insights-export-telemetry.md)
 ### [Eksportowanie modelu danych](app-insights-export-data-model.md)
-### [Eksportowanie do usługi Power BI](app-insights-export-power-bi.md)
+### [Eksportuj tooPower analizy Biznesowej](app-insights-export-power-bi.md)
 
 ## Bezpieczeństwo
 ### [Zbieranie, przechowywanie i magazynowanie danych](app-insights-data-retention-privacy.md)

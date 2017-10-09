@@ -1,6 +1,6 @@
 ---
-title: Ochrona danych osobowych w Microsoft Azure | Dokumentacja firmy Microsoft
-description: "Pierwszego artykułu serii artykuły ułatwiają korzystanie z platformy Azure do ochrony danych osobowych"
+title: dane osobowe aaaProtect na platformie Microsoft Azure | Dokumentacja firmy Microsoft
+description: "Najpierw artykuł w szeregu toohelp artykuły użyć danych osobowych Azure tooprotect"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: dfb046374397c8a19672ce6b67741903fff6e178
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cbffd3872552cbd0f12539535898c41ecf7789e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Ochrona danych osobowych w Microsoft Azure
 
-W tym artykule przedstawiono serię artykuły, które ułatwiają użyć usług i technologii zabezpieczeń platformy Azure do ochrony danych osobowych. Jest to decydujące znaczenie dla wielu firmowych i inicjatyw zgodności i nadzór nad branżowych. Scenariusz, problem instrukcji i firmy cele są uwzględniane w tutaj.
+W tym artykule przedstawiono serię artykuły, które ułatwiają użyć zabezpieczeń platformy Azure technologii i usług tooprotect danych osobowych. Jest to decydujące znaczenie dla wielu firmowych i inicjatyw zgodności i nadzór nad branżowych. Scenariusz Hello problem instrukcji i firmy cele są uwzględniane w tutaj.
 
 ## <a name="scenario-and-problem-statement"></a>Scenariusz i problem — instrukcja
 
-Firma rejs dużych, siedzibą w Stanach Zjednoczonych rozwija operacjach oferowanie trasy w DS, Adriatyku i Bałtyckiego mórz, jak również brytyjskich. Aby zapewnić obsługę tych działań, ustawił mniejszych rejs wiersze na podstawie we Włoszech, Niemczech, Dania i Zjednoczone Królestwo
+Firma rejs dużych, siedzibą w Stanach Zjednoczonych hello, rozwija trasy toooffer jego operacji w Śródziemnego hello, Adriatyku i Bałtyckiego mórz, jak również hello brytyjskich. toosupport tych działań uzyskała mniejszych rejs wiersze na podstawie we Włoszech Niemczech, Dania i hello Zjednoczone Królestwo
 
-Przez firmę Microsoft Azure do przechowywania danych firmowych w chmurze. Może to obejmować pracowników i/lub klienta informacje takie jak:
+Witaj firma korzysta z danych firmowych toostore Microsoft Azure w chmurze hello. Może to obejmować pracowników i/lub klienta informacje takie jak:
 
 - adresy
 - Numery telefonów
@@ -37,23 +37,23 @@ Przez firmę Microsoft Azure do przechowywania danych firmowych w chmurze. Może
 - Inne informacje
 - informacje o karcie kredytowej
 
-Firma musi ochrony prywatności pracowników i klientów danych podczas przesyłania danych dostępne dla tych działów, które go potrzebują. (na przykład lista płac i zastrzeżenia działów)
+Hello firmy muszą chronić prywatność hello pracowników i klientów danych podczas przesyłania danych dostępny toothose działów, które go potrzebują. (na przykład lista płac i zastrzeżenia działów)
 
 ## <a name="company-goals"></a>Cele firmy 
 
 - Źródła danych, które zawierają dane osobowe użytkownika są szyfrowane, gdy znajdującej się w magazynie w chmurze.
 
-- Osobiste dane przesyłane z jednej lokalizacji do innej są szyfrowane podczas przesyłania w danych. Jest to wartość true, jeśli dane są przesyłane przez sieć wirtualną lub przez Internet między firmowym centrum danych i w chmurze Azure.
+- Osobiste dane przesyłane z jednej lokalizacji tooanother są szyfrowane podczas przesyłania w danych. Jest to wartość true, jeśli dane hello podróżuje hello sieci wirtualnej lub hello Internet między hello firmowym centrum danych i hello chmury Azure.
 
 - Poufność i integralność danych osobowych jest chroniona przed nieautoryzowanym dostępem przez silnej tożsamości, zarządzania i technologie kontroli dostępu.
 
 - Dane osobowe jest chronione przed ujawnieniem za pośrednictwem naruszenia danych za pośrednictwem monitorowanie luk w zabezpieczeniach i zagrożeń.
 
-- Stan zabezpieczeń usługi Azure przechowywania lub dane osobowe jest oceniane w celu określenia możliwości w celu lepszej ochrony danych osobowych.
+- Witaj stan zabezpieczeń usługi Azure przechowywania lub dane osobowe jest oceniane tooidentify toobetter możliwości ochrony danych osobowych.
 
 ## <a name="data-protection-guidance"></a>Wskazówki dotyczące ochrony danych
 
-Poniższe artykuły zawierają wskazówki porad techniczne, które mogą pomóc osiągnąć cele ochrony danych osobowych wymienionych powyżej:
+Witaj następujące artykuły zawierają techniczne tooguidance jak, które mogą pomóc osiągnąć powyższe cele ochrony w danych osobowych hello:
 
 - [Technologii szyfrowania Azure](protect-personal-data-at-rest.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Jak zarządzać usługą Azure File Storage za pomocą programu PowerShell | Microsoft Docs"
-description: "Dowiedz się, jak zarządzać usługą Azure File Storage za pomocą programu PowerShell."
+title: "aaaHow toouse PowerShell toomanage magazyn plików Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się toouse toomanage środowiska PowerShell usługi Magazyn plików Azure."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7bd84c9cfa31782aedf4a209cb15d4b8d92e2737
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Jak zarządzać usługą Azure File Storage za pomocą programu PowerShell
-Przy użyciu programu Azure PowerShell można tworzyć udziały plików i zarządzać nimi.
+# <a name="how-toouse-powershell-toomanage-azure-file-storage"></a>Jak toouse toomanage środowiska PowerShell usługi Magazyn plików Azure
+Można użyć programu Azure PowerShell toocreate i Zarządzanie udziałami plików.
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalowanie poleceń cmdlet programu PowerShell dla usługi Azure Storage
-Aby przygotować się do użycia programu Azure PowerShell, pobierz i zainstaluj polecenia cmdlet tego programu. Aby uzyskać informacje o punkcie instalacji oraz instrukcje dotyczące instalacji, zobacz [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Jak zainstalować i skonfigurować program Azure PowerShell).
+## <a name="install-hello-powershell-cmdlets-for-azure-storage"></a>Zainstaluj hello poleceń cmdlet programu PowerShell dla usługi Azure Storage
+toouse tooprepare programu PowerShell, Pobierz i zainstaluj polecenia cmdlet programu Azure PowerShell hello. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs) hello zainstalować instrukcje instalacji i punktu.
 
 > [!NOTE]
-> Zalecamy pobranie i zainstalowanie najnowszej wersji modułu Azure PowerShell (lub uaktualnienie do tej wersji).
+> Zaleca się pobrać i zainstalować lub uaktualnić toohello najnowsze modułu Azure PowerShell.
 > 
 > 
 
-Otwórz okno programu Azure PowerShell, klikając przycisk **Start** i wpisując polecenie **Windows PowerShell**. W oknie programu PowerShell zostanie załadowany moduł Azure PowerShell.
+Otwórz okno programu Azure PowerShell, klikając przycisk **Start** i wpisując polecenie **Windows PowerShell**. okno programu PowerShell Hello obliczeniowymi hello modułu Azure Powershell.
 
 ## <a name="create-a-context-for-your-storage-account-and-key"></a>Tworzenie kontekstu konta magazynu i klucza
-Utwórz kontekst konta magazynu. W kontekście zawarta jest nazwa konta magazynu oraz klucz konta. Aby uzyskać instrukcje dotyczące kopiowania klucza konta z witryny [Azure Portal](https://portal.azure.com), zobacz [Wyświetlanie i kopiowanie kluczy dostępu do magazynu](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+Tworzenie kontekstu konta magazynu hello. kontekst Hello hermetyzuje hello magazynu konta nazwy i klucza konta. Aby uzyskać instrukcje dotyczące kopiowania klucza konta z hello [portalu Azure](https://portal.azure.com), zobacz [wyświetlanie i kopiowanie kluczy dostępu do magazynu](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
 
-W poniższym przykładzie zastąp zmienne `storage-account-name` i `storage-account-key` nazwą konta magazynu i kluczem.
+Zastąp `storage-account-name` i `storage-account-key` z nazwy konta magazynu i klucza w hello poniższy przykład.
 
 ```powershell
 # create a context for account and key
@@ -44,7 +44,7 @@ $ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
 ## <a name="create-a-new-file-share"></a>Tworzenie nowego udziału plików
-Utwórz nowy udział o nazwie `logs`.
+Utwórz nowy udział hello, o nazwie `logs`.
 
 ```powershell
 # create a new share
@@ -54,44 +54,44 @@ $s = New-AzureStorageShare logs -Context $ctx
 Masz już udział plików w usłudze Magazyn plików. Teraz dodamy katalog i plik.
 
 > [!IMPORTANT]
-> Nazwa udziału plików musi się składać z samych małych liter. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
+> Witaj nazwa udziału plików musi być tylko małe litery. Szczegółowe informacje o nazwach plików i udziałów plików można znaleźć w temacie [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx) (Nazywanie i odwoływanie się do udziałów, katalogów, plików i metadanych).
 > 
 > 
 
-## <a name="create-a-directory-in-the-file-share"></a>Tworzenie katalogu w udziale plików
-Utwórz katalog w udziale. W poniższym przykładzie katalog nosi nazwę `CustomLogs`.
+## <a name="create-a-directory-in-hello-file-share"></a>Tworzenie katalogu w udziale plików hello
+Tworzenie katalogu w udziale hello. W hello poniższy przykład, nosi nazwę katalogu hello `CustomLogs`.
 
 ```powershell
-# create a directory in the share
+# create a directory in hello share
 New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
-## <a name="upload-a-local-file-to-the-directory"></a>Przekazywanie pliku lokalnego do katalogu
-Teraz przekażemy plik lokalny do katalogu. W poniższym przykładzie plik zostanie przekazany z lokalizacji `C:\temp\Log1.txt`. Zmień ścieżkę pliku tak, aby wskazywała prawidłowy plik na komputerze lokalnym.
+## <a name="upload-a-local-file-toohello-directory"></a>Przekazywanie pliku lokalnego katalogu toohello
+Teraz można przekazać pliku lokalnego katalogu toohello. Witaj poniższym przykładzie plik zostanie przekazany z `C:\temp\Log1.txt`. Edytuj hello ścieżkę pliku tak, aby wskazywało tooa prawidłowy plik na komputerze lokalnym.
 
 ```powershell
-# upload a local file to the new directory
+# upload a local file toohello new directory
 Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
-## <a name="list-the-files-in-the-directory"></a>Wyświetlanie listy plików w katalogu
-Aby zobaczyć plik w katalogu, możesz wyświetlić listę wszystkich plików w tym katalogu. To polecenie zwraca pliki i podkatalogi (jeśli istnieją) w katalogu CustomLogs.
+## <a name="list-hello-files-in-hello-directory"></a>Lista plików hello hello katalogu
+toosee hello pliku w katalogu hello, możesz wyświetlić listę wszystkich plików z katalogu hello. To polecenie zwraca hello pliki i podkatalogi (jeśli istnieją) w katalogu CustomLogs hello.
 
 ```powershell
-# list files in the new directory
+# list files in hello new directory
 Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
-Polecenie Get-AzureStorageFile zwraca listę plików i katalogów dla dowolnego przekazanego obiektu katalogu. Polecenie „Get-AzureStorageFile -Share $s” zwraca listę plików i katalogów w katalogu głównym. Aby uzyskać listę plików w podkatalogu, trzeba przekazać nazwę podkatalogu do polecenia Get-AzureStorageFile. Tak właśnie działa powyższy zapis — pierwsza część polecenia do kreski pionowej zwraca wystąpienie katalogu dla podkatalogu CustomLogs. Następnie jest ono przekazywane do polecenia Get-AzureStorageFile, które zwraca pliki i katalogi w podkatalogu CustomLogs.
+Polecenie Get-AzureStorageFile zwraca listę plików i katalogów dla dowolnego przekazanego obiektu katalogu. "Polecenia get-AzureStorageFile-Share $s" zwraca listę plików i katalogów w katalogu głównym hello. tooget listę plików w podkatalogu, masz hello toopass tooGet polecenia podkatalogu-AzureStorageFile. Jest to czego — pierwsza część polecenia hello zapasowej potoku toohello hello Zwraca wystąpienie katalogu hello podkatalogu CustomLogs. Następnie jest ono przekazywane do polecenia Get-AzureStorageFile, która zwraca hello pliki i katalogi w podkatalogu CustomLogs.
 
 ## <a name="copy-files"></a>Kopiowanie plików
-Począwszy od wersji 0.9.7 programu Azure PowerShell, można kopiować pliki do innych plików, pliki do obiektów blob oraz obiekty blob do plików. Poniżej przedstawiamy sposób wykonywania tych operacji kopiowania za pomocą poleceń cmdlet programu PowerShell.
+Począwszy od wersji 0.9.7 programu Azure PowerShell, można skopiować pliku tooanother, obiektu blob tooa pliku lub pliku tooa obiektu blob. Poniżej przedstawiamy, jak tooperform je skopiować operacji za pomocą poleceń cmdlet programu PowerShell.
 
 ```powershell
-# copy a file to the new directory
+# copy a file toohello new directory
 Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-# copy a blob to a file directory
+# copy a blob tooa file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Następne kroki

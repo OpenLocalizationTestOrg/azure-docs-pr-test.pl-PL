@@ -1,6 +1,6 @@
 ---
-title: "Jak wybrać uprawnienia dla danego interfejsu API | Dokumentacja firmy Microsoft"
-description: "Jak znaleźć punkty końcowe uwierzytelniania dla aplikacji niestandardowej podczas tworzenia lub rejestrowania za pomocą usługi Azure AD."
+title: aaaHow tooselect uprawnienia dla danego interfejsu API | Dokumentacja firmy Microsoft
+description: "Punkty końcowe uwierzytelniania hello toofind dla niestandardowych aplikacji są jak tworzenie lub rejestrowania za pomocą usługi Azure AD."
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6966cf145375bf3d830d476564c428502ae40fd4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 303793eae96872c37b4de00e757ed0256494afa4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Jak wybrać uprawnienia dla danego interfejsu API
+# <a name="how-tooselect-permissions-for-a-given-api"></a>Jak tooselect uprawnienia dla danego interfejsu API
 
-Punkty końcowe uwierzytelniania można znaleźć aplikacji w [portalu Azure](https://portal.azure.com).
+Można znaleźć hello punkty końcowe uwierzytelniania dla aplikacji hello [portalu Azure](https://portal.azure.com).
 
--   Przejdź do witryny [Azure Portal](https://portal.azure.com).
+-   Przejdź toohello [portalu Azure](https://portal.azure.com).
 
--   W okienku nawigacji po lewej stronie kliknij **usługi Azure Active Directory**.
+-   W okienku nawigacji po lewej stronie powitania kliknij **usługi Azure Active Directory**.
 
 -   Kliknij przycisk **rejestracji aplikacji** i wybierz polecenie **punkty końcowe**.
 
--   To otwarcie **punkty końcowe** strony, tak aby wyświetlić listę wszystkich punktów końcowych uwierzytelniania dla dzierżawy.
+-   Otwórz ten hello **punkty końcowe** strony, tak aby wyświetlić listę wszystkich punktów końcowych uwierzytelniania hello dzierżawy.
 
--   Użyj punktu końcowego, które są specyficzne dla protokołu uwierzytelniania, którego używasz, w połączeniu z Identyfikatorem aplikacji sformułować uwierzytelnianie żądań specyficzne dla aplikacji.
+-   Użyj protokołu uwierzytelniania toohello określonego punktu końcowego hello, są używane w połączeniu z hello aplikacji identyfikator toocraft hello uwierzytelniania żądania tooyour określonych aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 [Przewodnik dewelopera usługi Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

@@ -1,6 +1,6 @@
 ---
-title: "Symulacji urządzenia Azure IoT krawędzi (Linux) | Dokumentacja firmy Microsoft"
-description: "Jak używać krawędzi IoT Azure w systemie Linux, aby utworzyć symulowane urządzenie, który wysyła dane telemetryczne za pośrednictwem bramy krawędzi IoT z Centrum IoT."
+title: "aaaSimulate urządzenia Azure IoT krawędzi (Linux) | Dokumentacja firmy Microsoft"
+description: "Jak toouse krawędzi IoT Azure w systemie Linux toocreate symulowane urządzenie wysyłają dane telemetryczne za pośrednictwem krawędzi IoT Centrum IoT tooan bramy."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: andbuc
-ms.openlocfilehash: 5349960373ae6815862c5f79a69dd6d5d9d624ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 168fb8eda8671d02c63073bdf36dfcd88b397fe2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>Wysyłać urządzenia do chmury z symulowane urządzenie (Linux) za pomocą krawędzi IoT Azure
+# <a name="use-azure-iot-edge-toosend-device-to-cloud-messages-with-a-simulated-device-linux"></a>Azure IoT krawędzi toosend urządzenia do chmury wiadomości za pomocą symulowane urządzenie (Linux)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## <a name="how-to-run-the-sample"></a>Jak uruchomić przykład
+## <a name="how-toorun-hello-sample"></a>Jak toorun hello próbki
 
-Skrypt **build.sh** generuje swoje dane wyjściowe w folderze **build** w lokalnej kopii repozytorium **iot-edge**. Te dane wyjściowe obejmuje cztery moduły krawędzi IoT używane w tym przykładzie.
+Witaj **build.sh** skrypt generuje dane wyjściowe w hello **kompilacji** folderu w lokalnej kopii hello **krawędzi iot** repozytorium. Te dane wyjściowe obejmują hello czterech krawędzi IoT moduły używane w tym przykładzie.
 
-Miejsca skryptu kompilacji:
+Witaj miejsca skryptu kompilacji:
 
-* **liblogger.so** w **kompilacji/moduły/rejestratora** folderu.
-* **libiothub.so** w **kompilacji/moduły/Centrum iothub** folderu.
-* **lib\_tożsamości\_map.so** w **kompilacji/moduły/identitymap** folderu.
-* **libsimulated\_device.so** w **kompilacji/moduły/symulowane\_urządzenia** folderu.
+* **liblogger.so** w hello **kompilacji/moduły/rejestratora** folderu.
+* **libiothub.so** w hello **kompilacji/moduły/Centrum iothub** folderu.
+* **lib\_tożsamości\_map.so** w hello **kompilacji/moduły/identitymap** folderu.
+* **libsimulated\_device.so** w hello **kompilacji/moduły/symulowane\_urządzenia** folderu.
 
-Użyj tych ścieżek dla **ścieżka modułu** wartości, jak pokazano w następującym pliku ustawień JSON:
+Użyj tych ścieżek dla hello **ścieżka modułu** wartości, jak pokazano w hello następującego pliku ustawień JSON:
 
-Symulowane\_urządzenia\_chmury\_przekazać\_przykładowy proces przyjmuje ścieżkę do pliku konfiguracji JSON jako argument wiersza polecenia. Następujący przykładowy plik JSON znajduje się w repozytorium SDK pod adresem **przykłady\\symulowane\_urządzenia\_chmury\_przekazać\_próbki\\src\\ Symulowane\_urządzenia\_chmury\_przekazać\_próbki\_lin.json**. Ten plik konfiguracyjny działa jest chyba że zmodyfikujesz skrypt kompilacji do umieszczenia krawędzi IoT modułów lub przykładowych plików wykonywalnych w innych niż domyślne lokalizacje.
+Symulowane Hello\_urządzenia\_chmury\_przekazać\_próbki proces trwa hello pliku konfiguracji JSON tooa ścieżkę jako argument wiersza polecenia. Hello następujący przykładowy plik JSON znajduje się w repozytorium SDK hello na **przykłady\\symulowane\_urządzenia\_chmury\_przekazać\_próbki\\src\\ Symulowane\_urządzenia\_chmury\_przekazać\_próbki\_lin.json**. Ta działa plik konfiguracji jest, chyba że zmodyfikujesz hello kompilacji skryptu tooplace hello krawędzi IoT modułów lub przykładowe pliki wykonywalne w lokalizacji innej niż domyślna.
 
 > [!NOTE]
-> Ścieżki modułu są względem katalogu, z którym jest uruchomiony symulowane\_urządzenia\_chmury\_przekazać\_przykładowy plik wykonywalny, nie katalog, w którym znajduje się plik wykonywalny. Przykładowy plik konfiguracji JSON domyślnie zapisywania "deviceCloudUploadGatewaylog.log" w bieżącym katalogu roboczym.
+> ścieżki modułu Hello są względną toohello katalogu, z którego jest uruchamiany hello symulowane\_urządzenia\_chmury\_przekazać\_przykładowy plik wykonywalny, nie hello katalog w którym znajduje się plik wykonywalny hello. Witaj przykładowy plik konfiguracyjny JSON domyślne toowriting too'deviceCloudUploadGatewaylog.log "w bieżącym katalogu roboczym.
 
-W edytorze tekstów otwórz plik **przykłady/symulowane\_urządzenia\_chmury\_przekazać\_próbki/src/symulowane\_urządzenia\_chmury\_przekazać\_lin.json** w lokalnej kopii **krawędzi iot** repozytorium. Ten plik konfiguruje modułów IoT krawędzi w bramie próbki:
+W edytorze tekstów otwórz plik hello **przykłady/symulowane\_urządzenia\_chmury\_przekazać\_próbki/src/symulowane\_urządzenia\_chmury\_przekazać\_lin.json** w lokalnej kopii hello **krawędzi iot** repozytorium. Ten plik konfiguruje hello krawędzi IoT modułów w hello próbki bramy:
 
-* **Centrum IoTHub** łączy się z Centrum IoT z modułu. Można skonfigurować do wysyłania danych do Centrum IoT. W szczególności ustawić **IoTHubName** wartość nazwy Centrum IoT i ustaw **IoTHubSuffix** do wartości **azure devices.net**. Ustaw **transportu** wartość do jednego z: **HTTP**, **AMQP**, lub **MQTT**. Obecnie tylko **HTTP** udostępnia jedno połączenie TCP dla wszystkich wiadomości urządzenia. Jeśli wartość jest ustawiona **AMQP**, lub **MQTT**, bramy zachowuje oddzielne połączenie TCP z Centrum IoT dla każdego urządzenia.
-* **Mapowania** modułu mapuje adresy MAC symulowane urządzeń identyfikatorom urządzenia IoT Hub. Upewnij się, że **deviceId** wartości zgodnie z identyfikatorami urządzeń dwóch dodane do Centrum IoT oraz że **deviceKey** wartości zawierają klucze dwa urządzeń.
-* **BLE1** i **BLE2** moduły są symulowanego urządzenia. Należy zwrócić uwagę, jak ich adresów MAC pasują do adresów w **mapowania** modułu.
-* **Rejestratora** modułu rejestruje działanie bramy w pliku.
-* **Ścieżka modułu** wartości pokazano w przykładzie założono, że uruchamiasz próbki z **kompilacji** folderu w lokalnej kopii **krawędzi iot** repozytorium.
-* **Łącza** łączy tablicy w dolnej części pliku JSON **BLE1** i **BLE2** modułów **mapowania** modułu i **mapowania** moduł **Centrum IoTHub** modułu. Gwarantuje również, że wszystkie komunikaty są rejestrowane przez **rejestratora** modułu.
+* Witaj **Centrum IoTHub** modułu łączy tooyour Centrum IoT. Możesz ją skonfigurować Centrum IoT tooyour danych toosend. W szczególności zestaw hello **IoTHubName** wartość toohello nazwę Centrum IoT i ustaw hello **IoTHubSuffix** wartość zbyt**azure devices.net**. Zestaw hello **transportu** tooone wartości z: **HTTP**, **AMQP**, lub **MQTT**. Obecnie tylko **HTTP** udostępnia jedno połączenie TCP dla wszystkich wiadomości urządzenia. Jeśli ustawisz wartość hello zbyt**AMQP**, lub **MQTT**, hello bramy przechowuje oddzielnych TCP połączenia tooIoT Centrum dla każdego urządzenia.
+* Witaj **mapowania** modułu mapuje adresy MAC hello Twoje nazwy urządzenia IoT Hub tooyour symulowanego urządzenia. Upewnij się, że **deviceId** identyfikatory hello dopasowania wartości hello dwa urządzenia dodane tooyour Centrum IoT i że hello **deviceKey** wartości zawiera klucze Witaj dwie urządzeń.
+* Witaj **BLE1** i **BLE2** moduły są urządzeniami hello symulowane. Należy zwrócić uwagę, jak ich MAC dotyczy dopasowania hello adresy hello **mapowania** modułu.
+* Witaj **rejestratora** modułu rejestruje pliku tooa działania bramy.
+* Witaj **ścieżka modułu** wartości pokazano w przykładzie hello założono Uruchom przykładowe hello z hello **kompilacji** folderu w lokalnej kopii hello **krawędzi iot** repozytorium.
+* Witaj **łącza** tablicy u dołu hello pliku JSON hello łączy hello **BLE1** i **BLE2** toohello modułów **mapowania** modułu i hello **mapowania** toohello modułu **Centrum IoTHub** modułu. Gwarantuje również, że wszystkie komunikaty są rejestrowane przez hello **rejestratora** modułu.
 
 ```json
 {
@@ -149,17 +149,17 @@ W edytorze tekstów otwórz plik **przykłady/symulowane\_urządzenia\_chmury\_p
 }
 ```
 
-Zapisz zmiany wprowadzone w pliku konfiguracji.
+Zapisz zmiany hello wprowadzone toohello pliku konfiguracji.
 
-Aby uruchomić przykład:
+przykład Witaj toorun:
 
-1. W powłoki, przejdź do **iot krawędzi/kompilacji** folderu.
-2. Uruchom następujące polecenie:
+1. W powłoki, przejdź toohello **iot krawędzi/kompilacji** folderu.
+2. Uruchom następujące polecenie hello:
    
     ```sh
     ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
-3. Można użyć [explorer urządzenia] [ lnk-device-explorer] lub [explorer Centrum iothub] [ lnk-iothub-explorer] narzędzia do monitorowania wiadomości, które otrzymuje Centrum IoT z bramy. Na przykład za pomocą Eksploratora Centrum iothub można monitorować wiadomości urządzenia do chmury przy użyciu następującego polecenia:
+3. Można użyć hello [explorer urządzenia] [ lnk-device-explorer] lub [explorer Centrum iothub] [ lnk-iothub-explorer] narzędzia wiadomości powitania toomonitor otrzymywanych z hello Centrum IoT brama. Na przykład za pomocą Eksploratora Centrum iothub można monitorować za pomocą następującego polecenia hello wiadomości urządzenia do chmury:
 
     ```sh
     iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
@@ -167,15 +167,15 @@ Aby uruchomić przykład:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać większą wiedzę Azure IoT krawędzi i wypróbować niektóre przykłady kodu, odwiedź następujące samouczki deweloperów i zasoby:
+toogain dużo większą wiedzę Azure IoT Edge i doświadczenia z kilka przykładów kodu, odwiedź stronę hello następujące samouczki deweloperów i zasoby:
 
 * [Wysyłać urządzenia do chmury z fizycznego urządzenia z krawędzią IoT Azure][lnk-physical-device]
 * [Krawędź IoT Azure][lnk-iot-edge]
 
-Aby dokładniej analizować możliwości Centrum IoT, zobacz:
+toofurther Poznaj możliwości hello Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
-* [Zabezpieczanie rozwiązania IoT od podstaw w górę][lnk-securing]
+* [Zabezpieczanie rozwiązania IoT z hello tła w][lnk-securing]
 
 <!-- Links -->
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/
