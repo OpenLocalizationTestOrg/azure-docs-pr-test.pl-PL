@@ -1,6 +1,6 @@
 ---
-title: "Węzły klastra skalowania automatycznego HPC Pack | Dokumentacja firmy Microsoft"
-description: "Automatycznie zwiększyć lub zmniejszyć liczbę węzłów obliczeniowych klastra HPC Pack na platformie Azure"
+title: "węzły klastra HPC Pack aaaAutoscale | Dokumentacja firmy Microsoft"
+description: "Automatycznie zwiększyć lub zmniejszyć hello liczba węzłów obliczeniowych klastra HPC Pack na platformie Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bdf55625d337a2bbfe05677682d645a584798d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatycznie zwiększyć lub zmniejszyć zasobów klastra HPC Pack na platformie Azure zgodnie z obciążenie klastra
-Jeśli wdrażania platformy Azure "serii" węzłów w klastrze HPC Pack lub utworzyć klaster HPC Pack w maszynach wirtualnych platformy Azure, możesz sposób, aby automatycznie zwiększać i zmniejszać zasoby klastra, takie jak węzłów lub rdzeni w zależności od obciążenia w klastrze. Skalowanie zasobów klastra w ten sposób pozwala na bardziej efektywnie korzystać z zasobów platformy Azure i kontrolę kosztów ich.
+# <a name="automatically-grow-and-shrink-hello-hpc-pack-cluster-resources-in-azure-according-toohello-cluster-workload"></a>Automatycznie zwiększyć lub zmniejszyć zasobów klastra HPC Pack hello na platformie Azure, zgodnie z toohello obciążenie klastra
+Jeśli wdrażania platformy Azure "serii" węzłów w klastrze HPC Pack lub utworzyć klaster HPC Pack w maszynach wirtualnych platformy Azure, możesz sposób, aby automatycznie zwiększać i zmniejszać zasoby klastra hello, takie jak węzłów lub rdzeni zgodnie z hello obciążenie klastra hello. Skalowanie hello zasoby klastra w ten sposób umożliwia toouse zasobów platformy Azure wydajniej i kontrolę kosztów ich.
 
-W tym artykule opisano, że zasoby obliczeniowe dwie metody udostępniające HPC Pack skalowania automatycznego:
+W tym artykule przedstawiono HPC Pack udostępnia zasoby obliczeniowe tooautoscale na dwa sposoby:
 
-* Właściwość klastra HPC Pack **AutoGrowShrink**
+* Witaj właściwości klastra HPC Pack **AutoGrowShrink**
 
-* **AzureAutoGrowShrink.ps1** skryptu środowiska PowerShell klastra HPC
+* Witaj **AzureAutoGrowShrink.ps1** skryptu środowiska PowerShell klastra HPC
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
 Obecnie tylko automatycznie można zwiększyć lub zmniejszyć węzły obliczeniowe HPC Pack uruchomionych w systemie operacyjnym Windows Server.
 
 
-## <a name="set-the-autogrowshrink-cluster-property"></a>Ustaw właściwość AutoGrowShrink klastra
+## <a name="set-hello-autogrowshrink-cluster-property"></a>Ustaw właściwość klastra AutoGrowShrink hello
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* **HPC Pack 2012 R2 Update 2 lub nowszym klastra** -węzła głównego klastra może być wdrożona lokalnie lub w maszynie Wirtualnej platformy Azure. Zobacz [Konfigurowanie klastra hybrydowego pakietem HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) rozpocząć pracę z węzłem głównym lokalnymi i węzły platformy Azure "serii". Zobacz [skrypt wdrożenia HPC Pack IaaS](hpcpack-cluster-powershell-script.md) można szybko wdrożyć klaster HPC Pack w maszynach wirtualnych platformy Azure.
+* **HPC Pack 2012 R2 Update 2 lub nowszym klastra** -hello węzła głównego klastra może być wdrożona lokalnie lub w maszynie Wirtualnej platformy Azure. Zobacz [Konfigurowanie klastra hybrydowego pakietem HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) tooget pracę z węzłem głównym lokalnymi i węzły platformy Azure "serii". Zobacz hello [skrypt wdrożenia HPC Pack IaaS](hpcpack-cluster-powershell-script.md) tooquickly wdrożenie klastra HPC Pack w maszynach wirtualnych platformy Azure.
 
 * **W przypadku klastra z węzła głównego na platformie Azure (modelu wdrażania usługi Resource Manager)** — począwszy od HPC Pack 2016 certyfikatów uwierzytelniania w aplikacji usługi Azure Active Directory służy do automatycznie powiększania i zmniejszanie rozmiaru klastra maszyny wirtualne wdrażane za pomocą Usługa Azure Resource Manager. Konfigurowanie certyfikatu w następujący sposób:
 
-  1. Po wdrożeniu klastra przez pulpit zdalny połączyć się z jednego węzła głównego.
+  1. Po wdrożeniu klastra łączyć węzła głównego tooone pulpitu zdalnego.
 
-  2. Przekaż certyfikat (format PFX z kluczem prywatnym) do każdego węzła głównego i zainstaluj Cert: \LocalMachine\My i Cert: \LocalMachine\Root.
+  2. Przekaż hello węzła głównego tooeach certyfikatu (format PFX z kluczem prywatnym) i zainstaluj tooCert:\LocalMachine\My i Cert: \LocalMachine\Root.
 
-  3. Uruchom program Azure PowerShell jako administrator i uruchom następujące polecenia w jednym węźle głównym:
+  3. Uruchom program Azure PowerShell jako administrator i uruchom następujące polecenia w jednym węźle głównym hello:
 
     ```powershell
         cd $env:CCP_HOME\bin
@@ -53,19 +53,19 @@ Obecnie tylko automatycznie można zwiększyć lub zmniejszyć węzły obliczeni
         Login-AzureRmAccount
     ```
         
-    Jeśli konto użytkownika należy do więcej niż jednej dzierżawy usługi Azure Active Directory lub subskrypcji platformy Azure, można uruchomić następujące polecenie, aby wybrać poprawny dzierżawy i subskrypcję:
+    Jeśli konto użytkownika należy do więcej niż jednej dzierżawy usługi Azure Active Directory lub subskrypcji platformy Azure, można uruchomić następujące hello polecenia tooselect hello poprawne dzierżawy i subskrypcji:
   
     ```powershell
         Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
-    Uruchom następujące polecenie, aby wyświetlić aktualnie wybranej dzierżawy i subskrypcji:
+    Uruchom następujące polecenie tooview hello hello aktualnie wybrane dzierżawy i subskrypcji:
     
     ```powershell
         Get-AzureRMContext
     ```
 
-  4. Uruchom poniższy skrypt
+  4. Uruchom hello następującego skryptu
 
     ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
@@ -73,63 +73,63 @@ Obecnie tylko automatycznie można zwiększyć lub zmniejszyć węzły obliczeni
 
     gdzie
 
-    **Nazwa wyświetlana** — Nazwa wyświetlana Azure aktywnej aplikacji. Jeśli aplikacja nie istnieje, jest tworzony w usłudze Azure Active Directory.
+    **Nazwa wyświetlana** — Nazwa wyświetlana Azure aktywnej aplikacji. Jeśli aplikacja hello nie istnieje, jest tworzony w usłudze Azure Active Directory.
 
-    **Strona główna** — strona główna aplikacji. Można skonfigurować zastępczego adresu URL, tak jak w poprzednim przykładzie.
+    **Strona główna** — strona główna hello aplikacji hello. Można skonfigurować zastępczego adresu URL, tak jak hello poprzedzających przykład.
 
-    **IdentifierUri** — identyfikator aplikacji. Można skonfigurować zastępczego adresu URL, tak jak w poprzednim przykładzie.
+    **IdentifierUri** — identyfikator aplikacji hello. Można skonfigurować zastępczego adresu URL, tak jak hello poprzedzających przykład.
 
-    **CertificateThumbprint** — odcisk palca certyfikatu został zainstalowany w węźle głównym w kroku 1.
+    **CertificateThumbprint** — odcisk palca certyfikatu hello zainstalowany na powitania węzła głównego w kroku 1.
 
-    **TenantId** -Identyfikatorem usługi Azure Active Directory dzierżawy. Identyfikator dzierżawcy można pobrać z portalu usługi Azure Active Directory **właściwości** strony.
+    **TenantId** -Identyfikatorem usługi Azure Active Directory dzierżawy. Hello identyfikator dzierżawcy można pobrać z portalu usługi Azure Active Directory hello **właściwości** strony.
 
     Aby uzyskać więcej informacji o **ConfigARMAutoGrowShrinkCert.ps1**Uruchom `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
 
-* **W przypadku klastra z węzła głównego na platformie Azure (klasycznego modelu wdrażania)** — Jeśli używasz skryptu wdrażania HPC Pack IaaS do tworzenia klastra w klasycznym modelu wdrożenia, Włącz **AutoGrowShrink** klastra właściwości przez ustawienie opcji AutoGrowShrink w pliku konfiguracji klastra. Aby uzyskać więcej informacji, zobacz towarzyszące dokumentacji [pobieranie skryptu](https://www.microsoft.com/download/details.aspx?id=44949).
+* **W przypadku klastra z węzła głównego na platformie Azure (klasycznego modelu wdrażania)** — Jeśli używasz hello HPC Pack IaaS wdrożenia skryptu toocreate hello klastra hello klasycznego modelu wdrażania, Włącz hello **AutoGrowShrink** klastra Właściwość przez ustawienie opcji AutoGrowShrink hello w pliku konfiguracyjnym hello klastra. Aby uzyskać więcej informacji, zobacz dokumentację hello, towarzyszące hello [pobieranie skryptu](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    Można również włączyć **AutoGrowShrink** klastra właściwości po wdrożeniu klastra za pomocą poleceń środowiska PowerShell klastra HPC opisane w poniższej sekcji. Aby przygotować się do tego, najpierw należy wykonać następujące czynności:
+    Można również włączyć hello **AutoGrowShrink** właściwości klastra po wdrożeniu klastra hello przy użyciu środowiska PowerShell klastra HPC polecenia opisane w następujących sekcji hello. tooprepare tego, pierwszy hello pełną następujące kroki:
 
-  1. W węźle głównym i w subskrypcji platformy Azure, należy skonfigurować certyfikat zarządzania platformy Azure. W przypadku wdrożenia testu Użyj domyślnej Microsoft HPC Azure certyfikatu z podpisem własnym instalujący w węźle głównym HPC Pack i następnie przekaż certyfikat do subskrypcji platformy Azure. Dla opcji i procedury, zobacz [wskazówki w bibliotece TechNet](https://technet.microsoft.com/library/gg481759.aspx).
+  1. Skonfiguruj certyfikat zarządzania platformy Azure na powitania węzła głównego i w hello subskrypcji platformy Azure. W przypadku testowego wdrożenia można użyć hello domyślne Microsoft HPC Azure certyfikatu z podpisem własnym instalujący na powitania węzłem głównym HPC Pack a następnie przekaż tooyour tego certyfikatu subskrypcji platformy Azure. Dla opcji i procedury, zobacz hello [wskazówki w bibliotece TechNet](https://technet.microsoft.com/library/gg481759.aspx).
 
-  2. Uruchom **regedit** w węźle głównym, przejdź do HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo i Dodaj wartość ciągu. Ustaw nazwę wartości "Odcisk palca", a wartość danych odcisk palca certyfikatu w kroku 1.
+  2. Uruchom **regedit** na powitania węzła głównego, przejdź tooHKLM\SOFTWARE\Micorsoft\HPC\IaasInfo i Dodaj wartość ciągu. Ustaw nazwę wartości hello zbyt "Odcisk palca" i wartości danych toohello odcisk palca certyfikatu hello w kroku 1.
 
-### <a name="hpc-powershell-commands-to-set-the-autogrowshrink-property"></a>Polecenia środowiska PowerShell klastra HPC, aby ustawić właściwość AutoGrowShrink
-Poniżej przedstawiono przykładowe polecenia środowiska PowerShell klastra HPC, aby ustawić **AutoGrowShrink** i dostosować jego zachowanie w przypadku dodatkowych parametrów. Zobacz [parametry AutoGrowShrink](#AutoGrowShrink-parameters) opisaną w tym artykule, aby uzyskać pełną listę ustawień.
+### <a name="hpc-powershell-commands-tooset-hello-autogrowshrink-property"></a>Właściwość AutoGrowShrink hello tooset polecenia środowiska PowerShell klastra HPC
+Poniżej przedstawiono tooset polecenia środowiska PowerShell klastra HPC próbki **AutoGrowShrink** i tootune jego zachowanie w przypadku dodatkowych parametrów. Zobacz [parametry AutoGrowShrink](#AutoGrowShrink-parameters) dalszej części tego artykułu hello pełną listę ustawień.
 
-Aby uruchomić te polecenia, uruchom program HPC PowerShell na węzła głównego klastra jako administrator.
+toorun tych poleceń, uruchom program HPC PowerShell na powitania węzła głównego klastra jako administrator.
 
-**Aby włączyć właściwość AutoGrowShrink**
+**Witaj tooenable AutoGrowShrink właściwości**
 
 ```powershell
 Set-HpcClusterProperty –EnableGrowShrink 1
 ```
 
-**Aby wyłączyć właściwość AutoGrowShrink**
+**Witaj toodisable AutoGrowShrink właściwości**
 
 ```powershell
 Set-HpcClusterProperty –EnableGrowShrink 0
 ```
 
-**Aby zmienić interwał wzrostu w minutach**
+**Witaj toochange Zwiększ interwał w minutach**
 
 ```powershell
 Set-HpcClusterProperty –GrowInterval <interval>
 ```
 
-**Aby zmienić interwał zmniejszania w minutach**
+**Witaj toochange Zmniejszanie interwału w minutach**
 
 ```powershell
 Set-HpcClusterProperty –ShrinkInterval <interval>
 ```
 
-**Aby wyświetlić bieżącą konfigurację AutoGrowShrink**
+**tooview hello bieżącej konfiguracji AutoGrowShrink**
 
 ```powershell
 Get-HpcClusterProperty –AutoGrowShrink
 ```
 
-**Aby wykluczyć węzeł grupy z AutoGrowShrink**
+**tooexclude węzeł grupy z AutoGrowShrink**
 
 ```powershell
 Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
@@ -140,53 +140,53 @@ Set-HpcClusterProperty –ExcludeNodeGroups <group1,group2,group3>
 >
 
 ### <a name="autogrowshrink-parameters"></a>Parametry AutoGrowShrink
-Poniżej przedstawiono AutoGrowShrink parametry, które można modyfikować za pomocą **HpcClusterProperty zestaw** polecenia.
+Witaj poniżej przedstawiono AutoGrowShrink parametry, które można modyfikować za pomocą hello **HpcClusterProperty zestaw** polecenia.
 
-* **EnableGrowShrink** — przełącznik, aby włączyć lub wyłączyć **AutoGrowShrink** właściwości.
-* **ParamSweepTasksPerCore** — liczba zadań parametrycznych rośnie jednego rdzenia. Wartość domyślna to zwiększa jednego rdzenia poszczególnych zadań.
-
-  > [!NOTE]
-  > Zmiany HPC Pack QFE KB3134307 **ParamSweepTasksPerCore** do **TasksPerResourceUnit**. Jest oparty na typie zasobów zadania, a węzeł, gniazda lub core.
-  >
-  >
-* **GrowThreshold** — próg umieszczonych w kolejce zadań do wyzwalania automatycznego przyrostu. Wartość domyślna to 1, co oznacza, że jeśli 1 lub więcej zadań, znajduje się w stanie umieszczonych w kolejce, automatycznie rozszerzaj węzłów.
-* **GrowInterval** — interwał w minutach, aby wyzwolić automatyczne zwiększanie rozmiaru. Domyślny interwał wynosi 5 minut.
-* **ShrinkInterval** — interwał w minutach, aby wyzwolić automatyczne zmniejszanie. Domyślny interwał wynosi 5 minut. |
-* **ShrinkIdleTimes** — liczba ciągłego kontroli Zmniejszaj, aby wskazać węzły są w stanie bezczynności. Wartość domyślna to 3 razy. Na przykład jeśli **ShrinkInterval** wynosi 5 minut, HPC Pack sprawdza, czy węzeł jest w stanie bezczynności co 5 minut. Jeśli węzły są w stanie bezczynności, po 3 ciągłego sprawdza (15 minut), HPC Pack zmniejsza tego węzła.
-* **ExtraNodesGrowRatio** -procent dodatkowe węzły do zwiększenia zadań komunikat interfejsu (Passing Interface). Wartość domyślna to 1, co oznacza, że HPC Pack rozwoju węzłów % 1 dla zadań MPI.
-* **GrowByMin** — przełącznik, aby wskazać, czy zasady automatycznego przyrostu jest oparta na zasoby minimalne wymagane dla zadania. Wartość domyślna to false, co oznacza, że HPC Pack rozwoju węzłów dla zadania w oparciu o maksymalnej zasoby wymagane do zadania.
-* **SoaJobGrowThreshold** — próg przychodzących żądań SOA do wyzwalania automatycznego wzrostu procesu. Wartość domyślna to 50000.
+* **EnableGrowShrink** — przełącznik tooenable lub wyłącz hello **AutoGrowShrink** właściwości.
+* **ParamSweepTasksPerCore** — liczba parametrów zadania toogrow jednego rdzenia. Domyślnie Hello jest toogrow jednego rdzenia poszczególnych zadań.
 
   > [!NOTE]
-  > Ten parametr jest obsługiwana, począwszy od HPC Pack 2012 R2 Update 3.
+  > Zmiany HPC Pack QFE KB3134307 **ParamSweepTasksPerCore** za**TasksPerResourceUnit**. Jest oparty na typie zasobów zadania hello, a węzeł, gniazda lub core.
   >
   >
-* **SoaRequestsPerCore** — liczba SOA przychodzących żądań do zwiększenia jednego rdzenia. Wartość domyślna to 20000.
+* **GrowThreshold** — próg umieszczonych w kolejce zadań tootrigger automatycznego przyrostu. Witaj domyślna to 1, co oznacza, że jeśli istnieją 1 lub więcej zadań w hello stanu umieszczonych w kolejce, automatycznie rozszerzaj węzłów.
+* **GrowInterval** — interwał w minutach tootrigger automatycznego przyrostu. Witaj domyślny interwał wynosi 5 minut.
+* **ShrinkInterval** — interwał w minutach tootrigger automatyczne zmniejszanie. Witaj domyślny interwał wynosi 5 minut. |
+* **ShrinkIdleTimes** — liczba węzłów hello tooindicate tooshrink ciągłego kontroli są w stanie bezczynności. Witaj domyślna to 3 razy. Na przykład, jeśli hello **ShrinkInterval** wynosi 5 minut, HPC Pack sprawdza, czy węzeł hello jest w stanie bezczynności co 5 minut. Jeśli węzły hello są w stanie bezczynności hello po 3 ciągłego sprawdza (15 minut), HPC Pack zmniejsza tego węzła.
+* **ExtraNodesGrowRatio** -procent dodatkowe węzły toogrow zadań komunikat interfejsu (Passing Interface). Witaj, wartość domyślna to 1, co oznacza, że HPC Pack rozwoju węzłów % 1 dla zadań MPI.
+* **GrowByMin** -przełącznika tooindicate, czy zasady automatycznego przyrostu hello opiera się na powitania zasobów minimalne wymagane hello zadania. Domyślna Hello to false, co oznacza, że HPC Pack rozwoju węzłów zadań na podstawie zasobów maksymalną hello wymagane hello zadań.
+* **SoaJobGrowThreshold** — próg przychodzące SOA żądań tootrigger hello automatycznego wzrostu procesu. Wartość domyślna Hello jest 50000.
 
   > [!NOTE]
   > Ten parametr jest obsługiwana, począwszy od HPC Pack 2012 R2 Update 3.
   >
-* **ExcludeNodeGroups** — węzły w grupach określony węzeł nie automatycznie zwiększyć lub zmniejszyć.
+  >
+* **SoaRequestsPerCore** — liczba SOA przychodzących żądań toogrow jednego rdzenia. Wartość domyślna Hello jest 20000.
+
+  > [!NOTE]
+  > Ten parametr jest obsługiwana, począwszy od HPC Pack 2012 R2 Update 3.
+  >
+* **ExcludeNodeGroups** — węzły w hello określone grupy węzła automatycznie zwiększyć lub zmniejszyć.
   
   > [!NOTE]
   > Ten parametr jest obsługiwana, począwszy od HPC Pack 2016.
   >
 
 ### <a name="mpi-example"></a>Przykład MPI
-Domyślnie HPC Pack rozwoju 1% dodatkowe węzły zadań MPI (**ExtraNodesGrowRatio** jest ustawiona na 1). Dzieje się tak MPI może wymagać wielu węzłów, czy zadanie można uruchomić tylko, gdy wszystkie węzły są gotowe. Po uruchomieniu węzłów Azure czasami jeden węzeł może być konieczne dłuższego czasu, aby rozpocząć od innych, powodując inne węzły ze stanu bezczynności podczas oczekiwania na tym węźle w celu przygotowania. Powiększając dodatkowe węzły, HPC Pack skraca czas oczekiwania tego zasobu i potencjalnie zapisuje kosztów. Aby zwiększyć stopień dodatkowe węzły zadań MPI (na przykład do 10%), uruchom polecenie podobne do
+Domyślnie HPC Pack rozwoju 1% dodatkowe węzły zadań MPI (**ExtraNodesGrowRatio** ustawiono too1). Przyczyna Hello jest MPI może wymagać wielu węzłów, czy hello zadanie można uruchomić tylko po zakończeniu wszystkich węzłów. Po uruchomieniu węzłów Azure czasami jeden węzeł może być konieczne więcej czasu toostart niż inne, powodując inne węzły toobe bezczynności podczas oczekiwania na tym tooget węzła gotowe. Powiększając dodatkowe węzły, HPC Pack skraca czas oczekiwania tego zasobu i potencjalnie zapisuje kosztów. Procent hello tooincrease dodatkowe węzły zadań MPI (na przykład too10%), uruchom polecenie podobne do
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>Przykład SOA
-Domyślnie **SoaJobGrowThreshold** ustawiono 50000 i **SoaRequestsPerCore** ustawiono 200000. Jeśli prześlesz jedno zadanie SOA z żądaniami 70000 istnieje jedno zadanie w kolejce i żądania przychodzące są 70000. W takim przypadku HPC Pack rozwoju 1 rdzeń umieszczonych w kolejce zadań i żądań przychodzących, rozwoju (70000 50000) / podstawowe 20000 = 1, dlatego w łącznie rozwoju 2 rdzeni dla tego zadania SOA.
+Domyślnie **SoaJobGrowThreshold** ustawiono too50000 i **SoaRequestsPerCore** ustawiono too200000. Jeśli prześlesz jedno zadanie SOA z żądaniami 70000 istnieje jedno zadanie w kolejce i żądania przychodzące są 70000. W takim przypadku HPC Pack rozwoju 1 rdzeń hello w kolejce zadań i żądań przychodzących, rozwoju (70000 50000) / podstawowe 20000 = 1, dlatego w łącznie rozwoju 2 rdzeni dla tego zadania SOA.
 
-## <a name="run-the-azureautogrowshrinkps1-script"></a>Uruchom skrypt AzureAutoGrowShrink.ps1
+## <a name="run-hello-azureautogrowshrinkps1-script"></a>Uruchom skrypt AzureAutoGrowShrink.ps1 hello
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* **HPC Pack 2012 R2 Update 1 lub nowszym klastra** - **AzureAutoGrowShrink.ps1** skryptów jest zainstalowany w folderze % CCP_HOME % bin. Węzła głównego klastra może być wdrożona lokalnie lub w maszynie Wirtualnej platformy Azure. Zobacz [Konfigurowanie klastra hybrydowego pakietem HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) rozpocząć pracę z węzłem głównym lokalnymi i węzły platformy Azure "serii". Zobacz [skrypt wdrożenia HPC Pack IaaS](hpcpack-cluster-powershell-script.md) szybkie wdrożenie klastra HPC Pack w maszynach wirtualnych platformy Azure lub użyj [szablonie Szybki Start Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
-* **Program Azure PowerShell 1.4.0** -skrypt zależy od obecnie tę konkretną wersję programu Azure PowerShell.
-* **Dla klastra przy użyciu platformy Azure serii węzłów** -uruchomić skrypt na komputerze klienckim, na których zainstalowano pakiet HPC lub w węźle głównym. Jeśli uruchomiony na komputerze klienckim, upewnij się, że ustawienia zmiennej $env: CCP_SCHEDULER, aby wskazywał węzła głównego. Węzły platformy Azure "serii" musi zostać dodany do klastra, ale mogą być w stanie wdrożyć nie.
-* **Dla klastra wdrożone w maszynach wirtualnych platformy Azure (modelu wdrażania usługi Resource Manager)** — dla klastra Azure maszyn wirtualnych wdrożonych w modelu wdrażania usługi Resource Manager, skrypt obsługuje dwie metody uwierzytelniania systemu Azure: Zaloguj się do konta platformy Azure, aby uruchomić skrypt zawsze (uruchamiając `Login-AzureRmAccount`, lub skonfiguruj nazwę główną usługi do uwierzytelniania przy użyciu certyfikatu. HPC Pack dostarcza skrypt **ConfigARMAutoGrowShrinkCert.ps** można utworzyć nazwy głównej usługi o certyfikat. Skrypt tworzy aplikację usługi Azure Active Directory (Azure AD) i nazwy głównej usługi i przypisanie roli współautora do nazwy głównej usługi. Aby uruchomić skrypt, uruchom program Azure PowerShell jako administrator i uruchom następujące polecenia:
+* **HPC Pack 2012 R2 Update 1 lub nowszym klastra** — Witaj **AzureAutoGrowShrink.ps1** skryptów jest zainstalowany w hello % CCP_HOME % bin folder. Witaj węzła głównego klastra może być wdrożona lokalnie lub w maszynie Wirtualnej platformy Azure. Zobacz [Konfigurowanie klastra hybrydowego pakietem HPC](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) tooget pracę z węzłem głównym lokalnymi i węzły platformy Azure "serii". Zobacz hello [skrypt wdrożenia HPC Pack IaaS](hpcpack-cluster-powershell-script.md) tooquickly wdrożenie klastra HPC Pack w maszynach wirtualnych platformy Azure lub użyj [szablonie Szybki Start Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+* **Program Azure PowerShell 1.4.0** -skryptu hello zależy od obecnie tę konkretną wersję programu Azure PowerShell.
+* **Dla klastra przy użyciu platformy Azure serii węzłów** — Uruchom skrypt hello na komputerze klienckim, na których zainstalowano pakiet HPC lub na powitania węzła głównego. Jeśli uruchomiona na komputerze klienckim, upewnij się, ustaw hello zmiennej $env: węzła głównego toohello toopoint CCP_SCHEDULER. musi zostać dodany Hello Azure "serii" węzłów klastra toohello, ale hello stan wdrożonych nie mogą być.
+* **Dla klastra wdrożone w maszynach wirtualnych platformy Azure (modelu wdrażania usługi Resource Manager)** -klastra z maszyn wirtualnych Azure wdrożone w modelu wdrażania usługi Resource Manager hello skrypt hello obsługuje dwie metody uwierzytelniania systemu Azure: Zaloguj tooyour konto platformy Azure skrypt hello toorun zawsze (uruchamiając `Login-AzureRmAccount`, lub skonfigurować tooauthenticate główna usługi przy użyciu certyfikatu. HPC Pack zawiera skrypt hello **ConfigARMAutoGrowShrinkCert.ps** toocreate nazwy głównej usługi o certyfikat. Witaj skrypt tworzy aplikację usługi Azure Active Directory (Azure AD) i nazwy głównej usługi i przypisuje nazwy głównej usługi toohello roli współautora hello. skrypt hello toorun, uruchom program Azure PowerShell jako administrator i uruchom następujące polecenia hello:
 
     ```powershell
     cd $env:CCP_HOME\bin
@@ -198,7 +198,7 @@ Domyślnie **SoaJobGrowThreshold** ustawiono 50000 i **SoaRequestsPerCore** usta
 
     Aby uzyskać więcej informacji o **ConfigARMAutoGrowShrinkCert.ps1**Uruchom `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
 
-* **Dla klastra wdrożone w maszynach wirtualnych platformy Azure (klasycznego modelu wdrażania)** — Uruchom skrypt w węźle głównym maszyny Wirtualnej, ponieważ zależy on od **Start HpcIaaSNode.ps1** i **Stop-HpcIaaSNode.ps1** skrypty, które są zainstalowane na. Ponadto te skrypty wymagają certyfikatu zarządzania platformy Azure lub plik ustawień publikowania (zobacz [Zarządzaj węzłów obliczeniowych w HPC Pack klastra w systemie Azure](hpcpack-cluster-node-manage.md)). Sprawdź, czy wszystkie węźle obliczeń maszyny wirtualne, konieczne są już dodane do klastra. Mogą być w stanie zatrzymania.
+* **Dla klastra wdrożone w maszynach wirtualnych platformy Azure (klasycznego modelu wdrażania)** — Uruchom skrypt hello na powitania węzła głównego maszyny Wirtualnej, ponieważ zależy on od hello **Start HpcIaaSNode.ps1** i **Stop-HpcIaaSNode.ps1**skrypty, które są zainstalowane na. Ponadto te skrypty wymagają certyfikatu zarządzania platformy Azure lub plik ustawień publikowania (zobacz [Zarządzaj węzłów obliczeniowych w HPC Pack klastra w systemie Azure](hpcpack-cluster-node-manage.md)). Upewnij się, wszystkie hello obliczeniowe węzła maszyny wirtualne, konieczne są już dodane toohello klastra. Mogą być hello zatrzymana.
 
 
 
@@ -218,27 +218,27 @@ AzureAutoGrowShrink.ps1 [-NodeTemplates <String[]>] [-JobTemplates <String[]>] [
 AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePrefix <String>] [<CommonParameters>]
 ```
 ### <a name="parameters"></a>Parametry
-* **NodeTemplates** -nazwy szablonów węzła do zdefiniowania zakresu dla węzłów zwiększyć lub zmniejszyć. Jeśli nie zostanie określony (wartość domyślna to @()), wszystkie węzły w **AzureNodes** węzła grupy są w zakres podczas **NodeType** ma wartość AzureNodes i we wszystkich węzłach w **ComputeNodes**węzeł grupy są w przypadku zakres **NodeType** ma wartość ComputeNodes.
-* **JobTemplates** -nazwy szablonów zadań do zdefiniowania zakresu dla węzłów rośnie.
-* **Typ NodeType** — typ węzeł, aby zwiększyć lub zmniejszyć. Obsługiwane są następujące wartości:
+* **NodeTemplates** -nazwy hello węzeł Szablony toodefine hello zakres hello toogrow węzłów i zmniejszyć. Jeśli nie zostanie określony (hello wartość domyślna to @()), wszystkie węzły w hello **AzureNodes** węzła grupy są w zakres podczas **NodeType** ma wartość AzureNodes, a wszystkie węzły w hello **ComputeNodes** węzła grupy są w przypadku zakres **NodeType** ma wartość ComputeNodes.
+* **JobTemplates** -nazwy hello zadania szablonów toodefine hello zakres hello toogrow węzłów.
+* **Typ NodeType** — Witaj typu węzła toogrow i zmniejszyć. Obsługiwane są następujące wartości:
 
   * **AzureNodes** — w przypadku Azure PaaS (serii) węzły w lokalnej lub w klastrze IaaS platformy Azure.
   * **ComputeNodes** — dla węzła obliczeniowego maszyn wirtualnych tylko w klastrze IaaS platformy Azure.
 
-* **NumOfQueuedJobsPerNodeToGrow** -liczbę zadań umieszczonych w kolejce wymagane do zwiększenia jeden węzeł.
-* **NumOfQueuedJobsToGrowThreshold** — próg liczbę zadań umieszczonych w kolejce do uruchomienia procesu wzrostu.
-* **NumOfActiveQueuedTasksPerNodeToGrow** — liczba aktywnych w kolejce zadania wymagane do zwiększenia jeden węzeł. Jeśli **NumOfQueuedJobsPerNodeToGrow** zostanie podana wartość większą niż 0, ten parametr jest ignorowany.
-* **NumOfActiveQueuedTasksToGrowThreshold** — próg liczba aktywnych zadań w kolejce do uruchomienia procesu wzrostu.
-* **NumOfInitialNodesToGrow** -początkowej minimalną liczbę węzłów do powiększania, jeśli wszystkie węzły w zakresie są **wdrożone nie** lub **zatrzymane (Deallocated)**.
-* **GrowCheckIntervalMins** — interwał w minutach pomiędzy kontrole zwiększa się.
-* **ShrinkCheckIntervalMins** — interwał w minutach, między każdym sprawdzeniem, aby zmniejszyć.
-* **ShrinkCheckIdleTimes** -kontroli zmniejszyć liczbę ciągłego (rozdzielone **ShrinkCheckIntervalMins**) wskazująca węzły są w stanie bezczynności.
-* **UseLastConfigurations** -powyższych konfiguracjach zapisane w pliku argumentu.
-* **ArgFile**-nazwa pliku argumentu używany do zapisywania i aktualizowania konfiguracji, aby uruchomić skrypt.
-* **LogFilePrefix** — prefiks nazwy pliku dziennika. Można określić ścieżkę. Domyślnie dziennik jest zapisywany do bieżącego katalogu roboczego.
+* **NumOfQueuedJobsPerNodeToGrow** -liczbę zadań umieszczonych w kolejce wymagane toogrow jeden węzeł.
+* **NumOfQueuedJobsToGrowThreshold** -hello próg liczbę zadań umieszczonych w kolejce toostart hello wzrostu procesu.
+* **NumOfActiveQueuedTasksPerNodeToGrow** -hello liczba aktywnych zadań w kolejce wymagane toogrow jeden węzeł. Jeśli **NumOfQueuedJobsPerNodeToGrow** zostanie podana wartość większą niż 0, ten parametr jest ignorowany.
+* **NumOfActiveQueuedTasksToGrowThreshold** -hello Próg liczby aktywnych zadań w kolejce toostart hello wzrostu procesu.
+* **NumOfInitialNodesToGrow** — Witaj początkowa minimalna liczba węzłów toogrow, jeśli wszystkie węzły hello w zakresie są **wdrożone nie** lub **zatrzymane (Deallocated)**.
+* **GrowCheckIntervalMins** -hello interwał w minutach od sprawdza toogrow.
+* **ShrinkCheckIntervalMins** -hello interwał w minutach od sprawdza tooshrink.
+* **ShrinkCheckIdleTimes** — Witaj liczby sprawdzeń ciągłego zmniejszania (rozdzielone **ShrinkCheckIntervalMins**) tooindicate hello węzły są w stanie bezczynności.
+* **UseLastConfigurations** — Witaj poprzedniej konfiguracji zapisane w pliku argumentu hello.
+* **ArgFile**— Witaj nazwa toosave plik używany argument hello i hello konfiguracje toorun hello skrypt aktualizacji.
+* **LogFilePrefix** -hello prefiks nazwy pliku dziennika hello. Można określić ścieżkę. Domyślnie dziennik hello jest zapisywane toohello bieżący katalog roboczy.
 
 ### <a name="example-1"></a>Przykład 1
-Poniższy przykład umożliwia skonfigurowanie węzłów Azure serii wdrożone z szablonem AzureNode domyślne, aby zwiększyć lub zmniejszyć automatycznie. Jeśli wszystkie węzły są początkowo w **wdrożone nie** stanu, są uruchamiane co najmniej 3 węzłach. Jeśli liczba zadań w kolejce przekroczy 8, skrypt rozpoczyna węzłów aż do ich liczba przekracza stosunek zadania w kolejce **NumOfQueuedJobsPerNodeToGrow**. Jeśli węzeł zostanie znaleziony ze stanu bezczynności w 3 razy bezczynny, jest zatrzymana.
+Witaj poniższy przykład umożliwia skonfigurowanie hello Azure serii węzłów z toogrow domyślny szablon AzureNode i zmniejsza się automatycznie. Jeśli wszystkie węzły są początkowo w hello **wdrożone nie** stanu, są uruchamiane co najmniej 3 węzłach. Jeśli hello liczbę zadań umieszczonych w kolejce przekroczy 8, skrypt hello rozpoczyna węzłów aż do ich liczba przekracza stosunek hello umieszczonych w kolejce zadań do **NumOfQueuedJobsPerNodeToGrow**. Jeśli węzeł zostanie znaleziony toobe bezczynności 3 kolejne czas bezczynności, zostanie zatrzymana.
 
 ```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates @('Default AzureNode
@@ -248,8 +248,8 @@ Poniższy przykład umożliwia skonfigurowanie węzłów Azure serii wdrożone z
 ```
 
 ### <a name="example-2"></a>Przykład 2
-Poniższy przykład umożliwia skonfigurowanie maszyn wirtualnych wdrożonych przy użyciu szablonu ComputeNode domyślne, aby zwiększyć lub zmniejszyć automatycznie węzeł obliczeń platformy Azure.
-Zadania konfigurowane przez domyślny szablon zadania zdefiniować zakres obciążenia w klastrze. Jeśli wszystkie węzły są początkowo zatrzymana, są uruchamiane co najmniej 5 węzłów. Jeśli liczba aktywnych zadań w kolejce przekroczy 15, uruchamia skrypt węzłów aż do ich liczba przekracza stosunek liczby aktywnych zadań w kolejce do **NumOfActiveQueuedTasksPerNodeToGrow**. Jeśli węzeł zostanie znaleziony ze stanu bezczynności 10 kolejnych czas bezczynności, zostanie zatrzymana.
+Witaj poniższy przykład umożliwia skonfigurowanie hello Azure obliczeniowe węzła maszyny wirtualne wdrażane z hello domyślny szablon ComputeNode toogrow i zmniejsza się automatycznie.
+zadania Hello konfigurowane za pomocą szablonu zadania domyślne hello zdefiniować zakres hello obciążenia w klastrze hello. Jeśli wszystkie węzły hello są początkowo zatrzymana, są uruchamiane co najmniej 5 węzłów. Jeśli hello liczba aktywnych zadań w kolejce przekroczy 15, skrypt hello rozpoczyna węzłów aż do ich liczba przekracza hello stosunek aktywne zadania w kolejce za**NumOfActiveQueuedTasksPerNodeToGrow**. Jeśli węzeł zostanie znaleziony toobe bezczynności 10 kolejnych czas bezczynności, zostanie zatrzymana.
 
 ```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'

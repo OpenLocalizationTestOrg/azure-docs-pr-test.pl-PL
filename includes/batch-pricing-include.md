@@ -1,0 +1,5 @@
+## <a name="pricing"></a>Cennik
+
+Partia zadań Azure jest darmowa; nie są naliczane opłaty za hello samo konto usługi partia zadań. Naliczane są opłaty hello podstawowych zasobów obliczeniowych Azure, używające rozwiązań partii i hello zasoby używane przez inne usługi podczas uruchamiania obciążeń. Na przykład naliczane są opłaty dla węzłów obliczeniowych hello (VM) w Twojej pul oraz hello dane, które są przechowywane w magazynie Azure jako wejście lub wyjście dla zadań. Podobnie jeśli używasz hello [pakietów aplikacji](../articles/batch/batch-application-packages.md) funkcji partii, naliczane są opłaty dla zasobów usługi Azure Storage hello używany do przechowywania pakietów aplikacji. Więcej informacji można znaleźć w temacie [Ceny usługi Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+[Maszyny wirtualne niskiego priorytetu](../articles/batch/batch-low-pri-vms.md) można znacznie zmniejszyć koszt hello obciążeń partii. Aby uzyskać informacje o cenach maszyn wirtualnych o niskim priorytecie, zobacz [Batch — cennik](https://azure.microsoft.com/pricing/details/batch/). 

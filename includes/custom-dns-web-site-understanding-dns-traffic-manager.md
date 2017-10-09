@@ -1,25 +1,25 @@
-System nazw domen (DNS) jest używana do lokalizowania rzeczy w Internecie. Na przykład podczas wprowadzania adresu w przeglądarce, lub kliknij łącze na stronie sieci web, używa DNS, tłumaczenie domeny na adres IP. Adres IP jest sortowania jak ulicę, ale nie jest bardzo człowieka przyjazny. Na przykład jest znacznie łatwiejsze do zapamiętania nazwę DNS, takich jak **contoso.com** niż do zapamiętania adresu IP, takie jak 192.168.1.88 lub 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+Hello systemu nazw domen (DNS) jest używane toolocate elementy na powitania internet. Na przykład podczas wprowadzania adresu w przeglądarce, lub kliknij łącze na stronie sieci web, używa domeny hello tootranslate DNS, do adresu IP. adres IP Hello przypomina sortowania w ulicę, ale nie jest bardzo człowieka przyjazne. Na przykład jest znacznie łatwiejsze tooremember nazwy DNS, takich jak **contoso.com** niż jest tooremember adresu IP, takie jak 192.168.1.88 lub 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-DNS system jest oparty na *rekordów*. Rejestruje skojarzenia określony *nazwa*, takich jak **contoso.com**, adres IP lub nazwa DNS innej. W przypadku aplikacji, takich jak przeglądarki sieci web, wyszukiwania nazw w systemie DNS, znajduje rekord i używa niezależnie od wskazuje jako adres. Wartość, która wskazuje jest adresem IP, wartości będą używać przeglądarki. Wskazuje na inną nazwę DNS, aplikacja ma robić rozpoznawania. Ostatecznie rozpoznawanie nazw zakończy adresu IP.
+Witaj DNS system jest oparta na *rekordów*. Rejestruje skojarzenia określony *nazwa*, takich jak **contoso.com**, adres IP lub nazwa DNS innej. Aplikacji, takich jak przeglądarki sieci web, wyszukuje nazwy w systemie DNS, znajduje rekord hello, a używa on punktów tooas hello adres. Jeśli hello wartość toois punktów adresu IP, przeglądarki hello użyje tej wartości. Wskazuje nazwę DNS tooanother, następnie aplikacji hello ma rozdzielczość toodo ponownie. Ostatecznie rozpoznawanie nazw zakończy adresu IP.
 
-Podczas tworzenia witryny sieci Web platformy Azure, nazwa DNS jest automatycznie przypisany do lokacji. Ta nazwa ma postać  **&lt;yoursitename&gt;. azurewebsites.net**. Podczas dodawania witryny sieci Web jako punkt końcowy usługi Azure Traffic Manager, następnie jest dostępna za pośrednictwem witryny sieci Web  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domeny.
+Podczas tworzenia witryny sieci Web platformy Azure, nazwa DNS jest automatycznie przypisywany toohello lokacji. Ta nazwa ma formę hello  **&lt;yoursitename&gt;. azurewebsites.net**. Po dodaniu witryny sieci Web jako punktu końcowego usługi Azure Traffic Manager witryny sieci Web jest dostępna za pośrednictwem hello  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domeny.
 
 > [!NOTE]
-> Gdy witryny sieci Web jest skonfigurowany jako punkt końcowy Menedżera ruchu, użyje **. trafficmanager.net** adresów podczas tworzenia rekordów DNS.
+> Gdy witryny sieci Web jest skonfigurowany jako punkt końcowy Menedżera ruchu, użyje hello **. trafficmanager.net** adresów podczas tworzenia rekordów DNS.
 > 
 > Można używać tylko rekordy CNAME z Menedżera ruchu
 > 
 > 
 
-Są również wiele typów rekordów, każda z własnych funkcji i ograniczeń, ale dla witryn sieci Web skonfigurowana do jako punkty końcowe usługi Traffic Manager, tylko Dbamy o jeden; *CNAME* rekordów.
+Są również wiele typów rekordów, każda z własnych funkcji i ograniczeń, ale dla witryn sieci Web skonfigurowana tooas punktów końcowych usługi Traffic Manager, tylko Dbamy o jeden; *CNAME* rekordów.
 
 ### <a name="cname-or-alias-record"></a>Rekord CNAME lub Alias
-Rekord CNAME mapuje *określonych* nazwy DNS, takich jak **mail.contoso.com** lub **www.contoso.com**, do innej nazwy domeny (canonical). W przypadku za pomocą Menedżera ruchu Azure witryn sieci Web, nazwa kanoniczna domeny jest  **&lt;moja_aplikacja >. trafficmanager.net** nazwę domeny profilu usługi Traffic Manager. Po utworzeniu nazwy CNAME tworzy alias dla  **&lt;moja_aplikacja >. trafficmanager.net** nazwy domeny. Wpis CNAME rozwiąże adres IP Twojego  **&lt;moja_aplikacja >. trafficmanager.net** automatycznie, nazwa domeny, jeśli zmieni adres IP witryny sieci Web, nie trzeba podejmować żadnych działań.
+Rekord CNAME mapuje *określonych* nazwy DNS, takich jak **mail.contoso.com** lub **www.contoso.com**, tooanother nazwy domeny (canonical). W przypadku hello Azure witryn sieci Web przy użyciu Menedżera ruchu, nazwa domeny canonical hello jest hello  **&lt;moja_aplikacja >. trafficmanager.net** nazwę domeny profilu usługi Traffic Manager. Po utworzeniu hello CNAME tworzy alias dla hello  **&lt;moja_aplikacja >. trafficmanager.net** nazwy domeny. Hello wpis CNAME rozwiąże adres IP toohello Twojego  **&lt;moja_aplikacja >. trafficmanager.net** automatycznie, nazwa domeny, jeśli zmieni adres IP hello hello witryny sieci Web, nie masz tootake żadnych działań.
 
-Po odebraniu ruchu na Menedżera ruchu następnie przekierowuje ruch do witryny sieci Web przy użyciu metody, które nie jest skonfigurowana do równoważenia obciążenia. To jest całkowicie niewidoczne dla odwiedzający witrynę sieci Web. Użytkownik widzi tylko nazwy domeny niestandardowej w przeglądarce.
+Po odebraniu ruchu na Menedżera ruchu następnie przekierowuje hello ruchu tooyour witryny sieci Web, przy użyciu metody, które nie jest skonfigurowana do równoważenia obciążenia hello. To jest całkowicie niewidoczne toovisitors tooyour witryny sieci Web. Użytkownik widzi tylko hello niestandardową nazwę domeny w przeglądarce.
 
 > [!NOTE]
-> Niektóre rejestratorów domeny umożliwiają tylko mapy poddomen, gdy przy użyciu rekordu CNAME, takich jak **www.contoso.com**, a nie głównego nazwy, takie jak **contoso.com**. Aby uzyskać więcej informacji na rekordy CNAME, zobacz w dokumentacji dostarczonej przez rejestratora, <a href="http://en.wikipedia.org/wiki/CNAME_record">wpis Wikipedia rekordu CNAME</a>, lub <a href="http://tools.ietf.org/html/rfc1035">nazwy domen IETF - wdrażania i specyfikację</a> dokumentu.
+> Niektóre domeny rejestratorów tylko pozwalają poddomen toomap podczas przy użyciu rekordu CNAME, takich jak **www.contoso.com**, a nie głównego nazwy, takie jak **contoso.com**. Więcej informacji o rekordy CNAME, można znaleźć w dokumentacji hello przez rejestratora, <a href="http://en.wikipedia.org/wiki/CNAME_record">hello wpis Wikipedia rekordu CNAME</a>, lub hello <a href="http://tools.ietf.org/html/rfc1035">nazwy domen IETF - wdrażania i specyfikację</a> dokument.
 > 
 > 
 

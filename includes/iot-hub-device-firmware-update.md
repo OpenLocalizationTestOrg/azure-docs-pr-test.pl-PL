@@ -1,25 +1,25 @@
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
 W tej sekcji omówiono następujące zagadnienia:
 
-* Tworzenie aplikacji konsolowej Node.js, która reaguje na metodę bezpośrednią wywołaną przez chmurę
+* Tworzenie aplikacji konsoli Node.js, które odpowiada metoda bezpośrednia tooa wywoływane przez hello chmury
 * Wyzwalanie symulowanej aktualizacji oprogramowania układowego
-* Włączanie zapytań bliźniaczych reprezentacji urządzeń przy użyciu zgłoszonych właściwości w celu zidentyfikowania urządzeń i ustalenia, kiedy ostatnio przeprowadzono na nich aktualizację oprogramowania układowego
+* Hello używany zgłaszane właściwości tooenable urządzeń dwie zapytania tooidentify urządzenia i kiedy zostały ukończone ostatniej aktualizacji oprogramowania układowego
 
-Krok 1: Tworzenie pustego folderu o nazwie **manageddevice**.  W folderze **manageddevice** utwórz plik package.json przy użyciu następującego polecenia z poziomu wiersza polecenia. Zaakceptuj wszystkie ustawienia domyślne:
+Krok 1: Tworzenie pustego folderu o nazwie **manageddevice**.  W hello **manageddevice** folderu, Utwórz plik package.json za pomocą hello następujące polecenie z wiersza polecenia. Zaakceptuj wszystkie domyślne hello:
    
     ```
     npm init
     ```
 
-Krok 2: W oknie wiersza polecenia w **manageddevice** folderu, uruchom następujące polecenie, aby zainstalować **azure iot urządzenia** i **azure-iot urządzenie mqtt** SDK urządzenia pakiety:
+Krok 2: W oknie wiersza polecenia w hello **manageddevice** folderu, uruchom następujące polecenie tooinstall hello hello **azure iot urządzenia** i **azure-iot urządzenie mqtt** urządzenia Zestaw SDK pakietów:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-Krok 3: Za pomocą edytora tekstu, Utwórz **dmpatterns_fwupdate_device.js** w pliku **manageddevice** folderu.
+Krok 3: Za pomocą edytora tekstu, Utwórz **dmpatterns_fwupdate_device.js** pliku w hello **manageddevice** folderu.
 
-Krok 4: Dodaj następujące "wymagane" instrukcje na początku **dmpatterns_fwupdate_device.js** pliku:
+Krok 4: Dodaj następujące hello "Wymagaj" instrukcje na początku hello hello **dmpatterns_fwupdate_device.js** pliku:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Krok 4: Dodaj następujące "wymagane" instrukcje na początku **dmpatterns_fwup
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-Krok 5: Dodawanie **connectionString** zmiennej i użyj go, aby utworzyć **klienta** wystąpienia. Zamień symbol zastępczy `{yourdeviceconnectionstring}` na parametry połączenia zanotowane wcześniej w sekcji „Tworzenie tożsamości urządzenia”:
+Krok 5: Dodawanie **connectionString** zmiennej i korzystać z niego toocreate **klienta** wystąpienia. Zastąp hello `{yourdeviceconnectionstring}` symbol zastępczy parametrów połączenia hello należy wcześniej zanotowano w sekcji "Tworzenie tożsamości urządzenia" hello wcześniej:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-Krok 6: Dodawanie następujących funkcji, która jest używana do aktualizacji właściwości zgłoszone:
+Krok 6: Dodaj hello funkcja, która jest tooupdate używany zgłaszane właściwości:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Krok 6: Dodawanie następujących funkcji, która jest używana do aktualizacji 
     };
     ```
 
-Krok 7: Dodawanie następujących funkcji symulujących pobierania i stosowania obrazu oprogramowania układowego:
+Krok 7: Dodawanie hello następujące funkcje, które symulować pobierania i stosowania obrazu oprogramowania układowego hello:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Krok 7: Dodawanie następujących funkcji symulujących pobierania i stosowania 
     }
     ```
 
-Krok 8: Dodaj następującą funkcję, która aktualizuje stan aktualizacji oprogramowania układowego za pośrednictwem właściwości zgłoszony do **oczekiwania**. Zazwyczaj urządzenia otrzymują informacje o dostępnej aktualizacji, a zasady określone przez administratora powodują, że urządzenie zaczyna pobierać i stosować aktualizację. To w tej funkcji powinna zostać uruchomiona logika włączająca te zasady. Dla uproszczenia próbki czeka na cztery sekund przed kontynuowaniem pobranie obrazu oprogramowania układowego:
+Krok 8: Dodanie powitania po funkcji stan aktualizacji oprogramowania układowego hello aktualizacje za pośrednictwem hello zbyt zgłosił właściwości**oczekiwania**. Zazwyczaj urządzenia zostaną poinformowani o dostępnych aktualizacjach i określonej przez administratora zasad powoduje hello urządzenia toostart pobierania i stosowania aktualizacji hello. Ta funkcja jest gdzie hello tooenable logiki, który należy uruchamiać zasad. Dla uproszczenia hello przykładowy oczekuje na cztery sekund przed kontynuowaniem toodownload hello oprogramowania układowego obrazu:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Krok 8: Dodaj następującą funkcję, która aktualizuje stan aktualizacji opro
     };
     ```
 
-Krok 9: Dodaj następującą funkcję, która aktualizuje stan aktualizacji oprogramowania układowego za pośrednictwem właściwości zgłoszony do **pobierania**. Następnie funkcja symuluje pobieranie oprogramowania układowego i aktualizuje stan aktualizacji oprogramowania na **downloadFailed** lub **downloadComplete**:
+Krok 9: Dodaj powitania po funkcji stan aktualizacji oprogramowania układowego hello aktualizacje za pośrednictwem hello zbyt zgłosił właściwości**pobierania**. Witaj funkcja następnie symuluje pobierania oprogramowania układowego i na koniec aktualizacje hello tooeither stan aktualizacji oprogramowania układowego **downloadFailed** lub **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Krok 9: Dodaj następującą funkcję, która aktualizuje stan aktualizacji opro
     }
     ```
 
-Krok 10: Dodaj następującą funkcję, która aktualizuje stan aktualizacji oprogramowania układowego za pośrednictwem właściwości zgłoszony do **stosowania**. Następnie funkcja symuluje stosowanie obrazu oprogramowania układowego i aktualizuje stan aktualizacji oprogramowania na **applyFailed** lub **applyComplete**:
+Krok 10: Dodaj powitania po funkcji stan aktualizacji oprogramowania układowego hello aktualizacje za pośrednictwem hello zbyt zgłosił właściwości**stosowania**. Witaj funkcja następnie symuluje stosowania obrazu oprogramowania układowego hello i ostatecznie aktualizacje hello tooeither stan aktualizacji oprogramowania układowego **applyFailed** lub **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,31 +166,31 @@ Krok 10: Dodaj następującą funkcję, która aktualizuje stan aktualizacji opr
     }
     ```
 
-Krok 11: Dodaj następująca funkcja, która obsługuje **firmwareUpdate** metoda bezpośrednia i inicjuje procesu aktualizacji oprogramowania układowego wieloetapowym:
+Krok 11: Dodaj następujące hello funkcji hello tego dojścia **firmwareUpdate** metoda bezpośrednia i oprogramowanie układowe wieloetapowym hello inicjuje proces aktualizacji:
     
     ```
     var onFirmwareUpdate = function(request, response) {
     
-      // Respond the cloud app for the direct method
+      // Respond hello cloud app for hello direct method
       response.send(200, 'FirmwareUpdate started', function(err) {
         if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
         }
       });
     
-      // Get the parameter from the body of the method request
+      // Get hello parameter from hello body of hello method request
       var fwPackageUri = request.payload.fwPackageUri;
     
-      // Obtain the device twin
+      // Obtain hello device twin
       client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
           console.log('Device twin acquired.');
     
-          // Start the multi-stage firmware update
+          // Start hello multi-stage firmware update
           waitToDownload(twin, fwPackageUri, function() {
             downloadImage(twin, fwPackageUri, function(imageData) {
               applyImage(twin, imageData, function() {});    
@@ -202,14 +202,14 @@ Krok 11: Dodaj następująca funkcja, która obsługuje **firmwareUpdate** metod
     }
     ```
 
-Krok 12: Na koniec należy dodać następujący kod, który łączy się z Centrum IoT:
+Krok 12: Na koniec należy dodać następującego kodu, który łączy się z Centrum IoT tooyour hello:
     
     ```
     client.open(function(err) {
       if (err) {
-        console.error('Could not connect to IotHub client');
+        console.error('Could not connect tooIotHub client');
       }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+        console.log('Client connected tooIoT Hub.  Waiting for firmwareUpdate direct method.');
       }
     
       client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate);
@@ -217,6 +217,6 @@ Krok 12: Na koniec należy dodać następujący kod, który łączy się z Centr
     ```
 
 > [!NOTE]
-> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania (na przykład wykładniczego wycofywania), zgodnie z sugestią podaną w artykuł w witrynie MSDN [obsługi błędów przejściowych](https://msdn.microsoft.com/library/hh675232.aspx).
+> rzeczy tookeep proste, w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania (na przykład wykładniczego wycofywania), zgodnie z sugestią podaną w artykuł w witrynie MSDN hello [obsługi błędów przejściowych](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

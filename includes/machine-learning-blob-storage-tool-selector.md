@@ -1,6 +1,6 @@
-<!-- Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+<!-- Guidance on technologies used toomove data tooand/or from Azure Blob storage are linked here:
 -->
-Łącza tego menu do technologii umożliwia przenoszenie danych do i z magazynu obiektów Blob platformy Azure:
+W tym menu łączy tootechnologies można użyć toomove tooand danych z magazynu obiektów Blob platformy Azure:
 
 > [!div class="op_single_selector" title1="Blob storage tools"]
 > * [Omówienie](../articles/machine-learning/machine-learning-data-science-move-azure-blob.md)

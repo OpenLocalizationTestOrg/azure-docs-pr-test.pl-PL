@@ -1,7 +1,7 @@
 
-1. Otwórz projekt w programie Android Studio.
+1. Witaj Otwórz projekt w programie Android Studio.
 
-2. W **Eksplorator projektów** w programie Android Studio Otwórz plik ToDoActivity.java i dodaj następujące instrukcje importu:
+2. W **Eksplorator projektów** w programie Android Studio Otwórz plik ToDoActivity.java hello i dodaj następujące instrukcje importu hello:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,13 +13,13 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. Dodaj następującą metodę do **ToDoActivity** klasy:
+3. Dodaj następujące metody toohello hello **ToDoActivity** klasy:
 
-        // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
+        // You can choose any unique number here toodifferentiate auth providers from each other. Note this is hello same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
 
         private void authenticate() {
-            // Login using the Google provider.
+            // Login using hello Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
 
@@ -27,7 +27,7 @@
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
             if (resultCode == RESULT_OK) {
-                // Check the request code matches the one we send in the login request
+                // Check hello request code matches hello one we send in hello login request
                 if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                     MobileServiceActivityResult result = mClient.onActivityResult(data);
                     if (result.isLoggedIn()) {
@@ -35,7 +35,7 @@
                         createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                         createTable();
                     } else {
-                        // login failed, check the error message
+                        // login failed, check hello error message
                         String errorMessage = result.getErrorMessage();
                         createAndShowDialog(errorMessage, "Error");
                     }
@@ -43,36 +43,36 @@
             }
         }
 
-    Ten kod tworzy metodę, aby obsługiwać ten proces uwierzytelniania Google. Okno dialogowe wyświetla identyfikator uwierzytelnionego użytkownika. Można kontynuować tylko na pomyślne uwierzytelnienie.
+    Ten kod tworzy metody toohandle hello proces uwierzytelniania Google. Okno dialogowe wyświetla identyfikator hello hello uwierzytelnianego użytkownika. Można kontynuować tylko na pomyślne uwierzytelnienie.
 
     > [!NOTE]
-    > Jeśli używasz dostawcy tożsamości innych niż Google, zmień wartość przekazana do **logowania** metodę na jedną z następujących wartości: _MicrosoftAccount_, _Facebook_, _Twitter_, lub _windowsazureactivedirectory_.
+    > Jeśli używasz dostawcy tożsamości innych niż Google, zmień wartość hello przekazany toohello **logowania** tooone metody z hello następujące wartości: _MicrosoftAccount_, _Facebook_, _Twitter_, lub _windowsazureactivedirectory_.
 
-4. W **onCreate** metody, Dodaj następujący wiersz kodu po kodzie tworzącym `MobileServiceClient` obiektu.
+4. W hello **onCreate** metody, Dodaj powitania po wierszu kodu po kodzie hello, tworzącym hello `MobileServiceClient` obiektu.
 
         authenticate();
 
-    Tego wywołania spowoduje uruchomienie procesu uwierzytelniania.
+    To wywołanie uruchamia proces uwierzytelniania hello.
 
-5. Przenieś pozostałych kod po `authenticate();` w **onCreate** nową metodę **createTable** metody:
+5. Przenieś hello pozostałych kod po `authenticate();` w hello **onCreate** nowe tooa — metoda **createTable** metody:
 
         private void createTable() {
 
-            // Get the table instance to use.
+            // Get hello table instance toouse.
             mToDoTable = mClient.getTable(ToDoItem.class);
 
             mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 
-            // Create an adapter to bind the items with the view.
+            // Create an adapter toobind hello items with hello view.
             mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
             listViewToDo.setAdapter(mAdapter);
 
-            // Load the items from Azure.
+            // Load hello items from Azure.
             refreshItemsFromTable();
         }
 
-6. Aby zapewnić przekierowania działa zgodnie z oczekiwaniami, Dodaj poniższy fragment _RedirectUrlActivity_ do _AndroidManifest.xml_:
+6. tooensure przekierowania działa zgodnie z oczekiwaniami, Dodaj powitania po fragment _RedirectUrlActivity_ too_AndroidManifest.xml_:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. Dodaj redirectUriScheme do _build.gradle_ aplikacji systemu Android.
+7. Dodaj too_build.gradle_ redirectUriScheme aplikacji systemu Android.
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. Dodaj com.android.support:customtabs:23.0.1 do zależności w Twojej build.gradle:
+8. Dodaj zależności toohello com.android.support:customtabs:23.0.1 Twojego build.gradle:
 
       zależności {/ /... "com.android.support:customtabs:23.0.1" Kompiluj}
 
-9. Z **Uruchom** menu, kliknij przycisk **uruchamianie aplikacji** do Uruchom aplikację i zaloguj się przy użyciu dostawcy tożsamości wybrany.
+9. Z hello **Uruchom** menu, kliknij przycisk **uruchamianie aplikacji** toostart hello aplikacji i zaloguj się przy użyciu dostawcy tożsamości wybrany.
 
 > [!WARNING]
-> Schemat adresu URL wymieniony jest rozróżniana wielkość liter.  Upewnij się, że wszystkie wystąpienia `{url_scheme_of_you_app}` wielkością liter.
+> Schemat adresów URL wymienionych Hello jest rozróżniana wielkość liter.  Upewnij się, że wszystkie wystąpienia `{url_scheme_of_you_app}` Użyj hello sam case.
 
-Jeśli pomyślnie zalogowano aplikacji powinny być uruchamiane bez błędów, a można wysłać zapytania do usługi zaplecza i aktualizowanie danych.
+Jeśli pomyślnie zalogowano aplikacji hello powinny być uruchamiane bez błędów, a powinny być możliwe tooquery hello zaplecza usługi i wprowadzić toodata aktualizacji.

@@ -1,12 +1,12 @@
-Należy koniecznie należy pamiętać, że istnieją dwa sposoby konfigurowania odbiornik grupy dostępności na platformie Azure. Możliwości różnią się w typie modułu równoważenia obciążenia Azure, używanego podczas tworzenia odbiornika. W poniższej tabeli opisano różnice:
+Jest ważne toorealize, że istnieją dwa sposoby tooconfigure odbiornik grupy dostępności na platformie Azure. sposoby Hello różnią się hello typu usługi równoważenia obciążenia Azure, używanego podczas tworzenia odbiornika hello. Witaj w poniższej tabeli opisano różnice hello:
 
 | Typ usługi równoważenia obciążenia | Wdrażanie | Zastosowania: |
 | --- | --- | --- |
-| **Zewnętrzne** |Używa *publiczny wirtualny adres IP* usługi w chmurze, który jest hostem maszyny wirtualnej (VM). |Należy uzyskać dostępu do odbiornika z spoza sieci wirtualnej, łącznie z Internetu. |
-| **Wewnętrzny** |Używa *wewnętrznego modułu równoważenia obciążenia* za pomocą prywatnego adresu dla odbiornika. |Można uzyskać dostępu do odbiornika tylko w obrębie tej samej sieci wirtualnej. Ten dostęp obejmuje sieci VPN typu lokacja lokacja w scenariuszach hybrydowych. |
+| **Zewnętrzne** |Używa hello *publiczny wirtualny adres IP* usługi w chmurze hello obsługującego hello maszynach wirtualnych (VM). |Należy tooaccess hello odbiornika z hello poza siecią wirtualną, łącznie z hello Internet. |
+| **Wewnętrzny** |Używa *wewnętrznego modułu równoważenia obciążenia* za pomocą prywatnego adresu dla odbiornika hello. |Można uzyskać dostępu do odbiornika hello tylko z wewnątrz hello tej samej sieci wirtualnej. Ten dostęp obejmuje sieci VPN typu lokacja lokacja w scenariuszach hybrydowych. |
 
 > [!IMPORTANT]
-> Dla odbiornika, który korzysta z usługi w chmurze publicznej VIP (zewnętrznej usługi równoważenia obciążenia), tak długo, jak klient odbiornik i bazy danych znajdują się w tym samym regionie Azure, nie będą naliczane opłaty za wyjście. W przeciwnym razie żadnych danych zwrócony przez odbiornik jest uznawany za wyjście i jest rozliczana stawkami normalne transferu danych. 
+> Dla odbiornika że używa usługi chmury hello publicznych adresów VIP (zewnętrznej usługi równoważenia obciążenia), tak długo, jak powitania klienta, odbiornik i bazy danych znajdują się w hello tego samego regionu Azure, nie będą naliczane opłaty za wyjście. W przeciwnym razie żadnych danych zwracany za pomocą hello odbiornika jest uważany za wyjście i jest rozliczana stawkami normalne transferu danych. 
 > 
 > 
 

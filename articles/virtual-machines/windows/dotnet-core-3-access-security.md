@@ -1,5 +1,5 @@
 ---
-title: "Dostęp i większe bezpieczeństwo w szablonów platformy Azure dla maszyn wirtualnych systemu Windows | Dokumentacja firmy Microsoft"
+title: "aaaAccess i zabezpieczeń w szablonach usługi Azure dla maszyn wirtualnych systemu Windows | Dokumentacja firmy Microsoft"
 description: Samouczek DotNet podstawowej maszyny wirtualnej platformy Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1b5c4763cf56f681a50bb1bccc825311bbfdf5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b8227ae745b3b0a22d136e98d18479f8b1504c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Dostęp i większe bezpieczeństwo w szablonach usługi Azure Resource Manager dla maszyn wirtualnych systemu Windows
 
-Aplikacje hostowane na platformie Azure mogą muszą być dostępu przez internet lub sieć VPN / połączenia usługi Express Route z platformy Azure. Z magazynu utworów muzycznych przykładowej aplikacji witryny sieci web są udostępniane w Internecie z publicznym adresem IP. Do których dostęp ustanowić połączenia do aplikacji i dostępu do zasobów maszyny wirtualnej, same powinny być zabezpieczone. Zabezpieczeń dostępu jest dostarczany z grupy zabezpieczeń sieci. 
+Aplikacje obsługiwane w dostępu toobe Azure prawdopodobnie konieczne za pośrednictwem hello, internet lub sieć VPN / połączenia usługi Express Route z platformy Azure. Z przykładowych aplikacji sklepu utworów muzycznych hello, hello witryny sieci web ma zostać udostępnione na hello internet z publicznym adresem IP. Dostęp nawiązane powinny być zabezpieczone połączenia toohello aplikacji i dostępu toohello zasobów maszyny wirtualnej samodzielnie. Zabezpieczeń dostępu jest dostarczany z grupy zabezpieczeń sieci. 
 
-Ten dokument zawiera szczegóły, jak aplikacji utworów muzycznych magazynu jest zabezpieczone w przykładowy szablon usługi Azure Resource Manager. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Aby uzyskać najlepsze wyniki wykonaj wstępne wdrożenie wystąpienia rozwiązania do subskrypcji platformy Azure i pracy wraz z szablonu usługi Azure Resource Manager. Zakończenie szablonu można znaleźć tutaj — [utworów muzycznych wdrożenia magazynu w systemie Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Ten dokument zawiera szczegóły dotyczące jak chronione są hello aplikację ze sklepu utworów muzycznych w hello przykładowy szablon usługi Azure Resource Manager. Wszystkie zależności i unikatowe konfiguracje są wyróżnione. Hello najlepsze środowisko pracy wykonaj wstępne wdrożenie wystąpienie tooyour rozwiązania hello subskrypcji platformy Azure i pracy oraz hello szablonu usługi Azure Resource Manager. Szablon pełną Hello można znaleźć tutaj — [utworów muzycznych wdrożenia magazynu w systemie Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="public-ip-address"></a>Publiczny adres IP
-Aby zapewnić publiczny dostęp do zasobów platformy Azure, można użyć zasób publicznego adresu IP. Publiczny adres IP można skonfigurować statyczny lub dynamiczny adres IP. W przypadku dynamicznego adresu jest używany, a maszyna wirtualna zostanie zatrzymany i alokację, adresy zostanie usunięte. Po ponownym uruchomieniu komputera, może można przypisać inny publiczny adres IP. Aby uniemożliwić zmianę adresu IP, można użyć zastrzeżonego adresu IP. 
+można tooprovide dostępu publicznego tooan zasobów platformy Azure, zasób publicznego adresu IP. Publiczny adres IP można skonfigurować statyczny lub dynamiczny adres IP. W przypadku dynamicznego adresu jest używany, a hello maszyny wirtualnej zostanie zatrzymany i alokację, adresy hello zostanie usunięte. Po ponownym uruchomieniu komputera hello może można przypisać inny publiczny adres IP. tooprevent jako IP adresu z zmiana, zastrzeżonego adresu IP może być używany. 
 
-Publiczny adres IP można dodać do szablonu usługi Azure Resource Manager przy użyciu programu Visual Studio Kreatora dodawania nowych zasobów lub wstawiając poprawne dane JSON do szablonu. 
+Publiczny adres IP można dodać szablon usługi Azure Resource Manager tooan przy użyciu hello Visual Studio nowego Kreatora dodawania zasobów, lub przez wstawienie poprawne dane JSON do szablonu. 
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [publicznego adresu IP](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [publicznego adresu IP](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
 
 ```json
 {
@@ -54,9 +54,9 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 }
 ```
 
-Publiczny adres IP może być skojarzona z wirtualną kartę sieciową lub równoważenia obciążenia. W tym przykładzie ponieważ magazynu utworów muzycznych witryny sieci Web jest równoważone między kilka maszyn wirtualnych, publiczny adres IP jest dołączony do usługi równoważenia obciążenia.
+Publiczny adres IP może być skojarzona z wirtualną kartę sieciową lub równoważenia obciążenia. W tym przykładzie ponieważ hello magazynu utworów muzycznych witryny sieci Web jest równoważone między kilka maszyn wirtualnych, hello publiczny adres IP jest dołączona toohello moduł równoważenia obciążenia.
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [skojarzenie publicznego adresu IP usługi równoważenia obciążenia](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [skojarzenie publicznego adresu IP usługi równoważenia obciążenia](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
 
 ```json
 "frontendIPConfigurations": [
@@ -71,16 +71,16 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 ]
 ```
 
-Publiczny adres IP wyświetlanego w portalu Azure. Zwróć uwagę, że publiczny adres IP jest skojarzony z modułem równoważenia obciążenia i nie maszyny wirtualnej. Moduły równoważenia obciążenia sieciowego są szczegółowo opisane w dokumencie dalej w tej serii.
+Witaj publicznego adresu IP jako odebrane przez hello portalu Azure. Zwróć uwagę, czy hello publicznego adresu IP usługi równoważenia obciążenia skojarzone tooa i nie maszyny wirtualnej. Moduły równoważenia obciążenia sieciowego są szczegółowo opisane w dokumencie dalej hello tej serii.
 
 ![Publiczny adres IP](./media/dotnet-core-3-access-security/pubip-win.png)
 
 Aby uzyskać więcej informacji na publiczne adresy IP platformy Azure, zobacz [adresów IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="network-security-group"></a>Grupy zabezpieczeń sieci
-Po ustanowieniu dostępu do zasobów platformy Azure, ten dostęp powinien być ograniczony. Dla maszyn wirtualnych platformy Azure bezpieczny dostęp odbywa się za pomocą grupy zabezpieczeń sieci. Z magazynu utworów muzycznych przykładowej aplikacji dostęp do maszyny wirtualnej jest ograniczony z wyjątkiem przez port 80 dla dostępu http i portu 3389 dostępu RDP. Grupa zabezpieczeń sieci można dodać do szablonu usługi Azure Resource Manager przy użyciu programu Visual Studio Kreatora dodawania nowych zasobów lub wstawiając poprawne dane JSON do szablonu.
+Po dostępu do zasobów ustalonych tooAzure, ten dostęp powinien być ograniczony. Dla maszyn wirtualnych platformy Azure bezpieczny dostęp odbywa się za pomocą grupy zabezpieczeń sieci. Z przykładowych aplikacji sklepu utworów muzycznych hello wszystkie maszyny wirtualnej toohello dostęp jest ograniczony z wyjątkiem przez port 80 dla dostępu http i portu 3389 protokołu RDP dostępu. Szablon usługi Azure Resource Manager tooan przy użyciu hello Visual Studio Dodaj Kreatora nowego zasobu, można dodać sieciowej grupy zabezpieczeń lub przez wstawienie poprawne dane JSON do szablonu.
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [sieciowej grupy zabezpieczeń](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [sieciowej grupy zabezpieczeń](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
 
 ```json
 {
@@ -113,9 +113,9 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 },
 ```
 
-W tym przykładzie sieciowej grupy zabezpieczeń jest skojarzony z obiektem podsieci zadeklarowany w zasobie sieci wirtualnej. 
+W tym przykładzie hello sieciowej grupy zabezpieczeń jest skojarzony z obiektem podsieci hello zadeklarowany w hello zasobów sieci wirtualnej. 
 
-Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource Manager — [skojarzenia sieciowej grupy zabezpieczeń z siecią wirtualną](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
+Wykonaj ten przykład link toosee hello JSON w szablonie usługi Resource Manager hello — [skojarzenia sieciowej grupy zabezpieczeń z siecią wirtualną](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
 
 ```json
 "subnets": [
@@ -131,7 +131,7 @@ Wykonaj to łącze, aby zobaczyć przykładowy JSON w szablonie usługi Resource
 ]
 ```
 
-Oto, jak wygląda sieciowej grupy zabezpieczeń w portalu Azure. Należy zauważyć, że grupy NSG można skojarzyć z interfejsem podsieć i / lub sieci. W takim przypadku grupa NSG jest skojarzona z podsiecią. W tej konfiguracji reguł ruchu przychodzącego dotyczą wszystkie maszyny wirtualne podłączone do podsieci.
+Oto, jakie grupy zabezpieczeń sieci hello wygląda z hello portalu Azure. Należy zauważyć, że grupy NSG można skojarzyć z interfejsem podsieć i / lub sieci. W takim przypadku hello NSG jest skojarzona tooa podsieci. W tej konfiguracji hello reguł ruchu przychodzącego Zastosuj tooall maszyny wirtualne podłączone toohello podsieci.
 
 ![Grupy zabezpieczeń sieci](./media/dotnet-core-3-access-security/nsg-win.png)
 

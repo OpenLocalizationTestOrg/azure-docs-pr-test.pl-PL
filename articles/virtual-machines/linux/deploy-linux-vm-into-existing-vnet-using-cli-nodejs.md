@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie maszyn wirtualnych systemu Linux w istniejącej sieci z interfejsu wiersza polecenia platformy Azure w wersji 1.0 | Dokumentacja firmy Microsoft"
-description: "Jak wdrożyć Maszynę wirtualną systemu Linux w ramach istniejącej sieci wirtualnej przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure"
+title: "aaaDeploy maszyn wirtualnych systemu Linux w istniejącej sieci z interfejsu wiersza polecenia platformy Azure w wersji 1.0 | Dokumentacja firmy Microsoft"
+description: "Jak toodeploy Maszynę wirtualną systemu Linux w istniejącej sieci wirtualnej przy użyciu hello Azure CLI w wersji 1.0"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 767a3f7cadba6b1e71e5a8f5995a9db090e419dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e660f1563d386efc7788bd236f8b067145ea09bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli-10"></a>Jak wdrożyć maszyny wirtualnej systemu Linux w istniejącej sieci wirtualnej platformy Azure z interfejsu wiersza polecenia platformy Azure w wersji 1.0
+# <a name="how-toodeploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-hello-azure-cli-10"></a>Jak toodeploy maszyny wirtualnej systemu Linux w istniejącej sieci wirtualnej platformy Azure z hello Azure CLI w wersji 1.0
 
-W tym artykule przedstawiono sposób użycia interfejsu wiersza polecenia platformy Azure w wersji 1.0, aby wdrożyć maszynę wirtualną (VM) do istniejącej sieci wirtualnej (VNet). Wymagania są następujące:
+W tym artykule opisano sposób toodeploy toouse Azure CLI 1.0 maszynę wirtualną (VM) do istniejącej sieci wirtualnej (VNet). wymagania dotyczące Hello są:
 
 - [Konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [Pliki kluczy publicznych i prywatnych SSH](mac-create-ssh-keys.md)
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
+## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
+Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
 
-- [Azure CLI 1.0](#quick-commands) — nasze interfejsu wiersza polecenia dla klasycznego i zasobów zarządzania wdrażania modeli (w tym artykule)
-- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+- [Azure CLI 1.0](#quick-commands) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania wdrażania modeli (w tym artykule)
+- [Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello
 
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 
-Jeśli chcesz szybko wykonywać zadania poniższej sekcji Szczegóły poleceń potrzebne. Bardziej szczegółowe informacje i kontekst dla każdego kroku można znaleźć pozostałej części dokumentu, [uruchamiania tutaj](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
+Jeśli potrzebujesz tooquickly hello zadania, powitania po sekcji Szczegóły poleceń hello potrzebne. Bardziej szczegółowe informacje i kontekst dla każdego kroku można znaleźć hello pozostałej części dokumentu hello [uruchamiania tutaj](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
 
 Wymagania Wstępne: NSG grupy zasobów, sieciami wirtualnymi, przy użyciu protokołu SSH ruchu przychodzącego, podsieci. Przykładami należy zastąpić własnymi ustawieniami.
 
-### <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Wdróż maszynę Wirtualną do infrastruktury sieci wirtualnej
+### <a name="deploy-hello-vm-into-hello-virtual-network-infrastructure"></a>Wdrażanie hello maszyny Wirtualnej do hello infrastruktury sieci wirtualnej
 
 ```azurecli
 azure vm create myVM \
@@ -61,19 +61,19 @@ azure vm create myVM \
 
 ## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
 
-Zasoby platformy Azure, takich jak sieci wirtualnych i grup zabezpieczeń sieci musi być statyczny i tam długo zasoby, które rzadko są wdrożone. Po wdrożeniu sieci wirtualnej można użyć ponownie przez nowych wdrożeń bez żadnych niekorzystny wpływ infrastruktury. Traktować jako przełącznik sieciowy sprzętu tradycyjnych sieci wirtualnej. Nie musisz skonfigurować nowy przełącznik sprzętu z każdym wdrożeniu. Z poprawnie skonfigurowana sieć wirtualną możesz kontynuować wdrażanie nowych serwerów w tej sieci wirtualnej samodzielnego z kilku ewentualne zmiany wymagane w całej sieci wirtualnej.
+Zasoby platformy Azure, takich jak hello sieci wirtualnych i grup zabezpieczeń sieci musi być statyczny i tam długo zasoby, które rzadko są wdrożone. Po wdrożeniu sieci wirtualnej można użyć ponownie przez nowych wdrożeń bez żadnych infrastruktury toohello niekorzystny wpływ. Traktować jako przełącznik sieciowy sprzętu tradycyjnych sieci wirtualnej. Nie trzeba tooconfigure nowego sprzętu przełącznik z każdym wdrożeniu. Z poprawnie skonfigurowana sieć wirtualną możesz kontynuować toodeploy nowych serwerów do tej sieci wirtualnej samodzielnego kilka, zmian wymaganych przez czas życia hello hello sieci wirtualnej.
 
-## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
+## <a name="create-hello-resource-group"></a>Utwórz grupę zasobów hello
 
-Najpierw utwórz grupę zasobów do organizowania wszystko, czego możesz utworzyć w tym przewodniku. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+Najpierw utwórz tooorganize grupy zasobów wszystko, czego możesz utworzyć w tym przewodniku. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 
 ```azurecli
 azure group create myResourceGroup --location eastus
 ```
 
-## <a name="create-the-vnet"></a>Tworzenie sieci wirtualnej
+## <a name="create-hello-vnet"></a>Utwórz hello sieci wirtualnej
 
-Pierwszym krokiem jest kompilacji do uruchamiania maszyn wirtualnych do sieci wirtualnej. Sieć wirtualna zawiera jedną podsieć w ramach tego przewodnika. Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz [utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
+Witaj pierwszym krokiem jest toobuild maszyn wirtualnych do hello toolaunch sieci wirtualnej. Witaj sieć wirtualna zawiera jedną podsieć w ramach tego przewodnika. Aby uzyskać więcej informacji o sieci wirtualnych platformy Azure, zobacz [utworzyć sieć wirtualną przy użyciu hello wiersza polecenia platformy Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -82,9 +82,9 @@ azure network vnet create myVNet \
     --location eastus
 ```
 
-## <a name="create-the-network-security-group"></a>Utwórz grupę zabezpieczeń sieci
+## <a name="create-hello-network-security-group"></a>Utwórz grupę zabezpieczeń sieci hello
 
-Podsieć jest wbudowana za istniejącej sieci grupy zabezpieczeń tak Tworzenie grupy zabezpieczeń sieci przed podsieci. Grupy zabezpieczeń sieci platformy Azure są równoważne zapory w warstwie sieci. Aby uzyskać więcej informacji dotyczących grup zabezpieczeń sieci platformy Azure, zobacz [sposobu tworzenia grup zabezpieczeń sieci na platformie Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
+podsieci Hello jest wbudowana za istniejącej grupy zabezpieczeń sieci tak kompilacji hello sieciowej grupy zabezpieczeń przed hello podsieci. Grupy zabezpieczeń sieci platformy Azure są równoważne tooa zapory na powitania warstwy sieci. Aby uzyskać więcej informacji dotyczących grup zabezpieczeń sieci platformy Azure, zobacz [jak grupy zabezpieczeń sieci toocreate w hello wiersza polecenia platformy Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
 ```azurecli
 azure network nsg create myNetworkSecurityGroup \
@@ -94,7 +94,7 @@ azure network nsg create myNetworkSecurityGroup \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>Dodaj regułę Zezwalaj SSH dla ruchu przychodzącego
 
-Maszyna wirtualna wymaga dostępu z Internetu, więc regułę zezwalającą na ruch przychodzący port 22 mają być przekazywane za pośrednictwem sieci do portu 22 na maszynie Wirtualnej nie jest wymagane.
+Witaj maszyna wirtualna musi mieć dostęp z hello internet, regułę zezwalającą na toobe ruch przychodzący port 22 przekazywane hello sieci tooport 22 na powitania maszyny Wirtualnej jest wymagana.
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -110,9 +110,9 @@ azure network nsg rule create inboundSSH \
     --destination-port-range 22
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a>Dodaj podsieć do sieci wirtualnej
+## <a name="add-a-subnet-toohello-vnet"></a>Dodaj toohello podsieci sieci wirtualnej
 
-Maszyny wirtualne w ramach sieci wirtualnej muszą znajdować się w podsieci. Każda sieć wirtualna może mieć wiele podsieci. Utwórz podsieć i skojarzyć z sieciową grupą zabezpieczeń.
+Maszyny wirtualne w ramach hello sieci wirtualnej muszą znajdować się w podsieci. Każda sieć wirtualna może mieć wiele podsieci. Utwórz podsieć hello i skojarz z hello sieciowej grupy zabezpieczeń.
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -122,12 +122,12 @@ azure network vnet subnet create mySubNet \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
-Podsieć jest teraz dodany wewnątrz sieci wirtualnej i skojarzonych z grupy zabezpieczeń sieci i reguły.
+Hello podsieci jest teraz dodawane wewnątrz hello sieci wirtualnej i skojarzonych z hello sieciowej grupy zabezpieczeń i reguły.
 
 
-## <a name="add-a-vnic-to-the-subnet"></a>Dodaj VNic do podsieci
+## <a name="add-a-vnic-toohello-subnet"></a>Dodaj podsieć toohello VNic
 
-Wirtualne karty sieciowe (VNics) są istotne, ponieważ użytkownik może korzystać z nich łącząc je do różnych maszyn wirtualnych. Takie podejście zapewnia VNic jako zasób statycznych maszyn wirtualnych mogą być tymczasowe. Utwórz VNic i skojarzyć go z podsiecią utworzony w poprzednim kroku.
+Wirtualne karty sieciowe (VNics) są ważne, ponieważ późniejszego łącząc je toodifferent maszyn wirtualnych. Takie podejście zapewnia hello VNic jako zasób statycznych hello maszyny wirtualne mogą być tymczasowe. Utwórz VNic i skojarzyć go z podsiecią hello utworzony w poprzednim kroku hello.
 
 ```azurecli
 azure network nic create myVNic \
@@ -137,11 +137,11 @@ azure network nic create myVNic \
     --subnet-name mySubNet
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Wdróż maszynę Wirtualną do sieci wirtualnej i grupy NSG
+## <a name="deploy-hello-vm-into-hello-vnet-and-nsg"></a>Wdrażanie hello maszyny Wirtualnej do hello sieci wirtualnej i grupy NSG
 
-Istnieje już sieć wirtualną i podsieci w tej sieci wirtualnej, a grupa zabezpieczeń sieci w celu ochrony podsieci blokuje cały ruch przychodzący z wyjątkiem port 22 dla protokołu SSH. Teraz można wdrożyć maszyny Wirtualnej w tym istniejącej infrastruktury sieci.
+Istnieje już sieć wirtualną i podsieci w tej sieci wirtualnej i sieciową grupę zabezpieczeń, stanowiąc podsieci hello tooprotect blokuje cały ruch przychodzący z wyjątkiem port 22 dla protokołu SSH. Teraz można wdrożyć Hello maszyny Wirtualnej w tym istniejącej infrastruktury sieci.
 
-Przy użyciu interfejsu wiersza polecenia Azure i `azure vm create` polecenia do istniejącej grupy zasobów platformy Azure, sieci wirtualnej, podsieci i VNic wdrożeniu maszyny Wirtualnej systemu Linux. Aby uzyskać więcej informacji na instalację pełną maszyny Wirtualnej za pomocą interfejsu wiersza polecenia, zobacz [tworzyć kompletne środowisko systemu Linux przy użyciu wiersza polecenia platformy Azure](create-cli-complete.md)
+Przy użyciu interfejsu wiersza polecenia Azure hello i hello `azure vm create` polecenia hello maszyny Wirtualnej systemu Linux jest wdrożony toohello istniejącej grupy zasobów platformy Azure, sieci wirtualnej, podsieci i VNic. Aby uzyskać więcej informacji na temat używania hello CLI toodeploy pełną maszyny Wirtualnej, zobacz [tworzyć kompletne środowisko systemu Linux przy użyciu interfejsu wiersza polecenia Azure hello](create-cli-complete.md)
 
 ```azurecli
 azure vm create myVM \
@@ -157,10 +157,10 @@ azure vm create myVM \
     --nic-name myVNic
 ```
 
-Za pomocą flag interfejsu wiersza polecenia do wyróżnienia istniejących zasobów, można nakazać Azure, aby wdrożyć maszynę Wirtualną w istniejącej sieci. Po wdrożeniu sieci wirtualnej i podsieci, możesz je zostawić jako statyczne ani stałe zasoby w Twoim regionie Azure.  
+Za pomocą hello interfejsu wiersza polecenia flagi toocall limit istniejących zasobów, poinstruuj hello Azure toodeploy VM wewnątrz hello istniejącej sieci. Po wdrożeniu sieci wirtualnej i podsieci, możesz je zostawić jako statyczne ani stałe zasoby w Twoim regionie Azure.  
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie konkretnego wdrożenia za pomocą szablonu usługi Azure Resource Manager](../windows/cli-deploy-templates.md)
+* [Użyj toocreate szablonu usługi Azure Resource Manager określonego wdrożenia](../windows/cli-deploy-templates.md)
 * [Tworzenie niestandardowego środowiska dla maszyny wirtualnej z systemem Linux poprzez bezpośrednie użycie poleceń interfejsu wiersza polecenia platformy Azure](create-cli-complete.md)
 * [Utwórz Maszynę wirtualną systemu Linux na platformie Azure za pomocą szablonów](create-ssh-secured-vm-from-template.md)

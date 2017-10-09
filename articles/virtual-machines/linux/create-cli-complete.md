@@ -1,6 +1,6 @@
 ---
-title: "Utworzenie środowiska systemu Linux 2.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Tworzenie magazynu, Maszynę wirtualną systemu Linux, sieci wirtualnej i podsieci, usługi równoważenia obciążenia, karty Sieciowej, publicznego adresu IP i sieciową grupę zabezpieczeń, wszystkie od podstaw przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure."
+title: "aaaCreate środowiska Linux z hello Azure CLI 2.0 | Dokumentacja firmy Microsoft"
+description: "Tworzenie magazynu, Maszynę wirtualną systemu Linux, sieci wirtualnej i podsieci, usługi równoważenia obciążenia, karty Sieciowej, publicznego adresu IP i sieciową grupę zabezpieczeń, z hello tła przy użyciu hello Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7287ea178e76001b84dade628ead04a59dc27f40
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Utwórz pełną maszyny wirtualnej systemu Linux z wiersza polecenia platformy Azure
-Aby szybko utworzyć maszynę wirtualną (VM) na platformie Azure, korzystając jednego polecenia interfejsu wiersza polecenia Azure, który można utworzyć wszelkie wymagane zasoby towarzyszące są używane wartości domyślne. Zasoby, takie jak sieć wirtualną, publiczny adres IP i reguły grupy zabezpieczeń sieci są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym należy używać, może utworzyć te zasoby wcześniejsze i następnie dodać do nich maszyn wirtualnych. W tym artykule prowadzi użytkownika przez proces tworzenia maszyny Wirtualnej i każdy z zasobów pomocniczych jeden po drugim.
+# <a name="create-a-complete-linux-virtual-machine-with-hello-azure-cli"></a>Utwórz pełną maszyny wirtualnej systemu Linux z hello wiersza polecenia platformy Azure
+tooquickly Utwórz maszynę wirtualną (VM) na platformie Azure, możesz użyć jednego polecenia wiersza polecenia platformy Azure, który używa domyślnej wartości toocreate wymagane zasoby obsługi. Zasoby, takie jak sieć wirtualną, publiczny adres IP i reguły grupy zabezpieczeń sieci są tworzone automatycznie. Aby uzyskać większą kontrolę nad środowiskiem w środowisku produkcyjnym należy używać, może utworzyć te zasoby wcześniejsze, a następnie dodać toothem sieci maszyn wirtualnych. Ten artykuł przeprowadzi Cię przez jak toocreate maszyny Wirtualnej, a każde z hello pomocnicze zasoby jeden po drugim.
 
-Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i logowania do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
+Upewnij się, czy hello zostały zainstalowane najnowsze [Azure CLI 2.0](/cli/azure/install-az-cli2) i zarejestrowane tooan Azure konta przy użyciu [logowania az](/cli/azure/#login).
 
-W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *myVnet*, i *myVM*.
+Poniższe przykłady w hello Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *myVnet*, i *myVM*.
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej i dodatkowe zasoby sieci wirtualnej. Tworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *eastus* lokalizacji:
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupy zasobów musi zostać utworzone przed maszyny wirtualnej i dodatkowe zasoby sieci wirtualnej. Utwórz grupę zasobów hello z [Tworzenie grupy az](/cli/azure/group#create). Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Domyślnie dane wyjściowe polecenia wiersza polecenia platformy Azure jest w formacie JSON (JavaScript Object Notation). Aby zmienić domyślne dane wyjściowe do listy lub tabeli, na przykład użyć [skonfigurować az — dane wyjściowe](/cli/azure/#configure). Można również dodać `--output` do dowolnego polecenia jeden raz Zmień format danych wyjściowych. W poniższym przykładzie przedstawiono dane wyjściowe JSON `az group create` polecenia:
+Domyślnie dane wyjściowe polecenia interfejsu wiersza polecenia Azure hello jest w formacie JSON (JavaScript Object Notation). toochange hello domyślnego wyjścia tooa listy lub tabeli, na przykład użyć [skonfigurować az — dane wyjściowe](/cli/azure/#configure). Można również dodać `--output` tooany polecenia jeden raz, Zmień format danych wyjściowych. Witaj poniższy przykład przedstawia dane wyjściowe JSON hello hello `az group create` polecenia:
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Domyślnie dane wyjściowe polecenia wiersza polecenia platformy Azure jest w fo
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Tworzenie sieci wirtualnej i podsieci
-Dalej przez tworzenie sieci wirtualnej platformy Azure i podsieci do której można utworzyć maszyny wirtualne. Użyj [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) można utworzyć sieci wirtualnej o nazwie *myVnet* z *192.168.0.0/16* prefiks adresu. Możesz również dodać podsieć o nazwie *mySubnet* z prefiksem adresu o *192.168.1.0/24*:
+Następnie utwórz sieć wirtualną na platformie Azure i podsieci toowhich można tworzyć maszyn wirtualnych. Użyj [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) toocreate sieć wirtualną o nazwie *myVnet* z hello *192.168.0.0/16* prefiks adresu. Możesz również dodać podsieć o nazwie *mySubnet* z prefiksu adresu hello *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Dane wyjściowe zawierają podsieci logicznie utworzone w sieci wirtualnej:
+dane wyjściowe Hello zawierają hello podsieci logicznie utworzonego w sieci wirtualnej hello:
 
 ```json
 {
@@ -102,7 +102,7 @@ Dane wyjściowe zawierają podsieci logicznie utworzone w sieci wirtualnej:
 
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-Teraz Utwórzmy publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create). Ten publiczny adres IP umożliwia nawiązywanie połączenia z Internetu do maszyn wirtualnych. Ponieważ domyślnym adresem jest dynamiczny, utworzymy również nazwanego wpisu DNS z `--domain-name-label` opcji. Poniższy przykład tworzy publicznego adresu IP o nazwie *myPublicIP* o nazwie DNS *mypublicdns*. Ponieważ nazwy DNS musi być unikatowa, należy podać własną unikatową nazwę DNS:
+Teraz Utwórzmy publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create). Ten publiczny adres IP umożliwia możesz tooconnect tooyour maszyn wirtualnych z hello Internet. Ponieważ hello domyślnym adresem jest dynamiczny, będziemy również utworzyć nazwanego wpisu DNS o hello `--domain-name-label` opcji. Witaj poniższy przykład tworzy publicznego adresu IP o nazwie *myPublicIP* o nazwie DNS hello *mypublicdns*. Ponieważ nazwy DNS hello musi być unikatowa, należy podać własną unikatową nazwę DNS:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Dane wyjściowe:
 
 
 ## <a name="create-a-network-security-group"></a>Utwórz grupę zabezpieczeń sieci
-Sterowanie przepływem ruchu do i z maszyn wirtualnych, należy utworzyć grupę zabezpieczeń sieci. Grupa zabezpieczeń sieci może odnosić się do karty Sieciowej lub podsieci. W poniższym przykładzie użyto [utworzyć nsg sieci az](/cli/azure/network/nsg#create) utworzyć sieciowej grupy zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Przepływ hello toocontrol ruch do i z maszyn wirtualnych, Utwórz grupę zabezpieczeń sieci. Grupa zabezpieczeń sieci może być zastosowane tooa karty Sieciowej lub podsieci. Witaj poniższym przykładzie użyto [utworzyć nsg sieci az](/cli/azure/network/nsg#create) toocreate sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Można zdefiniować reguły, które akceptować lub odrzucać określonego ruchu. Aby zezwolić na połączenia przychodzące do portu 22 (do obsługi protokołu SSH), należy utworzyć regułę ruchu przychodzącego dla sieciowej grupy zabezpieczeń z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create). Poniższy przykład tworzy reguły o nazwie *myNetworkSecurityGroupRuleSSH*:
+Można zdefiniować reguły, które akceptować lub odrzucać hello określonego ruchu. tooallow połączenia przychodzące do portu 22 (toosupport SSH), Utwórz regułę ruchu przychodzącego dla sieciowej grupy zabezpieczeń z hello [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create). Witaj poniższy przykład powoduje utworzenie reguły o nazwie *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Aby zezwolić na połączenia przychodzące na porcie 80 (dla obsługi ruchu w sieci web), Dodaj inną regułę grupy zabezpieczeń sieci. Poniższy przykład tworzy reguły o nazwie *myNetworkSecurityGroupRuleHTTP*:
+tooallow połączeń przychodzących na porcie 80 (ruchu w sieci web toosupport), Dodaj inną regułę grupy zabezpieczeń sieci. Witaj poniższy przykład powoduje utworzenie reguły o nazwie *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Sprawdź, czy grupy zabezpieczeń sieci i reguły z [Pokaż nsg sieci az](/cli/azure/network/nsg#show):
+Sprawdź, czy hello sieciowej grupy zabezpieczeń i reguły z [Pokaż nsg sieci az](/cli/azure/network/nsg#show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -236,7 +236,7 @@ Dane wyjściowe:
     },
     {
       "access": "Allow",
-      "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+      "description": "Allow outbound traffic from all VMs tooall VMs in VNET",
       "destinationAddressPrefix": "VirtualNetwork",
       "destinationPortRange": "*",
       "direction": "Outbound",
@@ -252,7 +252,7 @@ Dane wyjściowe:
     },
     {
       "access": "Allow",
-      "description": "Allow outbound traffic from all VMs to Internet",
+      "description": "Allow outbound traffic from all VMs tooInternet",
       "destinationAddressPrefix": "Internet",
       "destinationPortRange": "*",
       "direction": "Outbound",
@@ -332,7 +332,7 @@ Dane wyjściowe:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Tworzenie wirtualnej karty Sieciowej
-Wirtualne karty sieciowe (NIC) są programowo dostępne, ponieważ reguły można stosować do ich używania. Może także zawierać więcej niż jeden. W następujących [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) polecenia Utwórz karty Sieciowej o nazwie *myNic* i skojarzyć go z grupy zabezpieczeń sieci. Publiczny adres IP *myPublicIP* jest także powiązany z wirtualnej karty sieciowej.
+Wirtualne karty sieciowe (NIC) są programowo dostępne, ponieważ możesz zastosować zasady tootheir użycia. Może także zawierać więcej niż jeden. W następujących hello [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) polecenia Utwórz karty Sieciowej o nazwie *myNic* i powiązać ją z hello sieciowej grupy zabezpieczeń. Witaj publicznego adresu IP *myPublicIP* jest także powiązany z hello wirtualnych kart sieciowych.
 
 ```azurecli
 az network nic create \
@@ -436,15 +436,15 @@ Dane wyjściowe:
 
 
 ## <a name="create-an-availability-set"></a>Tworzenie zestawu dostępności
-Zestawy dostępności rozpowszechniania pomocy maszyn wirtualnych w domenach awarii i Aktualizacja domeny. Mimo że można utworzyć tylko jedną maszynę Wirtualną od razu, jest najlepszym rozwiązaniem jest użycie zestawów dostępności, aby ułatwić w przyszłości. 
+Zestawy dostępności rozpowszechniania pomocy maszyn wirtualnych w domenach awarii i Aktualizacja domeny. Mimo że można utworzyć tylko jedną maszynę Wirtualną od razu, toomake zestawów dostępności toouse najlepszym rozwiązaniem jest ona łatwiej tooexpand w przyszłości hello. 
 
-Domen błędów Definiowanie grup maszyn wirtualnych, które współużytkują wspólne przełącznik źródła i sieci zasilania. Domyślnie maszyny wirtualne, które są skonfigurowane w zestawie dostępności są rozdzielone przez maksymalnie trzy domen błędów. Problemem sprzętowym w jednym z tych domen błędów nie ma wpływu na każdej maszynie Wirtualnej, która jest uruchomiona aplikacja.
+Domen błędów Definiowanie grup maszyn wirtualnych, które współużytkują wspólne przełącznik źródła i sieci zasilania. Domyślnie program hello maszyn wirtualnych, które są skonfigurowane w zestawie dostępności są rozdzielone przez się toothree domen błędów. Problemem sprzętowym w jednym z tych domen błędów nie ma wpływu na każdej maszynie Wirtualnej, która jest uruchomiona aplikacja.
 
-Aktualizacja domen wskazują grupy maszyn wirtualnych i podstawowym sprzętem fizycznym, który może zostać uruchomiony ponownie w tym samym czasie. Podczas zaplanowanej konserwacji kolejności w aktualizacji, które są ponownie uruchamiane domen mogą nie być sekwencyjnych, ale tylko jedna aktualizacja domeny ponownego uruchomienia w czasie.
+Aktualizacja domen wskazują grupy maszyn wirtualnych i podstawowym sprzętem fizycznym, który może zostać uruchomiony ponownie na powitania tym samym czasie. Podczas zaplanowanej konserwacji kolejności hello w aktualizacji, które są ponownie uruchamiane domen mogą nie być sekwencyjnych, ale tylko jedna aktualizacja domeny ponownego uruchomienia w czasie.
 
-Azure automatycznie dystrybuuje maszyn wirtualnych w domenach awarii i aktualizacji podczas umieszczania ich w zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępność maszyn wirtualnych](manage-availability.md).
+Azure automatycznie dystrybuuje maszyn wirtualnych w domenach awarii i aktualizacji hello podczas umieszczania ich w zestawie dostępności. Aby uzyskać więcej informacji, zobacz [Zarządzanie hello dostępność maszyn wirtualnych](manage-availability.md).
 
-Utwórz zbiór dostępności dla maszyny Wirtualnej z [tworzenia maszyny wirtualnej az zestawu dostępności](/cli/azure/vm/availability-set#create). Poniższy przykład tworzy zbiór nazwanego dostępności *myAvailabilitySet*:
+Utwórz zbiór dostępności dla maszyny Wirtualnej z [tworzenia maszyny wirtualnej az zestawu dostępności](/cli/azure/vm/availability-set#create). Witaj poniższy przykład tworzy zbiór nazwanego dostępności *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -452,7 +452,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Domen błędów wyjścia uwagi i domen aktualizacji:
+Witaj domen błędów wyjścia uwagi i zaktualizuj domen:
 
 ```json
 {
@@ -476,12 +476,12 @@ Domen błędów wyjścia uwagi i domen aktualizacji:
 ```
 
 
-## <a name="create-the-linux-vms"></a>Tworzenie maszyn wirtualnych systemu Linux
-Po utworzeniu zasobów sieciowych do obsługi maszyn wirtualnych dostęp do Internetu. Teraz Utwórz maszynę Wirtualną i zabezpiecz ją przy użyciu klucza SSH. W takim przypadku zamierzamy utworzyć Ubuntu oparte na najnowszych LTS maszyny Wirtualnej. Można znaleźć dodatkowe obrazy z [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list), zgodnie z opisem w [znajdowanie obrazów maszyn wirtualnych Azure](cli-ps-findimage.md).
+## <a name="create-hello-linux-vms"></a>Tworzenie maszyn wirtualnych systemu Linux hello
+Po utworzeniu toosupport zasobów sieciowych hello dostępny z Internetu maszyn wirtualnych. Teraz Utwórz maszynę Wirtualną i zabezpiecz ją przy użyciu klucza SSH. W takim przypadku zamierzamy toocreate maszyny Wirtualnej systemu Ubuntu oparte na powitania najnowszych LTS. Można znaleźć dodatkowe obrazy z [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list), zgodnie z opisem w [znajdowanie obrazów maszyn wirtualnych Azure](cli-ps-findimage.md).
 
-Możemy również określić klucza SSH do uwierzytelniania. Jeśli nie masz pary kluczy publicznych SSH, możesz [je utworzyć](mac-create-ssh-keys.md) lub użyj `--generate-ssh-keys` parametr, aby je utworzyć automatycznie. Jeśli możesz już parę kluczy, ten parametr wykorzystuje istniejące klucze w `~/.ssh`.
+Możemy również określić toouse klucza SSH do uwierzytelniania. Jeśli nie masz pary kluczy publicznych SSH, możesz [je utworzyć](mac-create-ssh-keys.md) lub użyj hello `--generate-ssh-keys` toocreate parametru je automatycznie. Jeśli możesz już parę kluczy, ten parametr wykorzystuje istniejące klucze w `~/.ssh`.
 
-Tworzenie maszyny Wirtualnej, przełączając naszych zasobów i informacji razem z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*:
+Utwórz hello wirtualna przełączając naszych zasobów i informacji wraz z hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Witaj poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM*:
 
 ```azurecli
 az vm create \
@@ -495,7 +495,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-SSH do maszyny Wirtualnej z wpisu DNS podany podczas tworzenia publicznego adresu IP. To `fqdn` jest wyświetlany w danych wyjściowych podczas tworzenia maszyny Wirtualnej:
+Tooyour SSH maszyny Wirtualnej z hello wpisu DNS, dostępne podczas tworzenia hello publicznego adresu IP. To `fqdn` jest wyświetlany w danych wyjściowych hello podczas tworzenia maszyny Wirtualnej:
 
 ```json
 {
@@ -517,11 +517,11 @@ ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 Dane wyjściowe:
 
 ```bash
-The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.
+hello authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Are you sure you want toocontinue connecting (yes/no)? yes
+Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) toohello list of known hosts.
+Welcome tooUbuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
@@ -534,39 +534,39 @@ Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
 0 updates are security updates.
 
 
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
+hello programs included with hello Ubuntu system are free software;
+hello exact distribution terms for each program are described in the
 individual files in /usr/share/doc/*/copyright.
 
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+Ubuntu comes with ABSOLUTELY NO WARRANTY, toohello extent permitted by
 applicable law.
 
-To run a command as administrator (user "root"), use "sudo <command>".
+toorun a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 azureuser@myVM:~$
 ```
 
-Można zainstalować NGINX i widoczne ruchu przepływu do maszyny Wirtualnej. Zainstaluj NGINX w następujący sposób:
+Można zainstalować NGINX i zobacz toohello przepływu ruchu hello maszyny Wirtualnej. Zainstaluj NGINX w następujący sposób:
 
 ```bash
 sudo apt-get install -y nginx
 ```
 
-Aby wyświetlić NGINX domyślnej witryny w akcji, otwórz przeglądarkę sieci web i wprowadzić swoją nazwę FQDN:
+toosee hello domyślnej NGINX witryny akcji, otwórz przeglądarkę sieci web i wprowadź nazwę FQDN:
 
 ![Domyślna witryna NGINX na maszynie Wirtualnej](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Eksportowanie jako szablon
-Co zrobić, jeśli chcesz teraz Utwórz środowisko rozwoju dodatkowych z takimi samymi parametrami lub w środowisku produkcyjnym, które odpowiadają go? Menedżer zasobów używa szablony JSON, które definiują wszystkie parametry dla danego środowiska. Limit całego środowiska kompilacji, umieszczając odwołanie do tego szablonu JSON. Możesz [ręcznie utworzyć szablony JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub wyeksportować utworzenie szablonu JSON do istniejącego środowiska. Użyj [eksportowanie grupy az](/cli/azure/group#export) Aby wyeksportować grupy zasobów w następujący sposób:
+Co zrobić, jeśli teraz ma toocreate dodatkowe środowiska hello takie same parametry lub w środowisku produkcyjnym, odpowiadający jej? Menedżer zasobów używa szablony JSON, definiują wszystkie parametry hello w danym środowisku. Limit całego środowiska kompilacji, umieszczając odwołanie do tego szablonu JSON. Możesz [ręcznie utworzyć szablony JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub wyeksportować istniejącego środowiska toocreate hello JSON szablonu dla Ciebie. Użyj [eksportowanie grupy az](/cli/azure/group#export) tooexport zasób grupy w następujący sposób:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-To polecenie tworzy `myResourceGroup.json` plik w bieżącym katalogu roboczym. Podczas tworzenia środowiska z tego szablonu, wyświetlany jest monit dla nazw zasobów. Można go wypełnić te nazwy w pliku szablonu, dodając `--include-parameter-default-value` parametr `az group export` polecenia. Edytuj szablon JSON można określić nazwy zasobu lub [Tworzenie pliku parameters.JSON następującym kodem](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , który określa nazwy zasobu.
+To polecenie tworzy hello `myResourceGroup.json` plik w bieżącym katalogu roboczym. Podczas tworzenia środowiska z tego szablonu, wyświetlany jest monit dla wszystkich nazw zasobów hello. Można go wypełnić te nazwy w pliku szablonu, dodając hello `--include-parameter-default-value` toohello parametru `az group export` polecenia. Edytowanie nazwy JSON szablonu toospecify hello zasobów lub [Tworzenie pliku parameters.JSON następującym kodem](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) określający hello nazw zasobów.
 
-Aby utworzyć środowisko z szablonu, należy użyć [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) w następujący sposób:
+toocreate środowisko z szablonu, użyj [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) w następujący sposób:
 
 ```azurecli
 az group deployment create \
@@ -574,7 +574,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-Warto przeczytać [więcej informacji na temat sposobu wdrażania z szablonów](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Więcej informacji na temat sposobu przyrostowo aktualizacja środowisk, użyj pliku parametrów i dostępu do szablonów z lokalizacji magazynu jednego.
+Może być tooread [więcej informacji na temat toodeploy z szablonów](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Więcej informacji na temat jak tooincrementally środowisk aktualizacji, użyj pliku parametrów hello i uzyskiwać dostęp do szablonów z lokalizacji magazynu jednego.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz możesz przystąpić do rozpoczęcia pracy z wieloma składnikami sieciowymi i maszyny wirtualne. To środowisko próbki służy do tworzenia aplikacji przy użyciu podstawowe składniki wprowadzone w tym miejscu.
+Teraz wszystko jest gotowe toobegin Praca z wielu składników sieciowych i maszyn wirtualnych. Za pomocą hello podstawowe składniki wprowadzone w tym miejscu, można użyć tej próbki toobuild środowiska limit aplikacji.

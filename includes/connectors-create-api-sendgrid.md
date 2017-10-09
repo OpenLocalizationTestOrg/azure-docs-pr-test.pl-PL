@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * A [SendGrid](https://www.SendGrid.com/) konta 
 
-Zanim użyjesz swojego konta włączenie w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SendGrid. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
+Zanim użyjesz swojego konta włączenie w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour SendGrid konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure. 
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SendGrid:
+Oto hello kroki tooauthorize tooyour tooconnect SendGrid konta użytkownika logiki aplikacji:
 
-1. Aby utworzyć połączenie SendGrid, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SendGrid* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. Wybierz tooSendGrid połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *SendGrid* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![SendGrid krok 1](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. Jeśli nie utworzono żadnych połączeń SendGrid przed będzie zostanie wyświetlony monit o podanie poświadczeń SendGrid. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SendGrid:  
+2. Jeśli nie utworzono żadnych tooSendGrid połączenia przed, zostanie wyświetlony zostanie wyświetlony monit o tooprovide poświadczeń SendGrid. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta SendGrid:  
    ![SendGrid krok 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+3. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![SendGrid krok 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 

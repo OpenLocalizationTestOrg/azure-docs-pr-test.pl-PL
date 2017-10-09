@@ -1,14 +1,14 @@
-Aby uzyskać więcej informacji na temat narzędzi Azure dla języka Java IDEs, zobacz następujące linki:
+Aby uzyskać więcej informacji na temat hello Azure zestaw narzędzi dla języka Java IDEs Zobacz hello następującego łącza:
 
 * [Azure zestawu narzędzi dla programu Eclipse](/azure/azure-toolkit-for-eclipse)
-  * [Nowości w zestawie narzędzi programu Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
-  * [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation) (Instalowanie zestawu narzędzi platformy Azure dla środowiska Eclipse)
+  * [What's new in hello zestawu narzędzi platformy Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
+  * [Instalowanie hello zestawu narzędzi platformy Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-installation)
   * [Tworzenie aplikacji sieci web Hello World na platformie Azure w programie Eclipse](/azure/app-service-web/app-service-web-eclipse-create-hello-world-web-app)
-  * [Instrukcje logowania dla zestawu narzędzi platformy Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
+  * [Instrukcje logowania hello zestawu narzędzi platformy Azure dla programu Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
 * [Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij) (Zestaw narzędzi platformy Azure dla środowiska IntelliJ)
-  * [Nowości w zestawie narzędzi programu Azure for IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
-  * [Installing the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-installation) (Instalowanie zestawu narzędzi platformy Azure dla środowiska IntelliJ)
+  * [What's new in hello Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
+  * [Instalowanie hello Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-installation)
   * [Tworzenie aplikacji sieci web Hello World na platformie Azure w IntelliJ](/azure/app-service-web/app-service-web-intellij-create-hello-world-web-app)
-  * [Logowanie instrukcje dotyczące zestawu narzędzi Azure for IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
+  * [Logowanie instrukcje dotyczące hello Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
 
-Aby uzyskać więcej informacji o używaniu języka Java przy użyciu platformy Azure, zobacz [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) i [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
+Aby uzyskać więcej informacji o używaniu języka Java przy użyciu platformy Azure, zobacz hello [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) i hello [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).

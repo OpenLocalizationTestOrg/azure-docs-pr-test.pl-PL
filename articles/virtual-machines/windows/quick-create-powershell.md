@@ -1,6 +1,6 @@
 ---
-title: "Azure: Szybki start — Tworzenie maszyn wirtualnych z systemem Windows za pomocą programu PowerShell | Microsoft Docs"
-description: "Szybka nauka tworzenia maszyn wirtualnych z systemem Windows przy użyciu programu PowerShell"
+title: "Szybki Start - aaaAzure utworzyć Windows PowerShell maszyny Wirtualnej | Dokumentacja firmy Microsoft"
+description: "Dowiesz toocreate maszyn wirtualnych systemu Windows, przy użyciu programu PowerShell"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,23 +16,23 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8516cfa2272694496eb353a83eca77c13a516750
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e92435bf7ee443a01c158fed91c356363e2f425
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą programu PowerShell
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. W tym przewodniku zawarto szczegółowe instrukcje korzystania z programu PowerShell w celu utworzenia maszyny wirtualnej na platformie Azure z systemem Windows Server 2016. Po ukończeniu wdrożenia nawiążemy połączenie z serwerem i zainstalujemy usługi IIS.  
+modułu Azure PowerShell Hello jest używany toocreate i zarządzania zasobami Azure z wiersza polecenia programu PowerShell hello lub w skryptach. Szczegóły tego przewodnika przy użyciu programu PowerShell toocreate i Azure maszyny wirtualnej z systemem Windows Server 2016. Po zakończeniu wdrażania nawiązanie połączenia toohello serwera i zainstaluj usługi IIS.  
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+To szybki start wymaga hello Azure PowerShell w wersji modułu 3,6 lub nowszej. Uruchom ` Get-Module -ListAvailable AzureRM` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [modułu instalacji programu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
 
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Login-AzureRmAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Zaloguj się za tooyour subskrypcji platformy Azure z hello `Login-AzureRmAccount` poleceń i wykonaj hello wyświetlanymi instrukcjami.
 
 ```powershell
 Login-AzureRmAccount
@@ -49,7 +49,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ## <a name="create-networking-resources"></a>Tworzenie zasobów sieciowych
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Utwórz sieć wirtualną, podsieć i publiczny adres IP. 
-Te zasoby są używane do zapewniania łączności sieciowej z maszyną wirtualną i nawiązywania połączenia z Internetem.
+Te zasoby są maszyny wirtualnej toohello łączności sieciowej tooprovide używane i podłącz go toohello internet.
 
 ```powershell
 # Create a subnet configuration
@@ -65,7 +65,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location E
 ```
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Utwórz sieciową grupę zabezpieczeń i regułę sieciowej grupy zabezpieczeń. 
-Sieciowa grupa zabezpieczeń chroni maszynę wirtualną za pomocą reguł ruchu przychodzącego i wychodzącego. W tym przypadku jest tworzona reguła ruchu przychodzącego dla portu 3389, która umożliwia nawiązywanie przychodzących połączeń pulpitu zdalnego. Chcemy też utworzyć regułę ruchu przychodzącego dla portu 80, która zezwala na ruch przychodzący w sieci Web.
+grupy zabezpieczeń sieci Hello zabezpiecza hello maszyny wirtualnej za pomocą reguł ruchu przychodzącego i wychodzącego. W tym przypadku jest tworzona reguła ruchu przychodzącego dla portu 3389, która umożliwia nawiązywanie przychodzących połączeń pulpitu zdalnego. Chcemy też toocreate regułę ruchu przychodzącego dla portu 80, który zezwala na ruch przychodzący sieci web.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -83,8 +83,8 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Utwórz kartę sieciową dla maszyny wirtualnej. 
-Utwórz kartę sieciową maszyny wirtualnej za pomocą polecenia [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Karta sieciowa łączy maszynę wirtualną z podsiecią, sieciową grupą zabezpieczeń i publicznym adresem IP.
+### <a name="create-a-network-card-for-hello-virtual-machine"></a>Utwórz karty sieciowej dla maszyny wirtualnej hello. 
+Tworzenie karty sieciowej z [AzureRmNetworkInterface nowy](/powershell/module/azurerm.network/new-azurermnetworkinterface) hello maszyny wirtualnej. Karta sieciowa Hello łączy hello maszyny wirtualnej tooa podsieci, grupy zabezpieczeń sieci i publiczny adres IP.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -94,7 +94,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz konfigurację maszyny wirtualnej. Ta konfiguracja zawiera ustawienia, które są używane podczas wdrażania maszyny wirtualnej, takie jak obraz maszyny wirtualnej, rozmiar i konfiguracja uwierzytelniania. Podczas wykonywania tego kroku jest wyświetlany monit o poświadczenia. Wprowadzane wartości są konfigurowane jako nazwa użytkownika i hasło dla maszyny wirtualnej.
+Utwórz konfigurację maszyny wirtualnej. Ta konfiguracja zawiera ustawienia hello, które są używane podczas wdrażania maszyny wirtualnej hello, takich jak obraz, rozmiar i uwierzytelniania konfiguracji maszyny wirtualnej. Podczas wykonywania tego kroku jest wyświetlany monit o poświadczenia. wartości Hello są skonfigurowane jako hello nazwy użytkownika i hasła hello maszyny wirtualnej.
 
 ```powershell
 # Define a credential object
@@ -107,23 +107,23 @@ $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Utwórz maszynę wirtualną hello z [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 ```
 
-## <a name="connect-to-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connect-toovirtual-machine"></a>Podłącz maszynę toovirtual
 
-Po zakończeniu wdrożenia utwórz połączenie pulpitu zdalnego z maszyną wirtualną.
+Po zakończeniu wdrożenia hello, tworzenia połączenia pulpitu zdalnego z maszyną wirtualną hello.
 
-Wróć do publicznego adresu IP maszyny wirtualnej za pomocą polecenia [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Zapisz ten adres IP, aby połączyć się z nim w przeglądarce w celu przetestowania połączenia z siecią Web w przyszłym kroku.
+Użyj hello [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) polecenia tooreturn hello publicznego adresu IP hello maszyny wirtualnej. Zwróć uwagę ten adres IP, więc tooit mogą łączyć się z tootest przeglądarki sieci web łączność w przyszłości kroku.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Użyj następującego polecenia, aby utworzyć sesję usług pulpitu zdalnego z maszyną wirtualną. Zamień adres IP na *publiczny adres IP* Twojej maszyny wirtualnej. Po wyświetleniu monitu wprowadź poświadczenia używane podczas tworzenia maszyny wirtualnej.
+Użyj hello następujące polecenie toocreate sesję pulpitu zdalnego z maszyną wirtualną hello. Zamień adres IP hello hello *publicznego adresu IP* maszyny wirtualnej. Po wyświetleniu monitu wprowadź poświadczenia hello używane podczas tworzenia maszyny wirtualnej hello.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -131,21 +131,21 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>Instalowanie usług IIS za pośrednictwem programu PowerShell
 
-Teraz po zalogowaniu do maszyny wirtualnej platformy Azure możesz użyć jednego wiersza w programie PowerShell, aby zainstalować usługi IIS i włączyć lokalną regułę zapory, która zezwala na ruch w sieci Web. Otwórz wiersz polecenia programu PowerShell i uruchom następujące polecenie:
+Teraz, gdy użytkownik zalogował się toohello maszyny Wirtualnej platformy Azure, można użyć pojedynczy wiersz tooinstall PowerShell usług IIS i włączyć ruch internetowy tooallow reguły zapory lokalnej hello. Otwórz wiersz programu PowerShell i uruchom następujące polecenie hello:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>Wyświetlanie strony powitalnej usług IIS
+## <a name="view-hello-iis-welcome-page"></a>Widok hello strona powitalna usług IIS
 
-Po zainstalowaniu usług IIS i otwarciu portu 80 na maszynie wirtualnej z Internetu możesz użyć wybranej przeglądarki sieci Web, aby wyświetlić domyślną stronę powitalną przeglądarki usług IIS. Upewnij się, że w celu odwiedzenia strony domyślnej używasz udokumentowanego powyżej *publicznego adresu IP*. 
+Zainstalowane usługi IIS i portu 80 obecnie otwarte na maszynie Wirtualnej z hello Internet można użyć przeglądarki sieci web na wybór tooview hello domyślne IIS strony powitalnej. Należy się hello toouse *publicznego adresu IP* opisane powyżej toovisit hello domyślnej strony. 
 
 ![Domyślna witryna usług IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy grupa zasobów, maszyna wirtualna i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Gdy nie są już potrzebne, można użyć hello [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) polecenia grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -153,7 +153,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. Aby dowiedzieć się więcej o maszynach wirtualnych platformy Azure, przejdź do samouczka dla maszyn wirtualnych z systemem Windows.
+W tym przewodniku Szybki start została wdrożona prosta maszyna wirtualna i reguła sieciowej grupy zabezpieczeń oraz zainstalowano serwer sieci Web. toolearn więcej informacji o maszynach wirtualnych platformy Azure, nadal samouczek toohello dla maszyn wirtualnych systemu Windows.
 
 > [!div class="nextstepaction"]
 > [Samouczki dla maszyny wirtualnej platformy Azure z systemem Windows](./tutorial-manage-vm.md)

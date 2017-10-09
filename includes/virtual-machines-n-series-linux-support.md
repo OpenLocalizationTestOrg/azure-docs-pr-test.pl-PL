@@ -16,5 +16,5 @@
 
 
 > [!WARNING] 
-> Instalacja oprogramowania innych firm na produktach systemu Red Hat może wpłynąć na warunki wsparcia systemu Red Hat. Zobacz [artykuł bazy wiedzy systemu Red Hat](https://access.redhat.com/articles/1067).
+> Instalacja oprogramowania innych firm na produkty Red Hat mogą wpływać na warunki wsparcia Red Hat hello. Zobacz hello [artykułu bazy wiedzy programu Red Hat](https://access.redhat.com/articles/1067).
 >

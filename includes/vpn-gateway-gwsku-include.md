@@ -1,4 +1,4 @@
-Podczas tworzenia bramy sieci wirtualnej musisz wybrać jednostkę SKU bramy do użycia. Wybierz jednostki SKU, które spełniają wymagania, na podstawie typów obciążeń, przepustowości, funkcji i umowy SLA.
+Podczas tworzenia bramy sieci wirtualnej, należy toospecify hello bramy, które mają toouse jednostki SKU. Wybierz jednostki SKU hello, które spełniają wymagania na podstawie typów hello obciążeń, przepustowości, funkcje i umowy SLA.
 
 [!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
@@ -6,7 +6,7 @@ Podczas tworzenia bramy sieci wirtualnej musisz wybrać jednostkę SKU bramy do 
 
 ###  <a name="workloads"></a>Obciążenia w trybie produkcyjnym *a obciążenia* w środowisku tworzenia i testowania
 
-Z powodu różnic w umowach SLA i zestawach funkcji zaleca się następujące jednostki SKU dla trybu produkcyjnego *i* w środowisku tworzenia i testowania:
+Powodu różnic toohello SLA i zestawy funkcji, firma Microsoft zaleca powitania po jednostki SKU dla trybu produkcyjnego *a* deweloperów testu:
 
 | **Obciążenie**                       | **Jednostki SKU**               |
 | ---                                | ---                    |
@@ -14,26 +14,26 @@ Z powodu różnic w umowach SLA i zestawach funkcji zaleca się następujące je
 | **Środowisko tworzenia i testowania lub weryfikacja koncepcji**   | Podstawowa                  |
 |                                    |                        |
 
-Jeśli używasz starych jednostek SKU, w trybie produkcyjnym zalecane są jednostki SKU Standard i HighPerformance. Aby uzyskać informacje o starych jednostkach SKU, zobacz [Gateway SKUs (legacy SKUs) (Jednostki SKU bramy [starsze jednostki SKU])](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Jeśli używasz starego hello jednostki SKU, hello produkcji jednostki SKU zalecenia to Standard i wysokowydajnej jednostki SKU. Informacje dotyczące hello starego SKU sekcji [jednostki SKU bramy (starszej wersji jednostki SKU)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Zestawy funkcji jednostek SKU bramy
 
-Nowe jednostki SKU bramy usprawniają zestawy funkcji oferowane w bramach:
+Witaj nową bramę jednostki SKU idealne hello rozwiązanie oferowane w bramach hello:
 
 | **SKU**| **Funkcje**|
 | ---    | ---         |
 |**Podstawowa**   | **Sieć VPN oparta na trasach**: 10 tuneli z połączeniami typu punkt-lokacja<br><br>**Sieć VPN oparta na zasadach** (IKEv1): 1 tunel, bez połączeń typu punkt-lokacja|
-| **VpnGw1, VpnGw2 i VpnGw3** | **Sieć VPN oparta na trasach**: do 30 tuneli (*), połączenia typu punkt-lokacja, protokół BGP, konfiguracja aktywne-aktywne, niestandardowe zasady protokołu IPsec/IKE, współistnienie usługi ExpressRoute i sieci VPN |
+| **VpnGw1, VpnGw2 i VpnGw3** | **VPN opartej na trasach**: zapasowej tuneli too30 (*), P2S, protokołu BGP, aktywny aktywny, niestandardowe zasady IPsec i IKE, współistnienie ExpressRoute lub sieć VPN |
 |        |             |
 
-(*) Można skonfigurować „PolicyBasedTrafficSelectors” do łączenia bramy sieci VPN opartej na trasach (VpnGw1, VpnGw2, VpnGw3) z wieloma lokalnymi urządzeniami zapory opartymi na zasadach. Aby zapoznać się ze szczegółami, zobacz artykuł [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Połączenie bram sieci VPN z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell).
+(*) Możesz skonfigurować tooconnect "PolicyBasedTrafficSelectors" opartej na trasach VPN bramy (VpnGw1, VpnGw2, VpnGw3) toomultiple urządzeń lokalnych, zapory oparte na zasadach. Odwołuje się zbyt[połączenia sieci VPN bramy toomultiple lokalnego urządzenia sieci VPN opartych na zasadach przy użyciu programu PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) szczegółowe informacje.
 
 ###  <a name="resize"></a>Zmiana rozmiaru jednostek SKU bramy
 
 1. Można zmienić rozmiar jednostek SKU, wybierając z opcji VpnGw1, VpnGw2 i VpnGw3.
-2. Podczas pracy ze starymi jednostkami SKU bramy można zmienić rozmiar, wybierając z opcji Basic, Standard i HighPerformance.
-2. **Nie można** zmienić rozmiaru z opcji Basic/Standard/HighPerformance na nowe opcje VpnGw1/VpnGw2/VpnGw3. Zamiast tego trzeba [migrować](#migrate) do nowych jednostek SKU.
+2. Podczas pracy z bramą starego hello jednostki SKU, można zmienić rozmiar między podstawowa, standardowa i wysokowydajnej jednostki SKU.
+2. Możesz **nie** resize z toohello jednostki SKU Basic/Standard/wysokowydajnej nowe VpnGw1/VpnGw2/VpnGw3 jednostki SKU. Należy najpierw należy [migracji](#migrate) toohello nowe jednostki SKU.
 
-###  <a name="migrate"></a>Migrowanie ze starych do nowych jednostek SKU
+###  <a name="migrate"></a>Migrowanie z starego toohello jednostki SKU nowe jednostki SKU
 
 [!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

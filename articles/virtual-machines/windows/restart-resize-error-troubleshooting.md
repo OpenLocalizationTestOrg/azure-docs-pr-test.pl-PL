@@ -1,5 +1,5 @@
 ---
-title: Problemy z maszyny Wirtualnej, ponownego uruchamiania lub zmiana rozmiaru na platformie Azure | Dokumentacja firmy Microsoft
+title: problemy z aaaVM ponownego uruchamiania lub zmiana rozmiaru na platformie Azure | Dokumentacja firmy Microsoft
 description: "Rozwiązywanie problemów wdrożenia usługi Resource Manager z ponownego uruchamiania lub zmiana rozmiaru istniejącej maszyny wirtualnej systemu Windows na platformie Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -16,52 +16,52 @@ ms.workload: required
 ms.date: 06/13/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 078c4666f047604b1732e828d27e7e26383aa616
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2cf7c2d19bf5f79fab4ffc0eff9ccc1182d601c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Rozwiązywanie problemów dotyczących wdrożenia z ponownym uruchomieniem lub zmiana rozmiaru istniejącej maszyny Wirtualnej systemu Windows na platformie Azure
-Podczas uruchamiania zatrzymanej maszyny wirtualnej Azure (VM), lub zmień rozmiar istniejącej maszyny Wirtualnej Azure, wystąpią typowych błędów jest błąd alokacji. Ten błąd powoduje klastra lub regionie nie ma dostępu do zasobów lub nie może obsługiwać żądany rozmiar maszyny Wirtualnej.
+Spróbuj toostart zatrzymania maszyny wirtualnej Azure (VM), lub zmień rozmiar istniejącej maszyny Wirtualnej Azure, hello typowym błędem występujących po błąd alokacji. Ten błąd powoduje hello klastra lub regionie nie ma dostępnych zasobów lub nie hello Obsługa żądany rozmiar maszyny Wirtualnej.
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
 ## <a name="collect-activity-logs"></a>Rejestruje działania zbieranie
-Zacząć Rozwiązywanie problemów zbierać dzienniki działania, aby zidentyfikować ten błąd skojarzone z problem. Poniższe łącza zawierają szczegółowe informacje na temat procesu:
+toostart rozwiązywania problemów, zbieranie hello działania rejestruje błąd hello tooidentify skojarzone z hello problem. Hello następującego łącza zawierają szczegółowe informacje na temat procesu hello:
 
 [Wyświetlanie operacji wdrażania](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Wyświetl dzienniki aktywności do zarządzania zasobami Azure](../../resource-group-audit.md)
+[Wyświetl toomanage Dzienniki aktywności Azure zasobów](../../resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problem: Błąd podczas uruchamiania zatrzymanej maszyny Wirtualnej
-Próby uruchomienia zatrzymanej maszyny Wirtualnej, ale awaria alokacji.
+Spróbuj toostart zatrzymanej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
 
 ### <a name="cause"></a>Przyczyna
-Żądania uruchomienia zatrzymanej maszyny Wirtualnej musi podjąć w oryginalnego klastra, który jest hostem usługi w chmurze. Jednak klaster nie ma wolnego miejsca do spełnienia żądania.
+Żądanie hello toostart hello zatrzymana maszyna wirtualna ma toobe podjęto na powitania oryginalnego klastra obsługującego hello usługi w chmurze. Witaj klaster nie ma jednak żądania hello toofulfill dostępne wolne miejsce.
 
 ### <a name="resolution"></a>Rozwiązanie
-* Zatrzymanie wszystkich maszyn wirtualnych w zestawie dostępności i uruchom ponownie każdej maszyny Wirtualnej.
+* Zatrzymaj hello wszystkich maszyn wirtualnych w dostępności hello wartość i ponownie uruchom każdej maszyny Wirtualnej.
   
   1. Kliknij przycisk **grup zasobów** > *grupie zasobów* > **zasobów** > *zestawu dostępności* > **maszyn wirtualnych** > *maszyny wirtualnej* > **zatrzymać**.
-  2. Po zatrzymanie wszystkich maszyn wirtualnych, wybierz poszczególne zatrzymania maszyn wirtualnych, a następnie kliknij przycisk Uruchom.
-* Ponów żądanie ponownego uruchomienia w późniejszym czasie.
+  2. Po wszystkich hello zatrzymania maszyny wirtualne, wybierz poszczególne maszyny wirtualne hello zatrzymana i kliknij przycisk Start.
+* Ponów żądanie ponownego uruchomienia hello w późniejszym czasie.
 
 ## <a name="issue-error-when-resizing-an-existing-vm"></a>Problem: Błąd podczas zmiany rozmiaru istniejącej maszyny Wirtualnej
-Spróbuj zmienić rozmiar istniejącej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
+Spróbuj tooresize istniejącej maszyny Wirtualnej, ale jest wyświetlany błąd alokacji.
 
 ### <a name="cause"></a>Przyczyna
-Żądanie zmiany rozmiaru maszyny Wirtualnej musi podjąć w oryginalnego klastra, który jest hostem usługi w chmurze. Klaster nie obsługuje jednak żądany rozmiar maszyny Wirtualnej.
+żądania Hello hello tooresize maszyna wirtualna ma toobe nastąpiła w oryginalnym klastrze hello danej usługi w chmurze hello hostów. Witaj klastra nie obsługuje jednak hello żądany rozmiar maszyny Wirtualnej.
 
 ### <a name="resolution"></a>Rozwiązanie
-* Ponów żądanie przy użyciu mniejszego rozmiaru maszyny Wirtualnej.
-* Jeśli nie można zmienić rozmiar żądanej maszyny wirtualnej:
+* Ponów żądanie hello przy użyciu mniejszego rozmiaru maszyny Wirtualnej.
+* Jeśli hello żądany rozmiar hello się, że nie można zmienić maszyny Wirtualnej:
   
-  1. Zatrzymanie wszystkich maszyn wirtualnych w zestawie dostępności.
+  1. Zatrzymaj wszystkie hello maszyn wirtualnych w zestawie dostępności hello.
      
      * Kliknij przycisk **grup zasobów** > *grupie zasobów* > **zasobów** > *zestawu dostępności* > **maszyn wirtualnych** > *maszyny wirtualnej* > **zatrzymać**.
-  2. Po zatrzymanie wszystkich maszyn wirtualnych, Zmień rozmiar odpowiednią maszynę Wirtualną na większy rozmiar.
-  3. Wybierz po zmianie rozmiaru maszyny Wirtualnej, a następnie kliknij przycisk **Start**, a następnie ponowne uruchomienie wszystkich zatrzymania maszynach wirtualnych.
+  2. Po wszystkich hello zatrzymania maszyny wirtualne, Zmień rozmiar hello potrzeby maszyny Wirtualnej tooa większy rozmiar.
+  3. Wybierz hello zmiany rozmiaru maszyny Wirtualnej i kliknij przycisk **Start**, a następnie uruchom każdą hello zatrzymane maszyn wirtualnych.
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli wystąpią problemy podczas tworzenia nowej maszyny Wirtualnej systemu Windows na platformie Azure, zobacz [Rozwiązywanie problemów dotyczących wdrożenia z Tworzenie nowej maszyny wirtualnej systemu Windows na platformie Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

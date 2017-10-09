@@ -1,24 +1,24 @@
-1. Aby wyświetlić tagi dla zasobu lub grupy zasobów, wybierz ikonę **Tagi**. 
+1. tagi hello tooview zasób lub grupa zasobów, wybierz hello **tagi** ikony. 
    
      ![Wybieranie tagów w blokach zasobu i grupy zasobów](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Zostaną wyświetlone istniejące tagi dla danego zasobu. Jeśli wcześniej nie zastosowano tagów, lista będzie pusta. 
+2. Zostanie wyświetlony hello znaczników hello zasobów. Jeśli nie zostały wcześniej zastosowane tagi, hello lista jest pusta. 
 
      ![Wyświetlanie istniejących tagów w blokach zasobu i grupy zasobów](./media/resource-manager-tag-resources/existing-tags.png)
-3. Aby dodać tag, wpisz nazwę i wartość lub wybierz istniejącą opcję z menu rozwijanego. Wybierz pozycję **Zapisz**.
+3. tooadd tag, wpisz nazwę i wartość, lub wybierz istniejący z menu rozwijanego hello. Wybierz pozycję **Zapisz**.
 
      ![Dodawanie nowego tagu](./media/resource-manager-tag-resources/tag-resources.png)
-3. Aby wyświetlić wszystkie zasoby, które mają wartość tagu, wybierz pozycję **>** (**Więcej usług**), a następnie wprowadź słowo **Tagi** w polu tekstowym filtru. Wybierz pozycję **Tagi** z listy dostępnych opcji.
+3. Wybierz wszystkie zasoby hello, które mają wartość tagu tooview  **>**  (**więcej usług**) i wprowadź słowo hello **tagi** w polu tekstowym filtru hello. Wybierz **tagi** hello opcje.
    
-     ![Znajdowanie tagów za pośrednictwem centrum przeglądania](./media/resource-manager-tag-resources/browse-tags.png)
-4. Zostanie wyświetlone podsumowanie tagów w Twoich subskrypcjach.
+     ![Znajdź tagów za pośrednictwem Centrum przeglądania hello](./media/resource-manager-tag-resources/browse-tags.png)
+4. Podsumowanie hello tagi są widoczne w subskrypcji.
    
      ![Wyświetlanie wszystkich tagów](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Wybierz dowolny tag, aby wyświetlić oznaczone nim zasoby i grupy zasobów.
+5. Wybierz jedno z hello tagi toodisplay hello zasobów i grup zasobów z tym znacznikiem.
    
      ![Wyświetlanie otagowanych zasobów](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Wybierz pozycję **Przypnij blok do pulpitu nawigacyjnego**, aby uzyskać szybki dostęp.
+6. Wybierz **toodashboard bloku kodu Pin** umożliwiającą szybki dostęp.
    
-     ![Przypinanie tagów do pulpitu nawigacyjnego](./media/resource-manager-tag-resources/pin-tag.png)
-7. Przypięty tag możesz wybrać z poziomu pulpitu nawigacyjnego, aby zobaczyć oznaczone nim zasoby.
+     ![Pulpit nawigacyjny toohello znaczniki kodu PIN](./media/resource-manager-tag-resources/pin-tag.png)
+7. Można wybrać tag hello przypięte z hello pulpitu nawigacyjnego toosee hello zasoby z tym znacznikiem.
 
-     ![Przypinanie tagów do pulpitu nawigacyjnego](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Pulpit nawigacyjny toohello znaczniki kodu PIN](./media/resource-manager-tag-resources/show-pinned-tag.png)

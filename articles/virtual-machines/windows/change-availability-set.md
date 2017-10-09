@@ -1,6 +1,6 @@
 ---
-title: "Zmień zestaw dostępności maszyn wirtualnych | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zmienić zbiór dostępności dla maszyn wirtualnych przy użyciu programu Azure PowerShell i modelu wdrażania usługi Resource Manager."
+title: "aaaChange zestawu dostępności maszyn wirtualnych | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zbiór toochange hello dostępności dla maszyn wirtualnych przy użyciu programu Azure PowerShell i modelu wdrażania usługi Resource Manager hello."
 keywords: 
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3b1cc010a6d4c4883f2e34da9cfca4372aec92cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Zmień zbiór dostępności dla maszyny Wirtualnej systemu Windows
-W poniższych krokach opisano sposób Zmień zestaw dostępności maszyny wirtualnej przy użyciu programu Azure PowerShell. Maszynę wirtualną można dodać tylko do zestawu po utworzeniu dostępności. Aby zmienić dostępność, należy usunąć i ponownie utwórz maszynę wirtualną. 
+# <a name="change-hello-availability-set-for-a-windows-vm"></a>Zmień hello zbiór dostępności dla maszyny Wirtualnej systemu Windows
+Hello następujące kroki opisują sposób toochange hello zestawu dostępności maszyny wirtualnej przy użyciu programu Azure PowerShell. Maszynę wirtualną można dodać tylko dostępność tooan ustawić po utworzeniu. W zestawie dostępności hello toochange kolejności muszą toodelete i Utwórz ponownie maszynę wirtualną hello. 
 
-## <a name="change-the-availability-set-using-powershell"></a>Zmień zestaw przy użyciu programu PowerShell dostępności
-1. Przechwyć następujące dane klucza z maszyny Wirtualnej do zmodyfikowania.
+## <a name="change-hello-availability-set-using-powershell"></a>Zmień dostępność hello ustawić za pomocą programu PowerShell
+1. Przechwyć hello poniższe informacje klucza z toobe wirtualna hello zmodyfikowane.
    
-    Nazwa maszyny Wirtualnej
+    Nazwa hello maszyny Wirtualnej
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <Name-of-resource-group> -Name <name-of-VM>
@@ -41,7 +41,7 @@ W poniższych krokach opisano sposób Zmień zestaw dostępności maszyny wirtua
     $vm.HardwareProfile.VmSize
     ```
    
-    Podstawowy interfejs sieci i interfejsów sieciowych opcjonalne, jeśli istnieją na maszynie Wirtualnej
+    Podstawowy interfejs sieci i interfejsów sieciowych opcjonalny, gdy istnieją one na powitania maszyny Wirtualnej
    
     ```powershell
     $vm.NetworkProfile.NetworkInterfaces[0].Id
@@ -67,17 +67,17 @@ W poniższych krokach opisano sposób Zmień zestaw dostępności maszyny wirtua
     ```powershell
     $vm.Extensions
     ```
-2. Usuń maszyny Wirtualnej, nie usuwając dyski lub do interfejsów sieciowych.
+2. Usuwanie hello maszyny Wirtualnej bez usuwania hello dysków lub hello interfejsów sieciowych.
    
     ```powershell
     Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
     ```
-3. Tworzenie dostępności, jeśli jeszcze nie istnieje
+3. Tworzenie dostępności hello, jeśli jeszcze nie istnieje
    
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
     ```
-4. Utwórz ponownie maszynę Wirtualną przy użyciu nowego zestawu dostępności
+4. Utwórz ponownie hello maszyny Wirtualnej przy użyciu hello nowego zestawu dostępności
    
     ```powershell
     $vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
@@ -88,10 +88,10 @@ W poniższych krokach opisano sposób Zmień zestaw dostępności maszyny wirtua
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Dodawanie dysków z danymi i rozszerzenia. Aby uzyskać więcej informacji, zobacz [dołączyć dysku danych do maszyny Wirtualnej](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [rozszerzeń w szablonach usługi Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Można dodać dysków z danymi i rozszerzenia do maszyny Wirtualnej przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+5. Dodawanie dysków z danymi i rozszerzenia. Aby uzyskać więcej informacji, zobacz [tooVM dołączyć dysku danych](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) i [rozszerzeń w szablonach usługi Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Dyski danych i rozszerzeń można dodać toohello maszyny Wirtualnej przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="example-script"></a>Przykładowy skrypt
-Poniższy skrypt zawiera przykład zebraniu wymaganych informacji usuwanie oryginalna maszyna wirtualna, a następnie ponowne tworzenie nowego zestawu dostępności.
+Witaj następującego skryptu przykładowego zbierania informacji hello wymagane, usuwanie hello oryginalna maszyna wirtualna, a następnie ponowne tworzenie nowego zestawu dostępności.
 
 ```powershell
     #set variables
@@ -103,7 +103,7 @@ Poniższy skrypt zawiera przykład zebraniu wymaganych informacji usuwanie orygi
     #Get VM Details
     $OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
 
-    #Output VM details to file
+    #Output VM details toofile
     "VM Name: " | Out-File -FilePath $outFile 
     $OriginalVM.Name | Out-File -FilePath $outFile -Append
 
@@ -127,7 +127,7 @@ Poniższy skrypt zawiera przykład zebraniu wymaganych informacji usuwanie orygi
     $OriginalVM.StorageProfile.DataDisks | Out-File -FilePath $outFile -Append
     }
 
-    #Remove the original VM
+    #Remove hello original VM
     Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
 
     #Create new availability set if it does not exist
@@ -136,7 +136,7 @@ Poniższy skrypt zawiera przykład zebraniu wymaganych informacji usuwanie orygi
     $availset = New-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -Location $OriginalVM.Location
     }
 
-    #Create the basic configuration for the replacement VM
+    #Create hello basic configuration for hello replacement VM
     $newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
     Set-AzureRmVMOSDisk -VM $NewVM -VhdUri $OriginalVM.StorageProfile.OsDisk.Vhd.Uri  -Name $OriginalVM.Name -CreateOption Attach -Windows
 
@@ -150,10 +150,10 @@ Poniższy skrypt zawiera przykład zebraniu wymaganych informacji usuwanie orygi
         Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
     }
 
-    #Create the VM
+    #Create hello VM
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Dodaj dodatkowy magazyn do maszyny Wirtualnej przez dodanie dodatkowych [dysku danych](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Dodaj tooyour dodatkowego magazynu maszyny Wirtualnej przez dodanie dodatkowych [dysku danych](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

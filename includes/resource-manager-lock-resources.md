@@ -1,13 +1,13 @@
-1. W bloku ustawienia zasobu, grupy zasobów lub subskrypcji, którą chcesz zablokować, wybierz **blokuje**.
+1. W bloku ustawienia hello hello zasobu, grupy zasobów lub subskrypcji, że chcesz toolock, wybierz **blokuje**.
    
       ![Wybierz blokady](./media/resource-manager-lock-resources/select-lock.png)
-2. Aby dodać blokady, zaznacz **Dodaj**. Jeśli chcesz utworzyć blokadę na poziomie nadrzędnym, zaznacz element nadrzędny. Obecnie wybrany zasób dziedziczy blokady z obiektu nadrzędnego. Na przykład można zablokować grupę zasobów, aby zastosować do wszystkich jej zasobów blokady.
+2. Wybierz tooadd blokady, **Dodaj**. Zaznacz hello nadrzędnej, toocreate blokady na poziomie nadrzędnym. Hello aktualnie zaznaczonego zasobu dziedziczy blokady hello hello nadrzędnej. Na przykład można zablokować tooapply grupy zasobów hello tooall blokady jego zasoby.
    
       ![Dodaj blokady](./media/resource-manager-lock-resources/add-lock.png) 
-3. Nadaj nazwy i blokady poziom blokady. Opcjonalnie można dodawać notatki opisujące blokady.
+3. Nadaj blokady hello poziomu blokady i nazwę. Opcjonalnie można dodawać notatki opisujące hello blokady.
    
       ![zestaw blokady](./media/resource-manager-lock-resources/set-lock.png) 
-4. Aby usunąć blokadę, wybierz wielokropek i **usunąć** z dostępnych opcji.
+4. toodelete hello blokady, wybierz hello wielokropka i **usunąć** hello opcje.
    
       ![Usuwanie blokady](./media/resource-manager-lock-resources/delete-lock.png) 
 

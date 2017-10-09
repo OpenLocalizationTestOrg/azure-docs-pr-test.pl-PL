@@ -17,14 +17,14 @@
 
 <sup>1</sup>Domyślne limity zależą od typu kategorii oferty, na przykład „bezpłatna wersja próbna”, „płatność zgodnie z rzeczywistym użyciem” i serii, na przykład Dv2, F, G itd.
 
-<sup>2</sup>Obejmuje konta magazynu warstwy Standardowa i Premium. Jeśli potrzebujesz więcej niż 200 kont magazynu, wyślij żądanie za pośrednictwem [Pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/). Zespół usługi Azure Storage przejrzy Twój przypadek biznesowy i może zatwierdzić do 250 kont magazynu.
+<sup>2</sup>Obejmuje konta magazynu warstwy Standardowa i Premium. Jeśli potrzebujesz więcej niż 200 kont magazynu, wyślij żądanie za pośrednictwem [Pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/). Hello Azure Storage team przejrzeć tej sprawy biznesowych i może zatwierdzić too250 kont magazynu.
 
-<sup>3</sup>Liczba tagów, które można zastosować na subskrypcję, nie jest ograniczona. Liczba tagów na zasób lub grupę zasobów jest ograniczona do 15. Usługa Resource Manager zwraca [listę unikatowych nazw i wartości tagów](/rest/api/resources/tags#Tags_List) w subskrypcji tylko wtedy, gdy liczba tagów wynosi 10 000 lub mniej. Nadal jednak można odnaleźć zasób na podstawie tagu, gdy ich liczba przekracza 10 000.  
+<sup>3</sup>Liczba tagów, które można zastosować na subskrypcję, nie jest ograniczona. Hello liczba tagów na zasób lub grupa zasobów jest ograniczona too15. Zwraca tylko Menedżera zasobów [listę unikatową nazwę znacznika i wartości](/rest/api/resources/tags#Tags_List) w subskrypcji powitania po 10 000 lub mniej hello liczba tagów. Jednak można nadal znaleźć zasób w tagu gdy numer hello przekracza 10 000.  
 
-<sup>4</sup>Te funkcje nie są już wymagane w przypadku grup zasobów platformy Azure i usługi Azure Resource Manager.
+<sup>4</sup>te funkcje nie są już wymagane z grup zasobów platformy Azure i hello Azure Resource Manager.
 
 > [!NOTE]
-> Trzeba podkreślić, że rdzenie maszyny wirtualnej mają regionalny całkowity limit, a także regionalny limit na rozmiar dla serii (Dv2, F, itp.). Te limity są wymuszane oddzielnie.  Rozważmy na przykład subskrypcję z całkowitym limitem rdzeni maszyn wirtualnych dla regionu Wschodnie stany USA wynoszącym 30, limitem rdzeni dla serii A wynoszącym 30 i limitem rdzeni dla serii D wynoszącym 30.  W przypadku tej subskrypcji dozwolone będzie wdrożenie 30 maszyn wirtualnych A1 lub 30 maszyn wirtualnych D1 albo kombinacji obu rodzajów maszyn wirtualnych, pod warunkiem, że liczba rdzeni nie przekroczy 30 (na przykład 10 maszyn wirtualnych A1 i 20 maszyn wirtualnych D1).  
+> Jest ważne tooemphasize, który rdzeni maszyny wirtualnej ma regionalnych całkowitego limitu, a także regionalne limit rozmiaru serii (Dv2, F, itp.), który oddzielnie są wymuszane na.  Rozważmy na przykład subskrypcję z całkowitym limitem rdzeni maszyn wirtualnych dla regionu Wschodnie stany USA wynoszącym 30, limitem rdzeni dla serii A wynoszącym 30 i limitem rdzeni dla serii D wynoszącym 30.  Ta subskrypcja mogliby maszyn wirtualnych A1 toodeploy 30 lub 30 D1 maszyn wirtualnych lub kombinację Witaj dwie tooexceed łączną liczbę rdzeni 30 (na przykład 10 A1 maszyn wirtualnych i 20 D1 maszyn wirtualnych).  
 > <!-- -->
 > 
 > 

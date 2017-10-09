@@ -1,16 +1,16 @@
-Użyj interfejsu wiersza polecenia platformy Azure, aby uzyskać adres URL zdalnego wdrożenia dla swojej aplikacji interfejsu API. W poniższym poleceniu zastąp ciąg *\<nazwa_aplikacji>* nazwą swojej aplikacji internetowej.
+Użyj adresu URL hello Azure CLI tooget hello zdalnego wdrażania dla aplikacji interfejsu API. Zastąp następujące polecenie, w hello  *\<nazwa_aplikacji >* o nazwie aplikacji sieci web.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
 ```
 
-Skonfiguruj swoje lokalne wdrożenie Git, aby było możliwe wypychanie do lokalizacji zdalnej.
+Konfigurowanie sieci lokalnej Git wdrożenia toobe stanie toopush toohello zdalnego.
 
 ```bash
 git remote add azure <URI from previous step>
 ```
 
-Wypchnij na zdalną platformę Azure w celu wdrożenia aplikacji. Zostanie wyświetlony monit o podanie hasła utworzonego wcześniej podczas tworzenia użytkownika wdrożenia. Upewnij się, że zostało wprowadzone hasło utworzone wcześniej podczas postępowania zgodnie z przewodnikiem szybkiego startu, a nie hasło, którego używasz do logowania się w witrynie Azure Portal.
+Wypchnij toohello Azure zdalnego toodeploy aplikacji. Zostanie wyświetlony monit o hello hasło utworzone wcześniej podczas tworzenia hello wdrożenia użytkownika. Upewnij się, możesz wprowadzić hasło hello, utworzony we wcześniejszej części szybkiego startu hello i nie hasło hello używasz toolog toohello portalu Azure.
 
 ```bash
 git push azure master

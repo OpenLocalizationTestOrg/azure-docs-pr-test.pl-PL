@@ -1,40 +1,40 @@
 <!--author=alkohli last changed: 05/19/16-->
 
-#### <a name="to-download-hotfixes"></a>Aby pobrać poprawki
-Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu usługi Microsoft Update.
+#### <a name="toodownload-hotfixes"></a>poprawki toodownload
+Wykonywanie poniższych czynności toodownload hello aktualizacja z hello wykazu aktualizacji usługi Microsoft hello.
 
-1. Uruchom program Internet Explorer i przejdź pod adres [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. Jeśli po raz pierwszy używasz Wykazu usługi Microsoft Update na danym komputerze, po wyświetleniu monitu o zainstalowanie dodatku Wykazu usługi Microsoft Update kliknij pozycję **Zainstaluj**.
+1. Uruchom program Internet Explorer i przejdź zbyt[http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. Jeśli jest to pierwsza przy użyciu hello wykazu usługi Microsoft Update na tym komputerze, kliknij przycisk **zainstalować** gdy zostanie wyświetlony monit o tooinstall hello dodatek wykazu usługi Microsoft Update.
     ![Zainstaluj katalogu](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
-3. W polu wyszukiwania z wykazu usługi Microsoft Update, wprowadź numer bazy wiedzy Knowledge Base (KB) poprawki do pobrania, na przykład **3179904**, a następnie kliknij przycisk **wyszukiwania**.
+3. W polu wyszukiwania hello hello wykazu usługi Microsoft Update, wprowadź numer bazy wiedzy Knowledge Base (KB) hello hello poprawki mają toodownload, na przykład **3179904**, a następnie kliknij przycisk **wyszukiwania**.
    
-    Poprawka zostanie wyświetlona na liście, na przykład **zbiorczą 2.2 aktualizacji pakietu oprogramowania dla z serii StorSimple 8000**.
+    Witaj poprawka zostanie wyświetlona na liście, na przykład **zbiorczą 2.2 aktualizacji pakietu oprogramowania dla z serii StorSimple 8000**.
    
     ![Przeszukiwanie wykazu](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Kliknij pozycję **Dodaj**. Aktualizacja zostanie dodana do koszyka.
-5. Wyszukaj wszystkie dodatkowe poprawki wymienione w powyższej tabeli (**3103616**, **3146621**) i Dodaj do koszyka.
+4. Kliknij pozycję **Dodaj**. Witaj aktualizacja została dodana toohello koszyka.
+5. Wyszukaj wszystkie dodatkowe poprawki wymienione w powyższej tabeli hello (**3103616**, **3146621**) i Dodaj każdy koszyka toohello.
 6. Kliknij pozycję **Wyświetl koszyk**.
-7. Kliknij pozycję **Pobierz**. Określ lokalizację lokalną, do której mają trafiać pobrane pliki, albo **przejdź** do takiej lokalizacji. Aktualizacje są pobierane do określonej lokalizacji i umieszczane w podfolderze o takiej samej nazwie, jak w przypadku aktualizacji. Folder można też skopiować do udziału sieciowego osiągalnego z urządzenia.
+7. Kliknij pozycję **Pobierz**. Określ lub **Przeglądaj** tooa lokalnego lokalizację hello pobiera tooappear. Witaj aktualizacje zostaną pobrane toohello określonej lokalizacji i umieścić w podfolderze o hello takie same nazwy co hello update. Hello folder można także skopiowany tooa udział sieciowy, który jest dostępny z urządzenia hello.
 
 > [!NOTE]
-> Poprawki musi być dostępny z obu kontrolerów, aby wykryć potencjalne komunikaty o błędach z kontrolera elementu równorzędnego.
+> poprawki Hello musi być dostępny z obu toodetect kontrolerów wszelkie potencjalne błędy komunikaty z hello równorzędnej kontrolera.
 > 
 > 
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego
-Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego. Jeśli została już zainstalowana ich przy użyciu portalu Azure, przejdź do [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes).
+#### <a name="tooinstall-and-verify-regular-mode-hotfixes"></a>tooinstall i sprawdź regularne poprawki
+Wykonaj następujące kroki tooinstall hello i sprawdź regular poprawki. Jeśli zainstalowano je przy użyciu hello portalu Azure przejdź za[zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Aby zainstalować poprawki, przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej Twojego urządzenia StorSimple. Postępuj zgodnie ze szczegółowymi instrukcjami w części [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). W wierszy polecenia naciśnij klawisz **Enter**.
-2. Wybierz **opcję 1**, aby zalogować się do urządzenia z pełnym dostępem. Zalecamy, aby najpierw zainstalować poprawkę na kontrolerze pasywnym.
-3. Aby zainstalować poprawkę, w wierszu polecenia wpisz:
+1. tooinstall hello poprawki interfejsu programu Windows PowerShell hello dostępu na konsoli szeregowej urządzenia StorSimple. Wykonaj hello szczegółowe instrukcje w [konsoli szeregowej przy użyciu programu PuTTy tooconnect toohello](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). W wierszu polecenia hello naciśnij **Enter**.
+2. Wybierz **opcję 1** toolog toohello urządzenia z pełnym dostępem. Zalecamy zainstalowanie poprawki hello na kontrolerze pasywnym hello najpierw.
+3. poprawka hello tooinstall hello wiersza polecenia, wpisz:
    
-    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
    
-    W powyższym poleceniu użyj adresu IP zamiast nazwy DNS w ścieżce udziału. Parametr Credential jest używany tylko wtedy, gdy uzyskuje się dostęp do uwierzytelnionego udziału.
+    Użyj adresu IP, a nie DNS w ścieżce udziału hello powyżej polecenia. Parametr credential Hello jest używany tylko wtedy, gdy uzyskujesz dostęp do udziału uwierzytelniony.
    
-    Użycie parametru Credential jest zalecane przy uzyskiwaniu dostępu do udziałów. Nawet udziały otwarte dla wszystkich nie są zwykle otwarte dla użytkowników nieuwierzytelnionych.
+    Zalecamy użycie udziałów tooaccess parametr credential hello. Nawet udziałów, które są otwarte za "wszyscy" są zwykle nie otworzyć toounauthenticated użytkowników.
    
-    Po wyświetleniu monitu podaj hasło.
+    Podaj hasło powitania po wyświetleniu monitu.
    
     Poniżej pokazano przykładowe dane wyjściowe.
    
@@ -44,20 +44,20 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 
     Confirm
 
-    This operation starts the hotfix installation and could reboot one or
-    both of the controllers. If the device is serving I/Os, these will not
-    be disrupted. Are you sure you want to continue?
+    This operation starts hello hotfix installation and could reboot one or
+    both of hello controllers. If hello device is serving I/Os, these will not
+    be disrupted. Are you sure you want toocontinue?
     [Y] Yes [N] No [?] Help (default is "Y"): Y
     ```
 
-4. Wpisz **Y**, gdy zostanie wyświetlony monit o potwierdzenie instalacji poprawki.
+4. Typ **Y** gdy zostanie wyświetlony monit o tooconfirm hello instalacji poprawki.
    
    > [!IMPORTANT]
-   > Jeśli instalowanie aktualizacji 2.2, instalować tylko plik binarny poprzedzone znakiem "all-hcsmdssoftwareudpate". Nie należy instalować SIC i aktualizacja agenta MDS poprzedzone znakiem all cismdsagentupdatebundle. Błąd w tym celu spowoduje błąd. 
+   > Jeśli instalowanie aktualizacji 2.2, instalować tylko plik binarny hello poprzedzone znakiem "wszystkie hcsmdssoftwareudpate". Nie należy instalować hello konfiguracji (ci) i hello MDS agent aktualizacji poprzedzone znakiem all cismdsagentupdatebundle. Błąd toodo tak spowoduje błąd. 
 
-5. Monitoruj aktualizację za pomocą polecenia cmdlet `Get-HcsUpdateStatus`. Aktualizacja zakończy się najpierw na kontrolerze pasywnym. Gdy kontroler pasywny zostanie zaktualizowany, nastąpi przejście do trybu failover i aktualizacja zostanie zastosowana na drugim kontrolerze. Aktualizacja zostanie zakończona po zaktualizowaniu obu kontrolerów.
+5. Monitoruj hello aktualizacji za pomocą hello `Get-HcsUpdateStatus` polecenia cmdlet. Hello aktualizacji zakończy się najpierw na powitania pasywnym kontrolera. Po kontrolera pasywnym hello jest aktualizowany, będą trybu failover i aktualizacji hello następnie zostaną zastosowane na hello inny kontroler. Witaj aktualizacja została ukończona, gdy obu kontrolerów hello są aktualizowane.
    
-    Następujące przykładowe dane wyjściowe pokazują aktualizację w toku. Gdy aktualizacja będzie w toku, parametr `RunInprogress` będzie mieć wartość `True`.
+    Witaj przykładowe dane wyjściowe wyglądają następująco hello aktualizacji w toku. Witaj `RunInprogress` będzie `True` podczas aktualizacji hello jest w toku.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -68,7 +68,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
     Controller1Events   :
     ```
    
-     Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona. Gdy aktualizacja zostanie zakończona, parametr `RunInProgress` będzie mieć wartość `False`.
+     Hello następujące przykładowe dane wyjściowe wskazuje, że aktualizacja hello zostało zakończone. Witaj `RunInProgress` będzie `False` po zakończeniu aktualizacji hello.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -80,44 +80,44 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
     ```
 
     > [!NOTE]
-    > Czasem polecenie cmdlet zgłasza wartość `False`, gdy aktualizacja jest ciągle w toku. Aby upewnić się, że instalacja poprawki została zakończona, zaczekaj kilka minut, uruchom ponownie to polecenie i sprawdź, czy parametr `RunInProgress` ma wartość `False`. Jeśli tak jest, instalowanie poprawki zostało zakończone.
+    > Czasami hello raporty polecenia cmdlet `False` podczas aktualizacji hello jest nadal w toku. tooensure, który hello poprawka została ukończona, poczekaj kilka minut, ponownie uruchomić to polecenie i sprawdź, że hello `RunInProgress` jest `False`. Jeśli tak jest, poprawki hello zostało zakończone.
 
-1. Po zakończeniu aktualizowania oprogramowania sprawdź wersje oprogramowania systemu. Wpisz:
+1. Po zakończeniu aktualizacji oprogramowania hello Sprawdź wersje oprogramowania hello systemu. Wpisz:
    
     `Get-HcsSystem`
    
-    Powinny zostać wyświetlone następujące wersje:
+    Powinny pojawić się hello następujące wersje:
    
    * `HcsSoftwareVersion: 6.3.9600.17708`
    * `CisAgentVersion: 1.0.9299.0`
    * `MdsAgentVersion: 30.0.4698.16` 
      
-     Po zastosowaniu tej aktualizacji nie należy zmieniać numerów wersji, wskazuje, że poprawka nie zastosować. Jeśli widzisz coś takiego, skontaktuj się z [pomocą techniczną firmy Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) w celu uzyskania dalszej pomocy.
+     Jeśli po zastosowaniu aktualizacji hello nie należy zmieniać numerów wersji hello, oznacza to, że ta poprawka hello nie powiodło się tooapply. Jeśli widzisz coś takiego, skontaktuj się z [pomocą techniczną firmy Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) w celu uzyskania dalszej pomocy.
      
      > [!IMPORTANT]
-     > Przed zastosowaniem pozostałych aktualizacji musisz uruchomić ponownie kontroler aktywny za pomocą polecenia cmdlet `Restart-HcsController`. 
+     > Należy ponownie uruchomić hello na aktywnym kontrolerze za pośrednictwem hello `Restart-HcsController` polecenia cmdlet przed zastosowaniem hello pozostałych aktualizacji. 
      > 
      > 
-2. Powtórz kroki 3 – 5, aby zainstalować pozostałe poprawki tryb zwykły.
+2. Powtórz kroki 3 – 5 tooinstall hello pozostałych regular poprawki.
    
-   * Aktualizacja iSCSI KB3146621
-   * Aktualizacja WMI KB3103616
-3. Pomiń ten krok, jeśli są aktualizowane z Update 2. Jeśli aktualizacja z wersji przed Update 2, zostanie również należy pobrać:
+   * Aktualizacja iSCSI Hello KB3146621
+   * Aktualizacja WMI Hello KB3103616
+3. Pomiń ten krok, jeśli są aktualizowane z Update 2. Aktualizowania z poprzednich tooUpdate w wersji 2, konieczne będzie również toodownload:
 
-    - Sterownik LSI KB3121900
+    - Sterownik Hello LSI KB3121900
 
-    - Aktualizacja Spaceport KB3090322
+    - Aktualizacja Spaceport Hello KB3090322
 
-    - Aktualizacja Storport KB3080728
+    - Aktualizacja Storport Hello KB3080728
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Aby zainstalować i zweryfikować poprawki przeznaczone do trybu konserwacji
-Użyj KB3121899 do instalowania aktualizacji oprogramowania układowego dysku. Te aktualizacje wymagają zatrzymania pracy i zajmują około 30 minut. Można zdecydować się na zainstalowanie ich w zaplanowanym oknie obsługi, łącząc się z konsolą szeregową urządzenia.
+#### <a name="tooinstall-and-verify-maintenance-mode-hotfixes"></a>tooinstall i sprawdź poprawki trybu konserwacji
+Użyj aktualizacji oprogramowania układowego dysku tooinstall KB3121899. Te aktualizacje zakłócenie i podejmij toocomplete około 30 minut. Można wybrać tooinstall je w oknie obsługi planowanych przez łączącego konsoli szeregowej urządzenia toohello.
 
-Pamiętaj, że jeśli oprogramowanie układowe dysku jest już aktualne, tych aktualizacji nie trzeba instalować. Uruchom polecenie cmdlet `Get-HcsUpdateAvailability` z konsoli szeregowej urządzenia, aby sprawdzić, czy aktualizacje są dostępne i czy wymagają przerwania pracy (są przeznaczone do trybu konserwacji), czy nie (są przeznaczone do trybu normalnego).
+Uwaga: Jeśli oprogramowanie układowe dysku jest już aktualne, nie należy tooinstall te aktualizacje. Uruchom hello `Get-HcsUpdateAvailability` polecenia cmdlet z hello toocheck konsoli szeregowej urządzenia, jeśli aktualizacje są dostępne i czy hello aktualizacji są destrukcyjne (trybu konserwacji) lub Brak (tryb regularne) aktualizacji.
 
-Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodnie z instrukcjami poniżej.
+aktualizacje oprogramowania układowego tooinstall hello dysku, wykonaj poniższe instrukcje hello.
 
-1. Ustaw urządzenia w trybie konserwacji. Należy pamiętać, że nie należy używać komunikacji zdalnej programu Windows PowerShell podczas nawiązywania połączenia z urządzeniem w trybie konserwacji. Zamiast tego Uruchom to polecenie cmdlet na kontrolerze urządzenia podczas połączenia za pośrednictwem konsoli szeregowej urządzenia. Wpisz:
+1. Ustaw hello urządzenia w trybie konserwacji hello. Należy pamiętać, że nie należy używać komunikacji zdalnej programu Windows PowerShell podczas łączenia tooa urządzenia w trybie konserwacji. Zamiast tego Uruchom to polecenie cmdlet na kontrolerze urządzenia hello podczas połączenia za pośrednictwem konsoli szeregowej urządzenia hello. Wpisz:
    
     `Enter-HcsMaintenanceMode`
    
@@ -126,14 +126,14 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
    
-        In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
+        In maintenance mode, your device will not service IOs and will be disconnected from hello Microsoft Azure StorSimple Manager service. Entering maintenance mode will end hello current session and reboot both controllers, which takes a few minutes toocomplete. Are you sure you want tooenter maintenance mode?
         [Y] Yes [N] No (Default is "Y"): Y
    
         -----------------------MAINTENANCE MODE------------------------
         Microsoft Azure StorSimple Appliance Model 8100
         Name: Update2-8100-SHG0997879L76673
         Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-        You are connected to Controller0 - Passive
+        You are connected tooController0 - Passive
         ---------------------------------------------------------------
    
         Serial Console Menu
@@ -143,26 +143,26 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
         [4] Change language
         Please enter your choice>
    
-    Zarówno kontrolery następnie uruchom ponownie w trybie konserwacji.
-2. Aby zainstalować aktualizację oprogramowania układowego dysku, wpisz:
+    Zarówno kontrolery hello następnie uruchom ponownie w trybie konserwacji.
+2. tooinstall hello dysku aktualizacji oprogramowania układowego, wpisz:
    
-    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
    
     Poniżej pokazano przykładowe dane wyjściowe.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
         Enter Password:
-        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
+        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After hello hotfix is installed on this controller, install it on hello peer controller.
         Confirm
-        This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
+        This operation starts a hotfix installation and could reboot one or both of hello controllers. By installing new updates you agree to, and accept any additional terms associated with, hello new functionality listed in hello release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want toocontinue?
         [Y] Yes [N] No (Default is "Y"): Y
-        WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. Monitoruj postęp instalacji za pomocą polecenia `Get-HcsUpdateStatus`. Aktualizacja będzie zakończona, gdy parametr `RunInProgress` zmieni wartość na `False`.
-4. Po zakończeniu instalacji kontroler, na którym została zainstalowana poprawka przeznaczona do trybu konserwacji, zostanie uruchomiony ponownie. Zaloguj się za pomocą opcji 1 (z pełnym dostępem) i sprawdź wersję oprogramowania układowego dysku. Wpisz:
+        WARNING: Installation is currently in progress. This operation can take several minutes toocomplete.
+3. Monitor hello Instaluj postępu przy użyciu `Get-HcsUpdateStatus` polecenia. Witaj aktualizacja została ukończona, gdy hello `RunInProgress` zmiany zbyt`False`.
+4. Po zakończeniu instalacji hello hello kontrolera, na które hello zainstalowano poprawkę trybu konserwacji zostanie uruchomiony ponownie. Zaloguj się jako opcja 1 z pełnym dostępem i sprawdź, wersja oprogramowania układowego hello dysku. Wpisz:
    
    `Get-HcsFirmwareVersion`
    
-   Oczekiwane wersje oprogramowania układowego dysku to:
+   Witaj oczekiwanych wersji oprogramowania układowego dysku:
    
    `XMGG, XGEG, KZ50, F6C2, VR08`
    
@@ -173,7 +173,7 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
        Name: Update2-8100-SHG0997879L76YD
        Software Version: 6.3.9600.17705
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-       You are connected to Controller1
+       You are connected tooController1
        ---------------------------------------------------------------
    
        Controller1>Get-HcsFirmwareVersion
@@ -220,8 +220,8 @@ Aby zainstalować aktualizacje oprogramowania układowego dysku, postępuj zgodn
          SEAGATE:ST4000NM0023:XMGG
          SEAGATE:ST4000NM0023:XMGG
    
-    Uruchom polecenie `Get-HcsFirmwareVersion` na drugim kontrolerze, aby sprawdzić, czy wersja oprogramowania została zaktualizowana. Następnie możesz wyjść z trybu konserwacji. W tym celu wpisz następujące polecenie dla każdego kontrolera urządzenia:
+    Uruchom hello `Get-HcsFirmwareVersion` polecenie hello drugi kontroler tooverify który hello wersji oprogramowania została zaktualizowana. Następnie można zakończyć tryb konserwacji hello. toodo tak, wpisz następujące polecenie dla każdego kontrolera urządzenia hello:
    
    `Exit-HcsMaintenanceMode`
-5. Kontrolery Uruchom ponownie po wyjściu z trybu konserwacji. Gdy aktualizacje oprogramowania układowego dysku zostaną pomyślnie zastosowane i urządzenie wyjdzie z trybu konserwacji, wróć do klasycznej witryny Azure Portal. Należy pamiętać, że portalu nie mogą być wyświetlane, czy zainstalowane aktualizacje trybu konserwacji na 24 godziny.
+5. kontrolery Hello ponownie po wyjściu z trybu konserwacji. Po oprogramowania układowego dysku hello skutecznym zastosowaniu wszystkich aktualizacji, a urządzenie hello opuścił tryb konserwacji, zwracany toohello klasycznego portalu Azure. Należy pamiętać, że tego portalu hello nie mogą być wyświetlane, czy zainstalowane aktualizacje w trybie konserwacji hello przez 24 godziny.
 

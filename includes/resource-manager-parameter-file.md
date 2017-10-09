@@ -1,4 +1,4 @@
-Użycie pliku parametrów można podać wartości parametrów podczas wdrażania, należy utworzyć plik JSON w formacie podobny do poniższego przykładu:
+Jeśli używasz wartości parametru toopass pliku parametrów podczas wdrażania należy toocreate pliku JSON z formatu toohello podobne, poniższy przykład:
 
 ```json
 {
@@ -26,7 +26,7 @@ Użycie pliku parametrów można podać wartości parametrów podczas wdrażania
 }
 ```
 
-Rozmiar pliku parametrów nie może być więcej niż 64 KB.
+rozmiar Hello hello pliku parametrów nie może być więcej niż 64 KB.
 
-Jeśli trzeba podać poufne wartość dla parametru (na przykład hasło), należy dodać tę wartość do magazynu kluczy. Podczas wdrażania należy pobrać magazynu kluczy, jak pokazano w poprzednim przykładzie. Aby uzyskać więcej informacji, zobacz [przekazać wartości bezpieczne podczas wdrażania](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
+Jeśli potrzebujesz tooprovide poufną wartość dla parametru (na przykład hasło), Dodaj magazyn kluczy tooa tej wartości. Podczas wdrażania, jak pokazano w poprzednim przykładzie hello, należy pobrać hello magazynu kluczy. Aby uzyskać więcej informacji, zobacz [przekazać wartości bezpieczne podczas wdrażania](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 

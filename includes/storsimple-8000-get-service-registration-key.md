@@ -1,18 +1,18 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### <a name="to-get-the-storsimple-service-registration-key"></a>Aby pobrać klucz rejestracji usługi StorSimple
+#### <a name="tooget-hello-storsimple-service-registration-key"></a>klucz rejestracji usługi StorSimple hello tooget
 
-1. W bloku **Menedżer urządzeń StorSimple** kliknij utworzoną usługę. Spowoduje to otwarcie nowego bloku z prawej strony.
+1. Na powitania **Menedżera urządzeń StorSimple** bloku, kliknij utworzoną usługę hello. Spowoduje to otwarcie górę nowe prawo toohello bloku.
    
      ![Blok Menedżer urządzeń StorSimple](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
 
-2.  Przejdź do pozycji **Zarządzanie > Klucze**.
+2.  Przejdź za**zarządzania > klucze**.
    
      ![Blok Klucze](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
 
-3.  W bloku, który zostanie otwarty, kliknij ikonę kopiowania, aby skopiować klucz rejestracji usługi i zapisać go do użycia później.
+3.  W otwartym bloku powitania kliknij ikonę kopiowania hello toocopy klucz rejestracji usługi hello i zapisz go na przyszłość.
 
 > [!NOTE]
-> Klucz rejestracji usługi służy do rejestrowania wszystkich urządzeń, które należy zarejestrować w usłudze Menedżer urządzeń StorSimple.
+> Witaj klucz rejestracji usługi jest używane tooregister hello wszystkie urządzenia, które wymagają tooregister przy użyciu usługi Menedżer StorSimple urządzenia.
 
 

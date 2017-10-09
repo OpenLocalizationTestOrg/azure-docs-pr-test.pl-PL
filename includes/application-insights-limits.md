@@ -1,10 +1,10 @@
-Istnieją pewne ograniczenia liczby metryk i zdarzeń na aplikację (czyli na klucz instrumentacji). Ograniczenia zależą od wybranego [planu cenowego](https://azure.microsoft.com/pricing/details/application-insights/).
+Istnieją pewne ograniczenia liczby hello metryki i zdarzenia według aplikacji (czyli na klucz Instrumentacji). Limity są zależne od hello [cenową planu](https://azure.microsoft.com/pricing/details/application-insights/) wybranego przez użytkownika.
 
 | **Zasób** | **Limit domyślny** | **Uwaga**
 | --- | --- | --- |
 | Łączna ilość danych na dzień | 500 GB | Ilość danych możesz zmniejszyć, ustawiając limit. Jeśli potrzebujesz większej ilości, wyślij wiadomość e-mail na adres AIDataCap@microsoft.com.
 | Ilość bezpłatnych danych na miesiąc<br/> (plan cenowy Podstawowa) | 1 GB | Opłaty za dodatkowe dane są naliczane za gigabajt.
-| Ograniczanie przepływności | 32 tys. zdarzeń na sekundę | Limit jest mierzony przez minutę.
+| Ograniczanie przepływności | 32 tys. zdarzeń na sekundę | Hello limit jest mierzony na minutę.
 | Przechowywanie danych | 90 dni | Ten zasób jest przeznaczony na potrzeby [wyszukiwania](../articles/application-insights/app-insights-diagnostic-search.md), [analizy](../articles/application-insights/app-insights-analytics.md) i [Eksploratora metryk](../articles/application-insights/app-insights-metrics-explorer.md).
 | Przechowywanie szczegółowych wyników [wieloetapowego testu dostępności](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 dni | Ten zasób zapewnia szczegółowe wyniki każdego kroku.
 | Maksymalnego rozmiaru zdarzenia | 64 K | 

@@ -15,5 +15,5 @@
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
 > [!NOTE]
-> Linki pobierania sterownika Tesla są aktualne w momencie publikacji. Aby uzyskać najnowsze sterowniki, odwiedź witrynę internetową firmy [NVIDIA](http://www.nvidia.com/).
+> Linki pobierania sterownika Tesla są aktualne w momencie publikacji. Witaj najnowszych sterowników, można znaleźć hello [NVIDIA](http://www.nvidia.com/) witryny sieci Web.
 >

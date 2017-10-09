@@ -1,5 +1,5 @@
 ---
-title: Red Hat aktualizacji infrastruktury (RHUI) | Dokumentacja firmy Microsoft
+title: aaaRed Hat aktualizacji infrastruktury (RHUI) | Dokumentacja firmy Microsoft
 description: "Dowiedz się więcej o Red Hat aktualizacji infrastruktury (RHUI) dla wystąpień Red Hat Enterprise Linux na żądanie w systemie Microsoft Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: borisb
-ms.openlocfilehash: 07815d691ffe57f0349f7a90ced4a2fcc1ab834f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc244857104b25e4e61862c518db77e915e137ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="red-hat-update-infrastructure-rhui-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat aktualizacji infrastruktury (RHUI) na żądanie Red Hat Enterprise Linux w maszynach wirtualnych na platformie Azure
-Maszyny wirtualne utworzone z obrazów Red Hat Enterprise Linux (RHEL) na żądanie dostępne w portalu Azure Marketplace jest zarejestrowany na dostęp Red Hat aktualizacji infrastruktury (RHUI) wdrożona na platformie Azure.  Wystąpienia na żądanie RHEL mieć dostęp do repozytorium yum regionalnych i może odbierać aktualizacje przyrostowe.
+Maszyny wirtualne utworzone na podstawie hello na żądanie Red Hat Enterprise Linux (RHEL) dostępnych obrazów w portalu Azure Marketplace są hello zarejestrowanych tooaccess Red Hat aktualizacji infrastruktury (RHUI) wdrożona na platformie Azure.  Hello na żądanie RHEL wystąpień mają dostęp tooa regionalnych yum repozytorium i stanie tooreceive aktualizacji przyrostowych.
 
-Na liście repozytorium yum, który jest zarządzany przez RHUI, jest skonfigurowany w wystąpieniu RHEL podczas inicjowania obsługi. Nie musisz podejmować żadnych dodatkowych konfiguracji — Uruchom `yum update` po wystąpieniu RHEL jest gotowy do Pobierz najnowsze aktualizacje.
+Witaj yum repozytorium listę, która jest zarządzana przez RHUI, jest skonfigurowany w wystąpieniu RHEL podczas inicjowania obsługi. Nie ma potrzeby toodo dodatkowa konfiguracja — Uruchom `yum update` po wystąpieniu RHEL jest gotowy tooget hello najnowsze aktualizacje.
 
 > [!NOTE]
-> We wrześniu 2016 r wdrożyliśmy zaktualizowane RHUI Azure i w stycznia 2017 możemy uruchomić etapowe zamknięcie starszych RHUI Azure. Jeśli był używany obrazów RHEL (lub migawki ich) od września 2016 lub nowszy - prawdopodobnie jest wymagana żadna akcja. Jeśli jednak masz starszą migawki/VMs, ich konfiguracji musi zostać zaktualizowany nieprzerwany dostęp do Azure RHUI.
+> We wrześniu 2016 r wdrożyliśmy zaktualizowane RHUI Azure i w stycznia 2017 możemy uruchomić etapowe zamknięcie hello starsze RHUI Azure. Jeśli używany był hello RHEL obrazy (lub migawki ich) od września 2016 lub nowszy - prawdopodobnie jest wymagana żadna akcja. Jeśli jednak masz starszą migawki/VMs, ich konfiguracji należy toobe dodano toohello nieprzerwanego dostępu Azure RHUI.
 > 
 
 ## <a name="rhui-azure-infrastructure-update"></a>RHUI aktualizacji infrastruktury platformy Azure
-Począwszy od września 2016 r. platforma Azure ma nowy zestaw serwerów Red Hat aktualizacji infrastruktury (RHUI). Te serwery zostały wdrożone za pomocą [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) tak, aby jeden punkt końcowy (rhui 1.microsoft.com) mogą być używane przez żadnej maszyny Wirtualnej, niezależnie od tego regionu. Nowych obrazów RHEL płatność za rzeczywiste użycie (między) w portalu Azure Marketplace (wersje z września 2016 lub nowszy) wskaż nowych serwerów Azure RHUI i nie wymagają żadnych dodatkowych działań.
+Począwszy od września 2016 r. platforma Azure ma nowy zestaw serwerów Red Hat aktualizacji infrastruktury (RHUI). Te serwery zostały wdrożone za pomocą [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) tak, aby jeden punkt końcowy (rhui 1.microsoft.com) mogą być używane przez żadnej maszyny Wirtualnej, niezależnie od tego regionu. Witaj nowych obrazów RHEL płatność za rzeczywiste użycie (między) w hello Azure Marketplace (wersje z września 2016 lub nowszy) punktu toohello nowych Azure RHUI serwerów i nie wymagają żadnych dodatkowych działań.
 
 ### <a name="determine-if-action-is-required"></a>Określić, jeśli jest wymagana akcja
-Jeśli występują problemy z połączeniem z maszyny Wirtualnej Azure RHEL między Azure RHUI, wykonaj następujące czynności
+Jeśli występują problemy z połączeniem tooAzure RHUI z maszyny Wirtualnej między RHEL Azure, wykonaj następujące czynności
 1. Sprawdź konfigurację maszyny Wirtualnej dla punktu końcowego Azure RHUI
 
-    Sprawdź, czy `/etc/yum.repos.d/rh-cloud.repo` plik zawiera odwołanie do `rhui-[1-3].microsoft.com` w baseurl z `[rhui-microsoft-azure-rhel*]` sekcji pliku. — Jeśli używasz nowego RHUI Azure.
+    Sprawdź, czy `/etc/yum.repos.d/rh-cloud.repo` plik zawiera odwołanie za`rhui-[1-3].microsoft.com` w baseurl z `[rhui-microsoft-azure-rhel*]` sekcji hello pliku. Jeśli jest — używasz hello nowe RHUI Azure.
 
-    Jeśli go wskazuje lokalizację przy użyciu następującego wzorca `mirrorlist.*cds[1-4].cloudapp.net` — wymagana jest aktualizacja konfiguracji.
+    Jeśli go wskazanie lokalizacji tooa hello następującego wzorca `mirrorlist.*cds[1-4].cloudapp.net` — wymagana jest aktualizacja konfiguracji hello.
 
-    Jeśli używasz nową konfigurację i nadal nie można połączyć się Azure RHUI - pliku sprawy pomocy technicznej firmy Microsoft lub Red Hat.
+    Jeśli używasz hello nową konfigurację i nadal nie można połączyć tooAzure RHUI - pliku sprawy pomocy technicznej firmy Microsoft lub Red Hat.
 
     > [!NOTE]
-    > Dostęp do RHUI hostowanymi na platformie Azure jest ograniczona do maszyn wirtualnych w ramach [zakresy IP centrum danych Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+    > RHUI hostowanej tooAzure dostęp jest ograniczony toohello maszyn wirtualnych, w ramach [zakresy IP centrum danych Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
     > 
 
-2. Jeśli stary RHUI Azure jest nadal dostępna, gdy zostanie w tym celu Sprawdź i chcesz automatycznie zaktualizować konfigurację, wykonaj następujące polecenie:
+2. Jeśli hello starego RHUI Azure jest nadal dostępny po można w tym celu Sprawdź i chcesz tooautomatically aktualizacji hello konfiguracji, należy wykonać hello następujące polecenie:
 
-    `sudo yum update RHEL6`lub `sudo yum update RHEL7` w zależności od wersji rodziny RHEL.
+    `sudo yum update RHEL6`lub `sudo yum update RHEL7` w zależności od wersji rodziny RHEL hello.
 
-3. Jeśli nie można nawiązać starego RHUI Azure, wykonaj ręcznie czynności opisane w następnej sekcji.
+3. Jeśli nie możesz połączyć toohello starego RHUI Azure, wykonaj hello wymagane ręczne wykonanie czynności opisanych w następnej sekcji hello.
 
-4. Upewnij się zaktualizować konfigurację w źródle obrazu/migawki wpływ na udostępniony z maszyny Wirtualnej.
+4. Upewnij się, że maszyna wirtualna wpływ na konfigurację hello tooupdate na powitania źródło obrazu/migawki zainicjowano obsługę administracyjną z.
 
-### <a name="phased-shutdown-of-the-old-azure-rhui"></a>Zamknięcie etapowe starego RHUI Azure
-Podczas zamykania starego RHUI Azure możemy ograniczyć dostęp do jej w następujący sposób:
+### <a name="phased-shutdown-of-hello-old-azure-rhui"></a>Zamknięcie etapowe hello starego RHUI Azure
+Podczas wyłączania hello hello starego RHUI Azure stosujemy ograniczenia dostępu tooit w następujący sposób:
 
-1. Dalsze ograniczenie dostępu (ACL), aby ustawić adresów IP, które już połączenie z jego. Efekty uboczne: Jeśli będziesz kontynuować, przy użyciu starego RHUI Azure — nowych maszyn wirtualnych nie można połączyć się z nim. RHEL maszyny wirtualne z dynamicznych adresów IP, który przechodzi przez zamknięcie/cofnąć/start sekwencji może pojawić się nowego adresu IP i dlatego również można uruchomić brakiem połączenia między starym RHUI Azure
+1. Bardziej ograniczyć dostępu (ACL) tooset adresów IP, które są już połączenie tooit. Efekty uboczne: Jeśli będziesz kontynuować, przy użyciu starego RHUI Azure hello — nowych maszyn wirtualnych może nie być możliwe tooconnect tooit. RHEL maszyny wirtualne z dynamicznych adresów IP, który przechodzi przez zamknięcie/cofnąć/start sekwencji może pojawić się nowego adresu IP i dlatego również można uruchomić niepowodzeniem tooconnect toohello starego RHUI Azure
 
-2. Zamknięcie Serwery dublowane dostarczania zawartości. Efekty uboczne: jak możemy zamknąć więcej CDSes może zostać wyświetlony już `yum update` obsługi czasu, więcej przekroczeń limitu czasu, aż do momentu, gdy nie można nawiązać starego RHUI Azure.
+2. Zamknięcie Serwery dublowane dostarczania zawartości. Efekty uboczne: jak możemy zamknąć więcej CDSes może zostać wyświetlony już `yum update` obsługi czasu więcej limitów czasu do hello punktów podczas można już połączyć toohello starego RHUI Azure.
 
-### <a name="the-ips-for-the-new-rhui-content-delivery-servers-are"></a>Adresy IP dla nowych serwerów dostarczania zawartości RHUI są
-Jeśli konfiguracja sieci używane są bardziej ograniczyć dostęp z maszyn wirtualnych między RHEL, upewnij się, że następujące adresy IP, są dozwolone dla `yum update` do pracy w zależności od środowiska są w. 
+### <a name="hello-ips-for-hello-new-rhui-content-delivery-servers-are"></a>Witaj adresów IP dla nowych serwerów dostarczania zawartości RHUI hello są
+Jeśli używasz toofurther konfiguracji sieci ograniczyć dostęp z maszyn wirtualnych między RHEL, upewnij się, hello następujące adresy IP są dozwolone w przypadku `yum update` toowork w zależności od środowiska hello w. 
 
 ```
 # Azure Global
@@ -79,20 +79,20 @@ Jeśli konfiguracja sieci używane są bardziej ograniczyć dostęp z maszyn wir
 51.4.228.145
 ```
 
-### <a name="manual-update-procedure-to-use-the-new-azure-rhui-servers"></a>Procedura ręcznej aktualizacji do używania nowych serwerów Azure RHUI
-Pobierz (za pośrednictwem curl) podpis klucza publicznego
+### <a name="manual-update-procedure-toouse-hello-new-azure-rhui-servers"></a>Ręczna aktualizacja procedury toouse hello nowych Azure RHUI serwerów
+Podpis klucza publicznego hello pobierania (za pośrednictwem curl)
 
 ```bash
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 ```
 
-Sprawdź klucz pobrany
+Sprawdź klucz hello pobrane
 
 ```bash
 gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
 ```
 
-Sprawdź dane wyjściowe, sprawdź `keyid` i `user ID packet`:
+Sprawdź dane wyjściowe hello, sprawdź `keyid` i `user ID packet`:
 
 ```bash
 Version: GnuPG v1.4.7 (GNU/Linux)
@@ -116,7 +116,7 @@ Version: GnuPG v1.4.7 (GNU/Linux)
         data: [2047 bits]
 ```
 
-Zainstaluj klucz publiczny
+Zainstaluj klucz publiczny hello
 
 ```bash
 sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
@@ -143,7 +143,7 @@ Sprawdź:
 rpm -Kv azureclient.rpm
 ```
 
-Sprawdzanie w danych wyjściowych tego podpisu pakietu jest OK
+Sprawdzanie w danych wyjściowych tego podpisu pakietów hello jest OK
 
 ```bash
 azureclient.rpm:
@@ -153,16 +153,16 @@ azureclient.rpm:
     MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
 ```
 
-Zainstaluj obr. / min
+Zainstaluj hello obr. / min
 
 ```bash
 sudo rpm -U azureclient.rpm
 ```
 
-Po zakończeniu upewnij się, że masz dostęp formularza Azure RHUI maszyny Wirtualnej
+Po zakończeniu upewnij się, że masz dostęp hello formularza Azure RHUI maszyny Wirtualnej
 
-### <a name="all-in-one-script-for-automating-the-preceding-task"></a>W jednym skryptów do automatyzacji poprzedniego zadania
-Użyj następującego skryptu, zgodnie z potrzebami, aby zautomatyzować zadanie aktualizacji odpowiednich maszyn wirtualnych na nowe serwery Azure RHUI.
+### <a name="all-in-one-script-for-automating-hello-preceding-task"></a>W jednym skryptów do automatyzacji hello poprzedzających zadań
+Użyj następującego skryptu jako zadanie hello tooautomate wymaganych aktualizacji odpowiednich maszyn wirtualnych toohello nowe Azure RHUI serwerach hello.
 
 ```sh
 # Download key
@@ -202,36 +202,36 @@ sudo rpm -U azureclient.rpm
 ```
 
 ## <a name="rhui-overview"></a>Omówienie RHUI
-[Red Hat aktualizacji infrastruktury](https://access.redhat.com/products/red-hat-update-infrastructure) oferuje wysoce skalowalną rozwiązanie do zarządzania zawartością repozytorium yum dla wystąpienia chmury Red Hat Enterprise Linux hostowanych przez dostawców chmury certyfikowane Red Hat. W oparciu o nadrzędnego projektu masa, RHUI umożliwia dostawcom usług chmury lokalnie hostowanych Red Hat repozytorium zawartości, Utwórz niestandardowe repozytoria z własną zawartość i udostępnić te repozytoria dużą grupę użytkowników końcowych za pośrednictwem równoważenia obciążenia system dostarczania zawartości.
+[Red Hat aktualizacji infrastruktury](https://access.redhat.com/products/red-hat-update-infrastructure) oferuje wysoce skalowalna toomanage yum repozytorium zawartości dla wystąpienia chmury Red Hat Enterprise Linux hostowanych przez dostawców chmury certyfikowane Red Hat. Na podstawie hello nadrzędnego masy projektu, RHUI umożliwia dostawcom usług w chmurze zawartości hostowanej Red Hat repozytorium dublowany toolocally, utworzyć niestandardowe repozytoria z własną zawartość i dołączyć tych repozytoria dostępne tooa dużą grupę użytkowników końcowych za pośrednictwem równoważenia obciążenia system dostarczania zawartości.
 
 ## <a name="regions-where-rhui-is-available"></a>Regionach, gdzie RHUI jest dostępny
-RHUI jest dostępna we wszystkich regionach, gdzie RHEL obrazów na żądanie są dostępne. Obecnie obejmuje wszystkie regiony publicznego wymienione na [pulpitu nawigacyjnego platformy Azure stan](https://azure.microsoft.com/status/) strony regiony platformy Azure instytucji rządowych Stanów Zjednoczonych i Niemczech Azure. RHUI dostępu dla maszyn wirtualnych z RHEL obrazów na żądanie znajduje się w ich ceny. Dostępność dodatkowe chmury regionalne/national zostaną zaktualizowane, jak możemy rozwiń dostępności na żądanie RHEL w przyszłości.
+RHUI jest dostępna we wszystkich regionach, gdzie RHEL obrazów na żądanie są dostępne. Obecnie obejmuje wszystkie publiczne regionów wymienionych na powitania [pulpitu nawigacyjnego platformy Azure stan](https://azure.microsoft.com/status/) strony regiony platformy Azure instytucji rządowych Stanów Zjednoczonych i Niemczech Azure. RHUI dostępu dla maszyn wirtualnych z RHEL obrazów na żądanie znajduje się w ich ceny. Dodatkowe chmury regionalne/national dostępności zostaną zaktualizowane, jak firma Microsoft rozwiń RHEL dostępności na żądanie w przyszłości hello.
 
 > [!NOTE]
-> Dostęp do RHUI hostowanymi na platformie Azure jest ograniczona do maszyn wirtualnych w ramach [zakresy IP centrum danych Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+> RHUI hostowanej tooAzure dostęp jest ograniczony toohello maszyn wirtualnych, w ramach [zakresy IP centrum danych Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 > 
 > 
 
 ## <a name="get-updates-from-another-update-repository"></a>Pobierz aktualizacje z innego repozytorium aktualizacji
-Jeśli trzeba uzyskać aktualizacje z repozytorium inną aktualizację, (a nie RHUI hostowanymi na platformie Azure), należy najpierw wyrejestrować swoich wystąpień z RHUI. Następnie należy ponownie zarejestrować ich przy użyciu infrastruktury żądaną aktualizacji (na przykład Red Hat satelity lub Red Hat klienta portalu CDN). Można będzie konieczne odpowiednie Red Hat subskrypcji dla tych usług i rejestracji [Red Hat chmury dostępu w usłudze Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
+Jeśli potrzebujesz tooget aktualizacje z repozytorium inną aktualizację (zamiast RHUI hostowanymi na platformie Azure), należy najpierw toounregister swoich wystąpień z RHUI. Następnie należy zarejestrować toore z hello odpowiednią aktualizację infrastruktury (na przykład Red Hat satelity lub Red Hat klienta portalu CDN). Można będzie konieczne odpowiednie Red Hat subskrypcji dla tych usług i rejestracji [Red Hat chmury dostępu w usłudze Azure](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure).
 
-Aby wyrejestrować RHUI i ponownie zarejestruj do infrastruktury aktualizacji, wykonaj następujące kroki:
+toounregister RHUI i ponownie zarejestruj tooyour aktualizacji infrastruktury, wykonaj następujące kroki:
 
-1. Edytuj /etc/yum.repos.d/rh-cloud.repo i zmień wszystkich `enabled=1` do `enabled=0`. Na przykład:
+1. Edytuj /etc/yum.repos.d/rh-cloud.repo i zmień wszystkich `enabled=1` zbyt`enabled=0`. Na przykład:
    
    ```bash
    sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
    ```
    
-2. Edytuj /etc/yum/pluginconf.d/rhnplugin.conf i zmienić `enabled=0` do `enabled=1`.
-3. Zarejestruj żądany infrastruktury, na przykład Red Hat klienta portalu. Wykonaj Red Hat rozwiązania wskazówki na [sposobie rejestracji i subskrypcji systemu do portalu Red Hat klienta](https://access.redhat.com/solutions/253273).
+2. Edytuj /etc/yum/pluginconf.d/rhnplugin.conf i zmienić `enabled=0` zbyt`enabled=1`.
+3. Zarejestruj żądany infrastruktury hello, na przykład portalu klienta Red Hat. Wykonaj Red Hat rozwiązania wskazówki na [jak tooregister i subskrybowania toohello systemu Red Hat klienta Portal](https://access.redhat.com/solutions/253273).
 
 > [!NOTE]
-> Dostęp do RHUI hostowanymi na platformie Azure jest uwzględniony w cenie obrazu RHEL płatność za rzeczywiste użycie (między). Wyrejestrowywanie między RHEL maszyny Wirtualnej z RHUI hostowanymi na platformie Azure nie konwersji maszyny wirtualnej na typ Bring-Your-właścicielem-License (BYOL) maszyny Wirtualnej. Jeśli zarejestrujesz tej samej maszyny Wirtualnej z innego źródła aktualizacji, użytkownik może naliczania opłat dwa razy: Azure RHEL opłata oprogramowania i drugim dla subskrypcji Red Hat po raz pierwszy. 
+> Dostęp toohello RHUI hostowanymi na platformie Azure jest uwzględniony w cenie obrazu RHEL płatność za rzeczywiste użycie (między) hello. Wyrejestrowywanie między RHEL maszyny Wirtualnej z hello RHUI hostowanymi na platformie Azure nie konwertowanie maszyny wirtualnej hello Bring-Your-właścicielem-License (BYOL) typu maszyny Wirtualnej. Jeśli zarejestrujesz hello tej samej maszyny Wirtualnej z innego źródła aktualizacji może naliczania opłat podwójne: po raz pierwszy opłata oprogramowania Azure RHEL i powitania dla subskrypcji Red Hat po raz drugi. 
 > 
-> Jeśli musisz użyć infrastruktury aktualizacji innych niż spójnie RHUI hostowanymi na platformie Azure należy wziąć pod uwagę tworzenia i wdrażania obrazów (BYOL-type) zgodnie z opisem w [tworzenie i przekazywanie Red Hat maszyn wirtualnych na platformie Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artykułu.
+> Jeśli potrzebujesz spójnie toouse infrastruktury aktualizacji niż RHUI hostowanymi na platformie Azure należy wziąć pod uwagę tworzenia i wdrażania obrazów (BYOL-type) zgodnie z opisem w [tworzenie i przekazywanie Red Hat maszyn wirtualnych na platformie Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artykułu.
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby utworzyć maszynę Wirtualną Red Hat Enterprise Linux z obrazu Azure Marketplace płatność za rzeczywiste użycie i wykorzystać RHUI hostowanymi na platformie Azure, przejdź do [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). Można użyć `yum update` wystąpienia RHEL bez żadnej dodatkowej konfiguracji.
+toocreate Red Hat Enterprise Linux maszyny Wirtualnej z obrazu Azure Marketplace płatność za rzeczywiste użycie i wykorzystać RHUI hostowanymi na platformie Azure, przejdź zbyt[portalu Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). Będziesz w stanie toouse `yum update` wystąpienia RHEL bez żadnej dodatkowej konfiguracji.
 

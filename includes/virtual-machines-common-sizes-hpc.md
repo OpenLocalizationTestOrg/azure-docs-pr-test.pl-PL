@@ -1,10 +1,10 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie korzystającymi z mocy obliczeniowej*. Sprzęt, na którym działają te rozmiary maszyn wirtualnych, został zaprojektowany i zoptymalizowany pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, w tym aplikacji klastrów obliczeń o wysokiej wydajności, modelowania i symulacji. Maszyny wirtualne serii A8–A11 korzystają z procesorów Intel Xeon E5-2670 o częstotliwości 2,6 GHz, a seria H korzysta z procesorów Intel Xeon E5-2667 v3 o częstotliwości 3,2 GHz. 
+Hello rozmiary A8 A11 i H-series są również znane jako *wystąpień obliczeniowych*. Hello sprzęt, który uruchamia te rozmiary został zaprojektowany i zoptymalizowany pod kątem obliczeniowych i aplikacji, modelowania i symulacje klastra aplikacji obciążenie sieci, w tym obliczeniowe wysokiej wydajności (HPC). Witaj serii A8 A11 korzysta Intel Xeon E5-2670 @ 2.6 GHZ, a hello H-series v3 Intel Xeon E5-2667 @ 3,2 GHz. 
 
-Maszyny wirtualne serii H platformy Azure to następna generacja maszyn wirtualnych o wysokiej wydajności obliczeniowej, które idealnie sprawdzają się w przypadku najwyższych potrzeb obliczeniowych, na przykład w modelowaniu molekularnym i analizach obliczeniowych dynamiki płynów. Te maszyny wirtualne z 8 lub 16 procesorami wirtualnymi vCPU wykorzystują technologię procesora Intel Haswell E5-2667 V3 i wyposażone są w pamięć DDR4 oraz tymczasowy magazyn SSD. 
+Maszyny wirtualne platformy Azure H-series są hello następnej generacji wysokiej wydajności obliczeniowych, że maszyny wirtualne celem potrzeb obliczeniową górną granicę, jak molekularnej modelowania i obliczeniową dynamics płynu. Te 8 do 16 vCPU maszyny wirtualne są oparte na technologii procesora hello V3 2667 Haswell E5 Intel oferujący funkcje DDR4 pamięci i tymczasowego magazynu opartego na dysk SSD. 
 
-Seria H oferuje, obok znacznej mocy procesora CPU, różnorodne opcje dla sieci obsługujących technologię RDMA i niskie opóźnienia, korzystając z sieci InfiniBand o przepustowości FDR wraz z kilkoma konfiguracjami pamięci do obsługi obliczeń wymagających znacznego wykorzystania pamięci.
+Ponadto toohello znacznej moc procesora CPU, hello H-series oferuje różnych opcji małe opóźnienia sieci RDMA przy użyciu FDR InfiniBand i kilka konfiguracji toosupport pamięci znacznym obliczeniową wymagania dotyczące pamięci.
 
 
 

@@ -1,45 +1,45 @@
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
 
-2. Od lewego górnego rogu kliknij pozycję **Nowy > Obliczenia > Windows Server 2016 Datacenter**.
+2. Począwszy od lewego górnego rogu powitania kliknij **nowy > obliczeniowe > systemu Windows Server Datacenter 2016**.
 
-    ![Nawigowanie do obrazów maszyn wirtualnych Azure w portalu](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
+    ![Przejdź toohello obrazy maszyn wirtualnych Azure w portalu hello](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
-3. W obszarze Windows Server 2016 Datacenter wybierz klasyczny model wdrożenia. Kliknij pozycję Utwórz.
+3. Na powitania systemu Windows Server 2016 w centrum danych wybierz hello klasycznego modelu wdrożenia. Kliknij pozycję Utwórz.
 
-    ![Zrzut ekranu pokazujący dostępne w portalu obrazy maszyn wirtualnych Azure](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
+    ![Zrzut ekranu pokazujący dostępne w portalu hello obrazy maszyn wirtualnych Azure hello](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
 
 ## <a name="1-basics-blade"></a>1. Blok Podstawowe
 
-W bloku Podstawowe należy podać informacje administracyjne dotyczące maszyny wirtualnej.
+Blok podstawowych ustawień Hello żąda informacji administracyjnych hello maszyny wirtualnej.
 
-1. Wprowadź wartość **Nazwa** dla maszyny wirtualnej. W tym przykładzie nazwa maszyny wirtualnej to _HeroVM_. Nazwa musi składać się z 1–15 znaków i nie może zawierać znaków specjalnych.
+1. Wprowadź **nazwa** hello maszyny wirtualnej. Przykład Witaj _HeroVM_ jest nazwą hello hello maszyny wirtualnej. Nazwa Hello musi być 1 – 15 znaków i nie może zawierać znaków specjalnych.
 
-2. Podaj nazwę użytkownika w polu **Nazwa użytkownika** i silne hasło w polu **Hasło**. Zostaną one użyte do utworzenia konta lokalnego na maszynie wirtualnej. Konto lokalne jest używane do logowania się do maszyny wirtualnej i zarządzania nią. W tym przykładzie nazwa użytkownika to _azureuser_.
+2. Wprowadź **nazwy użytkownika** i silne **hasło** , które są używane toocreate kontem lokalnym na powitania maszyny Wirtualnej. Witaj konto lokalne jest używane toosign w tooand Zarządzanie hello maszyny Wirtualnej. Przykład Witaj _azureuser_ jest hello nazwą użytkownika.
 
- Hasło musi mieć długość od 8 do 123 znaków i spełniać trzy z czterech następujących wymagań dotyczących złożoności: mała litera, wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/windows/faq.md).
+ Witaj hasło musi być 8 do 123 znaków i spełniają trzy poza hello cztery następujące wymagania dotyczące złożoności: mała litera, Wielka litera, cyfra i znak specjalny. Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/windows/faq.md).
 
-3. Pole **Subskrypcja** jest opcjonalne. Często używaną opcją jest „Płatność zgodnie z rzeczywistym użyciem”.
+3. Witaj **subskrypcji** jest opcjonalna. Często używaną opcją jest „Płatność zgodnie z rzeczywistym użyciem”.
 
-4. Wybierz istniejącą **grupę zasobów** lub wprowadź nazwę nowej grupy zasobów. W tym przykładzie nazwa grupy zasobów to _HeroVMRG_.
+4. Wybierz istniejący **grupy zasobów** lub nazwa typu hello nowej. Przykład Witaj _HeroVMRG_ jest nazwą hello hello grupy zasobów.
 
-5. Wybierz wartość **Lokalizacja** dla centrum danych Azure, w którym ma być uruchamiana maszyna wirtualna. W tym przykładzie lokalizacja to **East US**.
+5. Wybierz centrum danych Azure **lokalizacji** miejscu hello toorun maszyny Wirtualnej. Przykład Witaj **wschodnie stany USA** jest hello lokalizacji.
 
-6. Gdy skończysz, kliknij przycisk **Dalej**, aby przejść do następnego bloku.
+6. Gdy wszystko będzie gotowe, kliknij przycisk **dalej** toocontinue toohello dalej bloku.
 
-    ![Zrzut ekranu pokazujący ustawienia w bloku Podstawowe służące do konfigurowania maszyny wirtualnej Azure](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+    ![Zrzut ekranu pokazujący ustawienia hello na powitania bloku podstawowe służące do konfigurowania maszyny Wirtualnej platformy Azure](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
 
 ## <a name="2-size-blade"></a>2. Blok Rozmiar
 
-Blok Rozmiar identyfikuje szczegóły konfiguracji maszyny wirtualnej i zawiera różne opcje obejmujące system operacyjny, liczbę procesorów, typ magazynu dyskowego i szacowane miesięczne koszty użytkowania.  
+Witaj rozmiar bloku identyfikuje szczegóły konfiguracji hello hello maszyny Wirtualnej i wyświetla listę różnych opcji, które obejmują systemu operacyjnego, liczbę procesorów, typ dysku magazynu i szacowane koszty miesięcznego użycia.  
 
-Wybierz rozmiar maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**, aby kontynuować. W tym przykładzie rozmiar maszyny wirtualnej to _DS1_\__V2 Standardowa_.
+Wybierz rozmiar maszyny Wirtualnej, a następnie kliknij przycisk **wybierz** toocontinue. W tym przykładzie _DS1_\__V2 standardowe_ jest hello rozmiar maszyny Wirtualnej.
 
-  ![Zrzut ekranu bloku Rozmiar pokazujący dostępne do wyboru rozmiary maszyn wirtualnych Azure](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+  ![Zrzut ekranu bloku rozmiar hello, pokazujący hello rozmiary maszyn wirtualnych Azure, które można wybrać](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 
 ## <a name="3-settings-blade"></a>3. Blok Ustawienia
 
-W bloku Ustawienia należy podać opcje magazynu i sieci. Można zaakceptować ustawienia domyślne. Platforma Azure utworzy odpowiednie wpisy tam, gdzie to konieczne.
+Blok ustawień Hello żądań opcje magazynu i sieci. Można zaakceptować ustawienia domyślne hello. Platforma Azure utworzy odpowiednie wpisy tam, gdzie to konieczne.
 
 Jeśli został wybrany rozmiar maszyny wirtualnej, który obsługuję tę funkcję, możesz wypróbować usługę Azure Premium Storage, wybierając opcję Premium (SSD) w obszarze Typ dysku.
 
@@ -47,10 +47,10 @@ Po zakończeniu wprowadzania zmian kliknij przycisk **OK**.
 
 ## <a name="4-summary-blade"></a>4. Blok Podsumowanie
 
-W bloku Podsumowanie prezentowane są ustawienia określone w poprzednich blokach. Aby utworzyć obraz, kliknij przycisk **OK**.
+Podsumowanie bloku Hello wymieniono ustawienia hello określone w poprzedniej bloków hello. Kliknij przycisk **OK** gdy wszystko będzie gotowe toomake hello obrazu.
 
- ![Raport przekazanych ustawień maszyny wirtualnej w bloku Podsumowanie](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+ ![Raport podsumowania bloku określonych ustawień hello maszyny wirtualnej](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-Po utworzeniu maszyny wirtualnej jest ona wyświetlana w portalu w obszarze **Wszystkie zasoby**, a jej kafelek jest wyświetlany na pulpicie nawigacyjnym. Utworzone zostają też odpowiednia usługa w chmurze oraz konto magazynu i są one wyświetlane w portalu. Zarówno maszyna wirtualna, jak i usługa w chmurze są uruchamiane automatycznie, a ich stany są wskazywane jako **Uruchomiono**.
+Po utworzeniu maszyny wirtualnej hello hello portal Wyświetla hello nowej maszyny wirtualnej w obszarze **wszystkie zasoby**i wyświetla na pulpicie nawigacyjnym hello kafelka hello maszyny wirtualnej. Witaj odpowiedniej chmury usługi i konto magazynu również są tworzone i wyświetlane. Witaj maszyny wirtualnej i usługi w chmurze są uruchamiane automatycznie i ich stan jest wyświetlany jako **systemem**.
 
- ![Konfigurowanie agenta maszyny wirtualnej i punktów końcowych maszyny wirtualnej](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+ ![Skonfiguruj punkty końcowe agenta maszyny Wirtualnej i hello hello maszyny wirtualnej](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

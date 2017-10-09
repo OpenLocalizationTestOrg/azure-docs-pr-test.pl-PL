@@ -1,6 +1,6 @@
 ---
-title: "Należy skonfigurować oprogramowanie RAID na maszynie wirtualnej z systemem Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować RAID w systemie Linux na platformie Azure przy użyciu mdadm."
+title: oprogramowanie aaaConfigure RAID na maszynie wirtualnej z systemem Linux | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak RAID toouse mdadm tooconfigure w systemie Linux na platformie Azure."
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f06e2679d953faf88ffee9991226cdb3cc1cbdb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurowanie macierzy RAID oprogramowania w systemie Linux
-Jest to typowy scenariusz, aby korzystać z oprogramowania RAID na maszynach wirtualnych systemu Linux na platformie Azure można prezentować wiele dysków dołączonych danych jako pojedynczego urządzenia RAID. Zazwyczaj może być używany do zwiększenia wydajności i umożliwiają lepsze przepustowości w porównaniu do przy użyciu jednego dysku.
+Jest typowe oprogramowania toouse scenariusza RAID na maszynach wirtualnych systemu Linux Azure toopresent wiele danych dołączone dyski jako pojedyncze urządzenie RAID. Zwykle to być wydajności tooimprove używanych i zezwala na lepsze przepustowości w porównaniu toousing jednego dysku.
 
 ## <a name="attaching-data-disks"></a>Dołączanie dysków z danymi
-Co najmniej dwa dyski danych puste są potrzebne do skonfigurowania urządzenie RAID.  Jest główną przyczyną tworzenia urządzenia RAID poprawić wydajność We/Wy dysku.  Oparte na potrzeby operacji We/Wy, można dołączać dysków, które są przechowywane w naszym Standard Storage z maksymalnie 500 we/wy/ps na dysku lub naszych Premium storage z maksymalnie 5000 ps/we/wy na dysk. W tym artykule nie przejść do szczegółów na temat obsługi administracyjnej i dołączać dysków z danymi do maszyny wirtualnej systemu Linux.  Zapoznaj się z artykułem Microsoft Azure [podłączyć dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) szczegółowe informacje o tym, jak można dołączyć dysku danych puste do maszyny wirtualnej systemu Linux na platformie Azure.
+Co najmniej dwa dyski danych puste są potrzebne tooconfigure urządzenie RAID.  główną przyczyną Hello tworzenia urządzenia RAID jest tooimprove wydajność We/Wy dysku.  Oparte na potrzeby operacji We/Wy, można wybrać tooattach dysków, które są przechowywane w naszym Standard Storage z zapasowej too500 we/wy/ps na dysku lub naszych magazyn w warstwie Premium z zapasowej too5000 we/wy/ps na dysku. W tym artykule nie przejść do szczegółów na temat tooprovision i dołączyć maszyny wirtualnej systemu Linux tooa dysków danych.  Zobacz artykuł Microsoft Azure hello [podłączyć dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) szczegółowe informacje dotyczące sposobu tooattach pustymi danymi dysku tooa maszyny wirtualnej systemu Linux na platformie Azure.
 
-## <a name="install-the-mdadm-utility"></a>Zainstaluj narzędzie mdadm
+## <a name="install-hello-mdadm-utility"></a>Zainstaluj narzędzie mdadm hello
 * **Ubuntu**
 ```bash
 sudo apt-get update
@@ -44,30 +44,30 @@ sudo yum install mdadm
 zypper install mdadm
 ```
 
-## <a name="create-the-disk-partitions"></a>Tworzenie partycji dysku
-W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostanie wywołana nową partycję dysku.
+## <a name="create-hello-disk-partitions"></a>Tworzenie hello partycji dysku
+W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. Witaj nowej partycji dysku zostanie wywołana /dev/sdc1.
 
-1. Uruchom `fdisk` aby rozpocząć tworzenie partycji
+1. Uruchom `fdisk` toobegin tworzenie partycji
 
     ```bash
     sudo fdisk /dev/sdc
     Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
     Building a new DOS disklabel with disk identifier 0xa34cb70c.
-    Changes will remain in memory only, until you decide to write them.
-    After that, of course, the previous content won't be recoverable.
+    Changes will remain in memory only, until you decide toowrite them.
+    After that, of course, hello previous content won't be recoverable.
 
     WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
-                    switch off the mode (command 'c') and change display units to
+                    switch off hello mode (command 'c') and change display units to
                     sectors (command 'u').
     ```
 
-2. Naciśnij przycisk "n" w wierszu polecenia, aby utworzyć  **n** wa partycji:
+2. Naciśnij przycisk "n" w toocreate monitu hello  **n** wa partycji:
 
     ```bash
     Command (m for help): n
     ```
 
-3. Następnie naciśnij klawisz p, aby utworzyć **p**zosta partycji:
+3. Następnie naciśnij klawisz "p" toocreate **p**zosta partycji:
 
     ```bash 
     Command action
@@ -75,50 +75,50 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
             p   primary partition (1-4)
     ```
 
-4. Naciśnij "1", aby wybrać numer partycji 1:
+4. Naciśnij przycisk '1' tooselect partycji o numerze 1:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. Wybierz punkt początkowy nową partycję, lub naciśnij przycisk `<enter>` aby zaakceptować ustawienie domyślne można umieścić na początku ilość wolnego miejsca na dysku partycji:
+5. Wybierz hello punkt początkowy hello nowej partycji lub naciśnij klawisz `<enter>` tooaccept hello domyślnej tooplace hello partycji na początku hello hello wolnego miejsca na dysku hello:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. Wybierz rozmiar partycji, na przykład wpisz +10G, aby utworzyć partycję 10 GB. Możesz również nacisnąć klawisz `<enter>` Utwórz jedną partycję, która obejmuje cały dysk:
+6. Wybierz rozmiar hello hello partycji, na przykład typ "+10G" toocreate partycji 10 GB. Możesz również nacisnąć klawisz `<enter>` Utwórz jedną partycję, obejmującej cały dysk hello:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. Następnie należy zmienić identyfikator i **t**typ partycji z domyślny identyfikator "83" (Linux) do Identyfikatora "fd" (Linux raid automatycznie):
+7. Następnie należy zmienić identyfikator hello i **t**ypu hello partycji z domyślnej hello IDENTYFIKATORA "83" tooID (Linux) "fd" (Linux raid automatycznie):
 
     ```bash  
     Command (m for help): t
     Selected partition 1
-    Hex code (type L to list codes): fd
+    Hex code (type L toolist codes): fd
     ```
 
-8. Na koniec zapisu tabeli partycji na dysku i zamknąć fdisk:
+8. Na koniec zapisu hello partycji tabeli toohello dysku i zamknąć fdisk:
 
     ```bash   
     Command (m for help): w
-    The partition table has been altered!
+    hello partition table has been altered!
     ```
 
-## <a name="create-the-raid-array"></a>Tworzenie macierzy RAID
-1. Następujący przykład będzie "stripe" (poziom RAID 0) trzy partycji znajdujących się na trzy osobne dyski z danymi (sdc1, sdd1, sde1).  Po wywołaniu metody uruchomi to polecenie nowe urządzenie RAID **/dev/md127** jest tworzony. Należy również zauważyć, że jeśli dane te dyski możemy wcześniej częścią innego unieczynnienia macierzy RAID może być konieczne dodanie `--force` parametr `mdadm` polecenia:
+## <a name="create-hello-raid-array"></a>Tworzenie hello macierzy RAID
+1. powitania po przykładzie zostanie "stripe" (poziom RAID 0) trzy partycji znajdujących się na trzy osobne dyski z danymi (sdc1, sdd1, sde1).  Po wywołaniu metody uruchomi to polecenie nowe urządzenie RAID **/dev/md127** jest tworzony. Należy również zauważyć, że jeśli dane te dyski możemy wcześniej częścią innego unieczynnienia macierzy RAID może być konieczne tooadd hello `--force` toohello parametru `mdadm` polecenia:
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. Utwórz system plików na nowe urządzenie RAID
+2. Utwórz hello system plików na powitania nowe urządzenie RAID
    
     a. **CentOS, Oracle Linux SLES 12, openSUSE i Ubuntu**
 
@@ -144,16 +144,16 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
    > 
    > 
 
-## <a name="add-the-new-file-system-to-etcfstab"></a>Dodaj nowy system plików do /etc/fstab
+## <a name="add-hello-new-file-system-tooetcfstab"></a>Dodaj hello nowego pliku systemu zbyt/etc/fstab
 > [!IMPORTANT]
-> Nieprawidłowo edytowania pliku /etc/fstab może spowodować rozruch systemu. Jeśli nie wiesz, można znaleźć dystrybucji dokumentacji, aby uzyskać informacje dotyczące prawidłowo edytować ten plik. Zalecane jest również, że kopia zapasowa pliku /etc/fstab został utworzony przed przystąpieniem do edytowania.
+> Nieprawidłowo edytowania hello /etc/fstab pliku może spowodować rozruch systemu. Jeśli nie wiesz, zapoznaj się z informacji w sposób tooproperly edytować ten plik dokumentacją toohello dystrybucji. Zalecane jest również, że kopia zapasowa pliku /etc/fstab hello został utworzony przed rozpoczęciem edycji.
 
-1. Utwórz punkt instalacji odpowiednią dla nowego systemu plików, na przykład:
+1. Utwórz hello żądanego punktu instalacji do nowego systemu plików, na przykład:
 
     ```bash
     sudo mkdir /data
     ```
-2. Podczas edytowania /etc/fstab, **UUID** należy odwoływać się do systemu plików, a nie do nazwy urządzenia.  Użyj `blkid` narzędzie, aby określić identyfikator UUID dla nowego systemu plików:
+2. Podczas edytowania /etc/fstab, hello **UUID** powinny być używane tooreference hello pliku systemu zamiast hello nazwy urządzenia.  Użyj hello `blkid` narzędzie toodetermine hello UUID dla hello nowy system plików:
 
     ```bash   
     sudo /sbin/blkid
@@ -161,7 +161,7 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. Otwórz /etc/fstab w edytorze tekstów i Dodaj wpis dla nowego systemu plików, na przykład:
+3. Otwórz /etc/fstab w edytorze tekstów i Dodaj wpis dla hello nowy system plików, na przykład:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -175,15 +175,15 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
    
     Następnie zapisz i zamknij /etc/fstab.
 
-4. Testowanie, czy/etc/fstab wpis jest poprawny:
+4. Testowanie tego etc hello/fstab wpis jest prawidłowy:
 
     ```bash  
     sudo mount -a
     ```
 
-    Jeśli to polecenie powoduje komunikat o błędzie, Sprawdź składnię pliku /etc/fstab.
+    Jeśli to polecenie powoduje komunikat o błędzie, sprawdź, czy składnia hello w pliku /etc/fstab hello.
    
-    Uruchom `mount` polecenie, aby upewnić się, systemu plików:
+    Uruchom hello `mount` systemu plików hello tooensure polecenia:
 
     ```bash   
     mount
@@ -195,7 +195,7 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
    
     **Konfiguracja fstab**
    
-    Zawiera wiele dystrybucji `nobootwait` lub `nofail` parametrów, które mogą być dodawane do pliku/etc/fstab instalacji. Te parametry Zezwalaj na wypadek awarii w przypadku instalowania w określonym systemie plików i Zezwalaj na systemie Linux, aby kontynuować do rozruchu, nawet jeśli nie można poprawnie zainstalować system plików woluminu macierzy RAID. Zajrzyj do dokumentacji programu dystrybucji, aby uzyskać więcej informacji na temat tych parametrów.
+    Wiele dystrybucji obejmują albo hello `nobootwait` lub `nofail` instalacji parametrów, które mogą być dodawane toohello/etc/fstab pliku. Te parametry Zezwalaj na wypadek awarii w przypadku instalowania w określonym systemie plików oraz tooboot toocontinue systemu Linux hello Zezwalaj, nawet jeśli jest system plików tooproperly instalacji hello RAID. Zapoznaj się z dokumentacją tooyour dystrybucji Aby uzyskać więcej informacji na temat tych parametrów.
    
     Przykład (Ubuntu):
 
@@ -205,26 +205,26 @@ W tym przykładzie tworzymy partycji jednego dysku na /dev/sdc. /Dev/sdc1 zostan
 
     **Parametry rozruchu systemu Linux**
    
-    Oprócz powyższych parametrów parametru jądra "`bootdegraded=true`" można zezwolić na system przeprowadzić rozruch nawet wtedy, gdy RAID jest traktowany jako uszkodzony lub obniżeniem, aby uzyskać przykład, jeśli dysk danych zostanie przypadkowo usunięty z maszyny wirtualnej. Domyślnie to może również spowodować-rozruchowy systemu.
+    W dodatku toohello powyżej parametry, hello jądra parametru "`bootdegraded=true`" umożliwiają hello tooboot systemu, nawet jeśli hello RAID jest traktowany jako uszkodzony lub nieprawidłowego działania, na przykład jeśli dysk danych jest przypadkowo usunięty z maszyny wirtualnej hello. Domyślnie to może również spowodować-rozruchowy systemu.
    
-    Zapoznaj się z dystrybucji dokumentacji na temat sposobu prawidłowo Edytuj parametry jądra. Na przykład w wiele dystrybucji (CentOS, Oracle Linux SLES 11) tych parametrów można dodać ręcznie do "`/boot/grub/menu.lst`" pliku.  Na Ubuntu można dodać do tego parametru `GRUB_CMDLINE_LINUX_DEFAULT` zmiennej na "/ etc/domyślne/chodników".
+    Można znaleźć w dokumentacji tooyour dystrybucji w sposób tooproperly Edytuj parametry jądra. Na przykład w wiele dystrybucji (CentOS, Oracle Linux SLES 11) tych parametrów można dodać ręcznie toohello "`/boot/grub/menu.lst`" pliku.  Na Ubuntu można dodać tego parametru toohello `GRUB_CMDLINE_LINUX_DEFAULT` zmiennej na "/ etc/domyślne/chodników".
 
 
 ## <a name="trimunmap-support"></a>PRZYCINANIE/UNMAP pomocy technicznej
-Niektóre jądra systemu Linux obsługują PRZYCINANIE/UNMAP operacji Odrzuć nieużywanych bloków na dysku. Operacje te są szczególnie przydatna w standardowe magazynu Azure, po usunięciu strony nie są już prawidłowe i mogą zostać odrzucone. Odrzucanie strony można zapisać kosztów, jeśli Tworzenie dużych plików, a następnie usuń je.
+PRZYCINANIE/UNMAP toodiscard operacji obsługi niektóre jądra systemu Linux nieużywanych bloków na dysku hello. Operacje te są szczególnie przydatna w tooinform standardowego magazynu Azure, po usunięciu strony nie są już prawidłowe i mogą zostać odrzucone. Odrzucanie strony można zapisać kosztów, jeśli Tworzenie dużych plików, a następnie usuń je.
 
 > [!NOTE]
-> RAID nie mogą wystawiać odrzucenia polecenia, jeśli rozmiar segmentu tablicy ma ustawioną wartość mniejszą niż domyślne (512KB). Jest to spowodowane szczegółowości unmap na hoście jest również 512KB. Jeśli zmodyfikowano rozmiar fragmentu tablicy za pomocą jego mdadm `--chunk=` parametr, a następnie usuń mapowanie/PRZYCINANIE żądań można zignorować przez jądro.
+> RAID nie mogą wystawiać odrzucenia poleceń, jeśli rozmiar fragmentu hello tablicy hello ustawiono tooless niż domyślne hello (512KB). Jest to spowodowane Usuń mapowanie hello szczegółowości na powitania hosta jest również 512KB. Jeśli zmodyfikowano rozmiar fragmentu hello tablicy za pomocą jego mdadm `--chunk=` parametr, a następnie usuń mapowanie/PRZYCINANIE żądania mogą być ignorowane przez hello jądra.
 
-Istnieją dwa sposoby, aby umożliwić PRZYCINANIE obsługi w maszynie Wirtualnej systemu Linux. W zwykły sposób poszukaj dystrybucji zalecane podejście:
+Istnieją dwa sposoby tooenable PRZYCINANIE obsługi w maszynie Wirtualnej systemu Linux. W zwykły sposób poszukaj dystrybucji hello zalecane podejście:
 
-- Użyj `discard` zainstalować opcję `/etc/fstab`, na przykład:
+- Użyj hello `discard` zainstalować opcję `/etc/fstab`, na przykład:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
     ```
 
-- W niektórych przypadkach `discard` opcji może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` ręcznie polecenie w wierszu polecenia lub dodać go do Twojego crontab regularnego uruchamiania:
+- W niektórych przypadkach hello `discard` opcji może mieć wpływ na wydajność. Alternatywnie można uruchomić hello `fstrim` ręcznie polecenie z wiersza polecenia hello, lub dodaj je tooyour crontab toorun regularnie:
 
     **Ubuntu**
 

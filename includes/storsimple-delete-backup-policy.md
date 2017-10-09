@@ -1,10 +1,10 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### <a name="to-delete-a-storsimple-backup-policy"></a>Aby usunąć zasady tworzenia kopii zapasowych StorSimple
-1. Na stronie **Szybki start** urządzenia kliknij kartę **Zasady kopii zapasowych**. Nastąpi przekierowanie do strony **Zasady kopii zapasowych**.
-2. Wybierz zasady, klikając w dowolnym miejscu w odpowiednim z wyjątkiem pierwszej kolumny, a następnie kliknij przycisk **usunąć** w dolnej części strony.
-3. Pojawi się monit o potwierdzenie. Należy pamiętać, że usunięcie zasad tworzenia kopii zapasowej spowoduje usunięcie wszystkich skojarzonych kopii zapasowych. Kliknij przycisk **tak** do usunięcia.
+#### <a name="toodelete-a-storsimple-backup-policy"></a>toodelete StorSimple zasad tworzenia kopii zapasowej
+1. Na urządzeniu hello **Szybki Start** kliknij przycisk hello **zasady tworzenia kopii zapasowej** kartę. Spowoduje to przejście toohello **zasady tworzenia kopii zapasowej** strony.
+2. Wybierz zasady hello przez kliknięcie w dowolnym hello odpowiedni wiersz z wyjątkiem pierwszej kolumny hello, a następnie kliknij przycisk **usunąć** u dołu hello hello strony.
+3. Pojawi się monit o potwierdzenie. Należy pamiętać, że usunięcie zasad tworzenia kopii zapasowej spowoduje usunięcie wszystkich hello skojarzonych kopii zapasowych. Kliknij przycisk **tak** toodelete.
 
-**Zasady tworzenia kopii zapasowej** strony zostaną zaktualizowane, aby wyświetlić listę nowych zasad.
+Witaj **zasady tworzenia kopii zapasowej** strona zostanie zaktualizowany toodisplay hello nowej listy zasad.
 

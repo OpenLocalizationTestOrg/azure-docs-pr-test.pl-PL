@@ -1,12 +1,12 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>Aby kabel zasilania
-1. Upewnij się, że możliwości zmienia się na każdym zasilania i chłodzenia modułów (PCMs) znajdują się w pozycji OFF.
-2. Połączyć przewodów zasilania do każdej PCMs w obudowie podstawowego.
-3. Dołącz do stojak jednostki dystrybucji zasilania (PDU); przewodów zasilania, jak pokazano na poniższej ilustracji. Upewnij się, że użycie PCMs dwa oddzielne źródłami zasilania.
+#### <a name="toocable-for-power"></a>toocable zasilania
+1. Upewnij się, że przełączniki power hello na każdym hello zasilania i chłodzenia modułów (PCMs) znajdują się w pozycji OFF hello.
+2. Połącz tooeach przewodów zasilania hello z hello PCMs w obudowie głównej hello.
+3. Dołącz hello przewodów toohello stojak zasilania jednostki dystrybucji zasilania (PDU); pokazane na powitania po obrazu. Należy upewnić się czy PCMs hello dwóch źródeł oddzielne zasilania.
    
    > [!IMPORTANT]
-   > Aby zapewnić wysoką dostępność dla systemu, firma Microsoft zaleca ściśle zgodna zasilania okablowania schemat pokazano na poniższym diagramie. 
+   > tooensure wysokiej dostępności w systemie, zaleca się ściśle zgodna zasilania toohello okablowania schemat pokazano powitania po diagramu. 
    > 
    > 
    
@@ -21,5 +21,5 @@
    | 3 |Kontrolera 0 |
    | 4 |PCM 1 |
    | 5 |PDU |
-4. Aby włączyć system, przerzuć przełączniki power na obu PCMs pozycji dalej.
+4. tooturn w systemie hello, przerzucania hello zasilania zmienia się na obu PCMs toohello ON pozycji.
 

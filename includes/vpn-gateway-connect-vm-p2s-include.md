@@ -1,10 +1,10 @@
-Z maszyną wirtualną, która jest wdrażana w sieci wirtualnej, można się połączyć, tworząc połączenie pulpitu zdalnego z tą maszyną. Najlepszym sposobem na zweryfikowanie, czy można połączyć się z maszyną wirtualną, jest połączenie się z nią za pomocą jej prywatnego adresu IP, a nie nazwy komputera. W ten sposób można przetestować możliwość połączenia się, a nie poprawność skonfigurowania rozpoznawania nazw.
+Możesz połączyć tooa maszyny Wirtualnej, tworząc tooyour Podłączanie pulpitu zdalnego maszyny Wirtualnej wdrożonej tooyour sieci wirtualnej. Hello najlepsze sposób tooinitially Sprawdź, czy możesz połączyć tooyour maszyna wirtualna jest tooconnect przez adres przy użyciu jego prywatnego adresu IP, zamiast nazwy komputera. W ten sposób testowania toosee Jeśli można połączyć, nie określa, czy rozpoznawanie nazw jest skonfigurowany prawidłowo.
 
-1. Zlokalizuj prywatny adres IP. Prywatny adres IP maszyny wirtualnej można znaleźć, zaglądając do właściwości maszyny wirtualnej w witrynie Azure Portal lub używając programu PowerShell.
+1. Zlokalizuj hello prywatnego adresu IP. Hello prywatnego adresu IP maszyny wirtualnej można znaleźć, analizując albo właściwości hello hello maszyny Wirtualnej w portalu Azure hello lub przy użyciu programu PowerShell.
 
-  - Witryna Azure Portal — zlokalizuj swoją maszynę wirtualną w witrynie Azure Portal. Wyświetl właściwości maszyny wirtualnej. Zostanie wyświetlony prywatny adres IP.
+  - Portal Azure — zlokalizować maszyny wirtualnej w hello portalu Azure. Wyświetl właściwości hello hello maszyny Wirtualnej. znajduje się Hello prywatnego adresu IP.
 
-  - Program PowerShell — skorzystaj z przykładu, aby wyświetlić listę maszyn wirtualnych i prywatnych adresów IP z grup zasobów. Przed użyciem tego przykładu nie trzeba go modyfikować.
+  - PowerShell — Użyj hello przykład tooview listę maszyn wirtualnych i prywatnych adresów IP z grupy zasobów. W tym przykładzie nie wymagają toomodify przed jego użyciem.
 
     ```powershell
     $VMs = Get-AzureRmVM
@@ -19,17 +19,17 @@ Z maszyną wirtualną, która jest wdrażana w sieci wirtualnej, można się po�
     }
     ```
 
-2. Sprawdź, czy masz połączenie z siecią wirtualną przez połączenie sieci VPN punkt-lokacja.
-3. Otwórz program **Podłączanie pulpitu zdalnego**, wpisując „RDP” lub „Podłączanie pulpitu zdalnego” w polu wyszukiwania na pasku zadań, a następnie wybierając pozycję Podłączanie pulpitu zdalnego. Program Podłączanie pulpitu zdalnego możesz także otworzyć za pomocą polecenia „mstsc” w programie PowerShell. 
-4. W programie Podłączanie pulpitu zdalnego wprowadź prywatny adres IP maszyny wirtualnej. Możesz kliknąć pozycję „Pokaż opcje”, aby dostosować dodatkowe ustawienia. Następnie nawiąż połączenie.
+2. Sprawdź, czy są połączone tooyour sieci wirtualnej za pomocą hello punkt-lokacja sieci VPN połączenia.
+3. Otwórz **Podłączanie pulpitu zdalnego** , wpisując "RDP" lub "Podłączanie pulpitu zdalnego" w polu wyszukiwania hello na powitania zadań, a następnie wybierz Podłączanie pulpitu zdalnego. Można również otworzyć w programie PowerShell przy użyciu polecenia "mstsc" hello Podłączanie pulpitu zdalnego. 
+4. Podłączanie pulpitu zdalnego wprowadź hello prywatnego adresu IP hello maszyny Wirtualnej. Możesz kliknij opcję "Pokaż opcje" tooadjust dodatkowe ustawienia, a następnie połącz.
 
-### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Jak rozwiązywać problemy z połączeniem RDP z maszyną wirtualną
+### <a name="tootroubleshoot-an-rdp-connection-tooa-vm"></a>tootroubleshoot tooa połączenia RDP maszyny Wirtualnej
 
-Jeśli masz problemy z łączeniem się z maszyną wirtualną za pośrednictwem połączenia sieci VPN, sprawdź następujące rzeczy:
+Jeśli występują problemy z połączeniem tooa maszyny wirtualnej za pośrednictwem połączenia sieci VPN, sprawdź następujące hello:
 
 - Sprawdź, czy połączenie sieci VPN zostało pomyślnie nawiązane.
-- Sprawdź, czy łączysz się z prywatnym adresem IP maszyny wirtualnej.
-- Użyj narzędzia „ipconfig”, aby sprawdzić adres IPv4 przypisany do karty Ethernet na komputerze, z którego jest nawiązywane połączenie. Jeśli adres IP znajduje się w zakresie adresów sieci wirtualnej, z którą jest nawiązywane połączenie, lub w zakresie adresów puli VPNClientAddressPool, jest to określane jako nakładająca się przestrzeń adresowa. Kiedy przestrzeń adresowa nakłada się w ten sposób, ruch sieciowy nie dociera do platformy Azure, tylko pozostaje w sieci lokalnej.
-- Jeśli możesz połączyć się z maszyną wirtualną za pomocą prywatnego adresu IP, ale nie za pomocą nazwy komputera, sprawdź, czy usługa DNS została prawidłowo skonfigurowana. Aby uzyskać więcej informacji na temat tego, jak działa rozpoznawanie nazw dla maszyn wirtualnych, zobacz [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych).
-- Sprawdź, czy pakiet konfiguracji klienta sieci VPN został wygenerowany po określeniu adresów IP serwera DNS dla sieci wirtualnej. Jeśli adresy IP serwera DNS zostały zaktualizowane, wygeneruj i zainstaluj nowy pakiet konfiguracji klienta sieci VPN.
-- Aby uzyskać więcej informacji na temat połączeń pulpitu zdalnego, zobacz [Rozwiązywanie problemów z połączeniami pulpitu zdalnego z maszyną wirtualną](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+- Sprawdź, czy łączysz toohello prywatnego adresu IP dla hello maszyny Wirtualnej.
+- Użyj "ipconfig" hello toocheck adres IPv4 przypisany karty Ethernet toohello na komputerze hello, z którym się łączysz. Jeśli adres IP hello jest w zakresie adresów hello hello łączysz się z sieci wirtualnej lub w zakresie adresów hello Twojej VPNClientAddressPool, to tooas określonego nakładających się przestrzeni adresowej. Przestrzeń adresowa nakłada się w ten sposób, hello ruch sieciowy będzie niższa niż Azure, pozostaje on objęty na powitania sieci lokalnej.
+- Jeśli łączysz toohello maszyny Wirtualnej przy użyciu prywatnego adresu IP hello adresów, ale nie hello nazwę komputera, Sprawdź poprawnie skonfigurowane DNS. Aby uzyskać więcej informacji na temat tego, jak działa rozpoznawanie nazw dla maszyn wirtualnych, zobacz [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) (Rozpoznawanie nazw dla maszyn wirtualnych).
+- Sprawdź, czy w tej konfiguracji pakietu klienta VPN hello został wygenerowany po adresów IP serwerów DNS hello zostały określone dla hello sieci wirtualnej. Zaktualizowano adresy IP serwerów DNS hello Generowanie i zainstalować nowy pakiet konfiguracji klienta sieci VPN.
+- Aby uzyskać więcej informacji na temat połączeń protokołu RDP, zobacz [tooa połączeń pulpitu zdalnego Rozwiązywanie problemów z maszyny Wirtualnej](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).

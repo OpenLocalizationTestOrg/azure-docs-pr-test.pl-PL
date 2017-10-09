@@ -2,10 +2,10 @@
 
 
 
-Aby umożliwić porównywanie wydajności obliczeniowej (procesora CPU) jednostek SKU platformy Azure, stworzyliśmy koncepcję jednostki obliczeniowej platformy Azure (Azure Compute Unit, ACU). Ten parametr pomoże łatwo zidentyfikować jednostkę SKU, która najprawdopodobniej spełni określone potrzeby związane z wydajnością.  Jednostka ACU jest obecnie standaryzowana na małej maszynie wirtualnej (Standardowa_A1) jako równa 100, a wszystkie pozostałe jednostki SKU reprezentują w przybliżeniu, o ile szybciej dana jednostka SKU może uruchomić standardowy test porównawczy. 
+Utworzono pojęcie hello hello Azure obliczeniowe jednostki (ACU) tooprovide sposób porównywania wydajności obliczeniowej (procesora CPU) dla jednostki SKU Azure. Dzięki temu można łatwo zidentyfikować, którego jednostka SKU jest najprawdopodobniej toosatisfy potrzeby w zakresie wydajności.  Jednostka ACU jest obecnie standaryzowana na małej maszynie wirtualnej (Standardowa_A1) jako równa 100, a wszystkie pozostałe jednostki SKU reprezentują w przybliżeniu, o ile szybciej dana jednostka SKU może uruchomić standardowy test porównawczy. 
 
 > [!IMPORTANT]
-> Wartość ACU jest tylko wskazówką.  Wyniki dla konkretnego obciążenia mogą się różnić. 
+> Witaj ACU jest tylko wytyczne.  wyniki powitania dla obciążenia mogą się różnić. 
 > 
 > 
 
@@ -35,6 +35,6 @@ Aby umożliwić porównywanie wydajności obliczeniowej (procesora CPU) jednoste
 | [L4s–L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
-Jednostki ACU oznaczone gwiazdką (*) wykorzystują technologię Intel® Turbo w celu zwiększenia częstotliwości zegara procesora CPU i zapewniania większej wydajności.  Skala zwiększenia wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
+ACUs oznaczonych * użyć częstotliwości tooincrease Procesora technologii Intel® Turbo i podaj wzrost wydajności.  Hello ilość zwiększanie wyniku hello mogą różnić w zależności od rozmiaru maszyny Wirtualnej hello, obciążenia i innych obciążeń uruchomionych na powitania tego samego hosta.
 
 **Hiperwątkowe. 

@@ -1,6 +1,6 @@
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Których systemów operacyjnych klienta można używać z połączeniami typu punkt-lokacja?
 
-Obsługiwane są następujące systemy operacyjne klientów:
+obsługiwane są następujące systemy operacyjne klienta Hello:
 
 * Windows 7 (32-bitowy i 64-bitowy)
 * Windows Server 2008 R2 (tylko 64-bitowy)
@@ -12,11 +12,11 @@ Obsługiwane są następujące systemy operacyjne klientów:
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Czy można użyć dowolnego oprogramowania klienta VPN do połączenia punkt-lokacja obsługującego protokół SSTP?
 
-Nie. Obsługa jest ograniczona tylko do wersji systemu operacyjnego Windows wymienionych powyżej.
+Nie. Pomoc techniczna jest ograniczona tylko toohello wersje systemu operacyjnego Windows wymienionych powyżej.
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Ile punktów końcowych klienta sieci VPN może obejmować konfiguracja punkt-lokacja?
 
-Obsługiwanych jest maksymalnie 128 klientów VPN, które mogą jednocześnie nawiązać połączenie z siecią wirtualną.
+Firma Microsoft obsługuje konto too128 VPN klientów toobe stanie tooconnect tooa sieci wirtualnej z hello sam czas.
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Czy w przypadku połączenia punkt-lokacja można użyć własnego głównego urzędu certyfikacji PKI?
 
@@ -24,24 +24,24 @@ Tak. Wcześniej można było używać tylko certyfikatów głównych z podpisem 
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Czy można pominąć serwery proxy i zapory, korzystając z funkcji punkt-lokacja?
 
-Tak. Do celów tunelowania przez zaporę jest wykorzystywany protokół SSTP (Secure Socket Tunneling Protocol). Ten tunel zostanie wyświetlony jako połączenie HTTPs.
+Tak. Używamy tootunnel SSTP (Secure Socket Tunneling Protocol) za pośrednictwem zapór. Ten tunel zostanie wyświetlony jako połączenie HTTPs.
 
-### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Czy w przypadku ponownego uruchomienia komputera klienckiego skonfigurowanego pod kątem połączenia typu punkt-lokacja połączenie z siecią VPN zostanie nawiązane automatycznie?
+### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-hello-vpn-automatically-reconnect"></a>Jeśli I ponownie uruchom komputer kliencki skonfigurowany dla lokacji punktu, zostaną hello VPN automatycznie ponownie zestawione?
 
-Domyślnie komputer kliencki nie przywraca automatycznie połączenia z siecią VPN.
+Domyślnie komputer kliencki hello nie przywróci połączenia sieci VPN hello automatycznie.
 
-### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>Czy w przypadku połączeń punkt-lokacja jest obsługiwane automatyczne ponowne nawiązywanie połączenia i DDNS na klientach sieci VPN?
+### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-hello-vpn-clients"></a>Lokacji punktu obsługi automatycznie wznowić połączenia i DDNS na hello klientów sieci VPN?
 
 Automatyczne ponowne nawiązywanie połączenia i DDNS nie są obecnie obsługiwane w przypadku połączeń VPN typu punkt-lokacja.
 
-### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Czy z konfiguracji typu lokacja-lokacja i punkt-lokacja można korzystać równolegle w ramach tej samej sieci wirtualnej?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-hello-same-virtual-network"></a>Może mieć lokacja-lokacja i konfiguracje lokacji punktu współdziałały dla hello sama sieć wirtualną?
 
-Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. W przypadku klasycznego modelu wdrażania należy użyć bramy dynamicznej. Połączenia typu punkt-lokacja nie są obsługiwane w przypadku bram sieci VPN o statycznym routingu ani bram korzystających z polecenia cmdlet `-VpnType PolicyBased`.
+Tak. Oba te rozwiązania będą działać, o ile zastosowana zostanie brama sieci VPN typu RouteBased. Witaj klasycznego modelu wdrażania należy bramy dynamiczne. Jak nie obsługi punkt-lokacja dla statycznymi bramami routingu w sieci VPN lub bramy przy użyciu hello `-VpnType PolicyBased` polecenia cmdlet.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Czy można skonfigurować klienta typu punkt-lokacja pod kątem jednoczesnego nawiązywania połączenia z wieloma sieciami wirtualnymi?
+### <a name="can-i-configure-a-point-to-site-client-tooconnect-toomultiple-virtual-networks-at-hello-same-time"></a>Można skonfigurować punkt-lokacja klienta tooconnect toomultiple sieci wirtualnych na powitania jednocześnie?
 
-Tak, jest to możliwe. Sieci wirtualne nie mogą jednak mieć nakładających się prefiksów IP, a przestrzenie adresowe w przypadku połączenia punkt-lokacja nie mogą nakładać się między sieciami wirtualnymi.
+Tak, jest to możliwe. Ale hello sieci wirtualne nie mają nakładające się prefiksy IP i hello punkt-lokacja przestrzenie adresowe nie mogą się pokrywać między sieciami wirtualnymi hello.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Jakiej przepływności można oczekiwać w przypadku połączeń typu lokacja-lokacja lub punkt-lokacja?
 
-Trudno jest utrzymać dokładną przepływność tuneli VPN. Protokoły IPsec i SSTP należą do niejawnie ciężkich protokołów sieci VPN. Przepływność ograniczają również opóźnienia i przepustowość między lokalizacjami lokalnymi i Internetem.
+Jest trudne toomaintain hello dokładne przepływności hello tuneli VPN. Protokoły IPsec i SSTP należą do niejawnie ciężkich protokołów sieci VPN. Przepływność również jest ograniczona przez hello opóźnienia i przepustowość między lokalnym a hello Internet.

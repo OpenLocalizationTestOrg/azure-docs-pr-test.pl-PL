@@ -1,6 +1,6 @@
 ---
-title: "Zestawy dostępności dla klasycznych maszyn wirtualnych z systemem Windows | Dokumentacja firmy Microsoft"
-description: "Skonfiguruj zbiór dostępności dla maszyny wirtualnej systemu Windows nowego lub istniejącego w klasycznym modelu wdrażania przy użyciu portalu Azure i programu Azure PowerShell."
+title: Ustawia aaaAvailability klasycznych maszyn wirtualnych z systemem Windows | Dokumentacja firmy Microsoft
+description: "Skonfiguruj zbiór dostępności dla maszyny wirtualnej systemu Windows nowego lub istniejącego w hello klasycznego modelu wdrażania przy użyciu hello portalu Azure i programu Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
-ms.openlocfilehash: a5cbbdf402ee06a34a339b193b0cdd5c952d6248
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bd652a0401a34b57447551204b8f50d106715e1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>Jak skonfigurować zbiór dostępności dla maszyn wirtualnych systemu Windows w klasycznym modelu wdrażania
+# <a name="how-tooconfigure-an-availability-set-for-windows-virtual-machines-in-hello-classic-deployment-model"></a>Jak tooconfigure, zbiór dostępności, dla maszyn wirtualnych systemu Windows hello klasycznego modelu wdrażania
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Możesz również [skonfigurować zestawy dostępności](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) w przypadku wdrożeń usługi Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Możesz również [skonfigurować zestawy dostępności](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) w przypadku wdrożeń usługi Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
 

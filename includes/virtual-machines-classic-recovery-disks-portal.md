@@ -1,61 +1,61 @@
-Jeśli maszyna wirtualna na platformie Azure napotkała błąd podczas rozruchu lub błąd dysku, konieczne może wykonanie kroków rozwiązywania problemów na samym wirtualnym dysku twardym. Typowym przykładem może być niepowodzenie aktualizacji aplikacji, które uniemożliwia pomyślny rozruch maszyny wirtualnej. W tym artykule opisano, jak za pomocą witryny Azure Portal połączyć wirtualny dysk twardy z inną maszyną wirtualną w celu naprawienia błędów, a następnie ponownie utworzyć oryginalną maszynę wirtualną.
+Jeśli maszyny wirtualnej (VM) na platformie Azure napotkał błąd podczas rozruchu lub dysk, może być konieczne tooperform kroki na powitania wirtualnego dysku twardego sam rozwiązywania problemów. Typowym przykładem jest aktualizację aplikacji, która uniemożliwia rozruch pomyślnie hello maszyny Wirtualnej. W tym artykule opisano sposób toouse tooconnect portalu Azure toofix wirtualna tooanother Twojego wirtualnego dysku twardego wszelkie błędy i ponownie utwórz oryginalnego maszyny Wirtualnej.
 
 ## <a name="recovery-process-overview"></a>Omówienie procesu odzyskiwania
-Proces rozwiązywania problemów jest następujący:
+proces rozwiązywania problemów Hello jest następujący:
 
-1. Usuń maszynę wirtualną, która napotyka problemy, ale zachowaj wirtualne dyski twarde.
-2. Dołącz i zainstaluj wirtualny dysk twardy do innej maszyny wirtualnej na potrzeby rozwiązywania problemów.
-3. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów. Edytuj pliki lub uruchom narzędzia, aby naprawić błędy na oryginalnym wirtualnym dysku twardym.
-4. Odłącz wirtualny dysk twardy od maszyny wirtualnej rozwiązywania problemów.
-5. Utwórz maszynę wirtualną za pomocą oryginalnego wirtualnego dysku twardego.
+1. Usunąć hello maszynę Wirtualną, która napotyka problemy, ale zachować hello wirtualnych dysków twardych.
+2. Dołączanie i instalacji hello tooanother wirtualnego dysku twardego maszyny Wirtualnej do rozwiązywania problemów.
+3. Połącz toohello Rozwiązywanie problemów z maszyny Wirtualnej. Edytowanie plików lub uruchamianie narzędzi toofix błędy na oryginalny wirtualny dysk twardy hello.
+4. Odinstaluj obraz i odłączyć hello wirtualnego dysku twardego z hello Rozwiązywanie problemów z maszyny Wirtualnej.
+5. Utwórz maszynę Wirtualną za pomocą oryginalny wirtualny dysk twardy hello.
 
-## <a name="delete-the-original-vm"></a>Usuwanie oryginalnej maszyny wirtualnej
-Wirtualne dyski twarde i maszyny wirtualne to dwa odrębne zasoby na platformie Azure. Wirtualny dysk twardy to miejsce, w którym przechowywany jest system operacyjny, aplikacje i konfiguracje. Maszyna wirtualna jest po prostu metadanymi, które definiują rozmiar lub lokalizację i które odwołują się do zasobów, takich jak wirtualny dysk twardy lub wirtualna karta sieciowa. Każdy wirtualny dysk twardy otrzymuje przypisaną dzierżawę, kiedy jest dołączany do maszyny wirtualnej. Dyski danych można dołączać i odłączać nawet wtedy, gdy maszyna wirtualna jest uruchomiona, ale dysku systemu operacyjnego nie można odłączyć, chyba że zasób maszyny wirtualnej zostanie usunięty. Dzierżawa w dalszym ciągu będzie kojarzyła dysk systemu operacyjnego z maszyną wirtualną, nawet gdy ta maszyna wirtualna jest w stanie zatrzymania i ma cofnięty przydział.
+## <a name="delete-hello-original-vm"></a>Usuń hello oryginalna maszyna wirtualna
+Wirtualne dyski twarde i maszyny wirtualne to dwa odrębne zasoby na platformie Azure. Wirtualny dysk twardy jest przechowywania hello systemu operacyjnego, aplikacje i konfiguracje. Witaj maszyny Wirtualnej są tylko metadane definiujący rozmiar hello lub lokalizacji i który odwołuje się do zasobów, takich jak wirtualny dysk twardy lub sieć wirtualna karta sieciowa (NIC). Każdy wirtualny dysk twardy pobiera dzierżawy, przypisać właściwości, gdy jest podłączone tooa maszyny Wirtualnej. Mimo że dysków z danymi można dołączone i odłączone nawet wtedy, gdy hello maszyna wirtualna jest uruchomiona, dysk systemu operacyjnego hello nie można odłączyć, chyba że hello zasobu maszyny Wirtualnej zostanie usunięta. dzierżawy Hello nadal tooa dysku systemu operacyjnego hello tooassociate maszyny Wirtualnej, nawet w przypadku tej maszyny Wirtualnej w stanie zatrzymania i deallocated.
 
-Pierwszym krokiem do odzyskania maszyny wirtualnej jest usunięcie samego zasobu maszyny wirtualnej. Usunięcie maszyny wirtualnej pozostawia wirtualne dyski twarde na koncie magazynu. Po usunięciu maszyny wirtualnej możesz dołączyć wirtualny dysk twardy do innej maszyny wirtualnej, aby przeprowadzić rozwiązywanie problemów i usunąć błędy. 
+pierwszy krok toorecovering Hello maszyny Wirtualnej jest zasobu maszyny Wirtualnej na powitania toodelete samej siebie. Usuwanie hello maszyny Wirtualnej pozostawia hello wirtualnych dysków twardych na koncie magazynu. Po hello usuwać maszyny Wirtualnej można dołączyć hello wirtualnego dysku twardego tooanother wirtualna tootroubleshoot i usuń błędy hello. 
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. W menu po lewej stronie kliknij pozycję **Maszyny wirtualne (klasyczne)**.
-3. Wybierz maszynę wirtualną, której dotyczy problem, kliknij pozycję **Dyski**, a następnie zidentyfikuj nazwę wirtualnego dysku twardego. 
-4. Wybierz wirtualny dysk twardy systemu operacyjnego i sprawdź atrybut **Lokalizacja**, aby zidentyfikować konto magazynu zawierające ten wirtualny dysk twardy. W poniższym przykładzie ciąg bezpośrednio przed „.blob.core.windows.net” jest nazwą konta magazynu.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com). 
+2. Polecenie hello menu po lewej stronie powitania **maszyn wirtualnych (klasyczne)**.
+3. Kliknij maszynę Wirtualną, która ma hello problem wybierz hello **dysków**, a następnie określ nazwę hello hello wirtualnego dysku twardego. 
+4. Wybierz wirtualny dysk twardy hello systemu operacyjnego i sprawdzić hello **lokalizacji** konta magazynu hello tooidentify, który zawiera ten wirtualny dysk twardy. W hello poniższy przykład, hello ciąg bezpośrednio przed wywołaniem ". blob.core.windows.net" jest nazwą konta magazynu hello.
 
     ```
     https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
     ```
 
-    ![Obraz dotyczący lokalizacji maszyny wirtualnej](./media/virtual-machines-classic-recovery-disks-portal/vm-location.png)
+    ![Obraz powitania o lokalizację maszyny Wirtualnej](./media/virtual-machines-classic-recovery-disks-portal/vm-location.png)
 
-5. Kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie wybierz pozycję **Usuń**. Upewnij się, że dyski nie są wybrane podczas usuwania maszyny wirtualnej.
-6. Utwórz nową maszynę wirtualną odzyskiwania. Ta maszyna wirtualna musi znajdować w tym samym regionie i grupie zasobów (usłudze w chmurze) co maszyna wirtualna, której dotyczy problem.
-7. Wybierz maszynę wirtualną odzyskiwania, a następnie wybierz pozycje **Dyski** > **Dołącz istniejący**.
-8. Aby wybrać istniejący wirtualny dysk twardy, kliknij pozycję **Plik VHD**:
+5. Kliknij prawym przyciskiem myszy hello maszyny Wirtualnej, a następnie wybierz **usunąć**. Upewnij się, hello dyski nie są wybrane po usunięciu hello maszyny Wirtualnej.
+6. Utwórz nową maszynę wirtualną odzyskiwania. Ta maszyna wirtualna musi być w hello tego samego regionu i grupie zasobów (usługi w chmurze) jako problem hello maszyny Wirtualnej.
+7. Wybierz hello odzyskiwania maszyny Wirtualnej, a następnie wybierz **dysków** > **dołączanie istniejącego**.
+8. tooselect istniejącego wirtualnego dysku twardego, kliknij przycisk **pliku VHD**:
 
     ![Przeglądnie w poszukiwaniu istniejącego dysku VHD](./media/virtual-machines-classic-recovery-disks-portal/select-vhd-location.png)
 
-9. Wybierz konto magazynu > kontener wirtualnego dysku twardego > wirtualny dysk twardy i kliknij przycisk **Wybierz**, aby potwierdzić wybór.
+9. Wybierz konto magazynu hello > kontener wirtualnego dysku twardego > hello wirtualnego dysku twardego, kliknij przycisk hello **wybierz** przycisk tooconfirm wybór.
 
     ![Wybieranie istniejącego wirtualnego dysku twardego](./media/virtual-machines-classic-recovery-disks-portal/select-vhd.png)
 
-10. Po wybraniu wirtualnego dysku twardego wybierz polecenie **OK**, aby dołączyć istniejący wirtualny dysk twardy.
-11. Po kilku sekundach w okienku **Dyski** dla maszyny wirtualnej zostanie wyświetlony istniejący wirtualny dysk twardy podłączony jako dysk danych:
+10. Teraz wybrać dysk VHD, wybierz polecenie **OK** tooattach hello istniejącego wirtualnego dysku twardego.
+11. Po kilku sekundach hello **dysków** okienku dla maszyny Wirtualnej zostaną wyświetlone istniejącego wirtualnego dysku twardego połączenia jako dysk z danymi:
 
     ![Istniejący wirtualny dysk twardy dołączony jako dysk danych](./media/virtual-machines-classic-recovery-disks-portal/attached-disk.png)
 
-## <a name="fix-issues-on-the-original-virtual-hard-disk"></a>Rozwiązywanie problemów na oryginalnym wirtualnym dysku twardym
-Kiedy istniejący wirtualny dysk twardy jest zainstalowany, można wykonać dowolne kroki obsługi i rozwiązywania problemów w zależności od potrzeb. Po usunięciu problemów wykonaj następujące kroki.
+## <a name="fix-issues-on-hello-original-virtual-hard-disk"></a>Rozwiązywanie problemów na oryginalny wirtualny dysk twardy hello
+W przypadku istniejącego wirtualnego dysku twardego hello jest zainstalowany, można teraz wykonywać żadnych konserwacji i kroki rozwiązywania problemów, zgodnie z potrzebami. Po ma problemu hello problemów, należy kontynuować hello następujące kroki.
 
-## <a name="unmount-and-detach-the-original-virtual-hard-disk"></a>Odinstalowywanie i odłączanie oryginalnego wirtualnego dysku twardego
-Po rozwiązaniu wszystkich problemów i usunięciu błędów odinstaluj i odłącz istniejący wirtualny dysk twardy z rozwiązywania problemów od maszyny wirtualnej rozwiązywania problemów. Wirtualnego dysku twardego nie można używać razem z innymi maszynami wirtualnymi, dopóki dzierżawa, która dołącza wirtualny dysk twardy do maszyny wirtualnej rozwiązywania problemów, nie zostanie zwolniona.  
+## <a name="unmount-and-detach-hello-original-virtual-hard-disk"></a>Odinstaluj obraz i odłączyć oryginalny wirtualny dysk twardy hello
+Po rozwiązaniu wszelkie błędy, odinstaluj i odłączyć hello istniejącego wirtualnego dysku twardego z rozwiązywania problemów z maszyny Wirtualnej. Nie można użyć wirtualnego dysku twardego wraz z innych maszyn wirtualnych, do czasu zwolnienia dzierżawy hello, łączący toohello wirtualnego dysku twardego hello Rozwiązywanie problemów z maszyny Wirtualnej.  
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. W menu po lewej stronie wybierz pozycję **Maszyny wirtualne (klasyczne)**.
-3. Zlokalizuj maszynę wirtualną odzyskiwania. Wybierz pozycję Dyski, kliknij prawym przyciskiem myszy dysk, a następnie wybierz polecenie **Odłącz**.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com). 
+2. Witaj menu po lewej stronie powitania, wybierz **maszyn wirtualnych (klasyczne)**.
+3. Zlokalizuj hello odzyskiwania maszyny Wirtualnej. Wybierz dyski, dysku powitania kliknij prawym przyciskiem myszy, a następnie wybierz **Detach**.
 
-## <a name="create-a-vm-from-the-original-hard-disk"></a>Tworzenie maszyny wirtualnej na podstawie oryginalnego dysku twardego
+## <a name="create-a-vm-from-hello-original-hard-disk"></a>Utwórz maszynę Wirtualną z hello oryginalny dysk twardy
 
-Aby utworzyć maszynę wirtualną na podstawie oryginalnego dysku twardego, użyj [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
+Użyj Maszynę wirtualną z oryginalnego wirtualnego dysku twardego, toocreate [klasycznego portalu Azure](https://manage.windowsazure.com).
 
 1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W dolnej części portalu wybierz pozycje **Nowy** > **Obliczeniowe** > **Maszyna wirtualna** > **Z galerii**.
-3. W sekcji **Wybieranie obrazu** wybierz pozycję **Moje dyski**, a następnie wybierz oryginalny wirtualny dysk twardy. Sprawdź informacje o lokalizacji. Jest to region, w którym maszyna wirtualna musi zostać wdrożona. Kliknij przycisk Dalej.
-4. W sekcji **Konfiguracja maszyny wirtualnej** wpisz nazwę maszyny wirtualnej i wybierz rozmiar maszyny wirtualnej.
+2. U dołu hello hello portalu, wybierz **nowy** > **obliczeniowe** > **maszyny wirtualnej** > **z galerii** .
+3. W hello **wybierz obraz** zaznacz **dysków**, a następnie wybierz hello oryginalny wirtualny dysk twardy. Sprawdź informacje o lokalizacji hello. Jest to region hello musi wdrożonym hello maszyny Wirtualnej. Wybierz przycisk Dalej hello.
+4. W hello **konfiguracji maszyny wirtualnej** sekcji, wpisz nazwę maszyny Wirtualnej hello i wybierz rozmiar hello maszyny Wirtualnej.

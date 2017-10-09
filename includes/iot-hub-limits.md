@@ -1,4 +1,4 @@
-W poniższej tabeli przedstawiono limity skojarzone z różnymi warstwami usług (S1, S2, S3, F1). Aby uzyskać informacje o koszcie każdej *jednostki* w każdej z warstw, zobacz [Cennik usługi IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+Witaj poniższej tabeli wymieniono limity hello skojarzone z hello różnych warstwach usług (S1, S2, S3, F1). Aby uzyskać informacje o hello koszt każdej *jednostki* w poszczególnych warstwach, zobacz [cennik Centrum IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Zasób | Standardowa S1 | Standardowa S2 | Standardowa S3 | Bezpłatna F1 |
 | --- | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ W poniższej tabeli przedstawiono limity skojarzone z różnymi warstwami usług
 > 
 > 
 
-W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
+Witaj poniższej tabeli wymieniono limity hello, stosowane tooIoT Centrum zasobów:
 
 | Zasób | Limit |
 | --- | --- |
@@ -24,8 +24,8 @@ W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
 | Maksymalny rozmiar komunikatu przesyłanego z chmury do urządzenia |64 KB |
 | Maksymalny czas wygaśnięcia komunikatu przesyłanego z chmury do urządzenia |2 dni |
 | Maksymalna liczba dostarczonych komunikatów przesyłanych <br/> z chmury do urządzenia |100 |
-| Maksymalna liczba dostarczonych komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |100 |
-| Maksymalny czas wygaśnięcia komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |2 dni |
+| Maksymalna liczba dostarczonych komunikatów zwrotnych <br/> w komunikacie chmury do urządzenia tooa odpowiedzi |100 |
+| Maksymalny czas wygaśnięcia komunikatów zwrotnych <br/> komunikat odpowiedzi na tooa chmury do urządzenia |2 dni |
 | Maksymalny rozmiar bliźniaczej reprezentacji urządzenia <br/> (tagi, zgłoszone właściwości i żądane właściwości) | 8 KB |
 | Maksymalny rozmiar wartości ciągu bliźniaczej reprezentacji urządzenia | 512 bajtów |
 | Maksymalna głębokość obiektu w bliźniaczej reprezentacji urządzenia | 5 |
@@ -41,9 +41,9 @@ W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
 
 
 > [!NOTE]
-> Maksymalna liczba urządzeń, którymi możesz połączyć się z jednego centrum IoT jest obecnie, 500 000. Jeśli chcesz podwyższyć ten limit, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Obecnie hello maksymalną liczbę urządzeń, możesz połączyć pojedynczy Centrum IoT tooa jest 500 000. Jeśli chcesz tooincrease ten limit, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
-Usługa IoT Hub ogranicza żądania po przekroczeniu następujących limitów przydziału:
+Hello usługi IoT Hub ogranicza żądań, po przekroczeniu następujące przydziały hello:
 
 | Ograniczenie | Wartość na centrum |
 | --- | --- |

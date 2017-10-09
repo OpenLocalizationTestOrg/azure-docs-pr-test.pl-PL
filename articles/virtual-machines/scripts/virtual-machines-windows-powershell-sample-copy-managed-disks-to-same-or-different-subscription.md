@@ -1,6 +1,6 @@
 ---
-title: "Przykładowy skrypt programu PowerShell Azure - dyskach do tych samych lub różnych subskrypcji zarządzanych kopiowania (przenoszenia) | Dokumentacja firmy Microsoft"
-description: "Przykładowy skrypt programu PowerShell Azure - kopiowania (przenoszenia) zarządzanych dysków do tych samych lub różnych subskrypcji."
+title: "Przykładowy skrypt programu PowerShell - aaaAzure kopiowania (przenoszenia) zarządzane toosame dysków lub innej subskrypcji | Dokumentacja firmy Microsoft"
+description: "Przykładowy skrypt programu PowerShell Azure — toosame dysków zarządzanych kopiowania (przenoszenia) lub innej subskrypcji"
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 75beb35dc19fa530d9b2c19aed6040f74afafbc0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 22e19a47228cbf628bebebd73012b8aa7baf073c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Kopiowanie dysków zarządzanych w tej samej subskrypcji lub różnych subskrypcji przy użyciu programu PowerShell
+# <a name="copy-managed-disks-in-hello-same-subscription-or-different-subscription-with-powershell"></a>Kopiuj zarządzane dyski w hello takie same subskrypcji lub różnych subskrypcji przy użyciu programu PowerShell
 
-Ten skrypt tworzy kopię istniejącego dysku zarządzanych w tej samej subskrypcji lub różnych subskrypcji. Nowy dysk jest tworzony w tym samym regionie co dysków zarządzanych w nadrzędnej.   
+Ten skrypt tworzy kopię istniejącego dysku zarządzanego w hello tej samej subskrypcji lub różnych subskrypcji. Witaj nowy dysk jest tworzony w hello sam region jako element nadrzędny hello zarządzane dysku.   
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -31,16 +31,16 @@ Ten skrypt tworzy kopię istniejącego dysku zarządzanych w tej samej subskrypc
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[główne](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "kopiowania zarządzane dysku")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "Copy managed disk")]
 
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń do tworzenia nowych dysków zarządzanych w subskrypcji docelowej przy użyciu identyfikatora dysków zarządzanych w źródłowym. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń toocreate nowy dysk zarządzanych za pomocą subskrypcji docelowej hello hello identyfikator źródła hello zarządzane dysku. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowe AzureRmDiskConfig](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | Tworzy konfiguracji dysku, który jest używany do tworzenia dysku. Zawiera ona identyfikator dysku nadrzędnego i lokalizacji, która jest taka sama jak lokalizacja dysku nadrzędnego zasobu.  |
+| [Nowe AzureRmDiskConfig](/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | Tworzy konfiguracji dysku, który jest używany do tworzenia dysku. Obejmuje on zasobów hello identyfikator dysku nadrzędnego hello i lokalizacji, która jest taka sama jak lokalizacja hello dysku nadrzędnego.  |
 | [Nowe AzureRmDisk](/powershell/module/azurerm.compute/New-AzureRmDisk) | Tworzy dysk przy użyciu konfiguracji dysku, nazwa dysku i przekazywane jako parametry nazwę grupy zasobów. |
 
 
@@ -48,6 +48,6 @@ Ten skrypt używa następujących poleceń do tworzenia nowych dysków zarządza
 
 [Utwórz maszynę wirtualną z dyskiem zarządzanym](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na powitania modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 
-Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Przykłady skryptów PowerShell dodatkowe maszyny wirtualnej znajdują się w hello [dokumentacji maszyny Wirtualnej systemu Windows Azure](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

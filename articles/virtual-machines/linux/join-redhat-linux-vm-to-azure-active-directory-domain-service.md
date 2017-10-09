@@ -1,6 +1,6 @@
 ---
-title: "Dołącz RedHat Linux maszyny Wirtualnej do usług Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak sprzęgać istniejącej RedHat Enterprise Linux 7 maszyny Wirtualnej z platformy Azure usług domenowych Active Directory."
+title: aaaJoin tooan maszyny Wirtualnej systemu Linux RedHat Azure Active Directory DS | Dokumentacja firmy Microsoft
+description: "Jak toojoin tooan istniejącej maszyny Wirtualnej z RedHat Enterprise Linux 7 usługi Azure Active Directory domeny."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f3ba3c764e253191753f1cc5fc8c3b85c53818af
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Dołącz RedHat Linux maszyny Wirtualnej z usługą domeny usługi Azure Active Directory
+# <a name="join-a-redhat-linux-vm-tooan-azure-active-directory-domain-service"></a>Dołącz do maszyny Wirtualnej systemu Linux RedHat tooan usług domenowych Azure Active Directory
 
-W tym artykule przedstawiono sposób Dołącz maszynę wirtualną Red Hat Enterprise Linux (RHEL) 7 do domeny zarządzanej interfejsów Azure Active Directory domeny usług (AADDS).  Wymagania są następujące:
+W tym artykule opisano sposób toojoin tooan maszyny wirtualnej Red Hat Enterprise Linux (RHEL) 7 interfejsów Azure Active Directory domeny usług (AADDS) zarządzania domeny.  wymagania dotyczące Hello są:
 
 - [Konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -34,7 +34,7 @@ W tym artykule przedstawiono sposób Dołącz maszynę wirtualną Red Hat Enterp
 
 _Przykładami należy zastąpić własnymi ustawieniami._
 
-### <a name="switch-the-azure-cli-to-classic-deployment-mode"></a>Przełącznik wiersza polecenia platformy azure do trybu klasycznego wdrożenia
+### <a name="switch-hello-azure-cli-tooclassic-deployment-mode"></a>Przełącznik wiersza polecenia platformy azure hello tooclassic wdrożeń w trybie
 
 ```azurecli
 azure config mode asm
@@ -59,7 +59,7 @@ azure vm create myVM \
 -l "West US"
 ```
 
-### <a name="ssh-to-the-vm"></a>Łączenie przez protokół SSH z maszyną wirtualną
+### <a name="ssh-toohello-vm"></a>Toohello SSH maszyny Wirtualnej
 
 ```bash
 ssh -i ~/.ssh/id_rsa ahmet@myVM
@@ -77,9 +77,9 @@ sudo yum update
 sudo yum -y install realmd sssd krb5-workstation krb5-libs
 ```
 
-Teraz, wymagane pakiety są zainstalowane na maszynie wirtualnej systemu Linux, następne zadanie to można dołączyć maszyny wirtualnej do domeny zarządzanej.
+Obecnie pakiety hello wymagane są zainstalowane na maszynie wirtualnej systemu Linux hello, następne zadanie hello jest domeny zarządzanej toohello toojoin hello maszyny wirtualnej.
 
-### <a name="discover-the-aad-domain-services-managed-domain"></a>Odnajdywanie domeny zarządzanej usług domenowych w usłudze AAD
+### <a name="discover-hello-aad-domain-services-managed-domain"></a>Odnajdywanie domeny zarządzanej usług domenowych w usłudze AAD hello
 
 ```bash
 sudo realm discover mydomain.com
@@ -87,19 +87,19 @@ sudo realm discover mydomain.com
 
 ### <a name="initialize-kerberos"></a>Inicjowanie protokołu kerberos
 
-Upewnij się, że określ użytkownika, który należy do grupy "Administratorzy kontrolera domeny usługi AAD". Tylko ci użytkownicy mogą dołączania komputerów do domeny zarządzanej.
+Upewnij się, że podajesz użytkownik, który należy toohello "AAD kontrolera domeny" Administratorzy. Tylko ci użytkownicy można przyłączyć do domeny zarządzanej toohello komputerów.
 
 ```bash
 kinit ahmet@mydomain.com
 ```
 
-### <a name="join-the-machine-to-the-domain"></a>Dołącz maszynę do domeny
+### <a name="join-hello-machine-toohello-domain"></a>Dołącz do domeny toohello maszyny hello
 
 ```bash
 sudo realm join --verbose mydomain.com -U 'ahmet@mydomain.com'
 ```
 
-### <a name="verify-the-machine-is-joined-to-the-domain"></a>Sprawdź, czy komputer jest przyłączony do domeny
+### <a name="verify-hello-machine-is-joined-toohello-domain"></a>Sprawdź, czy komputer hello jest toohello przyłączone do domeny
 
 ```bash
 ssh -l ahmet@mydomain.com mydomain.cloudapp.net
@@ -109,4 +109,4 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 
 * [Red Hat aktualizacji infrastruktury (RHUI) na żądanie Red Hat Enterprise Linux w maszynach wirtualnych na platformie Azure](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Konfigurowanie magazynu kluczy dla maszyn wirtualnych w usłudze Azure Resource Manager](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i wiersza polecenia platformy Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i hello wiersza polecenia platformy Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

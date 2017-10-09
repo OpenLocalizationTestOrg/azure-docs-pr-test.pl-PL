@@ -1,10 +1,10 @@
-Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wyśle powiadomienie wypychane do aplikacji.
+Teraz utworzymy kampanii powiadomień wypychanych proste wysyłanej aplikacji tooour powiadomień wypychanych.
 
-1. Przejdź do karty **REACH** (Zasięg) w portalu usługi Mobile Engagement.
-2. Kliknij przycisk **New Announcement** (Nowy anons), aby utworzyć kampanię z użyciem powiadomień wypychanych.
+1. Przejdź toohello **OSIĄGNĄĆ** kartę w portalu usługi Mobile Engagement.
+2. Kliknij przycisk **nowy anons** toocreate kampanię powiadomień wypychanych.
    
     ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
-3. Skonfiguruj pierwsze pole kampanii w następujący sposób:
+3. Skonfiguruj hello pierwsze pole kampanii hello następujące kroki:
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
    
@@ -12,14 +12,14 @@ Teraz utworzymy prostą kampanię z użyciem powiadomień wypychanych, która wy
    
     b. W obszarze **Delivery time** (Godzina dostarczenia) wybierz opcję *Any Time* (W dowolnym momencie).
    
-    d. W tekście powiadomienia w polu **Title** (Tytuł) wpisz tytuł, który w powiadomieniu wypychanym będzie wyróżniony pogrubioną czcionką.
+    d. W tekście powiadomienia hello — wpisz hello **tytuł** której będą znajdować się w pogrubioną hello wypychania.
    
     e. Następnie wpisz komunikat w polu **Message** (Komunikat).
-4. Przewiń w dół i w sekcji **Content** (Zawartość) wybierz opcję **Notification only** (Tylko powiadomienie).
+4. Przewiń w dół i w hello **zawartości** zaznacz **tylko powiadomienie**.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
-5. Na tym kończy się konfigurowanie najbardziej podstawowej kampanii. Teraz przewiń ponownie w dół i kliknij przycisk **Create** (Utwórz), aby zapisać kampanię.
-6. Ostatni krok: kliknij opcję **Activate** (Aktywuj), aby aktywować kampanię w celu wysyłania powiadomień wypychanych.
+5. Ustawienie hello najprostsze kampanii możliwe jest gotowe. Teraz przewiń ponownie w dół i kliknij przycisk hello **Utwórz** przycisk toosave kampanii.
+6. Ostatni krok: kliknij **Aktywuj** tooactivate toosend i kampanii, na których powiadomienia wypychane.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 

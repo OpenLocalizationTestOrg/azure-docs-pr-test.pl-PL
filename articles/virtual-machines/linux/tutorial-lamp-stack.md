@@ -1,6 +1,6 @@
 ---
-title: "Wdrażanie światła na maszynie wirtualnej systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek — instalacja stosu światła na maszynie Wirtualnej systemu Linux na platformie Azure"
+title: "aaaDeploy światła na maszynie wirtualnej systemu Linux na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Samouczek — stosu światła hello instalacji na maszynie Wirtualnej systemu Linux na platformie Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,34 +15,34 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: danlep
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3d0ecb3277f15bd0a2fdc0d85b738a760e68865
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Instalacja serwera sieci web światła w maszynie Wirtualnej platformy Azure
-W tym artykule przedstawiono sposób wdrażania serwera sieci web Apache, MySQL i PHP (stos światła) na maszynie Wirtualnej systemu Ubuntu na platformie Azure. Jeśli wolisz NGINX serwera sieci web, zobacz [stosu LEMP](tutorial-lemp-stack.md) samouczka. Aby wyświetlić serwera światła w akcji, można opcjonalnie zainstalować i skonfigurować witrynę WordPress. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym artykule przedstawiono sposób toodeploy Apache serwera sieci web, MySQL i PHP (stos hello światła) na maszynie Wirtualnej systemu Ubuntu na platformie Azure. Jeśli chcesz, aby serwer sieci web hello NGINX, zobacz hello [stosu LEMP](tutorial-lemp-stack.md) samouczka. toosee hello światła serwera akcji, można opcjonalnie zainstalować i skonfigurować witrynę WordPress. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie maszyny Wirtualnej systemu Ubuntu ("L" w stosie światła)
+> * Tworzenie maszyny Wirtualnej systemu Ubuntu (hello "L" hello światła stosu)
 > * Otwieranie portu 80 na potrzeby ruchu w sieci Web
 > * Instalowanie Apache, MySQL i PHP
 > * Sprawdź, instalacja i Konfiguracja
-> * Zainstaluj program WordPress na serwerze światła
+> * Zainstaluj program WordPress na serwerze światła hello
 
 
-Aby uzyskać więcej informacji na temat stosu światło, w tym zalecenia w środowisku produkcyjnym zobacz [dokumentacji Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Aby uzyskać więcej informacji na stosie światła hello, w tym zalecenia w środowisku produkcyjnym, zobacz hello [dokumentacji Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierz tooinstall i użyj interfejsu wiersza polecenia hello lokalnie, w tym samouczku wymaga działają hello Azure CLI w wersji 2.0.4 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-apache-mysql-and-php"></a>Instalowanie Apache, MySQL i PHP
 
-Uruchom następujące polecenie, aby zaktualizować źródła pakietu Ubuntu i zainstaluj Apache, MySQL i PHP. Należy pamiętać, daszek (^) na końcu polecenia.
+Uruchom następujące polecenie tooupdate Ubuntu pakietu źródła hello i zainstaluj Apache, MySQL i PHP. Należy zwrócić uwagę hello daszek (^) na końcu hello hello polecenia.
 
 
 ```bash
@@ -51,7 +51,7 @@ sudo apt update && sudo apt install lamp-server^
 
 
 
-Monit, aby zainstalować pakiety i innych zależności. Po wyświetleniu monitu ustawienia hasła głównego dla programu MySQL, a następnie [Enter], aby kontynuować. Postępuj zgodnie z monitami pozostałych. Ten proces instaluje minimalne wymagane rozszerzeń PHP potrzebne do korzystania z MySQL PHP. 
+Jesteś pakietów hello zostanie wyświetlony monit o tooinstall i innych zależności. Po wyświetleniu monitu MySQL, a następnie toocontinue [Enter] należy ustawić hasło główne. Wykonaj hello pozostałych monitów. Ten proces instaluje hello minimalne wymagane PHP rozszerzenia potrzebne toouse PHP z programem MySQL. 
 
 ![Strona hasła głównego MySQL][1]
 
@@ -60,55 +60,55 @@ Monit, aby zainstalować pakiety i innych zależności. Po wyświetleniu monitu 
 
 ### <a name="apache"></a>Apache
 
-Sprawdź wersję programu Apache przy użyciu następującego polecenia:
+Sprawdź wersję hello Apache z hello następujące polecenie:
 ```bash
 apache2 -v
 ```
 
-Apache zainstalowana, i port 80 jest otwarty do maszyny Wirtualnej teraz są dostępne serwera sieci web z Internetu. Aby wyświetlić stronę domyślne Ubuntu Apache2, otwórz przeglądarkę sieci web, a następnie wprowadź publiczny adres IP maszyny wirtualnej. Użyj publicznego adresu IP używanego do SSH do maszyny Wirtualnej:
+Apache zainstalowana i port 80 Otwórz tooyour maszyny Wirtualnej, powitania serwera sieci web jest teraz dostępna z hello internet. hello tooview Apache2 Ubuntu strona domyślna, otwórz przeglądarkę sieci web, a następnie wprowadź hello publicznego adresu IP hello maszyny Wirtualnej. Użyj hello publiczny adres IP używany toohello tooSSH maszyny Wirtualnej:
 
 ![Apache domyślnej strony][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-Sprawdź wersję programu MySQL przy użyciu następującego polecenia (należy pamiętać, kapitału `V` parametru):
+Sprawdź wersję hello MySQL z hello następujące polecenie (należy pamiętać, kapitału hello `V` parametru):
 
 ```bash
 msql -V
 ```
 
-Zaleca się uruchomienie następujący skrypt, aby pomóc w zabezpieczeniu instalacji MySQL:
+Zaleca się uruchomienie skryptu toohelp hello bezpiecznej instalacji programu MySQL hello:
 
 ```bash
 mysql_secure_installation
 ```
 
-Wprowadź hasło głównego MySQL i skonfiguruj ustawienia zabezpieczeń dla danego środowiska.
+Wprowadź hasło głównego MySQL i skonfiguruj ustawienia zabezpieczeń hello w danym środowisku.
 
-Jeśli chcesz utworzyć bazę danych MySQL, dodać użytkowników, lub zmienić ustawienia konfiguracji, zaloguj się do MySQL:
+Jeśli chcesz toocreate bazę danych MySQL, dodać użytkowników lub zmienić ustawienia konfiguracji, tooMySQL logowania:
 
 ```bash
 mysql -u root -p
 ```
 
-Po zakończeniu zamknij wiersz mysql, wpisując `\q`.
+Po zakończeniu zamknij wiersz mysql hello wpisując `\q`.
 
 ### <a name="php"></a>PHP
 
-Sprawdź wersję programu PHP za pomocą następującego polecenia:
+Sprawdź wersję hello PHP z hello następujące polecenie:
 
 ```bash
 php -v
 ```
 
-Jeśli chcesz przetestować dalsze, Utwórz szybkie stronę informacji PHP do wyświetlania w przeglądarce. Poniższe polecenie tworzy stronę informacji PHP:
+Dalsze tootest, utworzyć szybkie tooview strony informacji PHP w przeglądarce. Witaj następujące polecenie tworzy stronę informacji PHP hello:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
-Teraz można sprawdzić stronę informacji PHP utworzony. Otwórz przeglądarkę i przejdź do `http://yourPublicIPAddress/info.php`. Należy zastąpić publicznego adresu IP maszyny Wirtualnej. Powinien być podobny do tego obrazu.
+Teraz można sprawdzić stronę informacji PHP hello utworzony. Otwórz przeglądarkę i przejdź zbyt`http://yourPublicIPAddress/info.php`. Zastąp hello publicznego adresu IP maszyny Wirtualnej. Jego wygląd powinien być podobny toothis obrazu.
 
 ![Strona informacje o PHP][2]
 
@@ -117,16 +117,16 @@ Teraz można sprawdzić stronę informacji PHP utworzony. Otwórz przeglądarkę
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wdrożono serwer światła na platformie Azure. Możesz przedstawiono sposób do:
+W tym samouczku wdrożono serwer światła na platformie Azure. W tym samouczku omówiono:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny Wirtualnej systemu Ubuntu
 > * Otwieranie portu 80 na potrzeby ruchu w sieci Web
 > * Instalowanie Apache, MySQL i PHP
 > * Sprawdź, instalacja i Konfiguracja
-> * Zainstaluj program WordPress na serwerze światła
+> * Zainstaluj program WordPress na serwerze światła hello
 
-Przejście do następnym samouczku, aby dowiedzieć się, jak zabezpieczyć serwerów sieci web za pomocą certyfikatów SSL.
+Jak przejść dalej toolearn samouczka toohello toosecure serwerów sieci web z certyfikatów SSL.
 
 > [!div class="nextstepaction"]
 > [Zabezpieczenia serwera sieci web przy użyciu protokołu SSL](tutorial-secure-web-server.md)

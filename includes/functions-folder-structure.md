@@ -1,5 +1,5 @@
 
-Kod dla wszystkich funkcji w danej funkcji aplikacji znajduje się w folderze głównym, który zawiera plik konfiguracji hosta i co najmniej jeden podfolderów, z których każdy zawiera kod osobnych funkcji, jak w poniższym przykładzie:
+wszystkie funkcje hello w danej funkcji aplikacji Hello kod znajduje się w folderze głównym, który zawiera plik konfiguracji hosta i co najmniej jeden podfolderów, z których każdy zawiera kodu hello osobnych funkcji, jak hello poniższy przykład:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*Host.json* plik zawiera niektóre konfiguracji specyficznych dla środowiska uruchomieniowego i znajduje się w folderze głównym funkcji aplikacji. Aby uzyskać informacje na temat ustawień, które są dostępne, zobacz [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) w witrynie wiki WebJobs.Script repozytorium.
+Witaj *host.json* plik zawiera niektóre konfiguracji specyficznych dla środowiska uruchomieniowego i znajduje się w folderze głównym hello hello funkcji aplikacji. Aby uzyskać informacje na temat ustawień, które są dostępne, zobacz [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) w hello WebJobs.Script repozytorium stron typu wiki.
 
-Każda funkcja ma folder, który zawiera jeden lub więcej plików kodu, konfiguracji function.json i innych zależności.
+Każda funkcja ma folder, który zawiera jeden lub więcej plików kodu, konfiguracji function.json hello i innych zależności.
 

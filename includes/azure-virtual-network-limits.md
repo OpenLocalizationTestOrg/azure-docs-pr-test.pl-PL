@@ -1,4 +1,4 @@
-<a name="virtual-networking-limits-classic"></a>Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu klasycznego modelu wdrażania, które przypadają na jedną subskrypcję.
+<a name="virtual-networking-limits-classic"></a>Hello następujące limity mają zastosowanie tylko w przypadku sieci zasobów zarządzanych za pomocą hello klasycznego modelu wdrażania na subskrypcję.
 
 | Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
@@ -18,7 +18,7 @@
 | Listy kontroli dostępu do punktu końcowego (ACL) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limity dotyczące sieci — Azure Resource Manager
-Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu usługi Azure Resource Manager, które przypadają na region na subskrypcję.
+Witaj następujące limity mają zastosowanie tylko w przypadku sieci zasobów zarządzanych za pomocą usługi Azure Resource Manager na region na subskrypcję.
 
 | Zasób | Limit domyślny | Limit maksymalny |
 | --- | --- | --- |
@@ -44,5 +44,5 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Certyfikaty główne typu punkt-lokacja na bramę VPN Gateway |20 |20 |
 | Konfiguracje pomocniczych adresów IP na sieć wirtualną |1000 |kontakt z pomocą techniczną |
 
-Jeśli będzie konieczne zwiększenie limitów domyślnych, [skontaktuj się z pomocą techniczną](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+[Skontaktuj się z pomocą techniczną](../articles/azure-supportability/resource-manager-core-quotas-request.md ) w razie potrzeby limity tooincrease z domyślnej.
 

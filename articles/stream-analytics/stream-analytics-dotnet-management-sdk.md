@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie zestawu .NET SDK usługi Azure Stream Analytics | Dokumentacja firmy Microsoft"
-description: "Rozpoczynanie pracy z Stream Analytics Management .NET SDK. Dowiedz się, jak skonfigurować i uruchomić zadania usługi analiza. Utwórz projekt, wejść, wyjść i przekształcenia."
+title: "aaaManagement zestawu .NET SDK dla usługi Azure Stream Analytics | Dokumentacja firmy Microsoft"
+description: "Rozpoczynanie pracy z Stream Analytics Management .NET SDK. Dowiedz się, jak tooset Konfigurowanie i uruchamianie zadania usługi analiza. Utwórz projekt, wejść, wyjść i przekształcenia."
 keywords: .NET SDK, analizy interfejsu API
 services: stream-analytics
 documentationcenter: 
@@ -15,53 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeffstok
-ms.openlocfilehash: f9aa812e6e82cc0f72d0cd1fe63058e53f794775
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 507c11938bc5bf2249a2e41f6bcc076db8ead3f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zarządzanie zestawu .NET SDK: Skonfiguruj i uruchom zadania usługi analiza przy użyciu interfejsu API usługi analiza strumienia Azure dla platformy .NET
-Dowiedz się, jak skonfigurować i uruchomić zadania usługi analiza dla platformy .NET przy użyciu zestawu .NET SDK zarządzania przy użyciu interfejsu API usługi analiza strumienia. Konfigurowanie projektu, Utwórz wejściowymi i wyjściowymi źródeł, transformacji i rozpocząć i zatrzymać zadania. Dla Twojego zadania usługi analiza może przesyłać strumieniowo dane z magazynu obiektów Blob lub Centrum zdarzeń.
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-hello-azure-stream-analytics-api-for-net"></a>Zarządzanie zestawu .NET SDK: Konfigurowanie i uruchamianie zadania usługi analiza dla platformy .NET przy użyciu interfejsu API usługi Azure Stream Analytics hello
+Dowiedz się, jak tooset się oraz zadań wykonywania analizy przy użyciu interfejsu API usługi analiza strumienia hello dla platformy .NET przy użyciu zestawu .NET SDK zarządzania hello. Konfigurowanie projektu, Utwórz wejściowymi i wyjściowymi źródeł, transformacji i rozpocząć i zatrzymać zadania. Dla Twojego zadania usługi analiza może przesyłać strumieniowo dane z magazynu obiektów Blob lub Centrum zdarzeń.
 
-Zobacz [zarządzania dokumentacji interfejsu API usługi analiza strumienia dla platformy .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+Zobacz hello [zarządzania dokumentacji dla hello interfejsu API usługi analiza strumienia dla platformy .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
-Usługa Azure Stream Analytics to w pełni zarządzana usługa dostarczanie przetwarzania małych opóźnieniach, wysokiej dostępności, skalowalności, złożonych zdarzeń za pośrednictwem przesyłania strumieniowego danych w chmurze. Analiza strumienia umożliwia klientom ustawianie zadań przesyłania strumieniowego do analizowania strumieni danych oraz pozwala na dysku w pobliżu analiz w czasie rzeczywistym.  
+Usługa Azure Stream Analytics to w pełni zarządzana usługa dostarczanie przetwarzania małych opóźnieniach, wysokiej dostępności, skalowalności, złożonych zdarzeń za pośrednictwem przesyłania strumieniowego danych w chmurze hello. Analiza strumienia umożliwia tooset klientów w górę przesyłania strumieniowego strumienie danych tooanalyze zadań oraz pozwala toodrive niemal analiz w czasie rzeczywistym.  
 
 > [!NOTE]
-> Przykładowy kod w tym artykule zostały zaktualizowane z zestawu .NET SDK usługi Azure Stream Analytics zarządzania v2.x wersją. Przykładowy kod przy użyciu zestawu SDK lagecy (1.x) używa wersji, zobacz [v1.x zestawu .NET SDK zarządzania na użytek Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
+> Witaj przykładowy kod w tym artykule zostały zaktualizowane z zestawu .NET SDK usługi Azure Stream Analytics zarządzania v2.x wersją. Przykładowy kod przy użyciu hello użycia wersja zestawu SDK lagecy (1.x), można znaleźć pod adresem [v1.x zestawu .NET SDK zarządzania hello na użytek Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
+Przed rozpoczęciem tego artykułu, musi mieć następujące hello:
 
 * Zainstaluj program Visual Studio 2017 lub 2015.
 * Pobierz i zainstaluj [zestawu Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Utwórz grupy zasobów platformy Azure w ramach subskrypcji. Poniżej przedstawiono przykładowy skrypt programu PowerShell systemu Azure. Informacje programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview);  
+* Utwórz grupy zasobów platformy Azure w ramach subskrypcji. Witaj poniżej znajduje się przykładowy skrypt programu PowerShell systemu Azure. Informacje programu Azure PowerShell, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview);  
 
-        # Log in to your Azure account
+        # Log in tooyour Azure account
         Add-AzureAccount
 
-        # Select the Azure subscription you want to use to create the resource group
+        # Select hello Azure subscription you want toouse toocreate hello resource group
         Select-AzureSubscription -SubscriptionName <subscription name>
 
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+            # If Stream Analytics has not been registered toohello subscription, remove hello remark symbol (#) toorun hello Register-AzureRMProvider cmdlet tooregister hello provider namespace
             #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
         # Create an Azure resource group
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* Skonfiguruj źródło danych wejściowych i docelowego dane wyjściowe do użycia. Dodatkowe instrukcje można znaleźć [dodać dane wejściowe](stream-analytics-add-inputs.md) skonfigurować przykładowe dane wejściowe i [dodać danych wyjściowych](stream-analytics-add-outputs.md) skonfigurować przykładowe dane wyjściowe.
+* Konfigurowanie źródła danych wejściowych i wyjściowych toouse docelowej. Dodatkowe instrukcje można znaleźć [dodać dane wejściowe](stream-analytics-add-inputs.md) tooset się przykładowe dane wejściowe i [dodać danych wyjściowych](stream-analytics-add-outputs.md) tooset się przykładowe dane wyjściowe.
 
 ## <a name="set-up-a-project"></a>Konfigurowanie projektu
-Aby utworzyć zadania usługi analiza, należy użyć interfejsu API usługi analiza strumienia dla platformy .NET, należy najpierw skonfigurować projektu.
+toocreate zadania usługi Analiza użycia hello interfejsu API usługi analiza strumienia dla platformy .NET, należy najpierw skonfigurować projektu.
 
 1. Utwórz aplikację konsolową programu Visual Studio C# .NET.
-2. W konsoli Menedżera pakietów uruchom następujące polecenia można zainstalować pakietów NuGet. Pierwsza z nich jest Azure Stream Analytics Management .NET SDK. Drugim jest do uwierzytelniania klienta usługi Azure.
+2. W konsoli Menedżera pakietów hello hello uruchom następujące polecenia pakietów NuGet hello tooinstall. Witaj najpierw jedna jest hello zestawu .NET SDK usługi Azure Stream Analytics zarządzania. Witaj drugim jest do uwierzytelniania klienta usługi Azure.
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
-3. Dodaj następujące **appSettings** sekcji w pliku App.config:
+3. Dodaj następujące hello **appSettings** pliku App.config toohello sekcji:
    
         <appSettings>
           <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -70,15 +70,15 @@ Aby utworzyć zadania usługi analiza, należy użyć interfejsu API usługi ana
           <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
         </appSettings>
 
-    Zastąp wartości **SubscriptionId** i **ActiveDirectoryTenantId** identyfikatorami z usługi Azure subskrypcji i dzierżawcy. Te wartości można uzyskać, uruchamiając następujące polecenie cmdlet programu Azure PowerShell:
+    Zastąp wartości **SubscriptionId** i **ActiveDirectoryTenantId** identyfikatorami z usługi Azure subskrypcji i dzierżawcy. Te wartości można uzyskać, uruchamiając następujące polecenia cmdlet programu Azure PowerShell hello:
 
         Get-AzureAccount
 
-4. Dodaj następujące informacje w pliku .csproj:
+4. Dodaj następujące odwołania w pliku .csproj hello:
 
         <Reference Include="System.Configuration" />
 
-5. Dodaj następujące **przy użyciu** instrukcje do pliku źródłowego (Program.cs) w projekcie:
+5. Dodaj następujące hello **przy użyciu** instrukcje toohello pliku źródłowego (Program.cs) w projekcie hello:
    
         using System;
         using System.Collections.Generic;
@@ -103,9 +103,9 @@ Aby utworzyć zadania usługi analiza, należy użyć interfejsu API usługi ana
    ```
 
 ## <a name="create-a-stream-analytics-management-client"></a>Tworzenie klienta zarządzania usługi analiza strumienia
-A **StreamAnalyticsManagementClient** obiektu umożliwia zarządzanie zadania i składniki zadania, takie jak dane wejściowe, dane wyjściowe i przekształcania.
+A **StreamAnalyticsManagementClient** obiektu umożliwia toomanage hello zadania i hello zadania składniki, takie jak dane wejściowe, dane wyjściowe i przekształcania.
 
-Dodaj następujący kod na początku **Main** metody:
+Dodaj następującego kodu toohello początku hello hello **Main** metody:
 
    ```
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -126,14 +126,14 @@ Dodaj następujący kod na początku **Main** metody:
     };
    ```
 
-**ResourceGroupName** wartość zmiennej powinna być taka sama jak nazwa grupy zasobów został utworzony lub pobrać wstępnie wymagane kroki.
+Witaj **resourceGroupName** wartość zmiennej powinna być taka sama jak nazwa hello zasobu hello grupy utworzone lub pobrać wymagane wstępnie kroki hello hello.
 
-Aby zautomatyzować aspekt prezentacji poświadczenie tworzenia zadania, należy zapoznać się [uwierzytelniania nazwy głównej usługi z usługą Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+tooautomate hello poświadczeń prezentacji aspekt tworzenia zadania, można znaleźć zbyt[uwierzytelniania nazwy głównej usługi z usługą Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-Pozostałe sekcje w tym artykule założono, że ten kod jest na początku **Main** metody.
+Witaj pozostałe sekcje w tym artykule przyjęto, że ten kod zostało początku hello hello **Main** metody.
 
 ## <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
-Poniższy kod tworzy zadanie usługi analiza strumienia w grupie zasobów, który został zdefiniowany. Zadania zostaną później dodane z danych wejściowych, wyjściowych i przekształcenie.
+Witaj poniższy kod tworzy zadanie usługi analiza strumienia, w grupie zasobów hello zdefiniowanej przez użytkownika. Zadanie toohello danych wejściowych, wyjściowych i przekształcenie zostaną dodane później.
 
    ```
    // Create a streaming job
@@ -160,7 +160,7 @@ Poniższy kod tworzy zadanie usługi analiza strumienia w grupie zasobów, któr
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>Utwórz źródło danych wejściowych analiza strumienia
-Poniższy kod tworzy Stream Analytics źródło danych wejściowych typu źródła danych wejściowych obiektu blob i serializacji woluminów CSV. Aby utworzyć źródło wejścia Centrum zdarzeń, użyj **EventHubStreamInputDataSource** zamiast **BlobStreamInputDataSource**. Podobnie można dostosować serializację typu źródła danych wejściowych.
+Witaj poniższy kod tworzy Stream Analytics źródło danych wejściowych typu źródła danych wejściowych obiektu blob hello i serializacji woluminów CSV. Użyj toocreate źródło wejścia Centrum zdarzeń, **EventHubStreamInputDataSource** zamiast **BlobStreamInputDataSource**. Podobnie można dostosować hello serializacji typu hello źródła danych wejściowych.
 
    ```
    // Create an input
@@ -192,20 +192,20 @@ Poniższy kod tworzy Stream Analytics źródło danych wejściowych typu źród�
    Input createInputResult = streamAnalyticsManagementClient.Inputs.CreateOrReplace(input, resourceGroupName, streamingJobName, inputName);
    ```
 
-Źródeł danych wejściowych z magazynu obiektów Blob lub Centrum zdarzeń są powiązane z konkretnym zadaniu. Aby użyć tego samego źródła danych wejściowych dla różnych zadań, należy ponownie wywołać metodę i określenia innej nazwy zadania.
+Źródeł danych wejściowych z magazynu obiektów Blob lub Centrum zdarzeń są wiązanej tooa określonego zadania. toouse hello tego samego źródła danych wejściowych dla różnych zadań, należy wywołać metodę hello ponownie i określenia innej nazwy zadania.
 
 ## <a name="test-a-stream-analytics-input-source"></a>Testowanie usługi Stream Analytics źródło danych wejściowych
-**TestConnection** metoda sprawdza, czy zadanie usługi Stream Analytics jest w stanie połączyć się źródło danych wejściowych, jak również inne aspekty specyficzne dla typu źródła danych wejściowych. Na przykład w źródło wejścia obiektów blob, utworzony w poprzednim kroku, metoda sprawdza, czy para klucza i nazwy konta magazynu może służyć do nawiązania połączenia z kontem magazynu, a także Sprawdź, czy istnieje określony kontener.
+Witaj **TestConnection** testy metody czy zadanie usługi Stream Analytics hello jest możliwe tooconnect toohello wejściowych źródłowego, jak również inne aspekty toohello określonych danych wejściowych typu źródłowego. Na przykład w hello źródło wejścia obiektów blob utworzony w poprzednim kroku, metoda hello sprawdzi, czy nazwa konta magazynu hello i pary kluczy może być toohello tooconnect używane konto magazynu także Sprawdź, czy istnieje hello określonego kontenera.
 
    ```
-   // Test the connection to the input
+   // Test hello connection toohello input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Utworzyć cel usługi analiza strumienia wyjściowego
-Tworzenie obiektu docelowego dane wyjściowe jest bardzo podobny do tworzenia usługi Stream Analytics źródło danych wejściowych. Jak źródeł danych wejściowych powiązane są elementy docelowe danych wyjściowych do określonego zadania. Aby użyć tej samej wartości docelowej danych wyjściowych dla różnych zadań, należy ponownie wywołać metodę i określenia innej nazwy zadania.
+Tworzenie obiektu docelowego dane wyjściowe jest bardzo podobne toocreating Stream Analytics źródło danych wejściowych. Podobnie jak źródeł danych wejściowych docelowe dla danych wyjściowych są tooa wiązanej określonego zadania. toouse hello tej samej wartości docelowej danych wyjściowych dla różnych zadań, należy wywołać metodę hello ponownie i określenia innej nazwy zadania.
 
-Poniższy kod tworzy obiekt docelowy danych wyjściowych (baza danych Azure SQL). Można dostosować w danych wyjściowych elementu docelowego typu danych i/lub typu serializacji.
+Witaj następującego kodu tworzy obiekt docelowy danych wyjściowych (baza danych Azure SQL). Można dostosować hello dane wyjściowe docelowy typ danych i/lub typu serializacji.
 
    ```
    // Create an output
@@ -224,32 +224,32 @@ Poniższy kod tworzy obiekt docelowy danych wyjściowych (baza danych Azure SQL)
    ```
 
 ## <a name="test-a-stream-analytics-output-target"></a>Testowanie elementu docelowego danych wyjściowych usługi analiza strumienia
-Ma również elementu docelowego danych wyjściowych Stream Analytics **TestConnection** metody do testowania połączenia.
+Docelowy danych wyjściowych usługi analiza strumienia ma również hello **TestConnection** metody do testowania połączenia.
 
    ```
-   // Test the connection to the output
+   // Test hello connection toohello output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
 
 ## <a name="create-a-stream-analytics-transformation"></a>Utworzyć transformację analiza strumienia
-Poniższy kod tworzy transformację Stream Analytics z zapytaniem "Wybierz * z danych wejściowych" i określa przydzielić jedną jednostkę przesyłania strumieniowego zadania usługi analiza strumienia. Aby uzyskać więcej informacji dotyczących dostosowywania jednostki przesyłania strumieniowego, zobacz [zadania usługi analiza strumienia Azure skali](stream-analytics-scale-jobs.md).
+Witaj poniższy kod tworzy transformację Stream Analytics z zapytaniem hello "Wybierz * z danych wejściowych" i określa jedną jednostkę przesyłania strumieniowego tooallocate zadania usługi analiza strumienia hello. Aby uzyskać więcej informacji dotyczących dostosowywania jednostki przesyłania strumieniowego, zobacz [zadania usługi analiza strumienia Azure skali](stream-analytics-scale-jobs.md).
 
    ```
    // Create a transformation
    Transformation transformation = new Transformation()
    {
-       Query = "Select Id, Name from <your input name>", // '<your input name>' should be replaced with the value you put for the 'inputName' variable above or in a previous step
+       Query = "Select Id, Name from <your input name>", // '<your input name>' should be replaced with hello value you put for hello 'inputName' variable above or in a previous step
        StreamingUnits = 1
    };
    Transformation createTransformationResult = streamAnalyticsManagementClient.Transformations.CreateOrReplace(transformation, resourceGroupName, streamingJobName, transformationName);
    ```
 
-Podobnie jak dane wejściowe i wyjściowe transformację jest też powiązany z danego zadania Stream Analytics, został on utworzony w obszarze.
+Podobnie jak dane wejściowe i wyjściowe transformację jest również wiązanej toohello określone zadanie usługi Stream Analytics została utworzona w obszarze.
 
 ## <a name="start-a-stream-analytics-job"></a>Uruchom zadanie usługi analiza strumienia
-Po utworzeniu zadania usługi analiza strumienia i jego input(s) wyjściami i przekształcenie, można uruchomić zadanie, wywołując **Start** metody.
+Po utworzeniu zadania usługi analiza strumienia i jego input(s) wyjściami i przekształcenie, można uruchomić zadania hello hello wywoływania **Start** metody.
 
-Poniższy przykładowy kod uruchamia zadania usługi analiza strumienia danych wyjściowych niestandardowego czas rozpoczęcia ustawioną 12 grudnia 2012 12:12:12 UTC:
+Zadanie usługi Stream Analytics rozpoczyna się Hello następującego przykładowego kodu z danych wyjściowych niestandardowego początkowy czas zestaw tooDecember 12, 2012, 12:12:12 UTC:
 
    ```
    // Start a streaming job
@@ -262,7 +262,7 @@ Poniższy przykładowy kod uruchamia zadania usługi analiza strumienia danych w
    ```
 
 ## <a name="stop-a-stream-analytics-job"></a>Zatrzymaj zadanie usługi analiza strumienia
-Można zatrzymać uruchomione zadanie usługi Stream Analytics wywołując **zatrzymać** metody.
+Uruchomione zadania Stream Analytics można zatrzymać za hello wywoływania **zatrzymać** metody.
 
    ```
    // Stop a streaming job
@@ -270,7 +270,7 @@ Można zatrzymać uruchomione zadanie usługi Stream Analytics wywołując **zat
    ```
 
 ## <a name="delete-a-stream-analytics-job"></a>Usuń zadanie usługi analiza strumienia
-**Usunąć** metoda usuwa zadanie, a także podrzędne zasobów, w tym input(s), wyjściami i przekształcenie zadania.
+Witaj **usunąć** metoda usuwa hello zadania, a także hello bazowy podrzędne zasobów, w tym input(s) wyjściami i przekształcenie hello zadania.
 
    ```
    // Delete a streaming job
@@ -281,9 +281,9 @@ Można zatrzymać uruchomione zadanie usługi Stream Analytics wywołując **zat
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
-Znasz już podstawy przy użyciu zestawu .NET SDK do tworzenia i uruchamiania zadania usługi analiza. Aby dowiedzieć się więcej, zobacz następujące tematy:
+Zostały rozpoznane podstawy hello przy użyciu toocreate zestawu .NET SDK i uruchom zadania usługi analiza. toolearn więcej, zobacz następujące hello:
 
-* [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
+* [Wprowadzenie tooAzure analiza strumienia](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Management zestawu .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).

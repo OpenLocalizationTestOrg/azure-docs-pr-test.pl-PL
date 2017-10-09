@@ -1,10 +1,10 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-exit-maintenance-mode"></a>Aby wyjść z trybu konserwacji
-1. Wpisz w wierszu polecenia:
+#### <a name="tooexit-maintenance-mode"></a>Tryb konserwacji tooexit
+1. Wpisz w wierszu polecenia hello:
    
      `Exit-HcsMaintenanceMode`
-2. Zostanie wyświetlony komunikat ostrzegawczy i komunikat potwierdzenia. Typ **Y** aby wyjść z trybu konserwacji.
+2. Zostanie wyświetlony komunikat ostrzegawczy i komunikat potwierdzenia. Typ **Y** tooexit tryb konserwacji.
    
-    Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia innego pojawi się komunikat wskazujący, że urządzenie jest w trybie normalnym.
+    Zarówno kontrolery zostanie uruchomiony ponownie. Po zakończeniu ponownego uruchomienia hello innego pojawi się komunikat wskazujący, że urządzenie tym hello jest w trybie normalnym.
 

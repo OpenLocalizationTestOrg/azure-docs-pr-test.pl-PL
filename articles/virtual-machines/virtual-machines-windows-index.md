@@ -1,6 +1,6 @@
 ---
-title: "Artykuły techniczne dla klasycznych maszyn wirtualnych systemu Windows | Microsoft Azure"
-description: "Pełna lista artykuły dokumentacji Microsoft Azure dla maszyn wirtualnych systemu Windows w klasycznym modelu wdrażania"
+title: "artykuły aaaTechnical do klasycznych maszyn wirtualnych systemu Windows | Microsoft Azure"
+description: "Pełna lista artykuły dokumentacji Microsoft Azure dla maszyn wirtualnych systemu Windows hello klasycznego modelu wdrażania"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-ms.openlocfilehash: 2df7ea6a143ad0d64e4fd75223c7e5a9a2a5e87e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 262e0d9397e4a20bf25dd4516629a0539a059829
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Artykuły techniczne dla maszyn wirtualnych systemu Windows w klasycznym modelu wdrażania
-Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem Windows Azure maszyny wirtualne w klasycznym modelu wdrażania.
+# <a name="technical-articles-for-windows-vms-in-hello-classic-deployment-model"></a>Artykuły techniczne, dla maszyn wirtualnych systemu Windows hello klasycznego modelu wdrażania
+Znajdź wszystkie dokumentacji hello należy toocreate i zarządzanie systemem Windows Azure maszyny wirtualne w hello klasycznego modelu wdrażania.
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager.
 
 ## <a name="overview"></a>Omówienie
 [Informacje o maszynach wirtualnych](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Często zadawane pytania dotyczące maszyn wirtualnych Azure utworzonych za pomocą klasycznym modelu wdrażania](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Często zadawane pytania dotyczące maszyn wirtualnych Azure utworzonych za pomocą hello klasycznego modelu wdrażania](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Porównanie maszyn wirtualnych, witryn sieci Web i usług w chmurze](../app-service-web/choose-web-site-cloud-service-vm.md)
 
@@ -46,9 +46,9 @@ Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 [Ścieżka szkoleniowa dotycząca maszyn wirtualnych systemu Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
-[Utwórz maszynę wirtualną systemu Windows w klasycznym portalu Azure](windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Utwórz maszynę wirtualną systemu Windows w hello klasycznego portalu Azure](windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak zalogować się do klasycznego maszynę wirtualną z systemem Windows Server](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak toolog tooa klasyczne maszyny wirtualnej systemem Windows Server](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="plan"></a>Planowanie
 [Informacje o obrazach klasycznych maszyn wirtualnych](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -66,7 +66,7 @@ Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem 
 ## <a name="deploy"></a>Wdrażanie
 [Utwórz niestandardowe maszynę wirtualną z systemem Windows](windows/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Przechwytywanie maszyny wirtualnej systemu Windows tworzone w klasycznym modelu wdrażania](windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Przechwytywania utworzone w hello klasycznego modelu wdrażania maszyny wirtualnej systemu Windows](windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Tworzenie i przekazywanie klasycznego VHD serwera z systemem Windows przy użyciu programu PowerShell](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -79,42 +79,42 @@ Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem 
 ## <a name="manage"></a>Zarządzanie
 [Zarządzanie maszyn wirtualnych przy użyciu programu Azure PowerShell](windows/classic/manage-psh.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Klasyczne sieci wirtualne nawiązać połączenia z nowej sieci wirtualnych](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+[Połącz klasycznych sieci wirtualnych toonew sieci wirtualnych](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 
-[Dotyczące agenta maszyny wirtualnej i rozszerzeń](windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[O hello agenta maszyny wirtualnej i rozszerzenia](windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Zarządzaj rozszerzeniami maszyny wirtualnej](windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Niestandardowe rozszerzenie skryptu klasycznych maszyn wirtualnych systemu Windows](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Platforma obsługiwana migracja z klasycznego do usługi Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
+[Platforma obsługiwana migracja z klasycznego tooAzure Menedżera zasobów](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>Konfigurowanie
-[Jak można zresetować hasło lub usługa Pulpit zdalny dla maszyny Wirtualnej systemu Windows](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Jak usługa tooreset hasła lub hello pulpitu zdalnego dla maszyny Wirtualnej systemu Windows](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Temat funkcji i rozszerzeń maszyny wirtualnej](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Jak zainstalować i skonfigurować Symantec Endpoint Protection na maszynie Wirtualnej systemu Windows](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak tooinstall i skonfigurować Symantec Endpoint Protection na maszynie Wirtualnej systemu Windows](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak zainstalować i skonfigurować Trend Micro głębokie zabezpieczeń jako usługa na maszynie Wirtualnej systemu Windows](windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak tooinstall i skonfigurować Trend Micro głębokie zabezpieczeń jako usługa na maszynie Wirtualnej systemu Windows](windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak skonfigurować zbiór dostępności dla maszyn wirtualnych w klasycznym modelu wdrażania](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak tooconfigure, zbiór dostępności, dla maszyn wirtualnych w hello klasycznego modelu wdrażania](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak skonfigurować punkty końcowe na maszynie wirtualnej Azure classic](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak tooset się punkty końcowe na maszynie wirtualnej Azure classic](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>Magazyn
 [O dyskach i wirtualne dyski twarde dla maszyn wirtualnych platformy Azure](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Jak można dołączyć dysku danych do klasycznej maszyny wirtualnej systemu Windows](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak tooattach danych na dysku tooa klasyczne maszyny wirtualnej systemu Windows](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak można odłączyć dysku danych od klasyczne maszyny wirtualnej systemu Windows](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak toodetach danych na dysku z klasycznym maszyny wirtualnej systemu Windows](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Użyj dysku D jako dysk z danymi na maszynie Wirtualnej systemu Windows](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Dysków hello D jako dysk z danymi na maszynie Wirtualnej systemu Windows](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="networking"></a>Sieć
 [Omówienie sieci wirtualnej](../virtual-network/virtual-networks-overview.md)
 
-[Połączenie maszyn wirtualnych utworzonych za pomocą klasycznego modelu wdrażania z wirtualnych sieci lub usługę w chmurze](windows/classic/connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Połączenie maszyn wirtualnych utworzonych za pomocą hello klasycznego modelu wdrażania z wirtualnych sieci lub usługę w chmurze](windows/classic/connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Zarządzanie sieciowymi grupami zabezpieczeń przy użyciu programu Azure PowerShell](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -125,7 +125,7 @@ Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem 
 
 [Tworzenie maszyny wirtualnej dla aplikacji sieci web za pomocą programu Visual Studio](windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Jak uruchomić zadanie obliczeniowych w języku Java na maszynie wirtualnej](windows/classic/java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Jak zadanie toorun obliczeniowych w języku Java na maszynie wirtualnej](windows/classic/java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Aplikacja sieci web Django Hello World na maszynie Wirtualnej systemu Windows Server](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -154,9 +154,9 @@ Znajdź wszystkie dokumentacji potrzebnych do tworzenia i zarządzania systemem 
 [Azure dokumentacji polecenia cmdlet programu PowerShell do zarządzania usługi](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-[Rozwiązywanie problemów z połączeniami pulpitu zdalnego nawiązywanymi z maszyną wirtualną platformy Azure z systemem Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Rozwiązywanie problemów z tooan połączeń usług pulpitu zdalnego Azure maszyny wirtualnej z systemem Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Rozwiązywanie problemów z dostępem do aplikacji działających na maszynie wirtualnej platformy Azure](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Rozwiązywanie problemów z tooan dostępu aplikacja uruchomiona na maszynie wirtualnej platformy Azure](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Rozwiązywanie problemów z przydziałem podczas tworzenia, uruchom ponownie lub zmień rozmiar maszyn wirtualnych na platformie Azure](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -1,6 +1,6 @@
-Podczas tworzenia bramy sieci wirtualnej musisz wybrać jednostkę SKU bramy do użycia. W przypadku wybrania wyższej jednostki SKU bramy bramie przydzielane jest więcej procesorów CPU oraz wyższa przepustowość sieci, dlatego może obsługiwać wyższą przepływność sieci do sieci wirtualnej. 
+Podczas tworzenia bramy sieci wirtualnej, należy toospecify hello bramy, które mają toouse jednostki SKU. Po wybraniu wyższej jednostka SKU bramy więcej procesorów i przepustowość sieci są przydzielane toohello bramy, a w związku z tym hello bramy może obsługiwać wyższe sieci przepływności toohello sieci wirtualnej. 
 
-ExpressRoute bram sieci wirtualnej można użyć następujących wersji produktu: 
+Bramy sieci wirtualnej usługi ExpressRoute, można użyć powitania po jednostki SKU: 
 
 * Standardowa
 * Wysoka wydajność (HighPerformance)

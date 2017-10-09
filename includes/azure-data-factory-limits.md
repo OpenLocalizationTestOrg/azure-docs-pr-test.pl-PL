@@ -1,4 +1,4 @@
-Fabryka danych jest usługą wielodostępne, która ma następujące domyślne limity mające na celu upewnij się, że subskrypcjami klientów są chronione przez obciążeń. Wiele granic można łatwo wygenerowany dla Twojej subskrypcji do maksymalnego limitu za pośrednictwem pracowników pomocy technicznej.
+Fabryka danych jest usługą wielodostępne, która ma hello następujące domyślne limity w miejscu toomake się, że subskrypcjami klientów są chronione przez obciążeń. Wiele hello limity można łatwo wygenerowany dla Twojej subskrypcji się maksymalny limit toohello za pośrednictwem pracowników pomocy technicznej.
 
 | **Zasób** | **Limit domyślny** | **Limit maksymalny** |
 | --- | --- | --- |
@@ -12,11 +12,11 @@ Fabryka danych jest usługą wielodostępne, która ma następujące domyślne l
 | Jednostka przepływu danych w chmurze <sup>3</sup> |32 |[Kontakt z pomocą techniczną](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Liczba uruchomień działania potoku ponownych prób |1000 |MaxInt (32-bitowe) |
 
-<sup>1</sup> potoku, zestawu danych i obiektów powiązanych z reprezentują logiczne grupowanie obciążenie. Limity dla tych obiektów nie odnoszą się do ilości danych, można przenieść i przetwarzania w usłudze fabryka danych Azure. Fabryka danych zaprojektowano w celu skalowania, umożliwiając obsługę petabajtów danych.
+<sup>1</sup> potoku, zestawu danych i obiektów powiązanych z reprezentują logiczne grupowanie obciążenie. Limity dla tych obiektów nie odnoszą się tooamount danych można przenieść i przetwarzać z hello usługi fabryka danych Azure. Fabryka danych jest zaprojektowana tooscale toohandle petabajtów danych.
 
-<sup>2</sup> rdzeni na żądanie usługi HDInsight są przydzielane poza subskrypcji, która zawiera fabryki danych. W związku z tym powyżej limitu jest fabryki danych wymuszone limit podstawowych rdzeni HDInsight na żądanie i różni się od limit rdzeni skojarzone z subskrypcją platformy Azure.
+<sup>2</sup> rdzeni na żądanie usługi HDInsight są przydzielane poza hello subskrypcji, która zawiera hello fabryki danych. W związku z tym hello przekracza limit jest hello fabryki danych wymuszone limit podstawowych rdzeni HDInsight na żądanie i różni się od limit rdzeni hello skojarzone z subskrypcją platformy Azure.
 
-<sup>3</sup> jednostki przepływu danych w chmurze (DMU) jest używany w operacji kopiowania w chmurze z chmurą. Stanowi ona miarę, która odzwierciedla wydajność (kombinacja Procesora, pamięci i alokacji zasobów w sieci) w pojedynczą jednostkę w fabryce danych. Wyższej przepustowości kopii można osiągnąć dzięki wykorzystaniu więcej DMUs w niektórych scenariuszach. Zapoznaj się [jednostki przepływu danych w chmurze](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) sekcji Szczegóły.
+<sup>3</sup> jednostki przepływu danych w chmurze (DMU) jest używany w operacji kopiowania w chmurze z chmurą. Stanowi ona miarę reprezentujący hello zasilania (kombinacja Procesora, pamięci i alokacji zasobów sieciowych) z pojedynczą jednostkę w fabryce danych. Wyższej przepustowości kopii można osiągnąć dzięki wykorzystaniu więcej DMUs w niektórych scenariuszach. Odwołuje się zbyt[jednostki przepływu danych w chmurze](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) sekcji Szczegóły.
 
 | **Zasób** | **Dolny limit domyślny** | **Minimalny limit** |
 | --- | --- | --- |
@@ -25,4 +25,4 @@ Fabryka danych jest usługą wielodostępne, która ma następujące domyślne l
 | Spróbuj ponownie wartość limitu czasu |1 sekunda |1 sekunda |
 
 ### <a name="web-service-call-limits"></a>Ograniczenia wywołania usługi sieci Web
-Usługa Azure Resource Manager ma limity dla interfejsu API. Istnieje możliwość wywołania interfejsu API z szybkością w [ogranicza interfejsu API usługi Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).
+Usługa Azure Resource Manager ma limity dla interfejsu API. Możesz wprowadzić wywołań interfejsu API z szybkością w hello [ogranicza interfejsu API usługi Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).

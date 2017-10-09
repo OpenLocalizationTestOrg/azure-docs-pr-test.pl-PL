@@ -6,7 +6,7 @@
 | **Obejmujący wiele lokacji** |Obsługiwane |Nieobsługiwane |
 | **S2S i ExpressRoute współistnieją** |Obsługiwane |Nieobsługiwane |
 | **Punkt lokacja** |Obsługiwane |Nieobsługiwane |
-| **Klasycznego do Menedżera zasobów** |Obsługiwane |Nieobsługiwane |
+| **Klasycznym tooResource Manager** |Obsługiwane |Nieobsługiwane |
 
 #### <a name="vpn-type---classic-deployment-model"></a>Typ sieci VPN — klasycznego modelu wdrażania
 |  | **Dynamiczne** | **Statyczne** |
@@ -16,5 +16,5 @@
 | **Obejmujący wiele lokacji** |Obsługiwane |Nieobsługiwane |
 | **S2S i ExpressRoute współistnieją** |Obsługiwane |Nieobsługiwane |
 | **Punkt lokacja** |Obsługiwane |Nieobsługiwane |
-| **Klasycznego do Menedżera zasobów** |Obsługiwane |Nieobsługiwane |
+| **Klasycznym tooResource Manager** |Obsługiwane |Nieobsługiwane |
 

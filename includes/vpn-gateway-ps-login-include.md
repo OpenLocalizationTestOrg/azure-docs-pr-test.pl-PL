@@ -1,18 +1,18 @@
-Przed rozpoczęciem tej konfiguracji musisz zalogować się na koncie platformy Azure. Polecenie cmdlet wyświetla monit o podanie poświadczeń logowania dla konta platformy Azure. Po zalogowaniu pobiera ono ustawienia konta, aby były dostępne dla programu Azure PowerShell. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../articles/powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
+Przed rozpoczęciem tej konfiguracji, należy zalogować się tooyour konto platformy Azure. polecenia cmdlet Hello monituje o hello poświadczenia logowania dla konta platformy Azure. Po zalogowaniu pobraniu ustawienia konta tak, aby były dostępne tooAzure środowiska PowerShell. Więcej informacji znajduje się w temacie [Using Windows PowerShell with Resource Manager](../articles/powershell-azure-resource-manager.md) (Używanie programu Windows PowerShell z usługą Resource Manager).
 
-Aby się zalogować, otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
+toolog, otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień, a następnie połącz tooyour konta. Użyj powitania po toohelp przykład, gdy nawiązujesz połączenie:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Jeśli masz wiele subskrypcji platformy Azure, wyświetl subskrypcje dla konta.
+Jeśli masz wiele subskrypcji Azure, sprawdź subskrypcje hello hello konta.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Wskaż subskrypcję, której chcesz użyć.
+Określ, które mają toouse subskrypcji hello.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"

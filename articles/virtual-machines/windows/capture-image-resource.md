@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie zarządzanego obrazu na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Tworzenie zarządzanego obrazu maszyny Wirtualnej lub wirtualnego dysku twardego uogólnionego na platformie Azure. Obrazy mogą służyć do tworzenia wiele maszyn wirtualnych, które używają dysków zarządzanych."
+title: "aaaCreate zarządzanego obrazu na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Tworzenie zarządzanego obrazu maszyny Wirtualnej lub wirtualnego dysku twardego uogólnionego na platformie Azure. Obrazy mogą być używane toocreate wiele maszyn wirtualnych, które używają dysków zarządzanych."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,65 +15,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
-ms.openlocfilehash: f64b81489ab426b50ec89af369e1581ac71848be
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d8cd6c2ce8c5d704de2c845abced85139944d682
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie zarządzanego obrazu uogólniony maszyny wirtualnej na platformie Azure
 
-Można utworzyć zasobu zarządzanego obrazu z ogólnych maszyny Wirtualnej, która jest przechowywana jako dysków zarządzanych lub niezarządzanych dysku na koncie magazynu. Aby utworzyć wiele maszyn wirtualnych można następnie obrazu. 
+Można utworzyć zasobu zarządzanego obrazu z ogólnych maszyny Wirtualnej, która jest przechowywana jako dysków zarządzanych lub niezarządzanych dysku na koncie magazynu. Witaj może obrazu, a następnie można toocreate używanych wiele maszyn wirtualnych. 
 
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Maszyny Wirtualnej systemu Windows za pomocą programu Sysprep do uogólnienia
+## <a name="generalize-hello-windows-vm-using-sysprep"></a>Generalize hello maszyny Wirtualnej systemu Windows za pomocą programu Sysprep
 
-Program Sysprep usuwa wszystkie informacje osobiste konto, między innymi i przygotowuje komputer do użycia jako obraz. Aby uzyskać więcej informacji o narzędziu Sysprep, zobacz [sposobu użycia programu Sysprep: wprowadzenie](http://technet.microsoft.com/library/bb457073.aspx).
+Program Sysprep usuwa wszystkie informacje osobiste konto, między innymi i przygotowuje toobe maszyny hello użyty jako obraz. Aby uzyskać więcej informacji o narzędziu Sysprep, zobacz [jak tooUse Sysprep: wprowadzenie](http://technet.microsoft.com/library/bb457073.aspx).
 
-Upewnij się, że ról serwera uruchomionych na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Upewnij się, że hello ról serwera uruchomionych na maszynie hello są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Jeśli korzystasz z programu Sysprep przed przekazaniem dysk VHD do platformy Azure po raz pierwszy, upewnij się, masz [przygotować maszyny Wirtualnej](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) przed uruchomieniem programu Sysprep. 
+> Jeśli korzystasz z programu Sysprep przed przekazaniem tooAzure Twojego dysku VHD na powitania po raz pierwszy, upewnij się, masz [przygotować maszyny Wirtualnej](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) przed uruchomieniem programu Sysprep. 
 > 
 > 
 
-1. Zaloguj się do maszyny wirtualnej systemu Windows.
-2. Otwórz okno Wiersz polecenia jako administrator. Zmień katalog na **%windir%\system32\sysprep**, a następnie uruchom `sysprep.exe`.
-3. W **narzędzie przygotowania systemu** okno dialogowe, wybierz opcję **wprowadź systemu Out-of-Box Experience (OOBE)**i upewnij się, że **Generalize** pole wyboru jest zaznaczone.
+1. Zaloguj się toohello maszyny wirtualnej systemu Windows.
+2. Otwórz okno wiersza polecenia hello jako administrator. Zmień katalog hello zbyt**%windir%\system32\sysprep**, a następnie uruchom `sysprep.exe`.
+3. W hello **narzędzie przygotowania systemu** okno dialogowe, wybierz opcję **wprowadź systemu Out-of-Box Experience (OOBE)**i upewnij się, że hello **Generalize** pole wyboru jest zaznaczone.
 4. W **opcje zamykania**, wybierz pozycję **zamknięcia**.
 5. Kliknij przycisk **OK**.
    
     ![Uruchom program Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Po zakończeniu działania programu Sysprep, zamyka maszyny wirtualnej. Nie uruchamiaj ponownie maszyny Wirtualnej.
+6. Po zakończeniu działania programu Sysprep, zamyka hello maszyny wirtualnej. Nie uruchamiaj ponownie hello maszyny Wirtualnej.
 
 
-## <a name="create-a-managed-image-in-the-portal"></a>Tworzenie zarządzanego obrazu w portalu 
+## <a name="create-a-managed-image-in-hello-portal"></a>Tworzenie zarządzanego obrazu w portalu hello 
 
-1. Otwórz [portal](https://portal.azure.com).
-2. Kliknij znak plus, aby utworzyć nowy zasób.
-3. Filtr wyszukiwania, wpisz **obrazu**.
-4. Wybierz **obrazu** z wyników.
-5. W **obrazu** bloku, kliknij przycisk **Utwórz**.
-6. W **nazwa**, wpisz nazwę obrazu.
-7. Jeśli masz więcej niż jedną subskrypcję, wybierz właściwy z **subskrypcji** listy rozwijanej.
-7. W **grupy zasobów** wybierz opcję **Utwórz nowy** i wpisz nazwę lub wybierz **z istniejących** i wybierz grupę zasobów do użycia z listy rozwijanej.
-8. W **lokalizacji**, wybierz lokalizację, w grupie zasobów.
-9. W **typ systemu operacyjnego** wybierz typ systemu operacyjnego, systemu Windows lub Linux.
-11. W **obiektu blob magazynu**, kliknij przycisk **Przeglądaj** do wyszukania dysku VHD w magazynie Azure.
+1. Otwórz hello [portal](https://portal.azure.com).
+2. Kliknij przycisk hello toocreate znak plus nowy zasób.
+3. Witaj filtr wyszukiwania, wpisz **obrazu**.
+4. Wybierz **obrazu** z hello wyników.
+5. W hello **obrazu** bloku, kliknij przycisk **Utwórz**.
+6. W **nazwa**, wpisz nazwę hello obrazu.
+7. Jeśli masz więcej niż jedną subskrypcję, wybierz hello właściwy z hello **subskrypcji** listy rozwijanej.
+7. W **grupy zasobów** wybierz opcję **Utwórz nowy** i wpisz nazwę lub wybierz **z istniejących** i wybierz z listy rozwijanej hello toouse grupy zasobów.
+8. W **lokalizacji**, wybierz lokalizację hello grupy zasobów.
+9. W **typ systemu operacyjnego** hello typ systemu operacyjnego, systemu Windows lub Linux.
+11. W **obiektu blob magazynu**, kliknij przycisk **Przeglądaj** toolook dla hello dysku VHD w magazynie Azure.
 12. W **typ konta** wybierz Standard_LRS lub Premium_LRS. Standard korzysta stacje dysków twardych, a Premium dysków SSD. Oba rozwiązania używają magazyn lokalnie nadmiarowy.
-13. W **buforowania dysku** wybierz odpowiedni dysk opcję buforowania. Dostępne są następujące opcje **Brak**, **tylko do odczytu** i **odczytem/zapisem**.
-14. Opcjonalnie: Również dodaniem istniejącego dysku danych do obrazu, klikając **+ Dodaj dysk danych**.  
+13. W **buforowania dysku** wybierz hello odpowiedniego dysku opcję buforowania. Opcje Hello są **Brak**, **tylko do odczytu** i **odczytem/zapisem**.
+14. Opcjonalnie: Można również dodać istniejący obraz toohello dysku danych, klikając **+ Dodaj dysk danych**.  
 15. Po zakończeniu wprowadzania wybrane opcje, kliknij przycisk **Utwórz**.
-16. Po utworzeniu obrazu, zobaczysz go jako **obrazu** zasobu na liście zasobów w grupie zasobów, wybrana.
+16. Po utworzeniu obrazu hello, zobaczysz go jako **obrazu** zasobu w hello listy zasobów w grupie zasobów hello została wybrana opcja.
 
 
 
 ## <a name="create-a-managed-image-of-a-vm-using-powershell"></a>Tworzenie zarządzanego obrazu maszyny wirtualnej przy użyciu programu Powershell
 
-Tworzenie obrazu bezpośrednio z maszyny Wirtualnej sprawdza, czy obraz zawiera wszystkie dyski skojarzonych z maszyną Wirtualną, w tym dysku systemu operacyjnego i dysków z danymi.
+Tworzenie obrazu bezpośrednio z maszyn wirtualnych zapewnia obrazu hello powitalne obejmuje wszystkie dyski hello skojarzone hello maszyny Wirtualnej, w tym hello dysku systemu operacyjnego i dysków z danymi.
 
 
-Przed rozpoczęciem upewnij się, że masz najnowszą wersję modułu programu AzureRM.Compute PowerShell. Uruchom następujące polecenie, aby go zainstalować.
+Przed rozpoczęciem upewnij się, że masz najnowszą wersję hello modułu AzureRM.Compute PowerShell hello. Uruchom hello następujących tooinstall polecenia.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -89,30 +89,30 @@ Aby uzyskać więcej informacji, zobacz [przechowywanie wersji programu Azure Po
     $location = "EastUS"
     $imageName = "myImage"
     ```
-2. Upewnij się, że cofnięciu przydziału maszyny Wirtualnej.
+2. Upewnij się, że powitalne cofnięciu przydziału maszyny Wirtualnej.
 
     ```powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Ustaw stan maszyny wirtualnej na **Uogólniono**. 
+3. Ustaw stan hello hello maszyny wirtualnej za**Uogólniono**. 
    
     ```powershell
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. Przełącz maszynę wirtualną. 
+4. Pobierz hello maszyny wirtualnej. 
 
     ```powershell
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
-5. Utwórz konfigurację obrazu.
+5. Utwórz konfigurację obraz powitania.
 
     ```powershell
     $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
     ```
-6. Tworzenie obrazu.
+6. Utwórz obraz powitania.
 
     ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
@@ -125,7 +125,7 @@ Aby uzyskać więcej informacji, zobacz [przechowywanie wersji programu Azure Po
 Tworzenie obrazu zarządzanych za pomocą programu uogólniony wirtualny dysk twardy systemu operacyjnego.
 
 
-1.  Najpierw należy ustawić wspólne parametry:
+1.  Najpierw należy ustawić hello typowe parametry:
 
     ```powershell
     $rgName = "myResourceGroupName"
@@ -134,18 +134,18 @@ Tworzenie obrazu zarządzanych za pomocą programu uogólniony wirtualny dysk tw
     $imageName = "yourImageName"
     $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
-2. Step\deallocate maszyny Wirtualnej.
+2. Witaj Step\deallocate maszyny Wirtualnej.
 
     ```powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Maszyna wirtualna zostać oznaczone jako uogólniony.
+3. Oznacz hello maszyny Wirtualnej, ponieważ uogólniony.
 
     ```powershell
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
-4.  Utworzyć obraz przy użyciu programu uogólniony wirtualny dysk twardy systemu operacyjnego.
+4.  Utwórz obraz powitania przy użyciu Twojej uogólniony wirtualny dysk twardy systemu operacyjnego.
 
     ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
@@ -156,7 +156,7 @@ Tworzenie obrazu zarządzanych za pomocą programu uogólniony wirtualny dysk tw
 
 ## <a name="create-a-managed-image-from-a-snapshot-using-powershell"></a>Tworzenie zarządzanego obrazu z migawki za pomocą programu Powershell
 
-Można również utworzyć obraz zarządzanego z migawki wirtualnego dysku twardego z ogólnych maszyny Wirtualnej.
+Można również utworzyć obraz zarządzanego z migawki hello wirtualnego dysku twardego z ogólnych maszyny Wirtualnej.
 
     
 1. Utwórz niektóre zmienne. 
@@ -168,19 +168,19 @@ Można również utworzyć obraz zarządzanego z migawki wirtualnego dysku tward
     $imageName = "myImage"
     ```
 
-2. Pobieranie migawki.
+2. Pobierz hello migawki.
 
    ```powershell
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
-3. Utwórz konfigurację obrazu.
+3. Utwórz konfigurację obraz powitania.
 
     ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
-4. Tworzenie obrazu.
+4. Utwórz obraz powitania.
 
     ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
@@ -188,5 +188,5 @@ Można również utworzyć obraz zarządzanego z migawki wirtualnego dysku tward
     
 
 ## <a name="next-steps"></a>Następne kroki
-- Teraz możesz [utworzyć Maszynę wirtualną z uogólniony obraz zarządzanych](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+- Teraz możesz [utworzyć Maszynę wirtualną z obrazu zarządzanych hello uogólniony](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 

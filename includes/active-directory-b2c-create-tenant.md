@@ -1,21 +1,23 @@
-Kliknij przycisk **Nowy**. W polu **Szukaj w witrynie Marketplace** wprowadź wartość `Azure Active Directory B2C`.
+Edytowany przez Sipi.
 
-![Podświetlony przycisk Dodaj i tekst Azure Active Directory B2C w polu wyszukiwania w witrynie Marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+Kliknij przycisk hello **nowy** przycisku. W hello **marketplace hello wyszukiwania** wprowadź `Azure Active Directory B2C`.
 
-Na liście wyników wybierz pozycję **Azure Active Directory B2C**.
+![Dodawanie przycisku wyróżnione i hello tekst Azure Active Directory B2C w portalu marketplace hello szukana hello](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-![Usługa Azure Active Directory B2C wybrana na liście wyników](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+Na liście wyników hello, wybierz **usługi Azure Active Directory B2C**.
 
-Zostaną wyświetlone szczegóły dotyczące usługi Azure Active Directory B2C. Aby rozpocząć konfigurowanie swojej nowej dzierżawy usługi Azure Active Directory B2C, kliknij przycisk **Utwórz**.
+![Usługa Azure Active Directory B2C wybrane na liście wyników hello](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Wybierz pozycję **Utwórz nową dzierżawę usługi Azure AD B2C**. Następnie użyj ustawień określonych w tabeli.
+Zostaną wyświetlone szczegóły dotyczące usługi Azure Active Directory B2C. Konfigurowanie nowej dzierżawy usługi Azure Active Directory B2C toobegin kliknij hello **Utwórz** przycisku.
 
-![Usługa Azure AD B2C utworzy dzierżawę z przykładowym tekstem w dostępnych polach](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
+Wybierz pozycję **Utwórz nową dzierżawę usługi Azure AD B2C**. Następnie należy użyć ustawienia hello określone w tabeli hello.
+
+![Usługa Azure AD B2C tworzenie dzierżawy z przykładowym tekstem w hello dostępne pola](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
 | Ustawienie      | Wartość przykładowa  | Opis                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Nazwa organizacji** | Contoso | Nazwa organizacji. | 
-| **Początkowa nazwa domeny** |  ContosoB2CTenant | Nazwa domeny dla dzierżawy usługi B2C. Domyślnie początkowa nazwa domeny zawiera ciąg .microsoft.com. Później możesz dodać nazwę domeny, której używa Twoja organizacja. Nie możesz utworzyć dzierżawy z taką samą nazwą jak wcześniej usunięta dzierżawa. Jeśli jest to dzierżawa testowa, wybierz nazwę nieprodukcyjną, taką jak ContosoB2CTesting. |
-| **Kraj lub region** | Stany Zjednoczone | Wybierz kraj lub region dla katalogu. Katalog zostanie utworzony w tej lokalizacji i nie można jej później zmienić.  |
+| **Nazwa organizacji** | Contoso | Nazwa organizacji hello. | 
+| **Początkowa nazwa domeny** |  ContosoB2CTenant | Nazwa domeny dla dzierżawcy hello B2C. Domyślnie nazwa domeny początkowej hello zawiera. microsoft.com. Później możesz dodać nazwę domeny, której używa Twoja organizacja. Nie można utworzyć dzierżawcę przy hello sama nazwa wcześniej usuniętych dzierżawcy. Jeśli jest to dzierżawa testowa, wybierz nazwę nieprodukcyjną, taką jak ContosoB2CTesting. |
+| **Kraj lub region** | Stany Zjednoczone | Wybierz hello kraj lub region hello katalogu. katalog Hello zostaną utworzone w tej lokalizacji i nie można zmienić później.  |
 
-Kliknij przycisk **Utwórz**, aby utworzyć swoją dzierżawę. Tworzenie dzierżawy może potrwać kilka minut. Po zakończeniu otrzymasz alert w postaci powiadomienia.
+Kliknij przycisk hello **Utwórz** przycisk toocreate dzierżawy. Tworzenie dzierżawy hello może potrwać kilka minut. Po zakończeniu otrzymasz alert w postaci powiadomienia.

@@ -1,0 +1,4 @@
+Można tworzyć maszyn wirtualnych (VM) na platformie Azure i dołączyć wiele sieci tooeach interfejsów (NIC) z maszyn wirtualnych. Obsługa wielu kart interfejsu Sieciowego jest wymagany przez wiele sieci wirtualnych urządzeń, takich jak dostarczania aplikacji i rozwiązań Optymalizacja sieci WAN. Obsługa wielu kart interfejsu Sieciowego są także więcej funkcji zarządzania ruchu w sieci, tym izolacji ruchu między front end karty Sieciowej, a następnie z powrotem end kart NIC lub rozdzielenie ruchu płaszczyzna danych z ruch związany z zarządzaniem płaszczyzny.
+
+Przed zaimplementowaniem wielu kart sieciowych w maszynach wirtualnych jest toounderstand niezbędne podczas korzystania z wielu kart sieciowych i sposobu ich używania. Witaj odczytu [wielu kart omówienie](../articles/virtual-network/virtual-networks-multiple-nics.md) toolearn więcej informacji o maszynach wirtualnych z wieloma kartami sieciowymi.
+

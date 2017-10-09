@@ -1,5 +1,5 @@
 ---
-title: "Rozwiązywanie problemów z wdrożenia maszyny Wirtualnej systemu Linux-RM | Dokumentacja firmy Microsoft"
+title: "aaaTroubleshoot wdrożenia maszyny Wirtualnej systemu Linux-RM | Dokumentacja firmy Microsoft"
 description: "Rozwiązywanie problemów dotyczących wdrożenia usługi Resource Manager podczas tworzenia nowej maszyny wirtualnej systemu Linux na platformie Azure"
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2dd7f1855bba75d86eb90f88e6d573cd42fd8d87
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów wdrożenia usługi Resource Manager z Tworzenie nowej maszyny wirtualnej systemu Linux na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -31,60 +31,60 @@ ms.lasthandoff: 07/11/2017
 
 Inne problemy z wdrażaniem maszyny Wirtualnej i pytania, zobacz [Rozwiązywanie problemów z wdrażanie problemy dotyczące maszyny wirtualnej systemu Linux na platformie Azure](troubleshoot-deploy-vm.md).
 ## <a name="collect-activity-logs"></a>Rejestruje działania zbieranie
-Zacząć Rozwiązywanie problemów zbierać dzienniki działania, aby zidentyfikować ten błąd skojarzone z problem. Poniższe łącza zawierają szczegółowe informacje dla procesu, które należy wykonać.
+toostart rozwiązywania problemów, zbieranie hello działania rejestruje błąd hello tooidentify skojarzone z hello problem. Witaj poniższe łącza zawierają szczegółowe informacje na powitania toofollow procesu.
 
 [Wyświetlanie operacji wdrażania](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Wyświetl dzienniki aktywności do zarządzania zasobami Azure](../../resource-group-audit.md)
+[Wyświetl toomanage Dzienniki aktywności Azure zasobów](../../resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**/ Y:** Jeśli system operacyjny Linux uogólniony i jest przekazany lub przechwycone z ustawieniem uogólniony, wówczas nie będzie błędów. Podobnie w przypadku systemu operacyjnego Linux specjalizowany, jest przekazywane lub przechwycić ustawienia specjalne, a następnie nie będzie błędów.
+**/ Y:** Jeśli hello systemu operacyjnego Linux uogólniony i jest przekazany lub przechwycone z hello uogólniony ustawienie, wówczas nie będzie żadnych błędów. Podobnie jeśli jest hello systemu operacyjnego Linux specjalizowany i jest przekazany lub przechwycić przy hello specjalizowany ustawienie, nie będzie błędów, a następnie.
 
 **Przekazywanie błędów:**
 
-**N<sup>1</sup>:** Jeśli system operacyjny Linux uogólniony, a jest przekazywany jako wyspecjalizowane, otrzymasz inicjowania obsługi administracyjnej błąd upływu limitu czasu, ponieważ maszyna wirtualna jest zablokowana w fazie inicjowania obsługi administracyjnej.
+**N<sup>1</sup>:** Jeśli hello systemu operacyjnego Linux uogólniony, a jest przekazywany jako wyspecjalizowane, otrzymasz inicjowania obsługi administracyjnej błąd upływu limitu czasu ponieważ hello maszyny Wirtualnej jest zablokowany na powitania inicjowania obsługi administracyjnej etapu.
 
-**N<sup>2</sup>:** w przypadku systemu operacyjnego Linux specjalizowany, a przesłaniem jako uogólniony, otrzymasz inicjowania obsługi administracyjnej błąd niepowodzenie, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalnej nazwy komputera, nazwę użytkownika i hasło.
+**N<sup>2</sup>:** w przypadku hello systemu operacyjnego Linux specjalizowany, a przesłaniem jako uogólniony, otrzymasz błędem błąd inicjowania obsługi administracyjnej, ponieważ hello nowej maszyny Wirtualnej został uruchomiony z hello oryginalną nazwę komputera, nazwę użytkownika i hasło.
 
 **Rozwiązanie:**
 
-Aby rozwiązać oba te błędy, Przekaż oryginalny dysk VHD, dostępne lokalnych, jak to samo ustawienie dla systemu operacyjnego (uogólniony/specjalizowany). Można przekazać jako uogólniony, pamiętaj, aby uruchomić - anulowanie zastrzeżenia najpierw.
+tooresolve obu tych błędów, Przekaż hello oryginalny dysk VHD, dostępnych na lokalnym, z hello takie same jak ustawienie hello systemu operacyjnego (uogólniony/specjalizowany). tooupload jako uogólniony, pamiętaj toorun-anulowanie zastrzeżenia najpierw.
 
 **Zapisz błędy:**
 
-**N<sup>3</sup>:** Jeśli system operacyjny Linux uogólniony, a jest przechwytywany jako wyspecjalizowane, otrzymasz inicjowania obsługi administracyjnej błąd upływu limitu czasu, ponieważ oryginalna maszyna wirtualna nie jest używany, ponieważ jest oznaczony jako uogólniony.
+**N<sup>3</sup>:** Jeśli hello systemu operacyjnego Linux uogólniony, a jest przechwytywany jako wyspecjalizowane, otrzymasz inicjowania obsługi administracyjnej błąd upływu limitu czasu, ponieważ oryginalne hello maszyny Wirtualnej nie jest używany jako jest oznaczony jako uogólniony.
 
-**N<sup>4</sup>:** w przypadku systemu operacyjnego Linux specjalizowany i jest przechwytywany jako uogólniony, otrzymasz inicjowania obsługi administracyjnej błąd niepowodzenie, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalnej nazwy komputera, nazwę użytkownika i hasło. Ponadto oryginalna maszyna wirtualna nie jest używany ponieważ jest oznaczony jako specjalne.
+**N<sup>4</sup>:** w przypadku hello systemu operacyjnego Linux specjalizowany i jest przechwytywany jako uogólniony, otrzymasz błędem błąd inicjowania obsługi administracyjnej, ponieważ hello nowej maszyny Wirtualnej został uruchomiony z hello oryginalną nazwę komputera, nazwę użytkownika i hasło. Ponadto oryginalne hello maszyny Wirtualnej nie jest używany, ponieważ jest on oznaczony jako specjalne.
 
 **Rozwiązanie:**
 
-Usuń oba te błędy, Usuń bieżący obraz z portalu, i [je ponownie przechwycić z bieżącym wirtualnych dysków twardych](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to samo ustawienie, jak te dla systemu operacyjnego (uogólniony/specjalizowany).
+tooresolve obu tych błędów, Usuń hello bieżącego obrazu z portalu hello i [je ponownie przechwycić z hello bieżącego wirtualne dyski twarde](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) z hello sam, jak ustawienie hello systemu operacyjnego (uogólniony/specjalizowany).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problem: Niestandardowy / galerii / obrazu z witryny marketplace; Błąd alokacji
-Ten błąd pojawia się w sytuacjach, gdy nowe żądanie maszyna wirtualna jest przypięta do klastra, która nie obsługuje żądanej rozmiaru maszyny Wirtualnej, lub nie ma dostępnego wolnego miejsca, aby zmieścił się w żądaniu.
+Ten błąd pojawia się w sytuacjach, gdy hello nowe żądanie maszyny Wirtualnej jest przypięty tooa klastra, który nie obsługuje żądanej rozmiar maszyny Wirtualnej hello albo nie ma wolnego miejsca tooaccommodate hello żądania.
 
-**Przyczyna 1:** klastra nie może obsługiwać żądany rozmiar maszyny Wirtualnej.
+**Przyczyna 1:** hello klastra nie może obsługiwać hello żądany rozmiar maszyny Wirtualnej.
 
 **Rozwiązanie 1:**
 
-* Ponów żądanie przy użyciu mniejszego rozmiaru maszyny Wirtualnej.
-* Jeśli nie można zmienić rozmiar żądanej maszyny wirtualnej:
-  * Zatrzymanie wszystkich maszyn wirtualnych w zestawie dostępności.
+* Ponów żądanie hello przy użyciu mniejszego rozmiaru maszyny Wirtualnej.
+* Jeśli hello żądany rozmiar hello się, że nie można zmienić maszyny Wirtualnej:
+  * Zatrzymaj wszystkie hello maszyn wirtualnych w zestawie dostępności hello.
     Kliknij przycisk **grup zasobów** > *grupie zasobów* > **zasobów** > *zestawu dostępności* > **maszyn wirtualnych** > *maszyny wirtualnej* > **zatrzymać**.
-  * Po zatrzymanie wszystkich maszyn wirtualnych, należy utworzyć nową maszynę Wirtualną w wymagany rozmiar.
-  * Najpierw należy uruchomić nową maszynę Wirtualną, a następnie wybierz poszczególne zatrzymania maszyn wirtualnych i kliknij przycisk **Start**.
+  * Po hello wszystkich stopu maszyn wirtualnych, należy utworzyć hello nowej maszyny Wirtualnej w hello żądanego rozmiaru.
+  * Uruchom najpierw hello nowej maszyny Wirtualnej, a następnie wybierz każdego z hello zatrzymane maszyn wirtualnych i kliknij przycisk **Start**.
 
-**Przyczyny 2:** klastra nie ma wolnego zasobów.
+**Przyczyny 2:** hello klastra nie ma wolnego zasobów.
 
 **Rozdzielczość 2:**
 
-* Ponów żądanie w późniejszym czasie.
-* Jeśli nowa maszyna wirtualna może być częścią zestawu dostępności różnych
-  * Utwórz nową maszynę Wirtualną w różnych dostępności, ustawić (w tym samym regionie).
-  * Dodaj nową maszynę Wirtualną do tej samej sieci wirtualnej.
+* Ponów żądanie hello w późniejszym czasie.
+* Jeśli hello nowej maszyny Wirtualnej można ustawić część różnych dostępności
+  * Tworzenie nowej maszyny Wirtualnej w innym zestawem dostępności (w hello tego samego regionu).
+  * Dodaj nowe toohello wirtualna hello tej samej sieci wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli wystąpią problemy podczas uruchamiania zatrzymanej maszyny Wirtualnej systemu Linux lub zmień rozmiar istniejącej maszyny Wirtualnej systemu Linux na platformie Azure, zobacz [problemy z wdrażaniem Rozwiązywanie problemów z Menedżera zasobów z ponownym uruchomieniem lub zmiana rozmiaru istniejącej maszyny wirtualnej systemu Linux na platformie Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

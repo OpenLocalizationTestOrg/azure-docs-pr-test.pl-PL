@@ -1,53 +1,53 @@
 # <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Skalowanie węzłów agenta w klastrze usługi Container Service
-Po [wdrożeniu klastra usługi Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md) być może trzeba będzie zmienić liczbę węzłów agenta. Możesz na przykład potrzebować więcej agentów, aby uruchamiać więcej wystąpień lub aplikacji kontenera. 
+Po [wdrażanie klastra usługi kontenera platformy Azure](../articles/container-service/dcos-swarm/container-service-deployment.md), może być konieczne toochange hello liczba węzłów agenta. Możesz na przykład potrzebować więcej agentów, aby uruchamiać więcej wystąpień lub aplikacji kontenera. 
 
-Możesz zmienić liczbę węzłów agenta w klastrze DC/OS, Docker Swarm lub Kubernetes za pomocą witryny Azure Portal lub interfejsu wiersza polecenia platformy Azure w wersji 2.0. 
+Można zmienić liczbę hello agenta węzłów w klastrze DC/OS, Docker Swarm lub Kubernetes przy użyciu portalu Azure hello lub hello Azure CLI 2.0. 
 
-## <a name="scale-with-the-azure-portal"></a>Skalowanie w witrynie Azure Portal
+## <a name="scale-with-hello-azure-portal"></a>Skalować hello portalu Azure
 
-1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do pozycji **Usługi kontenerów**, a następnie kliknij usługę kontenera, którą chcesz zmodyfikować.
-2. W bloku **Usługi kontenerów** kliknij przycisk **Agenci**.
-3. W polu **Liczba maszyn wirtualnych** wpisz odpowiednią liczbę węzłów agentów.
+1. W hello [portalu Azure](https://portal.azure.com), wyszukaj **usługi kontenerów**, a następnie kliknij przycisk hello kontenera usługi, które mają toomodify.
+2. W hello **usługi kontenera** bloku, kliknij przycisk **agentów**.
+3. W **liczba maszyn wirtualnych**, wprowadź hello żądaną liczbę węzłów agentów.
 
-    ![Skalowanie puli w portalu](./media/container-service-scale/container-service-scale-portal.png)
+    ![Skalowanie puli w portalu hello](./media/container-service-scale/container-service-scale-portal.png)
 
-4. Aby zapisać konfigurację, kliknij pozycję **Zapisz**.
+4. Konfiguracja hello toosave, kliknij przycisk **zapisać**.
 
-## <a name="scale-with-the-azure-cli-20"></a>Skalowanie przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
+## <a name="scale-with-hello-azure-cli-20"></a>Skalować hello Azure CLI 2.0
 
-Upewnij się, że [zainstalowano](/cli/azure/install-az-cli2) najnowszy interfejs wiersza polecenia platformy Azure 2.0 i zalogowano się na koncie platformy Azure (`az login`).
+Upewnij się, że możesz [zainstalowane](/cli/azure/install-az-cli2) hello najnowsze Azure CLI 2.0 i rejestrowane w tooan konto platformy azure (`az login`).
 
-### <a name="see-the-current-agent-count"></a>Sprawdzanie bieżącej liczby agentów
-Aby wyświetlić bieżącą liczbę agentów w klastrze, uruchom polecenie `az acs show`. Przedstawia ono konfigurację klastra. Na przykład następujące polecenie przedstawia konfigurację usługi kontenera o nazwie `containerservice-myACSName` w grupie zasobów `myResourceGroup`:
+### <a name="see-hello-current-agent-count"></a>Zobacz hello bieżąca liczba agentów
+toosee hello liczby agentów obecnie w klastrze hello Uruchom hello `az acs show` polecenia. Oznacza to hello konfiguracji klastra. Na przykład Witaj następujące polecenia pokazuje hello konfiguracji hello usługi kontenera o nazwie `containerservice-myACSName` w grupie zasobów hello `myResourceGroup`:
 
 ```azurecli
 az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-Polecenie zwraca liczbę agentów w wartości `Count` w obszarze `AgentPoolProfiles`.
+polecenie Hello zwraca hello liczba agentów w hello `Count` wartości w obszarze `AgentPoolProfiles`.
 
-### <a name="use-the-az-acs-scale-command"></a>Użycie polecenia az acs scale
-Aby zmienić liczbę węzłów agenta, uruchom polecenie `az acs scale` i określ **grupę zasobów**, **nazwę usługi kontenera** i żądaną **nową liczbę agentów**. Używając mniejszej lub większej liczby, możesz odpowiednio skalować w dół lub w górę.
+### <a name="use-hello-az-acs-scale-command"></a>Użyj hello az polecenia Skaluj acs
+toochange hello liczba węzłów agenta, uruchom hello `az acs scale` polecenia i dostawy hello **grupy zasobów**, **nazwa kontenera usługi**i hello potrzeby **nowego licznika agenta**. Używając mniejszej lub większej liczby, możesz odpowiednio skalować w dół lub w górę.
 
-Aby na przykład zmienić liczbę agentów w poprzednim klastrze na 10, wpisz następujące polecenie:
+Na przykład toochange hello liczba agentów w poprzednim hello klastra too10, hello wpisz następujące polecenie:
 
 ```azurecli
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Interfejs wiersza polecenia platformy Azure 2.0 zwraca ciąg JSON reprezentujący nową konfigurację usługi kontenera, w tym nową liczbę agentów.
+Hello Azure CLI 2.0 zwraca ciąg JSON reprezentujący hello nową konfigurację usługi kontenera hello, w tym hello nowego licznika agenta.
 
 Aby uzyskać więcej opcji poleceń, uruchom polecenie `az acs scale --help`.
 
 ## <a name="scaling-considerations"></a>Zagadnienia dotyczące skalowania
 
-* Liczba węzłów agenta musi należeć do przedziału od 1 do 100 włącznie. 
+* Hello liczba węzłów agent musi być od 1 do 100 włącznie. 
 
-* Limit przydziału rdzeni może ograniczyć liczbę węzłów agenta w klastrze.
+* Limitu przydziału rdzeni można ograniczyć liczbę hello agenta węzłów w klastrze.
 
-* Operacje skalowania węzła agenta są stosowane do zestawu skalowania maszyn wirtualnych platformy Azure, który zawiera pulę agentów. W klastrze DC/OS tylko węzły agenta w puli prywatnej są skalowane przy użyciu operacji przedstawionych w tym artykule.
+* Operacje skalowania węzła agenta są zastosowane tooan zestaw skali maszyny wirtualnej platformy Azure, zawierający hello puli agenta. W klastrze DC/OS tylko węzły agenta w puli prywatnej hello są skalowane przez operacje hello wyświetlane w tym artykule.
 
-* W zależności od wdrażanego w klastrze koordynatora można oddzielnie skalować liczbę wystąpień kontenera uruchomionego w klastrze. Na przykład w klastrze DC/OS należy użyć [interfejsu użytkownika platformy Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md), aby zmienić liczbę wystąpień aplikacji kontenera.
+* W zależności od hello programu orchestrator, które można wdrożyć w klastrze można oddzielnie skalować hello liczbę wystąpień kontenera uruchomiona w klastrze hello. Na przykład w klastrze DC/OS, należy użyć hello [interfejs użytkownika platformy Marathon](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) toochange hello liczbę wystąpień kontenera aplikacji.
 
 * Obecnie automatyczne skalowanie węzłów agenta w klastrze usługi kontenera nie jest obsługiwane.
 

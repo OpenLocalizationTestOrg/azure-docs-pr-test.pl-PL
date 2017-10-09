@@ -1,4 +1,4 @@
-Pełna zbioru wytycznych pomaga w zrozumieniu wszystkich zagadnień dotyczących tworzenia różnych projektowania naszych infrastruktury aplikacji na platformie Azure:
+zagadnienia dotyczące budynku projektowania Hello pełne serii wytyczne pomaga zrozumieć, wszystkie hello różnych naszych infrastruktury aplikacji na platformie Azure:
 
 * [Subskrypcja platformy Azure i wskazówki dotyczące kont](../articles/virtual-machines/windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Wskazówki dotyczące nazewnictwa w infrastruktury platformy Azure](../articles/virtual-machines/windows/infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

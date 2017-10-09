@@ -1,10 +1,10 @@
 
-* Konwersja wymaga ponownego uruchomienia maszyny wirtualnej, więc należy zaplanować migrację maszyn wirtualnych podczas istniejącego okna obsługi. 
+* Konwersja Hello wymaga ponownego uruchomienia hello maszyny Wirtualnej, więc zaplanować hello migracji maszyn wirtualnych w istniejącym oknie obsługi. 
 
-* Konwersja jest nieodwracalna. 
+* Konwersja Hello jest nieodwracalne. 
 
-* Należy przetestować konwersję. Przeprowadź migrację testowej maszyny wirtualnej, zanim przeprowadzisz migrację w środowisku produkcyjnym.
+* Należy się tootest hello konwersji. Przeprowadź migrację testowej maszyny wirtualnej, przed przeprowadzeniem migracji hello w środowisku produkcyjnym.
 
-* Podczas konwersji cofany jest przydział maszyny wirtualnej. Maszyna wirtualna otrzyma nowy adres IP przy jej ponownym uruchomieniu po konwersji. W razie potrzeby do maszyny wirtualnej można [przypisać statyczny adres IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
+* Podczas konwersji hello cofnięcie przydziału hello maszyny Wirtualnej. Hello wirtualna odbiera nowego adresu IP po uruchomieniu po konwersji hello. W razie potrzeby można [Przypisz statyczny adres IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) toohello maszyny Wirtualnej.
 
-* Oryginalne wirtualne dyski twarde i konto magazynu używane przez maszynę wirtualną przed konwersją nie są usuwane. Nadal będą za nie naliczane opłaty. Aby uniknąć naliczania opłat za te artefakty, usuń oryginalne obiekty blob dysków VHD po upewnieniu się, że konwersja została zakończona.
+* Witaj oryginalnego wirtualne dyski twarde i konto magazynu hello używane przez hello maszyny Wirtualnej przed konwersją nie są usuwane. Nadal tooincur opłat. tooavoid są rozliczane tych artefaktów usunąć obiekty BLOB dysków VHD oryginalnego hello po zweryfikowaniu o ukończeniu konwersji hello.

@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * A [usługi Yammer](https://www.yammer.com/) konta 
 
-Aby korzystać z konta usługi Yammer, w aplikacji logiki, musisz autoryzować aplikacji logiki do łączenia się z kontem usługi Yammer. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
+Zanim użyjesz usługi Yammer konta w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour Yammer konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure. 
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem usługi Yammer:
+Oto hello kroki tooauthorize tooyour tooconnect Twojego logiki aplikacji konto usługi Yammer:
 
-1. Aby utworzyć połączenie z usługi Yammer, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *usługi Yammer* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. toocreate tooYammer połączenia, w Projektancie aplikacji logiki hello, wybierz **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *usługi Yammer* hello pola wyszukiwania. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![](./media/connectors-create-api-yammer/yammer-1.png)
-2. Jeśli nie utworzono wszystkie połączenia z usługi Yammer przed będzie zostanie wyświetlony monit o podanie poświadczeń usługi Yammer. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta usługi Yammer:  
+2. Jeśli nie utworzono żadnych tooYammer połączenia przed, uzyskasz tooprovide zostanie wyświetlony monit o poświadczenia usługi Yammer. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta usługi Yammer:  
    ![](./media/connectors-create-api-yammer/yammer-2.png)
-3. Podaj Yammer nazwę użytkownika i hasło, aby zezwolić aplikacji logiki:  
+3. Dostarcza aplikację logiki tooauthorize Twojego Yammer w użytkownika nazwę i hasło:  
    ![](./media/connectors-create-api-yammer/yammer-3.png)   
-4. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+4. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![](./media/connectors-create-api-yammer/yammer-4.png)   
 

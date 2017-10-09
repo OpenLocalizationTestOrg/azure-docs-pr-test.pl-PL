@@ -1,4 +1,4 @@
-Usługa Azure Data Factory obsługuje następujące działania przekształcania, które można dodawać indywidualnie do potoków lub łączyć je z innymi działaniami.
+Fabryka danych Azure obsługuje hello następujące przekształcenie działań, które może być dodany toopipelines indywidualnie lub powiązane z innym działaniem.
 
 | Działanie przekształcania danych | Środowisko obliczeniowe |
 |:--- |:--- |
@@ -13,8 +13,8 @@ Usługa Azure Data Factory obsługuje następujące działania przekształcania,
 | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md) |Usługa HDInsight [Hadoop] lub usługa Azure Batch |
 
 > [!NOTE]
-> Możesz użyć działania MapReduce, aby uruchomić programy platformy Spark w klastrze usługi HDInsight Spark. Zobacz [Wywoływanie programów platformy Spark z usługi Azure Data Factory](../articles/data-factory/data-factory-spark.md).
-> Możesz utworzyć niestandardowe działanie, aby uruchamiać skrypty w klastrze usługi HDInsight z zainstalowanym językiem R. Zobacz [Uruchamianie skryptów języka R przy użyciu usługi Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+> Można skorzystać z MapReduce działania toorun Spark programów w klastrze Spark w usłudze HDInsight. Zobacz [Wywoływanie programów platformy Spark z usługi Azure Data Factory](../articles/data-factory/data-factory-spark.md).
+> Można tworzyć niestandardowe działania toorun R skrypty w klastrze usługi HDInsight z języka R zainstalowanego. Zobacz [Uruchamianie skryptów języka R przy użyciu usługi Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
 > 
 > 
 

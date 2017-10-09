@@ -4,7 +4,7 @@
 * [Tworzenie ILB włączone środowiska usługi aplikacji za pomocą szablonów usługi Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Korzystanie z funkcji automatycznego skalowania w środowisku usługi App Service](../articles/app-service/app-service-environment-auto-scale.md)
 * [Zabezpieczanie ruchu przychodzącego](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-* [Nawiązywanie połączenia z zasobami zaplecza](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+* [Łączenie zasobów tooBackend](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Środowiska usługi ExpressRoute i środowiska usługi App Service](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 * [Niestandardowych ustawień konfiguracji środowiska usługi aplikacji wraz z ustawieniami zgodności PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Aplikacja o wysokiej gęstości Obsługa za pomocą środowiska usługi aplikacji](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)

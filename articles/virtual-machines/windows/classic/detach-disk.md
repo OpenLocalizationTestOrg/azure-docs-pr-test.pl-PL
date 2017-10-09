@@ -1,6 +1,6 @@
 ---
-title: "Odłączanie dysku od maszyny Wirtualnej z systemem Windows | Dokumentacja firmy Microsoft"
-description: "Dowiedz się odłączyć dysku od maszyny wirtualnej na platformie Azure przy użyciu klasycznego modelu wdrażania."
+title: aaaDetach dysku od maszyny Wirtualnej z systemem Windows | Dokumentacja firmy Microsoft
+description: "Dowiedz się toodetach dysku z maszyną wirtualną na platformie Azure przy użyciu hello klasycznego modelu wdrażania."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: cynthn
-ms.openlocfilehash: 650c7e10150b95a6ad7cd455746f7c1d77b9b34c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6f4fda46b13ec83aed6051dd3c6459a9979de131
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Jak odłączyć dysk od maszyny wirtualnej systemu Windows
+# <a name="how-toodetach-a-disk-from-a-windows-virtual-machine"></a>Jak toodetach dysku od maszyny wirtualnej systemu Windows
 > [!IMPORTANT]
-> Platforma Azure ma dwa modele wdrażania distinct do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby uzyskać informacje o tym, jak można odłączyć dysku przy użyciu modelu Resource Manager, zobacz [tutaj](../../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Platforma Azure ma dwa modele wdrażania distinct do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Aby dowiedzieć się, jak toodetach dysku przy użyciu hello Resource Manager modelu, zobacz [tutaj](../../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 [O dyskach i wirtualne dyski twarde dla maszyn wirtualnych](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Jak można dołączyć dysku danych do maszyny wirtualnej systemu Windows](attach-disk.md)
+[Jak tooattach danych na dysku maszyny wirtualnej systemu Windows tooa](attach-disk.md)

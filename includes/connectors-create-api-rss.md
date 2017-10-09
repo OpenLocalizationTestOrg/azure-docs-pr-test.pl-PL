@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * [RSS](https://wikipedia.org/wiki/RSS) konta  
 
-Zanim użyjesz konta RSS w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem RSS. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
+Przed użyciem konta RSS w aplikacji logiki, musisz autoryzować konto RSS tooyour tooconnect hello logiki aplikacji. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure.  
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem RSS:  
+Oto tooauthorize kroki hello logiki aplikacji tooconnect tooyour RSS konta:  
 
-1. Aby utworzyć połączenie danych RSS, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *RSS* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. Wybierz tooRSS połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *RSS* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-1.png)  
 2. Wybierz **utworzyć połączenie** :  
    ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-2.png)  
-3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+3. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-3.png)  
 

@@ -1,16 +1,16 @@
-Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie. Aby uzyskać więcej informacji na temat logowania się, zobacz artykuł [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](/cli/azure/get-started-with-azure-cli).
+Zaloguj się za tooyour subskrypcji platformy Azure z hello [logowania az](/cli/azure/#login) poleceń i wykonaj hello wyświetlanymi instrukcjami. Aby uzyskać więcej informacji na temat logowania się, zobacz artykuł [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](/cli/azure/get-started-with-azure-cli).
 
 ```azurecli
 az login
 ```
 
-Jeśli masz więcej niż jedną subskrypcję platformy Azure, wyświetl subskrypcje dla konta.
+Jeśli masz więcej niż jedną subskrypcją platformy Azure, Lista subskrypcji hello hello konta.
 
 ```azurecli
 az account list --all
 ```
 
-Wskaż subskrypcję, której chcesz użyć.
+Określ, które mają toouse subskrypcji hello.
 
 ```azurecli
 az account set --subscription <replace_with_your_subscription_id>

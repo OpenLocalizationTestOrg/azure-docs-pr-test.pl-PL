@@ -3,35 +3,35 @@ Tematy i subskrypcje usługi Service Bus obsługują model komunikacji z użycie
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-W przeciwieństwie do kolejek usługi Service Bus, w których każdy komunikat jest przetwarzany przez jednego konsumenta, tematy i subskrypcje zapewniają formę komunikacji „jeden do wielu” z użyciem wzorca publikowania/subskrypcji. Istnieje możliwość zarejestrowania wielu subskrypcji danego tematu. Po wysłaniu komunikatu do tematu jest on następnie udostępniany poszczególnym subskrypcjom w celu niezależnej obsługi lub niezależnego przetworzenia.
+W przeciwieństwie do kolejek usługi Service Bus, w których każdy komunikat jest przetwarzany przez jednego konsumenta, tematy i subskrypcje zapewniają formę komunikacji „jeden do wielu” z użyciem wzorca publikowania/subskrypcji. Istnieje możliwość zarejestrowania wielu subskrypcji tooa tematu. Jeżeli tooa tematu jest wysyłany komunikat, jest następnie on proces toohandle subskrypcji tooeach dostępne niezależnie.
 
-Subskrypcja tematu przypomina wirtualną kolejkę, która odbiera kopie komunikatów wysłanych do tematu. Opcjonalnie można zarejestrować reguły filtrów dla tematu oparte na subskrypcji, które umożliwiają filtrowanie lub ograniczanie komunikatów odbieranych przez poszczególne subskrypcje.
+Temat tooa subskrypcji przypomina wirtualną kolejkę, która odbiera kopie wiadomości powitania, które zostały wysłane toohello tematu. Opcjonalnie można zarejestrować reguły filtrów dla tematu oparte na subskrypcji, co pozwala toofilter lub ograniczenia, które tematu tooa komunikaty są odbierane przez poszczególne subskrypcje.
 
-Tematy i subskrypcje usługi Service Bus umożliwiają skalowanie i przetwarzanie bardzo dużej liczby komunikatów przez wielu użytkowników i wiele aplikacji.
+Tematy usługi Service Bus i subskrypcje pozwalają tooscale i przetwarzanie bardzo dużej liczby komunikatów przez wielu użytkowników i aplikacje.
 
 ## <a name="create-a-namespace"></a>Tworzenie przestrzeni nazw
-Aby rozpocząć korzystanie z tematów i subskrypcji usługi Service Bus na platformie Azure, należy najpierw utworzyć *przestrzeń nazw usługi*. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
+toobegin przy użyciu usługi Service Bus tematów i subskrypcji platformy Azure, musisz najpierw utworzyć *przestrzeni nazw usługi*. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
-Aby utworzyć przestrzeń nazw:
+toocreate przestrzeni nazw:
 
-1. Zaloguj się w witrynie [Azure Portal][Azure portal].
-2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Service Bus**.
-3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
-4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
-5. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
-6. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
-7. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
+1. Zaloguj się na toohello [portalu Azure][Azure portal].
+2. W okienku nawigacji po lewej stronie powitania hello portalu kliknij **nowy**, następnie kliknij przycisk **integracji przedsiębiorstwa**, a następnie kliknij przycisk **usługi Service Bus**.
+3. W hello **tworzenie przestrzeni nazw** okna dialogowego, wprowadź nazwę przestrzeni nazw. system powitania od razu sprawdza toosee, jeśli nazwa hello jest dostępna.
+4. Po co czy hello przestrzeni nazw jest dostępna, należy wybrać hello cenowym (podstawowa, standardowa lub Premium).
+5. W hello **subskrypcji** pola, wybierz subskrypcję platformy Azure, w których toocreate hello nazw.
+6. W hello **grupy zasobów** wybierz istniejącą grupę zasobów, w których hello przestrzeni nazw zostanie na żywo lub Utwórz nową.      
+7. W **lokalizacji**, wybierz hello kraj lub region, w którym ma być hostowana przestrzeni nazw.
    
     ![Create namespace][create-namespace]
-8. Kliknij przycisk **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
+8. Kliknij przycisk hello **Utwórz** przycisku. teraz Hello system utworzy przestrzeń nazw i włączy ją. Toowait może mieć kilka minut hello systemu inicjowania obsługi administracyjnej zasobów dla Twojego konta.
 
-### <a name="obtain-the-credentials"></a>Uzyskiwanie poświadczeń
-1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
-2. W bloku **Przestrzeń nazw usługi Service Bus** kliknij polecenie **Zasady dostępu współdzielonego**.
-3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
+### <a name="obtain-hello-credentials"></a>Uzyskaj poświadczenia hello
+1. Kliknij hello nowo utworzona nazwa przestrzeni nazw na liście hello przestrzeni nazw.
+2. W hello **przestrzeni nazw usługi Service Bus** bloku, kliknij przycisk **zasady dostępu współużytkowanego**.
+3. W hello **zasady dostępu współużytkowanego** bloku, kliknij przycisk **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia.
+4. W hello **zasad: RootManageSharedAccessKey** bloku, kliknij przycisk Kopiuj hello obok zbyt**połączenia ciąg — podstawowy klucz**, toocopy hello połączenia ciąg tooyour Schowka do późniejszego użycia.
    
     ![connection-string][connection-string]
 

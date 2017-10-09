@@ -1,15 +1,15 @@
 ## <a name="load-balancer"></a>Moduł równoważenia obciążenia
-Moduł równoważenia obciążenia jest używany, gdy chcesz skalowanie aplikacji. Typowe wdrożenie scenariusze obejmują aplikacje działające na wielu wystąpień maszyny Wirtualnej. Wystąpień maszyn wirtualnych są fronted przez równoważenia obciążenia, który umożliwia dystrybucję ruchu sieciowego do różnych wystąpień. 
+Moduł równoważenia obciążenia jest używany, gdy chcesz tooscale aplikacji. Typowe wdrożenie scenariusze obejmują aplikacje działające na wielu wystąpień maszyny Wirtualnej. Witaj wystąpień maszyn wirtualnych są fronted przez równoważenia obciążenia, który pomaga toohello ruchu sieciowego toodistribute różne wystąpienia. 
 
 ![Karty Sieciowej na jednej maszynie Wirtualnej](./media/resource-groups-networking/figure8.png)
 
 | Właściwość | Opis |
 | --- | --- |
-| *konfiguracji IP frontonu* |Moduł równoważenia obciążenia może zawierać co najmniej jeden adres IP frontonu, znanej także jako wirtualnych adresów IP (VIP). Te adresy IP służyć jako wejściowych dla ruchu sieciowego i może być publiczny adres IP lub prywatnego adresu IP |
-| *backendAddressPools* |są to adresy IP skojarzone z kart sieciowych maszyny Wirtualnej, na które będą przesyłane obciążenia |
-| *dodatkowe elementy Ipconfiguration* |Właściwości reguły mapuje IP danego frontonu i kombinacja portu do zbioru adresów IP zaplecza i portu kombinacji. Z jednej definicji zasobu usługi równoważenia obciążenia można zdefiniować wiele reguł równoważenia obciążenia, każda reguła w czasie wykonywania odbicia kombinację przodu kończyć adresu IP i portu i wykonać ich kopię końcowemu adresowi IP i port skojarzony z maszynami wirtualnymi. Reguła jest jeden port w puli frontonu, które mają wiele maszyn wirtualnych w puli zaplecza |
-| *Sondy* |sondy pozwalają do śledzenia kondycji wystąpień maszyn wirtualnych. W przypadku niepowodzenia sondy kondycji wystąpienie maszyny wirtualnej zostaną wykonane poza obrotu automatycznie |
-| *inboundNatRules* |Definiowanie ruch przychodzący przepływających przez na wierzch reguł NAT zakończenie IP i dystrybuowane do IP zaplecza do wystąpienia określonej maszyny wirtualnej. Reguła NAT jest jeden port w puli frontonu maszyn wirtualnych w puli zaplecza |
+| *konfiguracji IP frontonu* |Moduł równoważenia obciążenia może zawierać co najmniej jeden adres IP frontonu, znanej także jako wirtualnych adresów IP (VIP). Te adresy IP stanowią wejściowych hello ruchu i może być publiczny adres IP lub prywatnego adresu IP |
+| *backendAddressPools* |są to adresy IP skojarzone z hello będą dystrybuowane obciążenia toowhich kart sieciowych maszyny Wirtualnej |
+| *dodatkowe elementy Ipconfiguration* |Właściwości reguły mapowania IP frontonu danego portu kombinacja tooa zbiór adresów IP zaplecza i portu kombinacji. Z jednej definicji zasobu usługi równoważenia obciążenia można zdefiniować wiele reguł równoważenia obciążenia, każda reguła w czasie wykonywania odbicia kombinację przodu kończyć adresu IP i portu i wykonać ich kopię końcowemu adresowi IP i port skojarzony z maszynami wirtualnymi. Reguła Hello jest jeden port hello frontonu puli toomany maszyn wirtualnych w puli zaplecza hello |
+| *Sondy* |sondy włączyć śledzenie tookeep hello kondycji wystąpień maszyny Wirtualnej. W przypadku niepowodzenia sondy kondycji hello wystąpienie maszyny wirtualnej zostaną wykonane poza obrotu automatycznie |
+| *inboundNatRules* |Definiowanie hello reguł NAT przepływających przez IP frontonu hello ruchu przychodzącego i rozproszonych toohello zaplecza IP tooa określonej maszyny wirtualnej wystąpienia. Reguła NAT jest jeden port na maszynie wirtualnej tooone puli frontonu hello w puli zaplecza hello |
 
 Przykład szablon usługi równoważenia obciążenia w formacie Json:
 
@@ -33,7 +33,7 @@ Przykład szablon usługi równoważenia obciążenia w formacie Json:
             "Southeast Asia"
           ],
           "metadata": {
-            "description": "Location to deploy"
+            "description": "Location toodeploy"
           }
         },
         "addressPrefix": {

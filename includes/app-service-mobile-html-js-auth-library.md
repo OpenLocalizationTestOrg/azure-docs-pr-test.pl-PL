@@ -1,8 +1,8 @@
 ### <a name="server-auth"></a>Instrukcje: uwierzytelnianie za pomocą dostawcy (przepływ serwera)
-Aby usługa Mobile Apps zarządzała procesem uwierzytelniania w aplikacji, musisz zarejestrować swoją aplikację u dostawcy tożsamości. Następnie w usłudze Azure App Service musisz skonfigurować identyfikator aplikacji oraz wpis tajny udostępniony przez dostawcę.
-Aby uzyskać więcej informacji, zapoznaj się z samouczkiem [Dodawanie uwierzytelniania do aplikacji](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
+Aplikacje mobilne toohave zarządzać hello proces uwierzytelniania w aplikacji, musisz zarejestrować aplikację w usłudze dostawcy tożsamości. W usłudze Azure App Service, wymagana będzie identyfikator aplikacji hello tooconfigure i klucz tajny dostarczonej przez dostawcę.
+Aby uzyskać więcej informacji, zobacz samouczek hello [aplikacji tooyour authentication Dodaj](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Po zarejestrowaniu dostawcy tożsamości wywołaj metodę `.login()` z nazwą dostawcy. Na przykład aby zalogować się za pomocą konta usługi Facebook, użyj następującego kodu:
+Po zarejestrowaniu dostawcy tożsamości, wywołaj hello `.login()` metodę o nazwie hello dostawcy. Na przykład toologin z usługą Facebook użyć hello następującego kodu:
 
 ```
 client.login("facebook").done(function (results) {
@@ -12,16 +12,16 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-Prawidłowe wartości dla dostawcy to „aad”, „facebook”, „google”, „microsoftaccount” oraz „twitter”.
+Prawidłowe wartości dostawcy hello Hello to "aad", "facebook", "google", "microsoftaccount" i "twitter".
 
 > [!NOTE]
-> Obecnie uwierzytelnianie za pomocą konta Google nie działa za pośrednictwem przepływu serwera.  Aby uwierzytelnić się za pomocą konta Google, musisz użyć [metody przepływu klienta](#client-auth).
+> Obecnie uwierzytelnianie za pomocą konta Google nie działa za pośrednictwem przepływu serwera.  tooauthenticate z serwisem Google, należy użyć [metody przepływu klienta](#client-auth).
 
-W tym przypadku usługa Azure App Service zarządza przepływem uwierzytelniania OAuth 2.0.  Wyświetla stronę logowania wybranego dostawcy i generuje token uwierzytelniania usługi App Service po pomyślnym zalogowaniu się u danego dostawcy tożsamości. Po zakończeniu swojego działania funkcja logowania zwraca obiekt JSON, który udostępnia zarówno identyfikator użytkownika, jak i token uwierzytelniania usługi App Service, odpowiednio w polach userId oraz authenticationToken. Ten token można zapisać w pamięci podręcznej i ponownie go używać, dopóki nie wygaśnie.
+W takim przypadku usługa aplikacji Azure zarządza przepływ uwierzytelniania hello OAuth 2.0.  Zostanie wyświetlona strona logowania hello hello wybranego dostawcy, a generuje token uwierzytelniania usługi aplikacji po pomyślnego logowania przy hello dostawcy tożsamości. funkcja logowania Hello, po zakończeniu zwraca obiekt JSON, który ujawnia zarówno hello identyfikator użytkownika, jak i usłudze aplikacji token uwierzytelniania w polach Nazwa użytkownika i authenticationToken hello, odpowiednio. Ten token można zapisać w pamięci podręcznej i ponownie go używać, dopóki nie wygaśnie.
 
 ###<a name="client-auth"></a>Instrukcje: uwierzytelnianie za pomocą dostawcy (przepływ klienta)
 
-Aplikacja może również niezależnie skontaktować się z dostawcą tożsamości, a następnie udostępnić zwrócony token usłudze App Service na potrzeby uwierzytelniania. Ten przepływ klienta pozwala zapewnić środowisko logowania jednokrotnego dla użytkowników bądź pobrać dodatkowe dane użytkownika od dostawcy tożsamości.
+Aplikację można również niezależnie skontaktuj się z dostawcą tożsamości hello, a następnie podaj hello zwrócił token tooyour usługi aplikacji — dla uwierzytelniania. Ten przepływ klienta umożliwia tooprovide pojedynczego logowania dla użytkowników lub tooretrieve użytkownika dodatkowe dane z hello dostawcy tożsamości.
 
 #### <a name="social-authentication-basic-example"></a>Podstawowy przykład uwierzytelniania przy użyciu sieci społecznościowych
 
@@ -38,11 +38,11 @@ client.login(
 });
 
 ```
-W tym przykładzie założono, że token udostępniony przez zestaw SDK danego dostawcy jest przechowywany w zmiennej token.
+W tym przykładzie założono hello token dostarczony przez dostawcę odpowiednich hello zestawu SDK jest przechowywana w zmiennej tokenu hello.
 
 #### <a name="microsoft-account-example"></a>Przykład użycia konta Microsoft
 
-W poniższym przykładzie użyto zestawu Live SDK, który obsługuje logowanie jednokrotne dla aplikacji ze Sklepu Windows przy użyciu konta Microsoft:
+Witaj przykładzie użyto następujących hello zestaw Live SDK, który obsługuje single-sign-on dla aplikacji ze Sklepu Windows przy użyciu Account Microsoft:
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -59,11 +59,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-W tym przykładzie token zostaje pobrany z usługi Live Connect i dostarczony do usługi App Service przez wywołanie funkcji logowania.
+W tym przykładzie pobiera token z Live Connect, który jest przez wywołanie funkcji logowania hello dostarczony tooyour usługi aplikacji.
 
-###<a name="auth-getinfo"></a>Instrukcje: pozyskiwanie informacji o uwierzytelnionym użytkowniku
+###<a name="auth-getinfo"></a>Porady: uzyskiwanie informacji na temat hello uwierzytelniony użytkownik
 
-Dane uwierzytelniania można pobrać z punktu końcowego `/.auth/me` przy użyciu wywołania HTTP z dowolną biblioteką AJAX.  Pamiętaj, aby dla nagłówka `X-ZUMO-AUTH` ustawić swój token uwierzytelniania.  Token uwierzytelniania jest przechowywany w elemencie `client.currentUser.mobileServiceAuthenticationToken`.  Na przykład aby użyć interfejsu API Fetch:
+informacje o uwierzytelnianiu Hello można pobrać z hello `/.auth/me` Wywołaj punktu końcowego za pomocą protokołu HTTP z dowolnej bibliotece technologii AJAX.  Upewnij się, ustaw hello `X-ZUMO-AUTH` token uwierzytelniania tooyour nagłówka.  Witaj token uwierzytelniania są przechowywane w `client.currentUser.mobileServiceAuthenticationToken`.  Na przykład toouse hello pobranie interfejsu API:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -73,8 +73,8 @@ fetch(url, { headers: headers })
     .then(function (data) {
         return data.json()
     }).then(function (user) {
-        // The user object contains the claims for the authenticated user
+        // hello user object contains hello claims for hello authenticated user
     });
 ```
 
-Interfejs Fetch jest dostępny jako [pakiet npm](https://www.npmjs.com/package/whatwg-fetch). Ponadto można go pobrać w przeglądarce z witryny [CDNJS](https://cdnjs.com/libraries/fetch). Do pobrania informacji można również użyć biblioteki jQuery lub innego interfejsu API AJAX.  Dane są odbierane w postaci obiektu JSON.
+Interfejs Fetch jest dostępny jako [pakiet npm](https://www.npmjs.com/package/whatwg-fetch). Ponadto można go pobrać w przeglądarce z witryny [CDNJS](https://cdnjs.com/libraries/fetch). Można także użyć jQuery lub innego interfejsu API technologii AJAX toofetch hello informacji.  Dane są odbierane w postaci obiektu JSON.

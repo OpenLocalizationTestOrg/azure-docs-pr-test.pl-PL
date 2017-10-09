@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * [Użytkowników usługi Office 365](https://office365.com) konta  
 
-Aby korzystać z konta użytkowników usługi Office 365, w aplikacji logiki, musisz autoryzować aplikację logiki, aby połączyć się konta użytkowników usługi Office 365. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
+Aby korzystać z konta użytkowników usługi Office 365, w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour użytkowników usługi Office 365 konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure.  
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem użytkowników usługi Office 365:  
+Oto hello kroki tooauthorize Twojego tooyour tooconnect aplikacji logiki konta użytkowników usługi Office 365:  
 
-1. Aby utworzyć połączenie do użytkowników usługi Office 365, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *użytkowników usługi Office 365* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. toocreate połączenia tooOffice 365 użytkowników, w Projektancie aplikacji logiki hello, wybierz **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *użytkowników usługi Office 365* hello pola wyszukiwania. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![Krok tworzenia połączenia użytkowników usługi Office 365](./media/connectors-create-api-office365users/office365users-1.png)  
-2. Jeśli nie utworzono żadnych połączeń użytkowników usługi Office 365 przed będzie zostanie wyświetlony monit o podanie poświadczeń użytkowników usługi Office 365. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta użytkowników usługi Office 365:  
+2. Jeśli nie utworzono żadnych połączeń użytkowników tooOffice 365 przed, uzyskasz tooprovide zostanie wyświetlony monit o poświadczenia użytkowników usługi Office 365. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta użytkowników usługi Office 365:  
    ![Krok tworzenia połączenia użytkowników usługi Office 365](./media/connectors-create-api-office365users/office365users-2.png)  
-3. Podaj użytkowników usługi Office 365, nazwę użytkownika i hasło, aby zezwolić aplikacji logiki:  
+3. Dostarcza aplikację logiki tooauthorize Twojego użytkowników usługi Office 365 w użytkownika nazwę i hasło:  
    ![Krok tworzenia połączenia użytkowników usługi Office 365](./media/connectors-create-api-office365users/office365users-3.png)  
-4. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+4. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![Krok tworzenia połączenia użytkowników usługi Office 365](./media/connectors-create-api-office365users/office365users-4.png)  
 

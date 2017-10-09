@@ -1,5 +1,5 @@
 ---
-title: Zestawy skalowania maszyny wirtualnej systemu Linux skalowania automatycznego | Dokumentacja firmy Microsoft
+title: aaaAutoscale zestawy skalowania maszyny wirtualnej systemu Linux | Dokumentacja firmy Microsoft
 description: "Ustawienia skalowania automatycznego dla systemu Linux zestawu skalowania maszyn wirtualnych przy użyciu wiersza polecenia platformy Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4352b94ec2973c37bc5616e3be25bd0c9442632b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Automatycznie skalować maszyny z systemem Linux w zestawie skalowania maszyn wirtualnych
-Zestawy skalowania maszyny wirtualnej ułatwiają wdrażanie i zarządzanie maszynami wirtualnymi identyczne jako zestaw. Zestawy skalowania w przypadku aplikacji o dużej skali zapewnić warstwy obliczeniowej wysoce skalowalnemu i dostosowania i obsługują obrazów platformy systemu Windows, Linux platformy obrazów niestandardowych obrazów i rozszerzenia. Aby dowiedzieć się więcej, zobacz [omówienie zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-overview.md).
+Zestawy skalowania maszyn wirtualnych ułatwiają możesz toodeploy i zarządzaj nimi wiele identycznych maszyn wirtualnych jako zestaw. Zestawy skalowania w przypadku aplikacji o dużej skali zapewnić warstwy obliczeniowej wysoce skalowalnemu i dostosowania i obsługują obrazów platformy systemu Windows, Linux platformy obrazów niestandardowych obrazów i rozszerzenia. toolearn więcej, zobacz [omówienie zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-overview.md).
 
-W tym samouczku przedstawiono sposób tworzenia zestawu skalowania maszyn wirtualnych systemu Linux przy użyciu najnowszej wersji Ubuntu Linux. Samouczek przedstawia również sposób automatycznie skalować maszyn w zestawie. Możesz utworzyć skalowalnego definiować skalowania przez utworzenie szablonu usługi Azure Resource Manager i wdrażanie za pomocą interfejsu wiersza polecenia Azure a. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Aby dowiedzieć się więcej na temat skalowania automatycznego zestawy skalowania, zobacz [automatyczne skalowanie i zestawach skali maszyny wirtualnej](virtual-machine-scale-sets-autoscale-overview.md).
+Ten samouczek pokazuje, jak ustawić toocreate skalowania maszyn wirtualnych systemu Linux przy użyciu najnowszej wersji hello Ubuntu Linux. Hello samouczek również pokazuje, jak ustawić tooautomatically skali hello maszyn w hello. Możesz utworzyć hello skalowalnego definiować skalowania przez utworzenie szablonu usługi Azure Resource Manager i wdrażanie za pomocą interfejsu wiersza polecenia Azure a. Aby uzyskać więcej informacji na temat szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). toolearn więcej informacji na temat skalowania automatycznego zestawy skalowania, zobacz [automatyczne skalowanie i zestawach skali maszyny wirtualnej](virtual-machine-scale-sets-autoscale-overview.md).
 
-W tym samouczku wdrażania następujących zasobów i rozszerzeń:
+W tym samouczku wdrożeniem hello następujących zasobów i rozszerzeń:
 
 * Microsoft.Storage/storageAccounts
 * Microsoft.Network/virtualNetworks
@@ -40,12 +40,12 @@ W tym samouczku wdrażania następujących zasobów i rozszerzeń:
 
 Aby uzyskać więcej informacji na temat zasoby usługi Resource Manager, zobacz [usługi Azure Resource Manager, a wdrożenie klasyczne](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Przed rozpoczęciem kroków w tym samouczku [instalowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md).
+Przed rozpoczęciem pracy z hello czynności w tym samouczku [zainstalować hello Azure CLI](../cli-install-nodejs.md).
 
 ## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>Krok 1: Tworzenie grupy zasobów i konto magazynu
 
-1. **Zaloguj się do platformy Microsoft Azure**  
-W interfejsie wiersza polecenia (Bash, terminali, wiersza polecenia), należy włączyć tryb Resource Manager, a następnie [Zaloguj się za pomocą identyfikatora firmy lub szkoły](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Postępuj zgodnie z monitami w celu obsługi logowania interakcyjnego do konta platformy Azure.
+1. **Zaloguj się tooMicrosoft Azure**  
+W interfejsie wiersza polecenia (Bash, terminali, wiersza polecenia), Przełącz tryb Manager tooResource, a następnie [Zaloguj się za pomocą identyfikatora firmy lub szkoły](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Wykonaj hello monity o tooyour środowisko logowania interakcyjnego konto platformy Azure.
 
     ```cli   
     azure config mode arm
@@ -54,26 +54,26 @@ W interfejsie wiersza polecenia (Bash, terminali, wiersza polecenia), należy w�
     ```
    
     > [!NOTE]
-    > Jeśli masz służbowego lub szkolnego identyfikator i nie mają włączone uwierzytelnianie dwuskładnikowe, użyj `azure login -u` o identyfikatorze można logować się bez sesji interaktywnej. Jeśli nie ma służbowego lub szkolnego identyfikator, możesz [Utwórz identyfikator firmy lub szkoły z osobistego konta Microsoft](../active-directory/active-directory-users-create-azure-portal.md).
+    > Jeśli masz służbowego lub szkolnego identyfikator i nie mają włączone uwierzytelnianie dwuskładnikowe, użyj `azure login -u` z toolog identyfikator hello w bez sesji interaktywnej. Jeśli nie ma służbowego lub szkolnego identyfikator, możesz [Utwórz identyfikator firmy lub szkoły z osobistego konta Microsoft](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **Utwórz grupę zasobów**  
-Należy wdrożyć wszystkie zasoby w grupie zasobów. W tym samouczku, określ nazwę grupy zasobów **vmsstest1**.
+Wszystkie zasoby musi być wdrożone tooa grupy zasobów. W tym samouczku, określ nazwę grupy zasobów hello **vmsstest1**.
    
     ```cli
     azure group create vmsstestrg1 centralus
     ```
 
-3. **Wdrażanie konta magazynu do nowej grupy zasobów**  
-To konto magazynu jest przechowywania szablonu. Utwórz konto magazynu o nazwie **vmsstestsa**.
+3. **Wdrażanie konta magazynu do nowej grupy zasobów hello**  
+To konto magazynu jest przechowywania hello szablonu. Utwórz konto magazynu o nazwie **vmsstestsa**.
    
     ```cli
     azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
     ```
 
-## <a name="step-2-create-the-template"></a>Krok 2: Tworzenie szablonu
-Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania zasobami Azure ze sobą przy użyciu opisu JSON zasobów i parametrów skojarzonego wdrożenia.
+## <a name="step-2-create-hello-template"></a>Krok 2: Tworzenie szablonu hello
+Szablonu usługi Azure Resource Manager umożliwia możesz toodeploy i zarządzania zasobami Azure ze sobą przy użyciu opisu JSON zasobów hello i parametry skojarzonego wdrożenia.
 
-1. W edytorze Ulubione Utwórz plik VMSSTemplate.json i Dodaj początkowej strukturze JSON do obsługi szablonu.
+1. W edytorze Ulubione Utwórz plik hello VMSSTemplate.json i Dodaj hello początkowej JSON struktury toosupport hello szablonu.
 
     ```json
     {
@@ -88,7 +88,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     }
     ```
 
-2. Parametry nie są zawsze wymagana, ale umożliwiają wprowadzanie wartości podczas wdrażania szablonu. Dodaj tych parametrów w obszarze parametrów elementu nadrzędnego, który został dodany do szablonu.
+2. Parametry nie są zawsze wymagana, ale ich tooinput sposób wartości po wdrożeniu hello szablonu. Dodaj tych parametrów w obszarze hello elementu nadrzędnego dla parametrów czy dodany szablon toohello.
 
     ```json
     "vmName": { "type": "string" },
@@ -99,13 +99,13 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     "resourcePrefix": { "type": "string" }
     ```
    
-   * Ustaw nazwę oddzielne maszynę wirtualną, która umożliwia dostęp do maszyn w skali.
-   * Nazwa konta magazynu, w którym szablon jest przechowywany.
-   * Liczba wystąpień maszyn wirtualnych można początkowo utworzyć w skali zestawu.
-   * Nazwa i hasło konta administratora na maszynach wirtualnych.
-   * Prefiks nazwy zasobów, które są tworzone w celu obsługi zestawu skali.
+   * Nazwa dla hello oddzielne maszyny wirtualnej, która jest używana tooaccess hello maszyny w zestawie skalowania hello.
+   * Nazwa dla konta magazynu hello przechowywania hello szablonu.
+   * Utwórz Hello liczbę wystąpień tooinitially maszyn wirtualnych w zestawie skalowania hello.
+   * Nazwa i hasło konta administratora hello na maszynach wirtualnych hello.
+   * Ustaw prefiksu nazwy hello zasobów, które są tworzone toosupport hello skali.
 
-3. Zmienne można w szablonie, aby określić wartości, które mogą ulec zmianie często lub wartości, które muszą zostać utworzone z kombinacji wartości parametrów. Dodaj te zmienne w obszarze Zmienne elementu nadrzędnego, który został dodany do szablonu.
+3. Zmienne mogą być używane w wartości toospecify szablonów, które mogą ulec zmianie często lub wartości, które wymagają toobe utworzone na podstawie kombinację wartości parametrów. Dodaj te zmienne w obszarze elementu nadrzędnego zmienne hello czy dodany szablon toohello.
 
     ```json
     "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
@@ -127,13 +127,13 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
     ```
 
-   * Nazwy DNS, które są używane przez interfejsy sieciowe.
-   * Nazwy adresów IP i prefiksy dla sieci wirtualnej i podsieci.
-   * Nazwy i identyfikatory sieci wirtualnej załadować równoważenia i interfejsów sieciowych.
-   * Ustawianie nazw kont magazynu dla konta skojarzone z maszyn w skali.
-   * Ustawienia rozszerzenia diagnostyki, które jest zainstalowane na maszynie wirtualnej. Aby uzyskać więcej informacji na temat rozszerzenia diagnostyki, zobacz [Utwórz maszynę wirtualną systemu Windows z monitorowania i diagnostyki za pomocą szablonu usługi Resource Manager Azure](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * Nazwy DNS, które są używane przez hello interfejsów sieciowych.
+   * Witaj nazwy adresów IP i prefiksy hello sieci wirtualnej i podsieci.
+   * Witaj nazwy i identyfikatory hello sieci wirtualnej, obciążenia równoważenia i interfejsów sieciowych.
+   * Nazwy konta magazynu dla konta hello skojarzone z hello maszyny w zestawie skalowania hello.
+   * Ustawienia dla hello diagnostyki rozszerzenia, które jest zainstalowane na maszynie wirtualnej hello. Aby uzyskać więcej informacji na temat hello rozszerzenia diagnostyki, zobacz [Utwórz maszynę wirtualną systemu Windows z monitorowania i diagnostyki za pomocą szablonu usługi Resource Manager Azure](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-4. Dodaj zasób konta magazynu w zasoby elementu nadrzędnego, który został dodany do szablonu. Ten szablon używa pętlę do utworzenia zalecane pięć kont magazynu przechowywania dysków systemu operacyjnego i danych diagnostycznych. Ten zestaw kont może obsługiwać maksymalnie 100 maszyn wirtualnych w zestawie skalowania, który jest bieżącym maksymalną. Każde konto magazynu ma nazwę z określeniem litera, która została zdefiniowana w zmiennych, w połączeniu z sufiksem parametry podane dla szablonu.
+4. Dodaj zasób konta magazynu hello pod elementem nadrzędnym zasobów hello czy dodany szablon toohello. Ten szablon używa hello toocreate pętli, zalecane konta magazynu przechowywania hello dysków systemu operacyjnego i danych diagnostycznych. Ten zestaw kont może obsługiwać zapasowych too100 maszyn wirtualnych w zestawie skalowania jest bieżąca maksymalna hello. Z określeniem literą, która została zdefiniowana w połączeniu z sufiks hello hello parametry podane dla szablonu hello zmiennych hello nosi nazwę każdego konta magazynu.
    
         {
           "type": "Microsoft.Storage/storageAccounts",
@@ -147,7 +147,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
           "properties": { "accountType": "Standard_LRS" }
         },
 
-5. Dodaj zasób sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów sieciowych](../virtual-network/resource-groups-networking.md).
+5. Dodaj hello zasobów sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów sieciowych](../virtual-network/resource-groups-networking.md).
 
     ```json
     {
@@ -167,7 +167,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-6. Dodaj zasoby publicznych adresów IP, które są używane przez usługi równoważenia obciążenia i interfejsu sieciowego.
+6. Dodaj hello publicznego zasoby adresów IP używanych przez hello obciążenia równoważenia i interfejsu sieciowego.
 
     ```json
     {
@@ -196,7 +196,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-7. Dodaj zasób usługi równoważenia obciążenia, który jest używany przez zestaw skali. Aby uzyskać więcej informacji, zobacz [Obsługa Menedżera zasobów Azure dla usługi równoważenia obciążenia](../load-balancer/load-balancer-arm.md).
+7. Dodaj zasób usługi równoważenia obciążenia hello, który jest używany przez zestaw skali hello. Aby uzyskać więcej informacji, zobacz [Obsługa Menedżera zasobów Azure dla usługi równoważenia obciążenia](../load-balancer/load-balancer-arm.md).
 
     ```json   
     {
@@ -237,7 +237,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-8. Dodaj zasób interfejsu sieci, który jest używany przez oddzielne maszynę wirtualną. Ponieważ maszyny w zestawie skalowania nie są dostępne za pośrednictwem publicznego adresu IP, oddzielnej maszynie wirtualnej jest tworzony w tej samej sieci wirtualnej do dostępu zdalnego do maszyny.
+8. Dodaj hello sieci interfejsu zasób, który jest używany przez maszynę wirtualną z oddzielnych hello. Ponieważ maszyny w zestawie skalowania nie są dostępne za pośrednictwem publicznego adresu IP, oddzielnej maszynie wirtualnej jest tworzony w hello sam wirtualnych sieci tooremotely dostępu hello maszyny.
 
     ```json
     {
@@ -268,7 +268,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-9. Dodaj oddzielnej maszynie wirtualnej w tej samej sieci co zestaw skali.
+9. Dodaj hello oddzielnej maszynie wirtualnej w hello sam sieci jako zestaw skali hello.
 
     ```json
     {
@@ -314,7 +314,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-10. Dodaj zasób zestawu skalowania maszyny wirtualnej i określ rozszerzenie diagnostyki, który jest zainstalowany na wszystkich maszynach wirtualnych w zestawie skalowania. Wiele ustawień dla tego zasobu przypominają z zasobu maszyny wirtualnej. Główne różnice są element pojemności, który określa liczbę maszyn wirtualnych w zestawie skali i upgradePolicy, która określa, jak zostało zaktualizowane do maszyn wirtualnych. Zestaw skalowania nie jest tworzony, dopóki wszystkie konta magazynu są tworzone za pomocą elementu dependsOn określonej.
+10. Dodaj zasób zestawu skalowania maszyny wirtualnej hello i określ hello diagnostyki rozszerzenia, które jest zainstalowany na wszystkich maszynach wirtualnych w zestawie skalowania hello. Wiele ustawień powitania dla tego zasobu przypominają z hello zasobu maszyny wirtualnej. główne różnice Hello są hello pojemność elementu, który określa hello liczbę maszyn wirtualnych w zestawie skalowania hello i upgradePolicy określający, jak zaktualizowane toovirtual maszyny. Witaj zestaw skalowania jest tworzone dopiero po wszystkich kont magazynu hello są tworzone z elementem dependsOn hello określonej.
 
     ```json
     {
@@ -419,7 +419,7 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     },
     ```
 
-11. Dodaj zasób autoscaleSettings, który definiuje sposób oparte na wykorzystanie procesora na komputerach w zestawie dopasowuje zestaw skali.
+11. Dodaj zasób autoscaleSettings hello, który definiuje sposób oparte na wykorzystanie procesora na komputerach hello w zestawie hello dopasowuje zestaw skali hello.
 
     ```json
     {
@@ -472,75 +472,75 @@ Szablon usługi Azure Resource Manager umożliwia do wdrażania i zarządzania z
     W tym samouczku te wartości są ważne:
     
     * **metricName**  
-    Ta wartość jest taka sama jak zdefiniowanego w zmiennej wadperfcounter licznika wydajności. Za pomocą tej zmiennej, zbiera rozszerzenia diagnostyki **Processor\PercentProcessorTime** licznika.
+    Ta wartość jest hello taki sam jak hello licznika wydajności, zdefiniowanego w zmiennej wadperfcounter hello. Za pomocą tej zmiennej, hello rozszerzenia diagnostycznych zbiera hello **Processor\PercentProcessorTime** licznika.
     
     * **metricResourceUri**  
-    Ta wartość jest identyfikator zasobu zestawu skali maszyny wirtualnej.
+    Ta wartość jest identyfikator zasobu hello zestaw skali maszyny wirtualnej hello.
     
     * **ziarnem czasu**  
-    Ta wartość jest stopień szczegółowości metryki, które są zbierane. W tym szablonie ustawiono na jedną minutę.
+    Ta wartość jest szczegółowości hello hello metryk, które są zbierane. W tym szablonie ustawiono tooone minutę.
     
     * **Statystyka**  
-    Ta wartość określa, jak metryki połączone pomieścić automatycznych akcji skalowania. Możliwe wartości to: średnia, Min, Max. W tym szablonie są zbierane średniego użycia procesora CPU całkowity maszyn wirtualnych.
+    Ta wartość określa, jak metryki hello są połączone tooaccommodate hello automatyczne skalowanie akcji. Witaj możliwe wartości to: średnia, Min, Max. W tym szablonie są zbierane hello średni całkowite użycie Procesora hello maszyn wirtualnych.
 
     * **timeWindow**  
-    Ta wartość jest przedział czasu, w którym są zbierane dane wystąpienia. Musi być od 5 minut do 12 godzin.
+    Ta wartość jest hello zakres czasu, w którym są zbierane dane wystąpienia. Musi być od 5 minut do 12 godzin.
     
     * **timeAggregation**  
-    jego wartość określa, jak powinny być połączone dane, które są zbierane wraz z upływem czasu. Wartość domyślna to średnia. Możliwe wartości to: średnia, co najmniej, maksimum, ostatnich, łączna liczba, liczba.
+    jego wartość określa, jak powinny być połączone hello dane, które są zbierane wraz z upływem czasu. Witaj domyślna wartość to średnia. Witaj możliwe wartości to: średnia, co najmniej, maksimum, ostatnich, łączna liczba, liczba.
     
     * **operator**  
-    Ta wartość jest operator, który służy do porównywania danych metryki i wartość progową. Możliwe wartości to: równa, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
+    Ta wartość jest hello operator, który jest używany toocompare hello metryki danych i hello próg. Witaj możliwe wartości to: równa, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
     
     * **Próg**  
-    Ta wartość jest wyzwalane akcji skalowania. W tym szablonie maszyn są dodawane do skalowania, ustawić, gdy średniego użycia procesora CPU między maszynami w zestawie jest ponad 50%.
+    Ta wartość jest wyzwalane hello akcji skalowania. W tym szablonie maszyn dodanych skali toohello ustawić, gdy hello średniego użycia procesora CPU między maszynami w zestawie hello jest ponad 50%.
     
     * **Kierunek**  
-    Ta wartość Określa akcję wykonywaną, gdy uzyskuje się wartość progową. Możliwe wartości to zwiększyć lub zmniejszyć. W tym szablonie jeśli próg wynosi ponad 50% w oknie zdefiniowanego czasu zwiększa się liczba maszyn wirtualnych w zestawie skalowania.
+    Ta wartość określa akcji hello, wykonywaną, gdy uzyskuje się hello wartość progową. Witaj możliwe wartości to zwiększyć lub zmniejszyć. W tym szablonie hello liczbę maszyn wirtualnych w zestawie skalowania hello jest zwiększane, gdy próg hello jest ponad 50% hello określone okno czasu.
 
     * **Typ**  
-    Ta wartość jest typu akcji, która powinna się odbyć i musi mieć ustawioną ChangeCount.
+    Ta wartość jest typu hello akcji, która powinna się odbyć i musi być ustawione tooChangeCount.
     
     * **wartość**  
-    Ta wartość jest liczba maszyn wirtualnych, które są dodawane lub usuwane z zestawu skalowania. Ta wartość musi wynosić 1 lub większą. Wartość domyślna to 1. W tym szablonie liczba maszyn w skali ustawić zwiększa 1, gdy ze osiągnięty jest próg.
+    Ta wartość jest liczbą hello maszyn wirtualnych, które zostały dodane lub usunięte z hello zestaw skali. Ta wartość musi wynosić 1 lub większą. Witaj, wartość domyślna to 1. W tym szablonie hello liczba maszyn w skali hello ustawić zwiększa 1, gdy zostały spełnione warunki progowe hello.
 
     * **cooldown**  
-    Ta wartość jest czas oczekiwania od momentu ostatniej akcji skalowania, zanim nastąpi następnej akcji. Ta wartość musi należeć do zakresu od minutę i jeden tydzień.
+    Ta wartość jest hello ilość czasu toowait od momentu ostatniej akcji skalowania hello, zanim nastąpi hello następnej akcji. Ta wartość musi należeć do zakresu od minutę i jeden tydzień.
 
-12. Zapisz plik szablonu.    
+12. Zapisz plik szablonu hello.    
 
-## <a name="step-3-upload-the-template-to-storage"></a>Krok 3: Przekaż szablon do magazynu
-Szablon można przekazać tak długo, jak znać nazwy i klucza podstawowego konta magazynu, który został utworzony w kroku 1.
+## <a name="step-3-upload-hello-template-toostorage"></a>Krok 3: Przekaż hello toostorage szablonu
+można przekazać szablon Hello tak długo, jak znana nazwa hello i klucz podstawowy hello konta magazynu, który został utworzony w kroku 1.
 
-1. W interfejsie wiersza polecenia (Bash, terminali, wiersza polecenia) uruchom następujące polecenia, aby ustawić zmienne środowiskowe wymagane do uzyskania dostępu do konta magazynu:
+1. W interfejsie wiersza polecenia (Bash, terminali, wiersza polecenia) uruchom następujące polecenia, zmienne środowiskowe hello tooset potrzebne tooaccess hello konta magazynu:
 
     ```cli   
     export AZURE_STORAGE_ACCOUNT={account_name}
     export AZURE_STORAGE_ACCESS_KEY={key}
     ```
     
-    Klucz można uzyskać, klikając ikonę klucza, podczas wyświetlania zasobów konta magazynu w portalu Azure. Korzystając z wiersza polecenia systemu Windows, wpisz **ustawić** zamiast eksportu.
+    Klucz hello można uzyskać, klikając ikonę klucza hello podczas wyświetlania zasobów konta magazynu hello w hello portalu Azure. Korzystając z wiersza polecenia systemu Windows, wpisz **ustawić** zamiast eksportu.
 
-2. Utwórz kontener do przechowywania szablonu.
+2. Tworzenie kontenera hello do przechowywania szablonu hello.
    
     ```cli
     azure storage container create -p Blob templates
     ```
 
-3. Przekaż plik szablonu na nowy kontener.
+3. Przekaż hello szablon pliku toohello nowego kontenera.
    
     ```cli
     azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
     ```
 
-## <a name="step-4-deploy-the-template"></a>Krok 4: Wdrażanie szablonu
-Teraz, gdy szablon został utworzony, możesz przystąpić do wdrażania zasobów. Użyj tego polecenia, aby rozpocząć proces:
+## <a name="step-4-deploy-hello-template"></a>Krok 4: Wdrażanie hello szablonu
+Teraz, gdy utworzono szablon hello, możesz przystąpić do wdrażania hello zasobów. Użyj tego polecenia toostart hello procesu:
 
 ```cli
 azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
 ```
 
-Po naciśnięciu wprowadź, zostanie wyświetlony monit o podanie wartości zmiennych, które zostanie przypisane. Podaj następujące wartości:
+Po naciśnięciu wprowadź, zostanie wyświetlony monit o tooprovide wartości zmiennych hello, przypisana. Podaj następujące wartości:
 
 ```cli
 vmName: vmsstestvm1
@@ -551,36 +551,36 @@ adminPassword: VMpass1
 resourcePrefix: vmsstest
 ```
 
-Powinna ona potrwać około 15 minut dla wszystkich zasobów do wdrożenia pomyślnie.
+Dla wszystkich toosuccessfully zasobów hello można wdrożyć powinien trwa około 15 minut.
 
 > [!NOTE]
-> Można także użyć możliwości portalu do wdrażania zasobów. Użyj tego linku: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+> Umożliwia także hello portal możliwości toodeploy hello zasobów. Użyj tego linku: https://portal.azure.com/#create/Microsoft.Template/uri/<link tooVM Scale Set JSON template>
 
 
 ## <a name="step-5-monitor-resources"></a>Krok 5: Monitorowanie zasobów
 Można uzyskać informacji o zestawy skalowania maszyny wirtualnej za pomocą następujących metod:
 
-* Portal Azure — można obecnie uzyskać ograniczoną ilość informacji za pomocą portalu.
+* Witaj Azure portal — można obecnie uzyskać ograniczoną ilość informacji za pomocą portalu hello.
 
-* [Eksploratora zasobów Azure](https://resources.azure.com/) — to narzędzie jest najlepszy do eksplorowania bieżącego stanu sieci zestawu skali. Tej ścieżki i powinien zostać wyświetlony widok wystąpienia zestawu skali utworzony:
+* Witaj [Eksploratora zasobów Azure](https://resources.azure.com/) — narzędzie to jest hello najlepsze do eksplorowania hello bieżącego stanu sieci zestawu skali. Tej ścieżki i powinna zostać wyświetlona zestawu widok wystąpienia hello skali hello utworzony:
   
     ```cli
     subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
     ```
 
-* Azure CLI — Użyj tego polecenia, aby pobrać niektóre informacje:
+* Azure CLI — Użyj tego polecenia tooget niektóre informacje:
 
     ```cli  
     azure resource show -n vmsstest1 -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g vmsstestrg1
     ```
 
-* Połączenie z maszyną wirtualną jumpbox podobnie jak inne maszyny, a następnie zdalny dostęp maszyny wirtualne w skali ustawioną monitorowania poszczególnych procesów.
+* Łączenie maszyny wirtualnej jumpbox toohello, podobnie jak inne maszyny, a następnie można zdalnie przejść hello maszyn wirtualnych w hello skali zestaw toomonitor poszczególnych procesów.
 
 > [!NOTE]
 > Zakończenie interfejsu API REST do uzyskiwania informacji na temat zestawów skalowania można znaleźć w [zestawach skali maszyny wirtualnej](https://msdn.microsoft.com/library/mt589023.aspx).
 
-## <a name="step-6-remove-the-resources"></a>Krok 6: Usuń zasoby
-Ponieważ naliczane są opłaty za zasoby używane na platformie Azure, zawsze jest dobrym rozwiązaniem, aby usunąć zasoby, które nie są już potrzebne. Nie trzeba osobno usunąć wszystkie zasoby w grupie zasobów. Można usunąć grupy zasobów i wszystkie jej zasoby są automatycznie usuwane.
+## <a name="step-6-remove-hello-resources"></a>Krok 6: Usuń zasoby hello
+Naliczane są opłaty za zasoby używane na platformie Azure, dlatego jest zawsze zasobów toodelete dobrym rozwiązaniem, które nie są już potrzebne. Nie trzeba toodelete każdego zasobu niezależnie od grupy zasobów. Można usunąć grupy zasobów hello i wszystkie jej zasoby są automatycznie usuwane.
 
 ```cli
 azure group delete vmsstestrg1
@@ -588,7 +588,7 @@ azure group delete vmsstestrg1
 
 ## <a name="next-steps"></a>Następne kroki
 * Znajdź przykłady Azure Monitor funkcje w [Azure Monitor i platform interfejsu wiersza polecenia Szybki start — przykłady](../monitoring-and-diagnostics/insights-cli-samples.md)
-* Dowiedz się więcej o funkcji powiadomień w [użyć akcji skalowania automatycznego do wysyłania wiadomości e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
-* Dowiedz się, jak [dzienników inspekcji używany do wysyłania wiadomości e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-* Zapoznaj się z [aplikacja demonstracyjna skalowania automatycznego na Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) szablonu, który konfiguruje aplikacji Python/bottle do wykonywania funkcji skalowania automatycznego programu zestawach skali maszyny wirtualnej.
+* Dowiedz się więcej o funkcji powiadomień w [Użyj skalowania automatycznego akcje toosend poczty e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+* Dowiedz się, jak za[dzienniki inspekcji użycia w monitorze Azure, toosend poczty e-mail i elementu webhook powiadomień o alertach](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Zapoznaj się z hello [aplikacja demonstracyjna skalowania automatycznego na Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) szablonu, który konfiguruje hello tooexercise aplikacji Python/bottle automatyczne skalowanie funkcji zestawach skali maszyny wirtualnej.
 

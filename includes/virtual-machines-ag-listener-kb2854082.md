@@ -1,13 +1,13 @@
-Następnie wszystkie serwery w klastrze korzystający z systemu Windows Server 2008 R2 lub Windows Server 2012, należy sprawdzić, czy poprawka [KB2854082](http://support.microsoft.com/kb/2854082) jest instalowane na każdym z serwerów lokalnych lub maszynach wirtualnych platformy Azure, które są częścią klastra. Dowolnego serwera lub maszyny Wirtualnej w klastrze, ale nie znajduje się w grupie dostępności powinien również zawierać po zainstalowaniu tej poprawki.
+Następnie wszystkie serwery w klastrze hello korzystający z systemu Windows Server 2008 R2 lub Windows Server 2012, należy sprawdzić tej poprawki hello [KB2854082](http://support.microsoft.com/kb/2854082) jest instalowane na każdym z serwerów lokalnych hello lub maszynach wirtualnych platformy Azure, które są częścią klastra hello. Dowolnego serwera lub maszyny Wirtualnej w klastrze hello, ale nie w grupie dostępności hello powinien również zawierać po zainstalowaniu tej poprawki.
 
-W sesji pulpitu zdalnego dla każdego z węzłów klastra, Pobierz [KB2854082](http://support.microsoft.com/kb/2854082) do katalogu lokalnego. Następnie należy zainstalować poprawkę w każdym węźle klastra po kolei. Jeśli usługa klastrowania jest obecnie uruchomiona w węźle klastra, ponownym uruchomieniu serwera po zakończeniu instalacji.
+W hello sesji usług pulpitu zdalnego dla każdego z węzłów klastra hello, Pobierz [KB2854082](http://support.microsoft.com/kb/2854082) tooa katalogu lokalnego. Następnie po kolei Zainstaluj poprawkę hello w każdym węźle klastra. Jeśli usługa klastrowania hello obecnie jest uruchomiona w węźle klastra hello, serwer hello jest ponownie uruchamiany na końcu hello hello instalacji poprawki.
 
 > [!WARNING]
-> Zatrzymanie usługi klastrowania lub ponowne uruchomienie serwera wpływa na kondycję kworum klastra i grupy dostępności, co może spowodować z klastrem w celu przejścia do trybu offline. Aby zachować wysoką dostępność klastra podczas instalacji, upewnij się, że:
+> Zatrzymanie usługi klastrowania hello lub ponowne uruchomienie serwera hello wpływa na powitania kondycji kworum klastra i hello grupy dostępności i może spowodować, że Twoje toogo klastra w tryb offline. toomaintain hello wysoką dostępność klastra podczas instalacji, upewnij się, że:
 > 
-> * Klaster jest użytkowany kondycji optymalne kworum. 
-> * Przed zainstalowaniem poprawki w każdym węźle, wszystkie węzły klastra są w trybie online.
-> * Przed zainstalowaniem poprawki na jednym z węzłów w klastrze, Zezwalaj na instalację poprawek do uruchomienia do ukończenia na jednym węźle, w tym pełni ponowne uruchomienie serwera.
+> * klaster Hello znajduje się w optymalny kworum kondycji. 
+> * Przed zainstalowaniem poprawki hello w każdym węźle, wszystkie węzły klastra są w trybie online.
+> * Przed zainstalowaniem poprawki hello na jednym z węzłów w klastrze hello Zezwalaj toocompletion toorun instalacji poprawki hello na jednym węźle, w tym pełni ponowne uruchomienie serwera hello.
 > 
 > 
 

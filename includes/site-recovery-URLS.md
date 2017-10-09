@@ -1,0 +1,4 @@
+``*.accesscontrol.windows.net``. Służy do kontrolowania dostępu i zarządzania tożsamościami.<br/><br/>``\*.backup.windowsazure.com``. Służy do transferowania i koordynacji danych replikacji. <br/><br/> ``\*.blob.core.windows.net``. Używany do toohello dostępu konta magazynu, która przechowuje zreplikowanych danych.<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``. Służy do wykonywania operacji i koordynacji zarządzania replikacją.<br/><br/>
+``time.nist.gov`` i ``time.windows.com``. Używane toocheck synchronizacja czasu między systemem a czasem globalnym.
+<br/><br/>
+Adresy URL hello Azure dla instytucji rządowych chmury:<br/>— .ugv.hypervrecoverymanager.windowsazure.us<br/>— .ugv.backup.windowsazure.us<br/>— .ugi.hypervrecoverymanager.windowsazure.us<br/>— .ugi.backup.windowsazure.us

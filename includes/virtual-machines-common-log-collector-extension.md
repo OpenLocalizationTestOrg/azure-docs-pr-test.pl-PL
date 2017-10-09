@@ -1,14 +1,14 @@
 
-Diagnozowanie problemów z usługą w chmurze Microsoft Azure wymaga zbieranie plików dziennika usługi na maszynach wirtualnych, ponieważ występują problemy. Można użyć AzureLogCollector rozszerzenia na żądanie do kolekcji jednorazowe perfom dzienników z co najmniej jeden chmury maszyn wirtualnych usługi (od ról sieć web i roli proces roboczy) i przenieść zebranych plików do konta magazynu platformy Azure — wszystko to bez zdalnego logowania się do żadnego z maszyny wirtualne.
+Diagnozowanie problemów z usługą w chmurze Microsoft Azure wymaga zbieranie plików dziennika usługi hello na maszynach wirtualnych, ponieważ występują problemy z hello. Można użyć hello AzureLogCollector rozszerzenia na żądanie tooperfom jednorazowe kolekcję dzienników z maszyn wirtualnych usługi w chmurze (od ról sieć web i roli proces roboczy) i transfer hello zebrane pliki tooan kontem magazynu platformy Azure — wszystko to bez zdalne logowanie tooany hello maszyn wirtualnych.
 
 > [!NOTE]
-> Opisy dla większości zarejestrowane informacje znajdują się w http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Opisy dla większości hello rejestrowane informacje znajdują się w http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
-Istnieją dwa tryby kolekcji zależne od typów plików, które mają być zbierane.
+Zależne od typów hello toobe pliki pobierane są dwa tryby kolekcji.
 
-* Gość Azure dzienniki agentów tylko (GA). Ten tryb kolekcji obejmuje wszystkie dzienniki związanych z agentów gości Azure i inne składniki platformy Azure.
+* Gość Azure dzienniki agentów tylko (GA). Ten tryb kolekcji zawiera wszystkich agentów gości pokrewne tooAzure hello dzienniki i inne składniki platformy Azure.
 * Wszystkie dzienniki (pełną). Ten tryb kolekcji będzie zbierać wszystkie pliki w trybie GA plus:
   
   * dzienniki zdarzeń systemu i aplikacji
@@ -17,31 +17,31 @@ Istnieją dwa tryby kolekcji zależne od typów plików, które mają być zbier
   * Dzienniki instalacji
   * inne dzienniki systemu
 
-W obu trybach kolekcji można określić dodatkowe dane folderów kolekcji przy użyciu kolekcję o następującej strukturze:
+W obu trybach kolekcji można określić przy użyciu kolekcji hello następujące struktury folderów kolekcji dodatkowe dane:
 
-* **Nazwa**: Nazwa kolekcji, która będzie używana jako nazwa podfolderu wewnątrz pliku zip do zebrania.
-* **Lokalizacja**: ścieżka do folderu na maszynie wirtualnej, gdzie będą zbierane pliku.
-* **SearchPattern**: wzorzec nazw plików, które mają być zbierane. Domyślna to "*"
-* **Cykliczne**: Jeśli pliki mają być zbierane rekursywnie w folderze.
+* **Nazwa**: Nazwa hello hello kolekcji, która będzie używana jako nazwa podfolderu wewnątrz toobe pliku zip hello hello zbierane.
+* **Lokalizacja**: hello toohello folder ścieżki na maszynie wirtualnej hello gdzie będą zbierane pliku.
+* **SearchPattern**: hello wzorzec nazw hello toobe pliki pobierane. Domyślna to "*"
+* **Cykliczne**: Jeśli hello pliki będą zbierane rekursywnie w folderze hello.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* Musisz mieć konto magazynu dla rozszerzenia do zapisywania plików zip wygenerowany.
+* Należy toohave konta magazynu dla plików zip toosave wygenerowany rozszerzeń.
 * Należy upewnić się, że używasz V0.8.0 poleceń cmdlet programu PowerShell Azure lub nowszej. Aby uzyskać więcej informacji, zobacz [Azure pobiera](https://azure.microsoft.com/downloads/).
 
-## <a name="add-the-extension"></a>Dodawanie rozszerzeń
-Można użyć [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) poleceń cmdlet lub [API REST zarządzania usługami](https://msdn.microsoft.com/library/ee460799.aspx) można dodać rozszerzenia AzureLogCollector.
+## <a name="add-hello-extension"></a>Dodaj rozszerzenie hello
+Można użyć [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) poleceń cmdlet lub [API REST zarządzania usługami](https://msdn.microsoft.com/library/ee460799.aspx) hello tooadd AzureLogCollector rozszerzenia.
 
-Dla usług w chmurze, istniejącego polecenia cmdlet programu Azure Powershell **AzureServiceExtension zestaw**, można włączyć rozszerzenia dla wystąpień roli usługi w chmurze. Za każdym razem, gdy to rozszerzenie jest włączona za pomocą tego polecenia cmdlet, zbierania dzienników jest wyzwalane w wystąpieniach wybranej roli wybranych ról.
+Dla usług w chmurze, hello istniejącego polecenia cmdlet Azure Powershell, **AzureServiceExtension zestaw**, mogą być używane tooenable hello rozszerzenia dla wystąpień roli usługi w chmurze. Za każdym razem, gdy to rozszerzenie jest włączona za pomocą tego polecenia cmdlet, zbieranie danych dziennika zostanie wywołany dla wystąpień roli hello wybrane wybranych ról.
 
-W przypadku maszyn wirtualnych istniejącego polecenia cmdlet programu Azure Powershell **AzureVMExtension zestaw**, można włączyć rozszerzenia na maszynach wirtualnych. Za każdym razem, gdy to rozszerzenie jest włączona za pomocą polecenia cmdlet, zbierania dzienników jest wyzwalane w każdym wystąpieniu.
+W przypadku maszyn wirtualnych hello istniejącego polecenia cmdlet Azure Powershell, **AzureVMExtension zestaw**, mogą być używane tooenable hello rozszerzenia na maszynach wirtualnych. Za każdym razem, gdy to rozszerzenie jest włączona za pomocą poleceń cmdlet hello, zbierania dzienników jest wyzwalane w każdym wystąpieniu.
 
-Wewnętrznie to rozszerzenie używa PublicConfiguration opartych na formacie JSON i PrivateConfiguration. Poniżej znajduje się układ próbkę JSON konfiguracji publiczne i prywatne.
+Wewnętrznie to rozszerzenie używa hello PublicConfiguration opartych na formacie JSON i PrivateConfiguration. następujące Hello jest układ hello próbki JSON konfiguracji publiczne i prywatne.
 
 ### <a name="publicconfiguration"></a>PublicConfiguration
     {
         "Instances":  "*",
         "Mode":  "Full",
-        "SasUri":  "SasUri to your storage account with sp=wl",
+        "SasUri":  "SasUri tooyour storage account with sp=wl",
         "AdditionalData":
         [
           {
@@ -65,31 +65,31 @@ Wewnętrznie to rozszerzenie używa PublicConfiguration opartych na formacie JSO
     }
 
 > [!NOTE]
-> To rozszerzenie nie wymaga **privateConfiguration**. Można podać tylko pustą strukturą dla **— PrivateConfiguration** argumentu.
+> To rozszerzenie nie wymaga **privateConfiguration**. Podobnie można zapewnić pustą strukturą hello **— PrivateConfiguration** argumentu.
 > 
 > 
 
-Możesz wykonać jedną dwa poniższe kroki, aby dodać AzureLogCollector do co najmniej jedno wystąpienie usługi w chmurze lub wybranych ról maszyny wirtualnej, która wyzwala kolekcje na każdej maszynie Wirtualnej Uruchom i wysyłanie zebranych plików do określone konto platformy Azure.
+Możesz wykonać jedną z dwóch hello następujące kroki tooadd hello AzureLogCollector tooone lub więcej wystąpień usługi w chmurze lub maszynę wirtualną wybranych ról, które wyzwalaczy hello kolekcje w każdej toorun maszyny Wirtualnej i wysyłać hello zebrane pliki tooAzure konta określona.
 
 ## <a name="adding-as-a-service-extension"></a>Dodawanie jako rozszerzenie usługi
-1. Postępuj zgodnie z instrukcjami, aby połączyć program Azure PowerShell do subskrypcji.
-2. Określić do których chcesz dodać i włączyć rozszerzenie AzureLogCollector wystąpień nazwę, miejsca, ról i rolę usługi.
+1. Wykonaj hello instrukcje tooconnect programu Azure PowerShell tooyour subskrypcji.
+2. Określ nazwę usługi hello, miejsca, ról i toowhich wystąpień roli mają tooadd i włączyć rozszerzenie AzureLogCollector hello.
    
         #Specify your cloud service name
         $ServiceName = 'extensiontest2'
    
-        #Specify the slot. 'Production' or 'Staging'
+        #Specify hello slot. 'Production' or 'Staging'
         $slot = 'Production'
    
-        #Specified the roles on which the extension will be installed and enabled
+        #Specified hello roles on which hello extension will be installed and enabled
         $roles = @("WorkerRole1","WebRole1")
    
-        #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
+        #Specify hello instances on which extension will be installed and enabled.  Use wildcard * for all instances
         $instances = @("*")
    
-        #Specify the collection mode, "Full" or "GA"
+        #Specify hello collection mode, "Full" or "GA"
         $mode = "GA"
-3. Określ folder dodatkowych danych, dla której będą zbierane pliki (ten krok jest opcjonalny).
+3. Określ folder dodatkowe dane hello, dla której będą zbierane pliki (ten krok jest opcjonalny).
    
         #add one location
         $a1 = New-Object PSObject
@@ -103,18 +103,18 @@ Możesz wykonać jedną dwa poniższe kroki, aby dodać AzureLogCollector do co 
               #more locations can be added....
    
    > [!NOTE]
-   > Można użyć tokenu `%roleroot%` do określenia dysku głównym roli, ponieważ nie używa dysk stały.
+   > Można użyć tokenu `%roleroot%` toospecify hello roli katalog główny dysku, ponieważ nie używa dysk stały.
    > 
    > 
-4. Podaj nazwę konta magazynu platformy Azure i klucz, do którego zostanie przekazany zebranych plików.
+4. Podaj nazwę konta magazynu Azure hello i klucza toowhich zebrane pliki zostaną przekazane.
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-5. Wywołanie SetAzureServiceLogCollector.ps1 (dołączony na końcu artykułu) w następujący sposób włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazanego pliku w obszarze`https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
+5. Wywołania hello SetAzureServiceLogCollector.ps1 (dołączony na końcu artykułu hello hello) jako sposób tooenable hello AzureLogCollector rozszerzenia dla usługi w chmurze. Po zakończeniu wykonywania hello można znaleźć pliku hello przekazany w`https://YouareStorageAccountName.blob.core.windows.net/vmlogs`
    
         .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
 
-Poniżej znajduje się definicja parametry przekazywane do skryptu. (To jest kopiowana poniżej również.)
+Witaj poniżej znajduje się definicja hello hello parametry przekazywane toohello skryptu. (To jest kopiowana poniżej również.)
 
     [CmdletBinding(SupportsShouldProcess = $true)]
 
@@ -146,12 +146,12 @@ Poniżej znajduje się definicja parametry przekazywane do skryptu. (To jest kop
 
 * *ServiceName*: Nazwa usługi w chmurze.
 * *Role*: lista ról, takich jak "WebRole1" lub "WorkerRole1".
-* *Wystąpienia*: Lista nazw wystąpień roli oddzielonych przecinkami — Użyj ciągu symbol wieloznaczny ("*") dla wszystkich wystąpień roli.
+* *Wystąpienia*: Lista nazw hello wystąpień roli oddzielonych przecinkami — Użyj hello ciąg symbolu wieloznacznego ("*") dla wszystkich wystąpień roli.
 * *Gniazdo*: nazwa miejsca. "Production" lub "Tymczasowości".
 * *Tryb*: tryb kolekcji. "Pełnej" lub "GA".
 * *StorageAccountName*: Nazwa Azure konta magazynu do przechowywania zbieranych danych.
 * *StorageAccountKey*: klucz konta magazynu Name Azure.
-* *AdditionalDataLocationList*: Lista następującej strukturze:
+* *AdditionalDataLocationList*: Lista hello następujące struktury:
   
       {
       String Name,
@@ -161,20 +161,20 @@ Poniżej znajduje się definicja parametry przekazywane do skryptu. (To jest kop
       }
 
 ## <a name="adding-as-a-vm-extension"></a>Dodawanie jako rozszerzenie maszyny Wirtualnej
-Postępuj zgodnie z instrukcjami, aby połączyć program Azure PowerShell do subskrypcji.
+Wykonaj hello instrukcje tooconnect programu Azure PowerShell tooyour subskrypcji.
 
-1. Określ nazwę usługi, maszyny Wirtualnej i tryb kolekcji.
+1. Określ nazwę usługi hello, maszyny Wirtualnej i tryb kolekcji hello.
    
         #Specify your cloud service name
         $ServiceName = 'YourCloudServiceName'
    
-        #Specify the VM name
+        #Specify hello VM name
         $VMName = "'YourVMName'"
    
-        #Specify the collection mode, "Full" or "GA"
+        #Specify hello collection mode, "Full" or "GA"
         $mode = "GA"
    
-        Specify the additional data folder for which files will be collected (this step is optional).
+        Specify hello additional data folder for which files will be collected (this step is optional).
    
         #add one location
         $a1 = New-Object PSObject
@@ -186,13 +186,13 @@ Postępuj zgodnie z instrukcjami, aby połączyć program Azure PowerShell do su
    
         $AdditionalDataList+= $a1
               #more locations can be added....
-2. Podaj nazwę konta magazynu platformy Azure i klucz, do którego zostanie przekazany zebranych plików.
+2. Podaj nazwę konta magazynu Azure hello i klucza toowhich zebrane pliki zostaną przekazane.
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Wywołanie SetAzureVMLogCollector.ps1 (dołączony na końcu artykułu) w następujący sposób włączyć rozszerzenie AzureLogCollector dla usługi w chmurze. Po zakończeniu wykonywania można znaleźć przekazanego pliku w obszarze https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. Wywołania hello SetAzureVMLogCollector.ps1 (dołączony na końcu artykułu hello hello) jako sposób tooenable hello AzureLogCollector rozszerzenia dla usługi w chmurze. Po zakończeniu wykonywania hello można znaleźć pliku hello przekazany w https://YouareStorageAccountName.blob.core.windows.net/vmlogs
 
-Poniżej znajduje się definicja parametry przekazywane do skryptu. (To jest kopiowana poniżej również.)
+Witaj poniżej znajduje się definicja hello hello parametry przekazywane toohello skryptu. (To jest kopiowana poniżej również.)
 
     [CmdletBinding(SupportsShouldProcess = $true)]
 
@@ -217,11 +217,11 @@ Poniżej znajduje się definicja parametry przekazywane do skryptu. (To jest kop
       )
 
 * ServiceName: Twoje nazwa usługi w chmurze.
-* VMName Nazwa maszyny Wirtualnej.
+* Nazwa hello VMName hello maszyny Wirtualnej.
 * Tryb: Tryb kolekcji. "Pełnej" lub "GA".
 * StorageAccountName: Nazwa konta magazynu Azure do przechowywania zebranych danych.
 * StorageAccountKey: Nazwa klucz konta magazynu platformy Azure.
-* AdditionalDataLocationList: Lista następującej strukturze:
+* AdditionalDataLocationList: Lista hello następujące struktury:
 
 ```
       {
@@ -274,7 +274,7 @@ SetAzureServiceLogCollector.ps1
           }
         $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value $instanceText
     }
-    else  #For all instances if not specified.  The value should be a space or *
+    else  #For all instances if not specified.  hello value should be a space or *
     {
         $publicConfig | Add-Member -MemberType NoteProperty -Name "Instances" -Value " "
     }
@@ -289,7 +289,7 @@ SetAzureServiceLogCollector.ps1
     }
 
     #
-    #we need to get the Sasuri from StorageAccount and containers
+    #we need tooget hello Sasuri from StorageAccount and containers
     #
     $context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
@@ -306,7 +306,7 @@ SetAzureServiceLogCollector.ps1
     $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
     #
-    #Add AdditionalData to collect data from additional folders
+    #Add AdditionalData toocollect data from additional folders
     #
     if ($AdditionDataLocationList -ne $null )
     {
@@ -314,7 +314,7 @@ SetAzureServiceLogCollector.ps1
     }
 
     #
-    # Convert it to JSON format
+    # Convert it tooJSON format
     #
     $publicConfigJSON = $publicConfig | ConvertTo-Json
     "publicConfig is:  $publicConfigJSON"
@@ -333,12 +333,12 @@ SetAzureServiceLogCollector.ps1
     }
 
     #
-    #This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+    #This is an optional step: generate a sasUri toohello container so it can be shared with other people if nened
     #
     $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
     $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
     $SasUri = $SasUri + "&restype=container&comp=list"
-    Write-Output "The container for uploaded file can be accessed using this link:`r`n$sasuri"
+    Write-Output "hello container for uploaded file can be accessed using this link:`r`n$sasuri"
 
 
 SetAzureVMLogCollector.ps1
@@ -378,7 +378,7 @@ SetAzureVMLogCollector.ps1
     }
 
     #
-    #we need to get the Sasuri from StorageAccount and containers
+    #we need tooget hello Sasuri from StorageAccount and containers
     #
     $context = New-AzureStorageContext -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
@@ -395,7 +395,7 @@ SetAzureVMLogCollector.ps1
     $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
     #
-    #Add AdditionalData to collect data from additional folders
+    #Add AdditionalData toocollect data from additional folders
     #
     if ($AdditionDataLocationList -ne $null )
     {
@@ -403,7 +403,7 @@ SetAzureVMLogCollector.ps1
     }
 
     #
-    # Convert it to JSON format
+    # Convert it tooJSON format
     #
     $publicConfigJSON = $publicConfig | ConvertTo-Json
 
@@ -425,8 +425,8 @@ SetAzureVMLogCollector.ps1
                 Set-AzureVMExtension -VM $VM -ExtensionName "AzureLogCollector" -Publisher Microsoft.WindowsAzure.Compute -PublicConfiguration $publicConfigJSON -PrivateConfiguration $privateconfig -Version 1.* | Update-AzureVM -Verbose
 
                 #
-                #We will check the VM status to find if operation by extension has been completed or not. The completion of the operation,either succeed or fail, can be indicated by
-                #the presence of SubstatusList field.
+                #We will check hello VM status toofind if operation by extension has been completed or not. hello completion of hello operation,either succeed or fail, can be indicated by
+                #hello presence of SubstatusList field.
                 #
                 $Completed = $false
                 while ($Completed -ne $true)
@@ -442,7 +442,7 @@ SetAzureVMLogCollector.ps1
                         elseif (($status.ExtensionSettingStatus.SubstatusList -eq $null -or $status.ExtensionSettingStatus.SubstatusList.Count -lt 1))
                         {
                               $Completed = $false
-                              Write-Output "Waiting for operation to complete..."
+                              Write-Output "Waiting for operation toocomplete..."
                         }
                         else
                         {
@@ -453,15 +453,15 @@ SetAzureVMLogCollector.ps1
                               $blob = New-Object Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob($UploadedFileUri)
 
                       #
-                            # This is an optional step:  For easier access to the file, we can generate a read-only SasUri directly to the file
+                            # This is an optional step:  For easier access toohello file, we can generate a read-only SasUri directly toohello file
                               #
                               $ExpiryTimeRead =  [DateTime]::Now.AddMinutes(120).ToString("o")
                               $ReadSasUri = New-AzureStorageBlobSASToken -ExpiryTime $ExpiryTimeRead  -FullUri  -Blob  $blob.name -Container $blob.Container.Name -Permission r -Context $context
 
-                            Write-Output "The uploaded file can be accessed using this link: $ReadSasUri"
+                            Write-Output "hello uploaded file can be accessed using this link: $ReadSasUri"
 
                               #
-                              #This is an optional step:  Remove the extension after we are done
+                              #This is an optional step:  Remove hello extension after we are done
                               #
                               Get-AzureVM -ServiceName $ServiceName -Name $VMName | Set-AzureVMExtension -Publisher Microsoft.WindowsAzure.Compute -ExtensionName "AzureLogCollector" -Version 1.* -Uninstall | Update-AzureVM -Verbose
 
@@ -471,13 +471,13 @@ SetAzureVMLogCollector.ps1
           }
           else
           {
-              Write-Output "VM OS Type is not Windows, the extension cannot be enabled"
+              Write-Output "VM OS Type is not Windows, hello extension cannot be enabled"
           }
 
     }
     else
     {
-      Write-Output "VM name is not specified, the extension cannot be enabled"
+      Write-Output "VM name is not specified, hello extension cannot be enabled"
     }
 
 ## <a name="next-steps"></a>Następne kroki

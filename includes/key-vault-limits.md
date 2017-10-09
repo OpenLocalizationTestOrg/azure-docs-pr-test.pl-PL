@@ -13,4 +13,4 @@ Klucze tajne, zarządzane klucze konta magazynu i transakcji magazynu:
 | Wszystkie transakcje |2000 |
 |
 
-<sup>1</sup> jest ograniczona do całej subskrypcji, dla wszystkich typów transakcji, które 5 x limitu magazynu kluczy. Na przykład HSM - inne transakcje dla subskrypcji są ograniczone do 5000 transakcji za 10 sekund na subskrypcję.
+<sup>1</sup> jest ograniczona do całej subskrypcji, dla wszystkich typów transakcji, które 5 x limitu magazynu kluczy. Na przykład HSM - inne transakcje dla subskrypcji są ograniczone too5000 transakcje za 10 sekund na subskrypcję.

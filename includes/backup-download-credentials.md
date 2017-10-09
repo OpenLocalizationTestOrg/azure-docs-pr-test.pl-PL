@@ -1,26 +1,26 @@
-## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>Przy użyciu magazynu poświadczeń do uwierzytelniania za pomocą usługi Kopia zapasowa Azure
-Serwer lokalny (Windows klienta lub serwera systemu Windows Server lub programu Data Protection Manager) wymaga uwierzytelniania z magazynu kopii zapasowych przed go utworzyć kopię zapasową danych na platformie Azure. Uwierzytelnianie odbywa się przy użyciu "magazynu poświadczeń". Pojęcie poświadczenia magazynu jest podobny do koncepcji "ustawień publikowania" pliku, który jest używany w programie Azure PowerShell.
+## <a name="using-vault-credentials-tooauthenticate-with-hello-azure-backup-service"></a>Przy użyciu tooauthenticate poświadczeń magazynu z hello usługi Kopia zapasowa Azure
+Witaj lokalnego serwera (Windows klienta lub serwera systemu Windows Server lub programu Data Protection Manager) musi toobe, aby go może tworzyć kopie zapasowe danych tooAzure uwierzytelnienie z magazynu kopii zapasowych. Hello uwierzytelnianie odbywa się przy użyciu "magazynu poświadczeń". pojęcie Hello poświadczenia magazynu to podobne pojęcia toohello "ustawień publikowania" pliku, który jest używany w programie Azure PowerShell.
 
-### <a name="what-is-the-vault-credential-file"></a>Co to jest plik poświadczeń magazynu?
-Plik poświadczeń magazynu jest to certyfikat wygenerowany przez portal dla każdego magazynu kopii zapasowych. Portal przekazuje następnie klucz publiczny do usługi Access Control Service (ACS). Klucz prywatny certyfikatu jest udostępniany jako część przepływu pracy, który został podany jako dane wejściowe w przepływie pracy rejestracji maszyny. To jest uwierzytelniany w celu wysyłania danych kopii zapasowej do określonych magazynu w usłudze Kopia zapasowa Azure maszyny.
+### <a name="what-is-hello-vault-credential-file"></a>Co to jest plik poświadczeń magazynu hello?
+Plik poświadczeń magazynu Hello jest certyfikatem generowane przez portal powitania dla każdego magazynu kopii zapasowych. Hello portal przekazuje następnie hello toohello klucza publicznego usługi kontroli dostępu (ACS). Hello klucza prywatnego certyfikatu hello stają się dostępne toohello użytkownika jako część przepływu pracy hello, które jest podawana jako dane wejściowe w hello maszyny rejestracji w przepływie pracy. To jest uwierzytelniany hello maszyny toosend dane kopii zapasowej tooan zidentyfikowane magazynu w hello usługi Kopia zapasowa Azure.
 
-Poświadczenie magazynu jest używane tylko podczas przepływu pracy związanego z rejestracją. Jest odpowiedzialny za użytkownika, aby upewnić się, że plik poświadczeń magazynu nie zostaną ujawnione. Jeśli wpadnie on w ręce nieuczciwego użytkownika, może posłużyć do rejestrowania innych komputerów względem tego samego magazynu. Jednak ponieważ dane kopii zapasowej jest zaszyfrowany przy użyciu hasła, który należy do klienta, dane kopii zapasowej nie zostaną ujawnione. Aby uniknąć tego problemu, poświadczenia magazynu są ustawiane wygaśnie po upływie 48hrs. Poświadczenia magazynu magazynu kopii zapasowych można pobrać dowolną liczbę razy —, lecz tylko najnowszy plik poświadczeń magazynu jest stosowany podczas rejestracji przepływ pracy.
+poświadczenia magazynu Hello jest używany tylko podczas rejestracji hello w przepływie pracy. Jest tooensure odpowiedzialność hello użytkownika, który hello pliku nie zostaną ujawnione poświadczenia magazynu. Jeśli znajduje się w ręce hello dowolny złośliwy użytkownik, plik poświadczeń magazynu hello może być używane tooregister inne maszyny przed hello tego samego magazynu. Jednak ponieważ hello dane kopii zapasowej jest zaszyfrowany przy użyciu hasła, który należy toohello klienta, dane kopii zapasowej nie zostaną ujawnione. toomitigate tego problemu, poświadczenia magazynu ustawiono tooexpire w 48hrs. Poświadczenia magazynu hello magazynu kopii zapasowych można pobrać dowolną liczbę razy —, lecz tylko hello najnowszy plik poświadczeń magazynu jest stosowany podczas rejestracji hello w przepływie pracy.
 
-### <a name="download-the-vault-credential-file"></a>Pobierz plik poświadczeń magazynu
-Plik poświadczeń magazynu jest pobierana za pośrednictwem bezpiecznego kanału z portalu Azure. Usługi Azure Backup nie rozpoznaje klucza prywatnego certyfikatu i klucza prywatnego w portalu lub usługa nie jest trwały. Wykonaj następujące kroki, aby pobrać plik poświadczeń magazynu na komputerze lokalnym.
+### <a name="download-hello-vault-credential-file"></a>Pobierz plik poświadczeń magazynu hello
+Plik poświadczeń magazynu Hello jest pobierana za pośrednictwem bezpiecznego kanału z hello portalu Azure. Witaj usługi Azure Backup nie rozpoznaje hello klucza prywatnego certyfikatu hello i w portalu hello lub usługi hello hello klucz prywatny nie jest trwały. Użyj hello następujące kroki toodownload hello magazynu poświadczeń pliku tooa komputera lokalnego.
 
-1. Zaloguj się do [portalu zarządzania](https://manage.windowsazure.com/)
-2. Polecenie **usług odzyskiwania** w lewym okienku nawigacyjnym i wybierz magazyn kopii zapasowych, które zostały utworzone. Kliknij ikonę chmury, aby uzyskać dostęp do widoku Szybki Start magazynu kopii zapasowych.
+1. Zaloguj się toohello [portalu zarządzania](https://manage.windowsazure.com/)
+2. Polecenie **usług odzyskiwania** w okienku nawigacji po lewej stronie powitania i wybierz hello magazynu kopii zapasowych, które zostały utworzone. Polecenie hello chmury ikona tooget toohello Szybki Start widoku hello magazynu kopii zapasowych.
    
    ![Szybki przegląd](./media/backup-download-credentials/quickview.png)
-3. Na stronie Szybki Start kliknij **poświadczenia magazynu pobierania**. Portalu generuje plik poświadczeń magazynu, który ma zostać udostępnione do pobrania.
+3. Na stronie Szybki Start powitania kliknij **poświadczenia magazynu pobierania**. Hello portal generuje plik poświadczeń magazynu hello, który ma zostać udostępnione do pobrania.
    
    ![Do pobrania](./media/backup-download-credentials/downloadvc.png)
-4. Portalu wygeneruje poświadczenie magazynu przy użyciu kombinacji nazwy magazynu i bieżącą datę. Kliknij przycisk **zapisać** Pobierz poświadczenia magazynu do konta lokalnego pobieranie folderu lub wybierz polecenie Zapisz jako z menu Zapisz, aby określić lokalizację dla poświadczenia magazynu.
+4. Hello portal wygeneruje poświadczenie magazynu przy użyciu kombinacji nazwy magazynu hello i hello bieżącą datę. Kliknij przycisk **zapisać** toodownload hello magazynu poświadczeń toohello lokalnego konta pobiera folderu lub wybierz Zapisz jako z hello zapisać menu toospecify lokalizację hello poświadczenia magazynu.
 
 ### <a name="note"></a>Uwaga
-* Upewnij się, że poświadczenia magazynu został zapisany w lokalizacji, w których może uzyskać dostęp z komputera. Jeśli jest on przechowywany w udziale plików/SMB, sprawdź, czy uprawnienia dostępu.
-* Plik poświadczeń magazynu jest używana tylko podczas rejestracji przepływ pracy.
-* Plik poświadczeń magazynu wygasa po 48hrs i może zostać pobrany z portalu.
-* Odwoływać się do usługi Azure Backup [— często zadawane pytania](../articles/backup/backup-azure-backup-faq.md) wszelkie pytania w przepływie pracy.
+* Upewnij się, że poświadczenia magazynu hello został zapisany w lokalizacji, w których może uzyskać dostęp z komputera. Jeśli jest on przechowywany w udziale plików/SMB, sprawdź, czy uprawnienia dostępu hello.
+* Plik poświadczeń magazynu Hello jest używany tylko podczas rejestracji hello w przepływie pracy.
+* Plik poświadczeń magazynu Hello wygasa po 48hrs i może zostać pobrany z portalu hello.
+* Zobacz toohello kopia zapasowa Azure [— często zadawane pytania](../articles/backup/backup-azure-backup-faq.md) wszelkie pytania na powitania przepływu pracy.
 

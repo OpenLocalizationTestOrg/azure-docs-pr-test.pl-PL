@@ -1,38 +1,38 @@
-## <a name="view-the-solution-dashboard"></a>Wyświetlanie pulpitu nawigacyjnego
+## <a name="view-hello-solution-dashboard"></a>Pulpit nawigacyjny rozwiązania hello widoku
 
-Pulpit nawigacyjny pozwala zarządzać wdrożonym rozwiązaniem. Można na przykład wyświetlić dane telemetryczne, Dodaj urządzenia i wywołania metody.
+pulpit nawigacyjny rozwiązania Hello umożliwia toomanage hello wdrożyć rozwiązanie. Można na przykład wyświetlić dane telemetryczne, Dodaj urządzenia i wywołania metody.
 
-1. Jeśli aprowizacja została ukończona, a na kafelku wstępnie skonfigurowanego rozwiązania jest wyświetlany stan **Gotowe**, wybierz pozycję **Uruchom**, aby otworzyć portal rozwiązania do monitorowania zdalnego na nowej karcie.
+1. Po ukończeniu inicjowania obsługi administracyjnej hello i wskazuje hello Kafelek wstępnie skonfigurowane rozwiązanie **gotowe**, wybierz **uruchamianie** tooopen zdalnego monitorowania rozwiązania portalem na nowej karcie.
 
-    ![Uruchamianie wstępnie skonfigurowanego rozwiązania][img-launch-solution]
+    ![Uruchamianie hello wstępnie skonfigurowane rozwiązanie][img-launch-solution]
 
-1. Domyślnie w portalu rozwiązania jest wyświetlany *pulpit nawigacyjny*. Korzystając z menu po lewej stronie, można przejść do innych obszarów portalu rozwiązania.
+1. Domyślnie hello rozwiązanie portalu pokazuje hello *pulpitu nawigacyjnego*. Można przejść obszarów tooother hello rozwiązanie portalu przy użyciu hello menu na powitania po lewej stronie powitania strony.
 
     ![Pulpit nawigacyjny wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego][img-menu]
 
 ## <a name="add-a-device"></a>Dodawanie urządzenia
 
-Aby urządzenie mogło nawiązać połączenie ze wstępnie skonfigurowanym rozwiązaniem, musi ono zidentyfikować się względem usługi IoT Hub za pomocą prawidłowych poświadczeń. Poświadczenia urządzenia możesz pobrać z pulpitu nawigacyjnego rozwiązania. W dalszej części tego samouczka podasz te poświadczenia urządzenia w Twojej aplikacji klienckiej.
+Jako rozwiązanie toohello wstępnie tooconnect urządzenia, jego musi identyfikacji tooIoT Centrum używając poprawnych poświadczeń. Pulpit nawigacyjny rozwiązania hello może pobrać poświadczenia urządzeń hello. Wprowadzono poświadczenia urządzeń hello w dalszej części tego samouczka aplikacji klienta.
 
-Jeśli jeszcze tego nie zrobiono, należy dodać niestandardowe urządzenie do zdalnego rozwiązanie monitorowania. Wykonaj następujące czynności na pulpicie nawigacyjnym rozwiązania:
+Jeśli jeszcze tego nie zrobiono, należy dodać urządzenia niestandardowe tooyour zdalnego rozwiązanie monitorowania. Wykonaj następujące kroki na pulpicie nawigacyjnym rozwiązania hello hello:
 
-1. W lewym dolnym rogu pulpitu nawigacyjnego kliknij pozycję **Dodaj urządzenie**.
+1. W hello lewym dolnym rogu hello pulpitu nawigacyjnego, kliknij przycisk **dodać urządzenie**.
 
    ![Dodawanie urządzenia][1]
 
-1. W panelu **Urządzenie niestandardowe** kliknij pozycję **Dodaj nowe**.
+1. W hello **urządzenia niestandardowe** panelu, kliknij przycisk **Dodaj nowe**.
 
    ![Dodawanie urządzenia niestandardowego][2]
 
-1. Wybierz pozycję **Pozwól mi zdefiniować własny identyfikator urządzenia**. Wprowadź identyfikator urządzenia, takie jak **rasppi**, kliknij przycisk **Sprawdź identyfikator** można zweryfikować już nie użyto nazwy rozwiązania, a następnie kliknij przycisk **Utwórz** do obsługi administracyjnej urządzeniu.
+1. Wybierz pozycję **Pozwól mi zdefiniować własny identyfikator urządzenia**. Wprowadź identyfikator urządzenia, takie jak **rasppi**, kliknij przycisk **Sprawdź identyfikator** tooverify nazwa hello nie zostało już używana w rozwiązaniu, a następnie kliknij przycisk **Utwórz** tooprovision hello urządzenia.
 
    ![Dodawanie identyfikatora urządzenia][3]
 
-1. Zanotuj poświadczenia urządzenia (**identyfikator urządzenia**, **nazwy hosta Centrum IoT**, i **klucza urządzenia**). Aplikacja kliencka na Pi malina wymaga tych wartości, aby nawiązać połączenie zdalne rozwiązanie monitorowania. Następnie kliknij przycisk **Gotowe**.
+1. Zwiększanie urządzenia hello Uwaga poświadczeń (**identyfikator urządzenia**, **nazwy hosta Centrum IoT**, i **klucza urządzenia**). Aplikacji klienta na powitania Pi malina musi zdalne monitorowanie rozwiązania toohello tooconnect tych wartości. Następnie kliknij przycisk **Gotowe**.
 
     ![Wyświetlanie poświadczeń urządzenia][4]
 
-1. Wybierz urządzenie na liście urządzeń na pulpicie nawigacyjnym rozwiązania. Następnie w panelu **Szczegóły urządzenia** kliknij pozycję **Włącz urządzenie**. Stan Twojego urządzenia to teraz **Uruchomione**. Rozwiązanie do monitorowania zdalnego może teraz odbierać dane telemetryczne z Twojego urządzenia i wywoływać metody na tym urządzeniu.
+1. Wybierz urządzenie na liście urządzeń hello na pulpicie nawigacyjnym rozwiązania hello. Następnie w hello **szczegóły urządzenia** panelu, kliknij przycisk **Włącz urządzenie**. Witaj stan urządzenia jest teraz **systemem**. rozwiązanie monitorowania zdalnego Hello teraz może odbierać dane telemetryczne z urządzenia i wywołania metod na urządzeniu hello.
 
 [img-launch-solution]: media/iot-suite-raspberry-pi-kit-view-solution/launch.png
 [img-menu]: media/iot-suite-raspberry-pi-kit-view-solution/menu.png

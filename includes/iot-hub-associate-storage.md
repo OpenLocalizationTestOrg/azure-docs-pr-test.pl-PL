@@ -1,0 +1,7 @@
+## <a name="associate-an-azure-storage-account-tooiot-hub"></a>Skojarz tooIoT konta usługi Azure Storage Centrum
+
+Ponieważ hello symulowane urządzenie aplikacji przekazuje obiekt blob tooa pliku, musisz mieć [usługi Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) konta skojarzone tooIoT koncentratora. Po skojarzeniu konta usługi Azure Storage z Centrum IoT, Centrum IoT hello generuje identyfikator URI sygnatury dostępu Współdzielonego. Urządzenia można użyć tego identyfikatora URI połączenia SAS toosecurely przekazywania pliku tooa kontenera obiektów blob. Hello usługi IoT Hub i hello zestawy SDK urządzenia koordynować hello procesu, który generuje hello identyfikatora URI połączenia SAS i ułatwia tooa dostępne urządzenia toouse tooupload pliku.
+
+Postępuj zgodnie z instrukcjami hello [wysyłanie plików konfiguracji za pomocą portalu Azure hello](../articles/iot-hub/iot-hub-configure-file-upload.md) tooassociate Centrum IoT tooyour konta magazynu Azure. Upewnij się, że kontener obiektów blob jest skojarzony z Centrum IoT i włączenia powiadomień pliku.
+
+![Włącz powiadomienia pliku w portalu](media/iot-hub-associate-storage/enable-file-notifications.png)

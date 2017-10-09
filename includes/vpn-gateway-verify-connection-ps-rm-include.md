@@ -1,11 +1,11 @@
-Możesz również sprawdzić, czy połączenie zostało pomyślnie nawiązane, używając polecenia cmdlet „Get-AzureRmVirtualNetworkGatewayConnection” z opcją „-Debug” lub bez niej. 
+Możesz sprawdzić, czy połączenie powiodło się przy użyciu polecenia cmdlet "Get-AzureRmVirtualNetworkGatewayConnection" hello, lub bez '-Debug ". 
 
-1. Można skorzystać z następującego przykładu użycia polecenia cmdlet, dopasowując wartości do własnych potrzeb. Po wyświetleniu monitu wybierz „A”, aby uruchomić wszystko. W podanym przykładzie opcja „-Name” odnosi się do nazwy połączenia, które ma zostać przetestowane.
+1. Użyj hello poniższy przykład polecenia cmdlet, konfigurowania toomatch wartości hello własne. Po wyświetleniu monitu wybierz "A" w kolejności toorun "All". Przykład Witaj "-Name" odwołuje się nazwa toohello hello połączenia, które mają tootest.
 
   ```powershell
   Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
   ```
-2. Po zakończeniu działania polecenia cmdlet sprawdź wartości. W poniższym przykładzie stan połączenia jest wyświetlany jako „Połączone” i można zobaczyć bajty przychodzące i wychodzące.
+2. Po zakończeniu działania polecenia cmdlet hello wyświetlić hello wartości. W poniższym przykładzie hello stan połączenia hello jest wyświetlany jako "Połączony", aby sprawdzić Bajty przychodzące i wychodzące.
    
   ```
   "connectionStatus": "Connected",

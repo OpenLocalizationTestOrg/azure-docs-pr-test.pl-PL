@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie zasobu maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft
-description: "Przenieś Maszynę wirtualną systemu Windows do innego Azure subskrypcji lub grupy zasobów w modelu wdrażania usługi Resource Manager."
+title: aaaMove zasobu maszyny Wirtualnej systemu Windows na platformie Azure | Dokumentacja firmy Microsoft
+description: "Przenieś maszynę Wirtualną systemu Windows tooanother subskrypcji platformy Azure lub grupy zasobów w modelu wdrażania usługi Resource Manager hello."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 1db25a5d9ff5cb6aa2787a0cafa40cfb010e3b06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 859e78dce9acf1168780d4ee8e9f6dac0e3c11cf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Przenieś Maszynę wirtualną systemu Windows do innego Azure subskrypcji lub grupy zasobów
-W tym artykule przedstawiono sposób przenoszenia maszyny Wirtualnej systemu Windows między grupami zasobów lub subskrypcji. Przenoszenie między subskrypcjami można skorzystać, jeśli pierwotnie utworzono Maszynę wirtualną w osobistych subskrypcji i chcesz teraz Przenieś go do subskrypcji w firmie, aby kontynuować pracę.
+# <a name="move-a-windows-vm-tooanother-azure-subscription-or-resource-group"></a>Przenieś maszynę Wirtualną systemu Windows tooanother subskrypcji platformy Azure lub grupy zasobów
+W tym artykule przedstawiono sposób toomove maszyny Wirtualnej systemu Windows, między grupami zasobów lub subskrypcji. Przenoszenie między subskrypcjami mogą być przydatne, jeśli pierwotnie utworzono Maszynę wirtualną w osobistych subskrypcji i teraz toomove on toocontinue subskrypcji firmy tooyour swoją pracę.
 
 > [!IMPORTANT]
 >Nie można przenieść dysków zarządzanych w tej chwili. 
 >
->Nowych identyfikatorów zasobów są tworzone w ramach przeniesienia. Po przeniesieniu maszyny Wirtualnej należy zaktualizować narzędzia i skrypty do używania nowych identyfikatorów zasobów. 
+>Nowych identyfikatorów zasobów są tworzone w ramach przeniesienia hello. Po hello maszyny Wirtualnej został przeniesiony, należy tooupdate narzędzia i skrypty toouse hello nowego zasobu identyfikatorów. 
 > 
 > 
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="use-powershell-to-move-a-vm"></a>Aby przenieść Maszynę wirtualną za pomocą programu Powershell
-Aby przenieść maszynę wirtualną w innej grupie zasobów, musisz upewnij się, że można również przenieść wszystkie zasoby zależne. Korzystanie z polecenia cmdlet Move-AzureRMResource wymaga nazwy zasobu i typu zasobu. Możesz uzyskać zarówno z polecenia cmdlet AzureRMResource Znajdź.
+## <a name="use-powershell-toomove-a-vm"></a>Użyj programu Powershell toomove maszyny Wirtualnej
+toomove grupę zasobów tooanother maszyny wirtualnej, należy się również o przeniesieniu wszystkich zasobów zależnych hello toomake. polecenia cmdlet Move-AzureRMResource hello toouse, potrzebna Nazwa zasobu hello i hello typu zasobu. Możesz uzyskać zarówno z polecenia cmdlet hello AzureRMResource Znajdź.
 
     Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
 
 
-Aby przenieść Maszynę wirtualną, trzeba przenieść wiele zasobów. Firma Microsoft wystarczy utworzyć oddzielne zmienne dla każdego zasobu, a następnie na liście. W tym przykładzie zawiera większość podstawowych zasobów dla maszyny Wirtualnej, ale można dodać więcej zgodnie z potrzebami.
+toomove potrzebujemy toomove wielu zasobów maszyny Wirtualnej. Firma Microsoft wystarczy utworzyć oddzielne zmienne dla każdego zasobu, a następnie na liście. W tym przykładzie obejmuje większość hello podstawowych zasobów dla maszyny Wirtualnej, ale można dodać więcej zgodnie z potrzebami.
 
     $sourceRG = "<sourceResourceGroupName>"
     $destinationRG = "<destinationResourceGroupName>"
@@ -54,14 +54,14 @@ Aby przenieść Maszynę wirtualną, trzeba przenieść wiele zasobów. Firma Mi
 
     Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
-Przeniesienie zasobów do innej subskrypcji, obejmują **- DestinationSubscriptionId** parametru. 
+toomove hello zasobów toodifferent subskrypcji, obejmują hello **- DestinationSubscriptionId** parametru. 
 
     Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
 
 
 
-Użytkownik jest proszony o potwierdzenie, że chcesz przenieść określonych zasobów. Typ **Y** aby upewnić się, że chcesz przenieść zasoby.
+Konieczne będzie podanie tooconfirm, które mają toomove hello określonych zasobów. Typ **Y** tooconfirm, które mają toomove hello zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
-Wiele różnych typów zasobów można przenosić między grupami zasobów i subskrypcje. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](../../resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).    
+Wiele różnych typów zasobów można przenosić między grupami zasobów i subskrypcje. Aby uzyskać więcej informacji, zobacz [przenieść grupy zasobów toonew zasobów lub subskrypcji](../../resource-group-move-resources.md).    
 

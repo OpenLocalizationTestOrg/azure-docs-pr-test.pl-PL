@@ -7,20 +7,20 @@
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W [Rozpoczynanie pracy z Centrum IoT urządzenia twins][lnk-twin-tutorial], wiesz, jak ustawić metadane urządzenia z pomocą zaplecza rozwiązania *tagi*, raport warunków urządzenia z aplikacjami urządzenia przy użyciu *zgłosił właściwości*oraz badanie tych informacji przy użyciu języka przypominającego SQL.
+W [Rozpoczynanie pracy z Centrum IoT urządzenia twins][lnk-twin-tutorial], wiesz, jak metadanych urządzenia tooset z powrotem rozwiązania kończyć się przy użyciu *tagi*, raport warunków urządzenia z aplikacjami urządzenia przy użyciu *zgłosił właściwości*oraz badanie tych informacji przy użyciu języka przypominającego SQL.
 
-Z tego samouczka, dowiesz sposób użycia dwie urządzenia *żądanego właściwości* wraz z *zgłosił właściwości*, w celu zdalnego konfigurowania aplikacji dla urządzeń. W szczególności w tym samouczku przedstawiono sposób zgłaszania dwie urządzenia oraz odpowiednie właściwości Włącz konfigurację wieloetapowych aplikację dla urządzeń i widoczności do zaplecza rozwiązania stanu tej operacji dla wszystkich urządzeń. Można znaleźć więcej informacji na temat roli konfiguracji urządzeń w [omówienie zarządzania urządzeniami z Centrum IoT][lnk-dm-overview].
+Z tego samouczka, dowiesz się, jak toouse Witaj dwie urządzenia hello *żądanego właściwości* wraz z *zgłosił właściwości*, tooremotely Konfigurowanie aplikacji dla urządzeń. W szczególności w tym samouczku przedstawiono sposób zgłaszania dwie urządzenia oraz odpowiednie właściwości Włącz konfigurację wieloetapowych aplikację dla urządzeń i hello widoczność toohello zaplecza rozwiązania stanu hello tej operacji dla wszystkich urządzeń. Można znaleźć więcej informacji na temat roli hello konfiguracji urządzeń w [omówienie zarządzania urządzeniami z Centrum IoT][lnk-dm-overview].
 
-Na wysokim poziomie za pomocą urządzenia twins umożliwia zaplecza rozwiązania określić odpowiednią konfigurację dla zarządzanych urządzeń, zamiast wysyłać określonych poleceń. To powoduje przełączenie urządzenia odpowiedzialnym za konfigurowanie najlepszy sposób, aby zaktualizować konfigurację (bardzo ważne w scenariuszach IoT, których warunki określonego urządzenia wpłynąć negatywnie na natychmiast wykonać określonych poleceń), podczas raportowania stale do rozwiązania Zakończ bieżący stan i potencjalnych błędów procesu aktualizacji. Ten wzorzec jest urządzeń do zarządzania dużych zestawów urządzeń, ponieważ umożliwia ona zaplecza rozwiązania mieć pełny wgląd w stan procesu konfiguracji na wszystkich urządzeniach.
+Na wysokim poziomie za pomocą urządzenia twins umożliwia hello rozwiązania zaplecza toospecify hello odpowiednią konfigurację hello zarządzanych urządzeń, zamiast wysyłać określonych poleceń. To powoduje przełączenie urządzenia hello odpowiedzialnym za konfigurowanie hello najlepsze sposób tooupdate jego konfiguracji (bardzo ważne w scenariuszach IoT, których warunki określonego urządzenia wpływać na powitania możliwości tooimmediately wykonania określonych poleceń), podczas raportowania stale toohello zaplecze rozwiązania hello bieżący stan i potencjalne błędy hello procesu aktualizacji. Ten wzorzec jest toohello instrumentalnego zarządzanie dużymi zbiorami urządzeń, jak umożliwia hello rozwiązania zaplecza toohave pełny wgląd stanu hello hello procesu konfiguracji na wszystkich urządzeniach.
 
 > [!NOTE]
 > W scenariuszach, w którym urządzenia są kontrolowane w sposób większej liczby interaktywnych (Włącz wentylator z aplikacji kontrolowane przez użytkownika), należy rozważyć użycie [bezpośrednie metody][lnk-methods].
 > 
 > 
 
-W tym samouczku zaplecza rozwiązania umożliwia zmianę konfiguracji telemetrii urządzenia docelowego i, w związku z tym, że aplikacji urządzenia jest zgodna z procesu wieloetapowych, aby zastosować aktualizację konfiguracji (na przykład wymaganie oprogramowania modułu ponownego uruchomienia komputera, którym znajduje się ten samouczek symuluje z opóźnieniem prosty).
+W tym samouczku zmiany zaplecza rozwiązania hello hello telemetrii konfiguracji urządzenia docelowego i, w wyniku którego hello aplikacji urządzenia następuje tooapply wieloetapowych procesu konfiguracji aktualizacji (na przykład oprogramowania modułu ponownego uruchomienia komputera, który to wymaganie Samouczek symuluje z opóźnieniem prosty).
 
-Zaplecze rozwiązania przechowuje konfigurację w odpowiednich właściwościach dwie urządzenia w następujący sposób:
+zaplecza rozwiązania Hello przechowywana jest Konfiguracja hello hello urządzenia dwie właściwości żądaną w hello w następujący sposób:
 
         {
             ...
@@ -28,7 +28,7 @@ Zaplecze rozwiązania przechowuje konfigurację w odpowiednich właściwościach
                 ...
                 "desired": {
                     "telemetryConfig": {
-                        "configId": "{id of the configuration}",
+                        "configId": "{id of hello configuration}",
                         "sendFrequency": "{config}"
                     }
                 }
@@ -38,18 +38,18 @@ Zaplecze rozwiązania przechowuje konfigurację w odpowiednich właściwościach
         }
 
 > [!NOTE]
-> Ponieważ konfiguracje mogą zostać obiektu złożonego, zazwyczaj są przypisane unikatowe identyfikatory (skróty lub [identyfikatorów GUID][lnk-guid]) aby uprościć ich porównania.
+> Ponieważ konfiguracje mogą zostać obiektu złożonego, zazwyczaj są przypisane unikatowe identyfikatory (skróty lub [identyfikatorów GUID][lnk-guid]) toosimplify ich porównania.
 > 
 > 
 
-Aplikacji urządzenia raporty bieżącej konfiguracji dublowania żądanej właściwości **telemetryConfig** we właściwościach zgłoszone:
+Witaj aplikacji urządzenia raporty bieżącej konfiguracji dublowania hello wymaganą właściwość **telemetryConfig** w hello zgłoszonych właściwości:
 
         {
             "properties": {
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "changeId": "{id of hello current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Success",
                     }
@@ -58,20 +58,20 @@ Aplikacji urządzenia raporty bieżącej konfiguracji dublowania żądanej wła�
             }
         }
 
-Uwaga jak opisane **telemetryConfig** ma dodatkowe właściwości **stanu**, używana do raportowania stanu procesu aktualizacji konfiguracji.
+Należy zwrócić uwagę na sposób zgłaszania hello **telemetryConfig** ma dodatkowe właściwości **stanu**, używane tooreport hello stanu procesu aktualizacji konfiguracji hello.
 
-Po odebraniu nowego wymaganą konfiguracją aplikacji urządzenia raportów oczekujących konfiguracji, zmieniając informacje:
+Po odebraniu nowego wymaganą konfiguracją aplikacji urządzenia hello raportów oczekujących konfiguracji zmieniając hello informacji:
 
         {
             "properties": {
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "changeId": "{id of hello current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Pending",
                         "pendingConfig": {
-                            "changeId": "{id of the pending configuration}",
+                            "changeId": "{id of hello pending configuration}",
                             "sendFrequency": "{pending configuration}"
                         }
                     }
@@ -80,13 +80,13 @@ Po odebraniu nowego wymaganą konfiguracją aplikacji urządzenia raportów ocze
             }
         }
 
-Następnie w późniejszym czasie, aplikacji urządzenia zgłosi powodzenie lub niepowodzenie tej operacji przez modyfikowanie właściwości powyżej.
-Należy zwrócić uwagę, jak zaplecza rozwiązania jest w stanie, w dowolnym momencie można zbadać stanu procesu konfiguracji na wszystkich urządzeniach.
+Następnie w późniejszym czasie, hello urządzenia aplikacji będzie zgłaszać hello powodzenie lub niepowodzenie tej operacji, aktualizując hello powyżej właściwości.
+Należy zwrócić uwagę, jak zaplecza rozwiązania hello jest w stanie, w dowolnym momencie, stan hello tooquery hello proces konfiguracji wszystkich urządzeń hello.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Tworzenie aplikacji symulowane urządzenie, który odbiera aktualizacje konfiguracji z zaplecza rozwiązania, a następnie raportuje wiele aktualizacji jako *zgłosił właściwości* w konfiguracji zaktualizować procesu.
-* Tworzenie aplikacji zaplecza, aktualizuje odpowiednią konfigurację urządzenia, a następnie za pośrednictwem procesu aktualizacji konfiguracji.
+* Tworzenie aplikacji symulowane urządzenie, który odbiera aktualizacje konfiguracji z zaplecza rozwiązania hello, a następnie raportuje wiele aktualizacji jako *zgłosił właściwości* konfiguracji hello zaktualizować procesu.
+* Tworzenie zaplecza aplikacji czy aktualizacje hello wymaganą konfiguracją urządzenia, a następnie zapytania hello proces aktualizacji konfiguracji.
 
 <!-- links -->
 

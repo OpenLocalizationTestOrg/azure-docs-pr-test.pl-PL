@@ -1,11 +1,11 @@
-Poprzedni szablon można wdrożyć, wykonując instrukcje opisane w [dokumentacji usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-template-deploy.md).
+Można wdrożyć hello poprzedzających szablonu przez następujące hello [dokumentacji usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-template-deploy.md).
 
-Tę serię samouczka można uruchomić z poziomu [artykułu opisującego szablon minimalnego możliwego do użycia zestawu skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
+Ten samouczek serii można uruchomić z hello [minimalnej wielkości Ustaw szablon artykułu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
 
-Dowiesz się, jak zmodyfikować [szablon minimalnego możliwego do użycia zestawu skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) w celu [wdrożenia zestawu skalowania w istniejącej sieci wirtualnej](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
+Widać, jak toomodify hello [minimalnej wielkości Ustaw szablon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) za[wdrożenia do istniejącej sieci wirtualnej zestaw skalowania hello](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
-Poznasz również sposób modyfikowania [szablonu minimalnego możliwego do użycia zestawu skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) w celu [wdrożenia zestawu skalowania z użyciem obrazu niestandardowego](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+Widać, jak toomodify hello [minimalnej wielkości Ustaw szablon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) za[wdrażanie zestaw z obrazu niestandardowego skalowania hello](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
-Ponadto dowiesz się, jak zmodyfikować [szablon minimalnego możliwego do użycia zestawu skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) w celu [wdrożenia zestawu skalowania systemu Linux za pomocą skalowania automatycznego w oparciu o gości](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
+Widać, jak toomodify hello [minimalnej wielkości Ustaw szablon](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) za[wdrażanie zestaw z gości skalowania automatycznego skalowania Linux](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
 
-Więcej ogólnych informacji na temat zestawów skalowania można znaleźć na [stronie przeglądu zestawów skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+Więcej ogólnych informacji na temat zestawów skalowania można znaleźć toohello [strony Przegląd zestawu skalowania](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

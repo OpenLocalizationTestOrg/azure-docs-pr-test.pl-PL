@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny Wirtualnej systemu Windows z specjalne wirtualnego dysku twardego na platformie Azure | Dokumentacja firmy Microsoft
-description: "Utwórz nową maszynę Wirtualną systemu Windows przez dołączenie specjalne dysków zarządzanych jako dysk systemu operacyjnego przy użyciu modelu wdrażania Menedżera zasobów."
+title: aaaCreate maszyny Wirtualnej systemu Windows z specjalne wirtualnego dysku twardego na platformie Azure | Dokumentacja firmy Microsoft
+description: "Utwórz nową maszynę Wirtualną systemu Windows przez dołączenie specjalne dysków zarządzanych jako dysk systemu operacyjnego hello przy użyciu modelu wdrażania Menedżera zasobów hello."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cynthn
-ms.openlocfilehash: fa952286a9ceca8b3b2c7efe2cc4867a2728c477
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c72c6f4fb650e2664e87cf38ec9be62f0b2209fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>Tworzenie maszyny Wirtualnej systemu Windows z dysku specjalne
 
-Tworzenie nowej maszyny Wirtualnej przez dołączenie specjalne dysków zarządzanych jako dysk systemu operacyjnego przy użyciu programu Powershell. Specjalne dysku jest kopią wirtualnego dysku twardego (VHD) z istniejącej maszyny Wirtualnej, który przechowuje konta użytkowników, aplikacji i innych danych o stanie z oryginalnego maszyny Wirtualnej. 
+Dołączanie specjalne dysków zarządzanych jako dysk systemu operacyjnego hello przy użyciu programu Powershell, aby utworzyć nową maszynę Wirtualną. Specjalne dysku jest kopią wirtualnego dysku twardego (VHD) z istniejącej maszyny Wirtualnej utworzonej hello kont użytkowników, aplikacji i innych danych o stanie z oryginalnego maszyny Wirtualnej. 
 
-Specjalne wirtualnego dysku twardego jest używany do utworzenia nowej maszyny Wirtualnej, nazwy komputera oryginalna maszyna wirtualna zachowuje nowej maszyny Wirtualnej. Inne informacje specyficzne dla komputera jest również przechowywać, a w niektórych przypadkach te informacje zduplikowane może spowodować problemy. Należy pamiętać o jakie rodzaje informacji specyficznych dla komputera aplikacje zależne od podczas kopiowania maszyny Wirtualnej.
+Użycie specjalnych toocreate wirtualnego dysku twardego nowej maszyny Wirtualnej, powitalne nowej maszyny Wirtualnej zachowuje nazwy komputera hello hello oryginalna maszyna wirtualna. Inne informacje specyficzne dla komputera jest również przechowywać, a w niektórych przypadkach te informacje zduplikowane może spowodować problemy. Należy pamiętać o jakie rodzaje informacji specyficznych dla komputera aplikacje zależne od podczas kopiowania maszyny Wirtualnej.
 
 Dostępne są dwie opcje:
 * [Przekazywanie wirtualnego dysku twardego](#option-1-upload-a-specialized-vhd)
 * [Skopiuj istniejącej maszyny Wirtualnej Azure](#option-2-copy-an-existing-azure-vm)
 
-W tym temacie przedstawiono sposób użycia dysków zarządzanych. Jeśli masz wdrożenie starszych wymagający przy użyciu konta magazynu, zobacz [utworzyć Maszynę wirtualną z wirtualnego dysku twardego specjalne konta magazynu](sa-create-vm-specialized.md)
+W tym temacie przedstawiono sposób toouse zarządzania dyskami. Jeśli masz wdrożenie starszych wymagający przy użyciu konta magazynu, zobacz [utworzyć Maszynę wirtualną z wirtualnego dysku twardego specjalne konta magazynu](sa-create-vm-specialized.md)
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Jeśli używasz programu PowerShell, upewnij się, że masz najnowszą wersję modułu programu AzureRM.Compute PowerShell. 
+Jeśli używasz programu PowerShell, upewnij się, że masz najnowszą wersję hello modułu AzureRM.Compute PowerShell hello. 
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -44,50 +44,50 @@ Aby uzyskać więcej informacji, zobacz [przechowywanie wersji programu Azure Po
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Opcja 1: Przekazanie specjalne dysku VHD
 
-Możesz przekazać wirtualnego dysku twardego z specjalne utworzone za pomocą wirtualizacji narzędzia lokalnych, takich jak funkcja Hyper-V lub maszyny Wirtualnej wyeksportowane z innej maszyny Wirtualnej.
+Możesz przekazać powitalne wirtualnego dysku twardego z specjalistyczne maszyny Wirtualnej utworzone za pomocą wirtualizacji narzędzia lokalnych, takich jak funkcja Hyper-V lub maszyny Wirtualnej wyeksportowane z innej chmury.
 
-### <a name="prepare-the-vm"></a>Przygotowywanie maszyny wirtualnej
-Jeśli zamierzasz używać wirtualnego dysku twardego jako — jest, aby utworzyć nową maszynę Wirtualną, upewnij się, wykonywane są następujące czynności. 
+### <a name="prepare-hello-vm"></a>Przygotowanie hello maszyny Wirtualnej
+Jeśli planujesz toouse hello wirtualnego dysku twardego — jest toocreate nowej maszyny Wirtualnej, upewnij się, hello następujące kroki zostały zakończone. 
   
-  * [Przygotowywanie dysku VHD systemu Windows, aby przekazać do usługi Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Nie** generalize maszyny Wirtualnej za pomocą programu Sysprep.
-  * Usuń wszystkie narzędzia wirtualizacji gościa i agentów, które są zainstalowane na maszynie Wirtualnej (np. narzędzi VMware).
-  * Upewnij się, że maszyna wirtualna jest skonfigurowana do pobierania jego adres IP i ustawienia DNS za pośrednictwem protokołu DHCP. Daje to pewność, że serwer uzyskuje adres IP w sieci wirtualnej podczas uruchamiania. 
+  * [Przygotowanie tooAzure tooupload wirtualnego dysku twardego Windows](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Nie** generalize hello maszyny Wirtualnej przy użyciu narzędzia Sysprep.
+  * Usuń wszystkie narzędzia wirtualizacji gościa i agentów, które są zainstalowane na powitania maszyny Wirtualnej (np. narzędzi VMware).
+  * Upewnij się, hello maszyna wirtualna jest skonfigurowana toopull jego adres IP i ustawienia DNS za pośrednictwem protokołu DHCP. To zapewnia, że ten serwer hello uzyskuje adres IP w ramach hello sieci wirtualnej podczas uruchamiania. 
 
 
-### <a name="get-the-storage-account"></a>Uzyskaj konto magazynu
-Potrzebujesz konta magazynu na platformie Azure do przechowywania przekazany wirtualny dysk twardy. Możesz użyć istniejącego konta magazynu lub Utwórz nową. 
+### <a name="get-hello-storage-account"></a>Pobierz hello konta magazynu
+Potrzebny jest magazyn konta w hello Azure toostore przekazać wirtualnego dysku twardego. Możesz użyć istniejącego konta magazynu lub Utwórz nową. 
 
-Aby wyświetlić konta dostępny magazyn, wpisz:
+tooshow hello dostępny magazyn kont, wpisz:
 
 ```powershell
 Get-AzureRmStorageAccount
 ```
 
-Jeśli chcesz użyć istniejącego konta magazynu, przejdź do [przekazanie dysku VHD](#upload-the-vhd-to-your-storage-account) sekcji.
+Jeśli chcesz toouse istniejącego konta magazynu, przejdź toohello [hello przekazywanie wirtualnego dysku twardego](#upload-the-vhd-to-your-storage-account) sekcji.
 
-Jeśli musisz utworzyć konto magazynu, wykonaj następujące kroki:
+Jeśli potrzebujesz toocreate konta magazynu, wykonaj następujące kroki:
 
-1. Potrzebna jest nazwa grupy zasobów, w którym ma zostać utworzony na koncie magazynu. Aby dowiedzieć się, wszystkie grupy zasobów, które są w ramach subskrypcji, wpisz:
+1. Potrzebna jest nazwa hello hello grupy zasobów, których można utworzyć konta magazynu hello. toofind limit wszystkie hello grupy zasobów, które są w ramach subskrypcji, wpisz:
    
     ```powershell
     Get-AzureRmResourceGroup
     ```
 
-    Aby utworzyć grupę zasobów o nazwie *myResourceGroup* w *zachodnie stany USA* regionu, wpisz:
+    Grupa zasobów o nazwie toocreate *myResourceGroup* w hello *zachodnie stany USA* regionu, wpisz:
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Utwórz konto magazynu o nazwie *mojekontomagazynu* w tej grupie zasobów za pomocą [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) polecenia cmdlet:
+2. Utwórz konto magazynu o nazwie *mojekontomagazynu* w tej grupie zasobów za pomocą hello [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) polecenia cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
 
-### <a name="upload-the-vhd-to-your-storage-account"></a>Przekazanie dysku VHD do konta magazynu 
-Użyj [AzureRmVhd Dodaj](/powershell/module/azurerm.compute/add-azurermvhd) polecenia cmdlet w celu przekazania dysku VHD do kontenera na koncie magazynu. W tym przykładzie powoduje przekazanie pliku *myVHD.vhd* z `"C:\Users\Public\Documents\Virtual hard disks\"` na konto magazynu o nazwie *mojekontomagazynu* w *myResourceGroup* grupy zasobów. Plik jest przechowywany w kontenerze o nazwie *mojkontener* i Nowa nazwa pliku będzie *myUploadedVHD.vhd*.
+### <a name="upload-hello-vhd-tooyour-storage-account"></a>Przekaż konta magazynu tooyour wirtualnego dysku twardego hello 
+Użyj hello [AzureRmVhd Dodaj](/powershell/module/azurerm.compute/add-azurermvhd) polecenia cmdlet tooupload hello wirtualnego dysku twardego tooa kontenera na koncie magazynu. W tym przykładzie przekazywania hello pliku *myVHD.vhd* z `"C:\Users\Public\Documents\Virtual hard disks\"` tooa konto magazynu o nazwie *mojekontomagazynu* w hello *myResourceGroup* grupy zasobów. Plik Hello jest przechowywany w kontenerze hello o nazwie *mojkontener* i będzie hello nową nazwę pliku *myUploadedVHD.vhd*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -97,12 +97,12 @@ Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploaded
 ```
 
 
-W przypadku powodzenia można uzyskać odpowiedzi, która wygląda podobnie do poniższego:
+W przypadku powodzenia można uzyskać odpowiedzi, która wygląda podobnie toothis:
 
 ```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
+MD5 hash is being calculated for hello file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
 MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
+Elapsed time for hello operation: 00:03:35
 Creating new page blob of size 53687091712...
 Elapsed time for upload: 01:12:49
 
@@ -111,20 +111,20 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-W zależności od połączenia sieciowego i rozmiar pliku VHD to polecenie może zająć trochę czasu, aby zakończyć
+W zależności od połączenia sieciowego i hello rozmiar pliku VHD, polecenie to może chwilę potrwać toocomplete
 
-### <a name="create-a-managed-disk-from-the-vhd"></a>Tworzenie dysku zarządzanego z dysku VHD
+### <a name="create-a-managed-disk-from-hello-vhd"></a>Tworzenie dysku zarządzanego z hello wirtualnego dysku twardego
 
-Tworzenie dysku zarządzanego z specjalne dysku VHD za pomocą konta magazynu [AzureRMDisk nowy](/powershell/module/azurerm.compute/new-azurermdisk). W tym przykładzie użyto **myOSDisk1** dla nazwy dysku umieszcza dysku *StandardLRS* magazynu i używa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* jako identyfikator URI dysku VHD źródła.
+Tworzenie dysku zarządzanego z hello specjalizowany wirtualnego dysku twardego za pomocą konta magazynu [AzureRMDisk nowy](/powershell/module/azurerm.compute/new-azurermdisk). W tym przykładzie użyto **myOSDisk1** nazwa dysku hello naraża hello dysku w *StandardLRS* magazynu i używa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* jako hello identyfikatora URI źródła hello wirtualnego dysku twardego.
 
-Utwórz nową grupę zasobów dla nowej maszyny Wirtualnej.
+Utwórz nową grupę zasobów dla hello nowej maszyny Wirtualnej.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
 New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 ```
 
-Utwórz nowy dysk systemu operacyjnego na podstawie przekazanego wirtualnego dysku twardego. 
+Utwórz nowy dysk systemu operacyjnego hello z hello przekazany wirtualnego dysku twardego. 
 
 ```powershell
 $sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
@@ -137,12 +137,12 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 
 ## <a name="option-2-copy-an-existing-azure-vm"></a>Opcja 2: Kopiowanie istniejącej maszyny Wirtualnej Azure
 
-Można utworzyć kopii maszyny wirtualnej używa dyskach zarządzanych przez tworzenie migawki maszyny wirtualnej, a następnie za pomocą tej migawki, aby utworzyć nową zarządzane dysku i nowej maszyny Wirtualnej.
+Można utworzyć kopii maszyny wirtualnej używa zarządza dysków migawki hello maszyny Wirtualnej, a następnie za pomocą tej migawki toocreate nowy managed dysku i nowej maszyny Wirtualnej.
 
 
-### <a name="take-a-snapshot-of-the-os-disk"></a>Utwórz migawkę dysk systemu operacyjnego
+### <a name="take-a-snapshot-of-hello-os-disk"></a>Utwórz migawkę hello dysk systemu operacyjnego
 
-Można wykonać migawki elementu i całej maszyny Wirtualnej (w tym wszystkie dyski) lub tylko jednego dysku. Poniższe kroki opisano sposób migawki tylko dysk systemu operacyjnego z sieci maszyny Wirtualnej przy użyciu [AzureRmSnapshot nowy](/powershell/module/azurerm.compute/new-azurermsnapshot) polecenia cmdlet. 
+Można wykonać migawki elementu i całej maszyny Wirtualnej (w tym wszystkie dyski) lub tylko jednego dysku. Witaj poniższej procedurze pokazano, jak hello tootake migawki tylko hello systemu operacyjnego dysk przy użyciu maszyny Wirtualnej [AzureRmSnapshot nowy](/powershell/module/azurerm.compute/new-azurermsnapshot) polecenia cmdlet. 
 
 Ustaw niektórych parametrów. 
 
@@ -153,50 +153,50 @@ $location = 'westus'
 $snapshotName = 'mySnapshot'  
 ```
 
-Pobierz obiekt VM.
+Pobierz obiekt VM hello.
 
 ```powershell
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
 ```
-Pobierz nazwę dysku systemu operacyjnego.
+Pobierz nazwę dysku hello systemu operacyjnego.
 
  ```powershell
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
-Utworzenie migawki konfiguracji. 
+Utwórz hello migawki konfigurację. 
 
  ```powershell
 $snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
 ```
 
-Migawki.
+Witaj migawki.
 
 ```powershell
 $snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
 ```
 
 
-Jeśli planujesz używać migawki, aby utworzyć maszynę Wirtualną, która musi być wydajnych, użyj parametru `-AccountType Premium_LRS` przy użyciu polecenia New-AzureRmSnapshot. Parametr tworzy migawkę tak, aby była przechowywana jako dysk zarządzane Premium. Dysków zarządzanych w warstwie Premium są droższe niż standardowe. Dlatego upewnij się, że naprawdę potrzebny Premium przed rozpoczęciem korzystania z parametru.
+Jeśli planujesz toouse hello migawki toocreate maszynę Wirtualną, która wymaga wydajnych toobe, użyj parametru hello `-AccountType Premium_LRS` za pomocą polecenia hello AzureRmSnapshot nowy. Parametr Hello tworzy migawkę hello, aby są przechowywane jako dysk zarządzane Premium. Dysków zarządzanych w warstwie Premium są droższe niż standardowe. Dlatego upewnij się, że naprawdę potrzebny Premium przed użyciem parametru hello.
 
-### <a name="create-a-new-disk-from-the-snapshot"></a>Utwórz nowy dysk z migawki
+### <a name="create-a-new-disk-from-hello-snapshot"></a>Utwórz nowy dysk z hello migawki
 
-Tworzenie dysku zarządzanego z migawki przy użyciu [AzureRMDisk nowy](/powershell/module/azurerm.compute/new-azurermdisk). W tym przykładzie użyto *myOSDisk* dla nazwy dysku.
+Tworzenie dysku zarządzanego z hello migawki za pomocą [AzureRMDisk nowy](/powershell/module/azurerm.compute/new-azurermdisk). W tym przykładzie użyto *myOSDisk* hello nazwy dysku.
 
-Utwórz nową grupę zasobów dla nowej maszyny Wirtualnej.
+Utwórz nową grupę zasobów dla hello nowej maszyny Wirtualnej.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
 New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 ```
 
-Ustaw nazwę dysku systemu operacyjnego. 
+Ustaw nazwę dysku hello systemu operacyjnego. 
 
 ```powershell
 $osDiskName = 'myOsDisk'
 ```
 
-Tworzenie dysku zarządzanego.
+Utwórz hello dysków zarządzanych.
 
 ```powershell
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
@@ -206,22 +206,22 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 ```
 
 
-## <a name="create-the-new-vm"></a>Tworzenie nowej maszyny Wirtualnej 
+## <a name="create-hello-new-vm"></a>Utwórz hello nowej maszyny Wirtualnej 
 
-Tworzenie sieci i innych zasobów maszyny Wirtualnej do użycia przez nowej maszyny Wirtualnej.
+Tworzenie sieci i innych toobe zasoby maszyn wirtualnych używanych przez hello nowej maszyny Wirtualnej.
 
-### <a name="create-the-subnet-and-vnet"></a>Utwórz podsieć i sieć wirtualna
+### <a name="create-hello-subnet-and-vnet"></a>Tworzenie hello podsieci i sieci wirtualnej
 
-Utwórz sieć wirtualną i podsieć [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md).
+Tworzenie sieci wirtualnej hello i podsieci hello [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md).
 
-Utwórz podsieć. W tym przykładzie tworzy podsieć o nazwie **mySubNet**, w grupie zasobów **myDestinationResourceGroup**i ustawia prefiks adresu podsieci **10.0.0.0/24**.
+Utwórz podsieć hello. W tym przykładzie tworzy podsieć o nazwie **mySubNet**, w grupie zasobów hello **myDestinationResourceGroup**, i ustawia prefiks adresu podsieci hello zbyt**10.0.0.0/24**.
    
 ```powershell
 $subnetName = 'mySubNet'
 $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 ```
 
-Tworzenie sieci wirtualnej. W tym przykładzie nazwa sieci wirtualnej, który ma zostać **myVnetName**, lokalizacja **zachodnie stany USA**i prefiksu adresu dla sieci wirtualnej do **10.0.0.0/16**. 
+Utwórz sieć wirtualną hello. W tym przykładzie zestawy hello toobe nazwa sieci wirtualnej **myVnetName**, zbyt hello lokalizacji**zachodnie stany USA**, i hello prefiks adresu sieci wirtualnej hello zbyt**10.0.0.0/16**. 
    
 ```powershell
 $vnetName = "myVnetName"
@@ -230,10 +230,10 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinatio
 ```    
 
 
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Tworzenie grupy zabezpieczeń sieci i reguły protokołu RDP
-Aby móc zalogować się do maszyny Wirtualnej za pomocą protokołu RDP, musisz mieć regułę zabezpieczeń, która udziela dostępu RDP do portu 3389. Ponieważ wirtualny dysk twardy dla nowej maszyny Wirtualnej został utworzony na podstawie istniejącej maszyny Wirtualnej specjalne, można użyć konta ze źródłowej maszyny wirtualnej dla protokołu RDP.
+### <a name="create-hello-network-security-group-and-an-rdp-rule"></a>Tworzenie grupy zabezpieczeń sieci hello i reguły protokołu RDP
+toobe stanie toolog w tooyour maszyny Wirtualnej przy użyciu protokołu RDP, należy toohave regułę zabezpieczeń, która udziela dostępu RDP do portu 3389. Ponieważ hello wirtualnego dysku twardego dla nowej maszyny Wirtualnej został utworzony na podstawie istniejącej maszyny Wirtualnej specjalne hello, można użyć konta ze źródłowej maszyny wirtualnej hello protokołu RDP.
 
-W tym przykładzie nazwa grupy NSG **myNsg** i nazwa reguły protokołu RDP do **myRdpRule**.
+W tym przykładzie zestawy hello Nazwa grupy NSG zbyt**myNsg** i hello RDP Nazwa reguły zbyt**myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -247,12 +247,12 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGr
     
 ```
 
-Aby uzyskać więcej informacji na temat punktów końcowych i reguły NSG, zobacz [Otwieranie portów dla maszyny Wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby uzyskać więcej informacji na temat punktów końcowych i reguły NSG, zobacz [otwierania portów tooa maszyny Wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Tworzenie publicznego adresu IP i karty Sieciowej
-Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebujesz [publicznego adresu IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejsu sieciowego.
+tooenable komunikację z maszyną wirtualną hello w sieci wirtualnej hello, należy [publicznego adresu IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejsu sieciowego.
 
-Tworzenie publicznego adresu IP. W tym przykładzie ustawiono nazwa publicznego adresu IP **myIP**.
+Utwórz hello publicznego adresu IP. W tym przykładzie ustawiono zbyt hello nazwa publicznego adresu IP**myIP**.
    
 ```powershell
 $ipName = "myIP"
@@ -260,7 +260,7 @@ $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationR
    -AllocationMethod Dynamic
 ```       
 
-Utwórz kartę sieciową. W tym przykładzie nazwa karty Sieciowej jest ustawiona **myNicName**.
+Utwórz hello karty sieciowej. W tym przykładzie ustawiono zbyt nazwy kart hello**myNicName**.
    
 ```powershell
 $nicName = "myNicName"
@@ -270,34 +270,34 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinatio
 
 
 
-### <a name="set-the-vm-name-and-size"></a>Ustaw nazwę maszyny Wirtualnej i rozmiar
+### <a name="set-hello-vm-name-and-size"></a>Nazwa maszyny Wirtualnej hello zestawu i rozmiaru
 
-W tym przykładzie nazwa maszyny Wirtualnej *myVM* i rozmiaru maszyny Wirtualnej *Standard_A2*.
+W tym przykładzie zestawy hello nazwę maszyny Wirtualnej za*myVM* i hello wirtualna jego rozmiar za*Standard_A2*.
 
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-### <a name="add-the-nic"></a>Dodaj kartę Sieciową
+### <a name="add-hello-nic"></a>Dodaj hello karty Sieciowej
     
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
-### <a name="add-the-os-disk"></a>Dodawanie dysku systemu operacyjnego 
+### <a name="add-hello-os-disk"></a>Dodaj dysk hello systemu operacyjnego 
 
-Dodawanie dysku systemu operacyjnego do konfiguracji przy użyciu [AzureRmVMOSDisk zestawu](/powershell/module/azurerm.compute/set-azurermvmosdisk). W tym przykładzie rozmiar dysku do *128 GB* i dołącza dysków zarządzanych jako *Windows* dysku systemu operacyjnego.
+Dodaj hello systemu operacyjnego dysku toohello konfiguracji przy użyciu [AzureRmVMOSDisk zestawu](/powershell/module/azurerm.compute/set-azurermvmosdisk). W tym przykładzie hello rozmiar dysku hello zbyt*128 GB* i dołącza hello dysków zarządzanych jako *Windows* dysku systemu operacyjnego.
  
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
-### <a name="complete-the-vm"></a>Zakończenie maszyny Wirtualnej 
+### <a name="complete-hello-vm"></a>Ukończyć powitalnych maszyny Wirtualnej 
 
-Utwórz maszynę Wirtualną przy użyciu [AzureRMVM nowy](/powershell/module/azurerm.compute/new-azurermvm)konfiguracje, które właśnie utworzyliśmy.
+Utwórz maszynę Wirtualną przy użyciu hello [AzureRMVM nowy](/powershell/module/azurerm.compute/new-azurermvm)hello konfiguracje, które właśnie utworzyliśmy.
 
 ```powershell
 New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -312,8 +312,8 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna być widoczna albo w [portalu Azure](https://portal.azure.com)w obszarze **Przeglądaj** > **maszyn wirtualnych**, lub za pomocą następujących poleceń programu PowerShell:
+### <a name="verify-that-hello-vm-was-created"></a>Sprawdź hello, że maszyna wirtualna została utworzona
+Powinny pojawić się hello nowo utworzona maszyna wirtualna w hello [portalu Azure](https://portal.azure.com)w obszarze **Przeglądaj** > **maszyn wirtualnych**, lub za pomocą hello następującego środowiska PowerShell polecenia:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
@@ -321,5 +321,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby zalogować się do nowej maszyny wirtualnej, przejdź do maszyny Wirtualnej w [portal](https://portal.azure.com), kliknij przycisk **Connect**i Otwórz plik RDP pulpitu zdalnego. Korzystać z poświadczeń konta oryginalnego maszyny wirtualnej, aby zalogować się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak połączenia i zaloguj się do maszyny wirtualnej platformy Azure systemem Windows](connect-logon.md).
+toosign w tooyour nowej maszyny wirtualnej, przeglądania toohello maszyny Wirtualnej w hello [portal](https://portal.azure.com), kliknij przycisk **Connect**i hello Otwórz plik RDP pulpitu zdalnego. Użyj poświadczeń konta hello z oryginalnego toosign maszyny wirtualnej w tooyour nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak dziennika na tooan wirtualnej platformy Azure i tooconnect maszyny, systemem operacyjnym Windows](connect-logon.md).
 

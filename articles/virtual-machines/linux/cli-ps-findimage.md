@@ -1,6 +1,6 @@
 ---
-title: "Wybierz obrazów maszyny Wirtualnej systemu Linux za pomocą wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać interfejsu wiersza polecenia Azure w celu określenia wydawcy, oferty, jednostki SKU i wersji dla obrazów maszyn wirtualnych w witrynie Marketplace."
+title: aaaSelect maszyny Wirtualnej systemu Linux obrazy z hello Azure CLI | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak toouse hello Azure CLI toodetermine hello wydawcy, oferty, jednostki SKU i wersji dla obrazów maszyn wirtualnych w witrynie Marketplace."
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,41 +16,41 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0b115b8654bc156b5bfadba53a6b002a105acb68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Jak znaleźć maszyny Wirtualnej systemu Linux obrazów w portalu Azure Marketplace z wiersza polecenia platformy Azure
-W tym temacie opisano sposób użycia 2.0 interfejsu wiersza polecenia platformy Azure można znaleźć obrazów maszyn wirtualnych w portalu Azure Marketplace. Dzięki tym informacjom można określić obrazu z witryny Marketplace, podczas tworzenia maszyny Wirtualnej systemu Linux.
+# <a name="how-toofind-linux-vm-images-in-hello-azure-marketplace-with-hello-azure-cli"></a>Jak obrazy toofind maszyny Wirtualnej systemu Linux w programie hello Azure Marketplace z hello wiersza polecenia platformy Azure
+W tym temacie opisano, jak toouse hello Azure CLI 2.0 obrazów maszyn wirtualnych toofind w hello Azure Marketplace. Użyj tej informacji toospecify obrazu z witryny Marketplace, tworząc Maszynę wirtualną systemu Linux.
 
-Upewnij się, że jest zainstalowana najnowsza wersja [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogować się do konta platformy Azure (`az login`).
+Upewnij się, że zainstalowane w najnowszej hello [Azure CLI 2.0](/cli/azure/install-az-cli2) i są rejestrowane w tooan konto platformy Azure (`az login`).
 
 ## <a name="terminology"></a>Terminologia
 
-Obrazy Marketplace są identyfikowane w interfejsu wiersza polecenia i innych narzędzi platformy Azure zgodnie z hierarchii:
+Obrazy Marketplace są identyfikowane w hello interfejsu wiersza polecenia i innych narzędzi platformy Azure, zgodnie z tooa hierarchii:
 
-* **Wydawca** -organizacji, który utworzył obraz. Przykład: kanoniczny
+* **Wydawca** — Witaj organizacji, który utworzył obraz powitania. Przykład: kanoniczny
 * **Oferują** -grupa powiązanych obrazy utworzone przez wydawcę. Przykład: Ubuntu Server
 * **Jednostka SKU** — wystąpienie oferty, takie jak wydaniem dystrybucji. Przykład: 16.04-LTS
-* **Wersja** — numer wersji jednostki SKU obrazu. Podczas określania obrazu, można zastąpić numer wersji z "najnowszej", który wybiera najnowszej wersji programu dystrybucji.
+* **Wersja** — Witaj numer wersji jednostki SKU obrazu. Podczas określania obrazu hello, numer wersji hello z można zastąpić "najnowszej", który wybiera hello najnowszą wersję dystrybucji hello.
 
-Aby określić obrazu z witryny Marketplace, zwykle użyć obrazu *URN*. Nazwy URN łączy tych wartości, rozdzielone znakiem dwukropka (:): *wydawcy*:*oferują*:*Sku*:*wersji*. 
+toospecify obrazu z witryny Marketplace, używane zwykle obraz powitania *URN*. te wartości, rozdzielone znakiem dwukropka (:) hello łączy Hello URN: *wydawcy*:*oferują*:*Sku*:*wersji*. 
 
 
 ## <a name="list-popular-images"></a>Listy obrazów popularnych
 
-Uruchom [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list) polecenia bez `--all` opcję, aby wyświetlić listę popularnych obrazów maszyn wirtualnych w portalu Azure Marketplace. Na przykład uruchom następujące polecenie, aby wyświetlić listę buforowanych popularnych obrazów w formacie tabeli:
+Uruchom hello [listy obrazów maszyny wirtualnej az](/cli/azure/vm/image#list) polecenia bez hello `--all` opcji, toosee obrazy listę popularnych maszyny Wirtualnej w programie hello Azure Marketplace. Na przykład uruchom następujące polecenie toodisplay hello buforowaną listę popularnych obrazów w formacie tabeli:
 
 ```azurecli
 az vm image list --output table
 ```
 
-Dane wyjściowe zawiera nazwy URN (wartość w *Urn* kolumny), który służy do określania obrazu. Podczas tworzenia maszyny Wirtualnej przy użyciu jednej z tych popularnych obrazów Marketplace, można alternatywnie określić aliasu URN, takie jak *UbuntuLTS*.
+Hello dane wyjściowe zawierają hello URN (hello wartość hello *Urn* kolumny), który możesz użyć obrazu hello toospecify. Podczas tworzenia maszyny Wirtualnej przy użyciu jednej z tych popularnych obrazów Marketplace, można alternatywnie określić hello URN aliasu, takich jak *UbuntuLTS*.
 
 ```
-You are viewing an offline list of images, use --all to retrieve an up-to-date list
+You are viewing an offline list of images, use --all tooretrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -65,9 +65,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Znajdowanie określonych obrazów
 
-Aby znaleźć określony obraz maszyny Wirtualnej w portalu Marketplace, użyj `az vm image list` z `--all` opcji. Ta wersja polecenia wymaga pewnego czasu do zakończenia i mogą zwracać długich danych wyjściowych, dlatego zazwyczaj przefiltrować listę wg `--publisher` lub inny parametr. 
+toofind określonego obrazu maszyny Wirtualnej w hello Marketplace, użyj hello `az vm image list` z hello `--all` opcji. Ta wersja polecenia hello przyjmuje niektórych toocomplete czasu i może zwrócić długich danych wyjściowych, co zwykle filtrowanie listy hello `--publisher` lub inny parametr. 
 
-Na przykład następujące polecenie wyświetla wszystkie oferty Debian (należy pamiętać, że bez `--all` przełącznika, przeszukiwane tylko w lokalnej pamięci podręcznej obrazów wspólnej):
+Na przykład następujące polecenie hello Wyświetla wszystkie oferty Debian (należy pamiętać, że bez hello `--all` przełącznika, tylko wyszukuje hello lokalnej pamięci podręcznej obrazów wspólnej):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -102,11 +102,11 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Stosowanie filtrów podobne z `--location`, `--publisher`, i `--sku` opcje. Wyniki pasujące częściowo można wykonywać nawet w filtrze, takie jak wyszukiwanie `--offer Deb` można znaleźć wszystkie obrazy Debian.
+Stosowanie filtrów podobne z hello `--location`, `--publisher`, i `--sku` opcje. Wyniki pasujące częściowo można wykonywać nawet w filtrze, takie jak wyszukiwanie `--offer Deb` toofind wszystkie obrazy Debian.
 
-Jeśli nie określisz określonej lokalizacji z `--location` opcji wartości `westus` zwracane są domyślnie. (Ustaw domyślną inną lokalizację, uruchamiając `az configure --defaults location=<location>`.)
+Jeśli nie określisz określonej lokalizacji z hello `--location` opcji wartości hello `westus` zwracane są domyślnie. (Ustaw domyślną inną lokalizację, uruchamiając `az configure --defaults location=<location>`.)
 
-Na przykład następujące polecenie wyświetla listę wszystkich Debian SKU 8 w `westeurope`:
+Na przykład hello następujące polecenie wyświetla listę wszystkich Debian SKU 8 w `westeurope`:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -133,15 +133,15 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-## <a name="navigate-the-images"></a>Przejdź obrazów 
-Innym sposobem znajdowania obrazu w lokalizacji jest uruchomienie [obrazu maszyny wirtualnej az listy wydawców](/cli/azure/vm/image#list-publishers), [obrazu maszyny wirtualnej az listy oferty](/cli/azure/vm/image#list-offers), i [obrazu maszyny wirtualnej az listy SKU](/cli/azure/vm/image#list-skus) polecenia w sekwencji. Przy użyciu następujących poleceń można określić te wartości:
+## <a name="navigate-hello-images"></a>Przejdź hello obrazów 
+Inny sposób toofind obrazu w lokalizacji jest toorun hello [obrazu maszyny wirtualnej az listy wydawców](/cli/azure/vm/image#list-publishers), [obrazu maszyny wirtualnej az listy oferty](/cli/azure/vm/image#list-offers), i [obrazu maszyny wirtualnej az listy SKU](/cli/azure/vm/image#list-skus) polecenia w sekwencji. Przy użyciu następujących poleceń można określić te wartości:
 
-1. Wyświetl listę wydawców obrazów.
+1. Lista wydawców obraz powitania.
 2. Dla danego wydawcy wyświetl listę ofert.
 3. Dla danej oferty wyświetl listę wersji SKU.
 
 
-Na przykład następujące polecenie wyświetla listę wydawców obrazu w lokalizacji zachodnie stany USA:
+Na przykład hello następujące polecenie wyświetla listę wydawców obraz powitania w hello lokalizacji zachodnie stany USA:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -166,7 +166,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Dzięki tym informacjom można znaleźć ofert od określonego wydawcy. Na przykład jeśli Canonical wydawcy obrazu w lokalizacji zachodnie stany USA, Znajdź ofert uruchamiając `azure vm image list-offers`. Przekaż lokalizacji i wydawcy, jak w poniższym przykładzie:
+Użyj tego toofind informacji oferuje od określonego wydawcy. Na przykład jeśli Canonical wydawcy obrazu w hello lokalizacji zachodnie stany USA, Znajdź ofert uruchamiając `azure vm image list-offers`. Przekaż hello lokalizacji i wydawcy hello jak hello poniższy przykład:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -185,7 +185,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-Zobacz, czy w regionu zachodnie stany USA Canonical publikuje **UbuntuServer** oferują na platformie Azure. Ale o jakie wersje SKU chodzi? Aby uzyskać te wartości, należy uruchomić `azure vm image list-skus` i Ustaw lokalizację, wydawcy i oferty, które zostały odnalezione:
+Zostanie wyświetlony w hello regionu zachodnie stany USA, Canonical publikuje hello **UbuntuServer** oferują na platformie Azure. Jakie wersje produktu, ale? Uruchom te wartości tooget `azure vm image list-skus` i Ustaw lokalizację hello, wydawcy i oferty, które zostały odnalezione:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -219,7 +219,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Na koniec użyj `az vm image list` polecenia, można znaleźć określonej wersji jednostki SKU, na przykład **16.04 LTS**:
+Na koniec użyj hello `az vm image list` toofind polecenia określonej wersji hello wersję produktu, na przykład **16.04 LTS**:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Następne kroki
-Teraz można precyzyjnie obraz, który ma być używany przez biorąc pod uwagę wartość URN. Przekaż tę wartość z `--image` parametru podczas tworzenia maszyny Wirtualnej z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Należy pamiętać, że można opcjonalnie zastąpić numeru wersji w nazwy URN "r". Ta wersja jest zawsze najnowszą wersję dystrybucji. Aby szybko utworzyć maszynę wirtualną, korzystając z informacji URN, zobacz [tworzenie i zarządzanie maszyn wirtualnych systemu Linux z wiersza polecenia platformy Azure](tutorial-manage-vm.md).
+Teraz można wybrać dokładnie hello obraz ma toouse przez biorąc pod uwagę hello URN wartość. Przekaż tę wartość z hello `--image` parametru podczas tworzenia maszyny Wirtualnej z hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. Należy pamiętać, że można opcjonalnie zastąpić numeru wersji hello hello URN "najnowszej". Ta wersja jest zawsze hello najnowszą wersję hello dystrybucji. toocreate maszynę wirtualną, szybko, używając hello URN informacji, zobacz [tworzenie i zarządzanie maszyn wirtualnych systemu Linux z hello Azure CLI](tutorial-manage-vm.md).

@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * A [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) konta  
 
-Zanim użyjesz konto SMTP w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem SMTP. Na szczęście można w tym z aplikacji logiki w portalu Azure.  
+Zanim użyjesz konto SMTP w aplikacji logiki, musisz autoryzować konto SMTP tooyour tooconnect hello logiki aplikacji. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure.  
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem SMTP:  
+Oto tooauthorize kroki hello konta logiki aplikacji tooconnect tooyour SMTP:  
 
-1. Aby utworzyć połączenie SMTP, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *SMTP* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. Wybierz tooSMTP połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *SMTP* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. Jeśli nie utworzono żadnych połączeń SMTP przed będzie zostanie wyświetlony monit o podanie poświadczeń SMTP. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta SMTP:  
+2. Jeśli nie utworzono żadnych tooSMTP połączenia przed, uzyskasz tooprovide zostanie wyświetlony monit o poświadczenia SMTP. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta SMTP:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+3. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

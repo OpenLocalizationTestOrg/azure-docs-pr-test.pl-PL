@@ -1,6 +1,6 @@
-#### <a name="to-delete-a-virtual-device"></a>Aby usunąć urządzenie wirtualne
+#### <a name="toodelete-a-virtual-device"></a>toodelete urządzenie wirtualne
 
-1. Zaloguj się do klasycznego portalu Azure.
-2. Kliknij pozycję **Maszyny wirtualne**, a następnie wybierz urządzenie wirtualne.
-3. Kliknij pozycję **Usuń** i wybierz opcję usunięcia wszystkich dysków maszyny wirtualnej.
+1. Zaloguj się toohello klasycznego portalu Azure.
+2. Kliknij przycisk **maszyn wirtualnych**, a następnie wybierz hello urządzenia wirtualnego.
+3. Kliknij przycisk **usunąć** i wybierz polecenie toodelete wszystkie dyski maszyny wirtualnej hello.
 

@@ -1,0 +1,2 @@
+Po utworzeniu odbiornika grupy dostępności hello, może być konieczne tooadjust hello RegisterAllProvidersIP i parametrów klastra HostRecordTTL hello odbiornika zasobu. Te parametry można skrócić czas ponownego połączenia po przejściu w tryb failover, co może uniemożliwić przekroczeń limitu czasu połączenia. Aby uzyskać więcej informacji na temat tych parametrów, a także przykładowy kod, zobacz [Tworzenie lub skonfiguruj odbiornik grupy dostępności](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI skrypt przykładowy — Utwórz Maszynę wirtualną systemu Linux z monitorowaniem OMS | Dokumentacja firmy Microsoft"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia — Utwórz Maszynę wirtualną systemu Linux z monitorowaniem OMS | Dokumentacja firmy Microsoft"
 description: "Azure CLI skrypt przykładowy — Utwórz Maszynę wirtualną systemu Linux z monitorowaniem OMS"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 31bfcc532a7d1ea418fb9a15ec882963d1913756
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a329d4f90a20e0e11faa1f5cafd0701574dc440
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-a-vm-with-operations-management-suite"></a>Monitor maszyny Wirtualnej w usłudze Operations Management Suite
 
-Ten skrypt tworzy maszynę wirtualną platformy Azure, zainstalowanie agenta programu Operations Management Suite (OMS) i rejestruje system z obszarem roboczym pakietu OMS. Po uruchomieniu skryptu, maszyny wirtualne będą widoczne w konsoli OMS.
+Ten skrypt tworzy maszynę wirtualną platformy Azure, instaluje hello agenta Operations Management Suite (OMS) i rejestruje hello system z obszarem roboczym pakietu OMS. Po uruchomieniu skryptu hello hello maszyny wirtualnej będzie widoczny w konsoli OMS hello.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -32,11 +32,11 @@ Ten skrypt tworzy maszynę wirtualną platformy Azure, zainstalowanie agenta pro
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli-interactive[główne](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "szybkie tworzenie maszyn wirtualnych")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
+Hello uruchom następujące polecenie, grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -44,17 +44,17 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, maszyny wirtualnej i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa hello następujące polecenia toocreate grupę zasobów maszyny wirtualnej, a wszystkie powiązane zasoby. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
 
 | Polecenie | Uwagi |
 |---|---|
 | [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie maszyny wirtualnej az](https://docs.microsoft.com/cli/azure/vm#create) | Tworzy maszynę wirtualną i podłączony do karty sieciowej, sieci wirtualnej, podsieci i NSG. To polecenie określa również obraz maszyny wirtualnej ma być używany, a poświadczenia administracyjne.  |
-| [zestaw rozszerzeń maszyny wirtualnej platformy Azure](https://docs.microsoft.com/cli/azure/vm/extension#set) | Jest uruchamiana rozszerzenia maszyny Wirtualnej dla maszyny wirtualnej. W takim przypadku rozszerzenie agenta Operations Management Suite jest używane do instalowania agenta pakietu OMS i rejestrowania maszyn wirtualnych w obszarze roboczym pakietu OMS. |
+| [Tworzenie maszyny wirtualnej az](https://docs.microsoft.com/cli/azure/vm#create) | Tworzy maszynę wirtualną hello i łączy go toohello karty sieciowej, sieć wirtualną, podsieci i NSG. To polecenie określa również toobe obrazu maszyny wirtualnej hello używane i poświadczenia administracyjne.  |
+| [zestaw rozszerzeń maszyny wirtualnej platformy Azure](https://docs.microsoft.com/cli/azure/vm/extension#set) | Jest uruchamiana rozszerzenia maszyny Wirtualnej dla maszyny wirtualnej. W takim przypadku hello rozszerzenia agenta Operations Management Suite jest agent pakietu OMS hello tooinstall używane i zarejestrować hello maszyny Wirtualnej w obszarze roboczym pakietu OMS. |
 | [Usuwanie grupy az](https://docs.microsoft.com/cli/azure/vm/extension#set) | Usuwa grupę zasobów, w tym wszystkich zagnieżdżonych zasobów. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
+Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Przykłady skryptów CLI dodatkowe maszyny wirtualnej znajdują się w [dokumentacji maszyny Wirtualnej systemu Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Przykłady skryptów CLI dodatkowe maszyny wirtualnej znajdują się w hello [dokumentacji maszyny Wirtualnej systemu Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

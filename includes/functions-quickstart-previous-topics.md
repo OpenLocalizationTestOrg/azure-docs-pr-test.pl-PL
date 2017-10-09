@@ -1,0 +1,1 @@
+W tym temacie używa jako początkowy punkt zasobów hello utworzone w [tworzenie pierwszej funkcji z portalu Azure hello](../articles/azure-functions/functions-create-first-azure-function.md). Jeśli jeszcze tego nie zrobiono, wykonaj te kroki toocreate teraz funkcji aplikacji.

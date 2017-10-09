@@ -1,4 +1,4 @@
-Jest to informacje dla deweloperów usługi Azure Functions. Jeśli jesteś nowym użytkownikiem usługi Azure Functions, należy uruchomić z następującymi zasobami:
+Jest to informacje dla deweloperów usługi Azure Functions. W przypadku nowych funkcji tooAzure należy rozpocząć hello następujące zasoby:
 
 * [Tworzenie pierwszej funkcji](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Dokumentacja usługi Azure Functions dla deweloperów](../articles/azure-functions/functions-reference.md)

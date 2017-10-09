@@ -15,6 +15,6 @@
 
 (\* -Żaden wyzwalacz skojarzony danych wejściowych)
 
-(\**-Powiązania wyjściowego HTTP wymaga wyzwalacza HTTP)
+(\**-output hello HTTP powiązanie wymaga wyzwalacza HTTP)
 
 

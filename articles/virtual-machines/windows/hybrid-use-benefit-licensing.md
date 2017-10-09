@@ -1,6 +1,6 @@
 ---
-title: "Korzyści Użyj hybrydowe platformy Azure dla okna serwera i klienta systemu Windows | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak zmaksymalizować korzyści programu Windows Software Assurance w celu przełączenia lokalnej licencji Azure"
+title: "aaaAzure hybrydowego korzyści użyj okna serwera i klienta systemu Windows | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toomaximize Twojego systemu Windows Software Assurance korzyści toobring lokalnymi licencje tooAzure"
 services: virtual-machines-windows
 documentationcenter: 
 author: kmouss
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/26/2017
 ms.author: xujing
-ms.openlocfilehash: 210635624946ddb293427167e9d476c377bcc9b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f24487320a60132aaf766a31f3e6f3726d4a3bd1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>Korzyści Użyj hybrydowe platformy Azure dla systemu Windows Server i klienta systemu Windows
-W przypadku klientów z Software Assurance korzyści użyć hybrydowego Azure umożliwia użyć lokalnego licencji systemu Windows Server i klienta systemu Windows i uruchamiania maszyn wirtualnych systemu Windows na platformie Azure taniego. Azure hybrydowego Użyj korzyści dla systemu Windows Server zawiera systemu Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016. Hybrydowe Użyj korzyści dla systemu Windows klienta usługi Azure obejmuje systemu Windows 10. Aby uzyskać więcej informacji, zobacz [strony licencjonowania Azure hybrydowego Użyj korzyści](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+W przypadku klientów z Software Assurance, korzyści Użyj hybrydowego Azure pozwala toouse z lokalnymi licencji systemu Windows Server i klienta systemu Windows i uruchamiania maszyn wirtualnych systemu Windows na platformie Azure taniego. Azure hybrydowego Użyj korzyści dla systemu Windows Server zawiera systemu Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016. Hybrydowe Użyj korzyści dla systemu Windows klienta usługi Azure obejmuje systemu Windows 10. Aby uzyskać więcej informacji, zobacz hello [strony licencjonowania Azure hybrydowego Użyj korzyści](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 >[!IMPORTANT]
->Azure hybrydowego Użyj korzyści dla klienta systemu Windows jest obecnie w wersji zapoznawczej za pomocą obrazu systemu Windows 10 w portalu Azure Marketplace. Tylko przedsiębiorstwa z systemem Windows 10 Enterprise E3/E5 dla poszczególnych użytkowników lub VDA systemu Windows dla każdego użytkownika (licencji subskrypcji użytkownika lub licencji subskrypcji użytkownika dodatku) kwalifikują się ("uprawniających licencji").
+>Azure hybrydowego Użyj korzyści dla klienta systemu Windows jest obecnie w wersji zapoznawczej przy użyciu obrazu hello systemu Windows 10 w hello Azure Marketplace. Tylko przedsiębiorstwa z systemem Windows 10 Enterprise E3/E5 dla poszczególnych użytkowników lub VDA systemu Windows dla każdego użytkownika (licencji subskrypcji użytkownika lub licencji subskrypcji użytkownika dodatku) kwalifikują się ("uprawniających licencji").
 >
 >
 
-## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Sposoby używania korzyści Użyj hybrydowe platformy Azure
-Istnieje kilka różnych sposobów wdrażania maszyn wirtualnych systemu Windows z asysty Użyj hybrydowe platformy Azure:
+## <a name="ways-toouse-azure-hybrid-use-benefit"></a>Sposoby toouse korzyści Użyj hybrydowe platformy Azure
+Istnieje kilka różnych sposobów toodeploy maszyn wirtualnych systemu Windows z hello Azure hybrydowego Użyj korzyści:
 
 1. Można wdrożyć maszyn wirtualnych z [określonych obrazów Marketplace](#deploy-a-vm-using-the-azure-marketplace) , które są wstępnie skonfigurowane z Azure hybrydowego Użyj korzyści - systemu Windows Server 2016, systemu Windows Server 2012 R2, Windows Server 2012 i Windows Server 2008SP1.
 2. Możesz [przekazać niestandardowe wirtualna](#upload-a-windows-vhd) i [wdrażanie przy użyciu szablonu usługi Resource Manager](#deploy-a-vm-via-resource-manager) lub [programu Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
-## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Wdróż Maszynę wirtualną przy użyciu portalu Azure Marketplace
-Następujące obrazy są dostępne w witrynie Marketplace wstępnie skonfigurowaną korzyści Użyj hybrydowe platformy Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 i Windows Server 2008SP1. Te obrazy można wdrażać bezpośrednio za pomocą witryny Azure Portal, szablonów usługi Resource Manager lub programu Azure PowerShell.
+## <a name="deploy-a-vm-using-hello-azure-marketplace"></a>Wdróż Maszynę wirtualną przy użyciu hello Azure Marketplace
+Następujące obrazy są dostępne w hello wstępnie skonfigurowaną korzyści Użyj hybrydowego Azure Marketplace: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 i Windows Server 2008SP1. Obrazy te można wdrożyć bezpośrednio z hello portalu Azure, szablonów usługi Resource Manager lub programu Azure PowerShell.
 
-Można wdrażać te obrazy bezpośrednio z portalu Azure. Do użycia w szablonach usługi Resource Manager i przy użyciu programu Azure PowerShell wyświetlić listę obrazów w następujący sposób:
+Można wdrażać te obrazy bezpośrednio z hello portalu Azure. Do użycia w szablonach usługi Resource Manager i przy użyciu programu Azure PowerShell należy wyświetlić hello listy obrazów w następujący sposób:
 
 W systemie Windows Server:
 ```powershell
@@ -58,9 +58,9 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
 ```
 
 ## <a name="upload-a-windows-server-vhd"></a>Przekazywanie wirtualnego dysku twardego Windows Server
-Aby wdrożyć Maszynę wirtualną systemu Windows Server na platformie Azure, należy najpierw utworzyć wirtualny dysk twardy zawiera podstawowe kompilacji systemu Windows. Tego wirtualnego dysku twardego, należy odpowiednio przygotować za pomocą programu Sysprep przed przekazaniem go do platformy Azure. Możesz [Dowiedz się więcej na temat wirtualnego dysku twardego wymagań i procesu Sysprep](upload-generalized-managed.md) i [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Utwórz kopię zapasową maszyny Wirtualnej przed uruchomieniem programu Sysprep. 
+toodeploy maszyny Wirtualnej serwera systemu Windows na platformie Azure, musisz najpierw toocreate wirtualny dysk twardy zawiera podstawowe kompilacji systemu Windows. Tego wirtualnego dysku twardego, należy odpowiednio przygotować za pomocą programu Sysprep przed przekazaniem tooAzure. Możesz [Dowiedz się więcej na temat hello wirtualnego dysku twardego wymagań i procesu Sysprep](upload-generalized-managed.md) i [Obsługa programu Sysprep dla ról serwera](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Utwórz kopię zapasową hello maszyny Wirtualnej przed uruchomieniem programu Sysprep. 
 
-Upewnij się, że masz [zainstalowany i skonfigurowany najnowsze programu Azure PowerShell](/powershell/azure/overview). Po przygotowaniu dysk VHD, przekazanie dysku VHD do używania konta usługi Azure Storage `Add-AzureRmVhd` polecenia cmdlet w następujący sposób:
+Upewnij się, że masz [zainstalowana i skonfigurowana hello najnowsze programu Azure PowerShell](/powershell/azure/overview). Po przygotowaniu dysk VHD, Przekaż hello wirtualnego dysku twardego tooyour konto magazynu Azure przy użyciu hello `Add-AzureRmVhd` polecenia cmdlet w następujący sposób:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -68,15 +68,15 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 ```
 
 > [!NOTE]
-> Microsoft SQL Server, SharePoint Server i Dynamics można również korzystać z programu Software Assurance licencjonowania. Nadal musisz przygotować obraz systemu Windows Server instalowania składniki aplikacji i zapewnianie odpowiednio kluczy licencji, a następnie przekazywanie obrazu dysku na platformie Azure. Zapoznaj się z dokumentacją odpowiedniego do uruchamiania narzędzia Sysprep z aplikacji, takich jak [zagadnienia dotyczące instalowania programu SQL Server za pomocą programu Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) lub [Utwórz obraz referencyjny programu SharePoint Server 2016 (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
+> Microsoft SQL Server, SharePoint Server i Dynamics można również korzystać z programu Software Assurance licencjonowania. Nadal potrzebujesz obrazu serwera z systemem Windows hello tooprepare instalowania składniki aplikacji i zapewnianie odpowiednio kluczy licencji, a następnie przekazywanie tooAzure obrazu dysku hello. Przejrzyj hello odpowiedniej dokumentacji do uruchamiania narzędzia Sysprep z aplikacji, takich jak [zagadnienia dotyczące instalowania programu SQL Server za pomocą programu Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) lub [Utwórz obraz referencyjny programu SharePoint Server 2016 (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
 >
 >
 
-Można również uzyskać więcej informacji [przekazywanie wirtualnego dysku twardego do procesu systemu Azure](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
+Można również uzyskać więcej informacji [hello wirtualnego dysku twardego tooAzure proces przekazywania](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
 
 
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>Wdróż Maszynę wirtualną za pomocą szablonu usługi Resource Manager
-W szablonach usługi Resource Manager dodatkowy parametr dla `licenseType` można określić. Możesz przeczytać dodatkowe informacje [tworzenia szablonów usługi Azure Resource Manager](../../resource-group-authoring-templates.md). Po utworzeniu dysk VHD przekazany do platformy Azure, Edytuj szablon Menedżera zasobów, aby dołączyć typ licencji w ramach dostawcy obliczeń i wdrażania szablonu w zwykły:
+W szablonach usługi Resource Manager dodatkowy parametr dla `licenseType` można określić. Możesz przeczytać dodatkowe informacje [tworzenia szablonów usługi Azure Resource Manager](../../resource-group-authoring-templates.md). Po utworzeniu tooAzure Twojego przekazać wirtualnego dysku twardego, edytować możesz typu licencji hello tooinclude szablonu usługi Resource Manager jako część hello obliczeniowe dostawcy i wdrażania szablonu w zwykły:
 
 W systemie Windows Server:
 ```json
@@ -87,7 +87,7 @@ W systemie Windows Server:
    }
 ```
 
-Dla klienta systemu Windows do użycia tylko z obrazu witryny Marketplace Azure:
+Dla tylko toouse klienta systemu Windows z obrazu witryny Marketplace Azure:
 ```json
 "properties": {  
    "licenseType": "Windows_Client",
@@ -97,29 +97,29 @@ Dla klienta systemu Windows do użycia tylko z obrazu witryny Marketplace Azure:
 ```
 
 ## <a name="deploy-a-vm-via-powershell-quickstart"></a>Wdróż Maszynę wirtualną za pomocą programu PowerShell — Szybki Start
-Podczas wdrażania maszyny Wirtualnej systemu Windows Server za pomocą programu PowerShell, masz dodatkowy parametr dla `-LicenseType`. Po utworzeniu dysk VHD przekazany do platformy Azure, utwórz maszynę Wirtualną przy użyciu `New-AzureRmVM` i określić typ licencjonowania w następujący sposób:
+Podczas wdrażania maszyny Wirtualnej systemu Windows Server za pomocą programu PowerShell, masz dodatkowy parametr dla `-LicenseType`. Po utworzeniu tooAzure Twojego przekazać dysku VHD, utwórz maszynę Wirtualną przy użyciu `New-AzureRmVM` i określić typ licencjonowania hello w następujący sposób:
 
 W systemie Windows Server:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
 ```
 
-Dla klienta systemu Windows do użycia tylko z obrazu witryny Marketplace Azure:
+Dla tylko toouse klienta systemu Windows z obrazu witryny Marketplace Azure:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
-Możesz [odczytu bardziej szczegółowy przewodnik na temat wdrażania maszyny Wirtualnej na platformie Azure za pomocą programu PowerShell](hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) poniżej, lub bardziej opisowe przewodnika wykonania różnych kroków w celu odczytu [Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Możesz [odczytu bardziej szczegółowy przewodnik na temat wdrażania maszyny Wirtualnej na platformie Azure za pomocą programu PowerShell](hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) poniżej lub odczytu opisowej przewodnika hello wykonania różnych kroków zbyt[Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Sprawdź, czy maszyna wirtualna jest wykorzystania asysty licencjonowania
-Po wdrożeniu maszyny Wirtualnej za pomocą metody wdrożenia programu PowerShell lub Menedżera zasobów Sprawdź typ licencji z `Get-AzureRmVM` w następujący sposób:
+## <a name="verify-your-vm-is-utilizing-hello-licensing-benefit"></a>Sprawdź, czy maszyna wirtualna jest przy użyciu hello korzyści licencjonowania
+Po wdrożeniu maszyny Wirtualnej za pomocą hello programu PowerShell lub metody wdrażania usługi Resource Manager, sprawdź hello typu licencji z `Get-AzureRmVM` w następujący sposób:
 
 ```powershell
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-Wynik jest podobny do poniższego przykładu w systemie Windows Server:
+Witaj danych wyjściowych jest toohello podobnie poniższy przykład dla systemu Windows Server:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -127,7 +127,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-Output to różni się z maszyną Wirtualną następujące wdrożenie bez licencjonowania Azure hybrydowego Użyj korzyści, takich jak wdrożyć bezpośrednio z poziomu galerii Azure maszyny Wirtualnej:
+Te dane wyjściowe różni się znacząco od hello wdrożonej przez następujące maszyny Wirtualnej bez licencjonowania Azure hybrydowego Użyj korzyści, takich jak wdrożyć bezpośrednio z hello galerii Azure maszyny Wirtualnej:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -136,7 +136,7 @@ LicenseType              :
 ```
 
 ## <a name="detailed-powershell-deployment-walkthrough"></a>Szczegółowy przewodnik wdrażania programu PowerShell
-Poniższe szczegółowe kroki programu PowerShell pokazują pełne wdrożenie maszyny wirtualnej. Możesz przeczytać więcej kontekstu rzeczywiste poleceń cmdlet i różnych składników tworzonych w [Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kroku przez proces tworzenia Twojej grupy zasobów konta magazynu i sieci wirtualne, a następnie zdefiniuj maszyny Wirtualnej, a na koniec Utwórz maszyny Wirtualnej.
+następujące Hello szczegółowe Pokaż kroki PowerShell pełne wdrożenie maszyny wirtualnej. Więcej kontekstu może być odczytany jako toohello rzeczywiste poleceń cmdlet i różnych składników tworzonych w [Utwórz maszynę Wirtualną z systemem Windows przy użyciu usługi Resource Manager i programu PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kroku przez proces tworzenia Twojej grupy zasobów konta magazynu i sieci wirtualne, a następnie zdefiniuj maszyny Wirtualnej, a na koniec Utwórz maszyny Wirtualnej.
 
 Po pierwsze bezpiecznie uzyskać poświadczenia, Ustaw lokalizację i nazwę grupy zasobów:
 
@@ -182,19 +182,19 @@ $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $compute
     -ProvisionVMAgent -EnableAutoUpdate
 ```
 
-Dodaj swoją kartę Sieciową do maszyny Wirtualnej:
+Dodaj użytkownika toohello karty Sieciowej maszyny Wirtualnej:
 
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-Zdefiniuj konto magazynu do użycia:
+Zdefiniuj toouse konta magazynu hello:
 
 ```powershell
 $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -AccountName mystorageaccount
 ```
 
-Przekazanie dysku VHD, odpowiednio przygotowany i Dołącz do maszyny Wirtualnej do użycia:
+Przekazanie dysku VHD, odpowiednio przygotowany i Dołącz tooyour maszyny Wirtualnej do użycia:
 
 ```powershell
 $osDiskName = "licensing.vhd"
@@ -204,7 +204,7 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOp
     -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
-Na zakończenie tworzenia maszyny Wirtualnej i typ licencjonowania wykorzystywać Azure hybrydowego Użyj korzyści:
+Na koniec Utwórz maszyny Wirtualnej i zdefiniuj hello licencjonowania tooutilize typu Azure hybrydowego Użyj korzyści:
 
 W systemie Windows Server:
 ```powershell
@@ -212,7 +212,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Wdrażanie skali maszyny wirtualnej za pomocą szablonu usługi Resource Manager
-W szablonach VMSS Resource Manager dodatkowy parametr dla `licenseType` musi być określona. Możesz przeczytać dodatkowe informacje [tworzenia szablonów usługi Azure Resource Manager](../../resource-group-authoring-templates.md). Edytuj szablon Menedżera zasobów można uwzględnić właściwość licenseType jako część virtualMachineProfile zestaw skali i wdrażania szablonu w zwykły — Zobacz przykład poniżej przy użyciu obrazu systemu Windows Server 2016:
+W szablonach VMSS Resource Manager dodatkowy parametr dla `licenseType` musi być określona. Możesz przeczytać dodatkowe informacje [tworzenia szablonów usługi Azure Resource Manager](../../resource-group-authoring-templates.md). Edytuj właściwości sieci Menedżera zasobów szablonu tooinclude hello licenseType jako część zestawu skalowania hello virtualMachineProfile i wdrażania szablonu w zwykły — Zobacz przykład poniżej przy użyciu obrazu systemu Windows Server 2016:
 
 
 ```json
@@ -245,4 +245,4 @@ Przeczytaj więcej na temat [licencjonowania Azure hybrydowego Użyj korzyści](
 
 Dowiedz się więcej o [przy użyciu szablonów usługi Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-Dowiedz się więcej o [korzyści Użyj hybrydowe platformy Azure i usługi Azure Site Recovery upewnij migrowanie aplikacji Azure jeszcze bardziej ekonomiczne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Dowiedz się więcej o [korzyści Użyj hybrydowe platformy Azure i usługi Azure Site Recovery upewnij migrowanie aplikacji tooAzure jeszcze bardziej ekonomiczne](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).

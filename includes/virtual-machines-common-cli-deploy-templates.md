@@ -4,27 +4,27 @@
 * [Tworzenie maszyny wirtualnej za pomocą obrazu niestandardowego](#create-a-custom-vm-image)
 * [Wdrażanie maszyny wirtualnej korzystającej z sieci wirtualnej i modułu równoważenia obciążenia](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 * [Usuwanie grupy zasobów](#remove-a-resource-group)
-* [Wyświetlanie dziennika dla wdrożenia grupy zasobów](#show-the-log-for-a-resource-group-deployment)
+* [Pokaż dziennik hello wdrożenia grupy zasobów](#show-the-log-for-a-resource-group-deployment)
 * [Wyświetlanie informacji o maszynie wirtualnej](#display-information-about-a-virtual-machine)
-* [Łączenie z maszyną wirtualną opartą na systemie Linux](#log-on-to-a-linux-based-virtual-machine)
+* [Łączenie maszyny wirtualnej opartych na systemie Linux tooa](#log-on-to-a-linux-based-virtual-machine)
 * [Zatrzymywanie maszyny wirtualnej](#stop-a-virtual-machine)
 * [Uruchamianie maszyny wirtualnej](#start-a-virtual-machine)
 * [Dołączanie dysku danych](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Przygotowanie
-Aby używać interfejsu wiersza polecenia platformy Azure z grupami zasobów Azure, musisz mieć właściwą wersję interfejsu wiersza polecenia platformy Azure i konto platformy Azure. Jeśli nie masz interfejsu wiersza polecenia platformy Azure, [zainstaluj go](../articles/cli-install-nodejs.md).
+Zanim użyjesz hello wiersza polecenia platformy Azure z grup zasobów platformy Azure, należy toohave hello właściwej wersji interfejsu wiersza polecenia Azure oraz konta platformy Azure. Jeśli nie masz hello Azure CLI [go zainstalować](../articles/cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version-to-090-or-later"></a>Aktualizowanie interfejsu wiersza polecenia platformy Azure do wersji 0.9.0 lub nowszej
-Wpisz `azure --version`, aby sprawdzić, czy masz już zainstalowaną wersję 0.9.0 lub nowszą.
+### <a name="update-your-azure-cli-version-too090-or-later"></a>Aktualizacja z wiersza polecenia platformy Azure w wersji too0.9.0 lub nowszej
+Typ `azure --version` toosee, czy masz już zainstalowany w wersji 0.9.0 lub nowszej.
 
 ```azurecli
 azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-Jeśli nie masz wersji 0.9.0 ani nowszej, musisz zaktualizować posiadaną wersję przy użyciu jednego z natywnych instalatorów lub za pomocą narzędzia **npm**, wpisując `npm update -g azure-cli`.
+Jeśli używana wersja nie jest 0.9.0 lub później, należy tooupdate hello go za pomocą jednej z natywnego instalatorów lub za pomocą **npm** , wpisując `npm update -g azure-cli`.
 
-Możesz także uruchomić interfejs wiersza polecenia platformy Azure przy użyciu następującego [obrazu platformy Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Z poziomu hosta platformy Docker uruchom następujące polecenie:
+Można również uruchomić wiersza polecenia platformy Azure jako kontener Docker, za pomocą następujących hello [obrazu Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Z hosta Docker i uruchom hello następujące polecenie:
 
 ```bash
 docker run -it microsoft/azure-cli
@@ -33,10 +33,10 @@ docker run -it microsoft/azure-cli
 ### <a name="set-your-azure-account-and-subscription"></a>Ustawianie konta i subskrypcji platformy Azure
 Jeśli nie masz jeszcze subskrypcji platformy Azure, ale masz subskrypcję MSDN, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). lub zarejestrować się w celu skorzystania z [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
-Teraz [interaktywnie zaloguj się do konta platformy Azure](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login), wpisując `azure login` i postępując zgodnie z monitami wyświetlanymi w środowisku logowania interakcyjnego do konta platformy Azure. 
+Teraz [interakcyjnego logowania tooyour konta Azure](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) , wpisując `azure login` i wykonując hello monity o tooyour środowisko logowania interakcyjnego konto platformy Azure. 
 
 > [!NOTE]
-> Jeśli masz identyfikator służbowy i wiesz, że nie włączono uwierzytelniania dwuskładnikowego, możesz **również** użyć instrukcji `azure login -u` wraz z identyfikatorem służbowym, aby zalogować się do *bez* sesji interakcyjnej. Jeśli nie masz identyfikatora służbowego, możesz [utworzyć identyfikator służbowy z poziomu osobistego konta Microsoft](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), aby logować się w taki sam sposób.
+> Jeśli masz służbowego lub szkolnego identyfikator i wiesz, nie ma włączone uwierzytelnianie dwuskładnikowe, możesz **również** użyj `azure login -u` wraz z hello służbowe toolog identyfikator w *bez* sesji interaktywnej. Jeśli nie ma służbowego lub szkolnego identyfikator, możesz [Utwórz identyfikator firmy lub szkoły z osobistego konta Microsoft](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toolog w hello tak samo.
 >
 >
 
@@ -53,35 +53,35 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-Aby ustawić bieżącą subskrypcję platformy Azure, wpisz poniższy kod. Użyj nazwy subskrypcji lub identyfikatora, który zawiera zasoby przeznaczone do zarządzania.
+Można ustawić hello bieżącej subskrypcji Azure, wpisując następujące hello. Użyj hello nazwy lub hello identyfikator subskrypcji zawierającego zasoby hello ma toomanage.
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Przełączanie do trybu grupy zasobów interfejsu wiersza polecenia platformy Azure
-Domyślnie interfejs wiersza polecenia platformy Azure jest uruchamiany w trybie zarządzania usługami (tryb **asm**). Wpisz poniższe polecenie, aby przełączyć do trybu grupy zasobów.
+### <a name="switch-toohello-azure-cli-resource-group-mode"></a>Przełącz tryb grupy zasobów Azure CLI toohello
+Domyślnie program hello Azure CLI jest uruchamiany w trybie zarządzania usługi hello (**asm** tryb). Wpisz powitania po tooswitch tooresource grupy tryb.
 
 ```azurecli
 azure config mode arm
 ```
 
 ## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Opis szablonów zasobów i grup zasobów platformy Azure
-Większość aplikacji jest tworzona z połączenia różnych typów zasobów (na przykład jednej lub kilku maszyn wirtualnych i kont magazynu, bazy danych SQL, sieci wirtualnej lub sieci dostarczania zawartości). W domyślnym interfejsie API zarządzania usługami platformy Azure i klasycznej witrynie Azure Portal te elementy były przedstawiane przy użyciu podejścia „każda usługa oddzielnie”. Takie podejście wymaga wdrażania poszczególnych usług i zarządzania nimi (lub znalezienia narzędzia, które to robi) indywidualnie, a nie jako pojedynczą jednostką logiczną wdrożenia.
+Większość aplikacji jest tworzona z połączenia różnych typów zasobów (na przykład jednej lub kilku maszyn wirtualnych i kont magazynu, bazy danych SQL, sieci wirtualnej lub sieci dostarczania zawartości). Witaj interfejsu API zarządzania usługami Azure domyślne i hello klasycznego portalu Azure reprezentowana tych elementów przy użyciu podejścia przez usługi. To rozwiązanie wymaga toodeploy i indywidualnie zarządzania hello poszczególnych usług (lub znaleźć innych narzędzi, które to zrobić), a nie jako pojedyncza jednostka logiczna wdrożenia.
 
-*Szablony usługi Azure Resource Manager* umożliwiają jednak wdrażanie tych różnych zasobów i zarządzanie nimi jako jedną jednostką logiczną wdrożenia w sposób deklaratywny. Zamiast instruować platformę Azure odnośnie wdrażanych zasobów w kolejnych poleceniach, możesz opisać całe wdrożenie (wszystkie zasoby oraz skojarzone parametry konfiguracji i wdrożenia) w pliku JSON i poinformować platformę Azure, że te zasoby mają zostać wdrożone jako jedna grupa.
+*Szablony usługi Azure Resource Manager*, jednak umożliwiają możesz toodeploy zasobów i zarządzanie nimi tych różnych jako jedną jednostkę logiczną wdrożenia w sposób deklaratywnego. Zamiast imperatively informuje Azure jakie toodeploy jednego polecenia po kolei, opisu całego wdrożenia w pliku JSON, — wszystkie zasoby hello i skojarzone konfiguracji i parametrów wdrożenia — i poinformuj Azure toodeploy tych zasobów jako jeden Grupa.
 
-Następnie możesz zarządzać całym cyklem życia zasobów grupy przy użyciu poleceń zarządzania zasobami interfejsu wiersza polecenia platformy Azure:
+Następnie można zarządzać hello ogólną cyklu życia hello grupy zasobów za pomocą interfejsu wiersza polecenia Azure zasobów zarządzania poleceń do:
 
-* zatrzymać, uruchomić lub usunąć wszystkie zasoby w grupie jednocześnie;
-* zastosować reguły kontroli dostępu opartej na rolach (RBAC) w celu zablokowania dotyczących ich uprawnień zabezpieczeń;
+* Zatrzymać, uruchomić lub usunąć wszystkie zasoby hello w obrębie grupy hello naraz.
+* Zastosuj toolock zasady kontroli dostępu opartej na rolach (RBAC) uprawnień zabezpieczeń w dół na nich.
 * przeprowadzać inspekcje operacji;
 * oznaczać zasoby za pomocą dodatkowych metadanych w celu ułatwienia śledzenia.
 
-Znacznie więcej informacji na temat grup zasobów platformy Azure i oferowanych przez nie funkcji zawiera temat [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Jeśli interesuje Cię tworzenie szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../articles/resource-group-authoring-templates.md).
+Dowiedz się więcej na temat grup zasobów platformy Azure i sposób ich działania dla Ciebie w hello partii [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Jeśli interesuje Cię tworzenie szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager](../articles/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Zadanie: Szybkie tworzenie maszyny wirtualnej na platformie Azure
-Czasami wiesz, którego obrazu potrzebujesz, i natychmiast chcesz utworzyć maszynę wirtualną z tego obrazu, niespecjalnie przejmując się infrastrukturą — być może musisz coś przetestować na czystej maszynie wirtualnej. To sytuacja, w której należy użyć polecenia `azure vm quick-create` i przekazać argumenty niezbędne do utworzenia maszyny wirtualnej i jej infrastruktury.
+Czasami wiesz, jakie obrazu należy i maszyny Wirtualnej z obrazu należy od razu i nie zależy Ci zbyt dużo o infrastruktury hello — może być po zdefiniowaniu tootest czystą maszyny wirtualnej. Gdy to ma toouse hello `azure vm quick-create` polecenia i przekaż toocreate niezbędne argumenty hello maszyny Wirtualnej i jej infrastruktury.
 
 Najpierw utwórz grupę zasobów.
 
@@ -100,10 +100,10 @@ data:
 info:    group create command OK
 ```
 
-Następnie potrzebny będzie obraz. Aby znaleźć obraz za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Przechodzenie do obrazów maszyn wirtualnych platformy Azure i wybieranie ich przy użyciu programu PowerShell i interfejsu wiersza polecenia). Na potrzeby tego artykułu uwzględniono krótką listę popularnych obrazów. W przypadku tego szybkiego tworzenia używany będzie obraz stabilny systemu CoreOS.
+Następnie potrzebny będzie obraz. toofind jako obraz z hello wiersza polecenia platformy Azure, zobacz [Navigating i wybieranie obrazów maszyny wirtualnej platformy Azure za pomocą programu PowerShell i hello Azure CLI](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Na potrzeby tego artykułu uwzględniono krótką listę popularnych obrazów. W przypadku tego szybkiego tworzenia używany będzie obraz stabilny systemu CoreOS.
 
 > [!NOTE]
-> Dla opcji ComputeImageVersion można także po prostu podać wartość „latest” (najnowsze) jako parametr w języku szablonu i w interfejsie wiersza polecenia platformy Azure. Pozwoli to zawsze używać najnowszej wersji obrazu z zastosowanymi wszystkimi poprawkami bez konieczności modyfikowania skryptów i szablonów. Jest to pokazane poniżej.
+> Dla ComputeImageVersion możesz także po prostu podać "najnowsze" jako parametru w obu język szablonu hello i hello Azure CLI hello. Pozwoli to wykonywanych tooalways hello najnowsze i poprawioną wersja obrazu hello bez konieczności toomodify skryptu lub szablonów. Jest to pokazane poniżej.
 >
 >
 
@@ -127,7 +127,7 @@ Następnie potrzebny będzie obraz. Aby znaleźć obraz za pomocą interfejsu wi
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-Aby utworzyć maszynę wirtualną, wprowadź polecenie `azure vm quick-create` i przygotuj się na monity. Powinno to wyglądać następująco:
+Po prostu utworzyć maszyny Wirtualnej, wprowadzając hello `azure vm quick-create` polecenia i gotowe do hello monitów. Powinno to wyglądać następująco:
 
 ```azurecli
 azure vm quick-create
@@ -140,31 +140,31 @@ ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:late
 User name: ops
 Password: *********
 Confirm password: *********
-+ Looking up the VM "coreos"
-info:    Using the VM Size "Standard_A1"
-info:    The [OS, Data] Disk or image configuration requires storage account
++ Looking up hello VM "coreos"
+info:    Using hello VM Size "Standard_A1"
+info:    hello [OS, Data] Disk or image configuration requires storage account
 + Retrieving storage accounts
-info:    Could not find any storage accounts in the region "westus", trying to create new one
+info:    Could not find any storage accounts in hello region "westus", trying toocreate new one
 + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"
-+ Looking up the storage account cli9fd3fce49e9a9b3d14302
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello storage account cli9fd3fce49e9a9b3d14302
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-info:    Preparing to create new virtual network and subnet
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Preparing toocreate new virtual network and subnet
 / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-+ Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
-info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
++ Looking up hello subnet "coreo-westu-1430261891570-snet" under hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Found public ip parameters, trying toosetup PublicIP profile
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
 + Creating public ip "coreo-westu-1430261891570-pip"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 + Creating NIC "coreo-westu-1430261891570-nic"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 + Creating VM "coreos"
-+ Looking up the VM "coreos"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello VM "coreos"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
 data:    ProvisioningState               :Succeeded
 data:    Name                            :coreos
@@ -215,26 +215,26 @@ info:    vm quick-create command OK
 I możesz iść dalej z nową maszyną wirtualną.
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>Zadanie: Wdrażanie maszyny wirtualnej na platformie Azure na podstawie szablonu
-Instrukcje zawarte w tych sekcjach umożliwiają wdrożenie nowej maszyny wirtualnej platformy Azure na podstawie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure. Ten szablon umożliwia utworzenie jednej maszyny wirtualnej w nowej sieci wirtualnej z jedną podsiecią i, w odróżnieniu od `azure vm quick-create`, umożliwia dokładne opisanie tego, czego oczekujesz, i powtórzenie go bez błędów. Oto, co ten szablon tworzy:
+Użyj instrukcji hello w tych sekcjach toodeploy nowej maszyny Wirtualnej platformy Azure przy użyciu szablonu z hello wiersza polecenia platformy Azure. Ten szablon tworzy jednej maszyny wirtualnej w nowej sieci wirtualnej z pojedynczą podsiecią w przeciwieństwie do `azure vm quick-create`, umożliwia toodescribe należy dokładnie mają i powtarzaj go bez błędów. Oto, co ten szablon tworzy:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Krok 1. Sprawdzanie pliku JSON dla parametrów szablonu
-Poniżej przedstawiono zawartość pliku JSON dla szablonu. (Szablon znajduje się również w witrynie [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json)).
+### <a name="step-1-examine-hello-json-file-for-hello-template-parameters"></a>Krok 1: Sprawdź plik JSON hello hello parametrów szablonu
+Poniżej przedstawiono hello zawartość pliku JSON hello hello szablonu. (szablon hello znajduje się również w [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
-Szablony są elastyczne, dzięki czemu projektant może udostępnić w szablonie bardzo wiele parametrów lub zaoferować tylko niewielki ich zestaw, tworząc mniej elastyczny szablon. Aby zebrać informacje potrzebne do przekazania szablonu w postaci parametrów, otwórz plik szablonu (w tym temacie wymieniono wbudowany szablon, poniżej) i sprawdź wartości **parametrów**.
+Szablony są elastyczne i co projektanta hello może wybrany toogive wiele parametrów albo wybrany toooffer tylko kilka, tworząc szablon, który jest bardziej stała. Wymagany jest szablon hello toopass jako parametry informacje hello toocollect kolejności, otwórz plik szablonu hello (w tym temacie ma wbudowany szablonu, poniżej) i sprawdź, czy hello **parametry** wartości.
 
-W tym przypadku poniższy szablon poprosi o następujące informacje:
+W takim przypadku poniższy szablon hello poprosi o:
 
 * Unikalna nazwa konta magazynu.
-* Nazwa użytkownika administratora maszyny wirtualnej.
+* Nazwa użytkownika administratora dla hello maszyny Wirtualnej.
 * Hasło.
-* Nazwa domeny do użycia dla świata zewnętrznego.
+* Nazwa domeny hello poza world toouse.
 * Numer wersji systemu Ubuntu Server (ale będzie akceptować tylko jeden z listy).
 
 Więcej informacji na temat [wymagań dotyczących nazwy użytkownika i hasła](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
-Po podjęciu decyzji dotyczących tych wartości możesz utworzyć grupę i wdrożyć ten szablon w swojej subskrypcji platformy Azure.
+Po podjęciu decyzji o tych wartości, wszystko gotowe toocreate grupę i wdrożenia tego szablonu do Twojej subskrypcji platformy Azure.
 
 ```json
 {
@@ -244,25 +244,25 @@ Po podjęciu decyzji dotyczących tych wartości możesz utworzyć grupę i wdro
     "newStorageAccountName": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
+        "description": "Unique DNS name for hello storage account where hello virtual machine's disks will be placed."
     }
     },
     "adminUsername": {
     "type": "string",
     "metadata": {
-        "description": "User name for the virtual machine."
+        "description": "User name for hello virtual machine."
     }
     },
     "adminPassword": {
     "type": "securestring",
     "metadata": {
-        "description": "Password for the virtual machine."
+        "description": "Password for hello virtual machine."
     }
     },
     "dnsNameForPublicIP": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the public IP used to access the virtual machine."
+        "description": "Unique DNS name for hello public IP used tooaccess hello virtual machine."
     }
     },
     "ubuntuOSVersion": {
@@ -274,7 +274,7 @@ Po podjęciu decyzji dotyczących tych wartości możesz utworzyć grupę i wdro
         "15.04"
     ],
     "metadata": {
-        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
+        "description": "hello Ubuntu version for hello VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
     }
     }
 },
@@ -413,10 +413,10 @@ Po podjęciu decyzji dotyczących tych wartości możesz utworzyć grupę i wdro
 }
 ```
 
-### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Krok 2. Tworzenie maszyny wirtualnej przy użyciu szablonu
-Kiedy wartości parametrów są gotowe, musisz utworzyć grupę zasobów dla wdrożenia szablonu, a następnie wdrożyć szablon.
+### <a name="step-2-create-hello-virtual-machine-by-using-hello-template"></a>Krok 2: Tworzenie maszyny wirtualnej hello przy użyciu szablonu hello
+Po utworzeniu wartości parametru gotowe, możesz utworzyć grupę zasobów do wdrożenia szablonu, a następnie wdrożyć hello szablonu.
 
-Aby utworzyć grupę zasobów, wpisz polecenie `azure group create <group name> <location>` z żądaną nazwą grupy oraz lokalizacją centrum danych, w której chcesz wykonać wdrożenie. To dzieje się szybko:
+Grupa zasobów hello toocreate, typ `azure group create <group name> <location>` o nazwie hello grupy hello ma i hello centrum danych lokalizacji, do której ma zostać toodeploy. To dzieje się szybko:
 
 ```azurecli
 azure group create myResourceGroup westus
@@ -433,28 +433,28 @@ data:
 info:    group create command OK
 ```
 
-Teraz aby utworzyć wdrożenie, wywołaj funkcję `azure group deployment create` i przekaż:
+Teraz toocreate hello wdrożenia, wywołanie `azure group deployment create` i przekaż:
 
-* Plik szablonu (jeśli powyższy szablon JSON został zapisany w pliku lokalnym).
-* Identyfikator URI szablonu (jeśli chcesz wskazać plik z witryny GitHub lub innego adresu sieci Web).
-* Grupa zasobów, w której chcesz wykonać wdrożenie.
+* Plik szablonu Hello (jeśli został zapisany hello powyżej pliku lokalnego tooa szablonu JSON).
+* Szablon identyfikatora URI (jeśli ma toopoint hello plik w witrynie GitHub lub inny adres sieci web).
+* grupy zasobów Hello, do której ma zostać toodeploy.
 * Opcjonalna nazwa wdrożenia.
 
-Zostanie wyświetlony monit o podanie wartości parametrów w sekcji parametrów pliku JSON. Po określeniu wszystkich wartości parametrów rozpocznie się wdrożenie.
+Będzie toosupply zostanie wyświetlony monit o hello wartości parametrów w sekcji "Parametry" hello hello pliku JSON. Po określeniu wszystkich wartości parametru hello rozpocznie się wdrożenia.
 
 Oto przykład:
 
 ```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 newStorageAccountName: storageaccount
 adminUsername: ops
 adminPassword: password
 dnsNameForPublicIP: newdomainname
 ```
 
-Otrzymasz informacje następującego typu:
+Zostanie wyświetlony hello następujące rodzaje informacji:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -464,7 +464,7 @@ info:    Created template deployment "firstDeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : firstDeployment
 data:    ResourceGroupName  : myResourceGroup
 data:    ProvisioningState  : Succeeded
@@ -484,12 +484,12 @@ info:    group deployment create command OK
 
 
 ## <a id="create-a-custom-vm-image"></a>Zadanie: Tworzenie niestandardowej maszyny wirtualnej
-Podstawowe użycia szablonów przedstawiono powyżej, a więc teraz możemy użyć podobnych instrukcji w celu utworzenia niestandardowej maszyny wirtualnej z określonego pliku VHD na platformie Azure przy użyciu szablonu za pośrednictwem interfejsu wiersza polecenia platformy Azure. Różnica tutaj polega na tym, że ten szablon tworzy jedną maszynę wirtualną z określonego wirtualnego dysku twardego (VHD).
+W tym samouczku hello podstawowe sposoby użycia szablonów powyżej, więc teraz możemy użyć podobne toocreate instrukcje niestandardowe maszyny Wirtualnej z pliku VHD określonych na platformie Azure przy użyciu szablonu za pomocą hello wiersza polecenia platformy Azure. Witaj różnicą jest to, że ten szablon tworzy jednej maszyny wirtualnej na podstawie określony wirtualny dysk twardy (VHD).
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Krok 1. Sprawdzanie pliku JSON dla szablonu
-Poniżej przedstawiono zawartość pliku JSON dla szablonu użytego jako przykład w tej sekcji. (Szablon znajduje się również w witrynie [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)).
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>Krok 1: Sprawdź plik JSON hello hello szablonu
+Poniżej przedstawiono hello zawartość pliku JSON hello hello szablonu, który używa tej sekcji to przykład. (szablon hello znajduje się również w [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
-Ponownie musisz znaleźć wartości, które chcesz wprowadzić dla parametrów nieposiadających wartości domyślnych. Po uruchomieniu polecenia `azure group deployment create` interfejs wiersza polecenia platformy Azure wyświetli monit o wprowadzenie tych wartości.
+Ponownie konieczne będzie toofind hello wartości, które mają tooenter hello parametrów, które nie mają wartości domyślne. Po uruchomieniu hello `azure group deployment create` polecenia hello Azure CLI wyświetli monit o tooenter możesz tych wartości.
 
 ```json
 {
@@ -674,15 +674,15 @@ Ponownie musisz znaleźć wartości, które chcesz wprowadzić dla parametrów n
 }
 ```
 
-### <a name="step-2-obtain-the-vhd"></a>Krok 2. Uzyskiwanie dysku VHD
+### <a name="step-2-obtain-hello-vhd"></a>Krok 2: Uzyskaj hello wirtualnego dysku twardego
 Oczywiście niezbędny będzie plik VHD. Możesz użyć dysku znajdującego się już na platformie Azure lub przekazać inny.
 
-W przypadku maszyny wirtualnej z systemem Windows zobacz [Tworzenie wirtualnego dysku twardego systemu Windows Server i przekazywanie go na platformę Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Dla maszyny wirtualnej z systemem Windows, temacie [tworzenie i przekazywanie wirtualnego dysku twardego z systemem Windows Server tooAzure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-W przypadku maszyny wirtualnej z systemem Linux zobacz [Tworzenie i przekazywanie wirtualnego dysku twardego zawierającego system operacyjny Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Dla maszyny wirtualnej opartych na systemie Linux, zobacz [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux hello](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Krok 3: Tworzenie maszyny wirtualnej przy użyciu szablonu
-Teraz możesz przystąpić do tworzenia nowej maszyny wirtualnej na podstawie pliku VHD. Utwórz grupę, w której ma zostać wykonane wdrożenie, używając polecenia `azure group create <location>`:
+### <a name="step-3-create-hello-virtual-machine-by-using-hello-template"></a>Krok 3: Tworzenie maszyny wirtualnej hello przy użyciu szablonu hello
+Teraz wszystko jest gotowe toocreate VHD hello — na podstawie nowej maszyny wirtualnej. Tworzenie toodeploy grupy, do, przy użyciu `azure group create <location>`:
 
 ```azurecli
 azure group create myResourceGroupUser eastus
@@ -699,7 +699,7 @@ data:
 info:    group create command OK
 ```
 
-Następnie utwórz wdrożenie za pomocą opcji `--template-uri`, aby wywołać bezpośrednio w szablonie (ewentualnie możesz użyć opcji `--template-file`, aby użyć pliku zapisanego lokalnie). Należy zauważyć, że ponieważ szablon ma określone wartości domyślne, użytkownik jest monitowany tylko o kilka elementów. W przypadku wdrożenia szablonu w różnych miejscach może się okazać, że występują pewne konflikty nazewnictwa z wartościami domyślnymi (zwłaszcza z tworzoną nazwą DNS).
+Następnie utwórz hello wdrożenia przy użyciu hello `--template-uri` toocall opcji w szablonie hello bezpośrednio (lub użyć hello `--template-file` toouse opcja pliku zapisanych lokalnie). Należy pamiętać, że szablonu hello się domyślnych ustawień, zostanie wyświetlony monit o tylko kilka rzeczy. Jeśli wdrożono szablon hello w różnych miejscach, może się okazać, że niektóre kolizji nazw wystąpić z wartościami domyślnymi hello (szczególnie hello nazwa DNS utworzone).
 
 ```azurecli
 azure group deployment create \
@@ -707,14 +707,14 @@ azure group deployment create \
 > myResourceGroup \
 > customVhdDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 adminUserName: ops
 adminPassword: password
 osType: linux
 subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Dane wyjściowe wyglądają podobnie do poniższych:
+Dane wyjściowe podobne hello następujące czynności:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -723,7 +723,7 @@ info:    Created template deployment "customVhdDeployment"
 + Registering providers
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 error:   Deployment provisioning state was not successful
 data:    DeploymentName     : customVhdDeployment
 data:    ResourceGroupName  : myResourceGroupUser
@@ -752,14 +752,14 @@ info:    group deployment create command OK
 ```
 
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Zadanie: Wdrażanie aplikacji z wieloma maszynami wirtualnymi, korzystającej z sieci wirtualnej i modułu równoważenia obciążenia
-Ten szablon umożliwia utworzenie dwóch maszyn wirtualnych w ramach modułu równoważenia obciążenia i skonfigurowanie reguły równoważenia obciążenia na porcie 80. Ten szablon wdraża również konto magazynu, sieć wirtualną, publiczny adres IP, zestaw dostępności i interfejsy sieciowe.
+Ten szablon umożliwia toocreate dwóch maszyn wirtualnych należących do modułu równoważenia obciążenia i skonfigurować regułę równoważenia obciążenia na porcie 80. Ten szablon wdraża również konto magazynu, sieć wirtualną, publiczny adres IP, zestaw dostępności i interfejsy sieciowe.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-Wykonaj poniższe kroki, aby wdrożyć aplikację z wieloma maszynami wirtualnymi, która korzysta z sieci wirtualnej i modułu równoważenia obciążenia, używając szablonu usługi Resource Manager z repozytorium szablonów witryny GitHub za pomocą poleceń programu PowerShell Azure.
+Wykonaj te kroki toodeploy aplikacji wielu maszyn wirtualnych, która korzysta z sieci wirtualnej i modułu równoważenia obciążenia przy użyciu szablonu usługi Resource Manager w repozytorium hello GitHub szablonu, za pomocą poleceń programu PowerShell systemu Azure.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Krok 1. Sprawdzanie pliku JSON dla szablonu
-Poniżej przedstawiono zawartość pliku JSON dla szablonu. Jeśli chcesz, aby najnowszej wersji go ma się [w repozytorium GitHub dla szablonów](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). W tym temacie używany jest przełącznik `--template-uri` do wywołania szablonu, ale możesz także użyć przełącznika `--template-file` w celu przekazania lokalnej wersji.
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>Krok 1: Sprawdź plik JSON hello hello szablonu
+Poniżej przedstawiono hello zawartość pliku JSON hello hello szablonu. Jeśli chcesz, aby hello najnowszej wersji, jej ma znajduje się [w repozytorium GitHub hello szablonów](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). W tym temacie używa hello `--template-uri` toocall przełącznika hello szablonu, ale można również użyć hello `--template-file` przełącznika toopass lokalnej wersji.
 
 ```json
 {
@@ -807,7 +807,7 @@ Poniżej przedstawiono zawartość pliku JSON dla szablonu. Jeśli chcesz, aby n
             "type": "string",
             "defaultValue": "myVM",
             "metadata": {
-                "description": "Prefix to use for VM names"
+                "description": "Prefix toouse for VM names"
             }
         },
         "vmSourceImageName": {
@@ -846,7 +846,7 @@ Poniżej przedstawiono zawartość pliku JSON dla szablonu. Jeśli chcesz, aby n
             "type": "string",
             "defaultValue": "Standard_A1",
             "metadata": {
-                "description": "Size of the VM"
+                "description": "Size of hello VM"
             }
         }
     },
@@ -1094,8 +1094,8 @@ Poniżej przedstawiono zawartość pliku JSON dla szablonu. Jeśli chcesz, aby n
 }
 ```
 
-### <a name="step-2-create-the-deployment-by-using-the-template"></a>Krok 2. Tworzenie wdrożenia przy użyciu szablonu
-Utwórz grupę zasobów szablonu przy użyciu polecenia `azure group create <location>`. Następnie utwórz wdrożenie do tej grupy zasobów za pomocą polecenia `azure group deployment create`, przekazując grupę wdrożenia, nazwę wdrożenia i odpowiadając na monity o parametry w szablonie, które nie mają wartości domyślnych.
+### <a name="step-2-create-hello-deployment-by-using-hello-template"></a>Krok 2: Tworzenie hello wdrożenia przy użyciu szablonu hello
+Utwórz grupę zasobów dla szablonu hello przy użyciu `azure group create <location>`. Następnie utwórz wdrożenie w tej grupie zasobów przy użyciu `azure group deployment create` i przekazywanie hello grupy zasobów, przekazywanie Nazwa wdrożenia i udzielenie odpowiedzi na powitania monity dla parametrów w szablonie hello, która nie ma wartości domyślnej.
 
 ```azurecli
 azure group create lbgroup westus
@@ -1112,7 +1112,7 @@ data:
 info:    group create command OK
 ```
 
-Teraz użyj polecenia `azure group deployment create` i opcji `--template-uri`, aby wdrożyć szablon. Miej przygotowane wartości parametrów do wprowadzenia po wyświetleniu monitu, jak pokazano poniżej.
+Teraz używać hello `azure group deployment create` polecenia i hello `--template-uri` szablon hello toodeploy opcji. Miej przygotowane wartości parametrów do wprowadzenia po wyświetleniu monitu, jak pokazano poniżej.
 
 ```azurecli
 azure group deployment create \
@@ -1120,7 +1120,7 @@ azure group deployment create \
 > lbgroup \
 > newdeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 location: westus
 newStorageAccountName: storagename
 adminUsername: ops
@@ -1133,7 +1133,7 @@ info:    Created template deployment "newdeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.compute
 info:    Registering provider microsoft.network
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : newdeployment
 data:    ResourceGroupName  : lbgroup
 data:    ProvisioningState  : Succeeded
@@ -1161,10 +1161,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-Należy zauważyć, że ten szablon wdraża obraz systemu Windows Server, który jednak łatwo może zostać zastąpiony przez dowolny obraz systemu Linux. Czy chcesz utworzyć klaster Docker z wieloma menedżerami Swarm? [Możesz to zrobić](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Należy zauważyć, że ten szablon wdraża obraz systemu Windows Server, który jednak łatwo może zostać zastąpiony przez dowolny obraz systemu Linux. Chcesz toocreate klastrze Docker z wielu menedżerów swarm? [Możesz to zrobić](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Zadanie: Usuwanie grupy zasobów
-Pamiętaj, że możesz wdrożyć ponownie do grupy zasobów, ale jeśli praca z nią została zakończona, możesz usunąć ją za pomocą polecenia `azure group delete <group name>`.
+Należy pamiętać, że można wdrożyć ponownie tooa grupy zasobów, ale po zakończeniu jednego, można usunąć go za pomocą `azure group delete <group name>`.
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1174,25 +1174,25 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Zadanie: Wyświetlanie dziennika dla wdrożenia grupy zasobów
-To zadanie jest typowe podczas tworzenia lub korzystania z szablonów. Do wywołania wyświetlania dzienników wdrożenia dla grupy służy polecenie `azure group log show <groupname>`, które wyświetla część informacji przydatną dla zrozumienia, dlaczego coś się stało lub się nie stało. (Aby uzyskać więcej informacji na temat rozwiązywania problemów dotyczących wdrożeń oraz inne informacje o problemach, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) (Rozwiązywanie typowych problemów dotyczących wdrażania za pomocą usługi Azure Resource Manager).
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Zadanie: Pokaż dziennik hello wdrożenia grupy zasobów
+To zadanie jest typowe podczas tworzenia lub korzystania z szablonów. Witaj wywołania toodisplay hello wdrożenia dzienniki dla grupy jest `azure group log show <groupname>`, które powoduje wyświetlenie dość nieco informacje, które ułatwia zrozumienie, dlaczego coś się stało--lub nie. (Aby uzyskać więcej informacji na temat rozwiązywania problemów dotyczących wdrożeń oraz inne informacje o problemach, zobacz [Troubleshoot common Azure deployment errors with Azure Resource Manager](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md) (Rozwiązywanie typowych problemów dotyczących wdrażania za pomocą usługi Azure Resource Manager).
 
-W celu określenia konkretnych błędów możesz korzystać z narzędzi, takich jak na przykład narzędzie **jq**, aby badać problemy bardziej precyzyjnie, na przykład zidentyfikować poszczególne błędy, które wymagają naprawienia. W poniższym przykładzie użyto narzędzia **jq** do przeanalizowania dziennika wdrożenia dla **lbgroup** w poszukiwaniu błędów.
+tootarget określonych niepowodzeń, na przykład można na przykład takich narzędzi jak **jq** tooquery rzeczy bardziej precyzyjnie, takich jak które poszczególnych błędów należy toocorrect. Witaj poniższym przykładzie użyto **jq** tooparse, poszukaj w dzienniku wdrożenia **lbgroup**poszukujący błędów.
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-Możesz szybko znaleźć przyczynę problemu, naprawić błąd i ponowić próbę. W poniższym przypadku szablon tworzył dwie maszyny wirtualne jednocześnie, co spowodowało blokadę pliku VHD. (Po zmodyfikowaniu szablonu wdrożenie szybko się powiodło).
+Możesz szybko znaleźć przyczynę problemu, naprawić błąd i ponowić próbę. W następujących przypadków hello, hello szablonu ma były tworzone dwie maszyny wirtualne na powitania tym samym czasie, który utworzony blokady na powitania VHD. (Po zmodyfikowaniu szablonu hello firma Microsoft hello Zakończono pomyślnie wdrażanie szybko.)
 
 ```json
 {
     "statusCode": "Conflict",
-    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"hello resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed tooacquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
 }
 ```
 
 ## <a id="display-information-about-a-virtual-machine"></a>Zadanie: Wyświetlanie informacji o maszynie wirtualnej
-Informacje o określonych maszynach wirtualnych w grupie zasobów można wyświetlić za pomocą polecenia `azure vm show <groupname> <vmname>`. Jeśli w grupie jest więcej niż jedna maszyna wirtualna, może być konieczne wcześniejsze wyświetlenie listy maszyn wirtualnych w grupie za pomocą polecenia `azure vm list <groupname>`.
+Umożliwia wyświetlenie informacji o określonych maszynach wirtualnych w grupie zasobów, przy użyciu hello `azure vm show <groupname> <vmname>` polecenia. Jeśli masz więcej niż jedną maszynę Wirtualną w grupie, być może konieczne toolist hello maszyn wirtualnych w grupie za pomocą `azure vm list <groupname>`.
 
 ```azurecli
 azure vm list zoo
@@ -1209,8 +1209,8 @@ Następnie wyszukaj maszynę myVM1:
 ```azurecli
 azure vm show zoo myVM1
 info:    Executing command vm show
-+ Looking up the VM "myVM1"
-+ Looking up the NIC "nic1"
++ Looking up hello VM "myVM1"
++ Looking up hello NIC "nic1"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
 data:    ProvisioningState               :Failed
 data:    Name                            :myVM1
@@ -1259,12 +1259,12 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Jeśli chcesz programowo przechowywać dane wyjściowe poleceń konsoli i manipulować nimi, możesz użyć narzędzia analizy JSON, na przykład **[jq](https://github.com/stedolan/jq)** lub **[jsawk](https://github.com/micha/jsawk)**, lub bibliotek języka odpowiednich dla zadania.
+> Magazyn tooprogrammatically i manipulowania hello dane wyjściowe z konsoli poleceń, może być toouse JSON podczas analizowania narzędzi takich jak  **[jq](https://github.com/stedolan/jq)**  lub  **[jsawk](https://github.com/micha/jsawk)** , lub bibliotek języka, które są odpowiednie dla hello zadania.
 >
 >
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Zadanie: Logowanie na maszynie wirtualnej z systemem Linux
-Zazwyczaj maszyny z systemem Linux nawiązują połączenie za pośrednictwem protokołu SSH. Aby uzyskać więcej informacji, zobacz temat dotyczący [korzystania z protokołu SSH systemu Linux na platformie Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Zadań: Zaloguj się maszyny wirtualnej opartych na systemie Linux tooa
+Zazwyczaj maszyny z systemem Linux są toothrough połączenia SSH. Aby uzyskać więcej informacji, zobacz [jak toouse SSH z systemem Linux na platformie Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Zadanie: Zatrzymywanie maszyny wirtualnej
 Uruchom następujące polecenie:
@@ -1274,7 +1274,7 @@ azure vm stop <group name> <virtual machine name>
 ```
 
 > [!IMPORTANT]
-> Użyj tego parametru, aby zachować wirtualny adres IP (VIP) sieci wirtualnej w przypadku, gdy jest to ostatnia maszyna wirtualna w tej sieci wirtualnej. <br><br> Jeśli używasz parametru `StayProvisioned`, opłata nadal będzie naliczana za maszynę wirtualną.
+> Użyj tego parametru tookeep hello wirtualnego adresu IP (VIP) hello sieci wirtualnej, w razie hello ostatnia maszyna wirtualna w tej sieci wirtualnej. <br><br> Jeśli używasz hello `StayProvisioned` parametru nadal zostaną naliczone opłaty dla hello maszyny Wirtualnej.
 >
 >
 
@@ -1286,23 +1286,23 @@ azure vm start <group name> <virtual machine name>
 ```
 
 ## <a id="attach-a-data-disk"></a>Zadanie: Dołączanie dysku danych
-Musisz także zdecydować, czy dołączyć nowy dysk, czy taki, który zawiera dane. Dla nowego dysku polecenie tworzy plik VHD i dołącza go w tym samym poleceniu.
+Należy również toodecide czy tooattach nowy dysk lub jeden zawierający dane. Dla nowego dysku hello polecenie tworzy plik VHD hello i dołącza go w hello tego samego polecenia.
 
-Aby dołączyć nowy dysk, uruchom następujące polecenie:
+tooattach nowego dysku, uruchom następujące polecenie:
 
 ```azurecli
     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
-Aby dołączyć istniejący dysk danych, uruchom następujące polecenie:
+tooattach istniejący dysk danych, uruchom następujące polecenie:
 
 ```azurecli
 azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ```
 
-Następnie należy zainstalować dysk, tak jak zwykle w systemie Linux.
+Następnie należy toomount hello dysku, jak zwykle w systemie Linux.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać znacznie więcej przykładów użycia interfejsu wiersza polecenia platformy Azure z trybem **arm**, zobacz [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) (Używanie interfejsu wiersza polecenia platformy Azure na komputerach Mac i komputerach z systemem Linux oraz Windows z usługą Azure Resource Manager). Aby dowiedzieć się więcej na temat zasobów platformy Azure i powiązanych koncepcji, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+Znacznie więcej przykładów dotyczących użycia interfejsu wiersza polecenia Azure za pomocą hello **arm** tryb, zobacz [hello Using Azure CLI for Mac, Linux i Windows za pomocą Menedżera zasobów Azure](../articles/xplat-cli-azure-resource-manager.md). Zobacz toolearn więcej informacji na temat zasobów platformy Azure i ich pojęcia [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
 
 Aby uzyskać dodatkowe szablony, których możesz użyć, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i [Application frameworks using templates](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Platformy aplikacji korzystające z szablonów).

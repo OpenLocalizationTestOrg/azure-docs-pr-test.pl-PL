@@ -1,4 +1,4 @@
-Ten warunek będą oceniać pole adresu e-mail dla każdego nowego realizacji usług Salesforce. Jeśli adres e-mail zawiera *amazon.com*, warunek zostanie *True*.
+Ten warunek będą oceniać pole adresu e-mail hello każdego nowego realizacji usług Salesforce. Jeśli adres e-mail hello zawiera *amazon.com*, wynikiem warunku hello będzie *True*.
 
 1. Wybierz **+ nowy krok**.  
    ![Obraz warunku SalesForce 1](./media/connectors-create-api-salesforce/condition-1.png)   
@@ -6,13 +6,13 @@ Ten warunek będą oceniać pole adresu e-mail dla każdego nowego realizacji us
    ![Warunek SalesForce — obraz 2](./media/connectors-create-api-salesforce/condition-2.png)  
 3. Wybierz **wybierz wartość**.    
    ![Obraz warunku SalesForce 3](./media/connectors-create-api-salesforce/condition-3.png)  
-4. Wybierz *E-mail* tokenu z realizacji wyzwalacza.    
+4. Wybierz hello *E-mail* tokenu z realizacji hello hello wyzwalacza.    
    ![Obraz warunku SalesForce 4](./media/connectors-create-api-salesforce/condition-4.png)  
 5. Wybierz *zawiera*.      
    ![Obraz warunku SalesForce 5](./media/connectors-create-api-salesforce/condition-5.png)  
-6. Wybierz **wybierz wartość** u dołu formantu.     
+6. Wybierz **wybierz wartość** u dołu hello hello formantu.     
    ![Obraz warunku SalesForce 6](./media/connectors-create-api-salesforce/condition-6.png)  
-7. Wprowadź *amazon.com* jako wartość chcesz ocenić nowy adres e-mail prowadzić do. Jeśli adres e-mail zawiera *amazon.com*, warunek będą oceniać do *True* i inne czynności w aplikacji logiki można kontynuować.    
+7. Wprowadź *amazon.com* jako wartość hello ma adres e-mail hello tooevaluate hello liderem nowe. Jeśli adres e-mail hello zawiera *amazon.com*, warunek hello będą oceniać za*True* i hello inne czynności w aplikacji logiki można kontynuować.    
    ![Obraz warunku SalesForce 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Zapisz aplikacji logiki.  
 

@@ -1,22 +1,22 @@
-W tej sekcji zaktualizuj kod w istniejących projektu zaplecza aplikacji mobilnej do wysyłania powiadomień wypychanych za każdym razem, gdy zostanie dodany nowy element. Jest to obsługiwane przez [szablonu](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funkcji usługi Azure Notification Hubs, włączanie wypchnięć między platformami. Różnych klientów są zarejestrowane dla powiadomień wypychanych przy użyciu szablonów i jednego wypychania uniwersalnych może uzyskać dostęp do wszystkich platform klienta.
+W tej sekcji należy zaktualizować kodu w Twojej istniejącego projektu zaplecza Mobile Apps toosend powiadomień wypychanych za każdym razem, gdy zostanie dodany nowy element. Jest to obsługiwane przez hello [szablonu](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funkcji usługi Azure Notification Hubs, włączanie wypchnięć między platformami. Witaj różnych klientów są rejestrowane dla powiadomień wypychanych przy użyciu szablonów i pojedynczego wypychania uniwersalnych można uzyskać tooall platform klientów.
 
-Wybierz jedną z następujących procedur, które jest zgodny z typem projektu zaplecza&mdash;albo [zaplecza .NET](#dotnet) lub [zaplecza Node.js](#nodejs).
+Wybierz jedną z procedur przedstawionych hello, odpowiadający danemu typowi projektu zaplecza&mdash;albo [zaplecza .NET](#dotnet) lub [zaplecza Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projektu zaplecza .NET
-1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt serwera, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**. Wyszukaj `Microsoft.Azure.NotificationHubs`, a następnie kliknij przycisk **zainstalować**. Spowoduje to zainstalowanie biblioteki centra powiadomień do wysyłania powiadomień z sieci wewnętrznej.
-2. Otwórz projekt serwera **kontrolerów** > **TodoItemController.cs**i dodaj następujące instrukcje using:
+1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt serwera hello, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**. Wyszukaj `Microsoft.Azure.NotificationHubs`, a następnie kliknij przycisk **zainstalować**. Spowoduje to zainstalowanie hello biblioteki centra powiadomień do wysyłania powiadomień z sieci wewnętrznej.
+2. W projekcie powitania serwera Otwórz **kontrolerów** > **TodoItemController.cs**i dodaj następujące hello instrukcje using:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. W **PostTodoItem** metody, Dodaj następujący kod po wywołaniu **InsertAsync**:  
+3. W hello **PostTodoItem** metody, Dodaj hello następującego kodu po wywołaniu hello zbyt**InsertAsync**:  
 
-        // Get the settings for the server project.
+        // Get hello settings for hello server project.
         HttpConfiguration config = this.Configuration;
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get hello Notification Hubs credentials for hello Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -25,32 +25,32 @@ Wybierz jedną z następujących procedur, które jest zgodny z typem projektu z
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Sending the message so that all template registrations that contain "messageParam"
-        // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+        // Sending hello message so that all template registrations that contain "messageParam"
+        // will receive hello notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
         Dictionary<string,string> templateParams = new Dictionary<string,string>();
-        templateParams["messageParam"] = item.Text + " was added to the list.";
+        templateParams["messageParam"] = item.Text + " was added toohello list.";
 
         try
         {
-            // Send the push notification and log the results.
+            // Send hello push notification and log hello results.
             var result = await hub.SendTemplateNotificationAsync(templateParams);
 
-            // Write the success result to the logs.
+            // Write hello success result toohello logs.
             config.Services.GetTraceWriter().Info(result.State.ToString());
         }
         catch (System.Exception ex)
         {
-            // Write the failure result to the logs.
+            // Write hello failure result toohello logs.
             config.Services.GetTraceWriter()
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    To wysyła powiadomienie szablonu, który zawiera element. Tekst, gdy znajduje się nowy element.
-4. Ponownie opublikować projekt serwera.
+    To wysyła powiadomienie szablonu, który zawiera element hello. Tekst, gdy znajduje się nowy element.
+4. Ponownie opublikować hello na serwerze project Server.
 
 ### <a name="nodejs"></a>Projektu zaplecza node.js
-1. Jeśli jeszcze tego nie zrobiono, [projektu zaplecza Szybki Start Pobierz](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), lub użyj innego [edytora online w portalu Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Zastąp istniejący kod w todoitem.js następujące czynności:
+1. Jeśli jeszcze tego nie zrobiono, [pobrać projektu zaplecza szybkiego startu hello](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), lub użyj else hello [edytora online w portalu Azure hello](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Zastąp istniejący kod hello w todoitem.js hello poniżej:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -59,18 +59,18 @@ Wybierz jedną z następujących procedur, które jest zgodny z typem projektu z
         var table = azureMobileApps.table();
 
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK,
+        // For more information about hello Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
-        // Define the template payload.
+        // Define hello template payload.
         var payload = '{"messageParam": "' + context.item.text + '" }';  
 
-        // Execute the insert.  The insert returns the results as a Promise,
-        // Do the push as a post-execute action within the promise flow.
+        // Execute hello insert.  hello insert returns hello results as a Promise,
+        // Do hello push as a post-execute action within hello promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do hello push if configured
                 if (context.push) {
                     // Send a template notification.
                     context.push.send(null, payload, function (error) {
@@ -81,7 +81,7 @@ Wybierz jedną z następujących procedur, które jest zgodny z typem projektu z
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget tooreturn hello results from hello context.execute()
                 return results;
             })
             .catch(function (error) {
@@ -91,5 +91,5 @@ Wybierz jedną z następujących procedur, które jest zgodny z typem projektu z
 
         module.exports = table;  
 
-    To wysyła powiadomienie szablon zawierający item.text po wstawieniu nowego elementu.
-3. Podczas edytowania pliku na komputerze lokalnym, należy ponownie opublikować projekt serwera.
+    To wysyła powiadomienie szablon zawierający item.text powitania po wstawieniu nowego elementu.
+3. Podczas edytowania pliku hello na komputerze lokalnym, należy ponownie opublikować hello na serwerze project Server.

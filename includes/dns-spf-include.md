@@ -1,0 +1,5 @@
+Nadawca zasad Framework (SPF) rekordy są używane toospecifying serwerów poczty e-mail, które są dozwolone toosend poczty e-mail w imieniu danej nazwy domeny.  Prawidłowej konfiguracji rekordy SPF jest ważne tooprevent adresatów oznaczenie poczty e-mail jako "śmieci".
+
+w tym scenariuszu Hello DNS RFC pierwotnie została wprowadzona nowe toosupport typ rekordu "SPF". starsze serwery nazw toosupport one również dozwolone użycie hello rekordy toospecify SPF typu rekordu TXT hello.  Tę niejednoznaczność doprowadziły tooconfusion, który został rozwiązany przez [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Stwierdza, że rekordy SPF powinny tylko utworzone przy użyciu typu rekordu TXT hello i typu hello SPF jest przestarzały.
+
+**Rekordy SPF są obsługiwane przez usługę Azure DNS i powinien zostać utworzony przy użyciu typu rekordu TXT hello.** Witaj przestarzałe SPF rekordu typ nie jest obsługiwany. Gdy [Importowanie pliku strefy DNS](../articles/dns/dns-import-export.md), rekordy SPF przy użyciu typu rekordu hello SPF są konwertowane typu rekordu toohello TXT.

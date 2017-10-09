@@ -2,26 +2,26 @@
 
 ### <a name="install-raspbian"></a>Zainstaluj Raspbian
 
-Jeśli jest to w przypadku korzystania z Pi malina po raz pierwszy, musisz zainstalować Raspbian systemu operacyjnego za pomocą NOOBS na kartę SD. zawarte w zestawie. [Malina Pi oprogramowania przewodnik] [ lnk-install-raspbian] opisuje sposób instalowania systemu operacyjnego na Twoje malina Pi. W tym samouczku założono, że na Twoje Pi malina zainstalowano Raspbian systemu operacyjnego.
+Jeśli po raz pierwszy używasz programu Pi malina to hello należy tooinstall hello Raspbian systemu operacyjnego za pomocą NOOBS na karcie SD hello zawarte w zestawie hello. Hello [malina Pi oprogramowania przewodnik] [ lnk-install-raspbian] w tym artykule opisano sposób tooinstall systemu operacyjnego na Twoje malina Pi. W tym samouczku założono, że zainstalowano system operacyjny Raspbian hello na Twoje Pi malina.
 
 > [!NOTE]
-> Karta SD objęte [Microsoft Azure IoT Starter Kit malina Pi 3] [ lnk-starter-kits] ma już zainstalowany NOOBS. Możesz rozruch Pi malina z tej karty i wybrać opcję instalacji systemu operacyjnego Raspbian.
+> Karta Hello SD objęte hello [Microsoft Azure IoT Starter Kit malina Pi 3] [ lnk-starter-kits] ma już NOOBS zainstalowane. Można uruchomić hello Pi malina z tej karty i wybrać hello tooinstall Raspbian systemu operacyjnego.
 
-### <a name="set-up-the-hardware"></a>Konfigurowanie sprzętu
+### <a name="set-up-hello-hardware"></a>Konfigurowanie sprzętu hello
 
-Czujnik BME280 zawarte w samouczku [Microsoft Azure IoT Starter Kit malina Pi 3] [ lnk-starter-kits] do generowania danych telemetrycznych. Zastosowano LED, aby wskazać, kiedy Pi malina przetwarza wywołania metody, z poziomu pulpitu nawigacyjnego rozwiązania.
+W tym samouczku korzysta z czujnika hello BME280 objęte hello [Microsoft Azure IoT Starter Kit malina Pi 3] [ lnk-starter-kits] toogenerate danych telemetrycznych. Używa tooindicate LED po wywołaniu metody z pulpitu nawigacyjnego rozwiązania hello przetwarza hello malina Pi.
 
-Składniki na tablicy chleb są:
+składniki Hello na tablicy chleb hello są:
 
 - Czerwony LED
 - Ohm — 220 rezystor (czerwony, czerwony, brązowy)
 - Czujnik BME280
 
-Na poniższym diagramie przedstawiono sposób podłączania sprzętu:
+Witaj poniższym diagramie przedstawiono sposób tooconnect sprzętu:
 
 ![Ustawienia sprzętu pi malina][img-connection-diagram]
 
-Poniższa tabela zawiera podsumowanie połączeń z Pi malina do składników na breadboard:
+Witaj Poniższa tabela zawiera podsumowanie połączeń hello ze składników toohello Pi malina hello na hello breadboard:
 
 | Raspberry Pi            | Breadboard             |Kolor         |
 | ----------------------- | ---------------------- | ------------- |
@@ -34,52 +34,52 @@ Poniższa tabela zawiera podsumowanie połączeń z Pi malina do składników na
 | GND (Pin 6)             | GND (35A)              | Czarny         |
 | 3.3 V (Pin 1)           | 3Vo (34A)              | Czerwony           |
 
-Aby ukończyć instalację na sprzęt, musisz:
+ustawienia sprzętu hello toocomplete, musisz:
 
-- Twoje Pi malina nawiązać połączenia z zasilacz zawarte w zestawie.
-- Twoje Pi malina nawiązanie połączenia z siecią za pomocą kabla Ethernet zawarte w zestawie. Alternatywnie możesz skonfigurować [łączności bezprzewodowej] [ lnk-pi-wireless] Twojego malina pi.
+- Połącz Pi malina toohello zasilacza zawarte w zestawie hello.
+- Łączenie sieci tooyour Pi malina za pomocą kabla Ethernet hello zawarte w zestawie. Alternatywnie możesz skonfigurować [łączności bezprzewodowej] [ lnk-pi-wireless] Twojego malina pi.
 
-Ustawienia sprzętu z Pi malina zostało zakończone.
+Ustawienia sprzętu hello Twojej pi malina zostało zakończone.
 
-### <a name="sign-in-and-access-the-terminal"></a>Zaloguj się i uzyskać dostęp terminala
+### <a name="sign-in-and-access-hello-terminal"></a>Zaloguj się i uzyskać dostęp hello terminali
 
-Dostępne są dwie opcje środowisku końcowych dla sieci Pi malina dostępu do:
+Masz dwie opcje tooaccess terminali środowiska użytkownika Pi malina:
 
-- Jeśli masz klawiatury i monitora podłączone do sieci Pi malina umożliwia Raspbian graficzny interfejs użytkownika dostępu okno terminala.
+- Jeśli klawiatura i monitorowanie połączonych tooyour Pi malina, możesz użyć hello Raspbian GUI tooaccess okno terminalu.
 
-- Dostęp do wiersza polecenia na Twoje Pi malina przy użyciu protokołu SSH z komputera stacjonarnego.
+- Dostęp z wiersza polecenia hello na Twoje Pi malina przy użyciu protokołu SSH z komputera stacjonarnego.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>Okno terminalu w graficznym interfejsie użytkownika
+#### <a name="use-a-terminal-window-in-hello-gui"></a>Okno terminalu w hello graficznego interfejsu użytkownika
 
-Nazwa użytkownika są domyślne poświadczenia dla Raspbian **pi** i hasło **malina**. Na pasku zadań w interfejsie GUI, uruchom **Terminal** narzędzie przy użyciu ikony, która wygląda jak monitora.
+username są Hello domyślne poświadczenia dla Raspbian **pi** i hasło **malina**. Na pasku zadań hello w hello graficznego interfejsu użytkownika, możesz uruchomić hello **Terminal** narzędzie za pomocą ikony hello, która wygląda jak monitora.
 
 #### <a name="sign-in-with-ssh"></a>Zaloguj się przy użyciu protokołu SSH
 
-Umożliwia SSH dla wiersza polecenia dostępu użytkownika Pi malina. Artykuł [SSH (Secure Shell)] [ lnk-pi-ssh] w tym artykule opisano sposób konfigurowania SSH na Twoje Pi malina oraz sposób nawiązywania połączenia z [Windows] [ lnk-ssh-windows] lub [ System operacyjny Linux & Mac][lnk-ssh-linux].
+Można użyć SSH dla wiersza polecenia dostępu tooyour malina Pi. Artykuł Hello [SSH (Secure Shell)] [ lnk-pi-ssh] w tym artykule opisano sposób tooconfigure SSH na Twoje Pi malina i w jaki sposób tooconnect z [Windows] [ lnk-ssh-windows] lub [Systemu operacyjnego Linux & Mac][lnk-ssh-linux].
 
 Zaloguj się przy użyciu nazwy użytkownika **pi** i hasło **malina**.
 
 #### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>Opcjonalnie: Udostępnianie folderu w Twojej Pi malina
 
-Opcjonalnie można udostępnić folder w sieci Pi malina środowisko pulpitu. Udostępnianie folderu pozwala na użycie w edytorze tekstów pulpitu preferowanych (takich jak [Visual Studio Code](https://code.visualstudio.com/) lub [Sublime tekst](http://www.sublimetext.com/)) do edycji plików w sieci Pi malina zamiast `nano` lub `vi`.
+Opcjonalnie możesz tooshare folderem na Twoje Pi malina ze środowiskiem pulpitu. Udostępnianie folderu umożliwia możesz toouse w edytorze tekstów pulpitu preferowanych (takich jak [Visual Studio Code](https://code.visualstudio.com/) lub [Sublime tekst](http://www.sublimetext.com/)) plików tooedit na Twoje Pi malina zamiast `nano` lub `vi`.
 
-Aby udostępnić folder z systemem Windows, należy skonfigurować serwer Samba na malina Pi. Alternatywnie można użyć wbudowanej [SFTP](https://www.raspberrypi.org/documentation/remote-access/) serwera za pomocą klienta protokołu SFTP na pulpicie.
+tooshare folder z systemem Windows, skonfiguruj serwer Samba na powitania malina Pi. Alternatywnie można użyć wbudowanych hello [SFTP](https://www.raspberrypi.org/documentation/remote-access/) serwera za pomocą klienta protokołu SFTP na pulpicie.
 
 ### <a name="enable-spi"></a>Włącz SPI
 
-Przed uruchomieniem aplikacji przykładowej, należy włączyć Pi malina magistrali Serial peryferyjne interfejsu (SPI). Pi malina komunikuje się z urządzeniami czujnik BME280 przez magistralę SPI. Aby edytować plik konfiguracji, użyj następującego polecenia:
+Przed rozpoczęciem powitalne przykładowej aplikacji, należy włączyć magistrali Serial peryferyjne interfejsu (SPI) hello hello malina Pi. Hello Pi malina komunikuje się z urządzeniem czujnik BME280 hello za pośrednictwem hello SPI magistrali. Użyj następującego pliku konfiguracji hello tooedit polecenia hello:
 
 ```sh
 sudo nano /boot/config.txt
 ```
 
-Znajdź wiersz:
+Znajdź wiersz hello:
 
 `#dtparam=spi=on`
 
-- Aby Usuń komentarz z linii, Usuń `#` na początku.
-- Zapisz zmiany (**Ctrl-O**, **Enter**) i zamknij Edytor (**Ctrl-X**).
-- Aby włączyć SPI, ponowny rozruch malina Pi. Ponowny rozruch rozłącza terminala, musisz zalogować się ponownie, gdy Pi malina uruchomieniu:
+- toouncomment hello wiersza, Usuń hello `#` na początku hello.
+- Zapisz zmiany (**Ctrl-O**, **Enter**) i zamknij Edytor hello (**Ctrl-X**).
+- tooenable SPI, ponowny rozruch hello malina Pi. Ponowny rozruch odłączy hello terminali, należy toosign w ponownie, gdy hello Pi malina uruchomieniu:
 
   ```sh
   sudo reboot

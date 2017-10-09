@@ -1,23 +1,23 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Określanie nazwy DNS maszyny wirtualnej
-Aby połączyć się z aparatem bazy danych programu SQL Server z innego komputera, musisz znać nazwy systemu nazw domen (DNS, Domain Name System) maszyny wirtualnej. (Jest to nazwa, używanych przez internet na identyfikację maszyny wirtualnej. Możesz użyć adresu IP, ale adres IP mogą ulec zmianie, gdy Azure przenosi zasoby nadmiarowość lub konserwacji. Nazwa DNS będzie stabilny, ponieważ mogą zostać przekierowane do nowego adresu IP).  
+### <a name="determine-hello-dns-name-of-hello-virtual-machine"></a>Określić nazwy DNS hello hello maszyny wirtualnej
+tooconnect toohello aparatu bazy danych programu SQL Server z innego komputera, musisz znać hello systemu nazw domen (DNS, Domain Name System) nazwa hello maszyny wirtualnej. (Jest to hello nazwa hello internet używa tooidentify hello wirtualnej maszyny. Możesz użyć adresu IP hello, ale hello adresu IP mogą ulec zmianie, gdy Azure przenosi zasoby nadmiarowość lub konserwacji. Nazwa DNS Hello będzie stabilny, ponieważ może być przekierowywane tooa nowego adresu IP.)  
 
-1. W portalu Azure (lub w poprzednim kroku), wybierz **maszyn wirtualnych (klasyczne)**.
+1. W portalu Azure hello (lub hello w poprzednim kroku), wybierz **maszyn wirtualnych (klasyczne)**.
 2. Wybierz maszynę Wirtualną programu SQL.
-3. Na **maszyny wirtualnej** bloku, kopiowania **nazwy DNS** dla maszyny wirtualnej.
+3. Na powitania **maszyny wirtualnej** bloku, hello kopiowania **nazwy DNS** hello maszyny wirtualnej.
    
     ![Nazwa DNS](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Nawiązywanie połączenia z aparatem bazy danych z innego komputera
-1. Na komputerze podłączonym do Internetu Otwórz program SQL Server Management Studio.
-2. W **Połącz z serwerem** lub **nawiązywanie połączenia z aparatem bazy danych** okna dialogowego, **nazwy serwera** wprowadź nazwę DNS maszyny wirtualnej (określoną w poprzednim zadaniu) i numeru portu publicznego punktu końcowego w formacie *DNSName, numer_portu* takich jak **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-toohello-database-engine-from-another-computer"></a>Połącz toohello aparatu bazy danych z innego komputera
+1. Na komputerze połączone toohello internet, Otwórz program SQL Server Management Studio.
+2. W hello **połączyć tooServer** lub **połączyć tooDatabase aparat** okno dialogowe, w hello **nazwy serwera** wpisz nazwę DNS hello hello maszyny wirtualnej (określoną w hello poprzednie zadanie) i numer portu publicznego punktu końcowego w formacie hello *DNSName, numer_portu* takich jak **mysqlvm.cloudapp.net,57500**.
    
     ![Połącz przy użyciu narzędzia SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Jeśli nie pamiętasz numeru portu publicznego punktu końcowego została wcześniej utworzona, można znaleźć w **punkty końcowe** obszar **maszyny wirtualnej** bloku.
+    Jeśli nie pamiętasz numeru portu publicznego punktu końcowego hello wcześniej utworzony, można go znaleźć w hello **punkty końcowe** obszaru hello **maszyny wirtualnej** bloku.
    
     ![Port publiczny](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. W polu **Authentication** (Uwierzytelnianie) wybierz opcję **SQL Server Authentication** (Uwierzytelnianie programu SQL Server).
-4. W **logowania** wpisz nazwę logowania, utworzony w starszej zadań.
-5. W **hasło** wpisz hasło logowania, utworzone w wcześniejszych zadań.
+3. W hello **uwierzytelniania** wybierz opcję **uwierzytelniania programu SQL Server**.
+4. W hello **logowania** okno, nazwa typu hello logowania, utworzony w starszej zadań.
+5. W hello **hasło** okno, wpisz hasło hello hello logowania, utworzone w wcześniejszych zadań.
 6. Kliknij przycisk **Połącz**.
 

@@ -1,10 +1,10 @@
-W wersji 3.0 modułu AzureRm.Resources wprowadzono istotne zmiany w sposobie pracy z tagami. Przed kontynuowaniem sprawdź swoją wersję:
+Wersja 3.0 moduł AzureRm.Resources hello uwzględnione znaczących zmian w sposób pracy z tagami. Przed kontynuowaniem sprawdź swoją wersję:
 
 ```powershell
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Jeśli masz wersję 3.0 lub nowszą, przykłady z tego tematu zadziałają w Twoim środowisku. Jeśli nie masz wersji 3.0 lub nowszej, przed kontynuowaniem pracy z tym tematem [zaktualizuj swoją wersję](/powershell/azureps-cmdlets-docs/) za pomocą Galerii programu PowerShell lub Instalatora platformy sieci Web.
+Jeśli wyniki wskazują, wersja 3.0 lub nowszej, hello przykłady w tym temacie pracować ze środowiskiem. Jeśli nie masz wersji 3.0 lub nowszej, przed kontynuowaniem pracy z tym tematem [zaktualizuj swoją wersję](/powershell/azureps-cmdlets-docs/) za pomocą Galerii programu PowerShell lub Instalatora platformy sieci Web.
 
 ```powershell
 Version
@@ -12,13 +12,13 @@ Version
 3.5.0
 ```
 
-Aby wyświetlić istniejące tagi dla *grupy zasobów*, użyj:
+toosee hello znaczników dla *grupy zasobów*, użyj:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-Ten skrypt zwraca następujący format:
+Czy skrypt zwraca hello następującego formatu:
 
 ```powershell
 Name                           Value
@@ -27,39 +27,39 @@ Dept                           IT
 Environment                    Test
 ```
 
-Aby wyświetlić istniejące tagi dla *zasobu o określonym identyfikatorze zasobu*, użyj:
+toosee hello znaczników dla *zasób, który ma identyfikator określonego zasobu*, użyj:
 
 ```powershell
 (Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-Aby wyświetlić istniejące tagi dla *zasobu o określonej nazwie i grupie zasobów*, użyj:
+Lub toosee hello znaczników dla *zasób, który ma nazwę i zasobów do określonej grupy*, użyj:
 
 ```powershell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-Aby uzyskać *grupy zasobów, które mają konkretny tag*, użyj:
+tooget *grup zasobów, które mają określonego tagu*, użyj:
 
 ```powershell
 (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 ```
 
-Aby uzyskać *zasoby, które mają konkretny tag*, użyj:
+tooget *zasoby, które mają konkretnego znacznika*, użyj:
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Za każdym razem, gdy stosujesz tagi do zasobu lub grupy zasobów, istniejące tagi tego zasobu lub tej grupy zasobów są zastępowane. Dlatego konieczne jest różne podejście w zależności od tego, czy dany zasób lub dana grupa zasobów ma istniejące tagi. 
+Zawsze należy zastosować tagi tooa zasób lub grupa zasobów, należy zastąpić znaczników hello na tym zasób lub grupa zasobów. W związku z tym należy użyć innego podejścia opartego na czy hello zasób lub grupa zasobów ma znaczników. 
 
-Aby dodać tagi do *grupy zasobów bez istniejących tagów*, użyj:
+tooadd znaczniki tooa *grupy zasobów bez znaczników*, użyj:
 
 ```powershell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-Aby dodać tagi do *grupy zasobów z istniejącymi tagami*, pobierz istniejące tagi, dodaj nowy tag i ponownie zastosuj tagi:
+tooadd znaczniki tooa *grupę zasobów, która ma znaczników*, pobrać hello znaczników, Dodaj nowy znacznik hello i ponownie zastosuj tagi hello:
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -67,13 +67,13 @@ $tags += @{Status="Approved"}
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
-Aby dodać tagi do *zasobu bez istniejących tagów*, użyj:
+tooadd znaczniki tooa *zasobu bez znaczników*, użyj:
 
 ```powershell
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-Aby dodać tagi do *zasobu z istniejącymi tagami*, użyj:
+tooadd znaczniki tooa *zasobu, który znaczników*, użyj:
 
 ```powershell
 $tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
@@ -81,7 +81,7 @@ $tags += @{Status="Approved"}
 Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-Aby zastosować wszystkie tagi z grupy zasobów do jej zasobów *bez zachowania tagów istniejących w zasobach*, użyj następującego skryptu:
+tooapply wszystkie znaczniki z tooits zasobów grupy zasobów i *nie zachować istniejące znaczniki zasobów hello*, użyj następującego skryptu hello:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -91,7 +91,7 @@ foreach ($g in $groups)
 }
 ```
 
-Aby zastosować wszystkie tagi z grupy zasobów do jej zasobów *z zachowaniem tagów istniejących w zasobach, które nie są duplikatami*, użyj następującego skryptu:
+tooapply wszystkie znaczniki z tooits zasobów grupy zasobów i *zachować istniejące znaczniki na zasoby, które nie są duplikatami*, użyj następującego skryptu hello:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -113,7 +113,7 @@ foreach ($g in $groups)
 }
 ```
 
-Aby usunąć wszystkie tagi, przekaż pustą tablicę skrótów:
+tooremove wszystkie tagi, Przekaż tablicy skrótów pusta:
 
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup

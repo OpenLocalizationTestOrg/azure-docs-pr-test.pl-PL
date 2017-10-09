@@ -28,13 +28,13 @@
 | Umowa SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
 
 <sup>1</sup>aplikacji i przydziały pamięci masowej są na plan usługi aplikacji, o ile nie zaznaczono inaczej.  
-<sup>2</sup>rzeczywista liczba aplikacji, które mogą być hostowane na tych komputerach zależy działanie aplikacji, rozmiar wystąpień maszyn i odpowiednie wykorzystania zasobów.  
+<sup>2</sup>hello rzeczywista liczba aplikacji, które mogą być hostowane na tych komputerach zależy od hello działanie aplikacji hello, rozmiar hello hello wystąpień maszyn i hello odpowiedniego wykorzystania zasobów.  
 <sup>3</sup>dedykowanego wystąpienia może być o różnych rozmiarach. Zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) więcej szczegółów.  
-<sup>4</sup>warstwy premium umożliwia maksymalnie 50 oblicza wystąpień (pod warunkiem dostępności) i 500 GB miejsca na dysku, używając środowiska usługi App Service i 20 obliczeniowe inaczej wystąpień i 250 GB pamięci masowej.  
-<sup>5</sup>limit magazynu jest łączny rozmiar zawartości przez wszystkie aplikacje w tym samym planie usługi aplikacji. Więcej opcji magazynu są dostępne w [środowiska usługi aplikacji](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
-<sup>6</sup>te zasoby są ograniczone przez fizyczne zasoby dedykowanego wystąpienia (rozmiar wystąpienia i liczba wystąpień).  
-<sup>7</sup>Skala aplikacji w warstwie podstawowa na dwa wystąpienia, masz 350 równoczesnych połączeń dla każdego z dwóch wystąpień.  
-<sup>8</sup>warstwy premium umożliwia interwał tworzenia kopii zapasowych w dół do co 5 minut, za pomocą środowiska usługi App Service, a 50 razy dziennie w inny sposób.  
-<sup>9</sup>uruchomić niestandardowe pliki wykonywalne lub skrypty na żądanie, zgodnie z harmonogramem lub wystąpienie stale jako zadania w tle w usłudze App Service. Do ciągłego wykonywania zadań w sieci Web jest wymagana opcja Zawsze włączona. Do wykonywania zadań w sieci Web według harmonogramu jest wymagana usługa Azure Scheduler w warstwie Bezpłatna lub Standardowa. Nie ma żadnego wstępnie zdefiniowanego limitu liczby zadań Webjob, które może być uruchamiane w wystąpieniu usługi App Service, ale istnieją praktycznych limitów, które są zależne od kodu aplikacja próbuje zrobić.   
+<sup>4</sup>warstwy premium umożliwia się too50 oblicza wystąpień (podmiotu tooavailability) i 500 GB miejsca na dysku podczas używania środowiska usługi App Service i 20 obliczeniowe inaczej wystąpień i 250 GB pamięci masowej.  
+<sup>5</sup>limit magazynu hello jest hello łączny rozmiar zawartości przez wszystkie aplikacje w tym samym planie usługi aplikacji. Więcej opcji magazynu są dostępne w [środowiska usługi aplikacji](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
+<sup>6</sup>te zasoby są ograniczone przez zasoby fizyczne na powitania dedykowanego wystąpienia (rozmiar wystąpienia hello i hello liczba wystąpień).  
+<sup>7</sup>Jeśli aplikację można skalować w wystąpieniach tootwo warstwy Basic hello, masz 350 równoczesnych połączeń dla poszczególnych wystąpień hello dwa.  
+<sup>8</sup>warstwy premium umożliwia interwał tworzenia kopii zapasowych w dół się tooevery 5 minut przy użyciu środowiska usługi App Service i 50 razy dziennie w inny sposób.  
+<sup>9</sup>uruchomić niestandardowe pliki wykonywalne lub skrypty na żądanie, zgodnie z harmonogramem lub wystąpienie stale jako zadania w tle w usłudze App Service. Do ciągłego wykonywania zadań w sieci Web jest wymagana opcja Zawsze włączona. Do wykonywania zadań w sieci Web według harmonogramu jest wymagana usługa Azure Scheduler w warstwie Bezpłatna lub Standardowa. Nie ma żadnego limitu wstępnie zdefiniowanych hello liczby zadań Webjob, które może być uruchamiane w wystąpieniu usługi App Service, ale istnieją praktycznych limitów, które są zależne od jakiego kodu aplikacji hello próbuje toodo.   
 <sup>10</sup>poziomie 99,95% podane w przypadku wdrożeń, które użycia wielu wystąpień z usługi Azure Traffic Manager skonfigurowany dla trybu failover.  
 

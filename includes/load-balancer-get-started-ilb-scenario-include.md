@@ -1,6 +1,6 @@
 ## <a name="scenario"></a>Scenariusz
 
-Tworzenie wewnętrznego modułu równoważenia obciążenia zgodnie z poniższym scenariuszem
+Tworzysz wewnętrznego modułu równoważenia obciążenia zgodnie z toohello po scenariusza
 
 ![OPIS ILUSTRACJI](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 

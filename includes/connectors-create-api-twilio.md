@@ -4,23 +4,23 @@
 * Zweryfikowano numer telefonu usługi Twilio, która umożliwia wysyłanie SMS
 
 > [!NOTE]
-> Jeśli używasz konta próbnego usługi Twilio programu SMS można wysłać tylko **zweryfikować** numerów telefonów.  
+> Jeśli używasz konta próbnego usługi Twilio, można wysłać tylko SMS zbyt**zweryfikować** numerów telefonów.  
 > 
 > 
 
-Aby korzystać z konta usługi Twilio, w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem usługi Twilio. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
+Aby korzystać z konta usługi Twilio, w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour usługi Twilio konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure. 
 
-Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem usługi Twilio:
+Oto hello kroki tooauthorize Twojego tooyour tooconnect aplikacji logiki konta usługi Twilio:
 
-1. Aby utworzyć połączenie z usługi Twilio, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *usługi Twilio* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
+1. Wybierz tooTwilio połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *usługi Twilio* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
    ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. Jeśli nie utworzono wszystkie połączenia z usługi Twilio, zanim będzie zostanie wyświetlony monit o podanie poświadczeń usługi Twilio. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta usługi Twilio:  
+2. Jeśli nie utworzono żadnych tooTwilio połączenia przed, zostanie wyświetlony zostanie wyświetlony monit o tooprovide poświadczeń usługi Twilio. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do konta usługi Twilio danych:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. Będziesz potrzebować **identyfikator konta usługi Twilio** i **token dostępu usługi Twilio** z poziomu pulpitu nawigacyjnego usługi Twilio, aby zalogować się do konta usługi Twilio teraz do pobrania tych dwóch rodzajów informacji:  
+3. Będziesz potrzebować hello **identyfikator konta usługi Twilio** i **token dostępu usługi Twilio** z pulpitu nawigacyjnego hello w usługi Twilio, więc zalogować toograb teraz konta usługi Twilio tooyour te dwa rodzaje informacji:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Usługi Twilio i logiki aplikacji użyj innej nazwy, aby zidentyfikować te dwa rodzaje informacji. Oto, jak należy zamapować je do okna dialogowego aplikacje logiki:![](./media/connectors-create-api-twilio/twilio-3.png)  
-5. Wybierz **utworzyć połączenie** przycisk:  
+4. Usługi Twilio i logiki aplikacji użyj różnych nazw tooidentify te dwa rodzaje informacji. Oto, jak należy mapować je toohello logiki aplikacji w oknie dialogowym:![](./media/connectors-create-api-twilio/twilio-3.png)  
+5. Wybierz hello **utworzyć połączenie** przycisk:  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
+6. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 

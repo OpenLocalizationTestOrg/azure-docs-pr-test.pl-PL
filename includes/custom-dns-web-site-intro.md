@@ -1,0 +1,2 @@
+Podczas tworzenia aplikacji sieci web Microsoft Azure udostępnia przyjazne poddomeny w domenie azurewebsites.net hello, użytkownicy mogą uzyskiwać dostęp do aplikacji sieci web przy użyciu adresu URL, takie jak http://&lt;mywebapp&gt;. azurewebsites.net. Można również skojarzyć niestandardowej nazwy domeny, np. contoso.com, z aplikacji sieci web w kolejności tooprovide więcej rozpoznawalną nazwę domeny dla użytkowników.
+
