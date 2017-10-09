@@ -1,14 +1,14 @@
-Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).
+<span data-ttu-id="a1fa3-101">Tworzenie planu usługi aplikacji z hello [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="a1fa3-101">Create an App Service plan with hello [az appservice plan create](/cli/azure/appservice/plan#create) command.</span></span>
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-W poniższym przykładzie jest tworzony plan usługi App Service o nazwie `myAppServicePlan` przy użyciu warstwy cenowej **Bezpłatna**:
+<span data-ttu-id="a1fa3-102">Witaj poniższy przykład tworzy plan usługi aplikacji o nazwie `myAppServicePlan` w hello **wolne** warstwa cenowa:</span><span class="sxs-lookup"><span data-stu-id="a1fa3-102">hello following example creates an App Service plan named `myAppServicePlan` in hello **Free** pricing tier:</span></span>
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:
+<span data-ttu-id="a1fa3-103">Po utworzeniu planu usługi aplikacji hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:</span><span class="sxs-lookup"><span data-stu-id="a1fa3-103">When hello App Service plan has been created, hello Azure CLI shows information similar toohello following example:</span></span>
 
 ```json
 { 

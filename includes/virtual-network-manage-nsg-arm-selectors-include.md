@@ -1,0 +1,4 @@
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="2ea72-101">Portal</span><span class="sxs-lookup"><span data-stu-id="2ea72-101">Portal</span></span>](../articles/virtual-network/virtual-network-manage-nsg-arm-portal.md)
+> * [<span data-ttu-id="2ea72-102">Program PowerShell</span><span class="sxs-lookup"><span data-stu-id="2ea72-102">PowerShell</span></span>](../articles/virtual-network/virtual-network-manage-nsg-arm-ps.md)
+> * [<span data-ttu-id="2ea72-103">Interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="2ea72-103">Azure CLI</span></span>](../articles/virtual-network/virtual-network-manage-nsg-arm-cli.md)

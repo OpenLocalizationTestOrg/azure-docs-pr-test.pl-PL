@@ -1,6 +1,6 @@
 ---
-title: "Wdrożenia rozwiązania bazy danych SQL Azure rozproszona geograficznie | Dokumentacja firmy Microsoft"
-description: "Dowiedz się do konfigurowania bazy danych SQL Azure i aplikacji dla trybu failover z bazą danych replikowanych i testowanie trybu failover."
+title: "aaaImplement rozwiązania bazy danych SQL Azure rozproszona geograficznie | Dokumentacja firmy Microsoft"
+description: "Dowiedz się tooconfigure bazy danych SQL Azure i aplikacji dla trybu failover tooa replikowane bazy danych i testowanie trybu failover."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,84 +16,84 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9295d33c669405108a1a64ef1e7cb77f582773a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="implement-a-geo-distributed-database"></a><span data-ttu-id="22e1d-103">Wdrożenie rozproszone geograficznie bazy danych</span><span class="sxs-lookup"><span data-stu-id="22e1d-103">Implement a geo-distributed database</span></span>
+# <a name="implement-a-geo-distributed-database"></a><span data-ttu-id="8fb6a-103">Wdrożenie rozproszone geograficznie bazy danych</span><span class="sxs-lookup"><span data-stu-id="8fb6a-103">Implement a geo-distributed database</span></span>
 
-<span data-ttu-id="22e1d-104">W tym samouczku skonfiguruj bazy danych Azure SQL i aplikacji dla trybu failover w regionie zdalnego, a następnie testować tryb failover planu.</span><span class="sxs-lookup"><span data-stu-id="22e1d-104">In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan.</span></span> <span data-ttu-id="22e1d-105">Omawiane kwestie:</span><span class="sxs-lookup"><span data-stu-id="22e1d-105">You learn how to:</span></span> 
+<span data-ttu-id="8fb6a-104">W tym samouczku skonfiguruj bazy danych Azure SQL i aplikacji dla trybu failover tooa zdalnego regionu, a następnie testować tryb failover planu.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-104">In this tutorial, you configure an Azure SQL database and application for failover tooa remote region, and then test your failover plan.</span></span> <span data-ttu-id="8fb6a-105">Omawiane kwestie:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-105">You learn how to:</span></span> 
 
 > [!div class="checklist"]
-> * <span data-ttu-id="22e1d-106">Tworzenie bazy danych użytkowników i udzielić im uprawnień</span><span class="sxs-lookup"><span data-stu-id="22e1d-106">Create database users and grant them permissions</span></span>
-> * <span data-ttu-id="22e1d-107">Skonfiguruj regułę zapory poziomu bazy danych</span><span class="sxs-lookup"><span data-stu-id="22e1d-107">Set up a database-level firewall rule</span></span>
-> * <span data-ttu-id="22e1d-108">Utwórz [— replikacja geograficzna trybu failover grupy](sql-database-geo-replication-overview.md)</span><span class="sxs-lookup"><span data-stu-id="22e1d-108">Create a [geo-replication failover group](sql-database-geo-replication-overview.md)</span></span>
-> * <span data-ttu-id="22e1d-109">Tworzenie i kompilacja aplikacji Java kwerendy bazy danych Azure SQL</span><span class="sxs-lookup"><span data-stu-id="22e1d-109">Create and compile a Java application to query an Azure SQL database</span></span>
-> * <span data-ttu-id="22e1d-110">Wykonaj wyszczególniania odzyskiwania po awarii</span><span class="sxs-lookup"><span data-stu-id="22e1d-110">Perform a disaster recovery drill</span></span>
+> * <span data-ttu-id="8fb6a-106">Tworzenie bazy danych użytkowników i udzielić im uprawnień</span><span class="sxs-lookup"><span data-stu-id="8fb6a-106">Create database users and grant them permissions</span></span>
+> * <span data-ttu-id="8fb6a-107">Skonfiguruj regułę zapory poziomu bazy danych</span><span class="sxs-lookup"><span data-stu-id="8fb6a-107">Set up a database-level firewall rule</span></span>
+> * <span data-ttu-id="8fb6a-108">Utwórz [— replikacja geograficzna trybu failover grupy](sql-database-geo-replication-overview.md)</span><span class="sxs-lookup"><span data-stu-id="8fb6a-108">Create a [geo-replication failover group](sql-database-geo-replication-overview.md)</span></span>
+> * <span data-ttu-id="8fb6a-109">Tworzenie i kompilacja tooquery aplikacji Java bazy danych Azure SQL</span><span class="sxs-lookup"><span data-stu-id="8fb6a-109">Create and compile a Java application tooquery an Azure SQL database</span></span>
+> * <span data-ttu-id="8fb6a-110">Wykonaj wyszczególniania odzyskiwania po awarii</span><span class="sxs-lookup"><span data-stu-id="8fb6a-110">Perform a disaster recovery drill</span></span>
 
-<span data-ttu-id="22e1d-111">Jeśli nie masz subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.</span><span class="sxs-lookup"><span data-stu-id="22e1d-111">If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.</span></span>
+<span data-ttu-id="8fb6a-111">Jeśli nie masz subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-111">If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.</span></span>
 
 
-## <a name="prerequisites"></a><span data-ttu-id="22e1d-112">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="22e1d-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="8fb6a-112">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="8fb6a-112">Prerequisites</span></span>
 
-<span data-ttu-id="22e1d-113">Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:</span><span class="sxs-lookup"><span data-stu-id="22e1d-113">To complete this tutorial, make sure the following prerequisites are completed:</span></span>
+<span data-ttu-id="8fb6a-113">toocomplete ukończenia tego samouczka, Utwórz hello się, że następujące wymagania wstępne:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-113">toocomplete this tutorial, make sure hello following prerequisites are completed:</span></span>
 
-- <span data-ttu-id="22e1d-114">Zainstalowana najnowsza wersja [programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).</span><span class="sxs-lookup"><span data-stu-id="22e1d-114">Installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).</span></span> 
-- <span data-ttu-id="22e1d-115">Zainstalowana baza danych Azure SQL.</span><span class="sxs-lookup"><span data-stu-id="22e1d-115">Installed an Azure SQL database.</span></span> <span data-ttu-id="22e1d-116">W tym samouczku używana przykładową bazę danych AdventureWorksLT o nazwie **mySampleDatabase** z jednego z tych Szybki Start:</span><span class="sxs-lookup"><span data-stu-id="22e1d-116">This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:</span></span>
+- <span data-ttu-id="8fb6a-114">Najnowsza wersja zainstalowanego hello [programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-114">Installed hello latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).</span></span> 
+- <span data-ttu-id="8fb6a-115">Zainstalowana baza danych Azure SQL.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-115">Installed an Azure SQL database.</span></span> <span data-ttu-id="8fb6a-116">W tym samouczku używana hello AdventureWorksLT przykładowa baza danych o nazwie **mySampleDatabase** z jednego z tych Szybki Start:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-116">This tutorial uses hello AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:</span></span>
 
-   - [<span data-ttu-id="22e1d-117">Tworzenie bazy danych — portal</span><span class="sxs-lookup"><span data-stu-id="22e1d-117">Create DB - Portal</span></span>](sql-database-get-started-portal.md)
-   - [<span data-ttu-id="22e1d-118">Tworzenie bazy danych — interfejs wiersza polecenia</span><span class="sxs-lookup"><span data-stu-id="22e1d-118">Create DB - CLI</span></span>](sql-database-get-started-cli.md)
-   - [<span data-ttu-id="22e1d-119">Tworzenie bazy danych — PowerShell</span><span class="sxs-lookup"><span data-stu-id="22e1d-119">Create DB - PowerShell</span></span>](sql-database-get-started-powershell.md)
+   - [<span data-ttu-id="8fb6a-117">Tworzenie bazy danych — portal</span><span class="sxs-lookup"><span data-stu-id="8fb6a-117">Create DB - Portal</span></span>](sql-database-get-started-portal.md)
+   - [<span data-ttu-id="8fb6a-118">Tworzenie bazy danych — interfejs wiersza polecenia</span><span class="sxs-lookup"><span data-stu-id="8fb6a-118">Create DB - CLI</span></span>](sql-database-get-started-cli.md)
+   - [<span data-ttu-id="8fb6a-119">Tworzenie bazy danych — PowerShell</span><span class="sxs-lookup"><span data-stu-id="8fb6a-119">Create DB - PowerShell</span></span>](sql-database-get-started-powershell.md)
 
-- <span data-ttu-id="22e1d-120">Zidentyfikowano metodę wykonywanie skryptów SQL bazy danych, można użyć jednej z następujących narzędzi zapytania:</span><span class="sxs-lookup"><span data-stu-id="22e1d-120">Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:</span></span>
-   - <span data-ttu-id="22e1d-121">Edytor zapytań w [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="22e1d-121">The query editor in the [Azure portal](https://portal.azure.com).</span></span> <span data-ttu-id="22e1d-122">Aby uzyskać więcej informacji na temat używania edytora zapytań w portalu Azure, zobacz [Connect i zapytania za pomocą edytora zapytań](sql-database-get-started-portal.md#query-the-sql-database).</span><span class="sxs-lookup"><span data-stu-id="22e1d-122">For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).</span></span>
-   - <span data-ttu-id="22e1d-123">Najnowsza wersja [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), która jest zintegrowane środowisko umożliwiające zarządzanie dowolnej infrastruktury SQL z programu SQL Server z bazą danych SQL systemu Microsoft Windows.</span><span class="sxs-lookup"><span data-stu-id="22e1d-123">The newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.</span></span>
-   - <span data-ttu-id="22e1d-124">Najnowsza wersja [Visual Studio Code](https://code.visualstudio.com/docs), czyli edytorze graficznego kodu dla systemu Linux, macOS, i systemu Windows, który obsługuje rozszerzenia, w tym [rozszerzenia mssql](https://aka.ms/mssql-marketplace) do wykonywania zapytań programu Microsoft SQL Server Baza danych Azure SQL i usługi SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="22e1d-124">The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.</span></span> <span data-ttu-id="22e1d-125">Aby uzyskać więcej informacji o usłudze Azure SQL Database za pomocą tego narzędzia, zobacz [Connect i zapytanie z kodem VS](sql-database-connect-query-vscode.md).</span><span class="sxs-lookup"><span data-stu-id="22e1d-125">For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md).</span></span> 
+- <span data-ttu-id="8fb6a-120">Zidentyfikowano tooexecute metody SQL skryptów bazy danych, można użyć jednej z hello następujące narzędzia kwerendy:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-120">Have identified a method tooexecute SQL scripts against your database, you can use one of hello following query tools:</span></span>
+   - <span data-ttu-id="8fb6a-121">Edytor zapytań Hello w hello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-121">hello query editor in hello [Azure portal](https://portal.azure.com).</span></span> <span data-ttu-id="8fb6a-122">Aby uzyskać więcej informacji na temat używania edytora zapytań hello w hello portalu Azure, zobacz [Connect i zapytania za pomocą edytora zapytań](sql-database-get-started-portal.md#query-the-sql-database).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-122">For more information on using hello query editor in hello Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).</span></span>
+   - <span data-ttu-id="8fb6a-123">Witaj najnowsza wersja [programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), która jest zintegrowane środowisko umożliwiające zarządzanie dowolnej infrastruktury SQL z programu SQL Server tooSQL bazy danych systemu Microsoft Windows.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-123">hello newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server tooSQL Database for Microsoft Windows.</span></span>
+   - <span data-ttu-id="8fb6a-124">Hello najnowsza wersja [Visual Studio Code](https://code.visualstudio.com/docs), czyli edytorze graficznego kodu dla systemu Linux, macOS, i systemu Windows, które obsługuje rozszerzenia, w tym hello [rozszerzenia mssql](https://aka.ms/mssql-marketplace) do wykonywania zapytań programu Microsoft SQL Server , Baza danych azure SQL i SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-124">hello newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including hello [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.</span></span> <span data-ttu-id="8fb6a-125">Aby uzyskać więcej informacji o usłudze Azure SQL Database za pomocą tego narzędzia, zobacz [Connect i zapytanie z kodem VS](sql-database-connect-query-vscode.md).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-125">For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md).</span></span> 
 
-## <a name="create-database-users-and-grant-permissions"></a><span data-ttu-id="22e1d-126">Tworzenie bazy danych użytkowników i udzielanie uprawnień</span><span class="sxs-lookup"><span data-stu-id="22e1d-126">Create database users and grant permissions</span></span>
+## <a name="create-database-users-and-grant-permissions"></a><span data-ttu-id="8fb6a-126">Tworzenie bazy danych użytkowników i udzielanie uprawnień</span><span class="sxs-lookup"><span data-stu-id="8fb6a-126">Create database users and grant permissions</span></span>
 
-<span data-ttu-id="22e1d-127">Połączenia z bazą danych i tworzenie kont użytkowników przy użyciu jednej z następujących narzędzi zapytania:</span><span class="sxs-lookup"><span data-stu-id="22e1d-127">Connect to your database and create user accounts using one of the following query tools:</span></span>
+<span data-ttu-id="8fb6a-127">Łączenie tooyour bazy danych i tworzenie kont użytkowników przy użyciu jednej z hello następujące narzędzia kwerendy:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-127">Connect tooyour database and create user accounts using one of hello following query tools:</span></span>
 
-- <span data-ttu-id="22e1d-128">Edytor zapytań w portalu Azure</span><span class="sxs-lookup"><span data-stu-id="22e1d-128">The Query editor in the Azure portal</span></span>
-- <span data-ttu-id="22e1d-129">SQL Server Management Studio</span><span class="sxs-lookup"><span data-stu-id="22e1d-129">SQL Server Management Studio</span></span>
-- <span data-ttu-id="22e1d-130">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="22e1d-130">Visual Studio Code</span></span>
+- <span data-ttu-id="8fb6a-128">Edytor zapytań Hello w hello portalu Azure</span><span class="sxs-lookup"><span data-stu-id="8fb6a-128">hello Query editor in hello Azure portal</span></span>
+- <span data-ttu-id="8fb6a-129">SQL Server Management Studio</span><span class="sxs-lookup"><span data-stu-id="8fb6a-129">SQL Server Management Studio</span></span>
+- <span data-ttu-id="8fb6a-130">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="8fb6a-130">Visual Studio Code</span></span>
 
-<span data-ttu-id="22e1d-131">Te konta użytkowników automatycznie replikowane na serwerze pomocniczym (i być utrzymywane w synchronizacji).</span><span class="sxs-lookup"><span data-stu-id="22e1d-131">These user accounts replicate automatically to your secondary server (and be kept in sync).</span></span> <span data-ttu-id="22e1d-132">Aby użyć programu SQL Server Management Studio lub Visual Studio Code, może być konieczne skonfigurowanie reguły zapory, jeśli łączysz się z adresem IP, dla którego nie została jeszcze skonfigurowana zapora klienta.</span><span class="sxs-lookup"><span data-stu-id="22e1d-132">To use SQL Server Management Studio or Visual Studio Code, you may need to configure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall.</span></span> <span data-ttu-id="22e1d-133">Aby uzyskać szczegółowe instrukcje, zobacz [utworzyć regułę zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="22e1d-133">For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span>
+<span data-ttu-id="8fb6a-131">Te konta użytkowników automatycznie replikowane tooyour pomocniczy serwer (i są synchronizowane).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-131">These user accounts replicate automatically tooyour secondary server (and be kept in sync).</span></span> <span data-ttu-id="8fb6a-132">toouse SQL Server Management Studio lub Visual Studio Code, jeśli nawiązujesz połączenie z klienta na adres IP, dla którego nie została jeszcze skonfigurowana zapora może być konieczne tooconfigure reguły zapory.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-132">toouse SQL Server Management Studio or Visual Studio Code, you may need tooconfigure a firewall rule if you are connecting from a client at an IP address for which you have not yet configured a firewall.</span></span> <span data-ttu-id="8fb6a-133">Aby uzyskać szczegółowe instrukcje, zobacz [utworzyć regułę zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-133">For detailed steps, see [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span>
 
-- <span data-ttu-id="22e1d-134">W oknie zapytania wykonaj następujące zapytanie, aby utworzyć dwa konta użytkownika w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="22e1d-134">In a query window, execute the following query to create two user accounts in your database.</span></span> <span data-ttu-id="22e1d-135">Ten skrypt przyznaje **db_owner** uprawnień do **app_admin** konto i przyznaje **wybierz** i **aktualizacji** uprawnień do **app_user** konta.</span><span class="sxs-lookup"><span data-stu-id="22e1d-135">This script grants **db_owner** permissions to the **app_admin** account and grants **SELECT** and **UPDATE** permissions to the **app_user** account.</span></span> 
+- <span data-ttu-id="8fb6a-134">W oknie zapytania należy wykonać hello następującego zapytania toocreate dwóch kont użytkownika w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-134">In a query window, execute hello following query toocreate two user accounts in your database.</span></span> <span data-ttu-id="8fb6a-135">Ten skrypt przyznaje **db_owner** toohello uprawnienia **app_admin** konto i przyznaje **wybierz** i **aktualizacji** toohello uprawnień **app_user** konta.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-135">This script grants **db_owner** permissions toohello **app_admin** account and grants **SELECT** and **UPDATE** permissions toohello **app_user** account.</span></span> 
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
-   --Add SQL user to db_owner role
+   --Add SQL user toodb_owner role
    ALTER ROLE db_owner ADD MEMBER app_admin; 
    --Create additional SQL user
    CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
-   --grant permission to SalesLT schema
-   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
+   --grant permission tooSalesLT schema
+   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product tooapp_user;
    ```
 
-## <a name="create-database-level-firewall"></a><span data-ttu-id="22e1d-136">Utwórz zapory poziomu bazy danych</span><span class="sxs-lookup"><span data-stu-id="22e1d-136">Create database-level firewall</span></span>
+## <a name="create-database-level-firewall"></a><span data-ttu-id="8fb6a-136">Utwórz zapory poziomu bazy danych</span><span class="sxs-lookup"><span data-stu-id="8fb6a-136">Create database-level firewall</span></span>
 
-<span data-ttu-id="22e1d-137">Utwórz [reguły zapory poziomu bazy danych](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) bazy danych SQL.</span><span class="sxs-lookup"><span data-stu-id="22e1d-137">Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database.</span></span> <span data-ttu-id="22e1d-138">Tę regułę zapory poziomu bazy danych automatycznie replikuje dane na serwerze pomocniczym, utworzone w tym samouczku.</span><span class="sxs-lookup"><span data-stu-id="22e1d-138">This database-level firewall rule replicates automatically to the secondary server that you create in this tutorial.</span></span> <span data-ttu-id="22e1d-139">Dla uproszczenia (w tym samouczku) Użyj publiczny adres IP komputera, na którym wykonywana kroki opisane w tym samouczku.</span><span class="sxs-lookup"><span data-stu-id="22e1d-139">For simplicity (in this tutorial), use the public IP address of the computer on which you are performing the steps in this tutorial.</span></span> <span data-ttu-id="22e1d-140">Aby określić adres IP używany dla reguły zapory poziomu serwera dla bieżącego komputera, zobacz [utworzenie zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="22e1d-140">To determine the IP address used for the server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span>  
+<span data-ttu-id="8fb6a-137">Utwórz [reguły zapory poziomu bazy danych](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) bazy danych SQL.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-137">Create a [database-level firewall rule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) for your SQL database.</span></span> <span data-ttu-id="8fb6a-138">Ta reguła zapory poziomu bazy danych automatycznie replikuje toohello serwera pomocniczego, utworzone w tym samouczku.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-138">This database-level firewall rule replicates automatically toohello secondary server that you create in this tutorial.</span></span> <span data-ttu-id="8fb6a-139">Dla uproszczenia (w tym samouczku) Użyj publicznego adresu IP hello hello komputera, na którym hello kroki są wykonywane w ramach tego samouczka.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-139">For simplicity (in this tutorial), use hello public IP address of hello computer on which you are performing hello steps in this tutorial.</span></span> <span data-ttu-id="8fb6a-140">adres IP hello toodetermine używany dla reguły zapory poziomu serwera hello na tym samym komputerze, zobacz [utworzenie zapory poziomu serwera](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-140">toodetermine hello IP address used for hello server-level firewall rule for your current computer, see [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span>  
 
-- <span data-ttu-id="22e1d-141">W oknie zapytania otwarte należy zastąpić poprzednie zapytanie następującej kwerendy, zastępując adresy IP odpowiednie adresy IP dla danego środowiska.</span><span class="sxs-lookup"><span data-stu-id="22e1d-141">In your open query window, replace the previous query with the following query, replacing the IP addresses with the appropriate IP addresses for your environment.</span></span>  
+- <span data-ttu-id="8fb6a-141">W oknie zapytania otwarte należy zastąpić poprzednie zapytanie hello hello następującego zapytania, zastępując adresy IP hello hello odpowiednie adresy IP dla danego środowiska.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-141">In your open query window, replace hello previous query with hello following query, replacing hello IP addresses with hello appropriate IP addresses for your environment.</span></span>  
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a><span data-ttu-id="22e1d-142">Utwórz grupę aktywna replikacja geograficzna automatycznej pracy awaryjnej</span><span class="sxs-lookup"><span data-stu-id="22e1d-142">Create an active geo-replication auto failover group</span></span> 
+## <a name="create-an-active-geo-replication-auto-failover-group"></a><span data-ttu-id="8fb6a-142">Utwórz grupę aktywna replikacja geograficzna automatycznej pracy awaryjnej</span><span class="sxs-lookup"><span data-stu-id="8fb6a-142">Create an active geo-replication auto failover group</span></span> 
 
-<span data-ttu-id="22e1d-143">Przy użyciu programu Azure PowerShell utworzyć [aktywna replikacja geograficzna automatycznej pracy awaryjnej grupy](sql-database-geo-replication-overview.md) między istniejącego serwera Azure SQL i nowy pusty serwera Azure SQL w regionie Azure, a następnie dodaj przykładowej bazie danych do trybu failover grupy.</span><span class="sxs-lookup"><span data-stu-id="22e1d-143">Using Azure PowerShell, create an [active geo-replication auto failover group](sql-database-geo-replication-overview.md) between your existing Azure SQL server and the new empty Azure SQL server in an Azure region, and then add your sample database to the failover group.</span></span>
+<span data-ttu-id="8fb6a-143">Przy użyciu programu Azure PowerShell utworzyć [aktywna replikacja geograficzna automatycznej pracy awaryjnej grupy](sql-database-geo-replication-overview.md) między istniejącego serwera Azure SQL i hello nowy pusty serwera Azure SQL w regionie Azure, a następnie dodaj grupy pracy awaryjnej toohello przykładowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-143">Using Azure PowerShell, create an [active geo-replication auto failover group](sql-database-geo-replication-overview.md) between your existing Azure SQL server and hello new empty Azure SQL server in an Azure region, and then add your sample database toohello failover group.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="22e1d-144">Te polecenia cmdlet wymagają programu Azure PowerShell 4.0.</span><span class="sxs-lookup"><span data-stu-id="22e1d-144">These cmdlets require Azure PowerShell 4.0.</span></span> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+> <span data-ttu-id="8fb6a-144">Te polecenia cmdlet wymagają programu Azure PowerShell 4.0.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-144">These cmdlets require Azure PowerShell 4.0.</span></span> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 >
 
-1. <span data-ttu-id="22e1d-145">Wypełnić zmienne dla skryptów PowerShell przy użyciu wartości dla istniejącego serwera i przykładową bazę danych i podaj globalnie unikatowa wartość nazwy grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-145">Populate variables for your PowerShell scripts using the values for your existing server and sample database, and provide a globally unique value for failover group name.</span></span>
+1. <span data-ttu-id="8fb6a-145">Wypełnić zmienne dla skryptów PowerShell przy użyciu wartości hello istniejącego serwera i przykładową bazę danych i podaj globalnie unikatowa wartość nazwy grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-145">Populate variables for your PowerShell scripts using hello values for your existing server and sample database, and provide a globally unique value for failover group name.</span></span>
 
    ```powershell
    $adminlogin = "ServerAdmin"
@@ -107,7 +107,7 @@ ms.lasthandoff: 07/11/2017
    $myfailovergroupname = "<your unique failover group name>"
    ```
 
-2. <span data-ttu-id="22e1d-146">W danym regionie trybu failover, należy utworzyć pusty serwer kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-146">Create an empty backup server in your failover region.</span></span>
+2. <span data-ttu-id="8fb6a-146">W danym regionie trybu failover, należy utworzyć pusty serwer kopii zapasowej.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-146">Create an empty backup server in your failover region.</span></span>
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
@@ -117,7 +117,7 @@ ms.lasthandoff: 07/11/2017
    $mydrserver   
    ```
 
-3. <span data-ttu-id="22e1d-147">Utwórz grupę trybu failover między dwoma serwerami.</span><span class="sxs-lookup"><span data-stu-id="22e1d-147">Create a failover group between the two servers.</span></span>
+3. <span data-ttu-id="8fb6a-147">Utwórz grupę trybu failover między dwoma serwerami hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-147">Create a failover group between hello two servers.</span></span>
 
    ```powershell
    $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
@@ -130,7 +130,7 @@ ms.lasthandoff: 07/11/2017
    $myfailovergroup   
    ```
 
-4. <span data-ttu-id="22e1d-148">Dodaj bazę danych do grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-148">Add your database to the failover group.</span></span>
+4. <span data-ttu-id="8fb6a-148">Dodaj grupy pracy awaryjnej toohello bazy danych.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-148">Add your database toohello failover group.</span></span>
 
    ```powershell
    $myfailovergroup = Get-AzureRmSqlDatabase `
@@ -144,12 +144,12 @@ ms.lasthandoff: 07/11/2017
    $myfailovergroup   
    ```
 
-## <a name="install-java-software"></a><span data-ttu-id="22e1d-149">Instalowanie oprogramowania Java</span><span class="sxs-lookup"><span data-stu-id="22e1d-149">Install Java software</span></span>
+## <a name="install-java-software"></a><span data-ttu-id="8fb6a-149">Instalowanie oprogramowania Java</span><span class="sxs-lookup"><span data-stu-id="8fb6a-149">Install Java software</span></span>
 
-<span data-ttu-id="22e1d-150">W krokach w tej sekcji założono, że wiesz już, jak opracowywać zawartość za pomocą platformy Java, i dopiero zaczynasz pracę z usługą Azure SQL Database.</span><span class="sxs-lookup"><span data-stu-id="22e1d-150">The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database.</span></span> 
+<span data-ttu-id="8fb6a-150">kroki Hello w tej sekcji założono, że znasz tworzenie przy użyciu języka Java i są nowe tooworking z bazy danych SQL Azure.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-150">hello steps in this section assume that you are familiar with developing using Java and are new tooworking with Azure SQL Database.</span></span> 
 
-### <a name="mac-os"></a><span data-ttu-id="22e1d-151">**Mac OS**</span><span class="sxs-lookup"><span data-stu-id="22e1d-151">**Mac OS**</span></span>
-<span data-ttu-id="22e1d-152">Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt języka Java.</span><span class="sxs-lookup"><span data-stu-id="22e1d-152">Open your terminal and navigate to a directory where you plan on creating your Java project.</span></span> <span data-ttu-id="22e1d-153">Zainstaluj rozwiązania **brew** i **Maven** przez wprowadzenie następujących poleceń:</span><span class="sxs-lookup"><span data-stu-id="22e1d-153">Install **brew** and **Maven** by entering the following commands:</span></span> 
+### <a name="mac-os"></a><span data-ttu-id="8fb6a-151">**Mac OS**</span><span class="sxs-lookup"><span data-stu-id="8fb6a-151">**Mac OS**</span></span>
+<span data-ttu-id="8fb6a-152">Otwórz terminala i przejdź do katalogu tooa, w którym planujesz utworzenie projektu języka Java.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-152">Open your terminal and navigate tooa directory where you plan on creating your Java project.</span></span> <span data-ttu-id="8fb6a-153">Zainstaluj **brew** i **Maven** wprowadzając hello następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-153">Install **brew** and **Maven** by entering hello following commands:</span></span> 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -157,36 +157,36 @@ brew update
 brew install maven
 ```
 
-<span data-ttu-id="22e1d-154">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**, wybierz pozycję **MacOS**i postępuj szczegółowe instrukcje dotyczące konfigurowania Java i Maven w kroku 1.2 i 1.3.</span><span class="sxs-lookup"><span data-stu-id="22e1d-154">For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.</span></span>
+<span data-ttu-id="8fb6a-154">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź hello [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**, wybierz pozycję **MacOS**i postępuj Witaj szczegółowe instrukcje dotyczące konfigurowania Java i Maven w kroku 1.2 i 1.3.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-154">For detailed guidance on installing and configuring Java and Maven environment, go hello [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **MacOS**, and then follow hello detailed instructions for configuring Java and Maven in step 1.2 and 1.3.</span></span>
 
-### <a name="linux-ubuntu"></a><span data-ttu-id="22e1d-155">**Linux (Ubuntu)**</span><span class="sxs-lookup"><span data-stu-id="22e1d-155">**Linux (Ubuntu)**</span></span>
-<span data-ttu-id="22e1d-156">Otwórz terminal i przejdź do katalogu, w którym planujesz utworzyć projekt języka Java.</span><span class="sxs-lookup"><span data-stu-id="22e1d-156">Open your terminal and navigate to a directory where you plan on creating your Java project.</span></span> <span data-ttu-id="22e1d-157">Zainstaluj rozwiązanie **Maven** przez wprowadzenie następujących poleceń:</span><span class="sxs-lookup"><span data-stu-id="22e1d-157">Install **Maven** by entering the following commands:</span></span>
+### <a name="linux-ubuntu"></a><span data-ttu-id="8fb6a-155">**Linux (Ubuntu)**</span><span class="sxs-lookup"><span data-stu-id="8fb6a-155">**Linux (Ubuntu)**</span></span>
+<span data-ttu-id="8fb6a-156">Otwórz terminala i przejdź do katalogu tooa, w którym planujesz utworzenie projektu języka Java.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-156">Open your terminal and navigate tooa directory where you plan on creating your Java project.</span></span> <span data-ttu-id="8fb6a-157">Zainstaluj **Maven** wprowadzając hello następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="8fb6a-157">Install **Maven** by entering hello following commands:</span></span>
 
 ```bash
 sudo apt-get install maven
 ```
 
-<span data-ttu-id="22e1d-158">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**, wybierz pozycję **Ubuntu**i postępuj szczegółowe instrukcje dotyczące konfigurowania Java i Maven w kroku 1.2, 1.3 i 1.4.</span><span class="sxs-lookup"><span data-stu-id="22e1d-158">For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow the detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.</span></span>
+<span data-ttu-id="8fb6a-158">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź hello [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**, wybierz pozycję **Ubuntu**i postępuj Witaj szczegółowe instrukcje dotyczące konfigurowania Java i Maven w kroku 1.2, 1.3 i 1.4.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-158">For detailed guidance on installing and configuring Java and Maven environment, go hello [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select **Ubuntu**, and then follow hello detailed instructions for configuring Java and Maven in step 1.2, 1.3, and 1.4.</span></span>
 
-### <a name="windows"></a><span data-ttu-id="22e1d-159">**Windows**</span><span class="sxs-lookup"><span data-stu-id="22e1d-159">**Windows**</span></span>
-<span data-ttu-id="22e1d-160">Zainstaluj rozwiązanie [Maven](https://maven.apache.org/download.cgi) za pomocą oficjalnego instalatora.</span><span class="sxs-lookup"><span data-stu-id="22e1d-160">Install [Maven](https://maven.apache.org/download.cgi) using the official installer.</span></span> <span data-ttu-id="22e1d-161">Użyj Maven, aby ułatwić zarządzanie zależności, tworzenia, testowania i uruchom projekt języka Java.</span><span class="sxs-lookup"><span data-stu-id="22e1d-161">Use Maven to help manage dependencies, build, test, and run your Java project.</span></span> <span data-ttu-id="22e1d-162">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**wybierz systemu Windows, a następnie postępuj zgodnie z instrukcjami szczegółowe Konfigurowanie języka Java i Maven w kroku 1.2 i 1.3.</span><span class="sxs-lookup"><span data-stu-id="22e1d-162">For detailed guidance on installing and configuring Java and Maven environment, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select Windows, and then follow the detailed instructions for configuring Java and Maven in step 1.2 and 1.3.</span></span>
+### <a name="windows"></a><span data-ttu-id="8fb6a-159">**Windows**</span><span class="sxs-lookup"><span data-stu-id="8fb6a-159">**Windows**</span></span>
+<span data-ttu-id="8fb6a-160">Zainstaluj [Maven](https://maven.apache.org/download.cgi) za pomocą Instalatora oficjalnego hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-160">Install [Maven](https://maven.apache.org/download.cgi) using hello official installer.</span></span> <span data-ttu-id="8fb6a-161">Używanie programu Maven toohelp Zarządzanie zależności, tworzenia, testowania i uruchom projekt języka Java.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-161">Use Maven toohelp manage dependencies, build, test, and run your Java project.</span></span> <span data-ttu-id="8fb6a-162">Aby uzyskać szczegółowe instrukcje dotyczące instalowania i konfigurowania środowiska Java i Maven, przejdź hello [tworzenie aplikacji za pomocą programu SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), wybierz pozycję **Java**, wybierz pozycję Windows, a następnie wykonaj hello szczegółowe instrukcje dotyczące Konfigurowanie języka Java i Maven w kroku 1.2 i 1.3.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-162">For detailed guidance on installing and configuring Java and Maven environment, go hello [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), select **Java**, select Windows, and then follow hello detailed instructions for configuring Java and Maven in step 1.2 and 1.3.</span></span>
 
-## <a name="create-sqldbsample-project"></a><span data-ttu-id="22e1d-163">Utwórz projekt SqlDbSample</span><span class="sxs-lookup"><span data-stu-id="22e1d-163">Create SqlDbSample project</span></span>
+## <a name="create-sqldbsample-project"></a><span data-ttu-id="8fb6a-163">Utwórz projekt SqlDbSample</span><span class="sxs-lookup"><span data-stu-id="8fb6a-163">Create SqlDbSample project</span></span>
 
-1. <span data-ttu-id="22e1d-164">W konsoli poleceń (na przykład Bash) Utwórz projekt Maven.</span><span class="sxs-lookup"><span data-stu-id="22e1d-164">In the command console (such as Bash), create a Maven project.</span></span> 
+1. <span data-ttu-id="8fb6a-164">W konsoli polecenie hello (na przykład Bash) Utwórz projekt Maven.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-164">In hello command console (such as Bash), create a Maven project.</span></span> 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
-2. <span data-ttu-id="22e1d-165">Typ **Y** i kliknij przycisk **Enter**.</span><span class="sxs-lookup"><span data-stu-id="22e1d-165">Type **Y** and click **Enter**.</span></span>
-3. <span data-ttu-id="22e1d-166">Przejdź do nowo utworzonego projektu.</span><span class="sxs-lookup"><span data-stu-id="22e1d-166">Change directories into your newly created project.</span></span>
+2. <span data-ttu-id="8fb6a-165">Typ **Y** i kliknij przycisk **Enter**.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-165">Type **Y** and click **Enter**.</span></span>
+3. <span data-ttu-id="8fb6a-166">Przejdź do nowo utworzonego projektu.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-166">Change directories into your newly created project.</span></span>
 
    ```bash
    cd SqlDbSamples
    ```
 
-4. <span data-ttu-id="22e1d-167">Za pomocą ulubionego edytora, otwórz plik pom.xml w folderze projektu.</span><span class="sxs-lookup"><span data-stu-id="22e1d-167">Using your favorite editor, open the pom.xml file in your project folder.</span></span> 
+4. <span data-ttu-id="8fb6a-167">Za pomocą ulubionego edytora, otwórz plik pom.xml hello w folderze projektu.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-167">Using your favorite editor, open hello pom.xml file in your project folder.</span></span> 
 
-5. <span data-ttu-id="22e1d-168">Dodaj sterownik JDBC firmy Microsoft dla programu SQL Server zależności na projekt Maven przez otwarcie w ulubionym edytorze tekstów i kopiowanie i wklejanie następujące wiersze w pliku pom.xml.</span><span class="sxs-lookup"><span data-stu-id="22e1d-168">Add the Microsoft JDBC Driver for SQL Server dependency to your Maven project by opening your favorite text editor and copying and pasting the following lines into your pom.xml file.</span></span> <span data-ttu-id="22e1d-169">Nie zastępuj istniejącego wartości wstępnie w pliku.</span><span class="sxs-lookup"><span data-stu-id="22e1d-169">Do not overwrite the existing values prepopulated in the file.</span></span> <span data-ttu-id="22e1d-170">Zależności JDBC należy wkleić w większych () sekcji "zależności".</span><span class="sxs-lookup"><span data-stu-id="22e1d-170">The JDBC dependency must be pasted within the larger “dependencies” section ( ).</span></span>   
+5. <span data-ttu-id="8fb6a-168">Dodaj hello sterownik JDBC firmy Microsoft dla programu SQL Server zależności tooyour Maven project przez otwarcie w ulubionym edytorze tekstów i kopiowanie i wklejanie hello następujące wiersze do pliku pom.xml.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-168">Add hello Microsoft JDBC Driver for SQL Server dependency tooyour Maven project by opening your favorite text editor and copying and pasting hello following lines into your pom.xml file.</span></span> <span data-ttu-id="8fb6a-169">Nie zastępuj istniejące wartości hello wypełniony hello pliku.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-169">Do not overwrite hello existing values prepopulated in hello file.</span></span> <span data-ttu-id="8fb6a-170">Hello zależności JDBC należy wkleić w ciągu (hello większych "zależności" sekcji).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-170">hello JDBC dependency must be pasted within hello larger “dependencies” section ( ).</span></span>   
 
    ```xml
    <dependency>
@@ -196,7 +196,7 @@ sudo apt-get install maven
    </dependency>
    ```
 
-6. <span data-ttu-id="22e1d-171">Określ wersję Java do skompilowania projektu w odniesieniu do, dodając w poniższej sekcji "właściwości" w pliku pom.xml po sekcji "zależności".</span><span class="sxs-lookup"><span data-stu-id="22e1d-171">Specify the version of Java to compile the project against by adding the following “properties” section into the pom.xml file after the "dependencies" section.</span></span> 
+6. <span data-ttu-id="8fb6a-171">Określ wersję hello Java toocompile hello projektu w odniesieniu do przez dodanie powitania po sekcji "właściwości" w pliku pom.xml powitania po sekcji "zależności" hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-171">Specify hello version of Java toocompile hello project against by adding hello following “properties” section into hello pom.xml file after hello "dependencies" section.</span></span> 
 
    ```xml
    <properties>
@@ -204,7 +204,7 @@ sudo apt-get install maven
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. <span data-ttu-id="22e1d-172">Dodaj poniższą sekcję "kompilacji" w pliku pom.xml po sekcji "właściwości" do obsługi plików manifestu w słoików.</span><span class="sxs-lookup"><span data-stu-id="22e1d-172">Add the following "build" section into the pom.xml file after the "properties" section to support manifest files in jars.</span></span>       
+7. <span data-ttu-id="8fb6a-172">Dodaj następujące hello "kompilacji" sekcji w pliku pom.xml powitania po hello "właściwości" sekcji toosupport pliki manifestu w słoików.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-172">Add hello following "build" section into hello pom.xml file after hello "properties" section toosupport manifest files in jars.</span></span>       
 
    ```xml
    <build>
@@ -224,8 +224,8 @@ sudo apt-get install maven
      </plugins>
    </build>
    ```
-8. <span data-ttu-id="22e1d-173">Zapisz i zamknij plik pom.xml.</span><span class="sxs-lookup"><span data-stu-id="22e1d-173">Save and close the pom.xml file.</span></span>
-9. <span data-ttu-id="22e1d-174">Otwórz plik App.java (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) i Zastąp zawartość następującą zawartość.</span><span class="sxs-lookup"><span data-stu-id="22e1d-174">Open the App.java file (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) and replace the contents with the following contents.</span></span> <span data-ttu-id="22e1d-175">Nazwa grupy pracy awaryjnej należy zastąpić nazwę grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-175">Replace the failover group name with the name for your failover group.</span></span> <span data-ttu-id="22e1d-176">Zmiana wartości dla nazwy bazy danych użytkownika lub hasło, należy zmienić również tych wartości.</span><span class="sxs-lookup"><span data-stu-id="22e1d-176">If you have changed the values for the database name, user, or password, change those values as well.</span></span>
+8. <span data-ttu-id="8fb6a-173">Zapisz i zamknij plik pom.xml hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-173">Save and close hello pom.xml file.</span></span>
+9. <span data-ttu-id="8fb6a-174">Otwórz plik App.java hello (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) i Zastąp zawartość hello powitania po zawartości.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-174">Open hello App.java file (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) and replace hello contents with hello following contents.</span></span> <span data-ttu-id="8fb6a-175">Zastąp nazwę grupy pracy awaryjnej hello hello nazwę grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-175">Replace hello failover group name with hello name for your failover group.</span></span> <span data-ttu-id="8fb6a-176">Zmiana wartości hello hello Nazwa bazy danych użytkownika lub hasło, należy zmienić także te wartości.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-176">If you have changed hello values for hello database name, user, or password, change those values as well.</span></span>
 
    ```java
    package com.sqldbsamples;
@@ -272,7 +272,7 @@ sudo apt-get install maven
    }
 
    private static boolean insertData(int id) {
-      // Insert data into the product table with a unique product name that we can use to find the product again later
+      // Insert data into hello product table with a unique product name that we can use toofind hello product again later
       String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
@@ -290,7 +290,7 @@ sudo apt-get install maven
    }
 
    private static boolean selectData(int id) {
-      // Query the data that was previously inserted into the primary database from the geo replicated database
+      // Query hello data that was previously inserted into hello primary database from hello geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
       try (Connection connection = DriverManager.getConnection(READ_ONLY_URL); 
@@ -305,7 +305,7 @@ sudo apt-get install maven
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts 
+      // Query hello high water mark id that is stored in hello table toobe able toomake unique inserts 
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
         
@@ -322,16 +322,16 @@ sudo apt-get install maven
       }
    }
    ```
-6. <span data-ttu-id="22e1d-177">Zapisz i zamknij plik App.java.</span><span class="sxs-lookup"><span data-stu-id="22e1d-177">Save and close the App.java file.</span></span>
+6. <span data-ttu-id="8fb6a-177">Zapisz i zamknij plik App.java hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-177">Save and close hello App.java file.</span></span>
 
-## <a name="compile-and-run-the-sqldbsample-project"></a><span data-ttu-id="22e1d-178">Kompilowanie i uruchamianie projektu SqlDbSample</span><span class="sxs-lookup"><span data-stu-id="22e1d-178">Compile and run the SqlDbSample project</span></span>
+## <a name="compile-and-run-hello-sqldbsample-project"></a><span data-ttu-id="8fb6a-178">Kompilowanie i uruchamianie projektu SqlDbSample hello</span><span class="sxs-lookup"><span data-stu-id="8fb6a-178">Compile and run hello SqlDbSample project</span></span>
 
-1. <span data-ttu-id="22e1d-179">W konsoli polecenie należy wykonać następujące polecenie.</span><span class="sxs-lookup"><span data-stu-id="22e1d-179">In the command console, execute to following command.</span></span>
+1. <span data-ttu-id="8fb6a-179">W konsoli poleceń hello wykonaj polecenie toofollowing.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-179">In hello command console, execute toofollowing command.</span></span>
 
    ```bash
    mvn package
    ```
-2. <span data-ttu-id="22e1d-180">Po zakończeniu uruchom następujące polecenie do uruchomienia aplikacji (działa na godzinę, chyba że zostanie zatrzymana ręcznie):</span><span class="sxs-lookup"><span data-stu-id="22e1d-180">When finished, execute the following command to run the application (it runs for about 1 hour unless you stop it manually):</span></span>
+2. <span data-ttu-id="8fb6a-180">Po zakończeniu wykonywania powitania po aplikacji hello toorun poleceń (działa na godzinę, chyba że zostanie zatrzymana ręcznie):</span><span class="sxs-lookup"><span data-stu-id="8fb6a-180">When finished, execute hello following command toorun hello application (it runs for about 1 hour unless you stop it manually):</span></span>
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -345,9 +345,9 @@ sudo apt-get install maven
    3. insert on primary successful, read from secondary successful
    ```
 
-## <a name="perform-disaster-recovery-drill"></a><span data-ttu-id="22e1d-181">Wykonaj wyszczególniania odzyskiwania po awarii</span><span class="sxs-lookup"><span data-stu-id="22e1d-181">Perform disaster recovery drill</span></span>
+## <a name="perform-disaster-recovery-drill"></a><span data-ttu-id="8fb6a-181">Wykonaj wyszczególniania odzyskiwania po awarii</span><span class="sxs-lookup"><span data-stu-id="8fb6a-181">Perform disaster recovery drill</span></span>
 
-1. <span data-ttu-id="22e1d-182">Wywołanie ręcznego przełączania trybu failover grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-182">Call manual failover of failover group.</span></span> 
+1. <span data-ttu-id="8fb6a-182">Wywołanie ręcznego przełączania trybu failover grupy pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-182">Call manual failover of failover group.</span></span> 
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -356,15 +356,15 @@ sudo apt-get install maven
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. <span data-ttu-id="22e1d-183">Obserwować wyniki aplikacji podczas pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="22e1d-183">Observe the application results during failover.</span></span> <span data-ttu-id="22e1d-184">Niektóre wstawia się niepowodzeniem podczas odświeżania pamięci podręcznej DNS.</span><span class="sxs-lookup"><span data-stu-id="22e1d-184">Some inserts fail while the DNS cache refreshes.</span></span>     
+2. <span data-ttu-id="8fb6a-183">Obserwować wyniki aplikacji hello, podczas pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-183">Observe hello application results during failover.</span></span> <span data-ttu-id="8fb6a-184">Niektóre wstawia się niepowodzeniem podczas odświeżania pamięci podręcznej DNS hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-184">Some inserts fail while hello DNS cache refreshes.</span></span>     
 
-3. <span data-ttu-id="22e1d-185">Dowiedz się od roli działa serwer odzyskiwania po awarii.</span><span class="sxs-lookup"><span data-stu-id="22e1d-185">Find out which role your disaster recovery server is performing.</span></span>
+3. <span data-ttu-id="8fb6a-185">Dowiedz się od roli działa serwer odzyskiwania po awarii.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-185">Find out which role your disaster recovery server is performing.</span></span>
 
    ```powershell
    $mydrserver.ReplicationRole
    ```
 
-4. <span data-ttu-id="22e1d-186">Powrót po awarii.</span><span class="sxs-lookup"><span data-stu-id="22e1d-186">Failback.</span></span>
+4. <span data-ttu-id="8fb6a-186">Powrót po awarii.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-186">Failback.</span></span>
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -373,9 +373,9 @@ sudo apt-get install maven
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. <span data-ttu-id="22e1d-187">Obserwować wyniki aplikacji podczas powrotu po awarii.</span><span class="sxs-lookup"><span data-stu-id="22e1d-187">Observe the application results during failback.</span></span> <span data-ttu-id="22e1d-188">Niektóre wstawia się niepowodzeniem podczas odświeżania pamięci podręcznej DNS.</span><span class="sxs-lookup"><span data-stu-id="22e1d-188">Some inserts fail while the DNS cache refreshes.</span></span>     
+5. <span data-ttu-id="8fb6a-187">Należy obserwować wyniki aplikacji hello podczas powrotu po awarii.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-187">Observe hello application results during failback.</span></span> <span data-ttu-id="8fb6a-188">Niektóre wstawia się niepowodzeniem podczas odświeżania pamięci podręcznej DNS hello.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-188">Some inserts fail while hello DNS cache refreshes.</span></span>     
 
-6. <span data-ttu-id="22e1d-189">Dowiedz się od roli działa serwer odzyskiwania po awarii.</span><span class="sxs-lookup"><span data-stu-id="22e1d-189">Find out which role your disaster recovery server is performing.</span></span>
+6. <span data-ttu-id="8fb6a-189">Dowiedz się od roli działa serwer odzyskiwania po awarii.</span><span class="sxs-lookup"><span data-stu-id="8fb6a-189">Find out which role your disaster recovery server is performing.</span></span>
 
    ```powershell
    $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
@@ -384,6 +384,6 @@ sudo apt-get install maven
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a><span data-ttu-id="22e1d-190">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="22e1d-190">Next steps</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="8fb6a-190">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="8fb6a-190">Next steps</span></span> 
 
-<span data-ttu-id="22e1d-191">Aby uzyskać więcej informacji, zobacz [aktywnych grup — replikacja geograficzna i pracy awaryjnej](sql-database-geo-replication-overview.md).</span><span class="sxs-lookup"><span data-stu-id="22e1d-191">For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).</span></span>
+<span data-ttu-id="8fb6a-191">Aby uzyskać więcej informacji, zobacz [aktywnych grup — replikacja geograficzna i pracy awaryjnej](sql-database-geo-replication-overview.md).</span><span class="sxs-lookup"><span data-stu-id="8fb6a-191">For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).</span></span>

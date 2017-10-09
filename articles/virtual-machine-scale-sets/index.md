@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja zestawów skalowania maszyn wirtualnych na platformie Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych tworzyć automatycznie skalowane maszyny wirtualne z systemem Windows lub Linux na potrzeby dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych."
+title: "aaaAzure dokumentację zestawów skalowania maszyn wirtualnych — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toocreate zestawy skalowania maszyny wirtualnej toouse automatyczne skalowanie systemu Windows lub maszyn wirtualnych systemu Linux big obliczeniowych, dane big data i konteneryzowanych rozwiązania."
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f4a4812e2ba44cabfd54bc25fa3b66a04c5bbe8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Dokumentacja zestawów skalowania maszyn wirtualnych
 
-Dowiedz się, jak przy użyciu zestawów skalowania maszyn wirtualnych wdrożyć zestaw identycznych, automatycznie skalowanych maszyn wirtualnych z systemem Windows lub Linux oraz zarządzać nimi. W dokumentacji przedstawiono, jak przy użyciu zestawów skalowania obsługiwać usługi przeznaczone dla dużych wystąpień obliczeniowych, danych big data i obciążeń konteneryzowanych.
+Dowiedz się, w jaki sposób skalowania maszyny wirtualnej toouse ustawia toodeploy i zarządzać zestawem identyczne, automatyczne skalowanie systemu Windows lub maszyn wirtualnych systemu Linux. Dokumentacji przedstawiono, jak toouse toosupport zestawy skalowania usługi obliczeniowe big docelowego, dane big data i konteneryzowanych rozwiązania.
 
 <ul class="panelContent cardsFTitle">
     <li>

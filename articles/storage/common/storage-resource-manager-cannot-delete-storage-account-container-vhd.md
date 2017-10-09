@@ -1,0 +1,152 @@
+---
+title: "błędy aaaTroubleshoot podczas usuwania konta magazynu platformy Azure, w pojemnikach lub wirtualne dyski twarde | Dokumentacja firmy Microsoft"
+description: "Rozwiązywanie problemów podczas usuwania konta magazynu platformy Azure, w pojemnikach lub wirtualne dyski twarde"
+services: storage
+documentationcenter: 
+author: genlin
+manager: cshepard
+editor: na
+tags: storage
+ms.assetid: 17403aa1-fe8d-45ec-bc33-2c0b61126286
+ms.service: storage
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/13/2017
+ms.author: genli
+ms.openlocfilehash: 33261562a2dd2614b35bc1118924513f8c624d6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds"></a><span data-ttu-id="c7dfb-103">Rozwiązywanie problemów podczas usuwania konta magazynu platformy Azure, w pojemnikach lub wirtualne dyski twarde</span><span class="sxs-lookup"><span data-stu-id="c7dfb-103">Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs</span></span>
+
+<span data-ttu-id="c7dfb-104">Może pojawić się błędy podczas próby toodelete kontem magazynu platformy Azure, kontenera lub wirtualnego dysku twardego (VHD) w hello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-104">You might receive errors when you try toodelete an Azure storage account, container, or virtual hard disk (VHD) in hello [Azure portal](https://portal.azure.com).</span></span> <span data-ttu-id="c7dfb-105">Ten artykuł zawiera Rozwiązywanie problemów z wskazówki toohelp resolve hello problem we wdrożeniu usługi Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-105">This article provides troubleshooting guidance toohelp resolve hello problem in an Azure Resource Manager deployment.</span></span>
+
+<span data-ttu-id="c7dfb-106">Jeśli w tym artykule nie rozwiązania Azure problemu, odwiedź stronę hello forach platformy Azure na [MSDN i przepełnienie stosu](https://azure.microsoft.com/support/forums/).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-106">If this article doesn't address your Azure problem, visit hello Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/).</span></span> <span data-ttu-id="c7dfb-107">Problem można umieścić na tych fora lub too@AzureSupport w serwisie Twitter.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-107">You can post your problem on these forums or too@AzureSupport on Twitter.</span></span> <span data-ttu-id="c7dfb-108">Ponadto można pliku żądania pomocy technicznej platformy Azure, wybierając **uzyskać pomoc techniczną** na powitania [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) lokacji.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-108">Also, you can file an Azure support request by selecting **Get support** on hello [Azure support](https://azure.microsoft.com/support/options/) site.</span></span>
+
+## <a name="symptoms"></a><span data-ttu-id="c7dfb-109">Objawy</span><span class="sxs-lookup"><span data-stu-id="c7dfb-109">Symptoms</span></span>
+### <a name="scenario-1"></a><span data-ttu-id="c7dfb-110">Scenariusz 1</span><span class="sxs-lookup"><span data-stu-id="c7dfb-110">Scenario 1</span></span>
+<span data-ttu-id="c7dfb-111">Podczas próby toodelete dysku VHD na koncie magazynu w ramach wdrożenia usługi Resource Manager pojawi się następujący komunikat o błędzie hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-111">When you try toodelete a VHD in a storage account in a Resource Manager deployment, you receive hello following error message:</span></span>
+
+<span data-ttu-id="c7dfb-112">**Obiekt blob toodelete "vhds/BlobName.vhd" nie powiodło się. Błąd: Jest obecnie dzierżawę na powitania obiektów blob i identyfikator dzierżawy nie został określony w żądaniu hello.**</span><span class="sxs-lookup"><span data-stu-id="c7dfb-112">**Failed toodelete blob 'vhds/BlobName.vhd'. Error: There is currently a lease on hello blob and no lease ID was specified in hello request.**</span></span>
+
+<span data-ttu-id="c7dfb-113">Ten problem może wystąpić, ponieważ maszyna wirtualna (VM) ma dzierżawę na powitania próbujesz toodelete wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-113">This problem can occur because a virtual machine (VM) has a lease on hello VHD that you are trying toodelete.</span></span>
+
+### <a name="scenario-2"></a><span data-ttu-id="c7dfb-114">Scenariusz 2</span><span class="sxs-lookup"><span data-stu-id="c7dfb-114">Scenario 2</span></span>
+<span data-ttu-id="c7dfb-115">Podczas próby toodelete kontenera na koncie magazynu w ramach wdrożenia usługi Resource Manager, pojawi się następujący komunikat o błędzie hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-115">When you try toodelete a container in a storage account in a Resource Manager deployment, you receive hello following error message:</span></span>
+
+<span data-ttu-id="c7dfb-116">**Nie można toodelete kontenera magazynu "VHD". Błąd: Jest obecnie dzierżawę na powitania kontenera i identyfikator dzierżawy nie został określony w żądaniu hello.**</span><span class="sxs-lookup"><span data-stu-id="c7dfb-116">**Failed toodelete storage container 'vhds'. Error: There is currently a lease on hello container and no lease ID was specified in hello request.**</span></span>
+
+<span data-ttu-id="c7dfb-117">Ten problem może wystąpić, ponieważ kontener hello ma wirtualnego dysku twardego, który jest zablokowany w stanie dzierżawy hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-117">This problem can occur because hello container has a VHD that is locked in hello lease state.</span></span>
+
+### <a name="scenario-3"></a><span data-ttu-id="c7dfb-118">Scenariusz 3</span><span class="sxs-lookup"><span data-stu-id="c7dfb-118">Scenario 3</span></span>
+<span data-ttu-id="c7dfb-119">Podczas próby toodelete konto magazynu w ramach wdrożenia usługi Resource Manager, pojawi się następujący komunikat o błędzie hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-119">When you try toodelete a storage account in a Resource Manager deployment, you receive hello following error message:</span></span>
+
+<span data-ttu-id="c7dfb-120">**Konto magazynu toodelete "StorageAccountName" nie powiodło się. Błąd: nie można usunąć konta magazynu hello powodu tooits artefakty są nadal używane.**</span><span class="sxs-lookup"><span data-stu-id="c7dfb-120">**Failed toodelete storage account 'StorageAccountName'. Error: hello storage account cannot be deleted due tooits artifacts being in use.**</span></span>
+
+<span data-ttu-id="c7dfb-121">Ten problem może wystąpić, ponieważ konto magazynu hello zawiera wirtualny dysk twardy jest w stanie dzierżawy hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-121">This problem can occur because hello storage account contains a VHD that is in hello lease state.</span></span>
+
+## <a name="solution"></a><span data-ttu-id="c7dfb-122">Rozwiązanie</span><span class="sxs-lookup"><span data-stu-id="c7dfb-122">Solution</span></span> 
+<span data-ttu-id="c7dfb-123">tooresolve tych problemów, należy wskazać hello wirtualnego dysku twardego, który powoduje błąd hello i hello skojarzonego VM.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-123">tooresolve these problems, you must identify hello VHD that is causing hello error and hello associated VM.</span></span> <span data-ttu-id="c7dfb-124">Następnie odłącz hello wirtualnego dysku twardego z hello maszyny Wirtualnej (w przypadku dysków z danymi) lub usunąć hello maszynę Wirtualną, która używa hello wirtualnego dysku twardego (w przypadku dysków systemu operacyjnego).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-124">Then, detach hello VHD from hello VM (for data disks) or delete hello VM that is using hello VHD (for OS disks).</span></span> <span data-ttu-id="c7dfb-125">Usuwa dzierżawy hello hello wirtualnego dysku twardego i umożliwia jego toobe usunięte.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-125">This removes hello lease from hello VHD and allows it toobe deleted.</span></span> 
+
+<span data-ttu-id="c7dfb-126">toodo tego, użyj jednej z następujących metod hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-126">toodo this, use one of hello following methods:</span></span>
+
+### <a name="method-1---use-azure-storage-explorer"></a><span data-ttu-id="c7dfb-127">Metoda 1 - użyj Eksploratora magazynu Azure</span><span class="sxs-lookup"><span data-stu-id="c7dfb-127">Method 1 - Use Azure storage explorer</span></span>
+
+### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a><span data-ttu-id="c7dfb-128">Krok 1 Określ hello wirtualnego dysku twardego, który uniemożliwia usunięcie konta magazynu hello</span><span class="sxs-lookup"><span data-stu-id="c7dfb-128">Step 1 Identify hello VHD that prevent deletion of hello storage account</span></span>
+
+1. <span data-ttu-id="c7dfb-129">Podczas usuwania konta magazynu hello pojawi się okno dialogowe wiadomości, takie jak następujące hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-129">When you delete hello storage account, you will receive a message dialog such as hello following:</span></span> 
+
+    ![Podczas usuwania konta magazynu hello komunikat o błędzie](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+
+2. <span data-ttu-id="c7dfb-131">Sprawdź hello **adres URL dysku** konto magazynu hello tooidentify i hello wirtualnego dysku twardego, który uniemożliwia usunięcie konta magazynu hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-131">Check hello **Disk URL** tooidentify hello storage account and hello VHD that prevents you delete hello storage account.</span></span> <span data-ttu-id="c7dfb-132">W hello poniższy przykład, hello ciągu przed ". blob.core.windows.net" jest nazwa konta magazynu hello, a "SCCM2012-2015-08-28.vhd" hello, Nazwa wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-132">In hello following example, hello string before “.blob.core.windows.net “ is hello storage account name, and "SCCM2012-2015-08-28.vhd" is hello VHD name.</span></span>  
+
+        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+
+### <a name="step-2-delete-hello-vhd-by-using-azure-storage-explorer"></a><span data-ttu-id="c7dfb-133">Krok 2 Delete hello wirtualnego dysku twardego za pomocą Eksploratora usługi Storage platformy Azure</span><span class="sxs-lookup"><span data-stu-id="c7dfb-133">Step 2 Delete hello VHD by using Azure Storage Explorer</span></span>
+
+1. <span data-ttu-id="c7dfb-134">Pobierz i zainstaluj hello najnowszej wersji [Eksploratora usługi Storage Azure](http://storageexplorer.com/).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-134">Download and Install hello latest version of [Azure Storage Explorer](http://storageexplorer.com/).</span></span> <span data-ttu-id="c7dfb-135">To narzędzie jest aplikacją autonomiczną firmy Microsoft, który pozwala tooeasily pracy z danymi usługi Azure Storage w systemie Windows, system macOS i Linux.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-135">This tool is a standalone app from Microsoft that allows you tooeasily work with Azure Storage data on Windows, macOS and Linux.</span></span>
+2. <span data-ttu-id="c7dfb-136">Otwórz Eksploratora usługi Storage platformy Azure, wybierz opcję</span><span class="sxs-lookup"><span data-stu-id="c7dfb-136">Open Azure Storage Explorer, select</span></span> ![Ikona konta](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) <span data-ttu-id="c7dfb-138">na pasku po lewej stronie powitania wybierz środowisku platformy Azure, a następnie zaloguj się.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-138">on hello left bar, select your Azure environment, and then sign in.</span></span>
+
+3. <span data-ttu-id="c7dfb-139">Wybierz wszystkie subskrypcje lub hello subskrypcji, która zawiera hello konta magazynu, które chcesz toodelete.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-139">Select all subscriptions or hello subscription that contains hello storage account you want toodelete.</span></span>
+
+    ![Dodaj subskrypcję](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
+
+4. <span data-ttu-id="c7dfb-141">Przejdź do konta magazynu toohello uzyskiwanej z hello dysku adres URL wcześniej, wybierz pozycję hello **kontenerów obiektów Blob** > **wirtualne dyski twarde** i wyszukaj hello wirtualnego dysku twardego, który uniemożliwia konta magazynu hello delete.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-141">Go toohello storage account that we obtained from hello disk URL earlier, select hello **Blob Containers** > **vhds** and search for hello VHD that prevents you delete hello storage account.</span></span>
+5. <span data-ttu-id="c7dfb-142">Jeśli zostanie znaleziony hello wirtualny dysk twardy, sprawdź hello **nazwę maszyny Wirtualnej** kolumny toofind hello maszynę Wirtualną, która używa tego wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-142">If hello VHD is found,  check hello **VM Name** column toofind hello VM that is using this VHD.</span></span>
+
+    ![Sprawdź maszyny wirtualnej](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
+
+6. <span data-ttu-id="c7dfb-144">Usuwanie hello dzierżawy z hello wirtualnego dysku twardego za pomocą portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-144">Remove hello lease from hello VHD by using Azure portal.</span></span> <span data-ttu-id="c7dfb-145">Aby uzyskać więcej informacji, zobacz [Usuń hello dzierżawy z wirtualnego dysku twardego hello](#remove-the-lease-from-the-vhd).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-145">For more information, see [Remove hello lease from hello VHD](#remove-the-lease-from-the-vhd).</span></span> 
+
+7. <span data-ttu-id="c7dfb-146">Przejdź toohello Eksploratora usługi Storage platformy Azure, kliknij prawym przyciskiem myszy hello wirtualnego dysku twardego, a następnie wybierz delete.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-146">Go toohello Azure Storage Explorer, right-click hello VHD and then select delete.</span></span>
+
+8. <span data-ttu-id="c7dfb-147">Usunięcie konta magazynu hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-147">Delete hello storage account.</span></span>
+
+### <a name="method-2---use-azure-portal"></a><span data-ttu-id="c7dfb-148">Metoda 2 - użyj portalu Azure</span><span class="sxs-lookup"><span data-stu-id="c7dfb-148">Method 2 - Use Azure portal</span></span> 
+
+#### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a><span data-ttu-id="c7dfb-149">: Krok 1 hello wirtualnego dysku twardego, który uniemożliwia usunięcie konta magazynu hello</span><span class="sxs-lookup"><span data-stu-id="c7dfb-149">Step 1: Identify hello VHD that prevent deletion of hello storage account</span></span>
+
+1. <span data-ttu-id="c7dfb-150">Podczas usuwania konta magazynu hello pojawi się okno dialogowe wiadomości, takie jak następujące hello:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-150">When you delete hello storage account, you will receive a message dialog such as hello following:</span></span> 
+
+    ![Podczas usuwania konta magazynu hello komunikat o błędzie](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+
+2. <span data-ttu-id="c7dfb-152">Sprawdź hello **adres URL dysku** konto magazynu hello tooidentify i hello wirtualnego dysku twardego, który uniemożliwia usunięcie konta magazynu hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-152">Check hello **Disk URL** tooidentify hello storage account and hello VHD that prevents you delete hello storage account.</span></span> <span data-ttu-id="c7dfb-153">W hello poniższy przykład, hello ciągu przed ". blob.core.windows.net" jest nazwa konta magazynu hello, a "SCCM2012-2015-08-28.vhd" hello, Nazwa wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-153">In hello following example, hello string before “.blob.core.windows.net “ is hello storage account name, and "SCCM2012-2015-08-28.vhd" is hello VHD name.</span></span>  
+
+        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+
+2. <span data-ttu-id="c7dfb-154">Zaloguj się toohello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-154">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
+3. <span data-ttu-id="c7dfb-155">W menu Centrum hello wybierz **wszystkie zasoby**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-155">On hello Hub menu, select **All resources**.</span></span> <span data-ttu-id="c7dfb-156">Przejdź toohello konta magazynu, a następnie wybierz **obiekty BLOB** > **wirtualne dyski twarde**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-156">Go toohello storage account, and then select **Blobs** > **vhds**.</span></span>
+
+    ![Zrzut ekranu przedstawiający portal hello, za pomocą hello konta magazynu i kontener "VHD" hello wyróżnione](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
+
+4. <span data-ttu-id="c7dfb-158">Zlokalizuj hello wirtualnego dysku twardego, który mamy uzyskany z adresu URL dysku hello wcześniej.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-158">Locate hello VHD that we obtained from hello disk URL earlier.</span></span> <span data-ttu-id="c7dfb-159">Następnie określ, którego używa wirtualna hello wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-159">Then, determine which VM is using hello VHD.</span></span> <span data-ttu-id="c7dfb-160">Zwykle można określić, które maszyna wirtualna przechowuje hello wirtualnego dysku twardego, sprawdzając nazwę hello wirtualnego dysku twardego:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-160">Usually, you can determine which VM holds hello VHD by checking name of hello VHD:</span></span>
+
+<span data-ttu-id="c7dfb-161">Maszyna wirtualna w modelu programowania usługi Resource Manager</span><span class="sxs-lookup"><span data-stu-id="c7dfb-161">VM in Resource Manager development  model</span></span>
+
+   * <span data-ttu-id="c7dfb-162">Dysków systemu operacyjnego należy wykonać tę konwencję nazewnictwa: VMName-RRRR-MM-DD-HHMMSS.vhd</span><span class="sxs-lookup"><span data-stu-id="c7dfb-162">OS disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd</span></span>
+   * <span data-ttu-id="c7dfb-163">Dyski danych należy wykonać tę konwencję nazewnictwa: VMName-RRRR-MM-DD-HHMMSS.vhd</span><span class="sxs-lookup"><span data-stu-id="c7dfb-163">Data disks generally follow this naming convention: VMName-YYYY-MM-DD-HHMMSS.vhd</span></span>
+
+<span data-ttu-id="c7dfb-164">Maszynę Wirtualną w klasycznym modelu programowania</span><span class="sxs-lookup"><span data-stu-id="c7dfb-164">VM in Classic development model</span></span>
+
+   * <span data-ttu-id="c7dfb-165">Dysków systemu operacyjnego należy wykonać tę konwencję nazewnictwa: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd</span><span class="sxs-lookup"><span data-stu-id="c7dfb-165">OS disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd</span></span>
+   * <span data-ttu-id="c7dfb-166">Dyski danych należy wykonać tę konwencję nazewnictwa: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd</span><span class="sxs-lookup"><span data-stu-id="c7dfb-166">Data disks generally follow this naming convention: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd</span></span>
+
+#### <a name="step-2-remove-hello-lease-from-hello-vhd"></a><span data-ttu-id="c7dfb-167">Krok 2: Usuń hello dzierżawy z hello wirtualnego dysku twardego</span><span class="sxs-lookup"><span data-stu-id="c7dfb-167">Step 2: Remove hello lease from hello VHD</span></span>
+
+<span data-ttu-id="c7dfb-168">[Usuń hello dzierżawy z hello wirtualnego dysku twardego](#remove-the-lease-from-the-vhd), a następnie usunąć konto magazynu hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-168">[Remove hello lease from hello VHD](#remove-the-lease-from-the-vhd), and then delete hello storage account.</span></span>
+
+## <a name="what-is-a-lease"></a><span data-ttu-id="c7dfb-169">Co to jest dzierżawa?</span><span class="sxs-lookup"><span data-stu-id="c7dfb-169">What is a lease?</span></span>
+<span data-ttu-id="c7dfb-170">Dzierżawa jest blokady, które mogą być używane toocontrol dostępu tooa blob (na przykład dysk VHD).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-170">A lease is a lock that can be used toocontrol access tooa blob (for example, a VHD).</span></span> <span data-ttu-id="c7dfb-171">Gdy obiektu blob jest dzierżawiony, tylko hello właściciele hello dzierżawy mają dostęp do obiektów blob hello.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-171">When a blob is leased, only hello owners of hello lease can access hello blob.</span></span> <span data-ttu-id="c7dfb-172">Dzierżawa jest ważne dla hello z następujących powodów:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-172">A lease is important for hello following reasons:</span></span>
+
+* <span data-ttu-id="c7dfb-173">Zapobiega uszkodzenie danych, jeśli wiele właścicieli spróbuj toowrite toohello tę samą część obiektu blob hello na powitania tym samym czasie.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-173">It prevents data corruption if multiple owners try toowrite toohello same portion of hello blob at hello same time.</span></span>
+* <span data-ttu-id="c7dfb-174">Obiekt blob hello uniemożliwia usuwany, jeśli coś aktywnie używa go (na przykład maszyn wirtualnych).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-174">It prevents hello blob from being deleted if something is actively using it (for example, a VM).</span></span>
+* <span data-ttu-id="c7dfb-175">Konto magazynu hello uniemożliwia usuwany, jeśli coś aktywnie używa go (na przykład maszyn wirtualnych).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-175">It prevents hello storage account from being deleted if something is actively using it (for example, a VM).</span></span>
+
+### <a name="remove-hello-lease-from-hello-vhd"></a><span data-ttu-id="c7dfb-176">Usuń hello dzierżawy z hello wirtualnego dysku twardego</span><span class="sxs-lookup"><span data-stu-id="c7dfb-176">Remove hello lease from hello VHD</span></span>
+<span data-ttu-id="c7dfb-177">Jeśli hello wirtualnego dysku twardego, dysk systemu operacyjnego, należy usunąć hello wirtualna tooremove hello dzierżawy:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-177">If hello VHD is an OS disk, you must delete hello VM tooremove hello lease:</span></span>
+
+1. <span data-ttu-id="c7dfb-178">Zaloguj się toohello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-178">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
+2. <span data-ttu-id="c7dfb-179">Na powitania **Centrum** menu, wybierz opcję **maszyn wirtualnych**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-179">On hello **Hub** menu, select **Virtual Machines**.</span></span>
+3. <span data-ttu-id="c7dfb-180">Wybierz hello maszynę Wirtualną, która przechowuje dzierżawę na powitania wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-180">Select hello VM that holds a lease on hello VHD.</span></span>
+4. <span data-ttu-id="c7dfb-181">Upewnij się, że nic nie jest aktywnie używających hello maszyny wirtualnej i czy użytkownik nie jest już konieczne hello maszyny wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-181">Make sure that nothing is actively using hello virtual machine, and that you no longer need hello virtual machine.</span></span>
+5. <span data-ttu-id="c7dfb-182">U góry hello hello **szczegóły maszyny Wirtualnej** bloku, wybierz opcję **usunąć**, a następnie kliknij przycisk **tak** tooconfirm.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-182">At hello top of hello **VM details** blade, select **Delete**, and then click **Yes** tooconfirm.</span></span>
+6. <span data-ttu-id="c7dfb-183">powinien zostać usunięty Hello maszyny Wirtualnej, ale hello wirtualnego dysku twardego mogą być przechowywane.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-183">hello VM should be deleted, but hello VHD can be retained.</span></span> <span data-ttu-id="c7dfb-184">Jednak hello wirtualnego dysku twardego nie powinni mieć dzierżawę na nim.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-184">However, hello VHD should no longer have a lease on it.</span></span> <span data-ttu-id="c7dfb-185">Może upłynąć kilka minut, aż toobe dzierżawy hello wydane.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-185">It may take a few minutes for hello lease toobe released.</span></span> <span data-ttu-id="c7dfb-186">zwolnieniu tooverify, który hello dzierżawy, przejdź zbyt**wszystkie zasoby** > **nazwy konta magazynu** > **obiekty BLOB**  >  **wirtualne dyski twarde**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-186">tooverify that hello lease is released, go too**All resources** > **Storage Account Name** > **Blobs** > **vhds**.</span></span> <span data-ttu-id="c7dfb-187">W hello **właściwości obiektu Blob** okienka, hello **stanu dzierżawy** wartość powinna być **odblokowany**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-187">In hello **Blob properties** pane, hello **Lease Status** value should be **Unlocked**.</span></span>
+
+<span data-ttu-id="c7dfb-188">Jeśli hello wirtualnego dysku twardego jest dysk z danymi, odłącz hello wirtualnego dysku twardego z hello wirtualna tooremove hello dzierżawy:</span><span class="sxs-lookup"><span data-stu-id="c7dfb-188">If hello VHD is a data disk, detach hello VHD from hello VM tooremove hello lease:</span></span>
+
+1. <span data-ttu-id="c7dfb-189">Zaloguj się toohello [portalu Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="c7dfb-189">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
+2. <span data-ttu-id="c7dfb-190">Na powitania **Centrum** menu, wybierz opcję **maszyn wirtualnych**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-190">On hello **Hub** menu, select **Virtual Machines**.</span></span>
+3. <span data-ttu-id="c7dfb-191">Wybierz hello maszynę Wirtualną, która przechowuje dzierżawę na powitania wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-191">Select hello VM that holds a lease on hello VHD.</span></span>
+4. <span data-ttu-id="c7dfb-192">Wybierz **dysków** na powitania **szczegóły maszyny Wirtualnej** bloku.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-192">Select **Disks** on hello **VM details** blade.</span></span>
+5. <span data-ttu-id="c7dfb-193">Wybierz dysk danych hello, który przechowuje dzierżawę na powitania wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-193">Select hello data disk that holds a lease on hello VHD.</span></span> <span data-ttu-id="c7dfb-194">Można określić, który wirtualny dysk twardy jest podłączony w hello dysku, sprawdzając adres URL hello hello wirtualnego dysku twardego.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-194">You can determine which VHD is attached in hello disk by checking hello URL of hello VHD.</span></span>
+6. <span data-ttu-id="c7dfb-195">Określ, z pewnością, że nic nie jest aktywnie używających hello dysku danych.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-195">Determine with certainty that nothing is actively using hello data disk.</span></span>
+7. <span data-ttu-id="c7dfb-196">Kliknij przycisk **Detach** na powitania **dysku szczegóły** bloku.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-196">Click **Detach** on hello **Disk details** blade.</span></span>
+8. <span data-ttu-id="c7dfb-197">dysk Hello powinny teraz można odłączyć od hello maszyny Wirtualnej, a hello wirtualnego dysku twardego nie może mieć dzierżawę na nim.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-197">hello disk should now be detached from hello VM, and hello VHD should no longer have a lease on it.</span></span> <span data-ttu-id="c7dfb-198">Może upłynąć kilka minut, aż toobe dzierżawy hello wydane.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-198">It may take a few minutes for hello lease toobe released.</span></span> <span data-ttu-id="c7dfb-199">została wydana tooverify, który hello dzierżawy, przejdź zbyt**wszystkie zasoby** > **nazwy konta magazynu** > **obiekty BLOB**  >  **wirtualne dyski twarde**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-199">tooverify that hello lease has been released, go too**All resources** > **Storage Account Name** > **Blobs** > **vhds**.</span></span> <span data-ttu-id="c7dfb-200">W hello **właściwości obiektu Blob** okienka, hello **stanu dzierżawy** wartość powinna być **odblokowany**.</span><span class="sxs-lookup"><span data-stu-id="c7dfb-200">In hello **Blob properties** pane, hello **Lease Status** value should be **Unlocked**.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="c7dfb-201">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="c7dfb-201">Next steps</span></span>
+* [<span data-ttu-id="c7dfb-202">Usunięcie konta magazynu</span><span class="sxs-lookup"><span data-stu-id="c7dfb-202">Delete a storage account</span></span>](storage-create-storage-account.md#delete-a-storage-account)
+* [<span data-ttu-id="c7dfb-203">Jak toobreak hello zablokowany dzierżawy magazynu obiektów blob w Microsoft Azure (PowerShell)</span><span class="sxs-lookup"><span data-stu-id="c7dfb-203">How toobreak hello locked lease of blob storage in Microsoft Azure (PowerShell)</span></span>](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

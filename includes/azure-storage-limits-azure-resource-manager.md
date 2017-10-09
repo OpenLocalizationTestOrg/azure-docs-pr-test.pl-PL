@@ -1,0 +1,8 @@
+<span data-ttu-id="6627a-101">Witaj następujące ograniczenia mają zastosowanie tylko w przypadku używania hello Azure Resource Manager i grupy zasobów platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="6627a-101">hello following limits apply when using hello Azure Resource Manager and Azure Resource Groups only.</span></span>
+
+| <span data-ttu-id="6627a-102">Zasób</span><span class="sxs-lookup"><span data-stu-id="6627a-102">Resource</span></span> | <span data-ttu-id="6627a-103">Limit domyślny</span><span class="sxs-lookup"><span data-stu-id="6627a-103">Default Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="6627a-104">Operacje zarządzania konta magazynu (odczyt)</span><span class="sxs-lookup"><span data-stu-id="6627a-104">Storage account management operations (read)</span></span> |<span data-ttu-id="6627a-105">800 na 5 minut</span><span class="sxs-lookup"><span data-stu-id="6627a-105">800 per 5 minutes</span></span> |
+| <span data-ttu-id="6627a-106">Operacje zarządzania konta magazynu (Zapisz)</span><span class="sxs-lookup"><span data-stu-id="6627a-106">Storage account management operations (write)</span></span> |<span data-ttu-id="6627a-107">200 na godzinę</span><span class="sxs-lookup"><span data-stu-id="6627a-107">200 per hour</span></span> |
+| <span data-ttu-id="6627a-108">Operacje zarządzania konta magazynu (lista)</span><span class="sxs-lookup"><span data-stu-id="6627a-108">Storage account management operations (list)</span></span> |<span data-ttu-id="6627a-109">100 na 5 minut</span><span class="sxs-lookup"><span data-stu-id="6627a-109">100 per 5 minutes</span></span> |
+

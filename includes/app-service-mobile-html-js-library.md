@@ -1,45 +1,45 @@
-## <span data-ttu-id="3c885-101"><a name="create-client"></a>Tworzenie połączenia klienta</span><span class="sxs-lookup"><span data-stu-id="3c885-101"><a name="create-client"></a>Create a client connection</span></span>
-<span data-ttu-id="3c885-102">Utwórz połączenie klienta, tworząc obiekt `WindowsAzure.MobileServiceClient`.</span><span class="sxs-lookup"><span data-stu-id="3c885-102">Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.</span></span>  <span data-ttu-id="3c885-103">Zastąp ciąg `appUrl` adresem URL Twojej aplikacji Mobile App.</span><span class="sxs-lookup"><span data-stu-id="3c885-103">Replace `appUrl` with the URL to your Mobile App.</span></span>
+## <span data-ttu-id="efb9a-101"><a name="create-client"></a>Tworzenie połączenia klienta</span><span class="sxs-lookup"><span data-stu-id="efb9a-101"><a name="create-client"></a>Create a client connection</span></span>
+<span data-ttu-id="efb9a-102">Utwórz połączenie klienta, tworząc obiekt `WindowsAzure.MobileServiceClient`.</span><span class="sxs-lookup"><span data-stu-id="efb9a-102">Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.</span></span>  <span data-ttu-id="efb9a-103">Zastąp `appUrl` z tooyour adres URL aplikacji mobilnej.</span><span class="sxs-lookup"><span data-stu-id="efb9a-103">Replace `appUrl` with the URL tooyour Mobile App.</span></span>
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <span data-ttu-id="3c885-104"><a name="table-reference"></a>Praca z tabelami</span><span class="sxs-lookup"><span data-stu-id="3c885-104"><a name="table-reference"></a>Work with tables</span></span>
-<span data-ttu-id="3c885-105">Aby uzyskać dostęp do danych lub je zaktualizować, utwórz odwołanie do tabeli zaplecza.</span><span class="sxs-lookup"><span data-stu-id="3c885-105">To access or update data, create a reference to the backend table.</span></span> <span data-ttu-id="3c885-106">Zastąp ciąg `tableName` nazwą tabeli</span><span class="sxs-lookup"><span data-stu-id="3c885-106">Replace `tableName` with the name of your table</span></span>
+## <span data-ttu-id="efb9a-104"><a name="table-reference"></a>Praca z tabelami</span><span class="sxs-lookup"><span data-stu-id="efb9a-104"><a name="table-reference"></a>Work with tables</span></span>
+<span data-ttu-id="efb9a-105">dane tooaccess lub aktualizacji, tworzy tabelę odwołania toohello wewnętrznej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="efb9a-105">tooaccess or update data, create a reference toohello backend table.</span></span> <span data-ttu-id="efb9a-106">Zastąp `tableName` o nazwie hello tabeli</span><span class="sxs-lookup"><span data-stu-id="efb9a-106">Replace `tableName` with hello name of your table</span></span>
 
 ```
 var table = client.getTable(tableName);
 ```
 
-<span data-ttu-id="3c885-107">Po utworzeniu odwołania do tabeli możesz kontynuować pracę z tabelą:</span><span class="sxs-lookup"><span data-stu-id="3c885-107">Once you have a table reference, you can work further with your table:</span></span>
+<span data-ttu-id="efb9a-107">Po utworzeniu odwołania do tabeli możesz kontynuować pracę z tabelą:</span><span class="sxs-lookup"><span data-stu-id="efb9a-107">Once you have a table reference, you can work further with your table:</span></span>
 
-* [<span data-ttu-id="3c885-108">Odpytywanie tabeli</span><span class="sxs-lookup"><span data-stu-id="3c885-108">Query a Table</span></span>](#querying)
-  * [<span data-ttu-id="3c885-109">Filtrowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-109">Filtering Data</span></span>](#table-filter)
-  * [<span data-ttu-id="3c885-110">Stronicowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-110">Paging through Data</span></span>](#table-paging)
-  * [<span data-ttu-id="3c885-111">Sortowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-111">Sorting Data</span></span>](#sorting-data)
-* [<span data-ttu-id="3c885-112">Wstawianie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-112">Inserting Data</span></span>](#inserting)
-* [<span data-ttu-id="3c885-113">Modyfikowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-113">Modifying Data</span></span>](#modifying)
-* [<span data-ttu-id="3c885-114">Usuwanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-114">Deleting Data</span></span>](#deleting)
+* [<span data-ttu-id="efb9a-108">Odpytywanie tabeli</span><span class="sxs-lookup"><span data-stu-id="efb9a-108">Query a Table</span></span>](#querying)
+  * [<span data-ttu-id="efb9a-109">Filtrowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-109">Filtering Data</span></span>](#table-filter)
+  * [<span data-ttu-id="efb9a-110">Stronicowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-110">Paging through Data</span></span>](#table-paging)
+  * [<span data-ttu-id="efb9a-111">Sortowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-111">Sorting Data</span></span>](#sorting-data)
+* [<span data-ttu-id="efb9a-112">Wstawianie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-112">Inserting Data</span></span>](#inserting)
+* [<span data-ttu-id="efb9a-113">Modyfikowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-113">Modifying Data</span></span>](#modifying)
+* [<span data-ttu-id="efb9a-114">Usuwanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-114">Deleting Data</span></span>](#deleting)
 
-### <span data-ttu-id="3c885-115"><a name="querying"></a>Instrukcje: odpytywanie odwołania do tabeli</span><span class="sxs-lookup"><span data-stu-id="3c885-115"><a name="querying"></a>How to: Query a table reference</span></span>
-<span data-ttu-id="3c885-116">Po utworzeniu odwołania do tabeli możesz przy jego użyciu wysłać zapytanie o dane na serwerze.</span><span class="sxs-lookup"><span data-stu-id="3c885-116">Once you have a table reference, you can use it to query for data on the server.</span></span>  <span data-ttu-id="3c885-117">Zapytania są tworzone w języku przypominającym LINQ.</span><span class="sxs-lookup"><span data-stu-id="3c885-117">Queries are made in a "LINQ-like" language.</span></span>
-<span data-ttu-id="3c885-118">Aby zwrócić wszystkie dane z tabeli, użyj następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="3c885-118">To return all data from the table, use the following code:</span></span>
+### <span data-ttu-id="efb9a-115"><a name="querying"></a>Instrukcje: odpytywanie odwołania do tabeli</span><span class="sxs-lookup"><span data-stu-id="efb9a-115"><a name="querying"></a>How to: Query a table reference</span></span>
+<span data-ttu-id="efb9a-116">Po utworzeniu odwołania do tabeli, można go tooquery danych na powitania serwera.</span><span class="sxs-lookup"><span data-stu-id="efb9a-116">Once you have a table reference, you can use it tooquery for data on hello server.</span></span>  <span data-ttu-id="efb9a-117">Zapytania są tworzone w języku przypominającym LINQ.</span><span class="sxs-lookup"><span data-stu-id="efb9a-117">Queries are made in a "LINQ-like" language.</span></span>
+<span data-ttu-id="efb9a-118">tooreturn wszystkich danych z tabeli hello, hello Użyj następującego kodu:</span><span class="sxs-lookup"><span data-stu-id="efb9a-118">tooreturn all data from hello table, use hello following code:</span></span>
 
 ```
 /**
- * Process the results that are received by a call to table.read()
+ * Process hello results that are received by a call tootable.read()
  *
- * @param {Object} results the results as a pseudo-array
- * @param {int} results.length the length of the results array
- * @param {Object} results[] the individual results
+ * @param {Object} results hello results as a pseudo-array
+ * @param {int} results.length hello length of hello results array
+ * @param {Object} results[] hello individual results
  */
 function success(results) {
    var numItemsRead = results.length;
 
    for (var i = 0 ; i < results.length ; i++) {
        var row = results[i];
-       // Each row is an object - the properties are the columns
+       // Each row is an object - hello properties are hello columns
    }
 }
 
@@ -52,12 +52,12 @@ table
     .then(success, failure);
 ```
 
-<span data-ttu-id="3c885-119">Funkcja success jest wywoływana z użyciem wyników.</span><span class="sxs-lookup"><span data-stu-id="3c885-119">The success function is called with the results.</span></span>  <span data-ttu-id="3c885-120">Nie umieszczaj w funkcji success pętli `for (var i in results)`, ponieważ będzie ona przechodzić przez informacje zawarte w wynikach w czasie, gdy będą używane inne funkcje zapytań (takie jak `.includeTotalCount()`).</span><span class="sxs-lookup"><span data-stu-id="3c885-120">Do not use `for (var i in results)` in the success function as that will iterate over information that is included in the results when other query functions (such as `.includeTotalCount()`) are used.</span></span>
+<span data-ttu-id="efb9a-119">Funkcja Powodzenie Hello jest wywoływana z wynikami hello.</span><span class="sxs-lookup"><span data-stu-id="efb9a-119">hello success function is called with hello results.</span></span>  <span data-ttu-id="efb9a-120">Nie używaj `for (var i in results)` w Powodzenie hello działać zgodnie z którego będzie iteracja informacje zawarte w wynikach hello gdy inne funkcje zapytań (takie jak `.includeTotalCount()`) są używane.</span><span class="sxs-lookup"><span data-stu-id="efb9a-120">Do not use `for (var i in results)` in hello success function as that will iterate over information that is included in hello results when other query functions (such as `.includeTotalCount()`) are used.</span></span>
 
-<span data-ttu-id="3c885-121">Aby dowiedzieć się więcej o składni zapytań, zobacz [dokumentację obiektu Query].</span><span class="sxs-lookup"><span data-stu-id="3c885-121">For more information on the Query syntax, see the [Query object documentation].</span></span>
+<span data-ttu-id="efb9a-121">Aby uzyskać więcej informacji na powitania składnia zapytania, zobacz hello [obiektu dokumentację dotyczącą zapytań].</span><span class="sxs-lookup"><span data-stu-id="efb9a-121">For more information on hello Query syntax, see hello [Query object documentation].</span></span>
 
-#### <span data-ttu-id="3c885-122"><a name="table-filter"></a>Filtrowanie danych na serwerze</span><span class="sxs-lookup"><span data-stu-id="3c885-122"><a name="table-filter"></a>Filtering data on the server</span></span>
-<span data-ttu-id="3c885-123">W przypadku odwołania do tabeli możesz użyć klauzuli `where`:</span><span class="sxs-lookup"><span data-stu-id="3c885-123">You can use a `where` clause on the table reference:</span></span>
+#### <span data-ttu-id="efb9a-122"><a name="table-filter"></a>Filtrowanie danych na powitania serwera</span><span class="sxs-lookup"><span data-stu-id="efb9a-122"><a name="table-filter"></a>Filtering data on hello server</span></span>
+<span data-ttu-id="efb9a-123">Można użyć `where` klauzuli hello w odwołaniu do tabeli:</span><span class="sxs-lookup"><span data-stu-id="efb9a-123">You can use a `where` clause on hello table reference:</span></span>
 
 ```
 table
@@ -66,7 +66,7 @@ table
     .then(success, failure);
 ```
 
-<span data-ttu-id="3c885-124">Ponadto możesz użyć funkcji filtrującej obiekt.</span><span class="sxs-lookup"><span data-stu-id="3c885-124">You can also use a function that filters the object.</span></span>  <span data-ttu-id="3c885-125">W tym przykładzie zmienna `this` jest przypisana do obecnie filtrowanego obiektu.</span><span class="sxs-lookup"><span data-stu-id="3c885-125">In this case, the `this` variable is assigned to the current object being filtered.</span></span>  <span data-ttu-id="3c885-126">Poniższy kod jest funkcjonalnie równoważny z poprzednim przykładem:</span><span class="sxs-lookup"><span data-stu-id="3c885-126">The following code is functionally equivalent to the prior example:</span></span>
+<span data-ttu-id="efb9a-124">Można także użyć funkcji filtrujące hello obiektu.</span><span class="sxs-lookup"><span data-stu-id="efb9a-124">You can also use a function that filters hello object.</span></span>  <span data-ttu-id="efb9a-125">W takim przypadku hello `this` zmienna jest przypisana toothe bieżący obiekt, którego jest wykonywane filtrowanie.</span><span class="sxs-lookup"><span data-stu-id="efb9a-125">In this case, hello `this` variable is assigned toothe current object being filtered.</span></span>  <span data-ttu-id="efb9a-126">Hello następującego kodu jest wcześniejsze przykład toohello taką samą funkcję:</span><span class="sxs-lookup"><span data-stu-id="efb9a-126">hello following code is functionally equivalent toohello prior example:</span></span>
 
 ```
 function filterByUserId(currentUserId) {
@@ -79,13 +79,13 @@ table
     .then(success, failure);
 ```
 
-#### <span data-ttu-id="3c885-127"><a name="table-paging"></a>Stronicowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-127"><a name="table-paging"></a>Paging through data</span></span>
-<span data-ttu-id="3c885-128">Skorzystaj z metod `take()` i `skip()`.</span><span class="sxs-lookup"><span data-stu-id="3c885-128">Utilize the `take()` and `skip()` methods.</span></span>  <span data-ttu-id="3c885-129">Na przykład jeśli chcesz podzielić tabelę na rekordy składające się ze 100 wierszy:</span><span class="sxs-lookup"><span data-stu-id="3c885-129">For example, if you wish to split the table into 100-row records:</span></span>
+#### <span data-ttu-id="efb9a-127"><a name="table-paging"></a>Stronicowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-127"><a name="table-paging"></a>Paging through data</span></span>
+<span data-ttu-id="efb9a-128">Korzystanie z hello `take()` i `skip()` metody.</span><span class="sxs-lookup"><span data-stu-id="efb9a-128">Utilize hello `take()` and `skip()` methods.</span></span>  <span data-ttu-id="efb9a-129">Na przykład, jeśli chcesz toosplit hello tabeli do wiersza 100 rekordów:</span><span class="sxs-lookup"><span data-stu-id="efb9a-129">For example, if you wish toosplit hello table into 100-row records:</span></span>
 
 ```
 var totalCount = 0, pages = 0;
 
-// Step 1 - get the total number of records
+// Step 1 - get hello total number of records
 table.includeTotalCount().take(0).read(function (results) {
     totalCount = results.totalCount;
     pages = Math.floor(totalCount/100) + 1;
@@ -103,12 +103,12 @@ function loadPage(pageNum) {
 }
 ```
 
-<span data-ttu-id="3c885-130">Metoda `.includeTotalCount()` powoduje dodanie pola totalCount do obiektu results.</span><span class="sxs-lookup"><span data-stu-id="3c885-130">The `.includeTotalCount()` method is used to add a totalCount field to the results object.</span></span>  <span data-ttu-id="3c885-131">Pole totalCount zostanie wypełnione łączną liczbą rekordów, które zostałyby zwrócone w przypadku braku stronicowania.</span><span class="sxs-lookup"><span data-stu-id="3c885-131">The totalCount field is filled with the total number of records that would be returned if no paging is used.</span></span>
+<span data-ttu-id="efb9a-130">Witaj `.includeTotalCount()` metoda jest używane tooadd obiektu totalCount pola toohello wyników.</span><span class="sxs-lookup"><span data-stu-id="efb9a-130">hello `.includeTotalCount()` method is used tooadd a totalCount field toohello results object.</span></span>  <span data-ttu-id="efb9a-131">W polu totalCount jest wypełniony hello całkowita liczba rekordów, które będzie zwracany, jeśli Stronicowanie nie jest używany.</span><span class="sxs-lookup"><span data-stu-id="efb9a-131">The totalCount field is filled with hello total number of records that would be returned if no paging is used.</span></span>
 
-<span data-ttu-id="3c885-132">Następnie możesz udostępnić listę stron za pomocą zmiennej pages i przycisków interfejsu użytkownika. Aby załadować nowe rekordy na każdą stronę, użyj metody `loadPage()`.</span><span class="sxs-lookup"><span data-stu-id="3c885-132">You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to load the new records for each page.</span></span>  <span data-ttu-id="3c885-133">Zaimplementuj buforowanie, aby przyspieszyć dostęp do już załadowanych rekordów.</span><span class="sxs-lookup"><span data-stu-id="3c885-133">Implement caching to speed access to records that have already been loaded.</span></span>
+<span data-ttu-id="efb9a-132">Następnie można użyć zmiennej strony hello i niektóre tooprovide przyciski interfejsu użytkownika strony listy; Użyj `loadPage()` załadować hello nowych rekordów dla każdej strony.</span><span class="sxs-lookup"><span data-stu-id="efb9a-132">You can then use hello pages variable and some UI buttons tooprovide a page list; use `loadPage()` to load hello new records for each page.</span></span>  <span data-ttu-id="efb9a-133">Implementuje buforowanie toospeed toorecords dostępu, które zostały już załadowane.</span><span class="sxs-lookup"><span data-stu-id="efb9a-133">Implement caching toospeed access toorecords that have already been loaded.</span></span>
 
-#### <span data-ttu-id="3c885-134"><a name="sorting-data"></a>Instrukcje: zwracanie posortowanych danych</span><span class="sxs-lookup"><span data-stu-id="3c885-134"><a name="sorting-data"></a>How to: Return sorted data</span></span>
-<span data-ttu-id="3c885-135">Użyj metody zapytania `.orderBy()` lub `.orderByDescending()`:</span><span class="sxs-lookup"><span data-stu-id="3c885-135">Use the `.orderBy()` or `.orderByDescending()` query methods:</span></span>
+#### <span data-ttu-id="efb9a-134"><a name="sorting-data"></a>Instrukcje: zwracanie posortowanych danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-134"><a name="sorting-data"></a>How to: Return sorted data</span></span>
+<span data-ttu-id="efb9a-135">Użyj hello `.orderBy()` lub `.orderByDescending()` metod zapytania:</span><span class="sxs-lookup"><span data-stu-id="efb9a-135">Use hello `.orderBy()` or `.orderByDescending()` query methods:</span></span>
 
 ```
 table
@@ -117,10 +117,10 @@ table
     .then(success, failure);
 ```
 
-<span data-ttu-id="3c885-136">Aby uzyskać informacje o obiekcie Query, zobacz [dokumentację obiektu Query].</span><span class="sxs-lookup"><span data-stu-id="3c885-136">For more information on the Query object, see the [Query object documentation].</span></span>
+<span data-ttu-id="efb9a-136">Aby uzyskać więcej informacji na powitania obiektu zapytania, zobacz hello [obiektu dokumentację dotyczącą zapytań].</span><span class="sxs-lookup"><span data-stu-id="efb9a-136">For more information on hello Query object, see hello [Query object documentation].</span></span>
 
-### <span data-ttu-id="3c885-137"><a name="inserting"></a>Instrukcje: wstawianie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-137"><a name="inserting"></a>How to: Insert data</span></span>
-<span data-ttu-id="3c885-138">Utwórz obiekt JavaScript z odpowiednimi danymi i asynchronicznie wywołaj metodę `table.insert()`:</span><span class="sxs-lookup"><span data-stu-id="3c885-138">Create a JavaScript object with the appropriate date and call `table.insert()` asynchronously:</span></span>
+### <span data-ttu-id="efb9a-137"><a name="inserting"></a>Instrukcje: wstawianie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-137"><a name="inserting"></a>How to: Insert data</span></span>
+<span data-ttu-id="efb9a-138">Utwórz obiekt JavaScript z odpowiednią datą hello i wywołanie `table.insert()` asynchronicznie:</span><span class="sxs-lookup"><span data-stu-id="efb9a-138">Create a JavaScript object with hello appropriate date and call `table.insert()` asynchronously:</span></span>
 
 ```javascript
 var newItem = {
@@ -135,12 +135,12 @@ table
     }, failure);
 ```
 
-<span data-ttu-id="3c885-139">Pomyślnie wstawiony element zostaje zwrócony z dodatkowymi polami, które są wymagane przez operacje synchronizacji.</span><span class="sxs-lookup"><span data-stu-id="3c885-139">On successful insertion, the inserted item is returned with the additional fields that are required for sync operations.</span></span>  <span data-ttu-id="3c885-140">Zaktualizuj własną pamięć podręczną o te informacje na potrzeby późniejszych aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="3c885-140">Update your own cache with this information for later updates.</span></span>
+<span data-ttu-id="efb9a-139">Na pomyślne wstawiania hello wstawiony element jest zwracany za hello dodatkowe pola, które są wymagane dla operacji synchronizacji.</span><span class="sxs-lookup"><span data-stu-id="efb9a-139">On successful insertion, hello inserted item is returned with hello additional fields that are required for sync operations.</span></span>  <span data-ttu-id="efb9a-140">Zaktualizuj własną pamięć podręczną o te informacje na potrzeby późniejszych aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="efb9a-140">Update your own cache with this information for later updates.</span></span>
 
-<span data-ttu-id="3c885-141">Zestaw Azure Mobile Apps Node.js Server SDK obsługuje schemat dynamiczny dla celów deweloperskich.</span><span class="sxs-lookup"><span data-stu-id="3c885-141">The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.</span></span>  <span data-ttu-id="3c885-142">Schemat dynamiczny umożliwia dodawanie kolumn do tabeli przez podanie ich w operacji wstawiania lub aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="3c885-142">Dynamic Schema allows you to add columns to the table by specifying them in an insert or update operation.</span></span>  <span data-ttu-id="3c885-143">Zalecamy wyłączenie schematu dynamicznego przed przeniesieniem aplikacji na etap produkcji.</span><span class="sxs-lookup"><span data-stu-id="3c885-143">We recommend that you turn off dynamic schema before moving your application to production.</span></span>
+<span data-ttu-id="efb9a-141">Hello Azure Mobile Apps Node.js Server SDK obsługuje schematu dynamicznego do celów programistycznych.</span><span class="sxs-lookup"><span data-stu-id="efb9a-141">hello Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.</span></span>  <span data-ttu-id="efb9a-142">Dynamiczne schematu umożliwia tooadd kolumn toohello tabeli, określając je w operacji insert lub update.</span><span class="sxs-lookup"><span data-stu-id="efb9a-142">Dynamic Schema allows you tooadd columns toohello table by specifying them in an insert or update operation.</span></span>  <span data-ttu-id="efb9a-143">Zaleca się wyłączenie schematu dynamicznego przed przeniesieniem tooproduction Twojej aplikacji.</span><span class="sxs-lookup"><span data-stu-id="efb9a-143">We recommend that you turn off dynamic schema before moving your application tooproduction.</span></span>
 
-### <span data-ttu-id="3c885-144"><a name="modifying"></a>Instrukcje: modyfikowanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-144"><a name="modifying"></a>How to: Modify data</span></span>
-<span data-ttu-id="3c885-145">Podobnie jak w przypadku metody `.insert()` należy utworzyć obiekt aktualizacji, a następnie wywołać metodę `.update()`.</span><span class="sxs-lookup"><span data-stu-id="3c885-145">Similar to the `.insert()` method, you should create an Update object and then call `.update()`.</span></span>  <span data-ttu-id="3c885-146">Obiekt aktualizacji musi zawierać identyfikator rekordu do zaktualizowania — identyfikator ten uzyskuje się podczas odczytu rekordu bądź wywoływania metody `.insert()`.</span><span class="sxs-lookup"><span data-stu-id="3c885-146">The update object must contain the ID of the record to be updated - the ID is obtained when reading the record or when calling `.insert()`.</span></span>
+### <span data-ttu-id="efb9a-144"><a name="modifying"></a>Instrukcje: modyfikowanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-144"><a name="modifying"></a>How to: Modify data</span></span>
+<span data-ttu-id="efb9a-145">Podobne toohello `.insert()` metody, należy utworzyć obiekt aktualizacji i wywoływać `.update()`.</span><span class="sxs-lookup"><span data-stu-id="efb9a-145">Similar toohello `.insert()` method, you should create an Update object and then call `.update()`.</span></span>  <span data-ttu-id="efb9a-146">Hello obiektu update musi zawierać identyfikator hello hello toobe rekordów zaktualizowane — identyfikator hello są uzyskiwane podczas odczytywania rekordu hello lub podczas wywoływania metody `.insert()`.</span><span class="sxs-lookup"><span data-stu-id="efb9a-146">hello update object must contain hello ID of hello record toobe updated - hello ID is obtained when reading hello record or when calling `.insert()`.</span></span>
 
 ```javascript
 var updateItem = {
@@ -155,8 +155,8 @@ table
     }, failure);
 ```
 
-### <span data-ttu-id="3c885-147"><a name="deleting"></a>Instrukcje: usuwanie danych</span><span class="sxs-lookup"><span data-stu-id="3c885-147"><a name="deleting"></a>How to: Delete data</span></span>
-<span data-ttu-id="3c885-148">Aby usunąć rekord, wywołaj metodę `.del()`.</span><span class="sxs-lookup"><span data-stu-id="3c885-148">To delete a record, call the `.del()` method.</span></span>  <span data-ttu-id="3c885-149">Przekaż identyfikator w odwołaniu do obiektu:</span><span class="sxs-lookup"><span data-stu-id="3c885-149">Pass the ID in an object reference:</span></span>
+### <span data-ttu-id="efb9a-147"><a name="deleting"></a>Instrukcje: usuwanie danych</span><span class="sxs-lookup"><span data-stu-id="efb9a-147"><a name="deleting"></a>How to: Delete data</span></span>
+<span data-ttu-id="efb9a-148">toodelete rekordu, wywołanie hello `.del()` metody.</span><span class="sxs-lookup"><span data-stu-id="efb9a-148">toodelete a record, call hello `.del()` method.</span></span>  <span data-ttu-id="efb9a-149">Podaj identyfikator hello odwołanie do obiektu:</span><span class="sxs-lookup"><span data-stu-id="efb9a-149">Pass hello ID in an object reference:</span></span>
 
 ```
 table

@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> <span data-ttu-id="f0a45-101">Identyfikator urządzenia może być widoczny w dziennikach zbieranych na potrzeby obsługi klienta i rozwiązywania problemów, dlatego upewnij się, żeby unikać poufnych informacji podczas nadawania mu nazwy.</span><span class="sxs-lookup"><span data-stu-id="f0a45-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+> <span data-ttu-id="ea517-101">Hello urządzenie, którego identyfikator mogą być widoczne w dziennikach hello zbierane na potrzeby obsługi klienta i rozwiązywania problemów, upewnij się, że tooavoid żadnych poufnych informacji podczas nazw.</span><span class="sxs-lookup"><span data-stu-id="ea517-101">hello device ID may be visible in hello logs collected for customer support and troubleshooting, so make sure tooavoid any sensitive information while naming it.</span></span>
 >

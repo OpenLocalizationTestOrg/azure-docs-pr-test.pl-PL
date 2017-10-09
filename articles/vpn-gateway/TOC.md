@@ -63,7 +63,7 @@
 ### [Overview & Azure configuration (Omówienie i konfiguracja platformy Azure)](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP) (Przykład: Urządzenie ASA Cisco [IKEv2/bez protokołu BGP])](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Rozwiązywanie problemów
-### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
+### [Sprawdzanie poprawności sieci VPN tooa przepustowość sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Ustawienia sieci VPN lub urządzenia zapory sugerowane przez społeczność](vpn-gateway-third-party-settings.md)
 ### [Problem z połączeniem punkt-lokacja](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Połączenie lokacja-lokacja jest sporadycznie rozłączane](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)

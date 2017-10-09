@@ -1,0 +1,14 @@
+<span data-ttu-id="5347a-101">Brama sieci VPN (stare) starszych Hello są jednostki SKU:</span><span class="sxs-lookup"><span data-stu-id="5347a-101">hello legacy (old) VPN gateway SKUs are:</span></span>
+
+* <span data-ttu-id="5347a-102">Podstawowa</span><span class="sxs-lookup"><span data-stu-id="5347a-102">Basic</span></span>
+* <span data-ttu-id="5347a-103">Standardowa (Standard)</span><span class="sxs-lookup"><span data-stu-id="5347a-103">Standard</span></span>
+* <span data-ttu-id="5347a-104">Wysoka wydajność (HighPerformance)</span><span class="sxs-lookup"><span data-stu-id="5347a-104">HighPerformance</span></span>
+
+<span data-ttu-id="5347a-105">Brama sieci VPN nie używa jednostka SKU bramy UltraPerformance hello.</span><span class="sxs-lookup"><span data-stu-id="5347a-105">VPN Gateway does not use hello UltraPerformance gateway SKU.</span></span> <span data-ttu-id="5347a-106">Informacji o hello UltraPerformance SKU znajduje się w temacie hello [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) dokumentacji.</span><span class="sxs-lookup"><span data-stu-id="5347a-106">For information about hello UltraPerformance SKU, see hello [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.</span></span>
+
+<span data-ttu-id="5347a-107">Podczas pracy z hello starszej wersji produktu, rozważ następujące hello:</span><span class="sxs-lookup"><span data-stu-id="5347a-107">When working with hello legacy SKUs, consider hello following:</span></span>
+
+* <span data-ttu-id="5347a-108">Jeśli chcesz toouse typu PolicyBased sieci VPN, należy użyć hello podstawowy SKU.</span><span class="sxs-lookup"><span data-stu-id="5347a-108">If you want toouse a PolicyBased VPN type, you must use hello Basic SKU.</span></span> <span data-ttu-id="5347a-109">Sieć VPN PolicyBased (nazywana wcześniej routingiem statycznym) nie jest obsługiwana w żadnych innych jednostkach SKU.</span><span class="sxs-lookup"><span data-stu-id="5347a-109">PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.</span></span>
+* <span data-ttu-id="5347a-110">Protokół BGP nie jest obsługiwany na powitania podstawowy SKU.</span><span class="sxs-lookup"><span data-stu-id="5347a-110">BGP is not supported on hello Basic SKU.</span></span>
+* <span data-ttu-id="5347a-111">Brama sieci VPN ExpressRoute współistnieją konfiguracje nie są obsługiwane na powitania podstawowy SKU.</span><span class="sxs-lookup"><span data-stu-id="5347a-111">ExpressRoute-VPN Gateway coexist configurations are not supported on hello Basic SKU.</span></span>
+* <span data-ttu-id="5347a-112">Na powitania tylko jednostki SKU wysokowydajnej można skonfigurować połączenia bramy sieci VPN S2S aktywny aktywny.</span><span class="sxs-lookup"><span data-stu-id="5347a-112">Active-active S2S VPN Gateway connections can be configured on hello HighPerformance SKU only.</span></span>

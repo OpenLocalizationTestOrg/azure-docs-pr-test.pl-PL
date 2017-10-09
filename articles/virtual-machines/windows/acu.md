@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi Azure obliczeniowe jednostki | Dokumentacja firmy Microsoft"
-description: "Omówienie koncepcji Azure obliczeniowe jednostki dla systemu Windows. ACU umożliwia porównanie wydajności procesora CPU przez jednostki SKU Azure."
+title: aaaOverview hello Azure obliczeniowe jednostki | Dokumentacja firmy Microsoft
+description: "Omówienie koncepcji hello hello Azure obliczeniowe jednostki dla systemu Windows. Witaj ACU umożliwia porównanie wydajności procesora CPU przez jednostki SKU Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 2214c7e8661a81e19b765b8519a48542de1159fb
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d2fc635c68851382b3d1df3d5836b306f9044273
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-compute-unit-acu"></a><span data-ttu-id="aba6b-104">Jednostka obliczeniowa Azure (ACU)</span><span class="sxs-lookup"><span data-stu-id="aba6b-104">Azure compute unit (ACU)</span></span>
+# <a name="azure-compute-unit-acu"></a><span data-ttu-id="73a41-104">Jednostka obliczeniowa Azure (ACU)</span><span class="sxs-lookup"><span data-stu-id="73a41-104">Azure compute unit (ACU)</span></span>
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-<span data-ttu-id="aba6b-105">Oto łącza do dodatkowych informacji o różnych rozmiarach:</span><span class="sxs-lookup"><span data-stu-id="aba6b-105">Here are links to more information about the different sizes:</span></span>
-- [<span data-ttu-id="aba6b-106">Ogólnego przeznaczenia</span><span class="sxs-lookup"><span data-stu-id="aba6b-106">General-purpose</span></span>](sizes-general.md)
-- [<span data-ttu-id="aba6b-107">Optymalizacja pod kątem pamięci</span><span class="sxs-lookup"><span data-stu-id="aba6b-107">Memory optimized</span></span>](../virtual-machines-windows-sizes-memory.md)
-- [<span data-ttu-id="aba6b-108">Optymalizacja pod kątem obliczeń</span><span class="sxs-lookup"><span data-stu-id="aba6b-108">Compute optimized</span></span>](sizes-compute.md)
-- [<span data-ttu-id="aba6b-109">Optymalizacja pod kątem procesora GPU</span><span class="sxs-lookup"><span data-stu-id="aba6b-109">GPU optimized</span></span>](sizes-gpu.md)
-- [<span data-ttu-id="aba6b-110">Obliczenia o wysokiej wydajności</span><span class="sxs-lookup"><span data-stu-id="aba6b-110">High performance compute</span></span>](sizes-hpc.md)
-- [<span data-ttu-id="aba6b-111">Optymalizacja pod kątem magazynu</span><span class="sxs-lookup"><span data-stu-id="aba6b-111">Storage optimized</span></span>](sizes-storage.md)
+<span data-ttu-id="73a41-105">Oto łącza toomore informacji o różnych rozmiarach hello:</span><span class="sxs-lookup"><span data-stu-id="73a41-105">Here are links toomore information about hello different sizes:</span></span>
+- [<span data-ttu-id="73a41-106">Ogólnego przeznaczenia</span><span class="sxs-lookup"><span data-stu-id="73a41-106">General-purpose</span></span>](sizes-general.md)
+- [<span data-ttu-id="73a41-107">Optymalizacja pod kątem pamięci</span><span class="sxs-lookup"><span data-stu-id="73a41-107">Memory optimized</span></span>](../virtual-machines-windows-sizes-memory.md)
+- [<span data-ttu-id="73a41-108">Optymalizacja pod kątem obliczeń</span><span class="sxs-lookup"><span data-stu-id="73a41-108">Compute optimized</span></span>](sizes-compute.md)
+- [<span data-ttu-id="73a41-109">Optymalizacja pod kątem procesora GPU</span><span class="sxs-lookup"><span data-stu-id="73a41-109">GPU optimized</span></span>](sizes-gpu.md)
+- [<span data-ttu-id="73a41-110">Obliczenia o wysokiej wydajności</span><span class="sxs-lookup"><span data-stu-id="73a41-110">High performance compute</span></span>](sizes-hpc.md)
+- [<span data-ttu-id="73a41-111">Optymalizacja pod kątem magazynu</span><span class="sxs-lookup"><span data-stu-id="73a41-111">Storage optimized</span></span>](sizes-storage.md)

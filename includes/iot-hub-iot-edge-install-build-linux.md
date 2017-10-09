@@ -1,35 +1,35 @@
-## <a name="install-the-prerequisites"></a><span data-ttu-id="eb6ae-101">Zainstaluj wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="eb6ae-101">Install the prerequisites</span></span>
+## <a name="install-hello-prerequisites"></a><span data-ttu-id="df9c7-101">Instalowanie wymagań wstępnych hello</span><span class="sxs-lookup"><span data-stu-id="df9c7-101">Install hello prerequisites</span></span>
 
-<span data-ttu-id="eb6ae-102">Kroki opisane w tym samouczku przyjęto założenie, że używasz Ubuntu Linux.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-102">The steps in this tutorial assume you are running Ubuntu Linux.</span></span>
+<span data-ttu-id="df9c7-102">Hello krokach tego samouczka przyjęto założenie, że używasz Ubuntu Linux.</span><span class="sxs-lookup"><span data-stu-id="df9c7-102">hello steps in this tutorial assume you are running Ubuntu Linux.</span></span>
 
-<span data-ttu-id="eb6ae-103">Otwórz powłokę i uruchom następujące polecenia, aby zainstalować wstępnie wymagane pakiety:</span><span class="sxs-lookup"><span data-stu-id="eb6ae-103">Open a shell and run the following commands to install the prerequisite packages:</span></span>
+<span data-ttu-id="df9c7-103">Otwórz powłokę i uruchom następujące polecenia tooinstall hello wymagań wstępnych pakietów hello:</span><span class="sxs-lookup"><span data-stu-id="df9c7-103">Open a shell and run hello following commands tooinstall hello prerequisite packages:</span></span>
 
 ```bash
 sudo apt-get update
 sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
-<span data-ttu-id="eb6ae-104">W powłoce, uruchom następujące polecenie, można sklonować repozytorium GitHub krawędzi IoT Azure na komputerze lokalnym:</span><span class="sxs-lookup"><span data-stu-id="eb6ae-104">In the shell, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:</span></span>
+<span data-ttu-id="df9c7-104">W powłoce hello Uruchom hello następujące polecenia tooclone hello Azure IoT krawędzi GitHub repozytorium tooyour komputera lokalnego:</span><span class="sxs-lookup"><span data-stu-id="df9c7-104">In hello shell, run hello following command tooclone hello Azure IoT Edge GitHub repository tooyour local machine:</span></span>
 
 ```bash
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-## <a name="how-to-build-the-sample"></a><span data-ttu-id="eb6ae-105">Jak skompilować przykład</span><span class="sxs-lookup"><span data-stu-id="eb6ae-105">How to build the sample</span></span>
+## <a name="how-toobuild-hello-sample"></a><span data-ttu-id="df9c7-105">Jak toobuild hello próbki</span><span class="sxs-lookup"><span data-stu-id="df9c7-105">How toobuild hello sample</span></span>
 
-<span data-ttu-id="eb6ae-106">Krawędź IoT można teraz tworzyć środowiska uruchomieniowego i przykłady, na komputerze lokalnym:</span><span class="sxs-lookup"><span data-stu-id="eb6ae-106">You can now build the IoT Edge runtime and samples on your local machine:</span></span>
+<span data-ttu-id="df9c7-106">Hello krawędzi IoT można teraz tworzyć środowiska uruchomieniowego i przykłady, na komputerze lokalnym:</span><span class="sxs-lookup"><span data-stu-id="df9c7-106">You can now build hello IoT Edge runtime and samples on your local machine:</span></span>
 
-1. <span data-ttu-id="eb6ae-107">Otwórz powłokę.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-107">Open a shell.</span></span>
+1. <span data-ttu-id="df9c7-107">Otwórz powłokę.</span><span class="sxs-lookup"><span data-stu-id="df9c7-107">Open a shell.</span></span>
 
-1. <span data-ttu-id="eb6ae-108">Przejdź do folderu głównego w lokalnej kopii repozytorium **iot-edge**.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-108">Navigate to the root folder in your local copy of the **iot-edge** repository.</span></span>
+1. <span data-ttu-id="df9c7-108">Przejdź do folderu głównego toohello w lokalnej kopii hello **krawędzi iot** repozytorium.</span><span class="sxs-lookup"><span data-stu-id="df9c7-108">Navigate toohello root folder in your local copy of hello **iot-edge** repository.</span></span>
 
-1. <span data-ttu-id="eb6ae-109">Uruchom skrypt kompilacji w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="eb6ae-109">Run the build script as follows:</span></span>
+1. <span data-ttu-id="df9c7-109">Uruchom skrypt kompilacji w następujący sposób:</span><span class="sxs-lookup"><span data-stu-id="df9c7-109">Run the build script as follows:</span></span>
 
     ```sh
     tools/build.sh --disable-native-remote-modules
     ```
 
-<span data-ttu-id="eb6ae-110">Ten skrypt używa narzędzia **cmake** do utworzenia folderu o nazwie **build** w folderze głównym lokalnej kopii repozytorium **iot-edge** i wygenerowania pliku reguł programu make.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-110">This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **iot-edge** repository and generate a makefile.</span></span> <span data-ttu-id="eb6ae-111">Skrypt następnie kompiluje rozwiązanie, pomijając testy jednostkowe i testy kompleksowe.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-111">The script then builds the solution, skipping unit tests and end to end tests.</span></span> <span data-ttu-id="eb6ae-112">Jeśli chcesz tworzenia i uruchamiania testów jednostkowych, dodać `--run-unittests` parametru.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-112">If you want to build and run the unit tests, add the `--run-unittests` parameter.</span></span> <span data-ttu-id="eb6ae-113">Aby tworzenie i Uruchamianie testów kompleksowe, dodać `--run-e2e-tests`.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-113">If you want to build and run the end to end tests, add the `--run-e2e-tests`.</span></span>
+<span data-ttu-id="df9c7-110">Ten skrypt używa **cmake** toocreate narzędzie folder o nazwie **kompilacji** w folderze głównym hello lokalną kopię **krawędzi iot** repozytorium i generowanie pliku reguł programu make.</span><span class="sxs-lookup"><span data-stu-id="df9c7-110">This script uses the **cmake** utility toocreate a folder called **build** in hello root folder of your local copy of the **iot-edge** repository and generate a makefile.</span></span> <span data-ttu-id="df9c7-111">skrypt Hello następnie buduje rozwiązanie hello, pomijanie testów jednostkowych i tooend zakończenia.</span><span class="sxs-lookup"><span data-stu-id="df9c7-111">hello script then builds hello solution, skipping unit tests and end tooend tests.</span></span> <span data-ttu-id="df9c7-112">Toobuild i uruchom testy jednostkowe hello, Dodaj hello `--run-unittests` parametru.</span><span class="sxs-lookup"><span data-stu-id="df9c7-112">If you want toobuild and run hello unit tests, add hello `--run-unittests` parameter.</span></span> <span data-ttu-id="df9c7-113">Toobuild i uruchom testy tooend zakończenia hello, Dodaj hello `--run-e2e-tests`.</span><span class="sxs-lookup"><span data-stu-id="df9c7-113">If you want toobuild and run hello end tooend tests, add hello `--run-e2e-tests`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="eb6ae-114">Za każdym razem, gdy zostanie uruchomiony skrypt **build.sh**, folder **build** jest usuwany i tworzony ponownie w folderze głównym lokalnej kopii repozytorium **iot-edge**.</span><span class="sxs-lookup"><span data-stu-id="eb6ae-114">Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.</span></span>
+> <span data-ttu-id="df9c7-114">Każdym uruchomieniu hello **build.sh** skryptu, usuwa, a następnie tworzy ponownie hello **kompilacji** folderu w folderze głównym hello kopii lokalnej hello **krawędzi iot** repozytorium.</span><span class="sxs-lookup"><span data-stu-id="df9c7-114">Every time you run hello **build.sh** script, it deletes and then recreates hello **build** folder in hello root folder of your local copy of hello **iot-edge** repository.</span></span>

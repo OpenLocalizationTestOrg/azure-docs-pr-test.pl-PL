@@ -1,14 +1,14 @@
-<span data-ttu-id="0b12e-101">Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#create).</span><span class="sxs-lookup"><span data-stu-id="0b12e-101">Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.</span></span>
+<span data-ttu-id="a9cd6-101">Tworzenie planu usługi aplikacji z hello [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#create) polecenia.</span><span class="sxs-lookup"><span data-stu-id="a9cd6-101">Create an App Service plan with hello [az appservice plan create](/cli/azure/appservice/plan#create) command.</span></span>
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-<span data-ttu-id="0b12e-102">W poniższym przykładzie jest tworzony plan usługi App Service o nazwie `myAppServicePlan` przy użyciu warstwy cenowej **Bezpłatna**:</span><span class="sxs-lookup"><span data-stu-id="0b12e-102">The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:</span></span>
+<span data-ttu-id="a9cd6-102">Witaj poniższy przykład tworzy plan usługi aplikacji o nazwie `myAppServicePlan` w hello **wolne** warstwa cenowa:</span><span class="sxs-lookup"><span data-stu-id="a9cd6-102">hello following example creates an App Service plan named `myAppServicePlan` in hello **Free** pricing tier:</span></span>
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-<span data-ttu-id="0b12e-103">Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:</span><span class="sxs-lookup"><span data-stu-id="0b12e-103">When the App Service plan has been created, the Azure CLI shows information similar to the following example:</span></span>
+<span data-ttu-id="a9cd6-103">Po utworzeniu planu usługi aplikacji hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:</span><span class="sxs-lookup"><span data-stu-id="a9cd6-103">When hello App Service plan has been created, hello Azure CLI shows information similar toohello following example:</span></span>
 
 ```json
 { 

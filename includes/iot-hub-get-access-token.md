@@ -1,7 +1,7 @@
-## <a name="obtain-an-azure-resource-manager-token"></a><span data-ttu-id="bcc3d-101">Uzyskaj token usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="bcc3d-101">Obtain an Azure Resource Manager token</span></span>
-<span data-ttu-id="bcc3d-102">Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania, które należy wykonać na zasobów przy użyciu usługi Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="bcc3d-102">Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager.</span></span> <span data-ttu-id="bcc3d-103">Tu przykładzie jest używane uwierzytelnianie hasła, aby inne podejścia, zobacz [żądań uwierzytelniania usługi Azure Resource Manager][lnk-authenticate-arm].</span><span class="sxs-lookup"><span data-stu-id="bcc3d-103">The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].</span></span>
+## <a name="obtain-an-azure-resource-manager-token"></a><span data-ttu-id="ac1a0-101">Uzyskaj token usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="ac1a0-101">Obtain an Azure Resource Manager token</span></span>
+<span data-ttu-id="ac1a0-102">Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania hello, które należy wykonać na zasobów przy użyciu hello Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="ac1a0-102">Azure Active Directory must authenticate all hello tasks that you perform on resources using hello Azure Resource Manager.</span></span> <span data-ttu-id="ac1a0-103">Witaj przykładzie używa uwierzytelniania hasła można znaleźć inne podejścia [żądań uwierzytelniania usługi Azure Resource Manager][lnk-authenticate-arm].</span><span class="sxs-lookup"><span data-stu-id="ac1a0-103">hello example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].</span></span>
 
-1. <span data-ttu-id="bcc3d-104">Dodaj następujący kod do **Main** metody w pliku Program.cs do pobrania tokenu z usługi Azure AD przy użyciu identyfikatora aplikacji i hasła.</span><span class="sxs-lookup"><span data-stu-id="bcc3d-104">Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.</span></span>
+1. <span data-ttu-id="ac1a0-104">Dodaj hello następującego kodu toohello **Main** metody w pliku Program.cs tooretrieve token z usługi Azure AD przy użyciu identyfikatora aplikacji hello i hasła.</span><span class="sxs-lookup"><span data-stu-id="ac1a0-104">Add hello following code toohello **Main** method in Program.cs tooretrieve a token from Azure AD using hello application id and password.</span></span>
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -12,18 +12,18 @@
    
     if (token == null)
     {
-      Console.WriteLine("Failed to obtain the token");
+      Console.WriteLine("Failed tooobtain hello token");
       return;
     }
     ```
-2. <span data-ttu-id="bcc3d-105">Utwórz **element ResourceManagementClient** obiekt, który używa tokenu, dodając następujący kod na końcu **Main** metody:</span><span class="sxs-lookup"><span data-stu-id="bcc3d-105">Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:</span></span>
+2. <span data-ttu-id="ac1a0-105">Utworzyć **element ResourceManagementClient** obiektów, że używa hello token przez dodanie hello kod zakończenia toohello hello **Main** metody:</span><span class="sxs-lookup"><span data-stu-id="ac1a0-105">Create a **ResourceManagementClient** object that uses hello token by adding hello following code toohello end of hello **Main** method:</span></span>
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. <span data-ttu-id="bcc3d-106">Utwórz lub uzyskać odwołania do grupy zasobów, którego używasz:</span><span class="sxs-lookup"><span data-stu-id="bcc3d-106">Create, or obtain a reference to, the resource group you are using:</span></span>
+3. <span data-ttu-id="ac1a0-106">Utwórz lub uzyskać odwołania do hello grupy zasobów, którego używasz:</span><span class="sxs-lookup"><span data-stu-id="ac1a0-106">Create, or obtain a reference to, hello resource group you are using:</span></span>
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

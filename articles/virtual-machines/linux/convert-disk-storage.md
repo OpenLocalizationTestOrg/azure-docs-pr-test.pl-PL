@@ -1,6 +1,6 @@
 ---
-title: "Konwertuj Azure zarządzanego dyski magazynu ze standardu do premium i na odwrót | Dokumentacja firmy Microsoft"
-description: "Jak przekonwertować Azure zarządzane dyski magazynu ze standardu do premium i odwrotnie, przy użyciu wiersza polecenia platformy Azure."
+title: "aaaConvert Azure zarządzanego magazynu dysków z toopremium standardowe i na odwrót | Dokumentacja firmy Microsoft"
+description: "Jak tooconvert Azure zarządzane dyski magazynu z toopremium standardowe i na odwrót, przy użyciu wiersza polecenia platformy Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: ramankum
@@ -15,97 +15,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 0380b4aaa23b4aaba4c67d05e2d62f3ef41d6a32
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 261d77202f7fd381085c4e25211a5d0026f43b01
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a><span data-ttu-id="26d05-103">Konwertuj Azure zarządzanego dyski magazynu ze standardu do premium i na odwrót</span><span class="sxs-lookup"><span data-stu-id="26d05-103">Convert Azure managed disks storage from standard to premium, and vice versa</span></span>
+# <a name="convert-azure-managed-disks-storage-from-standard-toopremium-and-vice-versa"></a><span data-ttu-id="d04c0-103">Konwertuj Azure zarządzanego magazynu dysków z toopremium standardowe i na odwrót</span><span class="sxs-lookup"><span data-stu-id="d04c0-103">Convert Azure managed disks storage from standard toopremium, and vice versa</span></span>
 
-<span data-ttu-id="26d05-104">Zarządzane dysków oferuje dwie opcje magazynu: [Premium](../../storage/storage-premium-storage.md) (oparte na dysk SSD) i [standardowe](../../storage/storage-standard-storage.md) (oparte na dysk twardy).</span><span class="sxs-lookup"><span data-stu-id="26d05-104">Managed disks offers two storage options: [Premium](../../storage/storage-premium-storage.md) (SSD-based) and [Standard](../../storage/storage-standard-storage.md) (HDD-based).</span></span> <span data-ttu-id="26d05-105">Umożliwia ona łatwo przełączać się między dwie opcje z minimalnym czasem przestojów na podstawie Twoich potrzeb wydajności.</span><span class="sxs-lookup"><span data-stu-id="26d05-105">It allows you to easily switch between the two options with minimal downtime based on your performance needs.</span></span> <span data-ttu-id="26d05-106">Ta funkcja nie jest dostępna dla niezarządzanego dysków.</span><span class="sxs-lookup"><span data-stu-id="26d05-106">This capability is not available for unmanaged disks.</span></span> <span data-ttu-id="26d05-107">Ale możesz z łatwością [konwertować na zarządzane dyski](convert-unmanaged-to-managed-disks.md) można łatwo przełączać się między dwie opcje.</span><span class="sxs-lookup"><span data-stu-id="26d05-107">But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.</span></span>
+<span data-ttu-id="d04c0-104">Zarządzane dysków oferuje dwie opcje magazynu: [Premium](../../storage/storage-premium-storage.md) (oparte na dysk SSD) i [standardowe](../../storage/storage-standard-storage.md) (oparte na dysk twardy).</span><span class="sxs-lookup"><span data-stu-id="d04c0-104">Managed disks offers two storage options: [Premium](../../storage/storage-premium-storage.md) (SSD-based) and [Standard](../../storage/storage-standard-storage.md) (HDD-based).</span></span> <span data-ttu-id="d04c0-105">Pozwala ona tooeasily przełączanie między Witaj dwie opcje z minimalnym czasem przestojów na podstawie Twoich potrzeb wydajności.</span><span class="sxs-lookup"><span data-stu-id="d04c0-105">It allows you tooeasily switch between hello two options with minimal downtime based on your performance needs.</span></span> <span data-ttu-id="d04c0-106">Ta funkcja nie jest dostępna dla niezarządzanego dysków.</span><span class="sxs-lookup"><span data-stu-id="d04c0-106">This capability is not available for unmanaged disks.</span></span> <span data-ttu-id="d04c0-107">Ale możesz z łatwością [skonwertuj dyski toomanaged](convert-unmanaged-to-managed-disks.md) tooeasily przełączanie między Witaj dwie opcje.</span><span class="sxs-lookup"><span data-stu-id="d04c0-107">But you can easily [convert toomanaged disks](convert-unmanaged-to-managed-disks.md) tooeasily switch between hello two options.</span></span>
 
-<span data-ttu-id="26d05-108">W tym artykule przedstawiono sposób konwertowania dysków zarządzanych ze standardu do premium i na odwrót przy użyciu wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="26d05-108">This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure CLI.</span></span> <span data-ttu-id="26d05-109">Jeśli musisz zainstalować lub uaktualnić go, zobacz [zainstalować Azure CLI 2.0](/cli/azure/install-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="26d05-109">If you need to install or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md).</span></span> 
+<span data-ttu-id="d04c0-108">W tym artykule opisano sposób tooconvert zarządzania dysków z toopremium standardowe i na odwrót przy użyciu wiersza polecenia platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="d04c0-108">This article shows you how tooconvert managed disks from standard toopremium, and vice versa by using Azure CLI.</span></span> <span data-ttu-id="d04c0-109">Jeśli konieczne tooinstall lub uaktualnić go, zobacz [zainstalować Azure CLI 2.0](/cli/azure/install-azure-cli.md).</span><span class="sxs-lookup"><span data-stu-id="d04c0-109">If you need tooinstall or upgrade it, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli.md).</span></span> 
 
-## <a name="before-you-begin"></a><span data-ttu-id="26d05-110">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="26d05-110">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="d04c0-110">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="d04c0-110">Before you begin</span></span>
 
-* <span data-ttu-id="26d05-111">Konwersja wymaga ponownego uruchomienia maszyny wirtualnej, więc planowanie migracji magazynu dysków w istniejącym oknie obsługi.</span><span class="sxs-lookup"><span data-stu-id="26d05-111">The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window.</span></span> 
-* <span data-ttu-id="26d05-112">Jeśli używane są niezarządzane dysków, najpierw [konwertować na zarządzane dyski](convert-unmanaged-to-managed-disks.md) do korzystania z tego artykułu w celu przełączania się między dwie opcje magazynu.</span><span class="sxs-lookup"><span data-stu-id="26d05-112">If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options.</span></span> 
+* <span data-ttu-id="d04c0-111">Hello konwersja wymaga ponownego uruchomienia hello maszyny Wirtualnej, więc planowanie migracji hello magazynu dysków w istniejącym oknie obsługi.</span><span class="sxs-lookup"><span data-stu-id="d04c0-111">hello conversion requires a restart of hello VM, so schedule hello migration of your disks storage during a pre-existing maintenance window.</span></span> 
+* <span data-ttu-id="d04c0-112">Jeśli używane są niezarządzane dysków, najpierw [skonwertuj dyski toomanaged](convert-unmanaged-to-managed-disks.md) toouse tooswitch tego artykułu między Witaj dwie opcje magazynu.</span><span class="sxs-lookup"><span data-stu-id="d04c0-112">If you are using unmanaged disks, first [convert toomanaged disks](convert-unmanaged-to-managed-disks.md) toouse this article tooswitch between hello two storage options.</span></span> 
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a><span data-ttu-id="26d05-113">Konwertuj wszystkie zarządzane dyski maszyny wirtualnej ze standardu na — wersja premium i na odwrót</span><span class="sxs-lookup"><span data-stu-id="26d05-113">Convert all the managed disks of a VM from standard to premium, and vice versa</span></span>
+## <a name="convert-all-hello-managed-disks-of-a-vm-from-standard-toopremium-and-vice-versa"></a><span data-ttu-id="d04c0-113">Konwertuj hello wszystkie zarządzane dyski maszyny wirtualnej z toopremium standardowe i na odwrót</span><span class="sxs-lookup"><span data-stu-id="d04c0-113">Convert all hello managed disks of a VM from standard toopremium, and vice versa</span></span>
 
-<span data-ttu-id="26d05-114">W poniższym przykładzie zostanie przedstawiony sposób Przełącz wszystkie dyski maszyny Wirtualnej ze standardu, aby Magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="26d05-114">In the following example, we show how to switch all the disks of a VM from standard to premium storage.</span></span> <span data-ttu-id="26d05-115">Aby użyć dysków zarządzanych w warstwie premium, musisz użyć maszyny Wirtualnej [rozmiar maszyny Wirtualnej](sizes.md) obsługującym magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="26d05-115">To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage.</span></span> <span data-ttu-id="26d05-116">W tym przykładzie również zmienia rozmiar, który obsługuje magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="26d05-116">This example also switches to a size that supports premium storage.</span></span>
+<span data-ttu-id="d04c0-114">W hello poniższy przykład, zostanie przedstawiony sposób tooswitch hello wszystkie dyski maszyny Wirtualnej z magazynu standardowego toopremium.</span><span class="sxs-lookup"><span data-stu-id="d04c0-114">In hello following example, we show how tooswitch all hello disks of a VM from standard toopremium storage.</span></span> <span data-ttu-id="d04c0-115">toouse premium zarządzane dyski, należy użyć maszyny Wirtualnej [rozmiar maszyny Wirtualnej](sizes.md) obsługującym magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="d04c0-115">toouse premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage.</span></span> <span data-ttu-id="d04c0-116">W tym przykładzie również zmienia rozmiar tooa, który obsługuje magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="d04c0-116">This example also switches tooa size that supports premium storage.</span></span>
 
  ```azurecli
 
-#resource group that contains the virtual machine
+#resource group that contains hello virtual machine
 rgName='yourResourceGroup'
 
-#Name of the virtual machine
+#Name of hello virtual machine
 vmName='yourVM'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from standard toopremium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
 sku='Premium_LRS'
 
-#Deallocate the VM before changing the size of the VM
+#Deallocate hello VM before changing hello size of hello VM
 az vm deallocate --name $vmName --resource-group $rgName
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change hello VM size tooa size that supports premium storage 
+#Skip this step if converting storage from premium toostandard
 az vm resize --resource-group $rgName --name $vmName --size $size
 
-#Update the sku of all the data disks 
+#Update hello sku of all hello data disks 
 az vm show -n $vmName -g $rgName --query storageProfile.dataDisks[*].managedDisk -o tsv \
  | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
-#Update the sku of the OS disk
+#Update hello sku of hello OS disk
 az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o tsv \
 | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a><span data-ttu-id="26d05-117">Konwertuj dysk zarządzanych ze standardu na — wersja premium i na odwrót</span><span class="sxs-lookup"><span data-stu-id="26d05-117">Convert a managed disk from standard to premium, and vice versa</span></span>
+## <a name="convert-a-managed-disk-from-standard-toopremium-and-vice-versa"></a><span data-ttu-id="d04c0-117">Konwertuj dysk zarządzanego z toopremium standardowe i na odwrót</span><span class="sxs-lookup"><span data-stu-id="d04c0-117">Convert a managed disk from standard toopremium, and vice versa</span></span>
 
-<span data-ttu-id="26d05-118">Dla obciążenia i testowania możesz mieć kombinację dysków warstwy standardowa i premium, aby zmniejszyć koszty.</span><span class="sxs-lookup"><span data-stu-id="26d05-118">For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost.</span></span> <span data-ttu-id="26d05-119">Można wykonać je przez uaktualnienie do magazyn w warstwie premium, tylko dyski, które wymagają lepszą wydajność.</span><span class="sxs-lookup"><span data-stu-id="26d05-119">You can accomplish it by upgrading to premium storage, only the disks that require better performance.</span></span> <span data-ttu-id="26d05-120">W poniższym przykładzie zostanie przedstawiony sposób przełącznika jednego dysku maszyny Wirtualnej ze standardu, aby Magazyn w warstwie premium i na odwrót.</span><span class="sxs-lookup"><span data-stu-id="26d05-120">In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa.</span></span> <span data-ttu-id="26d05-121">Aby użyć dysków zarządzanych w warstwie premium, musisz użyć maszyny Wirtualnej [rozmiar maszyny Wirtualnej](sizes.md) obsługującym magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="26d05-121">To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage.</span></span> <span data-ttu-id="26d05-122">W tym przykładzie również zmienia rozmiar, który obsługuje magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="26d05-122">This example also switches to a size that supports premium storage.</span></span>
+<span data-ttu-id="d04c0-118">Dla obciążenia i testowania możesz toohave kombinację dysków warstwy standardowa i premium tooreduce koszt.</span><span class="sxs-lookup"><span data-stu-id="d04c0-118">For your dev/test workload, you may want toohave mixture of standard and premium disks tooreduce your cost.</span></span> <span data-ttu-id="d04c0-119">Można wykonać je przez uaktualnienie magazynu toopremium tylko dyski hello, które wymagają lepszą wydajność.</span><span class="sxs-lookup"><span data-stu-id="d04c0-119">You can accomplish it by upgrading toopremium storage, only hello disks that require better performance.</span></span> <span data-ttu-id="d04c0-120">W hello poniższy przykład, zostanie przedstawiony sposób tooswitch jednego dysku maszyny wirtualnej z magazynu standardowego toopremium i na odwrót.</span><span class="sxs-lookup"><span data-stu-id="d04c0-120">In hello following example, we show how tooswitch a single disk of a VM from standard toopremium storage, and vice versa.</span></span> <span data-ttu-id="d04c0-121">toouse premium zarządzane dyski, należy użyć maszyny Wirtualnej [rozmiar maszyny Wirtualnej](sizes.md) obsługującym magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="d04c0-121">toouse premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage.</span></span> <span data-ttu-id="d04c0-122">W tym przykładzie również zmienia rozmiar tooa, który obsługuje magazyn w warstwie premium.</span><span class="sxs-lookup"><span data-stu-id="d04c0-122">This example also switches tooa size that supports premium storage.</span></span>
 
  ```azurecli
 
-#resource group that contains the managed disk
+#resource group that contains hello managed disk
 rgName='yourResourceGroup'
 
 #Name of your managed disk
 diskName='yourManagedDiskName'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from standard toopremium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
 sku='Premium_LRS'
 
-#Get the parent VM Id 
+#Get hello parent VM Id 
 vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy --output tsv)
 
-#Deallocate the VM before changing the size of the VM
+#Deallocate hello VM before changing hello size of hello VM
 az vm deallocate --ids $vmId 
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change hello VM size tooa size that supports premium storage 
+#Skip this step if converting storage from premium toostandard
 az vm resize --ids $vmId --size $size
 
-# Update the sku
+# Update hello sku
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="26d05-123">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="26d05-123">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d04c0-123">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="d04c0-123">Next steps</span></span>
 
-<span data-ttu-id="26d05-124">Podjąć tylko do odczytu kopię maszyny Wirtualnej za pomocą [migawki](snapshot-copy-managed-disk.md).</span><span class="sxs-lookup"><span data-stu-id="26d05-124">Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).</span></span>
+<span data-ttu-id="d04c0-124">Podjąć tylko do odczytu kopię maszyny Wirtualnej za pomocą [migawki](snapshot-copy-managed-disk.md).</span><span class="sxs-lookup"><span data-stu-id="d04c0-124">Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).</span></span>
 

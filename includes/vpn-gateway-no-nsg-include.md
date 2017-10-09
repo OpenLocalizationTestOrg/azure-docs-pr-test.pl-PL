@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> <span data-ttu-id="1d89c-101">Podczas pracy z podsieciami bramy, należy unikać kojarzenia podsieci bramy toohello grupa zabezpieczeń sieci.</span><span class="sxs-lookup"><span data-stu-id="1d89c-101">When working with gateway subnets, avoid associating a network security group (NSG) toohello gateway subnet.</span></span> <span data-ttu-id="1d89c-102">Kojarzenie podsieci toothis grupy zabezpieczeń sieci może spowodować toostop bramy sieci VPN, działa zgodnie z oczekiwaniami.</span><span class="sxs-lookup"><span data-stu-id="1d89c-102">Associating a network security group toothis subnet may cause your VPN gateway toostop functioning as expected.</span></span> <span data-ttu-id="1d89c-103">Aby uzyskać więcej informacji na temat sieciowych grup zabezpieczeń, zobacz [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md) (Co to jest sieciowa grupa zabezpieczeń?)</span><span class="sxs-lookup"><span data-stu-id="1d89c-103">For more information about network security groups, see [What is a network security group?](../articles/virtual-network/virtual-networks-nsg.md)</span></span>
+> 
+> 
+

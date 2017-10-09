@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C# | Dokumentacja firmy Microsoft"
-description: "Ten samouczek obejmuje zarządzanie danych referencyjnych do środowiska Azure czas serii Insights przy użyciu języka C#"
+title: "dane referencyjne aaaManage dla środowiska Azure czas serii Insights przy użyciu języka C# | Dokumentacja firmy Microsoft"
+description: "W tym samouczku opisano, jak toomanage danych referencyjnych do środowiska Azure czas serii Insights przy użyciu języka C#"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: d3afa81286227fa0cc270c5911a8dd5913eb7e6c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 77b85aa7f9a5dc46c132afa56c82df48f41577fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a><span data-ttu-id="16fe4-103">Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C#</span><span class="sxs-lookup"><span data-stu-id="16fe4-103">Manage reference data for an Azure Time Series Insights environment by using C#</span></span>
+# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a><span data-ttu-id="f2766-103">Zarządzanie danymi odwołania dla środowiska Azure czas serii Insights przy użyciu języka C#</span><span class="sxs-lookup"><span data-stu-id="f2766-103">Manage reference data for an Azure Time Series Insights environment by using C#</span></span>
 
-<span data-ttu-id="16fe4-104">C# przykładzie pokazano, jak zarządzać danych referencyjnych do środowiska Azure czas serii Insights.</span><span class="sxs-lookup"><span data-stu-id="16fe4-104">This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.</span></span>
-<span data-ttu-id="16fe4-105">Przed uruchomieniem próbki, upewnij się, że są wykonywane następujące czynności.</span><span class="sxs-lookup"><span data-stu-id="16fe4-105">Before running the sample, ensure the following steps are completed.</span></span>
-1. <span data-ttu-id="16fe4-106">Utworzono odwołanie do zestawu danych, za pomocą [w tym artykule](time-series-insights-add-reference-data-set.md).</span><span class="sxs-lookup"><span data-stu-id="16fe4-106">A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).</span></span>
-2. <span data-ttu-id="16fe4-107">Token dostępu używany podczas uruchamiania aplikacji są uzyskiwane przez interfejs API usługi Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="16fe4-107">The access token used when running the application is acquired through the Azure Active Directory API.</span></span> <span data-ttu-id="16fe4-108">Token ten powinien zostać przekazany w `Authorization` nagłówku każdego żądania interfejsu API zapytania.</span><span class="sxs-lookup"><span data-stu-id="16fe4-108">This token should be passed in the `Authorization` header of every Query API request.</span></span> <span data-ttu-id="16fe4-109">Do konfigurowania nieinterakcyjnych aplikacji, zobacz [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md) artykułu.</span><span class="sxs-lookup"><span data-stu-id="16fe4-109">For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.</span></span>
-3. <span data-ttu-id="16fe4-110">Wszystkie stałe zdefiniowane na początku próbki są poprawnie ustawione.</span><span class="sxs-lookup"><span data-stu-id="16fe4-110">All the constants defined at the beginning of the sample are correctly set.</span></span>
+<span data-ttu-id="f2766-104">C# przykładzie pokazano, jak toomanage odwoływał się do danych w środowisku Azure czas serii Insights.</span><span class="sxs-lookup"><span data-stu-id="f2766-104">This C# sample demonstrates how toomanage reference data for an Azure Time Series Insights environment.</span></span>
+<span data-ttu-id="f2766-105">Przed próbki hello uruchomione upewnij się, że hello następujące kroki zostały zakończone.</span><span class="sxs-lookup"><span data-stu-id="f2766-105">Before running hello sample, ensure hello following steps are completed.</span></span>
+1. <span data-ttu-id="f2766-106">Utworzono odwołanie do zestawu danych, za pomocą [w tym artykule](time-series-insights-add-reference-data-set.md).</span><span class="sxs-lookup"><span data-stu-id="f2766-106">A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).</span></span>
+2. <span data-ttu-id="f2766-107">token dostępu Hello używany podczas uruchamiania aplikacji hello jest zakupione w ramach hello interfejsu API usługi Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="f2766-107">hello access token used when running hello application is acquired through hello Azure Active Directory API.</span></span> <span data-ttu-id="f2766-108">Token ten powinien zostać przekazany w hello `Authorization` nagłówku każdego żądania interfejsu API zapytania.</span><span class="sxs-lookup"><span data-stu-id="f2766-108">This token should be passed in hello `Authorization` header of every Query API request.</span></span> <span data-ttu-id="f2766-109">Do konfigurowania nieinterakcyjnych aplikacji, zobacz hello [uwierzytelniania i autoryzacji](time-series-insights-authentication-and-authorization.md) artykułu.</span><span class="sxs-lookup"><span data-stu-id="f2766-109">For setting up non-interactive applications, see hello [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.</span></span>
+3. <span data-ttu-id="f2766-110">Wszystkich stałych hello zdefiniowana na początku hello hello próbki są poprawnie ustawione.</span><span class="sxs-lookup"><span data-stu-id="f2766-110">All hello constants defined at hello beginning of hello sample are correctly set.</span></span>
 
-## <a name="c-sample"></a><span data-ttu-id="16fe4-111">Przykład w języku C#</span><span class="sxs-lookup"><span data-stu-id="16fe4-111">C# sample</span></span>
+## <a name="c-sample"></a><span data-ttu-id="f2766-111">Przykład w języku C#</span><span class="sxs-lookup"><span data-stu-id="f2766-111">C# sample</span></span>
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -46,24 +46,24 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     public static class Program
     {
-        // SET the environment fqdn.
+        // SET hello environment fqdn.
         private static string EnvironmentFqdn = "#DUMMY#.env.timeseries.azure.com";
 
-        // SET the environment reference data set name used when creating it.
+        // SET hello environment reference data set name used when creating it.
         private static string EnvironmentReferenceDataSetName = "#DUMMY#";
 
         // For automated execution under application identity,
         // use application created in Active Directory.
-        // To create the application in AAD, follow the steps provided here:
+        // toocreate hello application in AAD, follow hello steps provided here:
         // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
-        // SET the application ID of application registered in your Azure Active Directory
+        // SET hello application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
 
-        // SET the application key of the application registered in your Azure Active Directory
+        // SET hello application key of hello application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
 
-        // SET the Azure Active Directory tenant.
+        // SET hello Azure Active Directory tenant.
         private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         private static async Task DemoReferenceDataAsync()
@@ -155,7 +155,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use hello link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} tooupdate hello values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -168,7 +168,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                     clientId: ApplicationClientId,
                     clientSecret: ApplicationClientSecret));
 
-            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Show interactive logon dialog tooacquire token on behalf of hello user.
             // Suitable for native apps, and not on server-side of a web application.
             //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
             //    resource: "https://api.timeseries.azure.com/",
@@ -232,6 +232,6 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="16fe4-112">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="16fe4-112">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f2766-112">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="f2766-112">Next steps</span></span>
 
-<span data-ttu-id="16fe4-113">Aby uzyskać pełną dokumentację interfejsu API, zobacz dokument [Interfejs API danych referencyjnych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).</span><span class="sxs-lookup"><span data-stu-id="16fe4-113">For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.</span></span>
+<span data-ttu-id="f2766-113">Aby hello pełną dokumentację interfejsu API, zobacz [odwołania API danych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) dokumentu.</span><span class="sxs-lookup"><span data-stu-id="f2766-113">For hello complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.</span></span>

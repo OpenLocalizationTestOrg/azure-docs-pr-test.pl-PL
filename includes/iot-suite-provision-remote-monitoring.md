@@ -1,0 +1,27 @@
+## <a name="provision-hello-solution"></a><span data-ttu-id="6e842-101">Zainicjuj obsługę hello rozwiązania</span><span class="sxs-lookup"><span data-stu-id="6e842-101">Provision hello solution</span></span>
+
+<span data-ttu-id="6e842-102">Jeśli nie jest jeszcze monitorowania zdalnego elastycznie hello wstępnie skonfigurowane rozwiązanie na koncie:</span><span class="sxs-lookup"><span data-stu-id="6e842-102">If you haven't already provisioned hello remote monitoring preconfigured solution in your account:</span></span>
+
+1. <span data-ttu-id="6e842-103">Zaloguj się za[azureiotsuite.com] [ lnk-azureiotsuite] poświadczenia konta przy użyciu platformy Azure i kliknij przycisk  **+**  toocreate rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="6e842-103">Log on too[azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** toocreate a solution.</span></span>
+2. <span data-ttu-id="6e842-104">Kliknij przycisk **wybierz** na powitania **monitorowania zdalnego** kafelka.</span><span class="sxs-lookup"><span data-stu-id="6e842-104">Click **Select** on hello **Remote monitoring** tile.</span></span>
+3. <span data-ttu-id="6e842-105">W polu **Nazwa rozwiązania** wprowadź nazwę wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego.</span><span class="sxs-lookup"><span data-stu-id="6e842-105">Enter a **Solution name** for your remote monitoring preconfigured solution.</span></span>
+4. <span data-ttu-id="6e842-106">Wybierz hello **Region** i **subskrypcji** toouse tooprovision hello rozwiązanie.</span><span class="sxs-lookup"><span data-stu-id="6e842-106">Select hello **Region** and **Subscription** you want toouse tooprovision hello solution.</span></span>
+5. <span data-ttu-id="6e842-107">Kliknij przycisk **Utwórz rozwiązanie** hello toobegin w procesie inicjowania obsługi.</span><span class="sxs-lookup"><span data-stu-id="6e842-107">Click **Create Solution** toobegin hello provisioning process.</span></span> <span data-ttu-id="6e842-108">Ten proces zwykle trwa kilka minut toorun.</span><span class="sxs-lookup"><span data-stu-id="6e842-108">This process typically takes several minutes toorun.</span></span>
+
+### <a name="wait-for-hello-provisioning-process-toocomplete"></a><span data-ttu-id="6e842-109">Poczekaj, aż hello inicjowania obsługi administracyjnej toocomplete procesu</span><span class="sxs-lookup"><span data-stu-id="6e842-109">Wait for hello provisioning process toocomplete</span></span>
+1. <span data-ttu-id="6e842-110">Kliknij Kafelek hello rozwiązania z **inicjowania obsługi administracyjnej** stanu.</span><span class="sxs-lookup"><span data-stu-id="6e842-110">Click hello tile for your solution with **Provisioning** status.</span></span>
+2. <span data-ttu-id="6e842-111">Powiadomienie hello **inicjowania obsługi administracyjnej stanów** podczas wdrażania usług platformy Azure w ramach subskrypcji platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="6e842-111">Notice hello **Provisioning states** as Azure services are deployed in your Azure subscription.</span></span>
+3. <span data-ttu-id="6e842-112">Po ukończeniu inicjowania obsługi administracyjnej hello zmiany stanu zbyt**gotowe**.</span><span class="sxs-lookup"><span data-stu-id="6e842-112">Once provisioning completes, hello status changes too**Ready**.</span></span>
+4. <span data-ttu-id="6e842-113">Kliknij przycisk hello kafelka toosee hello szczegóły rozwiązania w okienku po prawej stronie powitania.</span><span class="sxs-lookup"><span data-stu-id="6e842-113">Click hello tile toosee hello details of your solution in hello right-hand pane.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="6e842-114">Jeśli napotkasz wdrażanie hello wstępnie skonfigurowane rozwiązanie problemów, przejrzyj [uprawnienia w witrynie azureiotsuite.com hello] [ lnk-permissions] i hello [— często zadawane pytania] [ lnk-faq].</span><span class="sxs-lookup"><span data-stu-id="6e842-114">If you are encountering issues deploying hello pre-configured solution, review [Permissions on hello azureiotsuite.com site][lnk-permissions] and hello [FAQ][lnk-faq].</span></span> <span data-ttu-id="6e842-115">Jeśli hello problemy będą się powtarzać, Utwórz biletu usługi na powitania [portal][lnk-portal].</span><span class="sxs-lookup"><span data-stu-id="6e842-115">If hello issues persist, create a service ticket on hello [portal][lnk-portal].</span></span>
+> 
+> 
+
+<span data-ttu-id="6e842-116">Czy istnieją szczegółowe informacje można oczekiwać toosee, które nie są wyświetlane dla rozwiązania?</span><span class="sxs-lookup"><span data-stu-id="6e842-116">Are there details you'd expect toosee that aren't listed for your solution?</span></span> <span data-ttu-id="6e842-117">Prześlij nam swoje propozycje dotyczące funkcji, korzystając ze strony [User Voice](https://feedback.azure.com/forums/321918-azure-iot) (Opinie użytkowników).</span><span class="sxs-lookup"><span data-stu-id="6e842-117">Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).</span></span>
+
+[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+[lnk-portal]: http://portal.azure.com/
+[lnk-faq]: ../articles/iot-suite/iot-suite-faq.md

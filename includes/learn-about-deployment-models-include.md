@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> <span data-ttu-id="488e9-101">Przed rozpoczęciem pracy z zasobów platformy Azure, zapoznaj się z modelami wdrażania hello: [Resource Manager i Model Klasyczny](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="488e9-101">Before you work with Azure resources, get familiar with hello deployment models: [Resource Manager, and classic](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span></span>

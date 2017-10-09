@@ -1,0 +1,27 @@
+#### <a name="configure-hello-ios-project-in-xamarin-studio"></a><span data-ttu-id="50878-101">Konfigurowanie projektu iOS hello w programie Xamarin Studio</span><span class="sxs-lookup"><span data-stu-id="50878-101">Configure hello iOS project in Xamarin Studio</span></span>
+1. <span data-ttu-id="50878-102">Otwórz w Xamarin.Studio, **Info.plist**i hello aktualizacji **identyfikator pakietu** z hello pakietu utworzonego wcześniej z identyfikatorem aplikacji nowego Identyfikatora</span><span class="sxs-lookup"><span data-stu-id="50878-102">In Xamarin.Studio, open **Info.plist**, and update hello **Bundle Identifier** with hello bundle ID that you created earlier with your new app ID.</span></span>
+
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
+2. <span data-ttu-id="50878-103">Przewiń w dół za**tryby tła**.</span><span class="sxs-lookup"><span data-stu-id="50878-103">Scroll down too**Background Modes**.</span></span> <span data-ttu-id="50878-104">Wybierz hello **Włącz tryby tła** pole i hello **zdalnego powiadomienia** pole.</span><span class="sxs-lookup"><span data-stu-id="50878-104">Select hello **Enable Background Modes** box and hello **Remote notifications** box.</span></span>
+
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png)
+3. <span data-ttu-id="50878-105">Kliknij dwukrotnie plik projektu w hello panelu rozwiązania tooopen **opcje projektu**.</span><span class="sxs-lookup"><span data-stu-id="50878-105">Double-click your project in hello Solution Panel tooopen **Project Options**.</span></span>
+4. <span data-ttu-id="50878-106">W obszarze **kompilacji**, wybierz **iOS podpisywania pakietu**, wybierz hello odpowiedniego tożsamości i profil inicjowania obsługi administracyjnej właśnie skonfigurowany dla tego projektu.</span><span class="sxs-lookup"><span data-stu-id="50878-106">Under **Build**, choose **iOS Bundle Signing**, and select hello corresponding identity and provisioning profile you just set up for this project.</span></span>
+
+   ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png)
+
+   <span data-ttu-id="50878-107">Dzięki temu projektu hello używa nowego profilu hello do podpisywania kodu.</span><span class="sxs-lookup"><span data-stu-id="50878-107">This ensures that hello project uses hello new profile for code signing.</span></span> <span data-ttu-id="50878-108">Witaj inicjowania obsługi administracyjnej dokumentacji oficjalnego urządzenia Xamarin, zobacz [Inicjowanie obsługi administracyjnej urządzeń Xamarin].</span><span class="sxs-lookup"><span data-stu-id="50878-108">For hello official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].</span></span>
+
+#### <a name="configure-hello-ios-project-in-visual-studio"></a><span data-ttu-id="50878-109">Konfigurowanie projektu iOS hello w programie Visual Studio</span><span class="sxs-lookup"><span data-stu-id="50878-109">Configure hello iOS project in Visual Studio</span></span>
+1. <span data-ttu-id="50878-110">W programie Visual Studio, kliknij prawym przyciskiem myszy projekt hello, a następnie kliknij przycisk **właściwości**.</span><span class="sxs-lookup"><span data-stu-id="50878-110">In Visual Studio, right-click hello project, and then click **Properties**.</span></span>
+2. <span data-ttu-id="50878-111">Na stronach właściwości powitania kliknij hello **aplikacji systemu iOS** kartę i hello aktualizacji **identyfikator** o identyfikatorze hello, który został utworzony wcześniej.</span><span class="sxs-lookup"><span data-stu-id="50878-111">In hello properties pages, click hello **iOS Application** tab, and update hello **Identifier** with hello ID that you created earlier.</span></span>
+
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)
+3. <span data-ttu-id="50878-112">W hello **iOS podpisywania pakietu** karcie hello wybierz odpowiedni tożsamości i inicjowania obsługi profilu można właśnie skonfigurowane zapasowej dla tego projektu.</span><span class="sxs-lookup"><span data-stu-id="50878-112">In hello **iOS Bundle Signing** tab, select hello corresponding identity and provisioning profile you just set up for this project.</span></span>
+
+    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png)
+
+    <span data-ttu-id="50878-113">Dzięki temu projektu hello używa nowego profilu hello do podpisywania kodu.</span><span class="sxs-lookup"><span data-stu-id="50878-113">This ensures that hello project uses hello new profile for code signing.</span></span> <span data-ttu-id="50878-114">Witaj inicjowania obsługi administracyjnej dokumentacji oficjalnego urządzenia Xamarin, zobacz [Inicjowanie obsługi administracyjnej urządzeń Xamarin].</span><span class="sxs-lookup"><span data-stu-id="50878-114">For hello official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].</span></span>
+4. <span data-ttu-id="50878-115">Kliknij dwukrotnie Info.plist tooopen, a następnie Włącz **RemoteNotifications** w obszarze **tryby tła**.</span><span class="sxs-lookup"><span data-stu-id="50878-115">Double-click Info.plist tooopen it, and then enable **RemoteNotifications** under **Background Modes**.</span></span>
+
+[Inicjowanie obsługi administracyjnej urządzeń Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/

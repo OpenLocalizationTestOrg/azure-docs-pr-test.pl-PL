@@ -1,0 +1,44 @@
+<!--author=alkohli last changed: 08/04/17-->
+
+#### <a name="tooinstall-an-update-from-hello-azure-portal"></a><span data-ttu-id="09f01-101">tooinstall aktualizacji z hello portalu Azure</span><span class="sxs-lookup"><span data-stu-id="09f01-101">tooinstall an update from hello Azure portal</span></span>
+
+1. <span data-ttu-id="09f01-102">Na stronie usługi StorSimple hello wybierz urządzenie.</span><span class="sxs-lookup"><span data-stu-id="09f01-102">On hello StorSimple service page, select your device.</span></span>
+
+    ![Wybierz urządzenie](./media/storsimple-8000-install-update5-via-portal/update1.png)
+
+2. <span data-ttu-id="09f01-104">Przejdź za**ustawienia urządzenia** > **aktualizacji urządzenia**.</span><span class="sxs-lookup"><span data-stu-id="09f01-104">Navigate too**Device settings** > **Device updates**.</span></span>
+
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update2.png)
+
+2. <span data-ttu-id="09f01-106">Pojawi się powiadomienie, jeśli są dostępne nowe aktualizacje.</span><span class="sxs-lookup"><span data-stu-id="09f01-106">A notification appears if new updates are available.</span></span> <span data-ttu-id="09f01-107">Alternatywnie w hello **aktualizacji urządzenia** bloku, kliknij przycisk **Wyszukaj aktualizacje**.</span><span class="sxs-lookup"><span data-stu-id="09f01-107">Alternatively, in hello **Device updates** blade, click **Scan Updates**.</span></span> <span data-ttu-id="09f01-108">Zadanie jest tworzone tooscan dostępności aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="09f01-108">A job is created tooscan for available updates.</span></span> <span data-ttu-id="09f01-109">Użytkownik jest powiadamiany o hello zadanie zostało ukończone pomyślnie.</span><span class="sxs-lookup"><span data-stu-id="09f01-109">You are notified when hello job completes successfully.</span></span>
+
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update3.png)
+
+3. <span data-ttu-id="09f01-111">Firma Microsoft zaleca przejrzenie hello informacje o wersji przed zainstalowaniem aktualizacji na urządzeniu.</span><span class="sxs-lookup"><span data-stu-id="09f01-111">We recommend that you review hello release notes before you apply an update on your device.</span></span> <span data-ttu-id="09f01-112">Kliknij aktualizacje tooapply **instalowania aktualizacji**.</span><span class="sxs-lookup"><span data-stu-id="09f01-112">tooapply updates, click **Install updates**.</span></span> <span data-ttu-id="09f01-113">W hello **potwierdzić regularnie** bloku, przejrzyj hello wymagania wstępne toocomplete przed zastosowaniem aktualizacji.</span><span class="sxs-lookup"><span data-stu-id="09f01-113">In hello **Confirm regular updates** blade, review hello prerequisites toocomplete before you apply updates.</span></span> <span data-ttu-id="09f01-114">Wybierz tooindicate wyboru hello są gotowe tooupdate hello urządzenia, a następnie kliknij przycisk **zainstalować**.</span><span class="sxs-lookup"><span data-stu-id="09f01-114">Select hello checkbox tooindicate that you are ready tooupdate hello device and then click **Install**.</span></span>
+
+    ![Kliknij przycisk aktualizacji urządzenia](./media/storsimple-8000-install-update5-via-portal/update4.png)
+
+6. <span data-ttu-id="09f01-116">Zostanie rozpoczęty zestaw testów wymagań wstępnych.</span><span class="sxs-lookup"><span data-stu-id="09f01-116">A set of prerequisite checks starts.</span></span> <span data-ttu-id="09f01-117">Testy te obejmują:</span><span class="sxs-lookup"><span data-stu-id="09f01-117">These checks include:</span></span>
+   
+   * <span data-ttu-id="09f01-118">**Sprawdzanie kondycji kontrolera** tooverify zarówno tekst hello kontrolery urządzeń są w dobrej kondycji i w trybie online.</span><span class="sxs-lookup"><span data-stu-id="09f01-118">**Controller health checks** tooverify that both hello device controllers are healthy and online.</span></span>
+   * <span data-ttu-id="09f01-119">**Sprawdzanie kondycji składnika sprzętu** tooverify czy hello wszystkie składniki sprzętowe w urządzeniu StorSimple są w dobrej kondycji.</span><span class="sxs-lookup"><span data-stu-id="09f01-119">**Hardware component health checks** tooverify that all hello hardware components on your StorSimple device are healthy.</span></span>
+   * <span data-ttu-id="09f01-120">**Sprawdza dane 0** tooverify, że dane 0 jest włączone na urządzeniu.</span><span class="sxs-lookup"><span data-stu-id="09f01-120">**DATA 0 checks** tooverify that DATA 0 is enabled on your device.</span></span> <span data-ttu-id="09f01-121">Jeśli ten interfejs nie jest włączony, należy go włączyć i ponowić próbę.</span><span class="sxs-lookup"><span data-stu-id="09f01-121">If this interface is not enabled, you must enable it and then retry.</span></span>
+
+    <span data-ttu-id="09f01-122">Aktualizacja Hello jest pobierany i instalowany tylko wtedy, gdy wszystkie testy hello pomyślnie zostały zakończone.</span><span class="sxs-lookup"><span data-stu-id="09f01-122">hello update is downloaded and installed only if all hello checks are successfully completed.</span></span> <span data-ttu-id="09f01-123">Użytkownik jest powiadamiany o kontroli hello są w toku.</span><span class="sxs-lookup"><span data-stu-id="09f01-123">You are notified when hello checks are in progress.</span></span> <span data-ttu-id="09f01-124">W przypadku awarii hello prechecks, następnie należy otrzymają hello przyczyny niepowodzenia.</span><span class="sxs-lookup"><span data-stu-id="09f01-124">If hello prechecks fail, then you will be provided with hello reasons for failure.</span></span> <span data-ttu-id="09f01-125">Rozwiąż te problemy, a następnie ponów operację hello.</span><span class="sxs-lookup"><span data-stu-id="09f01-125">Address those issues and then retry hello operation.</span></span> <span data-ttu-id="09f01-126">Jeśli nie można rozwiązać te problemy przez siebie może być konieczne toocontact Support firmy Microsoft.</span><span class="sxs-lookup"><span data-stu-id="09f01-126">You may need toocontact Microsoft Support if you cannot address these issues by yourself.</span></span>
+
+7. <span data-ttu-id="09f01-127">Po hello prechecks pomyślnym zakończeniu zadania aktualizacji zostanie utworzony.</span><span class="sxs-lookup"><span data-stu-id="09f01-127">After hello prechecks are successfully completed, an update job is created.</span></span> <span data-ttu-id="09f01-128">Użytkownik jest powiadamiany o pomyślnym utworzeniu zadania aktualizacji hello.</span><span class="sxs-lookup"><span data-stu-id="09f01-128">You are notified when hello update job is successfully created.</span></span>
+   
+    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update6.png)
+   
+    <span data-ttu-id="09f01-130">Aktualizacja Hello następnie jest stosowana na urządzeniu.</span><span class="sxs-lookup"><span data-stu-id="09f01-130">hello update is then applied on your device.</span></span>
+
+9. <span data-ttu-id="09f01-131">Aktualizacja Hello zajmuje kilka godzin toocomplete.</span><span class="sxs-lookup"><span data-stu-id="09f01-131">hello update takes a few hours toocomplete.</span></span> <span data-ttu-id="09f01-132">Wybierz zadanie aktualizacji hello i kliknij przycisk **szczegóły** tooview hello szczegóły zadania hello w dowolnym momencie.</span><span class="sxs-lookup"><span data-stu-id="09f01-132">Select hello update job and click **Details** tooview hello details of hello job at any time.</span></span>
+
+    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update8.png)
+
+     <span data-ttu-id="09f01-134">Można również monitorować postęp hello hello aktualizacji zadania z **ustawienia urządzenia > zadań**.</span><span class="sxs-lookup"><span data-stu-id="09f01-134">You can also monitor hello progress of hello update job from **Device settings > Jobs**.</span></span> <span data-ttu-id="09f01-135">Na powitania **zadania** bloku, zostanie wyświetlony hello aktualizacji w toku.</span><span class="sxs-lookup"><span data-stu-id="09f01-135">On hello **Jobs** blade, you can see hello update progress.</span></span>
+
+     ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update7.png)
+
+10. <span data-ttu-id="09f01-137">Po zakończeniu zadania hello Przejdź toohello **ustawienia urządzenia > aktualizacji urządzenia**.</span><span class="sxs-lookup"><span data-stu-id="09f01-137">After hello job is complete, navigate toohello **Device settings > Device updates**.</span></span> <span data-ttu-id="09f01-138">Teraz należy uaktualnić Hello wersji oprogramowania.</span><span class="sxs-lookup"><span data-stu-id="09f01-138">hello software version should now be updated.</span></span>
+
