@@ -1,6 +1,6 @@
 ---
-title: "Testowanie przepływność sieci maszyny Wirtualnej platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak przetestować przepływność sieci maszyny wirtualnej platformy Azure."
+title: "przepustowość sieci maszyny Wirtualnej Azure aaaTesting | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tootest maszyny wirtualnej platformy Azure sieci przepływności."
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2da85c27bc8d16a443b215891f4cd0460f41926f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Przepustowość/przepływność, testowanie (NTTTCP)
 
-Podczas testowania przepustowość sieci na platformie Azure, najlepiej użyć narzędzia dotyczy sieci do testowania i minimalizuje inne zasoby, które mogą wpłynąć na wydajność. NTTTCP jest zalecane.
+Podczas testowania przepustowość sieci na platformie Azure, jest najlepszym toouse narzędzie, które dotyczy sieci hello do testowania i minimalizuje użycie hello inne zasoby, które mogą wpłynąć na wydajność. NTTTCP jest zalecane.
 
-Skopiuj narzędzie do dwóch maszyn wirtualnych platformy Azure o tej samej wielkości. Jedna maszyna wirtualna działa jak NADAWCA, a drugi jako ODBIORNIK.
+Skopiuj tootwo narzędzie hello maszynach wirtualnych Azure hello sam rozmiar. Jedna maszyna wirtualna działa jako NADAWCĘ i hello innych jako ODBIORNIK.
 
 #### <a name="deploying-vms-for-testing"></a>Wdrażanie maszyn wirtualnych na potrzeby testowania
-Na potrzeby tego testu dwóch maszyn wirtualnych powinna być w tej samej usługi w chmurze lub tego samego zestawu dostępności, aby firma Microsoft może używać ich wewnętrznych adresów IP i wykluczyć usługi równoważenia obciążenia z testu. Można przetestować przy użyciu adresu VIP, ale tego rodzaju testowania wykracza poza zakres tego dokumentu.
+Dla celów hello ten test Witaj dwie maszyny wirtualne powinny znajdować się na hello tej samej usługi w chmurze lub hello tego samego zestawu dostępności, dzięki czemu możemy użyć ich wewnętrznych adresów IP i wykluczyć hello usługi równoważenia obciążenia z hello testu. Jest możliwe tootest z hello VIP, ale tego rodzaju testowania jest poza zakresem hello tego dokumentu.
  
-Zanotuj adres IP ODBIORNIKA. Umożliwia wywołanie tego adresu IP "a.b.c.r"
+Zanotuj adres IP hello odbiorcy. Umożliwia wywołanie tego adresu IP "a.b.c.r"
 
-Zanotuj liczbę rdzeni na maszynie Wirtualnej. Umożliwia to wywołanie "\#num\_rdzeni"
+Zanotuj hello liczba rdzeni na powitania maszyny Wirtualnej. Umożliwia to wywołanie "\#num\_rdzeni"
  
-Testu NTTTCP 300 sekund (lub 5 minut) na nadawcy maszyny Wirtualnej i odbiorcy maszyny Wirtualnej.
+Uruchom hello NTTTCP testowania 300 sekund (czyli 5 minut) na powitania nadawcy maszyny Wirtualnej i odbiorcy maszyny Wirtualnej.
 
-Porada: Podczas konfigurowania tego testu po raz pierwszy, spróbuj krótszy okres testu wcześniej uzyskanie opinii. Po narzędziu działa zgodnie z oczekiwaniami, rozszerzyć 300 sekund dla najdokładniejszych wyników testu.
+Porada: Podczas konfigurowania tego testu dla powitania po raz pierwszy, spróbuj krótszą opinii okresu tooget testu wcześniej. Po narzędzia hello działa zgodnie z oczekiwaniami, rozszerzanie hello testu okresu too300 sekund na powitania najdokładniejszych wyników.
 
 > [!NOTE]
-> Nadawca **i** odbiornika należy określić **takie same** parametru czas trwania testu (-t).
+> nadawca Hello **i** odbiornika należy określić **hello sam** parametru czas trwania testu (-t).
 
-Aby przetestować jednego strumienia TCP przez 10 sekund:
+tootest jednego strumienia TCP przez 10 sekund:
 
 Odbiornik parametrów: - r ntttcp -t 10 - P 1
 
 Nadawca parametry: ntttcp-s10.27.33.7 metoda "-t 10 - n" 1 -P 1
 
 > [!NOTE]
-> Powyższego przykładu należy używać tylko w celu potwierdzenia konfiguracji. Prawidłowe przykłady testów są uwzględnione w dalszej części tego dokumentu.
+> Hello poprzedzających próbki powinien mieć tylko tooconfirm używanej konfiguracji. Prawidłowe przykłady testów są uwzględnione w dalszej części tego dokumentu.
 
 ## <a name="testing-vms-running-windows"></a>Testowanie maszyn wirtualnych z systemem WINDOWS:
 
-#### <a name="get-ntttcp-onto-the-vms"></a>Pobierz NTTTCP na maszynach wirtualnych.
+#### <a name="get-ntttcp-onto-hello-vms"></a>Pobierz NTTTCP na powitania maszyn wirtualnych.
 
-Pobierz najnowszą wersję: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Pobieranie najnowszej wersji hello: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
 Lub wyszukaj go w przypadku przeniesienia: <https://www.bing.com/search?q=ntttcp+download> \< — należy najpierw trafień
 
 Należy rozważyć umieszczenie w oddzielnym folderze, takich jak c: NTTTCP\\narzędzia
 
-#### <a name="allow-ntttcp-through-the-windows-firewall"></a>Zezwalaj na NTTTCP przez zaporę systemu Windows
-Odbiornika należy utworzyć regułę Zezwalaj zaporę systemu Windows, aby zezwolić na ruch NTTTCP odebranie. Najłatwiej Zezwalaj całego programu NTTTCP według nazwy, a nie umożliwia ruchu przychodzącego dla określonych portów TCP.
+#### <a name="allow-ntttcp-through-hello-windows-firewall"></a>Zezwalaj na NTTTCP przez zaporę systemu Windows hello
+Na powitania ODBIORNIK należy utworzyć regułę zezwalającą na tooallow zapory systemu Windows hello NTTTCP tooarrive ruchu. Jest najprostszym tooallow hello cały NTTTCP według nazwy, a nie tooallow określone porty TCP ruchu przychodzącego.
 
-Zezwalaj na ntttcp przez zaporę systemu Windows w następujący sposób:
+Zezwalaj na ntttcp za pośrednictwem zapory systemu Windows hello, jak to:
 
 netsh advfirewall zapory Dodawanie reguły programu =\<ścieżki\>\\ntttcp.exe nazwa = "ntttcp" protokołu żadnych dir = = w akcji = Zezwalaj enable = yes profile = ANY
 
-Na przykład, jeśli został skopiowany ntttcp.exe do "c:\\narzędzia" folder, to polecenie: 
+Na przykład, jeśli został skopiowany ntttcp.exe toohello "c:\\narzędzia" folder, to polecenie hello: 
 
 netsh advfirewall zapory Dodawanie reguły programu = c:\\narzędzia\\ntttcp.exe nazwa = "ntttcp" protokołu żadnych dir = = w akcji = Zezwalaj enable = yes profile = ANY
 
 #### <a name="running-ntttcp-tests"></a>Uruchamianie testów NTTTCP
 
-Uruchom NTTTCP odbiornika (**Uruchom w powłoce CMD z**, a nie z programu PowerShell):
+Uruchom NTTTCP na powitania ODBIORNIKA (**Uruchom w powłoce CMD z**, a nie z programu PowerShell):
 
 ntttcp - r — m [2\*\#num\_rdzeni],\*, a.b.c.r -t 300
 
-Jeśli maszyna wirtualna ma cztery rdzeni i adres IP 10.0.0.4, będzie wyglądać następująco:
+Jeśli hello maszyna wirtualna ma cztery rdzeni i adres IP 10.0.0.4, będzie wyglądać następująco:
 
 ntttcp - r — m 8,\*, 10.0.0.4 -t 300
 
 
-Uruchom NTTTCP na nadawcy (**Uruchom w powłoce CMD z**, a nie z programu PowerShell):
+Uruchom NTTTCP na powitania nadawcy (**Uruchom w powłoce CMD z**, a nie z programu PowerShell):
 
 ntttcp -s — m 8,\*, 10.0.0.4 -t 300 
 
-Poczekaj na wyniki.
+Poczekaj na powitania wyników.
 
 
 ## <a name="testing-vms-running-linux"></a>Testowanie maszyn wirtualnych z systemem LINUX:
 
 Użyj nttcp dla systemu linux. Jest ona dostępna z <https://github.com/Microsoft/ntttcp-for-linux>
 
-Na maszyn wirtualnych systemu Linux (NADAWCĄ i odbiorcą) uruchom następujące polecenia, aby przygotować ntttcp dla linux na maszyny wirtualne:
+Na powitania maszyn wirtualnych systemu Linux (NADAWCĄ i odbiorcą) uruchom następujące polecenia, aby przygotować ntttcp dla linux na maszyny wirtualne:
 
 CentOS - Install Git:
 ``` bash
@@ -111,27 +111,27 @@ Wprowadź, a następnie zainstalować zarówno:
  make && make install
 ```
 
-Jak pokazano w przykładzie Windows przyjęto założenie, że adres IP ODBIORNIKA Linux jest 10.0.0.4
+Co w przykładzie Windows hello przyjęto założenie, że adres IP ODBIORNIKA Linux hello jest 10.0.0.4
 
-Uruchom NTTTCP dla systemu Linux odbiornika:
+Uruchom NTTTCP dla systemu Linux na powitania ODBIORNIK:
 
 ``` bash
 ntttcp -r -t 300
 ```
 
-I na nadawcy, uruchom:
+I na powitania nadawcy, uruchom:
 
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
  
-Podano długość domyślnie 60 sekund, jeśli nie parametru czasu testu
+Podano testu długość wartości domyślne too60 sekund, jeśli nie parametru czasu
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Testowanie między maszynami wirtualnymi z systemem Windows i LINUX:
 
-Na tym scenariuszy możemy włączyć tryb synchronizacji nie, aby uruchomić test. Jest to zrobić za pomocą **flagi -N** dla systemu Linux i **flagi -ns** dla systemu Windows.
+W tym scenariuszy firma Microsoft włącza tryb niesynchronizowanej hello, więc można uruchomić testu hello. Jest to zrobić za pomocą hello **flagi -N** dla systemu Linux i **flagi -ns** dla systemu Windows.
 
-#### <a name="from-linux-to-windows"></a>Z systemu Linux w systemie Windows:
+#### <a name="from-linux-toowindows"></a>Z Linux tooWindows:
 
 Odbiornik <Windows>:
 
@@ -145,7 +145,7 @@ Nadawca <Linux> :
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 ```
 
-#### <a name="from-windows-to-linux"></a>Z systemu Windows do systemu Linux:
+#### <a name="from-windows-toolinux"></a>Z tooLinux systemu Windows:
 
 Odbiornik <Linux>:
 
@@ -160,5 +160,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* W zależności od wyników, może być miejsca, aby [zoptymalizować maszyny przepustowość sieci](virtual-network-optimize-network-bandwidth.md) dla danego scenariusza.
+* W zależności od wyników, może być miejsca zbyt[zoptymalizować maszyny przepustowość sieci](virtual-network-optimize-network-bandwidth.md) dla danego scenariusza.
 * Dowiedz się więcej o [sieci wirtualnej platformy Azure — często zadawane pytania (FAQ)](virtual-networks-faq.md)

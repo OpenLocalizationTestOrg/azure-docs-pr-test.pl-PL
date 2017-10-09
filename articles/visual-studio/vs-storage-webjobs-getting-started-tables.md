@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do magazynu Azure i programu Visual Studio połączone usługi (zadania WebJob projekty)"
-description: "Jak rozpocząć pracę przy użyciu magazynu tabel Azure w projekcie zadań Webjob Azure w programie Visual Studio po połączeniu z kontem magazynu za pomocą programu Visual Studio połączone usługi"
+title: "aaaGetting uruchomiono z magazynu Azure i programu Visual Studio połączone usługi (zadania WebJob projekty)"
+description: "Jak tooget pracy z magazynem tabel Azure w projekcie zadań Webjob Azure w programie Visual Studio, po łączenie tooa konto magazynu przy użyciu programu Visual Studio połączenia usługi"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 0bf51f9113c45c747cd4fd3f76bdabd4a4c1f8e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 80d9f8d8b493ce612623dfed7e89325fb154a1c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Wprowadzenie do korzystania z usługi Azure magazynu (projekty zadanie WebJob platformy Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten artykuł zawiera C# przykłady pokazujące pokazują, jak korzystać z wersji zestawu Azure WebJobs SDK 1.x z usługi Magazyn tabel Azure. Kod przykłady użycia [zestaw SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk.md) wersja 1.x.
+Ten artykuł zawiera C# przykłady pokazujące Pokaż jak toouse hello zestawu SDK zadań Webjob Azure w wersji 1.x z hello usługi Magazyn tabel Azure. Przykłady kodu Hello Użyj hello [zestaw SDK zadań Webjob](../app-service-web/websites-dotnet-webjobs-sdk.md) wersja 1.x.
 
-Usługa Azure Table storage umożliwia przechowywania dużych ilości danych strukturalnych. Usługa jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z wewnątrz lub na zewnątrz w chmurze Azure. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.  Zobacz [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) Aby uzyskać więcej informacji.
+Usługa Azure Table storage Hello umożliwia toostore dużych ilości danych strukturalnych. Usługa Hello jest magazynem danych NoSQL, który przyjmuje uwierzytelnione wywołania z wewnątrz, jak i poza hello chmury Azure. Tabele Azure idealnie nadają się do przechowywania strukturalnych danych nierelacyjnych.  Zobacz [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) Aby uzyskać więcej informacji.
 
-Niektóre Pokaż wstawki kodu **tabeli** atrybutu używanego w funkcje, które są nazywane ręcznie, oznacza to, nie za pomocą jednego z atrybutów wyzwalacza.
+Niektóre fragmentów kodu hello widoczne hello **tabeli** atrybutu używanego w funkcje, które są nazywane ręcznie, oznacza to, nie za pomocą jednego z atrybutów wyzwalacza hello.
 
-## <a name="how-to-add-entities-to-a-table"></a>Jak dodać jednostek do tabeli
-Aby dodać jednostek do tabeli, należy użyć **tabeli** atrybutem **ICollector<T>**  lub **IAsyncCollector<T>**  parametru gdzie **T** Określa schemat jednostek, które chcesz dodać. Konstruktor atrybutu ma parametr typu string, który określa nazwę tabeli.
+## <a name="how-tooadd-entities-tooa-table"></a>Jak tooadd jednostek tooa tabeli
+tooadd jednostek tooa tabeli, użyj hello **tabeli** atrybutem **ICollector<T>**  lub **IAsyncCollector<T>**  parametru gdzie **T** Określa schemat hello jednostek hello ma tooadd. Konstruktor atrybutu Hello przyjmuje parametr ciąg określający nazwę hello hello tabeli.
 
-Poniższy przykładowy kod dodaje **osoby** jednostek do tabeli o nazwie *wejściowych*.
+Witaj Poniższy przykładowy kod dodaje **osoby** jednostek tooa tabeli o nazwie *wejściowych*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -50,7 +50,7 @@ Poniższy przykładowy kod dodaje **osoby** jednostek do tabeli o nazwie *wejśc
             }
         }
 
-Zwykle typ używających **ICollector** pochodną **TableEntity** lub implementuje **ITableEntity**, ale nie ma. Jedną z następujących **osoby** klasy pracy kodem przedstawionym w poprzednim **wejściowych** — metoda.
+Zwykle hello typu używających **ICollector** pochodną **TableEntity** lub implementuje **ITableEntity**, ale nie ma. Jedną z następujących hello **osoby** klasy Praca z kodem hello pokazano w poprzednim hello **transfer danych przychodzących** metody.
 
         public class Person : TableEntity
         {
@@ -64,25 +64,25 @@ Zwykle typ używających **ICollector** pochodną **TableEntity** lub implementu
             public string Name { get; set; }
         }
 
-Jeśli chcesz pracować bezpośrednio za pomocą interfejsu API magazynu Azure, można dodać **CloudStorageAccount** parametru w podpisie metody.
+Jeśli chcesz toowork bezpośrednio z hello magazynu Azure, interfejsu API, można dodać **CloudStorageAccount** podpis metody toohello parametru.
 
 ## <a name="real-time-monitoring"></a>Monitorowanie w czasie rzeczywistym
-Ponieważ danych wejściowych funkcji często przetwarzania dużych ilości danych, zestaw SDK zadań Webjob pulpitu nawigacyjnego zawiera dane monitorowania w czasie rzeczywistym. **Dziennika wywołania** sekcji informuje, czy funkcja jest nadal uruchomiony.
+Ponieważ danych wejściowych funkcji często przetwarzania dużych ilości danych, hello zestaw SDK zadań Webjob pulpitu nawigacyjnego zawiera dane monitorowania w czasie rzeczywistym. Witaj **dziennika wywołania** sekcji informuje, czy funkcja hello nadal działa.
 
 ![Transfer danych przychodzących systemem — funkcja](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-**Szczegóły wywołania** raporty strony postępu funkcji (liczba jednostek zapisywane) jest uruchomiona, i daje możliwość jego przerwanie.
+Hello **szczegóły wywołania** raporty strony hello funkcji postępu (liczba jednostek zapisywane) jest uruchomiona, i daje możliwość tooabort go.
 
 ![Transfer danych przychodzących systemem — funkcja](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-Po zakończeniu działania funkcji **szczegóły wywołania** liczbę wierszy, zapisany raporty strony.
+Gdy funkcja hello zakończeniu hello **szczegóły wywołania** hello liczbę wierszy, zapisany raporty strony.
 
 ![Transfer danych przychodzących Zakończono — funkcja](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## <a name="how-to-read-multiple-entities-from-a-table"></a>Jak można odczytać wiele jednostek z tabeli
-Aby odczytać tabeli, należy użyć **tabeli** atrybutem **IQueryable<T>**  parametru wpisuje **T** pochodną **TableEntity** lub implementuje **ITableEntity**.
+## <a name="how-tooread-multiple-entities-from-a-table"></a>Jak tooread wiele jednostek z tabeli
+tooread tabelę, użyj hello **tabeli** atrybutem **IQueryable<T>**  parametru wpisuje **T** pochodną **TableEntity**lub implementuje **ITableEntity**.
 
-Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z **wejściowych** tabeli:
+Witaj Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z hello **wejściowych** tabeli:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -96,10 +96,10 @@ Poniższy przykładowy kod odczytuje i rejestruje wszystkie wiersze z **wejścio
             }
         }
 
-### <a name="how-to-read-a-single-entity-from-a-table"></a>Jak można odczytać pojedyncza jednostka z tabeli
-Brak **tabeli** konstruktora atrybutu z dwóch dodatkowych parametrów, które pozwalają określić klucz partycji i klucz wiersza, jeśli chcesz powiązać jednostki pojedynczej tabeli.
+### <a name="how-tooread-a-single-entity-from-a-table"></a>Jak tooread pojedyncza jednostka z tabeli
+Brak **tabeli** konstruktora atrybutu z dwóch dodatkowych parametrów, które umożliwiają określenie hello klucz partycji i klucz wiersza, jeśli chcesz toobind tooa pojedynczej tabeli jednostki.
 
-Poniższy przykładowy kod odczytuje wiersz tabeli **osoby** jednostki na podstawie partycji klucza i wiersz klucza wartości otrzymane w wiadomości w kolejce:  
+Witaj Poniższy przykładowy kod odczytuje wiersz tabeli **osoby** jednostki na podstawie partycji klucza i wiersz klucza wartości otrzymane w wiadomości w kolejce:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -119,12 +119,12 @@ Poniższy przykładowy kod odczytuje wiersz tabeli **osoby** jednostki na podsta
         }
 
 
-**Osoby** klasy w tym przykładzie nie musi implementować **ITableEntity**.
+Witaj **osoby** klasy w tym przykładzie nie ma tooimplement **ITableEntity**.
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>Sposób użycia interfejsu API programu .NET magazynu bezpośrednio do pracy z tabeli
-Można również użyć **tabeli** atrybutem **CloudTable** obiektu dla większą elastyczność podczas pracy z tabelą.
+## <a name="how-toouse-hello-net-storage-api-directly-toowork-with-a-table"></a>Jak toouse hello interfejsu API magazynu .NET bezpośrednio toowork z tabeli
+Można również użyć hello **tabeli** atrybutem **CloudTable** obiektu dla większą elastyczność podczas pracy z tabelą.
 
-Poniższy kod przykładowy używa **CloudTable** obiekt do dodania do pojedynczej jednostki *wejściowych* tabeli.
+Witaj poniższy kod używa próbki **CloudTable** obiekt tooadd toohello pojedynczej jednostki *wejściowych* tabeli.
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -140,11 +140,11 @@ Poniższy kod przykładowy używa **CloudTable** obiekt do dodania do pojedyncze
             tableBinding.Execute(insertOperation);
         }
 
-Aby uzyskać więcej informacji o sposobie używania **CloudTable** obiektów, zobacz [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](../storage/storage-dotnet-how-to-use-tables.md).
+Aby uzyskać więcej informacji na temat toouse hello **CloudTable** obiektów, zobacz [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-## <a name="related-topics-covered-by-the-queues-how-to-article"></a>Tematy pokrewne objętych artykule kolejek
-Informacje o sposobie obsługi przetwarzania tabeli wyzwalane przez komunikatu w kolejce, lub zestaw SDK zadań Webjob scenariusze nie są typowe dla przetwarzania tabeli, zobacz [Rozpoczynanie pracy z magazynem kolejek Azure i programu Visual Studio połączone usługi (projekty zadania WebJob)](../storage/vs-storage-webjobs-getting-started-queues.md).
+## <a name="related-topics-covered-by-hello-queues-how-tooarticle"></a>Tematy pokrewne objętych kolejek hello jak tooarticle
+Uzyskać informacji na temat sposobu przetwarzania tabeli toohandle wyzwalane komunikatu w kolejce, lub dla zadań Webjob scenariusze zestawu SDK nie określonych tootable przetwarzania, zobacz [Rozpoczynanie pracy z magazynem kolejek Azure i programu Visual Studio połączone usługi (zadania WebJob projekty) ](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule udostępnił przykłady kodu, które przedstawiają sposób obsługi typowe scenariusze dotyczące pracy z tabel Azure. Aby uzyskać więcej informacji o sposobie używania zadań Webjob Azure i zestaw SDK zadań Webjob, zobacz [zasoby dokumentacji zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+W tym artykule dostarczył kodu przykłady przedstawiające sposób toohandle typowe scenariusze dotyczące pracy z tabel Azure. Aby uzyskać więcej informacji na temat sposobu toouse zadań Webjob Azure i hello zestaw SDK zadań Webjob, zobacz [zasoby dokumentacji zadań Webjob Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 

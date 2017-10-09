@@ -1,6 +1,6 @@
 ---
-title: "Azure VPN Gateway — często zadawane pytania | Microsoft Docs"
-description: "Brama sieci VPN — często zadawane pytania Często zadawane pytania dotyczące połączeń obejmujących wiele lokalizacji, połączeń w konfiguracji hybrydowej oraz bram usługi VPN Gateway w usłudze Microsoft Azure Virtual Network."
+title: "aaaAzure bramy sieci VPN — często zadawane pytania | Dokumentacja firmy Microsoft"
+description: "Witaj bramy sieci VPN — często zadawane pytania. Często zadawane pytania dotyczące połączeń obejmujących wiele lokalizacji, połączeń w konfiguracji hybrydowej oraz bram usługi VPN Gateway w usłudze Microsoft Azure Virtual Network."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,117 +14,117 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e1737f5832728f513e31f97cc7e752147faaaeb4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
 
-## <a name="connecting"></a>Łączenie z sieciami wirtualnymi
+## <a name="connecting"></a>Łączenie z sieciami toovirtual
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Czy można połączyć sieci wirtualne z różnych regionów świadczenia usługi Azure?
 
-Tak. Nie ma żadnych ograniczeń dotyczących regionów. Jedna sieć wirtualna może nawiązać połączenie z inną siecią wirtualną w tym samym lub w innym regionie świadczenia usługi Azure. 
+Tak. Nie ma żadnych ograniczeń dotyczących regionów. Jedną sieć wirtualną można połączyć sieć wirtualną tooanother w hello tego samego regionu, lub w innym regionie Azure. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Czy można połączyć sieci wirtualne należące do różnych subskrypcji?
 
 Tak.
 
-### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>Czy można łączyć się z wieloma lokalizacjami z jednej sieci wirtualnej?
+### <a name="can-i-connect-toomultiple-sites-from-a-single-virtual-network"></a>Z jednej sieci wirtualne można łączyć toomultiple witryn?
 
-Można nawiązać połączenie z wieloma lokalizacjami za pomocą programu Windows PowerShell oraz interfejsów API REST Azure. Zobacz sekcję często zadawanych pytań dotyczących [połączeń obejmujących wiele lokacji i połączeń między sieciami wirtualnymi](#V2VMulti).
+Możesz połączyć toomultiple witryny przy użyciu programu Windows PowerShell i hello interfejsów API REST usługi Azure. Zobacz hello [obejmujący wiele lokacji i łączności do wirtualnymi](#V2VMulti) sekcji często zadawanych PYTAŃ.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Jakie są dostępne możliwości połączeń obejmujących wiele lokalizacji?
 
-Obsługiwane są następujące połączenia obejmujące wiele lokalizacji:
+powitania po między lokalizacjami się, że połączenia są obsługiwane:
 
 * Lokacja-lokacja — połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). Ten typ połączenia wymaga urządzenia VPN lub usługi RRAS. Aby uzyskać więcej informacji, zobacz [Lokacja-lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 * Punkt-lokacja — połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Punkt-lokacja](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* Sieć wirtualna-sieć wirtualna — tego typu połączenie odpowiada konfiguracji typu lokacja-lokacja. Połączenie typu sieć wirtualna-sieć wirtualna to połączenie sieci VPN nawiązywane za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Sieć wirtualna-sieć wirtualna](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-* Obejmujące wiele lokacji — konfiguracja typu lokacja-lokacja, która pozwala połączyć wiele lokacji lokalnych z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [Wiele lokacji](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* ExpressRoute — ExpressRoute to bezpośrednie połączenie z platformą Azure nawiązywane z poziomu sieci WAN, a nie połączenie sieci VPN z publicznego Internetu. Więcej informacji zawierają tematy [ExpressRoute — opis techniczny](../expressroute/expressroute-introduction.md) i [Usługa ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
+* Aby wirtualnymi — tego typu połączenia jest hello taki sam jak konfiguracji lokacja-lokacja. TooVNet sieci wirtualnej jest połączenie sieci VPN za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). To połączenie nie wymaga urządzenia VPN. Aby uzyskać więcej informacji, zobacz [Sieć wirtualna-sieć wirtualna](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+* Obejmujący wiele lokacji — jest to zmianę konfiguracji lokacja-lokacja, która pozwala tooconnect wiele witryn tooa wirtualnej sieci lokalnej. Aby uzyskać więcej informacji, zobacz [Wiele lokacji](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
+* ExpressRoute — ExpressRoute jest tooAzure bezpośrednie połączenie z sieci WAN, nie połączenie sieci VPN za pośrednictwem hello publicznej sieci Internet. Aby uzyskać więcej informacji, zobacz hello [opis techniczny ExpressRoute](../expressroute/expressroute-introduction.md) i hello [ExpressRoute — często zadawane pytania](../expressroute/expressroute-faqs.md).
 
 Aby uzyskać więcej informacji na temat połączeń bramy sieci VPN, zobacz artykuł [VPN Gateway — informacje](vpn-gateway-about-vpngateways.md).
 
-### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaka jest różnica między połączeniem typu lokacja-lokacja i połączeniem typu punkt-lokacja?
+### <a name="what-is-hello-difference-between-a-site-to-site-connection-and-point-to-site"></a>Jaka jest różnica hello połączenie lokacja-lokacja i punkt-lokacja?
 
-Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że z poziomu dowolnego lokalnego komputera możesz połączyć się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej, w zależności od wybranej konfiguracji routingu i uprawnień. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Ten typ połączenia jest oparty na urządzeniu VPN (sprzętowym lub programowym) z protokołem IPsec, które musi zostać wdrożone na granicy sieci. W celu utworzenia tego typu połączenia musisz mieć dostępny z zewnątrz adres IPv4, który nie znajduje się poza translatorem adresów sieciowych.
+Konfiguracje **lokacja-lokacja** (tunel VPN protokołu IPsec/IKE) dotyczą połączenia między lokalizacją lokalną a platformą Azure. Oznacza to, że można połączyć z wszelkich komputerów znajdujących się na lokalnej maszynie wirtualnej tooany lub wystąpienia roli w ramach sieci wirtualnej, w zależności od wybranego sposobu tooconfigure routingu i uprawnienia. To rozwiązanie doskonale sprawdza się w przypadku zawsze dostępnych połączeń obejmujących wiele lokalizacji; jest to także dobry wybór w przypadku konfiguracji hybrydowych. Urządzenia IPsec sieci VPN (urządzenia sprzętowego lub nietrwałego urządzenia), które muszą być wdrożone na krawędzi hello sieci zależy od tego typu połączenia. toocreate połączenia tego typu musi mieć adres IPv4 połączonej zewnętrznie, który nie znajduje się za urządzeniem NAT;
 
-Konfiguracje **punkt-lokacja** (VPN z protokołem SSTP) umożliwiają połączenie się z pojedynczego komputera znajdującego się w dowolnym miejscu z innym dowolnym miejscem w sieci wirtualnej. Korzystają z wewnętrznego klienta VPN systemu Windows. W ramach konfiguracji typu punkt-lokacja należy zainstalować certyfikat i pakiet konfiguracji klienta VPN, który zawiera ustawienia umożliwiające komputerowi połączenie się z dowolną maszyną wirtualną lub wystąpieniem roli w ramach sieci wirtualnej. Doskonale sprawdzają się podczas nawiązywania połączenia z siecią wirtualną spoza obszaru organizacji. To także dobra opcja w sytuacji braku dostępu do sprzętu VPN lub adresu IPv4 dostępnego z zewnątrz, które są wymagane w przypadku połączeń typu lokacja-lokacja.
+**Punkt-lokacja** konfiguracji (sieć VPN przez protokół SSTP) umożliwiają nawiązywanie połączenia z jednego komputera z dowolnego miejsca tooanything znajduje się w sieci wirtualnej. Klient sieci VPN w polu Windows hello jest używany. W ramach konfiguracji hello punkt do lokacji należy zainstalować certyfikat i pakiet konfiguracji klienta sieci VPN, zawierający ustawienia hello, które zezwalają na Twojej maszyny wirtualnej tooany tooconnect komputera lub wystąpienia roli w ramach sieci wirtualnej hello. Jest bardzo mają sieci wirtualnej tooa tooconnect, ale nie są znajdujących się lokalnie. Jest również dobrym rozwiązaniem, gdy nie masz dostępu do sprzętu tooVPN lub adres IPv4 połączonej zewnętrznie, które są wymagane dla połączenia lokacja-lokacja.
 
-Sieć wirtualną można skonfigurować pod kątem równoległego użycia metod lokacja-lokacja i punkt-lokacja, o ile połączenie lokacja-lokacja zostanie utworzone z użyciem bramy sieci VPN opartej na trasach. Typy bramy sieci VPN oparte na trasach są w klasycznym modelu wdrażania nazywane bramami dynamicznymi.
+I toouse Twojej sieci wirtualnej można skonfigurować zarówno do lokacji typu punkt-lokacja jednocześnie, tak długo, jak utworzyć połączenie lokacja-lokacja przy użyciu sieci VPN opartej na trasach dla bramy. Typy sieci VPN opartej na trasach są nazywane bramy dynamiczne hello klasycznego modelu wdrażania.
 
 ## <a name="gateways"></a>Bramy sieci wirtualnej
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Czy brama sieci VPN jest bramą sieci wirtualnej?
 
-Brama sieci VPN to typ bramy sieci wirtualnej. Brama sieci VPN przesyła zaszyfrowany ruch sieciowy między siecią wirtualną a lokalizacją lokalną za pośrednictwem połączenia publicznego. Za pomocą bramy sieci VPN można również przesyłać ruch sieciowy między sieciami wirtualnymi. Po utworzeniu bramy sieci VPN dla opcji -GatewayType należy używać wartości „Vpn”. Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
+Brama sieci VPN to typ bramy sieci wirtualnej. Brama sieci VPN przesyła zaszyfrowany ruch sieciowy między siecią wirtualną a lokalizacją lokalną za pośrednictwem połączenia publicznego. Umożliwia także ruchu toosend bramy sieci VPN między sieciami wirtualnymi. Podczas tworzenia bramy sieci VPN, możesz użyć wartości elementu GatewayType — Witaj "Vpn". Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md) (Informacje o ustawieniach konfiguracji bramy VPN Gateway).
 
 ### <a name="what-is-a-policy-based-static-routing-gateway"></a>Co to jest brama oparta na zasadach (o routingu statycznym)?
 
-Bramy oparte na zasadach wdrażają sieci VPN oparte na zasadach. Sieci VPN oparte na zasadach szyfrują pakiety i kierują je bezpośrednio przez tunele protokołu IPsec na podstawie kombinacji prefiksów adresów między siecią lokalną użytkownika i siecią wirtualną platformy Azure. Zasady (lub selektor ruchu) są zazwyczaj zdefiniowane jako lista dostępu w konfiguracji VPN.
+Bramy oparte na zasadach wdrażają sieci VPN oparte na zasadach. Sieci VPN oparte na zasadach szyfrują i kierowania pakietów przez tunel protokołu IPsec na podstawie hello kombinacji prefiksów adresów między siecią lokalną a hello sieci wirtualnej platformy Azure. Witaj zasady (lub selektor ruchu) są zazwyczaj zdefiniowane jako lista dostępu w konfiguracji sieci VPN hello.
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Co to jest brama oparta na trasach (o routingu dynamicznym)?
 
-Bramy oparte na trasach wdrażają sieci VPN oparte na trasach. Sieci VPN oparte na trasach używają „tras” w funkcji przesyłania dalej IP lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Zasady lub selektor ruchu dla sieci VPN opartych na trasach są skonfigurowane jako każdy z każdym (lub symbole wieloznaczne).
+Wdrożenie bramy oparte na trasach hello VPN opartej na trasach. VPN opartej na trasach używają "tras" hello IP przekazywania lub pakietów toodirect tabeli routingu do odpowiednich interfejsów tuneli. następnie interfejsów tuneli Hello szyfrowania lub odszyfrowywania pakietów hello i hello tuneli. Witaj selektor zasad lub ruchu dla VPN opartej na trasach są skonfigurowane jako dowolny z każdym (lub symbole wieloznaczne).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Czy potrzebuję podsieci „GatewaySubnet”?
 
-Tak. Podsieć bramy zawiera adresy IP używane przez usługi bramy sieci wirtualnej. Aby skonfigurować bramę sieci wirtualnej, musisz utworzyć podsieć bramy dla sieci wirtualnej. Aby podsieć bramy działała prawidłowo, musi nosić nazwę „GatewaySubnet”. Nie należy nadawać podsieci bramy innej nazwy. Nie należy także wdrażać maszyn wirtualnych ani innych elementów w ramach podsieci bramy.
+Tak. podsieć bramy Hello zawiera adresy IP hello korzystających z usługi bramy sieci wirtualnej hello. Należy toocreate podsieci bramy sieci wirtualnej w kolejności tooconfigure bramy sieci wirtualnej. Wszystkie podsieci bramy muszą nosić nazwy "GatewaySubnet" toowork poprawnie. Nie należy nadawać podsieci bramy innej nazwy. I nie wdrażać maszyny wirtualne lub cokolwiek innego toohello podsieci bramy.
 
-Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy. Niektóre konfiguracje wymagają przydzielenia większej liczby adresów IP do usług bramy niż inne. Warto się upewnić, że podsieć bramy zawiera wystarczającą liczbę adresów IP na potrzeby przyszłego rozwoju i możliwe dodatkowe, nowe konfiguracje połączeń. Dlatego, chociaż można utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /27 i większych (/27, /26, /25 itp.). Zapoznaj się z wymaganiami konfiguracji, którą chcesz utworzyć, i sprawdź, czy Twoja brama podsieci je spełni.
+Podczas tworzenia podsieci bramy hello Określ zawiera hello liczbę adresów IP, które hello podsieci. Witaj w podsieci bramy hello adresy IP toohello Usługa bramy. Niektóre konfiguracje wymagają więcej toobe adresy IP przydzielone toohello usługi bramy niż innym. Ma toomake się, że podsieć bramy zawiera za mało adresów IP tooaccommodate przyszłego rozwoju i możliwe dodatkowe konfiguracje nowego połączenia. Dlatego, chociaż można utworzyć małą podsieć bramy o rozmiarze /29, zaleca się tworzenie podsieci bramy /27 i większych (/27, /26, /25 itp.). Obejrzyj hello wymagania dotyczące konfiguracji hello mają toocreate i sprawdź, czy podsieci bramy hello posiadanego będzie spełnienia tych wymagań.
 
-### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Czy można wdrożyć maszyny wirtualne lub wystąpienia roli w ramach podsieci bramy?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-toomy-gateway-subnet"></a>Można wdrożyć maszyn wirtualnych lub podsieci bramy toomy wystąpień roli?
 
 Nie.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Czy można użyć adresu IP bramy sieci VPN przed jej utworzeniem?
 
-Nie. Aby uzyskać adres IP bramy, należy ją najpierw utworzyć. Adres IP ulegnie zmianie, jeśli brama VPN zostanie usunięta i ponownie utworzona.
+Nie. Masz toocreate Twojego pierwszego tooget hello adres IP bramy. Witaj zmiany adresu IP, jeśli usunięcie i ponowne utworzenie bramy sieci VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Czy mogę zażądać przypisania statycznego publicznego adresu IP do mojej bramy sieci VPN?
 
-Nie. Obsługiwane jest tylko dynamiczne przypisywanie adresów IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana adresu IP bramy sieci VPN, jest usunięcie bramy i jej ponowne utworzenie. Publiczny adres IP bramy sieci VPN nie zmienia się w przypadku zmiany rozmiaru, zresetowania ani w przypadku przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN. 
+Nie. Obsługiwane jest tylko dynamiczne przypisywanie adresów IP. Jednak nie oznacza to, że adres IP hello ulegnie zmianie po przypisaniu tooyour bramy sieci VPN. Hello czasu tylko zmiany adresu IP bramy sieci VPN hello jest hello gdy brama zostanie usunięta i utworzona ponownie. Witaj publiczny adres IP bramy sieci VPN nie powoduje zmiany całej zmiany rozmiaru, resetowania lub innych wewnętrzny konserwacji/uaktualnienia bramy sieci VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>W jaki sposób następuje uwierzytelnienie tunelu VPN?
 
-Sieć VPN platformy Azure używa uwierzytelniania PSK (klucza wstępnego). Podczas tworzenia tunelu VPN generowany jest klucz wstępny (PSK). Wygenerowany automatycznie klucz wstępny można zmienić na własny klucz przy użyciu polecenia cmdlet Set Pre-Shared Key lub interfejsu API REST programu PowerShell.
+Sieć VPN platformy Azure używa uwierzytelniania PSK (klucza wstępnego). Firma Microsoft generowania klucza wstępnego (PSK) utworzymy hello tunel VPN. Możesz zmienić hello automatycznie generowanej PSK tooyour własnych hello Ustaw wstępny klucz polecenia cmdlet programu PowerShell lub interfejsu API REST.
 
-### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>Czy za pomocą interfejsu API i polecenia cmdlet Set Pre-Shared Key można skonfigurować własną bramę sieci VPN opartą na zasadach (o routingu statycznym)?
+### <a name="can-i-use-hello-set-pre-shared-key-api-tooconfigure-my-policy-based-static-routing-gateway-vpn"></a>Można używać tooconfigure ustawić API klucz wstępny hello Moje opartych na zasadach (statyczny routing) bramy sieci VPN?
 
-Tak, interfejs API i polecenie cmdlet Set Pre-Shared Key programu PowerShell pozwalają konfigurować sieci wirtualne platformy Azure oparte na zasadach (o statycznym routingu) i na trasach (o dynamicznym routingu).
+Tak, hello Ustaw wstępny klucz interfejsu API i programu PowerShell polecenia cmdlet mogą być używane tooconfigure zarówno Azure oparta na zasadach (statyczny) sieci VPN i opartej na trasach (dynamiczny) routingu sieci VPN.
 
 ### <a name="can-i-use-other-authentication-options"></a>Czy są dostępne inne opcje uwierzytelniania?
 
-Metody uwierzytelniania ograniczają się do stosowania kluczy wstępnych (PSK).
+Możemy kluczy wstępnych toousing ograniczone (PSK) do uwierzytelniania.
 
-### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>Jak określić, który ruch danych przechodzi przez bramę sieci VPN?
+### <a name="how-do-i-specify-which-traffic-goes-through-hello-vpn-gateway"></a>Jak określić, którego ruch przechodzi przez bramy sieci VPN hello?
 
 #### <a name="resource-manager-deployment-model"></a>Model wdrażania usługi Resource Manager
 
-* Środowisko PowerShell: użyj elementu „AddressPrefix”, aby określić ruch dla lokalnej bramy sieci.
-* Witryna Azure Portal: przejdź do bramy sieci lokalnej > Konfiguracja > Przestrzeń adresowa.
+* Środowiska PowerShell: Użyj "Prefiks adresu" toospecify ruchu dla bramy sieci lokalnej hello.
+* Portalu Azure: Przejdź bramy sieci lokalnej toohello > Konfiguracja > przestrzeni adresów.
 
 #### <a name="classic-deployment-model"></a>Klasyczny model wdrażania
 
-* Witryna Azure Portal: przejdź do klasycznej sieci wirtualnej > Połączenia sieci VPN > Połączenia sieci VPN typu lokacja-lokacja > Nazwy lokacji lokalnej > Lokacja lokalna > Przestrzeń adresowa klienta. 
-* Witryna klasyczna: dodaj każdy z zakresów, który ma zostać wysłany za pośrednictwem bramy sieci wirtualnej na stronie Sieci w sekcji Sieci lokalne. 
+* Portalu Azure: toohello klasycznej sieci wirtualnej Przejdź > połączeń sieci VPN > połączenia sieci VPN typu lokacja lokacja > Nazwa lokacji lokalnej > lokalnej lokacji > przestrzeni adresowej klienta. 
+* Klasyczny portal: Dodaj każdy zakres, który ma być wysłane za pośrednictwem bramy powitania dla sieci wirtualnej, na stronie sieci hello w sieci lokalnej. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Czy można skonfigurować wymuszone tunelowanie?
 
 Tak. Zobacz artykuł [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md) (Konfiguracja wymuszonego tunelowania).
 
-### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Czy można wdrożyć własny serwer sieci VPN na platformie Azure i używać go do nawiązywania połączenia z siecią lokalną?
+### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-tooconnect-toomy-on-premises-network"></a>Można skonfigurować własny serwer sieci VPN w systemie Azure i używany w sieci lokalnej toomy tooconnect?
 
-Tak, można wdrożyć własne bramy lub serwery sieci VPN na platformie Azure, korzystając z portalu Azure Marketplace lub tworząc własne routery sieci VPN. W sieci wirtualnej należy skonfigurować trasy zdefiniowane przez użytkownika, aby upewnić się, że ruch jest prawidłowo przekierowywany między sieciami lokalnymi i podsieciami sieci wirtualnej.
+Tak, można wdrażać własne bramy sieci VPN lub serwerów na platformie Azure z hello Azure Marketplace lub tworzenie routery sieci VPN. Należy tooconfigure trasy zdefiniowane przez użytkownika w sieci wirtualnej tooensure ruch jest przekierowywany prawidłowo między sieci lokalnej i podsieci sieci wirtualnej.
 
 ### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Dlaczego niektóre porty mojej bramy sieci VPN są otwarte?
 
-Są one wymagane do komunikacji infrastruktury platformy Azure. Są one zabezpieczone (zablokowane) z użyciem certyfikatów Azure. Bez prawidłowych certyfikatów podmioty zewnętrzne, w tym klienci tych bram, nie będą mieć możliwości wywarcia jakiegokolwiek wpływu na te punkty końcowe.
+Są one wymagane do komunikacji infrastruktury platformy Azure. Są one zabezpieczone (zablokowane) z użyciem certyfikatów Azure. Bez prawidłowego certyfikatów jednostek zewnętrznych, w tym klientom Witaj tych bramach nie będą mogli toocause żadnego wpływu na te punkty końcowe.
 
-Brama sieci VPN to zasadniczo wieloadresowe urządzenie, w przypadku którego jedna karta interfejsu sieciowego korzysta z sieci prywatnej klienta, a do drugiej można uzyskać dostęp z sieci publicznej. Podmioty infrastruktury platformy Azure nie mogą korzystać z sieci prywatnych klientów z przyczyn związanych z zachowaniem zgodności, w związku z czym muszą korzystać z publicznych punktów końcowych do komunikacji w ramach infrastruktury. Publiczne punkty końcowe są okresowo skanowane w ramach inspekcji zabezpieczeń platformy Azure.
+Bramy sieci VPN jest zasadniczo wieloadresowego urządzenia z jedną kartą Sieciową, wybierając w sieci prywatnej powitania klienta i jednej karty Sieciowej połączonej hello sieci publicznej. Jednostek infrastruktury platformy Azure nie naciśnij w sieciach prywatnych klienta ze względu na zgodność, więc potrzebują tooutilize publiczne punkty końcowe komunikacji infrastruktury. publiczne punkty końcowe Hello okresowo są skanowane przez inspekcji zabezpieczeń platformy Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Więcej informacji na temat typów, wymagań i przepływności bram
 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji, zobacz temat [About VPN Gateway configuration s
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Co należy wziąć pod uwagę przy wyborze urządzenia sieci VPN?
 
-Zweryfikowaliśmy we współpracy z dostawcami urządzeń szereg standardowych urządzeń sieci VPN wykorzystywanych w ramach połączeń typu lokacja-lokacja. Listę znanych zgodnych urządzeń sieci VPN, odpowiednie instrukcje konfiguracji lub przykłady oraz dane techniczne urządzeń można znaleźć w artykule [Informacje na temat urządzeń sieci VPN](vpn-gateway-about-vpn-devices.md). Wszystkie urządzenia z rodzin wymienionych jako rodziny o znanej zgodności powinny współpracować z siecią wirtualną. Aby skonfigurować urządzenie sieci VPN, zapoznaj się z przykładową konfiguracją urządzenia lub łączem odpowiadającym odpowiedniej rodzinie urządzeń.
+Zweryfikowaliśmy we współpracy z dostawcami urządzeń szereg standardowych urządzeń sieci VPN wykorzystywanych w ramach połączeń typu lokacja-lokacja. Lista znanych zgodne urządzenia sieci VPN, ich odpowiednie instrukcje konfiguracji lub przykładów i dane techniczne urządzeń można znaleźć w hello [urządzenia sieci VPN o](vpn-gateway-about-vpn-devices.md) artykułu. Wszystkie urządzenia z rodziny urządzeń hello wymienionym znany zgodny powinien współpracować z sieci wirtualnej. toohelp skonfigurować urządzenie sieci VPN, można znaleźć przykładowej konfiguracji urządzenia toohello lub łącze, które odpowiada tooappropriate rodziny urządzeń.
 
 ### <a name="where-can-i-find-vpn-device-configuration-settings"></a>Gdzie można znaleźć ustawienia konfiguracji urządzenia sieci VPN?
 
@@ -150,13 +150,13 @@ Aby zapoznać się z parametrami protokołów IPsec/IKE, zobacz [Parametry](vpn-
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>Dlaczego mój oparty na zasadach tunel VPN przestaje działać, gdy ruch jest w stanie bezczynności?
 
-Jest to oczekiwane zachowanie bram sieci VPN opartych na zasadach (znanych także jako bramy o routingu statycznym). Jeśli ruch za pośrednictwem tunelu będzie pozostawał w stanie bezczynności przez więcej niż 5 minut, nastąpi jego usunięcie. Natychmiast po rozpoczęciu ruchu danych w dowolnym kierunku będzie można ponownie ustanowić tunel.
+Jest to oczekiwane zachowanie bram sieci VPN opartych na zasadach (znanych także jako bramy o routingu statycznym). Gdy hello ruchu za pośrednictwem tunelu hello jest w stanie bezczynności przez więcej niż 5 minut, będzie działo hello tunelu. Po uruchomieniu przepływu w żadnym kierunku ruchu tunelu hello będzie można ponownie ustanowić natychmiast.
 
-### <a name="can-i-use-software-vpns-to-connect-to-azure"></a>Czy można użyć oprogramowania pełniącego rolę sieci VPN do nawiązania połączenia z usługą Azure?
+### <a name="can-i-use-software-vpns-tooconnect-tooazure"></a>Można użyć oprogramowania VPN tooconnect tooAzure?
 
 W ramach konfiguracji typu lokacja-lokacja obejmującej wiele lokalizacji obsługiwane są serwery Windows Server 2012 usługi Routing i dostęp zdalny (RRAS).
 
-Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powinny współpracować z bramą, o ile są one zgodne ze standardowymi implementacjami protokołu IPsec stosowanymi w branży. W celu uzyskania pomocy technicznej oraz instrukcji konfiguracji należy skontaktować się z dostawcą oprogramowania.
+Inne rozwiązania sieci VPN oprogramowania powinien współpracować z naszych bramy tak długo, jak są one zgodne tooindustry standardowe implementacje protokołu IPsec. Instrukcje dotyczące konfiguracji i pomocy technicznej, skontaktuj się z dostawcą hello hello oprogramowania.
 
 ## <a name="P2S"></a>Połączenia typu punkt-lokacja
 
@@ -166,31 +166,31 @@ Inne rozwiązania o charakterze oprogramowania pełniącego rolę sieci VPN powi
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Czy można używać bramy Azure VPN do przekazywania ruchu między lokacjami lokalnymi lub do innej sieci wirtualnej?
+### <a name="can-i-use-azure-vpn-gateway-tootransit-traffic-between-my-on-premises-sites-or-tooanother-virtual-network"></a>Można użyć ruchu tootransit bramy sieci VPN platformy Azure między Moje lokacjami lokalnymi lub tooanother sieci wirtualnej?
 
 **Model wdrażania usługi Resource Manager**<br>
-Tak. Więcej informacji zawiera sekcja [BGP](#bgp).
+Tak. Zobacz hello [BGP](#bgp) sekcji, aby uzyskać więcej informacji.
 
 **Klasyczny model wdrażania**<br>
-Przekazywanie ruchu za pośrednictwem bramy sieci VPN platformy Azure przy użyciu klasycznego modelu wdrażania jest możliwe, ale zależy od statycznie zdefiniowanych przestrzeni adresowych w pliku konfiguracyjnym sieci. Protokół BGP dla klasycznego modelu wdrażania nie jest jeszcze obsługiwany w połączeniu z sieciami wirtualnymi platformy Azure i bramami sieci VPN. Niezastosowanie protokołu BGP powoduje bardzo wysokie ryzyko błędów ręcznego definiowania przestrzeni adresowych przesyłania i nie jest zalecane.
+Ruch przesyłania za pośrednictwem bramy sieci VPN platformy Azure przy użyciu hello klasycznego modelu wdrażania, ale zależy od przestrzeni adresowych statycznie zdefiniowanych w pliku konfiguracji sieci hello. Protokół BGP nie jest jeszcze obsługiwany z bram sieci wirtualnych Azure i sieci VPN przy użyciu hello klasycznego modelu wdrażania. Niezastosowanie protokołu BGP powoduje bardzo wysokie ryzyko błędów ręcznego definiowania przestrzeni adresowych przesyłania i nie jest zalecane.
 
-### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Czy platforma Azure generuje taki sam klucz wstępny protokołu IPsec/IKE dla wszystkich połączeń sieci VPN dla danej sieci wirtualnej?
+### <a name="does-azure-generate-hello-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-hello-same-virtual-network"></a>Azure generuje hello tego samego protokołu IPsec/IKE wstępnego klucz dla moich połączeń sieci VPN dla hello sama sieć wirtualną?
 
-Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych połączeń sieci VPN. Można jednak użyć interfejsu API REST lub polecenia cmdlet Set VPN Gateway Key programu PowerShell, aby ustawić preferowaną wartość klucza. Klucz MUSI mieć postać alfanumerycznego ciągu o długości od 1 do 128 znaków.
+Nie. Platforma Azure domyślnie generuje różne klucze wstępne dla różnych połączeń sieci VPN. Jednak możesz użyć hello ustawić VPN bramy klucz interfejsu API REST lub programu PowerShell polecenia cmdlet tooset hello klucza wartości preferowany. klucz Hello musi być alfanumerycznego ciągu o długości od 1 too128 znaków.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Czy przy większej liczbie połączeń VPN typu lokacja-lokacja można uzyskać większą przepustowość niż przy pojedynczej sieci wirtualnej?
 
-Nie, wszystkie tunele VPN, w tym połączenia VPN typu punkt-lokacja, współdzielą tę samą bramę sieci VPN platformy Azure i dostępną przepustowość.
+Nie, wszystkie tuneli VPN, sieci VPN typu punkt-lokacja, w tym udostępnianie hello tej samej sieci VPN platformy Azure, bramy i hello dostępną przepustowość.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Czy można skonfigurować wiele tuneli między siecią wirtualną i lokalną lokacją z użyciem sieci VPN obejmującej wiele lokacji?
 
-Tak, ale należy skonfigurować protokół BGP w obu tunelach do tej samej lokalizacji.
+Tak, ale należy skonfigurować protokołu BGP na obu toohello tuneli tej samej lokalizacji.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>Czy można używać sieci VPN typu punkt-lokacja z siecią wirtualną z wieloma tunelami VPN?
 
-Tak, sieci VPN typu punkt-lokacja (P2S) można używać z bramami sieci VPN łączącymi się z wieloma lokacjami lokalnymi i innymi sieciami wirtualnymi.
+Tak, sieci VPN typu punkt-lokacja (P2S) może służyć z bramy sieci VPN hello łączenia toomultiple lokacjami lokalnymi i innych sieci wirtualnych.
 
-### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>Czy można połączyć sieć wirtualną z sieciami VPN wykorzystującymi protokół IPsec z obwodem ExpressRoute?
+### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-toomy-expressroute-circuit"></a>Z protokołu IPsec, VPN toomy obwodu ExpressRoute można połączyć sieć wirtualną?
 
 Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zobacz artykuł [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md) (Konfigurowanie obwodu ExpressRoute i współistniejących połączeń sieci VPN typu lokacja-lokacja).
 
@@ -205,24 +205,24 @@ Tak, takie rozwiązanie jest obsługiwane. Aby uzyskać więcej informacji, zoba
 
 ## <a name="vms"></a>Połączenia obejmujące wiele lokalizacji a maszyny wirtualne
 
-### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>W jaki sposób należy połączyć się z maszyną wirtualną w przypadku, gdy należy ona do sieci wirtualnej, a dysponuję połączeniem obejmującym wiele lokalizacji?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-toohello-vm"></a>Jak należy łączyć toohello wirtualna Moja maszyna wirtualna znajduje się w sieci wirtualnej, I mieć połączenie między lokalizacjami?
 
-Jest kilka możliwości. Jeśli masz włączony protokół RDP dla swojej maszyny wirtualnej, możesz się z nią łączyć, korzystając z prywatnego adresu IP. W takim przypadku należy określić prywatny adres IP i numer portu, z którym ma zostać nawiązane połączenie (zwykle 3389). Należy skonfigurować port maszyny wirtualnej pod kątem ruchu danych.
+Jest kilka możliwości. Jeśli masz protokołu RDP dla maszyny Wirtualnej włączone, można połączyć maszyny wirtualnej tooyour przy użyciu hello prywatnego adresu IP. W takim przypadku należy określić hello prywatnego adresu IP i port hello, które mają tooconnect zbyt (zazwyczaj 3389). Należy tooconfigure hello portu na maszynie wirtualnej hello ruchu.
 
-Z maszyną wirtualną można także nawiązać połączenie z poziomu innej maszyny wirtualnej, która znajduje się w tej samej sieci wirtualnej, korzystając z prywatnego adresu IP. Nie można połączyć się z maszyną wirtualną z użyciem protokołu RDP i prywatnego adresu IP, jeśli połączenie jest nawiązywane z lokalizacji spoza sieci wirtualnej. Na przykład jeśli w przypadku dostępności skonfigurowanej sieci wirtualnej typu punkt-lokacja nie zostanie ustanowione połączenie z poziomu komputera, nie będzie możliwe połączenie się z maszyną wirtualną z użyciem prywatnego adresu IP.
+Można także połączyć tooyour maszyny wirtualnej prywatnego adresu IP z innej maszyny wirtualnej, która ma znajdujących się na powitania takie same sieci wirtualnej. Nie można wykonać maszyny wirtualnej tooyour RDP za pomocą hello prywatnego adresu IP, jeśli łączysz się z lokalizacji spoza sieci wirtualnej. Na przykład jeśli masz punkt-lokacja sieci wirtualnej, skonfigurowane i nie można ustanowić połączenia z komputera, nie można połączyć toohello maszyny wirtualnej za pomocą prywatnego adresu IP.
 
-### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Czy jeśli maszyna wirtualna należy do sieci wirtualnej z funkcją łączności obejmującą wiele lokalizacji, to cały ruch z niej będzie przekazywany za pośrednictwem tego połączenia?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-hello-traffic-from-my-vm-go-through-that-connection"></a>Moja maszyna wirtualna jest w łączności między lokalizacjami z sieci wirtualnej, cały ruch hello z maszyną Wirtualną z systemem przejść przez to połączenie?
 
-Nie. Przez bramę sieci wirtualnej przechodzi tylko ruch, którego docelowy adres IP należy do określonych zakresów adresów IP sieci lokalnej w ramach sieci wirtualnej. Ruch, którego docelowy adres IP należy do sieci wirtualnej, pozostaje w obrębie sieci wirtualnej. Inny ruch jest wysyłany do sieci publicznej za pośrednictwem usługi równoważenia obciążenia lub, w przypadku użycia wymuszonego tunelowania, wysłany przez bramę sieci VPN platformy Azure.
+Nie. Tylko ruch hello miejsce docelowe przejdzie IP zawarte w hello wirtualnej sieci lokalnej sieci zakresów adresów IP określonego przez bramę sieci wirtualnej hello. Ruch ma docelowego, który znajduje się w sieci wirtualnej hello IP pozostaje w ramach sieci wirtualnej hello. Ruch jest wysyłanych za pośrednictwem sieci publicznych toohello usługi równoważenia obciążenia hello, lub jeśli wymuszanie tunelowania jest używany, wysyłane za pośrednictwem bramy sieci VPN platformy Azure hello.
 
-### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Jak rozwiązywać problemy z połączeniem RDP z maszyną wirtualną
+### <a name="how-do-i-troubleshoot-an-rdp-connection-tooa-vm"></a>Jak rozwiązywać tooa połączenia RDP maszyny Wirtualnej
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
 ## <a name="faq"></a>Sieć wirtualna — często zadawane pytania
 
-Dodatkowe informacje dotyczące sieci wirtualnej można znaleźć w artykule [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md) (Sieć wirtualna — często zadawane pytania).
+Możesz wyświetlić informacje dodatkowe sieci wirtualnej w hello [często zadawane pytania dotyczące sieci wirtualnych](../virtual-network/virtual-networks-faq.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

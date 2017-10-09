@@ -1,6 +1,6 @@
 ---
-title: "Trasy zdefiniowane przez użytkownika i przekazywanie adresów IP na platformie Azure | Microsoft Docs"
-description: "Dowiedz się, w jaki sposób skonfigurować trasy zdefiniowane przez użytkownika i przekazywanie adresów IP w celu przekazywania ruchu do wirtualnych urządzeń sieciowych na platformie Azure."
+title: "trasy zdefiniowane przez aaaUser i przesyłania dalej protokołu IP na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak trasy zdefiniowane przez użytkownika tooconfigure (przez) i przesyłania dalej protokołu IP tooforward ruchu toonetwork urządzeń wirtualnych na platformie Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,50 +15,50 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f1f1d46166d5a7c776f472b7ade1354d943ece10
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Trasy zdefiniowane przez użytkownika i przekazywanie adresów IP
 
-Po dodaniu maszyny wirtualnej do sieci wirtualnej na platformie Azure można zauważyć, że maszyny wirtualne mogą automatycznie komunikować się ze sobą za pośrednictwem sieci. Nie ma potrzeby określania bramy, nawet gdy maszyny wirtualne znajdują się w różnych podsieciach. Dotyczy to także komunikacji z maszyn wirtualnych do publicznej sieci Internet, a nawet do sieci lokalnej, gdy obecne jest połączenie hybrydowe z platformy Azure do własnego centrum danych.
+Po dodaniu maszynach wirtualnych (VM) tooa sieć wirtualną (VNet) na platformie Azure można zauważyć maszyn wirtualnych hello automatycznie są możliwe toocommunicate ze sobą za pośrednictwem sieci hello. Nie trzeba toospecify bramy, nawet jeśli hello maszyn wirtualnych znajdują się w różnych podsieciach. Witaj dotyczy to także komunikacji z toohello maszyn wirtualnych hello publicznego Internetu i sieci lokalnej tooyour nawet gdy połączenie hybrydowe z platformy Azure tooyour własnych centrum danych jest obecny.
 
-Taki przepływ komunikacji jest możliwy, ponieważ platforma Azure korzysta z szeregu tras systemowych do definiowania przepływu ruchu w sieci IP. Trasy systemowe sterują przepływem komunikacji według następujących scenariuszy:
+Taki przepływ komunikacji jest możliwa, ponieważ Azure korzysta z szeregu toodefine trasy systemu sposób przepływu ruchu w sieci IP. Trasy systemowe sterują przepływem hello komunikacji hello następujące scenariusze:
 
-* Z tej samej podsieci.
-* Z jednej podsieci do drugiej w ramach sieci wirtualnej.
-* Z maszyny wirtualnej do sieci Internet.
-* Z sieci wirtualnej do innej sieci wirtualnej za pośrednictwem bramy sieci VPN.
-* Z sieci wirtualnej do innej sieci wirtualnej za pośrednictwem komunikacji równorzędnej sieci wirtualnych (tworzenia łańcucha usług).
-* Z sieci wirtualnej do sieci lokalnej za pośrednictwem bramy sieci VPN.
+* Z poziomu hello tej samej podsieci.
+* Z tooanother podsieci w sieci wirtualnej.
+* Z maszyn wirtualnych toohello Internet.
+* Z sieci wirtualnej tooanother sieci wirtualnej za pośrednictwem bramy sieci VPN.
+* Z tooanother sieci wirtualnej sieci wirtualnej za pośrednictwem sieci wirtualnej komunikacji równorzędnej (łańcucha usługi).
+* Z sieci wirtualnej sieci lokalnej tooyour za pośrednictwem bramy sieci VPN.
 
-Na poniższym rysunku przedstawiono prostą konfigurację obejmującą sieć wirtualną, dwie podsieci i kilka maszyn wirtualnych wraz trasami systemowymi, które umożliwiają ruch pakietów IP.
+na poniższym rysunku Hello przedstawiono prostą konfigurację obejmującą sieć wirtualną, dwie podsieci i kilka maszyn wirtualnych wraz z hello tras systemowych, umożliwiających tooflow ruchu IP.
 
 ![Trasy systemowe platformy Azure](./media/virtual-networks-udr-overview/Figure1.png)
 
-Chociaż korzystanie z tras systemowych automatycznie umożliwia ruch sieciowy we wdrożeniu, istnieją przypadki, w których użytkownik chce sterować przekazywaniem pakietów przez urządzenia wirtualne. Można to zrobić, tworząc trasy definiowane przez użytkownika, które wskazują kolejny krok na drodze pakietu do określonej podsieci, aby zamiast tego przeszły do urządzeń wirtualnych, i włączając funkcję przesyłania dalej IP dla maszyny wirtualnej uruchomionej jako urządzenie wirtualne.
+Chociaż hello korzystanie z tras systemowych umożliwia ruch sieciowy automatycznie w danym wdrożeniu, istnieją przypadki, w których chcesz toocontrol hello routingiem pakietów przez urządzenie wirtualne. Można więc tworząc trasy zdefiniowane przez użytkownika, który określisz hello następnego skoku dla pakietów przepływających zamiast tego urządzenia wirtualnego toogo tooyour tooa określonej podsieci i włączenie IP hello przesyłania dalej dla maszyny Wirtualnej uruchomionej jako urządzenie wirtualne hello.
 
-Na poniższym rysunku przedstawiono przykład tras zdefiniowanych przez użytkownika i przesyłania dalej IP, wymuszający przechodzenie pakietów wysłanych z jednej podsieci do drugiej przez urządzenie wirtualne w trzeciej podsieci.
+Hello na poniższej ilustracji przedstawiono przykład tras zdefiniowanych przez użytkownika i przesyłania pakietów tooforce IP wysyłane tooone podsieci z innego toogo przez urządzenie wirtualne w trzeciej podsieci.
 
 ![Trasy systemowe platformy Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Trasy zdefiniowane przez użytkownika dotyczą ruchu wychodzącego z dowolnego zasobu w podsieci (na przykład interfejsów sieciowych dołączonych do maszyn wirtualnych). Na przykład nie można tworzyć tras określających, w jaki sposób ruch z Internetu trafia do podsieci. Urządzenie, do którego jest kierowany ruch, nie może znajdować się w tej samej podsieci, z której pochodzą dane. Dla urządzeń zawsze należy utworzyć oddzielne podsieci. 
+> Trasy zdefiniowane przez użytkownika są stosowane tootraffic wychodzącego z podsieci z wszystkich zasobów (takich jak interfejsów sieciowych dołączonych tooVMs) w podsieci hello. Nie można utworzyć trasy toospecify jak ruchu wprowadza podsieci hello Internetu, na przykład. urządzenia Hello przesyłasz toocannot ruchu należeć hello tej samej podsieci, w których pochodzą hello ruchu. Dla urządzeń zawsze należy utworzyć oddzielne podsieci. 
 > 
 > 
 
 ## <a name="route-resource"></a>Zasób trasy
-Pakiety są przesyłane za pośrednictwem sieci TCP/IP w oparciu o tabelę tras zdefiniowaną w każdym węźle w sieci fizycznej. Tabela tras jest kolekcją indywidualnych tras, która w oparciu o docelowy adres IP umożliwia podjęcie decyzji, dokąd należy przekazywać pakiety. Trasa składa się z następujących elementów:
+Pakiety są przesyłane za pośrednictwem sieci TCP/IP w oparciu o tabelę tras zdefiniowaną w każdym węźle w sieci fizycznej hello. Tabela tras jest kolekcją indywidualnych tras używane toodecide gdzie tooforward pakiety na podstawie hello docelowy adres IP. Trasa składa się z następujących hello:
 
 | Właściwość | Opis | Ograniczenia | Zagadnienia do rozważenia |
 | --- | --- | --- | --- |
-| Przedrostek adresu |Docelowy adres CIDR, do którego zostanie zastosowana trasa, na przykład 10.1.0.0/16. |Musi to być prawidłowy zakres adresów CIDR reprezentujący adresy w publicznej sieci Internet, sieci wirtualnej platformy Azure lub lokalnym centrum danych. |Upewnij się, że **przedrostek adresu** nie zawiera **adresu następnego skoku**, ponieważ w przeciwnym razie pakiety wpadną w pętlę, przechodząc od źródła do adresu następnego skoku i nigdy nie docierając do miejsca docelowego. |
-| Typ następnego skoku |Typ skoku platformy Azure, dokąd pakiet powinien zostać przesłany. |Musi mieć jedną z następujących wartości: <br/> **Sieć wirtualna** Reprezentuje lokalną sieć wirtualną. Na przykład jeśli dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 znajdują się w tej samej sieci wirtualnej, trasa dla każdej podsieci w tabeli tras będzie miała wartość następnego skoku *Sieć wirtualna*. <br/> **Brama sieci wirtualnej** Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje domyślną bramę sieci Internet dostarczoną przez infrastrukturę platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane do Twojej sieci wirtualnej platformy Azure. <br/> **Brak**. Reprezentuje czarną dziurę. Pakiety przekazywane do czarnej dziury nie zostaną w ogóle przekazane. |Rozważ użycie **urządzenia wirtualnego** umożliwiającego skierowanie ruchu do maszyny wirtualnej lub wewnętrznego adresu IP usługi Azure Load Balancer.  Typ ten umożliwia określenie adresu IP zgodnie z poniższym opisem. Należy rozważyć użycie typu **Brak**, aby zatrzymać pakiety w drodze do zadanego miejsca docelowego. |
-| Adres następnego skoku |Adres następnego skoku zawiera adres IP, do którego powinien zostać przekazany pakiet. Wartości następnego skoku są dozwolone tylko w przypadku tras, dla których typem następnego skoku jest *Urządzenie wirtualne*. |Musi to być adres IP osiągalny w sieci wirtualnej, w której stosowana jest trasa zdefiniowana przez użytkownika nieprzechodząca przez **bramę sieci wirtualnej**. Adres IP musi znajdować się w tej samej sieci wirtualnej, w której jest stosowany, lub w równorzędnej sieci wirtualnej. |Jeśli adres IP reprezentuje maszynę wirtualną, upewnij się, że funkcja [Przesyłanie dalej IP](#IP-forwarding) platformy Azure dla maszyny wirtualnej jest włączona. Jeśli adres IP reprezentuje wewnętrzny adres IP usługi Azure Load Balancer, upewnij się, że dla każdego portu, którego obciążenie chcesz zrównoważyć, skonfigurowano zgodną regułę równoważenia obciążenia.|
+| Przedrostek adresu |dotyczy Hello docelowego CIDR toowhich hello trasa, na przykład 10.1.0.0/16. |Musi być prawidłowy zakres CIDR reprezentujący adresy w hello publicznej sieci Internet, sieci wirtualnej platformy Azure lub lokalnego centrum danych. |Upewnij się, że hello **prefiks adresu** nie zawiera adresu hello hello **następnego przeskoku**, w przeciwnym razie pakiety wpadną w pętlę, przechodząc od źródła hello toohello następnego przeskoku nigdy nie docierając Lokalizacja docelowa Hello. |
+| Typ następnego skoku |Typ Hello pakietów hello Azure przeskoku powinny być przesyłane do. |Musi mieć jedną z hello następujące wartości: <br/> **Sieć wirtualna** Reprezentuje lokalną sieć wirtualną hello. Na przykład, jeśli masz dwie podsieci 10.1.0.0/16 i 10.2.0.0/16 w tej samej sieci wirtualnej hello, hello trasa dla każdej podsieci w tabeli tras hello będzie mieć wartość następnego skoku z *sieci wirtualnej*. <br/> **Brama sieci wirtualnej** Reprezentuje usługę Azure S2S VPN Gateway. <br/> **Internet**. Reprezentuje hello domyślną bramę sieci Internet podał hello infrastruktury platformy Azure. <br/> **Urządzenie wirtualne**. Reprezentuje urządzenie wirtualne dodane tooyour sieci wirtualnej platformy Azure. <br/> **Brak**. Reprezentuje czarną dziurę. Pakiety przesyłane dalej tooa czarnej dziury nie zostaną w ogóle przekazane. |Należy rozważyć użycie **urządzenie wirtualne** toodirect ruchu tooa maszyny Wirtualnej lub usługi równoważenia obciążenia Azure wewnętrznego adresu IP.  Tego typu umożliwia hello Specyfikacja adresu IP, zgodnie z poniższym opisem. Należy rozważyć użycie **Brak** wpisz toostop pakiety z przechodzenia tooa danego przeznaczenia. |
+| Adres następnego skoku |adres następnego przeskoku Hello zawiera hello adres IP, które powinny zostać przekazane pakiety. Wartości następnego skoku są dozwolone tylko w przypadku tras, których typ następnego przeskoku hello jest *urządzenie wirtualne*. |Musi być adresem IP, który jest dostępny w sieci wirtualnej, w których stosowane hello trasy zdefiniowane przez użytkownika, bez pośrednictwa hello **Brama sieci wirtualnej**. adres IP Hello ma toobe hello wirtualne w tej samej sieci, jeśli jest ono stosowane lub peered sieci wirtualnej. |Jeśli hello adres IP reprezentuje Maszynę wirtualną, upewnij się, możesz włączyć [przesyłanie dalej IP](#IP-forwarding) Azure hello maszyny Wirtualnej. Jeśli hello IP adres reprezentuje hello wewnętrzny adres IP usługi równoważenia obciążenia Azure, upewnij się, że masz dopasowywania reguły dla każdego portu równoważenia obciążenia mają tooload równowagi.|
 
-W programie Azure PowerShell niektóre wartości „NextHopType” mają inne nazwy:
+W programie Azure PowerShell niektóre wartości "Typ następnego przeskoku" hello mają różne nazwy elementu:
 
 * Sieć wirtualna to VnetLocal,
 * Brama sieci wirtualnej to VirtualNetworkGateway,
@@ -67,47 +67,47 @@ W programie Azure PowerShell niektóre wartości „NextHopType” mają inne na
 * Brak to None.
 
 ### <a name="system-routes"></a>Trasy systemowe
-Każda podsieć utworzona w sieci wirtualnej jest automatycznie skojarzona z tabelą tras, która zawiera następujące reguły dotyczące tras systemowych:
+Każda podsieć utworzona w sieci wirtualnej jest automatycznie kojarzony z tabeli tras, która zawiera następujące reguły dotyczące tras systemowych hello:
 
-* **Reguła lokalnej sieci wirtualnej**: ta reguła jest tworzona automatycznie dla każdej podsieci w sieci wirtualnej. Określa, że istnieje bezpośrednie połączenie między maszynami wirtualnymi w sieci wirtualnej i nie ma żadnego pośredniego następnego skoku.
-* **Reguła lokalna**: ta reguła dotyczy całego ruchu kierowanego do zakresu adresów lokalnych i jako miejsca docelowego następnego skoku używa bramy sieci VPN.
-* **Reguła sieci Internet**: ta reguła obsługuje cały ruch kierowany do publicznej sieci Internet (prefiks adresu 0.0.0.0/0) i jako miejsca docelowego następnego skoku dla wszystkich pakietów kierowanych do sieci Internet używa dostarczonej przez infrastrukturę bramy sieci Internet.
+* **Reguła lokalnej sieci wirtualnej**: ta reguła jest tworzona automatycznie dla każdej podsieci w sieci wirtualnej. Określa, że istnieje bezpośrednie połączenie między maszynami wirtualnymi hello w hello sieci wirtualnej i żadnego pośredniego następnego skoku nie istnieje.
+* **Reguła lokalna**: Ta reguła stosuje się zakres adresów lokalnych toohello ruch kierowany tooall i używa bramy sieci VPN jako miejsca docelowego hello następnego skoku.
+* **Reguła sieci Internet**: Ta reguła obsługuje wszystkie toohello ruch kierowany publicznej sieci Internet (0.0.0.0/0 prefiks adresu) i bramą internetową infrastruktury hello używa jako hello następnego przeskoku dla wszystkich toohello ruch kierowany Internet.
 
 ### <a name="user-defined-routes"></a>Trasy definiowane przez użytkownika
-Dla większości środowisk wystarczające są trasy systemowe zdefiniowane już przez platformę Azure. Może jednak zajść konieczność utworzenia tabeli tras i dodania co najmniej jednej trasy w szczególnych przypadkach, takich jak:
+Dla większości środowisk wystarczy hello trasy systemowe zdefiniowane już przez platformę Azure. Można jednak konieczne toocreate tabelę tras i dodać co najmniej jednej trasy w szczególnych przypadkach, takich jak:
 
-* Wymuszanie tunelowania do sieci Internet za pośrednictwem sieci lokalnej.
+* Wymuszanie tunelowania toohello Internet za pośrednictwem sieci lokalnej.
 * Korzystanie z urządzeń lokalnych w środowisku platformy Azure.
 
-W przypadku powyższych scenariuszy należy utworzyć tabelę tras i dodać do niej trasy zdefiniowane przez użytkownika. Jednocześnie może występować wiele tabel tras, a ta sama tabela może być skojarzona z większą liczbą podsieci. Każda podsieć może być skojarzona tylko z jedną tabelą tras. Wszystkie maszyny wirtualne i usługi chmury w podsieci używają tabeli tras związanej z tą podsiecią.
+W powyższych scenariuszy hello będzie mieć toocreate tabelę tras i dodać tooit trasy zdefiniowane przez użytkownika. Może występować wiele tabel tras i hello sama tabela może być skojarzony tooone lub więcej podsieci. A każda podsieć może być tylko skojarzona tooa jedną tabelą tras. Wszystkie maszyny wirtualne i usługi w chmurze w podsieci użyć hello trasy tabeli skojarzonej toothat podsieci.
 
-Jeśli z podsiecią nie jest skojarzona tabela tras, korzysta ona z tras systemowych. Jeśli skojarzenie istnieje, routing odbywa się w oparciu o najdłuższe dopasowanie prefiksu (Longest Prefix Match, LPM) wybierane spośród tras definiowanych przez użytkownika i tras systemowych. Jeśli istnieje więcej niż jedna trasa z tym samym dopasowaniem LPM, wybór trasy odbywa się według następującej kolejności:
+Korzysta ona z tras systemowych do momentu tabelę tras jest toohello skojarzonych podsieci. Jeśli skojarzenie istnieje, routing odbywa się w oparciu o najdłuższe dopasowanie prefiksu (Longest Prefix Match, LPM) wybierane spośród tras definiowanych przez użytkownika i tras systemowych. Jeśli istnieje więcej niż jedna trasa z hello LPM tego samego odpowiada, a następnie, wybór trasy odbywa się w następującej kolejności hello:
 
 1. Trasa zdefiniowana przez użytkownika
 2. Trasa protokołu BGP (jeśli używane są połączenia ExpressRoute)
 3. Trasa systemowa
 
-Informacje na temat tworzenia tras definiowanych przez użytkownika można znaleźć w artykule [Sposób tworzenia tras i włączanie funkcji przesyłania dalej IP na platformie Azure](virtual-network-create-udr-arm-template.md).
+toolearn trasy zdefiniowane przez użytkownika toocreate zobacz [jak tooCreate tras i włączanie przesyłania dalej IP na platformie Azure](virtual-network-create-udr-arm-template.md).
 
 > [!IMPORTANT]
-> Trasy zdefiniowane przez użytkownika są stosowane tylko w odniesieniu do maszyn wirtualnych i usług w chmurze. Na przykład jeśli pomiędzy siecią lokalną a platformą Azure ma zostać wstawione urządzenie wirtualne zapory, konieczne jest utworzenie trasy zdefiniowanej przez użytkownika dla tabel tras platformy Azure, która spowoduje przekazanie całego ruchu kierowanego do lokalnej przestrzeni adresowej do urządzenia wirtualnego. Można również dodać trasę zdefiniowaną przez użytkownika do podsieci GatewaySubnet, aby przekazywać cały ruch z sieci lokalnej do platformy Azure za pośrednictwem urządzenia wirtualnego. Ta możliwość została ostatnio dodana.
+> Trasy zdefiniowane przez użytkownika są tylko zastosowane tooAzure maszyn wirtualnych i usług w chmurze. Na przykład chcąc tooadd urządzenie wirtualne zapory między siecią lokalną a Azure, trzeba będzie toocreate trasy zdefiniowanej przez użytkownika dla tabel tras platformy przekazujący całego ruchu kierowanego toohello przestrzeni adresów lokalnych toohello wirtualnego urządzenia. Można również dodać zdefiniowany przez użytkownika tras (przez) toohello GatewaySubnet tooforward cały ruch z lokalnymi tooAzure za pośrednictwem hello urządzenie wirtualne. Ta możliwość została ostatnio dodana.
 > 
 > 
 
 ### <a name="bgp-routes"></a>Trasy protokołu BGP
-Jeśli między siecią lokalną a platformą Azure istniej połączenie ExpressRoute, można włączyć protokół BGP w celu propagowania tras z sieci lokalnej do platformy Azure. Te trasy protokołu BGP są używane w taki sam sposób, jak trasy systemowe i trasy definiowane przez użytkownika w każdej podsieci platformy Azure. Więcej informacji można znaleźć w artykule [ExpressRoute — wprowadzenie](../expressroute/expressroute-introduction.md).
+Jeśli masz połączenie ExpressRoute między siecią lokalną a Azure, można włączyć trasy protokołu BGP toopropagate z Twojej tooAzure sieci lokalnej. Te trasy protokołu BGP są używane w hello trasy definiowane przez sam sposób jak tras systemowych i użytkownika w każdej podsieci platformy Azure. Więcej informacji można znaleźć w artykule [ExpressRoute — wprowadzenie](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
-> W środowisku Azure można skonfigurować wymuszanie tunelowania przez sieć lokalną, tworząc trasę definiowaną przez użytkownika dla podsieci 0.0.0.0/0, korzystającą z bramy sieci VPN w następnym skoku. Metoda ta działa jednak tylko w przypadku korzystania z bramy sieci VPN, a nie połączeń ExpressRoute. W przypadku połączeń ExpressRoute wymuszanie tunelowania jest konfigurowane za pomocą protokołu BGP.
+> Istnieje możliwość skonfigurowania tunelowania przez sieć lokalną, tworząc trasy zdefiniowane przez użytkownika dla podsieci 0.0.0.0/0, korzystającą z bramy sieci VPN hello jako hello następnego przeskoku działu toouse środowiska platformy Azure. Metoda ta działa jednak tylko w przypadku korzystania z bramy sieci VPN, a nie połączeń ExpressRoute. W przypadku połączeń ExpressRoute wymuszanie tunelowania jest konfigurowane za pomocą protokołu BGP.
 > 
 > 
 
 ## <a name="ip-forwarding"></a>Przekazywanie IP
-Jak opisano powyżej, jednym z głównych powodów tworzenia tras definiowanych przez użytkownika jest przesyłanie ruchu sieciowego do urządzenia wirtualnego. Urządzenie wirtualne to po prostu maszyna wirtualna, na której działa aplikacja służąca do obsługi ruchu sieciowego w określony sposób, na przykład zapora lub urządzenie NAT.
+Jak opisano powyżej, jednym toocreate głównych powodów hello trasy zdefiniowane przez użytkownika jest urządzenie wirtualne tooa tooforward ruchu. Urządzenie wirtualne jest tylko maszynę Wirtualną, która uruchamia ruchu sieciowego toohandle aplikacji używane w sposób, takie jak Zapora lub urządzenie NAT.
 
-Ta maszyna wirtualna musi mieć zdolność odbierania ruchu przychodzącego, który nie jest skierowany do niej samej. Aby umożliwić maszynie wirtualnej odbieranie ruchu kierowanego do innych miejsc docelowych, konieczne jest włączenie dla tej maszyny wirtualnej funkcji przesyłania dalej IP. Jest to ustawienie platformy Azure, a nie systemu operacyjnego gościa.
+Ta maszyna wirtualna musi być możliwe tooreceive ruchu przychodzącego, który jest Nieuwzględnione tooitself. tooallow ruch tooreceive maszyn wirtualnych skierowana tooother miejsc docelowych, należy włączyć przesyłania dalej protokołu IP dla hello maszyny Wirtualnej. To ustawienie nie jest to ustawienie w systemie operacyjnym gościa hello Azure.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, w jaki sposób można [tworzyć trasy w modelu wdrożenia usługi Resource Manager](virtual-network-create-udr-arm-template.md) i kojarzyć je z podsieciami. 
-* Dowiedz się, w jaki sposób można [tworzyć trasy w klasycznym modelu wdrożenia](virtual-network-create-udr-classic-ps.md) i kojarzyć je z podsieciami.
+* Dowiedz się, jak za[tworzyć trasy w modelu wdrażania usługi Resource Manager hello](virtual-network-create-udr-arm-template.md) i kojarzyć je toosubnets. 
+* Dowiedz się, jak za[tworzyć trasy w hello klasycznego modelu wdrażania](virtual-network-create-udr-classic-ps.md) i kojarzyć je toosubnets.
 

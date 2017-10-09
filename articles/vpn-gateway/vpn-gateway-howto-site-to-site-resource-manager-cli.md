@@ -1,6 +1,6 @@
 ---
-title: "Łączenie sieci lokalnej sieci z siecią wirtualną platformy Azure: sieć VPN typu lokacja-lokacja: interfejs wiersza polecenia | Microsoft Docs"
-description: "Kroki tworzenia połączenia IPsec z sieci lokalnej do sieci wirtualnej platformy Azure za pośrednictwem publicznego Internetu. Ta procedura jest pomocna podczas tworzenia połączenia bramy sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji za pomocą interfejsu wiersza polecenia."
+title: "Połącz z tooan sieci lokalnej sieci wirtualnej platformy Azure: sieci VPN typu lokacja-lokacja: interfejs wiersza polecenia | Dokumentacja firmy Microsoft"
+description: "Kroki toocreate połączenia IPsec z lokalnej sieci tooan sieci wirtualnej platformy Azure za pośrednictwem hello publicznej sieci Internet. Ta procedura jest pomocna podczas tworzenia połączenia bramy sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji za pomocą interfejsu wiersza polecenia."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c652cf2caf3928cdeb19d7dc329f6db101e5ed90
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Tworzenie sieci wirtualnej z wykorzystaniem połączenia sieci VPN typu lokacja-lokacja przy użyciu interfejsu wiersza polecenia
 
-Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia połączenia bramy sieci VPN lokacja-lokacja z Twojej sieci lokalnej do sieci wirtualnej. Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:<br>
+W tym artykule opisano, jak toouse hello Azure CLI toocreate połączenie bramy sieci VPN lokacja-lokacja z toohello sieci Twojej lokalnej sieci wirtualnej. Witaj czynności w tym artykule dotyczą modelu wdrażania usługi Resource Manager toohello. Można również utworzyć tę konfigurację za pomocą narzędzia wdrażania różnych lub model wdrożenia, wybierając inną opcję z hello następującej listy:<br>
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -36,20 +36,20 @@ Ten artykuł pokazuje, jak używać interfejsu wiersza polecenia platformy Azure
 
 ![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
-Połączenie bramy sieci VPN typu lokacja-lokacja umożliwia łączenie sieci lokalnej z siecią wirtualną platformy Azure za pośrednictwem tunelu sieci VPN IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga lokalnego urządzenia sieci VPN z przypisanym publicznym adresem IP dostępnym z zewnątrz. Więcej informacji o bramach sieci VPN można znaleźć w artykule [Informacje dotyczące bram sieci VPN](vpn-gateway-about-vpngateways.md).
+Połączenie bramy sieci VPN typu lokacja-lokacja jest używane tooconnect lokalnej sieci tooan sieci wirtualnej platformy Azure za pośrednictwem tunelu VPN IPsec/IKE (IKEv1 lub IKEv2). Ten typ połączenia wymaga sieci VPN urządzeń znajdujących się lokalnie posiadających zewnętrznie połączonej publicznego tooit przypisany adres IP. Więcej informacji o bramach sieci VPN można znaleźć w artykule [Informacje dotyczące bram sieci VPN](vpn-gateway-about-vpngateways.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
+Sprawdź, czy zostały spełnione następujące kryteria przed rozpoczęciem konfiguracji hello:
 
-* Upewnij się, że masz zgodne urządzenie sieci VPN i dostępna jest osoba, która umie je skonfigurować. Aby uzyskać więcej informacji o zgodnych urządzeniach sieci VPN i konfiguracji urządzeń, zobacz artykuł [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
+* Upewnij się, że masz zgodne urządzenie sieci VPN i osoby, która jest w stanie tooconfigure go. Aby uzyskać więcej informacji o zgodnych urządzeniach sieci VPN i konfiguracji urządzeń, zobacz artykuł [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md).
 * Sprawdź, czy masz dostępny zewnętrznie publiczny adres IPv4 urządzenia sieci VPN. Ten adres IP nie może się znajdować za translatorem adresów sieciowych.
-* Jeśli nie znasz zakresów adresów IP w konfiguracji swojej sieci lokalnej, skontaktuj się z osobą, która może podać Ci te dane. Tworząc tę konfigurację, musisz określić prefiksy zakresu adresów IP, które platforma Azure będzie kierować do Twojej lokalizacji lokalnej. Żadna z podsieci sieci lokalnej nie może się nakładać na podsieci sieci wirtualnej, z którymi chcesz nawiązać połączenie.
-* Sprawdź, czy masz zainstalowaną najnowszą wersję poleceń interfejsu wiersza polecenia (2.0 lub nowszą). Aby uzyskać informacje o instalowaniu poleceń interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0](/cli/azure/install-azure-cli) i [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure 2.0](/cli/azure/get-started-with-azure-cli).
+* Jeśli nie znasz z zakresów adresów IP hello znajduje się w konfiguracji sieci lokalnej, należy toocoordinate z osobą, która Podaj te szczegóły należy. Podczas tworzenia tej konfiguracji należy określić hello prefiksów adresów IP zakresu czy Azure będzie przekierowywać tooyour lokalizacji lokalnej. Brak hello podsieci sieci lokalnej mogą za pośrednictwem laptop podsieci sieci wirtualnej hello, które mają tooconnect do.
+* Sprawdź, że zainstalowano najnowszą wersję hello polecenia interfejsu wiersza polecenia (2.0 lub nowszej). Informacje o instalowaniu hello polecenia interfejsu wiersza polecenia, zobacz [zainstalować Azure CLI 2.0](/cli/azure/install-azure-cli) i [wprowadzenie Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
 
 ### <a name="example"></a>Przykładowe wartości
 
-Następujących wartości możesz użyć do tworzenia środowiska testowego lub odwoływać się do tych wartości, aby lepiej zrozumieć przykłady w niniejszym artykule:
+Można użyć hello następujące wartości toocreate środowiska testowego lub można znaleźć wartości toothese toobetter zrozumieć hello przykłady w tym artykule:
 
 ```
 #Example values
@@ -72,13 +72,13 @@ GatewayType             = Vpn
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Nawiązywanie połączenia z subskrypcją
+## <a name="Login"></a>1. Połącz tooyour subskrypcji
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
 ## <a name="rg"></a>2. Tworzenie grupy zasobów
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie „TestRG1” w lokalizacji „eastus”. Jeśli masz już grupę zasobów w regionie, w którym chcesz utworzyć swoją sieć wirtualną, możesz jej użyć zamiast tej.
+Witaj poniższy przykład tworzy grupę zasobów o nazwie "TestRG1" w lokalizacji "eastus" hello. Jeśli masz już grupę zasobów w regionie hello mają toocreate sieci wirtualnej, można użyć niż jeden.
 
 ```azurecli
 az group create --name TestRG1 --location eastus
@@ -86,38 +86,38 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Tworzenie sieci wirtualnej
 
-Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją przy użyciu polecenia [az network vnet create](/cli/azure/network/vnet#create). Podczas tworzenia sieci wirtualnej upewnij się, że określone przestrzenie adresowe nie nakładają się na żadne inne przestrzenie adresowe w obrębie sieci lokalnej.
+Jeśli nie masz już sieć wirtualną, utwórz ją za pomocą hello [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) polecenia. Podczas tworzenia sieci wirtualnej, upewnij się, że przestrzenie adresowe hello, które określisz nie nakłada przestrzeni adresowych hello wyposażonych w sieci lokalnej.
 
-Poniższy przykład obejmuje tworzenie sieci wirtualnej o nazwie „TestVNet1” i podsieci „Subnet1”.
+Witaj poniższy przykład tworzy sieć wirtualną o nazwie "TestVNet1" i podsieć, "Podsieć1".
 
 ```azurecli
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4. <a name="gwsub"></a>Tworzenie podsieci bramy
+## 4. <a name="gwsub"></a>Utwórz podsieć bramy hello
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-Dla tej konfiguracji potrzebna jest również podsieć bramy. Brama sieci wirtualnej korzysta z podsieci bramy, która zawiera adresy IP używane przez usługi bramy sieci VPN. Podczas tworzenia podsieci bramy musi ona otrzymać nazwę „GatewaySubnet”. Jeśli zostanie nadana inna nazwa, podsieć zostanie utworzona, ale platforma Azure nie będzie jej traktowała jako podsieci bramy.
+Dla tej konfiguracji potrzebna jest również podsieć bramy. Brama sieci wirtualnej Hello używa podsieć bramy, która zawiera hello adresy IP, które są używane przez usługi bramy sieci VPN hello. Podczas tworzenia podsieci bramy musi ona otrzymać nazwę „GatewaySubnet”. Jeśli zostanie nadana inna nazwa, podsieć zostanie utworzona, ale platforma Azure nie będzie jej traktowała jako podsieci bramy.
 
-Rozmiar określanej podsieci bramy zależy od konfiguracji bramy sieci VPN, którą chcesz utworzyć. Chociaż możliwe jest utworzenie podsieci bramy tak małej, jak /29, zaleca się wybranie większej podsieci /27 lub /28, aby zawierała więcej adresów. Zastosowanie większej podsieci bramy daje wystarczającą liczbę adresów IP, aby uwzględnić możliwe przyszłe konfiguracje.
+rozmiar Hello hello podsieć bramy, który określisz jest zależna od konfiguracji bramy sieci VPN hello, które mają toocreate. Mimo że jest możliwe toocreate jak /29 podsieć bramy, zaleca się utworzenie większej podsieć, która zawiera więcej adresów, wybierając /27 lub /28. Przy użyciu większych podsieci bramy umożliwia za mało adresów tooaccommodate możliwe przyszłych konfiguracją IP.
 
-Użyj polecenia [az network vnet subnet create](/cli/azure/network/vnet/subnet#create), aby utworzyć podsieć bramy.
+Użyj hello [Utwórz podsieć sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#create) podsieci bramy hello toocreate polecenia.
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
-## <a name="localnet"></a>5. Tworzenie bramy sieci lokalnej
+## <a name="localnet"></a>5. Utwórz bramę sieci lokalnej hello
 
-Brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. Nadaj lokacji nazwę, za pomocą której platforma Azure może odwołać się do niej, a następnie określ adres IP lokalnego urządzenia sieci VPN, z którym będzie tworzone połączenie. Określ również prefiksy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do urządzenia sieci VPN. Określone prefiksy adresów są prefiksami znajdującymi się w Twojej sieci lokalnej. W przypadku zmian w sieci lokalnej prefiksy można łatwo zaktualizować.
+Brama sieci lokalnej Hello zwykle oznacza tooyour lokalizacji lokalnej. Nadaj nazwę za pomocą którego Azure można znaleźć tooit, a następnie wprowadź adres IP hello hello lokacji z toowhich urządzenia sieci VPN między lokalnymi hello utworzy połączenie. Należy także określić hello prefiksów adresów IP, które zostaną przesłane za pomocą urządzenia sieci VPN toohello hello VPN bramy. Witaj prefiksy adresów, które określisz są prefiksy hello znajdujących się w sieci lokalnej. W przypadku zmiany sieci lokalnej, można łatwo aktualizować hello prefiksy.
 
-Wprowadź następujące wartości:
+Użyj hello następujące wartości:
 
-* *--gateway-ip-address* to adres IP lokalnego urządzenia sieci VPN. Urządzenie sieci VPN nie może znajdować się za translatorem adresów sieciowych.
-* *--local-address-prefixes* to Twoje lokalne przestrzenie adresowe.
+* Witaj *— adres ip bramy* hello adres IP urządzenia sieci VPN użytkownika lokalnego. Urządzenie sieci VPN nie może znajdować się za translatorem adresów sieciowych.
+* Witaj *--prefiksy w przypadku adresów lokalnych* są lokalnej przestrzeni adresowych.
 
-Użyj polecenia [az network local-gateway create](/cli/azure/network/local-gateway#create), aby dodać bramę sieci lokalnej z wieloma prefiksami adresów:
+Użyj hello [Tworzenie bramy lokalnej sieci az](/cli/azure/network/local-gateway#create) tooadd polecenia bramy sieci lokalnej przy użyciu wielu prefiksy adresów:
 
 ```azurecli
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -125,25 +125,25 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 ## <a name="PublicIP"></a>6. Żądanie publicznego adresu IP
 
-Brama sieci VPN musi mieć publiczny adres IP. Najpierw żąda się zasobu adresu IP, a następnie odwołuje do niego podczas tworzenia bramy sieci wirtualnej. Adres IP jest dynamicznie przypisywany do zasobu podczas tworzenia bramy sieci VPN. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Nie można zażądać przypisania statycznego publicznego adresu IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana publicznego adresu IP, jest usunięcie bramy i jej ponowne utworzenie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
+Brama sieci VPN musi mieć publiczny adres IP. Najpierw zażądać zasobu adresu IP hello i odwoływać się tooit podczas tworzenia bramy sieci wirtualnej. adres IP Hello jest przypisywane dynamicznie toohello zasobów, po utworzeniu bramy sieci VPN hello. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Nie można zażądać przypisania statycznego publicznego adresu IP. Jednak nie oznacza to, że adres IP hello ulegnie zmianie po przypisaniu tooyour bramy sieci VPN. Hello czasu tylko zmiany adresu publicznego adresu IP hello jest po hello bramy zostanie usunięta i utworzona ponownie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
 
-Użyj polecenia [az network public-ip create](/cli/azure/network/public-ip#create), aby zażądać dynamicznego publicznego adresu IP.
+Użyj hello [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create) toorequest polecenia dynamicznego publicznego adresu IP.
 
 ```azurecli
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. Tworzenie bramy sieci VPN
+## <a name="CreateGateway"></a>7. Tworzenie bramy sieci VPN hello
 
-Utwórz bramę sieci VPN sieci wirtualnej. Tworzenie bramy sieci VPN może potrwać 45 minut lub więcej.
+Tworzenie bramy sieci VPN hello sieci wirtualnej. Tworzenie bramy sieci VPN może potrwać too45 minut lub więcej toocomplete.
 
-Wprowadź następujące wartości:
+Użyj hello następujące wartości:
 
-* Wartość *-gateway-type* dla konfiguracji lokacja-lokacja to *Vpn*. Typ bramy zawsze zależy od wdrażanej konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype) (Typy bram).
-* Dla pozycji *-vpn-type* określającej typ sieci VPN można wybrać opcję *RouteBased* (oparta na trasach; w dokumentacji używa się czasem określenia „brama dynamiczna”) lub *PolicyBased* (oparta na zasadach; w dokumentacji używa się czasem określenia „brama statyczna”). To ustawienie zależy od wymagań urządzenia, z którym nawiązujesz połączenie. Aby uzyskać więcej informacji o typach bram sieci VPN, zobacz [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) (Informacje o ustawieniach konfiguracji bramy sieci VPN).
-* Wybierz jednostkę SKU bramy, która ma być używana. Dla niektórych jednostek SKU istnieją ograniczenia konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
+* Witaj *— typ bramy* Site-to-Site konfiguracja jest *Vpn*. Typ bramy Hello jest zawsze toohello określonej konfiguracji w przypadku wdrażania. Aby uzyskać więcej informacji, zobacz [Gateway types](vpn-gateway-about-vpn-gateway-settings.md#gwtype) (Typy bram).
+* Witaj *— sieci vpn typu* może być *RouteBased* (określony tooas dynamiczne bramy w części dokumentacji), lub *PolicyBased* (określony tooas statycznych bramy w niektórych dokumentacja). Ustawienie Hello jest określonych toorequirements hello urządzenia, które są nawiązywane. Aby uzyskać więcej informacji o typach bram sieci VPN, zobacz [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) (Informacje o ustawieniach konfiguracji bramy sieci VPN).
+* Wybierz hello jednostka SKU bramy, które mają toouse. Dla niektórych jednostek SKU istnieją ograniczenia konfiguracji. Aby uzyskać więcej informacji, zobacz [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
 
-Utwórz bramę sieci VPN za pomocą polecenia [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). Jeśli to polecenie zostanie uruchomione z parametrem „--no-wait”, nie będą widoczne żadne informacje zwrotne ani dane wyjściowe. Ten parametr umożliwia utworzenie bramy w tle. Utworzenie bramy trwa około 45 minut.
+Tworzenie bramy sieci VPN hello przy użyciu hello [Tworzenie bramy sieci wirtualnej sieci az](/cli/azure/network/vnet-gateway#create) polecenia. Po uruchomieniu tego polecenia, używając hello parametr — nie - oczekiwania nie widać żadnych opinie i danych wyjściowych. Ten parametr umożliwia toocreate bramy hello w tle hello. Trwa około 45 minut toocreate bramy.
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
@@ -151,10 +151,10 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 
 ## <a name="VPNDevice"></a>8. Konfiguracja urządzenia sieci VPN
 
-Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci VPN. W tym kroku konfigurowane jest urządzenie sieci VPN. Podczas konfigurowania urządzenia sieci VPN potrzebne będą:
+Sieć lokalną tooan połączeń lokacja-lokacja wymagają urządzenia sieci VPN. W tym kroku konfigurowane jest urządzenie sieci VPN. Podczas konfigurowania urządzenia sieci VPN, potrzebne są następujące hello:
 
-- Klucz współużytkowany. To ten sam klucz współużytkowany, który jest określany podczas tworzenia połączenia sieci VPN typu lokacja-lokacja. W naszych przykładach używamy podstawowego klucza współużytkowanego. Zalecamy, aby do użycia wygenerować bardziej złożony klucz.
-- Publiczny adres IP bramy sieci wirtualnej. Publiczny adres IP można wyświetlić za pomocą witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia. Aby znaleźć publiczny adres IP swojej bramy sieci wirtualnej, użyj polecenia [az network public-ip list](/cli/azure/network/public-ip#list). W celu poprawienia czytelności dane wyjściowe są sformatowane do wyświetlania listy publicznych adresów IP w formacie tabeli.
+- Klucz współużytkowany. Jest to hello sam udostępniony klucz, który należy określić podczas tworzenia połączenia sieci VPN typu lokacja-lokacja. W naszych przykładach używamy podstawowego klucza współużytkowanego. Firma Microsoft zaleca, aby wygenerować bardziej złożonych toouse klucza.
+- Witaj publiczny adres IP bramy sieci wirtualnej. Publiczny adres IP hello można wyświetlić za pomocą hello portalu Azure, programu PowerShell lub interfejsu wiersza polecenia. toofind hello publicznego adresu IP bramy sieci wirtualnej, użyj hello [az sieci ip publicznego listy](/cli/azure/network/public-ip#list) polecenia. Czytelnej, dane wyjściowe hello jest sformatowany toodisplay hello lista publicznych adresów IP w formacie tabeli.
 
   ```azurecli
   az network public-ip list --resource-group TestRG1 --output table
@@ -164,38 +164,38 @@ Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9. Tworzenie połączenia sieci VPN
+## <a name="CreateConnection"></a>9. Utwórz połączenie sieci VPN hello
 
-Utwórz połączenie sieci VPN typu lokacja-lokacja między bramą sieci wirtualnej a lokalnym urządzeniem sieci VPN. Zwróć szczególną uwagę na wartość udostępnionego klucza, która musi być zgodna ze skonfigurowaną wartością klucza współużytkowanego dla Twojego urządzenia sieci VPN.
+Utwórz połączenie sieci VPN hello lokacja-lokacja między bramą sieci wirtualnej i lokalnego urządzenia sieci VPN. Płatności szczególną uwagę toohello udostępnionego klucza wartość, która musi być zgodna z hello skonfigurowane udostępnionych wartości klucza dla urządzenia sieci VPN.
 
-Utwórz połączenie za pomocą polecenia [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+Utwórz połączenie hello przy użyciu hello [Tworzenie połączenia sieci vpn az sieci](/cli/azure/network/vpn-connection#create) polecenia.
 
 ```azurecli
 az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
-Po chwili zostanie nawiązane połączenie.
+Automatycznie podczas hello zostanie nawiązane połączenie.
 
-## <a name="toverify"></a>10. Sprawdzenie połączenia sieci VPN
+## <a name="toverify"></a>10. Sprawdź hello połączenia sieci VPN
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-Jeśli chcesz użyć innej metody, aby sprawdzić swoje połączenie, zobacz [Weryfikowanie połączenia bramy sieci VPN](vpn-gateway-verify-connection-resource-manager.md).
+Jeśli chcesz toouse innego tooverify metody połączenia, zobacz [sprawdzić połączenie bramy sieci VPN](vpn-gateway-verify-connection-resource-manager.md).
 
-## <a name="connectVM"></a>Nawiązywanie połączenia z maszyną wirtualną
+## <a name="connectVM"></a>Maszyna wirtualna tooa tooconnect
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect tooa VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 ## <a name="tasks"></a>Typowe zadania
 
-Ta sekcja zawiera typowe polecenia, które są przydatne przy pracy z konfiguracjami lokacja-lokacja. Aby uzyskać pełną listę poleceń sieciowych interfejsu wiersza polecenia, zobacz [Interfejs wiersza polecenia platformy Azure — sieć](/cli/azure/network).
+Ta sekcja zawiera typowe polecenia, które są przydatne przy pracy z konfiguracjami lokacja-lokacja. Witaj pełną listę poleceń interfejsu wiersza polecenia sieci, zobacz [wiersza polecenia platformy Azure — sieci](/cli/azure/network).
 
 [!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
-* Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).
+* Po zakończeniu połączenia można dodać sieci wirtualnych tooyour maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) (Maszyny wirtualne).
+* Uzyskać informacji na temat protokołu BGP, zobacz hello [Omówienie protokołu BGP](vpn-gateway-bgp-overview.md) i [jak tooconfigure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Aby uzyskać informacje o wymuszonym tunelowaniu, zobacz [Informacje o wymuszonym tunelowaniu](vpn-gateway-forced-tunneling-rm.md).
 * Aby uzyskać informacje o połączeniach o wysokiej dostępności typu aktywne-aktywne, zobacz [Połączenia obejmujące wiele lokalizacji i połączenia między sieciami wirtualnymi o wysokiej dostępności](vpn-gateway-highlyavailable.md).
 * Aby zapoznać się z listą poleceń interfejsu wiersza polecenia platformy Azure dotyczących sieci, zobacz [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network).

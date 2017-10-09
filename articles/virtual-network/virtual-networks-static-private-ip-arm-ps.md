@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych - programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować prywatnych adresów IP dla maszyn wirtualnych przy użyciu programu PowerShell."
+title: "aaaConfigure prywatnych adresów IP dla maszyn wirtualnych - programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak adresy IP prywatnej tooconfigure dla maszyn wirtualnych przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a3eb67de583e08208fcab40de1c2a8a9b65618c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu programu PowerShell
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca tworzenie zasobów za pomocą modelu wdrożenia usługi Resource Manager. Aby dowiedzieć się więcej o różnicach między dwoma modelami, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informacje na temat modeli wdrażania platformy Azure). W tym artykule opisano model wdrażania usługi Resource Manager. Możesz również [Zarządzanie statycznego prywatnego adresu IP w klasycznym modelu wdrażania](virtual-networks-static-private-ip-classic-ps.md).
+Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca utworzenie zasobów za pośrednictwem modelu wdrażania usługi Resource Manager hello. więcej informacji o toolearn hello różnice między modelami hello dwa odczytu hello [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md) artykułu. W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. Możesz również [Zarządzanie statycznego prywatnego adresu IP w hello klasycznego modelu wdrażania](virtual-networks-static-private-ip-classic-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-W powyższym scenariuszu na podstawie próbek PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone. Aby uruchomić polecenia wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-ps.md).
+w powyższym scenariuszu hello na podstawie próbek Hello PowerShell poniższe polecenia oczekiwać środowisku niezłożonym już utworzone. Jeśli chcesz korzystać z poleceń hello toorun wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe hello opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-ps.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP
-Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci wirtualnej o nazwie *TestVNet* z statycznego prywatnego adresu IP z *192.168.1.101*, wykonaj następujące czynności:
+toocreate maszyny Wirtualnej o nazwie *DNS01* w hello *frontonu* podsieci sieci wirtualnej o nazwie *TestVNet* z statycznego prywatnego adresu IP z *192.168.1.101*, Wykonaj poniższe kroki hello:
 
-1. Ustaw zmienne dla konta magazynu, lokalizacja grupy zasobów i poświadczenia do użycia. Należy wprowadzić nazwę użytkownika i hasło dla maszyny Wirtualnej. Grupa kont i zasobów magazynu musi już istnieć.
+1. Ustaw zmienne dla konta magazynu hello, lokalizacja grupy zasobów i toobe poświadczenia używane. Konieczne będzie tooenter nazwę użytkownika i hasło dla hello maszyny Wirtualnej. Grupa kont i zasobów magazynu Hello musi już istnieć.
 
     ```powershell
     $stName  = "vnetstorage"
     $locName = "Central US"
     $rgName  = "TestRG"
-    $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
+    $cred    = Get-Credential -Message "Type hello name and password of hello local administrator account."
     ```
 
-2. Pobrać sieci wirtualnej i chcesz utworzyć maszynę Wirtualną w podsieci.
+2. Sieć wirtualna hello pobierania i podsieć ma toocreate hello maszyny Wirtualnej w ramach.
 
     ```powershell
     $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     $subnet = $vnet.Subnets[0].Id
     ```
 
-3. Jeśli to konieczne, Utwórz publiczny adres IP na dostęp do maszyny Wirtualnej z Internetu.
+3. Jeśli to konieczne, Utwórz publicznego adresu IP adres tooaccess hello maszyny Wirtualnej na podstawie hello Internet.
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
     -Location $locName -AllocationMethod Dynamic
     ```
 
-4. Utwórz kartę Sieciową za pomocą statycznego prywatnego adresu IP, który ma zostać przypisany do maszyny Wirtualnej. Upewnij się, że adres IP jest z zakresu podsieci, do którego dodajesz maszyny Wirtualnej. Jest to krok głównym tego artykułu, w których wartość prywatnego adresu IP statycznej.
+4. Utwórz kartę Sieciową przy użyciu hello statycznego prywatnego adresu IP ma toohello tooassign maszyny Wirtualnej. Upewnij się, że hello IP jest z zakresu podsieci hello dodawanego hello maszyny Wirtualnej, aby. Jest głównym krok hello tego artykułu, w którym ustawić hello prywatnego adresu IP toobe statycznych.
 
     ```powershell
     $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
@@ -68,7 +68,7 @@ Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci w
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. Utwórz maszynę Wirtualną przy użyciu kart utworzone powyżej.
+5. Utwórz hello utworzenia maszyny Wirtualnej przy użyciu hello karty Sieciowej powyżej.
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -95,7 +95,7 @@ Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci w
         StatusCode          : OK 
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Pobrać statycznych prywatne informacje o adresie IP dla karty sieciowej
-Aby wyświetlić informacje statycznych adresów IP prywatne dla maszyny Wirtualnej utworzone za pomocą skryptu powyżej, uruchom następujące polecenie programu PowerShell i sprawdź wartości *elementu PrivateIpAddress* i *PrivateIpAllocationMethod*:
+tooview hello statycznego prywatnego adresu IP adres dla hello maszyny Wirtualnej utworzone za pomocą skryptu hello powyżej, uruchom następujące polecenia programu PowerShell hello i sprawdź wartości hello *elementu PrivateIpAddress* i  *PrivateIpAllocationMethod*:
 
 ```powershell
 Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -142,7 +142,7 @@ Oczekiwane dane wyjściowe:
     Primary              : True
 
 ## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Usuń statycznego prywatnego adresu IP z karty sieciowej
-Aby usunąć statycznego prywatnego adresu IP dodane do maszyny Wirtualnej w skrypcie powyżej, uruchom następujące polecenia programu PowerShell:
+tooremove hello statycznego prywatnego adresu IP dodane toohello maszyny Wirtualnej w skrypcie hello powyżej hello uruchom następujące polecenia programu PowerShell:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -190,8 +190,8 @@ Oczekiwane dane wyjściowe:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Dodawanie statycznego prywatnego adresu IP do karty sieciowej
-Aby dodać statycznego prywatnego adresu IP do maszyny Wirtualnej utworzone za pomocą skryptu powyżej, uruchom następujące polecenia:
+## <a name="add-a-static-private-ip-address-tooa-network-interface"></a>Dodawanie statycznego prywatnego adresu IP adres tooa interfejsu sieciowego
+tooadd statycznego prywatnego adresu IP adres toohello maszyny Wirtualnej utworzonej przy użyciu skryptu hello powyżej, uruchom następujące polecenia hello:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -199,9 +199,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
-## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Zmień metodę alokacji dla prywatny adres IP przypisany do interfejsu sieciowego
+## <a name="change-hello-allocation-method-for-a-private-ip-address-assigned-tooa-network-interface"></a>Zmień hello metoda przydziału prywatnego adresu IP przypisany tooa interfejsu sieciowego
 
-Prywatny adres IP jest przypisana do karty Sieciowej do metody statyczne lub dynamiczne alokacji. Dynamiczne adresy IP można zmienić po uruchomieniu maszyny Wirtualnej, który wcześniej był w stanie zatrzymania (cofnięciu przydziału). To może powodować problemy w przypadku maszyny Wirtualnej jest hostem usługi wymagającej ten sam adres IP, nawet po uruchomieniu z zatrzymana (cofnięciu przydziału). Statyczne adresy IP są zachowywane, aż do usunięcia maszyny Wirtualnej. Aby zmienić metodę alokacji adresu IP, uruchom następujący skrypt, który zmienia metodę alokacji z dynamicznego statyczne. Jeśli metoda alokacji dla bieżącego prywatnego adresu IP jest statyczny, zmień *statycznych* do *dynamiczne* przed wykonaniem skryptu.
+Prywatny adres IP jest przypisany tooa karty Sieciowej z metody statyczne lub dynamiczne alokacji hello. Dynamiczne adresy IP można zmienić po uruchamiania maszyny Wirtualnej, który wcześniej był w hello zatrzymane (cofnięciu przydziału) stanu. To może powodować problemy jeśli hello maszyny Wirtualnej jest hostem usługi wymagającej hello tego samego adresu IP, nawet po uruchomieniu z zatrzymana (cofnięciu przydziału). Statyczne adresy IP są zachowywane, aż do usunięcia hello maszyny Wirtualnej. Metoda alokacji hello toochange adresu IP, uruchom hello następującego skryptu, który zmienia hello metodę alokacji z toostatic dynamicznych. Jeśli hello metodę alokacji dla bieżącego prywatnego adresu IP hello jest statyczny, zmień *statycznych* za*dynamiczne* przed wykonaniem skryptu hello.
 
 ```powershell
 $RG = "TestRG"
@@ -212,10 +212,10 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
 Set-AzureRmNetworkInterface -NetworkInterface $nic 
 $IP = $nic.IpConfigurations[0].PrivateIpAddress
 
-Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
+Write-Host "hello allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for hello IP address" $IP"." -NoNewline
 ```
 
-Jeśli nie znasz nazwę karty Sieciowej, można wyświetlić listę kart sieciowych w grupie zasobów, wprowadzając następujące polecenie:
+Jeśli nie znasz nazwy hello hello kart interfejsu Sieciowego, można wyświetlić listę kart sieciowych w grupie zasobów, wprowadzając następujące polecenie hello:
 
 ```powershell
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
@@ -224,5 +224,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zastrzeżone publicznego adresu IP](virtual-networks-reserved-public-ip.md) adresów.
 * Dowiedz się więcej o [poziomie wystąpienia publicznego adresu IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresów.
-* Zapoznaj się [zastrzeżone interfejsów API REST IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Zapoznaj się hello [zastrzeżonego adresu IP interfejsów API REST](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

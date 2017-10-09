@@ -1,6 +1,6 @@
 ---
-title: "O 3 konfiguracji urządzenia sieci VPN firm, aby nawiązać połączenie bramy sieci VPN platformy Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie 3 konfiguracji urządzenia sieci VPN firmy w celu nawiązania połączenia bramy sieci VPN platformy Azure."
+title: "aaaAbout 3 strona bramy sieci VPN urządzenia konfiguracji tooconnect tooAzure VPN | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera omówienie 3 konfiguracji urządzenia sieci VPN firmy podłączania tooAzure bramy sieci VPN."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 72dab85bb882b05d72cef26bef70437695b70416
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3bb4fc94bc625386c2d0a02e1dcbdeb38ee0665e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-3rd-party-vpn-device-configurations"></a>Omówienie 3 konfiguracji urządzenia sieci VPN firmy
-Ten artykuł zawiera omówienie lokalnej konfiguracji urządzenia sieci VPN do połączenia bramy sieci VPN platformy Azure. Przykład sieci wirtualnej platformy Azure i instalacji bramy sieci VPN będzie służyć do nawiązania połączenia lokalnego różne urządzenia sieci VPN z takimi samymi parametrami.
+Ten artykuł zawiera omówienie lokalnej konfiguracji urządzenia sieci VPN dla połączenia bramy sieci VPN tooAzure. Przykładowe Hello sieci wirtualnej platformy Azure i sieci VPN bramy Instalator będzie używana tooconnect toodifferent lokalnej sieci VPN urządzenia z hello takie same parametry.
 
 ## <a name="device-requirements"></a>Wymagania dotyczące urządzeń
-Bramy sieci VPN platformy Azure na użytek standardowych pakietów protokołu IPsec i IKE tunel S2S VPN. Zapoznaj się [urządzenia sieci VPN o](vpn-gateway-about-vpn-devices.md) szczegółowe parametry protokołu IPsec i IKE i domyślne algorytmów kryptograficznych dla bram sieci VPN platformy Azure. Opcjonalnie można określić dokładną kombinację algorytmów kryptograficznych i kluczy sile dla określonego połączenia, zgodnie z opisem w [o wymaganiach dotyczących kryptograficznych](vpn-gateway-about-compliance-crypto.md).
+Bramy sieci VPN platformy Azure na użytek standardowych pakietów protokołu IPsec i IKE tunel S2S VPN. Odwołuje się zbyt[urządzenia sieci VPN o](vpn-gateway-about-vpn-devices.md) dla hello szczegółowe parametry protokołu IPsec i IKE i domyślne algorytmów kryptograficznych dla bram sieci VPN platformy Azure. Opcjonalnie można określić kombinację dokładne hello algorytmów kryptograficznych i kluczy sile dla określonego połączenia, zgodnie z opisem w [o wymaganiach dotyczących kryptograficznych](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Jeden tunel VPN
-Pierwszy topologii składa się z jednego tunelu S2S VPN między bramą sieci VPN platformy Azure i lokalnego urządzenia sieci VPN. Opcjonalnie można skonfigurować protokołu BGP przez tunel VPN.
+Topologia pierwszy Hello składa się z jednego tunelu S2S VPN między bramą sieci VPN platformy Azure i lokalnego urządzenia sieci VPN. Opcjonalnie można skonfigurować protokołu BGP przez tunel VPN hello.
 
 ![jednego tunelu](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Zapoznaj się [konfigurowania połączenia lokacja lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md) wskazówki szczegółowe, krok po kroku. W poniższych sekcjach znajduje się lista parametrów i podaj przykładowy skrypt programu PowerShell, aby pomóc Ci rozpocząć.
+Odwołuje się zbyt[konfigurowania połączenia lokacja lokacja](vpn-gateway-howto-site-to-site-resource-manager-portal.md) wskazówki szczegółowe, krok po kroku. Hello poniższych sekcjach znajduje się lista parametrów hello i Podaj próbki toohelp skrypt programu PowerShell, możesz rozpocząć pracę.
 
 ### <a name="network-and-vpn-gateway-information"></a>Informacji bramy sieci VPN i sieci
-W tej sekcji znajduje się lista parametrów dla powyższych przykładach.
+W tej sekcji znajduje się lista parametrów hello przykłady hello powyżej.
 
 | **Parametr**                | **Wartość**                    |
 | ---                          | ---                          |
@@ -51,7 +51,7 @@ W tej sekcji znajduje się lista parametrów dla powyższych przykładach.
 * (*) Parametry opcjonalne dla protokołu BGP tylko
 
 ### <a name="sample-powershell-script"></a>Przykładowy skrypt programu PowerShell
-[Utwórz połączenie sieci VPN S2S przy użyciu programu PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) zawiera szczegółowe instrukcje. Ta sekcja zawiera przykładowy skrypt ułatwiających rozpoczęcie pracy.
+[Utwórz połączenie sieci VPN S2S przy użyciu programu PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) ma hello szczegółowe instrukcje. Ta sekcja zawiera przykładowe tooget skryptu, uruchamiany.
 
 ```powershell
 # Declare your variables
@@ -82,7 +82,7 @@ $LNGIP5        = "Your_VPN_Device_IP"
 $LNGASN5       = 65050
 $BGPPeerIP5    = "10.52.255.254"
 
-# Connect to your subscription and create a new resource group
+# Connect tooyour subscription and create a new resource group
 
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
@@ -108,7 +108,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix51,$LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 
-# Create the S2S VPN connection
+# Create hello S2S VPN connection
 
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
@@ -117,16 +117,16 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="policybased"></a>[Opcjonalnie] Za pomocą niestandardowych zasad IPsec i IKE z "UsePolicyBasedTrafficSelectors"
-Urządzenia sieci VPN nie obsługują selektorów "dowolny z każdym" ruchu (na podstawie/VTI-opartej na trasach konfiguracji), należy utworzyć niestandardowe zasady IPsec i IKE i skonfiguruj opcję "UsePolicyBasedTrafficSelectors", zgodnie z opisem w [w tym artykule ](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Jeśli urządzenia sieci VPN nie obsługują selektorów "dowolny z każdym" ruchu (na podstawie/VTI-opartej na trasach konfiguracji), należy toocreate niestandardowych zasad IPsec i IKE, a Skonfiguruj opcję "UsePolicyBasedTrafficSelectors", zgodnie z opisem w [w tym artykule ](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
-> Należy utworzyć zasady IPsec i IKE, aby włączyć opcję "UsePolicyBasedTrafficSelectors" w połączeniu.
+> Należy toocreate zasady IPsec i IKE w kolejności tooenable opcji "UsePolicyBasedTrafficSelectors" hello połączenia.
 
-Poniższy przykładowy skrypt tworzy zasady IPsec i IKE o parametrach i następujących algorytmów:
+Witaj Poniższy przykładowy skrypt tworzy zasady IPsec i IKE z hello algorytmów i parametry:
 * IKEv2: DHGroup24 AES256, SHA384
 * Protokół IPsec: AES256 SHA1, PFS24, skojarzenia zabezpieczeń okres istnienia 7200 sekund & 20480000KB (20GB)
 
-Następnie stosuje zasad i umożliwia "UesPolicyBasedTrafficSelectors" dla połączenia.
+Następnie stosuje hello zasad i umożliwia "UesPolicyBasedTrafficSelectors" hello połączenia.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -138,20 +138,20 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="bgp"></a>[Opcjonalnie] Użyj protokołu BGP dla połączenia sieci VPN S2S
-Protokół BGP można używać w połączeniu. Zobacz [BGP dla bramy sieci VPN](vpn-gateway-bgp-resource-manager-ps.md). Istnieją dwie różnice:
+Można opcjonalnie użyć protokołu BGP na powitania połączenia. Zobacz [BGP dla bramy sieci VPN](vpn-gateway-bgp-resource-manager-ps.md). Istnieją dwie różnice:
 
-Prefiksy adresów lokalnych może być adresem jednego hosta, adres IP elementu równorzędnego protokołu BGP na lokalnym:
+prefiksy adresów lokalne powitania można adres jednego hosta, adres IP elementu równorzędnego protokołu BGP lokalne powitania:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-Należy ustawić "-wartość" $true podczas tworzenia połączenia:
+Należy ustawić "-wartość" zbyt$ True podczas tworzenia połączenia hello:
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [Konfigurowanie bram VPN Gateway w konfiguracji typu aktywne-aktywne dla połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi](vpn-gateway-activeactive-rm-powershell.md) dla procedury konfigurowania połączeń obejmujących wiele lokalizacji i połączeń między sieciami wirtualnymi typu aktywne-aktywne.
+Zobacz [konfigurowania bramy sieci VPN aktywny-aktywny między lokalizacjami i połączeń między wirtualnymi do](vpn-gateway-activeactive-rm-powershell.md) procedury tooconfigure aktywny aktywny między lokalizacjami i połączeń do wirtualnymi.
 

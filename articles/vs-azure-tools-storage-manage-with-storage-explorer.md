@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie do programu Storage Explorer (wersja zapoznawcza) | Microsoft Docs
+title: "aaaGet wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
 description: "Zarządzanie zasobami usługi Azure Storage za pomocą programu Storage Explorer (wersja zapoznawcza)"
 services: storage
 documentationcenter: na
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/17/2017
 ms.author: kraigb
-ms.openlocfilehash: 1794a86a4185d587cf184a1f61a5720e2ab65e92
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57737b51baace92858eb07c7dbc3139bd7e041f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Wprowadzenie do programu Storage Explorer (wersja zapoznawcza)
 ## <a name="overview"></a>Omówienie
-Microsoft Azure Storage Explorer (wersja zapoznawcza) jest aplikacją autonomiczną, która umożliwia łatwą pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux. Ten artykuł zawiera informacje dotyczące różnych sposobów łączenia się z kontami magazynu Azure i zarządzania nimi.
+Eksplorator usługi Azure Storage (wersja zapoznawcza) jest aplikacją autonomiczną, która umożliwia tooeasily pracy z danymi usługi Azure Storage w systemie Windows, macOS i Linux. W tym artykule dowiesz się hello różnych sposobów łączenia tooand Zarządzanie kontami magazynu Azure.
 
 ![Microsoft Azure Storage Explorer (wersja zapoznawcza)][15]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Pobieranie i instalowanie programu Storage Explorer (wersja zapoznawcza)](http://www.storageexplorer.com)
 
-## <a name="connect-to-a-storage-account-or-service"></a>Łączenie się z usługą lub kontem magazynu
-Program Storage Explorer (wersja zapoznawcza) oferuje kilka sposobów łączenia się z kontem magazynu. Można na przykład:
-* Łączyć się z kontami magazynu skojarzonymi z subskrypcjami platformy Azure.
-* Łączyć się z usługami i kontami magazynu udostępnianymi z innych subskrypcji platformy Azure.
-* Łączyć się z magazynem lokalnym i zarządzać nim przy użyciu emulatora usługi Azure Storage. 
+## <a name="connect-tooa-storage-account-or-service"></a>Połącz z usługą lub kontem magazynu tooa
+Eksplorator usługi Storage (wersja zapoznawcza) oferuje kilka możliwości tooconnect toostorage kont. Można na przykład:
+* Łączenie kont toostorage skojarzonych z subskrypcjami platformy Azure.
+* Podłącz toostorage konta i usługi, które są udostępniane z innych subskrypcji platformy Azure.
+* Połącz tooand Zarządzanie magazynem lokalnym przy użyciu hello emulatora magazynu Azure. 
 
 Ponadto można pracować z kontami magazynu na globalnej i krajowej platformie Azure:
 
-* [Łączenie się z subskrypcją platformy Azure](#connect-to-an-azure-subscription): zarządzanie zasobami magazynu należącymi do subskrypcji platformy Azure.
-* [Praca z lokalnym magazynem programistycznym](#work-with-local-development-storage): zarządzanie magazynem lokalnym przy użyciu emulatora usługi Azure Storage.
-* [Dołączanie do magazynu zewnętrznego](#attach-or-detach-an-external-storage-account): zarządzanie zasobami magazynu należącymi do innej subskrypcji platformy Azure lub w innych chmurach krajowej platformy Azure przy użyciu nazwy, klucza i punktów końcowych konta magazynu.
-* [Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego](#attach-storage-account-using-sas): zarządzanie zasobami magazynu należącymi do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
-* [Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego](#attach-service-using-sas): zarządzanie określoną usługą magazynu (kontenerem obiektów blob, kolejką lub tabelą) należącą do innej subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego.
+* [Połącz tooan subskrypcji platformy Azure](#connect-to-an-azure-subscription): Zarządzanie zasobami magazynu, które należą tooyour subskrypcji platformy Azure.
+* [Praca z magazynu lokalnego programowanie](#work-with-local-development-storage): Zarządzanie magazynem lokalnym przy użyciu hello emulatora magazynu Azure.
+* [Dołącz magazynu tooexternal](#attach-or-detach-an-external-storage-account): Zarządzanie zasobami magazynu, które należą tooanother subskrypcji platformy Azure lub które są w obszarze national chmury Azure przy użyciu nazwy konta magazynu hello, klucz i punktów końcowych.
+* [Dołączanie konta magazynu przy użyciu sygnatury dostępu Współdzielonego](#attach-storage-account-using-sas): Zarządzanie zasobami magazynu, które należą tooanother subskrypcji platformy Azure przy użyciu sygnatury dostępu współdzielonego (SAS).
+* [Dołączanie usługi przy użyciu sygnatury dostępu Współdzielonego](#attach-service-using-sas): Zarządzanie określoną usługą magazynu (kontenera obiektów blob, kolejki lub tabeli) należącą tooanother subskrypcji platformy Azure przy użyciu sygnatury dostępu Współdzielonego.
 
-## <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
+## <a name="connect-tooan-azure-subscription"></a>Połącz tooan subskrypcji platformy Azure
 > [!NOTE]
 > Jeśli nie masz konta platformy Azure, możesz [utworzyć konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) lub [aktywować korzyści dla subskrybentów programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 >
@@ -53,39 +53,39 @@ Ponadto można pracować z kontami magazynu na globalnej i krajowej platformie A
 
     ![Ustawienia konta platformy Azure][0]
 
-2. W lewym okienku są wyświetlane wszystkie konta Microsoft, na których się zalogowano. Aby połączyć się z innym kontem, wybierz pozycję **Dodaj konto** i postępuj zgodnie z instrukcjami w celu zalogowania się przy użyciu konta Microsoft skojarzonego z co najmniej jedną aktywną subskrypcją platformy Azure.
+2. w okienku po lewej stronie powitania Wyświetla wszystkie konta Microsoft hello, który użytkownik został zarejestrowany w usłudze. Konto tooanother tooconnect, wybierz opcję **Dodaj konto**, a następnie wykonaj toosign instrukcje hello za pomocą konta Microsoft, który jest skojarzony z co najmniej jedną aktywną subskrypcją platformy Azure.
 
     >[!NOTE]
-    >Łączenie z krajową wersją platformy Azure (taką jak niemiecka wersja platformy Azure, chińska wersja platformy Azure i platforma Azure dla instytucji rządowych za pośrednictwem logowania) nie jest obecnie obsługiwane. Zobacz sekcję „Dołączanie lub odłączanie konta magazynu zewnętrznego”, aby zapoznać się z opisem nawiązywania połączenia z kontami magazynu na krajowej platformie Azure.
+    >Łączenie toonational Azure (na przykład platformy Azure w Niemczech, Azure dla instytucji rządowych i Chińskiej wersji platformy Azure za pomocą logowania) nie jest obecnie obsługiwane. Zobacz hello "Dołączanie lub odłączanie konta magazynu zewnętrznego" sekcji opisano sposób kontami magazynu Azure toonational tooconnect.
 
-3. Po pomyślnym zalogowaniu się przy użyciu konta Microsoft w okienku po lewej stronie zostaną wyświetlone wszystkie subskrypcje platformy Azure skojarzone z tym kontem. Wybierz subskrypcje platformy Azure, z którymi chcesz pracować, a następnie wybierz przycisk **Zastosuj**. (Zaznaczenie pola **Wszystkie subskrypcje** powoduje przełączenie między wyświetlaniem wszystkich lub żadnej z wymienionych subskrypcji platformy Azure).
+3. Po pomyślnym zalogowaniu się przy użyciu konta Microsoft, lewo hello okienko jest wypełniana hello subskrypcji platformy Azure skojarzonych z tym kontem. Wybierz hello subskrypcji platformy Azure, które mają toowork z, a następnie wybierz **Zastosuj**. (Wybieranie **wszystkie subskrypcje** przełącza wyświetlaniem wszystkich lub żadnej hello wymienionych subskrypcji platformy Azure.)
 
     ![Wybieranie subskrypcji platformy Azure][3]  
-    W okienku po lewej stronie są wyświetlane wszystkie konta magazynu skojarzone z wybranymi subskrypcjami platformy Azure.
+    w okienku po lewej stronie powitania Wyświetla hello konta magazynu skojarzone z hello wybrane subskrypcje platformy Azure.
 
     ![Wybrane subskrypcje platformy Azure][4]
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Łączenie z subskrypcją usługi Azure Stack
+## <a name="connect-tooan-azure-stack-subscription"></a>Połączyć subskrypcję Azure stosu tooan
 
-Aby uzyskać informacje dotyczące łączenia z subskrypcją usługi Azure Stack, zobacz [Connect Storage Explorer to an Azure Stack subscription (Łączenie programu Storage Explorer z subskrypcją usługi Azure Stack)](azure-stack/azure-stack-storage-connect-se.md).
+Uzyskać informacje dotyczące łączenia subskrypcji Azure stosu tooan, zobacz [tooan połączenia Eksploratora usługi Storage subskrypcji Azure stosu](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Praca z lokalnym magazynem projektowym
-Program Storage Explorer (wersja zapoznawcza) pozwala pracować z magazynem lokalnym przy użyciu emulatora usługi Azure Storage. Takie podejście umożliwia pisanie kodu dla magazynu i testowanie go bez konieczności posiadania konta magazynu wdrożonego na platformie Azure, ponieważ konto magazynu jest emulowane przez emulator usługi Azure Storage.
+Z Eksploratora usługi Storage (wersja zapoznawcza) można pracować z magazynu lokalnego przy użyciu hello emulatora magazynu Azure. To rozwiązanie umożliwia pisanie kodu oraz testów magazynu bez konieczności posiadania konta magazynu wdrożonego na platformie Azure, ponieważ hello konta magazynu jest emulowane przez Emulator usługi Azure Storage hello.
 
 > [!NOTE]
-> Emulator usługi Azure Storage jest obecnie obsługiwany tylko dla systemu Windows.
+> Witaj emulatora magazynu Azure jest obecnie obsługiwane tylko dla systemu Windows.
 >
 >
 
-1. W lewym okienku programu Storage Explorer (wersja zapoznawcza) rozwiń węzeł **(Lokalne i dołączone)** > **Konta usługi Storage** > **(Projektowanie)**.
+1. W okienku po lewej stronie powitania z Eksploratora usługi Storage (wersja zapoznawcza), rozwiń węzeł hello **(lokalny i dołączonego)** > **kont magazynu** > **(Programowanie)** węzła.
 
     ![Węzeł projektowania lokalnego][21]
 
-2. Jeśli emulator usługi Azure Storage nie został jeszcze zainstalowany, na pasku informacyjnym zostanie wyświetlony monit o jego zainstalowanie. Po wyświetleniu paska informacyjnego wybierz polecenie **Pobierz najnowszą wersję** i zainstaluj emulator.
+2. Jeśli hello emulatora magazynu Azure nie został jeszcze zainstalowany, to zostanie wyświetlony monit o toodo tak za pośrednictwem paska informacyjnego. Jeśli zostanie wyświetlony pasek informacyjny hello, wybierz **pobierania hello najnowszej wersji**, a następnie zainstaluj hello emulator.
 
     ![Monit o pobranie emulatora usługi Azure Storage][22]
 
-3. Po zainstalowaniu emulatora będziesz mieć możliwość tworzenia lokalnych obiektów blob, kolejek i tabel oraz pracy z nimi. Aby dowiedzieć się, w jaki sposób pracować z poszczególnymi typami kont magazynu, zobacz jeden z poniższych artykułów:
+3. Po zainstalowaniu emulatora hello można tworzyć i pracować z lokalnych obiektów blob, kolejek i tabel. toolearn jak typ toowork z każdego konta magazynu, zobacz jedną z następujących hello:
 
     * [Zarządzanie zasobami usługi Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
     * Zarządzanie zasobami magazynu udziału plików platformy Azure: *dostępne wkrótce*
@@ -93,139 +93,139 @@ Program Storage Explorer (wersja zapoznawcza) pozwala pracować z magazynem loka
     * Zarządzanie zasobami usługi Azure Table Storage: *dostępne wkrótce*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Dołączanie lub odłączanie konta magazynu zewnętrznego
-Program Storage Explorer (wersja zapoznawcza) umożliwia dołączanie kont magazynu zewnętrznego, dzięki czemu można łatwo udostępniać konta magazynu. W tej sekcji opisano sposób dołączania (i odłączania) kont magazynu zewnętrznego.
+Z Eksploratora usługi Storage (wersja zapoznawcza) można dołączyć tooexternal kont magazynu, dzięki czemu można łatwo udostępniać konta magazynu. W tej sekcji opisano sposób tooattach too(and detach from) kont magazynu zewnętrznego.
 
-### <a name="get-the-storage-account-credentials"></a>Uzyskiwanie poświadczeń konta magazynu
-Aby udostępnić konto magazynu zewnętrznego, właściciel tego konta musi najpierw uzyskać poświadczenia (nazwę konta i klucz) dla konta, a następnie udostępnić te informacje osobie, która chce dołączyć do tego (zewnętrznego) konta. Poświadczenia konta magazynu można uzyskać za pośrednictwem witryny Azure Portal, wykonując następujące czynności:
+### <a name="get-hello-storage-account-credentials"></a>Uzyskiwanie poświadczeń konta magazynu hello
+tooshare konta magazynu zewnętrznego, hello właściciela tego konta musi najpierw uzyskać poświadczenia hello (nazwa konta i klucz) dla konta hello, a następnie udostępnić te informacje osobie hello, którzy chcą tooattach toothat (zewnętrznego) konta. Można uzyskać poświadczeń konta magazynu hello za pośrednictwem portalu Azure hello hello następujący:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
 
 2. Wybierz pozycję **Przeglądaj**.
 
 3. Wybierz pozycję **Konta usługi Storage**.
 
-4. W bloku **Konta usługi Storage** wybierz odpowiednie konto magazynu.
+4. Na powitania **kont magazynu** bloku, wybierz hello żądanego konta magazynu.
 
-5. W bloku **Ustawienia** dla wybranego konta magazynu wybierz pozycję **Klucze dostępu**.
+5. Na powitania **ustawienia** bloku hello wybranego konta magazynu, wybierz **klucze dostępu**.
 
     ![Opcja Klucze dostępu][5]
 
-6. W bloku **Klucze dostępu** skopiuj wartość **Nazwa konta usługi Storage** i **klucz 1**, aby użyć ich podczas dołączania do konta magazynu.
+6. Na powitania **klucze dostępu** bloku, hello kopiowania **nazwy konta magazynu** i **klucz1** wartości do użycia podczas dołączania konta magazynu toohello.
 
     ![Klawisze dostępu][6]
 
-### <a name="attach-to-an-external-storage-account"></a>Dołączanie konta magazynu zewnętrznego
-Aby dołączyć konto magazynu zewnętrznego, potrzebna jest nazwa konta i klucz. W sekcji „Uzyskiwanie poświadczeń konta magazynu” wyjaśniono sposób uzyskiwania tych wartości z witryny Azure Portal. Należy pamiętać, że w witrynie Azure Portal klucz konta ma nazwę **klucz 1**. Dlatego w przypadku, gdy program Storage Explorer (wersja zapoznawcza) wymaga podania klucza konta, należy wprowadzić wartość **klucz 1**.
+### <a name="attach-tooan-external-storage-account"></a>Dołączanie konta magazynu zewnętrznego tooan
+konta magazynu zewnętrznego tooan tooattach, należy nazwę hello konta i klucz. sekcja "Poświadczeń konta magazynu hello Get" Hello wyjaśniono, jak te wartości z tooobtain hello portalu Azure. Jednak w portalu hello klucz konta hello jest nazywany **klucz1**. Dlatego w przypadku, gdy Eksploratora usługi Storage (wersja zapoznawcza) wprowadza się klucza konta, możesz wprowadzić hello **klucz1** wartości.
 
-1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
+1. W Eksploratorze usługi Storage (wersja zapoznawcza), wybierz **łączą magazyn tooAzure**.
 
-    ![Opcja Połącz z usługą Azure Storage][23]
+    ![Opcja magazynu tooAzure połączenia][23]
 
-2. W oknie dialogowym **Łączenie z usługą Azure Storage** określ klucz konta (wartość **klucz 1** z witryny Azure Portal), a następnie wybierz przycisk **Dalej**.
+2. W hello **połączyć tooAzure magazynu** okna dialogowego należy określić klucz konta hello (hello **klucz1** wartość z zakresu od hello portalu Azure), a następnie wybierz **dalej**.
 
     > [!NOTE]
-    > Możesz wprowadzić parametry połączenia z usługą Storage z poziomu konta magazynu na krajowej platformie Azure. Na przykład aby połączyć się z kontami magazynu niemieckiej wersji platformy Azure, należy wprowadzić parametry połączenia podobne do następujących: 
+    > Możesz wprowadzić parametry połączenia magazynu hello z konta magazynu Azure national. Na przykład tooconnect tooAzure Niemcy kont magazynu, wprowadź następujące toohello podobne parametry połączenia: 
     >
     >* DefaultEndpointsProtocol=https
     >* AccountName=cawatest03
     >* AccountKey=<klucz_konta_magazynu>
     >* EndpointSuffix=core.cloudapi.de
     
-    >Parametry połączenia można uzyskać z witryny Azure Portal w taki sam sposób, jak opisany w sekcji „Uzyskiwanie poświadczeń konta magazynu”.
+    >Można pobrać ciągu połączenia hello z hello Azure portalu w hello sam sposób, jak opisano w hello sekcji "Uzyskiwanie poświadczeń konta magazynu hello".
 
-    ![Okno dialogowe Łączenie z usługą Azure Storage][24]
+    ![Okno dialogowe magazynu tooAzure łączenie][24]
 
-3. W oknie dialogowym **Dołączanie zewnętrznej usługi Storage** w polu **Nazwa konta** wprowadź nazwę konta magazynu, określ inne żądane ustawienia, a następnie wybierz przycisk **Dalej**.
+3. W hello **Dołącz zewnętrzną usługę Storage** okno dialogowe, w hello **nazwa konta** , wprowadź nazwę konta magazynu hello, określ odpowiednie ustawienia, a następnie wybierz **dalej**.
 
     ![Okno dialogowe Dołączanie zewnętrznej usługi Storage][8]
 
-4. Sprawdź informacje wyświetlone w oknie dialogowym **Podsumowanie połączenia**. Aby wprowadzić zmiany, wybierz przycisk **Wstecz** i ponownie wprowadź odpowiednie ustawienia. 
+4. W hello **podsumowanie połączenia** okna dialogowego Sprawdź hello informacji. Toochange cokolwiek, zaznacz **ponownie** i wprowadzić ustawienia hello potrzebne. 
 
 5. Wybierz przycisk **Połącz**.
 
-6. Po pomyślnym nawiązaniu połączenia konto magazynu zewnętrznego będzie wyświetlane z tekstem **(Zewnętrzne)** dodanym na końcu nazwy konta magazynu.
+6. Po pomyślnym połączeniu konta magazynu zewnętrznego hello jest wyświetlana z **(zewnętrzne)** dołączana nazwa konta magazynu toohello.
 
-    ![Wynik połączenia z kontem magazynu zewnętrznego][9]
+    ![Wynik łączenia tooan konta magazynu zewnętrznego][9]
 
 ### <a name="detach-from-an-external-storage-account"></a>Odłączanie konta magazynu zewnętrznego
-1. Kliknij prawym przyciskiem myszy konto magazynu zewnętrznego, które chcesz odłączyć, a następnie wybierz polecenie **Odłącz**.
+1. Kliknij prawym przyciskiem myszy konto magazynu zewnętrznego hello mają toodetach, a następnie wybierz **Detach**.
 
     ![Opcja odłączenia magazynu][10]
 
-2. W oknie komunikatu z potwierdzeniem wybierz przycisk **Tak**, aby potwierdzić odłączenie konta magazynu zewnętrznego.
+2. Komunikat potwierdzający hello, wybierz **tak** tooconfirm hello odłączenie konta magazynu zewnętrznego hello.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego
-[Sygnatura dostępu współdzielonego](storage/common/storage-dotnet-shared-access-signature-part-1.md) zapewnia administratorowi subskrypcji platformy Azure możliwość tymczasowego przyznania dostępu do konta magazynu bez konieczności podawania poświadczeń subskrypcji platformy Azure.
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) umożliwia Witaj, Administratorze subskrypcji platformy Azure przyznać konta magazynu tymczasowego dostępu tooa bez konieczności tooprovide poświadczenia subskrypcji platformy Azure.
 
-Aby zilustrować ten scenariusz, załóżmy, że Użytkownik_A jest administratorem subskrypcji platformy Azure i Użytkownik_A chce zezwolić Użytkownikowi_B na dostęp do konta magazynu przez ograniczony czas z określonymi uprawnieniami:
+tooillustrate w tym scenariuszu, załóżmy, że ten Użytkownik_a jest administratorem subskrypcji platformy Azure i Użytkownik_a chce tooaccess Użytkownik_b tooallow konta magazynu przez ograniczony czas z określonymi uprawnieniami:
 
-1. Użytkownik_A generuje sygnaturę dostępu współdzielonego (składającą się z parametrów połączenia dla konta magazynu) dla określonego przedziału czasu i z odpowiednimi uprawnieniami.
+1. Użytkownik_a generuje sygnatury dostępu Współdzielonego (składającą się z hello parametry połączenia dla konta magazynu hello) na określoną godzinę okresu i hello potrzebne uprawnienia.
 
-2. Użytkownik_A udostępnia sygnaturę dostępu współdzielonego osobie, która chce uzyskać dostęp do konta magazynu — w naszym przykładzie jest to Użytkownik_B.  
+2. Użytkownik_a udziałów hello sygnatury dostępu Współdzielonego osobie hello (w naszym przykładzie Użytkownik_b), którzy chcą konta magazynu toohello dostępu.  
 
-3. Użytkownik_B korzysta z programu Storage Explorer (wersja zapoznawcza), aby dołączyć do konta należącego do Użytkownika_A przy użyciu dostarczonej sygnatury dostępu współdzielonego.
+3. Użytkownik_b korzysta z konta toohello tooattach Eksploratora usługi Storage (wersja zapoznawcza), który należy tooUserA za pomocą hello dostarczony sygnatury dostępu Współdzielonego.
 
-### <a name="get-an-sas-for-the-account-you-want-to-share"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla konta, które chcesz udostępnić
-1. W programie Storage Explorer (wersja zapoznawcza) kliknij prawym przyciskiem myszy konto magazynu, które chcesz udostępnić, a następnie wybierz polecenie **Uzyskaj sygnaturę dostępu współdzielonego**.
+### <a name="get-an-sas-for-hello-account-you-want-tooshare"></a>Uzyskiwanie sygnatury dostępu Współdzielonego hello konta, które chcesz tooshare
+1. W Eksploratorze usługi Storage (wersja zapoznawcza), kliknij prawym przyciskiem myszy konto magazynu hello chcesz udostępnić, a następnie wybierz **Uzyskaj sygnaturę dostępu współdzielonego**.
 
     ![Opcja menu kontekstowego Uzyskaj sygnaturę dostępu współdzielonego][13]
 
-2. W oknie dialogowym **Sygnatura dostępu współdzielonego** określ przedział czasu i uprawnienia dla konta, a następnie wybierz przycisk **Utwórz**.
+2. W hello **sygnatura dostępu współdzielonego** oknie dialogowym Określ przedział czasu hello i uprawnienia, które hello konta, a następnie wybierz **Utwórz**.
 
     ![Okno dialogowe uzyskiwania sygnatury dostępu współdzielonego][14]  
-    Zostanie otwarte okno dialogowe **Sygnatura dostępu współdzielonego** z wyświetloną sygnaturą dostępu współdzielonego.
+    Witaj **sygnatura dostępu współdzielonego** otwiera okno dialogowe i wyświetla hello sygnatury dostępu Współdzielonego.
 
-3. Obok pola **Parametry połączenia** wybierz przycisk **Kopiuj**, aby skopiować go do schowka, a następnie wybierz polecenie **Zamknij**.
+3. Dalej toohello **ciąg połączenia**, wybierz pozycję **kopiowania** toocopy go Schowka toohello, a następnie wybierz **Zamknij**.
 
-### <a name="attach-to-the-shared-account-by-using-the-sas"></a>Dołączanie do udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
-1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
+### <a name="attach-toohello-shared-account-by-using-hello-sas"></a>Dołączanie toohello udostępnionego konta przy użyciu hello SAS
+1. W Eksploratorze usługi Storage (wersja zapoznawcza), wybierz **łączą magazyn tooAzure**.
 
-    ![Opcja Połącz z usługą Azure Storage][23]
+    ![Opcja magazynu tooAzure połączenia][23]
 
-2. W oknie dialogowym **Łączenie z usługą Azure Storage** określ parametry połączenia, a następnie wybierz przycisk **Dalej**.
+2. W hello **połączyć tooAzure magazynu** okno dialogowe, określ ciąg połączenia hello, a następnie wybierz **dalej**.
 
-    ![Okno dialogowe Łączenie z usługą Azure Storage][24]
+    ![Okno dialogowe magazynu tooAzure łączenie][24]
 
-3. Sprawdź informacje wyświetlone w oknie dialogowym **Podsumowanie połączenia**. Aby wprowadzić zmiany, wybierz przycisk **Wstecz**, a następnie wprowadź odpowiednie ustawienia. 
+3. W hello **podsumowanie połączenia** okna dialogowego Sprawdź hello informacji. Wybierz zmiany toomake **ponownie**i wprowadź ustawienia hello. 
 
 4. Wybierz przycisk **Połącz**.
 
-5. Po dołączeniu konto magazynu będzie wyświetlane z tekstem **(SAS)** dodanym na końcu podanej nazwy konta.
+5. Po dołączeniu go hello konto magazynu zostanie wyświetlony z **(SAS)** dołączany toohello nazwę konta, który został dostarczony.
 
-    ![Wynik dołączania do konta przy użyciu sygnatury dostępu współdzielonego][17]
+    ![Wynik konto podłączone tooan przy użyciu sygnatury dostępu Współdzielonego][17]
 
 ## <a name="attach-a-service-by-using-an-sas"></a>Dołączanie usługi przy użyciu sygnatury dostępu współdzielonego
-W sekcji „Dołączanie konta magazynu przy użyciu sygnatury dostępu współdzielonego” omówiono sposób udzielania tymczasowego dostępu do konta magazynu przez administratora subskrypcji platformy Azure przez wygenerowanie i udostępnienie sygnatury dostępu współdzielonego dla konta magazynu. Podobnie można wygenerować sygnaturę dostępu współdzielonego dla określonej usługi (kontenera obiektów blob, kolejki lub tabeli) w ramach konta magazynu.  
+sekcja "Dołącz konto magazynu przy użyciu sygnatury dostępu Współdzielonego" Hello wyjaśniono, jak administrator subskrypcji Azure mogą udzielać dostępu konta magazynu tymczasowego dostępu tooa generowania i udostępniając sygnatury dostępu Współdzielonego dla konta magazynu hello. Podobnie można wygenerować sygnaturę dostępu współdzielonego dla określonej usługi (kontenera obiektów blob, kolejki lub tabeli) w ramach konta magazynu.  
 
-### <a name="generate-an-sas-for-the-service-that-you-want-to-share"></a>Generowanie sygnatury dostępu współdzielonego dla usługi, którą chcesz udostępnić
-W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów blob. Aby wygenerować sygnaturę dostępu współdzielonego dla wymienionych usług, zobacz:
+### <a name="generate-an-sas-for-hello-service-that-you-want-tooshare"></a>Generowanie sygnatury dostępu Współdzielonego dla usługi hello, które mają tooshare
+W tym kontekście usługa może być kontenerem, kolejką lub tabelą obiektów blob. Witaj toogenerate sygnatury dostępu Współdzielonego dla wymienionych usług, zobacz:
 
-* [Uzyskiwanie sygnatury dostępu współdzielonego dla kontenera obiektów blob](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Uzyskiwanie sygnatury dostępu współdzielonego dla udziału plików: *dostępne wkrótce*
-* Uzyskiwanie sygnatury dostępu współdzielonego dla kolejki: *dostępne wkrótce*
-* Uzyskiwanie sygnatury dostępu współdzielonego dla tabeli: *dostępne wkrótce*
+* [Pobierz hello SAS dla kontenera obiektów blob](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+* Pobierz hello sygnatury dostępu Współdzielonego dla udziału plików: *wkrótce*
+* Pobierz hello sygnatury dostępu Współdzielonego dla kolejki: *wkrótce*
+* Pobierz hello sygnatury dostępu Współdzielonego dla tabeli: *wkrótce*
 
-### <a name="attach-to-the-shared-account-service-by-using-the-sas"></a>Dołączanie do usługi udostępnionego konta przy użyciu sygnatury dostępu współdzielonego
-1. W programie Storage Explorer (wersja zapoznawcza) wybierz pozycję **Połącz z usługą Azure Storage**.
+### <a name="attach-toohello-shared-account-service-by-using-hello-sas"></a>Dołączanie usługi przy użyciu hello sygnatury dostępu Współdzielonego konta toohello udostępnionych
+1. W Eksploratorze usługi Storage (wersja zapoznawcza), wybierz **łączą magazyn tooAzure**.
 
-    ![Opcja Połącz z usługą Azure Storage][23]
+    ![Opcja magazynu tooAzure połączenia][23]
 
-2. W oknie dialogowym **Łączenie z usługą Azure Storage** określ identyfikator URI sygnatury dostępu współdzielonego, a następnie wybierz przycisk **Dalej**.
+2. W hello **połączyć tooAzure magazynu** okno dialogowe, określ hello identyfikatora URI połączenia SAS, a następnie wybierz **dalej**.
 
-    ![Okno dialogowe Łączenie z usługą Azure Storage][24]
+    ![Okno dialogowe magazynu tooAzure łączenie][24]
 
-3. Sprawdź informacje wyświetlone w oknie dialogowym **Podsumowanie połączenia**. Aby wprowadzić zmiany, wybierz przycisk **Wstecz**, a następnie wprowadź odpowiednie ustawienia. 
+3. W hello **podsumowanie połączenia** okna dialogowego Sprawdź hello informacji. Wybierz zmiany toomake **ponownie**i wprowadź ustawienia hello. 
 
 4. Wybierz przycisk **Połącz**.
 
-5. Po dołączeniu nowo dołączona usługa jest wyświetlana w węźle **(Sygnatura dostępu współdzielonego usługi)**.
+5. Po dołączeniu go hello nowo dołączona usługa zostanie wyświetlona w obszarze hello **(usługa SAS)** węzła.
 
-    ![Wynik dołączenia do usługi udostępnionej przy użyciu sygnatury dostępu współdzielonego][20]
+    ![Wynik dołączanie tooa udostępnione usługi przy użyciu sygnatury dostępu Współdzielonego][20]
 
 ## <a name="search-for-storage-accounts"></a>Wyszukiwanie kont magazynu
-Jeśli masz długą listę kont magazynu, możesz szybko odnaleźć określone konto magazynu przy użyciu pola wyszukiwania w górnej części okienka po lewej stronie.
+Jeśli masz długą listę kont magazynu, szybko toolocate określone konto magazynu jest pole wyszukiwania hello toouse u góry hello hello w lewym okienku.
 
-Podczas pisania w polu wyszukiwania w okienku po lewej stronie są wyświetlane tylko konta magazynu pasujące do podanej wartości wyszukiwania. Na poniższym zrzucie ekranu przedstawiono przykład, gdzie wyszukano wszystkie konta magazynu, których nazwa zawiera tekst **tarcher**:
+Podczas wpisywania w polu wyszukiwania hello hello lewe okienko wyświetla hello magazynu kont, które pasuje do wartości wyszukiwania hello wprowadzono toothat punktu. Na przykład wyszukiwania dla wszystkie magazyny kont, których nazwa zawiera **tarcher** jest wyświetlany w obszarze powitania po zrzut ekranu:
 
 ![Wyszukiwanie kont magazynu][11]
 

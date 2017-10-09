@@ -1,6 +1,6 @@
 ---
-title: "Co się stało z projektu programu ASP.NET 5 (Visual Studio połączenia usług) | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, co się stanie po połączeniu z kontem magazynu platformy Azure w projekcie programu Visual Studio ASP.NET 5 za pomocą programu Visual Studio połączenia usługi"
+title: "aaaWhat wystąpił toomy ASP.NET 5 projektu (Visual Studio połączenia usług) | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano, co się stanie po łączenie z kontem magazynu platformy Azure tooan w projekcie programu Visual Studio ASP.NET 5 za pomocą programu Visual Studio połączenia usługi"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 2a25c24fd7625374d269622a805f386fcd52bb5f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 75ce3bfb59e085bf08d98d9b0cd9442722d7566b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Co się stało z projektu programu ASP.NET 5 (Visual Studio usługi Azure Storage połączenia usług)?
+# <a name="what-happened-toomy-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Jakie wystąpiły toomy ASP.NET 5 projektu (Visual Studio usługi Azure Storage połączenia usług)?
 ## <a name="references-added"></a>Odwołania dodane
-Pakiet NuGet magazynu Azure został dodany do projektu programu Visual Studio.  
-Ten pakiet zawiera następujące odwołania .NET:
+Pakiet NuGet magazynu Azure Hello dodano tooyour projekt programu Visual Studio.  
+Ten pakiet dodaje hello następujące odwołania .NET:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -34,10 +34,10 @@ Ten pakiet zawiera następujące odwołania .NET:
 * **Dane systemowe**
 * **System.Spatial**
 
-Ponadto pakiet NuGet **Microsoft.Framework.Configuration.Json** został dodany.
+Ponadto pakiet NuGet hello **Microsoft.Framework.Configuration.Json** został dodany.
 
 ## <a name="connection-string-for-azure-storage-added"></a>Parametry połączenia dla usługi Azure Storage dodane
-W pliku config.json projektu element został utworzony z parametrów połączenia i kluczem konta magazynu wybranego.
+W pliku config.json hello projektu element został utworzony z konta magazynu hello wybrane parametry połączenia i kluczem.
 
 Aby uzyskać więcej informacji, zobacz [ASP.NET 5](http://www.asp.net/vnext).
 

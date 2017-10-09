@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver na maszynach wirtualnych Azure — planowanie i wdrażanie | Dokumentacja firmy Microsoft"
+title: "aaaSAP NetWeaver na maszynach wirtualnych Azure — planowanie i implementację | Dokumentacja firmy Microsoft"
 description: "SAP NetWeaver na maszynach wirtualnych Azure (maszyny wirtualne) — planowanie i przewodnik wdrażania"
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0b5968189512d3ca936c0e916274e1df057afb9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 53d63240760282b409f7e9412e8240689bcbcc6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sap-netweaver-on-azure-windows-virtual-machines-vms--planning-and-implementation-guide"></a>SAP NetWeaver na maszynach wirtualnych Azure Windows (VM) — planowanie i przewodnik wdrażania
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -305,53 +305,53 @@ ms.lasthandoff: 08/03/2017
 [xplat-cli]:../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
-Microsoft Azure umożliwia uzyskanie zasobów obliczeniowych i magazynu w minimalny czas bez cykle nabywania długie. Maszyny wirtualne platformy Azure umożliwia firmom wdrażania klasycznego aplikacji, takie jak SAP NetWeaver na podstawie aplikacji na platformie Azure i rozszerzyć ich niezawodności i dostępności bez konieczności dalszego zasoby dostępne lokalnie. Usługi platformy Azure na maszynie wirtualnej obsługuje również łączności między lokalizacjami, które umożliwia przedsiębiorstwom aktywnie zintegrować maszyny wirtualne Azure ich domenami lokalnymi ich chmur prywatnych i ich pozioma systemu SAP.
-Ten dokument w tym artykule opisano podstawy Azure maszyny wirtualnej platformy Microsoft i zawiera omówienie zagadnienia dotyczące planowania i wdrażania dla instalacji programu SAP NetWeaver na platformie Azure i jako taki powinny być dokument, aby przeczytać przed rozpoczęciem rzeczywistego wdrożenia SAP NetWeaver na platformie Azure.
-Papieru uzupełnia SAP instalacji dokumentacji i uwagi SAP, reprezentujące głównej zasobów dla instalacji i wdrożenia oprogramowania SAP na podany platform.
+Microsoft Azure umożliwia zasoby obliczeniowe i magazynujące tooacquire firmy w czasie minimalnego bez cykle nabywania długie. Maszyny wirtualne platformy Azure umożliwiają aplikacjom klasycznego toodeploy, firm, takich jak SAP NetWeaver na podstawie aplikacji na platformie Azure i rozszerzyć ich niezawodności i dostępności bez konieczności dalszego zasoby dostępne lokalnie. Usługi platformy Azure na maszynie wirtualnej obsługuje również łączności między lokalizacjami, w których tooactively firm umożliwia integrację ich domenami lokalnymi ich chmur prywatnych i ich pozioma systemu SAP maszynach wirtualnych platformy Azure.
+Ten dokument w tym artykule opisano podstawy hello Azure maszyny wirtualnej platformy Microsoft i zawiera omówienie zagadnienia dotyczące planowania i wdrażania dla instalacji programu SAP NetWeaver na platformie Azure i jako taki powinny być tooread dokumentu hello przed rozpoczęciem rzeczywiste wdrożenia SAP NetWeaver na platformie Azure.
+Hello papieru uzupełnia hello SAP instalacji dokumentacji i notatki SAP, reprezentujące hello głównej zasobów dla instalacji i wdrożenia oprogramowania SAP na podane platform.
 
 ## <a name="summary"></a>Podsumowanie
-Chmura obliczeniowa jest szeroko używanych terminem, który zyskuje coraz większe znaczenie w branży IT, od małych firm po duże i międzynarodowe korporacje.
+Chmura obliczeniowa terminem powszechnie używane, który jest uzyskanie coraz więcej znaczenia w ramach hello branży IT z małych firm się toolarge i wielonarodowych firmy.
 
-Microsoft Azure to platforma usług w chmurze firmy Microsoft oferująca szerokie spektrum nowych możliwości. Klienci są teraz możliwość szybkiego udostępniania i usuwanie aplikacji jako usługa w chmurze, więc nie są one ograniczone do ograniczeń technicznych lub budżetowych. Zamiast inwestować czas i budżet w infrastrukturę sprzętową firmy mogą skoncentrować się na aplikacjach, procesie biznesowym oraz korzyściach dla swoich klientów i użytkowników.
+Microsoft Azure to hello platformy usług w chmurze firmy Microsoft, która oferuje szeroką gamę nowe możliwości. Obecnie klienci są toorapidly może udostępnić i usuwanie aplikacji jako usługa w chmurze hello, więc nie są ograniczone tootechnical lub ograniczeń budżetowych. Zamiast inwestowanie czas i pieniądze na infrastrukturę sprzętu, firmy mogą skupić się na aplikacji hello, procesy biznesowe i korzyści dla klientów i użytkowników.
 
-Wraz z usługami Microsoft Azure Virtual Machines firma Microsoft oferuje kompleksową platformę typu infrastruktura jako usługa (IaaS). Aplikacje oparte na oprogramowaniu SAP NetWeaver są obsługiwane w usłudze Azure Virtual Machines (IaaS). Tym dokumencie opisano sposób planowania i implementowania SAP NetWeaver na podstawie aplikacji w systemie Microsoft Azure jako platforma wybór.
+Wraz z usługami Microsoft Azure Virtual Machines firma Microsoft oferuje kompleksową platformę typu infrastruktura jako usługa (IaaS). Aplikacje oparte na oprogramowaniu SAP NetWeaver są obsługiwane w usłudze Azure Virtual Machines (IaaS). Tym dokumencie opisano, jak tooplan i wdrożenie SAP NetWeaver na aplikacje w systemie Microsoft Azure jako platformę hello wyboru.
 
-Dokument, sam koncentruje się na dwóch aspektach:
+Witaj papieru, sam koncentruje się na dwóch aspektach:
 
-* Pierwsza część opisano dwa wzorce wdrożenia obsługiwany dla aplikacji programu SAP NetWeaver oparte na platformie Azure. Opisano również będzie ogólne Obsługa platformy Azure z wdrożenia SAP pamiętać.
-* Druga sekcja zawiera szczegółowe wykonania dwóch różnych scenariuszy opisanych w pierwszej części.
+* Pierwsza część Hello opisano dwa wzorce wdrożenia obsługiwany dla aplikacji programu SAP NetWeaver oparte na platformie Azure. Opisano również będzie ogólne Obsługa platformy Azure z wdrożenia SAP pamiętać.
+* druga część Hello szczegółowe implementującej hello dwóch różnych scenariuszy opisanych w pierwszej części hello.
 
 Dodatkowe zasoby można znaleźć w rozdziale [zasobów] [ planning-guide-1.2] w tym dokumencie.
 
 ### <a name="definitions-upfront"></a>Definicje z wyprzedzeniem
-W całym dokumencie użyjemy następujące warunki:
+W dokumencie hello używamy hello następujące warunki:
 
 * IaaS: Infrastruktura jako usługa.
 * PaaS: Platforma jako usługa.
 * SaaS: Oprogramowanie jako usługa.
 * ARM: Usługa Azure Resource Manager
 * Składnik programu SAP: poszczególnych SAP aplikację taką jak ECC, BW, Menedżer rozwiązania lub EP.  Składniki programu SAP może bazować na tradycyjnych technologii ABAP lub Java lub aplikacji z systemem innym niż NetWeaver na podstawie takich jak obiektów biznesowych.
-* Środowisko SAP: jeden lub więcej składników programu SAP logicznie pogrupowane funkcji biznesowych, takich jak projektowanie, QAS, szkolenia, odzyskiwania po awarii lub produkcji.
-* Poziomo SAP: Odnosi się do całego zasoby SAP w klienta IT w orientacji poziomej. Poziomo SAP obejmuje wszystkie produkcyjnych i środowiskach nieprodukcyjnych.
-* Systemu SAP: Kombinacja systemu DBMS i warstwy aplikacji, np. SAP ERP programistycznej system testowy programu SAP BW, SAP CRM produkcji systemu, itp. W przypadku wdrożeń Azure nie jest obsługiwane dzielenia te dwie warstwy między lokalną i platformą Azure. To oznacza, że systemu SAP jest wdrożona lokalnie lub jest wdrożony na platformie Azure. Jednak można wdrożyć różnych systemów pozioma SAP do platformy Azure lub lokalnie. Na przykład możesz wdrożyć programowanie SAP CRM i systemy testowe w Azure, ale SAP CRM produkcji systemu lokalnego.
-* Wdrożenie tylko w chmurze: wdrożenia, w którym subskrypcji platformy Azure nie jest połączony za pośrednictwem lokacja lokacja lub połączenia ExpressRoute do infrastruktury sieci lokalnej. Wspólne dokumentacji platformy Azure rodzaju wdrożeń opisano również jako "Tylko do chmury" wdrożeń. Maszyny wirtualne wdrażane z tej metody są dostępne za pośrednictwem Internetu oraz publicznego adresu IP i/lub publicznej nazwy DNS przypisane do maszyn wirtualnych na platformie Azure. Systemu Microsoft Windows w lokalnej usłudze Active Directory (AD) i DNS nie zostanie rozszerzony na platformie Azure w tych typach wdrożeń. Dlatego maszyn wirtualnych nie są częścią lokalnej usługi Active Directory. Dotyczy to także implementacji systemu Linux przy użyciu np. OpenLDAP + protokołu Kerberos.
+* Środowisko SAP: jeden lub więcej składników programu SAP pogrupowane logicznie tooperform funkcji biznesowych programowanie, QAS, szkolenia, odzyskiwania po awarii lub produkcji.
+* Poziomo SAP: Odnosi się toohello cały SAP zasobów klienta IT w orientacji poziomej. Witaj pozioma SAP obejmuje wszystkie produkcyjnych i środowiskach nieprodukcyjnych.
+* Systemu SAP: hello kombinację DBMS i warstwy aplikacji, np. SAP ERP programistycznej system testowy programu SAP BW, SAP CRM produkcji systemu, itp. Azure wdrożenia, który nie jest obsługiwane w toodivide te dwie warstwy między lokalną i platformą Azure. To oznacza, że systemu SAP jest wdrożona lokalnie lub jest wdrożony na platformie Azure. Jednak można wdrożyć hello systemów pozioma SAP do platformy Azure lub lokalnie. Można na przykład wdrożyć hello systemów programowania i testowania SAP CRM na platformie Azure, ale hello SAP CRM produkcji systemu lokalnego.
+* Wdrożenie tylko w chmurze: wdrożenia, którym hello subskrypcji platformy Azure nie jest połączony za pośrednictwem lokacji do lokacji lub ExpressRoute połączenia toohello lokalną infrastrukturę sieci. Wspólne dokumentacji platformy Azure rodzaju wdrożeń opisano również jako "Tylko do chmury" wdrożeń. Maszyny wirtualne wdrażane z tej metody są dostępne za pośrednictwem hello internet i publiczny adres IP i/lub w publicznym systemie DNS nazw maszyn wirtualnych przypisanych toohello na platformie Azure. Systemu Microsoft Windows hello lokalnymi Active Directory (AD) i DNS nie zostanie rozszerzony tooAzure w tych typach wdrożeń. Dlatego hello maszyny wirtualne nie są częścią hello lokalnej usługi Active Directory. Dotyczy to także implementacji systemu Linux przy użyciu np. OpenLDAP + protokołu Kerberos.
 
 > [!NOTE]
-> Tylko w chmurze wdrożeń, w tym dokumencie jest zdefiniowany jako pełną krajobrazów SAP działają wyłącznie na platformie Azure, bez rozszerzenia usługi Active Directory / OpenLDAP lub rozpoznawania nazw z lokalnymi do chmury publicznej. Konfiguracje tylko w chmurze nie są obsługiwane dla systemów produkcyjnych SAP lub konfiguracje, których SAP STMS lub innymi zasobami lokalnymi trzeba używać między systemami SAP hostowane na platformie Azure i zasobów znajdującej się na lokalnym.
+> Tylko w chmurze wdrożeń, w tym dokumencie jest zdefiniowany jako pełną krajobrazów SAP działają wyłącznie na platformie Azure, bez rozszerzenia usługi Active Directory / OpenLDAP lub rozpoznawania nazw z lokalnymi do chmury publicznej. Konfiguracje tylko w chmurze nie są obsługiwane dla systemów produkcyjnych SAP lub konfiguracje, których SAP STMS lub innymi zasobami lokalnymi musi toobe używany podczas komunikacji między systemami SAP hostowane na platformie Azure i zasobów znajdującej się na lokalnym.
 >
 >
 
-* Między lokalizacjami: Opisano scenariusz wdrożonym maszyn wirtualnych z subskrypcją platformy Azure, lokacja lokacja, obejmujący wiele lokacji lub połączenia ExpressRoute między datacenter(s) lokalną i platformą Azure. Dokumentacja wspólnych Azure rodzaju wdrożenia również są opisane jako scenariusze między lokalizacjami. Powód dla połączenia jest rozszerzenie domenami lokalnymi lokalnej usługi Active Directory / OpenLDAP i lokalnymi DNS na platformie Azure. Pozioma lokalnej jest rozszerzony do platformy Azure zasobów subskrypcji. Występuje to rozszerzenie, maszyn wirtualnych może być częścią domeny lokalnej. Użytkownicy domeny w domenie lokalnej mogą uzyskiwać dostęp do serwerów i usługi można uruchamiać na tych maszynach wirtualnych (takie jak usługi systemu DBMS). Możliwe jest komunikacji i rozpoznawania nazw między maszyn wirtualnych wdrożonych lokalnie i wdrożone maszyny wirtualne platformy Azure. Jest to scenariusz oczekujemy zasobów SAP do wdrożenia w.  Zobacz [to] [ vpn-gateway-cross-premises-options] artykułu i [to] [ vpn-gateway-site-to-site-create] Aby uzyskać więcej informacji.
+* Między lokalizacjami: w tym artykule opisano scenariusz, w którym maszyny wirtualne są wdrożone tooan subskrypcji Azure, która ma lokacja lokacja, obejmujący wiele lokacji lub połączenia ExpressRoute między datacenter(s) lokalne powitania i Azure. Dokumentacja wspólnych Azure rodzaju wdrożenia również są opisane jako scenariusze między lokalizacjami. Przyczyna Hello połączenia hello jest tooextend lokalnej domeny lokalnej usługi Active Directory / OpenLDAP i lokalnymi DNS na platformie Azure. Hello pozioma lokalnymi jest rozszerzona toohello zasobów Azure hello subskrypcji. Występuje to rozszerzenie, hello maszyn wirtualnych może być częścią domeny lokalne powitania. Użytkownicy domeny hello lokalnej domeny można uzyskać dostępu do serwerów hello i usługi można uruchamiać na tych maszynach wirtualnych (takie jak usługi systemu DBMS). Możliwe jest komunikacji i rozpoznawania nazw między maszyn wirtualnych wdrożonych lokalnie i wdrożone maszyny wirtualne platformy Azure. Jest to hello oczekuje się, że większość toobe zasoby SAP wdrożone w scenariuszu.  Zobacz [to] [ vpn-gateway-cross-premises-options] artykułu i [to] [ vpn-gateway-site-to-site-create] Aby uzyskać więcej informacji.
 
 > [!NOTE]
-> Między różnymi lokalizacjami wdrożeń systemów SAP, gdzie systemami SAP maszynach wirtualnych platformy Azure są członkami domeny lokalnej są obsługiwane dla systemów produkcyjnych SAP. Konfiguracje między lokalizacjami są obsługiwane w przypadku wdrażania części lub zakończyć krajobrazów SAP do platformy Azure. Nawet działające na platformie Azure pełną pozioma SAP wymaga o te maszyny wirtualne są częścią domeny lokalnej i REKLAM / OpenLDAP. W poprzednich wersjach dokumentacji zajmowaliśmy scenariuszy hybrydowych IT, których termin "Hybrydowe" jest ścieżką do katalogu głównego z faktu, że istnieje łączność między lokalizacjami, między lokalną i platformą Azure. Ponadto fakt, że maszyny wirtualne na platformie Azure są częścią lokalnej usługi Active Directory / OpenLDAP.
+> Między różnymi lokalizacjami wdrożeń systemów SAP, gdzie systemami SAP maszynach wirtualnych platformy Azure są członkami domeny lokalnej są obsługiwane dla systemów produkcyjnych SAP. Konfiguracje między lokalizacjami są obsługiwane w przypadku wdrażania części lub zakończyć krajobrazów SAP do platformy Azure. Nawet działają hello pełną SAP w orientacji poziomej na platformie Azure wymaga o te maszyny wirtualne są częścią domeny lokalnej i REKLAM / OpenLDAP. W wcześniejsze wersje dokumentacji hello zajmowaliśmy scenariuszy hybrydowych IT, gdzie hello termin "Hybrydowe" jest ścieżką do katalogu głównego w hello fakt, że istnieje łączność między lokalizacjami, między lokalną i platformą Azure. Ponadto hello fakt, że hello maszyn wirtualnych na platformie Azure są częścią hello lokalnej usługi Active Directory / OpenLDAP.
 >
 >
 
-Niektóre dokumentacji firmy Microsoft opisano scenariusze między lokalizacjami nieco inaczej, szczególnie w przypadku konfiguracji HA systemu DBMS. W przypadku SAP z dokumentami, w scenariuszu obejmującym różne pomieszczenia tylko wrzała w dół do lokacja lokacja lub prywatnej łączności (ExpressRoute) i fakt, że pozioma SAP jest rozdzielona między lokalną i platformą Azure.  
+Niektóre dokumentacji firmy Microsoft opisano scenariusze między lokalizacjami nieco inaczej, szczególnie w przypadku konfiguracji HA systemu DBMS. W hello przypadku hello SAP związane z dokumentów, scenariusz hello między lokalizacjami rozpoczęcia wrzenia dół toohaving lokacja lokacja lub prywatnej (ExpressRoute) łączności i hello fakt czy poziomo SAP hello jest rozdzielona między lokalną i platformą Azure.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Zasoby
-Temat wdrożenia SAP na platformie Azure dostępne są następujące przewodniki dodatkowe:
+Witaj następujące dodatkowe przewodniki są dostępne dla tematu hello wdrożenia SAP na platformie Azure:
 
 * [SAP NetWeaver na maszynach wirtualnych platformy Azure (maszyny wirtualne) — przewodnik wdrażania (w tym dokumencie) i planowanie][planning-guide]
 * [SAP NetWeaver na maszynach wirtualnych Azure (maszyny wirtualne) — przewodnik wdrażania][deployment-guide]
@@ -359,11 +359,11 @@ Temat wdrożenia SAP na platformie Azure dostępne są następujące przewodniki
 * [SAP NetWeaver na maszynach wirtualnych Azure (maszyny wirtualne) — przewodnik wdrażania wysokiej dostępności][ha-guide]
 
 > [!IMPORTANT]
-> Wszędzie tam, gdzie jest używane możliwe łącze do odwołującego się Przewodnik instalacji SAP (odwołanie InstGuide-01, zobacz <http://service.sap.com/instguides>). Po przejściu do wymagań wstępnych i procesu instalacji, przewodniki instalacji programu SAP NetWeaver zawsze są odczytywane ostrożnie, ponieważ w tym dokumencie opisano tylko określonych zadań dla systemów SAP NetWeaver w maszynie wirtualnej Microsoft Azure.
+> Wszędzie tam, gdzie jest używane możliwe toohello łącza, odwoływanie SAP w podręczniku instalacji (odwołanie InstGuide-01, zobacz <http://service.sap.com/instguides>). Jeśli chodzi toohello warunki wstępne i proces instalacji, hello SAP NetWeaver instalacji przewodniki powinna być zawsze przeczytaj uważnie, ponieważ w tym dokumencie opisano tylko określonych zadań dla systemów SAP NetWeaver w maszynie wirtualnej Microsoft Azure.
 >
 >
 
-Poniższe uwagi SAP są związane z tym tematem SAP na platformie Azure:
+Hello następujące uwagi SAP są powiązane toohello tematu SAP na platformie Azure:
 
 | Numer | Tytuł |
 | --- | --- |
@@ -377,14 +377,14 @@ Poniższe uwagi SAP są związane z tym tematem SAP na platformie Azure:
 | [1984787] |Systemu SUSE LINUX Enterprise Server 12: Informacje o instalacji |
 | [2002167] |Red Hat Enterprise Linux 7.x: instalacji i uaktualniania |
 
-Należy również zapoznać [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) zawierający wszystkie notatki SAP dla systemu Linux.
+Przeczytaj również hello [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) zawierający wszystkie notatki SAP dla systemu Linux.
 
 Ograniczenia ogólne domyślne i maksymalnego ograniczenia subskrypcji platformy Azure można znaleźć w [w tym artykule][azure-subscription-service-limits-subscription]
 
 ## <a name="possible-scenarios"></a>Możliwe scenariusze
-SAP jest często postrzegane jako jedną z kluczowych aplikacji w obrębie przedsiębiorstwa. Architektura i operacje te aplikacje przede wszystkim jest bardzo skomplikowane i ważne jest zapewnienie, że spełniają wymagania dotyczące wydajności i dostępności.
+SAP jest często postrzegane jako jedną z kluczowych aplikacji hello w przedsiębiorstwach. Architektura Hello i operacje te aplikacje przede wszystkim jest bardzo skomplikowane i ważne jest zapewnienie, że spełniają wymagania dotyczące wydajności i dostępności.
 
-W związku z tym firmom trzeba myśleć dokładnie o tym, które aplikacje mogą być uruchamiane w środowisku chmury publicznej, niezależnie od wybranego dostawcy w chmurze.
+W związku z tym przedsiębiorstwach istnieją toothink dokładnie o tym, które aplikacje mogą być uruchamiane w środowisku chmury publicznej, niezależnie od dostawcy usług w chmurze hello wybrany.
 
 Typy systemu możliwych do wdrożenia SAP NetWeaver na podstawie aplikacji w obrębie chmur publicznych, środowisk są wymienione poniżej:
 
@@ -394,18 +394,18 @@ Typy systemu możliwych do wdrożenia SAP NetWeaver na podstawie aplikacji w obr
 4. Systemy prototypu
 5. Learning / pokaz systemów
 
-W celu pomyślnego ogólnie wdrożenia systemów SAP do platformy Azure IaaS lub IaaS, ważne jest zrozumienie istotnych różnic między ofert tradycyjnych uzyskanie programu lub dostawcy usług hostingowych i oferty IaaS. Natomiast tradycyjnego dostawcy usług hostingowych lub dostawców będzie dostosowania infrastruktury (typ sieci, magazynu i serwer) obciążenia, które odbiorca chce hosta, odpowiada zamiast tego klienta wybierz obciążenie prawo wdrożeń IaaS.
+W kolejności toosuccessfully wdrażanie systemów SAP do platformy Azure IaaS lub IaaS ogólnie rzecz biorąc, jest ważne toounderstand hello istotnych różnic między ofert hello tradycyjnych uzyskanie programu lub dostawcy usług hostingowych i oferty IaaS. Dostawcy usług hostingowych tradycyjnych hello lub dostawców będzie dostosowanie infrastruktury (typ sieci, magazynu i serwer) toohello obciążenia odbiorca chce otrzymywać toohost, zamiast tego jest powitania klienta odpowiedzialność toochoose hello prawo obciążenia w przypadku wdrożeń IaaS.
 
-Pierwszym krokiem klienci muszą sprawdź następujące elementy:
+Pierwszym krokiem klienci muszą hello tooverify następujące elementy:
 
-* SAP obsługiwane typy maszyny Wirtualnej platformy Azure
-* SAP obsługiwane produkty/wersjach na platformie Azure
-* Obsługiwany system operacyjny i DBMS zwalnia w określonych wersjach SAP na platformie Azure
+* Witaj SAP obsługiwane typy maszyny Wirtualnej platformy Azure
+* Witaj SAP obsługiwane produkty/wersjach na platformie Azure
+* Hello obsługiwane wersje systemu operacyjnego i DBMS dla powitalne określonych SAP zwalnia na platformie Azure
 * Protokoły SAP przepływności udostępniane przez różne jednostki magazynowe Azure
 
-Odpowiedzi na te pytania mogą być odczytywane w Uwaga SAP [1928533].
+Witaj toothese odpowiedzi na pytania mogą być odczytywane w Uwaga SAP [1928533].
 
-Jako drugi etap Azure ograniczenia zasobów i przepustowości należy porównać do zużycia zasobów rzeczywistych systemów lokalnych. W związku z tym klienci muszą znać różne możliwości typów Azure obsługiwane z programu SAP w zakresie:
+Jako drugi etap Azure ograniczenia zasobów i przepustowości muszą zużycie zasobów tooactual toobe w porównaniu z systemów lokalnych. W związku z tym klienci muszą toobe znasz możliwości różnych hello hello Azure typy, które są obsługiwane z programu SAP w obszarze hello:
 
 * Zasoby Procesora i pamięci o różnych typach maszyn wirtualnych i
 * Przepustowość IOPS o różnych typach maszyn wirtualnych i
@@ -413,51 +413,51 @@ Jako drugi etap Azure ograniczenia zasobów i przepustowości należy porównać
 
 Większość tych danych można znaleźć [tutaj][virtual-machines-sizes]
 
-Należy pamiętać, że limity na liście powyżej łącze są górne limity. Nie oznacza to, że można podać ograniczenia dla żadnej z tych zasobów, np. IOPS we wszystkich okolicznościach. Wyjątki są jednak zasobów Procesora i pamięci wybranego typu maszyny Wirtualnej. Typy maszyn wirtualnych obsługiwanych przez program SAP zasobów Procesora i pamięci są zarezerwowane i jako taki dostępna w dowolnym momencie w czasie korzystania z poziomu maszyny Wirtualnej.
+Należy pamiętać, że hello limity na liście powyżej łącze hello są górne limity. Nie oznacza to, że hello limity dla dowolnych zasobów hello, np. można podać IOPS we wszystkich okolicznościach. Wyjątki Hello są jednak hello zasobów Procesora i pamięci wybranego typu maszyny Wirtualnej. Witaj typy maszyn wirtualnych obsługiwanych przez SAP hello zasobów Procesora i pamięci są zarezerwowane i jako taki dostępna w dowolnym momencie w czasie do użycia w ramach hello maszyny Wirtualnej.
 
-Platforma Microsoft Azure, takich jak innych platform IaaS to platforma wielodostępnej. Oznacza to, że magazynu, sieci i inne zasoby są współużytkowane przez dzierżawców. Inteligentnego logiki ograniczania przepustowości i przydziału służy do uniemożliwić wpływające na wydajność innego dzierżawcę (zakłócenia sąsiada) w sposób radykalne jednego dzierżawcy. Chociaż próbuje logiki w usłudze Azure zachowuje wariancje przepustowości wystąpił mały, wysokiej udostępnionego platform często wprowadzenie większych wariancji w dostępności zasobów/przepustowość niż partii klientów są używane do w ich wdrożenia lokalnego. W związku z tym mogą wystąpić różne poziomy przepustowości w odniesieniu do sieci lub magazynu we/wy (woluminu także opóźnienia) minutę minutę. Prawdopodobieństwo systemu SAP na platformie Azure mogą wystąpić różnice większych niż w systemie lokalnym musi być brane pod uwagę.
+Platforma Microsoft Azure Hello jak innych platform IaaS jest wielodostępnej. Oznacza to, że magazynu, sieci i inne zasoby są współużytkowane przez dzierżawców. Inteligentnego logiki ograniczania przepustowości i przydziału jest używane tooprevent jednej dzierżawy z wpływ na wydajność hello innej dzierżawy (zakłócenia sąsiada) w sposób radykalne. Chociaż logikę wariancje tookeep przepustowości wystąpił mały, wysokiej udostępnionego platformy Azure prób często toointroduce większych wariancji w dostępności zasobów/przepustowość niż partii klientów są używane tooin wdrożeń lokalnych. W związku z tym mogą wystąpić różne poziomy przepustowości w odniesieniu do toonetworking lub pamięci masowej we/wy (hello woluminu także opóźnienia) toominute minuty. prawdopodobieństwo Hello systemu SAP na platformie Azure mogą wystąpić różnice większych niż w systemie lokalnym musi toobe brana pod uwagę.
 
-Ostatnim krokiem jest do oceny wymagań dotyczących dostępności. Może się zdarzyć, że podstawowej infrastruktury platformy Azure wymaga aktualizowany oraz hostów działających maszyn wirtualnych, należy ponownie uruchomić. W takich przypadkach maszyny wirtualne na tych hostach może być zamknięte i ponownie uruchomione również. Czas takiej obsługi odbywa się w dodatkowych godzinach pracy dla danego regionu, ale okno potencjalnych kilka godzin, podczas którego nastąpi ponowne uruchomienie jest stosunkowo szerokości. Istnieją różne technologie w ramach platformy Azure, które można skonfigurować w celu złagodzenia niektórych lub wszystkich wpływu tych aktualizacji. Przyszłe ulepszenia platformy Azure, system DBMS i SAP aplikacji są przeznaczone do zminimalizować wpływ takich ponownego uruchomienia.
+Ostatnim krokiem jest tooevaluate wymagań dotyczących dostępności. Może się zdarzyć, tym hello podstawowej infrastruktury platformy Azure wymaga tooget aktualizacji oraz hello hostach z systemem toobe maszyn wirtualnych ponowny rozruch. W takich przypadkach maszyny wirtualne na tych hostach może być zamknięte i ponownie uruchomione również. czas Hello takiej obsługi odbywa się w godzinach pracy z systemem innym niż rdzeni w określonym regionie, ale hello okna potencjalnych kilka godzin, podczas którego nastąpi ponowne uruchomienie jest stosunkowo szeroki. Istnieją różne technologie w hello platformy Azure, które można skonfigurować toomitigate niektóre lub wszystkie hello wpływu tych aktualizacji. Przyszłe ulepszenia z hello platformy Azure, system DBMS i SAP aplikacji są zaprojektowane toominimize hello skutków takiego ponownego uruchomienia.
 
-W celu pomyślnego wdrożenia systemu SAP do platformy Azure, lokalną SAP systemy System operacyjny, baza danych i aplikacje SAP muszą znajdować się na macierz obsługi SAP Azure, mieści się w obrębie zasobów zapewniają infrastrukturę platformy Azure i który może współpracować z ofertami dostępności SLA Microsoft Azure. Określone tych systemów należy zdecydować się na jednym z następujących scenariuszy wdrażania dwa.
+W kolejności toosuccessfully wdrażanie systemu SAP do platformy Azure, hello lokalnymi SAP systemy systemu operacyjnego, bazy danych i aplikacje SAP musi występować na powitania macierz obsługi SAP Azure, mieści się w obrębie Witaj Witaj zasobów zapewniają infrastrukturę platformy Azure i co może Współpraca z powitalne zapewnia dostępność SLA Microsoft Azure. Określone systemy należy toodecide na jednym z hello następujące dwa scenariusze wdrażania.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności w sieci lokalnej klienta
+### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności na powitania lokalnej sieci klienta
 ![Jednej maszyny Wirtualnej z pokaz SAP lub scenariusza szkolenia wdrożona na platformie Azure][planning-guide-figure-100]
 
-Ten scenariusz jest typowa dla szkolenia lub systemów demonstracyjnej, którym są zainstalowane wszystkie składniki programu SAP i oprogramowania z systemem innym niż SAP w jednej maszynie Wirtualnej. Systemów produkcyjnych SAP nie są obsługiwane w tym scenariuszu wdrażania. Ogólnie rzecz biorąc w tym scenariuszu spełnia następujące wymagania:
+Ten scenariusz jest typowy szkolenia lub pokaz systemów, którym są zainstalowane wszystkie składniki hello SAP i oprogramowania z systemem innym niż SAP w jednej maszynie Wirtualnej. Systemów produkcyjnych SAP nie są obsługiwane w tym scenariuszu wdrażania. Ogólnie rzecz biorąc w tym scenariuszu spełnia hello następujące wymagania:
 
-* Maszyny wirtualne, same są dostępne w sieci publicznej. Łączność z siecią bezpośrednie dla aplikacji działających w ramach maszyn wirtualnych do sieci lokalnej firmy będącej właścicielem zawartości pokazy lub szkolenia lub klienta nie jest konieczne.
-* W przypadku reprezentujący szkolenia lub scenariusza pokaz wielu maszyn wirtualnych sieci łączności i rozpoznawania nazw musi współpracować między maszynami wirtualnymi. Ale komunikacji między zestaw maszyn wirtualnych muszą być izolowane, tak aby kilka zestawów maszyn wirtualnych można wdrożyć obok siebie bez zakłóceń.  
-* Połączenie z Internetem jest wymagany dla użytkownika końcowego do logowania zdalnego do maszyn wirtualnych hostowanych na platformie Azure. W zależności od gościa systemu operacyjnego, usług terminalowych usług pulpitu zdalnego lub VNC/ssh umożliwia dostęp do maszyny Wirtualnej do wykonania zadania szkolenia lub w trakcie wykonywania. Jeśli SAP porty takich jak 3200, 3300 & 3600 może również być uwidaczniane SAP wystąpienia aplikacji można uzyskać z dowolnego pulpitu połączonych Internet.
-* Systemy SAP (i reprezentują VM(s)) scenariusza autonomiczny na platformie Azure, który tylko wymaga łączności z Internetem publicznego dostępu użytkownika końcowego i nie wymagają połączenia z innych maszyn wirtualnych na platformie Azure.
-* SAPGUI i przeglądarką są zainstalowane i uruchomić bezpośrednio na Maszynie wirtualnej.
-* Wymagana jest szybkie zresetowanie maszyny Wirtualnej do pierwotnego stanu i ponownie nowego wdrożenia tego oryginalnego stanu.
-* W przypadku demo i scenariusze szkoleniowe, które są realizowane w wielu maszyn wirtualnych, usługi Active Directory / OpenLDAP i/lub DNS usługa jest wymagana dla każdego zestawu maszyn wirtualnych.
+* maszyny wirtualne Hello, same są dostępne za pośrednictwem sieci publicznej hello. Łączność z siecią bezpośrednie dla aplikacji hello działających w ramach hello toohello maszyn wirtualnych sieci albo firmy hello będący właścicielem zawartości pokazy lub szkolenia hello lokalnymi lub powitania klienta nie jest konieczne.
+* W przypadku reprezentujący szkolenia hello lub scenariusza pokaz wielu maszyn wirtualnych sieci łączności i rozpoznawania nazw musi toowork między maszynami wirtualnymi hello. Jednak komunikacji między hello zestaw maszyn wirtualnych muszą toobe samodzielnie, tak aby kilka zestawów maszyn wirtualnych można wdrożyć obok siebie bez zakłóceń.  
+* Połączenie z Internetem jest wymagany dla hello użytkownika końcowego tooremote logowania do toohello maszyn wirtualnych hostowana na platformie Azure. W zależności od system operacyjny gościa hello, służy usług terminalowych usług pulpitu zdalnego lub VNC/ssh tooaccess hello wirtualna tooeither spełnienia hello szkolenia zadań lub wykonywać pokazy hello. Jeśli SAP porty takich jak 3200, 3300 & 3600 może również być widoczne wystąpienia aplikacji hello SAP można uzyskać z dowolnego pulpitu połączonych Internet.
+* Witaj systemy SAP (i reprezentują VM(s)) scenariusza autonomiczny na platformie Azure, który tylko wymaga łączności z Internetem publicznego dostępu użytkownika końcowego i nie wymaga połączenia tooother maszyn wirtualnych na platformie Azure.
+* SAPGUI i przeglądarką są zainstalowane i uruchomić bezpośrednio na powitania maszyny Wirtualnej.
+* Wymagana jest szybkie zresetowanie oryginalny stan toohello maszyny Wirtualnej i ponownie nowego wdrożenia tego oryginalnego stanu.
+* W przypadku hello demo i scenariusze szkoleniowe, które są realizowane w wielu maszyn wirtualnych, usługi Active Directory / OpenLDAP i/lub DNS usługa jest wymagana dla każdego zestawu maszyn wirtualnych.
 
 ![Grupa maszyny Wirtualnej reprezentuje jeden pokaz lub szkolenia scenariusz usługi w chmurze platformy Azure][planning-guide-figure-200]
 
-Należy pamiętać, że wirtualne w poszczególnych zestawów muszą zostać wdrożone równolegle, w którym nazw maszyn wirtualnych w każdym zestawie są takie same.
+Ważne tookeep pamiętać, że hello wirtualne w każdym hello ustawia toobe należy wdrożyć równolegle, gdzie hello nazw maszyn wirtualnych w każdym zestawu hello są takie same hello jest.
 
-### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>między różnymi lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure z wymaganiami jest w pełni zintegrowany sieci lokalnej
+### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>między różnymi lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure za pomocą wymóg hello jest w pełni zintegrowany hello sieci lokalnej
 ![Sieć VPN z połączeniem lokacja-lokacja (między lokalizacjami)][planning-guide-figure-300]
 
-Ten scenariusz jest scenariusza między lokalizacjami z wielu wzorców możliwe wdrożenie rozwiązania. Można również opisać tylko uruchamianie niektórych części SAP poziomą lokalnego i innymi częściami SAP poziomą na platformie Azure. Wszystkie aspekty fakt, że część SAP składniki są uruchomione na platformie Azure powinna być niewidoczny dla użytkowników końcowych. Dlatego SAP transportu korekty systemu (STMS), RFC komunikacji, drukowania, zabezpieczeń (na przykład SSO), itp. będzie działać bezproblemowo dla systemów SAP działających na platformie Azure. Jednak w scenariuszu obejmującym różne pomieszczenia również opisano scenariusz, w którym pełną pozioma SAP działa na platformie Azure z domeną klienta i rozszerzone DNS na platformie Azure.
+Ten scenariusz jest scenariusza między lokalizacjami z wielu wzorców możliwe wdrożenie rozwiązania. Może być tylko opisany jako działających na platformie Azure niektórych części hello SAP pozioma lokalnego i innymi częściami pakietu hello pozioma SAP. Wszystkie aspekty hello fakt, że część hello SAP składniki są uruchomione na platformie Azure powinna być niewidoczny dla użytkowników końcowych. Dlatego hello SAP transportu korekty systemu (STMS), RFC komunikacji, drukowania, zabezpieczeń (na przykład SSO), itp., będą działać bezproblemowo systemu SAP hello działających na platformie Azure. Ale scenariuszu obejmującym różne pomieszczenia hello również opisano scenariusz, w którym hello pełną SAP w orientacji poziomej działa na platformie Azure z domeną powitania klienta i rozszerzone DNS na platformie Azure.
 
 > [!NOTE]
-> Jest to scenariusz wdrażania, która jest obsługiwana w przypadku produktywności systemami SAP.
+> Jest to hello scenariusz wdrażania, która jest obsługiwana w przypadku produktywności systemami SAP.
 >
 >
 
-Odczyt [w tym artykule] [ vpn-gateway-create-site-to-site-rm-powershell] Aby uzyskać więcej informacji na temat połączyć sieć lokalną do systemu Microsoft Azure
+Odczyt [w tym artykule] [ vpn-gateway-create-site-to-site-rm-powershell] Aby uzyskać więcej informacji na temat tooconnect tooMicrosoft Azure sieci lokalnej
 
 > [!IMPORTANT]
-> Gdy firma Microsoft mówimy więc o scenariuszach między lokalizacjami między wdrożeniami klienta usługi Azure i lokalnymi, czekamy na poziom szczegółowości całego systemu SAP. Scenariusze, które są *nieobsługiwane* między lokalizacjami scenariusze są:
+> Gdy firma Microsoft mówimy więc o scenariuszach między lokalizacjami między wdrożeniami klienta usługi Azure i lokalnymi, czekamy na powitania szczegółowości całego systemu SAP. Scenariusze, które są *nieobsługiwane* między lokalizacjami scenariusze są:
 >
-> * Uruchamianie różnych warstw aplikacje SAP w różne metody wdrażania. Na przykład uruchomiony system DBMS warstwy lokalną, ale warstwy aplikacji SAP w maszyn wirtualnych wdrożonych jako maszynach wirtualnych platformy Azure lub na odwrót.
-> * Niektóre składniki warstwy SAP w Azure i niektórych lokalnych. Na przykład dzielenie wystąpienia warstwy aplikacji SAP między lokalnymi i maszyn wirtualnych platformy Azure.
+> * Uruchamianie różnych warstw aplikacje SAP w różne metody wdrażania. Na przykład uruchomiony hello DBMS warstwy lokalnej, ale warstwy aplikacji hello SAP w maszyn wirtualnych wdrożonych jako maszynach wirtualnych platformy Azure lub na odwrót.
+> * Niektóre składniki warstwy SAP w Azure i niektórych lokalnych. Na przykład dzielenie wystąpienia warstwy aplikacji SAP hello między lokalnymi i maszyn wirtualnych platformy Azure.
 > * Rozkład maszyn wirtualnych uruchomionych wystąpień SAP jednego systemu w wielu regionach platformy Azure nie jest obsługiwane.
 >
-> Przyczyna te ograniczenia jest wymagane dla bardzo małych opóźnień sieci wysokiej wydajności w ramach jednego systemu SAP, szczególnie między wystąpieniami aplikacji a warstwy DBMS systemu SAP.
+> Powodem Hello te ograniczenia jest wymaganie hello bardzo małych opóźnień sieci wysokiej wydajności w ramach jednego systemu SAP, szczególnie między wystąpieniami aplikacji hello i warstwy DBMS hello systemu SAP.
 >
 >
 
@@ -465,101 +465,101 @@ Odczyt [w tym artykule] [ vpn-gateway-create-site-to-site-rm-powershell] Aby uzy
 * Obsługiwane w przypadku usług maszyny wirtualnej platformy Azure to wymienione w tym artykule oprogramowanie serwera firmy Microsoft: <http://support.microsoft.com/kb/2721672>.
 * Obsługiwane wersje systemu operacyjnego, obsługiwany na usługi na maszynie wirtualnej platformy Azure w połączeniu z oprogramowania SAP wydaniach systemu bazy danych są udokumentowane w artykule Uwaga SAP [1928533].
 * Aplikacje SAP i wersje obsługiwane na usługi na maszynie wirtualnej Azure opisano w Uwaga SAP [1928533].
-* Do uruchamiania jako maszyny wirtualne gości na platformie Azure dla programu SAP scenariusze obsługiwane są tylko obrazy 64-bitowym. Oznacza to również, że obsługiwane są tylko aplikacje SAP 64-bitowe i baz danych.
+* Tylko 64-bitowych obrazów są obsługiwane toorun jako maszyny wirtualne gości na platformie Azure w scenariuszach SAP. Oznacza to również, że obsługiwane są tylko aplikacje SAP 64-bitowe i baz danych.
 
 ## <a name="microsoft-azure-virtual-machine-services"></a>Usługi Microsoft Azure na maszynie wirtualnej
-Platforma Microsoft Azure jest internet skali usługi platformy w chmurze hostowanej i zarządzane w centrach danych firmy Microsoft. Ta platforma obejmuje usługi Microsoft Azure maszyny wirtualnej (infrastruktura jako usługa lub IaaS) oraz zestaw zaawansowanych platforma jako możliwości usługa (PaaS).
+Platforma Microsoft Azure Hello to internet skali w chmurze platformy usług hostowanych i zarządzane w danych firmy Microsoft centrów. Platforma Hello obejmuje usług hello Microsoft Azure maszyny wirtualnej (infrastruktura jako usługa lub IaaS) oraz zestaw zaawansowanych platformy jako usługa (PaaS) możliwości.
 
-Platforma Azure ogranicza potrzebę początkowych technologii i zakupi infrastruktury. Takie rozwiązanie upraszcza, obsługi i działania aplikacji przez podanie obliczeń na żądanie i magazynu do hosta, skalowania i zarządzania i aplikacji sieci web połączonych aplikacji. Zarządzanie infrastrukturą jest zautomatyzowane przy użyciu platformy, które zaprojektowano pod kątem wysokiej dostępności i dynamiczne skalowanie do dopasowania na potrzeby użycia z opcją z modelu cenowego.
+Hello platformy Azure ogranicza potrzebę hello początkowych technologii i zakupów infrastruktury. Takie rozwiązanie upraszcza utrzymanie i działają aplikacje, zapewniając toohost obliczeniowych i przestrzeni dyskowej na żądanie, skalowania i zarządzania aplikacji sieci web i połączonych aplikacji. Zarządzanie infrastrukturą jest zautomatyzowane przy użyciu platformy, które zaprojektowano pod kątem wysokiej dostępności i dynamiczne skalowanie toomatch potrzeby użycia z opcją hello z modelu cenowego.
 
 ![Pozycjonowanie usługi na maszynie wirtualnej platformy Microsoft Azure][planning-guide-figure-400]
 
-Za pomocą usług Azure maszyny wirtualnej firmy Microsoft jest umożliwiając wdrażanie obrazów niestandardowego serwera na platformie Azure jako wystąpień IaaS (patrz rysunek 4). Maszyny wirtualne na platformie Azure są oparte na funkcji Hyper-V wirtualnych dysków twardych (VHD) i mogą działać z różnymi systemami operacyjnymi jako systemu operacyjnego gościa.
+Za pomocą usług Azure maszyny wirtualnej firmy Microsoft jest umożliwiając toodeploy serwera niestandardowe obrazy tooAzure jako wystąpień IaaS (patrz rysunek 4). Hello maszynach wirtualnych platformy Azure są oparte na funkcji Hyper-V wirtualnych dysków twardych (VHD) i są możliwe toorun różnych systemów operacyjnych jako systemu operacyjnego gościa.
 
-Z perspektywy operacyjnej usługa maszynami wirtualnymi Azure oferuje podobne funkcje jako maszyn wirtualnych wdrożonych lokalnie. Ma jednak znaczących korzyści, który nie jest konieczne nabywania, Administruj i Zarządzaj infrastruktury. Deweloperzy i Administratorzy mają pełną kontrolę nad obrazu systemu operacyjnego w ramach tych maszyn wirtualnych. Administratorzy mogą zdalnie logowania do tych maszyn wirtualnych do wykonywania konserwacji i rozwiązywanie problemów z zadaniami, jak również zadania wdrażania oprogramowania. W odniesieniu do wdrożenia tylko ograniczenia są rozmiary i możliwości maszyn wirtualnych platformy Azure. To może nie być poprawnie jako szczegółowe w konfiguracji, można to zrobić lokalnie. Brak wyboru stanową kombinację typów maszyny Wirtualnej:
+Z perspektywy operacyjnej powitalne usługa maszyny wirtualnej Azure oferuje podobne napotyka jako maszyn wirtualnych wdrożonych lokalnie. Ma jednak hello postęp niepotrzebnych tooprocure, Administruj i Zarządzaj hello infrastruktury. Deweloperzy i Administratorzy mają pełną kontrolę nad hello obrazu systemu operacyjnego w ramach tych maszyn wirtualnych. Administratorzy mogą logowania zdalnego do tych maszyn wirtualnych tooperform obsługi i rozwiązywania problemów zadania, jak również zadania wdrażania oprogramowania. W toodeployment uwzględniając ograniczenia tylko hello są hello rozmiary i możliwości maszyn wirtualnych platformy Azure. To może nie być poprawnie jako szczegółowe w konfiguracji, można to zrobić lokalnie. Brak wyboru stanową kombinację typów maszyny Wirtualnej:
 
 * Liczba Vcpu,
 * Pamięci,
 * Liczba wirtualnych dysków twardych, które można dołączyć,
 * Przepustowości sieci i magazynu.
 
-Rozmiar i ograniczenia o różnych rozmiarach różnych maszyn wirtualnych oferowanych są widoczne w tabeli w [w tym artykule][virtual-machines-sizes]
+rozmiar Hello i ograniczenia o różnych rozmiarach różnych maszyn wirtualnych oferowanych są widoczne w tabeli w [w tym artykule][virtual-machines-sizes]
 
-Jak będzie realizować istnieją różnych rodzin lub serii maszyn wirtualnych. Począwszy od grudnia 2015 r. można rozróżnić następujących rodzin maszyn wirtualnych:
+Jak będzie realizować istnieją różnych rodzin lub serii maszyn wirtualnych. Począwszy od grudnia 2015 r. można rozróżnić powitania po rodzin maszyn wirtualnych:
 
 * Maszyna wirtualna a0 A7 typów: nie wszystkie te są certyfikowane dla SAP. Pierwszy serii maszyny Wirtualnej, która Azure IaaS otrzymano wprowadzone w systemie.
 * Maszyna wirtualna a8 A11 typy: Wysoka wydajność przetwarzania danych wystąpienia. Uruchomione na różnych lepsze wykonywanie obliczeń hostów od innych maszyn wirtualnych, A-series.
-* Typy wirtualna D-Series: wykonywanie lepiej niż A0 A7. Nie wszystkie typy wirtualna certyfikowanych SAP.
-* Typy serii DS maszyny Wirtualnej: Użyj tej samej hosty jako D-series, ale będą mogli nawiązać połączenia z usługi Azure Premium Storage (zobacz rozdział [Azure Premium Storage] [ planning-guide-3.3.2] tego dokumentu). Ponownie certyfikowanych nie wszystkie typy maszyny Wirtualnej z programu SAP.
+* Typy wirtualna D-Series: wykonywanie lepiej niż A0 A7. Nie wszystkie typy wirtualna hello certyfikowanych SAP.
+* Typy serii DS maszyny Wirtualnej: Użyj tej samej hosty jako D-series, ale są możliwe tooconnect tooAzure magazyn w warstwie Premium (zobacz rozdział [Azure Premium Storage] [ planning-guide-3.3.2] tego dokumentu). Ponownie certyfikowanych nie wszystkie typy maszyny Wirtualnej z programu SAP.
 * Typy wirtualna serii G: typach maszyn wirtualnych o wysokiej pamięci.
-* Typy serii GS maszyny Wirtualnej: jak serii G, ale w tym możliwość użycia usługi Azure Premium Storage (zobacz rozdział [Azure Premium Storage] [ planning-guide-3.3.2] tego dokumentu). Korzystając z maszyn wirtualnych GS-Series jako serwery bazy danych jest to konieczne do użycia dla plików dziennika transakcji i danych DB magazyn w warstwie Premium
+* Typy serii GS maszyny Wirtualnej: jak serii G, ale tym toouse opcji hello Azure Premium Storage (zobacz rozdział [Azure Premium Storage] [ planning-guide-3.3.2] tego dokumentu). Jako serwery bazy danych przy użyciu serii GS maszyn wirtualnych jest obowiązkowe toouse magazyn w warstwie Premium dla pliki dziennika bazy danych i transakcji
 
-Możesz znaleźć tego samego procesora CPU i pamięci konfiguracji w innej serii maszyn wirtualnych. Niemniej jednak gdy wyszukiwanie przepustowość tych maszyn wirtualnych z innej serii może różnią się one znacznie. Pomimo mających taką samą konfigurację Procesora i pamięci. Przyczyną jest to, czy używany sprzęt serwera hosta na wprowadzenie różnych typach maszyn wirtualnych ma parametry różnych przepływności.  Zazwyczaj różnica pokazano przepustowość również znajduje odzwierciedlenie w cenie różnych maszyn wirtualnych.
+Może się okazać hello takie same konfiguracje Procesora i pamięci w innej serii maszyn wirtualnych. Niemniej jednak gdy wyszukiwanie hello przepustowość tych maszyn wirtualnych z innej serii hello może różnią się one znacznie. Pomimo o hello sama konfiguracja procesora CPU i pamięci. Przyczyną jest to, że sprzętu hello do serwera źródłowego hosta na wprowadzenie hello hello różnych typów maszyny Wirtualnej ma parametry przepływności różne.  Zazwyczaj różnica hello pokazano przepustowość jest odzwierciedlenie w hello ceny hello różnych maszyn wirtualnych.
 
-Należy pamiętać, że nie wszystkie innej serii maszyn wirtualnych może oferowane w poszczególnych regionach platformy Azure (dla następnego rozdziału Zobacz regiony platformy Azure). Wziąć pod uwagę, że nie wszystkie maszyny wirtualne lub serii maszyn wirtualnych są certyfikowane dla programu SAP.
+Należy pamiętać, że nie wszystkie innej serii maszyn wirtualnych może oferowane w każdej z nich hello regiony platformy Azure (dla następnego rozdziału Zobacz regiony platformy Azure). Wziąć pod uwagę, że nie wszystkie maszyny wirtualne lub serii maszyn wirtualnych są certyfikowane dla programu SAP.
 
 > [!IMPORTANT]
-> Do korzystania z programu SAP NetWeaver na podstawie aplikacji, tylko podzbiór typach maszyn wirtualnych i konfiguracji na liście Uwaga SAP [1928533] są obsługiwane.
+> Użytku hello SAP NetWeaver na podstawie aplikacji tylko podzbioru hello typach maszyn wirtualnych i konfiguracji na liście Uwaga SAP [1928533] są obsługiwane.
 >
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Regiony platformy Azure
-Umożliwia firmy Microsoft do wdrażania maszyn wirtualnych do tak zwany "regiony platformy Azure". Region platformy Azure może być jeden lub wiele centrów danych, które znajdują się w pobliżu. W większości regionów geograficznymi na świecie Microsoft ma co najmniej dwóch regionach platformy Azure. Na przykład w Europie istnieje Region platformy Azure "Europa Północna" i jednym "Europa". Tych dwóch regionach platformy Azure w obrębie regionu geograficznymi są oddzielone odległość tyle istotne, aby awarii naturalnych i technicznych nie wpływają na obu regionów platformy Azure, w tym samym regionie geograficznymi. Ponieważ Microsoft stopniowo buduje się nowych regionów platformy Azure w różnych regionach geograficznymi globalnie, liczba tych regionów stopniowo rośnie i począwszy od grudnia 2015 maksymalną liczbę 20 regiony platformy Azure z regionami dodatkowe ogłoszenia już. Klientów można wdrożyć systemy SAP do tych regionów, w tym dwóch regionach platformy Azure w Chinach. Bieżąca aktualności informacji o regionach platformy Azure dla tej witryny sieci Web: <https://azure.microsoft.com/regions/>
+Microsoft umożliwia toodeploy maszyn wirtualnych do tak zwany "regiony platformy Azure". Region platformy Azure może być jeden lub wiele centrów danych, które znajdują się w pobliżu. Dla większości hello geograficznymi regionów Witaj świecie Microsoft ma co najmniej dwóch regionach platformy Azure. Na przykład w Europie istnieje Region platformy Azure "Europa Północna" i jednym "Europa". Tych dwóch regionach platformy Azure w obrębie regionu geograficznymi są oddzielone odległość tyle istotne, aby awarii naturalnych i technicznych nie wpływają na obu regionów platformy Azure w hello tego samego regionu geograficznymi. Ponieważ Microsoft stopniowo buduje się nowych regionów platformy Azure w różnych regionach geograficznymi globalnie, hello liczba tych regionów stopniowo rośnie i począwszy od grudnia 2015 maksymalną hello liczbę 20 regiony platformy Azure z regionami dodatkowe ogłoszenia już. Klientów można wdrożyć systemy SAP do tych regionów, w tym hello dwa regiony platformy Azure w Chinach. Bieżąca się toodate informacji o regionach platformy Azure dla tej witryny sieci Web: <https://azure.microsoft.com/regions/>
 
-### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Pojęcie maszyny wirtualnej platformy Microsoft Azure
-Microsoft Azure oferuje infrastrukturę jako rozwiązanie usługi (IaaS) na host maszyny wirtualnej z podobne funkcje jako rozwiązania do wirtualizacji lokalnymi. Masz możliwość tworzenia maszyn wirtualnych z portalu Azure, programu PowerShell lub interfejsu wiersza polecenia, które oferują także wdrażania i możliwości zarządzania.
+### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Witaj koncepcji programu Microsoft Azure maszyny wirtualnej
+Microsoft Azure oferuje infrastrukturę jako toohost rozwiązania usługi (IaaS) maszyn wirtualnych z podobne funkcje jako rozwiązania do wirtualizacji lokalnymi. Jesteś stanie toocreate maszyn wirtualnych w ramach hello portalu Azure, programu PowerShell lub interfejsu wiersza polecenia, które oferują także wdrażania i możliwości zarządzania.
 
-Usługa Azure Resource Manager pozwala inicjować obsługę aplikacji za pomocą deklaratywnych szablonów. Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Wielokrotnie wdrażania aplikacji podczas każdego etapu cyklu życia aplikacji przy użyciu tego samego szablonu.
+Usługa Azure Resource Manager umożliwia tooprovision aplikacji przy użyciu szablonu deklaracyjnego. Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Użyj hello tego samego szablonu toorepeatedly wdrożenia aplikacji podczas każdego etapu cyklu życia aplikacji hello.
 
 Więcej informacji na temat przy użyciu szablonów ARM można znaleźć tutaj:
 
-* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i wiersza polecenia platformy Azure][virtual-machines-linux-cli-deploy-templates]
+* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i hello wiersza polecenia platformy Azure][virtual-machines-linux-cli-deploy-templates]
 * [Zarządzanie maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://Azure.microsoft.com/Documentation/Templates/>
 
-Inna funkcja interesujące jest możliwość tworzenia obrazów z maszyn wirtualnych, dzięki czemu można przygotować niektórych repozytoriów, z których będą mogli szybko wdrożyć wystąpień maszyn wirtualnych, które spełniają wymagania.
+Inna funkcja interesujące jest hello możliwości toocreate obrazów z maszyn wirtualnych, co pozwala tooprepare pewność, że repozytoriów, z których mogą tooquickly można wdrożyć wystąpień maszyn wirtualnych, które spełniają wymagania.
 
 Więcej informacji na temat tworzenia obrazów z maszyn wirtualnych można znaleźć w [w tym artykule (system Windows)] [ virtual-machines-windows-capture-image] lub [w tym artykule (Linux)] [ virtual-machines-linux-capture-image].
 
 #### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Domen błędów
-Domen błędów reprezentują fizyczną jednostkę awarii, bardzo zbliżona do infrastruktury fizycznej zawarte w centrach danych i gdy bloku fizycznego lub stojak jest uznawana za domeny błędów, nie istnieje żadne bezpośrednie mapowanie jeden do jednego między nimi.
+Domen błędów reprezentują fizyczną jednostkę awarii, bardzo ściśle powiązane toohello infrastruktury fizycznej zawarte w centrach danych i gdy bloku fizycznego lub stojak jest uznawana za domeny błędów, nie istnieje żadne bezpośrednie mapowanie jeden do jednego między hello dwa.
 
-Podczas wdrażania wielu maszyn wirtualnych w ramach jednego systemu SAP w usług Microsoft Azure maszyny wirtualnej, może mieć wpływ z kontrolerem sieci szkieletowej Azure wdrażania aplikacji w różnych domen błędów, w tym samym spełniając wymagania umowy SLA platformy Azure firmy Microsoft. Rozkład domen błędów przez jednostkę skalowania Azure (kolekcja setki węzłów obliczeniowych lub węzłów magazynu i sieci) lub przydziału maszyn wirtualnych do określonej domeny błędów jest jednak coś, w którym nie ma bezpośredniej kontroli. Aby skierować kontrolera sieci szkieletowej Azure wdrażanie zestaw maszyn wirtualnych za pośrednictwem różnych domenach awarii, należy przypisać Azure zestawu dostępności z maszynami wirtualnymi w czasie wdrażania. Aby uzyskać więcej informacji dotyczących zestawami dostępności Azure, zobacz rozdział [zestawami dostępności Azure] [ planning-guide-3.2.3] w tym dokumencie.
+Podczas wdrażania wielu maszyn wirtualnych w ramach jednego systemu SAP w usług Microsoft Azure maszyny wirtualnej, można określić toodeploy Kontroler sieci szkieletowej Azure hello aplikacji do różnych domen błędów, w tym samym spełniając wymagania hello hello Umowy SLA platformy Microsoft Azure. Jednak hello dystrybucji domen błędów przez jednostkę skalowania Azure (kolekcja setki węzłów obliczeniowych lub węzłów magazynu i sieci) lub przypisanie hello tooa maszyn wirtualnych jest określonej domeny błędów coś, w którym nie ma bezpośredni formantu. W kolejności toodirect hello sieci szkieletowej Azure kontrolera toodeploy zestaw maszyn wirtualnych w różnych domenach awarii należy tooassign toohello zestawu dostępności Azure maszyn wirtualnych w czasie wdrażania. Aby uzyskać więcej informacji dotyczących zestawami dostępności Azure, zobacz rozdział [zestawami dostępności Azure] [ planning-guide-3.2.3] w tym dokumencie.
 
 #### <a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Domen uaktualnienia
-Domen uaktualnienia reprezentują jednostki logicznej, która pomoc, aby określić sposób aktualizowania maszyny Wirtualnej w ramach systemu SAP, składający się z wystąpień SAP w wielu maszyn wirtualnych. W przypadku uaktualnienia programu Microsoft Azure przechodzi przez proces aktualizowania te domeny uaktualnienia pojedynczo. Dzięki rozproszeniu maszyn wirtualnych w czasie wdrażania w różnych domenach uaktualnienia można chronić systemu SAP częściowo z potencjalny Przestój. Aby wymusić Azure, aby wdrożyć maszyny wirtualne systemu SAP zlokalizowane w różnych domenach uaktualnienia, musisz ustawić określony atrybut w czasie wdrażania każdej maszyny wirtualnej. Podobnie jak domen błędów, jednostki skalowania usługi Azure jest podzielony na wiele domen uaktualnienia. Aby skierować kontrolera sieci szkieletowej Azure wdrażanie zestaw maszyn wirtualnych za pośrednictwem różnych domen uaktualnienia, należy przypisać Azure zestawu dostępności z maszynami wirtualnymi w czasie wdrażania. Aby uzyskać więcej informacji dotyczących zestawami dostępności Azure, zobacz rozdział [zestawami dostępności Azure] [ planning-guide-3.2.3] poniżej.
+Domen uaktualnienia reprezentują jednostki logicznej, która pomocy toodetermine sposób aktualizowania maszyny Wirtualnej w ramach systemu SAP, składający się z wystąpień SAP w wielu maszyn wirtualnych. W przypadku uaktualnienia Microsoft Azure przechodzi przez proces hello aktualizacji tych domen uaktualnienia pojedynczo. Dzięki rozproszeniu maszyn wirtualnych w czasie wdrażania w różnych domenach uaktualnienia można chronić systemu SAP częściowo z potencjalny Przestój. W kolejności tooforce Azure toodeploy VMs hello systemu SAP zlokalizowane w różnych domenach uaktualnienia, należy tooset określony atrybut w czasie wdrażania każdej maszyny wirtualnej. Podobnych tooFault domen, jednostki skalowania Azure jest podzielony na wiele domen uaktualnienia. W kolejności toodirect hello sieci szkieletowej Azure kontrolera toodeploy zestaw maszyn wirtualnych w różnych domenach uaktualnienia należy tooassign toohello zestawu dostępności Azure maszyn wirtualnych w czasie wdrażania. Aby uzyskać więcej informacji dotyczących zestawami dostępności Azure, zobacz rozdział [zestawami dostępności Azure] [ planning-guide-3.2.3] poniżej.
 
 #### <a name="18810088-f9be-4c97-958a-27996255c665"></a>Zestawy dostępności Azure
-Maszyny wirtualne platformy Azure w ramach jednego zestawu dostępności Azure będą przesyłane przez kontroler sieci szkieletowej Azure za pośrednictwem różnych usterek i domen uaktualnienia. Dystrybucji za pośrednictwem różnych awarii i uaktualniania domeny ma na celu zapobieganie wszystkich maszyn wirtualnych systemu SAP zamykany w przypadku infrastruktury obsługi lub awaria w jednej domenie błędów. Domyślnie maszyny wirtualne nie są częścią zestawu dostępności. Udział maszyny wirtualnej w zestawie dostępności jest zdefiniowany w czasie wdrażania lub nowszego przez zmianę konfiguracji i ponownego wdrażania maszyny wirtualnej.
+Maszyny wirtualne platformy Azure w ramach jednego zestawu dostępności Azure będą przesyłane przez kontroler sieci szkieletowej Azure hello za pośrednictwem różnych usterek i domen uaktualnienia. Celem Hello hello dystrybucji za pośrednictwem różnych awarii i uaktualniania domen jest tooprevent zamknięcia się wszystkich maszyn wirtualnych systemu SAP będą pracowały w przypadku hello konserwacja infrastruktury lub błąd w obrębie jednej domeny błędów. Domyślnie maszyny wirtualne nie są częścią zestawu dostępności. udział Hello maszyny wirtualnej w zestawie dostępności jest zdefiniowany w czasie wdrażania lub nowszego przez zmianę konfiguracji i ponownego wdrażania maszyny wirtualnej.
 
-Zrozumienie pojęcia zestawami dostępności Azure i sposobu zestawów dostępności odnoszą się do awarii i uaktualniania domen, przeczytaj [w tym artykule][virtual-machines-manage-availability]
+pojęcie hello toounderstand zestawami dostępności Azure i hello sposób zestawów dostępności odnoszą się tooFault i domen uaktualnienia, przeczytaj [w tym artykule][virtual-machines-manage-availability]
 
-Aby zdefiniować Zobacz zbiór dostępności dla ARM przy użyciu szablonu json [specyfikacji interfejsu api rest](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) i wyszukaj "availability".
+Zobacz toodefine zbiór dostępności dla ARM przy użyciu szablonu json [hello specyfikacji interfejsu api rest](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2015-06-15/swagger/compute.json) i wyszukaj "availability".
 
 ### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Pamięć: Usługi Microsoft Azure Storage i dysków z danymi
-Maszyny wirtualne Microsoft Azure korzystać z różnymi typami magazynów. Podczas implementowania SAP na usługi na maszynie wirtualnej Azure należy poznać różnice między tymi dwoma rodzajami głównego magazynu:
+Maszyny wirtualne Microsoft Azure korzystać z różnymi typami magazynów. Podczas implementowania SAP na usługi na maszynie wirtualnej platformy Azure jest ważne toounderstand hello różnice między tymi dwoma rodzajami głównego magazynu:
 
 * Inne niż stałe i nietrwałe magazynu.
 * Magazynu trwałego.
 
-Trwałe magazyn jest podłączony bezpośrednio do maszyn wirtualnych i znajduje się w węzłach obliczeniowych sami — lokalne wystąpienie magazynu tymczasowego. Rozmiar zależy od rozmiaru maszyny wirtualnej po uruchomieniu wdrożenia. Ten typ magazynu jest nietrwała i w związku z tym dysk został zainicjowany po ponownym uruchomieniu wystąpienia maszyny wirtualnej. Zazwyczaj plik stronicowania systemu operacyjnego znajduje się na tym dysku tymczasowym.
+Magazyn nietrwałe Hello jest podłączonego bezpośrednio toohello uruchomionych maszyn wirtualnych i znajduje się na powitania obliczeń w poszczególnych węzłach — Witaj lokalne wystąpienie magazynu tymczasowego. rozmiar Hello zależy od rozmiaru hello hello maszyny wirtualnej podczas uruchamiania wdrożenia hello. Ten typ magazynu jest nietrwała i w związku z tym hello dysk został zainicjowany po ponownym uruchomieniu wystąpienia maszyny wirtualnej. Zazwyczaj plik stronicowania hello hello systemu operacyjnego znajduje się na tym dysku tymczasowym.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Na maszynach wirtualnych z systemem Windows jako dysku D:\ w wdrożonej maszyny Wirtualnej został zainstalowany dysk tymczasowego.
+> Na maszynach wirtualnych Windows hello tymczasowego dysk jest zainstalowany jako dysku D:\ w wdrożonej maszyny Wirtualnej.
 >
 > ![Linux][Logo_Linux] Linux
 >
 > Na maszynach wirtualnych systemu Linux jest zainstalowany jako /mnt/resource lub katalogu/mnt. Dowiedz się więcej tutaj:
 >
-> * [Jak można dołączyć dysku danych do maszyny wirtualnej systemu Linux][virtual-machines-linux-how-to-attach-disk]
+> * [Jak tooAttach tooa dysku danych maszyny wirtualnej systemu Linux][virtual-machines-linux-how-to-attach-disk]
 > * <http://blogs.msdn.com/b/mast/Archive/2013/12/07/Understanding-the-Temporary-Drive-on-Windows-Azure-Virtual-Machines.aspx>
 >
 >
 
 - - -
-Rzeczywiste dysk jest volatile, ponieważ jest ona pobieranie przechowywana na serwerze hosta. Jeśli przenieść maszynę Wirtualną w przypadku ponownego wdrażania (np. z powodu konserwacji na hoście lub zamknięcia i ponownego uruchomienia) zawartości dysku zostaną utracone. W związku z tym nie jest opcją do przechowywania wszystkich ważnych danych na tym dysku. Typ nośnika użytego dla tego typu magazynu różni się od innej serii maszyn wirtualnych z bardzo różnych charakterystyki, których począwszy od czerwca 2015 wygląda jak:
+dysku Hello jest nietrwałe, ponieważ jest wprowadzenie przechowywane na serwerze hosta hello sam. Jeśli przenoszona hello maszyny Wirtualnej w przypadku ponownego wdrażania (np. z powodu toomaintenance na hoście hello lub zamknięcia i ponownego uruchomienia) zawartości hello hello dysku zostaną utracone. W związku z tym nie jest opcja toostore wszystkich ważnych danych na tym dysku. Witaj typ nośnika użytego dla tego typu magazynu różni się od innej serii maszyn wirtualnych z bardzo różnych charakterystyki, których począwszy od czerwca 2015 wygląda jak:
 
 * A5 A7: Bardzo ograniczony wydajności. Nie jest zalecane dla wszystkich elementów poza pliku stronicowania
 * A8 A11: Charakterystyki wydajności bardzo dobre z niektórych IOPS dziesięć tysięcy i > 1GB/s przepustowości.
@@ -568,25 +568,25 @@ Rzeczywiste dysk jest volatile, ponieważ jest ona pobieranie przechowywana na s
 * Seria G: Charakterystyki wydajności bardzo dobre z niektórych IOPS dziesięć tysięcy i > 1GB/s przepustowości.
 * GS-Series: Charakterystyki wydajności bardzo dobre z niektórych IOPS dziesięć tysięcy i > 1GB/s przepustowości.
 
-Instrukcje powyżej jest stosowane do typów maszyny Wirtualnej, które są certyfikowane z SAP. Seria maszyn wirtualnych z doskonałym IOPS i przepływności kwalifikować się do korzystanie przez niektóre funkcje systemu DBMS. Zobacz [DBMS Deployment Guide] [ dbms-guide] więcej szczegółów.
+Instrukcje powyżej jest stosowane toohello wirtualna typy, które są certyfikowane z programu SAP. Hello serii maszyn wirtualnych z doskonałym IOPS i przepływności kwalifikować się do korzystanie przez niektóre funkcje systemu DBMS. Zobacz hello [DBMS Deployment Guide] [ dbms-guide] więcej szczegółów.
 
-Magazyn Microsoft Azure udostępnia utrwalonego magazynu i typowych poziomu ochrony i nadmiarowość widoczne w magazynie SAN. Dyski oparte na usłudze Azure Storage to wirtualny dysk twardy (VHD) znajduje się w usług magazynu Azure. Lokalny dysk systemu operacyjnego (Windows C:\, Linux / (/ dev/sda1)) są przechowywane w magazynie Azure i dodatkowych woluminów/dysków zainstalowanych na maszynie wirtualnej pobrać przechowywane, zbyt.
+Microsoft Azure Storage zapewnia utrwalonego magazynu i hello typowe poziomy ochrony i nadmiarowość widoczne w magazynie SAN. Dyski oparte na usłudze Azure Storage to wirtualny dysk twardy (VHD) znajduje się w usług magazynu Azure hello. Hello lokalny dysk systemu operacyjnego (Windows C:\, Linux / (/ dev/sda1)) jest przechowywany na powitania usługi Azure Storage i dodatkowych woluminów/dysków zainstalowanych toohello maszyny Wirtualnej pobrać przechowywane, za.
 
-Istnieje możliwość Przekaż istniejącego dysku VHD z lokalnymi lub Utwórz pustych od w obrębie platformy Azure i dołączyć je na wdrożonych maszyn wirtualnych. Odwołuje się tych wirtualnych dysków twardych jako dysków Azure.
+Jest możliwe tooupload istniejącego dysku VHD z lokalnymi lub utworzyć pusty, które były w obrębie platformy Azure i Dołącz te toodeployed maszyn wirtualnych. Odwołuje się tych wirtualnych dysków twardych jako dysków Azure.
 
-Po utworzeniu lub przekazywanie wirtualnego dysku twardego do usługi Azure Storage, jest możliwe, aby zainstalować i dołącz je na istniejącej maszyny wirtualnej i skopiować istniejącego dysku VHD (odinstalowane).
+Po utworzeniu lub przekazywanie wirtualnego dysku twardego do usługi Azure Storage, jest możliwe toomount i Dołącz te tooan istniejącej maszyny wirtualnej i toocopy istniejącego wirtualnego dysku twardego (odinstalowane).
 
-W tych wirtualne dyski twarde są trwałe, danych i zmiany w tych są bezpieczne podczas ponownego uruchamiania i ponowne utworzenie wystąpienia maszyny wirtualnej. Nawet, jeśli wystąpienie zostanie usunięty, te wirtualne dyski twarde bezpieczeństwo i może zostać wdrożone lub w przypadku dysków z systemem innym niż systemu operacyjnego może być instalowany na innych maszynach wirtualnych.
+W tych wirtualne dyski twarde są trwałe, danych i zmiany w tych są bezpieczne podczas ponownego uruchamiania i ponowne utworzenie wystąpienia maszyny wirtualnej. Nawet, jeśli wystąpienie zostanie usunięty, te wirtualne dyski twarde bezpieczeństwo i może zostać wdrożone lub w przypadku dysków z systemem innym niż systemu operacyjnego może być zainstalowany tooother maszyn wirtualnych.
 
-W ramach sieci usługi Azure Storage, można skonfigurować nadmiarowość różnych poziomów:
+W ramach hello można skonfigurować sieci poziomy różnych nadmiarowość magazynu Azure:
 
-* Minimalny poziom, który można wybrać jest "nadmiarowość lokalnym", który jest odpowiednikiem trzy repliki danych w tym samym centrum danych z regionu platformy Azure (zobacz rozdział [regiony platformy Azure][planning-guide-3.1]).
-* Strefa magazynu geograficznie nadmiarowego, który rozprzestrzenia trzy obrazy za pośrednictwem różnych danych koncentruje się w tym samym regionie Azure.
-* Domyślny poziom nadmiarowości jest nadmiarowości geograficznej, które asynchronicznie replikuje zawartość do innego 3 obrazów danych w innym regionie Azure, który jest obsługiwany w tym samym regionie geograficznymi.
+* Minimalny poziom, który można wybrać jest "nadmiarowość lokalnego", który jest równoważne toothree repliki danych hello hello tym samym centrum danych z regionu platformy Azure (zobacz rozdział [regiony platformy Azure][planning-guide-3.1]).
+* Strefy magazynu geograficznie nadmiarowego, który rozprzestrzenia hello trzy obrazy w różnych centrach danych w ramach hello tym samym regionie Azure.
+* Domyślny poziom nadmiarowości jest nadmiarowości geograficznej, które asynchronicznie replikuje hello zawartości na inny obrazy 3 hello danych w innym regionie Azure, która jest hostowana w hello tego samego regionu geograficznymi.
 
-Zobacz też tabeli u góry tego artykułu w odniesieniu do nadmiarowość różne opcje: <https://azure.microsoft.com/pricing/details/storage/>
+Zobacz też hello tabeli u góry tego artykułu w zakresie toohello nadmiarowość różne opcje: <https://azure.microsoft.com/pricing/details/storage/>
 
-Więcej informacji w odniesieniu do usługi Azure Storage można znaleźć tutaj:
+Więcej informacji w zakresie tooAzure, magazynu można znaleźć tutaj:
 
 * <https://Azure.microsoft.com/Documentation/Services/Storage/>
 * <https://Azure.microsoft.com/Services/Site-Recovery>
@@ -594,101 +594,101 @@ Więcej informacji w odniesieniu do usługi Azure Storage można znaleźć tutaj
 * <https://blogs.msdn.com/b/azuresecurity/Archive/2015/11/17/Azure-Disk-Encryption-for-Linux-and-Windows-Virtual-Machines-Public-Preview.aspx>
 
 #### <a name="azure-standard-storage"></a>Azure Standard Storage
-Magazyn standardowych obiektów BLOB Azure była typu miejsca do magazynowania zwolnionych IaaS platformy Azure. Znaleziono IOPS limitami na jednym dysku VHD. Opóźnienie wystąpił nie był w tej samej klasie jak zwykle wdrażane systemu SAP wysokiej jakości urządzeniach SAN/NAS obsługiwanego lokalnie. Niemniej jednak usługi Azure Standard Storage potwierdza, że wystarczające do kilkuset wiele systemów SAP, w tym samym czasie wdrożona na platformie Azure.
+Magazyn standardowych obiektów BLOB Azure została hello typu miejsca do magazynowania zwolnionych IaaS platformy Azure. Znaleziono IOPS limitami na jednym dysku VHD. Opóźnienie wystąpił nie hello sama klasa urządzenia SAN/NAS zazwyczaj wdrażana wysokiej klasy systemów SAP obsługiwanego lokalnie. Niemniej jednak hello usługi Azure Standard Storage potwierdza, że wystarczające do kilkuset wiele systemów SAP, w tym samym czasie wdrożona na platformie Azure.
 
-Azure Standard Storage jest pobierana w zależności od rzeczywistej dane przechowywane, wielkość transakcji magazynowych, transfer danych wychodzących i nadmiarowość opcja wybrana. Wiele wirtualnych dysków twardych mogą być tworzone na maksymalną 1TB, rozmiar, ale tak długo, jak te pozostać pusta nie bez dodatkowych opłat. Jeśli następnie wypełnienie jeden wirtualny dysk twardy z 100GB do przechowywania 100GB, a nie nominalny, które utworzono z dysku VHD zostanie naliczona opłata.
+Azure Standard Storage jest pobierana na podstawie hello rzeczywistych danych przechowywanych, wielkość hello transakcji magazynowych, transfer danych wychodzących i nadmiarowość opcja wybrana. Wiele wirtualnych dysków twardych mogą być tworzone na powitania maksymalną 1 TB, rozmiar, ale tak długo, jak te pozostać pusta nie bez dodatkowych opłat. Jeśli następnie wypełnienie jeden wirtualny dysk twardy z 100GB do przechowywania 100GB, a nie hello nominalny hello, które utworzono z dysku VHD zostanie naliczona opłata.
 
 #### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Magazyn w warstwie Premium systemu Azure
-W kwietnia 2015 r. Firma Microsoft wprowadziła Azure Premium Storage. Magazyn w warstwie Premium został wprowadzony w celu zapewnienie:
+W kwietnia 2015 r. Firma Microsoft wprowadziła Azure Premium Storage. Magazyn w warstwie Premium otrzymano wprowadzone w systemie tooprovide celem hello:
 
 * Lepsze opóźnienia we/wy.
 * Większa przepustowość.
 * Mniejsza zmienność, opóźnienia we/wy.
 
-W tym celu wprowadzono wiele zmian których są dwa najważniejszych:
+W tym celu wiele zmian zostały wprowadzone, które Witaj dwie najważniejsze są:
 
-* Użycie dysków SSD w węzłów magazynu Azure
-* Nowy odczytu pamięci podręcznej, która nie jest obsługiwana przez lokalny dysk SSD węzła obliczeń platformy Azure
+* Użycie dysków SSD w hello węzłów magazynu Azure
+* Nowe odczytu pamięci podręcznej, która nie jest obsługiwana przez hello lokalny dysk SSD węzła obliczeń platformy Azure
 
-W przeciwnym Standard storage, którym nie został zmieniony możliwości zależy od rozmiaru dysku (lub dysku VHD), Magazyn w warstwie Premium ma obecnie 3 kategorii inny dysk, które są wyświetlane na końcu tego artykułu przed sekcji często zadawanych PYTAŃ: <https://azure.microsoft.com/pricing/details/storage/>
+W przeciwne magazynu tooStandard, którym nie został zmieniony możliwości zależy od rozmiaru hello hello dysku (lub dysku VHD), Magazyn w warstwie Premium ma obecnie 3 kategorii inny dysk, które są wyświetlane na końcu hello w tym artykule przed sekcji hello — często zadawane pytania: <https:/ /Azure.microsoft.com/pricing/details/Storage/>
 
-Zobacz, czy IOPS/wirtualnego dysku twardego i dysku VHD/przepływności są zależne od kategorii rozmiaru dysków
+Zobacz, czy IOPS/wirtualnego dysku twardego i dysku VHD/przepływności są zależne od kategorii rozmiar hello hello dysków
 
-Podstawa kosztu w przypadku magazyn w warstwie Premium nie jest woluminem rzeczywiste dane przechowywane w takich wirtualne dyski twarde, ale rozmiar kategorię takiego dysku VHD, niezależnie od ilości danych przechowywanych w ramach dysku VHD.
+Podstawa kosztu w przypadku hello magazyn w warstwie Premium nie jest woluminem danych rzeczywistych hello przechowywanych w tych wirtualne dyski twarde, ale kategorii rozmiar hello takiego dysku VHD, niezależnie od ilości hello hello danych przechowywanych w ramach hello wirtualnego dysku twardego.
 
-Można również utworzyć wirtualne dyski twarde na magazyn w warstwie Premium nie są bezpośrednio mapowania na kategorie rozmiar wyświetlany. Może to być case, szczególnie w przypadku kopiowania wirtualnych dysków twardych z magazynu w warstwie standardowa do magazyn w warstwie Premium. W takich przypadkach odbywa się mapowania do następnej opcji największy dysk magazyn w warstwie Premium.
+Można również utworzyć wirtualne dyski twarde na magazyn w warstwie Premium nie są bezpośrednio mapowania na powitania rozmiar kategorie wyświetlane. Może to być przypadku hello, szczególnie w przypadku kopiowania wirtualnych dysków twardych z magazynu w warstwie standardowa do magazyn w warstwie Premium. W takich przypadkach mapowania toohello dalej największy Premium dysku opcji magazynu jest wykonywane.
 
-Należy pamiętać, że niektóre serii maszyn wirtualnych mogą korzystać z usługi Azure Premium Storage. Począwszy od grudnia 2015 r. są serii GS i DS. Serii DS jest zasadniczo taki sam jak D-series, z wyjątkiem serii DS zdolność do magazynu Premium instalacji na podstawie maszyn wirtualnych dodatkowo do wirtualnych dysków twardych, które znajdują się na usługi Azure Standard Storage. Samo jest prawidłowy dla serii G, w porównaniu do serii GS.
+Należy pamiętać, że niektóre serii maszyn wirtualnych mogą korzystać z hello Azure Premium Storage. Począwszy od grudnia 2015 r. są hello i GS-serii DS. Hello serii DS jest zasadniczo hello takie same jak maszyn wirtualnych na podstawie D-series, z wyjątkiem hello czy serii DS ma toomount możliwości hello magazyn w warstwie Premium Ponadto tooVHDs, które są obsługiwane przez usługi Azure Standard Storage. Samo jest prawidłowa dla serii tooGS G-series porównywane.
 
-Jeśli jest wyewidencjonowywany część serii DS maszyn wirtualnych w [w tym artykule] [ virtual-machines-sizes] również będzie okazuje się, czy dane woluminu ograniczenia wirtualne dyski twarde Premium magazynu stopień szczegółowości poziom maszyny Wirtualnej. Innej serii DS lub GS-series maszyn wirtualnych także mieć różne ograniczenia w odniesieniu do liczby wirtualnych dysków twardych, które można zainstalować. Te limity opisano w artykule również wymienione powyżej. Jednak w zasadzie oznacza to, że np. w przypadku instalowania 32 x P30 dysków/dysków VHD do maszyny Wirtualnej z jednym DS14 nie uzyskasz 32 x maksymalną przepływność dysku P30. Zamiast tego maksymalną przepustowość na poziomie maszyny Wirtualnej zgodnie z opisem w artykule ograniczy przepustowość.
+Jeśli jest wyewidencjonowywany hello części maszyn wirtualnych hello serii DS w [w tym artykule] [ virtual-machines-sizes] również będzie okazuje się, czy ograniczenia wolumin danych tooPremium magazynu wirtualnych dysków twardych na poziom szczegółowości hello hello poziom maszyny Wirtualnej. Innej serii DS lub GS-series maszyn wirtualnych także mieć różne ograniczenia w zakresie toohello liczba wirtualnych dysków twardych, które można zainstalować. Ograniczenia te są udokumentowane w artykule hello również wymienionych powyżej. Jednak w zasadzie oznacza to, że np. w przypadku instalowania 32 tooa dysków VHD na dyskach/x P30 pojedynczego DS14 maszyny Wirtualnej nie uzyskasz 32 x hello maksymalną przepływność dysku P30. Zamiast tego hello maksymalną przepustowość na poziomie maszyny Wirtualnej zgodnie z opisem w artykule hello ograniczy przepustowość.
 
 Więcej informacji na temat magazyn w warstwie Premium można znaleźć tutaj: <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
 #### <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
-Podczas wdrażania usług lub maszynami wirtualnymi na platformie Azure, wdrożenie wirtualne dyski twarde i obrazów maszyn wirtualnych muszą być zorganizowane w jednostki o nazwie konta magazynu Azure. Podczas planowania wdrożenia usługi Azure, należy rozważyć ograniczenia Azure. Po jednej stronie istnieje ograniczona liczba kont magazynu dla subskrypcji platformy Azure. Mimo że każdego konta magazynu Azure może zawierać dużą liczbę plików VHD, na całkowitą liczbę IOPS na konto magazynu jest stały limit. W przypadku wdrażania setki SAP maszyn wirtualnych z systemami DBMS tworzenia znaczących wywołań we/wy, zalecane jest dystrybucji wysokiej maszyn wirtualnych systemu DBMS IOPS między wieloma kontami magazynu Azure. Należy uważać, aby nie przekroczyć bieżącego limitu konta magazynu Azure dla subskrypcji. Ponieważ Magazyn jest to ważna część wdrożenia bazy danych systemu SAP, to pojęcie omówiono bardziej szczegółowo w już przywoływana [DBMS Deployment Guide][dbms-guide].
+Podczas wdrażania usług lub maszynami wirtualnymi na platformie Azure, wdrożenie wirtualne dyski twarde i obrazów maszyn wirtualnych muszą być zorganizowane w jednostki o nazwie konta magazynu Azure. Podczas planowania wdrożenia usługi Azure, należy toocarefully należy wziąć pod uwagę ograniczenia hello Azure. Po jednej stronie powitania istnieje ograniczona liczba kont magazynu dla subskrypcji platformy Azure. Mimo że każdego konta magazynu Azure może zawierać dużą liczbę plików VHD, na powitania jest stały limit łączna liczba IOPS dla konta magazynu. W przypadku wdrażania setki SAP maszyn wirtualnych z systemami DBMS tworzenia znaczących wywołań we/wy, jest zalecane toodistribute wysokiej maszyn wirtualnych systemu DBMS IOPS między wieloma kontami magazynu Azure. Należy zachować ostrożność nie tooexceed hello bieżący limit kont magazynu Azure dla subskrypcji. Ponieważ Magazyn jest to ważna część hello wdrażania bazy danych systemu SAP, to pojęcie omówiono bardziej szczegółowo w hello już odwołanie [DBMS Deployment Guide][dbms-guide].
 
-Więcej informacji o kontach magazynu Azure można znaleźć w [w tym artykule][storage-scalability-targets]. Odczyt w tym artykule, będą okazuje się, że ma różnic w ograniczeniach standardowe konta magazynu Azure i kont magazynu w warstwie Premium. Najważniejsze różnice są ilość danych, które mogą być przechowywane w ramach konta magazynu. W magazynie standardowe wolumin jest wielkości większy niż z magazyn w warstwie Premium. Z drugiej strony standardowe konto magazynu jest znacznie ograniczone IOPS (zobacz kolumnę "Całkowita liczba żądań"), takie ograniczenie nie ma konta magazynu Azure Premium. Omówimy szczegóły oraz wyniki tych różnic w opisach wdrożenia SAP systemów, zwłaszcza na serwerach systemu DBMS.
+Więcej informacji o kontach magazynu Azure można znaleźć w [w tym artykule][storage-scalability-targets]. Odczyt w tym artykule, będą okazuje się, czy ma różnic w ograniczenia hello standardowe konta magazynu Azure i kont magazynu w warstwie Premium. Najważniejsze różnice są hello ilość danych, które mogą być przechowywane w ramach konta magazynu. W magazynie standardowe hello wolumin jest wielkości większy niż z magazyn w warstwie Premium. Na powitania innych po stronie powitania standardowe konto magazynu jest znacznie ograniczone IOPS (zobacz kolumnę "Całkowita liczba żądań"), takie ograniczenie nie ma hello konta magazynu Azure Premium. Omówimy szczegóły oraz wyniki tych różnic w opisach wdrożenia hello systemów SAP, zwłaszcza na serwerach systemu DBMS hello.
 
-W ramach konta magazynu możesz mieć możliwość tworzenia różnych kontenerów do organizowaniu i klasyfikacji różnych wirtualne dyski twarde. Kontenery są zwykle używane do np. oddzielnych wirtualne dyski twarde różnych maszyn wirtualnych. Nie ma wpływu na wydajność przy użyciu kontenera tylko jednego lub wielu kontenerów poniżej jedno konto magazynu Azure.
+W ramach konta magazynu masz hello możliwości toocreate różnych kontenerów hello w celu organizowania i klasyfikacji różnych wirtualne dyski twarde. Kontenery są zazwyczaj używane tooe.g. oddzielne wirtualne dyski twarde różnych maszyn wirtualnych. Nie ma wpływu na wydajność przy użyciu kontenera tylko jednego lub wielu kontenerów poniżej jedno konto magazynu Azure.
 
-W systemie Azure Nazwa wirtualnego dysku twardego obejmuje następujące nazewnictwa połączenie, które należy podać unikatową nazwę dysku VHD w obrębie platformy Azure:
+W systemie Azure Nazwa wirtualnego dysku twardego następujące powitania po nazewnictwa połączenie, które musi tooprovide unikatową nazwę hello wirtualnego dysku twardego w obrębie platformy Azure:
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
-Jak wspomniano powyżej ciąg musi jednoznacznie zidentyfikować wirtualnego dysku twardego, który jest przechowywany w magazynie Azure.
+Jako ciąg hello wymienionych powyżej toouniquely musi zidentyfikować hello wirtualnego dysku twardego, który jest przechowywany w magazynie Azure.
 
 ### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Sieć platformy Microsoft Azure
-Microsoft Azure określi infrastruktury sieciowej, która umożliwia mapowanie wszystkie scenariusze, które chcesz zrealizować przy użyciu oprogramowania SAP. Dostępne są następujące możliwości:
+Microsoft Azure zapewnia infrastruktury sieciowej, który umożliwia mapowanie hello wszystkie scenariusze, które chcemy toorealize przy użyciu oprogramowania SAP. możliwości Hello są:
 
-* Dostęp z zewnątrz, bezpośrednio do maszyn wirtualnych za pomocą usług terminalowych systemu Windows lub ssh/VNC
-* Dostęp do usług i określone porty używane przez aplikacje w obrębie maszyn wirtualnych
+* Dostęp z hello poza bezpośrednio toohello maszyn wirtualnych za pomocą usług terminalowych systemu Windows lub ssh/VNC
+* Tooservices dostępu i określone porty używane przez aplikacje w hello maszyny wirtualne
 * Wewnętrznej komunikacji i rozpoznawanie nazw między grupą maszyn wirtualnych wdrożonych jako maszynach wirtualnych platformy Azure
-* Łączność między lokalizacjami sieci lokalnej klienta i sieć platformy Azure
+* Łączność między lokalizacjami sieci lokalnej klienta i hello sieć platformy Azure
 * Krzyżowe regionu Azure lub łączności centrum danych między lokacjami systemu Azure
 
 Więcej informacji można znaleźć tutaj: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Istnieje wiele różnych możliwości, aby skonfigurować nazwę i rozpoznawania adresu IP na platformie Azure. W tym dokumencie scenariusze tylko w chmurze korzystają z domyślnego za pomocą usługi Azure DNS (w przeciwieństwie do definiowania własnych usługi DNS). Istnieje również nową usługę Azure DNS, którego można użyć zamiast konfigurowania serwera DNS. Więcej informacji można znaleźć w [w tym artykule] [ virtual-networks-manage-dns-in-vnet] i na [tej strony](https://azure.microsoft.com/services/dns/).
+Istnieje wiele różnych możliwości tooconfigure nazwy i rozpoznawania adresu IP na platformie Azure. W tym dokumencie scenariusze tylko w chmurze korzystają z domyślną hello przy użyciu usługi Azure DNS (w toodefining kontrastu własne usługi DNS). Istnieje również nową usługę Azure DNS, którego można użyć zamiast konfigurowania serwera DNS. Więcej informacji można znaleźć w [w tym artykule] [ virtual-networks-manage-dns-in-vnet] i na [tej strony](https://azure.microsoft.com/services/dns/).
 
-W scenariuszach między lokalizacjami możemy polegania na fakt, że lokalną DNS-AD/OpenLDAP został rozszerzony za pośrednictwem sieci VPN lub prywatną na platformie Azure. Dla niektórych scenariuszy zgodnie z opisem w tym miejscu, może być konieczne repliki AD/OpenLDAP zainstalowane na platformie Azure.
+Dla scenariuszy między lokalizacjami, który mamy zależne fakt hello które hello lokalnymi DNS-AD/OpenLDAP został rozszerzony za pośrednictwem sieci VPN lub tooAzure prywatną. Dla niektórych scenariuszy zgodnie z opisem w tym miejscu, może być konieczne toohave repliki AD/OpenLDAP zainstalowane na platformie Azure.
 
-Ponieważ sieci i rozpoznawanie nazw jest to ważna część wdrożenia bazy danych systemu SAP, to pojęcie jest omówiona bardziej szczegółowo w [DBMS Deployment Guide][dbms-guide].
+Ponieważ sieci i rozpoznawanie nazw jest to ważna część hello wdrażania bazy danych systemu SAP, to pojęcie omówiono bardziej szczegółowo w hello [DBMS Deployment Guide][dbms-guide].
 
 ##### <a name="azure-virtual-networks"></a>Sieci wirtualne platformy Azure
-Przez tworzenie sieci wirtualnej platformy Azure można zdefiniować zakres adresów prywatnych adresów IP przydzielone przez funkcje protokołu DHCP Azure. W scenariuszach między różnymi lokalizacjami zakres adresów IP zdefiniowanych zostaną nadal przydzielone za pomocą protokołu DHCP przez platformę Azure. Jednak rozpoznawania nazw domeny zostanie to zrobione lokalnymi (przy założeniu, że maszyny wirtualne są częścią domeny lokalnej) i dlatego można rozwiązać adresów poza różnych usługach w chmurze Azure.
+Przez tworzenie sieci wirtualnej platformy Azure można zdefiniować zakres adresów hello hello przydzielonej przez funkcje protokołu DHCP Azure prywatnych adresów IP. W scenariuszach między różnymi lokalizacjami zakres adresów IP hello zdefiniowane zostaną nadal przydzielone za pomocą protokołu DHCP przez platformę Azure. Jednak rozpoznawania nazw domeny zostanie to zrobione lokalnymi (przy założeniu, że maszyny wirtualne hello są częścią domeny lokalnej) i dlatego można rozwiązać adresów poza różnych usługach w chmurze Azure.
 
-[comment]: <> (MSSedusch nadal potrzebne? ZADANIA oryginalnie sieci wirtualnej platformy Azure została powiązana z grupą koligacji. Z tym ograniczone do grupy koligacji został przypisany do jednostki skalowania Azure napotkała sieci wirtualnej na platformie Azure. W końcu to oznaczało, że został ograniczony do zasoby dostępne w jednostce skalowania Azure, sieci wirtualnej. To zmieniła i teraz sieciach wirtualnych platformy Azure można rozciągnąć na więcej niż jednej jednostki skalowania Azure. Jednak wymagającego, że sieci wirtualne Azure są ** nie ** skojarzone z grup koligacji już w czasie tworzenia. Już wspomniano wcześniej czy w przeciwnym zalecenia rocznie temu, wykonaj następujące czynności ** nie korzystać z grup koligacji Azure już **. Aby uzyskać więcej informacji, zobacz < https://azure.microsoft.com/blog/regional-virtual-networks/>)
+[comment]: <> (MSSedusch nadal potrzebne? ZADANIA oryginalnie sieci wirtualnej platformy Azure została tooan powiązanej grupy koligacji. Z tym sieć wirtualną na platformie Azure napotkała ograniczeniami toohello jednostki skalowania Azure powitalne tej grupy koligacji został przypisany do. W celu hello tego są one przeznaczone hello sieci wirtualnej została toohello ograniczone zasoby dostępne w hello Azure jednostki skalowania. To zmieniła i teraz sieciach wirtualnych platformy Azure można rozciągnąć na więcej niż jednej jednostki skalowania Azure. Jednak wymagającego, że sieci wirtualne Azure są ** nie ** skojarzone z grup koligacji już w czasie tworzenia. Już wspomniano wcześniej czy w przeciwną toorecommendations rocznie temu, wykonaj następujące czynności ** nie korzystać z grup koligacji Azure już **. Aby uzyskać więcej informacji, zobacz < https://azure.microsoft.com/blog/regional-virtual-networks/>)
 
-Każdej maszyny wirtualnej platformy Azure musi być podłączony do sieci wirtualnej.
+Każdej maszyny wirtualnej w toobe potrzeb Azure połączone tooa sieci wirtualnej.
 
 Więcej informacji można znaleźć w [w tym artykule] [ resource-groups-networking] i na [tej strony](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-[comment]: <> (MShermannd TODO można znaleźć artykuł, w tym temacie OpenLDAP + ARM;)
+[comment]: <> (MShermannd TODO można znaleźć artykuł, w tym temacie OpenLDAP hello + ARM;)
 [comment]: <> (MSSedusch < https://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL>)
 
 > [!NOTE]
-> Domyślnie po wdrożeniu maszyny Wirtualnej nie można zmienić konfiguracji sieci wirtualnej. Ustawienia protokołu TCP/IP musi pozostać serwerowi Azure DHCP. Domyślnym zachowaniem jest przypisanie dynamicznego adresu IP.
+> Domyślnie po wdrożeniu maszyny Wirtualnej nie można zmienić hello konfiguracji sieci wirtualnej. ustawienia TCP/IP Hello musi pozostać toohello serwera Azure DHCP. Domyślnym zachowaniem jest przypisanie dynamicznego adresu IP.
 >
 >
 
-Adres MAC karty sieci wirtualnej może np. zmienić po zmieniać rozmiar i gościa z systemem Windows lub Linux, systemu operacyjnego wpłynie na nowej karty sieciowej i będzie automatycznie używać protokołu DHCP do przypisywania adresów IP i DNS w takim przypadku.
+adres MAC Hello hello karty sieci wirtualnej może np. zmienić po zmieniać rozmiar i hello systemu Windows lub system operacyjny gościa Linux przejmą hello nowej karty sieciowej i będą automatycznie używać protokołu DHCP tooassign hello adresów IP i DNS w takim przypadku.
 
 ##### <a name="static-ip-assignment"></a>Przypisanie statycznego adresu IP
-Istnieje możliwość Przypisz fixed lub zastrzeżone adresy IP do maszyn wirtualnych w ramach sieci wirtualnej platformy Azure. Uruchamianie maszyn wirtualnych w sieci wirtualnej platformy Azure otwiera dużą możliwość wykorzystać tę funkcję, jeśli potrzebne lub wymagane w przypadku niektórych scenariuszy. Przypisanie IP pozostaje ważny w całym istnienie maszyny Wirtualnej, niezależnie od tego, czy maszyna wirtualna jest uruchomiona lub zamknięcie. W związku z tym które należy wykonać ogólną liczbę maszyn wirtualnych (maszyny Wirtualne uruchomione i zatrzymane) pod uwagę podczas definiowania zakresu adresów IP dla sieci wirtualnej. Adres IP jest przypisana do momentu usunięcia maszyny Wirtualnej i jej interfejsu sieciowego lub dopóki adres IP cofnąć pobiera ponownie przypisany. Zobacz szczegółowe informacje w [w tym artykule][virtual-networks-static-private-ip-arm-pportal].
+Jest to możliwe tooassign stałej lub zarezerwowane adresy IP tooVMs w ramach sieci wirtualnej platformy Azure. Działających maszyn wirtualnych hello w sieci wirtualnej platformy Azure otwiera tooleverage doskonałe możliwości tej funkcji, jeśli wymagane lub wymagane w przypadku niektórych scenariuszy. Przypisanie IP Hello pozostaje ważny w całym hello istnienie hello maszyny Wirtualnej, niezależnie od czy hello maszyna wirtualna jest uruchomiona lub zamknięcie. W związku z tym należy tootake hello ogólną liczbę maszyn wirtualnych (maszyny Wirtualne uruchomione i zatrzymane) pod uwagę podczas definiowania hello zakres adresów IP dla hello sieci wirtualnej. adres IP Hello jest przypisana do momentu usunięcia hello maszyny Wirtualnej i jej interfejsu sieciowego lub dopóki adres IP hello cofnąć pobiera ponownie przypisany. Zobacz szczegółowe informacje w [w tym artykule][virtual-networks-static-private-ip-arm-pportal].
 
 ##### <a name="multiple-nics-per-vm"></a>Wiele kart sieciowych dla maszyny Wirtualnej
-Można zdefiniować wiele karty interfejsu sieci wirtualnej (vNIC) dla maszyny wirtualnej platformy Azure. Z możliwością ma wiele vNICs, które można uruchomić, aby skonfigurować ruchu sieciowego separacji gdzie, np. klienta ruch jest kierowany przez jeden ruchu vNIC i wewnętrznej bazy danych jest kierowany przez vNIC drugiego. Zależne od typu maszyny Wirtualnej są różne ograniczenia w odniesieniu do liczby vNICs. Dokładne szczegóły, funkcje i ograniczenia można znaleźć w następujących artykułach:
+Można zdefiniować wiele karty interfejsu sieci wirtualnej (vNIC) dla maszyny wirtualnej platformy Azure. Toohave możliwości hello wielu vNICs można rozpocząć tooset się rozdzielenie ruchu sieci gdzie, np. klienta ruch jest kierowany przez jeden vNIC i zaplecza, ruch jest kierowany przez vNIC drugiego. W zależności od typu hello maszyny wirtualnej są różne ograniczenia w odniesieniu do liczby toohello vNICs. Dokładne szczegóły, funkcje i ograniczenia można znaleźć w następujących artykułach:
 
 * [Utwórz maszynę Wirtualną z wieloma kartami sieciowymi][virtual-networks-multiple-nics]
 * [Wdrażanie maszyn wirtualnych kart Sieciowych multi przy użyciu szablonu][virtual-network-deploy-multinic-arm-template]
 * [Wdrażanie maszyn wirtualnych kart Sieciowych multi przy użyciu programu PowerShell][virtual-network-deploy-multinic-arm-ps]
-* [Wdrażanie maszyn wirtualnych kart Sieciowych multi przy użyciu wiersza polecenia platformy Azure][virtual-network-deploy-multinic-arm-cli]
+* [Wdrażanie maszyn wirtualnych kart Sieciowych multi przy użyciu hello Azure CLI][virtual-network-deploy-multinic-arm-cli]
 
 #### <a name="site-to-site-connectivity"></a>Połączenie lokacja lokacja
-Między lokalizacjami jest maszynach wirtualnych platformy Azure i lokalnymi połączone przejrzyste i trwałe połączenie sieci VPN. Oczekuje się stać się najbardziej typowych wzorzec wdrożenia SAP na platformie Azure. Zakłada się, że procedury działania i procesy z wystąpieniem SAP na platformie Azure powinny działać przezroczysty. To oznacza, że powinno być możliwe do drukowania poza te systemy za pomocą systemu zarządzania transportu (TMS) SAP, aby transportu zmieni się z programistycznej na platformie Azure na system testowy, który jest wdrożona lokalnie. Więcej dokumentacji wokół lokacja lokacja można znaleźć w [w tym artykule][vpn-gateway-create-site-to-site-rm-powershell]
+Między lokalizacjami jest maszynach wirtualnych platformy Azure i lokalnymi połączone przejrzyste i trwałe połączenie sieci VPN. Jest oczekiwany toobecome hello najczęściej SAP wzorca wdrażania na platformie Azure. Witaj zakłada się, że procedury działania i procesy z wystąpieniem SAP na platformie Azure powinny działać przezroczysty. Oznacza to, możesz powinny być możliwe tooprint poza tymi systemami, a także użyć powitalne tootransport System zarządzania transportu SAP (TMS) zmieni się z systemu Programowanie w systemie testowym Azure tooa, w którym jest wdrożony na lokalnym. Więcej dokumentacji wokół lokacja lokacja można znaleźć w [w tym artykule][vpn-gateway-create-site-to-site-rm-powershell]
 
 ##### <a name="vpn-tunnel-device"></a>Urządzenia tunel sieci VPN
-Aby utworzyć połączenie lokacja lokacja (lokalnego centrum danych do centrum danych Azure), należy uzyskać i skonfigurowanie urządzenia sieci VPN lub użyć usługi Routing i dostęp zdalny (RRAS), która została wprowadzona jako składnik oprogramowania w systemie Windows Server 2012.
+W kolejności toocreate połączenie lokacja lokacja (lokalnego Centrum tooAzure danych centrum danych), konieczne będzie tooeither uzyskać i skonfiguruj urządzenie sieci VPN lub użyj usługi Routing i dostęp zdalny (RRAS), która została wprowadzona jako składnik oprogramowania w systemie Windows Server 2012.
 
 * [Tworzenie sieci wirtualnej za pomocą połączenia sieci VPN lokacja lokacja za pomocą programu PowerShell][vpn-gateway-create-site-to-site-rm-powershell]
 * [O urządzeniach sieci VPN dla połączenia bramy sieci VPN typu lokacja-lokacja][vpn-gateway-about-vpn-devices]
@@ -696,29 +696,29 @@ Aby utworzyć połączenie lokacja lokacja (lokalnego centrum danych do centrum 
 
 ![Połączenie lokacja lokacja między lokalną i platformą Azure][planning-guide-figure-600]
 
-Na rysunku powyżej przedstawiono dwie subskrypcji platformy Azure mają podzakresów adres IP zarezerwowany do użycia w sieciach wirtualnych platformy Azure. Łączność z siecią lokalną Azure jest nawiązywane za pośrednictwem sieci VPN.
+Hello powyższej ilustracji przedstawiono dwie subskrypcji platformy Azure ma podzakresów adres IP zarezerwowany do użycia w sieciach wirtualnych platformy Azure. Witaj łączności z hello w lokalnym tooAzure sieci jest nawiązywane za pośrednictwem sieci VPN.
 
 #### <a name="point-to-site-vpn"></a>Sieć VPN punkt lokacja
-Sieć VPN punkt lokacja wymaga każdy komputer kliencki nawiązać połączenia z własną sieci VPN na platformie Azure. W scenariuszach SAP, który czekamy na połączenie punkt lokacja nie jest praktyczne. W związku z tym połączenie sieci VPN typu punkt lokacja poświęcona żadnych dalszych odwołań.
+Sieć VPN punkt lokacja wymaga tooconnect maszyny każdego klienta z własną siecią VPN na platformie Azure. Scenariusze SAP hello czekamy na połączenie punkt lokacja nie jest praktyczne. W związku z tym żadnych dalszych odwołań będą mieć połączenie z siecią VPN toopoint lokacja.
 
 [comment]: <> (MSSedusch — Więcej informacji można znaleźć tutaj)
 [comment]: <> (Łącze TODO MShermannd nie jest już nieprawidłowy; Ale mimo to nieobsługiwanej ARM — zobacz łącze do następnej poniżej)
 [comment]: <> (MSSedusch — < http://msdn.microsoft.com/library/azure/dn133798.aspx>.)
-[comment]: <> (MShermannd TODO punkt do lokacji nie obsługuje jeszcze z ARM)
+[comment]: <> (TooSite MShermannd TODO punkt nie obsługuje jeszcze z ARM)
 [comment]: <> (MSSedusch — < https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/>)
 
 #### <a name="multi-site-vpn"></a>Obejmujący wiele lokacji sieci VPN
-System Azure oferuje również dzisiaj możliwości, aby utworzyć połączenie z siecią VPN obejmujący wiele lokacji dla jedną subskrypcją platformy Azure. Wcześniej jedną subskrypcją były ograniczone do jednego połączenia sieci VPN lokacja lokacja. To ograniczenie zostało usunięte z połączenia sieci VPN z wieloma lokacjami dla jednej subskrypcji. Dzięki temu można korzystać z więcej niż jeden Region platformy Azure dla określonej subskrypcji za pomocą konfiguracji między lokalizacjami.
+System Azure oferuje również dzisiaj hello możliwości toocreate obejmujący wiele lokacji połączenie z siecią VPN dla jedną subskrypcją platformy Azure. Wcześniej jednej subskrypcji został połączenia sieci VPN lokacja lokacja tooone ograniczone. To ograniczenie zostało usunięte z połączenia sieci VPN z wieloma lokacjami dla jednej subskrypcji. Dzięki temu możliwe tooleverage więcej niż jeden Region platformy Azure dla określonej subskrypcji za pomocą konfiguracji między lokalizacjami.
 
 Więcej informacji dotyczących dokumentacji zobacz [w tym artykule][vpn-gateway-create-site-to-site-rm-powershell]
 
 [comment]: <> (MShermannd TODO nie znaleziono żadnego łącza doku ARM)
 
-#### <a name="vnet-to-vnet-connection"></a>Sieć wirtualna połączenia sieci wirtualnej
-Przy użyciu sieci VPN w wielu lokacjach, należy skonfigurować oddzielny sieci wirtualnej platformy Azure w poszczególnych regionach. Należy jednak bardzo często z wymaganiem, aby skontaktować się ze składnikami oprogramowania w różnych regionach ze sobą. W idealnym przypadku komunikacji powinny być kierowane z jednego regionu Azure do środowiska lokalnego, a w regionie Azure. Skrót Azure oferuje możliwości, aby skonfigurować połączenie z jedną sieć wirtualną platformy Azure w jednym regionie do innej sieci wirtualnej platformy Azure hostowanej w innym regionie. Ta funkcja jest wywoływana połączenia do wirtualnymi. Więcej informacji na temat tej funkcji można znaleźć tutaj: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
+#### <a name="vnet-toovnet-connection"></a>Sieć wirtualna tooVNet połączenia
+Przy użyciu sieci VPN w wielu lokacjach, należy tooconfigure oddzielnej sieci wirtualnych Azure w regionach hello. Należy jednak bardzo często wymaganie hello, które składniki oprogramowania hello w różnych regionach hello skontaktować się ze sobą. Najlepszym rozwiązaniem tej komunikacji powinny być kierowane z jednego regionu Azure tooon lokalnych i występują toohello inny Region platformy Azure. tooshortcut, system Azure oferuje hello tooconfigure możliwość połączenia z jedną sieć wirtualną platformy Azure w jednym tooanother regionu Azure Virtual Network hostowana w innym regionie. Ta funkcja jest wywoływana połączenia do wirtualnymi. Więcej informacji na temat tej funkcji można znaleźć tutaj: <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>.
 
-#### <a name="private-connection-to-azure--expressroute"></a>Połączenie prywatne Azure — ExpressRoute
-Microsoft Azure ExpressRoute umożliwia tworzenie prywatnych połączeń między centrach danych platformy Azure i infrastruktury lokalnej przez klienta lub w środowisku wspólnej lokalizacji. ExpressRoute jest oferowanych przez różnych MPLS dostawców sieci VPN (przełączaniem pakietów) lub innych dostawców usług sieciowych. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Połączenia ExpressRoute oferują wyższy poziom zabezpieczeń, niezawodności więcej za pomocą wielu równoległych obwodów, szybkości szybsze i opóźnienia niższa niż typowe połączenia za pośrednictwem Internetu.
+#### <a name="private-connection-tooazure--expressroute"></a>Prywatne tooAzure połączenia — ExpressRoute
+Microsoft Azure ExpressRoute umożliwia tworzenie hello prywatnych połączeń między centrach danych platformy Azure i infrastruktury lokalnej klienta albo hello lub w środowisku wspólnej lokalizacji. ExpressRoute jest oferowanych przez różnych MPLS dostawców sieci VPN (przełączaniem pakietów) lub innych dostawców usług sieciowych. Połączenia ExpressRoute nie został przekroczony hello publicznej sieci Internet. Połączenia ExpressRoute oferują wyższy poziom zabezpieczeń, niezawodności więcej za pomocą wielu równoległych obwodów, szybkości szybsze i opóźnienia niższa niż typowe połączenia za pośrednictwem hello Internet.
 
 Znajdź więcej informacji na temat usługi Azure ExpressRoute i ofert tutaj:
 
@@ -732,117 +732,117 @@ Usługi Express Route umożliwia wielu subskrypcji platformy Azure za pośrednic
 * <https://Azure.microsoft.com/Documentation/articles/expressroute-howto-Circuit-ARM/>
 
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Wymuszone tunelowanie w przypadku między lokalizacjami
-Dla maszyn wirtualnych, przyłączanie do domeny lokalnej za pośrednictwem lokacja lokacja, punkt lokacja lub ExpressRoute musisz upewnij się, że wdrożono pobieranie ustawień internetowego serwera proxy dla wszystkich użytkowników w tych maszyn wirtualnych oraz. Domyślnie oprogramowanie uruchomione na tych maszynach wirtualnych lub użytkownikom dostęp do Internetu za pomocą przeglądarki sieci nie przejdzie za pośrednictwem serwera proxy firmy, ale może zostać nawiązane bezpośrednio za pośrednictwem platformy Azure z Internetem. Ale nawet ustawienie serwera proxy nie jest rozwiązaniem 100% do kierowania ruchu za pośrednictwem serwera proxy firmy, ponieważ jest on odpowiedzialny za oprogramowania i usług, aby sprawdzić, czy serwer proxy. Jeśli administrator manipuluje ustawienia oprogramowania uruchomionego na maszynie wirtualnej nie jest operacją, ruch do Internetu można ponownie detoured bezpośrednio za pośrednictwem platformy Azure z Internetem.
+Dla maszyn wirtualnych, przyłączanie do domeny lokalnej za pośrednictwem lokacja lokacja, punkt lokacja lub ExpressRoute należy się, że ustawienia serwera proxy Internet hello są pobierania wdrożony dla wszystkich użytkowników hello na tych maszynach wirtualnych oraz toomake. Domyślnie oprogramowania uruchomionego w tych maszyn wirtualnych lub użytkowników korzystających z przeglądarki hello tooaccess internet nie przejdzie za pośrednictwem serwera proxy firmy hello, ale będzie łączyć się bezpośrednio za pośrednictwem Azure toohello przez internet. Ale ustawienie serwera proxy hello nawet nie jest rozwiązanie 100% toodirect hello ruchu za pośrednictwem serwera proxy firmy hello, ponieważ jest odpowiedzialny za toocheck oprogramowania i usług na powitania serwera proxy. Jeśli oprogramowanie uruchomione w hello maszyny Wirtualnej nie jest operacją lub administrator zmienia ustawienia hello, toohello ruchu internetowego można ponownie detoured bezpośrednio za pomocą usługi Azure toohello Internet.
 
-Aby tego uniknąć, można skonfigurować tunelowania wymuszonego połączenie lokacja lokacja między lokalną i platformą Azure. Szczegółowy opis funkcji tunelowania wymuszonego zostanie opublikowana tutaj <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+To zamówienie tooavoid, tunelowanie wymuszone można skonfigurować połączenia lokacja lokacja między lokalną i platformą Azure. Witaj szczegółowy opis funkcji tunelowania wymuszonego hello zostanie opublikowana tutaj <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
-Tunelowanie wymuszone z ExpressRoute jest włączana przez klientów anonsuje trasę domyślną za pośrednictwem sesje komunikacji równorzędnej BGP usługi ExpressRoute.
+Tunelowanie wymuszone z ExpressRoute jest włączana przez klientów anonsuje trasę domyślną za pośrednictwem hello BGP usługi ExpressRoute sesje komunikacji równorzędnej.
 
 #### <a name="summary-of-azure-networking"></a>Podsumowanie sieci platformy Azure
-Ten rozdział zawiera wiele ważne kwestie dotyczące sieci platformy Azure. Poniżej przedstawiono podsumowanie głównych punktów:
+Ten rozdział zawiera wiele ważne kwestie dotyczące sieci platformy Azure. Poniżej przedstawiono podsumowanie głównych punktów hello:
 
-* Umożliwia konfigurowanie sieci według własnych potrzeb sieci wirtualnych platformy Azure
-* Sieci wirtualnych platformy Azure można użyć do przypisania zakresów adresów IP do maszyn wirtualnych lub przypisanie stałych adresów IP do maszyn wirtualnych
-* Aby skonfigurować połączenie lokacja-lokacja lub punkt-lokacja należy najpierw utworzyć sieci wirtualnej platformy Azure
-* Po wdrożeniu maszyny wirtualnej nie jest już możliwość zmiany przypisane do maszyny Wirtualnej sieci wirtualnej
+* Sieci wirtualnych platformy Azure umożliwia tooset sieć hello zgodnie z tooyour własnych potrzeb
+* Można tooVMs zakresów adresów IP wykorzystywana tooassign lub przypisać stałym tooVMs adresów IP sieci wirtualnych platformy Azure
+* tooset lokacja-lokacja lub połączenia punkt-lokacja należy najpierw toocreate sieci wirtualnej platformy Azure
+* Po wdrożeniu maszyny wirtualnej nie jest już możliwe toochange powitalne sieci wirtualnej przypisane toohello maszyny Wirtualnej
 
 ### <a name="quotas-in-azure-virtual-machine-services"></a>Przydziały w usługach Azure maszyny wirtualnej
-Musimy jednoznaczne fakt, że infrastruktury magazynu i sieci jest współużytkowana przez maszyny wirtualne z systemami wielu usług w infrastrukturze Azure. I tak jak w przypadku centrów danych przez klienta, przerostu niektórych zasobów infrastruktury została wykonana w stopniu. Platformy Microsoft Azure używa dysku, Procesora, sieci i innych przydziałów, aby ograniczyć zużycie zasobów i zachować spójność i deterministyczna wydajności.  Różne typy maszyny Wirtualnej (A5, A6 itp.) mają różne przydziały na potrzeby liczba dysków, Procesora, pamięci RAM i sieci.
+Firma Microsoft muszą toobe wyczyść o fakt hello hello magazynu i infrastruktury sieci jest współużytkowana przez maszyny wirtualne z systemami wielu usług w hello infrastruktury platformy Azure. I tak jak w przypadku centrów danych przez klienta hello, przerostu niektórych zasobów infrastruktury hello Przełącz miejsce tooa stopnia. Witaj platformy Microsoft Azure korzysta z dysku, Procesora, sieci i innych zużycie zasobów hello toolimit przydziałów i wydajności toopreserve spójne i deterministyczna.  Witaj różne typy maszyny Wirtualnej (A5, A6 itp.) mają różne przydziały hello liczbę dysków, Procesora, pamięci RAM i sieci.
 
 > [!NOTE]
-> Zasoby Procesora i pamięci typów maszyn wirtualnych obsługiwanych przez SAP są wstępnie przydzielić na węzłach hostów. Oznacza to, że po wdrożeniu maszyny Wirtualnej zasobów na hoście będzie dostępny, zgodnie z definicją typu maszyny Wirtualnej.
+> Zasoby Procesora i pamięci hello wirtualna typów obsługiwanych w SAP są wstępnie przydzielić na węzłach hostów hello. Oznacza to, że po wdrożeniu maszyny Wirtualnej hello hello zasobów na hoście hello będą dostępne, zgodnie z definicją hello typu maszyny Wirtualnej.
 >
 >
 
-Podczas planowania i zmiany rozmiaru SAP rozwiązania Azure należy uwzględnić limity przydziału dla każdego rozmiaru maszyny wirtualnej.  Przydziały maszyny Wirtualnej są opisane [tutaj][virtual-machines-sizes].
+Należy uwzględnić podczas planowania i zmiany rozmiaru SAP rozwiązania Azure hello przydziały dla każdego rozmiaru maszyny wirtualnej.  przydziały wirtualna Hello są opisane [tutaj][virtual-machines-sizes].
 
-Przydziały opisane reprezentują teoretyczna maksymalna.  Limit IOPS dla wirtualnego dysku twardego może zostać osiągnięty przy małych IOs (8kb), ale prawdopodobnie nie może zostać osiągnięty przy dużych IOs (1Mb).  Wartości IOPS są wymuszane na poziom szczegółowości pojedynczego wirtualne dyski twarde.
+przydziały Hello opisane reprezentują hello teoretycznego maksymalne wartości.  limit Hello iops dla wirtualnego dysku twardego może zostać osiągnięty przy małych IOs (8kb), ale prawdopodobnie nie może zostać osiągnięty przy dużych IOs (1Mb).  Hello IOPS limit są wymuszane na poziom szczegółowości hello pojedynczego wirtualne dyski twarde.
 
-Poniżej drzewa decyzyjnego mogą być używane jako drzewo decyzyjne nierównej zdecydować, czy systemu SAP dopasowuje się do usług Azure maszyny wirtualnej i jej możliwości lub czy istniejący system musi być inaczej skonfigurowana w celu wdrożenia systemu Azure:
+Jako toodecide drzewa decyzyjnego nierównej czy systemu SAP dopasowuje się do usług Azure maszyny wirtualnej i jej możliwości, lub czy istniejący system wymaga toobe inaczej skonfigurowana w kolejności toodeploy hello systemu Azure, drzewa decyzyjnego hello poniżej można:
 
-![Drzewo decyzyjne podjęcie decyzji, możliwość wdrożenia SAP na platformie Azure][planning-guide-figure-700]
+![Decyzja drzewa toodecide możliwości toodeploy SAP na platformie Azure][planning-guide-figure-700]
 
-**Krok 1**: najważniejsze informacje się rozpoczynać wymaganie protokoły SAP dla danego systemu SAP. Wymagania dotyczące punktu SAP należy rozdzielać do systemu DBMS i SAP część aplikacji, nawet jeśli systemu SAP jest już wdrożony w firmie w konfiguracji warstwy 2. Istniejących systemów punktu SAP, często powiązane z używany sprzęt można ustalić lub w oparciu o istniejących testów porównawczych SAP. Wyniki można znaleźć tutaj: <http://global.sap.com/campaigns/benchmark/index.epx>.
-W nowo wdrożonym systemach SAP powinien przejściu wykonywania zmiany rozmiaru, który należy określić wymagania protokoły SAP systemu.
+**Krok 1**: hello najważniejszych informacji toostart z jest hello protokoły SAP wymagane dla danego systemu SAP. Protokoły SAP Hello wymagania potrzeby toobe dzielony hello DBMS i część hello SAP aplikacji, nawet jeśli hello systemu SAP jest już wdrożona lokalnie w konfiguracji warstwy 2. Istniejących systemów hello protokoły SAP związane z toohello sprzętu często można ustalić lub szacowany na podstawie istniejących testów porównawczych SAP. wyniki Hello można znaleźć tutaj: <http://global.sap.com/campaigns/benchmark/index.epx>.
+W nowo wdrożonym systemach SAP powinien przejściu wykonywania zmiany rozmiaru, który należy określić wymagania protokoły SAP hello hello systemu.
 Zobacz też ten blog i dołączonego dokumentu dla programu SAP rozmiaru na platformie Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-**Krok 2**: istniejących systemów powinno być mierzone we/wy woluminu i operacji We/Wy na sekundę na serwerze systemu DBMS. Dla nowo planowane systemów wykonywania zmiany rozmiaru do nowego systemu również nadać nierównej pomysły wymagań operacji We/Wy na stronie system DBMS. Jeśli nie wiesz, należy po pewnym czasie przeprowadzania Weryfikacja koncepcji.
+**Krok 2**: istniejących systemów hello We/Wy woluminu i powinno być mierzone na operacje We/Wy na sekundę na powitania serwera systemu DBMS. Dla nowo planowane systemów hello zmiany rozmiaru wykonywania do nowego systemu hello również nadać nierównej pomysły hello wymagań operacji We/Wy na powitania po stronie systemu DBMS. Jeśli nie wiesz, należy po pewnym czasie tooconduct Weryfikacja koncepcji.
 
-**Krok 3**: porównanie wymaganie protokoły SAP dla serwera systemu DBMS z punktu SAP zapewniają różne typy maszyny Wirtualnej Azure. Informacje na temat protokoły SAP różnych typach maszyn wirtualnych Azure opisano w Uwaga SAP [1928533]. Należy się skoncentrować na Maszynie wirtualnej systemu DBMS najpierw od warstwy bazy danych jest warstwą systemu SAP NetWeaver skalować w poziomie w większości wdrożeń. Z kolei SAP warstwy aplikacji może być skalowana w poziomie. Jeśli brak SAP obsługiwane typy maszyn wirtualnych Azure zapewnia wymaganego punktu SAP, obciążenie systemu SAP planowane nie można uruchomić na platformie Azure. Należy albo wdrożyć system lokalny lub musisz zmienić woluminu obciążenie systemu.
+**Krok 3**: wymaganie protokoły SAP hello Porównaj hello zapewniają bazami danych serwera z hello protokoły SAP hello wirtualna różnego rodzaju Azure. informacje Hello na protokoły SAP hello różnych typów maszyny Wirtualnej platformy Azure jest udokumentowany uwagi SAP [1928533]. Hello należy się skoncentrować na powitania maszyny Wirtualnej systemu DBMS najpierw ponieważ hello Warstwa bazy danych to warstwa hello systemu SAP NetWeaver skalować w poziomie w hello większości wdrożeń. Z kolei warstwy aplikacji hello SAP może być skalowana w poziomie. Jeśli żaden z hello SAP obsługiwane typy maszyn wirtualnych Azure zapewnia protokoły SAP hello wymagane, hello obciążenie systemu SAP hello planowane nie można uruchomić na platformie Azure. Należy albo toodeploy hello systemu lokalnego lub należy toochange hello obciążenia woluminu systemu hello.
 
-**Krok 4**: zgodnie z opisem [tutaj][virtual-machines-sizes], Azure wymusza przydziału IOPS dla wirtualnego dysku twardego niezależne, czy używać magazynu w warstwie standardowa lub Premium Storage. Zależne od typu maszyny Wirtualnej, liczba wirtualnych dysków twardych, które można zainstalować zależy. W związku z tym można obliczyć maksymalną liczbę IOPS, który może zostać osiągnięty przy każdej z różnych typach maszyn wirtualnych. Zależne od układ pliku bazy danych, można paskowych wirtualne dyski twarde, aby stać się jeden wolumin w system operacyjny gościa. Jednak jeśli bieżącego woluminu IOPS wdrożonego systemu SAP przekracza limity obliczeniowej największy typu maszyny Wirtualnej platformy Azure i jeśli nie ma możliwość kompensacji więcej pamięci, obciążenie systemu SAP może mieć wpływ na poważnie. W takich przypadkach można trafiony punkt, w których nie należy wdrażać systemu Azure.
+**Krok 4**: zgodnie z opisem [tutaj][virtual-machines-sizes], Azure wymusza przydziału IOPS dla wirtualnego dysku twardego niezależne, czy używać magazynu w warstwie standardowa lub Premium Storage. Zależne od hello typu maszyny Wirtualnej, hello liczba wirtualnych dysków twardych, które można zainstalować zależy. W związku z tym można obliczyć maksymalną liczbę IOPS, który może zostać osiągnięty przy każdej hello różnych typach maszyn wirtualnych. Zależne od układ pliku hello bazy danych, można paskowych wirtualne dyski twarde toobecome jednego woluminu w system operacyjny gościa hello. Jednak jeśli hello bieżącego woluminu IOPS wdrożonego systemu SAP przekracza limity hello obliczana typu hello największy maszyny Wirtualnej systemu Azure i jeśli nie ma żadnych toocompensate szansy więcej pamięci, obciążenie hello hello systemu SAP może to dotyczyć poważnie. W takich przypadkach można trafiony punkt, w których nie należy wdrażać hello systemu Azure.
 
-**Krok 5**: szczególnie w SAP systemów, które są wdrożone lokalnie w konfiguracji warstwy 2, prawdopodobnie systemu może być konieczne można skonfigurować na platformie Azure w konfiguracji warstwy 3. W tym kroku należy sprawdzić, czy w warstwie aplikacji SAP, który nie może być skalowana w poziomie i nie będzie dopasowane do zasobów Procesora i pamięci, które oferują różne typy maszyny Wirtualnej platformy Azure jest składnikiem. Jeśli w rzeczywistości jest takich składników, systemu SAP i jego obciążenie nie można wdrożyć na platformie Azure. Jednak jeśli możesz można skalowalnego w poziomie składników aplikacji SAP do wielu maszyn wirtualnych platformy Azure, system można wdrożyć na platformie Azure.
+**Krok 5**: szczególnie w SAP systemów, które są wdrożone lokalnie w konfiguracji warstwy 2, hello prawdopodobnie czy hello systemu może być konieczne toobe skonfigurowane na platformie Azure w konfiguracji warstwy 3. W tym kroku należy toocheck czy jest składnikiem w warstwie aplikacji SAP hello który nie może być skalowana w poziomie, a nie mieści się który w hello procesora CPU i pamięci zasobów hello inną ofertę typów maszyny Wirtualnej platformy Azure. Jeśli w rzeczywistości jest takich składników, systemu SAP hello i jego obciążenie nie można wdrożyć na platformie Azure. Jeśli użytkownik może skalowalnego w poziomie, ale hello SAP aplikacji, którą można wdrożyć składników w wielu maszyn wirtualnych platformy Azure, hello system na platformie Azure.
 
-**Krok 6**: Jeśli system DBMS i SAP składników warstwy aplikacji mogą być uruchamiane na maszynach wirtualnych Azure, konfiguracji musi być zdefiniowana w odniesieniu do:
+**Krok 6**: Jeśli hello DBMS i składników warstwy aplikacji SAP mogą być uruchamiane na maszynach wirtualnych Azure, hello należy toobe zdefiniowane w odniesieniu do:
 
 * Liczba maszyn wirtualnych platformy Azure
-* Typy maszyn wirtualnych dla poszczególnych składników
-* Liczba wirtualnych dysków twardych w maszynie Wirtualnej systemu DBMS zapewnienie wystarczającej liczby IOPS
+* Typy maszyn wirtualnych dla poszczególnych składników hello
+* Liczba wirtualnych dysków twardych w tooprovide maszyny Wirtualnej systemu DBMS wystarczającej liczby IOPS
 
 ## <a name="managing-azure-assets"></a>Zarządzanie zasobami Azure
 ### <a name="azure-portal"></a>Azure Portal
-Azure Portal jest jednym z trzech interfejsów w celu zarządzania wdrożeniami maszyny Wirtualnej platformy Azure. Zadania podstawowe możliwości zarządzania, takich jak wdrażanie maszyn wirtualnych z obrazów, może odbywać się za pośrednictwem portalu Azure. Ponadto Tworzenie konta magazynu, sieci wirtualnych i inne składniki platformy Azure są również zadania, które w portalu Azure może obsługiwać bardzo dobrze. Jednak funkcji takich jak przekazywanie dyskami VHD z lokalnego do platformy Azure lub kopiowanie dysku VHD w obrębie platformy Azure są zadania, które wymagają narzędzi innych firm lub administrowanie przy użyciu programu PowerShell lub interfejsu wiersza polecenia.
+Witaj Azure Portal jest jednym z trzech wdrożenia maszyny Wirtualnej Azure toomanage interfejsów. Hello zadania podstawowe możliwości zarządzania, takich jak wdrażanie maszyn wirtualnych z obrazów, można wykonać za pomocą hello portalu Azure. Ponadto hello tworzenia kont magazynu, sieci wirtualnych i inne składniki platformy Azure są również portalu Azure może obsługiwać bardzo dobrze powitalne zadania. Jednak funkcji takich jak przekazywanie dyskami VHD z lokalnymi tooAzure lub kopiowanie dysku VHD w obrębie platformy Azure są zadania, które wymagają narzędzi innych firm lub administrowanie przy użyciu programu PowerShell lub interfejsu wiersza polecenia.
 
 ![Portal Microsoft Azure — omówienie maszyny wirtualnej][planning-guide-figure-800]
 
 [comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
 [comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
-Zadania zarządzania i konfiguracji dla wystąpienia maszyny wirtualnej są możliwe z portalu Azure.
+Zadania zarządzania i konfiguracji dla wystąpienia maszyny wirtualnej hello są możliwe z wewnątrz hello portalu Azure.
 
-Oprócz ponowne uruchamianie i zamykanie maszyny wirtualnej można również dołączyć, odłącz i tworzenia dysków danych dla wystąpienia maszyny wirtualnej do przechwytywania wystąpienia obrazu przygotowania i skonfiguruj rozmiar wystąpienie maszyny wirtualnej.
+Oprócz ponowne uruchamianie i zamykanie maszyny wirtualnej można również dołączyć, odłączyć i tworzenia dysków danych dla wystąpienia maszyny wirtualnej hello toocapture hello wystąpienia obrazu przygotowania i skonfiguruj rozmiar hello hello wystąpienie maszyny wirtualnej.
 
-Azure Portal udostępnia podstawowe funkcje do wdrożenia i skonfigurowania maszyn wirtualnych i wiele innych usług Azure. Jednak nie wszystkie dostępne funkcje uwzględniona w portalu Azure. W portalu Azure nie jest możliwe do wykonania zadania, takie jak:
+Witaj Azure Portal udostępnia podstawowe funkcje toodeploy i konfigurowanie maszyn wirtualnych i wiele innych usług Azure. Jednak nie wszystkie dostępne funkcje jest objęta hello portalu Azure. W portalu Azure hello nie jest możliwe tooperform zadania, takie jak:
 
-* Przekazywanie wirtualne dyski twarde w systemie Azure
+* Przekazywanie tooAzure wirtualne dyski twarde
 * Kopiowanie maszyn wirtualnych
 
 [comment]: <> (MShermannd TODO co temat automatyzacji usługi dla maszyn wirtualnych SAP?)
 [comment]: <> (MSSedusch wdrażania wielu maszyn wirtualnych systemu operacyjnego w tym samym czasie możliwe)
-[comment]: <> (MSSedusch również dowolnego typu automatyzacji dotyczące wdrożenia nie jest możliwe za pomocą portalu Azure. Zadania, takie jak inicjowanych przez skrypty wdrażania wielu maszyn wirtualnych nie jest możliwe za pośrednictwem portalu Azure.)
+[comment]: <> (MSSedusch również dowolnego typu automatyzacji dotyczące wdrożenia nie jest możliwe z hello portalu Azure. Zadania, takie jak inicjowanych przez skrypty wdrażania wielu maszyn wirtualnych nie jest możliwe za pośrednictwem hello portalu Azure.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Zarządzanie za pomocą poleceń cmdlet programu PowerShell usługi Microsoft Azure
-Windows PowerShell to zaawansowany i rozszerzalny platforma, która ma zostały powszechnie zaakceptowany przez klientów wdrażanie większej liczby systemów na platformie Azure. Po zakończeniu instalacji poleceń cmdlet programu PowerShell na pulpitu, laptopów i dedykowanych stację można zdalnie uruchamiać polecenia cmdlet programu PowerShell.
+Windows PowerShell to zaawansowany i rozszerzalny platforma, która ma zostały powszechnie zaakceptowany przez klientów wdrażanie większej liczby systemów na platformie Azure. Po zakończeniu instalacji hello poleceń cmdlet programu PowerShell na pulpitu, laptopów i dedykowanych stację można zdalnie uruchamiać hello poleceń cmdlet programu PowerShell.
 
-Proces do włączenia lokalnego pulpitu/laptop do użycia polecenia cmdlet programu PowerShell Azure i sposobu konfigurowania tych do użycia z subskrypcji platformy Azure jest opisany w [w tym artykule][powershell-install-configure].
+Witaj tooenable proces lokalny pulpitu/laptop hello użycia poleceń cmdlet programu Azure PowerShell i jak tooconfigure hello dotyczące użycia za pomocą hello Azure subskrypcji jest opisany w [w tym artykule][powershell-install-configure].
 
-Szczegółowe kroki dotyczące instalowania, aktualizacji i konfigurowanie programu Azure PowerShell, polecenia cmdlet można także znaleźć w [ten rozdział przewodnika wdrażania programu][deployment-guide-4.1].
+Bardziej szczegółowy opis kroków na jak tooinstall, aktualizacji i skonfigurować poleceń cmdlet programu Azure PowerShell hello można znaleźć w [ten rozdział hello Deployment Guide][deployment-guide-4.1].
 
-Obsługi klienta do tej pory została środowiska PowerShell (PS) jest oczywiście bardziej zaawansowane narzędzia do wdrażania maszyn wirtualnych oraz do tworzenia niestandardowych krokach wdrażanie maszyn wirtualnych. Wszyscy klienci uruchomione wystąpienia programu SAP na platformie Azure są przy użyciu poleceń cmdlet środowiska PS uzupełnienie zadań zarządzania w portalu Azure lub nawet są przy użyciu poleceń cmdlet środowiska PS wyłącznie do wdrożeń na platformie Azure. Ponieważ udział tej samej konwencji nazewnictwa jak ponad 2000 pokrewne polecenia cmdlet programu Windows Azure konkretne polecenia cmdlet jest łatwe zadań administratorów systemu Windows należy korzystać z tych poleceń cmdlet.
+Obsługi klienta do tej pory została środowiska PowerShell (PS) czy na pewno hello bardziej zaawansowanych narzędzi toodeploy maszyn wirtualnych i toocreate niestandardowych kroków hello podczas wdrażania maszyn wirtualnych. Wszyscy klienci hello uruchomione wystąpienia programu SAP na platformie Azure używają PS poleceń cmdlet toosupplement zadań zarządzania w portalu Azure hello lub nawet przy użyciu poleceń cmdlet środowiska PS wyłącznie toomanage wdrożeń na platformie Azure. Ponieważ hello Azure konkretne polecenia cmdlet udziału hello tej samej konwencji nazewnictwa jak hello ponad 2000 pokrewne polecenia cmdlet systemu Windows, jest łatwe zadań systemu Windows administratorów tooleverage tych poleceń cmdlet.
 
 Zobacz przykład tutaj: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 [comment]: <> (MShermannd TODO opisano nowe polecenia interfejsu wiersza polecenia podczas testowania)
-Wdrażanie rozszerzenia monitorowania Azure dla programu SAP (zobacz rozdział [rozwiązanie monitorowanie Azure dla programu SAP] [ planning-guide-9.1] w tym dokumencie) jest możliwe tylko za pomocą programu PowerShell lub interfejsu wiersza polecenia. Dlatego jest wymagane do instalacji i konfiguracji programu PowerShell lub interfejsu wiersza polecenia podczas wdrażania i administrowania systemem SAP NetWeaver na platformie Azure.  
+Wdrożenie hello Azure rozszerzenie monitorowania dla programu SAP (zobacz rozdział [rozwiązanie monitorowanie Azure dla programu SAP] [ planning-guide-9.1] w tym dokumencie) jest możliwe tylko za pomocą programu PowerShell lub interfejsu wiersza polecenia. W związku z tym jest obowiązkowy toosetup i konfigurowanie programu PowerShell lub interfejsu wiersza polecenia podczas wdrażania i administrowania systemem SAP NetWeaver na platformie Azure.  
 
-Jako platforma Azure oferuje więcej funkcji, nowe polecenia cmdlet PS są mają zostać dodane, który wymaga aktualizacji poleceń cmdlet. W związku z tym warto sprawdzić witrynę Azure Pobierz co najmniej raz w miesiącu <https://azure.microsoft.com/downloads/> nowej wersji poleceń cmdlet. Nowa wersja zostanie zainstalowana tylko na starszej wersji.
+Jako platforma Azure oferuje więcej funkcji, nowe polecenia cmdlet PS będą toobe dodać, który wymaga aktualizacji hello poleceń cmdlet. W związku z tym ułatwia wykrywanie toocheck hello Azure Pobierz lokacji co najmniej raz na miesiąc hello <https://azure.microsoft.com/downloads/> nowej wersji hello poleceń cmdlet. Hello nowej wersji zostanie zainstalowana tylko na powitania starszej wersji.
 
 Ogólną listę Azure związanych z poleceń programu PowerShell Sprawdź tutaj: <https://msdn.microsoft.com/library/azure/dn708514.aspx>.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Zarządzanie za pomocą polecenia interfejsu wiersza polecenia programu Microsoft Azure
-Dla klientów, którzy systemu Linux i chce zarządzać Azure zasoby programu Powershell nie mogą być opcję. Firma Microsoft oferuje wiersza polecenia platformy Azure jako alternatywę.
-Wiersza polecenia platformy Azure oferuje zestaw typu open source, obsługujący wiele platform polecenia dotyczące pracy z platformą Azure. Interfejsu wiersza polecenia Azure oferuje wiele funkcji w portalu Azure.
+Dla klientów, którzy używać Linux a toomanage Azure zasoby programu Powershell nie mogą być opcję. Firma Microsoft oferuje wiersza polecenia platformy Azure jako alternatywę.
+Hello wiersza polecenia platformy Azure oferuje zestaw typu open source, obsługujący wiele platform polecenia dotyczące pracy z hello platformy Azure. Witaj interfejsu wiersza polecenia Azure udostępniają hello tę samą funkcjonalność znalezione w hello portalu Azure.
 
-Informacje o instalacji, konfiguracji i sposób użycia interfejsu wiersza polecenia Zobacz polecenia do wykonania zadań Azure
+Informacje o instalacji, konfiguracji i jak toouse CLI polecenia tooaccomplish Zobacz zadań Azure
 
-* [Instalowanie interfejsu wiersza polecenia platformy Azure][xplat-cli]
-* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i wiersza polecenia platformy Azure][virtual-machines-linux-cli-deploy-templates]
-* [Użyj interfejsu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows za pomocą Menedżera zasobów Azure][xplat-cli-azure-resource-manager]
+* [Zainstaluj hello wiersza polecenia platformy Azure][xplat-cli]
+* [Wdrażanie i zarządzanie maszynami wirtualnymi przy użyciu szablonów usługi Azure Resource Manager i hello wiersza polecenia platformy Azure][virtual-machines-linux-cli-deploy-templates]
+* [Użyj hello Azure CLI for Mac, Linux i Windows za pomocą Menedżera zasobów Azure][xplat-cli-azure-resource-manager]
 
-Przeczytaj również rozdział [wiersza polecenia platformy Azure dla maszyn wirtualnych systemu Linux] [ deployment-guide-4.5.2] w [Deployment Guide] [ planning-guide] na temat sposobu Użyj interfejsu wiersza polecenia Azure, aby wdrożyć rozszerzenie monitorowania Azure dla programu SAP.
+Przeczytaj również rozdział [wiersza polecenia platformy Azure dla maszyn wirtualnych systemu Linux] [ deployment-guide-4.5.2] w hello [Deployment Guide] [ planning-guide] w sposób toodeploy interfejsu wiersza polecenia Azure toouse hello Azure Rozszerzenie monitorowania dla programu SAP.
 
-## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Różne sposoby wdrażania maszyn wirtualnych dla programu SAP na platformie Azure
-W tym rozdziale dowiesz się różne sposoby, aby wdrożyć Maszynę wirtualną na platformie Azure. W tym rozdziale opisano procedury dodatkowych przygotowań, a także obsługę wirtualnych dysków twardych i maszyny wirtualne na platformie Azure.
+## <a name="different-ways-toodeploy-vms-for-sap-in-azure"></a>Różne sposoby toodeploy maszyn wirtualnych dla programu SAP na platformie Azure
+W tym rozdziale dowiesz się, toodeploy różne sposoby hello Maszynę wirtualną na platformie Azure. W tym rozdziale opisano procedury dodatkowych przygotowań, a także obsługę wirtualnych dysków twardych i maszyny wirtualne na platformie Azure.
 
 ### <a name="deployment-of-vms-for-sap"></a>Wdrażanie maszyn wirtualnych dla programu SAP
-Microsoft Azure oferuje wiele sposobów wdrażania maszyn wirtualnych i skojarzone dyski. W związku z tym jest bardzo ważne poznać różnice, od przygotowania maszyn wirtualnych może się różnić w zależności od metody wdrażania. Ogólnie rzecz biorąc firma Microsoft będzie Spójrz na poniższe scenariusze:
+Microsoft Azure oferuje wiele sposobów toodeploy maszyn wirtualnych i skojarzone dyski. W związku z tym jest bardzo ważne toounderstand hello różnice od przygotowania hello maszyn wirtualnych może się różnić w zależności od metody hello wdrożenia. Ogólnie rzecz biorąc firma Microsoft będzie Spójrz na powitania następujące scenariusze:
 
-#### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Przenoszenie maszyny Wirtualnej z lokalnej na platformie Azure przy użyciu dysku z systemem innym niż uogólniony
-Ma zostać przeniesiona do określonego systemu SAP z lokalnej na platformie Azure. Można to zrobić, przekazując wirtualny dysk twardy zawierający pliki binarne systemu operacyjnego, plików binarnych programu SAP i DBMS oraz wirtualne dyski twarde z plikami danych i dziennika systemu DBMS na platformie Azure. Contrast do [scenariusza #2 poniżej][planning-guide-5.1.2], zachowanie nazwy hosta, identyfikator SID SAP i SAP kont użytkowników w Maszynie wirtualnej Azure, jak zostały one skonfigurowane w środowisku lokalnym. W związku z tym uogólnianie obrazu nie jest konieczne. Zobacz rozdział [przygotowania do przenoszenia maszyny Wirtualnej z lokalnej na platformie Azure przy użyciu dysku z systemem innym niż uogólniony] [ planning-guide-5.2.1] tego dokumentu procedury przygotowania lokalnych i przekazywania-uogólniony maszyn wirtualnych lub wirtualne dyski twarde w systemie Azure. Przeczytaj rozdział [Scenariusz 3: przenoszenie maszyny Wirtualnej z lokalnymi przy użyciu-uogólniony wirtualny dysk twardy Azure z SAP] [ deployment-guide-3.4] w [Deployment Guide] [ deployment-guide] szczegółowy opis kroków wdrażania obrazu na platformie Azure.
+#### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Przenoszenie maszyny Wirtualnej z tooAzure lokalnego przy użyciu dysku z systemem innym niż uogólniony
+Planujesz toomove określonego systemu SAP z lokalnymi tooAzure. Można przekazać hello wirtualnego dysku twardego, który zawiera hello systemu operacyjnego, hello SAP pliki binarne i bazami danych binarnych oraz hello wirtualnych dysków twardych z danymi hello i pliki hello DBMS tooAzure dziennika. Z kolei zbyt[scenariusza #2 poniżej][planning-guide-5.1.2], Zachowaj hello nazwa hosta, identyfikator SID SAP i SAP kont użytkowników w hello maszyny Wirtualnej platformy Azure, ponieważ zostały one skonfigurowane w środowisku lokalne powitania. W związku z tym uogólnianie hello obrazu nie jest konieczne. Zobacz rozdział [przygotowania do przenoszenia maszyny Wirtualnej z tooAzure lokalnego przy użyciu dysku z systemem innym niż uogólniony] [ planning-guide-5.2.1] tego dokumentu procedury przygotowania lokalnych i przekazywania-uogólniony maszyn wirtualnych lub wirtualne dyski twarde tooAzure. Przeczytaj rozdział [Scenariusz 3: przenoszenie maszyny Wirtualnej z lokalnymi przy użyciu-uogólniony wirtualny dysk twardy Azure z SAP] [ deployment-guide-3.4] w hello [Deployment Guide] [ deployment-guide]szczegółowy opis kroków wdrażania obrazu na platformie Azure.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Wdrażanie maszyny Wirtualnej z określonego obrazu klienta
-Z powodu szczególne wymagania dotyczące tej wersji systemu operacyjnego lub DBMS podane obrazów w portalu Azure Marketplace może nie odpowiadają potrzebom. W związku z tym konieczne może utworzyć Maszynę wirtualną za pomocą własnych "private" obrazu systemu operacyjnego/DBMS maszyny Wirtualnej, który można wdrożyć kilka razy później. Aby przygotować obraz "private" do duplikacji, powinny być traktowane następujące elementy:
+Powodu toospecific wymagania dotyczące tej wersji systemu operacyjnego lub DBMS obrazy hello podane w portalu Azure Marketplace hello może nie odpowiadają potrzebom. W związku z tym może być konieczne toocreate Maszynę wirtualną za pomocą własnych "private" obrazu systemu operacyjnego/DBMS maszyny Wirtualnej, który można wdrożyć kilka razy później. tooprepare "private" obrazu do duplikacji hello następujące elementy są toobe traktowane jako:
 
 
 [comment]: <> (MSSedusch > Dowiedz się więcej tutaj:)
@@ -852,68 +852,68 @@ Z powodu szczególne wymagania dotyczące tej wersji systemu operacyjnego lub DB
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Ustawienia systemu Windows (np. Windows SID i nazwy hosta) musi być pobieranej/uogólniony na lokalnej maszynie Wirtualnej za pomocą polecenia sysprep.
+> Witaj Windows ustawień (takich jak Windows SID i nazwy hosta) musi być pobieranej/uogólniony na powitania lokalnej maszyny Wirtualnej za pomocą polecenia sysprep hello.
 >
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Wykonaj kroki opisane w tych artykułach dla [SUSE] [ virtual-machines-linux-create-upload-vhd-suse] lub [Red Hat] [ virtual-machines-linux-redhat-create-upload-vhd] przygotować dysk VHD do przekazania do platformy Azure.
+> Wykonaj hello opisane w tych artykułach dla [SUSE] [ virtual-machines-linux-create-upload-vhd-suse] lub [Red Hat] [ virtual-machines-linux-redhat-create-upload-vhd] tooAzure przekazać tooprepare toobe wirtualnego dysku twardego.
 >
 >
 
 - - -
-Jeśli zainstalowano już SAP zawartości w lokalnej maszyny Wirtualnej (szczególnie w przypadku systemów warstwy 2), można dostosować ustawienia systemu SAP po wdrożenia maszyny Wirtualnej platformy Azure za pomocą wystąpienia nazwy procedury obsługiwana przez Menedżera inicjowania obsługi oprogramowania SAP (Uwaga SAP [1619720]). Patrz rozdział [przygotowania do wdrożenia maszyny Wirtualnej z określonego obrazu klienta dla programu SAP] [ planning-guide-5.2.2] i [przekazywanie wirtualnego dysku twardego z lokalnej na platformie Azure] [ planning-guide-5.3.2] tego dokumentu procedury przygotowania lokalnych i przekazywania ogólnych maszyny wirtualnej na platformie Azure. Przeczytaj rozdział [Scenariusz 2: Wdrażanie maszyny Wirtualnej z obrazu niestandardowego dla SAP] [ deployment-guide-3.3] w [Deployment Guide] [ deployment-guide] szczegółowy opis kroków wdrażania obrazu na platformie Azure.
+Jeśli zainstalowano już SAP zawartości w lokalnej maszyny Wirtualnej (szczególnie w przypadku systemów warstwy 2), można dostosować ustawienia systemu SAP powitania po wdrożenie hello hello maszyny Wirtualnej platformy Azure za pomocą wystąpienia hello nazwy procedury obsługiwane przez hello rozbudowy oprogramowania SAP Menedżer (Uwaga SAP [1619720]). Patrz rozdział [przygotowania do wdrożenia maszyny Wirtualnej z określonego obrazu klienta dla programu SAP] [ planning-guide-5.2.2] i [przekazywanie wirtualnego dysku twardego z lokalnymi tooAzure] [ planning-guide-5.3.2]tego dokumentu procedury przygotowania lokalnych i przekazywania ogólnych tooAzure maszyny Wirtualnej. Przeczytaj rozdział [Scenariusz 2: Wdrażanie maszyny Wirtualnej z obrazu niestandardowego dla SAP] [ deployment-guide-3.3] w hello [Deployment Guide] [ deployment-guide] szczegółowy opis kroków z Wdrażanie obrazu na platformie Azure.
 
-#### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Wdrażanie maszyn wirtualnych z poziomu portalu Azure Marketplace
-Chcesz użyć programu Microsoft lub strona 3 podać obrazu maszyny Wirtualnej z portalu Azure Marketplace do wdrożenia maszyny Wirtualnej. Po wdrożeniu maszyny Wirtualnej na platformie Azure, wykonaj te same wskazówki i narzędzia do zainstalowania oprogramowania SAP i/lub DBMS wewnątrz maszyny Wirtualnej, jak w środowisku lokalnym. Aby uzyskać bardziej szczegółowe opis wdrożenia, zobacz rozdział [scenariusz 1: Wdrażanie maszyny Wirtualnej poza Azure Marketplace w celu SAP] [ deployment-guide-3.2] w [Deployment Guide][deployment-guide].
+#### <a name="deploying-a-vm-out-of-hello-azure-marketplace"></a>Wdrażanie maszyny Wirtualnej poza hello Azure Marketplace
+Chcesz toouse firmy Microsoft lub strona 3 podać obrazu maszyny Wirtualnej z hello Azure Marketplace toodeploy maszyny Wirtualnej. Po wdrożeniu maszyny Wirtualnej na platformie Azure, wykonaj hello tych samych wskazówek i narzędzia tooinstall hello oprogramowania SAP i/lub DBMS wewnątrz maszyny Wirtualnej w sposób jak w środowisku lokalnym. Aby uzyskać bardziej szczegółowe opis wdrożenia, zobacz rozdział [scenariusz 1: Wdrażanie maszyny Wirtualnej poza hello Azure Marketplace w celu SAP] [ deployment-guide-3.2] w hello [Deployment Guide] [ deployment-guide].
 
 ### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Przygotowywanie maszyn wirtualnych z programu SAP do platformy Azure
-Przed przekazaniem maszyn wirtualnych na platformie Azure, należy upewnić się, że maszyny wirtualne i wirtualne dyski twarde spełnienia określonych wymagań. Istnieją niewielkie różnice w zależności od metody wdrażania, który jest używany.
+Przed przekazaniem maszyn wirtualnych na platformie Azure należy toomake się, że hello maszyny wirtualne i wirtualne dyski twarde spełnienia określonych wymagań. Istnieją niewielkie różnice w zależności od metody wdrażania hello jest używany.
 
-#### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>Przygotowanie do przenoszenia maszyny Wirtualnej z lokalnej na platformie Azure przy użyciu dysku z systemem innym niż uogólniony
-Częstą metodą wdrażania jest aby przenieść istniejącą maszynę Wirtualną, w którym jest uruchomiona systemie SAP z lokalnej na platformie Azure. Tej maszyny Wirtualnej i systemu SAP na maszynie wirtualnej, po prostu należy uruchomić na platformie Azure przy użyciu tej samej nazwy hosta i najprawdopodobniej ten sam identyfikator SID SAP. W takim przypadku gościa systemu operacyjnego maszyny Wirtualnej nie można uogólnić dla wielu wdrożeń. Jeśli sieć lokalną został rozszerzony na platformie Azure (zobacz rozdział [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure z wymaganiami jest w pełni zintegrowany z siecią lokalną] [ planning-guide-2.2] w tym dokumencie), wówczas nawet tego samego konta domeny może być używana w maszyny Wirtualnej, ponieważ zostały one wykorzystywane przed lokalnymi.
+#### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>Przygotowanie do przenoszenia maszyny Wirtualnej z tooAzure lokalnego przy użyciu dysku z systemem innym niż uogólniony
+Częstą metodą wdrażania jest toomove istniejącej maszyny Wirtualnej, w którym jest uruchomiona systemie SAP z lokalnymi tooAzure. Maszyny Wirtualnej i hello systemu SAP w hello maszyny Wirtualnej należy uruchomić za pomocą usługi Azure hello tej samej nazwy hosta i najprawdopodobniej hello sam identyfikator SID SAP. W takim przypadku gościa hello systemu operacyjnego maszyny Wirtualnej nie można uogólnić dla wielu wdrożeń. Jeśli sieć lokalną hello został rozszerzony na platformie Azure (zobacz rozdział [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure za pomocą wymóg hello jest w pełni zintegrowany sieci lokalne powitania] [ planning-guide-2.2] w tym dokumencie), następnie nawet hello tego samego konta domeny może być używana w hello maszyny Wirtualnej, ponieważ zostały one wykorzystywane przed lokalnymi.
 
 Wymagania dotyczące podczas przygotowywania własne dysku maszyny Wirtualnej Azure są:
 
-* Pierwotnie dysku VHD zawierającego system operacyjny może mieć maksymalnie rozmiar wynosi 127GB tylko. To ograniczenie został wyeliminowany z końcem marca 2015 roku. Teraz dysku VHD zawierającego system operacyjny może być również inne usługi Azure Storage hostowanej wirtualnego dysku twardego o rozmiarze do 1TB.
+* Pierwotnie hello dysku VHD zawierającego system operacyjny hello może mieć maksymalny rozmiar 127GB tylko. To ograniczenie został wyeliminowany na końcu hello marca 2015 roku. Teraz hello dysku VHD zawierającego system operacyjny hello można się too1TB rozmiar jako również inne usługi Azure Storage hostowanej wirtualnego dysku twardego.
 
-[comment]: <> (MShermannd TODO zaznaczyć CLI również przekonwertuje statyczne)
-* Musi on być stały format wirtualnego dysku twardego. Dynamicznych wirtualnych dysków twardych lub wirtualnych dysków twardych w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statycznych wirtualne dyski twarde podczas przekazywania wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
-* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinien być instalowany ponownie na platformie Azure na potrzeby maszyny Wirtualnej można również stały format wirtualnego dysku twardego. Ten sam limit rozmiaru dysku systemu operacyjnego dotyczy także dysków z danymi. Wirtualne dyski twarde może mieć maksymalnie rozmiar równy 1TB. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statycznych wirtualne dyski twarde podczas przekazywania wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
-* Dodawanie innego lokalnego konta z uprawnieniami administratora, które mogą być używane przez pomocy technicznej firmy Microsoft lub które można przypisać jako kontekst dla usług i aplikacji do uruchamiania w dopóki maszyna wirtualna jest wdrożona i bardziej odpowiednie użytkowników może zostać użyty.
-* W przypadku scenariusz wdrożenia tylko w chmurze (zobacz rozdział [tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności w sieci lokalnej klienta] [ planning-guide-2.1] tego dokumentu) w połączeniu z tej metody wdrażania, kont domeny może nie działać po wdrożeniu dysku platformy Azure na platformie Azure. Jest to szczególnie ważne dla konta, które są używane do uruchamiania usług, takich jak aplikacje systemu DBMS lub SAP. W związku z tym należy zastąpić takich kont domeny kont lokalnych maszyn wirtualnych i usunąć lokalnych kont domeny na maszynie wirtualnej. Utrzymywanie lokalnych użytkowników domeny w obrazie maszyny Wirtualnej nie jest problemem, gdy maszyna wirtualna jest wdrażany w scenariuszu obejmującym różne pomieszczenia, zgodnie z opisem w rozdziale [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure z wymaganiami jest w pełni zintegrowany z siecią lokalną] [ planning-guide-2.2] w tym dokumencie.
-* Jeśli konta domeny były używane jako nazwy logowania systemu DBMS lub użytkowników, podczas uruchamiania systemu lokalną i tych maszyn wirtualnych powinny zostać wdrożony w scenariuszach tylko w chmurze, użytkownicy domeny trzeba usunąć. Należy się upewnić, że administrator lokalny oraz innego użytkownika lokalnego maszyny Wirtualnej jest dodawany jako logowania/użytkownika do systemu DBMS jako administratorzy.
-* Dodać inne konta lokalnego, jak te mogą być wymagane dla scenariusza wdrażania.
+[comment]: <> (Jeśli CLI również konwertuje toostatic MShermannd TODO mieć toocheck)
+* Musi on toobe w hello stały format wirtualnego dysku twardego. Dynamicznych wirtualnych dysków twardych lub wirtualnych dysków twardych w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne pliki VHD można wirtualne dyski twarde przekonwertowanego toostatic podczas przekazywania hello wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
+* Wirtualne dyski twarde, które są zainstalowane toohello maszyny Wirtualnej i ma być instalowana, w toobe potrzeby maszyny Wirtualnej Azure toohello również stały format wirtualnego dysku twardego. Hello sam limit rozmiaru dysku systemu operacyjnego hello dotyczy również toodata dysków. Wirtualne dyski twarde może mieć maksymalnie rozmiar równy 1TB. Dynamiczne pliki VHD można wirtualne dyski twarde przekonwertowanego toostatic podczas przekazywania hello wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
+* Dodawanie innego lokalnego konta z uprawnieniami administratora, które mogą być używane przez pomocy technicznej firmy Microsoft lub które do hello wdrożonej maszyny Wirtualnej można przypisać jako kontekst dla toorun usługi i aplikacje w i bardziej odpowiednie użytkowników może zostać użyty.
+* Scenariusz wdrożenia tylko na chmurze przypadku hello (zobacz rozdział [tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności na powitania lokalnej sieci klienta] [ planning-guide-2.1] tego dokument) w połączeniu z tej metody wdrażania, domeny, konta mogą nie działać po wdrożeniu hello Azure dysku na platformie Azure. Jest to szczególnie ważne dla konta, które są używane toorun usług takich jak hello DBMS lub SAP aplikacji. Dlatego należy tooreplace takiego konta domeny z kontami lokalnymi maszyny Wirtualnej i usuwania kont domeny lokalne powitania w hello maszyny Wirtualnej. Utrzymywanie lokalnych użytkowników domeny w obrazie maszyny Wirtualnej hello nie stanowi to problemu podczas hello maszyny Wirtualnej jest wdrażany w scenariuszu obejmującym różne pomieszczenia hello, zgodnie z opisem w rozdziale [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure za pomocą wymóg hello w pełni zintegrowany sieci lokalne powitania] [ planning-guide-2.2] w tym dokumencie.
+* Jeśli użyto konta domeny jako nazwy logowania systemu DBMS lub użytkowników podczas uruchamiania hello systemu lokalnego i tych maszyn wirtualnych powinny toobe wdrożone w scenariuszach tylko w chmurze, użytkownicy domeny hello muszą toobe usunięte. Należy toomake się, że administrator lokalny hello plus innego użytkownika lokalnego maszyny Wirtualnej jest dodany jako logowania/użytkownika do hello DBMS jako administratorzy.
+* Dodać inne konta lokalnego, jak te mogą być wymagane dla scenariusza wdrażania hello.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> W tym scenariuszu nie Generalizacja (sysprep) maszyny wirtualnej jest wymagany, aby przekazać i wdrożyć maszynę Wirtualną na platformie Azure.
+> W tym scenariuszu nie Generalizacja (sysprep) hello maszyny Wirtualnej jest wymagana tooupload i wdrożyć hello maszyny Wirtualnej na platformie Azure.
 > Upewnij się, że dysku D:\ nie jest używany zestaw automatycznej instalacji z dysku dołączonych dysków, zgodnie z opisem w rozdziale [ustawienie automatycznej instalacji dla dołączone dyski] [ planning-guide-5.5.3] w tym dokumencie.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> W tym scenariuszu nie Generalizacja (agenta waagent-deprovision) maszyny wirtualnej jest wymagana do Przekaż i wdróż maszynę Wirtualną na platformie Azure.
-> Upewnij się, czy/mnt/zasobu nie jest używany i czy wszystkie dyski są instalowane za pomocą identyfikatora uuid. Dysk systemu operacyjnego upewnij się, że wpis programu inicjującego również odzwierciedla instalacji na podstawie identyfikatora uuid.
+> W tym scenariuszu nie Generalizacja (agenta waagent-deprovision) hello maszyny Wirtualnej jest wymagana tooupload i wdrożyć hello maszyny Wirtualnej na platformie Azure.
+> Upewnij się, czy/mnt/zasobu nie jest używany i czy wszystkie dyski są instalowane za pomocą identyfikatora uuid. Dla dysku systemu operacyjnego hello upewnij się, że wpis programu inicjującego hello również odzwierciedla hello na podstawie identyfikatora uuid instalacji.
 >
 >
 
 - - -
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Przygotowanie do wdrożenia maszyny Wirtualnej z określonego obrazu klienta dla programu SAP
-W kontenery na kontach magazynu Azure są także przechowywane pliki VHD, które zawierają uogólniony systemu operacyjnego. Można wdrożyć nową maszynę Wirtualną z takich obrazu wirtualnego dysku twardego za pomocą odwołań do dysku VHD jako źródło dysk VHD w plikach szablonu wdrażania, zgodnie z opisem w rozdziale [Scenariusz 2: Wdrażanie maszyny Wirtualnej z obrazu niestandardowego dla SAP] [ deployment-guide-3.3] z [Deployment Guide][deployment-guide].
+W kontenery na kontach magazynu Azure są także przechowywane pliki VHD, które zawierają uogólniony systemu operacyjnego. Można wdrożyć nową maszynę Wirtualną z takich obrazu wirtualnego dysku twardego, odwołując hello wirtualnego dysku twardego jako źródło dysk VHD w plikach szablonu wdrażania, zgodnie z opisem w rozdziale [Scenariusz 2: Wdrażanie maszyny Wirtualnej z obrazu niestandardowego dla SAP] [ deployment-guide-3.3] z hello [Przewodnik wdrażania][deployment-guide].
 
 Wymagania dotyczące podczas przygotowywania własny obraz maszyny Wirtualnej platformy Azure są:
 
-* Pierwotnie dysku VHD zawierającego system operacyjny może mieć maksymalnie rozmiar wynosi 127GB tylko. To ograniczenie został wyeliminowany z końcem marca 2015 roku. Teraz dysku VHD zawierającego system operacyjny może być również inne usługi Azure Storage hostowanej wirtualnego dysku twardego o rozmiarze do 1TB.
+* Pierwotnie hello dysku VHD zawierającego system operacyjny hello może mieć maksymalny rozmiar 127GB tylko. To ograniczenie został wyeliminowany na końcu hello marca 2015 roku. Teraz hello dysku VHD zawierającego system operacyjny hello można się too1TB rozmiar jako również inne usługi Azure Storage hostowanej wirtualnego dysku twardego.
 
-[comment]: <> (MShermannd TODO zaznaczyć CLI również przekonwertuje statyczne)
-* Musi on być stały format wirtualnego dysku twardego. Dynamicznych wirtualnych dysków twardych lub wirtualnych dysków twardych w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statycznych wirtualne dyski twarde podczas przekazywania wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
-* Wirtualne dyski twarde, które są zainstalowane na maszynie wirtualnej i powinien być instalowany ponownie na platformie Azure na potrzeby maszyny Wirtualnej można również stały format wirtualnego dysku twardego. Ten sam limit rozmiaru dysku systemu operacyjnego dotyczy także dysków z danymi. Wirtualne dyski twarde może mieć maksymalnie rozmiar równy 1TB. Dynamiczne wirtualne dyski twarde zostaną przekonwertowane na statycznych wirtualne dyski twarde podczas przekazywania wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
-* Ponieważ wszyscy użytkownicy domeny zarejestrowaną jako użytkowników na maszynie wirtualnej, nie będzie istnieć w scenariuszu tylko w chmurze (zobacz rozdział [tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności w sieci lokalnej klienta] [ planning-guide-2.1] tego dokumentu), usługi przy użyciu takiej domeny konta mogą nie działać po wdrożeniu obrazu na platformie Azure. Jest to szczególnie ważne dla konta, które są używane do uruchamiania usług, takich jak aplikacje systemu DBMS lub SAP. W związku z tym należy zastąpić takich kont domeny kont lokalnych maszyn wirtualnych i usunąć lokalnych kont domeny na maszynie wirtualnej. Utrzymywanie lokalnych użytkowników domeny w obrazie maszyny Wirtualnej może nie być wystąpił problem podczas wdrażania maszyny Wirtualnej w scenariuszu obejmującym różne pomieszczenia zgodnie z opisem w rozdziale [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure z wymaganiami jest w pełni zintegrowany z siecią lokalną] [ planning-guide-2.2] w tym dokumencie.
-* Dodawanie innego lokalnego konta z uprawnieniami administratora, które mogą być używane przez pomocy technicznej firmy Microsoft w dochodzenia problem lub które można przypisać jako kontekst dla usług i aplikacji do uruchamiania w dopóki maszyna wirtualna jest wdrożona i bardziej odpowiednie użytkowników może zostać użyty.
-* Tylko w chmurze wdrożeń i gdzie kont domeny były używane jako nazwy logowania systemu DBMS lub użytkowników, podczas uruchamiania systemu lokalnego należy je usunąć użytkownicy domeny. Należy się upewnić, że administrator lokalny oraz innego użytkownika lokalnego maszyny Wirtualnej został dodany jako logowania/użytkownika systemu DBMS jako administratorzy.
-* Dodać inne konta lokalnego, jak te mogą być wymagane dla scenariusza wdrażania.
-* Jeśli obraz zawiera instalację programu SAP NetWeaver i zmianę nazwy hosta z oryginalnej nazwy w punkcie wdrożenia usługi Azure jest prawdopodobne, zalecane jest skopiowany najnowsze wersje oprogramowania SAP inicjowania obsługi administracyjnej DVD Menedżera do szablonu. Umożliwi to łatwo korzystać z funkcji zmiany nazwy SAP dostarczone do dostosowania zmienione nazwy hosta i/lub zmiany identyfikatora SID systemu SAP we wdrożonym obrazie maszyny Wirtualnej, jak najszybciej po uruchomieniu nowej kopii.
+[comment]: <> (Jeśli CLI również konwertuje toostatic MShermannd TODO mieć toocheck)
+* Musi on toobe w hello stały format wirtualnego dysku twardego. Dynamicznych wirtualnych dysków twardych lub wirtualnych dysków twardych w formacie VHDx nie są jeszcze obsługiwane na platformie Azure. Dynamiczne pliki VHD można wirtualne dyski twarde przekonwertowanego toostatic podczas przekazywania hello wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
+* Wirtualne dyski twarde, które są zainstalowane toohello maszyny Wirtualnej i ma być instalowana, w toobe potrzeby maszyny Wirtualnej Azure toohello również stały format wirtualnego dysku twardego. Hello sam limit rozmiaru dysku systemu operacyjnego hello dotyczy również toodata dysków. Wirtualne dyski twarde może mieć maksymalnie rozmiar równy 1TB. Dynamiczne pliki VHD można wirtualne dyski twarde przekonwertowanego toostatic podczas przekazywania hello wirtualnego dysku twardego z apletów poleceń programu PowerShell lub interfejsu wiersza polecenia
+* Ponieważ wszystkie hello użytkowników domeny w zarejestrowany jako użytkowników w hello maszyna wirtualna nie będzie istnieć w scenariuszu tylko w chmurze (zobacz rozdział [tylko w chmurze — wdrożenia maszyny wirtualnej na platformie Azure bez zależności na powitania lokalnej sieci klienta] [ planning-guide-2.1] tego dokumentu), usługi przy użyciu takiej domeny konta mogą nie działać po wdrożeniu hello obrazu na platformie Azure. Jest to szczególnie ważne dla konta, które są używane toorun usług, takich jak aplikacje systemu DBMS lub SAP. Dlatego należy tooreplace takiego konta domeny z kontami lokalnymi maszyny Wirtualnej i usuwania kont domeny lokalne powitania w hello maszyny Wirtualnej. Utrzymywanie lokalnych użytkowników domeny w obrazie maszyny Wirtualnej hello może być problem podczas hello maszyna wirtualna jest wdrożona w hello między lokalizacjami scenariusz zgodnie z opisem w rozdziale [między lokalizacjami - wdrażania jednego lub wielu SAP maszyn wirtualnych na platformie Azure za pomocą hello wymagania jest w pełni zintegrowany sieci lokalne powitania] [ planning-guide-2.2] w tym dokumencie.
+* Dodawanie innego lokalnego konta z uprawnieniami administratora, które mogą być używane przez pomocy technicznej firmy Microsoft w dochodzenia problem lub które do hello wdrożonej maszyny Wirtualnej można przypisać jako kontekst dla toorun usługi i aplikacje w i bardziej odpowiednie użytkowników może zostać użyty.
+* Wdrożenia tylko w chmurze i gdzie kont domeny były używane jako nazwy logowania systemu DBMS lub użytkowników podczas uruchamiania hello systemu lokalnego należy je usunąć hello użytkownicy domeny. Należy toomake się, że administrator lokalny hello plus innego użytkownika lokalnego maszyny Wirtualnej jest dodany jako logowania/użytkownika hello DBMS jako administratorzy.
+* Dodać inne konta lokalnego, jak te mogą być wymagane dla scenariusza wdrażania hello.
+* Jeśli obraz powitania zawiera instalację programu SAP NetWeaver i prawdopodobnie zmianę nazwy hosta hello z oryginalną nazwą hello w punkcie hello hello wdrożenia usługi Azure, jest zalecane toocopy hello najnowsze wersje hello oprogramowania SAP inicjowania obsługi administracyjnej Menedżera DVD do Szablon Hello. Pozwoli to tooeasily Użyj hello SAP wprowadzone zmiany nazwy funkcji tooadapt hello zmienić nazwę hosta i/lub zmień hello SID hello systemu SAP w hello wdrożyć obraz maszyny Wirtualnej zaraz po uruchomieniu nowej kopii.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -922,133 +922,133 @@ Wymagania dotyczące podczas przygotowywania własny obraz maszyny Wirtualnej pl
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Upewnij się, czy/mnt/zasobu nie jest używany i czy wszystkie dyski są instalowane za pomocą identyfikatora uuid. Dla dysku systemu operacyjnego upewnij się, że wpis programu inicjującego odzwierciedla instalacji na podstawie identyfikatora uuid.
+> Upewnij się, czy/mnt/zasobu nie jest używany i czy wszystkie dyski są instalowane za pomocą identyfikatora uuid. Dla systemu operacyjnego hello dysku upewnij się, że wpis programu inicjującego hello również odzwierciedla hello na podstawie identyfikatora uuid instalacji.
 >
 >
 
 - - -
 * SAP graficznego interfejsu użytkownika (dla administracyjne i ustawienia celów) można zainstalować wstępnie takie szablonu.
-* Tak długo, jak to oprogramowanie może współpracować z Zmień nazwę maszyny wirtualnej można zainstalować inne oprogramowanie niezbędne do uruchomienia maszyny wirtualnej pomyślnie w scenariuszach między lokalizacjami.
+* Inne oprogramowanie, można ją zainstalować niezbędne toorun hello maszyn wirtualnych pomyślnie w scenariuszach między różnymi lokalizacjami, tak długo, jak to oprogramowanie może współpracować z hello Zmień nazwę elementu hello maszyny Wirtualnej.
 
-Jeśli maszyna wirtualna jest gotowa wystarczająco być rodzajowa i ostatecznie niezależnie od kont użytkowników/nie jest dostępna w scenariuszu docelowe wdrożenie usługi Azure, odbywa się ostatni krok przygotowania uogólnianie taki obraz.
+Hello maszyna wirtualna jest wystarczająco przygotowany toobe ogólnego i ostatecznie niezależnie od kont użytkowników/nie jest dostępna w hello docelowe scenariusz wdrażania platformy Azure, hello ostatni krok przygotowania programu uogólnianie taki obraz jest przeprowadzane.
 
 ##### <a name="generalizing-a-vm"></a>Uogólnianie maszyny Wirtualnej
 - - -
-[comment]: <> (MShermannd TODO musi znaleźć lepszych artykułów / doku o uogólnianie maszyn wirtualnych dla ARM)
+[comment]: <> (MShermannd TODO ma toofind lepszych artykułów / doku o uogólnianie hello maszyn wirtualnych dla ARM)
 > ![Windows][Logo_Windows] Windows
 >
-> Ostatni etap polega na logowanie się do maszyny Wirtualnej przy użyciu konta administratora. Otwórz okno poleceń programu Windows "Administrator". Przejdź do ...\windows\system32\sysprep i wykonać sysprep.exe.
-> Zostanie wyświetlone okno mała. Należy koniecznie zaznacz opcję "Generalize" (wartość domyślna to wyczyszczone) i zmień wartość opcji zamknięcia domyślne "Ponowne uruchomienie" na "Zamknij". W tej procedurze założono, że proces programu sysprep jest wykonywane lokalnie w systemie operacyjnym gościa maszyny wirtualnej.
-> Jeśli chcesz wykonać procedurę z maszyny Wirtualnej już uruchomione na platformie Azure, wykonaj czynności opisane w [w tym artykule][virtual-machines-windows-capture-image].
+> ostatni krok Hello jest toolog w tooa maszyny Wirtualnej przy użyciu konta administratora. Otwórz okno poleceń programu Windows "Administrator". Przejdź too...\windows\system32\sysprep i wykonać sysprep.exe.
+> Zostanie wyświetlone okno mała. Jest opcja "Generalize" hello ważne toocheck (domyślna hello jest wyczyszczone) i zmienić domyślne too'Shutdown "Ponowny rozruch" hello opcja zamknięcia systemu ". W tej procedurze założono, że proces programu sysprep hello jest wykonywane lokalnie w hello systemu operacyjnego gościa maszyny wirtualnej.
+> Procedury hello tooperform z maszyny Wirtualnej już uruchomione na platformie Azure, należy wykonać hello procedury opisanej w [w tym artykule][virtual-machines-windows-capture-image].
 >
 > ![Linux][Logo_Linux] Linux
 >
-> [Przechwytywanie maszyny wirtualnej systemu Linux, aby pełnić rolę szablonu usługi Resource Manager][virtual-machines-linux-capture-image]
+> [Jak toocapture toouse maszyny wirtualnej systemu Linux jako szablon Menedżera zasobów][virtual-machines-linux-capture-image]
 >
 >
 
 - - -
-### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Przenoszenie maszyny wirtualne i wirtualne dyski twarde między lokalnymi na platformie Azure
-Ponieważ przekazywanie obrazów maszyn wirtualnych i dysków Azure nie jest możliwe za pośrednictwem portalu Azure, należy użyć polecenia cmdlet programu Azure PowerShell lub interfejsu wiersza polecenia. Inną możliwością jest użycie narzędzia "Narzędzie AzCopy". Narzędzie można skopiować wirtualne dyski twarde między lokalną i platformą Azure (w obu kierunkach). On również skopiować wirtualne dyski twarde między regiony platformy Azure. Przejrzyj [tej dokumentacji] [ storage-use-azcopy] do pobrania i użycia programu AzCopy.
+### <a name="transferring-vms-and-vhds-between-on-premises-tooazure"></a>Przenoszenie między lokalnymi tooAzure maszyny wirtualne i wirtualne dyski twarde
+Ponieważ przekazywania tooAzure obrazy i dyski maszyny Wirtualnej nie jest możliwe za pośrednictwem hello portalu Azure, należy poleceń cmdlet programu Azure PowerShell toouse lub interfejsu wiersza polecenia. Inną możliwością jest użycie hello hello narzędzia "Narzędzie AzCopy". Narzędzie Hello można skopiować wirtualne dyski twarde między lokalną i platformą Azure (w obu kierunkach). On również skopiować wirtualne dyski twarde między regiony platformy Azure. Przejrzyj [tej dokumentacji] [ storage-use-azcopy] do pobrania i użycia programu AzCopy.
 
-Trzeci alternatywą jest za pomocą różnych narzędzi z graficznym interfejsem użytkownika, na innych firm. Jednakże upewnij się, że te narzędzia są obsługiwane Azure stronicowych obiektów blob. Dla naszych celów należy użyć magazynu obiektów Blob platformy Azure strony (w tym miejscu opisano różnice: <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>). Bardzo wydajny w kompresowania maszyny wirtualne i wirtualne dyski twarde, które należy przekazać są także narzędzi dostarczanych przez platformę Azure. Jest to ważne, ponieważ takie zwiększenie efektywności kompresja skraca czas przekazywania (która zależy od mimo to łącze przekazywania do Internetu z lokalnymi, jak i regionu Azure wdrożenia docelowe). Jest odpowiedni założenie, że przekazywanie maszyny Wirtualnej lub wirtualnego dysku twardego z Europejskiego lokalizacji na Stanach Zjednoczonych na podstawie danych Azure, które centrów będzie trwać dłużej niż przekazywania tej samej maszyny wirtualne/wirtualne dyski twarde w centrach danych Azure Europejskich.
+W trzecim alternatywnych byłoby toouse różnych narzędzi graficznego interfejsu użytkownika na innych firm. Jednakże upewnij się, że te narzędzia są obsługiwane Azure stronicowych obiektów blob. Do przechowywania naszych celów potrzebujemy toouse Azure stronicowych obiektów Blob (w tym miejscu opisano różnice hello: <https://msdn.microsoft.com/library/windowsazure/ee691964.aspx>). Witaj narzędzi dostępnych w programie Azure są również bardzo wydajny w kompresowania hello maszyny wirtualne i wirtualne dyski twarde, które należy przekazać toobe. Jest to ważne, ponieważ takie zwiększenie efektywności Kompresja zmniejsza czas przekazywania hello (które mimo to zmienia się w zależności od toohello łącze przekazywania hello internet z hello lokalnie, jak i regionu Azure wdrożenia hello docelowe). Jest odpowiedni założenie, że przekazywanie maszyny Wirtualnej lub wirtualnego dysku twardego z Europejskiego lokalizacji toohello USA na podstawie Azure dane, które centrów będzie trwać dłużej niż przekazywanie hello tych samych centrach danych Azure Europejskiego toohello maszyny wirtualne/VHD.
 
-#### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Przekazywanie wirtualnego dysku twardego z lokalnej na platformie Azure
-Można przekazać istniejącej maszyny Wirtualnej lub wirtualnego dysku twardego z sieci lokalnej maszyny Wirtualnej lub wirtualnego dysku twardego musi spełniać wymagania wymienione w rozdziale [przygotowania do przenoszenia maszyny Wirtualnej z lokalnej na platformie Azure przy użyciu dysku z systemem innym niż uogólniony] [ planning-guide-5.2.1] tego dokumentu.
+#### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Przekazywanie wirtualnego dysku twardego z lokalnymi tooAzure
+tooupload istniejącej maszyny Wirtualnej lub wirtualnego dysku twardego z hello lokalnej sieci maszyny Wirtualnej lub wirtualnego dysku twardego musi toomeet hello wymagań wymienionych w rozdziale [przygotowania do przenoszenia maszyny Wirtualnej z tooAzure lokalnego przy użyciu dysku z systemem innym niż uogólniony] [ planning-guide-5.2.1] tego dokumentu.
 
-Maszyna wirtualna nie musi być uogólniony i mogą być przekazywane w stan i kształt, który ma po zamknięciu po stronie lokalnymi. Dotyczy to także dodatkowe wirtualne dyski twarde, które nie mogą zawierać żadnego systemu operacyjnego.
+Maszyna wirtualna nie jest konieczne toobe uogólniony i mogą być przekazywane w stanie hello i kształt, który ma po zamykania na powitania po stronie lokalnymi. Witaj dotyczy to także dodatkowe wirtualne dyski twarde, które nie mogą zawierać żadnego systemu operacyjnego.
 
 ##### <a name="uploading-a-vhd-and-making-it-an-azure-disk"></a>Przekazywanie wirtualnego dysku twardego i co dysku platformy Azure
-W takim przypadku chcemy przekazania dysku VHD, lub bez systemu operacyjnego i zainstalować go na Maszynę wirtualną jako dysk danych lub użyj go jako dysk systemu operacyjnego. Jest to proces wieloetapowych
+W takim przypadku możemy mają tooupload dysku VHD, lub bez systemu operacyjnego i zainstalować go tooa maszyny Wirtualnej jako dysk z danymi lub używać go jako dysk systemu operacyjnego. Jest to proces wieloetapowych
 
 **PowerShell**
 
-* Logowanie do subskrypcji z *Login-AzureRmAccount*
-* Ustaw subskrypcji kontekstu za pomocą *Set-AzureRmContext* i parametr identyfikator subskrypcji lub Nazwa subskrypcji — zobacz <https://msdn.microsoft.com/library/mt619263.aspx>
-* Przekazywanie wirtualnego dysku twardego z *AzureRmVhd Dodaj* do konta magazynu platformy Azure — zobacz <https://msdn.microsoft.com/library/mt603554.aspx>
-* Ustawiona dla dysku systemu operacyjnego nowa konfiguracja maszyny Wirtualnej na wirtualny dysk twardy z *AzureRmVMOSDisk zestaw* — zobacz <https://msdn.microsoft.com/library/mt603746.aspx>
-* Utwórz nową maszynę Wirtualną na podstawie konfiguracji maszyny Wirtualnej z *AzureRmVM nowy* — zobacz <https://msdn.microsoft.com/library/mt603754.aspx>
-* Dodaj dysk danych do nowej maszyny Wirtualnej z *AzureRmVMDataDisk Dodaj* — zobacz <https://msdn.microsoft.com/library/mt603673.aspx>
+* Subskrypcja tooyour logowania z *Login-AzureRmAccount*
+* Ustaw hello subskrypcji kontekstu za pomocą *Set-AzureRmContext* i parametr identyfikator subskrypcji lub Nazwa subskrypcji — zobacz <https://msdn.microsoft.com/library/mt619263.aspx>
+* Przekaż hello wirtualny dysk twardy z *AzureRmVhd Dodaj* tooan konto magazynu platformy Azure — zobacz <https://msdn.microsoft.com/library/mt603554.aspx>
+* Zestaw dysku hello systemu operacyjnego nowy toohello konfiguracji maszyny Wirtualnej wirtualny dysk twardy z *AzureRmVMOSDisk zestaw* — zobacz <https://msdn.microsoft.com/library/mt603746.aspx>
+* Utwórz nową maszynę Wirtualną na podstawie hello konfiguracji maszyny Wirtualnej z *AzureRmVM nowy* — zobacz <https://msdn.microsoft.com/library/mt603754.aspx>
+* Dodaj tooa dysku danych nowej maszyny Wirtualnej z *AzureRmVMDataDisk Dodaj* — zobacz <https://msdn.microsoft.com/library/mt603673.aspx>
 
 **Interfejs wiersza polecenia platformy Azure**
 
-* Przełącz do trybu usługi Azure Resource Manager z *azure config trybu arm*
-* Logowanie do subskrypcji z *logowania do systemu azure*
+* Przełącz tryb usługi Resource Manager tooAzure z *azure config trybu arm*
+* Subskrypcja tooyour logowania z *logowania do systemu azure*
 * Wybierz subskrypcję z *skonfigurowane konto platformy azure`<subscription name or id`>*
-* Przekazywanie wirtualnego dysku twardego z *przekazywanie obiektu blob magazynu azure* — zobacz [przy użyciu wiersza polecenia platformy Azure z usługą Azure Storage][storage-azure-cli]
-* Tworzenie nowej maszyny Wirtualnej, określając przekazany wirtualny dysk twardy jako dysk systemu operacyjnego z *tworzenia maszyny wirtualnej azure* i parametr -d
-* Dodaj dysk danych do nowej maszyny Wirtualnej z *wirtualna dysku dołączyć nowy*
+* Przekaż hello wirtualny dysk twardy z *przekazywanie obiektu blob magazynu azure* — zobacz [hello używanie interfejsu wiersza polecenia Azure z usługą Azure Storage][storage-azure-cli]
+* Tworzenie nowej maszyny Wirtualnej, określając hello przekazany wirtualny dysk twardy jako dysk systemu operacyjnego z *tworzenia maszyny wirtualnej azure* i parametr -d
+* Dodaj tooa dysku danych nowej maszyny Wirtualnej z *wirtualna dysku dołączyć nowy*
 
 **Szablon**
 
-* Przekazywanie wirtualnego dysku twardego z interfejsu wiersza polecenia programu Powershell lub Microsoft Azure
-* Wdróż maszynę Wirtualną z szablonu JSON odwołujące się do wirtualnego dysku twardego, jak pokazano w [tego szablonu JSON przykład](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json).
+* Przekaż hello wirtualny dysk twardy z programu Powershell lub interfejsu wiersza polecenia platformy Azure
+* Wdrażanie hello maszyny Wirtualnej z szablonu JSON odwołujące się do hello wirtualnego dysku twardego, jak pokazano w [tego szablonu JSON przykład](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json).
 
 #### <a name="deployment-of-a-vm-image"></a>Wdrożenie obrazu maszyny Wirtualnej
-Można przekazać istniejącej maszyny Wirtualnej lub wirtualnego dysku twardego z sieci lokalnej, aby mógł zostać użyty jako obraz maszyny Wirtualnej Azure maszyny Wirtualnej lub wirtualnego dysku twardego muszą spełniać wymagania wymienione w rozdziale [przygotowania do wdrożenia maszyny Wirtualnej z określonego obrazu klienta dla programu SAP] [ planning-guide-5.2.2] tego dokumentu.
+tooupload istniejącej maszyny Wirtualnej lub wirtualnego dysku twardego z hello lokalnej sieci w kolejności toouse go jako obraz maszyny Wirtualnej Azure maszyny Wirtualnej lub wirtualnego dysku twardego konieczne toomeet hello wymagania wymienione w rozdziale [przygotowania do wdrożenia maszyny Wirtualnej z określonego obrazu klienta dla programu SAP] [ planning-guide-5.2.2] tego dokumentu.
 
-* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* w systemie Linux w celu uogólnienia maszyny Wirtualnej — zobacz [jak przechwycić maszynę wirtualną systemu Windows w modelu wdrażania usługi Resource Manager] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [Przechwytywanie maszyny wirtualnej systemu Linux, aby pełnić rolę szablonu usługi Resource Manager][virtual-machines-linux-capture-image-capture]
-* Logowanie do subskrypcji z *Login-AzureRmAccount*
-* Ustaw subskrypcji kontekstu za pomocą *Set-AzureRmContext* i parametr identyfikator subskrypcji lub Nazwa subskrypcji — zobacz <https://msdn.microsoft.com/library/mt619263.aspx>
-* Przekazywanie wirtualnego dysku twardego z *AzureRmVhd Dodaj* do konta magazynu platformy Azure — zobacz <https://msdn.microsoft.com/library/mt603554.aspx>
-* Ustawiona dla dysku systemu operacyjnego nowa konfiguracja maszyny Wirtualnej na wirtualny dysk twardy z *Set AzureRmVMOSDisk - SourceImageUri fromImage - CreateOption* — zobacz <https://msdn.microsoft.com/library/mt603746.aspx>
-* Utwórz nową maszynę Wirtualną na podstawie konfiguracji maszyny Wirtualnej z *AzureRmVM nowy* — zobacz <https://msdn.microsoft.com/library/mt603754.aspx>
+* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* na systemie Linux toogeneralize maszyny Wirtualnej — zobacz [jak toocapture maszyny wirtualnej systemu Windows hello wdrożenie usługi Resource Manager modelu] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [jak toocapture toouse maszyny wirtualnej systemu Linux jako szablon Menedżera zasobów][virtual-machines-linux-capture-image-capture]
+* Subskrypcja tooyour logowania z *Login-AzureRmAccount*
+* Ustaw hello subskrypcji kontekstu za pomocą *Set-AzureRmContext* i parametr identyfikator subskrypcji lub Nazwa subskrypcji — zobacz <https://msdn.microsoft.com/library/mt619263.aspx>
+* Przekaż hello wirtualny dysk twardy z *AzureRmVhd Dodaj* tooan konto magazynu platformy Azure — zobacz <https://msdn.microsoft.com/library/mt603554.aspx>
+* Zestaw dysku hello systemu operacyjnego nowy toohello konfiguracji maszyny Wirtualnej wirtualny dysk twardy z *Set AzureRmVMOSDisk - SourceImageUri fromImage - CreateOption* — zobacz <https://msdn.microsoft.com/library/mt603746.aspx>
+* Utwórz nową maszynę Wirtualną na podstawie hello konfiguracji maszyny Wirtualnej z *AzureRmVM nowy* — zobacz <https://msdn.microsoft.com/library/mt603754.aspx>
 
 **Interfejs wiersza polecenia platformy Azure**
 
-* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* w systemie Linux w celu uogólnienia maszyny Wirtualnej — zobacz [jak przechwycić maszynę wirtualną systemu Windows w modelu wdrażania usługi Resource Manager] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [Przechwytywanie maszyny wirtualnej systemu Linux, aby pełnić rolę szablonu usługi Resource Manager] [ virtual-machines-linux-capture-image-capture] dla systemu Linux
-* Przełącz do trybu usługi Azure Resource Manager z *azure config trybu arm*
-* Logowanie do subskrypcji z *logowania do systemu azure*
+* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* na systemie Linux toogeneralize maszyny Wirtualnej — zobacz [jak toocapture maszyny wirtualnej systemu Windows hello wdrożenie usługi Resource Manager modelu] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [jak toocapture toouse maszyny wirtualnej systemu Linux jako szablon Menedżera zasobów] [ virtual-machines-linux-capture-image-capture] dla systemu Linux
+* Przełącz tryb usługi Resource Manager tooAzure z *azure config trybu arm*
+* Subskrypcja tooyour logowania z *logowania do systemu azure*
 * Wybierz subskrypcję z *skonfigurowane konto platformy azure`<subscription name or id`>*
-* Przekazywanie wirtualnego dysku twardego z *przekazywanie obiektu blob magazynu azure* — zobacz [przy użyciu wiersza polecenia platformy Azure z usługą Azure Storage][storage-azure-cli]
-* Tworzenie nowej maszyny Wirtualnej, określając przekazany wirtualny dysk twardy jako dysk systemu operacyjnego z *tworzenia maszyny wirtualnej azure* i parametru -Q
+* Przekaż hello wirtualny dysk twardy z *przekazywanie obiektu blob magazynu azure* — zobacz [hello używanie interfejsu wiersza polecenia Azure z usługą Azure Storage][storage-azure-cli]
+* Tworzenie nowej maszyny Wirtualnej, określając hello przekazany wirtualny dysk twardy jako dysk systemu operacyjnego z *tworzenia maszyny wirtualnej azure* i parametru -Q
 
 **Szablon**
 
-* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* w systemie Linux w celu uogólnienia maszyny Wirtualnej — zobacz [jak przechwycić maszynę wirtualną systemu Windows w modelu wdrażania usługi Resource Manager] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [Przechwytywanie maszyny wirtualnej systemu Linux, aby pełnić rolę szablonu usługi Resource Manager] [ virtual-machines-linux-capture-image-capture] dla systemu Linux
-* Przekazywanie wirtualnego dysku twardego z interfejsu wiersza polecenia programu Powershell lub Microsoft Azure
-* Wdróż maszynę Wirtualną z szablonu JSON odwołujące się do obrazu wirtualnego dysku twardego, jak pokazano w [tego szablonu JSON przykład](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Użyj *sysprep* w systemie Windows lub *agenta waagent-deprovision* na systemie Linux toogeneralize maszyny Wirtualnej — zobacz [jak toocapture maszyny wirtualnej systemu Windows hello wdrożenie usługi Resource Manager modelu] [ virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] lub [jak toocapture toouse maszyny wirtualnej systemu Linux jako szablon Menedżera zasobów] [ virtual-machines-linux-capture-image-capture] dla systemu Linux
+* Przekaż hello wirtualny dysk twardy z programu Powershell lub interfejsu wiersza polecenia platformy Azure
+* Wdrażanie hello maszyny Wirtualnej z szablonu JSON odwołujące się do hello obrazu wirtualnego dysku twardego, jak pokazano w [tego szablonu JSON przykład](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 
-#### <a name="downloading-vhds-to-on-premises"></a>Pobieranie wirtualne dyski twarde do lokalnego
-Azure infrastruktura jako usługa nie jest jednokierunkowa ulicy o tylko możliwość przekazania wirtualne dyski twarde i SAP systemów. Można przenieść SAP systemów z platformy Azure z powrotem do na świecie lokalnych.
+#### <a name="downloading-vhds-tooon-premises"></a>Pobieranie lokalne tooon wirtualne dyski twarde
+Azure infrastruktura jako usługa nie jest jednokierunkowa ulicy tylko ich stanie tooupload wirtualne dyski twarde i systemów SAP. Można przenieść SAP systemów z platformy Azure z powrotem do Witaj świecie lokalnych oraz.
 
-Podczas pobierania wirtualne dyski twarde nie może być aktywne. Nawet w przypadku pobierania wirtualne dyski twarde, które są instalowane na maszynach wirtualnych, maszyny Wirtualnej musi być zamknięty. Jeśli chcesz pobrać zawartość bazy danych które następnie powinien służyć do konfigurowania nowego systemu lokalnego i jeśli jest dopuszczalny podczas czas pobierania i instalacji nowego systemu systemu na platformie Azure można nadal operacyjnej można unikanie długie przestoje, wykonując kopię zapasową skompresowanej bazy danych do dysku VHD, a tylko Pobierz tego wirtualnego dysku twardego zamiast również podstawowej maszyny Wirtualnej systemu operacyjnego.
+Podczas pobierania hello hello hello wirtualne dyski twarde nie może być aktywne. Nawet wtedy, gdy wirtualne dyski twarde, które są zainstalowane tooVMs pobierania hello maszyny Wirtualnej musi toobe zamknięcia. Jeśli chcesz tylko toodownload hello bazy danych zawartości, następnie powinny być używane tooset nowy system lokalny. Jeśli i zaakceptować który podczas hello hello Pobierz hello instalacji nowego systemu hello który hello systemu na platformie Azure mogą nadal działać , można uniknąć długie przestoje, wykonując kopię zapasową bazy danych skompresowany do wirtualnego dysku twardego i wystarczy pobrać, że wirtualny dysk twardy, a także pobieranie hello podstawowej maszyny Wirtualnej systemu operacyjnego.
 
 #### <a name="powershell"></a>PowerShell
-Po zatrzymaniu systemu SAP i maszyna wirtualna jest zamknięta, służy polecenie cmdlet programu PowerShell AzureRmVhd Zapisz w celu lokalnego podczas pobierania dysków VHD na świecie lokalnych. W celu należy, adres URL wirtualnego dysku twardego, który można znaleźć w "Magazynu sekcji" Portal Azure (trzeba przejdź do konta magazynu i kontener magazynu, w której został utworzony dysk VHD) i trzeba wiedzieć, gdzie dysku VHD powinien zostać skopiowany do.
+Po zatrzymaniu systemu SAP hello i hello maszyna wirtualna jest zamknięta, możesz użyć hello polecenia cmdlet programu PowerShell AzureRmVhd Zapisz na powitania lokalnych dysków VHD hello toodownload docelowych powrotem toohello świecie lokalnych. W kolejności toodo, należy adres URL hello hello wirtualnego dysku twardego, który można znaleźć w hello magazynowania "w artykule" z hello portalu Azure (potrzeby toonavigate toohello konto magazynu i hello kontenera magazynu której hello wirtualny dysk twardy został utworzony) i potrzebujesz tooknow gdzie hello dysku VHD powinien być skopiowane do.
 
-Następnie można wykorzystać polecenie definiując po prostu parametru SourceUri jako adres URL dysku VHD do pobrania i LocalFilePath jak fizyczną lokalizację wirtualnego dysku twardego (w tym swojej nazwy). Polecenie może wyglądać podobnie do:
+Następnie można wykorzystać polecenie hello definiując po prostu parametru hello SourceUri jako adres URL hello hello toodownload wirtualnego dysku twardego i hello LocalFilePath jak fizyczną lokalizację hello hello wirtualnego dysku twardego (w tym swojej nazwy). polecenie Hello może wyglądać podobnie do:
 
 ```powerhell
 Save-AzureRmVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
 ```
 
-Więcej szczegółów Zapisz AzureRmVhd polecenia cmdlet, sprawdź, czy w tym miejscu <https://msdn.microsoft.com/library/mt622705.aspx>.
+Więcej informacji o hello AzureRmVhd Zapisz polecenia cmdlet, sprawdź, czy w tym miejscu <https://msdn.microsoft.com/library/mt622705.aspx>.
 
 #### <a name="cli"></a>Interfejs wiersza polecenia
-Po zatrzymaniu systemu SAP i maszyna wirtualna jest zamknięta, umożliwia pobieranie obiektu blob magazynu azure polecenia wiersza polecenia platformy Azure w celu lokalnego Pobierz dysków VHD na świecie lokalnych. Aby to zrobić, potrzebna jest nazwa i kontener wirtualnego dysku twardego, który można znaleźć w sekcji"magazynu" portalu Azure (trzeba przejdź do konta magazynu i kontener magazynu, w której został utworzony dysk VHD) i trzeba wiedzieć, gdzie dysku VHD powinien zostać skopiowany do.
+Po zatrzymaniu systemu SAP hello i hello maszyna wirtualna jest zamknięta, możesz użyć pobierania polecenia interfejsu wiersza polecenia Azure hello obiektu blob magazynu azure na powitania lokalnych dysków VHD hello toodownload docelowych powrotem toohello świecie lokalnych. W kolejności toodo, że z portalu Azure (potrzeby toonavigate toohello konto magazynu i hello kontenera magazynu której hello wirtualny dysk twardy został utworzony) hello potrzebna nazwa hello i kontener hello wirtualnego dysku twardego, który można znaleźć w hello magazynowania "w artykule" hello, jeśli jest konieczne tooknow gdzie Witaj dysku VHD powinien zostać skopiowany do.
 
-Następnie można wykorzystać polecenie definiując po prostu parametry obiektów blob i kontener wirtualnego dysku twardego do pobierania i docelowy jako lokalizacja docelowa fizycznych wirtualnego dysku twardego (w tym swojej nazwy). Polecenie może wyglądać podobnie do:
+Następnie można wykorzystać hello polecenia, po prostu definiując hello parametry blob i kontener hello toodownload wirtualnego dysku twardego i przeznaczenia hello jako lokalizację docelową fizycznych hello hello wirtualnego dysku twardego (w tym jego nazwa). polecenie Hello może wyglądać podobnie do:
 
 ```
-azure storage blob download --blob <name of the VHD to download> --container <container of the VHD to download> --account-name <storage account name of the VHD to download> --account-key <storage account key> --destination <destination of the VHD to download>
+azure storage blob download --blob <name of hello VHD toodownload> --container <container of hello VHD toodownload> --account-name <storage account name of hello VHD toodownload> --account-key <storage account key> --destination <destination of hello VHD toodownload>
 ```
 
 ### <a name="transferring-vms-and-vhds-within-azure"></a>Przenoszenie maszyny wirtualne i wirtualne dyski twarde w systemie Azure
 #### <a name="copying-sap-systems-within-azure"></a>Kopiowanie systemów SAP w obrębie platformy Azure
-Systemu SAP lub nawet DBMS serwera dedykowanego obsługi warstwy aplikacji SAP prawdopodobnie będą obejmować kilka dysków VHD, które zawierać systemu operacyjnego przy użyciu plików binarnych lub plików danych i dziennika bazy danych SAP. Azure funkcji kopiowania wirtualnych dysków twardych ani Azure funkcji zapisywania na dysk VHD ma to mechanizm synchronizacji, który spowoduje utworzenie migawki synchronicznie wielu dysków VHD. W związku z tym stan skopiowane i zapisane pliki VHD nawet wtedy, gdy te są zainstalowane na tej samej maszyny Wirtualnej będzie inny. Oznacza to, że w przypadku konkretnych o różnych danych i logfile(s) zawarte w różnych wirtualne dyski twarde, bazy danych w końcu byłoby niezgodne.
+Systemu SAP lub nawet DBMS serwera dedykowanego obsługi warstwy aplikacji SAP będzie prawdopodobnie składają się z kilku wirtualne dyski twarde, które zawierają hello albo systemu operacyjnego przy użyciu plików binarnych hello lub hello danych i dziennika pliki bazy danych SAP hello. Hello Azure funkcji kopiowania wirtualnych dysków twardych ani hello Azure funkcji zapisywania toodisk wirtualne dyski twarde ma mechanizm synchronizacji, który mógłby migawki synchronicznie wielu dysków VHD. Oznacza to, stan hello hello skopiowane i zapisane wirtualne dyski twarde, nawet jeśli te są zainstalowane przed hello tej samej maszyny Wirtualnej będzie inny. Oznacza to, że w przypadku konkretnych hello o różnych danych i logfile(s) zawartych w hello różnych wirtualne dyski twarde, hello bazy danych w celu hello byłoby niezgodne.
 
-**Wniosek: Aby można było skopiować lub zapisać wirtualne dyski twarde, które są częścią konfiguracji systemu SAP należy zatrzymać systemu SAP i konieczność zamykania wdrożonej maszyny Wirtualnej. Następnie można skopiować lub pobrać zestaw wirtualne dyski twarde, albo utworzyć kopię systemu SAP w Azure lub lokalnie.**
+**Wniosek: W kolejności toocopy lub zapisać wirtualne dyski twarde, które są częścią konfiguracji systemu SAP muszą systemu SAP hello toostop, a także tooshut dół hello wdrożyć maszyny Wirtualnej. Tylko, a następnie można skopiować lub pobierania zestawu hello tooeither wirtualne dyski twarde tworzenie kopii systemu SAP hello w Azure lub lokalnie.**
 
-Dyski danych są przechowywane jako pliki wirtualnego dysku twardego na koncie magazynu Azure i może być bezpośrednio dołączyć do maszyny wirtualnej lub być użyty jako obraz. W takim przypadku wirtualnego dysku twardego jest kopiowany do innej lokalizacji przed beeing dołączony do maszyny wirtualnej. Pełna nazwa pliku VHD na platformie Azure, musi być unikatowa w obrębie platformy Azure. Jak wspomniano wcześniej już, nazwa jest rodzaj nazwy trzyczęściowej, która wygląda następująco:
+Dyski danych są przechowywane jako pliki wirtualnego dysku twardego na koncie magazynu Azure i może być bezpośrednio dołączyć tooa maszyny wirtualnej lub być użyty jako obraz. W takim przypadku hello wirtualnego dysku twardego jest skopiowany tooanother lokalizacji przed beeing dołączony toohello maszyny wirtualnej. Pełna nazwa pliku wirtualnego dysku twardego hello na platformie Azure Hello musi być unikatowa w obrębie platformy Azure. Jak wspomniano wcześniej już, hello nazwa jest rodzaj trzyczęściowej wygląda następująco:
 
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
 ##### <a name="powershell"></a>PowerShell
-Polecenia cmdlet programu Azure PowerShell umożliwiają kopiować dysku VHD, jak pokazano w [w tym artykule][storage-powershell-guide-full-copy-vhd].
+Można użyć toocopy poleceń cmdlet programu Azure PowerShell dysku VHD, jak pokazano w [w tym artykule][storage-powershell-guide-full-copy-vhd].
 
 ##### <a name="cli"></a>Interfejs wiersza polecenia
-Interfejsu wiersza polecenia Azure umożliwia skopiowanie wirtualnego dysku twardego, jak pokazano w [w tym artykule][storage-azure-cli-copy-blobs]
+Można użyć interfejsu wiersza polecenia Azure toocopy dysku VHD, jak pokazano w [w tym artykule][storage-azure-cli-copy-blobs]
 
 ##### <a name="azure-storage-tools"></a>Narzędzia do magazynu Azure
 * <http://azurestorageexplorer.codeplex.com/Releases/View/125870>
@@ -1058,81 +1058,81 @@ Istnieją również wersje professional eksploratory usługi Storage platformy A
 * <http://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>
 
-Kopię samego dysku VHD w ramach konta magazynu jest procesu, który zajmuje tylko kilka sekund (podobnie jak na sprzęcie sieci SAN, tworzenie migawek z opóźnieniem kopiowania i skopiuj podczas zapisu). Po utworzeniu kopii pliku wirtualnego dysku twardego można dołączyć do maszyny wirtualnej lub użyć jej jako obraz do dołączyć kopii wirtualnego dysku twardego do maszyny wirtualnej.
+Kopia Hello samego dysku VHD w ramach konta magazynu jest procesu, który zajmuje tylko kilka sekund (podobnego sprzętu tooSAN tworzenie migawek z opóźnieniem kopiowania i skopiuj podczas zapisu). Po utworzeniu kopii pliku wirtualnego dysku twardego hello można dołączyć maszyny wirtualnej tooa lub użyj go jako obraz tooattach kopiuje hello wirtualnego dysku twardego toovirtual maszyn.
 
 ##### <a name="powershell"></a>PowerShell
 ```powershell
-# attach a vhd to a vm
+# attach a vhd tooa vm
 $vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path to vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun e.g. 0> -CreateOption attach
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <path toovhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun e.g. 0> -CreateOption attach
 $vm | Update-AzureRmVM
 
-# attach a copy of the vhd to a vm
+# attach a copy of hello vhd tooa vm
 $vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <new path of vhd> -SourceImageUri <path to image vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun e.g. 0> -CreateOption fromImage
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name newdatadisk -VhdUri <new path of vhd> -SourceImageUri <path tooimage vhd> -Caching <caching option> -DiskSizeInGB $null -Lun <lun e.g. 0> -CreateOption fromImage
 $vm | Update-AzureRmVM
 ```
 ##### <a name="cli"></a>Interfejs wiersza polecenia
 ```
 azure config mode arm
 
-# attach a vhd to a vm
-azure vm disk attach <resource group name> <vm name> <path to vhd>
+# attach a vhd tooa vm
+azure vm disk attach <resource group name> <vm name> <path toovhd>
 
-# attach a copy of the vhd to a vm
-# this scenario is currently not possible with Azure CLI. A workaround is to manually copy the vhd to the destination.
+# attach a copy of hello vhd tooa vm
+# this scenario is currently not possible with Azure CLI. A workaround is toomanually copy hello vhd toohello destination.
 ```
 
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Kopiowanie dysków między kontami magazynu Azure
-Nie można wykonać tego zadania w portalu Azure. Możesz ise programu Azure PowerShell polecenia cmdlet, wiersza polecenia platformy Azure lub innej firmy magazynu przeglądarki. Polecenia cmdlet programu PowerShell lub polecenia interfejsu wiersza polecenia można tworzyć i zarządzać obiektów blob, które obejmują możliwość asynchronicznie kopiowania obiektów blob na kontach magazynu, a w regionach w ramach subskrypcji platformy Azure.
+Nie można wykonać tego zadania na powitania portalu Azure. Możesz ise programu Azure PowerShell polecenia cmdlet, wiersza polecenia platformy Azure lub innej firmy magazynu przeglądarki. Witaj poleceń cmdlet programu PowerShell lub polecenia interfejsu wiersza polecenia można tworzyć i zarządzać obiektów blob, w tym hello możliwości tooasynchronously kopiowania blob wielu kont magazynu i w regionach w ramach hello subskrypcji platformy Azure.
 
 ##### <a name="powershell"></a>PowerShell
 Możliwe jest również kopiowanie wirtualnych dysków twardych między subskrypcjami. Aby uzyskać więcej informacji, przeczytaj [w tym artykule][storage-powershell-guide-full-copy-vhd].
 
-Podstawowy przepływ PS logiki polecenia cmdlet wygląda następująco:
+podstawowe przepływu Hello hello PS logiki polecenia cmdlet wygląda następująco:
 
-* Tworzenie kontekstu konta magazynu dla konta magazynu źródłowego z *AzureStorageContext nowy* — zobacz <https://msdn.microsoft.com/library/dn806380.aspx>
-* Tworzenie kontekstu konta magazynu docelowe konto magazynu z *AzureStorageContext nowy* — zobacz <https://msdn.microsoft.com/library/dn806380.aspx>
-* Uruchom kopię z
+* Tworzenie kontekstu konta magazynu dla konta magazynu źródłowego hello z *AzureStorageContext nowy* — zobacz <https://msdn.microsoft.com/library/dn806380.aspx>
+* Tworzenie kontekstu konta magazynu hello docelowe konto magazynu z *AzureStorageContext nowy* — zobacz <https://msdn.microsoft.com/library/dn806380.aspx>
+* Uruchom kopię hello z
 
 ```powershell
 Start-AzureStorageBlobCopy -SrcBlob <source blob name> -SrcContainer <source container name> -SrcContext <variable containing context of source storage account> -DestBlob <target blob name> -DestContainer <target container name> -DestContext <variable containing context of target storage account>
 ```
 
-* Sprawdź stan kopiowania w pętli z
+* Sprawdź stan hello kopii hello w pętli z
 
 ```powershell
 Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target container name> -Context <variable containing context of target storage account>
 ```
 
-* Dołącz nowy wirtualny dysk twardy do maszyny wirtualnej, zgodnie z powyższym opisem.
+* Dołącz hello nowej wirtualnego dysku twardego tooa maszyny wirtualnej, zgodnie z powyższym opisem.
 
 Przykłady można znaleźć [w tym artykule][storage-powershell-guide-full-copy-vhd]
 
 ##### <a name="cli"></a>Interfejs wiersza polecenia
-* Uruchom kopię z
+* Uruchom kopię hello z
 
 ```
   azure storage blob copy start --source-blob <source blob name> --source-container <source container name> --account-name <source storage account name> --account-key <source storage account key> --dest-container <target container name> --dest-blob <target blob name> --dest-account-name <target storage account name> --dest-account-key <target storage account name>
 ```
 
-* Sprawdź stan, jeśli kopia w pętli z
+* Sprawdź stan hello, jeśli hello kopiowania w pętli z
 
 ```
 azure storage blob copy show --blob <target blob name> --container <target container name> --account-name <target storage account name> --account-key <target storage account name>
 ```
 
-* Dołącz nowy wirtualny dysk twardy do maszyny wirtualnej, zgodnie z powyższym opisem.
+* Dołącz hello nowej wirtualnego dysku twardego tooa maszyny wirtualnej, zgodnie z powyższym opisem.
 
 Przykłady można znaleźć [w tym artykule][storage-azure-cli-copy-blobs]
 
 ### <a name="disk-handling"></a>Obsługa dysku
 #### <a name="4efec401-91e0-40c0-8e64-f2dceadff646"></a>Struktura maszyny Wirtualnej/wirtualnego dysku twardego dla wdrożenia SAP
-W idealnym przypadku obsługę struktury Maszynę wirtualną i skojarzone pliki VHD powinien być bardzo proste. W przypadku instalacji lokalnych klientów opracowany struktury instalacji serwera na wiele sposobów.
+W idealnym przypadku hello Obsługa struktury hello maszyny wirtualnej i hello skojarzone wirtualne dyski twarde powinny być bardzo proste. W przypadku instalacji lokalnych klientów opracowany struktury instalacji serwera na wiele sposobów.
 
-* Jeden podstawowy plik VHD zawierającego system operacyjny i wszystkich plików binarnych systemu DBMS i/lub SAP. Ponieważ marca 2015 tego wirtualnego dysku twardego może być maksymalnie do 1TB, rozmiar zamiast wcześniejszych ograniczenia, które maksymalnie 127 GB.
-* Jeden lub kilka dysków wirtualnych, które zawiera plik dziennika systemu DBMS bazy danych SAP i pliku dziennika systemu DBMS obszaru tymczasowego magazynu (Jeśli systemu DBMS obsługuje tę funkcję). Wymagania dotyczące IOPS dziennika bazy danych są wysokie, należy najpierw paskowych wielu dysków VHD w celu osiągnięcia woluminu IOPS wymagane.
-* Liczba wirtualne dyski twarde zawierające jeden lub dwa pliki bazy danych SAP bazy danych i pliki dane tymczasowe DBMS także (Jeśli systemu DBMS obsługuje tę funkcję).
+* Jeden podstawowy dysk VHD, który zawiera hello systemu operacyjnego i wszystkich hello pliki binarne hello DBMS i/lub SAP. Od marca 2015 tego wirtualnego dysku twardego można się too1TB rozmiar zamiast wcześniejszych ograniczenia, które go ograniczone too127GB.
+* Jeden lub kilka dysków wirtualnych, które zawiera plik dziennika systemu DBMS hello bazy danych SAP hello i pliku dziennika hello hello DBMS obszaru tymczasowego magazynu (jeśli hello DBMS obsługuje tę funkcję). Wymagania IOPS dziennika bazy danych hello są wysokie, należy najpierw toostripe wielu wirtualnych dysków twardych w kolejności tooreach hello IOPS ilość wymaganą.
+* Liczba wirtualnych dysków twardych, zawierający co najmniej dwa pliki bazy danych, bazy danych SAP hello hello DBMS dane tymczasowe również i plików (jeśli hello DBMS obsługuje tę funkcję).
 
 ![Odwołanie do konfiguracji IaaS maszyny Wirtualnej platformy Azure dla programu SAP][planning-guide-figure-1300]
 
@@ -1141,13 +1141,13 @@ W idealnym przypadku obsługę struktury Maszynę wirtualną i skojarzone pliki 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Z wielu klientów widzieliśmy konfiguracje where, na przykład SAP i bazami danych binarnych nie zostały zainstalowane na dysku c:\, w którym zainstalowano system operacyjny. Wystąpiły różne przyczyny to go, ale podczas próby wstecz katalogu głównego, zwykle czy dyski zostały małe i uaktualnień systemu operacyjnego potrzebne dodatkowe miejsce, 10 – 15 lat temu. Oba te warunki nie są stosowane te zbyt często już dni. Obecnie można mapować dysku c:\ na dyskach duże lub maszyn wirtualnych. Aby zachować wdrożeń proste w ich struktury, zaleca się następujące wzorcem wdrożenia SAP NetWeaver systemów na platformie Azure
+> Z wielu klientów widzieliśmy konfiguracje where, na przykład SAP i bazami danych binarnych nie zostały zainstalowane na dysku c:\ hello gdzie hello systemu operacyjnego został zainstalowany. Wystąpiły różne przyczyny to go, ale podczas ponownie poszliśmy toohello głównego, zwykle że dysków hello małe i uaktualnień systemu operacyjnego potrzebne dodatkowe miejsce, 10 – 15 lat temu. Oba te warunki nie są stosowane te zbyt często już dni. Dzisiaj dysku c:\ hello mogą być mapowane na dyskach duże lub maszyn wirtualnych. W przypadku wdrożeń tookeep kolejności proste w ich struktury, jest zalecane toofollow następującego wzorca wdrożenia SAP NetWeaver systemów na platformie Azure
 >
-> Plik stronicowania systemu operacyjnego Windows powinny znajdować się na dysku D: (nietrwałe dysku)
+> plik stronicowania systemu operacyjnego Windows Hello powinna znajdować się na powitania dysku D: (nietrwałe dysku)
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Umieść swapfile systemu Linux w katalogu/mnt/mnt/zasobu w systemie Linux, zgodnie z opisem w [w tym artykule][virtual-machines-linux-agent-user-guide]. Plik wymiany można skonfigurować w pliku konfiguracji /etc/waagent.conf agenta systemu Linux. Dodaj lub Zmień następujące ustawienia:
+> Umieść swapfile Linux hello w katalogu/mnt/mnt/zasobu w systemie Linux, zgodnie z opisem w [w tym artykule][virtual-machines-linux-agent-user-guide]. plik wymiany Hello można skonfigurować w pliku konfiguracji hello hello /etc/waagent.conf agenta systemu Linux. Dodawanie lub zmienianie hello następujące ustawienia:
 >
 >
 
@@ -1156,20 +1156,20 @@ ResourceDisk.EnableSwap=y
 ResourceDisk.SwapSizeMB=30720
 ```
 
-Aby aktywować zmiany, należy ponownie uruchomić agenta systemu Linux z
+tooactivate hello zmiany, należy toorestart hello agenta systemu Linux z
 
 ```
 sudo service waagent restart
 ```
 
-Przeczytaj uwagi SAP [1597355] uzyskać więcej informacji dotyczących zalecanych wymiany (MB) rozmiar pliku
+Przeczytaj uwagi SAP [1597355] więcej szczegółów na powitania zalecany rozmiar pliku wymiany
 
 - - -
-Liczba dysków VHD używana dla systemu DBMS pliki danych i typ magazynu Azure te dyski VHD znajdują się w powinien ustalić wymagania IOPS i opóźnienia wymagane. Dokładne przydziały są opisane w [w tym artykule][virtual-machines-sizes]
+Hello liczba dysków VHD używana hello DBMS danych plików i typ hello te dyski VHD znajdują się w magazynie Azure powinna zostać określona przez wymagania IOPS hello i opóźnienia hello wymagane. Dokładne przydziały są opisane w [w tym artykule][virtual-machines-sizes]
 
-Środowisko wdrożenia SAP w ciągu ostatnich 2 lat nauczanych nam niektórych — lekcje, które mogą być podsumowywane jako:
+Środowisko wdrożenia SAP za pośrednictwem hello ostatnich 2 lat nauczanych nam niektórych — lekcje, które mogą być podsumowywane jako:
 
-* IOPS ruch do plików danych nie jest zawsze taki sam od istniejących systemów klienta może mieć inaczej o rozmiarze pliki danych reprezentujący ich baz danych SAP. W związku z tym on Twoją lepiej używa konfiguracji RAID na wielu dysków VHD można umieścić pliki danych, które jednostek LUN używać poza tymi. Znaleziono sytuacji, w szczególności z usługi Azure Standard Storage, gdzie szybkość IOPS osiągnęła limit przydziału pojedynczego wirtualnego dysku twardego dla systemu DBMS dziennika transakcji. W takich scenariuszach zaleca się użycie magazyn w warstwie Premium lub też agregowanie wielu standardowe magazynu wirtualnych dysków twardych z oprogramowaniem RAID.
+* Pliki danych toodifferent ruchu IOPS nie zawsze jest hello sam od istniejących systemów klienta może mieć inaczej o rozmiarze danych plików reprezentujący ich baz danych SAP. W związku z tym włączony limit toobe lepiej przy użyciu konfiguracji RAID przez wiele dysków VHD tooplace hello danych plików jednostek LUN używać poza tymi. Znaleziono sytuacji, w szczególności z usługi Azure Standard Storage, gdzie szybkość IOPS osiągnęła przydział hello pojedynczego wirtualnego dysku twardego dla dziennika transakcji DBMS hello. Zaleca się użycie hello scenariuszy takich magazyn w warstwie Premium lub też agregowanie wielu standardowe magazynu wirtualnych dysków twardych z oprogramowaniem RAID.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -1185,118 +1185,118 @@ Liczba dysków VHD używana dla systemu DBMS pliki danych i typ magazynu Azure t
 >
 
 - - -
-* Magazyn w warstwie Premium jest pokazywany znaczących lepszą wydajność, szczególnie w przypadku zapisów dziennika transakcji krytyczne. W przypadku scenariuszy SAP oczekiwanych dostarczania produkcji, takich jak wydajność zaleca Użyj serii maszyn wirtualnych, które mogą korzystać z usługi Azure Premium Storage.
+* Magazyn w warstwie Premium jest pokazywany znaczących lepszą wydajność, szczególnie w przypadku zapisów dziennika transakcji krytyczne. Dla scenariuszy SAP, które są oczekiwane toodeliver produkcji, takich jak wydajność zdecydowanie zaleca toouse serii maszyn wirtualnych, które mogą korzystać z usługi Azure Premium Storage.
 
-Należy pamiętać, że wirtualny dysk twardy, który zawiera system operacyjny, i jak firma Microsoft zaleca plików binarnych programu SAP i bazy danych (podstawowa maszyna wirtualna), również nie jest już ograniczona do 127GB. Teraz może mieć maksymalnie 1TB w rozmiarze. Powinno to być za mało miejsca, aby zachować niezbędnego pliku, np. w tym dzienniki zadania wsadowego SAP.
+Należy pamiętać, że hello wirtualnego dysku twardego, który zawiera hello systemu operacyjnego i jak firma Microsoft zaleca, hello plików binarnych bazy danych SAP i hello (podstawowa maszyna wirtualna) również nie jest już ograniczona too127GB. Go teraz może zawierać maksymalnie too1TB rozmiar. To pole powinno być tookeep za mało miejsca na wszystkich hello niezbędnego pliku, np. w tym dzienniki zadania wsadowego SAP.
 
-Więcej wskazówek i więcej szczegółów, w szczególności DBMS maszyn wirtualnych, należy zapoznać się [DBMS Deployment Guide][dbms-guide]
+Dla więcej sugestie i bardziej szczegółowe informacje, w szczególności dla maszyn wirtualnych systemu DBMS, przejrzyj hello [DBMS Deployment Guide][dbms-guide]
 
 #### <a name="disk-handling"></a>Obsługa dysku
-W większości przypadków należy utworzyć dodatkowe dyski w celu wdrażania bazy danych SAP do maszyny Wirtualnej. Wspomnieliśmy o kwestiach związanych z liczby wirtualnych dysków twardych w rozdziale [struktury maszyny Wirtualnej/wirtualnego dysku twardego dla wdrożenia SAP] [ planning-guide-5.5.1] tego dokumentu. Azure Portal umożliwia dołączanie lub odłączanie dysków, po wdrożeniu podstawowej maszyny Wirtualnej. Dyski może być dołączony/odłączony, gdy maszyna wirtualna jest uruchomiony i działa oraz gdy zostanie zatrzymana. Podczas podłączania na dysku, Azure Portal oferuje dołączyć pusty dysk lub istniejącego dysku, który w tym momencie nie jest dołączony do innej maszyny Wirtualnej.
+W większości przypadków należy toocreate dodatkowych dysków w kolejności toodeploy hello SAP w bazie danych do hello maszyny Wirtualnej. Wspomnieliśmy o kwestiach związanych z hello na liczbie wirtualnych dysków twardych w rozdziale [struktury maszyny Wirtualnej/wirtualnego dysku twardego dla wdrożenia SAP] [ planning-guide-5.5.1] tego dokumentu. Witaj Azure Portal umożliwia tooattach i odłączyć dysków, po wdrożeniu podstawowej maszyny Wirtualnej. Witaj dysków może być dołączony/odłączony podczas hello maszyny Wirtualnej jest uruchomiony i działa oraz gdy zostanie zatrzymana. Podczas podłączania na dysku, hello Azure Portal udostępnia tooattach pusty dysk lub istniejącego dysku, który w tym momencie nie jest dołączony tooanother maszyny Wirtualnej.
 
-**Uwaga**: wirtualne dyski twarde może zostać dołączona tyko do jednej maszyny Wirtualnej w danym momencie.
+**Uwaga**: wirtualne dyski twarde w danym momencie może być tylko dołączone tooone maszyny Wirtualnej.
 
 ![Dołączanie / odłączanie dysków przy użyciu usługi Azure Standard Storage][planning-guide-figure-1400]
 
-Należy zdecydować, czy chcesz utworzyć nowe i pusty dysk VHD (które zostałyby utworzone w tym samym kontem magazynu maszyny Wirtualnej to podstawowy) lub czy chcesz wybrać istniejącego dysku VHD, który został wcześniej przekazany i musi być podłączona do maszyny Wirtualnej teraz.
+Należy toodecide czy toocreate nowych i pustego wirtualnego dysku twardego (które zostałyby utworzone w powitalne tego samego konta magazynu, ponieważ hello podstawowej maszyny Wirtualnej jest w) i czy chcesz teraz tooselect istniejącego dysku VHD, który został wcześniej przekazany i powinien być dołączony toohello maszyny Wirtualnej.
 
-**WAŻNE**: możesz **nie** mają być używane buforowanie hosta z usługi Azure Standard Storage. ŻADNA wartość domyślną, należy pozostawić preferencji hosta pamięci podręcznej. Usługa Azure Premium Storage należy włączyć buforowanie odczytu Jeśli cechy operacji We/Wy jest przede wszystkim do odczytu, takich jak typowy ruch we/wy dla plików danych bazy danych. Buforowanie nie jest zalecane w przypadku pliku dziennika transakcji bazy danych.
+**WAŻNE**: możesz **nie** mają toouse buforowania hosta z usługi Azure Standard Storage. Należy pozostawić hello hosta pamięci podręcznej preferencji domyślną hello None. Usługa Azure Premium Storage należy włączyć buforowanie odczytu Jeśli cechy operacji We/Wy hello jest przede wszystkim odczytu, takich jak typowy ruch we/wy dla plików danych bazy danych. Buforowanie nie jest zalecane w przypadku pliku dziennika transakcji bazy danych.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> [Jak dołączyć dysk danych w portalu Azure][virtual-machines-windows-attach-disk-portal]
+> [Jak tooattach danych na dysku w hello portalu Azure][virtual-machines-windows-attach-disk-portal]
 >
-> Jeśli są dołączone dyski, należy zalogować się maszynie Wirtualnej, aby otworzyć Menedżera dysków systemu Windows. Jeśli nie włączono automatycznej instalacji, zgodnie z zaleceniami w rozdziale [ustawienie automatycznej instalacji dla dołączone dyski][planning-guide-5.5.3], nowo dołączona woluminu należy podjąć online i została zainicjowana.
+> Jeśli są dołączone dyski, należy toolog w na powitania wirtualna tooopen hello Menedżera dysków systemu Windows. Jeśli nie włączono automatycznej instalacji, zgodnie z zaleceniami w rozdziale [ustawienie automatycznej instalacji dla dołączone dyski][planning-guide-5.5.3], hello nowo dołączona wolumin wymaga toobe podjęte w trybie online i zainicjować.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Jeśli są dołączone dyski, należy zalogować się do maszyny Wirtualnej i zainicjuj dyski, zgodnie z opisem w [w tym artykule][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
+> Jeśli są dołączone dyski, należy toolog w na powitania maszyny Wirtualnej i zainicjuj dyski hello, zgodnie z opisem w [w tym artykule][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
 >
 
 - - -
-Jeśli nowy dysk jest pusty dysk, należy sformatować dysk, a także. Formatowanie, szczególnie w przypadku plików danych i dziennika systemu DBMS tego samego zalecenia, jak w przypadku wdrożenia bez systemu operacyjnego systemu DBMS zastosować.
+Nowy dysk hello jest pusty dysk, należy również tooformat hello dysku. Formatowania, szczególnie w przypadku systemu DBMS plików danych i dziennika hello zalecenia tej samej jak w przypadku wdrożenia bez systemu operacyjnego hello odnoszą się systemu DBMS.
 
-Jak już wspomniano w rozdziale [Microsoft Azure maszyny wirtualnej koncepcji][planning-guide-3.2], konta usługi Azure Storage udostępnia nieskończone zasobów w postaci liczby operacji We/Wy woluminu, wolumin IOPS i danych. Zazwyczaj maszyn wirtualnych systemu DBMS najczęściej dotyczy to. Może być najlepiej użyć oddzielnego konta magazynu dla każdej maszyny Wirtualnej, jeśli masz kilka dużej liczby operacji We/Wy maszyn wirtualnych do wdrożenia, aby pozostać w limit wielkości konta magazynu Azure. W przeciwnym razie należy sprawdzić, jak można równoważyć tych maszyn wirtualnych między różnymi kontami magazynu bez naciśnięcie limit każdego pojedynczego konta magazynu. Więcej szczegółów, omówiono w [DBMS Deployment Guide][dbms-guide]. Ograniczenia te powinny również należy pamiętać czysty aplikacji SAP serwera maszyn wirtualnych lub innych maszyn wirtualnych, które po pewnym czasie może wymagać dodatkowych dysków VHD.
+Jak już wspomniano w rozdziale [hello Microsoft Azure maszyny wirtualnej koncepcji][planning-guide-3.2], konta usługi Azure Storage udostępnia nieskończone zasobów w postaci liczby operacji We/Wy woluminu, wolumin IOPS i danych. Zazwyczaj maszyn wirtualnych systemu DBMS najczęściej dotyczy to. Jeśli masz kilka wysokiej toodeploy maszyn wirtualnych woluminu we/wy w kolejności toostay w ramach limitu hello hello woluminu konta magazynu Azure może być najlepszym toouse oddzielne konto magazynu dla każdej maszyny Wirtualnej. W przeciwnym razie należy toosee jak umożliwiają równoważenie tych maszyn wirtualnych między różnymi kontami magazynu bez naciśnięcie limit hello każdego pojedynczego konta magazynu. Więcej szczegółów, omówiono w hello [DBMS Deployment Guide][dbms-guide]. Ograniczenia te powinny również należy pamiętać czysty aplikacji SAP serwera maszyn wirtualnych lub innych maszyn wirtualnych, które po pewnym czasie może wymagać dodatkowych dysków VHD.
 
-Innym temacie, który ma zastosowanie w przypadku kont magazynu to, czy wirtualne dyski twarde na koncie magazynu jest pobierany z replikacją geograficzną. Replikacja geograficzna jest włączona lub wyłączona na poziomie konta magazynu, a nie na poziomie maszyny Wirtualnej. Jeśli jest włączona replikacja geograficzna, wirtualne dyski twarde w ramach konta magazynu będą replikowane do innego centrum danych Azure, w tym samym regionie. Przed podjęciem decyzji o tym, możesz pomyśleć o następujące ograniczenia:
+Innym temacie, który ma zastosowanie w przypadku kont magazynu jest czy hello wirtualne dyski twarde na koncie magazynu jest pobierany z replikacją geograficzną. Replikacja geograficzna jest włączone lub wyłączone na powitania poziom konta magazynu, a nie na powitania poziom maszyny Wirtualnej. Jeśli jest włączona replikacja geograficzna, wirtualne dyski twarde hello w ramach konta magazynu może być replikowane do innego centrum danych Azure w ramach powitalne hello tego samego regionu. Przed podjęciem decyzji o tym, możesz pomyśleć o hello następujące ograniczenia:
 
-Azure — replikacja geograficzna działa lokalnie na każdym dysku VHD na maszynie wirtualnej i nie jest replikowany z systemem IOs w kolejności chronologicznej w wielu dysków VHD na maszynie wirtualnej. W związku z tym wirtualnego dysku twardego, który reprezentuje podstawowej maszyny Wirtualnej, a także wszelkie dodatkowe wirtualne dyski twarde dołączonych do maszyny Wirtualnej są replikowane od siebie niezależne. Oznacza to, że nie ma synchronizacji między zmianami w różnych dysków VHD. Fakt, że IOs zostały zreplikowane niezależnie od kolejności, w którym są zapisywane oznacza tego replikacja geograficzna nie jest wartość dla serwerów baz danych, które mają swoje bazy danych rozproszone na wielu dysków VHD. Oprócz bazami danych również mogą istnieć inne aplikacje, gdzie procesy zapisu lub modyfikowania różnych wirtualne dyski twarde i gdzie ważne jest zachować kolejność zmian danych. Jeśli jest to wymagane, nie można włączyć replikację geograficzną na platformie Azure. Zależne muszą czy mają — replikacja geograficzna zestaw maszyn wirtualnych, ale nie dla innego zestawu, można już przydzielić maszyn wirtualnych i ich powiązane wirtualne dyski twarde do różnych kont magazynu mające replikacja geograficzna włączone lub wyłączone.
+Replikacja geograficzna Azure działa lokalnie na każdym dysku VHD na maszynie wirtualnej i nie jest replikowany IOs hello w kolejności chronologicznej w wielu dysków VHD na maszynie wirtualnej. W związku z tym hello wirtualnego dysku twardego czy reprezentuje hello podstawowej maszyny Wirtualnej, a także wszelkie dodatkowe toohello dołączonych dysków VHD maszyny Wirtualnej są replikowane od siebie niezależne. Oznacza to, że istnieje synchronizacja zmian hello hello różnych wirtualne dyski twarde. Witaj fakt, że hello IOs są replikowane niezależnie od hello kolejności, w którym są one zapisywane oznacza, czy replikacja geograficzna nie jest wartość dla serwerów baz danych, które mają swoje bazy danych rozproszone na wielu dysków VHD. W dodatku toohello DBMS również mogą istnieć inne aplikacje, gdzie procesy zapisu lub modyfikowania różnych wirtualne dyski twarde i jeśli jest to kolejność hello tookeep ważne zmiany danych. Jeśli jest to wymagane, nie można włączyć replikację geograficzną na platformie Azure. Zależne muszą czy mają — replikacja geograficzna zestaw maszyn wirtualnych, ale nie dla innego zestawu, można już przydzielić maszyn wirtualnych i ich powiązane wirtualne dyski twarde do różnych kont magazynu mające replikacja geograficzna włączone lub wyłączone.
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Ustawienie automatycznej instalacji dołączonych dysków
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Dla maszyn wirtualnych, które są tworzone na podstawie własnych obrazów lub dyski należy do sprawdzenia i prawdopodobnie ustaw dla parametru automatycznej instalacji. Ustawienie tego parametru umożliwi maszyny Wirtualnej po ponownym uruchomieniu lub ponownego wdrażania na platformie Azure, należy zainstalować ponownie automatycznie dołączony zainstalowanych dysków.
-> Parametr ma wartość obrazów obsługiwane przez firmę Microsoft w witrynie Azure Marketplace.
+> Dla maszyn wirtualnych, które są tworzone na podstawie własnych obrazów lub dysków, jest konieczne toocheck i prawdopodobnie Ustaw parametr automatycznej instalacji hello. Ustawienie tego parametru umożliwi hello maszyny Wirtualnej, po ponownym uruchomieniu komputera lub ponownego wdrażania w hello Azure toomount dołączony/dysków zainstalowanych automatycznie ponownie.
+> Parametr Hello jest ustawiony dla obrazów hello obsługiwane przez firmę Microsoft w hello Azure Marketplace.
 >
-> Aby ustawić automatycznej instalacji, sprawdź dokumentację wiersza polecenia pliku wykonywalnego diskpart.exe tutaj:
+> Kolejność tooset hello automatycznej instalacji można znaleźć w dokumentacji hello hello wiersza polecenia pliku wykonywalnego diskpart.exe tutaj:
 >
 > * [Opcje wiersza polecenia DiskPart](https://technet.microsoft.com/library/cc766465.aspx)
 > * [Automatycznej instalacji](http://technet.microsoft.com/library/cc753703.aspx)
 >
-> Powinny zostać otwarte okno wiersza polecenia systemu Windows jako administrator.
+> okno wiersza polecenia systemu Windows Hello powinien zostać otwarty jako administrator.
 >
-> Jeśli są dołączone dyski, należy zalogować się maszynie Wirtualnej, aby otworzyć Menedżera dysków systemu Windows. Jeśli nie włączono automatycznej instalacji, zgodnie z zaleceniami w rozdziale [ustawienie automatycznej instalacji dla dołączone dyski][planning-guide-5.5.3], nowo dołączona woluminu > należy podjąć w trybie online i została zainicjowana.
+> Jeśli są dołączone dyski, należy toolog w na powitania wirtualna tooopen hello Menedżera dysków systemu Windows. Jeśli nie włączono automatycznej instalacji, zgodnie z zaleceniami w rozdziale [ustawienie automatycznej instalacji dla dołączone dyski][planning-guide-5.5.3], hello nowo dołączona woluminu > musi toobe podjęte w trybie online i zainicjować.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Należy zainicjować nowo dołączona pusty dysk, zgodnie z opisem w [w tym artykule][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
-> Należy również dodawanie nowych dysków do /etc/fstab.
+> Należy tooinitialize nowo dołączona pusty dysk, zgodnie z opisem w [w tym artykule][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
+> Należy również tooadd nowe dyski toohello /etc/fstab.
 >
 >
 
 - - -
 ### <a name="final-deployment"></a>Końcowe wdrożenia
-Dla wdrożenia końcowego i kolejnych kroków, szczególnie w odniesieniu do wdrożenia SAP rozszerzone monitorowanie, zapoznaj się [Deployment Guide][deployment-guide].
+Witaj końcowego wdrożenia i kolejnych kroków, szczególnie w przypadku zakresie toohello wdrożenia SAP rozszerzone monitorowanie, można znaleźć w artykule toohello [Deployment Guide][deployment-guide].
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Uzyskiwanie dostępu do systemów SAP uruchomionych w maszynach wirtualnych platformy Azure
-W przypadku scenariuszy tylko w chmurze można nawiązać połączenia z tymi systemami SAP publicznego Internetu, przy użyciu graficznego interfejsu użytkownika programu SAP. W tych przypadkach należy zastosować następujące procedury.
+W scenariuszach tylko w chmurze, może być systemów SAP toothose tooconnect między hello publicznego Internetu przy użyciu graficznego interfejsu użytkownika programu SAP. W tych przypadkach hello poniższych procedur należy toobe zastosowane.
 
-W dalszej części dokumentu omówimy innych głównych scenariuszy łączących się z systemami SAP we wdrożeniach między różnymi lokalizacjami, których połączenia lokacja lokacja (tunel VPN) lub Azure ExpressRoute połączenia między lokalnymi i systemami Azure.
+W dalszej części dokumentu hello omówimy hello innych głównych scenariuszy, łączącego systemów tooSAP w wdrożeń między różnymi lokalizacjami, w których ma połączenie lokacja lokacja (tunel VPN) lub Azure ExpressRoute połączenia między lokalnymi hello i systemami Azure.
 
-### <a name="remote-access-to-sap-systems"></a>Dostęp zdalny do systemów SAP
-Za pomocą Menedżera zasobów Azure istnieją domyślne punkty końcowe nie już takie jak wcześniejsze klasycznego modelu. Wszystkie porty maszyny Wirtualnej platformy Azure ARM są otwarte tak długo, jak:
+### <a name="remote-access-toosap-systems"></a>Systemy tooSAP dostępu zdalnego
+Za pomocą Menedżera zasobów Azure w modelu klasycznego wcześniejsze hello są domyślne punkty końcowe nie już takie jak. Wszystkie porty maszyny Wirtualnej platformy Azure ARM są otwarte tak długo, jak:
 
-1. Żadna grupa zabezpieczeń sieci jest zdefiniowany dla podsieci lub interfejsu sieciowego. Ruch sieciowy na maszynach wirtualnych platformy Azure mogą być zabezpieczone za pomocą tak zwane "grup zabezpieczeń sieci". Aby uzyskać więcej informacji, zobacz [co to jest grupa zabezpieczeń sieci (NSG)?][virtual-networks-nsg]
-2. Brak usługi równoważenia obciążenia Azure jest zdefiniowany dla interfejsu sieciowego   
+1. Dla podsieci hello lub interfejs sieciowy hello zdefiniowano żadnej grupy zabezpieczeń sieci. TooAzure ruchu sieciowego maszyn wirtualnych może być zabezpieczone za pomocą tak zwane "grup zabezpieczeń sieci". Aby uzyskać więcej informacji, zobacz [co to jest grupa zabezpieczeń sieci (NSG)?][virtual-networks-nsg]
+2. Brak usługi równoważenia obciążenia Azure jest zdefiniowany dla interfejsu sieciowego hello   
 
-Zobacz Architektura rozróżnia klasycznego modelu i ARM, zgodnie z opisem w [w tym artykule][virtual-machines-azure-resource-manager-architecture].
+Zobacz hello architektura odstęp między klasycznego modelu ARM, zgodnie z opisem w [w tym artykule][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Konfiguracja połączenia systemu SAP i SAP graficznego interfejsu użytkownika dla scenariusza tylko w chmurze
-Zobacz ten artykuł opisujący szczegóły, aby w tym temacie: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+#### <a name="configuration-of-hello-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Konfiguracja hello łączności systemu SAP i SAP graficznego interfejsu użytkownika dla scenariusza tylko w chmurze
+Zobacz ten artykuł opisujący szczegóły toothis tematu: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Zmiana ustawień zapory na maszynie wirtualnej
-Może być konieczne skonfigurowanie zapory na maszynach wirtualnych, aby zezwalać na ruch przychodzący do systemu SAP.
+Może być konieczne tooconfigure hello zapory na tooallow sieci maszyn wirtualnych systemu SAP tooyour ruchu przychodzącego.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Domyślnie Zapora systemu Windows w maszynie Wirtualnej platformy Azure wdrożonej jest włączona. Teraz muszą zezwalać na Port SAP do otwierania, w przeciwnym razie SAP graficznego interfejsu użytkownika nie będzie można nawiązać połączenia.
-> W tym celu:
+> Domyślnie program hello zapory systemu Windows w maszynie Wirtualnej platformy Azure wdrożonej jest włączona. Teraz należy toobe portu SAP hello tooallow otwarty, w przeciwnym razie hello SAP graficznego interfejsu użytkownika nie będą mogli tooconnect.
+> toodo to:
 >
-> * Otwórz panel sterowania\system i zabezpieczenia\zapora systemu Windows na "Zaawansowane ustawienia".
+> * Otwórz panel sterowania\system i zabezpieczenia\zapora systemu Windows too'Advanced ustawienia.
 > * Teraz kliknij prawym przyciskiem myszy reguły ruchu przychodzącego i wybierz opcję "Nową regułę".
-> * W poniższych wybranego kreatora, aby utworzyć nową regułę "Port".
-> * W następnym kroku kreatora pozostaw ustawienie TCP i wpisz numer portu, który chcesz otworzyć. Ponieważ identyfikator wystąpienia naszych SAP 00, wybraliśmy 3200. Jeśli wystąpienie ma numer innego wystąpienia, powinien zostać otwarty port zdefiniowanych wcześniej według liczby wystąpień.
-> * W następnej części kreatora należy pozostawić element "Zezwalaj na połączenia" zaznaczone.
-> * W następnym kroku kreatora należy określić, czy ta reguła ma zastosowanie do domeny, prywatne i publiczne sieci. Dostosuj go w razie potrzeby do własnych potrzeb. Jednak połączenie z graficznym interfejsem użytkownika SAP z zewnątrz za pośrednictwem sieci publicznej, musisz mieć reguły stosowane do sieci publicznej.
-> * W ostatnim kroku kreatora musisz podać nazwę reguły, a następnie zapisz reguły przez naciśnięcie przycisku "Zakończ"
+> * W hello następującego kreatora wybierz toocreate nową regułę "Port".
+> * W hello następnego kroku kreatora hello pozostaw ustawienie hello TCP i typ hello numer portu, który ma tooopen. Ponieważ identyfikator wystąpienia naszych SAP 00, wybraliśmy 3200. Jeśli wystąpienie ma numer innego wystąpienia, powinien zostać otwarty port hello, zdefiniowanych wcześniej według liczby wystąpień hello.
+> * Hello następnej części hello kreatora należy tooleave hello elementu "Zezwalaj na połączenia" zaznaczone.
+> * W następnym kroku kreatora hello hello należy toodefine czy hello reguła ma zastosowanie do domeny, prywatne i publiczne sieci. Dostosuj go jeśli niezbędne tooyour wymaga. Łączenie z graficznym interfejsem użytkownika SAP z hello poza za pośrednictwem sieci publicznej hello, jednak sieci publicznej toohello toohave hello reguły.
+> * W hello ostatniego kroku kreatora hello, potrzebujesz toogive hello nazwę reguły, a następnie zapisz reguły hello przez naciśnięcie przycisku "Zakończ"
 >
-> Reguła zaczyna obowiązywać natychmiast.
+> Reguła Hello zaczyna obowiązywać natychmiast.
 >
 > ![Definicja reguły portu][planning-guide-figure-1600]
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Obrazy systemu Linux w portalu Azure Marketplace nie należy włączać zapory iptables domyślnie i połączenie z systemu SAP powinny działać. Jeśli włączono iptables lub inna zapora, zapoznaj się dokumentacją iptables lub używanych zapory zezwalająca na ruch przychodzący tcp na porcie 32xx (gdzie xx jest numer systemu systemu SAP).
+> obrazy systemu Linux Hello w hello Azure Marketplace nie należy włączać zapory iptables hello domyślnie i systemu SAP tooyour połączenia hello powinny działać. Jeśli włączono iptables lub inna zapora, można znaleźć w dokumentacji toohello iptables lub hello używana Zapora tooallow przychodzący ruch tcp za 32xx portu (gdzie xx jest numer systemu hello systemu SAP).
 >
 >
 
 - - -
 #### <a name="security-recommendations"></a>Zalecenia dotyczące zabezpieczeń
-Graficzny interfejs użytkownika programu SAP nie połączenia bezpośrednio z wystąpień SAP (port 32xx), które są uruchomione, ale pierwszy raz łączy się za pośrednictwem portu otwarty do procesu serwera SAP komunikatu (port 36xx). W przeszłości bardzo tego samego portu był używany przez serwer komunikat do wewnętrznej komunikacji do wystąpienia aplikacji. Aby zapobiec lokalnych serwerów aplikacji z przypadkowo komunikację z serwerem wiadomości na platformie Azure, można zmienić portów komunikacji wewnętrznej. Zdecydowanie zaleca się zmieniać wewnętrznej komunikacji między serwerem SAP wiadomości i jego wystąpienia aplikacji na inny numer portu na komputerach został sklonowany z systemami lokalnymi, takimi jak Sklonowanie programowanie dla projektu testowego itp. Można to zrobić za pomocą parametru profil domyślny:
+Witaj SAP graficznego interfejsu użytkownika nie łączy się natychmiast tooany wystąpień SAP hello (port 32xx), które są uruchomione, ale najpierw łączy się za pomocą programu SAP toohello otworzyć port hello komunikat procesu serwera (port 36xx). W hello poza hello bardzo tego samego portu została użyta przez serwer wiadomość hello hello wewnętrznej komunikacji toohello aplikacji wystąpień. tooprevent lokalnych serwerów aplikacji z przypadkowo komunikację z serwerem komunikat w hello Azure wewnętrzny się, że porty komunikacyjne można zmienić. Zdecydowanie zaleca się toochange hello wewnętrznej komunikacji między serwerem komunikat SAP hello i jego aplikacji wystąpień tooa inny numer portu na komputerach został sklonowany z lokalnymi systemami, takimi jak klon rozwoju projektu testowania itp. Można to zrobić za pomocą parametru profil domyślny hello:
 
 > rdisp/msserv_internal
 >
@@ -1306,15 +1306,15 @@ zgodnie z opisem w: <https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938
 
 ## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Pojęcia dotyczące tylko w chmurze wdrożenia SAP wystąpień
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Pojedyncze maszyny z programem SAP NetWeaver pokaz/szkolenia scenariusza
-![Systemami jednej maszyny Wirtualnej SAP pokaz pod tą samą nazwą maszyny Wirtualnej, samodzielnie w usług Azure Cloud Services][planning-guide-figure-1700]
+![Systemami pojedynczego pokaz SAP maszyny Wirtualnej z hello takie same nazwy maszyny Wirtualnej, samodzielnie w usług Azure Cloud Services][planning-guide-figure-1700]
 
-W tym scenariuszu (zobacz rozdział [tylko w chmurze] [ planning-guide-2.1] tego dokumentu) firma Microsoft wdrażania scenariusza systemu typowe szkolenia/pokaz gdzie scenariusz pełną szkolenia/pokaz znajduje się w jednej maszynie Wirtualnej. Przyjęto założenie, że wdrożenie jest przeprowadzane za pomocą szablonów obrazu maszyny Wirtualnej. Również przyjmie wiele z tych pokaz/szkolenia potrzebę maszyn wirtualnych można wdrożyć maszyn wirtualnych o tej samej nazwie.
+W tym scenariuszu (zobacz rozdział [tylko w chmurze] [ planning-guide-2.1] tego dokumentu) firma Microsoft wdrażania scenariusza systemu typowe szkolenia/pokaz, gdzie hello pełną szkolenia/pokaz scenariusza znajduje się w jednej maszynie Wirtualnej. Przyjęto założenie, że wdrożenie hello odbywa się za pośrednictwem szablony obrazu maszyny Wirtualnej. Ponadto przyjmujemy, wiele z tych pokaz/szkolenia toobe potrzeby maszyn wirtualnych z hello maszyn wirtualnych o hello tej samej nazwie.
 
-Zakłada się utworzony obraz maszyny Wirtualnej, zgodnie z opisem w sekcjach rozdziału [przygotowywanie maszyn wirtualnych z programu SAP do platformy Azure] [ planning-guide-5.2] w tym dokumencie.
+założeń Hello jest utworzona z obrazu maszyny Wirtualnej, zgodnie z opisem w sekcjach rozdziału [przygotowywanie maszyn wirtualnych z programu SAP do platformy Azure] [ planning-guide-5.2] w tym dokumencie.
 
-Kolejność zdarzeń do zaimplementowania scenariusza wygląda następująco:
+Witaj sekwencji zdarzeń tooimplement hello scenariusza wygląda następująco:
 
-[comment]: <> (MShermannd TODO musiał podać przykład ARM / opis przy użyciu szablonu json + wyjaśnienia dotyczące unikatową nazwę maszyny Wirtualnej w ramach sieci wirtualnej ARM)   
+[comment]: <> (MShermannd TODO ma próbki ARM tooprovide / opis przy użyciu szablonu json + wyjaśnienia dotyczące unikatową nazwę maszyny Wirtualnej w ramach sieci wirtualnej ARM)   
 ##### <a name="powershell"></a>PowerShell
 * Utwórz nową grupę identyczny dla orientacji poziomej co szkolenia/pokaz
 
@@ -1330,7 +1330,7 @@ $suffix = Get-Random -Minimum 100000 -Maximum 999999
 $account = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name "saperpdemo$suffix" -SkuName Standard_LRS -Kind "Storage" -Location "North Europe"
 ```
 
-* Utwórz nową sieć wirtualną dla pozioma co szkolenia/pokaz w taki sposób, aby umożliwić użycie tej samej nazwy hosta i adresu IP. Sieć wirtualna jest chroniona przez grupę zabezpieczeń sieci, umożliwiający tylko ruch skierowany do portu 3389, aby umożliwić dostęp do usług pulpitu zdalnego i port 22 protokołu SSH.
+* Utwórz nową sieć wirtualną dla każdego szkolenia/pokaz pozioma tooenable hello użycia hello tej samej nazwy hosta i adresy IP. sieć wirtualna Hello jest chroniony przez sieciowej grupy zabezpieczeń, umożliwiający tylko ruch tooport 3389 tooenable pulpitu zdalnego dostępu i port 22 protokołu SSH.
 
 ```powershell
 # Create a new Virtual Network
@@ -1342,27 +1342,27 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name Subnet1 -AddressPref
 $vnet = New-AzureRmVirtualNetwork -Name SAPERPDemoVNet -ResourceGroupName $rgName -Location "North Europe"  -AddressPrefix 10.0.1.0/24 -Subnet $subnetConfig
 ```
 
-* Tworzenie nowego publicznego adresu IP, który umożliwia dostęp do maszyny wirtualnej z Internetu
+* Tworzenie nowego publicznego adresu IP, które mogą być używane tooaccess hello maszyny wirtualnej na podstawie hello internet
 
 ```powershell
 # Create a public IP address with a DNS name
 $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Location "North Europe" -DomainNameLabel $rgName.ToLower() -AllocationMethod Dynamic
 ```
 
-* Tworzenie nowego interfejsu sieciowego dla maszyny wirtualnej
+* Tworzenie nowego interfejsu sieciowego dla maszyny wirtualnej hello
 
 ```powershell
 # Create a new Network Interface
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Utwórz maszynę wirtualną. W scenariuszu tylko w chmurze co maszyna wirtualna ma taką samą nazwę. Identyfikator SID SAP wystąpienie SAP NetWeaver w tych maszyn wirtualnych będą takie same jak również. W ramach grupy zasobów platformy Azure musi być unikatowa nazwa maszyny Wirtualnej, ale w różnych grupach zasobów platformy Azure można uruchomić maszyny wirtualne o takiej samej nazwie. Domyślnego konta "Administrator" systemu Windows lub "główny" dla systemu Linux nie są prawidłowe. W związku z tym nową nazwę użytkownika administratora musi być zdefiniowany wraz z hasłem. Rozmiar maszyny wirtualnej musi być zdefiniowany.
+* Utwórz maszynę wirtualną. W scenariuszu hello tylko w chmurze co maszyna wirtualna ma hello tej samej nazwy. Hello SAP identyfikator SID hello SAP NetWeaver wystąpień w tych maszyn wirtualnych będzie hello takie same jak również. W ramach hello grupy zasobów platformy Azure, nazwę hello hello maszyna wirtualna wymaga toobe unikatowy, ale w różnych grupach zasobów platformy Azure można uruchomić maszyny wirtualne z hello tej samej nazwy. Witaj domyślnego konta "Administrator" systemu Windows lub "główny" dla systemu Linux nie są prawidłowe. W związku z tym nową nazwę użytkownika administratora musi toobe zdefiniowany wraz z hasłem. rozmiar Hello hello maszyny Wirtualnej musi także toobe zdefiniowane.
 
 ```powershell
 #####
-# Create a new virtual machine with an official image from the Azure Marketplace
+# Create a new virtual machine with an official image from hello Azure Marketplace
 #####
-$cred=Get-Credential -Message "Type the name and password of the local administrator account."
+$cred=Get-Credential -Message "Type hello name and password of hello local administrator account."
 $vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
 # select image
@@ -1382,9 +1382,9 @@ $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmc
 
 ```powershell
 #####
-# Create a new virtual machine with a VHD that contains the private image that you want to use
+# Create a new virtual machine with a VHD that contains hello private image that you want toouse
 #####
-$cred=Get-Credential -Message "Type the name and password of the local administrator account."
+$cred=Get-Credential -Message "Type hello name and password of hello local administrator account."
 $vmconfig = New-AzureRmVMConfig -VMName SAPERPDemo -VMSize Standard_D11
 
 $vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
@@ -1392,15 +1392,15 @@ $vmconfig = Add-AzureRmVMNetworkInterface -VM $vmconfig -Id $nic.Id
 $diskName="osfromimage"
 $osDiskUri=$account.PrimaryEndpoints.Blob.ToString() + "vhds/" + $diskName  + ".vhd"
 
-$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Windows
+$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path tooVHD that contains hello OS image> -Windows
 $vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Windows -ComputerName "SAPERPDemo" -Credential $cred
-#$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path to VHD that contains the OS image> -Linux
+#$vmconfig = Set-AzureRmVMOSDisk -VM $vmconfig -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri <path tooVHD that contains hello OS image> -Linux
 #$vmconfig = Set-AzureRmVMOperatingSystem -VM $vmconfig -Linux -ComputerName "SAPERPDemo" -Credential $cred
 
 $vm = New-AzureRmVM -ResourceGroupName $rgName -Location "North Europe" -VM $vmconfig
 ```
 
-* Opcjonalnie dodaj dodatkowe dyski i przywrócić wymaganej zawartości. Należy pamiętać, że wszystkie nazwy obiektów blob (adresy URL do obiektów blob) muszą być unikatowe w obrębie platformy Azure.
+* Opcjonalnie dodaj dodatkowe dyski i przywrócić wymaganej zawartości. Należy pamiętać, że wszystkie nazwy obiektów blob (BLOB toohello adresów URL) muszą być unikatowe w obrębie platformy Azure.
 
 ```powershell
 # Optional: Attach additional data disks
@@ -1410,7 +1410,7 @@ Add-AzureRmVMDataDisk -VM $vm -Name datadisk -VhdUri $dataDiskUri -DiskSizeInGB 
 ```
 
 ##### <a name="cli"></a>Interfejs wiersza polecenia
-Poniższy przykładowy kod może służyć w systemie Linux. Dla systemu Windows, albo użyj programu PowerShell opisanych powyżej lub dostosowania przykład rgName % zamiast $rgName i ustaw zmienną środowiskową za pomocą polecenia systemu Windows *ustawić*.
+Hello następującego przykładowego kodu można użyć w systemie Linux. W systemie Windows, albo użyj programu PowerShell zgodnie z powyższym opisem lub dostosowania hello przykład toouse % rgName % zamiast $rgName i ustaw zmienną środowiskową hello za pomocą polecenia Windows hello *ustawić*.
 
 * Utwórz nową grupę identyczny dla orientacji poziomej co szkolenia/pokaz
 
@@ -1426,7 +1426,7 @@ azure group create $rgName "North Europe"
 azure storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku-name LRS $rgNameLower
 ```
 
-* Utwórz nową sieć wirtualną dla pozioma co szkolenia/pokaz w taki sposób, aby umożliwić użycie tej samej nazwy hosta i adresu IP. Sieć wirtualna jest chroniona przez grupę zabezpieczeń sieci, umożliwiający tylko ruch skierowany do portu 3389, aby umożliwić dostęp do usług pulpitu zdalnego i port 22 protokołu SSH.
+* Utwórz nową sieć wirtualną dla każdego szkolenia/pokaz pozioma tooenable hello użycia hello tej samej nazwy hosta i adresy IP. sieć wirtualna Hello jest chroniony przez sieciowej grupy zabezpieczeń, umożliwiający tylko ruch tooport 3389 tooenable pulpitu zdalnego dostępu i port 22 protokołu SSH.
 
 ```
 azure network nsg create --resource-group $rgName --location "North Europe" --name SAPERPDemoNSG
@@ -1437,19 +1437,19 @@ azure network vnet create --resource-group $rgName --name SAPERPDemoVNet --locat
 azure network vnet subnet create --resource-group $rgName --vnet-name SAPERPDemoVNet --name Subnet1 --address-prefix 10.0.1.0/24 --network-security-group-name SAPERPDemoNSG
 ```
 
-* Tworzenie nowego publicznego adresu IP, który umożliwia dostęp do maszyny wirtualnej z Internetu
+* Tworzenie nowego publicznego adresu IP, które mogą być używane tooaccess hello maszyny wirtualnej na podstawie hello internet
 
 ```
 azure network public-ip create --resource-group $rgName --name SAPERPDemoPIP --location "North Europe" --domain-name-label $rgNameLower --allocation-method Dynamic
 ```
 
-* Tworzenie nowego interfejsu sieciowego dla maszyny wirtualnej
+* Tworzenie nowego interfejsu sieciowego dla maszyny wirtualnej hello
 
 ```
 azure network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-name SAPERPDemoPIP --subnet-name Subnet1 --subnet-vnet-name SAPERPDemoVNet
 ```
 
-* Utwórz maszynę wirtualną. W scenariuszu tylko w chmurze co maszyna wirtualna ma taką samą nazwę. Identyfikator SID SAP wystąpienie SAP NetWeaver w tych maszyn wirtualnych będą takie same jak również. W ramach grupy zasobów platformy Azure musi być unikatowa nazwa maszyny Wirtualnej, ale w różnych grupach zasobów platformy Azure można uruchomić maszyny wirtualne o takiej samej nazwie. Domyślnego konta "Administrator" systemu Windows lub "główny" dla systemu Linux nie są prawidłowe. W związku z tym nową nazwę użytkownika administratora musi być zdefiniowany wraz z hasłem. Rozmiar maszyny wirtualnej musi być zdefiniowany.
+* Utwórz maszynę wirtualną. W scenariuszu hello tylko w chmurze co maszyna wirtualna ma hello tej samej nazwy. Hello SAP identyfikator SID hello SAP NetWeaver wystąpień w tych maszyn wirtualnych będzie hello takie same jak również. W ramach hello grupy zasobów platformy Azure, nazwę hello hello maszyna wirtualna wymaga toobe unikatowy, ale w różnych grupach zasobów platformy Azure można uruchomić maszyny wirtualne z hello tej samej nazwy. Witaj domyślnego konta "Administrator" systemu Windows lub "główny" dla systemu Linux nie są prawidłowe. W związku z tym nową nazwę użytkownika administratora musi toobe zdefiniowany wraz z hasłem. rozmiar Hello hello maszyny Wirtualnej musi także toobe zdefiniowane.
 
 ```
 azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd --disable-boot-diagnostics
@@ -1459,13 +1459,13 @@ azure vm create --resource-group $rgName --location "North Europe" --name SAPERP
 
 ```
 #####
-# Create a new virtual machine with a VHD that contains the private image that you want to use
+# Create a new virtual machine with a VHD that contains hello private image that you want toouse
 #####
-azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd> --disable-boot-diagnostics
-#azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path to image vhd> --disable-boot-diagnostics
+azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Windows --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path tooimage vhd> --disable-boot-diagnostics
+#azure vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nic-name SAPERPDemoNIC --os-type Linux --admin-username <username> --admin-password <password> --vm-size Standard_D11 --os-disk-vhd https://$rgNameLower.blob.core.windows.net/vhds/os.vhd -Q <path tooimage vhd> --disable-boot-diagnostics
 ```
 
-* Opcjonalnie dodaj dodatkowe dyski i przywrócić wymaganej zawartości. Należy pamiętać, że wszystkie nazwy obiektów blob (adresy URL do obiektów blob) muszą być unikatowe w obrębie platformy Azure.
+* Opcjonalnie dodaj dodatkowe dyski i przywrócić wymaganej zawartości. Należy pamiętać, że wszystkie nazwy obiektów blob (BLOB toohello adresów URL) muszą być unikatowe w obrębie platformy Azure.
 
 ```
 # Optional: Attach additional data disks
@@ -1473,92 +1473,92 @@ azure vm disk attach-new --resource-group $rgName --vm-name SAPERPDemo --size-in
 ```
 
 ##### <a name="template"></a>Szablon
-Szablony przykładowe można użyć w repozytorium azure-Szybki Start — szablony w witrynie github.
+Możesz użyć hello przykładowe szablony w repozytorium azure-Szybki Start — szablony hello w witrynie github.
 
 * [Proste maszyny Wirtualnej systemu Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Proste systemu Windows maszyny Wirtualnej](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
 * [Maszyny Wirtualnej z obrazu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-### <a name="implement-a-set-of-vms-which-need-to-communicate-within-azure"></a>Implementuje zestaw maszyn wirtualnych, które muszą się w obrębie platformy Azure
-Ten scenariusz tylko w chmurze jest typowy scenariusz w szkolenia i pokaz celów where oprogramowania reprezentujący pokaz/szkolenia scenariusz jest rozłożona na wiele maszyn wirtualnych. Różne składniki zainstalowane w różnych maszyn wirtualnych muszą komunikować się ze sobą. Ponownie w tym scenariuszu komunikacja sieciowa braku lokalnej lub scenariuszu obejmującym różne pomieszczenia jest wymagana.
+### <a name="implement-a-set-of-vms-which-need-toocommunicate-within-azure"></a>Implementuje zestaw maszyn wirtualnych, które należy toocommunicate w obrębie platformy Azure
+Ten scenariusz tylko w chmurze jest typowy scenariusz do celów szkoleniowych i pokaz, w którym hello oprogramowania reprezentujący hello pokaz/szkolenia scenariusz jest rozłożona na wiele maszyn wirtualnych. Witaj różne składniki zainstalowane w hello różnych maszyn wirtualnych konieczność toocommunicate ze sobą. Ponownie w tym scenariuszu komunikacja sieciowa braku lokalnej lub scenariuszu obejmującym różne pomieszczenia jest wymagana.
 
-Ten scenariusz jest rozszerzeniem instalacji w rozdziale opisano [jednej maszyny Wirtualnej z programem SAP NetWeaver pokaz/szkolenia scenariusza] [ planning-guide-7.1] tego dokumentu. W takim przypadku jedna maszyna wirtualna zostanie dodany do istniejącej grupy zasobów. W poniższym przykładzie pozioma szkolenia składa się z programu SAP ASCS/SCS maszynę Wirtualną, maszyny Wirtualnej z systemem, system DBMS i wystąpienia serwera aplikacji SAP maszyny Wirtualnej.
+Ten scenariusz jest rozszerzeniem instalacji hello w rozdziale opisano [jednej maszyny Wirtualnej z programem SAP NetWeaver pokaz/szkolenia scenariusza] [ planning-guide-7.1] tego dokumentu. W takim przypadku jedna maszyna wirtualna zostanie dodana tooan istniejącą grupę zasobów. W hello następujący przykład hello szkolenia pozioma składa się z programu SAP ASCS/SCS maszynę Wirtualną, maszyny Wirtualnej z systemem, system DBMS i wystąpienia serwera aplikacji SAP maszyny Wirtualnej.
 
-Przed utworzeniem tego scenariusza należy traktować jak już wykonywane w scenariuszu przed ustawienia podstawowe.
+Przed utworzeniem tego scenariusza należy toothink o podstawowych ustawień jak już wykonywane w scenariuszu hello przed.
 
 #### <a name="resource-group-and-virtual-machine-naming"></a>Grupy zasobów i nazwy maszyny wirtualnej
 Wszystkie nazwy grupy zasobów musi być unikatowa. Tworzenie własnych schemat nazewnictwa zasobów, takich jak `<rg-name`>-sufiks.
 
-Nazwa maszyny wirtualnej musi być unikatowa w ramach grupy zasobów.
+Nazwa maszyny wirtualnej Hello ma unikatowe w obrębie grupy zasobów hello toobe.
 
-#### <a name="setup-network-for-communication-between-the-different-vms"></a>Konfiguracja sieci do komunikacji między różnych maszyn wirtualnych
+#### <a name="setup-network-for-communication-between-hello-different-vms"></a>Konfiguracja sieci do komunikacji między hello różnych maszyn wirtualnych
 ![Zestaw maszyn wirtualnych w ramach sieci wirtualnej platformy Azure][planning-guide-figure-1900]
 
-Aby uniknąć kolizji z klony o tej samej krajobrazów szkolenia/pokaz nazw, należy utworzyć sieci wirtualnej platformy Azure dla każdego orientacji poziomej. Rozpoznawanie nazw DNS, które będą udostępniane przez usługi Azure lub skonfigurować własny serwer DNS poza Azure (nie w celu dalszego dokładniej omówione w tym miejscu). W tym scenariuszu firma Microsoft nie Konfiguruj własnej DNS. Dla wszystkich maszyn wirtualnych w jednej sieci wirtualnej platformy Azure komunikację za pomocą nazwy hostów zostaną włączone.
+tooprevent nazewnictwa kolizji z klony hello tego samego krajobrazów szkolenia/demonstracyjnej, należy toocreate sieci wirtualnej platformy Azure dla każdego orientacji poziomej. Rozpoznawanie nazw DNS, które będą udostępniane przez usługi Azure lub skonfigurować własny serwer DNS poza Azure (opisane tutaj toobe). W tym scenariuszu firma Microsoft nie Konfiguruj własnej DNS. Dla wszystkich maszyn wirtualnych w jednej sieci wirtualnej platformy Azure komunikację za pomocą nazwy hostów zostaną włączone.
 
-Możliwe przyczyny do oddzielania szkolenia lub pokaz krajobrazów sieci wirtualnych, a nie tylko grupy zasobów:
+Witaj powodów, dla których tooseparate szkolenia lub pokaz krajobrazów sieci wirtualnych i nie tylko zasób może być grup:
 
-* Poziomo SAP, jak skonfigurować wymaga własnego AD/OpenLDAP oraz serwer domeny musi być częścią każdego krajobrazy.  
-* Poziomo SAP ustanowionych ma składników, które muszą pracować z stałe adresy IP.
+* Witaj SAP poziomą ustanowionych potrzeb własną AD/OpenLDAP i serwer domeny musi toobe część każdego krajobrazów hello.  
+* Witaj pozioma SAP — konfiguracja ma składników tego toowork potrzeby stałe adresy IP.
 
-Więcej informacji o sieciach wirtualnych platformy Azure i sposobu definiowania ich znajdują się w [w tym artykule][virtual-networks-create-vnet-arm-pportal].
+Więcej informacji o sieciach wirtualnych platformy Azure i sposobu toodefine ich znajdują się w [w tym artykule][virtual-networks-create-vnet-arm-pportal].
 
 ## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Wdrażanie SAP maszyn wirtualnych z połączeniem w sieci firmowej (między lokalizacjami)
-Uruchom pozioma SAP i dzielenia wdrażania od zera dla serwerów systemu DBMS wysokiej jakości, lokalnych zwirtualizowanych środowisk dla warstwy aplikacji i mniejszych warstwy 2 skonfigurowane SAP systemów i IaaS platformy Azure. Podstawowe założenia jest systemów SAP w jednym pozioma SAP muszą komunikować się ze sobą i wiele innych składników oprogramowania wdrożone w firmie, niezależnie od ich formularza wdrożenia. Również powinno być żadnych różnic wprowadzone przez formularz wdrożenia dla użytkownika końcowego połączenie przy użyciu graficznego interfejsu użytkownika programu SAP lub innych interfejsów. Te warunki można spełnić tylko gdy mamy lokalnymi Active Directory/OpenLDAP i rozszerzone systemów Azure za pośrednictwem połączenia lokacja do witryny/kilku lokalizacji lub połączeń prywatnych, takich jak usługa Azure ExpressRoute usługi DNS.
+Uruchom pozioma SAP, a toodivide hello wdrażania od zera dla serwerów systemu DBMS wysokiej jakości, lokalnych zwirtualizowanych środowisk dla warstwy aplikacji i mniejszych warstwy 2 skonfigurowane SAP systemów i IaaS platformy Azure. podstawowe założenia Hello jest, systemów SAP w jednym pozioma SAP potrzeby toocommunicate ze sobą oraz z wielu innych składników oprogramowania wdrożone w firmie hello, niezależnie od ich formularza wdrożenia. Również powinno być żadnych różnic wprowadzonej przez formularz wdrożenia hello hello połączenie przy użyciu graficznego interfejsu użytkownika programu SAP lub innych interfejsów użytkownika. Te warunki można spełnić tylko, gdy będziemy mieć hello Active Directory/OpenLDAP lokalnymi i usługi DNS rozszerzony toohello systemów Azure za pośrednictwem połączenia lokacja do witryny/kilku lokalizacji lub połączeń prywatnych, takich jak usługa Azure ExpressRoute.
 
-Aby uzyskać więcej tła w szczegółach wdrożenia SAP na platformie Azure, firma Microsoft zachęca do odczytu rozdział [pojęcia Cloud-Only wdrożenia SAP wystąpień] [ planning-guide-7] tego dokumentu, który omówiono konstrukcji podstawy Azure oraz jak te używane aplikacje SAP Azure.
+W kolejności tooget więcej w tle na powitania szczegóły implementacji SAP na platformie Azure, firma Microsoft zachęca rozdział tooread [pojęcia Cloud-Only wdrożenia SAP wystąpień] [ planning-guide-7] tego dokumentu, który wyjaśnia Tworzy niektóre podstawowe hello Azure oraz jak te używane aplikacje SAP Azure.
 
 ### <a name="scenario-of-a-sap-landscape"></a>Scenariusz pozioma SAP
-W scenariuszu obejmującym różne pomieszczenia można około opisana jak grafiki poniżej:
+Scenariusz między lokalizacjami Hello można około opisana jak grafiki hello poniżej:
 
 ![Połączenie lokacja-lokacja między lokalnych i dostępnych zasobów platformy Azure][planning-guide-figure-2100]
 
-Scenariusz przedstawiony powyżej opisano scenariusz, gdzie lokalną AD/OpenLDAP i DNS jest rozszerzony do platformy Azure. Na stronie lokalnymi określonego zakresu adresów IP jest zarezerwowany dla subskrypcji platformy Azure. Zakres adresów IP zostanie przypisana do sieci wirtualnej platformy Azure na stronie platformy Azure.
+Witaj powyższym scenariuszu opisano scenariusz, gdzie hello lokalnej usługi AD/OpenLDAP i rozszerzeniu tooAzure DNS. Na stronie lokalne powitania określonego zakresu adresów IP jest zarezerwowany dla subskrypcji platformy Azure. zakres adresów IP Hello zostanie przypisany tooan sieci wirtualnej platformy Azure na powitania po stronie platformy Azure.
 
 #### <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
-Minimalna wymagana wartość to użycia protokoły komunikacyjne takie jak SSL/TLS dla dostęp za pomocą przeglądarki lub opartych na sieci VPN połączenia dla dostępu do systemu do usług platformy Azure. Zakłada się firm różnie obsługiwać połączenia sieci VPN między siecią firmową i Azure. Niektóre firmy mogą otworzyć blankly wszystkie porty. Niektóre inne firmy może być bardzo dokładne należeć portów należy otworzyć itp.
+Hello minimalna wymagana wartość to hello używanie protokołów bezpiecznej komunikacji, takie jak SSL/TLS, aby uzyskać dostęp za pomocą przeglądarki lub połączeniach sieci VPN dla systemu toohello Azure uzyskiwać dostęp do usług. jest założenie Hello firm różnie obsługi hello połączenia sieci VPN między siecią firmową i Azure. Niektóre firmy mogą otworzyć blankly wszystkie porty hello. Niektóre inne firmy może być toobe bardzo dokładne porty muszą tooopen itp.
 
-W tabeli poniżej SAP typowe porty komunikacyjne są wyświetlane. Zasadniczo jest odpowiednia do otwarcia portu bramą SAP.
+W tabeli hello poniżej SAP typowe porty komunikacyjne są wyświetlane. Zasadniczo jest wystarczające hello tooopen portu bramą SAP.
 
 | Usługa | Nazwa portu | Przykład `<nn`> = 01 | Domyślny zakres (maksymalna liczba min) | Komentarz |
 | --- | --- | --- | --- | --- |
 | Dyspozytor |sapdp`<nn>` zobacz * |3201 |3200 – 3299 |Dyspozytor SAP, używany przez SAP graficznego interfejsu użytkownika dla systemu Windows i języka Java |
 | Serwer komunikatów |sapms`<sid`> zobacz ** |3600 |bezpłatne sapms`<anySID`> |Identyfikator SID = Identyfikatorem systemu SAP |
 | Brama |sapgw`<nn`> zobacz * |3301 |W warstwie bezpłatna |Bramą SAP, używany do komunikacji CPIC i RFC |
-| SAP router |sapdp99 |3299 |W warstwie bezpłatna |Tylko nazwy usługi CI (centralnej wystąpienia) można przypisać ponownie w /etc/services dowolne wartości po zakończeniu instalacji. |
+| SAP router |sapdp99 |3299 |W warstwie bezpłatna |Tylko nazwy usługi CI (wystąpienia centralnej) może zostać przypisany /etc/services tooan dowolne wartości po zakończeniu instalacji. |
 
 *) nn = liczby wystąpień programu SAP
 
 *) identyfikatora sid = Identyfikatorem systemu SAP
 
 Bardziej szczegółowe informacje dotyczące portów wymaganych przez różne produkty SAP lub usługi za pomocą produktów SAP można znaleźć tutaj <http://scn.sap.com/docs/DOC-17124>.
-Z tego dokumentu można otworzyć porty dedykowanych w niezbędne dla określonych produktów SAP i scenariusze urządzenia sieci VPN.
+Z tego dokumentu należy stanie tooopen dedykowanego porty hello urządzenia sieci VPN jest niezbędne dla określonych produktów SAP i scenariuszy.
 
-Mierzy innych zabezpieczeń podczas wdrażania maszyn wirtualnych w takiej sytuacji można utworzyć [sieciowej grupy zabezpieczeń] [ virtual-networks-nsg] do definiowania reguł dostępu.
+Mierzy innych zabezpieczeń podczas wdrażania maszyn wirtualnych w takiej sytuacji może być toocreate [sieciowej grupy zabezpieczeń] [ virtual-networks-nsg] toodefine reguły dostępu.
 
 ### <a name="dealing-with-different-virtual-machine-series"></a>Dotyczących różnych serii maszyny wirtualnej
-W ciągu ostatnich 12 miesięcy firma Microsoft dodała wiele więcej typów maszyny Wirtualnej, które różnią się w liczba Vcpu, pamięci lub większe znaczenie na sprzęcie jest uruchomiona w. Nie wszystkie te maszyny wirtualne są obsługiwane z programu SAP (zobacz obsługiwane typy maszyny Wirtualnej w Uwaga SAP [1928533]). Uruchom niektóre z tych maszyn wirtualnych na inny host generacje sprzętu. W szczegółowości z Azure-jednostki skalowania wdrożono uzyskiwania tych generacje sprzętu hosta. Oznacza przypadkach mogą wystąpić podczas gdy różnych rozmiarów maszyn wirtualnych, którą wybrano nie można uruchomić w tej samej jednostce skali. Zestawu dostępności jest ograniczona możliwość span jednostki skalowania w zależności od sprzętu.  Na przykład Jeśli chcesz uruchomić systemu DBMS A5 A11 maszyn wirtualnych i warstwy aplikacji SAP na maszynach wirtualnych serii G powodowałoby to wymuszenie wdrażanie pojedynczego systemu SAP lub w innych systemach SAP w różnych zestawów dostępności.
+W toku hello ostatnich 12 miesięcy firma Microsoft dodała wiele więcej typów maszyny Wirtualnej, które różnią się w liczba Vcpu, pamięci lub większe znaczenie na sprzęcie jest uruchomiona w. Nie wszystkie te maszyny wirtualne są obsługiwane z programu SAP (zobacz obsługiwane typy maszyny Wirtualnej w Uwaga SAP [1928533]). Uruchom niektóre z tych maszyn wirtualnych na inny host generacje sprzętu. W szczegółowości hello Azure skali-jednostki wdrożono uzyskiwania tych generacje sprzętu hosta. Przypadków oznacza, że może wystąpić, gdy hello różnych rozmiarów maszyn wirtualnych nie można uruchomić wybranego na hello tej samej jednostki skalowania. Zestawu dostępności jest ograniczony toospan możliwości hello, jednostki skalowania oparte na różnych sprzętu.  Na przykład Jeśli chcesz toorun hello DBMS na maszynach wirtualnych A5 A11 i hello SAP warstwy aplikacji na maszynach wirtualnych G-Series, będzie wymuszone toodeploy pojedynczego systemu SAP lub w innych systemach SAP w różnych zestawy dostępności.
 
 #### <a name="printing-on-a-local-network-printer-from-sap-instance-in-azure"></a>Drukowania na drukarce lokalnej sieci z wystąpieniem SAP na platformie Azure
 ##### <a name="printing-over-tcpip-in-cross-premises-scenario"></a>Drukowanie za pośrednictwem protokołu TCP/IP w scenariuszu obejmującym różne pomieszczenia
-Ustawienie drukarek sieciowych TCP/IP, na podstawie lokalnych w maszynie Wirtualnej platformy Azure ogólnego jest taka sama jak w sieci firmowej, przy założeniu, że masz tunelu VPN lokacja-lokacja lub nawiązano połączenie ExpressRoute.
+Konfigurowanie drukarek sieciowych TCP/IP, na podstawie lokalnych w maszynie Wirtualnej platformy Azure jest ogólny hello mają takie same jak w sieci firmowej, wykonując tunelu VPN lokacja-lokacja lub nawiązano połączenie ExpressRoute.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> W tym celu:
+> toodo to:
 >
-> * Niektóre drukarki sieciowe dostarczane z Kreatora konfiguracji, który ułatwia konfigurowanie drukarki w maszynie Wirtualnej platformy Azure. Jeśli żadne oprogramowanie kreator został rozesłany z drukarką "manual" sposobem skonfigurowania drukarki jest utworzenie nowego portu drukarki TCP/IP.
+> * Niektóre drukarki sieciowe dostarczane za pomocą Kreatora konfiguracji, co pozwala łatwo tooset się drukarki w maszynie Wirtualnej platformy Azure. Jeśli żadne oprogramowanie Kreator ma rozesłany drukarki hello "manual" jak tooset hello drukarka jest toocreate nowy port TCP/IP drukarki.
 > * Otwórz Panel sterowania -> urządzenia i drukarki -> Dodaj drukarkę
 > * Wybierz polecenie Dodaj drukarki za pomocą adresu TCP/IP lub nazwy hosta
-> * Wpisz adres IP drukarki
+> * Wpisz adres IP drukarki hello hello
 > * Port drukarki 9100 standardowe
-> * W razie potrzeby ręcznie zainstaluj odpowiedni sterownik drukarki.
+> * W razie potrzeby ręcznie zainstaluj hello odpowiedni sterownik drukarki.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> * jak dla systemu Windows po prostu wykonaj standardową procedurę, aby zainstalować drukarki sieciowej
-> * Wykonaj publicznego przewodniki Linux dla [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) lub [Red Hat](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) na temat sposobu dodawania drukarki.
+> * tak samo, jak dla systemu Windows po prostu wykonaj hello standardową procedurę tooinstall drukarki sieciowej
+> * Wykonaj hello publicznego Linux przewodniki dotyczące [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) lub [Red Hat](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) na temat tooadd drukarki.
 >
 >
 
@@ -1566,14 +1566,14 @@ Ustawienie drukarek sieciowych TCP/IP, na podstawie lokalnych w maszynie Wirtual
 ![Drukowanie w sieci][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>Drukarki oparta na hoście za pośrednictwem protokołu SMB (drukarki udostępnionej) w scenariuszu obejmującym różne pomieszczenia
-Drukarki oparta na hoście nie są zgodne sieci zgodnie z projektem. Jednak drukarki oparta na hoście mogą być współużytkowane przez komputery w sieci, tak długo, jak drukarka jest podłączony do zasilania na komputerze. Połącz z firmowej sieci lokacja-lokacja lub ExpressRoute i udostępnianie drukarki lokalnej. Protokół SMB używa NetBIOS zamiast DNS jako nazwa usługi. Nazwa hosta NetBIOS może być inna niż nazwa hosta DNS. Standardowa przypadek jest nazwą hosta NetBIOS i nazwę hosta DNS są identyczne. Domena DNS nie ma sensu w obszarze nazw NetBIOS. W związku z tym w pełni kwalifikowana nazwa hosta DNS, nazwy hosta DNS i domeny DNS nie można używać w obszarze nazw NetBIOS.
+Drukarki oparta na hoście nie są zgodne sieci zgodnie z projektem. Jednak drukarki oparta na hoście mogą być współużytkowane przez komputery w sieci, tak długo, jak drukarka hello jest połączonych tooa zasilania na komputerze. Połącz z firmowej sieci lokacja-lokacja lub ExpressRoute i udostępnianie drukarki lokalnej. Hello protokołu SMB używa NetBIOS zamiast DNS jako nazwa usługi. Nazwa hosta NetBIOS Hello może być inna niż nazwa hosta DNS hello. Standardowa przypadku Hello jest hello hosta NetBIOS i nazwę hosta DNS hello są identyczne. Witaj DNS domeny nie ma sensu w obszarze nazw NetBIOS hello. W związku z tym hello w pełni kwalifikowaną nazwę hosta DNS, składające się z nazwy hosta DNS hello i domeny DNS nie mogą być używane w obszarze nazw NetBIOS hello.
 
-Udziału drukarki jest identyfikowane przez nazwę unikatową w sieci:
+udziału drukarki Hello jest identyfikowane przez nazwę unikatową w sieci hello:
 
-* Nazwa hosta hostów protokołu SMB (zawsze wymagane).
-* Nazwa udziału (zawsze wymagane).
-* Nazwa domeny, jeśli udostępnianie drukarki nie jest w tej samej domenie co systemu SAP.
-* Ponadto nazwa użytkownika i hasło może wymagać dostępu do udziału drukarki.
+* Nazwę hosta hello SMB (zawsze wymagane).
+* Nazwa udziału hello (zawsze wymagane).
+* Nazwa domeny hello Jeśli udziału drukarki nie jest hello tej samej domenie co systemu SAP.
+* Ponadto udziału drukarki hello tooaccess wymagane może być nazwa użytkownika i hasło.
 
 Instrukcje:
 
@@ -1581,12 +1581,12 @@ Instrukcje:
 > ![Windows][Logo_Windows] Windows
 >
 > Udostępnianie drukarki lokalnej.
-> W Maszynie wirtualnej Azure Otwórz Eksploratora Windows i wprowadź nazwę udziału drukarki.
-> Kreator instalacji drukarki przeprowadzi Cię przez proces instalacji.
+> Hello maszyny Wirtualnej Azure Otwórz Eksploratora Windows hello i wprowadź nazwę udziału hello hello drukarki.
+> Kreator instalacji drukarki przeprowadzi Cię przez proces instalacji hello.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Oto kilka przykładów dokumentację dotyczącą konfigurowania drukarek sieciowych w systemie Linux lub w tym rozdziale dotyczące drukowania w systemie Linux. Będzie ona działają tak samo maszyny Wirtualnej systemu Linux Azure tak długo, jak maszyna wirtualna jest częścią sieci VPN:
+> Oto kilka przykładów dokumentację dotyczącą konfigurowania drukarek sieciowych w systemie Linux lub w tym rozdziale dotyczące drukowania w systemie Linux. Będzie ona działać hello tak samo w Azure maszyny Wirtualnej systemu Linux tak długo, jak hello maszyna wirtualna jest częścią sieci VPN:
 >
 > * SLES <_Share_or_Windows_Share https://en.opensuse.org/SDB:Printing_via_SMB_ (Samba)>
 > * RHEL <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s1-printing-smb-printer.html>
@@ -1595,7 +1595,7 @@ Instrukcje:
 
 - - -
 ##### <a name="usb-printer-printer-forwarding"></a>Drukarki USB (drukarki przekazywania)
-Na platformie Azure możliwości usług pulpitu zdalnego, aby zapewnić użytkownikom dostęp do swoich urządzeń drukarki lokalnej w sesji zdalnej nie jest dostępna.
+Zdolności Azure hello hello usług pulpitu zdalnego tooprovide użytkownikom hello dostępu tootheir drukarki lokalnej urządzenia w sesji zdalnej jest niedostępna.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -1606,103 +1606,103 @@ Na platformie Azure możliwości usług pulpitu zdalnego, aby zapewnić użytkow
 
 - - -
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>Integracja programu SAP Azure systemów do transportu systemu (TMS) w między lokalizacjami i korekty
-Zmiana SAP i System transportu (TMS) musi być skonfigurowana do eksportowania i importowania żądania transportu we wszystkich systemach w orientacji poziomej. Przyjęto założenie, że wystąpień rozwoju systemu SAP (deweloperów) znajdują się na platformie Azure jakości (QA) i systemów produkcyjnych (PRD) są lokalne. Ponadto przyjęto założenie, że istnieje transportu centralnego katalogu.
+Witaj tooexport toobe skonfigurowane potrzeb zmień SAP i System transportu (TMS) i zaimportuj żądania transportu we wszystkich systemach w orientacji poziomej hello. Przyjęto założenie, że hello programowanie wystąpień systemu SAP (deweloperów) znajdują się na platformie Azure hello jakości (QA) i systemów produkcyjnych (PRD) są lokalne. Ponadto przyjęto założenie, że istnieje transportu centralnego katalogu.
 
-##### <a name="configuring-the-transport-domain"></a>Konfigurowanie domeny transportu
-Konfigurowanie domeny transportu w systemie wyznaczone jako kontroler domeny transportu, zgodnie z opisem w [konfigurowania kontrolera domeny transportu](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Użytkownik systemu TMSADM zostanie utworzone i wymagane docelowego RFC zostanie wygenerowany. Można sprawdzić te połączenia RFC przy użyciu transakcji SM59. Rozpoznawanie nazwy hosta musi być włączony w Twojej domenie transportu.
+##### <a name="configuring-hello-transport-domain"></a>Konfigurowanie hello domeny transportu
+Skonfiguruj domenę transportu w systemie Witaj wyznaczone jako hello transportu kontrolera domeny, zgodnie z opisem w [hello Konfigurowanie kontrolera domeny transportu](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). Użytkownik systemowy, zostanie utworzony TMSADM i hello wymagane RFC docelowy zostanie wygenerowany. Można sprawdzić te połączenia RFC przy użyciu transakcji hello SM59. Rozpoznawanie nazwy hosta musi być włączony w Twojej domenie transportu.
 
 Instrukcje:
 
-* W naszym scenariuszu zdecydowaliśmy się, że system QAS lokalnej będzie CTS kontrolera domeny. Wywołanie STMS transakcji. Zostanie wyświetlone okno dialogowe TMS. Wyświetlane jest okno dialogowe Konfigurowanie domeny transportu. (To okno dialogowe pojawia się tylko, jeśli nie skonfigurowano jeszcze domeny transportu.)
-* Upewnij się, że jest autoryzowane automatycznie utworzony użytkownik TMSADM (SM59 -> połączenia ABAP -> TMSADM@E61.DOMAIN_E61 -> Szczegóły -> Utilities(M) -> Test autoryzacji). Wstępnego ekranu transakcji STMS powinny wskazywać, że tego systemu SAP będzie działać jako kontroler domeny transportu w sposób pokazany poniżej:
+* W naszym scenariuszu zdecydowaliśmy hello w lokalnym systemie QAS będzie kontroler domeny CTS hello. Wywołanie STMS transakcji. zostanie wyświetlone okno dialogowe TMS Hello. Wyświetlane jest okno dialogowe Konfigurowanie domeny transportu. (To okno dialogowe pojawia się tylko, jeśli nie skonfigurowano jeszcze domeny transportu.)
+* Upewnij się, ten użytkownik hello tworzone jest autoryzowany TMSADM (SM59 -> ABAP połączenia -> TMSADM@E61.DOMAIN_E61 -> Utilities(M) -> Szczegóły -> Test autoryzacji). ekran początkowy Hello transakcji STMS powinny wskazywać, że tego systemu SAP będzie działać jako kontroler hello hello transportu domeny, jak pokazano poniżej:
 
-![Ekran początkowy transakcji STMS na kontrolerze domeny][planning-guide-figure-2300]
+![Ekran początkowy transakcji STMS na kontrolerze domeny hello][planning-guide-figure-2300]
 
-#### <a name="including-sap-systems-in-the-transport-domain"></a>W tym systemów SAP w domenie transportu
-Kolejność, w tym systemie SAP w domenie transportu wygląda następująco:
+#### <a name="including-sap-systems-in-hello-transport-domain"></a>W tym systemów SAP w hello domeny transportu
+Sekwencja Hello, w tym systemie SAP w domenie transportu wygląda następująco:
 
-* W systemie deweloperów na platformie Azure przejdź do systemu transportu (klient 000) i wywołać STMS transakcji. Wybierz inne konfigurację z okna dialogowego i kontynuować obejmują systemu w domenie. Określ kontroler domeny jako hosta docelowego ([w tym systemów SAP w domenie transportu](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). System oczekuje się teraz do uwzględnienia w domenie transportu.
-* Ze względów bezpieczeństwa należy następnie wróć do kontrolera domeny, aby potwierdzić żądanie. Wybierz Przegląd systemu i zatwierdź systemu oczekiwania. Potwierdź monit i konfiguracji będą przesyłane.
+* Na powitania deweloperów systemu Azure Przejdź system transportu toohello (klient 000) i wywołać transakcji STMS. Wybierz inne konfiguracji w oknie dialogowym hello i kontynuować obejmują systemu w domenie. Określ hello kontrolera domeny jako hosta docelowego ([w tym systemów SAP w hello domeny transportu](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). Hello system jest teraz uwzględnione w domenie transportu hello toobe oczekiwania.
+* Ze względów bezpieczeństwa można wybrać tooconfirm kontrolera domeny wstecz toohello toogo Twojego żądania. Wybierz Przegląd systemu i zatwierdź hello oczekiwania systemu. Następnie upewnij się, że konfiguracja wiersza i hello hello będą przesyłane.
 
-Ten system SAP zawiera teraz niezbędne informacje dotyczące wszystkich innych systemów SAP w domenie transportu. W tym samym czasie nowego systemu SAP dane są wysyłane do innych systemów SAP, a systemu SAP została wprowadzona w profilu transportu programu kontroli transportu. Sprawdź, czy działają dokumenty RFC i dostępu do katalogu transportu domeny.
+Ten system SAP zawiera hello niezbędne informacje na temat wszystkich hello innych systemów SAP w domenie transportu hello. Na powitania sam czasu, adres hello, wysłania danych nowego systemu SAP hello tooall hello innych systemów SAP, a hello systemu SAP została wprowadzona w profilu transportu hello hello transportu kontroli programu. Sprawdź, czy działają dokumenty RFC i dostępu do katalogu transportu toohello hello domeny.
 
-Kontynuuj konfiguracji systemu transportu w zwykły sposób zgodnie z opisem w dokumentacji [zmianami i System transportu](http://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
+Kontynuuj hello konfiguracji systemu transportu w zwykły sposób zgodnie z opisem w dokumentacji hello [zmianami i System transportu](http://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
 Instrukcje:
 
 * Upewnij się, że Twoje STMS lokalnie jest poprawnie skonfigurowany.
-* Upewnij się, że nazwa hosta kontrolera domeny transportu można rozwiązać przez maszynę wirtualną na visa Azure i na.
+* Upewnij się, że nazwa hosta hello hello transportu kontrolera domeny można rozwiązać przez maszynę wirtualną na visa Azure i na.
 * Wywołanie transakcji STMS -> inne konfiguracji -> obejmują systemu w domenie.
-* Upewnij się, połączenie w systemie TMS na lokalnym.
+* Upewnij się, połączenie hello hello w lokalnym systemie TMS.
 * Skonfiguruj trasy transportu, grup i warstw w zwykły sposób.
 
-W scenariuszach między lokalizacjami połączenia lokacja lokacja opóźnienia między lokalną i platformą Azure nadal może być istotne. Jeśli firma Microsoft wykonaj sekwencji transportu obiektów za pomocą programowanie i testowanie systemów w środowisku produkcyjnym lub pomyśleć o zastosowaniu transportów lub obsługuje pakietów różnych systemów, pamiętaj, że zależą od lokalizacji katalogu transport centralny, niektóre systemy o wystąpi duże opóźnienie odczytu lub zapisu danych w katalogu centralnym transportu. Sytuacja jest podobny do konfiguracji pozioma SAP gdzie różnych systemów rozprzestrzenia się w różnych centrach danych z znacznej odległość między centrami danych.
+W scenariuszach między lokalizacjami połączenia lokacja lokacja hello opóźnienia między lokalną i platformą Azure nadal może być istotne. Jeśli firma Microsoft wykonaj sekwencji hello transportu obiektów do prac deweloperskich i testowych tooproduction systemów lub pomyśleć o zastosowaniu transportów lub obsługi pakietów toohello różnych systemów, okazuje się, że zależny od lokalizacji hello hello transportu centralnego katalog, niektóre systemy hello wystąpi duże opóźnienie odczytu lub zapisu w katalogu centralnym transportu hello danych. sytuacja Hello jest podobnych konfiguracji pozioma tooSAP gdzie hello różnych systemów rozprzestrzenia się w różnych centrach danych z znacznej odległość między hello centrów danych.
 
-Aby obejść takie opóźnienia i systemów, pracy fast w odczytu lub zapisu z katalogu transportu lub można skonfigurować dwie STMS transportu domeny (jeden dla lokalnych i jeden z systemów na platformie Azure i połącz domen transportu. Sprawdź, czy ta dokumentacja wyjaśniającego zasad za tę koncepcję w SAP TMS: <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
+W kolejności toowork wokół takie opóźnienia i systemy hello pracy fast w odczytu lub zapisu tooor z katalogu transportu hello, można skonfigurować dwie domeny transportu STMS (jeden na potrzeby lokalnego. i jeden z systemów hello w domenach transportu hello Azure i link Sprawdź, czy ta dokumentacja wyjaśniającego zasady hello za tę koncepcję w hello SAP TMS: <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/ 38dd924eb711d182bf0000e829fbfe/frameset.htm>.
 
 Instrukcje:
 
 * Konfigurowanie domeny transportu w każdej lokalizacji (lokalne i Azure) przy użyciu transakcji STMS <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
-* Link domen z łączem domeny i Potwierdź łącza między tymi dwiema domenami.
+* Łącze hello domen z domeną link i Potwierdź hello łącze między dwiema domenami hello.
   <http://help.SAP.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/Content.htm>
-* Przekazują konfigurację do połączonego systemu.
+* Rozpowszechniać hello konfiguracji toohello połączony system.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>RFC ruchu między wystąpieniami programu SAP znajdujący się w usłudze Azure i lokalnego (między lokalizacjami)
-RFC ruchu między systemami, które są lokalne i na platformie Azure musi działać. Aby skonfigurować połączenie transakcji wywołania SM59 w systemie źródłowym, gdzie należy zdefiniować połączenie RFC na komputerze docelowym. Konfiguracja jest podobne do ustawiania standard RFC połączenia.
+RFC ruchu między systemami, które są lokalne i na platformie Azure wymaga toowork. toosetup połączenie wywołania transakcji SM59 w systemie źródłowym wymagających toodefine połączenie RFC kierunku hello system docelowy. Konfiguracja Hello jest podobne toohello standardowe ustawienia połączenia RFC.
 
-Firma Microsoft zakładać, że w scenariuszu obejmującym różne pomieszczenia maszyn wirtualnych, które wykonywania systemów SAP, które muszą komunikować się ze sobą znajdują się w tej samej domenie. W związku z tym Instalator RFC połączenia między systemami SAP różnią się od ustawienia i dane wejściowe w scenariuszach lokalnych.
+Przyjęto założenie, w scenariuszu obejmującym różne pomieszczenia hello hello maszyny wirtualne są wykonywania systemów SAP wymagające toocommunicate ze sobą w hello tej samej domenie. W związku z tym hello Instalatora RFC połączenia między systemami SAP nie różnią się od hello kroków instalacji i dane wejściowe w scenariuszach lokalnych.
 
 #### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Podczas uzyskiwania dostępu do "local" fileshares z wystąpień SAP znajdującego się na platformie Azure lub na odwrót
-SAP wystąpień znajdujących się na platformie Azure muszą uzyskać dostęp do udziałów plików, które znajdują się w siedzibie firmy. Ponadto lokalnego wystąpienia programu SAP chce korzystać z udziałów plików, które znajdują się na platformie Azure. Aby włączyć udziały plików należy skonfigurować uprawnienia i opcje udostępniania w systemie lokalnym. Upewnij się otworzyć porty dla połączenia sieci VPN lub usługi platformy Azure i centrum danych.
+SAP wystąpień znajdujących się na platformie Azure muszą tooaccess udziałów plików, które znajdują się w firmowych lokalne powitania. Ponadto lokalnego wystąpienia programu SAP konieczne tooaccess udziałów plików, które znajdują się na platformie Azure. należy skonfigurować uprawnienia hello i opcje udostępniania w systemie lokalnym hello udziałów plików hello tooenable. Upewnij się, że porty hello tooopen na powitania sieci VPN lub połączenia ExpressRoute platformy Azure i centrum danych.
 
 ## <a name="supportability"></a>Możliwości obsługi
 ### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure monitorowania rozwiązania dla programu SAP
-Aby włączyć monitorowanie SAP znaczeniu krytycznym na platformie Azure SAP narzędzia SAPOSCOL lub Agent hosta SAP pobieranie danych hosta usługi maszyny wirtualnej platformy Azure za pośrednictwem rozszerzenia monitorowania Azure dla programu SAP do monitorowania. Ponieważ zapotrzebowanie przez SAP były bardzo specyficzne dla aplikacji SAP, Microsoft zrezygnowała objęty wdrożenie wymaganych funkcji na platformie Azure, ale pozostawić ją klientom wdrożenie niezbędne składniki monitorowania i konfiguracje maszyn wirtualnych działających na platformie Azure. Jednak wdrożenia i cyklu życia zarządzania monitorowania składników będzie przede wszystkim zautomatyzowany przez platformę Azure.
+W kolejności tooenable hello monitorowania SAP znaczeniu krytycznym na Azure hello SAP narzędzi do monitorowania SAPOSCOL lub Agent hosta SAP Pobierz dane hello Azure maszyny wirtualnej usługi hosta za pośrednictwem rozszerzenia monitorowania Azure dla programu SAP. Wymagania hello przez SAP momentu tooSAP bardzo określonych aplikacji Microsoft postanowiła nie toogenerically wdrożenie hello wymaganych funkcji na platformie Azure, ale pozostawić ją dla klientów toodeploy hello niezbędne monitorowania składników i konfiguracje tootheir Maszyny wirtualne działające na platformie Azure. Jednak wdrożenia i cyklu życia zarządzania hello monitorowania składników będzie przede wszystkim zautomatyzowany przez platformę Azure.
 
 #### <a name="solution-design"></a>Projekt rozwiązania
-Rozwiązanie opracowany, aby włączyć monitorowanie SAP jest oparta na architekturę Agent maszyny Wirtualnej i środowiska rozszerzenia. Agent maszyny Wirtualnej i rozszerzenia będzie Pozwól na instalację aplikacji oprogramowania dostępne w galerii Azure rozszerzenia maszyny Wirtualnej w maszynie Wirtualnej. Zasada ideą to pojęcie jest umożliwienie (w takich przypadkach rozszerzenie monitorowania Azure dla programu SAP), wdrożenie specjalne funkcje do maszyny Wirtualnej oraz konfiguracji oprogramowania w czasie wdrażania.
+rozwiązanie Hello opracowany tooenable, który SAP monitorowania jest oparty na architekturze hello Agent maszyny Wirtualnej i środowiska rozszerzenia. pomysł Hello platformy Azure VM Agent i rozszerzenia hello jest tooallow instalacji aplikacji oprogramowania dostępne w galerii rozszerzeń maszyny Wirtualnej Azure hello w maszynie Wirtualnej. Witaj zasady ideą to pojęcie jest tooallow (w takich przypadkach hello Azure rozszerzenie monitorowania dla programu SAP), hello wdrożenia specjalnych funkcji w konfiguracji maszyny Wirtualnej i hello takiego oprogramowania w czasie wdrażania.
 
-Od lutego 2014 r. "Azure agenta maszyny Wirtualnej" umożliwiającą obsługę określonych rozszerzeń maszyny Wirtualnej platformy Azure w ramach maszyny Wirtualnej jest dodane do maszyn wirtualnych systemu Windows domyślnie po utworzeniu maszyny Wirtualnej w portalu Azure. W przypadku SUSE lub Red Hat Linux VM agent jest już częścią obrazu portalu Azure Marketplace. W przypadku, gdy jeden czy przekazać Maszynę wirtualną systemu Linux z lokalnej na platformie Azure, agent maszyny Wirtualnej musi być zainstalowany ręcznie.
+Od lutego 2014 r. hello "Agent maszyny Wirtualnej", który umożliwia obsługę określonych rozszerzeń maszyny Wirtualnej platformy Azure w ramach maszyny Wirtualnej jest wstrzykiwane do maszyn wirtualnych systemu Windows, domyślnie na tworzenie maszyny Wirtualnej w portalu Azure hello powitalne. W przypadku hello SUSE lub Red Hat Linux agent maszyny Wirtualnej jest już częścią obrazu portalu Azure Marketplace. W przypadku, gdy jeden czy przekazać Maszynę wirtualną systemu Linux z lokalnymi tooAzure hello VM agent ma toobe zainstalowany ręcznie.
 
-Podstawowe bloki konstrukcyjne rozwiązania monitorowanie na platformie Azure dla programu SAP wygląda podobnie do następującej:
+Witaj podstawowe bloki konstrukcyjne hello monitorowanie rozwiązania na platformie Azure dla programu SAP wygląda następująco:
 
 ![Składniki Microsoft Azure rozszerzenia][planning-guide-figure-2400]
 
-Jak pokazano na powyższym diagramie bloku, jednej części rozwiązanie monitorowania dla programu SAP znajduje się w obrazie maszyny Wirtualnej platformy Azure i galerii rozszerzeń Azure, który jest replikowany globalnie repozytorium, który jest zarządzany przez operacje Azure. Jest odpowiedzialny za wspólnego SAP/MS zespołu nad Azure wdrożenia SAP do pracy z operacjami Azure, aby opublikować nową wersję rozszerzenia monitorowania Azure dla programu SAP. To rozszerzenie monitorowania Azure dla programu SAP użyje rozszerzenia Microsoft Azure Diagnostics (WAD) lub Linux Azure Diagnostics (LAD), aby uzyskać informacje na potrzeby.
+Jak pokazano na powyższym diagramie bloku hello, jednej części hello monitorowania rozwiązania dla programu SAP znajduje się w hello obrazu maszyny Wirtualnej platformy Azure i galerii rozszerzeń Azure, który jest replikowany globalnie repozytorium, który jest zarządzany przez operacje Azure. Jest odpowiedzialny za hello hello wspólnego SAP/MS zespół pracujący nad hello Azure wdrożenia SAP toowork operacji Azure toopublish nowe wersje hello Azure rozszerzenie monitorowania dla programu SAP. To rozszerzenie monitorowania Azure dla programu SAP użyje hello rozszerzenia Microsoft Azure Diagnostics (WAD) lub Linux Azure Diagnostics (LAD) tooget hello niezbędne informacje.
 
-Podczas wdrażania nowej maszyny Wirtualnej systemu Windows, czy Agent maszyny Wirtualnej Azure jest automatycznie dodawany do maszyny Wirtualnej. Funkcja tego agenta jest do koordynowania ładowania i konfiguracja rozszerzeń Azure do monitorowania systemów SAP NetWeaver. Dla maszyn wirtualnych systemu Linux Agent maszyny Wirtualnej Azure jest już częścią obrazu systemu operacyjnego programu Azure Marketplace.
+Podczas wdrażania nowej maszyny Wirtualnej systemu Windows hello "Agent maszyny Wirtualnej" jest automatycznie dodawany do hello maszyny Wirtualnej. Funkcja Hello tego agenta jest hello toocoordinate ładowania i konfiguracji hello Azure rozszerzeń monitorowania SAP NetWeaver systemów. Dla maszyn wirtualnych systemu Linux hello Agent maszyny Wirtualnej jest już częścią hello Azure Marketplace OS obrazu.
 
-Istnieje jednak krok, który musi być wykonywane przez klienta. Jest to aktywacji i konfiguracji zbierania wydajności. Proces powiązanych z konfiguracją jest zautomatyzowany skrypt programu PowerShell lub polecenia interfejsu wiersza polecenia. Skrypt programu PowerShell można pobrać w Microsoft Azure Script Center zgodnie z opisem w [Deployment Guide][deployment-guide].
+Jednak jest to nadal wymaga toobe wykonywane przez powitania klienta. Jest to hello aktywacji i konfiguracji hello zbieranie danych wydajności. proces Hello powiązanych toohello "Konfiguracja" jest automatycznie przez skrypt programu PowerShell lub polecenia interfejsu wiersza polecenia. Witaj skrypt programu PowerShell można pobrać w Microsoft Azure Script Center hello zgodnie z opisem w hello [Deployment Guide][deployment-guide].
 
-Ogólna architektura Azure rozwiązanie monitorowania dla programu SAP wygląda następująco:
+Witaj ogólna architektura hello Azure monitorowania rozwiązania dla programu SAP wygląda następująco:
 
 ![Monitorowanie rozwiązania dla programu SAP NetWeaver Azure][planning-guide-figure-2500]
 
-**Dokładne instrukcje i szczegółowy opis kroków przy użyciu tych poleceń cmdlet programu PowerShell lub polecenia interfejsu wiersza polecenia, podczas wdrażania, postępuj zgodnie z instrukcjami [Deployment Guide][deployment-guide].**
+**Hello dokładne instrukcje tooand szczegółowy opis kroków przy użyciu tych poleceń cmdlet programu PowerShell lub polecenia interfejsu wiersza polecenia, podczas wdrażania, wykonaj hello instrukcje podane w hello [Deployment Guide][deployment-guide].**
 
 ### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Integracja Azure znajduje się wystąpienie SAP do SAProuter
-Wystąpień SAP działające na platformie Azure konieczne jest również dostępny z SAProuter.
+Wystąpienia SAP działające na platformie Azure muszą toobe dostępny z SAProuter również.
 
 ![Połączenie routera SAP][planning-guide-figure-2600]
 
-SAProuter umożliwia komunikację TCP/IP między systemów uczestniczących w przypadku braku bezpośredniego połączenia IP. Dzięki temu można korzystać, że żadne połączenie na trasie między partnerami komunikacja nie jest konieczne na poziomie sieci. SAProuter nasłuchuje na porcie 3299 domyślnie.
-Nawiązywanie połączeń za pomocą SAProuter wystąpień SAP należy zapewnić SAProuter ciągu i nazwy hosta z próby nawiązania połączenia.
+SAProuter umożliwia hello TCP/IP komunikacji między systemami uczestniczących w przypadku braku bezpośredniego połączenia IP. Dzięki temu można korzystać hello, że żadne połączenie na trasie między partnerami komunikacji hello nie jest konieczne na poziomie sieci. Witaj SAProuter nasłuchuje na porcie 3299 domyślnie.
+wystąpienia tooconnect SAP poprzez SAProuter należy hello toogive ciąg SAProuter i nazwy hosta z tooconnect wszelkie próby.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
-Do tej pory fokus dokument został SAP NetWeaver ogólnie lub SAP NetWeaver ABAP stosu. W tej sekcji małych szczególne zagadnienia dotyczące stosu SAP Java są wyświetlane. Jedną z najważniejszych aplikacji SAP NetWeaver Java wyłącznie na podstawie jest SAP Enterprise Portal. Inne SAP NetWeaver aplikacji opartych na jak SAP PI i Menedżera rozwiązania SAP SAP NetWeaver ABAP i stosy Java. W związku z tym Oczywiście istnieje potrzeba wziąć pod uwagę zagadnień związanych z na stosie SAP NetWeaver Java.
+Do tej pory hello fokus hello dokumentu została SAP NetWeaver ogólnie lub hello SAP NetWeaver ABAP stosu. W tej sekcji małych szczególne zagadnienia dotyczące stosu SAP Java hello są wyświetlane. Jednym z najważniejszych SAP NetWeaver Java wyłącznie na podstawie aplikacji hello jest hello SAP Enterprise Portal. Inne SAP NetWeaver aplikacji opartych na jak SAP PI i Menedżera rozwiązania SAP zarówno hello SAP NetWeaver ABAP i stosy Java. W związku z tym Oczywiście istnieje potrzeba tooconsider aspektów pokrewne toohello SAP NetWeaver Java stosu również.
 
 ### <a name="sap-enterprise-portal"></a>SAP Enterprise Portal
-Ustawienia portalu SAP w maszynie wirtualnej platformy Azure różnią się od w instalacji lokalnej, jeśli są wdrażane w scenariuszach między lokalizacjami. Ponieważ DNS jest realizowane przez lokalną, ustawienia portu pojedynczych wystąpień może odbywać się jako skonfigurowane lokalnymi. Zalecenia i ograniczenia opisane w tym dokumencie dotąd się ogólnie dla aplikacji, takie jak SAP Enterprise Portal lub stos SAP NetWeaver Java.
+Instalator Hello portalu SAP w maszynie wirtualnej platformy Azure różnią się od instalacji na lokalnym, jeśli są wdrażane w scenariuszach między lokalizacjami. Ponieważ powitalne DNS jest realizowane przez lokalną hello ustawienia portów dla poszczególnych wystąpień hello może zostać wykonane jako skonfigurowanego lokalnymi. Hello zalecenia i ograniczenia wymienione w tym dokumencie wykonanej do tej pory się ogólnie dla aplikacji, takie jak SAP Enterprise Portal lub hello SAP NetWeaver Java stosu.
 
 ![Portal narażonych SAP][planning-guide-figure-2700]
 
-Scenariusza wdrażania specjalnych niektórych klientów jest bezpośredniego ujawnienia SAP Enterprise Portal do Internetu, gdy host maszyny wirtualnej jest połączony z siecią firmową za pośrednictwem tunelu VPN lokacja lokacja lub ExpressRoute. Takiej sytuacji należy upewnić się, że określone porty są otwarte i nie jest blokowany przez zaporę lub w sieci grupy zabezpieczeń. Tego samego sposobu należy zastosować, jeśli chcesz połączyć się z wystąpieniem SAP Java z lokalnymi w scenariuszu tylko w chmurze.
+Scenariusz wdrożenia specjalnych niektórych klientów jest hello bezpośredniego ujawnienia hello SAP Enterprise Portal toohello Internet podczas hello maszyny wirtualnej host jest połączony toohello firmową siecią za pośrednictwem tunelu VPN lokacja lokacja lub ExpressRoute. Takiej sytuacji należy toomake się, że określone porty są otwarte i nie jest blokowany przez zaporę lub w sieci grupy zabezpieczeń. Witaj mechanika tego samego potrzebny toobe stosowane, gdy chcesz tooconnect tooan SAP Java wystąpienie z lokalnymi w scenariuszu tylko w chmurze.
 
-Portal początkowy identyfikator URI jest http (s):`<Portalserver`>: 5XX00/irj, gdy port jest tworzony przez 50000 plus (Systemnumber x 100). Domyślny system identyfikatora URI SAP portalu 00 to `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Aby uzyskać więcej informacji, mają wygląd <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+Hello portal początkowy identyfikator URI jest http (s):`<Portalserver`>: 5XX00/irj, gdzie portu hello jest tworzony przez 50000 plus (Systemnumber x 100). Hello portalu domyślny system identyfikatora URI SAP 00 jest `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Aby uzyskać więcej informacji, mają wygląd <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Konfiguracja punktu końcowego][planning-guide-figure-2800]
 
-Jeśli chcesz dostosować adresu URL i/lub porty programu SAP Enterprise Portal, sprawdź, czy w tej dokumentacji:
+Aby adres URL hello toocustomize i/lub porty programu SAP Enterprise Portal, sprawdź, czy w tej dokumentacji:
 
 * [Zmień adres URL portalu](http://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
 * [Zmienić domyślne numery portów, numery portów portalu](http://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
@@ -1710,12 +1710,12 @@ Jeśli chcesz dostosować adresu URL i/lub porty programu SAP Enterprise Portal,
 <a name="7cf991a1-badd-40a9-944e-7baae842a058"></a>
 ## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Wysokiej dostępności i odzyskiwania awaryjnego (DR) dla programu SAP NetWeaver uruchomione na maszynach wirtualnych platformy Azure
 ### <a name="definition-of-terminologies"></a>Definicja terminologii
-Termin **wysokiej dostępności (HA)** powiązany zazwyczaj jest to zestaw technologii minimalizujące zakłóceń IT, zapewniając ciągłość prowadzenia działalności biznesowej usługi IT za pośrednictwem nadmiarowe, odpornej na uszkodzenia lub pracy awaryjnej chronione składniki wewnątrz **tego samego** centrum danych. W tym przypadku w ramach jednego regionu Azure.
+Witaj termin **wysokiej dostępności (HA)** jest zazwyczaj powiązane tooa zestawu technologii który minimalizuje zakłóceń IT, zapewniając ciągłość prowadzenia działalności biznesowej usługi IT za pośrednictwem nadmiarowe, odpornej na uszkodzenia lub pracy awaryjnej chronione składniki wewnątrz hello **tego samego** centrum danych. W tym przypadku w ramach jednego regionu Azure.
 
-**Odzyskiwania awaryjnego (DR)** również jest docelowo zminimalizować zakłócenia usług IT i ich odzyskiwania ale wielu **różnych** centrów danych, które są zazwyczaj znajduje się setki kilometrów optymalizacji. W tym przypadku zwykle od różnych regionach platformy Azure, w tym samym regionie geograficznymi lub jako ustalonych przez użytkownika jako klient.
+**Odzyskiwania awaryjnego (DR)** również jest docelowo zminimalizować zakłócenia usług IT i ich odzyskiwania ale wielu **różnych** centrów danych, które są zazwyczaj znajduje się setki kilometrów optymalizacji. W tym przypadku zwykle od różnych regionach platformy Azure w ramach hello tego samego regionu geograficznymi lub ustalonych przez użytkownika jako klient.
 
 ### <a name="overview-of-high-availability"></a>Przegląd informacji o wysokiej dostępności
-Można oddzielić omówienie SAP wysokiej dostępności na platformie Azure na dwie części:
+Można oddzielić hello omówienie SAP wysokiej dostępności na platformie Azure na dwie części:
 
 * **Wysoka dostępność infrastruktury platformy Azure**, np. HA mocy obliczeniowej (maszyn wirtualnych), sieci, magazynu itp. oraz korzyści zwiększenia dostępności aplikacji SAP.
 * **Wysoka dostępność aplikacji SAP**, np. HA programu SAP składników oprogramowania:
@@ -1725,12 +1725,12 @@ Można oddzielić omówienie SAP wysokiej dostępności na platformie Azure na d
 
 i jak można je łączyć z infrastrukturą systemu Azure wysokiej dostępności.
 
-SAP wysokiej dostępności na platformie Azure ma pewne różnice w porównaniu do programu SAP wysokiej dostępności w lokalnym środowisku fizycznym lub wirtualnym. Następujący dokument z SAP opisano konfiguracje standardowe SAP wysokiej dostępności w środowiskach wirtualnych w systemie Windows: <http://scn.sap.com/docs/DOC-44415>. Nie istnieje zintegrowane sapinst SAP-HA konfiguracja dla systemu Linux, takich jak istnieje dla systemu Windows. Dotyczące SAP HA lokalnymi dla systemu Linux informacje więcej tutaj: <http://scn.sap.com/docs/DOC-8541>.
+SAP wysokiej dostępności na platformie Azure ma pewne różnice w stosunku tooSAP wysokiej dostępności w lokalnym środowisku fizycznym lub wirtualnym. Witaj następujący dokument z programu SAP opisano konfiguracje standardowe SAP wysokiej dostępności w środowiskach wirtualnych w systemie Windows: <http://scn.sap.com/docs/DOC-44415>. Nie istnieje zintegrowane sapinst SAP-HA konfiguracja dla systemu Linux, takich jak istnieje dla systemu Windows. Dotyczące SAP HA lokalnymi dla systemu Linux informacje więcej tutaj: <http://scn.sap.com/docs/DOC-8541>.
 
 ### <a name="azure-infrastructure-high-availability"></a>Wysoka dostępność infrastruktury platformy Azure
-Nie nie umowy SLA dla maszyn wirtualnych na jednym dostępnej na maszynach wirtualnych Azure w tej chwili. Aby poznać jak dostępności jednej maszyny wirtualnej może wyglądać tak, jak można po prostu utworzyć produktu różnych dostępnych umowy SLA platformy Azure: <https://azure.microsoft.com/support/legal/sla/>.
+Nie nie umowy SLA dla maszyn wirtualnych na jednym dostępnej na maszynach wirtualnych Azure w tej chwili. tooget pomysł, jak dostępności hello jednej maszyny wirtualnej może wyglądać tak, jak można po prostu utworzyć iloczyn hello hello różnych dostępnych umowy SLA platformy Azure: <https://azure.microsoft.com/support/legal/sla/>.
 
-Podstawą obliczeń jest 30 dni w miesiącu lub 43200 minut. W związku z tym przestoju 0,05% odpowiada 21,6 minut. Dostępność różnych usług będzie w zwykły sposób, należy pomnożyć w następujący sposób:
+Podstawa Hello obliczania hello to 30 dni w miesiącu lub 43200 minut. W związku z tym przestoju 0,05% odpowiada too21.6 minut. W zwykły sposób dostępność hello hello różnych usług będzie pomnożyć w hello w następujący sposób:
 
 (Usługa dostępności #1/100) * (dostępności usługi #2/100) * (dostępności usługi #3/100) *...
 
@@ -1739,25 +1739,25 @@ Na przykład:
 (99,95/100) * (99,9/100) * (99,9/100) = 0.9975 lub ogólnej dostępności 99.75%.
 
 #### <a name="virtual-machine-vm-high-availability"></a>Wysoka dostępność maszyn wirtualnych (VM)
-Istnieją dwa typy zdarzeń platformy Azure, które mogą wpłynąć na dostępność maszyn wirtualnych: planowanych konserwacji i nieplanowanych konserwacji.
+Istnieją dwa typy zdarzeń platformy Azure, które mogą wpłynąć na dostępność maszyn wirtualnych hello: planowanych konserwacji i nieplanowanych konserwacji.
 
-* Zdarzeń planowanych konserwacji są okresowych aktualizacji utworzone przez firmę Microsoft podstawowej platformy Azure, aby zwiększyć ogólną niezawodność, wydajność i bezpieczeństwo infrastruktury platformy, które są uruchamiane maszyny wirtualne.
-* Nieplanowana konserwacja zdarzenia wystąpić, gdy sprzęt lub infrastruktury fizycznej podstawowej maszyny wirtualnej wystąpił błąd w określony sposób. Mogą być to awarie sieci lokalnej, błędy na dysku lokalnym lub inne awarie na poziomie regału. W przypadku wykrycia takiej awarii platformy Azure automatycznie migracji maszyny wirtualnej z złej kondycji serwera fizycznego obsługującego maszyny wirtualnej do dobrej kondycji serwera fizycznego. Te zdarzenia występują rzadko, ale mogą również spowodować ponowne uruchomienie maszyny wirtualnej.
+* Okresowe aktualizacje wprowadzone przez Microsoft toohello bazowy tooimprove platformy Azure są zdarzeń planowanych konserwacji ogólną niezawodność, wydajność i bezpieczeństwo infrastruktury platformy hello, które są uruchamiane maszyny wirtualne.
+* Nieplanowana konserwacja zdarzenia wystąpić, gdy sprzęt hello lub infrastruktury fizycznej podstawowej maszyny wirtualnej wystąpił błąd w określony sposób. Mogą być to awarie sieci lokalnej, błędy na dysku lokalnym lub inne awarie na poziomie regału. W przypadku wykrycia takiej awarii hello platformy Azure automatycznie migracji maszyny wirtualnej z hello złej kondycji serwera fizycznego obsługującego maszyny wirtualnej tooa dobrej kondycji serwera fizycznego. Takie zdarzenia występują rzadko, ale może również spowodować tooreboot Twojej maszyny wirtualnej.
 
 Więcej szczegółów można znaleźć w tej dokumentacji: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Nadmiarowość magazynu Azure
-Dane na koncie magazynu Microsoft Azure są zawsze replikowane w celu zapewnienia trwałości i wysokiej dostępności, spotkania SLA magazynu platformy Azure, nawet w wypadku przejściowych awarii sprzętu
+Witaj danych na koncie magazynu Microsoft Azure jest zawsze replikowane tooensure trwałości i wysokiej dostępności, spotkania hello umowy SLA magazynu platformy Azure, nawet w powierzchnię hello przejściowych awarii sprzętu
 
-Ponieważ Magazyn Azure może być utrzymywanie 3 obrazów danych domyślnie, RAID5 lub RAID1 na wielu dyskach platformy Azure nie jest konieczne.
+Ponieważ Magazyn Azure może być utrzymywanie 3 obrazów danych hello domyślnie, RAID5 lub RAID1 na wielu dyskach platformy Azure nie jest konieczne.
 
 Więcej informacji można znaleźć w tym artykule: <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
-#### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Przy użyciu ponownego uruchomienia maszyny Wirtualnej infrastruktury platformy Azure w celu osiągnięcia "Wyższej dostępności" aplikacje SAP
-Jeśli nie chcesz używać funkcji, takich jak Windows Server Failover Clustering (WSFC) lub Linux równoważne (drugie przez co nie jest jeszcze obsługiwany na platformie Azure w połączeniu z oprogramowania SAP), ponowne uruchomienie maszyny Wirtualnej Azure jest wykorzystywany do ochrony systemu SAP przed planowanych lub nieplanowanych przestojów infrastruktury Azure serwera fizycznego i ogólnej podstawowej platformy Azure.
+#### <a name="utilizing-azure-infrastructure-vm-restart-tooachieve-higher-availability-of-sap-applications"></a>Przy użyciu ponownego uruchomienia maszyny Wirtualnej infrastruktury Azure tooAchieve "Wyższej dostępności" aplikacje SAP
+Jeśli zdecydujesz się nie toouse funkcje takie jak Windows Server Failover Clustering (WSFC) lub równoważne systemu Linux (ostatnie hello w jednym nie jest jeszcze obsługiwany na platformie Azure w połączeniu z oprogramowania SAP), ponowne uruchomienie maszyny Wirtualnej Azure jest wykorzystywanych tooprotect systemu SAP, przed planowane i nieplanowane przestoje hello Azure fizyczny serwer infrastruktury i ogólnej podstawowej platformy Azure.
 
 > [!NOTE]
-> Należy podać, czy ponowne uruchomienie maszyny Wirtualnej Azure przede wszystkim chroni maszyn wirtualnych i nie aplikacje. Ponowne uruchomienie maszyny Wirtualnej nie zapewnia wysoką dostępność aplikacji SAP, ale oferuje pewien poziom dostępności infrastruktury i w związku z tym pośrednio "wyższej dostępności" systemów SAP. Dostępna jest również nie umowy SLA dla czas potrzebny na ponowne uruchomienie maszyny Wirtualnej po awarii hosta planowane lub nieplanowane. W związku z tym ta metoda "wysokiej dostępności" nie jest odpowiedni dla krytycznych składników systemu SAP, takie jak (A) SCS lub systemu DBMS.
+> Jest ważne toomention czy głównie ponownego uruchomienia maszyny Wirtualnej Azure chroni maszyny wirtualne i nie aplikacje. Ponowne uruchomienie maszyny Wirtualnej nie zapewnia wysoką dostępność aplikacji SAP, ale oferuje pewien poziom dostępności infrastruktury i w związku z tym pośrednio "wyższej dostępności" systemów SAP. Dostępna jest również nie SLA hello czasu potrwa toorestart maszyny Wirtualnej po awarii hosta planowane lub nieplanowane. W związku z tym ta metoda "wysokiej dostępności" nie jest odpowiedni dla krytycznych składników systemu SAP, takie jak (A) SCS lub systemu DBMS.
 >
 >
 
@@ -1767,100 +1767,100 @@ Zamiast wprowadzania wszystkich maszyn wirtualnych do konta magazynu Azure pojed
 
 Przykładowa architektura systemu SAP NetWeaver, który korzysta z infrastrukturą systemu Azure HA może wyglądać następująco:
 
-![Przy użyciu infrastruktury platformy Azure wysokiej dostępności, aby zapewnić dostępność "wyżej" aplikacji SAP][planning-guide-figure-2900]
+![Przy użyciu infrastruktury platformy Azure dostępności "wyżej" HA tooachieve SAP aplikacji][planning-guide-figure-2900]
 
-W przypadku krytycznych składników SAP możemy uzyskać następujące wykonanej do tej pory:
+Krytycznych składników SAP firma Microsoft uzyskuje hello wykonanej do tej pory następujące:
 
 * Wysoką dostępność serwerów aplikacji SAP (AS)
 
 Wystąpień serwera aplikacji SAP są działanie elementów nadmiarowych. Każdy SAP, ponieważ wystąpienie jest wdrażana na jego własnej maszynie Wirtualnej, działającej w innej Azure usterek i domeny uaktualnienia (zobacz rozdział [domen błędów] [ planning-guide-3.2.1] i [domen uaktualnienia][planning-guide-3.2.2]). To jest zapewniana przez przy użyciu zestawów dostępności Azure (zobacz rozdział [zestawami dostępności Azure][planning-guide-3.2.3]). Potencjalne niedostępności planowane lub nieplanowane Azure awarii lub uaktualnienia domeny spowoduje niedostępność ograniczonej liczby maszyn wirtualnych z ich jako SAP wystąpień.
-Każdy SAP, jak wystąpienie znajduje się w jego własnej konta usługi Azure Storage — potencjalnych niedostępność jedno konto magazynu Azure niedostępności tylko jednej maszyny wirtualnej spowoduje, że z jego SAP wystąpienia. Należy jednak pamiętać, że istnieje limit kont magazynu Azure w ramach jednej subskrypcji platformy Azure. Aby zapewnić automatyczne uruchamianie wystąpienia () SCS po ponownym uruchomieniu maszyny Wirtualnej, należy ustawić parametr Autostart (do) SCS profilu start wystąpienia w rozdziale opisano [przy użyciu Autostart dla wystąpień SAP][planning-guide-11.5].
+Każdy SAP, jak wystąpienie znajduje się w jego własnej konta usługi Azure Storage — potencjalnych niedostępność jedno konto magazynu Azure niedostępności tylko jednej maszyny wirtualnej spowoduje, że z jego SAP wystąpienia. Należy jednak pamiętać, że istnieje limit kont magazynu Azure w ramach jednej subskrypcji platformy Azure. automatyczne uruchamianie tooensure () SCS wystąpienia po ponowny rozruch hello maszyny Wirtualnej, upewnij się, parametr Autostart tooset w wystąpieniu () SCS start profil w rozdziale opisano [przy użyciu Autostart dla wystąpień SAP][planning-guide-11.5].
 Przeczytaj również rozdział [wysokiej dostępności dla serwerów aplikacji SAP] [ planning-guide-11.4.1] więcej szczegółów.
 
 * *Wyższy* wystąpienia SCS dostępności SAP (A)
 
-W tym miejscu możemy korzystać z Azure VM Uruchom ponownie, aby chronić maszyny Wirtualnej za pomocą zainstalowanego wystąpienia SCS SAP (A). W przypadku planowane lub nieplanowane przestoje Azure serwery, maszyny wirtualne zostanie uruchomiona ponownie na innym serwerze dostępne. Jak wspomniano wcześniej, przede wszystkim ponownego uruchomienia maszyny Wirtualnej Azure chroni maszyny wirtualne i nie aplikacje, w tym wystąpieniu SCS liter (A). Do ponownego uruchomienia maszyny Wirtualnej będziemy pośrednio "wyższej dostępności" wystąpienia SCS SAP (A). Na ułatwieniu zapewnienia automatyczne uruchamianie wystąpienia () SCS po ponownym uruchomieniu maszyny Wirtualnej, należy ustawić parametr automatycznego uruchamiania (do) SCS profilu start wystąpienia w rozdziale opisano [przy użyciu Autostart dla wystąpień SAP][planning-guide-11.5]. Oznacza to, (A) SCS wystąpienia jako pojedynczego punktu awarii (SPOF) w jednej maszyny Wirtualnej będzie dominującego współczynnik dostępności całego poziomej SAP.
+W tym miejscu możemy wykorzystywać ponownego uruchomienia maszyny Wirtualnej Azure hello tooprotect maszyny Wirtualnej z zainstalowane wystąpienie SCS SAP (A). W hello przypadku planowane lub nieplanowane przestoje Azure serwery, maszyny wirtualne zostanie uruchomiona ponownie na innym serwerze dostępne. Jak wspomniano wcześniej, przede wszystkim ponownego uruchomienia maszyny Wirtualnej Azure chroni maszyny wirtualne i nie aplikacje, w tym przypadku hello wystąpienia SCS, (). Za pomocą hello ponownego uruchomienia maszyny Wirtualnej będziemy pośrednio "wyższej dostępności" wystąpienia SCS SAP (A). automatyczne uruchamianie tooinsure () SCS wystąpienia po ponowny rozruch hello maszyny Wirtualnej, upewnij się, parametr Autostart tooset w wystąpieniu () SCS start profil w rozdziale opisano [przy użyciu Autostart dla wystąpień SAP][planning-guide-11.5]. Oznacza to, że hello (A) SCS wystąpienie jako pojedynczy punkt awarii (SPOF) w jednej maszyny Wirtualnej będzie hello współczynnik dominującego hello dostępność hello całego poziomej SAP.
 
 * *Wyższy* dostępności serwera z bazami danych
 
-W tym miejscu, podobnie jak w przypadku użycia wystąpienia SCS SAP (A), możemy korzystania z Azure VM Uruchom ponownie ochronę maszyny Wirtualnej z zainstalowanego oprogramowania systemu DBMS i osiągnięcia możemy "wyższej dostępności" DBMS oprogramowania przez ponowne uruchomienie maszyny Wirtualnej.
-DBMS uruchomionych w jednej maszyny Wirtualnej jest również SPOF i jest współczynnik dominującego dostępności całego poziomej SAP.
+W tym miejscu przypadek użycia podobnych toohello SCS SAP (A) wystąpienia, możemy korzystać z ponownego uruchomienia maszyny Wirtualnej Azure tooprotect hello maszyny Wirtualnej z zainstalowanego oprogramowania systemu DBMS i firma Microsoft zapewnienia "wyższej dostępności" DBMS oprogramowania przez ponowne uruchomienie maszyny Wirtualnej.
+DBMS uruchomionych w jednej maszyny Wirtualnej jest również SPOF i jest współczynnik dominującego hello hello dostępność hello całego poziomej SAP.
 
 ### <a name="sap-application-high-availability-on-azure-iaas"></a>SAP wysoką dostępność aplikacji na IaaS platformy Azure
-Aby osiągnąć pełną SAP systemu wysokiej dostępności, należy chronić wszystkie krytyczne SAP składniki systemowe, np. nadmiarowe SAP serwery aplikacji i unikatowych składników (np. pojedynczego punktu awarii), takich jak wystąpienie SCS SAP (A) i systemu DBMS.
+tooachieve pełne SAP systemu wysokiej dostępności, potrzebujemy tooprotect wszystkie krytyczne SAP składniki systemowe, np. nadmiarowe SAP serwerów aplikacji, i unikatowych składników (np. pojedynczego punktu awarii), takich jak wystąpienie SCS SAP (A) i systemu DBMS.
 
 #### <a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>Wysoka dostępność dla serwerów aplikacji SAP
-Wystąpienia serwerów/okna dialogowego SAP aplikacji nie jest konieczne wziąć pod uwagę rozwiązanie określonych wysokiej dostępności. Wysoka dostępność po prostu odbywa się przez nadmiarowości i tym samym mających wystarczającą ilość je w różnych maszyn wirtualnych. One powinien wszystkie umieszczone w tej samej Azure zestawu dostępności w celu uniknięcia czy maszyny wirtualne mogły zostać zaktualizowane w tym samym czasie podczas zaplanowanej konserwacji przestoju. Podstawowe funkcje, które opiera się na różnych uaktualnienie i domen błędów w ramach jednostki skalowania Azure już została wprowadzona w rozdziale [domen uaktualnienia][planning-guide-3.2.2]. Zestawy dostępności Azure były widoczne w rozdziale [zestawami dostępności Azure] [ planning-guide-3.2.3] tego dokumentu.
+Dla wystąpień serwerów/okno aplikacji SAP hello nie jest konieczne toothink o rozwiązaniu określonego wysokiej dostępności. Wysoka dostępność po prostu odbywa się przez nadmiarowości i tym samym mających wystarczającą ilość je w różnych maszyn wirtualnych. One wszystkich należy umieścić w hello tego samego zestawu dostępności Azure tooavoid, który hello maszyny wirtualne mogły zostać zaktualizowane na powitania jednocześnie podczas zaplanowanej konserwacji przestoju. podstawowe funkcje Hello, która opiera się na różnych uaktualnienie i domen błędów w ramach jednostki skalowania Azure już została wprowadzona w rozdziale [domen uaktualnienia][planning-guide-3.2.2]. Zestawy dostępności Azure były widoczne w rozdziale [zestawami dostępności Azure] [ planning-guide-3.2.3] tego dokumentu.
 
-Brak nie nieograniczoną liczbę usterek i domen uaktualnienia, używanego przez Azure zestawu dostępności w ramach jednostki skalowania Azure. Oznacza to, że wprowadzenia liczby maszyn wirtualnych do jednego zestawu dostępności wcześniej lub później w fakt, że więcej niż jedna maszyna wirtualna kończy się w tej samej domeny uaktualnienia lub błędów
+Brak nie nieograniczoną liczbę usterek i domen uaktualnienia, używanego przez Azure zestawu dostępności w ramach jednostki skalowania Azure. Oznacza to, że wprowadzenia liczby maszyn wirtualnych do jednego zestawu dostępności wcześniej lub później w hello fakt, że więcej niż jedna maszyna wirtualna kończy się w hello błędów tego samego lub do domeny uaktualnienia
 
-Wdrażanie kilka wystąpień serwera aplikacji SAP w ich dedykowanych maszyn wirtualnych i przy założeniu, że dotarliśmy 5 uaktualnienia domen, na końcu pojawia się poniżej. Rzeczywiste maksymalna liczba domen błędów i aktualizacji w ramach zestawu dostępności może zmieniać się w przyszłości:
+Wdrażanie serwera aplikacji SAP kilka wystąpień w ich dedykowanych maszyn wirtualnych i przy założeniu, że dotarliśmy 5 domen uaktualnienia hello poniższej ilustracji pojawia się na końcu hello. Hello rzeczywiste maksymalna liczba domen błędów i aktualizacji w ramach zestawu dostępności może zmieniać w przyszłości hello:
 
 ![HA SAP serwerów aplikacji na platformie Azure][planning-guide-figure-3000]
 
 Więcej szczegółów można znaleźć w tej dokumentacji: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
-#### <a name="high-availability-for-the-sap-ascs-instance-on-windows"></a>Wysoka dostępność dla wystąpienia SCS SAP (A) w systemie Windows
-Windows Server Failover Cluster (WSFC) jest rozwiązaniem często używane, aby chronić wystąpienie SCS SAP (A). On również jest zintegrowany sapinst w postaci "Instalacja HA". W tym momencie infrastruktury platformy Azure nie jest zapewnienie funkcji, aby skonfigurować wymagane klastra pracy awaryjnej systemu Windows Server w taki sam sposób co ma wykonywane lokalnie.
+#### <a name="high-availability-for-hello-sap-ascs-instance-on-windows"></a>Wysoka dostępność dla hello wystąpienia SCS SAP (A) w systemie Windows
+Windows Server Failover Cluster (WSFC) jest wystąpieniem SAP (A) SCS hello tooprotect często używane rozwiązanie. On również jest zintegrowany sapinst w postaci "Instalacja HA". W tym momencie hello infrastruktury platformy Azure nie jest możliwe tooprovide hello funkcji tooset się hello wymagane klastra pracy awaryjnej systemu Windows Server hello sam sposób, jak jest wykonywane lokalnie.
 
-Począwszy od stycznia 2016 roku platformy chmury Azure z systemem operacyjnym Windows nie zapewnia możliwość na dysku współużytkowane dwóch maszyn wirtualnych platformy Azure przy użyciu udostępnionego woluminu klastra.
+Począwszy od stycznia 2016 platformy w chmurze Azure hello systemem operacyjnym Windows hello nie zapewnia możliwości hello na dysku współużytkowane dwóch maszyn wirtualnych platformy Azure przy użyciu udostępnionego woluminu klastra.
 
-Gdy prawidłowym rozwiązaniem jest użycie 3rd firm, co zapewnia udostępniony wolumin za pomocą replikacji synchroniczne i przezroczysty dysku, który może zostać zintegrowane usługi WSFC. Tej metody oznacza, że tylko aktywnego węzła klastra jest w stanie uzyskać dostępu do jednego z kopii dysku w punkcie w czasie. Począwszy od stycznia 2016 tego HA konfiguracja jest obsługiwana Aby chronić wystąpienie SCS SAP (A) na Windows System operacyjny gościa na maszynach wirtualnych Azure w połączeniu z 3rd firm SIOS DataKeeper.
+Gdy prawidłowym rozwiązaniem jest użycie hello 3rd firm, co zapewnia udostępniony wolumin za pomocą replikacji synchroniczne i przezroczysty dysku, który może zostać zintegrowane usługi WSFC. Tej metody oznacza, że tylko hello aktywnego węzła klastra jest możliwe tooaccess jeden dysk hello kopiuje w punkcie w czasie. Począwszy od stycznia 2016 HA tej konfiguracji jest obsługiwanych tooprotect hello SCS SAP (A) wystąpieniem na Windows System operacyjny gościa na maszynach wirtualnych Azure w połączeniu z 3rd firm SIOS DataKeeper.
 
-Rozwiązanie SIOS DataKeeper zapewnia zasób klastra udostępnionego dysku do klastrów pracy awaryjnej systemu Windows, dzięki użyciu:
+Hello SIOS DataKeeper rozwiązanie zapewnia udostępniony dysk tooWindows zasobów klastra klastrów trybu Failover dzięki użyciu:
 
-* Dodatkowe Azure VHD dołączony do poszczególnych maszyn wirtualnych (VM), które znajdują się w konfiguracji klastra systemu Windows
+* Dodatkowe VHD Azure dołączony tooeach maszyn wirtualnych hello (VM), które znajdują się w konfiguracji klastra systemu Windows
 * SIOS DataKeeper Cluster Edition uruchomione w obu węzłach maszyny Wirtualnej
-* Dołączone wolumin ze źródła maszyn wirtualnych do dodatkowych wirtualnego dysku twardego o SIOS DataKeeper Cluster Edition skonfigurowane w taki sposób, że synchronicznie odzwierciedla zawartość dodatkowy wirtualny dysk twardy dołączony woluminu docelowego maszyny Wirtualnej.
-* SIOS DataKeeper jest abstrakcyjność źródłowa i docelowa woluminy lokalne i przedstawiające ich do klastra trybu Failover z systemem Windows jako pojedynczy udostępniony dysk.
+* O SIOS DataKeeper Cluster Edition skonfigurowane w taki sposób, że synchronicznie odzwierciedla zawartość hello hello dodatkowe VHD dołączony woluminu z źródła maszyn wirtualnych tooadditional wirtualny dysk twardy dołączony woluminu docelowego maszyny Wirtualnej.
+* SIOS DataKeeper abstrakcyjność hello źródłowa i docelowa woluminy lokalne i przedstawiające ich tooWindows klastra pracy awaryjnej jako pojedynczy udostępniony dysk.
 
-Wszystkie szczegółowe informacje można znaleźć na temat Instalowanie klastra pracy awaryjnej systemu Windows przy użyciu SIOS Datakeeper i SAP w [klastrowanie SAP ASCS wystąpienia przy użyciu klastra trybu Failover systemu Windows Server na platformie Azure za pomocą SIOS DataKeeper] [ ha-guide-classic] oficjalny dokument.
+Wszystkie szczegółowe informacje można znaleźć na temat tooinstall klastra pracy awaryjnej systemu Windows z SIOS Datakeeper i SAP w hello [klastrowanie SAP ASCS wystąpienia przy użyciu klastra trybu Failover systemu Windows Server na platformie Azure za pomocą SIOS DataKeeper] [ ha-guide-classic]oficjalny dokument.
 
-#### <a name="high-availability-for-the-sap-ascs-instance-on-linux"></a>Wysoka dostępność dla wystąpienia SCS SAP (A) w systemie Linux
-Począwszy od grudnia 2015 r. nie ma również odpowiednika do udostępnionego dysku usługi WSFC dla maszyn wirtualnych systemu Linux na platformie Azure. Alternatywne rozwiązania z wykorzystaniem 3rd firm, takich jak SIOS dla systemu Windows nie są weryfikowane jeszcze uruchamiania SAP w systemie Linux na platformie Azure.
+#### <a name="high-availability-for-hello-sap-ascs-instance-on-linux"></a>Wysoka dostępność dla hello wystąpienia SCS SAP (A) w systemie Linux
+Począwszy od grudnia 2015 jest również dysku tooshared równoważne usługi WSFC dla maszyn wirtualnych systemu Linux na platformie Azure. Alternatywne rozwiązania z wykorzystaniem 3rd firm, takich jak SIOS dla systemu Windows nie są weryfikowane jeszcze uruchamiania SAP w systemie Linux na platformie Azure.
 
-#### <a name="high-availability-for-the-sap-database-instance"></a>Wysoka dostępność dla tego wystąpienia bazy danych SAP
-Typowy SAP DBMS HA Instalatora opiera się na dwóch maszyn wirtualnych systemu DBMS, gdzie DBMS wysokiej dostępności funkcja jest używana do replikacji danych z aktywnego wystąpienia systemu DBMS do drugiej maszyny Wirtualnej do pasywnej wystąpienia systemu DBMS.
+#### <a name="high-availability-for-hello-sap-database-instance"></a>Wysoka dostępność dla wystąpienia bazy danych SAP hello
+Witaj SAP DBMS HA instalacji standardowej opiera się na dwóch DBMS maszyn wirtualnych, gdy jest używana funkcja wysokiej dostępności systemu DBMS tooreplicate danych z hello active DBMS wystąpienia toohello drugie maszyny Wirtualnej do pasywnej wystąpienia systemu DBMS.
 
-Wysoka dostępność i odzyskiwaniem po awarii funkcji odzyskiwania systemu DBMS ogólnie DBMS także jako określone zostały opisane w [DBMS Deployment Guide][dbms-guide].
+Wysoka dostępność i odzyskiwaniem po awarii funkcji odzyskiwania systemu DBMS w ogólne, jak również określonego systemu DBMS opisanym w hello [DBMS Deployment Guide][dbms-guide].
 
-#### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>Wysoką dostępność systemu SAP pełną end-to-End
+#### <a name="end-to-end-high-availability-for-hello-complete-sap-system"></a>Wysoka dostępność na trasie dla hello całego systemu SAP
 Poniżej przedstawiono dwa przykłady pełną SAP NetWeaver HA architektury na platformie Azure — jeden dla systemu Windows i jeden dla systemu Linux.
-Pojęcia dotyczące opisanej poniżej może być konieczne naruszenia nieco podczas wdrażania wielu systemów SAP i liczba wdrożonych maszyn wirtualnych są przekracza limit maksymalnej liczby kont magazynu dla subskrypcji. W takich przypadkach konieczne można łączyć w jedno konto magazynu wirtualnych dysków twardych maszyn wirtualnych. Zwykle będzie to nie łącząc warstwy aplikacji wirtualnych dysków twardych SAP maszyn wirtualnych różnych systemów SAP.  Możemy również łączyć różnych wirtualne dyski twarde różnych DBMS maszyn wirtualnych w różnych systemów SAP w jedno konto magazynu Azure. Tym samym pamiętając o granicach IOPS konta magazynu Azure ( <https://azure.microsoft.com/documentation/articles/storage-scalability-targets> )
+pojęcia Hello, jak wyjaśniono poniżej może być konieczne toobe naruszony nieco podczas wdrażania wielu systemów SAP hello liczba wdrożonych maszyn wirtualnych są przekracza limit maksymalnej hello kont magazynu dla subskrypcji. W takich przypadkach wirtualne dyski twarde maszyny wirtualne muszą toobe łączyć w jedno konto magazynu. Zwykle będzie to nie łącząc warstwy aplikacji wirtualnych dysków twardych SAP maszyn wirtualnych różnych systemów SAP.  Możemy również łączyć różnych wirtualne dyski twarde różnych DBMS maszyn wirtualnych w różnych systemów SAP w jedno konto magazynu Azure. Dzięki temu pamiętając o hello limity liczby kont magazynu Azure ( <https://azure.microsoft.com/documentation/articles/storage-scalability-targets> )
 
 ##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] HA w systemie Windows
 ![Architektura HA SAP NetWeaver aplikacji z programem SQL Server w IaaS platformy Azure][planning-guide-figure-3200]
 
-Następujące elementy platformy Azure są używane w systemie SAP NetWeaver do zminimalizować wpływ problemami związanymi z infrastrukturą i stosowanie poprawek:
+po konstrukcji Azure Hello są używane systemu SAP NetWeaver hello, toominimize wpływ na infrastrukturę problemy i stosowanie poprawek hosta:
 
-* Całego systemu jest wdrażana na platformie Azure (wymagane — system DBMS, () wystąpienia SCS i kompletna aplikacja warstwy muszą działać w tej samej lokalizacji).
-* Całego systemu jest uruchamiany w ramach jednej subskrypcji platformy Azure (wymagane).
-* Całego systemu jest uruchamiany w ramach jednej sieci wirtualnej platformy Azure (wymagane).
-* Rozdzielenie maszyn wirtualnych z jednego systemu SAP do trzech zestawów dostępności jest możliwe nawet w przypadku wszystkich maszyn wirtualnych należących do tej samej sieci wirtualnej.
+* Witaj całego systemu jest wdrażana na platformie Azure (wymagane — system DBMS warstwy, () wystąpienia SCS i kompletna aplikacja warstwy potrzeby toorun w tej samej lokalizacji hello).
+* Witaj całego systemu jest uruchamiany w ramach jednej subskrypcji platformy Azure (wymagane).
+* Witaj całego systemu jest uruchamiany w ramach jednej sieci wirtualnej platformy Azure (wymagane).
+* nawet w przypadku wszystkich hello maszyn wirtualnych należących toohello jest możliwe oddzielenie Hello hello maszyn wirtualnych z jednego systemu SAP do trzech zestawów dostępności tej samej sieci wirtualnej.
 * Wszystkich maszyn wirtualnych uruchomionych wystąpień systemu DBMS jednego systemu SAP znajdują się w jednym zestawie dostępności. Przyjęto założenie, że istnieje więcej niż jedna maszyna wirtualna uruchomionych wystąpień systemu DBMS na system od macierzystego systemu DBMS wysokiej dostępności, które są używane funkcje, takie jak AlwaysOn programu SQL Server i Oracle Data Guard.
-* Wszystkich maszyn wirtualnych uruchomionych wystąpień systemu DBMS użyć własnych konta magazynu. System DBMS plików dziennika i dane są replikowane z jedno konto magazynu na inne konto magazynu przy użyciu systemu DBMS wysokiej dostępności funkcji, które synchronizują dane. Niedostępność jedno konto magazynu spowoduje niedostępność jednego węzła klastra systemu Windows SQL, ale nie całej usługi SQL Server.
-* Wszystkie maszyny wirtualne uruchomione wystąpienie jednego systemu SAP () SCS są w jednym zestawie dostępności. Wewnątrz tych maszyn wirtualnych jest konfigurowanie systemu Windows Server Failover Cluster (WSFC) aby chronić wystąpienie SCS, ().
-* Wszystkie maszyny wirtualne uruchomione wystąpienia () SCS Użyj własne konta magazynu. (A) SCS wystąpienia pliki i foldery globalne SAP są replikowane z jednego konta magazynu na inne konto magazynu przy użyciu replikacji SIOS DataKeeper. Niedostępność jedno konto magazynu spowoduje, że niedostępności jednego () systemu Windows SCS węzła klastra, ale nie całości () SCS usługi.
-* Wszystkie maszyny wirtualne reprezentujący warstwa serwera SAP aplikacji są w trzecim zestawu dostępności.
-* WSZYSTKICH serwerów aplikacji SAP uruchomionych maszyn wirtualnych użyć własnych konta magazynu. Niedostępność jedno konto magazynu spowoduje niedostępność serwera aplikacji SAP, gdy inne AS SAP nadal działać.
+* Wszystkich maszyn wirtualnych uruchomionych wystąpień systemu DBMS użyć własnych konta magazynu. System DBMS plików danych i dziennika są replikowane z jednego konta tooanother magazynu konto magazynu przy użyciu systemu DBMS wysokiej dostępności funkcji, które synchronizują dane hello. Niedostępność jedno konto magazynu spowoduje niedostępność jednego węzła klastra systemu Windows SQL, ale hello całej usługi SQL Server.
+* Wszystkie maszyny wirtualne uruchomione wystąpienie jednego systemu SAP () SCS są w jednym zestawie dostępności. Wewnątrz tych maszyn wirtualnych jest skonfiguruj wystąpienie SCS tooprotect (A) z systemem Windows Server Failover Cluster (WSFC).
+* Wszystkie maszyny wirtualne uruchomione wystąpienia () SCS Użyj własne konta magazynu. (A) SCS wystąpienia pliki i foldery globalne SAP są replikowane z jednego konta tooanother magazynu konto magazynu przy użyciu replikacji SIOS DataKeeper. Niedostępność jedno konto magazynu spowoduje, że niedostępności jednego (A) systemu Windows SCS węźle klastra, ale nie hello całego () SCS usługi.
+* WSZYSTKIE VMs hello reprezentujący warstwa serwera aplikacji SAP hello znajdują się w trzecim zestawu dostępności.
+* WSZYSTKICH serwerów aplikacji SAP uruchomionych maszyn wirtualnych hello użyć własnych konta magazynu. Niedostępność jedno konto magazynu spowoduje niedostępność serwera aplikacji SAP, gdy inne AS SAP kontynuować toorun.
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA w systemie Linux
-Architektura SAP HA w systemie Linux na platformie Azure jest zasadniczo taki sam, jak w przypadku systemu Windows zgodnie z powyższym opisem. Począwszy od stycznia 2016 istnieją jednak dwa ograniczenia:
+Architektura powitania dla SAP HA w systemie Linux na platformie Azure jest zasadniczo hello takie same jak w przypadku systemu Windows, jak opisano powyżej. Począwszy od stycznia 2016 istnieją jednak dwa ograniczenia:
 
 * tylko 16 ASE SAP jest obecnie obsługiwany w systemie Linux na platformie Azure, bez żadnych funkcji replikacji ASE.
 * istnieje SAP (A) SCS HA rozwiązanie jeszcze obsługiwane w systemie Linux na platformie Azure
 
-W rezultacie począwszy od stycznia 2016 systemu SAP Linux Azure nie można osiągnąć tego samego dostępności jako systemu SAP systemu Windows Azure z powodu brakujących HA SCS (A) wystąpienia i bazy danych SAP ASE jednego wystąpienia.
+W rezultacie zgodnie ze stycznia 2016 roku systemu SAP Linux Azure nie można osiągnąć hello tym samym dostępności jako systemu SAP systemu Windows Azure z powodu brakującego wysokiej dostępności dla wystąpienia SCS hello (A) i hello bazy danych SAP ASE jednego wystąpienia.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Przy użyciu Autostart dla wystąpień SAP
-SAP oferowane funkcjonalność do uruchomienia wystąpień SAP natychmiast po rozpoczęciu systemu operacyjnego w Maszynie wirtualnej. Dokładne kroki zostały udokumentowane w artykule bazy wiedzy SAP [1909114] — jak zacząć SAP wystąpienia automatycznie za pomocą parametru automatyczne uruchamianie. Jednak SAP nie jest rekomendowania ustawienia już ponieważ nie kontrolka nie kolejności ponowne uruchomienie wystąpienia, przy założeniu więcej niż jedna maszyna wirtualna otrzymano wpływ lub uruchomienia wielu wystąpień dla maszyny Wirtualnej. Zakładając, że typowy scenariusz Azure jednego wystąpienia serwera SAP aplikacji w maszynie Wirtualnej i w przypadku jednej maszyny Wirtualnej po pewnym czasie ponownie uruchomić pobieranie, Autostart nie są naprawdę ważne i można ją włączyć przez dodanie tego parametru:
+SAP oferowane funkcji hello wystąpień SAP toostart natychmiast po hello początku hello systemu operacyjnego w ramach hello maszyny Wirtualnej. Witaj kolejnych kroków zostały udokumentowane w artykule bazy wiedzy SAP [1909114] — jak toostart SAP wystąpienia automatycznie za pomocą parametru automatyczne uruchamianie. Jednak SAP jest nie rekomendowania toouse hello ustawienia ponieważ nie istnieje bez formantu w kolejności hello ponownego uruchamiania wystąpienie, zakładając, że otrzymano wpływ na więcej niż jedną maszynę Wirtualną lub uruchomienia wielu wystąpień dla maszyny Wirtualnej. Zakładając, że typowy scenariusz Azure jednego wystąpienia serwera aplikacji SAP w przypadku maszyny Wirtualnej i hello jednej maszyny wirtualnej po pewnym czasie ponownie uruchomić pobieranie, hello Autostart nie są naprawdę ważne i można ją włączyć przez dodanie tego parametru:
 
     Autostart = 1
 
-W profilu uruchamiania wystąpienia SAP ABAP i/lub Java.
+Do hello start profilu hello wystąpienia SAP ABAP i/lub Java.
 
 > [!NOTE]
-> Parametr Autostart może mieć także niektóre downfalls. Bardziej szczegółowo parametr wyzwalane uruchomienia programu SAP ABAP lub Java, po uruchomieniu pokrewne usługi systemu Windows i Linux wystąpienia. Po rozruchu w systemach operacyjnych na pewno jest wielkość liter. Jednak ponowne uruchomienie usługi SAP są również wspólnej operacją dla zarządzania cyklem życia oprogramowania SAP funkcji, takich jak SUM lub innych aktualizacji lub uaktualnienia. Te funkcje nie są oczekiwane jest wystąpienie automatycznie uruchamiany ponownie wcale. W związku z tym parametrze Autostart powinno zostać wyłączone przed uruchomieniem takie zadania. Parametr Autostart powinien nie również w wystąpieniach programu SAP, które są klastrowane, takich jak ASCS/SCS/CI.
+> Parametr Autostart Hello może mieć także niektóre downfalls. Bardziej szczegółowo wyzwalaczy parametru hello hello początku wystąpienia SAP ABAP lub Java, czy hello związane z usługi systemu Windows i Linux wystąpienia hello jest uruchomiona. Na pewno to przypadek powitania po rozruchu hello systemów operacyjnych. Jednak ponowne uruchomienie usługi SAP są również wspólnej operacją dla zarządzania cyklem życia oprogramowania SAP funkcji, takich jak SUM lub innych aktualizacji lub uaktualnienia. Te funkcje nie są oczekiwane toobe wystąpienia automatycznie uruchomiona ponownie na wszystkie. W związku z tym parametru Autostart hello powinno zostać wyłączone przed uruchomieniem takie zadania. Parametr Autostart Hello powinien nie również w wystąpieniach programu SAP, które są klastrowane, takich jak ASCS/SCS/CI.
 >
 >
 
@@ -1868,65 +1868,65 @@ Można znaleźć dodatkowe informacje na temat autostart dla SAP wystąpień w t
 
 * [Uruchomienie/zatrzymanie SAP wraz z systemem Unix serwera uruchamiania/zatrzymywania](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Uruchamianie i zatrzymywanie SAP NetWeaver zarządzania agentami](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [Włączanie automatycznego uruchomienia z HANA bazy danych](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [Jak tooenable auto-Start elementu HANA bazy danych](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ### <a name="larger-3-tier-sap-systems"></a>Większe systemów SAP 3-warstwowej
-Aspekty wysokiej dostępności konfiguracje SAP 3-warstwowej otrzymano omówione już we wcześniejszych sekcjach. Ale co systemy, gdzie wymagania serwera DBMS są zbyt duże, aby została ona znajduje się w usłudze Azure, ale SAP warstwy aplikacji mogą być wdrożone na platformie Azure?
+Aspekty wysokiej dostępności konfiguracje SAP 3-warstwowej otrzymano omówione już we wcześniejszych sekcjach. Ale co o systemach, w którym wymagania dotyczące serwera DBMS hello są zbyt duże toohave ten znajduje się na platformie Azure, ale warstwy aplikacji hello SAP można ją wdrożyć na platformie Azure?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Lokalizacja 3-warstwowej SAP konfiguracji
-Nie jest obsługiwana w warstwie aplikacji podziału się lub aplikacji i systemu DBMS warstwy między lokalną i platformą Azure. Systemu SAP jest całkowicie wdrożonych lokalnie lub na platformie Azure. Również nie jest obsługiwane na niektóre serwery aplikacji, uruchom lokalną i inne na platformie Azure. To punkt początkowy dyskusji. Możemy również nie są obsługiwane do składniki systemu DBMS systemu SAP i SAP warstwa serwera aplikacji, wdrożonych w dwóch różnych regionach platformy Azure. Na przykład Bazami danych w warstwie aplikacji zachodnie stany USA i SAP w środkowe stany USA. Przyczyna nie obsługuje takiej konfiguracji jest czułości opóźnienia architektury SAP NetWeaver.
+Nie jest warstwy aplikacji hello obsługiwanych toosplit się lub aplikacja hello i warstwy DBMS między lokalną i platformą Azure. Systemu SAP jest całkowicie wdrożonych lokalnie lub na platformie Azure. Nie jest również obsługiwany toohave niektóre serwery aplikacji hello Uruchamianie lokalne i inne na platformie Azure. To hello dyskusji hello punktu początkowego. Możemy również nie są obsługiwane składniki systemu DBMS hello toohave systemu SAP i hello warstwa serwera aplikacji SAP wdrożone w dwóch różnych regionach platformy Azure. Na przykład Bazami danych w warstwie aplikacji zachodnie stany USA i SAP w środkowe stany USA. Przyczyna nie obsługuje takiej konfiguracji jest czułość opóźnienia hello hello SAP NetWeaver architektury.
 
-Jednak w ciągu ostatniego roku center partnerów opracowany wspólnej lokalizacji danych na regiony platformy Azure. Tych wspólnej lokalizacji są w bardzo pobliżu fizycznych danych Azure często centrów w obrębie regionu Azure. Połączenia trwałe z wspólnej lokalizacji za pośrednictwem usługi na platformie Azure i niedaleko może spowodować opóźnienia, które jest mniejszy niż 2 ms. W takich przypadkach do zlokalizowania warstwy DBMS (łącznie z magazynem sieci SAN/NAS) w wspólnej lokalizacji i SAP warstwy aplikacji na platformie Azure jest możliwe. Począwszy od grudnia 2015 r. nie mamy żadnych wdrożeń tak jak. Ale różnych klientów z wdrożenia aplikacji z systemem innym niż SAP korzystają z takiego podejścia już.
+Za pośrednictwem przebiegu hello danych w ciągu ostatniego roku partnerów center opracowany regionów tooAzure wspólnej lokalizacji. Wspólnej często są to następujące lokalizacje w sąsiedztwie bardzo toohello fizycznych usługi Azure data centrów w obrębie regionu Azure. połączenia trwałe z hello wspólnej lokalizacji za pośrednictwem usługi na platformie Azure i niedaleko Hello może spowodować opóźnienia, które jest mniejszy niż 2 ms. W takich przypadkach możliwe jest toolocate hello DBMS warstwy (łącznie z magazynem sieci SAN/NAS) w taki wspólnej lokalizacji i warstwy aplikacji SAP hello na platformie Azure. Począwszy od grudnia 2015 r. nie mamy żadnych wdrożeń tak jak. Ale różnych klientów z wdrożenia aplikacji z systemem innym niż SAP korzystają z takiego podejścia już.
 
 ### <a name="offline-backup-of-sap-systems"></a>Systemy kopii zapasowej SAP w trybie offline
-W zależności od konfiguracji SAP wybierze (warstwy 2 lub 3-warstwowej) może być konieczność tworzenia kopii zapasowej. Zawartość samej maszyny Wirtualnej i poproś go o kopii zapasowej bazy danych. Kopie zapasowe powinny można zrobić za pomocą metody bazy danych związanych z systemu DBMS. Szczegółowy opis różnych baz danych można znaleźć w [przewodnik DBMS][dbms-guide]. Z drugiej strony danych SAP utworzeniem kopii zapasowej w sposób w trybie offline (w tym również zawartości bazy danych) zgodnie z opisem w tej sekcji lub w trybie online zgodnie z opisem w następnej sekcji.
+Zależne od hello Konfiguracja SAP wybierze (warstwy 2 lub 3-warstwowej) może być toobackup potrzeby. zawartość Hello hello samej maszyny Wirtualnej oraz toohave kopię zapasową bazy danych hello. kopie zapasowe są oczekiwane toobe odbywa się za pomocą metody bazy danych związanych z Hello systemu DBMS. Szczegółowy opis hello różnych baz danych, można znaleźć w [przewodnik DBMS][dbms-guide]. Na hello drugiej strony, hello danych SAP kopię zapasową można w sposób w trybie offline (w tym również hello bazy danych zawartości) zgodnie z opisem w tej sekcji lub w trybie online zgodnie z opisem w następnej sekcji hello.
 
-Kopia zapasowa offline zasadniczo wymagają wyłączenia maszyny Wirtualnej za pośrednictwem portalu Azure i kopii dysku podstawowego VM oraz wszystkich dołączonych dysków VHD do maszyny Wirtualnej. Czy to zachowanie punktu w czasie obrazu maszyny Wirtualnej i jej skojarzone dyski. Zaleca się skopiowanie "kopie zapasowe" do innego konta magazynu Azure. Dlatego procedura opisana w rozdziale [kopiowanie dysków między kontami magazynu Azure] [ planning-guide-5.4.2] tego dokumentu będą miały zastosowania.
-Oprócz zamykania przy użyciu portalu Azure, co także zrobić to za pomocą programu Powershell lub interfejsu wiersza polecenia zgodnie z opisem w tym miejscu: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Kopia zapasowa offline Hello zasadniczo wymagałyby wyłączenia hello maszyny Wirtualnej za pośrednictwem portalu Azure hello i kopii dysku podstawowego VM hello oraz wszystkie dołączone toohello wirtualne dyski twarde maszyny Wirtualnej. Czy to zachowanie punktu w czasie obraz powitania maszyny Wirtualnej i jej skojarzone dyski. Kopie zapasowe"toocopy hello" zaleca się do innego konta magazynu Azure. Dlatego hello procedury opisanej w rozdziale [kopiowanie dysków między kontami magazynu Azure] [ planning-guide-5.4.2] tego dokumentu będą miały zastosowania.
+Oprócz hello przy użyciu zamknięcia hello portalu Azure, co także zrobić to za pomocą programu Powershell lub interfejsu wiersza polecenia zgodnie z opisem w tym miejscu: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
-Przywrócenie tego stanu może składać się z usuwanie podstawowej maszyny Wirtualnej, a także oryginalnych dysków podstawowej maszyny wirtualnej i zainstalować wirtualne dyski twarde, kopiowanie oryginalnego konta magazynu zapisane pliki VHD i ponowne wdrożenie systemu.
-W tym artykule przedstawiono przykład skryptu ten proces w programie Powershell: <http://www.westerndevs.com/azure-snapshots/>
+Przywracanie stanu tego polegać będzie usunięcie hello podstawowej maszyny Wirtualnej, a także hello oryginalnego dyski hello podstawowej maszyny Wirtualnej i zainstalować wirtualne dyski twarde, kopiowanie toohello wirtualne dyski twarde wstecz hello zapisane oryginalnego konta magazynu, a następnie ponownego wdrażania hello systemu.
+W tym artykule przedstawiono przykład sposobu tooscript tego procesu w programie Powershell: <http://www.westerndevs.com/azure-snapshots/>
 
-Upewnij się, że zainstalowano nową licencję SAP, ponieważ restoing kopii zapasowej maszyny Wirtualnej zgodnie z powyższym opisem powoduje utworzenie nowego klucza sprzętu.
+Upewnij się, że tooinstall nowej licencji SAP restoing kopii zapasowej maszyny Wirtualnej zgodnie z powyższym opisem tworzy nowy klucz sprzętu.
 
 ### <a name="online-backup-of-an-sap-system"></a>Kopii zapasowych online systemu SAP
-Zgodnie z opisem w kopii zapasowej systemu DBMS odbywa się z określonych metod DBMS [przewodnik DBMS][dbms-guide].
+Zgodnie z opisem w hello kopii zapasowej hello DBMS odbywa się z określonych metod DBMS [przewodnik DBMS][dbms-guide].
 
-Pozostałe maszyny wirtualne w ramach systemu SAP utworzeniem kopii zapasowej za pomocą funkcji Kopia zapasowa maszyny wirtualnej Azure. Azure kopii zapasowej maszyny wirtualnej został wprowadzony na początku 2015 i tym samym czasie jest standardowe metody kopii zapasowej pełnej maszyny Wirtualnej na platformie Azure. Kopia zapasowa Azure przechowuje kopie zapasowe na platformie Azure i pozwala ponownie przywracania maszyny wirtualnej.
+Innych maszyn wirtualnych w systemie SAP hello utworzeniem kopii zapasowej za pomocą funkcji Kopia zapasowa maszyny wirtualnej Azure. Kopia zapasowa maszyny wirtualnej platformy Azure został wprowadzony na początku 2015 i w tym samym czasie jest toobackup standardowe metody pełną maszyny Wirtualnej na platformie Azure. Kopia zapasowa Azure przechowuje kopie zapasowe hello na platformie Azure i pozwala ponownie przywracania maszyny wirtualnej.
 
 > [!NOTE]
-> Począwszy od grudnia 2015 przy użyciu kopii zapasowej maszyny Wirtualnej nie przechowuje unikatowy identyfikator maszyny Wirtualnej, która jest stosowana do programu SAP licencjonowania. Oznacza to, że przywracanie z kopii zapasowej maszyny Wirtualnej wymaga instalacji klucza licencji SAP, zgodnie z przywróconą maszyną Wirtualną jest traktowany jako nowej maszyny Wirtualnej i nie może zastąpić ten wcześniejsze, który został zapisany.
+> Począwszy od grudnia 2015 przy użyciu kopii zapasowej maszyny Wirtualnej nie przechowuje hello Unikatowy identyfikator maszyny Wirtualnej używanej do SAP licencjonowania. Oznacza to, że przywracanie z kopii zapasowej maszyny Wirtualnej wymaga instalacji klucza licencji SAP as hello przywrócić maszyny Wirtualnej jest uznawany za toobe nowej maszyny Wirtualnej i nie może zastąpić ten wcześniejsze, który został zapisany.
 > Począwszy od stycznia 2016 kopii zapasowej maszyny Wirtualnej Azure jeszcze nie obsługuje maszyn wirtualnych, które są wdrażane z usługą Azure Resourc Manager.
 >
 > ![Windows][Logo_Windows] Windows
 >
-> Teoretycznie maszyn wirtualnych, które wykonywania może być kopie zapasowe baz danych w sposób ciągły, jak również w przypadku systemów DBMS obsługuje usługi VSS systemu Windows (usługa kopiowania woluminów w tle <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx> ) jako np. serwer SQL nie.
-> Należy jednak pamiętać, który oparty na wykonywanie kopii zapasowych maszyny Wirtualnej platformy Azure, które przywraca w momencie baz danych nie są możliwe. Dlatego zaleca się wykonywanie kopii zapasowych baz danych z funkcjami systemu DBMS zdejmując to zadanie kopii zapasowej maszyny Wirtualnej Azure
+> Teoretycznie maszyn wirtualnych, które wykonywania może być kopie zapasowe baz danych w sposób ciągły, a także jeśli obsługuje systemy DBMS hello hello usługi VSS systemu Windows (usługa kopiowania woluminów w tle <https://msdn.microsoft.com/library/windows/desktop/bb968832 (v=vs.85).aspx > ) jak np. programu SQL Server.
+> Należy jednak pamiętać, który oparty na wykonywanie kopii zapasowych maszyny Wirtualnej platformy Azure, które przywraca w momencie baz danych nie są możliwe. Dlatego zaleca się tooperform kopie zapasowe baz danych z funkcjami systemu DBMS zdejmując to zadanie kopii zapasowej maszyny Wirtualnej Azure
 >
-> Aby zapoznać się z kopii zapasowej maszyny wirtualnej platformy Azure Uruchom tutaj: <https://azure.microsoft.com/documentation/articles/backup-azure-vms/>.
+> tooget zapoznać się z kopii zapasowej maszyny wirtualnej platformy Azure Uruchom tutaj: <https://azure.microsoft.com/documentation/articles/backup-azure-vms/>.
 >
-> Innych możliwości mają zastosowanie kombinacji programu Microsoft Data Protection Manager zainstalowane na maszynie Wirtualnej platformy Azure i kopia zapasowa Azure do wykonywania kopii zapasowej i przywracania bazy danych. Więcej informacji można znaleźć tutaj: <https://azure.microsoft.com/documentation/articles/backup-azure-dpm-introduction/>.  
+> Inne możliwości są toouse kombinacji programu Microsoft Data Protection Manager zainstalowane na maszynie Wirtualnej platformy Azure i kopia zapasowa Azure do wykonywania kopii zapasowej i przywracania bazy danych. Więcej informacji można znaleźć tutaj: <https://azure.microsoft.com/documentation/articles/backup-azure-dpm-introduction/>.  
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Nie ma odpowiednika do usługi VSS systemu Windows w systemie Linux. W związku z tym tylko plik spójne kopie zapasowe są możliwe, ale nie spójnych z aplikacją kopii zapasowych. Kopia zapasowa systemu DBMS SAP ma się odbywać za pomocą funkcji systemu DBMS. System plików, w tym SAP powiązane dane mogą zostać zapisane, np. przy użyciu tar zgodnie z opisem w tym miejscu: <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Nie ma żadnych równoważne tooWindows VSS w systemie Linux. W związku z tym tylko plik spójne kopie zapasowe są możliwe, ale nie spójnych z aplikacją kopii zapasowych. Witaj kopii zapasowej systemu DBMS SAP ma się odbywać za pomocą funkcji systemu DBMS. Witaj systemu plików, w tym hello SAP powiązane dane mogą zostać zapisane, np. przy użyciu tar zgodnie z opisem w tym miejscu: <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 
 ### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>Azure jako lokacja DR dla krajobrazów SAP produkcji
-Od Mid 2014 rozszerzenia do różnych składników funkcji Hyper-V, programu System Center i Azure Włącz użycie Azure jako lokacja DR dla maszyny wirtualne z systemami lokalnymi oparte na funkcji Hyper-V.
+Ponieważ Mid 2014 rozszerzenia toovarious składników funkcji Hyper-V, programu System Center i Azure Włącz użycie hello Azure jako lokacja DR dla maszyny wirtualne z systemami lokalnymi oparte na funkcji Hyper-V.
 
-Blog informacji o sposobach wdrażania tego rozwiązania opisano w tym miejscu: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>
+Blog, opisujące, jak toodeploy to rozwiązanie jest opisanych tutaj: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>
 
 ## <a name="summary"></a>Podsumowanie
-Najważniejsze wysokiej dostępności dla systemów SAP na platformie Azure są:
+Witaj klucz wskazuje wysokiej dostępności dla systemów SAP na platformie Azure są:
 
-* W tym momencie SAP pojedynczego punktu awarii nie może zostać wysłana dokładnie tak samo, jak można zrobić w przypadku wdrożeń lokalnych. Przyczyną jest to dysk udostępnionych klastrów jeszcze nie można utworzyć na platformie Azure, bez korzystania z oprogramowania 3.
-* Dla warstwy DBMS należy korzystać z funkcji systemu DBMS, które nie korzystają z technologii klastra udostępnionego dysku. Szczegółowe informacje są udokumentowane w artykule [przewodnik DBMS][dbms-guide].
-* Aby zminimalizować wpływ problemów w obrębie domen błędów w Azure konserwacja infrastruktury lub hosta, należy korzystać z zestawami dostępności Azure:
-  * Zalecane jest mają jeden zbiór dostępności dla warstwy aplikacji SAP.
-  * Zalecane jest mają oddzielne zestaw dostępności dla warstwy SAP DBMS.
-  * NIE zaleca się zastosowanie tego samego zestawu dostępności dla maszyn wirtualnych różnych systemów SAP.
-* Do celów tworzenia kopii zapasowej warstwy SAP DBMS, sprawdź, czy [przewodnik DBMS][dbms-guide].
-* Tworzenie kopii zapasowej wystąpienia okna dialogowego SAP ma sens małego ponieważ jest zwykle szybsze ponownie wdrożyć prosty okna dialogowego wystąpień.
-* Tworzenie kopii zapasowej maszyny Wirtualnej zawierający katalogu globalnego systemu SAP, z nim wszystkie profile z różnymi wystąpieniami sensu i powinny być wykonywane przy użyciu kopii zapasowej systemu Windows lub tar np. w systemie Linux. Ponieważ istnieją różnice między systemem Windows Server 2008 (R2) i Windows Server 2012 (R2), które ułatwiają kopii zapasowej za pomocą nowszej systemu Windows Server zwalnia, firma Microsoft zaleca, aby uruchomić system Windows Server 2012 (R2) jako systemu operacyjnego gościa.
+* W tym momencie hello SAP pojedynczego punktu awarii nie można dokładnie zabezpieczyć hello sam sposób, jak można zrobić w przypadku wdrożeń lokalnych. Hello przyczyn jest to, że klastry udostępnionych dysków nie jeszcze można utworzyć na platformie Azure bez użycia hello 3 firmy.
+* Dla warstwy DBMS hello należy toouse DBMS funkcje, które nie bazuje na technologii klastra udostępnionego dysku. Szczegółowe informacje są udokumentowane w hello [przewodnik DBMS][dbms-guide].
+* wpływ hello toominimize problemów w obrębie domen błędów w hello Azure konserwacja infrastruktury lub hosta, należy korzystać z zestawami dostępności Azure:
+  * Zalecane jest toohave jeden zbiór dostępności dla warstwy aplikacji hello SAP.
+  * Zalecane jest toohave zbiór oddzielne dostępności dla warstwy SAP DBMS hello.
+  * NIE jest zalecane hello tooapply, ustawione w tym samym dostępności dla maszyn wirtualnych różnych systemów SAP.
+* Do celów tworzenia kopii zapasowej hello SAP DBMS warstwy, sprawdź, czy hello [przewodnik DBMS][dbms-guide].
+* Tworzenie kopii zapasowej wystąpienia okna dialogowego SAP sens małego ponieważ jest zwykle szybsze tooredeploy prostego okna dialogowego wystąpień.
+* Wykonywanie kopii zapasowych hello maszyny Wirtualnej zawierający katalogu globalnego hello hello systemu SAP i z nim wszystkie profile hello różnych wystąpień hello, sensu i powinno odbywać się przy użyciu kopii zapasowej systemu Windows lub tar np. w systemie Linux. Ponieważ różnią się od systemu Windows Server 2008 (R2) i Windows Server 2012 (R2), które stał się łatwiejsze toobackup przy użyciu hello nowsze wersje systemu Windows Server, zaleca się toorun systemu Windows Server 2012 (R2) jako systemu operacyjnego gościa.

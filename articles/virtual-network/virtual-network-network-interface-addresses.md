@@ -1,6 +1,6 @@
 ---
-title: Skonfiguruj adresy IP dla interfejsu sieci platformy Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak dodawanie, zmienianie i usuwanie prywatnych i publicznych adresów IP dla karty sieciowej."
+title: "aaaConfigure adresów IP dla interfejsu sieci platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zmienić tooadd i Usuń prywatne i publiczne adresy IP dla karty sieciowej."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,46 +15,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1e5ea6c65d93be9b1fda5d807500a0823c94c89c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie lub usuwanie adresów IP dla interfejsu sieci platformy Azure
 
-Dowiedz się, jak dodawanie, zmienianie i usuwanie prywatnych i publicznych adresów IP dla karty sieciowej. Prywatne adresy IP przypisane do interfejsu sieciowego umożliwiają maszynie wirtualnej do komunikowania się z innymi zasobami w sieci wirtualnej platformy Azure i sieci połączonych. Prywatny adres IP umożliwia także komunikacji wychodzącej z Internetem przy użyciu adresu IP nieprzewidywalne. A [publicznego adresu IP](virtual-network-public-ip-address.md) przypisany do interfejsu umożliwia przychodzącej komunikacji sieciowej do maszyny wirtualnej z Internetu. Adres umożliwia także komunikacji wychodzącej z maszyny wirtualnej z Internetem przy użyciu wartości prognozowanych adresu IP. Aby uzyskać więcej informacji, zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Dowiedz się, jak zmienić tooadd i usuń publiczne i prywatne adresy IP dla karty sieciowej. Prywatne adresy IP przypisane interfejsu sieciowego tooa włączyć toocommunicate maszynę wirtualną z innych zasobów w sieci wirtualnej platformy Azure i połączone sieci. Prywatny adres IP umożliwia także komunikacji wychodzącej toohello Internet przy użyciu nieprzewidywalne adresu IP. A [publicznego adresu IP](virtual-network-public-ip-address.md) przypisane tooa interfejsu sieciowego umożliwia komunikacji przychodzącej tooa maszyny wirtualnej na podstawie hello Internet. adres Hello umożliwia także komunikacji wychodzącej z toohello maszyny wirtualnej hello Internet przy użyciu wartości prognozowanych adresu IP. Aby uzyskać więcej informacji, zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-Jeśli użytkownik należy do tworzenia, zmienić lub usunąć interfejsu sieciowego, przeczytaj [Zarządzanie interfejsu sieciowego](virtual-network-network-interface.md) artykułu. Jeśli trzeba dodać interfejsów sieciowych lub usunąć interfejsów sieciowych z maszyny wirtualnej, przeczytaj [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) artykułu. 
+Toocreate, należy zmienić lub usunąć interfejsu sieciowego, przeczytaj hello [Zarządzanie interfejsu sieciowego](virtual-network-network-interface.md) artykułu. Jeśli potrzebujesz interfejsy sieciowe tooadd tooor interfejsów sieciowych Usuń z maszyny wirtualnej, przeczytaj hello [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md) artykułu. 
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed wykonaniem kolejnych kroków w dowolnej części tego artykułu, należy wykonać następujące zadania:
+Wykonaj następujące zadania, przed wykonaniem dowolnej kroków w żadnej sekcji tego artykułu hello:
 
-- Przegląd [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu, aby dowiedzieć się więcej na temat limitów dla publicznych i prywatnych adresów IP.
-- Zaloguj się do platformy Azure [portal](https://portal.azure.com), Azure interfejsu wiersza polecenia (CLI) lub Azure PowerShell przy użyciu konta platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
-- Jeśli za pomocą poleceń programu PowerShell do wykonywania zadań w tym artykule [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję apletów poleceń programu Azure PowerShell zainstalowane. Aby uzyskać pomoc dotyczącą poleceń programu PowerShell, wraz z przykładami, wpisz `get-help <command> -full`.
-- Jeśli za pomocą poleceń Azure interfejsu wiersza polecenia (CLI) do wykonywania zadań w tym artykule [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję interfejsu wiersza polecenia Azure zainstalowane. Aby uzyskać pomoc dotyczącą poleceń interfejsu wiersza polecenia, wpisz `az <command> --help`. Zamiast instalowania interfejsu wiersza polecenia i jego wymagania wstępne, można użyć powłoki chmury Azure. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Aby użyć powłoki chmury, kliknij przycisk powłoki chmury **> _** przycisk w górnej części [portal](https://portal.azure.com).
+- Przejrzyj hello [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) toolearn artykuł na temat limitów dla publicznych i prywatnych adresów IP.
+- Zaloguj się za toohello Azure [portal](https://portal.azure.com), Azure interfejsu wiersza polecenia (CLI) lub Azure PowerShell przy użyciu konta platformy Azure. Jeśli nie masz jeszcze konta platformy Azure, należy zarejestrować się w celu [bezpłatnego konta wersji próbnej](https://azure.microsoft.com/free).
+- Jeśli przy użyciu programu PowerShell poleceń toocomplete zadania w tym artykule [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję hello apletów poleceń programu hello Azure PowerShell. tooget Pomoc dla poleceń programu PowerShell, wraz z przykładami, wpisz `get-help <command> -full`.
+- Jeśli przy użyciu interfejsu wiersza polecenia platformy Azure (CLI) polecenia toocomplete zadania w tym artykule [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Upewnij się, że masz najnowszą wersję hello hello Azure CLI zainstalowane. tooget pomocy dla poleceń interfejsu wiersza polecenia, wpisz `az <command> --help`. Zamiast instalowania hello interfejsu wiersza polecenia i jego wymagania wstępne można użyć hello powłoki chmury Azure. Hello powłoki chmury Azure jest bezpłatna powłoki Bash, który można uruchomić bezpośrednio z poziomu hello portalu Azure. Ma ona hello Azure CLI wstępnie zainstalowane i skonfigurowane toouse z Twoim kontem. toouse hello powłoki chmury kliknij hello powłoki chmury **> _** u góry hello hello [portal](https://portal.azure.com).
 
 ## <a name="add-ip-addresses"></a>Dodaj adresy IP
 
-Można dodać jako wiele [prywatnej](#private) i [publicznego](#public) [IPv4](#ipv4) adresy odpowiednio do interfejsu sieciowego, w ramach limitów na liście [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu. Nie można użyć portalu, aby dodać adres IPv6 do istniejącego interfejsu sieciowego (chociaż portalu umożliwia dodawanie prywatnego adresu IPv6 karty sieciowej, podczas tworzenia interfejsu sieciowego). Można użyć programu PowerShell lub interfejsu wiersza polecenia do dodania do jednego prywatnego adresu IPv6 [dodatkowej konfiguracji IP](#secondary) (o ile istnieją żadnych istniejących dodatkowej konfiguracji IP) dla istniejącego interfejsu sieciowego, który nie jest dołączony do maszyny wirtualnej. Nie można użyć dowolnego narzędzia można dodać publiczny adres IPv6 do interfejsu sieciowego. Zobacz [IPv6](#ipv6) szczegółowe informacje o przy użyciu adresów IPv6. 
+Można dodać jako wiele [prywatnej](#private) i [publicznego](#public) [IPv4](#ipv4) adresy niezbędne tooa interfejsu sieciowego, w ramach limitów hello na liście hello [limity Azure ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu. Nie można użyć tooadd portalu hello istniejącego interfejsu sieciowego IPv6 adres tooan (chociaż podczas tworzenia hello interfejsu sieciowego, można użyć portalu tooadd hello prywatnego interfejsu sieciowego tooa adres IPv6). Możesz użyć programu PowerShell lub hello tooone adres tooadd prywatnej IPv6 interfejsu wiersza polecenia [dodatkowej konfiguracji IP](#secondary) (o ile istnieją żadnych istniejących dodatkowej konfiguracji IP) dla istniejącej sieci interfejsu, który nie jest dołączony tooa wirtualnego maszyny. Nie można użyć dowolnego narzędzia tooadd publicznego interfejsu sieciowego tooa adres IPv6. Zobacz [IPv6](#ipv6) szczegółowe informacje o przy użyciu adresów IPv6. 
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
-2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
-3. W **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk ma zostać dodany adres IPv4 dla interfejsu sieciowego.
-4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
-5. Kliknij przycisk **+ Dodaj** w otwartym bloku dla konfiguracji adresów IP.
-6. Podaj następujące informacje, a następnie kliknij przycisk **OK** zamknąć **konfiguracji IP dodać** bloku:
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, czyli przypisane (co najmniej) uprawnienia roli współautora sieci powitania dla Twojej subskrypcji. Witaj odczytu [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) więcej informacji na temat przypisywania ról i uprawnień tooaccounts toolearn artykułu.
+2. W polu hello, które zawiera tekst hello *wyszukiwania zasobów* u góry hello hello portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania hello, kliknij ją.
+3. W hello **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk ma adres tooadd IPv4 dla interfejsu sieciowego hello.
+4. Kliknij przycisk **konfiguracje adresów IP** w hello **ustawienia** części bloku hello interfejsu sieciowego hello wybrane.
+5. Kliknij przycisk **+ Dodaj** w bloku hello, którego kliknięcie spowoduje otwarcie dla konfiguracji adresów IP.
+6. Określ hello poniżej, a następnie kliknij przycisk **OK** tooclose hello **konfiguracji IP dodać** bloku:
 
-    |Ustawienie|Wymagane?|Szczegóły|
+    |Ustawienie|Wymagana?|Szczegóły|
     |---|---|---|
-    |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego|
-    |Typ|Tak|Ponieważ dodajesz konfiguracji IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [głównej](#primary) jest jedyną opcją konfiguracji adresów IP, **dodatkowej**.|
-    |Metoda przypisywania adresu prywatnego adresu IP|Tak|[**Dynamiczne** ](#dynamic) adresy można zmienić, jeśli maszyna wirtualna zostanie ponownie uruchomiony po przejściu w stan zatrzymania (cofnięciu przydziału). Azure przypisuje adres z przestrzeni adresowej podsieci jest połączony interfejs sieci. [**Statyczne** ](#static) adresy nie są zwalniane aż do usunięcia interfejsu sieciowego. Określ adres IP z zakresu przestrzeni adresów podsieci, który nie jest obecnie używany przez inną konfigurację adresu IP.|
-    |Publiczny adres IP|Nie|**Wyłączone:** zasobu bez publicznego adresu IP jest obecnie skojarzony z konfiguracją protokołu IP. **Włączone:** wybierz istniejący adres IPv4 publicznego adresu IP lub Utwórz nową. Aby dowiedzieć się, jak utworzyć publicznego adresu IP, przeczytaj [publicznego adresu IP, adresy](virtual-network-public-ip-address.md#create-a-public-ip-address) artykułu.|
-7. Ręcznie Dodaj dodatkowej prywatnych adresów IP do systemu operacyjnego maszyny wirtualnej, wykonując instrukcje [przypisać wiele adresów IP do maszyny wirtualnej systemów operacyjnych](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed ręcznie dodać adresy IP do systemu operacyjnego maszyny wirtualnej. Nie dodawaj żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
+    |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego hello|
+    |Typ|Tak|Ponieważ w przypadku dodawania istniejącego interfejsu sieciowego IP konfiguracji tooan i każdego interfejsu sieciowego musi mieć [głównej](#primary) jest jedyną opcją konfiguracji adresów IP, **dodatkowej**.|
+    |Metoda przypisywania adresu prywatnego adresu IP|Tak|[**Dynamiczne** ](#dynamic) adresy można zmienić, jeśli hello maszyny wirtualnej zostanie ponownie uruchomiony po o w hello zatrzymane (cofnięciu przydziału) stanu. Azure przypisuje adres z hello przestrzeni adresowej interfejsu sieciowego hello podsieci hello jest połączony. [**Statyczne** ](#static) adresy nie są zwalniane aż do usunięcia hello interfejsu sieciowego. Określ adres IP z zakresu przestrzeni adresów podsieci hello, który nie jest obecnie używany przez inną konfigurację adresu IP.|
+    |Publiczny adres IP|Nie|**Wyłączone:** zasobu bez publicznego adresu IP jest obecnie skojarzony toohello konfiguracji adresu IP. **Włączone:** wybierz istniejący adres IPv4 publicznego adresu IP lub Utwórz nową. toolearn jak toocreate publiczny adres IP, przeczytaj hello [publicznego adresu IP, adresy](virtual-network-public-ip-address.md#create-a-public-ip-address) artykułu.|
+7. Ręcznie Dodaj dodatkowej prywatnego adresu IP adresów toohello systemu operacyjnego maszyny wirtualnej, wykonując instrukcje hello hello [przypisać wiele adresów IP systemów operacyjnych maszyny toovirtual](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed dodaniem ręcznie systemu operacyjnego maszyny wirtualnej tooa adresów IP. Nie dodawaj żadnych publicznego adresu IP adresów toohello systemu operacyjnego maszyny wirtualnej.
 
 **Polecenia**
 
@@ -65,17 +65,17 @@ Można dodać jako wiele [prywatnej](#private) i [publicznego](#public) [IPv4](#
 
 ## <a name="change-ip-address-settings"></a>Zmień ustawienia adresu IP
 
-Może zmienić metodę przypisanie adresu IPv4 zmień statyczny adres IPv4, lub zmień publiczny adres IP przypisany do interfejsu sieciowego. Jeśli chcesz zmienić prywatny adres IPv4 dodatkowej konfiguracji adresu IP skojarzonego z dodatkowy interfejs sieciowy na maszynie wirtualnej (Dowiedz się więcej o [interfejsów sieciowych podstawowych i pomocniczych](virtual-network-network-interface-vm.md#about)), umieść maszynę wirtualną do (cofnięciu przydziału) zatrzymana przed wykonaniem poniższych kroków: 
+Metoda przydziału hello toochange adres IPv4, zmień hello statyczny adres IPv4, może być konieczne lub hello zmian publicznego adresu IP przypisane tooa interfejsu sieciowego. Jeśli chcesz zmienić hello prywatny adres IPv4 dodatkowej konfiguracji adresu IP skojarzonego z dodatkowy interfejs sieciowy na maszynie wirtualnej (Dowiedz się więcej o [interfejsów sieciowych podstawowych i pomocniczych](virtual-network-network-interface-vm.md#about)), miejsce hello wirtualnego maszyny do hello zatrzymane (cofnięciu przydziału) stanu przed ukończeniem hello następujące kroki: 
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
-2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
-3. W **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk chcesz przejrzeć lub zmienić ustawienia adresu IP dla interfejsu sieciowego.
-4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
-5. Kliknij pozycję konfiguracji IP, który chcesz zmodyfikować na liście w bloku, który zostanie otwarty w przypadku konfiguracji adresu IP.
-6. Zmień ustawienia, zgodnie z potrzebami, korzystając z informacji o ustawieniach w kroku 6 [Dodaj konfigurację IP](#create-ip-config) sekcji tego artykułu. Kliknij przycisk **zapisać** zamknąć bloku do konfiguracji protokołu IP, można zmienić.
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, czyli przypisane (co najmniej) uprawnienia roli współautora sieci powitania dla Twojej subskrypcji. Witaj odczytu [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) więcej informacji na temat przypisywania ról i uprawnień tooaccounts toolearn artykułu.
+2. W polu hello, które zawiera tekst hello *wyszukiwania zasobów* u góry hello hello portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania hello, kliknij ją.
+3. W hello **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk hello interfejsu sieciowego mają tooview lub zmienić ustawienia adresu IP.
+4. Kliknij przycisk **konfiguracje adresów IP** w hello **ustawienia** części bloku hello interfejsu sieciowego hello wybrane.
+5. Kliknij pozycję Konfiguracja IP hello ma toomodify z listy hello w bloku hello, którego kliknięcie spowoduje otwarcie dla konfiguracji adresów IP.
+6. Zmień hello ustawienia, zgodnie z potrzebami, za pomocą hello informacji o ustawieniach hello w kroku 6 hello [Dodaj konfigurację IP](#create-ip-config) sekcji tego artykułu. Kliknij przycisk **zapisać** tooclose hello bloku do konfiguracji protokołu IP hello zostało zmienione.
 
 >[!NOTE]
->Podstawowy interfejs sieciowy ma wielu konfiguracji adresów IP, można zmienić prywatnego adresu IP w konfiguracji podstawowego adresu IP należy ręcznie ponownie przypisać głównych i dodatkowych adresów IP do interfejsu sieciowego w systemie Windows (nie wymaga Linux) . Aby ręcznie przypisywać adresy IP do karty sieciowej w systemie operacyjnym, przeczytaj [przypisać wiele adresów IP maszynom wirtualnym](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed ręcznie dodać adresy IP do systemu operacyjnego maszyny wirtualnej. Nie dodawaj żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
+>Jeśli hello podstawowy interfejs sieciowy ma wielu konfiguracji adresów IP i zmień hello prywatnego adresu IP hello podstawową konfigurację protokołu IP, należy ręcznie ponownie przypisać hello podstawowych i pomocniczych IP adresów toohello interfejsu sieciowego w systemie Windows (nie wymagany dla systemu Linux). toomanually przypisać interfejsu sieciowego tooa adresów IP w ramach systemu operacyjnego, przeczytaj hello [przypisać wiele adresów IP maszyny toovirtual](virtual-network-multiple-ip-addresses-portal.md#os-config) artykułu. Zobacz [prywatnej](#private) adresów IP dla uwagi przed dodaniem ręcznie systemu operacyjnego maszyny wirtualnej tooa adresów IP. Nie dodawaj żadnych publicznego adresu IP adresów toohello systemu operacyjnego maszyny wirtualnej.
 
 **Polecenia**
 
@@ -86,14 +86,14 @@ Może zmienić metodę przypisanie adresu IPv4 zmień statyczny adres IPv4, lub 
 
 ## <a name="remove-ip-addresses"></a>Usuń adresy IP
 
-Możesz usunąć [prywatnej](#private) i [publicznego](#public) adresów IP z karty sieciowej, ale interfejs sieciowy musi zawsze mieć przypisane do niego co najmniej jeden prywatny adres IPv4.
+Możesz usunąć [prywatnej](#private) i [publicznego](#public) adresów IP z karty sieciowej, ale interfejs sieci zawsze musi mieć co najmniej jednego prywatnego tooit przypisany adres IPv4.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, który jest przypisane (co najmniej) uprawnienia roli współautora sieci dla Twojej subskrypcji. Odczyt [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artykuł, aby dowiedzieć się więcej o przypisywanie ról i uprawnień do kont.
-2. W polu zawierająca tekst, który *wyszukiwania zasobów* w górnej części portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania kliknij ją.
-3. W **interfejsy sieciowe** wyświetlonym bloku, kliknij interfejsu sieciowego, aby usunąć IP adresów z.
-4. Kliknij przycisk **konfiguracje adresów IP** w **ustawienia** bloku dla wybranego interfejsu sieciowego.
-5. Kliknij prawym przyciskiem myszy [dodatkowej](#secondary) konfiguracji protokołu IP (nie można usunąć [głównej](#primary) konfiguracji) chcesz usunąć, kliknij przycisk **usunąć**, następnie kliknij przycisk **tak** aby potwierdzić usunięcie. Konfiguracja gdyby publicznego zasobu adres IP skojarzony zasobu jest oddzielona od konfiguracji IP, ale zasób nie zostanie usunięta.
-6. Zamknij **konfiguracje adresów IP** bloku.
+1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, czyli przypisane (co najmniej) uprawnienia roli współautora sieci powitania dla Twojej subskrypcji. Witaj odczytu [wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) więcej informacji na temat przypisywania ról i uprawnień tooaccounts toolearn artykułu.
+2. W polu hello, które zawiera tekst hello *wyszukiwania zasobów* u góry hello hello portalu Azure, wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawia się w wynikach wyszukiwania hello, kliknij ją.
+3. W hello **interfejsy sieciowe** bloku, który jest wyświetlany, kliknij przycisk tooremove adresy IP z interfejsu sieciowego hello.
+4. Kliknij przycisk **konfiguracje adresów IP** w hello **ustawienia** części bloku hello interfejsu sieciowego hello wybrane.
+5. Kliknij prawym przyciskiem myszy [dodatkowej](#secondary) konfiguracji protokołu IP (nie można usunąć hello [głównej](#primary) konfiguracji) mają toodelete, kliknij przycisk **usunąć**, następnie kliknij przycisk **tak**  tooconfirm hello usunięcia. Jeśli konfiguracja hello ma zasób publicznego adresu IP skojarzonego tooit, zasobów hello jest oddzielona od konfiguracji IP hello, ale hello zasobów nie zostanie usunięta.
+6. Zamknij hello **konfiguracje adresów IP** bloku.
 
 **Polecenia**
 
@@ -104,76 +104,76 @@ Możesz usunąć [prywatnej](#private) i [publicznego](#public) adresów IP z ka
 
 ## <a name="ip-configurations"></a>Konfiguracje adresów IP
 
-[Prywatne](#private) i (opcjonalnie) [publicznego](#public) adresy IP są przypisywane do co najmniej jednej konfiguracji IP przypisane do karty sieciowej. Istnieją dwa typy konfiguracji adresu IP:
+[Prywatne](#private) i (opcjonalnie) [publicznego](#public) adresy IP są przypisywane tooone lub więcej konfiguracje adresów IP przypisanych tooa interfejsu sieciowego. Istnieją dwa typy konfiguracji adresu IP:
 
 ### <a name="primary"></a>Podstawowy
 
 Każdy interfejs sieciowy jest przypisany jedną podstawową konfigurację protokołu IP. Podstawową konfigurację protokołu IP:
 
-- Ma [prywatnej](#private) [IPv4](#ipv4) adres przypisany do niej. Nie można przydzielić prywatnej [IPv6](#ipv6) adres podstawową konfigurację protokołu IP.
-- Może być również [publicznego](#public) przypisane do niej adres IPv4. Nie można przypisać publiczny adres IPv6 do podstawowej lub dodatkowej konfiguracji adresu IP. Jednak możesz przypisać publiczny adres IPv6 do modułu równoważenia obciążenia Azure, które można równoważenia obciążenia ruchu maszyny wirtualnej prywatny adres IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
+- Ma [prywatnej](#private) [IPv4](#ipv4) tooit adres przypisany. Nie można przydzielić prywatnej [IPv6](#ipv6) adres tooa podstawową konfigurację protokołu IP.
+- Może być również [publicznego](#public) tooit przypisany adres IPv4. Nie można przypisać publicznej konfiguracji adresów IPv6 tooa podstawowy lub pomocniczy IP. Możesz natomiast, przypisz IPv6 publiczny adres usługi równoważenia obciążenia Azure tooan, które można załadować równoważenie ruchu tooa maszynę wirtualną w prywatny adres IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
 ### <a name="secondary"></a>Pomocniczy
 
-Oprócz konfiguracji podstawowego adresu IP karty sieciowej może być zero lub więcej dodatkowej konfiguracji IP przypisanych do niego. Dodatkowej konfiguracji adresu IP:
+Ponadto tooa podstawową konfigurację protokołu IP, karty sieciowej może być zero lub więcej dodatkowej konfiguracji IP przypisanych tooit. Dodatkowej konfiguracji adresu IP:
 
-- Musi mieć prywatny adres IPv4 lub IPv6 przypisany do niej. Jeśli adres IPv6, interfejsu sieciowego może mieć tylko jedną konfigurację adresu IP dodatkowej. Jeśli adres IPv4, interfejsu sieciowego może mieć wielu dodatkowej konfiguracji IP przypisane do niej. Aby dowiedzieć się więcej na temat liczby prywatnych i publicznych adresów IPv4 można przypisać do interfejsu sieciowego, zobacz [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.  
-- Może również mieć publiczny adres IPv4 przypisane, jeśli protokół IPv4 jest prywatny adres IP. Prywatny adres IP w przypadku protokołu IPv6, nie można przypisać publiczny adres IPv4 lub IPv6 z konfiguracją protokołu IP. Przypisywanie wielu adresów IP do interfejsu sieciowego jest takie jak przydatne w scenariuszach:
+- Musi mieć prywatnych tooit przypisany adres IPv4 lub IPv6. Jeśli hello adresu IPv6, hello interfejsu sieciowego może mieć tylko jedną konfigurację adresu IP dodatkowej. Jeśli hello adres IPv4, hello interfejsu sieciowego może mieć wielu dodatkowej konfiguracji adresów IP przypisanych tooit. toolearn więcej informacji na temat liczby prywatnych i publicznych adresów IPv4 można przypisać tooa interfejsu sieciowego, zobacz hello [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.  
+- Mogą także mieć publicznego tooit przypisany adres IPv4, jeśli hello prywatnego adresu IP jest protokół IPv4. Hello prywatnego adresu IP w przypadku protokołu IPv6, nie można przypisać z publicznego IPv4 lub IPv6 adres toohello konfiguracji IP. Przypisywanie wielu interfejsu sieciowego tooa adresów IP jest takie jak przydatne w scenariuszach:
     - Hostowanie wielu witryn sieci Web lub usług z różnymi adresami IP i certyfikatami SSL na jednym serwerze.
     - Maszyna wirtualna, służąc jako urządzenie wirtualne sieci, takie jak Zapora lub Usługa równoważenia obciążenia.
-    - Możliwość dodawania żadnego prywatne adresy IPv4 dla wszystkich interfejsów sieciowych do puli zaplecza modułu równoważenia obciążenia Azure. W przeszłości tylko podstawowy adres IPv4 dla interfejsu sieci podstawowej można można dodać do puli zaplecza. Aby dowiedzieć się więcej na temat sposobu równoważenia obciążenia wielu konfiguracji IPv4, zobacz [wielu konfiguracji adresów IP Równoważenie obciążenia](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. 
-    - Możliwość ładowania równoważenie jeden adres IPv6 przypisany do interfejsu sieciowego. Aby dowiedzieć się więcej na temat zrównoważeniu prywatny adres IPv6, zobacz [adresy IPv6 równoważenia obciążenia](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu.
+    - żadnego z adresów IPv4 prywatny dla każdego z puli zaplecza modułu równoważenia obciążenia Azure tooan interfejsów sieciowych hello hello Hello tooadd możliwości. W ciągu ostatnich hello tylko hello podstawowy adres IPv4 dla interfejsu sieci podstawowej hello można było dodać tooa puli zaplecza. toolearn więcej informacji na temat sposobu tooload saldo konfiguracji z wieloma IPv4 Zobacz hello [wielu konfiguracji adresów IP równoważenia obciążenia](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. 
+    - tooload możliwości Hello równoważenie jeden interfejs sieciowy tooa przypisany adres IPv6. toolearn więcej informacji na temat sposobu tooload saldo tooa prywatnego adresu IPv6, zobacz hello [adresy IPv6 równoważenia obciążenia](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu.
 
 
 ## <a name="address-types"></a>Typy adresów
 
-Następujące adresy IP można przypisać [konfiguracji IP](#ip-configurations):
+Witaj następujące typy tooan adresy IP można przypisać [konfiguracji IP](#ip-configurations):
 
 ### <a name="private"></a>Prywatne
 
-Prywatne [IPv4](#ipv4) adresy umożliwiają maszynie wirtualnej do komunikowania się z innych zasobów w sieci wirtualnej lub innych połączonych sieci. Maszyny wirtualnej nie może być przekazywane ruchu przychodzącego, ani można maszyny wirtualnej komunikowania się wychodzące z prywatnej [IPv6](#ipv6) adres, z jednym wyjątkiem. Maszyny wirtualnej mogą komunikować się z usługą równoważenia obciążenia Azure przy użyciu adresu IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
+Prywatne [IPv4](#ipv4) adresy włączyć toocommunicate maszynę wirtualną z innych zasobów w sieci wirtualnej lub innych połączonych sieciach. Maszyny wirtualnej nie może być przekazywane ruchu przychodzącego, ani można hello maszyny wirtualnej komunikowania się wychodzące z prywatnej [IPv6](#ipv6) adres, z jednym wyjątkiem. Maszyny wirtualne mogą komunikować się z modułem równoważenia obciążenia Azure hello przy użyciu adresu IPv6. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje i ograniczenia dotyczące IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
 
-Domyślnie serwery Azure DHCP przypisać prywatny adres IPv4 dla [podstawową konfigurację protokołu IP](#primary) interfejsu sieciowego do interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. O ile to konieczne, należy nigdy nie ręcznie ustawić adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. 
+Domyślnie serwery Azure DHCP hello przypisać hello prywatny adres IPv4 dla hello [podstawową konfigurację protokołu IP](#primary) hello sieci interfejsu toohello interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej hello. O ile to konieczne, należy nigdy nie ręcznie ustawić hello adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej hello. 
 
 > [!WARNING]
-> Jeśli adres IPv4 jest ustawiony jako podstawowy adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej kiedykolwiek różni się od prywatny adres IPv4, przypisane do podstawowej konfiguracji IP podstawowy interfejs sieciowy dołączonego do maszyny wirtualnej w obrębie platformy Azure możesz utracić łączność z maszyną wirtualną.
+> Jeśli tooa dołączony hello adres IPv4 ustawione jako hello podstawowy adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej kiedykolwiek różni się od hello toohello podstawową konfigurację protokołu IP interfejsu sieci podstawowej hello przypisany prywatny adres IPv4 w przypadku maszyny wirtualnej w systemie Azure zostaną utracone maszyny wirtualnej toohello łączności.
 
-Istnieją scenariusze, w których konieczne jest ręczne ustawienie adresu IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. Na przykład należy ręcznie ustawić głównych i dodatkowych adresów IP w systemie operacyjnym Windows podczas dodawania wielu adresów IP do maszyny wirtualnej platformy Azure. Dla maszyny wirtualnej systemu Linux może tylko należy ręcznie ustawić dodatkowych adresów IP. Zobacz [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](virtual-network-multiple-ip-addresses-portal.md#os-config) szczegółowe informacje. W przypadku ręcznie ustawienia adresu IP w ramach systemu operacyjnego, zalecane jest zawsze przypisz adresy z konfiguracją protokołu IP dla karty sieciowej, za pomocą metody przydziału statyczne (zamiast dynamicznych). Przypisanie adresu za pomocą metody statycznej zapewnia adres nie ulega zmianie w obrębie platformy Azure. Jeśli trzeba zmienić adres przypisany do konfiguracji adresu IP, jest zalecane możesz:
+Istnieją scenariusze, w których jest konieczne toomanually zestaw hello adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej hello. Na przykład należy ręcznie ustawić hello głównych i dodatkowych adresów IP w systemie operacyjnym Windows podczas dodawania wielu tooan adresów IP maszyny wirtualnej platformy Azure. Dla maszyny wirtualnej systemu Linux konieczne może być toomanually zestaw hello dodatkowych adresów IP. Zobacz [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](virtual-network-multiple-ip-addresses-portal.md#os-config) szczegółowe informacje. Po ustawieniu ręcznie hello adresu IP w ramach systemu operacyjnego hello, zalecane jest zawsze przypisać konfiguracji IP toohello hello adresów dla karty sieciowej, za pomocą metody przydziału statyczne (zamiast dynamicznych) hello. Przypisywanie adresu hello za pomocą metody statycznej hello zapewnia hello adres nie ulega zmianie w obrębie platformy Azure. Jeśli kiedykolwiek zajdzie toochange hello adres przypisany tooan konfiguracji adresu IP, jest zalecane możesz:
 
-1. Aby zapewnić, że maszyna wirtualna jest uzyskiwania adresu z serwerów Azure DHCP, Zmień przypisanie adresów IP protokołu DHCP w systemie operacyjnym i uruchom ponownie maszynę wirtualną.
-2. Zatrzymaj (deallocate) maszyny wirtualnej.
-3. Zmienianie adresu IP dla konfiguracji IP w obrębie platformy Azure.
-4. Uruchamia maszynę wirtualną.
-5. [Ręczne konfigurowanie](virtual-network-multiple-ip-addresses-portal.md#os-config) dodatkowych adresów IP w ramach systemu operacyjnego (a także podstawowego adresu IP w systemie Windows) do dopasowania, ustaw w obrębie platformy Azure.
+1. Maszyna wirtualna tooensure hello jest uzyskiwania adresu z serwerów Azure DHCP hello, zmień przydział hello wstecz tooDHCP adres IP hello w ramach systemu operacyjnego hello i maszyny wirtualnej hello ponownego uruchomienia.
+2. Zatrzymaj (deallocate) hello maszyny wirtualnej.
+3. Zmienianie adresu IP hello do konfiguracji protokołu IP hello w obrębie platformy Azure.
+4. Uruchom maszynę wirtualną hello.
+5. [Ręczne konfigurowanie](virtual-network-multiple-ip-addresses-portal.md#os-config) hello dodatkowej toomatch adresów w ramach systemu operacyjnego hello (a także hello podstawowego adresu IP w systemie Windows) adresu IP, ustaw w obrębie platformy Azure.
  
-Poprzednie kroki, prywatnego adresu IP przypisanego do interfejsu sieciowego w systemie Azure i w systemie operacyjnym maszyny wirtualnej, wykonując pozostają takie same. Aby śledzić maszyn wirtualnych w ramach subskrypcji ręcznie ustawionych adresów IP w ramach systemu operacyjnego, należy rozważyć dodanie Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) do maszyn wirtualnych. Można na przykład "przypisywanie adresów IP: statyczny", na przykład. W ten sposób maszyn wirtualnych można łatwo znaleźć w ramach subskrypcji ręcznie ustawionych adres IP w ramach systemu operacyjnego.
+Wykonując hello poprzednie kroki hello prywatnego adresu IP adres przypisany toohello interfejsu sieciowego w systemie Azure i w systemie operacyjnym maszyny wirtualnej, pozostają takie same hello. Śledź tookeep którego maszyn wirtualnych w ramach subskrypcji ręcznie ustawiono adresy IP w ramach systemu operacyjnego, należy rozważyć dodanie Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) toohello maszyn wirtualnych. Można na przykład "przypisywanie adresów IP: statyczny", na przykład. W ten sposób hello maszyn wirtualnych można łatwo znaleźć w ramach subskrypcji ręcznie ustawionych hello adres IP w ramach systemu operacyjnego hello.
 
-Oprócz włączenia maszyny wirtualnej do komunikowania się z innych zasobów w ramach tego samego lub połączonych sieci wirtualnych, prywatnego adresu IP umożliwia także maszyny wirtualnej do komunikowania się ruch wychodzący do Internetu. Połączenia wychodzące są źródłowego adresu sieciowego przetłumaczony przez platformę Azure nieprzewidywalne publicznego adresu IP. Aby dowiedzieć się więcej na temat usługi Azure wychodzące połączenie z Internetem, przeczytaj [Azure wychodzące połączenie z Internetem](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. Użytkownik nie może komunikować się przychodzących prywatny adres IP maszyny wirtualnej z Internetu.
+Ponadto tooenabling toocommunicate maszynę wirtualną z innych zasobów w ramach tego samego lub połączonych sieci wirtualnych, prywatnego adresu IP również adres powitalne umożliwia toohello wychodzących toocommunicate Internet maszyny wirtualnej. Połączenia wychodzące są źródłowego adresu sieci przetłumaczyła nieprzewidywalne publicznego adresu IP tooan platformy Azure. więcej informacji na temat Azure wychodzące połączenie z Internetem, przeczytaj hello toolearn [Azure wychodzące połączenie z Internetem](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu. Nie można komunikować się maszyny wirtualnej dla ruchu przychodzącego tooa prywatnego adresu IP z hello Internet.
 
 ### <a name="public"></a>Publiczne
 
-Publiczne adresy IP Włącz połączenia przychodzącego na maszynę wirtualną z Internetu. Połączenia wychodzące z Internetem użyć przewidywalną adresu IP. Zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) szczegółowe informacje. Może przypisać publicznego adresu IP do konfiguracji adresu IP, ale nie są wymagane. Jeśli nie przypisuj do publicznego adresu IP do maszyny wirtualnej, może nadal się komunikować wychodzące z Internetem przy użyciu prywatnego adresu IP. Aby dowiedzieć się więcej na temat publiczne adresy IP, przeczytaj [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
+Publiczne adresy IP umożliwiają maszyny wirtualnej tooa połączenia przychodzącego z hello Internet. Połączenia wychodzące toohello Internet używać przewidywalną adresu IP. Zobacz [Opis połączeń wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) szczegółowe informacje. Może przypisać publicznej konfiguracji IP tooan adresu IP, ale nie są wymagane. Jeśli nie przypisano publiczny maszyny wirtualnej tooa adres IP, nadal mogą komunikować się wychodzących toohello Internetem przy użyciu prywatnego adresu IP. więcej informacji na temat publiczne adresy IP, przeczytaj hello toolearn [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
 
-Istnieją ograniczenia liczby prywatnych i publicznych adresów IP, które można przypisać do interfejsu sieciowego. Aby uzyskać więcej informacji, przeczytaj [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.
+Istnieją ograniczenia toohello liczba prywatnych i publicznych adresów IP, że można przypisać tooa interfejsu sieciowego. Aby uzyskać więcej informacji, przeczytaj hello [Azure ogranicza](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu.
 
 > [!NOTE]
-> Azure tłumaczy prywatnego adresu IP maszyny wirtualnej do publicznego adresu IP. W związku z tym system operacyjny nie rozpoznaje wszystkie publiczne adresy IP przypisane do, więc nie trzeba kiedykolwiek ręcznie przypisać publicznego adresu IP w ramach systemu operacyjnego.
+> Azure tłumaczy maszynę wirtualną prywatnego adresu IP adres tooa publicznego adresu IP. W związku z tym nie rozpoznaje wszystkie publiczne adresy IP przypisane tooit hello systemu operacyjnego, więc nie ma żadnych tooever muszą ręcznie przypisać publicznego adresu IP w ramach systemu operacyjnego hello.
 
 ## <a name="assignment-methods"></a>Metody przydziału
 
-Publiczne i prywatne adresy IP są przypisywane, przy użyciu następujących metod przypisania:
+Publiczne i prywatne adresy IP są przypisywane, przy użyciu hello następujące metody przypisania:
 
 ### <a name="dynamic"></a>Dynamiczny
 
-Prywatne IPv4 i IPv6 (opcjonalnie) adresy są przypisywane domyślnie. Jeśli maszyna wirtualna jest umieszczona w stanie zatrzymania (cofnięciu przydziału), a następnie uruchomiona, można zmienić adresów dynamicznych. Jeśli nie chcesz adresy IPv4, aby zmienić czas życia maszyny wirtualnej, należy przypisać adresy przy użyciu metody statycznej. Można przypisać tylko prywatnego adresu IPv6 przy użyciu metody dynamicznej przypisania. Nie można przypisać publiczny adres IPv6 do konfiguracji adresu IP za pomocą jednej z metod.
+Prywatne IPv4 i IPv6 (opcjonalnie) adresy są przypisywane domyślnie. Dynamiczne adresy można zmienić, gdy maszyna wirtualna hello są umieszczane w hello zatrzymana stanu (cofnięciu przydziału), a następnie uruchomić. Jeśli nie chcesz toochange adresy IPv4 dla okresu hello hello maszyny wirtualnej, przypisz adresy hello za pomocą metody statycznej hello. Można przypisać tylko prywatnego adresu IPv6 przy użyciu metody dynamiczne przydzielanie hello. Nie można przypisać publicznej konfiguracji adresów IPv6 tooan IP przy użyciu jednej z metod.
 
 ### <a name="static"></a>Statyczny
 
-Adresy przypisywane przy użyciu metody statycznej nie należy zmieniać dopóki maszyna wirtualna zostanie usunięta. Ręczne przypisywanie statycznych IPv4 prywatny adres do konfiguracji adresu IP z obszaru adresów podsieci interfejsu sieciowego jest. (Opcjonalnie) można przypisać publicznych lub prywatnych statyczny adres IPv4 do konfiguracji adresu IP. Nie można przypisać statycznego adresu IPv6 publicznych lub prywatnych do konfiguracji adresu IP. Aby dowiedzieć się więcej na temat sposobu Azure przypisuje statyczne publiczne adresy IPv4, zobacz [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
+Adresy przypisywane przy użyciu metody statycznej hello nie należy zmieniać dopóki maszyna wirtualna zostanie usunięta. Interfejs sieciowy hello podsieci hello jest ręcznie przypisać prywatnej IPv4 adres tooan konfiguracji statycznych adresów IP w przestrzeni adresowej hello. (Opcjonalnie) można przypisać publicznych lub prywatnych IPv4 adres tooan konfiguracji statycznych adresów IP. Nie można przypisać publicznych lub prywatnych IPv6 adres tooan konfiguracji statycznych adresów IP. toolearn więcej informacji na temat sposobu Azure przypisuje statyczne publiczne adresy IPv4, zobacz hello [publicznego adresu IP](virtual-network-public-ip-address.md) artykułu.
 
 ## <a name="ip-address-versions"></a>Wersji adresu IP
 
-Podczas przypisywania adresów, można określić następujące wersje:
+Można określić następujące wersje podczas przypisywania adresów hello:
 
 ### <a name="ipv4"></a>IPv4
 
@@ -181,15 +181,15 @@ Każdy interfejs sieciowy musi mieć jeden [głównej](#primary) konfiguracji ad
 
 ### <a name="ipv6"></a>Protokół IPv6
 
-Można przypisać prywatnego zero lub jeden [IPv6](#ipv6) adres do jednej dodatkowej konfiguracji IP interfejsu sieciowego. Interfejs sieciowy nie może mieć żadnych istniejących dodatkowej konfiguracji adresu IP. Nie można dodać konfiguracji IP przy użyciu adresu IPv6 przy użyciu portalu. Użyj programu PowerShell lub interfejsu wiersza polecenia, aby dodać konfigurację protokołu IP za pomocą prywatnego adresu IPv6 do istniejącego interfejsu sieciowego. Nie można dołączyć interfejsu sieciowego do istniejącej maszyny Wirtualnej.
+Można przypisać prywatnego zero lub jeden [IPv6](#ipv6) adres tooone dodatkowej konfiguracji IP interfejsu sieciowego. Interfejs sieciowy Hello nie może mieć żadnych istniejących dodatkowej konfiguracji adresu IP. Nie można dodać konfiguracji IP przy użyciu adresu IPv6 przy użyciu portalu hello. Za pomocą programu PowerShell lub hello tooadd CLI konfigurację IP prywatnej IPv6 adres tooan istniejącego interfejsu sieciowego. Interfejs sieciowy Hello nie może być dołączone tooan istniejącej maszyny Wirtualnej.
 
 > [!NOTE]
-> Chociaż można utworzyć interfejs sieciowy z adresów IPv6 za pomocą portalu, nie można dodać istniejącego interfejsu sieciowego do nowej lub istniejącej maszyny wirtualnej za pomocą portalu. Użyj programu PowerShell lub 2.0 interfejsu wiersza polecenia platformy Azure można utworzyć za pomocą prywatnego adresu IPv6 karty sieciowej, a następnie dołączyć interfejsu sieciowego, podczas tworzenia maszyny wirtualnej. Nie można dołączyć karty sieciowej, za pomocą prywatnego adresu IPv6 przypisany do istniejącej maszyny wirtualnej. Nie można dodać prywatny adres IPv6 do konfiguracji adresu IP dla interfejsu sieciowego, wszystkie dołączony do maszyny wirtualnej przy użyciu dowolnego narzędzia (portal, interfejsu wiersza polecenia lub środowiska PowerShell).
+> Chociaż można utworzyć interfejs sieciowy z adresów IPv6 za pomocą portalu hello, nie można dodać istniejącej sieci interfejsu tooa nowej lub istniejącej maszyny wirtualnej, za pomocą portalu hello. Użyj programu PowerShell lub hello Azure CLI 2.0 toocreate interfejsu sieciowego za pomocą prywatnego adresu IPv6, a następnie dołączyć interfejsu sieciowego hello, podczas tworzenia maszyny wirtualnej. Nie można dołączyć karty sieciowej, za pomocą prywatnego adresu IPv6 przypisany tooit tooan istniejącej maszyny wirtualnej. Nie można dodać prywatnej konfiguracji adresów IPv6 tooan IP dla dowolnego interfejsu sieci tooa maszyny wirtualnej przy użyciu dowolnego narzędzia (portal, interfejsu wiersza polecenia lub środowiska PowerShell).
 
-Nie można przypisać publiczny adres IPv6 do podstawowej lub dodatkowej konfiguracji adresu IP.
+Nie można przypisać publicznej konfiguracji adresów IPv6 tooa podstawowy lub pomocniczy IP.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby utworzyć maszynę wirtualną za pomocą różnych konfiguracji adresu IP, przeczytaj następujące artykuły:
+toocreate maszynę wirtualną z różnymi konfiguracjami IP, przeczytaj hello następujące artykuły:
 
 |Zadanie|Narzędzie|
 |---|---|
